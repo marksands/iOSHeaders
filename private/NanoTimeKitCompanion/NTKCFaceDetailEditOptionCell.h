@@ -52,6 +52,7 @@
 - (double)_spacing;
 - (void)layoutSubviews;
 - (_Bool)collectionChanged:(id)arg1 withSelectedOptions:(id)arg2;
+- (void)reloadVisibleCells;
 - (double)rowHeight;
 - (void)_setupFromCollection;
 - (id)initWithCollection:(id)arg1 forFaceView:(id)arg2;

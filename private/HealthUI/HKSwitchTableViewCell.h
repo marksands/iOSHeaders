@@ -6,7 +6,7 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class UILabel, UISwitch;
+@class NSString, UILabel, UISwitch;
 @protocol HKSwitchTableViewCellDelegate;
 
 @interface HKSwitchTableViewCell : UITableViewCell
@@ -17,9 +17,11 @@
     _Bool _enabled;
     _Bool _centersIcon;
     id <HKSwitchTableViewCellDelegate> _delegate;
+    NSString *_displayText;
 }
 
 + (id)reuseIdentifier;
+@property(retain, nonatomic) NSString *displayText; // @synthesize displayText=_displayText;
 @property(nonatomic) _Bool centersIcon; // @synthesize centersIcon=_centersIcon;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(nonatomic) _Bool shouldHideSwitch; // @synthesize shouldHideSwitch=_shouldHideSwitch;
@@ -30,7 +32,6 @@
 @property(nonatomic, getter=isOn) _Bool on;
 - (void)setIconImage:(id)arg1;
 - (void)setCountText:(id)arg1;
-- (void)setDisplayText:(id)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) struct CGSize iconSize;

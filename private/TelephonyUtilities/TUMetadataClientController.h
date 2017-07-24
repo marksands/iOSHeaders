@@ -16,7 +16,6 @@
 + (id)sharedInstance;
 @property(retain, nonatomic) TUMetadataCache *metadataCache; // @synthesize metadataCache=_metadataCache;
 - (void).cxx_destruct;
-- (void)updateMetadataForTUCall:(id)arg1;
 - (void)updateMetadataForDestinationID:(id)arg1;
 - (void)updateMetadataForRecentCalls:(id)arg1;
 - (id)_metadataDestinationIdForSearchItem:(id)arg1;

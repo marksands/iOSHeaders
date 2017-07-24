@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 - (void)applyToSuggestionEntry:(id)arg1 withAutocompleteSearchResultIdentifier:(id)arg2;
 - (void)applyToSuggestionList:(id)arg1;
 - (_Bool)matchesFragment:(id)arg1;
+- (void)submitWithAutoCompletionHandler:(CDUnknownBlockType)arg1 auditToken:(id)arg2 networkActivity:(CDUnknownBlockType)arg3;
 - (void)submitWithAutoCompletionHandler:(CDUnknownBlockType)arg1 networkActivity:(CDUnknownBlockType)arg2;
 - (id)initWithRequest:(id)arg1 traits:(id)arg2 searchQuery:(id)arg3;
 

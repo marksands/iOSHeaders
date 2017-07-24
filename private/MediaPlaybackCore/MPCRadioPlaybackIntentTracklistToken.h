@@ -8,7 +8,7 @@
 
 #import <MediaPlaybackCore/NSSecureCoding-Protocol.h>
 
-@class MPCModelRadioContentReference, MPCPlayerItem, MPCRadioStationPlaybackMetadata, RadioStationMatchContext;
+@class MPAVItem, MPCModelRadioContentReference, MPCRadioStationPlaybackMetadata, RadioStationMatchContext;
 
 @interface MPCRadioPlaybackIntentTracklistToken : NSObject <NSSecureCoding>
 {
@@ -17,11 +17,11 @@
     RadioStationMatchContext *_nowPlayingContext;
     MPCModelRadioContentReference *_seedContentReference;
     RadioStationMatchContext *_stationMatchContext;
-    MPCPlayerItem *_prefixItem;
+    MPAVItem *_prefixItem;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) MPCPlayerItem *prefixItem; // @synthesize prefixItem=_prefixItem;
+@property(retain, nonatomic) MPAVItem *prefixItem; // @synthesize prefixItem=_prefixItem;
 @property(retain, nonatomic) RadioStationMatchContext *stationMatchContext; // @synthesize stationMatchContext=_stationMatchContext;
 @property(copy, nonatomic) MPCModelRadioContentReference *seedContentReference; // @synthesize seedContentReference=_seedContentReference;
 @property(retain, nonatomic) RadioStationMatchContext *nowPlayingContext; // @synthesize nowPlayingContext=_nowPlayingContext;

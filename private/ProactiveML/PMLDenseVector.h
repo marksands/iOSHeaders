@@ -16,8 +16,11 @@
     NSMutableData *_data;
 }
 
++ (id)denseVectorFromNumbers:(id)arg1;
 - (void).cxx_destruct;
 - (float)valueAt:(unsigned long long)arg1;
+- (float)maxAbsValue;
+- (float)l2norm;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)vecByAppendingVec:(id)arg1;

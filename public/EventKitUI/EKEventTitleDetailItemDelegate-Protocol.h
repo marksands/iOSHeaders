@@ -5,6 +5,7 @@
 //
 
 @protocol EKEventTitleDetailItemDelegate
+- (_Bool)minimalMode;
 - (void)editButtonPressed;
 - (_Bool)shouldShowEditButtonInline;
 @end

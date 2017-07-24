@@ -7,16 +7,19 @@
 #import <objc/NSObject.h>
 
 #import <CoreSpeech/CSLanguageCodeUpdateMonitorDelegate-Protocol.h>
+#import <CoreSpeech/CSSpeechEndpointAssetMetaUpdateMonitorDelegate-Protocol.h>
+#import <CoreSpeech/CSVoiceTriggerAssetMetaUpdateMonitorDelegate-Protocol.h>
 
-@class CSPolicy, NSDictionary, NSString;
+@class CSPolicy, NSDictionary, NSMutableDictionary, NSString;
 @protocol OS_dispatch_queue;
 
-@interface CSAssetManager : NSObject <CSLanguageCodeUpdateMonitorDelegate>
+@interface CSAssetManager : NSObject <CSVoiceTriggerAssetMetaUpdateMonitorDelegate, CSSpeechEndpointAssetMetaUpdateMonitorDelegate, CSLanguageCodeUpdateMonitorDelegate>
 {
     NSDictionary *_csAssetsDictionary;
     NSObject<OS_dispatch_queue> *_queue;
     CSPolicy *_enablePolicy;
     NSString *_currentLanguageCode;
+    NSMutableDictionary *_observers;
 }
 
 + (id)sharedManager;
@@ -27,12 +30,16 @@
 + (id)predicateForAssetType:(unsigned long long)arg1 language:(id)arg2;
 + (id)predicateForfetchRemoteMetadataForAssetType:(unsigned long long)arg1;
 - (void).cxx_destruct;
+- (void)CSSpeechEndpointAssetMetaUpdateMonitor:(id)arg1 didReceiveNewSpeechEndpointAssetMetaData:(_Bool)arg2;
+- (void)CSVoiceTriggerAssetMetaUpdateMonitor:(id)arg1 didReceiveNewVoiceTriggerAssetMetaData:(_Bool)arg2;
+- (void)removeObserver:(id)arg1 forAssetType:(unsigned long long)arg2;
+- (void)addObserver:(id)arg1 forAssetType:(unsigned long long)arg2;
 - (void)CSLanguageCodeUpdateMonitor:(id)arg1 didReceiveLanguageCodeChanged:(id)arg2;
 @property(readonly, nonatomic) NSString *currentLanguageCode;
-- (void)_startDownloadingVoiceTriggerAsset:(id)arg1 progress:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_startDownloadingAsset:(id)arg1 progress:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_downloadAsset:(id)arg1 withComplete:(CDUnknownBlockType)arg2;
 - (id)_defaultDownloadOptions;
-- (void)_updateFromRemoteToLocalAssets:(id)arg1;
+- (void)_updateFromRemoteToLocalAssets:(id)arg1 forAssetType:(unsigned long long)arg2;
 - (void)_fetchRemoteAssetOfType:(unsigned long long)arg1 withPredicate:(id)arg2;
 - (void)_fetchRemoteMetaData;
 - (_Bool)_isReadyToUse;
@@ -43,6 +50,7 @@
 - (id)installedAssetOfType:(unsigned long long)arg1 withPredicate:(id)arg2;
 - (id)installedAssetOfType:(unsigned long long)arg1 language:(id)arg2;
 - (id)assetOfType:(unsigned long long)arg1 language:(id)arg2;
+- (id)installedAssetForCurrentLanguageOfType:(unsigned long long)arg1;
 - (id)assetForCurrentLanguageOfType:(unsigned long long)arg1;
 - (id)init;
 

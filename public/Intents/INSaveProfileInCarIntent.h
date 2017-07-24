@@ -20,9 +20,8 @@
 - (id)verb;
 - (void)setDomain:(id)arg1;
 - (id)domain;
-- (void)_redactForMissingPrivacyEntitlementOptions:(unsigned long long)arg1;
+- (void)_redactForMissingPrivacyEntitlementOptions:(unsigned long long)arg1 containingAppBundleId:(id)arg2;
 - (id)_dictionaryRepresentation;
-@property(readonly, copy) NSString *description;
 - (void)setProfileName:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *profileName;
 - (void)setProfileNumber:(id)arg1;
@@ -35,6 +34,7 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

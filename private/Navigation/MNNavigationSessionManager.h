@@ -11,7 +11,7 @@
 #import <Navigation/MNNavigationTraceManagerDelegate-Protocol.h>
 #import <Navigation/MNSettingsObserver-Protocol.h>
 
-@class MNAudioOutputSettingsManager, MNNavigationProxyUpdater, MNNavigationSession, MNNavigationTraceManager, MNRouteManager, NSMutableDictionary, NSString;
+@class GEOApplicationAuditToken, MNAudioOutputSettingsManager, MNNavigationProxyUpdater, MNNavigationSession, MNNavigationTraceManager, MNRouteManager, NSMutableDictionary, NSString;
 @protocol MNNavigationSessionManagerDelegate;
 
 __attribute__((visibility("hidden")))
@@ -24,9 +24,11 @@ __attribute__((visibility("hidden")))
     MNNavigationTraceManager *_traceManager;
     MNAudioOutputSettingsManager *_audioOutputSettingsManager;
     NSMutableDictionary *_trafficIncidentAlertCallbacks;
+    GEOApplicationAuditToken *_auditToken;
 }
 
 @property(readonly, nonatomic) MNNavigationTraceManager *traceManager; // @synthesize traceManager=_traceManager;
+@property(readonly, nonatomic) GEOApplicationAuditToken *auditToken; // @synthesize auditToken=_auditToken;
 @property(readonly, nonatomic) MNRouteManager *routeManager; // @synthesize routeManager=_routeManager;
 @property(readonly, nonatomic) MNNavigationSession *navigationSession; // @synthesize navigationSession=_navigationSession;
 @property(nonatomic) __weak id <MNNavigationSessionManagerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -45,10 +47,15 @@ __attribute__((visibility("hidden")))
 - (void)navigationSession:(id)arg1 didInvalidateTrafficIncidentAlert:(id)arg2;
 - (void)navigationSession:(id)arg1 didUpdateTrafficIncidentAlert:(id)arg2;
 - (void)navigationSession:(id)arg1 didReceiveTrafficIncidentAlert:(id)arg2 responseCallback:(CDUnknownBlockType)arg3;
+- (void)navigationSession:(id)arg1 updatedGuidanceEventFeedback:(id)arg2;
+- (void)navigationSession:(id)arg1 newGuidanceEventFeedback:(id)arg2;
 - (void)navigationSession:(id)arg1 didEnableGuidancePrompts:(_Bool)arg2;
 - (void)navigationSession:(id)arg1 hideLaneDirectionsForId:(id)arg2;
 - (void)navigationSession:(id)arg1 showLaneDirections:(id)arg2;
+- (void)navigationSession:(id)arg1 usePersistentDisplay:(_Bool)arg2;
 - (void)navigationSession:(id)arg1 updateSignsWithInfo:(id)arg2;
+- (void)navigationSessionEndGuidanceUpdate:(id)arg1;
+- (void)navigationSessionBeginGuidanceUpdate:(id)arg1;
 - (void)navigationSessionHideSecondaryStep:(id)arg1;
 - (void)navigationSession:(id)arg1 displaySecondaryStep:(id)arg2 instructions:(id)arg3 shieldType:(int)arg4 shieldText:(id)arg5 drivingSide:(int)arg6;
 - (void)navigationSession:(id)arg1 displayManeuverAlertForAnnouncementStage:(unsigned long long)arg2;
@@ -60,11 +67,12 @@ __attribute__((visibility("hidden")))
 - (void)navigationSession:(id)arg1 didUpdateAlternateRoutes:(id)arg2;
 - (void)navigationSession:(id)arg1 failedRerouteWithErrorCode:(long long)arg2;
 - (void)navigationSession:(id)arg1 didSwitchToNewTransportType:(int)arg2 newRoute:(id)arg3;
-- (void)navigationSession:(id)arg1 didReroute:(id)arg2 withLocation:(id)arg3;
+- (void)navigationSession:(id)arg1 didReroute:(id)arg2 withLocation:(id)arg3 withAlternateRoutes:(id)arg4;
 - (void)navigationSessionDidCancelReroute:(id)arg1;
 - (void)navigationSessionWillReroute:(id)arg1;
 - (void)navigationSession:(id)arg1 didUpdateHeading:(double)arg2 accuracy:(double)arg3;
 - (void)navigationSession:(id)arg1 didUpdateTrafficForETARoute:(id)arg2 from:(unsigned int)arg3 to:(unsigned int)arg4;
+- (void)navigationSession:(id)arg1 didUpdateETAResponseForRoute:(id)arg2;
 - (void)navigationSession:(id)arg1 didUpdateRemainingTime:(double)arg2 remainingDistance:(double)arg3;
 - (void)navigationSession:(id)arg1 didUpdateDisplayETA:(id)arg2 displayRemainingMinutes:(unsigned long long)arg3 forRoute:(id)arg4;
 - (void)navigationSessionWillResumeFromPause:(id)arg1;
@@ -73,6 +81,7 @@ __attribute__((visibility("hidden")))
 - (void)navigationSession:(id)arg1 matchedToStepIndex:(unsigned long long)arg2 legIndex:(unsigned long long)arg3;
 - (void)navigationSession:(id)arg1 didUpdateMatchedLocation:(id)arg2;
 - (void)navigationSession:(id)arg1 didChangeNavigationState:(int)arg2;
+- (void)setIsNavigatingInLowGuidance:(_Bool)arg1;
 - (id)_traceManager;
 - (id)_routeManager;
 - (void)recordTraceBookmarkAtCurrentPositionWthScreenshotData:(id)arg1;
@@ -101,6 +110,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)updateWithRoutePlanningDetails:(id)arg1;
 @property(readonly, nonatomic) int transportType;
 - (void)dealloc;
+- (id)initWithAuditToken:(id)arg1;
 - (id)init;
 
 // Remaining properties

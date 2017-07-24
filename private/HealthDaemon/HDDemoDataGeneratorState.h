@@ -41,6 +41,7 @@
 - (id)initWithCoder:(id)arg1;
 @property(readonly, nonatomic) long long calendarDay;
 @property(readonly, nonatomic) NSDate *currentDate;
+@property(readonly, nonatomic, getter=isDoingHIIT) _Bool doingHIIT;
 @property(readonly, nonatomic, getter=isSwimming) _Bool swimming;
 @property(readonly, nonatomic, getter=isCycling) _Bool cycling;
 @property(readonly, nonatomic, getter=isRunning) _Bool running;

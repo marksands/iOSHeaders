@@ -46,6 +46,7 @@
 -     // Error parsing type: ^{__C3DFloor={__C3DGeometry={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DMesh}^{__C3DMaterial}^{__CFArray}^{__CFSet}^{__CFArray}^{?}b1^?{?=CB{?=BCCC}^{__C3DMeshElement}^{__C3DMeshSource}^{__C3DMesh}^v}}ffffifffQ}16@0:8, name: floorRef
 - (void)dealloc;
 - (id)init;
+- (void)_syncObjCModel;
 
 @end
 

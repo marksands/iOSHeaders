@@ -10,7 +10,6 @@
 {
 }
 
-- (double)mediaViewEdgeInset;
 - (void)configureThumbnailsCollectionLayout:(id)arg1;
 @property(readonly, nonatomic) struct CGSize thumbnailCellSize;
 @property(readonly, nonatomic) double thumbnailEdgeMaxLength;

@@ -6,7 +6,7 @@
 
 #import <iTunesStore/NSObject-Protocol.h>
 
-@class NSData, NSError, NSHTTPURLResponse, NSString, NSURLAuthenticationChallenge, NSURLCache, NSURLRequest, NSURLResponse, NSURLSession, NSURLSessionDataTask, NSURLSessionTask, SSHTTPArchive, SSMetricsLoadURLEvent;
+@class NSData, NSError, NSHTTPURLResponse, NSNumber, NSString, NSURLAuthenticationChallenge, NSURLCache, NSURLRequest, NSURLResponse, NSURLSession, NSURLSessionDataTask, NSURLSessionTask, SSBag, SSHTTPArchive, SSMetricsLoadURLEvent;
 
 @protocol SSURLSessionManagerDelegate <NSObject>
 
@@ -18,6 +18,11 @@
 @property(readonly, nonatomic) _Bool shouldSetCookies;
 @property(readonly, nonatomic) _Bool shouldRequireCellular;
 @property(readonly, nonatomic) _Bool shouldDisableCellular;
+@property(readonly, nonatomic) _Bool isURLBagRequest;
+@property(readonly, nonatomic) SSBag *bag;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentageCachedResponses;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentage;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSessionDuration;
 - (void)URLSession:(NSURLSession *)arg1 dataTask:(NSURLSessionDataTask *)arg2 didReceiveResponse:(NSURLResponse *)arg3 completionHandler:(void (^)(long long))arg4;
 - (void)URLSession:(NSURLSession *)arg1 dataTask:(NSURLSessionDataTask *)arg2 didReceiveData:(NSData *)arg3;
 - (void)URLSession:(NSURLSession *)arg1 task:(NSURLSessionTask *)arg2 willPerformHTTPRedirection:(NSHTTPURLResponse *)arg3 newRequest:(NSURLRequest *)arg4 completionHandler:(void (^)(NSURLRequest *))arg5;

@@ -17,9 +17,11 @@
     NSString *_maxDataBeforeThrottling;
     NSString *_thisDeviceDataUsed;
     NSString *_sharedDataUsed;
+    NSString *_sharedPlanIdentifier;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSString *sharedPlanIdentifier; // @synthesize sharedPlanIdentifier=_sharedPlanIdentifier;
 @property(retain, nonatomic) NSString *sharedDataUsed; // @synthesize sharedDataUsed=_sharedDataUsed;
 @property(retain, nonatomic) NSString *thisDeviceDataUsed; // @synthesize thisDeviceDataUsed=_thisDeviceDataUsed;
 @property(retain, nonatomic) NSString *maxDataBeforeThrottling; // @synthesize maxDataBeforeThrottling=_maxDataBeforeThrottling;

@@ -18,9 +18,11 @@ __attribute__((visibility("hidden")))
     _Bool _useStandaloneAppearance;
     _Bool _drawsLightGlyph;
     _Bool _prefersResizableBackground;
+    double _resizableBackgroundCornerRadius;
 }
 
 + (struct CGSize)glyphSize;
+@property(nonatomic) double resizableBackgroundCornerRadius; // @synthesize resizableBackgroundCornerRadius=_resizableBackgroundCornerRadius;
 @property(nonatomic) _Bool prefersResizableBackground; // @synthesize prefersResizableBackground=_prefersResizableBackground;
 @property(nonatomic) _Bool drawsLightGlyph; // @synthesize drawsLightGlyph=_drawsLightGlyph;
 - (void).cxx_destruct;
@@ -31,7 +33,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_usesResizableBackground;
 @property(readonly, nonatomic) struct CGSize visibleSize;
 - (void)layoutSubviews;
-- (id)initWithFrame:(struct CGRect)arg1 useStandaloneAppearance:(_Bool)arg2 prefersResizableBackground:(_Bool)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 useStandaloneAppearance:(_Bool)arg2 prefersResizableBackground:(_Bool)arg3 resizableBackgroundCornerRadius:(double)arg4;
 
 @end
 

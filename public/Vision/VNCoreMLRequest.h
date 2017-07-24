@@ -10,14 +10,16 @@
 
 @interface VNCoreMLRequest : VNImageBasedRequest
 {
-    int _imageCropAndScaleOption;
     VNCoreMLModel *_model;
+    unsigned long long _imageCropAndScaleOption;
 }
 
-@property(nonatomic) int imageCropAndScaleOption; // @synthesize imageCropAndScaleOption=_imageCropAndScaleOption;
+@property(nonatomic) unsigned long long imageCropAndScaleOption; // @synthesize imageCropAndScaleOption=_imageCropAndScaleOption;
 @property(readonly, nonatomic) VNCoreMLModel *model; // @synthesize model=_model;
 - (void).cxx_destruct;
 - (_Bool)internalPerformInContext:(id)arg1 error:(id *)arg2;
+- (void)applyConfigurationOfRequest:(id)arg1;
+- (id)newDefaultRequestInstance;
 - (id)initWithModel:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithModel:(id)arg1;
 - (id)initWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

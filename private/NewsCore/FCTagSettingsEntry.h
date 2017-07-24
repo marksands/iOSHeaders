@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSNumber, NSString;
+@class CKRecord, NSNumber, NSString;
 
 @interface FCTagSettingsEntry : NSObject
 {
@@ -23,6 +23,7 @@
 @property(readonly, copy, nonatomic) NSString *tagID; // @synthesize tagID=_tagID;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) CKRecord *asCKRecord;
 - (id)initWithEntryID:(id)arg1 tagID:(id)arg2 fontMultiplier:(id)arg3 accessToken:(id)arg4 webAccessOptIn:(_Bool)arg5;
 - (id)dictionaryRepresentation;
 - (id)initWithEntryID:(id)arg1 dictionaryRepresentation:(id)arg2;

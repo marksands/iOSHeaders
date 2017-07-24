@@ -11,7 +11,7 @@
 #import <VideoSubscriberAccountUI/VSRemoteNotifierDelegate-Protocol.h>
 #import <VideoSubscriberAccountUI/VSViewServiceProtocol-Protocol.h>
 
-@class NSOperationQueue, NSString, UINavigationController, VSAccountChannelsCenter, VSAccountStore, VSAuditToken, VSOptional, VSPreferences, VSRemoteNotifier;
+@class NSOperationQueue, NSString, UINavigationController, VSAuditToken, VSOptional, VSPersistentStorage, VSPreferences, VSRemoteNotifier, VSRestrictionsCenter;
 
 __attribute__((visibility("hidden")))
 @interface VSViewServiceViewController : UIViewController <VSViewServiceProtocol, VSIdentityProviderPickerViewControllerDelegate, VSIdentityProviderViewControllerDelegate, VSRemoteNotifierDelegate>
@@ -19,8 +19,8 @@ __attribute__((visibility("hidden")))
     _Bool _presentedInHost;
     _Bool _identityProviderPickerRequired;
     _Bool _didAuthenticateAccount;
-    VSAccountStore *_accountStore;
-    VSAccountChannelsCenter *_accountChannelsCenter;
+    VSPersistentStorage *_storage;
+    VSRestrictionsCenter *_restrictionsCenter;
     VSRemoteNotifier *_remoteNotifier;
     VSPreferences *_preferences;
     NSOperationQueue *_privateQueue;
@@ -42,8 +42,8 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSOperationQueue *privateQueue; // @synthesize privateQueue=_privateQueue;
 @property(retain, nonatomic) VSPreferences *preferences; // @synthesize preferences=_preferences;
 @property(retain, nonatomic) VSRemoteNotifier *remoteNotifier; // @synthesize remoteNotifier=_remoteNotifier;
-@property(retain, nonatomic) VSAccountChannelsCenter *accountChannelsCenter; // @synthesize accountChannelsCenter=_accountChannelsCenter;
-@property(retain, nonatomic) VSAccountStore *accountStore; // @synthesize accountStore=_accountStore;
+@property(retain, nonatomic) VSRestrictionsCenter *restrictionsCenter; // @synthesize restrictionsCenter=_restrictionsCenter;
+@property(retain, nonatomic) VSPersistentStorage *storage; // @synthesize storage=_storage;
 - (void).cxx_destruct;
 - (void)remoteNotifier:(id)arg1 didReceiveRemoteNotificationWithUserInfo:(id)arg2;
 - (void)identityProviderViewControllerDidFinishLoading:(id)arg1;
@@ -70,6 +70,7 @@ __attribute__((visibility("hidden")))
 - (void)_performRequest:(id)arg1 withIdentifier:(id)arg2;
 - (void)_viewControllerWasDismissed;
 - (void)_willAppearInRemoteViewController;
+- (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties

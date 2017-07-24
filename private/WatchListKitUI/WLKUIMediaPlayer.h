@@ -25,6 +25,7 @@
 - (void).cxx_destruct;
 - (void)_mediaLibraryChanged:(id)arg1;
 - (id)_stringForNumber:(id)arg1;
+- (void)_onSyncGenerationChangedNotification:(id)arg1;
 - (void)_onIsUpdateInProgressChangedNotification:(id)arg1;
 - (id)_numberForString:(id)arg1;
 - (id)_mediaItemForIdentifier:(id)arg1;
@@ -41,6 +42,7 @@
 - (long long)queryHasItemCount:(id)arg1;
 - (_Bool)libraryHasMedia;
 - (void)getUpdateProgress:(id)arg1;
+- (id)getShowIdentifierForStoreIdentifier:(id)arg1;
 - (void)getImageForItem:(id)arg1:(id)arg2:(id)arg3;
 - (id)getItems;
 - (id)getItemWithChildren:(id)arg1:(id)arg2;
@@ -49,6 +51,7 @@
 - (_Bool)getIsInitialImport;
 - (_Bool)getIsUpdateInProgress;
 - (id)findItemByStoreIdentifier:(id)arg1:(id)arg2;
+- (id)findItemByPersistentIdentifier:(id)arg1:(id)arg2;
 - (void)dealloc;
 - (id)initWithAppContext:(id)arg1;
 

@@ -20,8 +20,8 @@
     unsigned long long _serviceProperties;
 }
 
-@property(readonly, nonatomic) unsigned long long serviceProperties; // @synthesize serviceProperties=_serviceProperties;
-@property(readonly, nonatomic) NSArray *linkedServices; // @synthesize linkedServices=_linkedServices;
+@property(nonatomic) unsigned long long serviceProperties; // @synthesize serviceProperties=_serviceProperties;
+@property(retain, nonatomic) NSArray *linkedServices; // @synthesize linkedServices=_linkedServices;
 @property(retain, nonatomic) NSArray *characteristics; // @synthesize characteristics=_characteristics;
 @property(nonatomic) __weak HAPAccessory *accessory; // @synthesize accessory=_accessory;
 @property(copy, nonatomic) NSNumber *instanceID; // @synthesize instanceID=_instanceID;

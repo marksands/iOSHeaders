@@ -7,6 +7,7 @@
 #import <Foundation/NSAffineTransform.h>
 
 @interface NSAffineTransform (CARenderValue)
+- (unsigned long long)CA_copyNumericValue:(double [20])arg1;
 - (struct Object *)CA_copyRenderValue;
 @end
 

@@ -9,6 +9,7 @@
 #import <GeoServices/GEOSearchAttributionServerProxy-Protocol.h>
 
 @class GEOSearchAttributionManifest, NSLock, NSMapTable, NSMutableArray, NSString;
+@protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface GEOSearchAttributionServerLocalProxy : NSObject <GEOSearchAttributionServerProxy>
@@ -20,15 +21,14 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_updateManifestErrorHandlers;
     GEOSearchAttributionManifest *_attributionManifest;
     NSLock *_attributionManifestLock;
+    NSObject<OS_dispatch_queue> *_isolationQueue;
 }
 
 - (void).cxx_destruct;
-- (void)loadAttributionInfoForIdentifier:(id)arg1 version:(unsigned int)arg2 completionHandler:(CDUnknownBlockType)arg3 errorHandler:(CDUnknownBlockType)arg4;
-- (void)_loadAttributionInfoForListener:(id)arg1 hasUpdatedManifest:(_Bool)arg2;
-- (void)_updateManifestWithCompletionHandler:(CDUnknownBlockType)arg1 errorHandler:(CDUnknownBlockType)arg2;
-- (void)_pruneOldAttributionLogos;
+- (void)loadAttributionInfoForIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_loadAttributionInfoForListener:(id)arg1;
 - (void)_sendError:(id)arg1 toListener:(id)arg2;
-- (void)_sendInfo:(id)arg1 updatedManifest:(_Bool)arg2 toListener:(id)arg3;
+- (void)_sendInfo:(id)arg1 toListener:(id)arg2;
 - (id)_attributionManifest;
 - (id)init;
 

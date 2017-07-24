@@ -24,6 +24,7 @@
 @property(retain) NSNumber *callerPID; // @synthesize callerPID=_callerPID;
 @property(retain) NSDictionary *parameters; // @synthesize parameters=_parameters;
 @property(retain) LAContext *LAContext; // @synthesize LAContext=_LAContext;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *sessionQueue; // @synthesize sessionQueue=_sessionQueue;
 @property __weak id <TKTokenSessionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly) TKToken *token; // @synthesize token=_token;
 - (void).cxx_destruct;

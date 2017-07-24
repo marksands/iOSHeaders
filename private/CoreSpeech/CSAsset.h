@@ -13,24 +13,27 @@
     NSDictionary *_decodedInfo;
     NSString *_path;
     NSString *_resourcePath;
+    NSString *_configVersion;
 }
 
 + (id)defaultFallBackAssetForVoiceTrigger;
 + (id)fallBackAssetResourcePath;
-+ (id)assetForAssetType:(unsigned long long)arg1 resourcePath:(id)arg2;
++ (id)assetForAssetType:(unsigned long long)arg1 resourcePath:(id)arg2 configVersion:(id)arg3;
 + (id)hybridEndpointerAssetFilename;
 + (_Bool)isHybridEndpointerAvailableForCurrentPlatform;
+@property(readonly, nonatomic) NSString *configVersion; // @synthesize configVersion=_configVersion;
 @property(readonly, nonatomic) NSString *resourcePath; // @synthesize resourcePath=_resourcePath;
 @property(readonly, nonatomic) NSString *path; // @synthesize path=_path;
 - (void).cxx_destruct;
+- (_Bool)isEqualAsset:(id)arg1;
+- (id)description;
 @property(readonly, nonatomic) NSString *hashFromResourcePath;
 - (id)getStringForKey:(id)arg1 category:(id)arg2 default:(id)arg3;
 - (_Bool)getBoolForKey:(id)arg1 category:(id)arg2 default:(_Bool)arg3;
 - (id)getNumberForKey:(id)arg1 category:(id)arg2 default:(id)arg3;
-@property(readonly, nonatomic) NSString *assetVersion;
 - (id)_decodeJson:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *dictionary;
-- (id)initWithResourcePath:(id)arg1 configFile:(id)arg2;
+- (id)initWithResourcePath:(id)arg1 configFile:(id)arg2 configVersion:(id)arg3;
 @property(readonly, nonatomic) float VTFirstPassThreshold;
 @property(readonly, nonatomic) NSString *VTFirstPassConfigPathNDAPI;
 @property(readonly, nonatomic) NSString *VTSecondPassRecognizerToken;

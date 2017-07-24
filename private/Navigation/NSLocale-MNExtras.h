@@ -7,6 +7,9 @@
 #import <Foundation/NSLocale.h>
 
 @interface NSLocale (MNExtras)
++ (void)_navigation_setNeedsUpdateOverrideDistanceUnit;
++ (id)_navigation_overrideDistanceUnitProvider;
++ (void)set_navigation_overrideDistanceUnitProvider:(id)arg1;
 + (void)_navigation_overrideDistanceUnit:(long long)arg1;
 + (id)_localeOverridesForLocaleWithCountryCode:(id)arg1;
 - (_Bool)_navigation_useYardsForShortDistances;

@@ -14,12 +14,17 @@ __attribute__((visibility("hidden")))
 @interface EKEventURLInlineEditItem : EKEventEditItem <UITextFieldDelegate>
 {
     UITableViewCell *_cell;
+    _Bool _tokenized;
 }
 
 - (void).cxx_destruct;
 - (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
+- (_Bool)textFieldShouldClear:(id)arg1;
+- (_Bool)textFieldShouldStartEditing:(id)arg1;
+- (void)_setTokenized:(_Bool)arg1;
+- (void)refreshFromCalendarItemAndStore;
 - (_Bool)saveAndDismissWithForce:(_Bool)arg1;
 - (_Bool)isInline;
 - (id)cellForSubitemAtIndex:(unsigned long long)arg1;

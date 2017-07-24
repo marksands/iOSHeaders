@@ -10,13 +10,12 @@
 #import <CardKit/SFFeedbackListener-Protocol.h>
 #import <CardKit/SearchUIFeedbackDelegate-Protocol.h>
 
-@class INUIRemoteViewController, NSArray, NSString, UIButton, UIView;
+@class CRKOverlayButton, INUIRemoteViewController, NSArray, NSString, UIView;
 @protocol CRCardSection, CRKCardSectionView, CRKCardSectionViewControllerDataSource, CRKCardSectionViewControllerDelegate;
 
 @interface CRKCardSectionViewController : UIViewController <INUIRemoteViewControllerDelegate, SearchUIFeedbackDelegate, SFFeedbackListener>
 {
-    UIButton *_overlayButton;
-    UIView *_chevronView;
+    CRKOverlayButton *_overlayButton;
     _Bool _loading;
     _Bool _active;
     _Bool _compressed;
@@ -27,7 +26,6 @@
     NSArray *_extraCommands;
 }
 
-+ (id)_chevronImage;
 + (void)registerCardSectionViewController;
 + (id)cardSectionClasses;
 + (id)cardSectionViewControllerForCardSection:(id)arg1 dataSource:(id)arg2;
@@ -40,18 +38,24 @@
 @property(nonatomic) __weak id <CRKCardSectionViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) INUIRemoteViewController *_remoteViewController; // @synthesize _remoteViewController;
 - (void).cxx_destruct;
+- (void)presentViewController:(id)arg1;
+- (void)cardSectionViewDidInvalidateSize:(id)arg1;
 - (void)didEngageCardSection:(id)arg1;
 - (void)remoteViewControllerServiceDidTerminate:(id)arg1;
 - (void)remoteViewController:(id)arg1 requestsHandlingOfIntent:(id)arg2;
-- (struct CGSize)maximumSizeForRemoteViewController:(id)arg1;
-- (struct CGSize)minimumSizeForRemoteViewController:(id)arg1;
+- (id)interfaceSectionsForRemoteViewController:(id)arg1;
+- (id)maximumSizesBySystemVersionForRemoteViewController:(id)arg1;
+- (id)minimumSizesBySystemVersionForRemoteViewController:(id)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)_setupCardSectionButtons;
 - (void)_setViewExternally:(id)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
+- (id)_generateCardSectionViewAppearanceFeedback;
+- (unsigned long long)crk_intrinsicInteractiveBehavior;
 - (void)_createAndSetSearchUIView;
 - (id)_parameters;
 - (id)_interaction;
@@ -61,13 +65,18 @@
 - (_Bool)_isIndicatingActivity;
 - (void)_attemptToConnectToRemoteViewControllerWithInteraction:(id)arg1 forParameters:(id)arg2;
 - (_Bool)_shouldAttemptToConnectToRemoteViewController;
-- (void)_buttonOverlayWasTapped:(id)arg1;
-- (_Bool)_showsNextCardChevron;
+- (void)_buttonOverlayTouchWasCanceled:(id)arg1;
+- (void)_buttonOverlayWasTouchedDown:(id)arg1;
+- (void)_buttonOverlayWasTouchedUpOutside:(id)arg1;
+- (void)_buttonOverlayWasTouchedUpInside:(id)arg1;
+- (id)_destinationPunchout;
+- (id)_commands;
 - (_Bool)_shouldRenderButtonOverlay;
 - (void)_resumeTouchesIfNecessary;
 - (void)_cancelTouchesIfNecessary;
 - (void)_finishLoadingViewIfNecessary;
 - (void)_loadCardSectionView;
+- (id)_unhandledParameters;
 - (_Bool)_expectsSearchUIView;
 - (_Bool)_hasCorrespondingSearchUIView;
 - (void)_performCommand:(id)arg1;

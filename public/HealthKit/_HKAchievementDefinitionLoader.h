@@ -38,6 +38,7 @@
 + (id)serverURLWithError:(id *)arg1;
 + (void)setServerURL:(id)arg1;
 + (id)_findAchievementAssetsToDownload:(id *)arg1 remove:(id *)arg2 installed:(id *)arg3 amongAssets:(id)arg4 definitions:(id)arg5 withFilterBlock:(CDUnknownBlockType)arg6;
++ (void)setDynamicDefinitionLoaderInitializationDisabled:(_Bool)arg1;
 + (id)_dynamicDefinitionLoader;
 + (void)setDynamicAchievementDefinitionLoader:(id)arg1;
 + (void)initialize;

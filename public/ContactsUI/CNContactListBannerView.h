@@ -56,6 +56,7 @@ __attribute__((visibility("hidden")))
 - (void)copy:(id)arg1;
 - (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
+- (void)configureDragInteraction;
 - (void)setMeContact:(id)arg1 footnoteTitle:(id)arg2 footnoteValue:(id)arg3;
 - (id)footnoteTextColor;
 - (id)footnoteFont;

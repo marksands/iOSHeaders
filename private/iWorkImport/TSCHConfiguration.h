@@ -46,11 +46,11 @@ __attribute__((visibility("hidden")))
 @property(readonly) TSSPropertyMap *appSpecificPropertyOverrides;
 - (void)dealloc;
 - (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)autorelease;
 - (oneway void)release;
 - (unsigned long long)retainCount;
 - (id)retain;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

@@ -10,9 +10,11 @@
 {
 }
 
++ (id)alertControllerForRemovingNumberOfPeople:(long long)arg1 removalBlock:(CDUnknownBlockType)arg2 cancelBlock:(CDUnknownBlockType)arg3;
 + (void)_setDaysDictionary:(id)arg1;
 + (id)_daysDictionary;
 + (_Bool)_hasRecentlyHandledBootstrapForPerson:(id)arg1;
++ (long long)manualOrderForInsertingAtEndOfSectionWithType:(long long)arg1;
 + (id)modelObjectsFromPersonItemArray:(id)arg1;
 + (CDUnknownBlockType)_manualOrderComparator;
 + (CDUnknownBlockType)_otherPeopleComparator;
@@ -27,11 +29,10 @@
 + (id)bootstrapViewControllerForContext:(id)arg1 delegate:(id)arg2;
 + (_Bool)shouldShowBootstrapForPerson:(id)arg1;
 + (id)createDetailsForPerson:(id)arg1;
-+ (void)reSequenceManualOrderForPersonChangeRequests:(id)arg1;
-+ (void)reSequenceFavorites:(id)arg1 afterMovingModels:(id)arg2 toType:(long long)arg3;
 + (id)identifiersForPeople:(id)arg1;
 + (void)mergePersons:(id)arg1 withPerson:(id)arg2;
-+ (void)changePeople:(id)arg1 toPersonType:(long long)arg2 error:(id *)arg3;
++ (id)_peopleHomeFetchResultForPersonType:(long long)arg1;
++ (_Bool)changePeople:(id)arg1 toPersonType:(long long)arg2 error:(id *)arg3;
 + (id)changePerson:(id)arg1 toPersonType:(long long)arg2;
 + (id)personWithLocalIdentifier:(id)arg1;
 + (id)personWithPersonUri:(id)arg1;

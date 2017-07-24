@@ -36,7 +36,7 @@ __attribute__((visibility("hidden")))
 - (void)buildSkeletonMap;
 - (id)description;
 - (void)dealloc;
-- (id)initWithKey:(const struct VKTileKey *)arg1 downloadKey:(const struct _GEOTileKey *)arg2 data:(id)arg3 styleManager:(shared_ptr_a3c46825)arg4 sharedResources:(id)arg5 contentScale:(double)arg6 device:(struct Device *)arg7;
+- (id)initWithKey:(const struct VKTileKey *)arg1 downloadKey:(const struct _GEOTileKey *)arg2 data:(id)arg3 styleManager:(shared_ptr_a3c46825)arg4 sharedResources:(id)arg5 contentScale:(double)arg6 device:(Device_9226c869 *)arg7;
 @property(readonly, nonatomic) struct CasedTrafficLayer *casedTrafficLayer;
 @property(readonly, nonatomic) struct SolidTrafficLayer *solidTrafficLayer;
 @property(readonly, nonatomic) struct PilledTrafficLayer *pilledTrafficLayer;

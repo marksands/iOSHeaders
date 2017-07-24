@@ -28,7 +28,8 @@
 - (void)updateSnapshotWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)stickerBrowserView:(id)arg1 stickerAtIndex:(long long)arg2;
 - (long long)numberOfStickersInStickerBrowserView:(id)arg1;
-- (void)didReceiveMemoryWarning;
+- (void)didTransitionToPresentationStyle:(unsigned long long)arg1;
+- (void)willTransitionToPresentationStyle:(unsigned long long)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;

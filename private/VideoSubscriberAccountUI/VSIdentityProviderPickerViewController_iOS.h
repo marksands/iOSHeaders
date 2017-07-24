@@ -6,16 +6,18 @@
 
 #import <UIKit/UITableViewController.h>
 
+#import <VideoSubscriberAccountUI/UISearchControllerDelegate-Protocol.h>
 #import <VideoSubscriberAccountUI/VSIdentityProviderPickerViewController-Protocol.h>
 #import <VideoSubscriberAccountUI/VSTableHeaderFooterViewDelegate-Protocol.h>
 
-@class NSArray, NSString, UISearchController, VSFontCenter, VSIdentityProviderFilter, VSIdentityProviderTableViewDataSource, VSSearchBarDelegate;
+@class NSArray, NSString, UISearchController, VSFontCenter, VSIdentityProvider, VSIdentityProviderFilter, VSIdentityProviderTableViewDataSource, VSSearchBarDelegate;
 @protocol VSIdentityProviderPickerViewControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface VSIdentityProviderPickerViewController_iOS : UITableViewController <VSTableHeaderFooterViewDelegate, VSIdentityProviderPickerViewController>
+@interface VSIdentityProviderPickerViewController_iOS : UITableViewController <UISearchControllerDelegate, VSTableHeaderFooterViewDelegate, VSIdentityProviderPickerViewController>
 {
     _Bool _cancellationAllowed;
+    _Bool _dismissingSearchDueToSelection;
     id <VSIdentityProviderPickerViewControllerDelegate> _delegate;
     NSArray *_identityProviders;
     unsigned long long _additionalProvidersMode;
@@ -27,8 +29,11 @@ __attribute__((visibility("hidden")))
     VSIdentityProviderTableViewDataSource *_unfilteredDataSource;
     VSIdentityProviderTableViewDataSource *_filteredDataSource;
     VSFontCenter *_fontCenter;
+    VSIdentityProvider *_selectedIdentityProvider;
 }
 
+@property(retain, nonatomic) VSIdentityProvider *selectedIdentityProvider; // @synthesize selectedIdentityProvider=_selectedIdentityProvider;
+@property(nonatomic, getter=isDismissingSearchDueToSelection) _Bool dismissingSearchDueToSelection; // @synthesize dismissingSearchDueToSelection=_dismissingSearchDueToSelection;
 @property(retain, nonatomic) VSFontCenter *fontCenter; // @synthesize fontCenter=_fontCenter;
 @property(retain, nonatomic) VSIdentityProviderTableViewDataSource *filteredDataSource; // @synthesize filteredDataSource=_filteredDataSource;
 @property(retain, nonatomic) VSIdentityProviderTableViewDataSource *unfilteredDataSource; // @synthesize unfilteredDataSource=_unfilteredDataSource;
@@ -49,6 +54,8 @@ __attribute__((visibility("hidden")))
 - (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)didDismissSearchController:(id)arg1;
+- (void)_performSelectionForIdentityProvider:(id)arg1;
 - (void)_dismissAboutPrivacy:(id)arg1;
 - (void)_showAboutPrivacy:(id)arg1;
 - (void)_cancelButtonPressed:(id)arg1;

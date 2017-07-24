@@ -11,6 +11,7 @@
 
 @protocol AVFullScreenViewControllerDelegate <NSObject>
 - (UIResponder *)keyCommandResponderForFullScreenViewController:(AVFullScreenViewController *)arg1;
+- (void)fullScreenViewControllerNeedsAppBasedStatusBarAppearanceUpdate:(AVFullScreenViewController *)arg1;
 - (_Bool)prefersStatusBarHiddenForFullScreenViewController:(AVFullScreenViewController *)arg1;
 - (void)fullScreenViewControllerDidEndFullScreenPresentation:(AVFullScreenViewController *)arg1 wasInteractive:(_Bool)arg2;
 - (UIView *)viewForFullScreenViewController:(AVFullScreenViewController *)arg1;

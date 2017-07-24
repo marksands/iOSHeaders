@@ -8,17 +8,17 @@
 
 #import <Intents/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString, PBUnknownFields, _INPBDateTime;
+@class NSMutableArray, NSString, PBUnknownFields, _INPBDataString, _INPBDateTime;
 
 @interface _INPBTaskList : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
     _INPBDateTime *_createdDateTime;
-    NSString *_groupName;
+    _INPBDataString *_groupName;
     NSString *_identifier;
     _INPBDateTime *_modifiedDateTime;
     NSMutableArray *_tasks;
-    NSString *_title;
+    _INPBDataString *_title;
 }
 
 + (Class)tasksType;
@@ -26,9 +26,9 @@
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) _INPBDateTime *modifiedDateTime; // @synthesize modifiedDateTime=_modifiedDateTime;
 @property(retain, nonatomic) _INPBDateTime *createdDateTime; // @synthesize createdDateTime=_createdDateTime;
-@property(retain, nonatomic) NSString *groupName; // @synthesize groupName=_groupName;
+@property(retain, nonatomic) _INPBDataString *groupName; // @synthesize groupName=_groupName;
 @property(retain, nonatomic) NSMutableArray *tasks; // @synthesize tasks=_tasks;
-@property(retain, nonatomic) NSString *title; // @synthesize title=_title;
+@property(retain, nonatomic) _INPBDataString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;

@@ -7,6 +7,7 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (IC)
+- (unsigned long long)lengthOfLongestLine;
 - (struct _NSRange)paragraphRangeForRange:(struct _NSRange)arg1 contentEnd:(unsigned long long *)arg2;
 - (id)ic_stringByReplacingCharactersInSet:(id)arg1 withString:(id)arg2;
 - (id)ic_stringByReplacingNewlineCharactersWithWhiteSpace;

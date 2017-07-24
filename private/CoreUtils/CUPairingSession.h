@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class CUAppleIDClient, CUPairedPeer, NSDictionary, NSString;
+@class CUAppleIDClient, CUPairedPeer, NSData, NSDictionary, NSString;
 @protocol OS_dispatch_queue;
 
 @interface CUPairingSession : NSObject
@@ -24,6 +24,10 @@
     NSString *_fixedPIN;
     NSString *_label;
     NSDictionary *_peerInfo;
+    NSData *_mfiCertificateData;
+    NSString *_mfiProductType;
+    NSString *_mfiSerialNumber;
+    NSData *_mfiToken;
     NSString *_myAppleID;
     CUAppleIDClient *_myAppleIDInfoClient;
     NSString *_peerAppleID;
@@ -44,6 +48,10 @@
 @property(copy, nonatomic) NSString *peerAppleID; // @synthesize peerAppleID=_peerAppleID;
 @property(retain, nonatomic) CUAppleIDClient *myAppleIDInfoClient; // @synthesize myAppleIDInfoClient=_myAppleIDInfoClient;
 @property(copy, nonatomic) NSString *myAppleID; // @synthesize myAppleID=_myAppleID;
+@property(copy, nonatomic) NSData *mfiToken; // @synthesize mfiToken=_mfiToken;
+@property(copy, nonatomic) NSString *mfiSerialNumber; // @synthesize mfiSerialNumber=_mfiSerialNumber;
+@property(copy, nonatomic) NSString *mfiProductType; // @synthesize mfiProductType=_mfiProductType;
+@property(copy, nonatomic) NSData *mfiCertificateData; // @synthesize mfiCertificateData=_mfiCertificateData;
 @property(nonatomic) unsigned int sessionType; // @synthesize sessionType=_sessionType;
 @property(nonatomic) unsigned int pinType; // @synthesize pinType=_pinType;
 @property(readonly, copy, nonatomic) NSDictionary *peerInfo; // @synthesize peerInfo=_peerInfo;

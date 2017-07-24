@@ -10,7 +10,7 @@
 #import <CoreParsec/_CPLookupHintRelevancyFeedback-Protocol.h>
 #import <CoreParsec/_CPProcessableFeedback-Protocol.h>
 
-@class NSData, NSString, _CPRange;
+@class NSData, NSDictionary, NSString, _CPRange;
 
 @interface _CPLookupHintRelevancyFeedback : PBCodable <_CPProcessableFeedback, _CPLookupHintRelevancyFeedback, NSSecureCoding>
 {
@@ -24,8 +24,10 @@
     unsigned long long _timestamp;
     _CPRange *_hintRange;
     NSString *_domain;
+    NSString *_context;
 }
 
+@property(copy, nonatomic) NSString *context; // @synthesize context=_context;
 @property(nonatomic) int grade; // @synthesize grade=_grade;
 @property(nonatomic) _Bool discarded; // @synthesize discarded=_discarded;
 @property(copy, nonatomic) NSString *domain; // @synthesize domain=_domain;
@@ -35,18 +37,21 @@
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
-- (id)dictionaryRepresentation;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasContext;
 @property(readonly, nonatomic) _Bool hasGrade;
 @property(readonly, nonatomic) _Bool hasDiscarded;
 @property(readonly, nonatomic) _Bool hasDomain;
 @property(readonly, nonatomic) _Bool hasHintRange;
 @property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)init;
 - (id)initWithFacade:(id)arg1;
 @property(readonly, nonatomic) _Bool requiresQueryId;
+@property(readonly, nonatomic) id feedbackJSON;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

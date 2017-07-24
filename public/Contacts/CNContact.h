@@ -83,10 +83,12 @@
 + (id)unifyContacts:(id)arg1;
 + (CDUnknownBlockType)preferredImageComparator;
 + (CDUnknownBlockType)comparatorForNameSortOrder:(long long)arg1;
++ (id)descriptorWithKeyDescriptors:(id)arg1 description:(id)arg2;
 + (id)descriptorForKeyDescriptors:(id)arg1 description:(id)arg2;
 + (id)descriptorForAllComparatorKeys;
 + (_Bool)supportsSecureCoding;
 + (id)storeInfoFromCoder:(id)arg1 storeIdentifier:(id)arg2 key:(id)arg3;
++ (id)makeContactAndMergeValuesFromAvailableKeysInContact:(id)arg1;
 + (id)newContactWithPropertyKeys:(id)arg1 withValuesFromContact:(id)arg2;
 + (id)contactWithContact:(id)arg1;
 + (id)_contactWithContact:(id)arg1 createNewInstance:(_Bool)arg2 propertyDescriptions:(id)arg3;
@@ -180,7 +182,6 @@
 - (void)assertKeyIsAvailable:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)newContactWithSameValues;
 - (id)copyWithSelfAsSnapshot;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -243,7 +244,7 @@
 @property(readonly, nonatomic) int iOSLegacyIdentifier;
 @property(readonly, copy, nonatomic) NSString *identifier;
 - (id)_filteredArrayForValidValues:(id)arg1;
-- (id)_searchableItem;
+- (id)_searchableItemIncludingInternalAttributes:(_Bool)arg1;
 - (id)searchableItemAttributeSetForUserActivity;
 - (id)searchableItemForDragging;
 - (id)searchableItemForIndexing;

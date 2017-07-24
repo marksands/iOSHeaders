@@ -19,12 +19,6 @@
 + (id)_getLatestAssetFromArray:(id)arg1;
 + (id)sharedInstance;
 - (void).cxx_destruct;
-- (void)automaticallyDownloadVoiceAssetsIfNeeded;
-- (void)_automaticallyDownloadVoiceAssetsIfNeeded;
-- (void)getAutoDownloadedVoiceAssets:(CDUnknownBlockType)arg1;
-- (id)_autoDownloadedAssets;
-- (void)setAutoDownloadedVoiceAssets:(id)arg1;
-- (void)startDownloadingVoiceAsset:(id)arg1 progress:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)getCustomVoiceAssetsLocalOnly:(_Bool)arg1 language:(id)arg2 voiceType:(long long)arg3 reply:(CDUnknownBlockType)arg4;
 - (id)_voiceAssetForASAsset:(id)arg1 voiceType:(long long)arg2;
 - (id)resourcePathForLanguage:(id)arg1 gender:(long long)arg2 footprint:(long long)arg3 voiceName:(id)arg4 voiceType:(long long)arg5 outAsset:(id *)arg6;

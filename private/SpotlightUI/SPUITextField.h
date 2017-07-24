@@ -6,31 +6,33 @@
 
 #import <SearchUI/SearchUISearchField.h>
 
-@class NSArray, SPSearchEntity, SPUIHeaderBlurView, UIImage, UIView;
+@class NSArray, SPSearchEntity, SPUIHeaderBlurView, UIButton, UIImage, UIView;
 
 @interface SPUITextField : SearchUISearchField
 {
     _Bool _ignoreRepresentedObjectUpdate;
     NSArray *_suggestions;
     UIImage *_clearButtonImage;
+    UIButton *_microphoneButton;
     SPUIHeaderBlurView *_blurView;
     UIView *_tintView;
     struct CGSize _imageSize;
 }
 
++ (Class)_backgroundViewClass;
 @property _Bool ignoreRepresentedObjectUpdate; // @synthesize ignoreRepresentedObjectUpdate=_ignoreRepresentedObjectUpdate;
 @property(retain) UIView *tintView; // @synthesize tintView=_tintView;
 @property(retain) SPUIHeaderBlurView *blurView; // @synthesize blurView=_blurView;
+@property(retain) UIButton *microphoneButton; // @synthesize microphoneButton=_microphoneButton;
 @property(retain) UIImage *clearButtonImage; // @synthesize clearButtonImage=_clearButtonImage;
 @property struct CGSize imageSize; // @synthesize imageSize=_imageSize;
 @property(retain) NSArray *suggestions; // @synthesize suggestions=_suggestions;
 - (void).cxx_destruct;
 - (void)updateWithColor:(id)arg1;
-- (void)dictationButtonTapped;
 @property(readonly) SPSearchEntity *searchEntity;
+- (void)updateRepresentedObjects:(id)arg1;
 - (void)setText:(id)arg1;
 - (id)text;
-- (Class)_backgroundViewClass;
 - (void)updateContentSizeCategory;
 - (struct CGSize)intrinsicContentSize;
 - (id)init;

@@ -24,6 +24,7 @@
     NSMutableDictionary *_bookmarkIdentifierToReadingListItemInfoCompletionMap;
     _Bool _readerAvailable;
     WKWebView *_webView;
+    WKWebView *_readerWebView;
     id <_SFReaderControllerDelegate> _delegate;
     id <WKUIDelegatePrivate> _webViewUIDelegate;
     NSString *_articleText;
@@ -34,8 +35,14 @@
 @property(nonatomic) __weak id <WKUIDelegatePrivate> webViewUIDelegate; // @synthesize webViewUIDelegate=_webViewUIDelegate;
 @property(getter=isReaderAvailable) _Bool readerAvailable; // @synthesize readerAvailable=_readerAvailable;
 @property __weak id <_SFReaderControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly) __weak WKWebView *readerWebView; // @synthesize readerWebView=_readerWebView;
 @property(readonly) __weak WKWebView *webView; // @synthesize webView=_webView;
 - (void).cxx_destruct;
+- (void)_webView:(id)arg1 dataInteractionOperationWasHandled:(_Bool)arg2 forSession:(id)arg3 itemProviders:(id)arg4;
+- (_Bool)_webView:(id)arg1 performDataInteractionOperationWithItemProviders:(id)arg2;
+- (unsigned long long)_webView:(id)arg1 willUpdateDataInteractionOperationToOperation:(unsigned long long)arg2 forSession:(id)arg3;
+- (void)_webView:(id)arg1 dataInteraction:(id)arg2 session:(id)arg3 didEndWithOperation:(unsigned long long)arg4;
+- (void)_webView:(id)arg1 dataInteraction:(id)arg2 sessionWillBegin:(id)arg3;
 - (void)_webView:(id)arg1 commitPreviewedViewController:(id)arg2;
 - (id)_webView:(id)arg1 previewViewControllerForURL:(id)arg2 defaultActions:(id)arg3 elementInfo:(id)arg4;
 - (id)_webView:(id)arg1 actionsForElement:(id)arg2 defaultActions:(id)arg3;
@@ -48,7 +55,7 @@
 - (void)didCollectReaderContentForMail:(id)arg1;
 - (void)didCollectReadingListItemInfo:(id)arg1 bookmarkID:(id)arg2;
 - (void)didSetReaderConfiguration:(id)arg1;
-- (void)didDetermineReaderAvailability:(_Bool)arg1;
+- (void)didDetermineReaderAvailability:(_Bool)arg1 dueToSameDocumentNavigation:(_Bool)arg2;
 - (id)fontManager;
 - (id)configuration;
 - (void)decreaseReaderTextSize;

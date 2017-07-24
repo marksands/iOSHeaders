@@ -37,6 +37,8 @@
 - (void)handleReadyForUpdates:(id)arg1;
 - (void)handleConnectionParametersUpdated:(id)arg1;
 - (void)handleZoneLost:(id)arg1;
+- (void)handleAdvertisingAddressChanged:(id)arg1;
+- (void)handleApplicationActivityEvent:(id)arg1;
 - (void)handlePeripheralTrackingUpdated:(id)arg1;
 - (void)handlePeripheralConnectionStateUpdated:(id)arg1;
 - (void)handlePeripheralDisconnectionCompleted:(id)arg1;

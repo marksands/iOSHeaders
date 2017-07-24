@@ -9,8 +9,8 @@
 @interface UIViewController (AssetExplorerPresentation)
 - (id)_associatedFullScreenWindow;
 - (void)ae_dismissViewControllerAboveKeyboardAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)ae_presentViewControllerAboveKeyboard:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)ae_presentViewControllerAboveKeyboard:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)ae_presentViewControllerPreservingCameraSessionAboveKeyboard:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_presentViewControllerAboveKeyboard:(id)arg1 preservingCameraSession:(_Bool)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (id)_presentViewControllerAboveKeyboard:(id)arg1 preservingCameraSession:(_Bool)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 @end
 

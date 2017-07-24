@@ -6,9 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <BookLibrary/NSCoding-Protocol.h>
+#import <BookLibrary/NSCopying-Protocol.h>
+#import <BookLibrary/NSSecureCoding-Protocol.h>
+
 @class NSDate, NSDictionary, NSString, NSURL;
 
-@interface BLBookItem : NSObject
+@interface BLBookItem : NSObject <NSCopying, NSCoding, NSSecureCoding>
 {
     _Bool _sample;
     _Bool _iTunesU;
@@ -34,6 +38,7 @@
     NSString *_coverImagePath;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *coverImagePath; // @synthesize coverImagePath=_coverImagePath;
 @property(copy, nonatomic) NSString *itunesuAssetID; // @synthesize itunesuAssetID=_itunesuAssetID;
 @property(retain, nonatomic) NSDate *lastUserAccessDate; // @synthesize lastUserAccessDate=_lastUserAccessDate;
@@ -63,6 +68,9 @@
 - (id)_cloudCoverImageData;
 @property(readonly, copy, nonatomic) NSString *mimeType;
 @property(readonly, nonatomic) NSString *path;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithEduCloudData:(id)arg1 path:(id)arg2;
 - (id)initWithStoreDownload:(id)arg1 permlink:(id)arg2 title:(id)arg3;
 - (id)initWithEntry:(id)arg1 basePath:(id)arg2;

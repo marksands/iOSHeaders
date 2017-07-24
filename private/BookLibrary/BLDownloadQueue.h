@@ -48,7 +48,6 @@
 - (void)addDownloadWithMetadata:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)addDownloadWithPermlink:(id)arg1 title:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)addDownloadWithPurchaseParameters:(id)arg1 storeID:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)addDownloadWithPurchaseParameters:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) NSArray *downloads;
 - (void)_cancelAllPausedDownloads;
 - (void)_storeChanged:(id)arg1;

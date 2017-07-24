@@ -113,6 +113,7 @@
 - (void)removeAccountType:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)insertAccountType:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)accountsOnPairedDeviceWithAccountType:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)accountsWithAccountType:(id)arg1 options:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)accountsWithAccountType:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)accountsWithAccountType:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (id)accountsWithAccountType:(id)arg1;

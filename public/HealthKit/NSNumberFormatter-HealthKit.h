@@ -7,6 +7,7 @@
 #import <Foundation/NSNumberFormatter.h>
 
 @interface NSNumberFormatter (HealthKit)
++ (id)hk_percentNumberFormatter;
 + (id)hk_heartRateNumberFormatter;
 @end
 

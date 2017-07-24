@@ -74,7 +74,6 @@
 - (void)_handleAssetViewModel:(id)arg1 didChange:(id)arg2;
 - (void)viewModel:(id)arg1 didChange:(id)arg2;
 - (id)_badgeInfoPromiseForAssetReference:(id)arg1;
-- (_Bool)_isAssetInFocus:(id)arg1;
 - (double)_focusValueForAsset:(id)arg1;
 - (void)_updateNeighboringAssetReferences;
 - (void)_updateAssetViewModel:(id)arg1;

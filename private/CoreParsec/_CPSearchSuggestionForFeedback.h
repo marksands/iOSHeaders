@@ -22,8 +22,10 @@
     NSString *_suggestion;
     NSString *_query;
     double _score;
+    NSString *_fbr;
 }
 
+@property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(nonatomic) double score; // @synthesize score=_score;
 @property(copy, nonatomic) NSString *query; // @synthesize query=_query;
@@ -38,6 +40,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasFbr;
 @property(readonly, nonatomic) _Bool hasType;
 @property(readonly, nonatomic) _Bool hasScore;
 @property(readonly, nonatomic) _Bool hasQuery;

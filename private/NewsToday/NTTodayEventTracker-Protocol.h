@@ -7,8 +7,10 @@
 #import <NewsToday/NSObject-Protocol.h>
 
 @class NSArray, NSDate;
+@protocol NTHeadlineAnalyticsElementProviding;
 
 @protocol NTTodayEventTracker <NSObject>
+- (void)userDidReadHeadlineWithAnalyticsElement:(id <NTHeadlineAnalyticsElementProviding>)arg1 atDate:(NSDate *)arg2;
 - (void)userDidSeeHeadlinesWithAnalyticsElements:(NSArray *)arg1 atDate:(NSDate *)arg2;
 @end
 

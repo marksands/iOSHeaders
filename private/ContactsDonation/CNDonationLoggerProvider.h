@@ -9,7 +9,7 @@
 #import <ContactsDonation/CNDonationLoggerProvider-Protocol.h>
 
 @class NSString;
-@protocol CNDonationAccountLogger, CNDonationAgentLogger, CNDonationExtensionLogger, CNDonationPreferencesLogger, CNDonationToolLogger;
+@protocol CNDonationAccountLogger, CNDonationAgentLogger, CNDonationAnalyticsLogger, CNDonationExtensionLogger, CNDonationPreferencesLogger, CNDonationToolLogger;
 
 @interface CNDonationLoggerProvider : NSObject <CNDonationLoggerProvider>
 {
@@ -18,15 +18,18 @@
     id <CNDonationToolLogger> _toolLoggerImpl;
     id <CNDonationAccountLogger> _accountLoggerImpl;
     id <CNDonationPreferencesLogger> _preferencesLoggerImpl;
+    id <CNDonationAnalyticsLogger> _analyticsLoggerImpl;
 }
 
 + (id)defaultProvider;
+@property(readonly, nonatomic) id <CNDonationAnalyticsLogger> analyticsLoggerImpl; // @synthesize analyticsLoggerImpl=_analyticsLoggerImpl;
 @property(readonly, nonatomic) id <CNDonationPreferencesLogger> preferencesLoggerImpl; // @synthesize preferencesLoggerImpl=_preferencesLoggerImpl;
 @property(readonly, nonatomic) id <CNDonationAccountLogger> accountLoggerImpl; // @synthesize accountLoggerImpl=_accountLoggerImpl;
 @property(readonly, nonatomic) id <CNDonationToolLogger> toolLoggerImpl; // @synthesize toolLoggerImpl=_toolLoggerImpl;
 @property(readonly, nonatomic) id <CNDonationExtensionLogger> extensionLoggerImpl; // @synthesize extensionLoggerImpl=_extensionLoggerImpl;
 @property(readonly, nonatomic) id <CNDonationAgentLogger> agentLoggerImpl; // @synthesize agentLoggerImpl=_agentLoggerImpl;
 - (void).cxx_destruct;
+@property(readonly) id <CNDonationAnalyticsLogger> analyticsLogger;
 @property(readonly) id <CNDonationPreferencesLogger> preferencesLogger;
 @property(readonly) id <CNDonationAccountLogger> accountLogger;
 @property(readonly) id <CNDonationToolLogger> toolLogger;

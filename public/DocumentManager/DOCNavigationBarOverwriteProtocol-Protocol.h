@@ -6,13 +6,12 @@
 
 #import <DocumentManager/NSObject-Protocol.h>
 
-@class NSString, UIBarButtonItem;
+@class NSString;
 
 @protocol DOCNavigationBarOverwriteProtocol <NSObject>
 
 @optional
 @property _Bool isTopNavigationItem;
 @property(retain) NSString *overriddenTitle;
-@property(retain) UIBarButtonItem *overriddenLeftButton;
 @end
 

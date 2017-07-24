@@ -27,8 +27,6 @@
 - (void)didFinishResizingHeaderView;
 - (void)setTitle:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (_Bool)isVerySmallScreen;
-- (_Bool)isSmallScreen;
 
 @end
 

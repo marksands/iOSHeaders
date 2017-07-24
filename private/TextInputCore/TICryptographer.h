@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <TextInputCore/TICryptographing-Protocol.h>
+
 @class NSData, NSString;
 @protocol OS_dispatch_queue;
 
-@interface TICryptographer : NSObject
+@interface TICryptographer : NSObject <TICryptographing>
 {
     NSData *_deviceSalt;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
@@ -18,6 +20,8 @@
 }
 
 + (id)sharedCryptographer;
++ (id)singletonInstance;
++ (void)setSharedCryptographer:(id)arg1;
 @property(copy, nonatomic) NSString *cachedRecipientDigest; // @synthesize cachedRecipientDigest=_cachedRecipientDigest;
 @property(copy, nonatomic) NSString *cachedRecipientName; // @synthesize cachedRecipientName=_cachedRecipientName;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
@@ -25,6 +29,12 @@
 @property(readonly, nonatomic) NSData *deviceSalt;
 - (id)init;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

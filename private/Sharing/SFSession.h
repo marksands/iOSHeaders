@@ -19,12 +19,15 @@
     unsigned char _encryptionReadNonce[12];
     struct CryptoAEADPrivate *_encryptionWriteAEAD;
     unsigned char _encryptionWriteNonce[12];
+    NSMutableData *_fragmentData;
+    unsigned short _fragmentLastIndex;
     unsigned long long _heartbeatLastTicks;
     NSObject<OS_dispatch_source> *_heartbeatTimer;
     NSUUID *_peer;
     NSString *_peerAppleID;
     struct NSMutableDictionary *_requestHandlers;
     struct NSMutableDictionary *_requestMap;
+    unsigned char _serviceType;
     unsigned int _sessionFlags;
     unsigned int _sessionID;
     unsigned int _sharingSourceVersion;
@@ -65,7 +68,6 @@
     NSXPCConnection *_xpcCnx;
     SFTRSession *_sfTRSession;
     TRSession *_trSession;
-    unsigned char _serviceType;
     _Bool _touchRemoteEnabled;
     long long _bluetoothState;
     CDUnknownBlockType _errorHandler;
@@ -76,6 +78,7 @@
     double _timeout;
     NSString *_myAppleID;
     CUAppleIDClient *_myAppleIDInfoClient;
+    NSString *_peerContactIdentifier;
     CDUnknownBlockType _bluetoothStateChangedHandler;
     CDUnknownBlockType _interruptionHandler;
     CDUnknownBlockType _invalidationHandler;
@@ -119,6 +122,7 @@
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
 @property(copy, nonatomic) CDUnknownBlockType interruptionHandler; // @synthesize interruptionHandler=_interruptionHandler;
 @property(copy, nonatomic) CDUnknownBlockType bluetoothStateChangedHandler; // @synthesize bluetoothStateChangedHandler=_bluetoothStateChangedHandler;
+@property(copy, nonatomic) NSString *peerContactIdentifier; // @synthesize peerContactIdentifier=_peerContactIdentifier;
 @property(copy, nonatomic) NSString *peerAppleID; // @synthesize peerAppleID=_peerAppleID;
 @property(retain, nonatomic) CUAppleIDClient *myAppleIDInfoClient; // @synthesize myAppleIDInfoClient=_myAppleIDInfoClient;
 @property(copy, nonatomic) NSString *myAppleID; // @synthesize myAppleID=_myAppleID;
@@ -144,6 +148,7 @@
 - (void)_sessionReceivedObject:(id)arg1 flags:(unsigned int)arg2;
 - (void)_sessionReceivedUnencryptedData:(id)arg1 type:(unsigned char)arg2;
 - (void)_sessionReceivedEncryptedData:(id)arg1 type:(unsigned char)arg2;
+- (void)sessionReceivedFragmentData:(id)arg1 last:(_Bool)arg2;
 - (void)sessionReceivedFrameType:(unsigned char)arg1 data:(id)arg2;
 - (void)sessionReceivedEvent:(id)arg1;
 - (void)sessionError:(id)arg1;

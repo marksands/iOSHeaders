@@ -62,6 +62,8 @@
 - (_Bool)supportsRead;
 - (_Bool)supportsNotification;
 - (id)validateValue:(id)arg1 outValue:(id *)arg2;
+- (id)validateValueForNotify:(id)arg1 outValue:(id *)arg2;
+- (id)validateValueForWrite:(id)arg1 outValue:(id *)arg2;
 @property(readonly, nonatomic) HMDCharacteristicMetadata *metadata;
 - (_Bool)isValueUpdatedFromHAPCharacteristic:(id)arg1;
 - (_Bool)value:(id)arg1 differentThan:(id)arg2;

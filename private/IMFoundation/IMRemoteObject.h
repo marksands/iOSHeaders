@@ -30,7 +30,6 @@
 - (unsigned long long)forwardXPCObject:(id)arg1 messageContext:(id)arg2;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)_systemShutdown:(id)arg1;
-@property(readonly, nonatomic) _Bool forceSecureCoding;
 @property(readonly, nonatomic) _Bool isValid;
 - (void)_portDidBecomeInvalid;
 - (void)dealloc;

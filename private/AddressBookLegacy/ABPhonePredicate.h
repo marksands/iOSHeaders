@@ -17,7 +17,7 @@
 
 @property(copy, nonatomic) NSString *country; // @synthesize country=_country;
 @property(copy, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
-- (void)evaluateCallbackWithSqliteContext:(struct sqlite3_context *)arg1 predicateContext:(id)arg2 values:(struct Mem **)arg3 count:(int)arg4;
+- (void)evaluateCallbackWithSqliteContext:(struct sqlite3_context *)arg1 predicateContext:(id)arg2 values:(struct sqlite3_value **)arg3 count:(int)arg4;
 - (void)ab_bindWhereClauseComponentOfStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
 - (_Bool)hasCallback;
 - (id)queryWhereStringForPredicateIdentifier:(int)arg1;

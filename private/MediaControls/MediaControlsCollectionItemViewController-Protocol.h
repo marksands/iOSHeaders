@@ -6,12 +6,12 @@
 
 #import <MediaControls/NSObject-Protocol.h>
 
-@class MPAVRoute, MediaControlsStyleCoordinator, UIView;
+@class MPAVRoutingViewController, MPCPlayerPath, MediaControlsStyleCoordinator, UIView;
 
 @protocol MediaControlsCollectionItemViewController <NSObject>
-@property(retain, nonatomic) MPAVRoute *route;
-- (void)prepareForReuse;
-- (void)setRoutingView:(UIView *)arg1;
+@property(retain, nonatomic) MPAVRoutingViewController *routingViewController;
+@property(copy, nonatomic) MPCPlayerPath *playerPath;
+@property(retain, nonatomic) UIView *backgroundView;
 - (void)willTransitionToSize:(struct CGSize)arg1 withCoordinator:(MediaControlsStyleCoordinator *)arg2;
 @end
 

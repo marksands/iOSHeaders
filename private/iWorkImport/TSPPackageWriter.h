@@ -47,11 +47,12 @@ __attribute__((visibility("hidden")))
 - (void)finalizeComponentAndDataSectionWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (struct CGDataConsumer *)newCGDataConsumerAtRelativePath:(id)arg1;
 - (_Bool)writeData:(id)arg1 toRelativePath:(id)arg2 allowEncryption:(_Bool)arg3 error:(id *)arg4;
+- (id)dataForZipEntry:(id)arg1 inDataToWrite:(id)arg2;
 - (id)copyData:(id)arg1 withReadChannel:(id)arg2 decryptionInfo:(id)arg3 size:(unsigned long long)arg4 preferredFilename:(id)arg5 error:(id *)arg6;
 - (id)linkOrCopyData:(id)arg1 fromURL:(id)arg2 decryptionInfo:(id)arg3 preferredFilename:(id)arg4 error:(id *)arg5;
 - (_Bool)addData:(id)arg1 infoMessage:(struct DataInfo *)arg2 saveOperationState:(id)arg3;
 - (id)filenameForData:(id)arg1 preferredFilename:(id)arg2;
-- (void)willWriteDataWithTotalLength:(unsigned long long)arg1;
+- (void)willWriteData:(id)arg1;
 - (_Bool)flushPendingWritesReturningError:(id *)arg1;
 - (void)copyComponent:(id)arg1 locator:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)newRawComponentWriteChannelWithPackageLocator:(id)arg1 storeOutsideObjectArchive:(_Bool)arg2;

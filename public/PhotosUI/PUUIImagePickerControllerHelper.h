@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_group> *_multiSelectionGroup;
 }
 
-+ (id)assetsFilterPredicateForMediaTypes:(id)arg1 onlyShowAutoloops:(_Bool)arg2;
++ (id)assetsFilterPredicateForMediaTypes:(id)arg1;
 + (id)collectionsFilterPredicateForMediaTypes:(id)arg1;
 + (int)albumFilterForMediaTypes:(id)arg1;
 + (unsigned long long)imagePickerTypesForMediaTypes:(id)arg1;

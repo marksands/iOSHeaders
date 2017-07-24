@@ -35,6 +35,8 @@
 - (void).cxx_destruct;
 - (void)layoutSubviews;
 - (double)textLeadingIndent;
+- (void)updateSelectionCheckmark;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setColorDotHighlightedImage:(id)arg1;
 - (void)setCheckmarkColor:(id)arg1;

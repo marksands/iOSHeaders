@@ -26,12 +26,13 @@
 @property(retain, nonatomic) NSNumber *purchaseTimestamp; // @synthesize purchaseTimestamp=_purchaseTimestamp;
 @property(retain, nonatomic) NSNumber *lastModifiedTimestamp; // @synthesize lastModifiedTimestamp=_lastModifiedTimestamp;
 @property(retain, nonatomic) NSNumber *expirationTimestamp; // @synthesize expirationTimestamp=_expirationTimestamp;
-@property(nonatomic) NSNumber *appAdamId; // @synthesize appAdamId=_appAdamId;
-@property(nonatomic) NSNumber *adamId; // @synthesize adamId=_adamId;
+@property(retain, nonatomic) NSNumber *appAdamId; // @synthesize appAdamId=_appAdamId;
+@property(retain, nonatomic) NSNumber *adamId; // @synthesize adamId=_adamId;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)description;
 
 @end
 

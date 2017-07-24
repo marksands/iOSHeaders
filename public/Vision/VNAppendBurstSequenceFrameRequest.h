@@ -19,6 +19,9 @@
 @property(copy, nonatomic) NSString *burstFrameIdentifier; // @synthesize burstFrameIdentifier=_burstFrameIdentifier;
 - (void).cxx_destruct;
 - (_Bool)internalPerformInContext:(id)arg1 error:(id *)arg2;
+- (void)applyConfigurationOfRequest:(id)arg1;
+- (id)sequencedRequestPreviousObservationsKey;
+- (id)observationsCacheKey;
 - (id)initWithTargetedImageData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithTargetedImageURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithTargetedCIImage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

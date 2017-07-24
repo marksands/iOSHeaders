@@ -110,6 +110,7 @@
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (id)_allContainedViewControllers;
 - (id)_additionalViewControllersToCheckForUserActivity;
+- (void)_updateDisplayModeButtonItem;
 - (void)_animateToRequest:(id)arg1;
 @property(copy, nonatomic) UISlidingBarStateRequest *stateRequest;
 @property(readonly, nonatomic) NSArray *possibleStates;

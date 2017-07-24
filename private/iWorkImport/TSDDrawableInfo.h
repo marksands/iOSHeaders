@@ -70,6 +70,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSDDrawableComment *comment;
 @property(readonly, nonatomic) _Bool supportsAttachedComments;
 - (_Bool)shouldCancelScrollingToSelectionPath:(id)arg1 forChanges:(id)arg2;
+- (struct CGPoint)autosizePositionOffsetForGeometry:(id)arg1 dynamicallyDraggedLayout:(id)arg2;
 - (_Bool)canAnchor;
 @property(readonly, nonatomic) NSData *originalPDFDataForCopy;
 @property(readonly, nonatomic) _Bool hasPDFDataForCopy;
@@ -100,6 +101,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool supportsParentRotation;
 @property(readonly, nonatomic) _Bool canSizeBeChangedIncrementally;
 @property(readonly, nonatomic) _Bool canAspectRatioLockBeChangedByUser;
+- (_Bool)isLockedForSpecificInfo;
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
 - (void)setPrimitiveGeometry:(id)arg1;
 @property(readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;

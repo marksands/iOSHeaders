@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)supportsSecureCoding;
+- (void)getValue:(void *)arg1 size:(unsigned long long)arg2;
 - (void)getValue:(void *)arg1;
 - (const char *)objCType;
 - (id)initWithCoder:(id)arg1;

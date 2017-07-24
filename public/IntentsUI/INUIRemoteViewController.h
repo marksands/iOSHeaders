@@ -35,7 +35,8 @@
 - (void)serviceViewControllerDesiresConstrainedSize:(struct CGSize)arg1;
 - (id)_errorHandlingServiceViewControllerProxy;
 - (void)_queryRepresentedPropertiesWithCompletion:(CDUnknownBlockType)arg1;
-- (void)updateSize;
+- (void)updateExtensionContextStateWithCompletion:(CDUnknownBlockType)arg1;
+- (void)configureForParameters:(id)arg1 ofInteraction:(id)arg2 interactiveBehavior:(unsigned long long)arg3 context:(unsigned long long)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)configureForParameters:(id)arg1 ofInteraction:(id)arg2 context:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)configureWithInteraction:(id)arg1 context:(unsigned long long)arg2 errorHandlingCompletion:(CDUnknownBlockType)arg3;
 - (id)disconnect;

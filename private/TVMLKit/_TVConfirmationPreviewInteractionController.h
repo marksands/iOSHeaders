@@ -23,16 +23,16 @@
     UIViewPropertyAnimator *_previewPropertyAnimator;
     UIViewPropertyAnimator *_commitPropertyAnimator;
     UICollectionView *_stashedCell;
+    IKCollectionElement *_collectionElement;
     id <_TVConfirmationPreviewInteractionControllerDelegate> _delegate;
     UICollectionView *_collectionView;
-    IKCollectionElement *_collectionElement;
     UIViewController *_presentingViewController;
 }
 
 @property(readonly, nonatomic) __weak UIViewController *presentingViewController; // @synthesize presentingViewController=_presentingViewController;
-@property(readonly, nonatomic) __weak IKCollectionElement *collectionElement; // @synthesize collectionElement=_collectionElement;
 @property(readonly, nonatomic) __weak UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(nonatomic) __weak id <_TVConfirmationPreviewInteractionControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak IKCollectionElement *collectionElement; // @synthesize collectionElement=_collectionElement;
 - (void).cxx_destruct;
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (void)_cleanupPreviewInteraction;

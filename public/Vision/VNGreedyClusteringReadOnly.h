@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 + (void)addFaceObservations:(id)arg1 toFaceDescriptorBuffer:(struct ImageDescriptorBufferFloat32 *)arg2;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (id)maximumFaceIdInModelAndReturnError:(id *)arg1;
 - (id)getDistances:(id)arg1 to:(id)arg2 error:(id *)arg3;
 - (id)getClustersForClusterIds:(id)arg1 options:(id)arg2 error:(id *)arg3;
 - (id)getDistanceBetweenLevel1Clusters:(id)arg1 error:(id *)arg2;

@@ -43,6 +43,10 @@
 @property(readonly, nonatomic) double longitude; // @synthesize longitude=_longitude;
 @property(readonly, nonatomic) double latitude; // @synthesize latitude=_latitude;
 - (void).cxx_destruct;
+- (long long)recentCompare:(id)arg1;
+- (id)nameFromMapItem:(id)arg1;
+- (id)nameFromType:(long long)arg1;
+@property(readonly, nonatomic) NSString *preferredName;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -50,11 +54,6 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithLatitude:(double)arg1 longitude:(double)arg2 uncertainty:(double)arg3 confidence:(double)arg4 identifier:(id)arg5 type:(long long)arg6 typeSource:(long long)arg7 geoMapItem:(id)arg8 geoMapItemSource:(long long)arg9 visits:(id)arg10 customLabel:(id)arg11;
-- (long long)frequencyCompare:(id)arg1;
-- (long long)recentCompare:(id)arg1;
-- (id)relativeNameToMapItem:(id)arg1;
-- (id)preciseName;
-- (id)name;
 
 @end
 

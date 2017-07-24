@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class MPCPlayerResponse, MediaControlsTransportButton, NSBundle, UIColor, UIVisualEffectView;
+@class MPCPlayerResponse, MediaControlsTransportButton, NSBundle, UIColor;
 @protocol MediaControlsRatingActionSheet;
 
 @interface MediaControlsTransportStackView : UIView
@@ -21,10 +21,8 @@
     MediaControlsTransportButton *_rightButton;
     NSBundle *_mediaControlsBundle;
     UIColor *_tintColorForCurrentStyle;
-    UIVisualEffectView *_primaryVisualEffectView;
 }
 
-@property(retain, nonatomic) UIVisualEffectView *primaryVisualEffectView; // @synthesize primaryVisualEffectView=_primaryVisualEffectView;
 @property(retain, nonatomic) UIColor *tintColorForCurrentStyle; // @synthesize tintColorForCurrentStyle=_tintColorForCurrentStyle;
 @property(retain, nonatomic) NSBundle *mediaControlsBundle; // @synthesize mediaControlsBundle=_mediaControlsBundle;
 @property(retain, nonatomic) MediaControlsTransportButton *rightButton; // @synthesize rightButton=_rightButton;

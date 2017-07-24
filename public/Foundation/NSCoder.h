@@ -68,6 +68,7 @@
 - (void)encodeObject:(id)arg1;
 - (long long)versionForClassName:(id)arg1;
 - (id)decodeDataObject;
+- (void)decodeValueOfObjCType:(const char *)arg1 at:(void *)arg2 size:(unsigned long long)arg3;
 - (void)decodeValueOfObjCType:(const char *)arg1 at:(void *)arg2;
 - (void)encodeDataObject:(id)arg1;
 - (void)encodeValueOfObjCType:(const char *)arg1 at:(const void *)arg2;

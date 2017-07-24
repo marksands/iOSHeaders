@@ -6,32 +6,28 @@
 
 #import <objc/NSObject.h>
 
-#import <PhotosUI/ICQUpgradeFlowManagerDelegate-Protocol.h>
-#import <PhotosUI/UITextViewDelegate-Protocol.h>
+#import <PhotosUI/ICQBannerViewDelegate-Protocol.h>
 
-@class ICQOffer, ICQUpgradeFlowManager, NSString, UIView;
-@protocol PUCloudQuotaControllerDelegate;
+@class ICQOffer, NSString, UIView;
+@protocol OS_dispatch_queue, PUCloudQuotaControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface PUCloudQuotaController : NSObject <UITextViewDelegate, ICQUpgradeFlowManagerDelegate>
+@interface PUCloudQuotaController : NSObject <ICQBannerViewDelegate>
 {
-    ICQUpgradeFlowManager *_flowManager;
-    UIView *_bannerView;
-    id <PUCloudQuotaControllerDelegate> _delegate;
     ICQOffer *_currentOffer;
+    NSObject<OS_dispatch_queue> *_queue;
+    UIView *_informationBanner;
+    id <PUCloudQuotaControllerDelegate> _delegate;
 }
 
-@property(retain, nonatomic) ICQOffer *currentOffer; // @synthesize currentOffer=_currentOffer;
 @property(nonatomic) __weak id <PUCloudQuotaControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) UIView *bannerView; // @synthesize bannerView=_bannerView;
+@property(readonly, nonatomic) UIView *informationBanner; // @synthesize informationBanner=_informationBanner;
 - (void).cxx_destruct;
-- (void)upgradeFlowManagerDidComplete:(id)arg1;
-- (void)upgradeFlowManagerDidCancel:(id)arg1;
-- (void)textViewDidChangeSelection:(id)arg1;
-- (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3 interaction:(long long)arg4;
+- (id)presentingViewControllerForBannerView:(id)arg1;
 - (void)_currentOfferChangedNotification:(id)arg1;
-- (void)_getCurrentOffer;
+- (void)_queue_getCurrentOffer;
 - (void)_updateCurrentOffer:(id)arg1;
+- (void)_queue_initialSetup;
 - (void)dealloc;
 - (id)init;
 

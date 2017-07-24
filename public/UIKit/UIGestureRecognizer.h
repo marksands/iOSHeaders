@@ -78,13 +78,14 @@
     NSMutableSet *_failureRequirements;
     NSMutableSet *_failureDependents;
     NSMutableSet *_activeEvents;
+    _Bool _keepTouchesOnContinuation;
     id <UIGestureRecognizerDelegate> _delegate;
     NSArray *_allowedPressTypes;
     NSString *_name;
     UIGestureEnvironment *_gestureEnvironment;
 }
 
-+ (_Bool)_shouldContinueTouches;
++ (_Bool)_supportsTouchContinuation;
 + (_Bool)_shouldUseLinearForceLevelClassifier;
 + (_Bool)_shouldSupportStylusTouches;
 + (_Bool)_shouldDefaultToTouches;
@@ -92,6 +93,7 @@
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSArray *allowedPressTypes; // @synthesize allowedPressTypes=_allowedPressTypes;
 @property(nonatomic) __weak id <UIGestureRecognizerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic, setter=_setKeepTouchesOnContinuation:) _Bool _keepTouchesOnContinuation; // @synthesize _keepTouchesOnContinuation;
 - (void).cxx_destruct;
 - (id)_defaultAllowedPressTypes;
 - (id)_defaultAllowedTouchTypes;

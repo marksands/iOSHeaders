@@ -135,7 +135,6 @@
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
-- (_Bool)automaticallyAdjustsScrollViewInsets;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillLayoutSubviews;
@@ -209,6 +208,7 @@
 - (id)_indexPathOfCenterVisibleItemInCollectionView:(id)arg1;
 - (void)_pageToIndexPath:(id)arg1 animated:(_Bool)arg2;
 - (void)_updateCell:(id)arg1 forItemAtIndexPath:(id)arg2;
+- (void)_handleAnimatedImageResult:(id)arg1 forCell:(id)arg2 asset:(id)arg3 tag:(long long)arg4;
 - (void)_handleLoopingVideoRequestResult:(id)arg1 forCell:(id)arg2 asset:(id)arg3 tag:(long long)arg4;
 - (void)_handleLivePhotoRequestResult:(id)arg1 forCell:(id)arg2 tag:(long long)arg3;
 - (void)_updateAdditionalContentForAsset:(id)arg1 cell:(id)arg2;

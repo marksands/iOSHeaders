@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isLocalDevice) _Bool localDevice;
 @property(readonly, nonatomic) float batteryLevel;
 @property(readonly, nonatomic) NSDictionary *modelSpecificInfo;
+@property(readonly, nonatomic) unsigned int deviceSubtype;
 @property(readonly, nonatomic) unsigned int deviceType;
 @property(readonly, nonatomic, getter=isGroupable) _Bool groupable;
 @property(readonly, nonatomic, getter=isGroupLeader) _Bool groupLeader;
@@ -34,6 +35,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *modelID;
 @property(readonly, nonatomic) NSString *uid;
 @property(readonly, nonatomic) NSString *name;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithAVOutputDevice:(id)arg1;

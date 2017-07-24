@@ -22,7 +22,6 @@
 - (id)specifierForKey:(id)arg1;
 - (void)_reloadProgramSpecifiers;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (id)_mergeLeftAndRightPrograms;
 - (struct _NSRange)programsRange;
 - (struct _NSRange)programRangeForPresetId:(id)arg1;
 - (void)_updatePrograms:(id)arg1 atLocation:(long long)arg2;

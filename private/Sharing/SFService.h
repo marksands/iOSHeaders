@@ -74,9 +74,9 @@
     CDUnknownBlockType _errorHandler;
     CDUnknownBlockType _eventMessageHandler;
     CDUnknownBlockType _requestMessageHandler;
+    CDUnknownBlockType _pairSetupCompletionHandler;
     CDUnknownBlockType _peerDisconnectedHandler;
     CDUnknownBlockType _receivedFramePeerHandler;
-    CDUnknownBlockType _receivedFrameSessionHandler;
     NSString *_requestSSID;
     CDUnknownBlockType _responseMessageInternalHandler;
     CDUnknownBlockType _sendFramePeerHandler;
@@ -93,9 +93,9 @@
 @property(copy, nonatomic) CDUnknownBlockType sendFramePeerHandler; // @synthesize sendFramePeerHandler=_sendFramePeerHandler;
 @property(copy, nonatomic) CDUnknownBlockType responseMessageInternalHandler; // @synthesize responseMessageInternalHandler=_responseMessageInternalHandler;
 @property(copy, nonatomic) NSString *requestSSID; // @synthesize requestSSID=_requestSSID;
-@property(copy, nonatomic) CDUnknownBlockType receivedFrameSessionHandler; // @synthesize receivedFrameSessionHandler=_receivedFrameSessionHandler;
 @property(copy, nonatomic) CDUnknownBlockType receivedFramePeerHandler; // @synthesize receivedFramePeerHandler=_receivedFramePeerHandler;
 @property(copy, nonatomic) CDUnknownBlockType peerDisconnectedHandler; // @synthesize peerDisconnectedHandler=_peerDisconnectedHandler;
+@property(copy, nonatomic) CDUnknownBlockType pairSetupCompletionHandler; // @synthesize pairSetupCompletionHandler=_pairSetupCompletionHandler;
 @property(nonatomic) unsigned char deviceModelCode; // @synthesize deviceModelCode=_deviceModelCode;
 @property(nonatomic) unsigned char deviceColorCode; // @synthesize deviceColorCode=_deviceColorCode;
 @property(nonatomic) unsigned char deviceClassCode; // @synthesize deviceClassCode=_deviceClassCode;

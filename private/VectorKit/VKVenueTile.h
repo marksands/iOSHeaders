@@ -36,14 +36,15 @@ __attribute__((visibility("hidden")))
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)populateMetaData:(id)arg1;
-- (void)buildExteriorWallMeshesWithDevice:(struct Device *)arg1 styleManager:(shared_ptr_a3c46825 *)arg2;
-- (void)buildPolygonMeshesWithDevice:(struct Device *)arg1 triangulator:(id)arg2;
-- (void)buildMeshesWithDevice:(struct Device *)arg1 styleManager:(shared_ptr_a3c46825 *)arg2 triangulator:(id)arg3;
+- (void)buildExteriorWallMeshesWithDevice:(Device_9226c869 *)arg1 styleManager:(shared_ptr_a3c46825 *)arg2;
+- (void)buildPolygonMeshesWithDevice:(Device_9226c869 *)arg1 triangulator:(id)arg2;
+- (void)buildMeshesWithDevice:(Device_9226c869 *)arg1 styleManager:(shared_ptr_a3c46825 *)arg2 triangulator:(id)arg3;
 @property(retain, nonatomic) VKAnimation *animationForPitch;
 @property(readonly, nonatomic) const vector_4460e468 *venues;
 @property(readonly, nonatomic) const vector_2e22b445 *polygonGroups;
 @property(readonly, nonatomic) const vector_afc99996 *venueGroups;
-- (id)initWithKey:(const struct VKTileKey *)arg1 modelTile:(id)arg2 styleManager:(shared_ptr_a3c46825)arg3 sharedResources:(id)arg4 contentScale:(double)arg5 device:(struct Device *)arg6;
+- (void)dealloc;
+- (id)initWithKey:(const struct VKTileKey *)arg1 modelTile:(id)arg2 styleManager:(shared_ptr_a3c46825)arg3 sharedResources:(id)arg4 contentScale:(double)arg5 device:(Device_9226c869 *)arg6;
 
 @end
 

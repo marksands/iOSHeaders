@@ -4,17 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <AVConference/VCMovieWriterProtocol-Protocol.h>
 
-@class AVAssetWriter, AVAssetWriterInput, AVAssetWriterInputMetadataAdaptor, NSString;
+@class AVAssetWriter, AVAssetWriterInput, AVAssetWriterInputMetadataAdaptor, NSString, NSURL;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface VCMovieWriter : NSObject <VCMovieWriterProtocol>
 {
-    NSString *_outputPath;
     NSString *_transactionID;
     CDStruct_1b6d18a9 _lastVideoPresentationTime;
     CDStruct_1b6d18a9 _lastLocalAudioPresentationTime;
@@ -27,10 +26,8 @@ __attribute__((visibility("hidden")))
     AVAssetWriterInput *_remoteAudioInput;
     AVAssetWriterInput *_metadataInput;
     AVAssetWriterInputMetadataAdaptor *_adapter;
+    NSURL *_outputURL;
     unsigned char _writerMode;
-    int _localAudioSampleCountNeeded;
-    int _remoteAudioSampleCountNeeded;
-    int _videoSampleCountNeeded;
     _Bool _isVideoStarted;
     _Bool _isEndRTPTimestampSet;
     unsigned int _startRTPTimeStamp;
@@ -48,14 +45,13 @@ __attribute__((visibility("hidden")))
     struct OpaqueVTPixelTransferSession *_transferSession;
 }
 
+@property(retain, nonatomic) NSURL *outputURL; // @synthesize outputURL=_outputURL;
 @property(readonly) unsigned char writerMode; // @synthesize writerMode=_writerMode;
 @property unsigned int endRTPTimeStamp; // @synthesize endRTPTimeStamp=_endRTPTimeStamp;
 @property unsigned int startRTPTimeStamp; // @synthesize startRTPTimeStamp=_startRTPTimeStamp;
-@property(retain, nonatomic) NSString *outputPath; // @synthesize outputPath=_outputPath;
-- (id)outputURL;
-- (void)updateSampleWithType:(unsigned char)arg1;
 - (void)setupInputs;
 - (void)startWritingAtTime:(CDStruct_1b6d18a9)arg1;
+- (void)appendMetaData;
 - (void)processSampleQueue:(struct opaqueCMBufferQueue *)arg1 input:(id)arg2 lastPresentationTime:(CDStruct_1b6d18a9 *)arg3;
 - (void)setupInput:(id)arg1 queue:(struct opaqueCMBufferQueue *)arg2 dispatchGroup:(id)arg3 lastPresentationTime:(CDStruct_1b6d18a9 *)arg4;
 - (id)setupAssetWriterWithWidth:(int)arg1 height:(int)arg2 transactionID:(id)arg3;
@@ -67,9 +63,9 @@ __attribute__((visibility("hidden")))
 - (void)appendAudioSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 mediaType:(unsigned char)arg2;
 - (void)appendVideoSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 cameraStatus:(unsigned char)arg2 mediaType:(unsigned char)arg3;
 - (void)setupContectRect:(struct CGRect)arg1 withCaptureHeight:(int)arg2;
-- (void)setupWriterWithMode:(unsigned char)arg1 videoSampleCount:(int)arg2 localAudioSampleCount:(int)arg3 remoteAudioSampleCount:(int)arg4;
+- (void)setupWriterWithMode:(unsigned char)arg1;
 - (void)dealloc;
-- (id)initWithOutputPath:(id)arg1 transactionID:(id)arg2;
+- (id)initWithOutputURL:(id)arg1 transactionID:(id)arg2;
 
 @end
 

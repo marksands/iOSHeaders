@@ -34,7 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)cancel;
 - (void)write:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)read:(unsigned long long)arg1 handler:(CDUnknownBlockType)arg2;
-- (id)initWithHost:(id)arg1 port:(unsigned short)arg2 queue:(id)arg3;
+- (id)initWithHost:(id)arg1 port:(unsigned short)arg2 queue:(id)arg3 configuration:(id)arg4;
 - (void)_onConnected:(int)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)URLSession:(id)arg1 streamTask:(id)arg2 didBecomeInputStream:(id)arg3 outputStream:(id)arg4;

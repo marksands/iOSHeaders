@@ -10,8 +10,8 @@
 
 @interface DOCLargeTagView : UIView
 {
-    _Bool _checked;
     DOCTag *_tagValue;
+    long long _style;
     DOCTagIconView *_tagDotView;
     UILabel *_tagNameLabel;
     UIVisualEffectView *_tagNameLabelWrapper;
@@ -22,9 +22,10 @@
 @property(readonly, nonatomic) UIVisualEffectView *tagNameLabelWrapper; // @synthesize tagNameLabelWrapper=_tagNameLabelWrapper;
 @property(readonly, nonatomic) UILabel *tagNameLabel; // @synthesize tagNameLabel=_tagNameLabel;
 @property(readonly, nonatomic) DOCTagIconView *tagDotView; // @synthesize tagDotView=_tagDotView;
-@property(nonatomic, getter=isChecked) _Bool checked; // @synthesize checked=_checked;
+@property(nonatomic) long long style; // @synthesize style=_style;
 @property(retain, nonatomic) DOCTag *tagValue; // @synthesize tagValue=_tagValue;
 - (void).cxx_destruct;
+- (void)updateBorder;
 - (void)updateBackgroundColor;
 - (id)initWithFrame:(struct CGRect)arg1;
 

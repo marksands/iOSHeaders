@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <VectorKit/MDRenderTarget-Protocol.h>
 
@@ -62,11 +62,11 @@ __attribute__((visibility("hidden")))
 - (void)createRenderTarget;
 @property(readonly, nonatomic) struct Renderer *renderer;
 @property(readonly, nonatomic) const struct RenderTargetFormat *format;
-- (shared_ptr_edb96180)bitmapData:(struct Texture *)arg1;
+- (shared_ptr_fa6aa836)bitmapData:(struct Texture *)arg1;
 @property(readonly, nonatomic) struct Texture2D *imageTexture;
 @property(readonly, nonatomic) _Bool shouldRasterize;
 - (void)dealloc;
-- (id)initWithSize:(struct CGSize)arg1 scale:(double)arg2 useMultisampling:(_Bool)arg3;
+- (id)initWithSize:(struct CGSize)arg1 scale:(double)arg2 useMultisampling:(_Bool)arg3 device:(struct Device *)arg4;
 @property(readonly, nonatomic) struct RenderTarget *finalRenderTarget;
 @property(readonly, nonatomic) struct CGSize sizeInPixels;
 - (struct Texture *)finalSurface;

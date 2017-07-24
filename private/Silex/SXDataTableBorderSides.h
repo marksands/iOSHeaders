@@ -15,6 +15,11 @@
 
 @property(retain, nonatomic) SXUnitConverter *unitConverter; // @synthesize unitConverter=_unitConverter;
 - (void).cxx_destruct;
+- (id)borderForValue:(id)arg1;
+- (id)leftWithValue:(id)arg1 withType:(int)arg2;
+- (id)bottomWithValue:(id)arg1 withType:(int)arg2;
+- (id)rightWithValue:(id)arg1 withType:(int)arg2;
+- (id)topWithValue:(id)arg1 withType:(int)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) SXDataTableBorder *bottom; // @dynamic bottom;

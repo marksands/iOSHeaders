@@ -6,22 +6,26 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray;
+#import <NanoTimeKitCompanion/NSSecureCoding-Protocol.h>
 
-@interface NTKKaleidoscopePathfinder : NSObject
+@interface NTKKaleidoscopePathfinder : NSObject <NSSecureCoding>
 {
-    float _sampleRadius;
+    float _sampleRadiusX;
+    float _sampleRadiusY;
     int _cellGridWidth;
     int _cellGridHeight;
-    int _dominanceGridWidth;
-    int _dominanceGridHeight;
+    int _pathLength;
     // Error parsing type: ^, name: _dominanceGrid
-    NSArray *_path;
+    // Error parsing type: ^, name: _path
 }
 
-- (void).cxx_destruct;
++ (_Bool)supportsSecureCoding;
++ (id)pathfinderFromPath:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (struct NTKKaleidoscopePathfinderPoint)pointForTime:(float)arg1;
 - (void)dealloc;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithImage:(id)arg1 divisor:(float)arg2;
 - (id)initWithImage:(id)arg1;
 
 @end

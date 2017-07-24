@@ -6,7 +6,7 @@
 
 #import <UIKit/_UIButtonBarButtonVisualProvider.h>
 
-@class NSArray, NSLayoutConstraint, NSMutableArray, NSMutableDictionary, UIButton, UIImageView, _UIBackButtonContainerView;
+@class NSArray, NSLayoutConstraint, NSMutableArray, NSMutableDictionary, UIButton, UIImageView, _UIBackButtonContainerView, _UIModernBarButton;
 @protocol _UIButtonBarAppearanceDelegate;
 
 __attribute__((visibility("hidden")))
@@ -14,8 +14,8 @@ __attribute__((visibility("hidden")))
 {
     UIButton *_backIndicatorButton;
     _UIBackButtonContainerView *_titleContainer;
-    UIButton *_titleButton;
-    UIButton *_imageButton;
+    _UIModernBarButton *_titleButton;
+    _UIModernBarButton *_imageButton;
     UIImageView *_backgroundImage;
     UIImageView *_selectedImage;
     NSMutableArray *_constraints;
@@ -26,28 +26,35 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_backgroundImages;
     _Bool _skipAttributedTitle;
     long long _barButtonStyle;
+    NSArray *_titleContent;
+    NSMutableDictionary *_titleLookup;
+    NSLayoutConstraint *_backButtonTitleMaxWidthConstraint;
 }
 
 - (void).cxx_destruct;
+- (void)buttonWillMoveToWindow:(id)arg1;
+- (void)buttonLayoutSubviews:(id)arg1 baseImplementation:(CDUnknownBlockType)arg2;
 - (void)configureButton:(id)arg1 fromBarButtonItem:(id)arg2;
+- (void)_setupAlternateTitlesFromBarButtonItem:(id)arg1;
+- (id)_titleContentForTitle:(id)arg1;
 - (struct UIOffset)_backButtonTitlePositionAdjustmentForBarMetrics:(long long)arg1;
 - (void)_configureBackButtonButton:(id)arg1;
 - (void)_configureTextBackButtonButton:(id)arg1 withOffset:(struct UIOffset)arg2;
 - (void)_configureImageBackButtonButton:(id)arg1 withInsets:(struct UIEdgeInsets)arg2;
-- (void)_configureTextButton:(id)arg1 withOffset:(struct UIOffset)arg2;
+- (void)_configureTextButton:(id)arg1 withOffset:(struct UIOffset)arg2 additionalPadding:(struct UIEdgeInsets)arg3;
 - (struct UIOffset)_titlePositionAdjustmentForBarMetrics:(long long)arg1;
 - (void)_configureImageButton:(id)arg1 withInsets:(struct UIEdgeInsets)arg2 paddingEdges:(unsigned long long)arg3 additionalPadding:(double)arg4;
 - (void)_addVerticalConstraintsForImageButton:(id)arg1 withInsets:(struct UIEdgeInsets)arg2;
 - (void)_addVerticalConstraintsForTextButton:(id)arg1 withOffset:(double)arg2;
 - (void)_addVerticalConstraintsForBackIndicatorInButton:(id)arg1 withOffset:(double)arg2;
 - (void)_addHorizontalConstraintsForImageButton:(id)arg1 withInsets:(struct UIEdgeInsets)arg2 paddingEdges:(unsigned long long)arg3 additionalPadding:(double)arg4;
-- (void)_addHorizontalConstraintsForTextButton:(id)arg1 withOffset:(double)arg2;
+- (void)_addHorizontalConstraintsForTextButton:(id)arg1 withOffset:(double)arg2 additionalPadding:(struct UIEdgeInsets)arg3;
 - (void)_addHorizontalConstraintsForBackButton:(id)arg1 contentButton:(id)arg2 withOffset:(double)arg3;
 - (void)configureButton:(id)arg1 withAppearanceDelegate:(id)arg2 fromBarItem:(id)arg3;
-- (long long)_activeBarMetricsForButton:(id)arg1;
 - (id)_backIndicatorMask;
 - (id)_backIndicatorImageForBarMetrics:(long long)arg1;
 - (id)_imageWithActiveStylesFromImage:(id)arg1;
+- (id)_imageWithActiveStylesFromImage:(id)arg1 tintColor:(id)arg2;
 - (struct UIEdgeInsets)_imageInsetsForBarButtonItem:(id)arg1 barMetrics:(long long)arg2 isBackButton:(_Bool)arg3;
 - (double)_defaultPaddingForInsets:(struct UIEdgeInsets)arg1;
 - (double)_offsetFromBackIndicatorToContentButton;
@@ -56,6 +63,8 @@ __attribute__((visibility("hidden")))
 - (void)_addConstraintsForBackgroundImageWithOffset:(double)arg1 isBackButton:(_Bool)arg2;
 - (void)_configureBackgroundForButton:(id)arg1 fromBarButtonItem:(id)arg2 isBackButton:(_Bool)arg3;
 - (void)_configureImageOrTitleFromBarButtonItem:(id)arg1 forMetrics:(long long)arg2;
+- (void)_removeTitleButton;
+- (void)_setTitle:(id)arg1;
 - (void)_computeTextAttributesForBarButtonItem:(id)arg1;
 - (id)_titleAttributesForState:(unsigned long long)arg1;
 - (id)_defaultTitleAttributesForState:(unsigned long long)arg1 style:(long long)arg2;

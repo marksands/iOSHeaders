@@ -7,6 +7,6 @@
 #import <NewsCore/FCContentContext.h>
 
 @interface FCContentContext (NTAdditions)
-+ (id)nt_contentContextWithContentHostDirectory:(id)arg1 versionHelper:(id)arg2;
++ (id)nt_contentContextWithAppConfigurationManager:(id)arg1 contentHostDirectory:(id)arg2;
 @end
 

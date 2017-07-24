@@ -9,7 +9,6 @@
 @class CALayer;
 
 @protocol CCUIGroupRendering <NSObject>
-@property(nonatomic) _Bool allowsInPlaceFiltering;
 @property(readonly, nonatomic) CALayer *punchOutRootLayer;
 @property(readonly, nonatomic, getter=isGroupRenderingRequired) _Bool groupRenderingRequired;
 @end

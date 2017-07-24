@@ -22,7 +22,6 @@ __attribute__((visibility("hidden")))
     UIAlertView *_legacyAlert;
 }
 
-+ (id)_topmostAlertWindow;
 + (void)_removePresenter:(id)arg1;
 + (void)_addPresenter:(id)arg1;
 + (id)_currentFullScreenAlertPresenters;

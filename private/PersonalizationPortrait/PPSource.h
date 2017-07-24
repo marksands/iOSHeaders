@@ -18,16 +18,17 @@
     NSDate *_date;
 }
 
++ (id)allocWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(readonly, nonatomic) NSString *documentId; // @synthesize documentId=_documentId;
 @property(readonly, nonatomic) NSString *groupId; // @synthesize groupId=_groupId;
 @property(readonly, nonatomic) NSString *bundleId; // @synthesize bundleId=_bundleId;
-- (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isEqualToSource:(id)arg1;
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithBundleId:(id)arg1 groupId:(id)arg2 documentId:(id)arg3 date:(id)arg4;
+- (void)dealloc;
 
 @end
 

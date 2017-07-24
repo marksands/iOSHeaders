@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSArray, NSHashTable, NSString, VKRouteInfo;
 
@@ -57,7 +57,7 @@
 - (id)_hashTableForObserverType:(unsigned char)arg1;
 - (void)dealloc;
 - (id)initWithRouteInfo:(id)arg1 useType:(unsigned char)arg2;
-- (id)initWithComposedRoute:(id)arg1 useType:(unsigned char)arg2 uniqueStart:(struct PolylineCoordinate)arg3 uniqueEnd:(struct PolylineCoordinate)arg4;
+- (id)initWithComposedRoute:(id)arg1 useType:(unsigned char)arg2;
 
 @end
 

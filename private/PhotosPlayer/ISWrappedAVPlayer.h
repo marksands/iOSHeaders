@@ -6,7 +6,7 @@
 
 #import <PhotosPlayer/ISObservable.h>
 
-@class AVPlayer, AVPlayerItem, AVQueuePlayer, AVVideoComposition, NSArray, NSError, NSMutableDictionary, NSObject;
+@class AVPlayer, AVPlayerItem, AVQueuePlayer, AVVideoComposition, ISWrappedAVAudioSession, NSArray, NSError, NSMutableDictionary, NSObject;
 @protocol ISWrappedAVPlayerDelegate, OS_dispatch_queue;
 
 @interface ISWrappedAVPlayer : ISObservable
@@ -15,6 +15,7 @@
     NSObject<OS_dispatch_queue> *_ivarQueue;
     NSObject<OS_dispatch_queue> *_delegateQueue;
     AVPlayer *_playerQueue_avPlayer;
+    ISWrappedAVAudioSession *_playerQueue_wrappedAudioSession;
     AVQueuePlayer *_playerQueue_avQueuePlayer;
     id _playerQueue_playerItemDidPlayToEndObserver;
     AVPlayerItem *_ivarQueue_currentItem;
@@ -35,7 +36,6 @@
     NSArray *_ivarQueue_currentItemLoadedTimeRanges;
     NSMutableDictionary *_observersByID;
     void *_ivarQueueIdentifier;
-    void *_playerQueueIdentifier;
     id <ISWrappedAVPlayerDelegate> _delegate;
 }
 
@@ -43,7 +43,7 @@
 + (id)observedAVPKeys;
 @property __weak id <ISWrappedAVPlayerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)setAudioSession:(id)arg1;
+- (void)setWrappedAudioSession:(id)arg1;
 - (void)cancelPendingPrerolls;
 - (void)prerollAtRate:(float)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)seekToTime:(CDStruct_1b6d18a9)arg1 toleranceBefore:(CDStruct_1b6d18a9)arg2 toleranceAfter:(CDStruct_1b6d18a9)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -97,13 +97,10 @@
 - (id)init;
 - (id)_initWithAVPlayer:(id)arg1;
 - (void)_assertOnIvarQueue;
-- (void)_assertOnPlayerQueue;
 - (_Bool)_isOnIvarQueue;
-- (_Bool)_isOnPlayerQueue;
 - (void)_performIvarWrite:(CDUnknownBlockType)arg1;
 - (void)_performIvarRead:(CDUnknownBlockType)arg1;
 - (void)_performPlayerTransaction:(CDUnknownBlockType)arg1;
-- (void)_performPlayerTransaction:(CDUnknownBlockType)arg1 sync:(_Bool)arg2;
 - (id)mutableChangeObject;
 
 @end

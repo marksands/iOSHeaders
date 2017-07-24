@@ -7,11 +7,12 @@
 #import <objc/NSObject.h>
 
 #import <MapsSupport/MSPCloudAccess-Protocol.h>
+#import <MapsSupport/MSPJournaling-Protocol.h>
 
-@class CKContainer, CKDatabase, CKRecordZoneID, MSPJournal, NSDate, NSString, NSUUID;
+@class CKContainer, CKDatabase, CKRecordZoneID, MSPCloudCoalescedOperationExecutor, MSPJournal, NSDate, NSString, NSUUID;
 @protocol NSObject><NSCopying><NSCoding, OS_dispatch_queue;
 
-@interface MSPCloudKitAccountAccess : NSObject <MSPCloudAccess>
+@interface MSPCloudKitAccountAccess : NSObject <MSPJournaling, MSPCloudAccess>
 {
     id <NSObject><NSCopying><NSCoding> _latestAccountIdentity;
     CKContainer *_container;
@@ -22,36 +23,42 @@
     NSDate *_minimumRetryAfter;
     MSPJournal *_journal;
     NSObject<OS_dispatch_queue> *_reachabilityQueue;
+    MSPCloudCoalescedOperationExecutor *_coalescedExecutor;
     CDUnknownBlockType _availabilityDidChangeHandler;
     CDUnknownBlockType _contentsDidChangeHandler;
 }
 
-+ (id)_cacheURLWithNameSuffix:(id)arg1;
 + (id)containerForEnvironment:(long long)arg1 usesZoneWidePCS:(_Bool)arg2;
++ (id)_snapshotLongLivedIDs;
++ (void)_didCompleteLongLivedOperation:(id)arg1;
++ (void)_willEmitLongLivedOperation:(id)arg1;
++ (id)_trackedLongLivedIDsSet;
 @property(copy, nonatomic) CDUnknownBlockType contentsDidChangeHandler; // @synthesize contentsDidChangeHandler=_contentsDidChangeHandler;
 @property(copy, nonatomic) CDUnknownBlockType availabilityDidChangeHandler; // @synthesize availabilityDidChangeHandler=_availabilityDidChangeHandler;
 - (void).cxx_destruct;
+- (id)eventForState:(id)arg1 affectedObject:(id)arg2;
+- (int)telemetricKeyForState:(id)arg1;
+- (_Bool)shouldReportState:(id)arg1;
+- (id)statesToReport;
 - (void)noteDidReceiveCloudKitNotificationWithUserInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)checkForAvailabilityWithCallbackQueue:(id)arg1 schedulePreAvailabilityOperationHandler:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)newGroupForSubscriptionsAndZoneChanges;
 - (void)_rescheduleAllLongLivedOperationsWithHandler:(CDUnknownBlockType)arg1 completionGroup:(id)arg2 thenContinue:(CDUnknownBlockType)arg3;
 - (void)_accountChanged:(id)arg1;
 - (id)_subscriptionNameForZoneID:(id)arg1;
-- (id)newSubscriptionRegistrationRequestWithSuccessHandler:(CDUnknownBlockType)arg1;
-- (id)newModifyClientRegistrationRecordRequestWithEditedRecord:(id)arg1;
-- (id)newFetchRequestForCurrentClientRegistrationRecordWithSuccessHandler:(CDUnknownBlockType)arg1;
-- (id)newCachingFetchRequestForClientRegistrationRecordsWithSuccessHandler:(CDUnknownBlockType)arg1;
-- (id)newCachingFetchChangesRequestWithSuccessHandler:(CDUnknownBlockType)arg1;
-- (id)_newCachingFetchChangesRequestForContainer:(id)arg1 zoneID:(id)arg2 withCacheURL:(id)arg3 successHandler:(CDUnknownBlockType)arg4 isCacheSharedAmongstSynchronizers:(_Bool)arg5;
-- (id)_createCacheByLoadingIfPossibleFromURL:(id)arg1;
-- (id)_createCacheByLoadingIfPossible;
-- (id)_accessContentsCacheURL;
-- (id)requestToResolveError:(id)arg1;
-- (_Bool)shouldRetryAfterError:(id)arg1 isCancelation:(_Bool *)arg2 afterDelay:(out id *)arg3 withResolvingRequest:(out id *)arg4;
+- (id)newSubscriptionRegistrationRequestWithGroup:(id)arg1 successHandler:(CDUnknownBlockType)arg2;
+- (id)newModifyClientRegistrationRecordRequestWithGroup:(id)arg1 editedRecord:(id)arg2;
+- (id)newFetchRequestForCurrentClientRegistrationRecordWithGroup:(id)arg1 successHandler:(CDUnknownBlockType)arg2;
+- (id)newCombinedCachingFetchRequestWithGroup:(id)arg1 forTask:(id)arg2 successHandler:(CDUnknownBlockType)arg3;
+- (id)_newClientRegistrationRecordForThisClient;
+- (id)taskToResolveError:(id)arg1;
+- (_Bool)shouldRetryAfterError:(id)arg1 isCancelation:(_Bool *)arg2 afterDelay:(out id *)arg3 withResolvingTask:(out id *)arg4;
 - (id)retryDelayForError:(id)arg1;
 - (id)minimumStartDate;
-- (id)newQueryRequestForRecordsOfType:(id)arg1 predicate:(id)arg2 sortDescriptors:(id)arg3 successHandler:(CDUnknownBlockType)arg4;
-- (id)newModifyRequestForRecordsToModify:(id)arg1 namesOfRecordsToDelete:(id)arg2;
-- (id)newFetchRequestForRecordsWithNames:(id)arg1 successHandler:(CDUnknownBlockType)arg2;
+- (id)newQueryRequestWithGroup:(id)arg1 forRecordsOfType:(id)arg2 predicate:(id)arg3 sortDescriptors:(id)arg4 successHandler:(CDUnknownBlockType)arg5;
+- (id)newModifyRequestWithGroup:(id)arg1 forRecordsToModify:(id)arg2 namesOfRecordsToDelete:(id)arg3;
+- (id)newFetchRequestWithGroup:(id)arg1 forRecordsWithNames:(id)arg2 successHandler:(CDUnknownBlockType)arg3;
+- (id)newRequestGroupWithName:(id)arg1 size:(long long)arg2;
 - (id)newReferenceToRecord:(id)arg1;
 - (id)newReferenceToRecordWithName:(id)arg1;
 - (id)newRecordOfType:(id)arg1 name:(id)arg2;

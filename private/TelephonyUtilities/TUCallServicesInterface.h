@@ -80,7 +80,7 @@
 - (oneway void)joinConversationWithRequest:(id)arg1;
 - (id)dialWithRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) id <TUCallContainerPrivate> callContainer;
-- (void)cleanUpAllCallsForServerDisconnect;
+- (void)cleanUpAllCallsForUnexpectedServerDisconnect;
 - (void)waitForInitialStateIfNecessary;
 - (void)requestCurrentStateWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)tearDownXPCConnection;

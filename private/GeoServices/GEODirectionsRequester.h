@@ -19,8 +19,7 @@
 + (void)useProxy:(Class)arg1;
 - (void).cxx_destruct;
 - (void)cancelRequest:(id)arg1;
-- (void)startRequest:(id)arg1 auditToken:(id)arg2 isDoomRequest:(_Bool)arg3 requestPriority:(id)arg4 finished:(CDUnknownBlockType)arg5 networkActivity:(CDUnknownBlockType)arg6 error:(CDUnknownBlockType)arg7;
-- (void)startRequest:(id)arg1 auditToken:(id)arg2 skipFinalize:(_Bool)arg3 finished:(CDUnknownBlockType)arg4 networkActivity:(CDUnknownBlockType)arg5 error:(CDUnknownBlockType)arg6;
+- (void)startRequest:(id)arg1 auditToken:(id)arg2 skipFinalize:(_Bool)arg3 isDoomRequest:(_Bool)arg4 requestPriority:(id)arg5 finished:(CDUnknownBlockType)arg6 networkActivity:(CDUnknownBlockType)arg7 error:(CDUnknownBlockType)arg8;
 - (void)startRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 networkActivity:(CDUnknownBlockType)arg3 error:(CDUnknownBlockType)arg4;
 - (void)finalizeRequest:(id)arg1;
 - (id)init;

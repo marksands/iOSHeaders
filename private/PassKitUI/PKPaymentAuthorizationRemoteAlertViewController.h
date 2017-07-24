@@ -7,25 +7,32 @@
 #import <SpringBoardUIServices/SBUIRemoteAlertServiceViewController.h>
 
 #import <PassKitUI/PKPaymentAuthorizationHostProtocol-Protocol.h>
+#import <PassKitUI/PKPaymentAuthorizationServiceViewControllerDelegate-Protocol.h>
 #import <PassKitUI/PKPaymentSetupDelegate-Protocol.h>
+#import <PassKitUI/SBSHardwareButtonEventConsuming-Protocol.h>
 
-@class NSString, NSXPCConnection, PKCompactNavigationContainerController, PKInAppPaymentService, PKPaymentAuthorizationRemoteAlertViewControllerExportedObject, PKPaymentAuthorizationServiceNavigationController, PKPaymentProvisioningController, PKPaymentRequest, PKPaymentSetupNavigationController;
+@class NSString, NSXPCConnection, PKAssertion, PKCompactNavigationContainerController, PKInAppPaymentService, PKPaymentAuthorizationRemoteAlertViewControllerExportedObject, PKPaymentAuthorizationServiceNavigationController, PKPaymentProvisioningController, PKPaymentRequest, PKPaymentSetupNavigationController;
+@protocol BSInvalidatable;
 
-@interface PKPaymentAuthorizationRemoteAlertViewController : SBUIRemoteAlertServiceViewController <PKPaymentAuthorizationHostProtocol, PKPaymentSetupDelegate>
+@interface PKPaymentAuthorizationRemoteAlertViewController : SBUIRemoteAlertServiceViewController <PKPaymentAuthorizationServiceViewControllerDelegate, PKPaymentAuthorizationHostProtocol, PKPaymentSetupDelegate, SBSHardwareButtonEventConsuming>
 {
-    _Bool _didForceDismiss;
+    _Bool _didDismiss;
     _Bool _didSendAuthorizationDidPresent;
     long long _hostAppInterfaceOrientation;
     NSString *_hostApplicationIdentifier;
     int _statusBarVisibility;
+    PKAssertion *_notificationSuppressionAssertion;
     NSString *_hostLocalizedAppName;
     PKPaymentRequest *_paymentRequest;
-    PKPaymentProvisioningController *_paymentProvisioningController;
-    PKPaymentSetupNavigationController *_paymentSetupNavigationController;
-    _Bool _dismissAfterPaymentSetup;
-    _Bool _isPerformingPaymentSetup;
+    _Bool _paymentAuthorizationPresented;
     PKCompactNavigationContainerController *_navigationContainer;
     PKPaymentAuthorizationServiceNavigationController *_navigationController;
+    PKPaymentProvisioningController *_paymentProvisioningController;
+    PKPaymentSetupNavigationController *_paymentSetupNavigationController;
+    _Bool _shouldAcquireLockButtonObserver;
+    id <BSInvalidatable> _lockButtonObserver;
+    _Bool _dismissAfterPaymentSetup;
+    _Bool _isPerformingPaymentSetup;
     PKPaymentAuthorizationRemoteAlertViewControllerExportedObject *_exportedObject;
     PKInAppPaymentService *_inAppPaymentService;
     NSXPCConnection *_hostConnection;
@@ -38,10 +45,9 @@
 @property(retain, nonatomic) NSXPCConnection *hostConnection; // @synthesize hostConnection=_hostConnection;
 @property(retain, nonatomic) PKInAppPaymentService *inAppPaymentService; // @synthesize inAppPaymentService=_inAppPaymentService;
 @property(retain, nonatomic) PKPaymentAuthorizationRemoteAlertViewControllerExportedObject *exportedObject; // @synthesize exportedObject=_exportedObject;
-@property(retain, nonatomic) PKPaymentAuthorizationServiceNavigationController *navigationController; // @synthesize navigationController=_navigationController;
-@property(retain, nonatomic) PKCompactNavigationContainerController *navigationContainer; // @synthesize navigationContainer=_navigationContainer;
 - (void).cxx_destruct;
-- (void)_forceDismiss;
+- (void)_invalidateLockButtonObserver;
+- (void)dismissWithRemoteOriginiation:(_Bool)arg1;
 - (void)_dismiss;
 - (id)_remoteObjectProxy;
 - (void)authorizationDidSelectPaymentMethod:(id)arg1;
@@ -53,7 +59,7 @@
 - (void)authorizationDidFinishWithError:(id)arg1;
 - (void)authorizationDidRequestMerchantSession;
 - (void)authorizationWillStart;
-- (void)handleLockButtonPressed;
+- (void)consumeSinglePressUpForButtonKind:(long long)arg1;
 - (void)handleHomeButtonPressed;
 - (void)sendAuthorizationDidPresentIfNecessary;
 - (void)_presentAlertWithTitle:(id)arg1 message:(id)arg2 cancelTitle:(id)arg3 actionTitle:(id)arg4 actionHandler:(CDUnknownBlockType)arg5;
@@ -75,7 +81,9 @@
 - (int)_preferredStatusBarVisibility;
 - (_Bool)_shouldRemoveViewFromHierarchyOnDisappear;
 - (void)_willAppearInRemoteViewController;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (unsigned long long)supportedInterfaceOrientations;
 - (_Bool)shouldAutorotate;

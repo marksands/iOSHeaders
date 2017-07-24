@@ -18,9 +18,9 @@
 @property(readonly, nonatomic) struct CCUILayoutSize layoutSize; // @synthesize layoutSize=_layoutSize;
 - (void).cxx_destruct;
 - (struct CCUILayoutRect)layoutRectForIdentifier:(id)arg1;
-@property(readonly, nonatomic) struct CCUILayoutRect maximumHeightLayoutRect;
 - (id)_generateRectByIdentifierWithOrderedIdentifiers:(id)arg1 orderedSizes:(id)arg2 packingOrder:(unsigned long long)arg3 startPosition:(struct CCUILayoutPoint)arg4 maximumSize:(struct CCUILayoutSize)arg5 outputLayoutSize:(out struct CCUILayoutSize *)arg6;
 - (void)regenerateRectsWithOrderedIdentifiers:(id)arg1 orderedSizes:(id)arg2;
+@property(readonly, nonatomic) struct CCUILayoutSize maximumLayoutSize; // @dynamic maximumLayoutSize;
 - (id)initWithPackingRules:(id)arg1;
 
 @end

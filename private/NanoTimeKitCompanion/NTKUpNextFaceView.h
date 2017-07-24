@@ -13,7 +13,7 @@
 #import <NanoTimeKitCompanion/UICollectionViewDelegateFlowLayout-Protocol.h>
 #import <NanoTimeKitCompanion/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSArray, NSOrderedSet, NSString, NSTimer, NTKDigitalTimeLabel, NTKDigitalTimeLabelStyle, NTKUpNextCollectionView, NTKUpNextCollectionViewFlowLayout, NTKUpNextFaceElementController, NTKUpNextScheduler, NTKUtilityComplicationFactory, UIImage, UIImageView, UITapGestureRecognizer, UIView;
+@class NSArray, NSOrderedSet, NSString, NSTimer, NTKDigitalTimeLabel, NTKDigitalTimeLabelStyle, NTKUpNextCollectionView, NTKUpNextCollectionViewFlowLayout, NTKUpNextFaceElementController, NTKUpNextScheduler, NTKUtilityComplicationFactory, UIImage, UITapGestureRecognizer, UIView;
 
 @interface NTKUpNextFaceView : NTKDigitalFaceView <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, NTKUpNextFaceElementControllerDelegate, NTKUpNextElementActionDelegate, NTKUpNextCellDelegate>
 {
@@ -34,17 +34,23 @@
     NSArray *_complicationDisplays;
     _Bool _isAnimating;
     UIImage *_cellContentBackground;
-    UIImage *_emptyCellContentBackground;
-    UIImageView *_upperLeftCorner;
-    UIImageView *_upperRightCorner;
     UIView *_timeLabelPlatter;
     _Bool _needsUpdatesWhileSuppressed;
     _Bool _isInflightScroll;
     _Bool _cancelInflightScroll;
     _Bool _isProgramaticScrollEvent;
     _Bool _crownInverted;
+    _Bool _suppressUpdates;
     NSOrderedSet *_currentApplicationIdentifiers;
     NTKUpNextScheduler *_applicationIdentifierUpdateScheduler;
+    long long _interactiveState;
+    CDUnknownBlockType _modeTransitionApplier;
+    CDUnknownBlockType _modeTransitionCompletion;
+    struct CGPoint _startOffsetForModeTransition;
+    struct CGPoint _targetOffsetForModeTransition;
+    struct CGPoint _secondaryOffsetForModeTransition;
+    _Bool _scrollingStoppedTransition;
+    long long _previousDataMode;
 }
 
 + (void)initialize;
@@ -62,9 +68,9 @@
 - (void)_layoutTimeLabelForViewMode:(long long)arg1;
 - (void)_layoutTimeLabelPlatterViewMode:(long long)arg1;
 - (id)_timeLabelStyleForViewMode:(long long)arg1;
-- (void)_allowContentViewScrolling:(_Bool)arg1;
-- (void)_cleanupAfterSettingViewMode:(long long)arg1 scroll:(_Bool)arg2 targetOffset:(struct CGPoint)arg3;
-- (void)_setViewMode:(long long)arg1 scroll:(_Bool)arg2 scrollToPoint:(struct CGPoint)arg3 force:(_Bool)arg4 velocity:(double)arg5 animated:(_Bool)arg6;
+- (void)_allowContentViewInteractive:(_Bool)arg1;
+- (void)_cleanupAfterSettingViewMode:(long long)arg1 scroll:(_Bool)arg2 targetOffset:(struct CGPoint)arg3 needsLayout:(_Bool)arg4;
+- (void)_setViewMode:(long long)arg1 scroll:(_Bool)arg2 scrollToPoint:(struct CGPoint)arg3 secondaryPoint:(struct CGPoint)arg4 force:(_Bool)arg5 velocity:(double)arg6 animated:(_Bool)arg7;
 - (struct CGPoint)_defaultPointForDefaultMode;
 - (_Bool)faceElementController:(id)arg1 isElementAtIndexPathVisible:(id)arg2;
 - (void)faceElementController:(id)arg1 didMoveElement:(id)arg2 fromIndexPath:(id)arg3 toIndexPath:(id)arg4;
@@ -75,6 +81,8 @@
 - (void)_applyShowContentForUnadornedSnapshot;
 - (void)setViewMode:(long long)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (void)_applyShowsLockedUI;
+- (_Bool)_applyShouldUseCanonicalContent;
 - (void)_applyShowsCanonicalContent;
 - (_Bool)_shouldUseCanonicalContent;
 - (void)_applyOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
@@ -105,18 +113,19 @@
 - (void)_startViewResetTimer;
 - (unsigned long long)_distanceForIndexPathFromNow:(id)arg1;
 - (void)_updateApplicationIdentifiers;
+- (void)_switchViewModeToDefault;
 - (void)_configureForTransitionFraction:(double)arg1 fromEditMode:(long long)arg2 toEditMode:(long long)arg3;
 - (void)_unloadSnapshotContentViews;
 - (void)_loadSnapshotContentViews;
 - (_Bool)_needsForegroundContainerView;
 - (double)_verticalPaddingForStatusBar;
-- (void)_reloadContentIfNeededWithAnimation:(_Bool)arg1;
-- (void)setDataMode:(long long)arg1;
+- (void)_reloadContentIfNeeded;
 - (void)_configureComplicationView:(id)arg1 forSlot:(id)arg2;
 - (id)_newLegacyViewForComplication:(id)arg1 family:(long long)arg2 slot:(id)arg3;
 - (id)_detachedComplicationDisplays;
 - (void)layoutSubviews;
 - (id)elementAtIndex:(long long)arg1 inSection:(long long)arg2;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

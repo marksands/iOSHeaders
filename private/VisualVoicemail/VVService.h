@@ -83,8 +83,8 @@
 - (void)resetDelayedSynchronizationAttemptCount;
 - (void)cancelDelayedSynchronize;
 - (void)reportError:(id)arg1;
-- (void)moveRecordFromTrash:(void *)arg1;
-- (void)moveRecordToTrash:(void *)arg1;
+- (void)moveRecordsWithIdentifiersToInbox:(id)arg1;
+- (void)moveRecordsWithIdentifiersToTrash:(id)arg1;
 - (void)setGreetingType:(long long)arg1 withData:(id)arg2 duration:(unsigned long long)arg3;
 - (_Bool)greetingAvailable;
 - (void)retrieveGreeting;
@@ -168,6 +168,7 @@
 - (void)dealloc;
 - (id)init;
 - (void)_callStatusChanged;
+- (void)_carrierBundleChanged;
 - (void)_dataAvailabilityChanged;
 - (void)_dataRoamingStatusChanged;
 - (_Bool)doTrashCompaction;

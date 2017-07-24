@@ -7,6 +7,10 @@
 #import <Foundation/NSArray.h>
 
 @interface NSArray (IC)
+- (id)objectAfter:(id)arg1 wrap:(_Bool)arg2;
+- (id)objectBefore:(id)arg1 wrap:(_Bool)arg2;
+- (id)objectAfter:(id)arg1;
+- (id)objectBefore:(id)arg1;
 - (_Bool)ic_indexIsValid:(long long)arg1;
 - (unsigned long long)ic_indexOfSortedObject:(id)arg1 insertionIndex:(out unsigned long long *)arg2 usingComparator:(CDUnknownBlockType)arg3;
 - (id)arrayByGroupingIntoArraysWithMaxCount:(unsigned long long)arg1;

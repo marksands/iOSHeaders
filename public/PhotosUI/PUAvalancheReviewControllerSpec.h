@@ -13,7 +13,6 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) double interItemSpacing;
 - (_Bool)allowsInterfaceRotation;
-- (struct UIEdgeInsets)collectionViewLayoutContentInsetForOrientation:(long long)arg1;
 @property(readonly, nonatomic) unsigned long long selectionBadgeCorner;
 @property(readonly, nonatomic) struct UIOffset selectionBadgeOffset;
 @property(readonly, nonatomic) struct CGSize selectionBadgeSize;

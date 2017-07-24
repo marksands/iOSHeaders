@@ -17,9 +17,10 @@
 @property(retain, nonatomic) HMDCloudGroup *rootGroup; // @synthesize rootGroup=_rootGroup;
 - (void).cxx_destruct;
 - (void)setServerChangeToken:(id)arg1;
+- (void)setSubscription:(id)arg1;
 - (id)subscriptionName;
 - (id)owner;
-- (id)createCloudZoneChange;
+- (id)createCloudZoneChangeTemporaryCache:(_Bool)arg1;
 - (void)deleteCloudRecord:(id)arg1;
 - (void)updateCloudRecord:(id)arg1;
 - (_Bool)isRootCloudRecord:(id)arg1;

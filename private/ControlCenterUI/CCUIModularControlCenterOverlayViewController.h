@@ -10,12 +10,12 @@
 #import <ControlCenterUI/CCUIStatusLabelViewControllerDelegate-Protocol.h>
 #import <ControlCenterUI/UIGestureRecognizerDelegate-Protocol.h>
 
-@class CCUIHeaderPocketView, CCUIScrollView, NSString, SBUIBackgroundView, UIPanGestureRecognizer, UITapGestureRecognizer;
+@class CCUIHeaderPocketView, CCUIScrollView, MTMaterialView, NSString, UIPanGestureRecognizer, UITapGestureRecognizer;
 @protocol CCUIModularControlCenterOverlayViewControllerDelegate;
 
 @interface CCUIModularControlCenterOverlayViewController : CCUIModularControlCenterViewController <UIGestureRecognizerDelegate, CCUIScrollViewDelegate, CCUIStatusLabelViewControllerDelegate>
 {
-    SBUIBackgroundView *_backgroundView;
+    MTMaterialView *_backgroundView;
     CCUIHeaderPocketView *_headerPocketView;
     CCUIScrollView *_scrollView;
     UIPanGestureRecognizer *_headerPocketViewDismissalPanGesture;
@@ -42,6 +42,7 @@
 - (_Bool)_allowDismissalWithCollectionPanGesture:(id)arg1;
 - (_Bool)_allowDismissalWithPanGesture:(id)arg1;
 - (void)_handleControlCenterDismissalPanGesture:(id)arg1;
+- (void)_cancelDismissalPanGestures;
 - (_Bool)_allowScrollWithPanGesture:(id)arg1;
 - (double)_presentationGestureActivationMinimumYOffset;
 - (void)cancelPresentationWithLocation:(struct CGPoint)arg1 velocity:(struct CGPoint)arg2;
@@ -53,6 +54,7 @@
 - (void)statusLabelViewControllerWillBeginStatusUpdates:(id)arg1;
 - (void)moduleCollectionViewController:(id)arg1 willCloseExpandedModule:(id)arg2;
 - (void)moduleCollectionViewController:(id)arg1 willOpenExpandedModule:(id)arg2;
+- (_Bool)moduleCollectionViewController:(id)arg1 shouldForwardAppearanceCall:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)scrollViewDidScroll:(id)arg1;
 - (_Bool)scrollView:(id)arg1 gestureRecognizerShouldBegin:(id)arg2;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
@@ -61,22 +63,21 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
+- (struct CGRect)_moduleCollectionViewFrameForPresentationState:(unsigned long long)arg1;
+- (struct CGRect)_moduleCollectionViewFrame;
 - (id)_moduleCollectionViewContainerView;
 - (id)_statusLabelViewContainerView;
 - (void)_makePresentationFramesDirty;
 - (struct CGRect)_targetPresentationFrame;
 - (struct CGRect)_sourcePresentationFrame;
 - (void)_setPocketViewOriginFromCollectionOriginY:(double)arg1 revealPercentage:(double)arg2;
-- (void)_setCollectionViewOriginAccountingForContentInset:(struct CGPoint)arg1;
 - (void)_setCollectionViewOriginY:(double)arg1 revealPercentage:(double)arg2;
 - (void)_setCollectionViewOriginYUpdatingRevealPercentage:(double)arg1;
 - (double)_rubberBandingHeight;
 - (void)_animateSetCollectionViewOriginYUpdatingRevealPercentage:(double)arg1;
-- (void)_dismissAnimated:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_endDismissalAnimated:(_Bool)arg1 withSuccess:(_Bool)arg2;
-- (void)_beginDismissal;
+- (void)_beginDismissalAnimated:(_Bool)arg1;
 - (void)dismissAnimated:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)_presentAnimated:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_endPresentationWithSuccess:(_Bool)arg1;
 - (void)_beginPresentationAnimated:(_Bool)arg1;
 - (void)presentAnimated:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;

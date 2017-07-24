@@ -27,12 +27,18 @@
     NSString *_transportType;
     NSString *_type;
     long long _vendorID;
+    long long _adapterFamilyCode;
+    NSString *_adapterName;
     NSDictionary *_ioKitDescription;
+    NSDictionary *_ioKitAdapterDescription;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool present; // @synthesize present=_present;
+@property(copy, nonatomic) NSDictionary *ioKitAdapterDescription; // @synthesize ioKitAdapterDescription=_ioKitAdapterDescription;
 @property(copy, nonatomic) NSDictionary *ioKitDescription; // @synthesize ioKitDescription=_ioKitDescription;
+@property(copy, nonatomic) NSString *adapterName; // @synthesize adapterName=_adapterName;
+@property(nonatomic) long long adapterFamilyCode; // @synthesize adapterFamilyCode=_adapterFamilyCode;
 @property(nonatomic) long long vendorID; // @synthesize vendorID=_vendorID;
 @property(copy, nonatomic) NSString *type; // @synthesize type=_type;
 @property(copy, nonatomic) NSString *transportType; // @synthesize transportType=_transportType;

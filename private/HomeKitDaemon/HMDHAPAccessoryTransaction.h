@@ -23,7 +23,6 @@
 @property(retain, nonatomic) NSNumber *certificationStatus; // @dynamic certificationStatus;
 @property(retain, nonatomic) NSNumber *keyUpdatedStateNumber; // @dynamic keyUpdatedStateNumber;
 @property(retain, nonatomic) NSDate *keyUpdatedTime; // @dynamic keyUpdatedTime;
-@property(retain, nonatomic) NSNumber *paired; // @dynamic paired;
 @property(retain, nonatomic) NSString *pairingUsername; // @dynamic pairingUsername;
 @property(retain, nonatomic) NSData *publicKey; // @dynamic publicKey;
 @property(retain, nonatomic) NSData *relayAccessToken; // @dynamic relayAccessToken;

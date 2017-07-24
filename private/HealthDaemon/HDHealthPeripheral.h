@@ -42,6 +42,7 @@
 @property(readonly) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) CBPeripheral *cbPeripheral; // @synthesize cbPeripheral=_cbPeripheral;
 - (void).cxx_destruct;
+- (void)peripheral:(id)arg1 didUpdateNotificationStateForCharacteristic:(id)arg2 error:(id)arg3;
 - (void)peripheral:(id)arg1 didWriteValueForCharacteristic:(id)arg2 error:(id)arg3;
 - (void)peripheral:(id)arg1 didUpdateValueForCharacteristic:(id)arg2 error:(id)arg3;
 - (void)peripheral:(id)arg1 didDiscoverCharacteristicsForService:(id)arg2 error:(id)arg3;

@@ -18,6 +18,7 @@
 - (void)setPlayer:(id)arg1;
 - (void)setWrappedPlayer:(id)arg1;
 - (void)setBounds:(struct CGRect)arg1;
+- (void)dealloc;
 - (id)init;
 
 @end

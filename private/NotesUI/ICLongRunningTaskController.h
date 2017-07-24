@@ -12,6 +12,9 @@
 
 @interface ICLongRunningTaskController : NSObject <ICProgressViewControllerDelegate>
 {
+    _Bool _isCancelled;
+    _Bool _shouldShowCancelButton;
+    _Bool _shouldShowCircularProgress;
     _Bool _progressViewControllerDidFinishPresenting;
     _Bool _shouldDismissProgressViewController;
     NSString *_progressFormatString;
@@ -39,8 +42,11 @@
 @property(retain, nonatomic) id keepAlive; // @synthesize keepAlive=_keepAlive;
 @property(nonatomic) double intervalBeforeOpeningProgressDialog; // @synthesize intervalBeforeOpeningProgressDialog=_intervalBeforeOpeningProgressDialog;
 @property(retain, nonatomic) UIWindow *window; // @synthesize window=_window;
+@property(nonatomic) _Bool shouldShowCircularProgress; // @synthesize shouldShowCircularProgress=_shouldShowCircularProgress;
 @property(retain, nonatomic) UIViewController *viewControllerToPresentFrom; // @synthesize viewControllerToPresentFrom=_viewControllerToPresentFrom;
 @property(copy, nonatomic) NSString *progressFormatString; // @synthesize progressFormatString=_progressFormatString;
+@property(nonatomic) _Bool shouldShowCancelButton; // @synthesize shouldShowCancelButton=_shouldShowCancelButton;
+@property(nonatomic) _Bool isCancelled; // @synthesize isCancelled=_isCancelled;
 - (void).cxx_destruct;
 - (void)willDismissProgressViewController:(id)arg1;
 - (void)closeProgressDialog;

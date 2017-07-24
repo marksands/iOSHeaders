@@ -15,5 +15,6 @@
 - (id)fp_representableHFSFileNameWithSuffix:(id)arg1 addedExtension:(id)arg2 makeDotFile:(_Bool)arg3;
 - (id)fp_stringByDeletingPathBounceNo:(unsigned long long *)arg1 andPathExtension:(id *)arg2;
 - (const char *)fp_fileSystemRepresentation;
+- (id)fp_nextBouncedFilename;
 @end
 

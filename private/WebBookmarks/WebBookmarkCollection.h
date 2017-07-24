@@ -179,7 +179,7 @@
 - (_Bool)_clearSyncKeysUnderBookmarkID:(int)arg1 isFolder:(_Bool)arg2;
 - (_Bool)_clearAllTombstones;
 - (_Bool)_insertTombstoneWithServerID:(id)arg1 syncData:(id)arg2;
-- (_Bool)_moveBookmark:(id)arg1 toFolderWithID:(int)arg2;
+- (_Bool)_moveBookmark:(id)arg1 toFolderWithID:(int)arg2 detectCycles:(_Bool)arg3;
 - (int)_intFromExecutingSQL:(id)arg1;
 - (int)_executeSQLWithCString:(const char *)arg1;
 - (int)_executeSQL:(id)arg1;

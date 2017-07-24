@@ -18,6 +18,7 @@
 
 - (void).cxx_destruct;
 - (void)setPhaseNumber:(unsigned long long)arg1 hemisphere:(long long)arg2;
+- (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)init;
 

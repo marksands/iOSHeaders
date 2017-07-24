@@ -31,10 +31,12 @@
     UIAccessibilityHUDGestureManager *_axHUDGestureManager;
     struct NSDirectionalEdgeInsets _resolvedLayoutMargins;
     double _shadowAlpha;
+    int _currentPushTransition;
     struct {
         unsigned int titleAutosizesToFit:1;
         unsigned int forceFullHeightInLandscape:1;
         unsigned int isLocked:1;
+        unsigned int isIgnoringLock:1;
         unsigned int isContainedInPopover:1;
         unsigned int layoutInProgress:1;
     } _navbarFlags;
@@ -46,10 +48,9 @@
     long long _barPosition;
     double _requestedMaxBackButtonWidth;
     UIColor *_accessibilityButtonBackgroundTintColor;
+    NSDictionary *_largeTitleTextAttributes;
     double __overrideBackgroundExtension;
     NSArray *_backgroundEffects;
-    UIImage *_largeTitleBackgroundImage;
-    NSDictionary *_largeTitleTextAttributes;
     long long _requestedContentSize;
     double __backgroundOpacity;
     double __titleOpacity;
@@ -74,11 +75,10 @@
 @property(nonatomic, setter=_setBackgroundOpacity:) double _backgroundOpacity; // @synthesize _backgroundOpacity=__backgroundOpacity;
 @property(nonatomic, setter=_setUseInlineBackgroundHeightWhenLarge:) _Bool _useInlineBackgroundHeightWhenLarge; // @synthesize _useInlineBackgroundHeightWhenLarge=__useInlineBackgroundHeightWhenLarge;
 @property(nonatomic) long long requestedContentSize; // @synthesize requestedContentSize=_requestedContentSize;
-@property(copy, nonatomic) NSDictionary *largeTitleTextAttributes; // @synthesize largeTitleTextAttributes=_largeTitleTextAttributes;
-@property(retain, nonatomic) UIImage *largeTitleBackgroundImage; // @synthesize largeTitleBackgroundImage=_largeTitleBackgroundImage;
 @property(copy, nonatomic) NSArray *backgroundEffects; // @synthesize backgroundEffects=_backgroundEffects;
 @property(readonly, nonatomic) _Bool _startedAnimationTracking; // @synthesize _startedAnimationTracking=__startedAnimationTracking;
 @property(nonatomic, setter=_setOverrideBackgroundExtension:) double _overrideBackgroundExtension; // @synthesize _overrideBackgroundExtension=__overrideBackgroundExtension;
+@property(copy, nonatomic) NSDictionary *largeTitleTextAttributes; // @synthesize largeTitleTextAttributes=_largeTitleTextAttributes;
 @property(nonatomic) _Bool prefersLargeTitles; // @synthesize prefersLargeTitles=_prefersLargeTitles;
 @property(nonatomic) long long barStyle; // @synthesize barStyle=_barStyle;
 @property(nonatomic, setter=_setWantsLetterpressContent:) _Bool _wantsLetterpressContent; // @synthesize _wantsLetterpressContent;
@@ -113,7 +113,7 @@
 - (void)setCenter:(struct CGPoint)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
-- (void)_barSizeDidChange;
+- (void)_barSizeDidChange:(struct CGSize)arg1;
 - (long long)_barPosition;
 - (void)_setBarPosition:(long long)arg1;
 - (void)_updateBackIndicatorImage;
@@ -148,6 +148,7 @@
 - (id)prompt;
 - (void)_setPrompt:(id)arg1;
 - (void)setPrompt:(id)arg1;
+- (struct CGRect)_incomingNavigationBarFrame;
 - (void)_sendNavigationBarAnimateTransition;
 - (void)_sendNavigationBarResize;
 - (void)_sendResizeForPromptChange;
@@ -223,6 +224,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) long long currentContentSize;
 - (long long)effectiveInterfaceOrientation;
+- (long long)_effectiveMetricsForMetrics:(long long)arg1;
 - (void)_addItems:(id)arg1 withEffectiveDelegate:(id)arg2 transition:(int)arg3;
 - (void)_addItem:(id)arg1 withEffectiveDelegate:(id)arg2 transition:(int)arg3;
 - (void)_setItemsUpToItem:(id)arg1 transition:(int)arg2;
@@ -257,6 +259,7 @@
 - (void)_pushNavigationItem:(id)arg1 transition:(int)arg2;
 @property(readonly, nonatomic) NSArray *_animationIds;
 - (void)pushNavigationItem:(id)arg1 animated:(_Bool)arg2;
+- (void)_pushNavigationItemUsingCurrentTransition:(id)arg1;
 - (void)_customViewChangedForButtonItem:(id)arg1;
 @property(readonly, nonatomic) int state;
 - (id)_defaultTitleFontWithScaleAdjustment:(double)arg1;
@@ -326,6 +329,7 @@
 @property(nonatomic, setter=_setShadowAlpha:) double _shadowAlpha;
 - (double)_internalShadowAlpha;
 @property(retain, nonatomic, setter=_setBackgroundView:) UIView *_backgroundView;
+- (void)_performUpdatesIgnoringLock:(CDUnknownBlockType)arg1;
 - (id)backButtonViewAtPoint:(struct CGPoint)arg1;
 - (_Bool)isElementAccessibilityExposedToInterfaceBuilder;
 - (double)_defaultAutolayoutSpacing;

@@ -6,23 +6,19 @@
 
 #import <objc/NSObject.h>
 
-#import <Home/CLLocationManagerDelegate-Protocol.h>
+#import <Home/HFLocationManagerObserver-Protocol.h>
 
-@class CLLocationManager, NAFuture, NSString, NSUserDefaults;
+@class HFLocationManagerDispatcher, NAFuture, NSString, NSUserDefaults;
 @protocol HFLocationSensingCoordinatorDelegate;
 
-@interface HFLocationSensingCoordinator : NSObject <CLLocationManagerDelegate>
+@interface HFLocationSensingCoordinator : NSObject <HFLocationManagerObserver>
 {
-    int _authorizationStatus;
     id <HFLocationSensingCoordinatorDelegate> _delegate;
     NSUserDefaults *_defaults;
-    CLLocationManager *_locationManager;
-    NAFuture *_authStatusInitializedFuture;
+    HFLocationManagerDispatcher *_locationDispatcher;
 }
 
-@property(nonatomic) int authorizationStatus; // @synthesize authorizationStatus=_authorizationStatus;
-@property(retain, nonatomic) NAFuture *authStatusInitializedFuture; // @synthesize authStatusInitializedFuture=_authStatusInitializedFuture;
-@property(retain, nonatomic) CLLocationManager *locationManager; // @synthesize locationManager=_locationManager;
+@property(retain, nonatomic) HFLocationManagerDispatcher *locationDispatcher; // @synthesize locationDispatcher=_locationDispatcher;
 @property(retain, nonatomic) NSUserDefaults *defaults; // @synthesize defaults=_defaults;
 @property(nonatomic) __weak id <HFLocationSensingCoordinatorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;

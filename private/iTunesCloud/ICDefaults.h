@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSDictionary, NSNumber, NSString, NSUserDefaults;
+@class NSDictionary, NSNumber, NSSet, NSString, NSUserDefaults;
 
 @interface ICDefaults : NSObject
 {
@@ -25,6 +25,8 @@
 @property(readonly, copy, nonatomic) NSString *deviceModelOverride;
 @property(readonly, copy, nonatomic) NSNumber *deviceClassOverride;
 @property(nonatomic) _Bool ignoreExtendedCertificateValidation;
+@property(copy, nonatomic) NSSet *mediaLibraryAccessApplicationIdentifiers;
+@property(copy, nonatomic) NSDictionary *pushNotificationState;
 @property(copy, nonatomic) NSDictionary *cachedSubscriptionStatus;
 @property(copy, nonatomic) NSString *defaultStoreFront;
 @property(copy, nonatomic) NSString *cloudMediaLibraryUID;

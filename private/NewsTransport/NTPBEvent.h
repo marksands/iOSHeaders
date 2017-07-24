@@ -32,6 +32,7 @@
     NSMutableArray *_userPaidSubscriptionStatus;
     NSString *_userStorefrontId;
     NSData *_widgetSessionId;
+    NSString *_widgetUserId;
     NSString *_windowFrameInScreen;
     _Bool _isPaidSubscriberDuringEvent;
     _Bool _isPaidSubscriberFromAppStoreDuringEvent;
@@ -56,6 +57,7 @@
 }
 
 + (Class)userPaidSubscriptionStatusType;
+@property(retain, nonatomic) NSString *widgetUserId; // @synthesize widgetUserId=_widgetUserId;
 @property(retain, nonatomic) NSMutableArray *userPaidSubscriptionStatus; // @synthesize userPaidSubscriptionStatus=_userPaidSubscriptionStatus;
 @property(retain, nonatomic) NSData *widgetSessionId; // @synthesize widgetSessionId=_widgetSessionId;
 @property(nonatomic) long long appConfigTreatmentId; // @synthesize appConfigTreatmentId=_appConfigTreatmentId;
@@ -85,6 +87,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasWidgetUserId;
 - (id)userPaidSubscriptionStatusAtIndex:(unsigned long long)arg1;
 - (unsigned long long)userPaidSubscriptionStatusCount;
 - (void)addUserPaidSubscriptionStatus:(id)arg1;

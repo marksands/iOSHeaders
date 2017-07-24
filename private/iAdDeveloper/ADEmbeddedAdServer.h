@@ -63,6 +63,7 @@
 - (id)_handleSegmentUpdateRequest:(id)arg1 message:(id)arg2;
 - (id)_handleLogAdContentErrorRequest:(id)arg1 message:(id)arg2;
 - (id)_handleLogAdEventRequest:(id)arg1 message:(id)arg2;
+- (id)_handleAdSpaceStatusEventRequest:(id)arg1 message:(id)arg2;
 - (id)_handleServerErrorRequest:(id)arg1 message:(id)arg2;
 - (id)_handleLogSysEventRequest:(id)arg1 message:(id)arg2;
 - (id)_handleLogImpressionRequest:(id)arg1 message:(id)arg2;

@@ -32,6 +32,7 @@
     // Error parsing type: {C3DSphere="vector"}, name: _viewedObjectSphere
     unsigned int _isViewedObjectSphereComputed:1;
     struct os_unfair_lock_s _stateLock;
+    unsigned int _enabled:1;
     unsigned int _hasAutomaticCameraTarget:1;
     unsigned int _automaticCameraTargetUpToDate:1;
     unsigned int _inertia:1;
@@ -117,6 +118,8 @@
 @property double friction;
 @property _Bool enableInertia;
 @property _Bool allowsTranslation;
+- (void)setEnabled:(_Bool)arg1;
+- (_Bool)enabled;
 - (void)dealloc;
 - (id)init;
 

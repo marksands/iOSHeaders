@@ -11,6 +11,8 @@
     void *_reserved;
 }
 
++ (unsigned long long)defaultLineBreakStrategy;
++ (_Bool)allowsDefaultLineBreakStrategy;
 + (id)sharedSystemTypesetter;
 + (id)sharedSystemTypesetterForBehavior:(long long)arg1;
 + (long long)defaultStringDrawingTypesetterBehavior;

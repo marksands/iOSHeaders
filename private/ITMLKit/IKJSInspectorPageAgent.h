@@ -38,7 +38,7 @@
 - (void)deleteCookieWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 cookieName:(id)arg3 url:(id)arg4;
 - (void)getCookiesWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2;
 - (void)navigateWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 url:(id)arg3;
-- (void)reloadWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 ignoreCache:(_Bool *)arg3 scriptToEvaluateOnLoad:(id *)arg4;
+- (void)reloadWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 ignoreCache:(_Bool *)arg3 revalidateAllResources:(_Bool *)arg4 scriptToEvaluateOnLoad:(id *)arg5;
 - (void)removeScriptToEvaluateOnLoadWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 identifier:(id)arg3;
 - (void)addScriptToEvaluateOnLoadWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 scriptSource:(id)arg3;
 - (void)disableWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2;

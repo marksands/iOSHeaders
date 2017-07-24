@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 
 + (void)_loadDefaultValue:(double *)arg1 forKey:(struct __CFString *)arg2;
 + (void)_loadDefaults;
+@property(readonly, nonatomic) int growthStage; // @synthesize growthStage=_growthStage;
 @property(nonatomic) _Bool minimumIntervalFallbackEnabled; // @synthesize minimumIntervalFallbackEnabled=_minimumIntervalFallbackEnabled;
 @property(nonatomic) _Bool isServerOriginatedKeepAlive; // @synthesize isServerOriginatedKeepAlive=_isServerOriginatedKeepAlive;
 @property(nonatomic) double lastSuccessfulKeepAliveInterval; // @synthesize lastSuccessfulKeepAliveInterval=_lastSuccessfulKeepAliveInterval;

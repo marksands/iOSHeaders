@@ -148,12 +148,6 @@ __attribute__((visibility("hidden")))
 - (struct TSTCellUID)cellUIDforCellID:(const struct TSUCellCoord *)arg1;
 - (struct TSUCellCoord)cellIDForCellContainingRichTextStorage:(id)arg1;
 - (id)allRichTextPayloadStorages;
-- (unsigned int)addCellFormat:(id)arg1 atSuggestedKey:(unsigned int)arg2;
-- (unsigned int)addString:(id)arg1;
-- (void)addStringReferenceForKey:(unsigned int)arg1;
-- (unsigned int)addFormula:(struct TSCEFormula *)arg1;
-- (unsigned int)formulaRefCountForKey:(unsigned int)arg1;
-- (void)addFormulaReferenceForKey:(unsigned int)arg1;
 - (id)populatedMultipleChoiceListFormat:(id)arg1;
 - (unsigned long long)conditionalStyleRefCountForKey:(unsigned int)arg1;
 - (_Bool)formatDataListContainsControlFormats;
@@ -337,8 +331,8 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)numberOfComments;
 - (int)cellValueTypeAtCellID:(struct TSUCellCoord)arg1;
 - (id)formatAtCellID:(struct TSUCellCoord)arg1 formatIsImplicitOut:(_Bool *)arg2;
-- (int)applyCellMap:(id)arg1 ignoreFormulas:(_Bool)arg2 skipDirtyingNonFormulaCells:(_Bool)arg3 calculationEngine:(id)arg4;
-- (int)applyCellMap:(id)arg1 calculationEngine:(id)arg2;
+- (int)setCellsWithCellMap:(id)arg1 ignoreFormulas:(_Bool)arg2 skipDirtyingNonFormulaCells:(_Bool)arg3 calculationEngine:(id)arg4;
+- (int)setCellsWithCellMap:(id)arg1 calculationEngine:(id)arg2;
 - (int)p_preflightApplyCellMap:(id)arg1;
 - (struct TSCEFormula *)formulaAtCellID:(struct TSUCellCoord)arg1;
 - (int)setCell:(id)arg1 atCellID:(struct TSUCellCoord)arg2 ignoreFormula:(_Bool)arg3 clearImportWarnings:(_Bool)arg4 calculationEngine:(id)arg5;
@@ -424,6 +418,7 @@ __attribute__((visibility("hidden")))
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromUnarchiver:(id)arg1;
 - (void)upgradeDuringDocumentUpgradeIfNeeded:(unsigned long long)arg1 tableInfo:(id)arg2;
+- (void)p_recreateAllTheDatalists:(id)arg1;
 - (void)p_upgradeDefaultCellStylesForStrokeSidecar;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 fromSourceModel:(id)arg2 region:(id)arg3 tableInfo:(id)arg4 waitForCalcEngine:(_Bool)arg5;

@@ -4,26 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <CommonUtilities/CUTCheckpoint.h>
+#import <CommonUtilities/CUTCheckpointSignpost.h>
 
 @class NSDate;
 
-@interface CUTCheckpointInstant : CUTCheckpoint
+@interface CUTCheckpointInstant : CUTCheckpointSignpost
 {
     NSDate *_date;
 }
 
-+ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
 - (void).cxx_destruct;
-- (id)descriptionWithDate:(id *)arg1;
-- (void)mergeWithCheckpoint:(id)arg1;
+- (id)_reportEndDate;
+- (id)_reportStartDate;
 - (id)description;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (void)touchDate;
-- (id)initWithName:(id)arg1 date:(id)arg2;
-- (id)initWithName:(id)arg1;
+- (void)mergeWithCheckpoint:(id)arg1;
+- (void)_touchDate;
+- (id)initWithDate:(id)arg1 name:(id)arg2 uniqueIdentifier:(id)arg3;
+- (id)initWithName:(id)arg1 uniqueIdentifier:(id)arg2;
 
 @end
 

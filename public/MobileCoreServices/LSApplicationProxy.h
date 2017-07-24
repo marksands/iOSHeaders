@@ -49,6 +49,7 @@
     NSString *_watchKitVersion;
     NSString *_complicationPrincipalClass;
     NSArray *_supportedComplicationFamilies;
+    NSNumber *_installFailureReason;
 }
 
 + (id)iconQueue;
@@ -64,6 +65,7 @@
 + (id)applicationProxyWithBundleUnitID:(unsigned int)arg1 withContext:(struct LSContext *)arg2;
 @property(readonly, nonatomic) int bundleModTime; // @synthesize bundleModTime=_bundleModTime;
 @property(nonatomic) _Bool userInitiatedUninstall; // @synthesize userInitiatedUninstall=_userInitiatedUninstall;
+@property(readonly, nonatomic) NSNumber *installFailureReason; // @synthesize installFailureReason=_installFailureReason;
 @property(readonly) NSArray *supportedComplicationFamilies; // @synthesize supportedComplicationFamilies=_supportedComplicationFamilies;
 @property(readonly) NSString *complicationPrincipalClass; // @synthesize complicationPrincipalClass=_complicationPrincipalClass;
 @property(readonly, nonatomic) NSString *watchKitVersion; // @synthesize watchKitVersion=_watchKitVersion;
@@ -111,6 +113,8 @@
 @property(readonly, nonatomic, getter=isWatchKitApp) _Bool watchKitApp;
 @property(readonly, nonatomic, getter=isPurchasedReDownload) _Bool purchasedReDownload;
 @property(readonly, nonatomic, getter=isBetaApp) _Bool betaApp;
+@property(readonly, nonatomic, getter=isDeviceBasedVPP) _Bool deviceBasedVPP;
+@property(readonly, nonatomic, getter=isAppStoreVendable) _Bool appStoreVendable;
 @property(readonly, nonatomic, getter=isWhitelisted) _Bool whitelisted;
 @property(readonly, nonatomic, getter=isInstalled) _Bool installed;
 @property(readonly, nonatomic) _Bool hasSettingsBundle;
@@ -140,6 +144,7 @@
 @property(readonly, nonatomic) NSProgress *installProgress;
 @property(readonly, nonatomic) NSNumber *betaExternalVersionIdentifier; // @dynamic betaExternalVersionIdentifier;
 @property(readonly, nonatomic) NSNumber *externalVersionIdentifier; // @dynamic externalVersionIdentifier;
+- (id)getBundleMetadata;
 - (id)alternateIconName;
 - (void)setAlternateIconName:(id)arg1 withResult:(CDUnknownBlockType)arg2;
 - (void)clearAdvertisingIdentifier;

@@ -26,6 +26,7 @@
     NSString *_previewText;
 }
 
++ (_Bool)isSMSSpamFilteringEnabled;
 + (_Bool)pinnedConversationsEnabled;
 + (id)conversationForAddresses:(id)arg1 allowRetargeting:(_Bool)arg2 candidateConversation:(id)arg3;
 + (id)newPendingConversation;
@@ -71,7 +72,7 @@
 @property(readonly, nonatomic) NSString *name; // @dynamic name;
 @property(readonly, nonatomic) unsigned long long disclosureAtomStyle; // @dynamic disclosureAtomStyle;
 @property(readonly, nonatomic) _Bool shouldShowCharacterCount;
-- (id)senderIdentifier;
+@property(readonly, copy, nonatomic) NSString *senderIdentifier;
 - (void)_clearTypingIndicatorsIfNecessary;
 - (void)updateUserActivity;
 @property(nonatomic) _Bool localUserIsRecording;
@@ -129,6 +130,7 @@
 @property(readonly, nonatomic) IMService *sendingService;
 - (void)refreshServiceForSending;
 - (id)orderedContactsForAvatarView;
+- (void)updateDisplayNameIfSMSSpam;
 - (void)removeRecipientHandles:(id)arg1;
 - (void)addRecipientHandles:(id)arg1;
 - (void)setSendReadReceipts:(_Bool)arg1;

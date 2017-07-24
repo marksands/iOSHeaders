@@ -12,7 +12,7 @@
 - (void)willSendLightsAndSirensWithPublisherBulletinID:(NSString *)arg1 recordID:(NSString *)arg2 inPhoneSection:(NSString *)arg3 systemApp:(_Bool)arg4 completion:(void (^)(_Bool, unsigned long long))arg5;
 - (_Bool)shouldSuppressLightsAndSirensNow;
 - (void)removeBulletinWithPublisherBulletinID:(NSString *)arg1 recordID:(NSString *)arg2 sectionID:(NSString *)arg3;
-- (void)handleDidPlayLightsAndSirens:(_Bool)arg1 forBulletin:(NSString *)arg2 inPhoneSection:(NSString *)arg3 transmissionDate:(NSDate *)arg4 receptionDate:(NSDate *)arg5;
+- (void)handleDidPlayLightsAndSirens:(_Bool)arg1 forBulletin:(NSString *)arg2 inPhoneSection:(NSString *)arg3 transmissionDate:(NSDate *)arg4 receptionDate:(NSDate *)arg5 replyToken:(NSString *)arg6;
 - (void)handleAction:(BLTActionInfo *)arg1;
 @end
 

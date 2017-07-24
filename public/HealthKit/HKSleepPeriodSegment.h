@@ -6,13 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSDate, NSDateInterval;
+@class NSArray, NSDate;
 
 @interface HKSleepPeriodSegment : NSObject
 {
     NSDate *_startDate;
     NSDate *_endDate;
-    NSDateInterval *_dateInterval;
     long long _category;
     NSArray *_samples;
     double _duration;
@@ -21,11 +20,10 @@
 @property(readonly, nonatomic) double duration; // @synthesize duration=_duration;
 @property(readonly, copy, nonatomic) NSArray *samples; // @synthesize samples=_samples;
 @property(readonly, nonatomic) long long category; // @synthesize category=_category;
-@property(readonly, nonatomic) NSDateInterval *dateInterval; // @synthesize dateInterval=_dateInterval;
 @property(readonly, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
 @property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 - (void).cxx_destruct;
-- (id)initWithStartDate:(id)arg1 endDate:(id)arg2 category:(long long)arg3 samples:(id)arg4;
+- (id)initWithStartDate:(id)arg1 endDate:(id)arg2 category:(long long)arg3 samples:(id)arg4 duration:(double)arg5;
 
 @end
 

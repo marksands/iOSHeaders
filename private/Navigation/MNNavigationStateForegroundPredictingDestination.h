@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void)commuteSession:(id)arg1 didUpdateDestinations:(id)arg2;
+- (void)enterState;
 - (void)stopPredictingDestinations;
 - (void)updateMapsActive:(_Bool)arg1;
 - (unsigned long long)desiredCommuteSessionState;

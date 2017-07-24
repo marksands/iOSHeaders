@@ -16,6 +16,7 @@
 @optional
 + (_Bool)controllerNeedsToRun;
 + (void)skippedByCloudConfig;
++ (_Bool)controllerAffectedByTapFreeSetup;
 - (void)handleDebugGesture;
 - (_Bool)shouldSuppressExtendedInitializationActivityIndicator;
 - (void)performExtendedInitializationWithCompletion:(void (^)(_Bool))arg1;

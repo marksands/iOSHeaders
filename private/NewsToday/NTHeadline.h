@@ -14,6 +14,7 @@
 {
     _Bool _needsSeenStateTracking;
     _Bool _displaysWithLeadingCellAppearance;
+    _Bool _supportsSavingForLater;
     NSString *_title;
     NSString *_shortExcerpt;
     NSDate *_ageDisplayDate;
@@ -21,8 +22,10 @@
     NSString *_sourceIdentifier;
     NSData *_sourceNameImageData;
     NSString *_sourceNameImageAssetID;
+    double _sourceNameImageScale;
     NSData *_thumbnailData;
     NSString *_thumbnailAssetID;
+    unsigned long long _thumbnailSizePreset;
     NSURL *_webURL;
     NSURL *_NewsURL;
     NSString *_storyType;
@@ -33,6 +36,7 @@
     NTPBHeadlineAdElement *_adElement;
     NTHeadlinePersonalizationMetadata *_personalizationMetadata;
     NSString *_identifier;
+    struct CGRect _thumbnailFocalFrame;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -40,6 +44,7 @@
 @property(copy, nonatomic) NTHeadlinePersonalizationMetadata *personalizationMetadata; // @synthesize personalizationMetadata=_personalizationMetadata;
 @property(copy, nonatomic) NTPBHeadlineAdElement *adElement; // @synthesize adElement=_adElement;
 @property(copy, nonatomic) NTPBHeadlineAnalyticsElement *analyticsElement; // @synthesize analyticsElement=_analyticsElement;
+@property(nonatomic) _Bool supportsSavingForLater; // @synthesize supportsSavingForLater=_supportsSavingForLater;
 @property(nonatomic) _Bool displaysWithLeadingCellAppearance; // @synthesize displaysWithLeadingCellAppearance=_displaysWithLeadingCellAppearance;
 @property(nonatomic) _Bool needsSeenStateTracking; // @synthesize needsSeenStateTracking=_needsSeenStateTracking;
 @property(nonatomic) double videoDuration; // @synthesize videoDuration=_videoDuration;
@@ -48,8 +53,11 @@
 @property(copy, nonatomic) NSString *storyType; // @synthesize storyType=_storyType;
 @property(copy, nonatomic) NSURL *NewsURL; // @synthesize NewsURL=_NewsURL;
 @property(copy, nonatomic) NSURL *webURL; // @synthesize webURL=_webURL;
+@property(nonatomic) struct CGRect thumbnailFocalFrame; // @synthesize thumbnailFocalFrame=_thumbnailFocalFrame;
+@property(nonatomic) unsigned long long thumbnailSizePreset; // @synthesize thumbnailSizePreset=_thumbnailSizePreset;
 @property(copy, nonatomic) NSString *thumbnailAssetID; // @synthesize thumbnailAssetID=_thumbnailAssetID;
 @property(copy, nonatomic) NSData *thumbnailData; // @synthesize thumbnailData=_thumbnailData;
+@property(nonatomic) double sourceNameImageScale; // @synthesize sourceNameImageScale=_sourceNameImageScale;
 @property(copy, nonatomic) NSString *sourceNameImageAssetID; // @synthesize sourceNameImageAssetID=_sourceNameImageAssetID;
 @property(copy, nonatomic) NSData *sourceNameImageData; // @synthesize sourceNameImageData=_sourceNameImageData;
 @property(copy, nonatomic) NSString *sourceIdentifier; // @synthesize sourceIdentifier=_sourceIdentifier;

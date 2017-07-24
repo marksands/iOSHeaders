@@ -8,7 +8,7 @@
 
 #import <WatchConnectivity/NSFilePresenter-Protocol.h>
 
-@class NSArray, NSMutableArray, NSOperationQueue, NSString, NSURL;
+@class NSArray, NSMutableArray, NSOperationQueue, NSSet, NSString, NSURL;
 
 @interface WCContentIndex : NSObject <NSFilePresenter>
 {
@@ -42,6 +42,7 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly) NSSet *observedPresentedItemUbiquityAttributes;
 @property(readonly, copy) NSURL *primaryPresentedItemURL;
 @property(readonly) Class superclass;
 

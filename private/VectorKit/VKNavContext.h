@@ -4,15 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
-@class GEOComposedRoute, GEORouteMatch, GEORouteMatcher, NSArray, NSHashTable;
+@class GEOComposedRoute, GEORouteMatch, NSArray, NSHashTable;
 
 @interface VKNavContext : NSObject
 {
     GEOComposedRoute *_route;
     GEORouteMatch *_routeMatch;
-    GEORouteMatcher *_routeMatcher;
     unsigned long long _currentStepIndex;
     struct vector<GEOLocationCoordinate2D, std::__1::allocator<GEOLocationCoordinate2D>> _pointsToFrame;
     NSHashTable *_observers;
@@ -25,7 +24,6 @@
 @property(retain, nonatomic) GEORouteMatch *routeMatch; // @synthesize routeMatch=_routeMatch;
 @property(copy, nonatomic) NSArray *groupedManeuverCounts; // @synthesize groupedManeuverCounts=_groupedManeuverCounts;
 @property(nonatomic) unsigned long long currentStepIndex; // @synthesize currentStepIndex=_currentStepIndex;
-@property(readonly, nonatomic) GEORouteMatcher *routeMatcher; // @synthesize routeMatcher=_routeMatcher;
 @property(readonly, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
 - (id).cxx_construct;
 - (void).cxx_destruct;

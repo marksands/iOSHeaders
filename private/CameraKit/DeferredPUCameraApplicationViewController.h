@@ -21,7 +21,6 @@
 - (_Bool)definesPresentationContext;
 - (id)navigationController:(id)arg1 animationControllerForOperation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
 - (id)navigationController:(id)arg1 interactionControllerForAnimationController:(id)arg2;
-- (_Bool)_navigationControllerShouldCrossFadeBottomBars:(id)arg1;
 - (void)reloadAlbumNavigationController:(id)arg1 withCameraRoll:(id)arg2;
 - (void)prepareAlbumNavigationControllerForReuse:(id)arg1 withCameraRoll:(id)arg2;
 - (id)newAlbumNavigationControllerForCameraRoll:(id)arg1;

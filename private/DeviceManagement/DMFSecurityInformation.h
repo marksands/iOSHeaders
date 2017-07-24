@@ -21,13 +21,13 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) unsigned long long passcodeLockGracePeriodEnforced; // @synthesize passcodeLockGracePeriodEnforced=_passcodeLockGracePeriodEnforced;
-@property(nonatomic) unsigned long long passcodeLockGracePeriod; // @synthesize passcodeLockGracePeriod=_passcodeLockGracePeriod;
-@property(nonatomic) _Bool passcodeIsCompliantWithProfileRestrictions; // @synthesize passcodeIsCompliantWithProfileRestrictions=_passcodeIsCompliantWithProfileRestrictions;
-@property(nonatomic) _Bool passcodeIsCompliantWithGlobalRestrictions; // @synthesize passcodeIsCompliantWithGlobalRestrictions=_passcodeIsCompliantWithGlobalRestrictions;
-@property(nonatomic) _Bool passcodeIsSet; // @synthesize passcodeIsSet=_passcodeIsSet;
-@property(nonatomic) _Bool supportsFileLevelEncryption; // @synthesize supportsFileLevelEncryption=_supportsFileLevelEncryption;
-@property(nonatomic) _Bool supportsBlockLevelEncryption; // @synthesize supportsBlockLevelEncryption=_supportsBlockLevelEncryption;
+@property(readonly, nonatomic) unsigned long long passcodeLockGracePeriodEnforced; // @synthesize passcodeLockGracePeriodEnforced=_passcodeLockGracePeriodEnforced;
+@property(readonly, nonatomic) unsigned long long passcodeLockGracePeriod; // @synthesize passcodeLockGracePeriod=_passcodeLockGracePeriod;
+@property(readonly, nonatomic) _Bool passcodeIsCompliantWithProfileRestrictions; // @synthesize passcodeIsCompliantWithProfileRestrictions=_passcodeIsCompliantWithProfileRestrictions;
+@property(readonly, nonatomic) _Bool passcodeIsCompliantWithGlobalRestrictions; // @synthesize passcodeIsCompliantWithGlobalRestrictions=_passcodeIsCompliantWithGlobalRestrictions;
+@property(readonly, nonatomic) _Bool passcodeIsSet; // @synthesize passcodeIsSet=_passcodeIsSet;
+@property(readonly, nonatomic) _Bool supportsFileLevelEncryption; // @synthesize supportsFileLevelEncryption=_supportsFileLevelEncryption;
+@property(readonly, nonatomic) _Bool supportsBlockLevelEncryption; // @synthesize supportsBlockLevelEncryption=_supportsBlockLevelEncryption;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

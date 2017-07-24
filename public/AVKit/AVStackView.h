@@ -8,10 +8,10 @@
 
 @interface AVStackView : UIStackView
 {
-    struct UIEdgeInsets _hitRectInsets;
+    struct NSDirectionalEdgeInsets _hitRectInsets;
 }
 
-@property(nonatomic) struct UIEdgeInsets hitRectInsets; // @synthesize hitRectInsets=_hitRectInsets;
+@property(nonatomic) struct NSDirectionalEdgeInsets hitRectInsets; // @synthesize hitRectInsets=_hitRectInsets;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGRect)hitRect;
 - (id)initWithFrame:(struct CGRect)arg1;

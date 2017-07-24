@@ -6,12 +6,13 @@
 
 #import <SearchFoundation/SFImage.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFContactImage-Protocol.h>
 
 @class NSData, NSDictionary, NSString;
 
-@interface SFContactImage : SFImage <SFContactImage, NSSecureCoding>
+@interface SFContactImage : SFImage <SFContactImage, NSSecureCoding, NSCopying>
 {
     NSString *_contactIdentifier;
 }
@@ -19,6 +20,7 @@
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *contactIdentifier; // @synthesize contactIdentifier=_contactIdentifier;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

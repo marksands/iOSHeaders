@@ -14,16 +14,19 @@
     unsigned long long _type;
 }
 
++ (id)_personUniversalIdentifierForPersonLocalIdentifier:(id)arg1 photoLibrary:(id)arg2;
++ (id)_personLocalIdentifierForPersonUniversalIdentifier:(id)arg1 photoLibrary:(id)arg2;
 + (id)stringForType:(unsigned long long)arg1;
 + (_Bool)supportsSecureCoding;
++ (id)memoryFeatureWithData:(id)arg1 photoLibrary:(id)arg2;
 + (id)locationMemoryFeatureWithAreaForName:(id)arg1;
 + (id)locationMemoryFeatureWithLocation:(id)arg1;
 + (id)timeMemoryFeatureWithHolidayForName:(id)arg1;
 + (id)timeMemoryFeatureWithDate:(id)arg1;
-+ (id)peopleMemoryFeatureWithPersonUUID:(id)arg1;
++ (id)peopleMemoryFeatureWithPersonLocalIdentifier:(id)arg1;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
-- (_Bool)collidesWithPersonWithUUID:(id)arg1;
+- (_Bool)collidesWithPersonWithLocalIdentifier:(id)arg1;
 - (_Bool)collidesWithAreaWithName:(id)arg1;
 - (_Bool)collidesWithLocationAtCoordinates:(struct CLLocationCoordinate2D)arg1;
 - (_Bool)collidesWithHolidayWithName:(id)arg1;
@@ -38,7 +41,8 @@
 - (id)location;
 - (id)holidayName;
 - (id)date;
-- (id)personUUID;
+- (id)personLocalIdentifier;
+- (id)encodedDataWithPhotoLibrary:(id)arg1;
 
 @end
 

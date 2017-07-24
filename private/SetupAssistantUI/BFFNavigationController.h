@@ -6,13 +6,14 @@
 
 #import <Preferences/PSRootController.h>
 
-@class NSMutableArray, NSMutableDictionary;
+@class NSMutableArray, NSMutableDictionary, UIColor;
 
 @interface BFFNavigationController : PSRootController
 {
     NSMutableArray *_observers;
     NSMutableDictionary *_appearanceHandlers;
     long long _pendingShowOperation;
+    UIColor *_backgroundColor;
     _Bool _animating;
 }
 
@@ -31,7 +32,7 @@
 - (id)popViewControllerAnimated:(_Bool)arg1;
 - (void)pushViewController:(id)arg1 animated:(_Bool)arg2;
 - (long long)preferredStatusBarStyle;
-- (id)backgroundColor;
+@property(retain, nonatomic) UIColor *backgroundColor;
 - (_Bool)_canShowTextServices;
 - (_Bool)_usesTransitionController;
 - (unsigned long long)supportedInterfaceOrientations;

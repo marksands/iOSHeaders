@@ -17,7 +17,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CKDServerConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)requestDidParsePlistObject:(id)arg1;
-- (Class)expectedResponseClass;
 - (_Bool)hasRequestBody;
 - (id)httpMethod;
 - (id)url;

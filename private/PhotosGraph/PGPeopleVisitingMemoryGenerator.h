@@ -12,9 +12,8 @@
 
 - (id)_potentialMemoriesForDryTesting;
 - (void)_postProcessMemory:(id)arg1 withPotentialMemory:(id)arg2;
-- (id)_potentialMemories:(unsigned long long)arg1;
+- (void)_enumeratePotentialMemoriesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumeratePeopleAndVisitsUsingBlock:(CDUnknownBlockType)arg1;
-- (void)_computeHomeSupersetsWithResult:(CDUnknownBlockType)arg1;
 - (id)consolidatedDateIntervalsFromDateIntervals:(id)arg1;
 - (void)enumerateVerifiedPeopleNodesUsingBlock:(CDUnknownBlockType)arg1;
 

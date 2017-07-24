@@ -9,13 +9,13 @@
 __attribute__((visibility("hidden")))
 @interface WebCookieStorageObjCAdapter : NSObject
 {
-    function_b1fce659 m_cookieChangeCallback;
+    Function_dbb44c37 m_cookieChangeCallback;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)stopListeningForCookieChangeNotifications;
-- (void)startListeningForCookieChangeNotificationsWithCallback:(function_b1fce659 *)arg1;
+- (void)startListeningForCookieChangeNotificationsWithCallback:(Function_dbb44c37 *)arg1;
 - (void)cookiesChangedNotificationHandler:(id)arg1;
 - (void)notifyCookiesChangedOnMainThread;
 

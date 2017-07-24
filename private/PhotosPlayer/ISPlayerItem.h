@@ -6,7 +6,7 @@
 
 #import <PhotosPlayer/ISObservable.h>
 
-@class AVAssetImageGenerator, AVPlayerItem, AVVideoComposition, ISAsset, ISPlayerContent, NSError, NSObject, NSString;
+@class AVAssetImageGenerator, AVPlayerItem, AVVideoComposition, ISAsset, ISPlayerContent, NSError, NSNumber, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
 @interface ISPlayerItem : ISObservable
@@ -27,7 +27,7 @@
     CDStruct_1b6d18a9 _ivarQueue_postPhotoTime;
     CDStruct_1b6d18a9 _ivarQueue_playerItemPhotoTime;
     CDStruct_1b6d18a9 _ivarQueue_playerItemDuration;
-    NSString *_ivarQueue_playbackStyleIdentifier;
+    NSNumber *_ivarQueue_variationIdentifier;
     NSString *_ivarQueue_minimumClientVersion;
     struct {
         _Bool videoPlayerItem;
@@ -87,8 +87,8 @@
 - (void)_updateVideoPlayerItemIfNeeded;
 - (_Bool)_isVideoPlayerItemValid;
 - (void)_invalidateVideoPlayerItem;
-- (id)_playbackStyleIdentifier;
-- (void)_setPlaybackStyleIdentifier:(id)arg1;
+- (id)_variationIdentifier;
+- (void)_setVariationIdentifier:(id)arg1;
 - (void)_updatePlaybackStyleIdentifierIfNeeded;
 - (_Bool)_isPlaybackStyleIdentifierValid;
 - (void)_invalidatePlaybackStyleIdentifier;

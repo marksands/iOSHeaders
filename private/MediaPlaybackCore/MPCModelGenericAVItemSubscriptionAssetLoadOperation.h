@@ -6,10 +6,13 @@
 
 #import <MediaPlayer/MPAsyncOperation.h>
 
-@class ICMusicSubscriptionLeaseSession, ICStoreRequestContext, MPCModelGenericAVItemAssetLoadProperties;
+@class ICMusicSubscriptionLeaseSession, ICStoreRequestContext, MPCModelGenericAVItemAssetLoadProperties, NSObject;
+@protocol OS_dispatch_queue;
 
 @interface MPCModelGenericAVItemSubscriptionAssetLoadOperation : MPAsyncOperation
 {
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    CDUnknownBlockType _cancellationHandler;
     MPCModelGenericAVItemAssetLoadProperties *_assetLoadProperties;
     long long _operationType;
     ICStoreRequestContext *_requestContext;
@@ -23,8 +26,12 @@
 @property(nonatomic) long long operationType; // @synthesize operationType=_operationType;
 @property(retain, nonatomic) MPCModelGenericAVItemAssetLoadProperties *assetLoadProperties; // @synthesize assetLoadProperties=_assetLoadProperties;
 - (void).cxx_destruct;
+- (void)setCancellationHandler:(CDUnknownBlockType)arg1;
+- (CDUnknownBlockType)cancellationHandler;
 - (id)_handlePlaybackResponse:(id)arg1 withPlaybackCacheRequest:(id)arg2 error:(id *)arg3;
 - (void)execute;
+- (void)cancel;
+- (id)init;
 
 @end
 

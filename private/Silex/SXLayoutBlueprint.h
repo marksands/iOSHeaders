@@ -8,14 +8,13 @@
 
 #import <Silex/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSMutableDictionary, NSMutableSet, NSOrderedSet, SXColumnLayout, SXComponentDependencyResolver, SXLayoutAttributes;
+@class NSMutableArray, NSMutableDictionary, NSMutableSet, NSOrderedSet, SXComponentDependencyResolver, SXLayoutAttributes;
 
 @interface SXLayoutBlueprint : NSObject <NSCopying>
 {
     _Bool _isComplete;
     _Bool _didPlaceDynamicAds;
     _Bool _updating;
-    SXColumnLayout *_documentColumnLayout;
     SXLayoutBlueprint *_parentLayoutBlueprint;
     SXLayoutAttributes *_layoutAttributes;
     NSMutableDictionary *_blueprint;
@@ -45,7 +44,6 @@
 @property(readonly, nonatomic) _Bool isComplete; // @synthesize isComplete=_isComplete;
 @property(nonatomic) __weak SXLayoutBlueprint *parentLayoutBlueprint; // @synthesize parentLayoutBlueprint=_parentLayoutBlueprint;
 @property(nonatomic) struct CGPoint offset; // @synthesize offset=_offset;
-@property(retain, nonatomic) SXColumnLayout *documentColumnLayout; // @synthesize documentColumnLayout=_documentColumnLayout;
 - (void).cxx_destruct;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -60,6 +58,8 @@
 - (id)componentBlueprintForComponentIdentifier:(id)arg1;
 - (void)updatePosition:(struct CGPoint)arg1 forComponentWithIdentifier:(id)arg2;
 - (void)updateSize:(struct CGSize)arg1 forComponentWithIdentifier:(id)arg2;
+- (void)invalidateBlueprintPosition;
+- (void)invalidateBlueprint;
 - (void)invalidateDependentsOfComponentNode:(id)arg1 forDependencyResolver:(id)arg2;
 - (void)invalidateDependentsOfInvalidatedComponents;
 - (void)invalidateSizeForComponentWithIdentifier:(id)arg1 suggestedSize:(struct CGSize)arg2;

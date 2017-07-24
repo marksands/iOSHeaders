@@ -6,37 +6,48 @@
 
 #import <TemplateKit/TLKView.h>
 
-@class TLKMultilineText, TLKVibrantLabel, UILabel;
+#import <TemplateKit/NUIContainerStackViewDelegate-Protocol.h>
 
-@interface TLKAuxilliaryTextView : TLKView
+@class NSString, TLKFormattedText, TLKStackView, TLKVibrantLabel;
+
+@interface TLKAuxilliaryTextView : TLKView <NUIContainerStackViewDelegate>
 {
-    TLKMultilineText *_topText;
-    TLKMultilineText *_middleText;
-    TLKMultilineText *_bottomText;
+    TLKFormattedText *_topText;
+    TLKFormattedText *_middleText;
+    TLKFormattedText *_bottomText;
     TLKVibrantLabel *_topLabel;
-    UILabel *_middleLabel;
+    TLKVibrantLabel *_middleLabel;
     TLKVibrantLabel *_bottomLabel;
+    TLKStackView *_stackView;
 }
 
++ (_Bool)formattedTextHasTextContent:(id)arg1;
++ (id)largeMiddleTextFont;
+@property(retain) TLKStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain) TLKVibrantLabel *bottomLabel; // @synthesize bottomLabel=_bottomLabel;
-@property(retain) UILabel *middleLabel; // @synthesize middleLabel=_middleLabel;
+@property(retain) TLKVibrantLabel *middleLabel; // @synthesize middleLabel=_middleLabel;
 @property(retain) TLKVibrantLabel *topLabel; // @synthesize topLabel=_topLabel;
-@property(retain) TLKMultilineText *bottomText; // @synthesize bottomText=_bottomText;
-@property(retain) TLKMultilineText *middleText; // @synthesize middleText=_middleText;
-@property(retain) TLKMultilineText *topText; // @synthesize topText=_topText;
+@property(retain) TLKFormattedText *bottomText; // @synthesize bottomText=_bottomText;
+@property(retain) TLKFormattedText *middleText; // @synthesize middleText=_middleText;
+@property(retain) TLKFormattedText *topText; // @synthesize topText=_topText;
 - (void).cxx_destruct;
 - (id)bottomLabelString;
 - (id)middleLabelString;
 - (id)topLabelString;
+- (id)bottomLabelFont;
 - (id)middleLabelFont;
-- (_Bool)onlyTopLabelMissing;
-- (_Bool)showsOnlyTopText;
-- (_Bool)showsOnlyMiddleText;
-- (_Bool)labelHasText:(id)arg1;
+- (struct CGRect)containerView:(id)arg1 layoutFrameForArrangedSubview:(id)arg2 withProposedFrame:(struct CGRect)arg3;
+- (struct UIEdgeInsets)containerStackView:(id)arg1 minimumSpacingAdjecentToArrangedSubview:(id)arg2;
 - (void)observedPropertiesChanged;
 - (void)styleDidChange:(unsigned long long)arg1;
 - (id)observableProperties;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

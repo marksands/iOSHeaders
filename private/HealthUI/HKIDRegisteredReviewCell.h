@@ -6,24 +6,20 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class NSString, UIImage, UIImageView, UILabel;
+@class UILabel;
 
 @interface HKIDRegisteredReviewCell : UITableViewCell
 {
-    UIImageView *_logoImageView;
     UILabel *_titleLabel;
-    UILabel *_bodyLabel;
 }
 
-@property(retain, nonatomic) UILabel *bodyLabel; // @synthesize bodyLabel=_bodyLabel;
++ (id)defaultReuseIdentifier;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
-@property(retain, nonatomic) UIImageView *logoImageView; // @synthesize logoImageView=_logoImageView;
 - (void).cxx_destruct;
 - (void)traitCollectionDidChange:(id)arg1;
-@property(retain, nonatomic) NSString *bodyText;
-@property(retain, nonatomic) NSString *titleText;
-@property(retain, nonatomic) UIImage *logoImage;
 - (void)_updateForCurrentSizeCategory;
+- (void)setupConstraints;
+- (void)setupSubviews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end

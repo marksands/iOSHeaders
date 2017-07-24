@@ -6,11 +6,16 @@
 
 #import <UIKit/UIButton.h>
 
+@class UIView;
+
 __attribute__((visibility("hidden")))
 @interface _SFCompressedBarButton : UIButton
 {
+    UIView *_highlightView;
 }
 
+- (void).cxx_destruct;
+- (void)layoutSubviews;
 - (void)setHighlighted:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

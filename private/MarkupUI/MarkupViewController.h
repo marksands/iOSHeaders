@@ -37,6 +37,7 @@
     _Bool _shapeDetectionEnabled;
     _Bool _allowShakeToUndo;
     _Bool _centersIgnoringContentInsets;
+    _Bool _showShareButtonInToolbar;
     long long _toolbarPosition;
     UINavigationBar *_navBar;
     UIViewController<MUContentViewControllerProtocol> *_contentViewController;
@@ -70,6 +71,7 @@
 + (id)cleanImageMetadataFromData:(id)arg1;
 + (_Bool)hasPrivateImageMetadata:(id)arg1;
 @property(retain) UIImageView *placeholderImageView; // @synthesize placeholderImageView=_placeholderImageView;
+@property(nonatomic) _Bool showShareButtonInToolbar; // @synthesize showShareButtonInToolbar=_showShareButtonInToolbar;
 @property(nonatomic) _Bool centersIgnoringContentInsets; // @synthesize centersIgnoringContentInsets=_centersIgnoringContentInsets;
 @property(nonatomic) __weak id <MarkupViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) _Bool allowShakeToUndo; // @synthesize allowShakeToUndo=_allowShakeToUndo;
@@ -134,6 +136,7 @@
 - (void)editTextAnnotation:(id)arg1;
 - (void)duplicate:(id)arg1;
 - (void)delete:(id)arg1;
+@property(readonly) _Bool isUsedOnDarkBackground;
 - (id)_effectiveNavBarTitleColor;
 @property(copy) UIColor *navBarTitleColor;
 - (id)_effectiveToolbarTintColor;
@@ -169,6 +172,7 @@
 @property(nonatomic) _Bool pencilAlwaysDraws; // @synthesize pencilAlwaysDraws=_pencilAlwaysDraws;
 @property(nonatomic) _Bool annotationEditingEnabled;
 - (void)restoreToolModeForContentType;
+@property(nonatomic) _Bool allEditingDisabled;
 - (void)_loadSourceContentWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_updateAndLoadSourceContent:(id)arg1 withArchivedModelData:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)_setData:(id)arg1 withArchivedModelData:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;

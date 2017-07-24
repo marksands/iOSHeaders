@@ -19,13 +19,14 @@ __attribute__((visibility("hidden")))
 
 + (id)representativenessForFaces:(id)arg1 error:(id *)arg2;
 - (void).cxx_destruct;
+- (id)maximumFaceIdInModelAndReturnError:(id *)arg1;
 - (id)getDistances:(id)arg1 to:(id)arg2 error:(id *)arg3;
 - (id)suggestionsForClustersWithFaceIds:(id)arg1 affinityThreshold:(float)arg2 error:(id *)arg3;
 - (id)distanceBetweenLevel1Clusters:(id)arg1 error:(id *)arg2;
 - (id)distanceBetweenClustersWithFaceId:(id)arg1 andFaceId:(id)arg2 error:(id *)arg3;
 - (id)l1ClusteredFaceIdsGroupedByL0ClustersForClustersContainingFaceIds:(id)arg1 error:(id *)arg2;
 - (id)clusteredFaceIdsForClusterContainingFaceId:(id)arg1 error:(id *)arg2;
-- (id)allClusteredFaceIds:(id *)arg1;
+- (id)allClusteredFaceIdsAndReturnError:(id *)arg1;
 - (_Bool)cancelClustering:(id *)arg1;
 - (id)updateModelByRemovingFaces:(id)arg1 error:(id *)arg2;
 - (id)updateModelByAddingFaces:(id)arg1 error:(id *)arg2;

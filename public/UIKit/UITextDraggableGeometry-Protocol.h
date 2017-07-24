@@ -6,8 +6,7 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class NSArray, NSAttributedString, UITargetedDragPreview, UITextDraggableGeometrySameViewDropOperationResult, UITextPosition, UITextRange, UIView;
-@protocol UITextDraggableGeometrySameViewDropOperation;
+@class NSArray, NSAttributedString, UITargetedDragPreview, UITextPosition, UITextRange, UIView;
 
 @protocol UITextDraggableGeometry <NSObject>
 @property(nonatomic) long long geometryOptions;
@@ -15,9 +14,5 @@
 - (NSArray *)draggableObjectsForTextRange:(UITextRange *)arg1;
 - (UITextRange *)textRangeForAttachmentInTextRange:(UITextRange *)arg1 atPoint:(struct CGPoint)arg2;
 - (NSArray *)textRangesForAttachmentsInTextRange:(UITextRange *)arg1;
-
-@optional
-- (UITextDraggableGeometrySameViewDropOperationResult *)performSameViewDropOperation:(id <UITextDraggableGeometrySameViewDropOperation>)arg1;
-- (NSAttributedString *)combinedAttributedStringForTextRanges:(NSArray *)arg1;
 @end
 

@@ -6,9 +6,10 @@
 
 #import <CardKit/NSObject-Protocol.h>
 
-@class CRKCardSectionViewController, INInteraction, NSSet, NSString;
+@class CRKCardSectionViewController, INInteraction, NSArray, NSSet, NSString;
 
 @protocol CRKCardSectionViewControllerDataSource <NSObject>
+- (NSArray *)cardSectionViewController:(CRKCardSectionViewController *)arg1 interfaceSectionsForInteraction:(INInteraction *)arg2;
 - (NSSet *)cardSectionViewController:(CRKCardSectionViewController *)arg1 handledParametersForInteraction:(INInteraction *)arg2;
 - (INInteraction *)cardSectionViewController:(CRKCardSectionViewController *)arg1 interactionWithIdentifier:(NSString *)arg2;
 @end

@@ -20,6 +20,8 @@
 
 + (id)sharedPreferences;
 - (void).cxx_destruct;
+- (_Bool)cardLoggingEnabled;
+- (void)setCardLoggingEnabled:(_Bool)arg1;
 - (_Bool)fileLoggingIsEnabled;
 - (void)setFileLoggingIsEnabled:(_Bool)arg1;
 - (void)_setLoggingDefaultValue:(id)arg1 forKey:(id)arg2;
@@ -47,10 +49,16 @@
 - (_Bool)assistantLanguageForceRTL;
 - (void)setDisableAssistantWhilePasscodeLocked:(_Bool)arg1;
 - (_Bool)disableAssistantWhilePasscodeLocked;
+- (void)setApplySASToFirstPartyDomains:(_Bool)arg1;
+- (_Bool)applySASToFirstPartyDomains;
+- (void)setUseSASAutoSelectionFeature:(_Bool)arg1;
+- (_Bool)useSASAutoSelectionFeature;
 - (void)setSiriKitEnabledForNativeNotes:(_Bool)arg1;
 - (_Bool)siriKitEnabledForNativeNotes;
 - (void)setSiriKitEnabledForNativeCalling:(_Bool)arg1;
 - (_Bool)siriKitEnabledForNativeCalling;
+- (void)setSiriKitEnabledForNativeMessages:(_Bool)arg1;
+- (_Bool)siriKitEnabledForNativeMessages;
 - (void)setSiriDebugUIEnabled:(_Bool)arg1;
 - (_Bool)siriDebugUIEnabled;
 - (void)setLimitedAudioLoggingEnabled:(_Bool)arg1;

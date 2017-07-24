@@ -6,14 +6,15 @@
 
 #import <objc/NSObject.h>
 
+#import <PhotosUI/PUBrowsingViewModelChangeObserver-Protocol.h>
 #import <PhotosUI/PXChangeObserver-Protocol.h>
 #import <PhotosUI/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSHashTable, NSString, PUAssetViewModel, PUBrowsingSession, PUChangeDirectionValueFilter, PXNumberAnimator, UIPanGestureRecognizer;
+@class NSString, PUAssetViewModel, PUBrowsingSession, PUChangeDirectionValueFilter, PXNumberAnimator, PXVerticalSwipeGestureRecognizerHelper, UIPanGestureRecognizer;
 @protocol PUAccessoryVisibilityInteractionControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface PUAccessoryVisibilityInteractionController : NSObject <PXChangeObserver, UIGestureRecognizerDelegate>
+@interface PUAccessoryVisibilityInteractionController : NSObject <PXChangeObserver, UIGestureRecognizerDelegate, PUBrowsingViewModelChangeObserver>
 {
     _Bool _isPerformingChanges;
     _Bool _isPerformingUpdates;
@@ -35,11 +36,11 @@ __attribute__((visibility("hidden")))
     PXNumberAnimator *__contentOffsetOverrideFactor;
     PUChangeDirectionValueFilter *__verticalDirectionValueFilter;
     PUChangeDirectionValueFilter *__swipeDirectionValueFilter;
-    NSHashTable *__dependentScrollViews;
+    PXVerticalSwipeGestureRecognizerHelper *_verticalSwipeGestureRecognizerHelper;
     struct CGPoint __initialContentOffset;
 }
 
-@property(readonly, nonatomic) NSHashTable *_dependentScrollViews; // @synthesize _dependentScrollViews=__dependentScrollViews;
+@property(readonly, nonatomic) PXVerticalSwipeGestureRecognizerHelper *verticalSwipeGestureRecognizerHelper; // @synthesize verticalSwipeGestureRecognizerHelper=_verticalSwipeGestureRecognizerHelper;
 @property(retain, nonatomic, setter=_setSwipeDirectionValueFilter:) PUChangeDirectionValueFilter *_swipeDirectionValueFilter; // @synthesize _swipeDirectionValueFilter=__swipeDirectionValueFilter;
 @property(retain, nonatomic, setter=_setVerticalDirectionValueFilter:) PUChangeDirectionValueFilter *_verticalDirectionValueFilter; // @synthesize _verticalDirectionValueFilter=__verticalDirectionValueFilter;
 @property(retain, nonatomic, setter=_setContentOffsetOverrideFactor:) PXNumberAnimator *_contentOffsetOverrideFactor; // @synthesize _contentOffsetOverrideFactor=__contentOffsetOverrideFactor;
@@ -50,6 +51,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) PUBrowsingSession *browsingSession; // @synthesize browsingSession=_browsingSession;
 @property(nonatomic) __weak id <PUAccessoryVisibilityInteractionControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)viewModel:(id)arg1 didChange:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;

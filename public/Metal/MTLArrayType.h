@@ -13,13 +13,15 @@
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
 - (id)elementIndirectArgumentType;
+- (id)elementPointerType;
+- (id)elementTextureReferenceType;
 - (id)elementArrayType;
 - (id)elementStructType;
 
 // Remaining properties
+@property(readonly) unsigned long long argumentIndexStride; // @dynamic argumentIndexStride;
 @property(readonly) unsigned long long arrayLength; // @dynamic arrayLength;
 @property(readonly) unsigned long long elementType; // @dynamic elementType;
-@property(readonly) MTLType *elementTypeDescription; // @dynamic elementTypeDescription;
 @property(readonly) unsigned long long stride; // @dynamic stride;
 
 @end

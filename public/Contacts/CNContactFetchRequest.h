@@ -20,11 +20,13 @@
     NSPredicate *_predicate;
     NSArray *_keysToFetch;
     long long _sortOrder;
+    unsigned long long _batchSize;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool allowsBatching; // @synthesize allowsBatching=_allowsBatching;
 @property(nonatomic) _Bool onlyMainStore; // @synthesize onlyMainStore=_onlyMainStore;
+@property(nonatomic) unsigned long long batchSize; // @synthesize batchSize=_batchSize;
 @property(nonatomic) long long sortOrder; // @synthesize sortOrder=_sortOrder;
 @property(nonatomic) _Bool unifyResults; // @synthesize unifyResults=_unifyResults;
 @property(nonatomic) _Bool mutableObjects; // @synthesize mutableObjects=_mutableObjects;

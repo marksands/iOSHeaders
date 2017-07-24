@@ -9,16 +9,18 @@
 #import <NewsCore/NSCopying-Protocol.h>
 #import <NewsCore/NSSecureCoding-Protocol.h>
 
-@class NSDictionary, NTPBPersonalizationWhitelist;
+@class NSDictionary, NSSet, NTPBPersonalizationWhitelist;
 
 @interface FCPersonalizationWhitelist : NSObject <NSSecureCoding, NSCopying>
 {
     NTPBPersonalizationWhitelist *_pbWhitelist;
+    NSSet *_portraitDisabledTagIDs;
     NSDictionary *_whitelist;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSDictionary *whitelist; // @synthesize whitelist=_whitelist;
+@property(retain, nonatomic) NSSet *portraitDisabledTagIDs; // @synthesize portraitDisabledTagIDs=_portraitDisabledTagIDs;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

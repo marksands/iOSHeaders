@@ -15,20 +15,30 @@
     UIButton *_previousTimeIndexButton;
     UIButton *_nextTimeIndexButton;
     _Bool _disableControls;
+    _Bool _currentTimeButtonEnabled;
     NSString *_currentTimeString;
     id <HKCurrentTimeViewDelegate> _delegate;
 }
 
+@property(nonatomic) _Bool currentTimeButtonEnabled; // @synthesize currentTimeButtonEnabled=_currentTimeButtonEnabled;
 @property(nonatomic) _Bool disableControls; // @synthesize disableControls=_disableControls;
 @property(nonatomic) __weak id <HKCurrentTimeViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSString *currentTimeString; // @synthesize currentTimeString=_currentTimeString;
 - (void).cxx_destruct;
+- (double)_backgroundAlpha:(_Bool)arg1;
+- (double)_foregroundAlpha:(_Bool)arg1;
+- (id)_backgroundColor:(_Bool)arg1;
+- (id)_foregroundColor:(_Bool)arg1;
+- (id)_tintColor:(_Bool)arg1;
+- (id)_colorIfForeground:(_Bool)arg1 enabled:(_Bool)arg2;
 - (double)_currentTimeButtonBaselineToBottom;
 - (double)_currentTimeButtonBaselineToTop;
 - (id)_currentTimeButtonFont;
 - (void)nextTimeIndexButtonTapped:(id)arg1;
 - (void)previousTimeIndexButtonTapped:(id)arg1;
 - (void)currentTimeButtonTapped:(id)arg1;
+@property(nonatomic) _Bool nextTimeButtonEnabled;
+@property(nonatomic) _Bool previousTimeButtonEnabled;
 - (void)setupViewWithWideHorizontalMargin:(_Bool)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

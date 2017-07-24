@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     brc_task_tracker *_tracker;
     unsigned long long _activeDownloadsSize;
     NSDate *_lastDownloadRefresh;
+    double _activeDownloadSizeRefreshInterval;
     NSMutableDictionary *_willRetryOperationProgress;
     BRCDeadlineScheduler *_downloadsDeadlineScheduler;
 }

@@ -22,15 +22,15 @@
     CSAsset *_currentAsset;
     CSKeywordAnalyzerNDAPI *_keywordAnalyzer;
     long long _mode;
-    unsigned long long _totalSampleCounts;
-    unsigned long long _lastFireSampleCount;
+    unsigned long long _analyzedSampleCount;
+    unsigned long long _triggerEndSampleCount;
     unsigned long long _twoShotDecisionWaitSamples;
 }
 
 @property(nonatomic) float twoShotThreshold; // @synthesize twoShotThreshold=_twoShotThreshold;
 @property(nonatomic) unsigned long long twoShotDecisionWaitSamples; // @synthesize twoShotDecisionWaitSamples=_twoShotDecisionWaitSamples;
-@property(nonatomic) unsigned long long lastFireSampleCount; // @synthesize lastFireSampleCount=_lastFireSampleCount;
-@property(nonatomic) unsigned long long totalSampleCounts; // @synthesize totalSampleCounts=_totalSampleCounts;
+@property(nonatomic) unsigned long long triggerEndSampleCount; // @synthesize triggerEndSampleCount=_triggerEndSampleCount;
+@property(nonatomic) unsigned long long analyzedSampleCount; // @synthesize analyzedSampleCount=_analyzedSampleCount;
 @property(nonatomic) long long mode; // @synthesize mode=_mode;
 @property(nonatomic) float keywordThreshold; // @synthesize keywordThreshold=_keywordThreshold;
 @property(retain, nonatomic) CSKeywordAnalyzerNDAPI *keywordAnalyzer; // @synthesize keywordAnalyzer=_keywordAnalyzer;
@@ -47,6 +47,8 @@
 - (void)speechManagerLPCMRecordBufferAvailable:(id)arg1 chunk:(id)arg2;
 - (void)speechManagerRecordBufferAvailable:(id)arg1 buffer:(id)arg2;
 - (void)startDetectTwoShot:(id)arg1;
+- (void)_setAsset:(id)arg1;
+- (void)setAsset:(id)arg1;
 - (void)_reset;
 - (void)reset;
 - (id)initWithManager:(id)arg1 asset:(id)arg2;

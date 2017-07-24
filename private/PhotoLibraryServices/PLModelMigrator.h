@@ -18,6 +18,7 @@
     NSDictionary *_syncedPropertiesByUUID;
 }
 
++ (_Bool)_ensureAllUserVerifiedPersonsHaveFaceCropsInStore:(id)arg1;
 + (_Bool)_removeUntrackedPersonMetadataInStore:(id)arg1;
 + (_Bool)_ungroupDuplicateGroupedAssetsInStore:(id)arg1;
 + (_Bool)_populateCloudVerifiedTypeOnPersonsInStore:(id)arg1;
@@ -25,10 +26,20 @@
 + (_Bool)_markMigrationVerifiedTypePersonsInStore:(id)arg1;
 + (_Bool)_storeContainsFaceCrops:(id)arg1 success:(_Bool *)arg2;
 + (_Bool)_removeAutoloopCacheIfExists;
++ (_Bool)_unquarantineClass:(Class)arg1 inManagedObject:(id)arg2;
++ (_Bool)_unquarantinedQuarantinedItems:(id)arg1;
 + (_Bool)retryQuarantinedAssetsAndFixResourceRelation:(id)arg1;
++ (_Bool)_deletePersonsMissingUUIDInStore:(id)arg1;
++ (_Bool)_repushPersonsWithMergeTargetInStore:(id)arg1;
++ (_Bool)_persistStoreUUIDToMobileCPLPlist:(id)arg1;
++ (_Bool)_fixNilCloudMasterGUID:(id)arg1;
++ (_Bool)_fixAssetMasterResources:(id)arg1;
 + (_Bool)_repushAssetsWithAnyUserConfirmedFaceInStore:(id)arg1;
 + (_Bool)_repushAssetsWithNewGroupingPropertiesInStore:(id)arg1;
 + (_Bool)_repushAssetsMatchingPredicate:(id)arg1 inStore:(id)arg2;
++ (id)_predicateForInconsistentHeifAssets;
++ (void)_fixIncorrectHeifMetadataForAsset:(id)arg1;
++ (_Bool)_fixIncorrectHeifMetadataInStore:(id)arg1;
 + (_Bool)_populateCloudResourceLocalStateInStor:(id)arg1;
 + (_Bool)_fixZeroTrashedDateForEntityName:(id)arg1 inManagedObjectContext:(id)arg2;
 + (_Bool)_fixTrashedDate:(id)arg1;
@@ -65,6 +76,12 @@
 + (_Bool)_deleteCloudSharedAndSyncedAssetReferencesInStore:(id)arg1;
 + (_Bool)_batchOfflineDeleteFromDatabaseOnlyAssets:(id)arg1 inManagedObjectContext:(id)arg2 error:(id *)arg3;
 + (_Bool)_populateReverseLocationDataContainsLocation:(id)arg1;
++ (_Bool)_identifyVariationsAndDepthAdjustmentsIncludingBakedInLongExposure:(_Bool)arg1 inStore:(id)arg2;
++ (id)_fetchRequestToIdentifyAdjustedDepthAndVariationsCandidates;
++ (id)_fetchRequestToIdentifyBakedInVariationsCandidatesIncludingLongExposure:(_Bool)arg1;
++ (_Bool)_identifyVariationsAndDepthAdjustmentsForAsset:(id)arg1;
++ (id)_dateForVariations;
++ (_Bool)_runMigrationStepWithName:(id)arg1 fetchRequest:(id)arg2 store:(id)arg3 migrationHandler:(CDUnknownBlockType)arg4;
 + (_Bool)_updatePlaybackStylesAndVariationsInStore:(id)arg1;
 + (_Bool)_updatePlaybackWithBatchUpdateRequest:(id)arg1 targetDescription:(id)arg2 inContext:(id)arg3;
 + (_Bool)_fixMovieAttributesInStore:(id)arg1;
@@ -99,6 +116,10 @@
 + (_Bool)_persistPhotoIrisVisibilityStateToDiskInStore:(id)arg1;
 + (_Bool)_markOldPhotoIrisEditsEvaluatedInStore:(id)arg1;
 + (_Bool)_saveChangesToPhotoIrisInStore:(id)arg1 matchingPredicate:(id)arg2 countChanged:(unsigned long long *)arg3 error:(id *)arg4 changeBlock:(CDUnknownBlockType)arg5;
++ (_Bool)_purgeCloudSharedResourcesInStore:(id)arg1;
++ (_Bool)_fixOriginalPropertiesForCloudSharedAssetsInStore:(id)arg1;
++ (_Bool)_fixCloudSharedGIFsInStore:(id)arg1;
++ (_Bool)_fixCloudSharedVideosInStore:(id)arg1;
 + (_Bool)_fixupSharedVideosWithoutThumbnailsInStore:(id)arg1;
 + (_Bool)_addCloudKindSubtypeAndBurstFlagsInStore:(id)arg1;
 + (_Bool)_tagScreenshotsForAssetsInStore:(id)arg1;
@@ -151,7 +172,7 @@
 + (_Bool)_fixAdjustedAssets:(id)arg1;
 + (_Bool)_migrateLegacySlomoAdjustmentsInStore:(id)arg1 fromLegacySLMFormat:(_Bool)arg2;
 + (int)_migrateLegacySlomoAdjustmentsForAsset:(id)arg1;
-+ (_Bool)_batchFetchedObjects:(id)arg1 inMOC:(id)arg2 batchSize:(unsigned long long)arg3 objectHandler:(CDUnknownBlockType)arg4 error:(id *)arg5;
++ (_Bool)_performChangesOnBatchFetchedObjects:(id)arg1 inMOC:(id)arg2 batchSize:(unsigned long long)arg3 objectHandler:(CDUnknownBlockType)arg4 error:(id *)arg5;
 + (_Bool)_fixCorruptedOrientationsInStore:(id)arg1;
 + (_Bool)_convertManagedAdjustmentsInStore:(id)arg1;
 + (_Bool)_shouldConvertManagedAdjustmentsForAsset:(id)arg1;
@@ -193,6 +214,7 @@
 + (_Bool)isPostProcessingLightweightMigration;
 + (_Bool)processWelterweightMigrationStageOnStore:(id)arg1 fromVersion:(int)arg2 toVersion:(int)arg3 migrationContext:(id)arg4;
 + (void)postProcessFixesAfterOTARestoreForCompleteAsset:(id)arg1 fixAddedDate:(_Bool)arg2;
++ (_Bool)_shouldTriggerLightweightMigrationFailureForInternalTesting;
 + (_Bool)postProcessMigratedStore:(id)arg1 fromVersion:(int)arg2;
 + (void)_setIsPostProcessingLightWeightMigration:(_Bool)arg1;
 + (_Bool)attemptLightweightMigrationFromVersion:(id)arg1 onStore:(id)arg2 withMetadata:(id)arg3 orStoreURL:(id)arg4 options:(id)arg5 coordinator:(id)arg6;

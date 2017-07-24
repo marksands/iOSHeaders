@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class FCAppConfiguration;
+@class FCAppConfigurationManager;
 @protocol NUAdProvider, NUInterstitialAdManagerDelegate, NUPage;
 
 @interface NUInterstitialAdManager : NSObject
@@ -15,10 +15,10 @@
     id <NUInterstitialAdManagerDelegate> _delegate;
     id <NUPage> _activePage;
     id <NUAdProvider> _adProvider;
-    FCAppConfiguration *_appConfiguration;
+    FCAppConfigurationManager *_appConfigurationManager;
 }
 
-@property(readonly, nonatomic) FCAppConfiguration *appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(readonly, nonatomic) FCAppConfigurationManager *appConfigurationManager; // @synthesize appConfigurationManager=_appConfigurationManager;
 @property(readonly, nonatomic) id <NUAdProvider> adProvider; // @synthesize adProvider=_adProvider;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(retain, nonatomic) id <NUPage> activePage; // @synthesize activePage=_activePage;
@@ -29,7 +29,7 @@
 - (void)cancelTimer;
 - (void)loadInterstitial;
 - (void)dealloc;
-- (id)initWithAdProvider:(id)arg1 appConfiguration:(id)arg2;
+- (id)initWithAdProvider:(id)arg1 appConfigurationManager:(id)arg2;
 
 @end
 

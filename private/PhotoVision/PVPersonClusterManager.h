@@ -13,12 +13,12 @@
 
 @interface PVPersonClusterManager : NSObject <PVPhotoLibraryProtocol>
 {
-    PVCVMLHelper *_cvmlHelper;
     NSMutableDictionary *_representativeFaceObservationForPersonIdentifier;
     NSMutableDictionary *_distancesForPersonLocalIdentifier;
     NSMutableDictionary *_distancesInCommonMomentsForPersonLocalIdentifier;
     NSSet *_assetsToIgnore;
     id <PVPhotoLibraryProtocol> _photoLibrary;
+    PVCVMLHelper *_cvmlHelper;
     NSMutableDictionary *_personClusters;
 }
 
@@ -30,6 +30,7 @@
 + (id)momentSortDescriptors;
 + (id)personProcessingSortDescriptors;
 @property(retain, nonatomic) NSMutableDictionary *personClusters; // @synthesize personClusters=_personClusters;
+@property(retain, nonatomic) PVCVMLHelper *cvmlHelper; // @synthesize cvmlHelper=_cvmlHelper;
 @property(retain, nonatomic) id <PVPhotoLibraryProtocol> photoLibrary; // @synthesize photoLibrary=_photoLibrary;
 - (void).cxx_destruct;
 - (id)pv_lastAssetDate;
@@ -61,15 +62,16 @@
 - (id)pv_fetchPersonsWithLocalIdentifiers:(id)arg1;
 - (_Bool)pv_performChangesAndWait:(CDUnknownBlockType)arg1 error:(id *)arg2;
 - (id)pv_persistentStorageDirectoryURL;
-- (id)representativeFaceObservationForFaces:(id)arg1;
+- (id)representativeFaceObservationForFaces:(id)arg1 inPerson:(id)arg2;
 - (id)_representativeFaceObservationForPerson:(id)arg1 inAssetCollections:(id)arg2;
 - (id)_representativeFaceObservationForPerson:(id)arg1;
 - (float)distanceBetweenPerson:(id)arg1 andPerson:(id)arg2 useCommonMoments:(_Bool)arg3 updateBlock:(CDUnknownBlockType)arg4 error:(id *)arg5;
+- (float)distanceWithOverlapCheckBetweenPerson:(id)arg1 andPerson:(id)arg2 useCommonMoments:(_Bool)arg3 updateBlock:(CDUnknownBlockType)arg4 error:(id *)arg5;
 - (unsigned long long)numberOfMomentsInCommonBetweenPerson:(id)arg1 andPerson:(id)arg2;
 - (unsigned long long)numberOfAssetsInCommonBetweenPersonAssetIdentifiers:(id)arg1 andPersonAssetIdentifiers:(id)arg2;
 - (unsigned long long)numberOfAssetsInCommonBetweenPerson:(id)arg1 andPerson:(id)arg2;
-- (_Bool)assetsOverlapBetweenPersonAssetIdentifiers:(id)arg1 andPersonAssetIdentifiers:(id)arg2;
-- (_Bool)assetsOverlapBetweenPerson:(id)arg1 andPerson:(id)arg2;
+- (long long)assetsOverlapBetweenPersonAssetIdentifiers:(id)arg1 andPersonAssetIdentifiers:(id)arg2;
+- (long long)assetsOverlapBetweenPerson:(id)arg1 andPerson:(id)arg2;
 - (void)mergePersons:(id)arg1 withPerson:(id)arg2;
 - (id)_mapPersonClustersToFaceGroups:(id)arg1;
 - (id)_mapPersonClustersToPersons:(id)arg1;

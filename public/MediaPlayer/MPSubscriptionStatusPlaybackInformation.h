@@ -8,8 +8,7 @@
 
 @interface MPSubscriptionStatusPlaybackInformation : NSObject
 {
-    long long _accountSubscriptionStatus;
-    long long _carrierBundlingStatus;
+    id _subscriptionStatusObject;
     _Bool _definitiveInformation;
     _Bool _hasPlaybackCapability;
     _Bool _requiresCarrierManualVerification;
@@ -22,7 +21,9 @@
 @property(readonly, nonatomic) _Bool requiresCarrierManualVerification; // @synthesize requiresCarrierManualVerification=_requiresCarrierManualVerification;
 @property(readonly, nonatomic) _Bool hasPlaybackCapability; // @synthesize hasPlaybackCapability=_hasPlaybackCapability;
 @property(readonly, nonatomic, getter=isDefinitiveInformation) _Bool definitiveInformation; // @synthesize definitiveInformation=_definitiveInformation;
+- (void).cxx_destruct;
 - (id)description;
+- (id)initWithICSubscriptionStatus:(id)arg1;
 - (id)initWithSubscriptionStatus:(id)arg1;
 
 @end

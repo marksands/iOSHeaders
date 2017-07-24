@@ -13,13 +13,11 @@
 @interface WebApplication : UIApplication <UIApplicationDelegate>
 {
     WebAppController *_webApp;
-    _Bool _wasSuspendedUnderLock;
 }
 
 - (void).cxx_destruct;
 - (_Bool)application:(id)arg1 didFinishLaunchingWithOptions:(id)arg2;
 - (void)applicationDidBecomeActive:(id)arg1;
-- (void)applicationWillResignActive:(id)arg1;
 - (void)_showWebApplicationAtURL:(id)arg1;
 - (id)nameOfDefaultImageToUpdateAtSuspension;
 - (id)nameOfDefaultImageToUpdateAtSuspension:(long long)arg1;

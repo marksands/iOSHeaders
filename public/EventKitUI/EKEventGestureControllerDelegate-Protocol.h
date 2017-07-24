@@ -27,6 +27,7 @@
 - (EKEvent *)createEventForEventGestureController:(EKEventGestureController *)arg1;
 - (void)eventGestureController:(EKEventGestureController *)arg1 adjustDraggingViewForAllDay:(_Bool)arg2;
 - (EKDayOccurrenceView *)createOccurrenceViewForEventGestureController:(EKEventGestureController *)arg1;
+- (void)eventGestureController:(EKEventGestureController *)arg1 requestsPresentationOfViewController:(UIViewController *)arg2;
 - (UIViewController *)currentPresentationController;
 - (double)timedRegionOriginForEventGestureController:(EKEventGestureController *)arg1;
 - (UIView *)occurrenceViewSuperviewForEventGestureController:(EKEventGestureController *)arg1;
@@ -38,6 +39,8 @@
 - (struct CGRect)marginFrameForEventGestureController:(EKEventGestureController *)arg1;
 - (double)eventGestureController:(EKEventGestureController *)arg1 convertXForMargin:(double)arg2;
 - (_Bool)eventGestureControllerShouldAllowLongPress:(EKEventGestureController *)arg1;
+- (void)eventGestureController:(EKEventGestureController *)arg1 requestsShowEvent:(EKEvent *)arg2;
+- (void)eventGestureControllerDidEndDragSession:(EKEventGestureController *)arg1;
 - (void)cleanUpAfterGestureFailureForEventGestureController:(EKEventGestureController *)arg1;
 - (_Bool)hasCorrectParentForDraggingView:(UIView *)arg1 isAllDay:(_Bool)arg2;
 - (_Bool)moreThanOneDayVisibleForEventGestureController:(EKEventGestureController *)arg1;

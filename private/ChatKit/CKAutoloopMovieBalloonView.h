@@ -8,7 +8,7 @@
 
 #import <ChatKit/ISWrappedAVPlayerDelegate-Protocol.h>
 
-@class AVPlayerItem, CKMovieMediaObject, ISVideoPlayerUIView, ISWrappedAVPlayer, NSString, UIImageView;
+@class CKMovieMediaObject, ISVideoPlayerUIView, ISWrappedAVPlayer, NSString, UIImageView;
 
 @interface CKAutoloopMovieBalloonView : CKImageBalloonView <ISWrappedAVPlayerDelegate>
 {
@@ -16,7 +16,6 @@
     CKMovieMediaObject *_mediaObject;
     ISVideoPlayerUIView *_videoPlayer;
     ISWrappedAVPlayer *_avPlayer;
-    AVPlayerItem *_playerItem;
     UIImageView *_muteButton;
 }
 
@@ -25,7 +24,6 @@
 + (Class)AVPlayerClass;
 @property(nonatomic) _Bool isMuted; // @synthesize isMuted=_isMuted;
 @property(retain, nonatomic) UIImageView *muteButton; // @synthesize muteButton=_muteButton;
-@property(retain, nonatomic) AVPlayerItem *playerItem; // @synthesize playerItem=_playerItem;
 @property(retain, nonatomic) ISWrappedAVPlayer *avPlayer; // @synthesize avPlayer=_avPlayer;
 @property(retain, nonatomic) ISVideoPlayerUIView *videoPlayer; // @synthesize videoPlayer=_videoPlayer;
 @property(retain, nonatomic) CKMovieMediaObject *mediaObject; // @synthesize mediaObject=_mediaObject;

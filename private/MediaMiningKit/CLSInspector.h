@@ -23,9 +23,6 @@
 + (void)invalidateSharedPersistentCaches;
 + (void)invalidateAllSharedCaches;
 + (id)sharedInspector;
-+ (void)requestLocationsForRegions:(id)arg1 cacheTestObject:(id)arg2 progressBlock:(CDUnknownBlockType)arg3;
-+ (void)cacheLocationsForRegions:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
-+ (void)invalidateLocationCache;
 - (void).cxx_destruct;
 - (void)cancelAllInvestigations;
 - (void)waitUntilFinished;

@@ -6,14 +6,15 @@
 
 #import <objc/NSObject.h>
 
+#import <CTCarrierSpace/NSCopying-Protocol.h>
 #import <CTCarrierSpace/NSSecureCoding-Protocol.h>
 
 @class NSString;
 
-@interface CTCarrierSpacePlanGroupOptionInfo : NSObject <NSSecureCoding>
+@interface CTCarrierSpacePlanGroupOptionInfo : NSObject <NSCopying, NSSecureCoding>
 {
     _Bool _planPurchasable;
-    int _planSubscriptionStatus;
+    unsigned char _planSubscriptionStatus;
     NSString *_planId;
     NSString *_planLabel;
     NSString *_planValue;
@@ -22,16 +23,17 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) _Bool planPurchasable; // @synthesize planPurchasable=_planPurchasable;
-@property(nonatomic) int planSubscriptionStatus; // @synthesize planSubscriptionStatus=_planSubscriptionStatus;
+@property(nonatomic) unsigned char planSubscriptionStatus; // @synthesize planSubscriptionStatus=_planSubscriptionStatus;
 @property(retain, nonatomic) NSString *planTermsURL; // @synthesize planTermsURL=_planTermsURL;
 @property(retain, nonatomic) NSString *planDetailsURL; // @synthesize planDetailsURL=_planDetailsURL;
+@property(nonatomic) _Bool planPurchasable; // @synthesize planPurchasable=_planPurchasable;
 @property(retain, nonatomic) NSString *planValue; // @synthesize planValue=_planValue;
 @property(retain, nonatomic) NSString *planLabel; // @synthesize planLabel=_planLabel;
 @property(retain, nonatomic) NSString *planId; // @synthesize planId=_planId;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) long long planStatus;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;

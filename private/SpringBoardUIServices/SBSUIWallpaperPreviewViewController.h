@@ -36,16 +36,15 @@
 @property(retain, nonatomic) SBFHomeScreenWallpaperParallaxSettings *homeScreenParallaxSettings; // @synthesize homeScreenParallaxSettings=_homeScreenParallaxSettings;
 @property(retain, nonatomic) SBFLockScreenWallpaperParallaxSettings *lockScreenParallaxSettings; // @synthesize lockScreenParallaxSettings=_lockScreenParallaxSettings;
 @property(nonatomic) _Bool motionEnabled; // @synthesize motionEnabled=_motionEnabled;
+@property(readonly) UIImage *wallpaperImage; // @synthesize wallpaperImage=_wallpaperImage;
 @property(retain, nonatomic) SBFWallpaperSettings *wallpaperSettings; // @synthesize wallpaperSettings=_wallpaperSettings;
 @property(nonatomic) __weak id <SBFLegibilitySettingsProviderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (_Bool)colorSamplingEnabled;
 - (void)setColorSamplingEnabled:(_Bool)arg1;
-- (void)statusBarOrientationWillChange:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_startDateTimer;
 - (void)_stopDateTimer;
-- (void)_updateDateViewAlignmentFromOrientation:(long long)arg1;
 - (void)_updateDateView;
 - (id)_dateView;
 - (id)_wallpaperView;
@@ -60,7 +59,6 @@
 - (void)setMotionEnabled:(_Bool)arg1 updateParallaxOnWallpaperView:(_Bool)arg2;
 - (void)setWallpaperForLocations:(long long)arg1;
 - (double)_parallaxFactor;
-@property(readonly) UIImage *wallpaperImage;
 - (id)wallpaperConfigurationManager;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

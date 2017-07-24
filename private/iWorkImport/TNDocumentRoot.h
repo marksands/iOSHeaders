@@ -75,6 +75,7 @@ __attribute__((visibility("hidden")))
 - (void)p_removeSidebarNodeForSheet:(id)arg1;
 - (void)p_addSidebarNodeForSheet:(id)arg1;
 - (void)setSidebarChildren:(id)arg1 forSheet:(id)arg2;
+@property(readonly, nonatomic, getter=isPrintPreviewSupported) _Bool printPreviewSupported;
 @property(copy, nonatomic) NSString *printerID;
 - (_Bool)validName:(id)arg1 forRenamingSheet:(id)arg2;
 - (_Bool)validNameForNewSheet:(id)arg1;

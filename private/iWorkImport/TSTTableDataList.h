@@ -6,7 +6,7 @@
 
 #import <iWorkImport/TSPObject.h>
 
-@class TSTIntegerKeyDict, TSTTableDataObjectKeyDict;
+@class NSString, TSTIntegerKeyDict, TSTTableDataObjectKeyDict;
 
 __attribute__((visibility("hidden")))
 @interface TSTTableDataList : TSPObject
@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSTTableDataObjectKeyDict *dataToKeyDict; // @synthesize dataToKeyDict=mDataToKeyDict;
 @property(retain, nonatomic) TSTIntegerKeyDict *data; // @synthesize data=mData;
 @property(nonatomic) int listType; // @synthesize listType=mListType;
-- (id)p_listTypeString;
+@property(readonly, retain, nonatomic) NSString *listTypeString;
 - (void)dropReferenceForKey:(unsigned int)arg1;
 - (void)p_addReferencesForKey:(unsigned int)arg1 fromObject:(id)arg2;
 - (void)takeReferenceForKey:(unsigned int)arg1;
@@ -63,10 +63,10 @@ __attribute__((visibility("hidden")))
 - (unsigned int)addCellFormat:(id)arg1 atSuggestedKey:(unsigned int)arg2;
 - (_Bool)containsControlFormats;
 - (id)allRichTextPayloadStorages;
+- (id)getRefCountsFromDataList;
 - (id)reassignCustomFormatUIDForPaste;
 - (void)upgradeConditionalStylesToLinkedRefWithTableUID:(const UUIDData_5fbc143e *)arg1;
 - (void)upgradeCellFormatsU2_0;
-- (id)deduplicateAndReturnMapping;
 - (_Bool)hasDuplicatedElements;
 
 @end

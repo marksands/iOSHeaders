@@ -44,6 +44,8 @@
 - (void)updateEndpointerThreshold:(float)arg1;
 - (id)endpointerModelVersion;
 - (void)processServerEndpointFeatures:(id)arg1;
+- (_Bool)_shouldEnterTwoShotAtEndPointTime:(double)arg1;
+- (_Bool)_shouldUseVAD2ForTwoShot;
 - (void)endpointer:(id)arg1 didDetectHardEndpointAtTime:(double)arg2 withMetrics:(id)arg3;
 - (void)endpointer:(id)arg1 didDetectStartpointAtTime:(double)arg2;
 @property(readonly, nonatomic) double lastEndOfVoiceActivityTime;
@@ -52,6 +54,7 @@
 - (void)processAudioSamplesAsynchronously:(id)arg1;
 - (void)preheat;
 - (void)setActiveChannel:(unsigned long long)arg1;
+- (void)resetForVoiceTriggerTwoShotWithSampleRate:(unsigned long long)arg1;
 - (void)resetForNewRequestWithSampleRate:(unsigned long long)arg1;
 - (id)init;
 

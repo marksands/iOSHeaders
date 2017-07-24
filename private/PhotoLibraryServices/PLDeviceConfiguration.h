@@ -27,6 +27,7 @@
 @property(nonatomic) _Bool isWatch; // @synthesize isWatch=_isWatch;
 @property(nonatomic) _Bool isTV; // @synthesize isTV=_isTV;
 @property(nonatomic) _Bool isPad; // @synthesize isPad=_isPad;
+@property(readonly, nonatomic) unsigned long long logicalScreenPixelSize;
 @property(readonly, nonatomic) _Bool shouldUseNanoThumbnailFormats; // @dynamic shouldUseNanoThumbnailFormats;
 - (id)description;
 - (id)initWithLogicalScreenSize:(struct CGSize)arg1 screenScale:(double)arg2 deviceClass:(void *)arg3 isRidingCrudSnow:(_Bool)arg4 isRidingPowderSnow:(_Bool)arg5;

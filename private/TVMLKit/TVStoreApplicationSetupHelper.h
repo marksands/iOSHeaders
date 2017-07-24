@@ -8,7 +8,7 @@
 
 #import <TVMLKit/ISURLOperationDelegate-Protocol.h>
 
-@class IKURLBagCache, NSString, NSURL;
+@class IKURLBagCache, NSNumber, NSString, NSURL;
 
 @interface TVStoreApplicationSetupHelper : NSObject <ISURLOperationDelegate>
 {
@@ -38,6 +38,9 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentage;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentageCachedResponses;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSessionDuration;
 @property(readonly) Class superclass;
 
 @end

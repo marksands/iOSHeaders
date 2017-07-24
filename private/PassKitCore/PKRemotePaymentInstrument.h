@@ -9,11 +9,12 @@
 #import <PassKitCore/NSCopying-Protocol.h>
 #import <PassKitCore/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSData, NSDate, NSString, PKPaymentApplication;
+@class NSArray, NSData, NSDate, NSString, PKCurrencyAmount, PKPaymentApplication;
 
 @interface PKRemotePaymentInstrument : NSObject <NSSecureCoding, NSCopying>
 {
     _Bool _supportsAutomaticSelection;
+    _Bool _hasAssociatedPeerPaymentAccount;
     NSString *_passIdentifier;
     NSData *_manifestHash;
     NSString *_displayName;
@@ -23,6 +24,7 @@
     NSArray *_paymentApplications;
     PKPaymentApplication *_primaryPaymentApplication;
     NSDate *_ingestedDate;
+    PKCurrencyAmount *_peerPaymentAccountBalance;
     NSArray *_associatedWebDomains;
 }
 
@@ -31,6 +33,8 @@
 + (id)remotePaymentInstrumentWithProtobuf:(id)arg1;
 + (id)thumbnailCachePathForManifestHash:(id)arg1 size:(struct CGSize)arg2;
 @property(retain, nonatomic) NSArray *associatedWebDomains; // @synthesize associatedWebDomains=_associatedWebDomains;
+@property(nonatomic) _Bool hasAssociatedPeerPaymentAccount; // @synthesize hasAssociatedPeerPaymentAccount=_hasAssociatedPeerPaymentAccount;
+@property(retain, nonatomic) PKCurrencyAmount *peerPaymentAccountBalance; // @synthesize peerPaymentAccountBalance=_peerPaymentAccountBalance;
 @property(nonatomic) _Bool supportsAutomaticSelection; // @synthesize supportsAutomaticSelection=_supportsAutomaticSelection;
 @property(retain, nonatomic) NSDate *ingestedDate; // @synthesize ingestedDate=_ingestedDate;
 @property(retain, nonatomic) PKPaymentApplication *primaryPaymentApplication; // @synthesize primaryPaymentApplication=_primaryPaymentApplication;

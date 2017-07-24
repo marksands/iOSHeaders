@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <HomeUI/HUIconCell.h>
+#import <HomeUI/HUTitleValueCell.h>
 
 #import <HomeUI/HUDisableableCellProtocol-Protocol.h>
 #import <HomeUI/HUEditableTextCellProtocol-Protocol.h>
 
 @class NSString, UITextField;
 
-@interface HUEditableTextCell : HUIconCell <HUEditableTextCellProtocol, HUDisableableCellProtocol>
+@interface HUEditableTextCell : HUTitleValueCell <HUEditableTextCellProtocol, HUDisableableCellProtocol>
 {
     UITextField *_textField;
 }

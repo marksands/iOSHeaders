@@ -25,6 +25,7 @@
     NSString *_appNameDesiredLanguage;
     NSMeasurementFormatter *_measurementWholeFormatter;
     NSMeasurementFormatter *_measurementDecimalFormatter;
+    NSMeasurementFormatter *_measurementUnscaledFormatter;
     NSLengthFormatter *_lengthFormatter;
     NSDateComponentsFormatter *_dateComponentFormatter;
 }
@@ -47,7 +48,8 @@
 - (id)makeDateComponentFormatter;
 - (id)formattedLengthInMeters:(double)arg1;
 - (id)makeLengthFormatter;
-- (id)formattedMeasurement:(id)arg1 allowDecimals:(_Bool)arg2;
+- (id)formattedMeasurement:(id)arg1 allowDecimals:(_Bool)arg2 scaleUnits:(_Bool)arg3;
+- (id)makeMeasurementUnscaledFormatter;
 - (id)makeMeasurementDecimalFormatter;
 - (id)makeMeasurementWholeFormatter;
 - (id)localizedAppNameForBundleIdentifier:(id)arg1;

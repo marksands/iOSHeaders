@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (_Bool)optimizeSegmentationOfEmptyLines;
 - (id)nextTargetTopicNumbers;
 - (id)previousTargetTopicNumbers;
 - (id)nextTargetFirstColumn;
@@ -20,6 +21,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)repShouldPreventCaret;
 - (void)willBeRemovedFromLayoutController:(id)arg1;
 - (id)previousTargetLastColumn;
+- (_Bool)isLinked;
 - (_Bool)isOverflowing;
 - (_Bool)isLastTarget;
 - (void)i_validateTextLayout;

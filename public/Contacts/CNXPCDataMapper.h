@@ -46,11 +46,10 @@
 - (_Bool)executeSaveRequest:(id)arg1 error:(id *)arg2;
 - (id)meContactIdentifierWithError:(id *)arg1;
 - (id)identifierWithError:(id *)arg1;
-- (_Bool)fetchEncodedContactsForFetchRequest:(id)arg1 error:(id *)arg2 batchHandler:(CDUnknownBlockType)arg3;
-- (_Bool)fetchAndDecodeEncodedContactsForFetchRequest:(id)arg1 error:(id *)arg2 batchHandler:(CDUnknownBlockType)arg3;
+- (_Bool)fetchEncodedContactsForFetchRequest:(id)arg1 error:(id *)arg2 cancelationToken:(id)arg3 batchHandler:(CDUnknownBlockType)arg4;
+- (_Bool)fetchAndDecodeEncodedContactsForFetchRequest:(id)arg1 error:(id *)arg2 cancelationToken:(id)arg3 batchHandler:(CDUnknownBlockType)arg4;
 - (_Bool)fetchContactsForFetchRequest:(id)arg1 error:(id *)arg2 batchHandler:(CDUnknownBlockType)arg3;
-- (id)contactsForFetchRequest:(id)arg1 matchInfos:(id *)arg2 error:(id *)arg3;
-- (id)contactsForFetchRequest:(id)arg1 error:(id *)arg2;
+- (id)contactObservableForFetchRequest:(id)arg1;
 - (id)unifiedContactCountWithError:(id *)arg1;
 - (id)remoteResultForSelector:(SEL)arg1 parameters:(id)arg2 error:(id *)arg3;
 - (id)remoteResultForSelector:(SEL)arg1 query:(id)arg2 queryParameter:(id)arg3 error:(id *)arg4;

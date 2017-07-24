@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     UIView *_dropDestinationView;
     CDUnknownBlockType _dropPerformBlock;
     CDUnknownBlockType _dropCompletionBlock;
+    CDUnknownBlockType _postDropAnimationCompletionBlock;
     _UIDragSetDownAnimation *_setDownAnimation;
     PBItemCollection *_droppedItemCollection;
     PBDataTransferMonitor *_dataTransferMonitor;
@@ -53,6 +54,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <_UIDraggingInfo> publicSession; // @synthesize publicSession=_publicSession;
 - (void).cxx_destruct;
 - (void)handOffDroppedItems:(id)arg1;
+- (void)setUpDropAnimation:(id)arg1;
 - (void)takeVisibleDroppedItems:(id)arg1;
 @property(readonly, nonatomic) NSArray *preDropItemProviders;
 @property(readonly, nonatomic) unsigned long long sourceOperationMask;
@@ -68,6 +70,7 @@ __attribute__((visibility("hidden")))
 - (void)dataTransferMonitorFinishedTransfers:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dataTransferMonitorBeganTransfers:(id)arg1;
+- (void)_sessionDidEndNormally:(_Bool)arg1;
 - (void)connect;
 @property(readonly, nonatomic) _UIInternalDraggingSessionSource *inAppSessionSource;
 - (id)initWithDragManager:(id)arg1 dragEvent:(id)arg2;

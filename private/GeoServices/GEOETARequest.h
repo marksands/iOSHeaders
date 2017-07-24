@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOAdditionalEnabledMarkets, GEOAutomobileOptions, GEOClientCapabilities, GEOCommonOptions, GEOLocation, GEOPDABClientDatasetMetadata, GEOTFTrafficSnapshot, GEOTransitOptions, GEOWalkingOptions, GEOWaypoint, GEOWaypointTyped, NSData, NSMutableArray;
+@class GEOAdditionalEnabledMarkets, GEOAutomobileOptions, GEOClientCapabilities, GEOCommonOptions, GEOLocation, GEOPDABClientDatasetMetadata, GEOTFTrafficSnapshot, GEOTransitOptions, GEOWalkingOptions, GEOWaypoint, GEOWaypointTyped, NSData, NSMutableArray, NSString;
 
 @interface GEOETARequest : PBRequest <NSCopying>
 {
@@ -27,6 +27,7 @@
     GEOWaypointTyped *_originWaypointTyped;
     NSData *_originalRouteID;
     NSData *_originalRouteZilchPoints;
+    NSString *_phoneticLocaleIdentifier;
     NSMutableArray *_serviceTags;
     NSData *_sessionState;
     GEOTFTrafficSnapshot *_trafficSnapshot;
@@ -63,6 +64,7 @@
 + (Class)destinationWaypointTypedType;
 + (Class)destinationType;
 @property(retain, nonatomic) NSMutableArray *serviceTags; // @synthesize serviceTags=_serviceTags;
+@property(retain, nonatomic) NSString *phoneticLocaleIdentifier; // @synthesize phoneticLocaleIdentifier=_phoneticLocaleIdentifier;
 @property(nonatomic) _Bool includeShortTrafficSummary; // @synthesize includeShortTrafficSummary=_includeShortTrafficSummary;
 @property(retain, nonatomic) GEOPDABClientDatasetMetadata *abClientMetadata; // @synthesize abClientMetadata=_abClientMetadata;
 @property(retain, nonatomic) GEOLocation *lastKnownRoadLocation; // @synthesize lastKnownRoadLocation=_lastKnownRoadLocation;
@@ -102,6 +104,7 @@
 - (unsigned long long)serviceTagsCount;
 - (void)addServiceTag:(id)arg1;
 - (void)clearServiceTags;
+@property(readonly, nonatomic) _Bool hasPhoneticLocaleIdentifier;
 @property(nonatomic) _Bool hasIncludeShortTrafficSummary;
 @property(nonatomic) _Bool hasIncludeRouteTrafficDetail;
 @property(nonatomic) _Bool includeRouteTrafficDetail; // @synthesize includeRouteTrafficDetail=_includeRouteTrafficDetail;

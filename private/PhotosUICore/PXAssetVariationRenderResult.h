@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class AVAsset, AVVideoComposition, NSDictionary, NSError, NSURL, PHAsset, UIImage;
+@class AVAsset, AVVideoComposition, NSDictionary, NSError, NSURL, PHAsset, PLPhotoEditModel, UIImage;
 
 @interface PXAssetVariationRenderResult : NSObject
 {
@@ -14,15 +14,14 @@
     _Bool _fullsizeRender;
     PHAsset *_asset;
     long long _variationType;
-    NSDictionary *_recipe;
-    NSDictionary *_editModel;
+    NSDictionary *_analysisResult;
+    PLPhotoEditModel *_editModel;
     NSError *_error;
     NSURL *_imageURL;
     UIImage *_image;
     NSURL *_videoURL;
     AVAsset *_videoAsset;
     AVVideoComposition *_videoComposition;
-    struct CGSize _targetSize;
 }
 
 @property(nonatomic, getter=isFullsizeRender) _Bool fullsizeRender; // @synthesize fullsizeRender=_fullsizeRender;
@@ -32,15 +31,14 @@
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(readonly, nonatomic) NSURL *imageURL; // @synthesize imageURL=_imageURL;
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
-@property(readonly, nonatomic) struct CGSize targetSize; // @synthesize targetSize=_targetSize;
-@property(readonly, copy, nonatomic) NSDictionary *editModel; // @synthesize editModel=_editModel;
+@property(readonly, copy, nonatomic) PLPhotoEditModel *editModel; // @synthesize editModel=_editModel;
 @property(readonly, nonatomic) _Bool success; // @synthesize success=_success;
-@property(readonly, copy, nonatomic) NSDictionary *recipe; // @synthesize recipe=_recipe;
+@property(readonly, copy, nonatomic) NSDictionary *analysisResult; // @synthesize analysisResult=_analysisResult;
 @property(readonly, nonatomic) long long variationType; // @synthesize variationType=_variationType;
 @property(readonly, nonatomic) PHAsset *asset; // @synthesize asset=_asset;
 - (void).cxx_destruct;
 - (id)description;
-- (id)initWithAsset:(id)arg1 variationType:(long long)arg2 imageURL:(id)arg3 videoURL:(id)arg4 recipe:(id)arg5 editModel:(id)arg6 targetSize:(struct CGSize)arg7 success:(_Bool)arg8 error:(id)arg9;
+- (id)initWithAsset:(id)arg1 variationType:(long long)arg2 imageURL:(id)arg3 videoURL:(id)arg4 analysisResult:(id)arg5 editModel:(id)arg6 success:(_Bool)arg7 error:(id)arg8;
 - (id)init;
 
 @end

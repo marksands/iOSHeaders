@@ -111,6 +111,7 @@
 - (id)_topEventPidOverride:(id)arg1;
 - (id)_hasActiveOrPendingCallOrFaceTime:(id)arg1;
 - (id)_hasActiveOrPendingCall:(id)arg1;
+- (id)_hasActiveEndpointCall:(id)arg1;
 - (id)_hasActiveCall:(id)arg1;
 - (id)_isMakingEmergencyCall:(id)arg1;
 - (id)_screenLocked:(id)arg1;
@@ -140,6 +141,7 @@
 - (void)setSiriIsTalking:(_Bool)arg1;
 - (_Bool)hasActiveOrPendingCallOrFaceTime;
 - (_Bool)hasActiveOrPendingCall;
+- (_Bool)hasActiveEndpointCall;
 - (_Bool)hasActiveCall;
 - (_Bool)shouldCancelSiriTouchActivationBlock;
 - (void)_removeReachabilityHandler:(unsigned int)arg1;

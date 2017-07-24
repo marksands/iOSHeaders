@@ -53,6 +53,7 @@
 - (void)reset;
 - (void)uninitialize:(CDUnknownBlockType)arg1;
 - (void)initialize2:(int)arg1 formats:(id)arg2 maxFrames:(unsigned long long)arg3 buffer:(id)arg4 bufferSize:(unsigned int)arg5 beginSem:(id)arg6 endSem:(id)arg7 reply:(CDUnknownBlockType)arg8;
+- (void)setWorkIntervalPort:(id)arg1;
 - (void)initialize:(unsigned long long)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)getBusses:(unsigned int)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)open:(CDUnknownBlockType)arg1;

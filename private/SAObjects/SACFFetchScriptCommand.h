@@ -18,6 +18,7 @@
 + (id)fetchScriptCommand;
 - (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *jsScriptIdentifiers;
+@property(copy, nonatomic) NSString *fetchScriptType;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

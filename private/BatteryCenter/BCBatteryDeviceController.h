@@ -54,7 +54,7 @@
 - (id)_nameForVendor:(long long)arg1 accessoryCategory:(unsigned long long)arg2 name:(id)arg3 partName:(id)arg4;
 - (struct CGSize)_largestBatteryDeviceGlyphSize;
 - (unsigned long long)_partFromPowerSourcePartIdentifier:(id)arg1;
-- (unsigned long long)_accessoryCategoryFromPowerSourceAccessoryCategory:(id)arg1 transportType:(long long)arg2 vendor:(long long)arg3 productIdentifier:(long long)arg4;
+- (unsigned long long)_accessoryCategoryFromPowerSourceAccessoryCategory:(id)arg1 partType:(unsigned long long)arg2 transportType:(long long)arg3 vendor:(long long)arg4 productIdentifier:(long long)arg5;
 - (_Bool)_shouldConsiderDeviceWithPowerSourceDescription:(id)arg1;
 - (void)_queue_performUpdateWithPowerSourcesBlob:(void *)arg1 andPowerSourcesList:(struct __CFArray *)arg2;
 - (void)_queue_handleBatterySaverModeChanged:(int)arg1;

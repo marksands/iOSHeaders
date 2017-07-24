@@ -6,34 +6,38 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSDateInterval, NSMutableArray, NSString, PGGraphNode;
+@class NSArray, NSCountedSet, NSDateInterval, NSMutableArray, PGGraphNode, PGPeopleVisitingVisit;
 
 @interface PGPeopleVisitingSuperset : NSObject
 {
-    NSMutableArray *_matchedMomentNodes;
-    NSString *_locationType;
-    unsigned long long _numberOfMomentsWithNoLocation;
-    PGGraphNode *_locationNode;
+    NSCountedSet *_numberOfMomentsByDistance;
+    NSMutableArray *_visits;
+    PGPeopleVisitingVisit *_currentVisit;
+    PGGraphNode *_addressNode;
     NSDateInterval *_localDateInterval;
-    unsigned long long _numberOfMomentsDuringThisSuperset;
-    PGPeopleVisitingSuperset *_parentSuperset;
+    unsigned long long _numberOfMatchingMoments;
+    unsigned long long _totalNumberOfMoments;
+    struct CLLocationCoordinate2D _coordinates;
 }
 
-@property(retain) PGPeopleVisitingSuperset *parentSuperset; // @synthesize parentSuperset=_parentSuperset;
-@property(readonly) unsigned long long numberOfMomentsDuringThisSuperset; // @synthesize numberOfMomentsDuringThisSuperset=_numberOfMomentsDuringThisSuperset;
-@property(readonly) NSArray *matchedMomentNodes; // @synthesize matchedMomentNodes=_matchedMomentNodes;
+@property(readonly) NSArray *visits; // @synthesize visits=_visits;
+@property(readonly) unsigned long long totalNumberOfMoments; // @synthesize totalNumberOfMoments=_totalNumberOfMoments;
+@property(readonly) unsigned long long numberOfMatchingMoments; // @synthesize numberOfMatchingMoments=_numberOfMatchingMoments;
 @property(readonly) NSDateInterval *localDateInterval; // @synthesize localDateInterval=_localDateInterval;
-@property(readonly) PGGraphNode *locationNode; // @synthesize locationNode=_locationNode;
+@property(readonly) struct CLLocationCoordinate2D coordinates; // @synthesize coordinates=_coordinates;
+@property(readonly) PGGraphNode *addressNode; // @synthesize addressNode=_addressNode;
 - (void).cxx_destruct;
 - (id)description;
-- (void)reset;
-- (void)registerMomentNode:(id)arg1 isInsideSuperset:(_Bool)arg2 hasNoLocation:(_Bool)arg3;
-@property(readonly) double insideSupersetUpperRatio;
-@property(readonly) double insideSupersetLowerRatio;
-- (id)initWithCountryNode:(id)arg1 localDateInterval:(id)arg2;
-- (id)initWithStateNode:(id)arg1 localDateInterval:(id)arg2;
-- (id)initWithCityNode:(id)arg1 localDateInterval:(id)arg2;
-- (id)initWithLocationNode:(id)arg1 localDateInterval:(id)arg2;
+- (void)resetVisitFindingSession;
+- (void)closeVisitFindingSession;
+- (void)registerMomentNode:(id)arg1 distance:(unsigned long long)arg2;
+@property(readonly) double upperCloseRatio;
+@property(readonly) double lowerCloseRatio;
+@property(readonly) double upperFarRatio;
+@property(readonly) double lowerFarRatio;
+@property(readonly) double upperVeryFarRatio;
+@property(readonly) double lowerVeryFarRatio;
+- (id)initWithAddressNode:(id)arg1 localDateInterval:(id)arg2;
 
 @end
 

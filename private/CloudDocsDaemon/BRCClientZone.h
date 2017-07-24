@@ -103,7 +103,7 @@ __attribute__((visibility("hidden")))
 - (void)_t_removeItemIDSyncUpBlocking:(id)arg1;
 - (void)_t_addItemID:(id)arg1 blockedForSyncUpUntilOSName:(id)arg2;
 - (_Bool)dumpActivityToContext:(id)arg1 error:(id *)arg2;
-- (_Bool)_dumpItemsToContext:(id)arg1 error:(id *)arg2;
+- (_Bool)_dumpItemsToContext:(id)arg1 includeAllItems:(_Bool)arg2 error:(id *)arg3;
 - (void)_dumpRecursivePropertiesOfItemByRowID:(unsigned long long)arg1 context:(id)arg2 depth:(int)arg3;
 - (void)_appendToString:(id)arg1 descriptionOfFieldNamed:(id)arg2 inResultSet:(id)arg3 pos:(int *)arg4 containsSize:(_Bool)arg5 context:(id)arg6;
 - (long long)throttleHashWithItemID:(id)arg1;
@@ -144,7 +144,7 @@ __attribute__((visibility("hidden")))
 - (struct PQLResultSet *)itemsParentedToThisZoneButLivingInAnOtherZone;
 - (struct PQLResultSet *)allItems;
 - (_Bool)_resetItemsTable;
-- (_Bool)dumpTablesToContext:(id)arg1 error:(id *)arg2;
+- (_Bool)dumpTablesToContext:(id)arg1 includeAllItems:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)dumpStatusToContext:(id)arg1 error:(id *)arg2;
 - (_Bool)hasCompletedInitialSyncDownOnce;
 - (void)flushAppliedTombstones;
@@ -237,6 +237,7 @@ __attribute__((visibility("hidden")))
 - (void)scheduleResetServerAndClientTruthsForReason:(const char *)arg1;
 - (void)close;
 - (void)resume;
+- (void)associateWithServerZone:(id)arg1 offline:(_Bool)arg2;
 - (void)associateWithServerZone:(id)arg1;
 - (void)updateWithPlist:(id)arg1;
 @property(readonly, nonatomic) NSMutableDictionary *plist;

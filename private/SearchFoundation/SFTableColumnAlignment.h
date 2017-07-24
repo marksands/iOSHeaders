@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFTableColumnAlignment-Protocol.h>
 
 @class NSData, NSDictionary, NSString;
 
-@interface SFTableColumnAlignment : NSObject <SFTableColumnAlignment, NSSecureCoding>
+@interface SFTableColumnAlignment : NSObject <SFTableColumnAlignment, NSSecureCoding, NSCopying>
 {
     CDStruct_92ac6441 _has;
     _Bool _isEqualWidth;
@@ -23,6 +24,7 @@
 @property(nonatomic) _Bool isEqualWidth; // @synthesize isEqualWidth=_isEqualWidth;
 @property(nonatomic) int dataAlignment; // @synthesize dataAlignment=_dataAlignment;
 @property(nonatomic) int columnAlignment; // @synthesize columnAlignment=_columnAlignment;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

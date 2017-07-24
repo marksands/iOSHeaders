@@ -12,7 +12,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) unsigned int leaderIP; // @synthesize leaderIP=_leaderIP;
+@property(readonly, nonatomic) unsigned int leaderIP; // @synthesize leaderIP=_leaderIP;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

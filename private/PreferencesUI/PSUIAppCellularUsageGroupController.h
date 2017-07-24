@@ -19,6 +19,7 @@
     WirelessDataUsageWorkspace *_workspace;
     NSNumber *_totalBytesUsed;
     NSNumber *_totalRoamingBytesUsed;
+    NSArray *_headerSpecifiers;
     PSExpandableAppListGroupController *_appGroupController;
     NSArray *_managedBundleIDs;
     AppWirelessDataUsageManager *_wirelessManager;
@@ -32,6 +33,7 @@
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(getter=isCancelled) _Bool cancelled; // @synthesize cancelled=_cancelled;
 @property(retain, nonatomic) PSExpandableAppListGroupController *appGroupController; // @synthesize appGroupController=_appGroupController;
+@property(retain, nonatomic) NSArray *headerSpecifiers; // @synthesize headerSpecifiers=_headerSpecifiers;
 @property(retain, nonatomic) NSNumber *totalRoamingBytesUsed; // @synthesize totalRoamingBytesUsed=_totalRoamingBytesUsed;
 @property(retain, nonatomic) NSNumber *totalBytesUsed; // @synthesize totalBytesUsed=_totalBytesUsed;
 @property(retain, nonatomic) WirelessDataUsageWorkspace *workspace; // @synthesize workspace=_workspace;

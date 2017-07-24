@@ -13,7 +13,7 @@
 #import <CoreML/MLRegressor-Protocol.h>
 #import <CoreML/MLSpecificationCompiler-Protocol.h>
 
-@class MLModelDescription, MLModelInterface, MLModelMetadata, NSArray, NSString;
+@class MLModelDescription, MLModelInterface, MLModelMetadata, NSArray, NSMutableDictionary, NSString;
 
 @interface MLNeuralNetworkEngine : MLModel <MLNeuralNetwork, MLModelSpecificationLoader, MLCompiledModelLoader, MLSpecificationCompiler, MLClassifier, MLRegressor>
 {
@@ -31,6 +31,7 @@
     unsigned long long _numOutputs;
     void *_context;
     void *_plan;
+    NSMutableDictionary *_probDict;
     NSString *_modelFilePath;
     CDStruct_2bc666a5 _network;
     CDStruct_b527887c _params;
@@ -47,11 +48,11 @@
 + (id)neuralNetworkFromSpec:(id)arg1 classScoreVectorName:(id)arg2 classLabels:(id)arg3 error:(id *)arg4;
 + (id)neuralNetworkFromSpec:(id)arg1 error:(id *)arg2;
 + (id)loadModelFromSpecification:(struct _MLModelSpecification *)arg1 error:(id *)arg2;
-+ (id)loadModelFromCompiledArchive:(struct _MLModelInputArchiver *)arg1 versionInfo:(id)arg2 error:(id *)arg3;
-+ (id)loadEngineFromCompiledArchive:(struct _MLModelInputArchiver *)arg1 error:(id *)arg2;
++ (id)loadModelFromCompiledArchive:(struct _MLModelInputArchiver *)arg1 modelVersionInfo:(id)arg2 compilerVersionInfo:(id)arg3 error:(id *)arg4;
 + (id)compiledVersionForSpecification:(struct _MLModelSpecification *)arg1 options:(id)arg2 error:(id *)arg3;
 + (id)compileSpecification:(struct _MLModelSpecification *)arg1 toArchive:(struct _MLModelOutputArchiver *)arg2 options:(id)arg3 error:(id *)arg4;
 @property(retain, nonatomic) NSString *modelFilePath; // @synthesize modelFilePath=_modelFilePath;
+@property(retain, nonatomic) NSMutableDictionary *probDict; // @synthesize probDict=_probDict;
 @property(nonatomic) vector_e0f2bd7e sequences; // @synthesize sequences=_sequences;
 @property(nonatomic) vector_e0f2bd7e batches; // @synthesize batches=_batches;
 @property(nonatomic) vector_e0f2bd7e ks; // @synthesize ks=_ks;

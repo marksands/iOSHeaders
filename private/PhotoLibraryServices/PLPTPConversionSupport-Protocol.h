@@ -6,10 +6,10 @@
 
 #import <PhotoLibraryServices/NSObject-Protocol.h>
 
-@class PFMediaCapabilities, PHMediaFormatConversionManager;
+@class PLPTPAsset, PLPTPConversionResult;
 
 @protocol PLPTPConversionSupport <NSObject>
-- (PFMediaCapabilities *)peerMediaCapabilities;
-- (PHMediaFormatConversionManager *)mediaFormatConversionManager;
+@property(readonly, nonatomic) _Bool supportsTranscodeChoice;
+- (PLPTPConversionResult *)conversionResultForAsset:(PLPTPAsset *)arg1 isVideo:(_Bool)arg2 isRender:(_Bool)arg3;
 @end
 

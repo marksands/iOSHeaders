@@ -30,6 +30,7 @@
 
 + (id)logCategory;
 + (id)shortDescription;
++ (id)sharedRegistry;
 @property(nonatomic, getter=isResolved) _Bool resolved; // @synthesize resolved=_resolved;
 @property(nonatomic, getter=isMonitoring) _Bool monitoring; // @synthesize monitoring=_monitoring;
 @property(readonly, nonatomic) HMFTimer *devicesChangeBackoffTimer; // @synthesize devicesChangeBackoffTimer=_devicesChangeBackoffTimer;
@@ -48,7 +49,7 @@
 - (void)stopMonitoring;
 - (void)startMonitoring;
 - (id)deviceForDestination:(id)arg1 shouldCreate:(_Bool)arg2;
-- (id)accountWithDestination:(id)arg1 shouldCreate:(_Bool)arg2;
+- (id)accountForDestination:(id)arg1 shouldCreate:(_Bool)arg2;
 - (void)updateCurrentDevice;
 - (void)notifyDelegateCurrentDeviceChanged:(id)arg1;
 @property(nonatomic) __weak HMDDevice *currentDevice; // @synthesize currentDevice=_currentDevice;

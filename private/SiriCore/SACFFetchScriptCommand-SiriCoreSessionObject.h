@@ -7,6 +7,7 @@
 #import <SAObjects/SACFFetchScriptCommand.h>
 
 @interface SACFFetchScriptCommand (SiriCoreSessionObject)
+- (_Bool)siriCore_supportedByLocalSession;
 - (_Bool)siriCore_isRetryable;
 - (_Bool)siriCore_bufferingAllowedDuringActiveSession;
 @end

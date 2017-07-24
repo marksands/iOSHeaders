@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFDynamicURLImageResource-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString;
 
-@interface SFDynamicURLImageResource : NSObject <SFDynamicURLImageResource, NSSecureCoding>
+@interface SFDynamicURLImageResource : NSObject <SFDynamicURLImageResource, NSSecureCoding, NSCopying>
 {
     struct {
         unsigned int pixelWidth:1;
@@ -32,6 +33,7 @@
 @property(nonatomic) double pixelHeight; // @synthesize pixelHeight=_pixelHeight;
 @property(nonatomic) double pixelWidth; // @synthesize pixelWidth=_pixelWidth;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

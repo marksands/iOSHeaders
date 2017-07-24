@@ -6,16 +6,16 @@
 
 #import <objc/NSObject.h>
 
-@class SXDataTableElementStyle, SXDataTableSelector;
+@class SXDataTableElementStyle, SXJSONDataTableSelector;
 
 @interface SXDataTableStyleMatch : NSObject
 {
     SXDataTableElementStyle *_style;
-    SXDataTableSelector *_selector;
+    SXJSONDataTableSelector *_selector;
 }
 
 + (id)matchWithStyle:(id)arg1 andSelector:(id)arg2;
-@property(readonly, nonatomic) SXDataTableSelector *selector; // @synthesize selector=_selector;
+@property(readonly, nonatomic) SXJSONDataTableSelector *selector; // @synthesize selector=_selector;
 @property(readonly, nonatomic) SXDataTableElementStyle *style; // @synthesize style=_style;
 - (void).cxx_destruct;
 - (id)initWithStyle:(id)arg1 andSelector:(id)arg2;

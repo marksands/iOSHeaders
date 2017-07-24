@@ -11,11 +11,13 @@
 __attribute__((visibility("hidden")))
 @interface _HKSampleQueryConfiguration : HKQueryServerConfiguration
 {
+    _Bool _includeTimeZones;
     NSArray *_sortDescriptors;
     unsigned long long _limit;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool includeTimeZones; // @synthesize includeTimeZones=_includeTimeZones;
 @property(nonatomic) unsigned long long limit; // @synthesize limit=_limit;
 @property(copy, nonatomic) NSArray *sortDescriptors; // @synthesize sortDescriptors=_sortDescriptors;
 - (void).cxx_destruct;

@@ -110,7 +110,7 @@
 - (double)contrastInRect:(struct CGRect)arg1;
 - (double)contrast;
 - (id)averageColorInRect:(struct CGRect)arg1 withSmudgeRadius:(double)arg2;
-- (void)_updateLegibilitySettingsForAverageColor:(id)arg1 notify:(_Bool)arg2;
+- (void)_updateLegibilitySettingsForAverageColor:(id)arg1 force:(_Bool)arg2 notify:(_Bool)arg3;
 - (void)updateLegibilitySettingsForAverageColor:(id)arg1;
 - (void)_setLegibilitySettings:(id)arg1 notify:(_Bool)arg2;
 - (id)_primaryColorOverride;

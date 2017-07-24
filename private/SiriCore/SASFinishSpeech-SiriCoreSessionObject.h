@@ -7,6 +7,7 @@
 #import <SAObjects/SASFinishSpeech.h>
 
 @interface SASFinishSpeech (SiriCoreSessionObject)
+- (_Bool)siriCore_supportedByLocalSession;
 - (_Bool)siriCore_isRestartable;
 @end
 

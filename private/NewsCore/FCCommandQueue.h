@@ -58,7 +58,7 @@
 - (void)_scheduleCommandExecution;
 - (_Bool)_isEmpty;
 - (void)clear;
-- (void)performBlockWhenEmpty:(CDUnknownBlockType)arg1;
+- (void)flushWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_addCommand:(id)arg1 saveCompletion:(CDUnknownBlockType)arg2;
 - (void)addCommand:(id)arg1 saveCompletion:(CDUnknownBlockType)arg2;
 - (void)addCommand:(id)arg1;

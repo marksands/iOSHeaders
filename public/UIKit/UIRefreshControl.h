@@ -39,6 +39,7 @@
 - (void)setBackgroundColor:(id)arg1;
 - (void)_updateConcealingMask;
 - (void)endRefreshing;
+- (void)_endRefreshingAnimated:(_Bool)arg1;
 - (void)beginRefreshing;
 - (void)_removeInsetHeight:(double)arg1;
 - (void)_addInsetHeight:(double)arg1;

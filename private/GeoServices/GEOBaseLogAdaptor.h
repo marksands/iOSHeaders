@@ -14,7 +14,6 @@
 @interface GEOBaseLogAdaptor : NSObject <GEOLogAdaptor>
 {
     NSMutableArray *_supportedLogMessageTypes;
-    NSMutableArray *_supportedLogMessageSubTypes;
     NSObject<OS_dispatch_queue> *_adaptorQueue;
 }
 

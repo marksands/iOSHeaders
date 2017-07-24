@@ -9,15 +9,17 @@
 #import <CoreBluetooth/CBPairingAgentParentDelegate-Protocol.h>
 #import <CoreBluetooth/CBXpcConnectionDelegate-Protocol.h>
 
-@class CBPairingAgent, CBXpcConnection, NSString;
+@class CBPairingAgent, CBXpcConnection, NSData, NSString;
 
 @interface CBManager : NSObject <CBXpcConnectionDelegate, CBPairingAgentParentDelegate>
 {
     CBXpcConnection *_connection;
     CBPairingAgent *_pairingAgent;
     long long _state;
+    NSData *_advertisingAddress;
 }
 
+@property(copy, nonatomic) NSData *advertisingAddress; // @synthesize advertisingAddress=_advertisingAddress;
 @property(nonatomic) long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
 - (id)peerWithInfo:(id)arg1;

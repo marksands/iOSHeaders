@@ -18,6 +18,8 @@
 
 @property(readonly, nonatomic) NSObject<OS_os_log> *log; // @synthesize log=_log;
 - (void).cxx_destruct;
+- (void)XPCConnectionWasInvalidated;
+- (void)XPCConnectionWasInterrupted;
 - (void)internalError:(id)arg1;
 - (void)SPIUsageLackingEntitlementRejectedForPID:(int)arg1;
 - (void)SPIUsageLackingEntitlementGrantedForPID:(int)arg1;
@@ -30,6 +32,7 @@
 - (void)didFetchEncodedContacts:(id)arg1 error:(id)arg2;
 - (void)didFetchContacts:(id)arg1 error:(id)arg2;
 - (void)fetchEncodedContactsMatchingPredicate:(id)arg1 unifyResults:(_Bool)arg2 keysToFetch:(id)arg3;
+- (void)fetchContactsProgressivelyMatchingPredicate:(id)arg1 unifyResults:(_Bool)arg2 keysToFetch:(id)arg3;
 - (void)fetchContactsMatchingPredicate:(id)arg1 unifyResults:(_Bool)arg2 keysToFetch:(id)arg3;
 - (void)noAccessToContactsWithError:(id)arg1;
 - (void)contactsAccessWasGranted:(_Bool)arg1;
@@ -44,14 +47,14 @@
 - (void)fetchingDefaultContainerIdentifier:(CDUnknownBlockType)arg1;
 - (void)fetchingContainers:(CDUnknownBlockType)arg1;
 - (void)fetchingGroups:(CDUnknownBlockType)arg1;
+- (void)fetchingContactsBatch:(CDUnknownBlockType)arg1;
 - (void)fetchingContactIdentifierWithMatchingDictionary:(CDUnknownBlockType)arg1;
 - (void)fetchingContactWithUserActivity:(CDUnknownBlockType)arg1;
-- (CDUnknownBlockType)beginFetchingContacts;
 - (void)fetchingContacts:(CDUnknownBlockType)arg1;
 - (void)fetchingContactCount:(CDUnknownBlockType)arg1;
 - (void)changingMeContact:(CDUnknownBlockType)arg1;
 - (void)fetchingMeContactIdentifier:(CDUnknownBlockType)arg1;
-- (CDUnknownBlockType)beginRequestingAccessForContacts;
+- (void)requestingAccessForContacts:(CDUnknownBlockType)arg1;
 - (id)init;
 
 // Remaining properties

@@ -36,6 +36,7 @@
 - (id)textSelectionView;
 - (void)clearGestureRecognizers;
 - (id)initWithResponder:(id)arg1;
+- (_Bool)shouldEnqueueObserverUpdates;
 - (void)didEndScrollingOverflow;
 - (void)willStartScrollingOverflow;
 - (void)layoutChangedByScrolling:(_Bool)arg1;
@@ -85,6 +86,7 @@
 - (void)scrollSelectionToVisible;
 - (void)setFirstResponderIfNecessary;
 - (void)addGestureRecognizersToView:(id)arg1;
+- (Class)loupeClusterClass;
 - (Class)selectionClusterClass;
 - (id)linkInteractionView;
 - (void)setGestureRecognizers;

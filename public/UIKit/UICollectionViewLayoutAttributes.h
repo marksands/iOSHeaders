@@ -20,6 +20,7 @@
     struct CGSize _size;
     struct CGRect _frame;
     double _alpha;
+    long long _zPosition;
     struct CATransform3D _transform;
     NSString *_isCloneString;
     struct {
@@ -63,6 +64,8 @@
 - (_Bool)_isClone;
 - (void)_setIsClone:(_Bool)arg1;
 @property(nonatomic, getter=isHidden) _Bool hidden;
+- (long long)_zPosition;
+- (void)_setZPosition:(long long)arg1;
 - (id)init;
 - (id)__indexPath;
 - (id)__elementKind;

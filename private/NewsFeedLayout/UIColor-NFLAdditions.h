@@ -7,7 +7,6 @@
 #import <UIKit/UIColor.h>
 
 @interface UIColor (NFLAdditions)
-+ (id)nfl_referredUserInterstitialAndWelcomeToNewsRedColor;
 + (id)nfl_colorBetweenGradientColors:(id)arg1 andColor:(id)arg2 atPosition:(double)arg3;
 + (id)nfl_saveGlyphCellColor;
 + (id)nfl_likeDislikeGlyphCellColor;

@@ -6,9 +6,11 @@
 
 #import <NeutrinoCore/JSExport-Protocol.h>
 
-@class NUJSImageGeometry;
+@class NUJSImageGeometry, NUJSImageProperties, NUJSVideoProperties;
 
 @protocol NUJSRenderNodeExport <JSExport>
+@property(readonly) NUJSVideoProperties *videoProperties;
+@property(readonly) NUJSImageProperties *imageProperties;
 @property(readonly) NUJSImageGeometry *geometry;
 @end
 

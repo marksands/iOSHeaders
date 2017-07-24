@@ -11,6 +11,7 @@
 
 @interface SFNFCTagReaderUIController : NSObject
 {
+    _Bool _activateCalled;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     _Bool _invalidateCalled;
     _Bool _invalidateDone;

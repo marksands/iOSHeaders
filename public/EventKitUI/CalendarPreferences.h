@@ -21,7 +21,6 @@
 @property(nonatomic) _Bool eventAutocompleteEnabled;
 @property(nonatomic) _Bool enableAvatars;
 @property(nonatomic) _Bool disableTodayPushes;
-@property(retain, nonatomic) NSNumber *lastConfirmedSplashScreenVersionViewed;
 @property(nonatomic, getter=isShortResumeToTodayTimeout) _Bool shortResumeToTodayTimeout;
 @property(nonatomic) _Bool hideInlineDayViewInEventDetails;
 @property(nonatomic) _Bool showWindowDebugButton;

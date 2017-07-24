@@ -50,6 +50,8 @@ __attribute__((visibility("hidden")))
 - (id)_dragSourceDelegateActual;
 - (id)_dragDelegateProxy;
 - (id)_dragDelegateActual;
+- (_Bool)dragInteraction:(id)arg1 sessionIsRestrictedToDraggingApplication:(id)arg2;
+- (_Bool)dragInteraction:(id)arg1 sessionAllowsMoveOperation:(id)arg2;
 - (void)dragInteraction:(id)arg1 item:(id)arg2 willAnimateCancelWithAnimator:(id)arg3;
 - (id)dragInteraction:(id)arg1 previewForCancellingItem:(id)arg2 withDefault:(id)arg3;
 - (void)dragInteraction:(id)arg1 session:(id)arg2 willAddItems:(id)arg3 forInteraction:(id)arg4;

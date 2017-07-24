@@ -8,8 +8,8 @@
 
 #import <NewsCore/FCOperationThrottlerDelegate-Protocol.h>
 
-@class FCCacheCoordinatorFlushPolicy, FCMutexLock, FCReadWriteLock, FCThreadSafeMutableDictionary, NSCountedSet, NSMutableSet, NSString;
-@protocol FCCacheCoordinatorDelegate, FCOperationThrottler;
+@class FCCacheCoordinatorFlushPolicy, FCMutexLock, FCThreadSafeMutableDictionary, NSCountedSet, NSMutableSet, NSString;
+@protocol FCCacheCoordinatorDelegate, FCCacheCoordinatorLocking, FCOperationThrottler;
 
 @interface FCCacheCoordinator : NSObject <FCOperationThrottlerDelegate>
 {
@@ -19,7 +19,7 @@
     NSCountedSet *_interestedKeys;
     FCThreadSafeMutableDictionary *_cacheHintsByKey;
     FCMutexLock *_interestLock;
-    FCReadWriteLock *_dataLock;
+    id <FCCacheCoordinatorLocking> _underlyingLock;
     id <FCOperationThrottler> _flushThrottler;
     FCCacheCoordinatorFlushPolicy *_flushPolicy;
 }
@@ -27,13 +27,15 @@
 @property(getter=isFlushingEnabled) _Bool flushingEnabled; // @synthesize flushingEnabled=_flushingEnabled;
 @property(retain, nonatomic) FCCacheCoordinatorFlushPolicy *flushPolicy; // @synthesize flushPolicy=_flushPolicy;
 @property(retain, nonatomic) id <FCOperationThrottler> flushThrottler; // @synthesize flushThrottler=_flushThrottler;
-@property(retain, nonatomic) FCReadWriteLock *dataLock; // @synthesize dataLock=_dataLock;
+@property(retain, nonatomic) id <FCCacheCoordinatorLocking> underlyingLock; // @synthesize underlyingLock=_underlyingLock;
 @property(retain, nonatomic) FCMutexLock *interestLock; // @synthesize interestLock=_interestLock;
 @property(retain, nonatomic) FCThreadSafeMutableDictionary *cacheHintsByKey; // @synthesize cacheHintsByKey=_cacheHintsByKey;
 @property(retain, nonatomic) NSCountedSet *interestedKeys; // @synthesize interestedKeys=_interestedKeys;
 @property(retain, nonatomic) NSMutableSet *storedKeys; // @synthesize storedKeys=_storedKeys;
 @property(nonatomic) __weak id <FCCacheCoordinatorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)performWriteSync:(CDUnknownBlockType)arg1;
+- (void)performReadSync:(CDUnknownBlockType)arg1;
 - (void)_modifyCacheHintForKeys:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)filterKeysForPreemptiveFlush:(id)arg1 cacheHints:(id)arg2;
 - (void)didAccessKeys:(id)arg1;

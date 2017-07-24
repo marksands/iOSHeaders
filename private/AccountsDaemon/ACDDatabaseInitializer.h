@@ -18,6 +18,8 @@
 }
 
 - (void).cxx_destruct;
+- (void)_changeFacebookAccountAccountType;
+- (void)_addFacebookLegacyAccountTypes;
 - (void)_removeAIMAccounts;
 - (void)_removeMessagesFromGoogleSupportedDataclasses;
 - (void)_setCloudKitAllowsMultipleAccounts;

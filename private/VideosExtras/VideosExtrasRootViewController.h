@@ -47,6 +47,7 @@
 - (void).cxx_destruct;
 - (void)_showExtrasBar:(_Bool)arg1;
 - (_Bool)_shouldExtrasBeVisibleForViewSize:(struct CGSize)arg1;
+- (void)_playbackWillEndNotification:(id)arg1;
 - (_Bool)_areExtrasVisible;
 - (void)_adjustExtrasVisibilityForViewSize:(struct CGSize)arg1;
 - (void)overlayTappedBackButton:(id)arg1;
@@ -65,7 +66,7 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (unsigned long long)supportedInterfaceOrientations;
 - (void)viewDidLoad;
-- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (_Bool)prefersStatusBarHidden;
 - (id)storeFrontCountryCode;
 - (id)systemLanguage;

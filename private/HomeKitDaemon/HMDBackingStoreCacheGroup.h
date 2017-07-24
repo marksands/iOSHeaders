@@ -6,7 +6,7 @@
 
 #import <HMFoundation/HMFObject.h>
 
-@class CKServerChangeToken, HMDBackingStoreCacheZone, NSString;
+@class CKRecordZoneSubscription, CKServerChangeToken, HMDBackingStoreCacheZone, NSString;
 
 @interface HMDBackingStoreCacheGroup : HMFObject
 {
@@ -16,17 +16,19 @@
     CKServerChangeToken *_serverChangeToken;
     NSString *_subscriptionName;
     NSString *_owner;
+    CKRecordZoneSubscription *_subscription;
 }
 
+@property(retain) CKRecordZoneSubscription *subscription; // @synthesize subscription=_subscription;
 @property(readonly) NSString *owner; // @synthesize owner=_owner;
 @property(readonly) NSString *subscriptionName; // @synthesize subscriptionName=_subscriptionName;
-@property(readonly) CKServerChangeToken *serverChangeToken; // @synthesize serverChangeToken=_serverChangeToken;
+@property(retain) CKServerChangeToken *serverChangeToken; // @synthesize serverChangeToken=_serverChangeToken;
 @property(readonly) NSString *rootRecordName; // @synthesize rootRecordName=_rootRecordName;
 @property(readonly) __weak HMDBackingStoreCacheZone *zone; // @synthesize zone=_zone;
 @property long long groupID; // @synthesize groupID=_groupID;
 - (void).cxx_destruct;
 - (id)dumpDebug;
-- (id)initWithGroupID:(long long)arg1 zone:(id)arg2 rootRecord:(id)arg3 serverChangeToken:(id)arg4 subscriptionName:(id)arg5 owner:(id)arg6;
+- (id)initWithGroupID:(long long)arg1 zone:(id)arg2 rootRecord:(id)arg3 serverChangeToken:(id)arg4 subscriptionName:(id)arg5 owner:(id)arg6 subscription:(id)arg7;
 
 @end
 

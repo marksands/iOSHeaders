@@ -187,6 +187,13 @@ struct ICDrawingVelocityCalculationFilter {
 
 struct ICSmoothingPoint;
 
+struct NSDirectionalEdgeInsets {
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+};
+
 struct NoteContext {
     Class _field1;
     id _field2;
@@ -210,10 +217,10 @@ struct UIColor {
 };
 
 struct UIEdgeInsets {
-    double _field1;
-    double _field2;
-    double _field3;
-    double _field4;
+    double top;
+    double left;
+    double bottom;
+    double right;
 };
 
 struct UIFont {

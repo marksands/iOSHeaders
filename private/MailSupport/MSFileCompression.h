@@ -10,7 +10,7 @@
 {
 }
 
-+ (_Bool)compressDirectory:(id)arg1 error:(id *)arg2;
++ (_Bool)compressDirectory:(id)arg1 shouldCancel:(CDUnknownBlockType)arg2 error:(id *)arg3;
 + (_Bool)compressFile:(id)arg1 error:(id *)arg2;
 + (id)log;
 

@@ -57,6 +57,7 @@ struct LSBundleData {
     unsigned int machOUUIDs[4];
     unsigned long long sequenceNumber;
     unsigned long long compatibilityState;
+    unsigned long long installFailureReason;
     unsigned long long itemID;
     unsigned int deviceFamilies;
     unsigned int installType;
@@ -172,6 +173,10 @@ struct _NSRange {
 
 struct array<unsigned int, 64> {
     unsigned int _field1[64];
+};
+
+struct os_unfair_lock_s {
+    unsigned int _os_unfair_lock_opaque;
 };
 
 struct unique_ptr<CSStore2::Store, std::__1::default_delete<CSStore2::Store>> {

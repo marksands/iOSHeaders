@@ -11,6 +11,11 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (void)appAutofillCredentialFromSafariUI;
++ (void)appAutofillExtraKeyTapped;
++ (void)appAutofillFilled;
++ (void)appAutofillDetectedDecrement;
++ (void)appAutofillDetectedIncrement;
 + (void)countReachableKeyboardHandBiasChangeToBias:(long long)arg1;
 + (void)countKeystrokeForReachableKeyboardWithBias:(long long)arg1;
 + (void)restAndTypeTriggered;

@@ -4,22 +4,33 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeSectionView.h>
+#import <SearchUI/SearchUICardSectionView.h>
 
-@class TLKSplitHeaderView;
+#import <SearchUI/NUIContainerBoxViewDelegate-Protocol.h>
 
-@interface SearchUIScoreSummaryCardSectionView : SearchUILayoutFreeSectionView
+@class NSString, TLKSplitHeaderView;
+
+@interface SearchUIScoreSummaryCardSectionView : SearchUICardSectionView <NUIContainerBoxViewDelegate>
 {
-    TLKSplitHeaderView *_headerView;
+    TLKSplitHeaderView *_splitHeaderView;
 }
 
 + (id)dragTitleForCardSection:(id)arg1;
 + (id)titleForScoreBoard:(id)arg1 forDisplay:(_Bool)arg2;
++ (int)separatorStyleForCardSection:(id)arg1;
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
-@property(retain) TLKSplitHeaderView *headerView; // @synthesize headerView=_headerView;
+@property(retain) TLKSplitHeaderView *splitHeaderView; // @synthesize splitHeaderView=_splitHeaderView;
 - (void).cxx_destruct;
+- (void)updateChevronVisible:(_Bool)arg1 leaveSpaceForChevron:(_Bool)arg2;
+- (struct CGSize)containerView:(id)arg1 systemLayoutSizeFittingSize:(struct CGSize)arg2 forArrangedSubview:(id)arg3;
 - (void)updateWithCardSection:(id)arg1;
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
+- (id)setupContentView;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

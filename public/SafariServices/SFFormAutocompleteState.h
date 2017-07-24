@@ -24,7 +24,9 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (id)_bestTextFieldMetadataForMetadata:(id)arg1;
 - (id)_correctedFormMetadata:(id)arg1;
+- (_Bool)shouldOfferActionAutoFillCredentials;
 - (id)frame;
 - (id)webView;
 - (void)setFormControls:(id)arg1 areAutoFilled:(_Bool)arg2 clearField:(id)arg3;
@@ -40,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (void)setShowingKeyboardInputView:(_Bool)arg1;
 - (void)setPrefixForSuggestions:(id)arg1;
 - (id)_suggestionsForAutoFillDisplayData:(id)arg1;
+- (void)_gatherAndShowAddressBookAutoFillSuggestions;
 - (void)updateSuggestions;
 - (void)setAutoFillButtonTitle:(id)arg1;
 - (void)dealloc;

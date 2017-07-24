@@ -32,6 +32,9 @@
     MPAVRoute *_pendingPickedRoute;
 }
 
++ (id)_currentDeviceRoutingIconImageName;
++ (id)_currentDeviceRoutingIconImage;
++ (id)_iconImageForRoute:(id)arg1;
 @property(readonly, nonatomic) MPAVRoute *pendingPickedRoute; // @synthesize pendingPickedRoute=_pendingPickedRoute;
 @property(nonatomic) long long routeTypes; // @synthesize routeTypes=_routeTypes;
 @property(copy, nonatomic) NSString *category; // @synthesize category=_category;
@@ -55,6 +58,7 @@
 - (void)clearCachedRoutes;
 - (void)_mediaServerDiedNotification:(id)arg1;
 - (void)_externalScreenTypeDidChangeNotification:(id)arg1;
+- (void)_volumeControlAvailabilityDidChangeNotification:(id)arg1;
 - (void)_activeAudioRouteDidChangeNotification:(id)arg1;
 - (void)_routeStatusDidChangeNotification:(id)arg1;
 - (void)_pickableRoutesDidChangeNotification:(id)arg1;

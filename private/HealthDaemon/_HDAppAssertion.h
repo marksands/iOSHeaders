@@ -6,14 +6,14 @@
 
 #import <objc/NSObject.h>
 
-@class HDAppAssertionManager, HDProfile, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
+@class HDAppAssertionManager, HDProfile, NSMutableDictionary, NSMutableSet, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface _HDAppAssertion : NSObject
 {
     _Bool _invalidated;
     NSString *_bundleIdentifier;
-    NSMutableArray *_pendingDataTypeCodes;
+    NSMutableDictionary *_pendingDataTypeCodesToAnchors;
     double _lastLaunchAttempt;
     long long _launchErrorCount;
     HDProfile *_profile;
@@ -33,15 +33,15 @@
 @property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 @property(readonly, nonatomic) long long launchErrorCount; // @synthesize launchErrorCount=_launchErrorCount;
 @property(readonly, nonatomic) double lastLaunchAttempt; // @synthesize lastLaunchAttempt=_lastLaunchAttempt;
-@property(readonly, nonatomic) NSMutableArray *pendingDataTypeCodes; // @synthesize pendingDataTypeCodes=_pendingDataTypeCodes;
+@property(readonly, nonatomic) NSMutableDictionary *pendingDataTypeCodesToAnchors; // @synthesize pendingDataTypeCodesToAnchors=_pendingDataTypeCodesToAnchors;
 @property(readonly, copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) double nextLaunchAttempt;
 - (void)_queue_invalidate;
-- (void)invalidateForDataType:(long long)arg1;
-- (void)extendForDataType:(long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)invalidateForDataType:(long long)arg1 anchor:(id)arg2;
+- (void)extendForDataType:(long long)arg1 anchor:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_queue_acquireAssertionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)launchWithCompletion:(CDUnknownBlockType)arg1;
 - (id)launchBundleIdentifier;

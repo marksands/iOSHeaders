@@ -12,20 +12,16 @@
 
 @interface PSUIAdSupportController : PSListController <ADPrivacyViewControllerDelegate>
 {
-    _Bool _limitAdTrackingURLIsReachable;
     id _restrictionsChangedObserver;
     id _effectiveSettingsChangedObserver;
     UITableViewCell *_limitAdTrackingCell;
     UIView *_originalAccessoryView;
     long long _optInStatus;
-    id _reachabilityAsObject;
     ADPrivacyViewController *_adPrivacyController;
 }
 
 @property(retain, nonatomic) ADPrivacyViewController *adPrivacyController; // @synthesize adPrivacyController=_adPrivacyController;
-@property(retain, nonatomic) id reachabilityAsObject; // @synthesize reachabilityAsObject=_reachabilityAsObject;
 @property(nonatomic) long long optInStatus; // @synthesize optInStatus=_optInStatus;
-@property(nonatomic) _Bool limitAdTrackingURLIsReachable; // @synthesize limitAdTrackingURLIsReachable=_limitAdTrackingURLIsReachable;
 @property(retain, nonatomic) UIView *originalAccessoryView; // @synthesize originalAccessoryView=_originalAccessoryView;
 @property(retain, nonatomic) UITableViewCell *limitAdTrackingCell; // @synthesize limitAdTrackingCell=_limitAdTrackingCell;
 @property(retain, nonatomic) id effectiveSettingsChangedObserver; // @synthesize effectiveSettingsChangedObserver=_effectiveSettingsChangedObserver;
@@ -41,7 +37,6 @@
 - (id)limitAdTrackingEnabled:(id)arg1;
 - (_Bool)canChangeLimitAdTracking;
 - (void)resetAdID;
-@property(readonly, nonatomic) struct __SCNetworkReachability *reachability;
 - (void)reloadLimitAdTrackingSpecifier;
 - (void)refreshOptInStatus;
 - (id)specifiers;

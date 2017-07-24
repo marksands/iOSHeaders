@@ -10,6 +10,6 @@
 
 @protocol PUCloudQuotaControllerDelegate <NSObject>
 - (UIViewController *)presentingViewControllerForCloudQuotaController:(PUCloudQuotaController *)arg1;
-- (void)cloudQuotaController:(PUCloudQuotaController *)arg1 presentBannerView:(UIView *)arg2;
+- (void)cloudQuotaController:(PUCloudQuotaController *)arg1 presentInformationBanner:(UIView *)arg2;
 @end
 

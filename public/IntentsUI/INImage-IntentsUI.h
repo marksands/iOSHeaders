@@ -10,5 +10,6 @@
 + (struct CGSize)imageSizeForIntentResponse:(id)arg1;
 + (id)imageWithUIImage:(id)arg1;
 + (id)imageWithCGImage:(struct CGImage *)arg1;
+- (void)fetchUIImageWithCompletion:(CDUnknownBlockType)arg1;
 @end
 

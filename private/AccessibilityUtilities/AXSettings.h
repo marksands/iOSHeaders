@@ -64,7 +64,6 @@
 - (void)setlastHearingAidHandoffTimeResetCount:(double)arg1;
 @property(nonatomic) double lastMagnifierResetCount;
 @property(nonatomic) _Bool shouldLimitDisplayRefreshRate;
-@property(nonatomic) double sideButtonDoubleTapInterval;
 @property(retain, nonatomic) NSString *medicalPreamble;
 @property(nonatomic) _Bool shouldTTYMedicalPreamble;
 @property(nonatomic) _Bool shouldSpeakMedicalPreamble;
@@ -207,6 +206,7 @@
 @property(nonatomic) _Bool letterFeedbackEnabled;
 @property(nonatomic) _Bool speakIncomingNotifications;
 @property(nonatomic) _Bool speakCorrectionsEnabled;
+@property(copy, nonatomic) NSArray *tripleClickOrderedOptions;
 @property(nonatomic) _Bool classicInvertColors;
 @property(retain, nonatomic) NSNumber *guidedAccessOverrideTimeRestrictionDuration;
 @property(nonatomic) _Bool guidedAccessDisallowDirectInactiveToActiveTransition;
@@ -215,6 +215,7 @@
 @property(nonatomic) _Bool voiceOverHearingAidRoutingEnabled;
 @property(nonatomic) long long voiceOverKeyboardModifierChoice;
 @property(retain, nonatomic) NSArray *currentVoices;
+@property(readonly, nonatomic) _Bool extantVoicesExist;
 @property(retain, nonatomic) NSArray *extantVoices;
 - (void)setTestingExtantVoices:(id)arg1;
 - (id)_retrieveVoices:(id)arg1;
@@ -306,6 +307,7 @@
 @property(retain, nonatomic) NSUUID *switchControlLaunchRecipeUUID;
 @property(retain, nonatomic) NSArray *switchControlRecipes;
 @property(retain, nonatomic) NSDictionary *assistiveTouchMainScreenCustomization;
+@property(nonatomic) double assistiveTouchIdleOpacity;
 - (_Bool)assistiveTouchCustomizationEnabled;
 @property(retain, nonatomic) NSString *assistiveTouchOrbAction;
 - (_Bool)assistiveTouchScannerPrefersCompact:(id)arg1;
@@ -324,6 +326,7 @@
 @property(nonatomic) double assistiveTouchStepInterval;
 @property(nonatomic) _Bool assistiveTouchInputCoalescingEnabled;
 @property(nonatomic) double assistiveTouchInputCoalescingDuration;
+@property(nonatomic) _Bool assistiveTouchLongPressPauseScanningEnabled;
 @property(nonatomic) _Bool assistiveTouchLongPressEnabled;
 @property(nonatomic) double assistiveTouchLongPressDuration;
 @property(nonatomic) _Bool assistiveTouchInputHoldEnabled;

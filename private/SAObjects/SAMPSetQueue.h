@@ -25,6 +25,8 @@
 @property(retain, nonatomic) SAMPCollection *mediaItems;
 @property(copy, nonatomic) NSArray *hashedRouteUIDs;
 @property(copy, nonatomic) NSArray *filters;
+@property(nonatomic) _Bool dryRun;
+@property(copy, nonatomic) NSString *assetInfo;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

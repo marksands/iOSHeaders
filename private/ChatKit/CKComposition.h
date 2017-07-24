@@ -20,10 +20,12 @@
 + (id)compositionWithMSMessage:(id)arg1 appExtensionIdentifier:(id)arg2;
 + (id)compositionWithShelfPluginPayload:(id)arg1;
 + (id)composition;
++ (void)requestMediaObjectsForAttributedString:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (void)requestMediaObjectForItemProvider:(id)arg1 type:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (id)_temporaryURLFromURL:(id)arg1;
 + (id)richestMediaTypeForItemProvider:(id)arg1;
 + (void)requestCompositionFromItemProviders:(id)arg1 completion:(CDUnknownBlockType)arg2;
-+ (void)updateComposition:(id)arg1 fromItemProvider:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (void)updateComposition:(id *)arg1 fromItemProvider:(id)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)requestFilenameForType:(id)arg1 forItemProvider:(id)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)requestPluginDisplayContainerForItemProvider:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (id)compositionFromItemProviders:(id)arg1;
@@ -33,6 +35,7 @@
 + (id)pasteboardTypesForItemProvider:(id)arg1;
 + (id)pluginDisplayContainerForItemProvider:(id)arg1;
 + (id)mediaObjectForItemProvider:(id)arg1;
++ (_Bool)_shouldCreateMediaObjectForUTIType:(id)arg1;
 + (id)compositionWithPluginDisplayContainer:(id)arg1 subject:(id)arg2;
 + (id)compositionWithMediaObjects:(id)arg1 subject:(id)arg2;
 + (id)compositionWithMediaObject:(id)arg1 subject:(id)arg2;

@@ -33,8 +33,10 @@
 @property(nonatomic) _Bool showNavigationBar; // @synthesize showNavigationBar=_showNavigationBar;
 @property(copy, nonatomic) NSString *expectedPlaybackBundleIdentifier; // @synthesize expectedPlaybackBundleIdentifier=_expectedPlaybackBundleIdentifier;
 - (void).cxx_destruct;
-- (void)_updateAllContent;
+- (void)_popViewControllerAnimated;
+- (void)contentManagerCompletedAllPlayback:(id)arg1;
 - (void)contentManagerInitiatedPlaybackFromPlaybackQueue:(id)arg1;
+- (void)contentManager:(id)arg1 displayItemIndex:(long long)arg2 totalItemCount:(long long)arg3;
 - (void)contentManager:(id)arg1 shouldShowPlaybackQueue:(_Bool)arg2;
 - (void)contentManager:(id)arg1 presentViewController:(id)arg2;
 - (void)contentManagerReloadData:(id)arg1;

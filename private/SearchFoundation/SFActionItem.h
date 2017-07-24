@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFActionItem-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString, NSURL, SFImage, SFLatLng, SFPunchout;
 
-@interface SFActionItem : NSObject <SFActionItem, NSSecureCoding>
+@interface SFActionItem : NSObject <SFActionItem, NSSecureCoding, NSCopying>
 {
     struct {
         unsigned int isOverlay:1;
@@ -72,6 +73,7 @@
 @property(copy, nonatomic) NSString *labelForLocalMedia; // @synthesize labelForLocalMedia=_labelForLocalMedia;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

@@ -21,6 +21,7 @@
     id <PXPeopleFlowViewControllerActionDelegate> actionDelegate;
     PXPeopleSwipeSelectionManager *_swipeSelectionManager;
     PXPeopleSuggestionManager *_suggestionManager;
+    NSArray *_currentSuggestions;
     NSTimer *_loadingDelayTimer;
     unsigned long long _viewState;
     unsigned long long _type;
@@ -33,12 +34,14 @@
 @property(nonatomic) unsigned long long viewState; // @synthesize viewState=_viewState;
 @property(nonatomic) _Bool suggestionsPresented; // @synthesize suggestionsPresented=_suggestionsPresented;
 @property(retain, nonatomic) NSTimer *loadingDelayTimer; // @synthesize loadingDelayTimer=_loadingDelayTimer;
+@property(retain, nonatomic) NSArray *currentSuggestions; // @synthesize currentSuggestions=_currentSuggestions;
 @property(readonly, nonatomic) PXPeopleSuggestionManager *suggestionManager; // @synthesize suggestionManager=_suggestionManager;
 @property(retain, nonatomic) PXPeopleSwipeSelectionManager *swipeSelectionManager; // @synthesize swipeSelectionManager=_swipeSelectionManager;
 @property(nonatomic) __weak id <PXPeopleFlowViewControllerActionDelegate> actionDelegate; // @synthesize actionDelegate;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (void)keyFaceUpdated:(id)arg1;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)willTransitionToNextInFlow;
 @property(readonly, nonatomic) struct CGSize preferredSize;
 - (void)swipeSelectionManager:(id)arg1 didSelectIndexPaths:(id)arg2;
@@ -58,6 +61,7 @@
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForHeaderInSection:(long long)arg3;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
+- (void)_cacheCurrentSuggestions;
 - (id)_sortedIndexPathsForVisibleCells;
 - (void)_badgeLoadingCells;
 - (double)_wonkyAutomaticContentOffset;
@@ -79,6 +83,7 @@
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
+- (void)dealloc;
 - (id)initWithContext:(id)arg1 dataSource:(id)arg2;
 
 // Remaining properties

@@ -13,6 +13,7 @@
 @protocol _MKPlaceViewControllerDelegate <NSObject, UIScrollViewDelegate>
 
 @optional
+- (void)placeViewController:(_MKPlaceViewController *)arg1 getOfflineMap:(id <_MKPlaceItem>)arg2;
 - (void)placeViewController:(_MKPlaceViewController *)arg1 didSelectParent:(MKMapItem *)arg2;
 - (void)placeViewController:(_MKPlaceViewController *)arg1 didSelectSearchCategory:(GEOSearchCategory *)arg2;
 - (int)mapTypeForPlaceViewController:(_MKPlaceViewController *)arg1;

@@ -7,16 +7,16 @@
 #import <UIKit/NSObject-Protocol.h>
 
 @class NSArray, NSIndexPath, NSString, UICollectionViewDropProposal, UIDragItem, UIDragPreviewTarget;
-@protocol UICollectionViewDropPlaceholderContext, UIDropSession;
+@protocol UICollectionViewDropPlaceholderContext, UIDragAnimating, UIDropSession;
 
 @protocol UICollectionViewDropCoordinator <NSObject>
 @property(readonly, nonatomic) id <UIDropSession> session;
 @property(readonly, nonatomic) UICollectionViewDropProposal *proposal;
 @property(readonly, nonatomic) NSIndexPath *destinationIndexPath;
 @property(readonly, nonatomic) NSArray *items;
-- (void)dropItem:(UIDragItem *)arg1 toTarget:(UIDragPreviewTarget *)arg2;
-- (void)dropItem:(UIDragItem *)arg1 intoItemAtIndexPath:(NSIndexPath *)arg2 rect:(struct CGRect)arg3;
-- (void)dropItem:(UIDragItem *)arg1 toItemAtIndexPath:(NSIndexPath *)arg2;
+- (id <UIDragAnimating>)dropItem:(UIDragItem *)arg1 toTarget:(UIDragPreviewTarget *)arg2;
+- (id <UIDragAnimating>)dropItem:(UIDragItem *)arg1 intoItemAtIndexPath:(NSIndexPath *)arg2 rect:(struct CGRect)arg3;
+- (id <UIDragAnimating>)dropItem:(UIDragItem *)arg1 toItemAtIndexPath:(NSIndexPath *)arg2;
 - (id <UICollectionViewDropPlaceholderContext>)dropItem:(UIDragItem *)arg1 toPlaceholderInsertedAtIndexPath:(NSIndexPath *)arg2 withReuseIdentifier:(NSString *)arg3 cellUpdateHandler:(void (^)(UICollectionViewCell *))arg4;
 @end
 

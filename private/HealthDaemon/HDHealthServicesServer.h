@@ -52,7 +52,8 @@
 - (void)remote_addPeripheral:(id)arg1 name:(id)arg2 forServices:(id)arg3 withCompletion:(CDUnknownBlockType)arg4;
 - (void)remote_removePairingForHealthService:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)remote_addPairingForHealthService:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)remote_getHealthServicePairingsWithHandler:(CDUnknownBlockType)arg1;
+- (id)_filterOnlyUserManageablePeripheralsFromServices:(id)arg1;
+- (void)remote_getHealthPeripheralsWithFilter:(unsigned long long)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)remote_endHealthServiceSession:(unsigned long long)arg1;
 - (void)remote_startHealthServiceSession:(id)arg1 client:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)remote_endHealthServiceDiscovery:(unsigned long long)arg1;

@@ -19,6 +19,7 @@
 @property(nonatomic) _Bool hideBezelInKnob; // @synthesize hideBezelInKnob=_hideBezelInKnob;
 @property(nonatomic) _Bool showBezelInTouch; // @synthesize showBezelInTouch=_showBezelInTouch;
 - (void).cxx_destruct;
+- (_Bool)shouldUpdateButtonOpacityForKnobUnfocused;
 - (id)colorForKnobFocused;
 - (id)colorForKnobFocusLayerSelected;
 - (id)colorForKnobFocusLayer;
@@ -30,6 +31,7 @@
 - (void)_updateButtonStyle;
 - (void)layoutSubviews;
 - (id)_buttonBackGroundColorTouch;
+- (id)tintColorForUnhighlightedTextLabel;
 - (void)setHidden:(_Bool)arg1;
 @property(nonatomic, getter=isSelected) _Bool selected; // @dynamic selected;
 - (void)willMoveToWindow:(id)arg1;

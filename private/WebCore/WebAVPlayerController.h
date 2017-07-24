@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     WebAVMediaSelectionOption *_currentAudioMediaSelectionOption;
     WebAVMediaSelectionOption *_currentLegibleMediaSelectionOption;
     _Bool _pictureInPictureInterrupted;
+    _Bool _liveStreamEventModePossible;
     _Bool _canScanBackward;
     _Bool _canPlay;
     _Bool _canPause;
@@ -32,8 +33,6 @@ __attribute__((visibility("hidden")))
     struct WebPlaybackSessionInterfaceAVKit *_playbackSessionInterface;
     double _rate;
     double _contentDuration;
-    double _minTime;
-    double _maxTime;
     double _contentDurationWithinEndTimes;
     NSArray *_loadedTimeRanges;
     long long _status;
@@ -43,9 +42,14 @@ __attribute__((visibility("hidden")))
     NSArray *_legibleMediaSelectionOptions;
     long long _externalPlaybackType;
     NSString *_externalPlaybackAirPlayDeviceLocalizedName;
+    double _seekableTimeRangesLastModifiedTime;
+    double _liveUpdateInterval;
+    AVValueTiming *_minTiming;
+    AVValueTiming *_maxTiming;
     struct CGSize _contentDimensions;
 }
 
++ (id)keyPathsForValuesAffectingHasSeekableLiveStreamingContent;
 + (id)keyPathsForValuesAffectingPlayingOnExternalScreen;
 + (id)keyPathsForValuesAffectingHasLegibleMediaSelectionOptions;
 + (id)keyPathsForValuesAffectingHasAudioMediaSelectionOptions;
@@ -53,9 +57,15 @@ __attribute__((visibility("hidden")))
 + (id)keyPathsForValuesAffectingCanSeekToEnd;
 + (id)keyPathsForValuesAffectingCanSeekToBeginning;
 + (id)keyPathsForValuesAffectingCanScanForward;
++ (id)keyPathsForValuesAffectingMinTime;
++ (id)keyPathsForValuesAffectingMaxTime;
 + (id)keyPathsForValuesAffectingHasLiveStreamingContent;
 + (id)keyPathsForValuesAffectingCurrentTimeWithinEndTimes;
 + (id)keyPathsForValuesAffectingPlaying;
+@property(retain, nonatomic) AVValueTiming *maxTiming; // @synthesize maxTiming=_maxTiming;
+@property(retain, nonatomic) AVValueTiming *minTiming; // @synthesize minTiming=_minTiming;
+@property double liveUpdateInterval; // @synthesize liveUpdateInterval=_liveUpdateInterval;
+@property double seekableTimeRangesLastModifiedTime; // @synthesize seekableTimeRangesLastModifiedTime=_seekableTimeRangesLastModifiedTime;
 @property(getter=isPictureInPicturePossible) _Bool pictureInPicturePossible; // @synthesize pictureInPicturePossible=_pictureInPicturePossible;
 @property _Bool allowsExternalPlayback; // @synthesize allowsExternalPlayback=_allowsExternalPlayback;
 @property(retain) NSString *externalPlaybackAirPlayDeviceLocalizedName; // @synthesize externalPlaybackAirPlayDeviceLocalizedName=_externalPlaybackAirPlayDeviceLocalizedName;
@@ -70,8 +80,6 @@ __attribute__((visibility("hidden")))
 @property long long status; // @synthesize status=_status;
 @property(retain) NSArray *loadedTimeRanges; // @synthesize loadedTimeRanges=_loadedTimeRanges;
 @property double contentDurationWithinEndTimes; // @synthesize contentDurationWithinEndTimes=_contentDurationWithinEndTimes;
-@property double maxTime; // @synthesize maxTime=_maxTime;
-@property double minTime; // @synthesize minTime=_minTime;
 @property _Bool hasVideo; // @synthesize hasVideo=_hasVideo;
 @property _Bool hasEnabledVideo; // @synthesize hasEnabledVideo=_hasEnabledVideo;
 @property _Bool hasEnabledAudio; // @synthesize hasEnabledAudio=_hasEnabledAudio;
@@ -86,6 +94,10 @@ __attribute__((visibility("hidden")))
 @property struct WebPlaybackSessionInterfaceAVKit *playbackSessionInterface; // @synthesize playbackSessionInterface=_playbackSessionInterface;
 @property struct WebPlaybackSessionModel *delegate; // @synthesize delegate=_delegate;
 @property(retain) AVPlayerController *playerControllerProxy; // @synthesize playerControllerProxy=_playerControllerProxy;
+- (void)resetMediaState;
+- (_Bool)hasSeekableLiveStreamingContent;
+- (void)updateMinMaxTiming;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)toggleMuted:(id)arg1;
 @property(getter=isPictureInPictureInterrupted) _Bool pictureInPictureInterrupted;
 @property(readonly, getter=isPlayingOnExternalScreen) _Bool playingOnExternalScreen;
@@ -107,6 +119,8 @@ __attribute__((visibility("hidden")))
 @property(readonly) _Bool canScanForward;
 - (void)gotoEndOfSeekableRanges:(id)arg1;
 - (void)skipBackwardThirtySeconds:(id)arg1;
+@property(readonly) double minTime;
+@property(readonly) double maxTime;
 - (_Bool)hasLiveStreamingContent;
 - (void)setCurrentTimeWithinEndTimes:(double)arg1;
 - (double)currentTimeWithinEndTimes;

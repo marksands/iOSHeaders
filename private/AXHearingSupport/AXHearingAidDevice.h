@@ -165,6 +165,7 @@
 - (_Bool)addPeripheral:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (_Bool)isBluetoothPaired;
+- (_Bool)isPartiallyBluetoothPaired;
 - (void)peripheralDidUnpair:(id)arg1;
 - (void)peripheral:(id)arg1 didFinishPairingWithResult:(id)arg2;
 - (void)pairingDidCompleteForPeripheral:(id)arg1;
@@ -196,6 +197,7 @@
 - (void)_sendDelayedWrites;
 - (void)writeValueForProperty:(unsigned long long)arg1;
 - (void)updateBatteryServiceForPeripheral:(id)arg1;
+- (void)updateNameWithAdvertisingData:(id)arg1;
 - (void)updateName;
 - (_Bool)deviceSupportsProperty:(unsigned long long)arg1;
 - (void)loadFailedProperties;

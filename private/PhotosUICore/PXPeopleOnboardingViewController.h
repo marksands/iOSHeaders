@@ -8,23 +8,24 @@
 
 #import <PhotosUICore/PXPeopleStatusViewDelegate-Protocol.h>
 
-@class NSString, PXPeopleProgressManager, PXPeopleStatusViewController;
+@class NSString, PXPeopleProgressManager, PXPeopleSectionedDataSource, PXPeopleStatusViewController;
 
 @interface PXPeopleOnboardingViewController : UIViewController <PXPeopleStatusViewDelegate>
 {
-    _Bool _originalNavBarTranslucent;
     unsigned long long _onboardStatus;
     PXPeopleProgressManager *_progressManager;
     PXPeopleStatusViewController *_statusViewController;
+    PXPeopleSectionedDataSource *_peopleDataSource;
 }
 
+@property(retain, nonatomic) PXPeopleSectionedDataSource *peopleDataSource; // @synthesize peopleDataSource=_peopleDataSource;
 @property(retain, nonatomic) PXPeopleStatusViewController *statusViewController; // @synthesize statusViewController=_statusViewController;
 @property(retain, nonatomic) PXPeopleProgressManager *progressManager; // @synthesize progressManager=_progressManager;
 @property(nonatomic) unsigned long long onboardStatus; // @synthesize onboardStatus=_onboardStatus;
-@property _Bool originalNavBarTranslucent; // @synthesize originalNavBarTranslucent=_originalNavBarTranslucent;
 - (void).cxx_destruct;
 - (void)_progressChanged:(id)arg1;
 - (void)_pushToPeopleHome:(id)arg1;
+- (id)peopleHomeController;
 - (void)statusViewControllerEnterButtonTapped:(id)arg1;
 - (void)_transitionFromViewController:(id)arg1 toViewController:(id)arg2;
 - (void)_updateStatusViewForStatus:(unsigned long long)arg1 progress:(double)arg2;
@@ -35,7 +36,7 @@
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (id)initWithProgressManager:(id)arg1;
+- (id)initWithDataSource:(id)arg1 progressManager:(id)arg2;
 - (id)init;
 
 // Remaining properties

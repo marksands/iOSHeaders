@@ -12,6 +12,7 @@
 @interface FPItemManager : NSObject
 {
     NSOperationQueue *_operationQueue;
+    NSObject<OS_dispatch_queue> *_completionQueue;
     NSObject<OS_dispatch_queue> *_notificationQueue;
     NSMutableSet *_activeCollections;
 }
@@ -24,13 +25,13 @@
 - (id)operationForAction:(id)arg1 items:(id)arg2;
 - (id)eligibleActionsForDroppingItems:(id)arg1 underItem:(id)arg2;
 - (id)eligibleActionsForItems:(id)arg1;
+- (void)_fetchServiceEndpointCreatingForItemAtURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_fetchRequestProxyFactoryEndpointForMessageInterface:(id)arg1 providerIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)_fetchFileProviderMessageInterfacesForItemID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_fetchFileProviderMessageInterfaces:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_fetchFileProviderServices:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_fetchRemoteOperationServiceForProvider:(id)arg1 handler:(CDUnknownBlockType)arg2 connectionErrorHandler:(CDUnknownBlockType)arg3;
 - (void)_fetchRemoteFileProviderVendorWithIdentifier:(id)arg1 remoteObjectInterface:(id)arg2 messageInterface:(id)arg3 handler:(CDUnknownBlockType)arg4 connectionErrorHandler:(CDUnknownBlockType)arg5;
 - (void)_fetchRemoteFileProviderEndpointWithIdentifier:(id)arg1 remoteObjectInterface:(id)arg2 handler:(CDUnknownBlockType)arg3;
-- (void)_fetchRemoteMessageInterfaceProviderWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (void)_fetchRemoteServiceEndpointCreatingProviderWithIdentifier:(id)arg1 itemURL:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)_fetchRemoteFileProviderWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)fetchDefaultLocationForApplication:(id)arg1 defaultProvider:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)fetchRootItemForProvider:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -49,7 +50,6 @@
 - (id)init;
 - (id)rootCollectionForProvider:(id)arg1 fileTypes:(id)arg2;
 - (id)newRootCollectionForProviderIdentifier:(id)arg1;
-- (void)fetchFileProviderMessageInterfacesForItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 
 @end
 

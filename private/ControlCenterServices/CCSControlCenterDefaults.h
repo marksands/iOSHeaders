@@ -11,12 +11,13 @@
 }
 
 + (id)standardDefaults;
-- (_Bool)_isUserInstall;
+@property(nonatomic) _Bool shouldEnableTigrisCarryUI;
 - (void)_bindAndRegisterDefaults;
 - (id)init;
 
 // Remaining properties
-@property(nonatomic) _Bool shouldEnableTigrisCarryUI; // @dynamic shouldEnableTigrisCarryUI;
+@property(nonatomic) _Bool shouldEnableInternalModules; // @dynamic shouldEnableInternalModules;
+@property(nonatomic) _Bool shouldEnablePrototypeFeatures; // @dynamic shouldEnablePrototypeFeatures;
 
 @end
 

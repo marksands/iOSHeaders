@@ -13,11 +13,11 @@
 
 @interface FUFlightStep : NSObject <NSSecureCoding, NSCopying>
 {
+    NSNumber *_delayFromSchedule;
     FUAirport *_airport;
     NSString *_gate;
     NSString *_terminal;
     long long _legStatus;
-    NSNumber *_delayFromSchedule;
     FUStepTime *_actualTime;
     FUStepTime *_scheduledTime;
     FUStepTime *_plannedTime;
@@ -31,7 +31,6 @@
 @property(retain) FUStepTime *plannedTime; // @synthesize plannedTime=_plannedTime;
 @property(retain) FUStepTime *scheduledTime; // @synthesize scheduledTime=_scheduledTime;
 @property(retain) FUStepTime *actualTime; // @synthesize actualTime=_actualTime;
-@property(retain, nonatomic) NSNumber *delayFromSchedule; // @synthesize delayFromSchedule=_delayFromSchedule;
 @property long long legStatus; // @synthesize legStatus=_legStatus;
 @property(retain) NSString *terminal; // @synthesize terminal=_terminal;
 @property(retain) NSString *gate; // @synthesize gate=_gate;
@@ -41,6 +40,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 @property(readonly, nonatomic) unsigned long long status;
+@property(retain, nonatomic) NSNumber *delayFromSchedule;
 @property(readonly) FUStepTime *time;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;

@@ -13,8 +13,10 @@
     _Bool _useFastSameViewOperations;
     unsigned long long _dropAction;
     unsigned long long _dropProgressMode;
+    unsigned long long _dropPerformer;
 }
 
+@property(nonatomic) unsigned long long dropPerformer; // @synthesize dropPerformer=_dropPerformer;
 @property(nonatomic) _Bool useFastSameViewOperations; // @synthesize useFastSameViewOperations=_useFastSameViewOperations;
 @property(nonatomic) unsigned long long dropProgressMode; // @synthesize dropProgressMode=_dropProgressMode;
 @property(nonatomic) unsigned long long dropAction; // @synthesize dropAction=_dropAction;

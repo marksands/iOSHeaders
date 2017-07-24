@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <AccessibilityUI/AXUIClientConnectionStateObserver-Protocol.h>
 #import <AccessibilityUI/AXUIMessageSenderDelegate-Protocol.h>
 
 @class AXUIClientConnection, AXUIMessageSender, NSDictionary, NSString;
 @protocol AXUIClientDelegate;
 
-@interface AXUIClient : NSObject <AXUIMessageSenderDelegate>
+@interface AXUIClient : NSObject <AXUIMessageSenderDelegate, AXUIClientConnectionStateObserver>
 {
     _Bool _registeredWithServer;
     id <AXUIClientDelegate> _delegate;
@@ -31,7 +32,7 @@
 @property(nonatomic) __weak id <AXUIClientDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)clientConnection:(id)arg1 didChangeConnectedState:(_Bool)arg2;
 - (void)_requestInitializationMessageFromDelegateIfNeeded;
 - (void)messageSender:(id)arg1 willSendXPCMessage:(id)arg2 context:(void *)arg3;
 - (void)messageSender:(id)arg1 processCustomDataFromXPCReply:(void *)arg2;

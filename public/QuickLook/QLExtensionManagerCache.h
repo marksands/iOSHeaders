@@ -31,7 +31,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)_synchronouslyWaitForExtensionListIfNeeded;
-- (id)extensionWithMatchingAttributes:(id)arg1;
+- (id)extensionWithMatchingAttributes:(id)arg1 extensionPath:(id)arg2;
 - (_Bool)hasExtensionWithMatchingAttributes:(id)arg1;
 - (void)_didReceiveNewMatchingExtensionList:(id)arg1;
 - (void)endMatchingExtensions;

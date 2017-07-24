@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     TSSStyle *mParent;
     _Bool mIsVariation;
     TSSStylesheet *mStylesheet;
+    _Bool mWasUnarchivedAsOrphanVariation;
 }
 
 + (double)fontSizeForFontSize:(double)arg1 scalingFactor:(double)arg2;
@@ -148,6 +149,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *name;
 - (int)intValueForMUXedProperty:(int)arg1;
 - (id)shapeStyleByRemovingShadowFrameAndReflectionForContext:(id)arg1;
+- (id)shapeStyleByRemovingTextShadowForContext:(id)arg1;
 - (id)constrainShapeStyleForContext:(id)arg1;
 - (void)constrainStrokeForSwatchGeneration;
 - (void)constrainShadowForSwatchGeneration;

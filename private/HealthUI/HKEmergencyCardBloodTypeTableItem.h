@@ -26,7 +26,6 @@
 - (_Bool)shouldHighlightRowAtIndex:(long long)arg1;
 - (double)tableView:(id)arg1 heightForRowAtIndex:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndex:(long long)arg2;
-- (id)_displayCell;
 - (id)_createEditableCell;
 - (id)title;
 - (_Bool)hasPresentableData;

@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
     double _lastTimestamp;
     id <_UIAutoScrollBehavior> _behavior;
     struct CGPoint _point;
-    struct UIEdgeInsets _autoScrollInsets;
+    struct UIEdgeInsets _touchInsets;
 }
 
 @property(retain, nonatomic) id <_UIAutoScrollBehavior> behavior; // @synthesize behavior=_behavior;
@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double lastTimestamp; // @synthesize lastTimestamp=_lastTimestamp;
 @property(nonatomic) struct CGPoint point; // @synthesize point=_point;
 @property(retain, nonatomic) CADisplayLink *displayLink; // @synthesize displayLink=_displayLink;
-@property(nonatomic) struct UIEdgeInsets autoScrollInsets; // @synthesize autoScrollInsets=_autoScrollInsets;
+@property(nonatomic) struct UIEdgeInsets touchInsets; // @synthesize touchInsets=_touchInsets;
 @property(nonatomic) double repeatInterval; // @synthesize repeatInterval=_repeatInterval;
 @property(readonly, nonatomic) __weak UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 - (void).cxx_destruct;

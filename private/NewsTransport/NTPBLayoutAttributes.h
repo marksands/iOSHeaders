@@ -18,6 +18,8 @@
     long long _imagePosition;
     long long _publisherLogoContentMode;
     long long _rowSpan;
+    long long _titleNextToImageRangeLength;
+    long long _titleNextToImageRangeLocation;
     long long _titleTextAlignment;
     NSData *_accessoryFontColor;
     float _accessoryFontLineHeight;
@@ -70,6 +72,10 @@
     float _selectionInsetLeft;
     float _selectionInsetRight;
     float _selectionInsetTop;
+    float _shadowOffsetX;
+    float _shadowOffsetY;
+    float _shadowOpacity;
+    float _shadowRadius;
     float _sharrowFrameHeight;
     float _sharrowFrameWidth;
     float _sharrowFrameX;
@@ -96,6 +102,8 @@
         unsigned int imagePosition:1;
         unsigned int publisherLogoContentMode:1;
         unsigned int rowSpan:1;
+        unsigned int titleNextToImageRangeLength:1;
+        unsigned int titleNextToImageRangeLocation:1;
         unsigned int titleTextAlignment:1;
         unsigned int accessoryFontLineHeight:1;
         unsigned int accessoryFontSize:1;
@@ -135,6 +143,10 @@
         unsigned int selectionInsetLeft:1;
         unsigned int selectionInsetRight:1;
         unsigned int selectionInsetTop:1;
+        unsigned int shadowOffsetX:1;
+        unsigned int shadowOffsetY:1;
+        unsigned int shadowOpacity:1;
+        unsigned int shadowRadius:1;
         unsigned int sharrowFrameHeight:1;
         unsigned int sharrowFrameWidth:1;
         unsigned int sharrowFrameX:1;
@@ -155,6 +167,12 @@
     } _has;
 }
 
+@property(nonatomic) float shadowOffsetY; // @synthesize shadowOffsetY=_shadowOffsetY;
+@property(nonatomic) float shadowOffsetX; // @synthesize shadowOffsetX=_shadowOffsetX;
+@property(nonatomic) float shadowOpacity; // @synthesize shadowOpacity=_shadowOpacity;
+@property(nonatomic) float shadowRadius; // @synthesize shadowRadius=_shadowRadius;
+@property(nonatomic) long long titleNextToImageRangeLength; // @synthesize titleNextToImageRangeLength=_titleNextToImageRangeLength;
+@property(nonatomic) long long titleNextToImageRangeLocation; // @synthesize titleNextToImageRangeLocation=_titleNextToImageRangeLocation;
 @property(nonatomic) long long publisherLogoContentMode; // @synthesize publisherLogoContentMode=_publisherLogoContentMode;
 @property(nonatomic) float selectionCornerRadius; // @synthesize selectionCornerRadius=_selectionCornerRadius;
 @property(nonatomic) float selectionInsetRight; // @synthesize selectionInsetRight=_selectionInsetRight;
@@ -241,6 +259,12 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasShadowOffsetY;
+@property(nonatomic) _Bool hasShadowOffsetX;
+@property(nonatomic) _Bool hasShadowOpacity;
+@property(nonatomic) _Bool hasShadowRadius;
+@property(nonatomic) _Bool hasTitleNextToImageRangeLength;
+@property(nonatomic) _Bool hasTitleNextToImageRangeLocation;
 @property(nonatomic) _Bool hasPublisherLogoContentMode;
 @property(nonatomic) _Bool hasSelectionCornerRadius;
 @property(nonatomic) _Bool hasSelectionInsetRight;

@@ -16,7 +16,9 @@
 
 + (id)siriKitSettingWithDictionary:(id)arg1 context:(id)arg2;
 + (id)siriKitSetting;
+@property(nonatomic) _Bool useSASAutoSelectionFeature;
 @property(copy, nonatomic) NSArray *listOfSiriKitEnabledDomains;
+@property(nonatomic) _Bool applySASToFirstPartyDomains;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

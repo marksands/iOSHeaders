@@ -24,15 +24,21 @@
 @property(readonly, copy, nonatomic) NSString *typeIdentifier; // @synthesize typeIdentifier=_typeIdentifier;
 - (void).cxx_destruct;
 - (id)loadOpenInPlaceWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)loadOpenInPlaceWithOptions_v2:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)loadFileCopyWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)loadFileCopyWithOptions_v2:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)loadDataWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)loadDataWithOptions_v2:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)setLoaderBlock:(CDUnknownBlockType)arg1;
+- (void)setLoaderBlock_v2:(CDUnknownBlockType)arg1;
 - (id)loadWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)loadWithOptions_v2:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)_loadWithOptions:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)performProgressTrackingWithLoaderBlock:(CDUnknownBlockType)arg1 onCancelCallback:(CDUnknownBlockType)arg2;
 - (id)copyWithDoNothingLoaderBlock;
 - (void)dealloc;
 - (id)initWithType:(id)arg1 preferredRepresentation:(long long)arg2 loader:(CDUnknownBlockType)arg3;
+- (id)initWithType_v2:(id)arg1 preferredRepresentation:(long long)arg2 loader:(CDUnknownBlockType)arg3;
 
 @end
 

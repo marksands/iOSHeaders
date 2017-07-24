@@ -12,6 +12,7 @@
 @property(readonly, nonatomic) NSSet *hf_allVisibleServices;
 - (id)hf_allZones;
 - (id)hf_allServices;
+- (id)hf_allCameraProfiles;
 
 // Remaining properties
 @property(readonly, nonatomic) __weak HMHome *home; // @dynamic home;

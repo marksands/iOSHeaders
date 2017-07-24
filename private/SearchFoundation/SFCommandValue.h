@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFCommandValue-Protocol.h>
 
 @class NSData, NSDictionary, NSString, SFReferentialCommand;
 
-@interface SFCommandValue : NSObject <SFCommandValue, NSSecureCoding>
+@interface SFCommandValue : NSObject <SFCommandValue, NSSecureCoding, NSCopying>
 {
     SFReferentialCommand *_referentialCommand;
 }
@@ -19,6 +20,7 @@
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) SFReferentialCommand *referentialCommand; // @synthesize referentialCommand=_referentialCommand;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

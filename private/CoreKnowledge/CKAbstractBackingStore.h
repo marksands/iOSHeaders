@@ -19,8 +19,6 @@
 - (void).cxx_destruct;
 - (id)daemonWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)init;
-- (void)_connectionInvalidated;
-- (void)_connectionInterrupted;
 
 @end
 

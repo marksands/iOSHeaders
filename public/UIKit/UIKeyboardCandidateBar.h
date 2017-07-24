@@ -48,6 +48,7 @@ __attribute__((visibility("hidden")))
 + (double)heightForRowAtIndex:(unsigned long long)arg1 interfaceOrientation:(long long)arg2;
 + (double)heightForRowAtIndex:(unsigned long long)arg1;
 + (double)heightForLastRow;
++ (struct UIEdgeInsets)edgeInsetsForInterfaceOrientation:(long long)arg1;
 + (unsigned long long)numberOfRowsForInterfaceOrientation:(long long)arg1;
 + (unsigned long long)numberOfRows;
 + (void)setScreenTraits:(id)arg1;
@@ -100,6 +101,7 @@ __attribute__((visibility("hidden")))
 - (void)_reloadDataByAppendingAtEnd:(_Bool)arg1 initiallyHiddenCandidatesChanged:(_Bool)arg2;
 - (void)_reloadData;
 - (void)_clearData;
+- (void)_updateCorners;
 - (void)_updateBorders;
 - (_Bool)_shouldShowBorders;
 - (void)_updateCandidateViews;

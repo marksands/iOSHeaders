@@ -21,6 +21,7 @@
 - (id)describeWithFormat;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)refreshDisplayName;
 @property(readonly, copy, nonatomic) NSString *inviterUserID;
 @property(readonly, copy, nonatomic) NSUUID *homeUUID;
 @property(readonly, copy, nonatomic) NSString *homeName;

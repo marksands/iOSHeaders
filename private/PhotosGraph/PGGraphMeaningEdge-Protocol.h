@@ -10,7 +10,6 @@
 
 @protocol PGGraphMeaningEdge <NSObject>
 @property(readonly, nonatomic) NSString *meaningLabel;
-@property(readonly, nonatomic) double reliabilityScore;
 @property(readonly, nonatomic) _Bool isReliable;
 @end
 

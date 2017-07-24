@@ -55,13 +55,16 @@
 - (void)_didDragWithVelocity:(struct CGPoint)arg1;
 - (long long)_stateForIsSelected:(_Bool)arg1;
 - (void)_configureViewsForState:(long long)arg1 usesCallout:(_Bool)arg2;
+- (void)prepareForSnapshotting;
 - (void)didMoveToWindow;
 - (long long)_currentMarkerState;
+- (void)_updateContentForState:(long long)arg1 forceUpdate:(_Bool)arg2;
 - (void)_updateContentForState:(long long)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setAnnotation:(id)arg1;
+- (void)setFrame:(struct CGRect)arg1;
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
 - (id)_effectiveGlyphText;
 - (id)_effectiveGlyphImageForState:(long long)arg1 isSystemProvided:(_Bool *)arg2;
@@ -69,7 +72,6 @@
 - (double)_effectiveMarkerStrokeWidthForState:(long long)arg1;
 - (double)_effectiveShadowAlphaForState:(long long)arg1;
 - (id)_effectiveMarkerTintColorForState:(long long)arg1;
-- (_Bool)isDraggable;
 - (_Bool)canShowCallout;
 - (_Bool)_hasDataRequiringCallout;
 

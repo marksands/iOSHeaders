@@ -4,10 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class FPItemID, NSURL;
+@class NSURL;
 
 @protocol FPXVendorMessaging
-- (void)fetchSupportedMessageInterfacesForItemID:(FPItemID *)arg1 completionHandler:(void (^)(NSArray *))arg2;
-- (void)fetchSupportedMessageInterfacesForDocumentAtURL:(NSURL *)arg1 completionHandler:(void (^)(NSArray *))arg2;
+- (void)fetchSupportedServicesForDocumentAtURL:(NSURL *)arg1 completionHandler:(void (^)(NSArray *, NSError *))arg2;
 @end
 

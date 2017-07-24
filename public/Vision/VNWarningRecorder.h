@@ -17,6 +17,8 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (void)recordWarnings:(id)arg1;
+- (void)setWarnings:(id)arg1;
 - (_Bool)hasWarnings;
 - (id)warnings;
 - (id)valueForWarning:(id)arg1;

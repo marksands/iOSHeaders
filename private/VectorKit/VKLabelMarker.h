@@ -27,6 +27,7 @@
 - (unsigned long long)elementCount;
 - (int)sortKey;
 - (unsigned long long)animationID;
+- (unsigned char)pickedLabelBalloonBehavior;
 - (int)selectionType;
 - (_Bool)isLabelHitAtScreenPoint:(struct CGPoint)arg1 selectableLabelsOnly:(_Bool)arg2;
 - (struct CGRect)screenCollisionBounds;

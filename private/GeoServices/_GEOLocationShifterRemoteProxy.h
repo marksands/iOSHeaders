@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (void)shiftCoordinate:(CDStruct_c3b9c2ee)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)shiftLatLng:(id)arg1 auditToken:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

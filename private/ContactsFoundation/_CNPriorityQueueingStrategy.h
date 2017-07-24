@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <ContactsFoundation/CNQueueingStrategy-Protocol.h>
 
@@ -15,9 +15,9 @@
     CDUnknownBlockType _priorityComparator;
 }
 
+- (void).cxx_destruct;
 - (unsigned long long)_insertionIndexForObject:(id)arg1 buffer:(id)arg2;
 - (void)enqueueObject:(id)arg1 buffer:(id)arg2;
-- (void)dealloc;
 - (id)initWithComparator:(CDUnknownBlockType)arg1;
 
 // Remaining properties

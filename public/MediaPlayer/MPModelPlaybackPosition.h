@@ -6,13 +6,15 @@
 
 #import <MediaPlayer/MPModelObject.h>
 
-@class NSString;
+@class NSNumber, NSString;
 
 @interface MPModelPlaybackPosition : MPModelObject
 {
     _Bool _shouldRememberBookmarkTime;
     _Bool _hasBeenPlayed;
     double _bookmarkTime;
+    double _startTime;
+    NSNumber *_stopTime;
     NSString *_storeUbiquitousIdentifier;
     long long _userPlayCount;
 }
@@ -21,6 +23,10 @@
 + (id)__userPlayCount__KEY;
 + (id)__MPModelPropertyPlaybackPositionStoreUbiquitousIdentifier__PROPERTY;
 + (id)__storeUbiquitousIdentifier__KEY;
++ (id)__MPModelPropertyPlaybackPositionStopTime__PROPERTY;
++ (id)__stopTime__KEY;
++ (id)__MPModelPropertyPlaybackPositionStartTime__PROPERTY;
++ (id)__startTime__KEY;
 + (id)__MPModelPropertyPlaybackPositionHasBeenPlayed__PROPERTY;
 + (id)__hasBeenPlayed__KEY;
 + (id)__MPModelPropertyPlaybackPositionShouldRememberBookmarkTime__PROPERTY;
@@ -29,6 +35,8 @@
 + (id)__bookmarkTime__KEY;
 @property(nonatomic) long long userPlayCount; // @synthesize userPlayCount=_userPlayCount;
 @property(copy, nonatomic) NSString *storeUbiquitousIdentifier; // @synthesize storeUbiquitousIdentifier=_storeUbiquitousIdentifier;
+@property(copy, nonatomic) NSNumber *stopTime; // @synthesize stopTime=_stopTime;
+@property(nonatomic) double startTime; // @synthesize startTime=_startTime;
 @property(nonatomic) _Bool hasBeenPlayed; // @synthesize hasBeenPlayed=_hasBeenPlayed;
 @property(nonatomic) _Bool shouldRememberBookmarkTime; // @synthesize shouldRememberBookmarkTime=_shouldRememberBookmarkTime;
 @property(nonatomic) double bookmarkTime; // @synthesize bookmarkTime=_bookmarkTime;

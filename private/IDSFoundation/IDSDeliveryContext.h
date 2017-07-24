@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSData, NSError, NSNumber, NSString;
+@class NSArray, NSData, NSDictionary, NSError, NSNumber, NSString;
 
 @interface IDSDeliveryContext : NSObject
 {
@@ -23,8 +23,12 @@
     NSNumber *_currentAverageRTT;
     NSNumber *_isDeviceBlackedOut;
     NSNumber *_localMessageState;
+    NSNumber *_wpConnectionErrorCode;
+    NSDictionary *_wpConnectionErrorUserInfo;
 }
 
+@property(copy, nonatomic) NSDictionary *wpConnectionErrorUserInfo; // @synthesize wpConnectionErrorUserInfo=_wpConnectionErrorUserInfo;
+@property(copy, nonatomic) NSNumber *wpConnectionErrorCode; // @synthesize wpConnectionErrorCode=_wpConnectionErrorCode;
 @property(copy, nonatomic) NSNumber *localMessageState; // @synthesize localMessageState=_localMessageState;
 @property(copy, nonatomic) NSNumber *isDeviceBlackedOut; // @synthesize isDeviceBlackedOut=_isDeviceBlackedOut;
 @property(copy, nonatomic) NSNumber *currentAverageRTT; // @synthesize currentAverageRTT=_currentAverageRTT;

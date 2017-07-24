@@ -6,10 +6,14 @@
 
 #import <PhotosGraph/NSObject-Protocol.h>
 
+@class NSSet;
+
 @protocol PGGraphPersonNode <NSObject>
 @property(readonly) _Bool personIsUserCreated;
 - (void)personEnumerateSocialGroupNodesUsingBlock:(void (^)(PGGraphEdge *, PGGraphSocialGroupNode *, _Bool *))arg1;
-- (void)personEnumerateMomentNodesUsingBlock:(void (^)(PGGraphEdge *, PGGraphMomentNode *, _Bool *))arg1;
+- (void)personEnumerateMomentNodesUsingBlock:(void (^)(PGGraphPresentEdge *, PGGraphMomentNode *, _Bool *))arg1;
+- (NSSet *)personSocialGroupNodes;
+- (NSSet *)personMomentNodes;
 - (_Bool)belongsToBestSocialGroup;
 @end
 

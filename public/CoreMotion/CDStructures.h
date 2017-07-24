@@ -62,18 +62,6 @@ struct CLConnectionMessage;
 
 struct CLDeviceMotionLiteService;
 
-struct CLFunctionalCapacityEntry {
-    unsigned long long _field1;
-    unsigned char _field2[16];
-    double _field3;
-    double _field4;
-    int _field5;
-    double _field6;
-    double _field7;
-    double _field8;
-    double _field9;
-};
-
 struct CLGeomagneticModelProvider {
     CDUnknownFunctionPointerType *_field1;
     struct BasicMutex _field2;
@@ -138,22 +126,6 @@ struct CLNotifierClientBase {
     CDUnknownFunctionPointerType *_field1;
 };
 
-struct CLRunningBufferStats<float> {
-    CDUnknownFunctionPointerType *_field1;
-    unsigned long long _field2;
-    float _field3;
-    float _field4;
-    struct deque<float, std::__1::allocator<float>> _field5;
-};
-
-struct CLRunningVector3d<float> {
-    CDUnknownFunctionPointerType *_field1;
-    unsigned long long _field2;
-    struct CLRunningBufferStats<float> _field3;
-    struct CLRunningBufferStats<float> _field4;
-    struct CLRunningBufferStats<float> _field5;
-};
-
 struct CLSignificantElevation {
     int _field1;
     unsigned char _field2[16];
@@ -204,14 +176,6 @@ struct CMGyro50 {
     float _field3;
     float _field4;
     unsigned long long _field5;
-};
-
-struct CMLiftDetector {
-    struct CLRunningVector3d<float> _field1;
-    struct CLRunningVector3d<float> _field2;
-    struct CLRunningVector3d<float> _field3;
-    _Bool _field4;
-    int _field5;
 };
 
 struct CMWakeGestureVisitor;

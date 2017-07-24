@@ -12,9 +12,11 @@
 {
 }
 
+- (id)initWithEntity:(id)arg1 insertIntoManagedObjectContext:(id)arg2;
 
 // Remaining properties
 @property(retain, nonatomic) NSSet *multisizeImageSetRenditions; // @dynamic multisizeImageSetRenditions;
 @property(retain, nonatomic) NSSet *sizeIndexes; // @dynamic sizeIndexes;
+
 @end
 

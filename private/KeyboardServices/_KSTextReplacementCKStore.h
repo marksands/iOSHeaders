@@ -38,10 +38,11 @@
 - (id)queryUpdatedLocalEntries;
 - (unsigned long long)countLocalEntriesToBeSynced;
 - (void)recordSyncStatus;
-- (void)pullRemoteDataWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)pullRemoteDataWithPriority:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (unsigned long long)totalPullRequestsUntilNow;
-- (void)pushLocalChangesWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)pushLocalChangesWithPriority:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)requestSyncWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)_requestSync:(unsigned long long)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)_updateSyncCount:(unsigned long long)arg1 success:(_Bool)arg2;
 - (void)requestSync:(unsigned long long)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (unsigned long long)decayedSyncCountForTime:(id)arg1;

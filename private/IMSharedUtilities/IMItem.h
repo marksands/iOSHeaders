@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IMSharedUtilities/IMRemoteObjectCoding-Protocol.h>
-#import <IMSharedUtilities/NSCoding-Protocol.h>
 #import <IMSharedUtilities/NSCopying-Protocol.h>
+#import <IMSharedUtilities/NSSecureCoding-Protocol.h>
 
 @class NSData, NSDate, NSDictionary, NSString;
 
-@interface IMItem : NSObject <NSCoding, NSCopying, IMRemoteObjectCoding>
+@interface IMItem : NSObject <NSSecureCoding, NSCopying, IMRemoteObjectCoding>
 {
     NSString *_handle;
     NSString *_service;
@@ -36,6 +36,7 @@
     NSString *_parentChatID;
 }
 
++ (_Bool)supportsSecureCoding;
 + (Class)classForMessageItemDictionary:(id)arg1;
 + (Class)classForIMItemType:(long long)arg1;
 @property(copy, nonatomic) NSString *parentChatID; // @synthesize parentChatID=_parentChatID;

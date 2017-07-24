@@ -14,7 +14,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSArray *profiles; // @synthesize profiles=_profiles;
+@property(readonly, copy, nonatomic) NSArray *profiles; // @synthesize profiles=_profiles;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

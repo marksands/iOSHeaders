@@ -6,30 +6,43 @@
 
 #import <Foundation/NSExtensionContext.h>
 
-#import <Intents/INCacheableObjectManagerObserver-Protocol.h>
+#import <Intents/INCacheableObjectManagerDelegate-Protocol.h>
 #import <Intents/INExtensionContextVending-Protocol.h>
-#import <Intents/_INImageServiceResponder-Protocol.h>
 
-@class NSString;
+@class NSObject, NSString;
+@protocol INIntentHandlerProvidingPrivate, OS_dispatch_queue;
 
-@interface INExtensionContext : NSExtensionContext <INCacheableObjectManagerObserver, _INImageServiceResponder, INExtensionContextVending>
+@interface INExtensionContext : NSExtensionContext <INCacheableObjectManagerDelegate, INExtensionContextVending>
 {
+    NSObject<OS_dispatch_queue> *_queue;
+    id <INIntentHandlerProvidingPrivate> _extensionHandler;
+    id _activeHandlerForIntent;
 }
 
 + (id)_extensionAuxiliaryVendorProtocol;
 + (id)_extensionAuxiliaryHostProtocol;
 + (void)initialize;
-- (void)fetchSizeForINImage:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)cacheableObjectManager:(id)arg1 wasToldAboutCacheableObject:(id)arg2;
-- (id)_errorHandlingHostProxy;
+@property(retain) id activeHandlerForIntent; // @synthesize activeHandlerForIntent=_activeHandlerForIntent;
+- (void).cxx_destruct;
+- (void)handleCacheableObject:(id)arg1 fromCacheableObjectManager:(id)arg2;
+- (id)_remoteObjectProxy;
+- (oneway void)cancelTransactionDueToTimeout;
+- (oneway void)completeTransaction;
 - (oneway void)handleIntent:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (oneway void)handleIntent:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (oneway void)confirmationResponseForIntent:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (oneway void)cancelTransactionDueToTimeout;
-- (oneway void)completeTransaction;
-- (void)stopSendingUpdatesForIntent:(id)arg1;
-- (void)startSendingUpdatesForIntent:(id)arg1 toObserver:(id)arg2;
+- (void)_cancelTransactionDueToTimeoutWithIntentIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_completeTransactionWithIntentIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_beginTransactionWithIntentIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (oneway void)cancelTransactionDueToTimeoutWithIntentIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (oneway void)completeTransactionWithIntentIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (oneway void)beginTransactionWithIntentIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_stopSendingUpdatesForIntent:(id)arg1;
+- (oneway void)stopSendingUpdatesForIntent:(id)arg1;
+- (void)_startSendingUpdatesForIntent:(id)arg1 toObserver:(id)arg2;
+- (oneway void)startSendingUpdatesForIntent:(id)arg1 toObserver:(id)arg2;
 - (void)_validateExtension;
+- (void)_getApplicationContextWithCompletion:(CDUnknownBlockType)arg1;
 - (oneway void)getApplicationContextWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_deliverIntent:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)_processIntentResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -38,6 +51,7 @@
 - (oneway void)handleIntent:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (oneway void)confirmIntent:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (oneway void)resolveIntentSlot:(id)arg1 forIntent:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) id <INIntentHandlerProvidingPrivate> _extensionHandler; // @synthesize _extensionHandler;
 - (id)initWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 contextUUID:(id)arg3;
 
 // Remaining properties

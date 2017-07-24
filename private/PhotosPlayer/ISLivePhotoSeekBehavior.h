@@ -10,23 +10,20 @@
 {
     _Bool _isSeeking;
     _Bool _needsSeek;
-    _Bool _didShowVideo;
-    _Bool _animated;
+    _Bool _needsTransitionToVideo;
     CDUnknownBlockType _seekCompletionHandler;
     CDStruct_1b6d18a9 _seekTime;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType seekCompletionHandler; // @synthesize seekCompletionHandler=_seekCompletionHandler;
-@property(readonly, nonatomic) CDStruct_1b6d18a9 seekTime; // @synthesize seekTime=_seekTime;
-@property(readonly, nonatomic) _Bool animated; // @synthesize animated=_animated;
+@property(nonatomic) CDStruct_1b6d18a9 seekTime; // @synthesize seekTime=_seekTime;
 - (void).cxx_destruct;
 - (long long)behaviorType;
 - (void)_handleDidSeekToSeekTime:(_Bool)arg1;
 - (void)_callSeekCompletionHandler:(_Bool)arg1;
 - (void)_seekIfNeeded;
-- (void)setSeekTime:(CDStruct_1b6d18a9)arg1 animated:(_Bool)arg2;
 - (void)activeDidChange;
-- (id)initWithInitialLayoutInfo:(id)arg1 seekTime:(CDStruct_1b6d18a9)arg2 animated:(_Bool)arg3;
+- (id)initWithInitialLayoutInfo:(id)arg1 seekTime:(CDStruct_1b6d18a9)arg2;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <DataDetectorsUI/NSObject-Protocol.h>
 
-@class EKDayViewController, EKEvent, NSDate, NSDateComponents;
+@class EKDayViewController, EKEvent, NSDate, NSDateComponents, UIViewController;
 
 @protocol EKDayViewControllerDelegate <NSObject>
 - (void)dayViewController:(EKDayViewController *)arg1 didChangeDisplayDate:(NSDateComponents *)arg2;
@@ -18,6 +18,8 @@
 - (void)dayViewControllerDidEndScrolling:(EKDayViewController *)arg1;
 - (void)dayViewControllerDidUpdateScrollPosition:(EKDayViewController *)arg1;
 - (void)dayViewControllerDidRespondToApplicationDidBecomeActiveStateChange:(EKDayViewController *)arg1;
+- (void)dayViewController:(EKDayViewController *)arg1 requestsShowEvent:(EKEvent *)arg2 showDetails:(_Bool)arg3;
+- (void)dayViewController:(EKDayViewController *)arg1 requestsPresentationOfViewControllerForGestures:(UIViewController *)arg2;
 - (void)updateSelectedOccurrenceView;
 - (void)dayViewControllerDidFinishPinchingDayView:(EKDayViewController *)arg1;
 - (void)dayViewControllerIsPinchingDayView:(EKDayViewController *)arg1;

@@ -6,11 +6,11 @@
 
 #import <objc/NSObject.h>
 
-#import <NewsUI/FCAssembly-Protocol.h>
+#import <NewsUI/NFAssembly-Protocol.h>
 
 @class NSString;
 
-@interface NUArticleAssembly : NSObject <FCAssembly>
+@interface NUArticleAssembly : NSObject <NFAssembly>
 {
 }
 

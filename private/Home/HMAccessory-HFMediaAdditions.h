@@ -7,6 +7,11 @@
 #import <HomeKit/HMAccessory.h>
 
 @interface HMAccessory (HFMediaAdditions)
+- (id)hf_appleMusicLogout;
+- (id)hf_appleMusicCompleteLoginWithAuthenticationResults:(id)arg1;
+- (id)hf_appleMusicLoginWithAccount:(id)arg1;
+- (id)hf_appleMusicCurrentLoggedInAccountDSID;
+- (id)hf_appleMusicCurrentLoggedInAccount;
 @property(readonly, nonatomic) _Bool hf_isMediaAccessory;
 @end
 

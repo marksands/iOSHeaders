@@ -172,6 +172,7 @@
 - (id)_aliasInfoForAlias:(id)arg1;
 - (id)_invisibleAliases;
 - (id)_aliases;
+@property(readonly, nonatomic) NSArray *aliasesToRegister;
 @property(readonly, nonatomic) NSArray *vettedAliases;
 - (void)_updateProfileInfo:(id)arg1;
 - (long long)profileValidationErrorReason;

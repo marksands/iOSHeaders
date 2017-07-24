@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <CloudKit/NSSecureCoding-Protocol.h>
+
 @class NSNumber;
 
-@interface CKFileMetadata : NSObject
+@interface CKFileMetadata : NSObject <NSSecureCoding>
 {
     NSNumber *_deviceID;
     NSNumber *_fileID;
@@ -17,12 +19,15 @@
     NSNumber *_fileSize;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSNumber *fileSize; // @synthesize fileSize=_fileSize;
 @property(retain, nonatomic) NSNumber *modTimeInSeconds; // @synthesize modTimeInSeconds=_modTimeInSeconds;
 @property(retain, nonatomic) NSNumber *generationID; // @synthesize generationID=_generationID;
 @property(retain, nonatomic) NSNumber *fileID; // @synthesize fileID=_fileID;
 @property(retain, nonatomic) NSNumber *deviceID; // @synthesize deviceID=_deviceID;
 - (void).cxx_destruct;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 
 @end
 

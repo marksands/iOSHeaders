@@ -6,22 +6,26 @@
 
 #import <UIKit/UITextField.h>
 
-@class NSString, PKUniqueAddressField;
+@class PKUniqueAddressField, UIColor;
 
 @interface PKAddressTextField : UITextField
 {
     _Bool _isInvalid;
     PKUniqueAddressField *_addressField;
-    NSString *_invalidText;
+    long long _style;
+    UIColor *_defaultColor;
+    UIColor *_invalidColor;
 }
 
-@property(readonly, nonatomic) NSString *invalidText; // @synthesize invalidText=_invalidText;
+@property(retain, nonatomic) UIColor *invalidColor; // @synthesize invalidColor=_invalidColor;
+@property(retain, nonatomic) UIColor *defaultColor; // @synthesize defaultColor=_defaultColor;
 @property(readonly, nonatomic) _Bool isInvalid; // @synthesize isInvalid=_isInvalid;
+@property(nonatomic) long long style; // @synthesize style=_style;
 @property(retain, nonatomic) PKUniqueAddressField *addressField; // @synthesize addressField=_addressField;
 - (void).cxx_destruct;
 - (void)setIsInvalid:(_Bool)arg1 showErrorGlyph:(_Bool)arg2;
 - (void)insertTextSuggestion:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
 
 @end
 

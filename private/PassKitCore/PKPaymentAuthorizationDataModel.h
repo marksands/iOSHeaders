@@ -18,10 +18,12 @@
     _Bool _ignoreProximity;
     NSArray *_acceptedPasses;
     NSArray *_unavailablePasses;
+    NSMutableDictionary *_acceptedApplications;
     NSMapTable *_instrumentToDeviceMap;
     NSMutableDictionary *_remoteDeviceToAcceptedInstruments;
     NSArray *_allRemoteDevices;
     NSMutableDictionary *_statusForPass;
+    PKPaymentPass *_paymentPassForErrors;
     NSArray *_clientErrors;
     _Bool _shippingEditable;
     PKPaymentPass *_pass;
@@ -101,15 +103,20 @@
 @property(readonly, nonatomic) NSArray *unavailablePasses;
 - (id)_simulatorPasses;
 - (id)acceptedRemotePaymentInstrumentsForRemoteDevice:(id)arg1;
+- (id)unavailablePaymentApplicationsForPass:(id)arg1;
+- (id)acceptedPaymentApplicationsForPass:(id)arg1;
 @property(readonly, nonatomic) NSArray *acceptedPasses;
 - (void)updateRemoteDevices:(id)arg1 ignoreProximity:(_Bool)arg2;
 - (void)updateRemoteDevices:(id)arg1;
 @property(retain, nonatomic) PKRemoteDevice *remoteDevice; // @synthesize remoteDevice=_remoteDevice;
 @property(readonly, nonatomic) NSArray *allNearbyRemoteDevices;
 @property(readonly, nonatomic) NSArray *remoteDevices;
+- (void)updatePass:(id)arg1;
+- (void)setPass:(id)arg1 paymentApplication:(id)arg2;
 @property(retain, nonatomic) PKPaymentPass *pass; // @synthesize pass=_pass;
 - (_Bool)isValidWithError:(id *)arg1;
 - (id)_filterAndProcessPaymentPassesUsingConfiguration:(id)arg1;
+- (id)_filterAndProcessPaymentApplicationsUsingConfigurationForPass:(id)arg1;
 - (id)_inAppPrivateLabelPaymentPasses;
 - (id)_inAppPaymentPassesForPaymentRequest:(id)arg1;
 - (void)_notifyModelChanged;
@@ -129,6 +136,8 @@
 @property(retain, nonatomic) NSArray *paymentSummaryItems;
 @property(readonly, nonatomic) NSString *currencyCode;
 @property(readonly, nonatomic) NSString *merchantName;
+- (void)setShippingAddressErrors:(id)arg1;
+- (_Bool)shouldUpdateContactDataItem;
 - (id)initWithMode:(long long)arg1;
 - (id)init;
 

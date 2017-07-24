@@ -14,6 +14,7 @@
 
 - (void)_setupWithCollection:(id)arg1;
 - (_Bool)collectionChanged:(id)arg1 withSelectedOptions:(id)arg2;
+- (void)reloadActionRow;
 - (void)setSelectedOptions:(id)arg1;
 - (void)faceDidChange;
 - (void)didSelectRow:(long long)arg1;

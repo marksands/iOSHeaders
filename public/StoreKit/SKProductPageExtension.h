@@ -14,6 +14,7 @@
 {
     _Bool _showsStoreButton;
     _Bool _showsRightBarButton;
+    _Bool _askToBuy;
     NSString *_cancelButtonTitle;
     NSString *_rightBarButtonTitle;
     NSString *_promptString;
@@ -23,6 +24,7 @@
 + (id)clientInterface;
 + (id)_exportedInterface;
 + (id)_remoteViewControllerInterface;
+@property(nonatomic) _Bool askToBuy; // @synthesize askToBuy=_askToBuy;
 @property(copy, nonatomic) NSString *promptString; // @synthesize promptString=_promptString;
 @property(nonatomic) _Bool showsRightBarButton; // @synthesize showsRightBarButton=_showsRightBarButton;
 @property(copy, nonatomic) NSString *rightBarButtonTitle; // @synthesize rightBarButtonTitle=_rightBarButtonTitle;
@@ -32,10 +34,11 @@
 - (id)_createNavigationItem;
 - (void)rightBarButtonPressed:(id)arg1;
 - (void)cancelButtonPressed:(id)arg1;
-- (void)lookupItemDidLoad:(id)arg1;
+- (void)lookupItemDidLoad:(id)arg1 parameters:(id)arg2;
+- (void)setupWithClientBundleID:(id)arg1 bagType:(long long)arg2;
 - (void)storeButtonPressed:(id)arg1;
-- (void)setupWithCustomNavigationItem:(id)arg1;
-- (void)productPageItemDidLoad:(id)arg1;
+- (void)setupWithCustomNavigationItem:(id)arg1 promptString:(id)arg2 askToBuy:(_Bool)arg3;
+- (void)productPageItemDidLoad:(id)arg1 parameters:(id)arg2;
 - (void)finishWithResult:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 
 // Remaining properties

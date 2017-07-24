@@ -16,10 +16,8 @@
     MediaControlsContainerView *_mediaControlsContainerView;
     UIView *_routingView;
     UIView *_mediaControlsRoutingPickerView;
-    long long _numberOfActiveAnimations;
 }
 
-@property(nonatomic) long long numberOfActiveAnimations; // @synthesize numberOfActiveAnimations=_numberOfActiveAnimations;
 @property(retain, nonatomic) UIView *mediaControlsRoutingPickerView; // @synthesize mediaControlsRoutingPickerView=_mediaControlsRoutingPickerView;
 @property(retain, nonatomic) UIView *routingView; // @synthesize routingView=_routingView;
 @property(nonatomic, getter=isEmpty) _Bool empty; // @synthesize empty=_empty;

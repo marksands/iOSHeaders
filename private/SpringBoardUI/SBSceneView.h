@@ -40,9 +40,9 @@
 @property(retain, nonatomic) id <SBScenePlaceholderContentViewProvider> placeholderContentProvider; // @synthesize placeholderContentProvider=_placeholderContentProvider;
 @property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) UIView *customContentView; // @synthesize customContentView=_customContentView;
-@property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(readonly, nonatomic) long long effectiveDisplayMode; // @synthesize effectiveDisplayMode=_effectiveDisplayMode;
 @property(readonly, nonatomic) long long displayMode; // @synthesize displayMode=_requestedDisplayMode;
+@property(readonly, nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(readonly, nonatomic) struct CGSize referenceSize; // @synthesize referenceSize=_referenceSize;
 @property(readonly, nonatomic) SBSceneHandle *sceneHandle; // @synthesize sceneHandle=_sceneHandle;
 - (void).cxx_destruct;
@@ -55,6 +55,8 @@
 - (void)_configureLiveSnapshotView;
 - (void)_configurePlaceholderContentView;
 - (void)_configureViewForEffectiveDisplayMode:(long long)arg1;
+- (_Bool)_addContentLikeViewToHeierarchyForTransitionIfPossible:(id)arg1;
+- (_Bool)_shouldViewBeInHeirarchyForTransition:(id)arg1;
 - (void)_transitionFromDisplayMode:(long long)arg1 showingView:(id)arg2 toDisplayMode:(long long)arg3 showingView:(id)arg4 withAnimationFactory:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (id)_viewForDisplayMode:(long long)arg1;
 - (long long)_bestDisplayModeLessThanMode:(long long)arg1;

@@ -7,12 +7,12 @@
 #import <AVFoundation/NSObject-Protocol.h>
 #import <AVFoundation/NSSecureCoding-Protocol.h>
 
-@class AVOutputContext, AVOutputContextCommunicationChannel, AVOutputDevice, AVOutputDeviceGroup, NSArray, NSDictionary, NSString;
+@class AVOutputContext, AVOutputContextCommunicationChannel, AVOutputDevice, NSArray, NSDictionary, NSString;
 
 @protocol AVOutputContextImpl <NSObject, NSSecureCoding>
 + (_Bool)outputContextExistsWithRemoteOutputDevice;
 + (void)resetOutputDeviceForAllOutputContexts;
-+ (id)outputContextForControllingOutputDeviceGroup:(AVOutputDeviceGroup *)arg1;
++ (id)outputContextImplForID:(NSString *)arg1;
 + (id)outputContextForControllingOutputDeviceGroupWithID:(NSString *)arg1;
 + (id)iTunesAudioContext;
 + (id)sharedSystemScreenContext;
@@ -21,12 +21,16 @@
 + (id)auxiliaryOutputContext;
 + (id)sharedAudioPresentationOutputContext;
 @property(readonly, nonatomic) AVOutputContextCommunicationChannel *outgoingCommunicationChannel;
+@property(readonly) _Bool canSetVolume;
+@property(readonly) float volume;
+@property(readonly) _Bool providesControlForAllVolumeFeatures;
 @property(readonly) NSArray *outputDevices;
-@property(readonly) AVOutputDeviceGroup *outputDeviceGroup;
 @property(readonly, copy, nonatomic) NSString *associatedAudioDeviceID;
 @property(readonly, nonatomic) AVOutputDevice *outputDevice;
+@property(readonly, nonatomic) NSString *outputContextType;
 @property(readonly, nonatomic) NSString *ID;
 @property __weak AVOutputContext *parentOutputContext;
+- (void)setVolume:(float)arg1;
 - (void)removeOutputDevice:(AVOutputDevice *)arg1;
 - (void)addOutputDevice:(AVOutputDevice *)arg1;
 - (void)setOutputDevices:(NSArray *)arg1;

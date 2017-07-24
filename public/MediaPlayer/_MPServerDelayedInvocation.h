@@ -20,6 +20,7 @@
 @property(retain, nonatomic) id context; // @synthesize context=_context;
 @property(nonatomic) CDStruct_6ad76789 *clientAuditToken; // @synthesize clientAuditToken=_clientAuditToken;
 @property(nonatomic) int clientPID; // @synthesize clientPID=_clientPID;
+- (void)dealloc;
 
 @end
 

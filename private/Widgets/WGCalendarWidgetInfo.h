@@ -6,12 +6,18 @@
 
 #import <Widgets/WGWidgetInfo.h>
 
+@class NSDate;
+
 @interface WGCalendarWidgetInfo : WGWidgetInfo
 {
+    NSDate *_date;
 }
 
 + (_Bool)isCalendarExtension:(id)arg1;
+@property(retain, nonatomic, setter=_setDate:) NSDate *date; // @synthesize date=_date;
+- (void).cxx_destruct;
 - (void)_handleSignificantTimeChange:(id)arg1;
+- (void)_resetIcons;
 - (id)_iconWithOutline;
 - (id)_iconWithFormat:(int)arg1;
 - (id)initWithExtension:(id)arg1;

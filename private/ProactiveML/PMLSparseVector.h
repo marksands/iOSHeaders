@@ -27,6 +27,9 @@
 - (float)valueAtIndex:(unsigned long long)arg1;
 - (void)processNonZeroValuesInPlaceWithBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateNonZeroValuesWithBlock:(CDUnknownBlockType)arg1;
+- (void)scaleInPlaceWithInversedFactor:(float)arg1;
+- (float)maxAbsValue;
+- (float)l2norm;
 - (float)maxValue;
 - (float)minValue;
 - (id)quantizedValuesAsUInt8DataWithMin:(float)arg1 max:(float)arg2;
@@ -35,6 +38,7 @@
 - (id)indicesData;
 - (void)dealloc;
 - (id)initWithLength:(unsigned long long)arg1 numberOfNonZeroValues:(unsigned long long)arg2 indices:(long long *)arg3 values:(float *)arg4;
+- (id)initWithLength:(unsigned long long)arg1 numberOfNonZeroValues:(unsigned long long)arg2 indicesData:(id)arg3 valuesData:(id)arg4;
 - (id)init;
 
 @end

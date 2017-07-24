@@ -15,6 +15,7 @@
     id <NSObject> _contactsToken;
     PEXNotificationHandler *_meCardHandler;
     id <NSObject> _meCardToken;
+    id <NSObject> _meCardDonationToken;
     PEXEventKitNotificationHandler *_eventKitHandler;
     id <NSObject> _eventKitToken;
     PEXNotificationHandler *_portraitChangeHandler;

@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @interface VKPlatform : NSObject
 {
     unsigned long long _memSize;
     int _numCPUs;
+    _Bool _isMac;
     _Bool _proceduralRoadAlpha;
     _Bool _useCheapTrafficShader;
     _Bool _supportsBuildingStrokes;
@@ -17,9 +18,11 @@
     _Bool _lowPerformanceDevice;
     _Bool _supportsCoastlineGlows;
     _Bool _supportsPerFragmentLighting;
+    _Bool _supportsARMode;
 }
 
 + (id)sharedPlatform;
+@property(readonly, nonatomic) _Bool supportsARMode; // @synthesize supportsARMode=_supportsARMode;
 @property(readonly, nonatomic) _Bool supportsPerFragmentLighting; // @synthesize supportsPerFragmentLighting=_supportsPerFragmentLighting;
 @property(readonly, nonatomic) _Bool supportsCoastlineGlows; // @synthesize supportsCoastlineGlows=_supportsCoastlineGlows;
 @property(readonly, nonatomic) _Bool supports3DBuildingStrokes; // @synthesize supports3DBuildingStrokes=_supports3DBuildingStrokes;
@@ -42,7 +45,7 @@
 @property(readonly, nonatomic) _Bool canMakeSharingThumbnails;
 @property(readonly, nonatomic) _Bool supportsHiResRTT;
 @property(readonly, nonatomic) unsigned int tilePrefetchNumberOfScreens;
-@property(readonly, nonatomic) unsigned long long tileMaximumLimit;
+- (unsigned long long)tileMaximumLimit:(unsigned long long)arg1;
 @property(readonly, nonatomic) _Bool roadsWithSimpleLineMeshesAvailable;
 - (void)_determineHardware;
 - (unsigned long long)_calculateMemSize;

@@ -78,7 +78,6 @@ __attribute__((visibility("hidden")))
 - (id)importableDocumentTypes;
 - (id)createCompatibilityDelegate;
 - (void)customizeHyperlinkViewController:(id)arg1;
-- (id)resourcePreinstalledTags;
 - (_Bool)URLIsValidForImportedHyperlink:(id)arg1 targetDocumentRoot:(id)arg2;
 - (_Bool)openURL:(id)arg1 withDocumentRoot:(id)arg2;
 - (void)dealloc;

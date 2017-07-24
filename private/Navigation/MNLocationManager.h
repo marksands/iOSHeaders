@@ -30,6 +30,7 @@
     double _lastLocationUpdateTime;
     double _lastLocationReportTime;
     double _locationUpdateStartTime;
+    double _expectedGpsUpdateInterval;
     CLHeading *_heading;
     NSDate *_lastUpdatedHeadingDate;
     _Bool _hasCustomDesiredAccuracy;

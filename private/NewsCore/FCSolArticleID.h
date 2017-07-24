@@ -14,17 +14,19 @@
 @interface FCSolArticleID : NSObject <NSCoding, NSCopying>
 {
     NSString *_identifier;
+    double _score;
 }
 
+@property(nonatomic) double score; // @synthesize score=_score;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
-- (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithID:(id)arg1;
+- (id)description;
+- (id)initWithID:(id)arg1 score:(double)arg2;
 
 @end
 

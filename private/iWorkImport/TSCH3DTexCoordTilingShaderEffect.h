@@ -19,11 +19,11 @@ __attribute__((visibility("hidden")))
 - (void)inject:(id)arg1;
 - (id)transformedTexcoordBuffer:(id)arg1 effectsStates:(id)arg2;
 - (void)addVariables:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)autorelease;
 - (oneway void)release;
 - (unsigned long long)retainCount;
 - (id)retain;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

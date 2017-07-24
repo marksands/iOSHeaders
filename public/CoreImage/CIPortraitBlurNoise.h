@@ -15,13 +15,16 @@ __attribute__((visibility("hidden")))
     NSNumber *inputLumaNoiseAmpl;
     NSNumber *inputLumaNoiseModelCoeff;
     CIVector *inputExtent;
+    NSNumber *inputUseMetal;
 }
 
+@property(copy, nonatomic) NSNumber *inputUseMetal; // @synthesize inputUseMetal;
 @property(copy) CIVector *inputExtent; // @synthesize inputExtent;
 @property(copy, nonatomic) NSNumber *inputLumaNoiseModelCoeff; // @synthesize inputLumaNoiseModelCoeff;
 @property(copy, nonatomic) NSNumber *inputLumaNoiseAmpl; // @synthesize inputLumaNoiseAmpl;
 @property(retain) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
+- (id)_kernelMetal;
 - (id)_kernel;
 
 @end

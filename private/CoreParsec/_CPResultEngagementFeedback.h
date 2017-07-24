@@ -10,7 +10,7 @@
 #import <CoreParsec/_CPProcessableFeedback-Protocol.h>
 #import <CoreParsec/_CPResultEngagementFeedback-Protocol.h>
 
-@class NSData, NSString, _CPSearchResultForFeedback;
+@class NSData, NSDictionary, NSString, _CPSearchResultForFeedback;
 
 @interface _CPResultEngagementFeedback : PBCodable <_CPProcessableFeedback, _CPResultEngagementFeedback, NSSecureCoding>
 {
@@ -20,20 +20,20 @@
         unsigned int triggerEvent:1;
         unsigned int destination:1;
         unsigned int actionTarget:1;
-        unsigned int resultHadTitle:1;
+        unsigned int matchesUnengagedSuggestion:1;
     } _has;
     _Bool _actionEngaged;
-    _Bool _resultHadTitle;
+    _Bool _matchesUnengagedSuggestion;
     int _triggerEvent;
     int _destination;
     int _actionTarget;
     unsigned long long _timestamp;
     _CPSearchResultForFeedback *_result;
-    NSString *_titleTextForResultEngagement;
+    NSString *_titleText;
 }
 
-@property(nonatomic) _Bool resultHadTitle; // @synthesize resultHadTitle=_resultHadTitle;
-@property(copy, nonatomic) NSString *titleTextForResultEngagement; // @synthesize titleTextForResultEngagement=_titleTextForResultEngagement;
+@property(nonatomic) _Bool matchesUnengagedSuggestion; // @synthesize matchesUnengagedSuggestion=_matchesUnengagedSuggestion;
+@property(copy, nonatomic) NSString *titleText; // @synthesize titleText=_titleText;
 @property(retain, nonatomic) _CPSearchResultForFeedback *result; // @synthesize result=_result;
 @property(nonatomic) int actionTarget; // @synthesize actionTarget=_actionTarget;
 @property(nonatomic) int destination; // @synthesize destination=_destination;
@@ -44,21 +44,24 @@
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
-- (id)dictionaryRepresentation;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-@property(readonly, nonatomic) _Bool hasResultHadTitle;
-@property(readonly, nonatomic) _Bool hasTitleTextForResultEngagement;
+@property(readonly, nonatomic) _Bool hasMatchesUnengagedSuggestion;
+@property(readonly, nonatomic) _Bool hasTitleText;
 @property(readonly, nonatomic) _Bool hasResult;
 @property(readonly, nonatomic) _Bool hasActionTarget;
 @property(readonly, nonatomic) _Bool hasDestination;
 @property(readonly, nonatomic) _Bool hasTriggerEvent;
 @property(readonly, nonatomic) _Bool hasActionEngaged;
 @property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)init;
 - (id)initWithFacade:(id)arg1;
 @property(readonly, nonatomic) _Bool requiresQueryId;
+- (id)actionDestinationFromResult:(id)arg1 actionEngaged:(_Bool)arg2 destination:(int)arg3;
+@property(readonly, nonatomic) id feedbackJSON;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

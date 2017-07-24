@@ -44,6 +44,9 @@
 - (void)_stopVoiceTrigger;
 - (void)_startVoiceTrigger;
 - (void)_transitVoiceTriggerStatus:(_Bool)arg1;
+- (void)_setAsset:(id)arg1;
+- (void)setAsset:(id)arg1;
+- (void)_reset;
 - (void)reset;
 - (id)initWithManager:(id)arg1 asset:(id)arg2;
 

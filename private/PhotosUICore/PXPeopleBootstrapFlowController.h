@@ -22,20 +22,23 @@
 }
 
 @property(nonatomic) unsigned long long viewControllerIndex; // @synthesize viewControllerIndex=_viewControllerIndex;
-@property(readonly, nonatomic) NSArray *viewControllers; // @synthesize viewControllers=_viewControllers;
+@property(copy, nonatomic) NSArray *viewControllers; // @synthesize viewControllers=_viewControllers;
 @property(nonatomic) unsigned long long namingResultType; // @synthesize namingResultType=_namingResultType;
 @property(readonly, nonatomic) PXPeopleBootstrapContext *context; // @synthesize context=_context;
 @property(retain, nonatomic) id <PXPeopleSuggestionManagerDataSource> bootstrapDataSource; // @synthesize bootstrapDataSource=_bootstrapDataSource;
 @property(retain, nonatomic) id <PXPeopleBootstrapFlowDelegate> bootstrapDelegate; // @synthesize bootstrapDelegate=_bootstrapDelegate;
 - (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)cancel:(id)arg1;
 - (void)done:(id)arg1;
 @property(readonly, nonatomic) UIViewController<PXPeopleFlowViewController> *previousViewController;
 @property(readonly, nonatomic) _Bool hasPreviousViewController;
 @property(readonly, nonatomic) UIViewController<PXPeopleFlowViewController> *nextViewController;
 @property(readonly, nonatomic) _Bool hasNextViewController;
+- (void)recomputeViewControllersForChangeInKeyPath:(id)arg1;
+- (void)computeViewControllersForBootstrapFlow;
 @property(readonly, nonatomic) _Bool shouldPresentNaming;
-- (id)viewControllersForBootstrapFlow;
+- (void)dealloc;
 - (id)initEmptyFlowWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1;
 - (void)commonInitWithContext:(id)arg1;

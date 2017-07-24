@@ -9,7 +9,7 @@
 #import <ITMLKit/ISStoreURLOperationDelegate-Protocol.h>
 #import <ITMLKit/NSURLConnectionDataDelegate-Protocol.h>
 
-@class IKAppContext, JSManagedValue, NSArray, NSMutableArray, NSString;
+@class IKAppContext, JSManagedValue, NSArray, NSMutableArray, NSNumber, NSString;
 
 @interface IKScriptsEvaluator : NSObject <ISStoreURLOperationDelegate, NSURLConnectionDataDelegate>
 {
@@ -39,6 +39,9 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentage;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentageCachedResponses;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSessionDuration;
 @property(readonly) Class superclass;
 
 @end

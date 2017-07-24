@@ -21,7 +21,6 @@
 - (void).cxx_destruct;
 - (id)initWithServiceHelper:(id)arg1 commandQueuer:(id)arg2;
 - (void)isDeviceLockedWithPasscodeWithCompletion:(CDUnknownBlockType)arg1;
-- (void)handleOneWayCommand:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)handleCommand:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)handleOneWayCommand:(id)arg1;
 

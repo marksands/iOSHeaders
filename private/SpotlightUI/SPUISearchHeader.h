@@ -9,15 +9,15 @@
 #import <SpotlightUI/MFAtomTextViewDelegate-Protocol.h>
 #import <SpotlightUI/UITextFieldDelegate-Protocol.h>
 
-@class NSLayoutConstraint, NSString, SPSearchEntity, SPSearchQueryContext, SPUITextField, UIButton, _UILegibilitySettings;
+@class NSArray, NSLayoutConstraint, NSString, SPSearchEntity, SPSearchQueryContext, SPUITextField, UIButton, _UILegibilitySettings;
 @protocol SPUISearchHeaderDelegate;
 
 @interface SPUISearchHeader : UIView <UITextFieldDelegate, MFAtomTextViewDelegate>
 {
     _Bool _offersCompletions;
-    _Bool _roundedCornerVisible;
     _Bool _willClear;
     id <SPUISearchHeaderDelegate> _delegate;
+    SPSearchQueryContext *_currentQueryContext;
     unsigned long long _suggestionID;
     _UILegibilitySettings *_legibilitySettings;
     SPSearchEntity *_searchEntity;
@@ -35,11 +35,11 @@
 @property(retain) NSLayoutConstraint *searchFieldTrailingConstraint; // @synthesize searchFieldTrailingConstraint=_searchFieldTrailingConstraint;
 @property(retain) UIButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(retain) SPUITextField *searchField; // @synthesize searchField=_searchField;
-@property(nonatomic, getter=isRoundedCornerVisible) _Bool roundedCornerVisible; // @synthesize roundedCornerVisible=_roundedCornerVisible;
 @property _Bool offersCompletions; // @synthesize offersCompletions=_offersCompletions;
 @property(retain, nonatomic) SPSearchEntity *searchEntity; // @synthesize searchEntity=_searchEntity;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property unsigned long long suggestionID; // @synthesize suggestionID=_suggestionID;
+@property(readonly, nonatomic) SPSearchQueryContext *currentQueryContext; // @synthesize currentQueryContext=_currentQueryContext;
 @property __weak id <SPUISearchHeaderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (double)topPadding;
@@ -53,6 +53,8 @@
 - (void)clearSearchFieldWhyQuery:(unsigned long long)arg1 allowZKW:(_Bool)arg2;
 - (_Bool)searchFieldIsFocused;
 - (void)unfocusSearchField;
+- (void)focusSearchFieldAndBeginDictation:(_Bool)arg1;
+- (void)beginDictation;
 - (void)focusSearchField;
 - (_Bool)atomTextView:(id)arg1 storeRepresentedObjects:(id)arg2 onPasteboard:(id)arg3;
 - (id)atomTextView:(id)arg1 representedObjectsFromPasteboard:(id)arg2;
@@ -60,7 +62,7 @@
 - (id)atomTextView:(id)arg1 atomViewForRepresentedObject:(id)arg2;
 - (void)_searchWithSearchEntity:(id)arg1 fromSuggestion:(_Bool)arg2;
 - (void)setSearchEntity:(id)arg1 fromSuggestion:(_Bool)arg2;
-@property(readonly, nonatomic) SPSearchQueryContext *currentQueryContext;
+- (id)currentQueryContextWithString:(id)arg1;
 @property(readonly, nonatomic) NSString *currentQuery;
 - (_Bool)textFieldShouldReturn;
 - (void)cancelButtonClicked:(id)arg1;
@@ -75,6 +77,9 @@
 - (void)textInputModeChanged:(id)arg1;
 - (id)backdropVisualEffectView;
 - (void)updateBlurProgress:(double)arg1;
+- (void)_updateClearButtonVisibility;
+@property(retain) NSArray *representedObjects;
+- (void)dictationButtonPressed;
 - (id)init;
 
 // Remaining properties

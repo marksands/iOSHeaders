@@ -4,40 +4,50 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIView.h>
+#import <AppSupportUI/NUIContainerStackView.h>
 
-@class NSURL, SFCardSection, SearchUITableViewController;
-@protocol SFFeedbackListener;
+#import <SearchUI/NUIContainerStackViewDelegate-Protocol.h>
 
-@interface SearchUICardSectionView : UIView
+@class NSString, SFCardSection, UIView;
+@protocol SearchUIFeedbackDelegate;
+
+@interface SearchUICardSectionView : NUIContainerStackView <NUIContainerStackViewDelegate>
 {
     _Bool _spansFullWidth;
-    int _defaultSeparatorStyle;
-    SearchUITableViewController *_controller;
     unsigned long long _style;
-    NSURL *_url;
     SFCardSection *_section;
-    id <SFFeedbackListener> _feedbackDelegate;
+    id <SearchUIFeedbackDelegate> _feedbackDelegate;
+    UIView *_contentView;
+    UIView *_chevronView;
 }
 
++ (Class)layerClass;
 + (id)dragSubtitleForCardSection:(id)arg1;
 + (id)dragTitleForCardSection:(id)arg1;
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
-@property(nonatomic) __weak id <SFFeedbackListener> feedbackDelegate; // @synthesize feedbackDelegate=_feedbackDelegate;
++ (int)separatorStyleForCardSection:(id)arg1;
++ (double)separatorInsetForLeadingImageForSection:(id)arg1;
+@property(retain) UIView *chevronView; // @synthesize chevronView=_chevronView;
+@property(retain) UIView *contentView; // @synthesize contentView=_contentView;
+@property __weak id <SearchUIFeedbackDelegate> feedbackDelegate; // @synthesize feedbackDelegate=_feedbackDelegate;
 @property(readonly) _Bool spansFullWidth; // @synthesize spansFullWidth=_spansFullWidth;
 @property(retain, nonatomic) SFCardSection *section; // @synthesize section=_section;
-@property(nonatomic) int defaultSeparatorStyle; // @synthesize defaultSeparatorStyle=_defaultSeparatorStyle;
-@property(retain) NSURL *url; // @synthesize url=_url;
 @property unsigned long long style; // @synthesize style=_style;
-@property __weak SearchUITableViewController *controller; // @synthesize controller=_controller;
 - (void).cxx_destruct;
+- (void)presentViewController:(id)arg1;
+- (void)didInvalidateSizeAnimate:(_Bool)arg1;
+- (id)sendFeedbackForPunchout:(id)arg1 triggerEvent:(unsigned long long)arg2;
+- (void)openPunchout:(id)arg1 triggerEvent:(unsigned long long)arg2;
 - (void)updateWithCardSection:(id)arg1;
-- (_Bool)shouldDrawBackground;
-- (_Bool)isAutoLayoutFree;
-- (double)separatorInsetForLeadingImage;
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
-- (id)initWithCardSection:(id)arg1 style:(unsigned long long)arg2;
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2;
+- (void)updateChevronVisible:(_Bool)arg1 leaveSpaceForChevron:(_Bool)arg2;
+- (id)setupContentView;
+- (id)initWithCardSection:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -13,7 +13,7 @@
 #import <PassKitUI/UITableViewDelegate-Protocol.h>
 #import <PassKitUI/UITextFieldDelegate-Protocol.h>
 
-@class NSArray, NSIndexPath, NSString, PKPassSnapshotter, PKPaymentPreferenceButtonCell, UITableView, UITextField;
+@class NSArray, NSIndexPath, NSString, PKPassSnapshotter, PKPaymentPass, PKPaymentPreferenceButtonCell, UITableView, UITextField;
 
 @interface PKPaymentPreferencesViewController : UIViewController <CNContactPickerDelegate, UITextFieldDelegate, PKAddressSearcherViewControllerDelegate, PKAddressEditorViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 {
@@ -21,6 +21,8 @@
     UITextField *_currentEditingField;
     NSIndexPath *_currentEditingIndexPath;
     PKPaymentPreferenceButtonCell *_sizingButtonCell;
+    PKPaymentPass *_paymentPassForBillingErrors;
+    PKPaymentPass *_currentlySelectedPaymentPass;
     NSArray *_preferences;
     long long _style;
     UITableView *_tableView;
@@ -36,6 +38,7 @@
 @property(readonly, nonatomic) long long style; // @synthesize style=_style;
 @property(retain, nonatomic) NSArray *preferences; // @synthesize preferences=_preferences;
 - (void).cxx_destruct;
+- (id)_requiredKeysForPreference:(id)arg1 contact:(id)arg2;
 - (_Bool)_isPaymentStyle;
 - (void)addressEditorViewControllerDidCancel:(id)arg1;
 - (void)addressEditorViewController:(id)arg1 selectedContact:(id)arg2;
@@ -46,9 +49,9 @@
 - (void)contactPicker:(id)arg1 didSelectContact:(id)arg2;
 - (void)_setContactHandlersForPreference:(id)arg1;
 - (void)_showContactsPickerForPreference:(id)arg1;
-- (void)_showAddressEditorForPreference:(id)arg1 contact:(id)arg2;
+- (void)_showAddressPickerForPreference:(id)arg1;
+- (void)_updateMeCardWithNewContact:(id)arg1 oldContact:(id)arg2 forKey:(id)arg3 usingPreference:(id)arg4;
 - (void)_updateContactAndForceSelection:(_Bool)arg1;
-- (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)hideTextField:(id)arg1;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (_Bool)textFieldShouldEndEditing:(id)arg1;
@@ -56,7 +59,9 @@
 - (void)textFieldDidBeginEditing:(id)arg1;
 - (void)tableView:(id)arg1 didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
+- (void)_showAddressEditorForContact:(id)arg1 title:(id)arg2 requiredKeys:(id)arg3 highlightedKeys:(id)arg4 errors:(id)arg5;
 - (void)_editPreferenceAtIndexPath:(id)arg1;
 - (id)tableView:(id)arg1 editActionsForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
@@ -70,8 +75,11 @@
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (id)_cellOfClass:(Class)arg1;
+- (id)_cellForNamePreference:(id)arg1 row:(unsigned long long)arg2;
 - (id)_cellForPreference:(id)arg1 row:(unsigned long long)arg2;
 - (void)setErrors:(id)arg1 animated:(_Bool)arg2;
+- (void)setErrors:(id)arg1 pass:(id)arg2 animated:(_Bool)arg3;
+- (void)clearErrorsForPreference:(Class)arg1;
 - (void)_cleanupInlineEdits;
 - (void)_startInlineEditingForPreference:(id)arg1 inSection:(unsigned long long)arg2;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;

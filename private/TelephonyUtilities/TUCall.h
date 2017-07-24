@@ -190,9 +190,6 @@
 @property(readonly, nonatomic) _Bool isOnHold;
 - (void)answerWithRequest:(id)arg1;
 - (void)_handleStatusChange;
-@property(readonly, nonatomic) long long remoteVideoContextSlotIdentifier;
-@property(readonly, nonatomic) long long localVideoContextSlotIdentifier;
-@property(readonly, nonatomic) long long videoContextSlotIdentifier;
 @property(readonly, nonatomic) long long videoStreamToken;
 @property(readonly, nonatomic, getter=isRemoteUplinkMuted) _Bool remoteUplinkMuted;
 @property(readonly, nonatomic) _Bool supportsTTYWithVoice;

@@ -9,12 +9,13 @@
 #import <NewsToday/NSSecureCoding-Protocol.h>
 
 @class NSData, NSDate, NSObject, NSString, NSURL, SFSearchResult;
-@protocol NTHeadlineAdElement, NTHeadlineAnalyticsElement, NTHeadlinePersonalizationMetadata;
+@protocol NTHeadlineAdElement, NTHeadlineAnalyticsElementProviding, NTHeadlinePersonalizationMetadata;
 
 @protocol NTHeadlineProviding <NSObject, NSCopying, NSSecureCoding>
 @property(readonly, copy, nonatomic) NSObject<NTHeadlinePersonalizationMetadata> *personalizationMetadata;
 @property(readonly, copy, nonatomic) NSObject<NTHeadlineAdElement> *adElement;
-@property(readonly, copy, nonatomic) NSObject<NTHeadlineAnalyticsElement> *analyticsElement;
+@property(readonly, copy, nonatomic) NSObject<NTHeadlineAnalyticsElementProviding> *analyticsElement;
+@property(readonly, nonatomic) _Bool supportsSavingForLater;
 @property(readonly, nonatomic) _Bool displaysWithLeadingCellAppearance;
 @property(readonly, nonatomic) double videoDuration;
 @property(readonly, copy, nonatomic) NSURL *videoURL;
@@ -23,8 +24,11 @@
 @property(readonly, copy, nonatomic) NSString *identifier;
 @property(readonly, copy, nonatomic) NSURL *NewsURL;
 @property(readonly, copy, nonatomic) NSURL *webURL;
+@property(readonly, nonatomic) struct CGRect thumbnailFocalFrame;
+@property(readonly, nonatomic) unsigned long long thumbnailSizePreset;
 @property(readonly, copy, nonatomic) NSData *thumbnailData;
 @property(readonly, copy, nonatomic) NSString *thumbnailAssetID;
+@property(readonly, nonatomic) double sourceNameImageScale;
 @property(readonly, copy, nonatomic) NSData *sourceNameImageData;
 @property(readonly, copy, nonatomic) NSString *sourceNameImageAssetID;
 @property(readonly, copy, nonatomic) NSString *sourceIdentifier;

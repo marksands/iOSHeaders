@@ -82,7 +82,9 @@
 - (id)plistRepresentationWithOptions:(unsigned long long)arg1;
 - (void)archiveDictionaryRepresentation:(id)arg1 options:(unsigned long long)arg2;
 - (id)initWithArchived:(id)arg1 version:(long long)arg2 options:(unsigned long long)arg3;
+- (id)initWithPlistRepresentation:(id)arg1 error:(id *)arg2;
 - (id)initWithPlistRepresentation:(id)arg1;
+- (id)decapsulateIPSheaderInData:(id)arg1 error:(id *)arg2;
 - (id)initWithNodes:(unsigned int)arg1;
 
 @end

@@ -81,13 +81,13 @@ __attribute__((visibility("hidden")))
 - (void)_setupPatternedLineSetup:(struct PatternedLineSetup *)arg1 sharedResources:(const struct TransitLineSharedResources *)arg2;
 - (void)_createLinesWithLoader:(struct Loader *)arg1;
 - (void)_prepareLinesWithSharedResources:(const struct TransitLineSharedResources *)arg1;
-- (void)createGroupsWithDevice:(struct Device *)arg1 sharedResources:(const struct TransitLineSharedResources *)arg2;
+- (void)createGroupsWithDevice:(Device_9226c869 *)arg1 sharedResources:(const struct TransitLineSharedResources *)arg2;
 - (float)minLineZoomForIDs:(const unordered_set_65896b03 *)arg1;
 - (_Bool)containsLinesInSet:(const unordered_set_65896b03 *)arg1;
 - (void)setNodeFeaturePool:(struct TransitNodeFeaturePool *)arg1;
 - (void)setInterTileMediator:(const shared_ptr_10302801 *)arg1;
 - (void)dealloc;
-- (id)initWithKey:(const struct VKTileKey *)arg1 modelTile:(id)arg2 styleManager:(shared_ptr_a3c46825)arg3 dataOverrideManager:(shared_ptr_887a193f)arg4 sharedResources:(id)arg5 contentScale:(double)arg6 device:(struct Device *)arg7 labelExternalObjectsModerator:(struct LabelExternalObjectsModerator *)arg8;
+- (id)initWithKey:(const struct VKTileKey *)arg1 modelTile:(id)arg2 styleManager:(shared_ptr_a3c46825)arg3 dataOverrideManager:(shared_ptr_887a193f)arg4 sharedResources:(id)arg5 contentScale:(double)arg6 device:(Device_9226c869 *)arg7 labelExternalObjectsModerator:(struct LabelExternalObjectsModerator *)arg8;
 
 @end
 

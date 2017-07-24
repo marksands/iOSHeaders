@@ -19,9 +19,6 @@ __attribute__((visibility("hidden")))
     _Bool _editingContainedRep;
     CALayer *_overflowGlyphLayer;
     struct CGPoint _originalAutosizePositionOffset;
-    struct _NSRange _containedRepSecondaryHighlightRange;
-    struct CGColor *_containedRepSecondaryHighlightColor;
-    int _containedRepSecondaryHighlightPathStyle;
     TSWPRep *_containedRep;
 }
 
@@ -29,14 +26,15 @@ __attribute__((visibility("hidden")))
 + (id)magicMoveTextMatchesBetweenOutgoingObjects:(id)arg1 andIncomingObjects:(id)arg2 textureContext:(id)arg3 textDeliveryType:(long long)arg4 repToOpacityTextRangeDictMap:(id)arg5;
 + (_Bool)p_shouldDisableTextMorphingBetweenOutgoingRep:(id)arg1 outgoingChunkRange:(struct _NSRange)arg2 incomingRep:(id)arg3 incomingChunkRange:(struct _NSRange)arg4;
 + (id)magicMoveAnimationMatchesFromMatches:(id)arg1;
-+ (void)p_getOutgoingTextureSet:(id *)arg1 incomingTextureSet:(id *)arg2 withOutgoingRep:(id)arg3 outgoingChunkRange:(struct _NSRange)arg4 incomingRep:(id)arg5 incomingChunkRange:(struct _NSRange)arg6 includeListLabels:(_Bool)arg7;
-+ (id)p_textureSetFromRep:(id)arg1 range:(struct _NSRange)arg2 includeListLabel:(_Bool)arg3 desiredContentRect:(struct CGRect)arg4;
++ (void)p_getOutgoingTextureSet:(id *)arg1 incomingTextureSet:(id *)arg2 withOutgoingRep:(id)arg3 outgoingChunkRange:(struct _NSRange)arg4 outgoingTextureByGlyphStyle:(int)arg5 incomingRep:(id)arg6 incomingChunkRange:(struct _NSRange)arg7 incomingTextureByGlyphStyle:(int)arg8 includeListLabels:(_Bool)arg9;
++ (id)p_textureSetFromRep:(id)arg1 range:(struct _NSRange)arg2 textureByGlyphStyle:(int)arg3 includeListLabel:(_Bool)arg4 desiredContentRect:(struct CGRect)arg5;
 + (_Bool)p_listLabelsAreEqualWithOutgoingStorage:(id)arg1 outgoingCharIndex:(long long)arg2 incomingStorage:(id)arg3 incomingCharIndex:(long long)arg4 shouldMatch:(_Bool *)arg5;
 + (unsigned long long)p_longestChunkInOutgoingObjects:(id)arg1 incomingObjects:(id)arg2 textDeliveryType:(long long)arg3 addOutgoingChunksToArray:(id)arg4 addIncomingChunksToArray:(id)arg5;
 + (id)p_stringByApplyingCapitalizationPropertyFromStorage:(id)arg1 withRange:(struct _NSRange)arg2 toString:(id)arg3;
 + (id)p_potentialMatchesWithChunkLength:(unsigned long long)arg1 outgoingTextChunks:(id)arg2 incomingTextChunks:(id)arg3 textureContext:(id)arg4 textDeliveryType:(long long)arg5;
 + (double)p_mmAttributeMatchPercentWithOutgoingTextChunk:(id)arg1 incomingTextChunk:(id)arg2;
 @property(readonly, nonatomic) TSWPRep *containedRep; // @synthesize containedRep=_containedRep;
+- (void).cxx_destruct;
 - (void)selectChildRep:(id)arg1 extendingSelection:(_Bool)arg2;
 - (_Bool)canSelectChildRep:(id)arg1;
 - (void)addAdditionalChildLayersToArray:(id)arg1;
@@ -51,7 +49,7 @@ __attribute__((visibility("hidden")))
 - (void)updateChildrenFromLayout;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
-- (id)newTextureRenderableForRange:(struct _NSRange)arg1 includeListLabel:(_Bool)arg2 isMagicMove:(_Bool)arg3 desiredContentRect:(struct CGRect)arg4 includeGroupedShadow:(_Bool)arg5 groupedShadowOnly:(_Bool)arg6 textureBounds:(struct CGRect *)arg7;
+- (id)newTextureRenderableForRange:(struct _NSRange)arg1 includeListLabel:(_Bool)arg2 isMagicMove:(_Bool)arg3 desiredContentRect:(struct CGRect)arg4 textureByGlyphStyle:(int)arg5 includeGroupedShadow:(_Bool)arg6 groupedShadowOnly:(_Bool)arg7 textureBounds:(struct CGRect *)arg8;
 - (void)p_getBoundsRect:(struct CGRect *)arg1 contentRect:(struct CGRect *)arg2 transform:(struct CGAffineTransform *)arg3 applyReflection:(_Bool *)arg4 applyShadow:(_Bool *)arg5 forRange:(struct _NSRange)arg6 includeListLabel:(_Bool)arg7 isMagicMove:(_Bool)arg8;
 - (double)p_textureSetOpacity;
 - (_Bool)p_hasContentForRange:(struct _NSRange)arg1 labelOnly:(_Bool)arg2;

@@ -52,6 +52,7 @@
 - (id)initWithLanguageCode:(id)arg1 gender:(long long)arg2 isCustom:(_Bool)arg3 name:(id)arg4 footprint:(long long)arg5 contentVersion:(id)arg6 masteredVersion:(id)arg7;
 - (_Bool)isValidForSiriSessionLanguage:(id)arg1;
 - (_Bool)isMatchForVoiceAsset:(id)arg1;
+- (id)VSVoiceAsset;
 - (long long)VSSpeechType;
 - (long long)VSSpeechFootprint;
 - (long long)VSSpeechGender;

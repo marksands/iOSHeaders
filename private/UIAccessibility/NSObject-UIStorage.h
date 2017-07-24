@@ -26,6 +26,7 @@
 - (id)_accessibilitySiriContentNativeFocusableElements;
 - (id)_accessibilityNativeFocusableElements:(id)arg1;
 - (id)_accessibilityExplorerElements;
+- (_Bool)_accessibilityIsContainedByVideoElement;
 - (_Bool)_accessibilityIsContainedByPreferredNativeFocusElement;
 - (id)_accessibilityNativeFocusElement;
 - (id)_accessibilityRetrieveHeaderElements;

@@ -36,7 +36,7 @@
 @property(readonly, copy, nonatomic) NSArray *context; // @synthesize context=_context;
 @property(readonly, copy, nonatomic) NSString *task; // @synthesize task=_task;
 @property(readonly, copy, nonatomic) NSString *language; // @synthesize language=_language;
-@property(readonly, nonatomic) SiriCoreLocalSpeechUserData *userData; // @synthesize userData=_userData;
+@property(retain, nonatomic) SiriCoreLocalSpeechUserData *userData; // @synthesize userData=_userData;
 - (void).cxx_destruct;
 - (id)recordData;
 - (id)recordInfo;

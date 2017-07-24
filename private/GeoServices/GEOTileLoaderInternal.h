@@ -11,7 +11,7 @@
 #import <GeoServices/GEOTileServerProxyDelegate-Protocol.h>
 
 @class GEOTileLoaderConfiguration, GEOTileLoaderUsage, GEOTilePool, GEOTileServerProxy, NSMutableArray, NSMutableSet, NSObject, NSString;
-@protocol GEOTileLoaderInternalDelegate, OS_dispatch_queue;
+@protocol GEOTileLoaderInternalDelegate, OS_dispatch_queue, OS_dispatch_source;
 
 __attribute__((visibility("hidden")))
 @interface GEOTileLoaderInternal : GEOTileLoader <GEOTileServerProxyDelegate, GEOResourceManifestTileGroupObserver, GEOExperimentConfigurationObserver>
@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
     int _rollingBatchId;
     struct deque<ErrorInfo, std::__1::allocator<ErrorInfo>> _recentErrors;
     GEOTileLoaderUsage *_usage;
+    NSObject<OS_dispatch_source> *_memoryNotificationEventSource;
 }
 
 - (id).cxx_construct;
@@ -69,7 +70,6 @@ __attribute__((visibility("hidden")))
 - (void)experimentConfigurationDidChange:(id)arg1;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
-- (void)_activeTileGroupChanged:(id)arg1;
 - (void)clearAllCaches;
 - (void)calculateFreeableSizeWithCallbackQ:(id)arg1 finished:(CDUnknownBlockType)arg2;
 - (void)shrinkDiskCacheToSize:(unsigned long long)arg1 callbackQ:(id)arg2 finished:(CDUnknownBlockType)arg3;
@@ -91,6 +91,7 @@ __attribute__((visibility("hidden")))
 - (void)openForClient:(id)arg1;
 - (id)descriptionDictionaryRepresentation;
 @property(readonly, copy) NSString *description;
+- (void)_receivedMemoryWarningNotification;
 - (void)dealloc;
 - (id)init;
 - (id)initWithConfiguration:(id)arg1;

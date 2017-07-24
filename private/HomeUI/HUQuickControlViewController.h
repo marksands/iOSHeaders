@@ -53,6 +53,9 @@
 @property(readonly, nonatomic) HFItem<NSCopying> *item; // @synthesize item=_item;
 @property(nonatomic) __weak id <HUPresentationDelegate> presentationDelegate; // @synthesize presentationDelegate;
 - (void).cxx_destruct;
+- (void)_tearDownMobileTimerUI:(id)arg1;
+- (void)_displayMobileTimerUI;
+- (_Bool)_shouldDisplayMobileTimerUIForControlType:(unsigned long long)arg1;
 @property(readonly, nonatomic) HFItem *hu_presentedItem;
 - (void)hideAuxiliaryViewForInteractionCoordinator:(id)arg1;
 - (void)interactionCoordinator:(id)arg1 showAuxiliaryView:(id)arg2;

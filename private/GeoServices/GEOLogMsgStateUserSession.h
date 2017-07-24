@@ -8,12 +8,15 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class GEOLocalTime;
+
 @interface GEOLogMsgStateUserSession : PBCodable <NSCopying>
 {
     struct GEOSessionID _navSessionId;
     struct GEOSessionID _sessionId;
     double _navSessionRelativeTimestamp;
     double _relativeTimestamp;
+    GEOLocalTime *_eventTime;
     unsigned int _sequenceNumber;
     struct {
         unsigned int navSessionId:1;
@@ -24,11 +27,13 @@
     } _has;
 }
 
+@property(retain, nonatomic) GEOLocalTime *eventTime; // @synthesize eventTime=_eventTime;
 @property(nonatomic) double navSessionRelativeTimestamp; // @synthesize navSessionRelativeTimestamp=_navSessionRelativeTimestamp;
 @property(nonatomic) struct GEOSessionID navSessionId; // @synthesize navSessionId=_navSessionId;
 @property(nonatomic) double relativeTimestamp; // @synthesize relativeTimestamp=_relativeTimestamp;
 @property(nonatomic) unsigned int sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 @property(nonatomic) struct GEOSessionID sessionId; // @synthesize sessionId=_sessionId;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -38,6 +43,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasEventTime;
 @property(nonatomic) _Bool hasNavSessionRelativeTimestamp;
 @property(nonatomic) _Bool hasNavSessionId;
 @property(nonatomic) _Bool hasRelativeTimestamp;

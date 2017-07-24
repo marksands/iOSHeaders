@@ -6,7 +6,7 @@
 
 #import <ContactsUI/CNCardGroupItem.h>
 
-@class CNCardPropertyGroup, CNContact, CNContactProperty, CNContactStore, CNLabeledValue, CNMutableContact, NSArray, NSString, NSURL;
+@class CNCardPropertyGroup, CNContact, CNContactProperty, CNContactStore, CNLabeledValue, CNMutableContact, CNUIContactsEnvironment, NSArray, NSString, NSURL;
 @protocol CNPropertyGroupItemDelegate;
 
 @interface CNPropertyGroupItem : CNCardGroupItem
@@ -22,13 +22,18 @@
     CNContactStore *_contactStore;
     id <CNPropertyGroupItemDelegate> _delegate;
     CNLabeledValue *_originalLabeledValue;
+    CNUIContactsEnvironment *_environment;
 }
 
++ (void)deleteCoreRecentsEntriesMatchingProperty:(id)arg1 recentsManager:(id)arg2;
 + (id)newPropertyGroupItemForProperty:(id)arg1;
 + (Class)classForProperty:(id)arg1;
++ (id)propertyGroupItemWithLabel:(id)arg1 group:(id)arg2 contact:(id)arg3 environment:(id)arg4;
++ (id)propertyGroupItemWithLabeledValue:(id)arg1 group:(id)arg2 contact:(id)arg3 environment:(id)arg4;
 + (id)propertyGroupItemWithLabel:(id)arg1 group:(id)arg2 contact:(id)arg3;
 + (id)propertyGroupItemWithLabeledValue:(id)arg1 group:(id)arg2 contact:(id)arg3;
 + (id)emptyValueForLabel:(id)arg1;
+@property(readonly, nonatomic) CNUIContactsEnvironment *environment; // @synthesize environment=_environment;
 @property(retain, nonatomic) CNLabeledValue *originalLabeledValue; // @synthesize originalLabeledValue=_originalLabeledValue;
 @property(nonatomic) _Bool allowsEmail; // @synthesize allowsEmail=_allowsEmail;
 @property(nonatomic) _Bool allowsTTY; // @synthesize allowsTTY=_allowsTTY;
@@ -80,8 +85,8 @@
 @property(readonly, nonatomic) CNContactProperty *contactProperty;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
-- (id)initWithLabeledValue:(id)arg1 group:(id)arg2 contact:(id)arg3;
-- (id)initWithLabel:(id)arg1 group:(id)arg2 contact:(id)arg3;
+- (id)initWithLabeledValue:(id)arg1 group:(id)arg2 contact:(id)arg3 environment:(id)arg4;
+- (id)initWithLabel:(id)arg1 group:(id)arg2 contact:(id)arg3 environment:(id)arg4;
 - (id)initWithGroup:(id)arg1;
 - (id)init;
 

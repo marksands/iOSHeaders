@@ -15,6 +15,7 @@
 
 @interface HMDAssistantCommandHelper : HMFObject <HMFMessageReceiver, HMFTimerDelegate, HMFLogging>
 {
+    _Bool _executingActionSet;
     CDUnknownBlockType _responseHandler;
     NSUUID *_messageId;
     HMDHome *_home;
@@ -30,6 +31,7 @@
 + (id)logCategory;
 @property(retain, nonatomic) NSArray *requests; // @synthesize requests=_requests;
 @property(retain, nonatomic) HMFTimer *actionTimer; // @synthesize actionTimer=_actionTimer;
+@property(nonatomic) _Bool executingActionSet; // @synthesize executingActionSet=_executingActionSet;
 @property(nonatomic) unsigned long long numErrors; // @synthesize numErrors=_numErrors;
 @property(retain, nonatomic) NSMutableArray *responses; // @synthesize responses=_responses;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;

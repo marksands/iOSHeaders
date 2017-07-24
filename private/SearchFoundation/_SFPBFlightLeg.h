@@ -27,8 +27,10 @@
     _SFPBAirport *_arrivalAirport;
     _SFPBAirport *_divertedAirport;
     NSString *_title;
+    NSString *_baggageClaim;
 }
 
+@property(copy, nonatomic) NSString *baggageClaim; // @synthesize baggageClaim=_baggageClaim;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) _SFPBAirport *divertedAirport; // @synthesize divertedAirport=_divertedAirport;
 @property(retain, nonatomic) _SFPBAirport *arrivalAirport; // @synthesize arrivalAirport=_arrivalAirport;
@@ -51,6 +53,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasBaggageClaim;
 @property(readonly, nonatomic) _Bool hasTitle;
 @property(readonly, nonatomic) _Bool hasDivertedAirport;
 @property(readonly, nonatomic) _Bool hasArrivalAirport;

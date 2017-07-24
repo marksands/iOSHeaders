@@ -13,7 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface WKWebAllowDenyPolicyListener : NSObject <WebAllowDenyPolicyListener>
 {
-    struct RefPtr<WebKit::GeolocationPermissionRequestProxy> _permissionRequestProxy;
+    RefPtr_3037ab5c _permissionRequestProxy;
 }
 
 - (id).cxx_construct;
@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 - (void)denyOnlyThisRequest;
 - (void)deny;
 - (void)allow;
-- (id)initWithPermissionRequestProxy:(PassRefPtr_da409672)arg1;
+- (id)initWithPermissionRequestProxy:(RefPtr_3037ab5c *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

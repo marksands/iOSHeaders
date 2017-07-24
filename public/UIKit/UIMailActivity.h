@@ -18,6 +18,7 @@
     _Bool _keyboardVisible;
     _Bool _hasAnyAccount;
     _Bool _hasFilteredAccount;
+    NSString *_sourceApplicationBundleID;
     NSString *_subject;
     NSString *_autosaveIdentifier;
     MFMailComposeViewController *_mailComposeViewController;
@@ -32,6 +33,7 @@
 @property(retain, nonatomic) NSString *autosaveIdentifier; // @synthesize autosaveIdentifier=_autosaveIdentifier;
 @property(nonatomic) _Bool keyboardVisible; // @synthesize keyboardVisible=_keyboardVisible;
 @property(copy, nonatomic) NSString *subject; // @synthesize subject=_subject;
+@property(copy, nonatomic) NSString *sourceApplicationBundleID; // @synthesize sourceApplicationBundleID=_sourceApplicationBundleID;
 @property(nonatomic) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
 - (void).cxx_destruct;
 - (void)decodeRestorableStateWithCoder:(id)arg1;
@@ -42,7 +44,6 @@
 - (void)_setMailSubject:(id)arg1;
 - (void)prepareWithActivityItems:(id)arg1;
 - (_Bool)canPerformWithActivityItems:(id)arg1;
-- (_Bool)canPerformWithActivityItems:(id)arg1 hostApplicationBundleID:(id)arg2;
 - (void)autosaveWithHandler:(CDUnknownBlockType)arg1;
 - (_Bool)_restoreDraft;
 - (id)_stateRestorationDraftIsAvailable;

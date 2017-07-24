@@ -15,6 +15,7 @@
     PHAJobConstraints *_lastConstraints;
 }
 
++ (unsigned long long)stateCode;
 @property(retain, nonatomic) PHAJobConstraints *lastConstraints; // @synthesize lastConstraints=_lastConstraints;
 @property(retain, nonatomic) PHAWorker *lastActiveWorker; // @synthesize lastActiveWorker=_lastActiveWorker;
 @property(readonly, nonatomic) NSArray *workers; // @synthesize workers=_workers;

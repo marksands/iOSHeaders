@@ -4,17 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <AVConference/VCMomentsHistoryBufferDelegate-Protocol.h>
 
-@class NSMutableDictionary, NSString, VCMomentsHistoryBuffer, VideoAttributes;
-@protocol OS_dispatch_queue;
+@class NSMutableArray, NSMutableDictionary, NSString, VCMomentsHistoryBuffer, VideoAttributes;
+@protocol OS_dispatch_queue, VCMovieWriterProtocol;
 
 __attribute__((visibility("hidden")))
 @interface VCMomentsHistory : NSObject <VCMomentsHistoryBufferDelegate>
 {
     NSMutableDictionary *_writers;
+    NSObject<VCMovieWriterProtocol> *_writer;
+    NSString *_masterTransactionID;
+    NSMutableArray *_pendingRequests;
     NSObject<OS_dispatch_queue> *_momentsQueue;
     VCMomentsHistoryBuffer *_frameBuffer;
     VCMomentsHistoryBuffer *_localAudioBuffer;
@@ -24,6 +27,7 @@ __attribute__((visibility("hidden")))
     struct __CVPixelBufferPool *_bufferPool;
     struct __CVPixelBufferPool *_copyPool;
     struct OpaqueVTPixelTransferSession *_transferSession;
+    struct OpaqueVTPixelTransferSession *_copyTransferSession;
     int _captureHeight;
     int _captureWidth;
     _Bool _resize;
@@ -39,6 +43,9 @@ __attribute__((visibility("hidden")))
 - (void)updateVideoBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2 cameraStatusBits:(unsigned char)arg3 timestamp:(unsigned int)arg4;
 - (struct __CVBuffer *)copyBuffer:(struct opaqueCMSampleBuffer *)arg1;
 - (void)updateAudioBuffer:(id)arg1 WithSample:(struct opaqueCMSampleBuffer *)arg2 timestamp:(unsigned int)arg3;
+- (void)handlePendingRequests;
+- (void)handleSinglePendingRequestWithTransactionID:(id)arg1 sourceURL:(id)arg2;
+- (int)rewriteMovieMetadataWithURL:(id)arg1 transactionID:(id)arg2;
 - (id)getFilePathWithTransactionID:(id)arg1 type:(unsigned char)arg2;
 - (void)setupWriterWithTransactionID:(id)arg1 filePath:(id)arg2 stillImageTime:(CDStruct_1b6d18a9)arg3 visibleRect:(struct CGRect)arg4 cameraStatusBit:(unsigned char)arg5;
 - (struct CGSize)calculateVisibleAreaWithVisibleRect:(struct CGRect)arg1 cameraStatusBit:(unsigned char)arg2;

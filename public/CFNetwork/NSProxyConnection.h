@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)cancel;
 - (void)write:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)read:(unsigned long long)arg1 handler:(CDUnknownBlockType)arg2;
-- (id)initWithHost:(id)arg1 port:(unsigned short)arg2 queue:(id)arg3;
+- (id)initWithHost:(id)arg1 port:(unsigned short)arg2 queue:(id)arg3 configuration:(id)arg4;
 - (id)initWithTCPConnection:(id)arg1;
 
 @end

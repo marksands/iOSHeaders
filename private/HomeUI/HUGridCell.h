@@ -18,6 +18,7 @@
     HUGridCellLayoutOptions *_layoutOptions;
     long long _primaryState;
     UIVisualEffect *_contentEffect;
+    UIVisualEffect *_secondaryContentEffect;
     double _secondaryContentDimmingFactor;
     HFItem *_item;
     HUGridCellBackgroundView *_gridBackgroundView;
@@ -31,6 +32,7 @@
 @property(retain, nonatomic) HUGridCellBackgroundView *gridBackgroundView; // @synthesize gridBackgroundView=_gridBackgroundView;
 @property(retain, nonatomic) HFItem *item; // @synthesize item=_item;
 @property(nonatomic) double secondaryContentDimmingFactor; // @synthesize secondaryContentDimmingFactor=_secondaryContentDimmingFactor;
+@property(retain, nonatomic) UIVisualEffect *secondaryContentEffect; // @synthesize secondaryContentEffect=_secondaryContentEffect;
 @property(retain, nonatomic) UIVisualEffect *contentEffect; // @synthesize contentEffect=_contentEffect;
 @property(nonatomic) long long primaryState; // @synthesize primaryState=_primaryState;
 @property(nonatomic, getter=isRearranging) _Bool rearranging; // @synthesize rearranging=_rearranging;

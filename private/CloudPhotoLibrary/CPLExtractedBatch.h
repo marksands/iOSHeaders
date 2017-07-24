@@ -8,12 +8,14 @@
 
 #import <CloudPhotoLibrary/NSSecureCoding-Protocol.h>
 
-@class CPLChangeBatch, NSMutableDictionary, NSString;
+@class CPLChangeBatch, NSMutableDictionary, NSMutableSet, NSSet, NSString;
 
 @interface CPLExtractedBatch : NSObject <NSSecureCoding>
 {
     NSMutableDictionary *_uploadIdentifiers;
     NSMutableDictionary *_mutableUploadIdentifiers;
+    NSSet *_untrustableIdentifiers;
+    NSMutableSet *_mutableUntrustableIndentifiers;
     _Bool _full;
     _Bool _batchCanLowerQuota;
     CPLChangeBatch *_batch;

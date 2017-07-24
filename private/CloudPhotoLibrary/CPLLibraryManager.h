@@ -136,6 +136,8 @@
 - (void)unblockEngineElementOnce:(id)arg1;
 - (void)unblockEngineElement:(id)arg1;
 - (void)blockEngineElement:(id)arg1;
+- (void)reportSetting:(id)arg1 hasBeenSetToValue:(id)arg2;
+- (void)reportSetting:(id)arg1 hasBeenEnabled:(_Bool)arg2;
 - (void)cloudCacheGetDescriptionForRecordWithIdentifier:(id)arg1 related:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)cloudCacheGetDescriptionForRecordWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)getCloudCacheForRecordWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

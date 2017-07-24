@@ -10,6 +10,9 @@
 
 @interface TIKeyboardInputManager_zh_ja : TIKeyboardInputManager
 {
+    _Bool _hasCommittedPartialCandidate;
+    _Bool _hasBackspacedIntoInputString;
+    int _lastCommittedCandidateType;
     NSMutableArray *_touchDataArray;
     NSArray *_clearedGeometryDataArray;
     NSArray *_clearedTouchDataArray;
@@ -32,6 +35,9 @@
 @property(readonly, nonatomic) NSMutableArray *geometryDataArray; // @synthesize geometryDataArray=_geometryDataArray;
 @property(retain, nonatomic) TIWordSearchCandidateResultSet *wordSearchCandidateResultSet; // @synthesize wordSearchCandidateResultSet=_wordSearchCandidateResultSet;
 @property(readonly, nonatomic) TIWordSearch *wordSearch; // @synthesize wordSearch=_wordSearch;
+@property(nonatomic) int lastCommittedCandidateType; // @synthesize lastCommittedCandidateType=_lastCommittedCandidateType;
+@property(nonatomic) _Bool hasBackspacedIntoInputString; // @synthesize hasBackspacedIntoInputString=_hasBackspacedIntoInputString;
+@property(nonatomic) _Bool hasCommittedPartialCandidate; // @synthesize hasCommittedPartialCandidate=_hasCommittedPartialCandidate;
 @property(copy, nonatomic) NSString *currentRecipientIdentifier; // @synthesize currentRecipientIdentifier=_currentRecipientIdentifier;
 @property(copy, nonatomic) NSString *currentClientIdentifier; // @synthesize currentClientIdentifier=_currentClientIdentifier;
 @property(retain, nonatomic) NSArray *clearedTouchDataArray; // @synthesize clearedTouchDataArray=_clearedTouchDataArray;
@@ -43,6 +49,8 @@
 - (void)deleteFromInputWithContext:(id)arg1;
 - (void)updateDocumentContext;
 - (id)handleKeyboardInput:(id)arg1;
+- (void)incrementUsageTrackingKeysForDeleteFromInput;
+- (void)updateUsageStatisticsForCandidate:(id)arg1 isPartial:(_Bool)arg2;
 - (void)syncToKeyboardState:(id)arg1 from:(id)arg2 afterContextChange:(_Bool)arg3;
 - (int)mecabraTextContentTypeFromTITextContentType:(id)arg1;
 - (void)setLanguageModelAdaptationContext;
@@ -57,7 +65,11 @@
 - (void)suspend;
 - (void)insertDummyTouchDataAtIndex:(unsigned long long)arg1;
 - (void)insertDummyGeometryDataAtIndex:(unsigned long long)arg1;
-- (void)logCommittedCandidate:(id)arg1 input:(id)arg2 partial:(_Bool)arg3;
+- (void)storeLanguageModelDynamicDataIncludingCache;
+- (void)logCommittedCandidate:(id)arg1 partial:(_Bool)arg2;
+- (void)logAllCandidates;
+- (void)logDocumentContext;
+- (void)logInputString;
 - (void)saveTouchDataForEvent:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)touchDataForPathIndex:(long long)arg1;
 - (long long)keyHitTest:(id)arg1;

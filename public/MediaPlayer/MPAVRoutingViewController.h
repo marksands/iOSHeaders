@@ -12,7 +12,7 @@
 #import <MediaPlayer/UITableViewDelegate-Protocol.h>
 
 @class MPAVRoute, MPAVRoutingController, MPAVRoutingEmptyStateView, MPAVRoutingTableHeaderView, MPWeakTimer, NSArray, NSNumber, NSString, UIColor, UITableView;
-@protocol MPAVRoutingViewControllerDelegate;
+@protocol MPAVRoutingViewControllerDelegate, MPAVRoutingViewControllerThemeDelegate;
 
 @interface MPAVRoutingViewController : UIViewController <MPAVRoutingControllerDelegate, MPAVRoutingTableViewCellDelegate, UITableViewDataSource, UITableViewDelegate>
 {
@@ -44,9 +44,11 @@
     unsigned long long _mirroringStyle;
     unsigned long long _iconStyle;
     NSNumber *_discoveryModeOverride;
+    id <MPAVRoutingViewControllerThemeDelegate> _themeDelegate;
 }
 
-@property(nonatomic) NSNumber *discoveryModeOverride; // @synthesize discoveryModeOverride=_discoveryModeOverride;
+@property(nonatomic) __weak id <MPAVRoutingViewControllerThemeDelegate> themeDelegate; // @synthesize themeDelegate=_themeDelegate;
+@property(copy, nonatomic) NSNumber *discoveryModeOverride; // @synthesize discoveryModeOverride=_discoveryModeOverride;
 @property(nonatomic) unsigned long long iconStyle; // @synthesize iconStyle=_iconStyle;
 @property(nonatomic) unsigned long long mirroringStyle; // @synthesize mirroringStyle=_mirroringStyle;
 @property(nonatomic, setter=setAVItemType:) long long avItemType; // @synthesize avItemType=_avItemType;
@@ -78,18 +80,14 @@
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
 - (double)_tableViewHeightAccordingToDataSource;
-- (void)_setShouldPickRouteOnSelection:(_Bool)arg1;
-- (_Bool)_shouldPickRouteOnSelection;
-- (void)_setShouldAutomaticallyUpdateRoutesList:(_Bool)arg1;
-- (_Bool)_shouldAutomaticallyUpdateRoutesList;
-- (void)_setTableCellsContentColor:(id)arg1;
-- (void)_setTableCellsBackgroundColor:(id)arg1;
-- (id)_tableCellsContentColor;
-- (id)_tableCellsBackgroundColor;
-- (double)_expandedCellHeight;
-- (double)_normalCellHeight;
-- (id)_tableView;
-- (id)_routingController;
+@property(nonatomic, setter=_setShouldPickRouteOnSelection:) _Bool _shouldPickRouteOnSelection;
+@property(nonatomic, setter=_setShouldAutomaticallyUpdateRoutesList:) _Bool _shouldAutomaticallyUpdateRoutesList;
+@property(retain, nonatomic, setter=_setTableCellsContentColor:) UIColor *_tableCellsContentColor;
+@property(retain, nonatomic, setter=_setTableCellsBackgroundColor:) UIColor *_tableCellsBackgroundColor;
+@property(readonly, nonatomic) double _expandedCellHeight;
+@property(readonly, nonatomic) double _normalCellHeight;
+@property(readonly, nonatomic) UITableView *_tableView;
+@property(readonly, nonatomic) MPAVRoutingController *_routingController;
 - (void)routingCell:(id)arg1 mirroringSwitchValueDidChange:(_Bool)arg2;
 - (void)routingController:(id)arg1 pickedRouteDidChange:(id)arg2;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
@@ -98,6 +96,7 @@
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;

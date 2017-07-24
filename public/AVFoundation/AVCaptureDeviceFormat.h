@@ -45,6 +45,7 @@
 - (int)rawBitDepth;
 - (_Bool)isIrisVideoStabilizationSupported;
 - (_Bool)isIrisSupported;
+- (_Bool)isStereoFusionSupported;
 - (_Bool)isSISSupported;
 - (_Bool)supportsDynamicCrop;
 - (_Bool)supportsLowLightBoost;

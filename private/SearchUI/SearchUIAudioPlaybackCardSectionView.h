@@ -4,29 +4,31 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeSectionView.h>
+#import <SearchUI/SearchUICardSectionView.h>
 
+#import <SearchUI/NUIContainerStackViewDelegate-Protocol.h>
 #import <SearchUI/SearchUICardSectionViewUpdatable-Protocol.h>
+#import <SearchUI/SearchUISelectableTextViewDelegate-Protocol.h>
 
-@class NSString, SKUIPlayButton;
+@class NSString, SKUIPlayButton, TLKStackView;
 
-@interface SearchUIAudioPlaybackCardSectionView : SearchUILayoutFreeSectionView <SearchUICardSectionViewUpdatable>
+@interface SearchUIAudioPlaybackCardSectionView : SearchUICardSectionView <NUIContainerStackViewDelegate, SearchUISelectableTextViewDelegate, SearchUICardSectionViewUpdatable>
 {
     SKUIPlayButton *_playButton;
 }
 
 + (id)vibrantTextViewForStyle:(unsigned long long)arg1;
-+ (id)stackViewWithImage:(id)arg1 emoji:(id)arg2 style:(unsigned long long)arg3;
 @property(retain, nonatomic) SKUIPlayButton *playButton; // @synthesize playButton=_playButton;
 - (void).cxx_destruct;
+- (void)selectableTextView:(id)arg1 presentViewController:(id)arg2;
 - (void)_updateStateFromCardSection:(id)arg1 animated:(_Bool)arg2;
 - (void)_playButtonPressed:(id)arg1;
 - (void)updateStateFromCardSection:(id)arg1;
-- (id)bottomRowForSection:(id)arg1;
-- (id)topRowForSection:(id)arg1;
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
+- (id)setupContentView;
+- (id)initWithCardSection:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
 
 // Remaining properties
+@property(retain) TLKStackView *contentView; // @dynamic contentView;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

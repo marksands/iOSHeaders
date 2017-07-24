@@ -13,7 +13,7 @@
 }
 
 - (void)drawPackableRenditionInContext:(struct CGContext *)arg1 withDocument:(id)arg2;
-- (void)updatePackingPropertiesWithDocument:(id)arg1;
+- (_Bool)updatePackingPropertiesWithDocument:(id)arg1;
 - (void)setAttributesFromCopyData:(id)arg1;
 - (id)copyDataFromAttributes;
 - (void)copyAttributesInto:(id)arg1;

@@ -14,10 +14,6 @@
 
 @interface MKAnnotationView : UIView <MKAnnotationRepresentation, MKLocatableObject>
 {
-    _Bool _customTransformApplied;
-    _Bool _internalTransformApplied;
-    _Bool _animatingToCoordinate;
-    _Bool _tracking;
     struct CLLocationCoordinate2D _presentationCoordinate;
     double _presentationCourse;
     CDUnknownBlockType _presentationCoordinateChangedCallback;
@@ -25,7 +21,6 @@
     MKUserLocationAnnotationViewProxy *_userLocationProxy;
     double _rotationRadians;
     _MKAnnotationViewAnchor *_anchor;
-    struct CGRect _collisionFrame;
     GEORouteMatch *_routeMatch;
     double _mapRotationRadians;
     unsigned long long _hiddenReasons;
@@ -35,13 +30,15 @@
     double _mapPitchRadians;
     CDStruct_80aa614a _mapDisplayStyle;
     CALayer *_imageLayer;
+    float _selectionPriority;
     MKAnnotationManager *_annotationManager;
     id <MKAnnotation> _annotation;
+    float _displayPriority;
+    struct CGRect _collisionFrame;
     UICalloutView *_calloutView;
     UIView *_leftCalloutAccessoryView;
     UIView *_rightCalloutAccessoryView;
     UIView *_detailCalloutAccessoryView;
-    float _displayPriority;
     long long _collisionMode;
     NSString *_reuseIdentifier;
     MKAnnotationView *_clusterAnnotationView;
@@ -62,8 +59,16 @@
         unsigned int canDisplayPlacemarkInCallout:1;
         unsigned int draggable:1;
         unsigned int useBalloonCallouts:1;
+        unsigned int customTransformApplied:1;
+        unsigned int internalTransformApplied:1;
+        unsigned int animatingToCoordinate:1;
+        unsigned int tracking:1;
+        unsigned int pendingOffsetAnimation:1;
+        unsigned int pendingHideAnimation:1;
     } _flags;
     _MKAnnotationViewCustomFeatureAnnotation *_customFeatureAnnotation;
+    _Bool _animatingToCoordinate;
+    _Bool _tracking;
     double _direction;
     NSString *_clusteringIdentifier;
     struct CGPoint _leftCalloutOffset;
@@ -82,6 +87,7 @@
 @property(copy, nonatomic) NSString *clusteringIdentifier; // @synthesize clusteringIdentifier=_clusteringIdentifier;
 @property(nonatomic) float displayPriority; // @synthesize displayPriority=_displayPriority;
 @property(nonatomic, getter=_isPendingSelectionAnimated, setter=_setPendingSelectionAnimated:) _Bool pendingSelectionAnimated; // @synthesize pendingSelectionAnimated=_pendingSelectionAnimated;
+@property(nonatomic, getter=_selectionPriority, setter=_setSelectionPriority:) float selectionPriority; // @synthesize selectionPriority=_selectionPriority;
 @property(nonatomic, getter=_mapDisplayStyle, setter=_setMapDisplayStyle:) CDStruct_80aa614a mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
 @property(nonatomic, getter=_mapPitchRadians, setter=_setMapPitchRadians:) double mapPitchRadians; // @synthesize mapPitchRadians=_mapPitchRadians;
 @property(nonatomic, getter=_mapRotationRadians, setter=_setMapRotationRadians:) double mapRotationRadians; // @synthesize mapRotationRadians=_mapRotationRadians;
@@ -101,6 +107,7 @@
 @property(nonatomic, setter=_setDirection:) double _direction; // @synthesize _direction;
 - (void).cxx_destruct;
 - (struct UIEdgeInsets)alignmentRectInsets;
+- (void)prepareForSnapshotting;
 - (_Bool)isCollidingWithAnnotationView:(id)arg1 previouslyCollided:(_Bool)arg2;
 @property(readonly, nonatomic, getter=_balloonContentView) UIView *balloonContentView;
 @property(readonly, nonatomic, getter=_balloonImage) UIImage *balloonImage;
@@ -131,8 +138,9 @@
 - (void)_setPositionOffset:(struct CGPoint)arg1 animated:(_Bool)arg2;
 - (void)_setHidden:(_Bool)arg1 forReason:(unsigned long long)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_setHidden:(_Bool)arg1 forReason:(unsigned long long)arg2 animated:(_Bool)arg3;
-- (void)_performOffsetAnimation;
-- (void)_performHideAnimation;
+- (void)_performStateUpdatesIfNeeded;
+- (void)_performOffsetAnimationIfNeeded;
+- (void)_performHideAnimationIfNeeded;
 - (_Bool)_isHiddenForReason:(unsigned long long)arg1;
 - (double)alpha;
 - (void)setAlpha:(double)arg1;

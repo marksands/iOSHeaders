@@ -24,8 +24,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool allowsFocus; // @synthesize allowsFocus=_allowsFocus;
 - (void).cxx_destruct;
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2 withAnimationCoordinator:(id)arg3;
-- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_setFocused:(_Bool)arg1 animated:(_Bool)arg2 context:(id)arg3 coordinator:(id)arg4;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)_showPressState;
 - (void)_setFocusDirection:(struct CGPoint)arg1;
 - (void)_handleSelect;
@@ -41,9 +42,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)canBecomeFocused;
 - (_Bool)_unapplyMotionEffect:(id)arg1;
 - (_Bool)_applyKeyPathsAndRelativeValues:(id)arg1 forMotionEffect:(id)arg2;
-- (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
-- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)pressesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)pressesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)pressesBegan:(id)arg1 withEvent:(id)arg2;

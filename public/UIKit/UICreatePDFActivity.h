@@ -21,7 +21,6 @@
 @property(retain, nonatomic) UICreatePDFActivityItem *previewURLItem; // @synthesize previewURLItem=_previewURLItem;
 @property(retain, nonatomic) UINavigationController *createPDFViewController; // @synthesize createPDFViewController=_createPDFViewController;
 - (void).cxx_destruct;
-- (void)documentPickerWasCancelled:(id)arg1;
 - (void)documentPicker:(id)arg1 didPickDocumentsAtURLs:(id)arg2;
 - (id)previewController:(id)arg1 previewItemAtIndex:(long long)arg2;
 - (long long)numberOfPreviewItemsInPreviewController:(id)arg1;
@@ -34,6 +33,7 @@
 - (id)activityViewController;
 - (id)_embeddedActivityViewController;
 - (void)prepareWithActivityItems:(id)arg1;
+- (void)_setupQuickLookWithURL:(id)arg1 activityItems:(id)arg2;
 - (id)activityTitle;
 - (id)_activityImage;
 - (id)activityType;

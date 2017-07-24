@@ -17,6 +17,13 @@
 
 + (id)localTargetDevice;
 - (void).cxx_destruct;
+- (void)provisionPeerPaymentPassWithProvisioningController:(id)arg1 credential:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)setUserHasDisabledPeerPayment:(_Bool)arg1;
+- (_Bool)userHasDisabledPeerPayment;
+- (id)bridgedClientInfo;
+- (void)updateAccountWithCompletion:(CDUnknownBlockType)arg1;
+- (id)account;
+- (void)downloadPassIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (id)init;
 
 // Remaining properties

@@ -18,10 +18,12 @@
     SCNNode *_lightNode;
     SCNNode *_textContainerNode;
     // Error parsing type: , name: _lastRollPitch
+    double _sceneWidthUnits;
     unsigned long long _renderStyle;
     NSString *_text;
 }
 
++ (id)_sharedMotionManager;
 + (id)supportedCharacterSet;
 @property(readonly, copy, nonatomic) NSString *text; // @synthesize text=_text;
 @property(readonly, nonatomic) unsigned long long renderStyle; // @synthesize renderStyle=_renderStyle;
@@ -30,6 +32,7 @@
 - (void)setRollPitch: /* Error: Ran out of types for this method. */;
 - (_Bool)setText:(id)arg1;
 - (void)layoutSubviews;
+- (void)updateSceneWidthUnits;
 - (id)initWithFrame:(struct CGRect)arg1 renderStyle:(unsigned long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 

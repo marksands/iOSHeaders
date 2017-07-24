@@ -29,6 +29,8 @@
 - (void)setFinalLocation:(id)arg1 asArrival:(_Bool)arg2;
 - (void)addTrafficRerouteFeedback:(id)arg1;
 - (void)addRouteID:(id)arg1 routeIndex:(unsigned int)arg2 stepID:(unsigned int)arg3 completeStep:(_Bool)arg4;
+- (void)addStepFeedback:(id)arg1;
+- (void)addGuidanceEventFeedback:(id)arg1;
 - (void)setupFeedbackSessionWithResponseID:(id)arg1;
 - (void)startFeedbackSessionForResponseID:(id)arg1 withNavigationType:(int)arg2;
 - (void)_updateFeedbackSessionWithResponseID:(id)arg1;

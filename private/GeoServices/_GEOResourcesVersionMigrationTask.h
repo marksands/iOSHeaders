@@ -8,7 +8,7 @@
 
 #import <GeoServices/GEOActiveTileGroupMigrationTask-Protocol.h>
 
-@class GEOActiveTileGroup, GEOMapLayerDataStorePruner, GEOReportedProgress, GEOResourceLoader, GEOResourceManifestConfiguration, GEOResources, GEOResourcesVersionMigrator, GEOTileGroup, NSArray, NSProgress, NSSet, NSString;
+@class GEOActiveTileGroup, GEOReportedProgress, GEOResourceLoader, GEOResourceManifestConfiguration, GEOResources, GEOResourcesVersionMigrator, GEOTileGroup, NSArray, NSProgress, NSSet, NSString;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -30,7 +30,6 @@ __attribute__((visibility("hidden")))
     NSArray *_loadedResources;
     NSArray *_unloadedConditionalResources;
     GEOReportedProgress *_progress;
-    GEOMapLayerDataStorePruner *_pruner;
 }
 
 + (id)_resourcesDirectory:(id)arg1;
@@ -44,7 +43,7 @@ __attribute__((visibility("hidden")))
 - (void)startWithCompletionHandler:(CDUnknownBlockType)arg1 callbackQueue:(id)arg2;
 - (id)_resourcesDirectory;
 @property(readonly) NSProgress *progress;
-- (id)initWithMigrator:(id)arg1 manifestConfiguration:(id)arg2 newTileGroup:(id)arg3 inResourceManifest:(id)arg4 oldTileGroup:(id)arg5 activeScales:(id)arg6 activeScenarios:(id)arg7 pruner:(id)arg8;
+@property(readonly) long long estimatedWeight;
 - (id)initWithMigrator:(id)arg1 manifestConfiguration:(id)arg2 newTileGroup:(id)arg3 inResourceManifest:(id)arg4 oldTileGroup:(id)arg5 activeScales:(id)arg6 activeScenarios:(id)arg7;
 - (id)init;
 

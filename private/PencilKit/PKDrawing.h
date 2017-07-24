@@ -9,14 +9,14 @@
 #import <PencilKit/CHQueryDelegate-Protocol.h>
 #import <PencilKit/NSCopying-Protocol.h>
 
-@class CHRecognitionSession, NSArray, NSMapTable, NSMutableOrderedSet, NSOrderedSet, NSString, NSUUID, PKVectorTimestamp, PKVisualizationManager;
+@class CHRecognitionSession, NSArray, NSMapTable, NSMutableArray, NSMutableOrderedSet, NSOrderedSet, NSString, NSUUID, PKVectorTimestamp, PKVisualizationManager;
 
 @interface PKDrawing : NSObject <CHQueryDelegate, NSCopying>
 {
     long long _orientation;
     struct CGRect _bounds;
     NSMutableOrderedSet *_strokes;
-    NSMutableOrderedSet *_visibleStrokes;
+    NSMutableArray *_visibleStrokes;
     _Bool _recognitionEnabled;
     NSArray *_forcedRecognitionLocales;
     NSUUID *_uuid;
@@ -30,6 +30,7 @@
     struct CGRect _strokeBounds;
 }
 
++ (id)_enabledLocales;
 + (struct CGSize)defaultSize;
 + (struct CGSize)defaultPixelSize;
 + (struct CGAffineTransform)orientationTransform:(long long)arg1 size:(struct CGSize)arg2;
@@ -53,6 +54,7 @@
 - (id)strokeProviderVersionFromData:(id)arg1;
 - (id)dataRepresentationForStrokeProviderVersion:(id)arg1;
 - (id)strokeProviderSnapshot;
+@property(readonly, copy) NSString *description;
 - (void)queryDidUpdateResult:(id)arg1;
 - (void)performSearchQuery:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)indexableContent;
@@ -67,8 +69,8 @@
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (id)CHDrawing;
-- (id)strokesIntersectedByPoint:(struct CGPoint)arg1 minThreshold:(double)arg2 transform:(struct CGAffineTransform)arg3;
-- (id)strokesIntersectedByPoint:(struct CGPoint)arg1;
+- (id)strokesIntersectedByPoint:(struct CGPoint)arg1 prevPoint:(struct CGPoint)arg2 minThreshold:(double)arg3 transform:(struct CGAffineTransform)arg4;
+- (id)strokesIntersectedByPoint:(struct CGPoint)arg1 prevPoint:(struct CGPoint)arg2;
 @property(readonly, nonatomic) long long imageOrientation;
 - (struct CGAffineTransform)orientationTransform;
 - (unsigned long long)mergeWithDrawing:(id)arg1;
@@ -85,6 +87,7 @@
 - (id)insertNewTestStroke;
 - (struct _PKStrokeID)strokeVersionForUpdatedStroke:(id)arg1;
 - (struct _PKStrokeID)strokeIDForNewStroke;
+- (struct _PKStrokeID)newStrokeIDGreaterThan:(struct _PKStrokeID)arg1;
 - (void)sortStrokes;
 - (_Bool)setTransientOrientation:(long long)arg1;
 @property(readonly, nonatomic) _Bool canChangeTransientOrientation;
@@ -92,9 +95,10 @@
 - (void)invalidateStrokeBounds;
 @property(readonly, nonatomic) struct CGRect strokeBounds; // @synthesize strokeBounds=_strokeBounds;
 - (struct CGRect)calculateStrokeBounds;
-@property(readonly, nonatomic) NSOrderedSet *visibleStrokes;
+@property(readonly, nonatomic) NSMutableArray *visibleStrokes;
 - (id)mutableStrokes;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)serializeTransiently;
 - (id)serialize;
 - (void)dealloc;
 - (id)initWithStrokes:(id)arg1 fromDrawing:(id)arg2;
@@ -112,7 +116,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) Class superclass;
 
 @end

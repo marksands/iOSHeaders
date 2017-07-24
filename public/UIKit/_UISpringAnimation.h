@@ -15,6 +15,10 @@ __attribute__((visibility("hidden")))
 
 + (id)springAnimationWithKeyPath:(id)arg1 toLayer:(id)arg2 fromValue:(id)arg3 toValue:(id)arg4;
 + (double)defaultAnimationDuration;
++ (double)defaultStiffness;
++ (void)setDefaultStiffness:(double)arg1;
++ (double)defaultDamping;
++ (void)setDefaultDamping:(double)arg1;
 - (void)addCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)init;
 

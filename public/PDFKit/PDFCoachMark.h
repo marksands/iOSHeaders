@@ -6,17 +6,20 @@
 
 #import <objc/NSObject.h>
 
-@class PDFCoachMarkPrivate;
+@class NSDate, PDFPageLayerEffect;
 
 __attribute__((visibility("hidden")))
 @interface PDFCoachMark : NSObject
 {
-    PDFCoachMarkPrivate *_private;
+    NSDate *creationTime;
+    struct CGRect frame;
+    PDFPageLayerEffect *layerEffect;
 }
 
 - (void).cxx_destruct;
-- (id)layer;
-- (id)initWithFrame:(struct CGRect)arg1 forPDFPageView:(id)arg2 andDelegate:(id)arg3;
+- (double)effectTimeLeft;
+- (void)playEffect:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

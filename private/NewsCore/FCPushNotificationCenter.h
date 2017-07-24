@@ -28,7 +28,7 @@
 - (void)_handlePrivateDatabaseNotification:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)handleRemoteNotification:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removeRecordZoneObserver:(id)arg1;
-- (void)addObserver:(id)arg1 forChangesToRecordZone:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (void)addObserver:(id)arg1 forChangesToRecordZoneID:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)initWithPrivateDatabase:(id)arg1 storeDirectory:(id)arg2;
 - (id)init;
 - (void)prepareForUse;

@@ -20,7 +20,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)outstandingPromises;
++ (id)outstandingPromisesForCreator:(unsigned long long)arg1;
 @property(retain, nonatomic) id <IXSDataPromiseProxy> remote; // @synthesize remote=_remote;
 @property(retain, nonatomic) IXDataPromiseSeed *seed; // @synthesize seed=_seed;
 @property(nonatomic) unsigned long long errorSourceIdentifier; // @synthesize errorSourceIdentifier=_errorSourceIdentifier;

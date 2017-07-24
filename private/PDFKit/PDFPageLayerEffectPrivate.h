@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class PDFAnnotation, PDFPageLayer;
+@class PDFAnnotation;
+@protocol PDFPageLayerInterface;
 
 __attribute__((visibility("hidden")))
 @interface PDFPageLayerEffectPrivate : NSObject
 {
-    PDFPageLayer *pageLayer;
+    id <PDFPageLayerInterface> pageLayer;
     PDFAnnotation *annotation;
     long long displayBox;
 }

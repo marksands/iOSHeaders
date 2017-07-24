@@ -22,7 +22,7 @@
     id <WGWidgetListFooterViewDelegate> _delegate;
 }
 
-@property(retain, nonatomic) id <WGWidgetListFooterViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <WGWidgetListFooterViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property(nonatomic) long long layoutMode; // @synthesize layoutMode=_layoutMode;
 - (void).cxx_destruct;

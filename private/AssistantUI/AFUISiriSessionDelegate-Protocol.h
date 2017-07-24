@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AssistantUI/NSObject-Protocol.h>
+#import <AssistantUI/AFUISiriSessionListener-Protocol.h>
 
-@class AFSpeechInterpretation, AFUIRequestOptions, AceObject, INImage, NSArray, NSError, NSString, NSURL, SACardShowNextCard, SAGuidanceGuideUpdate, SAPhonePlayVoiceMail, SAPreSynthesizeTTS, SASSpeechPartialResult, SASSpeechRecognized, SASettingSetUIGuidedAccess, SASmsPlayAudio, SAUIAddContentToView, SAUIAddViews, SAUIAppPunchOut, SAUIChangePrimaryUtterance, SAUIClearScreen, SAUICloseAssistant, SAUIGetResponseAlternativesPlayback, SAUIHideSiriOverlay, SAUIListenForPronunciation, SAUIOpenLink, SAUIRepeatIt, SAUISayIt, SAUISetSuggestedUtterances, SAUIShowHelp, SAUIShowSpeechAlternatives, SAUIUpdateViews;
+@class AFSpeechInterpretation, AFUIRequestOptions, AceObject, INImage, NSArray, NSError, NSString, NSURL, SACardShowNextCard, SAGuidanceGuideUpdate, SAPhonePlayVoiceMail, SAPreSynthesizeTTS, SASSpeechPartialResult, SASSpeechRecognized, SASettingSetUIGuidedAccess, SASmsPlayAudio, SAUIAddContentToView, SAUIAddViews, SAUIAppPunchOut, SAUIChangePrimaryUtterance, SAUIClearScreen, SAUICloseAssistant, SAUIDisambiguationItemSelected, SAUIGetResponseAlternativesPlayback, SAUIHideSiriOverlay, SAUIListenForPronunciation, SAUIOpenLink, SAUIRepeatIt, SAUISayIt, SAUISetSuggestedUtterances, SAUIShowHelp, SAUIShowSpeechAlternatives, SAUIUpdateViews;
 @protocol SAAceCommand;
 
-@protocol AFUISiriSessionDelegate <NSObject>
+@protocol AFUISiriSessionDelegate <AFUISiriSessionListener>
 - (void)siriSessionDidFinishTest:(NSString *)arg1;
 - (void)siriSessionWillStartTest:(NSString *)arg1;
 - (void)siriSessionWillDismissAudioRoutePicker;
@@ -18,6 +18,7 @@
 - (void)siriSessionSpeechRecordingDidCancel;
 - (void)siriSessionSpeechRecordingDidEnd;
 - (void)siriSessionSpeechRecordingDidChangeAVRecordRoute:(NSString *)arg1;
+- (void)siriSessionDidReceiveDisambiguationItemSelected:(SAUIDisambiguationItemSelected *)arg1;
 - (void)siriSessionDidReceivePreSynthesizeTTSCommand:(SAPreSynthesizeTTS *)arg1 completion:(void (^)(AceObject<SAAceCommand> *))arg2;
 - (void)siriSessionDidReceiveShowNextCardCommand:(SACardShowNextCard *)arg1 completion:(void (^)(AceObject<SAAceCommand> *))arg2;
 - (void)siriSessionDidReceiveAddContentToViewCommand:(SAUIAddContentToView *)arg1 completion:(void (^)(AceObject<SAAceCommand> *))arg2;

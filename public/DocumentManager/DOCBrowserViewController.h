@@ -12,7 +12,7 @@
 #import <DocumentManager/DOCRemoteSourceManagementInterface-Protocol.h>
 #import <DocumentManager/FPUIActionViewControllerDelegate-Protocol.h>
 
-@class DOCAppearance, DOCConcreteLocation, DOCConfiguration, NSArray, NSMutableArray, NSOperationQueue, NSString, UIBarButtonItem, _UIResilientRemoteViewContainerViewController;
+@class DOCAppearance, DOCConcreteLocation, DOCConfiguration, DOCSearchContext, NSArray, NSMutableArray, NSOperationQueue, NSString, _UIResilientRemoteViewContainerViewController;
 @protocol DOCDocumentBrowserDelegate, DOCRemoteAppearanceInterface><DOCRemoteSourceManagementInterface, DOCServiceBrowserViewControllerProxy;
 
 @interface DOCBrowserViewController : UIViewController <FPUIActionViewControllerDelegate, DOCHostBrowserViewControllerProxy, DOCNavigationBarOverwriteProtocol, DOCRemoteSourceManagementInterface, DOCAppearanceProtocol>
@@ -23,10 +23,11 @@
     _Bool _isTopNavigationItem;
     _Bool _supportsImportInCurrentLocation;
     _Bool _currentLocationIsWritable;
-    UIBarButtonItem *_overriddenLeftButton;
+    _Bool _currentLocationCanSelect;
     NSString *_overriddenTitle;
     id <DOCDocumentBrowserDelegate> _delegate;
     DOCConcreteLocation *_selectedLocation;
+    DOCSearchContext *_searchContext;
     NSArray *_hostProvidedActions;
     NSArray *_builtinActionsForSelectedItems;
     NSMutableArray *_remoteViewControllerAvailableCompletionHandlers;
@@ -40,14 +41,15 @@
 @property(readonly) NSOperationQueue *serviceProxyOperationQueue; // @synthesize serviceProxyOperationQueue=_serviceProxyOperationQueue;
 @property(retain) NSMutableArray *remoteViewControllerAvailableCompletionHandlers; // @synthesize remoteViewControllerAvailableCompletionHandlers=_remoteViewControllerAvailableCompletionHandlers;
 @property(readonly) DOCAppearance *lastAppearance; // @synthesize lastAppearance=_lastAppearance;
+@property(nonatomic) _Bool currentLocationCanSelect; // @synthesize currentLocationCanSelect=_currentLocationCanSelect;
 @property(nonatomic) _Bool currentLocationIsWritable; // @synthesize currentLocationIsWritable=_currentLocationIsWritable;
 @property(nonatomic) _Bool supportsImportInCurrentLocation; // @synthesize supportsImportInCurrentLocation=_supportsImportInCurrentLocation;
 @property(copy, nonatomic) NSArray *builtinActionsForSelectedItems; // @synthesize builtinActionsForSelectedItems=_builtinActionsForSelectedItems;
 @property(copy, nonatomic) NSArray *hostProvidedActions; // @synthesize hostProvidedActions=_hostProvidedActions;
+@property(retain, nonatomic) DOCSearchContext *searchContext; // @synthesize searchContext=_searchContext;
 @property(copy, nonatomic) DOCConcreteLocation *selectedLocation; // @synthesize selectedLocation=_selectedLocation;
 @property(nonatomic) __weak id <DOCDocumentBrowserDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain) NSString *overriddenTitle; // @synthesize overriddenTitle=_overriddenTitle;
-@property(retain) UIBarButtonItem *overriddenLeftButton; // @synthesize overriddenLeftButton=_overriddenLeftButton;
 @property _Bool isTopNavigationItem; // @synthesize isTopNavigationItem=_isTopNavigationItem;
 - (void).cxx_destruct;
 - (void)updateAppearance:(id)arg1;
@@ -56,6 +58,8 @@
 - (void)revealItemAtURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)lastVisitedLocation;
 - (void)saveLastVisitedLocationIfNeeded;
+- (void)browserDidFinishGatheringItemsAndThumbnails;
+- (void)didUpdateCurrentLocationCanSelect:(_Bool)arg1;
 - (void)didUpdateCurrentLocationIsWritable:(_Bool)arg1;
 - (void)didUpdateImportSupportInCurrentLocation:(_Bool)arg1;
 - (void)browserDidUpdateNumberOfItems:(unsigned long long)arg1;
@@ -65,12 +69,11 @@
 - (void)didPickLocation:(id)arg1;
 - (void)builtinActionsDidChange:(id)arg1;
 - (void)didTriggerFPUIActionWithIdentifier:(id)arg1 providerIdentifier:(id)arg2 domainIdentifier:(id)arg3 title:(id)arg4 onItems:(id)arg5;
-- (void)presentVendorAuthenticationUIForProviderIdentifier:(id)arg1 domainIdentifier:(id)arg2;
+- (void)presentVendorAuthenticationUIForProviderIdentifier:(id)arg1 error:(id)arg2;
 - (void)didTriggerActionWithIdentifier:(id)arg1 onItems:(id)arg2;
 - (void)didSelectItems:(id)arg1;
 - (void)callViewControllerCompletionHandlersWithError:(id)arg1;
 - (void)fetchAllSourcesWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)willDisplayThirdPartyUI:(_Bool)arg1;
 - (void)didCommitPreviewOfDocument:(id)arg1;
 - (void)didPickItem:(id)arg1;
 - (void)showInfoForItem:(id)arg1;
@@ -78,6 +81,8 @@
 - (void)createNewFile;
 - (void)_updateHostProvidedActions;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)tagsDidChange:(id)arg1;
+- (void)_setResolvedSelectedLocation:(id)arg1;
 - (void)_updateSelectedBrowserLocation;
 - (void)setSelectedLocation:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)viewDidLoad;

@@ -6,11 +6,17 @@
 
 #import <SearchUI/SearchUICardSectionView.h>
 
+@class TLKStackView;
+
 @interface SearchUINowPlayingCardSectionView : SearchUICardSectionView
 {
 }
 
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
+- (id)setupContentView;
+- (id)initWithCardSection:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
+
+// Remaining properties
+@property(retain) TLKStackView *contentView; // @dynamic contentView;
 
 @end
 

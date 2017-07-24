@@ -8,7 +8,6 @@
 
 @class NSData, NSFileWrapper, NSURL;
 
-__attribute__((visibility("hidden")))
 @interface QLZipArchive : NSObject
 {
     struct archive *_archive;

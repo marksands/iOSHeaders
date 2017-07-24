@@ -10,10 +10,10 @@
 @protocol UICoordinateSpace;
 
 @protocol _UIDraggingItemVisualTarget <NSObject>
-- (struct CGRect)targetFrameOfDraggingItem:(_UIDraggingItem *)arg1 inCoordinateSpace:(id <UICoordinateSpace>)arg2;
 
 @optional
-- (void)draggingItem:(_UIDraggingItem *)arg1 willAnimateDisappearanceWithAnimator:(UIViewPropertyAnimator *)arg2;
-- (void)draggingItem:(_UIDraggingItem *)arg1 willAnimateSetDownWithAnimator:(UIViewPropertyAnimator *)arg2;
+- (void)_draggingItem:(_UIDraggingItem *)arg1 willAnimateDisappearanceWithAnimator:(UIViewPropertyAnimator *)arg2;
+- (void)_draggingItem:(_UIDraggingItem *)arg1 willAnimateSetDownWithAnimator:(UIViewPropertyAnimator *)arg2;
+- (struct CGRect)_targetFrameOfDraggingItem:(_UIDraggingItem *)arg1 inCoordinateSpace:(id <UICoordinateSpace>)arg2;
 @end
 

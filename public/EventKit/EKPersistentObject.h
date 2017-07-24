@@ -33,10 +33,10 @@
 - (void).cxx_destruct;
 - (id)dump;
 - (void)_loadDefaultPropertiesIfNeeded;
-- (void)_takeValuesForDefaultProperties:(id)arg1 inSet:(id)arg2;
-- (void)takeValuesForDefaultProperties:(id)arg1 inSet:(id)arg2;
-- (void)_takeValues:(id)arg1 forProperties:(id)arg2;
-- (void)takeValues:(id)arg1 forProperties:(id)arg2;
+- (void)_takeValuesForDefaultPropertyKeys:(id)arg1 values:(id)arg2;
+- (void)takeValuesForDefaultPropertyKeys:(id)arg1 values:(id)arg2;
+- (void)_takeValues:(id)arg1 forKeys:(id)arg2;
+- (void)takeValues:(id)arg1 forKeys:(id)arg2;
 - (_Bool)_loadChildIdentifiersForKey:(id)arg1 values:(id *)arg2;
 - (_Bool)_loadRelationForKey:(id)arg1 value:(id *)arg2;
 - (void)primitiveSetDataValue:(id)arg1 forKey:(id)arg2;

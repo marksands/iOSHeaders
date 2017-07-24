@@ -19,8 +19,8 @@
 @property(readonly, nonatomic) NSString *userStoreFrontID;
 @property(readonly, nonatomic) NSString *DSID;
 - (_Bool)isPrimaryAccountEmailAddress;
-- (void)fetchIsHSA2WithCompletionHandler:(void (^)(_Bool, NSError *))arg1;
 - (NSString *)currentStoreFrontID;
+- (void)checkAlliOSDevicesRunningMajorOSVersionOrLater:(long long)arg1 orInactiveForTimeInterval:(double)arg2 completionHandler:(void (^)(_Bool, NSError *))arg3;
 - (void)loadStoreFrontIfNeededWithCompletion:(void (^)(void))arg1;
 - (NSString *)iTunesAccountName;
 - (_Bool)isUserSignedIntoiTunes;

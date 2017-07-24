@@ -13,7 +13,7 @@
 #import <Widgets/WGWidgetHostingViewControllerDelegate-Protocol.h>
 #import <Widgets/WGWidgetListItemViewControllerDelegate-Protocol.h>
 
-@class NSArray, NSMutableDictionary, NSString, UIScrollView, UIStackView, WGWidgetDiscoveryController, WGWidgetPlatterView;
+@class NSArray, NSMutableDictionary, NSString, UIScrollView, UIStackView, WGWidgetDiscoveryController;
 @protocol WGWidgetListViewControllerDelegate;
 
 @interface WGWidgetListViewController : UIViewController <WGWidgetDebugging, UIScrollViewDelegate, WGWidgetDiscoveryObserving, WGWidgetHostingViewControllerDelegate, WGWidgetListItemViewControllerDelegate, WGWidgetExtensionVisibilityProviding>
@@ -22,7 +22,6 @@
     UIStackView *_stackView;
     NSMutableDictionary *_cancelTouchesAssertionsByWidgetID;
     NSMutableDictionary *_widgetIDsToItemVCs;
-    WGWidgetPlatterView *_platterViewForMeasuring;
     _Bool _shouldBlurContent;
     id <WGWidgetListViewControllerDelegate> _delegate;
     NSArray *_previouslyVisibleWidgetIDs;
@@ -67,12 +66,10 @@
 - (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 - (void)viewDidLoad;
 - (void)loadView;
-- (void)_contentSizeCategoryDidChange:(id)arg1;
 - (void)_invalidateAllCancelTouchesAssertions;
 - (void)_cancelTouchesForWidget:(id)arg1;
 - (void)_cancelTouchesForHitWidgetIfNecessary;
 - (id)_platterViewAtLocation:(struct CGPoint)arg1;
-- (id)_platterViewForMeasuring;
 - (void)_repopulateStackView;
 - (void)_updateBackgroundViewForPlatter:(id)arg1;
 - (id)_scrollViewIfLoaded;

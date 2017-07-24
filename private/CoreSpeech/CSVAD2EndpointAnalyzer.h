@@ -46,8 +46,10 @@
     NSString *_modelDictPath;
     double _previousSamplesSeen;
     NSObject<OS_dispatch_queue> *_apQueue;
+    unsigned long long _vtEndInSampleCount;
 }
 
+@property(nonatomic) unsigned long long vtEndInSampleCount; // @synthesize vtEndInSampleCount=_vtEndInSampleCount;
 @property(nonatomic) _Bool recordingDidStop; // @synthesize recordingDidStop=_recordingDidStop;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *apQueue; // @synthesize apQueue=_apQueue;
 @property(nonatomic) double previousSamplesSeen; // @synthesize previousSamplesSeen=_previousSamplesSeen;
@@ -83,8 +85,10 @@
 - (void).cxx_destruct;
 - (void)_processAudioSamples:(id)arg1;
 - (void)processAudioSamplesAsynchronously:(id)arg1;
+- (void)handleVoiceTriggerWithActivationInfo:(id)arg1;
 @property(readonly, nonatomic) double lastEndOfVoiceActivityTime;
 @property(readonly, nonatomic) double lastStartOfVoiceActivityTime;
+- (void)_resetWithSampleRate:(unsigned long long)arg1;
 - (void)reset;
 - (void)resetForNewRequestWithSampleRate:(unsigned long long)arg1;
 - (void)preheat;

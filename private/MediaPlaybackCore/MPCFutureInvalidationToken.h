@@ -8,10 +8,15 @@
 
 #import <MediaPlaybackCore/NSCopying-Protocol.h>
 
+@class MPCFuture;
+
 @interface MPCFutureInvalidationToken : NSObject <NSCopying>
 {
+    MPCFuture *_future;
 }
 
+@property(retain, nonatomic) MPCFuture *future; // @synthesize future=_future;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

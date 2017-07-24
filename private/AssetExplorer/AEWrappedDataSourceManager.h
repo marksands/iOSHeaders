@@ -7,19 +7,22 @@
 #import <PhotosUICore/PXAssetsDataSourceManager.h>
 
 #import <AssetExplorer/PUAssetsDataSourceManagerDelegate-Protocol.h>
+#import <AssetExplorer/PUReviewAssetsDataSourceManagerDelegate-Protocol.h>
 
-@class NSString, PUAssetsDataSourceManager;
+@class NSString, PUReviewAssetsDataSourceManager;
 
-@interface AEWrappedDataSourceManager : PXAssetsDataSourceManager <PUAssetsDataSourceManagerDelegate>
+@interface AEWrappedDataSourceManager : PXAssetsDataSourceManager <PUAssetsDataSourceManagerDelegate, PUReviewAssetsDataSourceManagerDelegate>
 {
-    PUAssetsDataSourceManager *__attachedDataSourceManager;
+    PUReviewAssetsDataSourceManager *__attachedDataSourceManager;
 }
 
-@property(retain, nonatomic, setter=_setAttachedDataSourceManager:) PUAssetsDataSourceManager *_attachedDataSourceManager; // @synthesize _attachedDataSourceManager=__attachedDataSourceManager;
+@property(retain, nonatomic, setter=_setAttachedDataSourceManager:) PUReviewAssetsDataSourceManager *_attachedDataSourceManager; // @synthesize _attachedDataSourceManager=__attachedDataSourceManager;
 - (void).cxx_destruct;
 - (id)assetsDataSourceManagerInterestingAssetReferences:(id)arg1;
+- (void)assetsDataSourceManager:(id)arg1 didChangeAssetsDataSource:(id)arg2 changeDetails:(id)arg3;
 - (void)assetsDataSourceManager:(id)arg1 didChangeAssetsDataSource:(id)arg2;
-- (void)_createDataSourceFromAssetsDataSource:(id)arg1;
+- (id)createInitialDataSource;
+- (void)_createDataSourceFromAssetsDataSource:(id)arg1 changeDetails:(id)arg2;
 - (void)detachCurrentDataSourceManager;
 - (void)attachDataSourceManager:(id)arg1;
 

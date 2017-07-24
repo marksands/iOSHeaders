@@ -11,6 +11,7 @@
 @interface CKOperationCallbackManager : NSObject
 {
     NSMutableDictionary *_progressCallbacks;
+    NSMutableDictionary *_statisticsCallbacks;
     NSMutableDictionary *_commandCallbacks;
     NSMutableDictionary *_completionCallbacks;
     NSMutableDictionary *_checkpointCallbacks;
@@ -21,16 +22,20 @@
 @property(retain) NSMutableDictionary *checkpointCallbacks; // @synthesize checkpointCallbacks=_checkpointCallbacks;
 @property(retain) NSMutableDictionary *completionCallbacks; // @synthesize completionCallbacks=_completionCallbacks;
 @property(retain) NSMutableDictionary *commandCallbacks; // @synthesize commandCallbacks=_commandCallbacks;
+@property(retain) NSMutableDictionary *statisticsCallbacks; // @synthesize statisticsCallbacks=_statisticsCallbacks;
 @property(retain) NSMutableDictionary *progressCallbacks; // @synthesize progressCallbacks=_progressCallbacks;
 - (void).cxx_destruct;
 - (void)removeAllCallbacks;
 - (void)handleOperationCheckpoint:(id)arg1 forOperationWithID:(id)arg2;
 - (void)handleOperationCompletion:(id)arg1 forOperationWithID:(id)arg2;
+- (void)handleOperationStatistics:(id)arg1 forOperationWithID:(id)arg2;
 - (void)handleOperationProgress:(id)arg1 forOperationWithID:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)_performCallbackForOperation:(id)arg1 callback:(CDUnknownBlockType)arg2;
 - (void)unregisterAllCallbacksForOperation:(id)arg1;
 - (void)registerCheckpointCallback:(CDUnknownBlockType)arg1 forOperation:(id)arg2;
 - (void)registerCompletionCallback:(CDUnknownBlockType)arg1 forOperation:(id)arg2;
 - (void)registerCommandCallback:(CDUnknownBlockType)arg1 forOperation:(id)arg2;
+- (void)registerStatisticsCallback:(CDUnknownBlockType)arg1 forOperation:(id)arg2;
 - (void)registerProgressCallback:(CDUnknownBlockType)arg1 forOperation:(id)arg2;
 - (id)init;
 

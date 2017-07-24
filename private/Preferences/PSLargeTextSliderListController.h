@@ -14,10 +14,12 @@
     _Bool _viewIsDisappearing;
     _Bool _showsExtendedRangeSwitch;
     _Bool _usesExtendedRange;
+    _Bool _showsLargerSizesHelpText;
     NSArray *_contentSizeCategories;
     long long _selectedCategoryIndex;
 }
 
+@property(nonatomic) _Bool showsLargerSizesHelpText; // @synthesize showsLargerSizesHelpText=_showsLargerSizesHelpText;
 @property(nonatomic) _Bool usesExtendedRange; // @synthesize usesExtendedRange=_usesExtendedRange;
 @property(nonatomic) _Bool showsExtendedRangeSwitch; // @synthesize showsExtendedRangeSwitch=_showsExtendedRangeSwitch;
 @property(nonatomic) long long selectedCategoryIndex; // @synthesize selectedCategoryIndex=_selectedCategoryIndex;

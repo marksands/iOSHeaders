@@ -8,7 +8,7 @@
 
 #import <NewsCore/SKProductsRequestDelegate-Protocol.h>
 
-@class FCCloudContext, NSNumber, NSString, SKProduct;
+@class FCCloudContext, FCIntroductoryOffer, NSNumber, NSString, SKProduct;
 @protocol OS_dispatch_group;
 
 @interface FCPurchase : NSObject <SKProductsRequestDelegate>
@@ -22,6 +22,7 @@
     NSString *_offerName;
     NSNumber *_storeExternalVersion;
     NSString *_bundleID;
+    FCIntroductoryOffer *_introductoryOffer;
     NSNumber *_price;
     SKProduct *_product;
     NSObject<OS_dispatch_group> *_productRequestGroup;
@@ -33,6 +34,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *productRequestGroup; // @synthesize productRequestGroup=_productRequestGroup;
 @property(retain, nonatomic) SKProduct *product; // @synthesize product=_product;
 @property(copy, nonatomic) NSNumber *price; // @synthesize price=_price;
+@property(retain, nonatomic) FCIntroductoryOffer *introductoryOffer; // @synthesize introductoryOffer=_introductoryOffer;
 @property(copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(copy, nonatomic) NSNumber *storeExternalVersion; // @synthesize storeExternalVersion=_storeExternalVersion;
 @property(copy, nonatomic) NSString *offerName; // @synthesize offerName=_offerName;

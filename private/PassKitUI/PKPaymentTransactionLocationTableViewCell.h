@@ -6,7 +6,7 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class NSString, UIImage, UIImageView, UILabel;
+@class NSString, PKContinuousImageView, UIImage, UILabel;
 
 @interface PKPaymentTransactionLocationTableViewCell : UITableViewCell
 {
@@ -16,11 +16,11 @@
     UIImage *_mapPlaceholderImage;
     UILabel *_titleLabel;
     UILabel *_postalAddressLabel;
-    UIImageView *_mapSnapshotImageView;
+    PKContinuousImageView *_mapSnapshotImageView;
     struct CGSize _snapshotSize;
 }
 
-@property(retain, nonatomic) UIImageView *mapSnapshotImageView; // @synthesize mapSnapshotImageView=_mapSnapshotImageView;
+@property(retain, nonatomic) PKContinuousImageView *mapSnapshotImageView; // @synthesize mapSnapshotImageView=_mapSnapshotImageView;
 @property(retain, nonatomic) UILabel *postalAddressLabel; // @synthesize postalAddressLabel=_postalAddressLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(nonatomic) struct CGSize snapshotSize; // @synthesize snapshotSize=_snapshotSize;
@@ -30,7 +30,7 @@
 @property(retain, nonatomic) NSString *postalAddressTitle; // @synthesize postalAddressTitle=_postalAddressTitle;
 - (void).cxx_destruct;
 - (void)_updateImageViewBoundsOrigin;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (double)cellHeightForTableViewWidth:(double)arg1 withLeftLayoutMargin:(double)arg2 rightLayoutMargin:(double)arg3;
 - (void)layoutSubviews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 

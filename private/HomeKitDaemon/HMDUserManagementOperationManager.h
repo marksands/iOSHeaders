@@ -8,12 +8,13 @@
 
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class HMFTimer, NSArray, NSHashTable, NSMutableArray, NSObject, NSString;
+@class HMDHomeManager, HMFTimer, NSArray, NSHashTable, NSMutableArray, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
 @interface HMDUserManagementOperationManager : HMFObject <HMFTimerDelegate>
 {
     NSMutableArray *_operations;
+    HMDHomeManager *_homeManager;
     NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     HMFTimer *_saveTimer;
@@ -27,6 +28,7 @@
 @property(readonly, nonatomic) HMFTimer *saveTimer; // @synthesize saveTimer=_saveTimer;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
+@property(nonatomic) __weak HMDHomeManager *homeManager; // @synthesize homeManager=_homeManager;
 - (void).cxx_destruct;
 - (void)timerDidFire:(id)arg1;
 - (void)_reallySave;

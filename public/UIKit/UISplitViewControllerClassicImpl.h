@@ -76,6 +76,7 @@ __attribute__((visibility("hidden")))
         unsigned int pendingUpdateTargetDisplayMode:1;
         unsigned int collapsingClockwise:1;
         unsigned int firstResponderChangedFromPostTransitionResponder:1;
+        unsigned int firstResponderChangedFromPostTransitionResponderToNil:1;
         unsigned int inWillTransitionToSize:1;
         unsigned int hasTransitioningToInternalMode:1;
         unsigned int delegateImplementsPrivateIsPrimaryVisible:1;

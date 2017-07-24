@@ -164,6 +164,7 @@
 @property(nonatomic) long long keyboardAppearance;
 @property(nonatomic) long long keyboardType;
 @property(nonatomic) _Bool learnsCorrections;
+@property(nonatomic) _Bool loadKeyboardsForSiriLanguage;
 @property(copy, nonatomic) NSString *recentInputIdentifier;
 @property(copy, nonatomic) NSString *responseContext;
 @property(nonatomic) _Bool returnKeyGoesToNextResponder;

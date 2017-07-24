@@ -6,17 +6,20 @@
 
 #import <ChatKit/NSObject-Protocol.h>
 
-@class CKBrowserSwitcherFooterView, CKBrowserTransitionCoordinator, IMBalloonPlugin, UIViewController;
+@class CKAppGrabberView, CKBrowserSwitcherFooterView, CKBrowserTransitionCoordinator, IMBalloonPlugin, UIViewController;
 @protocol CKBrowserViewControllerProtocol;
 
 @protocol CKBrowserTransitionCoordinatorDelegate <NSObject>
 
 @optional
+- (struct CGRect)cachedCompactFrameInWindowCoordsForBrowserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1;
 - (void)reinsertSwitcherFooterViewForBrowserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1;
 - (CKBrowserSwitcherFooterView *)switcherFooterViewForBrowserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1;
+- (void)reinsertAppGrabberViewForBrowserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1;
+- (CKAppGrabberView *)appGrabberForBrowserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1;
 - (void)browserTransitionCoordinatorWantsPresentationOfAppManager:(CKBrowserTransitionCoordinator *)arg1;
 - (void)browserTransitionCoordinatorWantsPresentationOfAppStore:(CKBrowserTransitionCoordinator *)arg1;
-- (struct CGRect)browserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1 preferredBoundsForBrowser:(UIViewController<CKBrowserViewControllerProtocol> *)arg2;
+- (struct CGRect)browserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1 preferredFrameForBrowser:(UIViewController<CKBrowserViewControllerProtocol> *)arg2;
 - (void)browserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1 wantsToSwitchToPlugin:(IMBalloonPlugin *)arg2;
 - (void)browserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1 didTransitionFromOrientation:(long long)arg2 toOrientation:(long long)arg3;
 - (void)browserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1 browserWillBecomeInactive:(UIViewController<CKBrowserViewControllerProtocol> *)arg2;

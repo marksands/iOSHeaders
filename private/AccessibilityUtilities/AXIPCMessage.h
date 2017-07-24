@@ -29,6 +29,7 @@
 @property(readonly, copy, nonatomic) NSString *senderBundleId;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)dealloc;
 - (id)initWithKey:(int)arg1 payload:(id)arg2 keyDebugInfo:(id)arg3;
 - (id)initWithKey:(int)arg1 payload:(id)arg2;
 - (id)initWithKey:(int)arg1;

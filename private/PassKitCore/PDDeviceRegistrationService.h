@@ -20,6 +20,7 @@
 @property(retain, nonatomic) PDPaymentWebServiceCoordinator *paymentWebServiceCoordinator; // @synthesize paymentWebServiceCoordinator=_paymentWebServiceCoordinator;
 @property(retain, nonatomic) PDPeerPaymentWebServiceCoordinator *peerPaymentWebServiceCoordinator; // @synthesize peerPaymentWebServiceCoordinator=_peerPaymentWebServiceCoordinator;
 - (void).cxx_destruct;
+- (void)_canAutomaticallyRegisterWithWebService:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performDeviceRegistrationWithCompletion:(CDUnknownBlockType)arg1;
 - (id)initWithConnection:(id)arg1;
 

@@ -24,14 +24,12 @@
     NSMutableDictionary *mConnectWithoutBeaconAssertionCountByInviteSessionIP;
     _Bool _allowInvitationSessions;
     _Bool _allowUnenrolledSessions;
-    _Bool _inRange;
     id <CRKClassSessionBrowserDelegate> _delegate;
     id <CRKInvitationSessionBrowserDelegate> _invitationSessionDelegate;
     NSSet *_organizationUUIDs;
     NSSet *_enrolledControlGroupIdentifiers;
 }
 
-@property(nonatomic, getter=isInRange) _Bool inRange; // @synthesize inRange=_inRange;
 @property(nonatomic) _Bool allowUnenrolledSessions; // @synthesize allowUnenrolledSessions=_allowUnenrolledSessions;
 @property(nonatomic) _Bool allowInvitationSessions; // @synthesize allowInvitationSessions=_allowInvitationSessions;
 @property(copy, nonatomic) NSSet *enrolledControlGroupIdentifiers; // @synthesize enrolledControlGroupIdentifiers=_enrolledControlGroupIdentifiers;
@@ -43,6 +41,7 @@
 - (void)delegateLostConnectionToInvitationSession:(id)arg1;
 - (void)delegateDidFindInvitationSession:(id)arg1 transport:(id)arg2;
 - (id)delegateNeedsClientIdentityInvitationSession;
+- (void)delegateInRangeClassSessionsDidChange;
 - (void)delegateDidRemoveClassSession:(id)arg1;
 - (void)delegateLostConnectionToClassSession:(id)arg1;
 - (void)delegateDidFindClassSession:(id)arg1 transport:(id)arg2;
@@ -55,7 +54,8 @@
 - (id)browserStateDictionary;
 - (id)stateDictionariesByClassSessionIdentifierString;
 - (void)updateRequiresBeaconFlagForSession:(id)arg1;
-- (void)updateInRangeState;
+- (void)removeInRangeClassSession:(id)arg1;
+- (void)addInRangeClassSession:(id)arg1;
 - (void)reachabilityDidChange:(id)arg1;
 - (void)beaconBrowser:(id)arg1 didFindBeaconForInvitationSessionWithIPAddress:(id)arg2;
 - (void)beaconBrowser:(id)arg1 didFindBeaconForClassSession:(id)arg2 flags:(unsigned short)arg3;

@@ -6,9 +6,10 @@
 
 #import <SiriUI/NSObject-Protocol.h>
 
-@class SiriUICardSnippetView, SiriUISashItem;
+@class NSLocale, SiriUICardSnippetView, SiriUISashItem;
 
 @protocol SiriUICardSnippetViewDataSource <NSObject>
+- (NSLocale *)localeForCardSnippetView:(SiriUICardSnippetView *)arg1;
 - (SiriUISashItem *)sashItemForCardSnippetView:(SiriUICardSnippetView *)arg1;
 @end
 

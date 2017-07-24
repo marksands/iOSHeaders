@@ -15,6 +15,7 @@
 {
     _Bool _sourceIsManaged;
     _Bool _shouldUnlinkFile;
+    NSString *_sourceApplicationBundleID;
     NSURL *_url;
     NSString *_applicationIdentifier;
     LSApplicationProxy *_applicationProxy;
@@ -31,6 +32,7 @@
 @property(retain, nonatomic) NSString *applicationIdentifier; // @synthesize applicationIdentifier=_applicationIdentifier;
 @property(nonatomic) _Bool shouldUnlinkFile; // @synthesize shouldUnlinkFile=_shouldUnlinkFile;
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
+@property(copy, nonatomic) NSString *sourceApplicationBundleID; // @synthesize sourceApplicationBundleID=_sourceApplicationBundleID;
 @property(nonatomic) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
 - (void).cxx_destruct;
 - (void)prepareWithActivityItems:(id)arg1;
@@ -42,7 +44,6 @@
 - (id)_loadedApplicationProxy;
 - (id)printInteractionController;
 - (_Bool)canPerformWithActivityItems:(id)arg1;
-- (_Bool)canPerformWithActivityItems:(id)arg1 hostApplicationBundleID:(id)arg2;
 - (id)activityTitle;
 - (id)_bundleIdentifierForActivityImageCreation;
 - (id)activityType;

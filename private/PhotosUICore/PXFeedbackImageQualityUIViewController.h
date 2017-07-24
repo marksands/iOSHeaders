@@ -8,12 +8,10 @@
 
 #import <PhotosUICore/PXFeedbackFormDelegate-Protocol.h>
 
-@class NSArray, NSDictionary, NSObject, NSString, PXFeedbackLikeItOrNotComboUIViewController, UINavigationController;
-@protocol OS_dispatch_queue;
+@class NSArray, NSDictionary, NSString, PXFeedbackLikeItOrNotComboUIViewController, UINavigationController;
 
 @interface PXFeedbackImageQualityUIViewController : UIViewController <PXFeedbackFormDelegate>
 {
-    NSObject<OS_dispatch_queue> *_queue;
     _Bool _userLikedIt;
     NSArray *_assets;
     NSDictionary *_positiveFeedback;
@@ -33,11 +31,11 @@
 - (void).cxx_destruct;
 - (id)_generateURLForAssetDBGFiles:(id)arg1;
 - (id)_generateURLsForAssetsDBGFiles:(id)arg1;
-- (id)_generateResourceFilesForAsset:(id)arg1;
 - (void)_generateResourceFilesForAssets:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_fileRadarWithAssets:(id)arg1 positiveFeedback:(id)arg2 negativeFeedback:(id)arg3;
-- (_Bool)persistViewControllerAfterFeedback;
-- (void)userSentPositiveFeedback:(id)arg1 negativeFeedback:(id)arg2;
+- (void)_fileRadarWithAssets:(id)arg1 positiveFeedback:(id)arg2 negativeFeedback:(id)arg3 customFeedback:(id)arg4;
+- (_Bool)wantsCustomFeedbackSection;
+- (_Bool)shouldContinuePresentingFormAfterFeedback;
+- (void)userSentPositiveFeedback:(id)arg1 negativeFeedback:(id)arg2 customFeedback:(id)arg3;
 - (void)userIndicatedDislike;
 - (void)userIndicatedLike;
 - (id)negativeFeedbackKeys;

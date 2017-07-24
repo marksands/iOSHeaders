@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchFoundation/SFSearchResult.h>
+#import <Search/SFSearchResult_SpotlightExtras.h>
 
 @class SFSearchSuggestion;
 
-@interface SPSuggestionSearchResult : SFSearchResult
+@interface SPSuggestionSearchResult : SFSearchResult_SpotlightExtras
 {
     SFSearchSuggestion *_suggestion;
 }

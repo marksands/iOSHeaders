@@ -29,6 +29,7 @@
 - (id)_newLegacyViewForComplication:(id)arg1 family:(long long)arg2 slot:(id)arg3;
 - (_Bool)_needsForegroundContainerView;
 - (void)logoTappedFromRect:(struct CGRect)arg1;
+- (void)_prepareTimeViewForReuse:(id)arg1;
 - (void)_prepareForEditing;
 - (double)_handsAlphaForEditMode:(long long)arg1;
 - (double)_complicationAlphaForEditMode:(long long)arg1;

@@ -8,10 +8,11 @@
 
 #import <Search/NSSecureCoding-Protocol.h>
 
-@class NSString;
+@class CNContact, NSString;
 
 @interface SPSearchEntity : NSObject <NSSecureCoding>
 {
+    CNContact *_contact;
     NSString *_contactIdentifier;
 }
 

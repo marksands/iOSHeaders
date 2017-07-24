@@ -10,17 +10,23 @@
 #import <AVFoundation/AVWeakObservable-Protocol.h>
 
 @class AVAssetWriterHelper, AVAssetWriterInternal, NSArray, NSError, NSString, NSURL;
+@protocol AVAssetWriterDataWritingDelegate;
 
 @interface AVAssetWriter : NSObject <AVWeakObservable, AVKeyPathDependencyHost>
 {
     AVAssetWriterInternal *_internal;
+    id <AVAssetWriterDataWritingDelegate> _dataWritingDelegate;
 }
 
 + (id)_errorForOSStatus:(int)arg1;
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)assetWriterWithURL:(id)arg1 fileType:(id)arg2 error:(id *)arg3;
 + (void)initialize;
+@property(readonly, nonatomic) __weak id <AVAssetWriterDataWritingDelegate> dataWritingDelegate; // @synthesize dataWritingDelegate=_dataWritingDelegate;
+- (void).cxx_destruct;
 - (void)_transitionToFailedStatusWithError:(id)arg1;
+- (void)setFinishWritingDelegate:(id)arg1;
+- (id)finishWritingDelegate;
 - (void)finishWritingWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (_Bool)finishWriting;
 - (void)cancelWriting;

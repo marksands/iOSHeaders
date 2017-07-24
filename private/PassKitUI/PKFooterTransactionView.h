@@ -8,7 +8,7 @@
 
 #import <PassKitUI/PKPeerPaymentContactResolverDelegate-Protocol.h>
 
-@class NSString, PKFelicaPassProperties, PKPaymentPass, PKPaymentTransaction, PKPeerPaymentAccount, PKPeerPaymentContactResolver, PKStackedTextItemGroup, PKStackedTextItemGroupView, UIImageView;
+@class NSString, PKFelicaPassProperties, PKPaymentPass, PKPaymentTransaction, PKPeerPaymentContactResolver, PKStackedTextItemGroup, PKStackedTextItemGroupView, UIImageView;
 
 @interface PKFooterTransactionView : UIView <PKPeerPaymentContactResolverDelegate>
 {
@@ -16,23 +16,25 @@
     PKStackedTextItemGroupView *_headerView;
     UIView *_separatorView;
     PKStackedTextItemGroupView *_contentView;
-    PKPeerPaymentContactResolver *_peerPaymentContactResolver;
     UIImageView *_imageView;
     _Bool _animated;
+    unsigned long long _deferUpdateCounter;
+    _Bool _needsContentUpdate;
     PKPaymentPass *_pass;
     PKPaymentTransaction *_transaction;
     PKFelicaPassProperties *_felicaProperties;
-    PKPeerPaymentAccount *_peerPaymentAccount;
+    PKPeerPaymentContactResolver *_peerPaymentContactResolver;
 }
 
-@property(readonly, nonatomic) PKPeerPaymentAccount *peerPaymentAccount; // @synthesize peerPaymentAccount=_peerPaymentAccount;
+@property(readonly, nonatomic) PKPeerPaymentContactResolver *peerPaymentContactResolver; // @synthesize peerPaymentContactResolver=_peerPaymentContactResolver;
 @property(readonly, nonatomic) PKFelicaPassProperties *felicaProperties; // @synthesize felicaProperties=_felicaProperties;
 @property(readonly, nonatomic) PKPaymentTransaction *transaction; // @synthesize transaction=_transaction;
 @property(readonly, nonatomic) PKPaymentPass *pass; // @synthesize pass=_pass;
 - (void).cxx_destruct;
 - (void)contactsDidChangeForContactResolver:(id)arg1;
 @property(readonly, nonatomic) _Bool hasContent;
-- (void)setPeerPaymentAccount:(id)arg1 animated:(_Bool)arg2;
+- (void)endUpdates:(_Bool)arg1;
+- (void)beginUpdates;
 - (void)setFelicaProperties:(id)arg1 animated:(_Bool)arg2;
 - (void)setTransaction:(id)arg1 animated:(_Bool)arg2;
 - (void)setPass:(id)arg1 animated:(_Bool)arg2;

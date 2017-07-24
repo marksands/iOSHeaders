@@ -10,14 +10,14 @@
 #import <NewsCore/FCOperationThrottlerDelegate-Protocol.h>
 #import <NewsCore/FCTagsFetchOperationDelegate-Protocol.h>
 
-@class FCAppConfiguration, FCAssetManager, FCCKContentDatabase, FCOperationThrottler, FCTagRecordSource, NSCache, NSMutableDictionary, NSString;
+@class FCAppConfigurationManager, FCAssetManager, FCCKContentDatabase, FCOperationThrottler, FCTagRecordSource, NSCache, NSMutableDictionary, NSString;
 
 @interface FCTagController : NSObject <FCTagsFetchOperationDelegate, FCAppConfigurationObserving, FCOperationThrottlerDelegate>
 {
     FCCKContentDatabase *_contentDatabase;
     FCAssetManager *_assetManager;
     FCTagRecordSource *_tagRecordSource;
-    FCAppConfiguration *_appConfiguration;
+    FCAppConfigurationManager *_appConfigurationManager;
     NSCache *_fastCache;
     FCOperationThrottler *_tagPrefetchThrottler;
     NSMutableDictionary *_prefetchedTags;
@@ -28,14 +28,14 @@
 @property(retain, nonatomic) NSMutableDictionary *prefetchedTags; // @synthesize prefetchedTags=_prefetchedTags;
 @property(retain, nonatomic) FCOperationThrottler *tagPrefetchThrottler; // @synthesize tagPrefetchThrottler=_tagPrefetchThrottler;
 @property(retain, nonatomic) NSCache *fastCache; // @synthesize fastCache=_fastCache;
-@property(retain, nonatomic) FCAppConfiguration *appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(retain, nonatomic) FCAppConfigurationManager *appConfigurationManager; // @synthesize appConfigurationManager=_appConfigurationManager;
 @property(retain, nonatomic) FCTagRecordSource *tagRecordSource; // @synthesize tagRecordSource=_tagRecordSource;
 @property(retain, nonatomic) FCAssetManager *assetManager; // @synthesize assetManager=_assetManager;
 @property(retain, nonatomic) FCCKContentDatabase *contentDatabase; // @synthesize contentDatabase=_contentDatabase;
 - (void).cxx_destruct;
 - (void)operationThrottler:(id)arg1 performAsyncOperationWithCompletion:(CDUnknownBlockType)arg2;
 - (void)appConfigurationDidChange:(id)arg1;
-- (void)tagsFetchOperation:(id)arg1 didFetchTagsByID:(id)arg2;
+- (void)tagsFetchOperation:(id)arg1 didFetchTags:(id)arg2;
 @property(nonatomic) _Bool shouldPrefetchGlobalTags;
 - (void)saveTagsToCache:(id)arg1;
 - (void)_fetchTagsForTagIDs:(id)arg1 qualityOfService:(long long)arg2 callbackQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -51,13 +51,15 @@
 - (void)fetchTagsForTagIDs:(id)arg1 maximumCachedAge:(double)arg2 qualityOfService:(long long)arg3 callbackQueue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)fetchTagForTagID:(id)arg1 maximumCachedAge:(double)arg2 qualityOfService:(long long)arg3 callbackQueue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (id)fetchOperationForTagsWithIDs:(id)arg1 includeChildren:(_Bool)arg2;
+- (id)fetchOperationForTagsWithIDs:(id)arg1 includeParents:(_Bool)arg2;
 - (id)fetchOperationForTagsWithIDs:(id)arg1;
 - (id)expectedFastCachedTagForID:(id)arg1;
 - (id)slowCachedTagsForIDs:(id)arg1;
+- (id)slowCachedTagForID:(id)arg1;
 - (id)fastCachedTagsForIDs:(id)arg1;
 - (id)fastCachedTagForID:(id)arg1;
 - (void)dealloc;
-- (id)initWithContentDatabase:(id)arg1 assetManager:(id)arg2 tagRecordSource:(id)arg3 appConfiguration:(id)arg4;
+- (id)initWithContentDatabase:(id)arg1 assetManager:(id)arg2 tagRecordSource:(id)arg3 appConfigurationManager:(id)arg4;
 - (id)init;
 
 // Remaining properties

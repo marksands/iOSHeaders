@@ -36,7 +36,6 @@
 @property(nonatomic) __weak id <MKQuickRouteTransportTypeFinding> transportTypeFinder; // @synthesize transportTypeFinder=_transportTypeFinder;
 @property(nonatomic) __weak id <MKQuickRouteManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)loadETAsFromMapItemForTransportType:(unsigned long long)arg1;
 @property(readonly, nonatomic) _Bool isOnlyDriving;
 - (_Bool)haveETAsForPreferredTransportType:(unsigned long long)arg1;
 - (unsigned long long)guessTransportTypeForDistance:(double)arg1 preferredDirectionsType:(unsigned long long)arg2;

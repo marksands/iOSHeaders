@@ -16,6 +16,9 @@ __attribute__((visibility("hidden")))
 - (void)setHighlighted:(_Bool)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)intrinsicContentSize;
+- (void)dealloc;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

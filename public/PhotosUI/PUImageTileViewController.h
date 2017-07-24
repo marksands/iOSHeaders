@@ -8,20 +8,19 @@
 
 #import <PhotosUI/PUAssetViewModelChangeObserver-Protocol.h>
 #import <PhotosUI/PUImageRequesterObserver-Protocol.h>
-#import <PhotosUI/PXChangeObserver-Protocol.h>
 
-@class CALayer, NSData, NSDate, NSString, PUAssetViewModel, PUImageRequester, PUMediaProvider, PXImageAdjuster, PXImageModulationManager, UIColor, UIImage, UIImageView;
+@class CALayer, NSData, NSDate, NSString, NSURL, PUAssetViewModel, PUImageRequester, PUMediaProvider, PXImageLayerModulator, PXImageModulationManager, UIColor, UIImage, UIImageView;
 @protocol PLTileableLayer, PUDisplayAsset;
 
 __attribute__((visibility("hidden")))
-@interface PUImageTileViewController : PUTileViewController <PUImageRequesterObserver, PXChangeObserver, PUAssetViewModelChangeObserver>
+@interface PUImageTileViewController : PUTileViewController <PUImageRequesterObserver, PUAssetViewModelChangeObserver>
 {
     _Bool _animatesImageAppearance;
     _Bool _shouldUseFullsizeImageData;
     _Bool _imageIsFullQuality;
     _Bool __needsUpdateImage;
-    _Bool __needsUpdateImageAdjuster;
-    _Bool __needsUpdateImageAdjusterInput;
+    _Bool __needsUpdateImageLayerModulator;
+    _Bool __needsUpdateImageLayerModulatorInput;
     _Bool __needsUpdateImageView;
     _Bool __needsUpdateFullsizeImageMetadata;
     _Bool __needsUpdateFullsizeTiledLayer;
@@ -33,12 +32,13 @@ __attribute__((visibility("hidden")))
     UIColor *_placeholderColor;
     UIImageView *__imageView;
     NSData *__fullsizeImageData;
+    NSURL *__fullsizeImageURL;
     long long __fullsizeImageOrientation;
     CALayer<PLTileableLayer> *__fullsizeTiledLayer;
     long long __assetLoadingStage;
     NSDate *__assetLoadingStartDate;
     PUImageRequester *__imageRequester;
-    PXImageAdjuster *_imageAdjuster;
+    PXImageLayerModulator *_imageLayerModulator;
     UIImage *_image;
     struct CGSize __targetSize;
     struct CGSize __fullsizeImageUntransformedSize;
@@ -47,7 +47,7 @@ __attribute__((visibility("hidden")))
 
 + (id)_supportedZoomImageFormats;
 @property(readonly, nonatomic) UIImage *image; // @synthesize image=_image;
-@property(retain, nonatomic) PXImageAdjuster *imageAdjuster; // @synthesize imageAdjuster=_imageAdjuster;
+@property(retain, nonatomic) PXImageLayerModulator *imageLayerModulator; // @synthesize imageLayerModulator=_imageLayerModulator;
 @property(retain, nonatomic, setter=_setImageRequester:) PUImageRequester *_imageRequester; // @synthesize _imageRequester=__imageRequester;
 @property(retain, nonatomic, setter=_setAssetLoadingStartDate:) NSDate *_assetLoadingStartDate; // @synthesize _assetLoadingStartDate=__assetLoadingStartDate;
 @property(nonatomic, setter=_setAssetLoadingStage:) long long _assetLoadingStage; // @synthesize _assetLoadingStage=__assetLoadingStage;
@@ -56,14 +56,15 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, setter=_setFullsizeImageSize:) struct CGSize _fullsizeImageSize; // @synthesize _fullsizeImageSize=__fullsizeImageSize;
 @property(nonatomic, setter=_setFullsizeImageUntransformedSize:) struct CGSize _fullsizeImageUntransformedSize; // @synthesize _fullsizeImageUntransformedSize=__fullsizeImageUntransformedSize;
 @property(nonatomic, setter=_setFullsizeImageOrientation:) long long _fullsizeImageOrientation; // @synthesize _fullsizeImageOrientation=__fullsizeImageOrientation;
+@property(retain, nonatomic, setter=_setFullsizeImageURL:) NSURL *_fullsizeImageURL; // @synthesize _fullsizeImageURL=__fullsizeImageURL;
 @property(retain, nonatomic, setter=_setFullsizeImageData:) NSData *_fullsizeImageData; // @synthesize _fullsizeImageData=__fullsizeImageData;
 @property(readonly, nonatomic) UIImageView *_imageView; // @synthesize _imageView=__imageView;
 @property(nonatomic, setter=_setTargetSize:) struct CGSize _targetSize; // @synthesize _targetSize=__targetSize;
 @property(nonatomic, setter=_setNeedsUpdateFullsizeTiledLayer:) _Bool _needsUpdateFullsizeTiledLayer; // @synthesize _needsUpdateFullsizeTiledLayer=__needsUpdateFullsizeTiledLayer;
 @property(nonatomic, setter=_setNeedsUpdateFullsizeImageMetadata:) _Bool _needsUpdateFullsizeImageMetadata; // @synthesize _needsUpdateFullsizeImageMetadata=__needsUpdateFullsizeImageMetadata;
 @property(nonatomic, setter=_setNeedsUpdateImageView:) _Bool _needsUpdateImageView; // @synthesize _needsUpdateImageView=__needsUpdateImageView;
-@property(nonatomic, setter=_setNeedsUpdateImageAdjusterInput:) _Bool _needsUpdateImageAdjusterInput; // @synthesize _needsUpdateImageAdjusterInput=__needsUpdateImageAdjusterInput;
-@property(nonatomic, setter=_setNeedsUpdateImageAdjuster:) _Bool _needsUpdateImageAdjuster; // @synthesize _needsUpdateImageAdjuster=__needsUpdateImageAdjuster;
+@property(nonatomic, setter=_setNeedsUpdateImageLayerModulatorInput:) _Bool _needsUpdateImageLayerModulatorInput; // @synthesize _needsUpdateImageLayerModulatorInput=__needsUpdateImageLayerModulatorInput;
+@property(nonatomic, setter=_setNeedsUpdateImageLayerModulator:) _Bool _needsUpdateImageLayerModulator; // @synthesize _needsUpdateImageLayerModulator=__needsUpdateImageLayerModulator;
 @property(nonatomic, setter=_setNeedsUpdateImage:) _Bool _needsUpdateImage; // @synthesize _needsUpdateImage=__needsUpdateImage;
 @property(readonly, nonatomic) _Bool imageIsFullQuality; // @synthesize imageIsFullQuality=_imageIsFullQuality;
 @property(copy, nonatomic) UIColor *placeholderColor; // @synthesize placeholderColor=_placeholderColor;
@@ -74,7 +75,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) id <PUDisplayAsset> asset; // @synthesize asset=_asset;
 @property(retain, nonatomic) PUAssetViewModel *assetViewModel; // @synthesize assetViewModel=_assetViewModel;
 - (void).cxx_destruct;
-- (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)_handleAssetViewModel:(id)arg1 didChange:(id)arg2;
 - (void)viewModel:(id)arg1 didChange:(id)arg2;
 - (void)_cancelAllImageRequests;
@@ -87,17 +87,18 @@ __attribute__((visibility("hidden")))
 - (void)_updateAssetLoadingStage;
 - (void)_updateImageViewIfNeeded;
 - (void)_invalidateImageView;
-- (void)_updateImageAdjusterInputIfNeeded;
-- (void)_invalidateImageAdjusterInput;
-- (void)_updateImageAdjusterIfNeeded;
-- (void)_invalidateImageAdjuster;
+- (void)updateMutableImageLayerModulator:(id)arg1;
+- (void)_updateImageLayerModulatorInputIfNeeded;
+- (void)_invalidateImageLayerModulatorInput;
+- (void)_updateImageLayerModulatorIfNeeded;
+- (void)_invalidateImageLayerModulator;
 - (void)imageRequester:(id)arg1 didChange:(id)arg2;
 - (void)_updateImageIfNeeded;
 - (void)_invalidateImage;
 - (void)_updateIfNeeded;
 - (void)_setNeedsUpdate;
 - (_Bool)_needsUpdate;
-- (_Bool)shouldAvoidSnapshotting;
+- (_Bool)shouldAvoidInPlaceSnapshottedFadeOut;
 - (void)assetContentDidChange;
 - (void)assetDidChange;
 - (void)mediaProviderDidChange;

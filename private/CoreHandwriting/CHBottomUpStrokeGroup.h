@@ -26,8 +26,8 @@
 - (struct CGVector)averageWritingOrientation;
 - (struct CGVector)localWritingOrientationAtStrokeIndex:(long long)arg1;
 - (void)dealloc;
-- (id)groupByAddingStrokeIdentifiers:(id)arg1 removingStrokeIdentifiers:(id)arg2 bounds:(struct CGRect)arg3 startTimestamp:(double)arg4 endTimestamp:(double)arg5 writingDirectionSortedSubstrokes:(id)arg6 averageWritingOrientation:(struct CGVector)arg7 averageStrokeDeviation:(struct CGVector)arg8 writingDirectionSortedStrokeIdentifiers:(id)arg9 localStrokeWritingOrientations:(vector_892a0aec *)arg10;
-- (id)initWithStrokeIdentifiers:(id)arg1 bounds:(struct CGRect)arg2 startTimestamp:(double)arg3 endTimestamp:(double)arg4 writingDirectionSortedSubstrokes:(id)arg5 averageWritingOrientation:(struct CGVector)arg6 averageStrokeDeviation:(struct CGVector)arg7 writingDirectionSortedStrokeIdentifiers:(id)arg8 localStrokeWritingOrientations:(vector_892a0aec *)arg9;
+- (id)groupByAddingStrokeIdentifiers:(id)arg1 removingStrokeIdentifiers:(id)arg2 bounds:(struct CGRect)arg3 writingDirectionSortedSubstrokes:(id)arg4 averageWritingOrientation:(struct CGVector)arg5 averageStrokeDeviation:(struct CGVector)arg6 writingDirectionSortedStrokeIdentifiers:(id)arg7 localStrokeWritingOrientations:(vector_892a0aec *)arg8;
+- (id)initWithStrokeIdentifiers:(id)arg1 bounds:(struct CGRect)arg2 writingDirectionSortedSubstrokes:(id)arg3 averageWritingOrientation:(struct CGVector)arg4 averageStrokeDeviation:(struct CGVector)arg5 writingDirectionSortedStrokeIdentifiers:(id)arg6 localStrokeWritingOrientations:(vector_892a0aec *)arg7;
 
 @end
 

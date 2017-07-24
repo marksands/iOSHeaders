@@ -33,6 +33,7 @@
 - (struct UIEdgeInsets)tv_nonDirectionalMargin;
 - (struct UIEdgeInsets)tv_margin;
 - (struct UIEdgeInsets)tv_alignmentInsetsForExpectedWidth:(double)arg1;
+- (_Bool)tv_shouldReuseCachedSizeThatFits:(struct CGSize)arg1 previousTargetSize:(struct CGSize)arg2 newTargetSize:(struct CGSize)arg3;
 - (struct CGSize)tv_sizeThatFits:(struct CGSize)arg1 withSizeCalculation:(CDUnknownBlockType)arg2;
 - (struct CGSize)tv_sizeThatFits:(struct CGSize)arg1;
 - (void)transferLayoutStylesFromElement:(id)arg1;
@@ -40,7 +41,9 @@
 - (void)tv_setValue:(id)arg1 forTVViewTag:(id)arg2;
 - (id)valueForTVViewStyle:(id)arg1;
 - (void)setValue:(id)arg1 forTVViewStyle:(id)arg2;
+- (void)setPressed:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)didSelect;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2 withAnimationCoordinator:(id)arg3;
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 @end

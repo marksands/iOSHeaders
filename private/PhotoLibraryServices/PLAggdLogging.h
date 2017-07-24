@@ -11,6 +11,7 @@
 }
 
 + (void)performLibraryStatisticsLogging;
++ (void)performLibrarySummaryLogging:(id)arg1;
 + (void)performHyperionLocalResourcesLogging:(id)arg1;
 + (void)performAnalysisStateLogging:(id)arg1;
 + (void)performYearsStaticsLogging:(id)arg1;

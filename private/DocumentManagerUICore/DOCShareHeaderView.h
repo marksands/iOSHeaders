@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class DOCTagsLineView, NSArray, NSLayoutConstraint, NSString, UIButton, UIImage, UIImageView, UILabel;
+@class DOCStackedThumbnailView, DOCTagsLineView, NSArray, NSLayoutConstraint, NSString, UIButton, UILabel;
 @protocol DOCTagViewDelegate;
 
 @interface DOCShareHeaderView : UIView
@@ -15,7 +15,7 @@
     UIButton *_addTagButton;
     UILabel *_displayNameLabel;
     UILabel *_providerNameLabel;
-    UIImageView *_thumbnailView;
+    DOCStackedThumbnailView *_thumbnailView;
     DOCTagsLineView *_tagsView;
     NSArray *_addTagButtonIsNextToProviderNameConstraints;
     NSArray *_addTagButtonIsNextToTagsConstraints;
@@ -34,7 +34,7 @@
 @property(readonly, nonatomic) NSArray *addTagButtonIsNextToTagsConstraints; // @synthesize addTagButtonIsNextToTagsConstraints=_addTagButtonIsNextToTagsConstraints;
 @property(readonly, nonatomic) NSArray *addTagButtonIsNextToProviderNameConstraints; // @synthesize addTagButtonIsNextToProviderNameConstraints=_addTagButtonIsNextToProviderNameConstraints;
 @property(readonly, nonatomic) DOCTagsLineView *tagsView; // @synthesize tagsView=_tagsView;
-@property(readonly, nonatomic) UIImageView *thumbnailView; // @synthesize thumbnailView=_thumbnailView;
+@property(readonly, nonatomic) DOCStackedThumbnailView *thumbnailView; // @synthesize thumbnailView=_thumbnailView;
 @property(readonly, nonatomic) UILabel *providerNameLabel; // @synthesize providerNameLabel=_providerNameLabel;
 @property(readonly, nonatomic) UILabel *displayNameLabel; // @synthesize displayNameLabel=_displayNameLabel;
 @property(readonly, nonatomic) UIButton *addTagButton; // @synthesize addTagButton=_addTagButton;
@@ -42,7 +42,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *providerName;
 @property(retain, nonatomic) NSString *displayName;
-@property(retain, nonatomic) UIImage *thumbnail;
+@property(retain, nonatomic) NSArray *items;
 @property(nonatomic) _Bool showAddTagButton;
 @property(nonatomic) __weak id <DOCTagViewDelegate> delegate; // @dynamic delegate;
 - (void)updateThumbnailSize;

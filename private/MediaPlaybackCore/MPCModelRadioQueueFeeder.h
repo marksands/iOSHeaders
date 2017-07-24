@@ -13,6 +13,8 @@
 
 @interface MPCModelRadioQueueFeeder : MPQueueFeeder <MPRTCReportingItemSessionContaining>
 {
+    unsigned long long _backgroundTaskIdentifier;
+    unsigned long long _backgroundTasks;
     MPAVItem *_currentItem;
     id <MPAVItemQueueIdentifier> _lastCleanPlayedIdentifier;
     id <MPAVItemQueueIdentifier> _lastPlayedIdentifier;
@@ -38,17 +40,19 @@
 - (void)_loadTracksWithRequest:(id)arg1;
 - (void)_loadAdditionalItemsIfNeeded;
 - (long long)_indexOfAVItem:(id)arg1;
+- (void)_handlePersonalizationResponse:(id)arg1 personalizationError:(id)arg2 fromRequest:(id)arg3;
+- (void)_handleGetTracksResponse:(id)arg1 getTracksError:(id)arg2 fromRequest:(id)arg3;
 - (void)_failAfterRequest:(id)arg1 withError:(id)arg2;
 - (void)_endObservingIdentityStoreForSignOut;
+- (void)_endBackgroundTaskAssertion;
 - (void)_detectSignOutForIdentityStore:(id)arg1;
 - (id)_defaultGetTracksRequestWithContext:(id)arg1 radioStation:(id)arg2;
 - (void)_beginObservingIdentityStoreForSignOut;
+- (void)_beginBackgroundTaskAssertion;
 - (void)_responseDidInvalidateNotification:(id)arg1;
 - (void)_detectSignOutForIdentityStoreChangeNotification:(id)arg1;
 - (void)_allowsHighQualityMusicStreamingOnCellularDidChangeNotification:(id)arg1;
-- (long long)indexForItemID:(id)arg1;
-- (id)itemIDAtIndex:(long long)arg1;
-- (id)queueIdentifierForItemID:(id)arg1;
+- (_Bool)isPlaceholderItemForQueueIdentifier:(id)arg1;
 @property(readonly, copy, nonatomic) NSDictionary *rtcReportingSessionAdditionalUserInfo;
 @property(readonly, copy, nonatomic) NSString *rtcReportingPlayQueueSourceIdentifier;
 - (_Bool)isRadioQueueFeeder;
@@ -65,6 +69,7 @@
 - (void)player:(id)arg1 currentItemDidChangeToItem:(id)arg2;
 - (unsigned long long)itemCount;
 - (Class)itemClass;
+- (unsigned long long)initialPlaybackQueueDepthForStartingIndex:(unsigned long long)arg1;
 - (unsigned long long)indexOfItemWithIdentifier:(id)arg1;
 - (id)identifierAtIndex:(unsigned long long)arg1;
 - (_Bool)hasValidItemAtIndex:(unsigned long long)arg1;

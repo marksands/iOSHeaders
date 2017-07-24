@@ -9,7 +9,7 @@
 #import <SafariServices/_SFDialogViewPresenting-Protocol.h>
 #import <SafariServices/_SFKillWebContentProcessUIActivityDelegate-Protocol.h>
 
-@class NSString, NSTimer, UIImageView, _SFDialogView;
+@class NSString, NSTimer, UIImageView, UIView, _SFDialogView;
 @protocol _SFWebViewDelegate;
 
 @interface _SFWebView : WKWebView <_SFDialogViewPresenting, _SFKillWebContentProcessUIActivityDelegate>
@@ -19,9 +19,11 @@
     NSTimer *_placeholderViewRemovalTimer;
     long long _navigationGesturePolicy;
     id <_SFWebViewDelegate> _delegate;
+    UIView *_clippingView;
     struct UIEdgeInsets _hitTestInsets;
 }
 
+@property(nonatomic) __weak UIView *clippingView; // @synthesize clippingView=_clippingView;
 @property(nonatomic) __weak id <_SFWebViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long navigationGesturePolicy; // @synthesize navigationGesturePolicy=_navigationGesturePolicy;
 @property(nonatomic) struct UIEdgeInsets hitTestInsets; // @synthesize hitTestInsets=_hitTestInsets;
@@ -34,8 +36,10 @@
 - (void)setPlaceholderImage:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *evOrganizationName;
 - (struct __SecTrust *)_serverTrust;
+- (_Bool)becomeFirstResponder;
 - (void)layoutSubviews;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (id)_enclosingViewForExposedRectComputation;
 - (void)_close;
 - (void)_setObscuredInsets:(struct UIEdgeInsets)arg1;
 - (void)setAllowsBackForwardNavigationGestures:(_Bool)arg1;

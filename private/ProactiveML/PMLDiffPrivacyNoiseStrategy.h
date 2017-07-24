@@ -29,6 +29,7 @@
 - (id)toPlistWithChunks:(id)arg1;
 - (void)addNoiseToSparseMatrix:(id)arg1;
 - (void)addNoiseToSparseVector:(id)arg1;
+- (void)addNoiseToDenseVector:(id)arg1;
 - (void)addNoiseToObjectiveFeatures:(id)arg1;
 - (void)addNoiseToFeatureMatrix:(id)arg1;
 - (void)addNoiseToGradient:(id)arg1;

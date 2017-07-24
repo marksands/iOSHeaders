@@ -15,6 +15,7 @@
 - (void)FPUniversalBookmarkableStringFromDocumentURL:(NSURL *)arg1 completionHandler:(void (^)(NSString *, NSError *))arg2;
 - (void)FPValuesForAttributes:(NSArray *)arg1 forItemAtURL:(NSURL *)arg2 completionHandler:(void (^)(NSDictionary *, NSError *))arg3;
 - (_Bool)FPCanMoveItems:(NSArray *)arg1 toFolderItem:(FPItem *)arg2;
+- (void)FPFileProviderServiceEndpointCreatingForItemAtURL:(NSURL *)arg1 completionHandler:(void (^)(id <NSXPCProxyCreating><NSFileProviderServiceEndpointCreating>, NSArray *, void (^)(void), NSError *))arg2;
 - (void)FPFetchProxyFactoryEndpointForMessageInterface:(NSFileProviderMessageInterface *)arg1 completionHandler:(void (^)(NSXPCListenerEndpoint *, void (^)(void), NSError *))arg2;
 - (void)FPMessageInterfacesForItemAtURL:(NSURL *)arg1 completionHandler:(void (^)(NSArray *, NSError *))arg2;
 - (void)FPExtendBookmarkForDocumentURL:(NSURL *)arg1 forBundleID:(NSString *)arg2 completionHandler:(void (^)(NSString *, NSError *))arg3;

@@ -14,8 +14,14 @@
     NSString *_text;
     id _location;
     UIColor *_labelColor;
+    UIColor *_shadowColor;
+    double _shadowBlur;
+    struct CGSize _shadowOffset;
 }
 
+@property(nonatomic) double shadowBlur; // @synthesize shadowBlur=_shadowBlur;
+@property(nonatomic) struct CGSize shadowOffset; // @synthesize shadowOffset=_shadowOffset;
+@property(nonatomic) UIColor *shadowColor; // @synthesize shadowColor=_shadowColor;
 @property(retain, nonatomic) UIColor *labelColor; // @synthesize labelColor=_labelColor;
 @property(nonatomic) _Bool useReversePlacement; // @synthesize useReversePlacement=_useReversePlacement;
 @property(retain, nonatomic) id location; // @synthesize location=_location;

@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSString, PLMutablePTPAsset, PLPTPAsset;
+@class NSArray, NSMutableArray, NSString, PLMutablePTPAsset, PLPTPAsset;
 @protocol PLFileManager, PLPTPConversionSupport, PLPTPTransferableAsset;
 
 @interface PLPTPAssetBuilder : NSObject
@@ -23,11 +23,11 @@
     PLPTPAsset *_originalAdjustmentPtpAsset;
     PLPTPAsset *_fullSizeRenderImagePtpAsset;
     PLPTPAsset *_fullSizeRenderVideoPtpAsset;
+    NSMutableArray *_convertedAssets;
 }
 
 + (_Bool)_shouldIncludeDiagnosticFile;
 + (id)pictureTransferProtocolAssetsForAsset:(id)arg1 withConversionSupport:(id)arg2;
-+ (id)_ptpCalendar;
 - (void).cxx_destruct;
 - (void)_buildFullSizeRenderVideoAsset;
 - (void)_buildFullSizeRenderImageAsset;
@@ -55,6 +55,8 @@
 - (void)_buildExifAvailable;
 - (_Bool)_buildDirectoryPathAndFilename;
 - (_Bool)_suppressPtpInfo;
+- (void)_updateAsset:(id)arg1 withConversionResult:(id)arg2;
+- (void)_updateAssetForTranscodeChoice:(id)arg1 withConversionResult:(id)arg2;
 - (void)updateAssetForFormatConversion:(id)arg1 isVideo:(_Bool)arg2 isRender:(_Bool)arg3;
 - (_Bool)_buildOriginalAsset;
 - (void)_buildCommonAsset;

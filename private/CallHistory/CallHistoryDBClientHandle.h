@@ -48,6 +48,7 @@
 - (_Bool)createCallRecord:(id)arg1 error:(id *)arg2 save:(_Bool)arg3;
 - (_Bool)createCallRecord:(id)arg1 error:(id *)arg2;
 - (_Bool)createCallRecord:(id)arg1;
+- (id)deleteWithPredicate:(id)arg1;
 - (_Bool)deleteObjectsWithUniqueIds:(id)arg1 error:(id *)arg2;
 - (_Bool)deleteObjectsWithUniqueIds:(id)arg1;
 - (_Bool)deleteObjectWithUniqueId:(id)arg1 error:(id *)arg2 save:(_Bool)arg3;

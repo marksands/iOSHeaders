@@ -6,13 +6,15 @@
 
 #import <UIKit/UIView.h>
 
-@class NSMutableArray, UIButton;
+@class NSLayoutConstraint, NSMutableArray, UIButton;
 
 @interface PKPaymentAuthorizationPasswordButtonView : UIView
 {
     UIView *_separatorView;
     NSMutableArray *_hiddenConstraints;
-    NSMutableArray *_regularConstraints;
+    NSLayoutConstraint *_buttonTopPaddingConstraint;
+    NSLayoutConstraint *_buttonBottomPaddingConstraint;
+    NSLayoutConstraint *_seperatorHeightConstraint;
     UIButton *_passwordButton;
 }
 
@@ -20,6 +22,7 @@
 - (void).cxx_destruct;
 - (void)_setupConstraints;
 - (void)setHidden:(_Bool)arg1;
+- (void)updateConstraints;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

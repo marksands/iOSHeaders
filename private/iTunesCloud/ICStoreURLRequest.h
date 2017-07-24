@@ -19,6 +19,7 @@
     ICJSSignConfiguration *_JSSignConfiguration;
 }
 
++ (id)currentConnectionTypeHeader;
 @property(copy, nonatomic) ICJSSignConfiguration *JSSignConfiguration; // @synthesize JSSignConfiguration=_JSSignConfiguration;
 @property(copy, nonatomic) NSDictionary *additionalHTTPCookies; // @synthesize additionalHTTPCookies=_additionalHTTPCookies;
 @property(copy, nonatomic) NSString *machineDataSyncState; // @synthesize machineDataSyncState=_machineDataSyncState;
@@ -29,7 +30,6 @@
 - (void).cxx_destruct;
 - (id)_stringForCachePolicy:(unsigned long long)arg1;
 - (void)_getSignatureDataForRequest:(id)arg1 urlBag:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (id)_currentConnectionType;
 - (void)buildStoreURLRequestWithURLRequest:(id)arg1 builderProperties:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(readonly, copy, nonatomic) ICStoreRequestContext *storeRequestContext;
 - (void)buildURLRequestWithCompletionHandler:(CDUnknownBlockType)arg1;

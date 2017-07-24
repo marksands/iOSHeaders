@@ -61,7 +61,7 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (void)dealloc;
 - (id)initWithShape:(id)arg1;
-- (id)_copyForDirection:(long long)arg1 positionFactor:(double)arg2 sizeFactor:(double)arg3 scale:(double)arg4;
+- (id)_copyForDirection:(long long)arg1 positionFactor:(double)arg2 inwardSizeFactor:(double)arg3 outwardSizeFactor:(double)arg4 perpendicularSizeFactor:(double)arg5 sizeAspectRatio:(double)arg6 scale:(double)arg7;
 - (id)copyForPopupDirection:(long long)arg1 scale:(double)arg2;
 - (id)copyForFlickDirection:(long long)arg1 scale:(double)arg2;
 - (void)applyOffset:(struct CGPoint)arg1;

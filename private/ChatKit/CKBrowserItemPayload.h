@@ -12,6 +12,7 @@
 @interface CKBrowserItemPayload : IMPluginPayload
 {
     _Bool _requiresValidation;
+    _Bool _useDirectSend;
     NSURL *_videoComplementFileURL;
     UIViewController<CKPluginEntryViewController> *_photoShelfViewController;
     NSURL *_fileURL;
@@ -26,6 +27,7 @@
 @property(retain, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(retain, nonatomic) UIViewController<CKPluginEntryViewController> *photoShelfViewController; // @synthesize photoShelfViewController=_photoShelfViewController;
 @property(retain, nonatomic) NSURL *videoComplementFileURL; // @synthesize videoComplementFileURL=_videoComplementFileURL;
+@property(nonatomic) _Bool useDirectSend; // @synthesize useDirectSend=_useDirectSend;
 @property(nonatomic) _Bool requiresValidation; // @synthesize requiresValidation=_requiresValidation;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;

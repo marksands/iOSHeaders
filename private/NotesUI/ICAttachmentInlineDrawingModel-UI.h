@@ -6,13 +6,16 @@
 
 #import <NotesShared/ICAttachmentInlineDrawingModel.h>
 
-@class PKDrawing;
+@class NSObject, PKDrawing;
+@protocol OS_dispatch_queue;
 
 @interface ICAttachmentInlineDrawingModel (UI)
 - (void)titleQuery:(id)arg1 didUpdateWithItem:(id)arg2;
 - (void)setTitleQuery:(id)arg1;
 - (id)titleQuery;
 @property(nonatomic, getter=isTitleQueryEnabled) _Bool titleQueryEnabled;
+- (void)setHandwritingRecognitionDrawingQueue:(id)arg1;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *handwritingRecognitionDrawingQueue;
 - (void)setHandwritingRecognitionDrawing:(id)arg1;
 @property(readonly, nonatomic) PKDrawing *handwritingRecognitionDrawing;
 @property(nonatomic, getter=isHandwritingRecognitionEnabled) _Bool handwritingRecognitionEnabled;

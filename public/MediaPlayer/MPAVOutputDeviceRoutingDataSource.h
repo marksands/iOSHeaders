@@ -6,20 +6,33 @@
 
 #import <MediaPlayer/MPAVRoutingDataSource.h>
 
-@class MPAVEndpointRoutingDataSource;
+@class NSLock, NSMapTable, NSObject, NSString;
+@protocol OS_dispatch_queue;
 
 @interface MPAVOutputDeviceRoutingDataSource : MPAVRoutingDataSource
 {
-    MPAVEndpointRoutingDataSource *_endpointDataSource;
+    NSMapTable *_cachedOutputDevices;
+    NSObject<OS_dispatch_queue> *_serialQueue;
+    void *_applicationOutputContext;
+    NSLock *_applicationOutputContextLock;
+    void *_discoverySession;
+    void *_callbackToken;
 }
 
 - (void).cxx_destruct;
-- (id)_flattenedRoutes:(id)arg1;
-- (void)_endpointsDidChange:(id)arg1;
+- (void)_outputDevicesDidChange:(id)arg1;
+- (void)_unregisterNotifications;
+- (void)_registerNotifications;
+- (void *)_copyApplicationOutputContext;
+- (void *)_createDefaultApplicationOutputContext;
+- (void)_outputDevicesDidChangeNotification:(id)arg1;
+- (void)_endpointsDidChangeNotification:(id)arg1;
 - (void)setPickedRoute:(id)arg1 withPassword:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)getRoutesForCategory:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (_Bool)devicePresenceDetected;
 - (void)setDiscoveryMode:(long long)arg1;
 - (long long)discoveryMode;
+@property(copy, nonatomic) NSString *routingContextUID;
 - (void)dealloc;
 - (id)init;
 

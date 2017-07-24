@@ -19,15 +19,14 @@
     _Bool _forceAuthentication;
     NSString *_channelIdentifier;
     NSArray *_supportedAccountProviderIdentifiers;
+    NSArray *_featuredAccountProviderIdentifiers;
     NSString *_verificationToken;
     NSString *_localizedVideoTitle;
     NSArray *_attributeNames;
     NSArray *_supportedAuthenticationSchemes;
-    NSArray *_featuredAccountProviderIdentifiers;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSArray *featuredAccountProviderIdentifiers; // @synthesize featuredAccountProviderIdentifiers=_featuredAccountProviderIdentifiers;
 @property(copy, nonatomic) NSArray *supportedAuthenticationSchemes; // @synthesize supportedAuthenticationSchemes=_supportedAuthenticationSchemes;
 @property(copy, nonatomic) NSArray *attributeNames; // @synthesize attributeNames=_attributeNames;
 @property(nonatomic) _Bool forceAuthentication; // @synthesize forceAuthentication=_forceAuthentication;
@@ -36,6 +35,7 @@
 @property(nonatomic) _Bool includeAuthenticationExpirationDate; // @synthesize includeAuthenticationExpirationDate=_includeAuthenticationExpirationDate;
 @property(nonatomic) _Bool includeAccountProviderIdentifier; // @synthesize includeAccountProviderIdentifier=_includeAccountProviderIdentifier;
 @property(copy, nonatomic) NSString *verificationToken; // @synthesize verificationToken=_verificationToken;
+@property(copy, nonatomic) NSArray *featuredAccountProviderIdentifiers; // @synthesize featuredAccountProviderIdentifiers=_featuredAccountProviderIdentifiers;
 @property(copy, nonatomic) NSArray *supportedAccountProviderIdentifiers; // @synthesize supportedAccountProviderIdentifiers=_supportedAccountProviderIdentifiers;
 @property(copy, nonatomic) NSString *channelIdentifier; // @synthesize channelIdentifier=_channelIdentifier;
 - (void).cxx_destruct;

@@ -32,7 +32,7 @@
 - (void)_webProcessPlugInBrowserContextController:(id)arg1 textDidChangeInTextField:(id)arg2 inFrame:(id)arg3 initiatedByUserTyping:(_Bool)arg4;
 - (void)didFindSearchURLTemplateString:(id)arg1 inFrame:(id)arg2 pageController:(id)arg3;
 - (_Bool)shouldAttemptToClassifyFormsWithoutAPasswordFieldAsLoginForms;
-- (_Bool)shouldIncludeUnannotatedControls;
+- (_Bool)shouldIncludeNonEmptyFields;
 - (void)didSameDocumentNavigation:(long long)arg1 inFrame:(id)arg2;
 - (_Bool)didStartProvisionalLoadForFrame:(id)arg1;
 - (_Bool)_willNavigateFrameWithUnsubmittedForm:(id)arg1 loadingWillBeDeferred:(_Bool)arg2;

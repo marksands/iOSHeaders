@@ -6,13 +6,14 @@
 
 #import <PassKitUI/PKPaymentSetupTableViewController.h>
 
+#import <PassKitUI/PKNavigationItemController-Protocol.h>
 #import <PassKitUI/PKPaymentSetupFieldCellDelegate-Protocol.h>
 #import <PassKitUI/UITextFieldDelegate-Protocol.h>
 
 @class NSArray, NSMapTable, NSString, PKPaymentSetupFieldsModel, PKPaymentWebService, PKTableHeaderView;
 @protocol PKPaymentSetupViewControllerDelegate;
 
-@interface PKPaymentSetupFieldsViewController : PKPaymentSetupTableViewController <UITextFieldDelegate, PKPaymentSetupFieldCellDelegate>
+@interface PKPaymentSetupFieldsViewController : PKPaymentSetupTableViewController <UITextFieldDelegate, PKPaymentSetupFieldCellDelegate, PKNavigationItemController>
 {
     PKTableHeaderView *_headerView;
     _Bool _hasScrolledToShowFields;
@@ -23,6 +24,7 @@
     NSArray *_rightBarButtonItems;
     _Bool _navigationEnabled;
     _Bool _rightBarButtonItemsEnabled;
+    _Bool _hidesBackButton;
     _Bool _showingActivitySpinner;
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
     PKPaymentWebService *_webService;
@@ -57,11 +59,12 @@
 - (void)_setRightBarButtonItems:(id)arg1 animated:(_Bool)arg2;
 - (void)_setLeftBarButtonItems:(id)arg1 animated:(_Bool)arg2;
 - (void)_setRightBarButtonItemsEnabled:(_Bool)arg1;
-- (void)_setNavigationBarEnabled:(_Bool)arg1;
+- (void)_setNavigationBarEnabled:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setHidesBackButton:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_setIdleTimerDisabled:(_Bool)arg1 title:(id)arg2 subtitle:(id)arg3;
 - (void)setHeaderViewTitle:(id)arg1 subtitle:(id)arg2;
-- (void)_setTableViewHeaderActivitySpinnerAnimated:(_Bool)arg1 title:(id)arg2 subtitle:(id)arg3;
-- (void)hideActivitySpinnerWithTitle:(id)arg1 subtitle:(id)arg2;
+- (void)_setTableViewHeaderActivityIndicatorActive:(_Bool)arg1 title:(id)arg2 subtitle:(id)arg3 animated:(_Bool)arg4;
+- (void)hideActivitySpinnerWithTitle:(id)arg1 subtitle:(id)arg2 animated:(_Bool)arg3;
 - (void)hideActivitySpinner;
 - (void)showActivitySpinnerWithTitle:(id)arg1 subtitle:(id)arg2;
 - (void)handleNextActionError:(id)arg1 shouldContinue:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;

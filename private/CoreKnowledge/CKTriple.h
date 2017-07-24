@@ -13,6 +13,7 @@
     // Error parsing type: , name: value
 }
 
++ (_Bool)supportsSecureCoding;
 - (CDUnknownBlockType).cxx_destruct;
 - (id)init;
 - (id)dictionary;

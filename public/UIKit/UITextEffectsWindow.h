@@ -17,6 +17,7 @@
     double _defaultWindowLevel;
     struct CGPoint _hostedWindowOffset;
     NSDictionary *_perScreenOptions;
+    UIScreen *__intendedScreen;
     unsigned long long _activeRemoteViewCount;
     unsigned long long _windowLevelCount;
     double _windowLevelStack[5];

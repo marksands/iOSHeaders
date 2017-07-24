@@ -16,12 +16,13 @@
     UNNotificationServiceExtension *_extensionInstance;
 }
 
++ (void)initialize;
 @property(retain, nonatomic) UNNotificationServiceExtension *extensionInstance; // @synthesize extensionInstance=_extensionInstance;
 - (void).cxx_destruct;
 - (id)_stageAttachmentsForNotificationContent:(id)arg1;
 - (void)serviceExtensionTimeWillExpire;
 - (void)didReceiveNotificationRequest:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (id)init;
+- (id)initWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 contextUUID:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

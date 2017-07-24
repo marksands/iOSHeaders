@@ -6,7 +6,7 @@
 
 #import <AssistantUI/NSObject-Protocol.h>
 
-@class NSError, NSString, VSInstrumentMetrics, VSPresynthesizedAudioRequest, VSSpeechRequest, VSSpeechSynthesizer;
+@class NSArray, NSError, NSString, VSInstrumentMetrics, VSPresynthesizedAudioRequest, VSSpeechRequest, VSSpeechSynthesizer;
 
 @protocol VSSpeechSynthesizerDelegate <NSObject>
 
@@ -23,6 +23,7 @@
 - (void)speechSynthesizer:(VSSpeechSynthesizer *)arg1 didFinishSpeakingRequest:(VSSpeechRequest *)arg2 withInstrumentMetrics:(VSInstrumentMetrics *)arg3;
 - (void)speechSynthesizer:(VSSpeechSynthesizer *)arg1 didFinishSpeakingRequest:(VSSpeechRequest *)arg2 successfully:(_Bool)arg3 phonemesSpoken:(NSString *)arg4 withError:(NSError *)arg5;
 - (void)speechSynthesizer:(VSSpeechSynthesizer *)arg1 didFinishSpeakingRequest:(VSSpeechRequest *)arg2 successfully:(_Bool)arg3 withError:(NSError *)arg4;
+- (void)speechSynthesizer:(VSSpeechSynthesizer *)arg1 withRequest:(VSSpeechRequest *)arg2 didReceiveTimingInfo:(NSArray *)arg3;
 - (void)speechSynthesizer:(VSSpeechSynthesizer *)arg1 didStartSpeakingRequest:(VSSpeechRequest *)arg2;
 - (void)speechSynthesizer:(VSSpeechSynthesizer *)arg1 willSpeakRangeOfSpeechString:(struct _NSRange)arg2;
 - (void)speechSynthesizerDidContinueSpeaking:(VSSpeechSynthesizer *)arg1;

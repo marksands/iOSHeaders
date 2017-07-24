@@ -19,6 +19,8 @@
 @property(retain) SFSearchResult *identifyingResult; // @synthesize identifyingResult=_identifyingResult;
 @property(retain) SFCardSection *cardSection; // @synthesize cardSection=_cardSection;
 - (void).cxx_destruct;
+- (double)leadingSeparatorImageInset;
+- (int)separatorStyle;
 - (id)dragAppBundleID;
 - (id)dragURL;
 - (id)dragText;
@@ -27,10 +29,12 @@
 - (_Bool)isDraggable;
 - (_Bool)isTappable;
 - (id)nextCard;
+- (_Bool)anyInlineCardSectionsHaveNextCards;
 - (Class)viewClass;
-- (_Bool)_isSuggestionSection;
+- (_Bool)isSuggestion;
 - (id)reuseIdentifier;
 - (id)punchouts;
+- (_Bool)anyInlineCardSectionsHavePunchouts;
 - (id)initWithResult:(id)arg1 cardSection:(id)arg2;
 
 // Remaining properties

@@ -34,6 +34,7 @@
 - (void)fadeToCurtainViewWithDuration:(double)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)hideCurtainView;
 - (void)showCurtainView;
+- (void)videoPlayerViewDidFinishPlayingVideoToEnd:(id)arg1;
 - (void)videoPlayerViewDidPauseAfterPlayingVideoToEnd:(id)arg1;
 - (void)videoPlayerViewDidBeginPlaying:(id)arg1;
 - (void)_reset;

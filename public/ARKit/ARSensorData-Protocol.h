@@ -7,5 +7,6 @@
 #import <ARKit/ARData-Protocol.h>
 
 @protocol ARSensorData <ARData>
+@property(nonatomic) double timestamp;
 @end
 

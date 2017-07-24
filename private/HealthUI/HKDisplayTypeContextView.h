@@ -10,12 +10,13 @@
 #import <HealthUI/UICollectionViewDataSource-Protocol.h>
 #import <HealthUI/UICollectionViewDelegate-Protocol.h>
 
-@class HKDisplayTypeContextItem, NSArray, NSLayoutConstraint, NSString, UICollectionView;
+@class HKDisplayTypeContextItem, HKHorizontalFlowLayout, NSArray, NSLayoutConstraint, NSString, UICollectionView;
 @protocol HKDisplayTypeContextViewDelegate;
 
 @interface HKDisplayTypeContextView : UIView <UICollectionViewDataSource, UICollectionViewDelegate, HKDisplayTypeContextCollectionViewCellDelegate>
 {
     UICollectionView *_collectionView;
+    HKHorizontalFlowLayout *_collectionViewLayout;
     NSLayoutConstraint *_collectionHeightConstraint;
     HKDisplayTypeContextItem *_selectedDisplayTypeContextItem;
     NSArray *_displayTypeContextItems;

@@ -6,6 +6,8 @@
 
 #import <iWorkImport/TSWPShapeLayout.h>
 
+@class TSWPLinkedLayout;
+
 __attribute__((visibility("hidden")))
 @interface TSWPLinkedTextBoxLayout : TSWPShapeLayout
 {
@@ -13,6 +15,10 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) unsigned long long indexInFlow; // @synthesize indexInFlow=_indexInFlow;
+- (void)i_invalidateWrap;
+
+// Remaining properties
+@property(readonly, nonatomic) TSWPLinkedLayout *containedLayout; // @dynamic containedLayout;
 
 @end
 

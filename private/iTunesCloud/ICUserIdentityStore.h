@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <iTunesCloud/ICUserIdentityStoreBackendDelegate-Protocol.h>
 #import <iTunesCloud/NSSecureCoding-Protocol.h>
 
-@class ACAccountStore, ICDelegateAccountStore, ICDelegateAccountStoreOptions, ICUserIdentityStoreCoding, ICValueHistory, NSError;
+@class ACAccountStore, ICDelegateAccountStore, ICDelegateAccountStoreOptions, ICUserIdentityStoreCoding, ICValueHistory, NSError, NSString;
 @protocol ICUserIdentityStoreBackend, OS_dispatch_queue;
 
-@interface ICUserIdentityStore : NSObject <NSSecureCoding>
+@interface ICUserIdentityStore : NSObject <ICUserIdentityStoreBackendDelegate, NSSecureCoding>
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     ACAccountStore *_accountStore;
@@ -50,7 +51,7 @@
 - (void)_reloadForExternalChange;
 - (void)_prepareDelegateAccountStoreWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)_delegateAccountStorePath;
-- (void)_ACAccountStoreDidChange:(id)arg1;
+- (void)userIdentityStoreBackendDidChange:(id)arg1;
 - (void)updatePropertiesForUserIdentity:(id)arg1 usingBlock:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)updatePropertiesForUserIdentity:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)synchronizeWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -74,6 +75,12 @@
 - (void)dealloc;
 - (id)_initWithStyle:(long long)arg1 delegateAccountStoreOptions:(id)arg2;
 - (id)_initCommon;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

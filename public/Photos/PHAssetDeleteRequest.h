@@ -9,10 +9,10 @@
 @interface PHAssetDeleteRequest : PHObjectDeleteRequest
 {
     _Bool _clientEntitledToExpunge;
-    _Bool _expunged;
+    long long _operation;
 }
 
-@property(nonatomic, getter=isExpunged) _Bool expunged; // @synthesize expunged=_expunged;
+@property(nonatomic) long long operation; // @synthesize operation=_operation;
 - (void)deleteManagedObject:(id)arg1 photoLibrary:(id)arg2;
 - (void)encodeToXPCDict:(id)arg1;
 - (id)initWithXPCDict:(id)arg1 clientEntitlements:(id)arg2 clientName:(id)arg3 clientBundleID:(id)arg4 clientProcessID:(int)arg5;

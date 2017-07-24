@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
     _Bool _supportsContainedTextEditing;
     _Bool _showsCellEditingToolbar;
+    _Bool _supportsAutomaticNumberKeyboard;
     _Bool _beginEditingOnSingleTap;
     _Bool _supportsMergedCells;
     _Bool _supportsHiddenCells;
@@ -30,7 +31,7 @@ __attribute__((visibility("hidden")))
     _Bool _cornersCanDragResize;
     _Bool _supportsControlCells;
     _Bool _controlCellUIAlwaysVisible;
-    _Bool _supportsTableContextMenu;
+    _Bool _supportsActionMenu;
     _Bool _hasLargerFonts;
     _Bool _supportsFrozenHeaders;
     _Bool _supportsAutoResizedTables;
@@ -75,6 +76,7 @@ __attribute__((visibility("hidden")))
     _Bool _supportsPlaceholderGeometry;
     _Bool _supportsStockUI;
     _Bool _shouldZoomOutOnEndEditing;
+    _Bool _forceZoomInOnBeginEditing;
     unsigned int _maxNumberOfRows;
     unsigned int _maxNumberOfColumns;
     unsigned int _maxNumberOfPopulatedCells;
@@ -82,6 +84,7 @@ __attribute__((visibility("hidden")))
 
 + (void)resetSharedTableConfiguration;
 + (id)sharedTableConfiguration;
+@property(nonatomic) _Bool forceZoomInOnBeginEditing; // @synthesize forceZoomInOnBeginEditing=_forceZoomInOnBeginEditing;
 @property(nonatomic) _Bool shouldZoomOutOnEndEditing; // @synthesize shouldZoomOutOnEndEditing=_shouldZoomOutOnEndEditing;
 @property(nonatomic) _Bool supportsStockUI; // @synthesize supportsStockUI=_supportsStockUI;
 @property(nonatomic) _Bool supportsPlaceholderGeometry; // @synthesize supportsPlaceholderGeometry=_supportsPlaceholderGeometry;
@@ -126,7 +129,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool supportsAutoResizedTables; // @synthesize supportsAutoResizedTables=_supportsAutoResizedTables;
 @property(nonatomic) _Bool supportsFrozenHeaders; // @synthesize supportsFrozenHeaders=_supportsFrozenHeaders;
 @property(nonatomic) _Bool hasLargerFonts; // @synthesize hasLargerFonts=_hasLargerFonts;
-@property(nonatomic) _Bool supportsTableContextMenu; // @synthesize supportsTableContextMenu=_supportsTableContextMenu;
+@property(nonatomic) _Bool supportsActionMenu; // @synthesize supportsActionMenu=_supportsActionMenu;
 @property(nonatomic) _Bool controlCellUIAlwaysVisible; // @synthesize controlCellUIAlwaysVisible=_controlCellUIAlwaysVisible;
 @property(nonatomic) _Bool supportsControlCells; // @synthesize supportsControlCells=_supportsControlCells;
 @property(nonatomic) _Bool cornersCanDragResize; // @synthesize cornersCanDragResize=_cornersCanDragResize;
@@ -146,6 +149,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool supportsHiddenCells; // @synthesize supportsHiddenCells=_supportsHiddenCells;
 @property(nonatomic) _Bool supportsMergedCells; // @synthesize supportsMergedCells=_supportsMergedCells;
 @property(nonatomic) _Bool beginEditingOnSingleTap; // @synthesize beginEditingOnSingleTap=_beginEditingOnSingleTap;
+@property(nonatomic) _Bool supportsAutomaticNumberKeyboard; // @synthesize supportsAutomaticNumberKeyboard=_supportsAutomaticNumberKeyboard;
 @property(nonatomic) _Bool showsCellEditingToolbar; // @synthesize showsCellEditingToolbar=_showsCellEditingToolbar;
 @property(nonatomic) _Bool supportsContainedTextEditing; // @synthesize supportsContainedTextEditing=_supportsContainedTextEditing;
 @property(nonatomic) unsigned int maxNumberOfPopulatedCells; // @synthesize maxNumberOfPopulatedCells=_maxNumberOfPopulatedCells;

@@ -6,8 +6,8 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class NSArray, UIDragItem, UIDropInteraction, UIDropProposal, UITargetedDragPreview, UIWebDocumentView;
-@protocol UIDragAnimating, UIDropSession;
+@class NSArray, UIDragInteraction, UIDragItem, UIDropInteraction, UIDropProposal, UITargetedDragPreview, UIWebDocumentView;
+@protocol UIDragAnimating, UIDragSession, UIDropSession;
 
 @protocol UIWebDraggingDelegate <NSObject>
 
@@ -16,10 +16,16 @@
 - (void)_webView:(UIWebDocumentView *)arg1 dropInteraction:(UIDropInteraction *)arg2 concludeDrop:(id <UIDropSession>)arg3;
 - (void)_webView:(UIWebDocumentView *)arg1 dropInteraction:(UIDropInteraction *)arg2 item:(UIDragItem *)arg3 willAnimateDropWithAnimator:(id <UIDragAnimating>)arg4;
 - (UIDropProposal *)_webView:(UIWebDocumentView *)arg1 willUpdateDropProposalToProposal:(UIDropProposal *)arg2 forSession:(id)arg3;
+- (void)_webView:(UIWebDocumentView *)arg1 sessionDidExit:(id <UIDropSession>)arg2;
+- (void)_webView:(UIWebDocumentView *)arg1 sessionDidEnter:(id <UIDropSession>)arg2;
 - (void)_webView:(UIWebDocumentView *)arg1 dropWasHandled:(_Bool)arg2 forSession:(id)arg3 itemProviders:(NSArray *)arg4;
 - (UITargetedDragPreview *)_webView:(UIWebDocumentView *)arg1 previewForDroppingItem:(UIDragItem *)arg2 withDefault:(UITargetedDragPreview *)arg3;
+- (UITargetedDragPreview *)_webView:(UIWebDocumentView *)arg1 previewForCancellingItem:(UIDragItem *)arg2 withDefault:(UITargetedDragPreview *)arg3;
+- (UITargetedDragPreview *)_webView:(UIWebDocumentView *)arg1 previewForLiftingItem:(UIDragItem *)arg2 session:(id <UIDragSession>)arg3;
 - (_Bool)_webView:(UIWebDocumentView *)arg1 performDropWithSession:(id <UIDropSession>)arg2;
+- (NSArray *)_webView:(UIWebDocumentView *)arg1 willPerformDropWithSession:(id <UIDropSession>)arg2;
 - (_Bool)_webView:(UIWebDocumentView *)arg1 performDropWithItemProviders:(NSArray *)arg2;
+- (void)_webView:(UIWebDocumentView *)arg1 dragInteraction:(UIDragInteraction *)arg2 willAnimateLiftWithAnimator:(id <UIDragAnimating>)arg3 session:(id <UIDragSession>)arg4;
 - (NSArray *)_webView:(UIWebDocumentView *)arg1 adjustedItemProviders:(NSArray *)arg2;
 @end
 

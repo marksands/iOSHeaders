@@ -8,26 +8,36 @@
 
 #import <CoreParsec/NSSecureCoding-Protocol.h>
 #import <CoreParsec/_CPEndNetworkSearchFeedback-Protocol.h>
+#import <CoreParsec/_CPFeedbackUUID-Protocol.h>
 #import <CoreParsec/_CPProcessableFeedback-Protocol.h>
 
-@class NSData, NSDictionary, NSString;
+@class NSData, NSDictionary, NSString, _CPStruct;
 
-@interface _CPEndNetworkSearchFeedback : PBCodable <_CPProcessableFeedback, _CPEndNetworkSearchFeedback, NSSecureCoding>
+@interface _CPEndNetworkSearchFeedback : PBCodable <_CPProcessableFeedback, _CPFeedbackUUID, _CPEndNetworkSearchFeedback, NSSecureCoding>
 {
     struct {
         unsigned int timestamp:1;
         unsigned int responseSize:1;
         unsigned int statusCode:1;
+        unsigned int duration:1;
     } _has;
     int _statusCode;
     unsigned long long _timestamp;
     long long _responseSize;
-    NSDictionary *_networkTimingData;
+    _CPStruct *_networkTimingData;
     NSString *_uuid;
+    NSString *_parsecStatus;
+    NSString *_fbq;
+    double _duration;
+    NSString *_partialClientIp;
 }
 
-@property(copy, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
-@property(copy, nonatomic) NSDictionary *networkTimingData; // @synthesize networkTimingData=_networkTimingData;
+@property(copy, nonatomic) NSString *partialClientIp; // @synthesize partialClientIp=_partialClientIp;
+@property(nonatomic) double duration; // @synthesize duration=_duration;
+@property(copy, nonatomic) NSString *fbq; // @synthesize fbq=_fbq;
+@property(copy, nonatomic) NSString *parsecStatus; // @synthesize parsecStatus=_parsecStatus;
+@property(copy, nonatomic) NSString *uuid;
+@property(retain, nonatomic) _CPStruct *networkTimingData; // @synthesize networkTimingData=_networkTimingData;
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
 @property(nonatomic) long long responseSize; // @synthesize responseSize=_responseSize;
 @property(nonatomic) unsigned long long timestamp;
@@ -35,19 +45,26 @@
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
-- (id)dictionaryRepresentation;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasPartialClientIp;
+@property(readonly, nonatomic) _Bool hasDuration;
+@property(readonly, nonatomic) _Bool hasFbq;
+@property(readonly, nonatomic) _Bool hasParsecStatus;
 @property(readonly, nonatomic) _Bool hasUuid;
-- (void)setNetworkTimingData:(id)arg1 forKey:(id)arg2;
-- (_Bool)getNetworkTimingData:(id *)arg1 forKey:(id)arg2;
+@property(readonly, nonatomic) _Bool hasNetworkTimingData;
 @property(readonly, nonatomic) _Bool hasStatusCode;
 @property(readonly, nonatomic) _Bool hasResponseSize;
 @property(readonly, nonatomic) _Bool hasTimestamp;
-- (id)initWithFacade:(id)arg1;
+- (id)init;
 @property(readonly, nonatomic) _Bool requiresQueryId;
+@property(readonly, nonatomic) id feedbackJSON;
+- (id)_formatNetworkTimingData;
+- (id)initWithStartSearch:(id)arg1 responseSize:(long long)arg2 statusCode:(long long)arg3 parsecStatus:(id)arg4 parsecDuration:(double)arg5 fbq:(id)arg6 partialClientIp:(id)arg7 networkTimingData:(id)arg8;
+- (id)initWithFacade:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

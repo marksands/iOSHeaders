@@ -14,11 +14,15 @@
     _HKExpiringCompletionTimer *_timer;
     CDUnknownBlockType _timeoutHandler;
     NSObject<OS_dispatch_queue> *_queue;
+    _Bool _paused;
     _Bool _metricAvailable;
 }
 
 @property(readonly, nonatomic) _Bool metricAvailable; // @synthesize metricAvailable=_metricAvailable;
 - (void).cxx_destruct;
+- (void)_startTimer;
+- (void)resume;
+- (void)pause;
 - (void)invalidate;
 - (void)metricReceived;
 - (id)initWithTimeoutHandler:(CDUnknownBlockType)arg1 queue:(id)arg2;

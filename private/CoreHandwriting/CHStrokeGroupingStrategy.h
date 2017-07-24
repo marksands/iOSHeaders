@@ -22,8 +22,6 @@
 @property(readonly, retain, nonatomic) CHRecognitionSessionResult *sessionLastResult; // @synthesize sessionLastResult=_sessionLastResult;
 @property(readonly, retain, nonatomic) id <CHStrokeProvider> strokeProvider; // @synthesize strokeProvider=_strokeProvider;
 - (id)strokeGroupFromGroup:(id)arg1 addingStrokes:(id)arg2;
-- (id)strokesForSortedIdentifiers:(id)arg1;
-- (id)timeSortedStrokesForIdentifiers:(id)arg1;
 - (id)strokesForIdentifiers:(id)arg1;
 - (void)getAddedStrokes:(id *)arg1 removedStrokeIdentifiers:(id *)arg2;
 - (void)dealloc;

@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 - (void)deny;
 - (void)allow;
 - (void)cancelUserMediaAccessRequest;
-- (id)initWithUserMediaRequest:(PassRefPtr_eb3ec015)arg1;
+- (id)initWithUserMediaRequest:(Ref_b5a94c78 *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

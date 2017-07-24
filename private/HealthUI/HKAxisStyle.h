@@ -15,6 +15,7 @@
     _Bool _showGridLines;
     HKStrokeStyle *_gridLineStyle;
     HKStrokeStyle *_minorGridLineStyle;
+    HKStrokeStyle *_referenceGridLineStyle;
     HKStrokeStyle *_axisLineStyle;
     HKTickStyle *_tickStyle;
     HKAxisLabelStyle *_labelStyle;
@@ -39,6 +40,7 @@
 @property(retain, nonatomic) HKAxisLabelStyle *labelStyle; // @synthesize labelStyle=_labelStyle;
 @property(retain, nonatomic) HKTickStyle *tickStyle; // @synthesize tickStyle=_tickStyle;
 @property(retain, nonatomic) HKStrokeStyle *axisLineStyle; // @synthesize axisLineStyle=_axisLineStyle;
+@property(retain, nonatomic) HKStrokeStyle *referenceGridLineStyle; // @synthesize referenceGridLineStyle=_referenceGridLineStyle;
 @property(retain, nonatomic) HKStrokeStyle *minorGridLineStyle; // @synthesize minorGridLineStyle=_minorGridLineStyle;
 @property(retain, nonatomic) HKStrokeStyle *gridLineStyle; // @synthesize gridLineStyle=_gridLineStyle;
 - (void).cxx_destruct;

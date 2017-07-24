@@ -30,6 +30,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
 @property(readonly) unsigned long long maxTotalThreadsPerThreadgroup; // @dynamic maxTotalThreadsPerThreadgroup;
+@property(readonly) unsigned long long staticThreadgroupMemoryLength; // @dynamic staticThreadgroupMemoryLength;
 @property(readonly) Class superclass;
 @property(readonly) unsigned long long threadExecutionWidth; // @dynamic threadExecutionWidth;
 

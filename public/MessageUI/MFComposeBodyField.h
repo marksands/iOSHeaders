@@ -11,7 +11,7 @@
 #import <MessageUI/UIWebDraggingDelegate-Protocol.h>
 #import <MessageUI/WebResourceLoadDelegate-Protocol.h>
 
-@class DOMHTMLDocument, DOMHTMLElement, NSArray, NSMutableDictionary, NSString, UIBarButtonItemGroup, UIView;
+@class DOMHTMLDocument, DOMHTMLElement, NSArray, NSMutableDictionary, NSMutableSet, NSString, UIBarButtonItemGroup, UIView;
 @protocol MFMailComposeViewDelegate;
 
 @interface MFComposeBodyField : UIWebDocumentView <MFComposeBodyFieldInternal, WebResourceLoadDelegate, MFComposeBodyField, UIWebDraggingDelegate>
@@ -36,6 +36,7 @@
     NSArray *_attachmentURLsToReplaceWithFilenames;
     UIBarButtonItemGroup *_inputAssistantItemGroup;
     _Bool _createAttachmentsForUnknownDataTypes;
+    NSMutableSet *_drawingAttachmentNames;
     NSMutableDictionary *_droppedAttachments;
     UIView *_imageDropSnapshot;
 }
@@ -58,9 +59,10 @@
 - (void)setSelectedDOMRange:(id)arg1 affinityDownstream:(_Bool)arg2;
 - (void)_captureAttachmentsFromPasteboard:(id)arg1;
 - (void)_archiveAndAttachFolder:(id)arg1 atPoint:(struct CGPoint)arg2;
+- (void)_insertMapItem:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (void)_completeDropForData:(id)arg1 fileName:(id)arg2 dataType:(id)arg3 atPoint:(struct CGPoint)arg4;
 - (id)_attachmentNameForDataType:(id)arg1 fileName:(id)arg2;
-- (void)_webViewDropComplete;
+- (void)_webView:(id)arg1 dropWasHandled:(_Bool)arg2 forSession:(id)arg3 itemProviders:(id)arg4;
 - (void)_finishedLoadingDroppedAttachments:(id)arg1;
 - (void)_swapPlaceholder:(id)arg1 withImageNode:(id)arg2;
 - (void)_completeDropForImageData:(id)arg1 dragItem:(id)arg2 dataType:(id)arg3;
@@ -70,7 +72,7 @@
 - (struct CGSize)_sizeScaledToFitContentArea:(struct CGSize)arg1;
 - (void)_performImageDropWithItem:(id)arg1 dataType:(id)arg2 atPoint:(struct CGPoint)arg3;
 - (void)_unhideDOMElementsForDragItems:(id)arg1;
-- (_Bool)_webView:(id)arg1 performDropWithSession:(id)arg2;
+- (id)_webView:(id)arg1 willPerformDropWithSession:(id)arg2;
 - (id)_webView:(id)arg1 adjustedItemProviders:(id)arg2;
 - (id)_webView:(id)arg1 willUpdateDropProposalToProposal:(id)arg2 forSession:(id)arg3;
 - (_Bool)_webView:(id)arg1 allowsSelectingContentAfterDropForSession:(id)arg2;
@@ -96,7 +98,7 @@
 - (void)_insertNodeIntoCurrentSelection:(id)arg1;
 - (void)insertDocumentWithData:(id)arg1 fileName:(id)arg2 mimeType:(id)arg3 contentID:(id)arg4;
 - (void)replaceAttachment:(id)arg1 withDocumentAtURL:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)insertDocumentWithURL:(id)arg1;
+- (void)insertDocumentWithURL:(id)arg1 isDrawingFile:(_Bool)arg2;
 - (void)insertPhotoOrVideoWithInfoDictionary:(id)arg1;
 - (void)changeQuoteLevel:(long long)arg1;
 - (void)changeQuoteLevel:(long long)arg1 forDOMRange:(id)arg2;
@@ -144,7 +146,7 @@
 - (id)webThreadWebView:(id)arg1 identifierForInitialRequest:(id)arg2 fromDataSource:(id)arg3;
 - (void)webView:(id)arg1 resource:(id)arg2 didFailLoadingWithError:(id)arg3 fromDataSource:(id)arg4;
 - (void)webView:(id)arg1 resource:(id)arg2 didFinishLoadingFromDataSource:(id)arg3;
-- (void)_finishedLoadingURLRequest:(id)arg1 success:(_Bool)arg2;
+- (void)_finishedLoadingURLRequest:(id)arg1 name:(id)arg2;
 - (void)webViewDidChange:(id)arg1;
 - (_Bool)isForwardingNotification;
 - (void)layoutWithMinimumSize;

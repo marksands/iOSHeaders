@@ -21,10 +21,12 @@
     PXSelectionBadgeTileUserData *__unselectedUserData;
     PXBasicTileUserData *__highlightedDimmingUserData;
     PXBasicTileUserData *__selectedDimmingUserData;
+    PXBasicTileUserData *__draggingDimmingUserData;
     struct PXSimpleIndexPath _highlightedIndexPath;
     struct PXSimpleIndexPath _focusedIndexPath;
 }
 
+@property(readonly, nonatomic) PXBasicTileUserData *_draggingDimmingUserData; // @synthesize _draggingDimmingUserData=__draggingDimmingUserData;
 @property(readonly, nonatomic) PXBasicTileUserData *_selectedDimmingUserData; // @synthesize _selectedDimmingUserData=__selectedDimmingUserData;
 @property(readonly, nonatomic) PXBasicTileUserData *_highlightedDimmingUserData; // @synthesize _highlightedDimmingUserData=__highlightedDimmingUserData;
 @property(readonly, nonatomic) PXSelectionBadgeTileUserData *_unselectedUserData; // @synthesize _unselectedUserData=__unselectedUserData;

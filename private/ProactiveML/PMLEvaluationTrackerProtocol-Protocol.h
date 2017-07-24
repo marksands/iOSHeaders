@@ -6,9 +6,9 @@
 
 #import <ProactiveML/PMLPlistAndChunksSerializableProtocol-Protocol.h>
 
-@class AWDProactiveModelFittingEvalMetrics, AWDProactiveModelFittingMinibatchStats;
+@class AWDProactiveModelFittingEvalMetrics, AWDProactiveModelFittingMinibatchStats, NSDictionary;
 
 @protocol PMLEvaluationTrackerProtocol <PMLPlistAndChunksSerializableProtocol>
-- (void)trackEvaluationMetrics:(AWDProactiveModelFittingEvalMetrics *)arg1 minibatchStats:(AWDProactiveModelFittingMinibatchStats *)arg2;
+- (NSDictionary *)trackEvaluationMetrics:(AWDProactiveModelFittingEvalMetrics *)arg1 minibatchStats:(AWDProactiveModelFittingMinibatchStats *)arg2;
 @end
 

@@ -6,16 +6,16 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <FMFUI/FMF3HiddenMapTrackingHandlerDelegate-Protocol.h>
 #import <FMFUI/FMFMapOptionsViewControllerDelegate-Protocol.h>
 #import <FMFUI/FMFMapViewDelegateInternalDelegate-Protocol.h>
 #import <FMFUI/FMFNoLocationViewDelegate-Protocol.h>
 #import <FMFUI/FMFSessionDelegateInternal-Protocol.h>
+#import <FMFUI/MKUserTrackingView-Protocol.h>
 
-@class FMF3HiddenMapTrackingHandler, FMFMapOptionsViewController, FMFMapViewDelegateInternal, FMFNoLocationView, FMFRefreshBarButtonItem, FMFSession, FMFTitleView, MKMapView, MKUserTrackingBarButtonItem, NSSet, NSString, UIBarButtonItem, UIColor, UIImageView, UIToolbar, UIView;
+@class FMFMapOptionsViewController, FMFMapViewDelegateInternal, FMFNoLocationView, FMFRefreshBarButtonItem, FMFSession, FMFTitleView, MKMapView, NSSet, NSString, UIBarButtonItem, UIColor, UIImageView, UIToolbar, UIView, _MKUserTrackingButton;
 @protocol FMFMapViewControllerDelegate;
 
-@interface FMFMapViewController : UIViewController <FMFSessionDelegateInternal, FMFMapViewDelegateInternalDelegate, FMF3HiddenMapTrackingHandlerDelegate, FMFNoLocationViewDelegate, FMFMapOptionsViewControllerDelegate>
+@interface FMFMapViewController : UIViewController <FMFSessionDelegateInternal, FMFMapViewDelegateInternalDelegate, MKUserTrackingView, FMFNoLocationViewDelegate, FMFMapOptionsViewControllerDelegate>
 {
     _Bool _shouldZoomToFitNewLocations;
     _Bool _shouldZoomToFitMeAndLocations;
@@ -42,29 +42,32 @@
     FMFTitleView *_titleView;
     void *_addressBook;
     UIToolbar *_toolbar;
-    MKUserTrackingBarButtonItem *_userLocationButton;
+    UIBarButtonItem *_userTrackingButtonItem;
     UIBarButtonItem *_directionsBarButtonItem;
     UIBarButtonItem *_infoBarButtonItem;
-    FMF3HiddenMapTrackingHandler *_hiddenMap;
     UIToolbar *_floatingLocationToolbar;
     UIView *_floatingToolbarView;
     FMFRefreshBarButtonItem *_refreshButton;
     UIImageView *_cachedMapView;
     unsigned long long _defaultMapType;
+    _MKUserTrackingButton *_userTrackingButton;
+    long long _currentTrackingMode;
     struct UIEdgeInsets _edgeInsets;
 }
 
++ (_Bool)hasUserLocation;
 + (struct CGSize)annotationImageSize;
+@property(nonatomic) long long currentTrackingMode; // @synthesize currentTrackingMode=_currentTrackingMode;
+@property(retain, nonatomic) _MKUserTrackingButton *userTrackingButton; // @synthesize userTrackingButton=_userTrackingButton;
 @property(nonatomic) _Bool mapTypeLoaded; // @synthesize mapTypeLoaded=_mapTypeLoaded;
 @property(nonatomic) unsigned long long defaultMapType; // @synthesize defaultMapType=_defaultMapType;
 @property(retain, nonatomic) UIImageView *cachedMapView; // @synthesize cachedMapView=_cachedMapView;
 @property(retain, nonatomic) FMFRefreshBarButtonItem *refreshButton; // @synthesize refreshButton=_refreshButton;
 @property(retain, nonatomic) UIView *floatingToolbarView; // @synthesize floatingToolbarView=_floatingToolbarView;
 @property(retain, nonatomic) UIToolbar *floatingLocationToolbar; // @synthesize floatingLocationToolbar=_floatingLocationToolbar;
-@property(retain, nonatomic) FMF3HiddenMapTrackingHandler *hiddenMap; // @synthesize hiddenMap=_hiddenMap;
 @property(retain, nonatomic) UIBarButtonItem *infoBarButtonItem; // @synthesize infoBarButtonItem=_infoBarButtonItem;
 @property(retain, nonatomic) UIBarButtonItem *directionsBarButtonItem; // @synthesize directionsBarButtonItem=_directionsBarButtonItem;
-@property(retain, nonatomic) MKUserTrackingBarButtonItem *userLocationButton; // @synthesize userLocationButton=_userLocationButton;
+@property(retain, nonatomic) UIBarButtonItem *userTrackingButtonItem; // @synthesize userTrackingButtonItem=_userTrackingButtonItem;
 @property(retain, nonatomic) UIToolbar *toolbar; // @synthesize toolbar=_toolbar;
 @property(nonatomic) void *addressBook; // @synthesize addressBook=_addressBook;
 @property(retain, nonatomic) FMFTitleView *titleView; // @synthesize titleView=_titleView;
@@ -107,7 +110,12 @@
 - (void)regionWillChangeAnimated:(_Bool)arg1;
 - (void)didDeselectLocation:(id)arg1;
 - (void)didSelectLocation:(id)arg1;
-- (void)hiddenMapTrackerDidUpdateMapToTrackingType:(long long)arg1;
+- (_Bool)hasUserLocation;
+- (void)updateUserTrackingButtonState;
+- (_Bool)isCurrentlyRotated;
+- (_Bool)canRotateForHeading;
+- (long long)userTrackingMode;
+- (void)_setUserTrackingMode:(long long)arg1 animated:(_Bool)arg2 fromTrackingButton:(_Bool)arg3;
 - (void)removeAllFriendLocationsFromMap;
 - (void)didStopAbilityToGetLocationForHandle:(id)arg1;
 - (void)updateRefreshForLocation:(id)arg1;

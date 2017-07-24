@@ -23,6 +23,7 @@
     GEOLocationShifter *_locationShifter;
     struct NSMutableDictionary *_etaTitleFormatters;
     struct NSMutableDictionary *_distanceTitleFormatters;
+    _Bool _shouldBeRunning;
     int _mapType;
     GEOAutomobileOptions *_automobileOptions;
     CLLocation *_currentLocation;

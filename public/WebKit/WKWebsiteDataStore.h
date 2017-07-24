@@ -14,17 +14,16 @@
 @interface WKWebsiteDataStore : NSObject <WKObject, NSCoding>
 {
     struct ObjectStorage<API::WebsiteDataStore> _websiteDataStore;
-    WKHTTPCookieStore *_httpCookieStore;
 }
 
 + (id)allWebsiteDataTypes;
 + (id)nonPersistentDataStore;
 + (id)defaultDataStore;
-@property(readonly, nonatomic) WKHTTPCookieStore *httpCookieStore; // @synthesize httpCookieStore=_httpCookieStore;
 @property(readonly) struct Object *_apiObject;
 - (void)removeDataOfTypes:(id)arg1 forDataRecords:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)removeDataOfTypes:(id)arg1 modifiedSince:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)fetchDataRecordsOfTypes:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) WKHTTPCookieStore *httpCookieStore;
 @property(readonly, nonatomic, getter=isPersistent) _Bool persistent;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

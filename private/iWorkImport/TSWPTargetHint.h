@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 @interface TSWPTargetHint : NSObject <TSWPOffscreenColumn, NSCopying>
 {
     _Bool _usedParagraphHeights;
+    _Bool _endOfLayout;
     unsigned long long _nextWidowPullsDownFromCharIndex;
     unsigned long long _columnCount;
     unsigned long long _lineFragmentCount;
@@ -23,6 +24,7 @@ __attribute__((visibility("hidden")))
     struct CGRect _frameBounds;
 }
 
+@property(nonatomic) _Bool endOfLayout; // @synthesize endOfLayout=_endOfLayout;
 @property(nonatomic) _Bool usedParagraphHeights; // @synthesize usedParagraphHeights=_usedParagraphHeights;
 @property(nonatomic) unsigned long long lineFragmentCount; // @synthesize lineFragmentCount=_lineFragmentCount;
 @property(nonatomic) unsigned long long columnCount; // @synthesize columnCount=_columnCount;
@@ -30,11 +32,11 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long nextWidowPullsDownFromCharIndex; // @synthesize nextWidowPullsDownFromCharIndex=_nextWidowPullsDownFromCharIndex;
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
 @property(nonatomic) struct CGRect frameBounds; // @synthesize frameBounds=_frameBounds;
+@property(readonly, copy) NSString *debugDescription;
 - (void)trimToCharIndex:(unsigned long long)arg1 inTarget:(id)arg2 removeFootnoteReferenceCount:(unsigned long long)arg3 removeAutoNumberFootnoteCount:(unsigned long long)arg4;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 // Remaining properties
-@property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;

@@ -100,7 +100,7 @@
 - (double)_hasPriorityOverEventType:(id)arg1;
 - (_Bool)questionMarkInString:(id)arg1;
 - (id)dateWithoutTime:(id)arg1;
-- (id)adjustedEventTitleForMessageUnits:(id)arg1 subject:(id)arg2 dateInSubject:(id)arg3 eventStartDate:(id)arg4;
+- (id)adjustedEventTitleForMessageUnits:(id)arg1 subject:(id)arg2 dateInSubject:(id)arg3 eventStartDate:(id)arg4 isGeneratedFromSubject:(_Bool *)arg5;
 - (id)properCasedTitleForTitle:(id)arg1 locale:(id)arg2;
 - (id)decoratedTitleFromTitle:(id)arg1 participantName:(id)arg2;
 @property(readonly, nonatomic) _Bool prefersTitleSenderDecoration;

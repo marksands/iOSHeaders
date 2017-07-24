@@ -26,6 +26,7 @@
 
 + (id)generateUserAgent;
 + (id)defaultConfiguration;
++ (id)defaultConfigurationWithSourceBundleIdentifier:(id)arg1;
 @property(retain, nonatomic) NSURL *serviceConnectivityEvaluationURL; // @synthesize serviceConnectivityEvaluationURL=_serviceConnectivityEvaluationURL;
 @property(retain, nonatomic) Class cacheClass; // @synthesize cacheClass=_cacheClass;
 @property(retain, nonatomic) Class airQualityParserClass; // @synthesize airQualityParserClass=_airQualityParserClass;

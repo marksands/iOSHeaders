@@ -8,7 +8,7 @@
 
 #import <SiriUI/UITextFieldDelegate-Protocol.h>
 
-@class NSArray, NSString, SiriUIAudioRoutePickerButton, SiriUIContentButton, SiriUIHelpButton, UIKeyboardInputMode, UITextField;
+@class NSArray, NSString, SiriUIAudioRoutePickerButton, SiriUIContentButton, SiriUIHelpButton, UITextField;
 @protocol SiriUIKeyboardViewDelegate;
 
 @interface SiriUIKeyboardView : UIInputView <UITextFieldDelegate>
@@ -18,10 +18,7 @@
     SiriUIContentButton *_reportBugButton;
     double _interKeyboardAccessoryViewPadding;
     double _verticalCompensation;
-    UIKeyboardInputMode *_originalInputMode;
-    UIKeyboardInputMode *_updatedInputMode;
     NSArray *_originalInstalledLanguageIdentifiers;
-    NSString *_accumulatedTextInput;
     UITextField *_textField;
     id <SiriUIKeyboardViewDelegate> _delegate;
 }
@@ -53,8 +50,6 @@
 - (void)_reportBugButtonTapped;
 - (void)_audioRouteButtonTapped:(id)arg1;
 - (void)setAudioRoutePickerBluetoothOn:(_Bool)arg1;
-- (void)_restoreKeyboardChangesAsNeeded;
-- (void)_changeKeyboardToMatchSiriLanguageAsNeeded;
 - (void)setShowAudioRoutePicker:(_Bool)arg1;
 - (void)_configureAudioRoutePickerForAccessibility;
 - (id)_createTextFieldWithFrame:(struct CGRect)arg1;
@@ -65,6 +60,7 @@
 - (_Bool)resignFirstResponder;
 - (_Bool)becomeFirstResponder;
 - (void)setText:(id)arg1;
+- (struct CGRect)_orientationAdjustedFrame;
 - (id)initWithFrame:(struct CGRect)arg1 inputViewStyle:(long long)arg2;
 - (id)init;
 - (id)initWithDelegate:(id)arg1;

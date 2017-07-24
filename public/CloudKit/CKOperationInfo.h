@@ -15,6 +15,7 @@
 {
     _Bool _isLongLived;
     _Bool _isOutstandingOperation;
+    _Bool _wantsRequestStatistics;
     unsigned int _clientSDKVersion;
     CKOperationConfiguration *_resolvedConfiguration;
     NSString *_operationID;
@@ -30,6 +31,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool wantsRequestStatistics; // @synthesize wantsRequestStatistics=_wantsRequestStatistics;
 @property(nonatomic) __weak id parentOperation; // @synthesize parentOperation=_parentOperation;
 @property(nonatomic) unsigned int clientSDKVersion; // @synthesize clientSDKVersion=_clientSDKVersion;
 @property(retain, nonatomic) CKOperationConfiguration *perOpConfiguration; // @synthesize perOpConfiguration=_perOpConfiguration;

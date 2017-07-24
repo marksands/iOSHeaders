@@ -9,67 +9,58 @@
 #import <NanoTimeKitCompanion/CLLocationManagerDelegate-Protocol.h>
 #import <NanoTimeKitCompanion/RadiosPreferencesDelegate-Protocol.h>
 
-@class CLGeocoder, CLInUseAssertion, CLLocationManager, CLPlacemark, NSMutableArray, NSMutableDictionary, NSString, NSTimer, RadiosPreferences;
+@class CLInUseAssertion, CLLocation, CLLocationManager, NSDate, NSLock, NSMutableDictionary, NSObject, NSString, RadiosPreferences;
+@protocol OS_dispatch_queue;
 
 @interface NTKCarouselLocationManager : NTKLocationManager <CLLocationManagerDelegate, RadiosPreferencesDelegate>
 {
-    unsigned long long _nextToken;
-    NSMutableDictionary *_updateHandlers;
-    NSMutableArray *_placemarkHandlers;
+    CLLocation *_currentLocation;
+    CLLocation *_previousLocation;
+    unsigned long long _handlerCounter;
+    unsigned long long _state;
+    NSMutableDictionary *_locationUpdateHandlers;
     CLLocationManager *_locationManager;
-    int _authorizationStatus;
     CLInUseAssertion *_locationInUseAssertion;
-    NSTimer *_regularUpdateTimer;
-    NSTimer *_highPriorityUpdateTimer;
-    double _regularUpdateInterval;
-    double _staleLocationDataTimeoutInterval;
-    CLGeocoder *_geocoder;
-    CLPlacemark *_lastPlacemark;
-    NSString *_localityText;
-    _Bool _paused;
-    _Bool _runningHighPriorityUpdate;
-    _Bool _startHighPriorityUpdateWhenAvailable;
-    _Bool _wantedUpdateWhileAccessUnavailable;
     RadiosPreferences *_radioPreferences;
     int _deviceLockStateChangeNotifyToken;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSDate *_lastLocationUpdateDate;
+    NSLock *_locationAccessLock;
+    NSLock *_tokenAccessLock;
 }
 
++ (void)_saveLocationIntoDefaultsWithLocation:(id)arg1;
++ (id)_locationFromDefaults;
 - (void).cxx_destruct;
+- (void)_tearDownNotificationObservers;
+- (void)_setupNotificationObservers;
+- (void)_notifyUpdateHandlersWithError:(id)arg1;
+- (void)_cancelMonitoring;
+- (void)_startMonitoring;
+- (void)_requestMonitoringIfPossible;
+- (_Bool)_canMonitorLocations;
+- (void)_discardLocations;
+- (void)_updateLocation:(id)arg1;
+- (void)_didReceiveLocation:(id)arg1;
 - (void)airplaneModeChanged;
-- (void)_carouselDidLaunch;
-- (void)_deviceLockStateChanged;
-- (void)_timeZoneChanged:(id)arg1;
-- (void)_discardLocationAndResetDefaults:(_Bool)arg1;
-- (void)_resumeUpdates:(id)arg1;
-- (void)_pauseUpdates:(id)arg1;
-- (void)_postSignificantLocationChangeNotification;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
-- (void)_callLocationUpdateHandlersWithError:(id)arg1;
-- (void)_setInUse:(_Bool)arg1;
-- (void)_requestLocation;
-- (void)_cancelHighPriorityUpdateTimer;
-- (void)_startHighPriorityUpdateTimer;
-- (void)_startRegularUpdateTimer;
-- (void)_startReverseGeocodeIfNecessary;
-- (_Bool)_cachedLocationDataIsStale;
-- (void)_updateRequestsAndTimers;
-- (void)_updateTimerFired:(id)arg1;
-- (void)_cancelRegularUpdateTimer;
-- (void)_stopUpdatesIfNecessary;
-- (void)_startUpdatesIfNecessary;
-- (void)_authorizationStatusWithCallback:(CDUnknownBlockType)arg1;
-- (id)nameOfCurrentLocation;
-- (void)placemarkForCurrentLocationWithHandler:(CDUnknownBlockType)arg1;
-- (void)stopLocationUpdatesForToken:(struct NSNumber *)arg1;
-- (struct NSNumber *)startLocationUpdatesWithHandler:(CDUnknownBlockType)arg1;
+- (void)_didReceiveDeviceLockStateDidChangeNotification;
+- (id)_debugLastUpdateDate;
+- (void)_debugUpdateToLocationWithLatitude:(double)arg1 longitude:(double)arg2;
+- (void)stopLocationUpdatesForToken:(struct NSString *)arg1;
+- (struct NSString *)startLocationUpdatesWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (struct NSString *)startLocationUpdatesWithHandler:(CDUnknownBlockType)arg1;
+- (id)anyLocation;
+- (id)previousLocation;
+- (id)currentLocation;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

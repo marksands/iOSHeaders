@@ -12,7 +12,7 @@
 
 + (unsigned long long)abstractCurrentModeInResponse:(id)arg1;
 + (unsigned long long)abstractTargetModeInResponse:(id)arg1;
-+ (id)valueFormatter;
++ (_Bool)isPercentRange;
 + (CDUnknownBlockType)displayValueComparator;
 + (id)localizationKeyPrefix;
 + (id)targetModeCharacteristicTypes;

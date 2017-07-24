@@ -6,12 +6,15 @@
 
 #import <objc/NSObject.h>
 
-@interface NUAdManagerConfiguration : NSObject
+#import <NewsUI/NUAdManagerConfiguration-Protocol.h>
+
+@interface NUAdManagerConfiguration : NSObject <NUAdManagerConfiguration>
 {
     double timeout;
 }
 
 @property(nonatomic) double timeout; // @synthesize timeout;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

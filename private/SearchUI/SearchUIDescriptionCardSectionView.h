@@ -4,25 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeSectionView.h>
+#import <SearchUI/SearchUICardSectionView.h>
 
 #import <SearchUI/TLKDescriptionViewDelegate-Protocol.h>
 
 @class NSString, TLKDescriptionView;
 
-@interface SearchUIDescriptionCardSectionView : SearchUILayoutFreeSectionView <TLKDescriptionViewDelegate>
+@interface SearchUIDescriptionCardSectionView : SearchUICardSectionView <TLKDescriptionViewDelegate>
 {
-    TLKDescriptionView *_descriptionView;
+    _Bool _expanded;
 }
 
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
-@property(retain) TLKDescriptionView *descriptionView; // @synthesize descriptionView=_descriptionView;
-- (void).cxx_destruct;
+@property _Bool expanded; // @synthesize expanded=_expanded;
 - (void)didPressMoreButton;
 - (void)updateWithCardSection:(id)arg1;
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
+- (id)setupContentView;
 
 // Remaining properties
+@property(retain) TLKDescriptionView *contentView; // @dynamic contentView;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

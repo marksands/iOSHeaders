@@ -16,7 +16,7 @@
 - (void)replaceAttachment:(MFAttachment *)arg1 withDocumentData:(NSData *)arg2 fileName:(NSString *)arg3 mimeType:(NSString *)arg4;
 - (void)replaceAttachment:(MFAttachment *)arg1 withDocumentAtURL:(NSURL *)arg2 completion:(void (^)(MFAttachment *))arg3;
 - (void)insertDocumentWithData:(NSData *)arg1 fileName:(NSString *)arg2 mimeType:(NSString *)arg3 contentID:(NSString *)arg4;
-- (void)insertDocumentWithURL:(NSURL *)arg1;
+- (void)insertDocumentWithURL:(NSURL *)arg1 isDrawingFile:(_Bool)arg2;
 - (void)insertPhotoOrVideoWithInfoDictionary:(NSDictionary *)arg1;
 - (void)changeQuoteLevel:(long long)arg1;
 - (void)layoutWithMinimumSize;

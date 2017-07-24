@@ -47,6 +47,7 @@
 - (id)objects;
 - (void)removeObject:(id)arg1;
 - (void)addObject:(id)arg1;
+- (id)objectAtPath:(id)arg1;
 - (_Bool)exportAssetToURL:(id)arg1;
 - (_Bool)exportAssetToURL:(id)arg1 error:(id *)arg2;
 @property(readonly, nonatomic) unsigned long long count;

@@ -17,11 +17,9 @@
     NSString *_subtitle;
     NSString *_action;
     LPImage *_image;
-    LPImage *_icon;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) LPImage *icon; // @synthesize icon=_icon;
 @property(retain, nonatomic) LPImage *image; // @synthesize image=_image;
 @property(copy, nonatomic) NSString *action; // @synthesize action=_action;
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;

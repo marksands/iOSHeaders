@@ -4,15 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <MediaToolbox/FigBaseCALayer.h>
+#import <MediaToolbox/FigSubtitleBackdropCALayer.h>
 
-@interface FigSubtitleWebVTTCueCALayer : FigBaseCALayer
+#import <MediaToolbox/CALayerDelegate-Protocol.h>
+
+@class NSString;
+
+@interface FigSubtitleWebVTTCueCALayer : FigSubtitleBackdropCALayer <CALayerDelegate>
 {
     struct OpaqueFigSubtitleWebVTTCueCALayerInternal *layerInternal;
 }
 
-- (void)drawInContext:(struct CGContext *)arg1;
-- (void)layoutSublayers;
+- (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
+- (void)layoutSublayersOfLayer:(id)arg1;
 - (void)setDefaultFontSize:(double)arg1;
 - (void)setViewport:(struct CGRect)arg1;
 - (void)setRenderer:(struct OpaqueFigSubtitleRenderer *)arg1;
@@ -24,6 +28,12 @@
 - (void)dealloc;
 - (void)finalize;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

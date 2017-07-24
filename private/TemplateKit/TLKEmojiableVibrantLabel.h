@@ -4,28 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIView.h>
+#import <TemplateKit/TLKVibrantLabel.h>
 
-@class TLKVibrantLabel;
-
-@interface TLKEmojiableVibrantLabel : UIView
+@interface TLKEmojiableVibrantLabel : TLKVibrantLabel
 {
-    unsigned long long _style;
-    TLKVibrantLabel *_nonEmojiLabel;
-    TLKVibrantLabel *_emojiOnlyLabel;
+    TLKVibrantLabel *_overlayVibrantLabel;
 }
 
-@property(retain) TLKVibrantLabel *emojiOnlyLabel; // @synthesize emojiOnlyLabel=_emojiOnlyLabel;
-@property(retain) TLKVibrantLabel *nonEmojiLabel; // @synthesize nonEmojiLabel=_nonEmojiLabel;
-@property(nonatomic) unsigned long long style; // @synthesize style=_style;
+@property(retain) TLKVibrantLabel *overlayVibrantLabel; // @synthesize overlayVibrantLabel=_overlayVibrantLabel;
 - (void).cxx_destruct;
 - (id)emojiLabelString;
 - (id)nonEmojiLabelString;
-- (void)setFont:(id)arg1;
 - (void)updateWithRichText:(id)arg1;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (id)init;
+- (void)setStyle:(unsigned long long)arg1;
 
 @end
 

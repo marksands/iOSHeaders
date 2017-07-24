@@ -16,6 +16,7 @@
 
 @property(readonly, nonatomic) WebFrame *webFrame; // @synthesize webFrame=_webFrame;
 - (void).cxx_destruct;
+- (_Bool)shouldOfferActionAutoFillCredentials;
 - (id)frame;
 - (id)webView;
 - (void)setFormControls:(id)arg1 areAutoFilled:(_Bool)arg2 clearField:(id)arg3;

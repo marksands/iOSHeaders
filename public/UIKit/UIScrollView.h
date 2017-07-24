@@ -12,7 +12,7 @@
 #import <UIKit/UIScrollViewDelayedTouchesBeganGestureRecognizerClient-Protocol.h>
 #import <UIKit/_UIScrollToTopView-Protocol.h>
 
-@class CADisplayLink, NSArray, NSHashTable, NSISVariable, NSMutableDictionary, NSString, UIGestureRecognizer, UIImageView, UIIndexBarAccessoryView, UILayoutGuide, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRefreshControl, UIScrollViewDelayedTouchesBeganGestureRecognizer, UIScrollViewDirectionalPressGestureRecognizer, UIScrollViewPinchGestureRecognizer, UISwipeGestureRecognizer, _UIAutoScrollAssistant, _UIDragAutoScrollGestureRecognizer, _UIEdgeFeedbackGenerator, _UIFocusFastScrollingController, _UIFocusFastScrollingRequest, _UIStaticScrollBar, _UIZoomEdgeFeedbackGenerator;
+@class CADisplayLink, NSArray, NSHashTable, NSISVariable, NSMutableDictionary, NSString, UIGestureRecognizer, UIImageView, UILayoutGuide, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRefreshControl, UIScrollViewDelayedTouchesBeganGestureRecognizer, UIScrollViewDirectionalPressGestureRecognizer, UIScrollViewPinchGestureRecognizer, UISwipeGestureRecognizer, _UIAutoScrollAssistant, _UIDragAutoScrollGestureRecognizer, _UIEdgeFeedbackGenerator, _UIFocusFastScrollingController, _UIFocusFastScrollingIndexBarView, _UIFocusFastScrollingRequest, _UIStaticScrollBar, _UIZoomEdgeFeedbackGenerator;
 @protocol UIFocusItem, UIScrollViewDelegate, _UIScrollViewLayoutObserver;
 
 @interface UIScrollView : UIView <UIGestureRecognizerDelegate, UIScrollViewDelayedTouchesBeganGestureRecognizerClient, _UIScrollToTopView, UIIndexBarAccessoryViewDelegate, NSCoding>
@@ -90,7 +90,7 @@
     struct UIEdgeInsets _gradientMaskEdgeInsets;
     _UIFocusFastScrollingRequest *_focusFastScrollingRequest;
     _UIFocusFastScrollingController *_focusFastScrollingController;
-    UIIndexBarAccessoryView *_focusFastScrollingIndexBar;
+    _UIFocusFastScrollingIndexBarView *_focusFastScrollingIndexBarView;
     id <UIFocusItem> _overridingDestinationItemForFocusUpdate;
     UILayoutGuide *_contentLayoutGuide;
     UILayoutGuide *_frameLayoutGuide;
@@ -185,6 +185,8 @@
         unsigned int applyVerticalSafeAreaInsetsToNonscrollingContent:1;
         unsigned int topScrollIndicatorFollowsContentOffset:1;
         unsigned int autoScrollDisabled:1;
+        unsigned int contentScrollsAlongXAxis:2;
+        unsigned int contentScrollsAlongYAxis:2;
     } _scrollViewFlags;
     _Bool _useContentDimensionVariablesForConstraintLowering;
     id _scrollTestParameters;
@@ -199,6 +201,7 @@
     struct UIEdgeInsets _accessoryInsets;
 }
 
++ (double)_maximumFocusFastScrollingIndexBarWidth;
 + (SEL)_pinchGestureAction;
 + (SEL)_panGestureAction;
 + (unsigned long long)_defaultEdgesScrollingContentIntoSafeArea;
@@ -230,10 +233,15 @@
 - (void)_updateRubberbandingStatisticTrackingState;
 - (id)_overridingPreferredFocusEnvironment;
 - (void)_didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
+- (struct UIEdgeInsets)_focusFastScrollingIndexBarInsets;
+- (void)_layoutFocusFastScrollingUI;
+- (double)_heightForFocusFastScrollingUI:(double)arg1;
 - (void)_removeFocusFastScrollingUI;
 - (void)_reloadFocusFastScrollingIndexEntries;
 - (id)_focusFastScrollingIndexEntriesForDisplay;
 - (id)_indexBarEntries;
+- (id)_focusFastScrollingIndexBarEntries;
+- (long long)_focusFastScrollingIndexMaximumSlotCount;
 - (void)_showFocusFastScrollingIndexBar:(id)arg1;
 - (void)_showFocusFastScrollingUI;
 - (void)_endIndicatingFocusFastScrollingDestination;
@@ -366,6 +374,8 @@
 - (void)_handleDirectionalScrollToOffset:(struct CGPoint)arg1 clampingToBounds:(_Bool)arg2;
 - (void)_handleDirectionalPress:(id)arg1;
 - (void)_handleDirectionalPageWithHorizontalVelocity:(double)arg1 verticalVelocity:(double)arg2;
+- (void)_setAutoScrollTouchInsets:(struct UIEdgeInsets)arg1;
+- (struct UIEdgeInsets)_autoScrollTouchInsets;
 - (_Bool)_isAutoScrollEnabled;
 - (void)_setAutoScrollEnabled:(_Bool)arg1;
 - (void)_handleAutoScroll:(id)arg1;
@@ -386,6 +396,8 @@
 - (id)_getDelegateZoomView;
 - (void)_endPanNormal:(_Bool)arg1;
 - (_Bool)_scrollViewWillEndDraggingWithDeceleration:(_Bool)arg1;
+- (double)_maxTopOffsetAdjustedForCollapsableAmount:(double)arg1;
+- (double)_topCollapsableContentAmount;
 - (struct UIEdgeInsets)_revealableContentPadding;
 - (void)_performScrollViewWillEndDraggingInvocationsWithVelocity:(struct CGPoint)arg1 targetContentOffset:(struct CGPoint *)arg2 unclampedOriginalTarget:(struct CGPoint)arg3;
 - (_Bool)_hasScrollViewWillEndDraggingInvocationsToPerform;
@@ -462,7 +474,6 @@
 - (void)_updateScrollGestureRecognizersEnabled;
 @property(nonatomic, getter=isDirectionalLockEnabled) _Bool directionalLockEnabled;
 - (void)scrollRectToVisible:(struct CGRect)arg1 animated:(_Bool)arg2;
-- (struct CGPoint)contentOffsetForRect:(struct CGRect)arg1;
 - (void)setContentOffset:(struct CGPoint)arg1 animated:(_Bool)arg2;
 @property(nonatomic) struct CGPoint contentOffset;
 - (void)_updateContentFitDisableScrolling;
@@ -477,7 +488,6 @@
 - (void)_updateAccessoriesInset;
 - (void)_updateAccessories;
 - (struct UIEdgeInsets)_contentInsetForAccessories;
-- (struct UIEdgeInsets)_fastScrollingIndexBarInsets;
 - (id)accessoryViewAtEdge:(long long)arg1;
 - (void)setAccessoryView:(id)arg1 atEdge:(long long)arg2;
 - (void)_updateForChangedScrollRelatedInsets;
@@ -574,6 +584,9 @@
 @property(readonly, nonatomic, getter=_canScrollY) _Bool canScrollY; // @dynamic canScrollY;
 @property(readonly, nonatomic, getter=_canScrollX) _Bool canScrollX; // @dynamic canScrollX;
 - (double)_contentFitCanScrollThreshold;
+@property(nonatomic, getter=_contentScrollsAlongYAxis, setter=_setContentScrollsAlongYAxis:) _Bool contentScrollsAlongYAxis;
+@property(nonatomic, getter=_contentScrollsAlongXAxis, setter=_setContentScrollsAlongXAxis:) _Bool contentScrollsAlongXAxis;
+- (void)_resetContentScrollableAxes;
 - (void)_adjustForAutomaticKeyboardInfo:(id)arg1 animated:(_Bool)arg2 lastAdjustment:(double *)arg3;
 - (_Bool)_canSkipTraitsAndOverlayUpdatesForViewControllerToNotifyOnLayoutResetState:(_Bool)arg1;
 - (void)setNeedsLayout;

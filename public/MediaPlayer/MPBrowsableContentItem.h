@@ -10,10 +10,5 @@
 {
 }
 
-@property(nonatomic, getter=isExplicitContent) _Bool explicitContent;
-@property(nonatomic, getter=isStreamingContent) _Bool streamingContent;
-@property(nonatomic, getter=isPlayable) _Bool playable;
-@property(nonatomic, getter=isContainer) _Bool container;
-
 @end
 

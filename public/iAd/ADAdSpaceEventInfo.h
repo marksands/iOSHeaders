@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <iAd/NSSecureCoding-Protocol.h>
 
 @interface ADAdSpaceEventInfo : NSObject <NSSecureCoding>
 {
+    _Bool _adReused;
     unsigned long long _screenfuls;
     unsigned long long _slotPosition;
     long long _lastErrorCode;
@@ -17,6 +18,7 @@
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) long long lastErrorCode; // @synthesize lastErrorCode=_lastErrorCode;
+@property(nonatomic) _Bool adReused; // @synthesize adReused=_adReused;
 @property(nonatomic) unsigned long long slotPosition; // @synthesize slotPosition=_slotPosition;
 @property(nonatomic) unsigned long long screenfuls; // @synthesize screenfuls=_screenfuls;
 - (void)encodeWithCoder:(id)arg1;

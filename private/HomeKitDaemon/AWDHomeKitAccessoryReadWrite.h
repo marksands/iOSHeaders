@@ -16,22 +16,29 @@
     NSMutableArray *_characteristics;
     unsigned int _duration;
     int _errorCode;
+    int _source;
     NSString *_transaction;
+    NSString *_transportProtocolVersion;
     int _transportType;
     AWDHomeKitVendorInformation *_vendorDetails;
     _Bool _isRemote;
+    _Bool _isTimedWrite;
     _Bool _isWrite;
     struct {
         unsigned int timestamp:1;
         unsigned int duration:1;
         unsigned int errorCode:1;
+        unsigned int source:1;
         unsigned int transportType:1;
         unsigned int isRemote:1;
+        unsigned int isTimedWrite:1;
         unsigned int isWrite:1;
     } _has;
 }
 
 + (Class)characteristicsType;
+@property(retain, nonatomic) NSString *transportProtocolVersion; // @synthesize transportProtocolVersion=_transportProtocolVersion;
+@property(nonatomic) _Bool isTimedWrite; // @synthesize isTimedWrite=_isTimedWrite;
 @property(retain, nonatomic) NSString *transaction; // @synthesize transaction=_transaction;
 @property(retain, nonatomic) AWDHomeKitVendorInformation *vendorDetails; // @synthesize vendorDetails=_vendorDetails;
 @property(retain, nonatomic) NSMutableArray *characteristics; // @synthesize characteristics=_characteristics;
@@ -50,6 +57,12 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsSource:(id)arg1;
+- (id)sourceAsString:(int)arg1;
+@property(nonatomic) _Bool hasSource;
+@property(nonatomic) int source; // @synthesize source=_source;
+@property(readonly, nonatomic) _Bool hasTransportProtocolVersion;
+@property(nonatomic) _Bool hasIsTimedWrite;
 @property(readonly, nonatomic) _Bool hasTransaction;
 @property(readonly, nonatomic) _Bool hasVendorDetails;
 - (int)StringAsTransportType:(id)arg1;

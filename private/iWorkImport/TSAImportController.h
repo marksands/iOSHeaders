@@ -58,6 +58,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool areNewExternalReferencesToDataAllowed;
 - (void)addPersistenceWarnings:(id)arg1;
 - (void)presentPersistenceError:(id)arg1;
+- (id)additionalResourceRequestsForObjectContext:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *additionalDocumentSupportPropertiesForWrite;
 @property(readonly, nonatomic) NSDictionary *additionalDocumentPropertiesForWrite;
 - (id)packageDataForWrite;
@@ -69,7 +70,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool hasWarnings;
 - (id)defaultDraftName;
 - (id)name;
-- (id)collaborationStateForContext:(id)arg1;
+- (id)sharingStateForContext:(id)arg1;
+- (id)tskCachedDocumentInfo;
 - (void)_setPresentedItemURL:(id)arg1;
 - (void)removeFilePresenter;
 - (void)presentedItemDidMoveToURL:(id)arg1;
@@ -88,12 +90,12 @@ __attribute__((visibility("hidden")))
 - (_Bool)needsFileCoordination;
 - (id)templateInfoWithName:(id)arg1 variantIndex:(unsigned long long)arg2;
 - (id)templateInfoWithName:(id)arg1;
-- (void)didBeginImportToTemporaryURL:(id)arg1;
 - (id)makeObjectContextWithTemplateInfo:(id)arg1 error:(id *)arg2;
 - (void)_continueImportWithSuccess:(_Bool)arg1 error:(id)arg2 completedSteps:(int)arg3;
 - (void)_beginImport;
 - (void)showProgressIfNeededForURL:(id)arg1;
 - (void)retrievePassphraseForEncryptedDocumentWithImporter:(id)arg1 completion:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) _Bool shouldUpdateAdditionalResourceRequestsAfterImport;
 - (Class)importerClass;
 - (void)beginImportAsync;
 - (_Bool)beginImport;

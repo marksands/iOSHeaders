@@ -10,6 +10,7 @@
 {
 }
 
++ (id)_curationFullsetForMemory:(id)arg1;
 + (id)_datesAndAssetCountDictionaryForAssetCollection:(id)arg1;
 + (id)_featureVectorInfoGroupedByKeyForFeatureVector:(id)arg1;
 + (id)_sanitizedGraphDataDictionaryForArchivingDictionary:(id)arg1 memoryLocalIdentifier:(id)arg2;

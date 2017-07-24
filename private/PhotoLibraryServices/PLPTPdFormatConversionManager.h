@@ -12,6 +12,7 @@
 
 @interface PLPTPdFormatConversionManager : NSObject <PLPTPConversionSupport>
 {
+    PFMediaCapabilities *_legacyCapabilities;
     _Bool _initialized;
     PFMediaCapabilities *_peerMediaCapabilities;
     PHMediaFormatConversionManager *_mediaFormatConversionManager;
@@ -25,12 +26,15 @@
 @property(retain) PHMediaFormatConversionManager *mediaFormatConversionManager; // @synthesize mediaFormatConversionManager=_mediaFormatConversionManager;
 @property(retain) PFMediaCapabilities *peerMediaCapabilities; // @synthesize peerMediaCapabilities=_peerMediaCapabilities;
 - (void).cxx_destruct;
+- (id)effectivePeerMediaCapabilites;
+- (id)conversionResultForAsset:(id)arg1 isVideo:(_Bool)arg2 isRender:(_Bool)arg3;
+@property(readonly, nonatomic) _Bool supportsTranscodeChoice;
 - (void)invalidate;
 - (id)convertedAssetLivePhotoPairingIdentifierForOriginalIdentifier:(id)arg1;
-- (id)sourceForPath:(id)arg1 isVideo:(_Bool)arg2;
-- (id)requestForPath:(id)arg1 isVideo:(_Bool)arg2;
-- (id)requestForRenderImagePath:(id)arg1 outputFilename:(id)arg2;
-- (id)requestForOriginalAtPath:(id)arg1 isVideo:(_Bool)arg2 originalPairingIdentifier:(id)arg3;
+- (id)sourceForPath:(id)arg1 isVideo:(_Bool)arg2 imageDimensions:(struct CGSize)arg3;
+- (id)requestForPath:(id)arg1 isVideo:(_Bool)arg2 imageDimensions:(struct CGSize)arg3;
+- (id)requestForRenderImagePath:(id)arg1 imageDimensions:(struct CGSize)arg2 outputFilename:(id)arg3;
+- (id)requestForOriginalAtPath:(id)arg1 isVideo:(_Bool)arg2 imageDimensions:(struct CGSize)arg3 originalPairingIdentifier:(id)arg4;
 - (id)assetReaderForFormatConvertedPTPAsset:(id)arg1 ofManagedAsset:(id)arg2 path:(id)arg3;
 - (void)dealloc;
 - (_Bool)setupTemporaryDirectory;

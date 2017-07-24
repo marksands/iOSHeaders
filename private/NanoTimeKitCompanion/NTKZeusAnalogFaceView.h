@@ -11,6 +11,7 @@
 @interface NTKZeusAnalogFaceView : NTKSpriteKitAnalogFaceView
 {
     _Bool _isEditing;
+    _Bool _showHandsInColorEditing;
 }
 
 + (id)_swatchColorForColorOption:(id)arg1;
@@ -20,6 +21,9 @@
 - (void)_prepareForStatusChange:(_Bool)arg1;
 - (double)_verticalPaddingForStatusBar;
 - (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
+- (id)_handInlayColorForFaceColor:(unsigned long long)arg1;
+- (id)_handStrokeColorForFaceColor:(unsigned long long)arg1;
+- (id)_secondHandColorForFaceColor:(unsigned long long)arg1;
 - (double)_numbersAlphaForEditMode:(long long)arg1;
 - (double)_handAlphaForEditing:(_Bool)arg1;
 - (double)_secondHandAlphaForDensity:(unsigned long long)arg1 isEditing:(_Bool)arg2;

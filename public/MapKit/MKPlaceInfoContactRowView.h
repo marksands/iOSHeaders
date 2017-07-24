@@ -55,6 +55,7 @@ __attribute__((visibility("hidden")))
 - (void)copy:(id)arg1;
 - (id)_iconAccessibilityLabel;
 - (id)_icon;
+- (id)_attributedValueString;
 - (id)_valueString;
 
 // Remaining properties

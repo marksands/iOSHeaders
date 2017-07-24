@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IMDaemonCore/IMDMessageHistorySyncTask-Protocol.h>
 
-@class IMDCKChatSyncController, NSString;
+@class IMDCKSyncController, NSString;
 
 @interface IMDMessageHistoryCKChatSyncTask : NSObject <IMDMessageHistorySyncTask>
 {
-    IMDCKChatSyncController *_ckChatSyncController;
+    IMDCKSyncController *_ckSyncController;
     CDUnknownBlockType _syncTaskCompletionBlock;
 }
 
@@ -21,7 +21,7 @@
 - (unsigned long long)syncTaskType;
 - (void)startSyncTask:(CDUnknownBlockType)arg1;
 - (void)dealloc;
-- (id)initWithCKChatSyncController:(id)arg1;
+- (id)initWithCKSyncController:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

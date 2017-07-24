@@ -30,7 +30,7 @@
     UIPanGestureRecognizer *_spheroidPanGesture;
     UITapGestureRecognizer *_supplementalModeDoubleTapGesture;
     UITapGestureRecognizer *_interactiveModeTapGesture;
-    struct NSNumber *_locationManagerToken;
+    struct NSString *_locationManagerToken;
     NTKAstronomyView *_astronomyView;
     NTKDateComplicationLabel *_dateLabel;
     UILabel *_scrubLabel;

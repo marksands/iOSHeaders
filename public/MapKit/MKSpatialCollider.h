@@ -8,23 +8,27 @@
 
 #import <MapKit/NSFastEnumeration-Protocol.h>
 
-@class NSMutableOrderedSet, NSMutableSet, NSSet;
+@class _MKSpatialColliderPairSet;
 
 __attribute__((visibility("hidden")))
 @interface MKSpatialCollider : NSObject <NSFastEnumeration>
 {
     long long _options;
-    NSSet *_preColls;
-    NSMutableSet *_regColls;
-    NSMutableOrderedSet *_verViews;
-    NSMutableOrderedSet *_horViews;
+    _MKSpatialColliderPairSet *_previousCollisionPairs;
+    _MKSpatialColliderPairSet *_registeredCollisonPairs;
+    _Bool _isVertical;
+    struct vector<MKAnnotationView *, std::__1::allocator<MKAnnotationView *>> _sortedAnnotationViews;
+    double _maxLength;
+    unsigned long long mutator;
 }
 
-+ (CDUnknownBlockType)_horSortComparator;
-+ (CDUnknownBlockType)_verSortComparator;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (id)registeredCollissions;
+- (id)viewsCollidingWithAnnotationView:(id)arg1 fromIndex:(long long)arg2 length:(double)arg3;
+- (id)viewsCollidingWithAnnotationViewAtIndex:(unsigned long long)arg1;
 - (id)viewsCollidingWithAnnotationView:(id)arg1;
-- (void)insertAnnotationView:(id)arg1;
+- (unsigned long long)insertAnnotationView:(id)arg1;
 - (id)annotationViewAtIndex:(unsigned long long)arg1;
 - (unsigned long long)viewCount;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;

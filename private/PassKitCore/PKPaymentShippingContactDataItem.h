@@ -14,6 +14,8 @@
 
 + (long long)dataType;
 - (_Bool)isValidWithError:(id *)arg1;
+- (_Bool)_legacy_isValidWithError:(id *)arg1;
+- (_Bool)_modern_isValidWithError:(id *)arg1;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) NSString *phone;
 @property(readonly, nonatomic) NSString *email;

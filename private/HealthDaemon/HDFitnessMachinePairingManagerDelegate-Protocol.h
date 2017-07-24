@@ -4,15 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class HDFitnessMachinePairingManager, HDFitnessMachineSession, HKHealthService, NSData, NSError;
+@class HDFitnessMachinePairingManager, HDFitnessMachineSession, HDHealthServiceOOBInfo, HKHealthService, NSError;
 
 @protocol HDFitnessMachinePairingManagerDelegate
 - (void)pairingManagerRequestConnectionReset:(HDFitnessMachinePairingManager *)arg1;
 - (void)pairingManagerReadyToConnect:(HDFitnessMachinePairingManager *)arg1;
 - (void)pairingManager:(HDFitnessMachinePairingManager *)arg1 discoveredHealthService:(HKHealthService *)arg2 machineType:(unsigned long long)arg3;
-- (void)pairingManager:(HDFitnessMachinePairingManager *)arg1 updatedConnectionStateFrom:(unsigned long long)arg2;
+- (void)pairingManagerUpdatedDataTransferRequirements:(HDFitnessMachinePairingManager *)arg1;
+- (void)pairingManager:(HDFitnessMachinePairingManager *)arg1 updatedConnectionStateFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3;
 - (void)pairingManagerUpdatedMachineInformation:(HDFitnessMachinePairingManager *)arg1;
-- (NSData *)pairingManager:(HDFitnessMachinePairingManager *)arg1 requestsOOBStateEnabled:(_Bool)arg2;
+- (HDHealthServiceOOBInfo *)pairingManager:(HDFitnessMachinePairingManager *)arg1 requestsOOBStateEnabled:(_Bool)arg2;
 - (void)pairingManager:(HDFitnessMachinePairingManager *)arg1 didChangeNFCEnabledState:(_Bool)arg2;
 - (void)pairingManager:(HDFitnessMachinePairingManager *)arg1 failedPairingWithError:(NSError *)arg2;
 - (void)pairingManagerWillBeginPairing:(HDFitnessMachinePairingManager *)arg1 fitnessMachineToken:(HDFitnessMachineSession *)arg2;

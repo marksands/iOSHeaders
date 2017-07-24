@@ -26,6 +26,9 @@
 @property(nonatomic) __weak id <CKDOperationPipelining> operation; // @synthesize operation=_operation;
 @property(retain, nonatomic) id <CKDURLRequestPipelining> request; // @synthesize request=_request;
 - (void).cxx_destruct;
+- (void)cancelAndDisablePerRequestCallbackBlocks;
+- (void)disablePerRequestCallbackBlocks;
+- (void)addPerRequestCallbackBlock:(CDUnknownBlockType)arg1;
 - (id)initWithRequest:(id)arg1 operation:(id)arg2;
 
 @end

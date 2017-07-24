@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     _Bool _isTypedString;
     _Bool _isCenter;
     _Bool _isLongCandidate;
+    _Bool _isEmoji;
     int _state;
     unsigned int _slotID;
     TIKeyboardCandidate *_prediction;
@@ -34,6 +35,7 @@ __attribute__((visibility("hidden")))
 
 + (double)fontSizeForSingleLineLayout;
 + (id)newKeyViewWithSize:(struct CGSize)arg1 state:(int)arg2 needsBackground:(_Bool)arg3;
+@property(nonatomic) _Bool isEmoji; // @synthesize isEmoji=_isEmoji;
 @property(nonatomic) long long candidateType; // @synthesize candidateType=_candidateType;
 @property(nonatomic) unsigned int slotID; // @synthesize slotID=_slotID;
 @property(nonatomic) _Bool isLongCandidate; // @synthesize isLongCandidate=_isLongCandidate;
@@ -48,7 +50,7 @@ __attribute__((visibility("hidden")))
 - (void)willMoveToSuperview:(id)arg1;
 - (void)updateBackgroundWithRenderConfig:(id)arg1;
 - (id)label;
-- (void)setText:(id)arg1 prediction:(id)arg2 active:(_Bool)arg3;
+- (void)setText:(id)arg1 prediction:(id)arg2 active:(_Bool)arg3 isEmoji:(_Bool)arg4;
 - (_Bool)shouldDisplayHeaderForPrediction:(id)arg1;
 - (_Bool)shouldDisplayAsSuggestion:(id)arg1;
 - (void)setKeyViewForState:(int)arg1;

@@ -6,14 +6,12 @@
 
 #import <UIKit/UIKeyboardCandidateToggleButton.h>
 
-@class UIImage, UIKeyboardCandidatePocketShadow;
+@class UIKeyboardCandidatePocketShadow;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardCandidateUnsplitKeyboardToggleButton : UIKeyboardCandidateToggleButton
 {
     UIKeyboardCandidatePocketShadow *_pocketShadow;
-    UIImage *_backgroundNormal;
-    UIImage *_backgroundHighlighted;
     _Bool _drawsBackground;
     _Bool _drawsPocketShadow;
 }
@@ -22,8 +20,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool drawsBackground; // @synthesize drawsBackground=_drawsBackground;
 - (void).cxx_destruct;
 - (void)dimKeys:(id)arg1;
-- (id)toggleButtonBackgroundImageWithHighlight:(_Bool)arg1;
-- (void)updateBackgroundImages;
 - (void)setHighlighted:(_Bool)arg1;
 - (void)setSelected:(_Bool)arg1;
 - (void)setFrame:(struct CGRect)arg1;

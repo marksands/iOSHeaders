@@ -160,6 +160,7 @@
 - (void)dropTarget:(id)arg1 dragEnteredAtPoint:(struct CGPoint)arg2;
 - (void)_setDragging:(_Bool)arg1;
 - (void)dragSource:(id)arg1 willEndInteractionWithItems:(id)arg2 dropOperation:(unsigned long long)arg3;
+- (id)dragSource:(id)arg1 suggestedNameForDraggableItem:(id)arg2;
 - (id)dragSource:(id)arg1 localObjectForDraggableItem:(id)arg2;
 - (id)dragSource:(id)arg1 previewForDraggableItem:(id)arg2;
 - (id)dragSource:(id)arg1 draggableItemsAtPoint:(struct CGPoint)arg2;

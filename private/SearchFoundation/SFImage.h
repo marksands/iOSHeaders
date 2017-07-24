@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFImage-Protocol.h>
 
 @class NSData, NSDictionary, NSString;
 
-@interface SFImage : NSObject <SFImage, NSSecureCoding>
+@interface SFImage : NSObject <SFImage, NSSecureCoding, NSCopying>
 {
     struct {
         unsigned int isTemplate:1;
@@ -46,6 +47,7 @@
 @property(nonatomic) _Bool isTemplate; // @synthesize isTemplate=_isTemplate;
 @property(copy) NSData *imageData; // @synthesize imageData=_imageData;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

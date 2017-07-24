@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     _Bool _shouldPlaceButtonsInNavigationBarChanged;
     _Bool _shouldUseCompactTitleViewChanged;
     _Bool _maximumToolbarHeightChanged;
+    _Bool _maximumAccessoryToolbarHeightChanged;
     _Bool _shouldUseContentGuideInsetsChanged;
     _Bool _shouldUseUserTransformTilesChanged;
     _Bool _shouldDisplayBadgesChanged;
@@ -48,6 +49,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, setter=_setShouldDisplayBadgesChanged:) _Bool shouldDisplayBadgesChanged; // @synthesize shouldDisplayBadgesChanged=_shouldDisplayBadgesChanged;
 @property(nonatomic, setter=_setShouldUseUserTransformTilesChanged:) _Bool shouldUseUserTransformTilesChanged; // @synthesize shouldUseUserTransformTilesChanged=_shouldUseUserTransformTilesChanged;
 @property(nonatomic, setter=_setShouldUseContentGuideInsetsChanged:) _Bool shouldUseContentGuideInsetsChanged; // @synthesize shouldUseContentGuideInsetsChanged=_shouldUseContentGuideInsetsChanged;
+@property(nonatomic, setter=_setMaximumAccessoryToolbarHeightChanged:) _Bool maximumAccessoryToolbarHeightChanged; // @synthesize maximumAccessoryToolbarHeightChanged=_maximumAccessoryToolbarHeightChanged;
 @property(nonatomic, setter=_setMaximumToolbarHeightChanged:) _Bool maximumToolbarHeightChanged; // @synthesize maximumToolbarHeightChanged=_maximumToolbarHeightChanged;
 @property(nonatomic, setter=_setShouldUseCompactTitleViewChanged:) _Bool shouldUseCompactTitleViewChanged; // @synthesize shouldUseCompactTitleViewChanged=_shouldUseCompactTitleViewChanged;
 @property(nonatomic, setter=_setShouldPlaceButtonsInNavigationBarChanged:) _Bool shouldPlaceButtonsInNavigationBarChanged; // @synthesize shouldPlaceButtonsInNavigationBarChanged=_shouldPlaceButtonsInNavigationBarChanged;

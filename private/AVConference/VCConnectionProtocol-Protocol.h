@@ -21,6 +21,7 @@
 @property(readonly) NSUUID *connectionUUID;
 @property(readonly) _Bool isVPN;
 @property(readonly) _Bool isRelay;
+@property(readonly) int connectionId;
 @property int cellularMTU;
 @property(readonly) _Bool isIPv6;
 @property(readonly) _Bool isRemoteOnCellular;

@@ -15,15 +15,18 @@
     _Bool _machService;
     NSString *_serviceName;
     NSXPCInterface *_remoteInterface;
+    NSXPCInterface *_exportedInterface;
     unsigned long long _options;
 }
 
 + (id)helperConfiguration;
 + (id)fmipConfiguration;
++ (id)btDiscoveryConfiguration;
 + (id)userNotificationConfiguration;
 + (id)identityConfiguration;
 @property(nonatomic) _Bool machService; // @synthesize machService=_machService;
 @property(nonatomic) unsigned long long options; // @synthesize options=_options;
+@property(retain, nonatomic) NSXPCInterface *exportedInterface; // @synthesize exportedInterface=_exportedInterface;
 @property(retain, nonatomic) NSXPCInterface *remoteInterface; // @synthesize remoteInterface=_remoteInterface;
 @property(retain, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
 - (void).cxx_destruct;

@@ -16,7 +16,9 @@
 - (void).cxx_destruct;
 - (_Bool)internalCancelInContext:(id)arg1 error:(id *)arg2;
 - (_Bool)internalPerformInContext:(id)arg1 error:(id *)arg2;
+- (id)newDefaultRequestInstance;
 - (_Bool)hasCancellationHook;
+- (void)applyConfigurationOfRequest:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *clusterIDs;
 - (id)initWithClusterIDs:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithClusterIDs:(id)arg1;

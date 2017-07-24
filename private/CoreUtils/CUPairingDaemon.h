@@ -29,6 +29,7 @@
 - (int)_savePairedPeer:(id)arg1 options:(unsigned long long)arg2;
 - (int)savePairedPeer:(id)arg1 options:(unsigned long long)arg2;
 - (id)_findPairedPeer:(id)arg1 options:(unsigned long long)arg2 error:(int *)arg3;
+- (id)_findHomeKitPairedPeer:(id)arg1 options:(unsigned long long)arg2 error:(int *)arg3;
 - (id)findPairedPeer:(id)arg1 options:(unsigned long long)arg2 error:(int *)arg3;
 - (id)_copyPairedPeersWithOptions:(unsigned long long)arg1 error:(int *)arg2;
 - (id)copyPairedPeersWithOptions:(unsigned long long)arg1 error:(int *)arg2;
@@ -37,6 +38,7 @@
 - (int)deleteIdentityWithOptions:(unsigned long long)arg1;
 - (id)_copyIdentityWithOptions:(unsigned long long)arg1 error:(int *)arg2;
 - (id)_copyOrCreateWithOptions:(unsigned long long)arg1 error:(int *)arg2;
+- (id)_copyOrCreateHomeKitWithOptions:(unsigned long long)arg1 error:(int *)arg2;
 - (id)copyIdentityWithOptions:(unsigned long long)arg1 error:(int *)arg2;
 @property(readonly, nonatomic) NSXPCListenerEndpoint *testListenerEndpoint;
 - (struct os_state_data_s *)_stateDump;

@@ -13,13 +13,21 @@
 @interface AWDProactiveModelFittingLinRegFeatureMatrix : PBCodable <NSCopying>
 {
     unsigned long long _timestamp;
+    float _featureMatrixL2norm;
+    float _featureMatrixScaleFactor;
     AWDProactiveModelFittingMinibatchStats *_minibatchStats;
     AWDProactiveModelFittingModelInfo *_modelInfo;
     AWDProactiveModelFittingSparseFloatMatrix *_sparseFloatFeatureMatrix;
     AWDProactiveModelFittingQuantizedSparseMatrix *_sparseQuantizedFeatureMatrix;
-    CDStruct_b5306035 _has;
+    struct {
+        unsigned int timestamp:1;
+        unsigned int featureMatrixL2norm:1;
+        unsigned int featureMatrixScaleFactor:1;
+    } _has;
 }
 
+@property(nonatomic) float featureMatrixL2norm; // @synthesize featureMatrixL2norm=_featureMatrixL2norm;
+@property(nonatomic) float featureMatrixScaleFactor; // @synthesize featureMatrixScaleFactor=_featureMatrixScaleFactor;
 @property(retain, nonatomic) AWDProactiveModelFittingQuantizedSparseMatrix *sparseQuantizedFeatureMatrix; // @synthesize sparseQuantizedFeatureMatrix=_sparseQuantizedFeatureMatrix;
 @property(retain, nonatomic) AWDProactiveModelFittingMinibatchStats *minibatchStats; // @synthesize minibatchStats=_minibatchStats;
 @property(retain, nonatomic) AWDProactiveModelFittingSparseFloatMatrix *sparseFloatFeatureMatrix; // @synthesize sparseFloatFeatureMatrix=_sparseFloatFeatureMatrix;
@@ -35,6 +43,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasFeatureMatrixL2norm;
+@property(nonatomic) _Bool hasFeatureMatrixScaleFactor;
 @property(readonly, nonatomic) _Bool hasSparseQuantizedFeatureMatrix;
 @property(readonly, nonatomic) _Bool hasMinibatchStats;
 @property(readonly, nonatomic) _Bool hasSparseFloatFeatureMatrix;

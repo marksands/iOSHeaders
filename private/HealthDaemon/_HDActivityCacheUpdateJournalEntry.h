@@ -6,21 +6,14 @@
 
 #import <HealthDaemon/HDJournalEntry.h>
 
-@class HKActivityCache;
-
 @interface _HDActivityCacheUpdateJournalEntry : HDJournalEntry
 {
-    HKActivityCache *_activityCache;
 }
 
 + (_Bool)supportsSecureCoding;
 + (void)applyEntries:(id)arg1 withProfile:(id)arg2;
-@property(readonly, nonatomic) HKActivityCache *activityCache; // @synthesize activityCache=_activityCache;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)description;
-- (id)initWithActivityCache:(id)arg1;
 
 @end
 

@@ -14,6 +14,8 @@ __attribute__((visibility("hidden")))
 - (void)setupLayoutSegments;
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
 - (_Bool)shouldUseRoundCornerForKey:(id)arg1;
+- (struct UIEdgeInsets)symbolFrameInsets;
+- (struct CGPoint)globeKeyTextOffset;
 - (double)spaceKeyFontSize;
 - (struct CGPoint)moreKeyTextOffset;
 - (struct CGPoint)spaceKeyTextOffset;

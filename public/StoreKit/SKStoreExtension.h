@@ -19,7 +19,6 @@
 + (id)_exportedInterface;
 + (id)_remoteViewControllerInterface;
 - (void)presentRequestedViewControllerWithIdentifier:(id)arg1;
-- (void)setPreferredStatusBarStyle:(long long)arg1;
 - (void)openURL:(id)arg1 sourceApplication:(id)arg2 annotation:(id)arg3;
 - (void)setRequestedIdentifier:(id)arg1;
 - (void)setTabIdentifier:(id)arg1;

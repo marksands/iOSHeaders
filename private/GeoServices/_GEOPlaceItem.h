@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic, getter=_priceDescription) GEOPriceDescription *priceDescription;
+@property(readonly, nonatomic, getter=_parsecSectionType) int parsecSectionType;
 @property(readonly, nonatomic, getter=_associatedApp) GEOAssociatedApp *associatedApp;
 @property(readonly, nonatomic) GEOMapItemDetourInfo *detourInfo;
 @property(readonly, nonatomic, getter=_quickLinks) NSArray *quickLinks;
@@ -142,6 +143,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithPlaceResult:(id)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic, getter=_browseCategories) NSArray *browseCategories;
 @property(readonly, nonatomic, getter=_containedPlace) GEOMapItemContainedPlace *containedPlace;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, nonatomic) float displayMaxZoom;

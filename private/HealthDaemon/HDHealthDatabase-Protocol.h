@@ -12,6 +12,7 @@
 @protocol HDHealthDatabase <NSObject>
 @property(readonly, nonatomic, getter=isProtectedDataAvailable) _Bool protectedDataAvailable;
 @property(readonly, nonatomic, getter=isDataProtectedByFirstUnlockAvailable) _Bool dataProtectedByFirstUnlockAvailable;
+- (_Bool)performWithSecondaryJournal:(long long)arg1 error:(id *)arg2 block:(_Bool (^)(id *))arg3;
 - (void)finalizeExtendedTransactionForIdentifier:(NSUUID *)arg1;
 - (HDExtendedDatabaseTransaction *)extendedDatabaseTransactionForIdentifier:(NSUUID *)arg1;
 - (HDExtendedDatabaseTransaction *)beginExtendedTransactionWithOptions:(unsigned long long)arg1 transactionTimeout:(double)arg2 continuationTimeout:(double)arg3 error:(id *)arg4;
@@ -19,7 +20,7 @@
 - (void)addProtectedDataObserver:(id <HDDatabaseProtectedDataObserver>)arg1;
 - (_Bool)addJournalEntries:(NSArray *)arg1 error:(id *)arg2;
 - (_Bool)addJournalEntry:(HDJournalEntry *)arg1 error:(id *)arg2;
-- (_Bool)performJournalMergeUsingBlock:(_Bool (^)(HDSQLiteDatabase *, id *))arg1 error:(id *)arg2;
+- (_Bool)performJournalMergeWithOptions:(unsigned long long)arg1 error:(id *)arg2 block:(_Bool (^)(HDSQLiteDatabase *, id *))arg3;
 - (void)performAsynchronously:(void (^)(void))arg1;
 - (void)performWhenDataProtectedByFirstUnlockIsAvailable:(void (^)(void))arg1;
 - (_Bool)performTransactionWithOptions:(unsigned long long)arg1 error:(id *)arg2 usingBlock:(_Bool (^)(HDSQLiteDatabase *, id *))arg3 inaccessibilityHandler:(_Bool (^)(NSError *, id *))arg4;

@@ -23,6 +23,8 @@
 @property(nonatomic) __weak id <AXMFeatureTrackingManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_queue_trackerContainerForFeature:(id)arg1;
+- (id)queue_trackedModelClassifiers;
+- (id)trackedModelClassifiers;
 - (id)queue_trackedRectangles;
 - (id)trackedRectangles;
 - (id)queue_trackedText;

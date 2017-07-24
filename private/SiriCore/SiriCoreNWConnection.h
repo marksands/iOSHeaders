@@ -8,7 +8,7 @@
 
 #import <SiriCore/SiriCoreConnectionProvider-Protocol.h>
 
-@class NSString, NSURL, SAConnectionPolicyRoute, SiriCoreConnectionType;
+@class NSArray, NSString, NSURL, SAConnectionPolicyRoute, SiriCoreConnectionType;
 @protocol OS_dispatch_queue, OS_dispatch_source, OS_nw_connection, OS_nw_endpoint, SiriCoreConnectionProviderDelegate;
 
 @interface SiriCoreNWConnection : NSObject <SiriCoreConnectionProvider>
@@ -27,15 +27,20 @@
     _Bool _isCanceled;
     _Bool _isEstablishing;
     _Bool _isReady;
+    _Bool _usingTLS;
     NSString *_connectionId;
     SiriCoreConnectionType *_connectionType;
     int _interfaceIndex;
     CDUnknownBlockType _openCompletion;
     NSObject<OS_dispatch_source> *_openTimer;
+    NSObject<OS_dispatch_source> *_staleConnectionTimer;
+    unsigned long long _readWriteCounter;
+    NSArray *_attemptedEndpoints;
 }
 
 + (void)getMetricsContext:(CDUnknownBlockType)arg1;
 - (void).cxx_destruct;
+- (id)_getAttemptedEndpoints;
 - (_Bool)providerStatsIndicatePoorLinkQuality;
 - (id)_setParametersForHost:(const char *)arg1 useTLS:(_Bool)arg2 initialPayload:(id)arg3;
 - (id)resolvedHost;
@@ -44,9 +49,11 @@
 - (_Bool)isReady;
 - (_Bool)isEstablishing;
 - (_Bool)isMultipath;
+- (_Bool)isNetworkDownError:(id)arg1;
+- (_Bool)isPeerNotNearbyError:(id)arg1;
 - (_Bool)isPeerConnectionError:(id)arg1;
 - (void)close;
-- (void)_close;
+- (void)_closeWithError:(id)arg1;
 - (void)updateConnectionMetrics:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)analysisInfo;
 - (id)connectionType;
@@ -59,9 +66,11 @@
 - (_Bool)hasActiveConnection;
 - (void)_cancelOpenTimer;
 - (void)_setupOpenTimer;
-- (void)_configureConnection:(id)arg1 withOpenCompletion:(CDUnknownBlockType)arg2;
+- (void)_configureConnection:(id)arg1;
 - (void)openConnectionForURL:(id)arg1 withConnectionId:(id)arg2 initialPayload:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_getNWConnectionWithInitialData:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_cancelStaleConnectionTimer;
+- (void)_setupStaleConnectionTimer;
 - (_Bool)_connectByPOPMethod;
 - (id)_connectionId;
 - (id)_url;

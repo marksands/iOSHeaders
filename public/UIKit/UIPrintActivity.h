@@ -6,16 +6,21 @@
 
 #import <UIKit/UIActivity.h>
 
-@class UIViewController;
+#import <UIKit/UIPrintInteractionControllerActivityDelegate-Protocol.h>
 
-@interface UIPrintActivity : UIActivity
+@class NSString, UIViewController, UIWindow;
+
+@interface UIPrintActivity : UIActivity <UIPrintInteractionControllerActivityDelegate>
 {
     UIViewController *_wrapperViewController;
+    UIWindow *_windowHoldingActivityViewController;
 }
 
 + (unsigned long long)_xpcAttributes;
+@property(retain) UIWindow *windowHoldingActivityViewController; // @synthesize windowHoldingActivityViewController=_windowHoldingActivityViewController;
 @property(retain) UIViewController *wrapperViewController; // @synthesize wrapperViewController=_wrapperViewController;
 - (void).cxx_destruct;
+- (id)printInteractionControllerWindowForPresentation:(id)arg1;
 - (id)printInteractionControllerParentViewController:(id)arg1;
 - (void)activityDidFinish:(_Bool)arg1;
 - (id)printInteractionController;
@@ -27,6 +32,12 @@
 - (id)activityTitle;
 - (id)_activityImage;
 - (id)activityType;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

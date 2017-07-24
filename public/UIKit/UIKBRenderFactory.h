@@ -67,6 +67,7 @@
 - (id)displayContentsForKey:(id)arg1;
 - (id)keyImageNameWithSkinnyVariation:(id)arg1;
 - (double)skinnyKeyThreshold;
+- (id)ZWNJKeyImageName;
 - (id)spaceKeyGrabberHandlesImageName;
 - (id)messagesWriteboardKeyImageName;
 - (id)biuKeyImageName;

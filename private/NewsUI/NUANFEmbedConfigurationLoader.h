@@ -6,23 +6,23 @@
 
 #import <objc/NSObject.h>
 
-@class FCAppConfiguration, FCAsyncOnceOperation, FCFlintResourceManager, SXJSONDictionary;
+@class FCAppConfigurationManager, FCAsyncOnceOperation, FCFlintResourceManager, SXJSONDictionary;
 
 @interface NUANFEmbedConfigurationLoader : NSObject
 {
-    FCAppConfiguration *_appConfiguration;
+    FCAppConfigurationManager *_appConfigurationManager;
     FCFlintResourceManager *_flintResourceManager;
     FCAsyncOnceOperation *_asyncOnceOperation;
 }
 
 @property(retain, nonatomic) FCAsyncOnceOperation *asyncOnceOperation; // @synthesize asyncOnceOperation=_asyncOnceOperation;
 @property(retain, nonatomic) FCFlintResourceManager *flintResourceManager; // @synthesize flintResourceManager=_flintResourceManager;
-@property(retain, nonatomic) FCAppConfiguration *appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(retain, nonatomic) FCAppConfigurationManager *appConfigurationManager; // @synthesize appConfigurationManager=_appConfigurationManager;
 - (void).cxx_destruct;
 - (id)asyncLoadEmbedConfigurationOnceWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) SXJSONDictionary *embedConfiguration;
 - (id)loadEmbededConfigurationWithCompletion:(CDUnknownBlockType)arg1;
-- (id)initWithAppConfig:(id)arg1 flintResourceManager:(id)arg2;
+- (id)initWithAppConfigManager:(id)arg1 flintResourceManager:(id)arg2;
 
 @end
 

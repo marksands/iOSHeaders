@@ -22,6 +22,7 @@
     double _nextBloodGlucoseFingerStickSampleTime;
     double _nextBloodGlucoseMealTime;
     double _lastBloodGlucose;
+    double _nextInsulinPumpBasalSampleTime;
     double _carbohydratesLeftToDigest;
     double _bloodGlucoseCarbohydrateGlycemicRate;
     double _bloodGlucoseDecreaseRateDueToInsulin;
@@ -32,6 +33,7 @@
 @property(nonatomic) double bloodGlucoseDecreaseRateDueToInsulin; // @synthesize bloodGlucoseDecreaseRateDueToInsulin=_bloodGlucoseDecreaseRateDueToInsulin;
 @property(nonatomic) double bloodGlucoseCarbohydrateGlycemicRate; // @synthesize bloodGlucoseCarbohydrateGlycemicRate=_bloodGlucoseCarbohydrateGlycemicRate;
 @property(nonatomic) double carbohydratesLeftToDigest; // @synthesize carbohydratesLeftToDigest=_carbohydratesLeftToDigest;
+@property(nonatomic) double nextInsulinPumpBasalSampleTime; // @synthesize nextInsulinPumpBasalSampleTime=_nextInsulinPumpBasalSampleTime;
 @property(nonatomic) double lastBloodGlucose; // @synthesize lastBloodGlucose=_lastBloodGlucose;
 @property(nonatomic) double nextBloodGlucoseMealTime; // @synthesize nextBloodGlucoseMealTime=_nextBloodGlucoseMealTime;
 @property(nonatomic) double nextBloodGlucoseFingerStickSampleTime; // @synthesize nextBloodGlucoseFingerStickSampleTime=_nextBloodGlucoseFingerStickSampleTime;
@@ -52,6 +54,12 @@
 - (double)_computeMealTimeForDemoPerson:(id)arg1 fromTime:(double)arg2 mealTimeType:(long long)arg3 timeMean:(double)arg4 stdDev:(double)arg5;
 - (_Bool)_isDemoPersonConsumingCaffeine:(id)arg1 atTime:(double)arg2;
 - (_Bool)_isTypicalNutritionTrackingQuantityType:(id)arg1;
+- (long long)mealTypeForTime:(double)arg1;
+- (id)basalInsulinPumpDeliveryForDemoPerson:(id)arg1 quantityType:(id)arg2 totalDailyInsulinInUnits:(double)arg3 currentTime:(double)arg4 sampleDate:(id)arg5;
+- (id)basalInsulinInjectionForDemoPerson:(id)arg1 quantityType:(id)arg2 totalDailyInsulinInUnits:(double)arg3 sampleDate:(id)arg4;
+- (double)basalInsulinDeliveryForTotalDailyInsulinInUnits:(double)arg1 timeInterval:(double)arg2;
+- (id)bolusInsulinDeliveryForFoodItems:(id)arg1 totalDailyInsulinInUnits:(double)arg2;
+- (double)totalDailyInsulinTherapyRequirementForDemoPerson:(id)arg1;
 - (id)waterConsumedForDemoPerson:(id)arg1 atTime:(double)arg2;
 - (id)bloodGlucoseForDemoPerson:(id)arg1 atTime:(double)arg2;
 - (void)generateSamplesForDemoPerson:(id)arg1 atTime:(double)arg2 sampleDate:(id)arg3 objectCollection:(id)arg4;

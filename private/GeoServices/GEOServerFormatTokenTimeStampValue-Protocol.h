@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <GeoServices/NSCoding-Protocol.h>
 #import <GeoServices/NSObject-Protocol.h>
 
 @class NSString, NSTimeZone;
 
-@protocol GEOServerFormatTokenTimeStampValue <NSObject>
+@protocol GEOServerFormatTokenTimeStampValue <NSObject, NSCoding>
 @property(readonly, nonatomic) NSString *formatPattern;
 @property(readonly, nonatomic) NSTimeZone *timeZone;
 @property(readonly, nonatomic) double timeStamp;

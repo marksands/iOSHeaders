@@ -35,8 +35,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <MNCommuteDestinationUpdaterDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)commuteScoreUpdaterDidUpdate:(id)arg1;
-- (void)locationTracker:(id)arg1 didUpdateETA:(id)arg2 forRoute:(id)arg3;
-- (void)locationTracker:(id)arg1 didReroute:(id)arg2 rerouteReason:(unsigned long long)arg3 request:(id)arg4 response:(id)arg5;
+- (void)locationTracker:(id)arg1 didUpdateETAForRoute:(id)arg2;
+- (void)locationTracker:(id)arg1 didReroute:(id)arg2 newAlternateRoutes:(id)arg3 rerouteReason:(unsigned long long)arg4 request:(id)arg5 response:(id)arg6;
 - (void)locationTrackerWillReroute:(id)arg1;
 - (void)locationTracker:(id)arg1 didUpdateMatchedLocation:(id)arg2;
 @property(readonly, nonatomic) MNCommuteDestinationStartEndTimeScore *startEndTimeScore;

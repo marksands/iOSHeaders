@@ -10,16 +10,18 @@
 #import <XCTest/XCTNSPredicateExpectationObject-Protocol.h>
 #import <XCTest/XCUIElementAttributes-Protocol.h>
 #import <XCTest/XCUIElementTypeQueryProvider-Protocol.h>
+#import <XCTest/XCUIScreenshotProviding-Protocol.h>
 
 @class NSString, XCElementSnapshot, XCUIApplication, XCUICoordinate, XCUIElementQuery;
 
-@interface XCUIElement : NSObject <XCTNSPredicateExpectationObject, XCElementAttributesPrivate, XCUIElementAttributes, XCUIElementTypeQueryProvider>
+@interface XCUIElement : NSObject <XCUIScreenshotProviding, XCTNSPredicateExpectationObject, XCElementAttributesPrivate, XCUIElementAttributes, XCUIElementTypeQueryProvider>
 {
     _Bool _safeQueryResolutionEnabled;
     XCUIElementQuery *_query;
     XCElementSnapshot *_lastSnapshot;
 }
 
++ (_Bool)_isInvalidEventDuration:(double)arg1;
 @property _Bool safeQueryResolutionEnabled; // @synthesize safeQueryResolutionEnabled=_safeQueryResolutionEnabled;
 @property(retain) XCElementSnapshot *lastSnapshot; // @synthesize lastSnapshot=_lastSnapshot;
 @property(readonly) XCUIElementQuery *query; // @synthesize query=_query;
@@ -130,6 +132,7 @@
 - (_Bool)evaluatePredicateForExpectation:(id)arg1 debugMessage:(id *)arg2;
 - (id)_debugDescriptionWithSnapshot:(id)arg1;
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly) XCUIElement *firstMatch;
 - (id)childrenMatchingType:(unsigned long long)arg1;
 - (id)descendantsMatchingType:(unsigned long long)arg1;
 @property(readonly) _Bool exists;
@@ -137,6 +140,8 @@
 @property(readonly, copy) NSString *description;
 - (id)initWithElementQuery:(id)arg1;
 - (void)dealloc;
+- (id)screenshot;
+- (id)_screen;
 - (void)_dispatchEvent:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)typeText:(id)arg1;
 - (void)rotate:(double)arg1 withVelocity:(double)arg2;

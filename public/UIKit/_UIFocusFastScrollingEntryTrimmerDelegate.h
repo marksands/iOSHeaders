@@ -6,18 +6,18 @@
 
 #import <Foundation/NSObject.h>
 
-#import <UIKit/_UIScrollViewIndexEntryTrimmerDelegate-Protocol.h>
+#import <UIKit/_UIFocusFastScrollingIndexBarEntryTrimmerDelegate-Protocol.h>
 
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface _UIFocusFastScrollingEntryTrimmerDelegate : NSObject <_UIScrollViewIndexEntryTrimmerDelegate>
+@interface _UIFocusFastScrollingEntryTrimmerDelegate : NSObject <_UIFocusFastScrollingIndexBarEntryTrimmerDelegate>
 {
 }
 
-- (id)_scrollViewIndexEntryTrimmer:(id)arg1 placeholderEntryBetweenEntryBefore:(id)arg2 entryAfter:(id)arg3;
-- (_Bool)_scrollViewIndexEntryTrimmer:(id)arg1 entryIsPlaceholder:(id)arg2;
-- (_Bool)_scrollViewIndexEntryTrimmer:(id)arg1 startingOrEndingEntryMustBePreserved:(id)arg2;
+- (id)_focusFastScrollingIndexBarEntryTrimmer:(id)arg1 placeholderEntryBetweenEntryBefore:(id)arg2 entryAfter:(id)arg3;
+- (_Bool)_focusFastScrollingIndexBarEntryTrimmer:(id)arg1 entryIsPlaceholder:(id)arg2;
+- (_Bool)_focusFastScrollingIndexBarEntryTrimmer:(id)arg1 startingOrEndingEntryMustBePreserved:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -13,7 +13,6 @@
     _Bool _assetChanged;
     _Bool _modelTileTransformChanged;
     _Bool _isUserTransformingTileDidChange;
-    _Bool _isInFocusChanged;
     _Bool _focusValueChanged;
     _Bool _loadingStatusChanged;
     _Bool _saveProgressChanged;
@@ -44,7 +43,6 @@
 @property(nonatomic, setter=_setSaveProgressChanged:) _Bool saveProgressChanged; // @synthesize saveProgressChanged=_saveProgressChanged;
 @property(nonatomic, setter=_setLoadingStatusChanged:) _Bool loadingStatusChanged; // @synthesize loadingStatusChanged=_loadingStatusChanged;
 @property(nonatomic, setter=_setFocusValueChanged:) _Bool focusValueChanged; // @synthesize focusValueChanged=_focusValueChanged;
-@property(nonatomic, setter=_setInFocusChanged:) _Bool isInFocusChanged; // @synthesize isInFocusChanged=_isInFocusChanged;
 @property(nonatomic, setter=_setUserTransformingTileDidChange:) _Bool isUserTransformingTileDidChange; // @synthesize isUserTransformingTileDidChange=_isUserTransformingTileDidChange;
 @property(nonatomic, setter=_setModelTileTransformChanged:) _Bool modelTileTransformChanged; // @synthesize modelTileTransformChanged=_modelTileTransformChanged;
 @property(nonatomic, setter=_setAssetChanged:) _Bool assetChanged; // @synthesize assetChanged=_assetChanged;

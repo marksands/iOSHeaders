@@ -17,7 +17,6 @@ __attribute__((visibility("hidden")))
 @interface MKPlaceVenueBrowseViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, MKModuleViewControllerProtocol>
 {
     id <MKPlaceVenueBrowseViewControllerDelegate> _delegate;
-    MKMapItem *_mapItem;
     unsigned long long _venueID;
     id <GEOVenueComponentIdentifier> _componentIdentifier;
     NSArray *_browseItems;
@@ -25,10 +24,12 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_heightConstraint;
     UIFont *_preferredCellTitleLabelFont;
     UIColor *_cellTitleLabelTextColor;
+    MKMapItem *_mapItem;
     struct CGSize _preferredCellSize;
 }
 
 + (_Bool)canDisplayForMapItem:(id)arg1;
+@property(retain, nonatomic) MKMapItem *mapItem; // @synthesize mapItem=_mapItem;
 @property(retain, nonatomic) UIColor *cellTitleLabelTextColor; // @synthesize cellTitleLabelTextColor=_cellTitleLabelTextColor;
 @property(retain, nonatomic) UIFont *preferredCellTitleLabelFont; // @synthesize preferredCellTitleLabelFont=_preferredCellTitleLabelFont;
 @property(nonatomic) struct CGSize preferredCellSize; // @synthesize preferredCellSize=_preferredCellSize;
@@ -37,7 +38,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSArray *browseItems; // @synthesize browseItems=_browseItems;
 @property(retain, nonatomic) id <GEOVenueComponentIdentifier> componentIdentifier; // @synthesize componentIdentifier=_componentIdentifier;
 @property(nonatomic) unsigned long long venueID; // @synthesize venueID=_venueID;
-@property(readonly, nonatomic) MKMapItem *mapItem; // @synthesize mapItem=_mapItem;
 @property(nonatomic) __weak id <MKPlaceVenueBrowseViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_ppt_postNotificationName:(id)arg1 object:(id)arg2;
@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (void)infoCardThemeChanged:(id)arg1;
+- (int)placeCardTypeForAnalytics;
 - (void)updateCellTitleLabelTextColor;
 - (void)contentSizeCategoryDidChange:(id)arg1;
 - (void)viewDidLayoutSubviews;

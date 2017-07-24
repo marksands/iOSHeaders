@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSArray, NSDictionary, NSObject, NSString, NSURL;
+@class NSArray, NSData, NSDictionary, NSObject, NSString, NSURL;
 
 @protocol ClientSessionInterface
+- (void)setDigestKey:(NSData *)arg1 algorithm:(int)arg2;
 - (void)updateSharedDataForKey:(NSString *)arg1 value:(NSObject *)arg2;
 - (void)updateSharedDataWithDictionary:(NSDictionary *)arg1;
 - (void)sendMessageWithSessionInfo:(NSDictionary *)arg1 userInfo:(NSDictionary *)arg2 category:(unsigned short)arg3 type:(unsigned short)arg4 payload:(NSDictionary *)arg5 reply:(void (^)(NSString *))arg6;

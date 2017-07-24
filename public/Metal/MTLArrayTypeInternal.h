@@ -20,9 +20,11 @@ __attribute__((visibility("hidden")))
     unsigned long long _aluType;
     MTLType *_elementTypeDescription;
     _Bool _isIndirectArgumentBuffer;
+    unsigned long long _argumentIndexStride;
 }
 
 @property _Bool isIndirectArgumentBuffer; // @synthesize isIndirectArgumentBuffer=_isIndirectArgumentBuffer;
+@property(nonatomic) unsigned long long argumentIndexStride; // @synthesize argumentIndexStride=_argumentIndexStride;
 @property(readonly) unsigned long long aluType; // @synthesize aluType=_aluType;
 @property(readonly) unsigned long long pixelFormat; // @synthesize pixelFormat=_pixelFormat;
 - (unsigned long long)elementType;
@@ -30,8 +32,12 @@ __attribute__((visibility("hidden")))
 - (id)formattedDescription:(unsigned long long)arg1;
 - (id)elementTypeDescription;
 - (id)elementIndirectArgumentType;
+@property(nonatomic) unsigned long long indirectArgumentIndexStride;
+- (id)elementPointerType;
+- (id)elementTextureReferenceType;
 - (id)elementStructType;
 - (id)elementArrayType;
+- (void)setStride:(unsigned long long)arg1;
 - (unsigned long long)stride;
 - (unsigned long long)arrayLength;
 - (void)dealloc;

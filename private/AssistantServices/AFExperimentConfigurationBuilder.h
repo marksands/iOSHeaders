@@ -17,7 +17,7 @@
     AFExperimentGroup *_controlGroup;
     NSArray *_experimentGroups;
     NSString *_salt;
-    struct __flags {
+    struct _builderFlags {
         unsigned int isDirty:1;
         unsigned int hasType:1;
         unsigned int hasIdentifier:1;
@@ -25,7 +25,7 @@
         unsigned int hasControlGroup:1;
         unsigned int hasExperimentGroups:1;
         unsigned int hasSalt:1;
-    } __flags;
+    } _builderFlags;
 }
 
 - (void).cxx_destruct;

@@ -20,13 +20,13 @@
     NSArray *__modes;
     NSDictionary *__items;
     UIView *__meshTransformView;
-    CAGradientLayer *__maskLayer;
+    CAGradientLayer *__gradientLayer;
     UIView *__itemsContainerView;
 }
 
 + (_Bool)wantsVerticalModeDialForLayoutStyle:(long long)arg1;
 @property(readonly, nonatomic) UIView *_itemsContainerView; // @synthesize _itemsContainerView=__itemsContainerView;
-@property(readonly, nonatomic) CAGradientLayer *_maskLayer; // @synthesize _maskLayer=__maskLayer;
+@property(readonly, nonatomic) CAGradientLayer *_gradientLayer; // @synthesize _gradientLayer=__gradientLayer;
 @property(readonly, nonatomic) UIView *_meshTransformView; // @synthesize _meshTransformView=__meshTransformView;
 @property(retain, nonatomic, setter=_setItems:) NSDictionary *_items; // @synthesize _items=__items;
 @property(retain, nonatomic, setter=_setModes:) NSArray *_modes; // @synthesize _modes=__modes;
@@ -44,7 +44,7 @@
 - (void)_configureMeshTransformForLayoutStyle:(long long)arg1;
 - (id)_meshTransformForLayoutStyle:(long long)arg1;
 - (id)_horizontalMeshTransform;
-- (void)_configureMaskForLayoutStyle:(long long)arg1;
+- (void)_configureGradientForLayoutStyle:(long long)arg1;
 - (long long)_nearestCaptureModeForLocation:(struct CGPoint)arg1;
 - (void)reloadData;
 - (id)_selectedItem;

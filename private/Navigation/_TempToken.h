@@ -35,6 +35,8 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *token; // @synthesize token=_token;
 @property(nonatomic) long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

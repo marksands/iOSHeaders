@@ -41,15 +41,16 @@
 - (id)_sanitizedNotificationDictionary:(id)arg1 account:(id)arg2;
 - (void)_postDaemonOfferChangedDueToPushDarwinNotification;
 - (void)_showDaemonAlertForOffer:(id)arg1 notificationDictionary:(id)arg2 store:(id)arg3 account:(id)arg4 completion:(CDUnknownBlockType)arg5;
-- (void)_fetchDaemonOfferStubsForAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_fetchDaemonOfferStubsForAccount:(id)arg1 isForBuddy:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_fetchDaemonOfferForAccount:(id)arg1 stub:(id)arg2 notificationID:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_fetchDictionaryForAccount:(id)arg1 quotaKey:(id)arg2 stub:(id)arg3 notificationID:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (_Bool)_isBackupEnabledForAccount:(id)arg1;
 - (void)_addEntriesToPostDictionary:(id)arg1 forStub:(id)arg2;
 - (_Bool)_attemptSetRequest:(id)arg1 toPostWithJSONDict:(id)arg2;
 - (void)_addCommonHeadersToRequest:(id)arg1 account:(id)arg2;
 - (id)URLForAccount:(id)arg1 quotaKey:(id)arg2;
 - (void)_processPushNotificationDictionary:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_daemonOfferStubsDictionaryForAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_daemonOfferStubsDictionaryForAccount:(id)arg1 isForBuddy:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_pushNotificationDictionary;
 - (_Bool)_useFetchOffersDataDirectly;
 - (unsigned long long)daemonOfferSource;

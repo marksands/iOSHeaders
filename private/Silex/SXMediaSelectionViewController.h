@@ -10,8 +10,6 @@
 
 @interface SXMediaSelectionViewController : UITableViewController
 {
-    unsigned long long _numberOfOptions;
-    unsigned long long _selectedIndex;
     id <SXMediaSelectionViewControllerDataSource> _dataSource;
     id <SXMediaSelectionViewControllerDelegate> _delegate;
 }
@@ -19,9 +17,11 @@
 @property(nonatomic) __weak id <SXMediaSelectionViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <SXMediaSelectionViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
-@property(nonatomic) unsigned long long selectedIndex; // @synthesize selectedIndex=_selectedIndex;
-@property(readonly, nonatomic) unsigned long long numberOfOptions; // @synthesize numberOfOptions=_numberOfOptions;
-- (id)displayNameAtIndex:(unsigned long long)arg1;
+- (void)selectedOptionAtIndexPath:(id)arg1;
+- (unsigned long long)indexOfSelectionOptionInGroup:(unsigned long long)arg1;
+- (id)displayNameForOptionAtIndexPath:(id)arg1;
+- (id)displayNameForGroup:(unsigned long long)arg1;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
@@ -29,7 +29,6 @@
 - (void)done:(id)arg1;
 - (id)title;
 - (void)viewDidLoad;
-- (id)initWithStyle:(long long)arg1;
 
 @end
 

@@ -36,7 +36,6 @@
 + (id)resolutionResultConfirmationRequiredWithItemToConfirm:(id)arg1;
 + (id)resolutionResultDisambiguationWithItemsToDisambiguate:(id)arg1;
 + (id)resolutionResultSuccessWithResolvedValue:(id)arg1;
-+ (id)callerToResolve;
 + (id)unsupported;
 + (id)notRequired;
 + (id)needsValue;
@@ -53,7 +52,9 @@
 - (void).cxx_destruct;
 - (id)dictionaryRepresentation;
 - (id)_stringForResultCode:(long long)arg1;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
+- (id)_initWithResolutionResult:(id)arg1;
 - (id)_vocabularyValueForObject:(id)arg1 slotDescription:(id)arg2;
 - (id)_intentSlotValueForObject:(id)arg1 slotDescription:(id)arg2;
 - (id)_buildIntentSlotResolutionResultWithIntentSlotDescription:(id)arg1;

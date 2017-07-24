@@ -6,10 +6,11 @@
 
 #import <Silex/SXMediaEvent.h>
 
-@class NSString;
+@class NSError, NSString;
 
 @interface SXMediaEngageEvent : SXMediaEvent
 {
+    _Bool _muted;
     unsigned long long _userAction;
     double _mediaTimePlayed;
     NSString *_mediaPlayMethod;
@@ -19,8 +20,13 @@
     unsigned long long _mediaResumePosition;
     double _mediaFrameRate;
     double _mediaDuration;
+    double _volume;
+    NSError *_error;
 }
 
+@property(retain, nonatomic) NSError *error; // @synthesize error=_error;
+@property(nonatomic) double volume; // @synthesize volume=_volume;
+@property(nonatomic) _Bool muted; // @synthesize muted=_muted;
 @property(nonatomic) double mediaDuration; // @synthesize mediaDuration=_mediaDuration;
 @property(nonatomic) double mediaFrameRate; // @synthesize mediaFrameRate=_mediaFrameRate;
 @property(nonatomic) unsigned long long mediaResumePosition; // @synthesize mediaResumePosition=_mediaResumePosition;

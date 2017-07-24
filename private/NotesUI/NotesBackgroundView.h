@@ -21,10 +21,12 @@
     NotesTextureBackgroundView *_topTextureView;
     NotesTextureBackgroundView *_bottomTextureView;
     NSLayoutConstraint *_heightConstraint;
+    NSLayoutConstraint *_bottomBarConstraint;
     id <ICAccessibilityChildReparentingProvider> _elementForAccessibilityReparenting;
 }
 
 @property(nonatomic) __weak id <ICAccessibilityChildReparentingProvider> elementForAccessibilityReparenting; // @synthesize elementForAccessibilityReparenting=_elementForAccessibilityReparenting;
+@property(retain, nonatomic) NSLayoutConstraint *bottomBarConstraint; // @synthesize bottomBarConstraint=_bottomBarConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *heightConstraint; // @synthesize heightConstraint=_heightConstraint;
 @property(retain, nonatomic) NotesTextureBackgroundView *bottomTextureView; // @synthesize bottomTextureView=_bottomTextureView;
 @property(retain, nonatomic) NotesTextureBackgroundView *topTextureView; // @synthesize topTextureView=_topTextureView;
@@ -39,10 +41,13 @@
 @property(readonly, nonatomic) NotesTextureView *backgroundView;
 - (void)addSubviewAboveAllViews:(id)arg1;
 - (void)addSubview:(id)arg1;
+- (void)setContentView:(id)arg1 useReadableLayoutGuide:(_Bool)arg2 topMargin:(double)arg3;
 - (void)setContentView:(id)arg1 useReadableLayoutGuide:(_Bool)arg2;
 - (void)snapshotContentIntoSnapshotView:(id)arg1;
 - (id)scrollViewDescendantOfView:(id)arg1;
 - (void)scrollView:(id)arg1 didChangeContentOffset:(struct CGPoint)arg2;
+- (void)fadeInBottomToolbar:(id)arg1 duration:(double)arg2;
+- (void)fadeOutBottomToolbar:(id)arg1 duration:(double)arg2;
 - (void)updateConstraintsForBottomToolbar:(id)arg1;
 - (void)addConstraintsForSafeAreaLayoutGuide:(id)arg1 bottomToolbar:(id)arg2 toContainer:(id)arg3;
 - (void)addConstraintsForSafeAreaLayoutGuide:(id)arg1 toContainer:(id)arg2;

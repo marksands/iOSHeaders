@@ -68,6 +68,7 @@
 - (void)_setRFC822DecodedMessageBody:(id)arg1;
 - (id)rfc822DecodedMessageBody;
 - (_Bool)usesKnownSignatureProtocol;
+- (_Bool)hasValidMultipartSignedContentType;
 - (_Bool)isHTML;
 - (_Bool)isRich;
 - (_Bool)isAttachment;
@@ -109,6 +110,7 @@
 - (id)bodyParameterKeys;
 - (void)setBodyParameter:(id)arg1 forKey:(id)arg2;
 - (id)bodyParameterForKey:(id)arg1;
+- (_Bool)hasContentType:(id)arg1 subtype:(id)arg2;
 - (void)setSubtype:(id)arg1;
 - (id)subtype;
 - (void)setType:(id)arg1;

@@ -38,6 +38,8 @@ __attribute__((visibility("hidden")))
     _Bool _sentDidFinishCollectingMetrics;
 }
 
+- (void)_didSendMetrics;
+- (_Bool)_needSendingMetrics;
 - (void)_captureTCPIOConnection:(shared_ptr_f0c1381f)arg1;
 - (void)_capturedSocketInputStream:(id)arg1 outputStream:(id)arg2;
 - (void)cancelAuthenticationChallenge:(id)arg1;

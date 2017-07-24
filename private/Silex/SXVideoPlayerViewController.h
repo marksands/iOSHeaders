@@ -6,15 +6,18 @@
 
 #import <UIKit/UIViewController.h>
 
+#import <Silex/AVPlayerViewControllerDelegate_WebKitOnly-Protocol.h>
+#import <Silex/SXAutomaticFullscreenVideoPlaybackBehaviorManagerDelegate-Protocol.h>
 #import <Silex/SXVideoPlaybackObserver-Protocol.h>
 
-@class AVPlayerViewController, NSString, SXAdPrivacyButton, SXLearnMoreButton, SXPlaybackCoordinator, SXVideoAdSkipButton, SXVideoPlaybackQueue, UIActivityIndicatorView;
+@class AVPlayerViewController, NSString, SXAdPrivacyButton, SXAutomaticFullscreenVideoPlaybackBehaviorManager, SXKeyValueObserver, SXLearnMoreButton, SXPlaybackCoordinator, SXVideoAdSkipButton, SXVideoPlaybackQueue, UIActivityIndicatorView;
 @protocol SXVideoPlayerViewControllerDataSource, SXVideoPlayerViewControllerDelegate;
 
-@interface SXVideoPlayerViewController : UIViewController <SXVideoPlaybackObserver>
+@interface SXVideoPlayerViewController : UIViewController <SXVideoPlaybackObserver, AVPlayerViewControllerDelegate_WebKitOnly, SXAutomaticFullscreenVideoPlaybackBehaviorManagerDelegate>
 {
     id <SXVideoPlayerViewControllerDelegate> _delegate;
     id <SXVideoPlayerViewControllerDataSource> _dataSource;
+    unsigned long long _fullscreenBehavior;
     SXVideoPlaybackQueue *_queue;
     SXPlaybackCoordinator *_coordinator;
     AVPlayerViewController *_playerViewController;
@@ -22,8 +25,12 @@
     SXVideoAdSkipButton *_skipButton;
     SXAdPrivacyButton *_adPrivacyButton;
     UIActivityIndicatorView *_activityIndicatorView;
+    SXKeyValueObserver *_videoBoundsObserver;
+    SXAutomaticFullscreenVideoPlaybackBehaviorManager *_fullscreenBehaviorManager;
 }
 
+@property(readonly, nonatomic) SXAutomaticFullscreenVideoPlaybackBehaviorManager *fullscreenBehaviorManager; // @synthesize fullscreenBehaviorManager=_fullscreenBehaviorManager;
+@property(retain, nonatomic) SXKeyValueObserver *videoBoundsObserver; // @synthesize videoBoundsObserver=_videoBoundsObserver;
 @property(retain, nonatomic) UIActivityIndicatorView *activityIndicatorView; // @synthesize activityIndicatorView=_activityIndicatorView;
 @property(retain, nonatomic) SXAdPrivacyButton *adPrivacyButton; // @synthesize adPrivacyButton=_adPrivacyButton;
 @property(retain, nonatomic) SXVideoAdSkipButton *skipButton; // @synthesize skipButton=_skipButton;
@@ -31,22 +38,33 @@
 @property(retain, nonatomic) AVPlayerViewController *playerViewController; // @synthesize playerViewController=_playerViewController;
 @property(retain, nonatomic) SXPlaybackCoordinator *coordinator; // @synthesize coordinator=_coordinator;
 @property(retain, nonatomic) SXVideoPlaybackQueue *queue; // @synthesize queue=_queue;
+@property(nonatomic) unsigned long long fullscreenBehavior; // @synthesize fullscreenBehavior=_fullscreenBehavior;
 @property(nonatomic) __weak id <SXVideoPlayerViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <SXVideoPlayerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)updateSkipButtonWithThreshold:(unsigned long long)arg1 time:(double)arg2;
+- (_Bool)playbackAllowedForPlaybackCoordinator:(id)arg1;
+- (void)startPlaybackForCoordinatorIfAllowed:(id)arg1;
 - (void)finished;
 - (void)transitionToCoordinator:(id)arg1;
 - (void)advance;
 - (void)setupQueueIfNeeded;
+- (void)refreshControlsForPlaybackCoordinator:(id)arg1;
 - (void)adPrivacyButtonTapped:(id)arg1;
 - (void)adSkipButtonTapped:(id)arg1;
 - (void)learnMoreButtonTapped:(id)arg1;
+- (void)playbackCoordinatorStateChanged:(id)arg1;
 - (void)playbackCoordinator:(id)arg1 timeElapsed:(double)arg2 duration:(double)arg3;
 - (void)playbackCoordinator:(id)arg1 playbackFailedWithError:(id)arg2;
 - (void)playbackCoordinatorFinishedPlayback:(id)arg1;
 - (void)playbackCoordinatorResumedPlayback:(id)arg1;
 - (void)playbackCoordinatorPausedPlayback:(id)arg1;
 - (void)playbackCoordinatorStartedPlayback:(id)arg1;
+- (_Bool)playerViewController:(id)arg1 shouldExitFullScreenWithReason:(long long)arg2;
+- (void)fullscreenBehaviorManagerRequiresFullscreenPlayback:(id)arg1;
+@property(readonly, nonatomic, getter=isFullscreen) _Bool fullscreen;
+@property(readonly, nonatomic, getter=isPlaying) _Bool playing;
+@property(readonly, nonatomic) unsigned long long mode;
 - (void)exitFullscreenWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)enterFullscreenWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)pause;

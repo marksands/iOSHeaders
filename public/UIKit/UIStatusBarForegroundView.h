@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (_Bool)rectIntersectsBatteryItem:(struct CGRect)arg1;
 - (_Bool)rectIntersectsTimeItem:(struct CGRect)arg1;
+- (struct CGRect)frameForItemOfType:(int)arg1;
 - (void)jiggleLockIcon;
 - (void)animateUnlock;
 - (void)_animateUnlockCompletionBlock:(CDUnknownBlockType)arg1;

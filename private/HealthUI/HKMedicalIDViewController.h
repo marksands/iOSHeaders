@@ -7,7 +7,6 @@
 #import <UIKit/UITableViewController.h>
 
 #import <HealthUI/HKEmergencyCardDeletionDelegate-Protocol.h>
-#import <HealthUI/HKEmergencyCardLastUpdatedTableItemDelegate-Protocol.h>
 #import <HealthUI/HKEmergencyCardRowHeightChangeDelegate-Protocol.h>
 #import <HealthUI/HKMedicalIDViewControllerDelegate-Protocol.h>
 #import <HealthUI/UITableViewDataSource-Protocol.h>
@@ -16,7 +15,7 @@
 @class HKEmergencyCardContactsTableItem, HKEmergencyCardGroupTableItem, HKEmergencyCardNameAndPictureTableItem, HKHealthStore, HKNavigationController, NSArray, NSString, _HKMedicalIDData;
 @protocol HKMedicalIDViewControllerDelegate;
 
-@interface HKMedicalIDViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, HKMedicalIDViewControllerDelegate, HKEmergencyCardDeletionDelegate, HKEmergencyCardRowHeightChangeDelegate, HKEmergencyCardLastUpdatedTableItemDelegate>
+@interface HKMedicalIDViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, HKMedicalIDViewControllerDelegate, HKEmergencyCardDeletionDelegate, HKEmergencyCardRowHeightChangeDelegate>
 {
     NSArray *_presentableTableItems;
     NSArray *_footers;
@@ -55,9 +54,8 @@
 @property(nonatomic) _Bool allowsEditing; // @synthesize allowsEditing=_allowsEditing;
 @property(retain, nonatomic) _HKMedicalIDData *medicalID; // @synthesize medicalID=_medicalID;
 - (void).cxx_destruct;
+- (void)_forceDisableBiometricIfDeviceLocked;
 - (void)_showMedicalIDPreviewAsNext;
-- (void)lastUpdatedTableItemDidTapEditButton:(id)arg1;
-- (void)_keyboardFrameWillChange:(id)arg1;
 - (void)_adjustTableViewContentOffsetForVisibleView:(id)arg1 visibleRect:(struct CGRect)arg2 animated:(_Bool)arg3;
 - (void)tableItemDidChangeSelection:(id)arg1 keepRectVisible:(struct CGRect)arg2 inView:(id)arg3;
 - (void)tableItemDidBeginEditing:(id)arg1 keepRectVisible:(struct CGRect)arg2 inView:(id)arg3;
@@ -68,6 +66,7 @@
 - (void)medicalIDViewControllerDidCancel:(id)arg1;
 - (long long)_rowIndexForTableItem:(id)arg1 atIndexPath:(id)arg2;
 - (id)_tableItemForIndexPath:(id)arg1;
+- (_Bool)tableView:(id)arg1 shouldDrawBottomSeparatorForSection:(long long)arg2;
 - (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
 - (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
@@ -93,11 +92,12 @@
 - (void)_buildEditModeTableItems;
 - (void)_buildTableItems;
 - (void)_doneTapped:(id)arg1;
-- (void)_organDonationTapped:(id)arg1;
-- (void)_editTapped:(id)arg1;
+- (void)editOrganDonation:(id)arg1;
+- (void)editMedicalID:(id)arg1;
 - (void)_nextButtonTapped:(id)arg1;
 - (void)_doneEditingTapped:(id)arg1;
 - (void)_cancelEditingTapped:(id)arg1;
+- (void)editButtonTapped:(id)arg1;
 - (void)_refreshEmergencyContactsAndReload:(_Bool)arg1;
 - (void)_contactStoreDidChange:(id)arg1;
 - (void)_reloadTableWithMedicalIDData:(id)arg1;

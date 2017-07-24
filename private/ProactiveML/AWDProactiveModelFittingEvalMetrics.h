@@ -10,6 +10,8 @@
 
 @interface AWDProactiveModelFittingEvalMetrics : PBCodable <NSCopying>
 {
+    CDStruct_fae3dc92 _negativeScores;
+    CDStruct_fae3dc92 _positiveScores;
     unsigned long long _falseNegatives;
     unsigned long long _falsePositives;
     unsigned long long _trueNegatives;
@@ -43,12 +45,25 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (void)setNegativeScores:(float *)arg1 count:(unsigned long long)arg2;
+- (float)negativeScoresAtIndex:(unsigned long long)arg1;
+- (void)addNegativeScores:(float)arg1;
+- (void)clearNegativeScores;
+@property(readonly, nonatomic) float *negativeScores;
+@property(readonly, nonatomic) unsigned long long negativeScoresCount;
+- (void)setPositiveScores:(float *)arg1 count:(unsigned long long)arg2;
+- (float)positiveScoresAtIndex:(unsigned long long)arg1;
+- (void)addPositiveScores:(float)arg1;
+- (void)clearPositiveScores;
+@property(readonly, nonatomic) float *positiveScores;
+@property(readonly, nonatomic) unsigned long long positiveScoresCount;
 @property(nonatomic) _Bool hasFalseNegatives;
 @property(nonatomic) _Bool hasFalsePositives;
 @property(nonatomic) _Bool hasTrueNegatives;
 @property(nonatomic) _Bool hasTruePositives;
 @property(nonatomic) _Bool hasF1;
 @property(nonatomic) _Bool hasRmse;
+- (void)dealloc;
 - (id)toDictionary;
 
 @end

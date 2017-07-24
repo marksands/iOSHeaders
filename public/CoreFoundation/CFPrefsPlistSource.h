@@ -54,7 +54,7 @@ __attribute__((visibility("hidden")))
 - (void)_goReadOnlyOrVolatileAfterTryingToWriteKey:(struct __CFString *)arg1 value:(void *)arg2;
 - (id)createSynchronizeMessage;
 - (_Bool)_isSharedInTheiOSSimulator;
-- (void)alreadylocked_setValues:(const void **)arg1 forKeys:(const struct __CFString **)arg2 count:(long long)arg3;
+- (void)alreadylocked_setValues:(const void **)arg1 forKeys:(const struct __CFString **)arg2 count:(long long)arg3 from:(id)arg4;
 - (struct __CFDictionary *)alreadylocked_copyDictionary;
 - (struct __CFArray *)alreadylocked_copyKeyList;
 - (void *)copyValueForKey:(struct __CFString *)arg1;

@@ -53,6 +53,7 @@
 @property(readonly, nonatomic) _Bool isInMemory; // @synthesize isInMemory=_isInMemory;
 @property(readonly, nonatomic) NSString *filename; // @synthesize filename=_filename;
 - (void).cxx_destruct;
+- (void)performIntegrityCheck;
 - (id)languageForFTSTable:(id)arg1;
 - (unsigned long long)numberOfRowsInTable:(id)arg1;
 - (_Bool)hasIndexNamed:(id)arg1;

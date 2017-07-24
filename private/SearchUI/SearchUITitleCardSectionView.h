@@ -4,13 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeSectionView.h>
+#import <SearchUI/SearchUICardSectionView.h>
 
-@interface SearchUITitleCardSectionView : SearchUILayoutFreeSectionView
+@class UILabel;
+
+@interface SearchUITitleCardSectionView : SearchUICardSectionView
 {
+    UILabel *_label;
 }
 
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
++ (_Bool)supportsRecyclingForCardSection:(id)arg1;
+@property(retain) UILabel *label; // @synthesize label=_label;
+- (void).cxx_destruct;
+- (void)updateWithCardSection:(id)arg1;
+- (id)setupContentView;
 
 @end
 

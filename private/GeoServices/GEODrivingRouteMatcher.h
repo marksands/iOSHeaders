@@ -13,8 +13,6 @@ __attribute__((visibility("hidden")))
 {
     GEORouteRoadMatcher *_routeRoadMatcher;
     _Bool _supportsSnapping;
-    _Bool _fixHorizontalAccuracyCheck;
-    _Bool _fixLowSpeedCourseSwing;
 }
 
 - (void).cxx_destruct;

@@ -6,13 +6,13 @@
 
 #import <iWorkImport/TSKDocumentRootDelegate-Protocol.h>
 
-@class NSString, TSADocumentRoot, TSAUbiquitousRefreshQueue, TSKMailboxDocStatusMessage;
+@class NSString, TSACachedDocumentInfo, TSADocumentRoot, TSKMailboxDocStatusMessage;
 
 @protocol TSADocumentRootDelegate <TSKDocumentRootDelegate>
 @property(readonly, nonatomic) NSString *name;
 
 @optional
-@property(readonly, nonatomic) TSAUbiquitousRefreshQueue *refreshQueue;
+@property(readonly, nonatomic) TSACachedDocumentInfo *cachedDocumentInfo;
 @property(readonly, nonatomic) NSString *documentCachePath;
 @property(readonly, nonatomic) NSString *defaultDraftName;
 - (_Bool)hasPersistenceWarningsOfKind:(long long)arg1;

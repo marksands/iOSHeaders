@@ -87,6 +87,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithPersistentObject:(id)arg1;
 - (id)init;
+- (void)emptyMeltedCacheForKeys:(id)arg1;
 - (void)_emptyMeltedCacheForKey:(id)arg1;
 - (void)emptyMeltedCache;
 - (void)_resetMeltedCache;

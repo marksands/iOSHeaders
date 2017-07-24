@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSString *_keySetName;
     NSString *_cachedGestureKeySetName;
     NSString *_annotations;
+    NSString *_locale;
 }
 
 + (id)tokenForKeyplane:(id)arg1;

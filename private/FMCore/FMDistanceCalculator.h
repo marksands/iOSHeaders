@@ -27,6 +27,7 @@
 - (id)localizedDistanceFromLocation:(id)arg1 toLocation:(id)arg2;
 - (double)averageDistanceFromLocation:(id)arg1 toLocation:(id)arg2;
 @property(nonatomic) long long measurementSystem;
+- (id)initWithDefaultsSuiteName:(id)arg1 locale:(id)arg2;
 - (id)initWithDefaultsSuiteName:(id)arg1;
 - (id)init;
 

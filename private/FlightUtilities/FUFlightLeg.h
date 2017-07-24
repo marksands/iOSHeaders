@@ -8,7 +8,7 @@
 
 #import <FlightUtilities/NSSecureCoding-Protocol.h>
 
-@class FUFlightStep;
+@class FUFlightStep, NSString;
 
 @interface FUFlightLeg : NSObject <NSSecureCoding>
 {
@@ -16,9 +16,11 @@
     double _duration;
     FUFlightStep *_departure;
     FUFlightStep *_arrival;
+    NSString *_baggageClaim;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain) NSString *baggageClaim; // @synthesize baggageClaim=_baggageClaim;
 @property(retain) FUFlightStep *arrival; // @synthesize arrival=_arrival;
 @property(retain) FUFlightStep *departure; // @synthesize departure=_departure;
 @property double duration; // @synthesize duration=_duration;

@@ -6,12 +6,16 @@
 
 #import <PassKitUI/PKTableViewCell.h>
 
+@class UIColor;
+
 @interface PKPaymentPreferenceCell : PKTableViewCell
 {
+    UIColor *_errorColor;
     _Bool _hasError;
 }
 
 @property(nonatomic) _Bool hasError; // @synthesize hasError=_hasError;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)initWithReuseIdentifier:(id)arg1;
 

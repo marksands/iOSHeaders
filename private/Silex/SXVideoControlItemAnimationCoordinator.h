@@ -19,7 +19,7 @@
 @property(readonly, nonatomic) NSMutableArray *completionBlocks; // @synthesize completionBlocks=_completionBlocks;
 @property(readonly, nonatomic) NSMutableArray *animationBlocks; // @synthesize animationBlocks=_animationBlocks;
 - (void).cxx_destruct;
-- (void)animateWithDuration:(double)arg1;
+- (void)animateWithDuration:(double)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)animateWithAnimationBlock:(CDUnknownBlockType)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)init;
 

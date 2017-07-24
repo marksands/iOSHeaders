@@ -29,11 +29,9 @@
 @property(readonly) ASAsset *rawAsset; // @synthesize rawAsset=_rawAsset;
 - (void).cxx_destruct;
 - (id)description;
+@property(readonly) struct __DCSDictionary *dictionaryRef;
+@property(readonly) _Bool needsDownloadNewerVersion;
 - (id)_definitionValueForTerm:(id)arg1;
-- (id)_attributedDefinitionForTerm:(id)arg1;
-- (id)_fullHTMLDefinitionForTerm:(id)arg1;
-- (id)_shortHTMLDefinitionForTerm:(id)arg1;
-- (id)_HTMLDefinitionForTerm:(id)arg1 type:(long long)arg2;
 - (_Bool)_hasDefinitionForTerm:(id)arg1;
 @property(readonly) NSString *localizedDictionaryName;
 @property(readonly) NSString *localizedSortName;

@@ -15,6 +15,7 @@
 {
     CKAudioController *_audioController;
     float _currentVolume;
+    BOOL messageOrientation;
     _Bool _triggeredByResponseKit;
     NSString *_identifier;
     CKMessagePartChatItem *_triggeringChatItem;
@@ -29,6 +30,7 @@
 @property(retain, nonatomic) CKMessagePartChatItem *triggeringChatItem; // @synthesize triggeringChatItem=_triggeringChatItem;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) _Bool triggeredByResponseKit; // @synthesize triggeredByResponseKit=_triggeredByResponseKit;
+@property(nonatomic) BOOL messageOrientation; // @synthesize messageOrientation;
 - (void).cxx_destruct;
 - (_Bool)effectIsDark;
 - (_Bool)_supportsSoundEffects;

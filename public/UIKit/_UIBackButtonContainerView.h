@@ -13,14 +13,15 @@ __attribute__((visibility("hidden")))
 {
     CALayer *_edgeMask;
     CALayer *_fillMask;
+    _Bool _isRTL;
     UIImage *_edgeMaskImage;
     double _backButtonLeadingMargin;
 }
 
+@property(nonatomic) _Bool isRTL; // @synthesize isRTL=_isRTL;
 @property(nonatomic) double backButtonLeadingMargin; // @synthesize backButtonLeadingMargin=_backButtonLeadingMargin;
 @property(retain, nonatomic) UIImage *edgeMaskImage; // @synthesize edgeMaskImage=_edgeMaskImage;
 - (void).cxx_destruct;
-- (void)layoutSubviews;
 @property(nonatomic) _Bool maskEnabled;
 
 @end

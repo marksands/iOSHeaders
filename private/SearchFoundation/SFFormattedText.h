@@ -6,12 +6,13 @@
 
 #import <SearchFoundation/SFText.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFFormattedText-Protocol.h>
 
 @class NSData, NSDictionary, NSString, SFImage;
 
-@interface SFFormattedText : SFText <SFFormattedText, NSSecureCoding>
+@interface SFFormattedText : SFText <SFFormattedText, NSSecureCoding, NSCopying>
 {
     CDStruct_87e10b33 _has;
     _Bool _isEmphasized;
@@ -26,6 +27,7 @@
 @property(nonatomic) _Bool isEmphasized; // @synthesize isEmphasized=_isEmphasized;
 @property(retain, nonatomic) SFImage *glyph; // @synthesize glyph=_glyph;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

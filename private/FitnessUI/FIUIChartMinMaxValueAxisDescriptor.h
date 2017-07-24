@@ -14,29 +14,37 @@
 {
     UIFont *_labelFont;
     UIColor *_unhighlightedLabelColor;
-    UIColor *_highlightedSubLabelColor;
+    UIColor *_highlightedLabelColor;
     double _axisDescriptorPadding;
+    UIColor *_shadowColor;
+    double _shadowBlur;
     NSNumber *_minValue;
     NSNumber *_maxValue;
+    NSNumber *_highlightedValue;
+    struct CGSize _shadowOffset;
 }
 
+@property(retain, nonatomic) NSNumber *highlightedValue; // @synthesize highlightedValue=_highlightedValue;
 @property(retain, nonatomic) NSNumber *maxValue; // @synthesize maxValue=_maxValue;
 @property(retain, nonatomic) NSNumber *minValue; // @synthesize minValue=_minValue;
+@property(nonatomic) double shadowBlur; // @synthesize shadowBlur=_shadowBlur;
+@property(nonatomic) struct CGSize shadowOffset; // @synthesize shadowOffset=_shadowOffset;
+@property(retain, nonatomic) UIColor *shadowColor; // @synthesize shadowColor=_shadowColor;
 @property(nonatomic) double axisDescriptorPadding; // @synthesize axisDescriptorPadding=_axisDescriptorPadding;
-@property(retain, nonatomic) UIColor *highlightedSubLabelColor; // @synthesize highlightedSubLabelColor=_highlightedSubLabelColor;
+@property(retain, nonatomic) UIColor *highlightedLabelColor; // @synthesize highlightedLabelColor=_highlightedLabelColor;
 @property(retain, nonatomic) UIColor *unhighlightedLabelColor; // @synthesize unhighlightedLabelColor=_unhighlightedLabelColor;
 @property(retain, nonatomic) UIFont *labelFont; // @synthesize labelFont=_labelFont;
 - (void).cxx_destruct;
 - (Class)expectedDataType;
 - (id)axisLabels;
-- (id)_axisLabelForValue:(id)arg1;
+- (id)_axisLabelForValue:(id)arg1 highlighted:(_Bool)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(nonatomic) _Bool hideClippedLabels;
-@property(retain, nonatomic) UIColor *highlightedLabelColor;
+@property(retain, nonatomic) UIColor *highlightedSubLabelColor;
 @property(nonatomic) unsigned long long labelAlignment;
 @property(retain, nonatomic) UIColor *selectedLabelColor;
 @property(nonatomic) double subAxisDescriptorPadding;

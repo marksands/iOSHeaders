@@ -8,6 +8,7 @@
 
 @interface UIImage (HUImageUtilities)
 + (struct CGSize)hu_scaleSize:(struct CGSize)arg1 toSize:(struct CGSize)arg2 contentMode:(long long)arg3;
++ (id)hu_locationArrowTemplate;
 - (id)hu_imageScaledToSize:(struct CGSize)arg1 contentMode:(long long)arg2;
 @end
 

@@ -8,13 +8,14 @@
 
 #import <FamilyCircleUI/FAAddFamilyMemberDelegate-Protocol.h>
 #import <FamilyCircleUI/FAChildAccountCreationDelegate-Protocol.h>
+#import <FamilyCircleUI/FASharedSubscriptionSpecifierProviderDelegeate-Protocol.h>
 #import <FamilyCircleUI/RemoteUIControllerDelegate-Protocol.h>
 #import <FamilyCircleUI/UINavigationControllerDelegate-Protocol.h>
 
-@class AAFamilyDetailsResponse, AAFamilyMember, AAGrandSlamSigner, AAUIProfilePictureStore, AAUIServerUIHookHandler, ACAccount, ACAccountStore, CNMonogrammer, FAChildAccountCreationController, FAFamilyCreditCard, FAFamilyNotificationObserver, FARequestConfigurator, NSArray, NSMutableDictionary, NSMutableURLRequest, NSObject, NSOperationQueue, NSString, NSURL, PSSpecifier, RemoteUIController, SSAccount, UINavigationController, UITableViewCell;
+@class AAFamilyDetailsResponse, AAFamilyMember, AAGrandSlamSigner, AAUIProfilePictureStore, AAUIServerUIHookHandler, ACAccount, ACAccountStore, CNMonogrammer, FAChildAccountCreationController, FACircleRemoteUIDelegate, FAFamilyCreditCard, FAFamilyNotificationObserver, FARequestConfigurator, FASharedSubscriptionSpecifierProvider, NSArray, NSMutableDictionary, NSMutableURLRequest, NSObject, NSOperationQueue, NSString, NSURL, PSSpecifier, RemoteUIController, SSAccount, UINavigationController, UITableViewCell;
 @protocol FAFamilySettingsViewControllerDelegate;
 
-@interface FAFamilySettingsViewController : ACUIViewController <FAAddFamilyMemberDelegate, FAChildAccountCreationDelegate, UINavigationControllerDelegate, RemoteUIControllerDelegate>
+@interface FAFamilySettingsViewController : ACUIViewController <FAAddFamilyMemberDelegate, FAChildAccountCreationDelegate, UINavigationControllerDelegate, RemoteUIControllerDelegate, FASharedSubscriptionSpecifierProviderDelegeate>
 {
     AAGrandSlamSigner *_iCloudGrandSlamSigner;
     AAGrandSlamSigner *_appleIDGrandSlamSigner;
@@ -31,6 +32,8 @@
     CNMonogrammer *_monogrammer;
     RemoteUIController *_iCloudRemoteUIController;
     RemoteUIController *_appleIDRemoteUIController;
+    RemoteUIController *_familyV2RemoteUIController;
+    FACircleRemoteUIDelegate *_familyRemoteUIDelegate;
     UITableViewCell *_activeCell;
     NSURL *_activeURL;
     AAFamilyMember *_memberBeingViewed;
@@ -46,11 +49,15 @@
     NSMutableURLRequest *_currentRemoteUIRequest;
     FARequestConfigurator *_requestConfigurator;
     AAUIServerUIHookHandler *_serverUIHookHandler;
+    FACircleRemoteUIDelegate *_faCircleRemoteUIDelegate;
+    FASharedSubscriptionSpecifierProvider *_sharedSubscriptionSpecifierProvider;
     id <FAFamilySettingsViewControllerDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <FAFamilySettingsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)didSelectSpecifier:(id)arg1;
+- (void)reloadSpecifiersForProvider:(id)arg1 oldSpecifiers:(id)arg2 animated:(_Bool)arg3;
 - (void)_updateMemberDetailsPageWithLinkedAppleID:(id)arg1;
 - (id)_itunesAccount;
 - (void)_showConnectivityAlert;
@@ -77,10 +84,12 @@
 - (void)_createChildAccountButtonWasTapped:(id)arg1;
 - (void)addFamilyFamilyMemberViewControllerWantsChildAccountFlow:(id)arg1;
 - (void)addFamilyFamilyMemberViewController:(id)arg1 didCompleteWithSuccess:(_Bool)arg2;
+- (void)_addMemberWithEventType:(id)arg1;
+- (void)_addMemberInline;
 - (void)_addFamilyMemberButtonWasTapped:(id)arg1;
+- (void)_setFresnoRemoteUIDelgate:(id)arg1;
 - (void)_loadRemoteUIWithRequest:(id)arg1 url:(id)arg2 specifier:(id)arg3 type:(long long)arg4;
 - (void)_loadRemoteUIWithRequest:(id)arg1 specifier:(id)arg2 type:(long long)arg3;
-- (void)_sharedSubscriptionSpecifierWasTapped:(id)arg1;
 - (void)_paymentMethodCellWasTapped:(id)arg1;
 - (void)_pendingFamilyMemberCellWasTapped:(id)arg1;
 - (void)_familyMemberCellWasTapped:(id)arg1;
@@ -92,6 +101,7 @@
 - (id)_createSpecifierForFamilyMemberGroup;
 - (void)_reloadPaymentInfoSpecifiersAnimated:(_Bool)arg1;
 - (id)_imageFromBundle:(id)arg1;
+- (id)_sharedSubscriptionSpecifierProvider;
 - (id)_sharedSubscriptionSpecifiers;
 - (void)traitCollectionDidChange:(id)arg1;
 - (id)specifiers;

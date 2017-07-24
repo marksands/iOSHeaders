@@ -30,6 +30,7 @@
 + (id)_lookupPolicyForNonUIExtension;
 + (id)_lookupPolicyForUIExtension;
 + (id)_extensionsWithLookupPolicy:(id)arg1;
++ (id)_queue;
 + (id)managerWithExtensionLookupPolicy:(id)arg1 updateHandler:(CDUnknownBlockType)arg2;
 + (id)managerWithLookupPolicy:(id)arg1 delegate:(id)arg2;
 + (id)lookupPolicyForRideSharingExtensions;

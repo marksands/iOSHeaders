@@ -13,7 +13,7 @@
 #import <PhotosUICore/PXTilingControllerScrollDelegate-Protocol.h>
 #import <PhotosUICore/PXTilingControllerTransitionDelegate-Protocol.h>
 
-@class NSString, PXAssetBadgeManager, PXAssetReference, PXAssetsDataSource, PXAssetsDataSourceManager, PXAssetsTilingLayout, PXMediaProvider, PXReusableObjectPool, PXScrollViewSpeedometer, PXSectionedSelectionManager, PXTilingController;
+@class NSMutableArray, NSString, PXAssetBadgeManager, PXAssetsDataSource, PXAssetsDataSourceManager, PXAssetsTilingLayout, PXMediaProvider, PXReusableObjectPool, PXScrollViewSpeedometer, PXSectionedSelectionManager, PXTilingController;
 @protocol PXAssetsSceneDelegate;
 
 @interface PXAssetsScene : NSObject <PXReusableObjectPoolDelegate, PXAssetsDataSourceManagerObserver, PXChangeObserver, PXTileSource, PXTilingControllerScrollDelegate, PXTilingControllerTransitionDelegate>
@@ -28,8 +28,11 @@
         _Bool respondsToTileIdentifierConverterForChange;
         _Bool respondsToWillTransitionToDataSource;
         _Bool respondsToDidTransitionToDataSource;
+        _Bool respondsToTransitionAnimationCoordinatorForChange;
     } _delegateFlags;
     _Bool _isAskingForTileIdentifierConverter;
+    _Bool _isAskingForTransitionAnimationCoordinator;
+    _Bool _animatesContent;
     id <PXAssetsSceneDelegate> _delegate;
     PXTilingController *_tilingController;
     PXMediaProvider *_mediaProvider;
@@ -39,13 +42,12 @@
     PXScrollViewSpeedometer *_scrollSpeedometer;
     PXReusableObjectPool *_viewTileReusePool;
     PXAssetsDataSource *__dataSource;
-    PXAssetReference *__anchorAssetReference;
-    struct CGPoint __anchorOrigin;
+    NSMutableArray *__anchors;
 }
 
-@property(nonatomic, setter=_setAnchorOrigin:) struct CGPoint _anchorOrigin; // @synthesize _anchorOrigin=__anchorOrigin;
-@property(retain, nonatomic, setter=_setAnchorAssetReference:) PXAssetReference *_anchorAssetReference; // @synthesize _anchorAssetReference=__anchorAssetReference;
+@property(readonly, nonatomic) NSMutableArray *_anchors; // @synthesize _anchors=__anchors;
 @property(retain, nonatomic, setter=_setDataSource:) PXAssetsDataSource *_dataSource; // @synthesize _dataSource=__dataSource;
+@property(nonatomic) _Bool animatesContent; // @synthesize animatesContent=_animatesContent;
 @property(readonly, nonatomic) PXReusableObjectPool *viewTileReusePool; // @synthesize viewTileReusePool=_viewTileReusePool;
 @property(readonly, nonatomic) PXScrollViewSpeedometer *scrollSpeedometer; // @synthesize scrollSpeedometer=_scrollSpeedometer;
 @property(readonly, nonatomic) PXAssetBadgeManager *badgeManager; // @synthesize badgeManager=_badgeManager;

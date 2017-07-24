@@ -13,14 +13,21 @@
 #import <ChatKit/UICollectionViewDelegate-Protocol.h>
 #import <ChatKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <ChatKit/UIScrollViewDelegate-Protocol.h>
+#import <ChatKit/_UIBackdropViewGraphicsQualityChangeDelegate-Protocol.h>
 
-@class CKAppGrabberView, CKBrowserSwitcherFooterView, CKBrowserSwitcherFooterViewDataSource, CKBrowserSwitcherScrollPreventer, CKBrowserTransitionCoordinator, IMBalloonPlugin, IMScheduledUpdater, NSArray, NSDate, NSMutableDictionary, NSString, UICollectionView, UICollectionViewFlowLayout, UILongPressGestureRecognizer, UIPanGestureRecognizer, UITapGestureRecognizer, UIView;
+@class CKAppGrabberView, CKBrowserSwitcherFooterView, CKBrowserSwitcherFooterViewDataSource, CKBrowserSwitcherScrollPreventer, CKBrowserTransitionCoordinator, CKImmediatePanGestureRecognizer, IMBalloonPlugin, IMScheduledUpdater, NSArray, NSDate, NSMutableDictionary, NSString, UICollectionView, UICollectionViewFlowLayout, UILongPressGestureRecognizer, UIView, UIViewPropertyAnimator, _UIBackdropView;
 @protocol CKBrowserSwitcherViewControllerDelegate><CKBrowserTransitionCoordinatorDelegate, CKBrowserViewControllerProtocol;
 
-@interface CKBrowserSwitcherViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, CKBrowserSwitcherScrollPreventerDelegate, CKBrowserTransitionCoordinatorDelegate, CKBrowserSwitcherFooterViewDelegate>
+@interface CKBrowserSwitcherViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, CKBrowserSwitcherScrollPreventerDelegate, CKBrowserTransitionCoordinatorDelegate, CKBrowserSwitcherFooterViewDelegate, _UIBackdropViewGraphicsQualityChangeDelegate>
 {
+    _UIBackdropView *_extraTopSpacingBackdropView;
     CKAppGrabberView *_grabberView;
-    UITapGestureRecognizer *_expandTapRecognizer;
+    CKImmediatePanGestureRecognizer *_expandGestureTracker;
+    UIViewPropertyAnimator *_expandPropertyAnimator;
+    _Bool _isDoingExpandInteraction;
+    _Bool _expandInteractionDidMove;
+    _Bool _expandGestureStartedOnGrabber;
+    double _expandGestureTranslationOffset;
     _Bool _dragging;
     _Bool _browserViewReadyForUserInteraction;
     _Bool _insertedViaCollapse;
@@ -43,7 +50,6 @@
     UILongPressGestureRecognizer *_horizontalSwipePreventer;
     CKBrowserSwitcherScrollPreventer *_scrollPreventer;
     IMScheduledUpdater *_scrollUpdater;
-    UIPanGestureRecognizer *_expandGestureRecognizer;
     IMBalloonPlugin *_currentVisiblePlugin;
     CKBrowserSwitcherFooterViewDataSource *_footerViewDataSource;
     id _cancelTouchesToken;
@@ -69,7 +75,6 @@
 @property(nonatomic) _Bool insertedViaCollapse; // @synthesize insertedViaCollapse=_insertedViaCollapse;
 @property(retain, nonatomic) CKBrowserSwitcherFooterViewDataSource *footerViewDataSource; // @synthesize footerViewDataSource=_footerViewDataSource;
 @property(retain, nonatomic) IMBalloonPlugin *currentVisiblePlugin; // @synthesize currentVisiblePlugin=_currentVisiblePlugin;
-@property(retain, nonatomic) UIPanGestureRecognizer *expandGestureRecognizer; // @synthesize expandGestureRecognizer=_expandGestureRecognizer;
 @property(retain, nonatomic) IMScheduledUpdater *scrollUpdater; // @synthesize scrollUpdater=_scrollUpdater;
 @property(retain, nonatomic) CKBrowserSwitcherScrollPreventer *scrollPreventer; // @synthesize scrollPreventer=_scrollPreventer;
 @property(retain, nonatomic) UILongPressGestureRecognizer *horizontalSwipePreventer; // @synthesize horizontalSwipePreventer=_horizontalSwipePreventer;
@@ -84,6 +89,8 @@
 @property(readonly, nonatomic) UIViewController<CKBrowserViewControllerProtocol> *currentViewController; // @synthesize currentViewController=_currentViewController;
 @property(nonatomic) __weak id <CKBrowserSwitcherViewControllerDelegate><CKBrowserTransitionCoordinatorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)backdropView:(id)arg1 didChangeToGraphicsQuality:(long long)arg2;
+- (id)backdropView:(id)arg1 willChangeToGraphicsQuality:(long long)arg2;
 - (double)_horizontalOffsetForVisibleSwitcherPluginIndex:(unsigned long long)arg1;
 - (unsigned long long)_visibleSwitcherPluginIndexForHorizontalOffset:(double)arg1;
 - (struct CGSize)_browserSize;
@@ -120,7 +127,7 @@
 - (void)_updateAppNameAndPageForOffset:(struct CGPoint)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
-- (void)_expandPanGestureRecognized:(id)arg1;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)_updatePluginFromScrollPosition;
 - (_Bool)_pluginHasLiveBrowserViewInSwitcher:(id)arg1;
 - (void)_updateForEndScrolling;
@@ -156,12 +163,22 @@
 - (void)collectionView:(id)arg1 willDisplayCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (void)expandGestureTouchMoved:(id)arg1;
+- (void)reverseAndCleanupExpandAnimator;
+- (void)setupPausedExpandAnimatorIfNeeded;
+- (double)_rubberBandOffsetWithoutDecorationForOffset:(double)arg1 maxOffset:(double)arg2 minOffset:(double)arg3 range:(double)arg4 outside:(_Bool *)arg5;
+- (double)restingCollectionViewOriginY;
+- (double)restingGrabberOriginY;
+- (struct CGRect)restingGrabberFrame;
 - (void)dismissBrowserFullscreenAnimated:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (struct CGRect)cachedCompactFrameInWindowCoordsForBrowserTransitionCoordinator:(id)arg1;
 - (void)reinsertSwitcherFooterViewForBrowserTransitionCoordinator:(id)arg1;
 - (id)switcherFooterViewForBrowserTransitionCoordinator:(id)arg1;
+- (void)reinsertAppGrabberViewForBrowserTransitionCoordinator:(id)arg1;
+- (id)appGrabberForBrowserTransitionCoordinator:(id)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)browserTransitionCoordinator:(id)arg1 didTransitionFromOrientation:(long long)arg2 toOrientation:(long long)arg3;
-- (struct CGRect)browserTransitionCoordinator:(id)arg1 preferredBoundsForBrowser:(id)arg2;
+- (struct CGRect)browserTransitionCoordinator:(id)arg1 preferredFrameForBrowser:(id)arg2;
 - (void)transitionToCollapsed;
 - (void)transitionToFullscreen;
 - (void)viewDidDisappear:(_Bool)arg1;

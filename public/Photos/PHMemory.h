@@ -42,6 +42,7 @@
     NSDictionary *_photosGraphProperties;
 }
 
++ (id)fetchBestRecentMemoryWithOptions:(id)arg1;
 + (id)stringForSubcategory:(long long)arg1;
 + (id)stringForCategory:(long long)arg1;
 + (id)assetListPredicateFromQueryHintObjects:(id)arg1;
@@ -112,6 +113,7 @@
 - (id)transientMemoryStartDate;
 - (id)rejectionCause;
 - (_Bool)isTransient;
+- (id)transientRepresentativeAndCuratedAssetIDs;
 - (id)query;
 - (id)queryForKeyAssetWithOptions:(id)arg1;
 - (id)queryForCuratedAssetsWithOptions:(id)arg1;

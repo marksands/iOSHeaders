@@ -22,7 +22,6 @@
 + (_Bool)iPhone;
 + (_Bool)iPad;
 + (_Bool)iPadPro;
-+ (_Bool)portrait;
 + (double)minScreenSide;
 + (double)maxScreenSide;
 

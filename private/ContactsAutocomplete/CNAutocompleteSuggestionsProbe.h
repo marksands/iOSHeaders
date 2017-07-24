@@ -19,6 +19,7 @@
     NSMutableArray *_pendingBlocks;
 }
 
++ (int)suggestionSourcesForAutocompleteResult:(id)arg1;
 + (id)contactIdentifierForAutocompleteResult:(id)arg1;
 + (id)suggestionIdentifierForAutocompleteResult:(id)arg1;
 @property(readonly, nonatomic) NSMutableArray *pendingBlocks; // @synthesize pendingBlocks=_pendingBlocks;

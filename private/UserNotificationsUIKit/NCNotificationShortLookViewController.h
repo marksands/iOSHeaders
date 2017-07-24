@@ -40,6 +40,8 @@
 - (void)notificationViewControllerWillDismiss:(id)arg1;
 - (void)notificationViewControllerDidPresent:(id)arg1;
 - (void)notificationViewControllerWillPresent:(id)arg1;
+- (void)previewInteractionManager:(id)arg1 shouldFinishInteractionWithCompletionBlock:(CDUnknownBlockType)arg2;
+- (_Bool)previewInteractionManagerShouldAttemptToFinishInteraction:(id)arg1;
 - (void)previewInteractionManagerDidEndUserInteraction:(id)arg1;
 - (void)previewInteractionManagerWillBeginUserInteraction:(id)arg1;
 - (_Bool)previewInteractionManagerShouldBeginInteraction:(id)arg1;

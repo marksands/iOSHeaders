@@ -6,6 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
+#import <ChatKit/CKBrowserAppManagerViewControllerDelegate-Protocol.h>
 #import <ChatKit/CKBrowserSwitcherViewControllerDelegate-Protocol.h>
 #import <ChatKit/CKBrowserTransitionCoordinatorDelegate-Protocol.h>
 #import <ChatKit/CKBrowserViewControllerSendDelegate-Protocol.h>
@@ -23,7 +24,7 @@
 @class CKBrowserSwitcherViewController, CKDeviceOrientationManager, CKHandwritingPresentationController, CKKeyboardContentViewController, CKMessageEntryView, CKScheduledUpdater, IMBalloonPlugin, IMBalloonPluginDataSource, IMScheduledUpdater, NSDate, NSString, UINavigationController, UIViewController;
 @protocol CKBrowserViewControllerProtocol, CKChatInputControllerDelegate;
 
-@interface CKChatInputController : NSObject <UITextInputPayloadDelegate, DDMoneyActionDelegate, CKMessageEntryViewInputDelegate, CKBrowserViewControllerSendDelegate, CKPhotoBrowserViewControllerSendDelegate, CKHandwritingViewControllerSendDelegate, CKBrowserViewControllerStoreSendDelegate, CKPluginEntryViewControllerDelegate, CKFullScreenAppViewControllerDelegate, CKDeviceOrientationManagerDelegate, CKBrowserSwitcherViewControllerDelegate, CKBrowserTransitionCoordinatorDelegate, CKHandwritingPresentationControllerDelegate>
+@interface CKChatInputController : NSObject <UITextInputPayloadDelegate, DDMoneyActionDelegate, CKMessageEntryViewInputDelegate, CKBrowserViewControllerSendDelegate, CKPhotoBrowserViewControllerSendDelegate, CKHandwritingViewControllerSendDelegate, CKBrowserViewControllerStoreSendDelegate, CKPluginEntryViewControllerDelegate, CKFullScreenAppViewControllerDelegate, CKDeviceOrientationManagerDelegate, CKBrowserSwitcherViewControllerDelegate, CKBrowserTransitionCoordinatorDelegate, CKHandwritingPresentationControllerDelegate, CKBrowserAppManagerViewControllerDelegate>
 {
     _Bool _shouldSuppressStatusBarForHandwriting;
     _Bool __isRunningPPT;
@@ -74,6 +75,7 @@
 @property(retain, nonatomic) IMBalloonPlugin *browserPlugin; // @synthesize browserPlugin=_browserPlugin;
 @property(nonatomic) __weak id <CKChatInputControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)browserAppManagerDidSelectPlugin:(id)arg1;
 - (void)deviceOrientationManager:(id)arg1 orientationDidChange:(long long)arg2;
 - (void)openAppExtensionWithAdamID:(id)arg1;
 - (void)didBeginInstallingAppWithBundleIdentifier:(id)arg1;
@@ -154,7 +156,6 @@
 - (void)switcherViewControllerDidSelectAppStore:(id)arg1 shouldRestoreAppSwitcher:(_Bool)arg2;
 - (void)switcherViewControllerDidCollapse:(id)arg1;
 - (void)switcherViewControllerDidFinishSwitching:(id)arg1 toViewController:(id)arg2;
-- (id)_senderIdentifier;
 - (void)switcherViewControllerDidStartSwitching:(id)arg1;
 - (void)browserTransitionCoordinatorDidCollapseOrDismiss:(id)arg1 withReason:(long long)arg2;
 - (void)_reconfigurePluginDataSourceWithBalloonControllerIfNecessary;

@@ -9,7 +9,7 @@
 #import <PhotosUI/ISChangeObserver-Protocol.h>
 #import <PhotosUI/PXVideoScrubberControllerTarget-Protocol.h>
 
-@class AVAsset, ISLivePhotoPlayer, ISWrappedAVPlayer, NSArray, NSMutableSet, NSString, NSValue, PHLivePhoto, PUMediaProvider;
+@class ISLivePhotoPlayer, ISWrappedAVPlayer, NSArray, NSMutableSet, NSString, PHLivePhoto, PUMediaProvider;
 @protocol PUDisplayAsset;
 
 __attribute__((visibility("hidden")))
@@ -23,17 +23,14 @@ __attribute__((visibility("hidden")))
         _Bool playing;
     } _isValid;
     id _videoPeriodicObserver;
-    AVAsset *_preferredTimesAsset;
-    NSValue *_preferredTimeAutoPick;
     _Bool _hasPendingVitalityHint;
-    _Bool _isLivePhotoLoadingAllowed;
+    _Bool _livePhotoLoadingAllowed;
     _Bool _isLivePhotoPlaybackAllowed;
     _Bool _activated;
     _Bool _playing;
     int __livePhotoRequestID;
     int __currentFrameCuratorRequstID;
     ISLivePhotoPlayer *_player;
-    NSArray *_preferredTimes;
     CDUnknownBlockType durationChangeHandler;
     CDUnknownBlockType statusChangeHandler;
     CDUnknownBlockType playerItemChangeHandler;
@@ -64,7 +61,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) CDStruct_1b6d18a9 scrubbingPhotoTime; // @synthesize scrubbingPhotoTime=_scrubbingPhotoTime;
 @property(nonatomic, getter=isActivated) _Bool activated; // @synthesize activated=_activated;
 @property(readonly, nonatomic) _Bool isLivePhotoPlaybackAllowed; // @synthesize isLivePhotoPlaybackAllowed=_isLivePhotoPlaybackAllowed;
-@property(readonly, nonatomic) _Bool isLivePhotoLoadingAllowed; // @synthesize isLivePhotoLoadingAllowed=_isLivePhotoLoadingAllowed;
+@property(nonatomic, getter=isLivePhotoLoadingAllowed, setter=_setLivePhotoLoadingAllowed:) _Bool livePhotoLoadingAllowed; // @synthesize livePhotoLoadingAllowed=_livePhotoLoadingAllowed;
 @property(nonatomic) long long loadingTarget; // @synthesize loadingTarget=_loadingTarget;
 @property(readonly, nonatomic) _Bool hasPendingVitalityHint; // @synthesize hasPendingVitalityHint=_hasPendingVitalityHint;
 @property(retain, nonatomic, setter=_setAvPlayer:) ISWrappedAVPlayer *avPlayer; // @synthesize avPlayer=_avPlayer;
@@ -86,6 +83,7 @@ __attribute__((visibility("hidden")))
 - (id)avPlayerForVideoScrubberController:(id)arg1;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (id)debugDetailedDescription;
+- (void)_handlePlaybackStyleChanged;
 - (void)_updatePlayingIfNeeded;
 - (void)_invalidatePlaying;
 - (void)_handlePeriodicObserverWithTime:(CDStruct_1b6d18a9)arg1;
@@ -113,12 +111,7 @@ __attribute__((visibility("hidden")))
 - (void)registerChangeObserver:(id)arg1;
 - (id)currentChange;
 - (id)newViewModelChange;
-- (void)_setLivePhotoLoadingAllowed:(_Bool)arg1;
 - (void)setLivePhotoLoadingDisabled:(_Bool)arg1 forReason:(id)arg2;
-@property(readonly, copy, nonatomic) NSArray *preferredTimes; // @synthesize preferredTimes=_preferredTimes;
-- (void)_setPreferredTimes:(id)arg1 autoPickTime:(id)arg2 forVideoAsset:(id)arg3;
-- (void)_handleFrameCurationResult:(id)arg1 coverFrameTime:(id)arg2 forRequestID:(int)arg3 videoAsset:(id)arg4;
-- (void)_updatePreferredTimesWithVideoAsset:(id)arg1;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 currentVideoDuration;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 nonScrubbingPhotoTime;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 currentPhototime;

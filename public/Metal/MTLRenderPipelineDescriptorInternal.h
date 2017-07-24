@@ -72,6 +72,8 @@ __attribute__((visibility("hidden")))
 - (float)sampleCoverage;
 - (void)setSampleMask:(unsigned long long)arg1;
 - (unsigned long long)sampleMask;
+- (void)setRasterSampleCount:(unsigned long long)arg1;
+- (unsigned long long)rasterSampleCount;
 - (void)setSampleCount:(unsigned long long)arg1;
 - (unsigned long long)sampleCount;
 @property(nonatomic) unsigned long long postVertexDumpBufferIndex;

@@ -12,7 +12,7 @@
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDApplicationData, HMDBulletinBoardNotification, HMDHAPAccessory, HMDHome, HMFMessageDispatcher, NSArray, NSNumber, NSObject, NSString, NSUUID;
+@class HMDApplicationData, HMDBulletinBoardNotification, HMDHAPAccessory, HMDHome, HMFMessageDispatcher, NSArray, NSMutableDictionary, NSNumber, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
 @interface HMDService : HMFObject <HMDBulletinIdentifiers, NSSecureCoding, HMFDumpState, HMDBackingStoreObjectProtocol, HMFMessageReceiver>
@@ -30,12 +30,14 @@
     HMFMessageDispatcher *_messageDispatcher;
     NSNumber *_instanceID;
     NSArray *_linkedServices;
+    NSMutableDictionary *_deviceLastRequestPresenceDateMap;
     NSString *_providedName;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)generateUUIDWithAccessoryUUID:(id)arg1 serviceID:(id)arg2;
 @property(retain, nonatomic) NSString *providedName; // @synthesize providedName=_providedName;
+@property(retain, nonatomic) NSMutableDictionary *deviceLastRequestPresenceDateMap; // @synthesize deviceLastRequestPresenceDateMap=_deviceLastRequestPresenceDateMap;
 @property(retain, nonatomic) NSArray *linkedServices; // @synthesize linkedServices=_linkedServices;
 @property(getter=isPrimary) _Bool primary; // @synthesize primary=_primary;
 @property(copy, nonatomic) NSNumber *instanceID; // @synthesize instanceID=_instanceID;
@@ -63,6 +65,8 @@
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)updatePresenceRequestTimeForDeviceWithDestination:(id)arg1;
+- (_Bool)shouldIncludePresenceForDeviceWithDestination:(id)arg1;
 - (_Bool)shouldEnableDaemonRelaunch;
 - (void)configureBulletinNotification:(CDUnknownBlockType)arg1;
 - (void)updateAccessory:(id)arg1;

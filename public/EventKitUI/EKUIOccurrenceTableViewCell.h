@@ -64,7 +64,6 @@
     _Bool _isAllDay;
     _Bool _isRecurring;
     _Bool _isBirthday;
-    _Bool _isFacebook;
     _Bool _tentative;
     _Bool _declined;
     _Bool _needsReply;
@@ -83,8 +82,6 @@
 + (id)_tentativeAngledStripeBackground;
 + (id)_needsReplyAngledStripeBackground;
 + (id)_needsReplyDot;
-+ (id)_facebookIcon;
-+ (id)_birthdayIcon;
 + (double)_rightImageSpacing;
 + (_Bool)vibrant;
 + (double)tentativeStripeBackgroundAlpha;
@@ -128,7 +125,6 @@
 - (_Bool)isDeclined;
 - (_Bool)needsReply;
 - (_Bool)isTentative;
-- (_Bool)isFacebook;
 - (_Bool)isBirthday;
 - (_Bool)isCancelled;
 - (_Bool)isPast;
@@ -163,6 +159,7 @@
 - (id)_createParentVisualEffectViewWithVisualEffect:(id)arg1;
 - (void)_createViewsForReuseIdentifier:(id)arg1;
 - (void)forceUpdateOfAllElements;
+- (id)_birthdayIcon;
 - (void)setColorBarLayerFilter:(id)arg1;
 - (void)setCalendarColor:(id)arg1;
 - (id)_selectedBackgroundViewWithColor:(id)arg1;

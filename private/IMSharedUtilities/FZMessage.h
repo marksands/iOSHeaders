@@ -7,13 +7,14 @@
 #import <IMSharedUtilities/IMMessageItem.h>
 
 #import <IMSharedUtilities/IMRemoteObjectCoding-Protocol.h>
-#import <IMSharedUtilities/NSCoding-Protocol.h>
 #import <IMSharedUtilities/NSCopying-Protocol.h>
+#import <IMSharedUtilities/NSSecureCoding-Protocol.h>
 
-@interface FZMessage : IMMessageItem <NSCoding, NSCopying, IMRemoteObjectCoding>
+@interface FZMessage : IMMessageItem <NSSecureCoding, NSCopying, IMRemoteObjectCoding>
 {
 }
 
++ (_Bool)supportsSecureCoding;
 - (id)initWithIMRemoteObjectSerializedDictionary:(id)arg1;
 - (void)encodeWithIMRemoteObjectSerializedDictionary:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

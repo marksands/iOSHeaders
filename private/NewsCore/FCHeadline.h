@@ -20,7 +20,6 @@
     _Bool _deleted;
     _Bool _isDraft;
     _Bool _usesImageOnTopLayout;
-    _Bool _isTopStory;
     _Bool _needsRapidUpdates;
     _Bool _paid;
     _Bool _showSubscriptionRequiredText;
@@ -109,7 +108,6 @@
 @property(readonly, copy, nonatomic) NSArray *moreFromPublisherArticleIDs; // @synthesize moreFromPublisherArticleIDs=_moreFromPublisherArticleIDs;
 @property(readonly, copy, nonatomic) NSArray *relatedArticleIDs; // @synthesize relatedArticleIDs=_relatedArticleIDs;
 @property(nonatomic) unsigned long long topStoryType; // @synthesize topStoryType=_topStoryType;
-@property(readonly, nonatomic) _Bool isTopStory; // @synthesize isTopStory=_isTopStory;
 @property(nonatomic) _Bool usesImageOnTopLayout; // @synthesize usesImageOnTopLayout=_usesImageOnTopLayout;
 @property(nonatomic) double tileProminenceScore; // @synthesize tileProminenceScore=_personalizedScore;
 @property(readonly, copy, nonatomic) NSString *localDraftPath; // @synthesize localDraftPath=_localDraftPath;
@@ -170,6 +168,7 @@
 @property(readonly, copy, nonatomic) NSString *publisherID;
 @property(readonly, nonatomic) unsigned long long halfLife;
 @property(readonly, copy, nonatomic) NSString *sourceFeedID;
+@property(readonly, nonatomic) _Bool isTopStory;
 - (void)applyHeadlineMetadata:(id)arg1 appConfig:(id)arg2;
 - (void)assignStoryType:(unsigned long long)arg1 withAppConfig:(id)arg2;
 - (void)overrideDisplayDate:(id)arg1;

@@ -34,6 +34,8 @@
 @property(readonly) id <MTLDevice> device; // @synthesize device=_device;
 - (id)newIndirectArgumentEncoderWithBufferIndex:(unsigned long long)arg1 reflection:(id *)arg2;
 - (id)newIndirectArgumentEncoderWithBufferIndex:(unsigned long long)arg1;
+- (id)newArgumentEncoderWithBufferIndex:(unsigned long long)arg1 reflection:(id *)arg2;
+- (id)newArgumentEncoderWithBufferIndex:(unsigned long long)arg1;
 - (void)reflectionWithOptions:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)reflectionWithOptions:(unsigned long long)arg1;
 - (id)newSerializedVertexDataWithVertexDescriptor:(id)arg1;

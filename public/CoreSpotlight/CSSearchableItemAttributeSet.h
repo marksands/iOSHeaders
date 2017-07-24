@@ -559,6 +559,7 @@
 @property(copy) NSString *parentFileItemID;
 @property(copy) NSString *fileItemID;
 @property(copy) NSString *fileProviderID;
+@property(retain) NSNumber *isPlaceholder;
 @property(copy) NSDate *lastApplicationLaunchedDate;
 - (id)containerOrder;
 - (void)setContainerOrder:(id)arg1;

@@ -58,6 +58,7 @@
     _Bool _outOfProcessSetupComplete;
     _Bool _contactSupportsTTYCalls;
     _Bool _runningPPT;
+    _Bool _allowsEditInApp;
     _Bool _showingMeContact;
     id <CNContactViewHostProtocol> _delegate;
     id <CNContactViewControllerPPTDelegate> _pptDelegate;
@@ -155,6 +156,7 @@
 @property(retain, nonatomic) NSMutableArray *displayGroups; // @synthesize displayGroups=_displayGroups;
 @property(retain, nonatomic) CNCardFaceTimeGroup *cardFaceTimeGroup; // @synthesize cardFaceTimeGroup=_cardFaceTimeGroup;
 @property(readonly, nonatomic) NSDictionary *propertyGroups; // @synthesize propertyGroups=_propertyGroups;
+@property(nonatomic) _Bool allowsEditInApp; // @synthesize allowsEditInApp=_allowsEditInApp;
 @property(retain, nonatomic) NSArray *originalContacts; // @synthesize originalContacts=_originalContacts;
 @property(retain, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;
 @property(nonatomic) long long mode; // @synthesize mode=_mode;
@@ -319,6 +321,7 @@
 - (id)_faceTimeAction;
 - (id)_sendMessageActionAllowingEmailIDs:(_Bool)arg1;
 - (id)_propertyGroupsForKeys:(id)arg1;
+- (void)_setupCustomActions;
 - (void)_setupPrimaryPropertyActions;
 - (void)_setupEditingCardActions;
 - (void)_setupAddToAddressBookActions;

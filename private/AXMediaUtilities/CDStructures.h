@@ -53,3 +53,11 @@ typedef struct {
     long long _field4;
 } CDStruct_198678f7;
 
+typedef struct {
+    struct {
+        long long location;
+        long long length;
+    } range;
+    unsigned long long attributes;
+} CDStruct_573f6e06;
+

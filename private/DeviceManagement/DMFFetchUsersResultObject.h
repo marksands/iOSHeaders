@@ -14,7 +14,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSArray *users; // @synthesize users=_users;
+@property(readonly, copy, nonatomic) NSArray *users; // @synthesize users=_users;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

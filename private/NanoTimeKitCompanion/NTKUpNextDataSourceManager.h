@@ -27,6 +27,7 @@
 + (id)_dataSourceIdentifierMap;
 + (_Bool)shouldPreWarmApplicationWithBundleIdentifier:(id)arg1;
 + (id)availableDataSourceIdentifiers;
++ (id)sampleContentForBundleIdentifier:(id)arg1;
 + (void)loadDataSourceTitlesUsingBlock:(CDUnknownBlockType)arg1;
 + (void)loadDataSourceImageForBundleIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (id)_dataSourceLoadingQueue;

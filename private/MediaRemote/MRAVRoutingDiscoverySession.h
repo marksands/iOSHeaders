@@ -15,9 +15,9 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_serialQueue;
     AVOutputDeviceDiscoverySession *_avDiscoverySession;
     struct NSMutableDictionary *_endpointsChangedCallbacks;
+    struct NSMutableDictionary *_outputDevicesChangedCallbacks;
     struct NSMapTable *_groupIDsToWeakEndpointsTable;
     struct NSMapTable *_deviceIDsToWeakOutputDevicesTable;
-    _Bool _hasAvailableEndpoints;
     unsigned int _endpointFeatures;
     unsigned int _discoveryMode;
     NSArray *_availableEndpoints;
@@ -25,13 +25,16 @@ __attribute__((visibility("hidden")))
 
 @property(copy, nonatomic) NSArray *availableEndpoints; // @synthesize availableEndpoints=_availableEndpoints;
 @property(nonatomic) unsigned int discoveryMode; // @synthesize discoveryMode=_discoveryMode;
-@property(readonly, nonatomic) _Bool hasAvailableEndpoints; // @synthesize hasAvailableEndpoints=_hasAvailableEndpoints;
 @property(readonly, nonatomic) unsigned int endpointFeatures; // @synthesize endpointFeatures=_endpointFeatures;
 - (void)_unregisterNotifications;
 - (void)_registerNotifications;
 - (void)_availableOutputDevicesDidChangeNotification:(id)arg1;
+- (void)removeOutputDevicesChangedCallback:(id)arg1;
 - (void)removeEndpointsChangedCallback:(id)arg1;
+- (id)addOutputDevicesChangedCallback:(CDUnknownBlockType)arg1;
 - (id)addEndpointsChangedCallback:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) NSArray *availableOutputDevices;
+@property(readonly, nonatomic) _Bool hasAvailableEndpoints;
 - (void)dealloc;
 - (id)initWithEndpointFeatures:(unsigned int)arg1;
 

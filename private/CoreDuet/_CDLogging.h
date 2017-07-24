@@ -10,6 +10,7 @@
 {
 }
 
++ (id)syncChannel;
 + (id)admissionCheckChannel;
 + (id)contextChannel;
 + (id)autoSUChannel;

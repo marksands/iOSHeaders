@@ -20,11 +20,13 @@
     NSMutableDictionary *_coalescedJobResultsByAssetLocalIdentifier;
     NSNumber *_lastRecordedDarkWakeState;
     // Error parsing type: AQ, name: _lastPerformedJobScenario
+    _Bool _analysisJobCancelled;
 }
 
 + (CDUnknownBlockType)assetResourceSmallestToLargestComparator;
 + (CDUnknownBlockType)assetResourceLargestToSmallestComparator;
 + (void)initialize;
+@property _Bool analysisJobCancelled; // @synthesize analysisJobCancelled=_analysisJobCancelled;
 - (void).cxx_destruct;
 - (void)insidePhotoLibraryTransactionPersistResultsDictionary:(id)arg1 forAsset:(id)arg2;
 - (void)coalesceResultsDictionary:(id)arg1 forAssetLocalIdentifier:(id)arg2;
@@ -52,7 +54,7 @@
 - (unsigned long long)analyzeImageData:(id)arg1 forAsset:(id)arg2 withAttributes:(id)arg3 error:(id *)arg4;
 - (void)didPerformJob:(id)arg1;
 - (void)willCompleteJob:(id)arg1;
-- (unsigned long long)analyzeAssetWithLocalIdentifer:(id)arg1 workerJob:(id)arg2 error:(id *)arg3;
+- (unsigned long long)analyzeAssetWithLocalIdentifier:(id)arg1 workerJob:(id)arg2 error:(id *)arg3;
 - (unsigned long long)analyzeAssetWithLocalIdentifier:(id)arg1 dataLoadingOptions:(id)arg2 usingBlock:(CDUnknownBlockType)arg3 error:(id *)arg4;
 - (_Bool)canProvideAnalysisJobResultInformation:(id)arg1 withoutRequiringAssetResourceForAsset:(id)arg2;
 - (void)willPerformJob:(id)arg1;

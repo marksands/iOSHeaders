@@ -6,11 +6,12 @@
 
 #import <Home/NSObject-Protocol.h>
 
-@class HMMediaProfile, HMMediaSession;
+@class HMAccessorySettings, HMMediaProfile, HMMediaSession;
 
 @protocol HMMediaProfileDelegate <NSObject>
 
 @optional
+- (void)mediaProfile:(HMMediaProfile *)arg1 didUpdateSettings:(HMAccessorySettings *)arg2;
 - (void)mediaProfile:(HMMediaProfile *)arg1 didUpdateMediaSession:(HMMediaSession *)arg2;
 @end
 

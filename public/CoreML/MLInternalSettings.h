@@ -9,9 +9,11 @@
 @interface MLInternalSettings : NSObject
 {
     _Bool _restrictNeuralNetworksToUseCPUOnly;
+    _Bool _isNeuralNetworkGPUPathForbidden;
 }
 
 + (id)globalSettings;
+@property(readonly, nonatomic) _Bool isNeuralNetworkGPUPathForbidden; // @synthesize isNeuralNetworkGPUPathForbidden=_isNeuralNetworkGPUPathForbidden;
 @property _Bool restrictNeuralNetworksToUseCPUOnly; // @synthesize restrictNeuralNetworksToUseCPUOnly=_restrictNeuralNetworksToUseCPUOnly;
 - (id)init;
 

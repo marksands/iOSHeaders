@@ -45,6 +45,8 @@
 - (id)imageResourceForImageComponent:(id)arg1;
 - (id)imageResourcesForComponent:(id)arg1;
 - (void)determineOptimalImagesForComponents:(id)arg1;
+- (void)determineOptimalImagesForMetadata;
+- (void)prepareImageResources;
 - (id)initWithDocumentController:(id)arg1;
 
 @end

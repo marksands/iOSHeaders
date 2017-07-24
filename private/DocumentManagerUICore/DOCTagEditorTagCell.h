@@ -10,11 +10,14 @@
 
 @interface DOCTagEditorTagCell : UICollectionViewCell
 {
+    _Bool _mixedSelection;
     DOCLargeTagView *_tagView;
 }
 
 @property(retain, nonatomic) DOCLargeTagView *tagView; // @synthesize tagView=_tagView;
+@property(nonatomic) _Bool mixedSelection; // @synthesize mixedSelection=_mixedSelection;
 - (void).cxx_destruct;
+- (void)updateStyle;
 - (void)setSelected:(_Bool)arg1;
 @property(retain, nonatomic) DOCTag *tagValue; // @dynamic tagValue;
 - (id)initWithFrame:(struct CGRect)arg1;

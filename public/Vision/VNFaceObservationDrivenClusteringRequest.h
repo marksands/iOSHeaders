@@ -14,8 +14,10 @@
 }
 
 - (void).cxx_destruct;
+- (void)applyConfigurationOfRequest:(id)arg1;
 - (id)validatedInputFaceObservationsWithError:(id *)arg1;
 - (_Bool)getOptionalValidatedInputFaceObservations:(id *)arg1 error:(id *)arg2;
+- (id)newDefaultRequestInstance;
 - (id)sequencedRequestPreviousObservationsKey;
 - (id)observationsCacheKey;
 @property(readonly, copy, nonatomic) NSArray *inputFaceObservations;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary, SXColumnLayout, SXComponent, SXComponentLayout, SXComponentStyle, SXContext, SXLayoutAttributes;
+@class NSMutableDictionary, SXComponent, SXComponentLayout, SXComponentStyle, SXContext, SXLayoutAttributes;
 
 @interface SXComponentSizer : NSObject
 {
@@ -14,7 +14,6 @@
     SXComponentLayout *_componentLayout;
     SXComponentStyle *_componentStyle;
     SXContext *_context;
-    SXColumnLayout *_documentColumnLayout;
     SXLayoutAttributes *_layoutAttributes;
     NSMutableDictionary *_infoForRendering;
     struct CGSize _suggestedSize;
@@ -23,7 +22,6 @@
 @property(readonly, nonatomic) NSMutableDictionary *infoForRendering; // @synthesize infoForRendering=_infoForRendering;
 @property(retain, nonatomic) SXLayoutAttributes *layoutAttributes; // @synthesize layoutAttributes=_layoutAttributes;
 @property(nonatomic) struct CGSize suggestedSize; // @synthesize suggestedSize=_suggestedSize;
-@property(readonly, nonatomic) SXColumnLayout *documentColumnLayout; // @synthesize documentColumnLayout=_documentColumnLayout;
 @property(readonly, nonatomic) SXContext *context; // @synthesize context=_context;
 @property(readonly, nonatomic) SXComponentStyle *componentStyle; // @synthesize componentStyle=_componentStyle;
 @property(readonly, nonatomic) SXComponentLayout *componentLayout; // @synthesize componentLayout=_componentLayout;
@@ -38,7 +36,7 @@
 - (_Bool)allowComponentIntersection;
 - (id)snapLines;
 - (double)calculateHeightForWidth:(double)arg1 inColumnLayout:(id)arg2;
-- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 componentStyle:(id)arg3 context:(id)arg4 documentColumnLayout:(id)arg5 layoutAttributes:(id)arg6;
+- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 componentStyle:(id)arg3 context:(id)arg4 layoutAttributes:(id)arg5;
 
 @end
 

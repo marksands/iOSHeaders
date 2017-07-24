@@ -10,6 +10,7 @@
 @class NSArray, NSData, NSDate, NSString, NSURL, SGRecordId;
 
 @protocol SGDSuggestManagerInternalProtocol <_SGDSuggestManagerBaseProtocol, _SGDSuggestManagerInternalHarvestProtocol>
+- (void)deleteCloudKitZoneWithCompletion:(void (^)(SGXPCResponse *))arg1;
 - (void)suggestionsFromEmailContent:(NSString *)arg1 headers:(NSData *)arg2 source:(NSString *)arg3 options:(unsigned long long)arg4 withCompletion:(void (^)(SGXPCResponse1 *))arg5;
 - (void)sleepWithCompletion:(void (^)(SGXPCResponse *))arg1;
 - (void)daemonExitWithCompletion:(void (^)(SGXPCResponse *))arg1;

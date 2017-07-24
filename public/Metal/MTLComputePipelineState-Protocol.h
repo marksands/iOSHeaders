@@ -10,6 +10,7 @@
 @protocol MTLDevice;
 
 @protocol MTLComputePipelineState <NSObject>
+@property(readonly) unsigned long long staticThreadgroupMemoryLength;
 @property(readonly) unsigned long long threadExecutionWidth;
 @property(readonly) unsigned long long maxTotalThreadsPerThreadgroup;
 @property(readonly) id <MTLDevice> device;

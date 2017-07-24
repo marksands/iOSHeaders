@@ -132,6 +132,7 @@
 @property(nonatomic) long long keyboardAppearance; // @dynamic keyboardAppearance;
 @property(nonatomic) long long keyboardType; // @dynamic keyboardType;
 @property(nonatomic) _Bool learnsCorrections;
+@property(nonatomic) _Bool loadKeyboardsForSiriLanguage;
 @property(copy, nonatomic) NSString *recentInputIdentifier;
 @property(copy, nonatomic) NSString *responseContext;
 @property(nonatomic) _Bool returnKeyGoesToNextResponder;

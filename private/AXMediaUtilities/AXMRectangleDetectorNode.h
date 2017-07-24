@@ -13,17 +13,14 @@
     double _maximumAspectRatio;
     double _quadratureTolerance;
     double _minimumSize;
-    double _minimumConfidence;
     long long _maximumNumberOfRects;
     struct CGPoint _cameraOpticalOrigin;
 }
 
 + (id)title;
-+ (_Bool)requiresVisionKit;
 + (_Bool)isSupported;
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) long long maximumNumberOfRects; // @synthesize maximumNumberOfRects=_maximumNumberOfRects;
-@property(nonatomic) double minimumConfidence; // @synthesize minimumConfidence=_minimumConfidence;
 @property(nonatomic) double minimumSize; // @synthesize minimumSize=_minimumSize;
 @property(nonatomic) double quadratureTolerance; // @synthesize quadratureTolerance=_quadratureTolerance;
 @property(nonatomic) double maximumAspectRatio; // @synthesize maximumAspectRatio=_maximumAspectRatio;
@@ -32,6 +29,7 @@
 @property(nonatomic) double cameraPixelFocalLength; // @synthesize cameraPixelFocalLength=_cameraPixelFocalLength;
 - (void)evaluate:(id)arg1;
 - (id)_prepareRectangleRequestOptions;
+- (_Bool)requiresVisionFramework;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)nodeInitialize;

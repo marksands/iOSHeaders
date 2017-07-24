@@ -114,6 +114,7 @@
 - (id)_createPhotosDataSourceForRelatedEntry:(id)arg1;
 - (struct CGPoint)_anchorPointForLayoutContentBounds:(struct CGRect)arg1;
 - (void)_saveAnchoring;
+- (void)enumerateTilesForRelatedRelatedEntry:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (struct CGRect)rectOfInterestForRelatedEntry:(id)arg1 inCoordinateSpaceWithIdentifier:(void *)arg2;
 - (id)relatedEntryForPhotosDataSource:(id)arg1;
 - (id)photosDataSourceForRelatedEntry:(id)arg1;

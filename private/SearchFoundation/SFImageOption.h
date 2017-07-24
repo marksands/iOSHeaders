@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFImageOption-Protocol.h>
 
 @class NSData, NSDictionary, NSString;
 
-@interface SFImageOption : NSObject <SFImageOption, NSSecureCoding>
+@interface SFImageOption : NSObject <SFImageOption, NSSecureCoding, NSCopying>
 {
     NSString *_name;
     NSString *_defaultValue;
@@ -23,6 +24,7 @@
 @property(copy, nonatomic) NSString *defaultValue; // @synthesize defaultValue=_defaultValue;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

@@ -10,7 +10,7 @@
 #import <MobileTimer/MTTimerSchedulerDelegate-Protocol.h>
 #import <MobileTimer/MTTimerStorage-Protocol.h>
 
-@class MTTimer, MTTimerScheduler, NSArray, NSDate, NSMutableArray, NSPointerArray, NSString;
+@class MTTimer, MTTimerMigrator, MTTimerScheduler, NSArray, NSDate, NSMutableArray, NSPointerArray, NSString;
 @protocol MTPersistence, NAScheduler;
 
 @interface MTTimerStorage : NSObject <MTTimerSchedulerDelegate, MTAgentDiagnosticDelegate, MTTimerStorage>
@@ -19,6 +19,7 @@
     NSMutableArray *_orderedTimers;
     NSDate *_lastModifiedDate;
     CDUnknownBlockType _currentDateProvider;
+    MTTimerMigrator *_migrator;
     id <NAScheduler> _serializer;
     NSPointerArray *_observers;
     id <MTPersistence> _persistence;
@@ -27,6 +28,7 @@
 @property(retain, nonatomic) id <MTPersistence> persistence; // @synthesize persistence=_persistence;
 @property(retain, nonatomic) NSPointerArray *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) id <NAScheduler> serializer; // @synthesize serializer=_serializer;
+@property(retain, nonatomic) MTTimerMigrator *migrator; // @synthesize migrator=_migrator;
 @property(readonly, copy, nonatomic) CDUnknownBlockType currentDateProvider; // @synthesize currentDateProvider=_currentDateProvider;
 @property(copy, nonatomic) NSDate *lastModifiedDate; // @synthesize lastModifiedDate=_lastModifiedDate;
 @property(retain, nonatomic) NSMutableArray *orderedTimers; // @synthesize orderedTimers=_orderedTimers;
@@ -70,7 +72,7 @@
 - (void)_loadTimersWithCompletion:(CDUnknownBlockType)arg1;
 - (void)loadTimersSync;
 - (void)loadTimers;
-- (id)initWithPersistence:(id)arg1 scheduler:(id)arg2 currentDateProvider:(CDUnknownBlockType)arg3;
+- (id)initWithPersistence:(id)arg1 migrator:(id)arg2 scheduler:(id)arg3 currentDateProvider:(CDUnknownBlockType)arg4;
 - (id)initWithPersistence:(id)arg1;
 - (id)init;
 

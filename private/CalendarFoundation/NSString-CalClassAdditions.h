@@ -44,6 +44,7 @@
 - (id)phoneURL;
 - (_Bool)isPhoneNumber;
 - (id)radarLink;
+- (_Bool)isMessagesURL;
 - (_Bool)isAddressBookURL;
 - (_Bool)isMailURL;
 - (id)stringRemovingTel;

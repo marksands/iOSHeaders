@@ -22,6 +22,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *formatPattern;
 @property(readonly, nonatomic) NSTimeZone *timeZone;
 @property(readonly, nonatomic) double timeStamp;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithTimeStamp:(double)arg1 timeZone:(id)arg2 formatPattern:(id)arg3;
 
 // Remaining properties

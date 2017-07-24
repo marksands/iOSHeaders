@@ -6,7 +6,7 @@
 
 #import <UIKit/UICollectionViewController.h>
 
-@class CNAvatarViewControllerSettings, CNContactFormatter, CNContactStore, NSArray, NSIndexSet, TPFavoritesController, UIView;
+@class CNAvatarViewControllerSettings, CNContactFormatter, NSArray, NSIndexSet, TPFavoritesController, UIView;
 
 @interface TPFavoritesViewController : UICollectionViewController
 {
@@ -16,17 +16,16 @@
     NSArray *_favoritesEntries;
     CNAvatarViewControllerSettings *_avatarViewControllerSettings;
     CNContactFormatter *_contactFormatter;
-    CNContactStore *_contactStore;
     NSIndexSet *_sections;
 }
 
 @property(retain, nonatomic) NSIndexSet *sections; // @synthesize sections=_sections;
-@property(retain, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;
 @property(retain, nonatomic) CNContactFormatter *contactFormatter; // @synthesize contactFormatter=_contactFormatter;
 @property(retain, nonatomic) CNAvatarViewControllerSettings *avatarViewControllerSettings; // @synthesize avatarViewControllerSettings=_avatarViewControllerSettings;
 @property(copy, nonatomic) NSArray *favoritesEntries; // @synthesize favoritesEntries=_favoritesEntries;
 @property(retain, nonatomic) UIView *contentUnavailableView; // @synthesize contentUnavailableView=_contentUnavailableView;
 @property(nonatomic) _Bool contentUnavailable; // @synthesize contentUnavailable=_contentUnavailable;
+@property(readonly, nonatomic) TPFavoritesController *favoritesController; // @synthesize favoritesController=_favoritesController;
 - (void).cxx_destruct;
 - (void)refreshViewAnimated:(_Bool)arg1;
 - (void)refreshView;
@@ -44,7 +43,7 @@
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (void)setFavoritesEntries:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-@property(retain, nonatomic) TPFavoritesController *favoritesController; // @synthesize favoritesController=_favoritesController;
+- (void)setFavoritesController:(id)arg1;
 - (void)setContentUnavailable:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)dealloc;
 - (void)commonInit;

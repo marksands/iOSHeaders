@@ -9,13 +9,14 @@
 #import <MusicLibrary/ML3DatabaseConnectionDelegate-Protocol.h>
 #import <MusicLibrary/ML3DatabaseConnectionPoolDelegate-Protocol.h>
 
-@class ML3AccountCacheDatabase, ML3Container, ML3DatabaseConnectionPool, ML3DatabaseMetadata, ML3LibraryNotificationManager, NSArray, NSMutableDictionary, NSString;
+@class ML3AccountCacheDatabase, ML3Container, ML3DatabaseConnectionPool, ML3DatabaseMetadata, ML3LibraryNotificationManager, NSArray, NSLock, NSMutableDictionary, NSString;
 @protocol ML3MusicLibraryDelegate, OS_dispatch_queue;
 
 @interface ML3MusicLibrary : NSObject <ML3DatabaseConnectionDelegate, ML3DatabaseConnectionPoolDelegate>
 {
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSString *_libraryUID;
+    NSLock *_libraryUIDLock;
     NSString *_syncLibraryUID;
     ML3AccountCacheDatabase *_accountCacheDatabase;
     ML3LibraryNotificationManager *_notificationManager;
@@ -241,7 +242,6 @@
 - (id)albumArtistForEffectiveAlbumArtistName:(id)arg1;
 - (void)updateOrderingLanguagesForCurrentLanguage;
 - (_Bool)updateSystemPlaylistNamesForCurrentLanguage;
-- (_Bool)createMissingBuiltInSmartPlaylists;
 - (long long)_clearPurgeableTracksOfAmount:(long long)arg1 withUrgency:(unsigned long long)arg2 includeCloudAssets:(_Bool)arg3 includeAutoFilledTracks:(_Bool)arg4;
 - (long long)_clearPurgeableTracksOfAmount:(long long)arg1 withUrgency:(unsigned long long)arg2 includeAutoFilledTracks:(_Bool)arg3;
 - (long long)_clearOrphanedAssetsOfAmount:(long long)arg1 withUrgency:(unsigned long long)arg2;

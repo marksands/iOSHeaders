@@ -7,7 +7,7 @@
 @class NSArray;
 
 @protocol DOCServiceTargetSelectionBrowserViewControllerProxy
-- (void)displayExportedURL;
+- (void)displayExportedURLWrappers;
 - (void)displayURLs:(NSArray *)arg1;
 - (void)displayItems:(NSArray *)arg1;
 @end

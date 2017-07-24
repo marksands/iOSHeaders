@@ -8,12 +8,14 @@
 
 #import <NeutrinoCore/NUJSRenderNodeExport-Protocol.h>
 
-@class NUJSImageGeometry, NURenderNode;
+@class NUJSImageGeometry, NUJSImageProperties, NUJSVideoProperties, NURenderNode;
 
 @interface NUJSRenderNode : NUJSProxy <NUJSRenderNodeExport>
 {
 }
 
+@property(readonly) NUJSVideoProperties *videoProperties;
+@property(readonly) NUJSImageProperties *imageProperties;
 @property(readonly) NUJSImageGeometry *geometry;
 @property(readonly) NURenderNode *node;
 - (id)initWithNode:(id)arg1 context:(id)arg2;

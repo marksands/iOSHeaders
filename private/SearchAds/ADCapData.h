@@ -29,6 +29,7 @@
 - (id)dictionaryRepresentation;
 - (void)saveCapDataWithReason:(id)arg1;
 - (void)restoreAllCapData;
+- (void)resetCapDataObject;
 - (id)restoreCapDataArrayFromPlist:(id)arg1;
 - (id)init;
 

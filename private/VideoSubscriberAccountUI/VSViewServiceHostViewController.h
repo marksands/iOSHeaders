@@ -54,6 +54,7 @@ __attribute__((visibility("hidden")))
 - (void)_didCompleteRequest:(id)arg1;
 - (id)_requestForID:(id)arg1;
 - (void)enqueueViewServiceRequest:(id)arg1 withIdentifier:(id)arg2;
+- (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties

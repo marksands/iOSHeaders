@@ -6,9 +6,10 @@
 
 #import <ProactiveML/PMLPlistAndChunksSerializableProtocol-Protocol.h>
 
-@class NSDictionary;
+@class AWDProactiveModelFittingMinibatchStats, NSDictionary;
 
 @protocol PMLMultiLabelEvaluationTrackerProtocol <PMLPlistAndChunksSerializableProtocol>
-- (void)trackPrecisionAtK:(NSDictionary *)arg1;
+- (NSDictionary *)trackPrecisionAtK:(NSDictionary *)arg1 minibatchStats:(AWDProactiveModelFittingMinibatchStats *)arg2;
+- (NSDictionary *)trackPrecisionAtK:(NSDictionary *)arg1;
 @end
 

@@ -6,10 +6,13 @@
 
 #import <MediaPlayer/MPAsyncOperation.h>
 
-@class ICStoreRequestContext, MPCModelGenericAVItemAssetLoadProperties;
+@class ICMediaRedownloadRequest, ICStoreRequestContext, MPCModelGenericAVItemAssetLoadProperties, NSObject;
+@protocol OS_dispatch_queue;
 
 @interface MPCModelGenericAVItemMediaRedownloadOperation : MPAsyncOperation
 {
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    ICMediaRedownloadRequest *_mediaDownloadRequest;
     MPCModelGenericAVItemAssetLoadProperties *_assetLoadProperties;
     ICStoreRequestContext *_requestContext;
     CDUnknownBlockType _responseHandler;
@@ -20,6 +23,8 @@
 @property(retain, nonatomic) MPCModelGenericAVItemAssetLoadProperties *assetLoadProperties; // @synthesize assetLoadProperties=_assetLoadProperties;
 - (void).cxx_destruct;
 - (void)execute;
+- (void)cancel;
+- (id)init;
 
 @end
 

@@ -45,6 +45,8 @@
 - (id)firstDeepNeighborWithLabel:(id)arg1 usingOutEdges:(_Bool)arg2 inDomain:(unsigned short)arg3;
 - (void)personEnumerateSocialGroupNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)personEnumerateMomentNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (id)personSocialGroupNodes;
+- (id)personMomentNodes;
 - (_Bool)belongsToBestSocialGroup;
 @property(readonly) _Bool personIsUserCreated;
 - (struct CLLocationCoordinate2D)coordinate;
@@ -83,6 +85,8 @@
 - (id)localIdentifier;
 - (void)socialGroupEnumeratePersonNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)socialGroupEnumerateMomentNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (id)socialGroupPersonNodes;
+- (id)socialGroupMomentNodes;
 @property(readonly, nonatomic) unsigned long long rank;
 - (void)dateEnumerateMomentNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)dateEnumerateHolidayNodesUsingBlock:(CDUnknownBlockType)arg1;
@@ -91,9 +95,13 @@
 - (double)meaningScore;
 - (_Bool)belongsToDefaultMemoryAssetCollections;
 - (_Bool)hasParentCollection;
+- (_Bool)isOcean;
 - (_Bool)locationIsImproved;
 - (void)addressEnumerateAreaNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)areaNodes;
+- (id)collectionUpgradingMeaningLabelForWeekend;
+- (unsigned long long)collectionNumberOfAssets;
+- (void)collectionEnumerateChildCollectionNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)collectionMeaningLabels;
 - (void)collectionEnumerateMeaningNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)collectionMeaningNodes;
@@ -102,6 +110,8 @@
 - (void)collectionEnumerateMomentNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (_Bool)collectionEndsBeforeLocalDate:(id)arg1;
 - (_Bool)collectionStartsAfterLocalDate:(id)arg1;
+- (void)momentEnumerateMeaningNodesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)momentEnumerateCollectionNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)momentEnumeratePersonNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)momentEnumerateRemoteAddressNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)momentEnumerateAddressNodesUsingBlock:(CDUnknownBlockType)arg1;

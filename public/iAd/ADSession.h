@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <iAd/ADAdSheetConnectionDelegate-Protocol.h>
 #import <iAd/ADAdSheetProxyDelegate-Protocol.h>
@@ -50,6 +50,7 @@
 - (void)_remote_setRequiresFastVisibilityTestOnly:(_Bool)arg1 withIdentifier:(id)arg2;
 - (void)_remote_closeClientAdSpaceWithIdentifier:(id)arg1;
 - (void)_remote_creativeWithAdSpaceIdentifier:(id)arg1 didFailWithError:(id)arg2;
+- (void)_remote_adImpressionReportedWithIdentifier:(id)arg1;
 - (void)_remote_adImpressionDidLoadWithPublicAttributes:(id)arg1 identifier:(id)arg2;
 - (void)_remote_contentProxyURLDidChange:(id)arg1;
 - (id)_adSpaceForIdentifier:(id)arg1;
@@ -68,6 +69,7 @@
 - (_Bool)shouldLaunchAdSheet;
 - (id)_linkedOnVersion;
 - (id)init;
+- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

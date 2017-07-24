@@ -31,7 +31,7 @@
 + (id)pageControllerWithController:(id)arg1 andPageModelController:(id)arg2;
 @property(retain) NSMutableDictionary *noteEditors; // @synthesize noteEditors=_noteEditors;
 @property _Bool superviewDependentThingsWereSetUp; // @synthesize superviewDependentThingsWereSetUp=_superviewDependentThingsWereSetUp;
-@property(retain, nonatomic) AKHighlightColorEditorController *highlightColorEditorController; // @synthesize highlightColorEditorController=_highlightColorEditorController;
+@property(readonly, nonatomic) AKHighlightColorEditorController *highlightColorEditorController; // @synthesize highlightColorEditorController=_highlightColorEditorController;
 @property(retain, nonatomic) id inkOverlayDrawingUndoTarget; // @synthesize inkOverlayDrawingUndoTarget=_inkOverlayDrawingUndoTarget;
 @property(retain, nonatomic) AKInkPageOverlayController *inkPageOverlayController; // @synthesize inkPageOverlayController=_inkPageOverlayController;
 @property(retain, nonatomic) UIView *overlayView; // @synthesize overlayView=_overlayView;
@@ -60,7 +60,6 @@
 - (void)editorController:(id)arg1 deleteAnnotation:(id)arg2;
 - (void)editorController:(id)arg1 setTheme:(id)arg2 forAnnotation:(id)arg3;
 - (void)editorController:(id)arg1 editNote:(id)arg2;
-- (void)editorController:(id)arg1 editedAnnotation:(id)arg2 toText:(id)arg3;
 - (void)openPopoverForHighlightAnnotation:(id)arg1;
 - (struct CGRect)visibleRectOfOverlay;
 - (double)modelBaseScaleFactor;

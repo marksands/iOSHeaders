@@ -6,20 +6,24 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSIndexPath, UIDragItem, UIView;
+#import <UIKit/UIDragAnimating-Protocol.h>
+
+@class NSIndexPath, NSString, UIDragItem, UIView, _UIDropAnimationHandlers;
 
 __attribute__((visibility("hidden")))
-@interface _UICollectionViewDropCoordinatorItem : NSObject
+@interface _UICollectionViewDropCoordinatorItem : NSObject <UIDragAnimating>
 {
     _Bool _shouldRemainInHierarchy;
     int _kind;
     NSIndexPath *_destinationIndexPath;
     UIDragItem *_dragItem;
     UIView *_containerView;
+    _UIDropAnimationHandlers *_animationHandlers;
     struct CGPoint _location;
     struct CGAffineTransform _transform;
 }
 
+@property(retain, nonatomic) _UIDropAnimationHandlers *animationHandlers; // @synthesize animationHandlers=_animationHandlers;
 @property(nonatomic) _Bool shouldRemainInHierarchy; // @synthesize shouldRemainInHierarchy=_shouldRemainInHierarchy;
 @property(nonatomic) struct CGAffineTransform transform; // @synthesize transform=_transform;
 @property(nonatomic) int kind; // @synthesize kind=_kind;
@@ -28,9 +32,16 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak UIDragItem *dragItem; // @synthesize dragItem=_dragItem;
 @property(retain, nonatomic) NSIndexPath *destinationIndexPath; // @synthesize destinationIndexPath=_destinationIndexPath;
 - (void).cxx_destruct;
-- (id)description;
+- (void)addCompletion:(CDUnknownBlockType)arg1;
+- (void)addAnimations:(CDUnknownBlockType)arg1;
+@property(readonly, copy) NSString *description;
 - (id)initWithLocation:(struct CGPoint)arg1 inContainerView:(id)arg2 withTransform:(struct CGAffineTransform)arg3 dragItem:(id)arg4;
 - (id)initWithDestinationIndexPath:(id)arg1 dragItem:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

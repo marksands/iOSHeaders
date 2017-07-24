@@ -16,12 +16,12 @@
     id <CHStrokeProviderVersion> _strokeProviderVersion;
     NSArray *_locales;
     CHStrokeGroupingResult *_strokeGroupingResult;
-    double _generationDuration;
     NSDictionary *__recognitionResultsByGroupID;
+    CDStruct_a0ca6847 _generationDuration;
 }
 
 @property(readonly, copy, nonatomic) NSDictionary *_recognitionResultsByGroupID; // @synthesize _recognitionResultsByGroupID=__recognitionResultsByGroupID;
-@property(readonly, nonatomic) double generationDuration; // @synthesize generationDuration=_generationDuration;
+@property(readonly, nonatomic) CDStruct_a0ca6847 generationDuration; // @synthesize generationDuration=_generationDuration;
 @property(readonly, retain, nonatomic) CHStrokeGroupingResult *strokeGroupingResult; // @synthesize strokeGroupingResult=_strokeGroupingResult;
 @property(readonly, copy, nonatomic) NSArray *locales; // @synthesize locales=_locales;
 @property(readonly, retain, nonatomic) id <CHStrokeProviderVersion> strokeProviderVersion; // @synthesize strokeProviderVersion=_strokeProviderVersion;
@@ -34,7 +34,7 @@
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithStrokeProviderVersion:(id)arg1 locales:(id)arg2 strokeGroupingResult:(id)arg3 recognitionResults:(id)arg4 generationDuration:(double)arg5;
+- (id)initWithStrokeProviderVersion:(id)arg1 locales:(id)arg2 strokeGroupingResult:(id)arg3 recognitionResults:(id)arg4 generationDuration:(CDStruct_a0ca6847)arg5;
 - (id)init;
 
 @end

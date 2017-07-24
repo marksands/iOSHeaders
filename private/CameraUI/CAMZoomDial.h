@@ -12,11 +12,13 @@
 {
     _Bool _shouldShowLabelAt2x;
     _Bool _shouldDisableValuesBelow2x;
+    _Bool _expanded;
     _Bool __backgroundViewUpdateNeeded;
     _Bool __labelAndDotUpdateNeeded;
     double _minimumZoomFactor;
     double _maximumZoomFactor;
     double _zoomFactor;
+    double _contractionDistance;
     long long _orientation;
     UIImageView *__backgroundView;
     UIView *__dotAndLabelContainerView;
@@ -24,12 +26,10 @@
     CAMZoomDialDotsView *__dotsFromMinimumZoomFactor;
     CAMZoomDialDotsView *__dotsFrom2x;
     double __spacingMultiplier;
-    double __radiusDelta;
 }
 
 @property(nonatomic, getter=_isLabelAndDotUpdateNeeded, setter=_setLabelAndDotUpdateNeeded:) _Bool _labelAndDotUpdateNeeded; // @synthesize _labelAndDotUpdateNeeded=__labelAndDotUpdateNeeded;
 @property(nonatomic, getter=_isBackgroundViewUpdateNeeded, setter=_setBackgroundViewUpdateNeeded:) _Bool _backgroundViewUpdateNeeded; // @synthesize _backgroundViewUpdateNeeded=__backgroundViewUpdateNeeded;
-@property(nonatomic, setter=_setRadiusDelta:) double _radiusDelta; // @synthesize _radiusDelta=__radiusDelta;
 @property(nonatomic, setter=_setSpacingMultiplier:) double _spacingMultiplier; // @synthesize _spacingMultiplier=__spacingMultiplier;
 @property(readonly, nonatomic) CAMZoomDialDotsView *_dotsFrom2x; // @synthesize _dotsFrom2x=__dotsFrom2x;
 @property(readonly, nonatomic) CAMZoomDialDotsView *_dotsFromMinimumZoomFactor; // @synthesize _dotsFromMinimumZoomFactor=__dotsFromMinimumZoomFactor;
@@ -37,6 +37,8 @@
 @property(readonly, nonatomic) UIView *_dotAndLabelContainerView; // @synthesize _dotAndLabelContainerView=__dotAndLabelContainerView;
 @property(readonly, nonatomic) UIImageView *_backgroundView; // @synthesize _backgroundView=__backgroundView;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
+@property(nonatomic, getter=isExpanded) _Bool expanded; // @synthesize expanded=_expanded;
+@property(nonatomic) double contractionDistance; // @synthesize contractionDistance=_contractionDistance;
 @property(nonatomic) _Bool shouldDisableValuesBelow2x; // @synthesize shouldDisableValuesBelow2x=_shouldDisableValuesBelow2x;
 @property(nonatomic) _Bool shouldShowLabelAt2x; // @synthesize shouldShowLabelAt2x=_shouldShowLabelAt2x;
 @property(nonatomic) double zoomFactor; // @synthesize zoomFactor=_zoomFactor;
@@ -60,12 +62,16 @@
 - (double)_offsetAngleForZoomFactor:(double)arg1 relativeToCurrentZoomFactor:(_Bool)arg2;
 - (double)offsetAngleForZoomFactor:(double)arg1;
 - (double)_signedAngleDeltaForZoomRange;
+- (double)_borderStrokeWidth;
+@property(readonly, nonatomic) double dialBorderWidth;
+@property(readonly, nonatomic) double dotCenterInset;
 @property(readonly, nonatomic) struct CGPoint dialCenter;
+- (double)_fullRadiusInset;
 - (double)_fullRadius;
 - (void)_updateDots;
 - (void)_updateLabels;
 - (void)_updateLabelsAndDotsIfNeeded;
-@property(nonatomic, getter=isExpanded) _Bool expanded;
+@property(readonly, nonatomic) double _radiusDelta;
 - (void)_updateViewVisibility;
 - (double)zoomFactorForNormalizedValue:(double)arg1;
 - (double)normalizedValueForZoomFactor:(double)arg1;

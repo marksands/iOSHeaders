@@ -62,7 +62,6 @@
 - (void)_updateDisplayLinkPause;
 - (void)_displayLinkTick:(id)arg1;
 - (void)_updateStyle;
-- (void)tintColorDidChange;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)setEnabled:(_Bool)arg1;
 - (void)updateLabelAvoidance;

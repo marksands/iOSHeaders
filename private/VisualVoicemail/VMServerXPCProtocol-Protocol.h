@@ -9,6 +9,8 @@
 @class NSArray, NSString, VMVoicemailGreeting;
 
 @protocol VMServerXPCProtocol <NSObject>
+- (void)reportTranscriptionRatedAccurate:(_Bool)arg1 forIdentifier:(long long)arg2;
+- (void)reportTranscriptionProblemForIdentifier:(long long)arg1;
 - (void)changePassword:(NSString *)arg1 completionBlock:(void (^)(NSError *))arg2;
 - (void)removeAllVoicemails;
 - (void)retrieveDataForIdentifier:(long long)arg1;
@@ -17,11 +19,11 @@
 - (void)setDeletedForIdentifiers:(NSArray *)arg1;
 - (void)setDeletedForIdentifier:(long long)arg1;
 - (void)removeVoicemailFromTrashWithIdentifier:(long long)arg1;
-- (void)setTrashedForIdentifier:(long long)arg1;
+- (void)setTrashedForIdentifiers:(NSArray *)arg1;
 - (void)setVoicemailGreeting:(VMVoicemailGreeting *)arg1 completionBlock:(void (^)(NSError *))arg2;
 - (void)retrieveVoicemailGreeting:(void (^)(VMVoicemailGreeting *, NSError *))arg1;
-- (void)allVoicemails:(void (^)(NSArray *))arg1;
+- (void)allVoicemails:(void (^)(NSOrderedSet *))arg1;
 - (void)synchronize;
-- (void)requestInitialState:(void (^)(VMVoicemailCapabilities *, NSArray *, _Bool, _Bool, _Bool))arg1;
+- (void)requestInitialState:(void (^)(VMVoicemailCapabilities *, NSOrderedSet *, _Bool, _Bool, _Bool))arg1;
 @end
 

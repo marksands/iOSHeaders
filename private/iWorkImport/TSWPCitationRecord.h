@@ -27,7 +27,6 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) _Bool recordXMLApplied; // @synthesize recordXMLApplied=_recordXMLApplied;
 @property(nonatomic) _Bool shouldRemove; // @synthesize shouldRemove=_shouldRemove;
-- (void)p_applyEndNoteXML;
 - (id)p_endNoteXMLForComparison;
 - (void)p_copyPropertiesToObject:(id)arg1;
 - (id)description;

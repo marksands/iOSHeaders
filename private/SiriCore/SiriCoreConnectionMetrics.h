@@ -34,6 +34,8 @@
     NSNumber *_signalStrengthBars;
     NSString *_providerStyle;
     NSDictionary *_flowNetworkInterfaceType;
+    NSString *_wifiPhyMode;
+    NSString *_wifiChannelInfo;
     NSNumber *_rssi;
     NSNumber *_snr;
     NSDictionary *_symptomsBasedNetworkQuality;
@@ -42,6 +44,8 @@
 @property(copy, nonatomic) NSDictionary *symptomsBasedNetworkQuality; // @synthesize symptomsBasedNetworkQuality=_symptomsBasedNetworkQuality;
 @property(copy, nonatomic) NSNumber *snr; // @synthesize snr=_snr;
 @property(copy, nonatomic) NSNumber *rssi; // @synthesize rssi=_rssi;
+@property(copy, nonatomic) NSString *wifiChannelInfo; // @synthesize wifiChannelInfo=_wifiChannelInfo;
+@property(copy, nonatomic) NSString *wifiPhyMode; // @synthesize wifiPhyMode=_wifiPhyMode;
 @property(copy, nonatomic) NSDictionary *flowNetworkInterfaceType; // @synthesize flowNetworkInterfaceType=_flowNetworkInterfaceType;
 @property(copy, nonatomic) NSString *providerStyle; // @synthesize providerStyle=_providerStyle;
 @property(copy, nonatomic) NSNumber *signalStrengthBars; // @synthesize signalStrengthBars=_signalStrengthBars;
@@ -69,8 +73,8 @@
 - (void).cxx_destruct;
 - (id)getConnectionMetricsDescription;
 - (void)setConnectionMetricsFromNWConnectionForPOP:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)setConnectionMetricsFromNWConnectionForDirect:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)setConnectionMetricsFromConnection:(id)arg1 isPop:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (void)setConnectionMetricsFromNWConnectionForDirect:(id)arg1 isMPTCP:(_Bool)arg2 attemptedEndpoints:(id)arg3 withCompletion:(CDUnknownBlockType)arg4;
+- (void)setConnectionMetricsFromConnection:(id)arg1 isPop:(_Bool)arg2 isMPTCP:(_Bool)arg3 attemptedEndpoints:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)_setConnectionMetricsTCPInfo:(id)arg1;
 - (void)setConnectionMetricsFromStreamForPOP:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)setConnectionMetricsFromStreamForDirect:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

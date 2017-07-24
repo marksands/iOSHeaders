@@ -19,7 +19,10 @@
 - (void).cxx_destruct;
 - (void)layoutSubviews;
 - (void)showTextField:(_Bool)arg1;
+- (void)prepareForReuse;
 - (id)initWithReuseIdentifier:(id)arg1;
+- (void)pk_applyAppearance:(id)arg1;
+- (id)pk_childrenForAppearance;
 
 @end
 

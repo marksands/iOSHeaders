@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)setBackButtonVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setupTopNavigationItem;
 @property(readonly, nonatomic) _Bool wantsLargeTitleDisplayed;
+- (void)recordBarSize:(struct CGSize)arg1;
 - (void)updateTopNavigationItemTitleView;
 - (void)updateTopNavigationItemAnimated:(_Bool)arg1;
 - (void)popAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;

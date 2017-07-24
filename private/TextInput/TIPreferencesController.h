@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <TextInput/TIPreferencesControllerActions-Protocol.h>
 
@@ -21,6 +21,7 @@
     _Bool _ignoreNextSyncNotification;
 }
 
++ (void)registerPreferredLanguagesForInputModes:(id)arg1 replacingInputModes:(id)arg2;
 + (id)sharedPreferencesController;
 @property(nonatomic) _Bool ignoreNextSyncNotification; // @synthesize ignoreNextSyncNotification=_ignoreNextSyncNotification;
 @property(nonatomic) _Bool inhibitGlobalNotification; // @synthesize inhibitGlobalNotification=_inhibitGlobalNotification;

@@ -29,7 +29,6 @@
 + (void)deleteAutoCreatedBuiltInSmartPlaylistsPIDs:(id)arg1 inLibrary:(id)arg2;
 + (id)autoCreatedBuiltInSmartPlaylistsPIDs:(id)arg1;
 + (_Bool)updateBuiltInSmartPlaylistNamesForCurrentLanguage:(id)arg1;
-+ (_Bool)createMissingBuiltInSmartPlaylists:(id)arg1;
 + (id)predicateForCriteriaList:(struct SearchCriteriaList *)arg1 parentMatchedAny:(_Bool)arg2;
 + (_Bool)hasCriterionInCriteriaList:(struct SearchCriteriaList *)arg1 forITDBTrackField:(int)arg2;
 + (void)populateSortOrdersOfPropertyValues:(id)arg1 inLibrary:(id)arg2 cachedNameOrders:(id)arg3;

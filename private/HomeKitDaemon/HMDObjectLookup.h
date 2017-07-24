@@ -21,10 +21,10 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(readonly, nonatomic) NSMapTable *uuidToObjectMapping; // @synthesize uuidToObjectMapping=_uuidToObjectMapping;
 - (void).cxx_destruct;
-- (void)applyChange:(id)arg1 onObject:(id)arg2 result:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)applyChange:(id)arg1 previous:(id)arg2 onObject:(id)arg3 result:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)_scanThroughObjects;
-- (id)_lookupObjectWithUUID:(id)arg1 applyObjectChange:(id)arg2 result:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)lookupAndApplyObjectChange:(id)arg1 result:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)_lookupObjectWithUUID:(id)arg1 applyObjectChange:(id)arg2 previous:(id)arg3 result:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)lookupAndApplyObjectChange:(id)arg1 previous:(id)arg2 result:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)initWithWorkQueue:(id)arg1;
 
 // Remaining properties

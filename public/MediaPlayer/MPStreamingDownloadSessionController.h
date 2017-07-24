@@ -6,10 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSMapTable, NSMutableArray, NSOperationQueue;
+#import <MediaPlayer/ICEnvironmentMonitorObserver-Protocol.h>
+
+@class NSMapTable, NSMutableArray, NSOperationQueue, NSString;
 @protocol OS_dispatch_queue;
 
-@interface MPStreamingDownloadSessionController : NSObject
+@interface MPStreamingDownloadSessionController : NSObject <ICEnvironmentMonitorObserver>
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSMapTable *_assetDownloadSessionToDownloadSession;
@@ -43,7 +45,6 @@
 - (unsigned long long)_assetQualityForAssetFlavor:(id)arg1;
 - (id)_assetDownloadSessionForDownloadSession:(id)arg1;
 - (void)_playbackItemMetadataNetworkConstraintsDidChangeNotification:(id)arg1;
-- (void)_networkTypeDidChangeNotification:(id)arg1;
 - (void)_assetDownloadSessionFileSizeAvailableNotification:(id)arg1;
 - (void)_assetDownloadSessionDownloadSucceededNotification:(id)arg1;
 - (void)_assetDownloadSessionDownloadFailedNotification:(id)arg1;
@@ -54,8 +55,15 @@
 - (void)acquireDownloadSessionWithRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)endPausingAllDownloadSessions;
 - (void)beginPausingAllDownloadSessions;
+- (void)environmentMonitorDidChangeNetworkType:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

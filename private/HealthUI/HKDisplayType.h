@@ -12,13 +12,13 @@
 
 @interface HKDisplayType : NSObject <NSCopying>
 {
-    NSDictionary *_unitNameKeyOverrides;
     NSPredicate *_defaultChartingPredicate;
     NSDictionary *_chartingPredicatesByTimeScope;
     unsigned long long _portraitPresentationOptions;
     NSDictionary *_portraitPresentationOptionOverrides;
     NSString *_displayNameKey;
     NSString *_labelDisplayNameKey;
+    NSString *_shortenedDisplayNameKey;
     NSString *_embeddedDisplayNameKey;
     NSString *_titleEmbeddedDisplayNameKey;
     NSString *_keywordsNameKey;
@@ -35,6 +35,7 @@
     long long _displayTypeIdentifier;
     long long _categoryIdentifier;
     double _scalarValue;
+    NSDictionary *_unitNameKeyOverrides;
     UIImage *_detailImage;
     NSAttributedString *_attributedSummaryAttribution;
     HKDisplayTypeChartingRules *_chartingRules;
@@ -53,6 +54,7 @@
 @property(readonly, nonatomic) _Bool summaryAttributionHasLink; // @synthesize summaryAttributionHasLink=_summaryAttributionHasLink;
 @property(readonly, nonatomic) NSAttributedString *attributedSummaryAttribution; // @synthesize attributedSummaryAttribution=_attributedSummaryAttribution;
 @property(readonly, nonatomic) UIImage *detailImage; // @synthesize detailImage=_detailImage;
+@property(readonly, nonatomic) NSDictionary *unitNameKeyOverrides; // @synthesize unitNameKeyOverrides=_unitNameKeyOverrides;
 @property(readonly, nonatomic) double scalarValue; // @synthesize scalarValue=_scalarValue;
 @property(readonly, nonatomic) long long categoryIdentifier; // @synthesize categoryIdentifier=_categoryIdentifier;
 @property(readonly, nonatomic) long long displayTypeIdentifier; // @synthesize displayTypeIdentifier=_displayTypeIdentifier;
@@ -61,12 +63,14 @@
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+@property(readonly, nonatomic) unsigned long long roundingMode;
 @property(readonly, nonatomic) NSString *unitChangeCautionaryText;
 @property(readonly, nonatomic) NSString *cautionaryText;
 @property(readonly, nonatomic) NSString *summaryForPairedWatch;
 @property(readonly, nonatomic) NSString *summary;
 @property(readonly, nonatomic) NSString *titleEmbeddedDisplayName;
 @property(readonly, nonatomic) NSString *embeddedDisplayName;
+@property(readonly, nonatomic) NSString *shortenedDisplayName;
 @property(readonly, nonatomic) NSSet *keywords;
 @property(readonly, nonatomic) NSString *labelDisplayName;
 @property(readonly, nonatomic) NSString *displayName;
@@ -94,6 +98,8 @@
 - (unsigned long long)presentationOptionsForTimeScope:(long long)arg1;
 - (id)chartingPredicateForTimeScope:(long long)arg1;
 - (id)defaultValuePredicate;
+- (id)defaultDataRange;
+- (id)colorWithDisplayCategoryController:(id)arg1;
 - (id)unitNameForValue:(id)arg1 unitPreferenceController:(id)arg2;
 - (id)adjustedValueForClientValue:(id)arg1;
 - (id)adjustedValueForDaemonValue:(id)arg1;
@@ -106,7 +112,6 @@
 - (id)initFromDictionary:(id)arg1;
 - (id)hk_numberFormatterForUnit:(id)arg1 formattingContext:(long long)arg2;
 - (id)hk_numberFormatterForUnit:(id)arg1;
-- (id)hk_displayNameForEnumValue:(long long)arg1;
 - (id)hk_enumeratedValueLabels;
 
 @end

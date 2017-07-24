@@ -72,6 +72,7 @@
 - (void)helpTopicViewController:(id)arg1 selectedHelpTopicItem:(id)arg2;
 - (void)helpTopicViewControllerDoneButtonTapped:(id)arg1;
 - (void)helpTopicViewControllerTableOfContentButtonTapped:(id)arg1;
+- (void)helpTopicViewControllerCurrentTopicIsPassionPoint:(id)arg1;
 - (void)tableOfContentViewControllerShowHelpBookInfo:(id)arg1;
 - (id)currentHelpTopicItemForTableOfContentViewController:(id)arg1;
 - (void)tableOfContentViewController:(id)arg1 showHelpTopicItem:(id)arg2;
@@ -80,7 +81,9 @@
 - (id)topicIDForTopicName:(id)arg1 locale:(id)arg2;
 - (void)showHelpTopicItem:(id)arg1 anchor:(id)arg2 animate:(_Bool)arg3;
 - (void)showMessageForError:(id)arg1;
+- (void)loadFromStaticServer;
 - (void)loadHelpBook;
+- (void)displayHelpBookWithLocale:(id)arg1;
 - (void)setupTableContentViewController;
 - (void)showTopicView;
 - (void)updateDoneButton;

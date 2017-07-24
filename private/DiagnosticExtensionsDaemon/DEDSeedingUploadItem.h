@@ -21,6 +21,7 @@
 @property(retain) NSString *extensionID; // @synthesize extensionID=_extensionID;
 - (void).cxx_destruct;
 - (id)description;
+- (id)publicDescription;
 - (id)promiseFilename;
 
 @end

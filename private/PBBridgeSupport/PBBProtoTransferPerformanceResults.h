@@ -17,6 +17,9 @@
     NSMutableArray *_milestones;
 }
 
++ (Class)macroActivitesType;
++ (Class)measuresType;
++ (Class)milestonesType;
 @property(retain, nonatomic) NSMutableArray *macroActivites; // @synthesize macroActivites=_macroActivites;
 @property(retain, nonatomic) NSMutableArray *measures; // @synthesize measures=_measures;
 @property(retain, nonatomic) NSMutableArray *milestones; // @synthesize milestones=_milestones;

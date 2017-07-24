@@ -17,6 +17,7 @@
     UIStackView *_nameAndRatingStack;
     UIStackView *_containerStack;
     UIStackView *_labelStack;
+    _Bool _canFocus;
     UIImage *_icon;
     NSString *_name;
     NSString *_ageRating;
@@ -27,6 +28,7 @@
 }
 
 @property(retain, nonatomic) _WLKUITextBadge *ageRatingBadge; // @synthesize ageRatingBadge=_ageRatingBadge;
+@property(nonatomic) _Bool canFocus; // @synthesize canFocus=_canFocus;
 @property(retain, nonatomic) _WLKUIAppInstallView *installView; // @synthesize installView=_installView;
 @property(copy, nonatomic) NSString *downloadSize; // @synthesize downloadSize=_downloadSize;
 @property(copy, nonatomic) NSString *iAP; // @synthesize iAP=_iAP;
@@ -36,6 +38,7 @@
 - (void).cxx_destruct;
 - (void)_configureLabels;
 - (void)_configureAgeRatingBadge;
+- (_Bool)canBecomeFocused;
 - (void)_layoutForIos;
 - (void)_layoutForTvos;
 - (id)initWithFrame:(struct CGRect)arg1;

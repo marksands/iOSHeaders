@@ -21,6 +21,10 @@ __attribute__((visibility("hidden")))
     unsigned char ipaddr[16];
     int _portLen;
     unsigned short _destPort;
+    int _usernameLen;
+    NSMutableString *_username;
+    int _passwordLen;
+    NSMutableString *_password;
 }
 
 - (void).cxx_destruct;

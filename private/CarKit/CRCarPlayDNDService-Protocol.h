@@ -7,6 +7,7 @@
 @class NSArray, NSString;
 
 @protocol CRCarPlayDNDService
+- (void)internalUtilityToolWithReply:(void (^)(NSString *))arg1;
 - (void)setInternalAutoReplyWhitelist:(NSArray *)arg1 reply:(void (^)(_Bool, NSError *))arg2;
 - (void)internalAutoReplyWhitelistWithReply:(void (^)(NSArray *, NSError *))arg1;
 - (void)disableDNDUntilEndOfDriveWithReply:(void (^)(_Bool, NSError *))arg1;

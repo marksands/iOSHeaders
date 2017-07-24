@@ -16,6 +16,7 @@
     _Bool _forceOfflineRecognition;
     _Bool _detectUtterances;
     _Bool _secureOfflineOnly;
+    _Bool _farField;
     _Bool _releaseAudioSessionOnRecordingCompletion;
     NSString *_applicationName;
     NSString *_applicationVersion;
@@ -54,6 +55,7 @@
 @property(nonatomic) long long taskHint; // @synthesize taskHint=_taskHint;
 @property(nonatomic) double maximumRecognitionDuration; // @synthesize maximumRecognitionDuration=_maximumRecognitionDuration;
 @property(nonatomic) _Bool releaseAudioSessionOnRecordingCompletion; // @synthesize releaseAudioSessionOnRecordingCompletion=_releaseAudioSessionOnRecordingCompletion;
+@property(nonatomic) _Bool farField; // @synthesize farField=_farField;
 @property(nonatomic) _Bool secureOfflineOnly; // @synthesize secureOfflineOnly=_secureOfflineOnly;
 @property(nonatomic) _Bool detectUtterances; // @synthesize detectUtterances=_detectUtterances;
 @property(nonatomic) _Bool forceOfflineRecognition; // @synthesize forceOfflineRecognition=_forceOfflineRecognition;

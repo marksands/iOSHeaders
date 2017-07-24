@@ -16,6 +16,7 @@
 + (id)knowledgeTestDirectory;
 + (id)monitorBundlePath;
 + (id)policiesConfigPath;
++ (id)userKnowledgeDirectory;
 + (id)knowledgeDirectory;
 + (id)peopleDirectory;
 + (id)defaultSleepPath;

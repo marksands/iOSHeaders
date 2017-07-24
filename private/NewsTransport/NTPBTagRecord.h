@@ -62,6 +62,7 @@
     _Bool _hideAccessoryText;
     _Bool _isDeprecated;
     _Bool _isExplicitContent;
+    _Bool _isHidden;
     _Bool _isNotificationEnabled;
     _Bool _isPublic;
     _Bool _publisherPaidLeakyPaywallOptOut;
@@ -80,6 +81,7 @@
         unsigned int hideAccessoryText:1;
         unsigned int isDeprecated:1;
         unsigned int isExplicitContent:1;
+        unsigned int isHidden:1;
         unsigned int isNotificationEnabled:1;
         unsigned int isPublic:1;
         unsigned int publisherPaidLeakyPaywallOptOut:1;
@@ -100,6 +102,7 @@
 + (Class)relatedTopicIDsForOnboardingType;
 + (Class)relatedChannelIDsType;
 + (Class)relatedTopicIDsType;
+@property(nonatomic) _Bool isHidden; // @synthesize isHidden=_isHidden;
 @property(retain, nonatomic) NSData *nameImageCompactMetadata; // @synthesize nameImageCompactMetadata=_nameImageCompactMetadata;
 @property(retain, nonatomic) NSString *nameImageCompactURL; // @synthesize nameImageCompactURL=_nameImageCompactURL;
 @property(retain, nonatomic) NSString *nameCompact; // @synthesize nameCompact=_nameCompact;
@@ -160,6 +163,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIsHidden;
 @property(nonatomic) _Bool hasGroupingAvailability;
 @property(nonatomic) int groupingAvailability; // @synthesize groupingAvailability=_groupingAvailability;
 @property(readonly, nonatomic) _Bool hasNameImageCompactMetadata;

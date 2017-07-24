@@ -10,6 +10,8 @@
 {
 }
 
++ (id)extensionContextVendingInterface;
++ (id)extensionContextHostingInterface;
 + (id)remoteViewControllerServingInterface;
 + (id)remoteViewControllerHostingInterface;
 

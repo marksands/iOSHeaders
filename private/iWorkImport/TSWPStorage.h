@@ -11,7 +11,7 @@
 #import <iWorkImport/TSWPStorageParent-Protocol.h>
 #import <iWorkImport/TSWPTextSource-Protocol.h>
 
-@class NSMutableString, NSObject, NSString, TSDInfoGeometry, TSSStylesheet, TSWPCharacterStyle, TSWPDocumentRoot, TSWPStorageBroadcaster;
+@class NSMutableString, NSObject, NSString, TSDInfoGeometry, TSSStylesheet, TSUWeakReference, TSWPCharacterStyle, TSWPDocumentRoot, TSWPStorageBroadcaster;
 @protocol TSDContainerInfo><TSWPStorageParent, TSDOwningAttachment;
 
 __attribute__((visibility("hidden")))
@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _changeCount;
     int _WPKind;
     _Bool _wasPreviouslyRemovedFromDocument;
-    NSObject<TSDContainerInfo><TSWPStorageParent> *_parentInfo;
+    TSUWeakReference *_parentInfoReference;
     TSPObject<TSDOwningAttachment> *_owningAttachment;
     unsigned int _disallowElementKinds;
     unsigned int _disallowSmartFieldKinds;
@@ -44,6 +44,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)needsObjectUUID;
 + (Class)pStringClassForWPKind:(int)arg1;
 + (id)filterMarkAttributes:(id)arg1;
++ (id)filterText:(id)arg1 removingAttachments:(_Bool)arg2 removingControlCharacters:(_Bool)arg3;
 + (id)filterText:(id)arg1 removingAttachments:(_Bool)arg2;
 + (id)filterText:(id)arg1;
 + (_Bool)allowsSmartFieldKind:(int)arg1 forStorageKind:(int)arg2;
@@ -59,7 +60,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool ignoreContentsChangedNotifications; // @synthesize ignoreContentsChangedNotifications=_ignoreContentsChangedNotifications;
 @property(nonatomic) _Bool isInInit; // @synthesize isInInit=_isInInit;
 @property(nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment; // @synthesize owningAttachment=_owningAttachment;
-@property(nonatomic) NSObject<TSDContainerInfo><TSWPStorageParent> *parentInfo; // @synthesize parentInfo=_parentInfo;
 @property(readonly, nonatomic) TSSStylesheet *stylesheet; // @synthesize stylesheet=_stylesheet;
 - (void)validate:(_Bool)arg1 shouldThrow:(_Bool)arg2 shouldFatalAssert:(_Bool)arg3;
 - (void)validate:(_Bool)arg1 shouldThrow:(_Bool)arg2;
@@ -113,6 +113,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isFloatingAboveText) _Bool floatingAboveText;
 @property(readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;
 - (void)clearBackPointerToParentInfoIfNeeded:(id)arg1;
+@property(nonatomic) NSObject<TSDContainerInfo><TSWPStorageParent> *parentInfo; // @dynamic parentInfo;
 - (void)setPrimitiveGeometry:(id)arg1;
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
 @property(readonly, nonatomic) long long contentWritingDirection;
@@ -355,7 +356,7 @@ __attribute__((visibility("hidden")))
 - (struct TSWPParagraphEnumerator)paragraphEnumeratorForCharRange:(struct _NSRange)arg1 styleProvider:(id)arg2;
 - (struct TSWPParagraphEnumerator)paragraphEnumeratorAtCharIndex:(unsigned long long)arg1 styleProvider:(id)arg2;
 - (id)textSourceForLayoutInRange:(struct _NSRange)arg1;
-- (void)nonUndoableFilterInvalidContentForStorage:(id)arg1;
+- (void)nonUndoableFilterInvalidContentForStorage:(id)arg1 keepHighlights:(_Bool)arg2;
 - (_Bool)supportsPageBreaks;
 - (void)p_nonUndoableFilterPageBreaksFromStorage:(id)arg1;
 - (void)p_nonUndoableFilterSectionBreaksFromStorage:(id)arg1;
@@ -368,7 +369,7 @@ __attribute__((visibility("hidden")))
 - (unsigned int)disallowedElementKinds;
 - (void)removeDisallowedElementKind:(int)arg1;
 - (void)addDisallowedElementKind:(int)arg1;
-- (void)nonUndoableSetWPKind:(int)arg1;
+- (void)nonUndoableSetWPKind:(int)arg1 keepHighlights:(_Bool)arg2;
 - (int)wpKind;
 - (void)setDocumentRoot:(id)arg1;
 - (id)documentRoot;
@@ -479,6 +480,7 @@ __attribute__((visibility("hidden")))
 - (struct _NSRange)rangeForHighlight:(id)arg1;
 - (_Bool)highlightsAllowed;
 @property(readonly, nonatomic) _Bool hasComments;
+@property(readonly, nonatomic) _Bool hasAnyCommentsRequiring2_2;
 - (id)characterStyleForDeletedRange:(struct _NSRange)arg1;
 - (void)settingsDidChangeRequiringLayoutAndRendering;
 - (unsigned long long)countTrackChangesInSelection:(id)arg1;

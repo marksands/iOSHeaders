@@ -18,7 +18,6 @@
     UILabel *_routeNameLabel;
     long long _style;
     UIImageView *_thumbImageView;
-    UIImageView *_thumbMaskImageView;
     _Bool _isOffScreen;
     _Bool _forcingOffscreenVisibility;
     _Bool _thumbIsDefault;
@@ -53,6 +52,7 @@
 - (void)_availableRoutesDidChangeNotification:(id)arg1;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
+@property(readonly, nonatomic) __weak UIView *thumbView;
 @property(nonatomic, setter=_setIsOffScreen:) _Bool _isOffScreen;
 @property(readonly, nonatomic) MPAVRoutingController *routingController;
 - (void)volumeController:(id)arg1 EUVolumeLimitEnforcedDidChange:(_Bool)arg2;

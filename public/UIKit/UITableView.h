@@ -96,6 +96,8 @@
     UIColor *_indexTrackingBackgroundColor;
     NSArray *_defaultSectionIndexTitles;
     UISwipeActionController *_swipeActionController;
+    NSArray *_swipeDeletionPendingShadowUpdateItems;
+    NSArray *_swipeDeletionShadowUpdateIdentifiers;
     UISwipeGestureRecognizer *_swipeGestureRecognizer;
     UIGobblerGestureRecognizer *_swipeToDeleteGobblerGestureRecognizer;
     UITableViewCell *_swipeToDeleteCell;
@@ -103,7 +105,6 @@
     long long _shadowUpdateCount;
     long long _revertingShadowUpdateCount;
     NSIndexPath *_displayingCellContentStringIndexPath;
-    UITapGestureRecognizer *_twoFingerTapGestureRecognizer;
     UILongPressGestureRecognizer *_longPressGestureRecognizer;
     UILongPressGestureRecognizer *_upArrowLongPressGestureRecognizer;
     UILongPressGestureRecognizer *_downArrowLongPressGestureRecognizer;
@@ -122,13 +123,13 @@
     struct UIEdgeInsets _separatorInset;
     id _updateCompletionHandler;
     id _deferredEditingHandler;
-    NSMutableArray *_hiddenSeparatorIndexPaths;
+    NSMutableSet *_hiddenSeparatorIndexPaths;
     NSMutableDictionary *_tentativeCells;
     struct __CFDictionary *_tentativeHeaderViews;
     struct __CFDictionary *_tentativeFooterViews;
     NSMutableSet *_clientGesturesRequiringTableGesturesToFail;
     _UITableViewUpdateSupport *_currentUpdate;
-    struct CGPoint _postLayoutContentOffset;
+    _UITableViewShadowUpdatesController *_shadowUpdatesController;
     struct _NSRange _preReloadVisibleRowRange;
     double _preReloadFirstCellOffset;
     UIWindow *_lastWindow;
@@ -299,7 +300,6 @@
         unsigned int didDisableNavigationGesture:1;
         unsigned int separatorsDrawAsOverlay:1;
         unsigned int swipeToDeleteRowIsBeingDeleted:1;
-        unsigned int swipeToDeleteRowHasBeenDeleted:1;
         unsigned int drawsSeparatorAtTopOfSections:1;
         unsigned int separatorBackdropOverlayBlendMode:3;
         unsigned int separatorsDrawInVibrantLightMode:1;
@@ -340,7 +340,6 @@
     NSIndexPath *_focusedCellIndexPath;
     UIView *_focusedCell;
     NSIndexPath *_indexPathToFocus;
-    _UITableViewShadowUpdatesController *_shadowUpdatesController;
     _UITableViewDragController *_dragController;
     _UITableViewDropController *_dropController;
     NSMutableArray *_placeholderContexts;
@@ -358,7 +357,6 @@
 @property(retain, nonatomic, getter=_placeholderContexts, setter=_setPlaceholderContexts:) NSMutableArray *placeholderContexts; // @synthesize placeholderContexts=_placeholderContexts;
 @property(retain, nonatomic, getter=_dropController, setter=_setDropController:) _UITableViewDropController *dropController; // @synthesize dropController=_dropController;
 @property(retain, nonatomic, getter=_dragController, setter=_setDragController:) _UITableViewDragController *dragController; // @synthesize dragController=_dragController;
-@property(retain, nonatomic, getter=_shadowUpdatesController, setter=_setShadowUpdatesController:) _UITableViewShadowUpdatesController *shadowUpdatesController; // @synthesize shadowUpdatesController=_shadowUpdatesController;
 @property(copy, nonatomic, getter=_indexPathToFocus, setter=_setIndexPathToFocus:) NSIndexPath *indexPathToFocus; // @synthesize indexPathToFocus=_indexPathToFocus;
 @property(retain, nonatomic, getter=_focusedCell, setter=_setFocusedCell:) UIView *focusedCell; // @synthesize focusedCell=_focusedCell;
 @property(copy, nonatomic, getter=_focusedCellIndexPath, setter=_setFocusedCellIndexPath:) NSIndexPath *focusedCellIndexPath; // @synthesize focusedCellIndexPath=_focusedCellIndexPath;
@@ -370,6 +368,8 @@
 @property(nonatomic) double estimatedRowHeight; // @synthesize estimatedRowHeight=_estimatedRowHeight;
 @property(retain, nonatomic) UITouch *currentTouch; // @synthesize currentTouch=_currentTouch;
 - (void).cxx_destruct;
+- (void)_highlightDidEndForCell:(id)arg1 withInteraction:(id)arg2;
+- (void)_prepareHighlightForCell:(id)arg1 withInteraction:(id)arg2;
 - (void)setSpringLoaded:(_Bool)arg1;
 - (_Bool)isSpringLoaded;
 - (void)_performUsingPresentationValues:(CDUnknownBlockType)arg1;
@@ -433,6 +433,12 @@
 - (long long)_numberOfSections;
 @property(readonly, nonatomic, getter=_scrollView) UIScrollView *scrollView;
 - (id)constants;
+- (_Bool)_isSwipeDeletionIndexPath:(id)arg1;
+- (_Bool)_swipeDeletionCommittedForSection:(_Bool)arg1;
+- (_Bool)_swipeDeletionCommitted;
+- (void)_removeSwipeDeletionShadowUpdate;
+- (void)_applyPendingSwipeDeletionShadowUpdates;
+- (void)_addPendingSwipeDeletionShadowUpdateForSection:(_Bool)arg1;
 - (void)_swipeToDeleteCell:(id)arg1;
 - (id)_trailingSwipeConfigurationAtIndexPath:(id)arg1 fromRemoveButton:(_Bool)arg2;
 - (id)_contextualActionForDeletingRowAtIndexPath:(id)arg1 performsFirstActionWithFullSwipe:(_Bool *)arg2;
@@ -604,7 +610,7 @@
 - (void)adjustIndexPaths:(id)arg1 forMoveOfIndexPath:(id)arg2 toIndexPath:(id)arg3;
 - (void)_tableCellAnimationDidStop:(id)arg1 finished:(id)arg2;
 - (void)_draggingReorderingCell:(id)arg1 yDelta:(double)arg2 touch:(id)arg3;
-- (void)_beginReorderingForCell:(id)arg1 touch:(id)arg2;
+- (_Bool)_beginReorderingForCell:(id)arg1 touch:(id)arg2;
 - (_Bool)_isReorderControlActiveForCell:(id)arg1;
 - (_Bool)_dragAndDropUsedForReordering;
 - (id)_addToShadowUpdatesControllerIfNeeded:(id)arg1;
@@ -615,6 +621,7 @@
 - (_Bool)_isPerformingRevertingShadowUpdates;
 - (id)_performShadowUpdates:(CDUnknownBlockType)arg1;
 - (_Bool)_isPerformingShadowUpdates;
+- (id)_shadowUpdatesController;
 - (id)_cellForShadowRowAtIndexPath:(id)arg1;
 - (double)_heightForShadowRowAtIndexPath:(id)arg1;
 - (_Bool)_commitPlaceholderInsertionWithContext:(id)arg1 dataSourceUpdates:(CDUnknownBlockType)arg2;
@@ -627,7 +634,7 @@
 - (void)_endAnimatingDropIntoCell:(id)arg1;
 - (void)_beginAnimatingDropIntoCell:(id)arg1;
 - (void)_endAnimatingDropOfCell:(id)arg1;
-- (void)_beginAnimatingDropOfCell:(id)arg1;
+- (id)_beginAnimatingDropOfCell:(id)arg1 isCanceling:(_Bool)arg2;
 - (void)_performDrop:(id)arg1 withDropCoordinator:(id)arg2 forceHandleAsReorder:(_Bool)arg3;
 - (void)_dropEnded:(id)arg1;
 - (void)_dropExited:(id)arg1;
@@ -647,12 +654,16 @@
 - (id)_dragDestinationDelegateActual;
 - (id)_dropDelegateProxy;
 - (id)_dropDelegateActual;
+- (_Bool)_dragSessionIsRestrictedToDraggingApplication:(id)arg1;
+- (_Bool)_dragSessionAllowsMoveOperation:(id)arg1;
 - (void)_dragSessionDidEnd:(id)arg1;
-- (void)_updateAppearanceForRowsInDrag;
+- (void)_updateAppearanceOfVisibleRowsForDragState;
 - (void)_dragSessionWillBegin:(id)arg1;
 - (id)_itemsForAddingToDragSession:(id)arg1 atIndexPath:(id)arg2 point:(struct CGPoint)arg3;
 - (id)_itemsForBeginningDragSession:(id)arg1 atIndexPath:(id)arg2;
-- (void)_prepareForDragLiftOfRowsAtIndexPaths:(id)arg1;
+- (void)_animateDragCancelForCell:(id)arg1;
+- (void)_animateLiftOfRowsAtIndexPaths:(id)arg1;
+- (void)_prepareToLiftRowsAtIndexPaths:(id)arg1;
 - (id)_dragPreviewParametersForIndexPath:(id)arg1;
 - (id)_rowsToIncludeInDragAtIndexPath:(id)arg1;
 - (_Bool)_canBeginDragAtPoint:(struct CGPoint)arg1 indexPath:(id)arg2;
@@ -810,6 +821,7 @@
 @property(nonatomic, getter=isEditing) _Bool editing;
 @property(readonly, nonatomic) _Bool canBeEdited;
 - (void)willMoveToSuperview:(id)arg1;
+- (void)setDirectionalLayoutMargins:(struct NSDirectionalEdgeInsets)arg1;
 - (void)setLayoutMargins:(struct UIEdgeInsets)arg1;
 - (void)_setDefaultLayoutMargins:(struct UIEdgeInsets)arg1;
 - (void)didMoveToWindow;
@@ -911,6 +923,7 @@
 - (void)_highlightSpringLoadedRowAtIndexPath:(id)arg1;
 - (void)_unhighlightSpringLoadedRow;
 - (_Bool)_shouldSpringLoadRowAtIndexPath:(id)arg1 withContext:(id)arg2;
+- (id)_indexPathForSpringLoadingAtPoint:(struct CGPoint)arg1;
 - (_Bool)_shouldHighlightInsteadOfSelectRowAtIndexPath:(id)arg1;
 - (_Bool)_isRowMultiSelect:(id)arg1;
 - (void)_unhighlightAllRowsExceptSpringLoadingRowAnimated:(_Bool)arg1;
@@ -994,6 +1007,10 @@
 - (void)noteNumberOfRowsChanged;
 - (void)_numberOfRowsDidChange;
 - (void)reloadSectionIndexTitles;
+- (double)_contentOffsetYForRestoringScrollPositionOfFirstVisibleRowWithContentInsetTop:(double)arg1;
+- (double)_computeOffsetOfFirstVisibleCellWithIndexPath:(id)arg1;
+- (_Bool)_shouldRestorePreReloadScrollPositionWithFirstVisibleIndexPath:(id)arg1 scrolledToTop:(_Bool)arg2;
+- (_Bool)_isScrolledToTop;
 - (struct CGPoint)_validContentOffsetForProposedOffset:(struct CGPoint)arg1;
 - (void)reloadData;
 @property(nonatomic) double sectionFooterHeight;
@@ -1108,6 +1125,9 @@
 - (void)_cellDidHideSelectedBackground:(id)arg1;
 - (void)_cellDidShowSelectedBackground:(id)arg1;
 - (id)_cellContainerView;
+- (void)_addSubview:(id)arg1 positioned:(long long)arg2 relativeTo:(id)arg3;
+- (void)sendSubviewToBack:(id)arg1;
+- (void)bringSubviewToFront:(id)arg1;
 - (void)_addContentSubview:(id)arg1 atBack:(_Bool)arg2;
 - (void)_adjustExtraSeparators;
 - (_Bool)_shouldDrawDarkSeparators;
@@ -1125,12 +1145,12 @@
 - (void)_rebaseExistingShadowUpdatesIfNecessaryWithItems:(id)arg1 insertItems:(id)arg2 deleteItems:(id)arg3 sortedInsertItems:(id)arg4 sortedDeleteItems:(id)arg5 sortedMoveItems:(id)arg6;
 - (void)_endCellAnimationsWithContext:(id)arg1;
 - (void)_setupCellAnimations;
-- (struct UIEdgeInsets)_fastScrollingIndexBarInsets;
+- (struct UIEdgeInsets)_focusFastScrollingIndexBarInsets;
 - (id)_focusFastScrollingDestinationItemForIndexEntry:(id)arg1;
 - (id)_focusFastScrollingDestinationItemAtContentEnd;
 - (id)_focusFastScrollingDestinationItemAtContentStart;
 - (struct CGPoint)indexBarAccessoryView:(id)arg1 contentOffsetForEntry:(id)arg2 atIndex:(long long)arg3;
-- (id)_indexBarEntries;
+- (id)_focusFastScrollingIndexBarEntries;
 - (void)_updateIndex;
 - (id)_sectionIndex;
 - (void)_addIndexToAppropriateContainer;
@@ -1172,7 +1192,6 @@
 - (void)_updateRowData;
 - (void)_ensureRowDataIsLoaded;
 - (float)_animationDuration;
-- (void)_twoFingerTap:(id)arg1;
 - (void)_setDisplaysCellContentStringsOnTapAndHold:(_Bool)arg1;
 - (_Bool)_displaysCellContentStringsOnTapAndHold;
 - (void)_updateTableViewGestureRecognizersForEditing;
@@ -1180,7 +1199,6 @@
 - (void)_removeTableViewGestureRecognizers;
 - (void)_installTableViewGestureRecognizers;
 - (id)_scrollTestExtraResults;
-- (void)_addSubview:(id)arg1 positioned:(long long)arg2 relativeTo:(id)arg3;
 - (_Bool)isElementAccessibilityExposedToInterfaceBuilder;
 
 // Remaining properties

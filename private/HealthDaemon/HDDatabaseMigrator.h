@@ -148,7 +148,8 @@
 - (id)eagleUnprotectedMigrationSteps;
 - (_Bool)_databaseSchemas:(id)arg1 containsTable:(id)arg2;
 - (_Bool)_deleteDataEntitySubclassTables:(id)arg1 intermediateTables:(id)arg2 error:(out id *)arg3;
-- (long long)_createTrustedFitnessMachineEntityTable:(out id *)arg1;
+- (long long)_removeVO2MaxTestTypeMetadataKeyAppleWatch:(out id *)arg1;
+- (long long)_removeTrustedFitnessMachineEntityTable:(out id *)arg1;
 - (long long)_setupNFCForFitnessMachinesWithError:(out id *)arg1;
 - (long long)_addArbitraryMetadataSupportForWorkoutEventsWithError:(out id *)arg1;
 - (long long)_removeUnusedColumnsFromActivityCacheWithError:(out id *)arg1;
@@ -163,6 +164,7 @@
 - (long long)_createExternalSyncIdentifierEntityTable:(out id *)arg1;
 - (long long)_recreateDataProvenanceTableIncludingOriginVersionsWithError:(id *)arg1;
 - (id)tigrisProtectedMigrationSteps;
+- (long long)_tigris_addContainerColumnToCloudSyncStores:(id *)arg1;
 - (long long)_tigris_createLocalSourceCopiesWithError:(id *)arg1;
 - (long long)_tigris_addLastCheckAndOwnerIDColumnsWithError:(id *)arg1;
 - (long long)_tigris_addEmptyZonesColumnWithError:(id *)arg1;

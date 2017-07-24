@@ -17,7 +17,8 @@
     NSString *_manufacturer;
     NSString *_modelNumber;
     NSString *_serialNumber;
-    NSString *_firmwareRevision;
+    NSString *_firmwareRevisionActive;
+    NSString *_firmwareRevisionPending;
     NSString *_hardwareRevision;
     NSString *_dockType;
     NSString *_macAddress;
@@ -76,7 +77,8 @@
 @property(copy, nonatomic) NSString *macAddress; // @synthesize macAddress=_macAddress;
 @property(copy, nonatomic) NSString *dockType; // @synthesize dockType=_dockType;
 @property(copy, nonatomic) NSString *hardwareRevision; // @synthesize hardwareRevision=_hardwareRevision;
-@property(copy, nonatomic) NSString *firmwareRevision; // @synthesize firmwareRevision=_firmwareRevision;
+@property(copy, nonatomic) NSString *firmwareRevisionPending; // @synthesize firmwareRevisionPending=_firmwareRevisionPending;
+@property(copy, nonatomic) NSString *firmwareRevisionActive; // @synthesize firmwareRevisionActive=_firmwareRevisionActive;
 @property(copy, nonatomic) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;
 @property(copy, nonatomic) NSString *modelNumber; // @synthesize modelNumber=_modelNumber;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;

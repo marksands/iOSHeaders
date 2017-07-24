@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSLock, NSMutableArray, NSMutableAttributedString, NSMutableSet, NSString, NSThread, PDFAKPageAdaptor, PDFDocument, PDFView, UIImage;
+@class NSLock, NSMutableArray, NSMutableAttributedString, NSMutableDictionary, NSMutableSet, NSString, NSThread, PDFAKPageAdaptor, PDFDocument, PDFView, UIImage;
 
 __attribute__((visibility("hidden")))
 @interface PDFPagePrivate : NSObject
@@ -52,6 +52,8 @@ __attribute__((visibility("hidden")))
     PDFAKPageAdaptor *akPageAdaptor;
     NSMutableArray *annotationChanges;
     NSMutableSet *changedAnnotations;
+    NSMutableDictionary *widgetAnnotationLookup;
+    _Bool didChangeBounds;
 }
 
 - (void).cxx_destruct;

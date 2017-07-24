@@ -23,7 +23,6 @@
 @property(retain, nonatomic) NSUUID *requestedIdentifier; // @synthesize requestedIdentifier=_requestedIdentifier;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool convertAutoloopsToGIF;
-@property(readonly, nonatomic) _Bool onlyShowAutoloopVideos;
 @property(readonly, nonatomic) _Bool showsPrompt;
 @property(readonly, nonatomic) unsigned long long multipleSelectionLimit;
 @property(readonly, nonatomic) _Bool allowsMultipleSelection;

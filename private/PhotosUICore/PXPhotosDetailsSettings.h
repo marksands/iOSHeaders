@@ -17,7 +17,6 @@
     _Bool _showPlacesWidget;
     _Bool _showRelatedPeopleWidget;
     _Bool _showRelatedWidget;
-    _Bool _showSuggestedFacesWidget;
     _Bool _showActionsWidget;
     _Bool _showPeopleInlineCandidateWidget;
     _Bool _showFacesAreaRect;
@@ -90,7 +89,6 @@
 @property(nonatomic) _Bool showFacesAreaRect; // @synthesize showFacesAreaRect=_showFacesAreaRect;
 @property(nonatomic) _Bool showPeopleInlineCandidateWidget; // @synthesize showPeopleInlineCandidateWidget=_showPeopleInlineCandidateWidget;
 @property(nonatomic) _Bool showActionsWidget; // @synthesize showActionsWidget=_showActionsWidget;
-@property(nonatomic) _Bool showSuggestedFacesWidget; // @synthesize showSuggestedFacesWidget=_showSuggestedFacesWidget;
 @property(nonatomic) _Bool showRelatedWidget; // @synthesize showRelatedWidget=_showRelatedWidget;
 @property(nonatomic) _Bool showRelatedPeopleWidget; // @synthesize showRelatedPeopleWidget=_showRelatedPeopleWidget;
 @property(nonatomic) _Bool showPlacesWidget; // @synthesize showPlacesWidget=_showPlacesWidget;

@@ -9,11 +9,13 @@
 #import <NotesUI/ICTableCellMergeableStringObserving-Protocol.h>
 
 @class ICTable, NSArray, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSString, NSUUID;
+@protocol ICTableUndoHelping;
 
 @interface ICTableColumnTextStorage : ICTableTextStorage <ICTableCellMergeableStringObserving>
 {
     _Bool _preventEditingUpdates;
     NSUUID *_columnID;
+    id <ICTableUndoHelping> _undoHelper;
     ICTable *_table;
     NSMutableArray *_rows;
     NSMutableDictionary *_mergeableStringDelegates;
@@ -25,9 +27,15 @@
 @property(readonly, nonatomic) NSMutableArray *rows; // @synthesize rows=_rows;
 @property(readonly, nonatomic) __weak ICTable *table; // @synthesize table=_table;
 @property(nonatomic) _Bool preventEditingUpdates; // @synthesize preventEditingUpdates=_preventEditingUpdates;
+@property(nonatomic) __weak id <ICTableUndoHelping> undoHelper; // @synthesize undoHelper=_undoHelper;
 @property(readonly) NSUUID *columnID; // @synthesize columnID=_columnID;
 - (void).cxx_destruct;
 - (void)tableCellWasEditedAtColumnID:(id)arg1 rowID:(id)arg2 edited:(unsigned long long)arg3 range:(struct _NSRange)arg4 changeInLength:(long long)arg5;
+- (void)restoreSelection:(id)arg1;
+- (id)savedSelectionWithSelectionAffinity:(unsigned long long)arg1;
+- (void)resetUndoManager;
+- (void)breakUndoCoalescing;
+- (void)closeUndoGroups;
 - (void)edited:(unsigned long long)arg1 range:(struct _NSRange)arg2 changeInLength:(long long)arg3;
 - (unsigned long long)nextLocationAfterRowLocation:(unsigned long long)arg1;
 - (unsigned long long)rowLocationForRowIndex:(unsigned long long)arg1;
@@ -36,6 +44,7 @@
 - (id)rowAtIndex:(unsigned long long)arg1 rowRange:(out struct _NSRange *)arg2;
 - (unsigned long long)indexOfRowAtLocation:(unsigned long long)arg1;
 - (id)mergeableStringForRowID:(id)arg1;
+- (struct _NSRange)logicalRangeForLocation:(unsigned long long)arg1;
 - (void)updateStorageForMovedRow:(id)arg1;
 - (void)removeRow:(id)arg1;
 - (void)removeTextForRow:(id)arg1;

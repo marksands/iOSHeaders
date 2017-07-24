@@ -15,7 +15,6 @@
 }
 
 - (id)_authContextFromCDPContext:(id)arg1;
-- (void)cdpContext:(id)arg1 determineHSA2StateWithCompletion:(CDUnknownBlockType)arg2;
 - (void)cdpContext:(id)arg1 persistMasterKeyVerifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 
 // Remaining properties

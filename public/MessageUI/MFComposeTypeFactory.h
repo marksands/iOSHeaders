@@ -13,7 +13,7 @@
 + (id)subjectFromSubject:(id)arg1 withComposeType:(int)arg2;
 + (void)hijackThreadFromDelegate:(id)arg1;
 + (id)messageFromDelegate:(id)arg1 originatingBundleID:(id)arg2 sourceAccountManagement:(int)arg3;
-+ (id)messageFromDelegate:(id)arg1 withSubstituteDOMDocument:(id)arg2 originatingBundleID:(id)arg3 sourceAccountManagement:(int)arg4 writeAttachmentPlaceholders:(_Bool)arg5;
++ (id)messageFromDelegate:(id)arg1 withSubstituteDOMDocument:(id)arg2 compositionSpecification:(id)arg3 originatingBundleID:(id)arg4 sourceAccountManagement:(int)arg5 writeAttachmentPlaceholders:(_Bool)arg6;
 + (void)setupWithContent:(id)arg1 delegate:(id)arg2;
 + (void)setupWithCompositionModel:(id)arg1 delegate:(id)arg2;
 + (unsigned long long)imageScaleFromUserDefaults;

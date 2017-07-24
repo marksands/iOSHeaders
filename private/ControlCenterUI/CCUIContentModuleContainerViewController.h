@@ -6,18 +6,16 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <ControlCenterUI/UIGestureRecognizerDelegate-Protocol.h>
 #import <ControlCenterUI/UIPreviewInteractionDelegatePrivate-Protocol.h>
 
 @class CCUIContentModuleBackgroundView, CCUIContentModuleContainerView, CCUIContentModuleContentContainerView, NSString, UIPreviewInteraction, UITapGestureRecognizer, UIView;
 @protocol CCUIContentModule, CCUIContentModuleContainerViewControllerDelegate, CCUIContentModuleContentViewController;
 
-@interface CCUIContentModuleContainerViewController : UIViewController <UIGestureRecognizerDelegate, UIPreviewInteractionDelegatePrivate>
+@interface CCUIContentModuleContainerViewController : UIViewController <UIPreviewInteractionDelegatePrivate>
 {
     _Bool _expanded;
     _Bool _contentModuleProvidesOwnPlatter;
-    _Bool _didSendContentAppearanceCalls;
-    _Bool _didSendContentDisappearanceCalls;
+    _Bool _forwardAppearState;
     NSString *_moduleIdentifier;
     id <CCUIContentModuleContainerViewControllerDelegate> _delegate;
     id <CCUIContentModule> _contentModule;
@@ -30,13 +28,10 @@
     UIView *_maskView;
     UITapGestureRecognizer *_tapRecognizer;
     UIPreviewInteraction *_previewInteraction;
-    UIViewController *_originalParentViewController;
     struct UIEdgeInsets _expandedContentEdgeInsets;
 }
 
-@property(nonatomic) __weak UIViewController *originalParentViewController; // @synthesize originalParentViewController=_originalParentViewController;
-@property(nonatomic) _Bool didSendContentDisappearanceCalls; // @synthesize didSendContentDisappearanceCalls=_didSendContentDisappearanceCalls;
-@property(nonatomic) _Bool didSendContentAppearanceCalls; // @synthesize didSendContentAppearanceCalls=_didSendContentAppearanceCalls;
+@property(nonatomic, getter=shouldForwardAppearState) _Bool forwardAppearState; // @synthesize forwardAppearState=_forwardAppearState;
 @property(retain, nonatomic) UIPreviewInteraction *previewInteraction; // @synthesize previewInteraction=_previewInteraction;
 @property(retain, nonatomic) UITapGestureRecognizer *tapRecognizer; // @synthesize tapRecognizer=_tapRecognizer;
 @property(retain, nonatomic) UIView *maskView; // @synthesize maskView=_maskView;
@@ -56,11 +51,14 @@
 - (void)_configureForContentModuleGroupRenderingIfNecessary;
 - (void)_configureMaskViewIfNecessary;
 - (struct CGRect)_contentBoundsForTransitionProgress:(double)arg1;
+- (struct CGRect)_presentationFrameForExpandedState;
 - (struct CGRect)_backgroundFrameForExpandedState;
 - (struct CGRect)_backgroundFrameForRestState;
 - (struct CGRect)_contentFrameForExpandedState;
+- (struct CGRect)_contentBoundsForExpandedState;
 - (struct CGRect)_contentFrameForRestState;
 - (void)_handleTapGestureRecognizer:(id)arg1;
+- (_Bool)_isForceTouchAvailable;
 - (_Bool)_previewInteractionShouldAutomaticallyTransitionToPreviewAfterDelay:(id)arg1;
 - (id)_previewInteraction:(id)arg1 viewControllerPresentationForPresentingViewController:(id)arg2;
 - (id)_previewInteractionHighlighterForPreviewTransition:(id)arg1;
@@ -69,14 +67,20 @@
 - (_Bool)_previewInteractionShouldFinishTransitionToPreview:(id)arg1;
 - (_Bool)previewInteractionShouldBegin:(id)arg1;
 - (void)viewWillLayoutSubviews;
+- (void)_moveValueChangeGestureRecognizerFromSubviewsOfView:(id)arg1 toView:(id)arg2;
+- (void)_moveValueChangeGestureRecognizerToRootOfView:(id)arg1;
 - (void)loadView;
-- (void)viewWillMoveToWindow:(id)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 - (void)willResignActive;
 - (void)willBecomeActive;
+@property(readonly, nonatomic) CCUIContentModuleContentContainerView *moduleContentView;
 @property(readonly, nonatomic) CCUIContentModuleContainerView *moduleContainerView;
 - (void)closeModule;
+- (void)expandModule;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

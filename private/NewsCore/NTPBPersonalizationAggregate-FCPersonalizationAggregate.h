@@ -12,9 +12,10 @@
 @class NSDate, NSString;
 
 @interface NTPBPersonalizationAggregate (FCPersonalizationAggregate) <FCPersonalizationAggregate, FCMutablePersonalizationAggregate>
-- (double)relativePersonalizationValueWithBaselineAggregate:(id)arg1 decayFactor:(double)arg2;
+- (double)relativePersonalizationValueWithBaselineAggregate:(id)arg1 decayFactor:(double)arg2 baselineClicksMultiplier:(double)arg3;
 - (double)powerWithDecayFactor:(double)arg1;
 @property(readonly, nonatomic) double confidence;
+- (double)personalizationValueWithBaseline:(id)arg1 decayRate:(double)arg2 baselineClicksMultiplier:(double)arg3;
 - (double)personalizationValueWithBaseline:(id)arg1 decayRate:(double)arg2;
 @property(readonly, nonatomic) NSDate *lastModified;
 

@@ -13,7 +13,6 @@
 
 @interface PLManagedAlbum : _PLManagedAlbum <PLSearchableAssetCollection, PLUserEditableAlbumProtocol>
 {
-    _Bool _resolvingConflicts;
     _Bool _albumShouldBeAutomaticallyDeleted;
     _Bool _needsPersistenceUpdate;
 }
@@ -30,7 +29,6 @@
 + (id)baseSearchIndexPredicate;
 @property(nonatomic) _Bool needsPersistenceUpdate; // @synthesize needsPersistenceUpdate=_needsPersistenceUpdate;
 @property(nonatomic) _Bool albumShouldBeAutomaticallyDeleted; // @synthesize albumShouldBeAutomaticallyDeleted=_albumShouldBeAutomaticallyDeleted;
-@property(nonatomic) _Bool resolvingConflicts; // @synthesize resolvingConflicts=_resolvingConflicts;
 - (void)refreshAssets;
 - (id)filteredIndexesForPredicate:(id)arg1;
 - (void)addAssetUsingiTunesAlbumOrder:(id)arg1;
@@ -39,7 +37,7 @@
 - (id)_orderComparisonValueForAsset:(id)arg1 iTunesLookupOrder:(id)arg2;
 - (void)removePersistedFileSystemData;
 - (void)persistMetadataToFileSystem;
-- (void)_recalculateCachedCounts;
+- (void)recalculateCachedCounts;
 - (void)replaceAssetsAtIndexes:(id)arg1 withAssets:(id)arg2;
 - (void)removeAssetsAtIndexes:(id)arg1;
 - (void)insertAssets:(id)arg1 atIndexes:(id)arg2;

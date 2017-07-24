@@ -6,11 +6,13 @@
 
 #import <HomeKit/_HMAccessoryProfile.h>
 
-@class HMMediaSession;
+@class HMAccessorySettings, HMMediaSession, _HMAccessorySettingGroup;
 @protocol _HMMediaProfileDelegate;
 
 @interface _HMMediaProfile : _HMAccessoryProfile
 {
+    HMAccessorySettings *_accessorySettings;
+    _HMAccessorySettingGroup *_rootGroup;
     HMMediaSession *_mediaSession;
     id <_HMMediaProfileDelegate> _delegate;
 }
@@ -24,6 +26,11 @@
 - (id)_mediaSessionWithUUID:(id)arg1;
 - (void)_notifyDelegateOfUpdatedMediaSession:(id)arg1;
 @property(retain) HMMediaSession *mediaSession; // @synthesize mediaSession=_mediaSession;
+- (void)_handleRootSettingsUpdated:(id)arg1;
+- (void)notifyDelegateOfUpdatedRootGroup:(id)arg1;
+- (void)setRootGroup:(id)arg1;
+@property(readonly) _HMAccessorySettingGroup *rootGroup; // @synthesize rootGroup=_rootGroup;
+@property __weak HMAccessorySettings *accessorySettings; // @synthesize accessorySettings=_accessorySettings;
 - (void)_registerNotificationHandlers;
 - (void)configureWithAccessory:(id)arg1 home:(id)arg2 context:(id)arg3;
 

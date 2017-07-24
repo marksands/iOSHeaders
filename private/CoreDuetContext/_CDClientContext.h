@@ -28,6 +28,8 @@
 }
 
 + (id)userContext;
++ (id)clientInterface;
++ (id)serverInterface;
 @property(retain, nonatomic) NSObject<OS_os_log> *log; // @synthesize log=_log;
 @property(retain, nonatomic) NSMutableDictionary *openRegistrationTokens; // @synthesize openRegistrationTokens=_openRegistrationTokens;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *registrationCallbackQueue; // @synthesize registrationCallbackQueue=_registrationCallbackQueue;
@@ -44,12 +46,14 @@
 - (id)localContext;
 - (_Bool)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
 - (_Bool)setObject:(id)arg1 forContextualKeyPath:(id)arg2;
+- (void)handleRegistrationCompleted:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)handleContextualChange:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (_Bool)evaluatePredicate:(id)arg1;
 - (void)deregisterCallback:(id)arg1;
 - (void)cleanupInternalReferencesToRegistration:(id)arg1;
 - (void)registerCallback:(id)arg1;
 - (void)retryTimes:(int)arg1 block:(CDUnknownBlockType)arg2;
+- (void)clearCacheForKeyPathsWithFireOnChangeRegistrations:(id)arg1;
 - (void)removeKeyPathsWithRegistrationsForAnyChangeFromRegistration:(id)arg1;
 - (void)addKeyPathsWithRegistrationsForAnyChangeFromRegistration:(id)arg1;
 - (id)lastModifiedDateForContextualKeyPath:(id)arg1;

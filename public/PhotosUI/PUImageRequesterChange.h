@@ -12,8 +12,10 @@ __attribute__((visibility("hidden")))
     _Bool _imageDidChange;
     _Bool _imageIsFullQualityDidChange;
     _Bool _fullsizeImageDataDidChange;
+    _Bool _fullsizeImageURLDidChange;
 }
 
+@property(nonatomic, setter=_setFullsizeImageURLDidChange:) _Bool fullsizeImageURLDidChange; // @synthesize fullsizeImageURLDidChange=_fullsizeImageURLDidChange;
 @property(nonatomic, setter=_setFullsizeImageDataDidChange:) _Bool fullsizeImageDataDidChange; // @synthesize fullsizeImageDataDidChange=_fullsizeImageDataDidChange;
 @property(nonatomic, setter=_setImageIsFullQualityDidChange:) _Bool imageIsFullQualityDidChange; // @synthesize imageIsFullQualityDidChange=_imageIsFullQualityDidChange;
 @property(nonatomic, setter=_setImageDidChange:) _Bool imageDidChange; // @synthesize imageDidChange=_imageDidChange;

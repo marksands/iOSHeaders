@@ -155,7 +155,6 @@
 + (void)adjustForAccessibilityIfNeeded:(id)arg1;
 + (void)initialize;
 + (id)_externalKeyWindow;
-+ (id)_keyWindowIgnoringAlertViewWindow;
 + (id)keyWindow;
 + (struct CGRect)constrainFrameToScreen:(struct CGRect)arg1;
 @property(nonatomic, setter=_setContainedGestureRecognizersShouldRespectGestureServerInstructions:) _Bool _containedGestureRecognizersShouldRespectGestureServerInstructions; // @synthesize _containedGestureRecognizersShouldRespectGestureServerInstructions=__containedGestureRecognizersShouldRespectGestureServerInstructions;
@@ -233,6 +232,7 @@
 - (id)_touchData;
 - (struct CGPoint)_transformDisplayToWindowCoordinates:(struct CGPoint)arg1;
 - (_Bool)_canAffectDisplayAdaptation;
+- (_Bool)_shouldControlAutorotation;
 - (_Bool)_canAffectStatusBarAppearance;
 - (void)_didSnapshot;
 - (void)_willSnapshot;
@@ -499,6 +499,7 @@
 - (void)_updateInterfaceOrientationFromActiveInterfaceOrientation:(_Bool)arg1;
 - (void)_updateInterfaceOrientationFromActiveInterfaceOrientationIfRotationEnabled:(_Bool)arg1;
 - (void)_updateInterfaceOrientationFromActiveInterfaceOrientation;
+- (id)_keyboardSceneSettings;
 - (double)_classicOffset;
 - (void)matchDeviceOrientation:(id)arg1;
 - (void)keyboardDidHide;

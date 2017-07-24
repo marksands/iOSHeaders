@@ -10,6 +10,8 @@
 {
 }
 
+- (void)_reloadStaticContent;
+- (void)dealloc;
 - (id)init;
 
 @end

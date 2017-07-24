@@ -13,6 +13,8 @@
 
 @interface PKInlineColorPicker : UIView <UIScrollViewDelegate>
 {
+    _Bool _isUsedOnDarkBackground;
+    _Bool _shouldEmboss;
     unsigned long long _sizeState;
     unsigned long long _selectionState;
     id <PKInlineColorPickerDelegate> _delegate;
@@ -25,11 +27,13 @@
     UIView *_rightOverflowView;
 }
 
+@property(nonatomic) _Bool shouldEmboss; // @synthesize shouldEmboss=_shouldEmboss;
 @property(retain, nonatomic) UIView *rightOverflowView; // @synthesize rightOverflowView=_rightOverflowView;
 @property(retain, nonatomic) UIView *leftOverflowView; // @synthesize leftOverflowView=_leftOverflowView;
 @property(retain, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) NSArray *buttonItems; // @synthesize buttonItems=_buttonItems;
 @property(nonatomic) unsigned long long selectedColorIndex; // @synthesize selectedColorIndex=_selectedColorIndex;
+@property(nonatomic) _Bool isUsedOnDarkBackground; // @synthesize isUsedOnDarkBackground=_isUsedOnDarkBackground;
 @property(retain, nonatomic) NSArray *colors; // @synthesize colors=_colors;
 @property(nonatomic) unsigned long long colorSet; // @synthesize colorSet=_colorSet;
 @property(nonatomic) __weak id <PKInlineColorPickerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -40,7 +44,7 @@
 - (id)colorsForColorSet:(unsigned long long)arg1;
 - (void)showOverflowViewsIfNeeded;
 - (unsigned long long)colorIndexClosestToColor:(id)arg1;
-- (id)createColorButtonItemWithColor:(id)arg1;
+- (id)createColorButtonItemWithColor:(id)arg1 shouldEmboss:(_Bool)arg2;
 - (void)colorUnpressed:(id)arg1;
 - (void)colorPressed:(id)arg1;
 - (void)colorTappedInCompactChooseColorState:(id)arg1;
@@ -51,6 +55,8 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1 sizeState:(unsigned long long)arg2 selectionState:(unsigned long long)arg3;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
+- (void)_commonInit;
+- (id)initWithEmbossing:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

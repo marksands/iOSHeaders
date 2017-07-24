@@ -14,6 +14,7 @@
     UIButton *_linkButton;
     CDUnknownBlockType _linkHandler;
     UIView *_bottomLine;
+    _Bool _useMinimumTopPadding;
     _Bool _textLabelAlignedByLastBaseline;
     UIImage *_icon;
     UILabel *_textLabel;
@@ -23,6 +24,7 @@
 }
 
 @property(nonatomic, getter=isTextLabelAlignedByLastBaseline) _Bool textLabelAlignedByLastBaseline; // @synthesize textLabelAlignedByLastBaseline=_textLabelAlignedByLastBaseline;
+@property(nonatomic) _Bool useMinimumTopPadding; // @synthesize useMinimumTopPadding=_useMinimumTopPadding;
 @property(nonatomic) double flexibleHeight; // @synthesize flexibleHeight=_flexibleHeight;
 @property(readonly, nonatomic) UILabel *subLabel; // @synthesize subLabel=_subLabel;
 @property(readonly, nonatomic) UILabel *detailTextLabel; // @synthesize detailTextLabel=_detailTextLabel;

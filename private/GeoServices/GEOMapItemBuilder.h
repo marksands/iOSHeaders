@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class GEOAddress, GEOLatLng, GEOLocation, GEOMapRegion;
+@class GEOAddress, GEOLatLng, GEOLocation, GEOMapRegion, NSString;
 
 @interface GEOMapItemBuilder : NSObject
 {
@@ -18,9 +18,11 @@
     GEOAddress *_address;
     GEOMapRegion *_mapRegion;
     GEOLatLng *_latlng;
+    NSString *_name;
 }
 
 + (id)buildWithSetterBlock:(CDUnknownBlockType)arg1;
+@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) GEOLatLng *latlng; // @synthesize latlng=_latlng;
 @property(retain, nonatomic) GEOMapRegion *mapRegion; // @synthesize mapRegion=_mapRegion;
 @property(retain, nonatomic) GEOAddress *address; // @synthesize address=_address;

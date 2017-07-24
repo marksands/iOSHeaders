@@ -12,6 +12,7 @@
 @protocol UIDocumentBrowserViewControllerPrivateDelegate <UIDocumentBrowserViewControllerDelegate>
 
 @optional
+- (void)documentBrowser:(UIDocumentBrowserViewController *)arg1 didPickImportedURLs:(NSArray *)arg2;
 - (void)documentManagerWasCancelled:(UIDocumentBrowserViewController *)arg1;
 - (void)didDismissDocumentManager:(UIDocumentBrowserViewController *)arg1;
 - (void)willDismissDocumentManager:(UIDocumentBrowserViewController *)arg1;

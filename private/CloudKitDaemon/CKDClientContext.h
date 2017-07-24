@@ -58,7 +58,7 @@
     CKDZoneGatekeeper *_foregroundZoneGatekeeper;
     CKDZoneGatekeeper *_backgroundZoneGatekeeper;
     CKDMescalSession *_mescalSession;
-    NSMutableDictionary *_fakeErrorByClassName;
+    NSMutableDictionary *_fakeErrorsByClassName;
     NSMutableDictionary *_fakeResponseOperationLifetimeByClassName;
     NSMutableDictionary *_fakeResponseOperationResultByClassNameByItemID;
     NSObject<OS_dispatch_queue> *_setupQueue;
@@ -102,7 +102,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *setupQueue; // @synthesize setupQueue=_setupQueue;
 @property(retain, nonatomic) NSMutableDictionary *fakeResponseOperationResultByClassNameByItemID; // @synthesize fakeResponseOperationResultByClassNameByItemID=_fakeResponseOperationResultByClassNameByItemID;
 @property(retain, nonatomic) NSMutableDictionary *fakeResponseOperationLifetimeByClassName; // @synthesize fakeResponseOperationLifetimeByClassName=_fakeResponseOperationLifetimeByClassName;
-@property(retain, nonatomic) NSMutableDictionary *fakeErrorByClassName; // @synthesize fakeErrorByClassName=_fakeErrorByClassName;
+@property(retain, nonatomic) NSMutableDictionary *fakeErrorsByClassName; // @synthesize fakeErrorsByClassName=_fakeErrorsByClassName;
 @property(retain, nonatomic) CKDMescalSession *mescalSession; // @synthesize mescalSession=_mescalSession;
 @property(retain, nonatomic) CKDZoneGatekeeper *backgroundZoneGatekeeper; // @synthesize backgroundZoneGatekeeper=_backgroundZoneGatekeeper;
 @property(retain, nonatomic) CKDZoneGatekeeper *foregroundZoneGatekeeper; // @synthesize foregroundZoneGatekeeper=_foregroundZoneGatekeeper;
@@ -174,7 +174,6 @@
 @property(nonatomic, setter=setHasSystemServiceEntitlement:) _Bool hasSystemServiceEntitlement;
 @property(retain, nonatomic, setter=setAPSEnvironmentString:) NSString *apsEnvironmentString;
 @property(nonatomic) _Bool allowsPowerNapScheduling;
-@property(nonatomic) long long usesAPSPublicToken;
 @property(nonatomic) long long darkWakeEnabled;
 - (void)finishSetupWithClientProxy:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)startSetupWithClientProxy:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

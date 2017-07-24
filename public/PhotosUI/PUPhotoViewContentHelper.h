@@ -8,7 +8,7 @@
 
 #import <PhotosUI/PHLivePhotoViewDelegate-Protocol.h>
 
-@class AVAsset, ISWrappedAVPlayer, NSString, PHLivePhoto, PHLivePhotoView, PUAvalancheStackView, PUBackgroundColorView, PUPhotoDecoration, PUTextBannerView, PXCollectionTileLayoutTemplate, PXFeatureSpec, PXRoundedCornerOverlayView, PXTitleSubtitleUILabel, PXUIAssetBadgeView, PXVideoPlayerView, UIColor, UIImage, UIImageView, UIView;
+@class AVAsset, ISAnimatedImageView, ISWrappedAVAudioSession, ISWrappedAVPlayer, NSString, PHAnimatedImage, PHLivePhoto, PHLivePhotoView, PUAvalancheStackView, PUBackgroundColorView, PUPhotoDecoration, PUTextBannerView, PXCollectionTileLayoutTemplate, PXFeatureSpec, PXRoundedCornerOverlayView, PXTitleSubtitleUILabel, PXUIAssetBadgeView, PXVideoPlayerView, UIColor, UIImage, UIImageView, UIView;
 @protocol PUPhotoViewContentHelperDelegate;
 
 @interface PUPhotoViewContentHelper : NSObject <PHLivePhotoViewDelegate>
@@ -25,9 +25,11 @@
     struct {
         _Bool titleSubtitleUILabel;
         _Bool loopingVideoView;
+        _Bool animatedImageView;
     } _needsUpdateFlags;
     PXVideoPlayerView *_loopingVideoView;
     ISWrappedAVPlayer *_loopingVideoPlayer;
+    ISAnimatedImageView *_animatedImageView;
     _Bool _isTextBannerVisible;
     _Bool _avoidsImageViewIfPossible;
     _Bool _flattensBadgeView;
@@ -37,6 +39,7 @@
     _Bool _highlighted;
     _Bool _livePhotoHidden;
     _Bool _shouldPrepareForPlayback;
+    _Bool _loopingPlaybackAllowed;
     _Bool _showsLivePhoto;
     _Bool _needsAvalancheStack;
     UIView *_contentView;
@@ -51,6 +54,7 @@
     id <PUPhotoViewContentHelperDelegate> _delegate;
     PHLivePhoto *_livePhoto;
     AVAsset *_loopingVideoAsset;
+    PHAnimatedImage *_animatedImage;
     struct CGColor *_avalancheStackBackgroundColor;
     long long _badgeStyle;
     PUTextBannerView *_textBannerView;
@@ -67,6 +71,7 @@
     UIView *__highlightOverlayView;
     PXUIAssetBadgeView *__badgeView;
     PXTitleSubtitleUILabel *__titleSubtitleLabel;
+    ISWrappedAVAudioSession *__audioSession;
     struct CGSize _photoSize;
     struct PXAssetBadgeInfo _badgeInfo;
     struct CGAffineTransform _imageTransform;
@@ -74,6 +79,7 @@
 
 + (struct CGSize)sizeThatFits:(struct CGSize)arg1 imageSize:(struct CGSize)arg2 fillMode:(long long)arg3;
 + (struct CGRect)_imageContentFrameForBounds:(struct CGRect)arg1 imageSize:(struct CGSize)arg2 fillMode:(long long)arg3;
+@property(retain, nonatomic, setter=_setAudioSession:) ISWrappedAVAudioSession *_audioSession; // @synthesize _audioSession=__audioSession;
 @property(retain, nonatomic, setter=_setTitleSubtitleUILabel:) PXTitleSubtitleUILabel *_titleSubtitleLabel; // @synthesize _titleSubtitleLabel=__titleSubtitleLabel;
 @property(retain, nonatomic, setter=_setBadgeView:) PXUIAssetBadgeView *_badgeView; // @synthesize _badgeView=__badgeView;
 @property(retain, nonatomic, setter=_setHighlightOverlayView:) UIView *_highlightOverlayView; // @synthesize _highlightOverlayView=__highlightOverlayView;
@@ -93,6 +99,8 @@
 @property(nonatomic) struct CGColor *avalancheStackBackgroundColor; // @synthesize avalancheStackBackgroundColor=_avalancheStackBackgroundColor;
 @property(nonatomic) _Bool needsAvalancheStack; // @synthesize needsAvalancheStack=_needsAvalancheStack;
 @property(nonatomic) _Bool showsLivePhoto; // @synthesize showsLivePhoto=_showsLivePhoto;
+@property(nonatomic) _Bool loopingPlaybackAllowed; // @synthesize loopingPlaybackAllowed=_loopingPlaybackAllowed;
+@property(retain, nonatomic) PHAnimatedImage *animatedImage; // @synthesize animatedImage=_animatedImage;
 @property(copy, nonatomic) AVAsset *loopingVideoAsset; // @synthesize loopingVideoAsset=_loopingVideoAsset;
 @property(nonatomic) _Bool shouldPrepareForPlayback; // @synthesize shouldPrepareForPlayback=_shouldPrepareForPlayback;
 @property(retain, nonatomic) PHLivePhoto *livePhoto; // @synthesize livePhoto=_livePhoto;
@@ -122,6 +130,8 @@
 - (struct CGSize)contentViewSizeThatFits:(struct CGSize)arg1;
 - (void)_updateTitleSubtitleUILabelIfNeeded;
 - (void)_invalidateTitleSubtitleUILabel;
+- (void)_updateAnimatedImageViewIfNeeded;
+- (void)_invalidateAnimatedImageView;
 - (void)_updateLoopingVideoViewIfNeeded;
 - (void)_invalidateLoopingVideoView;
 - (void)_updateHighlight;

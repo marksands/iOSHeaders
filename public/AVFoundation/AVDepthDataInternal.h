@@ -12,6 +12,7 @@
 {
     struct __CVBuffer *pixelBuffer;
     int version;
+    long long quality;
     _Bool filtered;
     long long accuracy;
     AVCameraCalibrationData *calibrationData;

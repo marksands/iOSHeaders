@@ -7,16 +7,18 @@
 #import <Contacts/CNContactStore.h>
 
 @class NSObject;
-@protocol CNContactsLogger, CNDataMapper;
+@protocol CNContactsLogger, CNDataMapper, CNRegulatoryLogger;
 
 @interface CNDataMapperContactStore : CNContactStore
 {
     id <CNDataMapper> _mapper;
     id <CNContactsLogger> _logger;
+    id <CNRegulatoryLogger> _regulatoryLogger;
 }
 
 + (Class)dataMapperClass;
 + (_Bool)enableContactsOutOfProcess;
+@property(readonly, nonatomic) id <CNRegulatoryLogger> regulatoryLogger; // @synthesize regulatoryLogger=_regulatoryLogger;
 @property(readonly, nonatomic) id <CNContactsLogger> logger; // @synthesize logger=_logger;
 @property(readonly, retain, nonatomic) NSObject<CNDataMapper> *mapper; // @synthesize mapper=_mapper;
 - (void).cxx_destruct;
@@ -54,9 +56,7 @@
 - (id)groupWithIdentifier:(id)arg1 error:(id *)arg2;
 - (id)groupsMatchingPredicate:(id)arg1 error:(id *)arg2;
 - (id)executeFetchRequest:(id)arg1 progressiveResults:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)contactsFromMapperForFetchRequest:(id)arg1 matchInfos:(id *)arg2 error:(id *)arg3;
-- (id)enumerateContactsWithBatchEnumerator:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (id)batchEnumeratorForFetchRequest:(id)arg1;
+- (id)contactsForFetchRequest:(id)arg1 matchInfos:(id *)arg2 error:(id *)arg3;
 - (_Bool)enumerateContactsAndMatchInfoWithFetchRequest:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)unifiedContactsMatchingPredicate:(id)arg1 keysToFetch:(id)arg2 error:(id *)arg3;
 - (id)unifiedContactCountWithError:(id *)arg1;

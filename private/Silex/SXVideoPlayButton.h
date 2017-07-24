@@ -19,12 +19,14 @@
 
 @property(nonatomic) _Bool paused; // @synthesize paused=_paused;
 @property(readonly, nonatomic) double autoAppearanceTimeInterval; // @synthesize autoAppearanceTimeInterval;
+- (id)accessibilityHint;
+- (id)accessibilityLabel;
+- (_Bool)isAccessibilityElement;
 - (_Bool)isVisible;
 - (void)hide:(_Bool)arg1 withAnimationCoordinator:(id)arg2;
 @property(readonly, nonatomic) _Bool hideable; // @synthesize hideable;
 - (void)displayAsPlaying;
 - (void)displayAsPaused;
-- (struct CGSize)intrinsicContentSize;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

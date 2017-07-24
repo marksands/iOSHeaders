@@ -26,12 +26,13 @@
 #import <AssetExplorer/UIPopoverPresentationControllerDelegate-Protocol.h>
 #import <AssetExplorer/UIViewControllerPreviewingDelegate-Protocol.h>
 
-@class AECameraAssetPackageGenerator, AECameraTileController, AEPackageTransport, AEProgressViewModel, CAMCameraReviewAdapter, NSArray, NSIndexSet, NSMutableIndexSet, NSMutableSet, NSString, PUAssetExplorerReviewScreenViewController, PXAssetsScene, PXBasicUIViewTileAnimator, PXMediaProvider, PXPhotoKitAssetsDataSourceManager, PXTilingController, PXUIScrollViewController, UIView;
+@class AECameraAssetPackageGenerator, AECameraTileController, AEPackageTransport, AEProgressViewModel, CAMCameraReviewAdapter, NSArray, NSIndexSet, NSMutableIndexSet, NSMutableSet, NSString, PUAssetExplorerReviewScreenViewController, PXAssetsScene, PXBasicUIViewTileAnimator, PXMediaProvider, PXPhotoKitAssetsDataSourceManager, PXTilingController, PXUIScrollViewController, UIPopoverPresentationController, UIView;
 @protocol AEHostStatisticsManager, UIViewControllerPreviewing;
 
 @interface AEExplorerViewController : UIViewController <PXChangeObserver, PXTileSource, AECameraTileSource, PXReusableObjectPoolDelegate, PXAssetsSceneDelegate, PXTilingControllerScrollDelegate, PXTilingControllerTransitionDelegate, PXPhotoLibraryUIChangeObserver, UIGestureRecognizerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIViewControllerPreviewingDelegate, CAMCameraConfigurationDelegate, CAMCameraCaptureDelegate, CAMCameraReviewDelegate, CAMCameraViewControllerPresentationDelegate, PUAssetExplorerReviewScreenViewControllerDelegate, UIPopoverPresentationControllerDelegate, AEBrowserLayoutDelegate>
 {
     _Bool __fakeAllCloudAndVideo;
+    _Bool __didPresentPhotoLibrary;
     AEPackageTransport *__packageTransport;
     PXPhotoKitAssetsDataSourceManager *__dataSourceManager;
     PXMediaProvider *__mediaProvider;
@@ -53,8 +54,13 @@
     NSMutableSet *__tilesInUse;
     PUAssetExplorerReviewScreenViewController *__reviewController;
     id <UIViewControllerPreviewing> __previewingItem;
+    UIView *__imagePickerSenderView;
+    UIPopoverPresentationController *__imagePickerPopoverPresentationController;
 }
 
+@property(nonatomic, setter=_setDidPresentPhotoLibrary:) _Bool _didPresentPhotoLibrary; // @synthesize _didPresentPhotoLibrary=__didPresentPhotoLibrary;
+@property(nonatomic, setter=_setImagePickerPopoverPresentationController:) __weak UIPopoverPresentationController *_imagePickerPopoverPresentationController; // @synthesize _imagePickerPopoverPresentationController=__imagePickerPopoverPresentationController;
+@property(nonatomic, setter=_setImagePickerSenderView:) __weak UIView *_imagePickerSenderView; // @synthesize _imagePickerSenderView=__imagePickerSenderView;
 @property(nonatomic, setter=_setFakeAllCloudAndVideo:) _Bool _fakeAllCloudAndVideo; // @synthesize _fakeAllCloudAndVideo=__fakeAllCloudAndVideo;
 @property(retain, nonatomic, setter=_setPreviewingItem:) id <UIViewControllerPreviewing> _previewingItem; // @synthesize _previewingItem=__previewingItem;
 @property(retain, nonatomic, setter=_setReviewController:) PUAssetExplorerReviewScreenViewController *_reviewController; // @synthesize _reviewController=__reviewController;
@@ -116,6 +122,9 @@
 - (void)reviewViewController:(id)arg1 didFinishReviewingAssets:(id)arg2;
 - (void)reviewViewControllerDidRequestRetake:(id)arg1;
 - (void)reviewViewControllerDidCancelReview:(id)arg1;
+- (void)_invalidateCameraTileLayout;
+- (void)cameraViewControllerDidCompleteConfigurationForCaptureMode:(long long)arg1 captureDevice:(long long)arg2;
+- (void)cameraViewControllerWillBeginConfigurationForCaptureMode:(long long)arg1 captureDevice:(long long)arg2;
 - (void)cameraViewController:(id)arg1 didCaptureAVAsset:(id)arg2 andAudioMix:(id)arg3 withProperties:(id)arg4 error:(id)arg5;
 - (void)cameraViewController:(id)arg1 didCaptureLivePhoto:(id)arg2 withProperties:(id)arg3 error:(id)arg4;
 - (void)cameraViewController:(id)arg1 didCapturePhoto:(id)arg2 withProperties:(id)arg3 error:(id)arg4;
@@ -126,6 +135,9 @@
 - (_Bool)_isPresentingFullscreenCamera;
 - (void)_dismissFullScreenCamera;
 - (void)_presentFullScreenCamera;
+- (struct CGRect)_sourceRectForPhotoLibraryPresentationInCoordinateSpace:(id)arg1;
+- (void)_updatePhotoLibraryPresentationIfNeeded;
+- (void)_dismissPhotoLibraryIfNeeded;
 - (void)imagePickerControllerDidCancel:(id)arg1;
 - (void)imagePickerController:(id)arg1 didFinishPickingMediaWithInfo:(id)arg2;
 - (void)_presentFullScreenPhotoLibrary:(id)arg1;
@@ -143,8 +155,9 @@
 - (void)handleLongPress:(id)arg1;
 - (void)handleTap:(id)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidDisappear:(_Bool)arg1;
-- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
 - (void)loadView;

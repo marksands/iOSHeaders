@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <CNScheduler> backgroundScheduler; // @synthesize backgroundScheduler=_backgroundScheduler;
 @property(readonly, nonatomic) LSApplicationWorkspace *applicationWorkspace; // @synthesize applicationWorkspace=_applicationWorkspace;
 - (void).cxx_destruct;
+- (void)openUserActivity:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)openSensitiveURLInBackground:(id)arg1 withOptions:(id)arg2;
 - (id)initWithApplicationWorkspace:(id)arg1 schedulerProvider:(id)arg2;
 - (id)init;

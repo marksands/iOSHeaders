@@ -22,11 +22,13 @@
     NSMutableDictionary *_cdpContextsByAccountID;
     NSLock *_cdpContextsByAccountIDLock;
     _Bool _shouldAutomaticallySaveSignInResults;
+    _Bool _shouldStashLoginResponse;
     UIViewController *_presentingViewController;
     CUMessageSession *_messageSession;
     unsigned long long _activationAction;
 }
 
+@property(nonatomic) _Bool shouldStashLoginResponse; // @synthesize shouldStashLoginResponse=_shouldStashLoginResponse;
 @property(nonatomic) unsigned long long activationAction; // @synthesize activationAction=_activationAction;
 @property(retain, nonatomic) CUMessageSession *messageSession; // @synthesize messageSession=_messageSession;
 @property(nonatomic) _Bool shouldAutomaticallySaveSignInResults; // @synthesize shouldAutomaticallySaveSignInResults=_shouldAutomaticallySaveSignInResults;
@@ -46,12 +48,13 @@
 - (_Bool)_carrierBundleSaysHideFindMyiPhone;
 - (void)_hasActivationLockSupportedWatchWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_promptToEnableFindMyIfPossibleWithAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_stashLoginResponseWithAuthenticationResults:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_saveAccount:(id)arg1 withAllDataclassesEnabledIfPossibleWithCompletion:(CDUnknownBlockType)arg2;
 - (void)_validateCDPStateForAccount:(id)arg1 withCDPContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_verifyLoginResponseForiCloudAccount:(id)arg1 withSuccess:(_Bool)arg2 response:(id)arg3 error:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)_updateAppleAccountIfNecessary:(id)arg1 withAltDSID:(id)arg2 rawPassword:(id)arg3;
 - (void)signInWithIDMSAuthenticationResults:(id)arg1 completion:(CDUnknownBlockType)arg2;
-@property(nonatomic, setter=setShouldHideActivationLockAlert:) _Bool shouldHideActivationLockAlert;
+@property(nonatomic) _Bool shouldHideActivationLockAlert;
 - (id)init;
 
 // Remaining properties

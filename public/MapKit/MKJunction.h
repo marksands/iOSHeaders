@@ -6,15 +6,21 @@
 
 #import <Foundation/NSObject.h>
 
-@interface MKJunction : NSObject
+#import <MapKit/NSCoding-Protocol.h>
+
+@interface MKJunction : NSObject <NSCoding>
 {
     struct GEOJunctionElement *_elements;
     unsigned long long _count;
     int _type;
+    int _maneuver;
+    int _drivingSide;
     struct GEOJunctionElement *_snapped[8];
 }
 
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (void)getRoundaboutArrowPath:(id *)arg1 intersectionBackgroundPath:(id *)arg2 strokePath:(id *)arg3 withSize:(struct CGSize)arg4 metrics:(CDStruct_715e5093)arg5 drivingSide:(int)arg6 visualCenter:(struct CGPoint *)arg7;
 - (id)roundaboutArrowWithSize:(struct CGSize)arg1 metrics:(CDStruct_715e5093)arg2 outerRadius:(double)arg3 endAngle:(double)arg4 pivot:(struct CGPoint *)arg5;
 - (void)getArrowPath:(id *)arg1 arrowStrokePath:(id *)arg2 pivot:(struct CGPoint *)arg3 withSize:(struct CGSize)arg4 metrics:(CDStruct_715e5093)arg5 visualCenter:(struct CGPoint *)arg6;

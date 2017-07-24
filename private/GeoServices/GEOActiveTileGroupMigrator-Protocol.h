@@ -6,12 +6,14 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
-@class GEOActiveTileGroup, GEOMapLayerDataManager, GEOMapLayerDataStorePruner, GEOResourceManifestConfiguration, GEOResources, GEOTileGroup, NSSet;
+@class GEOActiveTileGroup, GEOMapLayerDataManager, GEOResourceManifestConfiguration, GEOResources, GEOTileGroup, NSSet;
 @protocol GEOActiveTileGroupMigrationTask;
 
 @protocol GEOActiveTileGroupMigrator <NSObject>
-- (id <GEOActiveTileGroupMigrationTask>)taskForNewTileGroup:(GEOTileGroup *)arg1 inResourceManifest:(GEOResources *)arg2 oldTileGroup:(GEOActiveTileGroup *)arg3 activeScales:(NSSet *)arg4 activeScenarios:(NSSet *)arg5 pruner:(GEOMapLayerDataStorePruner *)arg6;
-- (id <GEOActiveTileGroupMigrationTask>)taskForNewTileGroup:(GEOTileGroup *)arg1 inResourceManifest:(GEOResources *)arg2 oldTileGroup:(GEOActiveTileGroup *)arg3 activeScales:(NSSet *)arg4 activeScenarios:(NSSet *)arg5;
+- (id <GEOActiveTileGroupMigrationTask>)taskForNewTileGroup:(GEOTileGroup *)arg1 inResourceManifest:(GEOResources *)arg2 oldTileGroup:(GEOActiveTileGroup *)arg3 activeScales:(NSSet *)arg4 activeScenarios:(NSSet *)arg5 updateType:(long long)arg6;
 - (id)initWithManifestConfiguration:(GEOResourceManifestConfiguration *)arg1 mapLayerDataManager:(GEOMapLayerDataManager *)arg2;
+
+@optional
+- (id <GEOActiveTileGroupMigrationTask>)opportunisticTaskForNewTileGroup:(GEOTileGroup *)arg1 inResourceManifest:(GEOResources *)arg2 oldTileGroup:(GEOActiveTileGroup *)arg3 activeScales:(NSSet *)arg4 activeScenarios:(NSSet *)arg5;
 @end
 

@@ -16,6 +16,8 @@
 {
     PKXPCService *_remoteService;
     unsigned long long _interfaceType;
+    // Error parsing type: AB, name: _cachedFieldPropertiesValid
+    _Bool _hasPaymentDeviceFieldProperties;
     id <PKPaymentServiceDelegate> _delegate;
 }
 
@@ -24,13 +26,13 @@
 - (_Bool)_hasInterfaceOfType:(unsigned long long)arg1;
 - (void)_sharedPaymentWebServiceContextWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_defaultPaymentPassUniqueIdentifier:(CDUnknownBlockType)arg1;
-- (void)_paymentDeviceFieldPropertiesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_messagesAppLaunchTokenForPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_transactionsAppLaunchTokenForPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(retain, nonatomic) PKPaymentWebServiceContext *sharedPaymentWebServiceContext;
 @property(retain, nonatomic) NSString *defaultPaymentPassUniqueIdentifier;
 @property(readonly, nonatomic) PKExpressTransactionState *outstandingExpressTransactionState;
 @property(readonly, nonatomic) __weak PKFieldProperties *paymentDeviceFieldProperties;
+@property(readonly, nonatomic) _Bool hasPaymentDeviceFieldProperties;
 - (void)startBackgroundVerificationObserverForPass:(id)arg1 verificationMethod:(id)arg2;
 - (void)passbookUIServiceDidLaunch;
 - (void)scheduleAutomaticPresentationAvailableNotificationForPassWithUniqueIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
@@ -63,7 +65,9 @@
 - (void)transactionWithServiceIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)transactionWithTransactionIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)transactionsWithTransactionSource:(unsigned long long)arg1 withBackingData:(unsigned long long)arg2 limit:(long long)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)transactionCountByYearForPassWithUniqueIdentifier:(id)arg1 withTransactionSource:(unsigned long long)arg2 withBackingData:(unsigned long long)arg3 calendar:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)transactionsForPaymentPassWithUniqueIdentifier:(id)arg1 withTransactionSource:(unsigned long long)arg2 withBackingData:(unsigned long long)arg3 limit:(long long)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)transactionsForPaymentPassWithUniqueIdentifier:(id)arg1 withTransactionSource:(unsigned long long)arg2 withBackingData:(unsigned long long)arg3 startDate:(id)arg4 endDate:(id)arg5 limit:(long long)arg6 completion:(CDUnknownBlockType)arg7;
 - (void)insertOrUpdatePaymentTransaction:(id)arg1 forPassUniqueIdentifier:(id)arg2 paymentApplication:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)submitVerificationCode:(id)arg1 verificationData:(id)arg2 forDPANIdentifier:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)submitVerificationCode:(id)arg1 verificationData:(id)arg2 forDPANIdentifier:(id)arg3;
@@ -90,6 +94,7 @@
 - (id)_remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)_remoteObjectProxyWithFailureHandler:(CDUnknownBlockType)arg1;
 - (id)_remoteObjectProxy;
+- (void)remoteServiceDidSuspend:(id)arg1;
 - (void)remoteService:(id)arg1 didInterruptConnection:(id)arg2;
 - (void)remoteService:(id)arg1 didEstablishConnection:(id)arg2;
 - (id)initWithDelegate:(id)arg1;

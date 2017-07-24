@@ -8,20 +8,23 @@
 
 #import <iTunesCloud/ICUserIdentityStoreBackend-Protocol.h>
 
-@class ICUserVerificationContext, NSMutableDictionary, NSNumber, NSString;
+@class ICUserIdentityProperties, ICUserVerificationContext, NSMutableDictionary, NSNumber, NSString;
+@protocol ICUserIdentityStoreBackendDelegate;
 
 @interface ICUserIdentityStoreTestingBackend : NSObject <ICUserIdentityStoreBackend>
 {
     NSNumber *_activeAccountDSID;
     NSNumber *_activeLockerAccountDSID;
     NSMutableDictionary *_identityProperties;
+    id <ICUserIdentityStoreBackendDelegate> _delegate;
 }
 
 + (_Bool)supportsSecureCoding;
 + (void)setDefaultActiveLockerAccountDSID:(id)arg1;
 + (void)setDefaultActiveAccountDSID:(id)arg1;
-@property(copy, nonatomic) NSNumber *activeLockerAccountDSID; // @synthesize activeLockerAccountDSID=_activeLockerAccountDSID;
-@property(copy, nonatomic) NSNumber *activeAccountDSID; // @synthesize activeAccountDSID=_activeAccountDSID;
+@property(nonatomic) __weak id <ICUserIdentityStoreBackendDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) NSNumber *activeLockerAccountDSID; // @synthesize activeLockerAccountDSID=_activeLockerAccountDSID;
+@property(readonly, nonatomic) NSNumber *activeAccountDSID; // @synthesize activeAccountDSID=_activeAccountDSID;
 - (void).cxx_destruct;
 - (id)_propertiesToSaveForProperties:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
@@ -31,8 +34,11 @@
 - (id)verificationContextForDSID:(id)arg1;
 - (void)synchronize;
 - (void)setIdentityProperties:(id)arg1 forDSID:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)updateActiveLockerAccountDSID:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)updateActiveAccountDSID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)replaceIdentityProperties:(id)arg1 forDSID:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)removeIdentityForDSID:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+@property(readonly, copy, nonatomic) ICUserIdentityProperties *primaryICloudAccountIdentityProperties;
 - (id)identityPropertiesForDSID:(id)arg1;
 - (id)init;
 

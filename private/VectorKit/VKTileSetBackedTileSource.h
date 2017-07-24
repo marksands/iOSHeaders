@@ -30,7 +30,10 @@ __attribute__((visibility("hidden")))
 - (unsigned char)mapLayerForZoomLevelRange;
 - (void)setStyleManager:(shared_ptr_a3c46825)arg1;
 - (void)populateVisibleTileSets:(id)arg1 withTiles:(id)arg2;
-- (void)_expireTiles;
+- (void)expireTiles;
+- (void)forceExpireTiles;
+- (void)forceExpireTile:(const struct VKTileKey *)arg1;
+- (void)_expireTilesList:(id)arg1;
 - (void)_scheduleTileExpirationTimer:(double)arg1 forceUpdate:(_Bool)arg2;
 - (void)fetchedTile:(id)arg1 forKey:(const struct VKTileKey *)arg2;
 - (id)tileForKey:(const struct VKTileKey *)arg1;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 __attribute__((visibility("hidden")))
 @interface VCMomentsUtil : NSObject
@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)pixelBufferPool:(struct __CVPixelBufferPool *)arg1 matchesWidth:(int)arg2 height:(int)arg3;
 + (int)setupBufferPool:(struct __CVPixelBufferPool **)arg1 width:(double)arg2 height:(double)arg3;
 + (struct OpaqueVTPixelTransferSession *)setupTransferSession:(struct OpaqueVTPixelTransferSession *)arg1;
-+ (struct __CVBuffer *)resizeFrame:(struct __CVBuffer *)arg1 transferSession:(struct OpaqueVTPixelTransferSession *)arg2 bufferPool:(struct __CVPixelBufferPool *)arg3;
++ (struct __CVBuffer *)createResizeFrame:(struct __CVBuffer *)arg1 transferSession:(struct OpaqueVTPixelTransferSession *)arg2 bufferPool:(struct __CVPixelBufferPool *)arg3;
 
 @end
 

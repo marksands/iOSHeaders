@@ -76,6 +76,7 @@
 @property(readonly, nonatomic) _Bool hasPhotoColorAdjustments;
 @property(readonly, nonatomic) CDStruct_198678f7 photoIrisVideoDuration;
 @property(readonly, nonatomic) CDStruct_198678f7 photoIrisStillDisplayTime;
+@property(readonly, nonatomic) unsigned long long originalFilesize;
 @property(readonly, nonatomic) NSString *uniformTypeIdentifier;
 @property(readonly, nonatomic) NSString *localizedGeoDescription;
 @property(readonly, nonatomic) NSString *uuid;

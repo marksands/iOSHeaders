@@ -23,6 +23,7 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)emptyLocation;
++ (id)defaultSaveLocation;
 + (id)defaultLocation;
 + (id)recentsLocation;
 + (id)searchLocation;

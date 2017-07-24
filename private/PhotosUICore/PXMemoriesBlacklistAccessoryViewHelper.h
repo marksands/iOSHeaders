@@ -11,7 +11,6 @@
 }
 
 + (id)avatarViewWithFrame:(struct CGRect)arg1 person:(id)arg2;
-+ (id)mapViewWithFrame:(struct CGRect)arg1 location:(id)arg2 regionRadius:(double)arg3;
 
 @end
 

@@ -7,8 +7,6 @@
 #import <Foundation/NSAttributedString.h>
 
 @interface NSAttributedString (NTKUtilities)
-+ (id)NTKHyphenationParagraphStyleWithFactor:(float)arg1;
-+ (id)NTKHyphenationParagraphStyle;
 + (id)NTKHyphenatableString:(id)arg1 factor:(float)arg2;
 + (id)NTKHyphenatableString:(id)arg1;
 + (id)NTKCountdownToDate:(id)arg1 useShort:(_Bool)arg2 withDesignatorFont:(id)arg3;

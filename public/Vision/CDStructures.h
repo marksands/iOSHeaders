@@ -56,6 +56,8 @@ struct DTreeApply;
 
 struct DTreeNode;
 
+struct DetectedObject;
+
 struct FaceBoxPoseAligner<signed char>;
 
 struct FaceClassifier_BoostedPixelDifference;
@@ -613,6 +615,14 @@ struct vector<vision::hum::DTreeNode *, std::__1::allocator<vision::hum::DTreeNo
     } _field3;
 };
 
+struct vector<vision::mod::DetectedObject, std::__1::allocator<vision::mod::DetectedObject>> {
+    struct DetectedObject *_field1;
+    struct DetectedObject *_field2;
+    struct __compressed_pair<vision::mod::DetectedObject *, std::__1::allocator<vision::mod::DetectedObject>> {
+        struct DetectedObject *_field1;
+    } _field3;
+};
+
 #pragma mark Typedef'd Structures
 
 typedef struct {
@@ -689,4 +699,12 @@ typedef struct vector<std::__1::pair<long long, long long>, std::__1::allocator<
         struct pair<long long, long long> *_field1;
     } _field3;
 } vector_22dfb71c;
+
+typedef struct vector<vision::mod::DetectedObject, std::__1::allocator<vision::mod::DetectedObject>> {
+    struct DetectedObject *_field1;
+    struct DetectedObject *_field2;
+    struct __compressed_pair<vision::mod::DetectedObject *, std::__1::allocator<vision::mod::DetectedObject>> {
+        struct DetectedObject *_field1;
+    } _field3;
+} vector_41a7cb1a;
 

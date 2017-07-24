@@ -11,7 +11,6 @@
 @protocol SKStoreExtensionClientInterface <NSObject>
 - (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(void (^)(void))arg2;
 - (void)presentRequestedViewControllerWithIdentifier:(NSString *)arg1;
-- (void)setPreferredStatusBarStyle:(long long)arg1;
 - (void)setNeedsTabSelection;
 @end
 

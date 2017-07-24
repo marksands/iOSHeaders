@@ -6,10 +6,18 @@
 
 #import <SearchFoundation/NSObject-Protocol.h>
 
-@class NSArray, NSData, NSDictionary, NSString, _SFPBAbstractCommand, _SFPBColor, _SFPBImage, _SFPBPunchout, _SFPBText;
+@class NSArray, NSData, NSDictionary, NSString, _SFPBAbstractCommand, _SFPBColor, _SFPBImage, _SFPBPunchout, _SFPBRichText, _SFPBText;
 
 @protocol _SFPBAudioPlaybackCardSection <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasThumbnail;
+@property(retain, nonatomic) _SFPBImage *thumbnail;
+@property(readonly, nonatomic) _Bool hasSubtitle;
+@property(retain, nonatomic) _SFPBRichText *subtitle;
+@property(readonly, nonatomic) _Bool hasTitle;
+@property(retain, nonatomic) _SFPBRichText *title;
+@property(readonly, nonatomic) _Bool hasDetailText;
+@property(retain, nonatomic) _SFPBRichText *detailText;
 @property(copy, nonatomic) NSArray *stopCommands;
 @property(copy, nonatomic) NSArray *playCommands;
 @property(readonly, nonatomic) _Bool hasState;

@@ -7,17 +7,18 @@
 #import <objc/NSObject.h>
 
 #import <WebKit/WKObject-Protocol.h>
-#import <WebKit/WKURLSchemeTask-Protocol.h>
+#import <WebKit/WKURLSchemeTaskPrivate-Protocol.h>
 
 @class NSString, NSURLRequest;
 
 __attribute__((visibility("hidden")))
-@interface WKURLSchemeTaskImpl : NSObject <WKObject, WKURLSchemeTask>
+@interface WKURLSchemeTaskImpl : NSObject <WKObject, WKURLSchemeTaskPrivate>
 {
     struct ObjectStorage<API::URLSchemeTask> _urlSchemeTask;
 }
 
 @property(readonly) struct Object *_apiObject;
+- (void)_didPerformRedirection:(id)arg1 newRequest:(id)arg2;
 - (void)didFailWithError:(id)arg1;
 - (void)didFinish;
 - (void)didReceiveData:(id)arg1;

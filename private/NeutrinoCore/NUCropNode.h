@@ -14,7 +14,8 @@
     CDStruct_996ac03c _cropRect;
 }
 
-@property(readonly) CDStruct_996ac03c cropRect; // @synthesize cropRect=_cropRect;
+@property(retain) NUImageTransformAffine *transform; // @synthesize transform=_transform;
+@property CDStruct_996ac03c cropRect; // @synthesize cropRect=_cropRect;
 - (void).cxx_destruct;
 - (_Bool)canPropagateOriginalDepthData;
 - (id)_evaluateDepthData:(out id *)arg1;

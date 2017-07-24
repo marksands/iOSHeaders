@@ -17,6 +17,9 @@
 }
 
 @property(readonly, nonatomic) double autoAppearanceTimeInterval; // @synthesize autoAppearanceTimeInterval;
+- (id)accessibilityLabel;
+- (id)accessibilityElements;
+- (_Bool)isAccessibilityElement;
 - (_Bool)isVisible;
 - (void)hide:(_Bool)arg1 withAnimationCoordinator:(id)arg2;
 @property(readonly, nonatomic) _Bool hideable; // @synthesize hideable;

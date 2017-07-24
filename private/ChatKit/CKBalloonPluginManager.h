@@ -12,6 +12,11 @@
 
 @interface CKBalloonPluginManager : NSObject <CKAppInstallationWatcherObserver>
 {
+    NSArray *_appStripCandidatePlugins;
+    NSArray *_visibleAppStripPlugins;
+    NSArray *_visibleSwitcherPlugins;
+    NSArray *_recentAppStripPlugins;
+    NSArray *_visibleRecentAppStripPlugins;
     _Bool _appStoreAutoEnableToggled;
     _Bool _isAppInstalationEnabled;
     _Bool _isAppRemovalEnabled;
@@ -21,11 +26,11 @@
     IMBalloonPlugin *_lastViewedPlugin;
     NSArray *_visiblePlugins;
     NSArray *_cachedPotentiallyVisiblePlugins;
-    NSArray *_visibleSwitcherPlugins;
-    NSArray *_visibleAppStripPlugins;
+    NSArray *_favoriteAppStripPlugins;
     NSDictionary *_pluginVersionMap;
     NSDictionary *_pluginSeenMap;
     NSDictionary *_pluginIndexPathMap;
+    NSMutableArray *_MRUPluginInteractionList;
     NSDictionary *_pluginLaunchTimeMap;
     NSArray *_allPlugins;
     long long _numberOfSectionsToKeep;
@@ -35,6 +40,7 @@
     NSMutableDictionary *_activeBrowsers;
 }
 
++ (id)defaultFavoritePlugins;
 + (id)morePlugin;
 + (id)recentPlugin;
 + (id)sharedInstance;
@@ -47,12 +53,13 @@
 @property(nonatomic, getter=isKeepingEmptySections) _Bool keepingEmptySections; // @synthesize keepingEmptySections=_keepingEmptySections;
 @property(retain, nonatomic) NSArray *allPlugins; // @synthesize allPlugins=_allPlugins;
 @property(retain, nonatomic) NSDictionary *pluginLaunchTimeMap; // @synthesize pluginLaunchTimeMap=_pluginLaunchTimeMap;
+@property(retain, nonatomic) NSMutableArray *MRUPluginInteractionList; // @synthesize MRUPluginInteractionList=_MRUPluginInteractionList;
 @property(retain, nonatomic) NSDictionary *pluginIndexPathMap; // @synthesize pluginIndexPathMap=_pluginIndexPathMap;
 @property(retain, nonatomic) NSDictionary *pluginSeenMap; // @synthesize pluginSeenMap=_pluginSeenMap;
 @property(retain, nonatomic) NSDictionary *pluginVersionMap; // @synthesize pluginVersionMap=_pluginVersionMap;
 @property(nonatomic) _Bool isAppRemovalEnabled; // @synthesize isAppRemovalEnabled=_isAppRemovalEnabled;
 @property(nonatomic) _Bool isAppInstalationEnabled; // @synthesize isAppInstalationEnabled=_isAppInstalationEnabled;
-@property(retain, nonatomic) NSArray *visibleAppStripPlugins; // @synthesize visibleAppStripPlugins=_visibleAppStripPlugins;
+@property(retain, nonatomic) NSArray *favoriteAppStripPlugins; // @synthesize favoriteAppStripPlugins=_favoriteAppStripPlugins;
 @property(retain, nonatomic) NSArray *visibleSwitcherPlugins; // @synthesize visibleSwitcherPlugins=_visibleSwitcherPlugins;
 @property(retain, nonatomic) NSArray *cachedPotentiallyVisiblePlugins; // @synthesize cachedPotentiallyVisiblePlugins=_cachedPotentiallyVisiblePlugins;
 @property(retain, nonatomic) NSArray *visiblePlugins; // @synthesize visiblePlugins=_visiblePlugins;
@@ -85,10 +92,12 @@
 - (id)pluginForIdentifier:(id)arg1;
 - (id)balloonPluginIdentifierForAppExtensionBundleIdentifier:(id)arg1;
 - (void)saveWithNotification:(_Bool)arg1;
-- (id)_decodeIndexPathMap:(id)arg1 orderDefaultFavories:(_Bool)arg2;
+- (id)_decodeIndexPathMap:(id)arg1;
 - (id)_encodeIndexPathMap:(id)arg1;
 - (_Bool)isPluginEnabled:(id)arg1;
 - (void)setEnabled:(_Bool)arg1 forPlugin:(id)arg2;
+- (void)commitInteractionTimeOrderingChanges;
+- (void)updateInteractionTimeForPlugin:(id)arg1;
 - (void)removeAppWithIdentifier:(id)arg1;
 - (void)_disableAppWithBalloonIdentifier:(id)arg1;
 - (void)_addAppWithBalloonIdentifier:(id)arg1;
@@ -125,7 +134,11 @@
 - (id)orderedPlugins:(_Bool)arg1;
 - (id)allPotentiallyVisiblePlugins;
 @property(readonly, nonatomic) NSArray *potentiallyVisiblePlugins;
+@property(readonly, nonatomic) NSArray *visibleRecentAppStripPlugins;
+@property(readonly, nonatomic) NSArray *recentAppStripPlugins;
+@property(readonly, nonatomic) NSArray *visibleFavoriteAppStripPlugins;
 @property(readonly, nonatomic) NSArray *visibleDrawerPlugins;
+- (id)candidateAppStripPlugins;
 - (id)filteredArrayOfInstallationsThatShouldBeVisible:(id)arg1;
 - (void)_refreshVisibleDrawerPluginsDueToAppInstallationChange;
 - (void)updateAppInstallations;

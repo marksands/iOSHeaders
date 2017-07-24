@@ -14,7 +14,7 @@
 @property(readonly, nonatomic) struct NULayoutOptions options; // @synthesize options=_options;
 - (id)adjustedComponentsForComponents:(id)arg1 options:(struct NULayoutOptions)arg2;
 - (struct UIEdgeInsets)adjustedEdgeInsetsForOptions:(struct NULayoutOptions)arg1;
-- (void)layoutComponents:(id)arg1 inBounds:(struct CGRect)arg2 originOffset:(struct CGPoint)arg3;
+- (void)layoutComponents:(id)arg1 inBounds:(struct CGRect)arg2 originOffset:(struct CGPoint)arg3 layoutContext:(id)arg4;
 - (id)initWithOptions:(struct NULayoutOptions)arg1;
 
 @end

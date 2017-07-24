@@ -8,7 +8,7 @@
 
 #import <SAObjects/SAAceSerializable-Protocol.h>
 
-@class NSString, SAUIColor, SAUIImageResource;
+@class NSArray, NSString, SAUIColor, SAUIImageResource;
 
 @interface SAUISash : AceObject <SAAceSerializable>
 {
@@ -19,6 +19,7 @@
 @property(copy, nonatomic) NSString *title;
 @property(retain, nonatomic) SAUIColor *textColor;
 @property(retain, nonatomic) SAUIImageResource *image;
+@property(copy, nonatomic) NSArray *commands;
 @property(retain, nonatomic) SAUIColor *backgroundColor;
 @property(copy, nonatomic) NSString *applicationBundleIdentifier;
 - (id)encodedClassName;

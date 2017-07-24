@@ -6,15 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import <ScreenshotServices/SSActiveInterfaceOrientationObserverDelegate-Protocol.h>
-
-@class SSActiveInterfaceOrientationObserver, SSDittoRemoteConnection, SSScreenshotsWindow, SSSnapshotter;
+@class SSDittoRemoteConnection, SSScreenshotsWindow, SSSnapshotter;
 @protocol SSScreenCapturerDelegate;
 
-@interface SSScreenCapturer : NSObject <SSActiveInterfaceOrientationObserverDelegate>
+@interface SSScreenCapturer : NSObject
 {
     SSSnapshotter *_snapshotter;
-    SSActiveInterfaceOrientationObserver *_orientationObserver;
     SSDittoRemoteConnection *_dittoRemoteConnection;
     SSScreenshotsWindow *_serviceWindow;
     id <SSScreenCapturerDelegate> _delegate;
@@ -22,17 +19,13 @@
 
 + (void)playScreenshotSound;
 + (_Bool)shouldUseScreenCapturerForScreenshots;
-+ (_Bool)_deviceIsUILocked;
-+ (_Bool)_useCoversheet;
 + (id)_currentDisplayLayout;
 @property(nonatomic) __weak id <SSScreenCapturerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)activeInterfaceOrientationObserver:(id)arg1 observedChangeToInterfaceOrientation:(long long)arg2;
 - (void)_sendEnvironmentDescriptionsWithPresentationOptions:(id)arg1;
 - (void)_actuallyPerformCaptureAndSendEnvironmentDescriptionsWithPresentationOptions:(id)arg1;
 - (void)takeScreenshot;
 - (void)takeScreenshotWithPresentationOptions:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

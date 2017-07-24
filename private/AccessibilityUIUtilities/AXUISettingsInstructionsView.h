@@ -15,13 +15,12 @@
     PSSpecifier *_specifier;
     UILabel *_headerLabel;
     NSMutableArray *_contentLabels;
-    double _backgroundInset;
-    double backgroundInset;
+    NSMutableArray *_marginConstraints;
 }
 
-@property(nonatomic) double backgroundInset; // @synthesize backgroundInset;
 - (void).cxx_destruct;
 - (double)preferredHeightForWidth:(double)arg1;
+- (void)setNeedsLayout;
 - (void)_initializeContent;
 - (id)settingsLocString:(id)arg1 table:(id)arg2;
 - (id)initWithSpecifier:(id)arg1;

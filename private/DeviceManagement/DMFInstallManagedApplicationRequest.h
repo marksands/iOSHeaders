@@ -18,36 +18,10 @@
     unsigned long long _managementFlags;
     unsigned long long _managementChange;
     unsigned long long _purchaseMethod;
-    NSString *_title;
-    NSString *_message;
-    NSString *_installVPPAppMessage;
-    NSString *_loginButtonText;
-    NSString *_cancelButtonText;
-    NSString *_storeAppUpdateMessage;
-    NSString *_storeAppInstallationMessage;
-    NSString *_enterpriseAppUpdateMessage;
-    NSString *_enterpriseAppInstallationMessage;
-    NSString *_installationFailureMessage;
-    NSString *_updateFailureMessage;
-    NSString *_dismissButtonText;
-    NSString *_installButtonText;
 }
 
 + (_Bool)supportsSecureCoding;
 + (Class)whitelistedClassForResultObject;
-@property(copy, nonatomic) NSString *installButtonText; // @synthesize installButtonText=_installButtonText;
-@property(copy, nonatomic) NSString *dismissButtonText; // @synthesize dismissButtonText=_dismissButtonText;
-@property(copy, nonatomic) NSString *updateFailureMessage; // @synthesize updateFailureMessage=_updateFailureMessage;
-@property(copy, nonatomic) NSString *installationFailureMessage; // @synthesize installationFailureMessage=_installationFailureMessage;
-@property(copy, nonatomic) NSString *enterpriseAppInstallationMessage; // @synthesize enterpriseAppInstallationMessage=_enterpriseAppInstallationMessage;
-@property(copy, nonatomic) NSString *enterpriseAppUpdateMessage; // @synthesize enterpriseAppUpdateMessage=_enterpriseAppUpdateMessage;
-@property(copy, nonatomic) NSString *storeAppInstallationMessage; // @synthesize storeAppInstallationMessage=_storeAppInstallationMessage;
-@property(copy, nonatomic) NSString *storeAppUpdateMessage; // @synthesize storeAppUpdateMessage=_storeAppUpdateMessage;
-@property(copy, nonatomic) NSString *cancelButtonText; // @synthesize cancelButtonText=_cancelButtonText;
-@property(copy, nonatomic) NSString *loginButtonText; // @synthesize loginButtonText=_loginButtonText;
-@property(copy, nonatomic) NSString *installVPPAppMessage; // @synthesize installVPPAppMessage=_installVPPAppMessage;
-@property(copy, nonatomic) NSString *message; // @synthesize message=_message;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) unsigned long long purchaseMethod; // @synthesize purchaseMethod=_purchaseMethod;
 @property(nonatomic) unsigned long long managementChange; // @synthesize managementChange=_managementChange;
 @property(nonatomic) unsigned long long managementFlags; // @synthesize managementFlags=_managementFlags;

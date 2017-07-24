@@ -19,6 +19,7 @@
     MFWeakObjectCache *_libraryMessageCache;
     struct __CFDictionary *_mailboxCache;
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_statsQueue;
     id <MFMailboxPathProvider> _mailboxPathProvider;
     MFMailMessageLibraryMigrator *_migrator;
     NSString *_threadLocalHandleKey;
@@ -30,7 +31,6 @@
     NSMutableSet *_messagesToThreadAtUnlock;
     MFWeakSet *_middleware;
     NSObject<OS_dispatch_source> *_suspendTimer;
-    _Bool _repairLibraryOnNextUnlock;
     _MFMailMessageLibraryStatistics *_lastStats;
     MFFileCompressionQueue *_compressionQueue;
     id <MFMailMessageLibraryDelegate> _delegate;
@@ -102,9 +102,9 @@
 - (struct sqlite3 *)getWriterDB;
 - (id)_connectionForWriting:(_Bool)arg1;
 - (void)closeDatabaseConnections;
-- (void)_performTransaction:(CDUnknownBlockType)arg1 forWriting:(_Bool)arg2;
-- (void)performReadTransaction:(CDUnknownBlockType)arg1;
-- (void)performWriteTransaction:(CDUnknownBlockType)arg1;
+- (int)_performTransaction:(CDUnknownBlockType)arg1 forWriting:(_Bool)arg2;
+- (int)performReadTransaction:(CDUnknownBlockType)arg1;
+- (int)performWriteTransaction:(CDUnknownBlockType)arg1;
 - (int)rollbackTransaction:(struct sqlite3 *)arg1;
 - (int)commitTransaction:(struct sqlite3 *)arg1;
 - (int)beginTransaction:(struct sqlite3 *)arg1 withType:(long long)arg2 forMailbox:(id)arg3;
@@ -123,6 +123,7 @@
 - (long long)_reconcileJournal;
 - (void)_schedulePeriodicStatisticsLogging;
 - (void)_logStatistics;
+- (unsigned long long)_deleteJournaledEntries;
 - (void)_collectStatistics_nts;
 - (_Bool)checkDatabaseConsistency;
 - (_Bool)cleanupProtectedTables;
@@ -200,8 +201,6 @@
 - (id)messageWithMessageID:(id)arg1 inMailbox:(id)arg2;
 - (void)removeAllMessagesFromMailbox:(id)arg1 removeMailbox:(_Bool)arg2 andNotify:(_Bool)arg3;
 - (void)vacuumDataForObsoleteAccountURLString:(id)arg1;
-- (id)_quotedLikeSubclauseForColumn:(id)arg1 value:(id)arg2;
-- (id)_quotedPrefixLikeSubclauseForColumn:(id)arg1 value:(id)arg2;
 - (void)deleteMailboxes:(id)arg1 account:(id)arg2;
 - (_Bool)renameMailboxes:(id)arg1 to:(id)arg2;
 - (void)compactMailbox:(id)arg1;

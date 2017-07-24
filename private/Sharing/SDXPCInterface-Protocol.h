@@ -43,10 +43,13 @@
 - (void)diagnosticControl:(NSString *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)diagnosticBLEModeWithCompletion:(void (^)(NSError *))arg1;
 - (void)bluetoothUserInteraction;
+- (void)deviceDiscoveryFastScanCancel:(NSString *)arg1;
+- (void)deviceDiscoveryFastScanTrigger:(NSString *)arg1;
 - (void)deviceDiscoveryUpdate:(SFDeviceDiscovery *)arg1;
 - (void)deviceDiscoveryActivate:(SFDeviceDiscovery *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)coordinatedAlertsRequestFinish;
 - (void)coordinatedAlertsRequestStart:(SFCoordinatedAlertRequest *)arg1 completion:(void (^)(NSError *, _Bool, NSDictionary *))arg2;
+- (void)wifiPasswordSharingAvailabilityWithCompletion:(void (^)(unsigned int, NSError *))arg1;
 - (void)triggerHomeKitDeviceDetectedWithURL:(NSURL *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)showDevicePickerWithInfo:(NSDictionary *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)setupDevice:(SFDevice *)arg1 homeIdentifier:(NSUUID *)arg2 completion:(void (^)(NSError *))arg3;
@@ -54,10 +57,16 @@
 - (void)retriggerProximityPairing:(void (^)(NSError *))arg1;
 - (void)preventExitForLocaleReason:(NSString *)arg1;
 - (void)openSetupURL:(NSURL *)arg1 completion:(void (^)(NSError *))arg2;
+- (void)appleIDInfoWithCompletion:(void (^)(NSString *, NSData *, NSError *))arg1;
 - (void)activityStateWithCompletion:(void (^)(unsigned long long, NSError *))arg1;
 - (void)activateAssertionWithIdentifier:(NSString *)arg1;
 - (void)displayStringForContactIdentifier:(NSString *)arg1 deviceIdentifier:(NSUUID *)arg2 completion:(void (^)(NSString *, _Bool, NSError *))arg3;
 - (void)displayNameForEmailHash:(NSString *)arg1 phoneHash:(NSString *)arg2 completion:(void (^)(NSString *, NSError *))arg3;
 - (void)contactIDForEmailHash:(NSString *)arg1 phoneHash:(NSString *)arg2 completion:(void (^)(NSString *, NSError *))arg3;
+- (void)statusInfoWithCompletion:(void (^)(NSDictionary *, NSError *))arg1;
+- (void)requestWithInfo:(NSDictionary *)arg1 completion:(void (^)(NSString *, NSError *))arg2;
+- (void)copyIdentityForAppleID:(NSString *)arg1 withCompletion:(void (^)(struct __SecIdentity *, NSError *))arg2;
+- (void)appleIDListWithCompletion:(void (^)(NSArray *, NSError *))arg1;
+- (void)addAppleID:(NSString *)arg1 withCompletion:(void (^)(NSError *))arg2;
 @end
 

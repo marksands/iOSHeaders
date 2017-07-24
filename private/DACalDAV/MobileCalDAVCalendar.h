@@ -140,9 +140,11 @@
 @property(nonatomic) int order;
 @property(retain, nonatomic) NSTimeZone *timeZone;
 - (_Bool)hasCalendarUserAddressEquivalentToURL:(id)arg1;
-@property(retain, nonatomic) NSSet *calendarUserAddresses;
+- (id)calendarUserAddresses;
+@property(retain, nonatomic) NSSet *preferredCalendarUserAddresses;
 @property(readonly, nonatomic) NSString *ownerPhoneNumber;
 @property(readonly, nonatomic) NSString *ownerEmailAddress;
+- (id)_preferredAddress;
 @property(retain, nonatomic) NSString *ownerDisplayName;
 @property(retain, nonatomic) NSURL *prePublishURL;
 @property(retain, nonatomic) NSURL *publishURL;

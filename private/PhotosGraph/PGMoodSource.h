@@ -10,12 +10,12 @@
 
 @interface PGMoodSource : NSObject
 {
-    NSDictionary *_moodSourceDictionary;
     PHAssetCollection *_assetCollection;
     PGManager *_graphManager;
     PGMoodGeneratorOptions *_options;
     PGMoodVector *_positiveVector;
     PGMoodVector *_negativeVector;
+    NSDictionary *_moodSourceDictionary;
 }
 
 + (id)_plistName;
@@ -23,13 +23,14 @@
 @property(readonly) PGManager *graphManager; // @synthesize graphManager=_graphManager;
 @property(readonly) PHAssetCollection *assetCollection; // @synthesize assetCollection=_assetCollection;
 - (void).cxx_destruct;
+@property(readonly) NSDictionary *moodSourceDictionary; // @synthesize moodSourceDictionary=_moodSourceDictionary;
 - (unsigned long long)_sourceInputCount;
 - (void)_combineMoodVectors;
 - (id)_moodVectors;
 - (id)_moodVectorForMoodIdentifier:(id)arg1;
 - (id)_plistMoodIdentifiers;
-@property(readonly) PGMoodVector *negativeVector; // @synthesize negativeVector=_negativeVector;
-@property(readonly) PGMoodVector *positiveVector; // @synthesize positiveVector=_positiveVector;
+@property(retain) PGMoodVector *negativeVector; // @synthesize negativeVector=_negativeVector;
+@property(retain) PGMoodVector *positiveVector; // @synthesize positiveVector=_positiveVector;
 - (double)weight;
 - (id)initWithAssetCollection:(id)arg1 graphManager:(id)arg2 options:(id)arg3;
 

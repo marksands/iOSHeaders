@@ -25,6 +25,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)init;
+@property(nonatomic, setter=_setMediaDocumentEntersFullscreenAutomatically:) _Bool _mediaDocumentEntersFullscreenAutomatically;
+@property(nonatomic, setter=_setJavaScriptCanAccessClipboard:) _Bool _javaScriptCanAccessClipboard;
 @property(nonatomic, setter=_setWebRTCLegacyAPIEnabled:) _Bool _webRTCLegacyAPIEnabled;
 @property(nonatomic, setter=_setICECandidateFilteringEnabled:) _Bool _iceCandidateFiltertingEnabled;
 @property(nonatomic, setter=_setEnumeratingAllNetworkInterfacesEnabled:) _Bool _enumeratingAllNetworkInterfacesEnabled;
@@ -62,6 +64,7 @@
 @property(nonatomic, setter=_setTiledScrollingIndicatorVisible:) _Bool _tiledScrollingIndicatorVisible;
 @property(nonatomic, setter=_setCompositingRepaintCountersVisible:) _Bool _compositingRepaintCountersVisible;
 @property(nonatomic, setter=_setCompositingBordersVisible:) _Bool _compositingBordersVisible;
+@property(nonatomic, setter=_setAllowsPictureInPictureMediaPlayback:) _Bool _allowsPictureInPictureMediaPlayback;
 @property(nonatomic, setter=_setFullScreenEnabled:) _Bool _fullScreenEnabled;
 @property(nonatomic, setter=_setOfflineApplicationCacheIsEnabled:) _Bool _offlineApplicationCacheIsEnabled;
 @property(nonatomic, setter=_setStorageBlockingPolicy:) long long _storageBlockingPolicy;

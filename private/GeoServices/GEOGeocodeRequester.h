@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 
 + (id)sharedGeocodeRequester;
 - (void)cancelBatchReverseGeocode:(id)arg1;
-- (void)batchReverseGeocode:(id)arg1 success:(CDUnknownBlockType)arg2 networkActivity:(CDUnknownBlockType)arg3 error:(CDUnknownBlockType)arg4;
+- (void)batchReverseGeocode:(id)arg1 auditToken:(id)arg2 success:(CDUnknownBlockType)arg3 networkActivity:(CDUnknownBlockType)arg4 error:(CDUnknownBlockType)arg5;
 
 @end
 

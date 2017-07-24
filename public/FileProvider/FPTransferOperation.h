@@ -31,6 +31,7 @@
 - (void).cxx_destruct;
 - (void)presendNotifications;
 - (void)mainWithExtensionProxy:(id)arg1;
+- (id)operationDescription;
 - (id)initWithItems:(id)arg1 destinationFolder:(id)arg2 copyItems:(_Bool)arg3;
 - (id)initWithSourceURLs:(id)arg1 destinationFolder:(id)arg2 copyItems:(_Bool)arg3;
 - (id)initWithSourceURLsAndNames:(id)arg1 destinationFolder:(id)arg2 copyItems:(_Bool)arg3;

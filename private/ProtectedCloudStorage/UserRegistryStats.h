@@ -25,6 +25,7 @@
 @property long long pushNotifications; // @synthesize pushNotifications=_pushNotifications;
 @property long long lastfetchRecordZoneChangesAtStart; // @synthesize lastfetchRecordZoneChangesAtStart=_lastfetchRecordZoneChangesAtStart;
 @property long long fetchRecordZoneChanges; // @synthesize fetchRecordZoneChanges=_fetchRecordZoneChanges;
+- (id)getUserRegistryStats;
 - (void)printUserRegistryStats:(struct __sFILE *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

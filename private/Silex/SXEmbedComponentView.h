@@ -89,7 +89,7 @@
 - (void)willPresentComponent;
 - (void)discardContents;
 - (void)renderContents;
-- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 context:(id)arg3 configuration:(id)arg4;
+- (id)initWithComponent:(id)arg1 configuration:(id)arg2 context:(id)arg3 analyticsReporting:(id)arg4 appStateMonitor:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

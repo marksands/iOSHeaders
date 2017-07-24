@@ -19,9 +19,12 @@
 @property(retain, nonatomic) UISwitch *appToggle; // @synthesize appToggle=_appToggle;
 @property(nonatomic) __weak id <CKAppManagerAppTableViewCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)updateCellWithPluginInfo:(id)arg1;
 - (void)appToggleTapped:(id)arg1;
 - (void)setToggleVisible:(_Bool)arg1 isOn:(_Bool)arg2;
+- (void)prepareForReuse;
 - (void)layoutSubviews;
+- (void)layoutMarginsDidChange;
 
 @end
 

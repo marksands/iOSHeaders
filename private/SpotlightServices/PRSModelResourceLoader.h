@@ -30,8 +30,9 @@
 - (void)removeResourcesForType:(unsigned long long)arg1;
 - (void)removeResourcesForType:(unsigned long long)arg1 group:(id)arg2;
 - (_Bool)_loadArchivedResources:(id)arg1 parentPath:(id)arg2 existingVersion:(id)arg3;
-- (int)checkHeader:(struct model_resource_header *)arg1;
+- (int)checkHeader:(struct prs_model_resource_header *)arg1;
 - (int)unpackageLZMATarData:(void *)arg1 size:(unsigned long long)arg2 parentDir:(const char *)arg3;
+- (_Bool)hasPendingUpdates;
 - (id)init;
 
 @end

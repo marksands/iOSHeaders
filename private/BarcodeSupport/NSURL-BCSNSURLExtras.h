@@ -7,9 +7,11 @@
 #import <Foundation/NSURL.h>
 
 @interface NSURL (BCSNSURLExtras)
++ (id)_bcs_URLWithUserTypedString:(id)arg1;
 + (id)_bcs_appStoreSearchURLWithScheme:(id)arg1;
 + (id)_bcs_searchURLWithQuery:(id)arg1;
 - (_Bool)_bcs_isDataDetectorURL;
+- (id)_bcs_fullURLDisplayString;
 - (id)_bcs_displayString;
 - (_Bool)_bcs_isMapsURL;
 - (_Bool)_bcs_isHTTPFamilyURL;

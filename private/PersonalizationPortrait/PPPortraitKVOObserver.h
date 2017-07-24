@@ -14,7 +14,7 @@
     CDUnknownBlockType _handler;
 }
 
-+ (void)observeObject:(id)arg1 key:(id)arg2 handler:(CDUnknownBlockType)arg3;
++ (id)observeObject:(id)arg1 key:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void).cxx_destruct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)initWithKey:(id)arg1 handler:(CDUnknownBlockType)arg2;

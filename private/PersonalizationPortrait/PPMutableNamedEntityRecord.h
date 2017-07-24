@@ -12,6 +12,7 @@
 {
 }
 
++ (id)allocWithZone:(struct _NSZone *)arg1;
 @property(nonatomic) unsigned long long extractionAssetVersion; // @dynamic extractionAssetVersion;
 @property(retain, nonatomic) NSString *extractionOsBuild; // @dynamic extractionOsBuild;
 @property(nonatomic) double decayRate; // @dynamic decayRate;
@@ -21,6 +22,7 @@
 @property(retain, nonatomic) PPNamedEntity *entity; // @dynamic entity;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
+- (void)dealloc;
 
 @end
 

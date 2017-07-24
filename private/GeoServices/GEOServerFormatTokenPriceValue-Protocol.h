@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <GeoServices/NSCoding-Protocol.h>
 #import <GeoServices/NSObject-Protocol.h>
 
 @class NSString;
 
-@protocol GEOServerFormatTokenPriceValue <NSObject>
+@protocol GEOServerFormatTokenPriceValue <NSObject, NSCoding>
 @property(readonly, nonatomic) NSString *currencyCode;
 @property(readonly, nonatomic) double value;
 @end

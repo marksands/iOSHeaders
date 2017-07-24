@@ -6,11 +6,12 @@
 
 #import <Home/HFTransformItem.h>
 
+#import <Home/HFHomeObserver-Protocol.h>
 #import <Home/HFItemDeletionProtocol-Protocol.h>
 
 @class NSString;
 
-@interface _HFDeletableTransformItem : HFTransformItem <HFItemDeletionProtocol>
+@interface _HFDeletableTransformItem : HFTransformItem <HFItemDeletionProtocol, HFHomeObserver>
 {
 }
 

@@ -26,6 +26,9 @@
 @property(copy, nonatomic) CDUnknownBlockType passcodeOptionsHandler; // @synthesize passcodeOptionsHandler=_passcodeOptionsHandler;
 @property(nonatomic) __weak id <PSPINEntryViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_layoutBottomSubview:(id)arg1 withMinY:(double)arg2 withSize:(struct CGSize)arg3;
+- (void)layoutBottomSubview:(id)arg1 withLabel:(id)arg2 withMinY:(double)arg3;
+- (void)layoutTopLabel:(id)arg1 withMaxY:(double)arg2;
 - (void)setShowsOptionsButton:(_Bool)arg1;
 - (void)optionsButtonTapped;
 - (id)optionsButton;
@@ -41,6 +44,7 @@
 - (void)deleteLastCharacter;
 - (void)setStringValue:(id)arg1;
 - (id)stringValue;
+- (double)getCurrentTitleFontSize;
 - (void)setTitle:(id)arg1 font:(id)arg2;
 - (void)hidePasscodeField:(_Bool)arg1;
 - (void)hideError;

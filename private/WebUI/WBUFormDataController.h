@@ -32,6 +32,7 @@
 - (_Bool)autoFillCorrectionManagerShouldProcessFeedback:(id)arg1;
 - (id)feedbackProcessorForAutoFillCorrectionManager:(id)arg1;
 - (id)formAutoFillCorrectionManagerForFormFieldClassificationCorrector:(id)arg1;
+- (_Bool)formFieldClassificationCorrector:(id)arg1 hasAddressBookDataForAddressBookLabel:(id)arg2;
 - (id)formFieldClassificationCorrector:(id)arg1 bestAddressBookLabelForControlValue:(id)arg2;
 - (id)_autoFillCorrectionManager;
 - (void)_processCorrectionsForFormWithDomain:(id)arg1 formMetadata:(id)arg2;
@@ -86,7 +87,7 @@
 - (void)saveCompletionDBSoon;
 - (id)completionDBPath;
 - (void)dealloc;
-- (id)init;
+- (id)initWithAggressiveKeychainCaching:(_Bool)arg1;
 - (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
 - (void)profileConnectionDidReceiveRestrictionChangedNotification:(id)arg1 userInfo:(id)arg2;
 

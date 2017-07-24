@@ -6,7 +6,7 @@
 
 #import <Silex/SXAddition.h>
 
-@class EKEvent, NSDate, NSString, NSTimeZone;
+@class NSDate, NSString, NSTimeZone, SXAction;
 
 @interface SXEventAddition : SXAddition
 {
@@ -17,7 +17,7 @@
     NSTimeZone *startTimeZone;
     NSTimeZone *endTimeZone;
     NSTimeZone *_timeZone;
-    EKEvent *_calendarEvent;
+    SXAction *_action;
 }
 
 + (id)typeString;
@@ -32,8 +32,8 @@
 - (id)action;
 - (_Bool)validRange:(struct _NSRange)arg1;
 - (id)dateFromString:(id)arg1 containedTime:(_Bool *)arg2 containedTimeZone:(id *)arg3;
-@property(readonly, nonatomic) EKEvent *calendarEvent; // @synthesize calendarEvent=_calendarEvent;
-- (_Bool)allDay;
+- (id)calendarEventWithStore:(id)arg1;
+@property(readonly, nonatomic) _Bool allDay;
 - (id)endDateWithValue:(id)arg1 withType:(int)arg2;
 - (id)startDateWithValue:(id)arg1 withType:(int)arg2;
 

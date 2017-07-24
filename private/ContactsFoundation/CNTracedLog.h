@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSDictionary, NSString;
 
@@ -45,13 +45,13 @@
 @property(copy) NSString *domainVersion; // @synthesize domainVersion=_domainVersion;
 @property(readonly, copy) NSString *domain; // @synthesize domain=_domain;
 @property(readonly, copy) NSString *message; // @synthesize message=_message;
+- (void).cxx_destruct;
 - (id)resultString;
 - (void)sendValue:(id)arg1 forKey:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)enumerateCustomKeysAndValuesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateStandardKeysAndValuesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateStandardizedKeysAndValuesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)sendTrace;
-- (void)dealloc;
 - (id)init;
 - (id)initWithDomain:(id)arg1 message:(id)arg2;
 

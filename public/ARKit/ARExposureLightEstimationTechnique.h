@@ -13,6 +13,7 @@
 {
     float _sphericalHarmonics[27];
     NSObject<OS_dispatch_semaphore> *_resultSemaphore;
+    float _lastLightIntensity;
 }
 
 - (void).cxx_destruct;

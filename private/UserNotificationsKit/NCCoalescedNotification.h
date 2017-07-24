@@ -7,13 +7,12 @@
 #import <objc/NSObject.h>
 
 #import <UserNotificationsKit/BSDescriptionProviding-Protocol.h>
-#import <UserNotificationsKit/NCDebugInfoProvider-Protocol.h>
 #import <UserNotificationsKit/NSCopying-Protocol.h>
 #import <UserNotificationsKit/NSMutableCopying-Protocol.h>
 
 @class NCNotificationContent, NCNotificationOptions, NSArray, NSMutableArray, NSString;
 
-@interface NCCoalescedNotification : NSObject <BSDescriptionProviding, NCDebugInfoProvider, NSCopying, NSMutableCopying>
+@interface NCCoalescedNotification : NSObject <BSDescriptionProviding, NSCopying, NSMutableCopying>
 {
     NSMutableArray *_notificationRequests;
     NSString *_sectionIdentifier;
@@ -32,7 +31,6 @@
 - (id)succinctDescription;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
-- (id)debugInfoPlist;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)notificationRequestMatchingRequest:(id)arg1;

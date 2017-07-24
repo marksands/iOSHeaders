@@ -50,6 +50,15 @@ struct OpaqueFigCDSSession;
 
 struct OpaqueFigPlayer;
 
+struct OpaqueFigSubtitleBackdropCALayerContentLayerInternal {
+    id _field1;
+};
+
+struct OpaqueFigSubtitleBackdropCALayerInternal {
+    id _field1;
+    _Bool _field2;
+};
+
 struct OpaqueFigSubtitleCALayerInternal {
     struct OpaqueFigPlayer *_field1;
     id _field2;

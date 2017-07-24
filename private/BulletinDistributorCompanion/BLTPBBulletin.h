@@ -34,6 +34,7 @@
     NSMutableArray *_peopleIDs;
     NSString *_publisherBulletinID;
     NSString *_recordID;
+    NSString *_replyToken;
     NSString *_sectionDisplayName;
     NSString *_sectionID;
     int _sectionSubtype;
@@ -74,7 +75,8 @@
 + (Class)supplementaryActionsType;
 + (void)_addAttachmentsFromBBBulletin:(id)arg1 toBLTPBBulletin:(id)arg2 observer:(id)arg3 completion:(CDUnknownBlockType)arg4;
 + (id)_attachmentFromBBAttachmentMetadata:(id)arg1 bulletin:(id)arg2 observer:(id)arg3 favorFile:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
-+ (void)bulletinWithBBBulletin:(id)arg1 sockPuppetAppBundleID:(id)arg2 isSockPuppetAppInstalled:(_Bool)arg3 observer:(id)arg4 feed:(unsigned long long)arg5 teamID:(id)arg6 universalSectionID:(id)arg7 isCriticalBulletin:(_Bool)arg8 completion:(CDUnknownBlockType)arg9;
++ (void)bulletinWithBBBulletin:(id)arg1 sockPuppetAppBundleID:(id)arg2 isSockPuppetAppInstalled:(_Bool)arg3 observer:(id)arg4 feed:(unsigned long long)arg5 teamID:(id)arg6 universalSectionID:(id)arg7 isCriticalBulletin:(_Bool)arg8 replyToken:(id)arg9 completion:(CDUnknownBlockType)arg10;
+@property(retain, nonatomic) NSString *replyToken; // @synthesize replyToken=_replyToken;
 @property(nonatomic) double requiredExpirationDate; // @synthesize requiredExpirationDate=_requiredExpirationDate;
 @property(retain, nonatomic) NSMutableArray *additionalAttachments; // @synthesize additionalAttachments=_additionalAttachments;
 @property(retain, nonatomic) NSString *attachmentID; // @synthesize attachmentID=_attachmentID;
@@ -127,6 +129,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasReplyToken;
 @property(nonatomic) _Bool hasRequiredExpirationDate;
 - (id)additionalAttachmentsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)additionalAttachmentsCount;

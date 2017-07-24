@@ -13,6 +13,7 @@
 @optional
 - (void)viewport:(SXViewport *)arg1 interfaceOrientationChangedFromOrientation:(long long)arg2;
 - (void)viewport:(SXViewport *)arg1 appearStateChangedFromState:(unsigned long long)arg2;
+- (void)viewport:(SXViewport *)arg1 contentFrameDidChangeFromFrame:(struct CGRect)arg2;
 - (void)viewport:(SXViewport *)arg1 documentSizeDidChangeFromSize:(struct CGSize)arg2;
 - (void)viewport:(SXViewport *)arg1 boundsDidChangeFromBounds:(struct CGRect)arg2;
 - (void)viewport:(SXViewport *)arg1 dynamicBoundsDidChangeFromBounds:(struct CGRect)arg2;

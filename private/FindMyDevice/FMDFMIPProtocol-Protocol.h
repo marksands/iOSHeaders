@@ -21,6 +21,7 @@
 - (void)lowBatteryLocateEnabledUsingCallback:(void (^)(_Bool, NSError *))arg1;
 - (oneway void)initiateLostModeExitAuthForApp:(NSString *)arg1 idsDeviceID:(NSString *)arg2 usingCallback:(void (^)(NSError *))arg3;
 - (oneway void)didReceiveLostModeExitAuthToken:(NSString *)arg1 usingCallback:(void (^)(NSError *))arg2;
+- (oneway void)activationLockVersionWithCompletion:(void (^)(unsigned long long, NSError *))arg1;
 - (oneway void)enableActivationLockUsingCallback:(void (^)(NSError *))arg1;
 - (oneway void)isActivationLockedUsingCallback:(void (^)(_Bool, NSError *))arg1;
 - (oneway void)isActivationLockEnabledUsingCallback:(void (^)(_Bool, NSError *))arg1;

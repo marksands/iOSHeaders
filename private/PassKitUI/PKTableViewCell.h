@@ -10,11 +10,13 @@
 
 @interface PKTableViewCell : UITableViewCell
 {
+    _Bool _showsActionSpinner;
     UIColor *_highlightColor;
     UIColor *_checkmarkAccessoryColor;
     UIColor *_customAccessoryColor;
 }
 
+@property(nonatomic) _Bool showsActionSpinner; // @synthesize showsActionSpinner=_showsActionSpinner;
 @property(copy, nonatomic) UIColor *customAccessoryColor; // @synthesize customAccessoryColor=_customAccessoryColor;
 @property(copy, nonatomic) UIColor *checkmarkAccessoryColor; // @synthesize checkmarkAccessoryColor=_checkmarkAccessoryColor;
 @property(copy, nonatomic) UIColor *highlightColor; // @synthesize highlightColor=_highlightColor;

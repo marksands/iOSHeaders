@@ -82,7 +82,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldMergeKey:(id)arg1;
 - (_Bool)isKeyplaneDisabledWithName:(id)arg1;
 - (_Bool)shouldToggleKeyplaneWithName:(id)arg1;
-- (_Bool)shouldShowDictationKey;
 - (unsigned long long)targetEdgesForScreenGestureRecognition;
 - (void)setDisableTouchInput:(_Bool)arg1;
 - (_Bool)diacriticForwardCompose;

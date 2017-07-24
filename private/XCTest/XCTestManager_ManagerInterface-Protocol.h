@@ -7,6 +7,7 @@
 @class NSArray, NSDictionary, NSNumber, NSString, NSURL, NSUUID, XCAccessibilityElement, XCDeviceEvent, XCSynthesizedEventRecord;
 
 @protocol XCTestManager_ManagerInterface
+- (void)_XCT_requestBundleIDForPID:(int)arg1 reply:(void (^)(NSString *, NSError *))arg2;
 - (void)_XCT_injectVoiceRecognitionAudioInputPaths:(NSArray *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)_XCT_injectAssistantRecognitionStrings:(NSArray *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)_XCT_startSiriUIRequestWithAudioFileURL:(NSURL *)arg1 completion:(void (^)(_Bool, NSError *))arg2;

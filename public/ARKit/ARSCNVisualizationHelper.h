@@ -10,8 +10,7 @@
 {
 }
 
-+ (id)createFeaturePointTexture;
-+ (id)createFeaturePointNodeWithTexture:(id)arg1;
++ (id)createGeometryForPointCloud:(id)arg1;
 + (id)createAxesNode:(double)arg1;
 + (id)createMaterialWithTexture:(id)arg1;
 

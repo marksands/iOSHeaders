@@ -20,7 +20,6 @@
 - (void)resolveRecipients:(id)arg1 forIntent:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)resolveMessageContentWithString:(id)arg1;
 - (long long)sendMessageWithText:(id)arg1 toChat:(id)arg2;
-- (id)bestMessagingAccount;
 - (void)resolveSpeakableGroupNameForSendMessage:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)resolveContentForSendMessage:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)resolveRecipientsForSendMessage:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

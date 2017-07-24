@@ -12,8 +12,8 @@ __attribute__((visibility("hidden")))
 @interface VCConnectionManagerIDS : VCConnectionManager
 {
     NSMutableArray *_connectionArray;
-    unsigned int _lastTimestampForRemoteSendingFromNonPrimary;
-    unsigned int _lastTimestampPreferredRemoteInterfaceUpdated;
+    double _lastTimestampForRemoteSendingFromNonPrimary;
+    double _lastTimestampPreferredRemoteInterfaceUpdated;
 }
 
 - (void)reportConnection:(id)arg1 isInitialConnection:(_Bool)arg2;

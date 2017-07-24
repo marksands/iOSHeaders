@@ -33,7 +33,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)trackedReferencesExistForTable:(const UUIDData_5fbc143e *)arg1;
 - (void)trackedReferenceWasDeleted:(id)arg1 fromOwnerUID:(const UUIDData_5fbc143e *)arg2;
 - (id)cellRangeWasInserted:(const struct TSCERangeRef *)arg1;
-- (id)trackedReferenceAtID:(CDStruct_a91f2c80)arg1;
+- (id)trackedReferenceAtID:(CDStruct_ed6d627d)arg1;
 - (void)setFormulaOwnerUID:(const UUIDData_5fbc143e *)arg1;
 - (UUIDData_5fbc143e)formulaOwnerUID;
 - (unsigned long long)numberOfTrackedReferences;
@@ -50,10 +50,10 @@ __attribute__((visibility("hidden")))
 - (id)initWithContext:(id)arg1 calculationEngine:(id)arg2 delegate:(id)arg3;
 - (id)objectToArchiveInDependencyTracker;
 - (void)beginRewriteForCalculationEngine:(id)arg1 spec:(id)arg2;
-- (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(id)arg3;
+- (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_ed6d627d)arg2 rewriteSpec:(id)arg3;
 - (void)invalidateForCalculationEngine:(id)arg1;
 - (void)writeResultsForCalculationEngine:(id)arg1;
-- (CDStruct_22e7ec3e)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(_Bool)arg3 hasCalculatedPrecedents:(_Bool)arg4;
+- (CDStruct_2a4d9400)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_ed6d627d)arg2 isInCycle:(_Bool)arg3 hasCalculatedPrecedents:(_Bool)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

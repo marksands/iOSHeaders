@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary, PDFDocument, PDFDocumentContentView, PDFRenderingProperties, PDFView, PageImagePool;
+@class NSMutableDictionary, PDFDocument, PDFDocumentContentView, PDFPageBackgroundManager, PDFRenderingProperties, PDFView;
 
 __attribute__((visibility("hidden")))
 @interface PDFDocumentViewPrivate : NSObject
@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
     PDFDocumentContentView *contentView;
     NSMutableDictionary *pageViews;
     NSMutableDictionary *pageFrames;
-    PageImagePool *pageImagePool;
+    PDFPageBackgroundManager *pageBackgroundManager;
     _Bool ignoreChangedBoundsForBoxNotification;
     _Bool showTextSelectionHandles;
 }

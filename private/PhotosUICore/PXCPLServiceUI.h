@@ -6,57 +6,30 @@
 
 #import <objc/NSObject.h>
 
-#import <PhotosUICore/PXCPLServiceUIStatus-Protocol.h>
-
-@class NSString;
+@class PXCPLServiceStatus;
 @protocol PXCPLService, PXCPLServiceUIDelegate, PXCPLServiceUIStatus;
 
-@interface PXCPLServiceUI : NSObject <PXCPLServiceUIStatus>
+@interface PXCPLServiceUI : NSObject
 {
     id <PXCPLService> _cplService;
-    long long _serviceAction;
     struct {
         _Bool progressDidChange;
         _Bool performAction;
     } _delegateRespondsTo;
-    _Bool _paused;
+    PXCPLServiceStatus *_serviceStatus;
+    id <PXCPLServiceUIStatus> _serviceUIStatus;
     id <PXCPLServiceUIDelegate> _delegate;
-    NSString *_stateDescription;
-    NSString *_failureDescription;
-    double _progress;
-    CDUnknownBlockType _action;
-    NSString *_actionTitle;
-    NSString *_actionConfirmationAlertTitle;
-    NSString *_actionConfirmationAlertSubtitle;
-    NSString *_actionConfirmationAlertButtonTitle;
 }
 
-@property(retain, nonatomic) NSString *actionConfirmationAlertButtonTitle; // @synthesize actionConfirmationAlertButtonTitle=_actionConfirmationAlertButtonTitle;
-@property(retain, nonatomic) NSString *actionConfirmationAlertSubtitle; // @synthesize actionConfirmationAlertSubtitle=_actionConfirmationAlertSubtitle;
-@property(retain, nonatomic) NSString *actionConfirmationAlertTitle; // @synthesize actionConfirmationAlertTitle=_actionConfirmationAlertTitle;
-@property(retain, nonatomic) NSString *actionTitle; // @synthesize actionTitle=_actionTitle;
-@property(copy, nonatomic) CDUnknownBlockType action; // @synthesize action=_action;
-@property(nonatomic) double progress; // @synthesize progress=_progress;
-@property(nonatomic, getter=isPaused) _Bool paused; // @synthesize paused=_paused;
-@property(retain, nonatomic) NSString *failureDescription; // @synthesize failureDescription=_failureDescription;
-@property(retain, nonatomic) NSString *stateDescription; // @synthesize stateDescription=_stateDescription;
 @property(nonatomic) __weak id <PXCPLServiceUIDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) id <PXCPLServiceUIStatus> serviceUIStatus; // @synthesize serviceUIStatus=_serviceUIStatus;
+@property(readonly, nonatomic) PXCPLServiceStatus *serviceStatus; // @synthesize serviceStatus=_serviceStatus;
 - (void).cxx_destruct;
-- (void)_handleServiceStatus:(struct PXCPLServiceStatus)arg1;
-- (void)_statusDidChange:(_Bool)arg1;
-- (id)_statusDescription;
+- (void)_handleUpdatedServiceStatus:(id)arg1;
+- (void)_serviceUIStatusDidChange:(id)arg1 onlyProgressDidChange:(_Bool)arg2;
 - (void)_performAction:(long long)arg1;
-@property(readonly, nonatomic) id <PXCPLServiceUIStatus> serviceUIStatus;
-@property(readonly, nonatomic) struct PXCPLServiceStatus serviceStatus;
-- (void)dealloc;
 - (id)initWithCPLService:(id)arg1;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

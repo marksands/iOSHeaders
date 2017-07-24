@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class ICURLBag, NSArray, NSData, NSDate, NSDictionary, NSString;
+@class ICStoreDialogResponse, ICURLBag, NSArray, NSData, NSDate, NSDictionary, NSString;
 
 @interface ICMediaRedownloadResponse : NSObject
 {
@@ -21,6 +21,7 @@
 @property(readonly, copy, nonatomic) NSArray *items;
 @property(readonly, copy, nonatomic) NSString *jingleAction;
 @property(readonly, nonatomic) unsigned int downloadQueueItemCount;
+@property(readonly, copy, nonatomic) ICStoreDialogResponse *dialog;
 @property(readonly, nonatomic) long long status;
 @property(readonly, nonatomic) _Bool authorized;
 - (id)initWithResponseDictionary:(id)arg1 requestDate:(id)arg2 urlBag:(id)arg3;

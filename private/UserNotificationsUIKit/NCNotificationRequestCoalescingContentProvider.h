@@ -22,7 +22,6 @@
 - (unsigned long long)_indexOfMatchingNotificationRequest:(id)arg1;
 - (id)_formattedCountStringForPlaceholder:(id)arg1 count:(unsigned long long)arg2;
 - (id)_formattedDecimalStringForNumber:(id)arg1;
-- (id)interfaceActions;
 - (id)thumbnail;
 - (id)_placeholderSecondaryText;
 - (id)secondaryText;

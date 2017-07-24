@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
     NSString *_serverName;
 }
 
-+ (id)newFromSqliteValue:(struct Mem *)arg1;
++ (id)newFromSqliteValue:(struct sqlite3_value *)arg1;
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSString *serverName; // @synthesize serverName=_serverName;
 @property(retain, nonatomic) NSError *downloadError; // @synthesize downloadError=_downloadError;

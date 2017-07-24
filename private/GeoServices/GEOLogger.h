@@ -21,7 +21,6 @@
 + (void)executeLoggerBlock:(CDUnknownBlockType)arg1;
 + (id)loggerQueue;
 - (void).cxx_destruct;
-- (void)experimentConfigurationDidChange:(id)arg1;
 - (void)unregisterAllLogContextDelegates;
 - (void)unregisterLogContextDelegate:(id)arg1;
 - (void)registerLogContextDelegate:(id)arg1;
@@ -30,9 +29,9 @@
 - (void)cachedStateOfType:(int)arg1 getCachedStateOfTypeBlock:(CDUnknownBlockType)arg2;
 - (id)_cachedStateOfType:(int)arg1;
 - (void)registerLogMsgState:(id)arg1;
-- (void)_captureLogMsgEvent:(id)arg1 withMergedContext:(id)arg2;
-- (void)captureLogMsgEvent:(id)arg1 withLogContext:(id)arg2;
-- (void)captureLogMsgEvent:(id)arg1;
+- (void)_captureLogMsgEvent:(id)arg1 eventTime:(double)arg2 withMergedContext:(id)arg3;
+- (void)captureLogMsgEvent:(id)arg1 eventTime:(double)arg2 withLogContext:(id)arg3;
+- (void)captureLogMsgEvent:(id)arg1 eventTime:(double)arg2;
 - (id)sharedLogManagerInstance;
 - (void)dealloc;
 - (id)init;

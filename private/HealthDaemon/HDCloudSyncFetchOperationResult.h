@@ -6,33 +6,36 @@
 
 #import <objc/NSObject.h>
 
-@class HDCloudSyncOperationConfiguration, NSMutableDictionary, NSSet, NSUUID;
+#import <HealthDaemon/NSCopying-Protocol.h>
 
-@interface HDCloudSyncFetchOperationResult : NSObject
+@class HDCloudSyncMasterRecord, NSMutableDictionary, NSSet, NSUUID;
+
+@interface HDCloudSyncFetchOperationResult : NSObject <NSCopying>
 {
-    HDCloudSyncOperationConfiguration *_configuration;
     long long _status;
     NSMutableDictionary *_storeRecordsCacheMap;
+    HDCloudSyncMasterRecord *_masterRecord;
+    NSSet *_recordZoneIDs;
     NSUUID *_syncStorePushIdentifier;
     NSSet *_syncStorePullIdentifierSet;
     NSSet *_abandonedStoreIdentifierSet;
     NSSet *_reclaimedIdentifierSet;
 }
 
-+ (id)resultOwnershipChangeWithConfiguration:(id)arg1;
-+ (id)resultErrorWithConfiguration:(id)arg1;
-@property(readonly, nonatomic) NSSet *reclaimedIdentifierSet; // @synthesize reclaimedIdentifierSet=_reclaimedIdentifierSet;
-@property(readonly, nonatomic) NSSet *abandonedStoreIdentifierSet; // @synthesize abandonedStoreIdentifierSet=_abandonedStoreIdentifierSet;
-@property(readonly, nonatomic) NSSet *syncStorePullIdentifierSet; // @synthesize syncStorePullIdentifierSet=_syncStorePullIdentifierSet;
-@property(readonly, nonatomic) NSUUID *syncStorePushIdentifier; // @synthesize syncStorePushIdentifier=_syncStorePushIdentifier;
-@property(readonly, nonatomic) NSMutableDictionary *storeRecordsCacheMap; // @synthesize storeRecordsCacheMap=_storeRecordsCacheMap;
-@property(readonly, nonatomic) long long status; // @synthesize status=_status;
-@property(readonly, nonatomic) HDCloudSyncOperationConfiguration *configuration; // @synthesize configuration=_configuration;
+@property(copy, nonatomic) NSSet *reclaimedIdentifierSet; // @synthesize reclaimedIdentifierSet=_reclaimedIdentifierSet;
+@property(copy, nonatomic) NSSet *abandonedStoreIdentifierSet; // @synthesize abandonedStoreIdentifierSet=_abandonedStoreIdentifierSet;
+@property(copy, nonatomic) NSSet *syncStorePullIdentifierSet; // @synthesize syncStorePullIdentifierSet=_syncStorePullIdentifierSet;
+@property(copy, nonatomic) NSUUID *syncStorePushIdentifier; // @synthesize syncStorePushIdentifier=_syncStorePushIdentifier;
+@property(copy, nonatomic) NSSet *recordZoneIDs; // @synthesize recordZoneIDs=_recordZoneIDs;
+@property(retain, nonatomic) HDCloudSyncMasterRecord *masterRecord; // @synthesize masterRecord=_masterRecord;
+@property(retain, nonatomic) NSMutableDictionary *storeRecordsCacheMap; // @synthesize storeRecordsCacheMap=_storeRecordsCacheMap;
+@property(nonatomic) long long status; // @synthesize status=_status;
 - (void).cxx_destruct;
 - (id)_storeDescriptionForStoreIdentifer:(id)arg1;
 - (id)description;
-- (id)resultWithUpdatedStatus:(long long)arg1;
-- (id)initWithConfiguration:(id)arg1 status:(long long)arg2 storeRecordsCacheMap:(id)arg3 syncStorePushIdentifier:(id)arg4 syncStorePullIdentifiers:(id)arg5 abandonedStoreIdentifiers:(id)arg6 reclaimedIdentifiers:(id)arg7;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithStatus:(long long)arg1;
+- (id)initWithStatus:(long long)arg1 storeRecordsCacheMap:(id)arg2 syncStorePushIdentifier:(id)arg3 syncStorePullIdentifiers:(id)arg4 abandonedStoreIdentifiers:(id)arg5 reclaimedIdentifiers:(id)arg6;
 
 @end
 

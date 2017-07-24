@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSDictionary, NSString, PMLAWDSessionTracker, PMLHashingVectorizer, PMLModelHandle, SGQPSettings;
+@class NSDictionary, NSString, PMLAWDSessionTracker, PMLHashingVectorizer, PMLSessionDescriptor, SGQPSettings;
 @protocol PMLTrainingProtocol;
 
 @interface SGQPSessionTracker : NSObject
@@ -17,7 +17,7 @@
     PMLHashingVectorizer *_vectorizer;
     NSDictionary *_categoryMap;
     NSString *_language;
-    PMLModelHandle *_sessionDescriptor;
+    PMLSessionDescriptor *_sessionDescriptor;
 }
 
 + (_Bool)_isAppleInternalConversation:(id)arg1;

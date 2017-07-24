@@ -10,6 +10,11 @@
 {
 }
 
++ (_Bool)eventsFoundInAppsEnabled;
++ (_Bool)automaticGeocodingEnabled;
++ (unsigned long long)_currentSplashScreenVersion;
++ (void)userAcknowledgedSplashScreen;
++ (_Bool)mustDisplaySplashScreenToUser;
 + (_Bool)areContextualRemindersSupported;
 + (_Bool)isContinuitySupported;
 + (_Bool)isSuggestionsEnabled;

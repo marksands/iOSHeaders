@@ -9,14 +9,16 @@
 #import <UserNotificationsUIKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <UserNotificationsUIKit/UIPreviewInteractionDelegatePrivate-Protocol.h>
 
-@class NCNotificationViewController, NSString, UIPreviewInteraction;
+@class NCNotificationViewController, NSString, UIPreviewInteraction, _UIPreviewInteractionViewControllerPresentation;
 @protocol NCNotificationPreviewInteractionManagerDelegate;
 
 @interface NCNotificationPreviewInteractionManager : NSObject <UIGestureRecognizerDelegate, UIPreviewInteractionDelegatePrivate>
 {
-    _Bool _willPresent;
+    _Bool _didPresent;
     NCNotificationViewController *_shortLookViewController;
     UIPreviewInteraction *_previewInteraction;
+    _UIPreviewInteractionViewControllerPresentation *_previewInteractionPresentation;
+    CDUnknownBlockType _dismissalCompletion;
     id <NCNotificationPreviewInteractionManagerDelegate> _delegate;
     NCNotificationViewController *_presentedLongLookViewController;
 }
@@ -24,14 +26,19 @@
 @property(readonly, nonatomic) __weak NCNotificationViewController *presentedLongLookViewController; // @synthesize presentedLongLookViewController=_presentedLongLookViewController;
 @property(nonatomic) __weak id <NCNotificationPreviewInteractionManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (_Bool)_previewInteractionShouldFinishTransitionToPreview:(id)arg1;
 - (_Bool)_previewInteractionShouldAutomaticallyTransitionToPreviewAfterDelay:(id)arg1;
 - (id)_previewInteraction:(id)arg1 viewControllerPresentationForPresentingViewController:(id)arg2;
 - (id)_previewInteractionHighlighterForPreviewTransition:(id)arg1;
 - (void)previewInteractionDidCancel:(id)arg1;
 - (void)previewInteraction:(id)arg1 didUpdatePreviewTransition:(double)arg2 ended:(_Bool)arg3;
 - (_Bool)previewInteractionShouldBegin:(id)arg1;
+- (void)_notificationPreviewInteractionViewControllerTransitionDidDismiss:(_Bool)arg1;
+- (void)_notificationPreviewInteractionViewControllerTransitionDidPresent:(_Bool)arg1;
 @property(readonly, nonatomic, getter=hasCommittedToPresentingLongLookViewController) _Bool committedToPresentingLongLookViewController;
 - (void)resetForInitialInteraction;
+- (_Bool)dismissIfPossible:(CDUnknownBlockType)arg1;
+- (void)completeTransitionImmediately;
 - (id)initWithShortLookViewController:(id)arg1;
 
 // Remaining properties

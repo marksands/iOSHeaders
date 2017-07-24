@@ -8,18 +8,21 @@
 
 #import <PhotoLibraryServices/PLSyncContext-Protocol.h>
 
-@class NSArray, NSString, PLCloudRecordOrganizer, PLPhotoLibrary;
+@class NSArray, NSMutableDictionary, NSString, PLCloudRecordOrganizer, PLPhotoLibrary;
 
 @interface PLLibrarySyncContext : NSObject <PLSyncContext>
 {
-    NSArray *_personIDsToDedupe;
+    NSMutableDictionary *_assetAdjustmentStatesByCloudIdentifier;
+    NSArray *_personUUIDsToDedupe;
     PLPhotoLibrary *_photoLibrary;
     PLCloudRecordOrganizer *_recordOrganizer;
 }
 
 @property(readonly) PLCloudRecordOrganizer *recordOrganizer; // @synthesize recordOrganizer=_recordOrganizer;
 @property(readonly) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
-@property(copy, nonatomic) NSArray *personIDsToDedupe; // @synthesize personIDsToDedupe=_personIDsToDedupe;
+@property(copy, nonatomic) NSArray *personUUIDsToDedupe; // @synthesize personUUIDsToDedupe=_personUUIDsToDedupe;
+- (void)setAssetAdjustmentState:(id)arg1 forCloudIdentifer:(id)arg2;
+- (id)assetAdjustmentStateForCloudIdentifier:(id)arg1;
 - (_Bool)personUUIDIsDeleted:(id)arg1;
 - (id)personForUUID:(id)arg1;
 - (void)deleteFaces:(id)arg1;

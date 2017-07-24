@@ -40,6 +40,7 @@
     unsigned int _castsShadow:1;
     unsigned int _ignoreAnimationWhenCopying_tmp:1;
     unsigned int _focusBehavior:2;
+    unsigned int _isFocusableOrHasFocusableChild:1;
     unsigned int _authoringEnvironmentNode:1;
     unsigned int _hasComponentBitmask:11;
     // Error parsing type: {?="columns"[4]}, name: _transform
@@ -88,9 +89,10 @@
 - (_Bool)authoringEnvironmentNode;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)_encodeNodePropertiesWithCoder:(id)arg1;
 - (void)_didDecodeSCNNode:(id)arg1;
 - (void)_customDecodingOfSCNNode:(id)arg1;
-- (void)_customEncodingOfSCNNode:(id)arg1;
+- (void)_customEncodingOfSCNNode:(id)arg1 usePresentationInstance:(_Bool)arg2;
 - (struct SCNMatrix4)convertTransform:(struct SCNMatrix4)arg1 fromNode:(id)arg2;
 - (struct SCNMatrix4)convertTransform:(struct SCNMatrix4)arg1 toNode:(id)arg2;
 - (struct SCNVector3)convertVector:(struct SCNVector3)arg1 fromNode:(id)arg2;
@@ -146,6 +148,9 @@
 - (_Bool)isFocusInteractionEnabled;
 @property(readonly, nonatomic) _Bool canBecomeFocused;
 @property(nonatomic) long long focusBehavior;
+- (void)_updateFocusableCache;
+- (void)_setHasFocusableChild;
+- (void)_focusableCandidates:(id)arg1;
 @property(nonatomic, getter=isPaused) _Bool paused;
 - (_Bool)isPausedOrPausedByInheritance;
 - (void)_setPausedOrPausedByInheritance:(_Bool)arg1;

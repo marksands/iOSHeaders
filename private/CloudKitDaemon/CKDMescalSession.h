@@ -31,7 +31,6 @@ __attribute__((visibility("hidden")))
 @property _Bool isSetup; // @synthesize isSetup=_isSetup;
 @property(readonly, nonatomic) __weak CKDClientContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
-- (void)processSignedData:(id)arg1 signature:(id)arg2 forRequest:(id)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
 - (void)signData:(id)arg1 forRequest:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (id)signatureHeadersForRequest:(id)arg1;
 - (void)renewMescalSessionForRequest:(id)arg1 withCallback:(CDUnknownBlockType)arg2;

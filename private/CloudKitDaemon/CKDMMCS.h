@@ -6,13 +6,16 @@
 
 #import <objc/NSObject.h>
 
-@class CKDAssetCache, CKDMMCSEngineContext, NSString;
+@class CKDAssetCache, CKDClientContext, CKDMMCSEngineContext, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CKDMMCS : NSObject
 {
+    _Bool _didDrop;
     NSString *_path;
     CKDAssetCache *_assetCache;
+    CKDClientContext *_clientContext;
+    long long _checkoutCount;
     CKDMMCSEngineContext *_MMCSEngineContext;
 }
 
@@ -37,6 +40,9 @@ __attribute__((visibility("hidden")))
 + (id)protocolVersion;
 + (id)zeroSizeFileSignature;
 @property(retain, nonatomic) CKDMMCSEngineContext *MMCSEngineContext; // @synthesize MMCSEngineContext=_MMCSEngineContext;
+@property(nonatomic) long long checkoutCount; // @synthesize checkoutCount=_checkoutCount;
+@property(nonatomic) _Bool didDrop; // @synthesize didDrop=_didDrop;
+@property(nonatomic) __weak CKDClientContext *clientContext; // @synthesize clientContext=_clientContext;
 @property(retain, nonatomic) CKDAssetCache *assetCache; // @synthesize assetCache=_assetCache;
 @property(retain, nonatomic) NSString *path; // @synthesize path=_path;
 - (void).cxx_destruct;
@@ -64,6 +70,7 @@ __attribute__((visibility("hidden")))
 - (struct _mmcs_engine *)getMMCSEngine;
 - (void)dealloc;
 - (id)initWithMMCSEngineContext:(id)arg1 path:(id)arg2;
+- (void)drop;
 
 @end
 

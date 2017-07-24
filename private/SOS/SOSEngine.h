@@ -27,6 +27,18 @@
 + (_Bool)authorizedToUseContactStore;
 + (id)contactStore;
 + (void)preloadContactStoreIfNecessary;
++ (id)additionalTextForCallbackNumber:(id)arg1 fullName:(id)arg2 firstName:(id)arg3;
++ (id)additionalTextForCallbackNumber:(id)arg1;
++ (id)GPSCoordinatesURLForLocation:(id)arg1;
++ (id)_sosMessageForLocation:(id)arg1 isFirstMessage:(_Bool)arg2 withMMS:(_Bool)arg3 myFullName:(id)arg4 myFirstName:(id)arg5 callbackNumber:(id)arg6;
++ (id)_sosMessageForLocation:(id)arg1 isFirstMessage:(_Bool)arg2 withMMS:(_Bool)arg3 callbackNumber:(id)arg4;
++ (id)firstNameForContact:(id)arg1;
++ (id)fullNameForContact:(id)arg1;
++ (id)meContact;
++ (id)_myNumber;
++ (_Bool)_isBasebandWatch;
++ (void)_sendMessage:(id)arg1 location:(id)arg2 recipients:(id)arg3 useStandalone:(_Bool)arg4 failureBlock:(CDUnknownBlockType)arg5;
++ (void)_sendMessageToRecipients:(id)arg1 withLocation:(id)arg2 isFirstMessage:(_Bool)arg3;
 + (id)sharedInstance;
 @property(retain, nonatomic) NSMutableArray *clientConnections; // @synthesize clientConnections=_clientConnections;
 @property(retain, nonatomic) FKFriendsManager *friendsManager; // @synthesize friendsManager=_friendsManager;
@@ -34,7 +46,6 @@
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)contactStoreDidChange;
 - (_Bool)_locationIsValidToSend:(id)arg1;
-- (id)_sosMessageForLocation:(id)arg1 isFirstMessage:(_Bool)arg2 withMMS:(_Bool)arg3;
 - (void)isSendingLocationUpdate:(CDUnknownBlockType)arg1;
 - (void)mostRecentLocationSentWithCompletion:(CDUnknownBlockType)arg1;
 - (long long)currentSOSInitiationState;
@@ -43,7 +54,6 @@
 - (void)startSendingLocationUpdateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)willStartSendingLocationUpdate;
 - (_Bool)notificationEnabledAndContactsExist;
-- (_Bool)_isMMSEnabled;
 - (void)sosPersistentTimerLocationMangerTimerFired:(id)arg1 location:(id)arg2;
 - (void)updateCurrentSOSInteractiveState:(long long)arg1;
 - (void)updateCurrentSOSInitiationState:(long long)arg1;

@@ -20,12 +20,12 @@
     NSDate *_finish;
     NSMutableArray *_attachments;
     _Bool _valid;
-    unsigned long long _attachmentSerializationFormat;
+    _Bool _useLegacySerializationFormat;
 }
 
 + (_Bool)_shouldSaveAttachmentWithName:(id)arg1 lifetime:(long long)arg2;
 + (_Bool)supportsSecureCoding;
-@property unsigned long long attachmentSerializationFormat; // @synthesize attachmentSerializationFormat=_attachmentSerializationFormat;
+@property _Bool useLegacySerializationFormat; // @synthesize useLegacySerializationFormat=_useLegacySerializationFormat;
 @property(copy) NSDate *start; // @synthesize start=_start;
 @property(copy) NSDate *finish; // @synthesize finish=_finish;
 @property(copy) NSUUID *uuid; // @synthesize uuid=_uuid;
@@ -54,6 +54,7 @@
 @property(readonly, copy) NSString *name;
 - (id)init;
 - (void)dealloc;
+- (void)addScreenshot;
 
 // Remaining properties
 @property(readonly) unsigned long long hash;

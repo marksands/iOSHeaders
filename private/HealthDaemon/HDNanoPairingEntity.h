@@ -25,9 +25,9 @@
 + (id)databaseTable;
 + (id)_predicateWithRegistryUUID:(id)arg1;
 + (_Bool)enumeratePairingsForStoreIdentifier:(long long)arg1 database:(id)arg2 error:(id *)arg3 handler:(CDUnknownBlockType)arg4;
-+ (id)sourceEntityForRegistryUUID:(id)arg1 healthDatabase:(id)arg2 error:(id *)arg3;
++ (id)sourceEntityForRegistryUUID:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (id)_nanoPairingEntitiesWithPredicate:(id)arg1 database:(id)arg2 error:(id *)arg3;
-+ (id)nanoPairingEntityWithRegistryUUID:(id)arg1 healthDatabase:(id)arg2 error:(id *)arg3;
++ (id)nanoPairingEntityWithRegistryUUID:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 @property(retain, nonatomic) HDNanoPairingEntity *entity; // @synthesize entity=_entity;
 @property(nonatomic, getter=isRestoreComplete) _Bool restoreComplete; // @synthesize restoreComplete=_restoreComplete;
 @property(nonatomic) long long syncProvenance; // @synthesize syncProvenance=_syncProvenance;

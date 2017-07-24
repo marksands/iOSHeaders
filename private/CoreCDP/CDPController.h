@@ -24,6 +24,7 @@
 @property(retain, nonatomic) id <CDPStateUIProvider> uiProvider; // @synthesize uiProvider=_uiProvider;
 @property(readonly, nonatomic) CDPContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (void)dealloc;
 - (void)invalidate;
 - (id)initWithContext:(id)arg1;
 - (id)init;

@@ -36,6 +36,7 @@
     NSDictionary *embeddedThumbnailPhotoFormat;
     _Bool squareCropEnabled;
     _Bool turboModeEnabled;
+    _Bool burstQualityCaptureEnabled;
     NSArray *photoFilters;
     NSArray *adjustedPhotoFilters;
     unsigned int shutterSound;

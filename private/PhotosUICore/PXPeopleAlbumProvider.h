@@ -6,13 +6,13 @@
 
 #import <objc/NSObject.h>
 
-#import <PhotosUICore/PXPeopleDataSourceDelegate-Protocol.h>
+#import <PhotosUICore/PXPeopleSectionedDataSourceChangeObserver-Protocol.h>
 #import <PhotosUICore/PXPhotoLibraryUIChangeObserver-Protocol.h>
 
-@class NSMutableDictionary, NSString, PHPhotoLibrary, PXPeoplePersonDataSource, PXPeopleProgressManager;
+@class NSMutableDictionary, NSString, PHPhotoLibrary, PXPeopleProgressManager, PXPeopleSectionedDataSource;
 @protocol OS_dispatch_queue;
 
-@interface PXPeopleAlbumProvider : NSObject <PXPeopleDataSourceDelegate, PXPhotoLibraryUIChangeObserver>
+@interface PXPeopleAlbumProvider : NSObject <PXPeopleSectionedDataSourceChangeObserver, PXPhotoLibraryUIChangeObserver>
 {
     _Bool _didInitiateReCacheRequest;
     _Bool _didInitiatePeopleCountFetchRequest;
@@ -22,8 +22,7 @@
     NSObject<OS_dispatch_queue> *_backgroundQueue;
     PHPhotoLibrary *_photoLibrary;
     // Error parsing type: Ai, name: _currentRequestId
-    PXPeoplePersonDataSource *_favoriteDS;
-    PXPeoplePersonDataSource *_otherDS;
+    PXPeopleSectionedDataSource *_peopleDataSource;
     PXPeopleProgressManager *_progressMgr;
     CDUnknownBlockType _requestCompletion;
     long long _cachedPeopleCount;
@@ -31,7 +30,6 @@
     struct CGSize _imageSize;
 }
 
-+ (id)_rootViewControllerWithProgressManager:(id)arg1;
 @property(retain) NSMutableDictionary *imageCache; // @synthesize imageCache=_imageCache;
 // Error parsing type for property currentRequestId:
 // Property attributes: TAi,V_currentRequestId
@@ -40,14 +38,13 @@
 @property(copy, nonatomic) CDUnknownBlockType requestCompletion; // @synthesize requestCompletion=_requestCompletion;
 @property(retain, nonatomic) PXPeopleProgressManager *progressMgr; // @synthesize progressMgr=_progressMgr;
 @property(nonatomic) struct CGSize imageSize; // @synthesize imageSize=_imageSize;
-@property(retain, nonatomic) PXPeoplePersonDataSource *otherDS; // @synthesize otherDS=_otherDS;
-@property(retain, nonatomic) PXPeoplePersonDataSource *favoriteDS; // @synthesize favoriteDS=_favoriteDS;
+@property(readonly, nonatomic) PXPeopleSectionedDataSource *peopleDataSource; // @synthesize peopleDataSource=_peopleDataSource;
 - (void).cxx_destruct;
 - (void)_appWillEnterForeground;
 - (void)_invalidateCache;
 - (void)imageCacheDidChanged:(id)arg1;
-- (void)peopleDataSource:(id)arg1 didApplyIncrementalChanges:(id)arg2;
-- (void)peopleDataSourceMembersChanged:(id)arg1;
+- (void)peopleSectionedDataSource:(id)arg1 didApplyIncrementalChanges:(id)arg2;
+- (void)peopleSectionedDataSourceMembersChanged:(id)arg1;
 - (_Bool)_shouldShowInterstitialProgress;
 - (void)_handleRequestResult:(id)arg1 forRequestID:person:atIndex:error:completion: /* Error: Ran out of types for this method. */;
 - (void)_asyncAddImagesToCacheWithItems:(id)arg1 completion:(CDUnknownBlockType)arg2;

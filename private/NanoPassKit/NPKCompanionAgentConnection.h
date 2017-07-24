@@ -17,6 +17,7 @@
     NSObject<OS_dispatch_queue> *_xpcConnectionQueue;
     NSObject<OS_dispatch_queue> *_cacheQueue;
     _Bool _queueAppropriateFailedActions;
+    _Bool _hasQueuedPaymentPasses;
     id <NPKCompanionAgentConnectionDelegate> _delegate;
     NSMutableSet *_cachedUniqueIDs;
     NSMutableDictionary *_cachedPasses;
@@ -24,6 +25,8 @@
     PKPaymentWebServiceContext *_connectionUnavailableWebServiceContext;
 }
 
++ (id)watchPeerPaymentWebService;
++ (id)watchPaymentWebService;
 + (_Bool)isIssuerAppProvisioningSupported;
 + (_Bool)isSetupAssistantProvisioningSupported;
 + (id)watchProvisioningURLForPaymentPass:(id)arg1;
@@ -33,6 +36,7 @@
 @property(retain) NSMutableDictionary *cachedPasses; // @synthesize cachedPasses=_cachedPasses;
 @property(retain) NSMutableSet *cachedUniqueIDs; // @synthesize cachedUniqueIDs=_cachedUniqueIDs;
 @property(nonatomic) __weak id <NPKCompanionAgentConnectionDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) _Bool hasQueuedPaymentPasses; // @synthesize hasQueuedPaymentPasses=_hasQueuedPaymentPasses;
 @property(nonatomic) _Bool queueAppropriateFailedActions; // @synthesize queueAppropriateFailedActions=_queueAppropriateFailedActions;
 - (void).cxx_destruct;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didRemoveTransactionWithIdentifier:(id)arg2;
@@ -57,6 +61,7 @@
 - (void)initiateLostModeExitAuthWithCompletion:(CDUnknownBlockType)arg1;
 - (id)watchPaymentWebService;
 - (void)shouldShowApplePaySettingsWithCompletion:(CDUnknownBlockType)arg1;
+- (id)peerPaymentAccountForDevice:(id)arg1;
 - (id)sharedPeerPaymentWebServiceContextForDevice:(id)arg1;
 - (void)setSharedPeerPaymentWebServiceContext:(id)arg1 forDevice:(id)arg2;
 - (void)setSharedPaymentWebServiceContext:(id)arg1 forDevice:(id)arg2;

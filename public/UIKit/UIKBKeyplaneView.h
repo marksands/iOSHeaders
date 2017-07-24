@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKBCacheableView-Protocol.h>
 
-@class NSMutableDictionary, NSString, NSTimer, UIKBCacheToken, UIKBKeyView, UIKBKeyViewAnimator, UIKBRenderConfig, UIKBRenderFactory, UIKBTree, UIKeyboardEmojiKeyDisplayController;
+@class NSMutableDictionary, NSString, NSTimer, UIKBCacheToken, UIKBKeyView, UIKBKeyViewAnimator, UIKBRenderConfig, UIKBRenderFactory, UIKBRenderingContext, UIKBTree, UIKeyboardEmojiKeyDisplayController;
 
 __attribute__((visibility("hidden")))
 @interface UIKBKeyplaneView : UIKBSplitImageView <UIKBCacheableView>
@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
     _Bool _performingDeactivation;
     _Bool _shouldDrawRect;
     UIKBRenderConfig *_renderConfig;
+    UIKBRenderingContext *_renderingContext;
     UIKBRenderFactory *_factory;
     UIKBSplitImageView *_keyBorders;
     UIKBSplitImageView *_keyBackgrounds;
@@ -37,6 +38,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIKeyboardEmojiKeyDisplayController *emojiKeyManager; // @synthesize emojiKeyManager=_emojiKeyManager;
 @property(retain, nonatomic) UIKBKeyViewAnimator *keyViewAnimator; // @synthesize keyViewAnimator=_keyViewAnimator;
 @property(retain, nonatomic) UIKBRenderFactory *factory; // @synthesize factory=_factory;
+@property(retain, nonatomic) UIKBRenderingContext *renderingContext; // @synthesize renderingContext=_renderingContext;
 @property(retain, nonatomic) UIKBRenderConfig *renderConfig; // @synthesize renderConfig=_renderConfig;
 @property(retain, nonatomic) UIKBCacheToken *defaultKeyplaneCacheToken; // @synthesize defaultKeyplaneCacheToken=_defaultKeyplaneCacheToken;
 @property(retain, nonatomic) UIKBCacheToken *cacheToken; // @synthesize cacheToken=_cacheToken;
@@ -80,6 +82,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *cacheKey;
 - (void)willMoveToWindow:(id)arg1;
 - (void)_generateFactoryIfNeeded;
+- (void)_generateRenderingContextIfNeeded;
 - (void)prepareForDisplay;
 - (_Bool)isPasscodeStyle;
 - (_Bool)validForKeyplane:(id)arg1 withVisualStyle:(int)arg2;

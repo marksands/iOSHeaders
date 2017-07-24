@@ -8,30 +8,20 @@
 
 #import <NewsTransport/NSCopying-Protocol.h>
 
+@class NTPBAbsolutePersonalizedSectionPresenceConfig, NTPBRelativePersonalizedSectionPresenceConfig;
+
 @interface NTPBPersonalizedSectionPresenceConfig : PBCodable <NSCopying>
 {
-    double _personalizedPresenceCTRToHide;
-    double _personalizedPresenceCTRToShow;
-    unsigned long long _personalizedPresenceClickPrior;
-    unsigned long long _personalizedPresenceImpressionPrior;
-    double _personalizedPresenceMinProbabilityToShow;
-    unsigned long long _personalizedPresenceSectionEdition;
+    NTPBAbsolutePersonalizedSectionPresenceConfig *_absoluteConfig;
+    int _personalizationMethod;
+    NTPBRelativePersonalizedSectionPresenceConfig *_relativeConfig;
     struct {
-        unsigned int personalizedPresenceCTRToHide:1;
-        unsigned int personalizedPresenceCTRToShow:1;
-        unsigned int personalizedPresenceClickPrior:1;
-        unsigned int personalizedPresenceImpressionPrior:1;
-        unsigned int personalizedPresenceMinProbabilityToShow:1;
-        unsigned int personalizedPresenceSectionEdition:1;
+        unsigned int personalizationMethod:1;
     } _has;
 }
 
-@property(nonatomic) unsigned long long personalizedPresenceSectionEdition; // @synthesize personalizedPresenceSectionEdition=_personalizedPresenceSectionEdition;
-@property(nonatomic) double personalizedPresenceMinProbabilityToShow; // @synthesize personalizedPresenceMinProbabilityToShow=_personalizedPresenceMinProbabilityToShow;
-@property(nonatomic) double personalizedPresenceCTRToHide; // @synthesize personalizedPresenceCTRToHide=_personalizedPresenceCTRToHide;
-@property(nonatomic) double personalizedPresenceCTRToShow; // @synthesize personalizedPresenceCTRToShow=_personalizedPresenceCTRToShow;
-@property(nonatomic) unsigned long long personalizedPresenceClickPrior; // @synthesize personalizedPresenceClickPrior=_personalizedPresenceClickPrior;
-@property(nonatomic) unsigned long long personalizedPresenceImpressionPrior; // @synthesize personalizedPresenceImpressionPrior=_personalizedPresenceImpressionPrior;
+@property(retain, nonatomic) NTPBAbsolutePersonalizedSectionPresenceConfig *absoluteConfig; // @synthesize absoluteConfig=_absoluteConfig;
+@property(retain, nonatomic) NTPBRelativePersonalizedSectionPresenceConfig *relativeConfig; // @synthesize relativeConfig=_relativeConfig;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -40,12 +30,11 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasPersonalizedPresenceSectionEdition;
-@property(nonatomic) _Bool hasPersonalizedPresenceMinProbabilityToShow;
-@property(nonatomic) _Bool hasPersonalizedPresenceCTRToHide;
-@property(nonatomic) _Bool hasPersonalizedPresenceCTRToShow;
-@property(nonatomic) _Bool hasPersonalizedPresenceClickPrior;
-@property(nonatomic) _Bool hasPersonalizedPresenceImpressionPrior;
+@property(readonly, nonatomic) _Bool hasAbsoluteConfig;
+@property(readonly, nonatomic) _Bool hasRelativeConfig;
+@property(nonatomic) _Bool hasPersonalizationMethod;
+@property(nonatomic) int personalizationMethod; // @synthesize personalizationMethod=_personalizationMethod;
+- (void)dealloc;
 
 @end
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IMSharedUtilities/XCTestObservation-Protocol.h>
 
@@ -34,6 +34,7 @@
 - (id)pathToPluginBundle:(id)arg1;
 - (id)runTestsInBundleAtPath:(id)arg1 error:(id *)arg2;
 - (_Bool)loadXCTestFramework;
+@property(readonly, nonatomic) NSString *defaultPathToXCTestFramework;
 - (id)loadTestBundle:(id)arg1 error:(id *)arg2;
 
 // Remaining properties

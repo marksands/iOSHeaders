@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     _Bool _isHorizontal;
     _Bool _isAnimating;
     long long _delayedAnimationType;
+    struct CGPoint _delayedAnimationPoint;
 }
 
 + (id)sharedRangedMagnifier;

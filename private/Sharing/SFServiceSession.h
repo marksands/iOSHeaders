@@ -14,20 +14,25 @@ __attribute__((visibility("hidden")))
     CUPairingSession *_pairSetupSession;
     unsigned int _pairSetupXID;
     CUPairingSession *_pairVerifySession;
+    unsigned long long _sendLastTicks;
     SFService *_service;
 }
 
 @property(retain, nonatomic) SFService *service; // @synthesize service=_service;
+@property(nonatomic) unsigned long long sendLastTicks; // @synthesize sendLastTicks=_sendLastTicks;
 - (void).cxx_destruct;
 - (int)_pairVerifyCompleted:(int)arg1;
 - (void)pairVerify:(id)arg1 start:(_Bool)arg2;
 - (int)_pairSetupCompleted:(int)arg1;
 - (void)pairSetup:(id)arg1 start:(_Bool)arg2;
 - (_Bool)pairingContainsACL:(id)arg1;
+- (void)sessionReceivedFrameType:(unsigned char)arg1 data:(id)arg2;
 - (void)_sendWithFlags:(unsigned int)arg1 object:(id)arg2;
 - (void)sendWithFlags:(unsigned int)arg1 object:(id)arg2;
 - (void)_sendRequestWithFlags:(unsigned int)arg1 object:(id)arg2 responseHandler:(CDUnknownBlockType)arg3;
 - (void)sendRequestWithFlags:(unsigned int)arg1 object:(id)arg2 responseHandler:(CDUnknownBlockType)arg3;
+- (void)_sendFrameType:(unsigned char)arg1 unencryptedObject:(id)arg2;
+- (void)_sendFrameType:(unsigned char)arg1 data:(id)arg2;
 - (void)sendFrameType:(unsigned char)arg1 data:(id)arg2;
 - (void)sendEncryptedObject:(id)arg1;
 - (void)receivedStartRequest:(id)arg1;

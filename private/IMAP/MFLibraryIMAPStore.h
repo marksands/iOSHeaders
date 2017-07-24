@@ -131,8 +131,7 @@
 - (id)_newSearchResponseQueueForConnection:(id)arg1 limit:(unsigned int)arg2;
 - (id)_remoteBodySearchForCriterion:(id)arg1;
 - (_Bool)canFetchSearchResults;
-- (void)_setStatusCount:(unsigned long long)arg1;
-- (void)_fetchStatusCountWithConnection:(id)arg1;
+- (void)_fetchStatusCountIfNeededWithConnection:(id)arg1;
 - (void)_updateServerUnreadCount:(unsigned long long)arg1;
 - (void)_fetchServerUnreadCountWithConnection:(id)arg1;
 - (long long)fetchNumMessages:(unsigned long long)arg1 preservingUID:(id)arg2 options:(unsigned long long)arg3;

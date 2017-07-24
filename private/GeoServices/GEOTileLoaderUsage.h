@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (void)cleanUp;
 - (void)finishedUsageForTileWithKey:(const struct _GEOTileKey *)arg1 withUserInfo:(id)arg2;
 - (void)removeUsageForTileKey:(const struct _GEOTileKey *)arg1;
 - (void)decodedTileWithKey:(const struct _GEOTileKey *)arg1 withStartTime:(double)arg2 andTileSize:(unsigned long long)arg3;

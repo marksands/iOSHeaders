@@ -12,25 +12,22 @@
 {
     long long _uniqueIdentifier;
     long long _ancestorIdentifier;
-    double _startTimestamp;
-    double _endTimestamp;
     NSSet *_strokeIdentifiers;
     struct CGRect _bounds;
 }
 
 + (long long)_newStrokeGroupUniqueIdentifier;
 @property(readonly, nonatomic) NSSet *strokeIdentifiers; // @synthesize strokeIdentifiers=_strokeIdentifiers;
-@property(readonly, nonatomic) double endTimestamp; // @synthesize endTimestamp=_endTimestamp;
-@property(readonly, nonatomic) double startTimestamp; // @synthesize startTimestamp=_startTimestamp;
 @property(readonly, nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 @property(readonly, nonatomic) long long ancestorIdentifier; // @synthesize ancestorIdentifier=_ancestorIdentifier;
 @property(readonly, nonatomic) long long uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
-- (id)groupByAddingStrokeIdentifiers:(id)arg1 removingStrokeIdentifiers:(id)arg2 bounds:(struct CGRect)arg3 startTimestamp:(double)arg4 endTimestamp:(double)arg5;
+- (id)groupByAddingStrokeIdentifiers:(id)arg1 removingStrokeIdentifiers:(id)arg2 bounds:(struct CGRect)arg3;
 @property(readonly, nonatomic) struct CGVector averageWritingOrientation;
 - (id)description;
+- (_Bool)isEquivalentToStrokeGroup:(id)arg1;
 - (void)dealloc;
-- (id)initWithAncestorIdentifier:(long long)arg1 strokeIdentifiers:(id)arg2 bounds:(struct CGRect)arg3 startTimestamp:(double)arg4 endTimestamp:(double)arg5;
-- (id)initWithStrokeIdentifiers:(id)arg1 bounds:(struct CGRect)arg2 startTimestamp:(double)arg3 endTimestamp:(double)arg4;
+- (id)initWithAncestorIdentifier:(long long)arg1 strokeIdentifiers:(id)arg2 bounds:(struct CGRect)arg3;
+- (id)initWithStrokeIdentifiers:(id)arg1 bounds:(struct CGRect)arg2;
 - (id)init;
 
 @end

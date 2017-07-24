@@ -9,29 +9,28 @@
 #import <Silex/SXAXAssistiveTechStatusChangeListener-Protocol.h>
 #import <Silex/SXViewportChangeListener-Protocol.h>
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, SXConfiguration, SXLayoutBlueprint, SXPresentationAttributes, SXViewport;
-@protocol SXComponentControllerDataSource, SXComponentControllerDelegate;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, SXLayoutBlueprint, SXPresentationAttributes, SXViewport;
+@protocol SXComponentControllerDelegate, SXComponentHosting, SXComponentViewFactory;
 
 @interface SXComponentController : NSObject <SXViewportChangeListener, SXAXAssistiveTechStatusChangeListener>
 {
     _Bool _isPresented;
     _Bool _invalidationDispatched;
     _Bool _isPresenting;
-    id <SXComponentControllerDelegate> _delegate;
-    id <SXComponentControllerDataSource> _dataSource;
     SXLayoutBlueprint *_presentedBlueprint;
-    SXConfiguration *_configuration;
+    SXViewport *_viewport;
+    id <SXComponentViewFactory> _componentViewFactory;
+    id <SXComponentHosting> _componentHost;
+    id <SXComponentControllerDelegate> _delegate;
     NSMutableDictionary *_mappedComponentViews;
     NSMutableArray *_sortedComponentViews;
     NSMutableArray *_nestedComponentViews;
     NSMutableSet *_possibleInvalidations;
     NSMutableDictionary *_componentIdentifiersToInvalidate;
-    SXViewport *_viewport;
     SXPresentationAttributes *_presentationAttributes;
 }
 
 @property(readonly, nonatomic) SXPresentationAttributes *presentationAttributes; // @synthesize presentationAttributes=_presentationAttributes;
-@property(retain, nonatomic) SXViewport *viewport; // @synthesize viewport=_viewport;
 @property(nonatomic) _Bool isPresenting; // @synthesize isPresenting=_isPresenting;
 @property(nonatomic) _Bool invalidationDispatched; // @synthesize invalidationDispatched=_invalidationDispatched;
 @property(retain, nonatomic) NSMutableDictionary *componentIdentifiersToInvalidate; // @synthesize componentIdentifiersToInvalidate=_componentIdentifiersToInvalidate;
@@ -39,11 +38,12 @@
 @property(retain, nonatomic) NSMutableArray *nestedComponentViews; // @synthesize nestedComponentViews=_nestedComponentViews;
 @property(retain, nonatomic) NSMutableArray *sortedComponentViews; // @synthesize sortedComponentViews=_sortedComponentViews;
 @property(retain, nonatomic) NSMutableDictionary *mappedComponentViews; // @synthesize mappedComponentViews=_mappedComponentViews;
-@property(readonly, nonatomic) SXConfiguration *configuration; // @synthesize configuration=_configuration;
+@property(readonly, nonatomic) __weak id <SXComponentControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) __weak id <SXComponentHosting> componentHost; // @synthesize componentHost=_componentHost;
+@property(readonly, nonatomic) id <SXComponentViewFactory> componentViewFactory; // @synthesize componentViewFactory=_componentViewFactory;
+@property(readonly, nonatomic) SXViewport *viewport; // @synthesize viewport=_viewport;
 @property(readonly, nonatomic) _Bool isPresented; // @synthesize isPresented=_isPresented;
 @property(readonly, nonatomic) SXLayoutBlueprint *presentedBlueprint; // @synthesize presentedBlueprint=_presentedBlueprint;
-@property(readonly, nonatomic) __weak id <SXComponentControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
-@property(readonly, nonatomic) __weak id <SXComponentControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)assistiveTechnologyStatusDidChange;
 @property(readonly, nonatomic) struct CGSize viewportSize;
@@ -77,7 +77,7 @@
 - (void)presentBlueprint:(id)arg1 inHost:(id)arg2;
 - (void)presentBlueprint:(id)arg1 animated:(_Bool)arg2;
 - (void)presentBlueprint:(id)arg1 withAttributes:(id)arg2;
-- (id)initWithConfiguration:(id)arg1 delegate:(id)arg2 dataSource:(id)arg3;
+- (id)initWithViewport:(id)arg1 componentViewFactory:(id)arg2 componentHost:(id)arg3 delegate:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

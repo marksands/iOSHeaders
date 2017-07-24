@@ -41,6 +41,7 @@
         unsigned int hasTransitioningSizeAndOrientation:1;
         unsigned int hasPendingPreferredDisplayModeChange:1;
         unsigned int firstResponderChangedFromPostTransitionResponder:1;
+        unsigned int firstResponderChangedFromPostTransitionResponderToNil:1;
     } _flags;
     double _lastUserInitiatedPrimaryWidth;
     _Bool _presentsWithGesture;
@@ -102,6 +103,7 @@
 - (void)panelController:(id)arg1 didChangeToState:(id)arg2;
 - (void)panelController:(id)arg1 willChangeToState:(id)arg2;
 - (CDUnknownBlockType)panelControllerWillUpdate:(id)arg1;
+- (void)updateDisplayModeButtonItem;
 - (void)animateToRequest:(id)arg1;
 @property(copy, nonatomic) UISlidingBarStateRequest *stateRequest;
 @property(readonly, nonatomic) NSArray *possibleStates;

@@ -4,11 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <MediaToolbox/FigBaseCALayer.h>
+#import <MediaToolbox/FigSubtitleBackdropCALayer.h>
+
+#import <MediaToolbox/CALayerDelegate-Protocol.h>
 
 @class NSString;
 
-@interface FigSubtitleCALayer : FigBaseCALayer
+@interface FigSubtitleCALayer : FigSubtitleBackdropCALayer <CALayerDelegate>
 {
     struct OpaqueFigSubtitleCALayerInternal *layerInternal;
 }
@@ -26,14 +28,20 @@
 - (void)handleNeedsLayoutNotification;
 - (void)_addPositionAnimation:(id)arg1 forKey:(id)arg2;
 - (void)_addBoundsAnimation:(id)arg1 forKey:(id)arg2;
-- (void)drawInContext:(struct CGContext *)arg1;
-- (void)layoutSublayers;
+- (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
+- (void)layoutSublayersOfLayer:(id)arg1;
 - (void)clear;
 - (void)dealloc;
 - (void)finalize;
 - (id)initWithLayer:(id)arg1;
 - (id)init;
 - (id)actionForKey:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOAbAssignInfo, NSMutableArray, NSString, PBUnknownFields;
+@class GEOAbAssignInfo, GEOLocalTime, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPDAnalyticMetadata : PBCodable <NSCopying>
 {
@@ -23,6 +23,7 @@
     NSString *_osVersion;
     NSString *_productName;
     int _requestSource;
+    GEOLocalTime *_requestTime;
     unsigned int _sequenceNumber;
     NSMutableArray *_serviceTags;
     _Bool _isFromApi;
@@ -39,6 +40,7 @@
 }
 
 + (Class)serviceTagType;
+@property(retain, nonatomic) GEOLocalTime *requestTime; // @synthesize requestTime=_requestTime;
 @property(retain, nonatomic) GEOAbAssignInfo *abAssignInfo; // @synthesize abAssignInfo=_abAssignInfo;
 @property(retain, nonatomic) NSString *loggedAbExperiment; // @synthesize loggedAbExperiment=_loggedAbExperiment;
 @property(retain, nonatomic) NSString *productName; // @synthesize productName=_productName;
@@ -64,6 +66,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasRequestTime;
 @property(readonly, nonatomic) _Bool hasAbAssignInfo;
 @property(readonly, nonatomic) _Bool hasLoggedAbExperiment;
 @property(readonly, nonatomic) _Bool hasProductName;

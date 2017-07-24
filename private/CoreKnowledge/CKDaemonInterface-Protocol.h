@@ -27,10 +27,13 @@
 - (void)saveKeysAndValues:(NSDictionary *)arg1 toSynchedStoreWithIdentifier:(NSString *)arg2 completionHandler:(void (^)(NSError *))arg3;
 - (void)saveKeysAndValues:(NSDictionary *)arg1 toStoreWithIdentifier:(NSString *)arg2 completionHandler:(void (^)(NSError *))arg3;
 - (void)triplesComponentsMatching:(CKTripleCondition *)arg1 inStoreWithIdentifier:(NSString *)arg2 completionHandler:(void (^)(NSError *, NSArray *))arg3;
-- (void)valuesForKeys:(NSArray *)arg1 inStoreWithIdentifier:(NSString *)arg2 completionHandler:(void (^)(NSError *, NSArray *))arg3;
-- (void)valueForKey:(NSString *)arg1 inStoreWithIdentifier:(NSString *)arg2 completionHandler:(void (^)(NSError *, id))arg3;
+- (void)keysAndValuesForKeysMatchingCondition:(CKGenericCondition *)arg1 inStoreWithIdentifier:(NSString *)arg2 completionHandler:(void (^)(NSError *, NSDictionary *))arg3;
 - (void)keysAndValuesInStoreWithIdentifier:(NSString *)arg1 completionHandler:(void (^)(NSError *, NSDictionary *))arg2;
+- (void)valuesForKeys:(NSArray *)arg1 inStoreWithIdentifier:(NSString *)arg2 completionHandler:(void (^)(NSError *, NSArray *))arg3;
+- (void)valuesForKeysMatchingCondition:(CKGenericCondition *)arg1 inStoreWithIdentifier:(NSString *)arg2 completionHandler:(void (^)(NSError *, NSArray *))arg3;
 - (void)valuesInStoreWithIdentifier:(NSString *)arg1 completionHandler:(void (^)(NSError *, NSArray *))arg2;
+- (void)valueForKey:(NSString *)arg1 inStoreWithIdentifier:(NSString *)arg2 completionHandler:(void (^)(NSError *, id))arg3;
+- (void)keysMatchingCondition:(CKGenericCondition *)arg1 inStoreWithIdentifier:(NSString *)arg2 completionHandler:(void (^)(NSError *, NSArray *))arg3;
 - (void)keysInStoreWithIdentifier:(NSString *)arg1 completionHandler:(void (^)(NSError *, NSArray *))arg2;
 @end
 

@@ -9,7 +9,7 @@
 #import <HealthDaemon/HDActivityCacheStatisticsBuilderSourceOrderDelegate-Protocol.h>
 #import <HealthDaemon/HDDataObserver-Protocol.h>
 
-@class HDActivityCacheStatisticsBuilder, HDProfile, HKCategoryType, HKWorkoutType, NSSet, NSString, _HKDelayedOperation, _HKTimePeriod;
+@class HDActivityCacheHeartRateStatisticsBuilder, HDActivityCacheStatisticsBuilder, HDProfile, HKCategoryType, HKWorkoutType, NSDateInterval, NSSet, NSString, _HKDelayedOperation;
 @protocol OS_dispatch_queue;
 
 @interface HDActivityCacheDataSource : NSObject <HDActivityCacheStatisticsBuilderSourceOrderDelegate, HDDataObserver>
@@ -32,17 +32,25 @@
     HDProfile *_profile;
     HDActivityCacheStatisticsBuilder *_targetDayStatisticsBuilder;
     HDActivityCacheStatisticsBuilder *_previousDayStatisticsBuilder;
-    _HKTimePeriod *_targetDayDateRange;
-    _HKTimePeriod *_previousDayDateRange;
+    HDActivityCacheHeartRateStatisticsBuilder *_targetDayHeartRateStatisticsBuilder;
+    HDActivityCacheHeartRateStatisticsBuilder *_previousDayHeartRateStatisticsBuilder;
+    NSDateInterval *_targetDayDateInterval;
+    NSDateInterval *_previousDayDateInterval;
+    long long _targetDayCacheIndex;
+    long long _previousDayCacheIndex;
     NSString *_targetDayStatisticsBuilderTag;
     NSString *_previousDayStatisticsBuilderTag;
 }
 
 @property(retain, nonatomic) NSString *previousDayStatisticsBuilderTag; // @synthesize previousDayStatisticsBuilderTag=_previousDayStatisticsBuilderTag;
 @property(retain, nonatomic) NSString *targetDayStatisticsBuilderTag; // @synthesize targetDayStatisticsBuilderTag=_targetDayStatisticsBuilderTag;
-@property(retain, nonatomic) _HKTimePeriod *previousDayDateRange; // @synthesize previousDayDateRange=_previousDayDateRange;
-@property(retain, nonatomic) _HKTimePeriod *targetDayDateRange; // @synthesize targetDayDateRange=_targetDayDateRange;
+@property(nonatomic) long long previousDayCacheIndex; // @synthesize previousDayCacheIndex=_previousDayCacheIndex;
+@property(nonatomic) long long targetDayCacheIndex; // @synthesize targetDayCacheIndex=_targetDayCacheIndex;
+@property(retain, nonatomic) NSDateInterval *previousDayDateInterval; // @synthesize previousDayDateInterval=_previousDayDateInterval;
+@property(retain, nonatomic) NSDateInterval *targetDayDateInterval; // @synthesize targetDayDateInterval=_targetDayDateInterval;
 @property(readonly, nonatomic) NSSet *observedQuantityTypes; // @synthesize observedQuantityTypes=_observedQuantityTypes;
+@property(readonly, nonatomic) HDActivityCacheHeartRateStatisticsBuilder *previousDayHeartRateStatisticsBuilder; // @synthesize previousDayHeartRateStatisticsBuilder=_previousDayHeartRateStatisticsBuilder;
+@property(readonly, nonatomic) HDActivityCacheHeartRateStatisticsBuilder *targetDayHeartRateStatisticsBuilder; // @synthesize targetDayHeartRateStatisticsBuilder=_targetDayHeartRateStatisticsBuilder;
 @property(readonly, nonatomic) HDActivityCacheStatisticsBuilder *previousDayStatisticsBuilder; // @synthesize previousDayStatisticsBuilder=_previousDayStatisticsBuilder;
 @property(readonly, nonatomic) HDActivityCacheStatisticsBuilder *targetDayStatisticsBuilder; // @synthesize targetDayStatisticsBuilder=_targetDayStatisticsBuilder;
 - (id).cxx_construct;
@@ -71,8 +79,8 @@
 - (_Bool)_readyToPrimeActivationLogEntries;
 - (_Bool)_updateStatisticsBuildersWithError:(id *)arg1;
 - (_Bool)_readyToPrimeStatisticsBuilders;
-- (id)_overallTimePeriod;
-- (_Bool)_timePeriodsAreSet;
+- (id)_overallDateInterval;
+- (_Bool)_dateIntervalsAreSet;
 - (_Bool)updateWithError:(id *)arg1;
 - (void)dealloc;
 - (id)initWithProfile:(id)arg1 observedQuantityTypes:(id)arg2 updateOperation:(id)arg3 rebuildOperation:(id)arg4 queue:(id)arg5;

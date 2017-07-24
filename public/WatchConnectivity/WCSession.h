@@ -87,7 +87,6 @@
 - (void)_onqueue_notifyOfMessageError:(id)arg1 messageID:(id)arg2 withErrorHandler:(CDUnknownBlockType)arg3;
 - (void)onqueue_handleMessageCompletionWithError:(id)arg1 withMessageID:(id)arg2;
 - (void)onqueue_dequeueContent;
-- (void)E4BFDA635AC244FEAF9F76EF9FEB9068;
 - (void)onqueue_startNextDeviceSwitch;
 - (void)didSessionStateChange:(id)arg1 withChangeHandler:(CDUnknownBlockType)arg2;
 - (void)onqueue_handleUpdateSessionState:(id)arg1;

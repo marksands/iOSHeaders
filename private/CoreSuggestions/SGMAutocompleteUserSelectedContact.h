@@ -15,7 +15,7 @@
 
 @property(readonly, nonatomic) PETScalarEventTracker *tracker; // @synthesize tracker=_tracker;
 - (void).cxx_destruct;
-- (void)trackEventWithScalar:(unsigned long long)arg1 wasSuggestedContact:(struct SGMTypeSafeBool_)arg2 app:(struct SGMContactDetailUsedApp_)arg3;
+- (void)trackEventWithScalar:(unsigned long long)arg1 wasSuggestedContact:(struct SGMTypeSafeBool_)arg2 wasKnownContact:(struct SGMTypeSafeBool_)arg3 app:(struct SGMContactDetailUsedApp_)arg4;
 - (id)init;
 
 @end

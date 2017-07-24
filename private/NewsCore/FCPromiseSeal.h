@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSError, NSMutableArray;
+@class FCMutexLock, NSError, NSMutableArray;
 
 @interface FCPromiseSeal : NSObject
 {
@@ -14,8 +14,10 @@
     NSError *_error;
     unsigned long long _state;
     NSMutableArray *_handlers;
+    FCMutexLock *_lock;
 }
 
+@property(readonly, nonatomic) FCMutexLock *lock; // @synthesize lock=_lock;
 @property(retain, nonatomic) NSMutableArray *handlers; // @synthesize handlers=_handlers;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;

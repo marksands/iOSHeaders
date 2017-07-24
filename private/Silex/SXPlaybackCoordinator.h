@@ -9,13 +9,15 @@
 #import <Silex/SXMediaSelectionControllerDataSource-Protocol.h>
 #import <Silex/SXMediaSelectionControllerDelegate-Protocol.h>
 #import <Silex/SXVideoMetadataProviding-Protocol.h>
+#import <Silex/SXVolumeObserver-Protocol.h>
 
-@class NSArray, NSHashTable, NSString, SXAVPlayer;
+@class NSArray, NSHashTable, NSString, SXAVPlayer, SXKeyValueObserver;
 @protocol SXVideoPlaybackHost, SXVideoProviding;
 
-@interface SXPlaybackCoordinator : NSObject <SXVideoMetadataProviding, SXMediaSelectionControllerDelegate, SXMediaSelectionControllerDataSource>
+@interface SXPlaybackCoordinator : NSObject <SXVideoMetadataProviding, SXMediaSelectionControllerDelegate, SXMediaSelectionControllerDataSource, SXVolumeObserver>
 {
     _Bool _hasMediaSelectionOptions;
+    _Bool _muted;
     _Bool _playbackRequested;
     _Bool _initiatedPlayback;
     id <SXVideoProviding> _video;
@@ -24,20 +26,33 @@
     NSHashTable *_observers;
     SXAVPlayer *_player;
     CDUnknownBlockType _cancelHandler;
+    SXKeyValueObserver *_playerItemTracksObserver;
+    SXKeyValueObserver *_readyForDisplayObserver;
+    struct CGSize _dimensions;
 }
 
+@property(retain, nonatomic) SXKeyValueObserver *readyForDisplayObserver; // @synthesize readyForDisplayObserver=_readyForDisplayObserver;
+@property(retain, nonatomic) SXKeyValueObserver *playerItemTracksObserver; // @synthesize playerItemTracksObserver=_playerItemTracksObserver;
 @property(nonatomic) _Bool initiatedPlayback; // @synthesize initiatedPlayback=_initiatedPlayback;
 @property(copy, nonatomic) CDUnknownBlockType cancelHandler; // @synthesize cancelHandler=_cancelHandler;
 @property(retain, nonatomic) SXAVPlayer *player; // @synthesize player=_player;
 @property(readonly, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(nonatomic) _Bool playbackRequested; // @synthesize playbackRequested=_playbackRequested;
+@property(nonatomic) _Bool muted; // @synthesize muted=_muted;
 @property(nonatomic) __weak NSObject<SXVideoPlaybackHost> *host; // @synthesize host=_host;
+@property(nonatomic) struct CGSize dimensions; // @synthesize dimensions=_dimensions;
 @property(nonatomic) _Bool hasMediaSelectionOptions; // @synthesize hasMediaSelectionOptions=_hasMediaSelectionOptions;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(readonly, nonatomic) id <SXVideoProviding> video; // @synthesize video=_video;
 - (void).cxx_destruct;
+- (void)removeReadyForDisplayObserver;
+- (void)addReadyForDisplayObserver;
+- (void)loadVideoDimensions;
+- (void)removePlayerItemTracksObserver;
+- (void)addPlayerItemTracksObserver;
 - (void)updateMediaSelectionOptionAvailability;
 - (void)loadAvailableMediaCharacteristics;
+- (void)muteStateChanged:(_Bool)arg1;
 - (id)mediaSelectionController:(id)arg1 preferredMediaSelectionOptionInMediaSelectionGroup:(id)arg2;
 - (id)mediaSelectionController:(id)arg1 selectedMediaSelectionOptionInMediaSelectionGroup:(id)arg2;
 - (void)mediaSelectionController:(id)arg1 selectMediaSelectionOption:(id)arg2 inMediaSelectionGroup:(id)arg3;
@@ -45,18 +60,17 @@
 - (void)stateChanged;
 - (void)loadedTimeRangesChanged;
 - (void)timeElapsed:(double)arg1 duration:(double)arg2;
-- (void)playbackFailed;
+- (void)playbackFailedWithError:(id)arg1;
 - (void)playbackFinished;
 - (void)playbackResumed;
 - (void)playbackPaused;
 - (void)playbackStarted;
 - (void)playbackInitiated;
-- (void)dealloc;
 - (void)setupPlayerWithURL:(id)arg1;
 - (void)loadVideoIfNeeded;
 - (void)prefetch;
 - (void)playIfReady;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+@property(readonly, nonatomic) double volume;
 @property(readonly, nonatomic) _Bool playbackBufferFull;
 @property(readonly, nonatomic) _Bool playbackLikelyToKeepUp;
 @property(readonly, nonatomic) NSArray *loadedTimeRanges;

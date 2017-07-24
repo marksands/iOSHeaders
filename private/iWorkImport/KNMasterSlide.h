@@ -63,7 +63,6 @@ __attribute__((visibility("hidden")))
 - (id)tagsforNewPlaceholderInfos:(id)arg1;
 - (id)p_defaultTagForDrawable:(id)arg1;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
-- (id)copyWithContext:(id)arg1 andSlideNode:(id)arg2;
 @property(readonly, copy) NSString *description;
 - (id)initWithSlideNode:(id)arg1 context:(id)arg2;
 @property(nonatomic) _Bool slideObjectsLayerWithMaster;

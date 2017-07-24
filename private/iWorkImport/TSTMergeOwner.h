@@ -28,10 +28,10 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)assertCollaborationConvergence;
 - (void)beginRewriteForCalculationEngine:(id)arg1 spec:(id)arg2;
-- (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(id)arg3;
+- (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_ed6d627d)arg2 rewriteSpec:(id)arg3;
 - (void)invalidateForCalculationEngine:(id)arg1;
 - (void)writeResultsForCalculationEngine:(id)arg1;
-- (CDStruct_22e7ec3e)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(_Bool)arg3 hasCalculatedPrecedents:(_Bool)arg4;
+- (CDStruct_2a4d9400)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_ed6d627d)arg2 isInCycle:(_Bool)arg3 hasCalculatedPrecedents:(_Bool)arg4;
 - (void)unregisterFromCalculationEngine;
 - (int)registerWithCalculationEngine:(id)arg1;
 - (void)rewriteMergesForInsertedRange:(struct _NSRange)arg1 uids:(const vector_dadc1b26 *)arg2 isRows:(_Bool)arg3;

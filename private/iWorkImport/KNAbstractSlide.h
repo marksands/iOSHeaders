@@ -16,45 +16,58 @@
 #import <iWorkImport/TSSPropertySource-Protocol.h>
 #import <iWorkImport/TSSStyleClient-Protocol.h>
 
-@class KNBodyPlaceholderInfo, KNObjectPlaceholderInfo, KNSlideBackgroundInfo, KNSlideNode, KNSlideNumberPlaceholderInfo, KNSlideStyle, KNTitlePlaceholderInfo, KNTransition, NSArray, NSDictionary, NSMutableDictionary, NSObject, NSOrderedSet, NSSet, NSString, TSDFill, TSDInfoGeometry, TSUMutablePointerSet, TSUPointerKeyDictionary;
+@class KNBodyPlaceholderInfo, KNObjectPlaceholderInfo, KNSlideBackgroundInfo, KNSlideNode, KNSlideNumberPlaceholderInfo, KNSlideStyle, KNTitlePlaceholderInfo, KNTransition, NSArray, NSDictionary, NSObject, NSOrderedSet, NSSet, NSString, TSDFill, TSDInfoGeometry, TSUMutablePointerSet, TSUPointerKeyDictionary;
 @protocol TSDContainerInfo, TSDOwningAttachment;
 
 __attribute__((visibility("hidden")))
 @interface KNAbstractSlide : TSPObject <TSSPropertySource, TSKDocumentObject, TSDDrawableContainerInfo, TSDMutableContainerInfo, TSKTransformableObject, TSSStyleClient, TSDReplaceableMediaContainer, TSDReducibleImageContainer, TSDCompatibilityAwareMediaContainer>
 {
-    KNSlideNode *mSlideNode;
-    KNTitlePlaceholderInfo *mTitlePlaceholder;
-    KNBodyPlaceholderInfo *mBodyPlaceholder;
-    KNObjectPlaceholderInfo *mObjectPlaceholder;
-    KNSlideNumberPlaceholderInfo *mSlideNumberPlaceholder;
-    KNSlideStyle *mStyle;
-    KNSlideBackgroundInfo *mBackground;
-    NSOrderedSet *mChildInfos;
-    _Bool mInDocument;
-    NSMutableDictionary *mPlaceholdersForTags;
+    KNSlideNode *_slideNode;
+    KNSlideStyle *_style;
+    KNSlideBackgroundInfo *_background;
+    NSOrderedSet *_childInfos;
+    _Bool _inDocument;
+    NSDictionary *_placeholdersForTags;
     NSSet *_builds;
     NSArray *_buildChunks;
-    _Bool mNeedsSlideNodeEventCountUpdate;
-    TSUPointerKeyDictionary *mDrawableToGhostInfosMap;
-    TSUMutablePointerSet *mDrawablesWithInvalidGhosts;
-    _Bool mShouldConsiderAllChunksActive;
-    KNTransition *mTransition;
+    _Bool _needsSlideNodeEventCountUpdate;
+    TSUPointerKeyDictionary *_drawableToGhostInfosMap;
+    TSUMutablePointerSet *_drawablesWithInvalidatedGhosts;
+    _Bool _shouldConsiderAllChunksActive;
+    KNTransition *_transition;
+    KNTitlePlaceholderInfo *_titlePlaceholder;
+    KNBodyPlaceholderInfo *_bodyPlaceholder;
+    KNObjectPlaceholderInfo *_objectPlaceholder;
+    KNSlideNumberPlaceholderInfo *_slideNumberPlaceholder;
 }
 
++ (Class)classForUnarchiver:(id)arg1;
++ (_Bool)needsObjectUUID;
 + (unsigned long long)deliveryGroupCountForBuildChunks:(id)arg1;
 + (id)buildChunksInDeliveryGroupAtIndex:(unsigned long long)arg1 inBuildChunks:(id)arg2;
 + (id)p_firstActiveChunkInChunks:(id)arg1;
 + (_Bool)chunk:(id)arg1 isFirstInDeliveryGroupForChunks:(id)arg2;
 + (unsigned long long)deliveryGroupIndexForBuildChunk:(id)arg1 inBuildChunks:(id)arg2;
 + (id)parentSlideForInfo:(id)arg1;
-+ (Class)classForUnarchiver:(id)arg1;
-+ (_Bool)needsObjectUUID;
-@property(readonly, nonatomic) _Bool inDocument; // @synthesize inDocument=mInDocument;
-@property(retain, nonatomic) KNSlideNumberPlaceholderInfo *slideNumberPlaceholder; // @synthesize slideNumberPlaceholder=mSlideNumberPlaceholder;
-@property(retain, nonatomic) KNObjectPlaceholderInfo *objectPlaceholder; // @synthesize objectPlaceholder=mObjectPlaceholder;
-@property(retain, nonatomic) KNBodyPlaceholderInfo *bodyPlaceholder; // @synthesize bodyPlaceholder=mBodyPlaceholder;
-@property(retain, nonatomic) KNTitlePlaceholderInfo *titlePlaceholder; // @synthesize titlePlaceholder=mTitlePlaceholder;
-@property(readonly, nonatomic) KNSlideNode *slideNode; // @synthesize slideNode=mSlideNode;
+@property(copy, nonatomic) NSDictionary *placeholdersForTags; // @synthesize placeholdersForTags=_placeholdersForTags;
+@property(readonly, nonatomic) _Bool inDocument; // @synthesize inDocument=_inDocument;
+@property(readonly, nonatomic) KNSlideNode *slideNode; // @synthesize slideNode=_slideNode;
+@property(retain, nonatomic) KNSlideNumberPlaceholderInfo *slideNumberPlaceholder; // @synthesize slideNumberPlaceholder=_slideNumberPlaceholder;
+@property(retain, nonatomic) KNObjectPlaceholderInfo *objectPlaceholder; // @synthesize objectPlaceholder=_objectPlaceholder;
+@property(retain, nonatomic) KNBodyPlaceholderInfo *bodyPlaceholder; // @synthesize bodyPlaceholder=_bodyPlaceholder;
+@property(retain, nonatomic) KNTitlePlaceholderInfo *titlePlaceholder; // @synthesize titlePlaceholder=_titlePlaceholder;
+@property(retain, nonatomic) KNTransition *transition; // @synthesize transition=_transition;
+@property(retain, nonatomic) KNSlideStyle *style; // @synthesize style=_style;
+- (void).cxx_destruct;
+- (void)p_updateChartBuildChunksImmediatelyWithoutUndoHistory;
+- (void)p_updatePreUFFBuildEffects;
+- (void)p_updateOverlappingBuildEventTriggers;
+- (void)saveToArchive:(struct SlideArchive *)arg1 archiver:(id)arg2;
+- (void)p_updateStartAndEndOffsetsIfNecessaryForFileVersion:(unsigned long long)arg1;
+- (void)p_updateChunkCount;
+- (void)loadFromArchive:(const struct SlideArchive *)arg1 unarchiver:(id)arg2;
+- (void)p_updateBuildsReplacingPlaceholder:(id)arg1 withPlaceholder:(id)arg2;
+- (void)setSlideNode:(id)arg1;
 - (void)replaceReferencedStylesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)referencedStyles;
 - (double)CGFloatValueForProperty:(int)arg1;
@@ -91,6 +104,13 @@ __attribute__((visibility("hidden")))
 - (void)insertChildInfo:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addChildInfo:(id)arg1;
 - (void)p_insertChildInfos:(id)arg1 atIndex:(unsigned long long)arg2 dolcContext:(id)arg3;
+@property(readonly, nonatomic) TSUMutablePointerSet *drawablesWithInvalidatedGhosts;
+@property(readonly, nonatomic) TSUPointerKeyDictionary *drawableToGhostInfosMap;
+- (void)i_primitiveInsertBuildChunk:(id)arg1 afterChunk:(id)arg2 generateIdentifier:(_Bool)arg3;
+- (void)i_primitiveAddBuild:(id)arg1;
+- (void)i_primitiveSetBuildChunks:(id)arg1;
+- (void)i_primitiveSetBuilds:(id)arg1;
+- (void)i_invalidateActiveChunkCache;
 - (_Bool)canMoveDeliveryGroupFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 @property(readonly, nonatomic) NSArray *buildsGroupedByDeliveryGroup;
 @property(readonly, nonatomic) unsigned long long deliveryGroupCount;
@@ -174,7 +194,7 @@ __attribute__((visibility("hidden")))
 - (void)addDrawable:(id)arg1 dolcContext:(id)arg2;
 @property(readonly, nonatomic) NSArray *infosToDisplay;
 @property(readonly, nonatomic) _Bool isMasterSlide;
-@property(readonly, nonatomic) KNSlideBackgroundInfo *background; // @synthesize background=mBackground;
+@property(readonly, nonatomic) KNSlideBackgroundInfo *background;
 @property(readonly, nonatomic) NSArray *ownedChildInfos;
 - (_Bool)p_isChildPlaceholderInfo:(id)arg1;
 - (void)p_setChildInfosAsOrderedSet:(id)arg1 usingDOLC:(_Bool)arg2 dolcContext:(id)arg3;
@@ -184,25 +204,9 @@ __attribute__((visibility("hidden")))
 - (id)childInfos;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
 @property(readonly, nonatomic) TSDFill *backgroundFill;
-- (void)dealloc;
 - (id)objectUUIDPath;
 - (void)didInitFromSOS;
-- (id)initWithContext:(id)arg1;
 - (id)initWithSlideNode:(id)arg1 context:(id)arg2;
-@property(copy, nonatomic) NSDictionary *placeholdersForTags;
-@property(retain, nonatomic) KNTransition *transition;
-@property(retain, nonatomic) KNSlideStyle *style;
-- (void)p_updateChartBuildChunksImmediatelyWithoutUndoHistory;
-- (void)p_updatePreUFFBuildEffects;
-- (void)p_updateOverlappingBuildEventTriggers;
-- (void)saveToArchive:(struct SlideArchive *)arg1 archiver:(id)arg2;
-- (void)p_updateStartAndEndOffsetsIfNecessaryForFileVersion:(unsigned long long)arg1;
-- (void)p_updateChunkCount;
-- (void)loadFromArchive:(const struct SlideArchive *)arg1 unarchiver:(id)arg2;
-- (void)p_updateBuildsReplacingPlaceholder:(id)arg1 withPlaceholder:(id)arg2;
-- (void)i_primitiveInsertBuildChunk:(id)arg1 afterChunk:(id)arg2 generateIdentifier:(_Bool)arg3;
-- (void)i_primitiveAddBuild:(id)arg1;
-- (void)i_invalidateActiveChunkCache;
 - (id)imageUsingDocumentRoot:(id)arg1;
 - (id)pdfDataUsingDocumentRoot:(id)arg1;
 

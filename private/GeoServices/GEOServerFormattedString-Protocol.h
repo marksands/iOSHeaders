@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <GeoServices/NSCoding-Protocol.h>
 #import <GeoServices/NSObject-Protocol.h>
 
 @class NSArray;
 
-@protocol GEOServerFormattedString <NSObject>
+@protocol GEOServerFormattedString <NSObject, NSCoding>
 @property(readonly, nonatomic) NSArray *separators;
 @property(readonly, nonatomic) NSArray *formatTokens;
 @property(readonly, nonatomic) NSArray *formatStrings;

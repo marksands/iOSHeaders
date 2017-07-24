@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class NSDictionary, NSMutableDictionary;
+@class NSDictionary, NSMutableDictionary, NSMutableSet;
 
 @interface CLServiceVendor : NSObject
 {
     NSMutableDictionary *_catalog;
     NSDictionary *_serviceReplacementMap;
+    NSMutableSet *_unavailableServiceNames;
     int _missBehavior;
 }
 

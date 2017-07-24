@@ -9,7 +9,7 @@
 #import <PassKitUI/PKPaymentProvisioningControllerDelegate-Protocol.h>
 #import <PassKitUI/PKPaymentSetupViewControllerCanHideSetupLaterButton-Protocol.h>
 
-@class NSMutableArray, NSString, PKPaymentProvisioningController, PKPaymentRemoteCredentialTableViewCell, PKPaymentSetupFooterView, PKPaymentSetupProduct, PKTableHeaderView, UIImage, _UIBackdropView;
+@class NSMutableArray, NSString, PKPaymentProvisioningController, PKPaymentRemoteCredentialTableViewCell, PKPaymentSetupFooterView, PKPaymentSetupProduct, PKTableHeaderView, UIImage;
 @protocol PKPaymentSetupViewControllerDelegate;
 
 @interface PKPaymentRemoteCredentialsViewController : PKPaymentSetupTableViewController <PKPaymentSetupViewControllerCanHideSetupLaterButton, PKPaymentProvisioningControllerDelegate>
@@ -19,12 +19,7 @@
     NSMutableArray *_remoteCredentialCaches;
     PKTableHeaderView *_tableHeader;
     PKPaymentSetupFooterView *_tableFooter;
-    PKPaymentSetupFooterView *_continueFooter;
     _Bool _allowsManualEntry;
-    _UIBackdropView *_backdropView;
-    long long _backdropStyle;
-    double _backdropWeight;
-    _Bool _updatingBackdropSettings;
     UIImage *_placeHolder;
     PKPaymentRemoteCredentialTableViewCell *_sizingCell;
     unsigned long long _maximumNumberOfSelectableCredentials;
@@ -43,8 +38,9 @@
 - (void)_presentManualAddController;
 - (void)_setUserInteractionEnabled:(_Bool)arg1;
 - (void)_updateForSelectionCount;
-- (void)_accessibilitySettingsDidChange:(id)arg1;
-- (void)scrollViewDidScroll:(id)arg1;
+- (unsigned long long)_numberOfSelectedCredentials;
+- (void)_updateMaximumSelectableCredentials;
+- (void)_updateRemoteCredentialCache;
 - (void)tableView:(id)arg1 didDeselectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
@@ -53,7 +49,6 @@
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
-- (void)viewWillLayoutSubviews;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;

@@ -8,6 +8,7 @@
 
 @interface NSDate (FCAdditions)
 + (id)_fr_sharedYearAndMonthDateFormatter;
++ (id)fc_laterDateAllowingNilWithDate:(id)arg1 andDate:(id)arg2;
 + (id)fc_earlierDateAllowingNilWithDate:(id)arg1 andDate:(id)arg2;
 + (id)fc_dateWithMillisecondTimeIntervalSince1970:(unsigned long long)arg1;
 + (id)dateFromStringWithHTTPHeaderFormat:(id)arg1;
@@ -21,6 +22,7 @@
 - (unsigned long long)fc_millisecondTimeIntervalSince1970;
 - (id)fc_dateBySubtractingTimeInterval:(double)arg1;
 - (_Bool)fc_isWithinTimeInterval:(double)arg1 ofDate:(id)arg2;
+- (_Bool)fc_isLaterThanOrEqualTo:(id)arg1;
 - (_Bool)fc_isLaterThan:(id)arg1;
 - (_Bool)fc_isEarlierThanOrEqualTo:(id)arg1;
 - (_Bool)fc_isEarlierThan:(id)arg1;

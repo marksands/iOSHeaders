@@ -6,19 +6,28 @@
 
 #import <objc/NSObject.h>
 
-@class MFFuture;
+#import <MIME/MFCancelable-Protocol.h>
 
-@interface MFPromise : NSObject
+@class MFFuture, NSString;
+
+@interface MFPromise : NSObject <MFCancelable>
 {
     MFFuture *_future;
 }
 
 + (id)promise;
 @property(readonly) MFFuture *future; // @synthesize future=_future;
+- (void)cancel;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (_Bool)respondsToSelector:(SEL)arg1;
 - (id)init;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

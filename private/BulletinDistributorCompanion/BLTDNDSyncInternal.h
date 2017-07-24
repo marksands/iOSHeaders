@@ -42,6 +42,9 @@
 - (_Bool)_isNPSDateLaterThanAllowed:(id)arg1 currentDate:(id)arg2;
 - (void)_loadDNDEnabledStateFromNPS:(CDUnknownBlockType)arg1;
 - (void)_resolveDNDStateWithBBState:(unsigned long long)arg1 bbDate:(id)arg2 npsState:(unsigned long long)arg3 npsDate:(id)arg4 currentDate:(id)arg5 deviceIsCompanion:(_Bool)arg6 triggeredBySource:(unsigned long long)arg7 behaviorOverrides:(id)arg8 completion:(CDUnknownBlockType)arg9;
+- (void)_updatePrivilegedSenderTypes;
+- (void)_updateEffectiveOverrides;
+- (void)_updateDNDAssertState;
 - (void)_updateDNDStateChangedByPreferencesSync:(_Bool)arg1;
 - (void)_clearDomainDefaults;
 - (_Bool)_loadDNDMirrorStateFromDefaults;
@@ -51,7 +54,6 @@
 - (void)setDoNotDisturb:(_Bool)arg1 changeDate:(id)arg2 updateSettingsGateway:(_Bool)arg3;
 - (void)setPrivilegedSenderTypes:(unsigned long long)arg1;
 - (void)setBehaviorOverrides:(id)arg1;
-- (void)setBehaviorOverrideStatus:(long long)arg1;
 - (void)setBehaviorOverrideTypes:(unsigned long long)arg1 changedDate:(id)arg2;
 - (void)removeDNDHandlers;
 - (void)setDNDHandlers;

@@ -12,11 +12,13 @@
 
 @interface NTPBTodayWidgetExposure : PBCodable <NSCopying>
 {
+    int _widgetAppearanceType;
     int _widgetArticleCount;
     int _widgetHeadlineExposureCount;
     NSMutableArray *_widgetPersonalizationFeatureCTRPairs;
     NSMutableArray *_widgetSectionsArticleCountPairs;
     struct {
+        unsigned int widgetAppearanceType:1;
         unsigned int widgetArticleCount:1;
         unsigned int widgetHeadlineExposureCount:1;
     } _has;
@@ -37,6 +39,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasWidgetAppearanceType;
+@property(nonatomic) int widgetAppearanceType; // @synthesize widgetAppearanceType=_widgetAppearanceType;
 - (id)widgetPersonalizationFeatureCTRPairAtIndex:(unsigned long long)arg1;
 - (unsigned long long)widgetPersonalizationFeatureCTRPairsCount;
 - (void)addWidgetPersonalizationFeatureCTRPair:(id)arg1;

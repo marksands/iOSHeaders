@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFColor-Protocol.h>
 
 @class NSData, NSDictionary, NSString;
 
-@interface SFColor : NSObject <SFColor, NSSecureCoding>
+@interface SFColor : NSObject <SFColor, NSSecureCoding, NSCopying>
 {
     struct {
         unsigned int redComponent:1;
@@ -30,6 +31,7 @@
 @property(nonatomic) double blueComponent; // @synthesize blueComponent=_blueComponent;
 @property(nonatomic) double greenComponent; // @synthesize greenComponent=_greenComponent;
 @property(nonatomic) double redComponent; // @synthesize redComponent=_redComponent;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

@@ -8,8 +8,11 @@
 
 #import <HomeKitDaemon/NSCopying-Protocol.h>
 
+@class NSMutableArray;
+
 @interface AWDHomeKitHomeConfiguration : PBCodable <NSCopying>
 {
+    NSMutableArray *_eventTriggers;
     unsigned int _numAccessories;
     unsigned int _numAccessoryServiceGroups;
     unsigned int _numAdmins;
@@ -46,6 +49,8 @@
     } _has;
 }
 
++ (Class)eventTriggersType;
+@property(retain, nonatomic) NSMutableArray *eventTriggers; // @synthesize eventTriggers=_eventTriggers;
 @property(nonatomic) unsigned int numCertifiedAccessories; // @synthesize numCertifiedAccessories=_numCertifiedAccessories;
 @property(nonatomic) unsigned int numNotCertifiedAccessories; // @synthesize numNotCertifiedAccessories=_numNotCertifiedAccessories;
 @property(nonatomic) unsigned int numBridgedAccessories; // @synthesize numBridgedAccessories=_numBridgedAccessories;
@@ -62,6 +67,7 @@
 @property(nonatomic) unsigned int numUsers; // @synthesize numUsers=_numUsers;
 @property(nonatomic) unsigned int numServices; // @synthesize numServices=_numServices;
 @property(nonatomic) unsigned int numAccessories; // @synthesize numAccessories=_numAccessories;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -71,6 +77,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)eventTriggersAtIndex:(unsigned long long)arg1;
+- (unsigned long long)eventTriggersCount;
+- (void)addEventTriggers:(id)arg1;
+- (void)clearEventTriggers;
 @property(nonatomic) _Bool hasNumCertifiedAccessories;
 @property(nonatomic) _Bool hasNumNotCertifiedAccessories;
 @property(nonatomic) _Bool hasNumBridgedAccessories;

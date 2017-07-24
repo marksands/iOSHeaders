@@ -25,6 +25,7 @@
 + (void)addFilePresenter:(id)arg1;
 + (void)_getDebugInfoWithCompletionHandler:(CDUnknownBlockType)arg1;
 + (void)_printDebugInfo;
++ (id)_currentClaimPurposeIdentifier;
 + (id)_currentFileCoordinator;
 + (_Bool)_itemHasPresentersAtURL:(id)arg1;
 + (id)_fileProviders;
@@ -52,6 +53,7 @@
 + (id)_fileProviderInterface;
 + (id)_filePresenterInterface;
 + (id)_createIdentifierForNewClaim;
++ (void)_setCurrentClaimPurposeIdentifier:(id)arg1;
 + (void)_setReadingOptions:(unsigned long long)arg1;
 + (void)_removeInfoForID:(id)arg1;
 + (void)_addProcessIdentifier:(int)arg1 observedUbiquityAttributes:(id)arg2 forID:(id)arg3;

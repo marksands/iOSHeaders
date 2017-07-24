@@ -6,23 +6,19 @@
 
 #import <objc/NSObject.h>
 
-@class NSString, PMLSparseVector;
+@class PMLSparseVector, SGTransformerInstance;
 
 @interface SGModelFeatures : NSObject
 {
+    SGTransformerInstance *_source;
     PMLSparseVector *_vector;
-    NSString *_modelId;
-    NSString *_version;
-    NSString *_language;
 }
 
 - (void).cxx_destruct;
 - (id)sessionDescriptor;
-- (id)language;
-- (id)version;
-- (id)modelId;
+- (id)source;
 - (id)vector;
-- (id)initWithVector:(id)arg1 modelId:(id)arg2 version:(id)arg3 language:(id)arg4;
+- (id)initWithSource:(id)arg1 vector:(id)arg2;
 
 @end
 

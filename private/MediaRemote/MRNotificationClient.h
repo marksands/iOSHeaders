@@ -16,15 +16,17 @@
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSOrderedSet *_nowPlayingNotifications;
     NSOrderedSet *_routesChangedNotifications;
+    NSOrderedSet *_volumeControlNotifications;
     NSOrderedSet *_externalScreenNotifications;
     NSOrderedSet *_originNotifications;
     NSOrderedSet *_supportedCommandsNotifications;
     NSOrderedSet *_voiceInputNotifications;
-    NSOrderedSet *_errorNotficiations;
+    NSOrderedSet *_errorNotifications;
     CDUnknownBlockType _notificationCallback;
     _Bool _receivesExternalScreenTypeChangedNotifications;
     _Bool _receivesSupportedCommandsNotifications;
     _Bool _receivesRoutesChangedNotifications;
+    _Bool _receivesVolumeControlNotifications;
     _Bool _receivesOriginChangedNotifications;
     _Bool _receivesPlaybackErrorNotifications;
     _Bool _receivesVoiceInputRecordingStateNotifications;
@@ -33,6 +35,7 @@
 @property(nonatomic) _Bool receivesVoiceInputRecordingStateNotifications; // @synthesize receivesVoiceInputRecordingStateNotifications=_receivesVoiceInputRecordingStateNotifications;
 @property(nonatomic) _Bool receivesPlaybackErrorNotifications; // @synthesize receivesPlaybackErrorNotifications=_receivesPlaybackErrorNotifications;
 @property(nonatomic) _Bool receivesOriginChangedNotifications; // @synthesize receivesOriginChangedNotifications=_receivesOriginChangedNotifications;
+@property(nonatomic) _Bool receivesVolumeControlNotifications; // @synthesize receivesVolumeControlNotifications=_receivesVolumeControlNotifications;
 @property(nonatomic) _Bool receivesRoutesChangedNotifications; // @synthesize receivesRoutesChangedNotifications=_receivesRoutesChangedNotifications;
 @property(nonatomic) _Bool receivesSupportedCommandsNotifications; // @synthesize receivesSupportedCommandsNotifications=_receivesSupportedCommandsNotifications;
 @property(nonatomic) _Bool receivesExternalScreenTypeChangedNotifications; // @synthesize receivesExternalScreenTypeChangedNotifications=_receivesExternalScreenTypeChangedNotifications;

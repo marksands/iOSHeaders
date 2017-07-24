@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 - (struct TSCEValue)tsceValue;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithLocale:(id)arg1;
+- (id)init;
 
 @end
 

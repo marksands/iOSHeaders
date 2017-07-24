@@ -12,16 +12,13 @@
 {
     AVMediaSelectionOption *_selectedAudioMediaSelectionOption;
     AVMediaSelectionOption *_selectedLegibleMediaSelectionOption;
-    _Bool _playbackShouldResumeWhenDismissed;
     AVPlayerController *_playerController;
 }
 
-@property(nonatomic) _Bool playbackShouldResumeWhenDismissed; // @synthesize playbackShouldResumeWhenDismissed=_playbackShouldResumeWhenDismissed;
 @property(retain, nonatomic) AVPlayerController *playerController; // @synthesize playerController=_playerController;
 - (void).cxx_destruct;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(long long)arg3;
-- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;

@@ -26,9 +26,9 @@
 - (id)description;
 - (void)_unscheduleObject:(id)arg1;
 - (_Bool)isScheduled:(id)arg1;
-- (void)_performScheduleChangingBlock:(CDUnknownBlockType)arg1;
+- (void)_performScheduleChangingBlock:(CDUnknownBlockType)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_scheduleObject:(id)arg1;
-- (void)schedule:(id)arg1 afterDate:(id)arg2;
+- (void)schedule:(id)arg1 afterDate:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)_unschedule:(id)arg1;
 - (void)unschedule:(id)arg1;
 - (void)reset;

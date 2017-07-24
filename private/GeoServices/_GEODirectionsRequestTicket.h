@@ -34,7 +34,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) GEODirectionsRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
 - (void)cancel;
-- (void)submitWithHandler:(CDUnknownBlockType)arg1 networkActivity:(CDUnknownBlockType)arg2;
+- (void)submitWithHandler:(CDUnknownBlockType)arg1 auditToken:(id)arg2 networkActivity:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) NSDictionary *responseUserInfo;
 @property(readonly, copy) NSString *description;
 - (id)initWithRequest:(id)arg1;

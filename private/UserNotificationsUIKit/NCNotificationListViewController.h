@@ -19,7 +19,7 @@
     _Bool _backgroundBlurred;
     _Bool _needsReloadData;
     _Bool _notificationRequestRemovedWhileInLongLook;
-    CDStruct_2eb613e6 _userInteractionDelegateFlags;
+    CDStruct_27a46a9e _userInteractionDelegateFlags;
     id <NCNotificationListViewControllerUserInteractionDelegate> _userInteractionDelegate;
     id <NCNotificationListViewControllerDestinationDelegate> _destinationDelegate;
     NCNotificationViewController *_notificationViewControllerForSizing;
@@ -31,7 +31,7 @@
     struct UIEdgeInsets _insetMargins;
 }
 
-@property(nonatomic) CDStruct_2eb613e6 userInteractionDelegateFlags; // @synthesize userInteractionDelegateFlags=_userInteractionDelegateFlags;
+@property(nonatomic) CDStruct_27a46a9e userInteractionDelegateFlags; // @synthesize userInteractionDelegateFlags=_userInteractionDelegateFlags;
 @property(retain, nonatomic) NCAnimationCoordinator *childPreferredContentSizeChangeCoordinator; // @synthesize childPreferredContentSizeChangeCoordinator=_childPreferredContentSizeChangeCoordinator;
 @property(nonatomic) _Bool notificationRequestRemovedWhileInLongLook; // @synthesize notificationRequestRemovedWhileInLongLook=_notificationRequestRemovedWhileInLongLook;
 @property(nonatomic) _Bool needsReloadData; // @synthesize needsReloadData=_needsReloadData;
@@ -61,11 +61,14 @@
 - (void)longLookWillDismissForNotificationViewController:(id)arg1;
 - (void)longLookDidPresentForNotificationViewController:(id)arg1;
 - (void)longLookWillPresentForNotificationViewController:(id)arg1;
+- (void)notificationViewControllerDidEndUserInteraction:(id)arg1;
+- (void)notificationViewControllerWillBeginUserInteraction:(id)arg1;
 - (_Bool)showAdditionalMessageLinesForNotificationViewController:(id)arg1;
 - (_Bool)notificationViewControllerShouldAllowInteractionGesture:(id)arg1;
 - (id)notificationViewController:(id)arg1 staticContentProviderForNotificationRequest:(id)arg2;
 - (_Bool)notificationViewControllerShouldBlurShortLook:(id)arg1;
 - (void)notificationViewController:(id)arg1 shouldFinishLongLookTransitionWithCompletionBlock:(CDUnknownBlockType)arg2;
+- (_Bool)notificationViewControllerShouldAttemptToFinishLongLookTransition:(id)arg1;
 - (id)notificationUsageTrackingStateForNotificationViewController:(id)arg1;
 - (void)notificationViewController:(id)arg1 executeAction:(id)arg2 withParameters:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)notificationViewController:(id)arg1 requestPermissionToExecuteAction:(id)arg2 withParameters:(id)arg3 completion:(CDUnknownBlockType)arg4;

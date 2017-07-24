@@ -20,7 +20,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CIImage *inputBackgroundImage; // @synthesize inputBackgroundImage;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (struct CGRect)_extentForInputExtent:(struct CGRect)arg1 backgroundExtent:(struct CGRect)arg2;
 
 @end
 

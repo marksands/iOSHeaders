@@ -11,7 +11,7 @@
 @protocol AVInteractiveTransitionGestureTrackerDelegate <NSObject>
 - (void)gestureTrackerDidFinishTracking:(AVInteractiveTransitionGestureTracker *)arg1;
 - (void)gestureTrackerDidCancelTracking:(AVInteractiveTransitionGestureTracker *)arg1;
-- (void)gestureTracker:(AVInteractiveTransitionGestureTracker *)arg1 didTrackPercentComplete:(double)arg2 translation:(struct CGPoint)arg3 rotation:(double)arg4;
+- (void)gestureTracker:(AVInteractiveTransitionGestureTracker *)arg1 didTrackPercentComplete:(double)arg2 translation:(struct CGPoint)arg3 rotation:(double)arg4 locationInWindow:(struct CGPoint)arg5;
 - (void)gestureTracker:(AVInteractiveTransitionGestureTracker *)arg1 didBeginTrackingGesture:(long long)arg2;
 - (_Bool)gestureTrackerShouldTrackPanToDismiss:(AVInteractiveTransitionGestureTracker *)arg1;
 - (_Bool)gestureTrackerShouldTrackPinchToDismiss:(AVInteractiveTransitionGestureTracker *)arg1;

@@ -26,7 +26,7 @@
 @property(nonatomic) _Bool adjustsFontForContentSizeCategory;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)layoutSubviews;
-- (void)setHeaderNeedsLayout;
+- (void)setNeedsLayout;
 - (void)_configureHeaderContentViewIfNecessary;
 - (void)_configureHeaderOverlayViewIfNecessary;
 - (void)_configureHeaderContainerViewIfNecessary;

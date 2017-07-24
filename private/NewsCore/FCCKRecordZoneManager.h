@@ -26,6 +26,7 @@
 @property(retain, nonatomic) FCCKPrivateDatabase *database; // @synthesize database=_database;
 - (void).cxx_destruct;
 - (void)ensureRecordZoneExistsWithID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)prepareRecordZonesForUseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)recordZoneWithName:(id)arg1;
 - (id)initWithDatabase:(id)arg1 recordZoneNames:(id)arg2;
 

@@ -40,7 +40,7 @@ __attribute__((visibility("hidden")))
 - (id)keycapRightTransform;
 - (id)keycapLeftTransform;
 - (id)keycapAlternateDualStringTransform:(id)arg1;
-- (id)keycapAlternateTransform;
+- (id)keycapAlternateTransform:(id)arg1;
 - (id)keycapPrimaryDualStringTransform:(id)arg1;
 - (id)keycapPrimaryTransform;
 - (id)keycapNullTransform;

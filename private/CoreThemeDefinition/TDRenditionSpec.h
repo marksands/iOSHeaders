@@ -14,7 +14,7 @@
 
 - (void)drawPackableRenditionInContext:(struct CGContext *)arg1 withDocument:(id)arg2;
 - (_Bool)canBePackedWithDocument:(id)arg1;
-- (void)updatePackingPropertiesWithDocument:(id)arg1;
+- (_Bool)updatePackingPropertiesWithDocument:(id)arg1;
 @property(nonatomic) struct CGPoint packedPoint;
 @property(retain, nonatomic) TDRenditionType *renditionType; // @dynamic renditionType;
 - (id)createCSIRepresentationWithCompression:(_Bool)arg1 colorSpaceID:(unsigned long long)arg2 document:(id)arg3;

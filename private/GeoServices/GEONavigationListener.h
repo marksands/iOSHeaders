@@ -44,7 +44,7 @@
 @property(copy, nonatomic) CDUnknownBlockType guidanceStateUpdatedHandler; // @synthesize guidanceStateUpdatedHandler=_guidanceStateUpdatedHandler;
 @property(copy, nonatomic) CDUnknownBlockType transitSummaryUpdatedHandler; // @synthesize transitSummaryUpdatedHandler=_transitSummaryUpdatedHandler;
 @property(copy, nonatomic) CDUnknownBlockType routeSummaryUpdatedHandler; // @synthesize routeSummaryUpdatedHandler=_routeSummaryUpdatedHandler;
-@property(nonatomic) id <GEONavigationListenerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <GEONavigationListenerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_notifyWithNavigationVoiceVolume:(int)arg1;
 - (void)_notifyWithTrafficIncidentDetailsData:(id)arg1;

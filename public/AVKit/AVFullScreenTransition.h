@@ -17,6 +17,7 @@
 @property(nonatomic) _Bool prefersBlackBarsDuringTransition; // @synthesize prefersBlackBarsDuringTransition=_prefersBlackBarsDuringTransition;
 @property(readonly, nonatomic) AVFullScreenViewController *fullScreenViewController; // @synthesize fullScreenViewController=_fullScreenViewController;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) struct CGRect frameOfPlayerViewControllerWithinContainerView;
 - (void)completeTransition:(_Bool)arg1;
 - (void)transitionWillBegin;
 - (id)backgroundView;

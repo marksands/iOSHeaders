@@ -13,15 +13,17 @@
     _Bool _allowsPublisherPhoneApp;
     _Bool _allowsPublisherPadApp;
     _Bool _allowsPublisherWebsite;
+    _Bool _preferredOffer;
     NSString *_purchaseID;
 }
 
+@property(nonatomic) _Bool preferredOffer; // @synthesize preferredOffer=_preferredOffer;
 @property(nonatomic) _Bool allowsPublisherWebsite; // @synthesize allowsPublisherWebsite=_allowsPublisherWebsite;
 @property(nonatomic) _Bool allowsPublisherPadApp; // @synthesize allowsPublisherPadApp=_allowsPublisherPadApp;
 @property(nonatomic) _Bool allowsPublisherPhoneApp; // @synthesize allowsPublisherPhoneApp=_allowsPublisherPhoneApp;
 @property(copy, nonatomic) NSString *purchaseID; // @synthesize purchaseID=_purchaseID;
 - (void).cxx_destruct;
-- (id)initWithPurchaseID:(id)arg1 allowsPublisherPhoneApp:(_Bool)arg2 allowsPublisherPadApp:(_Bool)arg3 allowsPublisherWebsite:(_Bool)arg4;
+- (id)initWithPurchaseID:(id)arg1 allowsPublisherPhoneApp:(_Bool)arg2 allowsPublisherPadApp:(_Bool)arg3 allowsPublisherWebsite:(_Bool)arg4 preferredOffer:(_Bool)arg5;
 
 @end
 

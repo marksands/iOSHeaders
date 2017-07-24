@@ -8,13 +8,15 @@
 
 #import <Foundation/NSCoding-Protocol.h>
 
+@class NSISEngine, NSMutableSet;
 @protocol NSISVariableDelegate;
 
 @interface NSISVariable : NSObject <NSCoding>
 {
     id <NSISVariableDelegate> _delegate;
-    int _refCount;
     unsigned int _ident;
+    NSISEngine *_crossIndexEngine;
+    NSMutableSet *_crossIndexSet;
 }
 
 + (id)variableWithName:(id)arg1 valueRestriction:(int)arg2 shouldBeMinimized:(_Bool)arg3 valueIsUserObservable:(_Bool)arg4;
@@ -22,11 +24,6 @@
 + (id)variableMarkingConstraint:(id)arg1 valueRestriction:(int)arg2 shouldBeMinimized:(_Bool)arg3;
 + (id)variableWithDelegate:(id)arg1 valueRestriction:(int)arg2 shouldBeMinimized:(_Bool)arg3;
 @property id <NSISVariableDelegate> delegate; // @synthesize delegate=_delegate;
-- (_Bool)_isDeallocating;
-- (_Bool)_tryRetain;
-- (unsigned long long)retainCount;
-- (oneway void)release;
-- (id)retain;
 - (id)markedConstraint;
 @property(readonly) _Bool shouldBeMinimized;
 @property(readonly) int valueRestriction;

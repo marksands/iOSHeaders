@@ -30,11 +30,13 @@ typedef struct {
     unsigned int coverArticleDisplayRank:1;
     unsigned int coverArticleFeatureType:1;
     unsigned int displayRank:1;
+    unsigned int feedAutoSubscribeType:1;
     unsigned int feedCellHostType:1;
     unsigned int feedPresentationReason:1;
     unsigned int feedSubscriptionOrigin:1;
     unsigned int groupArticleCountInForYou:1;
     unsigned int groupDisplayRankInForYou:1;
+    unsigned int groupFormationReason:1;
     unsigned int groupPresentationReason:1;
     unsigned int groupType:1;
     unsigned int loadFailureReason:1;
@@ -74,7 +76,7 @@ typedef struct {
     unsigned int isVideoInFeed:1;
     unsigned int subscriptionOnlyArticle:1;
     unsigned int viewFromNotificationDirectOpen:1;
-} CDStruct_7ed1b072;
+} CDStruct_4cbf99b6;
 
 // Ambiguous groups
 typedef struct {

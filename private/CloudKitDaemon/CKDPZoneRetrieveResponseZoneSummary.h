@@ -8,7 +8,7 @@
 
 #import <CloudKitDaemon/NSCopying-Protocol.h>
 
-@class CKDPZone, CKDPZoneCapabilities, NSData;
+@class CKDPDate, CKDPZone, CKDPZoneCapabilities, NSData;
 
 __attribute__((visibility("hidden")))
 @interface CKDPZoneRetrieveResponseZoneSummary : PBCodable <NSCopying>
@@ -20,15 +20,20 @@ __attribute__((visibility("hidden")))
     NSData *_currentServerContinuationToken;
     int _deviceCount;
     CKDPZone *_targetZone;
+    CKDPDate *_zonePcsModificationTime;
+    _Bool _zoneKeyRollAllowed;
     _Bool _zoneishPcsNeedsRolled;
     struct {
         unsigned int assetQuotaUsage:1;
         unsigned int metadataQuotaUsage:1;
         unsigned int deviceCount:1;
+        unsigned int zoneKeyRollAllowed:1;
         unsigned int zoneishPcsNeedsRolled:1;
     } _has;
 }
 
+@property(retain, nonatomic) CKDPDate *zonePcsModificationTime; // @synthesize zonePcsModificationTime=_zonePcsModificationTime;
+@property(nonatomic) _Bool zoneKeyRollAllowed; // @synthesize zoneKeyRollAllowed=_zoneKeyRollAllowed;
 @property(nonatomic) _Bool zoneishPcsNeedsRolled; // @synthesize zoneishPcsNeedsRolled=_zoneishPcsNeedsRolled;
 @property(retain, nonatomic) CKDPZoneCapabilities *capabilities; // @synthesize capabilities=_capabilities;
 @property(nonatomic) long long metadataQuotaUsage; // @synthesize metadataQuotaUsage=_metadataQuotaUsage;
@@ -47,6 +52,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasZonePcsModificationTime;
+@property(nonatomic) _Bool hasZoneKeyRollAllowed;
 @property(nonatomic) _Bool hasZoneishPcsNeedsRolled;
 @property(readonly, nonatomic) _Bool hasCapabilities;
 @property(nonatomic) _Bool hasMetadataQuotaUsage;

@@ -8,25 +8,32 @@
 
 #import <HealthKit/NSSecureCoding-Protocol.h>
 
-@class HKHealthStore;
+@class HKDevice, HKHealthStore;
+@protocol OS_dispatch_queue;
 
 @interface HKSeriesBuilder : NSObject <NSSecureCoding>
 {
+    _Bool _hasData;
+    long long _state;
+    HKDevice *_device;
     HKHealthStore *_store;
-    int _state;
-    long long _count;
+    NSObject<OS_dispatch_queue> *_completionQueue;
+    NSObject<OS_dispatch_queue> *_resourceQueue;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *resourceQueue; // @synthesize resourceQueue=_resourceQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *completionQueue; // @synthesize completionQueue=_completionQueue;
+@property(readonly, nonatomic) HKHealthStore *store; // @synthesize store=_store;
+@property(readonly, copy, nonatomic) HKDevice *device; // @synthesize device=_device;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-@property(setter=_setState:) unsigned long long state;
-- (void)_discardWithHandler:(CDUnknownBlockType)arg1;
+@property(nonatomic) long long state;
+@property(nonatomic) _Bool hasData;
+- (void)_resourceQueue_discardWithHandler:(CDUnknownBlockType)arg1;
 - (void)discard;
-@property(readonly) HKHealthStore *store;
-@property(setter=_setCount:) long long count;
-- (id)_initWithHealthStore:(id)arg1;
+- (id)_initWithHealthStore:(id)arg1 device:(id)arg2;
 - (id)init;
 
 @end

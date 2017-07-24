@@ -30,6 +30,8 @@
     NSString *_baselineFileRelativePath;
     NSString *_targetApplicationPath;
     NSString *_targetApplicationBundleID;
+    NSDictionary *_testApplicationDependencies;
+    NSDictionary *_testApplicationUserOverrides;
     NSString *_productModuleName;
     NSDictionary *_targetApplicationEnvironment;
     NSArray *_targetApplicationArguments;
@@ -54,6 +56,8 @@
 @property _Bool testsMustRunOnMainThread; // @synthesize testsMustRunOnMainThread=_testsMustRunOnMainThread;
 @property _Bool reportActivities; // @synthesize reportActivities=_reportActivities;
 @property(copy) NSString *productModuleName; // @synthesize productModuleName=_productModuleName;
+@property(copy) NSDictionary *testApplicationUserOverrides; // @synthesize testApplicationUserOverrides=_testApplicationUserOverrides;
+@property(copy) NSDictionary *testApplicationDependencies; // @synthesize testApplicationDependencies=_testApplicationDependencies;
 @property(copy) NSString *targetApplicationBundleID; // @synthesize targetApplicationBundleID=_targetApplicationBundleID;
 @property(copy) NSString *targetApplicationPath; // @synthesize targetApplicationPath=_targetApplicationPath;
 @property _Bool treatMissingBaselinesAsFailures; // @synthesize treatMissingBaselinesAsFailures=_treatMissingBaselinesAsFailures;

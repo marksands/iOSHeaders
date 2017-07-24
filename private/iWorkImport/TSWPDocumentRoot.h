@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (int)verticalAlignmentForTextStorage:(id)arg1;
 - (int)naturalAlignmentAtCharIndex:(unsigned long long)arg1 inTextStorage:(id)arg2;
 @property(readonly, nonatomic, getter=isChangeTrackingEnabled) _Bool changeTrackingEnabled;
+- (_Bool)isDrawableOnPageMaster:(id)arg1;
 - (id)flowInfoContainer;
 - (_Bool)cellCommentsAllowedOnInfo:(id)arg1;
 @property(readonly, nonatomic) EQKitEnvironment *equationEnvironment;

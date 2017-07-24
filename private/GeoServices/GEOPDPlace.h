@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDMapsIdentifier, NSMutableArray, PBUnknownFields;
+@class GEOMapItemInitialRequestData, GEOPDMapsIdentifier, NSMutableArray, PBUnknownFields;
 
 @interface GEOPDPlace : PBCodable <NSCopying>
 {
@@ -19,6 +19,7 @@
     NSMutableArray *_components;
     GEOPDMapsIdentifier *_mapsId;
     int _referenceFrame;
+    GEOMapItemInitialRequestData *_requestData;
     int _resultProviderId;
     int _status;
     struct {
@@ -82,9 +83,19 @@
 - (_Bool)hasExpiredComponentsAsOf:(double)arg1;
 - (_Bool)phoneNumberOptsOutOfAds:(id)arg1;
 - (id)phoneNumbers;
+- (void)enumerateValidComponentValuesOfType:(int)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (void)enumerateComponentValuesOfType:(int)arg1 enumerationOptions:(unsigned long long)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (id)successfulComponentWithValuesOfType:(int)arg1;
+- (void)enumerateValidComponentWithValuesOfType:(int)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (id)componentOfType:(int)arg1 options:(unsigned long long)arg2;
+- (void)enumerateComponentOfType:(int)arg1 enumerationOptions:(unsigned long long)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (void)enumerateValidComponentsWithValuesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateComponentsWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (_Bool)isStringIndicatingPoiInsideWestfield:(id)arg1;
 @property(readonly, nonatomic, getter=isSupportedVenuePOI) _Bool supportedVenuePOI;
 @property(readonly, nonatomic, getter=isSupportedVenue) _Bool supportedVenue;
+@property(retain, nonatomic) GEOMapItemInitialRequestData *requestData;
+@property(readonly, nonatomic) _Bool hasRequestData;
 - (int)StringAsReferenceFrame:(id)arg1;
 - (id)referenceFrameAsString:(int)arg1;
 @property(nonatomic) _Bool hasReferenceFrame;

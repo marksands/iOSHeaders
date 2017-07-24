@@ -81,6 +81,8 @@
 - (id)_exportTable;
 @property(readonly, retain) NSXPCListenerEndpoint *endpoint;
 @property(readonly, copy) NSString *serviceName;
+- (CDUnknownBlockType)_additionalInvalidationHandler;
+- (void)set_additionalInvalidationHandler:(CDUnknownBlockType)arg1;
 @property(copy) CDUnknownBlockType invalidationHandler;
 @property(copy) CDUnknownBlockType interruptionHandler;
 - (void)_sendInvocation:(id)arg1 orArguments:(id *)arg2 count:(unsigned long long)arg3 methodSignature:(id)arg4 selector:(SEL)arg5 withProxy:(id)arg6;
@@ -107,8 +109,8 @@
 - (id)initWithServiceName:(id)arg1 options:(unsigned long long)arg2;
 - (id)_initWithPeerConnection:(id)arg1 name:(id)arg2 options:(unsigned long long)arg3;
 - (id)init;
-- (void)_decodeAndInvokeMessageWithData:(id)arg1 flags:(unsigned long long)arg2;
-- (void)_decodeAndInvokeReplyBlockWithData:(id)arg1 sequence:(unsigned long long)arg2 replyInfo:(id)arg3;
+- (void)_decodeAndInvokeMessageWithEvent:(id)arg1 flags:(unsigned long long)arg2;
+- (void)_decodeAndInvokeReplyBlockWithEvent:(id)arg1 sequence:(unsigned long long)arg2 replyInfo:(id)arg3;
 
 @end
 

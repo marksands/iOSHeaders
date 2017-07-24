@@ -50,6 +50,7 @@
 - (void)photoEditModelDidChange;
 - (void)specDidChange;
 - (void)basePhotoInvalidated;
+- (struct CGRect)contentRectInCoordinateSpace:(id)arg1;
 - (_Bool)installLivePhotoPlaybackGestureRecognizer:(id)arg1;
 - (_Bool)installTogglePreviewGestureRecognizer:(id)arg1;
 - (struct UIEdgeInsets)preferredPreviewViewInsets;

@@ -19,6 +19,8 @@
 @property(nonatomic) long long certificationStatus; // @synthesize certificationStatus=_certificationStatus;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
+- (long long)associationOptions;
+- (_Bool)hasIPLink;
 - (_Bool)hasBTLELink;
 - (id)descriptionForTransportTypes;
 @property(readonly, nonatomic) unsigned long long transportTypes;

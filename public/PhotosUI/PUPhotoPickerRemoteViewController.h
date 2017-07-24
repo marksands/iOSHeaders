@@ -16,6 +16,7 @@
 __attribute__((visibility("hidden")))
 @interface PUPhotoPickerRemoteViewController : UIViewController <PUPhotoPickerRemoteNavigationControllerDelegate, NSExtensionRequestHandling, PUPhotoPicker, PUPhotoPickerTestSupportHandler>
 {
+    _Bool _contentLoaded;
     long long _actionType;
     NSString *_actionTypeDescription;
     long long _secondaryActionType;
@@ -25,6 +26,7 @@ __attribute__((visibility("hidden")))
     PUPhotoPickerRemoteViewControllerRequestOptions *_options;
 }
 
+@property(nonatomic, getter=isContentLoaded) _Bool contentLoaded; // @synthesize contentLoaded=_contentLoaded;
 @property(retain, nonatomic) PUPhotoPickerRemoteViewControllerRequestOptions *options; // @synthesize options=_options;
 @property(retain, nonatomic) PUPhotoPickerRemoteNavigationController *contentNavigationController; // @synthesize contentNavigationController=_contentNavigationController;
 @property(retain, nonatomic) UIViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
@@ -34,6 +36,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) long long actionType; // @synthesize actionType=_actionType;
 - (void).cxx_destruct;
 - (void)_allowSharingSelectionOfInfoDictionaries:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_logAssetSelectionIfNeeded:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)performPhotoPickerPreviewOfFirstAsset;
 - (void)performAppearanceUpdateUsing:(id)arg1;
@@ -46,7 +49,6 @@ __attribute__((visibility("hidden")))
 - (void)presentViewController:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *properties;
 @property(readonly, nonatomic) _Bool convertAutoloopsToGIF;
-@property(readonly, nonatomic) _Bool onlyShowAutoloopVideos;
 @property(readonly, nonatomic) _Bool showsPrompt;
 @property(readonly, nonatomic) unsigned long long multipleSelectionLimit;
 @property(readonly, nonatomic) _Bool allowsMultipleSelection;
@@ -60,7 +62,7 @@ __attribute__((visibility("hidden")))
 - (void)_handleViewControllerCreationWithClassName:(id)arg1;
 - (void)_handleViewControllerFetchWithRequestedIdentifier:(id)arg1;
 - (void)_handleViewControllerRequestWithOptions:(id)arg1 error:(id)arg2;
-- (void)viewDidLoad;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
 
 // Remaining properties

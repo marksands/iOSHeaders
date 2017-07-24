@@ -15,11 +15,9 @@
     long long _recvTime;
     int _probeCount;
     NSString *_tripId;
-    unsigned int _tripIdHash;
     struct {
         unsigned int recvTime:1;
         unsigned int probeCount:1;
-        unsigned int tripIdHash:1;
     } _has;
 }
 
@@ -39,8 +37,6 @@
 @property(nonatomic) _Bool hasProbeCount;
 @property(nonatomic) _Bool hasRecvTime;
 @property(readonly, nonatomic) _Bool hasTripId;
-@property(nonatomic) _Bool hasTripIdHash;
-@property(nonatomic) unsigned int tripIdHash;
 
 @end
 

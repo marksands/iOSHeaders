@@ -10,7 +10,7 @@
 #import <MapsSupport/MSPContainerObserver-Protocol.h>
 #import <MapsSupport/MSPJournaling-Protocol.h>
 
-@class GEONetworkObserver, MSPCloudKitAccountAccess, MSPCloudSynchronizer, MSPContainer, MSPJournal, NSDate, NSString, NSUbiquitousKeyValueStore;
+@class GEONetworkObserver, MSPCloudKitAccountAccess, MSPCloudSynchronizer, MSPContainer, MSPContainerPolicyObserver, MSPJournal, NSDate, NSString, NSUbiquitousKeyValueStore;
 @protocol MSPCloudAccess, OS_dispatch_source;
 
 @interface MSPCloudSyncManager : NSObject <MSPCloudSynchronizerDelegate, MSPContainerObserver, MSPJournaling>
@@ -19,6 +19,7 @@
     MSPCloudKitAccountAccess *_cloudKitAccess;
     MSPCloudSynchronizer *_synchronizer;
     MSPContainer *_container;
+    MSPContainerPolicyObserver *_policyObserver;
     unsigned long long _dataCheckDelay;
     NSDate *_lastDataCheck;
     NSObject<OS_dispatch_source> *_syncTimer;
@@ -51,9 +52,11 @@
 - (void)synchronizer:(id)arg1 didFailAttemptingTask:(id)arg2 withError:(id)arg3 reattemptingAfterDate:(id)arg4;
 - (void)container:(id)arg1 didEditWithNewContents:(id)arg2 orderedEdits:(id)arg3 cause:(long long)arg4 context:(id)arg5;
 - (id)taskToDownloadCloudStoreByErasingLocalStoreForSynchronizer:(id)arg1;
-- (void)_finishTask:(id)arg1 byUpdatingRegistrationRecordThroughAccess:(id)arg2;
+- (void)_finishTask:(id)arg1 byUpdatingRegistrationRecord:(id)arg2 throughAccess:(id)arg3;
 - (id)taskToMergeLocalAndCloudStoresForSynchronizer:(id)arg1;
-- (id)_taskPerformingCachedFetchWithProcessingBlock:(CDUnknownBlockType)arg1;
+- (id)_newRegistrationRequestUpdateGroupForAccess:(id)arg1;
+- (id)_newMergeGroupForAccess:(id)arg1;
+- (id)_taskPerformingCachedFetchWithExpectedMergeSize:(long long)arg1 processingBlock:(CDUnknownBlockType)arg2;
 - (void)synchronizer:(id)arg1 userIdentityDidLogOutWithFollowUp:(long long)arg2;
 - (void)synchronizer:(id)arg1 storeNewClientRegistrationIdentifier:(id)arg2;
 - (id)storedClientRegistrationIdentifierForSynchronizer:(id)arg1;

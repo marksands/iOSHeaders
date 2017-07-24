@@ -19,7 +19,6 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)prepareForDisplayWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)hidePlaybackControls;
 - (void)doneButtonTapped:(id)arg1;
 - (void)didBeginSlideToDismissTransition;
 - (void)viewWillAppear:(_Bool)arg1;

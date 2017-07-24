@@ -6,14 +6,14 @@
 
 #import <objc/NSObject.h>
 
-@class MCMDMServer;
+@protocol MCMDMServerProtocol;
 
 @interface MCManagedAssetManager : NSObject
 {
-    MCMDMServer *_server;
+    id <MCMDMServerProtocol> _server;
 }
 
-@property(nonatomic) __weak MCMDMServer *server; // @synthesize server=_server;
+@property(nonatomic) __weak id <MCMDMServerProtocol> server; // @synthesize server=_server;
 - (void).cxx_destruct;
 - (void)inviteUserToCloudVPPProgramURL:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)promptUserForiTunesAccount:(id)arg1 accountNameEditable:(_Bool)arg2 canCreateNewAccount:(_Bool)arg3 assertion:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;

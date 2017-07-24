@@ -14,8 +14,8 @@
 + (id)_significantDateNodesFromEventNodes:(id)arg1 dateFormatterType:(unsigned long long)arg2;
 + (id)_dateNodesFromEventNodes:(id)arg1;
 + (id)_commonLocationLabelForLocationNodes:(id)arg1;
-+ (_Bool)_visitedLocationInEvents:(id)arg1 multipleTimesPerYearWithLocationNodes:(id)arg2 startDateNode:(id)arg3 endDateNode:(id)arg4;
-+ (_Bool)_visitedLocationInEvents:(id)arg1 multipleTimesPerMonthWithLocationNodes:(id)arg2 startDateNode:(id)arg3 endDateNode:(id)arg4;
++ (unsigned long long)_numberOfVisitsPerYearInEvents:(id)arg1 withLocationNodes:(id)arg2 startDateNode:(id)arg3 endDateNode:(id)arg4;
++ (unsigned long long)_numberOfVisitsPerMonthInEvents:(id)arg1 withLocationNodes:(id)arg2 startDateNode:(id)arg3 endDateNode:(id)arg4;
 + (void)_enumerateNeighborNodesOfEventNodes:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 + (_Bool)_eventNodes:(id)arg1 coverCompleteTimeWithEdgeLabel:(id)arg2;
 + (_Bool)_eventNodesCoverCompleteYear:(id)arg1;
@@ -23,7 +23,8 @@
 + (unsigned long long)_dateIntervalFormatterTypeWithEventNodes:(id)arg1 allowedFormats:(unsigned long long)arg2;
 + (_Bool)yearIsNeededForDisplayingDate:(id)arg1;
 + (_Bool)_yearIsNeededForDisplayingDate:(id)arg1;
-+ (id)ordinalYearsAgoWithEventNodes:(id)arg1 relativeToDateComponents:(id)arg2;
++ (id)numberOfYearsAgoWithEventNodes:(id)arg1 relativeToDateComponents:(id)arg2 useOrdinal:(_Bool)arg3;
++ (id)_numberOfYearsAgoWithEventNodes:(id)arg1 relativeToDateComponents:(id)arg2;
 + (id)peopleTimeTitleWithEventNodes:(id)arg1;
 + (id)_splitTimeTitleWithLocalStartDate:(id)arg1 endDate:(id)arg2 startDateNode:(id)arg3 endDateNode:(id)arg4 allowedFormats:(unsigned long long)arg5 locale:(id)arg6;
 + (id)splitTimeTitleWithDateInterval:(id)arg1 allowedFormats:(unsigned long long)arg2;

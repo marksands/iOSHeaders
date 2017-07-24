@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     _Bool _markZonesAsUserPurged;
     _Bool _dontFetchFromServer;
     _Bool _didSynchronizeUserKeyRegistry;
+    _Bool _shouldSynchronizeUserKeyRegistry;
     int _numZoneSaveAttempts;
     CDUnknownBlockType _saveCompletionBlock;
     CDUnknownBlockType _deleteCompletionBlock;
@@ -26,6 +27,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (long long)isPredominatelyDownload;
+@property(nonatomic) _Bool shouldSynchronizeUserKeyRegistry; // @synthesize shouldSynchronizeUserKeyRegistry=_shouldSynchronizeUserKeyRegistry;
 @property(nonatomic) _Bool didSynchronizeUserKeyRegistry; // @synthesize didSynchronizeUserKeyRegistry=_didSynchronizeUserKeyRegistry;
 @property(nonatomic) _Bool dontFetchFromServer; // @synthesize dontFetchFromServer=_dontFetchFromServer;
 @property(nonatomic) long long maxZoneSaveAttempts; // @synthesize maxZoneSaveAttempts=_maxZoneSaveAttempts;
@@ -44,11 +46,12 @@ __attribute__((visibility("hidden")))
 - (void)_checkAndPrepareZones;
 - (void)_fetchPCSDataForZonesFromServer:(_Bool)arg1;
 - (void)_fetchPCSDataForZone:(id)arg1 fromServer:(_Bool)arg2;
-- (id)_createNewPCSForZone:(id)arg1;
+- (void)_createNewPCSForZone:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)_saveZonesToServer;
 - (void)_handleRecordZoneDeleted:(id)arg1 responseCode:(id)arg2;
 - (void)_handleRecordZoneSaved:(id)arg1 responseCode:(id)arg2 serverCapabilities:(unsigned long long)arg3;
 - (void)_sendErrorForFailedZones;
+- (void)_sychronizeUserKeyRegistryIfNeeded;
 - (id)nameForState:(unsigned long long)arg1;
 - (id)activityCreate;
 - (_Bool)makeStateTransition;

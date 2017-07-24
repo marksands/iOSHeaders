@@ -15,7 +15,7 @@
 
 + (id)sharedConnection;
 - (void).cxx_destruct;
-- (void)fetchSizeForINImage:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)loadImageDataAndSizeForImage:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (id)_init;
 - (void)dealloc;
 - (id)init;

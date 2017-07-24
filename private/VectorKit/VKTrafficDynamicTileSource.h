@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     VKTileCache *_recentTrafficDynamicTiles;
 }
 
+- (void)expireTiles;
 - (void)fetchTileForKey:(const struct VKTileKey *)arg1;
 - (id)sourceKeysForRenderKey:(const struct VKTileKey *)arg1;
 - (struct _GEOTileKey)downloadKeyAtX:(unsigned int)arg1 y:(unsigned int)arg2 z:(unsigned int)arg3;

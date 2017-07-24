@@ -26,6 +26,7 @@
 + (void)reportMessageRepliedFromApp:(_Bool)arg1;
 + (void)reportNewMessageComposedFromApp:(_Bool)arg1 mailto:(_Bool)arg2;
 + (void)reportComposedMessageSizeInBytes:(unsigned long long)arg1;
++ (void)reportFetchOlderMessages;
 + (void)reportMailAttachmentHandoffContinuedByNotification:(_Bool)arg1;
 + (void)reportMailAttachmentHandoffAdvertisedByNotification:(_Bool)arg1;
 + (void)reportMailLinkHandoffContinuedByNotification:(_Bool)arg1;

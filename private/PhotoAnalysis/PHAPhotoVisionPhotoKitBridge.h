@@ -34,8 +34,10 @@
 + (id)phFacesFromPVFaces:(id)arg1 withFetchOptions:(id)arg2;
 + (id)phFaceFromPVFace:(id)arg1 withFetchOptions:(id)arg2;
 + (id)newFacesDeterministicOrderFetchOptionsWithPhotoLibrary:(id)arg1;
-+ (id)newVerifiedPersonsWithAtleastOneFaceFetchOptionsWithPhotoLibrary:(id)arg1;
-+ (id)newAllPersonsWithAtleastOneFaceFetchOptionsWithPhotoLibrary:(id)arg1;
++ (id)newVerifiedPersonsWithAtLeastOneFaceFetchOptionsWithPhotoLibrary:(id)arg1;
++ (id)newAllPersonsWithAtLeastOneFaceFetchOptionsWithPhotoLibrary:(id)arg1;
++ (id)newVerifiedPersonsFetchOptionsWithPhotoLibrary:(id)arg1;
++ (id)newAllPersonsFetchOptionsWithPhotoLibrary:(id)arg1;
 + (id)newFaceCropsFetchOptionsWithPhotoLibrary:(id)arg1;
 + (id)newFaceGroupsFetchOptionsWithPhotoLibrary:(id)arg1;
 + (id)newFacesRequiringFaceCropGenerationFetchOptionsWithPhotoLibrary:(id)arg1;

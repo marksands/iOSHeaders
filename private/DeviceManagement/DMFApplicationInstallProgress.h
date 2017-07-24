@@ -6,9 +6,10 @@
 
 #import <objc/NSObject.h>
 
+#import <DeviceManagement/NSCopying-Protocol.h>
 #import <DeviceManagement/NSSecureCoding-Protocol.h>
 
-@interface DMFApplicationInstallProgress : NSObject <NSSecureCoding>
+@interface DMFApplicationInstallProgress : NSObject <NSCopying, NSSecureCoding>
 {
     unsigned long long _state;
     unsigned long long _phase;
@@ -16,13 +17,15 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) double fractionCompleted; // @synthesize fractionCompleted=_fractionCompleted;
-@property(nonatomic) unsigned long long phase; // @synthesize phase=_phase;
-@property(nonatomic) unsigned long long state; // @synthesize state=_state;
+@property(readonly, nonatomic) double fractionCompleted; // @synthesize fractionCompleted=_fractionCompleted;
+@property(readonly, nonatomic) unsigned long long phase; // @synthesize phase=_phase;
+@property(readonly, nonatomic) unsigned long long state; // @synthesize state=_state;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithState:(unsigned long long)arg1 phase:(unsigned long long)arg2 fractionCompleted:(double)arg3;
 
 @end
 

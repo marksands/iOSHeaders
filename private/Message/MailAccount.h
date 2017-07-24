@@ -282,6 +282,8 @@
 - (id)specialMailboxNameForType:(int)arg1;
 - (id)mailboxUidOfType:(int)arg1 createIfNeeded:(_Bool)arg2;
 - (_Bool)isSpecialMailbox:(id)arg1;
+- (_Bool)deliveryAccountInUseByOtherAccounts:(id)arg1;
+- (void)deleteDeliveryAccountIfNeeded;
 - (_Bool)shouldExpungeMessagesOnDelete;
 - (id)rootMailboxUid;
 - (id)allMailMailboxUid;

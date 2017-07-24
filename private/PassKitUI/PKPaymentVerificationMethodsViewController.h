@@ -11,6 +11,7 @@
 @interface PKPaymentVerificationMethodsViewController : PKPaymentSetupFieldsViewController
 {
     PKPaymentSetupVerificationMethodTableController *_methodTableController;
+    long long _verificationStatus;
     PKPaymentVerificationController *_verificationController;
     PKPaymentProvisioningController *_provisioningController;
     NSString *_stepIdentifier;
@@ -26,7 +27,12 @@
 - (void)handleNextButtonTapped:(id)arg1;
 - (void)_terminateSetupFlow;
 - (void)_handleVerificationFinished;
-- (void)cancel:(id)arg1;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (id)visibleFieldIdentifiers;
 - (id)defaultHeaderViewSubTitle;
 - (id)defaultHeaderViewTitle;

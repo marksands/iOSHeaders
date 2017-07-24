@@ -18,7 +18,7 @@
 @property(readonly, nonatomic) NSString *launchId;
 @property(readonly, nonatomic) NSString *utteranceString;
 @property(copy, nonatomic) PBCodable *backingStore;
-- (void)_redactForMissingPrivacyEntitlementOptions:(unsigned long long)arg1;
+- (void)_redactForMissingPrivacyEntitlementOptions:(unsigned long long)arg1 containingAppBundleId:(NSString *)arg2;
 - (void)trimDataAgainstTCCForAuditToken:(CDStruct_6ad76789)arg1 bundle:(NSBundle *)arg2;
 - (id)init;
 @end

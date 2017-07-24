@@ -17,12 +17,16 @@
     double _endOfSentenceLikelihood;
     NSArray *_pauseCounts;
     double _silencePosterior;
+    double _clientSilenceFramesCountMs;
+    double _clientSilenceProbability;
     long long _eagerResultEndTime;
 }
 
 @property(nonatomic) long long eagerResultEndTime; // @synthesize eagerResultEndTime=_eagerResultEndTime;
 @property(nonatomic) float serverFeaturesLatency; // @synthesize serverFeaturesLatency=_serverFeaturesLatency;
 @property(nonatomic) float silencePosteriorNF; // @synthesize silencePosteriorNF=_silencePosteriorNF;
+@property(nonatomic) double clientSilenceProbability; // @synthesize clientSilenceProbability=_clientSilenceProbability;
+@property(nonatomic) double clientSilenceFramesCountMs; // @synthesize clientSilenceFramesCountMs=_clientSilenceFramesCountMs;
 @property(nonatomic) double silencePosterior; // @synthesize silencePosterior=_silencePosterior;
 @property(copy, nonatomic) NSArray *pauseCounts; // @synthesize pauseCounts=_pauseCounts;
 @property(nonatomic) double endOfSentenceLikelihood; // @synthesize endOfSentenceLikelihood=_endOfSentenceLikelihood;
@@ -30,8 +34,8 @@
 @property(nonatomic) long long wordCount; // @synthesize wordCount=_wordCount;
 - (void).cxx_destruct;
 - (id)description;
-- (id)initWithWordCount:(long long)arg1 trailingSilenceDuration:(long long)arg2 endOfSentenceLikelihood:(double)arg3 pauseCounts:(id)arg4 silencePosterior:(double)arg5 silencePosteriorNF:(float)arg6 serverFeaturesLatency:(float)arg7 eagerResultEndTime:(long long)arg8;
-- (id)initWithWordCount:(long long)arg1 trailingSilenceDuration:(long long)arg2 endOfSentenceLikelihood:(double)arg3 pauseCounts:(id)arg4 silencePosterior:(double)arg5 silencePosteriorNF:(float)arg6 serverFeaturesLatency:(float)arg7;
+- (id)initWithWordCount:(long long)arg1 trailingSilenceDuration:(long long)arg2 endOfSentenceLikelihood:(double)arg3 pauseCounts:(id)arg4 silencePosterior:(double)arg5 clientSilenceFramesCountMs:(double)arg6 clientSilenceProbability:(double)arg7 silencePosteriorNF:(float)arg8 serverFeaturesLatency:(float)arg9 eagerResultEndTime:(long long)arg10;
+- (id)initWithWordCount:(long long)arg1 trailingSilenceDuration:(long long)arg2 endOfSentenceLikelihood:(double)arg3 pauseCounts:(id)arg4 silencePosterior:(double)arg5 clientSilenceFramesCountMs:(double)arg6 clientSilenceProbability:(double)arg7 silencePosteriorNF:(float)arg8 serverFeaturesLatency:(float)arg9;
 
 @end
 

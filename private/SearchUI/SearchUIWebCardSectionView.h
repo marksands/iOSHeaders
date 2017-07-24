@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeSectionView.h>
+#import <SearchUI/SearchUICardSectionView.h>
 
 #import <SearchUI/NUIContainerBoxViewDelegate-Protocol.h>
 #import <SearchUI/UIWebViewDelegate-Protocol.h>
 
-@class NSString;
+@class NSString, NUIContainerBoxView;
 
-@interface SearchUIWebCardSectionView : SearchUILayoutFreeSectionView <UIWebViewDelegate, NUIContainerBoxViewDelegate>
+@interface SearchUIWebCardSectionView : SearchUICardSectionView <UIWebViewDelegate, NUIContainerBoxViewDelegate>
 {
 }
 
@@ -19,9 +19,11 @@
 - (id)cssColorForColor:(id)arg1;
 - (id)replaceCSSColorHexCode:(id)arg1 withColor:(id)arg2 inString:(id)arg3;
 - (struct CGSize)containerView:(id)arg1 systemLayoutSizeFittingSize:(struct CGSize)arg2 forArrangedSubview:(id)arg3;
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
+- (id)setupContentView;
+- (id)initWithCardSection:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
 
 // Remaining properties
+@property(retain) NUIContainerBoxView *contentView; // @dynamic contentView;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

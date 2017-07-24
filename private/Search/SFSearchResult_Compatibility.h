@@ -13,8 +13,6 @@
 @interface SFSearchResult_Compatibility : SFSearchResult_SpotlightExtras <NSCopying>
 {
     _Bool _hasSearchResultDomain;
-    _Bool _userActivityEligibleForPublicIndexing;
-    _Bool _hasAssociatedUserActivity;
     _Bool _thumbnail_align_right;
     int _searchResultDomain;
     unsigned long long _resultScore;
@@ -28,8 +26,6 @@
 
 @property(nonatomic) _Bool thumbnail_align_right; // @synthesize thumbnail_align_right=_thumbnail_align_right;
 @property(readonly, nonatomic) NSString *secondary_title; // @synthesize secondary_title=_secondary_title;
-@property(nonatomic) _Bool hasAssociatedUserActivity; // @synthesize hasAssociatedUserActivity=_hasAssociatedUserActivity;
-@property _Bool userActivityEligibleForPublicIndexing; // @synthesize userActivityEligibleForPublicIndexing=_userActivityEligibleForPublicIndexing;
 @property(retain, nonatomic) NSString *section_header; // @synthesize section_header=_section_header;
 @property(retain, nonatomic) NSArray *contactIdentifiers; // @synthesize contactIdentifiers=_contactIdentifiers;
 @property(retain, nonatomic) NSString *templateName; // @synthesize templateName=_templateName;

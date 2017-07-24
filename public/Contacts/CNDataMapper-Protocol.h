@@ -6,8 +6,8 @@
 
 #import <Contacts/NSObject-Protocol.h>
 
-@class CNChangeHistoryAnchor, CNChangeHistoryFetchRequest, CNChangeHistoryResult, CNContact, CNContactFetchRequest, CNContactStore, CNContactsEnvironment, CNContainer, CNPolicy, CNSaveRequest, NSArray, NSDictionary, NSNumber, NSPredicate, NSString, NSURL;
-@protocol CNBatchFetchEnumerator, CNCancelable, CNKeyDescriptor;
+@class CNChangeHistoryAnchor, CNChangeHistoryFetchRequest, CNChangeHistoryResult, CNContact, CNContactFetchRequest, CNContactStore, CNContactsEnvironment, CNContainer, CNObservable, CNPolicy, CNSaveRequest, NSArray, NSDictionary, NSNumber, NSPredicate, NSString, NSURL;
+@protocol CNCancelable, CNKeyDescriptor;
 
 @protocol CNDataMapper <NSObject>
 - (NSString *)defaultContainerIdentifier;
@@ -20,8 +20,7 @@
 - (_Bool)executeSaveRequest:(CNSaveRequest *)arg1 response:(id *)arg2 error:(id *)arg3;
 - (_Bool)executeSaveRequest:(CNSaveRequest *)arg1 error:(id *)arg2;
 - (NSString *)meContactIdentifierWithError:(id *)arg1;
-- (NSArray *)contactsForFetchRequest:(CNContactFetchRequest *)arg1 matchInfos:(id *)arg2 error:(id *)arg3;
-- (NSArray *)contactsForFetchRequest:(CNContactFetchRequest *)arg1 error:(id *)arg2;
+- (CNObservable *)contactObservableForFetchRequest:(CNContactFetchRequest *)arg1;
 - (_Bool)requestAccessForEntityType:(long long)arg1 error:(id *)arg2;
 - (void)requestAccessForEntityType:(long long)arg1 completionHandler:(void (^)(_Bool, NSError *))arg2;
 - (id)initWithContactsEnvironment:(CNContactsEnvironment *)arg1;
@@ -52,7 +51,6 @@
 - (_Bool)setMeContact:(CNContact *)arg1 forContainer:(CNContainer *)arg2 error:(id *)arg3;
 - (_Bool)setMeContact:(CNContact *)arg1 error:(id *)arg2;
 - (NSArray *)groupsWithIdentifiers:(NSArray *)arg1 error:(id *)arg2;
-- (id <CNBatchFetchEnumerator>)batchEnumeratorForFetchRequest:(CNContactFetchRequest *)arg1;
 - (void)setNotificationSource:(id)arg1;
 - (NSNumber *)unifiedContactCountWithError:(id *)arg1;
 - (NSString *)identifierWithError:(id *)arg1;

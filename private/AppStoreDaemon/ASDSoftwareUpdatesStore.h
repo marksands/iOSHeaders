@@ -23,6 +23,7 @@
 - (void).cxx_destruct;
 - (void)_setupConnection;
 - (void)_call:(id)arg1 run:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
+- (void)updateAllWithJobResultsCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)updateAllWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)showApplicationUpdateBulletin;
 - (void)showApplicationBadgeForPendingUpdates;

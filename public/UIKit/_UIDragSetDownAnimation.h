@@ -6,12 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
-@class CADisplayLink, NSArray, _UIDragSetDownAnimationWindow;
+@class CADisplayLink, NSArray, UIViewPropertyAnimator, _UIDragSetDownAnimationWindow;
 @protocol _UIDraggingItemVisualTarget;
 
 __attribute__((visibility("hidden")))
 @interface _UIDragSetDownAnimation : NSObject
 {
+    long long _state;
     NSArray *_animationItems;
     CDUnknownBlockType _completion;
     _Bool _forSource;
@@ -19,6 +20,7 @@ __attribute__((visibility("hidden")))
     _UIDragSetDownAnimationWindow *_window;
     _Bool _shouldHideWindowOnCompletion;
     CADisplayLink *_displayLink;
+    UIViewPropertyAnimator *_remainingItemsPropertyAnimator;
 }
 
 - (void).cxx_destruct;
@@ -31,7 +33,11 @@ __attribute__((visibility("hidden")))
 - (void)_animationItemReachedTarget:(id)arg1;
 - (void)displayLinkFired:(id)arg1;
 - (void)_configureAnimationItem:(id)arg1 forDroppedItem:(id)arg2 duiPreview:(id)arg3 crossfadingToTargetedPreview:(id)arg4;
+- (id)_newSystemDefaultPropertyAnimator;
 - (void)_configureSystemDefaultAnimationForItem:(id)arg1 droppedItem:(id)arg2 duiPreview:(id)arg3 isCancel:(_Bool)arg4;
+- (void)begin;
+- (void)_setCenterAndVelocityOfAnimationItem:(id)arg1 fromDroppedItem:(id)arg2;
+- (void)takeUpdatedVisibleDroppedItems:(id)arg1;
 - (id)initWithVisibleDroppedItems:(id)arg1 items:(id)arg2 forSource:(_Bool)arg3 defaultVisualTarget:(id)arg4 completion:(CDUnknownBlockType)arg5;
 
 @end

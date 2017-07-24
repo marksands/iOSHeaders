@@ -8,14 +8,15 @@
 
 #import <GeoServices/_GEONetworkDefaultsServerProxy-Protocol.h>
 
-@class NSLock, NSMutableArray, NSString;
-@protocol _GEONetworkDefaultsServerProxyDelegate;
+@class NSMutableArray, NSString;
+@protocol OS_dispatch_queue, _GEONetworkDefaultsServerProxyDelegate;
 
 __attribute__((visibility("hidden")))
 @interface _GEONetworkDefaultsRemoteProxy : NSObject <_GEONetworkDefaultsServerProxy>
 {
     id <_GEONetworkDefaultsServerProxyDelegate> _delegate;
-    NSLock *_lock;
+    NSObject<OS_dispatch_queue> *_isolation;
+    NSObject<OS_dispatch_queue> *_xpcQueue;
     NSMutableArray *_updateCompletionHandlers;
     int _configChangedToken;
 }
@@ -23,6 +24,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <_GEONetworkDefaultsServerProxyDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)updateNetworkDefaults:(CDUnknownBlockType)arg1;
+- (void)_networkDefaultsDidChange;
 - (void)dealloc;
 - (id)init;
 

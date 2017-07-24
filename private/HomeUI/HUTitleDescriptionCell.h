@@ -13,6 +13,7 @@
     _Bool _hideTitle;
     _Bool _hideDescription;
     _Bool _hideDescriptionIcon;
+    _Bool _adjustsTextColorWhenDisabled;
     UILabel *_titleLabel;
     UILabel *_descriptionLabel;
     NSString *_titleText;
@@ -29,6 +30,7 @@
 @property(readonly, nonatomic) UIImageView *descriptionIconView; // @synthesize descriptionIconView=_descriptionIconView;
 @property(retain, nonatomic) NSArray *horizontalLabelConstraints; // @synthesize horizontalLabelConstraints=_horizontalLabelConstraints;
 @property(retain, nonatomic) NSArray *verticalLabelConstraints; // @synthesize verticalLabelConstraints=_verticalLabelConstraints;
+@property(nonatomic) _Bool adjustsTextColorWhenDisabled; // @synthesize adjustsTextColorWhenDisabled=_adjustsTextColorWhenDisabled;
 @property(nonatomic) double textAlpha; // @synthesize textAlpha=_textAlpha;
 @property(nonatomic) _Bool hideDescriptionIcon; // @synthesize hideDescriptionIcon=_hideDescriptionIcon;
 @property(retain, nonatomic) UIImage *descriptionIcon; // @synthesize descriptionIcon=_descriptionIcon;

@@ -15,8 +15,6 @@
 
 + (_Bool)isAvailable;
 @property(readonly, nonatomic) CMFunctionalCapacityInternal *_internal; // @synthesize _internal;
-- (void)stopUpdates;
-- (void)startUpdatesFromRecord:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)init;
 

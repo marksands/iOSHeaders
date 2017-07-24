@@ -10,6 +10,7 @@
 @protocol MTLDevice, MTLHeap;
 
 @protocol MTLResource <NSObject>
+@property(readonly) unsigned long long allocatedSize;
 @property(readonly) id <MTLHeap> heap;
 @property(readonly) unsigned long long storageMode;
 @property(readonly) unsigned long long cpuCacheMode;

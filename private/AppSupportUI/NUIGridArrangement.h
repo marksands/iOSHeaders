@@ -16,6 +16,7 @@
     struct _NUIGridArrangement _arrangement;
     id <NUIArrangementContainer> _container;
     id <NUIGridArrangementDataSource> _dataSource;
+    double _scale;
     struct {
         unsigned int delegateWidth:1;
         unsigned int delegateHeight:1;
@@ -33,11 +34,14 @@
 - (struct CGRect)unionFrameForItemsInColumns:(struct _NSRange)arg1 rows:(struct _NSRange)arg2 inBounds:(struct CGRect)arg3;
 - (void)positionItemsInColumns:(struct _NSRange)arg1 rows:(struct _NSRange)arg2 inBounds:(struct CGRect)arg3 block:(CDUnknownBlockType)arg4;
 - (void)positionItemsInBounds:(struct CGRect)arg1 block:(CDUnknownBlockType)arg2;
+- (void)_cacheDisplayScaleIfNeeded;
 - (struct CGSize)layoutSizeFittingSize:(struct CGSize)arg1;
 - (void)reloadData;
 @property(nonatomic) long long verticalDistribution;
 @property(nonatomic) long long horizontalDistribution;
 @property(nonatomic, getter=isBaselineRelativeArrangement) _Bool baselineRelativeArrangement;
+@property(readonly, nonatomic) __weak id <NUIGridArrangementDataSource> dataSource;
+@property(readonly, nonatomic) __weak id <NUIArrangementContainer> container;
 - (void)dealloc;
 - (id)initWithContainer:(id)arg1 dataSource:(id)arg2;
 

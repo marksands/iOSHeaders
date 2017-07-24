@@ -6,23 +6,20 @@
 
 #import <Foundation/NSObject.h>
 
-@class LSApplicationWorkspaceRemoteObserver, LSInstallProgressList, NSMutableDictionary, NSXPCConnection;
-@protocol LSInstallProgressProtocol;
+@class LSInstallProgressList, NSMutableDictionary;
 
 @interface LSApplicationWorkspace : NSObject
 {
-    LSApplicationWorkspaceRemoteObserver *_remoteObserver;
     NSMutableDictionary *_createdInstallProgresses;
     LSInstallProgressList *_observedInstallProgresses;
-    id <LSInstallProgressProtocol> _observerProxy;
-    NSXPCConnection *_connection;
 }
 
 + (id)activeManagedConfigurationRestrictionUUIDs;
++ (id)workspaceObserverProxy;
++ (id)_remoteObserver;
 + (id)defaultWorkspace;
 + (id)progressQueue;
 + (id)callbackQueue;
-@property(readonly) NSXPCConnection *connection; // @synthesize connection=_connection;
 @property(readonly) LSInstallProgressList *observedInstallProgresses; // @synthesize observedInstallProgresses=_observedInstallProgresses;
 @property(readonly) NSMutableDictionary *createdInstallProgresses; // @synthesize createdInstallProgresses=_createdInstallProgresses;
 - (void)ls_resetTestingDatabase;
@@ -31,6 +28,7 @@
 - (void)_LSClearSchemaCaches;
 - (void)_LSFailedToOpenURL:(id)arg1 withBundle:(id)arg2;
 - (_Bool)_LSPrivateDatabaseNeedsRebuild;
+- (void)_LSPrivateUpdateAppRemovalRestrictions;
 - (void)_LSPrivateSyncWithMobileInstallation;
 - (_Bool)_LSPrivateRebuildApplicationDatabasesForSystemApps:(_Bool)arg1 internal:(_Bool)arg2 user:(_Bool)arg3;
 - (void)clearCreatedProgressForBundleID:(id)arg1;
@@ -44,9 +42,11 @@
 - (void)clearAdvertisingIdentifier;
 - (_Bool)invalidateIconCache:(id)arg1;
 - (_Bool)allowsAlternateIcons;
+- (_Bool)initiateProgressForApp:(id)arg1 withType:(unsigned long long)arg2;
+- (_Bool)updatePlaceholderMetadataForApp:(id)arg1 installType:(unsigned long long)arg2 failure:(unsigned long long)arg3 underlyingError:(id)arg4 source:(unsigned long long)arg5 outError:(id *)arg6;
 - (_Bool)updateiTunesMetadataWithData:(id)arg1 forApplication:(id)arg2 options:(id)arg3 error:(id *)arg4;
 - (_Bool)updateSINFWithData:(id)arg1 forApplication:(id)arg2 options:(id)arg3 error:(id *)arg4;
-- (_Bool)updateRecordForApp:(id)arg1 withSINF:(id)arg2 iTunesMetadata:(id)arg3 error:(id *)arg4;
+- (_Bool)updateRecordForApp:(id)arg1 withSINF:(id)arg2 iTunesMetadata:(id)arg3 placeholderMetadata:(id)arg4 sendNotification:(_Bool)arg5 error:(id *)arg6;
 - (_Bool)unregisterPlugin:(id)arg1;
 - (_Bool)registerPlugin:(id)arg1;
 - (_Bool)unregisterApplication:(id)arg1;
@@ -102,12 +102,11 @@
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (id)syncObserverProxy;
-@property(readonly) id <LSInstallProgressProtocol> observerProxy; // @synthesize observerProxy=_observerProxy;
-@property(readonly) LSApplicationWorkspaceRemoteObserver *remoteObserver; // @synthesize remoteObserver=_remoteObserver;
+- (id)observerProxy;
+- (id)remoteObserver;
 - (_Bool)establishConnection;
 - (void)getKnowledgeUUID:(id *)arg1 andSequenceNumber:(id *)arg2;
 - (void)dealloc;
-- (id)init;
 - (id)applicationsAvailableForOpeningDocument:(id)arg1;
 - (id)allApplications;
 - (id)unrestrictedApplications;

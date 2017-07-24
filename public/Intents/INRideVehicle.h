@@ -30,6 +30,7 @@
 @property(copy, nonatomic) CLLocation *location; // @synthesize location=_location;
 - (void).cxx_destruct;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

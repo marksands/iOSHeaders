@@ -14,6 +14,7 @@
     NSString *_query;
 }
 
++ (id)predicateForContactsInRange:(struct _NSRange)arg1 sortOrder:(int)arg2;
 + (id)predicateForContactsMatchingOrganizationName:(id)arg1;
 + (id)predicateForSingleContactMatchingMultivalueProperty:(int)arg1 value:(id)arg2;
 + (id)predicateForContactsMatchingMultivalueProperty:(int)arg1 value:(id)arg2;

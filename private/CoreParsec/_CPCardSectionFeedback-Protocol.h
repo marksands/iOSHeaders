@@ -6,10 +6,14 @@
 
 #import <CoreParsec/NSObject-Protocol.h>
 
-@class NSData, NSDictionary, _CPCardSectionForFeedback;
+@class NSData, NSDictionary, NSString, _CPCardSectionForFeedback;
 
 @protocol _CPCardSectionFeedback <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasResultId;
+@property(copy, nonatomic) NSString *resultId;
+@property(readonly, nonatomic) _Bool hasCardSectionId;
+@property(copy, nonatomic) NSString *cardSectionId;
 @property(readonly, nonatomic) _Bool hasCardSection;
 @property(retain, nonatomic) _CPCardSectionForFeedback *cardSection;
 @property(readonly, nonatomic) _Bool hasTimestamp;

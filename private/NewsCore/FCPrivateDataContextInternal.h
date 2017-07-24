@@ -22,10 +22,12 @@
 @property(retain, nonatomic) id <FCAppActivityMonitor> appActivityMonitor; // @synthesize appActivityMonitor=_appActivityMonitor;
 @property(retain, nonatomic) FCCKPrivateDatabase *privateDatabase; // @synthesize privateDatabase=_privateDatabase;
 - (void).cxx_destruct;
+- (void)prepareRecordZonesForUseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)recordZoneWithName:(id)arg1;
 @property(readonly, nonatomic) FCCKRecordZone *userInfoRecordZone;
 @property(readonly, nonatomic) FCCKRecordZone *channelMembershipsRecordZone;
 @property(readonly, nonatomic) FCCKRecordZone *readingHistoryRecordZone;
+@property(readonly, nonatomic) FCCKRecordZone *sensitiveSubscriptionsRecordZone;
 @property(readonly, nonatomic) FCCKRecordZone *subscriptionsRecordZone;
 @property(readonly, nonatomic) FCCKRecordZone *readingListRecordZone;
 - (id)init;

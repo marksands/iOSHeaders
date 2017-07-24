@@ -6,6 +6,7 @@
 
 #import <objc/NSObject.h>
 
+#import <CoreSpeech/CSAssetManagerDelegate-Protocol.h>
 #import <CoreSpeech/CSAudioRecorderDelegate-Protocol.h>
 #import <CoreSpeech/CSLanguageCodeUpdateMonitorDelegate-Protocol.h>
 #import <CoreSpeech/CSStateMachineDelegate-Protocol.h>
@@ -14,10 +15,11 @@
 @class CSAsset, CSAudioCircularBuffer, CSAudioRecorder, CSContinuousVoiceTrigger, CSKeywordDetector, CSMyriadPHash, CSSelfTriggerDetector, CSStateMachine, CSVoiceTriggerEventNotifier, CSVoiceTriggerFidesClient, CSVoiceTriggerFileLogger, CSVoiceTriggerFirstPass, CSVoiceTriggerSecondPass, NSDictionary, NSHashTable, NSString;
 @protocol CSSpeechManagerDelegate, OS_dispatch_queue, OS_dispatch_source;
 
-@interface CSSpeechManager : NSObject <CSAudioRecorderDelegate, CSStateMachineDelegate, CSVoiceTriggerDelegate, CSLanguageCodeUpdateMonitorDelegate>
+@interface CSSpeechManager : NSObject <CSAudioRecorderDelegate, CSStateMachineDelegate, CSVoiceTriggerDelegate, CSAssetManagerDelegate, CSLanguageCodeUpdateMonitorDelegate>
 {
     CSAudioRecorder *_audioRecorder;
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_assetQueryQueue;
     CSStateMachine *_stateMachine;
     CSAudioCircularBuffer *_audioBuffer;
     CSAsset *_currentVoiceTriggerAsset;
@@ -60,13 +62,16 @@
 @property(retain, nonatomic) CSAsset *currentVoiceTriggerAsset; // @synthesize currentVoiceTriggerAsset=_currentVoiceTriggerAsset;
 @property(retain, nonatomic) CSAudioCircularBuffer *audioBuffer; // @synthesize audioBuffer=_audioBuffer;
 @property(retain, nonatomic) CSStateMachine *stateMachine; // @synthesize stateMachine=_stateMachine;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *assetQueryQueue; // @synthesize assetQueryQueue=_assetQueryQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) CSAudioRecorder *audioRecorder; // @synthesize audioRecorder=_audioRecorder;
 - (void).cxx_destruct;
 - (id)_eventName:(unsigned long long)arg1;
 - (id)_stateName:(long long)arg1;
-- (void)_changeLanguageCode;
+- (void)_reinitializeVoiceTriggerWithAsset:(id)arg1;
+- (void)_reinitializeVoiceTriggerIfNeeded;
 - (void)CSLanguageCodeUpdateMonitor:(id)arg1 didReceiveLanguageCodeChanged:(id)arg2;
+- (void)CSAssetManagerDidDownloadNewAsset:(id)arg1;
 - (unsigned long long)hostTimeFromSampleCount:(unsigned long long)arg1;
 - (void)voiceTriggerDidDetectKeyword:(id)arg1;
 - (void)voiceTriggerDetectedOnAOP:(id)arg1;
@@ -100,7 +105,7 @@
 - (void)stopRecordingWithEvent:(unsigned long long)arg1;
 - (void)_startRecordingForClient:(id)arg1 error:(id *)arg2;
 - (_Bool)startRecordingWithSetting:(id)arg1 event:(unsigned long long)arg2 error:(id *)arg3;
-- (_Bool)_releaseAudioSessionForListening:(id *)arg1;
+- (_Bool)_releaseAudioSessionForListening:(unsigned long long)arg1 error:(id *)arg2;
 - (void)_releaseClientAudioSession:(unsigned long long)arg1;
 - (void)releaseClientAudioSession:(unsigned long long)arg1;
 - (void)releaseClientAudioSession;
@@ -110,6 +115,7 @@
 - (_Bool)_startRecordingWithSettings:(id)arg1 error:(id *)arg2;
 - (_Bool)prepareRecordingForClient:(id)arg1 error:(id *)arg2;
 - (_Bool)setClientContext:(id)arg1 error:(id *)arg2;
+- (_Bool)isNarrowBand;
 - (_Bool)isClientRecording;
 - (id)recordSettings;
 - (id)recordRoute;
@@ -124,6 +130,7 @@
 - (void)registerSpeechController:(id)arg1;
 - (void)_setupCircularBuffer;
 - (void)_setupVoiceTrigger;
+- (id)_getVoiceTriggerAsset;
 - (void)dealloc;
 - (id)initWithVoiceTriggerFirstPass:(id)arg1 voicetriggerSecondPass:(id)arg2 voicetriggerEventNotifier:(id)arg3 audioRecorder:(id)arg4;
 - (id)init;
@@ -132,6 +139,7 @@
 - (void)updateMeters;
 - (void)setMeteringEnabled:(_Bool)arg1;
 - (unsigned long long)alertStartTime;
+- (_Bool)playRecordStartingAlertAndResetEndpointer;
 - (_Bool)playAlertSoundForType:(long long)arg1;
 - (_Bool)setAlertSoundFromURL:(id)arg1 forType:(long long)arg2;
 - (id)metrics;

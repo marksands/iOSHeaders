@@ -12,7 +12,7 @@
 #import <UIKit/_UICollectionViewDropCoordinator-Protocol.h>
 #import <UIKit/_UICollectionViewPlaceholderContextDelegate-Protocol.h>
 
-@class NSArray, NSIndexPath, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSUUID, UICollectionViewDropProposal, _UICollectionViewDragDestinationController, _UICollectionViewDragSourceController, _UICollectionViewPlaceholderContext;
+@class NSArray, NSIndexPath, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSUUID, UICollectionViewDropProposal, _UICollectionViewDragDestinationController, _UICollectionViewDragSourceController, _UICollectionViewPlaceholderContext, _UIDropAnimationHandlers;
 @protocol UIDropSession;
 
 __attribute__((visibility("hidden")))
@@ -30,11 +30,13 @@ __attribute__((visibility("hidden")))
     NSMapTable *_dropCoordinatorItemsMap;
     NSMutableArray *_cellsDeferredForReuse;
     long long _sessionRefCount;
+    _UIDropAnimationHandlers *_defaultAnimationHandlers;
     NSUUID *_currentDropInsertionShadowUpdateIdentifier;
 }
 
 @property(nonatomic) int sessionKind; // @synthesize sessionKind=_sessionKind;
 @property(retain, nonatomic) NSUUID *currentDropInsertionShadowUpdateIdentifier; // @synthesize currentDropInsertionShadowUpdateIdentifier=_currentDropInsertionShadowUpdateIdentifier;
+@property(retain, nonatomic) _UIDropAnimationHandlers *defaultAnimationHandlers; // @synthesize defaultAnimationHandlers=_defaultAnimationHandlers;
 @property(nonatomic) long long sessionRefCount; // @synthesize sessionRefCount=_sessionRefCount;
 @property(retain, nonatomic) NSMutableArray *cellsDeferredForReuse; // @synthesize cellsDeferredForReuse=_cellsDeferredForReuse;
 @property(retain, nonatomic) NSMapTable *dropCoordinatorItemsMap; // @synthesize dropCoordinatorItemsMap=_dropCoordinatorItemsMap;
@@ -56,9 +58,9 @@ __attribute__((visibility("hidden")))
 - (id)dropToPlaceholderInsertedAtIndexPath:(id)arg1 reuseIdentifier:(id)arg2 forDragItem:(id)arg3 cellUpdateHandler:(CDUnknownBlockType)arg4;
 - (id)dropToPlaceholderCellAtIndexPath:(id)arg1 reuseIdentifier:(id)arg2 forDragItem:(id)arg3 cellUpdateHandler:(CDUnknownBlockType)arg4;
 - (void)dropToItemAtIndexPath:(id)arg1 forDragItem:(id)arg2;
-- (void)dropItem:(id)arg1 toTarget:(id)arg2;
-- (void)dropItem:(id)arg1 intoItemAtIndexPath:(id)arg2 rect:(struct CGRect)arg3;
-- (void)dropItem:(id)arg1 toItemAtIndexPath:(id)arg2;
+- (id)dropItem:(id)arg1 toTarget:(id)arg2;
+- (id)dropItem:(id)arg1 intoItemAtIndexPath:(id)arg2 rect:(struct CGRect)arg3;
+- (id)dropItem:(id)arg1 toItemAtIndexPath:(id)arg2;
 - (id)dropItem:(id)arg1 toPlaceholderInsertedAtIndexPath:(id)arg2 withReuseIdentifier:(id)arg3 cellUpdateHandler:(CDUnknownBlockType)arg4;
 @property(readonly, nonatomic) NSArray *items;
 - (void)_performCancelDropToIndexPath:(id)arg1 forDragItem:(id)arg2;
@@ -76,7 +78,7 @@ __attribute__((visibility("hidden")))
 - (void)dragDestinationControllerSessionWillBegin:(id)arg1;
 - (void)dragDestinationControllerDidConcludeDrop:(id)arg1;
 - (void)dragDestinationController:(id)arg1 didCompleteDropAnimationForDragItem:(id)arg2;
-- (void)dragDestinationController:(id)arg1 willBeginDropAnimationForDragItem:(id)arg2;
+- (void)dragDestinationController:(id)arg1 willBeginDropAnimationForDragItem:(id)arg2 animator:(id)arg3;
 - (void)dragDestinationController:(id)arg1 didPerformDropAtIndexPath:(id)arg2;
 - (void)dragDestinationController:(id)arg1 willPerformDropAtIndexPath:(id)arg2;
 - (void)dragSourceController:(id)arg1 didUpdateItemCountOfSelectedItems:(long long)arg2;
@@ -87,8 +89,12 @@ __attribute__((visibility("hidden")))
 - (void)dragSourceController:(id)arg1 willEndForItemsAtIndexPaths:(id)arg2 withDropOperation:(unsigned long long)arg3;
 - (void)dragSourceController:(id)arg1 didUpdateItemsAtIndexPaths:(id)arg2;
 - (void)dragSourceControllerSessionWillBegin:(id)arg1;
+- (void)dragSourceController:(id)arg1 didCancelLiftForItemsAtIndexPaths:(id)arg2;
 - (void)dragSourceController:(id)arg1 didCompleteLiftForItemsAtIndexPaths:(id)arg2;
 - (void)dragSourceController:(id)arg1 willBeginLiftForItemsAtIndexPaths:(id)arg2;
+- (void)_resetAllAnimationHandlers;
+- (void)_invokeAllCompletionHandlers;
+- (void)_addAnimationHandlers:(id)arg1 toAnimator:(id)arg2;
 - (id)_presentationIndexPathForIndexPath:(id)arg1 allowingAppendingInserts:(_Bool)arg2;
 - (void)_addDropCoordinatorItem:(id)arg1;
 - (id)_indexPathForCellAppearanceState:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import <MediaPlaybackCore/ICEnvironmentMonitorObserver-Protocol.h>
 
-@class MPAssistantAnalyticsReportingController, MPCJinglePlayActivityReportingController, MPCPlaybackEngine, MPCPlaybackHistoryController, MPCReportingPlaybackObserver, MPRTCReportingController, NSString;
+@class MPAssistantAnalyticsReportingController, MPCJinglePlayActivityReportingController, MPCLyricsReportingController, MPCPlaybackEngine, MPCPlaybackHistoryController, MPCReportingPlaybackObserver, MPRTCReportingController, NSString;
 
 @interface _MPCReportingController : NSObject <ICEnvironmentMonitorObserver>
 {
@@ -18,8 +18,10 @@
     MPCReportingPlaybackObserver *_reportingPlaybackObserver;
     MPRTCReportingController *_rtcReportingController;
     MPCPlaybackHistoryController *_playbackHistoryController;
+    MPCLyricsReportingController *_lyricsReportingController;
 }
 
+@property(retain, nonatomic) MPCLyricsReportingController *lyricsReportingController; // @synthesize lyricsReportingController=_lyricsReportingController;
 @property(retain, nonatomic) MPCPlaybackHistoryController *playbackHistoryController; // @synthesize playbackHistoryController=_playbackHistoryController;
 @property(retain, nonatomic) MPRTCReportingController *rtcReportingController; // @synthesize rtcReportingController=_rtcReportingController;
 @property(retain, nonatomic) MPCReportingPlaybackObserver *reportingPlaybackObserver; // @synthesize reportingPlaybackObserver=_reportingPlaybackObserver;
@@ -29,6 +31,7 @@
 - (void).cxx_destruct;
 - (void)_cloudServiceControllerSubscriptionStatusDidChangeNotification:(id)arg1;
 - (void)environmentMonitorDidChangeNetworkType:(id)arg1;
+- (void)recordLyricsViewEvent:(id)arg1;
 - (void)dealloc;
 - (id)initWithPlaybackEngine:(id)arg1;
 

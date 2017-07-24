@@ -16,7 +16,7 @@
 - (void)triggerWithImage:(id)arg1 cacheKey:(id)arg2 options:(unsigned long long)arg3 clientID:(long long)arg4 resultHandler:(CDUnknownBlockType)arg5;
 - (void)triggerWithImage:(id)arg1 cacheKey:(id)arg2 options:(unsigned long long)arg3 resultHandler:(CDUnknownBlockType)arg4;
 - (void)triggerWithImage:(id)arg1 options:(id)arg2 cacheKey:(id)arg3 resultHandler:(CDUnknownBlockType)arg4;
-- (void)create:(id)arg1;
+- (void)produceImage:(id)arg1;
 
 @end
 

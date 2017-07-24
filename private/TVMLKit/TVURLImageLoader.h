@@ -9,7 +9,7 @@
 #import <TVMLKit/ISURLOperationDelegate-Protocol.h>
 #import <TVMLKit/TVImageLoader-Protocol.h>
 
-@class ISOperationQueue, NSString;
+@class ISOperationQueue, NSNumber, NSString;
 
 @interface TVURLImageLoader : NSObject <ISURLOperationDelegate, TVImageLoader>
 {
@@ -31,6 +31,9 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentage;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentageCachedResponses;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSessionDuration;
 @property(readonly) Class superclass;
 
 @end

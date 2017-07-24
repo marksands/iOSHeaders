@@ -8,7 +8,7 @@
 
 #import <UIKit/_UIViewInProcessAnimationManagerDriver-Protocol.h>
 
-@class CADisplayLink, NSMutableArray, NSString, NSThread, _UIAppCACommitFuture;
+@class CADisplayLink, NSHashTable, NSMutableArray, NSString, NSThread, _UIAppCACommitFuture;
 @protocol OS_dispatch_queue, OS_dispatch_semaphore, OS_dispatch_source, _UIViewInProcessAnimationManagerDriver;
 
 @interface UIViewInProcessAnimationManager : NSObject <_UIViewInProcessAnimationManagerDriver>
@@ -18,6 +18,7 @@
     NSMutableArray *_postTickBlocks;
     NSMutableArray *_preTickBlocks;
     NSMutableArray *_preExitBlocks;
+    NSMutableArray *_presentationModifierGroupRequestBlocks;
     id <_UIViewInProcessAnimationManagerDriver> _animatorAdvancer;
     double _time;
     double _deltaTime;
@@ -39,6 +40,8 @@
     _Bool _animationsSuspended;
     _Bool _skipNextFrame;
     _Bool _displayLinkInvalidated;
+    unsigned long long _presentationModifierRequestCount;
+    NSHashTable *_presentationGroups;
     _Bool _performScheduledBlocksManually;
     _Bool _commitsSynchronously;
     _Bool _usesMainThreadExecution;
@@ -48,6 +51,8 @@
 }
 
 + (void)_dispatchAsyncOntoMainBeforeExit:(CDUnknownBlockType)arg1;
++ (void)_cancelPresentationModifierGroupRequest:(id)arg1;
++ (id)_requestPresentationModifierGroup:(CDUnknownBlockType)arg1;
 + (id)sharedManager;
 + (void)_setExternalAnimationDriver:(id)arg1;
 @property __weak NSThread *currentTickThread; // @synthesize currentTickThread=_currentTickThread;
@@ -62,6 +67,8 @@
 - (double)refreshInterval;
 - (void)_displayLinkFire:(id)arg1;
 - (void)_advanceWithTime:(double)arg1;
+- (void)_cancelPresentationModifierGroupRequest:(id)arg1;
+- (id)_requestPresentationModifierGroup:(CDUnknownBlockType)arg1;
 - (void)performBeforeExiting:(CDUnknownBlockType)arg1;
 - (void)performAfterTick:(CDUnknownBlockType)arg1;
 - (void)performBeforeTick:(CDUnknownBlockType)arg1;
@@ -76,6 +83,7 @@
 - (void)scheduleAnimatorAdvancerToStart;
 - (void)_performTick:(double)arg1 cancel:(_Bool)arg2 force:(_Bool)arg3 eventName:(id)arg4 entry:(CDUnknownBlockType)arg5 exit:(CDUnknownBlockType)arg6;
 - (void)_processTickExitRemovingEntries:(id)arg1;
+- (void)_processPresentationModifierRequestsAndFlush;
 - (void)_processPostTicks;
 - (void)_processPostTicksDelayIfNecessary:(double)arg1;
 - (void)_processEntriesCollectingEntriesToRemove:(id)arg1 cancel:(_Bool)arg2;

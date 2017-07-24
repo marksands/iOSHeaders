@@ -8,38 +8,44 @@
 
 #import <Silex/SXMediaSelectionViewControllerDataSource-Protocol.h>
 #import <Silex/SXMediaSelectionViewControllerDelegate-Protocol.h>
-#import <Silex/SXVideoPlaybackObserver-Protocol.h>
 
-@class AVMediaSelectionGroup, NSString;
+@class NSDictionary, NSString;
 @protocol SXMediaSelectionControllerDataSource, SXMediaSelectionControllerDelegate;
 
-@interface SXMediaSelectionController : NSObject <SXMediaSelectionViewControllerDataSource, SXMediaSelectionViewControllerDelegate, SXVideoPlaybackObserver>
+@interface SXMediaSelectionController : NSObject <SXMediaSelectionViewControllerDataSource, SXMediaSelectionViewControllerDelegate>
 {
     id <SXMediaSelectionControllerDataSource> _dataSource;
     id <SXMediaSelectionControllerDelegate> _delegate;
+    NSDictionary *_availableMediaSelectionGroups;
 }
 
+@property(retain, nonatomic) NSDictionary *availableMediaSelectionGroups; // @synthesize availableMediaSelectionGroups=_availableMediaSelectionGroups;
 @property(nonatomic) __weak id <SXMediaSelectionControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <SXMediaSelectionControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
-- (_Bool)indexIsOffMediaSelectionIndex:(unsigned long long)arg1;
-- (_Bool)indexIsDefaultMediaSelectionIndex:(unsigned long long)arg1;
-- (unsigned long long)indexByAddingDefaultOptions:(unsigned long long)arg1;
-- (unsigned long long)indexBySubtractingDefaultOptions:(unsigned long long)arg1;
-- (unsigned long long)numberOfMediaSelectionOptions;
-- (_Bool)allowsEmptySelection;
-- (id)mediaSelectionOptionAtIndex:(unsigned long long)arg1;
-- (unsigned long long)indexOfMediaSelectionOption:(id)arg1;
-- (id)displayNameForMediaSelectionOptionAtIndex:(unsigned long long)arg1;
-- (void)mediaSelectionViewController:(id)arg1 selectMediaSelectionOptionAtIndex:(unsigned long long)arg2;
-- (unsigned long long)indexOfSelectedMediaSelectionOptionForMediaSelectionViewController:(id)arg1;
-- (id)mediaSelectionViewController:(id)arg1 displayNameForMediaSelectionOptionAtIndex:(unsigned long long)arg2;
-- (unsigned long long)numberOfMediaSelectionOptionsInMediaSelectionViewController:(id)arg1;
-- (void)selectMediaSelectionOption:(id)arg1;
-- (id)selectedMediaSelectionOption;
-- (id)preferredMediaSelectionOption;
-@property(readonly, nonatomic) AVMediaSelectionGroup *closedCaptionsGroup;
-- (void)mediaSelectionOptionsAvailabilityChangedForPlaybackCoordinator:(id)arg1;
+- (id)mediaSelectionOptionsInMediaSelectionGroup:(id)arg1;
+- (_Bool)shouldShowDefaultOptionsForMediaSelectionGroup:(id)arg1;
+- (_Bool)indexIsOffMediaSelectionIndex:(unsigned long long)arg1 inMediaSelectionGroup:(id)arg2;
+- (_Bool)indexIsDefaultMediaSelectionIndex:(unsigned long long)arg1 inMediaSelectionGroup:(id)arg2;
+- (unsigned long long)indexByAddingDefaultOptions:(unsigned long long)arg1 inMediaSelectionGroup:(id)arg2;
+- (unsigned long long)indexBySubtractingDefaultOptions:(unsigned long long)arg1 inMediaSelectionGroup:(id)arg2;
+- (id)mediaCharacteristicForMediaSelectionGroup:(id)arg1;
+- (unsigned long long)numberOfMediaSelectionOptionsInGroup:(id)arg1;
+- (id)mediaSelectionOptionAtIndex:(unsigned long long)arg1 inMediaSelectionGroup:(id)arg2;
+- (unsigned long long)indexOfMediaSelectionOption:(id)arg1 inMediaSelectionGroup:(id)arg2;
+- (id)selectedMediaSelectionOptionInGroup:(id)arg1;
+- (id)mediaSelectionViewController:(id)arg1 displayNameForMediaSelectionGroup:(unsigned long long)arg2;
+- (id)displayNameForMediaSelectionOptionAtIndex:(unsigned long long)arg1 inMediaSelectionGroup:(id)arg2;
+- (id)mediaSelectionGroupAtIndex:(unsigned long long)arg1;
+- (void)mediaSelectionViewController:(id)arg1 selectMediaSelectionOptionAtIndexPath:(id)arg2;
+- (unsigned long long)mediaSelectionViewController:(id)arg1 indexOfSelectedMediaSelectionOptionInGroup:(unsigned long long)arg2;
+- (id)mediaSelectionViewController:(id)arg1 displayNameForMediaSelectionOptionAtIndexPath:(id)arg2;
+- (unsigned long long)mediaSelectionViewController:(id)arg1 numberOfMediaSelectionOptionsInGroup:(unsigned long long)arg2;
+- (unsigned long long)numberOfMediaSelectionGroupsInMediaSelectionViewController:(id)arg1;
+- (void)selectMediaSelectionOption:(id)arg1 inMediaSelectionGroup:(id)arg2;
+- (id)mediaSelectionGroupForCharacteristic:(id)arg1;
+- (id)selectedMediaSelectionOptionInMediaSelectionGroup:(id)arg1;
+- (id)preferredMediaSelectionOptionInMediaSelectionGroup:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

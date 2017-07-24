@@ -6,7 +6,7 @@
 
 #import <Navigation/NSObject-Protocol.h>
 
-@class GEOAlightNotificationFeedback, GEOComposedRoute, GEOETARoute, GEOStep, MNCommuteDestination, MNGuidanceLaneInfo, MNGuidanceSignInfo, MNLocation, MNNavigationService, MNTrafficIncidentAlert, NSArray, NSDate, NSError, NSString, NSUUID;
+@class GEOAlightNotificationFeedback, GEOComposedRoute, GEOETARoute, GEOETATrafficUpdateResponse, GEOStep, MNCommuteDestination, MNGuidanceEventFeedback, MNGuidanceLaneInfo, MNGuidanceSignInfo, MNLocation, MNNavigationService, MNTrafficIncidentAlert, NSArray, NSDate, NSError, NSString, NSUUID;
 
 @protocol MNNavigationServiceObserver <NSObject>
 
@@ -37,18 +37,24 @@
 - (void)navigationServiceWillReroute:(MNNavigationService *)arg1;
 - (void)navigationService:(MNNavigationService *)arg1 didUpdateHeading:(double)arg2 accuracy:(double)arg3;
 - (void)navigationService:(MNNavigationService *)arg1 didUpdateIncidentsForRoute:(GEOComposedRoute *)arg2 etaRoute:(GEOETARoute *)arg3 incidentsOffset:(unsigned int)arg4;
+- (void)navigationService:(MNNavigationService *)arg1 didUpdateETAResponse:(GEOETATrafficUpdateResponse *)arg2 forRoute:(GEOComposedRoute *)arg3;
 - (void)navigationService:(MNNavigationService *)arg1 didUpdateRemainingTime:(double)arg2 remainingDistance:(double)arg3;
 - (void)navigationService:(MNNavigationService *)arg1 didUpdateDisplayETA:(NSDate *)arg2 displayRemainingMinutes:(unsigned long long)arg3 forRoute:(GEOComposedRoute *)arg4;
-- (void)navigationService:(MNNavigationService *)arg1 hideLaneDirectionsForId:(NSUUID *)arg2;
-- (void)navigationService:(MNNavigationService *)arg1 showLaneDirections:(MNGuidanceLaneInfo *)arg2;
-- (void)navigationService:(MNNavigationService *)arg1 didEnableGuidancePrompts:(_Bool)arg2;
-- (void)navigationServiceDidArrive:(MNNavigationService *)arg1;
-- (void)navigationService:(MNNavigationService *)arg1 updateSignsWithInfo:(MNGuidanceSignInfo *)arg2;
 - (void)navigationServiceDidHideSecondaryStep:(MNNavigationService *)arg1;
 - (void)navigationService:(MNNavigationService *)arg1 displaySecondaryStep:(GEOStep *)arg2 instructions:(NSArray *)arg3 shieldType:(int)arg4 shieldText:(NSString *)arg5 drivingSide:(int)arg6;
 - (void)navigationService:(MNNavigationService *)arg1 displayManeuverAlertForAnnouncementStage:(unsigned long long)arg2;
 - (void)navigationService:(MNNavigationService *)arg1 displayPrimaryStep:(GEOStep *)arg2 instructions:(NSArray *)arg3 shieldType:(int)arg4 shieldText:(NSString *)arg5 drivingSide:(int)arg6 maneuverStepIndex:(unsigned long long)arg7 isSynthetic:(_Bool)arg8;
+- (void)navigationService:(MNNavigationService *)arg1 updatedGuidanceEventFeedback:(MNGuidanceEventFeedback *)arg2;
+- (void)navigationService:(MNNavigationService *)arg1 newGuidanceEventFeedback:(MNGuidanceEventFeedback *)arg2;
+- (void)navigationService:(MNNavigationService *)arg1 hideLaneDirectionsForId:(NSUUID *)arg2;
+- (void)navigationService:(MNNavigationService *)arg1 showLaneDirections:(MNGuidanceLaneInfo *)arg2;
+- (void)navigationService:(MNNavigationService *)arg1 didEnableGuidancePrompts:(_Bool)arg2;
+- (void)navigationServiceDidArrive:(MNNavigationService *)arg1;
 - (void)navigationService:(MNNavigationService *)arg1 willAnnounce:(unsigned long long)arg2 inSeconds:(double)arg3;
+- (void)navigationService:(MNNavigationService *)arg1 usePersistentDisplay:(_Bool)arg2;
+- (void)navigationService:(MNNavigationService *)arg1 updateSignsWithInfo:(MNGuidanceSignInfo *)arg2;
+- (void)navigationServiceEndGuidanceUpdate:(MNNavigationService *)arg1;
+- (void)navigationServiceBeginGuidanceUpdate:(MNNavigationService *)arg1;
 - (void)navigationService:(MNNavigationService *)arg1 didUpdateDistanceUntilManeuver:(double)arg2 timeUntilManeuver:(double)arg3 forStepIndex:(unsigned long long)arg4;
 - (void)navigationService:(MNNavigationService *)arg1 didUpdateDistanceUntilSign:(double)arg2 timeUntilSign:(double)arg3 forStepIndex:(unsigned long long)arg4;
 - (void)navigationService:(MNNavigationService *)arg1 didUpdateProceedToRouteDistance:(double)arg2 displayString:(NSString *)arg3 closestStepIndex:(unsigned long long)arg4;

@@ -18,7 +18,7 @@
 @property(retain, nonatomic) HMDBackingStoreCacheGroup *record; // @synthesize record=_record;
 - (void).cxx_destruct;
 - (id)mainReturningError;
-- (id)initWithZone:(id)arg1 owner:(id)arg2 rootRecord:(id)arg3 subscriptionName:(id)arg4 creationBlock:(CDUnknownBlockType)arg5;
+- (id)initWithZone:(id)arg1 owner:(id)arg2 rootRecord:(id)arg3 subscriptionName:(id)arg4 subscription:(id)arg5 creationBlock:(CDUnknownBlockType)arg6;
 
 @end
 

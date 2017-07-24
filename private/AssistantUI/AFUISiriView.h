@@ -9,8 +9,8 @@
 #import <AssistantUI/AFUISiriRemoteViewHosting-Protocol.h>
 #import <AssistantUI/SiriUISiriStatusViewDelegate-Protocol.h>
 
-@class NSString, SiriUIAudioRoutePickerButton, SiriUIConfiguration, SiriUIContentButton, SiriUIHelpButton, SiriUIVisualEffectView, UIImageView, _UIBackdropView;
-@protocol AFUISiriViewDelegate, SiriUISiriStatusViewProtocol;
+@class NSString, SiriUIAudioRoutePickerButton, SiriUIConfiguration, SiriUIContentButton, SiriUIHelpButton, SiriUIVisualEffectView, UIImageView, UILabel, _UIBackdropView;
+@protocol AFUISiriViewDataSource, AFUISiriViewDelegate, SiriUISiriStatusViewProtocol;
 
 @interface AFUISiriView : UIView <SiriUISiriStatusViewDelegate, AFUISiriRemoteViewHosting>
 {
@@ -35,6 +35,8 @@
     _Bool _lockViewHidden;
     SiriUIVisualEffectView *_eyesFreeEffectView;
     UIImageView *_eyesFreeLogoView;
+    UILabel *_assistantVersionLabel;
+    SiriUIVisualEffectView *_assistantVersionVisualEffectView;
     _Bool _disabled;
     _Bool _statusViewHidden;
     _Bool _keepStatusViewHidden;
@@ -43,6 +45,7 @@
     _Bool _carDisplaySnippetVisible;
     UIView *_remoteContentView;
     UIView *_foregroundView;
+    id <AFUISiriViewDataSource> _dataSource;
     id <AFUISiriViewDelegate> _delegate;
     long long _siriSessionState;
     long long _mode;
@@ -60,6 +63,7 @@
 @property(nonatomic) _Bool statusViewHidden; // @synthesize statusViewHidden=_statusViewHidden;
 @property(nonatomic) _Bool disabled; // @synthesize disabled=_disabled;
 @property(nonatomic) __weak id <AFUISiriViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <AFUISiriViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(readonly, nonatomic) UIView *foregroundView; // @synthesize foregroundView=_foregroundView;
 @property(retain, nonatomic) UIView *remoteContentView; // @synthesize remoteContentView=_remoteContentView;
 - (void).cxx_destruct;
@@ -100,6 +104,7 @@
 - (void)setBackdropShouldRasterize:(_Bool)arg1;
 - (void)setBackdropVisible:(_Bool)arg1;
 - (void)setCarPlayGatekeeperBackdropVisible:(_Bool)arg1;
+- (void)reloadData;
 @property(nonatomic, getter=isInUITrackingMode) _Bool inUITrackingMode;
 - (void)teardownStatusView;
 - (void)setStatusViewUserInteractionEnabled:(_Bool)arg1;
@@ -109,6 +114,8 @@
 - (void)layoutSubviews;
 - (void)dealloc;
 - (_Bool)isCarPlayMode;
+- (void)_destroyAssistantVersionLabelIfNecessary;
+- (void)_createAssistantVersionLabelIfNecessary;
 - (_Bool)_reducesMotionEffects;
 - (id)initWithFrame:(struct CGRect)arg1 configuration:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -6,11 +6,11 @@
 
 #import <MediaPlayer/MPPlaybackContext.h>
 
-@class MPCModelRadioContentReference, MPCPlaybackRequestEnvironment, MPCPlayerItem, NSString, NSURL;
+@class MPAVItem, MPCModelRadioContentReference, MPCPlaybackRequestEnvironment, NSString, NSURL;
 
 @interface MPCModelRadioPlaybackContext : MPPlaybackContext
 {
-    MPCPlayerItem *_prefixItem;
+    MPAVItem *_prefixItem;
     MPCPlaybackRequestEnvironment *_playbackRequestEnvironment;
     MPCModelRadioContentReference *_nowPlayingContentReference;
     MPCModelRadioContentReference *_seedContentReference;
@@ -30,7 +30,7 @@
 @property(copy, nonatomic) MPCModelRadioContentReference *seedContentReference; // @synthesize seedContentReference=_seedContentReference;
 @property(copy, nonatomic) MPCModelRadioContentReference *nowPlayingContentReference; // @synthesize nowPlayingContentReference=_nowPlayingContentReference;
 @property(copy, nonatomic) MPCPlaybackRequestEnvironment *playbackRequestEnvironment; // @synthesize playbackRequestEnvironment=_playbackRequestEnvironment;
-@property(retain, nonatomic) MPCPlayerItem *prefixItem; // @synthesize prefixItem=_prefixItem;
+@property(retain, nonatomic) MPAVItem *prefixItem; // @synthesize prefixItem=_prefixItem;
 - (void).cxx_destruct;
 - (id)descriptionComponents;
 - (id)init;

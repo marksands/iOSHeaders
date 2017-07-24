@@ -10,19 +10,21 @@
 
 @interface PXPeopleDetailStatusOverlayView : UIView
 {
-    UILabel *_messageField;
     UIImageView *_keyAssetImageView;
+    UILabel *_messageField;
+    UILabel *_subtitleField;
     NSArray *_viewConstraints;
 }
 
 @property(copy, nonatomic) NSArray *viewConstraints; // @synthesize viewConstraints=_viewConstraints;
-@property(readonly, nonatomic) UIImageView *keyAssetImageView; // @synthesize keyAssetImageView=_keyAssetImageView;
+@property(readonly, nonatomic) UILabel *subtitleField; // @synthesize subtitleField=_subtitleField;
 @property(readonly, nonatomic) UILabel *messageField; // @synthesize messageField=_messageField;
+@property(readonly, nonatomic) UIImageView *keyAssetImageView; // @synthesize keyAssetImageView=_keyAssetImageView;
 - (void).cxx_destruct;
 - (double)_imageHeightMultiplier;
 - (void)updateConstraints;
 - (double)preferredHeightForWidth:(double)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 message:(id)arg2 keyImage:(id)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 keyImage:(id)arg2 message:(id)arg3 subtitleText:(id)arg4;
 
 @end
 

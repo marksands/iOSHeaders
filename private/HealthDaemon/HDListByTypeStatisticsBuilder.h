@@ -6,14 +6,12 @@
 
 #import <HealthDaemon/HDStatisticsBuilder.h>
 
-@class NSCalendar, NSDate, NSMutableArray, NSMutableDictionary, NSNumber;
+@class NSCalendar, NSDateInterval, NSMutableArray, NSMutableDictionary, NSNumber;
 
 @interface HDListByTypeStatisticsBuilder : HDStatisticsBuilder
 {
-    NSDate *_bucketStartDate;
-    NSDate *_bucketEndDate;
-    NSDate *_sleepStartDate;
-    NSDate *_sleepEndDate;
+    NSDateInterval *_baseInterval;
+    NSDateInterval *_sleepInterval;
     NSMutableArray *_lastUpdatedDataTypes;
     NSMutableDictionary *_calculatorByTypes;
     NSMutableDictionary *_statisticsByTypes;
@@ -43,6 +41,8 @@
 - (_Bool)_setIfLatestTimestamp:(double)arg1 forObjectType:(id)arg2;
 - (_Bool)_setIfLatestDate:(id)arg1 forObjectType:(id)arg2;
 - (_Bool)_enumerateSamplesWithDatabase:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (_Bool)_enumerateSamplesOfType:(long long)arg1 interval:(id)arg2 database:(id)arg3 handler:(CDUnknownBlockType)arg4;
+- (id)_dateIntervalForType:(long long)arg1;
 - (unsigned long long)mergeStrategyForType:(id)arg1;
 - (id)collectionCalculatorForType:(id)arg1 from:(double)arg2 to:(double)arg3;
 - (id)timeIntervalCalculatorForType:(id)arg1;
@@ -61,7 +61,7 @@
 - (_Bool)_queryForWorkoutSamplesWithDatabase:(id)arg1 error:(id *)arg2;
 - (id)_sleepQueryResultBuilder;
 - (id)_calculatedValuesForDatabase:(id)arg1 error:(id *)arg2;
-- (id)initWithProfile:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 sleepStartDate:(id)arg4 sleepEndDate:(id)arg5 calendar:(id)arg6;
+- (id)initWithProfile:(id)arg1 baseInterval:(id)arg2 sleepInterval:(id)arg3 calendar:(id)arg4;
 
 @end
 

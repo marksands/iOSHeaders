@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <VectorKit/MapEngineDelegate-Protocol.h>
 #import <VectorKit/VKImageCanvasDelegate-Protocol.h>
@@ -20,21 +20,6 @@
     _Bool _didBecomeFullyDrawn;
     _Bool _hasFailedTiles;
     CDUnknownBlockType _completion;
-    struct Renderer {
-        CDUnknownFunctionPointerType *;
-        struct Device *;
-        unsigned long long;
-        unsigned long long;
-        unsigned long long;
-        _Bool;
-        float;
-        struct vector<std::__1::shared_ptr<ggl::DebugRenderer>, std::__1::allocator<std::__1::shared_ptr<ggl::DebugRenderer>>>;
-        struct unique_ptr<ggl::RenderQueue, std::__1::default_delete<ggl::RenderQueue>>;
-        struct shared_ptr<ggl::CommonLibrary>;
-        struct unique_ptr<ggl::RenderResourceFences, std::__1::default_delete<ggl::RenderResourceFences>>;
-        struct Texture2D *;
-        struct unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>;
-    } *_renderer;
     GEOResourceManifestConfiguration *_manifestConfiguration;
     NSLocale *_locale;
     struct unique_ptr<md::MapEngine, std::__1::default_delete<md::MapEngine>> _mapEngine;
@@ -43,7 +28,6 @@
 }
 
 + (_Bool)supportsSharingThumbnails;
-+ (_Bool)supportsHighResolutionSnapshots;
 @property(nonatomic) CDStruct_80aa614a mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
 - (id).cxx_construct;
 - (void).cxx_destruct;

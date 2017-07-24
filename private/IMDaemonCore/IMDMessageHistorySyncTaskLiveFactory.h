@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IMDaemonCore/IMDMessageHistorySyncTaskFactory-Protocol.h>
 
-@class IMDAccountController, IMDCKChatSyncController, IMDReplayController, NSString;
+@class IMDAccountController, IMDCKSyncController, IMDReplayController, NSString;
 
 @interface IMDMessageHistorySyncTaskLiveFactory : NSObject <IMDMessageHistorySyncTaskFactory>
 {
-    IMDCKChatSyncController *_chatSyncController;
+    IMDCKSyncController *_ckSyncController;
     IMDAccountController *_accountController;
     IMDReplayController *_replayController;
 }
@@ -21,7 +21,7 @@
 - (id)_newFirstUnlockReplaySyncTask;
 - (id)_newKChatSyncTask;
 - (id)newSyncTaskForType:(unsigned long long)arg1;
-- (id)_initWithCKChatSyncController:(id)arg1 accountController:(id)arg2 replayController:(id)arg3;
+- (id)_initWithCKSyncController:(id)arg1 accountController:(id)arg2 replayController:(id)arg3;
 - (void)dealloc;
 - (id)init;
 

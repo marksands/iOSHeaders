@@ -13,6 +13,7 @@
 @interface MNGuidanceSignDescription : NSObject <NSSecureCoding>
 {
     int _shieldID;
+    int _composedGuidanceEventIndex;
     NSUUID *_uniqueID;
     NSArray *_titles;
     NSArray *_details;
@@ -24,6 +25,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) int composedGuidanceEventIndex; // @synthesize composedGuidanceEventIndex=_composedGuidanceEventIndex;
 @property(readonly, nonatomic) long long distanceDetailLevel; // @synthesize distanceDetailLevel=_distanceDetailLevel;
 @property(readonly, nonatomic) NSDictionary *variableOverrides; // @synthesize variableOverrides=_variableOverrides;
 @property(readonly, nonatomic) NSString *shieldStringID; // @synthesize shieldStringID=_shieldStringID;
@@ -37,7 +39,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;
-- (id)initWithID:(id)arg1 titles:(id)arg2 details:(id)arg3 variableOverrides:(id)arg4 distanceDetailLevel:(int)arg5 junction:(id)arg6 shieldText:(id)arg7 shieldID:(int)arg8 shieldStringID:(id)arg9;
+- (id)initWithID:(id)arg1 titles:(id)arg2 details:(id)arg3 variableOverrides:(id)arg4 distanceDetailLevel:(int)arg5 junction:(id)arg6 shieldText:(id)arg7 shieldID:(int)arg8 shieldStringID:(id)arg9 composedGuidanceEventIndex:(int)arg10;
 
 @end
 

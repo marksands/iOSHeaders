@@ -11,9 +11,7 @@
 }
 
 + (id)temporaryKeyMap;
-+ (id)featuresVersion;
-+ (id)featuresModelId;
-+ (id)createTransformerForLanguage:(id)arg1 maxDistance:(unsigned long long)arg2 ngrams:(unsigned long long)arg3;
++ (id)newTransformerInstanceForLanguage:(id)arg1;
 
 @end
 

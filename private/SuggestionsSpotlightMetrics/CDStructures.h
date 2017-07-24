@@ -66,11 +66,27 @@ struct SGMEventICSSourceType_ {
     unsigned long long _field1;
 };
 
+struct SGMEventLocationAdj_ {
+    unsigned long long _field1;
+};
+
 struct SGMEventState_ {
     unsigned long long _field1;
 };
 
 struct SGMEventStringAdj_ {
+    unsigned long long _field1;
+};
+
+struct SGMEventTitleSource_ {
+    unsigned long long _field1;
+};
+
+struct SGMFoundInAppsDatetimeType_ {
+    unsigned long long _field1;
+};
+
+struct SGMFoundInAppsICSTZValue_ {
     unsigned long long _field1;
 };
 

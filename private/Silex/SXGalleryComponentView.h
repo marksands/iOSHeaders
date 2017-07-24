@@ -24,7 +24,7 @@
 - (void)forceImageViewFullscreen:(id)arg1;
 - (id)imageViewForLocation:(struct CGPoint)arg1;
 - (id)hostingView;
-- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 context:(id)arg3 configuration:(id)arg4;
+- (id)initWithComponent:(id)arg1 configuration:(id)arg2 context:(id)arg3 analyticsReporting:(id)arg4 appStateMonitor:(id)arg5;
 
 @end
 

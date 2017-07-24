@@ -19,6 +19,7 @@
 + (id)imageWithInternalRepresentation:(void *)arg1;
 + (_Bool)supportsSecureCoding;
 + (id)imageWithArrayOfImages:(id)arg1 selector:(CDUnknownBlockType)arg2;
++ (id)imageForRenderingWithMetal:(id)arg1 orNonMetal:(id)arg2;
 + (id)imageWithContentsOfFile:(id)arg1 options:(id)arg2;
 + (id)imageWithContentsOfFile:(id)arg1;
 + (id)imageWithContentsOfURL:(id)arg1 options:(id)arg2;
@@ -67,6 +68,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeToTIFF:(id)arg1;
+- (id)imageByApplyingFilter:(id)arg1;
 - (id)imageByApplyingFilter:(id)arg1 withInputParameters:(id)arg2;
 - (id)filteredImage:(id)arg1 keysAndValues:(id)arg2;
 - (_Bool)cacheHint;
@@ -84,6 +86,7 @@
 @property(readonly) CIFilterShape *definition;
 @property(readonly, nonatomic) struct CGRect extent;
 - (id)initWithArrayOfImages:(id)arg1 selector:(CDUnknownBlockType)arg2;
+- (id)initForRenderingWithMetal:(id)arg1 orNonMetal:(id)arg2;
 - (id)_imageBySamplingLinear;
 - (id)_imageBySamplingNearest;
 - (id)imageBySamplingLinear;
@@ -117,6 +120,8 @@
 - (id)initWithContentsOfURL:(id)arg1;
 - (id)initWithData:(id)arg1 options:(id)arg2;
 - (id)initWithData:(id)arg1;
+- (id)imageByApplyingCGOrientation:(unsigned int)arg1;
+- (struct CGAffineTransform)imageTransformForCGOrientation:(unsigned int)arg1;
 - (id)imageByApplyingOrientation:(int)arg1;
 - (struct CGAffineTransform)imageTransformForOrientation:(int)arg1;
 - (id)init;

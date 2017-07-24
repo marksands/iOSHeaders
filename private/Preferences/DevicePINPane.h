@@ -40,6 +40,7 @@
 @property(nonatomic) long long autocorrectionType; // @synthesize autocorrectionType=_autocorrectionType;
 @property(nonatomic) long long autocapitalizationType; // @synthesize autocapitalizationType=_autocapitalizationType;
 - (void).cxx_destruct;
+- (void)keyboardWillChangeFrame:(id)arg1;
 - (void)layoutSubviews;
 @property(nonatomic, getter=isSecureTextEntry) _Bool secureTextEntry;
 - (void)pinView:(id)arg1 pinEntered:(id)arg2;

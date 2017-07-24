@@ -14,16 +14,20 @@
     _Bool _shouldResync;
     HDProfile *_profile;
     NSObject<OS_dispatch_queue> *_queue;
+    long long _inProgressSyncCount;
 }
 
+@property(nonatomic) long long inProgressSyncCount; // @synthesize inProgressSyncCount=_inProgressSyncCount;
 @property(nonatomic) _Bool shouldResync; // @synthesize shouldResync=_shouldResync;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
 - (void)_cloudSyncContainersForProfile:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_containerIdentifierForCurrentAccountWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_containerIdentifiersForCurrentAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_containerWithIdentifier:(id)arg1 error:(id *)arg2;
 - (void)queue_cloudSyncContainersWithCompletion:(CDUnknownBlockType)arg1;
+- (void)disableAndDeleteAllSyncDataWithTaskTree:(id)arg1;
+- (void)disableSyncLocallyWithTaskTree:(id)arg1;
 - (void)fetchSyncStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchDescriptionWithOptions:(unsigned long long)arg1 reason:(long long)arg2 taskTree:(id)arg3 resultHandler:(CDUnknownBlockType)arg4;
 - (void)resetWithOptions:(unsigned long long)arg1 reason:(long long)arg2 taskTree:(id)arg3;

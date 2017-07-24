@@ -7,6 +7,7 @@
 #import <MaterialKit/MTVibrantStylingProvider.h>
 
 @interface MTVibrantStylingProvider (CCUIAdditions)
++ (id)_controlCenterScrollViewDarkeningVibrantStyling;
 + (id)_controlCenterSecondaryVibrantStyling;
 + (id)_controlCenterPrimaryVibrantStyling;
 @end

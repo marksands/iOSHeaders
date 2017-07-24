@@ -120,6 +120,7 @@
 - (id)_unavailableCommandsBeforeFirstUnlock;
 - (id)_unavailableCommandsWhileLocked;
 - (id)_notNetworkTetheredError;
+- (id)_invalidRequestTypeInSingleAppModeError:(id)arg1;
 - (id)_invalidRequestTypeInMDMLostModeError:(id)arg1;
 - (id)_notManagedErrorAppID:(id)arg1;
 - (id)_notAuthorizedError;

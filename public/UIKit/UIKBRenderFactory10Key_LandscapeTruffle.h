@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 
 - (double)centerColumnWidthFactor;
 - (double)controlColumnWidthFactor;
+- (double)capitalAbcSymbolSize;
 
 @end
 

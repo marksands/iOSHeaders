@@ -6,7 +6,7 @@
 
 #import <SafariCore/WBSCyclerCloudBookmarksAssistant-Protocol.h>
 
-@class NSArray, NSDictionary, NSString, NSURL;
+@class NSArray, NSDictionary, NSString;
 
 @protocol WBSSafariBookmarksSyncAgentProtocol <WBSCyclerCloudBookmarksAssistant>
 - (void)fetchSyncedCloudTabDevicesAndCloseRequestsWithCompletionHandler:(void (^)(NSArray *, NSArray *))arg1;
@@ -14,8 +14,7 @@
 - (void)deleteDevicesWithUUIDStrings:(NSArray *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)saveCloudTabCloseRequestWithDictionaryRepresentation:(NSDictionary *)arg1 closeRequestUUIDString:(NSString *)arg2 completionHandler:(void (^)(NSError *))arg3;
 - (void)saveTabsForCurrentDeviceWithDictionaryRepresentation:(NSDictionary *)arg1 deviceUUIDString:(NSString *)arg2;
-- (void)registerForCloudTabsPushNotificationsIfNeeded;
-- (void)writeDiagnosticsDataToURL:(NSURL *)arg1 completionHandler:(void (^)(_Bool))arg2;
+- (void)collectDiagnosticsDataWithCompletionHandler:(void (^)(NSData *))arg1;
 - (void)beginMigrationFromDAV;
 - (void)observeRemoteMigrationStateForSecondaryMigration;
 - (void)fetchRemoteMigrationStateWithCompletionHandler:(void (^)(long long, NSString *, NSError *))arg1;

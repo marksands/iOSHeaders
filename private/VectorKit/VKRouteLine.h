@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSSet, VKPolylineOverlay, VKPolylineOverlayRenderRegion;
 @protocol VKRouteLineObserverProtocol;
@@ -42,7 +42,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) vector_8449fd58 sections; // @synthesize sections=_sections;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (double)boundsUnitsPerMeter;
 - (Matrix_08d701e4)maneuverTransform;
+- (Matrix_08d701e4)inverseManeuverTransform;
 - (vector_1a7ef145)maneuverPoints;
 - (void)_updateBounds:(id)arg1;
 - (void)forEachSection:(CDUnknownBlockType)arg1;

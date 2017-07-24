@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableSet, NSString, NSURL, WAKWindow, WebFixedPositionContent, WebIndicateLayer, WebInspector, WebNodeHighlight, WebPreferences, WebUITextIndicatorData, WebVideoFullscreenController;
+@class NSMutableSet, NSString, NSURL, WAKWindow, WebFixedPositionContent, WebIndicateLayer, WebInspector, WebNodeHighlight, WebPreferences, WebVideoFullscreenController;
 @protocol WebCaretChangeListener, WebDeviceOrientationProvider, WebFormDelegate, WebGeolocationProvider, WebNotificationProvider, WebUserMediaClient;
 
 __attribute__((visibility("hidden")))
@@ -50,6 +50,7 @@ __attribute__((visibility("hidden")))
     struct WebHistoryDelegateImplementationCache historyDelegateImplementations;
     _Bool closed;
     _Bool closing;
+    unsigned long long deviceOrientation;
     _Bool shouldCloseWithWindow;
     _Bool mainFrameDocumentReady;
     _Bool drawsBackground;
@@ -73,8 +74,12 @@ __attribute__((visibility("hidden")))
     int didDrawTiles;
     // Error parsing type: {Lock="m_byte"{Atomic<unsigned char>="value"{atomic<unsigned char>="__a_"AC}}}, name: pendingFixedPositionLayoutRectMutex
     struct CGRect pendingFixedPositionLayoutRect;
-    WebUITextIndicatorData *textIndicatorData;
+    struct RetainPtr<WebUITextIndicatorData> textIndicatorData;
     struct RetainPtr<WebUITextIndicatorData> dataOperationTextIndicator;
+    struct CGRect draggedElementBounds;
+    unsigned long long dragSourceAction;
+    struct RetainPtr<NSURL> draggedLinkURL;
+    struct RetainPtr<NSString> draggedLinkTitle;
     struct HashMap<unsigned long, WTF::RetainPtr<id>, WTF::IntHash<unsigned long>, WTF::HashTraits<unsigned long>, WTF::HashTraits<WTF::RetainPtr<id>>> identifierMap;
     _Bool _keyboardUIModeAccessed;
     int _keyboardUIMode;

@@ -10,5 +10,6 @@
 + (struct CGAffineTransform)nc_counterTransformForActiveInterfaceOrientation;
 + (struct CGAffineTransform)nc_transformForInterfaceOrientation:(long long)arg1;
 + (struct CGAffineTransform)nc_transformForScreenOriginRotation:(double)arg1;
+- (struct CGRect)nc_bounds;
 @end
 

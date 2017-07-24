@@ -24,7 +24,7 @@
 @property(nonatomic) long long maximumRowSpan; // @synthesize maximumRowSpan=_maximumRowSpan;
 @property(nonatomic) long long minimumRowSpan; // @synthesize minimumRowSpan=_minimumRowSpan;
 - (void).cxx_destruct;
-- (id)rankedLayoutWithRowSpan:(long long)arg1 columnSpan:(long long)arg2 cellType:(long long)arg3 imageAspectRatio:(double)arg4;
+- (id)rankedLayoutWithRowSpan:(long long)arg1 columnSpan:(long long)arg2 cellType:(long long)arg3;
 - (void)insertRankedLayout:(id)arg1;
 - (id)description;
 - (void)dealloc;

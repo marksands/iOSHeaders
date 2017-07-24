@@ -8,7 +8,7 @@
 
 #import <KeyboardArbiter/_UIKeyboardArbitration-Protocol.h>
 
-@class BKSProcessAssertion, FBSCAContextSceneLayer, NSMutableSet, NSString, NSXPCConnection, _UIKeyboardArbiter;
+@class BKSProcessAssertion, FBSCAContextSceneLayer, NSArray, NSMutableSet, NSString, NSXPCConnection, _UIKeyboardArbiter;
 
 __attribute__((visibility("hidden")))
 @interface _UIKeyboardArbiterHandle : NSObject <_UIKeyboardArbitration>
@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
     BKSProcessAssertion *_remoteKeepAliveAssertion;
     unsigned long long _remoteKeepAliveAssertionCount;
     unsigned long long _remoteKeepAliveTimerCount;
+    NSArray *_cachedContext;
     NSXPCConnection *_connection;
 }
 
@@ -46,6 +47,8 @@ __attribute__((visibility("hidden")))
 - (void)setKeyboardTotalDisable:(_Bool)arg1 withFence:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)applicationShouldFocusWithBundle:(id)arg1 onCompletion:(CDUnknownBlockType)arg2;
 - (void)invalidate;
+- (void)uncacheWindowContext;
+- (void)cacheWindowContext;
 - (void)releaseProcessAssertion;
 - (void)takeProcessAssertionOnRemoteWithQueue:(id)arg1;
 - (_Bool)isHandlerShowableWithHandler:(id)arg1;

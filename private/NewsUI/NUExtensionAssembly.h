@@ -6,12 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import <NewsUI/FCAssembly-Protocol.h>
+#import <NewsUI/NFAssembly-Protocol.h>
 
 @class NSString;
 @protocol NUExtensionContextProvider;
 
-@interface NUExtensionAssembly : NSObject <FCAssembly>
+@interface NUExtensionAssembly : NSObject <NFAssembly>
 {
     id <NUExtensionContextProvider> _extensionContextProvider;
 }

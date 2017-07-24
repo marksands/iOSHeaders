@@ -8,7 +8,7 @@
 
 #import <Navigation/MNNavigationSessionObserver-Protocol.h>
 
-@class MNLocation, MNTraceRecorder, NSArray, NSMutableArray, NSString;
+@class MNLocation, MNTraceRecorder, NSArray, NSMutableArray, NSString, NSUUID;
 
 __attribute__((visibility("hidden")))
 @interface MNTraceEventRecorder : NSObject <MNNavigationSessionObserver>
@@ -25,11 +25,18 @@ __attribute__((visibility("hidden")))
     unsigned long long _numPendingAnnouncements;
     unsigned long long _announcementStage;
     double _distanceToManeuver;
+    NSUUID *_lastPrimarySignID;
+    NSUUID *_lastSecondarySignID;
 }
 
 @property(readonly, nonatomic) NSArray *eventHistory; // @synthesize eventHistory=_eventHistory;
 - (void).cxx_destruct;
 - (void)navigationSession:(id)arg1 didAnnounceArrival:(id)arg2;
+- (void)navigationSession:(id)arg1 hideLaneDirectionsForId:(id)arg2;
+- (void)navigationSession:(id)arg1 showLaneDirections:(id)arg2;
+- (void)navigationSession:(id)arg1 updateSignsWithInfo:(id)arg2;
+- (void)navigationSessionEndGuidanceUpdate:(id)arg1;
+- (void)navigationSessionBeginGuidanceUpdate:(id)arg1;
 - (void)navigationSessionHideSecondaryStep:(id)arg1;
 - (void)navigationSession:(id)arg1 displaySecondaryStep:(id)arg2 instructions:(id)arg3 shieldType:(int)arg4 shieldText:(id)arg5 drivingSide:(int)arg6;
 - (void)navigationSession:(id)arg1 displayPrimaryStep:(id)arg2 instructions:(id)arg3 shieldType:(int)arg4 shieldText:(id)arg5 drivingSide:(int)arg6 maneuverStepIndex:(unsigned long long)arg7 isSynthetic:(_Bool)arg8;

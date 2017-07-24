@@ -12,10 +12,11 @@
 {
 }
 
+- (id)truncatedDescriptionWithPropertyKeys:(id)arg1;
+- (id)pointerDescription;
 - (void)willSave;
 - (_Bool)isSyncableChange;
 - (_Bool)supportsCloudUpload;
-@property(readonly, copy, nonatomic) NSString *pl_shortDescription;
 @property(readonly, copy, nonatomic) NSString *shortObjectIDURI;
 @property(readonly, nonatomic) _Bool isRegisteredWithUserInterfaceContext;
 @property(readonly, retain, nonatomic) PLPhotoLibrary *photoLibrary;

@@ -12,10 +12,12 @@
 
 @interface HDDaemonSyncEngine : NSObject <HDSyncEngine>
 {
+    CDUnknownBlockType _unitTest_didCompleteReadTransaction;
     HDProfile *_profile;
 }
 
 @property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
+@property(copy, nonatomic) CDUnknownBlockType unitTest_didCompleteReadTransaction; // @synthesize unitTest_didCompleteReadTransaction=_unitTest_didCompleteReadTransaction;
 - (void).cxx_destruct;
 - (id)_syncAnchorMapForSyncEntityClass:(Class)arg1 session:(id)arg2 error:(id *)arg3;
 - (void)_resetStore:(id)arg1;

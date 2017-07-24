@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDAddressObjectGeocodingResult, GEOPDAutocompleteResult, GEOPDBatchPopularNearbySearchResult, GEOPDBrandLookupResult, GEOPDCanonicalLocationSearchResult, GEOPDCategorySearchResult, GEOPDClusterGeocodingResult, GEOPDExternalTransitLookupResult, GEOPDFeatureIdGeocodingResult, GEOPDGeocodingResult, GEOPDLocationDirectedSearchResult, GEOPDMapsIdentifierPlaceLookupResult, GEOPDMerchantLookupResult, GEOPDNearbySearchResult, GEOPDPlaceLookupResult, GEOPDPlaceRefinementResult, GEOPDPopularNearbySearchResult, GEOPDReverseGeocodingResult, GEOPDSearchBrowseCategorySuggestionResult, GEOPDSearchFieldPlaceholderResult, GEOPDSearchResult, GEOPDSearchZeroKeywordCategorySuggestionResult, GEOPDSearchZeroKeywordWithSearchResultsSuggestionResult, GEOPDSiriSearchResult, GEOPDVendorSpecificPlaceRefinementResult, GEOPDWifiFingerprintResult, PBUnknownFields;
+@class GEOPDAddressObjectGeocodingResult, GEOPDAutocompleteResult, GEOPDBatchPopularNearbySearchResult, GEOPDBrandLookupResult, GEOPDCanonicalLocationSearchResult, GEOPDCategorySearchResult, GEOPDClusterGeocodingResult, GEOPDExternalTransitLookupResult, GEOPDFeatureIdGeocodingResult, GEOPDGeocodingResult, GEOPDIpGeoLookupResult, GEOPDLocationDirectedSearchResult, GEOPDMapsIdentifierPlaceLookupResult, GEOPDMerchantLookupResult, GEOPDNearbySearchResult, GEOPDPlaceLookupResult, GEOPDPlaceRefinementResult, GEOPDPopularNearbySearchResult, GEOPDReverseGeocodingResult, GEOPDSearchBrowseCategorySuggestionResult, GEOPDSearchFieldPlaceholderResult, GEOPDSearchResult, GEOPDSearchZeroKeywordCategorySuggestionResult, GEOPDSearchZeroKeywordWithSearchResultsSuggestionResult, GEOPDSiriSearchResult, GEOPDVendorSpecificPlaceRefinementResult, GEOPDWifiFingerprintResult, PBUnknownFields;
 
 @interface GEOPDPlaceGlobalResult : PBCodable <NSCopying>
 {
@@ -24,6 +24,7 @@
     GEOPDExternalTransitLookupResult *_externalTransitLookupResult;
     GEOPDFeatureIdGeocodingResult *_featureIdGeocodingResult;
     GEOPDGeocodingResult *_geocodingResult;
+    GEOPDIpGeoLookupResult *_ipGeoLookupResult;
     GEOPDLocationDirectedSearchResult *_locationDirectedSearchResult;
     GEOPDMapsIdentifierPlaceLookupResult *_mapsIdentifierPlaceLookupResult;
     GEOPDMerchantLookupResult *_merchantLookupResult;
@@ -41,6 +42,7 @@
     GEOPDWifiFingerprintResult *_wifiFingerprintResult;
 }
 
+@property(retain, nonatomic) GEOPDIpGeoLookupResult *ipGeoLookupResult; // @synthesize ipGeoLookupResult=_ipGeoLookupResult;
 @property(retain, nonatomic) GEOPDWifiFingerprintResult *wifiFingerprintResult; // @synthesize wifiFingerprintResult=_wifiFingerprintResult;
 @property(retain, nonatomic) GEOPDBrandLookupResult *brandLookupResult; // @synthesize brandLookupResult=_brandLookupResult;
 @property(retain, nonatomic) GEOPDClusterGeocodingResult *clusterGeocodingResult; // @synthesize clusterGeocodingResult=_clusterGeocodingResult;
@@ -78,6 +80,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasIpGeoLookupResult;
 @property(readonly, nonatomic) _Bool hasWifiFingerprintResult;
 @property(readonly, nonatomic) _Bool hasBrandLookupResult;
 @property(readonly, nonatomic) _Bool hasClusterGeocodingResult;

@@ -12,6 +12,7 @@
 {
     _Bool _dynamicPlacement;
     NSString *_componentIdentifier;
+    NSDictionary *_componentMetadata;
     unsigned long long _adType;
     NSDictionary *_campaignData;
     struct CGPoint _positionInArticle;
@@ -25,6 +26,7 @@
 @property(nonatomic) struct CGSize viewportSize; // @synthesize viewportSize=_viewportSize;
 @property(nonatomic) unsigned long long adType; // @synthesize adType=_adType;
 @property(nonatomic) struct CGPoint positionInArticle; // @synthesize positionInArticle=_positionInArticle;
+@property(retain, nonatomic) NSDictionary *componentMetadata; // @synthesize componentMetadata=_componentMetadata;
 @property(retain, nonatomic) NSString *componentIdentifier; // @synthesize componentIdentifier=_componentIdentifier;
 - (void).cxx_destruct;
 

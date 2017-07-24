@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
         _Bool frameForAssetReferenceInCoordinateSpace;
         _Bool viewController;
         _Bool didSelectSuggestionForAssetReference;
+        _Bool canShowSuggestion;
     } _delegateRespondsTo;
     _Bool _viewVisible;
     _Bool _inFocus;
@@ -56,8 +57,7 @@ __attribute__((visibility("hidden")))
 - (long long)preferredAnimationForContextualNotification:(id)arg1;
 - (id)preferredContainerViewForContextualNotification:(id)arg1;
 - (struct CGRect)contextualNotification:(id)arg1 containingFrameInCoordinateSpace:(id)arg2;
-- (void)_hideSuggestionWithInfo:(id)arg1;
-- (void)_updateSuggestionsVisibility;
+- (void)_dismissSuggestionInfo:(id)arg1;
 - (void)_invalidateSuggestionsVisibility;
 - (void)_updateInFocus;
 - (void)_invalidateInFocus;
@@ -82,6 +82,8 @@ __attribute__((visibility("hidden")))
 - (void)hideSuggestionForAssetReference:(id)arg1;
 - (void)invalidateLayoutForAssetReference:(id)arg1;
 - (void)invalidateLayout;
+- (void)_updateSuggestions;
+- (void)invalidateSuggestions;
 - (id)initWithSuggestionsProvider:(id)arg1 browsingViewModel:(id)arg2;
 - (id)init;
 

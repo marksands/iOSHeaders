@@ -14,6 +14,7 @@
 + (Class)safeCategoryBaseClass;
 + (id)safeCategoryTargetClassName;
 - (void)layoutSubviews;
+- (void)setHighlighted:(_Bool)arg1;
 
 @end
 

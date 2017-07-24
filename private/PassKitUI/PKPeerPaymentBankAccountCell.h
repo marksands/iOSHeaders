@@ -17,6 +17,7 @@
     UIButton *_editButton;
 }
 
++ (double)cellHeight;
 @property(readonly, nonatomic) UIButton *editButton; // @synthesize editButton=_editButton;
 @property(copy, nonatomic) NSString *accountNumber; // @synthesize accountNumber=_accountNumber;
 @property(copy, nonatomic) NSString *bankName; // @synthesize bankName=_bankName;

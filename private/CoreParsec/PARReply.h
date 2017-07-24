@@ -19,9 +19,11 @@
     PARTask *_task;
     double _scale;
     NSString *_geoSessionEntityString;
+    NSArray *_localSuggestions;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSArray *localSuggestions; // @synthesize localSuggestions=_localSuggestions;
 @property(copy, nonatomic) NSString *geoSessionEntityString; // @synthesize geoSessionEntityString=_geoSessionEntityString;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(nonatomic) __weak PARTask *task; // @synthesize task=_task;

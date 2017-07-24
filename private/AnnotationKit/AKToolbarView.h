@@ -44,7 +44,6 @@
     AKAttributePickerViewController *_attributePickerViewController;
     _Bool _showAttributePicker;
     _Bool _expandCompactColorPicker;
-    struct CGSize _lastLayoutSize;
     _Bool _undoRedoButtonsHidden;
     _Bool _alwaysShowUndoButton;
     _Bool _shareButtonHidden;
@@ -105,11 +104,13 @@
 - (void)revalidateItems;
 - (void)upateAttributesPickerButtonWithCurrentSelection:(id)arg1;
 - (id)createUndoViewController;
+- (void)resetToLastDrawingTool;
+- (_Bool)shouldUseCompactHeight;
+- (_Bool)shouldUseCompactWidth;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)setOpaque:(_Bool)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
-- (void)setBounds:(struct CGRect)arg1;
 - (unsigned long long)layoutForSize:(struct CGSize)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;

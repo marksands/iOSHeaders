@@ -13,7 +13,6 @@ __attribute__((visibility("hidden")))
 
 + (_Bool)isAvailable;
 - (id)notificationTitle;
-- (id)notificationTitleTargetHandle;
 - (id)notificationIconBundleIdentifier;
 - (int)interactionType;
 - (id)callProvider;

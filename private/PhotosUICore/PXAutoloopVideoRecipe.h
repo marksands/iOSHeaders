@@ -10,14 +10,17 @@
 
 @interface PXAutoloopVideoRecipe : NSObject
 {
+    NSDictionary *_analysisResultDict;
     NSDictionary *_loopRecipeDict;
     NSDictionary *_stabilizeParamsDict;
 }
 
 @property(readonly, copy, nonatomic) NSDictionary *stabilizeParamsDict; // @synthesize stabilizeParamsDict=_stabilizeParamsDict;
 @property(readonly, copy, nonatomic) NSDictionary *loopRecipeDict; // @synthesize loopRecipeDict=_loopRecipeDict;
+@property(readonly, copy, nonatomic) NSDictionary *analysisResultDict; // @synthesize analysisResultDict=_analysisResultDict;
 - (void).cxx_destruct;
 - (id)initWithLoopRecipe:(id)arg1 stabilizeParams:(id)arg2;
+- (id)initWithAnalysisResultDict:(id)arg1;
 
 @end
 

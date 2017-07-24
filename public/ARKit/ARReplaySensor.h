@@ -30,10 +30,9 @@
     struct opaqueCMSampleBuffer *_nextSampleBuffer;
     AVAssetReader *_assetReader;
     AVAssetReaderTrackOutput *_imageOutput;
-    AVAssetReaderTrackOutput *_motionOutput;
-    AVAssetReaderTrackOutput *_imageMetadataOutput;
-    AVAssetReaderTrackOutput *_deviceOrientationOutput;
-    AVAssetReaderOutputMetadataAdaptor *_motionOutputMetadataAdaptor;
+    AVAssetReaderOutputMetadataAdaptor *_oldMotionOutputMetadataAdaptor;
+    AVAssetReaderOutputMetadataAdaptor *_accelOutputMetadataAdaptor;
+    AVAssetReaderOutputMetadataAdaptor *_gyroOutputMetadataAdaptor;
     AVAssetReaderOutputMetadataAdaptor *_imageOutputMetadataAdaptor;
     AVAssetReaderOutputMetadataAdaptor *_deviceOrientationOutputMetadataAdaptor;
     unsigned long long _sensorDataTypes;
@@ -48,9 +47,8 @@
 - (void).cxx_destruct;
 - (void)readFileMetadataFromAsset:(id)arg1;
 - (struct __CVBuffer *)requestNextPixelBufferForTimestamp:(double)arg1;
-- (id)unpackDeviceOrientationDataFromMetadataGroup:(id)arg1;
-- (id)unpackMotionDataFromMetadataGroup:(id)arg1;
-- (id)unpackImageDataFromMetadataGroup:(id)arg1;
+- (void)enumerateDataWithIdentifier:(id)arg1 inOutputAdaptor:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (id)unpackItemsOfClass:(Class)arg1 withIdentifier:(id)arg2 inOutputAdaptor:(id)arg3;
 - (void)preloadNextPixelBuffers:(int)arg1;
 - (id)getNextDeviceOrientationData;
 - (id)getNextGyroData;
@@ -64,6 +62,7 @@
 - (void)tick;
 - (void)replayData;
 - (void)readMetadataIntoArrays;
+- (id)createAndAddMetadataAdaptorForTrack:(id)arg1;
 - (_Bool)track:(id)arg1 hasMetadataIdentifier:(id)arg2;
 - (void)failWithError:(id)arg1;
 - (void)initializeAssetReaderWithAsset:(id)arg1;

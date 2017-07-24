@@ -22,7 +22,6 @@
     NSString *_storeFrontIdentifier;
 }
 
-+ (_Bool)_allowUnsignedBags;
 + (id)valueForKey:(id)arg1 inBagContext:(id)arg2;
 + (_Bool)urlIsTrusted:(id)arg1 inBagContext:(id)arg2;
 + (id)urlForKey:(id)arg1 inBagContext:(id)arg2;

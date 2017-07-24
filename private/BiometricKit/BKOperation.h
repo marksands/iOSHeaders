@@ -24,6 +24,7 @@
 - (void).cxx_destruct;
 - (id)userPresentWithError:(id *)arg1;
 - (void)cancel;
+- (void)startWithReply:(CDUnknownBlockType)arg1;
 - (_Bool)startWithError:(id *)arg1;
 
 @end

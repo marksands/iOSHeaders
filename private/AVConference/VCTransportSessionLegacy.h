@@ -78,8 +78,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int pendingRelayCount; // @synthesize pendingRelayCount;
 - (void)setReportingAgent:(struct opaqueRTCReporting *)arg1;
 - (void)setIdentity:(struct __SecIdentity *)arg1;
-- (void)handleMediaReceivedOverRelayLink;
-- (void)handleMediaReceivedOverPeerToPeerLink;
+- (void)handleMediaReceivedOverRelayLinkWithConnectionId:(int)arg1;
+- (void)handleMediaReceivedOverPeerToPeerLinkWithConnectionId:(int)arg1;
 - (void)reportNetworkConditionsDegraded;
 - (int)detailedErrorCode;
 - (_Bool)isConnectedAndAllowAdditionalConnection;
@@ -116,7 +116,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isHandoverSupported;
 - (void)handleConnectionSetupDataChangeMessageDelivered;
 - (void)initiateRelayRequest;
-- (void)setupInitialSecondaryRelayWithCallbackRelayFlag:(_Bool)arg1 callID:(unsigned int)arg2;
+- (void)setupInitialSecondaryRelayWithCallbackRelayFlag:(_Bool)arg1 callID:(unsigned int)arg2 connectionId:(int)arg3;
 - (void)setupSecondaryRelayForCall:(unsigned int)arg1 callerRequired:(_Bool)arg2;
 - (void)notifyDelegateToCancelRelay;
 - (void)setupPendingSecondaryRelayWithNewPrimary:(id)arg1;

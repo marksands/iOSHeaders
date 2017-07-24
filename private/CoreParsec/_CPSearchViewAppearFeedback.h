@@ -10,7 +10,7 @@
 #import <CoreParsec/_CPProcessableFeedback-Protocol.h>
 #import <CoreParsec/_CPSearchViewAppearFeedback-Protocol.h>
 
-@class NSData, NSString;
+@class NSData, NSDictionary, NSString;
 
 @interface _CPSearchViewAppearFeedback : PBCodable <_CPProcessableFeedback, _CPSearchViewAppearFeedback, NSSecureCoding>
 {
@@ -33,7 +33,7 @@
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
-- (id)dictionaryRepresentation;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
@@ -42,12 +42,14 @@
 @property(readonly, nonatomic) _Bool hasIsOnLockScreen;
 @property(readonly, nonatomic) _Bool hasViewAppearEvent;
 @property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)init;
 - (id)initWithFacade:(id)arg1;
 @property(readonly, nonatomic) _Bool requiresQueryId;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) id feedbackJSON;
 @property(readonly) Class superclass;
 
 @end

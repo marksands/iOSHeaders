@@ -10,6 +10,7 @@
 {
 }
 
++ (_Bool)isImageUTI:(id)arg1;
 + (id)inferredUTIForFileExtension:(id)arg1;
 + (id)zipArchive;
 + (id)XMLPropertyList;

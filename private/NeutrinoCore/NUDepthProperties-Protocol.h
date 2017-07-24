@@ -6,10 +6,12 @@
 
 #import <NeutrinoCore/NSObject-Protocol.h>
 
-@class NSString;
+@class AVDepthData, NSDictionary, NSString;
 
 @protocol NUDepthProperties <NSObject>
 @property(readonly) CDStruct_912cb5d2 size;
 @property(readonly) NSString *depthType;
+- (NSDictionary *)auxiliaryData:(out id *)arg1;
+- (AVDepthData *)depthData:(out id *)arg1;
 @end
 

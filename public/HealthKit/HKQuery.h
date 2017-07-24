@@ -16,7 +16,7 @@
     _Bool _hasBeenExecuted;
     id <HKQueryDelegate> _delegate;
     HKHealthStore *_strongHealthStore;
-    int _hasDeactivated;
+    // Error parsing type: AB, name: _deactivating
     _Bool _shouldSuppressDataCollection;
     HKObjectType *_objectType;
     NSPredicate *_predicate;
@@ -46,7 +46,8 @@
 + (id)predicateForWorkoutsWithWorkoutActivityType:(unsigned long long)arg1;
 + (id)predicateForCategorySamplesWithOperatorType:(unsigned long long)arg1 value:(long long)arg2;
 + (id)predicateForQuantitySamplesWithOperatorType:(unsigned long long)arg1 quantity:(id)arg2;
-+ (id)predicateForTodayForDate:(id)arg1;
++ (id)predicateForSamplesForDayFromDate:(id)arg1 calendar:(id)arg2 options:(unsigned long long)arg3;
++ (id)predicateForSamplesWithinDateInterval:(id)arg1 options:(unsigned long long)arg2;
 + (id)predicateForSamplesAssociatedWithSample:(id)arg1;
 + (id)predicateForObjectsFromWorkout:(id)arg1;
 + (id)predicateForObjectsWithNoCorrelation;
@@ -81,6 +82,7 @@
 - (void)_queue_activateWithHealthStore:(id)arg1 activationUUID:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)queue_deactivate;
 - (void)deactivate;
+@property(readonly) _Bool deactivating;
 - (void)reactivateWithHealthStore:(id)arg1;
 - (void)activateWithClientQueue:(id)arg1 healthStore:(id)arg2 delegate:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)queue_dispatchToClientForUUID:(id)arg1 block:(CDUnknownBlockType)arg2;

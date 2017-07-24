@@ -6,13 +6,14 @@
 
 #import <objc/NSObject.h>
 
-@class GEOTileRequest, NSString, NSThread;
-@protocol GEOTileRequesterDelegate;
+@class GEOResourceManifestManager, GEOTileRequest, NSString, NSThread;
+@protocol GEOTileRequesterDelegate, OS_dispatch_queue;
 
 @interface GEOTileRequester : NSObject
 {
     GEOTileRequest *_tileRequest;
     id <GEOTileRequesterDelegate> _delegate;
+    NSObject<OS_dispatch_queue> *_delegateQueue;
     id _context;
     NSThread *_thread;
     _Bool _requireWiFi;
@@ -27,17 +28,18 @@
 @property(retain, nonatomic) NSString *deviceRegion; // @synthesize deviceRegion=_deviceRegion;
 @property(retain, nonatomic) NSString *deviceCountry; // @synthesize deviceCountry=_deviceCountry;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
-@property(retain, nonatomic) NSThread *thread; // @synthesize thread=_thread;
 @property(readonly, nonatomic) GEOTileRequest *tileRequest; // @synthesize tileRequest=_tileRequest;
-@property(nonatomic) __weak id <GEOTileRequesterDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
+@property(readonly, nonatomic) __weak id <GEOTileRequesterDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)dealloc;
 - (unsigned int)tileSetForKey:(const struct _GEOTileKey *)arg1;
 - (void)reprioritizeKey:(const struct _GEOTileKey *)arg1 newPriority:(unsigned int)arg2;
 - (void)cancelKey:(const struct _GEOTileKey *)arg1;
 - (void)cancel;
+- (void)tearDown;
 - (void)start;
-- (id)initWithTileRequest:(id)arg1;
+- (id)initWithTileRequest:(id)arg1 delegateQueue:(id)arg2 delegate:(id)arg3;
+@property(readonly, nonatomic) GEOResourceManifestManager *resourceManifestManager;
 
 @end
 

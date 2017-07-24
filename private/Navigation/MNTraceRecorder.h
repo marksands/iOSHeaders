@@ -130,6 +130,7 @@
 - (void)startWritingTraceToFileAtPath:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)startWritingTraceToFileAtPath:(id)arg1;
 - (void)startWritingTraceToFile;
+- (void)startWritingTraceToFileWithCompletion:(CDUnknownBlockType)arg1;
 - (void)startWritingTraceToFileIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_closeTraceDB;
 - (void)setDestinationSearchResultData:(id)arg1;

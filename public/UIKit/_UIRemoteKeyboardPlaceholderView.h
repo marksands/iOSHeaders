@@ -17,11 +17,15 @@ __attribute__((visibility("hidden")))
     UIView *_mirroredView;
     struct CGSize _fixedSize;
     CDUnknownBlockType _sizeBlock;
+    UIView *_fallbackView;
+    UIView *_associatedView;
 }
 
 + (id)placeholderWithSizer:(CDUnknownBlockType)arg1;
 + (id)placeholderWithWidth:(double)arg1 height:(double)arg2;
 + (id)placeholderForView:(id)arg1;
+@property(retain, nonatomic) UIView *associatedView; // @synthesize associatedView=_associatedView;
+@property(retain, nonatomic) UIView *fallbackView; // @synthesize fallbackView=_fallbackView;
 @property(readonly, copy) NSString *description;
 @property(nonatomic) struct CGSize fixedSize;
 - (_Bool)refreshPlaceholder;

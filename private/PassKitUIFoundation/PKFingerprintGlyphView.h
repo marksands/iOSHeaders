@@ -65,6 +65,7 @@
 - (void)_finishTransitionForIndex:(unsigned long long)arg1;
 - (void)_executeTransitionCompletionHandlers:(_Bool)arg1;
 - (void)setState:(long long)arg1 animated:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)setRecognizedIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (struct CGSize)boundsSizeToMatchPointScale:(double)arg1;
 - (double)pointScaleToMatchBoundsSize:(struct CGSize)arg1;
 - (void)layoutSubviews;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <iAd/ADAdRecipient-Protocol.h>
 
@@ -18,6 +18,7 @@
     UIViewController *_internalPresentingViewController;
     _Bool _loaded;
     _Bool _displayed;
+    _Bool _reUsed;
     _Bool _actionInProgress;
     _Bool _dimmingEnabled;
     _Bool _canLoadMoreThanOnce;
@@ -41,6 +42,7 @@
 @property(nonatomic) int creativeType; // @synthesize creativeType=_creativeType;
 @property(nonatomic) _Bool dimmingEnabled; // @synthesize dimmingEnabled=_dimmingEnabled;
 @property(nonatomic, getter=isActionInProgress) _Bool actionInProgress; // @synthesize actionInProgress=_actionInProgress;
+@property(nonatomic) _Bool reUsed; // @synthesize reUsed=_reUsed;
 @property(nonatomic) _Bool displayed; // @synthesize displayed=_displayed;
 @property(nonatomic) long long lastErrorCode; // @synthesize lastErrorCode=_lastErrorCode;
 @property(nonatomic) int slotPosition; // @synthesize slotPosition=_slotPosition;
@@ -65,6 +67,7 @@
 - (void)serverBannerViewWillLoad;
 @property(readonly, nonatomic) int internalAdType;
 - (void)_dismissModalInterstitial;
+- (_Bool)hasImpressed;
 - (int)clickAction;
 - (id)context;
 - (void)setContext:(id)arg1;

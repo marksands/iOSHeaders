@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <NanoTimeKitCompanion/LSApplicationWorkspaceObserverProtocol-Protocol.h>
 #import <NanoTimeKitCompanion/NTKCompanionAppDelegate-Protocol.h>
 
 @class NRDevice, NSArray, NSHashTable, NSMutableArray, NSString;
 @protocol OS_dispatch_queue;
 
-@interface NTKCompanionAppLibrary : NSObject <NTKCompanionAppDelegate>
+@interface NTKCompanionAppLibrary : NSObject <NTKCompanionAppDelegate, LSApplicationWorkspaceObserverProtocol>
 {
     NSArray *_firstPartyApps;
     NSMutableArray *_allApps;
@@ -44,6 +45,7 @@
 - (void)addObserver:(id)arg1;
 - (void)companionAppUpdatedIcon:(id)arg1;
 - (void)companionAppWasUpdated:(id)arg1;
+- (void)applicationStateDidChange:(id)arg1;
 - (void)_activeDeviceChanged;
 - (void)_load;
 - (void)dealloc;

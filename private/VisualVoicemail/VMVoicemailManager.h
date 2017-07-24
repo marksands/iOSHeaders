@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSMutableSet, VMClientWrapper, VMVoicemailCapabilities;
+@class NSArray, NSMutableSet, NSOrderedSet, VMClientWrapper, VMVoicemailCapabilities;
 @protocol OS_dispatch_queue;
 
 @interface VMVoicemailManager : NSObject
@@ -15,10 +15,11 @@
     _Bool _online;
     _Bool _subscribed;
     _Bool _syncInProgress;
+    _Bool _transcriptionEnabled;
     int _token;
     NSObject<OS_dispatch_queue> *_completionQueue;
     unsigned long long _storageUsage;
-    NSArray *_voicemails;
+    NSOrderedSet *_voicemails;
     VMClientWrapper *_client;
     VMVoicemailCapabilities *_capabilities;
     NSMutableSet *_trashedMessages;
@@ -30,8 +31,9 @@
 @property(retain, nonatomic) NSMutableSet *trashedMessages; // @synthesize trashedMessages=_trashedMessages;
 @property(retain, nonatomic) VMVoicemailCapabilities *capabilities; // @synthesize capabilities=_capabilities;
 @property(retain, nonatomic) VMClientWrapper *client; // @synthesize client=_client;
-@property(copy, nonatomic) NSArray *voicemails; // @synthesize voicemails=_voicemails;
+@property(copy, nonatomic) NSOrderedSet *voicemails; // @synthesize voicemails=_voicemails;
 @property(nonatomic) unsigned long long storageUsage; // @synthesize storageUsage=_storageUsage;
+@property(readonly, nonatomic, getter=isTranscriptionEnabled) _Bool transcriptionEnabled; // @synthesize transcriptionEnabled=_transcriptionEnabled;
 - (void).cxx_destruct;
 @property(nonatomic, getter=isSyncInProgress) _Bool syncInProgress; // @synthesize syncInProgress=_syncInProgress;
 @property(nonatomic, getter=isMessageWaiting) _Bool messageWaiting; // @synthesize messageWaiting=_messageWaiting;
@@ -71,11 +73,10 @@
 - (id)synchronousServerConnectionWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)serverConnectionWithErrorHandler:(CDUnknownBlockType)arg1;
 - (void)dealloc;
+- (id)initWithClient:(id)arg1;
 - (id)init;
 - (void)reportTranscriptionRatedAccurate:(_Bool)arg1 forVoicemail:(id)arg2;
 - (void)reportTranscriptionProblemForVoicemail:(id)arg1;
-@property(readonly, nonatomic, getter=isTranscriptionEnabled) _Bool transcriptionEnabled;
-- (id)transcriptionServerConnection;
 
 @end
 

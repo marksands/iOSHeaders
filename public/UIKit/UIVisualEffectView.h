@@ -8,7 +8,7 @@
 
 #import <UIKit/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSString, UIImage, UIVisualEffect, _UIVisualEffectHost, _UIVisualEffectViewBackdropCaptureGroup;
+@class NSArray, NSString, UIImage, UIVisualEffect, _UIVisualEffectBackdropView, _UIVisualEffectHost, _UIVisualEffectViewBackdropCaptureGroup;
 
 @interface UIVisualEffectView : UIView <NSSecureCoding>
 {
@@ -61,6 +61,7 @@
 - (void)_setContinuousCornerRadius:(double)arg1;
 - (double)_continuousCornerRadius;
 - (void)_applyCornerRadiusToSubviews;
+@property(nonatomic, setter=_setCaptureView:) __weak _UIVisualEffectBackdropView *_captureView;
 @property(copy, nonatomic, setter=_setGroupName:) NSString *_groupName;
 - (void)_configureAllEffects;
 - (_Bool)_hasTransformForEffectSubview:(id)arg1;

@@ -36,6 +36,7 @@
     int _coverArticleFeatureType;
     NSString *_creativeId;
     int _displayRank;
+    int _feedAutoSubscribeType;
     int _feedCellHostType;
     int _feedPresentationReason;
     NSString *_feedPresentationReasonSearchString;
@@ -45,6 +46,7 @@
     int _groupArticleCountInForYou;
     int _groupDisplayRankInForYou;
     NSString *_groupFeedId;
+    int _groupFormationReason;
     int _groupPresentationReason;
     int _groupType;
     NSString *_iadNativeAd;
@@ -108,7 +110,7 @@
     _Bool _isVideoInFeed;
     _Bool _subscriptionOnlyArticle;
     _Bool _viewFromNotificationDirectOpen;
-    CDStruct_7ed1b072 _has;
+    CDStruct_4cbf99b6 _has;
 }
 
 + (Class)fractionalCohortMembershipType;
@@ -202,6 +204,14 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsFeedAutoSubscribeType:(id)arg1;
+- (id)feedAutoSubscribeTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasFeedAutoSubscribeType;
+@property(nonatomic) int feedAutoSubscribeType; // @synthesize feedAutoSubscribeType=_feedAutoSubscribeType;
+- (int)StringAsGroupFormationReason:(id)arg1;
+- (id)groupFormationReasonAsString:(int)arg1;
+@property(nonatomic) _Bool hasGroupFormationReason;
+@property(nonatomic) int groupFormationReason; // @synthesize groupFormationReason=_groupFormationReason;
 @property(nonatomic) _Bool hasPreviousArticlePublisherArticleVersion;
 @property(readonly, nonatomic) _Bool hasIadNativeAd;
 @property(readonly, nonatomic) _Bool hasIadNativeLine;

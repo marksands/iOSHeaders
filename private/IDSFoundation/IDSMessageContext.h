@@ -6,14 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class NSData, NSDate, NSMutableDictionary, NSNumber, NSString;
-@protocol OS_dispatch_queue;
+@class NSData, NSDate, NSError, NSMutableDictionary, NSNumber, NSString;
 
 @interface IDSMessageContext : NSObject
 {
     NSMutableDictionary *_dict;
     id _boostContext;
-    NSObject<OS_dispatch_queue> *_ivarQueue;
+    struct os_unfair_lock_s _lock;
 }
 
 - (void).cxx_destruct;
@@ -36,6 +35,7 @@
 @property(copy, nonatomic) NSString *serviceIdentifier;
 @property(copy, nonatomic) NSString *incomingResponseIdentifier;
 @property(copy, nonatomic) NSString *outgoingResponseIdentifier;
+@property(readonly, nonatomic) NSError *wpConnectionError;
 @property(readonly, nonatomic) _Bool deviceBlackedOut;
 @property(readonly, nonatomic) long long localMessageState;
 @property(readonly, nonatomic) double averageLocalRTT;

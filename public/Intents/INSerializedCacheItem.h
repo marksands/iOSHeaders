@@ -19,6 +19,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (void)deserializeCacheItem:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (void)deserializeCacheItems:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (void)serializeCacheableObjects:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, copy, nonatomic) NSDictionary *payload; // @synthesize payload=_payload;

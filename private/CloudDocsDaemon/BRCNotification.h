@@ -42,6 +42,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BRCItemGlobalID *parentGlobalID; // @synthesize parentGlobalID=_parentGlobalID;
 @property(readonly, nonatomic) BRCItemGlobalID *itemGlobalID; // @synthesize itemGlobalID=_itemGlobalID;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool isDocumentsFolder;
 - (void)generateLogicalExtension:(id)arg1 physicalExtension:(id)arg2;
 - (void)merge:(id)arg1;
 - (_Bool)canMerge:(id)arg1;

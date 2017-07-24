@@ -16,9 +16,12 @@
 {
     _Bool _adjustsFontForContentSizeCategory;
     _Bool _configured;
+    _Bool _shouldOverrideForReveal;
     _Bool _executingDefaultAction;
     NCNotificationViewController *_contentViewController;
     id <NCNotificationListCellDelegate> _delegate;
+    double _overrideAlpha;
+    struct CGPoint _overrideCenter;
     struct CGPoint _initialContentOffset;
     struct CGPoint _fullActionsRevealContentOffset;
 }
@@ -26,6 +29,9 @@
 @property(nonatomic, getter=isExecutingDefaultAction) _Bool executingDefaultAction; // @synthesize executingDefaultAction=_executingDefaultAction;
 @property(nonatomic) struct CGPoint fullActionsRevealContentOffset; // @synthesize fullActionsRevealContentOffset=_fullActionsRevealContentOffset;
 @property(nonatomic) struct CGPoint initialContentOffset; // @synthesize initialContentOffset=_initialContentOffset;
+@property(nonatomic) struct CGPoint overrideCenter; // @synthesize overrideCenter=_overrideCenter;
+@property(nonatomic) double overrideAlpha; // @synthesize overrideAlpha=_overrideAlpha;
+@property(nonatomic) _Bool shouldOverrideForReveal; // @synthesize shouldOverrideForReveal=_shouldOverrideForReveal;
 @property(nonatomic, getter=isConfigured) _Bool configured; // @synthesize configured=_configured;
 @property(nonatomic) __weak id <NCNotificationListCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NCNotificationViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
@@ -34,8 +40,10 @@
 - (void)traitCollectionDidChange:(id)arg1;
 - (_Bool)adjustForContentSizeCategoryChange;
 - (void)_layoutContentView;
-- (_Bool)_disableRasterizeInAnimations;
+- (void)_resetRevealOverrides;
 - (void)prepareForReuse;
+- (void)applyLayoutAttributes:(id)arg1;
+- (_Bool)_disableRasterizeInAnimations;
 - (void)layoutSubviews;
 - (void)updateCellForContentViewController:(id)arg1;
 - (void)dealloc;

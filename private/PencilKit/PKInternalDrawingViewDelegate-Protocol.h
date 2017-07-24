@@ -6,9 +6,10 @@
 
 #import <PencilKit/NSObject-Protocol.h>
 
-@class PKDrawing, UITouch;
+@class PKDrawing, PKStroke, UITouch;
 
 @protocol PKInternalDrawingViewDelegate <NSObject>
+- (void)didFinishRenderingStroke:(PKStroke *)arg1;
 - (void)willBeginDrawingWithTouch:(UITouch *)arg1;
 - (_Bool)canBeginDrawingWithTouch:(UITouch *)arg1;
 - (void)renderingDidFinish;

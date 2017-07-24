@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (_Bool)shouldUseLargeNavbarTitle;
+- (double)standardSideMargins;
 - (_Bool)shouldUseFullscreenLayout;
 - (long long)promptStyle;
 - (id)photosPickerSpec;

@@ -4,12 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <NewsUI/NSObject-Protocol.h>
+#import <NewsUI/SXDocumentSectionItemProvider-Protocol.h>
 
 @protocol NUViewControllerEndOfArticleProvidingDelegate;
 
-@protocol NUViewControllerEndOfArticleProviding <NSObject>
-@property(readonly, nonatomic) double contentHeight;
+@protocol NUViewControllerEndOfArticleProviding <SXDocumentSectionItemProvider>
 @property(nonatomic) _Bool isVisible;
 @property(nonatomic) __weak id <NUViewControllerEndOfArticleProvidingDelegate> delegate;
 @end

@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic, getter=isClosed) _Bool closed; // @synthesize closed=mClosed;
 @property(copy, nonatomic) NSArray *nodes; // @synthesize nodes=mNodes;
+- (void).cxx_destruct;
 - (void)convertToHobby;
 - (id)splitEdgeAtIndex:(unsigned long long)arg1 atPercentage:(double)arg2;
 - (void)addNodesToArray:(id)arg1;
@@ -49,7 +50,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSUBezierPath *bezierPath;
 - (_Bool)isCircular;
 @property(readonly, nonatomic) _Bool isRectangular;
-- (void)dealloc;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;

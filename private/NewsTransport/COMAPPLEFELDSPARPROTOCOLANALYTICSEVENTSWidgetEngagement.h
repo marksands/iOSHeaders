@@ -23,11 +23,13 @@
     int _widgetEngagementType;
     int _widgetSectionDisplayRank;
     NSString *_widgetSectionId;
+    NSString *_widgetUserId;
     int _widgetVideoPresentationReason;
     CDStruct_80f27018 _has;
 }
 
 + (Class)otherVisibleSectionsType;
+@property(retain, nonatomic) NSString *widgetUserId; // @synthesize widgetUserId=_widgetUserId;
 @property(nonatomic) int widgetArticleCountInSection; // @synthesize widgetArticleCountInSection=_widgetArticleCountInSection;
 @property(retain, nonatomic) NSData *articleViewingSessionId; // @synthesize articleViewingSessionId=_articleViewingSessionId;
 @property(retain, nonatomic) NSMutableArray *otherVisibleSections; // @synthesize otherVisibleSections=_otherVisibleSections;
@@ -48,6 +50,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasWidgetUserId;
 @property(nonatomic) _Bool hasWidgetArticleCountInSection;
 - (int)StringAsWidgetVideoPresentationReason:(id)arg1;
 - (id)widgetVideoPresentationReasonAsString:(int)arg1;

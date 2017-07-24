@@ -11,12 +11,14 @@
 @interface MediaControlsVolumeSlider : UIView
 {
     _Bool _transitioning;
+    _Bool _offScreen;
     long long _style;
     MPVolumeSlider *_volumeSlider;
 }
 
 @property(retain, nonatomic) MPVolumeSlider *volumeSlider; // @synthesize volumeSlider=_volumeSlider;
 @property(nonatomic) long long style; // @synthesize style=_style;
+@property(nonatomic, getter=isOffScreen) _Bool offScreen; // @synthesize offScreen=_offScreen;
 @property(nonatomic, getter=isTransitioning) _Bool transitioning; // @synthesize transitioning=_transitioning;
 - (void).cxx_destruct;
 - (void)layoutSubviews;

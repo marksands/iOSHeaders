@@ -11,20 +11,21 @@
 __attribute__((visibility("hidden")))
 @interface UISwipeActionButton : UIButton
 {
+    _Bool _autosizes;
     UIColor *_defaultBackgroundColor;
     UIColor *_highlightedBackgroundColor;
-    double _buttonWidth;
     UIView *_backgroundView;
 }
 
-+ (double)buttonWidth;
 + (id)titleFont;
 + (id)titleFontOfSize:(double)arg1;
++ (double)defaultButtonWidth;
 @property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
-@property(readonly, nonatomic) double buttonWidth; // @synthesize buttonWidth=_buttonWidth;
+@property(nonatomic) _Bool autosizes; // @synthesize autosizes=_autosizes;
 @property(retain, nonatomic) UIColor *highlightedBackgroundColor; // @synthesize highlightedBackgroundColor=_highlightedBackgroundColor;
 @property(retain, nonatomic) UIColor *defaultBackgroundColor; // @synthesize defaultBackgroundColor=_defaultBackgroundColor;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) double buttonWidth;
 @property(readonly, nonatomic) UIView *sourceView;
 - (void)setHighlighted:(_Bool)arg1;
 - (void)setBackgroundColor:(id)arg1;

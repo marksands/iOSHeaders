@@ -8,7 +8,7 @@
 
 #import <Intents/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString, PBUnknownFields, _INPBDataString, _INPBIntentMetadata;
+@class NSMutableArray, PBUnknownFields, _INPBDataString, _INPBIntentMetadata;
 
 @interface _INPBCreateTaskListIntent : PBCodable <NSCopying>
 {
@@ -16,14 +16,14 @@
     _INPBDataString *_groupName;
     _INPBIntentMetadata *_intentMetadata;
     NSMutableArray *_taskTitles;
-    NSString *_title;
+    _INPBDataString *_title;
 }
 
 + (Class)taskTitlesType;
 + (id)options;
 @property(retain, nonatomic) _INPBDataString *groupName; // @synthesize groupName=_groupName;
 @property(retain, nonatomic) NSMutableArray *taskTitles; // @synthesize taskTitles=_taskTitles;
-@property(retain, nonatomic) NSString *title; // @synthesize title=_title;
+@property(retain, nonatomic) _INPBDataString *title; // @synthesize title=_title;
 @property(retain, nonatomic) _INPBIntentMetadata *intentMetadata; // @synthesize intentMetadata=_intentMetadata;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;

@@ -10,28 +10,29 @@
 
 @interface MPContentItem : NSObject
 {
-    void *_mrContentItem;
+    void *_mediaRemoteContentItem;
+    void *_mediaRemoteDeltaContentItem;
     MPMediaItemArtwork *_artwork;
-    double _artworkWidthHint;
-    double _artworkHeightHint;
 }
 
++ (_Bool)shouldPushArtworkData;
 + (void)performSuppressingChangeNotifications:(CDUnknownBlockType)arg1;
+@property(retain, nonatomic) MPMediaItemArtwork *artwork; // @synthesize artwork=_artwork;
+@property(readonly, nonatomic) void *_mediaRemoteContentItem; // @synthesize _mediaRemoteContentItem;
 - (void).cxx_destruct;
-@property(nonatomic, getter=isExplicitContent) _Bool explicitContent;
-@property(nonatomic, getter=isStreamingContent) _Bool streamingContent;
-- (void)_setArtworkSize:(double)arg1 height:(double)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_applyDeferredNotification;
-- (void)_postItemChangedNotification;
-- (void *)_mediaRemoteContentItem;
-@property(nonatomic) float playbackProgress;
-@property(nonatomic, getter=isPlayable) _Bool playable;
-@property(nonatomic, getter=isContainer) _Bool container;
 - (void)_loadArtwork:(id)arg1 completion:(CDUnknownBlockType)arg2;
-@property(retain, nonatomic) MPMediaItemArtwork *artwork;
+- (id)_changeDictionary;
+- (void)_applyDeferredNotification;
+- (void)_postItemChangedNotificationWithDeltaBlock:(CDUnknownBlockType)arg1;
+@property(nonatomic, getter=isPlayable) _Bool playable;
+@property(nonatomic, getter=isStreamingContent) _Bool streamingContent;
+@property(nonatomic, getter=isExplicitContent) _Bool explicitContent;
+@property(nonatomic, getter=isContainer) _Bool container;
+@property(nonatomic) float playbackProgress;
 @property(copy, nonatomic) NSString *subtitle;
 @property(copy, nonatomic) NSString *title;
 @property(readonly, copy, nonatomic) NSString *identifier;
+@property(readonly, nonatomic) void *_mediaRemoteDeltaContentItem; // @synthesize _mediaRemoteDeltaContentItem;
 - (id)description;
 - (void)dealloc;
 - (id)_initWithMediaRemoteContentItem:(void *)arg1;

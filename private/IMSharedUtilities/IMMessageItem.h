@@ -7,12 +7,12 @@
 #import <IMSharedUtilities/IMItem.h>
 
 #import <IMSharedUtilities/IMRemoteObjectCoding-Protocol.h>
-#import <IMSharedUtilities/NSCoding-Protocol.h>
 #import <IMSharedUtilities/NSCopying-Protocol.h>
+#import <IMSharedUtilities/NSSecureCoding-Protocol.h>
 
 @class NSArray, NSAttributedString, NSData, NSDate, NSDictionary, NSString;
 
-@interface IMMessageItem : IMItem <NSCoding, NSCopying, IMRemoteObjectCoding>
+@interface IMMessageItem : IMItem <NSSecureCoding, NSCopying, IMRemoteObjectCoding>
 {
     _Bool _blockingRichLinks;
     _Bool _updatingDataSourcePayload;
@@ -40,6 +40,7 @@
     NSString *_locale;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool isSOS; // @synthesize isSOS=_isSOS;
 @property(nonatomic) _Bool backwardsCompatibleVersion; // @synthesize backwardsCompatibleVersion=_backwardsCompatibleVersion;
 @property(nonatomic, getter=isUpdatingDataSourcePayload) _Bool updatingDataSourcePayload; // @synthesize updatingDataSourcePayload=_updatingDataSourcePayload;

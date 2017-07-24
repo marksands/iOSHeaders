@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class MPArtworkCatalog, MPButton, MPUMarqueeView, NSString, UIImageView, UILabel, UIVisualEffectView;
+@class MPArtworkCatalog, MPButton, MPUMarqueeView, NSString, UIButton, UIImageView, UILabel;
 
 @interface MediaControlsHeaderView : UIView
 {
@@ -14,14 +14,16 @@
     _Bool _empty;
     _Bool _showRoutingLabel;
     _Bool _showingRoutingPicker;
+    _Bool _onlyShowsRoutingPicker;
     _Bool _artworkLoaded;
     long long _style;
     NSString *_titleString;
     NSString *_primaryString;
     NSString *_secondaryString;
     MPArtworkCatalog *_artworkCatalog;
-    MPButton *_mediaControlsHeaderViewRoutingButton;
-    MPButton *_mediaControlsHeaderViewDoneButton;
+    MPButton *_routingButton;
+    MPButton *_doneButton;
+    UIButton *_launchNowPlayingAppButton;
     UIImageView *_artworkView;
     UIView *_artworkBackgroundView;
     UIView *_shadow;
@@ -30,13 +32,11 @@
     UILabel *_primaryLabel;
     MPUMarqueeView *_secondaryMarqueeView;
     UILabel *_secondaryLabel;
-    UIVisualEffectView *_primaryVisualEffectView;
-    UIVisualEffectView *_secondaryVisualEffectView;
+    UIView *_doneButtonBackground;
     struct CGSize _artworkSize;
 }
 
-@property(retain, nonatomic) UIVisualEffectView *secondaryVisualEffectView; // @synthesize secondaryVisualEffectView=_secondaryVisualEffectView;
-@property(retain, nonatomic) UIVisualEffectView *primaryVisualEffectView; // @synthesize primaryVisualEffectView=_primaryVisualEffectView;
+@property(retain, nonatomic) UIView *doneButtonBackground; // @synthesize doneButtonBackground=_doneButtonBackground;
 @property(retain, nonatomic) UILabel *secondaryLabel; // @synthesize secondaryLabel=_secondaryLabel;
 @property(retain, nonatomic) MPUMarqueeView *secondaryMarqueeView; // @synthesize secondaryMarqueeView=_secondaryMarqueeView;
 @property(retain, nonatomic) UILabel *primaryLabel; // @synthesize primaryLabel=_primaryLabel;
@@ -47,13 +47,15 @@
 @property(nonatomic, getter=isArtworkLoaded) _Bool artworkLoaded; // @synthesize artworkLoaded=_artworkLoaded;
 @property(nonatomic) struct CGSize artworkSize; // @synthesize artworkSize=_artworkSize;
 @property(retain, nonatomic) UIImageView *artworkView; // @synthesize artworkView=_artworkView;
-@property(retain, nonatomic) MPButton *mediaControlsHeaderViewDoneButton; // @synthesize mediaControlsHeaderViewDoneButton=_mediaControlsHeaderViewDoneButton;
-@property(retain, nonatomic) MPButton *mediaControlsHeaderViewRoutingButton; // @synthesize mediaControlsHeaderViewRoutingButton=_mediaControlsHeaderViewRoutingButton;
+@property(retain, nonatomic) UIButton *launchNowPlayingAppButton; // @synthesize launchNowPlayingAppButton=_launchNowPlayingAppButton;
+@property(retain, nonatomic) MPButton *doneButton; // @synthesize doneButton=_doneButton;
+@property(retain, nonatomic) MPButton *routingButton; // @synthesize routingButton=_routingButton;
 @property(retain, nonatomic) MPArtworkCatalog *artworkCatalog; // @synthesize artworkCatalog=_artworkCatalog;
 @property(retain, nonatomic) NSString *secondaryString; // @synthesize secondaryString=_secondaryString;
 @property(retain, nonatomic) NSString *primaryString; // @synthesize primaryString=_primaryString;
 @property(retain, nonatomic) NSString *titleString; // @synthesize titleString=_titleString;
 @property(nonatomic) long long style; // @synthesize style=_style;
+@property(nonatomic) _Bool onlyShowsRoutingPicker; // @synthesize onlyShowsRoutingPicker=_onlyShowsRoutingPicker;
 @property(nonatomic, getter=isShowingRoutingPicker) _Bool showingRoutingPicker; // @synthesize showingRoutingPicker=_showingRoutingPicker;
 @property(nonatomic) _Bool showRoutingLabel; // @synthesize showRoutingLabel=_showRoutingLabel;
 @property(nonatomic, getter=isEmpty) _Bool empty; // @synthesize empty=_empty;

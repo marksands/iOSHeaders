@@ -7,7 +7,6 @@
 #import <DeviceManagement/DMFConnection.h>
 
 @interface DMFConnection (MCMDMUtilities)
-+ (_Bool)useDMFForDefaultKey:(id)arg1;
 - (id)performRequest:(id)arg1 error:(id *)arg2;
 @end
 

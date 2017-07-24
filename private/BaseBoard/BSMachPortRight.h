@@ -6,12 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
+#import <BaseBoard/BSInvalidatable-Protocol.h>
 #import <BaseBoard/BSXPCCoding-Protocol.h>
 #import <BaseBoard/NSSecureCoding-Protocol.h>
 
 @class NSString;
 
-@interface BSMachPortRight : NSObject <BSXPCCoding, NSSecureCoding>
+@interface BSMachPortRight : NSObject <BSXPCCoding, NSSecureCoding, BSInvalidatable>
 {
     unsigned int _queue_port;
     unsigned int _rawPort;

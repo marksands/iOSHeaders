@@ -15,6 +15,7 @@
 @property(readonly, copy, nonatomic) NSString *pathForOriginalVideoFile;
 @property(readonly, copy, nonatomic) NSString *pathForOriginalImageFile;
 @property(readonly, nonatomic, getter=isResourceDownloadPossible) _Bool resourceDownloadPossible;
+@property(readonly, nonatomic) unsigned long long originalFilesize;
 @property(readonly, nonatomic) int originalEXIFOrientation;
 @property(readonly, nonatomic) NSDictionary *imageProperties;
 @property(readonly, nonatomic) PFVideoAVObjectBuilder *videoObjectBuilder;

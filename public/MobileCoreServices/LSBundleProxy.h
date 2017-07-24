@@ -8,7 +8,7 @@
 
 #import <MobileCoreServices/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSDictionary, NSString, NSURL, NSUUID, _LSLazyPropertyList;
+@class NSArray, NSDictionary, NSString, NSURL, NSUUID, _LSBundleIDValidationToken, _LSLazyPropertyList;
 
 @interface LSBundleProxy : LSResourceProxy <NSSecureCoding>
 {
@@ -35,13 +35,16 @@
     _LSLazyPropertyList *__groupContainers;
     _LSLazyPropertyList *__entitlements;
     _LSLazyPropertyList *__environmentVariables;
+    _LSBundleIDValidationToken *__validationToken;
 }
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)canInstantiateFromDatabase;
 + (id)bundleProxyForCurrentProcess;
++ (_Bool)bundleProxyForCurrentProcessNeedsUpdate:(id)arg1;
 + (id)bundleProxyForURL:(id)arg1;
 + (id)bundleProxyForIdentifier:(id)arg1;
+@property(retain, nonatomic, setter=_setValidationToken:) _LSBundleIDValidationToken *_validationToken; // @synthesize _validationToken=__validationToken;
 @property(copy, nonatomic, setter=_setEnvironmentVariables:) _LSLazyPropertyList *_environmentVariables; // @synthesize _environmentVariables=__environmentVariables;
 @property(copy, nonatomic, setter=_setEntitlements:) _LSLazyPropertyList *_entitlements; // @synthesize _entitlements=__entitlements;
 @property(copy, nonatomic, setter=_setGroupContainers:) _LSLazyPropertyList *_groupContainers; // @synthesize _groupContainers=__groupContainers;
@@ -64,7 +67,6 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)_valueForEqualityTesting;
-- (void)setPropertyListCachingStrategy:(unsigned long long)arg1;
 - (id)localizedValuesForKeys:(id)arg1 fromTable:(id)arg2;
 - (id)objectForInfoDictionaryKey:(id)arg1 ofClass:(Class)arg2 valuesOfClass:(Class)arg3;
 - (id)objectForInfoDictionaryKey:(id)arg1 ofClass:(Class)arg2;

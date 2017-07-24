@@ -22,6 +22,7 @@
     double _currentExtraOffset;
     unsigned long long _style;
     _Bool _buttonsUnderlapSwipedView;
+    _Bool _autosizesButtons;
     unsigned long long _cellEdge;
     double _currentOffset;
     id <UISwipeActionPullViewDelegate> _delegate;
@@ -31,6 +32,7 @@
 }
 
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
+@property(nonatomic) _Bool autosizesButtons; // @synthesize autosizesButtons=_autosizesButtons;
 @property(nonatomic) _Bool buttonsUnderlapSwipedView; // @synthesize buttonsUnderlapSwipedView=_buttonsUnderlapSwipedView;
 @property(copy, nonatomic) UIColor *backgroundPullColor; // @synthesize backgroundPullColor=_backgroundPullColor;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;

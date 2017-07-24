@@ -19,6 +19,8 @@
 - (_Bool)containsCoordinate:(CDStruct_c3b9c2ee)arg1;
 - (id)debugDescription;
 - (id)description;
+- (void)encodeWithXPCCoder:(id)arg1;
+- (id)initWithXPCCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (_Bool)isEqual:(id)arg1;

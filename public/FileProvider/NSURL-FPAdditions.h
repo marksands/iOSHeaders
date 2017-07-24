@@ -10,18 +10,19 @@
 + (id)fp_localStoragePrefixURL;
 + (id)fp_containerPrefixURL;
 + (id)fp_homeDirectory;
++ (id)fp_supportDirectory;
 - (_Bool)fp_addDocumentTrackingWithError:(id *)arg1;
-- (void)fp_makeWritable;
+- (_Bool)fp_makeWritableWithError:(id *)arg1;
 - (id)fp_moveToTempFolderWithFilename:(id)arg1 error:(id *)arg2;
 - (id)fp_copyToTempFolderWithFilename:(id)arg1 error:(id *)arg2;
 - (id)fp_moveToTempFolderWithFilename:(id)arg1 byCopying:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)fp_matchesLocalStorageURL;
-- (id)fp_relativePathStartingFromPathFragment:(id)arg1;
 - (_Bool)fp_matchesFileProviderURL;
 - (void)fp_hideExtension:(_Bool)arg1;
 - (_Bool)fp_isFolder;
 - (unsigned long long)fp_fileSize;
 - (long long)fp_relationshipToItemAtURL:(id)arg1;
+- (id)fp_relativePathOf:(id)arg1;
 - (id)fp_shortDescription;
 - (id)fp_issueSandboxExtensionOfClass:(const char *)arg1 error:(id *)arg2;
 @end

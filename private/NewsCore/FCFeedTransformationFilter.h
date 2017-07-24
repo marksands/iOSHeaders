@@ -22,6 +22,7 @@
 }
 
 + (id)transformationWithFilterOptions:(long long)arg1 context:(id)arg2;
++ (id)transformationWithFilterOptions:(long long)arg1 context:(id)arg2 otherArticleIDs:(id)arg3;
 + (id)transformationWithFilterOptions:(long long)arg1 otherArticleIDs:(id)arg2 otherClusterIDs:(id)arg3 subscribedTagIDs:(id)arg4 mutedChannelTagIDs:(id)arg5 purchasedTagIDs:(id)arg6 briefingsTagID:(id)arg7;
 @property(copy, nonatomic) NSString *briefingsTagID; // @synthesize briefingsTagID=_briefingsTagID;
 @property(copy, nonatomic) NSSet *purchasedTagIDs; // @synthesize purchasedTagIDs=_purchasedTagIDs;

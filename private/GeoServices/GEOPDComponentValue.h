@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDAddress, GEOPDAddressObject, GEOPDAmenities, GEOPDAssociatedApp, GEOPDBounds, GEOPDBusinessClaim, GEOPDCaptionedPhoto, GEOPDContainedPlace, GEOPDETA, GEOPDEntity, GEOPDExternalAction, GEOPDFactoid, GEOPDFlyover, GEOPDHours, GEOPDIcon, GEOPDLocationEvent, GEOPDMessageLink, GEOPDPhoto, GEOPDPlaceInfo, GEOPDPlacecardURL, GEOPDPriceDescription, GEOPDQuickLink, GEOPDRap, GEOPDRating, GEOPDRawAttribute, GEOPDRestaurantReservationLink, GEOPDResultSnippet, GEOPDReview, GEOPDRoadAccessInfo, GEOPDSimpleRestaurantMenuText, GEOPDSpatialLookupResult, GEOPDTextBlock, GEOPDTip, GEOPDTransitAttribution, GEOPDTransitIncident, GEOPDTransitInfo, GEOPDTransitInfoSnippet, GEOPDTransitSchedule, GEOPDVenueInfo, GEOPDWifiFingerprint, GEOStyleAttributes, PBUnknownFields;
+@class GEOPDAddress, GEOPDAddressObject, GEOPDAmenities, GEOPDAssociatedApp, GEOPDBounds, GEOPDBrowseCategories, GEOPDBusinessClaim, GEOPDCaptionedPhoto, GEOPDContainedPlace, GEOPDETA, GEOPDEntity, GEOPDExternalAction, GEOPDFactoid, GEOPDFlyover, GEOPDHours, GEOPDIcon, GEOPDLocationEvent, GEOPDMessageLink, GEOPDPhoto, GEOPDPlaceInfo, GEOPDPlacecardURL, GEOPDPriceDescription, GEOPDQuickLink, GEOPDRap, GEOPDRating, GEOPDRawAttribute, GEOPDRestaurantReservationLink, GEOPDResultSnippet, GEOPDReview, GEOPDRoadAccessInfo, GEOPDSimpleRestaurantMenuText, GEOPDSpatialLookupResult, GEOPDTextBlock, GEOPDTip, GEOPDTransitAttribution, GEOPDTransitIncident, GEOPDTransitInfo, GEOPDTransitInfoSnippet, GEOPDTransitSchedule, GEOPDVenueInfo, GEOPDWifiFingerprint, GEOStyleAttributes, PBUnknownFields;
 
 @interface GEOPDComponentValue : PBCodable <NSCopying>
 {
@@ -19,6 +19,7 @@
     GEOPDAmenities *_amenities;
     GEOPDAssociatedApp *_associatedApp;
     GEOPDBounds *_bounds;
+    GEOPDBrowseCategories *_browseCategories;
     GEOPDBusinessClaim *_businessClaim;
     GEOPDCaptionedPhoto *_captionedPhoto;
     GEOPDContainedPlace *_containedPlace;
@@ -56,6 +57,7 @@
     GEOPDWifiFingerprint *_wifiFingerprint;
 }
 
+@property(retain, nonatomic) GEOPDBrowseCategories *browseCategories; // @synthesize browseCategories=_browseCategories;
 @property(retain, nonatomic) GEOPDPriceDescription *priceDescription; // @synthesize priceDescription=_priceDescription;
 @property(retain, nonatomic) GEOPDIcon *icon; // @synthesize icon=_icon;
 @property(retain, nonatomic) GEOPDWifiFingerprint *wifiFingerprint; // @synthesize wifiFingerprint=_wifiFingerprint;
@@ -108,6 +110,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasBrowseCategories;
 @property(readonly, nonatomic) _Bool hasPriceDescription;
 @property(readonly, nonatomic) _Bool hasIcon;
 @property(readonly, nonatomic) _Bool hasWifiFingerprint;

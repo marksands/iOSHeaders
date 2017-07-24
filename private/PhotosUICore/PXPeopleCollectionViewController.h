@@ -10,7 +10,7 @@
 #import <PhotosUICore/PXPeopleDragAndDropCollectionViewDelegate-Protocol.h>
 #import <PhotosUICore/PXPeopleDragAndDropCollectionViewDelegateLayout-Protocol.h>
 #import <PhotosUICore/PXPeoplePreviewActionViewControllerDelegate-Protocol.h>
-#import <PhotosUICore/PXPeopleSectionedDataSourceDelegate-Protocol.h>
+#import <PhotosUICore/PXPeopleSectionedDataSourceChangeObserver-Protocol.h>
 #import <PhotosUICore/PXPeopleSwipeSelectionManagerDelegate-Protocol.h>
 #import <PhotosUICore/PXPeopleZoomOverlayTransitionEndPoint-Protocol.h>
 #import <PhotosUICore/UICollectionViewDelegateFlowLayout-Protocol.h>
@@ -22,7 +22,7 @@
 @class NSArray, NSIndexPath, NSMutableDictionary, NSString, PXPeopleDragAndDropCollectionViewLayout, PXPeopleMeViewController, PXPeopleProgressFooterView, PXPeopleProgressManager, PXPeopleSectionedDataSource, PXPeopleSwipeSelectionManager, UIBarButtonItem, UILongPressGestureRecognizer;
 @protocol UIViewControllerAnimatedTransitioning;
 
-@interface PXPeopleCollectionViewController : UICollectionViewController <UIViewControllerTransitioningDelegate, PXPeopleZoomOverlayTransitionEndPoint, PXPeopleDragAndDropCollectionViewDelegate, UIGestureRecognizerDelegate, UICollectionViewDelegateFlowLayout, UIPopoverPresentationControllerDelegate, UIViewControllerPreviewingDelegate, PXPeopleSectionedDataSourceDelegate, PXPeoplePreviewActionViewControllerDelegate, PXPeopleDragAndDropCollectionViewDelegateLayout, PXPeopleCollectionViewCellDelegate, PXPeopleSwipeSelectionManagerDelegate>
+@interface PXPeopleCollectionViewController : UICollectionViewController <UIViewControllerTransitioningDelegate, PXPeopleZoomOverlayTransitionEndPoint, PXPeopleDragAndDropCollectionViewDelegate, UIGestureRecognizerDelegate, UICollectionViewDelegateFlowLayout, UIPopoverPresentationControllerDelegate, UIViewControllerPreviewingDelegate, PXPeopleSectionedDataSourceChangeObserver, PXPeoplePreviewActionViewControllerDelegate, PXPeopleDragAndDropCollectionViewDelegateLayout, PXPeopleCollectionViewCellDelegate, PXPeopleSwipeSelectionManagerDelegate>
 {
     _Bool _ignoreChangeUpdates;
     _Bool _needToCheckProgress;
@@ -81,8 +81,6 @@
 @property(retain, nonatomic) UILongPressGestureRecognizer *dragRecognizer; // @synthesize dragRecognizer=_dragRecognizer;
 @property _Bool ignoreChangeUpdates; // @synthesize ignoreChangeUpdates=_ignoreChangeUpdates;
 - (void).cxx_destruct;
-- (long long)_ppt_numCells;
-- (void)ppt_navigateToPhotosDetails;
 - (void)swipeSelectionManager:(id)arg1 didSelectIndexPaths:(id)arg2;
 - (id)swipeSelectionManager:(id)arg1 itemIndexPathAtLocation:(struct CGPoint)arg2;
 - (id)swipeSelectionManager:(id)arg1 indexPathSetFromIndexPath:(id)arg2 toIndexPath:(id)arg3;
@@ -133,7 +131,6 @@
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (void)peoplePreviewActionViewController:(id)arg1 wantsToChangePerson:(id)arg2 toType:(long long)arg3;
-- (void)toggleHiddenStateForMemberAtIndexPath:(id)arg1;
 - (id)_personItemAtIndexPath:(id)arg1;
 - (id)_detailViewControllerAtIndexPath:(id)arg1;
 - (void)showDetailsForMemberAtIndexPath:(id)arg1;
@@ -146,7 +143,6 @@
 - (double)_currentLineSpacing;
 - (long long)_verticalSizeClass;
 - (long long)_horizontalSizeClass;
-- (_Bool)_indexPathIsTypeHidden:(id)arg1;
 - (id)_changeMemberAtIndex:(id)arg1 toPersonType:(long long)arg2;
 - (unsigned long long)_fixedColumnCountForIndexPath:(id)arg1;
 - (_Bool)_favoritesEmpty;
@@ -180,6 +176,13 @@
 - (void)handleMoveFromIndexPath:(id)arg1 toIndexPath:(id)arg2;
 - (void)handleReorderingGesture:(id)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
+- (id)ppt_indexPathsForPeopleThatCanChangeToType:(long long)arg1;
+- (void)ppt_changeIndexPaths:(id)arg1 toType:(long long)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (_Bool)ppt_namePerson:(id)arg1;
+- (id)ppt_randomPerson;
+- (id)ppt_bestPersonForBootstrap;
+- (long long)ppt_numCells;
+- (id)ppt_indexPathOfPersonWithMostAssets;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

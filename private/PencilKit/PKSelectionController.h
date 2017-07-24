@@ -15,6 +15,7 @@
 {
     struct CGPoint _dropPosition;
     NSUUID *_previousDrawingUUIDForSelection;
+    int _selectionViewCount;
     UIDropInteraction *_dropInteraction;
     _Bool _hasCurrentSelection;
     id <PKSelectionDelegate> _selectionDelegate;
@@ -30,16 +31,22 @@
 @property(nonatomic) __weak id <PKSelectionDelegate> selectionDelegate; // @synthesize selectionDelegate=_selectionDelegate;
 - (void).cxx_destruct;
 - (id)dropInteraction:(id)arg1 previewForDroppingItem:(id)arg2 withDefault:(id)arg3;
+- (void)moveStrokeSelectionToLocation:(struct CGPoint)arg1;
 - (void)dropInteraction:(id)arg1 performDrop:(id)arg2;
-- (id)_api_dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
-- (void)_api_dropInteraction:(id)arg1 sessionDidEnter:(id)arg2;
+- (id)dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
+- (void)dropInteraction:(id)arg1 sessionDidEnter:(id)arg2;
 - (void)dropInteraction:(id)arg1 sessionDidExit:(id)arg2;
 - (_Bool)dropInteraction:(id)arg1 canHandleSession:(id)arg2;
 - (void)_moveCurrentStrokeSelectionForDrop:(id)arg1 atLocation:(struct CGPoint)arg2 offsetInTouchView:(struct CGPoint)arg3;
-- (struct CGAffineTransform)_selectionTransformForStrokes:(id)arg1 atLocation:(struct CGPoint)arg2 dragOffsetInDragView:(struct CGPoint)arg3;
+- (struct CGAffineTransform)_selectionTransformForStrokes:(id)arg1 atLocation:(struct CGPoint)arg2 dragOffsetInDragView:(struct CGPoint)arg3 constrainSelection:(_Bool)arg4 inDrawing:(id)arg5;
 - (void)_createSelectionViewForDropSession:(id)arg1 removeFromSource:(_Bool)arg2 withStrokeSelection:(id)arg3;
 - (void)_createSelectionViewForDropSession:(id)arg1 removeFromSource:(_Bool)arg2;
-- (void)pasteStrokeSelection:(id)arg1 atPoint:(struct CGPoint)arg2;
+- (void)_pasteStrokeSelection:(id)arg1 atPoint:(struct CGPoint)arg2 inDrawing:(id)arg3;
+- (void)paste:(id)arg1;
+- (void)duplicate:(id)arg1;
+- (void)cut:(id)arg1;
+- (void)copy:(id)arg1;
+- (void)delete:(id)arg1;
 - (void)clearSelectionIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)clearSelectionIfNecessary;
 - (void)addItemsToPasteboard;

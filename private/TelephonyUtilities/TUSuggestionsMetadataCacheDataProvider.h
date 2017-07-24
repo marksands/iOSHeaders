@@ -12,11 +12,13 @@
 @interface TUSuggestionsMetadataCacheDataProvider : TUMetadataCacheDataProvider
 {
     NSObject<OS_dispatch_semaphore> *_suggestionsServiceThrottleSemaphore;
+    id _suggestionsContactsObserver;
 }
 
 + (id)newestSuggestedContactForDestinationID:(id)arg1;
 + (void)suggestedNamesForDestinationID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 + (id)sharedService;
+@property(readonly, nonatomic) id suggestionsContactsObserver; // @synthesize suggestionsContactsObserver=_suggestionsContactsObserver;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *suggestionsServiceThrottleSemaphore; // @synthesize suggestionsServiceThrottleSemaphore=_suggestionsServiceThrottleSemaphore;
 - (void).cxx_destruct;
 - (void)updateCacheWithDestinationIDs:(id)arg1 withGroup:(id)arg2;

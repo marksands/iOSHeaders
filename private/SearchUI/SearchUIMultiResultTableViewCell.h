@@ -24,7 +24,6 @@
 @property(retain) SearchUIIconViewContainer *bottomContainer; // @synthesize bottomContainer=_bottomContainer;
 @property(retain) SearchUIIconViewContainer *topContainer; // @synthesize topContainer=_topContainer;
 - (void).cxx_destruct;
-- (void)traitCollectionDidChange:(id)arg1;
 - (void)updateExpanded:(_Bool)arg1;
 - (_Bool)isExpandable;
 - (void)layoutSubviews;

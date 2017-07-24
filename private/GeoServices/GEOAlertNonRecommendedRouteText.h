@@ -8,14 +8,18 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOFormattedString;
+@class GEOFormattedString, GEOPlaceFormattedString;
 
 @interface GEOAlertNonRecommendedRouteText : PBCodable <NSCopying>
 {
+    GEOPlaceFormattedString *_body;
     GEOFormattedString *_responseAlertPrimary;
     GEOFormattedString *_responseAlertSecondary;
+    GEOPlaceFormattedString *_title;
 }
 
+@property(retain, nonatomic) GEOPlaceFormattedString *body; // @synthesize body=_body;
+@property(retain, nonatomic) GEOPlaceFormattedString *title; // @synthesize title=_title;
 @property(retain, nonatomic) GEOFormattedString *responseAlertSecondary; // @synthesize responseAlertSecondary=_responseAlertSecondary;
 @property(retain, nonatomic) GEOFormattedString *responseAlertPrimary; // @synthesize responseAlertPrimary=_responseAlertPrimary;
 - (void).cxx_destruct;
@@ -28,6 +32,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasBody;
+@property(readonly, nonatomic) _Bool hasTitle;
 @property(readonly, nonatomic) _Bool hasResponseAlertSecondary;
 @property(readonly, nonatomic) _Bool hasResponseAlertPrimary;
 

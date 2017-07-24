@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <FileProvider/FPReachabilityObserver-Protocol.h>
 #import <FileProvider/FPXEnumeratorObserver-Protocol.h>
 
 @class FPItemID, FPItemManager, FPPacer, NSArray, NSData, NSFileProviderEnumerationProperties, NSMutableDictionary, NSMutableSet, NSPredicate, NSString, _FPItemList;
 @protocol FPItemCollectionDelegate, FPXEnumerator, OS_dispatch_queue;
 
-@interface FPItemCollection : NSObject <FPXEnumeratorObserver>
+@interface FPItemCollection : NSObject <FPXEnumeratorObserver, FPReachabilityObserver>
 {
     unsigned long long _observationID;
     FPItemID *_itemID;
@@ -49,6 +50,7 @@
     FPPacer *_updatePacer;
 }
 
++ (void)removeActiveCollection:(id)arg1;
 + (void)addActiveCollection:(id)arg1;
 + (void)resumeVendorEnumeration;
 + (void)suspendVendorEnumeration;
@@ -70,7 +72,7 @@
 @property(readonly, nonatomic) _Bool hasMoreUpdates; // @synthesize hasMoreUpdates=_hasMoreUpdates;
 @property(readonly, nonatomic, getter=isImmutable) _Bool immutable; // @synthesize immutable=_immutable;
 @property(nonatomic) __weak id <FPItemCollectionDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic, getter=isGathering) _Bool gathering; // @synthesize gathering=_gathering;
+@property(nonatomic, getter=isGathering) _Bool gathering; // @synthesize gathering=_gathering;
 - (void).cxx_destruct;
 - (CDUnknownBlockType)isItemMatchingQueryBlock;
 - (void)setIsItemMatchingQueryBlock:(CDUnknownBlockType)arg1;
@@ -104,12 +106,13 @@
 - (void)enumerationResultsDidChange;
 - (void)stopObserving;
 - (void)_updateItems;
-- (void)_updateItemsWithUpdatesCount:(unsigned long long)arg1;
+- (void)_updateItemsWithUpdatesCount:(unsigned long long)arg1 section:(unsigned long long)arg2;
 - (void)_gatherInitialItems;
-- (void)_gatherMoreItemsAfterPage:(id)arg1;
+- (void)_gatherMoreItemsAfterPage:(id)arg1 section:(unsigned long long)arg2;
 @property(readonly, copy, nonatomic) NSString *providerIdentifier;
 - (void)startObserving;
 - (void)startObservingWithEnumerationProperties:(id)arg1;
+- (void)reachabilityMonitor:(id)arg1 didChangeReachabilityStatusTo:(_Bool)arg2;
 - (_Bool)hasMoreItems;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

@@ -8,7 +8,7 @@
 
 #import <GeoServices/GEOMapItemTransitInfo-Protocol.h>
 
-@class GEOPDTransitInfo, GEOPDTransitSchedule, NSArray, NSDate, NSString, NSTimeZone;
+@class GEOPDTransitInfo, GEOPDTransitSchedule, NSArray, NSDate, NSMapTable, NSString, NSTimeZone;
 
 __attribute__((visibility("hidden")))
 @interface _GEOMapItemTransitInfo : NSObject <GEOMapItemTransitInfo>
@@ -24,10 +24,12 @@ __attribute__((visibility("hidden")))
     NSDate *_incidentExpirationDate;
     NSArray *_connections;
     NSString *_displayName;
+    NSMapTable *_cachedHeadSignsForLine;
 }
 
 @property(readonly, nonatomic) _Bool hasTransitIncidentComponent; // @synthesize hasTransitIncidentComponent=_hasTransitIncidentComponent;
 - (void).cxx_destruct;
+- (id)headSignsForLine:(id)arg1;
 - (id)inactiveLinesForSystem:(id)arg1 relativeToDateFromBlock:(CDUnknownBlockType)arg2 excludingIncidentEntities:(id)arg3;
 - (id)serviceResumesDateForLine:(id)arg1 excludingIncidentEntities:(id)arg2 afterDate:(id)arg3 blocked:(out _Bool *)arg4;
 - (id)sequencesForSystem:(id)arg1 excludingIncidentEntities:(id)arg2 direction:(id)arg3 validForDateFromBlock:(CDUnknownBlockType)arg4;

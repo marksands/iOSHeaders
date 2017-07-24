@@ -8,14 +8,15 @@
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class HMDBackingStoreLocal, NSMapTable, NSString;
+@class HMDBackingStoreLocal, HMFVersion, NSMapTable, NSString;
 
 @interface HMDBackingStoreSingleton : HMFObject <HMFLogging>
 {
-    HMDBackingStoreLocal *_local;
     NSMapTable *_objectLookup;
     NSMapTable *_classToNameTransform;
     NSMapTable *_nameToClassTransform;
+    HMFVersion *_dataVersion;
+    HMDBackingStoreLocal *_local;
 }
 
 + (id)logCategory;
@@ -23,12 +24,14 @@
 + (void)setClass:(Class)arg1 forClassName:(id)arg2;
 + (id)sharedInstance;
 + (void)start;
+@property(retain, nonatomic) HMDBackingStoreLocal *local; // @synthesize local=_local;
+@property(retain, nonatomic) HMFVersion *dataVersion; // @synthesize dataVersion=_dataVersion;
 @property(readonly, nonatomic) NSMapTable *nameToClassTransform; // @synthesize nameToClassTransform=_nameToClassTransform;
 @property(readonly, nonatomic) NSMapTable *classToNameTransform; // @synthesize classToNameTransform=_classToNameTransform;
 @property(readonly, nonatomic) NSMapTable *objectLookup; // @synthesize objectLookup=_objectLookup;
-@property(retain, nonatomic) HMDBackingStoreLocal *local; // @synthesize local=_local;
 - (void).cxx_destruct;
 - (id)logIdentifier;
+- (id)resetBackingStore;
 - (id)flushBackingStore;
 - (id)init;
 

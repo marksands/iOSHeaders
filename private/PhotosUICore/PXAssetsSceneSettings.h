@@ -9,11 +9,13 @@
 @interface PXAssetsSceneSettings : PXSettings
 {
     _Bool _enableImagePreheating;
+    _Bool _animateContentByDefault;
     double _transitionDuration;
 }
 
 + (id)sharedInstance;
 + (id)settingsControllerModule;
+@property(nonatomic) _Bool animateContentByDefault; // @synthesize animateContentByDefault=_animateContentByDefault;
 @property(nonatomic) _Bool enableImagePreheating; // @synthesize enableImagePreheating=_enableImagePreheating;
 @property(nonatomic) double transitionDuration; // @synthesize transitionDuration=_transitionDuration;
 - (void)setDefaultValues;

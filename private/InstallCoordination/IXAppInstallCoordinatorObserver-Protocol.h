@@ -17,6 +17,7 @@
 - (void)coordinator:(IXAppInstallCoordinator *)arg1 canceledWithReason:(NSError *)arg2 client:(unsigned long long)arg3;
 - (void)coordinatorDidCompleteSuccessfully:(IXAppInstallCoordinator *)arg1;
 - (void)coordinatorDidInstallPlaceholder:(IXAppInstallCoordinator *)arg1;
+- (void)coordinatorShouldBeginRestoringUserData:(IXAppInstallCoordinator *)arg1;
 - (void)coordinator:(IXAppInstallCoordinator *)arg1 configuredPromiseDidBeginFulfillment:(unsigned long long)arg2;
 - (void)coordinatorShouldPause:(IXAppInstallCoordinator *)arg1;
 - (void)coordinatorShouldResume:(IXAppInstallCoordinator *)arg1;

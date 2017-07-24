@@ -8,6 +8,7 @@
 @protocol OS_dispatch_queue, OS_os_activity, OS_xpc_object;
 
 @protocol GEODataXPCSessionTaskQueueTask
+@property(readonly, nonatomic) float taskQueuePriority;
 @property(readonly, nonatomic) NSObject<OS_os_activity> *activity;
 @property(readonly, nonatomic) _Bool isCancelled;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *sessionIsolation;

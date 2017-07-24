@@ -6,11 +6,9 @@
 
 #import <SoftwareUpdateServices/NSObject-Protocol.h>
 
-@class NSArray;
-
 @protocol SUAppPurgingNotification <NSObject>
 
 @optional
-+ (void)postAppPurgingNotificationWithAppsToPurge:(NSArray *)arg1 completion:(void (^)(_Bool))arg2;
++ (void)postAppPurgingNotificationWithCompletion:(void (^)(_Bool))arg1;
 @end
 

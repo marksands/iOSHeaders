@@ -8,7 +8,7 @@
 
 #import <Intents/NSCopying-Protocol.h>
 
-@class NSString, PBUnknownFields, _INPBDataString, _INPBIntentMetadata, _INPBNoteContent;
+@class PBUnknownFields, _INPBDataString, _INPBIntentMetadata, _INPBNoteContent;
 
 @interface _INPBCreateNoteIntent : PBCodable <NSCopying>
 {
@@ -16,13 +16,13 @@
     _INPBNoteContent *_content;
     _INPBDataString *_groupName;
     _INPBIntentMetadata *_intentMetadata;
-    NSString *_title;
+    _INPBDataString *_title;
 }
 
 + (id)options;
 @property(retain, nonatomic) _INPBDataString *groupName; // @synthesize groupName=_groupName;
 @property(retain, nonatomic) _INPBNoteContent *content; // @synthesize content=_content;
-@property(retain, nonatomic) NSString *title; // @synthesize title=_title;
+@property(retain, nonatomic) _INPBDataString *title; // @synthesize title=_title;
 @property(retain, nonatomic) _INPBIntentMetadata *intentMetadata; // @synthesize intentMetadata=_intentMetadata;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;

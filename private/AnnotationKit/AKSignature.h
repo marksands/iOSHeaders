@@ -37,6 +37,7 @@
 - (void)dealloc;
 - (_Bool)isEqual:(id)arg1;
 - (id)init;
+- (id)initForTesting;
 - (id)initWithDrawing:(id)arg1 path:(struct CGPath *)arg2 baselineOffset:(double)arg3;
 - (id)initWithDrawing:(id)arg1 path:(struct CGPath *)arg2 baselineOffset:(double)arg3 creationDate:(id)arg4;
 

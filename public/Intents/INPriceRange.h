@@ -26,6 +26,7 @@
 @property(readonly, nonatomic) NSDecimalNumber *minimumPrice; // @synthesize minimumPrice=_minimumPrice;
 - (void).cxx_destruct;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
 - (_Bool)isEqual:(id)arg1;
 - (id)_formattedStringWithLocale:(id)arg1 componentsFormatString:(id)arg2;

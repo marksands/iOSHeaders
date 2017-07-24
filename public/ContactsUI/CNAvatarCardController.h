@@ -10,7 +10,7 @@
 #import <ContactsUI/CNAvatarCardViewControllerDelegate-Protocol.h>
 #import <ContactsUI/UIPreviewInteractionDelegatePrivate-Protocol.h>
 
-@class CNAvatarCardViewController, CNAvatarView, CNContact, CNContactOrbHeaderView, NSArray, NSString, UIGestureRecognizer, UIPreviewInteraction, UIView, UIViewController;
+@class CNAvatarCardViewController, CNAvatarView, CNContact, CNContactOrbHeaderView, NSArray, NSString, UIAlertController, UIGestureRecognizer, UIPreviewInteraction, UIView, UIViewController;
 @protocol CNAvatarCardControllerDelegate;
 
 @interface CNAvatarCardController : NSObject <CNAvatarCardViewControllerDelegate, CNAvatarCardControllerOrbTransitionDelegate, UIPreviewInteractionDelegatePrivate>
@@ -23,6 +23,7 @@
     id <CNAvatarCardControllerDelegate> _delegate;
     UIView *_sourceView;
     UIView *_highlightView;
+    UIAlertController *_alertController;
     CNAvatarCardViewController *_cardViewController;
     UIPreviewInteraction *_previewInteraction;
     long long _presentationResult;
@@ -46,6 +47,7 @@
 @property(nonatomic) long long presentationResult; // @synthesize presentationResult=_presentationResult;
 @property(retain, nonatomic) UIPreviewInteraction *previewInteraction; // @synthesize previewInteraction=_previewInteraction;
 @property(retain, nonatomic) CNAvatarCardViewController *cardViewController; // @synthesize cardViewController=_cardViewController;
+@property(retain, nonatomic) UIAlertController *alertController; // @synthesize alertController=_alertController;
 @property(nonatomic) struct CGRect sourceRect; // @synthesize sourceRect=_sourceRect;
 @property(retain, nonatomic) UIView *highlightView; // @synthesize highlightView=_highlightView;
 @property(retain, nonatomic) UIView *sourceView; // @synthesize sourceView=_sourceView;
@@ -71,6 +73,7 @@
 - (id)cardViewController:(id)arg1 orderedPropertiesForProperties:(id)arg2 category:(id)arg3;
 - (void)_updateHeaderViewFrame;
 - (void)_setupForCardControllerPresentation;
+- (void)_setupAlertController;
 - (void)_setupCardViewControllerWithContacts:(id)arg1;
 - (void)showContact:(id)arg1;
 - (void)dismissAnimated:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;

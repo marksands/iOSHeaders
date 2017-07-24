@@ -12,19 +12,23 @@
 {
     _Bool _opaque;
     float _alpha;
-    float _sampleRadius;
     float _rotation;
     CLKUITexture *_primaryTexture;
     CLKUITexture *_secondaryTexture;
     CLKUIShader *_shader;
-    struct CGPoint _sampleCenter;
+    // Error parsing type: , name: _sampleCenter
+    // Error parsing type: , name: _sampleRadius
 }
 
 + (id)quadWithShader:(id)arg1;
 @property(nonatomic, getter=isOpaque) _Bool opaque; // @synthesize opaque=_opaque;
 @property(nonatomic) float rotation; // @synthesize rotation=_rotation;
-@property(nonatomic) float sampleRadius; // @synthesize sampleRadius=_sampleRadius;
-@property(nonatomic) struct CGPoint sampleCenter; // @synthesize sampleCenter=_sampleCenter;
+// Error parsing type for property sampleRadius:
+// Property attributes: T,N,V_sampleRadius
+
+// Error parsing type for property sampleCenter:
+// Property attributes: T,N,V_sampleCenter
+
 @property(nonatomic) float alpha; // @synthesize alpha=_alpha;
 @property(readonly, nonatomic) CLKUIShader *shader; // @synthesize shader=_shader;
 @property(retain, nonatomic) CLKUITexture *secondaryTexture; // @synthesize secondaryTexture=_secondaryTexture;

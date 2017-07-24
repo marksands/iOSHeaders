@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSDate;
+@class NSDate, NSString;
 
 @interface BLTLightsAndSirensReplyInfo : NSObject
 {
@@ -16,8 +16,12 @@
     unsigned long long _didPlayLightsAndSirens;
     NSDate *_bulletinPublicationDate;
     NSDate *_creation;
+    NSString *_publisherMatchID;
+    NSString *_sectionID;
 }
 
+@property(copy, nonatomic) NSString *sectionID; // @synthesize sectionID=_sectionID;
+@property(copy, nonatomic) NSString *publisherMatchID; // @synthesize publisherMatchID=_publisherMatchID;
 @property(readonly, nonatomic) NSDate *creation; // @synthesize creation=_creation;
 @property(nonatomic) _Bool didLogAggd; // @synthesize didLogAggd=_didLogAggd;
 @property(retain, nonatomic) NSDate *bulletinPublicationDate; // @synthesize bulletinPublicationDate=_bulletinPublicationDate;

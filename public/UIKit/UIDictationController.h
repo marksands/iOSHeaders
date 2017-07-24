@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
     _Bool cancelledByWaitingForLocalResults;
     long long _updatingDocument;
     _Bool _deferredCancellationRequested;
+    _Bool _ignoreFinalizePhrases;
     _Bool _isOfflineMetricsSessionActive;
     _Bool _didUseOfflineDictation;
     long long _lastOfflineDictationMetricEvent;
@@ -67,11 +68,10 @@ __attribute__((visibility("hidden")))
 + (_Bool)starkScreenExists;
 + (_Bool)remoteCanDictateCurrentInputMode;
 + (void)updateLandingView;
++ (void)performOperations:(CDUnknownBlockType)arg1 keyboardShifted:(_Bool)arg2;
 + (id)interpretation:(id)arg1 forPhraseIndex:(unsigned long long)arg2 isShiftLocked:(_Bool)arg3 autocapitalizationType:(long long)arg4 useServerCapitalization:(_Bool)arg5;
 + (id)serializedInterpretationFromTokens:(id)arg1 transform:(struct __CFString *)arg2;
-+ (id)serializedInterpretationFromTokens:(id)arg1 transform:(struct __CFString *)arg2 ranges:(id *)arg3;
 + (void)siriPreferencesChanged;
-+ (void)textFieldTextDidEndEditing;
 + (void)applicationDidEnterBackgroundNotification;
 + (void)applicationWillResignActive;
 + (void)applicationDidBecomeActive;
@@ -96,7 +96,8 @@ __attribute__((visibility("hidden")))
 + (_Bool)dictationIsFunctional;
 + (_Bool)fetchCurrentInputModeSupportsDictation;
 + (_Bool)checkTraitsSupportDictation:(id)arg1;
-+ (id)serializedInterpretationFromToken:(id)arg1 transform:(struct __CFString *)arg2 fromKeyboard:(_Bool)arg3 useServerCapitalization:(_Bool)arg4;
++ (id)serializedInterpretationFromTokens:(id)arg1 transform:(struct __CFString *)arg2 autocapitalization:(long long)arg3 capitalization:(unsigned long long)arg4;
++ (id)serializedInterpretationFromTokens:(id)arg1 transform:(struct __CFString *)arg2 capitalization:(unsigned long long)arg3;
 + (_Bool)isRunning;
 + (id)sharedInstance;
 + (id)activeInstance;
@@ -142,7 +143,7 @@ __attribute__((visibility("hidden")))
 - (void)dictationConnectionWillStartRecording:(id)arg1;
 - (void)dictationConnection:(id)arg1 didFilterTokensWithFilterState:(id)arg2 forFinalize:(_Bool)arg3;
 - (void)dictationConnection:(id)arg1 filterState:(id)arg2 processFilteredToken:(id)arg3 forFinalize:(_Bool)arg4;
-- (id)dictationConnection:(id)arg1 filterState:(id)arg2 token:(id)arg3 secureInput:(_Bool)arg4 forFinalize:(_Bool)arg5;
+- (_Bool)dictationConnection:(id)arg1 filterState:(id)arg2 shouldCheckpointAtToken:(id)arg3;
 - (CDUnknownBlockType)dictationBlockForToken:(id)arg1;
 - (id)dictationConnection:(id)arg1 willFilterTokensWithLanguageModel:(id)arg2 forFinalize:(_Bool)arg3;
 - (void)dictationConnection:(id)arg1 receivedInterpretation:(id)arg2 languageModel:(id)arg3 secureInput:(_Bool)arg4;
@@ -166,6 +167,7 @@ __attribute__((visibility("hidden")))
 - (void)performIgnoringDocumentChanges:(CDUnknownBlockType)arg1;
 - (_Bool)isIgnoringDocumentChanges;
 - (void)stopDictation;
+- (void)stopDictationIgnoreFinalizePhrases;
 - (void)stopDictation:(_Bool)arg1;
 - (void)cancelDictationForTextStoreChangesInResponder:(id)arg1;
 - (void)cancelDictation;
@@ -174,6 +176,7 @@ __attribute__((visibility("hidden")))
 - (void)_touchPhaseChangedForTouch:(id)arg1;
 - (void)_presentPrivacySheetWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_presentOptInAlertForDictationInputMode;
+- (void)_presentOptInAlertWithCompletion:(CDUnknownBlockType)arg1;
 - (void)presentOptInAlertWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)shouldPresentOptInAlert;
 - (void)_endEnableDictationPromptAnimated:(_Bool)arg1;

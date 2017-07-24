@@ -23,7 +23,6 @@
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (struct CGAffineTransform)_transformForContainerOrientation:(long long)arg1 contentOrientation:(long long)arg2;
 - (void)_updateGeometry;
 - (struct CGAffineTransform)convertTransformFromContentInterfaceOrientationToContainerInterfaceOrientation:(struct CGAffineTransform)arg1;
 - (struct CGRect)convertRectFromContentInterfaceOrientationToContainerInterfaceOrientation:(struct CGRect)arg1;

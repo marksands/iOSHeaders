@@ -10,6 +10,8 @@
 {
     _Bool isWriting;
     struct OpaqueExtAudioFile *fFile;
+    struct AudioStreamBasicDescription inASBD;
+    struct AudioStreamBasicDescription outASBD;
 }
 
 - (short)addSamples:(const void *)arg1 len:(long long)arg2;

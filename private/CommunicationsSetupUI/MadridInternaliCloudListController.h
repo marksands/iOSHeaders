@@ -6,22 +6,32 @@
 
 #import <Preferences/PSListController.h>
 
-@interface MadridInternaliCloudListController : PSListController
+#import <CommunicationsSetupUI/IMCloudKitEventHandler-Protocol.h>
+
+@class NSString;
+
+@interface MadridInternaliCloudListController : PSListController <IMCloudKitEventHandler>
 {
 }
 
+- (void)cloudKitEventNotificationManager:(id)arg1 syncStateDidChange:(id)arg2;
 - (void)_handleDaemonConnected:(id)arg1;
 - (void)_handleDaemonDisconnected:(id)arg1;
 - (void)_stopListeningForNotifications;
 - (void)_startListeningForNotifications;
 - (id)specifiers;
-- (_Bool)eligibleForTruthZone;
 - (void)clearData:(id)arg1;
 - (void)clearLocalSyncState:(id)arg1;
 - (void)setiMessageOniCloudEnabled:(id)arg1 specifier:(id)arg2;
 - (id)iMessageOniCloudEnabled:(id)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

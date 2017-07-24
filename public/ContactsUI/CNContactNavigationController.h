@@ -13,7 +13,7 @@
 #import <ContactsUI/CNContactViewControllerAddContactPresenter-Protocol.h>
 #import <ContactsUI/CNContactViewControllerDelegate-Protocol.h>
 
-@class CNAccountsAndGroupsDataSource, CNContactListViewController, CNContactStore, CNContactStoreDataSource, CNContactStyle, CNContactViewController, NSString, UIKeyCommand;
+@class CNAccountsAndGroupsDataSource, CNContactListViewController, CNContactStore, CNContactStoreDataSource, CNContactStyle, CNContactViewController, NSString, UIAlertController, UIKeyCommand;
 @protocol CNContactDataSource, CNContactNavigationControllerDelegate;
 
 @interface CNContactNavigationController : UINavigationController <CNContactListViewControllerDelegate, CNContactListViewControllerDelegateInternal, CNContactViewControllerDelegate, CNContactContentViewControllerDelegate, CNAccountsAndGroupsViewControllerDelegate, CNContactViewControllerAddContactPresenter>
@@ -34,10 +34,12 @@
     CNContactStoreDataSource *_nonServerDataSource;
     CNContactViewController *_presentedContactViewController;
     UIKeyCommand *_addKeyCommand;
+    UIAlertController *_facebookContactsAlertController;
 }
 
 + (id)newContactFormatter;
 @property(nonatomic) _Bool ignoresMapsData; // @synthesize ignoresMapsData=_ignoresMapsData;
+@property(nonatomic) __weak UIAlertController *facebookContactsAlertController; // @synthesize facebookContactsAlertController=_facebookContactsAlertController;
 @property(retain, nonatomic) UIKeyCommand *addKeyCommand; // @synthesize addKeyCommand=_addKeyCommand;
 @property(nonatomic) __weak CNContactViewController *presentedContactViewController; // @synthesize presentedContactViewController=_presentedContactViewController;
 @property(retain, nonatomic) CNContactStoreDataSource *nonServerDataSource; // @synthesize nonServerDataSource=_nonServerDataSource;
@@ -53,6 +55,10 @@
 @property(nonatomic) _Bool allowsCardEditing; // @synthesize allowsCardEditing=_allowsCardEditing;
 @property(retain, nonatomic) CNContactStyle *contactStyle; // @synthesize contactStyle=_contactStyle;
 - (void).cxx_destruct;
+- (void)notifyOtherFacebookContactsAlertDidSelectAction;
+- (void)otherFacebookContactsAlertDidSelectActionWithNotification:(id)arg1;
+- (void)observeOtherFacebookContactsAlert;
+- (void)checkForFacebookContactsWithDelay:(double)arg1 allowAlert:(_Bool)arg2;
 - (void)selectPreviousContact:(id)arg1;
 - (void)selectNextContact:(id)arg1;
 - (void)addContact:(id)arg1;

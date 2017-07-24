@@ -9,10 +9,11 @@
 #import <PassKitUI/UITableViewDataSource-Protocol.h>
 #import <PassKitUI/UITableViewDelegate-Protocol.h>
 
-@class NSArray, NSString, PKPaymentVerificationController;
+@class NSArray, NSString, PKActivationMethodTableViewCell, PKPaymentVerificationController;
 
 @interface PKPaymentSetupVerificationMethodTableController : NSObject <UITableViewDelegate, UITableViewDataSource>
 {
+    PKActivationMethodTableViewCell *_sizingCell;
     PKPaymentVerificationController *_verificationController;
     NSArray *_verificationChannels;
     unsigned long long _selectedIndex;

@@ -15,15 +15,16 @@ __attribute__((visibility("hidden")))
     NSNetService *_netService;
 }
 
-+ (void *)createDeviceInfoFromTXTRecordData:(id)arg1;
++ (void *)createDeviceInfoFromTXTRecord:(id)arg1;
++ (void *)createDeviceInfoFromNetService:(id)arg1;
 @property(retain, nonatomic) NSNetService *netService; // @synthesize netService=_netService;
-- (void)_updateDeviceInfoWithNetService:(id)arg1;
 - (_Bool)requiresCustomPairing;
 - (_Bool)getInputStream:(id *)arg1 outputStream:(id *)arg2;
 - (long long)port;
 - (id)hostname;
 - (id)name;
 - (void *)deviceInfo;
+- (void)updateDeviceInfoWithTXTRecord:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithNetService:(id)arg1;

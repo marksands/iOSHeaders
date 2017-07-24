@@ -19,6 +19,7 @@
     unsigned int _alertType;
     GEORoute *_alternateRoute;
     MNRouteCoordinate *_endValidCoordinateRange;
+    NSData *_etaResponseID;
     GEOETARoute *_etaRoute;
     MNRouteCoordinate *_incidentCoordinate;
     GEORoute *_originalRoute;
@@ -45,6 +46,7 @@
 @property(retain, nonatomic) GEORoute *originalRoute; // @synthesize originalRoute=_originalRoute;
 @property(retain, nonatomic) GEOETARoute *etaRoute; // @synthesize etaRoute=_etaRoute;
 @property(nonatomic) unsigned int alertType; // @synthesize alertType=_alertType;
+@property(retain, nonatomic) NSData *etaResponseID; // @synthesize etaResponseID=_etaResponseID;
 @property(retain, nonatomic) NSData *alertID; // @synthesize alertID=_alertID;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
@@ -67,6 +69,7 @@
 @property(readonly, nonatomic) _Bool hasOriginalRoute;
 @property(readonly, nonatomic) _Bool hasEtaRoute;
 @property(nonatomic) _Bool hasAlertType;
+@property(readonly, nonatomic) _Bool hasEtaResponseID;
 @property(readonly, nonatomic) _Bool hasAlertID;
 
 @end

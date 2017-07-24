@@ -11,8 +11,8 @@
 }
 
 + (id)title;
-+ (_Bool)requiresVisionKit;
 + (_Bool)isSupported;
+- (_Bool)requiresVisionFramework;
 
 @end
 

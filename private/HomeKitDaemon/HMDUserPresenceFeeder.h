@@ -8,27 +8,26 @@
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class FMFSession, HMDUserPresenceStatusUpdate, HMFTimer, NSString;
+@class HMDBackgroundTaskAgentTimer, HMDUserPresenceFeedSession, NSString;
 
 @interface HMDUserPresenceFeeder : HMDHomePresenceBase <HMFLogging>
 {
     unsigned long long _presenceRegionStatus;
-    HMDUserPresenceStatusUpdate *_lastStatusUpdate;
-    HMFTimer *_statusUpdateRetryTimer;
-    FMFSession *_fmfSession;
+    HMDBackgroundTaskAgentTimer *_btaUpdateTimer;
+    HMDUserPresenceFeedSession *_currentFeedSession;
 }
 
 + (id)logCategory;
-@property(readonly, nonatomic) FMFSession *fmfSession; // @synthesize fmfSession=_fmfSession;
-@property(retain, nonatomic) HMFTimer *statusUpdateRetryTimer; // @synthesize statusUpdateRetryTimer=_statusUpdateRetryTimer;
-@property(retain, nonatomic) HMDUserPresenceStatusUpdate *lastStatusUpdate; // @synthesize lastStatusUpdate=_lastStatusUpdate;
++ (void)submitPresenceReportMetricWithPresenceAuth:(id)arg1 presenceCompute:(id)arg2 reason:(id)arg3 error:(id)arg4;
+@property(retain, nonatomic) HMDUserPresenceFeedSession *currentFeedSession; // @synthesize currentFeedSession=_currentFeedSession;
+@property(readonly, nonatomic) HMDBackgroundTaskAgentTimer *btaUpdateTimer; // @synthesize btaUpdateTimer=_btaUpdateTimer;
 @property(nonatomic) unsigned long long presenceRegionStatus; // @synthesize presenceRegionStatus=_presenceRegionStatus;
 - (void).cxx_destruct;
 - (void)notifyDidLeaveHomeRegion;
 - (void)notifyDidEnterHomeRegion;
 - (void)notifyDidLeaveHome;
 - (void)notifyDidArriveHome;
-- (void)sendPresenceReport;
+- (void)presenceAuthChanged;
 - (void)presenceAuthStatusChangedForUser:(id)arg1 presenceAuthStatus:(id)arg2;
 - (id)init;
 

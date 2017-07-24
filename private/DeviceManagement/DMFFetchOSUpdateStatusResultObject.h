@@ -18,11 +18,11 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) _Bool isInstalling; // @synthesize isInstalling=_isInstalling;
-@property(nonatomic) _Bool isDownloaded; // @synthesize isDownloaded=_isDownloaded;
-@property(nonatomic) _Bool isDownloading; // @synthesize isDownloading=_isDownloading;
-@property(copy, nonatomic) NSNumber *downloadPercentComplete; // @synthesize downloadPercentComplete=_downloadPercentComplete;
-@property(copy, nonatomic) DMFOSUpdateInformation *updateInformation; // @synthesize updateInformation=_updateInformation;
+@property(readonly, nonatomic) _Bool isInstalling; // @synthesize isInstalling=_isInstalling;
+@property(readonly, nonatomic) _Bool isDownloaded; // @synthesize isDownloaded=_isDownloaded;
+@property(readonly, nonatomic) _Bool isDownloading; // @synthesize isDownloading=_isDownloading;
+@property(readonly, copy, nonatomic) NSNumber *downloadPercentComplete; // @synthesize downloadPercentComplete=_downloadPercentComplete;
+@property(readonly, copy, nonatomic) DMFOSUpdateInformation *updateInformation; // @synthesize updateInformation=_updateInformation;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

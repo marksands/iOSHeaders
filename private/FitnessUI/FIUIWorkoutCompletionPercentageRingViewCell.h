@@ -11,24 +11,26 @@
 @interface FIUIWorkoutCompletionPercentageRingViewCell : UITableViewCell
 {
     HKWorkout *_workout;
+    double _currentCompletionFactor;
     HKRingsView *_ringsView;
     UIImageView *_iconImageView;
     UILabel *_typeLabel;
-    UILabel *_percentCompleteLabel;
+    UILabel *_secondaryLabel;
     UIView *_separatorView;
 }
 
 + (double)rowHeightForWorkout:(id)arg1 width:(double)arg2;
-+ (double)_bottomLabelToSeparatorSpacing;
-+ (double)_typeToPercentageSpacing;
++ (double)_secondaryLabelToSeparatorSpacing;
++ (double)_typeToSecondaryLabelSpacing;
 + (double)_ringToTypeSpacing;
 + (double)_ringDiameter;
 + (double)_ringTopPadding;
 @property(retain, nonatomic) UIView *separatorView; // @synthesize separatorView=_separatorView;
-@property(retain, nonatomic) UILabel *percentCompleteLabel; // @synthesize percentCompleteLabel=_percentCompleteLabel;
+@property(retain, nonatomic) UILabel *secondaryLabel; // @synthesize secondaryLabel=_secondaryLabel;
 @property(retain, nonatomic) UILabel *typeLabel; // @synthesize typeLabel=_typeLabel;
 @property(retain, nonatomic) UIImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
 @property(retain, nonatomic) HKRingsView *ringsView; // @synthesize ringsView=_ringsView;
+@property(nonatomic) double currentCompletionFactor; // @synthesize currentCompletionFactor=_currentCompletionFactor;
 @property(retain, nonatomic) HKWorkout *workout; // @synthesize workout=_workout;
 - (void).cxx_destruct;
 - (void)layoutSubviews;

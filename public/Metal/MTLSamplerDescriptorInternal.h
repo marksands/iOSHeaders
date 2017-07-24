@@ -17,6 +17,8 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)hash;
 - (void)setLabel:(id)arg1;
 - (id)label;
+- (void)setSupportArgumentBuffers:(_Bool)arg1;
+- (_Bool)supportArgumentBuffers;
 - (void)setCompareFunction:(unsigned long long)arg1;
 - (unsigned long long)compareFunction;
 - (void)setLodAverage:(_Bool)arg1;

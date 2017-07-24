@@ -12,10 +12,10 @@
 
 + (id)possibleSceneClassifications;
 + (id)title;
-+ (_Bool)requiresVisionKit;
 + (_Bool)isSupported;
 + (_Bool)supportsSecureCoding;
 - (void)evaluate:(id)arg1;
+- (_Bool)requiresVisionFramework;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)nodeInitialize;

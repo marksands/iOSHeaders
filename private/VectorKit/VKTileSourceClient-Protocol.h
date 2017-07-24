@@ -21,5 +21,9 @@
 - (void)tileSource:(VKTileSource *)arg1 didFailToLoadTileForKey:(const struct VKTileKey *)arg2 error:(NSError *)arg3;
 - (void)tileSource:(VKTileSource *)arg1 didFailToDecodeTileForKey:(const struct VKTileKey *)arg2;
 - (void)tileSource:(VKTileSource *)arg1 didFetchTile:(VKTile *)arg2 forKey:(const struct VKTileKey *)arg3;
+
+@optional
+- (void)expireTilesForTileSource:(VKTileSource *)arg1;
+- (void)dirtyTile:(const struct VKTileKey *)arg1 source:(VKTileSource *)arg2;
 @end
 

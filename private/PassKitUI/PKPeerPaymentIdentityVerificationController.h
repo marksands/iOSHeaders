@@ -12,21 +12,24 @@
 @interface PKPeerPaymentIdentityVerificationController : NSObject
 {
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
-    PKPeerPaymentWebService *_webService;
     NSArray *_viewControllers;
     unsigned long long _viewControllerIndex;
     PKPeerPaymentIdentityVerificationResponse *_response;
-    PKPeerPaymentDocumentSubmissionController *_captureController;
     PKPaymentSetupFieldsModel *_fieldsModel;
     long long _context;
     UIViewController *_firstViewController;
+    PKPeerPaymentWebService *_webService;
+    PKPeerPaymentDocumentSubmissionController *_captureController;
 }
 
+@property(readonly, nonatomic) PKPeerPaymentDocumentSubmissionController *captureController; // @synthesize captureController=_captureController;
 @property(readonly, nonatomic) PKPeerPaymentIdentityVerificationResponse *response; // @synthesize response=_response;
+@property(readonly, nonatomic) PKPeerPaymentWebService *webService; // @synthesize webService=_webService;
 @property(readonly, nonatomic) UIViewController *firstViewController; // @synthesize firstViewController=_firstViewController;
 @property(readonly, nonatomic) long long context; // @synthesize context=_context;
 @property(readonly, nonatomic) PKPaymentSetupFieldsModel *fieldsModel; // @synthesize fieldsModel=_fieldsModel;
 - (void).cxx_destruct;
+- (_Bool)_hasRequiredFields;
 - (id)_nextLocalViewController;
 - (id)_generateFieldsModel;
 - (void)_formViewControllersWithExplanationView:(_Bool)arg1;

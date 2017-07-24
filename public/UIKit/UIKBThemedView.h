@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     _Bool _lightKeyboard;
     _Bool _active;
     _Bool _usePersistentCaching;
+    _Bool _showsTopAndBottomBorders;
     _Bool _showsLeftBorder;
     _Bool _showsRightBorder;
     int _style;
@@ -27,6 +28,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) _Bool showsRightBorder; // @synthesize showsRightBorder=_showsRightBorder;
 @property(nonatomic) _Bool showsLeftBorder; // @synthesize showsLeftBorder=_showsLeftBorder;
+@property(nonatomic) _Bool showsTopAndBottomBorders; // @synthesize showsTopAndBottomBorders=_showsTopAndBottomBorders;
 @property(nonatomic) _Bool usePersistentCaching; // @synthesize usePersistentCaching=_usePersistentCaching;
 @property(nonatomic) struct UIEdgeInsets cacheInsets; // @synthesize cacheInsets=_cacheInsets;
 @property(nonatomic) int style; // @synthesize style=_style;

@@ -69,7 +69,6 @@
 - (void)_askDelegateToExecuteAction:(id)arg1 withParameters:(id)arg2 animated:(_Bool)arg3;
 - (void)_updateScrollViewContentSize;
 - (_Bool)_shouldPadScrollViewContentSizeHeight;
-- (void)previewInteractionManager:(id)arg1 shouldFinishInteractionWithCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)_executeCancelAction:(_Bool)arg1;
 - (void)_executeCloseAction:(_Bool)arg1;
 - (void)_executeClearAction:(_Bool)arg1;

@@ -6,26 +6,30 @@
 
 #import <SpringBoardFoundation/SBFSecureWindow.h>
 
+#import <ScreenshotServices/SSActiveInterfaceOrientationObserverDelegate-Protocol.h>
 #import <ScreenshotServices/SSDittoHostViewControllerDelegate-Protocol.h>
 
-@class SSScreenshotsWindowRootViewController;
+@class SSActiveInterfaceOrientationObserver, SSScreenshotsWindowRootViewController;
 
-@interface SSScreenshotsWindow : SBFSecureWindow <SSDittoHostViewControllerDelegate>
+@interface SSScreenshotsWindow : SBFSecureWindow <SSDittoHostViewControllerDelegate, SSActiveInterfaceOrientationObserverDelegate>
 {
+    SSActiveInterfaceOrientationObserver *_activeInterfaceOrientationObserver;
     SSScreenshotsWindowRootViewController *_root;
     long long _lastActiveInterfaceOrientation;
     int _lockNotificationToken;
+    int _backlightNotificationToken;
     _Bool _contentsHidden;
 }
 
 @property(nonatomic) _Bool contentsHidden; // @synthesize contentsHidden=_contentsHidden;
 - (void).cxx_destruct;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)_deviceBacklightChanged:(unsigned long long)arg1;
 - (void)_deviceLockStateChanged:(unsigned long long)arg1;
 - (void)handleStatusBarChangeFromHeight:(double)arg1 toHeight:(double)arg2;
-- (void)activeInterfaceOrientationChanged:(long long)arg1;
-- (void)_reflectActiveInterfaceOrientation;
-- (_Bool)_windowControlsStatusBarOrientation;
+- (void)activeInterfaceOrientationObserver:(id)arg1 observedChangeToInterfaceOrientation:(long long)arg2 withDuration:(double)arg3;
+- (_Bool)_shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (_Bool)_shouldControlAutorotation;
 - (void)remoteViewControllerDisconnectedFromHostViewController:(id)arg1 withError:(id)arg2;
 - (void)remoteViewControllerOfHostViewControllerHasDismissedScreenshots:(id)arg1;
 - (void)_dismissAndHide;

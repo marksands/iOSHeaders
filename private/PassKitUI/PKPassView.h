@@ -64,6 +64,7 @@
 @property(readonly, nonatomic) _Bool isForcedFrontFaceResized;
 @property(readonly, nonatomic) _Bool isFrontFaceResized;
 @property(readonly, nonatomic) NSString *uniqueID;
+- (void)setLiveMotionEnabled:(_Bool)arg1;
 - (id)item;
 - (_Bool)canResize;
 - (id)snapshotViewOfVisibleFaceAfterScreenUpdates:(_Bool)arg1;

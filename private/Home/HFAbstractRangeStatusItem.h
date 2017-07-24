@@ -10,11 +10,13 @@
 {
 }
 
++ (id)_defaultValueFormatter;
 + (id)_localizedRangeStringForKey:(id)arg1;
 + (id)displayTitleStringForService:(id)arg1 withResponse:(id)arg2 multipleServices:(_Bool)arg3 updateOptions:(id)arg4;
++ (_Bool)isPercentRange;
 + (unsigned long long)abstractCurrentModeInResponse:(id)arg1;
 + (unsigned long long)abstractTargetModeInResponse:(id)arg1;
-+ (id)valueFormatter;
++ (id)customValueFormatter;
 + (CDUnknownBlockType)displayValueComparator;
 + (id)localizationKeyPrefix;
 + (id)targetModeCharacteristicTypes;

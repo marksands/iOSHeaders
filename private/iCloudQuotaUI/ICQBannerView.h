@@ -20,6 +20,8 @@
     UIColor *_textColor;
     long long _textAlignment;
     double _textLineSpacing;
+    UIFont *_linkTextFont;
+    UIColor *_linkTextColor;
     _ICQTextView *_textView;
     NSArray *_activeConstraints;
     ICQUpgradeFlowManager *_upgradeFlowManager;
@@ -30,6 +32,8 @@
 @property(retain, nonatomic) ICQUpgradeFlowManager *upgradeFlowManager; // @synthesize upgradeFlowManager=_upgradeFlowManager;
 @property(retain, nonatomic) NSArray *activeConstraints; // @synthesize activeConstraints=_activeConstraints;
 @property(readonly, nonatomic) _ICQTextView *textView; // @synthesize textView=_textView;
+@property(copy, nonatomic) UIColor *linkTextColor; // @synthesize linkTextColor=_linkTextColor;
+@property(copy, nonatomic) UIFont *linkTextFont; // @synthesize linkTextFont=_linkTextFont;
 @property(nonatomic) double textLineSpacing; // @synthesize textLineSpacing=_textLineSpacing;
 @property(nonatomic) long long textAlignment; // @synthesize textAlignment=_textAlignment;
 @property(nonatomic) struct NSDirectionalEdgeInsets textMargins; // @synthesize textMargins=_textMargins;
@@ -47,7 +51,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(retain, nonatomic) ICQOffer *offer;
 - (id)attributedText;
-- (void)_applyTextColor;
+- (void)_applyTextStorageAttributes;
 - (void)_applyTextParagraphAttributes;
 - (id)messageAttributes;
 - (id)textParagraphStyleAttributes;

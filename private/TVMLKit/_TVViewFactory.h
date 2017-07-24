@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 - (id)_activityIndicatorViewForElement:(id)arg1 existingView:(id)arg2;
 - (id)_organizerViewForElement:(id)arg1 existingView:(id)arg2;
 - (id)_zoomableTextViewFromElement:(id)arg1 alwaysFocusable:(_Bool)arg2 existingView:(id)arg3;
+- (id)_headerColumnViewForElement:(id)arg1 existingView:(id)arg2;
 - (id)_labelViewForElement:(id)arg1 existingView:(id)arg2;
 - (id)_textBoxViewForElement:(id)arg1 existingView:(id)arg2;
 - (id)_cardViewFromElement:(id)arg1 existingView:(id)arg2;

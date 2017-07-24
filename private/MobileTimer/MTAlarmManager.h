@@ -18,6 +18,7 @@
 }
 
 + (id)daySettingToString:(unsigned long long)arg1 longVersion:(_Bool)arg2 everyWeekdayVersion:(_Bool)arg3 showNever:(_Bool)arg4;
++ (id)assistantSyncNotificationName;
 + (void)warmUp;
 @property(retain, nonatomic) NSNotificationCenter *notificationCenter; // @synthesize notificationCenter=_notificationCenter;
 @property(retain, nonatomic) MTAlarmCache *cache; // @synthesize cache=_cache;

@@ -21,6 +21,7 @@ struct AnimatingStroke {
     struct CGRect _field8;
     double _field9;
     unsigned int _field10;
+    CDUnknownBlockType _field11;
 };
 
 struct CATransform3D {
@@ -397,6 +398,13 @@ struct StrokeVertex {
 };
 
 struct Transform;
+
+struct UIEdgeInsets {
+    double top;
+    double left;
+    double bottom;
+    double right;
+};
 
 struct VectorTimestamp {
     CDUnknownFunctionPointerType *_field1;

@@ -6,14 +6,18 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSString;
+@class NSError, NSString;
 
 @interface PKUniqueAddressField : NSObject
 {
     NSString *_key;
     long long _index;
+    NSError *_error;
+    NSString *_invalidText;
 }
 
+@property(retain, nonatomic) NSString *invalidText; // @synthesize invalidText=_invalidText;
+@property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) long long index; // @synthesize index=_index;
 @property(retain, nonatomic) NSString *key; // @synthesize key=_key;
 - (void).cxx_destruct;

@@ -16,6 +16,8 @@
 @property(readonly, copy, nonatomic) NSString *pathForAdjustmentFile;
 @property(readonly, copy, nonatomic) NSString *pathForDiagnosticFile;
 @property(readonly, retain, nonatomic) CLLocation *location;
+@property(readonly, nonatomic) long long height;
+@property(readonly, nonatomic) long long width;
 @property(readonly, nonatomic) short originalOrientation;
 @property(readonly, nonatomic) long long originalHeight;
 @property(readonly, nonatomic) long long originalWidth;

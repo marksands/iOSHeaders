@@ -24,10 +24,13 @@
 - (_Bool)resignFirstResponder;
 - (_Bool)becomeFirstResponder;
 - (_Bool)canBecomeFirstResponder;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
+- (void)_layoutForBounds:(struct CGRect)arg1;
 - (id)passcodeField;
 - (void)footerButtonPressed;
 - (void)setFooterButtonText:(id)arg1;
+- (id)passcodeDisplayView;
 - (id)passcode;
 - (void)setPasscode:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

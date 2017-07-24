@@ -10,12 +10,14 @@
 {
     int _maxAlarmsAllowed;
     int _maxRecurrencesAllowed;
-    CDStruct_c955b4da _flags;
+    CDStruct_8c90384f _flags;
 }
 
-@property(nonatomic) CDStruct_c955b4da flags; // @synthesize flags=_flags;
+@property(nonatomic) CDStruct_8c90384f flags; // @synthesize flags=_flags;
 @property(nonatomic) int maxRecurrencesAllowed; // @synthesize maxRecurrencesAllowed=_maxRecurrencesAllowed;
 @property(nonatomic) int maxAlarmsAllowed; // @synthesize maxAlarmsAllowed=_maxAlarmsAllowed;
+@property(nonatomic) _Bool prohibitsSlicingEventsWithAttendees;
+@property(nonatomic) _Bool attendeesUseDeletedByOrganizerStatus;
 @property(nonatomic) _Bool supportsPhoneNumbers;
 @property(nonatomic) _Bool supportsJunkReporting;
 @property(nonatomic) _Bool supportsAutoGeocodingStructuredLocations;

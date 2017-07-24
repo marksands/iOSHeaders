@@ -6,12 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
+#import <MapKit/NSCoding-Protocol.h>
 #import <MapKit/NSCopying-Protocol.h>
 
 @class MKServerFormattedStringParameters;
 @protocol GEOServerFormattedString;
 
-@interface MKServerFormattedString : NSObject <NSCopying>
+@interface MKServerFormattedString : NSObject <NSCopying, NSCoding>
 {
     id <GEOServerFormattedString> _geoServerString;
     MKServerFormattedStringParameters *_parameters;
@@ -27,6 +28,8 @@
 - (id)multiPartAttributedStringWithAttributes:(id)arg1;
 - (id)_parametersByScrubbingUnusedOverrideVariablesFromParameters:(id)arg1 geoServerString:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithGeoServerString:(id)arg1 parameters:(id)arg2;
 
 @end

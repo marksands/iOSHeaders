@@ -45,6 +45,7 @@
 @property(readonly, nonatomic) UIFont *boldBodyFont;
 @property(readonly, nonatomic) UIFont *bodyFont;
 @property(readonly, nonatomic) UIFont *titleFont;
+@property(readonly, nonatomic) UIFont *brandTitleFont;
 @property(readonly, nonatomic) UIFont *largeTitleFont;
 @property(readonly, nonatomic) UIFont *largeTitleFontStatic;
 @property(readonly, nonatomic) UIColor *tintColor;

@@ -76,6 +76,7 @@
 - (void)prepareForReuse;
 - (void)handleTransitionFade:(_Bool)arg1 animate:(_Bool)arg2;
 - (void)setShowsTitle:(_Bool)arg1 animated:(_Bool)arg2;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (struct CGPoint)_deleteButtonCenter;
 - (id)initWithFrame:(struct CGRect)arg1;

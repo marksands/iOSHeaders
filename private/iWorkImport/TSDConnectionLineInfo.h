@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 - (void)performBlockWithTemporaryLayout:(CDUnknownBlockType)arg1;
 - (void)didCopy;
 - (void)willCopyWithOtherDrawables:(id)arg1;
+- (_Bool)allowsParentGroupToBeResizedWithoutAspectRatioLock;
 - (_Bool)canAnchor;
 - (struct CGAffineTransform)computeLayoutFullTransform;
 - (void)computeLayoutInfoGeometry:(id *)arg1 andPathSource:(id *)arg2;

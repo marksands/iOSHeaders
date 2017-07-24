@@ -6,7 +6,7 @@
 
 #import <Preferences/PSListController.h>
 
-@class CHManager, NSArray, NSMutableArray, PSSpecifier, PSUIAppCellularUsageGroupController, PSUICellularAccountGroupController, PSUICellularAccountListGroupController, WirelessDataUsageWorkspace;
+@class CHManager, NSArray, NSMutableArray, PSSpecifier, PSUIAppCellularUsageGroupController, PSUICarrierSpaceGroupController, PSUICellularAccountGroupController, PSUICellularAccountListGroupController, WirelessDataUsageWorkspace;
 
 @interface PSUISettingsNetworkController : PSListController
 {
@@ -24,6 +24,7 @@
     PSUICellularAccountListGroupController *_cellularAccountListGroupController;
     PSUICellularAccountGroupController *_cellularGroupController;
     PSUIAppCellularUsageGroupController *_appUsageGroupController;
+    PSUICarrierSpaceGroupController *_carrierSpace;
     CHManager *_callHistoryManager;
     WirelessDataUsageWorkspace *_workspace;
 }
@@ -31,6 +32,7 @@
 + (_Bool)isConnectedOverWiFi;
 @property(retain, nonatomic) WirelessDataUsageWorkspace *workspace; // @synthesize workspace=_workspace;
 @property(retain, nonatomic) CHManager *callHistoryManager; // @synthesize callHistoryManager=_callHistoryManager;
+@property(retain, nonatomic) PSUICarrierSpaceGroupController *carrierSpace; // @synthesize carrierSpace=_carrierSpace;
 @property(retain, nonatomic) PSUIAppCellularUsageGroupController *appUsageGroupController; // @synthesize appUsageGroupController=_appUsageGroupController;
 @property(retain, nonatomic) PSUICellularAccountGroupController *cellularGroupController; // @synthesize cellularGroupController=_cellularGroupController;
 @property(retain, nonatomic) PSUICellularAccountListGroupController *cellularAccountListGroupController; // @synthesize cellularAccountListGroupController=_cellularAccountListGroupController;

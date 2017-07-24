@@ -57,7 +57,6 @@ __attribute__((visibility("hidden")))
 + (unsigned short)numberOfColumnsForProtoIndex:(unsigned long long)arg1;
 + (unsigned short)numberOfRowsForProtoIndex:(unsigned long long)arg1;
 + (id)localizedDescriptionForProtoIndex:(unsigned long long)arg1;
-+ (void)load;
 + (struct TSCETableReference)makeCellReferenceInSameTable:(const struct TSCETableReference *)arg1 cellID:(struct TSUCellCoord)arg2;
 + (void)prefetchData:(struct TSCEReferenceValue *)arg1 fromVectorObject:(struct TSCETableReferenceVector *)arg2 cellID:(struct TSUCellCoord)arg3;
 + (struct TSCETableReferenceVector)makeReferenceVectorWithReference:(const struct TSCETableReference *)arg1 rangeContext:(unsigned char)arg2 apparentRangePtr:(struct TSCERangeCoordinate *)arg3;
@@ -281,8 +280,8 @@ __attribute__((visibility("hidden")))
 - (id)formatAtCellID:(struct TSUCellCoord)arg1 formatIsImplicitOut:(_Bool *)arg2;
 - (int)getCell:(id)arg1 atCellID:(struct TSUCellCoord)arg2 holdingReadLockWithAccessController:(id)arg3;
 - (id)cellMapForRegion:(id)arg1 uidBased:(_Bool)arg2 suppressMergeContent:(_Bool)arg3;
-- (int)applyCellMap:(id)arg1 ignoreFormulas:(_Bool)arg2 skipDirtyingNonFormulaCells:(_Bool)arg3 calculationEngine:(id)arg4;
-- (int)applyCellMap:(id)arg1 calculationEngine:(id)arg2;
+- (int)setCellsWithCellMap:(id)arg1 ignoreFormulas:(_Bool)arg2 skipDirtyingNonFormulaCells:(_Bool)arg3 calculationEngine:(id)arg4;
+- (int)setCellsWithCellMap:(id)arg1 calculationEngine:(id)arg2;
 - (struct TSCEFormula *)formulaAtCellID:(struct TSUCellCoord)arg1;
 - (int)updateCalculationEngineForFormula:(struct TSCEFormula *)arg1 inCellID:(struct TSUCellCoord)arg2;
 - (int)setCell:(id)arg1 atCellID:(struct TSUCellCoord)arg2 ignoreFormula:(_Bool)arg3 clearImportWarnings:(_Bool)arg4 calculationEngine:(id)arg5;
@@ -290,11 +289,6 @@ __attribute__((visibility("hidden")))
 - (int)setCell:(id)arg1 atCellID:(struct TSUCellCoord)arg2;
 - (void)convertFormulasToUidForm:(id)arg1 atCellID:(struct TSUCellCoord)arg2;
 - (void)convertFormulasToUidForm:(id)arg1 atCellID:(struct TSUCellCoord)arg2 preserveHostCell:(_Bool)arg3;
-- (unsigned int)addCellFormat:(id)arg1 atSuggestedKey:(unsigned int)arg2;
-- (unsigned int)addString:(id)arg1;
-- (void)addStringReferenceForKey:(unsigned int)arg1;
-- (unsigned int)formulaRefCountForKey:(unsigned int)arg1;
-- (void)addFormulaReferenceForKey:(unsigned int)arg1;
 - (_Bool)hasFormulaAtCellID:(struct TSUCellCoord)arg1;
 - (id)cellAtCellID:(struct TSUCellCoord)arg1;
 - (int)getCell:(id)arg1 atCellID:(struct TSUCellCoord)arg2;
@@ -490,7 +484,7 @@ __attribute__((visibility("hidden")))
 - (void)p_setFormulaWithSymbolString:(id)arg1 atCellID:(struct TSUCellCoord)arg2;
 - (void)p_setFormulaWithSymbolCellCoord:(struct TSUCellCoord)arg1 andAttributeCellCoord:(struct TSUCellCoord)arg2 atCellID:(struct TSUCellCoord)arg3;
 - (void)p_setPopupMenuOnCell:(id)arg1 withItems:(id)arg2 andSelectedIndex:(double)arg3;
-- (id)popupItems;
+- (id)p_popupItemsForStrings:(id)arg1;
 - (id)p_stockAttributesForDisplayArray;
 - (void)p_setCell:(id)arg1 atColumn:(unsigned char)arg2 andRow:(unsigned short)arg3;
 - (void)p_setupTableModelforStockPrototype;
@@ -506,7 +500,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithContext:(id)arg1 otherTableInfo:(id)arg2;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2 styles:(id)arg3;
-- (id)initForTestingWithContext:(id)arg1 rows:(unsigned short)arg2 columns:(unsigned short)arg3;
+- (id)initForTestingWithContext:(id)arg1 rows:(unsigned short)arg2 columns:(unsigned char)arg3;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2 rows:(unsigned short)arg3 columns:(unsigned short)arg4;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2 rows:(unsigned short)arg3 columns:(unsigned short)arg4 stylePreset:(id)arg5;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2 rows:(unsigned short)arg3 columns:(unsigned short)arg4 styles:(id)arg5;
@@ -554,10 +548,10 @@ __attribute__((visibility("hidden")))
 - (UUIDData_5fbc143e)resolverUID;
 - (id)objectToArchiveInDependencyTracker;
 - (void)beginRewriteForCalculationEngine:(id)arg1 spec:(id)arg2;
-- (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(id)arg3;
+- (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_ed6d627d)arg2 rewriteSpec:(id)arg3;
 - (void)invalidateForCalculationEngine:(id)arg1;
 - (void)writeResultsForCalculationEngine:(id)arg1;
-- (CDStruct_22e7ec3e)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(_Bool)arg3 hasCalculatedPrecedents:(_Bool)arg4;
+- (CDStruct_2a4d9400)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_ed6d627d)arg2 isInCycle:(_Bool)arg3 hasCalculatedPrecedents:(_Bool)arg4;
 - (void)notifyTableOfNewResults;
 - (void)performReadForOneOffFormulaEvaluation:(id)arg1 forCellID:(struct TSUCellCoord *)arg2;
 - (void)unregisterFromCalculationEngine:(id)arg1;

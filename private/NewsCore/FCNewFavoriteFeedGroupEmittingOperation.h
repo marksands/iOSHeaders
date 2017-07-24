@@ -11,7 +11,8 @@
 }
 
 - (id)_ignoredTagIDs;
-- (id)_feedTransformation;
+- (void)_buildGroupWithTag:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_buildGroupWithCandidateTags:(id)arg1 exhaustedTagIDs:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)performOperation;
 
 @end

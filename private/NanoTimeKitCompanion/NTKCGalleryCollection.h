@@ -37,7 +37,8 @@
 + (id)_numeralsFaces;
 + (id)_activityFaces;
 + (id)_zeusFaces;
-+ (id)_victoryFaces;
++ (id)_victoryDigitalFaces;
++ (id)_victoryAnalogFaces;
 + (id)_complicationFaces;
 + (id)_newFaces;
 + (id)galleryCollections;

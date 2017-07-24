@@ -52,7 +52,7 @@ __attribute__((visibility("hidden")))
 - (void)locationManagerDidReset:(id)arg1;
 - (void)locationManagerFailedToUpdateLocation:(id)arg1 withError:(id)arg2;
 - (void)locationManagerUpdatedLocation:(id)arg1;
-- (_Bool)quickRouteShouldIncludeTransit;
+- (_Bool)quickRouteShouldIncludeTransitWhenNotPreferredTransportType;
 - (_Bool)quickRouteShouldOnlyUseAutomobile;
 - (unsigned long long)preferredDirectionsTypeForQuickRoute;
 - (void)quickRouteManager:(id)arg1 didUpdateETA:(id)arg2 error:(id)arg3 animated:(_Bool)arg4;

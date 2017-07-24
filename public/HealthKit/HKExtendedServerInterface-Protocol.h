@@ -9,6 +9,7 @@
 @class NSArray, NSDate, NSString, NSTimeZone, NSURL, NSUUID, _HKAchievement;
 
 @protocol HKExtendedServerInterface <NSObject>
+- (void)remote_expressionValue:(NSString *)arg1 completion:(void (^)(NSNumber *, NSError *))arg2;
 - (void)remote_resetAchievementDefinitionAlertedStates:(_Bool)arg1 availabilityStates:(_Bool)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)remote_achievementAssetAvailabilityOnPairedDeviceForIdentifiers:(NSArray *)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (void)remote_nextScheduledAchievementDefinitionAlertTaskDateWithCompletion:(void (^)(NSDate *, NSError *))arg1;

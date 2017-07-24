@@ -16,11 +16,17 @@
     CKAppChevronView *_chevronView;
 }
 
++ (double)roundedCornerRadius;
 - (void).cxx_destruct;
 - (void)setState:(long long)arg1 animated:(_Bool)arg2;
 @property(nonatomic) long long state;
+- (void)setRoundsTopConers:(_Bool)arg1;
 - (void)fadeOutAppTitle;
 - (void)updateAppTitle:(id)arg1;
+- (double)chevronMaxYInView:(id)arg1;
+- (double)visualOriginYInView:(id)arg1;
+@property(readonly, nonatomic) double chevronMaxYOffset;
+@property(readonly, nonatomic) double visualOriginYOffset;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

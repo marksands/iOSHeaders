@@ -23,8 +23,10 @@
 - (void)mapItemsToGroups:(id)arg1;
 - (id)groups;
 - (_Bool)allPendingItemsContains:(id)arg1;
+- (void)_refreshItemsWithExtensionToItemMap:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)extensionToItemMapFromItems:(id)arg1;
+- (void)refreshItems:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)refreshItemsForItem:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)refreshItemsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)allPendingItems;
 - (id)initWithIdentifier:(id)arg1;
 

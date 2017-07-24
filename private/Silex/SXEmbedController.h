@@ -16,7 +16,7 @@
 }
 
 @property(retain, nonatomic) NSURLSession *oEmbedSession; // @synthesize oEmbedSession=_oEmbedSession;
-@property(nonatomic) __weak id <SXEmbedDataSource> embedDataSource; // @synthesize embedDataSource=_embedDataSource;
+@property(retain, nonatomic) id <SXEmbedDataSource> embedDataSource; // @synthesize embedDataSource=_embedDataSource;
 - (void).cxx_destruct;
 - (id)addAdditionalQueryParameters:(id)arg1 toURL:(id)arg2;
 - (id)additionalQueryParametersForType:(id)arg1;

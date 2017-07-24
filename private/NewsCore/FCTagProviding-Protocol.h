@@ -7,10 +7,11 @@
 #import <NewsCore/NSCopying-Protocol.h>
 #import <NewsCore/NSObject-Protocol.h>
 
-@class FCAssetHandle, NSArray, NSDate, NSString, NSURL, NTPBPublisherPaidDescriptionStrings;
+@class FCAssetHandle, FCPurchaseOfferableConfiguration, NSArray, NSDate, NSString, NSURL, NTPBPublisherPaidDescriptionStrings;
 @protocol FCChannelProviding, FCFeedTheming, FCSectionProviding, FCTagProviding, FCTopicProviding;
 
 @protocol FCTagProviding <NSObject, NSCopying>
+@property(readonly, nonatomic) _Bool isHidden;
 @property(readonly, nonatomic) unsigned long long groupingEligibility;
 @property(readonly, nonatomic) NTPBPublisherPaidDescriptionStrings *publisherPaidDescriptionStrings;
 @property(readonly, nonatomic) _Bool isBlockedExplicitContent;
@@ -63,7 +64,7 @@
 - (NSString *)feedIDForBin:(long long)arg1;
 - (NSString *)paidFeedIDForBin:(long long)arg1;
 - (NSString *)freeFeedIDForBin:(long long)arg1;
-- (_Bool)shouldPrefetchPurchase;
+- (FCPurchaseOfferableConfiguration *)prefetchPurchaseOffer;
 - (_Bool)isAuthenticationSetup;
 - (_Bool)isPurchaseSetup;
 - (_Bool)isEqualToTag:(id <FCTagProviding>)arg1;

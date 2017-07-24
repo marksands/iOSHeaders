@@ -39,6 +39,7 @@
     NSLock *_logMessageCollectionRequesterLock;
     NSObject<OS_dispatch_queue> *_logMessageSendQueue;
     NSString *_adaptorIdentifier;
+    NSString *_policyIdentifier;
     NSString *_xpcActivityName;
     CDUnknownBlockType _shouldDeferXPCActivityBlock;
     NSLock *_shouldDeferXPCActivityBlockLock;
@@ -68,6 +69,7 @@
 - (void)_beginSendingLogMessageChunks;
 - (void)_cleanupLogMessageCollectionRequester;
 - (void)updateAdaptorPolicyConfiguration:(id)arg1;
+- (int)logMsgEventNetworkServiceForSupportedLogMsgType;
 - (_Bool)isLogFrameworkAdaptor;
 - (void)forceFlushLogs;
 - (void)flushLogs;
@@ -76,6 +78,7 @@
 - (void)_setupXPCActivity;
 - (void)_setupLogMessageCache;
 - (_Bool)_useInMemoryLogMessageCache;
+@property(readonly) int supportedLogMessageType;
 @property(readonly) NSString *adaptorIdentifier;
 - (void)_setupQueueAndNotifications;
 - (void)_initializeAdaptor;

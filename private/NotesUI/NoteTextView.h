@@ -54,6 +54,8 @@
 - (void)insertImage:(id)arg1;
 - (void)updateMenuController;
 - (void)setEditable:(_Bool)arg1;
+- (void)decreaseSize:(id)arg1;
+- (void)increaseSize:(id)arg1;
 - (id)targetForAction:(SEL)arg1 withSender:(id)arg2;
 - (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)dealloc;

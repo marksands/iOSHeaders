@@ -9,6 +9,7 @@
 #import <CFNetwork/NSSecureCoding-Protocol.h>
 
 @class AVURLAsset, NSData, NSDate, NSDictionary, NSError, NSString, NSURL, NSURLRequest, NSURLResponse, NSURLSessionTaskMetrics;
+@protocol SZExtractor;
 
 @interface __NSCFURLSessionTaskInfo : NSObject <NSSecureCoding>
 {
@@ -48,6 +49,7 @@
     double _loadingPriority;
     NSString *_pathToDownloadTaskFile;
     double _timeoutIntervalForResource;
+    id <SZExtractor> __extractor;
     unsigned long long _AVAssetDownloadToken;
     NSURL *_URL;
     NSURL *_destinationURL;
@@ -90,6 +92,7 @@
 @property(copy) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
 @property(copy) NSURL *URL; // @synthesize URL=_URL;
 @property unsigned long long AVAssetDownloadToken; // @synthesize AVAssetDownloadToken=_AVAssetDownloadToken;
+@property(retain, nonatomic) id <SZExtractor> _extractor; // @synthesize _extractor=__extractor;
 @property double timeoutIntervalForResource; // @synthesize timeoutIntervalForResource=_timeoutIntervalForResource;
 @property(copy) NSString *pathToDownloadTaskFile; // @synthesize pathToDownloadTaskFile=_pathToDownloadTaskFile;
 @property _Bool mayBeDemotedToDiscretionary; // @synthesize mayBeDemotedToDiscretionary=_mayBeDemotedToDiscretionary;

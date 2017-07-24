@@ -10,6 +10,7 @@
 @protocol CNScheduler;
 
 @protocol CNUIUserActionURLOpener <NSObject>
+- (CNFuture *)openURL:(NSURL *)arg1 isSensitive:(_Bool)arg2 withScheduler:(id <CNScheduler>)arg3;
 - (CNFuture *)openURL:(NSURL *)arg1 withScheduler:(id <CNScheduler>)arg2;
 @end
 

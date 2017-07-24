@@ -6,7 +6,7 @@
 
 #import <UIKit/UIViewController.h>
 
-@class NSOperationQueue, SKUIDonationConfiguration, SKUIGiftCharity;
+@class NSOperationQueue, SKUIDonationConfiguration, SKUIDonationViewController, SKUIGiftCharity;
 
 @interface SKUIDonationStepViewController : UIViewController
 {
@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) SKUIDonationConfiguration *donationConfiguration; // @synthesize donationConfiguration=_configuration;
 @property(readonly, nonatomic) SKUIGiftCharity *charity; // @synthesize charity=_charity;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) SKUIDonationViewController *donationViewController;
 - (id)initWithCharity:(id)arg1 configuration:(id)arg2;
 
 @end

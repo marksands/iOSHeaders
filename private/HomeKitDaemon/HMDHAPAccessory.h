@@ -10,14 +10,14 @@
 #import <HomeKitDaemon/HMDTimeInformationMonitorDelegate-Protocol.h>
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class HMDCharacteristic, HMFTimer, NSArray, NSData, NSDate, NSMapTable, NSMutableArray, NSMutableSet, NSNumber, NSSet, NSString;
+@class HAPPairingIdentity, HMDCharacteristic, HMFTimer, NSArray, NSData, NSDate, NSMapTable, NSMutableArray, NSMutableSet, NSNumber, NSSet, NSString;
 
 @interface HMDHAPAccessory : HMDAccessory <HAPRelayAccessoryDelegate, HMDTimeInformationMonitorDelegate, HMFTimerDelegate>
 {
     NSMutableArray *_transportInformationInstances;
     _Bool _relayEnabled;
     _Bool _timeInformationServiceExists;
-    _Bool _paired;
+    _Bool _keyGenerationInProgress;
     _Bool _supportsRelay;
     unsigned char _keyGenerationType;
     _Bool _systemTimeNeedsUpdate;
@@ -71,6 +71,7 @@
 @property(nonatomic) _Bool supportsRelay; // @synthesize supportsRelay=_supportsRelay;
 @property(nonatomic) long long certificationStatus; // @synthesize certificationStatus=_certificationStatus;
 @property(copy, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+@property _Bool keyGenerationInProgress; // @synthesize keyGenerationInProgress=_keyGenerationInProgress;
 @property(copy, nonatomic) NSDate *keyUpdatedTime; // @synthesize keyUpdatedTime=_keyUpdatedTime;
 @property(copy, nonatomic) NSNumber *keyUpdatedStateNumber; // @synthesize keyUpdatedStateNumber=_keyUpdatedStateNumber;
 @property(copy, nonatomic) NSData *broadcastKey; // @synthesize broadcastKey=_broadcastKey;
@@ -123,6 +124,7 @@
 - (id)findService:(id)arg1;
 - (void)_updateStateForTrackedAccessory:(id)arg1 stateNumber:(id)arg2;
 - (void)_retrieveStateForTrackedAccessory:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (_Bool)_containsSecureCharacteristic;
 - (_Bool)_shouldTrackAccessoryWithPriority:(_Bool *)arg1;
 - (void)_updateAccessoryTracking;
 - (void)_reenableNotificationsOnWatch;
@@ -156,8 +158,8 @@
 - (void)_logDuetEventIfNeeded:(id)arg1 clientName:(id)arg2;
 - (id)_prepareMessagePayloadForCharacteristicRemoteWrite:(id)arg1;
 - (void)_writeValue:(id)arg1 forCharacteristic:(id)arg2 hapAccessory:(id)arg3 authorizationData:(id)arg4 message:(id)arg5;
-- (void)_readCharacteristicValues:(id)arg1 hapAccessory:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)_writeCharacteristicValues:(id)arg1 hapAccessory:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_readCharacteristicValues:(id)arg1 hapAccessory:(id)arg2 source:(unsigned long long)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)_writeCharacteristicValues:(id)arg1 hapAccessory:(id)arg2 source:(unsigned long long)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)populateHMDCharacteristicResponses:(id)arg1 hapResponses:(id)arg2 mapping:(id)arg3 overallError:(id)arg4 requests:(id)arg5;
 - (id)hapCharacteristicWriteRequests:(id)arg1 hapAccessory:(id)arg2 hmdResponses:(id *)arg3 mapping:(id *)arg4;
 - (void)notifyValue:(id)arg1 previousValue:(id)arg2 error:(id)arg3 forCharacteristic:(id)arg4 requestMessage:(id)arg5;
@@ -165,10 +167,10 @@
 - (id)initWithCoder:(id)arg1;
 - (id)hmdCharacteristicForInstanceId:(id)arg1;
 - (id)hmdCharacteristicFromHapCharacteristic:(id)arg1;
-- (void)_readCharacteristicValues:(id)arg1 localOperationRequired:(_Bool)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4 errorBlock:(CDUnknownBlockType)arg5;
-- (void)readCharacteristicValues:(id)arg1 queue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)_writeCharacteristicValues:(id)arg1 localOperationRequired:(_Bool)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4 errorBlock:(CDUnknownBlockType)arg5;
-- (void)writeCharacteristicValues:(id)arg1 queue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_readCharacteristicValues:(id)arg1 localOperationRequired:(_Bool)arg2 source:(unsigned long long)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5 errorBlock:(CDUnknownBlockType)arg6;
+- (void)readCharacteristicValues:(id)arg1 source:(unsigned long long)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_writeCharacteristicValues:(id)arg1 localOperationRequired:(_Bool)arg2 source:(unsigned long long)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5 errorBlock:(CDUnknownBlockType)arg6;
+- (void)writeCharacteristicValues:(id)arg1 source:(unsigned long long)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_performOperation:(long long)arg1 linkType:(long long)arg2 operationBlock:(CDUnknownBlockType)arg3 errorBlock:(CDUnknownBlockType)arg4;
 - (void)performOperation:(long long)arg1 linkType:(long long)arg2 operationBlock:(CDUnknownBlockType)arg3 errorBlock:(CDUnknownBlockType)arg4;
 - (_Bool)matchesHAPAccessoryWithServerIdentifier:(id)arg1 linkType:(long long *)arg2;
@@ -226,9 +228,10 @@
 - (void)verifyPairingWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (_Bool)isPrimary;
 - (void)savePublicKeyToKeychain;
+@property(readonly, copy, nonatomic) HAPPairingIdentity *pairingIdentity;
 - (void)setPairingUsername:(id)arg1 publicKey:(id)arg2;
 - (void)handlePairedStateChange:(_Bool)arg1;
-@property(nonatomic, getter=isPaired) _Bool paired; // @synthesize paired=_paired;
+@property(readonly, nonatomic, getter=isPaired) _Bool paired;
 - (void)timeInformationMonitorDidChangeTime;
 - (void)_registerForTimeMonitor;
 - (void)registerForTimeMonitor;

@@ -15,9 +15,11 @@
     NPKProtoCatalog *_catalog;
     unsigned int _lastKnownResyncID;
     unsigned int _resyncID;
-    CDStruct_a41f3871 _has;
+    unsigned int _syncID;
+    CDStruct_02c44088 _has;
 }
 
+@property(nonatomic) unsigned int syncID; // @synthesize syncID=_syncID;
 @property(nonatomic) unsigned int lastKnownResyncID; // @synthesize lastKnownResyncID=_lastKnownResyncID;
 @property(nonatomic) unsigned int resyncID; // @synthesize resyncID=_resyncID;
 @property(retain, nonatomic) NPKProtoCatalog *catalog; // @synthesize catalog=_catalog;
@@ -31,6 +33,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSyncID;
 @property(nonatomic) _Bool hasLastKnownResyncID;
 @property(nonatomic) _Bool hasResyncID;
 

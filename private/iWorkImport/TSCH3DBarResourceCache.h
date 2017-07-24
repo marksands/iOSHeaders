@@ -21,11 +21,11 @@ __attribute__((visibility("hidden")))
 - (id)p_barWithExtrusionSetting:(const struct BarExtrusionSetting *)arg1;
 - (void)dealloc;
 - (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)autorelease;
 - (oneway void)release;
 - (unsigned long long)retainCount;
 - (id)retain;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

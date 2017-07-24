@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSDate, NSError, NSMutableArray, NSMutableDictionary, TSUZipWriterEntry;
+@class NSArray, NSDate, NSError, NSMutableArray, NSMutableDictionary, TSUZipWriterEntry;
 @protocol OS_dispatch_data, OS_dispatch_queue, OS_dispatch_semaphore, TSURandomWriteChannel;
 
 __attribute__((visibility("hidden")))
@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     id <TSURandomWriteChannel> _writeChannel;
     NSObject<OS_dispatch_semaphore> *_writeChannelCompletionSemaphore;
     NSMutableArray *_entries;
+    NSArray *_sortedEntries;
     NSMutableDictionary *_entriesMap;
     TSUZipWriterEntry *_currentEntry;
     _Bool _calculateSize;
@@ -38,7 +39,13 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) _Bool isClosed; // @synthesize isClosed=_isClosed;
 - (void).cxx_destruct;
+- (void)truncateToOffsetImpl:(long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)truncateToOffset:(long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)truncateToNumberOfEntriesImpl:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)truncateToNumberOfEntries:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)entryWithName:(id)arg1;
+@property(readonly, nonatomic) NSArray *sortedEntries;
+- (id)sortedEntriesImpl;
 - (void)enumerateEntriesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)handleWriteError:(id)arg1;
 @property(readonly, nonatomic) unsigned long long archiveLength;
@@ -55,6 +62,10 @@ __attribute__((visibility("hidden")))
 - (void)writeCentralDirectory;
 - (void)closeWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)addBarrier:(CDUnknownBlockType)arg1;
+- (void)setEntryInsertionOffsetImpl:(long long)arg1;
+- (void)setEntryInsertionOffset:(long long)arg1;
+- (void)addExistingEntryImpl:(id)arg1;
+- (void)addExistingEntry:(id)arg1;
 - (void)writeEntryWithName:(id)arg1 force32BitSize:(_Bool)arg2 fromReadChannel:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)writeEntryWithName:(id)arg1 force32BitSize:(_Bool)arg2 lastModificationDate:(id)arg3 size:(unsigned long long)arg4 CRC:(unsigned int)arg5 fromReadChannel:(id)arg6 writeHandler:(CDUnknownBlockType)arg7;
 - (void)writeEntryWithName:(id)arg1 force32BitSize:(_Bool)arg2 lastModificationDate:(id)arg3 size:(unsigned long long)arg4 CRC:(unsigned int)arg5 fromReadChannel:(id)arg6 completion:(CDUnknownBlockType)arg7;

@@ -6,12 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-#import <MessageUI/_MFAPIStagingDropInteractionDelegate-Protocol.h>
+#import <MessageUI/UIDropInteractionDelegate-Protocol.h>
 
 @class NSSet, NSString, UIDropInteraction, UIView;
 @protocol MFDropTargetDelegate;
 
-@interface MFDropTarget : NSObject <_MFAPIStagingDropInteractionDelegate>
+@interface MFDropTarget : NSObject <UIDropInteractionDelegate>
 {
     struct {
         unsigned int respondsToCanDropDraggedItemsAtPoint;
@@ -39,10 +39,10 @@
 - (_Bool)_sessionContainsOnlyAcceptableTypeIdentifiers:(id)arg1;
 - (void)dropInteraction:(id)arg1 sessionDidEnd:(id)arg2;
 - (void)dropInteraction:(id)arg1 performDrop:(id)arg2;
-- (id)_api_dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
+- (id)dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
 - (_Bool)dropInteraction:(id)arg1 canHandleSession:(id)arg2;
 - (void)dropInteraction:(id)arg1 sessionDidExit:(id)arg2;
-- (void)_api_dropInteraction:(id)arg1 sessionDidEnter:(id)arg2;
+- (void)dropInteraction:(id)arg1 sessionDidEnter:(id)arg2;
 - (void)_updateDelegateFlags;
 - (id)initWithView:(id)arg1 delegate:(id)arg2;
 

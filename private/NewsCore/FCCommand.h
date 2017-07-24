@@ -18,7 +18,6 @@
 - (void)coalesceWithCommand:(id)arg1;
 - (_Bool)canCoalesceWithCommand:(id)arg1;
 - (void)executeWithContext:(id)arg1 delegate:(id)arg2 qualityOfService:(long long)arg3;
-- (id)init;
 
 @end
 

@@ -6,44 +6,35 @@
 
 #import <SearchUI/SearchUITableViewController.h>
 
-@class NSArray, NSMutableDictionary, SFCard, SFSearchResult, UIActivityIndicatorView, UIColor, UILabel, UIView;
+@class SFCard, UIActivityIndicatorView, UILabel, UIView;
 
 @interface SearchUICardViewController : SearchUITableViewController
 {
-    SFSearchResult *_result;
-    NSArray *_cardSectionViews;
+    _Bool _viewHasAppeared;
+    unsigned long long _level;
     SFCard *_card;
     UIView *_loadingView;
     UIActivityIndicatorView *_loadingSpinner;
     UILabel *_loadingLabel;
-    NSMutableDictionary *_cellCache;
 }
 
-+ (void)applySeparatorStyleToCell:(id)arg1 withCurrentCardSectionView:(id)arg2 nextCardSectionView:(id)arg3;
-@property(retain) NSMutableDictionary *cellCache; // @synthesize cellCache=_cellCache;
+@property _Bool viewHasAppeared; // @synthesize viewHasAppeared=_viewHasAppeared;
 @property(retain) UILabel *loadingLabel; // @synthesize loadingLabel=_loadingLabel;
 @property(retain) UIActivityIndicatorView *loadingSpinner; // @synthesize loadingSpinner=_loadingSpinner;
 @property(retain) UIView *loadingView; // @synthesize loadingView=_loadingView;
 @property(retain) SFCard *card; // @synthesize card=_card;
-@property(retain) NSArray *cardSectionViews; // @synthesize cardSectionViews=_cardSectionViews;
-@property(retain, nonatomic) SFSearchResult *result; // @synthesize result=_result;
+@property unsigned long long level; // @synthesize level=_level;
 - (void).cxx_destruct;
-- (id)punchoutPickerDismissText:(id)arg1;
-- (id)punchoutPickerTitleForIndexPath:(id)arg1;
-- (id)nextCardForIndexPath:(id)arg1;
-- (id)punchoutsForIndexPath:(id)arg1;
-- (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (id)cardSectionForIndexPath:(id)arg1;
-- (id)cellForIndexPath:(id)arg1 reuseIfPossible:(_Bool)arg2;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
-@property(readonly) UIColor *textColor;
+- (double)offScreenContentScrollDistance;
 - (void)setShouldUseInsetRoundedSections:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)displayLoadingView;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)cardViewDidAppear;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)updateWithCardSections:(id)arg1;
 - (id)initWithCard:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
 
 @end

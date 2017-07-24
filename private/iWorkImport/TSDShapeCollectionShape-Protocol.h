@@ -6,12 +6,14 @@
 
 #import <iWorkImport/NSObject-Protocol.h>
 
-@class NSArray, NSString, TSDPathSource;
+@class NSArray, NSNumber, NSString, TSDPathSource;
 
 @protocol TSDShapeCollectionShape <NSObject>
 @property(readonly, nonatomic) int shapeType;
+@property(readonly, nonatomic) NSString *accessibilityName;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) NSArray *keywords;
+- (unsigned long long)positionInCategoryWithID:(NSNumber *)arg1;
 - (TSDPathSource *)pathSourceWithSize:(struct CGSize)arg1;
 @end
 

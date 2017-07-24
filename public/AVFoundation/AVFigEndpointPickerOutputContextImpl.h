@@ -8,7 +8,7 @@
 
 #import <AVFoundation/AVOutputContextImpl-Protocol.h>
 
-@class AVOutputContext, AVOutputContextCommunicationChannel, AVOutputDevice, AVOutputDeviceGroup, AVWeakReference, NSArray, NSString, NSUUID;
+@class AVOutputContext, AVOutputContextCommunicationChannel, AVOutputDevice, AVWeakReference, NSArray, NSString;
 @protocol OS_dispatch_queue;
 
 @interface AVFigEndpointPickerOutputContextImpl : NSObject <AVOutputContextImpl>
@@ -26,7 +26,7 @@
 + (void)resetOutputDeviceForAllOutputContexts;
 + (struct OpaqueFigEndpointPicker *)copySystemVideoPicker;
 + (_Bool)supportsSecureCoding;
-+ (id)outputContextForControllingOutputDeviceGroup:(id)arg1;
++ (id)outputContextImplForID:(id)arg1;
 + (id)outputContextForControllingOutputDeviceGroupWithID:(id)arg1;
 + (id)iTunesAudioContext;
 + (id)sharedSystemScreenContext;
@@ -38,16 +38,20 @@
 @property __weak AVOutputContext *parentOutputContext; // @synthesize parentOutputContext=_parentContext;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) AVOutputContextCommunicationChannel *outgoingCommunicationChannel;
+- (void)setVolume:(float)arg1;
+@property(readonly) _Bool canSetVolume;
+@property(readonly) float volume;
+@property(readonly) _Bool providesControlForAllVolumeFeatures;
 - (void)removeOutputDevice:(id)arg1;
 - (void)addOutputDevice:(id)arg1;
 - (void)setOutputDevices:(id)arg1;
 @property(readonly) NSArray *outputDevices;
-@property(readonly) AVOutputDeviceGroup *outputDeviceGroup;
 - (_Bool)setOutputDevice:(id)arg1 options:(id)arg2;
 @property(readonly, nonatomic) AVOutputDevice *outputDevice;
 @property(readonly, copy, nonatomic) NSString *associatedAudioDeviceID;
 - (void)outputContextDidChangeApplicationProcessID:(id)arg1;
-@property(readonly, nonatomic) NSUUID *endpointPickerUUID;
+- (id)endpointPickerUUID;
+@property(readonly, nonatomic) NSString *outputContextType;
 @property(readonly, nonatomic) NSString *ID;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;

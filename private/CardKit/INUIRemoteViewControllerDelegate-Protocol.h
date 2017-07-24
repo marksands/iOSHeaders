@@ -6,15 +6,18 @@
 
 #import <CardKit/NSObject-Protocol.h>
 
-@class INIntent, INUIRemoteViewController;
+@class INIntent, INUIRemoteViewController, NSArray, NSDictionary;
 
 @protocol INUIRemoteViewControllerDelegate <NSObject>
-- (void)remoteViewControllerServiceDidTerminate:(INUIRemoteViewController *)arg1;
-- (struct CGSize)maximumSizeForRemoteViewController:(INUIRemoteViewController *)arg1;
-- (struct CGSize)minimumSizeForRemoteViewController:(INUIRemoteViewController *)arg1;
 
 @optional
+- (struct CGSize)maximumSizeForRemoteViewController:(INUIRemoteViewController *)arg1;
+- (struct CGSize)minimumSizeForRemoteViewController:(INUIRemoteViewController *)arg1;
+- (NSArray *)interfaceSectionsForRemoteViewController:(INUIRemoteViewController *)arg1;
+- (NSDictionary *)maximumSizesBySystemVersionForRemoteViewController:(INUIRemoteViewController *)arg1;
+- (NSDictionary *)minimumSizesBySystemVersionForRemoteViewController:(INUIRemoteViewController *)arg1;
 - (void)remoteViewController:(INUIRemoteViewController *)arg1 requestsHandlingOfIntent:(INIntent *)arg2;
 - (void)remoteViewController:(INUIRemoteViewController *)arg1 desiresConstrainedSize:(struct CGSize)arg2;
+- (void)remoteViewControllerServiceDidTerminate:(INUIRemoteViewController *)arg1;
 @end
 

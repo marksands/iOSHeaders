@@ -4,23 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeTableCell.h>
+#import <SearchUI/SearchUITableViewCell.h>
 
-@class SearchUICardSectionView, UIView;
+@class SearchUICardSectionView;
 
-@interface SearchUICardSectionTableCell : SearchUILayoutFreeTableCell
+@interface SearchUICardSectionTableCell : SearchUITableViewCell
 {
-    SearchUICardSectionView *_cardSectionView;
-    UIView *_chevronView;
 }
 
-@property(retain) UIView *chevronView; // @synthesize chevronView=_chevronView;
-@property(retain) SearchUICardSectionView *cardSectionView; // @synthesize cardSectionView=_cardSectionView;
-- (void).cxx_destruct;
+- (void)updateChevronVisible:(_Bool)arg1 leaveSpaceForChevron:(_Bool)arg2;
 - (void)updateWithRowModel:(id)arg1;
-- (id)initWithRowModel:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3 view:(id)arg4 showChevron:(_Bool)arg5 leaveSpaceForChevron:(_Bool)arg6;
+@property(readonly) SearchUICardSectionView *cardSectionView;
 - (id)initWithRowModel:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
-- (id)initWithStyle:(unsigned long long)arg1 view:(id)arg2 showChevron:(_Bool)arg3 leaveSpaceForChevron:(_Bool)arg4;
+
+// Remaining properties
+@property(retain) SearchUICardSectionView *sizingContainer; // @dynamic sizingContainer;
 
 @end
 

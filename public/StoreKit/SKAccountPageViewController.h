@@ -23,7 +23,7 @@
 @property(nonatomic) id <SKAccountPageViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_requestRemoteViewController;
 - (void)_addRemoteView;
-- (void)_dismissViewController;
+- (void)_dismissViewControllerWithResult:(_Bool)arg1 error:(id)arg2;
 - (void)_didPrepareWithResult:(_Bool)arg1 error:(id)arg2;
 - (void)willMoveToParentViewController:(id)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

@@ -17,6 +17,7 @@
         unsigned long long count;
         unsigned long long size;
     } _trafficIncidentOffsets;
+    NSData *_activeRouteInfoData;
     int _alternateRouteIndex;
     GEOTransitDecoderData *_decoderData;
     GEOComposedWaypoint *_destination;
@@ -42,8 +43,9 @@
 
 + (Class)trafficIncidentsType;
 + (id)activeRouteDetailsForActiveRouteInfo:(id)arg1;
-+ (id)activeRouteDetailsForRoute:(id)arg1;
++ (id)_activeRouteDetailsForRoute:(id)arg1;
 @property(nonatomic) unsigned int routeIndex; // @synthesize routeIndex=_routeIndex;
+@property(retain, nonatomic) NSData *activeRouteInfoData; // @synthesize activeRouteInfoData=_activeRouteInfoData;
 @property(retain, nonatomic) NSMutableArray *trafficIncidents; // @synthesize trafficIncidents=_trafficIncidents;
 @property(nonatomic) int transportType; // @synthesize transportType=_transportType;
 @property(nonatomic) unsigned int reconnectionRouteIndex; // @synthesize reconnectionRouteIndex=_reconnectionRouteIndex;
@@ -68,6 +70,7 @@
 @property(nonatomic) _Bool hasAlternateRouteIndex;
 @property(nonatomic) int alternateRouteIndex; // @synthesize alternateRouteIndex=_alternateRouteIndex;
 @property(nonatomic) _Bool hasRouteIndex;
+@property(readonly, nonatomic) _Bool hasActiveRouteInfoData;
 - (void)setTrafficIncidentOffsets:(unsigned int *)arg1 count:(unsigned long long)arg2;
 - (unsigned int)trafficIncidentOffsetsAtIndex:(unsigned long long)arg1;
 - (void)addTrafficIncidentOffsets:(unsigned int)arg1;
@@ -95,6 +98,7 @@
 @property(readonly, nonatomic) _Bool hasRoute;
 @property(readonly, nonatomic) _Bool hasRouteDetailsID;
 - (void)dealloc;
+- (id)activeRouteInfo;
 
 @end
 

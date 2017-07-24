@@ -41,7 +41,7 @@
 - (void)refreshAppsInfo:(CDUnknownBlockType)arg1;
 - (void)refreshPlansInfo:(CDUnknownBlockType)arg1;
 - (void)refreshUsageInfo:(CDUnknownBlockType)arg1;
-- (void)testMode:(_Bool)arg1 jsonDict:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)testMode:(_Bool)arg1 config:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)invalidate;
 - (void)ping:(CDUnknownBlockType)arg1;
 - (id)initWithQueue:(struct dispatch_queue_s *)arg1 andListenerEndpoint:(id)arg2;

@@ -11,8 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface PUOneUpAssetSuggestionInfo : NSObject
 {
-    _Bool _didRequestSuggestion;
-    _Bool _shouldHideSuggestion;
+    long long _state;
     NSProgress *_progress;
     PUOneUpSuggestion *_suggestion;
     PXContextualNotification *_contextualNotification;
@@ -21,8 +20,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) PXContextualNotification *contextualNotification; // @synthesize contextualNotification=_contextualNotification;
 @property(retain, nonatomic) PUOneUpSuggestion *suggestion; // @synthesize suggestion=_suggestion;
 @property(retain, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
-@property(nonatomic) _Bool shouldHideSuggestion; // @synthesize shouldHideSuggestion=_shouldHideSuggestion;
-@property(nonatomic) _Bool didRequestSuggestion; // @synthesize didRequestSuggestion=_didRequestSuggestion;
+@property(nonatomic) long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
 
 @end

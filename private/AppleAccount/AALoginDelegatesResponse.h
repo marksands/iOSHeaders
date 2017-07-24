@@ -12,6 +12,7 @@
 {
 }
 
+- (id)augmentedResponseParametersForServiceIdentifier:(id)arg1 withAppleID:(id)arg2 password:(id)arg3 DSID:(id)arg4 altDSID:(id)arg5;
 @property(readonly, nonatomic) NSString *altDSID;
 @property(readonly, nonatomic) NSString *dsid;
 - (id)responseParametersForServiceIdentifier:(id)arg1;

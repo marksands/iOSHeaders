@@ -6,14 +6,22 @@
 
 #import <iTunesCloud/ICAsyncOperation.h>
 
+@class NSObject;
+@protocol OS_dispatch_queue;
+
 @interface ICAsyncBlockOperation : ICAsyncOperation
 {
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    CDUnknownBlockType _cancellationHandler;
     CDUnknownBlockType _startHandler;
 }
 
 @property(readonly, copy, nonatomic) CDUnknownBlockType startHandler; // @synthesize startHandler=_startHandler;
 - (void).cxx_destruct;
-- (void)start;
+@property(copy, nonatomic) CDUnknownBlockType cancellationHandler;
+- (void)finishWithError:(id)arg1;
+- (void)execute;
+- (void)cancel;
 - (id)initWithStartHandler:(CDUnknownBlockType)arg1;
 
 @end

@@ -33,15 +33,21 @@
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+- (_Bool)_shouldUseLargeTextLayout;
+- (unsigned long long)_titleLabelNumberOfLines;
+- (void)_contentSizeCategoryDidChange;
 - (void)_layoutLabels;
+- (void)_setupLabelsBounds;
 - (void)buttonTapped:(id)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
+- (id)initWithGlyphPackage:(id)arg1 highlightColor:(id)arg2 useLightStyle:(_Bool)arg3;
 - (id)initWithGlyphPackage:(id)arg1 highlightColor:(id)arg2;
+- (id)initWithGlyphImage:(id)arg1 highlightColor:(id)arg2 useLightStyle:(_Bool)arg3;
 - (id)initWithGlyphImage:(id)arg1 highlightColor:(id)arg2;
 - (void)dealloc;
-- (id)initWithHighlightColor:(id)arg1;
+- (id)initWithHighlightColor:(id)arg1 useLightStyle:(_Bool)arg2;
 
 @end
 

@@ -28,8 +28,6 @@
 + (void)removeDomain:(id)arg1 forProviderIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (void)addDomain:(id)arg1 forProviderIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (void)removeAllDomainsWithCompletionHandler:(CDUnknownBlockType)arg1;
-+ (void)removeDomain:(id)arg1 completion:(CDUnknownBlockType)arg2;
-+ (void)addDomain:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (void)removeDomain:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)addDomain:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)placeholderURLForURL:(id)arg1;
@@ -43,9 +41,7 @@
 @property(readonly, nonatomic) NSURL *documentStorageURL;
 - (void)_cacheProviderInfo;
 - (void)deleteSearchableItemsWithDomainIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)registerURLSessionTask:(id)arg1 forItemWithIdentifier:(id)arg2;
 - (void)registerURLSessionTask:(id)arg1 forItemWithIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)signalEnumeratorForContainerItemIdentifier:(id)arg1;
 - (void)signalEnumeratorForContainerItemIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)itemIDForIdentifier:(id)arg1;
 - (id)_connection;

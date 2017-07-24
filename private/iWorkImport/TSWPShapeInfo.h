@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 @interface TSWPShapeInfo : TSDShapeInfo <TSDMixing, TSDContainerInfo, TSWPStorageParent, TSDSelectionStatisticsContributor>
 {
     TSWPStorage *_containedStorage;
+    _Bool _isTextBox;
     TSPObject<TSWPFlowInfo> *_textFlow;
 }
 
@@ -34,6 +35,7 @@ __attribute__((visibility("hidden")))
 + (id)textPropertiesAffectingObjectMatch;
 + (id)textPropertiesNeedingCharacterAnimation;
 @property(nonatomic) __weak TSPObject<TSWPFlowInfo> *textFlow; // @synthesize textFlow=_textFlow;
+@property(readonly, nonatomic) _Bool isTextBox; // @synthesize isTextBox=_isTextBox;
 - (void).cxx_destruct;
 - (void)processSelectedStoragesWithStatisticsController:(id)arg1;
 - (unsigned long long)chunkCountForTextureDeliveryStyle:(unsigned long long)arg1 byGlyphStyle:(int)arg2 animationFilter:(id)arg3;
@@ -61,10 +63,11 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)autosizePositionOffset;
 - (struct CGAffineTransform)autosizedTransformForInfoGeometry:(id)arg1 size:(struct CGSize)arg2;
 - (struct CGPoint)autosizePositionOffsetForGeometry:(id)arg1 size:(struct CGSize)arg2;
+- (struct CGPoint)autosizePositionOffsetForGeometry:(id)arg1 dynamicallyDraggedLayout:(id)arg2;
 - (double)pOffsetForVerticalAlignment:(struct CGSize)arg1;
 - (double)pOffsetForParagraphAlignment:(struct CGSize)arg1;
 @property(readonly, nonatomic) NSString *instructionalText;
-@property(readonly, nonatomic) _Bool isTextBox;
+- (void)setIsTextBoxForPersistence:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool displaysInstructionalText;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
 - (id)presetKind;
@@ -87,6 +90,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)supportsShrinkTextToFit;
 - (_Bool)supportsTextInset;
 - (_Bool)canAnchor;
+- (_Bool)isLocked;
+@property(readonly, nonatomic) _Bool isLinkable;
 @property(readonly, nonatomic) _Bool isLinked;
 - (id)i_ownedTextStorage;
 - (void)i_setOwnedTextStorage:(id)arg1;

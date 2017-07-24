@@ -26,10 +26,10 @@
 - (CDUnknownBlockType).cxx_destruct;
 - (id)init;
 - (id)copyWithZone:(void *)arg1;
+- (id)initFrom:(id)arg1 withIdentifier:(id)arg2;
 - (id)init:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithData:(id)arg1 error:(id *)arg2;
 - (id)initWithIdentifier:(id)arg1 firstSeen:(id)arg2 lastSeen:(id)arg3 frequency:(long long)arg4 lastDuration:(double)arg5 totalDuration:(double)arg6 metadata:(id)arg7;
 @property(nonatomic, readonly) NSDictionary *metadata;
 @property(nonatomic, readonly) double totalDuration;

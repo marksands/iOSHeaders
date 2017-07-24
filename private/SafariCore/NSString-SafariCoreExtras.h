@@ -8,6 +8,7 @@
 
 @interface NSString (SafariCoreExtras)
 + (void)safari_reverseEnumerateComponents:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (_Bool)safari_containsPeriodOrHomoglyphForPeriod;
 - (_Bool)safari_hasLocalizedCaseInsensitivePrefix:(id)arg1;
 - (_Bool)safari_hasCaseInsensitiveSuffix:(id)arg1;
 - (_Bool)safari_hasCaseInsensitivePrefix:(id)arg1;
@@ -17,6 +18,7 @@
 - (id)safari_simplifiedUserVisibleURLString;
 - (id)safari_simplifiedUserVisibleURLStringWithSimplifications:(unsigned long long)arg1 forDisplayOnly:(_Bool)arg2 simplifiedStringOffset:(unsigned long long *)arg3;
 - (id)safari_highLevelDomainFromHost;
+- (_Bool)safari_containsInteriorWhitespace;
 - (id)safari_stringByTrimmingWhitespace;
 - (id)safari_topLevelDomainUsingCFFromComponents:(id)arg1;
 @end

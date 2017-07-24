@@ -19,17 +19,19 @@
     NSString *_accessoryName;
     NSString *_setupCode;
     NSString *_setupID;
-    NSURL *_setupPayload;
+    NSNumber *_categoryNumber;
+    NSURL *_setupPayloadURL;
     NSNumber *_flags;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSNumber *flags; // @synthesize flags=_flags;
-@property(retain, nonatomic) NSURL *setupPayload; // @synthesize setupPayload=_setupPayload;
+@property(retain, nonatomic) NSURL *setupPayloadURL; // @synthesize setupPayloadURL=_setupPayloadURL;
 @property(nonatomic) _Bool paired; // @synthesize paired=_paired;
 @property(nonatomic) _Bool supportsBTLE; // @synthesize supportsBTLE=_supportsBTLE;
 @property(nonatomic) _Bool supportsWAC; // @synthesize supportsWAC=_supportsWAC;
 @property(nonatomic) _Bool supportsIP; // @synthesize supportsIP=_supportsIP;
+@property(retain, nonatomic) NSNumber *categoryNumber; // @synthesize categoryNumber=_categoryNumber;
 @property(retain, nonatomic) NSString *setupID; // @synthesize setupID=_setupID;
 @property(retain, nonatomic) NSString *setupCode; // @synthesize setupCode=_setupCode;
 @property(retain, nonatomic) NSString *accessoryName; // @synthesize accessoryName=_accessoryName;
@@ -40,10 +42,10 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;
-- (id)flagsDescription;
-- (_Bool)_parseSetupPayload:(id)arg1;
+- (id)_parseSetupPayload:(id)arg1;
 - (id)initWithSetupCode:(id)arg1;
 - (id)initWithSetupPayload:(id)arg1;
+- (id)initWithSetupPayloadURL:(id)arg1 error:(id *)arg2;
 
 @end
 

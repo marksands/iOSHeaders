@@ -4,20 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeSectionView.h>
+#import <SearchUI/SearchUICardSectionView.h>
 
 @class TLKSectionHeaderView;
 
-@interface SearchUISectionHeaderCardSectionView : SearchUILayoutFreeSectionView
+@interface SearchUISectionHeaderCardSectionView : SearchUICardSectionView
 {
-    TLKSectionHeaderView *_sectionHeaderView;
 }
 
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
-@property(retain) TLKSectionHeaderView *sectionHeaderView; // @synthesize sectionHeaderView=_sectionHeaderView;
-- (void).cxx_destruct;
 - (void)updateWithCardSection:(id)arg1;
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
+- (id)setupContentView;
+
+// Remaining properties
+@property(retain) TLKSectionHeaderView *contentView; // @dynamic contentView;
 
 @end
 

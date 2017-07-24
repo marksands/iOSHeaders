@@ -13,7 +13,7 @@
 #import <HealthDaemon/HDHealthDaemonReadyObserver-Protocol.h>
 #import <HealthDaemon/HDWorkoutEventCollectorDelegate-Protocol.h>
 
-@class CLLocationManager, CMWorkoutManager, HDAlertSuppressor, HDPowerSavingModeManager, HDProfile, HDWorkoutLocationSmoother, NSHashTable, NSMutableDictionary, NSMutableSet, NSString, _HDWorkoutData;
+@class BBQuietModeOverrideAssertion, CLLocationManager, CMWorkoutManager, CSLSSession, HDAlertSuppressor, HDPowerSavingModeManager, HDProfile, HDWatchAppStateMonitor, HDWorkoutLocationSmoother, NSHashTable, NSMutableDictionary, NSMutableSet, NSString, _HDWorkoutData;
 @protocol OS_dispatch_queue;
 
 @interface HDWorkoutManager : NSObject <HDActiveWorkoutServerDelegate, HDDatabaseProtectedDataObserver, HDDiagnosticObject, HDForegroundClientProcessObserver, HDHealthDaemonReadyObserver, HDWorkoutEventCollectorDelegate>
@@ -34,6 +34,10 @@
     CMWorkoutManager *_cmWorkoutManager;
     CLLocationManager *_locationManager;
     HDWorkoutLocationSmoother *_locationSmoother;
+    CSLSSession *_carouselSession;
+    _Bool _enableDNDDuringWorkout;
+    BBQuietModeOverrideAssertion *_quietModeOverrideAssertion;
+    HDWatchAppStateMonitor *_appStateMonitor;
     NSObject<OS_dispatch_queue> *_queue;
     HDProfile *_profile;
 }
@@ -45,8 +49,10 @@
 - (void).cxx_destruct;
 - (_Bool)isPowerSavingEnabledForCurrentActivity;
 - (id)_coreMotionWorkoutManager;
+- (void)_queue_logWorkoutStateToPowerLog;
 - (_Bool)_shouldWaitForCMStopEventForActivity:(unsigned long long)arg1;
-- (void)_didUpdateActiveWorkoutServers;
+- (void)_queue_updateFakingDataInSimulator;
+- (void)_postWorkoutUpdatedNotification;
 - (id)_workoutSessionNotCurrentError:(id)arg1;
 - (id)_queue_eventCollectors;
 - (void)_queue_stopBackgroundExecution;
@@ -64,6 +70,9 @@
 - (void)_queue_startWorkout:(id)arg1;
 - (void)_queue_resumeCurrentSession;
 - (void)_queue_pauseCurrentSession;
+@property(nonatomic) _Bool enableDNDDuringWorkout;
+@property(retain, nonatomic) BBQuietModeOverrideAssertion *quietModeOverrideAssertion;
+@property(retain, nonatomic) CSLSSession *carouselSession;
 - (void)hk_fakeStopEventWithDate:(id)arg1;
 - (void)hk_fakeLapEventWithDate:(id)arg1 strokeStyle:(long long)arg2;
 - (void)removeWorkoutEventObserver:(id)arg1;

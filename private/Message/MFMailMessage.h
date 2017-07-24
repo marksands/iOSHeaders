@@ -23,6 +23,7 @@
     _Bool _shouldUseMailDrop;
 }
 
++ (id)externalDataTypeIdentifiers;
 + (unsigned int)displayablePriorityForPriority:(int)arg1;
 + (unsigned int)validatePriority:(int)arg1;
 + (Class)dataMessageStoreToUse;

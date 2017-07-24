@@ -18,6 +18,8 @@
     _Bool _shareSessionWithMaps;
     GEOUserSessionEntity *_mapsUserSessionEntity;
     _Bool _zeroSessionIDMode;
+    struct GEOSessionID _cohortSessionID;
+    double _cohortSessionStartTime;
     NSLock *_lock;
     NSData *_navigationDirectionsID;
     struct GEOSessionID _navigationSessionID;
@@ -49,6 +51,9 @@
 - (void)_resetSessionID;
 - (void)_updateSessionID;
 - (void)_renewUsageCollectionSessionID;
+@property(readonly) GEOUserSessionEntity *cohortSessionEntity;
+- (void)_safe_renewCohortSessionID;
+- (void)_renewCohortSessionID;
 - (void)_safe_renewUsageCollectionSessionID;
 - (void)_updateWithNewUUIDForSessionID:(struct GEOSessionID *)arg1;
 - (id)_defaultForKey:(id)arg1;

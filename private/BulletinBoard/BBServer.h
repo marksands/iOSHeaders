@@ -242,6 +242,8 @@
 - (void)setEffectiveGlobalContentPreviewsSetting:(long long)arg1;
 - (void)getEffectiveGlobalContentPreviewsSettingWithHandler:(CDUnknownBlockType)arg1;
 - (long long)_effectiveGlobalContentPreviewsSetting;
+- (void)_handleDefaultGlobalSettingChange;
+- (void)_updateAllSectionInfos;
 - (long long)_defaultGlobalContentPreviewSetting;
 - (void)getEffectiveSectionInfoForSectionIDs:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)getSectionInfoForSectionIDs:(id)arg1 withHandler:(CDUnknownBlockType)arg2;

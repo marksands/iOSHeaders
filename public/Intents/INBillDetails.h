@@ -34,6 +34,7 @@
 @property(nonatomic) long long billType; // @synthesize billType=_billType;
 - (void).cxx_destruct;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -25,7 +25,7 @@
 - (id)_predicatesForPrune;
 - (id)_onDemandDownloadPredicate;
 - (id)_notOnDemandDownloadPredicate;
-- (id)_predicateForCPLResourceType:(unsigned long long)arg1 additionalAssetConditions:(id)arg2 additionalResourcePredicates:(id)arg3;
+- (id)_predicateForCPLResourceTypes:(id)arg1 additionalAssetCondition:(id)arg2 additionalResourcePredicate:(id)arg3;
 - (long long)diskSpaceToPrune;
 - (long long)_localResourcesSize;
 - (id)_colorAwareResourceTypes;

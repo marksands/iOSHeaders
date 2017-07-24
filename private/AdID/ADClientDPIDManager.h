@@ -6,14 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class CKContainer, CKRecordID, CKRecordZoneID, CKServerChangeToken, NSMutableArray, NSString;
+@class CKContainer, CKRecordID, CKRecordZoneID, CKServerChangeToken, NSDate, NSMutableArray, NSString;
+@protocol OS_dispatch_queue;
 
 @interface ADClientDPIDManager : NSObject
 {
+    NSObject<OS_dispatch_queue> *_backupFlowQueue;
     _Bool _isTest;
     _Bool _updateInProgress;
     _Bool _sandboxEnvironment;
     CKServerChangeToken *_serverChangeToken;
+    unsigned long long _dpidReconcileState;
+    NSDate *_dpidReconcileStartDate;
     CKRecordZoneID *_zoneID;
     CKRecordID *_recordID;
     CKContainer *_privateContainer;
@@ -30,13 +34,14 @@
 @property(retain, nonatomic) CKContainer *privateContainer; // @synthesize privateContainer=_privateContainer;
 @property(retain, nonatomic) CKRecordID *recordID; // @synthesize recordID=_recordID;
 @property(retain, nonatomic) CKRecordZoneID *zoneID; // @synthesize zoneID=_zoneID;
+@property(retain) NSDate *dpidReconcileStartDate; // @synthesize dpidReconcileStartDate=_dpidReconcileStartDate;
+@property unsigned long long dpidReconcileState; // @synthesize dpidReconcileState=_dpidReconcileState;
 @property(readonly, nonatomic) _Bool isTest; // @synthesize isTest=_isTest;
+@property(retain, nonatomic) CKServerChangeToken *serverChangeToken; // @synthesize serverChangeToken=_serverChangeToken;
 - (void).cxx_destruct;
 - (void)syncDPIDWithiCloud:(CDUnknownBlockType)arg1;
 - (void)saveDPIDtoiCloud:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removeDPIDfromiCloud:(CDUnknownBlockType)arg1;
-- (void)fetchDPIDChangesfromiCloud:(CDUnknownBlockType)arg1;
-@property(retain, nonatomic) CKServerChangeToken *serverChangeToken; // @synthesize serverChangeToken=_serverChangeToken;
 - (void)fetchDPIDfromiCloud:(CDUnknownBlockType)arg1;
 - (void)teardowniCloudSubscription:(CDUnknownBlockType)arg1;
 - (void)setupiCloudSubscription:(CDUnknownBlockType)arg1;
@@ -54,7 +59,10 @@
 - (_Bool)limitAdTrackingEnabled;
 - (void)resetDPID:(CDUnknownBlockType)arg1;
 - (void)handlePushNotification:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)reconcile:(CDUnknownBlockType)arg1;
+- (void)handleAccountStatusReconcileFor:(long long)arg1 andError:(id)arg2 with:(CDUnknownBlockType)arg3;
+- (void)backupFlowForCloudKitWorkAtTime:(id)arg1 with:(CDUnknownBlockType)arg2;
+- (void)reconcileDPID:(CDUnknownBlockType)arg1;
+- (_Bool)canContinueProcessing:(id)arg1;
 - (id)init;
 
 @end

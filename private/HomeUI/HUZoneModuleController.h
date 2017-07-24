@@ -8,24 +8,28 @@
 
 #import <HomeUI/UITextFieldDelegate-Protocol.h>
 
-@class HMRoom, HUCurrentZoneCell, NSString;
+@class HMRoom, HUEditableTextCell, HUTitleValueCell, NSString;
 
 @interface HUZoneModuleController : HUItemTableModuleController <UITextFieldDelegate>
 {
     HMRoom *_room;
-    HUCurrentZoneCell *_currentZoneItemCell;
+    HUTitleValueCell *_currentZoneItemCell;
+    HUEditableTextCell *_createNewZoneCell;
 }
 
-@property(nonatomic) __weak HUCurrentZoneCell *currentZoneItemCell; // @synthesize currentZoneItemCell=_currentZoneItemCell;
+@property(nonatomic) __weak HUEditableTextCell *createNewZoneCell; // @synthesize createNewZoneCell=_createNewZoneCell;
+@property(nonatomic) __weak HUTitleValueCell *currentZoneItemCell; // @synthesize currentZoneItemCell=_currentZoneItemCell;
 @property(retain, nonatomic) HMRoom *room; // @synthesize room=_room;
 - (void).cxx_destruct;
 - (_Bool)textFieldShouldEndEditing:(id)arg1;
 - (_Bool)textFieldShouldReturn:(id)arg1;
+- (void)textFieldDidBeginEditing:(id)arg1;
 - (_Bool)_validateNewZoneName:(id)arg1;
 - (void)_configureCurrentZonesItem:(id)arg1 forCell:(id)arg2 animated:(_Bool)arg3;
 - (void)_configureZoneBuilderItem:(id)arg1 forCell:(id)arg2 animated:(_Bool)arg3;
 - (void)_configureZoneItem:(id)arg1 forCell:(id)arg2 animated:(_Bool)arg3;
 - (void)_configureCreateNewZoneItem:(id)arg1 forCell:(id)arg2 animated:(_Bool)arg3;
+- (void)_updateCreateNewZoneCellText:(_Bool)arg1;
 - (id)_didSelectZoneBuilderItem:(id)arg1;
 - (id)_didSelectZoneItem:(id)arg1;
 - (void)accessoryButtonTappedForItem:(id)arg1;

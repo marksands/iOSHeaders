@@ -4,12 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUIClearableSectionDelegate-Protocol.h>
+#import <SearchUI/NSObject-Protocol.h>
 
 @class NSString, SFResultSection;
 
-@protocol SearchUITableHeaderViewDelegate <SearchUIClearableSectionDelegate>
+@protocol SearchUITableHeaderViewDelegate <NSObject>
 @property(readonly) NSString *currentQueryString;
 - (void)toggleExpansionForSection:(SFResultSection *)arg1;
+- (_Bool)sectionIsClearable:(SFResultSection *)arg1;
+- (void)clearResultsFromSection:(SFResultSection *)arg1;
 @end
 

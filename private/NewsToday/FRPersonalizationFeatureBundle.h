@@ -23,6 +23,7 @@
 @property(retain, nonatomic) NSNumber *feedOrder; // @synthesize feedOrder=_feedOrder;
 @property(retain, nonatomic) NSNumber *groupOrder; // @synthesize groupOrder=_groupOrder;
 - (void).cxx_destruct;
+- (void)appendPersonalizationFeaturesGenerator:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSArray *features;
 
 @end

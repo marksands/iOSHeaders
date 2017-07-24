@@ -34,9 +34,6 @@ __attribute__((visibility("hidden")))
 
 + (void)bootstrapPresetsOfKind:(id)arg1 inTheme:(id)arg2 alternate:(int)arg3;
 + (id)presetKinds;
-+ (void)p_makeCompatibleImageDataForFill:(_Bool)arg1 fromURL:(id)arg2 withContext:(id)arg3 modalOperationPresenter:(id)arg4 compatibilityAlertPresenter:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
-+ (void)makeCompatibleImageFillDataFromURL:(id)arg1 withContext:(id)arg2 modalOperationPresenter:(id)arg3 compatibilityAlertPresenter:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
-+ (void)makeCompatibleImageDataFromURL:(id)arg1 withContext:(id)arg2 modalOperationPresenter:(id)arg3 compatibilityAlertPresenter:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 + (id)instanceWithArchive:(const struct FillArchive *)arg1 unarchiver:(id)arg2;
 @property(readonly, copy, nonatomic) TSUColor *tintColor; // @synthesize tintColor=mTintColor;
 @property(nonatomic) int technique; // @synthesize technique=mTechnique;

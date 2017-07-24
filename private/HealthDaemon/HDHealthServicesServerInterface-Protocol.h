@@ -19,7 +19,7 @@
 - (void)remote_getSupportedPropertyNamesWithHandler:(void (^)(id, NSError *))arg1;
 - (void)remote_removePairingForHealthService:(HKHealthService *)arg1 withCompletion:(void (^)(_Bool, NSError *))arg2;
 - (void)remote_addPairingForHealthService:(HKHealthService *)arg1 withCompletion:(void (^)(_Bool, NSError *))arg2;
-- (void)remote_getHealthServicePairingsWithHandler:(void (^)(NSArray *, NSError *))arg1;
+- (void)remote_getHealthPeripheralsWithFilter:(unsigned long long)arg1 handler:(void (^)(NSArray *, NSError *))arg2;
 - (void)remote_endHealthServiceSession:(unsigned long long)arg1;
 - (void)remote_startHealthServiceSession:(HKHealthService *)arg1 client:(id <HKHealthServicesClientInterface>)arg2 withCompletion:(void (^)(unsigned long long, NSError *))arg3;
 - (void)remote_endHealthServiceDiscovery:(unsigned long long)arg1;

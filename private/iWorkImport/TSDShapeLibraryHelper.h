@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)shouldAddBaseShapeNameAndKeywordsForLocale:(id)arg1;
++ (id)keywordByCapitalizingLowercasedKeyword:(id)arg1;
 + (id)keywordsByCapitalizingLowercasedKeywords:(id)arg1;
 
 @end

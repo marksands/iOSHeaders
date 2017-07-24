@@ -6,19 +6,21 @@
 
 #import <UIKit/UIPageViewController.h>
 
-#import <PDFKit/PageImagePoolDelegate-Protocol.h>
+#import <PDFKit/PDFPageBackgroundManagerDelegate-Protocol.h>
 #import <PDFKit/UIPageViewControllerDataSource-Protocol.h>
 #import <PDFKit/UIPageViewControllerDelegate-Protocol.h>
 
 @class NSString, PDFDocumentViewControllerPrivate;
 
 __attribute__((visibility("hidden")))
-@interface PDFDocumentViewController : UIPageViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate, PageImagePoolDelegate>
+@interface PDFDocumentViewController : UIPageViewController <PDFPageBackgroundManagerDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 {
     PDFDocumentViewControllerPrivate *_private;
 }
 
 - (void).cxx_destruct;
+- (void)recieveBackgroundImage:(id)arg1 atBackgroundQuality:(int)arg2 forPage:(id)arg3;
+- (id)backgroundImageForPage:(id)arg1 withQuality:(int *)arg2;
 - (void)_updateCurrentPageViewController:(id)arg1;
 - (id)findPageViewControllerForPageIndex:(long long)arg1;
 - (id)_pageViewControllerCreate:(int)arg1;
@@ -26,7 +28,6 @@ __attribute__((visibility("hidden")))
 - (void)viewWillLayoutSubviews;
 - (void)viewDidAppear:(_Bool)arg1;
 - (_Bool)hasBackgroundImage;
-- (void)recievePageImage:(id)arg1;
 - (id)pageViewForPageAtIndex:(unsigned long long)arg1;
 - (id)document;
 - (id)pageViewController:(id)arg1 viewControllerAfterViewController:(id)arg2;
@@ -38,10 +39,10 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromPage:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toPage:(id)arg2;
 - (id)pageForPoint:(struct CGPoint)arg1 nearest:(_Bool)arg2;
+- (void)updateScrollViews;
 - (id)scrollView;
 - (void)setScrollViewScrollEnabled:(_Bool)arg1;
 - (void)setDisplaysRTL:(_Bool)arg1;
-- (void)setCoachMarkSelectionRect:(struct CGRect)arg1 forPDFPageView:(id)arg2;
 - (id)selection;
 - (void)setSelection:(id)arg1;
 - (double)scaleFactor;

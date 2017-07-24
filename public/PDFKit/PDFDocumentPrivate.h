@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSDictionary, NSIndexSet, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSString, NSURL, PDFAKDocumentAdaptor, PDFForm, PDFOutline, PDFRenderingProperties, PDFSelection;
+@class NSArray, NSDictionary, NSIndexSet, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSOperationQueue, NSString, NSURL, PDFAKDocumentAdaptor, PDFForm, PDFOutline, PDFRenderingProperties, PDFSelection;
 @protocol PDFAKControllerDelegateProtocol, PDFDocumentPageChangeDelegate;
 
 __attribute__((visibility("hidden")))
@@ -66,14 +66,15 @@ __attribute__((visibility("hidden")))
     NSString *xmpRootPath;
     id <PDFDocumentPageChangeDelegate> pageChangeDelegate;
     struct __DDScanner *dataDetector;
-    NSMutableDictionary *pageDictionaryMap;
     _Bool documentChanged;
     _Bool pagesChanged;
     NSIndexSet *initialBookmarkedPageIndices;
+    NSMutableIndexSet *bookmarkedPages;
     PDFAKDocumentAdaptor *akDocumentAdaptor;
     id <PDFAKControllerDelegateProtocol> pdfAKControllerDelegateForDeferredSetup;
     PDFRenderingProperties *renderingProperties;
     _Bool useTaggedPDF;
+    _Bool limitedSearch;
 }
 
 - (void).cxx_destruct;

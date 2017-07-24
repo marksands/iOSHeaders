@@ -14,13 +14,15 @@
 @interface SKUISplitViewDocumentViewController : SKUIViewController <SKUINavigationDocumentDelegate, SKUIDocumentViewController>
 {
     UIViewController *_delayingPresentationViewController;
-    SKUINavigationDocumentController *_leftNavigationDocumentController;
-    SKUINavigationDocumentController *_rightNavigationDocumentController;
     UISplitViewController *_splitViewController;
     SKUISplitViewTemplateElement *_templateElement;
+    SKUINavigationDocumentController *_leftNavigationDocumentController;
+    SKUINavigationDocumentController *_rightNavigationDocumentController;
 }
 
 + (_Bool)_shouldForwardViewWillTransitionToSize;
+@property(retain, nonatomic) SKUINavigationDocumentController *rightNavigationDocumentController; // @synthesize rightNavigationDocumentController=_rightNavigationDocumentController;
+@property(retain, nonatomic) SKUINavigationDocumentController *leftNavigationDocumentController; // @synthesize leftNavigationDocumentController=_leftNavigationDocumentController;
 - (void).cxx_destruct;
 - (void)_skui_endDelayingPresentation;
 - (void)_reloadSplitViewControllers;

@@ -73,6 +73,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double backButtonMargin;
 - (void)setBackIndicatorImage:(id)arg1;
 - (id)backIndicatorImage;
+- (_Bool)isRTL;
 - (long long)barType;
 - (double)defaultEdgeSpacing;
 - (unsigned long long)edgesPaddingBarButtonItem:(id)arg1;
@@ -84,6 +85,8 @@ __attribute__((visibility("hidden")))
 - (void)updateContentAnimated:(_Bool)arg1;
 @property(readonly, nonatomic) UIView *accessibilityBackButtonView;
 @property(readonly, nonatomic) UIView *accessibilityTitleView;
+- (void)_updateLayoutMarginsForLayout:(id)arg1;
+- (void)safeAreaInsetsDidChange;
 - (void)layoutMarginsDidChange;
 - (void)_intrinsicContentSizeInvalidatedForChildView:(id)arg1;
 - (void)resolvedSizeDidChange;

@@ -38,6 +38,7 @@
     GEONavigationGuidanceState *_guidanceState;
     NSData *_trafficIncidentAlertDetailsData;
     int _navigationVoiceVolume;
+    _Bool _isNavigatingInLowGuidance;
     GEOCompanionRouteDetails *_companionRouteDetails;
     GEOCompanionRouteStatus *_companionRouteStatus;
     GEOCompanionRouteContext *_companionRouteContext;
@@ -51,6 +52,7 @@
 - (void)_sendCoalescedCompanionRouteStatus;
 - (void)_sendCompanionRouteStatus;
 - (void)_sendCompanionRouteDetails:(id)arg1 routeStatus:(id)arg2 routeContext:(id)arg3;
+- (void)_markCurrentHapticsAsTriggered;
 - (void)_updateCompanionRouteStatus;
 - (void)_closeNanomapscdConnection;
 - (void)_openNanomapscdConnection;
@@ -70,6 +72,8 @@
 - (void)_closeNavdConnection;
 - (void)_openNavdConnection;
 - (void)_clearState;
+- (void)triggerHaptics:(int)arg1;
+- (void)setIsNavigatingInLowGuidance:(_Bool)arg1;
 - (void)setNavigationVoiceVolume:(int)arg1;
 - (void)setTrafficIncidentDetailsData:(id)arg1;
 - (void)setNextAnnouncementStage:(unsigned long long)arg1 timeUntilNextAnnouncement:(double)arg2;

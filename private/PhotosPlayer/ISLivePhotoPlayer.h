@@ -74,7 +74,8 @@
 - (double)_photoTransitionDuration;
 - (void)_prepareForVitalityIfNeeded;
 - (void)_playIfNeeded;
-- (void)setSeekTime:(CDStruct_1b6d18a9)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) _Bool _canPlayVitality;
+- (void)setSeekTime:(CDStruct_1b6d18a9)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)playVitality;
 - (void)prepareForVitality;
 - (void)stopPlaybackAnimated:(_Bool)arg1;
@@ -92,7 +93,6 @@
 - (void)prepareForHintWhenReady;
 - (void)activeBehaviorDidChange;
 - (double)videoWillPlayToEndInterval;
-- (void)playbackStyleIdentifierDidChange;
 - (void)statusDidChange;
 - (void)playerItemDidChange;
 - (void)configurePlayerItem;

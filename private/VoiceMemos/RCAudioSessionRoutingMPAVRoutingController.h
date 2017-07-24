@@ -24,6 +24,7 @@
 @property(readonly, nonatomic) MPAVRoute *cachedPickedOutputRoute; // @synthesize cachedPickedOutputRoute=_cachedPickedOutputRoute;
 @property(readonly, nonatomic) AVAudioSessionPortDescription *cachedPickedInputRoutePortDescription; // @synthesize cachedPickedInputRoutePortDescription=_cachedPickedInputRoutePortDescription;
 - (void).cxx_destruct;
+- (long long)_outputRouteFromAudioSession;
 - (void)_updateHasCategoryEverBeenActive;
 - (void)audioSessionRouteChangeNotification:(id)arg1;
 - (void)audioSessionInterruptionNotification:(id)arg1;
@@ -31,6 +32,7 @@
 - (void)fetchAvailableRoutesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)_rcDelegate;
 - (void)setDelegate:(id)arg1;
+- (long long)outputRouteTypeForNavigationIcon;
 - (_Bool)makeAudioSessionCategoryActive:(_Bool)arg1;
 - (void)showAvailableRoutes;
 @property(readonly, nonatomic) _Bool isRoutingToPhoneCall;

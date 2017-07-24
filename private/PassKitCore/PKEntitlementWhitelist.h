@@ -18,10 +18,13 @@
     _Bool _paymentPresentation;
     _Bool _inAppPayments;
     _Bool _inAppPaymentsPrivate;
+    _Bool _webPayments;
+    _Bool _winterpegPayments;
     _Bool _cardOnFilePayments;
     _Bool _trustedDeviceEnrollmentInfo;
     _Bool _peerPaymentAllAccess;
     _Bool _addSilently;
+    int _processIdentifier;
     NSString *_applicationID;
     NSArray *_merchantIdentifiers;
     NSArray *_teamIDs;
@@ -29,6 +32,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly) int processIdentifier; // @synthesize processIdentifier=_processIdentifier;
 @property _Bool addSilently; // @synthesize addSilently=_addSilently;
 @property(copy) NSArray *passTypeIDs; // @synthesize passTypeIDs=_passTypeIDs;
 @property(copy) NSArray *teamIDs; // @synthesize teamIDs=_teamIDs;
@@ -37,6 +41,8 @@
 @property(readonly) _Bool peerPaymentAllAccess; // @synthesize peerPaymentAllAccess=_peerPaymentAllAccess;
 @property(readonly) _Bool trustedDeviceEnrollmentInfo; // @synthesize trustedDeviceEnrollmentInfo=_trustedDeviceEnrollmentInfo;
 @property(readonly) _Bool cardOnFilePayments; // @synthesize cardOnFilePayments=_cardOnFilePayments;
+@property(readonly) _Bool winterpegPayments; // @synthesize winterpegPayments=_winterpegPayments;
+@property(readonly) _Bool webPayments; // @synthesize webPayments=_webPayments;
 @property(readonly) _Bool inAppPaymentsPrivate; // @synthesize inAppPaymentsPrivate=_inAppPaymentsPrivate;
 @property(readonly) _Bool inAppPayments; // @synthesize inAppPayments=_inAppPayments;
 @property(readonly) _Bool paymentPresentation; // @synthesize paymentPresentation=_paymentPresentation;
@@ -47,6 +53,8 @@
 @property(readonly) _Bool passesAllAccess; // @synthesize passesAllAccess=_passesAllAccess;
 - (void).cxx_destruct;
 - (void)_probeEntitlementsWithConnection:(id)arg1;
+- (_Bool)isEntitledForPaymentRequest:(id)arg1;
+- (_Bool)supportsWebPayments;
 @property(readonly) _Bool allAccess;
 - (id)initWithConnection:(id)arg1;
 

@@ -26,8 +26,10 @@
 + (void)applyLoadedTrackTintToView:(id)arg1;
 + (void)applyCompletedTrackTintToView:(id)arg1;
 + (void)applyBaseTrackTintToView:(id)arg1;
++ (void)configureSlider:(id)arg1 thumbView:(id)arg2 loadedTrackView:(id)arg3;
 + (void)applySecondaryGlyphTintToView:(id)arg1;
 + (void)applyPrimaryGlyphTintToView:(id)arg1;
++ (void)applyPlusLFilterToView:(id)arg1;
 @property(retain, nonatomic) NSArray *secondaryMaterialOverlayViewConstraints; // @synthesize secondaryMaterialOverlayViewConstraints=_secondaryMaterialOverlayViewConstraints;
 @property(retain, nonatomic) UIView *secondaryMaterialOverlayView; // @synthesize secondaryMaterialOverlayView=_secondaryMaterialOverlayView;
 @property(readonly, nonatomic) UIVisualEffectView *visualEffectView; // @synthesize visualEffectView=_visualEffectView;
@@ -37,12 +39,17 @@
 @property(readonly, nonatomic) long long axis; // @synthesize axis=_axis;
 - (void).cxx_destruct;
 - (void)_ensureContentView;
+- (void)_updateTransparencyOfVisualEffectView;
 - (void)layoutSubviews;
 - (void)updateConstraints;
-@property(nonatomic) struct UIEdgeInsets contentLayoutMargins;
+- (void)setSemanticContentAttribute:(long long)arg1;
+@property(nonatomic) struct NSDirectionalEdgeInsets contentLayoutMargins;
 - (void)setCustomSpacing:(double)arg1 afterViews:(id)arg2;
 - (void)setCustomSpacing:(double)arg1 afterView:(id)arg2;
+- (void)setHitRectInsets:(struct NSDirectionalEdgeInsets)arg1;
 - (void)setArrangedSubviews:(id)arg1 axis:(long long)arg2;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithArrangedSubviews:(id)arg1;
 
 @end

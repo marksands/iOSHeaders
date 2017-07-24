@@ -9,12 +9,11 @@
 #import <NewsCore/FCAppConfigurationObserving-Protocol.h>
 #import <NewsCore/NSURLSessionDelegate-Protocol.h>
 
-@class FCAsyncSerialQueue, NSString, NSURL, NSURLSession;
-@protocol FCContentContext;
+@class FCAppConfigurationManager, FCAsyncSerialQueue, NSString, NSURL, NSURLSession;
 
 @interface FCEndpointConnection : NSObject <NSURLSessionDelegate, FCAppConfigurationObserving>
 {
-    id <FCContentContext> _context;
+    FCAppConfigurationManager *_appConfigurationManager;
     NSURL *_baseURL;
     NSURLSession *_session;
     FCAsyncSerialQueue *_requestSerialQueue;
@@ -25,13 +24,14 @@
 @property(retain, nonatomic) FCAsyncSerialQueue *requestSerialQueue; // @synthesize requestSerialQueue=_requestSerialQueue;
 @property(retain, nonatomic) NSURLSession *session; // @synthesize session=_session;
 @property(copy) NSURL *baseURL; // @synthesize baseURL=_baseURL;
-@property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
+@property(retain, nonatomic) FCAppConfigurationManager *appConfigurationManager; // @synthesize appConfigurationManager=_appConfigurationManager;
 - (void).cxx_destruct;
 - (_Bool)_hasOverrideCAPIBaseURL;
 - (id)_overrideCAPIBaseURLString;
 - (void)performHTTPRequestWithURL:(id)arg1 valuesByHTTPHeaderField:(id)arg2 method:(id)arg3 data:(id)arg4 contentType:(id)arg5 priority:(float)arg6 callbackQueue:(id)arg7 completion:(CDUnknownBlockType)arg8;
 - (void)performHTTPRequestWithURL:(id)arg1 method:(id)arg2 data:(id)arg3 contentType:(id)arg4 priority:(float)arg5 callbackQueue:(id)arg6 completion:(CDUnknownBlockType)arg7;
-- (id)initWithContext:(id)arg1;
+- (id)initWithAppConfigurationManager:(id)arg1 sourceApplicationBundleIdentifier:(id)arg2;
+- (id)initWithAppConfigurationManager:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

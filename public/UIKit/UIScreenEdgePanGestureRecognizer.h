@@ -13,11 +13,13 @@
 @interface UIScreenEdgePanGestureRecognizer : UIPanGestureRecognizer <_UIScreenEdgePanRecognizerDelegate>
 {
     _UIScreenEdgePanRecognizer *_recognizer;
+    _Bool _ignoreSubsequentTouches;
 }
 
 + (_Bool)_shouldSupportStylusTouches;
 + (_Bool)_shouldDefaultToTouches;
 - (void).cxx_destruct;
+- (_Bool)ignoreSubsequentTouches;
 - (unsigned long long)touchedEdges;
 - (void)setRecognizeAlongEdge:(_Bool)arg1;
 - (_Bool)recognizeAlongEdge;
@@ -36,6 +38,7 @@
 - (long long)_touchInterfaceOrientation;
 - (struct CGPoint)_locationForTouch:(id)arg1;
 @property(nonatomic) unsigned long long edges;
+- (id)_recognizer;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

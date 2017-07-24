@@ -12,7 +12,6 @@
 
 + (id)cardSectionClasses;
 - (_Bool)_expectsSearchUIView;
-- (_Bool)_showsNextCardChevron;
 - (_Bool)_shouldRenderButtonOverlay;
 
 @end

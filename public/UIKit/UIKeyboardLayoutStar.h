@@ -96,6 +96,7 @@ __attribute__((visibility("hidden")))
     UIView *_dimKeyboardImageView;
     _Bool _keyboardImageViewIsDim;
     _Bool _isOutOfBounds;
+    _Bool _inDealloc;
     NSMutableSet *_keysUnderIndicator;
     _UIKeyboardTypingSpeedLogger *_typingSpeedLogger;
     UIKBRenderConfig *_passcodeRenderConfig;
@@ -279,6 +280,7 @@ __attribute__((visibility("hidden")))
 - (long long)currentHandBias;
 - (double)biasedKeyboardWidthRatio;
 - (void)calculateReachabilityScoreWithKey:(id)arg1 keyError:(struct CGPoint)arg2;
+- (void)resetHRRLayoutState;
 - (void)setNeedsVirtualDriftUpdate;
 - (_Bool)_handRestRecognizerCancelShouldBeEnd;
 - (id)getHorizontalOffsetFromHomeRowForRowRelativeToHomeRow:(long long)arg1;
@@ -389,6 +391,7 @@ __attribute__((visibility("hidden")))
 - (void)annotateWriteboardDisplayTypeHintForKeyIfNeeded;
 - (_Bool)useUndoForMessagesWriteboard;
 - (_Bool)useDismissForMessagesWriteboard;
+- (_Bool)ignoreWriteboard;
 - (void)annotateKeysWithDeveloperPunctuation;
 - (_Bool)_allowPaddle;
 - (unsigned long long)keyplaneShiftState;

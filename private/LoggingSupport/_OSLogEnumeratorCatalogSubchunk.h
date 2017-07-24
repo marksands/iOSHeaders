@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary, _OSLogEnumeratorCatalog;
+#import <LoggingSupport/_OSLogIndexTimeRangable-Protocol.h>
+
+@class NSMutableDictionary, NSString, _OSLogEnumeratorCatalog;
 
 __attribute__((visibility("hidden")))
-@interface _OSLogEnumeratorCatalogSubchunk : NSObject
+@interface _OSLogEnumeratorCatalogSubchunk : NSObject <_OSLogIndexTimeRangable>
 {
     NSMutableDictionary *_decompressedChunks;
     struct catalog_subchunk_s *_subchunk;
@@ -29,6 +31,12 @@ __attribute__((visibility("hidden")))
 - (long long)oldestTimeCompare:(id)arg1;
 - (id)initWithCatalog:(id)arg1 subchunk:(struct catalog_subchunk_s *)arg2 range:(struct _NSRange)arg3 oldestTime:(unsigned long long)arg4 endTime:(unsigned long long)arg5;
 - (id)initWithCatalog:(id)arg1 subchunk:(struct catalog_subchunk_s *)arg2 range:(struct _NSRange)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

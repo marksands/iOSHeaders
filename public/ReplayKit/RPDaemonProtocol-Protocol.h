@@ -10,18 +10,10 @@
 
 @protocol RPDaemonProtocol <NSObject>
 - (oneway void)setMicrophoneEnabledPersistent:(_Bool)arg1;
-- (oneway void)setBroadcastingState:(_Bool)arg1;
 - (oneway void)setBroadcastURL:(NSString *)arg1;
 - (oneway void)setHasUserConsentForMicrophone:(_Bool)arg1;
 - (oneway void)setHasUserConsentForCamera:(_Bool)arg1;
-- (oneway void)getBroadcastURL:(void (^)(NSString *))arg1;
-- (oneway void)getHasUserConsentForMicrophone:(void (^)(_Bool))arg1;
-- (oneway void)getHasUserConsentForCamera:(void (^)(_Bool))arg1;
-- (oneway void)getSystemRecordState:(void (^)(_Bool))arg1;
-- (oneway void)getMicrophoneEnabaledPersistent:(void (^)(_Bool))arg1;
-- (oneway void)getMicrophoneState:(void (^)(_Bool))arg1;
-- (oneway void)getBroadcastingState:(void (^)(_Bool))arg1;
-- (oneway void)getRecordingState:(void (^)(_Bool))arg1;
+- (oneway void)synchronousGetCurrentState:(void (^)(NSDictionary *))arg1;
 - (oneway void)clientDidResignActive;
 - (oneway void)clientDidBecomeActive;
 - (oneway void)discardRecordingWithHandler:(void (^)(void))arg1;

@@ -21,6 +21,8 @@ __attribute__((visibility("hidden")))
     long long _countOfBytesClientExpectsToSend;
     long long _countOfBytesClientExpectsToReceive;
     long long _countOfBytesReceived;
+    long long __countOfPendingBytesReceivedEncoded;
+    long long __countOfBytesReceivedEncoded;
     long long _countOfBytesSent;
     long long _countOfBytesExpectedToSend;
     long long _countOfBytesExpectedToReceive;
@@ -102,6 +104,7 @@ __attribute__((visibility("hidden")))
     _Bool _progressReportingFinished;
     NSURL *_publishingURL;
     NSURL *_backgroundPublishingURL;
+    struct os_unfair_lock_s _unfair_lock;
     _Bool _extractorPreparedForExtraction;
 }
 
@@ -223,6 +226,10 @@ __attribute__((visibility("hidden")))
 - (long long)countOfBytesExpectedToSend;
 - (void)setCountOfBytesSent:(long long)arg1;
 - (long long)countOfBytesSent;
+- (void)set_countOfBytesReceivedEncoded:(long long)arg1;
+- (long long)_countOfBytesReceivedEncoded;
+- (void)set_countOfPendingBytesReceivedEncoded:(long long)arg1;
+- (long long)_countOfPendingBytesReceivedEncoded;
 - (void)setCountOfBytesReceived:(long long)arg1;
 - (long long)countOfBytesReceived;
 - (void)setCountOfBytesClientExpectsToReceive:(long long)arg1;
@@ -245,6 +252,8 @@ __attribute__((visibility("hidden")))
 - (void)_finishProgressReporting;
 - (void)_completeUploadProgress;
 - (id)progress;
+- (void)_consumePendingBytesReceivedEncoded;
+- (void)_appendCountOfPendingBytesReceivedEncoded:(long long)arg1;
 - (id)_transactionMetrics;
 - (void)_prepareNewTimingDataContainer;
 - (id)_dependencyInfo;

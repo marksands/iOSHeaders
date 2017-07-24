@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSMutableArray;
+@class NSMutableArray, UIViewAnimationState;
 
 __attribute__((visibility("hidden")))
 @interface UIViewAnimationBlockDelegate : NSObject
@@ -21,11 +21,13 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _completion;
     NSMutableArray *_systemPostAnimationActions;
     _Bool __forcingImmediateCompletion;
+    UIViewAnimationState *_animationState;
 }
 
 + (void)setAnimationBlockDelegateWithDuration:(double)arg1 options:(unsigned long long)arg2 start:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
 + (id)animationBlockDelegateWithDuration:(double)arg1 options:(unsigned long long)arg2 start:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
 @property(nonatomic, setter=_setForcingImmediateCompletion:) _Bool _forcingImmediateCompletion; // @synthesize _forcingImmediateCompletion=__forcingImmediateCompletion;
+@property(nonatomic) __weak UIViewAnimationState *_animationState; // @synthesize _animationState;
 @property(readonly, nonatomic) _Bool _allowsUserInteraction; // @synthesize _allowsUserInteraction=_allowUserInteraction;
 - (void).cxx_destruct;
 - (_Bool)_allowsHitTesting;

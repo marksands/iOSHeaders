@@ -56,7 +56,7 @@
 - (unsigned int)getType;
 @property(readonly, nonatomic) NSString *CNIdentifierString;
 @property(readonly, nonatomic) int id;
-- (void)completeCNImplIfNeededWithKeysToFetch:(id)arg1;
+- (_Bool)completeCNImplIfNeededWithKeysToFetch:(id)arg1;
 - (unsigned long long)_cfTypeID;
 - (id)initWithMutableContact:(id)arg1 source:(id)arg2;
 - (id)initWithSource:(id)arg1;

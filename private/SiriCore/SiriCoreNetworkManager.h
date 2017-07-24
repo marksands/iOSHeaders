@@ -7,14 +7,15 @@
 #import <objc/NSObject.h>
 
 @class NSHashTable, SiriCoreWiFiManagerClient;
-@protocol OS_dispatch_queue;
+@protocol OS_dispatch_queue, OS_nw_path_evaluator;
 
 @interface SiriCoreNetworkManager : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSHashTable *_observers;
-    struct __SCNetworkReachability *_scReachability;
-    unsigned int _flags;
+    NSObject<OS_nw_path_evaluator> *_pathEvaluator;
+    int _pathStatus;
+    _Bool _pathUsesCellular;
     SiriCoreWiFiManagerClient *_wiFiManagerClient;
     _Bool _hasSymptomsBasedInstantCellQuality;
     _Bool _symptomsBasedInstantCellQualityIsGood;
@@ -41,19 +42,20 @@
 - (void)disableWiFiTimeout;
 - (void)enableWiFiTimeout;
 - (void)forceFastDormancy;
-- (int)_reportWiFiHistoricalQuality;
-- (int)_reportWiFiInstantQuality;
-- (int)_reportCellularHistoricalQuality;
-- (int)_reportCellularInstantQuality;
-- (id)qualityReport;
-- (_Bool)isWiFiNetworkCurrentlyAvailable;
-- (_Bool)isCellularNetworkCurrentlyAvailable;
+- (long long)_reportWiFiHistoricalQuality;
+- (long long)_reportWiFiInstantQuality;
+- (long long)_reportCellularHistoricalQuality;
+- (long long)_reportCellularInstantQuality;
+- (void)getQualityReport:(CDUnknownBlockType)arg1;
+- (long long)anyNetworkQuality;
+- (long long)wifiNetworkQuality;
+- (long long)cellularNetworkQuality;
 - (void)getNetworkPerformanceFeed;
 - (void)_getNetworkPerformanceFeed;
 - (void)stopMonitoringNetwork;
 - (void)_stopMonitoringNetwork;
 - (void)startMonitoringNetworkForHost:(id)arg1;
-- (void)_setFlags:(unsigned int)arg1;
+- (void)_pathUpdated:(id)arg1;
 - (id)_wiFiManagerClient;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;

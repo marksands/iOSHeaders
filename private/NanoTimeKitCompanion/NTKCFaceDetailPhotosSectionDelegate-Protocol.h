@@ -9,6 +9,6 @@
 @class NTKCFaceDetailPhotosSectionController;
 
 @protocol NTKCFaceDetailPhotosSectionDelegate <NTKCFaceDetailEditOptionSectionDelegate>
-- (void)photoSection:(NTKCFaceDetailPhotosSectionController *)arg1 didUpdateNumberOfPhotos:(unsigned long long)arg2;
+- (void)photoSectionDidUpdate:(NTKCFaceDetailPhotosSectionController *)arg1;
 @end
 

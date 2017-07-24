@@ -6,13 +6,16 @@
 
 #import <objc/NSObject.h>
 
-@class SXContext, SXDocumentStyle, SXGradientFillView, SXImageFillView, SXVideoFillView, UIScrollView;
+#import <Silex/SXDocumentStyleRenderer-Protocol.h>
+#import <Silex/SXViewportChangeListener-Protocol.h>
 
-@interface SXDocumentStyleRenderer : NSObject
+@class NSString, SXContext, SXGradientFillView, SXImageFillView, SXVideoFillView, SXViewport, UIView;
+
+@interface SXDocumentStyleRenderer : NSObject <SXViewportChangeListener, SXDocumentStyleRenderer>
 {
-    SXDocumentStyle *_documentStyle;
     SXContext *_context;
-    UIScrollView *_scrollView;
+    SXViewport *_viewport;
+    UIView *_topBackgroundView;
     SXGradientFillView *_gradientFillView;
     SXImageFillView *_imageFillView;
     SXVideoFillView *_videoFillView;
@@ -21,17 +24,27 @@
 @property(retain, nonatomic) SXVideoFillView *videoFillView; // @synthesize videoFillView=_videoFillView;
 @property(retain, nonatomic) SXImageFillView *imageFillView; // @synthesize imageFillView=_imageFillView;
 @property(retain, nonatomic) SXGradientFillView *gradientFillView; // @synthesize gradientFillView=_gradientFillView;
-@property(readonly, nonatomic) __weak UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
-@property(readonly, nonatomic) __weak SXContext *context; // @synthesize context=_context;
+@property(retain, nonatomic) UIView *topBackgroundView; // @synthesize topBackgroundView=_topBackgroundView;
+@property(readonly, nonatomic) SXViewport *viewport; // @synthesize viewport=_viewport;
+@property(readonly, nonatomic) SXContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (void)viewport:(id)arg1 boundsDidChangeFromBounds:(struct CGRect)arg2;
+- (void)layoutTopBackgroundView;
 - (id)videoPlayerViewForFill:(id)arg1;
 - (id)imageViewForFill:(id)arg1;
 - (id)gradientViewForFill:(id)arg1;
 - (id)viewForFill:(id)arg1;
-- (void)applyFill:(id)arg1;
-- (void)applyDocumentStyle;
-@property(readonly, nonatomic) SXDocumentStyle *documentStyle; // @synthesize documentStyle=_documentStyle;
-- (id)initWithScrollView:(id)arg1 context:(id)arg2;
+- (void)applyFillForStyle:(id)arg1 onView:(id)arg2;
+- (void)applyTopBackgroundColorForStyle:(id)arg1 onView:(id)arg2;
+- (void)applyBackgroundColorForStyle:(id)arg1 onView:(id)arg2;
+- (void)applyStyle:(id)arg1 onView:(id)arg2;
+- (id)initWithContext:(id)arg1 viewport:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

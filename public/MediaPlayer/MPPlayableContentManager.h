@@ -46,7 +46,7 @@
 - (void)_setupNotifications;
 - (void)_tearDownMediaRemoteEndpoint;
 - (void)_setupMediaRemoteEndpoint;
-- (void)_enqueueArtworkUpdate:(id)arg1 width:(double)arg2 height:(double)arg3 withCompletion:(CDUnknownBlockType)arg4;
+- (void)_enqueueArtworkUpdate:(id)arg1 size:(struct CGSize)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)_enqueueArtworkUpdate:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_contentItemChangedNotification:(id)arg1;
 - (void)endUpdates;

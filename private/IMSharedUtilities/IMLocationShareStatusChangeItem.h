@@ -7,12 +7,12 @@
 #import <IMSharedUtilities/IMItem.h>
 
 #import <IMSharedUtilities/IMRemoteObjectCoding-Protocol.h>
-#import <IMSharedUtilities/NSCoding-Protocol.h>
 #import <IMSharedUtilities/NSCopying-Protocol.h>
+#import <IMSharedUtilities/NSSecureCoding-Protocol.h>
 
 @class NSString;
 
-@interface IMLocationShareStatusChangeItem : IMItem <NSCoding, NSCopying, IMRemoteObjectCoding>
+@interface IMLocationShareStatusChangeItem : IMItem <NSSecureCoding, NSCopying, IMRemoteObjectCoding>
 {
     _Bool _actionable;
     _Bool _expired;
@@ -23,6 +23,7 @@
     long long _direction;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) long long direction; // @synthesize direction=_direction;
 @property(retain, nonatomic) NSString *otherUnformattedID; // @synthesize otherUnformattedID=_otherUnformattedID;
 @property(retain, nonatomic) NSString *otherHandle; // @synthesize otherHandle=_otherHandle;
@@ -33,6 +34,7 @@
 - (_Bool)isLastMessageCandidate;
 - (id)copyDictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -6,14 +6,14 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <SafariServices/SFBrowserRemoveViewControllerDelegate-Protocol.h>
+#import <SafariServices/SFBrowserRemoteViewControllerDelegate-Protocol.h>
 #import <SafariServices/SFInteractiveDismissControllerDelegate-Protocol.h>
 #import <SafariServices/_SFQueueingBrowserServiceViewControllerProxyDelegate-Protocol.h>
 
 @class NSArray, NSMutableDictionary, NSString, NSURL, SFBrowserRemoteViewController, SFInteractiveDismissController, SFSafariLaunchPlaceholderView, SFSafariViewControllerConfiguration, UIColor, _SFQueueingBrowserServiceViewControllerProxy, _UIAsyncInvocation, _WKActivatedElementInfo;
 @protocol SFSafariViewControllerDelegate;
 
-@interface SFSafariViewController : UIViewController <SFBrowserRemoveViewControllerDelegate, SFInteractiveDismissControllerDelegate, _SFQueueingBrowserServiceViewControllerProxyDelegate>
+@interface SFSafariViewController : UIViewController <SFBrowserRemoteViewControllerDelegate, SFInteractiveDismissControllerDelegate, _SFQueueingBrowserServiceViewControllerProxyDelegate>
 {
     SFBrowserRemoteViewController *_remoteViewController;
     _UIAsyncInvocation *_cancelViewServiceRequest;
@@ -22,6 +22,7 @@
     _WKActivatedElementInfo *_activatedElementInfo;
     NSArray *_customActivities;
     NSMutableDictionary *_activitiesMap;
+    NSArray *_activityItemsForCustomActivities;
     _Bool _swipeGestureEnabled;
     SFInteractiveDismissController *_interactiveDismissController;
     SFSafariLaunchPlaceholderView *_launchPlaceholderView;
@@ -56,6 +57,7 @@
 - (void)remoteViewController:(id)arg1 viewServiceDidTerminateWithError:(id)arg2;
 - (void)remoteViewControllerWillDismiss:(id)arg1;
 - (void)remoteViewControllerDidLoadWebView:(id)arg1;
+- (void)_addRemoteViewControllerIfNeeded;
 - (void)_connectToService;
 - (void)_removeRemoteView;
 - (void)_setEdgeSwipeDismissalEnabled:(_Bool)arg1;
@@ -71,8 +73,10 @@
 @property(readonly, copy, nonatomic) SFSafariViewControllerConfiguration *configuration;
 - (void)setTransitioningDelegate:(id)arg1;
 - (void)setModalPresentationStyle:(long long)arg1;
+- (void)_setUpWithURL:(id)arg1 configuration:(id)arg2;
 - (id)initWithURL:(id)arg1 entersReaderIfAvailable:(_Bool)arg2;
 - (id)initWithURL:(id)arg1 configuration:(id)arg2;
+- (id)_defaultPreviewActionItems;
 - (id)previewActionItems;
 @property(retain, nonatomic, setter=_setActivatedElementInfo:) _WKActivatedElementInfo *_activatedElementInfo;
 @property(retain, nonatomic, setter=_setPreviewActions:) NSArray *_previewActions;

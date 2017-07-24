@@ -11,6 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (struct CGRect)frameOfPresentedViewInContainerView;
+- (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
 - (_Bool)_shouldKeepCurrentFirstResponder;
 - (_Bool)shouldPresentInFullscreen;
 

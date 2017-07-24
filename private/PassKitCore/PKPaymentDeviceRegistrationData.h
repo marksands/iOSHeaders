@@ -8,7 +8,7 @@
 
 #import <PassKitCore/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSDictionary, NSString;
+@class NSArray, NSData, NSDictionary, NSString;
 
 @interface PKPaymentDeviceRegistrationData : NSObject <NSSecureCoding>
 {
@@ -20,12 +20,16 @@
     NSArray *_additionalDeviceSerialNumbers;
     NSString *_companionSerialNumber;
     NSString *_productType;
+    NSData *_platformData;
+    NSData *_platformDataSignature;
     NSArray *_legacyStateInformation;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSArray *legacyStateInformation; // @synthesize legacyStateInformation=_legacyStateInformation;
 @property(nonatomic) _Bool devSigned; // @synthesize devSigned=_devSigned;
+@property(copy, nonatomic) NSData *platformDataSignature; // @synthesize platformDataSignature=_platformDataSignature;
+@property(copy, nonatomic) NSData *platformData; // @synthesize platformData=_platformData;
 @property(copy, nonatomic) NSString *productType; // @synthesize productType=_productType;
 @property(copy, nonatomic) NSString *companionSerialNumber; // @synthesize companionSerialNumber=_companionSerialNumber;
 @property(copy, nonatomic) NSArray *additionalDeviceSerialNumbers; // @synthesize additionalDeviceSerialNumbers=_additionalDeviceSerialNumbers;

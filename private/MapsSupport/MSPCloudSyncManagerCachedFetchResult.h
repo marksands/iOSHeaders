@@ -7,7 +7,7 @@
 #import <objc/NSObject.h>
 
 @class MSPCloudRepeatableTask, NSArray, NSDictionary;
-@protocol MSPCloudAccess;
+@protocol MSPCloudAccess, MSPCloudRecord;
 
 __attribute__((visibility("hidden")))
 @interface MSPCloudSyncManagerCachedFetchResult : NSObject
@@ -17,10 +17,12 @@ __attribute__((visibility("hidden")))
     NSDictionary *_cloudRecordsByIdentifier;
     NSDictionary *_replicaRecords;
     NSArray *_clientRegistrationRecords;
+    id <MSPCloudRecord> _registrationRecordForCurrentClient;
     NSArray *_deletedRecordNames;
 }
 
 @property(copy) NSArray *deletedRecordNames; // @synthesize deletedRecordNames=_deletedRecordNames;
+@property(retain) id <MSPCloudRecord> registrationRecordForCurrentClient; // @synthesize registrationRecordForCurrentClient=_registrationRecordForCurrentClient;
 @property(copy) NSArray *clientRegistrationRecords; // @synthesize clientRegistrationRecords=_clientRegistrationRecords;
 @property(copy) NSDictionary *replicaRecords; // @synthesize replicaRecords=_replicaRecords;
 @property(copy) NSDictionary *cloudRecordsByIdentifier; // @synthesize cloudRecordsByIdentifier=_cloudRecordsByIdentifier;

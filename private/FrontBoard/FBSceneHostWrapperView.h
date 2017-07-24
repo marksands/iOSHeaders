@@ -12,7 +12,7 @@
 #import <FrontBoard/FBSceneLayerManagerObserver-Protocol.h>
 #import <FrontBoard/_FBSceneGeometryObserver-Protocol.h>
 
-@class FBScene, FBSceneHostManager, FBSceneLayerHostContainerView, FBSceneLayerManager, NSMutableSet, NSSet, NSString, UIColor;
+@class FBScene, FBSceneHostManager, FBSceneLayerHostContainerView, FBSceneLayerManager, NSMapTable, NSMutableSet, NSSet, NSString, UIColor;
 @protocol FBSceneHostViewDelegate;
 
 @interface FBSceneHostWrapperView : UIView <_FBSceneGeometryObserver, FBSceneLayerManagerObserver, FBSceneLayerHostContainerViewDataSource, BSDescriptionProviding, FBSceneHostView>
@@ -22,6 +22,7 @@
     FBSceneLayerManager *_layerManager;
     FBSceneHostManager *_manager;
     FBSceneLayerHostContainerView *_hostContainerView;
+    NSMapTable *_layerAlphaMapTable;
     NSMutableSet *_hiddenLayers;
     unsigned long long _appearanceStyle;
     UIColor *_backgroundColorWhileNotHosting;
@@ -54,6 +55,7 @@
 - (void)_scene:(id)arg1 didChangeLayoutWithAnimationSettings:(id)arg2;
 - (id)layerMinificationFilterNameForHostContainerView:(id)arg1;
 - (unsigned long long)contextHostRenderingModeForHostContainerView:(id)arg1;
+- (double)hostContainerView:(id)arg1 alphaForLayer:(id)arg2;
 - (id)layersForHostContainerView:(id)arg1;
 - (void)sceneLayerManager:(id)arg1 didRepositionLayer:(id)arg2 fromIndex:(unsigned long long)arg3 toIndex:(unsigned long long)arg4;
 - (id)window;
@@ -76,6 +78,7 @@
 - (void)setDefaultRenderingMode:(unsigned long long)arg1;
 - (void)setDefaultHostedLayerTypes:(unsigned long long)arg1;
 - (void)setLayer:(id)arg1 hidden:(_Bool)arg2;
+- (void)setLayer:(id)arg1 alpha:(double)arg2;
 - (void)updateBackgroundColor;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

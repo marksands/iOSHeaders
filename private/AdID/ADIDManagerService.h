@@ -9,16 +9,21 @@
 #import <AdID/ADIDManager_XPC-Protocol.h>
 #import <AdID/NSXPCListenerDelegate-Protocol.h>
 
-@class NSString, NSXPCListener;
+@class NSMutableArray, NSObject, NSString, NSXPCListener;
+@protocol OS_dispatch_queue;
 
 @interface ADIDManagerService : ADSingleton <ADIDManager_XPC, NSXPCListenerDelegate>
 {
+    NSObject<OS_dispatch_queue> *_forceReconcileQueue;
     NSXPCListener *_listener;
+    NSMutableArray *_reconcileArray;
 }
 
 + (id)sharedInstance;
+@property(retain, nonatomic) NSMutableArray *reconcileArray; // @synthesize reconcileArray=_reconcileArray;
 @property(retain) NSXPCListener *listener; // @synthesize listener=_listener;
 - (void).cxx_destruct;
+- (unsigned long long)delayForNewForceReconcileRequest;
 - (void)forceReconcile:(CDUnknownBlockType)arg1;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (id)init;

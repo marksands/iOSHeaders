@@ -13,6 +13,8 @@
     _Bool _showLoadingIndicator;
     _Bool _displayAsPaused;
     _Bool _autoHidingEnabled;
+    _Bool _controlsShouldBeVisible;
+    _Bool _muted;
     NSArray *_upperRightControls;
     NSArray *_upNextControls;
     unsigned long long _skipThreshold;
@@ -20,11 +22,13 @@
     NSString *_upNextSubtitle;
 }
 
+@property(nonatomic) _Bool muted; // @synthesize muted=_muted;
 @property(retain, nonatomic) NSString *upNextSubtitle; // @synthesize upNextSubtitle=_upNextSubtitle;
 @property(retain, nonatomic) NSString *upNextTitle; // @synthesize upNextTitle=_upNextTitle;
 @property(nonatomic) unsigned long long skipThreshold; // @synthesize skipThreshold=_skipThreshold;
 @property(retain, nonatomic) NSArray *upNextControls; // @synthesize upNextControls=_upNextControls;
 @property(retain, nonatomic) NSArray *upperRightControls; // @synthesize upperRightControls=_upperRightControls;
+@property(nonatomic) _Bool controlsShouldBeVisible; // @synthesize controlsShouldBeVisible=_controlsShouldBeVisible;
 @property(nonatomic) _Bool autoHidingEnabled; // @synthesize autoHidingEnabled=_autoHidingEnabled;
 @property(nonatomic) _Bool displayAsPaused; // @synthesize displayAsPaused=_displayAsPaused;
 @property(nonatomic) _Bool showLoadingIndicator; // @synthesize showLoadingIndicator=_showLoadingIndicator;

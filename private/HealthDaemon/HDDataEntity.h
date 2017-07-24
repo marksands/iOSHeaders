@@ -57,13 +57,13 @@
 + (id)dataEntityForObject:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (void)deleteDataObjects:(id)arg1 restrictedSourceEntities:(id)arg2 failIfNotFound:(_Bool)arg3 profile:(id)arg4 recursiveDeleteAuthorizationBlock:(CDUnknownBlockType)arg5 completionHandler:(CDUnknownBlockType)arg6;
 + (id)_sourceBundleIdentifierForSourceEntities:(id)arg1 profile:(id)arg2 error:(id *)arg3;
-+ (_Bool)journalObjects:(id)arg1 withProvenance:(id)arg2 creationDate:(double)arg3 profile:(id)arg4 error:(id *)arg5;
-+ (void)insertDataObjects:(id)arg1 withProvenance:(id)arg2 creationDate:(double)arg3 profile:(id)arg4 skipInsertionFilter:(_Bool)arg5 completionHandler:(CDUnknownBlockType)arg6;
-+ (_Bool)_validateObjectsToInsert:(id)arg1 profile:(id)arg2 skipInsertionFilter:(_Bool)arg3 error:(id *)arg4;
-+ (_Bool)_insertDataObject:(id)arg1 provenance:(id)arg2 creationDateSetter:(CDUnknownBlockType)arg3 profile:(id)arg4 database:(id)arg5 insertedEntityID:(id *)arg6 error:(id *)arg7;
-+ (_Bool)_shouldInsertDataObject:(id)arg1 currentSyncVersion:(id)arg2;
-+ (id)_primitiveInsertDataObject:(id)arg1 entityClass:(Class)arg2 provenanceEntityID:(long long)arg3 provenance:(id)arg4 profile:(id)arg5 database:(id)arg6 error:(id *)arg7;
-+ (id)insertDataObject:(id)arg1 withProvenance:(id)arg2 creationDate:(double)arg3 profile:(id)arg4 error:(id *)arg5;
++ (_Bool)journalObjects:(id)arg1 insertionContext:(id)arg2 profile:(id)arg3 error:(id *)arg4;
++ (void)insertDataObjects:(id)arg1 insertionContext:(id)arg2 profile:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
++ (_Bool)_validateObjectsToInsert:(id)arg1 insertionContext:(id)arg2 profile:(id)arg3 error:(id *)arg4;
++ (_Bool)_insertDataObject:(id)arg1 insertionContext:(id)arg2 profile:(id)arg3 database:(id)arg4 insertedEntityID:(id *)arg5 error:(id *)arg6;
++ (long long)shouldInsertObject:(id)arg1 localSourceID:(id)arg2 profile:(id)arg3 objectToReplace:(id *)arg4 objectID:(id *)arg5 error:(id *)arg6;
++ (_Bool)_shouldReplaceExistingObject:(id)arg1 withObject:(id)arg2;
++ (id)_primitiveInsertDataObject:(id)arg1 insertionContext:(id)arg2 entityClass:(Class)arg3 provenanceEntityID:(long long)arg4 profile:(id)arg5 database:(id)arg6 error:(id *)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

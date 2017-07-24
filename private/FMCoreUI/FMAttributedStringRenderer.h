@@ -15,9 +15,10 @@
 
 @property(readonly, nonatomic) FMAttributedStringRendererOptions *options; // @synthesize options=_options;
 - (void).cxx_destruct;
-- (id)_imageFromTextStorage:(id)arg1 width:(double)arg2;
+- (id)_imageFromTextStorage:(id)arg1 width:(double)arg2 showExclusionPaths:(_Bool)arg3;
 - (struct CGSize)_sizeFromTextStorage:(id)arg1;
 - (id)_textStorageForAttributedString:(id)arg1 width:(double)arg2 options:(id)arg3;
+- (id)imageForAttributedString:(id)arg1 width:(double)arg2 showExclusionPaths:(_Bool)arg3 options:(id)arg4;
 - (id)imageForAttributedString:(id)arg1 width:(double)arg2 options:(id)arg3;
 - (id)imageForAttributedString:(id)arg1 width:(double)arg2;
 - (id)initWithOptions:(id)arg1;

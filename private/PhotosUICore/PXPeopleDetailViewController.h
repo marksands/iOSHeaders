@@ -16,8 +16,10 @@
     NSArray *_people;
     PXPeopleDetailStatusOverlayView *_overlayView;
     UIScrollView *_overlayScrollView;
+    NSArray *_overlayConstraints;
 }
 
+@property(retain, nonatomic) NSArray *overlayConstraints; // @synthesize overlayConstraints=_overlayConstraints;
 @property(retain, nonatomic) UIScrollView *overlayScrollView; // @synthesize overlayScrollView=_overlayScrollView;
 @property(retain, nonatomic) PXPeopleDetailStatusOverlayView *overlayView; // @synthesize overlayView=_overlayView;
 @property(retain, nonatomic) NSArray *people; // @synthesize people=_people;
@@ -29,15 +31,18 @@
 - (void)_launchNaming:(id)arg1;
 - (void)_updateHeader;
 - (void)_setupHeader;
-- (void)viewDidLayoutSubviews;
+- (void)_updateOverlayConstraintsIfNeeded;
+- (void)_updateOverlayContentSizeIfNeeded;
 - (void)_setupProcessingOverlayView;
 - (void)_loadComposition;
 - (id)_assetCollectionListFetchResultForPeople:(id)arg1 assetCount:(unsigned long long *)arg2;
 - (void)_createNewDetailView:(id)arg1;
+- (void)_suggestionsDidFinish:(id)arg1;
 - (void)refreshName;
 - (void)refreshPeople;
 - (void)presentBootstrapViewControllerWithType:(unsigned long long)arg1;
 - (_Bool)shouldUpdateStatusBarTitle;
+- (void)viewWillLayoutSubviews;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;

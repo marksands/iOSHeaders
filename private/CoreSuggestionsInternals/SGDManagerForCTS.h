@@ -19,6 +19,7 @@
     SGServiceContext *_context;
     struct _opaque_pthread_mutex_t _geocodeLock;
     NSObject<OS_dispatch_queue> *_frontfillQueue;
+    NSObject<OS_dispatch_source> *_frontfillSource;
     NSObject<OS_dispatch_semaphore> *_frontfillSemaphoreForTesting;
     NSObject<OS_dispatch_source> *_adjustActivitySource;
     double _lastFrontfillFinishTime;
@@ -35,7 +36,8 @@
 - (void)waitForXpcActivityQueue;
 - (void)dealloc;
 - (void)processPendingGeocodes;
-- (void)attemptFrontfillHarvestUnderXpcTransaction:(id)arg1;
+- (void)_doFrontfillHarvestOnFrontfillQueue;
+- (void)triggerFrontfillHarvest;
 - (_Bool)_attemptToProcessSearchableItemWithoutDissection:(id)arg1;
 - (_Bool)hasAlreadyHarvestedSearchableItem:(id)arg1;
 - (_Bool)processSearchableItemForTesting:(id)arg1;
@@ -57,6 +59,11 @@
 - (void)_registerForCTSTrimActivity;
 - (void)_performHarvestActivity:(id)arg1;
 - (void)_registerForCTSHarvestActivity;
+- (void)_performCollectWeeklyStats:(id)arg1;
+- (struct SGMEventICSSourceType_)icsTypeForBundle:(id)arg1;
+- (id)accountTypeForBundle:(id)arg1;
+- (struct SGMEventICSSourceType_)accountTypeFor:(id)arg1;
+- (void)_registerForCollectWeeklyStats;
 - (void)registerForCTS;
 - (id)initWithHarvestStore:(id)arg1 queryPredictions:(id)arg2 xpcActivityManager:(id)arg3;
 

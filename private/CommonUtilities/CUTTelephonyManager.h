@@ -22,7 +22,7 @@
 - (void).cxx_destruct;
 - (void)removeFastDormancyDisableToken:(id)arg1;
 - (void)addFastDormancyDisableToken:(id)arg1;
-- (_Bool)disableFastDormancy;
+@property(readonly, nonatomic) _Bool disableFastDormancy;
 - (void)_adjustFastDormancyTokens;
 - (void)__adjustFastDormancyTokens;
 - (void)_setFastDormancySuspended:(_Bool)arg1;

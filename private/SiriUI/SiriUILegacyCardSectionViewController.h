@@ -11,7 +11,7 @@
 
 @class NSString, SiriUICardSectionView, SiriUISnippetViewController;
 
-@interface SiriUILegacyCardSectionViewController : CRKCardSectionViewController <SiriUISnippetViewControllerDelegate, SiriUISnippetViewControllerDelegatePrivate>
+@interface SiriUILegacyCardSectionViewController : CRKCardSectionViewController <SiriUISnippetViewControllerDelegatePrivate, SiriUISnippetViewControllerDelegate>
 {
     SiriUISnippetViewController *_snippetViewController;
     SiriUISnippetViewController *_containingSnippetViewController;
@@ -28,14 +28,15 @@
 - (_Bool)siriViewController:(id)arg1 openPunchOut:(id)arg2;
 - (void)siriViewController:(id)arg1 sendGenericAceCommands:(id)arg2;
 - (id)persistentStoreForSiriViewController:(id)arg1;
+- (id)localeForSiriViewController:(id)arg1;
 - (void)siriViewControllerRequestTearDownEditingViewController:(id)arg1;
 - (void)siriViewController:(id)arg1 startCorrectedSpeechRequestWithText:(id)arg2 correctionIdentifier:(id)arg3 userSelectionResults:(id)arg4;
 - (void)siriViewControllerDidEndEditing:(id)arg1;
 - (void)siriViewControllerWillBeginEditing:(id)arg1;
 - (_Bool)siriViewControllerShouldPreventUserInteraction:(id)arg1;
-- (void)siriSnippetViewController:(id)arg1 didDisambiguateAppWithBundleIdentifier:(id)arg2 metricsContext:(id)arg3;
 - (void)removeSiriViewController:(id)arg1;
 - (void)cancelSpeakingForSiriViewController:(id)arg1;
+- (void)siriSnippetViewController:(id)arg1 didRequestKeyboardWithVisibility:(_Bool)arg2;
 - (void)siriSnippetViewController:(id)arg1 willDismissViewController:(id)arg2;
 - (void)siriSnippetViewController:(id)arg1 willPresentViewController:(id)arg2;
 - (void)siriViewController:(id)arg1 speakText:(id)arg2 completion:(CDUnknownBlockType)arg3;

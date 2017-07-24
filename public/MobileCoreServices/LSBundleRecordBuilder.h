@@ -33,6 +33,7 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_commonInfoPlistEntries;
     _Bool _containerized;
     NSNumber *_compatibilityState;
+    NSNumber *_installFailureReason;
     NSString *_version;
     NSString *_minSystemVersion;
     NSString *_maxSystemVersion;
@@ -157,6 +158,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *maxSystemVersion; // @synthesize maxSystemVersion=_maxSystemVersion;
 @property(readonly, nonatomic) NSString *minSystemVersion; // @synthesize minSystemVersion=_minSystemVersion;
 @property(readonly, nonatomic) NSString *version; // @synthesize version=_version;
+@property(readonly, nonatomic) NSNumber *installFailureReason; // @synthesize installFailureReason=_installFailureReason;
 @property(readonly, nonatomic) NSNumber *compatibilityState; // @synthesize compatibilityState=_compatibilityState;
 @property(readonly, nonatomic) _Bool containerized; // @synthesize containerized=_containerized;
 @property(readonly, nonatomic) _Bool registerChildItemsTrusted; // @synthesize registerChildItemsTrusted=_registerChildItemsTrusted;
@@ -165,8 +167,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned char retries; // @synthesize retries=_retries;
 - (void)dealloc;
 -     // Error parsing type: I32@0:8^{LSDatabase={__CFRuntimeBase=QAQ}^{LSDBImpl}^{__CSStore}{LSSchema=I{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}I}{?=II}IIII{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}}[12{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}^{?}^{?}IC}]IIIIIII^{_LSSchemaCache}}}16^@24, name: registerBundleRecord:error:
--     // Error parsing type: i36@0:8^{LSDatabase={__CFRuntimeBase=QAQ}^{LSDBImpl}^{__CSStore}{LSSchema=I{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}I}{?=II}IIII{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}}[12{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}^{?}^{?}IC}]IIIIIII^{_LSSchemaCache}}}16I24r^{LSBundleData=IQIICCCSIIQQiiQQQQQ[4I]QQQIIIIIIIIIIIIIIIIQQQQIIQQQIQIIIIIIIIIIIIIIIIIIIICCCCIIIIII}28, name: activateBindings:unitID:bundleData:
--     // Error parsing type: {LSBundleData=IQIICCCSIIQQiiQQQQQ[4I]QQQIIIIIIIIIIIIIIIIQQQQIIQQQIQIIIIIIIIIIIIIIIIIIIICCCCIIIIII}32@0:8^{LSDatabase={__CFRuntimeBase=QAQ}^{LSDBImpl}^{__CSStore}{LSSchema=I{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}I}{?=II}IIII{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}}[12{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}^{?}^{?}IC}]IIIIIII^{_LSSchemaCache}}}16^@24, name: buildBundleData:error:
+-     // Error parsing type: i36@0:8^{LSDatabase={__CFRuntimeBase=QAQ}^{LSDBImpl}^{__CSStore}{LSSchema=I{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}I}{?=II}IIII{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}}[12{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}^{?}^{?}IC}]IIIIIII^{_LSSchemaCache}}}16I24r^{LSBundleData=IQIICCCSIIQQiiQQQQQ[4I]QQQQIIIIIIIIIIIIIIIIQQQQIIQQQIQIIIIIIIIIIIIIIIIIIIICCCCIIIIII}28, name: activateBindings:unitID:bundleData:
+-     // Error parsing type: {LSBundleData=IQIICCCSIIQQiiQQQQQ[4I]QQQQIIIIIIIIIIIIIIIIQQQQIIQQQIQIIIIIIIIIIIIIIIIIIIICCCCIIIIII}32@0:8^{LSDatabase={__CFRuntimeBase=QAQ}^{LSDBImpl}^{__CSStore}{LSSchema=I{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}I}{?=II}IIII{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}}[12{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}^{?}^{?}IC}]IIIIIII^{_LSSchemaCache}}}16^@24, name: buildBundleData:error:
 - (void)parseNSExtensionSDKDefinitionsFromDictionary:(id)arg1;
 - (void)parseActivityTypesFromDictionary:(id)arg1;
 - (_Bool)parseInstallationInfo:(id)arg1;
@@ -183,7 +185,7 @@ __attribute__((visibility("hidden")))
 - (id)_LSKeyTypeMap;
 - (id)_LSPlistRaritiesMap;
 - (id)_LSBundleFlagMap;
--     // Error parsing type: i32@0:8^{LSDatabase={__CFRuntimeBase=QAQ}^{LSDBImpl}^{__CSStore}{LSSchema=I{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}I}{?=II}IIII{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}}[12{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}^{?}^{?}IC}]IIIIIII^{_LSSchemaCache}}}16^{LSBundleData=IQIICCCSIIQQiiQQQQQ[4I]QQQIIIIIIIIIIIIIIIIQQQQIIQQQIQIIIIIIIIIIIIIIIIIIIICCCCIIIIII}24, name: registerSchemesWhitelist:bundleData:
+-     // Error parsing type: i32@0:8^{LSDatabase={__CFRuntimeBase=QAQ}^{LSDBImpl}^{__CSStore}{LSSchema=I{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}I}{?=II}IIII{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}}[12{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}^{?}^{?}IC}]IIIIIII^{_LSSchemaCache}}}16^{LSBundleData=IQIICCCSIIQQiiQQQQQ[4I]QQQQIIIIIIIIIIIIIIIIQQQQIIQQQIQIIIIIIIIIIIIIIIIIIIICCCCIIIIII}24, name: registerSchemesWhitelist:bundleData:
 - (void)addArchitectureFlag:(unsigned short)arg1;
 - (void)addItemInfoFlag:(unsigned int)arg1;
 - (void)addIconFlag:(unsigned char)arg1;

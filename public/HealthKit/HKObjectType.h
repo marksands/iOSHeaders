@@ -65,6 +65,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_initWithDefinition:(CDStruct_6b208136 *)arg1;
 - (id)init;
+- (id)hk_localizedNameForAuthSheet;
 - (id)hk_localizedNameForLocale:(id)arg1;
 - (id)hk_localizedName;
 - (id)_hk_localizedNameKey;

@@ -7,7 +7,7 @@
 #import <Foundation/NSURLSessionConfiguration.h>
 
 @interface NSURLSessionConfiguration (GEODataRequest)
-- (_Bool)isCompatibleWithRequest:(id)arg1;
-- (void)configureWithRequest:(id)arg1;
+- (_Bool)geo_isCompatibleWithRequest:(id)arg1;
+- (void)geo_configureWithRequest:(id)arg1;
 @end
 

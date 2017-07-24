@@ -32,6 +32,8 @@
 - (void)connectionDidSecure:(id)arg1;
 - (void)connection:(id)arg1 encounteredTrustDecisionWhileTryingToSecure:(id)arg2;
 - (void)connectionWillSecure:(id)arg1;
+- (void)setName:(id)arg1;
+- (id)name;
 - (id)operationToSendMessage:(id)arg1;
 - (void)invalidateConnection;
 - (void)suspendConnection;

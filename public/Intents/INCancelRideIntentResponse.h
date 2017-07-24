@@ -18,7 +18,7 @@
 @property(retain, nonatomic) NSDateComponents *cancellationFeeThreshold; // @synthesize cancellationFeeThreshold=_cancellationFeeThreshold;
 @property(retain, nonatomic) INCurrencyAmount *cancellationFee; // @synthesize cancellationFee=_cancellationFee;
 - (void).cxx_destruct;
-- (id)description;
+- (id)_dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 @property(readonly, nonatomic) long long code; // @dynamic code;
 - (id)initWithBackingStore:(id)arg1;

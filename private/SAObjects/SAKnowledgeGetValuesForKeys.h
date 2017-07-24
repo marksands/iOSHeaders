@@ -16,6 +16,7 @@
 
 + (id)getValuesForKeysWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getValuesForKeys;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *storeType;
 @property(copy, nonatomic) NSString *storeName;

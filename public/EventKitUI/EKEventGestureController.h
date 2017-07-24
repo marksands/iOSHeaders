@@ -6,6 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
+#import <EventKitUI/EKICSPreviewControllerDelegate-Protocol.h>
 #import <EventKitUI/UIAlertViewDelegate-Protocol.h>
 #import <EventKitUI/UIGestureRecognizerDelegate-Protocol.h>
 #import <EventKitUI/_UIDraggingItemVisualTarget-Protocol.h>
@@ -13,10 +14,10 @@
 #import <EventKitUI/_UIViewDraggingDestinationDelegate-Protocol.h>
 #import <EventKitUI/_UIViewDraggingSourceDelegate-Protocol.h>
 
-@class EKCalendarDate, EKDayOccurrenceView, EKEvent, NSString, NSTimer, UILongPressGestureRecognizer, UITapGestureRecognizer, _UIFeedbackDragSnappingBehavior;
+@class EKCalendarDate, EKDayOccurrenceView, EKEvent, EKICSPreviewController, EKUIRecurrenceAlertController, NSString, NSTimer, UILongPressGestureRecognizer, UITapGestureRecognizer, _UIFeedbackDragSnappingBehavior;
 @protocol EKEventGestureControllerDelegate, EKEventGestureControllerUntimedDelegate;
 
-@interface EKEventGestureController : NSObject <_UIViewDraggingDestinationDelegate, _UIViewDraggingSourceDelegate, _UIDraggingSessionDelegate, _UIDraggingItemVisualTarget, UIGestureRecognizerDelegate, UIAlertViewDelegate>
+@interface EKEventGestureController : NSObject <_UIViewDraggingDestinationDelegate, _UIViewDraggingSourceDelegate, _UIDraggingSessionDelegate, _UIDraggingItemVisualTarget, EKICSPreviewControllerDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate>
 {
     UILongPressGestureRecognizer *_draggingGestureRecognizer;
     UITapGestureRecognizer *_tapGestureRecognizer;
@@ -52,6 +53,8 @@
     _Bool _forcedStart;
     _Bool _needsCommit;
     CDUnknownBlockType _alertSheetCompletionHandler;
+    EKICSPreviewController *_currentICSPreviewController;
+    EKUIRecurrenceAlertController *_recurrenceAlertController;
     _UIFeedbackDragSnappingBehavior *_dragSnappingFeedback;
     _Bool _usesXDragOffsetInCancelRegion;
     _Bool _usesHorizontalDragLocking;
@@ -93,7 +96,7 @@
 - (void)_animateInNewEvent;
 - (void)_createTemporaryView:(id)arg1 animated:(_Bool)arg2;
 - (id)originalStartDateForEvent:(id)arg1 includingTravel:(_Bool)arg2;
-- (struct CGRect)targetFrameOfDraggingItem:(id)arg1 inCoordinateSpace:(id)arg2;
+- (struct CGRect)_targetFrameOfDraggingItem:(id)arg1 inCoordinateSpace:(id)arg2;
 - (void)draggingSessionDidEnd:(id)arg1 withOperation:(unsigned long long)arg2;
 - (unsigned long long)draggingSession:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;
 - (void)view:(id)arg1 failedToDragSourceWithIndex:(unsigned long long)arg2;
@@ -115,10 +118,19 @@
 - (void)view:(id)arg1 draggingExited:(id)arg2;
 - (unsigned long long)view:(id)arg1 draggingUpdated:(id)arg2;
 - (unsigned long long)view:(id)arg1 draggingEntered:(id)arg2;
+- (void)_dismissCurrentICSPreviewControllerAnimated:(_Bool)arg1;
+- (void)_icsPreviewControllerCancelButtonPressed;
+- (void)icsPreviewController:(id)arg1 importDidImportEvents:(id)arg2;
+- (void)icsPreviewControllerImportDidFail:(id)arg1;
+- (void)icsPreviewControllerWantsDismissal:(id)arg1;
+- (void)_presentICSPreviewControllerIfNeeded;
+- (void)_handleImportingICSData:(id)arg1 intoEventStore:(id)arg2;
+- (void)_handleShowingEventWithUniqueId:(id)arg1 date:(id)arg2 eventStore:(id)arg3;
+- (void)_setupEvent:(id)arg1 withImportData:(id)arg2;
 - (_Bool)_draggingInfoRequiresExternalDataExtraction:(id)arg1;
 - (unsigned long long)_dragOperationGivenDraggingInfo:(id)arg1;
-- (void)_extractEventTitleFromExternalDragInfo:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (id)_extractEventFromDraggingInfo:(id)arg1;
+- (id)_getEventUsingDraggingInfo:(id)arg1;
+- (id)_acceptedTypes;
 - (void)_updateFlingToCancelParameters;
 - (id)_viewForTracking;
 - (void)_dragFailedToStart;

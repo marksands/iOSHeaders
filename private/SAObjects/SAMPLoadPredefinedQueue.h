@@ -20,6 +20,7 @@
 @property(nonatomic) _Bool shouldShuffle;
 @property(nonatomic) int mediaItemType;
 @property(copy, nonatomic) NSArray *hashedRouteUIDs;
+@property(nonatomic) _Bool dryRun;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

@@ -9,6 +9,6 @@
 @class NTPBHeadlineResultOperationInfo;
 
 @protocol NTHeadlineResultsSource <NSObject>
-- (void)fetchLatestHeadlinesWithOperationInfo:(NTPBHeadlineResultOperationInfo *)arg1 completion:(void (^)(NTHeadlineResults *, NSDictionary *, NSObject<NTHeadlineResultOperationFetchInfo> *, NSError *))arg2;
+- (void)fetchLatestHeadlinesWithOperationInfo:(NTPBHeadlineResultOperationInfo *)arg1 completion:(void (^)(NTHeadlineResults *, NSDictionary *, NSObject<NTHeadlineResultOperationFetchInfoProviding> *, NSError *))arg2;
 @end
 

@@ -8,7 +8,7 @@
 
 #import <StoreBookkeeper/ISStoreURLOperationDelegate-Protocol.h>
 
-@class NSMutableArray, NSOperationQueue, NSString, NSURL, SBKStoreAuthenticationController, SBKTaskAssertion, SBKTransaction, SSAccount;
+@class NSMutableArray, NSNumber, NSOperationQueue, NSString, NSURL, SBKStoreAuthenticationController, SBKTaskAssertion, SBKTransaction, SSAccount;
 @protocol OS_dispatch_queue, SBKTransactionControllerDelegate;
 
 @interface SBKTransactionController : NSObject <ISStoreURLOperationDelegate>
@@ -100,6 +100,9 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentage;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentageCachedResponses;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSessionDuration;
 @property(readonly) Class superclass;
 
 @end

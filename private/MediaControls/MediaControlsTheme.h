@@ -10,11 +10,10 @@
 {
 }
 
-+ (void)applyRoutingDrawerTint:(id)arg1;
-+ (void)resetVibrancy:(id)arg1;
-+ (void)applyTertiaryVibrancy:(id)arg1;
-+ (void)applySecondaryVibrancy:(id)arg1;
-+ (void)applyPrimaryVibrancy:(id)arg1;
++ (double)heightForBounds:(struct CGRect)arg1;
++ (id)tertiaryStyleForBackground:(long long)arg1;
++ (id)secondaryStyleForBackground:(long long)arg1;
++ (id)primaryStyleForBackground:(long long)arg1;
 
 @end
 

@@ -6,23 +6,21 @@
 
 #import <MediaPlayer/MPMusicPlayerQueueDescriptor.h>
 
-@class NSArray, NSDictionary;
+@class MPMusicPlayerPlayParameters, NSArray;
 
 @interface MPMusicPlayerPlayParametersQueueDescriptor : MPMusicPlayerQueueDescriptor
 {
     NSArray *_playParametersQueue;
-    NSDictionary *_startPlayParameters;
+    MPMusicPlayerPlayParameters *_startItemPlayParameters;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSDictionary *startPlayParameters; // @synthesize startPlayParameters=_startPlayParameters;
+@property(retain, nonatomic) MPMusicPlayerPlayParameters *startItemPlayParameters; // @synthesize startItemPlayParameters=_startItemPlayParameters;
 @property(copy, nonatomic) NSArray *playParametersQueue; // @synthesize playParametersQueue=_playParametersQueue;
 - (void).cxx_destruct;
-- (void)decodePlayParam:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (id)startItemIdentifier;
-- (id)playParametersArray;
 - (void)setEndTime:(double)arg1 forItemWithPlayParameters:(id)arg2;
 - (void)setStartTime:(double)arg1 forItemWithPlayParameters:(id)arg2;
+- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

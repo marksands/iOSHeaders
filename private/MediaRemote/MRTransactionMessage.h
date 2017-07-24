@@ -18,6 +18,7 @@
 @property(readonly, nonatomic) void *playerPath;
 @property(readonly, nonatomic) NSArray *packets;
 - (void)dealloc;
+- (id)initWithPlaybackQueue:(void *)arg1 forPlayerPath:(void *)arg2;
 - (id)initWithName:(unsigned long long)arg1 packets:(id)arg2 playerPath:(void *)arg3;
 
 @end

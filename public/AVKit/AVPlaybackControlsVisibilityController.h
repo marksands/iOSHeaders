@@ -30,16 +30,19 @@
     _Bool _scrubbing;
     _Bool _transitionInProgress;
     _Bool _playbackWasPausedAndVisibilityNotToggledAfterPausing;
+    _Bool _loadingIndicatorWasShownAndVisibilityNotToggledAfterLoadingIndicatorShown;
     _Bool _inAutoplayPhase;
     _Bool _temporarilyAvoidAnimationsWhenStartingToControlViewVisibility;
+    _Bool _statusBarAppearanceNeedsUpdate;
     id <AVPlaybackControlsVisibilityControllerDelegate> _delegate;
     _Bool _canHideViews;
+    _Bool _showsViewsWhileWaitingToPlay;
     AVPlayerController *_playerController;
     UIView *_viewForUserInteractionObservation;
 }
 
 @property(nonatomic) __weak UIView *viewForUserInteractionObservation; // @synthesize viewForUserInteractionObservation=_viewForUserInteractionObservation;
-@property(nonatomic, getter=isScrubbing) _Bool scrubbing; // @synthesize scrubbing=_scrubbing;
+@property(nonatomic) _Bool showsViewsWhileWaitingToPlay; // @synthesize showsViewsWhileWaitingToPlay=_showsViewsWhileWaitingToPlay;
 @property(nonatomic, getter=isPopoverPresented) _Bool popoverPresented; // @synthesize popoverPresented=_popoverPresented;
 @property(nonatomic, getter=isPictureInPictureActive) _Bool pictureInPictureActive; // @synthesize pictureInPictureActive=_pictureInPictureActive;
 @property(nonatomic) _Bool canHideViews; // @synthesize canHideViews=_canHideViews;
@@ -47,7 +50,8 @@
 @property(retain, nonatomic) AVPlayerController *playerController; // @synthesize playerController=_playerController;
 - (void).cxx_destruct;
 - (_Bool)_userIsInteractingWithViews;
-- (void)_showInitiallyHiddenViews;
+- (void)_stopInitiallyHidingViewsThatAreShownForVolumeChanges;
+- (void)_stopInitiallyHidingViews;
 - (void)_hideRegularViews;
 - (void)_stopTimerToHideRegularControlsIfPlaying;
 - (void)_startTimerToHideRegularViewsAfterDelay:(double)arg1 ifPlaying:(_Bool)arg2;
@@ -65,6 +69,7 @@
 - (_Bool)_hasViewsThatCanBeHidden;
 - (_Bool)_hasViewsThatCanBeShown;
 - (id)_viewsPassingTest:(CDUnknownBlockType)arg1;
+- (void)_performForEachView:(CDUnknownBlockType)arg1;
 - (void)_exitAutoplayPhaseIfNeeded;
 - (void)_updateControlViewVisibilityIfNeeded;
 - (void)_setVisibilityNeedsUpdate;

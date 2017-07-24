@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)newItemProvider;
 @property(readonly) NSNumber *itemSize;
 - (_Bool)canBeCanceled;
 - (_Bool)isLongFetchOperation;

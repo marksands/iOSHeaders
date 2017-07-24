@@ -14,6 +14,7 @@
     _Bool _dirty;
     _Bool _postCount;
     _Bool _needsReload;
+    _Bool _autoUpdating;
     CNContactStore *_store;
     NSMutableDictionary *_uidToEntry;
 }
@@ -21,6 +22,7 @@
 + (id)favoritesPath;
 + (void)flushSingleton;
 + (id)sharedInstance;
+@property(readonly, nonatomic) _Bool autoUpdating; // @synthesize autoUpdating=_autoUpdating;
 @property(nonatomic) _Bool needsReload; // @synthesize needsReload=_needsReload;
 @property(nonatomic) _Bool postCount; // @synthesize postCount=_postCount;
 @property(nonatomic) _Bool dirty; // @synthesize dirty=_dirty;
@@ -52,14 +54,17 @@
 - (id)entriesForContacts:(id)arg1;
 @property(readonly, getter=isFull) _Bool full;
 - (void)_scheduleSave;
+- (id)entriesWithRecaching:(_Bool)arg1;
 @property(readonly, nonatomic) NSArray *entries;
-- (void)loadEntriesIfNecessary;
+- (void)loadEntriesIfNecessaryAndRecache:(_Bool)arg1;
 - (id)_entryDictionaries;
 - (id)synchronousRemoteObjectProxyForContactsXPCService;
 - (void)clearState;
 - (void)dealloc;
 - (id)init;
+- (id)initWithContactStore:(id)arg1 autoUpdating:(_Bool)arg2;
 - (id)initWithContactStore:(id)arg1;
+- (id)initNonUpdatingReadonlyInstanceWithContactStore:(id)arg1;
 
 @end
 

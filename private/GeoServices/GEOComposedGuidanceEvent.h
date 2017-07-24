@@ -14,7 +14,10 @@
     unsigned long long _creationOrder;
     GEOGuidanceEvent *_guidanceEvent;
     GEOComposedRoute *_route;
+    unsigned long long _source;
     unsigned long long _stepIndex;
+    unsigned long long _enrouteNoticeIndex;
+    unsigned long long _sourceIndex;
     _Bool _clampToStep;
     NSMutableArray *_lanes;
     double _startValidDistance;
@@ -26,6 +29,7 @@
 
 @property(readonly, nonatomic) double distanceForStrings; // @synthesize distanceForStrings=_distanceForStrings;
 @property(readonly, nonatomic) double referencePointDistance; // @synthesize referencePointDistance=_referencePointDistance;
+@property(readonly, nonatomic) unsigned long long enrouteNoticeIndex; // @synthesize enrouteNoticeIndex=_enrouteNoticeIndex;
 @property(retain, nonatomic) GEOGuidanceEvent *guidanceEvent; // @synthesize guidanceEvent=_guidanceEvent;
 @property(readonly, nonatomic) NSUUID *uniqueID; // @synthesize uniqueID=_uniqueID;
 - (void).cxx_destruct;
@@ -44,6 +48,7 @@
 @property(readonly, nonatomic) int composedGuidanceEventType;
 @property(readonly, nonatomic) NSArray *laneInstructions;
 @property(readonly, nonatomic) NSArray *lanes;
+@property(readonly, nonatomic) _Bool isSticky;
 @property(readonly, nonatomic) _Bool hasHaptics;
 @property(readonly, nonatomic) double repetitionInterval;
 @property(readonly, nonatomic) NSArray *announcements;
@@ -57,12 +62,14 @@
 @property(readonly, nonatomic) unsigned long long stackRanking;
 @property(readonly, nonatomic) _Bool hasSpokenGuidance;
 @property(readonly, nonatomic) _Bool hasSignGuidance;
+@property(readonly, nonatomic) unsigned long long sourceIndex;
+@property(readonly, nonatomic) unsigned long long source;
+- (void)_findSource;
 @property(readonly, nonatomic) GEOComposedRouteStep *step;
 - (id)description;
 - (void)_lazyInit;
 - (_Bool)_needsLazyInit;
 - (id)initWithGuidanceEvent:(id)arg1 stepIndex:(unsigned long long)arg2 composedRoute:(id)arg3 clampToStep:(_Bool)arg4;
-- (void)_commonInitWithComposedRoute:(id)arg1;
 
 @end
 

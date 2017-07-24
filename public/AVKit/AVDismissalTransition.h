@@ -17,7 +17,7 @@
 - (void)completeTransition:(_Bool)arg1;
 - (void)animateAlongsideInteractiveTransitionAnimationForFinishing;
 - (void)animateAlongsideInteractiveTransitionAnimationForCancelling;
-- (void)updateWithPercentComplete:(double)arg1 translation:(struct CGPoint)arg2 rotation:(double)arg3;
+- (void)updateWithPercentComplete:(double)arg1 translation:(struct CGPoint)arg2 rotation:(double)arg3 locationInWindow:(struct CGPoint)arg4;
 - (void)animateAlongsideNonInteractiveTransitionAnimation;
 - (void)transitionWillBegin;
 - (id)backgroundView;

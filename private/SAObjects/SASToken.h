@@ -22,9 +22,11 @@
 @property(nonatomic) _Bool removeSpaceBefore;
 @property(nonatomic) _Bool removeSpaceAfter;
 @property(copy, nonatomic) NSString *recognitionStability;
+@property(copy, nonatomic) NSString *phoneSequence;
 @property(copy, nonatomic) NSString *originalText;
 @property(copy, nonatomic) NSNumber *endTime;
 @property(copy, nonatomic) NSNumber *confidenceScore;
+@property(nonatomic) _Bool addSpaceAfter;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

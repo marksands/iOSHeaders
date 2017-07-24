@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class NSSet, NSUserDefaults;
+@class NSSet, NSUserDefaults, SGContentAdmissionKVOObserver;
 
 @interface SGContentAdmission : NSObject
 {
     NSSet *_disabledBundleIdentifiers;
     NSUserDefaults *_defaults;
+    SGContentAdmissionKVOObserver *_kvoObserver;
 }
 
 + (void)clearTestSettings;

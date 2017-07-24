@@ -38,6 +38,8 @@
 }
 
 + (void)deleteAllServerChangeTokens;
++ (_Bool)shouldIgnoreErrorForBackoffTimer:(id)arg1;
++ (id)errorCodesToIgnoreForBackoffTimer;
 + (id)zoneIDsFromZoneInfos:(id)arg1;
 + (id)zoneInfosFromZoneIDs:(id)arg1;
 + (_Bool)isZoneOptions:(id)arg1 subsetOfZoneOptions:(id)arg2;

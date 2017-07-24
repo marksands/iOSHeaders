@@ -6,12 +6,12 @@
 
 #import <VideoSubscriberAccount/VSAsyncOperation.h>
 
-@class NSOperationQueue, NSString, SSLookupRequest, VSOptional;
+@class NSArray, NSOperationQueue, SSLookupRequest, VSAuditToken, VSOptional;
 
-__attribute__((visibility("hidden")))
 @interface VSAppDescriptionFetchOperation : VSAsyncOperation
 {
-    NSString *_appAdamID;
+    NSArray *_appAdamIDs;
+    VSAuditToken *_auditToken;
     VSOptional *_result;
     SSLookupRequest *_lookupRequest;
     NSOperationQueue *_privateQueue;
@@ -21,14 +21,16 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSOperationQueue *privateQueue; // @synthesize privateQueue=_privateQueue;
 @property(retain, nonatomic) SSLookupRequest *lookupRequest; // @synthesize lookupRequest=_lookupRequest;
 @property(retain, nonatomic) VSOptional *result; // @synthesize result=_result;
+@property(retain, nonatomic) VSAuditToken *auditToken; // @synthesize auditToken=_auditToken;
 @property(nonatomic) struct CGSize preferredArtworkSize; // @synthesize preferredArtworkSize=_preferredArtworkSize;
-@property(copy, nonatomic) NSString *appAdamID; // @synthesize appAdamID=_appAdamID;
+@property(copy, nonatomic) NSArray *appAdamIDs; // @synthesize appAdamIDs=_appAdamIDs;
 - (void).cxx_destruct;
 - (void)cancel;
 - (void)executionDidBegin;
-- (id)_appDescriptionFromLookupResponse:(id)arg1 artworkImage:(id)arg2;
+- (id)_appDescriptionFromLookupResponse:(id)arg1 artworkImage:(id)arg2 appAdamID:(id)arg3;
 - (void)_handleLookupResponse:(id)arg1;
-- (id)initWithAppAdamID:(id)arg1 preferredArtworkSize:(struct CGSize)arg2;
+- (id)initWithAppAdamIDs:(id)arg1;
+- (id)initWithAppAdamIDs:(id)arg1 preferredArtworkSize:(struct CGSize)arg2;
 - (id)init;
 
 @end

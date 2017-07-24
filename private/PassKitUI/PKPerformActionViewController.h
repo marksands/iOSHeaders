@@ -49,6 +49,7 @@
 - (void)shakeCard;
 - (_Bool)pkui_prefersNavigationBarShadowHidden;
 - (void)viewWillLayoutSubviews;
+- (void)updateFirstResponder;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(_Bool)arg1;

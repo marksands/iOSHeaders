@@ -16,14 +16,15 @@
     double _score;
 }
 
++ (id)allocWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) double score; // @synthesize score=_score;
 @property(readonly, nonatomic) NSObject<NSCopying> *item; // @synthesize item=_item;
-- (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isEqualToScoredItem:(id)arg1;
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithItem:(id)arg1 score:(double)arg2;
+- (void)dealloc;
 
 @end
 

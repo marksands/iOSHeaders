@@ -78,6 +78,7 @@
 - (_Bool)hasValidItemAtIndex:(unsigned long long)arg1;
 - (id)copyRawItemAtIndex:(unsigned long long)arg1;
 - (void)applyVolumeNormalizationForItem:(id)arg1;
+- (_Bool)isPlaceholderItemForQueueIdentifier:(id)arg1;
 - (void)generateContentIDForItem:(id)arg1;
 - (id)contentItemIDForQueueItemID:(id)arg1;
 - (id)contentItemIDAtIndex:(long long)arg1;

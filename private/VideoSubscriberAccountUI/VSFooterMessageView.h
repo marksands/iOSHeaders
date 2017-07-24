@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)traitCollectionDidChange:(id)arg1;
 - (double)preferredHeightForWidth:(double)arg1;
+- (void)dealloc;
 - (id)initWithSpecifier:(id)arg1;
 
 @end

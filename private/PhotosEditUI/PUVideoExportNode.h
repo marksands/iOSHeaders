@@ -6,12 +6,12 @@
 
 #import <PhotosUICore/PXRunNode.h>
 
-#import <PhotosEditUI/PUVideoURLNode-Protocol.h>
+#import <PhotosEditUI/PUVideoURLExportNode-Protocol.h>
 
 @class NSArray, NSString, NSURL, NUVideoExportClient, PLPhotoEditModel;
 @protocol PUImageInfoNode, PUVideoURLNode, PXRunNodeDelegate;
 
-@interface PUVideoExportNode : PXRunNode <PUVideoURLNode>
+@interface PUVideoExportNode : PXRunNode <PUVideoURLExportNode>
 {
     NUVideoExportClient *_exportClient;
     id <PUVideoURLNode> _videoURLNode;
@@ -20,6 +20,7 @@
     PLPhotoEditModel *_photoEditModel;
     NSString *_livePhotoPairingIdentifier;
     NSURL *_videoURL;
+    struct CGSize _renderedVideoSize;
 }
 
 @property(retain, nonatomic) NSURL *videoURL; // @synthesize videoURL=_videoURL;
@@ -28,7 +29,9 @@
 @property(readonly, nonatomic) unsigned long long quality; // @synthesize quality=_quality;
 @property(readonly, nonatomic) id <PUImageInfoNode> imageInfoNode; // @synthesize imageInfoNode=_imageInfoNode;
 @property(readonly, nonatomic) id <PUVideoURLNode> videoURLNode; // @synthesize videoURLNode=_videoURLNode;
+@property(readonly, nonatomic) struct CGSize renderedVideoSize; // @synthesize renderedVideoSize=_renderedVideoSize;
 - (void).cxx_destruct;
+- (void)_handleExportCompletedWithSuccess:(_Bool)arg1 editedSize:(struct CGSize)arg2 error:(id)arg3;
 - (void)didCancel;
 @property(readonly, nonatomic) double progress;
 - (void)run;

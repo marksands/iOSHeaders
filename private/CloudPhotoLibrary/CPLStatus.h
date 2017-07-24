@@ -20,6 +20,7 @@
 + (id)statusForSharedLibrary;
 @property(nonatomic) __weak id <CPLStatusDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+@property(nonatomic, getter=isConnectedToNetwork) _Bool connectedToNetwork;
 @property(readonly, nonatomic) _Bool hasBatteryBudget;
 @property(readonly, nonatomic) _Bool hasCellularBudget;
 @property(readonly, nonatomic) _Bool hasValidSystemBudget;

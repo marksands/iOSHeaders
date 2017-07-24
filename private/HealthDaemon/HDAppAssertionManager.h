@@ -28,10 +28,10 @@
 - (id)_queue_pendingAssertionsReadyForLaunch;
 - (void)_queue_retryAppLaunchForAssertion:(id)arg1;
 - (void)_queue_considerLaunchingApp;
-- (void)_queue_invalidateAssertionWithBundleID:(id)arg1 dataCode:(long long)arg2;
-- (void)invalidateAssertionWithBundleID:(id)arg1 dataCode:(long long)arg2;
-- (void)_queue_extendAssertionWithBundleID:(id)arg1 dataCode:(long long)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)extendAssertionWithBundleID:(id)arg1 dataCode:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_queue_invalidateAssertionWithBundleID:(id)arg1 dataCode:(long long)arg2 anchor:(id)arg3;
+- (void)invalidateAssertionWithBundleID:(id)arg1 dataCode:(long long)arg2 anchor:(id)arg3;
+- (void)_queue_extendAssertionWithBundleID:(id)arg1 dataCode:(long long)arg2 anchor:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)extendAssertionWithBundleID:(id)arg1 dataCode:(long long)arg2 anchor:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)initWithProfile:(id)arg1;
 - (id)init;
 

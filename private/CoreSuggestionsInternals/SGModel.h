@@ -22,13 +22,11 @@
 + (id)modelForName:(id)arg1 language:(id)arg2 mode:(unsigned long long)arg3;
 + (id)modelForEntity:(id)arg1 type:(id)arg2 mode:(unsigned long long)arg3 language:(id)arg4 class:(Class)arg5;
 + (id)temporaryKeyMap;
-+ (id)featuresVersion;
-+ (id)featuresModelId;
-+ (id)createTransformerForLanguage:(id)arg1 maxDistance:(unsigned long long)arg2 ngrams:(unsigned long long)arg3;
++ (id)newTransformerInstanceForLanguage:(id)arg1;
 + (id)featuresOf:(id)arg1 inLanguage:(id)arg2 withObjective:(unsigned long long)arg3;
 + (id)featuresOf:(id)arg1 inLanguage:(id)arg2;
 + (Class)modelClassForObjective:(unsigned long long)arg1;
-+ (id)transformerForLanguage:(id)arg1;
++ (id)transformerInstanceForLanguage:(id)arg1;
 @property(readonly, copy) NSString *locale; // @synthesize locale=_locale;
 @property(readonly) double threshold; // @synthesize threshold=_threshold;
 @property(readonly) id <PMLRegressionModelProtocol><PMLPlistAndChunksSerializableProtocol> model; // @synthesize model=_model;

@@ -27,6 +27,7 @@
 @property(readonly, nonatomic) NSString *objectId; // @synthesize objectId;
 - (void).cxx_destruct;
 - (void)dealloc;
+- (id)deleteWithPredicate:(id)arg1;
 - (_Bool)resetAllTimers;
 - (void)resetTimers;
 - (_Bool)saveTimers:(CDUnknownBlockType)arg1;

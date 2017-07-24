@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 @interface CMMapper : NSObject <CMMapperRootArchiver>
 {
     CMMapper *mParent;
+    CMMapper *mRoot;
 }
 
 @property(readonly) __weak CMMapper *parent; // @synthesize parent=mParent;

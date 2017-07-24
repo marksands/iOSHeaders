@@ -40,6 +40,7 @@
 - (void)_stageCreationOfDirectory:(id)arg1;
 - (id)bouncePath:(id)arg1 forItemConflictingWithAnFSRoot:(id)arg2;
 - (_Bool)bouncePathMatch:(const CDStruct_177058d5 *)arg1 toApplyServerItem:(id)arg2 clientZone:(id)arg3;
+- (_Bool)bouncePathMatchesForLookup:(id)arg1 toApplyServerItem:(id)arg2 clientZone:(id)arg3;
 - (id)_generateGentlePhysicalBounceNameForPathMatch:(const CDStruct_177058d5 *)arg1 dirfd:(int)arg2 lastBounceNo:(unsigned long long *)arg3;
 
 // Remaining properties

@@ -51,7 +51,9 @@
 - (_Bool)containsAnyAssets:(id)arg1;
 - (long long)countForCollection:(id)arg1;
 - (_Bool)isCountAvailableForCollection:(id)arg1;
+- (_Bool)_isPlacesAlbumAssetCollection:(id)arg1;
 - (_Bool)_needsFetchResultForCollection:(id)arg1;
+- (_Bool)_needsKeyAssetsFetchResultForCollection:(id)arg1;
 - (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
 - (id)prepareForPhotoLibraryChange:(id)arg1;
 - (id)_subitemChangeDetailsByItemBySection;

@@ -6,15 +6,12 @@
 
 #import <MPUFoundation/MPUDataSourceViewController.h>
 
-#import <MediaPlayerUI/MPUInsetProxyScrollViewDelegate-Protocol.h>
+@class NSMutableDictionary;
 
-@class MPUInsetProxyScrollView, NSMutableDictionary, NSString;
-
-@interface MPUAdaptiveCollectionViewController : MPUDataSourceViewController <MPUInsetProxyScrollViewDelegate>
+@interface MPUAdaptiveCollectionViewController : MPUDataSourceViewController
 {
     struct UIEdgeInsets _contentInsetAdditions;
     struct UIEdgeInsets _scrollIndicatorInsetsAdditions;
-    MPUInsetProxyScrollView *_insetProxyScrollView;
     NSMutableDictionary *_sizeClassToClassMap;
 }
 
@@ -26,22 +23,13 @@
 - (id)_childDataSourceViewController;
 - (void)_applyNewScrollIndicatorInsetsAdditions:(struct UIEdgeInsets)arg1 withExistingScrollIndicatorInsetsAdditions:(struct UIEdgeInsets)arg2 toScrollView:(id)arg3;
 - (void)_applyNewContentInsetAdditions:(struct UIEdgeInsets)arg1 withExistingContentInsetAdditions:(struct UIEdgeInsets)arg2 toScrollView:(id)arg3;
-- (void)insetProxyScrollViewScrollIndicatorInsetsDidChange:(id)arg1;
-- (void)insetProxyScrollViewContentInsetDidChange:(id)arg1;
 - (void)dataSourceDidInvalidate;
 - (void)reloadData;
 - (void)setViewControllerClass:(Class)arg1 forHorizontalSizeClass:(long long)arg2;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)viewDidLoad;
-- (void)viewDidLayoutSubviews;
 - (id)contentScrollView;
-- (void)dealloc;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (void)viewDidLayoutSubviews;
 
 @end
 

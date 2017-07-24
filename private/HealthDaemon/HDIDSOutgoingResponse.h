@@ -8,15 +8,17 @@
 
 #import <HealthDaemon/HDNanoSyncDescription-Protocol.h>
 
-@class HDIDSIncomingRequest, IDSDevice, NSData, NSDictionary, NSString;
+@class HDIDSMessageCenter, IDSDevice, NSData, NSDictionary, NSString;
 
 @interface HDIDSOutgoingResponse : NSObject <HDNanoSyncDescription>
 {
     _Bool _doNotCompress;
     _Bool _forceLocalDelivery;
     _Bool _sent;
+    unsigned short _requestMessageID;
     unsigned short _messageID;
-    HDIDSIncomingRequest *_request;
+    NSString *_requestIdsIdentifier;
+    HDIDSMessageCenter *_messageCenter;
     IDSDevice *_toDevice;
     NSString *_idsIdentifier;
     NSData *_data;
@@ -37,7 +39,9 @@
 @property(copy, nonatomic) NSString *idsIdentifier; // @synthesize idsIdentifier=_idsIdentifier;
 @property(retain, nonatomic) IDSDevice *toDevice; // @synthesize toDevice=_toDevice;
 @property(nonatomic) unsigned short messageID; // @synthesize messageID=_messageID;
-@property(nonatomic) __weak HDIDSIncomingRequest *request; // @synthesize request=_request;
+@property(nonatomic) unsigned short requestMessageID; // @synthesize requestMessageID=_requestMessageID;
+@property(retain, nonatomic) HDIDSMessageCenter *messageCenter; // @synthesize messageCenter=_messageCenter;
+@property(copy, nonatomic) NSString *requestIdsIdentifier; // @synthesize requestIdsIdentifier=_requestIdsIdentifier;
 - (void).cxx_destruct;
 - (void)send;
 @property(readonly, copy) NSString *description;

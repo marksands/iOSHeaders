@@ -6,31 +6,46 @@
 
 #import <UIKit/UIViewController.h>
 
+#import <UIKit/UIInputViewControllerNeedSceneSize-Protocol.h>
 #import <UIKit/UIPopoverPresentationControllerDelegate-Protocol.h>
 #import <UIKit/UIViewControllerTransitioningDelegate-Protocol.h>
 #import <UIKit/_SFAppAutoFillPasswordViewControllerDelegate-Protocol.h>
 
-@class NSString, UIView;
+@class NSString, UIView, _SFAppAutoFillPasswordViewController;
 
 __attribute__((visibility("hidden")))
-@interface UIKeyboardHiddenViewController : UIViewController <_SFAppAutoFillPasswordViewControllerDelegate, UIViewControllerTransitioningDelegate, UIPopoverPresentationControllerDelegate>
+@interface UIKeyboardHiddenViewController : UIViewController <_SFAppAutoFillPasswordViewControllerDelegate, UIViewControllerTransitioningDelegate, UIPopoverPresentationControllerDelegate, UIInputViewControllerNeedSceneSize>
 {
+    _SFAppAutoFillPasswordViewController *_autofillVC;
     _Bool presentedAutofill;
-    _Bool _shouldPresentRemoteAsPopover;
+    _Bool _focusWasDeferredBeforeDeactivation;
+    _Bool _isFocusDeferred;
+    unsigned int _deferredContextID;
+    NSString *_deferredDisplayUUID;
     UIView *_sourceView;
 }
 
-@property(nonatomic) _Bool shouldPresentRemoteAsPopover; // @synthesize shouldPresentRemoteAsPopover=_shouldPresentRemoteAsPopover;
 @property(nonatomic) UIView *sourceView; // @synthesize sourceView=_sourceView;
+- (void)_sceneDidChange;
+- (void)popoverPresentationControllerDidDismissPopover:(id)arg1;
 - (void)prepareForPopoverPresentation:(id)arg1;
-- (void)presentAutofillVC;
+- (void)presentAutofillVCWithAnimation:(_Bool)arg1;
+- (void)presentSelfWithAnimation:(_Bool)arg1;
+- (_Bool)shouldPresentAsPopover;
 - (void)_willChangeToFirstResponder:(id)arg1;
+- (void)_setDeferred:(_Bool)arg1 forDisplayUUID:(id)arg2;
+- (id)_clientDeferralProperties;
+- (id)_hostDeferralProperties;
+- (id)_deferredPropertiesForClientContext:(unsigned int)arg1;
+- (void)_applicationWillDeactivate:(id)arg1;
+- (void)_applicationDidBecomeActive:(id)arg1;
 - (void)passwordViewControllerDidFinish:(id)arg1;
 - (void)_localAuthenticationUIDismissed;
 - (void)_localAuthenticationUIPresented;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (id)presentationControllerForPresentedViewController:(id)arg1 presentingViewController:(id)arg2 sourceViewController:(id)arg3;
+- (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

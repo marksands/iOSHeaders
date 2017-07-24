@@ -71,12 +71,11 @@
 - (void)_updatePlayerAudioEnabled;
 @property(readonly, nonatomic, getter=isDisplayingPhoto) _Bool displayingPhoto;
 - (id)generateSnapshotImage;
-@property(retain, nonatomic) struct CGImage *overridePhoto;
+@property(nonatomic) struct CGImage *overridePhoto;
 - (void)setContentMode:(long long)arg1;
 - (void)stopPlayback;
 - (void)startPlaybackWithStyle:(long long)arg1;
-@property(readonly, nonatomic) CDStruct_1b6d18a9 seekTime;
-- (void)setSeekTime:(CDStruct_1b6d18a9)arg1 animated:(_Bool)arg2;
+@property(nonatomic) CDStruct_1b6d18a9 seekTime;
 @property(readonly, nonatomic) UIGestureRecognizer *playbackGestureRecognizer;
 - (void)_commonPHLivePhotoViewInitialization;
 - (id)initWithCoder:(id)arg1;

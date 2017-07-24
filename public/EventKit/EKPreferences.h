@@ -20,9 +20,8 @@
 @property(retain, nonatomic) NSArray *selectedCalendarIdentifiers;
 @property(retain, nonatomic) NSArray *deselectedCalendarSyncHashes;
 @property(retain, nonatomic) NSArray *deselectedCalendarIdentifiers;
-- (long long)_acknowledgedPreferenceVersion;
-@property(readonly, nonatomic) _Bool privacyPaneHasBeenAcknowledgedFallback;
-@property(nonatomic) _Bool privacyPaneHasBeenAcknowledged;
+@property(readonly) _Bool bypassSplashScreen;
+@property(nonatomic) unsigned long long lastConfirmedSplashScreenVersion;
 @property(nonatomic) _Bool remindMeAboutThisInCalendarWidgetEnabled;
 @property(nonatomic) _Bool alwaysSetArrivedAndSettledForReminders;
 @property(nonatomic) _Bool useShortReminderRefireInterval;

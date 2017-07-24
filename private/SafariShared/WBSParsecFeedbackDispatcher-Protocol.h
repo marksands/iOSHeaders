@@ -18,6 +18,7 @@
 - (void)didDisplayCompletionListItems:(NSArray *)arg1 forQuery:(WBSCompletionQuery *)arg2 forEvent:(long long)arg3;
 
 @optional
+- (void)userTypedGoToSearch:(NSString *)arg1 endpoint:(unsigned long long)arg2;
 - (void)didBeginSearchOfType:(long long)arg1 withQuery:(WBSCompletionQuery *)arg2 urlString:(NSString *)arg3 headers:(NSDictionary *)arg4 endpoint:(unsigned long long)arg5;
 - (void)didBeginSearchOfType:(long long)arg1 withQuery:(WBSCompletionQuery *)arg2 endpoint:(unsigned long long)arg3;
 - (void)searchViewDisappearedBecauseOfEvent:(long long)arg1;

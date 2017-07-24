@@ -16,13 +16,12 @@
 + (id)textColorForStyle:(unsigned long long)arg1;
 @property _Bool enableVibrancy; // @synthesize enableVibrancy=_enableVibrancy;
 @property(nonatomic) unsigned long long style; // @synthesize style=_style;
+- (_Bool)isVibrancyEnabled;
 - (void)setVibrancyEnabled:(_Bool)arg1;
 - (id)stringForFormattedText:(id)arg1;
 - (id)attributedStringForRichText:(id)arg1;
 - (void)updateWithFormattedText:(id)arg1;
 - (void)updateWithRichText:(id)arg1;
-- (void)setFont:(id)arg1;
-- (void)setAttributedText:(id)arg1;
 - (void)willMoveToSuperview:(id)arg1;
 - (id)init;
 

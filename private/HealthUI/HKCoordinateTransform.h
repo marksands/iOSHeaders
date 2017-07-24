@@ -10,6 +10,7 @@
 {
 }
 
+- (_Bool)isEqual:(id)arg1;
 - (long long)compareValue:(id)arg1 toValue:(id)arg2;
 - (id)valueForCoordinate:(double)arg1;
 - (double)coordinateForValue:(id)arg1;

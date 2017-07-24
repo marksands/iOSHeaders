@@ -12,12 +12,15 @@
 {
     NSString *_symbology;
     CIBarcodeDescriptor *_barcodeDescriptor;
+    NSString *_payloadStringValue;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) CIBarcodeDescriptor *barcodeDescriptor; // @synthesize barcodeDescriptor=_barcodeDescriptor;
 @property(readonly, copy, nonatomic) NSString *symbology; // @synthesize symbology=_symbology;
 - (void).cxx_destruct;
+- (void)setPayloadStringValue:(id)arg1;
+@property(readonly, copy, nonatomic) NSString *payloadStringValue;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

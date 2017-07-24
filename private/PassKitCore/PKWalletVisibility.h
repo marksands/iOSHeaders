@@ -10,10 +10,9 @@
 {
 }
 
-+ (id)_currentWalletVisibilityRestrictions;
 + (id)setOfActiveRestrictionUUIDs;
-+ (void)updateWalletVisibility;
 + (_Bool)isWalletVisible;
++ (void)updateWalletVisibility;
 
 @end
 

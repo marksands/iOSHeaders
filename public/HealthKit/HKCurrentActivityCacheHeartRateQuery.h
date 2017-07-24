@@ -8,12 +8,11 @@
 
 #import <HealthKit/HKCurrentActivityCacheHeartRateQueryClientInterface-Protocol.h>
 
-@class NSDateComponents, NSString;
+@class NSString;
 
 @interface HKCurrentActivityCacheHeartRateQuery : HKQuery <HKCurrentActivityCacheHeartRateQueryClientInterface>
 {
     CDUnknownBlockType _updateHandler;
-    NSDateComponents *_statisticsIntervalComponents;
 }
 
 + (void)configureClientInterface:(id)arg1;

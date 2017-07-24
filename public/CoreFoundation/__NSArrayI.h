@@ -9,22 +9,20 @@
 __attribute__((visibility("hidden")))
 @interface __NSArrayI : NSArray
 {
-    CDStruct_6cf6cf19 storage;
-    struct __cow_state_t *cow;
+    unsigned long long _used;
+    id _list[0];
 }
 
-+ (id)allocWithZone:(struct _NSZone *)arg1;
-+ (id)__transferNew:(id *)arg1:(unsigned long long)arg2:(unsigned long long)arg3;
 + (id)__new:(const id *)arg1:(struct __va_list_tag [1])arg2:(unsigned long long)arg3:(_Bool)arg4;
++ (id)allocWithZone:(struct _NSZone *)arg1;
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (unsigned long long)indexOfObjectIdenticalTo:(id)arg1;
-- (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
+- (id)objectAtIndexedSubscript:(unsigned long long)arg1;
 - (void)enumerateObjectsWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_58648341 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
-- (id)objectAtIndexedSubscript:(unsigned long long)arg1;
+- (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
 - (id)objectAtIndex:(unsigned long long)arg1;
 - (unsigned long long)count;
 

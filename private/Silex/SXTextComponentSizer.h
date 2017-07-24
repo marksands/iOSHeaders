@@ -34,7 +34,7 @@
 - (double)calculateHeightForWidth:(double)arg1 inColumnLayout:(id)arg2;
 - (void)removeAllExclusionPaths;
 - (void)addExclusionPath:(id)arg1;
-- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 componentStyle:(id)arg3 context:(id)arg4 documentColumnLayout:(id)arg5 layoutAttributes:(id)arg6;
+- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 componentStyle:(id)arg3 context:(id)arg4 layoutAttributes:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

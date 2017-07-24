@@ -15,9 +15,9 @@
 
 + (id)optionNameForTargetedImageSpecifyingObject;
 - (void).cxx_destruct;
-- (void)applyConfigurationOfRequest:(id)arg1;
 - (id)requiredTargetedImageSpecifierReturningError:(id *)arg1;
 - (id)targetedImageSpecifier;
+- (id)newDefaultRequestInstance;
 - (id)initWithTargetedImageData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithTargetedImageData:(id)arg1;
 - (id)initWithTargetedImageURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -29,6 +29,7 @@
 - (id)initWithTargetedCVPixelBuffer:(struct __CVBuffer *)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithTargetedCVPixelBuffer:(struct __CVBuffer *)arg1;
 - (id)initWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)initWithTargetedImageSpecifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)sequencedRequestPreviousObservationsKey;
 - (id)observationsCacheKey;
 

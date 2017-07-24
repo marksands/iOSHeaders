@@ -22,13 +22,16 @@
 @property(nonatomic) _Bool requestInFlight; // @synthesize requestInFlight=_requestInFlight;
 @property(retain) NSXPCListener *listener; // @synthesize listener=_listener;
 - (void).cxx_destruct;
-- (id)optInStatusString:(long long)arg1;
 - (void)checkOnTask:(id)arg1 activity:(id)arg2;
 - (_Bool)runTask:(id)arg1;
+- (void)doRunTask;
+- (void)scheduleDeferredLATStatusChange:(_Bool)arg1;
+- (id)optInStatusString:(long long)arg1;
 - (void)advertisingIdentifierChanged:(CDUnknownBlockType)arg1;
-- (void)scheduleRefreshOptInStatus:(double)arg1;
+- (long long)optInStatusFromRecord:(id)arg1;
 - (void)requestOptInStatusFromJingle:(CDUnknownBlockType)arg1;
 - (void)refreshOptInStatusRefreshingWeakToken:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)reconcileAndUpdateBeforeResponding:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)callOptInStatusCompletionHandler:(long long)arg1 refreshWeakToken:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setOptInStatus:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;

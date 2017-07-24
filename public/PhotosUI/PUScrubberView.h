@@ -16,7 +16,7 @@
 #import <PhotosUI/UIGestureRecognizerDelegate-Protocol.h>
 #import <PhotosUI/UIScrollViewDelegate-Protocol.h>
 
-@class NSIndexPath, NSMutableDictionary, NSString, PUBrowsingSession, PUScrubberTilingLayout, PUTilingView, PUTouchingGestureRecognizer, PXUISnappingController, PXVideoScrubberController, UIScrollView, UITapGestureRecognizer;
+@class NSIndexPath, NSMutableDictionary, NSString, PUBrowsingSession, PUScrubberTilingLayout, PUTilingView, PUTouchingGestureRecognizer, PXVideoScrubberController, UIScrollView, UITapGestureRecognizer;
 @protocol PUScrubberViewDelegate;
 
 __attribute__((visibility("hidden")))
@@ -43,7 +43,6 @@ __attribute__((visibility("hidden")))
     _Bool __useSmoothingTransitionCoordinator;
     _Bool __snapToExpandedItem;
     _Bool __isHandlingScrollViewWillEndDragging;
-    _Bool __snappingEnabled;
     PUBrowsingSession *_browsingSession;
     long long _type;
     id <PUScrubberViewDelegate> _delegate;
@@ -52,7 +51,6 @@ __attribute__((visibility("hidden")))
     UITapGestureRecognizer *__tapGestureRecognizer;
     PXVideoScrubberController *__videoScrubberController;
     long long __expandedItemType;
-    PXUISnappingController *__expandedItemSnappingController;
     NSIndexPath *__decelerationTargetIndexPath;
     double __decelerationDistance;
     long long __layoutTransitionsDisabledCount;
@@ -60,7 +58,6 @@ __attribute__((visibility("hidden")))
     struct CGPoint __decelerationTargetOffset;
 }
 
-@property(nonatomic, setter=_setSnappingEnabled:) _Bool _snappingEnabled; // @synthesize _snappingEnabled=__snappingEnabled;
 @property(nonatomic, setter=_setHandlingScrollViewWillEndDragging:) _Bool _isHandlingScrollViewWillEndDragging; // @synthesize _isHandlingScrollViewWillEndDragging=__isHandlingScrollViewWillEndDragging;
 @property(nonatomic, setter=_setScrubbingTransitionProgress:) double _scrubbingTransitionProgress; // @synthesize _scrubbingTransitionProgress=__scrubbingTransitionProgress;
 @property(nonatomic, setter=_setLayoutTransitionsDisabledCount:) long long _layoutTransitionsDisabledCount; // @synthesize _layoutTransitionsDisabledCount=__layoutTransitionsDisabledCount;
@@ -74,7 +71,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, setter=_setScrollViewSettled:) _Bool _scrollViewSettled; // @synthesize _scrollViewSettled=__scrollViewSettled;
 @property(nonatomic, setter=_setScrubbingAwayFromContentEdge:) _Bool _isScrubbingAwayFromContentEdge; // @synthesize _isScrubbingAwayFromContentEdge=__isScrubbingAwayFromContentEdge;
 @property(nonatomic, setter=_setIsHandlingUserScroll:) _Bool _isHandlingUserScroll; // @synthesize _isHandlingUserScroll=__isHandlingUserScroll;
-@property(retain, nonatomic, setter=_setExpandedItemSnappingControler:) PXUISnappingController *_expandedItemSnappingController; // @synthesize _expandedItemSnappingController=__expandedItemSnappingController;
 @property(nonatomic, setter=_setExpandedItemType:) long long _expandedItemType; // @synthesize _expandedItemType=__expandedItemType;
 @property(retain, nonatomic, setter=_setVideoScrubberController:) PXVideoScrubberController *_videoScrubberController; // @synthesize _videoScrubberController=__videoScrubberController;
 @property(readonly, nonatomic) UITapGestureRecognizer *_tapGestureRecognizer; // @synthesize _tapGestureRecognizer=__tapGestureRecognizer;
@@ -93,7 +89,7 @@ __attribute__((visibility("hidden")))
 - (double)videoScrubberController:(id)arg1 lengthForDuration:(double)arg2;
 - (void)_reenableLayoutTransitions;
 - (void)_disableLayoutTransitionsForDuration:(double)arg1;
-- (_Bool)_areLayoutTransitionsDisabled;
+@property(readonly, nonatomic, getter=_areLayoutTransitionsDisabled) _Bool _layoutTransitionsDisabled;
 - (void)_updateScrollPositionAnimated:(_Bool)arg1;
 - (void)viewModel:(id)arg1 didChange:(id)arg2;
 - (void)handleTouchGesture:(id)arg1;
@@ -114,8 +110,6 @@ __attribute__((visibility("hidden")))
 - (id)tilingView:(id)arg1 tileControllerWithIndexPath:(id)arg2 kind:(id)arg3 dataSource:(id)arg4;
 - (double)_playheadProgressForIrisAssetReference:(id)arg1;
 - (double)_expandedItemWidth;
-- (void)_resetCurrentIrisScrubTime;
-- (void)_updateExpandedItemSnappingController;
 - (void)_updateScrubbingAwayFromContentEdgeBeganDragging:(_Bool)arg1;
 - (void)_updateScrubberLayoutIfNeeded;
 - (void)_invalidateScrubberLayout;

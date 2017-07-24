@@ -6,14 +6,13 @@
 
 #import <objc/NSObject.h>
 
-#import <UserNotificationsKit/NCDebugInfoProvider-Protocol.h>
 #import <UserNotificationsKit/NCNotificationAlertDestination-Protocol.h>
 #import <UserNotificationsKit/NCNotificationAlertDestinationDelegate-Protocol.h>
 
 @class NCNotificationCollapsingQueue, NCNotificationDestinationsRegistry, NCNotificationRequest, NCNotificationStore, NSString;
 @protocol NCNotificationAlertDestinationDelegate, NCNotificationDestinationDelegate;
 
-@interface NCNotificationAlertQueue : NSObject <NCNotificationAlertDestinationDelegate, NCNotificationAlertDestination, NCDebugInfoProvider>
+@interface NCNotificationAlertQueue : NSObject <NCNotificationAlertDestinationDelegate, NCNotificationAlertDestination>
 {
     id <NCNotificationAlertDestinationDelegate> _delegate;
     NCNotificationDestinationsRegistry *_destinationsRegistry;
@@ -36,7 +35,6 @@
 - (void)_postEnqueuedNotificationRequestsCoalescingWith:(id)arg1;
 - (void)_postNextNotificationRequestPassingTest:(CDUnknownBlockType)arg1;
 - (void)_postNextNotificationRequest;
-- (id)debugInfoPlist;
 - (void)destination:(id)arg1 didDismissNotificationRequest:(id)arg2;
 - (void)destination:(id)arg1 willDismissNotificationRequest:(id)arg2;
 - (void)destination:(id)arg1 didPresentNotificationRequest:(id)arg2;

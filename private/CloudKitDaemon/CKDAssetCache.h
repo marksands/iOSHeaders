@@ -14,6 +14,7 @@
     _Bool _isUnitTestingAccount;
     _Bool _hasMigrated;
     _Bool _isEvictionScheduled;
+    _Bool _didDrop;
     int _fileDownloadPathFd;
     CKDMMCS *_MMCS;
     CKSQLitePool *_dbPool;
@@ -39,6 +40,7 @@
 @property(retain, nonatomic) NSMutableDictionary *volumeIndexByVolumeUUID; // @synthesize volumeIndexByVolumeUUID=_volumeIndexByVolumeUUID;
 @property(retain, nonatomic) NSMutableDictionary *volumeUUIDByVolumeIndex; // @synthesize volumeUUIDByVolumeIndex=_volumeUUIDByVolumeIndex;
 @property(retain, nonatomic) id <NSObject> assetHandleExpirationNotificationObserver; // @synthesize assetHandleExpirationNotificationObserver=_assetHandleExpirationNotificationObserver;
+@property(nonatomic) _Bool didDrop; // @synthesize didDrop=_didDrop;
 @property _Bool isEvictionScheduled; // @synthesize isEvictionScheduled=_isEvictionScheduled;
 @property(nonatomic) int fileDownloadPathFd; // @synthesize fileDownloadPathFd=_fileDownloadPathFd;
 @property(retain, nonatomic) NSOperationQueue *opQueue; // @synthesize opQueue=_opQueue;
@@ -106,6 +108,8 @@
 - (id)existingOrNewVolumeIndexForVolumeUUID:(id)arg1 usingDB:(id)arg2;
 - (void)_setVolumeIndex:(id)arg1 forVolumeUUID:(id)arg2;
 - (void)dealloc;
+- (void)drop;
+- (void)cleanup;
 - (id)_initWithApplicationBundleID:(id)arg1 assetDirectoryContext:(id)arg2 error:(id *)arg3;
 
 @end

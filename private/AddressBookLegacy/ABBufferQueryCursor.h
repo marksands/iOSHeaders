@@ -31,6 +31,8 @@
     long long _currentMultivalue;
     long long _resumeToken;
     unsigned long long _maxBufferSize;
+    unsigned long long _maxContactsPerBatch;
+    unsigned long long _countOfContactsInBuffer;
     ABBufferQuery *_query;
 }
 
@@ -45,6 +47,8 @@
 @property(nonatomic) int multivalueIdentifierColumn; // @synthesize multivalueIdentifierColumn=_multivalueIdentifierColumn;
 @property(nonatomic) int multivaluePropertyIDColumn; // @synthesize multivaluePropertyIDColumn=_multivaluePropertyIDColumn;
 @property(readonly, nonatomic) ABBufferQuery *query; // @synthesize query=_query;
+@property(nonatomic) unsigned long long countOfContactsInBuffer; // @synthesize countOfContactsInBuffer=_countOfContactsInBuffer;
+@property(nonatomic) unsigned long long maxContactsPerBatch; // @synthesize maxContactsPerBatch=_maxContactsPerBatch;
 @property(nonatomic) unsigned long long maxBufferSize; // @synthesize maxBufferSize=_maxBufferSize;
 @property(nonatomic) int currentRecordID; // @synthesize currentRecordID=_currentRecordID;
 @property(nonatomic) int currentPropertyID; // @synthesize currentPropertyID=_currentPropertyID;

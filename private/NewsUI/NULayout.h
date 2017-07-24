@@ -29,7 +29,7 @@
 - (void).cxx_destruct;
 - (void)buildComponents:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) struct CGPoint originOffset;
-- (void)layoutComponentsInBounds:(struct CGRect)arg1 originOffset:(struct CGPoint)arg2;
+- (void)layoutComponentsInBounds:(struct CGRect)arg1 originOffset:(struct CGPoint)arg2 layoutContext:(id)arg3;
 @property(readonly, copy) NSString *description;
 - (id)initWithNode:(id)arg1 sizer:(id)arg2 options:(struct NULayoutOptions)arg3 componentsBlock:(CDUnknownBlockType)arg4;
 

@@ -26,6 +26,7 @@
     id <FCOperationThrottler> _saveThrottler;
 }
 
++ (_Bool)shouldDumpToJSON;
 + (id)persistenceQueue;
 @property(retain, nonatomic) id <FCOperationThrottler> saveThrottler; // @synthesize saveThrottler=_saveThrottler;
 @property(retain, nonatomic) FCMutexLock *writeLock; // @synthesize writeLock=_writeLock;
@@ -47,6 +48,7 @@
 - (void)_queueSave;
 - (void)_logCacheStatus;
 - (void)_saveAsyncWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_maybeSaveJSONRepresentationOfDictionary:(id)arg1;
 - (id)_loadFromDisk;
 - (void)operationThrottler:(id)arg1 performAsyncOperationWithCompletion:(CDUnknownBlockType)arg2;
 - (void)saveWithCompletionHandler:(CDUnknownBlockType)arg1;

@@ -7,13 +7,12 @@
 #import <objc/NSObject.h>
 
 @class NSMutableData;
-@protocol CSAudioConverterDelegate, OS_dispatch_queue;
+@protocol CSAudioConverterDelegate;
 
 @interface CSAudioConverter : NSObject
 {
     struct OpaqueAudioConverter *_opusConverter;
     NSMutableData *_bufferedLPCM;
-    NSObject<OS_dispatch_queue> *_queue;
     unsigned int _recordBasePacketsPerSecond;
     struct AudioStreamBasicDescription _opusOutASBD;
     unsigned int _convertPacketCount;
@@ -22,6 +21,8 @@
     id <CSAudioConverterDelegate> _delegate;
 }
 
++ (id)narrowBandOpusConverter;
++ (id)opusConverter;
 @property __weak id <CSAudioConverterDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_configureAudioConverter:(struct OpaqueAudioConverter *)arg1;
@@ -30,7 +31,7 @@
 - (void)flush;
 - (void)addSamples:(id)arg1 timestamp:(unsigned long long)arg2;
 - (void)dealloc;
-- (id)init;
+- (id)initWithInASBD:(struct AudioStreamBasicDescription)arg1 outASBD:(struct AudioStreamBasicDescription)arg2;
 
 @end
 

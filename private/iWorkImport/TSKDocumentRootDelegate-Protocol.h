@@ -6,18 +6,21 @@
 
 #import <iWorkImport/TSKAccessControllerDelegate-Protocol.h>
 
-@class NSObject, NSString, NSURL, SFUCryptoKey, TSKCollaborationState, TSKDocumentRoot, TSPDocumentRevision, TSPObjectContext;
-@protocol NSFilePresenter, OS_dispatch_queue;
+@class NSObject, NSString, NSURL, SFUCryptoKey, TSKDocumentRoot, TSKSharingState, TSPDocumentRevision, TSPObjectContext;
+@protocol NSFilePresenter, OS_dispatch_queue, TSKCachedDocumentInfo;
 
 @protocol TSKDocumentRootDelegate <TSKAccessControllerDelegate>
 @property(readonly, nonatomic) NSURL *fileURL;
 
 @optional
+@property(readonly, nonatomic) id <TSKCachedDocumentInfo> tskCachedDocumentInfo;
 @property(readonly, retain, nonatomic) SFUCryptoKey *encryptionKey;
 @property(readonly, nonatomic) id <NSFilePresenter> cloudFilePresenter;
 - (void)documentRootDidRollbackOfflineCommands:(TSKDocumentRoot *)arg1;
+- (void)sharingStateRefreshed:(TSKSharingState *)arg1 isUserInitiated:(_Bool)arg2 isContinuingActivity:(_Bool)arg3 completionBlock:(void (^)(void))arg4;
+- (void)refreshSharingStateWithReason:(NSString *)arg1 isUserInitiated:(_Bool)arg2 migrateIfNecessary:(_Bool)arg3 queue:(NSObject<OS_dispatch_queue> *)arg4 completionBlock:(void (^)(TSKSharingState *, NSError *))arg5;
 - (void)refreshSharingStateWithReason:(NSString *)arg1 queue:(NSObject<OS_dispatch_queue> *)arg2 completionBlock:(void (^)(TSKSharingState *, NSError *))arg3;
 - (void)documentRoot:(TSKDocumentRoot *)arg1 didUpdateDocumentRevision:(TSPDocumentRevision *)arg2;
-- (TSKCollaborationState *)collaborationStateForContext:(TSPObjectContext *)arg1;
+- (TSKSharingState *)sharingStateForContext:(TSPObjectContext *)arg1;
 @end
 

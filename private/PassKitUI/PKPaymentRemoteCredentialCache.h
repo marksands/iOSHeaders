@@ -10,10 +10,12 @@
 
 @interface PKPaymentRemoteCredentialCache : NSObject
 {
+    _Bool _isSelected;
     PKPaymentRemoteCredential *_remoteCredential;
     UIImage *_passSnapshot;
 }
 
+@property(nonatomic) _Bool isSelected; // @synthesize isSelected=_isSelected;
 @property(retain, nonatomic) UIImage *passSnapshot; // @synthesize passSnapshot=_passSnapshot;
 @property(retain, nonatomic) PKPaymentRemoteCredential *remoteCredential; // @synthesize remoteCredential=_remoteCredential;
 - (void).cxx_destruct;

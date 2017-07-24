@@ -26,14 +26,14 @@
     CDStruct_6e3f967a *_polygonLabelPositions;
     unsigned long long _polygonLabelPositionsCount;
     unsigned long long _venuesCount;
-    CDStruct_3f103ab8 *_venues;
+    CDStruct_7fac6282 *_venues;
     unsigned long long _venueSectionsCount;
     unsigned long long _venueBuildingsCount;
     CDStruct_c8220d63 *_venueBuildings;
     unsigned long long _venueLevelsCount;
     CDStruct_9d4f1c73 *_venueLevels;
     unsigned long long _venueComponentsCount;
-    CDStruct_5c67342b *_venueComponents;
+    CDStruct_2faeb20b *_venueComponents;
     CDStruct_8e575d68 *_buildingFootprints;
     NSMutableData *_extrusionHeightsPool;
     NSMutableData *_baseHeightsPool;
@@ -48,7 +48,7 @@
         id *_field3;
     } *_extendedPointAttributes;
     unsigned long long _extendedPointAttributesCount;
-    CDStruct_ab3e3af1 *_pois;
+    CDStruct_d6359813 *_pois;
     unsigned long long _poisCount;
     CDStruct_d2cf4d6c *_labelTextPlacements;
     unsigned int _labelTextPlacementsCount;
@@ -139,7 +139,7 @@
     unsigned long long _transitLinkLabelAnnotationCount;
     CDStruct_9df870a8 *_transitLinkAnnotationBezierVertices;
     unsigned long long *_idsOfTransitNodesNotInTile;
-    CDStruct_181bb3d3 *_transitAccessPoints;
+    CDStruct_5eab3029 *_transitAccessPoints;
     unsigned long long _transitAccessPointCount;
     CDStruct_c0454aff *_transitNodeLineKeys;
     unsigned long long *_transitNodeLineIndices;
@@ -176,7 +176,7 @@
 @property(readonly, nonatomic) unsigned long long *transitNodeSubtitleLineIndices; // @synthesize transitNodeSubtitleLineIndices=_transitNodeSubtitleLineIndices;
 @property(readonly, nonatomic) unsigned long long *transitNodeLineIndices; // @synthesize transitNodeLineIndices=_transitNodeLineIndices;
 @property(readonly, nonatomic) unsigned long long transitAccessPointCount; // @synthesize transitAccessPointCount=_transitAccessPointCount;
-@property(readonly, nonatomic) CDStruct_181bb3d3 *transitAccessPoints; // @synthesize transitAccessPoints=_transitAccessPoints;
+@property(readonly, nonatomic) CDStruct_5eab3029 *transitAccessPoints; // @synthesize transitAccessPoints=_transitAccessPoints;
 @property(readonly, nonatomic) unsigned int *transitTravelTimes; // @synthesize transitTravelTimes=_transitTravelTimes;
 @property(readonly, nonatomic) unsigned long long transitPointsOnRoadCount; // @synthesize transitPointsOnRoadCount=_transitPointsOnRoadCount;
 @property(readonly, nonatomic) CDStruct_7523a67d *transitPointsOnRoad; // @synthesize transitPointsOnRoad=_transitPointsOnRoad;
@@ -221,7 +221,7 @@
 @property(readonly, nonatomic) unsigned int labelTextPlacementsCount; // @synthesize labelTextPlacementsCount=_labelTextPlacementsCount;
 @property(readonly, nonatomic) CDStruct_d2cf4d6c *labelTextPlacements; // @synthesize labelTextPlacements=_labelTextPlacements;
 @property(readonly, nonatomic) unsigned long long poisCount; // @synthesize poisCount=_poisCount;
-@property(readonly, nonatomic) CDStruct_ab3e3af1 *pois; // @synthesize pois=_pois;
+@property(readonly, nonatomic) CDStruct_d6359813 *pois; // @synthesize pois=_pois;
 @property(readonly, nonatomic) unsigned long long threeDBuildingsCount; // @synthesize threeDBuildingsCount=_threeDBuildingsCount;
 @property(readonly, nonatomic) CDStruct_2da3f85a *threeDBuildings; // @synthesize threeDBuildings=_threeDBuildings;
 @property(readonly, nonatomic) unsigned long long hiResBuildingFootprintsCount; // @synthesize hiResBuildingFootprintsCount=_hiResBuildingFootprintsCount;
@@ -231,13 +231,13 @@
 @property(readonly, nonatomic) CDStruct_183601bc **venueBuildingSections; // @synthesize venueBuildingSections=_venuesSections;
 @property(readonly, nonatomic) CDStruct_9df870a8 *venueVertices; // @synthesize venueVertices=_venuesVertices;
 @property(readonly, nonatomic) unsigned long long venueComponentsCount; // @synthesize venueComponentsCount=_venueComponentsCount;
-@property(readonly, nonatomic) CDStruct_5c67342b *venueComponents; // @synthesize venueComponents=_venueComponents;
+@property(readonly, nonatomic) CDStruct_2faeb20b *venueComponents; // @synthesize venueComponents=_venueComponents;
 @property(readonly, nonatomic) unsigned long long venueLevelsCount; // @synthesize venueLevelsCount=_venueLevelsCount;
 @property(readonly, nonatomic) CDStruct_9d4f1c73 *venueLevels; // @synthesize venueLevels=_venueLevels;
 @property(readonly, nonatomic) unsigned long long venueBuildingsCount; // @synthesize venueBuildingsCount=_venueBuildingsCount;
 @property(readonly, nonatomic) CDStruct_c8220d63 *venueBuildings; // @synthesize venueBuildings=_venueBuildings;
 @property(readonly, nonatomic) unsigned long long venuesCount; // @synthesize venuesCount=_venuesCount;
-@property(readonly, nonatomic) CDStruct_3f103ab8 *venues; // @synthesize venues=_venues;
+@property(readonly, nonatomic) CDStruct_7fac6282 *venues; // @synthesize venues=_venues;
 @property(readonly, nonatomic) unsigned long long polygonsCount; // @synthesize polygonsCount=_polygonsCount;
 @property(readonly, nonatomic) CDStruct_623f0827 *polygons; // @synthesize polygons=_polygons;
 @property(readonly, nonatomic) unsigned long long coastlinesCount; // @synthesize coastlinesCount=_coastlinesCount;
@@ -249,7 +249,7 @@
 @property(readonly, nonatomic) CDStruct_a2ef2718 *lines; // @synthesize lines=_lines;
 - (void).cxx_destruct;
 - (CDStruct_8f1ffc8e *)transitSystemInfoForFeatureID:(unsigned long long)arg1;
-- (CDStruct_181bb3d3 *)transitAccessPointForFeatureID:(unsigned long long)arg1;
+- (CDStruct_5eab3029 *)transitAccessPointForFeatureID:(unsigned long long)arg1;
 - (struct GEOTransitNodeFeature *)transitNodeForFeatureID:(unsigned long long)arg1;
 - (CDStruct_5be08681 *)transitLineForFeatureID:(unsigned long long)arg1;
 - (CDStruct_a2ef2718 *)multiSectionFeatureForGeoID:(unsigned long long)arg1;
@@ -289,7 +289,7 @@
 - (_Bool)_readTransitMZROverride:(CDStruct_effb527d *)arg1;
 - (_Bool)_populateTransitNodeStyleAttributes;
 - (_Bool)_readTransitNetwork:(CDStruct_effb527d *)arg1 key:(const struct _GEOTileKey *)arg2;
-- (_Bool)_decodeLabelTextPlacementsFromStream:(CDStruct_8bf61218 *)arg1 count:(unsigned long long)arg2 firstFeature:(CDStruct_ab3e3af1 *)arg3 featureStride:(unsigned long long)arg4 tilePrecision:(unsigned char)arg5;
+- (_Bool)_decodeLabelTextPlacementsFromStream:(CDStruct_8bf61218 *)arg1 count:(unsigned long long)arg2 firstFeature:(CDStruct_d6359813 *)arg3 featureStride:(unsigned long long)arg4 tilePrecision:(unsigned char)arg5;
 - (_Bool)_decodeTransitLabelsFromStream:(CDStruct_8bf61218 *)arg1 count:(unsigned long long)arg2 firstFeature:(CDStruct_58d0ca89 *)arg3 featureStride:(unsigned long long)arg4;
 - (_Bool)_readTransitSystems:(CDStruct_effb527d *)arg1 key:(const struct _GEOTileKey *)arg2;
 - (_Bool)_convertTransitLineKeys:(CDStruct_183601bc **)arg1 countKeys:(unsigned long long)arg2 lineIndices:(unsigned long long **)arg3;
@@ -307,7 +307,6 @@
 - (_Bool)_readPois:(CDStruct_effb527d *)arg1;
 - (_Bool)_readVenueMZROverride:(CDStruct_effb527d *)arg1;
 - (_Bool)_readVenues:(CDStruct_effb527d *)arg1 key:(const struct _GEOTileKey *)arg2;
-- (_Bool)_readOldVenues:(CDStruct_effb527d *)arg1 key:(const struct _GEOTileKey *)arg2;
 - (_Bool)_readPolygons:(CDStruct_effb527d *)arg1;
 - (_Bool)_readPolygons:(CDStruct_effb527d *)arg1 ofType:(unsigned short)arg2;
 - (_Bool)_readLines:(CDStruct_effb527d *)arg1;

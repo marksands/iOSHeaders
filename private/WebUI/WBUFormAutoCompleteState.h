@@ -41,6 +41,7 @@
 - (void).cxx_destruct;
 - (void)contactPicker:(id)arg1 didSelectContact:(id)arg2;
 - (void)contactPickerDidCancel:(id)arg1;
+- (id)_bestTextFieldMetadataForMetadata:(id)arg1;
 - (void)showOtherContactOptions;
 - (void)switchToCustomInputViewWithMatches:(id)arg1 contact:(id)arg2;
 - (id)_viewControllerToPresentFrom;
@@ -71,6 +72,7 @@
 - (void)fillCredentialAfterAuthenticationIfNeeded:(id)arg1;
 - (void)autoFillValuesAfterAuthenticationIfNeeded:(id)arg1;
 - (void)_captureCreditCardDataWithCameraAndFill;
+@property(readonly, nonatomic) _Bool shouldOfferActionAutoFillCredentials;
 @property(readonly, nonatomic) id <WBUFormAutoFillFrameHandle> frame;
 @property(readonly, nonatomic) UIView<WBUFormAutoFillWebView> *webView;
 - (void)autoFillFormWithCreditCardData:(id)arg1;

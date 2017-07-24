@@ -21,10 +21,12 @@ __attribute__((visibility("hidden")))
 - (void)_stopObservingPageModel;
 - (void)_startObservingPageModel;
 - (void)initializeExifAndScaleOnAnnotation:(id)arg1;
+- (void)pdfPageWasRotated:(id)arg1;
 - (void)pdfPage:(id)arg1 didRemoveAnnotation:(id)arg2;
 - (void)pdfPage:(id)arg1 didAddAnnotation:(id)arg2;
 @property(readonly, nonatomic) AKPageModelController *akPageModelController;
 @property(readonly, nonatomic) __weak PDFPage *pdfPage;
+- (void)_teardown;
 - (void)teardown;
 - (void)dealloc;
 - (id)initWithPDFPage:(id)arg1 pageModelController:(id)arg2;

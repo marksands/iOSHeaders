@@ -312,6 +312,7 @@
 - (void)_updateIdleModeStatus;
 - (long long)_effectiveUserInterfaceStyle;
 - (long long)_preferredUserInterfaceStyle;
+- (void)_setPreferredUserInterfaceStyle:(long long)arg1 updateWallpaper:(_Bool)arg2;
 - (void)_setPreferredUserInterfaceStyle:(long long)arg1;
 - (long long)_systemUserInterfaceStyle;
 - (void)_setSystemUserInterfaceStyle:(long long)arg1;
@@ -467,8 +468,8 @@
 - (void)_setupMotionEventBehavior;
 - (_Bool)_shouldShowAlertForUndoManager:(id)arg1;
 - (_Bool)_shakeToUndoEnabled;
-- (_Bool)_alertWindowShouldRotate;
 - (void)_showEditAlertViewWithUndoManager:(id)arg1 window:(id)arg2;
+- (void)_endNoPresentingViewControllerAlertController:(id)arg1;
 - (void)_sendRemoteControlEvent:(long long)arg1;
 - (id)_remoteControlEvent;
 - (void)_sendMotionCancelled:(long long)arg1;
@@ -711,6 +712,7 @@
 - (id)_screenEdgesDeferringSystemGesturesControllingWindow;
 - (long long)_normativeWhitePointAdaptivityStyleForWindow:(id)arg1;
 - (id)_whitePointAdaptivityStyleControllingWindow;
+- (id)_statusBarControllingWindow;
 - (id)_findWindowForControllingOverallAppearance;
 - (id)statusBarWindow;
 - (id)statusBar;

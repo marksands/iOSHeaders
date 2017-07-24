@@ -9,6 +9,6 @@
 @class MTScheduledList;
 
 @protocol MTScheduledListDelegate <NSObject>
-- (void)scheduledListDidChange:(MTScheduledList *)arg1;
+- (void)scheduledListDidChange:(MTScheduledList *)arg1 withCompletion:(void (^)(void))arg2;
 @end
 

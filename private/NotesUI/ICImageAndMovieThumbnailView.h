@@ -25,7 +25,7 @@
     NSLayoutConstraint *_imageViewRightLayoutConstraint;
     NSLayoutConstraint *_imageViewBottomLayoutConstraint;
     NSLayoutConstraint *_imageViewTopLayoutConstraint;
-    struct UIImageView *_movieFooter;
+    struct UIView *_movieFooter;
     ICLabel *_movieDurationLabel;
     NSMutableDictionary *_hairlineLayers;
     NSMutableDictionary *_hairlineColors;
@@ -36,7 +36,7 @@
 @property(retain, nonatomic) NSMutableDictionary *hairlineColors; // @synthesize hairlineColors=_hairlineColors;
 @property(retain, nonatomic) NSMutableDictionary *hairlineLayers; // @synthesize hairlineLayers=_hairlineLayers;
 @property(retain, nonatomic) ICLabel *movieDurationLabel; // @synthesize movieDurationLabel=_movieDurationLabel;
-@property(retain, nonatomic) UIImageView *movieFooter; // @synthesize movieFooter=_movieFooter;
+@property(retain, nonatomic) UIView *movieFooter; // @synthesize movieFooter=_movieFooter;
 @property(retain, nonatomic) NSLayoutConstraint *imageViewTopLayoutConstraint; // @synthesize imageViewTopLayoutConstraint=_imageViewTopLayoutConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *imageViewBottomLayoutConstraint; // @synthesize imageViewBottomLayoutConstraint=_imageViewBottomLayoutConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *imageViewRightLayoutConstraint; // @synthesize imageViewRightLayoutConstraint=_imageViewRightLayoutConstraint;

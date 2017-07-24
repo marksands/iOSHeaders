@@ -6,12 +6,11 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <Silex/STScrollViewDataSource-Protocol.h>
 #import <Silex/STScrollViewDelegate-Protocol.h>
 #import <Silex/SXActionResponder-Protocol.h>
-#import <Silex/SXComponentControllerDataSource-Protocol.h>
 #import <Silex/SXComponentControllerDelegate-Protocol.h>
 #import <Silex/SXComponentHosting-Protocol.h>
+#import <Silex/SXDocumentSectionHosting-Protocol.h>
 #import <Silex/SXKeyboardSupport-Protocol.h>
 #import <Silex/SXLayoutControllerDelegate-Protocol.h>
 #import <Silex/SXPresentationDelegate-Protocol.h>
@@ -20,28 +19,36 @@
 #import <Silex/UIGestureRecognizerDelegate-Protocol.h>
 #import <Silex/UIViewControllerPreviewingDelegate-Protocol.h>
 
-@class NSMutableArray, NSOrderedSet, NSString, SXComponentAnimationController, SXComponentBehaviorController, SXComponentController, SXComponentView, SXConfiguration, SXContext, SXDocumentStyleRenderer, SXFullScreenCanvasController, SXFullScreenCanvasViewController, SXLayoutController, SXLayoutDataProvider, SXMediaPlaybackController, SXPresentationAttributes, SXScrollPosition, SXTangierController, SXVideoController, SXViewport, UIScrollView, UIView;
-@protocol SXScrollViewControllerDataSource, SXScrollViewControllerDelegate, SXTransitionDataSource, UIViewControllerPreviewing;
+@class NSMutableArray, NSOrderedSet, NSString, SXComponentAnimationController, SXComponentBehaviorController, SXComponentController, SXComponentView, SXConfiguration, SXContext, SXFullScreenCanvasController, SXFullScreenCanvasViewController, SXFullscreenVideoPlaybackManager, SXLayoutController, SXLayoutDataProvider, SXMediaPlaybackController, SXPresentationAttributes, SXScrollPosition, SXTangierController, SXViewport, SXViewportDebugger, UIScrollView, UIView;
+@protocol SXAdDocumentStateManager, SXAnalyticsReporting, SXAppStateMonitor, SXDocumentSectionBlueprint, SXDocumentSectionManager, SXDocumentStyleRenderer, SXScrollViewControllerDelegate, SXTextSelectionManager, SXTransitionDataSource, SXVideoPlayerViewControllerProvider, UIViewControllerPreviewing;
 
-@interface SXScrollViewController : UIViewController <SXLayoutControllerDelegate, SXComponentControllerDelegate, SXComponentControllerDataSource, SXPresentationDelegate, STScrollViewDelegate, STScrollViewDataSource, SXComponentHosting, UIGestureRecognizerDelegate, SXTangierControllerDelegate, UIViewControllerPreviewingDelegate, SXActionResponder, SXViewportChangeListener, SXKeyboardSupport>
+@interface SXScrollViewController : UIViewController <SXDocumentSectionHosting, SXLayoutControllerDelegate, SXComponentControllerDelegate, SXPresentationDelegate, STScrollViewDelegate, SXComponentHosting, UIGestureRecognizerDelegate, SXTangierControllerDelegate, UIViewControllerPreviewingDelegate, SXActionResponder, SXViewportChangeListener, SXKeyboardSupport>
 {
     _Bool _restoreScrollPositionOnNextLayout;
     _Bool _shouldFadeInAfterRotation;
     _Bool _isPreviewing;
-    _Bool _didShowHeader;
     SXComponentAnimationController *_animationController;
     SXComponentBehaviorController *_behaviorController;
     SXComponentController *_componentController;
-    SXVideoController *_videoController;
     SXMediaPlaybackController *_mediaPlaybackController;
+    id <SXVideoPlayerViewControllerProvider> _videoPlayerViewControllerProvider;
+    SXFullscreenVideoPlaybackManager *_fullscreenVideoPlaybackManager;
+    id <SXAdDocumentStateManager> _adDocumentStateManager;
+    id <SXTextSelectionManager> _textSelectionManager;
     SXContext *_context;
     UIScrollView *_scrollView;
     id <SXScrollViewControllerDelegate> _delegate;
-    id <SXScrollViewControllerDataSource> _dataSource;
     SXPresentationAttributes *_presentationAttributes;
     SXConfiguration *_configuration;
+    id <SXAnalyticsReporting> _analyticsReporting;
+    id <SXAppStateMonitor> _appStateMonitor;
     SXLayoutDataProvider *_layoutDataProvider;
     SXLayoutController *_layoutController;
+    id <SXDocumentSectionManager> _documentSectionManager;
+    id <SXDocumentSectionBlueprint> _headerBlueprint;
+    id <SXDocumentSectionBlueprint> _footerBlueprint;
+    SXViewport *_viewport;
+    SXViewportDebugger *_viewportDebugger;
     SXComponentView *_focussedComponentView;
     SXFullScreenCanvasViewController *_fullscreenCanvasViewController;
     SXFullScreenCanvasController *_currentCanvasController;
@@ -50,27 +57,20 @@
     double _lastScrollOffset;
     NSOrderedSet *_snapLines;
     NSMutableArray *_viewsToMaintainPosition;
-    SXDocumentStyleRenderer *_documentStyleRenderer;
+    id <SXDocumentStyleRenderer> _documentStyleRenderer;
     SXTangierController *_tangierController;
-    NSMutableArray *_footerViewControllers;
     NSMutableArray *_articleScrollEvents;
-    SXViewport *_viewport;
     id <UIViewControllerPreviewing> _previewingContext;
-    UIView *_appearStateDebugView;
     SXComponentView<SXTransitionDataSource> *_componentViewUsedInTransition;
 }
 
 @property(nonatomic) __weak SXComponentView<SXTransitionDataSource> *componentViewUsedInTransition; // @synthesize componentViewUsedInTransition=_componentViewUsedInTransition;
-@property(retain, nonatomic) UIView *appearStateDebugView; // @synthesize appearStateDebugView=_appearStateDebugView;
-@property(nonatomic) _Bool didShowHeader; // @synthesize didShowHeader=_didShowHeader;
 @property(nonatomic) _Bool isPreviewing; // @synthesize isPreviewing=_isPreviewing;
 @property(retain, nonatomic) id <UIViewControllerPreviewing> previewingContext; // @synthesize previewingContext=_previewingContext;
-@property(retain, nonatomic) SXViewport *viewport; // @synthesize viewport=_viewport;
 @property(retain, nonatomic) NSMutableArray *articleScrollEvents; // @synthesize articleScrollEvents=_articleScrollEvents;
 @property(nonatomic) _Bool shouldFadeInAfterRotation; // @synthesize shouldFadeInAfterRotation=_shouldFadeInAfterRotation;
-@property(retain, nonatomic) NSMutableArray *footerViewControllers; // @synthesize footerViewControllers=_footerViewControllers;
 @property(retain, nonatomic) SXTangierController *tangierController; // @synthesize tangierController=_tangierController;
-@property(readonly, nonatomic) SXDocumentStyleRenderer *documentStyleRenderer; // @synthesize documentStyleRenderer=_documentStyleRenderer;
+@property(readonly, nonatomic) id <SXDocumentStyleRenderer> documentStyleRenderer; // @synthesize documentStyleRenderer=_documentStyleRenderer;
 @property(readonly, nonatomic) NSMutableArray *viewsToMaintainPosition; // @synthesize viewsToMaintainPosition=_viewsToMaintainPosition;
 @property(retain, nonatomic) NSOrderedSet *snapLines; // @synthesize snapLines=_snapLines;
 @property(nonatomic) double lastScrollOffset; // @synthesize lastScrollOffset=_lastScrollOffset;
@@ -80,21 +80,29 @@
 @property(retain, nonatomic) SXFullScreenCanvasController *currentCanvasController; // @synthesize currentCanvasController=_currentCanvasController;
 @property(retain, nonatomic) SXFullScreenCanvasViewController *fullscreenCanvasViewController; // @synthesize fullscreenCanvasViewController=_fullscreenCanvasViewController;
 @property(retain, nonatomic) SXComponentView *focussedComponentView; // @synthesize focussedComponentView=_focussedComponentView;
+@property(retain, nonatomic) SXViewportDebugger *viewportDebugger; // @synthesize viewportDebugger=_viewportDebugger;
+@property(retain, nonatomic) SXViewport *viewport; // @synthesize viewport=_viewport;
+@property(readonly, nonatomic) id <SXDocumentSectionBlueprint> footerBlueprint; // @synthesize footerBlueprint=_footerBlueprint;
+@property(readonly, nonatomic) id <SXDocumentSectionBlueprint> headerBlueprint; // @synthesize headerBlueprint=_headerBlueprint;
+@property(readonly, nonatomic) id <SXDocumentSectionManager> documentSectionManager; // @synthesize documentSectionManager=_documentSectionManager;
 @property(retain, nonatomic) SXLayoutController *layoutController; // @synthesize layoutController=_layoutController;
-@property(retain, nonatomic) SXLayoutDataProvider *layoutDataProvider; // @synthesize layoutDataProvider=_layoutDataProvider;
+@property(readonly, nonatomic) SXLayoutDataProvider *layoutDataProvider; // @synthesize layoutDataProvider=_layoutDataProvider;
+@property(readonly, nonatomic) id <SXAppStateMonitor> appStateMonitor; // @synthesize appStateMonitor=_appStateMonitor;
+@property(readonly, nonatomic) __weak id <SXAnalyticsReporting> analyticsReporting; // @synthesize analyticsReporting=_analyticsReporting;
 @property(readonly, copy, nonatomic) SXConfiguration *configuration; // @synthesize configuration=_configuration;
 @property(readonly, nonatomic) SXPresentationAttributes *presentationAttributes; // @synthesize presentationAttributes=_presentationAttributes;
-@property(nonatomic) __weak id <SXScrollViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <SXScrollViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(readonly, nonatomic) SXContext *context; // @synthesize context=_context;
+@property(readonly, nonatomic) id <SXTextSelectionManager> textSelectionManager; // @synthesize textSelectionManager=_textSelectionManager;
+@property(readonly, nonatomic) id <SXAdDocumentStateManager> adDocumentStateManager; // @synthesize adDocumentStateManager=_adDocumentStateManager;
+@property(readonly, nonatomic) SXFullscreenVideoPlaybackManager *fullscreenVideoPlaybackManager; // @synthesize fullscreenVideoPlaybackManager=_fullscreenVideoPlaybackManager;
+@property(readonly, nonatomic) id <SXVideoPlayerViewControllerProvider> videoPlayerViewControllerProvider; // @synthesize videoPlayerViewControllerProvider=_videoPlayerViewControllerProvider;
 @property(readonly, nonatomic) SXMediaPlaybackController *mediaPlaybackController; // @synthesize mediaPlaybackController=_mediaPlaybackController;
-@property(readonly, nonatomic) SXVideoController *videoController; // @synthesize videoController=_videoController;
 - (void).cxx_destruct;
-- (void)updateAppearStateIndicator;
 - (id)canvasViewController;
 - (id)interactiveCanvasController;
-- (id)createLayoutAttributes;
+- (id)layoutAttributesFromPresentationAttributes:(id)arg1 headerBlueprint:(id)arg2;
 - (_Bool)isValidBlueprintForCurrentSize:(id)arg1;
 - (void)showScrollViewIfNeeded;
 - (void)_applicationWillEnterForeground:(id)arg1;
@@ -102,6 +110,11 @@
 - (_Bool)handleAction:(id)arg1;
 - (void)finishArticleScrollEvents;
 - (id)transitionDataSource;
+- (void)willEndPreviewing;
+- (void)willStartPreviewing;
+- (_Bool)shouldStartPreviewing;
+- (void)_previewingContext:(id)arg1 willDismissViewController:(id)arg2;
+- (void)_previewingContext:(id)arg1 willPresentViewController:(id)arg2;
 - (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
 - (void)previewGestureDidChange:(id)arg1;
 - (id)forceTouchActionForComponentView:(id)arg1;
@@ -133,14 +146,10 @@
 @property(readonly, nonatomic) SXComponentAnimationController *animationController; // @synthesize animationController=_animationController;
 @property(readonly, nonatomic) SXComponentBehaviorController *behaviorController; // @synthesize behaviorController=_behaviorController;
 @property(readonly, nonatomic) SXComponentController *componentController; // @synthesize componentController=_componentController;
-- (void)reloadFootersAnimated:(_Bool)arg1;
-- (id)headerViewForScrollView:(id)arg1;
-- (double)headerHeightForScrollView:(id)arg1;
-- (void)showHeaderIfNeeded;
-- (void)reloadHeader;
 - (_Bool)shouldRestoreScrollPositionForLayoutBlueprint:(id)arg1;
 - (void)updateScrollPosition:(id)arg1 animated:(_Bool)arg2;
 - (id)textScrollPositionForComponentViews:(id)arg1;
+- (id)scrollPositionForPlayingVideoComponentInComponentViews:(id)arg1;
 - (void)dictionaryWithComponentOffsets:(id)arg1 forComponentViews:(id)arg2;
 - (id)scrollPositionForComponentViews:(id)arg1;
 - (id)scrollPosition;
@@ -153,15 +162,17 @@
 - (void)layoutForSize:(struct CGSize)arg1 transitionCoordinator:(id)arg2;
 - (void)removeComponentView:(id)arg1;
 - (void)addComponentView:(id)arg1;
-- (id)viewportForComponentController:(id)arg1;
-- (id)componentHostForComponentController:(id)arg1;
-- (id)contextForComponentController:(id)arg1;
-- (void)componentController:(id)arg1 didInvalidateBlueprint:(id)arg2;
+- (void)componentController:(id)arg1 didInvalidateBlueprint:(id)arg2 attributes:(id)arg3;
 - (void)componentController:(id)arg1 didPresentBlueprint:(id)arg2;
 - (void)componentController:(id)arg1 willPresentBlueprint:(id)arg2;
 - (void)layoutController:(id)arg1 didLayoutBlueprint:(id)arg2 layoutDataProvider:(id)arg3;
 - (void)layoutController:(id)arg1 willLayoutForViewportSize:(struct CGSize)arg2 layoutDataProvider:(id)arg3;
 - (void)viewport:(id)arg1 appearStateChangedFromState:(unsigned long long)arg2;
+- (id)sectionHostingView;
+- (id)sectionHostingViewController;
+- (void)updateStickyHeaders;
+- (void)applyFooterBlueprint:(id)arg1;
+- (void)applyHeaderBlueprint:(id)arg1;
 - (void)dealloc;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLayoutSubviews;
@@ -173,7 +184,7 @@
 - (void)updatePresentationWithAttributes:(id)arg1;
 - (void)loadContext:(id)arg1;
 - (void)viewDidLoad;
-- (id)initWithConfiguration:(id)arg1;
+- (id)initWithConfiguration:(id)arg1 analyticsReporting:(id)arg2 appStateMonitor:(id)arg3 videoPlayerViewControllerProvider:(id)arg4;
 - (id)scrollViewForFullscreenGalleryWithComponentIdentifier:(id)arg1;
 - (id)scrollViewForStripGalleryWithComponentIdentifier:(id)arg1;
 

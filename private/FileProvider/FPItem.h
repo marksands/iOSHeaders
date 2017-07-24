@@ -8,14 +8,14 @@
 
 #import <FileProvider/NSCopying-Protocol.h>
 #import <FileProvider/NSFileProviderItem-Protocol.h>
+#import <FileProvider/NSFileProviderItem_Private-Protocol.h>
 #import <FileProvider/NSSecureCoding-Protocol.h>
 
 @class FPItemID, NSArray, NSData, NSDate, NSDictionary, NSError, NSNumber, NSPersonNameComponents, NSProgress, NSString, NSURL;
 
-@interface FPItem : NSObject <NSFileProviderItem, NSCopying, NSSecureCoding>
+@interface FPItem : NSObject <NSFileProviderItem_Private, NSFileProviderItem, NSCopying, NSSecureCoding>
 {
     NSProgress *_progress;
-    _Bool _downloaded;
     _Bool _downloading;
     _Bool _mostRecentVersionDownloaded;
     _Bool _uploaded;
@@ -23,7 +23,10 @@
     _Bool _trashed;
     _Bool _shared;
     _Bool _sharedByCurrentUser;
+    _Bool _supportsMostRecentVersionDownloaded;
+    _Bool _offline;
     _Bool _hidden;
+    _Bool _downloaded;
     _Bool _pending;
     NSString *_itemIdentifier;
     NSString *_domainIdentifier;
@@ -44,6 +47,7 @@
     NSString *_sharingPermissions;
     NSString *_containerDisplayName;
     NSString *_filename;
+    NSString *_appContainerBundleIdentifier;
     NSString *_formerIdentifier;
     NSNumber *_hasUnresolvedConflicts;
     NSURL *_fileURL;
@@ -58,6 +62,7 @@
     NSString *_providerIdentifier;
 }
 
++ (id)allUbiquitousResourceKeys;
 + (_Bool)supportsSecureCoding;
 + (id)placeholderWithName:(id)arg1 isFolder:(_Bool)arg2 contentAccessDate:(id)arg3 underParent:(id)arg4 inProvider:(id)arg5;
 + (id)placeholderWithCopyOfExistingItem:(id)arg1 lastUsageUpdatePolicy:(unsigned long long)arg2 underParent:(id)arg3 inProvider:(id)arg4;
@@ -65,6 +70,7 @@
 + (id)generatePlaceholderIdentifier;
 @property(readonly, nonatomic) NSString *providerIdentifier; // @synthesize providerIdentifier=_providerIdentifier;
 @property(nonatomic, getter=isPending) _Bool pending; // @synthesize pending=_pending;
+@property(nonatomic, getter=isDownloaded) _Bool downloaded; // @synthesize downloaded=_downloaded;
 @property(copy, nonatomic) NSData *tagData; // @synthesize tagData=_tagData;
 @property(copy, nonatomic) NSDate *lastUsedDate; // @synthesize lastUsedDate=_lastUsedDate;
 @property(copy, nonatomic) NSNumber *favoriteRank; // @synthesize favoriteRank=_favoriteRank;
@@ -77,10 +83,13 @@
 @property(retain, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(readonly, nonatomic) NSNumber *hasUnresolvedConflicts; // @synthesize hasUnresolvedConflicts=_hasUnresolvedConflicts;
 @property(retain, nonatomic) NSString *formerIdentifier; // @synthesize formerIdentifier=_formerIdentifier;
+@property(copy, nonatomic) NSString *appContainerBundleIdentifier; // @synthesize appContainerBundleIdentifier=_appContainerBundleIdentifier;
 @property(copy, nonatomic) NSString *filename; // @synthesize filename=_filename;
+@property(nonatomic, getter=isOffline) _Bool offline; // @synthesize offline=_offline;
+@property(nonatomic) _Bool supportsMostRecentVersionDownloaded; // @synthesize supportsMostRecentVersionDownloaded=_supportsMostRecentVersionDownloaded;
 @property(readonly, nonatomic) NSString *containerDisplayName; // @synthesize containerDisplayName=_containerDisplayName;
 @property(readonly, nonatomic) NSString *sharingPermissions; // @synthesize sharingPermissions=_sharingPermissions;
-@property(readonly, nonatomic) NSNumber *isDownloadRequested; // @synthesize isDownloadRequested=_isDownloadRequested;
+@property(readonly, copy, getter=isDownloadRequested) NSNumber *downloadRequested;
 @property(retain, nonatomic) NSPersonNameComponents *mostRecentEditorNameComponents; // @synthesize mostRecentEditorNameComponents=_mostRecentEditorNameComponents;
 @property(retain, nonatomic) NSPersonNameComponents *ownerNameComponents; // @synthesize ownerNameComponents=_ownerNameComponents;
 @property(nonatomic, getter=isSharedByCurrentUser) _Bool sharedByCurrentUser; // @synthesize sharedByCurrentUser=_sharedByCurrentUser;
@@ -99,12 +108,13 @@
 @property(copy, nonatomic) NSError *downloadingError; // @synthesize downloadingError=_downloadingError;
 @property(nonatomic, getter=isMostRecentVersionDownloaded) _Bool mostRecentVersionDownloaded; // @synthesize mostRecentVersionDownloaded=_mostRecentVersionDownloaded;
 @property(nonatomic, getter=isDownloading) _Bool downloading; // @synthesize downloading=_downloading;
-@property(nonatomic, getter=isDownloaded) _Bool downloaded; // @synthesize downloaded=_downloaded;
 @property(copy, nonatomic) NSDate *contentModificationDate; // @synthesize contentModificationDate=_contentModificationDate;
 @property(readonly, copy, nonatomic) NSString *parentItemIdentifier; // @synthesize parentItemIdentifier=_parentItemIdentifier;
 @property(readonly, nonatomic) NSString *domainIdentifier; // @synthesize domainIdentifier=_domainIdentifier;
 @property(readonly, copy, nonatomic) NSString *itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
 - (void).cxx_destruct;
+- (id)_downloadingStatus;
+- (id)ubiquitousResourceKeysDiffAgainstItem:(id)arg1;
 - (void)setPlaceholdOperationProgress:(id)arg1;
 @property(readonly, nonatomic) NSString *hierarchyPathKey;
 @property(readonly, nonatomic) unsigned long long depthInHierarchy;
@@ -130,6 +140,7 @@
 @property(readonly, nonatomic, getter=isPlaceholder) _Bool placeholder;
 @property(readonly, nonatomic, getter=isWritable) _Bool writable;
 @property(readonly, nonatomic, getter=isReadable) _Bool readable;
+@property(readonly, nonatomic) NSString *fp_appContainerBundleIdentifier;
 @property(readonly, nonatomic) NSString *fp_domainIdentifier;
 - (id)copyAsPending;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -142,6 +153,7 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, nonatomic) NSNumber *isDownloadRequested; // @synthesize isDownloadRequested=_isDownloadRequested;
 @property(readonly) Class superclass;
 
 @end

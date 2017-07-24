@@ -33,6 +33,19 @@ struct CLKUIGLUniforms {
     int secondaryTexture;
 };
 
+struct CLKUITextureBackingStructure {
+    void *bytes;
+    unsigned int length;
+    unsigned int width;
+    unsigned int height;
+    unsigned int planes;
+    unsigned int planeLength;
+    unsigned int bytesPerPixel;
+    unsigned char format;
+    unsigned char filter;
+    unsigned char wrap;
+};
+
 struct NSNumber {
     Class _field1;
 };

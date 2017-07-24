@@ -19,12 +19,12 @@
 + (id)_remoteViewControllerInterface;
 @property(readonly, nonatomic, getter=_browserUserInterfaceStyle) unsigned long long browserUserInterfaceStyle; // @synthesize browserUserInterfaceStyle=_browserUserInterfaceStyle;
 - (void)_browserUserInterfaceStyleDidChange;
-- (void)prepareForAuthentication;
+- (void)prepareForError:(id)arg1;
 - (void)prepareAuthenticationUsingURL:(id)arg1;
 - (void)prepareForServerCreation;
 - (void)prepareForActionWithIdentifier:(id)arg1 itemIdentifiers:(id)arg2;
 - (void)_setBrowserUserInterfaceStyle:(unsigned long long)arg1;
-- (void)_prepareForAuthentication;
+- (void)_prepareForError:(id)arg1;
 - (void)_configureWithDomainIdentifier:(id)arg1;
 - (void)_prepareAuthenticationUsingURL:(id)arg1;
 - (void)_prepareForServerCreation;

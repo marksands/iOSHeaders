@@ -12,19 +12,24 @@
 
 @interface PKExplanationViewController : UIViewController <PKPaymentSetupPrivacyFooterViewDelegate>
 {
+    _Bool _showCancelButton;
+    _Bool _showDoneButton;
     long long _context;
     PKExplanationView *_explanationView;
 }
 
 @property(readonly, nonatomic) PKExplanationView *explanationView; // @synthesize explanationView=_explanationView;
+@property(nonatomic) _Bool showDoneButton; // @synthesize showDoneButton=_showDoneButton;
+@property(nonatomic) _Bool showCancelButton; // @synthesize showCancelButton=_showCancelButton;
+@property(readonly, nonatomic) long long context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (void)privacyFooterLinkTapped:(id)arg1;
-- (id)pkui_navigationBarTintColor;
-- (_Bool)pkui_prefersNavigationBarShadowHidden;
-- (void)_cancel;
+- (void)_dismissViewController;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)loadView;
+- (id)pkui_navigationBarTintColor;
+- (_Bool)pkui_prefersNavigationBarShadowHidden;
 - (id)initWithContext:(long long)arg1;
 - (id)init;
 

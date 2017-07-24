@@ -7,12 +7,11 @@
 #import <objc/NSObject.h>
 
 #import <Silex/ADBannerViewInternalDelegate-Protocol.h>
-#import <Silex/SXVideoAdProviderDataSource-Protocol.h>
 
 @class NSMutableArray, NSMutableDictionary, NSString, SXContext, SXDocument;
 @protocol OS_dispatch_semaphore, SXAdControllerDataSource, SXAdControllerDelegate;
 
-@interface SXAdController : NSObject <ADBannerViewInternalDelegate, SXVideoAdProviderDataSource>
+@interface SXAdController : NSObject <ADBannerViewInternalDelegate>
 {
     _Bool _didLoadFirstBannerView;
     id <SXAdControllerDelegate> _delegate;
@@ -24,6 +23,8 @@
     SXDocument *_document;
 }
 
++ (_Bool)interactivityDebuggingEnabled;
++ (void)setInteractivityDebuggingEnabled:(_Bool)arg1;
 + (_Bool)isDebugModeEnabled;
 + (void)setDebugModeEnabled:(_Bool)arg1;
 + (id)debugAdvertismentSettings;
@@ -37,7 +38,6 @@
 @property(nonatomic) __weak id <SXAdControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <SXAdControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (CDUnknownBlockType)videoAdWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)viewControllerForStoryboardPresentationFromBannerView:(id)arg1;
 - (_Bool)isRect:(struct CGRect)arg1 withinScreenFullOfRect:(struct CGRect)arg2 viewport:(struct CGSize)arg3;
 - (_Bool)isDisplayingAdsWithinScreenfullOfComponentView:(id)arg1;
@@ -45,14 +45,14 @@
 - (_Bool)allowComponentViewInFirstViewport:(id)arg1;
 - (_Bool)isComponentViewWithinFirstViewport:(id)arg1;
 - (struct CGRect)frameForBannerViewForComponentIdentifier:(id)arg1;
-- (void)resumeAdMedia;
-- (void)pauseAdMedia;
+- (void)resumeAdInteraction;
+- (void)disableAdInteraction;
 - (void)reset;
 - (void)componentView:(id)arg1 failedToLoadBannerView:(id)arg2 error:(id)arg3;
 - (void)componentView:(id)arg1 didUnloadBannerView:(id)arg2 withError:(id)arg3;
 - (void)componentView:(id)arg1 didLoadBannerView:(id)arg2;
-- (CDUnknownBlockType)prerollWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (CDUnknownBlockType)bannerViewForComponentView:(id)arg1 adType:(unsigned long long)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (CDUnknownBlockType)prerollForComponent:(id)arg1 metadataProvider:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (CDUnknownBlockType)bannerViewForComponentView:(id)arg1 metadataProvider:(id)arg2 adType:(unsigned long long)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (_Bool)componentViewWithinScreenHeightOfViewport:(id)arg1;
 - (_Bool)shouldRequestBannerViewForComponentView:(id)arg1;
 - (void)transitionToSizeWithVisibleBounds:(struct CGRect)arg1;

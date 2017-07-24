@@ -47,6 +47,7 @@
 + (id)_newZStringWithCharacters:(const unsigned short *)arg1 length:(unsigned long long)arg2;
 + (id)_web_stringRepresentationForBytes:(long long)arg1;
 + (id)writableTypeIdentifiersForItemProvider;
++ (id)objectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 + (id)readableTypeIdentifiersForItemProvider;
 + (unsigned long long)stringEncodingForData:(id)arg1 encodingOptions:(id)arg2 convertedString:(id *)arg3 usedLossyConversion:(_Bool *)arg4;
 - (id)initWithCoder:(id)arg1;

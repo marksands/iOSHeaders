@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray, NSMutableDictionary, NSURLSessionConfiguration;
 @protocol OS_dispatch_queue;
@@ -26,6 +26,7 @@
 - (void)unregisterSessionDemultiplexerWithIdentifier:(id)arg1;
 - (id)sessionDemultiplexerForAdByIdentifier:(id)arg1 maximumRequestCount:(long long)arg2;
 - (id)init;
+- (void)dealloc;
 
 @end
 

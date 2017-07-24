@@ -10,6 +10,7 @@
 - (_Bool)isPeriodValid:(id)arg1;
 - (id)trialPeriodInISO_8601;
 - (id)subscriptionPeriodInISO_8601;
+- (id)introductoryOffers;
 - (id)offerName;
 - (id)appAdamID;
 @end

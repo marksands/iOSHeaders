@@ -63,6 +63,8 @@
     _Bool _alwaysWantsInterfaceChangeCallbacks;
     int _lastProcessedAction;
     _Bool _deviceUnderGoodCondition;
+    int _currentGrowthStage;
+    id _duetContextRegistration;
 }
 
 + (_Bool)_isCachedKeepAliveIntervalStillValid:(double)arg1 date:(id)arg2;
@@ -123,11 +125,13 @@
 - (void)resumeManagerWithAction:(int)arg1 forceGrow:(_Bool)arg2;
 - (void)resumeManagerWithAction:(int)arg1;
 - (void)startManager;
+@property(readonly, nonatomic) int currentGrowthStage;
 - (id)_currentGrowthAlgorithm;
 - (void)setOnlyAllowedStyle:(int)arg1;
 - (int)currentStyle;
 - (void)_processDeviceConditionChanges;
 - (void)_handleDeviceConditionChangeCallback;
+- (void)_deregisterForDeviceConditionsNotifications;
 - (void)_registerForDeviceConditionsNotifications;
 - (void)_loadPreferencesGeneratingEvent:(_Bool)arg1;
 - (void)_preferencesChanged;

@@ -20,10 +20,10 @@
     NSObject<OS_xpc_object> *_daemonConnection;
     NSObject<OS_xpc_object> *_observationConnection;
     unsigned int _launchdUID;
-    // Error parsing type: AI, name: _lastEUID
+    unsigned int _euid;
 }
 
-+ (id)defaultPreferences;
++ (id)copyDefaultPreferences;
 - (void)replaceValuesInVolatileSourceNamed:(struct __CFString *)arg1 withValues:(struct __CFDictionary *)arg2;
 - (void)removeSuite:(struct __CFString *)arg1 fromApp:(struct __CFString *)arg2 withContainer:(struct __CFString *)arg3;
 - (unsigned char)appSynchronizeWithIdentifier:(struct __CFString *)arg1 container:(struct __CFString *)arg2;
@@ -55,6 +55,7 @@
 - (void)notifyOfImpendingDeletionOfUser:(struct __CFString *)arg1;
 - (void)setDaemonCacheEnabled:(_Bool)arg1 identifier:(struct __CFString *)arg2 user:(struct __CFString *)arg3 host:(struct __CFString *)arg4 container:(struct __CFString *)arg5;
 - (unsigned char)synchronizeIdentifier:(struct __CFString *)arg1 user:(struct __CFString *)arg2 host:(struct __CFString *)arg3 container:(struct __CFString *)arg4;
+- (void)synchronizeEverything;
 - (struct __CFArray *)copyKeyListForIdentifier:(struct __CFString *)arg1 user:(struct __CFString *)arg2 host:(struct __CFString *)arg3 container:(struct __CFString *)arg4;
 - (_Bool)hasNonRegisteredValueForKey:(struct __CFString *)arg1 appIdentifier:(struct __CFString *)arg2 container:(struct __CFString *)arg3 configurationURL:(struct __CFURL *)arg4;
 - (_Bool)hasCloudValueForKey:(struct __CFString *)arg1 appIdentifier:(struct __CFString *)arg2 container:(struct __CFString *)arg3 configurationURL:(struct __CFURL *)arg4;
@@ -65,7 +66,7 @@
 - (id)init;
 - (id)copyObservationConnection;
 - (_Bool)canLookUpAgents;
-- (unsigned int)lastEUID;
+- (unsigned int)euid;
 - (void)assertEquivalence:(_Bool)arg1 ofIdentifiers:(struct __CFArray *)arg2 users:(struct __CFArray *)arg3 hosts:(struct __CFArray *)arg4 containers:(struct __CFArray *)arg5 managedFlags:(struct __CFArray *)arg6 cloudFlags:(struct __CFArray *)arg7;
 - (void)withNamedVolatileSources:(CDUnknownBlockType)arg1;
 - (void)alreadylocked_withNamedVolatileSources:(CDUnknownBlockType)arg1;

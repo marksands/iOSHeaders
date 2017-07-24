@@ -6,30 +6,31 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class FCArticleSearchOperationFeedbackResult, NSArray, NSString, SFMoreResults;
+@class NSArray, NSString, SFMoreResults, SFRankingFeedback;
 @protocol FCContentContext;
 
 @interface FCParsecArticleSearchOperation : FCOperation
 {
     NSString *_query;
-    unsigned long long _resultsLimit;
     id <FCContentContext> _contentContext;
+    SFRankingFeedback *_previousRankingFeedback;
     CDUnknownBlockType _articleSearchCompletionHandler;
     NSArray *_results;
     unsigned long long _batchSize;
-    FCArticleSearchOperationFeedbackResult *_searchOperationFeedBackResult;
+    SFRankingFeedback *_rankingFeedback;
     SFMoreResults *_moreResults;
 }
 
 @property(retain, nonatomic) SFMoreResults *moreResults; // @synthesize moreResults=_moreResults;
-@property(retain, nonatomic) FCArticleSearchOperationFeedbackResult *searchOperationFeedBackResult; // @synthesize searchOperationFeedBackResult=_searchOperationFeedBackResult;
+@property(retain, nonatomic) SFRankingFeedback *rankingFeedback; // @synthesize rankingFeedback=_rankingFeedback;
 @property(nonatomic) unsigned long long batchSize; // @synthesize batchSize=_batchSize;
 @property(retain, nonatomic) NSArray *results; // @synthesize results=_results;
 @property(copy) CDUnknownBlockType articleSearchCompletionHandler; // @synthesize articleSearchCompletionHandler=_articleSearchCompletionHandler;
+@property(retain, nonatomic) SFRankingFeedback *previousRankingFeedback; // @synthesize previousRankingFeedback=_previousRankingFeedback;
 @property(retain, nonatomic) id <FCContentContext> contentContext; // @synthesize contentContext=_contentContext;
-@property(nonatomic) unsigned long long resultsLimit; // @synthesize resultsLimit=_resultsLimit;
 @property(copy, nonatomic) NSString *query; // @synthesize query=_query;
 - (void).cxx_destruct;
+- (id)_rankingFeedbackWithSection:(id)arg1;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;
 - (id)initWithMoreResults:(id)arg1;

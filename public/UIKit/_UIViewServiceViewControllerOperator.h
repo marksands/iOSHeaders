@@ -85,6 +85,7 @@ __attribute__((visibility("hidden")))
 - (id)_showServiceForText:(id)arg1 type:(long long)arg2 fromRect:(struct CGRect)arg3 inView:(id)arg4;
 - (_Bool)_canShowTextServices;
 - (id)_inputViewsKey;
+- (void)_setNeedsUserInterfaceAppearanceUpdate;
 - (void)setNeedsUpdateOfScreenEdgesDeferringSystemGestures;
 - (id)childViewControllerForScreenEdgesDeferringSystemGestures;
 - (void)setNeedsWhitePointAdaptivityStyleUpdate;

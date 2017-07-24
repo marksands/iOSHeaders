@@ -9,7 +9,6 @@
 @class CDPContext, NSDictionary;
 
 @protocol CDPDAuthProviderInternal <NSObject>
-- (void)cdpContext:(CDPContext *)arg1 determineHSA2StateWithCompletion:(void (^)(_Bool, NSError *))arg2;
 - (void)cdpContext:(CDPContext *)arg1 persistMasterKeyVerifier:(NSDictionary *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 @end
 

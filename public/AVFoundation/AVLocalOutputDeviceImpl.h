@@ -8,18 +8,24 @@
 
 #import <AVFoundation/AVOutputDeviceImpl-Protocol.h>
 
-@class NSArray, NSNumber, NSString;
+@class AVOutputDevice, NSArray, NSNumber, NSString;
 
 @interface AVLocalOutputDeviceImpl : NSObject <AVOutputDeviceImpl>
 {
+    AVOutputDevice *_parentDevice;
 }
 
+@property __weak AVOutputDevice *parentOutputDevice; // @synthesize parentOutputDevice=_parentDevice;
+- (void).cxx_destruct;
 - (void)setAdministrativeConfiguration:(id)arg1 administrationPassword:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) _Bool groupContainsGroupLeader;
 @property(readonly, nonatomic) _Bool isGroupLeader;
 @property(readonly, nonatomic) _Bool canBeGroupLeader;
 @property(readonly, copy, nonatomic) NSString *groupID;
 @property(readonly, nonatomic) _Bool canBeGrouped;
+- (void)setVolume:(float)arg1;
+@property(readonly) _Bool canSetVolume;
+@property(readonly) float volume;
 - (void)setSecondDisplayEnabled:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool canAccessRemoteAssets;
 @property(readonly, nonatomic) _Bool requiresAuthorization;

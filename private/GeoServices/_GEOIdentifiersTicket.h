@@ -14,15 +14,14 @@ __attribute__((visibility("hidden")))
     NSArray *_identifiers;
     int _resultProviderID;
     NSString *_contentProvider;
-    _Bool _includeETA;
     unsigned long long _options;
 }
 
 - (void).cxx_destruct;
-- (void)submitWithHandler:(CDUnknownBlockType)arg1 timeout:(long long)arg2 networkActivity:(CDUnknownBlockType)arg3;
+- (void)submitWithHandler:(CDUnknownBlockType)arg1 auditToken:(id)arg2 timeout:(long long)arg3 networkActivity:(CDUnknownBlockType)arg4;
 - (id)description;
-- (id)initWithIdentifiers:(id)arg1 resultProviderID:(int)arg2 contentProvider:(id)arg3 includeETA:(_Bool)arg4 traits:(id)arg5 options:(unsigned long long)arg6;
-- (id)initWithMUIDs:(id)arg1 resultProviderID:(int)arg2 contentProvider:(id)arg3 includeETA:(_Bool)arg4 traits:(id)arg5 options:(unsigned long long)arg6;
+- (id)initWithIdentifiers:(id)arg1 resultProviderID:(int)arg2 contentProvider:(id)arg3 traits:(id)arg4 options:(unsigned long long)arg5;
+- (id)initWithMUIDs:(id)arg1 resultProviderID:(int)arg2 contentProvider:(id)arg3 traits:(id)arg4 options:(unsigned long long)arg5;
 
 @end
 

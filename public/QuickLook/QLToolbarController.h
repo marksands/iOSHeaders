@@ -35,9 +35,11 @@ __attribute__((visibility("hidden")))
     double _hiddenProgress;
     UIColor *_barTintColor;
     UIView *_preferredSuperview;
+    UIView *_preferredParentViewForSafeAreaInset;
 }
 
-@property(nonatomic) __weak UIView *preferredSuperview; // @synthesize preferredSuperview=_preferredSuperview;
+@property(readonly, nonatomic) __weak UIView *preferredParentViewForSafeAreaInset; // @synthesize preferredParentViewForSafeAreaInset=_preferredParentViewForSafeAreaInset;
+@property(readonly, nonatomic) __weak UIView *preferredSuperview; // @synthesize preferredSuperview=_preferredSuperview;
 @property(retain, nonatomic) UIColor *barTintColor; // @synthesize barTintColor=_barTintColor;
 @property(nonatomic) double hiddenProgress; // @synthesize hiddenProgress=_hiddenProgress;
 @property(nonatomic) double accessoryViewAlpha; // @synthesize accessoryViewAlpha=_accessoryViewAlpha;
@@ -53,6 +55,7 @@ __attribute__((visibility("hidden")))
 - (void)setAccessoryView:(id)arg1 animated:(_Bool)arg2;
 @property(nonatomic) double accessoryViewHiddenProgress; // @synthesize accessoryViewHiddenProgress=_accessoryViewHiddenProgress;
 @property(nonatomic, getter=isAccessoryViewHidden) _Bool accessoryViewHidden; // @synthesize accessoryViewHidden=_accessoryViewHidden;
+- (void)setPreferredSuperview:(id)arg1 preferredParentViewForSafeAreaInset:(id)arg2;
 - (void)updateLayout;
 - (void)restoreOriginalConfiguration;
 - (void)restoreOriginalToolbar;
@@ -60,6 +63,7 @@ __attribute__((visibility("hidden")))
 - (double)_toolbarExtensionHeight;
 - (double)_totalHeight;
 - (void)_layoutAccessoryView:(id)arg1;
+- (double)_originalToolbarHeightIncludingSafeAreaBottomInset:(_Bool)arg1;
 - (_Bool)_tryToSetUp:(_Bool)arg1;
 - (id)init;
 

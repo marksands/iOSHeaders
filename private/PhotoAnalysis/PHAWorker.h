@@ -27,7 +27,7 @@
 + (_Bool)runsExclusively;
 + (short)workerType;
 + (long long)applicationDataFolderIdentifier;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *userInitiatedRequestQueue; // @synthesize userInitiatedRequestQueue=_userInitiatedRequestQueue;
+@property(retain) NSObject<OS_dispatch_queue> *userInitiatedRequestQueue; // @synthesize userInitiatedRequestQueue=_userInitiatedRequestQueue;
 @property(retain) PHAServiceCancelableOperation *currentOperation; // @synthesize currentOperation=_currentOperation;
 @property(retain, nonatomic) id <PHAAssetResourceDataLoading> dataLoader; // @synthesize dataLoader=_dataLoader;
 @property(nonatomic, getter=isWarmedUp) _Bool warmedUp; // @synthesize warmedUp=_warmedUp;
@@ -54,8 +54,8 @@
 - (id)libraryScopedWorkerPreferences;
 - (void)dispatchAsyncToExecutiveStateQueue:(CDUnknownBlockType)arg1;
 - (void)assertUserInitiatedRequestQueue;
-- (void)dispatchSyncToUserInitiatedRequestQueue:(CDUnknownBlockType)arg1;
-- (void)dispatchAsyncToUserInitiatedRequestQueue:(CDUnknownBlockType)arg1;
+- (_Bool)dispatchSyncToUserInitiatedRequestQueue:(CDUnknownBlockType)arg1;
+- (_Bool)dispatchAsyncToUserInitiatedRequestQueue:(CDUnknownBlockType)arg1;
 - (id)statusAsDictionary;
 @property(readonly) _Bool isEnabled;
 @property(readonly) PHALibraryChangeListener *changeListener;

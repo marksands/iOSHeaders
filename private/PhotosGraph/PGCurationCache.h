@@ -36,7 +36,7 @@
 - (void)setMomentInteresting:(_Bool)arg1 forMoment:(id)arg2 precision:(unsigned long long)arg3;
 - (void)setCuratedAssets:(id)arg1 forMoment:(id)arg2 duration:(unsigned long long)arg3 precision:(unsigned long long)arg4;
 - (void)setCuratedKeyAsset:(id)arg1 forMoment:(id)arg2 options:(id)arg3;
-- (void)invalidateCacheForMomentIdentifiers:(id)arg1;
+- (void)invalidateCacheForEventIdentifiers:(id)arg1;
 - (void)invalidateCacheForMomentIdentifier:(id)arg1 precision:(unsigned long long)arg2;
 - (void)invalidateCacheForMomentIdentifier:(id)arg1;
 - (id)dataModelName;

@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     TSWPStorage *_storage;
     _Bool _isObservingStorage;
     _Bool _useLigatures;
+    _Bool _layoutFinished;
     struct TSWPDirtyRangeVector _dirtyRanges;
     TSWPCTTypesetterCache *_typesetterCache;
     TSWPMutableTopicNumberHints *_initialTopicNumbers;
@@ -24,6 +25,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (void)fixColumnBoundsForTarget:(id)arg1 storage:(id)arg2 charIndex:(unsigned long long)arg3 firstColumnIndex:(unsigned long long)arg4 precedingHeight:(double)arg5 height:(double)arg6 alreadyHasMargins:(_Bool)arg7 styleProvider:(id)arg8 vertical:(_Bool)arg9;
+@property(readonly, nonatomic) _Bool layoutFinished; // @synthesize layoutFinished=_layoutFinished;
 @property(readonly, nonatomic) id <TSWPLayoutOwner> owner; // @synthesize owner=_owner;
 @property(copy, nonatomic) NSObject<TSWPTopicNumberHints> *initialTopicNumberHints; // @synthesize initialTopicNumberHints=_initialTopicNumbers;
 @property(readonly, nonatomic) const struct TSWPDirtyRangeVector *dirtyRanges; // @synthesize dirtyRanges=_dirtyRanges;

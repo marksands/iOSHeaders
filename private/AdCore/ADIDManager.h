@@ -20,7 +20,9 @@
 @property(retain) NSArray *monthlyResetArray; // @synthesize monthlyResetArray=_monthlyResetArray;
 @property(retain) DSIDRecord *activeDSIDRecord; // @synthesize activeDSIDRecord=_activeDSIDRecord;
 - (void).cxx_destruct;
+- (id)retrieveDeviceIDs;
 - (void)logIDs:(id)arg1;
+- (id)deviceIdentifiers;
 - (void)reloadRecords:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)reloadRecords:(id)arg1;
 - (id)dsidRecord:(id)arg1 fromDict:(id)arg2;

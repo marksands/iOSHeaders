@@ -34,6 +34,9 @@
 - (void)speechManagerDidStartForwarding:(id)arg1 successfully:(_Bool)arg2 error:(id)arg3;
 - (void)speechManagerRecordBufferAvailable:(id)arg1 buffer:(id)arg2;
 - (void)speechManagerLPCMRecordBufferAvailable:(id)arg1 chunk:(id)arg2;
+- (void)_setAsset:(id)arg1;
+- (void)setAsset:(id)arg1;
+- (void)_reset;
 - (void)reset;
 - (id)initWithManager:(id)arg1 asset:(id)arg2;
 

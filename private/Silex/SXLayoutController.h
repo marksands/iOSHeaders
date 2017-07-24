@@ -25,8 +25,8 @@
 @property(nonatomic) __weak id <SXLayoutControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)finalizeLayoutForLayoutOperation:(id)arg1;
-- (void)layoutForViewportSize:(struct CGSize)arg1 existingLayoutBlueprint:(id)arg2 dataProvider:(id)arg3 andAttributes:(id)arg4;
-- (void)layoutForViewportSize:(struct CGSize)arg1 dataProvider:(id)arg2 andAttributes:(id)arg3;
+- (void)layoutForAttributes:(id)arg1 existingLayoutBlueprint:(id)arg2 dataProvider:(id)arg3;
+- (void)layoutForAttributes:(id)arg1 dataProvider:(id)arg2;
 - (id)initWithDelegate:(id)arg1;
 
 @end

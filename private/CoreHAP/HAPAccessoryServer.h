@@ -6,7 +6,7 @@
 
 #import <HMFoundation/HMFObject.h>
 
-@class HAPAccessory, HMFVersion, NSArray, NSData, NSHashTable, NSNumber, NSObject, NSString;
+@class HAPAccessory, HAPDeviceID, HMFVersion, NSArray, NSData, NSHashTable, NSNumber, NSObject, NSString;
 @protocol HAPAccessoryServerDelegate, HAPKeyStore, OS_dispatch_queue;
 
 @interface HAPAccessoryServer : HMFObject
@@ -16,6 +16,7 @@
     _Bool _hasPairings;
     _Bool _reachable;
     _Bool _securitySessionOpen;
+    _Bool _supportsTimedWrite;
     _Bool _incompatibleUpdate;
     NSNumber *_category;
     unsigned long long _configNumber;
@@ -41,6 +42,7 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *internalDelegateQueue; // @synthesize internalDelegateQueue=_internalDelegateQueue;
 @property(readonly, nonatomic) NSHashTable *internalDelegates; // @synthesize internalDelegates=_internalDelegates;
 @property(copy) HMFVersion *version; // @synthesize version=_version;
+@property(nonatomic) _Bool supportsTimedWrite; // @synthesize supportsTimedWrite=_supportsTimedWrite;
 @property(readonly, nonatomic) long long linkType; // @synthesize linkType=_linkType;
 @property(copy, nonatomic) NSArray *accessories; // @synthesize accessories=_accessories;
 @property(retain, nonatomic) HAPAccessory *primaryAccessory; // @synthesize primaryAccessory=_primaryAccessory;
@@ -49,6 +51,7 @@
 - (void)enumerateInternalDelegatesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)removeInternalDelegate:(id)arg1;
 - (void)addInternalDelegate:(id)arg1;
+- (_Bool)requiresTimedWrite:(id)arg1;
 - (void)handleUpdatesForCharacteristics:(id)arg1 stateNumber:(id)arg2;
 - (void)identifyWithCompletion:(CDUnknownBlockType)arg1;
 - (void)enableEvents:(_Bool)arg1 forCharacteristics:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3 queue:(id)arg4;
@@ -72,6 +75,7 @@
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSData *setupHash; // @synthesize setupHash=_setupHash;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, copy) HAPDeviceID *deviceID;
 - (void)notifyDelegateUpdatedHasPairings:(_Bool)arg1;
 @property(nonatomic) _Bool hasPairings; // @synthesize hasPairings=_hasPairings;
 @property(getter=isSecuritySessionOpen) _Bool securitySessionOpen; // @synthesize securitySessionOpen=_securitySessionOpen;

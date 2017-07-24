@@ -6,14 +6,15 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFCard-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString, NSURL;
 
-@interface SFCard : NSObject <SFCard, NSSecureCoding>
+@interface SFCard : NSObject <SFCard, NSSecureCoding, NSCopying>
 {
-    CDStruct_f633cd92 _has;
+    CDStruct_79b01e37 _has;
     int _type;
     int _source;
     NSString *_title;
@@ -28,11 +29,15 @@
     NSURL *_urlValue;
     NSData *_entityIdentifier;
     NSString *_resultIdentifier;
+    unsigned long long _queryId;
+    NSString *_fbr;
     NSData *_originalCardData;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic, getter=_originalCardData, setter=_setOriginalCardData:) NSData *originalCardData; // @synthesize originalCardData=_originalCardData;
+@property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
+@property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
 @property(copy, nonatomic) NSString *resultIdentifier; // @synthesize resultIdentifier=_resultIdentifier;
 @property(copy, nonatomic) NSData *entityIdentifier; // @synthesize entityIdentifier=_entityIdentifier;
 @property(nonatomic) int source; // @synthesize source=_source;
@@ -48,10 +53,12 @@
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)hasQueryId;
 - (_Bool)hasSource;
 - (_Bool)hasType;
 - (void)loadCardSectionsWithCompletionHandler:(CDUnknownBlockType)arg1;

@@ -17,6 +17,7 @@
     double _articleDiversitySimilarityExpectationEnd;
     double _articleDiversitySimilarityExpectationStart;
     long long _articleRapidUpdatesTimeout;
+    long long _autoRefreshMinimumInterval;
     long long _autoScrollToTopFeedTimeout;
     double _batchedFeedTimeout;
     long long _corryBarMaxArticleCountForArticleList;
@@ -47,6 +48,7 @@
     long long _savedArticlesMaximumCountWifi;
     long long _savedArticlesOpenedCutoffTime;
     long long _shortReminderTime;
+    long long _stateRestorationAllowedTimeWindow;
     long long _subscriptionsGlobalMeteredCount;
     long long _subscriptionsGracePeriodForTokenVerificationSeconds;
     long long _subscriptionsPlacardGlobalMaxPerDay;
@@ -69,7 +71,8 @@
     NSString *_forYouNonPersonalizedGroupsOrder;
     NTPBIAdConfig *_iadConfig;
     NSMutableArray *_languageConfigs;
-    int _orderFeedEnabledLevel;
+    unsigned int _orderFeedEnabledLevel;
+    int _orderFeedEnabledLevelDeprecated;
     NTPBPaidSubscriptionConfig *_paidSubscriptionConfig;
     NSString *_personalizationBundleIdMappingResourceId;
     NTPBPersonalizationConfig *_personalizationConfig;
@@ -86,6 +89,7 @@
     _Bool _corryBarHideDiscoverMoreInterstitialForNonOnboardedUsers;
     _Bool _newsletterSubscriptionChecked;
     _Bool _orderFeedEndpointEnabled;
+    _Bool _terminateAppOnBackgroundAfterJoiningOrLeavingExperiment;
     _Bool _universalLinksEnabled;
     _Bool _usUkUseAuWhatsNewFeatures;
     _Bool _useSecureConnectionForAssets;
@@ -95,6 +99,7 @@
         unsigned int articleDiversitySimilarityExpectationEnd:1;
         unsigned int articleDiversitySimilarityExpectationStart:1;
         unsigned int articleRapidUpdatesTimeout:1;
+        unsigned int autoRefreshMinimumInterval:1;
         unsigned int autoScrollToTopFeedTimeout:1;
         unsigned int batchedFeedTimeout:1;
         unsigned int corryBarMaxArticleCountForArticleList:1;
@@ -125,6 +130,7 @@
         unsigned int savedArticlesMaximumCountWifi:1;
         unsigned int savedArticlesOpenedCutoffTime:1;
         unsigned int shortReminderTime:1;
+        unsigned int stateRestorationAllowedTimeWindow:1;
         unsigned int subscriptionsGlobalMeteredCount:1;
         unsigned int subscriptionsGracePeriodForTokenVerificationSeconds:1;
         unsigned int subscriptionsPlacardGlobalMaxPerDay:1;
@@ -137,10 +143,12 @@
         unsigned int trendingTopicsRefreshRate:1;
         unsigned int enabledPrivateDataEncryptionLevel:1;
         unsigned int orderFeedEnabledLevel:1;
+        unsigned int orderFeedEnabledLevelDeprecated:1;
         unsigned int alternativeButlerWidgetConfigEnabled:1;
         unsigned int corryBarHideDiscoverMoreInterstitialForNonOnboardedUsers:1;
         unsigned int newsletterSubscriptionChecked:1;
         unsigned int orderFeedEndpointEnabled:1;
+        unsigned int terminateAppOnBackgroundAfterJoiningOrLeavingExperiment:1;
         unsigned int universalLinksEnabled:1;
         unsigned int usUkUseAuWhatsNewFeatures:1;
         unsigned int useSecureConnectionForAssets:1;
@@ -150,6 +158,9 @@
 + (Class)externalAnalyticsConfigType;
 + (Class)endpointConfigsType;
 + (Class)languageConfigsType;
+@property(nonatomic) long long autoRefreshMinimumInterval; // @synthesize autoRefreshMinimumInterval=_autoRefreshMinimumInterval;
+@property(nonatomic) long long stateRestorationAllowedTimeWindow; // @synthesize stateRestorationAllowedTimeWindow=_stateRestorationAllowedTimeWindow;
+@property(nonatomic) unsigned int orderFeedEnabledLevel; // @synthesize orderFeedEnabledLevel=_orderFeedEnabledLevel;
 @property(nonatomic) _Bool usUkUseAuWhatsNewFeatures; // @synthesize usUkUseAuWhatsNewFeatures=_usUkUseAuWhatsNewFeatures;
 @property(nonatomic) _Bool useSecureConnectionForAssets; // @synthesize useSecureConnectionForAssets=_useSecureConnectionForAssets;
 @property(nonatomic) long long minimumFollowCountToRemovePersonalizePlacardInFollowing; // @synthesize minimumFollowCountToRemovePersonalizePlacardInFollowing=_minimumFollowCountToRemovePersonalizePlacardInFollowing;
@@ -219,12 +230,17 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasTerminateAppOnBackgroundAfterJoiningOrLeavingExperiment;
+@property(nonatomic) _Bool terminateAppOnBackgroundAfterJoiningOrLeavingExperiment; // @synthesize terminateAppOnBackgroundAfterJoiningOrLeavingExperiment=_terminateAppOnBackgroundAfterJoiningOrLeavingExperiment;
+@property(nonatomic) _Bool hasAutoRefreshMinimumInterval;
+@property(nonatomic) _Bool hasStateRestorationAllowedTimeWindow;
+@property(nonatomic) _Bool hasOrderFeedEnabledLevel;
 @property(nonatomic) _Bool hasUsUkUseAuWhatsNewFeatures;
 @property(nonatomic) _Bool hasUseSecureConnectionForAssets;
 @property(nonatomic) _Bool hasMinimumFollowCountToRemovePersonalizePlacardInFollowing;
 @property(readonly, nonatomic) _Bool hasExperimentalizableFieldPostfix;
-@property(nonatomic) _Bool hasOrderFeedEnabledLevel;
-@property(nonatomic) int orderFeedEnabledLevel; // @synthesize orderFeedEnabledLevel=_orderFeedEnabledLevel;
+@property(nonatomic) _Bool hasOrderFeedEnabledLevelDeprecated;
+@property(nonatomic) int orderFeedEnabledLevelDeprecated; // @synthesize orderFeedEnabledLevelDeprecated=_orderFeedEnabledLevelDeprecated;
 @property(readonly, nonatomic) _Bool hasPersonalizationPortraitConfigResourceId;
 - (id)externalAnalyticsConfigAtIndex:(unsigned long long)arg1;
 - (unsigned long long)externalAnalyticsConfigsCount;

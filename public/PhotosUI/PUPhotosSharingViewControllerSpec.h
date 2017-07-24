@@ -12,7 +12,6 @@ __attribute__((visibility("hidden")))
 }
 
 - (_Bool)embedsActivityViewForBounds:(struct CGRect)arg1 horizontalSizeClass:(long long)arg2 verticalSizeClass:(long long)arg3;
-- (struct UIEdgeInsets)collectionViewLayoutContentInsetForBounds:(struct CGRect)arg1;
 @property(readonly, nonatomic) struct CGSize optionBadgeSize;
 @property(readonly, nonatomic) unsigned long long optionBadgeCorner;
 @property(readonly, nonatomic) unsigned long long selectionBadgeCorner;

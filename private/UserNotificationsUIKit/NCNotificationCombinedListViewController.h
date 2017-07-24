@@ -10,14 +10,17 @@
 #import <UserNotificationsUIKit/NCNotificationSectionListDelegate-Protocol.h>
 #import <UserNotificationsUIKit/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NCAnimationCoordinator, NCNotificationListSectionHeaderView, NCNotificationListSectionRevealHintView, NCNotificationListStalenessEventTracker, NCNotificationPriorityList, NSMutableSet, NSString, _UIStatesFeedbackGenerator;
+@class NCAnimationCoordinator, NCNotificationListSectionHeaderView, NCNotificationListSectionRevealHintView, NCNotificationListStalenessEventTracker, NCNotificationPriorityList, NSMutableSet, NSString, UIViewFloatAnimatableProperty, _UILegibilitySettings, _UIStatesFeedbackGenerator;
 @protocol NCNotificationSectionList, UIViewControllerTransitionCoordinator;
 
 @interface NCNotificationCombinedListViewController : NCNotificationListViewController <NCNotificationSectionListDelegate, NCNotificationListSectionHeaderViewDelegate, UIGestureRecognizerDelegate>
 {
-    _Bool _showingRecentNotifications;
+    _Bool _showingNotificationsHistory;
     _Bool _didPlayRevealHaptic;
     _Bool _shouldLimitTargetContentOffsetForNotificationListReveal;
+    _Bool _collectionViewRectExpanded;
+    _Bool _notificationHistoryRevealedStateLocked;
+    _Bool _shouldPerformRevealHintingAnimation;
     int _revealListTriggerState;
     NCNotificationPriorityList *_notificationPriorityList;
     id <NCNotificationSectionList> _notificationSectionList;
@@ -30,8 +33,17 @@
     _UIStatesFeedbackGenerator *_revealFeedbackGenerator;
     NCNotificationListStalenessEventTracker *_notificationListStalenessEventTracker;
     NSMutableSet *_notificationRequestsRemovedFromNotificationCenterDestination;
+    _UILegibilitySettings *_legibilitySettings;
+    UIViewFloatAnimatableProperty *_revealHintingAnimatableProperty;
+    double _contentOffsetBeforeRevealHintingAnimation;
 }
 
+@property(nonatomic) _Bool shouldPerformRevealHintingAnimation; // @synthesize shouldPerformRevealHintingAnimation=_shouldPerformRevealHintingAnimation;
+@property(nonatomic) double contentOffsetBeforeRevealHintingAnimation; // @synthesize contentOffsetBeforeRevealHintingAnimation=_contentOffsetBeforeRevealHintingAnimation;
+@property(retain, nonatomic) UIViewFloatAnimatableProperty *revealHintingAnimatableProperty; // @synthesize revealHintingAnimatableProperty=_revealHintingAnimatableProperty;
+@property(nonatomic, getter=isNotificationHistoryRevealedStateLocked) _Bool notificationHistoryRevealedStateLocked; // @synthesize notificationHistoryRevealedStateLocked=_notificationHistoryRevealedStateLocked;
+@property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
+@property(nonatomic, getter=isCollectionViewRectExpanded) _Bool collectionViewRectExpanded; // @synthesize collectionViewRectExpanded=_collectionViewRectExpanded;
 @property(nonatomic) _Bool shouldLimitTargetContentOffsetForNotificationListReveal; // @synthesize shouldLimitTargetContentOffsetForNotificationListReveal=_shouldLimitTargetContentOffsetForNotificationListReveal;
 @property(retain, nonatomic) NSMutableSet *notificationRequestsRemovedFromNotificationCenterDestination; // @synthesize notificationRequestsRemovedFromNotificationCenterDestination=_notificationRequestsRemovedFromNotificationCenterDestination;
 @property(retain, nonatomic) NCNotificationListStalenessEventTracker *notificationListStalenessEventTracker; // @synthesize notificationListStalenessEventTracker=_notificationListStalenessEventTracker;
@@ -40,7 +52,7 @@
 @property(nonatomic) double prioritySectionLowestPosition; // @synthesize prioritySectionLowestPosition=_prioritySectionLowestPosition;
 @property(nonatomic) int revealListTriggerState; // @synthesize revealListTriggerState=_revealListTriggerState;
 @property(retain, nonatomic) NCNotificationListSectionRevealHintView *revealHintView; // @synthesize revealHintView=_revealHintView;
-@property(nonatomic, getter=isShowingRecentNotifications) _Bool showingRecentNotifications; // @synthesize showingRecentNotifications=_showingRecentNotifications;
+@property(nonatomic, getter=isShowingNotificationsHistory) _Bool showingNotificationsHistory; // @synthesize showingNotificationsHistory=_showingNotificationsHistory;
 @property(nonatomic) __weak NCNotificationListSectionHeaderView *headerViewInForceTouchState; // @synthesize headerViewInForceTouchState=_headerViewInForceTouchState;
 @property(nonatomic) __weak NCNotificationListSectionHeaderView *headerViewInClearState; // @synthesize headerViewInClearState=_headerViewInClearState;
 @property(retain, nonatomic) id <UIViewControllerTransitionCoordinator> lastDismissalTransitionCoordinator; // @synthesize lastDismissalTransitionCoordinator=_lastDismissalTransitionCoordinator;
@@ -58,28 +70,54 @@
 - (id)_requestSectionsForNotificationRequests:(id)arg1;
 - (void)_updateRaiseToListenRequest;
 - (void)_actuateFeedbackForRevealInvalidationIfNecessary;
-- (_Bool)_actuateFeedbackForRevealIfNecessary;
+- (void)_actuateFeedbackForRevealIfNecessary;
 - (void)_configureRevealFeedbackIfNecessary;
-- (void)_updateRecentsListRevealHintViewRevealPercentageForScrollView:(id)arg1;
+- (void)_resetNotificationsHistory;
+- (unsigned long long)_numberOfElementsInPreviousSectionsFromSection:(unsigned long long)arg1;
+- (id)_filteredIndexPathsForAnimationFromIndexPaths:(id)arg1;
+- (double)_settlingYPositionForRevealForScrollView:(id)arg1;
+- (_Bool)_shouldShowRevealHintView;
+- (void)_updateNotificationHistoryRevealStateIfEmpty;
+- (void)_updateRevealHintViewRevealPercentageForScrollView:(id)arg1;
+- (double)_revealPercentageForScrollView:(id)arg1;
 - (double)_revealDistanceForScrollView:(id)arg1;
 - (_Bool)_isPrioritySectionSizeLessThanFrameForScrollView:(id)arg1;
+- (void)_updateScrollViewForcedContentSizeHeight;
+- (double)_forcedContentSizeHeight;
 - (void)_updatePrioritySectionLowestPosition;
-- (void)_updateRecentsListRevealHintViewIfRecentsNotificationSectionEmpty;
-- (void)_updateRecentsListRevealHintViewTitleDate;
-- (void)_updateRecentsListRevealHintViewTitlePersistence;
-- (void)_updateRecentsListRevealHintViewForListOperation;
-- (void)_setCollectionViewFlowLayoutSlideGestureState:(unsigned long long)arg1;
-- (double)_recentsListTopSectionHeaderYPosition;
-- (double)_recentsListRevealHintViewPosition;
-- (_Bool)_isRecentsListRevealHintViewVisible;
-- (void)_hideRecentsList;
-- (void)_revealRecentsList;
+- (void)_updateRevealHintViewIfNotificationsHistoryEmpty;
+- (void)_updateRevealHintViewTitleDate;
+- (void)_updateRevealHintViewTitlePersistence;
+- (void)_updateRevealHintViewForListOperation;
+- (double)_notificationsHistoryTopSectionHeaderYPosition;
+- (_Bool)_isNotificationHistoryTopSectionHeaderVisible;
+- (id)_notificationHistorySectionTopSectionHeader;
+- (double)_revealHintViewPosition;
+- (_Bool)_isRevealHintViewVisible;
 - (void)_resetCollectionViewVisibleRectEdgeInsets;
-- (void)_expandCollctionViewVisibleRect;
-- (void)_resetCollectionViewContentSize;
-- (void)_moveNotificationRequestsToRecentsSectionPassingTest:(CDUnknownBlockType)arg1 animated:(_Bool)arg2 movedAll:(_Bool)arg3;
+- (void)_expandCollectionViewVisibleRect;
+- (void)_updateContentOffsetForHintingValue:(double)arg1;
+- (void)_setupHintingFloatAnimatableProperties;
+- (void)_performRevealHintingAnimation;
+- (double)_revealHintingCurvePercentageForIndexPath:(id)arg1 revealPercentage:(double)arg2;
+- (double)_yOffsetForRevealPercentage:(double)arg1;
+- (void)_updateSupplementaryViewForRevealPercentage:(double)arg1 atIndexPath:(id)arg2;
+- (void)_updateSectionHeadersRevealHintingForRevealPercentage:(double)arg1;
+- (void)_updateCellForRevealPercentage:(double)arg1 atIndexPath:(id)arg2;
+- (void)_updateNotificationCellsRevealHintingForRevealPercentage:(double)arg1;
+- (void)_updateRevealHintingForPercentage:(double)arg1;
+- (void)_performHideAnimationForSectionHeadersWithRevealPercentage:(double)arg1;
+- (void)_performHideAnimationForNotificationCellsWithRevealPercentage:(double)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)_hideNotificationsHistory;
+- (double)_revealAnimationDelayForObjectAtIndexPath:(id)arg1;
+- (void)_performRevealAnimationForSectionHeaders;
+- (void)_performRevealAnimationForNotificationCellsWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_revealNotificationsHistory;
+- (void)_resetContentOffset;
+- (void)_moveNotificationRequestsToHistorySectionPassingTest:(CDUnknownBlockType)arg1 animated:(_Bool)arg2 movedAll:(_Bool)arg3;
 - (void)_clearAllSectionListNotificationRequests;
 - (void)_clearAllPriorityListNotificationRequests;
+- (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
@@ -108,6 +146,7 @@
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForFooterInSection:(long long)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForHeaderInSection:(long long)arg3;
 - (id)collectionView:(id)arg1 viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(id)arg3;
+- (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (_Bool)isNotificationRequestInRecentsSection:(id)arg1;
@@ -131,14 +170,18 @@
 - (_Bool)insertNotificationRequest:(id)arg1 forCoalescedNotification:(id)arg2;
 - (void)_performRequestOperationAlongsideAnimations;
 - (void)_createRequestOperationAnimationCoordinatorForInitialContentPresentation:(_Bool)arg1;
+- (void)reloadNotificationRequestsInNotificationHistorySection:(id)arg1;
+@property(readonly, nonatomic) struct CGSize effectiveContentSize;
+- (void)updateForLegibilitySettings:(id)arg1;
 - (void)performNotificationListRevealGestureHintingFadeOutAnimated:(_Bool)arg1;
 - (void)performNotificationListRevealGestureHintingAnimated:(_Bool)arg1 withFadeOut:(_Bool)arg2;
 - (void)listViewControllerPresentedByUserAction;
-- (void)resetRecentsSectionListVisibility;
+- (void)forceNotificationHistoryRevealed:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)_setShowingNotificationsHistory:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)init;
-- (void)_setShowingRecentNotifications:(_Bool)arg1;
+- (void)_setShowingNotificationsHistory:(_Bool)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

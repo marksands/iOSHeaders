@@ -15,6 +15,7 @@
     PHAdjustmentData *_adjustmentData;
     long long _baseVersion;
     _Bool _isSubstandardRender;
+    _Bool _loopingLivePhoto;
     NSURL *_renderedContentURL;
     long long _fullSizeRenderWidth;
     long long _fullSizeRenderHeight;
@@ -27,6 +28,7 @@
 
 + (_Bool)supportsSecureCoding;
 + (unsigned long long)maximumAdjustmentDataLength;
+@property(readonly, getter=isLoopingLivePhoto) _Bool loopingLivePhoto; // @synthesize loopingLivePhoto=_loopingLivePhoto;
 @property(readonly) long long mediaType; // @synthesize mediaType=_mediaType;
 @property(retain) NSURL *editorBundleURL; // @synthesize editorBundleURL=_editorBundleURL;
 @property(copy) NSURL *penultimateRenderedVideoComplementContentURL; // @synthesize penultimateRenderedVideoComplementContentURL=_penultimateRenderedVideoComplementContentURL;
@@ -45,8 +47,7 @@
 @property long long baseVersion;
 @property(retain) PHAdjustmentData *adjustmentData;
 - (void)clearRenderedContentURL;
-- (id)_renderURLWithExtensionForMediaType:(long long)arg1;
-- (void)_commonInit;
+- (id)renderURLWithExtensionForMediaType:(long long)arg1;
 - (id)initWithAdjustmentBaseVersion:(long long)arg1 mediaType:(long long)arg2;
 - (id)initWithPlaceholderForCreatedAsset:(id)arg1;
 - (id)initWithContentEditingInput:(id)arg1;

@@ -29,7 +29,10 @@
 @property(retain, nonatomic) NSMutableArray *topics; // @synthesize topics=_topics;
 @property(retain, nonatomic) NSMutableArray *entities; // @synthesize entities=_entities;
 - (void).cxx_destruct;
+- (void)flushWrites;
 - (void)write;
+- (void)writeSynchronous;
+- (id)asyncWriteQueue;
 
 @end
 

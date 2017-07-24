@@ -6,12 +6,16 @@
 
 #import <Silex/NSObject-Protocol.h>
 
-@class SXComponentAnimationController, SXComponentBehaviorController, SXComponentController, SXComponentView, SXFullScreenCanvasController, SXFullScreenCanvasViewController, SXMediaPlaybackController, SXPresentationAttributes, SXTangierController, SXVideoController, SXViewport, UIView, UIViewController;
+@class SXComponentAnimationController, SXComponentBehaviorController, SXComponentController, SXComponentView, SXFullScreenCanvasController, SXFullScreenCanvasViewController, SXFullscreenVideoPlaybackManager, SXMediaPlaybackController, SXPresentationAttributes, SXTangierController, SXViewport, UIView, UIViewController;
+@protocol SXAdDocumentStateManager, SXTextSelectionManager, SXVideoPlayerViewControllerProvider;
 
 @protocol SXPresentationDelegate <NSObject>
+@property(readonly, nonatomic) id <SXTextSelectionManager> textSelectionManager;
+@property(readonly, nonatomic) id <SXAdDocumentStateManager> adDocumentStateManager;
 @property(readonly, nonatomic) SXPresentationAttributes *presentationAttributes;
 @property(readonly, nonatomic) SXMediaPlaybackController *mediaPlaybackController;
-@property(readonly, nonatomic) SXVideoController *videoController;
+@property(readonly, nonatomic) SXFullscreenVideoPlaybackManager *fullscreenVideoPlaybackManager;
+@property(readonly, nonatomic) id <SXVideoPlayerViewControllerProvider> videoPlayerViewControllerProvider;
 @property(readonly, nonatomic) SXComponentBehaviorController *behaviorController;
 @property(readonly, nonatomic) SXComponentAnimationController *animationController;
 @property(readonly, nonatomic) SXTangierController *tangierController;

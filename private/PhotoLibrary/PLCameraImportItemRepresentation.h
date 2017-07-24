@@ -42,6 +42,7 @@
 - (void)requestThumbnail;
 - (void)clearThumbnail;
 - (void)setThumbnailWithImageRef:(struct CGImage *)arg1;
+- (_Bool)_utiConformsTo:(struct __CFString *)arg1;
 @property(readonly, nonatomic) _Bool isAudio;
 @property(readonly, nonatomic) _Bool isMovie;
 @property(readonly, nonatomic) _Bool isImage;

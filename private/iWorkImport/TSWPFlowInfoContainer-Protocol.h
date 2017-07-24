@@ -11,9 +11,11 @@
 @protocol TSWPFlowInfo;
 
 @protocol TSWPFlowInfoContainer <NSObject, TSKDocumentObject>
+@property(nonatomic) unsigned long long nextUserInterfaceIdentifier;
 - (void)removeFlowInfo:(id <TSWPFlowInfo>)arg1;
 - (void)addFlowInfo:(id <TSWPFlowInfo>)arg1 dolcContext:(TSKAddedToDocumentContext *)arg2;
 - (void)addFlowInfo:(id <TSWPFlowInfo>)arg1;
 - (NSArray *)flowInfos;
+- (_Bool)containsFlowInfo:(id <TSWPFlowInfo>)arg1;
 @end
 

@@ -26,13 +26,13 @@
     long long _state;
     NSData *_archiverInfo;
     CKSQLite *_sqlite;
-    long long _packageID;
     unsigned long long _nextItemIndex;
     NSObject<OS_dispatch_queue> *_queue;
     NSString *_UUID;
     unsigned long long _size;
     long long _storageGroupingPolicy;
     long long _uploadRank;
+    long long _packageID;
     NSArray *_assets;
     CKRecord *_record;
     NSString *_recordKey;
@@ -52,6 +52,7 @@
 @property(copy, nonatomic) NSString *recordKey; // @synthesize recordKey=_recordKey;
 @property(nonatomic) __weak CKRecord *record; // @synthesize record=_record;
 @property(copy, nonatomic) NSArray *assets; // @synthesize assets=_assets;
+@property(nonatomic) long long packageID; // @synthesize packageID=_packageID;
 @property(nonatomic) long long uploadRank; // @synthesize uploadRank=_uploadRank;
 @property(nonatomic) long long storageGroupingPolicy; // @synthesize storageGroupingPolicy=_storageGroupingPolicy;
 @property(nonatomic) _Bool shouldReadRawEncryptedData; // @synthesize shouldReadRawEncryptedData=_shouldReadRawEncryptedData;
@@ -65,13 +66,13 @@
 @property(nonatomic, getter=inTransaction) _Bool transaction; // @synthesize transaction=_transaction;
 @property(nonatomic, getter=isOpen) _Bool open; // @synthesize open=_open;
 @property(nonatomic) unsigned long long nextItemIndex; // @synthesize nextItemIndex=_nextItemIndex;
-@property(nonatomic) long long packageID; // @synthesize packageID=_packageID;
 @property(retain, nonatomic) CKSQLite *sqlite; // @synthesize sqlite=_sqlite;
 @property(copy, nonatomic) NSData *archiverInfo; // @synthesize archiverInfo=_archiverInfo;
 @property(nonatomic) long long state; // @synthesize state=_state;
 @property(retain, nonatomic) NSString *databaseBasePath; // @synthesize databaseBasePath=_databaseBasePath;
 @property(nonatomic) struct _OpaquePCSShareProtection *recordPCS; // @synthesize recordPCS=_recordPCS;
 - (void).cxx_destruct;
+- (double)earliestUploadReceiptExpiration;
 - (_Bool)claimOwnershipWithError:(id *)arg1;
 @property(copy, nonatomic) NSData *signature;
 - (void)_locked_endTransaction;

@@ -16,12 +16,14 @@
     NSString *_canonicalID;
     NSString *_canonicalShowID;
     NSString *_internalLegID;
+    NSString *_overrideChannelID;
     NSNumber *_isCurrentEpisode;
     NSNumber *_isShowClosed;
 }
 
 @property(readonly, copy, nonatomic) NSNumber *isShowClosed; // @synthesize isShowClosed=_isShowClosed;
 @property(readonly, copy, nonatomic) NSNumber *isCurrentEpisode; // @synthesize isCurrentEpisode=_isCurrentEpisode;
+@property(readonly, nonatomic) NSString *overrideChannelID; // @synthesize overrideChannelID=_overrideChannelID;
 @property(readonly, nonatomic) NSString *internalLegID; // @synthesize internalLegID=_internalLegID;
 @property(readonly, nonatomic) NSString *canonicalShowID; // @synthesize canonicalShowID=_canonicalShowID;
 @property(readonly, nonatomic) NSString *canonicalID; // @synthesize canonicalID=_canonicalID;

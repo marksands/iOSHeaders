@@ -27,7 +27,6 @@
 - (void)executeWithContext:(id)arg1 delegate:(id)arg2 qualityOfService:(long long)arg3;
 @property(readonly, nonatomic) NSArray *t_localRecords;
 - (_Bool)mergeLocalRecord:(id)arg1 withRemoteRecord:(id)arg2;
-- (id)recordZoneName;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithLocalRecords:(id)arg1 merge:(_Bool)arg2;

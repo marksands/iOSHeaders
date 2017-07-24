@@ -8,14 +8,18 @@
 
 #import <PencilKit/NSCoding-Protocol.h>
 
+@class PKDrawing;
+
 @interface PKReplicaEntry : NSObject <NSCoding>
 {
     unsigned int _replicaUUIDIndex;
     unsigned int _clock;
     unsigned int _subclock;
     _Bool _inUse;
+    PKDrawing *_drawing;
 }
 
+@property(nonatomic) PKDrawing *drawing; // @synthesize drawing=_drawing;
 @property(nonatomic) _Bool inUse; // @synthesize inUse=_inUse;
 @property(nonatomic) unsigned int subclock; // @synthesize subclock=_subclock;
 @property(nonatomic) unsigned int clock; // @synthesize clock=_clock;
@@ -23,7 +27,7 @@
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithReplicaUUIDIndex:(unsigned int)arg1 clock:(unsigned int)arg2 subclock:(unsigned int)arg3 inUse:(_Bool)arg4;
+- (id)initWithReplicaUUIDIndex:(unsigned int)arg1 clock:(unsigned int)arg2 subclock:(unsigned int)arg3 inUse:(_Bool)arg4 forDrawing:(id)arg5;
 
 @end
 

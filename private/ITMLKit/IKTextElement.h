@@ -25,6 +25,7 @@
 - (id)attributedStringWithFontHandler:(CDUnknownBlockType)arg1 defaultAttributes:(id *)arg2;
 - (id)attributedStringWithFontHandler:(CDUnknownBlockType)arg1;
 - (id)attributedStringWithFont:(id)arg1;
+- (void)appDocumentDidMarkStylesDirty;
 - (id)accessibilityText;
 @property(readonly, retain, nonatomic) NSAttributedString *text;
 @property(readonly, nonatomic) NSArray *badges;

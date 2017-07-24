@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class PDFDocument, PDFView;
+@class NSMutableIndexSet, PDFDocument, PDFView;
 
 __attribute__((visibility("hidden")))
 @interface PDFAKOverlayAdaptorPrivate : NSObject
@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     _Bool isTornDown;
     PDFView *pdfView;
     PDFDocument *pdfDocument;
+    NSMutableIndexSet *observedPageIndices;
 }
 
 - (void).cxx_destruct;

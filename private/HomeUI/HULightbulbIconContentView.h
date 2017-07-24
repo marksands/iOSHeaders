@@ -42,7 +42,6 @@
 - (void)_updateBulbState;
 - (void)_updateDisplayContextState;
 - (void)_updateImages;
-- (id)_tintColorForImageView:(id)arg1 style:(unsigned long long)arg2;
 - (id)_allImageViews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -18,6 +18,7 @@
 }
 
 + (Class)layerClass;
++ (struct UIEdgeInsets)defaultInsets;
 @property(retain) TLKObserver *viewObserver; // @synthesize viewObserver=_viewObserver;
 @property(retain) UIView *containerView; // @synthesize containerView=_containerView;
 @property(nonatomic) unsigned long long style; // @synthesize style=_style;

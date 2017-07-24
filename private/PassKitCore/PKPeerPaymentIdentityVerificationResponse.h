@@ -11,24 +11,24 @@
 @interface PKPeerPaymentIdentityVerificationResponse : PKPeerPaymentWebServiceResponse
 {
     _Bool _complete;
-    _Bool _wasUserInitiated;
     NSString *_contextLocalizedTitle;
     NSString *_contextLocalizedDescription;
     NSString *_localizedTitle;
     NSString *_localizedDescription;
-    NSArray *_requiredFields;
+    NSArray *_requiredFieldsByPage;
+    NSArray *_acceptableDocuments;
     NSArray *_encryptionCertificates;
     NSString *_encryptionVersion;
 }
 
 @property(readonly, copy, nonatomic) NSString *encryptionVersion; // @synthesize encryptionVersion=_encryptionVersion;
 @property(readonly, copy, nonatomic) NSArray *encryptionCertificates; // @synthesize encryptionCertificates=_encryptionCertificates;
-@property(readonly, copy, nonatomic) NSArray *requiredFields; // @synthesize requiredFields=_requiredFields;
+@property(readonly, nonatomic) NSArray *acceptableDocuments; // @synthesize acceptableDocuments=_acceptableDocuments;
+@property(readonly, copy, nonatomic) NSArray *requiredFieldsByPage; // @synthesize requiredFieldsByPage=_requiredFieldsByPage;
 @property(readonly, copy, nonatomic) NSString *localizedDescription; // @synthesize localizedDescription=_localizedDescription;
 @property(readonly, copy, nonatomic) NSString *localizedTitle; // @synthesize localizedTitle=_localizedTitle;
 @property(readonly, copy, nonatomic) NSString *contextLocalizedDescription; // @synthesize contextLocalizedDescription=_contextLocalizedDescription;
 @property(readonly, copy, nonatomic) NSString *contextLocalizedTitle; // @synthesize contextLocalizedTitle=_contextLocalizedTitle;
-@property(nonatomic) _Bool wasUserInitiated; // @synthesize wasUserInitiated=_wasUserInitiated;
 @property(readonly, nonatomic) _Bool complete; // @synthesize complete=_complete;
 - (void).cxx_destruct;
 - (id)initWithData:(id)arg1;

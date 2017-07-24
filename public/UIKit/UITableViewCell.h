@@ -145,6 +145,7 @@
         unsigned int separatorInsetIsRelativeToCellEdges:1;
         unsigned int highlightingInteractively:1;
         unsigned int shouldHighlightAfterInteraction:1;
+        unsigned int userInteractionEnabledBeforeDragging:2;
     } _tableCellFlags;
     _Bool _isLayoutEngineSuspended;
     _Bool _userInteractionEnabledWhileDragging;
@@ -305,7 +306,7 @@
 - (void)_grabberReleased:(id)arg1;
 - (void)_grabberDragged:(id)arg1 yDelta:(float)arg2 touch:(id)arg3;
 - (void)_grabberDragged:(id)arg1 yDelta:(float)arg2;
-- (void)_grabberBeganReorder:(id)arg1 touch:(id)arg2;
+- (_Bool)_grabberBeganReorder:(id)arg1 touch:(id)arg2;
 - (_Bool)_isReorderControlActive;
 - (id)_removeControl;
 - (void)_removeInnerShadow;
@@ -364,8 +365,11 @@
 - (id)target;
 - (void)setTarget:(id)arg1;
 @property(nonatomic, getter=_skipsLayout, setter=_setSkipsLayout:) _Bool skipsLayout;
+- (void)setCenter:(struct CGPoint)arg1;
 - (void)_setFrame:(struct CGRect)arg1 skipLayout:(_Bool)arg2;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)_setDropAnimationContainerView:(id)arg1;
+- (id)_dropAnimationContainerView;
 - (struct CGRect)reorderRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)accessoryRectForBounds:(struct CGRect)arg1 accessoryView:(id)arg2 isCustom:(_Bool)arg3;
 - (struct CGRect)editRectForBounds:(struct CGRect)arg1;
@@ -420,6 +424,7 @@
 - (void)showSelectedBackgroundView:(_Bool)arg1 animated:(_Bool)arg2;
 - (_Bool)_isDragging;
 - (void)_setDragging:(_Bool)arg1;
+- (void)_updateUserInteractionEnabledForNewDragState:(unsigned long long)arg1;
 - (void)dragStateDidChange:(long long)arg1;
 - (void)_setDragState:(long long)arg1;
 @property(nonatomic, getter=isHighlighted) _Bool highlighted;

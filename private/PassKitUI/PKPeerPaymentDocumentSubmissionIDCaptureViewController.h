@@ -23,6 +23,8 @@
 }
 
 - (void).cxx_destruct;
+- (void)captureController:(id)arg1 requestsDismissCurrentViewControllerAnimated:(_Bool)arg2;
+- (void)captureController:(id)arg1 requestsPresentViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)captureController:(id)arg1 didChangeStateTo:(long long)arg2;
 - (void)updateUIWithState:(long long)arg1;
 - (void)cancel;

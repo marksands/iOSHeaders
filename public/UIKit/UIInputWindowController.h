@@ -62,6 +62,8 @@ __attribute__((visibility("hidden")))
     NSString *_lastKeyboardID;
     NSDate *_keyboardShowTimestamp;
     _Bool _shouldNotifyRemoteKeyboards;
+    _Bool _dontDismissKeyboardOnScrolling;
+    _Bool _dontDismissReachability;
     UIView *_hostView;
     UIInputViewSet *_inputViewSet;
     UIInputViewSetPlacement *_placement;
@@ -86,6 +88,8 @@ __attribute__((visibility("hidden")))
 
 + (id)tranformedUserInfoForNotificationName:(id)arg1 userInfo:(id)arg2;
 + (_Bool)_doesOverrideLegacyFullScreenLayout;
+@property(nonatomic) _Bool dontDismissReachability; // @synthesize dontDismissReachability=_dontDismissReachability;
+@property(nonatomic) _Bool dontDismissKeyboardOnScrolling; // @synthesize dontDismissKeyboardOnScrolling=_dontDismissKeyboardOnScrolling;
 @property(retain, nonatomic) NSLayoutConstraint *accessoryViewHeightConstraint; // @synthesize accessoryViewHeightConstraint=_accessoryViewHeightConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *assistantViewHeightConstraint; // @synthesize assistantViewHeightConstraint=_assistantViewHeightConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *inputViewHeightConstraint; // @synthesize inputViewHeightConstraint=_inputViewHeightConstraint;
@@ -192,8 +196,9 @@ __attribute__((visibility("hidden")))
 - (id)nextAnimationStyle;
 - (void)popAnimationStyle;
 - (void)pushAnimationStyle:(id)arg1;
+- (void)updateForKeyplaneChangeWithContext:(id)arg1;
 - (void)checkPlaceholdersForRemoteKeyboards;
-- (void)checkPlaceholdersForRemoteKeyboardsAndForceConstraintsUpdate:(_Bool)arg1;
+- (void)checkPlaceholdersForRemoteKeyboardsAndForceConstraintsUpdate:(_Bool)arg1 layoutSubviews:(_Bool)arg2;
 - (void)viewDidLayoutSubviews;
 - (void)transferActiveNotificationInfoToInfo:(id)arg1;
 - (void)viewWillLayoutSubviews;

@@ -30,6 +30,7 @@
     id <ICNoteMergeabilityDelegate> mergeabilityDelegate;
     NSUUID *_replicaIDOverride;
     ICMergableDictionary *_replicaIDToUserIDDict;
+    id _reservedForCollaborationColorManager;
     id _reservedForTextStorage;
 }
 
@@ -78,6 +79,7 @@
 + (id)existingCloudObjectForRecordID:(id)arg1 context:(id)arg2;
 @property(nonatomic) _Bool shouldAddMediaAsynchronously; // @synthesize shouldAddMediaAsynchronously;
 @property(retain, nonatomic) id reservedForTextStorage; // @synthesize reservedForTextStorage=_reservedForTextStorage;
+@property(retain, nonatomic) id reservedForCollaborationColorManager; // @synthesize reservedForCollaborationColorManager=_reservedForCollaborationColorManager;
 @property(retain, nonatomic) NSUUID *replicaIDOverride; // @synthesize replicaIDOverride=_replicaIDOverride;
 @property(nonatomic) _Bool preventReleasingTextStorage; // @synthesize preventReleasingTextStorage;
 @property(nonatomic) _Bool needsToSaveLastViewedTimestamp; // @synthesize needsToSaveLastViewedTimestamp;
@@ -87,6 +89,7 @@
 @property(retain) NSData *decryptedData; // @synthesize decryptedData;
 @property(copy, nonatomic) TTVectorMultiTimestamp *archivedTimestamp; // @synthesize archivedTimestamp;
 - (void).cxx_destruct;
+- (_Bool)populateReplicaIDToUserIDDictIfNecessary;
 - (void)mergeReplicaAndUserIDsFromDictionary:(id)arg1;
 - (void)addReplicaID:(id)arg1 forUserID:(id)arg2;
 @property(readonly, retain, nonatomic) ICMergableDictionary *replicaIDToUserIDDict; // @synthesize replicaIDToUserIDDict=_replicaIDToUserIDDict;
@@ -113,6 +116,7 @@
 - (_Bool)supportsEncryptedValuesDictionary;
 - (void)setCryptoTag:(id)arg1;
 - (void)setCryptoInitializationVector:(id)arg1;
+@property(nonatomic) _Bool shouldShowHighlights;
 @property(readonly, nonatomic) _Bool hasUnreadChanges;
 - (_Bool)hasLoadedDocument;
 - (void)saveNoteData;

@@ -35,7 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)acceptVisitor:(id)arg1;
 - (id)referencedStyles;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
-- (void)p_regenerateStorageContent;
+- (void)regenerateStorageContent;
 - (_Bool)p_startingTOCIsRTLForEntries:(id)arg1;
 - (id)containedStorageFormattedUsingParagraphStyle:(id)arg1;
 @property(readonly, nonatomic) NSSet *paragraphStylesShownInTOC;

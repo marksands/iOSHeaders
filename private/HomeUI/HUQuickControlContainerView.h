@@ -22,6 +22,7 @@
     double _verticalDirectionalControlStretchFactor;
     double _horizontalControlCompressionFactor;
     double _initialSourceViewScale;
+    unsigned long long _edgesForExtendedLayout;
     unsigned long long _activeControlType;
     HUQuickControlSummaryView *_summaryView;
     id <HUQuickControlContainerViewDelegate> _delegate;
@@ -60,6 +61,7 @@
 @property(retain, nonatomic) HUQuickControlSummaryView *summaryView; // @synthesize summaryView=_summaryView;
 @property(readonly, nonatomic) struct CGRect sourceRect; // @synthesize sourceRect=_sourceRect;
 @property(nonatomic) unsigned long long activeControlType; // @synthesize activeControlType=_activeControlType;
+@property(nonatomic) unsigned long long edgesForExtendedLayout; // @synthesize edgesForExtendedLayout=_edgesForExtendedLayout;
 @property(nonatomic) _Bool shouldShowControls; // @synthesize shouldShowControls=_shouldShowControls;
 @property(nonatomic) _Bool shouldShowDetailsButton; // @synthesize shouldShowDetailsButton=_shouldShowDetailsButton;
 @property(nonatomic) double initialSourceViewScale; // @synthesize initialSourceViewScale=_initialSourceViewScale;
@@ -85,6 +87,7 @@
 - (void)updateConstraints;
 - (void)_updateControlHostLayout;
 - (void)_updateContentAlignment;
+- (void)_updateLayoutMargins;
 - (void)layoutSubviews;
 - (long long)_sizeSubclass;
 - (_Bool)_useCompactHeightLayout;

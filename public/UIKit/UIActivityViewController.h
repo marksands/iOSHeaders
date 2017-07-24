@@ -59,6 +59,7 @@
     UIActivity *_activity;
     UIViewController *_activityViewController;
     id <UIActivityViewControllerDelegate> _airDropDelegate;
+    struct CGSize _preferredContentSizeWithoutSafeInsets;
 }
 
 + (id)viewControllerWithRestorationIdentifierPath:(id)arg1 coder:(id)arg2;
@@ -96,6 +97,7 @@
 @property(retain, nonatomic) NSMutableDictionary *activitiesByUUID; // @synthesize activitiesByUUID=_activitiesByUUID;
 @property(copy, nonatomic) NSArray *applicationActivities; // @synthesize applicationActivities=_applicationActivities;
 @property(copy, nonatomic) NSArray *activityItems; // @synthesize activityItems=_activityItems;
+@property(nonatomic) struct CGSize preferredContentSizeWithoutSafeInsets; // @synthesize preferredContentSizeWithoutSafeInsets=_preferredContentSizeWithoutSafeInsets;
 @property(nonatomic) _Bool shareServicePreferredContentSizeIsValid; // @synthesize shareServicePreferredContentSizeIsValid=_shareServicePreferredContentSizeIsValid;
 @property(retain, nonatomic) UISUIActivityViewControllerConfiguration *activityViewControllerConfiguration; // @synthesize activityViewControllerConfiguration=_activityViewControllerConfiguration;
 @property(retain, nonatomic) id <_UIShareExtensionService> shareExtensionService; // @synthesize shareExtensionService=_shareExtensionService;
@@ -177,7 +179,9 @@
 - (double)_displayHeight;
 - (_Bool)_waitForShareExtensionServiceWithTimeout:(double)arg1 requireValidShareServicePreferredContentSize:(_Bool)arg2 offendingMethod:(SEL)arg3 warningMessage:(id)arg4;
 - (id)_containedAlertController;
-- (void)_didUpdateSafeAreaLayoutGuideFrame;
+- (void)_updateRootViewGeometry;
+- (void)_updatePreferredContentSizeByAddingSafeAreaInsetsIfNecessary;
+- (void)viewSafeAreaInsetsDidChange;
 - (void)_installViewController:(id)arg1;
 - (void)_embedRemoteContentViewControllerIfNeeded;
 - (void)viewDidLoad;

@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (long long)_LOCKED_getClientVersion:(id)arg1;
 - (_Bool)_LOCKED_hasSchemaVersionForClient:(id)arg1;
 - (_Bool)_ensureParentExists:(id)arg1 error:(id *)arg2;
+- (_Bool)_addSkipBackupAttributeToItemAtPath:(id)arg1 error:(id *)arg2;
 - (void)dealloc;
 - (id)initWithServiceName:(id)arg1;
 @property(readonly, nonatomic, getter=_dbPath) NSString *dbPath;

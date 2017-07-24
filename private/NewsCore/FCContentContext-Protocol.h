@@ -7,12 +7,11 @@
 #import <NewsCore/FCCacheFlushing-Protocol.h>
 #import <NewsCore/NSObject-Protocol.h>
 
-@class FCAppConfiguration, FCArticleController, FCAssetManager, FCFlintResourceManager, FCNetworkBehaviorMonitor, FCTagController, NSString, NSURL;
-@protocol FCBackgroundTaskable, FCContentContextInternal, FCPPTContext, FCVersionHelper;
+@class FCAppConfigurationManager, FCArticleController, FCAssetManager, FCFlintResourceManager, FCNetworkBehaviorMonitor, FCTagController, NSString, NSURL;
+@protocol FCBackgroundTaskable, FCContentContextInternal, FCPPTContext;
 
 @protocol FCContentContext <NSObject, FCCacheFlushing>
 @property(readonly, nonatomic) __weak id <FCBackgroundTaskable> backgroundTaskable;
-@property(readonly, nonatomic) id <FCVersionHelper> versionHelper;
 @property(readonly, nonatomic) id <FCPPTContext> pptContext;
 @property(readonly, nonatomic) id <FCContentContextInternal> internalContentContext;
 @property(readonly, nonatomic) NSURL *webArchiveCacheDirectoryURL;
@@ -23,7 +22,7 @@
 @property(readonly, nonatomic) FCTagController *tagController;
 @property(readonly, nonatomic) FCArticleController *articleController;
 @property(readonly, nonatomic) FCAssetManager *assetManager;
-@property(readonly, nonatomic) FCAppConfiguration *appConfiguration;
+@property(readonly, nonatomic) FCAppConfigurationManager *appConfigurationManager;
 @property(readonly, copy, nonatomic) NSString *supportedContentStoreFrontID;
 @property(readonly, copy, nonatomic) NSString *contentStoreFrontID;
 - (void)ppt_overrideFeedEndpoint:(long long)arg1;

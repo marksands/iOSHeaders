@@ -12,6 +12,7 @@
 @protocol UITableViewDragSourceDelegate <NSObject>
 
 @optional
+- (long long)_tableView:(UITableView *)arg1 dataOwnerForDragSession:(id <UIDragSession>)arg2 atIndexPath:(NSIndexPath *)arg3;
 - (void)_tableView:(UITableView *)arg1 dragSessionDidEnd:(id <UIDragSession>)arg2;
 - (void)_tableView:(UITableView *)arg1 dragSessionWillBegin:(id <UIDragSession>)arg2;
 - (NSArray *)_tableView:(UITableView *)arg1 itemsForAddingToDragSession:(id <UIDragSession>)arg2 atIndexPath:(NSIndexPath *)arg3 point:(struct CGPoint)arg4;

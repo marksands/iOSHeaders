@@ -6,7 +6,6 @@
 
 #import <objc/NSObject.h>
 
-@class CMFunctionalCapacityData;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface CMFunctionalCapacityInternal : NSObject
@@ -15,13 +14,8 @@
     NSObject<OS_dispatch_queue> *fInternalQueue;
     NSObject<OS_dispatch_source> *fWatchdogTimer;
     _Bool fStartedUpdates;
-    CMFunctionalCapacityData *fMostRecentRecord;
-    CDUnknownBlockType fHandler;
 }
 
-- (void)_handleUpdates:(id)arg1;
-- (void)_stopUpdates;
-- (void)_startUpdatesFromRecord:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)_stopWatchdogCheckins;
 - (void)_startWatchdogCheckins;
 - (void)_teardown;

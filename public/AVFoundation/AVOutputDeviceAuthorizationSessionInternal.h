@@ -6,12 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
-@protocol AVOutputDeviceAuthorizationSessionDelegate, AVOutputDeviceAuthorizationSessionImpl;
+@protocol AVOutputDeviceAuthorizationSessionDelegate, AVOutputDeviceAuthorizationSessionImpl, OS_dispatch_queue;
 
 @interface AVOutputDeviceAuthorizationSessionInternal : NSObject
 {
-    id <AVOutputDeviceAuthorizationSessionImpl> impl;
+    NSObject<OS_dispatch_queue> *ivarAccessQueue;
     id <AVOutputDeviceAuthorizationSessionDelegate> delegate;
+    id <AVOutputDeviceAuthorizationSessionImpl> impl;
 }
 
 - (void).cxx_destruct;

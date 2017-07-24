@@ -27,7 +27,7 @@
     double _automaticTouchForceDuration;
 }
 
-+ (_Bool)_shouldContinueTouches;
++ (_Bool)_supportsTouchContinuation;
 @property(nonatomic) double automaticTouchForceDuration; // @synthesize automaticTouchForceDuration=_automaticTouchForceDuration;
 @property(nonatomic) double automaticTouchForce; // @synthesize automaticTouchForce=_automaticTouchForce;
 @property(nonatomic) double allowableMovement; // @synthesize allowableMovement=_allowableMovement;

@@ -18,14 +18,17 @@ __attribute__((visibility("hidden")))
 - (id)activeControlKeyTraits;
 - (id)controlKeyTraits;
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
+- (_Bool)useRoundCorner;
 - (_Bool)shouldShowTopRowEdge;
 - (_Bool)shouldShowBottomRowEdge;
 - (struct CGPoint)numberPadVBarSecondaryTextOffset;
 - (struct CGPoint)numberPadKeySecondaryTextOffset;
 - (struct CGPoint)numberPadKeyPrimaryTextOffset;
 - (double)numberPadKeyPrimarySymbolSize;
+- (struct CGPoint)longVowelSignKeyTextOffset;
 - (struct CGPoint)dictationKeyTextOffset;
 - (struct CGPoint)globeKeyTextOffset;
+- (double)capitalAbcSymbolSize;
 - (struct CGPoint)abcKeyTextOffset;
 - (unsigned long long)edgesAdjustedForTranslucentGapsForGeometry:(id)arg1 key:(id)arg2 onKeyplane:(id)arg3;
 - (double)interkeyGapsCenterXOfKeyplaneFrame:(struct CGRect)arg1;

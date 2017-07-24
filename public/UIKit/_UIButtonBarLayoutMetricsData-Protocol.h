@@ -9,6 +9,7 @@
 @class NSLayoutAnchor, NSLayoutDimension, _UIButtonBarLayoutMetrics;
 
 @protocol _UIButtonBarLayoutMetricsData <NSObject>
+@property(readonly, nonatomic) _Bool allowsViewWrappers;
 @property(readonly, nonatomic) _Bool createsPopoverLayoutGuides;
 @property(readonly, nonatomic) NSLayoutDimension *groupSpacingGuide;
 @property(readonly, nonatomic) NSLayoutDimension *groupSizeGuide;

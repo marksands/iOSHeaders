@@ -11,14 +11,12 @@
 __attribute__((visibility("hidden")))
 @interface UINavigationDeferredTransitionContext : NSObject
 {
-    _Bool _disableChangingEdgeInsetsForChildViewController;
     _UINavigationControllerPalette *_incomingTopPalette;
     _UINavigationControllerPalette *_outgoingTopPalette;
 }
 
 @property(retain, nonatomic) _UINavigationControllerPalette *outgoingTopPalette; // @synthesize outgoingTopPalette=_outgoingTopPalette;
 @property(retain, nonatomic) _UINavigationControllerPalette *incomingTopPalette; // @synthesize incomingTopPalette=_incomingTopPalette;
-@property(nonatomic) _Bool disableChangingEdgeInsetsForChildViewController; // @synthesize disableChangingEdgeInsetsForChildViewController=_disableChangingEdgeInsetsForChildViewController;
 - (void).cxx_destruct;
 
 @end

@@ -39,6 +39,7 @@
 - (void)updatePrintInfo;
 @property(readonly, nonatomic) UIPrintInfo *printInfo;
 @property(readonly, nonatomic) WBUPrintPageRenderer *printRenderer;
+- (void)clearQueue;
 - (void)resetPrintUISuppression;
 - (void)handleNextPrintRequest;
 - (void)printFrame:(id)arg1 initiatedByWebContent:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;

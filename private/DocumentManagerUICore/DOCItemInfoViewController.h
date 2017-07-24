@@ -12,7 +12,7 @@
 #import <DocumentManagerUICore/DOCThumbnailListener-Protocol.h>
 #import <DocumentManagerUICore/FPItemCollectionDelegate-Protocol.h>
 
-@class DOCDownloadButton, DOCFileProviderMonitor, DOCTagsCollectionView, DOCVisualEffectLabel, FPItem, FPItemCollection, NSLayoutConstraint, NSProgress, NSString, UIImageView, UILabel, UIStackView, UIView, UIVisualEffectView;
+@class DOCDownloadButton, DOCTagsCollectionView, DOCVisualEffectLabel, FPItem, FPItemCollection, NSLayoutConstraint, NSProgress, NSString, UIImageView, UILabel, UIStackView, UIView, UIVisualEffectView;
 @protocol DOCThumbnail;
 
 @interface DOCItemInfoViewController : UIViewController <DOCTagsCollectionViewDelegate, DOCThumbnailListener, DOCThumbnailHolder, FPItemCollectionDelegate, DOCItemInfoPresenter>
@@ -29,7 +29,6 @@
     UILabel *_primaryLabel;
     UIVisualEffectView *_secondaryVisualEffectView;
     UILabel *_secondaryLabel;
-    DOCFileProviderMonitor *_fileProviderMonitor;
     UIView *_downloadButtonContainer;
     NSProgress *_observedProgress;
     NSLayoutConstraint *_firstSeparatorViewHeightConstraint;
@@ -70,7 +69,6 @@
 @property(nonatomic) __weak NSLayoutConstraint *firstSeparatorViewHeightConstraint; // @synthesize firstSeparatorViewHeightConstraint=_firstSeparatorViewHeightConstraint;
 @property(retain, nonatomic) NSProgress *observedProgress; // @synthesize observedProgress=_observedProgress;
 @property(nonatomic) __weak UIView *downloadButtonContainer; // @synthesize downloadButtonContainer=_downloadButtonContainer;
-@property(retain, nonatomic) DOCFileProviderMonitor *fileProviderMonitor; // @synthesize fileProviderMonitor=_fileProviderMonitor;
 @property(nonatomic) __weak UILabel *secondaryLabel; // @synthesize secondaryLabel=_secondaryLabel;
 @property(nonatomic) __weak UIVisualEffectView *secondaryVisualEffectView; // @synthesize secondaryVisualEffectView=_secondaryVisualEffectView;
 @property(nonatomic) __weak UILabel *primaryLabel; // @synthesize primaryLabel=_primaryLabel;
@@ -112,6 +110,7 @@
 - (void)setupValue:(id)arg1;
 - (void)setupLabel:(id)arg1 text:(id)arg2;
 - (void)traitCollectionDidChange:(id)arg1;
+- (void)dealloc;
 - (void)viewDidLoad;
 
 // Remaining properties

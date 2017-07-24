@@ -15,6 +15,7 @@
 
 @optional
 @property(nonatomic, getter=isDevicePasscodeEntry) _Bool devicePasscodeEntry;
+@property(nonatomic) _Bool loadKeyboardsForSiriLanguage;
 @property(nonatomic) long long textScriptType;
 @property(nonatomic) _Bool isCarPlayIdiom;
 @property(nonatomic) _Bool disableInputBars;

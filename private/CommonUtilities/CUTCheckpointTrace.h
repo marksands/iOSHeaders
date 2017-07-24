@@ -4,36 +4,29 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <CommonUtilities/CUTCheckpointRange.h>
 
-#import <CommonUtilities/NSSecureCoding-Protocol.h>
+@class NSMutableArray;
 
-@class NSArray, NSDate, NSString;
-
-@interface CUTCheckpointTrace : NSObject <NSSecureCoding>
+@interface CUTCheckpointTrace : CUTCheckpointRange
 {
-    NSString *_name;
-    NSDate *_startDate;
-    NSString *_identifier;
-    NSArray *_allCheckpointLayers;
+    NSMutableArray *_mutableCheckpoints;
 }
 
-+ (_Bool)supportsSecureCoding;
-+ (id)pendingCheckpoints;
-+ (void)unregisterFinishedCheckpoint;
-+ (void)registerPendingCheckpoint;
-@property(readonly, nonatomic) NSArray *allCheckpointLayers; // @synthesize allCheckpointLayers=_allCheckpointLayers;
-@property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+@property(retain, nonatomic) NSMutableArray *mutableCheckpoints; // @synthesize mutableCheckpoints=_mutableCheckpoints;
 - (void).cxx_destruct;
+- (void)setAssertsUseAfterFreeze:(_Bool)arg1;
+- (void)freeze;
+- (id)_identifierWithExtraIdentifier:(id)arg1;
+- (id)rangeCheckpointWithName:(id)arg1 extraIdentifier:(id)arg2;
+- (id)rangeCheckpointWithName:(id)arg1;
+- (id)instantCheckpointWithName:(id)arg1 extraIdentifier:(id)arg2;
+- (id)instantCheckpointWithName:(id)arg1;
+- (void)_appendReportToMutableString:(id)arg1 indentation:(long long)arg2 paddedNameLength:(long long)arg3;
 - (id)description;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-@property(readonly, nonatomic) id currentLayer;
-- (id)traceByPushingLayer:(id)arg1;
-- (id)initWithName:(id)arg1 startDate:(id)arg2 identifier:(id)arg3 currentLayer:(id)arg4;
-- (id)initWithName:(id)arg1 startDate:(id)arg2 identifier:(id)arg3 allCheckpointLayers:(id)arg4;
+- (id)checkpoints;
+- (id)appendCheckpoint:(id)arg1;
+- (id)initWithStartDate:(id)arg1 endDate:(id)arg2 name:(id)arg3 uniqueIdentifier:(id)arg4;
 
 @end
 

@@ -10,13 +10,11 @@
 
 @interface NPKGizmoDatabaseManifestEntry : NSObject
 {
-    _Bool _locallyAdded;
     NSString *_uniqueID;
     NSArray *_localManifestHashes;
     NSArray *_remoteManifestHashes;
 }
 
-@property(nonatomic) _Bool locallyAdded; // @synthesize locallyAdded=_locallyAdded;
 @property(retain, nonatomic) NSArray *remoteManifestHashes; // @synthesize remoteManifestHashes=_remoteManifestHashes;
 @property(retain, nonatomic) NSArray *localManifestHashes; // @synthesize localManifestHashes=_localManifestHashes;
 @property(retain, nonatomic) NSString *uniqueID; // @synthesize uniqueID=_uniqueID;

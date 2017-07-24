@@ -8,7 +8,7 @@
 
 #import <PhotoVision/PVPersonProtocol-Protocol.h>
 
-@class NSDate, NSMutableDictionary, NSMutableSet, NSString;
+@class NSDate, NSMutableDictionary, NSMutableSet, NSSet, NSString;
 @protocol PVFaceGroupProtocol, PVFaceProtocol, PVPersonProtocol, PVPhotoLibraryProtocol;
 
 @interface PVPersonCluster : NSObject <PVPersonProtocol>
@@ -22,9 +22,11 @@
     NSMutableSet *_mergedPersonIdentifiers;
     NSMutableSet *_backingFaceIdentifiers;
     NSMutableSet *_backingAssetIdentifiers;
+    NSSet *_sourcePersonBackingAssetIdentifiers;
     NSMutableSet *_backingMomentIdentifiers;
     double _interestingScore;
     NSMutableDictionary *_backingFaceIdentifiersByMomentIdentifiers;
+    NSMutableDictionary *_representativeFaceByFaceIdentifiers;
     NSDate *_lastSeenDate;
     NSDate *_firstSeenDate;
 }
@@ -33,9 +35,11 @@
 @property(retain, nonatomic) NSDate *lastSeenDate; // @synthesize lastSeenDate=_lastSeenDate;
 @property(nonatomic) _Bool quarantined; // @synthesize quarantined=_quarantined;
 @property(nonatomic) _Bool highlyInteresting; // @synthesize highlyInteresting=_highlyInteresting;
+@property(retain, nonatomic) NSMutableDictionary *representativeFaceByFaceIdentifiers; // @synthesize representativeFaceByFaceIdentifiers=_representativeFaceByFaceIdentifiers;
 @property(retain, nonatomic) NSMutableDictionary *backingFaceIdentifiersByMomentIdentifiers; // @synthesize backingFaceIdentifiersByMomentIdentifiers=_backingFaceIdentifiersByMomentIdentifiers;
 @property(nonatomic) double interestingScore; // @synthesize interestingScore=_interestingScore;
 @property(retain, nonatomic) NSMutableSet *backingMomentIdentifiers; // @synthesize backingMomentIdentifiers=_backingMomentIdentifiers;
+@property(retain, nonatomic) NSSet *sourcePersonBackingAssetIdentifiers; // @synthesize sourcePersonBackingAssetIdentifiers=_sourcePersonBackingAssetIdentifiers;
 @property(retain, nonatomic) NSMutableSet *backingAssetIdentifiers; // @synthesize backingAssetIdentifiers=_backingAssetIdentifiers;
 @property(retain, nonatomic) NSMutableSet *backingFaceIdentifiers; // @synthesize backingFaceIdentifiers=_backingFaceIdentifiers;
 @property(retain, nonatomic) NSMutableSet *mergedPersonIdentifiers; // @synthesize mergedPersonIdentifiers=_mergedPersonIdentifiers;

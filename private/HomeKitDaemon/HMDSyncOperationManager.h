@@ -13,6 +13,7 @@
 
 @interface HMDSyncOperationManager : HMFObject <HMFTimerDelegate>
 {
+    _Bool _pauseQueue;
     _Bool _syncLoopDialogDisplayed;
     HMDHomeManager *_homeManager;
     NSObject<OS_dispatch_queue> *_workQueue;
@@ -23,6 +24,7 @@
     NSMutableArray *_idsMergeOperations;
     NSMutableArray *_cloudZonePushOperations;
     NSMutableArray *_cloudZoneFetchOperations;
+    NSMutableArray *_cloudCancelPauseOperations;
     long long _pauseCloudPushLevel;
     HMFExponentialBackoffTimer *_cloudPushDelayTimer;
 }
@@ -30,6 +32,8 @@
 @property(nonatomic, getter=wasSyncLoopDialogDisplayed) _Bool syncLoopDialogDisplayed; // @synthesize syncLoopDialogDisplayed=_syncLoopDialogDisplayed;
 @property(retain, nonatomic) HMFExponentialBackoffTimer *cloudPushDelayTimer; // @synthesize cloudPushDelayTimer=_cloudPushDelayTimer;
 @property(nonatomic) long long pauseCloudPushLevel; // @synthesize pauseCloudPushLevel=_pauseCloudPushLevel;
+@property(nonatomic) _Bool pauseQueue; // @synthesize pauseQueue=_pauseQueue;
+@property(retain, nonatomic) NSMutableArray *cloudCancelPauseOperations; // @synthesize cloudCancelPauseOperations=_cloudCancelPauseOperations;
 @property(retain, nonatomic) NSMutableArray *cloudZoneFetchOperations; // @synthesize cloudZoneFetchOperations=_cloudZoneFetchOperations;
 @property(retain, nonatomic) NSMutableArray *cloudZonePushOperations; // @synthesize cloudZonePushOperations=_cloudZonePushOperations;
 @property(retain, nonatomic) NSMutableArray *idsMergeOperations; // @synthesize idsMergeOperations=_idsMergeOperations;
@@ -45,10 +49,13 @@
 - (void)killCloudPushAndResume;
 - (void)resumeCloudPush;
 - (void)pauseCloudPush;
+- (void)resume;
+- (void)pause;
 - (void)_handleCancelledOperations:(id)arg1;
 - (void)_handleNextOperation;
 - (id)dequeueNextOperation;
 - (void)cancelOperations;
+- (void)pauseAndWaitForCurrentOperationCompletion:(CDUnknownBlockType)arg1;
 - (void)addOperation:(id)arg1;
 - (void)_createCloudPushDelayTimer;
 - (id)dumpState;

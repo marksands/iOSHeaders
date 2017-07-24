@@ -12,7 +12,6 @@
 
 - (void)uploadEnvelopeBatch:(id)arg1 withURL:(id)arg2 valuesByHTTPHeaderField:(id)arg3 priority:(float)arg4 callbackQueue:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)uploadEnvelopeBatch:(id)arg1 withURL:(id)arg2 valuesByHTTPHeaderField:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (id)initWithContext:(id)arg1;
 
 @end
 

@@ -6,27 +6,34 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray;
+#import <TelephonyUtilities/TUMetadataCacheDataProviderDelegate-Protocol.h>
+
+@class NSArray, NSString;
 @protocol OS_dispatch_queue;
 
-@interface TUMetadataCache : NSObject
+@interface TUMetadataCache : NSObject <TUMetadataCacheDataProviderDelegate>
 {
     NSArray *_providers;
-    NSObject<OS_dispatch_queue> *_cache_queue;
+    NSObject<OS_dispatch_queue> *_concurrentQueue;
 }
 
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *cache_queue; // @synthesize cache_queue=_cache_queue;
-@property(readonly, nonatomic) NSArray *providers; // @synthesize providers=_providers;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *concurrentQueue; // @synthesize concurrentQueue=_concurrentQueue;
+@property(readonly, copy, nonatomic) NSArray *providers; // @synthesize providers=_providers;
 - (void).cxx_destruct;
-- (id)description;
-- (_Bool)isEmpty;
-- (void)removeDestinationIDFromCache:(id)arg1;
+- (void)dataProvider:(id)arg1 requestedRefreshWithDestinationIDs:(id)arg2;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic, getter=isEmpty) _Bool empty;
 - (void)_updateCacheWithDestinationIDs:(id)arg1 onlyEmptyProviders:(_Bool)arg2;
 - (void)updateCacheForEmptyDataProvidersWithDestinationIDs:(id)arg1;
 - (void)updateCacheWithDestinationIDs:(id)arg1;
 - (id)metadataForDestinationID:(id)arg1;
 - (id)init;
 - (id)initWithDataProviders:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

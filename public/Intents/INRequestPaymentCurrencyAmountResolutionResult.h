@@ -12,6 +12,7 @@
 
 + (id)unsupportedForReason:(long long)arg1;
 - (id)_buildIntentSlotResolutionResultWithIntentSlotDescription:(id)arg1;
+- (id)initWithCurrencyAmountResolutionResult:(id)arg1;
 
 @end
 

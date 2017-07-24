@@ -22,7 +22,9 @@
 - (void)unhidePeekedCell;
 - (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
 - (void)_previewingContext:(id)arg1 willDismissViewController:(id)arg2;
+- (_Bool)needToHandleTransparencyForViewController:(id)arg1;
 - (void)_previewingContext:(id)arg1 willPresentViewController:(id)arg2;
+- (id)customViewForInteractiveHighlightForIndexPath:(id)arg1;
 - (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
 - (id)initWithViewController:(id)arg1;
 

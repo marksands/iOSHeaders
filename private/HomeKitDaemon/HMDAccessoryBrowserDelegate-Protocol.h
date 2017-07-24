@@ -6,12 +6,12 @@
 
 #import <HomeKitDaemon/NSObject-Protocol.h>
 
-@class HAPAccessoryServer, HMDAccessoryBrowser, HMDAirPlayEndpoint, HMFOSTransaction, NSArray, NSError, NSNumber, NSString;
+@class HAPAccessoryServer, HMDAccessoryBrowser, HMDMediaEndpoint, HMFOSTransaction, NSArray, NSError, NSNumber, NSString;
 
 @protocol HMDAccessoryBrowserDelegate <NSObject>
 
 @optional
-- (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 didUpdateEndpoint:(HMDAirPlayEndpoint *)arg2;
+- (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 didUpdateEndpoint:(HMDMediaEndpoint *)arg2;
 - (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 discoveryFailedWithError:(NSError *)arg2 accessoryServer:(NSString *)arg3 linkType:(long long)arg4;
 - (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 accessoryServer:(HAPAccessoryServer *)arg2 didUpdateName:(NSString *)arg3;
 - (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 accessoryServer:(HAPAccessoryServer *)arg2 didUpdateCategory:(NSNumber *)arg3;
@@ -26,7 +26,6 @@
 - (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 retrieveAccessoryServersForAccessories:(NSArray *)arg2;
 - (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 didUpdateReachability:(_Bool)arg2 forBTLEAccessoriesWithServerIdentifier:(NSString *)arg3;
 - (void)accessoryBrowserDidFindNewAccessory:(HMDAccessoryBrowser *)arg1;
-- (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 didFinishWACForAccessoryWithIdentifier:(NSString *)arg2 error:(NSError *)arg3;
 - (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 didRemoveAccessoryServer:(HAPAccessoryServer *)arg2 error:(NSError *)arg3;
 - (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 didTombstoneAccessoryServer:(HAPAccessoryServer *)arg2;
 - (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 didFindAccessoryServer:(HAPAccessoryServer *)arg2 stateChanged:(_Bool)arg3 stateNumber:(NSNumber *)arg4 completion:(void (^)(_Bool))arg5;

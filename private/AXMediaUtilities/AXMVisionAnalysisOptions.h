@@ -15,11 +15,13 @@
     _Bool _detectText;
     _Bool _detectFaces;
     _Bool _detectScenes;
+    _Bool _detectModelClassifications;
     _Bool _detectTraits;
     _Bool _detectRectangles;
     _Bool _detectHumans;
     _Bool _detectHorizon;
     _Bool _correctSpelling;
+    _Bool _includeImageInResult;
     long long _clientID;
     AXMLanguage *_textDetectionLanguage;
     NSSet *_spellCheckingLanguages;
@@ -28,6 +30,7 @@
 + (_Bool)supportsSecureCoding;
 + (id)voiceOverOptions;
 + (id)defaultOptions;
+@property(nonatomic) _Bool includeImageInResult; // @synthesize includeImageInResult=_includeImageInResult;
 @property(retain, nonatomic) NSSet *spellCheckingLanguages; // @synthesize spellCheckingLanguages=_spellCheckingLanguages;
 @property(retain, nonatomic) AXMLanguage *textDetectionLanguage; // @synthesize textDetectionLanguage=_textDetectionLanguage;
 @property(nonatomic) _Bool correctSpelling; // @synthesize correctSpelling=_correctSpelling;
@@ -35,6 +38,7 @@
 @property(nonatomic) _Bool detectHumans; // @synthesize detectHumans=_detectHumans;
 @property(nonatomic) _Bool detectRectangles; // @synthesize detectRectangles=_detectRectangles;
 @property(nonatomic) _Bool detectTraits; // @synthesize detectTraits=_detectTraits;
+@property(nonatomic) _Bool detectModelClassifications; // @synthesize detectModelClassifications=_detectModelClassifications;
 @property(nonatomic) _Bool detectScenes; // @synthesize detectScenes=_detectScenes;
 @property(nonatomic) _Bool detectFaces; // @synthesize detectFaces=_detectFaces;
 @property(nonatomic) _Bool detectText; // @synthesize detectText=_detectText;

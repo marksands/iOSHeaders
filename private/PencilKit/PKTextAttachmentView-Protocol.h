@@ -11,6 +11,7 @@
 @protocol PKTextAttachmentView <NSObject>
 
 @optional
+- (void)resetZoom;
 - (void)drawingDataDidChange:(PKDrawing *)arg1;
 @end
 

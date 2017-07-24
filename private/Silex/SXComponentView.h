@@ -12,8 +12,8 @@
 #import <Silex/UIGestureRecognizerDelegate-Protocol.h>
 #import <Silex/UIViewControllerPreviewingDelegate-Protocol.h>
 
-@class NSMutableArray, NSString, SXBackgroundControl, SXColumnLayout, SXComponent, SXComponentExposureEvent, SXComponentExposureMonitor, SXComponentLayout, SXComponentStyle, SXComponentStyleRenderer, SXConfiguration, SXContext, SXDragManager, SXFillView, SXViewport, UILongPressGestureRecognizer;
-@protocol SXComponentHosting;
+@class NSMutableArray, NSString, SXBackgroundControl, SXColumnLayout, SXComponent, SXComponentExposureEvent, SXComponentExposureMonitor, SXComponentLayout, SXComponentStyle, SXComponentStyleRenderer, SXConfiguration, SXContext, SXDragManager, SXFillView, SXViewport;
+@protocol SXAnalyticsReporting, SXAppStateMonitor, SXComponentHosting;
 
 @interface SXComponentView : UIView <UIGestureRecognizerDelegate, SXAXAssistiveTechStatusChangeListener, STTextCanvasRenderSource, SXTransitionDataSource, UIViewControllerPreviewingDelegate>
 {
@@ -26,6 +26,9 @@
     _Bool _hasAnimation;
     _Bool _hasBehaviors;
     SXComponentLayout *_componentLayout;
+    SXConfiguration *_configuration;
+    id <SXAppStateMonitor> _appStateMonitor;
+    id <SXAnalyticsReporting> _analyticsReporting;
     SXComponent *_component;
     SXContext *_context;
     long long _visibilityState;
@@ -35,11 +38,9 @@
     SXComponentStyleRenderer *_styleRenderer;
     SXComponentStyle *_componentStyle;
     NSMutableArray *_additions;
-    UILongPressGestureRecognizer *_longPressGesture;
     SXComponentExposureMonitor *_componentExposureMonitor;
     SXComponentExposureEvent *_componentExposureEvent;
     SXDragManager *_dragManager;
-    SXConfiguration *_configuration;
     id <SXComponentHosting> _componentHost;
     unsigned long long _componentIndex;
     SXBackgroundControl *_additionControl;
@@ -53,11 +54,9 @@
 @property(nonatomic) struct CGRect presentationFrame; // @synthesize presentationFrame=_presentationFrame;
 @property(nonatomic) unsigned long long componentIndex; // @synthesize componentIndex=_componentIndex;
 @property(nonatomic) __weak id <SXComponentHosting> componentHost; // @synthesize componentHost=_componentHost;
-@property(readonly, nonatomic) SXConfiguration *configuration; // @synthesize configuration=_configuration;
 @property(retain, nonatomic) SXDragManager *dragManager; // @synthesize dragManager=_dragManager;
 @property(retain, nonatomic) SXComponentExposureEvent *componentExposureEvent; // @synthesize componentExposureEvent=_componentExposureEvent;
 @property(retain, nonatomic) SXComponentExposureMonitor *componentExposureMonitor; // @synthesize componentExposureMonitor=_componentExposureMonitor;
-@property(retain, nonatomic) UILongPressGestureRecognizer *longPressGesture; // @synthesize longPressGesture=_longPressGesture;
 @property(retain, nonatomic) NSMutableArray *additions; // @synthesize additions=_additions;
 @property(nonatomic) _Bool hasBehaviors; // @synthesize hasBehaviors=_hasBehaviors;
 @property(nonatomic) _Bool hasAnimation; // @synthesize hasAnimation=_hasAnimation;
@@ -77,6 +76,9 @@
 @property(nonatomic) long long visibilityState; // @synthesize visibilityState=_visibilityState;
 @property(readonly, nonatomic) __weak SXContext *context; // @synthesize context=_context;
 @property(readonly, nonatomic) SXComponent *component; // @synthesize component=_component;
+@property(readonly, nonatomic) __weak id <SXAnalyticsReporting> analyticsReporting; // @synthesize analyticsReporting=_analyticsReporting;
+@property(readonly, nonatomic) id <SXAppStateMonitor> appStateMonitor; // @synthesize appStateMonitor=_appStateMonitor;
+@property(readonly, nonatomic) SXConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)assistiveTechnologyStatusDidChange;
 @property(readonly, copy) NSString *description;
@@ -102,15 +104,13 @@
 - (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
 - (void)reportComponentExposureEvent;
 - (void)monitorComponentExposureIfNeeded;
-- (void)handleLongPress:(id)arg1;
-- (void)handleAdditionControl:(id)arg1;
+- (void)handleAdditionControlEnded:(id)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)applyAddition:(id)arg1;
 - (id)forceTouchAction;
 - (void)updateAllowHierarchyRemovalWithComponent:(id)arg1 componentStyle:(id)arg2;
 - (_Bool)allowHierarchyRemoval;
 - (void)restoreBehavior;
-- (struct CGRect)originalFrameForContentView:(id)arg1 behavior:(id)arg2;
 - (id)contentViewForBehavior:(id)arg1;
 - (void)visibilityStateDidChangeFromState:(long long)arg1;
 - (void)presentComponent;
@@ -119,7 +119,7 @@
 - (void)renderContents;
 - (void)dealloc;
 - (void)didMoveToWindow;
-- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 context:(id)arg3 configuration:(id)arg4;
+- (id)initWithComponent:(id)arg1 configuration:(id)arg2 context:(id)arg3 analyticsReporting:(id)arg4 appStateMonitor:(id)arg5;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithCoder:(id)arg1;
 

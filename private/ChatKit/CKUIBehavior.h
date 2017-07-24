@@ -34,6 +34,7 @@
 @property(readonly, nonatomic) UIImage *emojiReplyImage; // @synthesize emojiReplyImage=_emojiReplyImage;
 @property(nonatomic) long long HUDStyle; // @synthesize HUDStyle=_HUDStyle;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) UIFont *syncProgressLabelFont;
 @property(readonly, nonatomic) UIFont *businessDescriptionVCTextViewFont;
 @property(readonly, nonatomic) UIFont *businessInfoViewTitleLabelFont;
 @property(readonly, nonatomic) UIFont *businessInfoViewDescriptionTextFont;
@@ -56,8 +57,11 @@
 @property(readonly, nonatomic) double chatMagnifiedChromeBottomInset;
 @property(readonly, nonatomic) double chatChromeBottomInset;
 @property(readonly, nonatomic) double browserSwitcherGutterWidth;
+@property(readonly, nonatomic) double browserSwitcherExpandThreshold;
 @property(readonly, nonatomic) double browserSwitcherGrabberHeaderHeight;
 @property(readonly, nonatomic) double appStripToEntryViewBottomSpace;
+@property(readonly, nonatomic) unsigned long long suggestedMinimumRecentsCount;
+@property(readonly, nonatomic) unsigned long long suggestedAppStripLimit;
 @property(readonly, nonatomic) unsigned long long appIconPrefetchLimit;
 @property(readonly, nonatomic) NSString *aggregateAcknowledgmentTopName;
 @property(readonly, nonatomic) NSString *aggregateAcknowledgmentMiddleName;

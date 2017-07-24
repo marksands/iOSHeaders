@@ -9,8 +9,11 @@
 @class PXImageModulationManager;
 
 @interface UIViewController (PXImageModulationManager)
+- (void)px_setNeedsImageModulationIntensityUpdate;
+@property(readonly, nonatomic) double px_imageModulationIntensity;
 - (void)px_setNeedsHDRFocusUpdate;
 @property(readonly, nonatomic) double px_HDRFocus;
 @property(readonly, nonatomic) PXImageModulationManager *px_imageModulationManager;
+- (void)px_enableImageModulation;
 @end
 

@@ -13,6 +13,7 @@
 + (id)localStartSeasonDateForLocalDate:(id)arg1;
 + (_Bool)currentLocaleSupportsSeasons;
 + (_Bool)isLastMonthOfSeasonForLocalDate:(id)arg1;
++ (_Bool)isMiddleMonthOfSeasonForLocalDate:(id)arg1;
 + (_Bool)isFirstMonthOfSeasonForLocalDate:(id)arg1;
 + (_Bool)isSecondHalfOfSeasonForLocalDate:(id)arg1;
 + (id)seasonNameForLocalDate:(id)arg1 locale:(id)arg2;
@@ -23,6 +24,8 @@
 + (id)southernMeteorologicalSeasonNameForDateComponents:(id)arg1;
 + (id)northernMeteorologicalSeasonNameForDateComponents:(id)arg1;
 + (id)components:(unsigned long long)arg1 fromDateComponents:(id)arg2 toDateComponents:(id)arg3 options:(unsigned long long)arg4;
++ (_Bool)isFirstTwoWeeksOfMonthForLocalDate:(id)arg1;
++ (_Bool)isLastTwoWeeksOfMonthForLocalDate:(id)arg1;
 + (_Bool)isLastWeekOfMonthForLocalDate:(id)arg1;
 + (struct _NSRange)rangeOfUnit:(unsigned long long)arg1 inUnit:(unsigned long long)arg2 forDate:(id)arg3;
 + (long long)compareDate:(id)arg1 toDate:(id)arg2 toUnitGranularity:(unsigned long long)arg3;

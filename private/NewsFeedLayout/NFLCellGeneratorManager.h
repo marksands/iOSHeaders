@@ -4,17 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <NewsFeedLayout/NFLCellGenerator.h>
+#import <objc/NSObject.h>
 
-@class NFLFeedSettings;
+@class NFLCellGenerator, NFLFeedSettings;
 
-@interface NFLCellGeneratorManager : NFLCellGenerator
+@interface NFLCellGeneratorManager : NSObject
 {
-    NFLCellGenerator *_genericNoImageCellGenerator;
-    NFLCellGenerator *_genericImageOnSideCellGenerator;
-    NFLCellGenerator *_genericImageOnTopCellGenerator;
+    NFLCellGenerator *_noImageCellGenerator;
+    NFLCellGenerator *_imageOnSideCellGenerator;
+    NFLCellGenerator *_imageOnSideAccessibilityCellGenerator;
+    NFLCellGenerator *_imageOnTopCellGenerator;
     NFLCellGenerator *_premiumCellGenerator;
     NFLCellGenerator *_trendingCellGenerator;
+    NFLCellGenerator *_siriSuggestionsCellGenerator;
+    NFLCellGenerator *_pickYourFavoritesCellGenerator;
     NFLCellGenerator *_gapCellGenerator;
     NFLCellGenerator *_nativeAdCellGenerator;
     NFLFeedSettings *_feedSettings;
@@ -24,11 +27,14 @@
 @property(nonatomic) __weak NFLFeedSettings *feedSettings; // @synthesize feedSettings=_feedSettings;
 @property(retain, nonatomic) NFLCellGenerator *nativeAdCellGenerator; // @synthesize nativeAdCellGenerator=_nativeAdCellGenerator;
 @property(retain, nonatomic) NFLCellGenerator *gapCellGenerator; // @synthesize gapCellGenerator=_gapCellGenerator;
+@property(retain, nonatomic) NFLCellGenerator *pickYourFavoritesCellGenerator; // @synthesize pickYourFavoritesCellGenerator=_pickYourFavoritesCellGenerator;
+@property(retain, nonatomic) NFLCellGenerator *siriSuggestionsCellGenerator; // @synthesize siriSuggestionsCellGenerator=_siriSuggestionsCellGenerator;
 @property(retain, nonatomic) NFLCellGenerator *trendingCellGenerator; // @synthesize trendingCellGenerator=_trendingCellGenerator;
 @property(retain, nonatomic) NFLCellGenerator *premiumCellGenerator; // @synthesize premiumCellGenerator=_premiumCellGenerator;
-@property(retain, nonatomic) NFLCellGenerator *genericImageOnTopCellGenerator; // @synthesize genericImageOnTopCellGenerator=_genericImageOnTopCellGenerator;
-@property(retain, nonatomic) NFLCellGenerator *genericImageOnSideCellGenerator; // @synthesize genericImageOnSideCellGenerator=_genericImageOnSideCellGenerator;
-@property(retain, nonatomic) NFLCellGenerator *genericNoImageCellGenerator; // @synthesize genericNoImageCellGenerator=_genericNoImageCellGenerator;
+@property(retain, nonatomic) NFLCellGenerator *imageOnTopCellGenerator; // @synthesize imageOnTopCellGenerator=_imageOnTopCellGenerator;
+@property(retain, nonatomic) NFLCellGenerator *imageOnSideAccessibilityCellGenerator; // @synthesize imageOnSideAccessibilityCellGenerator=_imageOnSideAccessibilityCellGenerator;
+@property(retain, nonatomic) NFLCellGenerator *imageOnSideCellGenerator; // @synthesize imageOnSideCellGenerator=_imageOnSideCellGenerator;
+@property(retain, nonatomic) NFLCellGenerator *noImageCellGenerator; // @synthesize noImageCellGenerator=_noImageCellGenerator;
 - (void).cxx_destruct;
 - (id)cellGeneratorForCellType:(long long)arg1;
 - (id)cellGeneratorsForCellType:(long long)arg1;

@@ -8,7 +8,7 @@
 
 #import <NewsCore/FCCKDatabaseMigrator-Protocol.h>
 
-@class FCCKDatabaseEncryptionMiddleware, FCCKPrivateDatabaseSchema, NSSet;
+@class FCCKDatabaseEncryptionMiddleware, FCCKPrivateDatabaseSchema, NSSet, NSString;
 
 @interface FCCKDatabaseEncryptedZoneMigrator : NSObject <FCCKDatabaseMigrator>
 {
@@ -23,15 +23,20 @@
 @property(retain, nonatomic) FCCKDatabaseEncryptionMiddleware *recordEncryptionMiddleware; // @synthesize recordEncryptionMiddleware=_recordEncryptionMiddleware;
 @property(retain, nonatomic) FCCKPrivateDatabaseSchema *sourceSchema; // @synthesize sourceSchema=_sourceSchema;
 - (void).cxx_destruct;
-- (_Bool)_shouldDeleteOldRecords;
 - (_Bool)_isEnabledForDatabase:(id)arg1;
 - (_Bool)_shouldMigrateRecord:(id)arg1 database:(id)arg2;
 - (void)databaseMigrationDidFinishForDatabase:(id)arg1 result:(long long)arg2;
-- (id)databaseMigrationMigrateRecord:(id)arg1 database:(id)arg2 deleteOriginal:(_Bool *)arg3 error:(id *)arg4;
+- (id)databaseMigrationMigrateRecord:(id)arg1 database:(id)arg2 error:(id *)arg3;
 - (_Bool)databaseMigrationShouldDropRecord:(id)arg1 database:(id)arg2;
 - (id)databaseMigrationRecordNamesToMigrateInZone:(id)arg1 database:(id)arg2;
 - (id)databaseMigrationZoneNamesForDatabase:(id)arg1;
 - (id)initWithSourceSchema:(id)arg1 recordEncryptionMiddleware:(id)arg2 deprecatedBlock:(CDUnknownBlockType)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

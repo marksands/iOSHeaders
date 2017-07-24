@@ -7,32 +7,28 @@
 #import <UIKit/UIViewController.h>
 
 #import <DocumentManagerUICore/DOCShareFPItemLoaderDelegate-Protocol.h>
-#import <DocumentManagerUICore/DOCThumbnailHolder-Protocol.h>
-#import <DocumentManagerUICore/DOCThumbnailListener-Protocol.h>
 #import <DocumentManagerUICore/FPItemCollectionDelegate-Protocol.h>
 #import <DocumentManagerUICore/UIShareUIAccessoryPresenting-Protocol.h>
 
-@class DOCFileProviderMonitor, DOCShareHeaderView, FPItemCollection, NSArray, NSString;
-@protocol DOCShareFPItemLoader, DOCThumbnail, UIShareUIAccessoryHosting;
+@class DOCFileProviderMonitor, DOCShareHeaderView, NSDictionary, NSMutableArray, NSString;
+@protocol DOCShareFPItemLoader, UIShareUIAccessoryHosting;
 
-@interface DOCShareSheetBaseViewController : UIViewController <DOCShareFPItemLoaderDelegate, DOCThumbnailListener, DOCThumbnailHolder, FPItemCollectionDelegate, UIShareUIAccessoryPresenting>
+@interface DOCShareSheetBaseViewController : UIViewController <DOCShareFPItemLoaderDelegate, FPItemCollectionDelegate, UIShareUIAccessoryPresenting>
 {
-    id <DOCThumbnail> _thumbnail;
     id <UIShareUIAccessoryHosting> _host;
     id <DOCShareFPItemLoader> _itemLoader;
     DOCFileProviderMonitor *_fileProviderMonitor;
-    NSArray *_items;
-    FPItemCollection *_itemCollection;
+    NSMutableArray *_items;
+    NSDictionary *_itemCollections;
     DOCShareHeaderView *_header;
 }
 
 @property(retain, nonatomic) DOCShareHeaderView *header; // @synthesize header=_header;
-@property(retain, nonatomic) FPItemCollection *itemCollection; // @synthesize itemCollection=_itemCollection;
-@property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
+@property(retain, nonatomic) NSDictionary *itemCollections; // @synthesize itemCollections=_itemCollections;
+@property(retain, nonatomic) NSMutableArray *items; // @synthesize items=_items;
 @property(readonly, nonatomic) DOCFileProviderMonitor *fileProviderMonitor; // @synthesize fileProviderMonitor=_fileProviderMonitor;
 @property(readonly, nonatomic) id <DOCShareFPItemLoader> itemLoader; // @synthesize itemLoader=_itemLoader;
 @property(readonly, nonatomic) __weak id <UIShareUIAccessoryHosting> host; // @synthesize host=_host;
-@property(retain, nonatomic) id <DOCThumbnail> thumbnail; // @synthesize thumbnail=_thumbnail;
 - (void).cxx_destruct;
 - (void)collection:(id)arg1 didUpdateObservedItem:(id)arg2;
 - (void)collection:(id)arg1 didPerformBatchUpdateWithReplayBlock:(CDUnknownBlockType)arg2;
@@ -41,8 +37,7 @@
 - (void)collection:(id)arg1 didDeleteItemsAtIndexPaths:(id)arg2;
 - (void)collection:(id)arg1 didMoveItemsFromIndexPaths:(id)arg2 toIndexPaths:(id)arg3;
 - (void)collection:(id)arg1 didInsertItemsAtIndexPaths:(id)arg2;
-- (void)thumbnailLoaded:(id)arg1;
-- (void)updateThumbnailWithItem:(id)arg1;
+- (id)combineProviderNames:(id)arg1;
 - (void)updateHeader;
 @property(readonly, nonatomic) _Bool shouldShowAddTagButton;
 - (void)didFailToLoadItems;

@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) TSDDefaultPartitioner *partitioner; // @synthesize partitioner=mPartitioner;
 @property(readonly, nonatomic) struct CGRect bounds; // @synthesize bounds=mBounds;
+- (void)processChanges:(id)arg1;
 - (id)computeLayoutGeometry;
 - (Class)repClassOverride;
 - (id)initWithInfo:(id)arg1 bounds:(struct CGRect)arg2 partitioner:(id)arg3;

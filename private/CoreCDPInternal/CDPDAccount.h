@@ -17,6 +17,7 @@
 - (id)iCloudEnv;
 - (id)escrowURL;
 - (id)authToken;
+- (unsigned long long)primaryAccountSecurityLevel;
 - (id)primaryAccountAltDSID;
 - (id)primaryAccountDSID;
 - (id)primaryAccountUsername;

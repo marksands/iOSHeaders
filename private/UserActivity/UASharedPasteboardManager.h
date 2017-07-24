@@ -16,10 +16,13 @@
     _Bool _remotePasteboardAvaliable;
     _Bool _currentGenerationHasUpdates;
     _Bool _updateScheduled;
+    int _disableCount;
     CDUnknownBlockType _localPasteboardWasFetched;
     UAPasteboardGeneration *_currentGeneration;
     NSObject<OS_dispatch_queue> *_serverQ;
     NSXPCConnection *_connection;
+    NSXPCConnection *_controllConnection;
+    id _controllSyncObject;
     NSObject<OS_dispatch_queue> *_pasteboardReadQ;
     NSSet *_disallowdTypes;
     NSSet *_bomCheckTypes;
@@ -40,6 +43,9 @@
 @property _Bool updateScheduled; // @synthesize updateScheduled=_updateScheduled;
 @property _Bool currentGenerationHasUpdates; // @synthesize currentGenerationHasUpdates=_currentGenerationHasUpdates;
 @property _Bool remotePasteboardAvaliable; // @synthesize remotePasteboardAvaliable=_remotePasteboardAvaliable;
+@property(retain) id controllSyncObject; // @synthesize controllSyncObject=_controllSyncObject;
+@property int disableCount; // @synthesize disableCount=_disableCount;
+@property(retain) NSXPCConnection *controllConnection; // @synthesize controllConnection=_controllConnection;
 @property(retain) NSXPCConnection *connection; // @synthesize connection=_connection;
 @property(retain) NSObject<OS_dispatch_queue> *serverQ; // @synthesize serverQ=_serverQ;
 @property(retain) UAPasteboardGeneration *currentGeneration; // @synthesize currentGeneration=_currentGeneration;
@@ -61,6 +67,8 @@
 - (void)clearLocalPasteboardInformation;
 - (void)sendUpdateToServer;
 - (_Bool)addData:(id)arg1 toItemAtIndex:(unsigned long long)arg2 generation:(unsigned long long)arg3;
+- (void)stopPreventingPasteboardSharing;
+- (void)startPreventingPasteboardSharing;
 - (void)dealloc;
 - (id)init;
 

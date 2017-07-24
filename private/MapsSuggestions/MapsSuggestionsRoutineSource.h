@@ -20,7 +20,7 @@
     NSObject<OS_dispatch_queue> *_queue;
     _Bool _running;
     NSObject<OS_dispatch_source> *_updateTimer;
-    double _weightDecreasePerPosition;
+    _Bool _areFrequentLocationsAvailable;
     GEOLocationShifter *_locationShifter;
 }
 
@@ -28,6 +28,7 @@
 + (_Bool)isEnabled;
 - (void).cxx_destruct;
 - (void)_requestTouristInfoFromRoutineIfNeededForLocation:(id)arg1;
+- (void)_setFrequentLocationsAreAvailable:(_Bool)arg1;
 - (_Bool)canProduceEntriesOfType:(unsigned long long)arg1;
 - (double)updateSuggestionEntries;
 - (void)stop;

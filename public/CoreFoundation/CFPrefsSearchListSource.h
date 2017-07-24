@@ -33,7 +33,7 @@ __attribute__((visibility("hidden")))
 - (void)removeSource:(id)arg1;
 - (void)addSource:(id)arg1;
 - (void)freeze;
-- (void)asynchronouslyNotifyOfChangesFromDictionary:(struct __CFDictionary *)arg1 toDictionary:(struct __CFDictionary *)arg2;
+- (void)deferredNotifyOfChangesFromDictionary:(struct __CFDictionary *)arg1 toDictionary:(struct __CFDictionary *)arg2;
 - (struct __CFDictionary *)alreadylocked_copyDictionary;
 - (long long)generationCount;
 - (void)handleRemoteChangeNotificationForDomainIdentifier:(struct __CFString *)arg1;
@@ -44,7 +44,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)synchronize;
 - (_Bool)alreadylocked_requestNewData;
 - (void)fullCloudSynchronizeWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)alreadylocked_setValues:(const void **)arg1 forKeys:(const struct __CFString **)arg2 count:(long long)arg3;
+- (void)alreadylocked_setValues:(const void **)arg1 forKeys:(const struct __CFString **)arg2 count:(long long)arg3 from:(id)arg4;
 - (_Bool)alreadylocked_hasNonRegisteredValueForKey:(struct __CFString *)arg1;
 - (_Bool)alreadylocked_hasCloudValueForKey:(struct __CFString *)arg1;
 - (_Bool)alreadylocked_useCloudForKey:(struct __CFString *)arg1;

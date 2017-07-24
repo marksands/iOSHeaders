@@ -51,6 +51,7 @@
 @property(nonatomic) _Bool accountIsT13; // @synthesize accountIsT13=_accountIsT13;
 @property(retain, nonatomic) NSString *DSID; // @synthesize DSID=_DSID;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool isRestrictedAccount;
 @property(readonly, nonatomic) _Bool limitAdTrackingEnabled;
 - (id)dictionaryRepresentation;
 - (id)description;

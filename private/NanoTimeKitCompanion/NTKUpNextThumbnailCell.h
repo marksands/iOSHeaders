@@ -6,7 +6,7 @@
 
 #import <NanoTimeKitCompanion/NTKUpNextBaseCell.h>
 
-@class NSArray, NSLayoutConstraint, NTKColoringLabel, UIImageView, UILayoutGuide;
+@class CLKFont, NSArray, NSLayoutConstraint, NTKColoringLabel, UIImageView, UILayoutGuide;
 
 @interface NTKUpNextThumbnailCell : NTKUpNextBaseCell
 {
@@ -15,6 +15,9 @@
     NTKColoringLabel *_headerLabel;
     NTKColoringLabel *_descriptionLine1Label;
     NTKColoringLabel *_descriptionLine2Label;
+    CLKFont *_standardFont;
+    CLKFont *_italicFont;
+    CLKFont *_boldFont;
     NSArray *_withHeaderConstraints;
     NSArray *_withoutHeaderConstraints;
     NSArray *_withDescription2Constraints;

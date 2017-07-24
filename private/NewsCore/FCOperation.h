@@ -23,7 +23,6 @@
     NSString *_operationID;
     double _operationStartTime;
     double _operationEndTime;
-    FCMutexLock *_startLock;
     CDUnknownBlockType _timedOutTest;
     NSMutableArray *_childOperations;
     FCMutexLock *_childOperationsLock;
@@ -36,7 +35,6 @@
 @property(nonatomic) _Bool childOperationsCancelled; // @synthesize childOperationsCancelled=_childOperationsCancelled;
 @property(retain, nonatomic) NSMutableArray *childOperations; // @synthesize childOperations=_childOperations;
 @property(copy, nonatomic) CDUnknownBlockType timedOutTest; // @synthesize timedOutTest=_timedOutTest;
-@property(retain, nonatomic) FCMutexLock *startLock; // @synthesize startLock=_startLock;
 @property(nonatomic) double operationEndTime; // @synthesize operationEndTime=_operationEndTime;
 @property(nonatomic) double operationStartTime; // @synthesize operationStartTime=_operationStartTime;
 @property(readonly, copy, nonatomic) NSString *operationID; // @synthesize operationID=_operationID;
@@ -55,7 +53,7 @@
 - (_Bool)shouldStartThrottlingWithError:(id)arg1 retryAfter:(double *)arg2;
 - (id)throttleGroup;
 - (void)resetForRetry;
-- (_Bool)canRetryWithError:(id)arg1 retryAfter:(double *)arg2;
+- (_Bool)canRetryWithError:(id)arg1 retryAfter:(id *)arg2;
 - (unsigned long long)maxRetries;
 - (unsigned long long)propertiesInheritedByChildOperations;
 - (void)cancelChildOperations;
@@ -65,6 +63,8 @@
 - (void)finishFromEarlyCancellation;
 - (void)operationDidFinishWithError:(id)arg1;
 - (void)operationWillFinishWithError:(id)arg1;
+- (void)_handleRetryFromError:(id)arg1 signal:(id)arg2;
+- (void)_handleThrottlingFromError:(id)arg1 delay:(double)arg2;
 - (void)_finishedPerformingOperationWithError:(id)arg1;
 - (void)finishedPerformingOperationWithError:(id)arg1;
 - (void)performOperation;

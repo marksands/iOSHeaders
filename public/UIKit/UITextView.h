@@ -24,12 +24,13 @@
 #import <UIKit/_UILayoutBaselineUpdating-Protocol.h>
 #import <UIKit/_UIMultilineTextContentSizing-Protocol.h>
 #import <UIKit/_UITextContainerViewDelegate-Protocol.h>
+#import <UIKit/_UITextViewContentPaddingDelegate-Protocol.h>
 #import <UIKit/_UIViewBaselineSpacing-Protocol.h>
 
-@class CUICatalog, NSAttributedString, NSDictionary, NSIndexSet, NSLayoutManager, NSString, NSTextContainer, NSTextStorage, UIAutoscroll, UIColor, UIDragInteraction, UIDropInteraction, UIFont, UIImage, UIInputContextHistory, UILabel, UIPasteConfiguration, UITextInputController, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UIView, _UICharacterStreamingManager, _UISiriStreamingManager, _UITextContainerView, _UITextViewRestorableScrollPosition, _UITextViewVisualStyle;
+@class CUICatalog, NSAttributedString, NSDictionary, NSIndexSet, NSLayoutManager, NSString, NSTextContainer, NSTextStorage, UIAutoscroll, UIColor, UIDragInteraction, UIDropInteraction, UIFont, UIImage, UIInputContextHistory, UILabel, UIPasteConfiguration, UITextInputController, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UIView, _UICharacterStreamingManager, _UISiriStreamingManager, _UITextContainerView, _UITextViewContentPadding, _UITextViewRestorableScrollPosition, _UITextViewVisualStyle;
 @protocol UITextDragDelegate, UITextDragDropSupport, UITextDropDelegate, UITextInputDelegate, UITextInputTokenizer, UITextPasteDelegate, UITextViewDelegate;
 
-@interface UITextView : UIScrollView <_UIViewBaselineSpacing, UITextLinkInteraction, UIPreviewItemDelegate, _UITextContainerViewDelegate, UITextInputControllerDelegate, UITextAutoscrolling, UIKeyboardInput, UITextInputTraits_Private, _UIMultilineTextContentSizing, _UILayoutBaselineUpdating, UIViewGhostedRangeSupporting, UITextPasteConfigurationSupporting_Internal, UITextDragSupporting, UITextDropSupporting, UITextDraggable, UITextDroppable, UITextPasteConfigurationSupporting, UITextInput, UIContentSizeCategoryAdjusting>
+@interface UITextView : UIScrollView <_UIViewBaselineSpacing, UITextLinkInteraction, UIPreviewItemDelegate, _UITextContainerViewDelegate, _UITextViewContentPaddingDelegate, UITextInputControllerDelegate, UITextAutoscrolling, UIKeyboardInput, UITextInputTraits_Private, _UIMultilineTextContentSizing, _UILayoutBaselineUpdating, UIViewGhostedRangeSupporting, UITextPasteConfigurationSupporting_Internal, UITextDragSupporting, UITextDropSupporting, UITextDraggable, UITextDroppable, UITextPasteConfigurationSupporting, UITextInput, UIContentSizeCategoryAdjusting>
 {
     id _private;
     NSTextStorage *_textStorage;
@@ -83,6 +84,9 @@
     _Bool _unfreezingTextContainerSize;
     _Bool _animatingPaste;
     id <UITextDragDropSupport> _textDragDropSupport;
+    _UITextViewContentPadding *_topContentPadding;
+    _UITextViewContentPadding *_bottomContentPadding;
+    struct CGPoint _scrollEndDraggingVelocity;
     _Bool _adjustsFontForContentSizeCategory;
     _Bool _clearsOnInsertion;
     id <UITextPasteDelegate> _pasteDelegate;
@@ -375,7 +379,12 @@
 - (void)_resyncContainerFrameForNonAutolayout;
 - (void)_updateTextContainerSizeAndSizeToFit;
 - (void)_scrollViewAnimationEnded:(id)arg1 finished:(_Bool)arg2;
+- (void)_scrollViewDidEndDraggingWithDeceleration:(_Bool)arg1;
+- (void)_scrollViewWillEndDraggingWithVelocity:(struct CGPoint)arg1 targetContentOffset:(struct CGPoint *)arg2;
 - (void)setContentOffset:(struct CGPoint)arg1;
+- (void)_textViewContentPaddingDidChange:(id)arg1;
+- (id)bottomContentPadding;
+- (id)topContentPadding;
 - (void)_setContentOffsetWithoutRecordingScrollPosition:(struct CGPoint)arg1;
 - (void)_observedTextViewDidChange:(id)arg1;
 - (unsigned long long)_totalNumberOfTextViewsInLayoutManager;
@@ -467,6 +476,7 @@
 @property(nonatomic) long long keyboardAppearance; // @dynamic keyboardAppearance;
 @property(nonatomic) long long keyboardType; // @dynamic keyboardType;
 @property(nonatomic) _Bool learnsCorrections;
+@property(nonatomic) _Bool loadKeyboardsForSiriLanguage;
 @property(copy, nonatomic) UIPasteConfiguration *pasteConfiguration; // @dynamic pasteConfiguration;
 @property(copy, nonatomic) NSString *recentInputIdentifier;
 @property(copy, nonatomic) NSString *responseContext;

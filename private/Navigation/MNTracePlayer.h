@@ -14,6 +14,7 @@
 @interface MNTracePlayer : NSObject <MNTracePlayerSchedulerDelegate, MNTimeProvider>
 {
     MNTrace *_trace;
+    double _traceStartTimestamp;
     NSHashTable *_observers;
     MNTracePlayerScheduler *_scheduler;
     MNTracePlayerTimelineStream *_locationStream;

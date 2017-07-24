@@ -64,7 +64,7 @@
 }
 
 + (void)computeMinimumNumbersOfAssetsWithCompletionBlock:(CDUnknownBlockType)arg1;
-+ (unsigned long long)minimumNumbersOfCuratedAssetsForMemories;
++ (unsigned long long)minimumNumberOfCuratedAssetsForMemories;
 + (double)computeBetaWithManager:(id)arg1;
 @property _Bool isDryTesting; // @synthesize isDryTesting=_isDryTesting;
 @property _Bool skipsBlacklistedFeatureCheck; // @synthesize skipsBlacklistedFeatureCheck=_skipsBlacklistedFeatureCheck;
@@ -219,7 +219,7 @@
 - (id)_holidayFeatureForPotentialMemory:(id)arg1;
 - (id)blacklistableFeaturesForPotentialMemory:(id)arg1;
 - (id)_peopleBlacklistableFeatureForPotentialMemory:(id)arg1;
-- (id)_uuidOfMainPersonInMomentNode:(id)arg1 prominentOnly:(_Bool)arg2;
+- (id)_localIdentifierOfMainPersonInMomentNode:(id)arg1 prominentOnly:(_Bool)arg2;
 - (id)_personFeatureForPotentialMemory:(id)arg1 prominentOnly:(_Bool)arg2;
 - (id)_locationBlacklistableFeatureForPotentialMemory:(id)arg1;
 - (id)_addressFeatureForPotentialMemory:(id)arg1 prominentOnly:(_Bool)arg2;

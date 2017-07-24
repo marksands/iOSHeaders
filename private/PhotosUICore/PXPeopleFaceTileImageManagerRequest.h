@@ -10,13 +10,11 @@
 
 @interface PXPeopleFaceTileImageManagerRequest : NSObject
 {
-    _Bool _isPeopleHomeRequest;
     PHPerson *_person;
     PHFace *_face;
     PHAsset *_asset;
 }
 
-@property(nonatomic) _Bool isPeopleHomeRequest; // @synthesize isPeopleHomeRequest=_isPeopleHomeRequest;
 @property(readonly, nonatomic) PHAsset *asset; // @synthesize asset=_asset;
 @property(readonly, nonatomic) PHFace *face; // @synthesize face=_face;
 @property(readonly, nonatomic) PHPerson *person; // @synthesize person=_person;

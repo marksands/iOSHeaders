@@ -18,6 +18,10 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (void)_delayedModelBaseScaleFactorCalculation;
+- (void)_scheduleDelayedModelBaseScaleFactorCalculation;
+- (void)_pdfViewDidChangeScale:(id)arg1;
+- (void)_pdfViewDidLayout:(id)arg1;
 - (void)_pdfDocumentDidUnlock:(id)arg1;
 - (id)layerContainingQuickBackgroundForLoupeOnOverlayAtPageIndex:(unsigned long long)arg1 forAnnotationController:(id)arg2;
 - (id)characterIndexesForQuadPoints:(id)arg1 onPageAtIndex:(unsigned long long)arg2 forAnnotationController:(id)arg3;
@@ -28,7 +32,9 @@ __attribute__((visibility("hidden")))
 - (id)controller:(id)arg1 willSetToolbarItems:(id)arg2;
 - (void)positionSketchOverlay:(id)arg1 forAnnotationController:(id)arg2;
 - (void)controllerDidExitToolMode:(id)arg1;
+- (void)controllerWillExitToolMode:(id)arg1;
 - (void)controllerDidEnterToolMode:(id)arg1;
+- (void)controllerWillEnterToolMode:(id)arg1;
 - (void)controllerWillDismissSignatureManagerView:(id)arg1;
 - (void)controllerWillShowSignatureManagerView:(id)arg1;
 - (void)controllerWillDismissSignatureCaptureView:(id)arg1;
@@ -39,6 +45,8 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)positioningRectForCandidatePicker;
 - (_Bool)shouldPlaceProposedFormElementAtRect:(struct CGRect)arg1 onOverlayAtPageIndex:(unsigned long long)arg2 forAnnotationController:(id)arg3;
 - (_Bool)shouldPlaceFormElementAtPoint:(struct CGPoint)arg1 onOverlayAtPageIndex:(unsigned long long)arg2 forAnnotationController:(id)arg3;
+- (_Bool)controllerShouldDetectFormElements:(id)arg1;
+- (double)modelBaseScaleFactorOfPageAtIndex:(unsigned long long)arg1 forAnnotationController:(id)arg2;
 - (void)updateDrawingGestureRecognizer:(id)arg1 forPageAtIndex:(unsigned long long)arg2 withPriority:(_Bool)arg3 forAnnotationController:(id)arg4;
 - (void)uninstallDrawingGestureRecognizer:(id)arg1 forPageAtIndex:(unsigned long long)arg2 forAnnotationController:(id)arg3;
 - (void)installDrawingGestureRecognizer:(id)arg1 forPageAtIndex:(unsigned long long)arg2 forAnnotationController:(id)arg3;
@@ -60,6 +68,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) AKController *akMainController;
 @property(readonly, nonatomic) __weak PDFDocument *pdfDocument;
 @property(nonatomic) __weak PDFView *pdfView;
+- (void)_teardown;
 - (void)teardown;
 - (void)dealloc;
 - (id)initWithPDFDocument:(id)arg1 andView:(id)arg2;

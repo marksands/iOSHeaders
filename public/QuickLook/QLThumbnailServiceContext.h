@@ -20,7 +20,7 @@
 @property(retain, nonatomic) QLThumbnailProvider *thumbnailProvider; // @synthesize thumbnailProvider=_thumbnailProvider;
 - (void).cxx_destruct;
 - (id)_thumbnailGenerationQueue;
-- (void)generateThumbnailOfSize:(struct CGSize)arg1 scale:(double)arg2 withFileAtURL:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)generateThumbnailOfSize:(struct CGSize)arg1 scale:(double)arg2 withFileURLHandler:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)generateThumbnailOfSize:(struct CGSize)arg1 scale:(double)arg2 withContents:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)protocolHost;
 

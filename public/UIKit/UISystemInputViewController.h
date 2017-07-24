@@ -21,6 +21,7 @@
     _Bool _supportsRecentInputsIntegration;
     _Bool _isAutomaticResponderTransition;
     _Bool _willPresentFullscreen;
+    _Bool _willUpdateBackgroundEffectOnInputModeChange;
     _Bool _didDisplayRecents;
     id <UISystemInputViewControllerDelegate> _systemInputViewControllerDelegate;
     UIResponder<UITextInput> *_persistentDelegate;
@@ -45,6 +46,8 @@
 }
 
 + (id)_canonicalTraitsForResponder:(id)arg1;
++ (id)_iOS_systemInputViewControllerForResponder:(id)arg1 editorView:(id)arg2 containingResponder:(id)arg3 traitCollection:(id)arg4;
++ (id)_tvOS_systemInputViewControllerForResponder:(id)arg1 editorView:(id)arg2 containingResponder:(id)arg3 traitCollection:(id)arg4;
 + (id)systemInputViewControllerForResponder:(id)arg1 editorView:(id)arg2 containingResponder:(id)arg3;
 + (id)systemInputViewControllerForResponder:(id)arg1 editorView:(id)arg2;
 + (_Bool)canUseSystemInputViewControllerForResponder:(id)arg1;
@@ -52,6 +55,7 @@
 @property(retain, nonatomic) UIView *contentLayoutView; // @synthesize contentLayoutView=_contentLayoutView;
 @property(retain, nonatomic) UIView *containingView; // @synthesize containingView=_containingView;
 @property(nonatomic) _Bool didDisplayRecents; // @synthesize didDisplayRecents=_didDisplayRecents;
+@property(nonatomic) _Bool willUpdateBackgroundEffectOnInputModeChange; // @synthesize willUpdateBackgroundEffectOnInputModeChange=_willUpdateBackgroundEffectOnInputModeChange;
 @property(nonatomic) _Bool willPresentFullscreen; // @synthesize willPresentFullscreen=_willPresentFullscreen;
 @property(retain, nonatomic) UILabel *_promptLabel; // @synthesize _promptLabel;
 @property(retain, nonatomic) UILexicon *cachedRecents; // @synthesize cachedRecents=_cachedRecents;

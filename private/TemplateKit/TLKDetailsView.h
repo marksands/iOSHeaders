@@ -22,6 +22,7 @@
     TLKObserver *_detailsObserver;
 }
 
++ (id)detailsFont;
 @property(retain) TLKObserver *detailsObserver; // @synthesize detailsObserver=_detailsObserver;
 @property(retain) TLKTextAreaView *textAreaView; // @synthesize textAreaView=_textAreaView;
 @property(retain) TLKRichText *footnote; // @synthesize footnote=_footnote;

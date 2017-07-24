@@ -33,6 +33,7 @@
 - (void)generateAutocorrectionsWithKeyboardState:(id)arg1 candidateRange:(struct _NSRange)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)generateAutocorrectionsWithKeyboardState:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)handleKeyboardInput:(id)arg1 keyboardState:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_updateKeyboardOutput:(id)arg1 withSecureCandidatePayload:(id)arg2;
 - (id)acceptSecureCandidate:(id)arg1 keyboardState:(id)arg2;
 - (void)syncToKeyboardState:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)handleKeyboardState:(id)arg1;

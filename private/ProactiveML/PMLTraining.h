@@ -33,11 +33,9 @@
 - (void)deleteSessionsWithDomainIdentifiers:(id)arg1 bundleID:(id)arg2;
 - (void)deleteSessionsWithIdentifiers:(id)arg1 bundleID:(id)arg2;
 - (void)_deleteAllSavedRecordsFromFidesStoreSync;
-- (void)_sendStatsToFidesForModel:(id)arg1 sessionCount:(unsigned long long)arg2 support:(float)arg3;
+- (void)_sendStatsToFidesForModel:(id)arg1 sessionCount:(unsigned long long)arg2 positivesCount:(unsigned long long)arg3 support:(float)arg4;
 - (void)_sendSessionStatsToFides;
 - (_Bool)isMultiLabelModel:(id)arg1;
-- (void)addSessionWithCovariates:(id)arg1 source:(id)arg2 label:(long long)arg3 model:(id)arg4 spotlightReference:(id)arg5 isInternal:(_Bool)arg6;
-- (void)addSessionWithCovariates:(id)arg1 label:(long long)arg2 model:(id)arg3 spotlightReference:(id)arg4 isInternal:(_Bool)arg5;
 - (void)addSessionWithCovariates:(id)arg1 source:(id)arg2 label:(long long)arg3 sessionDescriptor:(id)arg4 spotlightReference:(id)arg5 isInternal:(_Bool)arg6;
 - (void)addSessionWithCovariates:(id)arg1 label:(long long)arg2 sessionDescriptor:(id)arg3 spotlightReference:(id)arg4 isInternal:(_Bool)arg5;
 - (void)availableSessionsStatsReportedToAWD;

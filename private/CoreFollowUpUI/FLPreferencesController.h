@@ -23,8 +23,15 @@
 - (void).cxx_destruct;
 - (void)stopSpinnerForSpecifier:(id)arg1;
 - (void)startSpinnerForSpecifier:(id)arg1;
+- (void)_presentSpecifier:(id)arg1;
+- (void)_showRadarPrompt;
 - (void)loadSpecifier:(id)arg1;
 - (id)spyglassSpecifiers;
+- (void)_updateSpecifier:(id)arg1 withCommonPropertiesForGroup:(id)arg2;
+- (id)_urlBasedSpecifierWithName:(id)arg1;
+- (id)_extensionSupportingSpecifierWithName:(id)arg1;
+- (id)_specifierForGroup:(id)arg1;
+- (id)_specifierForItem:(id)arg1 group:(id)arg2;
 - (id)topLevelSpecifiers;
 - (id)initWithViewModel:(id)arg1;
 - (id)init;

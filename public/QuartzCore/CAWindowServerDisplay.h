@@ -36,10 +36,11 @@
 - (void)setMinimumRefreshRate:(float)arg1;
 @property float maximumBrightness;
 @property float contrast;
-@property(getter=isGrayscale) _Bool grayscale;
 - (void)setAccessibilityColorMatrix:(float *)arg1 scale:(float)arg2;
 - (void)setNits:(float)arg1;
 - (void)setColorMatrix:(float *)arg1 scale:(float)arg2 rampDuration:(double)arg3;
+@property(getter=isGrayscale) _Bool grayscale;
+@property _Bool allowsExtendedDynamicRange;
 @property _Bool invertsColors;
 @property struct CGSize overscanAmounts;
 @property double overscanAmount;
@@ -67,8 +68,8 @@
 @property(readonly) NSString *name;
 @property double scale;
 @property(readonly) struct CGRect bounds;
-- (void)dealloc;
 - (void)update;
+- (void)dealloc;
 - (void)invalidate;
 - (id)_initWithCADisplayServer:(struct Server *)arg1;
 

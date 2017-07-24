@@ -6,12 +6,13 @@
 
 #import <SearchFoundation/SFImage.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFAppIconImage-Protocol.h>
 
 @class NSData, NSDictionary, NSString;
 
-@interface SFAppIconImage : SFImage <SFAppIconImage, NSSecureCoding>
+@interface SFAppIconImage : SFImage <SFAppIconImage, NSSecureCoding, NSCopying>
 {
     NSString *_bundleIdentifier;
 }
@@ -19,6 +20,7 @@
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

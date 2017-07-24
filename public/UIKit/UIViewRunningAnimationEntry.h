@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (void)performWithoutLock:(CDUnknownBlockType)arg1;
 - (void)performWithLock:(CDUnknownBlockType)arg1;
 - (void)setCompletionCallback:(CDUnknownBlockType)arg1;
-- (void)performCompletionCallbackFinished:(_Bool)arg1 retargeted:(_Bool)arg2;
+- (void)performCompletionCallbackFinished:(_Bool)arg1;
 @property(nonatomic) _Bool invalidated;
 - (id)initWithAnimation:(id)arg1 completion:(CDUnknownBlockType)arg2 composer:(id)arg3;
 

@@ -6,45 +6,54 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSMutableSet;
+@class NSMutableOrderedSet;
 
 @interface GVNode : NSObject
 {
-    unsigned long long globalIndex;
-    unsigned long long layer;
-    unsigned long long index;
-    unsigned long long priority;
-    NSMutableSet *inNodes;
-    NSMutableSet *outNodes;
-    struct CGRect frame;
+    double x;
+    double y;
+    double w;
+    double h;
+    NSMutableOrderedSet *inNodes;
+    NSMutableOrderedSet *outNodes;
+    long long rank;
+    long long index;
+    GVNode *prev;
+    GVNode *next;
+    unsigned long long inPriority;
+    unsigned long long outPriority;
 }
 
-@property(retain, nonatomic) NSMutableSet *outNodes; // @synthesize outNodes;
-@property(retain, nonatomic) NSMutableSet *inNodes; // @synthesize inNodes;
-@property(nonatomic) unsigned long long priority; // @synthesize priority;
-@property(nonatomic) unsigned long long index; // @synthesize index;
-@property(nonatomic) unsigned long long layer; // @synthesize layer;
-@property(nonatomic) unsigned long long globalIndex; // @synthesize globalIndex;
-@property(nonatomic) struct CGRect frame; // @synthesize frame;
-- (void)traversePreorder:(CDUnknownBlockType)arg1;
-- (void)traversePostorder:(CDUnknownBlockType)arg1 stopper:(CDUnknownBlockType)arg2;
+@property(nonatomic) unsigned long long outPriority; // @synthesize outPriority;
+@property(nonatomic) unsigned long long inPriority; // @synthesize inPriority;
+@property(nonatomic) GVNode *next; // @synthesize next;
+@property(nonatomic) GVNode *prev; // @synthesize prev;
+@property(nonatomic) long long index; // @synthesize index;
+@property(nonatomic) long long rank; // @synthesize rank;
+@property(retain, nonatomic) NSMutableOrderedSet *outNodes; // @synthesize outNodes;
+@property(retain, nonatomic) NSMutableOrderedSet *inNodes; // @synthesize inNodes;
+@property(nonatomic) double h; // @synthesize h;
+@property(nonatomic) double w; // @synthesize w;
+@property(nonatomic) double y; // @synthesize y;
+@property(nonatomic) double x; // @synthesize x;
+- (void)traversePreorder:(int)arg1 withCallback:(CDUnknownBlockType)arg2 randomize:(_Bool)arg3;
+- (void)traversePostorder:(int)arg1 withCallback:(CDUnknownBlockType)arg2 stopper:(CDUnknownBlockType)arg3 randomize:(_Bool)arg4;
 - (id)description;
-- (_Bool)isDummyNode;
+- (void)computePriority;
 - (void)removeEdgeTo:(id)arg1;
 - (void)removeEdgeFrom:(id)arg1;
 - (void)addEdgeTo:(id)arg1;
 - (void)addEdgeFrom:(id)arg1;
 - (_Bool)hasEdgeTo:(id)arg1;
 - (_Bool)hasEdgeFrom:(id)arg1;
-- (_Bool)hasSingleOutNode;
-- (_Bool)hasSingleInNode;
-@property(readonly) _Bool isSink;
-@property(readonly) _Bool isSource;
 @property(readonly) unsigned long long outDegree;
 @property(readonly) unsigned long long inDegree;
 @property(nonatomic) struct CGSize size;
 @property(nonatomic) struct CGPoint center;
 @property(nonatomic) struct CGPoint origin;
+@property(nonatomic) struct CGRect frame;
+@property(nonatomic) double cy;
+@property(nonatomic) double cx;
 - (void)dealloc;
 - (id)init;
 

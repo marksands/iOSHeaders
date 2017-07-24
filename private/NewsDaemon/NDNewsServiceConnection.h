@@ -26,6 +26,7 @@
 @property(retain, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;
 - (void)_establishConnectionIfNeededWithCompletion:(CDUnknownBlockType)arg1;
+- (void)markAnalyticsElement:(id)arg1 asReadAtDate:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)markAnalyticsElements:(id)arg1 asSeenAtDate:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)fetchLatestHeadlinesWithParameters:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)serviceHasNewHeadlineResults;

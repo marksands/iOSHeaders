@@ -9,9 +9,11 @@
 __attribute__((visibility("hidden")))
 @interface PDFPanGestureRecognizer : UIPanGestureRecognizer
 {
+    _Bool _didForcePress;
     struct CGPoint _locationOfFirstTouch;
 }
 
+@property(nonatomic) _Bool didForcePress; // @synthesize didForcePress=_didForcePress;
 @property(nonatomic) struct CGPoint locationOfFirstTouch; // @synthesize locationOfFirstTouch=_locationOfFirstTouch;
 - (struct CGPoint)locationOfFirstTouchInView:(id)arg1;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;

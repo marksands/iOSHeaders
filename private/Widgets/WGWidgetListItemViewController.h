@@ -25,6 +25,7 @@
 - (id)_platterViewIfLoaded;
 - (id)_platterViewLoadingIfNecessary:(_Bool)arg1;
 - (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
+- (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
 - (void)removeChildViewController:(id)arg1;
 - (void)managingContainerDidDisappear:(id)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
@@ -35,6 +36,8 @@
 - (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 - (void)viewDidLoad;
 - (void)loadView;
+- (struct CGSize)contentSizeForPreferredContentSize:(struct CGSize)arg1;
+- (struct CGSize)preferredContentSizeForContentOfSize:(struct CGSize)arg1;
 @property(readonly, nonatomic) WGWidgetPlatterView *platterView;
 - (id)initWithWidgetIdentifier:(id)arg1;
 

@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIView *target; // @synthesize target=_target;
 @property(nonatomic) struct CGPoint animationPoint; // @synthesize animationPoint=_animationPoint;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) double offsetFromMagnificationPoint;
 @property(readonly, nonatomic) _Bool isHorizontal;
 - (void)stopMagnifying:(_Bool)arg1;
 - (void)beginMagnifyingTarget:(id)arg1 text:(id)arg2 magnificationPoint:(struct CGPoint)arg3 offset:(struct CGPoint)arg4 animated:(_Bool)arg5;

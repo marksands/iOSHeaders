@@ -10,21 +10,20 @@
 #import <MapKit/_MKInfoCardChildViewControllerAnalyticsDelegate-Protocol.h>
 
 @class NSString;
-@protocol _MKInfoCardAnaylticsDelegate, _MKPlaceItem;
+@protocol _MKInfoCardAnalyticsDelegate, _MKPlaceItem;
 
 __attribute__((visibility("hidden")))
 @interface MKPlaceMessageViewController : MKPlaceSectionViewController <_MKInfoCardChildViewControllerAnalyticsDelegate, MKModuleViewControllerProtocol>
 {
     _Bool _canUseMessageID;
-    id <_MKInfoCardAnaylticsDelegate> _analyticsDelegate;
+    id <_MKInfoCardAnalyticsDelegate> _analyticsDelegate;
     id <_MKPlaceItem> _placeItem;
 }
 
 @property(retain, nonatomic) id <_MKPlaceItem> placeItem; // @synthesize placeItem=_placeItem;
-@property(nonatomic) __weak id <_MKInfoCardAnaylticsDelegate> analyticsDelegate; // @synthesize analyticsDelegate=_analyticsDelegate;
+@property(nonatomic) __weak id <_MKInfoCardAnalyticsDelegate> analyticsDelegate; // @synthesize analyticsDelegate=_analyticsDelegate;
 - (void).cxx_destruct;
 - (id)infoCardChildPossibleActions;
-- (void)validateMessageID;
 - (void)sectionView:(id)arg1 didSelectRow:(id)arg2 atIndex:(unsigned long long)arg3;
 - (void)loadRow;
 - (void)viewDidLoad;

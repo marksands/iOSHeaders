@@ -6,17 +6,20 @@
 
 #import <UIKit/UICollectionViewCell.h>
 
-@class UIImage, UIImageView, UIView;
+@class CALayer, UIImage, UIImageView, UIView;
 
 @interface _NTKCPhotoListCell : UICollectionViewCell
 {
     UIView *_selectionOverlayView;
     UIImageView *_selectionBadge;
     UIView *_highlightOverlayView;
-    UIImageView *_imageView;
+    CALayer *_contentLayer;
+    UIImage *_contentImage;
+    struct CGRect _crop;
 }
 
 + (id)reuseIdentifier;
+@property(nonatomic) struct CGRect crop; // @synthesize crop=_crop;
 - (void).cxx_destruct;
 @property(retain, nonatomic) UIImage *photo;
 - (void)setSelected:(_Bool)arg1;

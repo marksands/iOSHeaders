@@ -12,20 +12,19 @@
 {
     NFLFontCache *_fontCache;
     double _scaleValue;
-    double _dynamicTypeScale;
+    long long _rowSpan;
     NSDictionary *_layout;
     NSDictionary *_columnIrrespectiveProperties;
+    CDStruct_3d2913aa _headlineScales;
 }
 
 @property(retain, nonatomic) NSDictionary *columnIrrespectiveProperties; // @synthesize columnIrrespectiveProperties=_columnIrrespectiveProperties;
 @property(retain, nonatomic) NSDictionary *layout; // @synthesize layout=_layout;
-@property(nonatomic) double dynamicTypeScale; // @synthesize dynamicTypeScale=_dynamicTypeScale;
+@property(readonly, nonatomic) long long rowSpan; // @synthesize rowSpan=_rowSpan;
+@property(nonatomic) CDStruct_3d2913aa headlineScales; // @synthesize headlineScales=_headlineScales;
 @property(nonatomic) double scaleValue; // @synthesize scaleValue=_scaleValue;
 @property(retain, nonatomic) NFLFontCache *fontCache; // @synthesize fontCache=_fontCache;
 - (void).cxx_destruct;
-- (double)_bylineTopOffsetWithTemplate:(id)arg1;
-- (double)_excerptTopOffsetWithTemplate:(id)arg1;
-- (double)_titleTopOffsetWithTemplate:(id)arg1;
 - (double)scaledLineHeightForFontID:(id)arg1;
 - (double)scaledFontSizeForFontID:(id)arg1;
 - (_Bool)fontCondensedForFontID:(id)arg1;
@@ -40,37 +39,7 @@
 - (id)scaledNumberForPropertyKey:(id)arg1;
 - (struct CGSize)sizeForPropertyKey:(id)arg1;
 - (struct CGSize)scaledSizeForPropertyKey:(id)arg1;
-- (id)bylineFontColorWithTemplate:(id)arg1;
-- (id)excerptFontColorWithTemplate:(id)arg1;
-- (id)titleFontReadColorWithTemplate:(id)arg1;
-- (id)titleFontColorWithTemplate:(id)arg1;
-- (id)bylineFontWithTemplate:(id)arg1;
-- (id)excerptFontWithTemplate:(id)arg1;
-- (id)titleFontWithTemplate:(id)arg1;
-- (double)bylineLineHeight;
-- (double)excerptLineHeightWithTemplate:(id)arg1;
-- (double)titleLineHeightWithTemplate:(id)arg1;
-- (double)_bylineFontSize;
-- (double)_excerptFontSizeWithTemplate:(id)arg1;
-- (double)_titleFontSizeWithTemplate:(id)arg1;
-- (id)_bylineFontNameWithTemplate:(id)arg1;
-- (id)_excerptFontNameWithTemplate:(id)arg1;
-- (id)_titleFontNameWithTemplate:(id)arg1;
-- (double)ageLabelToAccessoryLabelSpacingWithTemplate:(id)arg1;
-- (double)titleToAccessorySpacingWithTemplate:(id)arg1;
-- (double)excerptToAccessorySpacingWithTemplate:(id)arg1;
-- (double)titleToExcerptSpacingWithTemplate:(id)arg1;
-- (double)publisherLogoToTitleSpacingWithTemplate:(id)arg1;
-- (_Bool)allowsExcerptWithFeedSettings:(id)arg1;
-- (_Bool)allowsExcerpt;
-- (_Bool)allowsExcerptInForYou;
-@property(readonly, nonatomic) double sharrowHeight;
-@property(readonly, nonatomic) double sharrowWidth;
-@property(readonly, nonatomic) double extraYOffsetForSharrow;
-@property(readonly, nonatomic) double accessoryViewToSharrowPadding;
-@property(readonly, nonatomic) long long rowSpan;
-- (double)publisherLogoHeight;
-- (id)initWithLayout:(id)arg1 columnIrrespectiveProperties:(id)arg2 fontCache:(id)arg3 scaleValue:(double)arg4 dynamicTypeScale:(double)arg5;
+- (id)initWithLayout:(id)arg1 columnIrrespectiveProperties:(id)arg2 fontCache:(id)arg3 scaleValue:(double)arg4 headlineScales:(CDStruct_3d2913aa)arg5;
 
 @end
 

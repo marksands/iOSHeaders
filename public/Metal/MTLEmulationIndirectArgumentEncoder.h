@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)setBuffers:(const id *)arg1 offsets:(const unsigned long long *)arg2 withRange:(struct _NSRange)arg3;
 - (void)setBuffer:(id)arg1 offset:(unsigned long long)arg2 atIndex:(unsigned long long)arg3;
 - (void)setIndirectArgumentBuffer:(id)arg1 offset:(unsigned long long)arg2;
-- (id)newIndirectArgumentEncoderForBufferAtIndex:(unsigned long long)arg1;
+@property(readonly) unsigned long long alignment;
 @property(readonly) unsigned long long encodedLength;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 device:(id)arg2;

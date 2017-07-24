@@ -25,15 +25,15 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) _Bool isRestartRequired; // @synthesize isRestartRequired=_isRestartRequired;
-@property(nonatomic) _Bool isCritical; // @synthesize isCritical=_isCritical;
-@property(copy, nonatomic) NSNumber *installationSize; // @synthesize installationSize=_installationSize;
-@property(copy, nonatomic) NSNumber *downloadSize; // @synthesize downloadSize=_downloadSize;
-@property(copy, nonatomic) NSString *productBuildVersion; // @synthesize productBuildVersion=_productBuildVersion;
-@property(copy, nonatomic) NSString *productVersion; // @synthesize productVersion=_productVersion;
-@property(copy, nonatomic) NSString *productSystemName; // @synthesize productSystemName=_productSystemName;
-@property(copy, nonatomic) NSString *humanReadableUpdateName; // @synthesize humanReadableUpdateName=_humanReadableUpdateName;
-@property(copy, nonatomic) NSString *humanReadableLanguage; // @synthesize humanReadableLanguage=_humanReadableLanguage;
+@property(readonly, nonatomic) _Bool isRestartRequired; // @synthesize isRestartRequired=_isRestartRequired;
+@property(readonly, nonatomic) _Bool isCritical; // @synthesize isCritical=_isCritical;
+@property(readonly, copy, nonatomic) NSNumber *installationSize; // @synthesize installationSize=_installationSize;
+@property(readonly, copy, nonatomic) NSNumber *downloadSize; // @synthesize downloadSize=_downloadSize;
+@property(readonly, copy, nonatomic) NSString *productBuildVersion; // @synthesize productBuildVersion=_productBuildVersion;
+@property(readonly, copy, nonatomic) NSString *productVersion; // @synthesize productVersion=_productVersion;
+@property(readonly, copy, nonatomic) NSString *productSystemName; // @synthesize productSystemName=_productSystemName;
+@property(readonly, copy, nonatomic) NSString *humanReadableUpdateName; // @synthesize humanReadableUpdateName=_humanReadableUpdateName;
+@property(readonly, copy, nonatomic) NSString *humanReadableLanguage; // @synthesize humanReadableLanguage=_humanReadableLanguage;
 - (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;

@@ -29,6 +29,10 @@
     _Bool _focusTitleOnAppearance;
     EKUIAutocompleteSearchResult *_selectedAutocompleteResult;
     unsigned long long _selectedAutocompleteResultIndex;
+    EKUIAutocompleteSearchResult *_zeroKeywordResult;
+    EKUIAutocompleteSearchResult *_naturalLanguageResult;
+    _Bool _hasShownZeroKeywordResult;
+    _Bool _hasShownNaturalLanguageResult;
     EKUIAutocompletePETTracker *_autocompletePETTracker;
     _Bool _showAttachments;
     UIColor *_backgroundColor;
@@ -40,6 +44,7 @@
 + (void)_applyTimeToAutocompleteResults:(id)arg1 usingCurrentStartDate:(id)arg2 currentEndDate:(id)arg3 timeImplicitlySet:(_Bool)arg4;
 + (id)_now;
 + (id)defaultTitleForCalendarItem;
++ (Class)_SGSuggestionsServiceClass;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) _Bool showAttachments; // @synthesize showAttachments=_showAttachments;
 - (void).cxx_destruct;
@@ -57,7 +62,6 @@
 - (void)editItemTextChanged:(id)arg1;
 - (void)_setEventTitleForTestingAutocomplete:(id)arg1;
 - (id)_viewForSheet;
-- (_Bool)_canDetachSingleOccurrence;
 - (void)_revertEvent;
 - (void)_copyEventForPossibleRevert;
 - (void)focusAndSelectTitle;

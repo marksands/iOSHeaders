@@ -19,9 +19,9 @@
 __attribute__((visibility("hidden")))
 @interface TSCHNumberFormat : NSObject <NSCopying, NSMutableCopying, TSCHDataFormatter, TSCHCustomFormatSupport, TSCHDataFormatterPersistableStyleObject, TSCHDataFormatterSupportedClientFormatObject, TSCHFormatTypeSupport>
 {
-    CDStruct_28403e59 mFormatStruct;
     NSString *mPrefixString;
     NSString *mSuffixString;
+    CDStruct_28403e59 mFormatStruct;
 }
 
 + (int)labelFormatTypeFromTSUFormatType:(int)arg1;

@@ -24,6 +24,7 @@
 - (void)__gaxTrampoline_endSessionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)endWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_guidedAccessStateDidChange:(id)arg1;
+- (void)dealloc;
 - (id)initWithEffectiveConfiguration:(id)arg1;
 
 @end

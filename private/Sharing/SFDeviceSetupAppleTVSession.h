@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableArray, NSSet, SFDevice, SFSession, TROperationQueue, TRSession, UIViewController;
+@class NSMutableArray, NSSet, NSString, SFDevice, SFSession, TROperationQueue, TRSession, UIViewController;
 @protocol OS_dispatch_queue;
 
 @interface SFDeviceSetupAppleTVSession : NSObject
@@ -15,6 +15,11 @@
     int _finishState;
     _Bool _invalidateCalled;
     _Bool _useSFSession;
+    int _preflightWiFiState;
+    int _preflightiCloudState;
+    NSString *_iCloudUserID;
+    int _preflightiTunesState;
+    NSString *_iTunesUserID;
     SFSession *_sfSession;
     int _sfSessionState;
     int _preAuthState;
@@ -46,10 +51,14 @@
     SFDevice *_peerDevice;
     UIViewController *_presentingViewController;
     CDUnknownBlockType _progressHandler;
+    CDUnknownBlockType _promptForHomeHandler;
     CDUnknownBlockType _promptForPINHandler;
+    CDUnknownBlockType _promptForRoomHandler;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType promptForRoomHandler; // @synthesize promptForRoomHandler=_promptForRoomHandler;
 @property(copy, nonatomic) CDUnknownBlockType promptForPINHandler; // @synthesize promptForPINHandler=_promptForPINHandler;
+@property(copy, nonatomic) CDUnknownBlockType promptForHomeHandler; // @synthesize promptForHomeHandler=_promptForHomeHandler;
 @property(copy, nonatomic) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;
 @property(retain, nonatomic) UIViewController *presentingViewController; // @synthesize presentingViewController=_presentingViewController;
 @property(retain, nonatomic) SFDevice *peerDevice; // @synthesize peerDevice=_peerDevice;
@@ -70,9 +79,14 @@
 - (void)_runPreAuthRequest;
 - (int)_runPreAuth;
 - (int)_runSFSessionStart;
+- (int)_runPreflightiTunes;
+- (int)_runPreflightiCloud;
+- (int)_runPreflightWiFi;
 - (void)_run;
 - (void)_reportError:(id)arg1 label:(id)arg2;
 - (void)pairSetupTryPIN:(id)arg1;
+- (void)homeKitSelectRoom:(id)arg1;
+- (void)homeKitSelectHome:(id)arg1;
 - (void)invalidate;
 - (void)activate;
 - (void)_cleanup;

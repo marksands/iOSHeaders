@@ -33,6 +33,7 @@
         unsigned int blurDisabled:1;
         unsigned int disableBlurTinting:1;
         unsigned int pendingFocusAction:1;
+        unsigned int springLoaded:1;
     } _tabBarFlags;
     _UITabBarAppearanceStorage *_appearanceStorage;
     _UITabBarVisualProvider *_visualProvider;
@@ -116,6 +117,8 @@
 @property(retain, nonatomic) UIImage *selectionIndicatorImage;
 @property(retain, nonatomic) UIImage *shadowImage;
 @property(retain, nonatomic) UIImage *backgroundImage;
+- (_Bool)isSpringLoaded;
+- (void)setSpringLoaded:(_Bool)arg1;
 - (id)preferredFocusedView;
 - (void)_makeCurrentButtonFirstResponder;
 - (void)_didChangeFromIdiom:(long long)arg1 onScreen:(id)arg2 traverseHierarchy:(_Bool)arg3;

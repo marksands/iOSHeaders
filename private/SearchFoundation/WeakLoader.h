@@ -8,6 +8,7 @@
 
 @protocol SFResourceLoader;
 
+__attribute__((visibility("hidden")))
 @interface WeakLoader : NSObject
 {
     id <SFResourceLoader> _weakLoader;
@@ -15,7 +16,7 @@
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) id <SFResourceLoader> strongloader;
-- (id)initWithloader:(id)arg1;
+- (id)initWithLoader:(id)arg1;
 
 @end
 

@@ -18,7 +18,7 @@
 @property(retain) id <PVPersistenceDelegate> persistenceDelegate; // @synthesize persistenceDelegate=_persistenceDelegate;
 - (void).cxx_destruct;
 - (_Bool)deleteEmptyGroupsAndReturnError:(id *)arg1;
-- (_Bool)deleteFaceGroupsAndResetClusterSequenceNumberOfFaces:(id *)arg1;
+- (_Bool)resetLibraryClustersWithCanceler:(id)arg1 error:(id *)arg2;
 - (_Bool)removeAlgorithmicallyGroupedFacesWithLocalIdentifiers:(id)arg1 error:(id *)arg2;
 - (id)keyFacesFromAlgorithmicGroupsContainingFacesWithClusterSequenceNumbers:(id)arg1 includeSingletons:(_Bool)arg2 error:(id *)arg3;
 - (id)localIdentifiersOfKeyFacesFromAlgorithmicGroupsContainingFacesWithLocalIdentifiers:(id)arg1 error:(id *)arg2;
@@ -37,7 +37,7 @@
 - (_Bool)persistGeneratedFaceCrops:(id)arg1 error:(id *)arg2;
 - (id)activeFaceprintsByFaceLocalIdentifiers:(id)arg1 error:(id *)arg2;
 - (_Bool)unclusterFaces:(id)arg1 error:(id *)arg2;
-- (void)removeExistingFacesFromCSNs:(id)arg1;
+- (id)invalidFaceClusterSequenceNumbersInClusterSequenceNumbers:(id)arg1 canceler:(id)arg2 error:(id *)arg3;
 - (_Bool)resetClusterSequenceNumberOfFacesWithLocalIdentifiers:(id)arg1 error:(id *)arg2;
 - (id)unverifiedVisibleFacesFromFaceGroupContainingFacesWithClusterSequenceNumbers:(id)arg1 withFaceprintVersion:(unsigned int)arg2;
 - (id)deterministicallyOrderedFaceIdentifiersWithLocalIdentifiers:(id)arg1 faceprintVersion:(unsigned int)arg2;

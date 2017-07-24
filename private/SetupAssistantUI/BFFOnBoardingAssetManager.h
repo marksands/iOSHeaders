@@ -20,6 +20,7 @@
 - (id)assetFeatureValueForFeature:(long long)arg1;
 - (void)purgeMovieForFeature:(long long)arg1 language:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)purgeFeatureMoviesExceptLanguage:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)purgeFeatureMoviesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)retrieveMovieForFeature:(long long)arg1 language:(id)arg2 completion:(CDUnknownBlockType)arg3;
 
 @end

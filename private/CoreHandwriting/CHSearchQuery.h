@@ -10,18 +10,17 @@
 
 @interface CHSearchQuery : CHQuery
 {
-    NSString *_queryString;
     NSArray *_foundItems;
-    long long __lastRequestNumber;
+    NSString *_queryString;
 }
 
-@property(nonatomic) long long _lastRequestNumber; // @synthesize _lastRequestNumber=__lastRequestNumber;
+- (id)debugName;
 @property(copy, nonatomic, setter=_setFoundItems:) NSArray *foundItems; // @synthesize foundItems=_foundItems;
 @property(copy, nonatomic) NSString *queryString; // @synthesize queryString=_queryString;
 - (struct _NSRange)_tokenIndexRangeForStringRange:(struct _NSRange)arg1 inResult:(id)arg2;
 - (void)_enumerateMatchingRangesForStrokeGroupResult:(id)arg1 locales:(id)arg2 searchString:(id)arg3 usingBlock:(CDUnknownBlockType)arg4;
-- (id)foundItemsForSearchString:(id)arg1 sessionResult:(id)arg2 cancelBlock:(CDUnknownBlockType)arg3;
-- (void)updateQueryResult;
+- (id)q_foundItemsForSearchString:(id)arg1 sessionResult:(id)arg2;
+- (void)q_updateQueryResult;
 - (void)stop;
 - (void)dealloc;
 - (id)initWithRecognitionSession:(id)arg1;

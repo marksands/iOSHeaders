@@ -12,7 +12,7 @@
 #import <CameraUI/UIGestureRecognizerDelegate-Protocol.h>
 #import <CameraUI/UIPreviewInteractionDelegate-Protocol.h>
 
-@class CAMAnimationGenerator, CAMDialGradientView, CAMFilterScrubberCollectionViewLayout, CIContext, EAGLContext, NSArray, NSString, UICollectionView, UILongPressGestureRecognizer, UIPreviewInteraction, UITapGestureRecognizer;
+@class CAMAnimationGenerator, CAMDialGradientView, CAMFilterScrubberCollectionView, CAMFilterScrubberCollectionViewLayout, CIContext, EAGLContext, NSArray, NSString, UILongPressGestureRecognizer, UIPreviewInteraction, UITapGestureRecognizer;
 @protocol CAMFilterScrubberViewDelegate;
 
 @interface CAMFilterScrubberView : UIView <UICollectionViewDelegate, UICollectionViewDataSource, CAMFilterScrubberCollectionViewLayoutDelegate, UIPreviewInteractionDelegate, UIGestureRecognizerDelegate>
@@ -29,7 +29,7 @@
     long long _lastCapturedFilterType;
     double _selectionDotCenterTopSpacing;
     CAMFilterScrubberCollectionViewLayout *__collectionViewLayout;
-    UICollectionView *__collectionView;
+    CAMFilterScrubberCollectionView *__collectionView;
     UIView *__selectedFilterOverlayView;
     CAMDialGradientView *__dialGradientView;
     UILongPressGestureRecognizer *__pressGestureRecognizer;
@@ -52,7 +52,7 @@
 @property(readonly, nonatomic) UILongPressGestureRecognizer *_pressGestureRecognizer; // @synthesize _pressGestureRecognizer=__pressGestureRecognizer;
 @property(readonly, nonatomic) CAMDialGradientView *_dialGradientView; // @synthesize _dialGradientView=__dialGradientView;
 @property(readonly, nonatomic) UIView *_selectedFilterOverlayView; // @synthesize _selectedFilterOverlayView=__selectedFilterOverlayView;
-@property(readonly, nonatomic) UICollectionView *_collectionView; // @synthesize _collectionView=__collectionView;
+@property(readonly, nonatomic) CAMFilterScrubberCollectionView *_collectionView; // @synthesize _collectionView=__collectionView;
 @property(readonly, nonatomic) CAMFilterScrubberCollectionViewLayout *_collectionViewLayout; // @synthesize _collectionViewLayout=__collectionViewLayout;
 @property _Bool mirrorFilterRendering; // @synthesize mirrorFilterRendering=_mirrorFilterRendering;
 @property(nonatomic) double selectionDotCenterTopSpacing; // @synthesize selectionDotCenterTopSpacing=_selectionDotCenterTopSpacing;

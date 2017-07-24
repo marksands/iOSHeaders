@@ -27,9 +27,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool hasGenericTileType; // @synthesize hasGenericTileType=_hasGenericTileType;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)immediateLoad:(struct Device *)arg1;
+- (void)immediateLoad:(Device_9226c869 *)arg1;
 - (void)dealloc;
-- (void)gglBuildTexture:(struct Device *)arg1;
+- (void)gglBuildTexture:(Device_9226c869 *)arg1;
 - (shared_ptr_8bee8aae)buildTextureDataFromCGImage:(struct CGImage *)arg1;
 - (struct CGImage *)newCGImageFromData:(id)arg1;
 @property(readonly, nonatomic) struct RenderItem *renderItem;

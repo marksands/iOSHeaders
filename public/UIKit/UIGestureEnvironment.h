@@ -42,8 +42,7 @@ __attribute__((visibility("hidden")))
 - (void)_runPreUpdateActions;
 - (void)_addPreUpdateAction:(CDUnknownBlockType)arg1;
 - (void)_cancelGestureRecognizers:(id)arg1;
-- (void)_donateTouchesWhileKeepingGestures:(id)arg1 endingGestures:(id)arg2;
-- (void)_donateAllTouches;
+- (void)_performTouchContinuation;
 - (void)_deliverEvent:(id)arg1 toGestureRecognizers:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)_updateGesturesForEvent:(id)arg1 window:(id)arg2;
 - (void)_removeNodeFromGestureGraph:(id)arg1;

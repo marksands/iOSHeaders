@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
 - (void)registerPeripheralIdentifier:(id)arg1 name:(id)arg2 services:(id)arg3 withCompletion:(CDUnknownBlockType)arg4;
 - (void)removeHealthServicePairing:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)addHealthServicePairing:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)healthPeripheralsWithFilter:(unsigned long long)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)healthServicePairingsWithHandler:(CDUnknownBlockType)arg1;
 - (id)activeHealthServiceSessions;
 - (void)endHealthServiceSession:(id)arg1;

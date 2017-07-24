@@ -18,6 +18,7 @@
 + (id)syncKey;
 + (id)persistencePolicy;
 + (id)deliveryDeadline;
+@property(copy, nonatomic) NSString *xpAbCookie;
 @property(copy, nonatomic) NSString *userToken;
 @property(copy, nonatomic) NSString *status;
 @property(retain, nonatomic) SACalendar *expirationDate;

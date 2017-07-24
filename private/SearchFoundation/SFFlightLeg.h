@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFFlightLeg-Protocol.h>
 
 @class NSData, NSDate, NSDictionary, NSString, SFAirport;
 
-@interface SFFlightLeg : NSObject <SFFlightLeg, NSSecureCoding>
+@interface SFFlightLeg : NSObject <SFFlightLeg, NSSecureCoding, NSCopying>
 {
     CDStruct_47fe53f2 _has;
     int _status;
@@ -27,9 +28,11 @@
     SFAirport *_arrivalAirport;
     SFAirport *_divertedAirport;
     NSString *_title;
+    NSString *_baggageClaim;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *baggageClaim; // @synthesize baggageClaim=_baggageClaim;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) SFAirport *divertedAirport; // @synthesize divertedAirport=_divertedAirport;
 @property(retain, nonatomic) SFAirport *arrivalAirport; // @synthesize arrivalAirport=_arrivalAirport;
@@ -44,6 +47,7 @@
 @property(copy, nonatomic) NSDate *departurePublishedTime; // @synthesize departurePublishedTime=_departurePublishedTime;
 @property(nonatomic) int status; // @synthesize status=_status;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

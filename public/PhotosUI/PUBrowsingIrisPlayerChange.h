@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
     _Bool _activatedDidChange;
     _Bool _scrubbingPhotoTimeDidChange;
     _Bool _currentlyDisplayedTimesDidChange;
-    _Bool _preferredTimesDidChange;
     _Bool _playingDidChange;
     _Bool _isLivePhotoLoadingAllowedDidChange;
     _Bool _isLivePhotoPlaybackAllowedDidChange;
@@ -27,7 +26,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, setter=_setLivePhotoPlaybackAllowedDidChange:) _Bool isLivePhotoPlaybackAllowedDidChange; // @synthesize isLivePhotoPlaybackAllowedDidChange=_isLivePhotoPlaybackAllowedDidChange;
 @property(nonatomic, setter=_setLivePhotoLoadingAllowedDidChange:) _Bool isLivePhotoLoadingAllowedDidChange; // @synthesize isLivePhotoLoadingAllowedDidChange=_isLivePhotoLoadingAllowedDidChange;
 @property(nonatomic, setter=_setPlayingDidChange:) _Bool playingDidChange; // @synthesize playingDidChange=_playingDidChange;
-@property(nonatomic, setter=_setPreferredTimesDidChange:) _Bool preferredTimesDidChange; // @synthesize preferredTimesDidChange=_preferredTimesDidChange;
 @property(nonatomic, setter=_setCurrentlyDisplayedTimesDidChange:) _Bool currentlyDisplayedTimesDidChange; // @synthesize currentlyDisplayedTimesDidChange=_currentlyDisplayedTimesDidChange;
 @property(nonatomic, setter=_setScrubbingPhotoTimeDidChange:) _Bool scrubbingPhotoTimeDidChange; // @synthesize scrubbingPhotoTimeDidChange=_scrubbingPhotoTimeDidChange;
 @property(nonatomic, setter=_setActivatedDidChange:) _Bool activatedDidChange; // @synthesize activatedDidChange=_activatedDidChange;

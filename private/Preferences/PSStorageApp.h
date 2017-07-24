@@ -63,6 +63,7 @@
 @property(readonly, nonatomic) NSString *appIdentifier;
 @property(readonly, nonatomic) NSString *bundleIdentifier;
 @property(readonly, nonatomic) NSString *name;
+- (_Bool)valueForBooleanInfoKey:(id)arg1;
 - (void)reloadProxy;
 - (id)initWithApplicationProxy:(id)arg1;
 

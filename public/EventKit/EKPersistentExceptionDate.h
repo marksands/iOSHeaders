@@ -15,7 +15,6 @@
 - (void)setOwner:(id)arg1;
 - (id)owner;
 - (int)entityType;
-- (unsigned long long)hash;
 - (void)setDate:(id)arg1;
 - (id)date;
 - (id)copyWithZone:(struct _NSZone *)arg1;

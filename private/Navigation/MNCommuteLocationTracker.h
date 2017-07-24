@@ -9,26 +9,28 @@
 #import <Navigation/GEOETAUpdaterDelegate-Protocol.h>
 
 @class GEOComposedRoute, GEOComposedWaypoint, GEOETAUpdater, GEONavigationMapMatcher, MNActiveRouteInfo, MNLocation, MNNavigationTraceManager, NSString;
-@protocol GEODirectionServiceTicket;
+@protocol GEODirectionServiceTicket, GEOMapServiceTicket;
 
 __attribute__((visibility("hidden")))
 @interface MNCommuteLocationTracker : MNLocationTracker <GEOETAUpdaterDelegate>
 {
     GEOComposedWaypoint *_destination;
+    GEOComposedWaypoint *_lastOrigin;
     MNLocation *_lastLocation;
     MNActiveRouteInfo *_routeInfo;
+    id <GEOMapServiceTicket> _currentLocationTicket;
     id <GEODirectionServiceTicket> _directionsRequestTicket;
     GEONavigationMapMatcher *_mapMatcher;
     GEOETAUpdater *_etaUpdater;
     unsigned long long _destinationID;
     MNNavigationTraceManager *_traceManager;
     _Bool _requestNonRecommendedRoutes;
-    GEOComposedRoute *_route;
+    _Bool _routingInProgress;
 }
 
+@property(nonatomic) _Bool routingInProgress; // @synthesize routingInProgress=_routingInProgress;
 @property(nonatomic) unsigned long long destinationID; // @synthesize destinationID=_destinationID;
 @property(nonatomic) _Bool requestNonRecommendedRoutes; // @synthesize requestNonRecommendedRoutes=_requestNonRecommendedRoutes;
-@property(readonly, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
 @property(readonly, nonatomic) GEOComposedWaypoint *destination; // @synthesize destination=_destination;
 - (void).cxx_destruct;
 - (void)etaUpdaterReceivedInvalidRoute:(id)arg1 newRoute:(id)arg2 incidentsOnRoute:(id)arg3 incidentsOffRoute:(id)arg4;
@@ -43,10 +45,13 @@ __attribute__((visibility("hidden")))
 - (void)stopTracking;
 - (void)startTracking;
 - (int)transportType;
-- (id)_directionsRequestFeedbackForState:(id)arg1;
+- (id)_directionsRequestFeedback;
 - (id)_routeAttributes;
 - (void)_handleDirectionsResponse:(id)arg1 error:(id)arg2 forRequest:(id)arg3;
+- (void)_requestRouteFromWaypoint:(id)arg1 location:(id)arg2;
 - (void)_requestRouteFromLocation:(id)arg1;
+@property(readonly, nonatomic) GEOComposedRoute *route;
+- (void)_setAuditToken:(id)arg1;
 - (void)updateETA;
 - (void)dealloc;
 - (id)initWithDestination:(id)arg1 traceManager:(id)arg2;

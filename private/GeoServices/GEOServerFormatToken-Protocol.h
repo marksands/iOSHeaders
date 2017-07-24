@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <GeoServices/NSCoding-Protocol.h>
 #import <GeoServices/NSObject-Protocol.h>
 
 @class NSArray, NSString;
 @protocol GEOServerFormatTokenPriceValue, GEOTransitArtworkDataSource;
 
-@protocol GEOServerFormatToken <NSObject>
+@protocol GEOServerFormatToken <NSObject, NSCoding>
 @property(readonly, nonatomic) NSArray *timeStampValues;
 @property(readonly, nonatomic) id <GEOTransitArtworkDataSource> artworkValue;
 @property(readonly, nonatomic) id <GEOServerFormatTokenPriceValue> priceValue;

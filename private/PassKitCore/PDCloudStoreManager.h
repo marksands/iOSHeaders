@@ -6,20 +6,24 @@
 
 #import <Foundation/NSObject.h>
 
-@class CKContainer, NSMutableDictionary, NSString;
-@protocol OS_dispatch_queue, OS_dispatch_source, PDCloudStoreDataSource, PDCloudStoreManagerDelegate;
+@class CKContainer, NSMutableDictionary, NSString, PKPeerPaymentAccount;
+@protocol OS_dispatch_group, OS_dispatch_queue, OS_dispatch_source, PDCloudStoreDataSource, PDCloudStoreManagerDelegate;
 
 @interface PDCloudStoreManager : NSObject
 {
     CKContainer *_container;
+    PKPeerPaymentAccount *_peerPaymentAccount;
     NSMutableDictionary *_subscriptionsByIdentifier;
     NSMutableDictionary *_zonesByName;
     NSMutableDictionary *_changeTokensByZoneID;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_source> *_retryTimer;
+    NSObject<OS_dispatch_group> *_batchUpdateGroup;
     unsigned long long _nextExpectedState;
     long long _suspendCount;
+    _Bool _cloudStoreSetupInProgress;
     _Bool _resettingCloudStore;
+    _Bool _accountChangedNotificationReceived;
     id <PDCloudStoreDataSource> _dataSource;
     NSString *_archivePath;
     id <PDCloudStoreManagerDelegate> _delegate;
@@ -38,21 +42,31 @@
 - (void)_subscriptionOperationWithSubscriptionsToSave:(id)arg1 subscriptionIDsToDelete:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_deleteAllZoneSubscriptionsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_createZoneSubscriptionWithIdentifier:(id)arg1 forZone:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_fetchRecordsWithQuery:(id)arg1 cursor:(id)arg2 fetchedRecords:(id)arg3 zone:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)_fetchRecordsWithQuery:(id)arg1 zone:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_fetchAllSubscriptionsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_zoneOperationWithZonesToSave:(id)arg1 zonesIDsToDelete:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_deleteAllZonesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_createZone:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_fetchRecordZonesWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_fetchRecordsWithRecordIDs:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_zoneForCloudStoreCodingItemClass:(Class)arg1;
 - (void)_modifyRecordsOperationWithRecordsToSave:(id)arg1 recordIDsToDelete:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_cloudStoreAccountInformationWithCompletion:(CDUnknownBlockType)arg1;
-- (id)_parseItemFromRecord:(id)arg1;
-- (id)_passUniqueIdentifierForRecord:(id)arg1 transactionType:(long long)arg2;
+- (id)_passUniqueIdentifierForCloudStoreRecord:(id)arg1;
+- (_Bool)_canFormTransactionFromCloudStoreRecord:(id)arg1;
+- (id)_parseRecords:(id)arg1 shouldUpdateLocalDatabase:(_Bool)arg2;
+- (id)_recordNamesAssociatedWithRecordName:(id)arg1 inZone:(id)arg2;
+- (id)_strippedRecordName:(id)arg1;
+- (id)_serviceIdentifierForRecord:(id)arg1;
+- (id)_serviceIdentifierForRecordType:(id)arg1 recordID:(id)arg2;
+- (_Bool)_isTransactionItemFromRecordType:(id)arg1;
 - (id)_serverChangeTokenFromArchiveData:(id)arg1;
 - (id)_cachedServerChangeTokens;
 - (void)_saveServerChangeTokens;
 - (void)_retryContainerStateWithError:(id)arg1 retryCount:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_processResultWithError:(id)arg1 nextExpectedState:(unsigned long long)arg2 retryCount:(unsigned long long)arg3 shouldRetry:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
+- (_Bool)_canSyncTransactionToCloudKit:(id)arg1;
 - (void)_setContainerState:(unsigned long long)arg1 retryCount:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_setContainerState:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_setContainerState:(unsigned long long)arg1;
@@ -61,12 +75,15 @@
 - (void)_attachToContainer;
 - (void)_cloudStoreAccountChanged:(id)arg1;
 - (id)cloudStoreSpecificKeysForItem:(id)arg1;
-- (void)initalCloudDatabaseSetupWithCompletion:(CDUnknownBlockType)arg1;
+- (void)initialCloudDatabaseSetupWithCompletion:(CDUnknownBlockType)arg1;
+- (void)fetchAndStoreChangesWithForceFetch:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAndStoreChangesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)removeItemsWithRecordNames:(id)arg1 itemClass:(Class)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)updateCloudStoreWithLocalItems:(id)arg1 recordSpecificKeys:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)canSyncTransactionToCloudKitWithBackingData:(_Bool)arg1 passUniqueIdentifier:(id)arg2;
 - (void)resetContainerWithCompletion:(CDUnknownBlockType)arg1;
-- (void)allItemsOfClassType:(Class)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)simulateCloudStorePushWithCompletion:(CDUnknownBlockType)arg1;
+- (void)allItemsOfClassType:(Class)arg1 storeLocally:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)initWithDataSource:(id)arg1;
 - (id)init;
 

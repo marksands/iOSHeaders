@@ -27,6 +27,8 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_transactionMetrics;
 }
 
+- (void)_consumePendingBytesReceivedEncoded;
+- (void)_appendCountOfPendingBytesReceivedEncoded:(long long)arg1;
 - (_Bool)_allowsQUIC;
 - (void)set_allowsQUIC:(_Bool)arg1;
 - (void)set_TCPConnectionMetadata:(id)arg1;
@@ -90,6 +92,8 @@ __attribute__((visibility("hidden")))
 - (id)countOfBytesExpectedToReceive;
 - (id)countOfBytesExpectedToSend;
 - (id)countOfBytesSent;
+- (id)_countOfBytesReceivedEncoded;
+- (id)_countOfPendingBytesReceivedEncoded;
 - (id)countOfBytesReceived;
 - (id)taskIdentifier;
 - (struct __CFURL *)currentRequest_mainDocumentURL;

@@ -105,6 +105,7 @@
 - (_Bool)_hasDarkUIAppearance;
 - (_Bool)centerPlaceholder;
 - (void)setCenterPlaceholder:(_Bool)arg1;
+- (id)_presentationBackgroundBlurEffectForTraitCollection:(id)arg1;
 - (unsigned long long)_backdropStyle;
 - (void)_setBackdropStyle:(unsigned long long)arg1;
 - (void)_applySearchBarStyle;
@@ -231,6 +232,7 @@
 - (void)didMoveToWindow;
 - (void)willMoveToWindow:(id)arg1;
 - (id)_scopeBar;
+- (id)_searchBarTextFieldOrMailReplacementView;
 @property(readonly, nonatomic, getter=_searchBarTextField) UISearchBarTextField *searchBarTextField;
 - (id)searchField;
 - (id)controller;
@@ -252,7 +254,6 @@
 - (void)_updateBackgroundToBackdropStyle:(long long)arg1;
 - (id)_scopeBarContainerView;
 - (id)_scopeBarBackgroundView;
-- (id)_presentationBackgroundBlurEffectForTraitCollection:(id)arg1;
 - (long long)_textInputSource;
 - (id)_backgroundView;
 - (void)_setEnabled:(_Bool)arg1 animated:(_Bool)arg2;
@@ -333,6 +334,7 @@
 @property(nonatomic) _Bool isSingleLineDocument;
 @property(nonatomic) long long keyboardType; // @dynamic keyboardType;
 @property(nonatomic) _Bool learnsCorrections;
+@property(nonatomic) _Bool loadKeyboardsForSiriLanguage;
 @property(copy, nonatomic) NSString *recentInputIdentifier;
 @property(copy, nonatomic) NSString *responseContext;
 @property(nonatomic) _Bool returnKeyGoesToNextResponder;

@@ -16,6 +16,7 @@
 }
 
 + (id)photoSettingsFromPhotoSettings:(id)arg1;
++ (id)burstQualityPhotoSettings;
 + (id)photoSettingsWithRawPixelFormatType:(unsigned int)arg1 rawFileType:(id)arg2 processedFormat:(id)arg3 processedFileType:(id)arg4;
 + (id)photoSettingsWithRawPixelFormatType:(unsigned int)arg1 processedFormat:(id)arg2;
 + (id)photoSettingsWithRawPixelFormatType:(unsigned int)arg1;
@@ -69,6 +70,7 @@
 @property(nonatomic) long long flashMode;
 - (void)setTurboModeEnabled:(_Bool)arg1;
 - (_Bool)isTurboModeEnabled;
+- (_Bool)isBurstQualityCaptureEnabled;
 @property(readonly) NSString *rawFileType;
 @property(readonly) unsigned int rawPhotoPixelFormatType;
 @property(readonly) NSString *processedFileType;
@@ -79,7 +81,7 @@
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
-- (id)_initWithFormat:(id)arg1 processedFileType:(id)arg2 rawPixelFormatType:(unsigned int)arg3 rawFileType:(id)arg4 uniqueID:(long long)arg5 exceptionReason:(id *)arg6;
+- (id)_initWithFormat:(id)arg1 processedFileType:(id)arg2 rawPixelFormatType:(unsigned int)arg3 rawFileType:(id)arg4 burstQualityCaptureEnabled:(_Bool)arg5 uniqueID:(long long)arg6 exceptionReason:(id *)arg7;
 
 @end
 

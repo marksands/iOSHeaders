@@ -6,25 +6,30 @@
 
 #import <Foundation/NSObject.h>
 
-@class MRPlaybackQueuePlayerPathClient, NSMutableDictionary;
+#import <MediaRemote/MRNowPlayingClientState-Protocol.h>
+
+@class MRPlaybackQueuePlayerClient, NSMutableDictionary;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
-@interface MRNowPlayingPlayerClientRequests : NSObject
+@interface MRNowPlayingPlayerClientRequests : NSObject <MRNowPlayingClientState>
 {
     void *_playerPath;
     NSObject<OS_dispatch_queue> *_serialQueue;
-    int _notifyRestoreClientStateForLaunch;
     NSMutableDictionary *_transactionCallbacks;
     NSMutableDictionary *_playbackQueueCompletions;
-    MRPlaybackQueuePlayerPathClient *_playbackQueueClient;
+    NSMutableDictionary *_transactions;
+    MRPlaybackQueuePlayerClient *_playbackQueueClient;
 }
 
-@property(readonly, nonatomic) MRPlaybackQueuePlayerPathClient *playbackQueueClient; // @synthesize playbackQueueClient=_playbackQueueClient;
+@property(readonly, nonatomic) MRPlaybackQueuePlayerClient *playbackQueueClient; // @synthesize playbackQueueClient=_playbackQueueClient;
 @property(readonly, nonatomic) void *playerPath; // @synthesize playerPath=_playerPath;
 - (void)_registerDefaultCallbacks;
+- (void)_handleTransactionPackets:(id)arg1 packets:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)_transactionDestintationForName:(unsigned long long)arg1;
+- (void)receiveTransaction:(unsigned long long)arg1 fromMessage:(id)arg2;
+- (void)restoreNowPlayingClientState;
 - (_Bool)augmentCommandOptions:(id)arg1 forCommand:(unsigned int)arg2;
-- (void)invalidatePlaybackQueue;
 - (void)removePlaybackQueueCompletionForRequest:(void *)arg1;
 - (void)addPlaybackQueueCompletion:(CDUnknownBlockType)arg1 forRequest:(void *)arg2;
 - (id)transactionCallbacksForName:(unsigned long long)arg1;

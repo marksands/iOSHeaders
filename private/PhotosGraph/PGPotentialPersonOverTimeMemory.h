@@ -12,8 +12,10 @@
 {
     PGGraphPersonNode *_personNode;
     NSArray *_curatedAssets;
+    NSArray *_facedAssets;
 }
 
+@property(retain) NSArray *facedAssets; // @synthesize facedAssets=_facedAssets;
 @property(retain) NSArray *curatedAssets; // @synthesize curatedAssets=_curatedAssets;
 @property(readonly) PGGraphPersonNode *personNode; // @synthesize personNode=_personNode;
 - (void).cxx_destruct;

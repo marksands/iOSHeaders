@@ -27,7 +27,7 @@
 - (Class)classForKeyedArchiver;
 - (void)encodeWithCoder:(id)arg1;
 - (id)baseString;
-- (unsigned short)glyph;
+- (unsigned short)glyphID;
 - (unsigned long long)characterCollection;
 - (unsigned long long)characterIdentifier;
 - (id)glyphName;

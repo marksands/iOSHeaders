@@ -40,6 +40,7 @@
 + (id)graphMLURLWithPath:(id)arg1 andName:(id)arg2;
 + (id)dataURLWithPath:(id)arg1 andName:(id)arg2;
 + (void)deleteMarker:(id)arg1;
++ (_Bool)setMarkerAtURL:(id)arg1;
 + (_Bool)hasMarker:(id)arg1;
 + (_Bool)destroyPersistentStoreAtURL:(id)arg1 error:(id *)arg2;
 + (_Bool)migratePersistentStoreFromURL:(id)arg1 toURL:(id)arg2 error:(id *)arg3;

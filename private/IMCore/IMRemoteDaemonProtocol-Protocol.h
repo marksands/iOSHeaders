@@ -10,13 +10,16 @@
 
 @protocol IMRemoteDaemonProtocol <NSObject>
 - (void)closeSessionChatID:(NSString *)arg1 identifier:(NSString *)arg2 style:(unsigned char)arg3 account:(NSString *)arg4;
+- (void)syncDeletesToCloudKit;
 - (void)printCachedRampState;
 - (void)fetchLatestRampState;
 - (void)removePathFromiCloudBackups:(NSString *)arg1;
 - (void)setiCloudBackupsDisabled:(_Bool)arg1;
 - (void)toggleiCloudBackupsIfNeeded;
 - (void)writeCloudKitSyncCounts:(NSDictionary *)arg1;
+- (void)fetchSyncStateStatistics;
 - (void)fetchSyncStateStats;
+- (void)metricAttachments:(long long)arg1;
 - (void)purgeAttachments:(long long)arg1;
 - (void)deleteSalt;
 - (void)printCachedSalt;
@@ -25,6 +28,7 @@
 - (void)updateCloudKitSyncingState;
 - (void)initiateSync;
 - (void)tryToDisableAllDevices;
+- (void)performAdditionalStorageRequiredCheck;
 - (void)setCloudKitEnabled:(_Bool)arg1;
 - (void)clearDataFromCloudKit;
 - (void)clearLocalCloudKitSyncState;

@@ -18,6 +18,7 @@
     unsigned int _distanceToManeuver;
     unsigned int _distanceToRoute;
     int _feedbackType;
+    int _hapticsType;
     GEOLocation *_location;
     unsigned int _remainingTime;
     NSData *_routeID;
@@ -26,20 +27,24 @@
     GEOLatLng *_routeMatchCoordinate;
     unsigned int _stepID;
     _Bool _guidancePromptsEnabled;
+    _Bool _lowGuidanceNavigation;
     struct {
         unsigned int timestamp:1;
         unsigned int distanceRemainingOnRoute:1;
         unsigned int distanceToManeuver:1;
         unsigned int distanceToRoute:1;
         unsigned int feedbackType:1;
+        unsigned int hapticsType:1;
         unsigned int remainingTime:1;
         unsigned int routeLocationIndex:1;
         unsigned int routeLocationOffset:1;
         unsigned int stepID:1;
         unsigned int guidancePromptsEnabled:1;
+        unsigned int lowGuidanceNavigation:1;
     } _has;
 }
 
+@property(nonatomic) _Bool lowGuidanceNavigation; // @synthesize lowGuidanceNavigation=_lowGuidanceNavigation;
 @property(nonatomic) _Bool guidancePromptsEnabled; // @synthesize guidancePromptsEnabled=_guidancePromptsEnabled;
 @property(retain, nonatomic) NSData *routeID; // @synthesize routeID=_routeID;
 @property(retain, nonatomic) GEOLatLng *routeMatchCoordinate; // @synthesize routeMatchCoordinate=_routeMatchCoordinate;
@@ -62,6 +67,11 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsHapticsType:(id)arg1;
+- (id)hapticsTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasHapticsType;
+@property(nonatomic) int hapticsType; // @synthesize hapticsType=_hapticsType;
+@property(nonatomic) _Bool hasLowGuidanceNavigation;
 - (void)setSelectedRideIndexs:(unsigned int *)arg1 count:(unsigned long long)arg2;
 - (unsigned int)selectedRideIndexAtIndex:(unsigned long long)arg1;
 - (void)addSelectedRideIndex:(unsigned int)arg1;
@@ -91,7 +101,6 @@
 @property(readonly, nonatomic) unsigned int effectiveStepID;
 @property(readonly, nonatomic) _Bool hasEffectiveStepID;
 @property(readonly, nonatomic) _Bool isRecalculating;
-@property(readonly, nonatomic) _Bool isPreviewingNavigation;
 @property(readonly, nonatomic) _Bool isNavigating;
 - (void)updateFeedbackWithNavigationState:(int)arg1 locationUnreliable:(_Bool)arg2 announcementStage:(unsigned long long)arg3 nextAnnouncementStage:(unsigned long long)arg4 nextAnnouncementTime:(double)arg5;
 - (void)_updateClusteredSectionSelectedRideIndicesFromRoute:(id)arg1;

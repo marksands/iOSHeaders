@@ -7,11 +7,10 @@
 #import <UIKit/UIControl.h>
 
 #import <MPUFoundation/MPUTransportButton-Protocol.h>
-#import <MPUFoundation/MPUVibrantContentDisabling-Protocol.h>
 
 @class MPUTransportButtonEventHandler, NSString, UIButton, UIColor, UIImage, UIImageView;
 
-@interface MPUHalfTintedTransportButton : UIControl <MPUVibrantContentDisabling, MPUTransportButton>
+@interface MPUHalfTintedTransportButton : UIControl <MPUTransportButton>
 {
     UIButton *_regularButton;
     UIButton *_tintedButton;
@@ -27,7 +26,6 @@
 @property(retain, nonatomic) UIImage *regularImage; // @synthesize regularImage=_regularImage;
 - (void).cxx_destruct;
 - (void)_updateRegularImage;
-- (id)layersNotWantingVibrancy;
 @property(readonly, nonatomic, getter=_tintedButton) UIButton *tintedButton;
 - (_Bool)_shouldForwardSelectedState;
 @property(readonly, nonatomic, getter=_regularButton) UIButton *regularButton;

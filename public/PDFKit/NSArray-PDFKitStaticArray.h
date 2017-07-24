@@ -12,6 +12,7 @@
 + (id)PDFKitSubtypeArray;
 + (id)PDFKitHighlightingModeArray;
 + (id)PDFKitFieldTypeArray;
++ (id)PDFKitAnnotationKeysIgnored;
 + (id)PDFKitAnnotationKeys;
 @end
 

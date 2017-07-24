@@ -9,7 +9,7 @@
 #import <Contacts/CNEncodedFetchCursor-Protocol.h>
 
 @class CNContactFetchRequest, CNContactsEnvironment;
-@protocol CNEncodedFetchCursor;
+@protocol CNContactsLogger, CNEncodedFetchCursor;
 
 __attribute__((visibility("hidden")))
 @interface CNiOSEncodedPeopleFetcher : NSObject <CNEncodedFetchCursor>
@@ -19,8 +19,10 @@ __attribute__((visibility("hidden")))
     CNContactsEnvironment *_environment;
     CDUnknownBlockType _completionHandler;
     id <CNEncodedFetchCursor> _cursor;
+    id <CNContactsLogger> _logger;
 }
 
+@property(readonly, nonatomic) id <CNContactsLogger> logger; // @synthesize logger=_logger;
 @property(readonly, nonatomic) id <CNEncodedFetchCursor> cursor; // @synthesize cursor=_cursor;
 @property(readonly, copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(readonly, nonatomic) CNContactsEnvironment *environment; // @synthesize environment=_environment;
@@ -28,7 +30,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) void *addressBook; // @synthesize addressBook=_addressBook;
 - (void).cxx_destruct;
 - (void)fetchNextBatchWithReply:(CDUnknownBlockType)arg1;
-- (_Bool)fetchEncodedPeopleWithError:(id *)arg1 batchHandler:(CDUnknownBlockType)arg2;
+- (_Bool)fetchEncodedPeopleWithError:(id *)arg1 cancelationToken:(id)arg2 batchHandler:(CDUnknownBlockType)arg3;
 - (id)cursorWithError:(id *)arg1;
 - (void)dealloc;
 - (id)initWithFetchRequest:(id)arg1 addressBook:(void *)arg2 completionHandler:(CDUnknownBlockType)arg3 environment:(id)arg4;

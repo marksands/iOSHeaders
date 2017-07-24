@@ -30,6 +30,7 @@
 + (_Bool)typeUTIIsDrawing:(id)arg1;
 + (_Bool)typeUTIIsPlayableAudio:(id)arg1;
 + (_Bool)typeUTIIsPlayableMovie:(id)arg1;
++ (id)mimeTypeFromUTI:(id)arg1;
 + (id)filenameFromUTI:(id)arg1;
 + (id)filenameExtensionForUTI:(id)arg1;
 + (short)sectionFromTypeUTI:(id)arg1 url:(id)arg2;

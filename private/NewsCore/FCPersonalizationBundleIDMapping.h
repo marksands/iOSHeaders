@@ -24,7 +24,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)tagScoresForBundleID:(id)arg1 missedMappingBlock:(CDUnknownBlockType)arg2;
+- (id)tagScoresForBundleID:(id)arg1;
 @property(readonly, nonatomic) unsigned long long count;
 - (id)init;
 - (id)initWithPBBundleIDMapping:(id)arg1;

@@ -7,12 +7,12 @@
 #import <IMSharedUtilities/IMItem.h>
 
 #import <IMSharedUtilities/IMRemoteObjectCoding-Protocol.h>
-#import <IMSharedUtilities/NSCoding-Protocol.h>
 #import <IMSharedUtilities/NSCopying-Protocol.h>
+#import <IMSharedUtilities/NSSecureCoding-Protocol.h>
 
 @class NSString;
 
-@interface IMMessageActionItem : IMItem <NSCoding, NSCopying, IMRemoteObjectCoding>
+@interface IMMessageActionItem : IMItem <NSSecureCoding, NSCopying, IMRemoteObjectCoding>
 {
     long long _actionType;
     NSString *_otherCountryCode;
@@ -21,11 +21,13 @@
     NSString *_originalMessageGUID;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSString *originalMessageGUID; // @synthesize originalMessageGUID=_originalMessageGUID;
 @property(retain, nonatomic) NSString *otherUnformattedID; // @synthesize otherUnformattedID=_otherUnformattedID;
 @property(retain, nonatomic) NSString *otherHandle; // @synthesize otherHandle=_otherHandle;
 @property(retain, nonatomic) NSString *otherCountryCode; // @synthesize otherCountryCode=_otherCountryCode;
 @property(nonatomic) long long actionType; // @synthesize actionType=_actionType;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyDictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

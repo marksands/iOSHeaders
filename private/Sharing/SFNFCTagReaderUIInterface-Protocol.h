@@ -4,7 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+@class NSString;
+
 @protocol SFNFCTagReaderUIInterface
+- (void)setPurpose:(NSString *)arg1;
 - (void)nfcTagScannedCount:(long long)arg1;
 @end
 

@@ -4,26 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UICollectionViewLayoutAttributes.h>
+#import <NewsFeedLayout/NFLFeedCollectionViewLayoutAttributes.h>
 
 @class NSString, UIColor;
 
-@interface NFLHeadlineCollectionViewLayoutAttributes : UICollectionViewLayoutAttributes
+@interface NFLHeadlineCollectionViewLayoutAttributes : NFLFeedCollectionViewLayoutAttributes
 {
     _Bool _showAccessoryText;
     _Bool _hasVideo;
-    long long _cellType;
+    _Bool _shouldAdjustPublisherLogo;
+    _Bool _layoutHasTooMuchWhiteSpaceInCurrentState;
+    _Bool _titleTruncates;
+    double _selectionCornerRadius;
     UIColor *_numberedCircleColor;
     UIColor *_backgroundColor;
     long long _titleTextAlignment;
     NSString *_titleFontName;
-    UIColor *_titleColor;
     double _titleFontSize;
     double _titleLineHeight;
     UIColor *_publisherLogoColor;
     long long _publisherLogoContentMode;
     NSString *_excerptFontName;
-    UIColor *_excerptColor;
     double _excerptFontSize;
     double _excerptLineHeight;
     long long _accessoryContentMode;
@@ -32,33 +33,31 @@
     UIColor *_accessoryIconColor;
     double _accessoryFontSize;
     double _accessoryLineHeight;
-    double _selectionCornerRadius;
-    long long _columnSpan;
-    long long _rowSpan;
     long long _imagePosition;
+    double _minimumHeightBetweenLowestTextFrameAndBottomOfContent;
+    double _whiteSpace;
+    struct UIEdgeInsets _contentInset;
+    struct UIEdgeInsets _selectionInset;
     struct CGRect _imageViewFrame;
     struct CGRect _numberedCircleFrame;
     struct CGRect _titleFrame;
     struct CGRect _excerptFrame;
     struct CGRect _accessoryViewFrame;
     struct CGRect _sharrowFrame;
-    struct UIEdgeInsets _contentInset;
-    struct UIEdgeInsets _selectionInset;
-    struct CGRect _logoImageFrame;
+    struct CGRect _publisherLogoFrame;
 }
 
 + (id)nfl_layoutAttributesForWidgetProperties:(id)arg1 feedSettings:(id)arg2;
 + (id)zeroHeightLayoutAttributesWithFeedSettings:(id)arg1;
-+ (id)layoutAttributesWithLayoutData:(id)arg1 withFeedSettings:(id)arg2;
+@property(nonatomic) _Bool titleTruncates; // @synthesize titleTruncates=_titleTruncates;
+@property(nonatomic) double whiteSpace; // @synthesize whiteSpace=_whiteSpace;
+@property(nonatomic) _Bool layoutHasTooMuchWhiteSpaceInCurrentState; // @synthesize layoutHasTooMuchWhiteSpaceInCurrentState=_layoutHasTooMuchWhiteSpaceInCurrentState;
+@property(nonatomic) _Bool shouldAdjustPublisherLogo; // @synthesize shouldAdjustPublisherLogo=_shouldAdjustPublisherLogo;
+@property(nonatomic) double minimumHeightBetweenLowestTextFrameAndBottomOfContent; // @synthesize minimumHeightBetweenLowestTextFrameAndBottomOfContent=_minimumHeightBetweenLowestTextFrameAndBottomOfContent;
 @property(nonatomic) _Bool hasVideo; // @synthesize hasVideo=_hasVideo;
 @property(nonatomic) long long imagePosition; // @synthesize imagePosition=_imagePosition;
-@property(nonatomic) long long rowSpan; // @synthesize rowSpan=_rowSpan;
-@property(nonatomic) long long columnSpan; // @synthesize columnSpan=_columnSpan;
-@property(nonatomic) struct CGRect logoImageFrame; // @synthesize logoImageFrame=_logoImageFrame;
+@property(nonatomic) struct CGRect publisherLogoFrame; // @synthesize publisherLogoFrame=_publisherLogoFrame;
 @property(nonatomic, getter=isShowingAccessoryText) _Bool showAccessoryText; // @synthesize showAccessoryText=_showAccessoryText;
-@property(nonatomic) double selectionCornerRadius; // @synthesize selectionCornerRadius=_selectionCornerRadius;
-@property(nonatomic) struct UIEdgeInsets selectionInset; // @synthesize selectionInset=_selectionInset;
-@property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
 @property(nonatomic) struct CGRect sharrowFrame; // @synthesize sharrowFrame=_sharrowFrame;
 @property(nonatomic) double accessoryLineHeight; // @synthesize accessoryLineHeight=_accessoryLineHeight;
 @property(nonatomic) double accessoryFontSize; // @synthesize accessoryFontSize=_accessoryFontSize;
@@ -69,14 +68,12 @@
 @property(nonatomic) struct CGRect accessoryViewFrame; // @synthesize accessoryViewFrame=_accessoryViewFrame;
 @property(nonatomic) double excerptLineHeight; // @synthesize excerptLineHeight=_excerptLineHeight;
 @property(nonatomic) double excerptFontSize; // @synthesize excerptFontSize=_excerptFontSize;
-@property(retain, nonatomic) UIColor *excerptColor; // @synthesize excerptColor=_excerptColor;
 @property(retain, nonatomic) NSString *excerptFontName; // @synthesize excerptFontName=_excerptFontName;
 @property(nonatomic) struct CGRect excerptFrame; // @synthesize excerptFrame=_excerptFrame;
 @property(nonatomic) long long publisherLogoContentMode; // @synthesize publisherLogoContentMode=_publisherLogoContentMode;
 @property(retain, nonatomic) UIColor *publisherLogoColor; // @synthesize publisherLogoColor=_publisherLogoColor;
 @property(nonatomic) double titleLineHeight; // @synthesize titleLineHeight=_titleLineHeight;
 @property(nonatomic) double titleFontSize; // @synthesize titleFontSize=_titleFontSize;
-@property(retain, nonatomic) UIColor *titleColor; // @synthesize titleColor=_titleColor;
 @property(retain, nonatomic) NSString *titleFontName; // @synthesize titleFontName=_titleFontName;
 @property(nonatomic) long long titleTextAlignment; // @synthesize titleTextAlignment=_titleTextAlignment;
 @property(nonatomic) struct CGRect titleFrame; // @synthesize titleFrame=_titleFrame;
@@ -84,13 +81,13 @@
 @property(retain, nonatomic) UIColor *numberedCircleColor; // @synthesize numberedCircleColor=_numberedCircleColor;
 @property(nonatomic) struct CGRect numberedCircleFrame; // @synthesize numberedCircleFrame=_numberedCircleFrame;
 @property(nonatomic) struct CGRect imageViewFrame; // @synthesize imageViewFrame=_imageViewFrame;
-@property(nonatomic) long long cellType; // @synthesize cellType=_cellType;
+@property(nonatomic) double selectionCornerRadius; // @synthesize selectionCornerRadius=_selectionCornerRadius;
+@property(nonatomic) struct UIEdgeInsets selectionInset; // @synthesize selectionInset=_selectionInset;
+@property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
 - (void).cxx_destruct;
-- (_Bool)customIsEqual:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)description;
 - (void)populateWithProtobuf:(id)arg1;
 - (id)protobufRepresentation;
 

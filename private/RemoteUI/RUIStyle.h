@@ -26,6 +26,7 @@
     long long _subHeaderLabelAlignment;
     long long _footerLabelAlignment;
     long long _footerLinkAlignment;
+    UIColor *_tintColor;
 }
 
 + (id)frontRowStyle;
@@ -33,6 +34,7 @@
 + (id)setupAssistantStyle;
 + (id)defaultStyle;
 + (id)sharedInstance;
+@property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
 @property(nonatomic) long long footerLinkAlignment; // @synthesize footerLinkAlignment=_footerLinkAlignment;
 @property(nonatomic) long long footerLabelAlignment; // @synthesize footerLabelAlignment=_footerLabelAlignment;
 @property(nonatomic) long long subHeaderLabelAlignment; // @synthesize subHeaderLabelAlignment=_subHeaderLabelAlignment;

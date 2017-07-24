@@ -22,6 +22,7 @@
 + (_Bool)resetPendingStatesWithError:(id *)arg1;
 + (id)deletedAssetUUIDsForAnalysisByWorkerType:(short)arg1 fetchLimit:(unsigned long long)arg2 inLibrary:(id)arg3 error:(id *)arg4;
 + (void)requestCountOfAnalysisRecordsForDeletedAssetsWithCompletion:(CDUnknownBlockType)arg1;
++ (id)analysisCountsForWorkerType:(short)arg1;
 + (void)requestAnalysisCountsWithCompletion:(CDUnknownBlockType)arg1;
 + (void)requestTotalProgressCountsForWorkerType:(short)arg1 states:(id)arg2 completion:(CDUnknownBlockType)arg3;
 + (id)workerTypesPersistingAnalysisState;

@@ -8,7 +8,7 @@
 
 #import <ControlCenterUIKit/CCUIContentModuleContentViewController-Protocol.h>
 
-@class CAPackage, CCUIButtonModuleView, NSString, UIColor, UIControl, UIImage;
+@class CAPackage, CCUIButtonModuleView, NSString, UIColor, UIImage;
 
 @interface CCUIButtonModuleViewController : UIViewController <CCUIContentModuleContentViewController>
 {
@@ -22,7 +22,7 @@
 @property(readonly, nonatomic) double preferredExpandedContentHeight;
 - (void)viewDidLoad;
 - (void)buttonTapped:(id)arg1 forEvent:(id)arg2;
-@property(readonly, nonatomic) UIControl *buttonView;
+@property(readonly, nonatomic) CCUIButtonModuleView *buttonView;
 @property(nonatomic, getter=isSelected) _Bool selected;
 @property(copy, nonatomic) NSString *glyphState;
 @property(retain, nonatomic) CAPackage *glyphPackage;
@@ -37,7 +37,6 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) double preferredExpandedContentWidth;
 @property(readonly, nonatomic) _Bool providesOwnPlatter;
-@property(readonly, nonatomic) _Bool shouldHidePlatterWhenExpanded;
 @property(readonly) Class superclass;
 
 @end

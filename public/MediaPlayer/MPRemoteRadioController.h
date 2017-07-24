@@ -22,8 +22,8 @@
     RadioRecentStationsController *_recentStationsController;
 }
 
-@property(retain, nonatomic) RadioRecentStationsController *recentStationsController; // @synthesize recentStationsController=_recentStationsController;
-@property(retain, nonatomic) RadioAvailabilityController *availabilityController; // @synthesize availabilityController=_availabilityController;
+@property(readonly, nonatomic) RadioRecentStationsController *recentStationsController; // @synthesize recentStationsController=_recentStationsController;
+@property(readonly, nonatomic) RadioAvailabilityController *availabilityController; // @synthesize availabilityController=_availabilityController;
 - (void).cxx_destruct;
 - (void)_removeConnection:(id)arg1;
 - (void)_addConnection:(id)arg1;

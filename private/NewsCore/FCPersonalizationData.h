@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <NewsCore/FCPrivateZoneController.h>
+#import <NewsCore/FCPrivateDataController.h>
 
 #import <NewsCore/FCAppActivityObserving-Protocol.h>
 #import <NewsCore/FCAppConfigurationObserving-Protocol.h>
@@ -15,7 +15,7 @@
 @class CKRecord, FCPersonalizationTreatment, FCUserInfo, NSMutableArray, NSMutableDictionary, NSObject, NSString;
 @protocol FCOperationThrottler, OS_dispatch_queue;
 
-@interface FCPersonalizationData : FCPrivateZoneController <FCOperationThrottlerDelegate, FCAppConfigurationObserving, FCUserInfoObserving, FCAppActivityObserving, FCDerivedPersonalizationData>
+@interface FCPersonalizationData : FCPrivateDataController <FCOperationThrottlerDelegate, FCAppConfigurationObserving, FCUserInfoObserving, FCAppActivityObserving, FCDerivedPersonalizationData>
 {
     _Bool _attemptingUpload;
     NSMutableDictionary *_aggregates;
@@ -35,7 +35,8 @@
 + (id)commandStoreFileName;
 + (unsigned long long)localStoreVersion;
 + (id)localStoreFilename;
-+ (id)recordIDsToSync;
++ (id)backingRecordIDs;
++ (id)backingRecordZoneIDs;
 + (_Bool)requiresHighPriorityFirstSync;
 + (_Bool)requiresBatchedSync;
 + (_Bool)requiresPushNotificationSupport;
@@ -57,12 +58,14 @@
 - (void)enumerateAggregatesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)aggregatesForFeatureKeys:(id)arg1;
 - (void)activityObservingApplicationDidEnterBackground;
-- (void)_reloadTreatment;
+- (void)_reloadTreatmentWithReliablyFetchedAppConfig:(_Bool)arg1;
 - (void)_applicationDidEnterBackground;
 - (void)_closeOpenChangeGroup;
 - (void)_writeToLocalStoreWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_updateWithRemoteRecord:(id)arg1 profile:(id)arg2;
 - (id)_instanceIdentifier;
+- (id)recordsForRestoringZoneName:(id)arg1;
+- (_Bool)canHelpRestoreZoneName:(id)arg1;
 - (void)handleSyncWithChangedRecords:(id)arg1 deletedRecordIDs:(id)arg2;
 - (void)loadLocalCachesFromStore;
 - (void)syncWithCompletion:(CDUnknownBlockType)arg1;
@@ -74,8 +77,8 @@
 @property(readonly, nonatomic) FCPersonalizationTreatment *personalizationTreatment;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
-- (id)initWithContext:(id)arg1 pushNotificationCenter:(id)arg2 recordZone:(id)arg3 storeDirectory:(id)arg4 userInfo:(id)arg5;
-- (id)initWithContext:(id)arg1 pushNotificationCenter:(id)arg2 recordZone:(id)arg3 storeDirectory:(id)arg4;
+- (id)initWithContext:(id)arg1 pushNotificationCenter:(id)arg2 storeDirectory:(id)arg3 userInfo:(id)arg4;
+- (id)initWithContext:(id)arg1 pushNotificationCenter:(id)arg2 storeDirectory:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -16,8 +16,10 @@
 @property(retain, nonatomic) UISearchController *searchController; // @synthesize searchController=_searchController;
 - (void).cxx_destruct;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (_Bool)_transitionsChildViewControllers;
 - (void)_prepareForContainerTransition:(id)arg1;
+- (void)_updateSearchControllerIfNecessary;
 - (void)_presentSearchControllerIfNecessary;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

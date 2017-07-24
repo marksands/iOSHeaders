@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class PDFPage, PDFPageView, PDFRenderingProperties, PDFView, PageImagePool, UIScrollView, UIView;
+@class PDFPage, PDFPageView, PDFRenderingProperties, PDFView, UIScrollView, UIView;
 
 __attribute__((visibility("hidden")))
 @interface PDFPageViewControllerPrivate : NSObject
@@ -20,7 +20,6 @@ __attribute__((visibility("hidden")))
     PDFPageView *pageView;
     double minScale;
     double maxScale;
-    PageImagePool *pageImagePool;
 }
 
 - (void).cxx_destruct;

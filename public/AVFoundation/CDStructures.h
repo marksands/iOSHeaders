@@ -85,6 +85,8 @@ struct CGSize {
     double height;
 };
 
+struct OpaqueFigSimpleMutex;
+
 #pragma mark Typedef'd Structures
 
 typedef struct {

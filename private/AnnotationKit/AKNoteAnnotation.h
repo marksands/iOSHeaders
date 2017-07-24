@@ -6,16 +6,16 @@
 
 #import <AnnotationKit/AKAnnotation.h>
 
-#import <AnnotationKit/AKChildAnnotationProtocol-Protocol.h>
 #import <AnnotationKit/AKFilledAnnotationProtocol-Protocol.h>
+#import <AnnotationKit/AKParentAnnotationProtocol-Protocol.h>
 #import <AnnotationKit/AKRectangularAnnotationProtocol-Protocol.h>
 
 @class NSString, UIColor;
 
-@interface AKNoteAnnotation : AKAnnotation <AKChildAnnotationProtocol, AKRectangularAnnotationProtocol, AKFilledAnnotationProtocol>
+@interface AKNoteAnnotation : AKAnnotation <AKParentAnnotationProtocol, AKRectangularAnnotationProtocol, AKFilledAnnotationProtocol>
 {
     UIColor *_fillColor;
-    AKAnnotation *_parentAnnotation;
+    AKAnnotation *_childAnnotation;
     NSString *_contents;
     struct CGRect _rectangle;
 }
@@ -25,7 +25,7 @@
 + (id)keyPathsForValuesAffectingDrawingBounds;
 + (id)keyPathsForValuesAffectingHitTestBounds;
 @property(copy) NSString *contents; // @synthesize contents=_contents;
-@property __weak AKAnnotation *parentAnnotation; // @synthesize parentAnnotation=_parentAnnotation;
+@property __weak AKAnnotation *childAnnotation; // @synthesize childAnnotation=_childAnnotation;
 @property(retain) UIColor *fillColor; // @synthesize fillColor=_fillColor;
 @property struct CGRect rectangle; // @synthesize rectangle=_rectangle;
 - (void).cxx_destruct;

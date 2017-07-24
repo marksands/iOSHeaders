@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MPCFuture, MPCPlayerPath, NSMutableArray, NSMutableDictionary, NSString;
+@class MPCFuture, MPCPlayerPath, MSVLRUDictionary, NSMapTable, NSMutableArray, NSMutableDictionary, NSString;
 @protocol MPArtworkDataSource, OS_dispatch_queue;
 
 @interface MPCMediaRemoteController : NSObject
@@ -21,10 +21,12 @@
     NSString *_playingItemIdentifier;
     struct _MSVSignedRange _maximumLoadedRange;
     NSMutableArray *_contentItemIDs;
-    NSMutableDictionary *_contentItems;
+    MSVLRUDictionary *_contentItems;
+    NSMutableDictionary *_contentItemChanges;
+    MSVLRUDictionary *_contentItemArtwork;
     MPCFuture *_playingItemIdentifierFuture;
-    NSMutableDictionary *_contentItemIDsFutures;
-    NSMutableDictionary *_contentItemFutures;
+    NSMapTable *_contentItemIDsFutures;
+    NSMapTable *_contentItemFutures;
     NSMutableDictionary *_contentItemArtworkFutures;
     MPCPlayerPath *_resolvedPlayerPath;
     id <MPArtworkDataSource> _artworkDataSource;

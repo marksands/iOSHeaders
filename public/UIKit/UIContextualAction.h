@@ -21,8 +21,8 @@
 }
 
 + (id)contextualActionWithStyle:(long long)arg1 title:(id)arg2 handler:(CDUnknownBlockType)arg3;
-@property(nonatomic) _Bool forcesFallbackBackgroundColor; // @synthesize forcesFallbackBackgroundColor=_forcesFallbackBackgroundColor;
 @property(copy, nonatomic) CDUnknownBlockType preHandler; // @synthesize preHandler=_preHandler;
+@property(nonatomic) _Bool forcesFallbackBackgroundColor; // @synthesize forcesFallbackBackgroundColor=_forcesFallbackBackgroundColor;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(copy, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(copy, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;

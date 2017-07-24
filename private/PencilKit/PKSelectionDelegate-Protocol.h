@@ -13,10 +13,10 @@
 - (PKDrawing *)drawingForLiveAttachment;
 - (_Bool)liveDrawingIsAtEndOfDocument;
 - (_Bool)isValidDropPointForStrokes:(struct CGPoint)arg1;
+- (struct CGPoint)closestPointForPastedSelectionRect:(struct CGRect)arg1 withDrawing:(id *)arg2;
 - (PKDrawing *)drawingForSelectionRect:(struct CGRect)arg1;
 - (_Bool)containsDrawingUUID:(NSUUID *)arg1;
-- (struct CGPoint)pointInStrokeSpace:(struct CGPoint)arg1 viewSize:(struct CGSize)arg2;
-- (void)didStartSelection;
+- (struct CGPoint)pointInStrokeSpace:(struct CGPoint)arg1 inDrawing:(PKDrawing *)arg2;
 - (void)selectionRefreshWithChangeToDrawing:(PKDrawing *)arg1;
 - (UIView *)selectionTopView;
 - (void)toggleSelectedStrokes:(NSArray *)arg1 hide:(_Bool)arg2 inDrawing:(PKDrawing *)arg3;

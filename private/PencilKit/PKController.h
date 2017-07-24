@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSMutableOrderedSet, PKDrawing, PKRendererController, PKStrokeGenerator;
+@class NSArray, NSMutableArray, PKDrawing, PKRendererController, PKStrokeGenerator;
 @protocol OS_dispatch_queue, OS_dispatch_semaphore, PKControllerDelegate;
 
 @interface PKController : NSObject
@@ -15,11 +15,12 @@
     _Bool _cachedImageValid;
     struct CGImage *_cachedImage;
     _Bool _imageNeedsSave;
-    _Bool _isSuspended;
-    _Bool _liveDrawing;
     _Bool _liveInteraction;
+    _Bool _isSuspended;
+    _Bool _previewsSuspended;
+    _Bool _liveDrawing;
     NSObject<PKControllerDelegate> *_delegate;
-    NSMutableOrderedSet *_renderedStrokes;
+    NSMutableArray *_renderedStrokes;
     PKRendererController *_rendererController;
     NSArray *_additionalStrokes;
     NSArray *_hideAdditionalStrokes;
@@ -33,9 +34,9 @@
 }
 
 + (void)updatesFrom:(id)arg1 to:(id)arg2 newStrokesToRender:(id *)arg3 redrawAllInRect:(struct CGRect *)arg4;
-@property _Bool liveInteraction; // @synthesize liveInteraction=_liveInteraction;
 @property _Bool liveDrawing; // @synthesize liveDrawing=_liveDrawing;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *suspendQueue; // @synthesize suspendQueue=_suspendQueue;
+@property(nonatomic) _Bool previewsSuspended; // @synthesize previewsSuspended=_previewsSuspended;
 @property(nonatomic) _Bool isSuspended; // @synthesize isSuspended=_isSuspended;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *interactQueue; // @synthesize interactQueue=_interactQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *interactSemaphore; // @synthesize interactSemaphore=_interactSemaphore;
@@ -45,9 +46,10 @@
 @property(retain, nonatomic) NSArray *additionalStrokes; // @synthesize additionalStrokes=_additionalStrokes;
 @property(readonly, nonatomic) struct CGSize actualSize; // @synthesize actualSize=_actualSize;
 @property(readonly, nonatomic) struct CGSize pixelSize; // @synthesize pixelSize=_pixelSize;
+@property _Bool liveInteraction; // @synthesize liveInteraction=_liveInteraction;
 @property(nonatomic) _Bool imageNeedsSave; // @synthesize imageNeedsSave=_imageNeedsSave;
 @property(retain, nonatomic) PKRendererController *rendererController; // @synthesize rendererController=_rendererController;
-@property(retain, nonatomic) NSMutableOrderedSet *renderedStrokes; // @synthesize renderedStrokes=_renderedStrokes;
+@property(retain, nonatomic) NSMutableArray *renderedStrokes; // @synthesize renderedStrokes=_renderedStrokes;
 @property(retain, nonatomic) NSObject<PKControllerDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)addNewRenderedStroke:(id)arg1 preDrawingChangedBlock:(CDUnknownBlockType)arg2;
@@ -63,6 +65,9 @@
 - (void)_drawingChanged;
 - (void)_didRenderStrokes:(id)arg1;
 - (void)_renderStrokes:(id)arg1 renderIntermediateSteps:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)renderStrokes:(id)arg1 intoTile:(id)arg2;
+- (void)renderTilesIntoTiles:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)renderTiles:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)renderStrokes:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)renderImage:(struct CGImage *)arg1 andMask:(struct CGImage *)arg2 forRenderedStrokes:(id)arg3 thenRenderStrokes:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)renderImage:(struct CGImage *)arg1 andMask:(struct CGImage *)arg2 forRenderedStrokes:(id)arg3 thenRenderStrokes:(id)arg4 inStrokeSpaceClipRect:(struct CGRect)arg5 completion:(CDUnknownBlockType)arg6;
@@ -89,10 +94,13 @@
 - (void)_getImages;
 - (void)_setDrawing:(id)arg1 initialDrawing:(id)arg2 withImage:(struct CGImage *)arg3 andMask:(struct CGImage *)arg4 setupComplete:(CDUnknownBlockType)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)setDrawing:(id)arg1 initialDrawing:(id)arg2 withImage:(struct CGImage *)arg3 andMask:(struct CGImage *)arg4 setupComplete:(CDUnknownBlockType)arg5 completion:(CDUnknownBlockType)arg6;
+- (void)setDrawing:(id)arg1 tiles:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (_Bool)_loadInitialDrawing:(id)arg1 withImage:(struct CGImage *)arg2 andMask:(struct CGImage *)arg3;
 - (void)resumeDrawing;
 - (void)suspendDrawingImmediately:(_Bool)arg1;
 - (void)suspendDrawing;
+- (void)resumePreviews;
+- (void)suspendPreviews;
 - (void)renderPreviewDrawing:(id)arg1 initialDrawing:(id)arg2 withImage:(struct CGImage *)arg3 andMask:(struct CGImage *)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)didEndLiveInteraction;
 - (void)didStartLiveInteractionWith:(id)arg1;

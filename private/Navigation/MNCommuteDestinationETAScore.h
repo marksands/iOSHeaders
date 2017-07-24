@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double otherDestinationTravelTime; // @synthesize otherDestinationTravelTime=_otherDestinationTravelTime;
 @property(nonatomic) __weak MNCommuteDestination *otherDestination; // @synthesize otherDestination=_otherDestination;
 - (void).cxx_destruct;
-- (id)_directionsRequestFeedbackForState:(id)arg1;
+- (id)_directionsRequestFeedback;
 - (id)_routeAttributes;
 - (void)_handleDirectionsResponse:(id)arg1 error:(id)arg2 forRequest:(id)arg3;
 - (void)_requestRoute;

@@ -12,6 +12,7 @@
 - (void)getVisitedLinksWithCompletionHandler:(void (^)(NSArray *, NSError *))arg1;
 - (void)beginHistoryAccessSession:(void (^)(id <WBSHistoryAccessSessionProtocol>, NSError *))arg1;
 - (void)beginURLCompletionSession:(void (^)(id <WBSURLCompletionSessionProtocol>, NSError *))arg1;
+- (void)getServiceInfo:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)ensureConnected:(void (^)(NSError *))arg1;
 @end
 

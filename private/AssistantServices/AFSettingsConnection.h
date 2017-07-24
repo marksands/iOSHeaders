@@ -29,6 +29,7 @@
 - (void)stopAudioPlaybackRequest:(id)arg1 immediately:(_Bool)arg2;
 - (void)startAudioPlaybackRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setDESPolicyCDNOverride:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)setDESLotteryWinOverrideEnabled:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setDESRecordingAlwaysIsEnabled:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)disableDESWithCompletion:(CDUnknownBlockType)arg1;
 - (void)runLiveAdaptationRecipeEvaluationWithBaseURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -54,6 +55,7 @@
 - (id)_filterVoices:(id)arg1 forLanguage:(id)arg2;
 - (id)_voices;
 - (void)_setVoices:(id)arg1;
+- (void)getDevicesWithAvailablePHSAssetsForLanguage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)disableAndDeleteCloudSyncWithCompletion:(CDUnknownBlockType)arg1;
 - (void)barrier;
 - (void)killDaemon;

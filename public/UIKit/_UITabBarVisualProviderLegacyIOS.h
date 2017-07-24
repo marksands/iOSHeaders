@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     UIScrollView *_itemsScrollView;
     UIView *_focusedItemHighlightView;
     UIMotionEffect *_focusedItemHighlightMotionEffect;
+    _Bool _usingHorizontalLayout;
 }
 
 - (void).cxx_destruct;
@@ -47,7 +48,7 @@ __attribute__((visibility("hidden")))
 - (void)_updateBackground;
 - (void)_cleanupAdaptiveBackdrop;
 - (void)_layoutTabBarItems;
-- (_Bool)_shouldUseHorizontalLayout;
+- (void)_determineHorizontalLayout;
 - (void)_configureItems:(id)arg1;
 - (id)_parentViewForItems;
 - (void)_updateAccessoryView;

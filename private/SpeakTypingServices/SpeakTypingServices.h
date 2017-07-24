@@ -25,6 +25,7 @@
 - (_Bool)notifySpeakServicesToFeedbackWord:(id)arg1 forCurrentInputMode:(id)arg2;
 - (_Bool)notifySpeakServicesToFeedbackCharacter:(id)arg1 forCurrentInputMode:(id)arg2;
 - (_Bool)notifySpeakServicesForSpeakAutoCorrections:(id)arg1 forCurrentInputMode:(id)arg2;
+- (_Bool)notifySpeakServicesForSpeechOutput:(id)arg1;
 - (_Bool)notifySpeakServicesToStopSpeaking;
 - (void)setLetterFeedbackEnabled:(_Bool)arg1;
 - (void)setPhoneticFeedbackEnabled:(_Bool)arg1;

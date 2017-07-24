@@ -36,6 +36,9 @@
     long long _passthroughConversionAdditionalByteCount;
 }
 
++ (double)heifToJPEGFactorForBitsPerPixel:(double)arg1;
++ (double)bitsPerPixelWithImageDimensions:(struct CGSize)arg1 fileLength:(unsigned long long)arg2;
++ (double)heifToJPEGFactorWithImageDimensions:(struct CGSize)arg1 fileLength:(unsigned long long)arg2;
 + (id)requestForSource:(id)arg1 destinationCapabilities:(id)arg2 error:(id *)arg3;
 + (id)stringForRequestStatus:(long long)arg1;
 @property _Bool preflighted; // @synthesize preflighted=_preflighted;

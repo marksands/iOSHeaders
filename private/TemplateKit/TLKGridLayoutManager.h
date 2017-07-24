@@ -62,6 +62,7 @@
 - (id)addItemsToDictionary:(id)arg1 forSection:(id)arg2 row:(unsigned long long)arg3 truncationPriorities:(id)arg4;
 - (void)placeViewsForSize:(struct CGSize)arg1 forRow:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (struct CGSize)sizeForFittingSize:(struct CGSize)arg1 forRow:(id)arg2;
+- (id)initWithWithAlignments:(id)arg1 rows:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

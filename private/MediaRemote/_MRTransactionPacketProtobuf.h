@@ -44,7 +44,7 @@
 @property(readonly, nonatomic) _Bool hasPacketData;
 @property(readonly, nonatomic) _Bool hasKey;
 - (void)dealloc;
-- (id)detailedDescription;
+- (id)customDictionaryRepresentation;
 
 @end
 

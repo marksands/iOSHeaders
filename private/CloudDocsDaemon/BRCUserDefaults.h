@@ -26,6 +26,10 @@
 + (id)defaultsForMangledID:(id)arg1;
 + (id)_userDefaultsManager;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL forceSyncOverride;
+@property(readonly, nonatomic) double downloadSizeRefreshInterval;
+@property(readonly, nonatomic) unsigned long long sqliteCacheSpill;
+@property(readonly, nonatomic) unsigned long long sqliteCacheSize;
 @property(readonly, nonatomic) double powerLogReportInterval;
 @property(readonly, nonatomic) unsigned long long maxFolderEnumerationDepth;
 @property(readonly, nonatomic) unsigned long long maxFolderEnumerationCount;
@@ -188,6 +192,7 @@
 @property(readonly, nonatomic) unsigned short stageInPackageFileUmask;
 @property(readonly, nonatomic) unsigned short stageInPackageDirectoryUmask;
 @property(readonly, nonatomic) unsigned short stageDirectoryUmask;
+@property(readonly, nonatomic) unsigned short stageFSRootUmask;
 @property(readonly, nonatomic) unsigned short stageFileUmask;
 - (unsigned short)_umaskForKey:(id)arg1;
 @property(readonly, nonatomic) NSSet *blacklistedThumbnailExtensions;
@@ -198,7 +203,7 @@
 @property(readonly, nonatomic) NSSet *nonAutoEvictableExtensions;
 @property(readonly, nonatomic) NSSet *extensionsSkippingBundleBitFixup;
 @property(readonly, nonatomic) _Bool shouldFixupBundleBitOnPackages;
-@property(readonly, nonatomic) NSSet *shareableExtensions;
+@property(readonly, nonatomic) NSSet *iworkShareableExtensions;
 @property(readonly, nonatomic) NSSet *blacklistedPackageExtensions;
 @property(readonly, nonatomic) NSSet *packageExtensions;
 - (id)_UTISetFor:(id)arg1 startingWithExtensions:(id)arg2;

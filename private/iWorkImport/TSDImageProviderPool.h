@@ -46,11 +46,11 @@ __attribute__((visibility("hidden")))
 - (id)providerForData:(id)arg1 shouldValidate:(_Bool)arg2;
 - (void)dealloc;
 - (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)autorelease;
 - (oneway void)release;
 - (unsigned long long)retainCount;
 - (id)retain;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

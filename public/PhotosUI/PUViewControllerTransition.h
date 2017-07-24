@@ -19,10 +19,12 @@
     _Bool _interactive;
     _Bool _startedInteractively;
     double _interactiveProgress;
+    double _visibleInteractiveProgress;
 }
 
 + (id)interactionControllerForAnimationController:(id)arg1;
 @property(nonatomic) _Bool startedInteractively; // @synthesize startedInteractively=_startedInteractively;
+@property(nonatomic) double visibleInteractiveProgress; // @synthesize visibleInteractiveProgress=_visibleInteractiveProgress;
 @property(nonatomic, setter=_setInteractiveProgress:) double interactiveProgress; // @synthesize interactiveProgress=_interactiveProgress;
 @property(nonatomic, getter=isInteractive, setter=_setInteractive:) _Bool interactive; // @synthesize interactive=_interactive;
 @property(readonly, nonatomic) double duration; // @synthesize duration=_duration;
@@ -43,7 +45,10 @@
 - (id)interactiveTransition;
 - (void)cancelInteractiveTransition;
 - (void)finishInteractiveTransition;
+- (void)updateInteractiveTransitionProgress:(double)arg1 visibleTransitionProgress:(double)arg2;
 - (void)updateInteractiveTransitionProgress:(double)arg1;
+- (void)imageModulationIntensityDidChange;
+@property(readonly, nonatomic) double imageModulationIntensity;
 - (id)_newInteractiveTransition;
 - (id)initWithDuration:(double)arg1;
 

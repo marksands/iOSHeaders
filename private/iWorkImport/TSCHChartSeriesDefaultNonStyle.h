@@ -36,11 +36,11 @@ __attribute__((visibility("hidden")))
 - (id)valueForProperty:(int)arg1;
 - (_Bool)overridesProperty:(int)arg1;
 - (_Bool)definesProperty:(int)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)autorelease;
 - (oneway void)release;
 - (unsigned long long)retainCount;
 - (id)retain;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

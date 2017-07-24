@@ -12,12 +12,13 @@ __attribute__((visibility("hidden")))
 @interface __UITileLayer : CALayer
 {
     UIBezierPath *maskPath;
-    _Bool stillNeedsDisplay;
+    // Error parsing type: AB, name: pendingDeferredOffscreenSetNeedsDisplay
 }
 
 - (void).cxx_destruct;
 - (id)actionForKey:(id)arg1;
 - (void)drawInContext:(struct CGContext *)arg1;
+- (void)setNeedsDisplay;
 
 @end
 

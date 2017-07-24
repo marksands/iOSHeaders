@@ -34,6 +34,7 @@
 - (void)_reportTransparencyViewControllerEventWithType:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_hideErrorMessage;
 - (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
+- (_Bool)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(long long)arg3;
 - (void)webViewDidFinishLoad:(id)arg1;
 - (void)_showErrorMessage:(id)arg1;
 - (void)_closeViewController:(id)arg1;
@@ -41,6 +42,7 @@
 - (void)presentViewDelegate;
 - (void)loadWebView;
 - (void)_commonInit;
+- (id)determineSearchAdsBundleToUse;
 - (void)requestViewWithTransparencyDetailsDictionary:(id)arg1;
 - (void)requestViewWithTransparencyDetails:(id)arg1;
 - (id)initWithTransparencyDetails:(id)arg1;

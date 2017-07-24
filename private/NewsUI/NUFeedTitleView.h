@@ -6,11 +6,14 @@
 
 #import <UIKit/UIView.h>
 
-@class NSMutableArray, NUTitleView, NUTitleViewUpdate;
-@protocol NUTitleViewStyler;
+#import <NewsUI/NUTitleViewDelegate-Protocol.h>
 
-@interface NUFeedTitleView : UIView
+@class NSMutableArray, NSString, NUTitleView, NUTitleViewUpdate;
+@protocol NUFeedTitleViewDelegate, NUTitleViewStyler;
+
+@interface NUFeedTitleView : UIView <NUTitleViewDelegate>
 {
+    id <NUFeedTitleViewDelegate> _delegate;
     NUTitleView *_titleView;
     NUTitleViewUpdate *_lastQueuedTitleViewUpdate;
     NSMutableArray *_titleViewUpdateStack;
@@ -19,11 +22,13 @@
 @property(readonly, nonatomic) NSMutableArray *titleViewUpdateStack; // @synthesize titleViewUpdateStack=_titleViewUpdateStack;
 @property(retain, nonatomic) NUTitleViewUpdate *lastQueuedTitleViewUpdate; // @synthesize lastQueuedTitleViewUpdate=_lastQueuedTitleViewUpdate;
 @property(readonly, nonatomic) NUTitleView *titleView; // @synthesize titleView=_titleView;
+@property(nonatomic) __weak id <NUFeedTitleViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (unsigned long long)titleViewAnimationForAnimation:(unsigned long long)arg1;
 - (id)titleViewUpdateForFeedTitleViewUpdate:(id)arg1 force:(_Bool)arg2;
 - (void)applyTitleViewUpdate:(id)arg1 animation:(unsigned long long)arg2;
 - (_Bool)useCompactTitleViewUpdates;
+- (void)titleViewDidTapOnTitleView:(id)arg1;
 @property(retain, nonatomic) id <NUTitleViewStyler> styler;
 - (void)popApplyFeedTitleViewUpdateWithAnimation:(unsigned long long)arg1 force:(_Bool)arg2;
 - (void)popApplyFeedTitleViewUpdateWithAnimation:(unsigned long long)arg1;
@@ -33,6 +38,12 @@
 - (void)applyFeedTitleViewUpdate:(id)arg1 animation:(unsigned long long)arg2;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

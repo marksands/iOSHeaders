@@ -9,9 +9,11 @@
 #import <MediaPlayer/MPModelLazySectionedCollectionDataSource-Protocol.h>
 
 @class MPMediaLibraryEntityTranslationContext, MPMediaLibraryView, MPModelRequest, MPSectionedCollection, NSMapTable, NSMutableDictionary, NSString;
+@protocol OS_dispatch_queue;
 
 @interface MPStoreLibraryPersonalizationCollectionDataSource : NSObject <MPModelLazySectionedCollectionDataSource>
 {
+    NSObject<OS_dispatch_queue> *_accessSerialQueue;
     struct vector<std::__1::shared_ptr<mlcore::EntityCache>, std::__1::allocator<std::__1::shared_ptr<mlcore::EntityCache>>> _entityCaches;
     MPSectionedCollection *_unpersonalizedContentDescriptors;
     MPModelRequest *_unpersonalizedRequest;
@@ -21,6 +23,7 @@
     NSMutableDictionary *_sectionToLibraryAddedOverride;
 }
 
++ (void)_configureFallbackContentItemIDForIdentifierSet:(id)arg1;
 + (id)_identifiersByCombiningPersonalizedIdentifiers:(id)arg1 unpersonalizedIdentifiers:(id)arg2;
 + (id)_completePersonalizedObjectWithLibraryObject:(id)arg1 personalizationProperties:(id)arg2 overrideLibraryAddedStatus:(long long)arg3;
 + (id)_intersectingStoreAssetLightweightPersonalizationProperties;
@@ -46,6 +49,7 @@
 - (unsigned long long)numberOfItemsInSection:(unsigned long long)arg1;
 - (id)sectionAtIndex:(unsigned long long)arg1;
 - (unsigned long long)numberOfSections;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

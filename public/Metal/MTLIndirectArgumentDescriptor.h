@@ -4,11 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <Metal/MTLArgumentDescriptor.h>
 
-#import <Metal/NSCopying-Protocol.h>
-
-@interface MTLIndirectArgumentDescriptor : NSObject <NSCopying>
+__attribute__((visibility("hidden")))
+@interface MTLIndirectArgumentDescriptor : MTLArgumentDescriptor
 {
 }
 
@@ -20,6 +19,7 @@
 // Remaining properties
 @property(nonatomic) unsigned long long access; // @dynamic access;
 @property(nonatomic) unsigned long long arrayLength; // @dynamic arrayLength;
+@property(nonatomic) unsigned long long constantBlockAlignment; // @dynamic constantBlockAlignment;
 @property(nonatomic) unsigned long long dataType; // @dynamic dataType;
 @property(nonatomic) unsigned long long index; // @dynamic index;
 @property(nonatomic) unsigned long long textureType; // @dynamic textureType;

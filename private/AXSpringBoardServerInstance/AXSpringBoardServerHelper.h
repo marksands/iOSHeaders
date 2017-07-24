@@ -97,14 +97,12 @@
 - (id)focusedAppPIDWithServerInstance:(id)arg1;
 - (_Bool)isSystemAppShowingAnAlertWithServerInstance:(id)arg1;
 - (_Bool)accessibilityShowControlCenter:(_Bool)arg1;
-- (_Bool)_useNewControlCenter;
 - (_Bool)_accessibilityShowNewControlCenter:(_Bool)arg1;
-- (_Bool)_isNewControlCenterVisible;
 - (_Bool)_accessibilityAllowShowNotificationGestureOverride;
 - (void)_accessibilitySetAllowShowNotificationGestureOverride:(_Bool)arg1;
 - (id)_accessibilityCoverSheetPresentationManagerSharedInstance;
-- (_Bool)_accessibilityShowNotificationCenter:(_Bool)arg1;
-- (void)_accessibilityShowCoverSheet:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (_Bool)_accessibilityShowNotificationCenter:(_Bool)arg1 serverInstance:(id)arg2;
+- (_Bool)_accessibilityShowCoverSheet:(_Bool)arg1 completion:(CDUnknownBlockType)arg2 serverInstance:(id)arg3;
 - (_Bool)accessibilityIsNotificationVisible;
 - (_Bool)_accessibilityIsUILocked;
 - (void)launchFloatingApplication:(id)arg1;
@@ -127,6 +125,7 @@
 - (double)reachabilityOffsetWithServerInstance:(id)arg1;
 - (_Bool)hasActiveOrPendingCallOrFaceTimeWithServerInstance:(id)arg1;
 - (_Bool)hasActiveOrPendingCallWithServerInstance:(id)arg1;
+- (_Bool)hasActiveEndpointCallWithServerInstance:(id)arg1;
 - (_Bool)hasActiveCallWithServerInstance:(id)arg1;
 - (void)serverInstance:(id)arg1 pauseMedia:(_Bool)arg2 forBundleId:(id)arg3;
 - (void)serverInstance:(id)arg1 showSpeechPlaybackControls:(_Bool)arg2;

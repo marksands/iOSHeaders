@@ -9,7 +9,7 @@
 #import <PassKitUI/UITableViewDataSource-Protocol.h>
 #import <PassKitUI/UITableViewDelegate-Protocol.h>
 
-@class NSIndexPath, NSString, UILabel, UITableView, UITableViewController, UIView;
+@class NSIndexPath, NSString, PKPaymentSetupDockView, UILabel, UITableView, UITableViewController, UIView, _UIBackdropView;
 
 @interface PKPaymentSetupTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
@@ -18,6 +18,11 @@
     UITableViewController *_tableViewController;
     UIView *_containerView;
     long long _style;
+    PKPaymentSetupDockView *_dockView;
+    _UIBackdropView *_backdropView;
+    long long _backdropStyle;
+    double _backdropWeight;
+    _Bool _updatingBackdropSettings;
     _Bool _clearsSelectionOnViewWillAppear;
     long long _context;
     NSIndexPath *_selectedIndexPath;
@@ -34,6 +39,8 @@
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 @property(readonly, nonatomic) UILabel *footerLabel;
+@property(readonly, nonatomic) PKPaymentSetupDockView *dockView;
+- (void)_accessibilitySettingsDidChange:(id)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

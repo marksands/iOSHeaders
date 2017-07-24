@@ -6,12 +6,14 @@
 
 #import <SiriUI/CRFeedbackListener-Protocol.h>
 
-@class CRKCardSectionViewController, CRKCardViewController, CRNextCardCommand, CRPunchoutCommand, INIntent;
+@class CRKCardSectionViewController, CRKCardViewController, CRNextCardCommand, CRPunchoutCommand, INIntent, UIViewController;
 @protocol CRCard, CRReferentialCommand;
 
 @protocol CRKCardViewControllerDelegate <CRFeedbackListener>
 
 @optional
+- (void)presentViewController:(UIViewController *)arg1 forCardViewController:(CRKCardViewController *)arg2;
+- (unsigned long long)navigationIndexOfCardViewController:(CRKCardViewController *)arg1;
 - (_Bool)performPunchoutCommand:(CRPunchoutCommand *)arg1 forCardViewController:(CRKCardViewController *)arg2;
 - (_Bool)performNextCardCommand:(CRNextCardCommand *)arg1 forCardViewController:(CRKCardViewController *)arg2;
 - (_Bool)performReferentialCommand:(id <CRReferentialCommand>)arg1 forCardViewController:(CRKCardViewController *)arg2;

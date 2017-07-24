@@ -4,27 +4,23 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class IDSKVStore, NSString;
+@class NSString;
 @protocol OS_dispatch_queue;
 
 @interface IMDCKRecordSaltManager : NSObject
 {
-    NSObject<OS_dispatch_queue> *_ckQueue;
-    IDSKVStore *_saltStore;
     NSString *_cachedSalt;
+    NSObject<OS_dispatch_queue> *_ckQueue;
 }
 
 + (id)sharedInstance;
-@property(retain, nonatomic) NSString *cachedSalt; // @synthesize cachedSalt=_cachedSalt;
-@property(readonly, nonatomic) IDSKVStore *saltStore; // @synthesize saltStore=_saltStore;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *ckQueue; // @synthesize ckQueue=_ckQueue;
+@property(retain) NSString *cachedSalt; // @synthesize cachedSalt=_cachedSalt;
 - (void)deleteDeDupeRecordZone;
 - (void)clearLocalSyncState;
 - (void)fetchLatestRecordKeyFromCKAndCreateIfKeyDoesNotExistWithCompletion:(CDUnknownBlockType)arg1;
-- (id)currentLocalSalt;
-- (void)_updateCurrentSalt:(id)arg1;
 - (void)_fetchLatestSaltFromCloudKitAndPersistWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_container;
 - (void)_scheduleOperation:(id)arg1;

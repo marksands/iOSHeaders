@@ -7,6 +7,6 @@
 #import <Foundation/NSOperationQueue.h>
 
 @interface NSOperationQueue (FCAsyncBlockAdditions)
-- (void)addAsyncOperationWithBlock:(CDUnknownBlockType)arg1;
+- (void)fc_addAsyncOperationWithBlock:(CDUnknownBlockType)arg1;
 @end
 

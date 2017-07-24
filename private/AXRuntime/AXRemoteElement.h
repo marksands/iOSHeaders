@@ -24,7 +24,8 @@
 }
 
 + (_Bool)registerRemoteElement:(id)arg1;
-+ (id)remoteElementForContextId:(unsigned int)arg1;
++ (id)remoteElementsForContextId:(unsigned int)arg1;
++ (id)remoteElementsForBlock:(CDUnknownBlockType)arg1;
 + (id)remoteElementForBlock:(CDUnknownBlockType)arg1;
 + (void)initialize;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *remoteQueue; // @synthesize remoteQueue=_remoteQueue;

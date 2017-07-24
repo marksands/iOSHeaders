@@ -41,6 +41,7 @@
 - (void).cxx_destruct;
 - (id)parameterValueForParameter:(id)arg1;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

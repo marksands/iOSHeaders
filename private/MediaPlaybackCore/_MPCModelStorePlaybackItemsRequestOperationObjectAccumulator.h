@@ -15,7 +15,7 @@
     NSMutableDictionary *_equivalencyMapping;
     MPStoreModelGenericObjectBuilder *_genericObjectBuilder;
     _Bool _looseItemNeedsSection;
-    NSMapTable *_storeIDToOccurrenceCount;
+    NSMapTable *_baseContentItemIDToOccurrenceCount;
     long long _unknownEndpointPersonalizationStyle;
     MPMutableSectionedCollection *_unpersonalizedContentDescriptors;
 }

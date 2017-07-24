@@ -9,7 +9,7 @@
 #import <CloudDocsDaemon/BRCJobsMatching-Protocol.h>
 #import <CloudDocsDaemon/BRCZone-Protocol.h>
 
-@class BRCAccountSession, BRCClientZone, BRCPQLConnection, BRCServerChangeState, BRCSyncContext, BRCZoneRowID, BRMangledID, CKRecordZoneID, NSMutableDictionary, NSString;
+@class BRCAccountSession, BRCClientZone, BRCPQLConnection, BRCPendingChangesStream, BRCServerChangeState, BRCSyncContext, BRCZoneRowID, BRMangledID, CKRecordZoneID, NSMutableDictionary, NSString;
 
 @interface BRCServerZone : NSObject <BRCJobsMatching, BRCZone>
 {
@@ -23,20 +23,22 @@
     BRCSyncContext *_syncContext;
     BRCSyncContext *_metadataSyncContext;
     _Bool _needsSave;
+    BRCPendingChangesStream *_pendingChanges;
 }
 
+@property(readonly, nonatomic) BRCPendingChangesStream *pendingChanges; // @synthesize pendingChanges=_pendingChanges;
 @property(readonly, nonatomic) unsigned int state; // @synthesize state=_state;
 @property(nonatomic) _Bool needsSave; // @synthesize needsSave=_needsSave;
 @property(readonly, nonatomic) BRCPQLConnection *db; // @synthesize db=_db;
 @property(retain, nonatomic) BRCAccountSession *session; // @synthesize session=_session;
-@property(retain, nonatomic) BRCClientZone *clientZone; // @synthesize clientZone=_clientZone;
+@property(readonly, nonatomic) BRCClientZone *clientZone; // @synthesize clientZone=_clientZone;
 @property(readonly) BRCServerChangeState *changeState; // @synthesize changeState=_changeState;
 @property(readonly, nonatomic) NSString *zoneName; // @synthesize zoneName=_zoneName;
 @property(retain, nonatomic) BRCZoneRowID *dbRowID; // @synthesize dbRowID=_dbRowID;
 - (void).cxx_destruct;
 - (_Bool)validateItemsLoggingToFile:(struct __sFILE *)arg1 db:(id)arg2;
 - (_Bool)validateStructureLoggingToFile:(struct __sFILE *)arg1 db:(id)arg2;
-- (_Bool)dumpTablesToContext:(id)arg1 error:(id *)arg2;
+- (_Bool)dumpTablesToContext:(id)arg1 includeAllItems:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)dumpStatusToContext:(id)arg1 error:(id *)arg2;
 - (struct PQLResultSet *)directDirectoryChildItemIDsOfParentEnumerator:(id)arg1;
 - (struct PQLResultSet *)itemsEnumeratorWithDB:(id)arg1;
@@ -47,6 +49,7 @@
 @property(readonly) _Bool isCloudDocsZone;
 - (void)clearStateBits:(unsigned int)arg1;
 - (_Bool)setStateBits:(unsigned int)arg1;
+- (void)saveQueryRecords:(id)arg1;
 - (void)forceMoveToCloudDocs;
 - (_Bool)serverZoneIsCreated;
 - (_Bool)shouldRecreateServerZoneAfterError:(id)arg1;
@@ -62,17 +65,15 @@
 - (_Bool)fixupLocalSharingOptions;
 - (long long)_fixupSharingOptions:(unsigned long long)arg1 underParentID:(id)arg2;
 - (id)_structurePrefixForType:(BOOL)arg1;
-- (struct PQLResultSet *)_enumeratePendingFetchDeletedShareRecordIDs;
-- (struct PQLResultSet *)_enumeratePendingFetchDeletedNormalRecordIDs;
-- (struct PQLResultSet *)pendingFetchRecordsEnumerator;
-- (unsigned long long)pendingFetchDeletedRecordsCount;
-- (unsigned long long)pendingFetchRecordsCount;
-- (_Bool)_saveEditedShareRecords:(id)arg1 deletedShareRecordIDs:(id)arg2 ignoringRecordIDs:(id)arg3;
-- (_Bool)_saveEditedContentRecords:(id)arg1 ignoringRecordIDs:(id)arg2;
+- (_Bool)_saveEditedShareRecords:(id)arg1 deletedShareRecordIDs:(id)arg2;
+- (_Bool)_saveEditedContentRecords:(id)arg1;
 - (void)_reportCantSaveProblem:(id)arg1 record:(id)arg2;
-- (_Bool)_saveDeletedRecordIDs:(id)arg1 ignoringRecordIDs:(id)arg2;
-- (_Bool)_saveEditedStructureRecords:(id)arg1 ignoringRecordIDs:(id)arg2;
-- (_Bool)saveInconsistentEditedRecords:(id)arg1 deletedRecordIDs:(id)arg2 deletedShareRecordIDs:(id)arg3;
+- (_Bool)_saveDeletedRecordIDs:(id)arg1;
+- (_Bool)_saveEditedStructureRecords:(id)arg1;
+- (_Bool)_savePendingChangesSharesIgnoringRecordIDs:(id)arg1;
+- (_Bool)_savePendingChangesDeletedRecordIDsIgnoringRecordIDs:(id)arg1;
+- (_Bool)_savePendingChangesEditedContentRecordsIgnoringRecordIDs:(id)arg1;
+- (_Bool)_savePendingChangesEditedStructureRecordsIgnoringRecordIDs:(id)arg1;
 - (_Bool)_markItemDeadForRecordID:(id)arg1;
 - (_Bool)_markShareIDDead:(id)arg1;
 - (_Bool)_saveEditedRecord:(id)arg1 error:(id *)arg2;
@@ -88,6 +89,8 @@
 - (id)xattrForSignature:(id)arg1;
 - (_Bool)storeXattr:(id)arg1;
 - (_Bool)hasXattrWithSignature:(id)arg1;
+- (void)deactivateFromClientZone;
+- (void)activateWithClientZone:(id)arg1 offline:(_Bool)arg2;
 - (id)initWithMangledID:(id)arg1 dbRowID:(id)arg2 plist:(id)arg3 session:(id)arg4;
 @property(readonly, nonatomic) NSMutableDictionary *plist;
 @property(readonly, copy) NSString *description;

@@ -7,6 +7,6 @@
 #import <Foundation/NSXPCInterface.h>
 
 @interface NSXPCInterface (IconCache)
-- (void)setArgumentClasses:(id)arg1 replyClasses:(id)arg2 forSelector:(SEL)arg3;
+- (void)ls_setArgumentClasses:(id)arg1 replyClasses:(id)arg2 forSelector:(SEL)arg3;
 @end
 

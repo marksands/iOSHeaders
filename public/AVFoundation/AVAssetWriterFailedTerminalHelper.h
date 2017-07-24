@@ -13,6 +13,7 @@
     NSError *_terminalError;
 }
 
+- (void)setFinishWritingDelegate:(id)arg1;
 - (void)finishWritingWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)finishWriting;
 - (void)endSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;

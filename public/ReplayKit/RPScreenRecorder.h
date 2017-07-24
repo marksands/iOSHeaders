@@ -111,15 +111,7 @@
 - (id)videoQueue;
 - (id)audioQueue;
 - (void)setMicrophoneEnabledPersistent:(_Bool)arg1;
-- (_Bool)fetchMicrophoneEnabledPersistent;
-- (id)fetchBroadcastURL;
-- (_Bool)fetchHasUserConsentForCamera;
-- (_Bool)fetchHasUserConsentForMicrophone;
-- (_Bool)fetchSystemRecording;
-- (_Bool)fetchMicrophoneEnabled;
-- (_Bool)fetchBroadcasting;
-- (_Bool)fetchRecording;
-- (void)refresh;
+- (void)updateCurrentState;
 - (id)init;
 
 // Remaining properties

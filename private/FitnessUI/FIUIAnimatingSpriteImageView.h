@@ -22,9 +22,11 @@
 @property(nonatomic) long long spriteFrameCount; // @synthesize spriteFrameCount=_spriteFrameCount;
 @property(retain, nonatomic) UIImage *spriteImage; // @synthesize spriteImage=_spriteImage;
 - (void).cxx_destruct;
+- (void)animateOnce;
 - (_Bool)isAnimating;
 - (void)stopAnimating;
 - (void)startAnimating;
+- (id)_centerPointValues;
 - (struct CGSize)_spriteFrameSize;
 - (void)layoutSubviews;
 - (struct CGSize)intrinsicContentSize;

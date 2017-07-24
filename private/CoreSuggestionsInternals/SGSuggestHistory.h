@@ -6,13 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class NSData, NSUbiquitousKeyValueStore, SGNoCloudNSUbiquitousKeyValueStore;
+@class NSUbiquitousKeyValueStore, SGNoCloudNSUbiquitousKeyValueStore;
 
 @interface SGSuggestHistory : NSObject
 {
     struct SGHistorySharedData *_privateShared;
     struct SGMutexSynchronizedObject<SGHistorySharedData> *_shared;
-    NSData *_deviceSalt;
     NSUbiquitousKeyValueStore *_backingKVStore;
     SGNoCloudNSUbiquitousKeyValueStore *_noCloudFakeBackingKVStore;
 }
@@ -85,8 +84,8 @@
 - (id)setForKey:(id)arg1;
 - (id)mutableSetForKey:(id)arg1;
 - (id)identitySalt;
-- (id)initWithDeviceSalt:(id)arg1;
-- (id)initWithDeviceSalt:(id)arg1 andKVS:(id)arg2;
+- (id)init;
+- (id)initWithKVS:(id)arg1;
 @property(readonly, nonatomic) NSUbiquitousKeyValueStore *kvs;
 
 @end

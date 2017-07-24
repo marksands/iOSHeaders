@@ -22,6 +22,7 @@
 - (id)passcode;
 - (void)setPasscode:(id)arg1;
 - (void)layoutSubviews;
+- (id)passcodeDisplayView;
 - (id)initWithFrame:(struct CGRect)arg1 numericOnly:(_Bool)arg2;
 
 // Remaining properties

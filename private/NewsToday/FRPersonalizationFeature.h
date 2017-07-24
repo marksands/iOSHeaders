@@ -17,16 +17,20 @@
 }
 
 + (id)featureObserver;
++ (id)featureForFreeValuedIdentifier:(id)arg1;
++ (id)featureForIdentifier:(id)arg1 allowFreeValued:(_Bool)arg2;
 + (id)featureForIdentifier:(id)arg1;
++ (id)featureFromTagID:(id)arg1;
 + (id)featuresFromTagIDs:(id)arg1;
 + (id)featuresFromTag:(id)arg1;
 + (id)featuresFromPersonalizingArticle:(id)arg1;
 + (id)featuresFromTodayPersonalizationEvent:(id)arg1;
 + (id)featuresFromHeadline:(id)arg1;
-+ (CDUnknownBlockType)featureGeneratorForVideo;
++ (CDUnknownBlockType)featureGeneratorForVideoWithPublisher:(id)arg1;
 + (CDUnknownBlockType)featureGeneratorForGroupType:(long long)arg1;
 + (CDUnknownBlockType)featureGeneratorForTagID:(id)arg1;
 + (CDUnknownBlockType)featureGeneratorForTag:(id)arg1;
++ (CDUnknownBlockType)featureGeneratorForHeadline:(id)arg1 groupType:(long long)arg2;
 + (CDUnknownBlockType)featureGeneratorForHeadline:(id)arg1;
 + (CDUnknownBlockType)concatFeatureGenerator:(CDUnknownBlockType)arg1 withGenerator:(CDUnknownBlockType)arg2;
 @property(retain, nonatomic) NSString *tagID; // @synthesize tagID=_tagID;
@@ -35,6 +39,7 @@
 @property(readonly, nonatomic) NSString *fr_description;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithIdentifier:(id)arg1;
 - (id)init;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

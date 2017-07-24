@@ -6,22 +6,34 @@
 
 #import <NotesUI/ICBaseTextAttachment.h>
 
-@class ICInlineDrawingChangeCoalescer;
+#import <NotesUI/PKTextAttachment-Protocol.h>
 
-@interface ICInlineDrawingTextAttachment : ICBaseTextAttachment
+@class ICInlineDrawingChangeCoalescer, NSString, UIView;
+
+@interface ICInlineDrawingTextAttachment : ICBaseTextAttachment <PKTextAttachment>
 {
     ICInlineDrawingChangeCoalescer *_changeCoalescer;
+    UIView *_inlineDrawingView;
 }
 
+@property(nonatomic) __weak UIView *inlineDrawingView; // @synthesize inlineDrawingView=_inlineDrawingView;
 @property(retain, nonatomic) ICInlineDrawingChangeCoalescer *changeCoalescer; // @synthesize changeCoalescer=_changeCoalescer;
 - (void).cxx_destruct;
 - (void)drawingDataDidChange:(id)arg1;
+- (void)resetZoom;
 - (void)detachView:(id)arg1 fromParentView:(id)arg2;
 - (void)placeView:(id)arg1 withFrame:(struct CGRect)arg2 inParentView:(id)arg3 characterIndex:(unsigned long long)arg4 layoutManager:(id)arg5;
 - (id)printableTextAttachment;
 - (id)attachmentAsNSTextAttachment;
 - (id)contents;
 - (void)saveIfNeeded;
+- (_Bool)canDragWithoutSelecting;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

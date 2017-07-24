@@ -10,9 +10,12 @@
 {
 }
 
+- (id)printableTextAttachment;
+- (double)viewCornerRadius;
 - (_Bool)supportsMultipleThumbnailsOnSameLine;
 - (_Bool)supportsThumbnailView;
 - (_Bool)requiresSpaceAfterAttachmentForPrinting;
+- (CDStruct_d2b197d1)attachmentBoundsMargins;
 - (id)attachmentFileWrapper;
 
 @end

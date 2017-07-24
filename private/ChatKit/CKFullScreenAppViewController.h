@@ -8,18 +8,20 @@
 
 #import <ChatKit/CKBrowserSwitcherFooterViewDelegate-Protocol.h>
 #import <ChatKit/CKBrowserViewControllerProtocol-Protocol.h>
-#import <ChatKit/CKDismissViewDelegate-Protocol.h>
 #import <ChatKit/CKFullScreenAppNavbarManagerDelegate-Protocol.h>
-#import <ChatKit/UIInteractionProgressObserver-Protocol.h>
+#import <ChatKit/UIGestureRecognizerDelegate-Protocol.h>
 
-@class CADisplayLink, CKAppGrabberView, CKBrowserDragManager, CKBrowserSwitcherFooterView, CKConversation, CKDismissView, CKFullScreenAppNavbarManager, IMBalloonPlugin, IMBalloonPluginDataSource, NSData, NSNumber, NSObject, NSString, UISimpleInteractionProgress, UISwipeGestureRecognizer, UITapGestureRecognizer, UIView;
+@class CKAppGrabberView, CKBrowserDragManager, CKBrowserSwitcherFooterView, CKConversation, CKDismissView, CKFullScreenAppNavbarManager, CKImmediatePanGestureRecognizer, IMBalloonPlugin, IMBalloonPluginDataSource, NSArray, NSData, NSNumber, NSObject, NSString, UIView, UIViewPropertyAnimator;
 @protocol CKBrowserViewControllerProtocol, CKBrowserViewControllerSendDelegate, CKFullScreenAppViewControllerDelegate, UIViewControllerTransitioningDelegate;
 
-@interface CKFullScreenAppViewController : UIViewController <CKBrowserViewControllerProtocol, CKFullScreenAppNavbarManagerDelegate, CKDismissViewDelegate, CKBrowserSwitcherFooterViewDelegate, UIInteractionProgressObserver>
+@interface CKFullScreenAppViewController : UIViewController <CKBrowserViewControllerProtocol, CKFullScreenAppNavbarManagerDelegate, CKBrowserSwitcherFooterViewDelegate, UIGestureRecognizerDelegate>
 {
     CKAppGrabberView *_grabberView;
-    UITapGestureRecognizer *_collapseTapRecognizer;
-    UISwipeGestureRecognizer *_collapseSwipeRecognizer;
+    CKImmediatePanGestureRecognizer *_collapseGestureTracker;
+    UIViewPropertyAnimator *_collapsePropertyAnimator;
+    _Bool _shouldDoCollapseInteraction;
+    _Bool _collapseInteractionDidMove;
+    struct CGPoint _collapseGestureStartingLocation;
     _Bool _inTransition;
     _Bool _inDragAndDrop;
     UIViewController<CKBrowserViewControllerProtocol> *_contentViewController;
@@ -28,10 +30,7 @@
     CKDismissView *_dismissView;
     CKConversation *_conversation;
     CKFullScreenAppNavbarManager *_navbarManager;
-    IMBalloonPlugin *_plugin;
     unsigned long long _transitionDirection;
-    CADisplayLink *_animationDisplayLink;
-    UISimpleInteractionProgress *_interactionProgress;
     long long _lastKnownDeviceOrientation;
     CKBrowserSwitcherFooterView *_footerSwitcherView;
     struct CGRect _initialBrowserFrame;
@@ -44,10 +43,7 @@
 @property(nonatomic) _Bool inDragAndDrop; // @synthesize inDragAndDrop=_inDragAndDrop;
 @property(nonatomic) struct CGRect targetBrowserFrame; // @synthesize targetBrowserFrame=_targetBrowserFrame;
 @property(nonatomic) struct CGRect initialBrowserFrame; // @synthesize initialBrowserFrame=_initialBrowserFrame;
-@property(retain, nonatomic) UISimpleInteractionProgress *interactionProgress; // @synthesize interactionProgress=_interactionProgress;
-@property(retain, nonatomic) CADisplayLink *animationDisplayLink; // @synthesize animationDisplayLink=_animationDisplayLink;
 @property(nonatomic) unsigned long long transitionDirection; // @synthesize transitionDirection=_transitionDirection;
-@property(retain, nonatomic) IMBalloonPlugin *plugin; // @synthesize plugin=_plugin;
 @property(retain, nonatomic) CKFullScreenAppNavbarManager *navbarManager; // @synthesize navbarManager=_navbarManager;
 @property(retain, nonatomic) CKConversation *conversation; // @synthesize conversation=_conversation;
 @property(nonatomic) _Bool inTransition; // @synthesize inTransition=_inTransition;
@@ -61,9 +57,7 @@
 - (void)switcherView:(id)arg1 didSelectPluginAtIndex:(id)arg2;
 - (_Bool)_currentPluginIsAppManager;
 - (_Bool)_currentPluginIsAppStore;
-- (struct UIEdgeInsets)navigationBarInsetsWithoutPalette;
 - (void)collapse;
-- (void)dismissViewWasTapped:(id)arg1;
 - (void)_dismiss:(id)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (_Bool)canBecomeFirstResponder;
@@ -79,11 +73,13 @@
 - (void)collapse:(id)arg1;
 - (void)navbarManagerDidReceiveMessage:(id)arg1;
 - (void)navbarManagerDidDismissAllMessages:(id)arg1;
-- (void)interactionProgress:(id)arg1 didEnd:(_Bool)arg2;
-- (void)interactionProgressDidUpdate:(id)arg1;
-- (void)_animationDisplayLinkFired;
-- (void)animateBrowserViewToTargetRect:(struct CGRect)arg1 switcherFooterView:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)animateBrowserViewFromSourceRect:(struct CGRect)arg1 interactive:(_Bool)arg2 switcherFooterView:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (void)collapseGestureTouchMoved:(id)arg1;
+- (void)reverseAndCleanupCollapseAnimator;
+- (void)setupPausedCollapseAnimatorIfNeeded;
+- (double)collapseTargetOriginY;
+- (void)animateBrowserViewToTargetRect:(struct CGRect)arg1 grabberView:(id)arg2 switcherFooterView:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)animateBrowserViewFromSourceRect:(struct CGRect)arg1 interactive:(_Bool)arg2 grabberView:(id)arg3 switcherFooterView:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (struct CGRect)finalContentViewFrame;
 - (void)updateFooterViewFrame;
 - (void)viewDidLayoutSubviews;
@@ -121,7 +117,9 @@
 @property(readonly, nonatomic) struct CGRect horizontalSwipeExclusionRect;
 @property(readonly, nonatomic) long long parentModalPresentationStyle;
 @property(readonly, nonatomic) __weak id <UIViewControllerTransitioningDelegate> parentTransitioningDelegate;
+@property(retain, nonatomic) NSArray *recipients;
 @property(readonly, nonatomic) UIViewController *remoteViewController;
+@property(retain, nonatomic) NSString *sender;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) _Bool wasExpandedPresentation;
 

@@ -32,6 +32,7 @@
     _Bool _takingSnapshot;
     _Bool _windowEnabled;
     UIScreen *_lastScreen;
+    _Bool _disablingKeyboard;
     _Bool _enableMultiscreenHack;
     _Bool _currentKeyboard;
     _Bool _updatingHeight;
@@ -61,6 +62,7 @@
 - (void)userSelectedApp:(id)arg1 onCompletion:(CDUnknownBlockType)arg2;
 - (void)forceKeyboardAway;
 - (void)queue_setKeyboardDisabled:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
+@property _Bool disableBecomeFirstResponder;
 - (void)queue_keyboardTransition:(id)arg1 event:(unsigned long long)arg2 withInfo:(id)arg3 onComplete:(CDUnknownBlockType)arg4;
 - (void)queue_keyboardSuppressed:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)setSuppressingKeyboard:(_Bool)arg1;

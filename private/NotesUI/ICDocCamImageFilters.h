@@ -10,9 +10,9 @@
 {
 }
 
-+ (struct UIImage *)perspectiveCorrectedImageFromImage:(struct UIImage *)arg1 normalizedImageQuad:(id)arg2 context:(id)arg3;
-+ (struct UIImage *)perspectiveCorrectedImageFromImage:(struct UIImage *)arg1 imageQuad:(id)arg2 context:(id)arg3;
-+ (id)perspectiveCorrectedCIImageFromCIImage:(id)arg1 imageQuad:(id)arg2 context:(id)arg3;
++ (struct UIImage *)perspectiveCorrectedImageFromImage:(struct UIImage *)arg1 normalizedImageQuad:(id)arg2;
++ (struct UIImage *)perspectiveCorrectedImageFromImage:(struct UIImage *)arg1 imageQuad:(id)arg2;
++ (id)perspectiveCorrectedCIImageFromCIImage:(id)arg1 imageQuad:(id)arg2;
 + (struct UIImage *)imageWithRGBColorspaceFromImage:(struct UIImage *)arg1;
 + (struct UIImage *)filteredImage:(struct UIImage *)arg1 orientation:(long long)arg2 imageFilterType:(short)arg3;
 + (struct UIImage *)filteredImage:(struct UIImage *)arg1 imageFilterType:(short)arg2;
@@ -37,6 +37,7 @@
 + (struct UIImage *)normalizedImage:(struct UIImage *)arg1;
 + (struct UIImage *)bradleyAdaptiveThreshold:(struct UIImage *)arg1;
 + (struct UIImage *)histogramEqualizedImage:(struct UIImage *)arg1;
++ (id)sharedCoreImageContext;
 + (id)localizedImageFilterNameForType:(short)arg1;
 + (id)localizedImageFilterNameForName:(id)arg1;
 + (short)imageFilterTypeFromName:(id)arg1;

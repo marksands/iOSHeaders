@@ -62,7 +62,7 @@
 - (_Bool)knowsClientRecordWithIdentifier:(id)arg1;
 @property(readonly, nonatomic) _Bool hasPushChangeTasks;
 - (_Bool)hasIncomingRecordWithIdentifier:(id)arg1;
-- (id)initWithIncomingBatch:(id)arg1 store:(id)arg2;
+- (id)initWithIncomingBatch:(id)arg1 store:(id)arg2 error:(id *)arg3;
 
 @end
 

@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NSString *pronunciationHint; // @synthesize pronunciationHint=_pronunciationHint;
 @property(retain, nonatomic) NSString *spokenPhrase; // @synthesize spokenPhrase=_spokenPhrase;
 - (void).cxx_destruct;
+- (id)spokenPhrases;
 @property(retain, nonatomic) NSString *identifier;
 @property(readonly, copy) NSString *description;
 - (void)encodeWithCoder:(id)arg1;

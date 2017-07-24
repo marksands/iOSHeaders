@@ -16,9 +16,13 @@
     double autoAppearanceTimeInterval;
 }
 
+- (id)accessibilityLabel;
+- (id)accessibilityElements;
+- (_Bool)isAccessibilityElement;
 - (_Bool)isVisible;
 - (void)hide:(_Bool)arg1 withAnimationCoordinator:(id)arg2;
 - (struct CGSize)intrinsicContentSize;
+- (void)setHighlighted:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool hideable; // @synthesize hideable;
 @property(readonly, nonatomic) double autoAppearanceTimeInterval; // @synthesize autoAppearanceTimeInterval;
 - (id)initWithFrame:(struct CGRect)arg1;

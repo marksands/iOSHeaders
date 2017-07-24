@@ -35,6 +35,8 @@
 @property(nonatomic) _Bool hasOrigin;
 @property(nonatomic) int origin; // @synthesize origin=_origin;
 @property(nonatomic) _Bool hasTimestamp;
+- (id)simpleDescription;
+- (_Bool)isStaleComparedToContext:(id)arg1;
 - (long long)compare:(id)arg1;
 - (_Bool)isForeignOrigin;
 

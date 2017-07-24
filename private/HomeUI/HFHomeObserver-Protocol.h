@@ -6,11 +6,15 @@
 
 #import <HomeUI/HMHomeDelegate-Protocol.h>
 
-@class CLLocation, HMActionSet, HMHome, HMResidentDevice, HMRoom, HMServiceGroup, HMUser, NSArray, NSSet;
+@class CLLocation, HMActionSet, HMHome, HMResidentDevice, HMRoom, HMServiceGroup, HMUser, NSArray, NSSet, NSString;
 
 @protocol HFHomeObserver <HMHomeDelegate>
 
 @optional
+- (void)home:(HMHome *)arg1 didUpdateMediaPassword:(NSString *)arg2;
+- (void)home:(HMHome *)arg1 didUpdateMediaPeerToPeerEnabled:(_Bool)arg2;
+- (void)home:(HMHome *)arg1 didUpdateMinimumMediaUserPrivilege:(long long)arg2;
+- (void)home:(HMHome *)arg1 didUpdateAutomaticSoftwareUpdateEnabled:(_Bool)arg2;
 - (void)home:(HMHome *)arg1 didRemoveResidentDevice:(HMResidentDevice *)arg2;
 - (void)home:(HMHome *)arg1 didAddResidentDevice:(HMResidentDevice *)arg2;
 - (void)home:(HMHome *)arg1 didUpdateAccessControlForUser:(HMUser *)arg2;

@@ -6,31 +6,27 @@
 
 #import <objc/NSObject.h>
 
-@class AppleSpell, NSCharacterSet, NSDictionary, NSMutableDictionary;
+@class AXMDataDetector, AXMLexiconManager, AXMSpeechFormatterCache, AXMSpellChecker, AXMTagger, NSDictionary, NSMutableDictionary;
 
 @interface AXMTextProcessor : NSObject
 {
-    NSCharacterSet *_vowelCharacters;
-    NSCharacterSet *_consonantCharacters;
+    AXMSpellChecker *_spellChecker;
+    AXMLexiconManager *_lexiconManager;
+    AXMTagger *_tagger;
+    AXMDataDetector *_dataDetector;
+    AXMSpeechFormatterCache *_speechFormatterCache;
     NSDictionary *_globalWhitelistedWords;
     NSMutableDictionary *_localeWhitelistedWords;
-    AppleSpell *_spellChecker;
-    NSMutableDictionary *_cachedLexicons;
 }
 
-@property(retain, nonatomic) NSMutableDictionary *cachedLexicons; // @synthesize cachedLexicons=_cachedLexicons;
-@property(retain, nonatomic) AppleSpell *spellChecker; // @synthesize spellChecker=_spellChecker;
 - (void).cxx_destruct;
-- (_Bool)isWordValid:(id)arg1 withLanguages:(id)arg2;
-- (_Bool)_textIsWhitelistedWord:(id)arg1 withLocale:(id)arg2;
-- (_Bool)_guessIfTextIsWord:(id)arg1 locale:(id)arg2;
-- (void)_filterTextForOCR:(id)arg1 withOperation:(id)arg2 useLexicons:(_Bool)arg3 useSpellCheck:(_Bool)arg4;
-- (_Bool)_shouldIncludeSingleLetterString:(id)arg1;
-- (struct _LXLexicon *)_lexiconForLocale:(id)arg1;
-- (void)_correctSpellingOfText:(id)arg1 withOperation:(id)arg2;
+- (id)_preprocessText:(id)arg1;
 - (id)processText:(id)arg1 withOperation:(id)arg2;
+- (id)dataDetector;
+- (id)tagger;
+- (id)lexiconManager;
+- (id)spellChecker;
 - (id)init;
-- (const void *)_opaqueLexiconForLocale:(id)arg1;
 
 @end
 

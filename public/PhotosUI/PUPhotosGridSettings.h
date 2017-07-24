@@ -18,7 +18,7 @@
     _Bool _swipeSelectionEnabled;
     _Bool _shouldExitEditingModeAfterDuplication;
     _Bool _showTimelineScrubbers;
-    _Bool _hideGlobalFooter;
+    _Bool _simulateGlobalFooterImportantInformationUpdates;
     double _defaultItemSideSize;
     double _minimumSpacing;
     double _maximumSpacing;
@@ -31,11 +31,13 @@
     double _minimumDistanceToUnfreeze;
     double _leftScrubberRate;
     double _rightScrubberRate;
+    long long _globalFooterVisibility;
 }
 
 + (id)settingsControllerModule;
 + (id)sharedInstance;
-@property(nonatomic) _Bool hideGlobalFooter; // @synthesize hideGlobalFooter=_hideGlobalFooter;
+@property(nonatomic) _Bool simulateGlobalFooterImportantInformationUpdates; // @synthesize simulateGlobalFooterImportantInformationUpdates=_simulateGlobalFooterImportantInformationUpdates;
+@property(nonatomic) long long globalFooterVisibility; // @synthesize globalFooterVisibility=_globalFooterVisibility;
 @property(nonatomic) double rightScrubberRate; // @synthesize rightScrubberRate=_rightScrubberRate;
 @property(nonatomic) double leftScrubberRate; // @synthesize leftScrubberRate=_leftScrubberRate;
 @property(nonatomic) _Bool showTimelineScrubbers; // @synthesize showTimelineScrubbers=_showTimelineScrubbers;

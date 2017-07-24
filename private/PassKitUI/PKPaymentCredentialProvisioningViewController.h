@@ -15,6 +15,7 @@
 @interface PKPaymentCredentialProvisioningViewController : PKPaymentSetupProvisioningFieldsViewController <PKPaymentSetupViewControllerCanHideSetupLaterButton, PKPaymentSetupViewControllerRequiresPreflightProtocol, PKPaymentProvisioningControllerDelegate>
 {
     UIImage *_passSnapshot;
+    UIImage *_passSnapshotPlaceHolder;
     unsigned long long _credentialProvisioningType;
     unsigned long long _displayType;
     PKPaymentCredentialMetadataTableController *_metadataController;
@@ -42,13 +43,12 @@
 - (void)_performEligibilityWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_performRequirementsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)performNextActionForProvisioningState:(long long)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)_preflightCredentialAssetsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_preflightCredentialFieldsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)preflightWithCompletion:(CDUnknownBlockType)arg1;
 - (id)newPaymentEligibilityRequest;
 - (id)newPaymentRequirementsRequest;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (void)_updateHeaderForPassSnapshot;
+- (void)_updatePassSnapshotHeader;
 - (void)_createPassSnapshotFromPaymentPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_skipCard;
 - (void)addDifferentCard:(id)arg1;

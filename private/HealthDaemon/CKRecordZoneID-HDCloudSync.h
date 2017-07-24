@@ -8,8 +8,10 @@
 
 @interface CKRecordZoneID (HDCloudSync)
 + (id)hd_zoneIDWithSyncCircleIdentifier:(id)arg1 storeIdentifier:(id)arg2;
++ (id)hd_masterZoneIDForSyncCircleIdentifier:(id)arg1;
 - (id)hd_storeIdentifier;
 - (id)hd_syncCircleIdentifier;
+- (_Bool)hd_isMasterZoneIDForSyncCircleIdentifier:(id *)arg1;
 - (_Bool)hd_splitIntoSyncCircleIdentifier:(id *)arg1 storeIdentifier:(id *)arg2;
 @end
 

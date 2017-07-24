@@ -16,9 +16,13 @@
     UIImageView *_glyphImageView;
     UIView *_highlightedBackgroundView;
     _Bool _separatorVisible;
+    _Bool _useTallLayout;
     CDUnknownBlockType _handler;
+    double _preferredMaxLayoutWidth;
 }
 
+@property(nonatomic) _Bool useTallLayout; // @synthesize useTallLayout=_useTallLayout;
+@property(nonatomic) double preferredMaxLayoutWidth; // @synthesize preferredMaxLayoutWidth=_preferredMaxLayoutWidth;
 @property(nonatomic) _Bool separatorVisible; // @synthesize separatorVisible=_separatorVisible;
 @property(readonly, copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler=_handler;
 - (void).cxx_destruct;
@@ -28,6 +32,10 @@
 - (void)_touchUpOutside:(id)arg1;
 - (void)_touchUpInside:(id)arg1;
 - (void)_touchDown:(id)arg1;
+- (struct UIEdgeInsets)_labelInsets;
+- (double)_glyphMargin;
+- (double)_titleBaselineToBottom;
+- (double)_titleBaselineToTop;
 - (void)_setContinuousCornerRadius:(double)arg1;
 - (void)setEnabled:(_Bool)arg1;
 - (void)setSelected:(_Bool)arg1;

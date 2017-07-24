@@ -15,10 +15,10 @@
     unsigned long long _section;
 }
 
-+ (id)refreshElement:(id)arg1;
-+ (id)removeElement:(id)arg1;
++ (id)refreshElement:(id)arg1 inSection:(unsigned long long)arg2;
++ (id)removeElement:(id)arg1 inSection:(unsigned long long)arg2;
 + (id)insertElement:(id)arg1 inSection:(unsigned long long)arg2;
-+ (id)reloadElement:(id)arg1;
++ (id)reloadElement:(id)arg1 inSection:(unsigned long long)arg2;
 @property(readonly, nonatomic) unsigned long long section; // @synthesize section=_section;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(readonly, nonatomic) NTKUpNextElement *element; // @synthesize element=_element;

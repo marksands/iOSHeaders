@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSNumber, NSString;
 
@@ -29,6 +29,9 @@
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isStreamAvailableForScope:(unsigned int)arg1;
+- (unsigned int)getDataSourceControlID;
+- (unsigned int *)allocDeviceControlListAndSize:(unsigned int *)arg1;
+- (_Bool)isBuiltInDevice;
 - (_Bool)isSomethingConnectedToJack;
 - (_Bool)isValidInputDevice;
 - (_Bool)isValidDevice;

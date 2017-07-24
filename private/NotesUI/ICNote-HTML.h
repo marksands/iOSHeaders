@@ -22,6 +22,7 @@
 + (id)attributedStringFromHTMLString:(id)arg1 baseURL:(id)arg2 readerDelegate:(id)arg3;
 + (id)attributedStringFromHTMLString:(id)arg1 readerDelegate:(id)arg2;
 + (id)attributedStringFromHTMLString:(id)arg1;
+- (id)htmlStringWithHTMLAttachments;
 - (id)htmlStringWithAttachmentConversionHandler:(CDUnknownBlockType)arg1;
 - (id)htmlStringWithAttachments:(_Bool)arg1;
 - (id)htmlString;

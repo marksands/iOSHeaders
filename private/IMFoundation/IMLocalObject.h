@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSProtocolChecker, NSString;
+@class NSArray, NSProtocolChecker, NSString;
 @protocol OS_xpc_object;
 
 @interface IMLocalObject : NSObject
@@ -22,7 +22,7 @@
 + (id)_imLocalObjectQueue;
 - (id)description;
 - (void)invalidate;
-@property(readonly, nonatomic) _Bool forceSecureCoding;
+@property(retain, nonatomic) NSArray *whitelistedClasses;
 @property(readonly, nonatomic) _Bool isValid;
 - (_Bool)isValidSelector:(SEL)arg1;
 - (void)_enqueueInvocationWithPriority:(id)arg1 xpcMessage:(id)arg2 priority:(int)arg3;

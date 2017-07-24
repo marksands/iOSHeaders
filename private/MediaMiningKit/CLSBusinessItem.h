@@ -8,31 +8,29 @@
 
 #import <MediaMiningKit/NSCoding-Protocol.h>
 
-@class CLPlacemark, CLRegion, NSArray, NSString;
+@class CLCircularRegion, NSArray, NSString;
 
 @interface CLSBusinessItem : NSObject <NSCoding>
 {
     _Bool _cached;
     NSString *_name;
-    CLRegion *_region;
-    CLPlacemark *_placemark;
+    CLCircularRegion *_region;
     NSArray *_categories;
     unsigned long long _muid;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)itemWithName:(id)arg1 region:(id)arg2 placemark:(id)arg3 categories:(id)arg4;
++ (id)itemWithName:(id)arg1 region:(id)arg2 categories:(id)arg3;
 @property(nonatomic) unsigned long long muid; // @synthesize muid=_muid;
 @property(retain, nonatomic) NSArray *categories; // @synthesize categories=_categories;
-@property(retain, nonatomic) CLPlacemark *placemark; // @synthesize placemark=_placemark;
-@property(retain, nonatomic) CLRegion *region; // @synthesize region=_region;
+@property(retain, nonatomic) CLCircularRegion *region; // @synthesize region=_region;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) _Bool cached; // @synthesize cached=_cached;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithName:(id)arg1 region:(id)arg2 placemark:(id)arg3 categories:(id)arg4;
+- (id)initWithName:(id)arg1 region:(id)arg2 categories:(id)arg3;
 
 @end
 

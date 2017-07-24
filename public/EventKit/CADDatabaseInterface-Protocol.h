@@ -7,8 +7,7 @@
 @class CADDatabaseInitializationOptions, CADObjectID, NSArray, NSData;
 
 @protocol CADDatabaseInterface
-- (void)CADDatabaseSetAutomaticLocationGeocodingAllowed:(_Bool)arg1 reply:(void (^)(int))arg2;
-- (void)CADDatabaseIsAutomaticLocationGeocodingAllowed:(void (^)(int, _Bool))arg1;
+- (void)CADDatabaseLastConfirmedSplashScreenVersion:(void (^)(int, unsigned long long))arg1;
 - (void)CADDatabaseCanModifyCalendarDatabase:(void (^)(int, _Bool))arg1;
 - (void)CADDatabaseResetWithReply:(void (^)(int))arg1;
 - (void)CADDatabaseRollbackWithReply:(void (^)(int))arg1;

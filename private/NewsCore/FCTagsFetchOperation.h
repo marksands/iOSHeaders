@@ -12,14 +12,16 @@
 @interface FCTagsFetchOperation : FCMultiStepFetchOperation
 {
     _Bool _includeChildren;
-    _Bool _overrideParentCachePolicy;
+    _Bool _includeParents;
+    _Bool _overrideTargetsCachePolicy;
     _Bool _overrideChildrenCachePolicy;
-    unsigned long long _parentCachePolicy;
-    double _parentMaximumCachedAge;
+    unsigned long long _targetsCachePolicy;
+    double _targetsMaximumCachedAge;
     unsigned long long _childrenCachePolicy;
     double _childrenMaximumCachedAge;
     NSArray *_tagIDs;
     FCHeldRecords *_heldTagRecords;
+    FCHeldRecords *_heldParentTagRecords;
     FCHeldRecords *_heldChildTagRecords;
     FCTagRecordSource *_tagRecordSource;
     FCAssetManager *_assetManager;
@@ -30,18 +32,21 @@
 @property(retain, nonatomic) FCAssetManager *assetManager; // @synthesize assetManager=_assetManager;
 @property(retain, nonatomic) FCTagRecordSource *tagRecordSource; // @synthesize tagRecordSource=_tagRecordSource;
 @property(retain, nonatomic) FCHeldRecords *heldChildTagRecords; // @synthesize heldChildTagRecords=_heldChildTagRecords;
+@property(retain, nonatomic) FCHeldRecords *heldParentTagRecords; // @synthesize heldParentTagRecords=_heldParentTagRecords;
 @property(retain, nonatomic) FCHeldRecords *heldTagRecords; // @synthesize heldTagRecords=_heldTagRecords;
 @property(copy, nonatomic) NSArray *tagIDs; // @synthesize tagIDs=_tagIDs;
 @property double childrenMaximumCachedAge; // @synthesize childrenMaximumCachedAge=_childrenMaximumCachedAge;
 @property unsigned long long childrenCachePolicy; // @synthesize childrenCachePolicy=_childrenCachePolicy;
 @property _Bool overrideChildrenCachePolicy; // @synthesize overrideChildrenCachePolicy=_overrideChildrenCachePolicy;
-@property double parentMaximumCachedAge; // @synthesize parentMaximumCachedAge=_parentMaximumCachedAge;
-@property unsigned long long parentCachePolicy; // @synthesize parentCachePolicy=_parentCachePolicy;
-@property _Bool overrideParentCachePolicy; // @synthesize overrideParentCachePolicy=_overrideParentCachePolicy;
+@property double targetsMaximumCachedAge; // @synthesize targetsMaximumCachedAge=_targetsMaximumCachedAge;
+@property unsigned long long targetsCachePolicy; // @synthesize targetsCachePolicy=_targetsCachePolicy;
+@property _Bool overrideTargetsCachePolicy; // @synthesize overrideTargetsCachePolicy=_overrideTargetsCachePolicy;
+@property(nonatomic) _Bool includeParents; // @synthesize includeParents=_includeParents;
 @property(nonatomic) _Bool includeChildren; // @synthesize includeChildren=_includeChildren;
 - (void).cxx_destruct;
 - (id)completeFetchOperation;
 - (id)fetchChildTagRecordsWithCompletion:(CDUnknownBlockType)arg1;
+- (id)fetchParentTagRecordsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)fetchTagRecordsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)customizeChildOperation:(id)arg1 forFetchStep:(SEL)arg2;
 - (id)initWithTagIDs:(id)arg1 tagRecordSource:(id)arg2 assetManager:(id)arg3 delegate:(id)arg4;

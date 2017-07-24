@@ -12,7 +12,7 @@
 #import <ITMLKit/NSURLSessionDataDelegate-Protocol.h>
 #import <ITMLKit/NSURLSessionTaskDelegate-Protocol.h>
 
-@class IKDOMDocument, ISURLOperation, JSManagedValue, NSData, NSDictionary, NSError, NSHTTPURLResponse, NSMutableArray, NSMutableURLRequest, NSString, NSURL, NSURLConnection, NSURLSession, NSURLSessionConfiguration;
+@class IKDOMDocument, ISURLOperation, JSManagedValue, NSData, NSDictionary, NSError, NSHTTPURLResponse, NSMutableArray, NSMutableURLRequest, NSNumber, NSString, NSURL, NSURLConnection, NSURLSession, NSURLSessionConfiguration;
 @protocol IKNetworkRequestRecord;
 
 @interface IKJSXMLHTTPRequest : IKJSEventListenerObject <ISStoreURLOperationDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, IKNetworkRequestLoader, IKJSXMLHTTPRequest>
@@ -138,6 +138,9 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentage;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentageCachedResponses;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSessionDuration;
 @property(readonly) Class superclass;
 
 @end

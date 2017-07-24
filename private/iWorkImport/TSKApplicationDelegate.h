@@ -8,7 +8,7 @@
 
 #import <iWorkImport/TSKApplicationDelegate-Protocol.h>
 
-@class NSDate, NSDictionary, NSString;
+@class NSDate, NSString;
 @protocol TSKCompatibilityDelegate;
 
 __attribute__((visibility("hidden")))
@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSDate *applicationLaunchTime;
 @property(readonly, nonatomic) NSString *bladerunnerContainerIdentifier;
 @property(readonly, nonatomic) NSString *cloudKitContainerIdentifier;
-@property(copy, nonatomic) NSDictionary *appTextDefaults;
+@property(copy, nonatomic) id appTextDefaults;
 @property(readonly, nonatomic) NSString *iWorkAuthorPrivateID;
 @property(nonatomic) unsigned long long iWorkAuthorColorIndex;
 @property(copy, nonatomic) NSString *iWorkAuthorName;

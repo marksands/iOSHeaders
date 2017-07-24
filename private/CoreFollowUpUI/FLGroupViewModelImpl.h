@@ -14,17 +14,20 @@
 {
     NSMutableArray *_mutableItems;
     NSString *_identifier;
-    NSString *_name;
+    NSString *_rowTitle;
+    NSString *_groupTitle;
 }
 
-@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(copy, nonatomic) NSString *groupTitle; // @synthesize groupTitle=_groupTitle;
+@property(copy, nonatomic) NSString *rowTitle; // @synthesize rowTitle=_rowTitle;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (_Bool)shouldCoalesceItems;
 - (_Bool)restrictionEnabled;
 @property(readonly, copy) NSString *debugDescription;
 - (void)addItem:(id)arg1;
 - (id)items;
-- (id)initWithName:(id)arg1 identifier:(id)arg2;
+- (id)initWithIdentifier:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *description;

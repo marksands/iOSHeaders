@@ -11,7 +11,7 @@
 #import <NanoTimeKitCompanion/NTKEditModeMapping-Protocol.h>
 #import <NanoTimeKitCompanion/NTKInstalledSystemApplicationsChangeObserver-Protocol.h>
 
-@class NSArray, NSDictionary, NSHashTable, NSMutableDictionary, NSString, NTKFaceConfiguration;
+@class NSArray, NSDate, NSDictionary, NSHashTable, NSMutableDictionary, NSNumber, NSString, NTKFaceConfiguration;
 
 @interface NTKFace : NSObject <NSSecureCoding, NSCopying, NTKInstalledSystemApplicationsChangeObserver, NTKEditModeMapping>
 {
@@ -23,6 +23,7 @@
     _Bool _suppressingConfigurationChangeNotifications;
     _Bool _configurationChangedWhileSuppressingNotifications;
     _Bool _resourceDirectoryIsHardLink;
+    NSString *_cachedDefaultName;
     _Bool _isLibraryFace;
     _Bool _beingEdited;
     long long _faceStyle;
@@ -36,6 +37,7 @@
 + (id)availableInternalFaceStyles;
 + (long long)_convertFaceStyleToValidFaceStyleForCurrentDevice:(long long)arg1;
 + (Class)_faceClassForStyle:(long long)arg1;
++ (id)faceWithJSONObjectRepresentation:(id)arg1 forMigration:(_Bool)arg2;
 + (id)faceWithJSONObjectRepresentation:(id)arg1;
 + (_Bool)supportsSecureCoding;
 + (_Bool)_isInternalOnly;
@@ -114,6 +116,14 @@
 - (long long)_customEditModeForUniqueConfiguration;
 - (id)_defaultOptionForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (id)_customEditModes;
+- (void)incrementNumberOfCompanionEdits;
+@property(readonly, nonatomic) NSNumber *numberOfCompanionEdits;
+- (void)incrementNumberOfGizmoEdits;
+@property(readonly, nonatomic) NSNumber *numberOfGizmoEdits;
+@property(nonatomic) long long editedState;
+@property(retain, nonatomic) NSDate *lastEditedDate;
+@property(retain, nonatomic) NSDate *creationDate;
+@property(nonatomic) long long origin;
 - (_Bool)isEquivalentToFace:(id)arg1;
 - (_Bool)snapshotContext:(id)arg1 isStaleRelativeToContext:(id)arg2;
 - (void)prepareForDeletion;
@@ -181,6 +191,9 @@
 - (void)_commonInit;
 - (id)_complicationMigrationPaths;
 - (long long)_editModeForOldEncodingIndex:(long long)arg1;
+- (id)_faceDescriptionKeyForExternal;
+- (id)_faceDescriptionForExternal;
+- (id)faceDescriptionForExternal;
 - (id)_faceDescriptionKeyForLibrary;
 - (id)_faceDescriptionForLibrary;
 - (id)faceDescriptionForLibrary;

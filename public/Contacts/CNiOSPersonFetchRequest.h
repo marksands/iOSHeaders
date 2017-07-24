@@ -34,7 +34,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) id <CNiOSContactPredicate> predicate; // @synthesize predicate=_predicate;
 - (void).cxx_destruct;
 @property(readonly) unsigned int sortOrderIncludingNone;
-- (id)initWithPredicate:(id)arg1 keysToFetch:(id)arg2 shouldSort:(_Bool)arg3 sortOrder:(unsigned int)arg4 unifiedFetch:(_Bool)arg5 options:(unsigned long long)arg6;
+- (id)initWithPredicate:(id)arg1 keysToFetch:(id)arg2 shouldSort:(_Bool)arg3 sortOrder:(unsigned int)arg4 unifiedFetch:(_Bool)arg5 batchSize:(unsigned long long)arg6 options:(unsigned long long)arg7;
 
 @end
 

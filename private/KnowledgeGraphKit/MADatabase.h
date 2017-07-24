@@ -26,6 +26,7 @@
 + (_Bool)copyFromURL:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
 + (id)_markerFilePathForPersistentStoreFileURL:(id)arg1;
 + (void)deleteMarker:(id)arg1;
++ (_Bool)setMarkerAtURL:(id)arg1;
 + (_Bool)hasMarker:(id)arg1;
 + (id)persistentStoreCoordinatorOptions;
 @property(retain, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator; // @synthesize persistentStoreCoordinator=_persistentStoreCoordinator;

@@ -9,7 +9,7 @@
 #import <TemplateKit/NUIContainerStackViewDelegate-Protocol.h>
 #import <TemplateKit/TLKTextAreaViewTesting-Protocol.h>
 
-@class NSMutableArray, NSObject, NSString, TLKTitleContainerView, TLKVibrantLabel;
+@class NSMutableArray, NSObject, NSString, TLKRichTextField, TLKTitleContainerView;
 @protocol OS_dispatch_queue;
 
 @interface TLKTextAreaView : TLKStackView <NUIContainerStackViewDelegate, TLKTextAreaViewTesting>
@@ -17,7 +17,7 @@
     _Bool _disableAllObservers;
     TLKTitleContainerView *_titleContainer;
     NSMutableArray *_detailsFields;
-    TLKVibrantLabel *_footnoteLabel;
+    TLKRichTextField *_footnoteLabel;
     NSObject<OS_dispatch_queue> *_concurrentQueue;
     unsigned long long _style;
 }
@@ -26,7 +26,7 @@
 @property _Bool disableAllObservers; // @synthesize disableAllObservers=_disableAllObservers;
 @property unsigned long long style; // @synthesize style=_style;
 @property(retain) NSObject<OS_dispatch_queue> *concurrentQueue; // @synthesize concurrentQueue=_concurrentQueue;
-@property(retain) TLKVibrantLabel *footnoteLabel; // @synthesize footnoteLabel=_footnoteLabel;
+@property(retain) TLKRichTextField *footnoteLabel; // @synthesize footnoteLabel=_footnoteLabel;
 @property(retain) NSMutableArray *detailsFields; // @synthesize detailsFields=_detailsFields;
 @property(retain) TLKTitleContainerView *titleContainer; // @synthesize titleContainer=_titleContainer;
 - (void).cxx_destruct;

@@ -20,6 +20,7 @@
 + (void)useLocalProxy;
 + (void)useProxy:(Class)arg1;
 - (void).cxx_destruct;
+- (id)getDefault:(id)arg1;
 - (void)lockDBs;
 - (void)unlockDBs;
 - (void)resetMapDataExtension;

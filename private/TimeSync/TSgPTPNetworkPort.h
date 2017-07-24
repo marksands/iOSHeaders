@@ -18,6 +18,18 @@
 @property(readonly, copy, nonatomic) NSString *interfaceName; // @synthesize interfaceName=_interfaceName;
 - (void)dealloc;
 - (_Bool)requestRemoteMessageIntervalsWithPDelayMessageInterval:(BOOL)arg1 syncMessageInterval:(BOOL)arg2 announceMessageInterval:(BOOL)arg3 error:(id *)arg4;
+@property(readonly, nonatomic) unsigned int remoteFrequencyStability;
+@property(readonly, nonatomic) _Bool hasRemoteFrequencyStability;
+@property(readonly, nonatomic) unsigned int localFrequencyStability;
+@property(readonly, nonatomic) _Bool hasLocalFrequencyStability;
+@property(readonly, nonatomic) unsigned int remoteFrequencyTolerance;
+@property(readonly, nonatomic) _Bool hasRemoteFrequencyTolerance;
+@property(readonly, nonatomic) unsigned int localFrequencyTolerance;
+@property(readonly, nonatomic) _Bool hasLocalFrequencyTolerance;
+@property(readonly, nonatomic) unsigned char remoteTimestampingMode;
+@property(readonly, nonatomic) unsigned char localTimestampingMode;
+@property(readonly, nonatomic) unsigned char remoteLinkType;
+@property(readonly, nonatomic) unsigned char localLinkType;
 @property(readonly, nonatomic) BOOL remoteAnnounceLogMeanInterval; // @dynamic remoteAnnounceLogMeanInterval;
 @property(readonly, nonatomic) BOOL localAnnounceLogMeanInterval; // @dynamic localAnnounceLogMeanInterval;
 @property(readonly, nonatomic) BOOL remoteSyncLogMeanInterval; // @dynamic remoteSyncLogMeanInterval;

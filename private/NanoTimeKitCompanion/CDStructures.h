@@ -103,6 +103,10 @@ struct NSNumber {
     Class _field1;
 };
 
+struct NSString {
+    Class _field1;
+};
+
 struct NTKAstronomyFaceViewAnimationPose {
     float _field1;
     float _field2;
@@ -125,14 +129,7 @@ struct NTKCharacterPrograms {
 };
 
 struct NTKKaleidoscopePathfinderPoint {
-    float _field1;
-    double _field2[4];
-};
-
-struct NUMemFile {
-    int descriptor;
-    int length;
-    char *mapping;
+    double _field1[4];
 };
 
 struct NUProgram {

@@ -36,6 +36,7 @@
 @property(readonly, copy, nonatomic) ICRadioPlaybackHistory *playbackHistory;
 @property(readonly, nonatomic) long long numberOfItems;
 - (_Bool)needsMoreTracksForPlaybackIndex:(long long)arg1;
+- (_Bool)isPlaceholderItemForQueueIdentifier:(id)arg1;
 - (_Bool)isPlaceholderAVItem:(id)arg1;
 - (_Bool)isExplicitItemAtIndex:(long long)arg1;
 - (long long)indexOfItemWithAVItemQueueIdentifier:(id)arg1;

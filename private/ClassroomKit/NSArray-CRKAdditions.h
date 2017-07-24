@@ -7,6 +7,7 @@
 #import <Foundation/NSArray.h>
 
 @interface NSArray (CRKAdditions)
+- (id)crk_arrayByRemovingObject:(id)arg1;
 - (id)crk_mapUsingBlock:(CDUnknownBlockType)arg1;
 @end
 

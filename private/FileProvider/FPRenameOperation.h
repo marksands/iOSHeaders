@@ -15,6 +15,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)finishWithResult:(id)arg1 error:(id)arg2;
 - (void)presendNotifications;
 - (void)mainWithExtensionProxy:(id)arg1;
 - (id)initWithItem:(id)arg1 newName:(id)arg2;

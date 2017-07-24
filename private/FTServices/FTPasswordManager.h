@@ -21,6 +21,7 @@
 + (id)sharedInstance;
 - (void).cxx_destruct;
 - (_Bool)isiCloudSignedIn;
+- (id)iCloudUsername;
 - (id)_primaryAppleAccount;
 - (id)profileIDForACAccount:(id)arg1;
 - (id)acAccountWithProfileID:(id)arg1 username:(id)arg2 accountStore:(id)arg3;

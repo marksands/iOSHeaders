@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFTextColumn-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString;
 
-@interface SFTextColumn : NSObject <SFTextColumn, NSSecureCoding>
+@interface SFTextColumn : NSObject <SFTextColumn, NSSecureCoding, NSCopying>
 {
     NSArray *_sections;
 }
@@ -19,6 +20,7 @@
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

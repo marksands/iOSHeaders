@@ -8,7 +8,7 @@
 
 #import <MediaPlayer/MPMediaPlayback-Protocol.h>
 
-@class MPMusicPlayerControllerInternal;
+@class MPMediaItem, MPMusicPlayerControllerInternal;
 
 @interface MPMusicPlayerController : NSObject <MPMediaPlayback>
 {
@@ -64,7 +64,7 @@
 - (unsigned long long)currentChapterIndex;
 - (_Bool)isNowPlayingItemFromGeniusMix;
 - (unsigned long long)numberOfItems;
-- (unsigned long long)indexOfNowPlayingItem;
+@property(readonly, nonatomic) unsigned long long indexOfNowPlayingItem;
 - (void)setPlaybackSpeed:(long long)arg1;
 - (long long)playbackSpeed;
 - (id)nowPlayingItemAtIndex:(unsigned long long)arg1;
@@ -72,21 +72,21 @@
 - (_Bool)setQueueWithSeedItems:(id)arg1;
 - (_Bool)isGeniusAvailableForSeedItems:(id)arg1;
 - (_Bool)isGeniusAvailable;
+- (void)openToPlayQueueDescriptor:(id)arg1;
 - (void)endGeneratingPlaybackNotifications;
 - (void)beginGeneratingPlaybackNotifications;
 - (void)setVolumePrivate:(float)arg1;
-- (void)setVolume:(float)arg1;
-- (float)volume;
-- (void)setShuffleMode:(long long)arg1;
-- (long long)shuffleMode;
-- (void)setRepeatMode:(long long)arg1;
-- (long long)repeatMode;
-- (long long)playbackState;
+@property(nonatomic) float volume;
+@property(nonatomic) long long shuffleMode;
+@property(nonatomic) long long repeatMode;
+@property(readonly, nonatomic) long long playbackState;
 - (void)setQueueWithItemCollection:(id)arg1;
 - (void)setQueueWithQuery:(id)arg1;
-- (void)setNowPlayingItem:(id)arg1;
-- (id)nowPlayingItem;
+@property(copy, nonatomic) MPMediaItem *nowPlayingItem;
 - (void)stop;
+- (void)skipToPreviousItem;
+- (void)skipToBeginning;
+- (void)skipToNextItem;
 @property(nonatomic) double currentPlaybackTime;
 @property(nonatomic) float currentPlaybackRate;
 - (void)pause;

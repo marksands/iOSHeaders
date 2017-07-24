@@ -14,18 +14,20 @@ __attribute__((visibility("hidden")))
 @interface BCSInvalidParsedData : NSObject <BCSParsedDataPrivate>
 {
     long long _invalidDataType;
+    NSString *_invalidContents;
     NSString *_invalidURLScheme;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *invalidURLScheme; // @synthesize invalidURLScheme=_invalidURLScheme;
+@property(copy, nonatomic) NSString *invalidContents; // @synthesize invalidContents=_invalidContents;
 @property(readonly, nonatomic) long long invalidDataType; // @synthesize invalidDataType=_invalidDataType;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *extraPreviewText;
 @property(readonly, nonatomic) long long type;
-- (id)initWithInvalidDataType:(long long)arg1;
+- (id)initWithInvalidDataType:(long long)arg1 invalidContents:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

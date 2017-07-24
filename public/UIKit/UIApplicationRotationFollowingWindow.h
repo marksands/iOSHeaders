@@ -11,6 +11,8 @@
 }
 
 + (_Bool)_isSystemWindow;
+- (id)__autorotationSanityCheckObjectFromSource:(id)arg1 selector:(SEL)arg2;
+- (_Bool)_shouldControlAutorotation;
 - (_Bool)isInterfaceAutorotationDisabled;
 - (void)_handleStatusBarOrientationChange:(id)arg1;
 - (_Bool)_shouldAutorotateToInterfaceOrientation:(long long)arg1;

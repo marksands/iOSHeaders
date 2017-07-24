@@ -7,12 +7,15 @@
 #import <objc/NSObject.h>
 
 #import <NotesUI/ICAccessibilityExtras-Protocol.h>
+#import <NotesUI/ICAnalyticsReporterAccessibilityDelegate-Protocol.h>
 
-@interface ICAccessibility : NSObject <ICAccessibilityExtras>
+@interface ICAccessibility : NSObject <ICAccessibilityExtras, ICAnalyticsReporterAccessibilityDelegate>
 {
 }
 
 + (id)sharedInstance;
+- (_Bool)shouldPerformLoggingForSwitchControl;
+- (_Bool)shouldPerformLoggingForVoiceOver;
 - (_Bool)needsAccessibilityElements;
 - (void)postAnnouncement:(id)arg1 withSender:(id)arg2 priority:(long long)arg3;
 

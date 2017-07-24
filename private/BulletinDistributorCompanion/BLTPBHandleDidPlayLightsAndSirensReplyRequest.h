@@ -15,6 +15,7 @@
     double _date;
     NSString *_phoneSectionID;
     NSString *_publisherMatchID;
+    NSString *_replyToken;
     _Bool _didPlayLightsAndSirens;
     struct {
         unsigned int date:1;
@@ -22,6 +23,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *replyToken; // @synthesize replyToken=_replyToken;
 @property(nonatomic) double date; // @synthesize date=_date;
 @property(retain, nonatomic) NSString *phoneSectionID; // @synthesize phoneSectionID=_phoneSectionID;
 @property(retain, nonatomic) NSString *publisherMatchID; // @synthesize publisherMatchID=_publisherMatchID;
@@ -36,6 +38,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasReplyToken;
 @property(nonatomic) _Bool hasDate;
 @property(readonly, nonatomic) _Bool hasPhoneSectionID;
 @property(readonly, nonatomic) _Bool hasPublisherMatchID;

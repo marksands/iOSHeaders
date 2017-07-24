@@ -6,18 +6,19 @@
 
 #import <Silex/SXMediaComponentView.h>
 
+#import <Silex/SXFullscreenVideoPlaybackCandidate-Protocol.h>
 #import <Silex/SXMediaPlaybackDelegate-Protocol.h>
 #import <Silex/SXReachabilityObserver-Protocol.h>
+#import <Silex/SXVideoAdProviderDataSource-Protocol.h>
 #import <Silex/SXVideoPlayerViewControllerDataSource-Protocol.h>
 #import <Silex/SXVideoPlayerViewControllerDelegate-Protocol.h>
 #import <Silex/SXViewportChangeListener-Protocol.h>
 
 @class NSString, SXPosterFrameView, SXVideoPlayerViewController;
 
-@interface SXVideoComponentView : SXMediaComponentView <SXViewportChangeListener, SXMediaPlaybackDelegate, SXVideoPlayerViewControllerDelegate, SXVideoPlayerViewControllerDataSource, SXReachabilityObserver>
+@interface SXVideoComponentView : SXMediaComponentView <SXViewportChangeListener, SXMediaPlaybackDelegate, SXVideoPlayerViewControllerDelegate, SXVideoPlayerViewControllerDataSource, SXVideoAdProviderDataSource, SXReachabilityObserver, SXFullscreenVideoPlaybackCandidate>
 {
     _Bool _isReceivingViewportDynamicBoundsChanges;
-    _Bool _isReceivingViewportOrientationChanges;
     SXVideoPlayerViewController *_videoPlayerViewController;
     SXPosterFrameView *_posterFrame;
     CDUnknownBlockType _thumbnailRequestCancelHandler;
@@ -25,20 +26,21 @@
 
 @property(copy, nonatomic) CDUnknownBlockType thumbnailRequestCancelHandler; // @synthesize thumbnailRequestCancelHandler=_thumbnailRequestCancelHandler;
 @property(retain, nonatomic) SXPosterFrameView *posterFrame; // @synthesize posterFrame=_posterFrame;
-@property(nonatomic) _Bool isReceivingViewportOrientationChanges; // @synthesize isReceivingViewportOrientationChanges=_isReceivingViewportOrientationChanges;
 @property(nonatomic) _Bool isReceivingViewportDynamicBoundsChanges; // @synthesize isReceivingViewportDynamicBoundsChanges=_isReceivingViewportDynamicBoundsChanges;
 @property(retain, nonatomic) SXVideoPlayerViewController *videoPlayerViewController; // @synthesize videoPlayerViewController=_videoPlayerViewController;
 - (void).cxx_destruct;
 - (_Bool)allowHierarchyRemoval;
 - (void)reachabilityChanged:(_Bool)arg1;
+- (unsigned long long)analyticsVideoType;
 - (unsigned long long)analyticsMediaType;
 - (id)transitionContentView;
 - (_Bool)transitionViewUsesThumbnail;
 - (struct CGRect)transitionContentFrame;
-- (void)unregisterForViewportOrientationChanges;
-- (void)registerForViewportOrientationChanges;
-- (void)enterFullScreen;
-- (_Bool)shouldEnterFullscreen;
+- (void)enterFullscreen;
+- (_Bool)canEnterFullscreen;
+- (void)visibilityStateDidChangeFromState:(long long)arg1;
+- (void)pausePrerollIfNeeded;
+- (_Bool)playbackIsAllowedForMode:(unsigned long long)arg1;
 - (void)viewport:(id)arg1 interfaceOrientationChangedFromOrientation:(long long)arg2;
 - (void)viewport:(id)arg1 appearStateChangedFromState:(unsigned long long)arg2;
 - (void)viewport:(id)arg1 dynamicBoundsDidChangeFromBounds:(struct CGRect)arg2;
@@ -46,6 +48,8 @@
 - (void)registerForViewportDynamicBoundsChanges;
 - (void)pauseMediaPlayback;
 - (void)registerAsMediaPlaybackDelegate;
+- (CDUnknownBlockType)videoAdWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (_Bool)videoPlayerViewControllerShouldStartPlayback:(id)arg1;
 - (void)videoPlayerViewController:(id)arg1 resumedPlaybackOfVideo:(id)arg2;
 - (void)videoPlayerViewController:(id)arg1 startedPlaybackOfVideo:(id)arg2;
 - (void)videoPlayerViewControllerFinishedVideoPlayback:(id)arg1;
@@ -57,7 +61,7 @@
 - (void)discardContents;
 - (void)renderContents;
 - (void)presentComponent;
-- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 context:(id)arg3 configuration:(id)arg4;
+- (id)initWithComponent:(id)arg1 configuration:(id)arg2 context:(id)arg3 analyticsReporting:(id)arg4 appStateMonitor:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

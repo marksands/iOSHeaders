@@ -6,12 +6,13 @@
 
 #import <UIKit/UIViewController.h>
 
+#import <PassKitUI/PKPaymentSetupViewControllerDelegate-Protocol.h>
 #import <PassKitUI/PKPerformActionViewDelegate-Protocol.h>
 
-@class NSString, PKPaymentPass, PKPeerPaymentAccount, PKPeerPaymentBankAccountInformation, PKPeerPaymentService, PKPerformActionLoadingView, PKPerformActionPassView, UIView;
+@class NSString, PKPaymentPass, PKPeerPaymentAccount, PKPeerPaymentBankAccountInformation, PKPeerPaymentService, PKPerformActionLoadingView, PKPerformActionPassView, RemoteUIController, UIView;
 @protocol PKPeerPaymentPerformActionView, PKPeerPaymentPerformActionViewControllerDelegate;
 
-@interface PKPeerPaymentPerformActionViewController : UIViewController <PKPerformActionViewDelegate>
+@interface PKPeerPaymentPerformActionViewController : UIViewController <PKPerformActionViewDelegate, PKPaymentSetupViewControllerDelegate>
 {
     unsigned long long _peerPaymentAction;
     PKPerformActionPassView *_passView;
@@ -19,6 +20,7 @@
     PKPeerPaymentAccount *_account;
     PKPeerPaymentService *_peerPaymentService;
     PKPeerPaymentBankAccountInformation *_bankInformation;
+    RemoteUIController *_termsController;
     PKPaymentPass *_pass;
     UIView<PKPeerPaymentPerformActionView> *_actionView;
     id <PKPeerPaymentPerformActionViewControllerDelegate> _delegate;
@@ -33,7 +35,10 @@
 @property(readonly, nonatomic) PKPaymentPass *pass; // @synthesize pass=_pass;
 @property(retain, nonatomic) PKPeerPaymentAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
-- (void)_displayAlertForError:(id)arg1;
+- (void)_handleError:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_handleError:(id)arg1;
+- (void)_presentTermsAndConditionsWithError:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_presentIdentityVerificationWithError:(id)arg1;
 - (unsigned long long)_peerPaymentControllerModeForAction;
 - (id)_rightBarButtonTitle;
 - (id)_navigationBarTitle;
@@ -44,9 +49,11 @@
 - (void)performActionView:(id)arg1 requestsPresentViewController:(id)arg2;
 - (void)setRightBarButtonEnabled:(_Bool)arg1;
 - (void)shakeCard;
+- (void)viewControllerDidTerminateSetupFlow:(id)arg1;
 - (id)spinnerBarButton;
 - (id)rightBarButton;
 - (void)viewDidLayoutSubviews;
+- (void)updateFirstResponder;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(_Bool)arg1;

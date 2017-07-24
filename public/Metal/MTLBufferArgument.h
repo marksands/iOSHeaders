@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 
 - (id)formattedDescription:(unsigned long long)arg1;
 - (id)bufferIndirectArgumentType;
+- (id)bufferPointerType;
 - (id)bufferStructType;
 - (unsigned long long)bufferDataSize;
 - (unsigned long long)bufferALUType;
@@ -31,8 +32,10 @@ __attribute__((visibility("hidden")))
 - (void)setStructType:(id)arg1;
 - (_Bool)isVertexDescriptorBuffer;
 - (void)setVertexDescriptorBuffer:(_Bool)arg1;
+- (void)setAlignment:(unsigned long long)arg1;
+- (void)setDataSize:(unsigned long long)arg1;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 type:(unsigned long long)arg2 access:(unsigned long long)arg3 isActive:(_Bool)arg4 locationIndex:(unsigned long long)arg5 arraySize:(unsigned long long)arg6 dataType:(unsigned long long)arg7 pixelFormat:(unsigned long long)arg8 aluType:(unsigned long long)arg9 dataSize:(unsigned long long)arg10 alignment:(unsigned long long)arg11;
+- (id)initWithName:(id)arg1 type:(unsigned long long)arg2 access:(unsigned long long)arg3 isActive:(_Bool)arg4 locationIndex:(unsigned long long)arg5 arraySize:(unsigned long long)arg6 dataType:(unsigned long long)arg7 pixelFormat:(unsigned long long)arg8 aluType:(unsigned long long)arg9 isConstantBuffer:(_Bool)arg10 dataSize:(unsigned long long)arg11 alignment:(unsigned long long)arg12;
 
 @end
 

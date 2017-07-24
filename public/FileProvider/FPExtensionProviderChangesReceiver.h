@@ -8,11 +8,13 @@
 
 #import <FileProvider/FPProviderChangesReceiver-Protocol.h>
 
-@class NSString;
+@class FPProvider, NSObservation, NSString;
 
 __attribute__((visibility("hidden")))
 @interface FPExtensionProviderChangesReceiver : NSObject <FPProviderChangesReceiver>
 {
+    NSObservation *_localStorageObservation;
+    FPProvider *_localStorageProvider;
     CDUnknownBlockType _changesHandler;
     NSString *_identifier;
 }
@@ -21,6 +23,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) CDUnknownBlockType changesHandler; // @synthesize changesHandler=_changesHandler;
 - (void).cxx_destruct;
 - (void)providersInfoHasChanged:(id)arg1 error:(id)arg2;
+- (void)dealloc;
 - (id)init;
 
 @end

@@ -11,7 +11,7 @@
 #import <MapKit/_MKInfoCardChildViewControllerAnalyticsDelegate-Protocol.h>
 
 @class MKMapItem, MKPlaceSectionHeaderView, NSArray, NSMutableDictionary, NSString, NSTimeZone;
-@protocol _MKInfoCardAnaylticsDelegate;
+@protocol _MKInfoCardAnalyticsDelegate;
 
 __attribute__((visibility("hidden")))
 @interface MKPlaceHoursViewController : MKPlaceSectionViewController <MKStackingViewControllerFixedHeightAware, _MKInfoCardChildViewControllerAnalyticsDelegate, MKModuleViewControllerProtocol>
@@ -22,13 +22,13 @@ __attribute__((visibility("hidden")))
     NSArray *_completeHours;
     NSString *_currentOpeningString;
     _Bool _resizableViewsDisabled;
-    id <_MKInfoCardAnaylticsDelegate> _analyticsDelegate;
+    id <_MKInfoCardAnalyticsDelegate> _analyticsDelegate;
     MKMapItem *_mapItem;
 }
 
 + (id)placeHoursWithMapItem:(id)arg1;
 @property(retain, nonatomic) MKMapItem *mapItem; // @synthesize mapItem=_mapItem;
-@property(nonatomic) __weak id <_MKInfoCardAnaylticsDelegate> analyticsDelegate; // @synthesize analyticsDelegate=_analyticsDelegate;
+@property(nonatomic) __weak id <_MKInfoCardAnalyticsDelegate> analyticsDelegate; // @synthesize analyticsDelegate=_analyticsDelegate;
 @property(nonatomic) _Bool resizableViewsDisabled; // @synthesize resizableViewsDisabled=_resizableViewsDisabled;
 - (void).cxx_destruct;
 - (id)infoCardChildPossibleActions;

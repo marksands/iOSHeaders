@@ -11,6 +11,7 @@
 @interface MNTrafficIncidentAlert : NSObject
 {
     NSData *_alertID;
+    NSData *_etaResponseID;
     unsigned long long _alertType;
     GEOETARoute *_oldETARoute;
     GEOComposedRoute *_originalRoute;
@@ -38,12 +39,14 @@
 @property(retain, nonatomic) NSDate *eta; // @synthesize eta=_eta;
 @property(nonatomic) double distanceToIncident; // @synthesize distanceToIncident=_distanceToIncident;
 @property(readonly, nonatomic) unsigned long long alertType; // @synthesize alertType=_alertType;
+@property(readonly, nonatomic) NSData *etaResponseID; // @synthesize etaResponseID=_etaResponseID;
 @property(readonly, nonatomic) NSData *alertID; // @synthesize alertID=_alertID;
 - (void).cxx_destruct;
 - (id)_dynamicStringValues;
 - (CDStruct_2c43369c)_divergenceCoordinate;
 - (CDStruct_3f2a7a20)_routeCoordinateAtDuration:(double)arg1 beforeRouteCoordinate:(CDStruct_3f2a7a20)arg2;
 - (void)_findRouteDivergence;
+@property(readonly, nonatomic) unsigned long long secondsSaved;
 - (void)updateAlertIDWithAlert:(id)arg1;
 - (void)updateLocation:(id)arg1;
 - (_Bool)isSimilarTo:(id)arg1;
@@ -55,7 +58,7 @@
 @property(readonly, nonatomic) NSArray *alertDescriptions;
 @property(readonly, nonatomic) NSArray *alertTitles;
 - (id)initWithTrafficIncidentAlertDetails:(id)arg1;
-- (id)initWithRoute:(id)arg1 etaRoute:(id)arg2;
+- (id)initWithRoute:(id)arg1 etaRoute:(id)arg2 etaResponse:(id)arg3;
 
 @end
 

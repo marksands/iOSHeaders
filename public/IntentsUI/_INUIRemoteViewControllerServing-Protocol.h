@@ -9,8 +9,7 @@
 @class INInteraction, NSSet;
 
 @protocol _INUIRemoteViewControllerServing <NSObject>
-- (void)requestDesiredSize;
 - (void)queryRepresentedPropertiesWithCompletion:(void (^)(NSArray *))arg1;
-- (void)configureForParameters:(NSSet *)arg1 ofInteraction:(INInteraction *)arg2 context:(unsigned long long)arg3 completion:(void (^)(_Bool, NSSet *, struct CGSize, NSError *))arg4;
+- (void)configureForParameters:(NSSet *)arg1 ofInteraction:(INInteraction *)arg2 interactiveBehavior:(unsigned long long)arg3 context:(unsigned long long)arg4 completion:(void (^)(_Bool, NSSet *, struct CGSize, NSError *))arg5;
 @end
 

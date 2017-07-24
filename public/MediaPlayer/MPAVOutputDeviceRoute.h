@@ -12,10 +12,13 @@
 }
 
 @property(readonly, nonatomic) void *outputDevice; // @synthesize outputDevice=_outputDevice;
+- (long long)pickableRouteType;
 - (long long)routeSubtype;
 - (long long)routeType;
+- (id)productIdentifier;
 - (id)routeUID;
 - (_Bool)isDeviceRoute;
+- (_Bool)isB238Route;
 - (_Bool)isAppleTVRoute;
 - (id)description;
 - (void)dealloc;

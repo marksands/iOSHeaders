@@ -22,7 +22,7 @@
 - (void)setHorizontalCornerRadius:(double)arg1;
 - (void)updateCornerBorderStyle;
 - (double)horizontalCornerRadius;
-- (void)setBorderCharacteristicsFromArray:(struct CGPDFArray *)arg1;
+- (_Bool)setBorderCharacteristicsFromArray:(struct CGPDFArray *)arg1;
 - (void)setDashFromArray:(struct CGPDFArray *)arg1;
 - (void)setStyleFromDictionary:(struct CGPDFDictionary *)arg1;
 - (void)drawInRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;

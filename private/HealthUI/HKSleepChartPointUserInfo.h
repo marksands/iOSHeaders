@@ -7,16 +7,19 @@
 #import <objc/NSObject.h>
 
 #import <HealthUI/HKGraphSeriesBlockCoordinateInfo-Protocol.h>
+#import <HealthUI/HKGraphSeriesChartData-Protocol.h>
 
-@class NSArray, NSDate, NSString;
+@class HKSleepDay, NSArray, NSDate, NSString;
 
-@interface HKSleepChartPointUserInfo : NSObject <HKGraphSeriesBlockCoordinateInfo>
+@interface HKSleepChartPointUserInfo : NSObject <HKGraphSeriesBlockCoordinateInfo, HKGraphSeriesChartData>
 {
     NSArray *_titles;
     NSArray *_values;
     NSDate *_date;
+    HKSleepDay *_sleepDay;
 }
 
+@property(retain, nonatomic) HKSleepDay *sleepDay; // @synthesize sleepDay=_sleepDay;
 @property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(retain, nonatomic) NSArray *values; // @synthesize values=_values;
 @property(retain, nonatomic) NSArray *titles; // @synthesize titles=_titles;

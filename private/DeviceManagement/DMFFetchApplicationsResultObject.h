@@ -14,7 +14,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSDictionary *applicationsByIdentifier; // @synthesize applicationsByIdentifier=_applicationsByIdentifier;
+@property(readonly, copy, nonatomic) NSDictionary *applicationsByIdentifier; // @synthesize applicationsByIdentifier=_applicationsByIdentifier;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

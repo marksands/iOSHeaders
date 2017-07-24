@@ -12,7 +12,7 @@
 #import <DocumentManagerUICore/UICollectionViewDataSource-Protocol.h>
 #import <DocumentManagerUICore/UICollectionViewDelegateTableLayout-Protocol.h>
 
-@class DOCAddTagView, FPItem, NSDictionary, NSLayoutConstraint, NSMutableOrderedSet, NSOrderedSet, NSString, UIBarButtonItem, UICollectionView, UIInterfaceActionGroupView, UIView;
+@class DOCAddTagView, NSArray, NSDictionary, NSLayoutConstraint, NSMutableOrderedSet, NSMutableSet, NSOrderedSet, NSString, UIBarButtonItem, UICollectionView, UIInterfaceActionGroupView, UIView;
 @protocol DOCTagEditorDelegate;
 
 @interface DOCTagEditorViewController : UIViewController <UICollectionViewDelegateTableLayout, UICollectionViewDataSource, DOCAddTagTextFieldDelegate, DOCTagEditorDelegate, DOCTagEditorPresenter>
@@ -20,11 +20,12 @@
     _Bool _showAddTagConfirmButtons;
     _Bool _useCompactColorPicker;
     _Bool _pinTextFieldToTopBound;
+    _Bool _delayResizingUntilAppeared;
     _Bool _isInfoInPopoverMode;
     _Bool _inTagListMode;
     _Bool _addingTag;
     id <DOCTagEditorDelegate> _delegate;
-    FPItem *_item;
+    NSArray *_items;
     NSOrderedSet *_userTags;
     UICollectionView *_collectionView;
     UIView *_addTagTextFieldViewWrapper;
@@ -33,7 +34,8 @@
     NSDictionary *_sizingCells;
     NSLayoutConstraint *_collectionViewHeightConstraint;
     NSMutableOrderedSet *_discoveredTags;
-    NSMutableOrderedSet *_selectedTags;
+    NSMutableSet *_intersectionSelectedTags;
+    NSMutableSet *_unionSelectedTags;
     NSString *_tagsTitle;
     NSString *_addTagTitle;
     NSString *_addNewTagTitle;
@@ -46,7 +48,8 @@
 @property(retain, nonatomic) NSString *addNewTagTitle; // @synthesize addNewTagTitle=_addNewTagTitle;
 @property(retain, nonatomic) NSString *addTagTitle; // @synthesize addTagTitle=_addTagTitle;
 @property(retain, nonatomic) NSString *tagsTitle; // @synthesize tagsTitle=_tagsTitle;
-@property(retain, nonatomic) NSMutableOrderedSet *selectedTags; // @synthesize selectedTags=_selectedTags;
+@property(retain, nonatomic) NSMutableSet *unionSelectedTags; // @synthesize unionSelectedTags=_unionSelectedTags;
+@property(retain, nonatomic) NSMutableSet *intersectionSelectedTags; // @synthesize intersectionSelectedTags=_intersectionSelectedTags;
 @property(readonly, nonatomic) NSMutableOrderedSet *discoveredTags; // @synthesize discoveredTags=_discoveredTags;
 @property(nonatomic, getter=isAddingTag) _Bool addingTag; // @synthesize addingTag=_addingTag;
 @property(readonly, nonatomic) NSLayoutConstraint *collectionViewHeightConstraint; // @synthesize collectionViewHeightConstraint=_collectionViewHeightConstraint;
@@ -57,8 +60,9 @@
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(nonatomic) _Bool inTagListMode; // @synthesize inTagListMode=_inTagListMode;
 @property(nonatomic) _Bool isInfoInPopoverMode; // @synthesize isInfoInPopoverMode=_isInfoInPopoverMode;
-@property(retain, nonatomic) FPItem *item; // @synthesize item=_item;
+@property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(nonatomic) __weak id <DOCTagEditorDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) _Bool delayResizingUntilAppeared; // @synthesize delayResizingUntilAppeared=_delayResizingUntilAppeared;
 @property(nonatomic) _Bool pinTextFieldToTopBound; // @synthesize pinTextFieldToTopBound=_pinTextFieldToTopBound;
 @property(nonatomic) _Bool useCompactColorPicker; // @synthesize useCompactColorPicker=_useCompactColorPicker;
 @property(nonatomic) _Bool showAddTagConfirmButtons; // @synthesize showAddTagConfirmButtons=_showAddTagConfirmButtons;
@@ -81,20 +85,24 @@
 - (_Bool)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
 - (void)scheduleSetTagsOperationWithTag:(id)arg1 adding:(_Bool)arg2;
 - (id)createConfirmButtons;
+- (void)updateSelectedTags;
 - (void)_updateNavigationItem;
 - (void)_updateSelection;
+- (void)_updateMixedSelectionForCell:(id)arg1;
 - (void)_updateSelectionForSection:(unsigned long long)arg1 withTags:(id)arg2;
-- (void)_updatePreferredContentSize;
+- (void)_updatePreferredContentSize:(_Bool)arg1;
 - (void)updateDiscoveredTags;
 - (double)bottomEdgeSpacing;
 - (double)topEdgeSpacing;
 - (void)cancelButtonTapped:(id)arg1;
 - (void)doneButtonTapped:(id)arg1;
 - (void)tagRegistryDidUpdate;
+@property(readonly, nonatomic) NSOrderedSet *userTags; // @synthesize userTags=_userTags;
+@property(readonly, nonatomic) _Bool isCreatingTag;
 - (id)contentScrollView;
 - (void)dealloc;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidAppear:(_Bool)arg1;
-@property(readonly, nonatomic) NSOrderedSet *userTags; // @synthesize userTags=_userTags;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;

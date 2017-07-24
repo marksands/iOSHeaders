@@ -12,7 +12,9 @@
 
 @interface PXNumberFilter : PXObservable <PXMutableNumberFilter>
 {
-    CDStruct_db2bc502 _needsUpdateFlags;
+    struct {
+        _Bool output;
+    } _needsUpdateFlags;
     double _input;
     double _time;
     double _output;
@@ -28,6 +30,7 @@
 - (void)_updateIfNeeded;
 - (void)_setNeedsUpdate;
 - (_Bool)_needsUpdate;
+- (void)invalidateOutput;
 @property(readonly, nonatomic) double currentTime;
 - (void)setInput:(double)arg1;
 - (void)_setLastTime:(double)arg1;

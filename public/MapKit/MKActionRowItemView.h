@@ -24,7 +24,8 @@ __attribute__((visibility("hidden")))
     MKPlaceCardActionItem *_actionRowItem;
 }
 
-+ (double)minWidthForString:(id)arg1;
++ (double)minWidthForString:(id)arg1 forSize:(id)arg2;
++ (id)widthDictionary;
 + (id)glyphFont;
 + (id)labelFont;
 + (double)widthBrandItem;

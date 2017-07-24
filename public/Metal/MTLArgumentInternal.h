@@ -33,6 +33,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)textureType;
 - (unsigned long long)threadgroupMemoryDataSize;
 - (unsigned long long)threadgroupMemoryAlignment;
+- (id)bufferPointerType;
 - (id)bufferStructType;
 - (id)bufferIndirectArgumentType;
 - (unsigned long long)indirectConstantDataType;

@@ -6,14 +6,13 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class FCArticleSearchOperationFeedbackResult, FCArticleStreamingResults, NSError, NSString;
-@protocol FCContentContext;
+@class FCArticleSearchOperationFeedbackResult, FCArticleStreamingResults, FCCloudContext, NSError, NSString;
 
 @interface FCArticleSearchOperation : FCOperation
 {
     NSString *_query;
     unsigned long long _resultsLimit;
-    id <FCContentContext> _contentContext;
+    FCCloudContext *_cloudContext;
     CDUnknownBlockType _articleSearchCompletion;
     FCArticleStreamingResults *_results;
     NSError *_searchError;
@@ -24,7 +23,7 @@
 @property(retain, nonatomic) NSError *searchError; // @synthesize searchError=_searchError;
 @property(retain, nonatomic) FCArticleStreamingResults *results; // @synthesize results=_results;
 @property(copy) CDUnknownBlockType articleSearchCompletion; // @synthesize articleSearchCompletion=_articleSearchCompletion;
-@property(retain, nonatomic) id <FCContentContext> contentContext; // @synthesize contentContext=_contentContext;
+@property(retain, nonatomic) FCCloudContext *cloudContext; // @synthesize cloudContext=_cloudContext;
 @property(nonatomic) unsigned long long resultsLimit; // @synthesize resultsLimit=_resultsLimit;
 @property(copy, nonatomic) NSString *query; // @synthesize query=_query;
 - (void).cxx_destruct;

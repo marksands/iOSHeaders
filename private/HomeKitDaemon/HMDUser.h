@@ -10,7 +10,7 @@
 #import <HomeKitDaemon/HMFDumpState-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HAPPairingIdentity, HMDHome, HMUserPresenceAuthorization, NSMutableArray, NSObject, NSString, NSUUID;
+@class HAPPairingIdentity, HMDAccount, HMDHome, HMUserPresenceAuthorization, NSMutableArray, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
 @interface HMDUser : HMFObject <HMFDumpState, HMDBackingStoreObjectProtocol, NSSecureCoding>
@@ -24,6 +24,7 @@
     HMUserPresenceAuthorization *_presenceAuthStatus;
     NSString *_relayIdentifier;
     HAPPairingIdentity *_pairingIdentity;
+    NSString *_displayName;
     NSUUID *_uuid;
     NSObject<OS_dispatch_queue> *_propertyQueue;
 }
@@ -31,7 +32,7 @@
 + (id)userWithDictionary:(id)arg1;
 + (_Bool)supportsSecureCoding;
 + (id)destinationWithUserID:(id)arg1;
-+ (id)userWithName:(id)arg1 userID:(id)arg2 publicKey:(id)arg3;
++ (id)userWithName:(id)arg1 userID:(id)arg2 publicKey:(id)arg3 homeManager:(id)arg4;
 + (id)currentUserWithPrivilege:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(copy, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
@@ -68,8 +69,10 @@
 - (id)publicKey;
 - (id)pairingUsername;
 @property(retain, nonatomic) HAPPairingIdentity *pairingIdentity; // @synthesize pairingIdentity=_pairingIdentity;
-@property(readonly, copy, nonatomic) NSString *displayName;
+- (_Bool)refreshDisplayName;
+@property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(copy, nonatomic) HMUserPresenceAuthorization *presenceAuthStatus; // @synthesize presenceAuthStatus=_presenceAuthStatus;
+@property(readonly, copy) HMDAccount *account;
 @property(copy, nonatomic) NSString *userID; // @synthesize userID=_userID;
 @property(nonatomic) __weak HMDHome *home; // @synthesize home=_home;
 @property(nonatomic) unsigned long long privilege; // @synthesize privilege=_privilege;
@@ -79,6 +82,7 @@
 - (id)dumpState;
 @property(readonly, copy) NSString *description;
 @property(readonly, copy) NSString *debugDescription;
+- (id)initWithUserID:(id)arg1 displayName:(id)arg2 uuid:(id)arg3 pairingIdentity:(id)arg4 privilege:(unsigned long long)arg5;
 - (id)initWithUserID:(id)arg1 pairingIdentity:(id)arg2 privilege:(unsigned long long)arg3;
 - (id)initWithModelObject:(id)arg1;
 

@@ -6,17 +6,18 @@
 
 #import <Foundation/NSObject.h>
 
-#import <TSReading/NSCoding-Protocol.h>
+#import <TSReading/NSSecureCoding-Protocol.h>
 #import <TSReading/TSDHint-Protocol.h>
 
 @class NSString;
 
-@interface TSDDefaultHint : NSObject <TSDHint, NSCoding>
+@interface TSDDefaultHint : NSObject <TSDHint, NSSecureCoding>
 {
     struct CGRect mBounds;
     unsigned long long mEdges;
 }
 
++ (_Bool)supportsSecureCoding;
 + (Class)archivedHintClass;
 @property(readonly, nonatomic) unsigned long long edges; // @synthesize edges=mEdges;
 @property(readonly, nonatomic) struct CGRect bounds; // @synthesize bounds=mBounds;

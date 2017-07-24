@@ -23,6 +23,7 @@
 
 @property(readonly, nonatomic) __weak CPLEngineLibrary *engineLibrary; // @synthesize engineLibrary=_engineLibrary;
 - (void).cxx_destruct;
+- (void)reportSetting:(id)arg1 hasBeenSetToValue:(id)arg2;
 - (void)reportFetchChangesRewindToFeatureVersion:(unsigned long long)arg1;
 - (void)reportEndOfReset;
 - (void)reportResetType:(id)arg1 reason:(id)arg2;

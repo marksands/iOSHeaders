@@ -85,6 +85,7 @@
 - (id)effectiveSectionInfoWithDefaultContentPreviewSetting:(long long)arg1;
 - (void)updateWithDefaultSectionInfo:(id)arg1;
 - (void)updateWithDefaultFilters:(id)arg1;
+- (id)copyFromManagedSettings;
 @property(readonly, nonatomic) BBSectionInfoSettings *writableSettings;
 @property(readonly, nonatomic) BBSectionInfoSettings *readableSettings;
 @property(readonly, nonatomic) _Bool usesManagedSettings;

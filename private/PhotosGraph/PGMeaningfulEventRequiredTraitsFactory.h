@@ -17,6 +17,7 @@
 + (id)_winterSportSceneNodesWithGraph:(id)arg1;
 + (id)_scenesForSceneNames:(id)arg1 inGraph:(id)arg2;
 + (id)_socialGroupGatheringTraitsWithGraph:(id)arg1;
++ (id)_specialEntertainmentTraitsWithGraph:(id)arg1;
 + (id)_entertainmentTraitsWithGraph:(id)arg1;
 + (id)_beachingTraitsWithGraph:(id)arg1;
 + (id)_hikingTraitsWithGraph:(id)arg1;
@@ -27,6 +28,7 @@
 + (id)_winterSportTraitsWithGraph:(id)arg1;
 + (id)_divingTraitsWithGraph:(id)arg1;
 + (id)_sportEventTraitsWithGraph:(id)arg1;
++ (id)_celebrationTraitsWithGraph:(id)arg1;
 + (id)_weddingTraitsWithGraph:(id)arg1;
 + (void)_birthdayTraitsWithGraph:(id)arg1 strongBirthdayTraits:(id *)arg2 weakBirthdayTraits:(id *)arg3;
 + (id)availableMeaningLabels;

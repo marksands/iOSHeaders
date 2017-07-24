@@ -7,7 +7,7 @@
 #import <IMSharedUtilities/IMItem.h>
 
 @interface IMItem (IMItem_CKRecord)
-+ (void)resetSyncStateForMessage:(id)arg1;
++ (void)resetSyncStateForMessage:(id)arg1 toState:(long long)arg2;
 + (id)createItemWithCKRecord:(id)arg1;
 + (id)populateIMMessageActionItem:(id)arg1 withProtobufData:(id)arg2;
 + (id)messageActionChangeProtobufForCompressedData:(id)arg1;

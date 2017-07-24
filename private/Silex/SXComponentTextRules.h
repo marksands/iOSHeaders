@@ -19,7 +19,7 @@
     double _fontSizeConstant;
     double _lineHeightConstant;
     double _dropCapConstant;
-    long long _selectionFlow;
+    long long _textFlow;
     NSString *_fontTextStyle;
 }
 
@@ -29,7 +29,7 @@
 + (id)bodyTextRules;
 + (id)defaultTextRules;
 @property(copy, nonatomic) NSString *fontTextStyle; // @synthesize fontTextStyle=_fontTextStyle;
-@property(nonatomic) long long selectionFlow; // @synthesize selectionFlow=_selectionFlow;
+@property(nonatomic) long long textFlow; // @synthesize textFlow=_textFlow;
 @property(nonatomic) _Bool allowsScrollPositionRestore; // @synthesize allowsScrollPositionRestore=_allowsScrollPositionRestore;
 @property(nonatomic) _Bool isSelectable; // @synthesize isSelectable=_isSelectable;
 @property(nonatomic) _Bool shouldHyphenate; // @synthesize shouldHyphenate=_shouldHyphenate;

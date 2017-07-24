@@ -12,10 +12,12 @@
 
 @interface NTPBGroupViewExposure : PBCodable <NSCopying>
 {
+    int _feedAutoSubscribeType;
     NSData *_feedViewExposureId;
     int _groupArticleCountInForYou;
     int _groupDisplayRankInForYou;
     NSString *_groupFeedId;
+    int _groupFormationReason;
     int _groupPresentationReason;
     int _groupType;
     NSMutableArray *_groupedArticleIds;
@@ -23,8 +25,10 @@
     int _topStoryOptionalArticleCount;
     _Bool _isSubscribedToGroupFeed;
     struct {
+        unsigned int feedAutoSubscribeType:1;
         unsigned int groupArticleCountInForYou:1;
         unsigned int groupDisplayRankInForYou:1;
+        unsigned int groupFormationReason:1;
         unsigned int groupPresentationReason:1;
         unsigned int groupType:1;
         unsigned int topStoryMandatoryArticleCount:1;
@@ -51,6 +55,14 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsFeedAutoSubscribeType:(id)arg1;
+- (id)feedAutoSubscribeTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasFeedAutoSubscribeType;
+@property(nonatomic) int feedAutoSubscribeType; // @synthesize feedAutoSubscribeType=_feedAutoSubscribeType;
+- (int)StringAsGroupFormationReason:(id)arg1;
+- (id)groupFormationReasonAsString:(int)arg1;
+@property(nonatomic) _Bool hasGroupFormationReason;
+@property(nonatomic) int groupFormationReason; // @synthesize groupFormationReason=_groupFormationReason;
 - (int)StringAsGroupPresentationReason:(id)arg1;
 - (id)groupPresentationReasonAsString:(int)arg1;
 @property(nonatomic) _Bool hasGroupPresentationReason;

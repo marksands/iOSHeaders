@@ -9,7 +9,7 @@
 #import <PreferencesUI/CTCarrierSpaceClientDelegate-Protocol.h>
 #import <PreferencesUI/RemoteUIControllerDelegate-Protocol.h>
 
-@class CTCarrierSpaceClient, CTCarrierSpacePlansInfo, NSObject, NSString, RemoteUIController;
+@class CTCarrierSpaceClient, NSObject, NSString, RemoteUIController;
 @protocol OS_dispatch_queue;
 
 @interface PSUICarrierSpacePlansController : PSListController <CTCarrierSpaceClientDelegate, RemoteUIControllerDelegate>
@@ -17,21 +17,19 @@
     NSObject<OS_dispatch_queue> *_carrierSpaceQueue;
     RemoteUIController *_remoteUIController;
     CTCarrierSpaceClient *_carrierSpaceClient;
-    CTCarrierSpacePlansInfo *_plansInfo;
 }
 
-@property(retain, nonatomic) CTCarrierSpacePlansInfo *plansInfo; // @synthesize plansInfo=_plansInfo;
 @property(retain, nonatomic) CTCarrierSpaceClient *carrierSpaceClient; // @synthesize carrierSpaceClient=_carrierSpaceClient;
 - (void).cxx_destruct;
 - (void)remoteUIController:(id)arg1 willPresentModalNavigationController:(id)arg2;
 - (void)dismissPlanDetail;
-- (void)plansDidChange:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 accessoryButtonTappedForRowWithIndexPath:(id)arg2;
-- (id)stringFromGroupID:(id)arg1;
+- (id)stringFromGroupCategory:(long long)arg1;
 - (id)detailForPlanOption:(id)arg1;
 - (void)moreDetailsButtonTapped:(id)arg1;
 - (id)specifiers;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)simStatusChanged;

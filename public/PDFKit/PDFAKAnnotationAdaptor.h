@@ -81,11 +81,13 @@ __attribute__((visibility("hidden")))
 - (void)_syncEverythingToAKAnnotation;
 - (void)_syncWidgetFieldType:(id)arg1;
 - (void)_syncSubtype:(id)arg1;
+- (void)invalidateAppearanceStream;
 - (void)didReplaceAllValuesWithNewDictionary:(id)arg1 andOldDictionary:(id)arg2;
 - (void)didRemoveValueForAnnotationKey:(id)arg1;
 - (void)didSetValue:(id)arg1 forAnnotationKey:(id)arg2;
 @property(readonly, nonatomic) AKAnnotation *akAnnotation;
 @property(readonly, nonatomic) __weak PDFAnnotation *pdfAnnotation;
+- (void)_teardown;
 - (void)teardown;
 - (void)dealloc;
 - (id)initWithPDFAnnotation:(id)arg1 andAKAnnotation:(id)arg2;

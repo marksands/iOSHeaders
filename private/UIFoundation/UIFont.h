@@ -21,8 +21,11 @@
 + (id)defaultFontForTextStyle:(id)arg1;
 + (double)_readableWidth;
 + (double)_pointSize:(double)arg1 scaledLikeTextStyle:(id)arg2 maximumPointSize:(double)arg3 compatibleWithTraitCollection:(id)arg4;
++ (id)_preferredFontForTextStyle:(id)arg1 maximumPointSize:(double)arg2 compatibleWithTraitCollection:(id)arg3;
 + (id)_supportedDynamicFontStyles;
 + (_Bool)_isSupportedDynamicFontTextStyle:(id)arg1;
++ (id)_preferredFontForTextStyle:(id)arg1 maximumContentSizeCategory:(id)arg2 compatibleWithTraitCollection:(id)arg3;
++ (id)_preferredFontForTextStyle:(id)arg1 maximumContentSizeCategory:(id)arg2;
 + (id)preferredFontForUsage:(id)arg1 contentSizeCategoryName:(id)arg2;
 + (id)preferredFontForUsage:(id)arg1;
 + (id)preferredFontForTextStyle:(id)arg1 compatibleWithTraitCollection:(id)arg2;

@@ -14,7 +14,7 @@
 #import <PassKitUI/UITableViewDelegate-Protocol.h>
 
 @class NSLayoutConstraint, NSString, PKAuthenticator, PKPaymentAuthorizationFooterView, PKPaymentAuthorizationLayout, PKPaymentAuthorizationPasswordButtonView, PKPaymentAuthorizationStateMachine, PKPaymentAuthorizationSummaryItemsView, PKPaymentAuthorizationTotalView, PKPaymentPreferencesViewController, UITableView, UIView;
-@protocol PKPaymentAuthorizationHostProtocol;
+@protocol PKPaymentAuthorizationServiceViewControllerDelegate><PKPaymentAuthorizationHostProtocol;
 
 @interface PKPaymentAuthorizationServiceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, PKAuthenticatorDelegate, PKPaymentAuthorizationStateMachineDelegate, PKPaymentAuthorizationServiceProtocol>
 {
@@ -31,24 +31,27 @@
     PKPaymentPreferencesViewController *_shippingAddressPreferencesController;
     PKPaymentPreferencesViewController *_shippingContactPreferencesController;
     PKPaymentPreferencesViewController *_paymentCardPreferencesController;
+    _Bool _visible;
     _Bool _hostApplicationResignedActive;
     _Bool _hostApplicationEnteredBackground;
     _Bool _treatingHostAsBackgrounded;
     _Bool _requestingInAppPIN;
+    _Bool _showTotalView;
     long long _preferencesStyle;
     struct __IOHIDEventSystemClient *_hidSystemClient;
     unsigned long long _biometryAttempts;
     PKPaymentAuthorizationStateMachine *_stateMachine;
     PKAuthenticator *_authenticator;
-    id <PKPaymentAuthorizationHostProtocol> _delegate;
+    id <PKPaymentAuthorizationServiceViewControllerDelegate><PKPaymentAuthorizationHostProtocol> _delegate;
 }
 
-@property(nonatomic) __weak id <PKPaymentAuthorizationHostProtocol> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <PKPaymentAuthorizationServiceViewControllerDelegate><PKPaymentAuthorizationHostProtocol> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) PKAuthenticator *authenticator; // @synthesize authenticator=_authenticator;
 @property(retain, nonatomic) PKPaymentAuthorizationStateMachine *stateMachine; // @synthesize stateMachine=_stateMachine;
 - (void).cxx_destruct;
 - (void)_removeSimulatorHIDListener;
 - (void)_startSimulatorHIDListener;
+- (void)_setVisible:(_Bool)arg1;
 - (id)_evaluationRequest;
 - (long long)_authenticatorPolicy;
 - (id)_compactNavigationController;
@@ -103,6 +106,7 @@
 - (void)handleHostApplicationDidBecomeActive;
 - (void)handleHostApplicationWillResignActive:(_Bool)arg1;
 - (void)handleHostApplicationDidCancel;
+- (void)setFooterState:(long long)arg1 string:(id)arg2 animated:(_Bool)arg3;
 - (void)_selectOptionsForDataItem:(id)arg1;
 - (void)_startEvaluation;
 - (void)_suspendAuthentication;
@@ -113,6 +117,7 @@
 - (id)handlePaymentRequest:(id)arg1 fromAppWithLocalizedName:(id)arg2 andApplicationIdentifier:(id)arg3;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)viewDidLayoutSubviews;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

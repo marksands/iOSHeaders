@@ -7,7 +7,6 @@
 #import <UIKit/UITextView.h>
 
 @interface UITextView (NUIContainerView)
-- (_Bool)_nui_supportsBaselinesWithoutAutolayout;
 - (_Bool)isLayoutSizeDependentOnPerpendicularAxis;
 - (_Bool)supportsAsynchronousMeasurement;
 @end

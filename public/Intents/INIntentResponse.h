@@ -41,6 +41,7 @@
 - (id)protoData;
 - (id)_impl;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) _Bool _shouldForwardIntentToApp;
 - (long long)_intentHandlingStatus;

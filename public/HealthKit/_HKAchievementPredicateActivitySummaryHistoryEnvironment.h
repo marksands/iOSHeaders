@@ -6,41 +6,17 @@
 
 #import <HealthKit/_HKBaseAchievementPredicateEnvironment.h>
 
-@class NSSet;
 @protocol _HKActivitySummaryHistoryEnvironmentDataSource;
 
 @interface _HKAchievementPredicateActivitySummaryHistoryEnvironment : _HKBaseAchievementPredicateEnvironment
 {
     _HKAchievementPredicateActivitySummaryHistoryEnvironment *_previous;
     id <_HKActivitySummaryHistoryEnvironmentDataSource> _dataSource;
-    double _bestAchievedMoveGoal;
-    double _bestAchievedMoveCalories;
-    double _bestAchievedBriskMinutes;
-    long long _bestConsecutiveMoveGoalsMet;
-    long long _consecutiveMoveGoalsMet;
-    long long _consecutiveExerciseGoalsMet;
-    long long _consecutiveStandGoalsMet;
-    long long _totalMoveGoalsMet;
-    long long _totalDaysOfMoveHistory;
-    long long _totalDaysOfExerciseHistory;
-    NSSet *_earnedAchievementDefinitionIdentifiers;
 }
 
-@property(readonly, nonatomic) NSSet *earnedAchievementDefinitionIdentifiers; // @synthesize earnedAchievementDefinitionIdentifiers=_earnedAchievementDefinitionIdentifiers;
-@property(readonly, nonatomic) long long totalDaysOfExerciseHistory; // @synthesize totalDaysOfExerciseHistory=_totalDaysOfExerciseHistory;
-@property(readonly, nonatomic) long long totalDaysOfMoveHistory; // @synthesize totalDaysOfMoveHistory=_totalDaysOfMoveHistory;
-@property(readonly, nonatomic) long long totalMoveGoalsMet; // @synthesize totalMoveGoalsMet=_totalMoveGoalsMet;
-@property(readonly, nonatomic) long long consecutiveStandGoalsMet; // @synthesize consecutiveStandGoalsMet=_consecutiveStandGoalsMet;
-@property(readonly, nonatomic) long long consecutiveExerciseGoalsMet; // @synthesize consecutiveExerciseGoalsMet=_consecutiveExerciseGoalsMet;
-@property(readonly, nonatomic) long long consecutiveMoveGoalsMet; // @synthesize consecutiveMoveGoalsMet=_consecutiveMoveGoalsMet;
-@property(readonly, nonatomic) long long bestConsecutiveMoveGoalsMet; // @synthesize bestConsecutiveMoveGoalsMet=_bestConsecutiveMoveGoalsMet;
-@property(readonly, nonatomic) double bestAchievedBriskMinutes; // @synthesize bestAchievedBriskMinutes=_bestAchievedBriskMinutes;
-@property(readonly, nonatomic) double bestAchievedMoveCalories; // @synthesize bestAchievedMoveCalories=_bestAchievedMoveCalories;
-@property(readonly, nonatomic) double bestAchievedMoveGoal; // @synthesize bestAchievedMoveGoal=_bestAchievedMoveGoal;
 @property(nonatomic) __weak id <_HKActivitySummaryHistoryEnvironmentDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) _HKAchievementPredicateActivitySummaryHistoryEnvironment *previous; // @synthesize previous=_previous;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) long long consecutiveAllGoalsMet;
 - (id)dailyAverageNumberForGoalType:(unsigned long long)arg1 fromTimeNumber:(id)arg2 toTimeNumber:(id)arg3;
 - (id)totalNumberForGoalOfType:(unsigned long long)arg1 fromTimeNumber:(id)arg2 toTimeNumber:(id)arg3;
 - (double)_valueForGoalType:(unsigned long long)arg1 inDayEnvironment:(id)arg2;

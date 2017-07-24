@@ -20,7 +20,7 @@
 + (void)useProxy:(Class)arg1;
 @property(readonly, nonatomic) id <GEOSearchAttributionServerProxy> serverProxy; // @synthesize serverProxy=_serverProxy;
 - (void).cxx_destruct;
-- (void)loadAttributionInfoForIdentifier:(id)arg1 version:(unsigned int)arg2 completionHandler:(CDUnknownBlockType)arg3 errorHandler:(CDUnknownBlockType)arg4;
+- (void)loadAttributionInfoForIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)init;
 
 @end

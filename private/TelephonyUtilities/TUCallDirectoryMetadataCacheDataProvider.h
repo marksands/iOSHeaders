@@ -10,12 +10,15 @@
 
 @interface TUCallDirectoryMetadataCacheDataProvider : TUMetadataCacheDataProvider
 {
+    int _identificationEntriesChangedNotifyToken;
     CXCallDirectoryManager *_callDirectoryManager;
 }
 
-@property(retain, nonatomic) CXCallDirectoryManager *callDirectoryManager; // @synthesize callDirectoryManager=_callDirectoryManager;
+@property(readonly, nonatomic) int identificationEntriesChangedNotifyToken; // @synthesize identificationEntriesChangedNotifyToken=_identificationEntriesChangedNotifyToken;
+@property(readonly, nonatomic) CXCallDirectoryManager *callDirectoryManager; // @synthesize callDirectoryManager=_callDirectoryManager;
 - (void).cxx_destruct;
 - (void)updateCacheWithDestinationIDs:(id)arg1 withGroup:(id)arg2;
+- (void)dealloc;
 - (id)init;
 
 @end

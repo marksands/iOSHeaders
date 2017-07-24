@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSMutableArray, NSString;
+@class NSArray, NSDate, NSMutableArray, NSString;
 
 @interface MAAssetQuery : NSObject
 {
@@ -14,8 +14,12 @@
     NSMutableArray *_queryParams;
     NSString *_assetType;
     NSArray *_results;
+    long long _returnTypes;
+    NSDate *_lastFetchDate;
 }
 
+@property(readonly, nonatomic) NSDate *lastFetchDate; // @synthesize lastFetchDate=_lastFetchDate;
+@property(readonly, nonatomic) long long returnTypes; // @synthesize returnTypes=_returnTypes;
 @property(readonly, nonatomic) NSArray *results; // @synthesize results=_results;
 @property(readonly, nonatomic) NSString *assetType; // @synthesize assetType=_assetType;
 @property(readonly, nonatomic) _Bool augmentState; // @synthesize augmentState=_augmentState;
@@ -24,8 +28,8 @@
 - (void)queryMetaData:(CDUnknownBlockType)arg1;
 - (void)getResultsFromMessage:(id)arg1;
 - (void)addKeyValuePair:(id)arg1 with:(id)arg2;
+- (void)returnTypes:(long long)arg1;
 - (void)augmentResultsWithState:(_Bool)arg1;
-- (void)setResults:(id)arg1;
 - (void)dealloc;
 - (id)initWithType:(id)arg1;
 

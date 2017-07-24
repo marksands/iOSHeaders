@@ -9,12 +9,12 @@
 #import <EventKitUI/EKShareePickerViewControllerDelegate-Protocol.h>
 #import <EventKitUI/EKShareeViewControllerDelegate-Protocol.h>
 
-@class NSMutableArray, NSString, UILabel, UIView;
+@class NSMutableArray, NSString, UILabel, UITableViewHeaderFooterView;
 
 @interface EKCalendarShareesEditItem : EKCalendarEditItem <EKShareeViewControllerDelegate, EKShareePickerViewControllerDelegate>
 {
     NSMutableArray *_shareeCells;
-    UIView *_footerView;
+    UITableViewHeaderFooterView *_footerView;
     UILabel *_descriptionLabel;
 }
 

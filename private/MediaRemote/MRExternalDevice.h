@@ -96,7 +96,6 @@ __attribute__((visibility("hidden")))
 - (void)_callClientNameCallback;
 - (void)_callClientPairingCallback:(CDUnknownBlockType)arg1;
 - (void)_callClientConnectionStateCallback:(id)arg1;
-- (void)_registerCallbacks;
 - (void)_registerOriginCallbacks;
 - (void)_cleanUp;
 - (void)_tearDownCustomOrigin;

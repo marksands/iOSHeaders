@@ -6,22 +6,28 @@
 
 #import <objc/NSObject.h>
 
-@class CLServiceVendor, CLSilo;
+#import <CoreMotion/CLIntersiloUniverse-Protocol.h>
 
-@interface CLIntersiloUniverse : NSObject
+@class CLServiceVendor, CLSilo, NSString;
+
+@interface CLIntersiloUniverse : NSObject <CLIntersiloUniverse>
 {
-    id _key;
     CLSilo *_silo;
     CLServiceVendor *_vendor;
 }
 
 + (id)newSharedVendorUniverseWithSilo:(id)arg1;
 + (id)newIsolatedUniverseWithOnlySilo:(id)arg1;
-@property(readonly, copy, nonatomic) CLServiceVendor *vendor; // @synthesize vendor=_vendor;
+@property(readonly, nonatomic) CLServiceVendor *vendor; // @synthesize vendor=_vendor;
 @property(readonly, nonatomic) CLSilo *silo; // @synthesize silo=_silo;
-@property(readonly, nonatomic) __weak id key; // @synthesize key=_key;
 - (void).cxx_destruct;
 - (id)initWithKey:(id)arg1 silo:(id)arg2 vendor:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -5,10 +5,11 @@
 //
 
 #import <SafariServices/NSObject-Protocol.h>
+#import <SafariServices/WKUIDelegatePrivate-Protocol.h>
 
 @class NSDictionary, NSNumber, NSString, NSURL, NSURLRequest, _SFReaderController, _WKFrameHandle;
 
-@protocol _SFReaderControllerDelegate <NSObject>
+@protocol _SFReaderControllerDelegate <NSObject, WKUIDelegatePrivate>
 
 @optional
 - (NSURL *)readerURLForReaderController:(_SFReaderController *)arg1;
@@ -18,9 +19,10 @@
 - (void)readerController:(_SFReaderController *)arg1 didCollectReadingListItemInfo:(NSDictionary *)arg2 bookmarkID:(NSNumber *)arg3;
 - (void)readerController:(_SFReaderController *)arg1 didSetReaderConfiguration:(NSDictionary *)arg2;
 - (NSDictionary *)readerControllerInitialConfiguration:(_SFReaderController *)arg1;
+- (void)readerController:(_SFReaderController *)arg1 didTwoFingerTapLinkInReaderWithRequest:(NSURLRequest *)arg2;
 - (void)readerController:(_SFReaderController *)arg1 didClickLinkInReaderWithRequest:(NSURLRequest *)arg2;
 - (void)readerController:(_SFReaderController *)arg1 didClickLinkRequestingNewWindowInReaderWithRequest:(NSURLRequest *)arg2;
 - (void)readerController:(_SFReaderController *)arg1 didDeactivateReaderWithMode:(unsigned long long)arg2;
-- (void)readerController:(_SFReaderController *)arg1 didDetermineReaderAvailability:(_Bool)arg2;
+- (void)readerController:(_SFReaderController *)arg1 didDetermineReaderAvailability:(_Bool)arg2 dueToSameDocumentNavigation:(_Bool)arg3;
 @end
 

@@ -65,6 +65,7 @@
 - (id)popoverContentController;
 - (id)viewController;
 - (id)detailViewForEvent:(id)arg1 eventInRealStore:(_Bool)arg2 isUpdate:(_Bool)arg3;
+- (id)singleExistingEventUniqueID;
 @property(readonly, nonatomic) _Bool isImporting;
 @property(readonly, nonatomic) unsigned long long unimportedEventCount;
 @property(readonly, nonatomic) unsigned long long totalEventCount;

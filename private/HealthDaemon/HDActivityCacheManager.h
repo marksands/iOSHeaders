@@ -10,7 +10,7 @@
 #import <HealthDaemon/HDDatabaseProtectedDataObserver-Protocol.h>
 #import <HealthDaemon/HDHealthDaemonReadyObserver-Protocol.h>
 
-@class CMPedometer, CMPedometerData, HDActivityCacheDataSource, HDProfile, HDSourceEntity, HKActivityCache, HKQuantitySample, HKQuantityType, NSCalendar, NSDate, NSHashTable, NSSet, NSString, NSTimeZone, _HKDelayedOperation, _HKTimePeriod;
+@class CMPedometer, CMPedometerData, HDActivityCacheDataSource, HDProfile, HDSourceEntity, HKActivityCache, HKHeartRateSummary, HKQuantitySample, HKQuantityType, NSCalendar, NSDate, NSDateInterval, NSHashTable, NSSet, NSString, NSTimeZone, _HKDelayedOperation;
 @protocol OS_dispatch_queue;
 
 @interface HDActivityCacheManager : NSObject <HDHealthDaemonReadyObserver, HDDataObserver, HDDatabaseProtectedDataObserver>
@@ -22,11 +22,13 @@
     long long _yesterdayActivityCacheIndex;
     long long _tomorrowActivityCacheIndex;
     _Bool _cacheIndicesAreSet;
-    _HKTimePeriod *_todayDateRange;
-    _HKTimePeriod *_yesterdayDateRange;
+    NSDateInterval *_todayDateInterval;
+    NSDateInterval *_yesterdayDateInterval;
     _Bool _existingActivityCachesAreSet;
     HKActivityCache *_existingYesterdayActivityCache;
     HKActivityCache *_existingTodayActivityCache;
+    HKHeartRateSummary *_todayHeartRateSummary;
+    HKHeartRateSummary *_yesterdayHeartRateSummary;
     HDSourceEntity *_localDeviceSourceEntity;
     HDActivityCacheDataSource *_dataSource;
     HKQuantityType *_calorieGoalType;
@@ -50,10 +52,12 @@
 - (void).cxx_destruct;
 - (void)_queue_updateWheelchairUse;
 - (void)_userCharacteristicsDidChangeNotification:(id)arg1;
+- (void)_queue_alertObservers:(id)arg1 heartRateSummaryChanged:(id)arg2;
 - (void)_queue_alertObserversYesterdayActivityCacheChanged:(id)arg1;
 - (void)_queue_alertObserversTodayActivityCacheChanged:(id)arg1;
 - (void)removeActivityCacheObserver:(id)arg1;
 - (void)addActivityCacheObserver:(id)arg1;
+- (void)accessHeartRateStatisticsBuilderWithCacheIndex:(long long)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)accessStatisticsBuilderWithCacheIndex:(long long)arg1 handler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) HKActivityCache *yesterdayActivityCache;
 @property(readonly, nonatomic) HKActivityCache *currentActivityCache;
@@ -78,7 +82,7 @@
 - (void)_queue_resetExistingActivityCaches;
 - (void)_queue_resetEverything;
 - (id)_mostRecentGoalBeforeDate:(id)arg1 error:(id *)arg2;
-- (void)_queue_updateDateRangesWithExistingActivityCaches;
+- (void)_queue_updateDateIntervalsWithExistingActivityCaches;
 - (void)_queue_primeExistingActivityCaches;
 - (void)_queue_primeLocalSource;
 - (void)_queue_primeCacheIndices;
@@ -89,7 +93,8 @@
 - (_Bool)_queue_goalsSet;
 - (void)_queue_primeDataSource;
 - (_Bool)_queue_readyToPrimeDataSource;
-- (id)_queue_saveCacheWithDateRange:(id)arg1 calorieGoal:(id)arg2 cacheIndex:(long long)arg3 previousCache:(id)arg4 statisticsBuilder:(id)arg5 wheelchairUse:(long long)arg6 generateStats:(_Bool)arg7;
+- (void)_queue_updateHeartRateSummaries;
+- (id)_queue_saveCacheWithDateInterval:(id)arg1 calorieGoal:(id)arg2 cacheIndex:(long long)arg3 previousCache:(id)arg4 statisticsBuilder:(id)arg5 wheelchairUse:(long long)arg6 generateStats:(_Bool)arg7;
 - (void)_queue_saveCaches;
 - (_Bool)_queue_saveYesterdayCache;
 - (_Bool)_queue_saveTodayCache;

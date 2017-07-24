@@ -32,7 +32,7 @@
 - (void)requestDownloadWithMetadata:(id)arg1 isRestore:(_Bool)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)requestDownloadWithParameters:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)downloadWithPermlink:(id)arg1 title:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (void)purchaseWithBuyParameters:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)purchaseWithBuyParameters:(id)arg1 storeID:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)cancelAllActiveDownloadsWithReply:(CDUnknownBlockType)arg1;
 - (void)cancelDownloadWithID:(id)arg1 withReply:(CDUnknownBlockType)arg2;
 - (void)resumeDownloadWithID:(id)arg1 withReply:(CDUnknownBlockType)arg2;

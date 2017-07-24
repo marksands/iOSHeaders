@@ -10,6 +10,7 @@ __attribute__((visibility("hidden")))
 @interface MTLEmulationIndirectArgumentBufferLayout : _MTLIndirectArgumentBufferLayout
 {
     unsigned long long _stride;
+    unsigned long long _alignment;
     void *_bufferIndices;
     void *_textureIndices;
     void *_samplerIndices;
@@ -21,6 +22,10 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) unsigned long long stride; // @synthesize stride=_stride;
+- (unsigned long long)constantOffsetAtIndex:(unsigned long long)arg1;
+- (unsigned long long)alignment;
+- (unsigned long long)encodedLength;
+- (_Bool)bufferLayoutMatchesFrontEndLayout;
 - (unsigned long long)offsetForConstant:(unsigned long long)arg1;
 - (unsigned long long)offsetForSampler:(unsigned long long)arg1;
 - (unsigned long long)offsetForTexture:(unsigned long long)arg1;

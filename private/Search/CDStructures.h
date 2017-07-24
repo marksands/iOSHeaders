@@ -8,3 +8,10 @@
 
 typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
 
+#pragma mark Named Structures
+
+struct ranking_index_score_t {
+    unsigned long long lsb;
+    unsigned long long msb;
+};
+

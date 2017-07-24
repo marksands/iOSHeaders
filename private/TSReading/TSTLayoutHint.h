@@ -6,12 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-#import <TSReading/NSCoding-Protocol.h>
+#import <TSReading/NSSecureCoding-Protocol.h>
 #import <TSReading/TSDHint-Protocol.h>
 
 @class NSNumber, NSString, TSTLayout;
 
-@interface TSTLayoutHint : NSObject <TSDHint, NSCoding>
+@interface TSTLayoutHint : NSObject <TSDHint, NSSecureCoding>
 {
     _Bool mIsValid;
     _Bool mHorizontal;
@@ -24,6 +24,7 @@
     TSTLayout *mLayout;
 }
 
++ (_Bool)supportsSecureCoding;
 + (Class)archivedHintClass;
 @property(retain, nonatomic) NSNumber *partitioningPass; // @synthesize partitioningPass=mPartitioningPass;
 @property(nonatomic) _Bool horizontal; // @synthesize horizontal=mHorizontal;

@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 + (id)supportedContentTypes;
 + (Class)transformerClass;
 - (void).cxx_destruct;
+- (id)draggableView;
 - (id)parallaxView;
 - (void)transitionWillFinish:(_Bool)arg1 didComplete:(_Bool)arg2;
 - (id)scrollView;
@@ -27,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (void)previewDidDisappear:(_Bool)arg1;
 - (void)previewDidAppear:(_Bool)arg1;
 - (void)previewWillAppear:(_Bool)arg1;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 @end
 

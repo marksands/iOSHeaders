@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFTrack-Protocol.h>
 
 @class NSData, NSDictionary, NSString, NSURL, SFActionItem;
 
-@interface SFTrack : NSObject <SFTrack, NSSecureCoding>
+@interface SFTrack : NSObject <SFTrack, NSSecureCoding, NSCopying>
 {
     CDStruct_62e447a2 _has;
     _Bool _highlighted;
@@ -30,6 +31,7 @@
 @property(copy, nonatomic) NSString *number; // @synthesize number=_number;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

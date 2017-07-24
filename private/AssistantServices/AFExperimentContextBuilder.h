@@ -12,10 +12,10 @@
 {
     AFExperimentContext *_baseObject;
     NSDictionary *_experimentsByConfigurationIdentifier;
-    struct __flags {
+    struct _builderFlags {
         unsigned int isDirty:1;
         unsigned int hasExperimentsByConfigurationIdentifier:1;
-    } __flags;
+    } _builderFlags;
 }
 
 - (void).cxx_destruct;

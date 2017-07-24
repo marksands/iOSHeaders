@@ -86,6 +86,7 @@
 - (unsigned int)enumerateMarkedObjects:(void *)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (unsigned int)enumerateObjectsWithBlock:(CDUnknownBlockType)arg1;
 - (unsigned int)enumerateNodesWithBlock:(CDUnknownBlockType)arg1;
+- (_Bool)validateAddressRange:(struct _VMURange)arg1;
 - (id)classInfoForObjectAtAddress:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned int mallocNodeCount;
 - (void *)contentForNode:(unsigned int)arg1;

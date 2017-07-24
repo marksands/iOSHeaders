@@ -14,16 +14,18 @@
 {
     NSArray *_recurrences;
     _Bool _executeOnce;
-    NSPredicate *_predicate;
+    NSPredicate *_internalPredicate;
     unsigned long long _activationState;
     HMThreadSafeMutableArrayCollection *_currentEvents;
 }
 
++ (_Bool)isActionAffectedByEndEvents:(id)arg1;
 + (_Bool)supportsSecureCoding;
 + (id)createWithDictionary:(id)arg1 home:(id)arg2;
 + (id)_predicateForEvaluatingTriggerWithCharacteristic:(id)arg1 value:(id)arg2 valueFormatString:(id)arg3;
 + (id)predicateForEvaluatingTriggerWithCharacteristic:(id)arg1 relatedBy:(unsigned long long)arg2 toValue:(id)arg3;
 + (id)predicateForEvaluatingTriggerWithCharacteristic:(id)arg1 matchingValue:(id)arg2;
++ (id)predicateForEvaluatingTriggerOccurringBetweenDateWithComponents:(id)arg1 secondDateWithComponents:(id)arg2;
 + (id)predicateForEvaluatingTriggerOccurringAfterDateWithComponents:(id)arg1;
 + (id)predicateForEvaluatingTriggerOccurringOnDateWithComponents:(id)arg1;
 + (id)predicateForEvaluatingTriggerOccurringBeforeDateWithComponents:(id)arg1;
@@ -35,9 +37,12 @@
 + (id)predicateForEvaluatingTriggerOccurringBeforeSignificantEvent:(id)arg1;
 + (id)_predicateForEvaluatingTriggerOccurringBeforeSignificantEvent:(id)arg1 applyingOffset:(id)arg2;
 + (id)predicateForEvaluatingTriggerOccurringBeforeSignificantEvent:(id)arg1 applyingOffset:(id)arg2;
++ (id)negateOffset:(id)arg1;
 + (_Bool)__validateRecurrences:(id)arg1;
 @property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentEvents; // @synthesize currentEvents=_currentEvents;
 - (void).cxx_destruct;
+- (_Bool)compatibleWithApp;
+- (_Bool)containsSharedTriggerActivationBits;
 - (_Bool)_updateCharacterisiticReferenceInNewEvent:(id)arg1;
 - (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
@@ -52,8 +57,6 @@
 - (void)_handleEventTriggerConditionNotification:(id)arg1;
 - (void)_registerNotificationHandlers;
 - (id)_serializeForAdd;
-- (id)_rewritePredicateForClient:(id)arg1;
-- (_Bool)_isPredicateValid;
 - (void)_updateExecuteOnce:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateExecuteOnce:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_updateRecurrences:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -78,7 +81,8 @@
 @property(readonly, nonatomic) _Bool executeOnce; // @synthesize executeOnce=_executeOnce;
 - (void)setRecurrences:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *recurrences; // @synthesize recurrences=_recurrences;
-@property(copy, nonatomic) NSPredicate *predicate; // @synthesize predicate=_predicate;
+@property(copy, nonatomic) NSPredicate *internalPredicate; // @synthesize internalPredicate=_internalPredicate;
+@property(readonly, copy, nonatomic) NSPredicate *predicate;
 @property(readonly, copy, nonatomic) NSArray *allEvents;
 @property(readonly, copy, nonatomic) NSArray *endEvents;
 @property(readonly, copy, nonatomic) NSArray *events;

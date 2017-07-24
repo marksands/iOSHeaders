@@ -7,11 +7,12 @@
 @class NSArray, NSDictionary, NSString;
 
 @protocol PLPhotoAnalysisVisionServiceFaceProcessingProtocol
+- (void)rebuildPersonsWithContext:(NSDictionary *)arg1 reply:(void (^)(_Bool, NSError *))arg2;
 - (void)faceCandidatesforKeyFaceForPersonsWithLocalIdentifiers:(NSArray *)arg1 context:(NSDictionary *)arg2 reply:(void (^)(NSArray *, NSError *))arg3;
 - (void)personPromoterStatusWithContext:(NSDictionary *)arg1 reply:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)faceProcessingStatusForUserInterfaceWithContext:(NSDictionary *)arg1 reply:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)requestSuggestedMePersonIdentifierWithContext:(NSDictionary *)arg1 reply:(void (^)(NSString *, NSError *))arg2;
-- (void)validateClusterCacheWithContext:(NSDictionary *)arg1 reply:(void (^)(_Bool, NSError *))arg2;
+- (void)validateClusterCacheWithContext:(NSDictionary *)arg1 reply:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)faceClusteringInformation:(unsigned long long)arg1 withContext:(NSDictionary *)arg2 reply:(void (^)(NSDictionary *, NSError *))arg3;
 - (void)processPersonsWithContext:(NSDictionary *)arg1 reply:(void (^)(_Bool, NSError *))arg2;
 - (void)reclusterFacesWithContext:(NSDictionary *)arg1 reply:(void (^)(_Bool, NSError *))arg2;

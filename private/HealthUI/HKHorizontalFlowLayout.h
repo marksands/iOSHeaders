@@ -15,6 +15,8 @@
 + (double)snapToBoundariesDecelerationRate;
 @property(nonatomic) _Bool snapsToItemCenters; // @synthesize snapsToItemCenters=_snapsToItemCenters;
 @property(nonatomic) _Bool snapsToItemBoundaries; // @synthesize snapsToItemBoundaries=_snapsToItemBoundaries;
+@property(nonatomic) double trailingInset;
+@property(nonatomic) double leadingInset;
 - (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1 withScrollingVelocity:(struct CGPoint)arg2;
 - (id)init;
 

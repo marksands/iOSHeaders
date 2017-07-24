@@ -24,8 +24,6 @@
 @property(retain) NSURLRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
 - (id)description;
-- (_Bool)getCachedSourceAppInfo;
-- (void)cacheSourceAppInfo;
 - (id)initWithURL:(id)arg1 parentURL:(id)arg2 sourceAppIdentifier:(id)arg3;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

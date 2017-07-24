@@ -7,7 +7,7 @@
 #import <GeoServices/GEORouteAttributes.h>
 
 @interface GEORouteAttributes (MNExtras)
-+ (id)defaultRouteAttributesForNavigation;
++ (id)defaultRouteAttributesForTransportType:(int)arg1;
 - (void)setDestinationInfoForWaypoint:(id)arg1;
 @end
 

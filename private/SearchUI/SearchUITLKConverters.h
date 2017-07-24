@@ -10,5 +10,7 @@
 {
 }
 
++ (long long)colorForSFColor:(int)arg1;
+
 @end
 

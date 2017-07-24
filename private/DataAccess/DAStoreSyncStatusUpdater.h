@@ -19,7 +19,7 @@
 + (void)_updateStatusForSource:(id)arg1 lastSyncStartDate:(id)arg2 lastSyncEndDate:(id)arg3 lastSyncError:(unsigned long long *)arg4;
 + (id)_eventStore;
 + (id)_eventStorePurger;
-+ (void)resetSyncStatusForAllStores;
++ (void)resetSyncStatusForAllStoresIfNecessary;
 + (void)syncEndedForStoreWithExternalID:(id)arg1 withError:(id)arg2;
 + (void)syncStartedForStoreWithExternalID:(id)arg1;
 

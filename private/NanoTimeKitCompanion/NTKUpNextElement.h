@@ -32,6 +32,7 @@
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (_Bool)isNoContentElement;
 - (void)setBundleIdentifier:(id)arg1;
 - (id)bundleIdentifier;
 - (id)description;

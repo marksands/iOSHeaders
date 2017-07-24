@@ -15,8 +15,8 @@
 #import <PassKitUI/PKPerformActionViewControllerDelegate-Protocol.h>
 #import <PassKitUI/UIScrollViewDelegate-Protocol.h>
 
-@class NSArray, NSMutableArray, NSString, NSTimer, PKGroupsController, PKPassGroupStackView, PKPaymentService, _UIBackdropView;
-@protocol NSObject;
+@class NSArray, NSMutableArray, NSString, NSTimer, PKGroupsController, PKPassGroupStackView, PKPaymentService, PKPeerPaymentAccountResolutionController, PKPeerPaymentService, _UIBackdropView;
+@protocol NSObject, PKPassLibraryDataProvider;
 
 @interface PKPassGroupsViewController : UIViewController <PKGroupsControllerDelegate, PKPassGroupStackViewDatasource, PKPassGroupStackViewDelegate, UIScrollViewDelegate, PKPaymentServiceDelegate, PKPaymentSetupDelegate, PKPerformActionViewControllerDelegate, PKPassPersonalizationViewControllerDelegate>
 {
@@ -43,6 +43,9 @@
     CDStruct_6c46ada8 _footerBackgroundVisibility;
     unsigned long long _instanceFooterSuppressionCounter;
     id <NSObject> _expressTransactionNotificationObserver;
+    id <PKPassLibraryDataProvider> _passLibraryDataProvider;
+    PKPeerPaymentAccountResolutionController *_peerPaymentAccountResolutionController;
+    PKPeerPaymentService *_peerPaymentService;
     _Bool _handleFieldDetection;
     _Bool _welcomeStateEnabled;
     unsigned long long _suppressedContent;
@@ -68,6 +71,8 @@
 - (void)_handleChildViewControllerRequestingServiceMode:(id)arg1;
 - (void)_handleExpressNotification:(id)arg1;
 - (void)_registerForExpressTransactionNotifications:(_Bool)arg1;
+- (void)_handlePeerPaymentAccountDidChangeNotification:(id)arg1;
+- (void)_updatePeerPaymentAccount;
 - (id)_paymentPassDetailsViewControllerForPaymentPass:(id)arg1;
 - (id)_passFromGroupsControllerWithUniqueIdentifier:(id)arg1;
 - (void)_updateFooterSuppressionWithContext:(id)arg1;
@@ -144,6 +149,7 @@
 - (id)footerForGroupStackView:(id)arg1;
 - (id)groupStackView:(id)arg1 subheaderForPassType:(unsigned long long)arg2;
 - (id)groupStackView:(id)arg1 headerForPassType:(unsigned long long)arg2;
+- (_Bool)groupStackView:(id)arg1 willHaveHeaderViewForPassType:(unsigned long long)arg2;
 - (_Bool)groupStackView:(id)arg1 requiresHeaderForPassType:(unsigned long long)arg2;
 - (_Bool)groupStackViewShouldShowHeaderViews:(id)arg1;
 - (unsigned long long)indexOfSeparationGroup;

@@ -326,6 +326,7 @@ struct PerformanceTiming {
     _Bool _field76;
     long long _field77;
     long long _field78;
+    _Bool _field79;
 };
 
 struct RedirectionRecorder;
@@ -504,7 +505,7 @@ struct mutex {
 };
 
 struct os_unfair_lock_s {
-    unsigned int _field1;
+    unsigned int _os_unfair_lock_opaque;
 };
 
 struct shared_ptr<HTTPProtocol> {

@@ -25,7 +25,6 @@
 - (void)setPropertiesByName:(id)arg1;
 - (id)propertiesByName;
 - (id)_dictionaryRepresentation;
-@property(readonly, copy) NSString *description;
 @property(copy, nonatomic) NSString *transactionNote;
 @property(copy, nonatomic) INDateComponentsRange *transactionScheduledDate;
 @property(copy, nonatomic) INPaymentAmount *transactionAmount;
@@ -41,6 +40,7 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

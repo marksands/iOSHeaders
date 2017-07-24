@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <AVConference/VCConnectionProtocol-Protocol.h>
 
@@ -41,6 +41,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) NSUUID *connectionUUID;
 @property(readonly) _Bool isRelay;
 @property(readonly) _Bool isVPN;
+@property(readonly) int connectionId;
 @property(readonly) _Bool isIPv6;
 @property(readonly) _Bool isRemoteOnCellular;
 @property(readonly) _Bool isLocalOnCellular;

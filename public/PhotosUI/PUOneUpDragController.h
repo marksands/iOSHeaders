@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) _UIDraggingSession *_dragSession; // @synthesize _dragSession=__dragSession;
 @property(nonatomic) __weak id <PUOneUpDragControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (struct CGRect)targetFrameOfDraggingItem:(id)arg1 inCoordinateSpace:(id)arg2;
+- (struct CGRect)_targetFrameOfDraggingItem:(id)arg1 inCoordinateSpace:(id)arg2;
 - (void)draggingSessionDidEnd:(id)arg1 withOperation:(unsigned long long)arg2;
 - (void)draggingSessionWillEnd:(id)arg1 withOperation:(unsigned long long)arg2;
 - (void)draggingSessionDidMove:(id)arg1;

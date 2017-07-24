@@ -12,7 +12,7 @@
 #import <Navigation/MNSuggestionsManagerObserver-Protocol.h>
 #import <Navigation/MNVehicleDetectorObserver-Protocol.h>
 
-@class MNCommuteSession, MNMapsAppStateMonitor, MNNavigationState, MNObserverHashTable, MNResourceManager, MNSuggestionsManager, NSString;
+@class GEOApplicationAuditToken, MNCommuteSession, MNMapsAppStateMonitor, MNNavigationState, MNObserverHashTable, MNResourceManager, MNSuggestionsManager, NSString;
 @protocol MNNavigationSessionManagerDelegate;
 
 __attribute__((visibility("hidden")))
@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     MNCommuteSession *_commuteSession;
     MNResourceManager *_resourceManager;
     MNObserverHashTable *_navigationStateObservers;
+    GEOApplicationAuditToken *_auditToken;
     id <MNNavigationSessionManagerDelegate> _navigationDelegate;
 }
 
@@ -33,6 +34,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) MNNavigationState *currentState; // @synthesize currentState=_currentState;
 @property(readonly, nonatomic) _Bool isStarted; // @synthesize isStarted=_isStarted;
 @property(nonatomic) __weak id <MNNavigationSessionManagerDelegate> navigationDelegate; // @synthesize navigationDelegate=_navigationDelegate;
+@property(readonly, nonatomic) GEOApplicationAuditToken *auditToken; // @synthesize auditToken=_auditToken;
 - (void).cxx_destruct;
 - (void)interfaceHashesWithHandler:(CDUnknownBlockType)arg1;
 - (void)recordTraceBookmarkAtCurrentPositionWthScreenshotData:(id)arg1;

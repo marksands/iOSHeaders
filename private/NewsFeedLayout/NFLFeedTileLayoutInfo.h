@@ -8,17 +8,17 @@
 
 #import <NewsFeedLayout/NSCopying-Protocol.h>
 
-@class NFLHeadlineCollectionViewLayoutAttributes;
+@class NFLFeedCollectionViewLayoutAttributes;
 @protocol NFLFeedTileInfo;
 
 @interface NFLFeedTileLayoutInfo : NSObject <NSCopying>
 {
     NSObject<NFLFeedTileInfo> *_tileInfo;
-    NFLHeadlineCollectionViewLayoutAttributes *_layoutAttributes;
+    NFLFeedCollectionViewLayoutAttributes *_layoutAttributes;
 }
 
-+ (id)nfl_layoutInfoWithTileInfo:(id)arg1 forLayoutData:(id)arg2 atRowOrigin:(long long)arg3 columnOrigin:(long long)arg4 subBatchRowOffset:(long long)arg5 feedSettings:(id)arg6;
-@property(copy, nonatomic) NFLHeadlineCollectionViewLayoutAttributes *layoutAttributes; // @synthesize layoutAttributes=_layoutAttributes;
++ (id)nfl_layoutInfoWithTileInfo:(id)arg1 forLayoutAttributes:(id)arg2 atRowOrigin:(long long)arg3 columnOrigin:(long long)arg4 subBatchRowOffset:(long long)arg5 feedSettings:(id)arg6;
+@property(copy, nonatomic) NFLFeedCollectionViewLayoutAttributes *layoutAttributes; // @synthesize layoutAttributes=_layoutAttributes;
 @property(copy, nonatomic) NSObject<NFLFeedTileInfo> *tileInfo; // @synthesize tileInfo=_tileInfo;
 - (void).cxx_destruct;
 - (id)description;

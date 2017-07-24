@@ -25,12 +25,14 @@
     _Bool suspendedEventsOnly;
     _Bool runningInTaskSwitcher;
     _Bool suspendedUnderLock;
+    _Bool respondingToLifecycleEvent;
     long long state;
     FBSSceneSettings *_oldSettings;
     id <_UICanvasDelegate> _delegate;
     FBSScene *_scene;
 }
 
++ (void)_enumerateAllWindowsIncludingInternalWindows:(_Bool)arg1 onlyVisibleWindows:(_Bool)arg2 asCopy:(_Bool)arg3 withBlock:(CDUnknownBlockType)arg4;
 + (void)_updateVisibleCanvasAndWindowOrderWithTest:(CDUnknownBlockType)arg1;
 + (id)_canvasForScene:(id)arg1 create:(_Bool)arg2;
 + (id)_keyboardCanvasForScreen:(id)arg1;
@@ -45,6 +47,7 @@
 @property(readonly, nonatomic) FBSScene *scene; // @synthesize scene=_scene;
 @property(retain, nonatomic) id <_UICanvasDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic, getter=_oldSettings) FBSSceneSettings *oldSettings; // @synthesize oldSettings=_oldSettings;
+@property(nonatomic, getter=_isRespondingToLifecycleEvent, setter=_setIsRespondingToLifecycleEvent:) _Bool respondingToLifecycleEvent; // @synthesize respondingToLifecycleEvent;
 @property(nonatomic, getter=_suspendedUnderLock, setter=_setSuspendedUnderLock:) _Bool suspendedUnderLock; // @synthesize suspendedUnderLock;
 @property(nonatomic, getter=_runningInTaskSwitcher, setter=_setRunningInTaskSwitcher:) _Bool runningInTaskSwitcher; // @synthesize runningInTaskSwitcher;
 @property(nonatomic, getter=_suspendedEventsOnly, setter=_setSuspendedEventsOnly:) _Bool suspendedEventsOnly; // @synthesize suspendedEventsOnly;
@@ -57,8 +60,11 @@
 - (struct CGRect)_referenceBoundsForOrientation:(long long)arg1;
 - (struct CGRect)_referenceBounds;
 - (void)_computeMetrics:(_Bool)arg1;
+- (void)_windowUpdatedProperties:(id)arg1;
 - (void)_windowUpdatedVisibility:(id)arg1;
 - (void)_updateVisibleWindowOrderWithTest:(CDUnknownBlockType)arg1;
+- (void)_enumerateWindowsIncludingInternalWindows:(_Bool)arg1 onlyVisibleWindows:(_Bool)arg2 asCopy:(_Bool)arg3 stopped:(_Bool *)arg4 withBlock:(CDUnknownBlockType)arg5;
+- (void)_enumerateWindowsIncludingInternalWindows:(_Bool)arg1 onlyVisibleWindows:(_Bool)arg2 asCopy:(_Bool)arg3 withBlock:(CDUnknownBlockType)arg4;
 - (id)allWindowsIncludingInternalWindows:(_Bool)arg1 onlyVisibleWindows:(_Bool)arg2;
 @property(readonly, nonatomic) NSArray *_allWindows;
 - (id)initWithScene:(id)arg1;
@@ -95,7 +101,6 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
-@property(nonatomic, getter=_isRespondingToLifecycleEvent, setter=_setIsRespondingToLifecycleEvent:) _Bool respondingToLifecycleEvent;
 @property(readonly) Class superclass;
 
 @end

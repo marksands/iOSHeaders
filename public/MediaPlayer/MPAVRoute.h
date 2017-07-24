@@ -19,6 +19,7 @@
     _Bool _playingOnPairedDevice;
     _Bool _requiresPassword;
     _Bool _carplayRoute;
+    _Bool _b238Route;
     NSString *_routeUID;
     NSString *_productIdentifier;
     long long _routeType;
@@ -32,6 +33,7 @@
 
 @property(readonly, nonatomic) MPAVRouteConnection *connection; // @synthesize connection=_connection;
 @property(readonly, nonatomic, getter=_externalDevice) void *externalDevice; // @synthesize externalDevice=_externalDevice;
+@property(readonly, nonatomic, getter=isB238Route) _Bool b238Route; // @synthesize b238Route=_b238Route;
 @property(readonly, nonatomic, getter=isCarplayRoute) _Bool carplayRoute; // @synthesize carplayRoute=_carplayRoute;
 @property(readonly, nonatomic) _Bool requiresPassword; // @synthesize requiresPassword=_requiresPassword;
 @property(readonly, nonatomic, getter=isPlayingOnPairedDevice) _Bool playingOnPairedDevice; // @synthesize playingOnPairedDevice=_playingOnPairedDevice;

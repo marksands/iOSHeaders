@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)conditionallyBeginAccessingResourcesWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) NSBundle *bundle;
 @property(readonly) NSProgress *progress;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithTags:(id)arg1 preinstalledTags:(id)arg2 bundle:(id)arg3;
 - (id)initWithTags:(id)arg1 bundle:(id)arg2;
@@ -42,7 +43,6 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

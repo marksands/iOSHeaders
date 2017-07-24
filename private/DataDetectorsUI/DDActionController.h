@@ -39,7 +39,6 @@ __attribute__((visibility("hidden")))
 - (void)failedToPrepareViewControllerForAction:(id)arg1;
 - (void)action:(id)arg1 becameCancellable:(_Bool)arg2;
 - (void)action:(id)arg1 viewControllerReady:(id)arg2;
-- (void)requireDeviceUnlock:(_Bool)arg1 andPerformBlock:(CDUnknownBlockType)arg2;
 - (void)performAction:(id)arg1;
 - (void)_dismissCurrentViewControllerOurselves;
 - (void)_presentCurrentViewControllerOurselves;

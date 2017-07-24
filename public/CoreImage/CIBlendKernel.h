@@ -10,6 +10,8 @@
 {
 }
 
++ (id)kernelWithString:(id)arg1 extentType:(int)arg2;
++ (id)kernelWithString:(id)arg1;
 + (id)plusLighter;
 + (id)plusDarker;
 + (id)lighterColor;
@@ -53,7 +55,8 @@
 + (id)componentMin;
 + (id)componentMultiply;
 + (id)componentAdd;
-+ (id)kernelWithString:(id)arg1;
+- (id)applyWithForeground:(id)arg1 background:(id)arg2;
+- (id)initWithString:(id)arg1 extentType:(int)arg2;
 - (id)initWithString:(id)arg1;
 
 @end

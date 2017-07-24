@@ -6,18 +6,19 @@
 
 #import <PassKitUI/PKPassFooterContentView.h>
 
-#import <PassKitUI/PKPeerPaymentAccountStateControllerDelegate-Protocol.h>
+#import <PassKitUI/PKPeerPaymentAccountResolutionControllerDelegate-Protocol.h>
 
-@class NSString, PKContinuousButton, PKPeerPaymentAccountStateController, UIActivityIndicatorView, UILabel, UIView;
+@class NSString, PKContinuousButton, PKPeerPaymentAccountResolutionController, UIActivityIndicatorView, UILabel, UIView;
 
-@interface PKPassFooterPeerPaymentAccountStateView : PKPassFooterContentView <PKPeerPaymentAccountStateControllerDelegate>
+@interface PKPassFooterPeerPaymentAccountStateView : PKPassFooterContentView <PKPeerPaymentAccountResolutionControllerDelegate>
 {
     UILabel *_titleLabel;
     UILabel *_bodyLabel;
     PKContinuousButton *_button;
     UIActivityIndicatorView *_activityIndicator;
     UIView *_bottomRule;
-    PKPeerPaymentAccountStateController *_controller;
+    PKPeerPaymentAccountResolutionController *_peerPaymentAccountResolutionController;
+    unsigned long long _peerPaymentAccounResolution;
 }
 
 - (void).cxx_destruct;
@@ -31,7 +32,8 @@
 - (id)_bodyText;
 - (id)_titleText;
 - (void)layoutSubviews;
-- (void)presentAccountStateViewController:(id)arg1 animated:(_Bool)arg2;
+- (void)peerPaymentAccountResolutionController:(id)arg1 requestsDismissCurrentViewControllerAnimated:(_Bool)arg2;
+- (void)peerPaymentAccountResolutionController:(id)arg1 requestsPresentViewController:(id)arg2 animated:(_Bool)arg3;
 - (id)initWithStyle:(long long)arg1 pass:(id)arg2;
 
 // Remaining properties

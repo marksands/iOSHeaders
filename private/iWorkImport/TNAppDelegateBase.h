@@ -17,7 +17,6 @@ __attribute__((visibility("hidden")))
 - (id)cloudKitContainerIdentifier;
 - (void)p_inputMethodsChanged:(id)arg1;
 - (_Bool)supportsRTL;
-- (id)resourcePreinstalledTags;
 - (id)stringForCouldntCreatePDFTitle;
 - (id)stringForCloseDocumentConfirmationWillContinueToUpdateInformativeText;
 - (id)stringForCloseDocumentConfirmationAlertMessage;
@@ -62,7 +61,6 @@ __attribute__((visibility("hidden")))
 - (id)templateSFFDocumentType;
 - (id)templateDocumentType;
 - (id)nativeDocumentType;
-- (id)image32IconForTXTFiles;
 - (id)previewImageNameForEncryptedNativeDocument;
 - (id)previewImageNameForNativeDocument;
 - (id)universalPreviewImageNameForDocumentType:(id)arg1;

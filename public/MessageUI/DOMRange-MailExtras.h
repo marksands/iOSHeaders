@@ -11,6 +11,6 @@
 - (id)mf_lastNode;
 - (id)mf_firstNode;
 - (void)mf_hoistRange;
-- (id)mf_attachmentURLs;
+- (id)mf_fileAttachments;
 @end
 

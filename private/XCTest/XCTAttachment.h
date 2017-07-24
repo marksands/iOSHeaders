@@ -15,6 +15,7 @@
     id _internalImplementation;
 }
 
++ (id)attachmentWithXCTImage:(id)arg1 quality:(long long)arg2;
 + (id)_attachmentWithUniformTypeIdentifier:(id)arg1 name:(id)arg2 serializationBlock:(CDUnknownBlockType)arg3;
 + (id)attachmentWithUniformTypeIdentifier:(id)arg1 name:(id)arg2 payload:(id)arg3 userInfo:(id)arg4;
 + (_Bool)supportsSecureCoding;
@@ -22,6 +23,10 @@
 + (long long)userAttachmentLifetime;
 + (void)setSystemAttachmentLifetime:(long long)arg1;
 + (long long)systemAttachmentLifetime;
++ (id)attachmentWithScreenshot:(id)arg1 quality:(long long)arg2;
++ (id)attachmentWithScreenshot:(id)arg1;
++ (id)attachmentWithImage:(id)arg1 quality:(long long)arg2;
++ (id)attachmentWithImage:(id)arg1;
 + (id)attachmentWithContentsOfFileAtURL:(id)arg1;
 + (id)attachmentWithContentsOfFileAtURL:(id)arg1 uniformTypeIdentifier:(id)arg2;
 + (id)_attachmentWithContentsOfFileAtURL:(id)arg1 uniformTypeIdentifier:(id)arg2;
@@ -34,6 +39,7 @@
 + (id)attachmentWithData:(id)arg1 uniformTypeIdentifier:(id)arg2;
 + (id)_attachmentWithData:(id)arg1 uniformTypeIdentifier:(id)arg2;
 @property(readonly) _XCTAttachmentImplementation *internalImplementation; // @synthesize internalImplementation=_internalImplementation;
+- (id)debugQuickLookObject;
 - (void)makeSystem;
 - (id)debugDescription;
 - (void)_writeToUserInfoWithBlock:(CDUnknownBlockType)arg1;

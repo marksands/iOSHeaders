@@ -8,10 +8,11 @@
 
 #import <PhotosGraph/PGGraphMeaningEdge-Protocol.h>
 #import <PhotosGraph/PGGraphPOIEdge-Protocol.h>
+#import <PhotosGraph/PGGraphPresentEdge-Protocol.h>
 
 @class NSString;
 
-@interface PGGraphEdge : MAEdge <PGGraphMeaningEdge, PGGraphPOIEdge>
+@interface PGGraphEdge : MAEdge <PGGraphMeaningEdge, PGGraphPOIEdge, PGGraphPresentEdge>
 {
 }
 
@@ -19,8 +20,9 @@
 - (id)name;
 @property(readonly, nonatomic) NSString *meaningLabel;
 @property(readonly, nonatomic) _Bool isReliable;
-@property(readonly, nonatomic) double reliabilityScore;
+- (_Bool)poiIsSpecial;
 - (_Bool)poiIsImproved;
+@property(readonly, nonatomic) unsigned long long numberOfAssets;
 - (struct CLLocationCoordinate2D)photoCoordinate;
 - (double)timestampUTCStart;
 

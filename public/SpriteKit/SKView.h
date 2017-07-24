@@ -140,6 +140,8 @@
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)_endFrameStats;
+- (void)set_renderUpdateEnabled:(_Bool)arg1;
+- (_Bool)_renderUpdateEnabled;
 - (void)stopRenderCallbacks;
 - (void)startRenderCallbacks;
 - (void)setUpRenderCallback;

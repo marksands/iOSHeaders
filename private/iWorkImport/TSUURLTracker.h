@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSURL, TSUURLTrackerFilePresenter;
+@class NSData, NSURL, TSUURLTrackerFilePresenter;
 
 __attribute__((visibility("hidden")))
 @interface TSUURLTracker : NSObject
@@ -16,11 +16,18 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (id)description;
-@property(readonly, copy) NSURL *URL;
 - (void)stop;
-- (void)start;
+- (void)resume;
+- (void)pause;
+@property(readonly) NSData *bookmarkData;
+- (id)URLWithError:(id *)arg1;
+@property(readonly) NSURL *URL;
 - (void)dealloc;
+- (id)initWithBookmarkData:(id)arg1 delegate:(id)arg2;
+- (id)initWithBookmarkData:(id)arg1;
+- (id)initWithURL:(id)arg1 delegate:(id)arg2;
 - (id)initWithURL:(id)arg1;
+- (id)initWithURL:(id)arg1 bookmarkData:(id)arg2 delegate:(id)arg3;
 - (id)init;
 
 @end

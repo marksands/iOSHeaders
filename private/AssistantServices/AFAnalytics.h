@@ -31,6 +31,7 @@
 - (void)logEventWithType:(long long)arg1 machAbsoluteTime:(unsigned long long)arg2 context:(id)arg3;
 - (id)_init;
 - (id)init;
+- (void)logClientFeedbackPresented:(id)arg1;
 
 @end
 

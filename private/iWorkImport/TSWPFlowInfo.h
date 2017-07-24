@@ -23,6 +23,11 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)needsObjectUUID;
++ (id)strokeColorForUserInterfaceIdentifier:(unsigned long long)arg1;
++ (id)fillColorForUserInterfaceIdentifier:(unsigned long long)arg1;
++ (id)p_darkColorForIndex:(unsigned long long)arg1;
++ (id)p_darkColorForColor:(id)arg1;
++ (id)p_colorForIndex:(unsigned long long)arg1;
 @property(nonatomic) unsigned long long userInterfaceIdentifier; // @synthesize userInterfaceIdentifier=_userInterfaceIdentifier;
 @property(retain, nonatomic) NSArray *textboxes; // @synthesize textboxes=_textboxes;
 @property(retain, nonatomic) TSWPStorage *textStorage; // @synthesize textStorage=_textStorage;
@@ -61,6 +66,7 @@ __attribute__((visibility("hidden")))
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)willBeAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
+- (id)displayNameOfMaxLength:(unsigned long long)arg1 usesEllipsis:(_Bool)arg2;
 - (unsigned long long)indexOfTextBox:(id)arg1;
 @property(readonly, nonatomic) TSUColor *userInterfaceStrokeColor;
 @property(readonly, nonatomic) TSUColor *userInterfaceFillColor;

@@ -18,6 +18,7 @@
     unsigned long long _algorithm;
     double _initialScore;
     double _decayRate;
+    _Bool _isLocal;
     NSString *_extractionOsBuild;
     unsigned long long _extractionAssetVersion;
 }
@@ -25,6 +26,7 @@
 + (id)describeAlgorithm:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long extractionAssetVersion; // @synthesize extractionAssetVersion=_extractionAssetVersion;
 @property(readonly, nonatomic) NSString *extractionOsBuild; // @synthesize extractionOsBuild=_extractionOsBuild;
+@property(readonly, nonatomic) _Bool isLocal; // @synthesize isLocal=_isLocal;
 @property(readonly, nonatomic) double decayRate; // @synthesize decayRate=_decayRate;
 @property(readonly, nonatomic) double initialScore; // @synthesize initialScore=_initialScore;
 @property(readonly, nonatomic) unsigned long long algorithm; // @synthesize algorithm=_algorithm;

@@ -22,11 +22,12 @@
 }
 
 + (Class)logMsgEventType;
++ (id)allowedSessionTypes;
++ (_Bool)supportsCohortSessionForLogMsgEvent:(id)arg1;
 + (id)logMessagesForEvent:(id)arg1;
 + (_Bool)logMessageType:(int)arg1 acceptsLogMsgEventType:(int)arg2;
 + (id)acceptedLogMsgEventsForLogMessageType:(int)arg1;
 + (id)acceptedLogMsgEvents;
-+ (void)initializeAcceptedLogMsgEventTypes;
 @property(retain, nonatomic) NSMutableArray *logMsgEvents; // @synthesize logMsgEvents=_logMsgEvents;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
@@ -48,12 +49,17 @@
 - (void)clearLogMsgEvents;
 @property(nonatomic) _Bool hasGroupRetryCount;
 @property(nonatomic) unsigned int groupRetryCount;
+- (_Bool)isFullExperimentsStateAllowed;
+- (_Bool)isFullCarPlayStateAllowed;
+- (_Bool)isNavigationSessionAllowed;
+- (_Bool)isStateAllowed:(id)arg1;
+- (unsigned long long)allowedSessionType;
 - (unsigned int)groupItemIdHash;
 - (long long)groupItemQueuedTime;
 - (unsigned int)groupItemCount;
 - (unsigned int)groupSequenceNumber;
 - (id)groupIdentifier;
-- (_Bool)acceptsLogMsgEventType:(int)arg1;
+- (_Bool)acceptsLogMsgEvent:(id)arg1;
 
 @end
 

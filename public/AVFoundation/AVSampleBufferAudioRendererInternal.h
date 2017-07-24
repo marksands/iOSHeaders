@@ -12,9 +12,10 @@
 {
     NSString *audioOutputDeviceUniqueID;
     NSString *audioTimePitchAlgorithm;
-    _Bool hasEnqueuedSamples;
-    _Bool isRequestingMediaData;
-    AVMediaDataRequester *mediaDataRequester;
+    struct {
+        struct OpaqueFigSimpleMutex *mutex;
+        AVMediaDataRequester *requester;
+    } mediaDataRequester;
     float rate;
     float volume;
     _Bool muted;

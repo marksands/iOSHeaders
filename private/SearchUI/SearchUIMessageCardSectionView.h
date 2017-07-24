@@ -4,22 +4,22 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeSectionView.h>
+#import <SearchUI/SearchUICardSectionView.h>
 
 @class TLKMessageView;
 
-@interface SearchUIMessageCardSectionView : SearchUILayoutFreeSectionView
+@interface SearchUIMessageCardSectionView : SearchUICardSectionView
 {
-    TLKMessageView *_messageView;
 }
 
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
-@property(retain) TLKMessageView *messageView; // @synthesize messageView=_messageView;
-- (void).cxx_destruct;
 - (void)updateWithCardSection:(id)arg1;
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
 - (unsigned long long *)messageStatusForSearchUIMessageStatus:(int)arg1;
 - (unsigned long long *)messageServiceTypeForSearchUIMessageServiceType:(int)arg1;
+- (id)setupContentView;
+
+// Remaining properties
+@property(retain) TLKMessageView *contentView; // @dynamic contentView;
 
 @end
 

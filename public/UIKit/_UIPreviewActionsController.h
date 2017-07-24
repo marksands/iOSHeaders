@@ -91,6 +91,7 @@
 - (id)_makeAndAddToViewHierarchyPreviewActionSheetForMenuItems:(id)arg1;
 - (double)_platterOffsetDistance;
 - (void)_hideChrome;
+@property(readonly, nonatomic) struct CGRect frameForActionView;
 - (void)dismissPreviewActionsWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)platterPanned;
 - (void)endPanningAtLocation:(struct CGPoint)arg1;

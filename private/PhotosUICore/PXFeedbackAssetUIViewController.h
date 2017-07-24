@@ -36,8 +36,7 @@
 - (void)_startAutoLoopVideoTaskForDiagnosticsWithAsset:(id)arg1;
 - (void)continueFiling;
 - (void)_fileRadarWithAutoLoopAsset:(id)arg1 positiveFeedback:(id)arg2 negativeFeedback:(id)arg3;
-- (_Bool)persistViewControllerAfterFeedback;
-- (void)userSentPositiveFeedback:(id)arg1 negativeFeedback:(id)arg2;
+- (void)userSentPositiveFeedback:(id)arg1 negativeFeedback:(id)arg2 customFeedback:(id)arg3;
 - (void)userIndicatedDislike;
 - (void)userIndicatedLike;
 - (id)negativeFeedbackKeys;

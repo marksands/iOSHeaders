@@ -12,13 +12,13 @@
 {
     _Bool _completed;
     NSString *_relatedUniqueIdentifier;
-    unsigned long long _buddyScore;
     NSString *_itemIdentifier;
     NSDate *_interestingDate;
     NSString *_domainIdentifier;
     long long _incomingCount;
     long long _outgoingCount;
     NSString *_relatedBundleID;
+    struct ranking_index_score_t _buddyScore;
 }
 
 @property(retain) NSString *relatedBundleID; // @synthesize relatedBundleID=_relatedBundleID;
@@ -28,9 +28,10 @@
 @property _Bool completed; // @synthesize completed=_completed;
 @property(retain) NSDate *interestingDate; // @synthesize interestingDate=_interestingDate;
 @property(retain) NSString *itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
-@property unsigned long long buddyScore; // @synthesize buddyScore=_buddyScore;
+@property struct ranking_index_score_t buddyScore; // @synthesize buddyScore=_buddyScore;
 @property(retain) NSString *relatedUniqueIdentifier; // @synthesize relatedUniqueIdentifier=_relatedUniqueIdentifier;
 - (void).cxx_destruct;
+- (id)description;
 - (Class)classForCoder;
 - (_Bool)hasDetail;
 @property(retain) NSArray *compatibilityDescriptions;

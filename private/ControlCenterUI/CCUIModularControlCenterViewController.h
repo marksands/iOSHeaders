@@ -30,6 +30,7 @@
 @property(nonatomic) __weak id <CCUIModularControlCenterViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_reparentCollectionViewController;
+- (struct CGRect)_moduleCollectionViewFrame;
 - (id)_safeModuleCollectionViewContainerView;
 - (id)_moduleCollectionViewContainerView;
 - (id)_safeStatusLabelViewContainerView;
@@ -37,6 +38,7 @@
 - (long long)_interfaceOrientation;
 - (void)moduleInstancesChangedForModuleInstanceManager:(id)arg1;
 - (void)dismissExpandedViewForContentModuleContext:(id)arg1;
+- (void)requestExpandModuleForContentModuleContext:(id)arg1;
 - (void)contentModuleContext:(id)arg1 enqueueStatusUpdate:(id)arg2;
 - (void)moduleCollectionViewController:(id)arg1 willRemoveModuleContainerViewController:(id)arg2;
 - (void)moduleCollectionViewController:(id)arg1 didAddModuleContainerViewController:(id)arg2;
@@ -47,13 +49,18 @@
 - (void)moduleCollectionViewController:(id)arg1 didFinishInteractionWithModule:(id)arg2;
 - (void)moduleCollectionViewController:(id)arg1 didBeginInteractionWithModule:(id)arg2;
 - (long long)interfaceOrientationForModuleCollectionViewController:(id)arg1;
+- (_Bool)moduleCollectionViewController:(id)arg1 shouldForwardAppearanceCall:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)viewWillLayoutSubviews;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (struct CGSize)preferredContentSize;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)_resignActive;
 - (void)_reparentAndBecomeActive;
+- (void)dismissPresentedContentWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)dismissPresentedContent;
+- (void)expandModuleWithIdentifier:(id)arg1;
 - (_Bool)canDismissPresentedContent;
 @property(readonly, nonatomic) CCUIModuleCollectionViewController *moduleCollectionViewController; // @dynamic moduleCollectionViewController;
 @property(readonly, nonatomic) struct UIEdgeInsets edgeInsets; // @dynamic edgeInsets;

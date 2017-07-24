@@ -30,6 +30,7 @@
     NSArray *_sections;
 }
 
++ (void)initialize;
 @property(readonly, nonatomic) int unsafeState; // @synthesize unsafeState=_unsafeState;
 @property(nonatomic) _Bool live; // @synthesize live=_live;
 @property(nonatomic) _Bool finished; // @synthesize finished=_finished;
@@ -47,6 +48,7 @@
 - (id)unsafeCombinedSuggestions;
 - (_Bool)_shouldPromptUserToOpenTTR;
 - (void)updateResultsThroughDelegate:(_Bool)arg1 state:(int)arg2 sections:(id)arg3;
+- (_Bool)readyToUpdate;
 - (void)pushAndPostUpdates;
 - (void)postSearchAgentUpdatedResultsToDelegate:(id)arg1;
 - (void)disableUpdates;

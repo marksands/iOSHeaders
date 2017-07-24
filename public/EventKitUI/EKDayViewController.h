@@ -141,11 +141,14 @@
 - (void)externallyEndedGestureDragging;
 - (_Bool)didScrollWhenEventGestureController:(id)arg1 scrollTimerFiredToMoveLeft:(_Bool)arg2 right:(_Bool)arg3 vertically:(_Bool)arg4 towardPoint:(struct CGPoint)arg5;
 - (void)eventGestureController:(id)arg1 didSingleTapOccurrence:(id)arg2;
+- (void)eventGestureControllerDidEndDragSession:(id)arg1;
 - (void)eventGestureController:(id)arg1 didCancelEditingOccurrence:(id)arg2 fadedOut:(_Bool)arg3;
 - (_Bool)eventGestureController:(id)arg1 didCommitOccurrence:(id)arg2 toDate:(double)arg3 isAllDay:(_Bool)arg4 span:(long long)arg5;
 - (void)eventGestureController:(id)arg1 didMoveToDate:(double)arg2 isAllDay:(_Bool)arg3;
 - (void)eventGestureController:(id)arg1 didSetUpAtDate:(double)arg2 isAllDay:(_Bool)arg3;
 - (_Bool)eventGestureControllerShouldAllowLongPress:(id)arg1;
+- (void)eventGestureController:(id)arg1 requestsShowEvent:(id)arg2;
+- (void)eventGestureController:(id)arg1 requestsPresentationOfViewController:(id)arg2;
 - (id)currentPresentationController;
 - (double)timedRegionOriginForEventGestureController:(id)arg1;
 - (double)eventGestureController:(id)arg1 heightForOccurrenceViewOfDuration:(double)arg2 allDay:(_Bool)arg3;

@@ -239,6 +239,7 @@
 - (void)_setAsideSubviews;
 - (void)_frameOrBoundsChanged;
 - (void)mouseMoved:(id)arg1;
+- (_Bool)_web_isDrawingIntoAcceleratedLayer;
 - (_Bool)_web_isDrawingIntoLayer;
 - (void)detachRootLayer;
 - (void)attachRootLayer:(id)arg1;

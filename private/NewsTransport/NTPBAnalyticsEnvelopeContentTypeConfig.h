@@ -12,6 +12,7 @@
 
 @interface NTPBAnalyticsEnvelopeContentTypeConfig : PBCodable <NSCopying>
 {
+    unsigned long long _groupingTag;
     unsigned long long _seedTime;
     NSString *_contentHeaderName;
     NSString *_contentHeaderValue;
@@ -19,12 +20,14 @@
     unsigned int _samplingCeiling;
     unsigned int _samplingFloor;
     struct {
+        unsigned int groupingTag:1;
         unsigned int seedTime:1;
         unsigned int samplingCeiling:1;
         unsigned int samplingFloor:1;
     } _has;
 }
 
+@property(nonatomic) unsigned long long groupingTag; // @synthesize groupingTag=_groupingTag;
 @property(nonatomic) unsigned int samplingCeiling; // @synthesize samplingCeiling=_samplingCeiling;
 @property(nonatomic) unsigned int samplingFloor; // @synthesize samplingFloor=_samplingFloor;
 @property(retain, nonatomic) NSString *contentHeaderValue; // @synthesize contentHeaderValue=_contentHeaderValue;
@@ -39,6 +42,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasGroupingTag;
 @property(nonatomic) _Bool hasSamplingCeiling;
 @property(nonatomic) _Bool hasSamplingFloor;
 @property(readonly, nonatomic) _Bool hasContentHeaderValue;

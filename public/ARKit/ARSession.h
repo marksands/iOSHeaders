@@ -9,23 +9,26 @@
 #import <ARKit/ARSensorDelegate-Protocol.h>
 #import <ARKit/ARTechniqueDelegate-Protocol.h>
 
-@class ARFrame, ARSessionConfiguration, ARTechnique, CMMotionManager, NSArray, NSHashTable, NSMutableSet, NSString;
+@class ARFrame, ARSessionConfiguration, ARSessionMetrics, ARTechnique, ARWorldTrackingTechnique, CMMotionManager, NSArray, NSHashTable, NSMutableSet, NSString;
 @protocol ARSessionDelegate, OS_dispatch_queue, OS_dispatch_semaphore;
 
 @interface ARSession : NSObject <ARSensorDelegate, ARTechniqueDelegate>
 {
     ARTechnique *_technique;
+    ARWorldTrackingTechnique *_worldTrackingTechnique;
     ARFrame *_lastProcessedFrame;
     NSObject<OS_dispatch_semaphore> *_lastProcessedFrameSemaphore;
     NSObject<OS_dispatch_queue> *_stateQueue;
     NSMutableSet *_anchorsToAdd;
     NSMutableSet *_anchorsToRemove;
     _Bool _sessionOriginUpdated;
+    _Bool _worldOriginInitialized;
     NSHashTable *_observers;
     NSObject<OS_dispatch_semaphore> *_observersSemaphore;
     id _thermalStateObserver;
     long long _thermalState;
     CMMotionManager *_motionManger;
+    ARSessionMetrics *_metrics;
     id <ARSessionDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_delegateQueue;
     unsigned long long _state;
@@ -65,7 +68,7 @@
 - (id)_imageSensorForConfiguration:(id)arg1 existingSensor:(id)arg2;
 - (void)_updateSensorsWithConfiguration:(id)arg1;
 - (void)_replaceOrAddSensor:(id)arg1;
-- (void)_updateAnchorsForFrame:(id)arg1 resultDatas:(id)arg2 addedAnchors:(id)arg3 updatedAnchors:(id)arg4 removedAnchors:(id)arg5 worldOriginUpdated:(_Bool)arg6;
+- (void)_updateAnchorsForFrame:(id)arg1 resultDatas:(id)arg2 addedAnchors:(id)arg3 updatedAnchors:(id)arg4 removedAnchors:(id)arg5 worldOriginUpdated:(_Bool)arg6 reinitializeExistingAnchors:(_Bool)arg7;
 - (void)technique:(id)arg1 didFailWithError:(id)arg2;
 - (void)technique:(id)arg1 didOutputResultData:(id)arg2 timestamp:(double)arg3 context:(id)arg4;
 - (void)_updateSessionStateWithConfiguration:(id)arg1 options:(unsigned long long)arg2;

@@ -17,10 +17,8 @@
     NSData *faceObservationsData;
     NSIndexSet *indexesOfShallowDepthOfFieldObservations;
     struct CGRect focusRectangle;
-    _Bool disparityNormalized;
 }
 
-@property(nonatomic) _Bool disparityNormalized; // @synthesize disparityNormalized;
 @property(nonatomic) struct CGRect focusRectangle; // @synthesize focusRectangle;
 @property(retain, nonatomic) NSIndexSet *indexesOfShallowDepthOfFieldObservations; // @synthesize indexesOfShallowDepthOfFieldObservations;
 @property(retain, nonatomic) NSData *faceObservationsData; // @synthesize faceObservationsData;

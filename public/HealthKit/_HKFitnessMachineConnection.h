@@ -45,6 +45,7 @@
 - (void)clientRemote_deliverMachineInformationUpdated:(id)arg1;
 - (void)clientRemote_deliverDetectedNFC:(id)arg1;
 - (id)currentSessionConfiguration;
+- (void)endWithFitnessMachineSessionUUID:(id)arg1;
 - (void)end;
 - (void)_registerClient;
 - (void)markClientReady;

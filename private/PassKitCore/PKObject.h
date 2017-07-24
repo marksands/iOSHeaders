@@ -13,7 +13,7 @@
 
 @interface PKObject : NSObject <NSCopying, NSSecureCoding>
 {
-    PKImageSet *_imageSets[6];
+    PKImageSet *_imageSets[7];
     NSLock *_imageSetLock;
     _Bool _initializedViaInitWithCoder;
     PKContent *_content;

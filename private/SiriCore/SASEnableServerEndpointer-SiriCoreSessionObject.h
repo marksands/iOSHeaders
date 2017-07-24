@@ -7,6 +7,7 @@
 #import <SAObjects/SASEnableServerEndpointer.h>
 
 @interface SASEnableServerEndpointer (SiriCoreSessionObject)
+- (_Bool)siriCore_supportedByLocalSession;
 - (_Bool)siriCore_isRestartable;
 @end
 

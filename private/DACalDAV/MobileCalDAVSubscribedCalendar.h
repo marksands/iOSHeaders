@@ -34,7 +34,6 @@
 @property(readonly, nonatomic) NSSet *allItemURLs;
 @property(nonatomic) _Bool autoprovisioned;
 @property(retain, nonatomic) NSDictionary *bulkRequests;
-@property(retain, nonatomic) NSSet *calendarUserAddresses;
 @property(nonatomic) _Bool canBePublished;
 @property(nonatomic) _Bool canBeShared;
 @property(retain, nonatomic) NSString *color;
@@ -68,6 +67,7 @@
 @property(retain, nonatomic) NSURL *owner;
 @property(retain, nonatomic) NSString *ownerDisplayName;
 @property(retain, nonatomic) NSURL *prePublishURL;
+@property(retain, nonatomic) NSSet *preferredCalendarUserAddresses;
 @property(readonly, nonatomic) id <CalDAVPrincipal> principal;
 @property(retain, nonatomic) NSURL *publishURL;
 @property(retain, nonatomic) NSString *pushKey;

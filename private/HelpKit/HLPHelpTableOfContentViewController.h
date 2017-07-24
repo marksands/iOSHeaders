@@ -16,7 +16,6 @@
 @interface HLPHelpTableOfContentViewController : UITableViewController <UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate>
 {
     _Bool _searching;
-    double _minNameLabelHeight;
     UILabel *_copyrightFooterLabel;
     UIButton *_footerViewOverlayButton;
     NSMutableArray *_openSections;
@@ -58,7 +57,6 @@
 - (void)updateCellSelectionWithScollPosition:(long long)arg1 helpItem:(id)arg2 animated:(_Bool)arg3;
 - (void)appendChildrenForSectionItem:(id)arg1;
 - (void)updateWithHelpBookController:(id)arg1;
-- (void)updateNameLabelMetadata;
 - (void)contentSizeCategoryDidChange:(id)arg1;
 - (void)updateFooterViewLayout;
 - (void)copyrightButtonTapped;

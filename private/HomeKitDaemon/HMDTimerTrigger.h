@@ -53,7 +53,7 @@
 - (id)_nextFireDate;
 - (void)_activateSignificantEventTrigger:(id *)arg1;
 - (void)_activateFireDateTrigger:(id *)arg1;
-- (void)activateWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_activateWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)shouldActivateOnLocalDevice;
 - (void)_disableTimerOffReactivationFailure;
 - (_Bool)_reactivateSignificantEventTrigger:(id)arg1;
@@ -80,7 +80,7 @@
 - (unsigned long long)triggerType;
 - (id)dumpState;
 - (id)description;
-- (id)initWithModel:(id)arg1 home:(id)arg2;
+- (id)initWithModel:(id)arg1 home:(id)arg2 message:(id)arg3;
 - (id)initWithName:(id)arg1 uuid:(id)arg2;
 
 @end

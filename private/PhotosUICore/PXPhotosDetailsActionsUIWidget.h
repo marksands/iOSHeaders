@@ -24,6 +24,7 @@
 {
     _Bool _isPerformingChanges;
     _Bool _isPerformingUpdates;
+    _Bool _ensureTransition;
     struct {
         _Bool peopleFetchResult;
         _Bool actionManager;
@@ -82,6 +83,7 @@
 @property(nonatomic) __weak id <PXWidgetDelegate> widgetDelegate; // @synthesize widgetDelegate=_widgetDelegate;
 - (void).cxx_destruct;
 - (void)_updateLayoutIfNeeded;
+- (void)_invalidateLayoutEnsureTransition;
 - (void)_invalidateLayout;
 - (void)_updateRowHeightIfNeeded;
 - (void)_invalidateRowHeight;

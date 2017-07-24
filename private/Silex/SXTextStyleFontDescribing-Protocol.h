@@ -6,10 +6,11 @@
 
 #import <Silex/NSObject-Protocol.h>
 
-@class NSString, SXTextStyleFontAttributes;
+@class NSString;
+@protocol SXTextStyleFontAttributes;
 
 @protocol SXTextStyleFontDescribing <NSObject>
-@property(readonly, nonatomic) SXTextStyleFontAttributes *fontAttributes;
+@property(readonly, nonatomic) id <SXTextStyleFontAttributes> fontAttributes;
 @property(readonly, nonatomic) NSString *fontName;
 @end
 

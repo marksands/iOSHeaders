@@ -42,6 +42,11 @@ typedef struct {
 
 typedef struct {
     unsigned int timestamp:1;
+    unsigned int action:1;
+} CDStruct_399b966a;
+
+typedef struct {
+    unsigned int timestamp:1;
     unsigned int method:1;
 } CDStruct_64f0786c;
 

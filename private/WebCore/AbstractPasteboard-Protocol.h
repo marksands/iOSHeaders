@@ -18,7 +18,7 @@
 @optional
 @property(readonly, nonatomic) NSArray *fileURLsForDataInteraction;
 @property(readonly, nonatomic) long long numberOfFiles;
-- (void)updatePreferredTypeIdentifiers:(NSArray *)arg1;
+- (void)updateSupportedTypeIdentifiers:(NSArray *)arg1;
 - (NSArray *)pasteboardTypesByFidelityForItemAtIndex:(unsigned long long)arg1;
 - (void)setItems:(NSArray *)arg1;
 - (void)setItemsUsingRegistrationInfoLists:(NSArray *)arg1;

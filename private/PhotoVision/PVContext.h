@@ -16,28 +16,22 @@
     _Bool _personBuilderMergeCandidatesDisabled;
     float _faceClusteringThreshold;
     float _faceMergeFaceprintDistanceThreshold;
-    float _faceMergeFaceOverlapThreshold;
     float _facePrimarySuggestionsThreshold;
-    unsigned long long _countRenameFromThreshold;
-    unsigned long long _percentRenameFromThreshold;
-    unsigned long long _countRenameToThreshold;
-    unsigned long long _percentRenameToThreshold;
-    long long _minFaceCountToTriggerClustering;
-    long long _maxFaceCountForClustering;
+    unsigned long long _minimumSuggestionSize;
+    unsigned long long _minFaceCountToTriggerClustering;
+    unsigned long long _maxFaceCountForClustering;
+    unsigned long long _minimumFaceGroupSizeForCreatingMergeCandidates;
 }
 
 + (_Bool)supportsSecureCoding;
+@property unsigned long long minimumFaceGroupSizeForCreatingMergeCandidates; // @synthesize minimumFaceGroupSizeForCreatingMergeCandidates=_minimumFaceGroupSizeForCreatingMergeCandidates;
 @property _Bool personBuilderMergeCandidatesDisabled; // @synthesize personBuilderMergeCandidatesDisabled=_personBuilderMergeCandidatesDisabled;
 @property _Bool personBuildingDisabled; // @synthesize personBuildingDisabled=_personBuildingDisabled;
-@property long long maxFaceCountForClustering; // @synthesize maxFaceCountForClustering=_maxFaceCountForClustering;
-@property long long minFaceCountToTriggerClustering; // @synthesize minFaceCountToTriggerClustering=_minFaceCountToTriggerClustering;
-@property unsigned long long percentRenameToThreshold; // @synthesize percentRenameToThreshold=_percentRenameToThreshold;
-@property unsigned long long countRenameToThreshold; // @synthesize countRenameToThreshold=_countRenameToThreshold;
-@property unsigned long long percentRenameFromThreshold; // @synthesize percentRenameFromThreshold=_percentRenameFromThreshold;
-@property unsigned long long countRenameFromThreshold; // @synthesize countRenameFromThreshold=_countRenameFromThreshold;
+@property unsigned long long maxFaceCountForClustering; // @synthesize maxFaceCountForClustering=_maxFaceCountForClustering;
+@property unsigned long long minFaceCountToTriggerClustering; // @synthesize minFaceCountToTriggerClustering=_minFaceCountToTriggerClustering;
 @property _Bool quarantineTwinsOnAssetEnabled; // @synthesize quarantineTwinsOnAssetEnabled=_quarantineTwinsOnAssetEnabled;
+@property unsigned long long minimumSuggestionSize; // @synthesize minimumSuggestionSize=_minimumSuggestionSize;
 @property float facePrimarySuggestionsThreshold; // @synthesize facePrimarySuggestionsThreshold=_facePrimarySuggestionsThreshold;
-@property float faceMergeFaceOverlapThreshold; // @synthesize faceMergeFaceOverlapThreshold=_faceMergeFaceOverlapThreshold;
 @property float faceMergeFaceprintDistanceThreshold; // @synthesize faceMergeFaceprintDistanceThreshold=_faceMergeFaceprintDistanceThreshold;
 @property float faceClusteringThreshold; // @synthesize faceClusteringThreshold=_faceClusteringThreshold;
 - (id)copyWithZone:(struct _NSZone *)arg1;

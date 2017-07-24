@@ -18,10 +18,11 @@
 + (void)deleteMemoriesWithObjectIDs:(id)arg1 inPhotoLibrary:(id)arg2;
 + (void)deletePendingMemoriesCreatedBefore:(id)arg1 inPhotoLibrary:(id)arg2;
 + (void)resetCloudStateInPhotoLibrary:(id)arg1 hardReset:(_Bool)arg2;
-+ (id)memoriesWithUUID:(id)arg1 inManagedObjectContext:(id)arg2;
-+ (id)memoriesMatchingPredicate:(id)arg1 inManagedObjectContext:(id)arg2;
++ (id)_memoriesMatchingPredicate:(id)arg1 sortDescriptors:(id)arg2 limit:(long long)arg3 inManagedObjectContext:(id)arg4;
 + (id)memoriesWithUUIDs:(id)arg1 inPhotoLibrary:(id)arg2;
 + (id)memoryWithUUID:(id)arg1 inPhotoLibrary:(id)arg2;
++ (id)memoriesToPrefetchInPhotoLibrary:(id)arg1;
++ (_Bool)_shouldPrefetchMemoryMovieCuratedAssetsInPhotoLibrary:(id)arg1;
 + (id)memoriesToUploadInPhotoLibrary:(id)arg1 limit:(long long)arg2;
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;

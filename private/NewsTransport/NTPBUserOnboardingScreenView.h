@@ -45,6 +45,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsChannelPickerPresentationReason:(id)arg1;
+- (id)channelPickerPresentationReasonAsString:(int)arg1;
 @property(nonatomic) _Bool hasChannelPickerPresentationReason;
 @property(nonatomic) int channelPickerPresentationReason; // @synthesize channelPickerPresentationReason=_channelPickerPresentationReason;
 @property(nonatomic) _Bool hasFromPersonalizeNews;

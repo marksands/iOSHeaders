@@ -8,19 +8,21 @@
 
 #import <NewsToday/NSCopying-Protocol.h>
 
-@class NSDictionary, NSSet;
+@class NSArray, NSDictionary, NSSet;
 
 @interface NTHeadlineAggregationResult : NSObject <NSCopying>
 {
     NSDictionary *_aggregatedFeedItemsBySectionDescriptor;
     NSSet *_articleIDsOfLeadingCells;
+    NSArray *_unusedSectionDescriptors;
 }
 
+@property(copy, nonatomic) NSArray *unusedSectionDescriptors; // @synthesize unusedSectionDescriptors=_unusedSectionDescriptors;
 @property(copy, nonatomic) NSSet *articleIDsOfLeadingCells; // @synthesize articleIDsOfLeadingCells=_articleIDsOfLeadingCells;
 @property(copy, nonatomic) NSDictionary *aggregatedFeedItemsBySectionDescriptor; // @synthesize aggregatedFeedItemsBySectionDescriptor=_aggregatedFeedItemsBySectionDescriptor;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithAggregatedFeedItemsBySectionDescriptor:(id)arg1 articleIDsOfLeadingCells:(id)arg2;
+- (id)initWithAggregatedFeedItemsBySectionDescriptor:(id)arg1 articleIDsOfLeadingCells:(id)arg2 unusedSectionDescriptors:(id)arg3;
 - (id)init;
 
 @end

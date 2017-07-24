@@ -79,6 +79,8 @@
 + (id)restrictionsAfterApplyingRestrictionsDictionary:(id)arg1 toRestrictionsDictionary:(id)arg2 outChangeDetected:(_Bool *)arg3 outError:(id *)arg4;
 + (id)sharedManager;
 + (id)defaultRestrictionFilePath;
++ (id)explicitlyRestrictedEphemeralMultiUserApps;
++ (id)explicitlyRestrictedAppsBySetting;
 @property(retain, nonatomic) NSMutableDictionary *memberQueueUserProfileRestrictions; // @synthesize memberQueueUserProfileRestrictions=_memberQueueUserProfileRestrictions;
 @property(retain, nonatomic) NSMutableDictionary *memberQueueSystemProfileRestrictions; // @synthesize memberQueueSystemProfileRestrictions=_memberQueueSystemProfileRestrictions;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *memberQueue; // @synthesize memberQueue=_memberQueue;

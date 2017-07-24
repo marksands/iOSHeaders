@@ -13,7 +13,6 @@
     NSObject<OS_dispatch_queue> *_queue;
     struct unique_ptr<BatchBeepCanceller, std::__1::default_delete<BatchBeepCanceller>> _beepCanceller;
     struct vector<float, std::__1::allocator<float>> _beepFloatVec;
-    struct vector<double, std::__1::allocator<double>> _inverseAutoCorrMatrix;
     struct vector<float, std::__1::allocator<float>> _floatBuffer;
     struct vector<short, std::__1::allocator<short>> _shortBuffer;
     id <CSBeepCancellerDelegate> _delegate;
@@ -22,6 +21,7 @@
 @property(nonatomic) __weak id <CSBeepCancellerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)reset;
 - (void)willBeep;
 - (void)cancelBeepFromSamples:(id)arg1 timestamp:(unsigned long long)arg2;
 - (id)init;

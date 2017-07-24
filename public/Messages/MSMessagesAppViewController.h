@@ -7,13 +7,12 @@
 #import <UIKit/UIViewController.h>
 
 #import <Messages/MSConversationDelegate-Protocol.h>
-#import <Messages/MSMessagesAppCompactOrExpandedPresentation-Protocol.h>
 #import <Messages/MSMessagesAppTranscriptPresentation-Protocol.h>
 
 @class MSConversation, NSString;
 @protocol _MSMessageComposeExtensionImplProtocol;
 
-@interface MSMessagesAppViewController : UIViewController <MSConversationDelegate, MSMessagesAppCompactOrExpandedPresentation, MSMessagesAppTranscriptPresentation>
+@interface MSMessagesAppViewController : UIViewController <MSConversationDelegate, MSMessagesAppTranscriptPresentation>
 {
     _Bool _isReadyForDisplay;
     MSConversation *_activeConversation;
@@ -32,24 +31,24 @@
 - (struct CGSize)_contentSizeThatFits:(struct CGSize)arg1 presentationStyle:(unsigned long long)arg2;
 - (struct CGSize)contentSizeThatFits:(struct CGSize)arg1;
 - (void)updateSnapshotWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (void)didTransitionToPresentationStyle:(unsigned long long)arg1;
-- (void)willTransitionToPresentationStyle:(unsigned long long)arg1;
-- (void)didSelectMessage:(id)arg1 conversation:(id)arg2;
-- (void)willSelectMessage:(id)arg1 conversation:(id)arg2;
-- (void)didCancelSendingMessage:(id)arg1 conversation:(id)arg2;
-- (void)didStartSendingMessage:(id)arg1 conversation:(id)arg2;
-- (void)didReceiveMessage:(id)arg1 conversation:(id)arg2;
 - (void)didResignActiveWithConversation:(id)arg1;
 - (void)willResignActiveWithConversation:(id)arg1;
 - (void)didBecomeActiveWithConversation:(id)arg1;
 - (void)willBecomeActiveWithConversation:(id)arg1;
 @property(readonly, nonatomic) unsigned long long presentationStyle;
-- (void)dismiss;
 - (void)requestPresentationStyle:(unsigned long long)arg1;
 - (void)_conversation:(id)arg1 didSelectMessage:(id)arg2;
 - (void)_conversation:(id)arg1 willSelectMessage:(id)arg2;
 - (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1;
 - (void)dealloc;
+- (void)didTransitionToPresentationStyle:(unsigned long long)arg1;
+- (void)willTransitionToPresentationStyle:(unsigned long long)arg1;
+- (void)didCancelSendingMessage:(id)arg1 conversation:(id)arg2;
+- (void)didStartSendingMessage:(id)arg1 conversation:(id)arg2;
+- (void)didReceiveMessage:(id)arg1 conversation:(id)arg2;
+- (void)didSelectMessage:(id)arg1 conversation:(id)arg2;
+- (void)willSelectMessage:(id)arg1 conversation:(id)arg2;
+- (void)dismiss;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

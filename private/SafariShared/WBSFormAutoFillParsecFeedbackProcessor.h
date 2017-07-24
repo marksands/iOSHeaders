@@ -22,9 +22,9 @@
 
 @property(retain, nonatomic) id <WBSFormAutoFillFeedbackDomainPolicyProvider> domainPolicyProvider; // @synthesize domainPolicyProvider=_domainPolicyProvider;
 - (void).cxx_destruct;
-- (id)_feedbackWithCorrections:(id)arg1 forFingerprint:(id)arg2 onDomain:(id)arg3 includeOrigin:(_Bool)arg4;
-- (void)_getFeedbackWithCorrections:(id)arg1 forFingerprint:(id)arg2 onDomain:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)sendFeedbackWithCorrections:(id)arg1 forFingerprint:(id)arg2 onDomain:(id)arg3;
+- (id)_feedbackWithCorrectionSet:(id)arg1 includeOrigin:(_Bool)arg2;
+- (void)_getFeedbackWithCorrectionSet:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)sendFeedbackWithCorrectionSet:(id)arg1;
 - (id)initWithGlobalFeedbackDispatcher:(id)arg1 domainPolicyProvider:(id)arg2 autoFillVersion:(unsigned long long)arg3;
 - (id)init;
 

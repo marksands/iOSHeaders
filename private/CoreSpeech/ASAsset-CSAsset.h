@@ -12,6 +12,9 @@
 - (_Bool)isDownloading;
 - (id)path;
 - (_Bool)isPremium;
+- (id)_compatibilityVersion;
+- (id)_version;
+- (id)_footprint;
 - (id)getCSAssetOfType:(unsigned long long)arg1;
 @end
 

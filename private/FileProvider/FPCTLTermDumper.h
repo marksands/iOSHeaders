@@ -29,6 +29,7 @@
 - (void)puts:(const char *)arg1;
 - (void)puts:(const char *)arg1 len:(unsigned long long)arg2;
 - (void)_putsAndCrop:(const char *)arg1 len:(unsigned long long)arg2;
+- (void)dumpImage:(id)arg1 characterWidth:(unsigned long long)arg2 characterHeight:(unsigned long long)arg3;
 - (void)dumpImage:(id)arg1 width:(unsigned long long)arg2 height:(unsigned long long)arg3;
 - (void)changeAttributes:(int)arg1;
 - (void)changeBgColor:(int)arg1;

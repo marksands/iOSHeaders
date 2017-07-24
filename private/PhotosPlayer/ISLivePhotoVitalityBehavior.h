@@ -12,6 +12,7 @@
 {
     id _easeOutObserver;
     id _transitionToPhotoObserver;
+    _Bool _pauseDuringTransition;
     _Bool _prepared;
     _Bool _playing;
     _Bool _playingBeyondPhoto;
@@ -29,6 +30,7 @@
 @property(readonly, nonatomic, getter=isPlaying) _Bool playing; // @synthesize playing=_playing;
 @property(nonatomic, getter=isPrepared, setter=_setPrepared:) _Bool prepared; // @synthesize prepared=_prepared;
 @property(readonly, nonatomic) float playRate; // @synthesize playRate=_playRate;
+@property(readonly, nonatomic) _Bool pauseDuringTransition; // @synthesize pauseDuringTransition=_pauseDuringTransition;
 @property(readonly, nonatomic) double photoTransitionDuration; // @synthesize photoTransitionDuration=_photoTransitionDuration;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 playDuration; // @synthesize playDuration=_playDuration;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 photoTime; // @synthesize photoTime=_photoTime;
@@ -45,7 +47,7 @@
 - (void)_startObservingVideo;
 - (void)prepareForVitality;
 - (void)activeDidChange;
-- (id)initWithInitialLayoutInfo:(id)arg1 photoTime:(CDStruct_1b6d18a9)arg2 playDuration:(CDStruct_1b6d18a9)arg3 playRate:(float)arg4 photoTransitionDuration:(double)arg5;
+- (id)initWithInitialLayoutInfo:(id)arg1 photoTime:(CDStruct_1b6d18a9)arg2 playDuration:(CDStruct_1b6d18a9)arg3 playRate:(float)arg4 photoTransitionDuration:(double)arg5 pauseDuringTransition:(_Bool)arg6;
 - (void)dealloc;
 
 // Remaining properties

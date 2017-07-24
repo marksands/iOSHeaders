@@ -7,12 +7,12 @@
 #import <objc/NSObject.h>
 
 #import <Intents/INApplicationContextProviding-Protocol.h>
-#import <Intents/INIntentHandlerProviding-Protocol.h>
+#import <Intents/INIntentHandlerProvidingPrivate-Protocol.h>
 #import <Intents/NSExtensionRequestHandling-Protocol.h>
 
 @class NSString;
 
-@interface _INExtension : NSObject <NSExtensionRequestHandling, INIntentHandlerProviding, INApplicationContextProviding>
+@interface _INExtension : NSObject <NSExtensionRequestHandling, INIntentHandlerProvidingPrivate, INApplicationContextProviding>
 {
 }
 

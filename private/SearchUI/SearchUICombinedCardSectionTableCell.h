@@ -4,13 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeTableCell.h>
+#import <SearchUI/SearchUITableViewCell.h>
 
-@interface SearchUICombinedCardSectionTableCell : SearchUILayoutFreeTableCell
+@class NSMutableArray;
+
+@interface SearchUICombinedCardSectionTableCell : SearchUITableViewCell
 {
+    NSMutableArray *_subcells;
 }
 
-- (id)initWithCells:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
++ (void)updateChevronAndSeparatorForCell:(id)arg1 tableModel:(id)arg2 indexPath:(id)arg3;
++ (id)cellViewForTableModel:(id)arg1 section:(unsigned long long)arg2 rowRange:(struct _NSRange)arg3 style:(unsigned long long)arg4 feedbackDelegate:(id)arg5;
+@property(retain) NSMutableArray *subcells; // @synthesize subcells=_subcells;
+- (void).cxx_destruct;
+- (id)initWithTableModel:(id)arg1 section:(unsigned long long)arg2 rowRange:(struct _NSRange)arg3 style:(unsigned long long)arg4 feedbackDelegate:(id)arg5;
 
 @end
 

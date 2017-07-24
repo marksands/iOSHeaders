@@ -8,7 +8,7 @@
 
 #import <CoreSuggestionsInternals/CSSearchableIndexDelegate-Protocol.h>
 
-@class NSCache, NSDictionary, NSMutableArray, NSSet, NSString, SGBloomFilter, SGDatabaseJournal, SGJournal, SGSpotlightContactsAdapter, SGSqliteDatabase, SGSuggestHistory;
+@class NSCache, NSDictionary, NSMutableArray, NSMutableOrderedSet, NSMutableSet, NSSet, NSString, SGBloomFilter, SGDatabaseJournal, SGJournal, SGSpotlightContactsAdapter, SGSqliteDatabase, SGSuggestHistory;
 @protocol OS_dispatch_queue;
 
 @interface SGSqlEntityStore : NSObject <CSSearchableIndexDelegate>
@@ -41,6 +41,8 @@
     NSString *_snippetDbPath;
     id _lockStateNotificationRegistrationToken;
     _Bool _executeJournals;
+    NSMutableSet *_phoneNumbersWithNoContact;
+    NSMutableOrderedSet *_otherDetailsWithNoContact;
     _Bool _isEphemeral;
     _Bool _waitForMigrations;
 }
@@ -140,6 +142,16 @@
 - (void)setEventsEnabled:(_Bool)arg1;
 - (void)setContactsEnabled:(_Bool)arg1;
 - (id)nextPendingGeocode;
+- (void)clearNoContactsCache;
+- (_Bool)_isStringInNoContactsCache:(id)arg1;
+- (_Bool)_isPhoneNumberInNoContactsCache:(id)arg1;
+- (void)_addPhoneNumberToNoDetailsCache:(id)arg1;
+- (void)removePhoneNumberFromNoDetailsCache:(id)arg1;
+- (void)_addStringToNoContactsCache:(id)arg1;
+- (void)removeStringFromNoContactsCache:(id)arg1;
+- (void)_addPhoneNumberIntegerToNoContactsCache:(unsigned long long)arg1;
+- (void)_removePhoneNumberIntegerFromNoContactsCache:(unsigned long long)arg1;
+- (unsigned long long)_unsignedIntegerFromPhoneIfPossible:(id)arg1;
 - (void)clearCaches;
 - (void)clearMasterEntityCache;
 - (void)_removeCorruptionMarker;
@@ -204,6 +216,7 @@
 - (void)deleteInteractionsWithBundleId:(id)arg1 groupIdentifiers:(id)arg2;
 - (void)deleteInteractionsWithBundleId:(id)arg1 identifiers:(id)arg2;
 - (void)deleteInteractionsWithBundleId:(id)arg1;
+- (void)deleteItemsWithEntityTag:(id)arg1;
 - (void)deleteInteractionEntitiesExceedingLimit:(id)arg1 withSuspensionHandler:(CDUnknownBlockType)arg2;
 - (void)deleteInteractionEntitiesOnBlacklist:(id)arg1;
 - (void)deleteMessagesByDuplicateKey:(id)arg1;
@@ -215,6 +228,9 @@
 - (void)_recordPseudoContactsWithDeletedDetailsInTable:(id)arg1 deletedChildrenTable:(id)arg2;
 - (id)childrenFromParentKey:(id)arg1;
 - (void)deleteMessages:(id)arg1;
+- (void)pruneNLEventEntitiesOlderThan:(struct SGUnixTimestamp_)arg1;
+- (void)pruneNLEventEntitiesOlderThanTwoWeeks;
+- (void)pruneDuplicateWebPageExtractions:(id)arg1;
 - (void)pruneEntitiesOlderThan:(struct SGUnixTimestamp_)arg1 suspensionHandler:(CDUnknownBlockType)arg2 batchSize:(unsigned long long)arg3;
 - (void)pruneEntitiesOlderThanOneYearWithSuspensionHandler:(CDUnknownBlockType)arg1;
 - (void)pruneEntitiesOlderThan:(struct SGUnixTimestamp_)arg1 suspensionHandler:(CDUnknownBlockType)arg2;
@@ -223,6 +239,7 @@
 - (_Bool)databasecheck_contactMergeGroupConsistency;
 - (_Bool)databasecheck_BrokenEntityIDReferences;
 - (_Bool)databasecheck_IntegrityCheck;
+- (_Bool)performIntegrityCheckOnly;
 - (_Bool)performDatabaseCheck;
 - (void)_reportDbStatsBackground;
 - (void)reportDbStats;

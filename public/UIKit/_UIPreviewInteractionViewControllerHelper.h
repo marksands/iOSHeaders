@@ -11,6 +11,7 @@
 #import <UIKit/UIViewControllerTransitioningDelegate-Protocol.h>
 
 @class NSString, UIView, UIViewController, UIWindow, _UIPreviewInteractionHighlighter, _UIPreviewInteractionViewControllerPresentation;
+@protocol UIViewControllerContextTransitioning;
 
 __attribute__((visibility("hidden")))
 @interface _UIPreviewInteractionViewControllerHelper : NSObject <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, UIPreviewPresentationControllerDelegate>
@@ -24,6 +25,7 @@ __attribute__((visibility("hidden")))
     _Bool _shouldUseDefaultPresentationController;
     UIViewController *_previousParentViewController;
     UIView *_previousSuperview;
+    id <UIViewControllerContextTransitioning> _currentTransitionContext;
 }
 
 @property(readonly, nonatomic) _UIPreviewInteractionViewControllerPresentation *viewControllerPresentation; // @synthesize viewControllerPresentation=_viewControllerPresentation;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class IMDCKUtilities, NSDate;
 
@@ -16,6 +16,7 @@
 + (id)sharedInstance;
 @property(nonatomic) __weak IMDCKUtilities *ckUtilities; // @synthesize ckUtilities=_ckUtilities;
 - (void).cxx_destruct;
+- (id)dateOfLastBackUp;
 - (void)sendDeviceIDToCloudKitWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_enqueOperation:(id)arg1;
 - (void)_deviceIDFromMobileBackupManager:(id *)arg1 legacyDeviceID:(id *)arg2;

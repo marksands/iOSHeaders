@@ -28,7 +28,9 @@
 - (id)activityItemSourceForAsset:(id)arg1;
 - (void)cancel;
 - (void)runExplicitly:(_Bool)arg1 withActivityType:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (long long)countOfAssetType:(long long)arg1;
+- (long long)countOfLoopsToShare;
+- (long long)countOfVideosToShare;
+- (long long)countOfImagesToShare;
 @property(readonly, copy, nonatomic) NSOrderedSet *assets;
 - (void)removeAssetItem:(id)arg1;
 - (void)addAssetItem:(id)arg1;

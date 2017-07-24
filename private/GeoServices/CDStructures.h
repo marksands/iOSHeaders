@@ -70,6 +70,15 @@ struct GEOJunctionElement {
     CDStruct_8a1bf2a3 _field4;
 };
 
+struct GEOMapLayersMetadata {
+    double _lastUpdatedTimestamp;
+    _Bool _stale;
+    struct {
+        unsigned int lastUpdatedTimestamp:1;
+        unsigned int stale:1;
+    } _has;
+};
+
 struct GEONavigationAudioFeedback {
     int _currentRouteTypeAtEndOfNav;
     unsigned int _manuallyChangedRouteCount;
@@ -226,6 +235,10 @@ struct GEOSessionID {
     unsigned long long _low;
 };
 
+struct GEOThrottleKey {
+    unsigned int _field1;
+};
+
 struct GEOTileKeyList {
     Class _field1;
     void *_field2;
@@ -258,7 +271,7 @@ struct GEOTimepoint {
 };
 
 struct GEOTransitNodeFeature {
-    CDStruct_ab3e3af1 _field1;
+    CDStruct_d6359813 _field1;
     struct _NSRange _field2;
     CDStruct_183601bc *_field3;
     struct GEOTransitNodeFeature *_field4;
@@ -357,6 +370,8 @@ struct Sphere<float, 2> {
     float _field2;
 };
 
+struct Timestamp;
+
 struct TransitEdgePiece {
     CDStruct_183601bc *_field1;
     unsigned long long _field2;
@@ -419,6 +434,10 @@ struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<_GEOTi
 
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<_GEOTileKey, std::__1::__list_iterator<geo::detail::_CacheItem<_GEOTileKey, id, _value_ptr>, void *>>, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<_GEOTileKey, std::__1::__list_iterator<geo::detail::_CacheItem<_GEOTileKey, id, _value_ptr>, void *>>, void *>*> *__next_;
+};
+
+struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned int>, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned int>, void *>*> *__next_;
 };
 
 struct __list_iterator<LoadItem, void *> {
@@ -630,6 +649,32 @@ struct shared_ptr<zilch::Message> {
     struct __shared_weak_count *__cntrl_;
 };
 
+struct sqlite3_module {
+    int _field1;
+    CDUnknownFunctionPointerType _field2;
+    CDUnknownFunctionPointerType _field3;
+    CDUnknownFunctionPointerType _field4;
+    CDUnknownFunctionPointerType _field5;
+    CDUnknownFunctionPointerType _field6;
+    CDUnknownFunctionPointerType _field7;
+    CDUnknownFunctionPointerType _field8;
+    CDUnknownFunctionPointerType _field9;
+    CDUnknownFunctionPointerType _field10;
+    CDUnknownFunctionPointerType _field11;
+    CDUnknownFunctionPointerType _field12;
+    CDUnknownFunctionPointerType _field13;
+    CDUnknownFunctionPointerType _field14;
+    CDUnknownFunctionPointerType _field15;
+    CDUnknownFunctionPointerType _field16;
+    CDUnknownFunctionPointerType _field17;
+    CDUnknownFunctionPointerType _field18;
+    CDUnknownFunctionPointerType _field19;
+    CDUnknownFunctionPointerType _field20;
+    CDUnknownFunctionPointerType _field21;
+    CDUnknownFunctionPointerType _field22;
+    CDUnknownFunctionPointerType _field23;
+};
+
 struct unique_ptr<geo::DispatchTimer, std::__1::default_delete<geo::DispatchTimer>> {
     struct __compressed_pair<geo::DispatchTimer *, std::__1::default_delete<geo::DispatchTimer>> {
         struct DispatchTimer *__first_;
@@ -703,6 +748,17 @@ struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__h
     } __ptr_;
 };
 
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned int>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned int>, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned int>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned int>, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned int>, void *>*> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned int>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned int>, void *>*>*>> {
+                unsigned long long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
 struct unordered_map<_GEOTileKey, std::__1::__list_iterator<CacheItem, void *>, hashkey, eqkey, std::__1::allocator<std::__1::pair<const _GEOTileKey, std::__1::__list_iterator<CacheItem, void *>>>> {
     struct __hash_table<std::__1::__hash_value_type<_GEOTileKey, std::__1::__list_iterator<CacheItem, void *>>, std::__1::__unordered_map_hasher<_GEOTileKey, std::__1::__hash_value_type<_GEOTileKey, std::__1::__list_iterator<CacheItem, void *>>, hashkey, true>, std::__1::__unordered_map_equal<_GEOTileKey, std::__1::__hash_value_type<_GEOTileKey, std::__1::__list_iterator<CacheItem, void *>>, eqkey, true>, std::__1::allocator<std::__1::__hash_value_type<_GEOTileKey, std::__1::__list_iterator<CacheItem, void *>>>> {
         struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<_GEOTileKey, std::__1::__list_iterator<CacheItem, void *>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<_GEOTileKey, std::__1::__list_iterator<CacheItem, void *>>, void *>*>*>>> __bucket_list_;
@@ -728,6 +784,21 @@ struct unordered_map<_GEOTileKey, std::__1::__list_iterator<geo::detail::_CacheI
             unsigned long long __first_;
         } __p2_;
         struct __compressed_pair<float, std::__1::__unordered_map_equal<_GEOTileKey, std::__1::__hash_value_type<_GEOTileKey, std::__1::__list_iterator<geo::detail::_CacheItem<_GEOTileKey, id, _value_ptr>, void *>>, std::__1::equal_to<GEOTileKey>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<unsigned int, unsigned int, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, unsigned int>>> {
+    struct __hash_table<std::__1::__hash_value_type<unsigned int, unsigned int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, unsigned int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, unsigned int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, unsigned int>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned int>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned int>, void *>*>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned int>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned int>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, unsigned int>, void *>*> __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, unsigned int>, std::__1::hash<unsigned int>, true>> {
+            unsigned long long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, unsigned int>, std::__1::equal_to<unsigned int>, true>> {
             float __first_;
         } __p3_;
     } __table_;
@@ -776,6 +847,14 @@ struct unordered_set<geo::TransitEdgePiece, std::__1::hash<geo::TransitEdgePiece
             float __first_;
         } __p3_;
     } __table_;
+};
+
+struct vector<(anonymous namespace)::Timestamp, std::__1::allocator<(anonymous namespace)::Timestamp>> {
+    struct Timestamp *__begin_;
+    struct Timestamp *__end_;
+    struct __compressed_pair<(anonymous namespace)::Timestamp *, std::__1::allocator<(anonymous namespace)::Timestamp>> {
+        struct Timestamp *__first_;
+    } __end_cap_;
 };
 
 struct vector<GEOLocationCoordinate2D, std::__1::allocator<GEOLocationCoordinate2D>> {
@@ -848,11 +927,6 @@ typedef struct {
 } CDStruct_58d0ca89;
 
 typedef struct {
-    _Bool _field1;
-    _Bool _field2;
-} CDStruct_3d581f42;
-
-typedef struct {
     unsigned char _field1;
     float _field2;
 } CDStruct_1c2d31f2;
@@ -894,8 +968,10 @@ typedef struct {
     unsigned char _field2;
     unsigned long long _field3;
     unsigned long long _field4;
-    unsigned long long _field5;
-} CDStruct_5c67342b;
+    _Bool _field5;
+    unsigned long long _field6;
+    unsigned long long _field7;
+} CDStruct_2faeb20b;
 
 typedef struct {
     unsigned long long stopID;
@@ -909,12 +985,6 @@ typedef struct {
     unsigned long long *_field3;
     unsigned long long _field4[5];
 } CDStruct_70511ce9;
-
-typedef struct {
-    unsigned long long workLoad;
-    double timeWindowStartTime;
-    unsigned long long timeWindowDuration;
-} CDStruct_e05fddca;
 
 typedef struct {
     unsigned long long _field1;
@@ -1119,7 +1189,8 @@ typedef struct {
     unsigned char _field14;
     _Bool _field15;
     _Bool _field16;
-} CDStruct_ab3e3af1;
+    _Bool _field17;
+} CDStruct_d6359813;
 
 typedef struct {
     CDStruct_58d0ca89 _field1;
@@ -1156,13 +1227,13 @@ typedef struct {
 } CDStruct_db2bd8f2;
 
 typedef struct {
-    CDStruct_ab3e3af1 _field1;
+    CDStruct_d6359813 _field1;
     unsigned long long _field2;
     unsigned char _field3;
     float _field4;
     unsigned short _field5;
     float _field6;
-} CDStruct_181bb3d3;
+} CDStruct_5eab3029;
 
 typedef struct {
     unsigned char _field1;
@@ -1250,8 +1321,8 @@ typedef struct {
     CDStruct_a2ef2718 _field1;
     unsigned long long _field2;
     char *_field3;
-    _Bool _field4;
-} CDStruct_3f103ab8;
+    char *_field4;
+} CDStruct_7fac6282;
 
 typedef struct {
     CDStruct_a2ef2718 _field1;
@@ -1400,10 +1471,6 @@ typedef struct {
 typedef struct {
     unsigned int requestType:1;
 } CDStruct_7c66fec0;
-
-typedef struct {
-    unsigned int sessionId:1;
-} CDStruct_a90a2ceb;
 
 typedef struct {
     unsigned int statusCode:1;

@@ -193,6 +193,7 @@
 - (void)_handleMessageGUIDDeletions:(id)arg1;
 - (void)_setParticipantState:(unsigned long long)arg1 forHandles:(id)arg2 quietly:(_Bool)arg3;
 - (void)_setParticipantState:(unsigned long long)arg1 forHandle:(id)arg2 quietly:(_Bool)arg3;
+- (void)_postIMChatItemsDidChangeNotificationWithInserted:(id)arg1 removed:(id)arg2 reload:(id)arg3 regenerate:(id)arg4 oldChatItems:(id)arg5 shouldLog:(_Bool)arg6;
 - (void)_postNotification:(id)arg1 userInfo:(id)arg2 shouldLog:(_Bool)arg3;
 - (void)_postNotification:(id)arg1 userInfo:(id)arg2;
 - (void)_endTiming;
@@ -336,13 +337,13 @@
 - (_Bool)canEditChatItem:(id)arg1;
 @property(readonly, nonatomic) NSArray *alternativeSpeakableMatches;
 @property(readonly, nonatomic) NSString *vocabularyIdentifier;
-@property(readonly, nonatomic) NSString *identifier;
 @property(readonly, nonatomic) NSString *pronunciationHint;
 @property(readonly, nonatomic) NSString *spokenPhrase;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSString *identifier;
 @property(readonly) Class superclass;
 
 @end

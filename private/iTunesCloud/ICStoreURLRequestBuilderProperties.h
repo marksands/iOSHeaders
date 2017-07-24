@@ -6,20 +6,24 @@
 
 #import <objc/NSObject.h>
 
-@class ICURLBag, ICUserIdentityProperties;
+@class ICDelegateToken, ICURLBag, NSNumber, NSString;
 
 @interface ICStoreURLRequestBuilderProperties : NSObject
 {
-    ICUserIdentityProperties *_iCloudIdentityProperties;
+    NSString *_iCloudPersonID;
     ICURLBag *_URLBag;
-    ICUserIdentityProperties *_identityProperties;
-    ICUserIdentityProperties *_delegatedIdentityProperties;
+    NSNumber *_DSID;
+    NSString *_storefrontIdentifier;
+    NSNumber *_delegatedDSID;
+    ICDelegateToken *_delegateToken;
 }
 
-@property(copy, nonatomic) ICUserIdentityProperties *delegatedIdentityProperties; // @synthesize delegatedIdentityProperties=_delegatedIdentityProperties;
-@property(copy, nonatomic) ICUserIdentityProperties *identityProperties; // @synthesize identityProperties=_identityProperties;
+@property(copy, nonatomic) ICDelegateToken *delegateToken; // @synthesize delegateToken=_delegateToken;
+@property(copy, nonatomic) NSNumber *delegatedDSID; // @synthesize delegatedDSID=_delegatedDSID;
+@property(copy, nonatomic) NSString *storefrontIdentifier; // @synthesize storefrontIdentifier=_storefrontIdentifier;
+@property(copy, nonatomic) NSNumber *DSID; // @synthesize DSID=_DSID;
 @property(retain, nonatomic) ICURLBag *URLBag; // @synthesize URLBag=_URLBag;
-@property(copy, nonatomic) ICUserIdentityProperties *iCloudIdentityProperties; // @synthesize iCloudIdentityProperties=_iCloudIdentityProperties;
+@property(copy, nonatomic) NSString *iCloudPersonID; // @synthesize iCloudPersonID=_iCloudPersonID;
 - (void).cxx_destruct;
 
 @end

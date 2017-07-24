@@ -6,28 +6,40 @@
 
 #import <Foundation/NSObject.h>
 
-@class ACUIAppDescription, NSString, NSURL;
+@class NSString, NSURL, PSUIAppDescription;
+@protocol OS_dispatch_semaphore;
 
 @interface PSUIAppInstallController : NSObject
 {
-    ACUIAppDescription *_appDescription;
+    PSUIAppDescription *_appDescription;
+    NSObject<OS_dispatch_semaphore> *_storeLookupSem;
     int _installState;
-    NSString *_teamID;
+    NSString *_appID;
     NSString *_bundleID;
+    NSString *_teamID;
     NSURL *_installURL;
+    NSURL *_carrierURL;
 }
 
++ (id)tryLoadAppDescriptionFromCache;
++ (void)saveAppDescriptionToCache:(id)arg1;
++ (id)iconURLForKey:(id)arg1;
+@property(retain, nonatomic) NSURL *carrierURL; // @synthesize carrierURL=_carrierURL;
 @property(retain, nonatomic) NSURL *installURL; // @synthesize installURL=_installURL;
-@property(retain, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(retain, nonatomic) NSString *teamID; // @synthesize teamID=_teamID;
 @property(readonly, nonatomic) int installState; // @synthesize installState=_installState;
+@property(readonly, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
+@property(readonly, nonatomic) NSString *appID; // @synthesize appID=_appID;
 - (void).cxx_destruct;
 - (id)specifier;
+- (void)moreAppsButtonTapped:(id)arg1;
+- (_Bool)moreAppsAvailable;
 - (void)installButtonTapped:(id)arg1;
 - (void)load;
+- (id)appDescriptionFromAppProxyForBundleID:(id)arg1;
 - (id)imageFromURL:(id)arg1;
 - (id)initWithBundleID:(id)arg1;
-- (id)initWithAppID:(id)arg1;
+- (id)initWithAppID:(id)arg1 carrierMoreAppsURL:(id)arg2;
 
 @end
 

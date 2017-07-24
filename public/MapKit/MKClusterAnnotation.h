@@ -12,24 +12,32 @@
 
 @interface MKClusterAnnotation : NSObject <MKAnnotation>
 {
-    struct CLLocationCoordinate2D _coordinate;
     NSArray *_memberAnnotations;
     NSString *_clusteringIdentifier;
-    NSString *_title;
-    NSString *_subtitle;
-    _Bool _subtitleIsExplicitlyNil;
+    struct CLLocationCoordinate2D __coordinate;
+    NSString *__title;
+    NSString *__subtitle;
+    struct {
+        unsigned int hasCoordinate:1;
+        unsigned int hasMutableCoordinate:1;
+        unsigned int hasTitle:1;
+        unsigned int hasSubtitle:1;
+    } _flags;
 }
 
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(copy, nonatomic) NSString *clusteringIdentifier; // @synthesize clusteringIdentifier=_clusteringIdentifier;
 @property(readonly, nonatomic) NSArray *memberAnnotations; // @synthesize memberAnnotations=_memberAnnotations;
-@property(readonly, nonatomic) struct CLLocationCoordinate2D coordinate; // @synthesize coordinate=_coordinate;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
+- (struct CLLocationCoordinate2D)_averageCoordinate;
 - (_Bool)_isMKClusterAnnotation;
 @property(readonly) unsigned long long hash;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)dealloc;
 - (id)initWithMemberAnnotations:(id)arg1;
-@property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
+@property(readonly, nonatomic) struct CLLocationCoordinate2D coordinate; // @synthesize coordinate=__coordinate;
+@property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=__subtitle;
+@property(copy, nonatomic) NSString *title; // @synthesize title=__title;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

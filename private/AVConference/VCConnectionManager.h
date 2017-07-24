@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <AVConference/VCConnectionHealthMonitorDelegate-Protocol.h>
 
@@ -16,7 +16,6 @@ __attribute__((visibility("hidden")))
 {
     unsigned int _callID;
     int _relayServerProvider;
-    NSObject<OS_dispatch_queue> *_stateQueue;
     struct _opaque_pthread_rwlock_t _stateRWlock;
     id <VCConnectionProtocol> _primaryConnection;
     id <VCConnectionProtocol> _secondaryConnection;
@@ -37,6 +36,7 @@ __attribute__((visibility("hidden")))
     void *_duplicationContext;
     _Bool _duplicationPending;
     _Bool _enableDuplication;
+    _Bool _supportDuplication;
     int _preferredLocalInterfaceForDuplication;
     int _preferredRemoteInterfaceForDuplication;
     _Bool _isPrimaryLocalUsingCell;
@@ -54,6 +54,7 @@ __attribute__((visibility("hidden")))
     int _localWRMLinkTypeFromDefaults;
     _Bool _allowRequestForWRMNotification;
     _Bool _forceHandoverToCell;
+    _Bool _disableRemoteInterfaceInference;
     CDUnknownFunctionPointerType _wrmStatusUpdateCallback;
     CDUnknownFunctionPointerType _wrmRequestNotificationCallback;
     void *_wrmCallbacksContext;
@@ -65,6 +66,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) int signalingExcessiveCellularTxBytes; // @synthesize signalingExcessiveCellularTxBytes=_signalingExcessiveCellularTxBytes;
 @property(readonly) int mediaExcessiveCellularRxBytes; // @synthesize mediaExcessiveCellularRxBytes=_mediaExcessiveCellularRxBytes;
 @property(readonly) int mediaExcessiveCellularTxBytes; // @synthesize mediaExcessiveCellularTxBytes=_mediaExcessiveCellularTxBytes;
+@property _Bool supportDuplication; // @synthesize supportDuplication=_supportDuplication;
 @property(retain, nonatomic) id <VCConnectionProtocol> connectionForDuplication; // @synthesize connectionForDuplication=_connectionForDuplication;
 @property(retain, nonatomic) id <VCConnectionProtocol> lastPrimaryConnectionInUse; // @synthesize lastPrimaryConnectionInUse=_lastPrimaryConnectionInUse;
 @property(retain, nonatomic) id <VCConnectionProtocol> secondaryConnection; // @synthesize secondaryConnection=_secondaryConnection;
@@ -121,6 +123,8 @@ __attribute__((visibility("hidden")))
 - (int)processRemoteWRMSuggestion:(int)arg1 isRemoteDuplicating:(_Bool)arg2;
 - (int)processWRMNotification:(CDStruct_d2860d30 *)arg1;
 - (int)setWRMUpdateCallback:(CDUnknownFunctionPointerType)arg1 requestNotificationCallback:(CDUnknownFunctionPointerType)arg2 withContext:(void *)arg3;
+- (const char *)reasonStringWithDuplicationType:(int)arg1;
+- (void)setDuplicationEnabledInternal:(_Bool)arg1;
 - (void)setConnectionPause:(_Bool)arg1 isLocalConnection:(_Bool)arg2;
 - (void)setDuplicationCallback:(CDUnknownFunctionPointerType)arg1 withContext:(void *)arg2;
 - (void)setReportingAgent:(struct opaqueRTCReporting *)arg1;

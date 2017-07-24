@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <VectorKit/VKLabelNavFeature-Protocol.h>
 
@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
         unsigned char _field14;
         _Bool _field15;
         _Bool _field16;
+        _Bool _field17;
     } *_labelFeature;
     NSString *_name;
     VKLabelNavRoadLabel *_junctionSign;

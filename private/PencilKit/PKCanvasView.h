@@ -10,7 +10,7 @@
 #import <PencilKit/PKSelectionDelegate-Protocol.h>
 #import <PencilKit/UIDropInteractionDelegate-Protocol.h>
 
-@class CHVisualizationManager, NSString, PKDrawing, PKInk, PKInkPicker, PKInternalDrawingView, PKRecognitionOverlayView, PKRendererController, PKSelectionController, UIGestureRecognizer, UIImage;
+@class CHVisualizationManager, NSString, PKController, PKDrawing, PKInk, PKInkPicker, PKInternalDrawingView, PKRecognitionOverlayView, PKRendererController, PKSelectionController, UIGestureRecognizer, UIImage;
 @protocol PKCanvasViewDelegate, PKSelectionDelegate;
 
 @interface PKCanvasView : UIView <PKInternalDrawingViewDelegate, PKSelectionDelegate, UIDropInteractionDelegate>
@@ -49,20 +49,22 @@
 - (void)toggleSelectedStrokes:(id)arg1 hide:(_Bool)arg2 inDrawing:(id)arg3;
 - (void)performUndo:(id)arg1;
 - (struct CGAffineTransform)imageTransform;
+- (id)keyCommands;
 @property(readonly, nonatomic) _Bool hasCurrentSelection;
 - (id)drawingForLiveAttachment;
 - (_Bool)liveDrawingIsAtEndOfDocument;
+- (struct CGPoint)closestPointForPastedSelectionRect:(struct CGRect)arg1 withDrawing:(id *)arg2;
 - (id)drawingForSelectionRect:(struct CGRect)arg1;
 - (_Bool)containsDrawingUUID:(id)arg1;
-- (void)didStartSelection;
 - (_Bool)isValidDropPointForStrokes:(struct CGPoint)arg1;
-- (struct CGPoint)pointInStrokeSpace:(struct CGPoint)arg1 viewSize:(struct CGSize)arg2;
+- (struct CGPoint)pointInStrokeSpace:(struct CGPoint)arg1 inDrawing:(id)arg2;
 - (void)selectionRefreshWithChangeToDrawing:(id)arg1;
 - (id)selectionTopView;
 - (struct CGAffineTransform)selectionDrawingTransform;
 - (struct CGPoint)selectionOffsetForDrawing:(id)arg1;
 - (struct CGPoint)selectionOffsetForLiveDrawing;
 @property(readonly, nonatomic) CHVisualizationManager *_recognitionVisualizationManager;
+- (void)duplicate:(id)arg1;
 - (void)delete:(id)arg1;
 - (void)copy:(id)arg1;
 - (void)cut:(id)arg1;
@@ -70,6 +72,7 @@
 - (void)simulateHIDPoints:(id)arg1;
 - (_Bool)canBeginDrawingWithTouch:(id)arg1;
 - (void)willBeginDrawingWithTouch:(id)arg1;
+- (void)didFinishRenderingStroke:(id)arg1;
 - (void)setIsDrawing:(_Bool)arg1;
 - (void)renderingDidFinish;
 - (void)drawingDidChange:(id)arg1;
@@ -80,10 +83,12 @@
 - (void)_drawingDisplay;
 - (void)_setNeedsDrawingDisplay;
 @property(readonly, nonatomic) PKRendererController *_rendererController;
+@property(readonly, nonatomic) PKController *_drawingController;
 - (void)imageWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (struct CGImage *)image;
 - (void)eraseAll;
 - (void)drawStrokeWithPath:(struct CGPath *)arg1;
+- (void)_setDrawing:(id)arg1 tiles:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_setDrawing:(id)arg1 alreadyRenderedDrawing:(id)arg2 imageForAlreadyRenderedDrawing:(id)arg3 fullyRenderedCompletionBlock:(CDUnknownBlockType)arg4;
 @property(copy, nonatomic) PKDrawing *drawing;
 - (void)setHidden:(_Bool)arg1;

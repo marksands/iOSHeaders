@@ -9,9 +9,9 @@
 @class INInteraction, NSSet;
 
 @protocol INUIHostedViewControlling <NSObject>
-- (void)configureWithInteraction:(INInteraction *)arg1 context:(unsigned long long)arg2 completion:(void (^)(struct CGSize))arg3;
 
 @optional
-- (void)configureViewForParameters:(NSSet *)arg1 ofInteraction:(INInteraction *)arg2 context:(unsigned long long)arg3 completion:(void (^)(_Bool, NSSet *, struct CGSize))arg4;
+- (void)configureViewForParameters:(NSSet *)arg1 ofInteraction:(INInteraction *)arg2 interactiveBehavior:(unsigned long long)arg3 context:(unsigned long long)arg4 completion:(void (^)(_Bool, NSSet *, struct CGSize))arg5;
+- (void)configureWithInteraction:(INInteraction *)arg1 context:(unsigned long long)arg2 completion:(void (^)(struct CGSize))arg3;
 @end
 

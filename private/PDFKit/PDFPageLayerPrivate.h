@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CALayer, NSDate, NSMutableArray, NSMutableDictionary, PDFPage, PDFRenderingProperties;
+@class CALayer, NSDate, NSMutableArray, NSMutableDictionary, PDFPage, PDFRenderingProperties, PDFTimer;
 @protocol PDFPageLayerGeometryInterface;
 
 __attribute__((visibility("hidden")))
@@ -27,6 +27,8 @@ __attribute__((visibility("hidden")))
     NSMutableArray *tiles;
     NSMutableDictionary *pageLayerEffects;
     _Bool allowUpdate;
+    PDFTimer *forcedUpdateTimer;
+    _Bool isForcingUpdate;
     // Error parsing type: AB, name: isTiling
     // Error parsing type: AB, name: requestedTiling
 }

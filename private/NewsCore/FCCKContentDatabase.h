@@ -12,15 +12,19 @@
 {
     _Bool _isProductionEnvironment;
     _Bool _shouldUseCloudd;
+    _Bool _shouldUseSecureConnectionForPermanentURLs;
     NSString *_containerIdentifier;
     FCNetworkBehaviorMonitor *_networkBehaviorMonitor;
 }
 
+@property(nonatomic) _Bool shouldUseSecureConnectionForPermanentURLs; // @synthesize shouldUseSecureConnectionForPermanentURLs=_shouldUseSecureConnectionForPermanentURLs;
 @property(readonly, nonatomic) _Bool shouldUseCloudd; // @synthesize shouldUseCloudd=_shouldUseCloudd;
 @property(readonly, nonatomic) FCNetworkBehaviorMonitor *networkBehaviorMonitor; // @synthesize networkBehaviorMonitor=_networkBehaviorMonitor;
 @property(readonly, nonatomic) _Bool isProductionEnvironment; // @synthesize isProductionEnvironment=_isProductionEnvironment;
 @property(readonly, copy, nonatomic) NSString *containerIdentifier; // @synthesize containerIdentifier=_containerIdentifier;
 - (void).cxx_destruct;
+- (id)_permanentURLForRecordID:(id)arg1 field:(long long)arg2 useHTTPS:(_Bool)arg3;
+- (id)permanentURLForRecordID:(id)arg1 field:(long long)arg2 useSecureConnection:(_Bool)arg3;
 - (id)permanentURLForRecordID:(id)arg1 field:(long long)arg2;
 - (void)addOperation:(id)arg1;
 - (id)initWithContainerIdentifier:(id)arg1 productionEnvironment:(_Bool)arg2 networkBehaviorMonitor:(id)arg3;

@@ -21,7 +21,7 @@
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) __weak HMDHomeManager *homeManager; // @synthesize homeManager=_homeManager;
 @property(retain, nonatomic) NSMutableDictionary *bulletins; // @synthesize bulletins=_bulletins;
-@property(nonatomic) BBDataProviderProxy *proxy; // @synthesize proxy=_proxy;
+@property(retain, nonatomic) BBDataProviderProxy *proxy; // @synthesize proxy=_proxy;
 - (void).cxx_destruct;
 - (id)attachmentPNGDataForRecordID:(id)arg1 sizeConstraints:(id)arg2;
 - (void)handleBulletinActionResponse:(id)arg1;
@@ -30,6 +30,7 @@
 - (id)clearedInfoForBulletins:(id)arg1 lastClearedInfo:(id)arg2;
 - (id)defaultSectionInfo;
 - (id)sectionParameters;
+- (id)sectionIcon;
 - (id)sectionDisplayName;
 - (id)sectionIdentifier;
 - (id)sortDescriptors;

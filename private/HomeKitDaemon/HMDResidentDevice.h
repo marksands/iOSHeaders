@@ -43,7 +43,7 @@
 @property(retain, nonatomic) HMDDevice *device; // @synthesize device=_device;
 @property(copy, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
-- (id)modelObjectWithChangeType:(unsigned long long)arg1;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1 version:(long long)arg2;
 - (void)_handleResidentDeviceUpdateConfirmed:(_Bool)arg1;
 - (void)_handleResidentDeviceUpdateEnabled:(_Bool)arg1;
 - (_Bool)_handleResidentDeviceUpdateDeviceWithUUID:(id)arg1;

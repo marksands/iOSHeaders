@@ -30,7 +30,6 @@ __attribute__((visibility("hidden")))
 - (void)_launchMaps;
 - (void)_handleTapOnMap;
 - (void)_updateSnapshotImage:(id)arg1;
-- (void)_addAnnotationToSnapshot:(id)arg1;
 - (void)_updateInlineMapWithRefinedMapItems;
 - (CDStruct_02837cd9)mapRectContainingMapItems;
 - (void)updateInlineMapWithRefinedMapItems;

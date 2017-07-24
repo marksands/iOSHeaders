@@ -14,6 +14,7 @@
 - (unsigned long long)_accessibilityScannerGroupTraits;
 - (_Bool)_accessibilityIsScannerGroup;
 - (unsigned long long)_accessibilityScanningBehaviorTraits;
+- (_Bool)_accessibilityShouldBeScannedIfAncestorCanScroll;
 - (long long)_accessibilityCollectionViewItemsPerRow;
 - (_Bool)_accessibilityTreatCollectionViewRowsAsScannerGroups;
 - (id)_accessibilityScannerGroupElements;

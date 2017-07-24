@@ -83,7 +83,6 @@ __attribute__((visibility("hidden")))
 - (void)presentPrintPanelFromRect:(struct CGRect)arg1 inView:(id)arg2 animated:(_Bool)arg3;
 - (void)presentPrintPanelAnimated:(_Bool)arg1;
 - (void)_keyWindowWillRotate:(id)arg1;
-- (void)_presentWindow;
 - (void)_presentInParentAnimated:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithPrintInterationController:(id)arg1 inParentController:(id)arg2;

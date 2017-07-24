@@ -19,6 +19,7 @@
     _Bool _tintTiles;
     _Bool _showVisibleRects;
     _Bool _rotateDisappearingTiles;
+    _Bool _showSnapshottableTiles;
     double _animationDragCoefficient;
     double _springAnimationDuration;
     double _defaultAnimationDuration;
@@ -30,6 +31,7 @@
 
 + (id)settingsControllerModule;
 + (id)sharedInstance;
+@property(nonatomic) _Bool showSnapshottableTiles; // @synthesize showSnapshottableTiles=_showSnapshottableTiles;
 @property(nonatomic) _Bool rotateDisappearingTiles; // @synthesize rotateDisappearingTiles=_rotateDisappearingTiles;
 @property(nonatomic) _Bool showVisibleRects; // @synthesize showVisibleRects=_showVisibleRects;
 @property(nonatomic) _Bool tintTiles; // @synthesize tintTiles=_tintTiles;

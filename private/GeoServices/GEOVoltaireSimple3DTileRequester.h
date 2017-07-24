@@ -6,15 +6,18 @@
 
 #import <GeoServices/GEOSimpleTileRequester.h>
 
-@interface GEOVoltaireSimple3DTileRequester : GEOSimpleTileRequester
+#import <GeoServices/GEOSimpleTileRequesterSubclass-Protocol.h>
+
+@interface GEOVoltaireSimple3DTileRequester : GEOSimpleTileRequester <GEOSimpleTileRequesterSubclass>
 {
 }
 
 + (unsigned char)tileProviderIdentifier;
-- (id)urlForTileKey:(struct _GEOTileKey *)arg1;
+- (id)urlForTileKey:(const struct _GEOTileKey *)arg1;
+- (unsigned char)_authTypeForTileKey:(const struct _GEOTileKey *)arg1;
 - (unsigned int)tileEditionForKey:(struct _GEOTileKey *)arg1;
 - (unsigned int)tileSetForKey:(const struct _GEOTileKey *)arg1;
-- (id)_baseURLStringForTileKey:(struct _GEOTileKey *)arg1;
+- (id)_baseURLStringForTileKey:(const struct _GEOTileKey *)arg1;
 
 @end
 

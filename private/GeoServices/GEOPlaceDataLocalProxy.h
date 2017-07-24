@@ -39,12 +39,12 @@ __attribute__((visibility("hidden")))
 - (void)_trackPlaceData:(id)arg1 forRequest:(id)arg2;
 - (void)trackPlaceData:(id)arg1;
 - (void)fetchAllCacheEntriesWithRequesterHandler:(CDUnknownBlockType)arg1;
-- (long long)_invalidationStateForPlace:(id)arg1;
+- (long long)_invalidationStateForPlace:(id)arg1 fromRequest:(id)arg2;
 - (id)_placeResponseFromPlaces:(id)arg1;
 - (void)requestPhoneNumbers:(id)arg1 allowCellularDataForLookup:(_Bool)arg2 traits:(id)arg3 auditToken:(id)arg4 requesterHandler:(CDUnknownBlockType)arg5;
 - (void)requestComponentsFromNetwork:(id)arg1 identifier:(id)arg2 resultProviderID:(int)arg3 traits:(id)arg4 auditToken:(id)arg5 requesterHandler:(CDUnknownBlockType)arg6;
-- (void)_requestIdentifiersFromNetwork:(id)arg1 resultProviderID:(int)arg2 includeETA:(_Bool)arg3 traits:(id)arg4 auditToken:(id)arg5 finished:(CDUnknownBlockType)arg6 error:(CDUnknownBlockType)arg7;
-- (void)requestIdentifiers:(id)arg1 resultProviderID:(int)arg2 includeETA:(_Bool)arg3 traits:(id)arg4 options:(unsigned long long)arg5 auditToken:(id)arg6 requesterHandler:(CDUnknownBlockType)arg7;
+- (void)_requestIdentifiersFromNetwork:(id)arg1 resultProviderID:(int)arg2 traits:(id)arg3 auditToken:(id)arg4 finished:(CDUnknownBlockType)arg5 error:(CDUnknownBlockType)arg6;
+- (void)requestIdentifiers:(id)arg1 resultProviderID:(int)arg2 traits:(id)arg3 options:(unsigned long long)arg4 auditToken:(id)arg5 requesterHandler:(CDUnknownBlockType)arg6;
 - (void)cancelRequest:(id)arg1;
 - (void)startRequest:(id)arg1 traits:(id)arg2 timeout:(double)arg3 auditToken:(id)arg4 finished:(CDUnknownBlockType)arg5 networkActivity:(CDUnknownBlockType)arg6 error:(CDUnknownBlockType)arg7;
 - (id)cacheRegister;

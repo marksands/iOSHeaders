@@ -31,7 +31,7 @@
 - (_Bool)didSkipWithPlayedToTime:(double)arg1;
 - (double)nominalHasBeenPlayedThreshold;
 - (void)markNominalAmountHasBeenPlayed;
-- (void)reallyIncrementPlayCount;
+- (void)incrementPlayCount;
 - (void)enumerateValuesForProperties:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)setValue:(id)arg1 forProperty:(id)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
 - (_Bool)setValue:(id)arg1 forProperty:(id)arg2;

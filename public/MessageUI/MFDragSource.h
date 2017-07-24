@@ -16,6 +16,7 @@
     struct {
         _Bool respondsToTeamDataForItem;
         _Bool respondsToPreviewForItem;
+        _Bool respondsToSuggestedNameForItem;
         _Bool respondsToLocalObjectForItem;
         _Bool respondsToDragWillEnd;
         _Bool respondsToAllowsMoveOperation;

@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     UILongPressGestureRecognizer *_longPressRecognizer;
     MKPlaceSectionRowView *_selectedRow;
     _Bool _offlineMode;
+    _Bool _bottomHairlineHidden;
     MKMapItem *_mapItem;
     id <MKPlaceActionManagerProtocol> _actionDelegate;
     id <_MKPlaceItem> _placeItem;
@@ -29,6 +30,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) id <_MKPlaceItem> placeItem; // @synthesize placeItem=_placeItem;
 @property(nonatomic) __weak id <MKPlaceActionManagerProtocol> actionDelegate; // @synthesize actionDelegate=_actionDelegate;
 @property(retain, nonatomic) MKMapItem *mapItem; // @synthesize mapItem=_mapItem;
+@property(nonatomic) _Bool bottomHairlineHidden; // @synthesize bottomHairlineHidden=_bottomHairlineHidden;
 @property(nonatomic) _Bool offlineMode; // @synthesize offlineMode=_offlineMode;
 - (void).cxx_destruct;
 - (id)infoCardChildPossibleActions;

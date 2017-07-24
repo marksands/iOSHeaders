@@ -9,25 +9,23 @@
 @class NSError;
 @protocol OS_dispatch_queue;
 
-__attribute__((visibility("hidden")))
 @interface CKDAccountManateeObserver : NSObject
 {
-    _Bool _manateeAvailableForLoggedInAccount;
-    int _coreCDPNotificationToken;
     NSObject<OS_dispatch_queue> *_statusQueue;
+    long long _manateeAvailableForLoggedInAccount;
     NSError *_lastCDPError;
 }
 
 + (id)sharedObserver;
 @property(copy, nonatomic) NSError *lastCDPError; // @synthesize lastCDPError=_lastCDPError;
-@property(nonatomic) int coreCDPNotificationToken; // @synthesize coreCDPNotificationToken=_coreCDPNotificationToken;
+@property(nonatomic, setter=_lockedSetManateeAvailableForLoggedInAccount:) long long manateeAvailableForLoggedInAccount; // @synthesize manateeAvailableForLoggedInAccount=_manateeAvailableForLoggedInAccount;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *statusQueue; // @synthesize statusQueue=_statusQueue;
-@property(nonatomic) _Bool manateeAvailableForLoggedInAccount; // @synthesize manateeAvailableForLoggedInAccount=_manateeAvailableForLoggedInAccount;
 - (void).cxx_destruct;
 - (_Bool)isManateeAvailable:(id *)arg1;
 - (void)statusForCurrentlyLoggedInAccountWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)_lockedUpdateManateeAvailability;
-- (void)dealloc;
+- (void)_lockedFetchAndUpdateManateeAvailability;
+- (void)handleUpdateNotificationWithAvailability:(id)arg1;
+- (long long)_fetchManateeAvailability:(id *)arg1;
 - (id)init;
 
 @end

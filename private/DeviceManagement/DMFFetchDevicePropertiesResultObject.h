@@ -15,12 +15,13 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSDictionary *errorsByPropertyKey; // @synthesize errorsByPropertyKey=_errorsByPropertyKey;
-@property(copy, nonatomic) NSDictionary *valuesByPropertyKey; // @synthesize valuesByPropertyKey=_valuesByPropertyKey;
+@property(readonly, copy, nonatomic) NSDictionary *errorsByPropertyKey; // @synthesize errorsByPropertyKey=_errorsByPropertyKey;
+@property(readonly, copy, nonatomic) NSDictionary *valuesByPropertyKey; // @synthesize valuesByPropertyKey=_valuesByPropertyKey;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (Class)classForCoder;
 - (id)valueForPropertyKey:(id)arg1 error:(id *)arg2;
 - (id)initWithValuesByPropertyKey:(id)arg1 errorsByPropertyKey:(id)arg2;
 

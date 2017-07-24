@@ -17,11 +17,13 @@
 
 + (id)signatureForBlock:(id)arg1;
 + (id)interfaceWithProtocol:(id)arg1;
+- (void)_methodSignature:(id *)arg1 allowedClasses:(id *)arg2 forSelector:(SEL)arg3 isReply:(_Bool)arg4;
 - (Class)_returnClassForSelector:(SEL)arg1;
 - (id)_interfaceForArgument:(unsigned long long)arg1 ofSelector:(SEL)arg2 reply:(_Bool)arg3;
 - (id)_allowedClassesForSelector:(SEL)arg1 reply:(_Bool)arg2;
 - (id)_methodSignatureForReplyBlockOfSelector:(SEL)arg1;
 - (id)_methodSignatureForRemoteSelector:(SEL)arg1;
+- (id)_generateAndCacheMethodSignatureForRemoteSelector:(SEL)arg1;
 - (unsigned long long)_respondsToRemoteSelector:(SEL)arg1;
 - (void)set_remoteVersion:(unsigned long long)arg1;
 - (unsigned long long)_remoteVersion;

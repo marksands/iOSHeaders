@@ -37,6 +37,8 @@
 - (_Bool)notifyZoomAppDidEnterBackground:(id)arg1;
 - (_Bool)notifyZoomAppDidBecomeActive:(id)arg1 keyboardFrameIfVisible:(struct CGRect)arg2;
 - (_Bool)notifyZoomAppActivationAnimationDidFinish;
+- (_Bool)notifyZoomWaterLockEnded;
+- (_Bool)notifyZoomWaterLockBegan;
 - (_Bool)notifyZoomReturnedToClockFaceAtIdle;
 - (_Bool)notifyZoomAppSwitcherRevealAnimationWillBegin;
 - (_Bool)notifyZoomAppDeactivationAnimationWillBegin;

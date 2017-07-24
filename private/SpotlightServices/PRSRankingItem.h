@@ -11,6 +11,8 @@
 @interface PRSRankingItem : NSObject
 {
     _Bool _isFromLocalResult;
+    _Bool _eligibleForDemotion;
+    _Bool _isPrepared;
     NSString *_identifier;
     double _rawScore;
     double _feedbackScore;
@@ -21,14 +23,16 @@
     PRSL3FeatureVector *_L3FeatureVector;
     NSDictionary *_serverFeatures;
     NSMapTable *_attributes;
-    unsigned long long _indexScore;
     PRSRankingSpanCalculator *_spanCalculator;
-    unsigned long long _inputToModelScore;
     NSMutableArray *_matchedSenders;
     NSMutableArray *_matchedVipSenders;
     NSMutableArray *_matchedRecipients;
     NSArray *_emailAddresses;
     unsigned long long _playCount;
+    char *_importantPropertiesPrefixMatched;
+    char *_importantPropertiesWordMatched;
+    struct ranking_index_score_t _indexScore;
+    // Error parsing type: T, name: _inputToModelScore
 }
 
 + (unsigned long long)featureFromVirtualIdx:(unsigned long long)arg1;
@@ -42,15 +46,21 @@
 + (id)requiredTextFeatureAttributes;
 + (id)requiredAttributes;
 + (void)initialize;
+@property(nonatomic) _Bool isPrepared; // @synthesize isPrepared=_isPrepared;
+@property(nonatomic) char *importantPropertiesWordMatched; // @synthesize importantPropertiesWordMatched=_importantPropertiesWordMatched;
+@property(nonatomic) char *importantPropertiesPrefixMatched; // @synthesize importantPropertiesPrefixMatched=_importantPropertiesPrefixMatched;
 @property(nonatomic) unsigned long long playCount; // @synthesize playCount=_playCount;
 @property(retain, nonatomic) NSArray *emailAddresses; // @synthesize emailAddresses=_emailAddresses;
 @property(retain, nonatomic) NSMutableArray *matchedRecipients; // @synthesize matchedRecipients=_matchedRecipients;
 @property(retain, nonatomic) NSMutableArray *matchedVipSenders; // @synthesize matchedVipSenders=_matchedVipSenders;
 @property(retain, nonatomic) NSMutableArray *matchedSenders; // @synthesize matchedSenders=_matchedSenders;
-@property(nonatomic) unsigned long long inputToModelScore; // @synthesize inputToModelScore=_inputToModelScore;
+// Error parsing type for property inputToModelScore:
+// Property attributes: TT,N,V_inputToModelScore
+
 @property(retain, nonatomic) PRSRankingSpanCalculator *spanCalculator; // @synthesize spanCalculator=_spanCalculator;
-@property(nonatomic) unsigned long long indexScore; // @synthesize indexScore=_indexScore;
+@property(nonatomic) struct ranking_index_score_t indexScore; // @synthesize indexScore=_indexScore;
 @property(retain, nonatomic) NSMapTable *attributes; // @synthesize attributes=_attributes;
+@property(nonatomic) _Bool eligibleForDemotion; // @synthesize eligibleForDemotion=_eligibleForDemotion;
 @property(retain, nonatomic) NSDictionary *serverFeatures; // @synthesize serverFeatures=_serverFeatures;
 @property(retain, nonatomic) PRSL3FeatureVector *L3FeatureVector; // @synthesize L3FeatureVector=_L3FeatureVector;
 @property(retain, nonatomic) PRSL2FeatureVector *L2FeatureVector; // @synthesize L2FeatureVector=_L2FeatureVector;
@@ -62,16 +72,18 @@
 @property(nonatomic) double rawScore; // @synthesize rawScore=_rawScore;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (_Bool)passesRecencyTest;
 - (id)dataCollectionRepresentation;
 - (id)description;
 - (id)likelyDisplayTitle;
 - (long long)compare:(id)arg1;
+- (long long)compareWithDates:(id)arg1;
 - (id)interestingDate;
 - (id)dedupeIdentifier;
 - (void)populateFeature:(unsigned long long)arg1 value:(double)arg2;
-- (void)populateTextFeatureValuesForProperty:(id)arg1 updatingBundleFeatureValues:(id)arg2 withEvaluator:(id)arg3 withContext:(struct _populate_text_features_ctx *)arg4;
+- (void)populateTextFeatureValuesForProperty:(id)arg1 updatingBundleFeatureValues:(id)arg2 withEvaluator:(id)arg3 withContext:(struct _populate_text_features_ctx *)arg4 importantPropertyIdx:(unsigned long long)arg5;
 - (void)hackPlayCounts;
-- (void)populateFeaturesWithEvaluator:(id)arg1 updatingBundleFeatures:(double *)arg2;
+- (void)populateFeaturesWithEvaluator:(id)arg1 updatingBundleFeatures:(double *)arg2 importantAttributes:(id)arg3;
 - (void)populateOtherFeatures;
 - (void)populateMailFeatures;
 - (void)populateBundleSpecificFeatures;
@@ -82,6 +94,7 @@
 - (void)updateNumScoreDescriptorBundleFeatures:(double *)arg1 values:(id)arg2 feature:(unsigned long long)arg3;
 - (void)populateContactFeatures;
 - (_Bool)didMatchRankingDescriptor:(id)arg1;
+- (void)dealloc;
 - (id)initWithAttributes:(id)arg1;
 
 @end

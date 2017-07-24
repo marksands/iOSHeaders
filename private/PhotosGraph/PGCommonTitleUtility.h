@@ -23,6 +23,7 @@
 + (id)locationNodeWithDimension:(unsigned long long)arg1 rootNode:(id)arg2;
 + (id)closestLocationNodeFromNode:(id)arg1 withDimension:(unsigned long long)arg2 reverse:(_Bool)arg3;
 + (id)closestLocationNodeFromNode:(id)arg1 withDimension:(unsigned long long)arg2 remapMatchingDimensionBlock:(CDUnknownBlockType)arg3;
++ (_Bool)locationIsInSupersetCategoryForLocationNode:(id)arg1;
 + (_Bool)locationIsInSupersetCategoryForAddressNode:(id)arg1 dimension:(unsigned long long)arg2;
 + (_Bool)isLargeCountryForAddressNode:(id)arg1;
 + (id)addressNodesFromMomentNodes:(id)arg1;

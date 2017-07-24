@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSDate, NSDictionary, NSMutableArray, PDFAKOverlayAdaptor, PDFAnnotation, PDFDocument, PDFDocumentViewController, PDFPage, PDFPanGestureRecognizer, PDFPasswordViewController, PDFRenderingProperties, PDFScrollView, PDFSelection, PDFViewController, PDFViewLayout, UIDragInteraction, UILongPressGestureRecognizer, UISwipeGestureRecognizer, UITapGestureRecognizer;
+@class NSArray, NSDate, NSDictionary, NSMutableArray, PDFAKOverlayAdaptor, PDFAnnotation, PDFCoachMarkManager, PDFDocument, PDFDocumentViewController, PDFPage, PDFPanGestureRecognizer, PDFPasswordViewController, PDFRenderingProperties, PDFScrollView, PDFSelection, PDFViewController, PDFViewLayout, UIDragInteraction, UILongPressGestureRecognizer, UISwipeGestureRecognizer, UITapGestureRecognizer;
 @protocol PDFViewDelegate, PDFViewPopupManager;
 
 __attribute__((visibility("hidden")))
@@ -46,13 +46,15 @@ __attribute__((visibility("hidden")))
     NSMutableArray *destinationHistory;
     long long historyIndex;
     NSArray *highlights;
+    PDFCoachMarkManager *coachMarkManager;
     PDFPasswordViewController *passwordViewController;
     NSObject<PDFViewPopupManager> *popupManager;
-    _Bool forceUseMainThread;
     PDFAnnotation *currentTextWidget;
     PDFAKOverlayAdaptor *akOverlayAdaptor;
     _Bool enableSelectionDrawing;
+    _Bool showsScrollIndicators;
     _Bool debugDrawCGPDFNodeLayer[11];
+    double blockingWaitDuration;
     UILongPressGestureRecognizer *longPressGestureRecognizer;
     PDFPanGestureRecognizer *panGestureRecognizer;
     UITapGestureRecognizer *tapGestureRecognizer;

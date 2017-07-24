@@ -6,16 +6,18 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSMutableDictionary, NSMutableSet;
+@class NSMutableDictionary, NSMutableOrderedSet;
 
 __attribute__((visibility("hidden")))
 @interface TSUZipArchive : NSObject
 {
     unsigned long long _options;
     NSMutableDictionary *_entriesMap;
-    NSMutableSet *_entries;
+    NSMutableOrderedSet *_entries;
+    long long _endOfLastEntry;
 }
 
+@property(readonly, nonatomic) long long endOfLastEntry; // @synthesize endOfLastEntry=_endOfLastEntry;
 - (void).cxx_destruct;
 - (id)debugDescription;
 @property(readonly, nonatomic) _Bool isValid;

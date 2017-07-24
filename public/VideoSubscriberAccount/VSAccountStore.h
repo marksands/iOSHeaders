@@ -6,17 +6,14 @@
 
 #import <objc/NSObject.h>
 
-#import <VideoSubscriberAccount/MCProfileConnectionObserver-Protocol.h>
 #import <VideoSubscriberAccount/VSRemoteNotifierDelegate-Protocol.h>
 
-@class MCProfileConnection, NSArray, NSOperationQueue, NSString, NSUndoManager, VSAccount, VSKeychainEditingContext, VSRemoteNotifier;
+@class NSArray, NSOperationQueue, NSString, NSUndoManager, VSAccount, VSKeychainEditingContext, VSRemoteNotifier;
 
-@interface VSAccountStore : NSObject <MCProfileConnectionObserver, VSRemoteNotifierDelegate>
+@interface VSAccountStore : NSObject <VSRemoteNotifierDelegate>
 {
-    _Bool _accountModificationAllowed;
     _Bool _needsUpdateCachedFirstAccount;
     VSAccount *_cachedFirstAccount;
-    MCProfileConnection *_profileConnection;
     VSKeychainEditingContext *_keychainEditingContext;
     NSOperationQueue *_keychainQueue;
     id _changeObserver;
@@ -28,10 +25,8 @@
 @property(nonatomic) __weak id changeObserver; // @synthesize changeObserver=_changeObserver;
 @property(retain, nonatomic) NSOperationQueue *keychainQueue; // @synthesize keychainQueue=_keychainQueue;
 @property(retain, nonatomic) VSKeychainEditingContext *keychainEditingContext; // @synthesize keychainEditingContext=_keychainEditingContext;
-@property(retain, nonatomic) MCProfileConnection *profileConnection; // @synthesize profileConnection=_profileConnection;
 @property _Bool needsUpdateCachedFirstAccount; // @synthesize needsUpdateCachedFirstAccount=_needsUpdateCachedFirstAccount;
 @property(retain) VSAccount *cachedFirstAccount; // @synthesize cachedFirstAccount=_cachedFirstAccount;
-@property(nonatomic, getter=isAcountModificationAllowed) _Bool accountModificationAllowed; // @synthesize accountModificationAllowed=_accountModificationAllowed;
 - (void).cxx_destruct;
 - (void)removeAccounts:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)saveAccounts:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
@@ -39,17 +34,15 @@
 - (void)fetchAccountsWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) NSArray *accounts;
 - (id)firstAccount;
-- (void)_updateCachedFirstAccount;
+- (_Bool)_updateCachedFirstAccount;
 - (id)firstAccountIfLoaded;
 - (_Bool)isFirstAccountLoaded;
 @property(retain, nonatomic) NSUndoManager *undoManager;
-- (void)_updateAccountModificationAllowed;
 - (id)_keychainItemsWithLimit:(unsigned long long)arg1;
 - (id)_accountForKeychainItem:(id)arg1;
 - (void)_sendRemoteNotification;
 - (void)_sendLocalNotification;
 - (void)remoteNotifier:(id)arg1 didReceiveRemoteNotificationWithUserInfo:(id)arg2;
-- (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
 - (void)dealloc;
 - (id)init;
 

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class AVAsset, NSString, NSValue, PXContextualNotificationCenter, PXContextualNotificationView, UIImage, UIView, UIWindow;
+@class AVAsset, AVVideoComposition, NSString, NSValue, PXContextualNotificationCenter, PXContextualNotificationView, UIImage, UIView, UIWindow;
 @protocol PXContextualNotificationDelegate;
 
 @interface PXContextualNotification : NSObject
@@ -23,9 +23,11 @@
     id <PXContextualNotificationDelegate> _delegate;
     long long _style;
     NSString *_title;
+    UIImage *_titleIcon;
     NSString *_message;
     UIImage *_image;
     AVAsset *_loopingVideoAsset;
+    AVVideoComposition *_loopingVideoComposition;
     id _userInfo;
     long long _appearanceState;
     UIWindow *_window;
@@ -48,9 +50,11 @@
 @property(nonatomic) __weak UIWindow *window; // @synthesize window=_window;
 @property(nonatomic) long long appearanceState; // @synthesize appearanceState=_appearanceState;
 @property(retain, nonatomic) id userInfo; // @synthesize userInfo=_userInfo;
-@property(retain, nonatomic) AVAsset *loopingVideoAsset; // @synthesize loopingVideoAsset=_loopingVideoAsset;
+@property(copy, nonatomic) AVVideoComposition *loopingVideoComposition; // @synthesize loopingVideoComposition=_loopingVideoComposition;
+@property(copy, nonatomic) AVAsset *loopingVideoAsset; // @synthesize loopingVideoAsset=_loopingVideoAsset;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
+@property(retain, nonatomic) UIImage *titleIcon; // @synthesize titleIcon=_titleIcon;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic) __weak id <PXContextualNotificationDelegate> delegate; // @synthesize delegate=_delegate;

@@ -11,10 +11,8 @@
 @interface _HKAchievementPredicateActivitySummaryEnvironment : _HKBaseAchievementPredicateEnvironment
 {
     HKActivitySummary *_activitySummary;
-    double _previousMovePercent;
 }
 
-@property(readonly, nonatomic) double previousMovePercent; // @synthesize previousMovePercent=_previousMovePercent;
 @property(retain, nonatomic) HKActivitySummary *activitySummary; // @synthesize activitySummary=_activitySummary;
 - (void).cxx_destruct;
 - (id)description;

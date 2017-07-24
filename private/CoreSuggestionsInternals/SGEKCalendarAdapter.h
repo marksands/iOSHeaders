@@ -29,8 +29,10 @@
 - (id)_eventsAssociatedWithStorageEvent:(id)arg1 store:(id)arg2;
 - (void)calendarDeleted;
 - (void)orphanEvent:(id)arg1;
-- (void)rejectEvent:(id)arg1;
-- (void)confirmEvent:(id)arg1;
+- (void)rejectEventFromOtherDevice:(id)arg1;
+- (void)rejectEventFromThisDevice:(id)arg1;
+- (void)confirmEventFromOtherDevice:(id)arg1;
+- (void)confirmEventFromThisDevice:(id)arg1;
 - (void)cancelEvents:(id)arg1;
 - (void)cancelEvent:(id)arg1;
 - (void)cancelEvent:(id)arg1 commit:(_Bool)arg2;

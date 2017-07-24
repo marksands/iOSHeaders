@@ -14,14 +14,11 @@
 {
     PBUnknownFields *_unknownFields;
     GEOPDVenueBuilding *_building;
-    NSMutableArray *_directoryGroups;
     NSMutableArray *_levels;
     GEOPDVenueContainer *_venueContainer;
 }
 
-+ (Class)directoryGroupType;
 + (Class)levelType;
-@property(retain, nonatomic) NSMutableArray *directoryGroups; // @synthesize directoryGroups=_directoryGroups;
 @property(retain, nonatomic) NSMutableArray *levels; // @synthesize levels=_levels;
 @property(retain, nonatomic) GEOPDVenueBuilding *building; // @synthesize building=_building;
 @property(retain, nonatomic) GEOPDVenueContainer *venueContainer; // @synthesize venueContainer=_venueContainer;
@@ -36,10 +33,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)directoryGroupAtIndex:(unsigned long long)arg1;
-- (unsigned long long)directoryGroupsCount;
-- (void)addDirectoryGroup:(id)arg1;
-- (void)clearDirectoryGroups;
 - (id)levelAtIndex:(unsigned long long)arg1;
 - (unsigned long long)levelsCount;
 - (void)addLevel:(id)arg1;

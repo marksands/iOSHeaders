@@ -18,6 +18,7 @@
 @property(retain) EKGroupInfoButton *showAllButton; // @synthesize showAllButton=_showAllButton;
 @property(retain) UILabel *primaryLabel; // @synthesize primaryLabel=_primaryLabel;
 - (void).cxx_destruct;
+- (double)contentHeight;
 - (void)_contentSizeCategoryChanged:(id)arg1;
 - (void)_updateStackViewAxis;
 - (id)initWithGroup:(id)arg1 forChooser:(id)arg2;

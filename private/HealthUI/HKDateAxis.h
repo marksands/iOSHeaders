@@ -21,6 +21,7 @@
 - (void)_updateIntervalCacheWithModelRange:(id)arg1 zoomScale:(double)arg2;
 - (_Bool)_labelsOutsideStartDate:(id)arg1 endDate:(id)arg2;
 - (void)_enumerateCachedCoordinatesInModelRange:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
+- (id)extendedModelRangeWithRange:(id)arg1 timeScope:(long long)arg2;
 - (id)findAxisLabelsInModelRange:(id)arg1 zoomScale:(double)arg2;
 - (id)_dateRangeForChartRange:(struct HKRange)arg1 zoomScale:(double)arg2;
 - (void)offsetForValueRange:(id)arg1 chartRect:(struct CGRect)arg2 zoomScaleOut:(double *)arg3 contentOffsetOut:(struct CGPoint *)arg4;
@@ -30,7 +31,7 @@
 - (id)zoomScaleEngine;
 - (unsigned long long)_anchorUnitForZoom:(long long)arg1;
 - (void)_setRangeForDateRange:(id)arg1;
-- (id)stringForDate:(id)arg1 zoom:(long long)arg2 isMajorTick:(_Bool)arg3;
+- (id)stringForDate:(id)arg1 zoom:(long long)arg2 labelType:(long long)arg3;
 - (id)_formattedStringForDate:(id)arg1 zoom:(long long)arg2;
 - (id)init;
 

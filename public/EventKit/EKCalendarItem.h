@@ -90,6 +90,7 @@
 - (void)removeAttendee:(id)arg1;
 - (void)addAttendee:(id)arg1;
 - (void)setAttendees:(id)arg1;
+- (id)filterAttendeesPendingDeletion:(id)arg1;
 @property(readonly, nonatomic) NSArray *attendees;
 - (void)_updateHasAttendeesIfNeeded;
 - (_Bool)_hadAttendees;
@@ -132,6 +133,7 @@
 - (_Bool)requiresDetach;
 - (id)externalURI;
 - (id)exportToICS;
+- (int)sequenceNumber;
 - (void)setModifiedProperties:(unsigned int)arg1;
 - (unsigned int)modifiedProperties;
 - (void)setExternalData:(id)arg1;

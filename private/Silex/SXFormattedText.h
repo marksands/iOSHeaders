@@ -16,6 +16,7 @@
 + (CDUnknownBlockType)valueClassBlockForPropertyWithName:(id)arg1;
 @property(nonatomic) _Bool shouldWrapText; // @synthesize shouldWrapText;
 - (id)description;
+- (id)textWithValue:(id)arg1 withType:(int)arg2;
 - (id)initWithText:(id)arg1;
 
 // Remaining properties

@@ -7,14 +7,17 @@
 #import <iWorkImport/NSObject-Protocol.h>
 #import <iWorkImport/TSKDocumentObject-Protocol.h>
 
-@class NSArray, TSUColor, TSWPShapeInfo, TSWPStorage;
+@class NSArray, NSString, TSUColor, TSWPShapeInfo, TSWPStorage;
 
 @protocol TSWPFlowInfo <NSObject, TSKDocumentObject>
++ (TSUColor *)strokeColorForUserInterfaceIdentifier:(unsigned long long)arg1;
++ (TSUColor *)fillColorForUserInterfaceIdentifier:(unsigned long long)arg1;
 @property(readonly, nonatomic) TSUColor *userInterfaceStrokeColor;
 @property(readonly, nonatomic) TSUColor *userInterfaceFillColor;
 @property(nonatomic) unsigned long long userInterfaceIdentifier;
 @property(retain, nonatomic) NSArray *textboxes;
 @property(readonly, nonatomic) TSWPStorage *textStorage;
+- (NSString *)displayNameOfMaxLength:(unsigned long long)arg1 usesEllipsis:(_Bool)arg2;
 - (unsigned long long)indexOfTextBox:(TSWPShapeInfo *)arg1;
 @end
 

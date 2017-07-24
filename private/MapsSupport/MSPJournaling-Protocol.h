@@ -6,11 +6,12 @@
 
 #import <MapsSupport/NSObject-Protocol.h>
 
-@class NSString;
+@class GEOLogMsgEvent, NSString;
 
 @protocol MSPJournaling <NSObject>
 
 @optional
+- (GEOLogMsgEvent *)eventForState:(NSString *)arg1 affectedObject:(id)arg2;
 - (int)telemetricKeyForState:(NSString *)arg1;
 - (_Bool)shouldReportState:(NSString *)arg1;
 - (_Bool)shouldLogState:(NSString *)arg1;

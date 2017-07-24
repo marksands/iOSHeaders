@@ -15,6 +15,10 @@
 - (void)speechManagerRecordBufferAvailable:(CSSpeechManager *)arg1 buffer:(AVVCAudioBuffer *)arg2;
 
 @optional
+- (void)speechManagerEndRecordInterruption:(CSSpeechManager *)arg1;
+- (void)speechManagerBeginRecordInterruption:(CSSpeechManager *)arg1 withContext:(NSDictionary *)arg2;
+- (void)speechManagerBeginRecordInterruption:(CSSpeechManager *)arg1;
+- (void)speechManagerRecordHardwareConfigurationDidChange:(CSSpeechManager *)arg1 toConfiguration:(long long)arg2;
 - (NSDictionary *)speechManagerRecordingContext;
 @end
 

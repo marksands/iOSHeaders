@@ -14,6 +14,7 @@
     PLCloudPhotoLibraryManager *_manager;
 }
 
++ (id)_adjustmentStateDictionaryForComparingIncomingFaceRecordForAsset:(id)arg1;
 - (void)_triggerBackgroundDownloadFailureForResources:(id)arg1;
 - (id)handleIncomingBatch:(id)arg1;
 - (id)deletedRecordUuidsFromBatch:(id)arg1;
@@ -33,7 +34,8 @@
 - (void)_handleAlbumRecords:(id)arg1 inLibrary:(id)arg2;
 - (id)_mergeTargetFromPersons:(id)arg1;
 - (void)_mergeExistingPersonsWithPerson:(id)arg1 inPhotoLibrary:(id)arg2;
-- (id)_handlePersonRecords:(id)arg1 inLibrary:(id)arg2;
+- (void)_dropDeferredRebuildFacesInPhotoLibrary:(id)arg1;
+- (id)_handlePersonRecords:(id)arg1 inLibrary:(id)arg2 includesTiboSchema:(_Bool *)arg3;
 - (void)_saveIfNeeded;
 - (void)dealloc;
 - (id)initWithLibrary:(id)arg1 withManager:(id)arg2;

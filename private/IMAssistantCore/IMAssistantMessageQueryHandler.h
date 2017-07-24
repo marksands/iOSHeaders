@@ -10,14 +10,14 @@
 {
 }
 
-- (CDUnknownBlockType)filterWithIdentifiers:(id)arg1 filterRead:(_Bool)arg2 filterUnread:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)searchMessagesWithContentsPredicate:(id)arg1 messageIdentifiers:(id)arg2 recipients:(id)arg3 recipientsPredicate:(id)arg4 senders:(id)arg5 sendersPredicate:(id)arg6 dateTimeRange:(id)arg7 attributes:(unsigned long long)arg8 completion:(CDUnknownBlockType)arg9;
 - (id)chatContainingPersons:(id)arg1;
 - (id)IMPersonsForSPIHandles:(id)arg1;
 - (id)messageContentsPredicate:(id)arg1;
 - (id)sendersPredicate:(id)arg1;
 - (id)recipientsPredicate:(id)arg1;
-- (void)SPIQueryMessageWithGUID:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)SPIQueryMessagesWithRowIDs:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)SPIQueryMessagesWithGUIDs:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)SPIQueryUnreadMessages:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)SPIQueryMessagesForSenders:(id)arg1 limit:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)handlesAndServicesForPersons:(id)arg1 services:(id *)arg2;

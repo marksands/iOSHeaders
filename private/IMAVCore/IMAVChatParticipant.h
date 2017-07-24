@@ -122,7 +122,8 @@
 - (void)setWaitingToConnect:(_Bool)arg1;
 - (void)sendResponse:(unsigned int)arg1;
 - (void)_sendResponse:(unsigned int)arg1 callInfo:(id)arg2;
-- (void)_cancelInvitationWithReason:(id)arg1;
+- (void)_cancelInvitationWithReason:(unsigned int)arg1 response:(id)arg2;
+- (void)cancelInvitationWithReason:(unsigned int)arg1;
 - (void)cancelInvitationWithResponse:(unsigned int)arg1;
 - (void)cancelInvitation;
 - (void)sendInvitation;

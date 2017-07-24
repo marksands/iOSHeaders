@@ -6,7 +6,7 @@
 
 #import <PhotosEditUI/NSObject-Protocol.h>
 
-@class NSArray, NUComposition, PHLivePhoto, PHLivePhotoView, PLPhotoEditModel, PLPhotoEditRenderer, PUPhotoEditToolController, UIImage, UIView;
+@class NSArray, NUComposition, PHLivePhoto, PHLivePhotoView, PLPhotoEditModel, PLPhotoEditRenderer, PUPhotoEditToolController, UIView;
 
 @protocol PUPhotoEditToolControllerDelegate <NSObject>
 - (UIView *)toolControllerHitEventForwardView:(PUPhotoEditToolController *)arg1;
@@ -18,7 +18,6 @@
 - (NUComposition *)toolControllerRequestComposition:(PUPhotoEditToolController *)arg1;
 - (void)toolControllerRequestLivePhoto:(PUPhotoEditToolController *)arg1 filters:(NSArray *)arg2 completion:(void (^)(PHLivePhoto *))arg3;
 - (PHLivePhoto *)toolControllerLivePhoto:(PUPhotoEditToolController *)arg1;
-- (UIImage *)toolControllerBaseImage:(PUPhotoEditToolController *)arg1;
 - (UIView *)toolControllerPreviewView:(PUPhotoEditToolController *)arg1;
 - (PLPhotoEditRenderer *)toolControllerMainRenderer:(PUPhotoEditToolController *)arg1;
 - (UIView *)toolControllerMainContainerView:(PUPhotoEditToolController *)arg1;

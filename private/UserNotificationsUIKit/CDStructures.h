@@ -60,6 +60,8 @@ typedef struct {
     unsigned int significantUserInteraction:1;
     unsigned int didScroll:1;
     unsigned int didEndScrolling:1;
+    unsigned int willBeginInteractionWithNotificationVC:1;
+    unsigned int didEndInteractionWithNotificationVC:1;
     unsigned int scrollViewDidScroll:1;
     unsigned int scrollViewDidZoom:1;
     unsigned int scrollViewWillBeginDragging:1;
@@ -72,5 +74,5 @@ typedef struct {
     unsigned int scrollViewDidEndZooming:1;
     unsigned int scrollViewShouldScrollToTop:1;
     unsigned int scrollViewDidScrollToTop:1;
-} CDStruct_2eb613e6;
+} CDStruct_27a46a9e;
 

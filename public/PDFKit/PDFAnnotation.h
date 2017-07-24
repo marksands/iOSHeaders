@@ -179,6 +179,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)_generateFormFieldName;
 - (void)secondaryInit;
 - (void)commonInit;
 - (id)initWithDictionary:(id)arg1 forPage:(id)arg2;

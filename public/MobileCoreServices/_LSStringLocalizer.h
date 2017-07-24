@@ -7,7 +7,6 @@
 #import <Foundation/NSObject.h>
 
 @class NSArray, NSMutableDictionary, NSString, NSURL;
-@protocol OS_dispatch_queue;
 
 @interface _LSStringLocalizer : NSObject
 {
@@ -17,18 +16,19 @@
     NSMutableDictionary *_stringsFileContent;
     NSMutableDictionary *_unlocalizedInfoPlistStrings;
     NSArray *_bundleLocalizations;
-    NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (id)coreTypesLocalizer;
 + (id)frameworkBundleLocalizer;
 + (void)setPreferredLocalizationsForXCTests:(id)arg1;
 + (id)preferredLocalizationsForXCTests;
++ (id)queue;
 - (void).cxx_destruct;
 - (id)debugDescription;
 - (id)localizedStringDictionaryWithString:(id)arg1 defaultValue:(id)arg2;
 - (id)localizedStringsWithStrings:(id)arg1 preferredLocalizations:(id)arg2;
 - (id)localizedStringWithString:(id)arg1 preferredLocalizations:(id)arg2;
+- (void)dealloc;
 - (id)initWithBundleURL:(id)arg1 stringsFile:(id)arg2;
 - (id)init;
 -     // Error parsing type: @28@0:8^{LSDatabase={__CFRuntimeBase=QAQ}^{LSDBImpl}^{__CSStore}{LSSchema=I{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}I}{?=II}IIII{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}}[12{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}^{?}^{?}IC}]IIIIIII^{_LSSchemaCache}}}16I24, name: initWithDatabase:pluginUnit:
@@ -37,7 +37,7 @@
 - (id)localizedStringWithString:(id)arg1 inBundle:(struct __CFBundle *)arg2 preferredLocalizations:(id)arg3 keep:(_Bool)arg4;
 - (id)stringsFileContentInBundle:(struct __CFBundle *)arg1 withLocaleCode:(id)arg2 keep:(_Bool)arg3;
 - (struct __CFBundle *)copyBundle;
-- (id)_initWithBundleURL:(id)arg1 stringsFile:(id)arg2;
+- (id)_initWithBundleURL:(id)arg1 stringsFile:(id)arg2 keepBundle:(_Bool)arg3;
 
 @end
 

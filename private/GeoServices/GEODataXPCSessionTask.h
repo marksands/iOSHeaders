@@ -27,9 +27,10 @@ __attribute__((visibility("hidden")))
     double _startTime;
     double _endTime;
     unsigned int _taskIdentifier;
+    NSObject<OS_os_activity> *_activity;
+    float _priority;
     _Bool _canceled;
     _Bool _didNotifyDelegate;
-    NSObject<OS_os_activity> *_activity;
 }
 
 @property(readonly, nonatomic) unsigned int taskIdentifier; // @synthesize taskIdentifier=_taskIdentifier;
@@ -48,6 +49,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long incomingPayloadSize;
 @property(readonly, nonatomic) unsigned long long outgoingPayloadSize;
 @property(readonly, nonatomic) _Bool protocolBufferHasPreamble;
+@property float priority;
 - (unsigned long long)updateXPCRequestIdentifier;
 @property(readonly, nonatomic) unsigned long long xpcRequestIdentifier;
 @property(readonly, nonatomic) NSObject<OS_xpc_object> *xpcRequest;
@@ -63,6 +65,7 @@ __attribute__((visibility("hidden")))
 - (void)processXPCReply:(id)arg1;
 - (void)processTaskCancelled;
 @property(readonly, nonatomic) unsigned int taskQueue;
+@property(readonly, nonatomic) float taskQueuePriority;
 - (void)processResult:(int)arg1 xpcReply:(id)arg2;
 @property(readonly, nonatomic) _Bool isCancelled;
 @property(readonly) double elapsedTime;

@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSDate *proposedTime; // @synthesize proposedTime=_proposedTime;
 @property(nonatomic) _Bool hidesSeparator; // @synthesize hidesSeparator=_hidesSeparator;
 - (void).cxx_destruct;
+- (_Bool)minimalMode;
 - (void)predictionWasActedOn;
 - (_Bool)shouldShowEditButtonInline;
 - (void)editButtonPressed;

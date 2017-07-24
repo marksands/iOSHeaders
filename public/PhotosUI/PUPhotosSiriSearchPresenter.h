@@ -61,7 +61,7 @@
 - (void)_pingTimerFire:(id)arg1;
 - (void)searchResultsDataSource:(id)arg1 didFetchAssetsForSearchResultsValue:(id)arg2 atIndex:(unsigned long long)arg3;
 - (void)searchResultsDataSourceHasPendingChanges:(id)arg1;
-- (void)completeSearchQueryWithUUIDs:(id)arg1 additionalUUIDs:(id)arg2 intent:(id)arg3 dataSource:(id)arg4;
+- (void)completeSearchQueryWithUUIDs:(id)arg1 additionalUUIDs:(id)arg2 albumUUIDs:(id)arg3 intent:(id)arg4 dataSource:(id)arg5;
 - (id)predicateForNearByWithLatitude:(double)arg1 longitude:(double)arg2;
 - (void)completeWithZeroSearchResults:(id)arg1 showUI:(_Bool)arg2;
 - (void)searchWithSiriPlaceIMP:(id)arg1 dataSource:(id)arg2 searchTerm:(id)arg3 useFuzzyContains:(_Bool)arg4;

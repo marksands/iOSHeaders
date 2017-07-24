@@ -12,7 +12,6 @@
     _Bool _didHaveTranslucentAppearance;
 }
 
-+ (double)standardMinimumHeightInPopoverView;
 - (id)backgroundColorUsingTranslucentAppearance:(_Bool)arg1;
 - (void)updateTranslucentAppearance;
 @property(readonly, nonatomic) _Bool hasTranslucentAppearance;
@@ -22,7 +21,7 @@
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (struct CGSize)preferredContentSize;
-- (double)minimumHeightInPopoverView;
+- (double)_totalContentHeightForPreferredContentSize;
 
 @end
 

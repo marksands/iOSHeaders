@@ -9,5 +9,9 @@
 @interface NSArray (PKError)
 + (id)pk_FilteredShippingErrorsForContactFields:(id)arg1 errors:(id)arg2;
 + (id)pk_FilteredBillingErrorsForContactFields:(id)arg1 errors:(id)arg2;
++ (id)paymentShippingAddressUnserviceableErrorWithLocalizedDescription:(id)arg1;
++ (id)paymentBillingAddressInvalidErrorWithKey:(id)arg1 localizedDescription:(id)arg2;
++ (id)paymentShippingAddressInvalidErrorWithKey:(id)arg1 localizedDescription:(id)arg2;
++ (id)paymentContactInvalidErrorWithContactField:(id)arg1 localizedDescription:(id)arg2;
 @end
 

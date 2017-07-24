@@ -10,12 +10,6 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
-struct CC_SHA256state_st {
-    unsigned int count[2];
-    unsigned int hash[8];
-    unsigned int wbuf[16];
-};
-
 struct DataStore;
 
 struct HDActivityCacheActiveSource {
@@ -24,7 +18,7 @@ struct HDActivityCacheActiveSource {
     vector_c1c297d2 _field3;
 };
 
-struct HDActivityCacheStatisticsBuilderHeartRateSample;
+struct HDActivityCacheHeartRateStatisticsBuilderHeartRateSample;
 
 struct HDActivityCacheStatisticsBuilderSample {
     double _field1;
@@ -244,11 +238,11 @@ struct vector<HDActivityCacheActiveSource, std::__1::allocator<HDActivityCacheAc
     } __end_cap_;
 };
 
-struct vector<HDActivityCacheStatisticsBuilderHeartRateSample, std::__1::allocator<HDActivityCacheStatisticsBuilderHeartRateSample>> {
-    struct HDActivityCacheStatisticsBuilderHeartRateSample *__begin_;
-    struct HDActivityCacheStatisticsBuilderHeartRateSample *__end_;
-    struct __compressed_pair<HDActivityCacheStatisticsBuilderHeartRateSample *, std::__1::allocator<HDActivityCacheStatisticsBuilderHeartRateSample>> {
-        struct HDActivityCacheStatisticsBuilderHeartRateSample *__first_;
+struct vector<HDActivityCacheHeartRateStatisticsBuilderHeartRateSample, std::__1::allocator<HDActivityCacheHeartRateStatisticsBuilderHeartRateSample>> {
+    struct HDActivityCacheHeartRateStatisticsBuilderHeartRateSample *__begin_;
+    struct HDActivityCacheHeartRateStatisticsBuilderHeartRateSample *__end_;
+    struct __compressed_pair<HDActivityCacheHeartRateStatisticsBuilderHeartRateSample *, std::__1::allocator<HDActivityCacheHeartRateStatisticsBuilderHeartRateSample>> {
+        struct HDActivityCacheHeartRateStatisticsBuilderHeartRateSample *__first_;
     } __end_cap_;
 };
 
@@ -392,13 +386,13 @@ typedef struct vector<HDActivityCacheActiveSource, std::__1::allocator<HDActivit
     } __end_cap_;
 } vector_6dc0ebed;
 
-typedef struct vector<HDActivityCacheStatisticsBuilderHeartRateSample, std::__1::allocator<HDActivityCacheStatisticsBuilderHeartRateSample>> {
-    struct HDActivityCacheStatisticsBuilderHeartRateSample *__begin_;
-    struct HDActivityCacheStatisticsBuilderHeartRateSample *__end_;
-    struct __compressed_pair<HDActivityCacheStatisticsBuilderHeartRateSample *, std::__1::allocator<HDActivityCacheStatisticsBuilderHeartRateSample>> {
-        struct HDActivityCacheStatisticsBuilderHeartRateSample *__first_;
+typedef struct vector<HDActivityCacheHeartRateStatisticsBuilderHeartRateSample, std::__1::allocator<HDActivityCacheHeartRateStatisticsBuilderHeartRateSample>> {
+    struct HDActivityCacheHeartRateStatisticsBuilderHeartRateSample *__begin_;
+    struct HDActivityCacheHeartRateStatisticsBuilderHeartRateSample *__end_;
+    struct __compressed_pair<HDActivityCacheHeartRateStatisticsBuilderHeartRateSample *, std::__1::allocator<HDActivityCacheHeartRateStatisticsBuilderHeartRateSample>> {
+        struct HDActivityCacheHeartRateStatisticsBuilderHeartRateSample *__first_;
     } __end_cap_;
-} vector_cffd497f;
+} vector_4f6645df;
 
 typedef struct vector<HDActivityCacheStatisticsBuilderSample, std::__1::allocator<HDActivityCacheStatisticsBuilderSample>> {
     struct HDActivityCacheStatisticsBuilderSample *__begin_;

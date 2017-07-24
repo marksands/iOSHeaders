@@ -63,6 +63,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)recognizerForName:(id)arg1;
 - (void)addGestureRecognizer:(id)arg1 withName:(id)arg2;
+- (_Bool)doesControlDelegate;
 - (id)initWithView:(id)arg1;
 - (id)init;
 

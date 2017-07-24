@@ -44,11 +44,16 @@
     struct __SecAccessControl *_accesssControlRef;
     AKAppleIDAuthenticationContext *_appleIDAuthenticationContext;
     NSString *_localizedNavigationTitle;
+    unsigned long long _confirmationStyle;
     NSString *_localizedConfirmationTitle;
     NSString *_shippingEditableMessage;
     PKPaymentMerchantSession *_merchantSession;
 }
 
++ (id)paymentShippingAddressUnserviceableErrorWithLocalizedDescription:(id)arg1;
++ (id)paymentBillingAddressInvalidErrorWithKey:(id)arg1 localizedDescription:(id)arg2;
++ (id)paymentShippingAddressInvalidErrorWithKey:(id)arg1 localizedDescription:(id)arg2;
++ (id)paymentContactInvalidErrorWithContactField:(id)arg1 localizedDescription:(id)arg2;
 + (_Bool)supportsSecureCoding;
 + (long long)version;
 + (id)availableNetworks;
@@ -58,6 +63,7 @@
 @property(copy, nonatomic) NSString *shippingEditableMessage; // @synthesize shippingEditableMessage=_shippingEditableMessage;
 @property(nonatomic, getter=isShippingEditable) _Bool shippingEditable; // @synthesize shippingEditable=_shippingEditable;
 @property(copy, nonatomic) NSString *localizedConfirmationTitle; // @synthesize localizedConfirmationTitle=_localizedConfirmationTitle;
+@property(nonatomic) unsigned long long confirmationStyle; // @synthesize confirmationStyle=_confirmationStyle;
 @property(copy, nonatomic) NSString *localizedNavigationTitle; // @synthesize localizedNavigationTitle=_localizedNavigationTitle;
 @property(retain, nonatomic) AKAppleIDAuthenticationContext *appleIDAuthenticationContext; // @synthesize appleIDAuthenticationContext=_appleIDAuthenticationContext;
 @property(nonatomic) struct __SecAccessControl *accesssControlRef; // @synthesize accesssControlRef=_accesssControlRef;

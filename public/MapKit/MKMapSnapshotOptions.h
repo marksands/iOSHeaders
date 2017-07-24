@@ -26,13 +26,17 @@
     struct CGSize _size;
     double _scale;
     _Bool _usingRect;
+    _Bool _showsVenues;
     unsigned char _searchResultsType;
+    NSArray *_annotationViews;
     NSArray *_customFeatureAnnotations;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic, getter=_customFeatureAnnotations, setter=_setCustomFeatureAnnotations:) NSArray *customFeatureAnnotations; // @synthesize customFeatureAnnotations=_customFeatureAnnotations;
 @property(nonatomic, getter=_searchResultsType, setter=_setSearchResultsType:) unsigned char searchResultsType; // @synthesize searchResultsType=_searchResultsType;
+@property(nonatomic, getter=_showsVenues, setter=_setShowsVenues:) _Bool showsVenues; // @synthesize showsVenues=_showsVenues;
+@property(copy, nonatomic) NSArray *annotationViews; // @synthesize annotationViews=_annotationViews;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(nonatomic, getter=_rendersInBackground, setter=_setRendersInBackground:) _Bool rendersInBackground; // @synthesize rendersInBackground=_rendersInBackground;
 @property(nonatomic, getter=_useSnapshotService, setter=_setUseSnapshotService:) _Bool useSnapshotService; // @synthesize useSnapshotService=_useSnapshotService;

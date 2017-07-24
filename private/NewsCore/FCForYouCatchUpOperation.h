@@ -52,9 +52,7 @@
 @property(readonly, copy, nonatomic) NSArray *mandatoryTopStoriesHeadlines;
 @property(readonly, copy, nonatomic) id <FCChannelProviding> topStoriesChannel;
 @property(readonly, copy, nonatomic) NSArray *breakingNewsHeadlines;
-- (_Bool)satisfiesCondition:(id)arg1;
-- (void)waitForCondition:(id)arg1 withTimeout:(double)arg2;
-- (void)waitForCondition:(id)arg1;
+- (id)waiterForCondition:(id)arg1;
 - (void)operationDidFinishWithError:(id)arg1;
 - (void)performOperation;
 - (id)initWithContext:(id)arg1 dateRange:(id)arg2 background:(_Bool)arg3;

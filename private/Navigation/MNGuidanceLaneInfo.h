@@ -30,6 +30,7 @@
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)description;
 - (id)initWithID:(id)arg1 isForManeuver:(_Bool)arg2 lanes:(id)arg3 instructions:(id)arg4 variableOverrides:(id)arg5 distanceDetailLevel:(long long)arg6;
 
 @end

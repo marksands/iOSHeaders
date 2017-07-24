@@ -10,26 +10,41 @@
 #import <CoreParsec/_CPCardViewAppearFeedback-Protocol.h>
 #import <CoreParsec/_CPProcessableFeedback-Protocol.h>
 
-@class NSData, NSString;
+@class NSData, NSDictionary, NSString, _CPCardForFeedback;
 
 @interface _CPCardViewAppearFeedback : PBCodable <_CPProcessableFeedback, _CPCardViewAppearFeedback, NSSecureCoding>
 {
-    CDStruct_b5306035 _has;
+    struct {
+        unsigned int timestamp:1;
+        unsigned int level:1;
+    } _has;
+    unsigned int _level;
     unsigned long long _timestamp;
+    _CPCardForFeedback *_card;
+    NSString *_fbr;
 }
 
+@property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
+@property(nonatomic) unsigned int level; // @synthesize level=_level;
+@property(retain, nonatomic) _CPCardForFeedback *card; // @synthesize card=_card;
 @property(nonatomic) unsigned long long timestamp;
+- (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
-- (id)dictionaryRepresentation;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasFbr;
+@property(readonly, nonatomic) _Bool hasLevel;
+@property(readonly, nonatomic) _Bool hasCard;
 @property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)init;
 - (id)initWithFacade:(id)arg1;
 @property(readonly, nonatomic) _Bool requiresQueryId;
+@property(readonly, nonatomic) id feedbackJSON;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -10,13 +10,17 @@
 #import <PhotosUI/PUMagnfiedViewControllerDelegate-Protocol.h>
 #import <PhotosUI/PXCPLServiceUIDelegate-Protocol.h>
 
-@class NSArray, NSIndexPath, NSString, PUCloudQuotaController, PUGridMagnifiedImageViewController, PUGridPinchGestureRecognizer, PUGridZoomLevelInfo, PUMomentsZoomLevelManager, PUZoomableGridTransition, PUZoomableGridViewControllerSpec, PXCPLServiceUI, UITapGestureRecognizer;
+@class NSArray, NSIndexPath, NSString, NSTimer, PUCloudQuotaController, PUGridMagnifiedImageViewController, PUGridPinchGestureRecognizer, PUGridZoomLevelInfo, PUMomentsZoomLevelManager, PUZoomableGridTransition, PUZoomableGridViewControllerSpec, PXCPLServiceUI, UITapGestureRecognizer;
 
 @interface PUZoomableGridViewController : PUPhotosGridViewController <PXCPLServiceUIDelegate, PUCloudQuotaControllerDelegate, PUMagnfiedViewControllerDelegate>
 {
     _Bool _isDisplayingGlobalFooterView;
     PXCPLServiceUI *_cplServiceUI;
     PUCloudQuotaController *_cloudQuotaController;
+    _Bool _globalFooterDidAutoScroll;
+    NSTimer *_globalFooterAutoScrollMinimumIdleTimer;
+    _Bool _simulateGlobalFooterImportantInformationUpdates;
+    NSTimer *_globalFooterImportantInformationUpdatesTimer;
     _Bool __hasAppearedOnce;
     NSArray *__syncProgressAlbums;
     PUMomentsZoomLevelManager *_zoomLevelManager;
@@ -79,6 +83,14 @@
 - (id)_indexPathOfReferenceItemForLayoutTransitionInCollectionView:(id)arg1;
 - (id)collectionView:(id)arg1 transitionLayoutForOldLayout:(id)arg2 newLayout:(id)arg3;
 - (_Bool)scrollViewShouldScrollToTop:(id)arg1;
+- (void)gridSettings:(id)arg1 changedValueForKey:(id)arg2;
+- (void)_globalFooterHasImportantInformationDidChange;
+- (_Bool)_globalFooterHasImportantInformation;
+- (void)_conditionallyRevealPhotosGlobalFooterView;
+- (void)_conditionallyRevealPhotosGlobalFooterViewWithContentOffset:(struct CGPoint)arg1;
+- (_Bool)_shouldRevealPhotosGlobalFooterView;
+- (void)_configureGlobalFooterImportantInformationUpdatesTimer;
+- (_Bool)_shouldShowCPLInformationInGlobalFooter;
 - (_Bool)allowSlideshowButton;
 - (_Bool)collectionViewPointInSectionHeader:(struct CGPoint)arg1;
 - (void)_invalidateSyncProgressAlbums;
@@ -87,7 +99,7 @@
 - (_Bool)wantsGlobalFooter;
 - (void)_globalFooterDidChange;
 - (id)presentingViewControllerForCloudQuotaController:(id)arg1;
-- (void)cloudQuotaController:(id)arg1 presentBannerView:(id)arg2;
+- (void)cloudQuotaController:(id)arg1 presentInformationBanner:(id)arg2;
 - (_Bool)shouldPreventRevealInMomentAction;
 - (void)getEmptyPlaceholderViewTitle:(id *)arg1 message:(id *)arg2;
 - (double)cellAspectRatioHint;

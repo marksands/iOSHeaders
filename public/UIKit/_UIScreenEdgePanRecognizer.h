@@ -41,6 +41,7 @@
 
 + (_Bool)_edgeSwipeNavigationGestureEnabled;
 @property(retain, nonatomic) _UIScreenEdgePanRecognizerSettings *settings; // @synthesize settings=_settings;
+@property(nonatomic) _Bool simulatorWantsEdgeSwipes; // @synthesize simulatorWantsEdgeSwipes=_simulatorWantsEdgeSwipes;
 @property id <_UIScreenEdgePanRecognizerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) unsigned long long recognizedRegion; // @synthesize recognizedRegion=_recognizedRegion;
 @property(readonly, nonatomic) long long state; // @synthesize state=_state;
@@ -50,6 +51,7 @@
 @property(nonatomic) unsigned long long targetEdges; // @synthesize targetEdges=_targetEdges;
 @property(nonatomic) struct CGRect screenBounds; // @synthesize screenBounds=_screenBounds;
 @property(readonly, nonatomic) struct CGPoint _lastTouchLocation; // @synthesize _lastTouchLocation;
+@property(readonly, nonatomic) _Bool hasRecordedData; // @synthesize hasRecordedData=_hasRecordedData;
 @property(nonatomic) _Bool shouldUseGrapeFlags; // @synthesize shouldUseGrapeFlags=_shouldUseGrapeFlags;
 - (void).cxx_destruct;
 - (unsigned long long)_targetEdges;

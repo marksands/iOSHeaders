@@ -16,6 +16,7 @@
 + (void)initialize;
 - (id)snippet;
 - (void).cxx_destruct;
+- (Class)transparentHeaderViewClass;
 - (void)wasAddedToTranscript;
 - (void)siriDidDeactivate;
 - (void)siriWillActivateFromSource:(long long)arg1;
@@ -49,6 +50,7 @@
 - (void)setAttributedSubtitle:(id)arg1;
 - (id)subtitle;
 - (void)setSubtitle:(id)arg1;
+- (void)setDelegate:(id)arg1;
 - (void)setSnippet:(id)arg1;
 - (id)_backingSnippetViewController;
 - (id)initWithSnippet:(id)arg1;

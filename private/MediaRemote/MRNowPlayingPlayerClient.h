@@ -6,38 +6,51 @@
 
 #import <Foundation/NSObject.h>
 
-@class MRNowPlayingArtwork, MRPlaybackQueuePlayerClient, NSArray, NSDictionary, NSMutableDictionary;
+#import <MediaRemote/MRNowPlayingClientState-Protocol.h>
+#import <MediaRemote/MRTransactionSourceDelegate-Protocol.h>
+
+@class MRNowPlayingArtwork, MRNowPlayingPlayerClientCallbacks, MRPlaybackQueuePlayerClient, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary;
 @protocol OS_dispatch_queue;
 
-@interface MRNowPlayingPlayerClient : NSObject
+@interface MRNowPlayingPlayerClient : NSObject <MRNowPlayingClientState, MRTransactionSourceDelegate>
 {
     void *_playerPath;
     NSObject<OS_dispatch_queue> *_serialQueue;
-    int _notifyRestoreClientStateForLaunch;
-    NSMutableDictionary *_commandHandlerBlocks;
     NSArray *_supportedCommands;
     NSDictionary *_nowPlayingInfo;
     MRNowPlayingArtwork *_nowPlayingArtwork;
     unsigned int _playbackState;
+    void *_playbackQueue;
+    void *_capabilities;
     _Bool _coalescingInvalidations;
-    CDUnknownBlockType _videoThumbnailsCallback;
-    CDUnknownBlockType _audioAmplitudeSamplesCallback;
     double _invalidatationTimestamp;
+    NSMutableDictionary *_coelscingTransactionPackets;
+    NSMutableArray *_transactionSources;
     MRPlaybackQueuePlayerClient *_playbackQueueClient;
+    MRNowPlayingPlayerClientCallbacks *_clientCallbacks;
 }
 
+@property(readonly, nonatomic) MRNowPlayingPlayerClientCallbacks *clientCallbacks; // @synthesize clientCallbacks=_clientCallbacks;
 @property(readonly, nonatomic) MRPlaybackQueuePlayerClient *playbackQueueClient; // @synthesize playbackQueueClient=_playbackQueueClient;
 @property(readonly, nonatomic) void *playerPath; // @synthesize playerPath=_playerPath;
 - (id)description;
-@property(readonly, copy, nonatomic) NSArray *commandHandlerBlocks;
+- (void)contentItemsUpdatedNotification:(id)arg1;
+- (void)transactionDidEnd:(id)arg1;
+- (void)_sendTransaction:(unsigned long long)arg1 withPackets:(id)arg2;
+- (void)sendTransaction:(unsigned long long)arg1 withPackets:(id)arg2;
+- (void)endSendingTransactions;
+- (void)beginSendingTransactions;
+- (void)restoreNowPlayingClientState;
+- (void)preProcessCommand:(unsigned int)arg1 options:(struct __CFDictionary *)arg2;
+- (void)preProcessChangePlaybackRateCommandWithOptions:(struct __CFDictionary *)arg1;
+- (void)updateCache:(void *)arg1;
+@property(readonly, nonatomic) void *nowPlayingContentItem;
+@property(nonatomic) void *playbackQueue;
+@property(nonatomic) void *capabilities;
 - (void)unsetCoalescingInvalidations;
 - (_Bool)testAndSetCoalescingInvalidations;
-- (void)removeCommandHandlerBlockForKey:(id)arg1;
-- (void)addCommandHandlerBlock:(CDUnknownBlockType)arg1 forKey:(id)arg2;
 @property(nonatomic) double invalidatationTimestamp;
 @property(nonatomic) unsigned int playbackState;
-@property(copy, nonatomic) CDUnknownBlockType audioAmplitudeSamplesCallback;
-@property(copy, nonatomic) CDUnknownBlockType videoThumbnailsCallback;
 @property(copy, nonatomic) NSArray *supportedCommands;
 @property(retain, nonatomic) MRNowPlayingArtwork *nowPlayingArtwork;
 @property(copy, nonatomic) NSDictionary *nowPlayingInfo;

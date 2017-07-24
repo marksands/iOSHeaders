@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableDictionary;
 
@@ -14,17 +14,16 @@
     unsigned long long _callToStartRecordHostTime;
     NSMutableDictionary *_publicMetrics;
     NSMutableDictionary *_privateMetrics;
-    NSMutableDictionary *_recordFormatDictionary;
 }
 
 + (id)sharedManager;
-@property(retain) NSMutableDictionary *recordFormatDictionary; // @synthesize recordFormatDictionary=_recordFormatDictionary;
 @property(retain) NSMutableDictionary *privateMetrics; // @synthesize privateMetrics=_privateMetrics;
 @property(retain) NSMutableDictionary *publicMetrics; // @synthesize publicMetrics=_publicMetrics;
 @property(nonatomic) unsigned long long callToStartRecordHostTime; // @synthesize callToStartRecordHostTime=_callToStartRecordHostTime;
 @property(nonatomic) unsigned long long voiceTriggerStartHostTime; // @synthesize voiceTriggerStartHostTime=_voiceTriggerStartHostTime;
 - (void)logRecordRoute:(id)arg1 andPlaybackRoute:(id)arg2;
 - (void)logRecordAudioFormat:(struct CAStreamBasicDescription)arg1;
+- (int)resetAudioIssueDetector;
 - (int)audioIssueDetectorAnalyzeBuffer:(struct AudioBufferList)arg1 numFrames:(unsigned int)arg2 timeStamp:(const struct AudioTimeStamp *)arg3;
 - (int)setAudioIssueDetectorFormat:(struct CAStreamBasicDescription)arg1 numFrames:(unsigned int)arg2;
 - (_Bool)measureElapseTimeForMetric:(id)arg1 block:(CDUnknownBlockType)arg2;

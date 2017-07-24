@@ -32,6 +32,7 @@
 - (_Bool)removeSearchResultWithIdentifier:(id)arg1 fromSection:(unsigned long long)arg2 forHiding:(_Bool)arg3;
 - (id)removeSearchResultAtRow:(long long)arg1 section:(unsigned long long)arg2;
 - (void)addSearchResults:(id)arg1 toSection:(unsigned long long)arg2;
+- (void)addSearchResult:(id)arg1 toSection:(unsigned long long)arg2 atIndex:(unsigned long long)arg3;
 - (void)setSearchResults:(id)arg1 forSection:(unsigned long long)arg2;
 - (id)searchResultObjectsInSection:(unsigned long long)arg1;
 - (id)searchResultsInSection:(unsigned long long)arg1;

@@ -21,7 +21,7 @@
 }
 
 + (id)assetResourceForDuplicatingAssetResource:(id)arg1 asData:(_Bool)arg2 error:(id *)arg3;
-+ (unsigned long long)_probableCPLResourceTypeFromAssetResourceType:(long long)arg1;
++ (unsigned long long)probableCPLResourceTypeFromAssetResourceType:(long long)arg1;
 @property(readonly, nonatomic) _Bool isLibraryAssetResource; // @synthesize isLibraryAssetResource=_isLibraryAssetResource;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(readonly, nonatomic) unsigned long long cplResourceType; // @synthesize cplResourceType=_cplResourceType;

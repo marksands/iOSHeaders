@@ -7,27 +7,24 @@
 #import <Foundation/NSObject.h>
 
 #import <Stocks/NSURLSessionDataDelegate-Protocol.h>
-#import <Stocks/NSURLSessionDownloadDelegate-Protocol.h>
 
 @class NSMutableData, NSString, NSURLRequest, NSURLSession, NSURLSessionTask;
 
-@interface YQLRequest : NSObject <NSURLSessionDataDelegate, NSURLSessionDownloadDelegate>
+@interface YQLRequest : NSObject <NSURLSessionDataDelegate>
 {
     NSURLSession *_defaultSession;
     NSURLSessionTask *_dataTask;
     NSURLRequest *_request;
     NSMutableData *_rawData;
-    CDUnknownBlockType _finishEventsHandler;
+    _Bool _taggedAsInvalid;
 }
 
 + (_Bool)shouldGenerateOfflineData;
 + (void)setShouldGenerateOfflineData:(_Bool)arg1;
 + (void)saveDebugString;
 + (void)appendDebugString:(id)arg1;
-@property(copy, nonatomic) CDUnknownBlockType finishEventsHandler; // @synthesize finishEventsHandler=_finishEventsHandler;
+@property(nonatomic, getter=hasBeenTaggedAsInvalid) _Bool taggedAsInvalid; // @synthesize taggedAsInvalid=_taggedAsInvalid;
 - (void).cxx_destruct;
-- (void)URLSession:(id)arg1 downloadTask:(id)arg2 didFinishDownloadingToURL:(id)arg3;
-- (void)URLSessionDidFinishEventsForBackgroundURLSession:(id)arg1;
 - (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
 - (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;
 - (id)YQLLanguageCode;
@@ -37,6 +34,7 @@
 - (id)dictionaryWithDictionaryKeyPath:(id)arg1 inJSONObject:(id)arg2;
 - (id)objectWithDictionaryKeyPath:(id)arg1 inJSONObject:(id)arg2;
 - (id)aggregateDictionaryDomain;
+- (void)cancelAndInvalidate;
 - (void)cancel;
 - (void)failToParseWithDataSeriesDictionary:(id)arg1;
 - (void)failToParseWithData:(id)arg1;
@@ -47,6 +45,7 @@
 - (void)loadRequest:(id)arg1;
 - (id)taskForRequest:(id)arg1 delegate:(id)arg2;
 - (void)_createDefaultSession;
+- (void)dealloc;
 - (id)init;
 - (id)_yahooDoppelganger_taskForRequest:(id)arg1 delegate:(id)arg2;
 

@@ -13,7 +13,11 @@
     CKContextResponse *_response;
     NSString *_ignorePrefix;
     NSLocale *_searchLocale;
-    _Bool _discarded;
+    // Error parsing type: AB, name: _discarded
+    unsigned long long _couldHaveShown;
+    // Error parsing type: AB, name: _shown
+    // Error parsing type: AB, name: _engaged
+    // Error parsing type: AB, name: _transactionSuccessful
 }
 
 - (void).cxx_destruct;
@@ -22,7 +26,9 @@
 - (void)logTransactionSuccessfulForInput:(id)arg1;
 - (void)logResultsSuppressed;
 - (void)logEngagement:(id)arg1 forInput:(id)arg2;
+- (void)logResultsShown:(unsigned long long)arg1 serverOverride:(_Bool)arg2;
 - (id)queriesMatching:(id)arg1;
+- (id)_resultsMatching:(id)arg1;
 - (id)resultsMatching:(id)arg1;
 - (id)initWithResponse:(id)arg1;
 

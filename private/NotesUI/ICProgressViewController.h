@@ -6,19 +6,25 @@
 
 #import <UIKit/UIViewController.h>
 
-@class UIActivityIndicatorView, UILabel;
+@class ICCircularProgressView, NSProgress, UIActivityIndicatorView, UILabel;
 @protocol ICProgressViewControllerDelegate;
 
 @interface ICProgressViewController : UIViewController
 {
+    _Bool _showsCancel;
+    NSProgress *_observedProgress;
     id <ICProgressViewControllerDelegate> _progressDelegate;
     UILabel *_label;
     UIActivityIndicatorView *_activityIndicator;
+    ICCircularProgressView *_circularProgressView;
 }
 
+@property(retain, nonatomic) ICCircularProgressView *circularProgressView; // @synthesize circularProgressView=_circularProgressView;
 @property(retain, nonatomic) UIActivityIndicatorView *activityIndicator; // @synthesize activityIndicator=_activityIndicator;
 @property(retain, nonatomic) UILabel *label; // @synthesize label=_label;
 @property(nonatomic) __weak id <ICProgressViewControllerDelegate> progressDelegate; // @synthesize progressDelegate=_progressDelegate;
+@property(nonatomic) _Bool showsCancel; // @synthesize showsCancel=_showsCancel;
+@property(retain, nonatomic) NSProgress *observedProgress; // @synthesize observedProgress=_observedProgress;
 - (void).cxx_destruct;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

@@ -19,8 +19,9 @@
 
 + (CDStruct_c3b3c0f9)_textContainerStyleForSashItem:(id)arg1;
 + (id)_font;
-@property(retain, nonatomic) SiriUISashItem *sashItem; // @synthesize sashItem=_sashItem;
+@property(readonly, nonatomic) SiriUISashItem *sashItem; // @synthesize sashItem=_sashItem;
 - (void).cxx_destruct;
+- (void)setSashItem:(id)arg1 locale:(id)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;

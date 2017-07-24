@@ -19,6 +19,7 @@
     int _checksumType;
     NSMutableArray *_countryRegionWhitelists;
     NSString *_localizationURL;
+    int _requestStyle;
     int _scale;
     NSMutableArray *_sentinelTiles;
     int _size;
@@ -29,6 +30,7 @@
     unsigned int _version;
     struct {
         unsigned int checksumType:1;
+        unsigned int requestStyle:1;
         unsigned int timeToLiveSeconds:1;
         unsigned int updateBehavior:1;
     } _has;
@@ -37,7 +39,7 @@
 + (Class)countryRegionWhitelistType;
 + (Class)supportedLanguageType;
 + (Class)sentinelTileType;
-+ (id)buildDisputedBordersQueryStringForCountry:(id)arg1 region:(id)arg2;
++ (id)buildDisputedBordersQueryItemsForCountry:(id)arg1 region:(id)arg2;
 @property(retain, nonatomic) NSMutableArray *countryRegionWhitelists; // @synthesize countryRegionWhitelists=_countryRegionWhitelists;
 @property(retain, nonatomic) NSMutableArray *supportedLanguages; // @synthesize supportedLanguages=_supportedLanguages;
 @property(retain, nonatomic) NSString *localizationURL; // @synthesize localizationURL=_localizationURL;
@@ -58,6 +60,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsRequestStyle:(id)arg1;
+- (id)requestStyleAsString:(int)arg1;
+@property(nonatomic) _Bool hasRequestStyle;
+@property(nonatomic) int requestStyle; // @synthesize requestStyle=_requestStyle;
 - (int)StringAsChecksumType:(id)arg1;
 - (id)checksumTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasChecksumType;
@@ -96,7 +102,7 @@
 - (void)dealloc;
 - (void)_resetBestLanguage;
 - (_Bool)isEquivalentTileSet:(id)arg1;
-- (id)disputedBordersQueryStringForCountry:(id)arg1 region:(id)arg2;
+- (id)disputedBordersQueryItemsForCountry:(id)arg1 region:(id)arg2;
 - (_Bool)isDisputedBordersWhitelistedForCountry:(id)arg1 region:(id)arg2;
 - (id)_bestCountryRegionWhitelistMatchForCountry:(id)arg1 region:(id)arg2;
 - (id)_bestLanguageWithOverrideLocale:(id)arg1;

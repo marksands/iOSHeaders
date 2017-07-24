@@ -6,14 +6,14 @@
 
 #import <PassKitUI/PKTableFooterView.h>
 
-@class PKPaymentSetupPrivacyFooterView, UIButton;
+@class UIButton;
 
 @interface PKPaymentSetupFooterView : PKTableFooterView
 {
     UIButton *_continueButton;
     UIButton *_skipCardButton;
-    PKPaymentSetupPrivacyFooterView *_privacyView;
     _Bool _isBuddyiPad;
+    _Bool _forceShowSetupLaterButton;
     long long _context;
     UIButton *_manualEntryButton;
     UIButton *_setupLaterButton;
@@ -21,15 +21,15 @@
 
 @property(retain, nonatomic) UIButton *setupLaterButton; // @synthesize setupLaterButton=_setupLaterButton;
 @property(retain, nonatomic) UIButton *manualEntryButton; // @synthesize manualEntryButton=_manualEntryButton;
+@property(nonatomic) _Bool forceShowSetupLaterButton; // @synthesize forceShowSetupLaterButton=_forceShowSetupLaterButton;
 @property(nonatomic) long long context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (void)_createSetupLaterButton;
 - (void)setButtonsEnabled:(_Bool)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)_sizeForButton:(id)arg1 constrainedToSize:(struct CGSize)arg2;
 @property(retain, nonatomic) UIButton *skipCardButton;
-@property(retain, nonatomic) UIButton *continueButton;
-@property(retain, nonatomic) PKPaymentSetupPrivacyFooterView *privacyView;
 - (id)initWithFrame:(struct CGRect)arg1 context:(long long)arg2;
 
 @end

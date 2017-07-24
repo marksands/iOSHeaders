@@ -10,6 +10,7 @@
 
 @protocol ADAdRecipient <NSObject>
 @property(nonatomic) long long lastErrorCode;
+@property(nonatomic) _Bool reUsed;
 @property(nonatomic) _Bool displayed;
 @property(nonatomic) int slotPosition;
 @property(nonatomic) int screenfuls;

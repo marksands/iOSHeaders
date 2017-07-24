@@ -10,6 +10,7 @@
 {
 }
 
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 
 @end

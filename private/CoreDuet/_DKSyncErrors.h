@@ -10,6 +10,7 @@
 {
 }
 
++ (id)failedToFetchChanges;
 + (id)failedToApplyRemoteChanges;
 + (id)couldNotSaveForSync;
 + (id)unavailableForCurrentUser;

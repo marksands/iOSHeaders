@@ -29,6 +29,7 @@
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)_recoveryButtonPressed:(id)arg1;
 - (void)_updateText;
+- (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

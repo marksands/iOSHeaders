@@ -9,7 +9,7 @@
 #import <SceneKit/NSSecureCoding-Protocol.h>
 #import <SceneKit/SCNAnimatable-Protocol.h>
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSString, SCNOrderedDictionary;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, SCNOrderedDictionary;
 
 @interface SCNMorpher : NSObject <SCNAnimatable, NSSecureCoding>
 {
@@ -22,6 +22,7 @@
     NSMutableArray *_weights;
     NSArray *_channelTargetCounts;
     NSArray *_channelTargetWeights;
+    NSDictionary *_targetNameToIndexes;
     NSString *_name;
     _Bool _unifyNormal;
     _Bool _useSparseTargets;
@@ -29,6 +30,7 @@
 
 + (Class)SCNUID_classForElementOfArray:(id)arg1;
 + (_Bool)supportsSecureCoding;
++ (id)weightIndexStringForIndex:(long long)arg1;
 + (id)morpher;
 + (id)morpherWithMorphRef:(struct __C3DMorph *)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -46,12 +48,16 @@
 - (void)setWantsCPUMorphing:(_Bool)arg1;
 - (_Bool)wantsCPUMorphing;
 @property(retain, nonatomic) NSArray *weights;
-@property(retain, nonatomic) NSArray *channelTargetWeights;
-@property(retain, nonatomic) NSArray *channelTargetCounts;
+- (void)setChannelTargetWeights:(id)arg1;
+- (id)channelTargetWeights;
+- (void)setChannelTargetCounts:(id)arg1;
+- (id)channelTargetCounts;
 @property(nonatomic) long long calculationMode;
 - (double)weightForTargetAtIndex:(unsigned long long)arg1;
 - (void)setWeight:(double)arg1 forTargetAtIndex:(unsigned long long)arg2;
+- (double)weightForTargetNamed:(id)arg1;
 - (void)setWeight:(double)arg1 forTargetNamed:(id)arg2;
+- (long long)_weightIndexForTargetNamed:(id)arg1;
 - (void)setShouldMorphNormals:(_Bool)arg1;
 - (_Bool)shouldMorphNormals;
 @property _Bool unifiesNormals;

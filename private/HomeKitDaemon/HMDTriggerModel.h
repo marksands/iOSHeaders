@@ -6,25 +6,23 @@
 
 #import <HomeKitDaemon/HMDBackingStoreModelObject.h>
 
-@class NSArray, NSData, NSDate, NSNumber, NSString;
+@class HMDDevice, HMDUser, NSArray, NSDate, NSNumber, NSString;
 
 @interface HMDTriggerModel : HMDBackingStoreModelObject
 {
 }
 
-+ (id)decodeUser:(id)arg1;
-+ (id)decodeDevice:(id)arg1;
 + (id)properties;
 - (id)dependentUUIDs;
 - (id)createPayload;
 
 // Remaining properties
-@property(nonatomic) NSNumber *active; // @dynamic active;
+@property(retain, nonatomic) NSNumber *active; // @dynamic active;
 @property(retain, nonatomic) NSArray *currentActionSets; // @dynamic currentActionSets;
 @property(copy, nonatomic) NSDate *mostRecentFireDate; // @dynamic mostRecentFireDate;
 @property(retain, nonatomic) NSString *name; // @dynamic name;
-@property(retain, nonatomic) NSData *owner; // @dynamic owner;
-@property(retain, nonatomic) NSData *owningDevice; // @dynamic owningDevice;
+@property(retain, nonatomic) HMDUser *owner; // @dynamic owner;
+@property(retain, nonatomic) HMDDevice *owningDevice; // @dynamic owningDevice;
 
 @end
 

@@ -6,18 +6,20 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, NSMutableSet;
 
 @interface InstalledAppsCache : NSObject
 {
     NSMutableDictionary *_appCache;
     NSMutableDictionary *_nameCache;
     NSMutableDictionary *_pluginCache;
+    NSMutableSet *_siriPlugins;
 }
 
 + (id)sharedInstance;
 - (void).cxx_destruct;
 - (void)_currentLocaleChanged;
+- (_Bool)isSiriPlugin:(id)arg1;
 - (id)pluginNameForUUID:(id)arg1 bundleId:(id *)arg2;
 - (void)_addApplicationToCache:(id)arg1;
 - (void)_appRegistrationRemoved:(id)arg1;

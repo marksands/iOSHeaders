@@ -7,7 +7,6 @@
 #import <NewsToday/FCTagRanking-Protocol.h>
 
 @class FCFeedPersonalizedArticles, NSArray, NSString;
-@protocol FCFeedPersonalizingArticle;
 
 @protocol FCFeedPersonalizing <FCTagRanking>
 - (unsigned long long)whitelistLevelForTag:(NSString *)arg1;
@@ -15,7 +14,6 @@
 - (void)prepareForUseWithCompletionHandler:(void (^)(void))arg1;
 - (NSArray *)limitArticlesByFlowRate:(NSArray *)arg1 timeInterval:(double)arg2 publisherCount:(unsigned long long)arg3;
 - (NSArray *)limitArticlesByMinimumArticleQuality:(NSArray *)arg1;
-- (double)computeUserFeedbackScoreForArticle:(id <FCFeedPersonalizingArticle>)arg1 timestamp:(double)arg2;
 - (NSArray *)diversifyArticles:(NSArray *)arg1 limit:(unsigned long long)arg2;
 - (FCFeedPersonalizedArticles *)sortArticles:(NSArray *)arg1 options:(long long)arg2;
 - (FCFeedPersonalizedArticles *)sortArticles:(NSArray *)arg1;

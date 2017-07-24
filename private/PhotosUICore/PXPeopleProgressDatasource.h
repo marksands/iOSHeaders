@@ -6,13 +6,13 @@
 
 #import <objc/NSObject.h>
 
-#import <PhotosUICore/PXPeopleProgressDatasource-Protocol.h>
+#import <PhotosUICore/PXPeopleProgressDataSource-Protocol.h>
 #import <PhotosUICore/PXPhotoLibraryUIChangeObserver-Protocol.h>
 
 @class NSString, PHFetchResult;
 @protocol OS_dispatch_queue;
 
-@interface PXPeopleProgressDatasource : NSObject <PXPhotoLibraryUIChangeObserver, PXPeopleProgressDatasource>
+@interface PXPeopleProgressDatasource : NSObject <PXPhotoLibraryUIChangeObserver, PXPeopleProgressDataSource>
 {
     _Bool _countCacheValid;
     _Bool _faceProcessingComplete;
@@ -23,10 +23,12 @@
     PHFetchResult *_homeResult;
     PHFetchResult *_verifyResult;
     NSObject<OS_dispatch_queue> *_scanningProgressQueue;
+    NSObject<OS_dispatch_queue> *_userInteractiveQueue;
 }
 
 @property(nonatomic, getter=isFaceProcessingComplete) _Bool faceProcessingComplete; // @synthesize faceProcessingComplete=_faceProcessingComplete;
 @property(getter=isCountCacheValid) _Bool countCacheValid; // @synthesize countCacheValid=_countCacheValid;
+@property(readonly) NSObject<OS_dispatch_queue> *userInteractiveQueue; // @synthesize userInteractiveQueue=_userInteractiveQueue;
 @property(readonly) NSObject<OS_dispatch_queue> *scanningProgressQueue; // @synthesize scanningProgressQueue=_scanningProgressQueue;
 @property(retain, nonatomic) PHFetchResult *verifyResult; // @synthesize verifyResult=_verifyResult;
 @property(retain, nonatomic) PHFetchResult *homeResult; // @synthesize homeResult=_homeResult;
@@ -38,14 +40,14 @@
 - (void)_appWillEnterForeground;
 - (void)photoLibraryDidChangeOnMainQueue:(id)arg1 withPreparedInfo:(id)arg2;
 - (double)_progressFromWorkerDictionary:(id)arg1;
+- (_Bool)isPersonPromoterDone;
 - (unsigned long long)totalAssetCount;
 - (unsigned long long)homeMembersCount;
 - (unsigned long long)processedAssetCount;
 - (unsigned long long)pendingAssetCount;
-@property _Bool featureUnlockUserDefault;
 - (void)asyncPeopleScanningProgress:(CDUnknownBlockType)arg1;
-- (double)syncPeopleScanningProgress;
-- (void)updateProgressIfNeeded;
+- (void)syncPeopleScanningProgress:(CDUnknownBlockType)arg1;
+- (void)updateProgressIfNeededWithWorkBlock:(CDUnknownBlockType)arg1;
 - (void)loadQueryData;
 - (void)dealloc;
 - (id)init;

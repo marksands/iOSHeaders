@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSUserDefaults;
+@class NSArray, NSUserDefaults;
 
 @interface MRUserSettings : NSObject
 {
@@ -20,7 +20,9 @@
 - (long long)_integerValueForKey:(id)arg1 usingDefaultValue:(long long)arg2;
 - (double)_doubleValueForKey:(id)arg1 usingDefaultValue:(double)arg2;
 - (_Bool)_boolValueForKey:(id)arg1 usingDefaultValue:(_Bool)arg2;
+@property(nonatomic) NSArray *connectedClientPIDs;
 @property(readonly, nonatomic) _Bool useSystemAudioContextForAirPlayTransport;
+@property(readonly, nonatomic, getter=isAirPlay2Enabled) _Bool airPlay2Enabled;
 @property(readonly, nonatomic) double sleepOnStartUpDuration;
 @property(readonly, nonatomic) double transactionWaitDurationOnNetworkSend;
 @property(readonly, nonatomic) double transactionWaitDurationOnXpcSend;
@@ -38,6 +40,7 @@
 @property(readonly, nonatomic) double externalDeviceTimeoutDuration;
 @property(readonly, nonatomic) long long externalDeviceSocketQOSLevel;
 @property(readonly, nonatomic) _Bool hasExternalDeviceSocketQOSLevelSet;
+@property(readonly, nonatomic) _Bool shouldLogPairingSetupCode;
 @property(readonly, nonatomic) _Bool shouldInitializeTelevisionBonjourService;
 @property(readonly, nonatomic) _Bool deviceSupportsExternalRemoteControl;
 @property(readonly, nonatomic) _Bool useDebugAVRouteWithoutVolumeControl;

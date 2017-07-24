@@ -11,12 +11,12 @@
 #import <PhotosEditUI/PUImageInfoNode-Protocol.h>
 #import <PhotosEditUI/PUReviewImageURLNode-Protocol.h>
 #import <PhotosEditUI/PUReviewVideoURLNode-Protocol.h>
-#import <PhotosEditUI/PUVideoURLNode-Protocol.h>
+#import <PhotosEditUI/PUVideoURLExportNode-Protocol.h>
 
 @class NSArray, NSData, NSString, NSURL, PUEditableMediaProviderImageDataNode, PUEditableMediaProviderVideoURLNode, PUImageDataRenderNode, PUPhotoEditIrisModel, PUVideoExportNode;
 @protocol PXRunNodeDelegate;
 
-@interface PUReviewInternalSaveNode : PXRunNode <PUImageInfoNode, PUVideoURLNode, PUAdjustmentURLNode, PUReviewImageURLNode, PUReviewVideoURLNode, PUImageDataRenderNode>
+@interface PUReviewInternalSaveNode : PXRunNode <PUImageInfoNode, PUVideoURLExportNode, PUAdjustmentURLNode, PUReviewImageURLNode, PUReviewVideoURLNode, PUImageDataRenderNode>
 {
     NSURL *_imageDataURL;
     long long _imageExifOrientation;
@@ -32,6 +32,7 @@
     PUVideoExportNode *_videoRenderNode;
     NSURL *_directory;
     PUPhotoEditIrisModel *_livePhotoModel;
+    struct CGSize _renderedVideoSize;
     struct CGSize _baseImageSize;
     struct CGSize _renderedImageSize;
 }
@@ -47,6 +48,7 @@
 @property(readonly, nonatomic) struct CGSize renderedImageSize; // @synthesize renderedImageSize=_renderedImageSize;
 @property(readonly, nonatomic) struct CGSize baseImageSize; // @synthesize baseImageSize=_baseImageSize;
 @property(readonly, nonatomic) NSURL *adjustmentURL; // @synthesize adjustmentURL=_adjustmentURL;
+@property(readonly, nonatomic) struct CGSize renderedVideoSize; // @synthesize renderedVideoSize=_renderedVideoSize;
 @property(readonly, nonatomic) NSURL *videoURL; // @synthesize videoURL=_videoURL;
 @property(readonly, nonatomic) NSURL *providedVideoURL; // @synthesize providedVideoURL=_providedVideoURL;
 @property(readonly, nonatomic) NSURL *providedFullsizeImageURL; // @synthesize providedFullsizeImageURL=_providedFullsizeImageURL;

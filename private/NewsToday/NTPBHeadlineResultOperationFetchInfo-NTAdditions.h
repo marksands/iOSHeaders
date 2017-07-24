@@ -7,6 +7,8 @@
 #import <NewsTransport/NTPBHeadlineResultOperationFetchInfo.h>
 
 @interface NTPBHeadlineResultOperationFetchInfo (NTAdditions)
+- (void)setCTRByPersonalizationFeatureID:(id)arg1;
+- (id)CTRByPersonalizationFeatureID;
 - (id)appConfigTreatmentID;
 - (void)setAppConfigTreatmentID:(id)arg1;
 @end

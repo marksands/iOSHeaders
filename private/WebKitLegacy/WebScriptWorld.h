@@ -21,7 +21,7 @@
 - (void)dealloc;
 - (void)unregisterWorld;
 - (id)init;
-- (id)initWithWorld:(PassRefPtr_7f281a75)arg1;
+- (id)initWithWorld:(Ref_f71b44f7 *)arg1;
 
 @end
 

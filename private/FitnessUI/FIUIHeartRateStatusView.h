@@ -45,7 +45,7 @@
 - (void)layoutSubviews;
 - (void)_suspendAnimations;
 - (void)_resumeAnimations;
-- (id)initWithFrame:(struct CGRect)arg1 heartSpriteImageName:(id)arg2 spriteFrameCount:(long long)arg3 spriteColumnCount:(long long)arg4 resourceBundle:(id)arg5;
+- (id)initWithFrame:(struct CGRect)arg1 heartFilledImageName:(id)arg2 heartSpriteImageName:(id)arg3 spriteFrameCount:(long long)arg4 spriteColumnCount:(long long)arg5 resourceBundle:(id)arg6;
 
 @end
 

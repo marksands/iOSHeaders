@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVFigEndpointOutputDeviceImpl, AVOutputDeviceInternal, NSString;
+@class AVOutputDeviceInternal, NSString;
 
 @interface AVOutputDevice : NSObject
 {
@@ -24,6 +24,11 @@
 - (_Bool)canBeGroupLeader;
 - (id)groupID;
 - (_Bool)canBeGrouped;
+- (void)setVolume:(float)arg1;
+- (void)outputDeviceImplDidChangeCanChangeVolume:(id)arg1;
+- (_Bool)canSetVolume;
+- (void)outputDeviceImplDidChangeVolume:(id)arg1;
+- (float)volume;
 - (void)setSecondDisplayEnabled:(_Bool)arg1;
 - (_Bool)canAccessRemoteAssets;
 - (_Bool)requiresAuthorization;
@@ -36,7 +41,8 @@
 @property(readonly, nonatomic) NSString *modelID;
 @property(readonly, nonatomic) long long deviceSubType;
 @property(readonly, nonatomic) long long deviceType;
-@property(readonly, nonatomic) NSString *ID;
+- (id)ID;
+@property(readonly, nonatomic) NSString *deviceID;
 @property(readonly, nonatomic) NSString *name;
 - (id)impl;
 - (id)description;
@@ -45,7 +51,7 @@
 - (void)dealloc;
 - (id)initWithOutputDeviceImpl:(id)arg1;
 - (id)init;
-@property(readonly) AVFigEndpointOutputDeviceImpl *figEndpointOutputImpl;
+- (id)figEndpointOutputImpl;
 
 @end
 

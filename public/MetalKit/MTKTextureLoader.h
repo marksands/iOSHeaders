@@ -26,6 +26,9 @@
 - (void)newTextureWithName:(id)arg1 scaleFactor:(double)arg2 bundle:(id)arg3 options:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)newTexturesWithNames:(id)arg1 scaleFactor:(double)arg2 displayGamut:(long long)arg3 bundle:(id)arg4 options:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (void)newTexturesWithNames:(id)arg1 scaleFactor:(double)arg2 bundle:(id)arg3 options:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (id)_newAsyncTexturesFromTXRTextures:(id)arg1 options:(id)arg2 error:(id *)arg3;
+- (id)newTextureFromTXRTexture:(id)arg1 options:(id)arg2 error:(id *)arg3;
+- (id)newTexturesFromTXRTextures:(id)arg1 options:(id)arg2 error:(id *)arg3;
 - (void)_newAsyncTextureWithNames:(id)arg1 scaleFactor:(double)arg2 displayGamut:(long long)arg3 bundle:(id)arg4 options:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (id)newUploaderForOptions:(id)arg1;
 - (_Bool)validateGenerateMipmapsForPixelFormat:(unsigned long long)arg1 options:(id)arg2 error:(id *)arg3;

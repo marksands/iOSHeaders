@@ -12,7 +12,7 @@
 #import <iWorkImport/TPPageLayoutInfoProvider-Protocol.h>
 #import <iWorkImport/TSWPLayoutOwner-Protocol.h>
 
-@class NSMutableArray, NSString, TPDocumentRoot, TPFootnoteLayoutController, TPPageLayoutState, TPSearchCanvasDelegate, TPTextFlowLayoutController, TSUMutablePointerSet, TSWPLayoutManager, TSWPLayoutMetricsCache;
+@class NSArray, NSMutableArray, NSString, TPDocumentRoot, TPFootnoteLayoutController, TPPageLayoutState, TPSearchCanvasDelegate, TPTextFlowLayoutController, TSUMutablePointerSet, TSWPLayoutManager, TSWPLayoutMetricsCache;
 
 __attribute__((visibility("hidden")))
 @interface TPPageController : NSObject <TPPageLayoutInfoProvider, TSWPLayoutOwner, TPLayoutStateConsumer, TPLayoutStateProvider, TPBackgroundLayoutControllerDelegate>
@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
     TSUMutablePointerSet *_layoutObservers;
     TSWPLayoutMetricsCache *_bodyLayoutMetricsCache;
     TPTextFlowLayoutController *_flowController;
+    _Bool _exportingFixedLayoutEPub;
     TPPageLayoutState *_layoutState;
     NSMutableArray *_sectionHints;
     TPDocumentRoot *_documentRoot;
@@ -46,6 +47,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSMutableArray *sectionHints; // @synthesize sectionHints=_sectionHints;
 @property(readonly, nonatomic) TPPageLayoutState *layoutState; // @synthesize layoutState=_layoutState;
 @property(readonly, nonatomic) unsigned long long pageCount; // @synthesize pageCount=_lastKnownPageCount;
+@property(nonatomic, getter=isExportingFixedLayoutEPub) _Bool exportingFixedLayoutEPub; // @synthesize exportingFixedLayoutEPub=_exportingFixedLayoutEPub;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (_Bool)p_layoutNextPageOnceWithOffscreenLayoutController;
@@ -57,7 +59,7 @@ __attribute__((visibility("hidden")))
 - (void)p_notifyObserversWillLayoutWhileSyncing:(_Bool)arg1;
 - (unsigned long long)p_textPageIndexPrecedingPageIndex:(unsigned long long)arg1;
 - (unsigned long long)p_lastValidTextPageIndex;
-- (id)p_lastValidTextPageHint;
+- (id)p_lastValidTextPageHint:(out unsigned long long *)arg1;
 - (id)p_lastValidPageHint;
 - (id)p_textPageHintFollowingPageIndexPath:(id)arg1;
 - (id)p_textPageHintPrecedingPageIndexPath:(id)arg1;
@@ -91,7 +93,7 @@ __attribute__((visibility("hidden")))
 - (struct _NSRange)p_footnoteLayoutRangeForPageIndex:(unsigned long long)arg1 forceLayout:(_Bool)arg2 allowAfterLayoutPoint:(_Bool)arg3;
 - (struct _NSRange)p_anchoredRangeForPageIndex:(unsigned long long)arg1 forceLayout:(_Bool)arg2 allowAfterLayoutPoint:(_Bool)arg3;
 - (struct _NSRange)p_bodyRangeForPageIndex:(unsigned long long)arg1 forceLayout:(_Bool)arg2 allowAfterLayoutPoint:(_Bool)arg3;
-- (unsigned long long)p_pageIndexForCharIndex:(unsigned long long)arg1 includeEmptyPages:(_Bool)arg2 caretAffinity:(int)arg3 forceLayout:(_Bool)arg4 searchAfterLayoutPoint:(_Bool)arg5;
+- (unsigned long long)p_pageIndexForCharIndex:(unsigned long long)arg1 caretAffinity:(int)arg2 forceLayout:(_Bool)arg3 searchAfterLayoutPoint:(_Bool)arg4;
 - (id)p_pageInfoForPageAtIndex:(unsigned long long)arg1;
 - (void)p_withPageLayoutAtIndex:(unsigned long long)arg1 preferredLayoutController:(id)arg2 executeBlock:(CDUnknownBlockType)arg3;
 - (id)p_cachedPageLayoutForPageIndex:(unsigned long long)arg1 preferredLayoutController:(id)arg2;
@@ -147,6 +149,7 @@ __attribute__((visibility("hidden")))
 - (void)withPageLayoutAtIndex:(unsigned long long)arg1 preferredLayoutController:(id)arg2 executeBlock:(CDUnknownBlockType)arg3;
 - (void)withPageLayoutAtIndex:(unsigned long long)arg1 executeBlock:(CDUnknownBlockType)arg2;
 - (id)pageIndicesForPartitionableAttachmentAtBodyCharIndex:(unsigned long long)arg1 selectionPath:(id)arg2 forceLayout:(_Bool)arg3;
+@property(readonly, nonatomic) NSArray *numberOfPagesInEachSection;
 - (id)pageInfoForPageIndex:(unsigned long long)arg1;
 - (_Bool)pageIndexIsFirstPageOfSection:(unsigned long long)arg1;
 - (struct _NSRange)sectionPageRangeForPageIndex:(unsigned long long)arg1 forceLayout:(_Bool)arg2 outEndIsValid:(_Bool *)arg3;
@@ -166,7 +169,7 @@ __attribute__((visibility("hidden")))
 - (struct _NSRange)anchoredRangeForPageIndex:(unsigned long long)arg1 forceLayout:(_Bool)arg2;
 - (struct _NSRange)bodyRangeForPageIndex:(unsigned long long)arg1 forceLayout:(_Bool)arg2;
 - (struct _NSRange)validPageRangeForSelection:(id)arg1;
-- (struct _NSRange)pageRangeForSelection:(id)arg1 includingEmptyPages:(_Bool)arg2 outEndIsValid:(_Bool *)arg3;
+- (struct _NSRange)pageRangeForSelection:(id)arg1 outEndIsValid:(_Bool *)arg2;
 - (void)canvasDidValidateLayouts:(id)arg1;
 - (void)layoutThroughPageIndex:(unsigned long long)arg1 forLayoutController:(id)arg2;
 - (void)layoutThroughPageIndex:(unsigned long long)arg1;
@@ -188,13 +191,15 @@ __attribute__((visibility("hidden")))
 - (id)headerFooterProviderForPageIndex:(unsigned long long)arg1;
 - (_Bool)canProvideNumberingInfoForPageIndex:(unsigned long long)arg1;
 - (_Bool)canProvideInfoForPageIndex:(unsigned long long)arg1;
+- (id)i_flowLayoutController;
 - (multimap_9b10e2a9 *)i_pageCache;
 - (void)i_setNeedsDynamicLayoutForLayoutController:(id)arg1 onPageIndex:(unsigned long long)arg2;
 - (_Bool)i_shouldLayoutBodyVertically;
 - (void)i_unregisterPageLayout:(id)arg1;
 - (void)i_registerPageLayout:(id)arg1;
+- (void)i_invalidateFlows:(id)arg1 startingPage:(id)arg2;
 - (void)i_invalidatePageIndex:(unsigned long long)arg1;
-- (id)i_textPageHintPrecedingPageIndex:(unsigned long long)arg1;
+- (id)i_textPageHintPrecedingPageIndex:(inout unsigned long long *)arg1;
 - (void)i_inflateTextFlowsOnPage:(id)arg1;
 - (void)i_inflateFootnotesInFootnoteContainer:(id)arg1;
 - (void)i_inflateColumnsInBodyLayout:(id)arg1;

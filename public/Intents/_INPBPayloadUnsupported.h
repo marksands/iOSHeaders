@@ -17,12 +17,14 @@
     int _reason;
     int _requestPaymentIntentCurrencyAmountUnsupportedReason;
     int _requestPaymentIntentPayerUnsupportedReason;
+    int _sendMessageIntentRecipientUnsupportedReason;
     int _sendPaymentIntentCurrencyAmountUnsupportedReason;
     int _sendPaymentIntentPayeeUnsupportedReason;
     struct {
         unsigned int reason:1;
         unsigned int requestPaymentIntentCurrencyAmountUnsupportedReason:1;
         unsigned int requestPaymentIntentPayerUnsupportedReason:1;
+        unsigned int sendMessageIntentRecipientUnsupportedReason:1;
         unsigned int sendPaymentIntentCurrencyAmountUnsupportedReason:1;
         unsigned int sendPaymentIntentPayeeUnsupportedReason:1;
     } _has;
@@ -49,6 +51,10 @@
 - (id)reasonAsString:(int)arg1;
 @property(nonatomic) _Bool hasReason;
 @property(nonatomic) int reason; // @synthesize reason=_reason;
+- (int)StringAsSendMessageIntentRecipientUnsupportedReason:(id)arg1;
+- (id)sendMessageIntentRecipientUnsupportedReasonAsString:(int)arg1;
+@property(nonatomic) _Bool hasSendMessageIntentRecipientUnsupportedReason;
+@property(nonatomic) int sendMessageIntentRecipientUnsupportedReason;
 - (int)StringAsSendPaymentIntentPayeeUnsupportedReason:(id)arg1;
 - (id)sendPaymentIntentPayeeUnsupportedReasonAsString:(int)arg1;
 @property(nonatomic) _Bool hasSendPaymentIntentPayeeUnsupportedReason;

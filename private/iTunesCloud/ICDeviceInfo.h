@@ -10,6 +10,8 @@
 
 @interface ICDeviceInfo : NSObject
 {
+    // Error parsing type: {atomic_flag="_Value"AB}, name: _hasRegisteredForNameNotifications
+    struct MGNotificationTokenStruct *_nameNotificationToken;
     NSString *_productVersion;
     NSString *_deviceModel;
     NSString *_rawDeviceModel;
@@ -22,6 +24,7 @@
     NSString *_deviceGUID;
     NSString *_name;
     NSString *_pairedDeviceGUID;
+    NSString *_serialNumber;
     NSString *_systemReleaseType;
 }
 
@@ -35,11 +38,13 @@
 @property(readonly, copy, nonatomic) NSString *buildVersion;
 @property(readonly, copy, nonatomic) NSString *productPlatform;
 @property(readonly, copy, nonatomic) NSString *productVersion;
+@property(readonly, nonatomic) _Bool isAudioAccessory;
 @property(readonly, nonatomic) _Bool isWatch;
 @property(readonly, nonatomic) _Bool isIPod;
 @property(readonly, nonatomic) _Bool isIPad;
 @property(readonly, nonatomic) _Bool isAppleTV;
 @property(readonly, nonatomic) _Bool isIPhone;
+@property(readonly, copy, nonatomic) NSString *serialNumber;
 @property(readonly, copy, nonatomic) NSString *name;
 @property(readonly, nonatomic) int deviceClass;
 @property(readonly, copy, nonatomic) NSString *pairedDeviceGUID;
@@ -49,6 +54,7 @@
 @property(readonly, copy, nonatomic) NSString *systemReleaseType;
 @property(readonly, copy, nonatomic) NSString *rawDeviceModel;
 @property(readonly, copy, nonatomic) NSString *deviceModel;
+- (void)dealloc;
 
 @end
 

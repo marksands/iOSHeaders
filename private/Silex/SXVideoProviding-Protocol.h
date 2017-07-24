@@ -12,6 +12,7 @@
 - (void (^)(void))loadWithCompletionBlock:(id <SXVideoMetadataProviding> (^)(NSURL *))arg1;
 
 @optional
+- (void)muteStateChanged:(_Bool)arg1;
 - (void)timeElapsed:(double)arg1 duration:(double)arg2;
 - (void)playbackFailedWithError:(NSError *)arg1;
 - (void)playbackFinished;

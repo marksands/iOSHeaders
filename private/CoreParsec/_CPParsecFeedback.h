@@ -15,12 +15,10 @@
 {
     struct {
         unsigned int queryId:1;
-        unsigned int clientQueryId:1;
         unsigned int relTimestamp:1;
     } _has;
     _CPFeedbackPayload *_payload;
     unsigned long long _queryId;
-    unsigned long long _clientQueryId;
     unsigned long long _relTimestamp;
     NSString *_parsecDeveloperID;
     NSString *_userAgent;
@@ -31,7 +29,6 @@
 @property(copy, nonatomic) NSString *userAgent; // @synthesize userAgent=_userAgent;
 @property(copy, nonatomic) NSString *parsecDeveloperID; // @synthesize parsecDeveloperID=_parsecDeveloperID;
 @property(nonatomic) unsigned long long relTimestamp; // @synthesize relTimestamp=_relTimestamp;
-@property(nonatomic) unsigned long long clientQueryId; // @synthesize clientQueryId=_clientQueryId;
 @property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
 @property(retain, nonatomic) _CPFeedbackPayload *payload; // @synthesize payload=_payload;
 - (void).cxx_destruct;
@@ -47,7 +44,6 @@
 @property(readonly, nonatomic) _Bool hasUserAgent;
 @property(readonly, nonatomic) _Bool hasParsecDeveloperID;
 @property(readonly, nonatomic) _Bool hasRelTimestamp;
-@property(readonly, nonatomic) _Bool hasClientQueryId;
 @property(readonly, nonatomic) _Bool hasQueryId;
 @property(readonly, nonatomic) _Bool hasPayload;
 - (_Bool)requiresQueryId;

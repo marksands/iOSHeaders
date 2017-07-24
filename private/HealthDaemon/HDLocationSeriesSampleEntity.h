@@ -20,7 +20,6 @@
 + (id)insertDataObject:(id)arg1 withProvenance:(id)arg2 inDatabase:(id)arg3 persistentID:(id)arg4 error:(id *)arg5;
 + (_Bool)_insertCodableSeriesDataFromObject:(id)arg1 persistentID:(id)arg2 database:(id)arg3 error:(id *)arg4;
 + (id)entityEncoderForProfile:(id)arg1 database:(id)arg2 purpose:(long long)arg3 encodingOptions:(id)arg4 authorizationFilter:(CDUnknownBlockType)arg5;
-+ (long long)_seriesSampleExternalSyncObjectCode;
 + (id)createTableSQL;
 + (_Bool)participatesInInsertion;
 + (_Bool)isBackedByTable;

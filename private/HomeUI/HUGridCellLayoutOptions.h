@@ -16,6 +16,8 @@
     unsigned long long _contentColorStyle;
     HUGridCellBackgroundDisplayOptions *_backgroundDisplayOptions;
     UIVisualEffect *_vibrancyEffect;
+    UIVisualEffect *_secondaryVibrancyEffect;
+    double _secondaryContentDimmingFactor;
     UIFont *_font;
     double _iconSize;
     double _cellInnerMargin;
@@ -31,6 +33,8 @@
 @property(nonatomic) double cellInnerMargin; // @synthesize cellInnerMargin=_cellInnerMargin;
 @property(nonatomic) double iconSize; // @synthesize iconSize=_iconSize;
 @property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
+@property(nonatomic) double secondaryContentDimmingFactor; // @synthesize secondaryContentDimmingFactor=_secondaryContentDimmingFactor;
+@property(retain, nonatomic) UIVisualEffect *secondaryVibrancyEffect; // @synthesize secondaryVibrancyEffect=_secondaryVibrancyEffect;
 @property(retain, nonatomic) UIVisualEffect *vibrancyEffect; // @synthesize vibrancyEffect=_vibrancyEffect;
 @property(copy, nonatomic) HUGridCellBackgroundDisplayOptions *backgroundDisplayOptions; // @synthesize backgroundDisplayOptions=_backgroundDisplayOptions;
 @property(nonatomic) unsigned long long contentColorStyle; // @synthesize contentColorStyle=_contentColorStyle;

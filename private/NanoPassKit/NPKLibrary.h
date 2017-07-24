@@ -8,7 +8,7 @@
 
 #import <NanoPassKit/NPKGizmoClientProtocol-Protocol.h>
 
-@class NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSString, NSTimer, NSXPCConnection;
+@class NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSString, NSTimer, NSXPCConnection, PKPaymentPass;
 @protocol OS_dispatch_queue, OS_dispatch_semaphore;
 
 @interface NPKLibrary : NSObject <NPKGizmoClientProtocol>
@@ -84,6 +84,7 @@
 - (void)getDiffForPassWithID:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)getPassWithID:(id)arg1 reply:(CDUnknownBlockType)arg2 queue:(id)arg3;
 - (void)getPassWithID:(id)arg1 reply:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) PKPaymentPass *peerPaymentPass;
 - (id)cachedPaymentPasses;
 - (id)cachedPaymentPassWithDPANIdentifier:(id)arg1;
 - (id)cachedPassWithID:(id)arg1;

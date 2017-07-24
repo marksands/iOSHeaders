@@ -6,13 +6,14 @@
 
 #import <SafariServices/NSObject-Protocol.h>
 
-@class NSString, _SFNavigationBarURLButton;
+@class NSString, UIGestureRecognizer, _SFNavigationBarURLButton;
 
 @protocol _SFNavigationBarURLButtonDelegate <NSObject>
 - (_Bool)navigationBarURLButtonShouldPaste:(_SFNavigationBarURLButton *)arg1;
 - (_Bool)navigationBarURLButtonShouldCopy:(_SFNavigationBarURLButton *)arg1;
 - (void)navigationBarURLButtonDidReceivePasteCommand:(_SFNavigationBarURLButton *)arg1;
 - (void)navigationBarURLButtonDidReceiveCopyCommand:(_SFNavigationBarURLButton *)arg1;
+- (_Bool)navigationBarURLButton:(_SFNavigationBarURLButton *)arg1 shouldShowMenuForGestureWithRecognizer:(UIGestureRecognizer *)arg2;
 - (NSString *)textForNavigationBarURLButton:(_SFNavigationBarURLButton *)arg1;
 @end
 

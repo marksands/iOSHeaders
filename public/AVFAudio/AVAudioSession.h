@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class AVAudioSessionPortDescription, AVAudioSessionRouteDescription, NSArray, NSString;
 
@@ -26,6 +26,7 @@
 - (void)privateUpdatePromptStyle:(id)arg1;
 - (void)privateUpdateOutputVolume:(id)arg1;
 - (_Bool)privateSetPropertyValue:(unsigned int)arg1 withBool:(_Bool)arg2 error:(id *)arg3;
+- (void)privateHandleRoutingContextChange;
 - (void)privateUpdatePiPAvailabilityChange:(id)arg1;
 - (void)privateHandleSecondaryAudioHintChange:(id)arg1;
 - (void)privateHandlePickableRoutesChange;
@@ -72,7 +73,9 @@
 @property(readonly) AVAudioSessionPortDescription *preferredInput;
 - (_Bool)setPreferredInput:(id)arg1 error:(id *)arg2;
 - (_Bool)overrideOutputAudioPort:(unsigned long long)arg1 error:(id *)arg2;
-- (_Bool)setRoutingContextUID:(id)arg1 error:(id *)arg2;
+- (_Bool)selectIndependentRoutingContext:(id *)arg1;
+- (id)routingContextUID;
+- (_Bool)privateSetRoutingContextUID:(id)arg1 error:(id *)arg2;
 - (_Bool)privateSetRouteSharingPolicy:(unsigned long long)arg1 error:(id *)arg2;
 - (_Bool)setMode:(id)arg1 error:(id *)arg2;
 @property(readonly) NSString *mode;

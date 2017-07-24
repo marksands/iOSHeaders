@@ -6,35 +6,35 @@
 
 #import <Foundation/NSObject.h>
 
-@class MPMediaItem, MPMediaPlaylist, MPMediaQuery, MPRadioStation, NSArray, NSDictionary, NSString;
+@class MPMediaItem, MPMediaPlaylist, MPMediaQuery, MPMusicPlayerQueueDescriptor, MPRadioStation, NSArray, NSDictionary, NSString;
 
 @interface MPMusicPlayerClientState : NSObject
 {
+    _Bool _hasAudioBackgroundMode;
+    _Bool _seeking;
+    _Bool _useApplicationSpecificQueue;
     int _backgroundPlaybackAccess;
     MPMediaItem *_firstItem;
     MPMediaPlaylist *_geniusMixPlaylist;
-    _Bool _hasAudioBackgroundMode;
     MPMediaQuery *_query;
-    MPRadioStation *_radioStation;
     long long _repeatMode;
-    _Bool _seeking;
     long long _shuffleMode;
-    _Bool _useApplicationSpecificQueue;
-    _Bool _videoPlaybackEnabled;
     NSDictionary *_assetStoreFrontOverrides;
     NSDictionary *_endTimeModifications;
+    MPRadioStation *_radioStation;
     NSString *_startItemID;
     NSDictionary *_startTimeModifications;
     NSArray *_storeIDs;
+    MPMusicPlayerQueueDescriptor *_queueDescriptor;
 }
 
+@property(retain, nonatomic) MPMusicPlayerQueueDescriptor *queueDescriptor; // @synthesize queueDescriptor=_queueDescriptor;
 @property(copy, nonatomic) NSArray *storeIDs; // @synthesize storeIDs=_storeIDs;
 @property(copy, nonatomic) NSDictionary *startTimeModifications; // @synthesize startTimeModifications=_startTimeModifications;
 @property(copy, nonatomic) NSString *startItemID; // @synthesize startItemID=_startItemID;
 @property(retain, nonatomic) MPRadioStation *radioStation; // @synthesize radioStation=_radioStation;
 @property(copy, nonatomic) NSDictionary *endTimeModifications; // @synthesize endTimeModifications=_endTimeModifications;
 @property(copy, nonatomic) NSDictionary *assetStoreFrontOverrides; // @synthesize assetStoreFrontOverrides=_assetStoreFrontOverrides;
-@property(nonatomic) _Bool videoPlaybackEnabled; // @synthesize videoPlaybackEnabled=_videoPlaybackEnabled;
 @property(nonatomic) _Bool useApplicationSpecificQueue; // @synthesize useApplicationSpecificQueue=_useApplicationSpecificQueue;
 @property(nonatomic) long long shuffleMode; // @synthesize shuffleMode=_shuffleMode;
 @property(nonatomic) _Bool seeking; // @synthesize seeking=_seeking;

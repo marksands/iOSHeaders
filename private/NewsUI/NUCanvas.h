@@ -20,8 +20,9 @@
 @property(nonatomic) struct CGRect lastFrame; // @synthesize lastFrame=_lastFrame;
 @property(readonly, nonatomic) NUViewNode *viewNode; // @synthesize viewNode=_viewNode;
 - (void).cxx_destruct;
-- (void)layoutComponentsInBounds:(struct CGRect)arg1;
-- (void)layoutInBounds:(struct CGRect)arg1;
+- (void)layoutComponentsInBounds:(struct CGRect)arg1 layoutContext:(id)arg2;
+- (void)layoutWithLayoutContext:(id)arg1;
+- (void)layoutInBounds:(struct CGRect)arg1 traitCollection:(id)arg2;
 - (id)resolveView;
 - (id)initWithNode:(id)arg1 sizer:(id)arg2 options:(struct NULayoutOptions)arg3 componentsBlock:(CDUnknownBlockType)arg4;
 

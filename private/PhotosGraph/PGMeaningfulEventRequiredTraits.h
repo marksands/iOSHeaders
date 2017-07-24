@@ -6,7 +6,7 @@
 
 #import <PhotosGraph/PGMeaningfulEventTraits.h>
 
-@class NSDictionary, NSString, PGMeaningfulEventLocationMobilityTrait, PGMeaningfulEventNumberTrait, PGMeaningfulEventPartOfDayTrait, PGMeaningfulEventSetTrait;
+@class NSDictionary, NSString, PGMeaningfulEventLocationMobilityTrait, PGMeaningfulEventNumberTrait, PGMeaningfulEventPartOfDayTrait, PGMeaningfulEventSceneSetTrait, PGMeaningfulEventSetTrait;
 
 @interface PGMeaningfulEventRequiredTraits : PGMeaningfulEventTraits
 {
@@ -15,19 +15,14 @@
     double _minimumScore;
     CDUnknownBlockType _completion;
     NSDictionary *_additionalInfo;
-    double _reliableVisionFraction;
-    double _unreliableVisionFraction;
 }
 
-@property(nonatomic) double unreliableVisionFraction; // @synthesize unreliableVisionFraction=_unreliableVisionFraction;
-@property(nonatomic) double reliableVisionFraction; // @synthesize reliableVisionFraction=_reliableVisionFraction;
 @property(retain, nonatomic) NSDictionary *additionalInfo; // @synthesize additionalInfo=_additionalInfo;
 @property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
 @property(nonatomic, getter=isRequiringSmartInteresting) _Bool requiresSmartInteresting; // @synthesize requiresSmartInteresting=_requiresSmartInteresting;
 @property(readonly, nonatomic) double minimumScore; // @synthesize minimumScore=_minimumScore;
 @property(readonly, nonatomic) NSString *meaningLabel; // @synthesize meaningLabel=_meaningLabel;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) _Bool useVisionThreshold;
 - (id)description;
 - (id)initWithMeaningLabel:(id)arg1 minimumScore:(double)arg2;
 
@@ -42,7 +37,7 @@
 @property(retain, nonatomic) PGMeaningfulEventSetTrait *peopleTrait; // @dynamic peopleTrait;
 @property(retain, nonatomic) PGMeaningfulEventSetTrait *poisTrait; // @dynamic poisTrait;
 @property(retain, nonatomic) PGMeaningfulEventSetTrait *roisTrait; // @dynamic roisTrait;
-@property(retain, nonatomic) PGMeaningfulEventSetTrait *scenesTrait; // @dynamic scenesTrait;
+@property(retain, nonatomic) PGMeaningfulEventSceneSetTrait *scenesTrait; // @dynamic scenesTrait;
 @property(retain, nonatomic) PGMeaningfulEventSetTrait *socialGroupsTrait; // @dynamic socialGroupsTrait;
 
 @end

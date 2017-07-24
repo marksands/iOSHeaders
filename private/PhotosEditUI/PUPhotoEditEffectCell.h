@@ -6,12 +6,13 @@
 
 #import <UIKit/UICollectionViewCell.h>
 
-@class NSLayoutConstraint, NSString, UIImage, UIImageView, UILabel, UIView;
+@class NSArray, NSLayoutConstraint, NSString, UIImage, UIImageView, UILabel, UIView;
 
 @interface PUPhotoEditEffectCell : UICollectionViewCell
 {
     NSLayoutConstraint *_bottomLabelConstraint;
     NSLayoutConstraint *_gapConstraint;
+    NSArray *_constraints;
     UIImage *_image;
     NSString *_name;
     UIImageView *__imageView;

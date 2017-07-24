@@ -6,10 +6,10 @@
 
 #import <Silex/NSObject-Protocol.h>
 
-@class SXComponentController, SXLayoutBlueprint;
+@class SXComponentController, SXLayoutBlueprint, SXPresentationAttributes;
 
 @protocol SXComponentControllerDelegate <NSObject>
-- (void)componentController:(SXComponentController *)arg1 didInvalidateBlueprint:(SXLayoutBlueprint *)arg2;
+- (void)componentController:(SXComponentController *)arg1 didInvalidateBlueprint:(SXLayoutBlueprint *)arg2 attributes:(SXPresentationAttributes *)arg3;
 
 @optional
 - (void)componentController:(SXComponentController *)arg1 didPresentBlueprint:(SXLayoutBlueprint *)arg2;

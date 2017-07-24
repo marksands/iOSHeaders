@@ -10,6 +10,8 @@
 
 @protocol _SFPBCardSection <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasResultIdentifier;
+@property(copy, nonatomic) NSString *resultIdentifier;
 @property(readonly, nonatomic) _Bool hasCardSectionId;
 @property(copy, nonatomic) NSString *cardSectionId;
 @property(copy, nonatomic) NSArray *parameterKeyPaths;

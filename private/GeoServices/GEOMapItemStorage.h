@@ -9,7 +9,7 @@
 #import <GeoServices/GEOMapItemPrivate-Protocol.h>
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOAddress, GEOAssociatedApp, GEOFeatureStyleAttributes, GEOLatLng, GEOMapItemClientAttributes, GEOMapItemContainedPlace, GEOMapItemDetourInfo, GEOMapItemIdentifier, GEOMapItemPhotosAttribution, GEOMapItemPlaceAttribution, GEOMapItemReviewsAttribution, GEOMapRegion, GEOMessageLink, GEOPDBusinessClaim, GEOPDFlyover, GEOPDPlace, GEOPDResultDetourInfo, GEOPlace, GEOPlaceResult, GEOPriceDescription, GEORestaurantFeaturesLink, NSArray, NSData, NSDate, NSDictionary, NSString, NSTimeZone, NSURL, PBUnknownFields;
+@class GEOAddress, GEOAssociatedApp, GEOFeatureStyleAttributes, GEOLatLng, GEOMapItemClientAttributes, GEOMapItemContainedPlace, GEOMapItemDetourInfo, GEOMapItemIdentifier, GEOMapItemPhotosAttribution, GEOMapItemPlaceAttribution, GEOMapItemReviewsAttribution, GEOMapItemStorageUserValues, GEOMapRegion, GEOMessageLink, GEOPDBusinessClaim, GEOPDFlyover, GEOPDPlace, GEOPDResultDetourInfo, GEOPlace, GEOPlaceResult, GEOPriceDescription, GEORestaurantFeaturesLink, NSArray, NSData, NSDate, NSDictionary, NSString, NSTimeZone, NSURL, PBUnknownFields;
 @protocol GEOEncyclopedicInfo, GEOMapItemTransitInfo, GEOMapItemVenueInfo, GEOTransitAttribution;
 
 @interface GEOMapItemStorage : PBCodable <GEOMapItemPrivate, NSCopying>
@@ -22,12 +22,15 @@
     GEOPlace *_place;
     GEOPDPlace *_placeData;
     GEOPlaceResult *_placeResult;
+    GEOMapItemStorageUserValues *_userValues;
 }
 
 + (id)mapItemStorageForCoordinate:(CDStruct_c3b9c2ee)arg1;
++ (id)mapItemStorageForPlaceData:(id)arg1 detourInfo:(id)arg2 userValues:(id)arg3;
 + (id)mapItemStorageForPlaceData:(id)arg1 detourInfo:(id)arg2;
 + (id)mapItemStorageForPlaceData:(id)arg1;
 + (id)mapItemStorageForPlaceResult:(id)arg1;
++ (id)mapItemStorageForPlace:(id)arg1 clientAttributes:(id)arg2 userValues:(id)arg3;
 + (id)mapItemStorageForPlace:(id)arg1 clientAttributes:(id)arg2;
 + (id)mapItemStorageForPlace:(id)arg1;
 + (id)mapItemStorageForSerializedPlaceData:(id)arg1 serializedDetourInfo:(id)arg2;
@@ -36,6 +39,7 @@
 + (id)mapItemStorageForGEOMapItem:(id)arg1 forUseType:(unsigned long long)arg2;
 + (id)mapItemStorageForGEOMapItem:(id)arg1 clientAttributes:(id)arg2;
 + (id)mapItemStorageForGEOMapItem:(id)arg1;
+@property(retain, nonatomic) GEOMapItemStorageUserValues *userValues; // @synthesize userValues=_userValues;
 @property(retain, nonatomic) NSString *mapsURL; // @synthesize mapsURL=_mapsURL;
 @property(retain, nonatomic) GEOPDResultDetourInfo *internalDetourInfo; // @synthesize internalDetourInfo=_internalDetourInfo;
 @property(retain, nonatomic) GEOLatLng *originatingCoordinate; // @synthesize originatingCoordinate=_originatingCoordinate;
@@ -54,6 +58,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) _Bool hasUserValues;
 @property(readonly, nonatomic) _Bool hasMapsURL;
 @property(readonly, nonatomic) _Bool hasInternalDetourInfo;
 @property(readonly, nonatomic) _Bool hasOriginatingCoordinate;
@@ -71,18 +76,21 @@
 @property(readonly, nonatomic, getter=_hasWifiFingerprintLabelType) _Bool hasWifiFingerprintLabelType;
 @property(readonly, nonatomic, getter=_wifiFingerprintLabelStatusCode) int wifiFingerprintLabelStatusCode;
 @property(readonly, nonatomic, getter=_hasWifiFingerprintLabelStatusCode) _Bool hasWifiFingerprintLabelStatusCode;
+@property(readonly, nonatomic, getter=_browseCategories) NSArray *browseCategories;
 @property(readonly, nonatomic, getter=_venueInfo) id <GEOMapItemVenueInfo> venueInfo;
 @property(readonly, nonatomic, getter=_venueCategoryBrowseType) int venueCategoryBrowseType;
 @property(readonly, nonatomic, getter=_venueFeatureType) int venueFeatureType;
 @property(readonly, nonatomic, getter=_hasVenueFeatureType) _Bool hasVenueFeatureType;
 @property(readonly, nonatomic) NSData *externalTransitStationCode;
 - (id)weatherDisplayName;
+- (id)shortAddress;
 - (id)addressObject;
 @property(readonly, nonatomic) _Bool hasExpiredComponents;
 @property(readonly, nonatomic) GEOMapItemDetourInfo *detourInfo;
 @property(readonly, nonatomic, getter=_quickLinks) NSArray *quickLinks;
 @property(readonly, nonatomic, getter=_messageLink) GEOMessageLink *messageLink;
 @property(readonly, nonatomic, getter=_isStandaloneBrand) _Bool isStandAloneBrand;
+@property(readonly, nonatomic, getter=_parsecSectionType) int parsecSectionType;
 @property(readonly, nonatomic, getter=_featureLink) GEORestaurantFeaturesLink *featureLink;
 @property(readonly, nonatomic, getter=_hasFeatureLink) _Bool hasFeatureLink;
 @property(readonly, nonatomic) NSArray *spatialMappedCategories;
@@ -148,10 +156,6 @@
 @property(readonly, nonatomic, getter=_hasResultProviderID) _Bool hasResultProviderID;
 @property(readonly, nonatomic, getter=_roadAccessPoints) NSArray *roadAccessPoints;
 - (id)_arrivalMapRegionForTransportType:(int)arg1;
-- (unsigned int)_travelDistanceForTransportType:(int)arg1;
-- (unsigned int)_travelTimeForTransportType:(int)arg1;
-- (_Bool)_hasTravelTimeForTransportType:(int)arg1;
-- (int)_recommendedTransportType;
 - (id)_spokenAddressForLocale:(id)arg1;
 @property(readonly, nonatomic, getter=_addressGeocodeAccuracy) int addressGeocodeAccuracy;
 @property(readonly, nonatomic) GEOAddress *geoAddress;
@@ -186,9 +190,9 @@
 @property(readonly, nonatomic, getter=isValid) _Bool valid;
 - (id)_geoMapItem;
 - (id)_geoMapItemCreatingAndAssociatingIfNeeded;
-- (id)initWithPlaceData:(id)arg1 detourInfo:(id)arg2 clientAttributes:(id)arg3;
+- (id)initWithPlaceData:(id)arg1 detourInfo:(id)arg2 clientAttributes:(id)arg3 userValues:(id)arg4;
 - (id)initWithPlaceResult:(id)arg1;
-- (id)initWithPlace:(id)arg1 clientAttributes:(id)arg2;
+- (id)initWithPlace:(id)arg1 clientAttributes:(id)arg2 userValues:(id)arg3;
 - (id)_mapItemByStrippingOptionalData;
 @property(readonly, nonatomic, getter=_associatedApp) GEOAssociatedApp *associatedApp;
 @property(readonly, nonatomic, getter=_photos) NSArray *photos;

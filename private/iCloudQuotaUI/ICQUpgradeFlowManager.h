@@ -9,7 +9,7 @@
 #import <iCloudQuotaUI/ICQPageDelegate-Protocol.h>
 #import <iCloudQuotaUI/UINavigationControllerDelegate-Protocol.h>
 
-@class ICQAlertController, ICQOffer, ICQUpgradeOfferViewController, NSString, UINavigationController;
+@class ICQAlertController, ICQOffer, ICQUpgradeOfferViewController, NSDictionary, NSString, UINavigationController;
 @protocol ICQUpgradeFlowManagerDelegate;
 
 @interface ICQUpgradeFlowManager : NSObject <UINavigationControllerDelegate, ICQPageDelegate>
@@ -18,6 +18,7 @@
     _Bool _shouldNavigationControllerBeDismissed;
     _Bool _completedFamilySetup;
     ICQOffer *_offer;
+    NSDictionary *_bindings;
     id <ICQUpgradeFlowManagerDelegate> _delegate;
     UINavigationController *_hostingNavigationController;
     ICQAlertController *_upgradeAlertController;
@@ -35,6 +36,7 @@
 @property(retain, nonatomic) UINavigationController *hostingNavigationController; // @synthesize hostingNavigationController=_hostingNavigationController;
 @property(nonatomic) _Bool shouldNavigationControllerBeDismissed; // @synthesize shouldNavigationControllerBeDismissed=_shouldNavigationControllerBeDismissed;
 @property(nonatomic) __weak id <ICQUpgradeFlowManagerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) NSDictionary *bindings; // @synthesize bindings=_bindings;
 @property(readonly, nonatomic) ICQOffer *offer; // @synthesize offer=_offer;
 - (void).cxx_destruct;
 - (void)_sendDelegateDidPresentViewController:(id)arg1;

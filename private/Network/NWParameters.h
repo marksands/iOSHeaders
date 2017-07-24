@@ -91,6 +91,7 @@
 @property(nonatomic) _Bool prohibitRoaming;
 @property(nonatomic) _Bool prohibitExpensivePaths;
 @property(copy, nonatomic) NSDictionary *proxyConfiguration;
+@property(readonly, nonatomic) NSURL *sanitizedURL;
 @property(copy, nonatomic) NSURL *url;
 @property(nonatomic) _Bool reuseLocalAddress;
 @property(retain, nonatomic) NWAddressEndpoint *localAddress;

@@ -71,7 +71,8 @@
 - (void)fixTextStorage:(id)arg1 afterProcessingEditing:(unsigned long long)arg2 range:(struct _NSRange)arg3 changeInLength:(long long)arg4;
 - (id)nsParagraphStyleForTTParagraphStyle:(id)arg1 range:(struct _NSRange)arg2 attributedString:(id)arg3 textView:(struct UITextView *)arg4;
 - (_Bool)isHighlightingTextInTextStorage:(id)arg1;
-- (void)setHighlightAuthorEdits:(_Bool)arg1 inTextStorage:(id)arg2;
+- (void)applyAuthorHighlightsWithPercentage:(double)arg1 forRange:(struct _NSRange)arg2 inTextStorage:(id)arg3;
+- (void)setHighlightAuthorEdits:(_Bool)arg1 forRange:(struct _NSRange)arg2 inTextStorage:(id)arg3;
 - (void)fadeTextHighlightInTextStorage:(id)arg1;
 - (void)highlightTextAfter:(id)arg1 inTextStorage:(id)arg2;
 - (id)rangesWithCutOutAttachmentsFromRange:(struct _NSRange)arg1 textStorage:(id)arg2;

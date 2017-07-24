@@ -11,6 +11,7 @@
 - (void)relay:(RWIRelay *)arg1 activateApplicationWithBundleIdentifier:(NSString *)arg2;
 - (NSDictionary *)relaySetupResponseForClientConnection:(RWIRelay *)arg1;
 - (void)relay:(RWIRelay *)arg1 unhandledApplicationXPCMessage:(NSObject<OS_xpc_object> *)arg2;
+- (void)relayClientConnectionDidChange:(RWIRelay *)arg1;
 - (void)relay:(RWIRelay *)arg1 applicationUpdated:(_RWIApplicationInfo *)arg2;
 - (void)relay:(RWIRelay *)arg1 applicationDisconnected:(_RWIApplicationInfo *)arg2;
 - (void)relay:(RWIRelay *)arg1 applicationConnected:(_RWIApplicationInfo *)arg2;

@@ -6,29 +6,21 @@
 
 #import <UIKit/UIInputSwitcherTableCell.h>
 
-@class NSArray, UIStackView;
+@class UIInputSwitcherSegmentControl;
 
 __attribute__((visibility("hidden")))
 @interface UIInputSwitcherSegmentedTableCell : UIInputSwitcherTableCell
 {
-    long long _selectedSegmentIndex;
-    NSArray *_segmentTitles;
-    NSArray *_segmentImages;
-    UIStackView *_stackView;
+    UIInputSwitcherSegmentControl *_segmentControl;
 }
 
 + (struct CGSize)preferredSizeWithSegmentCount:(unsigned long long)arg1;
-@property(retain, nonatomic) UIStackView *stackView; // @synthesize stackView=_stackView;
-@property(retain, nonatomic) NSArray *segmentImages; // @synthesize segmentImages=_segmentImages;
-@property(copy, nonatomic) NSArray *segmentTitles; // @synthesize segmentTitles=_segmentTitles;
-@property(nonatomic) long long selectedSegmentIndex; // @synthesize selectedSegmentIndex=_selectedSegmentIndex;
+@property(readonly, nonatomic) UIInputSwitcherSegmentControl *segmentControl; // @synthesize segmentControl=_segmentControl;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) unsigned long long numberOfSegments;
+- (void)setUsesDarkTheme:(_Bool)arg1;
+- (void)layoutSubviews;
 - (void)updateSelectionWithPoint:(struct CGPoint)arg1;
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)_populateSegmentViewsWithCount:(unsigned long long)arg1;
-- (void)_removeAllSegmentViews;
-- (void)layoutSubviews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end

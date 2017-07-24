@@ -48,6 +48,7 @@
     id <_UINavigationItemChangeObserver> __changeObserver;
     double __titleViewWidthForAnimations;
     double __idealCustomTitleWidth;
+    unsigned long long __largeTitleAccessoryViewHorizontalAlignment;
     UINavigationBar *__owningNavigationBar;
     UIView *__largeTitleAccessoryView;
     NSString *__weeTitle;
@@ -64,6 +65,7 @@
 @property(nonatomic) long long tag; // @synthesize tag=_tag;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
 @property(nonatomic, getter=_owningNavigationBar, setter=_setOwningNavigationBar:) __weak UINavigationBar *_owningNavigationBar; // @synthesize _owningNavigationBar=__owningNavigationBar;
+@property(readonly, nonatomic) unsigned long long _largeTitleAccessoryViewHorizontalAlignment; // @synthesize _largeTitleAccessoryViewHorizontalAlignment=__largeTitleAccessoryViewHorizontalAlignment;
 @property(readonly, nonatomic) _Bool _alignLargeTitleAccessoryViewToBaseline; // @synthesize _alignLargeTitleAccessoryViewToBaseline=__alignLargeTitleAccessoryViewToBaseline;
 @property(nonatomic, setter=_setIdealCustomTitleWidth:) double _idealCustomTitleWidth; // @synthesize _idealCustomTitleWidth=__idealCustomTitleWidth;
 @property(nonatomic) double _titleViewWidthForAnimations; // @synthesize _titleViewWidthForAnimations=__titleViewWidthForAnimations;
@@ -169,10 +171,10 @@
 @property(copy, nonatomic) NSString *backButtonTitle;
 @property(copy, nonatomic) NSString *title;
 - (void)_setBackButtonTitle:(id)arg1 lineBreakMode:(long long)arg2;
+- (void)_setLargeTitleAccessoryView:(id)arg1 alignToBaseline:(_Bool)arg2 horizontalAlignment:(unsigned long long)arg3;
 - (void)_setLargeTitleAccessoryView:(id)arg1 alignToBaseline:(_Bool)arg2;
 - (_Bool)_notifyObserver_navigationItemUpdatedTitleContentAnimated:(_Bool)arg1;
 - (void)_setTitle:(id)arg1 animated:(_Bool)arg2;
-- (void)__forceNewsSearchAlwaysVisibleAsWorkaroundForRadar32332860;
 - (void)_setTitle:(id)arg1 animated:(_Bool)arg2 matchBarButtonItemAnimationDuration:(_Bool)arg3;
 - (void)_addDefaultTitleViewToNavigationBarIfNecessary;
 - (void)_cleanupFrozenTitleView;

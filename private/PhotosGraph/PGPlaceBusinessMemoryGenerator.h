@@ -18,7 +18,7 @@
 @property(nonatomic) NSString *business; // @synthesize business=_business;
 - (id)_potentialMemoriesForDryTesting;
 - (void)_postProcessMemory:(id)arg1 withPotentialMemory:(id)arg2;
-- (id)_potentialMemories:(unsigned long long)arg1;
+- (void)_enumeratePotentialMemoriesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)_potentialMemoriesWithBusinessNode:(id)arg1 inYear:(long long)arg2 result:(CDUnknownBlockType)arg3;
 
 @end

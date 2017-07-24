@@ -29,7 +29,8 @@
 + (id)_hf_microgramsPerMeterCubedFormatter;
 + (id)_hf_partsPerMillionFormatter;
 + (id)_hf_filterChangeIndicationFormatter;
-+ (id)_hf_positionFormatterWithOptions:(id)arg1;
++ (id)_hf_positionFormatterWithMetadata:(id)arg1 options:(id)arg2;
++ (id)_hf_percentFormatterForMetadata:(id)arg1;
 + (id)_hf_valueFormatterForCharacteristicMetadata:(id)arg1 options:(id)arg2;
 + (id)_hf_customValueFormatterForCharacteristicType:(id)arg1 metadata:(id)arg2 options:(id)arg3;
 + (id)hf_valueFormatterForCharacteristicType:(id)arg1 withMetadata:(id)arg2 options:(id)arg3;

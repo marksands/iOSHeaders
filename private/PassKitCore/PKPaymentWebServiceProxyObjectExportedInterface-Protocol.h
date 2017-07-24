@@ -16,6 +16,8 @@
 - (void)addPassData:(NSData *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)handlePotentialExpressPass:(PKPaymentPass *)arg1 withCompletion:(void (^)(NSSet *))arg2;
 - (void)validateTransferPreconditionsWithCompletion:(void (^)(_Bool, NSError *))arg1;
+- (void)secureElementOwnershipStateForCurrentUserWithCompletion:(void (^)(unsigned long long))arg1;
+- (void)claimSecureElementForCurrentUserWithCompletion:(void (^)(_Bool))arg1;
 - (void)downloadAllPaymentPasses;
 - (void)validateAddPreconditionsWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)canProvisionPaymentPassWithPrimaryAccountIdentifier:(NSString *)arg1 completion:(void (^)(_Bool))arg2;

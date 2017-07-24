@@ -8,10 +8,12 @@
 
 #import <ControlCenterUIKit/CCUIContentClipping-Protocol.h>
 #import <ControlCenterUIKit/CCUIGroupRendering-Protocol.h>
+#import <ControlCenterUIKit/CCUIValueChangingGestureProvider-Protocol.h>
+#import <ControlCenterUIKit/UIGestureRecognizerDelegate-Protocol.h>
 
-@class CALayer, CAPackage, CCUICAPackageView, NSArray, NSString, NSTimer, UIImage, UIImageView;
+@class CALayer, CAPackage, CCUICAPackageView, NSArray, NSString, NSTimer, UIGestureRecognizer, UIImage, UIImageView, UILongPressGestureRecognizer, UISelectionFeedbackGenerator;
 
-@interface CCUIModuleSliderView : UIControl <CCUIContentClipping, CCUIGroupRendering>
+@interface CCUIModuleSliderView : UIControl <UIGestureRecognizerDelegate, CCUIValueChangingGestureProvider, CCUIContentClipping, CCUIGroupRendering>
 {
     UIImageView *_glyphImageView;
     CCUICAPackageView *_glyphPackageView;
@@ -22,9 +24,12 @@
     float _startingValue;
     NSTimer *_updatesCommitTimer;
     float _previousValue;
+    UILongPressGestureRecognizer *_valueChangeGestureRecognizer;
+    UISelectionFeedbackGenerator *_feedbackGenerator;
     _Bool _glyphVisible;
     _Bool _throttleUpdates;
     _Bool _firstStepIsDisabled;
+    _Bool _firstStepIsOff;
     float _value;
     UIImage *_glyphImage;
     CAPackage *_glyphPackage;
@@ -34,6 +39,7 @@
 }
 
 @property(nonatomic) unsigned long long step; // @synthesize step=_step;
+@property(nonatomic) _Bool firstStepIsOff; // @synthesize firstStepIsOff=_firstStepIsOff;
 @property(nonatomic) _Bool firstStepIsDisabled; // @synthesize firstStepIsDisabled=_firstStepIsDisabled;
 @property(nonatomic) unsigned long long numberOfSteps; // @synthesize numberOfSteps=_numberOfSteps;
 @property(nonatomic) float value; // @synthesize value=_value;
@@ -42,7 +48,12 @@
 @property(retain, nonatomic) NSString *glyphState; // @synthesize glyphState=_glyphState;
 @property(retain, nonatomic) CAPackage *glyphPackage; // @synthesize glyphPackage=_glyphPackage;
 @property(retain, nonatomic) UIImage *glyphImage; // @synthesize glyphImage=_glyphImage;
+@property(readonly, nonatomic) UIGestureRecognizer *valueChangeGestureRecognizer; // @synthesize valueChangeGestureRecognizer=_valueChangeGestureRecognizer;
 - (void).cxx_destruct;
+- (void)_endTrackingWithGestureRecognizer:(id)arg1;
+- (void)_continueTrackingWithGestureRecognizer:(id)arg1;
+- (void)_beginTrackingWithGestureRecognizer:(id)arg1;
+- (void)_handleValueChangeGestureRecognizer:(id)arg1;
 - (void)_updateStepFromValue:(float)arg1;
 - (void)_updateValueForTouchLocation:(struct CGPoint)arg1 withAbsoluteReference:(_Bool)arg2;
 - (float)_valueFromStep:(unsigned long long)arg1;
@@ -55,13 +66,10 @@
 - (void)_createSeparatorViewsForNumberOfSteps:(unsigned long long)arg1;
 - (void)_createStepViewsForNumberOfSteps:(unsigned long long)arg1;
 - (void)_layoutValueViews;
-@property(nonatomic) _Bool allowsInPlaceFiltering;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 @property(readonly, nonatomic) CALayer *punchOutRootLayer;
 @property(readonly, nonatomic, getter=isGroupRenderingRequired) _Bool groupRenderingRequired;
 @property(readonly, nonatomic, getter=isContentClippingRequired) _Bool contentClippingRequired;
-- (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 @property(readonly, nonatomic, getter=isStepped) _Bool stepped;
 - (id)initWithFrame:(struct CGRect)arg1;

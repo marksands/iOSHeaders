@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <NewsCore/FCPrivateZoneController.h>
+#import <NewsCore/FCPrivateDataController.h>
 
 #import <NewsCore/FCAppActivityObserving-Protocol.h>
 
 @class NSDictionary, NSMutableSet, NSString;
 
-@interface FCPrivateChannelMembershipController : FCPrivateZoneController <FCAppActivityObserving>
+@interface FCPrivateChannelMembershipController : FCPrivateDataController <FCAppActivityObserving>
 {
     NSDictionary *_membershipsByChannelID;
     NSMutableSet *_membershipReferences;
@@ -22,6 +22,8 @@
 + (id)commandStoreFileName;
 + (unsigned long long)localStoreVersion;
 + (id)localStoreFilename;
++ (id)backingRecordIDs;
++ (id)backingRecordZoneIDs;
 + (_Bool)requiresHighPriorityFirstSync;
 + (_Bool)requiresBatchedSync;
 + (_Bool)requiresPushNotificationSupport;
@@ -47,7 +49,7 @@
 - (_Bool)isAllowedToSeeDraftsForChannelID:(id)arg1;
 - (_Bool)isMemberOfChannelID:(id)arg1;
 - (void)dealloc;
-- (id)initWithContext:(id)arg1 pushNotificationCenter:(id)arg2 recordZone:(id)arg3 storeDirectory:(id)arg4;
+- (id)initWithContext:(id)arg1 pushNotificationCenter:(id)arg2 storeDirectory:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

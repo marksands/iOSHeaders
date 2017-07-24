@@ -17,6 +17,7 @@
     NSString *_bundleVersion;
     unsigned long long _staticSize;
     unsigned long long _dynamicSize;
+    unsigned long long _sharedSize;
     unsigned long long _dataSize;
     unsigned long long _totalSize;
 }
@@ -24,6 +25,7 @@
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) unsigned long long totalSize; // @synthesize totalSize=_totalSize;
 @property(nonatomic) unsigned long long dataSize; // @synthesize dataSize=_dataSize;
+@property(readonly, nonatomic) unsigned long long sharedSize; // @synthesize sharedSize=_sharedSize;
 @property(nonatomic) unsigned long long dynamicSize; // @synthesize dynamicSize=_dynamicSize;
 @property(nonatomic) unsigned long long staticSize; // @synthesize staticSize=_staticSize;
 @property(retain, nonatomic) NSString *bundleVersion; // @synthesize bundleVersion=_bundleVersion;

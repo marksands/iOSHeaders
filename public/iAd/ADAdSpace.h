@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <iAd/ADCreativeControllerDelegate-Protocol.h>
 #import <iAd/ADPrivacyViewControllerInternalDelegate-Protocol.h>
 #import <iAd/ADWebViewActionViewControllerDelegate-Protocol.h>
 
-@class ADAdActionPublicAttributes, ADAdImpressionPublicAttributes, ADAdSpaceConfiguration, ADCreativeController, ADPrivacyViewController, ADRemoteActionViewController, ADWebViewActionViewController, NSMutableSet, NSString, NSURL, _UIAsyncInvocation;
+@class ADAdActionPublicAttributes, ADAdImpressionPublicAttributes, ADAdSpaceConfiguration, ADContext, ADCreativeController, ADPrivacyViewController, ADRemoteActionViewController, ADWebViewActionViewController, NSString, NSURL, _UIAsyncInvocation;
 @protocol ADAdRecipient;
 
 @interface ADAdSpace : NSObject <ADPrivacyViewControllerInternalDelegate, ADWebViewActionViewControllerDelegate, ADCreativeControllerDelegate>
@@ -20,6 +20,7 @@
     _Bool _firedAdStatusEvent;
     _Bool _isModalInterstitial;
     _Bool _didInstallCreativeView;
+    _Bool _hasImpressed;
     _Bool _visibilityCheckScheduled;
     _Bool _shouldMonitorVisibility;
     _Bool _serviceAdSpaceRequestInProgress;
@@ -32,7 +33,7 @@
     NSURL *_serverURL;
     NSString *_advertisingSection;
     NSString *_authenticationUserName;
-    NSMutableSet *_context;
+    ADContext *_context;
     ADAdImpressionPublicAttributes *_currentAdImpressionPublicAttributes;
     ADAdActionPublicAttributes *_currentActionPublicAttributes;
     long long _visibility;
@@ -61,6 +62,7 @@
 @property(nonatomic) _Bool shouldMonitorVisibility; // @synthesize shouldMonitorVisibility=_shouldMonitorVisibility;
 @property(nonatomic) _Bool visibilityCheckScheduled; // @synthesize visibilityCheckScheduled=_visibilityCheckScheduled;
 @property(nonatomic) long long visibility; // @synthesize visibility=_visibility;
+@property(nonatomic) _Bool hasImpressed; // @synthesize hasImpressed=_hasImpressed;
 @property(nonatomic) _Bool didInstallCreativeView; // @synthesize didInstallCreativeView=_didInstallCreativeView;
 @property(nonatomic) struct CGRect selectedAdFrame; // @synthesize selectedAdFrame=_selectedAdFrame;
 @property(nonatomic) _Bool isModalInterstitial; // @synthesize isModalInterstitial=_isModalInterstitial;
@@ -68,7 +70,7 @@
 @property(retain, nonatomic) ADAdActionPublicAttributes *currentActionPublicAttributes; // @synthesize currentActionPublicAttributes=_currentActionPublicAttributes;
 @property(retain, nonatomic) ADAdImpressionPublicAttributes *currentAdImpressionPublicAttributes; // @synthesize currentAdImpressionPublicAttributes=_currentAdImpressionPublicAttributes;
 @property(nonatomic) _Bool requiresFastVisibiltyTestOnly; // @synthesize requiresFastVisibiltyTestOnly=_requiresFastVisibiltyTestOnly;
-@property(copy, nonatomic) NSMutableSet *context; // @synthesize context=_context;
+@property(copy, nonatomic) ADContext *context; // @synthesize context=_context;
 @property(copy, nonatomic) NSString *authenticationUserName; // @synthesize authenticationUserName=_authenticationUserName;
 @property(copy, nonatomic) NSString *advertisingSection; // @synthesize advertisingSection=_advertisingSection;
 @property(copy, nonatomic) NSURL *serverURL; // @synthesize serverURL=_serverURL;
@@ -110,7 +112,6 @@
 - (void)startVisibilityMonitoring;
 - (void)internalAdTypeDidChange;
 - (id)_updateIdentifier;
-- (_Bool)_contextForFeldsparClientIsFeed:(id)arg1;
 - (void)updateCreativeControllerVisibility;
 - (void)updateVisibility;
 - (void)_presentPrivacyViewController;
@@ -125,7 +126,6 @@
 - (void)_closeConnectionIfNecessary;
 @property(readonly, nonatomic) id <ADAdRecipient> recipient;
 - (void)_requestAdFromAdSheet;
-- (void)_setContextInfo:(id)arg1;
 @property(readonly, nonatomic) ADAdSpaceConfiguration *configuration;
 @property(readonly, nonatomic) NSString *connectionAssertionIdentifier;
 @property(readonly, copy) NSString *description;

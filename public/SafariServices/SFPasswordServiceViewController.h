@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 
 + (id)_remoteViewControllerInterface;
 - (void).cxx_destruct;
-- (id)_hintStringsFromApplicationName:(id)arg1 credentials:(id)arg2;
+- (id)_hintStringsForAppID:(id)arg1 appName:(id)arg2 credentials:(id)arg3;
 - (void)_willAppearInRemoteViewController;
 - (void)_dismiss;
 

@@ -38,6 +38,8 @@
 - (id)_getKeychainItemsForViewHint:(id)arg1 accessGroup:(id)arg2 type:(id)arg3 account:(id)arg4 shouldReturnData:(_Bool)arg5 error:(int *)arg6;
 - (id)_getKeychainItemsForAccessGroup:(id)arg1 type:(id)arg2 account:(id)arg3 shouldReturnData:(_Bool)arg4 error:(int *)arg5;
 - (void)_updateKeychainItemToInvisible:(id)arg1;
+- (id)_auditAccessoryKeys:(id)arg1;
+- (id)auditAccessoryKeys:(id)arg1;
 - (int)_removeAccessoryKeyForName:(id)arg1;
 - (_Bool)removeAllAccessoryKeys:(id *)arg1;
 - (_Bool)removeAccessoryKeyForName:(id)arg1 error:(id *)arg2;

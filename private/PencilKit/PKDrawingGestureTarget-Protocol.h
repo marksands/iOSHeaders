@@ -10,7 +10,7 @@
 
 @protocol PKDrawingGestureTarget <NSObject>
 - (void)drawingEstimatedPropertiesUpdated:(NSSet *)arg1;
-- (void)drawingCancelled:(void (^)(void))arg1;
+- (void)drawingCancelled;
 - (void)drawingEnded:(UITouch *)arg1;
 - (void)drawingMoved:(UITouch *)arg1 withEvent:(UIEvent *)arg2;
 - (void)drawingBegan:(UITouch *)arg1;

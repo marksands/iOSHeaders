@@ -11,13 +11,17 @@
 
 @interface MSSearchSessionController : NSObject
 {
+    int _emailProvider;
     unsigned long long _numberOfMessagesLeftToIndex;
+    unsigned long long _percentOfMessagesIndexed;
     NSMutableArray *_mutableSessionEngagements;
     id <MSSearchSessionControllerDataSource> _dataSource;
 }
 
 @property(readonly, nonatomic) __weak id <MSSearchSessionControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(readonly, nonatomic) NSMutableArray *mutableSessionEngagements; // @synthesize mutableSessionEngagements=_mutableSessionEngagements;
+@property(readonly, nonatomic) int emailProvider; // @synthesize emailProvider=_emailProvider;
+@property(readonly, nonatomic) unsigned long long percentOfMessagesIndexed; // @synthesize percentOfMessagesIndexed=_percentOfMessagesIndexed;
 @property(readonly, nonatomic) unsigned long long numberOfMessagesLeftToIndex; // @synthesize numberOfMessagesLeftToIndex=_numberOfMessagesLeftToIndex;
 - (void).cxx_destruct;
 - (void)_addToLatestEngagementWithUserEngagement:(id)arg1;

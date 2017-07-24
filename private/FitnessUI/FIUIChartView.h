@@ -9,7 +9,7 @@
 #import <FitnessUI/FIUIChartDataGroupDataSource-Protocol.h>
 #import <FitnessUI/FIUIChartSeriesDataSource-Protocol.h>
 
-@class FIUIChartBackgroundView, FIUIChartDataGroup, FIUIChartTimeAxisDescriptor, NSArray, NSDateInterval, NSNumber, NSString, UIScrollView;
+@class FIUIChartBackgroundView, FIUIChartDataGroup, FIUIChartTimeAxisDescriptor, NSArray, NSDateInterval, NSNumber, NSString;
 @protocol FIUIChartAxisDescriptor, FIUIChartDataSource;
 
 @interface FIUIChartView : UIView <FIUIChartDataGroupDataSource, FIUIChartSeriesDataSource>
@@ -19,7 +19,9 @@
     NSArray *_xAxisSubLabels;
     NSArray *_yAxisLabels;
     NSArray *_chartSeries;
+    UIView *_containerView;
     _Bool _labelsInsetChartBackground;
+    _Bool _xAxisLabelsShouldBaselineAlign;
     id <FIUIChartDataSource> _dataSource;
     FIUIChartTimeAxisDescriptor *_xAxisDescriptor;
     id <FIUIChartAxisDescriptor> _yAxisDescriptor;
@@ -30,14 +32,17 @@
     NSDateInterval *_dateInterval;
     NSNumber *_minYValue;
     NSNumber *_maxYValue;
-    UIScrollView *_scrollView;
+    NSNumber *_highlightedYValue;
+    struct UIEdgeInsets _seriesEdgeInsets;
 }
 
-@property(readonly, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
+@property(retain, nonatomic) NSNumber *highlightedYValue; // @synthesize highlightedYValue=_highlightedYValue;
 @property(retain, nonatomic) NSNumber *maxYValue; // @synthesize maxYValue=_maxYValue;
 @property(retain, nonatomic) NSNumber *minYValue; // @synthesize minYValue=_minYValue;
 @property(retain, nonatomic) NSDateInterval *dateInterval; // @synthesize dateInterval=_dateInterval;
 @property(nonatomic) double animationDuration; // @synthesize animationDuration=_animationDuration;
+@property(nonatomic) struct UIEdgeInsets seriesEdgeInsets; // @synthesize seriesEdgeInsets=_seriesEdgeInsets;
+@property(nonatomic) _Bool xAxisLabelsShouldBaselineAlign; // @synthesize xAxisLabelsShouldBaselineAlign=_xAxisLabelsShouldBaselineAlign;
 @property(nonatomic) _Bool labelsInsetChartBackground; // @synthesize labelsInsetChartBackground=_labelsInsetChartBackground;
 @property(nonatomic) double xAxisToLabelPadding; // @synthesize xAxisToLabelPadding=_xAxisToLabelPadding;
 @property(nonatomic) double yAxisEdgeInset; // @synthesize yAxisEdgeInset=_yAxisEdgeInset;
@@ -63,6 +68,7 @@
 - (unsigned long long)_numberOfSeries;
 - (float)_relativePositionForXPlaneValue:(id)arg1;
 - (double)_absolutePositionForXPlaneValue:(id)arg1;
+- (struct CGRect)_insetChartRect;
 - (struct CGRect)_chartRect;
 - (double)_yAxisLabelPadding;
 - (double)_xAxisLabelPaddingForBackground:(_Bool)arg1;
@@ -70,8 +76,9 @@
 - (void)_layoutXAxisLabels;
 - (void)_layoutYAxisLabels;
 - (void)_layoutAxisLabels;
-- (void)_layoutScrollView;
+- (void)_layoutContainerView;
 - (void)layoutSubviews;
+- (void)_updateHighlightedValue;
 - (void)_adjustMinMaxValues;
 - (void)_updateDataSeries;
 - (void)_reloadDataSeries;

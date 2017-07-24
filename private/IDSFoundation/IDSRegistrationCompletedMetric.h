@@ -18,8 +18,10 @@
     NSString *_serviceIdentifier;
     _Bool _wasSuccessful;
     long long _registrationError;
+    long long _circleStatus;
 }
 
+@property(readonly, nonatomic) long long circleStatus; // @synthesize circleStatus=_circleStatus;
 @property(readonly, nonatomic) long long registrationError; // @synthesize registrationError=_registrationError;
 @property(readonly, nonatomic) _Bool wasSuccessful; // @synthesize wasSuccessful=_wasSuccessful;
 @property(readonly, nonatomic) NSString *serviceIdentifier; // @synthesize serviceIdentifier=_serviceIdentifier;
@@ -29,7 +31,7 @@
 @property(readonly) unsigned int awdIdentifier;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 @property(readonly, nonatomic) NSString *name;
-- (id)initWithRegistrationType:(long long)arg1 serviceIdentifier:(id)arg2 wasSuccessful:(_Bool)arg3 registrationError:(long long)arg4;
+- (id)initWithRegistrationType:(long long)arg1 serviceIdentifier:(id)arg2 wasSuccessful:(_Bool)arg3 registrationError:(long long)arg4 circleStatus:(long long)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -17,8 +17,13 @@
     NSDictionary *_categoryNameForLabel;
 }
 
++ (id)predictorFromChunkedFileAtPath:(id)arg1;
 + (id)predictorFromAsset:(id)arg1;
+@property(readonly, nonatomic) NSDictionary *categoryNameForLabel; // @synthesize categoryNameForLabel=_categoryNameForLabel;
+@property(readonly, nonatomic) PMLHashingVectorizer *vectorizer; // @synthesize vectorizer=_vectorizer;
+@property(readonly, nonatomic) SGQPMultiLabelModel *multiLabelModel; // @synthesize multiLabelModel=_multiLabelModel;
 - (void).cxx_destruct;
+- (void)serializeInChunkedFileFormatToFile:(id)arg1;
 - (id)initWithPlist:(id)arg1 chunks:(id)arg2 context:(id)arg3;
 - (id)toPlistWithChunks:(id)arg1;
 - (id)predictionsForMessages:(id)arg1;

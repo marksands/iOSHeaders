@@ -6,11 +6,12 @@
 
 #import <SafariServices/NSObject-Protocol.h>
 
-@class NSURL, UIItemProvider, _SFNavigationBar, _SFNavigationDestination, _UIBackdropViewSettings;
+@class NSURL, NSUUID, UIItemProvider, _SFNavigationBar, _SFNavigationDestination, _UIBackdropViewSettings;
 
 @protocol _SFNavigationBarDelegate <NSObject>
 - (void)navigationBarReaderButtonWasLongPressed:(_SFNavigationBar *)arg1;
 - (void)navigationBarReaderAppearanceButtonWasTapped:(_SFNavigationBar *)arg1;
+- (_Bool)navigationBar:(_SFNavigationBar *)arg1 shouldPermitShareOperation:(long long)arg2;
 - (NSURL *)navigationBarURLForSharing:(_SFNavigationBar *)arg1;
 - (void)navigationBarStopLoadingButtonWasTapped:(_SFNavigationBar *)arg1;
 - (void)navigationBarReloadButtonWasLongPressed:(_SFNavigationBar *)arg1;
@@ -21,6 +22,7 @@
 - (void)compressedNavigationBarWasTapped:(_SFNavigationBar *)arg1;
 
 @optional
+- (NSUUID *)currentContentUUIDForNavigationBar:(_SFNavigationBar *)arg1;
 - (UIItemProvider *)itemProviderForNavigationBar:(_SFNavigationBar *)arg1;
 - (void)navigationBar:(_SFNavigationBar *)arg1 backDropWillApplySettings:(_UIBackdropViewSettings *)arg2;
 - (void)navigationBar:(_SFNavigationBar *)arg1 didSelectNavigationDestination:(_SFNavigationDestination *)arg2;

@@ -17,7 +17,7 @@
 + (_Bool)isSupported;
 + (id)getSilo;
 + (void)performSyncOnSilo:(id)arg1 invoker:(CDUnknownBlockType)arg2;
-+ (void)becameFatallyBlocked:(id)arg1;
++ (void)becameFatallyBlocked:(id)arg1 index:(unsigned long long)arg2;
 - (int)syncgetNumTemperatures;
 - (_Bool)syncgetWipeDatabase;
 - (void)dumpDatabase:(id)arg1 onCompletion:(CDUnknownBlockType)arg2;

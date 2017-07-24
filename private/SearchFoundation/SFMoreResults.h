@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFMoreResults-Protocol.h>
 
 @class NSData, NSDictionary, NSString;
 
-@interface SFMoreResults : NSObject <SFMoreResults, NSSecureCoding>
+@interface SFMoreResults : NSObject <SFMoreResults, NSSecureCoding, NSCopying>
 {
     NSString *_label;
 }
@@ -19,6 +20,7 @@
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

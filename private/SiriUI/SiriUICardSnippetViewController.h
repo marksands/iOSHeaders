@@ -9,12 +9,14 @@
 #import <SiriUI/CRKCardViewControllerDelegate-Protocol.h>
 #import <SiriUI/SiriUICardLoadingObserver-Protocol.h>
 #import <SiriUI/SiriUICardSnippetViewDataSource-Protocol.h>
+#import <SiriUI/SiriUICardSnippetViewDelegate-Protocol.h>
 #import <SiriUI/_SiriUICardLoaderDelegate-Protocol.h>
+#import <SiriUI/_SiriUIModelContainerViewControllerDelegate-Protocol.h>
 
-@class CRKCardViewController, NSMutableDictionary, NSObject, NSString, SACardSnippet, SiriUICardSnippetView, _SiriUICardLoader;
+@class CRKCardViewController, NSMutableDictionary, NSObject, NSString, SACardSnippet, SiriUICardSnippetView, _SiriUICardLoader, _SiriUIModalContainerViewController;
 @protocol OS_dispatch_group;
 
-@interface SiriUICardSnippetViewController : SiriUISnippetViewController <_SiriUICardLoaderDelegate, SiriUICardLoadingObserver, SiriUICardSnippetViewDataSource, CRKCardViewControllerDelegate>
+@interface SiriUICardSnippetViewController : SiriUISnippetViewController <_SiriUICardLoaderDelegate, SiriUICardLoadingObserver, _SiriUIModelContainerViewControllerDelegate, SiriUICardSnippetViewDataSource, SiriUICardSnippetViewDelegate, CRKCardViewControllerDelegate>
 {
     SACardSnippet *_snippet;
     struct CGSize _contentSize;
@@ -23,6 +25,7 @@
     NSObject<OS_dispatch_group> *_cardLoadingGroup;
     SACardSnippet *_newlyLoadedCardSnippet;
     _SiriUICardLoader *_cardLoader;
+    _SiriUIModalContainerViewController *_presentedModalContainerViewController;
     CRKCardViewController *_cardViewController;
 }
 
@@ -30,6 +33,9 @@
 @property(retain, nonatomic, setter=_setCardViewController:) CRKCardViewController *_cardViewController; // @synthesize _cardViewController;
 - (id)snippet;
 - (void).cxx_destruct;
+- (double)desiredHeightForTransparentHeaderView;
+- (void)configureReusableTransparentHeaderView:(id)arg1;
+- (Class)transparentHeaderViewClass;
 - (void)cardLoadingMonitor:(id)arg1 didReceiveCardSnippet:(id)arg2;
 - (_Bool)cardLoader:(id)arg1 loadCard:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)cardLoader:(id)arg1 shouldLoadCard:(id)arg2;
@@ -37,9 +43,14 @@
 - (void)controllerForCard:(id)arg1 didRequestAsyncCard:(id)arg2 withAsyncCardRequestFeedback:(id)arg3;
 - (void)cardSectionViewDidDisappearForCardSection:(id)arg1 withDisappearanceFeedback:(id)arg2;
 - (void)cardSectionViewDidAppearForCardSection:(id)arg1 withAppearanceFeedback:(id)arg2;
+- (void)cardSectionViewWillAppearForCardSection:(id)arg1 withAppearanceFeedback:(id)arg2;
 - (void)cardViewDidDisappearForCard:(id)arg1 withDisappearanceFeedback:(id)arg2;
 - (void)cardViewDidAppearForCard:(id)arg1 withAppearanceFeedback:(id)arg2;
+- (void)cardViewWillAppearForCard:(id)arg1 withAppearanceFeedback:(id)arg2;
 - (void)userDidEngageCardSection:(id)arg1 withEngagementFeedback:(id)arg2;
+- (void)modalContainerViewControllerWillBeDismissed:(id)arg1;
+- (void)presentViewController:(id)arg1 forCardViewController:(id)arg2;
+- (unsigned long long)navigationIndexOfCardViewController:(id)arg1;
 - (struct CGSize)cardViewController:(id)arg1 boundingSizeForCardSectionViewController:(id)arg2;
 - (_Bool)performPunchoutCommand:(id)arg1 forCardViewController:(id)arg2;
 - (_Bool)performNextCardCommand:(id)arg1 forCardViewController:(id)arg2;
@@ -47,6 +58,8 @@
 - (void)cardViewController:(id)arg1 requestsHandlingOfIntent:(id)arg2;
 - (void)cardViewControllerBoundsDidChange:(id)arg1;
 - (void)cardViewControllerDidLoad:(id)arg1;
+- (void)cardSnippetViewSashWasTapped:(id)arg1;
+- (id)localeForCardSnippetView:(id)arg1;
 - (id)sashItemForCardSnippetView:(id)arg1;
 - (id)_metricsContextOfEventsForCardSection:(id)arg1 inCard:(id)arg2;
 - (id)_metricsContextOfEventsForCard:(id)arg1;
@@ -59,11 +72,13 @@
 - (void)siriDidStopSpeakingWithIdentifier:(id)arg1 speechQueueIsEmpty:(_Bool)arg2;
 - (void)siriDidStartSpeakingWithIdentifier:(id)arg1;
 - (void)wasAddedToTranscript;
+- (_Bool)logContentsIfApplicable;
 - (_Bool)isIndicatingActivity;
 - (double)desiredHeight;
 - (_Bool)usePlatterStyle;
 - (struct UIEdgeInsets)defaultViewInsets;
 - (void)setSnippet:(id)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLayoutSubviews;
 - (void)loadView;

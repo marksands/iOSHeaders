@@ -6,11 +6,12 @@
 
 #import <ControlCenterUIKit/CCUIMenuModuleViewController.h>
 
-@class CCUIAppLauncherModule, SBFApplication;
+@class CCUIAppLauncherModule, SBFApplication, SCUIAssetProvider;
 
 @interface CCUIAppLauncherViewController : CCUIMenuModuleViewController
 {
     SBFApplication *_application;
+    SCUIAssetProvider *_assetProvider;
     CCUIAppLauncherModule *_module;
 }
 

@@ -31,6 +31,7 @@
 @property(nonatomic, getter=isIgnoringNotificationPostRequests) _Bool ignoringNotificationPostRequests; // @synthesize ignoringNotificationPostRequests;
 @property(nonatomic, getter=isRunningInAssistantPlugin) _Bool runningInAssistantPlugin; // @synthesize runningInAssistantPlugin;
 - (void).cxx_destruct;
+- (void)notificationScheduler:(id)arg1 didFireLocalNotifications:(id)arg2;
 - (void)notificationScheduler:(id)arg1 didChangeScheduledLocalNotifications:(id)arg2;
 @property(readonly, nonatomic) ObjectUpdates *updatesToLocalNotificationsCache;
 @property(readonly, nonatomic) NSArray *scheduledLocalNotificationsCache;
@@ -43,6 +44,7 @@
 - (void)cancelLocalNotification:(id)arg1;
 - (void)scheduleLocalNotifications:(id)arg1;
 - (void)scheduleLocalNotification:(id)arg1;
+- (_Bool)containsRemovedNotification:(id)arg1;
 - (void)postUserPreferencesChangedNotification;
 - (void)removeNotificationObserver:(id)arg1;
 - (void)addNotificationObserver:(id)arg1;

@@ -7,11 +7,12 @@
 #import <Foundation/NSObject.h>
 
 #import <MediaPlayer/MPAVMetadataItem-Protocol.h>
+#import <MediaPlayer/MPNowPlayingContentItemLyricsDataSource-Protocol.h>
 
 @class AVAsset, AVPlayerItem, AVPlayerItemAccessLog, MPAVController, MPAlternateTracks, MPMediaItem, MPModelGenericObject, MPModelPlayEvent, MPNowPlayingContentItem, MPQueueFeeder, MPStoreDownload, NSArray, NSDictionary, NSError, NSNumber, NSString, NSURL;
 @protocol MPAVItemPlaylistIdentifier, MPAVItemQueueIdentifier, OS_dispatch_queue;
 
-@interface MPAVItem : NSObject <MPAVMetadataItem>
+@interface MPAVItem : NSObject <MPAVMetadataItem, MPNowPlayingContentItemLyricsDataSource>
 {
     AVAsset *_asset;
     NSObject<OS_dispatch_queue> *_assetQueue;
@@ -46,6 +47,7 @@
     _Bool _hasPostedNaturalSizeChange;
     _Bool _hasRegisteredForCaptionsAppearanceChanged;
     _Bool _hasValidPlayerItemDuration;
+    double _lastLoggedTotalDuration;
     long long _likedState;
     _Bool _limitReadAhead;
     CDStruct_1b6d18a9 _playerItemDuration;
@@ -58,6 +60,7 @@
     _Bool _shouldPreventPlayback;
     _Bool _allowsAirPlayFromCloud;
     _Bool _allowsExternalPlayback;
+    _Bool _hasFinishedDownloading;
     float _currentPlaybackRate;
     float _loudnessInfoVolumeNormalization;
     NSError *_itemError;
@@ -82,6 +85,7 @@
 + (void)setDefaultScaleMode:(long long)arg1;
 + (long long)defaultScaleMode;
 @property(copy, nonatomic) NSString *contentItemID; // @synthesize contentItemID=_contentItemID;
+@property(readonly, nonatomic) _Bool hasFinishedDownloading; // @synthesize hasFinishedDownloading=_hasFinishedDownloading;
 @property(readonly, copy, nonatomic) NSString *aggregateDictionaryItemIdentifier; // @synthesize aggregateDictionaryItemIdentifier=_aggregateDictionaryItemIdentifier;
 @property(readonly, nonatomic) _Bool allowsExternalPlayback; // @synthesize allowsExternalPlayback=_allowsExternalPlayback;
 @property(readonly, nonatomic) _Bool allowsAirPlayFromCloud; // @synthesize allowsAirPlayFromCloud=_allowsAirPlayFromCloud;
@@ -116,8 +120,10 @@
 @property(retain, nonatomic) NSArray *artworkTimeMarkers; // @synthesize artworkTimeMarkers=_artworkTimeMarkers;
 @property(readonly, nonatomic) MPAlternateTracks *alternateTracks; // @synthesize alternateTracks=_alternateTracks;
 - (void).cxx_destruct;
+- (void)nowPlayingInfoCenter:(id)arg1 lyricsForContentItem:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_willResignActivePlayerItem;
 - (void)_willBecomeActivePlayerItem;
+- (void)_updateHasFinishedDownloading;
 - (void)resolvePlaybackError:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)replacePlayerItemWithPlayerItem:(id)arg1;
 - (void)reevaluateType;
@@ -129,10 +135,13 @@
 - (long long)_persistedLikedState;
 - (void)_loadMediaItemWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_handleUpdatedLikedState:(long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (double)_expectedStopTimeWithPlaybackInfo:(id)arg1;
+- (double)_expectedStartTimeWithPlaybackInfo:(id)arg1;
 - (long long)_expectedPlaybackMode;
 - (void)_currentPlaybackRateDidChange:(float)arg1;
 - (void)_updateDurationSnapshot;
 - (void)_checkAllowsBlockingDurationCall;
+- (_Bool)_isBackgroundPlaybackRestricted;
 - (void)setupPlaybackInfo;
 - (void)setupEQPresetWithDefaultPreset:(long long)arg1;
 @property(readonly, nonatomic) NSString *uniqueIdentifier;
@@ -168,6 +177,9 @@
 @property(readonly, nonatomic) unsigned long long artistPersistentID;
 @property(readonly, nonatomic) unsigned long long albumArtistPersistentID;
 @property(readonly, nonatomic) unsigned long long albumPersistentID;
+@property(readonly, nonatomic) NSString *cloudAlbumID;
+@property(readonly, nonatomic) NSString *cloudUniversalLibraryID;
+@property(readonly, nonatomic) unsigned long long cloudID;
 @property(readonly, nonatomic) unsigned long long persistentID;
 @property(readonly, nonatomic) unsigned long long mediaType;
 @property(readonly, nonatomic) float userRating;

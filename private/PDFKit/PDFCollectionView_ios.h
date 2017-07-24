@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (void)annotationDidChangeNotification:(id)arg1;
 - (void)pageDidChangeNotification:(id)arg1;
 - (void)layoutSubviews;
 - (void)_reloadDataForFrameChangeAfterDelay:(id)arg1;

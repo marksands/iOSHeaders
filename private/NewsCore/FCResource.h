@@ -23,7 +23,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic, getter=isOnDisk) _Bool onDisk;
 @property(readonly, nonatomic) NSURL *fileURL;
-- (id)initWithPermanentURLForResourceID:(id)arg1 contentContext:(id)arg2;
+- (id)initWithPermanentURLForResourceID:(id)arg1 cacheLifetimeHint:(long long)arg2 contentContext:(id)arg3;
 - (id)initWithRecord:(id)arg1 interestToken:(id)arg2 assetManager:(id)arg3;
 - (id)initWithResourceID:(id)arg1 assetHandle:(id)arg2;
 

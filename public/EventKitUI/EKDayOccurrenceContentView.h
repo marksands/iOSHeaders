@@ -29,7 +29,6 @@
     double _cachedLineHeight;
     UIFont *_cachedSecondaryFont;
     double _cachedSecondaryLineHeight;
-    _Bool _facebook;
     _Bool _birthday;
     _Bool _invalidatedContentString;
     _Bool _allDay;
@@ -74,7 +73,7 @@
 - (void).cxx_destruct;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)drawRect:(struct CGRect)arg1;
-- (_Bool)hasIcon;
+- (id)birthdayIcon;
 - (id)_timeTextFont;
 - (id)_statusTextFont;
 - (id)_secondaryTextFont;
@@ -90,7 +89,6 @@
 - (id)_timeText;
 - (id)_statusText;
 - (id)strikethroughColor;
-@property(nonatomic, getter=isFacebook) _Bool facebook;
 @property(nonatomic, getter=isBirthday) _Bool birthday;
 - (struct CGSize)_spaceForText;
 - (struct CGRect)_frameForText;

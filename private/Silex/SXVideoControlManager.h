@@ -7,10 +7,12 @@
 #import <objc/NSObject.h>
 
 @class NSArray, SXTimeline;
+@protocol SXVideoControlManagerDelegate;
 
 @interface SXVideoControlManager : NSObject
 {
     _Bool _autoHidingEnabled;
+    id <SXVideoControlManagerDelegate> _delegate;
     NSArray *_items;
     double _time;
     double _duration;
@@ -22,12 +24,15 @@
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(nonatomic) double time; // @synthesize time=_time;
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
+@property(nonatomic) __weak id <SXVideoControlManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)itemsPassingTest:(CDUnknownBlockType)arg1;
 - (void)scheduleAutoHideTimelineIfEnabled;
 - (void)updateAutoAppearanceTimelineForItems:(id)arg1;
 - (void)ensureItemsAreVisible:(id)arg1;
 - (void)ensureItemsAreHidden:(id)arg1;
+- (void)ensureAllItemsAreVisible;
+- (void)ensureHideableItemsAreHidden;
 - (void)toggleVisibility;
 - (id)init;
 

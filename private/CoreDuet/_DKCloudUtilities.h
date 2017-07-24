@@ -6,13 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class CKAccountInfo;
-@protocol OS_dispatch_group;
+@protocol OS_dispatch_queue;
 
 @interface _DKCloudUtilities : NSObject
 {
-    NSObject<OS_dispatch_group> *_fetchInProgressGroup;
-    CKAccountInfo *_accountInfo;
+    NSObject<OS_dispatch_queue> *_fetchQueue;
     _Bool _isCloudSyncAvailable;
     _Bool _isSingleDevice;
 }
@@ -24,13 +22,16 @@
 + (id)containerIdentifier;
 + (id)sharedInstance;
 - (void).cxx_destruct;
+- (void)_performUpdateNumberOfSyncedDevicesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_updateNumberOfSyncedDevicesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)deleteRemoteStateWithReply:(CDUnknownBlockType)arg1;
-- (void)setCloudSyncAvailable:(_Bool)arg1;
+- (void)_updateAccountInfo:(id)arg1 error:(id)arg2;
 - (void)_fetchAccountInfoWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)_fetchCloudKitConfigurationAndStatus;
+- (void)_fetchCloudKitConfigurationAndStatusWithRetries:(unsigned long long)arg1;
+- (void)_resetServerChangeToken;
 - (void)_accountDidChange:(id)arg1;
 @property(readonly, nonatomic) _Bool isSingleDevice;
+- (void)setCloudSyncAvailable:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool isCloudSyncAvailable;
 - (void)dealloc;
 - (id)init;

@@ -37,10 +37,10 @@
 + (_Bool)environment:(id)arg1 containsEnvironment:(id)arg2;
 + (id)_allFocusSystems;
 + (id)focusSystemForEnvironment:(id)arg1;
+@property(nonatomic, getter=_isEnabled, setter=_setEnabled:) _Bool enabled; // @synthesize enabled=_enabled;
 @property(retain, nonatomic, getter=_focusHapticFeedbackGenerator, setter=_setFocusHapticFeedbackGenerator:) id <_UIFocusHapticFeedbackGenerator> focusHapticFeedbackGenerator; // @synthesize focusHapticFeedbackGenerator=_focusHapticFeedbackGenerator;
 @property(retain, nonatomic, getter=_focusSoundGenerator, setter=_setFocusSoundGenerator:) _UIFocusSoundGenerator *focusSoundGenerator; // @synthesize focusSoundGenerator=_focusSoundGenerator;
 @property(readonly, nonatomic, getter=_previousFocusedItem) __weak id <UIFocusItem> previousFocusedItem; // @synthesize previousFocusedItem=_previousFocusedItem;
-@property(nonatomic, getter=_isEnabled, setter=_setEnabled:) _Bool enabled; // @synthesize enabled=_enabled;
 @property(nonatomic, getter=_delegate, setter=_setDelegate:) __weak id <_UIFocusSystemDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic, getter=_focusAnimationCoordinatorManager, setter=_setFocusAnimationCoordinatorManager:) _UIFocusAnimationCoordinatorManager *focusAnimationCoordinatorManager; // @synthesize focusAnimationCoordinatorManager=_focusAnimationCoordinatorManager;
 - (void).cxx_destruct;
@@ -53,6 +53,8 @@
 - (id)_preferredFirstResponderFocusSystemForFocusedItem:(id)arg1;
 @property(readonly, nonatomic, getter=_preferredFirstResponderFocusSystem) __weak UIFocusSystem *preferredFirstResponderFocusSystem;
 @property(readonly, nonatomic, getter=_hostFocusSystem) __weak UIFocusSystem *hostFocusSystem;
+- (_Bool)_postsFocusUpdateNotifications;
+- (_Bool)_requiresFocusedItemToHaveContainingView;
 - (void)_cancelPendingFocusRestoration;
 - (void)_setNeedsFocusRestoration;
 - (id)_contextForUpdateToEnvironment:(id)arg1 withAnimationCoordinator:(id)arg2;
@@ -77,7 +79,6 @@
 @property(readonly, nonatomic, getter=_currentFocusAnimationCoordinator) UIFocusAnimationCoordinator *currentFocusAnimationCoordinator;
 @property(readonly, nonatomic, getter=_focusedView) __weak UIView *focusedView;
 @property(readonly, nonatomic) __weak id <UIFocusItem> focusedItem; // @synthesize focusedItem=_focusedItem;
-- (_Bool)_requiresFocusedItemToHaveContainingView;
 - (void)_setEnabled:(_Bool)arg1 withAnimationCoordinator:(id)arg2;
 - (id)_initWithFocusEnabled:(_Bool)arg1;
 - (id)_init;

@@ -16,10 +16,10 @@ __attribute__((visibility("hidden")))
     FPXExtensionContext *_context;
     NSXPCInterface *_interface;
     id _exportedObject;
-    NSString *_messageInterfaceName;
+    NSString *_serviceName;
 }
 
-@property(copy, nonatomic) NSString *messageInterfaceName; // @synthesize messageInterfaceName=_messageInterfaceName;
+@property(copy, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
 @property(retain, nonatomic) id exportedObject; // @synthesize exportedObject=_exportedObject;
 @property(retain, nonatomic) NSXPCInterface *interface; // @synthesize interface=_interface;
 @property(retain, nonatomic) FPXExtensionContext *context; // @synthesize context=_context;

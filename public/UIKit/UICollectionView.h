@@ -169,6 +169,7 @@
         unsigned int allowsVisibleCellUpdatesDuringUpdateAnimations:1;
     } _collectionViewFlags;
     struct CGPoint _lastLayoutOffset;
+    NSIndexPath *_cancellingToIndexPath;
     long long _prefetchMode;
     _UICollectionViewPrefetchingContext *_currentPrefetchingContext;
     NSMutableDictionary *_prefetchCacheItems;
@@ -262,6 +263,7 @@
 - (id)_dragSourceController;
 - (id)_dragAndDropController;
 - (void)_setEffectiveDataSource:(id)arg1;
+- (_Bool)_isCurrentlyPerformingLegacyReordering;
 - (_Bool)_isDragDestinationInteractivelyReordering;
 - (id)_indexPathBeforeShadowUpdatesForIndexPath:(id)arg1;
 - (id)_indexPathAfterShadowUpdatesForIndexPath:(id)arg1;
@@ -395,13 +397,13 @@
 - (void)registerClass:(Class)arg1 forSupplementaryViewOfKind:(id)arg2 withReuseIdentifier:(id)arg3;
 - (void)registerClass:(Class)arg1 forCellWithReuseIdentifier:(id)arg2;
 - (void)_registeredSupplementaryViewKind:(id)arg1;
-- (struct UIEdgeInsets)_fastScrollingIndexBarInsets;
+- (struct UIEdgeInsets)_focusFastScrollingIndexBarInsets;
 - (id)_focusFastScrollingDestinationItemForIndexEntry:(id)arg1;
 - (id)_focusFastScrollingDestinationItemAtContentEnd;
 - (id)_focusFastScrollingDestinationItemAtContentStart;
 - (struct CGPoint)indexBarAccessoryView:(id)arg1 contentOffsetForEntry:(id)arg2 atIndex:(long long)arg3;
 - (id)_indexPathForEntryWithTitle:(id)arg1 atIndex:(long long)arg2;
-- (id)_indexBarEntries;
+- (id)_focusFastScrollingIndexBarEntries;
 - (void)_updateSectionIndex;
 - (void)_reloadSectionIndexTitles;
 - (void)_updateIndex;
@@ -519,6 +521,7 @@
 - (void)_registerForGeometryChangesIfInSupeview;
 - (struct CGSize)intrinsicContentSize;
 - (void)setScrollEnabled:(_Bool)arg1;
+- (void)setDirectionalLayoutMargins:(struct NSDirectionalEdgeInsets)arg1;
 - (void)_invalidateLayoutForUpdatedLayoutMarginsIfNeeded;
 - (void)safeAreaInsetsDidChange;
 - (void)layoutMarginsDidChange;

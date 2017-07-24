@@ -4,40 +4,57 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <MediaPlayer/MPVolumeSlider.h>
+#import <UIKit/UISlider.h>
 
-@class UIImageView, UIView;
+#import <AVKit/AVPlaybackControlsViewItem-Protocol.h>
 
-@interface AVVolumeSlider : MPVolumeSlider
+@class AVVolumeWarningView, NSNumber, NSString, UIImageView;
+
+@interface AVVolumeSlider : UISlider <AVPlaybackControlsViewItem>
 {
-    _Bool _playerMuted;
-    _Bool _collapsed;
     _Bool _included;
+    _Bool _collapsed;
     _Bool _hasAlternateAppearance;
     _Bool _hasFullScreenAppearance;
-    UIView *_completedTrackOverlayView;
+    float _effectiveVolumeLimit;
     UIImageView *_thumbView;
+    NSNumber *_unclampedValue;
+    AVVolumeWarningView *_volumeWarningView;
     struct CGSize _extrinsicContentSize;
 }
 
+@property(nonatomic) __weak AVVolumeWarningView *volumeWarningView; // @synthesize volumeWarningView=_volumeWarningView;
+@property(retain, nonatomic) NSNumber *unclampedValue; // @synthesize unclampedValue=_unclampedValue;
+@property(nonatomic) float effectiveVolumeLimit; // @synthesize effectiveVolumeLimit=_effectiveVolumeLimit;
 @property(retain, nonatomic) UIImageView *thumbView; // @synthesize thumbView=_thumbView;
 @property(nonatomic) _Bool hasFullScreenAppearance; // @synthesize hasFullScreenAppearance=_hasFullScreenAppearance;
 @property(nonatomic) _Bool hasAlternateAppearance; // @synthesize hasAlternateAppearance=_hasAlternateAppearance;
-@property(nonatomic, getter=isIncluded) _Bool included; // @synthesize included=_included;
 @property(nonatomic, getter=isCollapsed) _Bool collapsed; // @synthesize collapsed=_collapsed;
+@property(nonatomic, getter=isIncluded) _Bool included; // @synthesize included=_included;
 @property(nonatomic) struct CGSize extrinsicContentSize; // @synthesize extrinsicContentSize=_extrinsicContentSize;
-@property(readonly, nonatomic) UIView *completedTrackOverlayView; // @synthesize completedTrackOverlayView=_completedTrackOverlayView;
-@property(nonatomic, getter=isPlayerMuted) _Bool playerMuted; // @synthesize playerMuted=_playerMuted;
 - (void).cxx_destruct;
+- (void)setValue:(float)arg1 animated:(_Bool)arg2;
 - (struct CGRect)trackRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)thumbRectForBounds:(struct CGRect)arg1 trackRect:(struct CGRect)arg2 value:(float)arg3;
 - (id)createThumbView;
-- (void)setTracking:(_Bool)arg1;
-- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)cancelTrackingWithEvent:(id)arg1;
+- (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (struct CGRect)hitRect;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)layoutSubviews;
+- (struct UIEdgeInsets)alignmentRectInsets;
 - (struct CGSize)intrinsicContentSize;
 @property(readonly, nonatomic, getter=isCollapsedOrExcluded) _Bool collapsedOrExcluded;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

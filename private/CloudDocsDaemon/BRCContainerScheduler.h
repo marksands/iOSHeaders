@@ -62,7 +62,7 @@
 - (void)_scheduleCrossZoneMovePCSPrep;
 - (void)finishedZoneHealthSyncDownWithRequestID:(unsigned long long)arg1 error:(id)arg2;
 - (void)receivedUpdatedZoneHealthServerChangeToken:(id)arg1 requestID:(unsigned long long)arg2;
-- (void)dumpToContext:(id)arg1;
+- (void)dumpToContext:(id)arg1 db:(id)arg2;
 - (void)_syncScheduleForZoneHealth;
 - (void)_syncScheduleForSharedDatabase;
 - (void)_syncScheduleForContainersMetadata;

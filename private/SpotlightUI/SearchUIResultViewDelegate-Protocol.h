@@ -4,10 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SpotlightUI/SearchUIClearableSectionDelegate-Protocol.h>
-#import <SpotlightUI/SearchUIExpandableSectionDelegate-Protocol.h>
+#import <SpotlightUI/NSObject-Protocol.h>
 
-@protocol SearchUIResultViewDelegate <SearchUIClearableSectionDelegate, SearchUIExpandableSectionDelegate>
+@class NSString, SFResultSection;
+
+@protocol SearchUIResultViewDelegate <NSObject>
+
+@optional
+@property(readonly) NSString *currentQuery;
+- (void)didUpdateContentScrolledOffScreenStatus:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)didChangeExpansionStateForSection:(SFResultSection *)arg1 expanded:(_Bool)arg2;
+- (_Bool)sectionShouldBeExpanded:(SFResultSection *)arg1;
+- (void)clearResultsFromSection:(SFResultSection *)arg1;
+- (_Bool)sectionIsClearable:(SFResultSection *)arg1;
 - (void)didTapInEmptyRegion;
 @end
 

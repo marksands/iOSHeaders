@@ -14,7 +14,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) DMFBook *book; // @synthesize book=_book;
+@property(readonly, copy, nonatomic) DMFBook *book; // @synthesize book=_book;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

@@ -15,6 +15,7 @@
 @optional
 @property(readonly, nonatomic) id <TSDCanvasProxyDelegate> canvasProxyDelegate;
 - (_Bool)imageIsRenderingForMovie;
+- (_Bool)isExportingFixedLayoutEPub;
 - (_Bool)isRenderingForKPF;
 - (_Bool)supportsAdaptiveLayout;
 - (_Bool)isCanvasDrawingIntoPDF:(TSDCanvas *)arg1;

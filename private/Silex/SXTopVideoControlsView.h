@@ -10,16 +10,16 @@
 
 @interface SXTopVideoControlsView : UIView
 {
-    NSArray *_leftAccessoryViews;
-    NSArray *_rightAccessoryViews;
+    NSArray *_leadingAccessoryViews;
+    NSArray *_trailingAccessoryViews;
 }
 
-@property(retain, nonatomic) NSArray *rightAccessoryViews; // @synthesize rightAccessoryViews=_rightAccessoryViews;
-@property(retain, nonatomic) NSArray *leftAccessoryViews; // @synthesize leftAccessoryViews=_leftAccessoryViews;
+@property(retain, nonatomic) NSArray *trailingAccessoryViews; // @synthesize trailingAccessoryViews=_trailingAccessoryViews;
+@property(retain, nonatomic) NSArray *leadingAccessoryViews; // @synthesize leadingAccessoryViews=_leadingAccessoryViews;
 - (void).cxx_destruct;
 - (struct CGSize)intrinsicContentSize;
-- (void)setLeftAccessoryViews:(id)arg1 animated:(_Bool)arg2;
-- (void)setRightAccessoryViews:(id)arg1 animated:(_Bool)arg2;
+- (void)setLeadingAccessoryViews:(id)arg1 animated:(_Bool)arg2;
+- (void)setTrailingAccessoryViews:(id)arg1 animated:(_Bool)arg2;
 - (void)updateConstraints;
 - (id)initWithFrame:(struct CGRect)arg1;
 

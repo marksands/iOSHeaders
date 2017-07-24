@@ -14,17 +14,17 @@
     NSArray *_defaultFillStyles;
     NSArray *_highlightedFillStyles;
     HKStrokeStyle *_goalLineStokeStyle;
+    CDUnknownBlockType _startOfDayTransform;
     struct CGSize _cornerRadii;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType startOfDayTransform; // @synthesize startOfDayTransform=_startOfDayTransform;
 @property(copy, nonatomic) HKStrokeStyle *goalLineStokeStyle; // @synthesize goalLineStokeStyle=_goalLineStokeStyle;
 @property(copy, nonatomic) NSArray *highlightedFillStyles; // @synthesize highlightedFillStyles=_highlightedFillStyles;
 @property(copy, nonatomic) NSArray *defaultFillStyles; // @synthesize defaultFillStyles=_defaultFillStyles;
 @property(copy, nonatomic) HKStrokeStyle *strokeStyle; // @synthesize strokeStyle=_strokeStyle;
 @property(nonatomic) struct CGSize cornerRadii; // @synthesize cornerRadii=_cornerRadii;
 - (void).cxx_destruct;
-- (id)_durationFormatter;
-- (id)_percentFormatter;
 - (id)stringFromTimeSinceNoon:(id)arg1;
 - (void)_addAnnotationForValue:(double)arg1;
 - (_Bool)blockCoordinate:(id)arg1 greaterThan:(id)arg2;
@@ -37,7 +37,6 @@
 - (double)xAxisDistanceFromPoint:(struct CGPoint)arg1 blockCoordinate:(id)arg2 chartRect:(struct CGRect)arg3;
 - (double)distanceFromPoint:(struct CGPoint)arg1 blockCoordinate:(id)arg2 chartRect:(struct CGRect)arg3;
 - (id)coordinatesForBlock:(id)arg1 blockPath:(CDStruct_6ca94699)arg2 xAxis:(id)arg3 yAxis:(id)arg4;
-- (void)_updateSecondaryRenderContextWithBlockCoordinates:(id)arg1 pointTransform:(struct CGAffineTransform)arg2 axisRect:(struct CGRect)arg3 secondaryRenderContext:(id)arg4;
 - (void)_drawPaths:(id)arg1 withFillStyles:(id)arg2 strokeStyle:(id)arg3 axisRect:(struct CGRect)arg4 context:(struct CGContext *)arg5;
 - (void)_drawGoalLinePath:(id)arg1 context:(struct CGContext *)arg2;
 - (void)_drawWithBlockCoordinates:(id)arg1 visibleBarCount:(long long)arg2 pointTransform:(struct CGAffineTransform)arg3 context:(struct CGContext *)arg4 axisRect:(struct CGRect)arg5;

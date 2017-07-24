@@ -17,7 +17,6 @@
 @property(nonatomic) _Bool shouldPreventContentFromShiftingVertically; // @synthesize shouldPreventContentFromShiftingVertically=_shouldPreventContentFromShiftingVertically;
 @property(nonatomic) _Bool shouldFakeStatusBarVisible; // @synthesize shouldFakeStatusBarVisible=_shouldFakeStatusBarVisible;
 - (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1;
-- (double)_statusBarHeightAdjustmentForCurrentOrientation;
 - (id)_accessibilityButtonBackgroundDefaultTintColor;
 - (void)didShowViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)didPresentTraitsOverridingViewController;

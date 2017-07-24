@@ -7,6 +7,6 @@
 #import <CloudDocs/PQLBindable-Protocol.h>
 
 @protocol PQLValuable <PQLBindable>
-+ (id)newFromSqliteValue:(struct Mem *)arg1;
++ (id)newFromSqliteValue:(struct sqlite3_value *)arg1;
 @end
 

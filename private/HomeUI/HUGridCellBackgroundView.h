@@ -16,11 +16,11 @@
     HFWallpaperSlice *_blurredWallpaperSlice;
     double _cornerRadius;
     UIVisualEffectView *_effectView;
-    UIView *_ccBaseMaterialView;
+    UIView *_ccMaterialView;
     struct CGRect _normalizedWallpaperRect;
 }
 
-@property(retain, nonatomic) UIView *ccBaseMaterialView; // @synthesize ccBaseMaterialView=_ccBaseMaterialView;
+@property(retain, nonatomic) UIView *ccMaterialView; // @synthesize ccMaterialView=_ccMaterialView;
 @property(retain, nonatomic) UIVisualEffectView *effectView; // @synthesize effectView=_effectView;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(retain, nonatomic) HFWallpaperSlice *blurredWallpaperSlice; // @synthesize blurredWallpaperSlice=_blurredWallpaperSlice;
@@ -37,7 +37,7 @@
 - (_Bool)_shouldUsePrecomputedWallpaperContents;
 - (_Bool)_shouldUseVisualEffectStyle;
 - (_Bool)_isUsingControlCenterDisplayStyle;
-- (_Bool)_shouldUseCCDynamicPunchOutStyle;
+- (_Bool)_shouldUseCCMaterialView;
 - (_Bool)_shouldUseCCStaticPunchOutStyle;
 - (void)_updateBackgroundColor;
 - (void)_updateWallpaperContentsScale;
@@ -47,7 +47,7 @@
 - (void)didMoveToSuperview;
 - (void)willMoveToWindow:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
-- (void)_createCCBaseMaterialViewIfNecessary;
+- (void)_createCCMaterialViewIfNecessary;
 - (void)_createEffectViewIfNecessary;
 
 @end

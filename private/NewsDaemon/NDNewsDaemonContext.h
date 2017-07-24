@@ -21,6 +21,7 @@
 @property(retain, nonatomic) id <NDNewsService> daemon; // @synthesize daemon=_daemon;
 - (void).cxx_destruct;
 - (id)_queue;
+- (void)markAnalyticsElement:(id)arg1 asReadAtDate:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)markAnalyticsElements:(id)arg1 asSeenAtDate:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 @property(copy, nonatomic) CDUnknownBlockType updateResultsHandler; // @synthesize updateResultsHandler=_updateResultsHandler;
 - (void)fetchLatestHeadlinesWithParameters:(id)arg1 completion:(CDUnknownBlockType)arg2;

@@ -20,8 +20,10 @@
     NSArray *_commands;
     NSArray *_parameterKeyPaths;
     NSString *_cardSectionId;
+    NSString *_resultIdentifier;
 }
 
+@property(copy, nonatomic) NSString *resultIdentifier; // @synthesize resultIdentifier=_resultIdentifier;
 @property(copy, nonatomic) NSString *cardSectionId; // @synthesize cardSectionId=_cardSectionId;
 @property(copy, nonatomic) NSArray *parameterKeyPaths; // @synthesize parameterKeyPaths=_parameterKeyPaths;
 @property(copy, nonatomic) NSArray *commands; // @synthesize commands=_commands;
@@ -37,6 +39,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasResultIdentifier;
 @property(readonly, nonatomic) _Bool hasCardSectionId;
 - (id)parameterKeyPathsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)parameterKeyPathsCount;

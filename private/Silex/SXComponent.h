@@ -21,6 +21,7 @@
 - (id)description;
 @property(readonly, nonatomic) int role;
 @property(readonly, nonatomic) SXComponentClassification *classification; // @synthesize classification=_classification;
+- (unsigned long long)contentRelevanceWithValue:(id)arg1 withType:(int)arg2;
 - (id)animationWithValue:(id)arg1 withType:(int)arg2;
 
 // Remaining properties
@@ -30,6 +31,7 @@
 @property(readonly, nonatomic) SXComponentAnimation *animation; // @dynamic animation;
 @property(readonly, nonatomic) SXJSONArray *behaviors; // @dynamic behaviors;
 @property(readonly, nonatomic) SXComponentConditions *conditions; // @dynamic conditions;
+@property(readonly, nonatomic) unsigned long long contentRelevance; // @dynamic contentRelevance;
 @property(readonly, nonatomic) NSString *identifier; // @dynamic identifier;
 @property(readonly, nonatomic) NSString *layout; // @dynamic layout;
 @property(readonly, nonatomic) NSString *style; // @dynamic style;

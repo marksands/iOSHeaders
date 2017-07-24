@@ -20,6 +20,8 @@
     id <FUFlightViewControllerDelegate> _delegate;
     FUFlightView *_regularFlightView;
     FUFlightView *_compactFlightView;
+    _Bool _requiresDataLoad;
+    _Bool _viewLoaded;
     _Bool _highlightCurrentFlightLeg;
     _Bool _showInfoPanel;
     NSArray *_flights;

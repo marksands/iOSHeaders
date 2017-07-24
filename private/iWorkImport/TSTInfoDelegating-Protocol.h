@@ -80,12 +80,6 @@
 - (Class)repClass;
 - (struct TSUCellCoord)cellIDForCellContainingRichTextStorage:(TSWPStorage *)arg1;
 - (NSSet *)allRichTextPayloadStorages;
-- (unsigned int)addCellFormat:(TSKFormat *)arg1 atSuggestedKey:(unsigned int)arg2;
-- (unsigned int)addString:(NSString *)arg1;
-- (void)addStringReferenceForKey:(unsigned int)arg1;
-- (unsigned int)addFormula:(struct TSCEFormula *)arg1;
-- (unsigned int)formulaRefCountForKey:(unsigned int)arg1;
-- (void)addFormulaReferenceForKey:(unsigned int)arg1;
 - (TSKFormat *)populatedMultipleChoiceListFormat:(TSKFormat *)arg1;
 - (unsigned long long)conditionalStyleRefCountForKey:(unsigned int)arg1;
 - (_Bool)formatDataListContainsControlFormats;
@@ -250,8 +244,8 @@
 - (_Bool)isSingleCellOrMergeRange:(struct TSUCellRect)arg1;
 - (int)cellValueTypeAtCellID:(struct TSUCellCoord)arg1;
 - (TSKFormat *)formatAtCellID:(struct TSUCellCoord)arg1 formatIsImplicitOut:(_Bool *)arg2;
-- (int)applyCellMap:(TSTCellMap *)arg1 ignoreFormulas:(_Bool)arg2 skipDirtyingNonFormulaCells:(_Bool)arg3 calculationEngine:(TSCECalculationEngine *)arg4;
-- (int)applyCellMap:(TSTCellMap *)arg1 calculationEngine:(TSCECalculationEngine *)arg2;
+- (int)setCellsWithCellMap:(TSTCellMap *)arg1 ignoreFormulas:(_Bool)arg2 skipDirtyingNonFormulaCells:(_Bool)arg3 calculationEngine:(TSCECalculationEngine *)arg4;
+- (int)setCellsWithCellMap:(TSTCellMap *)arg1 calculationEngine:(TSCECalculationEngine *)arg2;
 - (struct TSCEFormula *)formulaAtCellID:(struct TSUCellCoord)arg1;
 - (int)updateCalculationEngineForFormula:(struct TSCEFormula *)arg1 inCellID:(struct TSUCellCoord)arg2;
 - (_Bool)hasFormulaAtCellID:(struct TSUCellCoord)arg1;

@@ -36,13 +36,13 @@
 @property(nonatomic, getter=shouldDeleteZone) _Bool deleteZone; // @synthesize deleteZone=_deleteZone;
 @property(nonatomic, getter=wasZoneCreated) _Bool zoneWasCreated; // @synthesize zoneWasCreated=_zoneWasCreated;
 @property(nonatomic, getter=shouldCreateZone) _Bool createZone; // @synthesize createZone=_createZone;
-@property(nonatomic, getter=isTemporaryCache) _Bool temporaryCache; // @synthesize temporaryCache=_temporaryCache;
+@property(readonly, nonatomic, getter=isTemporaryCache) _Bool temporaryCache; // @synthesize temporaryCache=_temporaryCache;
 @property(retain, nonatomic) CKServerChangeToken *updatedServerChangeToken; // @synthesize updatedServerChangeToken=_updatedServerChangeToken;
 @property(nonatomic) __weak HMDCloudZone *cloudZone; // @synthesize cloudZone=_cloudZone;
 @property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *objectChanges;
-- (id)replayTransaction:(id)arg1;
+- (id)replayTransaction:(id)arg1 stagedTransaction:(id)arg2;
 - (id)changeWithObjectID:(id)arg1;
 @property(readonly, nonatomic, getter=isHomeTransaction) _Bool homeTransaction;
 @property(readonly, nonatomic, getter=isHomeManagerTransaction) _Bool homeManagerTransaction;
@@ -69,7 +69,7 @@
 - (id)description;
 - (id)shortDescription;
 - (void)updateCloudZone:(id)arg1;
-- (id)initWithType:(unsigned long long)arg1;
+- (id)initWithType:(unsigned long long)arg1 temporaryCache:(_Bool)arg2;
 - (id)init;
 
 @end

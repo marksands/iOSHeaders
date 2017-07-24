@@ -245,6 +245,7 @@ __attribute__((visibility("hidden")))
 - (void)performStylesheetTransitionDidProgress;
 - (void)performStylesheetWillTransitionToDisplayStyle:(struct DisplayStyle)arg1;
 - (void)_setStyleManagerFromMapType:(long long)arg1;
+- (void)_setInitialClientStyleAttributesForDefaultStyleManager;
 - (void)sizeDidChange:(struct CGSize)arg1;
 - (float)_tileSelectionScaleForContext:(struct LayoutContext *)arg1;
 - (void)_mapConfigurationDidChange;

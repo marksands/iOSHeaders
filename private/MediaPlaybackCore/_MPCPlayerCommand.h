@@ -13,7 +13,7 @@
     MPCPlayerResponse *_response;
 }
 
-@property(nonatomic) __weak MPCPlayerResponse *response; // @synthesize response=_response;
+@property(retain, nonatomic) MPCPlayerResponse *response; // @synthesize response=_response;
 - (void).cxx_destruct;
 - (id)initWithResponse:(id)arg1;
 

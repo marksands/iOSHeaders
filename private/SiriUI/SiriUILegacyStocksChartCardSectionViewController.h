@@ -17,6 +17,7 @@
 - (void).cxx_destruct;
 - (void)_updateContentSize;
 - (void)viewDidLayoutSubviews;
+- (_Bool)_shouldRenderButtonOverlay;
 - (void)_loadCardSectionView;
 
 // Remaining properties

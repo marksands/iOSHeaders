@@ -7,11 +7,12 @@
 #import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/CLLocationManagerDelegate-Protocol.h>
+#import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class CLLocationManager, HMFMessageDispatcher, NSHashTable, NSMapTable, NSObject, NSString;
+@class CLLocationManager, HMFMessageDispatcher, HMFTimer, NSDate, NSHashTable, NSMapTable, NSMutableArray, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HMDLocation : HMFObject <CLLocationManagerDelegate>
+@interface HMDLocation : HMFObject <HMFTimerDelegate, CLLocationManagerDelegate>
 {
     _Bool _beingConfigured;
     int _locationAuthorized;
@@ -23,6 +24,10 @@
     NSMapTable *_regionStateCallbacks;
     NSMapTable *_pendingRegionMonitoringRequests;
     NSMapTable *_pendingRegionCallbacks;
+    unsigned long long _extractStatus;
+    NSMutableArray *_batchLocations;
+    HMFTimer *_extractBatchLocationsTimer;
+    NSDate *_lastFetchBatchLocationsTime;
 }
 
 + (void)timeZoneForCLLocationAsync:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
@@ -34,6 +39,10 @@
 + (id)_getAlmanacWithLocation:(id)arg1 date:(id)arg2;
 + (id)_getAlmanacWithLocation:(id)arg1;
 + (id)sharedManager;
+@property(retain, nonatomic) NSDate *lastFetchBatchLocationsTime; // @synthesize lastFetchBatchLocationsTime=_lastFetchBatchLocationsTime;
+@property(retain, nonatomic) HMFTimer *extractBatchLocationsTimer; // @synthesize extractBatchLocationsTimer=_extractBatchLocationsTimer;
+@property(retain, nonatomic) NSMutableArray *batchLocations; // @synthesize batchLocations=_batchLocations;
+@property(nonatomic) unsigned long long extractStatus; // @synthesize extractStatus=_extractStatus;
 @property(nonatomic) _Bool beingConfigured; // @synthesize beingConfigured=_beingConfigured;
 @property(retain, nonatomic) NSMapTable *pendingRegionCallbacks; // @synthesize pendingRegionCallbacks=_pendingRegionCallbacks;
 @property(retain, nonatomic) NSMapTable *pendingRegionMonitoringRequests; // @synthesize pendingRegionMonitoringRequests=_pendingRegionMonitoringRequests;
@@ -58,9 +67,13 @@
 - (void)_updateWithLocationAutorizationStatus:(int)arg1;
 - (void)_updateWithLocation:(id)arg1;
 - (void)_callDelegate:(id)arg1 withLocation:(id)arg2;
+- (void)timerDidFire:(id)arg1;
 - (void)deregisterForRegionUpdate:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)registerForRegionUpdate:(id)arg1 withDelegate:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)extractLocationWithDelegate:(id)arg1;
+- (void)_extractLocationWithDelegate:(id)arg1 extractStatus:(unsigned long long)arg2;
+- (void)startExtractingSingleLocationWithDelegate:(id)arg1;
+- (void)stopExtractingBatchLocations;
+- (void)startExtractingBatchLocationsWithDelegate:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

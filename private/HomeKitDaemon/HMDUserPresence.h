@@ -8,15 +8,17 @@
 
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDUser, HMDUserPresenceRegion;
+@class HMDUser, HMDUserPresenceRegion, NSDate;
 
 @interface HMDUserPresence : HMFObject <NSSecureCoding>
 {
     HMDUser *_user;
     HMDUserPresenceRegion *_presenceRegionStatus;
+    NSDate *_updateTimestamp;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) NSDate *updateTimestamp; // @synthesize updateTimestamp=_updateTimestamp;
 @property(retain, nonatomic) HMDUserPresenceRegion *presenceRegionStatus; // @synthesize presenceRegionStatus=_presenceRegionStatus;
 @property(readonly, nonatomic) HMDUser *user; // @synthesize user=_user;
 - (void).cxx_destruct;

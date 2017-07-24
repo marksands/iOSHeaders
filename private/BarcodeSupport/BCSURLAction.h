@@ -15,8 +15,10 @@ __attribute__((visibility("hidden")))
     LSApplicationProxy *_applicationProxy;
     _Bool _deviceDataIsUnavailable;
     NSURL *_appStoreSearchURLForUnsupportedScheme;
+    _Bool _hasPreferredAppLink;
 }
 
+@property(readonly, nonatomic) _Bool hasPreferredAppLink; // @synthesize hasPreferredAppLink=_hasPreferredAppLink;
 - (void).cxx_destruct;
 - (_Bool)_shouldBlockHandlingURL:(id)arg1;
 - (_Bool)_shouldOpenInAppForAppLink:(id)arg1;
@@ -24,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (id)_actionDescriptionForURL:(id)arg1 application:(id)arg2 shouldShowHostNameForSafariURL:(_Bool)arg3;
 @property(readonly, nonatomic) LSApplicationProxy *targetApplication;
 - (void)_resolveTargetApplicationForURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) _Bool hasMultipleAppLinks;
 @property(readonly, nonatomic) _Bool mustOpenAppLinkInApp;
 - (void)determineActionabilityWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)performAction;

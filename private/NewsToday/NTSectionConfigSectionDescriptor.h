@@ -14,18 +14,21 @@
 @interface NTSectionConfigSectionDescriptor : NSObject <NTSectionDescriptor>
 {
     _Bool _displaysAsVideoPlaylist;
+    _Bool _videoPlaysMutedByDefault;
     int _readArticlesFilterMethod;
     int _seenArticlesFilterMethod;
     int _leadingCellPromotionPolicy;
     NSString *_identifier;
     NSString *_personalizationFeatureID;
     NSString *_name;
+    NSString *_compactName;
+    NSString *_referralBarName;
     NSString *_nameColor;
-    long long _cachedResultCutoffTime;
-    long long _minimumStoriesAllocation;
-    long long _maximumStoriesAllocation;
+    unsigned long long _cachedResultCutoffTime;
+    unsigned long long _minimumStoriesAllocation;
+    unsigned long long _maximumStoriesAllocation;
     long long _seenArticlesMinimumTimeSinceFirstSeenToFilter;
-    long long _fallbackOrder;
+    unsigned long long _fallbackOrder;
     long long _supplementalInterSectionFilterOptions;
     long long _supplementalIntraSectionFilterOptions;
     NSString *_discoverMoreVideosTitle;
@@ -36,6 +39,7 @@
 }
 
 @property(copy, nonatomic) NSObject<NTSectionFetchDescriptor> *fetchDescriptor; // @synthesize fetchDescriptor=_fetchDescriptor;
+@property(readonly, nonatomic) _Bool videoPlaysMutedByDefault; // @synthesize videoPlaysMutedByDefault=_videoPlaysMutedByDefault;
 @property(readonly, nonatomic) int leadingCellPromotionPolicy; // @synthesize leadingCellPromotionPolicy=_leadingCellPromotionPolicy;
 @property(readonly, copy, nonatomic) NSString *backgroundGradientColor; // @synthesize backgroundGradientColor=_backgroundGradientColor;
 @property(readonly, copy, nonatomic) NSURL *discoverMoreVideosURL; // @synthesize discoverMoreVideosURL=_discoverMoreVideosURL;
@@ -44,14 +48,16 @@
 @property(readonly, nonatomic) _Bool displaysAsVideoPlaylist; // @synthesize displaysAsVideoPlaylist=_displaysAsVideoPlaylist;
 @property(readonly, nonatomic) long long supplementalIntraSectionFilterOptions; // @synthesize supplementalIntraSectionFilterOptions=_supplementalIntraSectionFilterOptions;
 @property(readonly, nonatomic) long long supplementalInterSectionFilterOptions; // @synthesize supplementalInterSectionFilterOptions=_supplementalInterSectionFilterOptions;
-@property(readonly, nonatomic) long long fallbackOrder; // @synthesize fallbackOrder=_fallbackOrder;
+@property(readonly, nonatomic) unsigned long long fallbackOrder; // @synthesize fallbackOrder=_fallbackOrder;
 @property(readonly, nonatomic) long long seenArticlesMinimumTimeSinceFirstSeenToFilter; // @synthesize seenArticlesMinimumTimeSinceFirstSeenToFilter=_seenArticlesMinimumTimeSinceFirstSeenToFilter;
 @property(readonly, nonatomic) int seenArticlesFilterMethod; // @synthesize seenArticlesFilterMethod=_seenArticlesFilterMethod;
 @property(readonly, nonatomic) int readArticlesFilterMethod; // @synthesize readArticlesFilterMethod=_readArticlesFilterMethod;
-@property(readonly, nonatomic) long long maximumStoriesAllocation; // @synthesize maximumStoriesAllocation=_maximumStoriesAllocation;
-@property(readonly, nonatomic) long long minimumStoriesAllocation; // @synthesize minimumStoriesAllocation=_minimumStoriesAllocation;
-@property(readonly, nonatomic) long long cachedResultCutoffTime; // @synthesize cachedResultCutoffTime=_cachedResultCutoffTime;
+@property(readonly, nonatomic) unsigned long long maximumStoriesAllocation; // @synthesize maximumStoriesAllocation=_maximumStoriesAllocation;
+@property(readonly, nonatomic) unsigned long long minimumStoriesAllocation; // @synthesize minimumStoriesAllocation=_minimumStoriesAllocation;
+@property(readonly, nonatomic) unsigned long long cachedResultCutoffTime; // @synthesize cachedResultCutoffTime=_cachedResultCutoffTime;
 @property(readonly, copy, nonatomic) NSString *nameColor; // @synthesize nameColor=_nameColor;
+@property(readonly, copy, nonatomic) NSString *referralBarName; // @synthesize referralBarName=_referralBarName;
+@property(readonly, copy, nonatomic) NSString *compactName; // @synthesize compactName=_compactName;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, copy, nonatomic) NSString *personalizationFeatureID; // @synthesize personalizationFeatureID=_personalizationFeatureID;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;

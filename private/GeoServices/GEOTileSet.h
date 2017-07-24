@@ -18,6 +18,7 @@
     unsigned int _dataSet;
     NSString *_localizationURL;
     NSString *_multiTileURL;
+    int _requestStyle;
     int _scale;
     int _size;
     int _style;
@@ -28,6 +29,7 @@
     struct {
         unsigned int checksumType:1;
         unsigned int dataSet:1;
+        unsigned int requestStyle:1;
         unsigned int updateBehavior:1;
         unsigned int multiTileURLUsesStatusCodes:1;
     } _has;
@@ -57,6 +59,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsRequestStyle:(id)arg1;
+- (id)requestStyleAsString:(int)arg1;
+@property(nonatomic) _Bool hasRequestStyle;
+@property(nonatomic) int requestStyle; // @synthesize requestStyle=_requestStyle;
 @property(nonatomic) _Bool hasDataSet;
 - (int)StringAsChecksumType:(id)arg1;
 - (id)checksumTypeAsString:(int)arg1;

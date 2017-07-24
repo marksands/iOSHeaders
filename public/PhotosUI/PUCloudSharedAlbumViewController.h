@@ -46,7 +46,6 @@
 - (void)photoStreamComposeService:(id)arg1 didPostComment:(id)arg2;
 - (void)controller:(id)arg1 didCancelTrimmingVideoSources:(id)arg2;
 - (void)controller:(id)arg1 didFinishTrimmingVideoSources:(id)arg2;
-- (_Bool)_areVideoSourcesStreamShareSources:(id)arg1;
 - (void)handleAddToAlbum:(id)arg1 pickedAssets:(id)arg2;
 - (void)albumStreamingOptionsViewController:(id)arg1 didCompleteWithReason:(int)arg2;
 - (id)_newOptionsViewController;

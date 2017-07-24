@@ -27,6 +27,7 @@
 @property(copy, nonatomic) CLLocation *location; // @synthesize location=_location;
 - (void).cxx_destruct;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
 - (_Bool)location:(id)arg1 equalToLocation:(id)arg2;
 - (_Bool)isEqual:(id)arg1;

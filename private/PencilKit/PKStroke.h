@@ -28,6 +28,7 @@
     struct CGRect _bounds;
 }
 
++ (long long)compareStrokeWithIDWrapper:(id)arg1 toStrokeIDWrapper:(id)arg2;
 @property double timestamp; // @synthesize timestamp=_timestamp;
 @property(nonatomic, setter=_setTransform:) struct CGAffineTransform _transform; // @synthesize _transform;
 @property(nonatomic, setter=_setInputType:) long long _inputType; // @synthesize _inputType;
@@ -49,6 +50,7 @@
 - (struct CGRect)bounds;
 - (id)strokeIdentifier;
 - (long long)compareToStroke:(id)arg1;
+- (id)descriptionExtended;
 - (id)description;
 - (void)_setStrokeIDWrapper:(id)arg1;
 @property(nonatomic, setter=_setStrokeID:) struct _PKStrokeID _strokeID;

@@ -7,6 +7,7 @@
 #import <UIKit/UIView.h>
 
 @interface UIView (FIUIUtilities)
++ (void)fiui_animateIfNeededWithDuration:(double)arg1 animations:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)fiui_animateIfNeededWithDuration:(double)arg1 animations:(CDUnknownBlockType)arg2;
 @end
 

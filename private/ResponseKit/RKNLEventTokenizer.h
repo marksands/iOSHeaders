@@ -15,6 +15,7 @@
 }
 
 + (_Bool)isSpecialToken:(id)arg1;
++ (void)initialize;
 @property struct __CFStringTokenizer *tokenizer; // @synthesize tokenizer=_tokenizer;
 @property(readonly) NSString *languageID; // @synthesize languageID=_languageID;
 - (void).cxx_destruct;

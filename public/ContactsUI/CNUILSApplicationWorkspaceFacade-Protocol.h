@@ -6,9 +6,10 @@
 
 #import <ContactsUI/NSObject-Protocol.h>
 
-@class NSDictionary, NSURL;
+@class NSDictionary, NSURL, NSUserActivity;
 
 @protocol CNUILSApplicationWorkspaceFacade <NSObject>
+- (void)openUserActivity:(NSUserActivity *)arg1 completionHandler:(void (^)(_Bool, NSError *))arg2;
 - (void)openSensitiveURLInBackground:(NSURL *)arg1 withOptions:(NSDictionary *)arg2;
 @end
 

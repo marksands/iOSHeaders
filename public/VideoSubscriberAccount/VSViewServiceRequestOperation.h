@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy, nonatomic) VSViewServiceRequest *viewServiceRequest; // @synthesize viewServiceRequest=_viewServiceRequest;
 - (void).cxx_destruct;
 - (void)cancel;
+- (void)finishExecutionIfPossible;
 - (void)executionDidBegin;
 - (_Bool)viewServiceHostViewController:(id)arg1 shouldAuthenticateAccountProviderWithIdentifier:(id)arg2;
 - (void)viewServiceHostViewController:(id)arg1 didCancelRequest:(id)arg2;

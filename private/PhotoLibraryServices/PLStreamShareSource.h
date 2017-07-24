@@ -23,6 +23,7 @@
 @property(retain, nonatomic) NSString *fileExtension; // @synthesize fileExtension=_fileExtension;
 @property(retain, nonatomic) NSData *mediaData; // @synthesize mediaData=_mediaData;
 - (void)dealloc;
+- (void)cleanupResources;
 - (void)_cleanupIfNeededMediaAtURL:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
 - (id)serializedDictionary;

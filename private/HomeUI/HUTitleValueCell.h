@@ -12,6 +12,7 @@
 {
     _Bool _hideTitle;
     _Bool _hideValue;
+    _Bool _titleColorFollowsTintColor;
     _Bool _valueColorFollowsTintColor;
     _Bool _allowCopyValueToPasteboard;
     UILabel *_titleLabel;
@@ -31,6 +32,7 @@
 @property(nonatomic) long long compressionResistancePolicy; // @synthesize compressionResistancePolicy=_compressionResistancePolicy;
 @property(nonatomic) _Bool allowCopyValueToPasteboard; // @synthesize allowCopyValueToPasteboard=_allowCopyValueToPasteboard;
 @property(nonatomic) _Bool valueColorFollowsTintColor; // @synthesize valueColorFollowsTintColor=_valueColorFollowsTintColor;
+@property(nonatomic) _Bool titleColorFollowsTintColor; // @synthesize titleColorFollowsTintColor=_titleColorFollowsTintColor;
 @property(nonatomic) _Bool hideValue; // @synthesize hideValue=_hideValue;
 @property(retain, nonatomic) UIFont *valueFont; // @synthesize valueFont=_valueFont;
 @property(retain, nonatomic) NSString *valueText; // @synthesize valueText=_valueText;

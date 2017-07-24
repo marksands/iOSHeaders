@@ -35,7 +35,6 @@
 - (void)didReceivePaymentClientUpdate:(id)arg1 forRemotePaymentRequest:(id)arg2;
 - (void)didReceivePaymentResult:(id)arg1 forRemotePaymentRequest:(id)arg2;
 - (void)_dismiss;
-- (void)handleLockButtonPressed;
 - (void)handleHomeButtonPressed;
 - (void)setUserInfo:(id)arg1;
 - (void)_willAppearInRemoteViewController;

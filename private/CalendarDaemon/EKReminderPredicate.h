@@ -8,7 +8,7 @@
 
 #import <CalendarDaemon/EKDefaultPropertiesLoading-Protocol.h>
 
-@class NSDate, NSSet, NSString;
+@class NSArray, NSDate, NSString;
 
 @interface EKReminderPredicate : EKPredicate <EKDefaultPropertiesLoading>
 {
@@ -23,12 +23,12 @@
     NSDate *_dueBefore;
     NSString *_searchTerm;
     unsigned long long _maxResults;
-    NSSet *_defaultPropertiesToLoad;
+    NSArray *_defaultPropertiesToLoad;
 }
 
 + (id)predicateWithCalendars:(id)arg1;
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) NSSet *defaultPropertiesToLoad; // @synthesize defaultPropertiesToLoad=_defaultPropertiesToLoad;
+@property(retain, nonatomic) NSArray *defaultPropertiesToLoad; // @synthesize defaultPropertiesToLoad=_defaultPropertiesToLoad;
 @property(nonatomic) _Bool shouldLoadDefaultProperties; // @synthesize shouldLoadDefaultProperties=_shouldLoadDefaultProperties;
 @property(nonatomic) unsigned long long maxResults; // @synthesize maxResults=_maxResults;
 @property(nonatomic) int sortOrder; // @synthesize sortOrder=_sortOrder;
@@ -46,7 +46,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCalendars:(id)arg1;
--     // Error parsing type: @24@0:8^{CalDatabase={__CFRuntimeBase=QAQ}i^{CPRecordStore}^{CalEventOccurrenceCache}^{CalScheduledTaskCache}^{__CFDictionary}^{__CFDictionary}{_opaque_pthread_mutex_t=q[56c]}II^{__CFArray}^{__CFString}^{__CFArray}ii^{__CFString}^{__CFString}i@?{_opaque_pthread_mutex_t=q[56c]}B^{__CFArray}^{__CFArray}^{__CFArray}^{__CFArray}B@B}16, name: copyMatchingItemsWithDatabase:
+-     // Error parsing type: @24@0:8^{CalDatabase={__CFRuntimeBase=QAQ}i^{CPRecordStore}^{CalEventOccurrenceCache}^{CalScheduledTaskCache}^{__CFDictionary}^{__CFDictionary}{_opaque_pthread_mutex_t=q[56c]}II^{__CFArray}^{__CFString}^{__CFArray}ii^{__CFString}^{__CFString}^{__CFString}i@?{_opaque_pthread_mutex_t=q[56c]}B^{__CFArray}^{__CFArray}^{__CFArray}^{__CFArray}B@B}16, name: copyMatchingItemsWithDatabase:
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

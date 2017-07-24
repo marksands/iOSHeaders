@@ -137,6 +137,12 @@ typedef struct {
 } CDStruct_87e10b33;
 
 typedef struct {
+    unsigned int type:1;
+    unsigned int source:1;
+    unsigned int queryId:1;
+} CDStruct_79b01e37;
+
+typedef struct {
     unsigned int lat:1;
     unsigned int lng:1;
 } CDStruct_b993dc87;
@@ -150,11 +156,6 @@ typedef struct {
     unsigned int textNoWrap:1;
     unsigned int textWeight:1;
 } CDStruct_82065ba4;
-
-typedef struct {
-    unsigned int type:1;
-    unsigned int source:1;
-} CDStruct_f633cd92;
 
 typedef struct {
     unsigned int highlighted:1;

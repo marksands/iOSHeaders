@@ -32,7 +32,6 @@ __attribute__((visibility("hidden")))
 - (void)layoutComponentView;
 - (void)setVolume:(double)arg1;
 - (double)volume;
-- (void)_didFinishPlayingVideoMessage:(id)arg1;
 - (void)setMuted:(_Bool)arg1;
 - (_Bool)isMuted;
 - (_Bool)shouldShowMuteButton;

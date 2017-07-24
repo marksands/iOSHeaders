@@ -35,8 +35,9 @@
 @property(retain, nonatomic) PXWidgetSpec *spec; // @synthesize spec=_spec;
 @property(retain, nonatomic) PXPhotosDetailsContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (void)_updateAndSetDescriptionFont;
 - (void)_dismissWithAnimation:(_Bool)arg1;
-- (void)_bootstrapDidFinish:(id)arg1;
+- (void)_suggestionsDidFinish:(id)arg1;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)notNowTapped:(id)arg1;
 - (void)reviewTapped:(id)arg1;

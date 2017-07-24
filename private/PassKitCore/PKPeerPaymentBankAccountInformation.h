@@ -15,20 +15,20 @@
     NSString *_accountNumber;
     NSString *_routingNumber;
     NSString *_bankName;
-    NSString *_userName;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSString *userName; // @synthesize userName=_userName;
 @property(copy, nonatomic) NSString *bankName; // @synthesize bankName=_bankName;
 @property(copy, nonatomic) NSString *routingNumber; // @synthesize routingNumber=_routingNumber;
 @property(copy, nonatomic) NSString *accountNumber; // @synthesize accountNumber=_accountNumber;
 - (void).cxx_destruct;
+- (void)_deleteBankAccountKeychainData;
 - (id)_bankAccountInformationInKeychain;
 - (void)_writeBankAccountInformationToKeychain;
 - (id)description;
 - (void)updateToLatestKeychainData;
 - (_Bool)isValid;
+- (void)deleteAllBankInformation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

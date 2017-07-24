@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <VectorKit/GGLLayerDelegate-Protocol.h>
 #import <VectorKit/MDRenderTarget-Protocol.h>
@@ -18,9 +18,14 @@ __attribute__((visibility("hidden")))
     CALayer<GGLLayer> *_layer;
     id <GGLRenderQueueSource> _renderSource;
     shared_ptr_e963992e _taskContext;
+    struct _retain_ptr<VKSharedResources *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> _sharedResources;
     struct deque<std::__1::function<void ()>, std::__1::allocator<std::__1::function<void ()>>> _completionHandlers;
     struct RenderTargetFormat _format;
-    shared_ptr_807ec9ac _device;
+    struct Device {
+        int;
+        shared_ptr_807ec9ac;
+        struct unique_ptr<md::SharedDeviceResources, std::__1::default_delete<md::SharedDeviceResources>>;
+    } *_device;
     struct Renderer {
         CDUnknownFunctionPointerType *;
         struct Device *;
@@ -70,8 +75,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct CGSize size;
 - (void)didEnterBackground;
 - (void)didReceiveMemoryWarning;
-- (shared_ptr_edb96180)bitmapData:(struct Texture *)arg1;
-- (void)_didReadPixels:(shared_ptr_edb96180 *)arg1;
+- (shared_ptr_fa6aa836)bitmapData:(struct Texture *)arg1;
+- (void)_didReadPixels:(shared_ptr_fa6aa836 *)arg1;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (void)setBackgroundColor:(struct CGColor *)arg1;
 - (void)setContentsGravity:(id)arg1;
@@ -86,7 +91,7 @@ __attribute__((visibility("hidden")))
 - (void)drawToTexture:(struct Texture *)arg1 withTimestamp:(double)arg2;
 - (void)_createRenderTarget:(struct Texture *)arg1;
 - (void)dealloc;
-- (id)initWithContentScale:(double)arg1 shouldRasterize:(_Bool)arg2 taskContext:(const shared_ptr_e963992e *)arg3;
+- (id)initWithContentScale:(double)arg1 shouldRasterize:(_Bool)arg2 taskContext:(const shared_ptr_e963992e *)arg3 device:(struct Device *)arg4 sharedResources:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

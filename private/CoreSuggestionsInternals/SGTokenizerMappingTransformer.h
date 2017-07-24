@@ -18,6 +18,7 @@
     NSString *_personalNameMapping;
     NSString *_locale;
     void *_nlpTagger;
+    int _linguisticDataNotificationToken;
 }
 
 + (id)forLocale:(id)arg1 withNameTagging:(_Bool)arg2 personalNameMapping:(id)arg3 punctuationMapping:(id)arg4;
@@ -27,6 +28,7 @@
 - (id)transform:(id)arg1;
 - (void)transformWithNLLinguisticTagger:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)transformWithCoreNLP:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (void)_registerForNotifications;
 - (void)dealloc;
 - (id)initForLocale:(id)arg1 withNameTagging:(_Bool)arg2 personalNameMapping:(id)arg3 punctuationMapping:(id)arg4;
 

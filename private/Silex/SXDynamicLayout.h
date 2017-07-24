@@ -6,17 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class NSString, SXMargin;
+@class NSString;
+@protocol SXEdgeSpacing;
 
 @interface SXDynamicLayout : NSObject
 {
     NSString *_identifier;
     unsigned long long _ignoreDocumentMargin;
-    SXMargin *_margin;
+    id <SXEdgeSpacing> _margin;
     struct _NSRange _columnRange;
 }
 
-@property(readonly, nonatomic) SXMargin *margin; // @synthesize margin=_margin;
+@property(readonly, nonatomic) id <SXEdgeSpacing> margin; // @synthesize margin=_margin;
 @property(readonly, nonatomic) unsigned long long ignoreDocumentMargin; // @synthesize ignoreDocumentMargin=_ignoreDocumentMargin;
 @property(readonly, nonatomic) struct _NSRange columnRange; // @synthesize columnRange=_columnRange;
 - (void).cxx_destruct;

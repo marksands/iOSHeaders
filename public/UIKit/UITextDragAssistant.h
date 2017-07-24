@@ -7,19 +7,20 @@
 #import <Foundation/NSObject.h>
 
 #import <UIKit/UIDragInteractionDelegate_Private-Protocol.h>
-#import <UIKit/UIDropInteractionDelegate-Protocol.h>
+#import <UIKit/UIDropInteractionDelegate_Private-Protocol.h>
 #import <UIKit/UITextDragDropSupport-Protocol.h>
 #import <UIKit/UITextPasteSessionDelegate-Protocol.h>
 #import <UIKit/_UITextPasteProgressSupport-Protocol.h>
 
-@class NSArray, NSMapTable, NSString, UIDragInteraction, UIDragItem, UIDropInteraction, UITargetedDragPreview, UITextDraggableGeometrySameViewDropOperationResult, UITextDropProposal, UITextPasteController, UITextPosition, UITextRange, UIView, _UITextDragCaretView;
+@class NSArray, NSMapTable, NSString, NSTextStorage, UIDragInteraction, UIDragItem, UIDropInteraction, UITargetedDragPreview, UITextDraggableGeometrySameViewDropOperationResult, UITextDropProposal, UITextPasteController, UITextPosition, UITextRange, UIView, _UITextDragCaretView;
 @protocol UIDragSession, UIDropSession, UITextDragSupporting><UITextDropSupporting, UITextDraggableGeometry, UITextDraggableGeometrySameViewDropOperation, UITextPasteSession;
 
 __attribute__((visibility("hidden")))
-@interface UITextDragAssistant : NSObject <UIDragInteractionDelegate_Private, UIDropInteractionDelegate, _UITextPasteProgressSupport, UITextPasteSessionDelegate, UITextDragDropSupport>
+@interface UITextDragAssistant : NSObject <UIDragInteractionDelegate_Private, UIDropInteractionDelegate_Private, _UITextPasteProgressSupport, UITextPasteSessionDelegate, UITextDragDropSupport>
 {
     struct {
         unsigned int viewSupportsGhostedRanges:1;
+        unsigned int geometrySupportsSameViewOperations:1;
         unsigned int shouldRestoreFirstResponder:1;
         unsigned int draggingOngoing:1;
         unsigned int handledCancelAnimation:1;
@@ -27,7 +28,10 @@ __attribute__((visibility("hidden")))
         unsigned int forceEditable:1;
         unsigned int delegateSupportsProposalForDrop:1;
         unsigned int delegateSupportsSessionDidUpdate:1;
+        unsigned int viewSupportsTextStorage:1;
+        unsigned int textStorageDidChange:1;
         unsigned int dropPerformed:1;
+        unsigned int defaultDropHandling:1;
     } _flags;
     id <UITextDraggableGeometry> _geometry;
     id <UIDragSession> _currentDragSession;
@@ -37,6 +41,7 @@ __attribute__((visibility("hidden")))
     NSArray *_movedItemsInView;
     NSMapTable *_targetedPreviewProviders;
     NSMapTable *_previewProviders;
+    NSTextStorage *_observingStorage;
     id <UIDropSession> _currentDropSession;
     _UITextDragCaretView *_dropCaret;
     UITextPosition *_currentDropPosition;
@@ -68,7 +73,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)_textPasteShouldBlockPasting;
 - (double)_textPasteBlockingTimeout;
 - (void)_performDropToPosition:(id)arg1 inSession:(id)arg2;
-- (_Bool)_supportsSameViewDropOperations;
 - (void)_performSameViewOperation:(id)arg1;
 - (void)_prepareSameViewOperation:(unsigned long long)arg1 forItems:(id)arg2 toRange:(id)arg3;
 - (id)_dropRangeForPosition:(id)arg1;
@@ -77,12 +81,14 @@ __attribute__((visibility("hidden")))
 - (void)_updateDropCaretToPosition:(id)arg1;
 - (id)_dropRequestWithPosition:(id)arg1 inSession:(id)arg2;
 - (void)_viewBecomeFirstResponderIfNeededAfterDrop;
+- (long long)_dropInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (void)dropInteraction:(id)arg1 item:(id)arg2 willAnimateDropWithAnimator:(id)arg3;
 - (id)dropInteraction:(id)arg1 previewForDroppingItem:(id)arg2 withDefault:(id)arg3;
 - (void)dropInteraction:(id)arg1 sessionDidEnd:(id)arg2;
 - (void)dropInteraction:(id)arg1 concludeDrop:(id)arg2;
 - (void)dropInteraction:(id)arg1 performDrop:(id)arg2;
 - (void)dropInteraction:(id)arg1 sessionDidExit:(id)arg2;
+- (void)_updateDropProposalForPosition:(id)arg1 inSession:(id)arg2 allowCancel:(_Bool)arg3;
 - (id)dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
 - (void)dropInteraction:(id)arg1 sessionDidEnter:(id)arg2;
 - (_Bool)dropInteraction:(id)arg1 canHandleSession:(id)arg2;
@@ -97,11 +103,14 @@ __attribute__((visibility("hidden")))
 - (void)_restoreResponderIfNeededForOperation:(unsigned long long)arg1;
 - (void)_initializeDragSession:(id)arg1 withInteraction:(id)arg2;
 - (id)_textRangeForDraggingFromPoint:(struct CGPoint)arg1;
+- (void)_stopObservingTextStorage;
+- (void)_textStorageDidProcessEditing;
 - (id)_accessibilityDraggableRanges;
 - (void)notifyTextInteraction;
 - (_Bool)accessibilityCanDrag;
 - (_Bool)_dragInteraction:(id)arg1 competingGestureRecognizerShouldDelayLift:(id)arg2;
 - (_Bool)dragInteraction:(id)arg1 prefersFullSizePreviewsForSession:(id)arg2;
+- (void)_liftOrDragDidEndWithOperation:(unsigned long long)arg1;
 - (void)dragInteraction:(id)arg1 session:(id)arg2 didEndWithOperation:(unsigned long long)arg3;
 - (void)dragInteraction:(id)arg1 session:(id)arg2 willEndWithOperation:(unsigned long long)arg3;
 - (void)dragInteraction:(id)arg1 sessionDidMove:(id)arg2;

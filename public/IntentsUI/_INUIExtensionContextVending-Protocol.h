@@ -6,7 +6,9 @@
 
 #import <IntentsUI/NSObject-Protocol.h>
 
+@class _INUIExtensionContextState;
+
 @protocol _INUIExtensionContextVending <NSObject>
-- (void)setHostedViewMinimumAllowedSize:(struct CGSize)arg1 maximumAllowedSize:(struct CGSize)arg2 completion:(void (^)(void))arg3;
+- (void)setExtensionContextState:(_INUIExtensionContextState *)arg1 completion:(void (^)(void))arg2;
 @end
 

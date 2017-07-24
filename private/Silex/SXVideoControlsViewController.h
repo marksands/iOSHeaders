@@ -7,12 +7,13 @@
 #import <UIKit/UIViewController.h>
 
 #import <Silex/SXUpNextViewControllerDelegate-Protocol.h>
+#import <Silex/SXVideoControlManagerDelegate-Protocol.h>
 #import <Silex/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSString, SXAdPrivacyButton, SXLearnMoreButton, SXMediaSelectionButton, SXTopVideoControlsView, SXUpNextViewController, SXVideoCloseButton, SXVideoControlManager, SXVideoControlsLayout, SXVideoPlayButton, SXVideoProgressView, UIButton;
+@class NSString, SXAdPrivacyButton, SXLearnMoreButton, SXMediaSelectionButton, SXTopVideoControlsView, SXUpNextViewController, SXVideoCloseButton, SXVideoControlManager, SXVideoControlsLayout, SXVideoPlayButton, SXVideoProgressView, SXVolumeButton, UIButton;
 @protocol SXVideoControlsViewControllerDelegate;
 
-@interface SXVideoControlsViewController : UIViewController <UIGestureRecognizerDelegate, SXUpNextViewControllerDelegate>
+@interface SXVideoControlsViewController : UIViewController <UIGestureRecognizerDelegate, SXUpNextViewControllerDelegate, SXVideoControlManagerDelegate>
 {
     id <SXVideoControlsViewControllerDelegate> _delegate;
     SXVideoControlsLayout *_layout;
@@ -30,8 +31,10 @@
     UIButton *_skipToNextButton;
     SXUpNextViewController *_upNextViewController;
     SXVideoControlManager *_videoControlManager;
+    SXVolumeButton *_volumeButton;
 }
 
+@property(retain, nonatomic) SXVolumeButton *volumeButton; // @synthesize volumeButton=_volumeButton;
 @property(retain, nonatomic) SXVideoControlManager *videoControlManager; // @synthesize videoControlManager=_videoControlManager;
 @property(retain, nonatomic) SXUpNextViewController *upNextViewController; // @synthesize upNextViewController=_upNextViewController;
 @property(retain, nonatomic) UIButton *skipToNextButton; // @synthesize skipToNextButton=_skipToNextButton;
@@ -49,6 +52,7 @@
 @property(retain, nonatomic) SXVideoControlsLayout *layout; // @synthesize layout=_layout;
 @property(nonatomic) __weak id <SXVideoControlsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)videoControlManager:(id)arg1 didToggleControlVisibility:(_Bool)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)upNextViewControllerWantsToReplay:(id)arg1;
 - (void)upNextViewControllerWantsToSkip:(id)arg1;
@@ -58,10 +62,12 @@
 - (void)playButtonTapped:(id)arg1;
 - (void)adMarkerTapped:(id)arg1;
 - (void)adLearnMoreButtonTapped:(id)arg1;
+- (void)volumeButtonTapped:(id)arg1;
 - (void)captionsButtonTapped:(id)arg1;
+- (void)accessibilityDidActivateVideoView:(id)arg1;
 - (void)tap;
 - (void)configurePlayButtonWithLayout:(id)arg1;
-- (void)configureTopControlsWithLayout:(id)arg1;
+- (void)configureControlsWithLayout:(id)arg1;
 - (void)configureUpNextViewControllerWithLayout:(id)arg1;
 - (void)setLayout:(id)arg1 animated:(_Bool)arg2;
 - (void)updateViewConstraints;

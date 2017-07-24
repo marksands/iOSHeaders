@@ -8,16 +8,17 @@
 
 #import <FitnessUI/FIUIChartPoint-Protocol.h>
 
-@class NSArray, NSDate, NSNumber, NSString;
+@class NSDate, NSIndexSet, NSNumber, NSString;
 
 @interface FIUIChartPointMultiple : NSObject <FIUIChartPoint>
 {
     NSDate *_xValue;
-    NSArray *_yValue;
+    NSIndexSet *_yValue;
 }
 
 + (id)chartPointWithXValue:(id)arg1 yValue:(id)arg2;
-@property(copy, nonatomic) NSArray *yValue; // @synthesize yValue=_yValue;
++ (id)chartPointWithDate:(id)arg1 valueIndexSet:(id)arg2;
+@property(copy, nonatomic) NSIndexSet *yValue; // @synthesize yValue=_yValue;
 @property(copy, nonatomic) NSDate *xValue; // @synthesize xValue=_xValue;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;

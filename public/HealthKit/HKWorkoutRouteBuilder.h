@@ -6,25 +6,25 @@
 
 #import <HealthKit/HKSeriesBuilder.h>
 
-@class HKDevice, HKWorkoutRoute, NSObject;
-@protocol OS_dispatch_queue;
+@class HKWorkoutRoute;
 
 @interface HKWorkoutRouteBuilder : HKSeriesBuilder
 {
-    HKWorkoutRoute *_privateSeries;
-    NSObject<OS_dispatch_queue> *_queue;
-    HKDevice *_device;
+    HKWorkoutRoute *_route;
 }
 
 - (void).cxx_destruct;
-- (_Bool)_validate:(id)arg1 withError:(id *)arg2;
-- (void)_discardWithHandler:(CDUnknownBlockType)arg1;
+- (_Bool)_validateRouteData:(id)arg1 error:(out id *)arg2;
+- (void)setRoute:(id)arg1;
+- (id)route;
+- (void)_resourceQueue_discardWithHandler:(CDUnknownBlockType)arg1;
 - (void)_associateRoute:(id)arg1 toWorkout:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_finishRouteWithWorkout:(id)arg1 metadata:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_resourceQueue_finishRouteWithWorkout:(id)arg1 metadata:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)finishRouteWithWorkout:(id)arg1 metadata:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_resourceQueue_insertRouteData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)insertRouteData:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (id)initWithHealthStore:(id)arg1 device:(id)arg2;
 - (void)dealloc;
+- (id)initWithHealthStore:(id)arg1 device:(id)arg2;
 - (id)init;
 
 @end

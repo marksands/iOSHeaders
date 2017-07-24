@@ -29,6 +29,8 @@
         unsigned int interactionWasCancelled:1;
         unsigned int previousProgressWasNegativeOrZero:1;
         unsigned int currentState:3;
+        unsigned int nextUpdateShouldTransitionToPreview:1;
+        unsigned int nextPreviewShouldPreventHapticFeedback:1;
     } _previewInteractionFlags;
     id <_UIPreviewInteractionTouchForceProviding> _systemTouchForceProvider;
     _UIPreviewInteractionStateRecognizer *_currentInteractionStateRecognizer;
@@ -39,6 +41,7 @@
     _Bool _feedbackGeneratorTurnedOn;
     _UIPreviewInteractionHighlighter *_highlighter;
     _UIPreviewInteractionViewControllerHelper *_viewControllerHelper;
+    id _viewControllerPresentationObserver;
     NSHashTable *_activeFailureRequirementGestureRecognizers;
     id <UIPreviewInteractionDelegate> _delegate;
     id <_UIPreviewInteractionTouchForceProviding> _touchForceProvider;
@@ -48,6 +51,8 @@
 @property(nonatomic) __weak id <UIPreviewInteractionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) __weak UIView *view; // @synthesize view=_view;
 - (void).cxx_destruct;
+- (void)_endViewControllerPresentationObserving;
+- (void)_prepareForViewControllerPresentationObserving;
 - (void)_dismissPreviewViewControllerIfNeeded;
 - (void)_presentPreviewViewControllerIfNeeded;
 - (void)_endHighlightingIfNeeded;
@@ -69,6 +74,7 @@
 - (void)_endInteractiveStateTransitions;
 - (void)_endContinuousEvaluation;
 - (void)_prepareForInteractionIfNeeded;
+- (void)_updateForCurrentTouchForceProvider;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_startPreviewAtLocation:(struct CGPoint)arg1 inCoordinateSpace:(id)arg2;
 - (void)cancelInteraction;

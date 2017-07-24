@@ -18,7 +18,6 @@
     _Bool _securitySessionOpening;
     _Bool _discovered;
     _Bool _shouldDiscover;
-    _Bool _supportsTimedWrite;
     unsigned short _nextRequestTransactionIdentifier;
     NSMutableArray *_pendingRequests;
     NSMapTable *_pendingResponses;
@@ -35,7 +34,6 @@
 
 @property(readonly, nonatomic) HAPRelayStream *stream; // @synthesize stream=_stream;
 @property(nonatomic) __weak HAPCharacteristic *pairingsCharacteristic; // @synthesize pairingsCharacteristic=_pairingsCharacteristic;
-@property(nonatomic) _Bool supportsTimedWrite; // @synthesize supportsTimedWrite=_supportsTimedWrite;
 @property(nonatomic) _Bool shouldDiscover; // @synthesize shouldDiscover=_shouldDiscover;
 @property(nonatomic, getter=hasDiscovered) _Bool discovered; // @synthesize discovered=_discovered;
 @property(nonatomic) unsigned long long configurationNumber; // @synthesize configurationNumber=_configurationNumber;
@@ -93,8 +91,9 @@
 - (void)enableEvents:(_Bool)arg1 forCharacteristics:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3 queue:(id)arg4;
 - (void)_handleCharacteristicWriteResponse:(id)arg1 characteristicWriteRequestTuples:(id)arg2 error:(id)arg3 completionQueue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)_handleCharacteristicPrepareWriteResponse:(id)arg1 characteristicWriteRequestTuples:(id)arg2 prepareIdentifier:(id)arg3 error:(id)arg4 timeout:(double)arg5 completionQueue:(id)arg6 completionHandler:(CDUnknownBlockType)arg7;
+- (void)_performExecuteWriteValues:(id)arg1 prepareIdentifier:(id)arg2 timeout:(double)arg3 completionQueue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)_performTimedWriteValues:(id)arg1 timeout:(double)arg2 completionQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)_performWriteValues:(id)arg1 prepareIdentifier:(id)arg2 timeout:(double)arg3 completionQueue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)_performWriteValues:(id)arg1 timeout:(double)arg2 completionQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_writeCharacteristicValues:(id)arg1 timeout:(double)arg2 completionQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)writeCharacteristicValues:(id)arg1 timeout:(double)arg2 completionQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_handleCharacteristicReadResponse:(id)arg1 characteristics:(id)arg2 error:(id)arg3 completionQueue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;

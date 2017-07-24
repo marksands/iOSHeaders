@@ -33,7 +33,9 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)initWithRemotePaymentInstrument:(id)arg1 paymentApplication:(id)arg2;
 - (id)initWithRemotePaymentInstrument:(id)arg1;
+- (id)initWithPaymentPass:(id)arg1 paymentApplication:(id)arg2 obfuscateNetworks:(_Bool)arg3;
 - (id)initWithPaymentPass:(id)arg1 obfuscateNetworks:(_Bool)arg2;
 - (id)protobuf;
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <VectorKit/NSCopying-Protocol.h>
 #import <VectorKit/NSFastEnumeration-Protocol.h>
@@ -22,6 +22,8 @@ __attribute__((visibility("hidden")))
 }
 
 - (_Bool)isEqualToList:(id)arg1;
+- (void)removeAllKeys;
+- (void)removeAllListNodes;
 - (_Bool)removeKey:(const struct VKTileKey *)arg1;
 - (void)removeKeysMatchingPredicate:(CDUnknownBlockType)arg1;
 - (void)sort:(CDUnknownBlockType)arg1;

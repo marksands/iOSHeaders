@@ -6,9 +6,11 @@
 
 #import <Foundation/NSObject.h>
 
+#import <Preferences/NSCopying-Protocol.h>
+
 @class NSString, UIColor;
 
-@interface PSCapacityBarCategory : NSObject
+@interface PSCapacityBarCategory : NSObject <NSCopying>
 {
     unsigned long long _bytes;
     NSString *_identifier;
@@ -21,6 +23,7 @@
 @property(retain) NSString *identifier; // @synthesize identifier=_identifier;
 @property unsigned long long bytes; // @synthesize bytes=_bytes;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithIdentifier:(id)arg1 title:(id)arg2 color:(id)arg3 bytes:(long long)arg4;
 
 @end

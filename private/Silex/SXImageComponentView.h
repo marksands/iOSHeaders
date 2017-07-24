@@ -29,7 +29,6 @@
 - (id)imageResource;
 - (id)dragManager:(id)arg1 dragableAtLocation:(struct CGPoint)arg2;
 - (id)viewForDragManager:(id)arg1;
-- (struct CGRect)originalFrameForContentView:(id)arg1 behavior:(id)arg2;
 - (id)contentViewForBehavior:(id)arg1;
 - (void)imageView:(id)arg1 didLoadImage:(id)arg2;
 - (void)imageView:(id)arg1 didLoadAnimatedImage:(id)arg2;
@@ -43,7 +42,7 @@
 - (struct CGRect)imageFrame;
 - (void)layoutImageView;
 - (void)createImageView;
-- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 context:(id)arg3 configuration:(id)arg4;
+- (id)initWithComponent:(id)arg1 configuration:(id)arg2 context:(id)arg3 analyticsReporting:(id)arg4 appStateMonitor:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

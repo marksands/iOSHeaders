@@ -8,7 +8,7 @@
 
 #import <PhotosUI/PUPhotoSelectionManagerChangeObserver-Protocol.h>
 
-@class NSOrderedSet, NSPointerArray, NSString, PUPhotoSelectionManager;
+@class NSOrderedSet, NSPointerArray, NSString, PHAssetCollection, PUPhotoSelectionManager;
 @protocol PLAlbumProtocol;
 
 @interface PUSessionInfo : NSObject <PUPhotoSelectionManagerChangeObserver>
@@ -19,7 +19,7 @@
     _Bool _targetAlbumIsNewLocalAlbum;
     long long _status;
     PUPhotoSelectionManager *_photoSelectionManager;
-    struct NSObject *_sourceAlbum;
+    PHAssetCollection *_sourceAlbum;
     NSOrderedSet *_transferredAssets;
     struct NSObject *_targetAlbum;
     NSString *_targetAlbumName;
@@ -37,7 +37,7 @@
 @property(retain, nonatomic) NSString *targetAlbumName; // @synthesize targetAlbumName=_targetAlbumName;
 @property(retain, nonatomic) NSObject<PLAlbumProtocol> *targetAlbum; // @synthesize targetAlbum=_targetAlbum;
 @property(copy, nonatomic) NSOrderedSet *transferredAssets; // @synthesize transferredAssets=_transferredAssets;
-@property(retain, nonatomic) NSObject<PLAlbumProtocol> *sourceAlbum; // @synthesize sourceAlbum=_sourceAlbum;
+@property(retain, nonatomic) PHAssetCollection *sourceAlbum; // @synthesize sourceAlbum=_sourceAlbum;
 @property(retain, nonatomic) PUPhotoSelectionManager *photoSelectionManager; // @synthesize photoSelectionManager=_photoSelectionManager;
 @property(readonly, nonatomic, getter=isSelectingTargetAlbum) _Bool selectingTargetAlbum; // @synthesize selectingTargetAlbum=_selectingTargetAlbum;
 @property(readonly, nonatomic, getter=isSelectingAssets) _Bool selectingAssets; // @synthesize selectingAssets=_selectingAssets;

@@ -24,6 +24,7 @@
 + (unsigned int)inputRecordingBytesPerPacket;
 + (unsigned int)inputRecordingBytesPerFrame;
 + (unsigned int)inputRecordingFramesPerPacket;
++ (float)inputRecordingSampleRateNarrowBand;
 + (float)inputRecordingSampleRate;
 
 @end

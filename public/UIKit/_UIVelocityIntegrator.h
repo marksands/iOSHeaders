@@ -38,7 +38,6 @@
 - (_Bool)hasVelocity;
 - (void)addSample:(struct CGPoint)arg1;
 - (id)init;
-- (double)magnitude;
 
 @end
 

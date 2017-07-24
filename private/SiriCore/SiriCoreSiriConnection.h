@@ -9,7 +9,7 @@
 #import <SiriCore/SiriCoreSiriBackgroundConnectionDelegate-Protocol.h>
 #import <SiriCore/SiriCoreSiriConnection-Protocol.h>
 
-@class NSError, NSMutableArray, NSMutableSet, NSString, NSURL, SAConnectionPolicy, SiriCoreSiriBackgroundConnection;
+@class NSError, NSMutableArray, NSMutableSet, NSString, NSURL, NWPathEvaluator, SAConnectionPolicy, SiriCoreSiriBackgroundConnection;
 @protocol OS_dispatch_group, OS_dispatch_queue, SiriCoreSiriConnectionDelegate;
 
 @interface SiriCoreSiriConnection : NSObject <SiriCoreSiriBackgroundConnectionDelegate, SiriCoreSiriConnection>
@@ -41,6 +41,9 @@
     Class _peerProviderClass;
     NSMutableArray *_connMethodUsedHistory;
     _Bool _imposePolicyBan;
+    NWPathEvaluator *_evaluator;
+    NSString *_savedURLHostForEvaluator;
+    NSString *_savedPortForEvaluator;
     _Bool _skipPeer;
     _Bool _skipEdge;
     NSError *_skipPeerError;
@@ -91,6 +94,7 @@
 - (void)_scheduleBackgroundConnectionWithRoute:(id)arg1 delay:(double)arg2;
 - (void)_startBackgroundConnectionWithRoute:(id)arg1;
 - (id)_connectionInfoForRoute:(id)arg1;
+- (id)_pathEvaluator:(id)arg1 port:(id)arg2;
 - (void)dealloc;
 - (id)initWithQueue:(id)arg1;
 - (id)init;

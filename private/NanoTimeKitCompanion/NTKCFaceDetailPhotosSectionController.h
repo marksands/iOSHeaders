@@ -33,7 +33,7 @@
 - (void)saveChangesWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) _Bool hasChanges;
 - (id)_currentEditor;
-- (void)_updatePhotosNumber;
+- (void)_updatePhotosSection;
 - (void)_setPhotos:(id)arg1;
 - (void)_customizeActionRow:(id)arg1 withEditOption:(id)arg2;
 - (id)_actionNameForOption:(id)arg1;
@@ -41,7 +41,9 @@
 - (_Bool)_handleDidSelectOption:(id)arg1;
 - (_Bool)_canDisplayActionRowForCustomEditMode:(long long)arg1 andOption:(id)arg2;
 - (void)setSelectedOptions:(id)arg1;
+- (void)faceDidChangeResourceDirectory;
 - (void)faceDidChange;
+- (_Bool)canAddFace;
 - (id)initWithTableView:(id)arg1 face:(id)arg2 inGallery:(_Bool)arg3 editOptionCollection:(id)arg4 faceView:(id)arg5 externalAssets:(id)arg6;
 
 // Remaining properties

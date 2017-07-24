@@ -29,6 +29,7 @@
     double _pointsPerInch;
     _UIScreenFixedCoordinateSpace *_fixedCoordinateSpace;
     UITraitCollection *_contentSizeCategoryTraits;
+    FBSDisplayConfiguration *__displayConfiguration;
     struct {
         unsigned int bitsPerComponent:4;
         unsigned int initialized:1;
@@ -46,6 +47,7 @@
     } _carPlayHumanPresenceStatus;
     _Bool _performingSystemSnapshot;
     _Bool _wantsSoftwareDimming;
+    _Bool __UIIBAlwaysProvidePeripheryInsets;
     float _lastNotifiedBacklightLevel;
     UITraitCollection *_defaultTraitCollection;
     UITraitCollection *_overrideTraitCollection;
@@ -57,7 +59,6 @@
     UIFocusSystem *_focusSystem;
     _UIDragManager *_dragManager;
     _UIInteractiveHighlightEnvironment *_interactiveHighlightEnvironment;
-    FBSDisplayConfiguration *_displayConfiguration;
     UIWindow<UIFocusEnvironment> *__focusedWindow;
 }
 
@@ -90,7 +91,7 @@
 + (id)__createPlugInScreenForFBSDisplay:(id)arg1;
 + (void)initialize;
 @property(nonatomic, setter=_setFocusedWindow:) UIWindow<UIFocusEnvironment> *_focusedWindow; // @synthesize _focusedWindow=__focusedWindow;
-@property(retain, nonatomic) FBSDisplayConfiguration *displayConfiguration; // @synthesize displayConfiguration=_displayConfiguration;
+@property(nonatomic, setter=_setUIIBAlwaysProvidePeripheryInsets:) _Bool _UIIBAlwaysProvidePeripheryInsets; // @synthesize _UIIBAlwaysProvidePeripheryInsets=__UIIBAlwaysProvidePeripheryInsets;
 @property(nonatomic, setter=_setLastNotifiedBacklightLevel:) float _lastNotifiedBacklightLevel; // @synthesize _lastNotifiedBacklightLevel;
 @property(retain, nonatomic, setter=_setSoftwareDimmingWindow:) UISoftwareDimmingWindow *_softwareDimmingWindow; // @synthesize _softwareDimmingWindow;
 @property(nonatomic) _Bool wantsSoftwareDimming; // @synthesize wantsSoftwareDimming=_wantsSoftwareDimming;
@@ -244,6 +245,7 @@
 - (_Bool)_hasWindows;
 - (void)_updateDisplayConfiguration:(id)arg1;
 - (id)displayIdentity;
+@property(retain, nonatomic) FBSDisplayConfiguration *displayConfiguration;
 - (void)_updateAvailableDisplayModes;
 - (void)dealloc;
 - (id)initWithDisplayConfiguration:(id)arg1;

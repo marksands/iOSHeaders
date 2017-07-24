@@ -8,7 +8,7 @@
 
 #import <ChatKit/CKBrowserViewControllerProtocol-Protocol.h>
 
-@class CKBrowserDragManager, IMBalloonPlugin, IMBalloonPluginDataSource, NSData, NSNumber, NSObject, NSString, UIView;
+@class CKBrowserDragManager, IMBalloonPlugin, IMBalloonPluginDataSource, NSArray, NSData, NSNumber, NSObject, NSString, UIView;
 @protocol CKBrowserViewControllerSendDelegate, UIViewControllerTransitioningDelegate;
 
 @interface CKBrowserViewController : UIViewController <CKBrowserViewControllerProtocol>
@@ -84,7 +84,9 @@
 @property(readonly, nonatomic) struct CGRect horizontalSwipeExclusionRect;
 @property(readonly, nonatomic) long long parentModalPresentationStyle;
 @property(readonly, nonatomic) __weak id <UIViewControllerTransitioningDelegate> parentTransitioningDelegate;
+@property(retain, nonatomic) NSArray *recipients;
 @property(readonly, nonatomic) UIViewController *remoteViewController;
+@property(retain, nonatomic) NSString *sender;
 @property(readonly) Class superclass;
 
 @end

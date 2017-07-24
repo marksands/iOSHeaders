@@ -16,11 +16,13 @@
     _Bool _isStartSampleCountMarked;
     unsigned long long _lastSampleFed;
     unsigned long long _sampleFedWrapAroundOffset;
+    unsigned int _activePhraseId;
     unsigned long long _activeChannel;
     id <CSKeywordAnalyzerNDAPIScoreDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <CSKeywordAnalyzerNDAPIScoreDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) unsigned int activePhraseId; // @synthesize activePhraseId=_activePhraseId;
 @property(nonatomic) unsigned long long activeChannel; // @synthesize activeChannel=_activeChannel;
 - (void).cxx_destruct;
 - (id)getSuperVectorWithEndPoint:(unsigned long long)arg1;

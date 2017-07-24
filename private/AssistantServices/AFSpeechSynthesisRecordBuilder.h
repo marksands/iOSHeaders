@@ -14,12 +14,12 @@
     NSString *_utterance;
     unsigned long long _beginTimestamp;
     unsigned long long _endTimestamp;
-    struct __flags {
+    struct _builderFlags {
         unsigned int isDirty:1;
         unsigned int hasUtterance:1;
         unsigned int hasBeginTimestamp:1;
         unsigned int hasEndTimestamp:1;
-    } __flags;
+    } _builderFlags;
 }
 
 - (void).cxx_destruct;

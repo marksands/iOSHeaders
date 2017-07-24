@@ -84,6 +84,7 @@
     BRCItemTransmogrifier *_itemTransmogrifier;
 }
 
++ (_Bool)upgradeOfflineDB:(id)arg1 serverTruth:(_Bool)arg2 session:(id)arg3 error:(id *)arg4;
 + (_Bool)_validateDatabase:(id)arg1 baseURL:(id)arg2 session:(id)arg3 serverTruth:(_Bool)arg4 initialVersion:(unsigned int)arg5 lastCurrentVersion:(unsigned int)arg6 error:(id *)arg7;
 + (_Bool)_openConnection:(id)arg1 serverTruth:(_Bool)arg2 databaseName:(id)arg3 baseURL:(id)arg4 initialVersion:(unsigned int *)arg5 lastCurrentVersion:(unsigned int *)arg6 error:(id *)arg7;
 + (_Bool)openAndValidateDatabase:(id)arg1 serverTruth:(_Bool)arg2 session:(id)arg3 baseURL:(id)arg4 skipBackupDetection:(_Bool)arg5 error:(id *)arg6;
@@ -239,10 +240,10 @@
 - (id)accountStatisticsWithDB:(id)arg1;
 - (_Bool)backupDatabaseToURL:(id)arg1 error:(id *)arg2;
 - (_Bool)dumpFileCoordinationInfoToFileHandle:(id)arg1 error:(id *)arg2;
-- (_Bool)dumpDatabaseToFileHandle:(id)arg1 zoneName:(id)arg2 tracker:(id)arg3 error:(id *)arg4;
-- (_Bool)initializeOfflineDatabase:(id *)arg1;
+- (_Bool)dumpDatabaseToFileHandle:(id)arg1 zoneName:(id)arg2 includeAllItems:(_Bool)arg3 tracker:(id)arg4 error:(id *)arg5;
+- (_Bool)initializeOfflineDatabaseWhileUpgrading:(_Bool)arg1 error:(id *)arg2;
 - (_Bool)dumpStatusToFileHandle:(id)arg1 zoneName:(id)arg2 tracker:(id)arg3 error:(id *)arg4;
-- (_Bool)_dumpClientZone:(id)arg1 toContext:(id)arg2 error:(id *)arg3;
+- (_Bool)_dumpClientZone:(id)arg1 toContext:(id)arg2 includeAllItems:(_Bool)arg3 error:(id *)arg4;
 - (_Bool)_dumpClientZoneStatus:(id)arg1 toContext:(id)arg2 error:(id *)arg3;
 - (void)_dumpClientZoneBlockedState:(id)arg1 toContext:(id)arg2;
 - (void)closeDBs;
@@ -260,7 +261,7 @@
 - (id)createDeviceKeyForNameInServerDB:(id)arg1;
 - (id)deviceKeyForName:(id)arg1 db:(id)arg2;
 - (id)pendingDownloadItemWithDocumentID:(unsigned int)arg1;
-- (struct PQLResultSet *)itemsNeedingIndexingEnumeratorFromNotifRank:(unsigned long long)arg1 toNotifRank:(unsigned long long)arg2;
+- (struct PQLResultSet *)itemsNeedingIndexingEnumeratorFromNotifRank:(unsigned long long)arg1 batchSize:(unsigned long long)arg2;
 - (struct PQLResultSet *)bouncedItemsEnumerator;
 - (struct PQLResultSet *)foldersNeedingTransmogrifyEnumerator;
 - (struct PQLResultSet *)stagedItemsEnumerator;
@@ -305,7 +306,7 @@
 - (void)enableDatabaseProfilingForDB:(id)arg1;
 - (void)setupDatabase;
 - (id)newConnection:(id)arg1;
-- (void)dbBecameCorruptedWithCompletion:(CDUnknownBlockType)arg1;
+- (void)dbBecameCorrupted;
 @property(readonly, nonatomic) BRCPQLConnection *expensiveReadOnlyDB;
 @property(readonly, nonatomic) BRCPQLConnection *readOnlyDB;
 @property(readonly, nonatomic) BRCPQLConnection *serverDB;
@@ -340,6 +341,7 @@
 - (_Bool)globalID:(id)arg1 isStrictChildOfGlobalID:(id)arg2;
 - (id)itemByItemGlobalID:(id)arg1;
 - (id)itemByItemGlobalID:(id)arg1 db:(id)arg2;
+- (id)localAliasForSharedItem:(id)arg1 inZone:(id)arg2;
 - (id)serverAliasItemForSharedItem:(id)arg1 inZone:(id)arg2 db:(id)arg3;
 - (id)serverAliasItemForSharedItem:(id)arg1 inZone:(id)arg2;
 - (id)serverAliasItemForSharedItem:(id)arg1 db:(id)arg2;

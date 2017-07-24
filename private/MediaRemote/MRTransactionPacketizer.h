@@ -16,7 +16,7 @@
 
 - (void)unpacketize:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)packetize:(id)arg1 packageSize:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
-@property(readonly, nonatomic, getter=isEmpty) _Bool empty;
+- (_Bool)isEmpty;
 - (void)dealloc;
 
 @end

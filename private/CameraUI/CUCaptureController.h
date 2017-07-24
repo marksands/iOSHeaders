@@ -146,7 +146,6 @@
 - (void)willPerformRecoveryFromRuntimeError:(id)arg1;
 - (void)queryTimelapseDimensionsWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)queryVideoDimensionsWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (void)_handleApplicationWillEnterForeground:(id)arg1;
 - (void)_subjectAreaDidChange:(id)arg1;
 - (void)metadataWasRecognized:(id)arg1;
 - (void)_notifyDelegateOfConfigurationAvailabilityChanged:(_Bool)arg1;
@@ -190,7 +189,7 @@
 - (void)forceDisableSubjectAreaChangeMonitoring;
 - (void)changeToLockedExposure;
 - (void)focusAndExposeAtPoint:(struct CGPoint)arg1 lockFocus:(_Bool)arg2 resetExposureTargetBias:(_Bool)arg3;
-- (id)_resetFocus:(_Bool)arg1 resetExposure:(_Bool)arg2 resetExposureTargetBias:(_Bool)arg3;
+- (id)_commandForResetFocus:(_Bool)arg1 resetExposure:(_Bool)arg2 resetExposureTargetBias:(_Bool)arg3;
 - (void)_resetFocusAndExposureIfAppropriateForReason:(long long)arg1;
 - (_Bool)_useSmoothFocus;
 @property(readonly, nonatomic) _Bool shouldAllowUserToChangeFocusAndExposure;

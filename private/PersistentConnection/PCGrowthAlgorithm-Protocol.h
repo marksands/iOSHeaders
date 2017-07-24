@@ -9,6 +9,7 @@
 @class NSDictionary, NSString;
 
 @protocol PCGrowthAlgorithm <NSObject>
+@property(readonly, nonatomic) int growthStage;
 @property(readonly, copy, nonatomic) NSDictionary *cacheInfo;
 @property(readonly, nonatomic) unsigned long long countOfGrowthActions;
 @property(nonatomic) _Bool minimumIntervalFallbackEnabled;

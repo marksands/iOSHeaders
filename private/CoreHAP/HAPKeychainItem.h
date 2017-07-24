@@ -6,7 +6,7 @@
 
 #import <HMFoundation/HMFObject.h>
 
-@class NSData, NSNumber, NSString;
+@class NSData, NSDate, NSNumber, NSString;
 
 @interface HAPKeychainItem : HMFObject
 {
@@ -21,8 +21,10 @@
     void *_platformReference;
     NSData *_genericData;
     NSString *_viewHint;
+    NSDate *_creationDate;
 }
 
+@property(retain, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(retain, nonatomic) NSString *viewHint; // @synthesize viewHint=_viewHint;
 @property(retain, nonatomic) NSData *genericData; // @synthesize genericData=_genericData;
 @property(nonatomic) void *platformReference; // @synthesize platformReference=_platformReference;

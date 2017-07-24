@@ -20,6 +20,7 @@
     _Bool _active;
     _Bool _collectAnonymousData;
     _Bool _collectScores;
+    _Bool _use2LayerRanking;
     id <PRSSessionController> _client;
     long long _status;
     double _searchRenderTimeout;
@@ -46,6 +47,7 @@
 @property(retain, nonatomic) NSString *fteContinueString; // @synthesize fteContinueString=_fteContinueString;
 @property(retain, nonatomic) NSString *fteLearnMoreString; // @synthesize fteLearnMoreString=_fteLearnMoreString;
 @property(retain, nonatomic) NSString *fteLocString; // @synthesize fteLocString=_fteLocString;
+@property(nonatomic) _Bool use2LayerRanking; // @synthesize use2LayerRanking=_use2LayerRanking;
 @property(retain, nonatomic) NSArray *anonymousMetadataUndesiredBundleIDs; // @synthesize anonymousMetadataUndesiredBundleIDs=_anonymousMetadataUndesiredBundleIDs;
 @property(nonatomic) _Bool collectScores; // @synthesize collectScores=_collectScores;
 @property(nonatomic) _Bool collectAnonymousData; // @synthesize collectAnonymousData=_collectAnonymousData;

@@ -228,12 +228,12 @@
 + (_Bool)_isSecureForRemoteViewService;
 + (id)XPCInterface;
 + (_Bool)_initializedByViewServices;
-@property(copy, nonatomic) UITraitCollection *overrideTraitCollection; // @synthesize overrideTraitCollection=_overrideTraitCollection;
 @property(nonatomic) _Bool ignoresParentMargins; // @synthesize ignoresParentMargins=_ignoresParentMargins;
 @property(nonatomic) __weak UIView *preferredFocusedItem; // @synthesize preferredFocusedItem=_preferredFocusedItem;
 @property(retain, nonatomic, getter=_temporaryPresentationController, setter=_setTemporaryPresentationController:) UIPresentationController *temporaryPresentationController; // @synthesize temporaryPresentationController=_temporaryPresentationController;
 @property(retain, nonatomic, getter=_originalPresentationController, setter=_setOriginalPresentationController:) UIPresentationController *originalPresentationController; // @synthesize originalPresentationController=_originalPresentationController;
 @property(nonatomic, getter=_presentationSizeClassPair, setter=_setPresentationSizeClassPair:) CDStruct_d58201db presentationSizeClassPair; // @synthesize presentationSizeClassPair=_presentationSizeClassPair;
+@property(copy, nonatomic) UITraitCollection *overrideTraitCollection; // @synthesize overrideTraitCollection=_overrideTraitCollection;
 @property(nonatomic, setter=_setEmbeddedDelegate:) id <_UIViewControllerContentViewEmbedding> _embeddedDelegate; // @synthesize _embeddedDelegate=__embeddedDelegate;
 @property(nonatomic, setter=_setEmbeddedViewFrame:) struct CGRect _embeddedViewFrame; // @synthesize _embeddedViewFrame=__embeddedViewFrame;
 @property(retain, nonatomic, setter=_setEmbeddingView:) UIView *_embeddingView; // @synthesize _embeddingView=__embeddingView;
@@ -522,6 +522,7 @@
 - (id)_delayingViewController;
 - (_Bool)_isWaitingForDelayedPresentation;
 - (_Bool)_isDelayingPresentation;
+- (void)_viewControllerPresentationDidInitiate;
 - (void)__viewControllerWillBePresented:(_Bool)arg1;
 - (int)_transitionForModalTransitionStyle:(long long)arg1 appearing:(_Bool)arg2;
 @property(readonly, nonatomic) _Bool _useSheetRotation;
@@ -560,6 +561,7 @@
 @property(nonatomic, getter=isFinishingModalTransition) _Bool finishingModalTransition;
 - (void)setPerformingModalTransition:(_Bool)arg1;
 - (_Bool)isPerformingModalTransition;
+- (_Bool)_legacyDeprecatedAutomaticallyAdjustsScrollViewInsets;
 @property(nonatomic) _Bool automaticallyAdjustsScrollViewInsets;
 @property(nonatomic) _Bool extendedLayoutIncludesOpaqueBars;
 @property(nonatomic) _Bool wantsFullScreenLayout;
@@ -821,7 +823,7 @@
 - (void)__updateContentOverlayInsetsToPresentationControllerBaseInsets;
 - (void)_updateContentOverlayInsetsFromParentIfNecessary;
 - (void)_updateContentOverlayInsetsFromParentForNavigationTransitionWithFinalRectInParent:(struct CGRect)arg1;
-- (void)_updateContentOverlayInsetsValidationWithOldInsets:(struct UIEdgeInsets)arg1;
+- (void)_invalidateChildContentOverlayInsetsWithOldInsets:(struct UIEdgeInsets)arg1;
 - (void)_updateContentOverlayInsetsForSelfAndChildren;
 @property(readonly, nonatomic) _Bool _navControllerIsLayingOutTopViewController;
 - (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1 andLeftMargin:(double)arg2 rightMargin:(double)arg3;
@@ -830,9 +832,14 @@
 - (void)_updateSafeAreaInsets;
 - (void)_primitiveSetNavigationControllerContentOffsetAdjustment:(double)arg1;
 - (void)_initializeNavigationContentInsetAdjustmentForContentScrollViewIfNecessary;
+- (void)_setNavigationControllerGradientMaskInsetAdjustment:(struct UIEdgeInsets)arg1;
 @property(nonatomic, setter=_setNavigationControllerContentInsetAdjustment:) struct UIEdgeInsets _navigationControllerContentInsetAdjustment; // @dynamic _navigationControllerContentInsetAdjustment;
 - (void)_primitiveSetNavigationControllerContentInsetAdjustment:(struct UIEdgeInsets)arg1;
 - (id)_presentationControllerClassName;
+- (id)_safeViewControllerForSupportedInterfaceOrientationsWithDismissCheck:(_Bool)arg1;
+- (id)_safePrimaryViewControllerForAutorotation;
+- (id)_safeViewControllerForRotationWithDismissCheck:(_Bool)arg1;
+- (id)_safeWindowForAutorotation;
 - (id)moreListTableCell;
 - (id)moreListSelectedImage;
 - (id)moreListImage;

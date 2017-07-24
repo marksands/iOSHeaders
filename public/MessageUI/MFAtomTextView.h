@@ -234,6 +234,7 @@
 @property(nonatomic) long long keyboardAppearance; // @dynamic keyboardAppearance;
 @property(nonatomic) long long keyboardType; // @dynamic keyboardType;
 @property(nonatomic) _Bool learnsCorrections;
+@property(nonatomic) _Bool loadKeyboardsForSiriLanguage;
 @property(readonly, nonatomic) UITextRange *markedTextRange; // @dynamic markedTextRange;
 @property(copy, nonatomic) NSDictionary *markedTextStyle; // @dynamic markedTextStyle;
 @property(copy, nonatomic) NSString *recentInputIdentifier;

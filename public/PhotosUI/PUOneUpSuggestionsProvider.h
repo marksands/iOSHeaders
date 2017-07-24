@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)defaultProvider;
++ (id)defaultProviderWithAccessoryViewControllersManager:(id)arg1;
 - (id)requestSuggestionForAsset:(id)arg1 withResultHandler:(CDUnknownBlockType)arg2;
 - (_Bool)canProvideSuggestionForAsset:(id)arg1;
 

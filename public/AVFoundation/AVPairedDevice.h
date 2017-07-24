@@ -17,7 +17,8 @@
 @property(readonly, nonatomic) NSString *productName;
 @property(readonly, nonatomic, getter=isPlaying) _Bool playing;
 @property(readonly, nonatomic) NSString *modelID;
-@property(readonly, nonatomic) NSString *ID;
+- (id)ID;
+@property(readonly, nonatomic) NSString *pairedDeviceID;
 @property(readonly, nonatomic) NSString *name;
 - (void)dealloc;
 - (id)initWithName:(id)arg1 ID:(id)arg2 modelID:(id)arg3 playing:(_Bool)arg4 productName:(id)arg5;

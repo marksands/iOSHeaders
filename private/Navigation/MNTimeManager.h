@@ -6,11 +6,13 @@
 
 #import <objc/NSObject.h>
 
+@class MNObserverHashTable;
 @protocol MNTimeProvider;
 
 __attribute__((visibility("hidden")))
 @interface MNTimeManager : NSObject
 {
+    MNObserverHashTable *_timeManagerObservers;
     id <MNTimeProvider> _provider;
 }
 
@@ -20,6 +22,8 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) id <MNTimeProvider> provider; // @synthesize provider=_provider;
 - (void).cxx_destruct;
 - (void)_resetToDefaultProvider;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1;
 - (id)init;
 
 @end

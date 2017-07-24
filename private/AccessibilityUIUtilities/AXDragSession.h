@@ -31,6 +31,7 @@
 - (void)resume;
 - (oneway void)dragDidEndWithOperation:(unsigned long long)arg1;
 - (oneway void)dragStatusDidChange:(id)arg1;
+- (oneway void)dragWillBeginWithReply:(CDUnknownBlockType)arg1;
 - (id)_serverSession;
 - (id)initWithDruidConnection:(id)arg1;
 

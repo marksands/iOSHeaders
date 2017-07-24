@@ -12,10 +12,10 @@ __attribute__((visibility("hidden")))
 @interface TSCETrackedReference : NSObject <NSCopying>
 {
     struct TSCEASTNodeArray *_AST;
-    CDStruct_a91f2c80 _formulaID;
+    CDStruct_ed6d627d _formulaID;
 }
 
-@property(nonatomic) CDStruct_a91f2c80 formulaID; // @synthesize formulaID=_formulaID;
+@property(nonatomic) CDStruct_ed6d627d formulaID; // @synthesize formulaID=_formulaID;
 - (id)initWithTrackedReferenceTSPObjectDeprecated:(id)arg1;
 - (id)initFromArchive:(const struct TrackedReferenceArchive *)arg1;
 - (void)encodeToArchive:(struct TrackedReferenceArchive *)arg1 archiver:(id)arg2;
@@ -28,10 +28,10 @@ __attribute__((visibility("hidden")))
 - (struct TSCEASTNodeArray *)ast;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)replaceContentsWithContentsOfTrackedReference:(id)arg1;
-- (id)initByCopyingASTNodeArray:(struct TSCEASTNodeArray *)arg1 formulaID:(CDStruct_a91f2c80)arg2;
-- (id)initWithSpanningRangeRef:(const struct TSCESpanningRangeRef *)arg1 formulaID:(CDStruct_a91f2c80)arg2;
-- (id)initWithRangeRef:(const struct TSCERangeRef *)arg1 formulaID:(CDStruct_a91f2c80)arg2;
-- (id)initWithCellRef:(const struct TSCECellRef *)arg1 formulaID:(CDStruct_a91f2c80)arg2;
+- (id)initByCopyingASTNodeArray:(struct TSCEASTNodeArray *)arg1 formulaID:(CDStruct_ed6d627d)arg2;
+- (id)initWithSpanningRangeRef:(const struct TSCESpanningRangeRef *)arg1 formulaID:(CDStruct_ed6d627d)arg2;
+- (id)initWithRangeRef:(const struct TSCERangeRef *)arg1 formulaID:(CDStruct_ed6d627d)arg2;
+- (id)initWithCellRef:(const struct TSCECellRef *)arg1 formulaID:(CDStruct_ed6d627d)arg2;
 - (void)dealloc;
 
 @end

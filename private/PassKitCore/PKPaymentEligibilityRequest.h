@@ -29,8 +29,10 @@
     NSData *_wrappedKey;
     NSString *_nonce;
     long long _source;
+    NSString *_referrerIdentifier;
 }
 
+@property(copy, nonatomic) NSString *referrerIdentifier; // @synthesize referrerIdentifier=_referrerIdentifier;
 @property(readonly, nonatomic) long long source; // @synthesize source=_source;
 @property(copy, nonatomic) NSString *nonce; // @synthesize nonce=_nonce;
 @property(copy, nonatomic) NSData *wrappedKey; // @synthesize wrappedKey=_wrappedKey;

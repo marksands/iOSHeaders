@@ -8,24 +8,29 @@
 
 #import <PassKitCore/PDPeerPaymentServiceExportedInterface-Protocol.h>
 
-@class NSString, PDPeerPaymentWebServiceCoordinator, PDRemoteInterfacePresenter, PKEntitlementWhitelist;
+@class NSString, PDDatabaseManager, PDPeerPaymentWebServiceCoordinator, PDRemoteInterfacePresenter, PKEntitlementWhitelist;
 
 @interface PDPeerPaymentService : PDXPCService <PDPeerPaymentServiceExportedInterface>
 {
     PKEntitlementWhitelist *_whitelist;
     PDPeerPaymentWebServiceCoordinator *_peerPaymentWebServiceCoordinator;
     PDRemoteInterfacePresenter *_remoteInterfacePresenter;
+    PDDatabaseManager *_databaseManager;
 }
 
+@property(retain, nonatomic) PDDatabaseManager *databaseManager; // @synthesize databaseManager=_databaseManager;
 @property(retain, nonatomic) PDRemoteInterfacePresenter *remoteInterfacePresenter; // @synthesize remoteInterfacePresenter=_remoteInterfacePresenter;
 @property(retain, nonatomic) PDPeerPaymentWebServiceCoordinator *peerPaymentWebServiceCoordinator; // @synthesize peerPaymentWebServiceCoordinator=_peerPaymentWebServiceCoordinator;
 - (void).cxx_destruct;
-- (void)registerDeviceWithRegistrationURL:(id)arg1 pushToken:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)unregisterDeviceWithCompletion:(CDUnknownBlockType)arg1;
+- (void)registerDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)downloadPassIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)balanceForPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)updateMemo:(id)arg1 forTransactionWithIdentifier:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)noteAccountDeletedWithCompletion:(CDUnknownBlockType)arg1;
+- (void)presentPeerPaymentTermsAndConditionsWithTermsURL:(id)arg1 termsIdentifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)presentRegistrationFlowWithAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)presentIdentityVerificationFlowWithType:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)presentIdentityVerificationFlowWithResponseData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)registrationStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)deleteAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateMockAccountBalanceByAddingAmount:(id)arg1 completion:(CDUnknownBlockType)arg2;

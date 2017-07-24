@@ -134,6 +134,8 @@
 - (id)passWithPassTypeIdentifier:(id)arg1 serialNumber:(id)arg2;
 - (void)getPassUniqueIdentifiersForFieldProperties:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)getPassesWithUniqueIdentifiers:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (id)passWithDPANIdentifier:(id)arg1;
+- (id)passWithFPANIdentifier:(id)arg1;
 - (id)passWithUniqueID:(id)arg1;
 - (id)passesOfType:(unsigned long long)arg1;
 - (id)passes;

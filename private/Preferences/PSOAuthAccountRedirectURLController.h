@@ -6,15 +6,15 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSMutableDictionary;
+@class NSMapTable;
 
 @interface PSOAuthAccountRedirectURLController : NSObject
 {
-    NSMutableDictionary *_redirectHandlerMap;
+    NSMapTable *_redirectHandlerMap;
 }
 
 + (id)sharedInstance;
-@property(retain, nonatomic) NSMutableDictionary *redirectHandlerMap; // @synthesize redirectHandlerMap=_redirectHandlerMap;
+@property(retain, nonatomic) NSMapTable *redirectHandlerMap; // @synthesize redirectHandlerMap=_redirectHandlerMap;
 - (void).cxx_destruct;
 - (id)_redirectURLFromURL:(id)arg1;
 - (_Bool)handleOAuthRedirectURL:(id)arg1;

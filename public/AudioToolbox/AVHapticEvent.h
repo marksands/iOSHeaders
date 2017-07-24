@@ -33,6 +33,9 @@
 @property(readonly) struct AVHapticPlayerFixedParameter *fixedParams; // @dynamic fixedParams;
 @property(readonly) unsigned long long paramType; // @dynamic paramType;
 @property(readonly) unsigned long long eventType; // @dynamic eventType;
+- (id)initWithParameter:(unsigned long long)arg1 value:(float)arg2 time:(double)arg3;
+- (id)initWithEventType:(unsigned long long)arg1 time:(double)arg2 parameters:(const struct AVHapticPlayerFixedParameter *)arg3 count:(long long)arg4 duration:(double)arg5;
+- (id)initWithEventType:(unsigned long long)arg1 time:(double)arg2 duration:(double)arg3;
 
 @end
 

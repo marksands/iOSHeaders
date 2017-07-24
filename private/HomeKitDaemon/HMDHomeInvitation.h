@@ -52,6 +52,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1 invitationData:(id)arg2;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)refreshDisplayName;
 - (id)initWithInvitationData:(id)arg1 forHome:(id)arg2;
 
 // Remaining properties

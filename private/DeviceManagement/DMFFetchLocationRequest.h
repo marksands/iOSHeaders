@@ -10,14 +10,12 @@
 
 @interface DMFFetchLocationRequest : CATTaskRequest
 {
-    NSString *_organizationName;
-    NSString *_serverName;
+    NSString *_originator;
 }
 
 + (_Bool)supportsSecureCoding;
 + (Class)whitelistedClassForResultObject;
-@property(copy, nonatomic) NSString *serverName; // @synthesize serverName=_serverName;
-@property(copy, nonatomic) NSString *organizationName; // @synthesize organizationName=_organizationName;
+@property(copy, nonatomic) NSString *originator; // @synthesize originator=_originator;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

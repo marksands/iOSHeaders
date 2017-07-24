@@ -19,6 +19,7 @@
     NSMutableSet *_transientDevices;
     NSMutableDictionary *_txtRecord;
     NSMutableArray *_clientTransports;
+    _Bool _serverEnabled;
     HMDHTTPDevice *_currentDevice;
     HMDHTTPServerMessageTransport *_serverTransport;
     NSObject<OS_dispatch_queue> *_clientQueue;
@@ -44,6 +45,8 @@
 - (void)client:(id)arg1 didReceiveMessage:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)client:(id)arg1 didStopWithError:(id)arg2;
 - (void)_connectToDevice:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_stopServer;
+- (void)_startServerWithDevice:(id)arg1;
 - (void)configureWithDevice:(id)arg1;
 - (id)_serviceForDevice:(id)arg1;
 - (void)removeAllClientTransports;
@@ -58,6 +61,8 @@
 - (void)removeTXTRecordValueForKey:(id)arg1;
 - (void)setTXTRecordValue:(id)arg1 forKey:(id)arg2;
 @property(readonly, copy, nonatomic) NSDictionary *TXTRecord;
+- (void)handleServerEnabled:(_Bool)arg1;
+@property(getter=isServerEnabled) _Bool serverEnabled; // @synthesize serverEnabled=_serverEnabled;
 - (void)_handleReceivedRequestMessage:(id)arg1 fromDevice:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_sendMessage:(id)arg1 destination:(id)arg2 timeout:(double)arg3 responseHandler:(CDUnknownBlockType)arg4;
 - (void)sendMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

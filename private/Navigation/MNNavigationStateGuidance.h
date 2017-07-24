@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     MNNavigationSessionManager *_navigationSessionManager;
 }
 
++ (id)guidanceStateForRoutePlanningDetails:(id)arg1 stateManager:(id)arg2 navigationSessionManager:(id)arg3;
 - (void).cxx_destruct;
 - (void)recordTraceBookmarkAtCurrentPositionWthScreenshotData:(id)arg1;
 - (void)setTracePosition:(double)arg1;

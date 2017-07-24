@@ -12,10 +12,10 @@
 {
     BFFPasscodeInputView *_passcodeInputView;
     UIViewController *_passcodeViewController;
-    double _currentKeyboardHeight;
+    struct CGRect _currentKeyboardFrame;
 }
 
-@property(nonatomic) double currentKeyboardHeight; // @synthesize currentKeyboardHeight=_currentKeyboardHeight;
+@property(nonatomic) struct CGRect currentKeyboardFrame; // @synthesize currentKeyboardFrame=_currentKeyboardFrame;
 @property(nonatomic) __weak UIViewController *passcodeViewController; // @synthesize passcodeViewController=_passcodeViewController;
 - (void).cxx_destruct;
 - (void)layoutSubviews;

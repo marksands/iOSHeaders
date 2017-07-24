@@ -20,7 +20,7 @@
 - (id)_potentialMemoriesForDryTesting;
 - (void)_generateExtendedCuratedSetForMemory:(id)arg1 withPotentialMemory:(id)arg2;
 - (void)_postProcessMemory:(id)arg1 withPotentialMemory:(id)arg2;
-- (id)_potentialMemories:(unsigned long long)arg1;
+- (void)_enumeratePotentialMemoriesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)_computeOverTheTimeFacedAssetsForPersonWithUUID:(id)arg1;
 
 @end

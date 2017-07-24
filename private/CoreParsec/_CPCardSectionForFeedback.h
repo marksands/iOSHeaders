@@ -13,14 +13,15 @@
 
 @interface _CPCardSectionForFeedback : PBCodable <_CPCardSectionForFeedback, NSSecureCoding>
 {
-    struct {
-        unsigned int type:1;
-    } _has;
-    int _type;
     NSString *_cardSectionId;
+    NSString *_actionTarget;
+    NSString *_actionDestination;
+    NSString *_resultId;
 }
 
-@property(nonatomic) int type; // @synthesize type=_type;
+@property(copy, nonatomic) NSString *resultId; // @synthesize resultId=_resultId;
+@property(copy, nonatomic) NSString *actionDestination; // @synthesize actionDestination=_actionDestination;
+@property(copy, nonatomic) NSString *actionTarget; // @synthesize actionTarget=_actionTarget;
 @property(copy, nonatomic) NSString *cardSectionId; // @synthesize cardSectionId=_cardSectionId;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
@@ -31,7 +32,9 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-@property(readonly, nonatomic) _Bool hasType;
+@property(readonly, nonatomic) _Bool hasResultId;
+@property(readonly, nonatomic) _Bool hasActionDestination;
+@property(readonly, nonatomic) _Bool hasActionTarget;
 @property(readonly, nonatomic) _Bool hasCardSectionId;
 - (id)initWithFacade:(id)arg1;
 

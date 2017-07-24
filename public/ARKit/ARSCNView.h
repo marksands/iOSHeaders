@@ -9,8 +9,8 @@
 #import <ARKit/ARInternalSessionObserver-Protocol.h>
 #import <ARKit/_SCNSceneRendererDelegate-Protocol.h>
 
-@class ARSession, NSMutableArray, NSMutableDictionary, NSObject, NSString, SCNNode, SCNScene, UIImage;
-@protocol ARSCNViewDelegate, NSObject, OS_dispatch_semaphore, SCNCaptureDeviceOutputConsumer;
+@class ARPointCloud, ARSession, NSMutableArray, NSMutableDictionary, NSObject, NSString, SCNNode, SCNScene, UIView;
+@protocol ARSCNViewDelegate, OS_dispatch_semaphore, SCNCaptureDeviceOutputConsumer;
 
 @interface ARSCNView : SCNView <ARInternalSessionObserver, _SCNSceneRendererDelegate>
 {
@@ -24,28 +24,38 @@
     NSMutableArray *_updatedAnchors;
     NSMutableArray *_removedAnchors;
     SCNNode *_worldOriginNode;
-    NSMutableArray *_featurePointNodes;
-    UIImage *_featurePointTexture;
+    SCNNode *_featurePointNode;
+    ARPointCloud *_currentlyVisibleDebugPointerCloud;
     NSObject<OS_dispatch_semaphore> *_anchorsSemaphore;
     id _originalBackgroundContents;
     unsigned long long _arDebugOptions;
     long long _interfaceOrientation;
-    id <NSObject> _interfaceOrientationObserver;
     struct CGSize _viewportSize;
+    UIView *_rotationSnapshot;
     _Bool _automaticallyUpdatesLighting;
-    _Bool _controllingFramesPerSecond;
+    _Bool _shouldRestrictFrameRate;
     _Bool _drawsCameraImage;
+    long long _targetFramesPerSecond;
     long long _developerPreferredFramesPerSecond;
+    long long _frameToRemoveRotationSnapshotOn;
 }
 
+@property long long frameToRemoveRotationSnapshotOn; // @synthesize frameToRemoveRotationSnapshotOn=_frameToRemoveRotationSnapshotOn;
 @property _Bool drawsCameraImage; // @synthesize drawsCameraImage=_drawsCameraImage;
 @property long long developerPreferredFramesPerSecond; // @synthesize developerPreferredFramesPerSecond=_developerPreferredFramesPerSecond;
-@property _Bool controllingFramesPerSecond; // @synthesize controllingFramesPerSecond=_controllingFramesPerSecond;
+@property long long targetFramesPerSecond; // @synthesize targetFramesPerSecond=_targetFramesPerSecond;
+@property _Bool shouldRestrictFrameRate; // @synthesize shouldRestrictFrameRate=_shouldRestrictFrameRate;
 @property(nonatomic) _Bool automaticallyUpdatesLighting; // @synthesize automaticallyUpdatesLighting=_automaticallyUpdatesLighting;
 - (void).cxx_destruct;
+- (void)cleanupLingeringRotationState;
+- (void)windowDidRotateNotification:(id)arg1;
+- (void)deviceOrientationDidChange:(id)arg1;
+- (void)windowWillAnimateRotateNotification:(id)arg1;
+- (void)windowWillRotateNotification:(id)arg1;
+- (void)didMoveToWindow;
+- (void)_updatePreferredFramesPerSecond;
+- (void)_updateFramesPerSecondWithTarget:(long long)arg1 shouldRestrictFrameRate:(_Bool)arg2;
 - (void)setPreferredFramesPerSecond:(long long)arg1;
-- (void)setTargetFramesPerSecond:(long long)arg1;
-- (void)_updateInterfaceOrientation:(long long)arg1;
 - (void)_updateDebugVisualization:(id)arg1;
 - (void)_removeAnchors;
 - (void)_updateNode:(id)arg1 forAnchor:(id)arg2;
@@ -77,7 +87,6 @@
 @property(readonly, copy) NSString *description;
 - (void)layoutSubviews;
 - (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
 - (void)_commonInit;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 options:(id)arg2;

@@ -26,6 +26,7 @@
 - (id)_duplicateMessageInfosForMessageInfo:(id)arg1;
 - (void)_removeDuplicatesForMessageInfo:(id)arg1;
 - (void)_addMessageInfoToDuplicates:(id)arg1;
+- (id)allDuplicatesOfMessageInfo:(id)arg1;
 - (id)duplicatesOfMessageInfo:(id)arg1;
 @property(readonly, nonatomic) MFMessageInfo *lastMessage;
 @property(readonly, nonatomic) MFMessageInfo *firstMessage;
@@ -33,6 +34,7 @@
 @property(readonly, nonatomic) NSArray *uniqueMessageInfos;
 @property(readonly, nonatomic) unsigned long long countWithDuplicates;
 @property(readonly, nonatomic) unsigned long long count;
+- (void)replaceMessageInfo:(id)arg1 withReplacement:(id)arg2 inPlace:(_Bool)arg3;
 - (id)messageInfoEquivalentToMessageInfo:(id)arg1;
 - (id)messageInfoAtIndex:(unsigned long long)arg1;
 - (unsigned long long)indexWhereMessageInfoWouldBeInserted:(id)arg1;

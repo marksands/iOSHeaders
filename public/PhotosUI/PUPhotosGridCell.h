@@ -31,7 +31,7 @@
 }
 
 + (Class)_contentViewClass;
-@property long long dragState; // @synthesize dragState=_dragState;
+@property(nonatomic) long long dragState; // @synthesize dragState=_dragState;
 @property(nonatomic) int currentImageRequestID; // @synthesize currentImageRequestID=_currentImageRequestID;
 @property(nonatomic) _Bool transitionIsAppearing; // @synthesize transitionIsAppearing=_transitionIsAppearing;
 @property(nonatomic) struct UIEdgeInsets fillerEdgeInsets; // @synthesize fillerEdgeInsets=_fillerEdgeInsets;

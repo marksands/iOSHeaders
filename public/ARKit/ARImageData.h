@@ -9,14 +9,16 @@
 #import <ARKit/ARSensorData-Protocol.h>
 #import <ARKit/NSSecureCoding-Protocol.h>
 
-@class NSString;
+@class NSDate, NSString;
 
 @interface ARImageData : NSObject <ARSensorData, NSSecureCoding>
 {
     _Bool _pixelBufferIsMirrored;
+    _Bool _shouldRestrictFrameRate;
     float _exposureTargetOffset;
     float _ISO;
     double _timestamp;
+    NSDate *_captureDate;
     struct __CVBuffer *_pixelBuffer;
     double _exposureDuration;
     long long _cameraPosition;
@@ -25,6 +27,9 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)captureDateFromPresentationTimestamp:(CDStruct_198678f7)arg1 session:(id)arg2;
++     // Error parsing type: {?=[3]}56@0:8^{opaqueCMSampleBuffer=}16d24{CGPoint=dd}32^B48, name: _intrinsicsFromSampleBuffer:focalLengthFallback:principalPointFallback:didUseFallbackIntrinsics:
+@property(nonatomic) _Bool shouldRestrictFrameRate; // @synthesize shouldRestrictFrameRate=_shouldRestrictFrameRate;
 @property(nonatomic) long long targetFramesPerSecond; // @synthesize targetFramesPerSecond=_targetFramesPerSecond;
 @property(nonatomic) long long cameraPosition; // @synthesize cameraPosition=_cameraPosition;
 @property(nonatomic) float ISO; // @synthesize ISO=_ISO;
@@ -35,11 +40,14 @@
 // Error parsing type for property cameraIntrinsics:
 // Property attributes: T{?=[3]},N,V_cameraIntrinsics
 
+@property(retain, nonatomic) NSDate *captureDate; // @synthesize captureDate=_captureDate;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
-- (id)initWithCoder:(id)arg1;
+- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 @property(readonly, nonatomic) struct CGSize imageResolution;
 - (void)dealloc;
+- (id)initWithSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 captureDevice:(id)arg2 captureSession:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

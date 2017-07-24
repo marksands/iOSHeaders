@@ -21,6 +21,7 @@
 @property(readonly, nonatomic, getter=isForMainFrameOnly) _Bool forMainFrameOnly;
 @property(readonly, copy, nonatomic) NSURL *baseURL;
 @property(readonly, copy, nonatomic) NSString *source;
+- (void)dealloc;
 - (id)initWithSource:(id)arg1 forMainFrameOnly:(_Bool)arg2 legacyWhitelist:(id)arg3 legacyBlacklist:(id)arg4 baseURL:(id)arg5 userContentWorld:(id)arg6;
 - (id)initWithSource:(id)arg1 forMainFrameOnly:(_Bool)arg2 legacyWhitelist:(id)arg3 legacyBlacklist:(id)arg4 userContentWorld:(id)arg5;
 - (id)initWithSource:(id)arg1 forMainFrameOnly:(_Bool)arg2;

@@ -15,10 +15,12 @@
     id _serverId;
     id _instanceId;
     id _changedItem;
-    id _changedAttendees;
+    id _forwardedAttendees;
+    id _forwardedAttendeeUUIDs;
 }
 
-@property(retain, nonatomic) id changedAttendees; // @synthesize changedAttendees=_changedAttendees;
+@property(retain, nonatomic) id forwardedAttendeeUUIDs; // @synthesize forwardedAttendeeUUIDs=_forwardedAttendeeUUIDs;
+@property(retain, nonatomic) id forwardedAttendees; // @synthesize forwardedAttendees=_forwardedAttendees;
 @property(nonatomic) int changeId; // @synthesize changeId=_changeId;
 @property(retain, nonatomic, setter=_setChangedItem:) id changedItem; // @synthesize changedItem=_changedItem;
 @property(retain, nonatomic) id instanceId; // @synthesize instanceId=_instanceId;

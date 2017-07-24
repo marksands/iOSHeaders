@@ -11,13 +11,16 @@
 @interface FCNotificationsEndpointConnection : FCEndpointConnection
 {
     NSString *_deviceType;
+    NSString *_deviceOSVersion;
     FCFileCoordinatedNotificationDropbox *_fileCoordinatedNotificationDropbox;
 }
 
 @property(retain, nonatomic) FCFileCoordinatedNotificationDropbox *fileCoordinatedNotificationDropbox; // @synthesize fileCoordinatedNotificationDropbox=_fileCoordinatedNotificationDropbox;
+@property(copy, nonatomic) NSString *deviceOSVersion; // @synthesize deviceOSVersion=_deviceOSVersion;
 @property(copy, nonatomic) NSString *deviceType; // @synthesize deviceType=_deviceType;
 - (void).cxx_destruct;
 - (void)appConfigurationDidChange:(id)arg1;
+- (id)_notificationDataInDropbox;
 - (void)_updateNotificationDropboxDataWithBaseURL:(id)arg1 notificationUserID:(id)arg2 deviceToken:(id)arg3 storefrontID:(id)arg4;
 - (id)_notificationEntityWithChannelIDs:(id)arg1 isPaid:(_Bool)arg2;
 - (id)_deviceInfoWithDeviceToken:(id)arg1;
@@ -29,7 +32,7 @@
 - (void)unregisterDeviceWithUserID:(id)arg1 deviceToken:(id)arg2 storefrontID:(id)arg3 callbackQueue:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)registerDeviceWithUserID:(id)arg1 deviceToken:(id)arg2 storefrontID:(id)arg3 callbackQueue:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (id)initWithBaseURLString:(id)arg1;
-- (id)initWithContext:(id)arg1;
+- (id)initWithAppConfigurationManager:(id)arg1;
 
 @end
 

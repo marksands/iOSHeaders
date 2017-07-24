@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSDictionary, NSSet, PGMoodVector;
+@class NSArray, NSDictionary, PGMoodVector;
 
 @interface PGMemoryDebug : NSObject
 {
@@ -26,24 +26,24 @@
     unsigned long long _numberOfPeople;
     unsigned long long _numberOfMoments;
     unsigned long long _numberOfCollections;
-    unsigned long long _index;
+    unsigned long long _numberOfRelevantAssets;
     unsigned long long _suggestedMood;
     unsigned long long _recommendedMoods;
     unsigned long long _forbiddenMoods;
     PGMoodVector *_positiveMoodVector;
     PGMoodVector *_negativeMoodVector;
     PGMoodVector *_historyWeightedPositiveMoodVector;
-    NSSet *_moodKeywords;
+    NSArray *_moodKeywords;
 }
 
-@property(retain, nonatomic) NSSet *moodKeywords; // @synthesize moodKeywords=_moodKeywords;
+@property(retain, nonatomic) NSArray *moodKeywords; // @synthesize moodKeywords=_moodKeywords;
 @property(retain, nonatomic) PGMoodVector *historyWeightedPositiveMoodVector; // @synthesize historyWeightedPositiveMoodVector=_historyWeightedPositiveMoodVector;
 @property(retain, nonatomic) PGMoodVector *negativeMoodVector; // @synthesize negativeMoodVector=_negativeMoodVector;
 @property(retain, nonatomic) PGMoodVector *positiveMoodVector; // @synthesize positiveMoodVector=_positiveMoodVector;
 @property(nonatomic) unsigned long long forbiddenMoods; // @synthesize forbiddenMoods=_forbiddenMoods;
 @property(nonatomic) unsigned long long recommendedMoods; // @synthesize recommendedMoods=_recommendedMoods;
 @property(nonatomic) unsigned long long suggestedMood; // @synthesize suggestedMood=_suggestedMood;
-@property(nonatomic) unsigned long long index; // @synthesize index=_index;
+@property(nonatomic) unsigned long long numberOfRelevantAssets; // @synthesize numberOfRelevantAssets=_numberOfRelevantAssets;
 @property(nonatomic) unsigned long long numberOfCollections; // @synthesize numberOfCollections=_numberOfCollections;
 @property(nonatomic) unsigned long long numberOfMoments; // @synthesize numberOfMoments=_numberOfMoments;
 @property(nonatomic) unsigned long long numberOfPeople; // @synthesize numberOfPeople=_numberOfPeople;

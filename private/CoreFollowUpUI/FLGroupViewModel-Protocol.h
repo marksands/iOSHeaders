@@ -9,9 +9,11 @@
 @class NSArray, NSString;
 
 @protocol FLGroupViewModel <NSObject>
+- (_Bool)shouldCoalesceItems;
 - (_Bool)restrictionEnabled;
 - (NSArray *)items;
-- (NSString *)name;
+- (NSString *)rowTitle;
+- (NSString *)groupTitle;
 - (NSString *)identifier;
 @end
 

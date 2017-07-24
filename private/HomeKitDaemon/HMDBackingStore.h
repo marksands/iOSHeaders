@@ -22,6 +22,7 @@
 }
 
 + (id)logCategory;
++ (id)resetBackingStore;
 + (id)flushBackingStore;
 + (id)allowedTypes;
 + (void)start;
@@ -33,7 +34,7 @@
 @property(nonatomic) __weak id <HMDBackingStoreObjectProtocol> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)submitBlock:(CDUnknownBlockType)arg1;
-- (void)saveToPersistentStoreWithReason:(id)arg1;
+- (void)saveToPersistentStoreWithReason:(id)arg1 incrementGeneration:(_Bool)arg2;
 - (id)dumpState;
 - (id)logIdentifier;
 @property(readonly, copy) NSString *description;

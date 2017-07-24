@@ -23,6 +23,7 @@
 @property(nonatomic) _Bool darkStyleOnLegacyApp; // @synthesize darkStyleOnLegacyApp=_darkStyleOnLegacyApp;
 @property(copy, nonatomic) NSArray *activityGroupViewControllers; // @synthesize activityGroupViewControllers=_activityGroupViewControllers;
 - (void).cxx_destruct;
+- (double)_accessibilityDefaultContentHeightForViewController:(id)arg1;
 - (_Bool)isAirDropViewController:(id)arg1;
 - (_Bool)shouldShowNoActionsPlaceholder;
 - (double)preferredContentHeightForViewController:(id)arg1;

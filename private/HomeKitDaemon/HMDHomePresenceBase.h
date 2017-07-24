@@ -33,6 +33,8 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (id)logIdentifier;
+- (void)residentChanged;
+- (void)timerFired:(id)arg1;
 - (void)handleHomeDataLoadedNotification:(id)arg1;
 - (void)_registerForMessages;
 - (void)configure:(id)arg1 messageDispatcher:(id)arg2;

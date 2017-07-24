@@ -10,33 +10,35 @@
 #import <PassKitCore/PDCloudStoreNotificationCoordinatorObserver-Protocol.h>
 #import <PassKitCore/PDPushNotificationConsumer-Protocol.h>
 
-@class NSMutableArray, NSString, PDAssertionManager, PDCloudStoreNotificationCoordinator, PDPeerPaymentWebServiceArchiver, PDPushNotificationManager, PKPaymentWebService, PKPeerPaymentAccount, PKPeerPaymentWebService, PKPeerPaymentWebServiceContext;
+@class NSMutableArray, NSString, PDAssertionManager, PDCloudStoreNotificationCoordinator, PDPeerPaymentWebServiceArchiver, PDPushNotificationManager, PKPaymentWebService, PKPeerPaymentAccount, PKPeerPaymentWebService;
 @protocol OS_dispatch_queue, PDPeerPaymentWebServiceCoordinatorDataSource, PDWebServiceCoordinatorPassStore;
 
 @interface PDPeerPaymentWebServiceCoordinator : NSObject <PDPushNotificationConsumer, PDAssertionObserver, PDCloudStoreNotificationCoordinatorObserver>
 {
     PDPushNotificationManager *_pushNotificationManager;
-    NSObject<OS_dispatch_queue> *_sharedWebServiceQueue;
+    NSObject<OS_dispatch_queue> *_sharedPeerPaymentWebServiceQueue;
     PDPeerPaymentWebServiceArchiver *_archiver;
-    PKPeerPaymentWebService *_sharedWebService;
+    PKPeerPaymentWebService *_sharedPeerPaymentWebService;
     PKPeerPaymentAccount *_account;
     PKPeerPaymentAccount *_mockAccount;
-    PKPaymentWebService *_paymentWebService;
     PDAssertionManager *_assertionManager;
     id <PDPeerPaymentWebServiceCoordinatorDataSource> _dataSource;
     id <PDWebServiceCoordinatorPassStore> _passStore;
     NSMutableArray *_accountCompletionHandlers;
     _Bool _fetchingAccount;
+    _Bool _isRegistering;
     PDCloudStoreNotificationCoordinator *_cloudStoreNotificationCoordinator;
+    PKPaymentWebService *_paymentWebService;
 }
 
+@property(retain, nonatomic) PKPaymentWebService *paymentWebService; // @synthesize paymentWebService=_paymentWebService;
 @property(retain, nonatomic) PDCloudStoreNotificationCoordinator *cloudStoreNotificationCoordinator; // @synthesize cloudStoreNotificationCoordinator=_cloudStoreNotificationCoordinator;
 - (void).cxx_destruct;
 - (id)_mockAccountInitialState;
-- (void)_registerWithPaymentWebService:(id)arg1 registerURL:(id)arg2 pushToken:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_registerWithPeerPaymentWebService:(id)arg1 registerURL:(id)arg2 pushToken:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_updateSharedCacheWithAccount:(id)arg1;
 - (void)_updateSharedCacheWithWebService:(id)arg1;
-- (void)_archiveSharedWebServiceContextWithCloudStoreInitalization:(_Bool)arg1;
+- (void)_archiveSharedPeerPaymentWebServiceContextWithCloudStoreInitalization:(_Bool)arg1;
 - (void)_executeAccountCompletionHandlers;
 - (void)_completeUpdatingAccount;
 - (void)_updateAccountWithCompletion:(CDUnknownBlockType)arg1;
@@ -50,18 +52,21 @@
 - (void)downloadPassIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)deleteAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateAccountWithCompletion:(CDUnknownBlockType)arg1;
+- (void)unregisterDeviceWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_registerDeviceWithRegistrationURL:(id)arg1 pushToken:(id)arg2 forceRegistration:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)registerDeviceWithRegistrationURL:(id)arg1 pushToken:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)registerDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)handleCompanionSerialNumberChanged;
 - (void)registrationStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)handlePassLibraryChangedWithPassUniqueIdentifier:(id)arg1;
 - (void)accountWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateSharedWebServiceContext:(id)arg1;
 - (void)deleteSharedWebServiceWithDiagnosticReason:(id)arg1;
-@property(readonly, nonatomic) PKPeerPaymentWebServiceContext *sharedWebServiceContext;
-- (id)sharedWebService;
+@property(readonly, nonatomic) PKPeerPaymentWebService *sharedPeerPaymentWebService;
 - (void)cloudStoreNotificationCoordinator:(id)arg1 createdZoneWithName:(id)arg2;
 - (void)dealloc;
 - (id)initWithPushNotificationManager:(id)arg1 paymentWebService:(id)arg2 assertionManager:(id)arg3 dataSource:(id)arg4 passStore:(id)arg5;
+- (id)sharedWebService;
 - (id)initWithPushNotificationManager:(id)arg1 paymentWebService:(id)arg2 assertionManager:(id)arg3 dataSource:(id)arg4;
 
 // Remaining properties

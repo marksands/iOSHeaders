@@ -12,6 +12,7 @@
 {
 }
 
+- (id)getDefault:(id)arg1;
 - (void)lockDBs;
 - (void)unlockDBs;
 - (void)resetMapDataExtension;

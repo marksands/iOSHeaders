@@ -8,27 +8,32 @@
 
 #import <NanoPassKit/NPKPaymentWebServiceCompanionTargetDeviceDelegate-Protocol.h>
 
-@class NPKCompanionAgentConnection, NPKPaymentWebServiceCompanionTargetDevice, NSString, PKPaymentWebService, PKPeerPaymentWebService;
+@class NPKCompanionAgentConnection, NPKPaymentWebServiceCompanionTargetDevice, NPKPeerPaymentWebServiceCompanionTargetDevice, NSString, PKPaymentWebService, PKPeerPaymentAccount, PKPeerPaymentWebService;
 
 @interface NPKSharedWebServiceProvider : NSObject <NPKPaymentWebServiceCompanionTargetDeviceDelegate>
 {
     PKPaymentWebService *_webService;
     NPKPaymentWebServiceCompanionTargetDevice *_targetDevice;
     PKPeerPaymentWebService *_peerPaymentWebService;
+    PKPeerPaymentAccount *_peerPaymentAccount;
     NPKCompanionAgentConnection *_companionAgentConnection;
+    NPKPeerPaymentWebServiceCompanionTargetDevice *_peerPaymentTargetDevice;
 }
 
 + (id)sharedWebServiceProvider;
+@property(retain, nonatomic) NPKPeerPaymentWebServiceCompanionTargetDevice *peerPaymentTargetDevice; // @synthesize peerPaymentTargetDevice=_peerPaymentTargetDevice;
 @property(retain, nonatomic) NPKCompanionAgentConnection *companionAgentConnection; // @synthesize companionAgentConnection=_companionAgentConnection;
+@property(retain, nonatomic) PKPeerPaymentAccount *peerPaymentAccount; // @synthesize peerPaymentAccount=_peerPaymentAccount;
 @property(retain, nonatomic) PKPeerPaymentWebService *peerPaymentWebService; // @synthesize peerPaymentWebService=_peerPaymentWebService;
 @property(retain, nonatomic) NPKPaymentWebServiceCompanionTargetDevice *targetDevice; // @synthesize targetDevice=_targetDevice;
 @property(retain, nonatomic) PKPaymentWebService *webService; // @synthesize webService=_webService;
 - (void).cxx_destruct;
-- (void)handleUpdatedPeerPaymentWebServiceContext:(id)arg1;
+- (void)handleUpdatedPeerPaymentWebServiceContext:(id)arg1 account:(id)arg2;
 - (void)setNewAuthRandom:(CDUnknownBlockType)arg1;
 - (void)sendPaymentOptionsDefaultsToWatch;
 - (void)showPaymentSetupForAppDisplayName:(id)arg1;
 - (void)sendWebServiceContextToWatch;
+- (void)handlePaymentWebServiceContextFromWatch:(id)arg1;
 - (void)archiveWebServiceBackgroundContext:(id)arg1;
 - (void)archiveWebServiceContext:(id)arg1;
 - (void)handlePreferredAID:(id)arg1 forPassWithUniqueID:(id)arg2;
@@ -39,6 +44,7 @@
 - (void)handlePreconditionNotMetWithUniqueIDs:(id)arg1 shouldUnregister:(_Bool)arg2;
 - (void)handlePushToken:(id)arg1;
 - (void)_deviceFailedToPair:(id)arg1;
+- (id)_peerPaymentAccount;
 - (id)_peerPaymentWebServiceContext;
 - (id)_webServiceContext;
 - (void)loadWebService;

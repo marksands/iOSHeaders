@@ -7,6 +7,6 @@
 #import <Foundation/NSDate.h>
 
 @interface NSDate (HealthUI)
-- (id)hk_dateBeforeDateForCalendar:(id)arg1 timeScope:(long long)arg2;
+- (id)hk_dateBeforeDateForCalendar:(id)arg1 rangeUnit:(unsigned long long)arg2;
 @end
 

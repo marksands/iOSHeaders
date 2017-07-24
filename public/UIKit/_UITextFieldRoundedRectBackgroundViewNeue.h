@@ -11,12 +11,14 @@
 @interface _UITextFieldRoundedRectBackgroundViewNeue : UIImageView
 {
     _Bool _disabled;
+    _Bool _hasFlexibleCornerRadius;
     UIColor *_strokeColor;
     UIColor *_fillColor;
     double _lineWidth;
     double _cornerRadius;
 }
 
+@property(nonatomic) _Bool hasFlexibleCornerRadius; // @synthesize hasFlexibleCornerRadius=_hasFlexibleCornerRadius;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(nonatomic) double lineWidth; // @synthesize lineWidth=_lineWidth;
 @property(retain, nonatomic) UIColor *fillColor; // @synthesize fillColor=_fillColor;
@@ -24,6 +26,9 @@
 - (void).cxx_destruct;
 - (void)setActive:(_Bool)arg1;
 - (void)setEnabled:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)layoutSubviews;
+- (double)_cornerRadiusAdjustedForBoundsHeight;
+- (double)_screenScale;
 - (id)_fillColor:(_Bool)arg1;
 - (id)_strokeColor:(_Bool)arg1;
 - (void)updateView;

@@ -23,7 +23,9 @@ __attribute__((visibility("hidden")))
 + (id)editableBezierPathSourceWithBezierPath:(id)arg1;
 + (id)editableBezierPathSourceWithPathSource:(id)arg1;
 + (id)editableBezierPathSource;
+@property(nonatomic) unsigned long long activeSubpath; // @synthesize activeSubpath=mActiveSubpath;
 @property(copy, nonatomic) NSArray *subpaths; // @synthesize subpaths=mSubpaths;
+- (void).cxx_destruct;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 - (void)closePath;
@@ -32,7 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)lineToPoint:(struct CGPoint)arg1;
 - (void)moveToPoint:(struct CGPoint)arg1;
 @property(retain, nonatomic) NSArray *nodeTypes;
-@property(readonly, nonatomic) struct CGPath *subpathForSelection;
+@property(readonly, nonatomic) const struct CGPath *subpathForSelection;
 - (void)cutAtSelectedNodes;
 - (_Bool)canCutAtSelectedNodes;
 - (void)splitSelectedNodes;
@@ -89,7 +91,6 @@ __attribute__((visibility("hidden")))
 - (id)bezierPathWithoutFlips;
 - (_Bool)isCircular;
 - (_Bool)isRectangular;
-- (void)dealloc;
 @property(readonly, nonatomic) _Bool closeIfEndpointsAreEqual;
 - (_Bool)isEqualWithStrictComparison:(id)arg1;
 - (unsigned long long)hash;

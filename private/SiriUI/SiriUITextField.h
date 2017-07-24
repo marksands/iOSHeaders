@@ -17,7 +17,9 @@
 - (struct CGRect)leftViewRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)editingRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)textRectForBounds:(struct CGRect)arg1;
+- (_Bool)_shouldRepeatInsertText:(id)arg1;
 - (void)_configureClearButton;
+- (id)textInputContextIdentifier;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

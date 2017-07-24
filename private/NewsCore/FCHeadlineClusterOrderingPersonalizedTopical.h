@@ -14,7 +14,7 @@
 {
 }
 
-- (id)orderTopicsWithClusteredHeadlines:(id)arg1 additionalHeadlines:(id)arg2 scoresByArticleID:(id)arg3 personalizer:(id)arg4 tagNameProvider:(CDUnknownBlockType)arg5;
+- (id)orderTopicsWithClusteredHeadlines:(id)arg1 additionalHeadlines:(id)arg2 subscribedTagIDs:(id)arg3 scoresByArticleID:(id)arg4 personalizer:(id)arg5 tagNameProvider:(CDUnknownBlockType)arg6 personalizationTreatment:(id)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -10,20 +10,23 @@
 #import <InstallCoordination/NSXPCListenerDelegate-Protocol.h>
 
 @class NSString, NSXPCListener;
-@protocol IXAppInstallObserverDelegate;
+@protocol IXAppInstallObserverDelegate, OS_dispatch_queue;
 
 @interface IXAppInstallObserver : NSObject <NSXPCListenerDelegate, IXAppInstallObserverProtocol>
 {
     id <IXAppInstallObserverDelegate> _delegate;
     NSXPCListener *_listener;
+    NSObject<OS_dispatch_queue> *_delegateQueue;
 }
 
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 @property(retain, nonatomic) NSXPCListener *listener; // @synthesize listener=_listener;
 @property(readonly, nonatomic) __weak id <IXAppInstallObserverDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (oneway void)_client_coordinatorWithSeed:(id)arg1 remoteProxy:(id)arg2 didCancelWithReason:(id)arg3 client:(unsigned long long)arg4;
 - (oneway void)_client_coordinatorDidCompleteSuccessfullyWithSeed:(id)arg1 remoteProxy:(id)arg2;
 - (oneway void)_client_coordinatorDidInstallPlaceholderWithSeed:(id)arg1 remoteProxy:(id)arg2;
+- (oneway void)_client_coordinatorShouldBeginRestoringUserDataWithSeed:(id)arg1 remoteProxy:(id)arg2;
 - (oneway void)_client_coordinatorWithSeed:(id)arg1 remoteProxy:(id)arg2 configuredPromiseDidBeginFulfillment:(unsigned long long)arg3;
 - (oneway void)_client_coordinatorShouldPauseWithSeed:(id)arg1 remoteProxy:(id)arg2;
 - (oneway void)_client_coordinatorShouldResumeWithSeed:(id)arg1 remoteProxy:(id)arg2;
@@ -32,6 +35,7 @@
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (id)initTransientForClients:(id)arg1 delegate:(id)arg2;
 - (id)initWithMachServiceName:(id)arg1 forClients:(id)arg2 delegate:(id)arg3;
+- (void)_internalInit;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

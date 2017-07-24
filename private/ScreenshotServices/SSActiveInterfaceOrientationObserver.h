@@ -23,7 +23,7 @@
 - (void)_unregisterForActiveInterfaceOrientationChanges;
 - (void)_registerForActiveInterfaceOrientationChanges;
 - (id)_sbUIUserAgent;
-- (void)_observeActiveInterfaceOrientationChangeToOrientation:(long long)arg1;
+- (void)_observeActiveInterfaceOrientationChangeToOrientation:(long long)arg1 withDuration:(double)arg2;
 - (void)stopObserving;
 - (void)beginObserving;
 

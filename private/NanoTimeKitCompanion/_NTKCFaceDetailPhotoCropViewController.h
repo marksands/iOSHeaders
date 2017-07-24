@@ -14,10 +14,12 @@
 {
     CAShapeLayer *_reverseMask;
     NTKCCenteringScrollView *_scrollView;
+    double _photoScale;
     CAShapeLayer *_mask;
     UIView *_timeContainer;
     NTKDigitalTimeLabel *_time;
     UIBarButtonItem *_deleteButton;
+    UIBarButtonItem *_cancelButton;
     _Bool _cancelConfirmed;
     _Bool _deleteConfirmed;
     unsigned long long _index;

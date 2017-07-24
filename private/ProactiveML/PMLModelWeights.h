@@ -24,10 +24,12 @@
 + (id)modelWeightsOfLength:(int)arg1 rng:(id)arg2;
 + (id)modelWeightsFromFloats:(id)arg1;
 - (void).cxx_destruct;
+- (id)copy;
 - (id)sliceFrom:(int)arg1 to:(int)arg2;
 - (id)weightsByAppendingWeights:(id)arg1;
 - (void)processValuesInPlaceWithBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) int length;
+- (id)asMutableDenseVector;
 - (float *)values;
 - (id)initWithCount:(int)arg1;
 - (id)initModelWeightsFromFloats:(id)arg1;

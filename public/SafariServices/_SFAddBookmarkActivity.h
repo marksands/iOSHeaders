@@ -22,7 +22,6 @@
 - (id)activityViewController;
 @property(readonly, nonatomic) _SFSingleBookmarkNavigationController *bookmarkNavigationController;
 - (_Bool)canPerformWithActivityItems:(id)arg1;
-- (id)_beforeActivity;
 - (id)activityImage;
 - (id)activityTitle;
 - (id)activityType;

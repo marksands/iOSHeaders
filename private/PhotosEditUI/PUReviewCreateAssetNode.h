@@ -9,7 +9,7 @@
 #import <PhotosEditUI/PUReviewAssetNode-Protocol.h>
 
 @class NSArray, NSString, PUReviewAsset;
-@protocol PUAdjustmentURLNode, PUImageDataRenderNode, PUImageInfoNode, PUReviewImageURLNode, PUReviewVideoURLNode, PUVideoAssetNode, PUVideoURLNode, PXRunNodeDelegate;
+@protocol PUAdjustmentURLNode, PUImageDataRenderNode, PUImageInfoNode, PUReviewImageURLNode, PUReviewVideoURLNode, PUVideoAssetNode, PUVideoURLExportNode, PXRunNodeDelegate;
 
 @interface PUReviewCreateAssetNode : PXRunNode <PUReviewAssetNode>
 {
@@ -20,14 +20,14 @@
     id <PUImageDataRenderNode> _renderImageDataNode;
     id <PUReviewVideoURLNode> _videoURLNode;
     id <PUVideoAssetNode> _videoAssetNode;
-    id <PUVideoURLNode> _renderVideoURLNode;
+    id <PUVideoURLExportNode> _renderVideoURLNode;
     id <PUVideoAssetNode> _renderVideoAssetNode;
     id <PUAdjustmentURLNode> _adjustmentURLNode;
 }
 
 @property(readonly, nonatomic) id <PUAdjustmentURLNode> adjustmentURLNode; // @synthesize adjustmentURLNode=_adjustmentURLNode;
 @property(readonly, nonatomic) id <PUVideoAssetNode> renderVideoAssetNode; // @synthesize renderVideoAssetNode=_renderVideoAssetNode;
-@property(readonly, nonatomic) id <PUVideoURLNode> renderVideoURLNode; // @synthesize renderVideoURLNode=_renderVideoURLNode;
+@property(readonly, nonatomic) id <PUVideoURLExportNode> renderVideoURLNode; // @synthesize renderVideoURLNode=_renderVideoURLNode;
 @property(readonly, nonatomic) id <PUVideoAssetNode> videoAssetNode; // @synthesize videoAssetNode=_videoAssetNode;
 @property(readonly, nonatomic) id <PUReviewVideoURLNode> videoURLNode; // @synthesize videoURLNode=_videoURLNode;
 @property(readonly, nonatomic) id <PUImageDataRenderNode> renderImageDataNode; // @synthesize renderImageDataNode=_renderImageDataNode;

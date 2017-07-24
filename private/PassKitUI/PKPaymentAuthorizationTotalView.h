@@ -19,8 +19,10 @@
     _Bool _isPendingTotal;
     PKPaymentAuthorizationLayout *_layout;
     long long _style;
+    long long _labelNumberOfLines;
 }
 
+@property(nonatomic) long long labelNumberOfLines; // @synthesize labelNumberOfLines=_labelNumberOfLines;
 @property(nonatomic) _Bool isPendingTotal; // @synthesize isPendingTotal=_isPendingTotal;
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic) PKPaymentAuthorizationLayout *layout; // @synthesize layout=_layout;

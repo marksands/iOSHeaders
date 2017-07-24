@@ -15,6 +15,7 @@
 - (void)resolveSpeakableGroupNameForSendMessage:(INSendMessageIntent *)arg1 withCompletion:(void (^)(INSpeakableStringResolutionResult *))arg2;
 - (void)resolveGroupNameForSendMessage:(INSendMessageIntent *)arg1 withCompletion:(void (^)(INStringResolutionResult *))arg2;
 - (void)resolveContentForSendMessage:(INSendMessageIntent *)arg1 withCompletion:(void (^)(INStringResolutionResult *))arg2;
+- (void)resolveRecipientsForSendMessage:(INSendMessageIntent *)arg1 completion:(void (^)(NSArray *))arg2;
 - (void)resolveRecipientsForSendMessage:(INSendMessageIntent *)arg1 withCompletion:(void (^)(NSArray *))arg2;
 - (void)confirmSendMessage:(INSendMessageIntent *)arg1 completion:(void (^)(INSendMessageIntentResponse *))arg2;
 @end

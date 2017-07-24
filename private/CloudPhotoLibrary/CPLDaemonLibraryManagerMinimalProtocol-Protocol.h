@@ -10,6 +10,7 @@
 - (void)unblockEngineElementOnce:(NSString *)arg1;
 - (void)unblockEngineElement:(NSString *)arg1;
 - (void)blockEngineElement:(NSString *)arg1;
+- (void)reportSetting:(NSString *)arg1 hasBeenSetToValue:(NSString *)arg2;
 - (void)addInfoToLog:(NSString *)arg1;
 - (void)compactFileCacheWithCompletionHandler:(void (^)(NSError *))arg1;
 - (void)getResourcesForItemWithIdentifier:(NSString *)arg1 completionHandler:(void (^)(NSError *, NSArray *))arg2;

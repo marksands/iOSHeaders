@@ -25,6 +25,8 @@ __attribute__((visibility("hidden")))
 @property long long trackedFrameNumber; // @synthesize trackedFrameNumber=_trackedFrameNumber;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (_Bool)_updateTrackerWithModifiedBBoxForImageBuffer:(id)arg1 error:(id *)arg2;
+- (_Bool)_visionBBoxToTrackerBBox:(id)arg1 trackedObjects:(vector_41a7cb1a *)arg2 imageSize:(struct CGSize)arg3 results:(id)arg4 error:(id *)arg5;
 - (id)_postProcessTrackingResults:(id)arg1 trackerResults:(id)arg2 error:(id *)arg3;
 - (id)_parseInputObservations:(id)arg1 imageBuffer:(id)arg2 error:(id *)arg3;
 @property(readonly) _Bool isTracking;

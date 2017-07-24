@@ -19,7 +19,7 @@
 @property(retain, nonatomic) AXMScreenGrabber *screenGrabber; // @synthesize screenGrabber=_screenGrabber;
 - (void).cxx_destruct;
 - (void)triggerWithScreenCaptureRegion:(struct CGRect)arg1 interfaceOrientation:(long long)arg2 options:(id)arg3 cacheKey:(id)arg4 resultHandler:(CDUnknownBlockType)arg5;
-- (void)create:(id)arg1;
+- (void)produceImage:(id)arg1;
 - (void)nodeInitialize;
 
 @end

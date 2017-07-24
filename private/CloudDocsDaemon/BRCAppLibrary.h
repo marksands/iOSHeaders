@@ -121,6 +121,7 @@ __attribute__((visibility("hidden")))
 - (long long)throttleHashWithItemID:(id)arg1;
 - (void)didCreateDataScopedItem;
 - (void)didCreateDocumentScopedItem;
+- (void)didRemoveDocumentsFolder;
 - (void)didFindLostItem:(id)arg1 oldAppLibrary:(id)arg2;
 - (void)updateFromFSAtPath:(id)arg1;
 - (void)fsrootDidMoveToPath:(id)arg1;
@@ -135,7 +136,7 @@ __attribute__((visibility("hidden")))
 - (id)coordinatorForItem:(id)arg1 forRead:(_Bool)arg2;
 - (void)cancelWriteCoordinatorForItem:(id)arg1;
 - (struct PQLResultSet *)enumerateUserVisibleChildrenDirectoriesOfItemGlobalID:(id)arg1 db:(id)arg2;
-- (struct PQLResultSet *)enumerateUserVisibleChildrenOfItemGlobalID:(id)arg1 offset:(unsigned long long)arg2 limit:(unsigned long long)arg3 db:(id)arg4;
+- (struct PQLResultSet *)enumerateUserVisibleChildrenOfItemGlobalID:(id)arg1 sortOrder:(unsigned char)arg2 offset:(unsigned long long)arg3 limit:(unsigned long long)arg4 db:(id)arg5;
 - (struct PQLResultSet *)itemsEnumeratorChildOf:(id)arg1 rankMin:(unsigned long long)arg2 rankMax:(unsigned long long)arg3 count:(unsigned long long)arg4 db:(id)arg5;
 - (struct PQLResultSet *)itemsEnumeratorWithRankMin:(unsigned long long)arg1 rankMax:(unsigned long long)arg2 namePrefix:(id)arg3 shouldIncludeFolders:(_Bool)arg4 shouldIncludeOnlyFolders:(_Bool)arg5 shouldIncludeDocumentsScope:(_Bool)arg6 shouldIncludeDataScope:(_Bool)arg7 shouldIncludeExternalScope:(_Bool)arg8 shouldIncludeTrashScope:(_Bool)arg9 count:(unsigned long long)arg10 db:(id)arg11;
 - (id)descriptionWithContext:(id)arg1;

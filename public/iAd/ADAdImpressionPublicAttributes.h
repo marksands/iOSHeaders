@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <iAd/NSSecureCoding-Protocol.h>
 
@@ -32,6 +32,8 @@
     NSURL *_contentURL;
     NSString *_contentString;
     long long _maximumPretapRequestCount;
+    NSArray *_matchClauses;
+    NSArray *_excludeTags;
     long long _adPrivacyMarkPosition;
     struct CGSize _portraitSize;
     struct CGSize _landscapeSize;
@@ -40,6 +42,8 @@
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) long long adPrivacyMarkPosition; // @synthesize adPrivacyMarkPosition=_adPrivacyMarkPosition;
+@property(retain, nonatomic) NSArray *excludeTags; // @synthesize excludeTags=_excludeTags;
+@property(retain, nonatomic) NSArray *matchClauses; // @synthesize matchClauses=_matchClauses;
 @property(nonatomic) long long maximumPretapRequestCount; // @synthesize maximumPretapRequestCount=_maximumPretapRequestCount;
 @property(nonatomic) _Bool requiresMRAID; // @synthesize requiresMRAID=_requiresMRAID;
 @property(nonatomic) struct CGSize containerSize; // @synthesize containerSize=_containerSize;

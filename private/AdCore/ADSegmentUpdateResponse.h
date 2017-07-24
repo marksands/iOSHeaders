@@ -12,10 +12,18 @@
 
 @interface ADSegmentUpdateResponse : PBCodable <NSCopying>
 {
+    double _maxSegmentUpdateIntervalInSeconds;
+    double _segmentRefreshIntervalInSeconds;
     NSString *_idDebug;
+    struct {
+        unsigned int maxSegmentUpdateIntervalInSeconds:1;
+        unsigned int segmentRefreshIntervalInSeconds:1;
+    } _has;
 }
 
 + (id)options;
+@property(nonatomic) double maxSegmentUpdateIntervalInSeconds; // @synthesize maxSegmentUpdateIntervalInSeconds=_maxSegmentUpdateIntervalInSeconds;
+@property(nonatomic) double segmentRefreshIntervalInSeconds; // @synthesize segmentRefreshIntervalInSeconds=_segmentRefreshIntervalInSeconds;
 @property(retain, nonatomic) NSString *idDebug; // @synthesize idDebug=_idDebug;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
@@ -27,6 +35,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasMaxSegmentUpdateIntervalInSeconds;
+@property(nonatomic) _Bool hasSegmentRefreshIntervalInSeconds;
 @property(readonly, nonatomic) _Bool hasIdDebug;
 
 @end

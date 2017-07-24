@@ -44,8 +44,10 @@
 - (void)handleNewChannelFlowMessage:(id)arg1 forConnection:(id)arg2;
 - (void)handleChannelMessageFlowFinish:(id)arg1 forConnection:(id)arg2;
 - (void)handleChannelMessageMoreData:(id)arg1 forConnection:(id)arg2;
-- (void)getSourceAppInfoForFlow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)reportFlow:(id)arg1 action:(int)arg2;
+- (void)getSourceAppInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)reportFlow:(id)arg1 forVerdict:(id)arg2;
+- (void)reportFlow:(id)arg1 forVerdict:(id)arg2 absoluteVerdict:(id)arg3;
+- (void)report:(id)arg1;
 - (void)fetchCurrentRulesForFlow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)trimURLFromFlow:(id)arg1;
 - (void)sendSocketContentFilterRequest;

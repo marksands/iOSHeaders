@@ -11,17 +11,17 @@
 __attribute__((visibility("hidden")))
 @interface TNFormulaIDWrapper : NSObject <NSCopying>
 {
-    CDStruct_a91f2c80 mID;
+    CDStruct_ed6d627d mID;
 }
 
-@property(readonly) CDStruct_a91f2c80 formulaID; // @synthesize formulaID=mID;
+@property(readonly) CDStruct_ed6d627d formulaID; // @synthesize formulaID=mID;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isEqualToTNFormulaIDWrapper:(id)arg1;
-- (CDStruct_a91f2c80)chartFormulaID;
+- (CDStruct_ed6d627d)chartFormulaID;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithTNChartFormulaID:(CDStruct_a91f2c80)arg1;
+- (id)initWithTNChartFormulaID:(CDStruct_ed6d627d)arg1;
 
 @end
 

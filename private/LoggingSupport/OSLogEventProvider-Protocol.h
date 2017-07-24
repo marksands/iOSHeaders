@@ -16,10 +16,15 @@
 @property(readonly, nonatomic) NSString *category;
 @property(readonly, nonatomic) NSString *subsystem;
 @property(readonly, nonatomic) unsigned long long senderImageOffset;
+@property(readonly, nonatomic) NSString *sender;
 @property(readonly, nonatomic) NSString *senderImagePath;
+@property(readonly, nonatomic) const char *senderImageUUIDBytes;
 @property(readonly, nonatomic) NSUUID *senderImageUUID;
+@property(readonly, nonatomic) NSString *process;
 @property(readonly, nonatomic) NSString *processImagePath;
+@property(readonly, nonatomic) const char *processImageUUIDBytes;
 @property(readonly, nonatomic) NSUUID *processImageUUID;
+@property(readonly, nonatomic) unsigned long long machContinuousTimestamp;
 @property(readonly, nonatomic) unsigned long long continuousNanosecondsSinceBoot;
 @property(readonly, nonatomic) NSUUID *bootUUID;
 @property(readonly, nonatomic) unsigned long long transitionActivityIdentifier;
@@ -32,6 +37,7 @@
 @property(readonly, nonatomic) NSDate *date;
 @property(readonly, nonatomic) unsigned long long threadIdentifier;
 @property(readonly, nonatomic) unsigned long long traceIdentifier;
+@property(readonly, nonatomic) unsigned long long timeToLive;
 @property(readonly, nonatomic) unsigned long long size;
 @property(readonly, nonatomic) unsigned long long logType;
 @property(readonly, nonatomic) unsigned long long type;

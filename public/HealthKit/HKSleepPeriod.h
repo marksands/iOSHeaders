@@ -6,11 +6,10 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSDate, NSDateInterval;
+@class NSArray, NSDate, NSDateInterval, NSString;
 
 @interface HKSleepPeriod : NSObject
 {
-    _Bool _inBed;
     _Bool _startDateConformsToIntendedBedtime;
     _Bool _endDateConformsToIntendedBedtime;
     _Bool _consistent;
@@ -21,7 +20,6 @@
     double _duration;
     double _inBedDuration;
     double _asleepDuration;
-    double _awakeDuration;
     NSDateInterval *_intendedBedtime;
     long long _intendedBedtimeType;
     double _startDateOffsetFromIntendedBedtime;
@@ -34,8 +32,10 @@
     double _efficiency;
     long long _numberOfInterruptions;
     NSArray *_segments;
+    NSString *_timeZoneName;
 }
 
+@property(readonly, copy, nonatomic) NSString *timeZoneName; // @synthesize timeZoneName=_timeZoneName;
 @property(readonly, copy, nonatomic) NSArray *segments; // @synthesize segments=_segments;
 @property(readonly, nonatomic, getter=isConsistent) _Bool consistent; // @synthesize consistent=_consistent;
 @property(readonly, nonatomic) long long numberOfInterruptions; // @synthesize numberOfInterruptions=_numberOfInterruptions;
@@ -51,10 +51,8 @@
 @property(readonly, nonatomic) _Bool startDateConformsToIntendedBedtime; // @synthesize startDateConformsToIntendedBedtime=_startDateConformsToIntendedBedtime;
 @property(readonly, nonatomic) long long intendedBedtimeType; // @synthesize intendedBedtimeType=_intendedBedtimeType;
 @property(readonly, nonatomic) NSDateInterval *intendedBedtime; // @synthesize intendedBedtime=_intendedBedtime;
-@property(readonly, nonatomic) double awakeDuration; // @synthesize awakeDuration=_awakeDuration;
 @property(readonly, nonatomic) double asleepDuration; // @synthesize asleepDuration=_asleepDuration;
 @property(readonly, nonatomic) double inBedDuration; // @synthesize inBedDuration=_inBedDuration;
-@property(readonly, nonatomic, getter=isInBed) _Bool inBed; // @synthesize inBed=_inBed;
 @property(readonly, nonatomic) double duration; // @synthesize duration=_duration;
 @property(readonly, nonatomic) long long type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSDateInterval *dateInterval; // @synthesize dateInterval=_dateInterval;
@@ -62,9 +60,8 @@
 @property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 - (void).cxx_destruct;
 - (id)_firstBedtimeAlarmWithCalendar:(id)arg1;
+- (void)enumerateDateIntervalsForCategoryValue:(long long)arg1 intersectedWithDateInterval:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (id)segmentDateIntervalsForCategoryValue:(long long)arg1 intersectedWithDateInterval:(id)arg2;
-- (_Bool)_isConsistentWithSleepPeriod:(id)arg1;
-- (_Bool)_isConsistentWithStartDate:(id)arg1 endDate:(id)arg2;
 - (void)_setIntendedBedtime:(id)arg1 type:(long long)arg2;
 - (void)_setType:(long long)arg1;
 - (id)segmentsForCategory:(long long)arg1;

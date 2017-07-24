@@ -12,9 +12,8 @@
 
 @interface PARRequest : NSObject <NSSecureCoding>
 {
-    _Bool _verboseReply;
     unsigned long long _queryId;
-    unsigned long long _clientQueryId;
+    _Bool _verboseReply;
     double _scale;
     NSString *_keyboardLocale;
     NSString *_keyboardInputMode;
@@ -45,10 +44,11 @@
 @property(copy, nonatomic) NSString *keyboardInputMode; // @synthesize keyboardInputMode=_keyboardInputMode;
 @property(copy, nonatomic) NSString *keyboardLocale; // @synthesize keyboardLocale=_keyboardLocale;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
-@property(nonatomic) unsigned long long clientQueryId; // @synthesize clientQueryId=_clientQueryId;
-@property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
+@property(readonly, nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
 - (void).cxx_destruct;
 - (Class)responseClass;
+- (void)setQueryId:(unsigned long long)arg1;
+@property(readonly, nonatomic) unsigned long long clientQueryId;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 

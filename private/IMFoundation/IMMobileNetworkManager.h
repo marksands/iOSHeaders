@@ -14,19 +14,15 @@
     _Bool _shouldBringUpDataContext;
     _Bool _dataContextActive;
     NSRecursiveLock *_lock;
-    NSMutableSet *_disableFastDormancyTokens;
-    NSMutableSet *_wiFiAutoAssociationTokens;
     NSMutableSet *_cellAutoAssociationTokens;
-    void *__suspendDormancyAssertion;
+    NSMutableSet *_wiFiAutoAssociationTokens;
 }
 
-@property(nonatomic) void *_suspendDormancyAssertion; // @synthesize _suspendDormancyAssertion=__suspendDormancyAssertion;
+@property(retain, nonatomic) NSMutableSet *wiFiAutoAssociationTokens; // @synthesize wiFiAutoAssociationTokens=_wiFiAutoAssociationTokens;
 @property(nonatomic) _Bool dataContextActive; // @synthesize dataContextActive=_dataContextActive;
 @property(nonatomic) _Bool shouldBringUpDataContext; // @synthesize shouldBringUpDataContext=_shouldBringUpDataContext;
 @property(nonatomic) _Bool registered; // @synthesize registered=_registered;
 @property(retain, nonatomic) NSMutableSet *cellularAutoAssociationTokens; // @synthesize cellularAutoAssociationTokens=_cellAutoAssociationTokens;
-@property(retain, nonatomic) NSMutableSet *wiFiAutoAssociationTokens; // @synthesize wiFiAutoAssociationTokens=_wiFiAutoAssociationTokens;
-@property(retain, nonatomic) NSMutableSet *disableFastDormancyTokens; // @synthesize disableFastDormancyTokens=_disableFastDormancyTokens;
 @property(retain, nonatomic) NSRecursiveLock *lock; // @synthesize lock=_lock;
 - (void)setDataConnectionActive:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool isDataConnectionActive;
@@ -64,9 +60,6 @@
 - (void)removeFastDormancyDisableToken:(id)arg1;
 - (void)addFastDormancyDisableToken:(id)arg1;
 @property(readonly, nonatomic) _Bool disableFastDormancy;
-- (void)_adjustFastDormancyTokens;
-- (void)__adjustFastDormancyTokens;
-- (void)_setFastDormancySuspended:(_Bool)arg1;
 - (void)_lockedAdjustCellularAutoAssociation;
 - (void)_adjustCellularAutoAssociation;
 @property(readonly, nonatomic) _Bool isAirplaneModeEnabled;

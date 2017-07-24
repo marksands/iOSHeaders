@@ -21,7 +21,9 @@
     double _appInstallClickValue;
     double _appInstallImpressionValue;
     double _appUsageOccurrenceDecayMultiplier;
+    double _appUsagePriorFactorExponent;
     double _appUsageSignalWeight;
+    double _appUsageTagFavorabilityExponent;
     double _appUsageTimeDecayMultiplier;
     double _articleEntityScoreWeightRatioIPad;
     double _articleEntityScoreWeightRatioIPhone;
@@ -39,6 +41,8 @@
     double _autoFavoriteMinRelativeRate;
     double _autoFavoriteMinScoreExtAppUsage;
     double _autoFavoriteMinScoreSafari;
+    double _autoFavoritePriorFactorExponent;
+    double _autoFavoriteTagFavorabilityExponent;
     double _autoGroupableFactor;
     double _autoUnfavoriteFactor;
     double _autofavoritedVoteCoefficient;
@@ -46,6 +50,7 @@
     double _baselineArticleScore;
     double _baselineImpressionPrior;
     double _baselineRatePrior;
+    double _channelTopicDiversificationPenalty;
     double _cohortMembershipBaselineCtrWeight;
     double _cohortMembershipCtrCeiling;
     double _cohortMembershipCurvature;
@@ -120,6 +125,7 @@
     double _hourlyFlowRateSubscriptionCountBuffer;
     double _importanceScalar;
     double _indexImpressionBiasCorrectionFactor;
+    double _internalUsageSignalWeight;
     double _likeClickValue;
     double _likeClickValueBaseline;
     double _likeImpressionValue;
@@ -130,6 +136,11 @@
     long long _maxArticleCombosIPhone;
     long long _maxClusterSize;
     long long _maxSuggestionsCount;
+    double _metaGroupingHighestScoringRelativeScoreMultiplier;
+    double _metaGroupingRelatednessKWeight;
+    double _metaGroupingRelatednessThreshold;
+    double _metaGroupingSubscribedTopicMultiplier;
+    double _metaGroupingTopicScoreWeight;
     long long _minClusterSize;
     double _moveAboutnessNoiseStdIPad;
     double _moveAboutnessNoiseStdIPhone;
@@ -156,6 +167,7 @@
     double _newsTodayWidgetVideoPlaybackBaselineImpressionValue;
     double _newsTodayWidgetVideoPlaybackClickValue;
     double _newsTodayWidgetVideoPlaybackImpressionValue;
+    long long _numEventsToDisableDefaultTopics;
     double _optionalTagSpecificityScore;
     double _overflownOrphansFilterCoeff;
     double _personalizationCoefficient;
@@ -163,8 +175,10 @@
     double _portraitGlobalThreshold;
     double _portraitImpressionIntercept;
     double _portraitImpressionSlope;
+    double _portraitPriorFactorExponent;
     double _portraitRateIntercept;
     double _portraitRateSlope;
+    double _portraitTagFavorabilityExponent;
     double _portraitUsageSignalWeight;
     double _premiumSubscriptionActivationClickValue;
     double _premiumSubscriptionActivationClickValueBaseline;
@@ -181,6 +195,7 @@
     double _publisherDiversityMinSubscriptions;
     long long _publisherTopicIdEventCountMinimum;
     double _realTimeUserFeedbackCoefficient;
+    double _realTimeUserFeedbackPublishDateHalfLifeCoefficient;
     double _recommendationPresentationExploreClickValue;
     double _recommendationPresentationExploreClickValueBaseline;
     double _recommendationPresentationExploreImpressionValue;
@@ -195,7 +210,9 @@
     double _safariHistoryClickValue;
     double _safariHistoryImpressionValue;
     double _safariOccurrenceDecayMultiplier;
+    double _safariPriorFactorExponent;
     double _safariSignalWeight;
+    double _safariTagFavorabilityExponent;
     double _safariTimeDecayMultiplier;
     double _saturatedMutedCountFactor;
     double _saturatedSubscriptionCountFactor;
@@ -248,6 +265,7 @@
     double _tappedImpressionValue;
     double _tappedImpressionValueBaseline;
     long long _treatmentId;
+    double _uGroupMinimumSubscribedChannelSourceFeedArticleRatio;
     double _unmuteClickValue;
     double _unmuteClickValueBaseline;
     double _unmuteImpressionValue;
@@ -328,10 +346,12 @@
     _Bool _deleteOrphansFromOverflow;
     _Bool _enableOptimizedLayoutIPad;
     _Bool _enableOptimizedLayoutIPhone;
+    _Bool _enablePreTigrisArticleScoring;
     _Bool _globalScoreRankingEnabled;
     _Bool _groupingBoolParam1;
     _Bool _groupingBoolParam2;
     _Bool _hardAgeBeforePublisherDiversification;
+    _Bool _onlyConsiderBestSourceFeedsInForYouGroup;
     _Bool _replaceAboutness;
     struct {
         unsigned int appInFocusBaselineClickValue:1;
@@ -343,7 +363,9 @@
         unsigned int appInstallClickValue:1;
         unsigned int appInstallImpressionValue:1;
         unsigned int appUsageOccurrenceDecayMultiplier:1;
+        unsigned int appUsagePriorFactorExponent:1;
         unsigned int appUsageSignalWeight:1;
+        unsigned int appUsageTagFavorabilityExponent:1;
         unsigned int appUsageTimeDecayMultiplier:1;
         unsigned int articleEntityScoreWeightRatioIPad:1;
         unsigned int articleEntityScoreWeightRatioIPhone:1;
@@ -361,6 +383,8 @@
         unsigned int autoFavoriteMinRelativeRate:1;
         unsigned int autoFavoriteMinScoreExtAppUsage:1;
         unsigned int autoFavoriteMinScoreSafari:1;
+        unsigned int autoFavoritePriorFactorExponent:1;
+        unsigned int autoFavoriteTagFavorabilityExponent:1;
         unsigned int autoGroupableFactor:1;
         unsigned int autoUnfavoriteFactor:1;
         unsigned int autofavoritedVoteCoefficient:1;
@@ -368,6 +392,7 @@
         unsigned int baselineArticleScore:1;
         unsigned int baselineImpressionPrior:1;
         unsigned int baselineRatePrior:1;
+        unsigned int channelTopicDiversificationPenalty:1;
         unsigned int cohortMembershipBaselineCtrWeight:1;
         unsigned int cohortMembershipCtrCeiling:1;
         unsigned int cohortMembershipCurvature:1;
@@ -442,6 +467,7 @@
         unsigned int hourlyFlowRateSubscriptionCountBuffer:1;
         unsigned int importanceScalar:1;
         unsigned int indexImpressionBiasCorrectionFactor:1;
+        unsigned int internalUsageSignalWeight:1;
         unsigned int likeClickValue:1;
         unsigned int likeClickValueBaseline:1;
         unsigned int likeImpressionValue:1;
@@ -452,6 +478,11 @@
         unsigned int maxArticleCombosIPhone:1;
         unsigned int maxClusterSize:1;
         unsigned int maxSuggestionsCount:1;
+        unsigned int metaGroupingHighestScoringRelativeScoreMultiplier:1;
+        unsigned int metaGroupingRelatednessKWeight:1;
+        unsigned int metaGroupingRelatednessThreshold:1;
+        unsigned int metaGroupingSubscribedTopicMultiplier:1;
+        unsigned int metaGroupingTopicScoreWeight:1;
         unsigned int minClusterSize:1;
         unsigned int moveAboutnessNoiseStdIPad:1;
         unsigned int moveAboutnessNoiseStdIPhone:1;
@@ -478,6 +509,7 @@
         unsigned int newsTodayWidgetVideoPlaybackBaselineImpressionValue:1;
         unsigned int newsTodayWidgetVideoPlaybackClickValue:1;
         unsigned int newsTodayWidgetVideoPlaybackImpressionValue:1;
+        unsigned int numEventsToDisableDefaultTopics:1;
         unsigned int optionalTagSpecificityScore:1;
         unsigned int overflownOrphansFilterCoeff:1;
         unsigned int personalizationCoefficient:1;
@@ -485,8 +517,10 @@
         unsigned int portraitGlobalThreshold:1;
         unsigned int portraitImpressionIntercept:1;
         unsigned int portraitImpressionSlope:1;
+        unsigned int portraitPriorFactorExponent:1;
         unsigned int portraitRateIntercept:1;
         unsigned int portraitRateSlope:1;
+        unsigned int portraitTagFavorabilityExponent:1;
         unsigned int portraitUsageSignalWeight:1;
         unsigned int premiumSubscriptionActivationClickValue:1;
         unsigned int premiumSubscriptionActivationClickValueBaseline:1;
@@ -503,6 +537,7 @@
         unsigned int publisherDiversityMinSubscriptions:1;
         unsigned int publisherTopicIdEventCountMinimum:1;
         unsigned int realTimeUserFeedbackCoefficient:1;
+        unsigned int realTimeUserFeedbackPublishDateHalfLifeCoefficient:1;
         unsigned int recommendationPresentationExploreClickValue:1;
         unsigned int recommendationPresentationExploreClickValueBaseline:1;
         unsigned int recommendationPresentationExploreImpressionValue:1;
@@ -517,7 +552,9 @@
         unsigned int safariHistoryClickValue:1;
         unsigned int safariHistoryImpressionValue:1;
         unsigned int safariOccurrenceDecayMultiplier:1;
+        unsigned int safariPriorFactorExponent:1;
         unsigned int safariSignalWeight:1;
+        unsigned int safariTagFavorabilityExponent:1;
         unsigned int safariTimeDecayMultiplier:1;
         unsigned int saturatedMutedCountFactor:1;
         unsigned int saturatedSubscriptionCountFactor:1;
@@ -570,6 +607,7 @@
         unsigned int tappedImpressionValue:1;
         unsigned int tappedImpressionValueBaseline:1;
         unsigned int treatmentId:1;
+        unsigned int uGroupMinimumSubscribedChannelSourceFeedArticleRatio:1;
         unsigned int unmuteClickValue:1;
         unsigned int unmuteClickValueBaseline:1;
         unsigned int unmuteImpressionValue:1;
@@ -649,15 +687,37 @@
         unsigned int deleteOrphansFromOverflow:1;
         unsigned int enableOptimizedLayoutIPad:1;
         unsigned int enableOptimizedLayoutIPhone:1;
+        unsigned int enablePreTigrisArticleScoring:1;
         unsigned int globalScoreRankingEnabled:1;
         unsigned int groupingBoolParam1:1;
         unsigned int groupingBoolParam2:1;
         unsigned int hardAgeBeforePublisherDiversification:1;
+        unsigned int onlyConsiderBestSourceFeedsInForYouGroup:1;
         unsigned int replaceAboutness:1;
     } _has;
 }
 
 + (Class)portraitTagThresholdsType;
+@property(nonatomic) double metaGroupingSubscribedTopicMultiplier; // @synthesize metaGroupingSubscribedTopicMultiplier=_metaGroupingSubscribedTopicMultiplier;
+@property(nonatomic) double metaGroupingHighestScoringRelativeScoreMultiplier; // @synthesize metaGroupingHighestScoringRelativeScoreMultiplier=_metaGroupingHighestScoringRelativeScoreMultiplier;
+@property(nonatomic) double metaGroupingTopicScoreWeight; // @synthesize metaGroupingTopicScoreWeight=_metaGroupingTopicScoreWeight;
+@property(nonatomic) double metaGroupingRelatednessKWeight; // @synthesize metaGroupingRelatednessKWeight=_metaGroupingRelatednessKWeight;
+@property(nonatomic) double metaGroupingRelatednessThreshold; // @synthesize metaGroupingRelatednessThreshold=_metaGroupingRelatednessThreshold;
+@property(nonatomic) long long numEventsToDisableDefaultTopics; // @synthesize numEventsToDisableDefaultTopics=_numEventsToDisableDefaultTopics;
+@property(nonatomic) _Bool enablePreTigrisArticleScoring; // @synthesize enablePreTigrisArticleScoring=_enablePreTigrisArticleScoring;
+@property(nonatomic) double internalUsageSignalWeight; // @synthesize internalUsageSignalWeight=_internalUsageSignalWeight;
+@property(nonatomic) double portraitPriorFactorExponent; // @synthesize portraitPriorFactorExponent=_portraitPriorFactorExponent;
+@property(nonatomic) double portraitTagFavorabilityExponent; // @synthesize portraitTagFavorabilityExponent=_portraitTagFavorabilityExponent;
+@property(nonatomic) double appUsagePriorFactorExponent; // @synthesize appUsagePriorFactorExponent=_appUsagePriorFactorExponent;
+@property(nonatomic) double appUsageTagFavorabilityExponent; // @synthesize appUsageTagFavorabilityExponent=_appUsageTagFavorabilityExponent;
+@property(nonatomic) double safariPriorFactorExponent; // @synthesize safariPriorFactorExponent=_safariPriorFactorExponent;
+@property(nonatomic) double safariTagFavorabilityExponent; // @synthesize safariTagFavorabilityExponent=_safariTagFavorabilityExponent;
+@property(nonatomic) _Bool onlyConsiderBestSourceFeedsInForYouGroup; // @synthesize onlyConsiderBestSourceFeedsInForYouGroup=_onlyConsiderBestSourceFeedsInForYouGroup;
+@property(nonatomic) double uGroupMinimumSubscribedChannelSourceFeedArticleRatio; // @synthesize uGroupMinimumSubscribedChannelSourceFeedArticleRatio=_uGroupMinimumSubscribedChannelSourceFeedArticleRatio;
+@property(nonatomic) double autoFavoritePriorFactorExponent; // @synthesize autoFavoritePriorFactorExponent=_autoFavoritePriorFactorExponent;
+@property(nonatomic) double autoFavoriteTagFavorabilityExponent; // @synthesize autoFavoriteTagFavorabilityExponent=_autoFavoriteTagFavorabilityExponent;
+@property(nonatomic) double realTimeUserFeedbackPublishDateHalfLifeCoefficient; // @synthesize realTimeUserFeedbackPublishDateHalfLifeCoefficient=_realTimeUserFeedbackPublishDateHalfLifeCoefficient;
+@property(nonatomic) double channelTopicDiversificationPenalty; // @synthesize channelTopicDiversificationPenalty=_channelTopicDiversificationPenalty;
 @property(nonatomic) double safariEventBlackoutSeconds; // @synthesize safariEventBlackoutSeconds=_safariEventBlackoutSeconds;
 @property(nonatomic) double cohortMembershipCtrCeiling; // @synthesize cohortMembershipCtrCeiling=_cohortMembershipCtrCeiling;
 @property(nonatomic) double cohortMembershipCurvature; // @synthesize cohortMembershipCurvature=_cohortMembershipCurvature;
@@ -982,6 +1042,26 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasMetaGroupingSubscribedTopicMultiplier;
+@property(nonatomic) _Bool hasMetaGroupingHighestScoringRelativeScoreMultiplier;
+@property(nonatomic) _Bool hasMetaGroupingTopicScoreWeight;
+@property(nonatomic) _Bool hasMetaGroupingRelatednessKWeight;
+@property(nonatomic) _Bool hasMetaGroupingRelatednessThreshold;
+@property(nonatomic) _Bool hasNumEventsToDisableDefaultTopics;
+@property(nonatomic) _Bool hasEnablePreTigrisArticleScoring;
+@property(nonatomic) _Bool hasInternalUsageSignalWeight;
+@property(nonatomic) _Bool hasPortraitPriorFactorExponent;
+@property(nonatomic) _Bool hasPortraitTagFavorabilityExponent;
+@property(nonatomic) _Bool hasAppUsagePriorFactorExponent;
+@property(nonatomic) _Bool hasAppUsageTagFavorabilityExponent;
+@property(nonatomic) _Bool hasSafariPriorFactorExponent;
+@property(nonatomic) _Bool hasSafariTagFavorabilityExponent;
+@property(nonatomic) _Bool hasOnlyConsiderBestSourceFeedsInForYouGroup;
+@property(nonatomic) _Bool hasUGroupMinimumSubscribedChannelSourceFeedArticleRatio;
+@property(nonatomic) _Bool hasAutoFavoritePriorFactorExponent;
+@property(nonatomic) _Bool hasAutoFavoriteTagFavorabilityExponent;
+@property(nonatomic) _Bool hasRealTimeUserFeedbackPublishDateHalfLifeCoefficient;
+@property(nonatomic) _Bool hasChannelTopicDiversificationPenalty;
 @property(nonatomic) _Bool hasSafariEventBlackoutSeconds;
 @property(nonatomic) _Bool hasCohortMembershipCtrCeiling;
 @property(nonatomic) _Bool hasCohortMembershipCurvature;

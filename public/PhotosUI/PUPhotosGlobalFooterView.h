@@ -28,10 +28,7 @@
         _Bool layout;
     } _needToUpdate;
     _Bool _isPerformingChanges;
-    _Bool _highlighted;
     _Bool _paused;
-    _Bool _centerSubviewsVertically;
-    _Bool _onlyGrowsTaller;
     NSString *_title;
     NSString *_subtitle1;
     NSString *_subtitle2;
@@ -45,8 +42,6 @@
 }
 
 @property(nonatomic) __weak id <PUPhotosGlobalFooterViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) _Bool onlyGrowsTaller; // @synthesize onlyGrowsTaller=_onlyGrowsTaller;
-@property(nonatomic) _Bool centerSubviewsVertically; // @synthesize centerSubviewsVertically=_centerSubviewsVertically;
 @property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
 @property(copy, nonatomic) CDUnknownBlockType action; // @synthesize action=_action;
 @property(copy, nonatomic) NSString *actionConfirmationAlertButtonTitle; // @synthesize actionConfirmationAlertButtonTitle=_actionConfirmationAlertButtonTitle;
@@ -54,14 +49,13 @@
 @property(copy, nonatomic) NSString *actionTitle; // @synthesize actionTitle=_actionTitle;
 @property(nonatomic) double progress; // @synthesize progress=_progress;
 @property(nonatomic, getter=isPaused) _Bool paused; // @synthesize paused=_paused;
-@property(nonatomic, getter=isHighlighted) _Bool highlighted; // @synthesize highlighted=_highlighted;
 @property(copy, nonatomic) NSString *subtitle2; // @synthesize subtitle2=_subtitle2;
 @property(copy, nonatomic) NSString *subtitle1; // @synthesize subtitle1=_subtitle1;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
 - (void)textViewDidChangeSelection:(id)arg1;
 - (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3;
-- (id)_attributedStringForInputString:(id)arg1 actionTitle:(id)arg2 attributes:(id)arg3;
+- (id)_attributedStringForInputString:(id)arg1 actionTitle:(id)arg2 textAttributes:(id)arg3 linkTextAttributes:(id)arg4;
 - (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

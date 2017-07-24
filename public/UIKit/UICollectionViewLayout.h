@@ -54,7 +54,7 @@
 - (long long)developmentLayoutDirection;
 - (id)_layoutAttributesForElementsInProjectedRect:(struct CGRect)arg1 withProjectionVector:(struct CGVector)arg2 projectionDistance:(double)arg3;
 - (struct CGPoint)_contentOffsetForScrollingToSection:(long long)arg1;
-@property(readonly, nonatomic, getter=_fastScrollingIndexBarInsets) struct UIEdgeInsets fastScrollingIndexBarInsets;
+@property(readonly, nonatomic, getter=_focusFastScrollingIndexBarInsets) struct UIEdgeInsets focusFastScrollingIndexBarInsets;
 - (void)_setWantsRightToLeftHorizontalMirroringIfNeeded:(_Bool)arg1;
 - (_Bool)_wantsRightToLeftHorizontalMirroringIfNeeded;
 - (struct UIEdgeInsets)_preferredLayoutMargins;

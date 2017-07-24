@@ -18,13 +18,14 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)domainForURL:(id)arg1;
 @property(retain, nonatomic) NSDictionary *urlMappingByDomain; // @synthesize urlMappingByDomain=_urlMappingByDomain;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)popularityForURL:(id)arg1;
-- (id)tagScoresForURL:(id)arg1 missedMappingBlock:(CDUnknownBlockType)arg2;
+- (id)tagScoresForURL:(id)arg1;
 @property(readonly, nonatomic) unsigned long long count;
 - (id)init;
 - (id)initWithPBURLMapping:(id)arg1;

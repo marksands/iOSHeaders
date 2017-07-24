@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSHashTable, NSMapTable, NSMutableDictionary, NSMutableSet, NSString, VMUClassInfoMap, VMUNonOverlappingRangeArray;
+@class NSArray, NSHashTable, NSMapTable, NSMutableDictionary, NSMutableSet, NSString, VMUClassInfoMap, VMUNonOverlappingRangeArray, VMUTaskMemoryScanner;
 
 @interface VMUObjectIdentifier : NSObject
 {
@@ -14,6 +14,7 @@
     struct _CSTypeRef _symbolicator;
     _Bool _targetUsesObjc2runtime;
     CDUnknownBlockType _memoryReader;
+    VMUTaskMemoryScanner *_scanner;
     struct libSwiftRemoteMirrorWrapper *_swiftMirror;
     NSString *_libSwiftRemoteMirrorPath;
     void *_libSwiftRemoteMirrorHandle;
@@ -43,10 +44,13 @@
 @property(readonly, nonatomic) CDUnknownBlockType memoryReader; // @synthesize memoryReader=_memoryReader;
 - (void).cxx_destruct;
 - (id)initWithTask:(unsigned int)arg1;
-- (int)_populateSwiftReflectionInfo:(struct libSwiftRemoteMirrorWrapper *)arg1 withTask:(unsigned int)arg2;
+- (void)loadSwiftReflectionLibrary;
+- (int)_populateSwiftReflectionInfo:(struct libSwiftRemoteMirrorWrapper *)arg1;
 - (void *)_dlopenLibSwiftRemoteMirrorWithSymbolicator:(struct _CSTypeRef)arg1;
 - (void *)_dlopenLibSwiftRemoteMirrorNearLibSwiftCoreWithSymbolicator:(struct _CSTypeRef)arg1 avoidSystem:(_Bool)arg2;
 - (void *)_dlopenLibSwiftRemoteMirrorFromDir:(id)arg1;
+- (unsigned short)_targetProcessSwiftReflectionVersion;
+- (id)_scanner;
 - (struct _CSTypeRef)_symbolicator;
 - (id)labelForMemory:(void *)arg1 length:(unsigned long long)arg2 remoteAddress:(unsigned long long)arg3;
 - (id)labelForMemory:(void *)arg1 length:(unsigned long long)arg2;
@@ -103,6 +107,7 @@
 - (unsigned long long)ObjCclassCount;
 - (unsigned long long)CFTypeCount;
 - (void)dealloc;
+- (id)initWithTask:(unsigned int)arg1 symbolicator:(struct _CSTypeRef)arg2 scanner:(id)arg3;
 - (id)initWithTask:(unsigned int)arg1 symbolicator:(struct _CSTypeRef)arg2;
 
 @end

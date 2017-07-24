@@ -4,22 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <NewsFeedLayout/NFLAbstractCellProperties.h>
+#import <NewsFeedLayout/NFLAbstractHeadlineProperties.h>
 
-@interface NFLPremiumCellProperties : NFLAbstractCellProperties
+@interface NFLPremiumCellProperties : NFLAbstractHeadlineProperties
 {
     double _accessoryLineHeight;
 }
 
-- (double)_titleTopOffsetWithTemplate:(id)arg1;
 @property(readonly, nonatomic) double accessoryLineHeight; // @synthesize accessoryLineHeight=_accessoryLineHeight;
-- (double)titleLineHeightWithTemplate:(id)arg1;
-- (id)accessoryFontWithTemplate:(id)arg1;
-- (id)titleFontWithTemplate:(id)arg1;
-- (id)_accessoryFontNameWithTemplate:(id)arg1;
-- (id)_titleFontNameWithTemplate:(id)arg1;
-- (double)_accessoryFontSize;
-- (double)_titleFontSizeWithTemplate:(id)arg1;
+- (double)_titleTopOffsetWithTemplate:(id)arg1;
 - (double)imageAspectRatios;
 - (id)accessoryIconColor;
 - (double)accessoryViewToBottom;

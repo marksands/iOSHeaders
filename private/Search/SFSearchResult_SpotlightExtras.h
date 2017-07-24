@@ -14,13 +14,13 @@
 {
     _Bool _coreSpotlightSourced;
     _Bool _isParsecResult;
+    _Bool _hasAssociatedUserActivity;
     NSString *_queryString;
     NSString *_protectionClass;
     NSNumber *_fileIdentifier;
     NSNumber *_parentFileIdentifier;
     NSString *_filename;
     NSNumber *_documentIdentifier;
-    unsigned long long _score;
     double _l3score;
     double _l2score;
     NSString *_launchString;
@@ -39,6 +39,7 @@
     NSString *_mailAuthor;
     NSArray *_contactAlternateNames;
     NSString *_mailConversationIdentifier;
+    struct ranking_index_score_t _score;
 }
 
 + (void)initialize;
@@ -51,6 +52,7 @@
 @property(retain) PRSRankingItem *rankingItem; // @synthesize rankingItem=_rankingItem;
 @property(retain, nonatomic) NSString *contentURL; // @synthesize contentURL=_contentURL;
 @property(retain, nonatomic) NSMutableArray *duplicatedItems; // @synthesize duplicatedItems=_duplicatedItems;
+@property(nonatomic) _Bool hasAssociatedUserActivity; // @synthesize hasAssociatedUserActivity=_hasAssociatedUserActivity;
 @property(retain, nonatomic) NSDate *contentCreationDate; // @synthesize contentCreationDate=_contentCreationDate;
 @property(retain, nonatomic) NSData *userActivityData; // @synthesize userActivityData=_userActivityData;
 @property(retain, nonatomic) NSString *userActivitySecondaryString; // @synthesize userActivitySecondaryString=_userActivitySecondaryString;
@@ -62,7 +64,7 @@
 @property(nonatomic) _Bool isParsecResult; // @synthesize isParsecResult=_isParsecResult;
 @property(nonatomic) double l2score; // @synthesize l2score=_l2score;
 @property(nonatomic) double l3score; // @synthesize l3score=_l3score;
-@property(nonatomic) unsigned long long score; // @synthesize score=_score;
+@property(nonatomic) struct ranking_index_score_t score; // @synthesize score=_score;
 @property(retain, nonatomic) NSNumber *documentIdentifier; // @synthesize documentIdentifier=_documentIdentifier;
 @property(retain, nonatomic) NSString *filename; // @synthesize filename=_filename;
 @property(retain, nonatomic) NSNumber *parentFileIdentifier; // @synthesize parentFileIdentifier=_parentFileIdentifier;

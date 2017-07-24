@@ -35,6 +35,7 @@
 + (id)siriui_platterMaskingHighlightColor;
 + (id)siriui_lightMaskingHighlightColor;
 + (id)siriui_maskingHighlightColor;
++ (id)siriui_lightHighlightColor;
 + (id)siriui_highlightColor;
 + (id)siriui_snippetBackgroundColor;
 + (id)siriui_lightTextColor;

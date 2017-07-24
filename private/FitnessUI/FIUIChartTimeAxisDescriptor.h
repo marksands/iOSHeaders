@@ -113,6 +113,10 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(retain, nonatomic) id highlightedValue;
+@property(nonatomic) double shadowBlur;
+@property(retain, nonatomic) UIColor *shadowColor;
+@property(nonatomic) struct CGSize shadowOffset;
 @property(readonly) Class superclass;
 
 @end

@@ -8,7 +8,7 @@
 
 #import <NotesUI/TTMergeableStringDelegate-Protocol.h>
 
-@class NSString, NSUUID;
+@class NSMutableArray, NSString, NSUUID;
 @protocol ICTableCellMergeableStringObserving;
 
 @interface ICTableCellMergeableStringDelegate : NSObject <TTMergeableStringDelegate>
@@ -16,8 +16,12 @@
     id <ICTableCellMergeableStringObserving> _changeObserver;
     NSUUID *_columnID;
     NSUUID *_rowID;
+    unsigned long long _editingCount;
+    NSMutableArray *_undoCommands;
 }
 
+@property(retain, nonatomic) NSMutableArray *undoCommands; // @synthesize undoCommands=_undoCommands;
+@property(nonatomic) unsigned long long editingCount; // @synthesize editingCount=_editingCount;
 @property(readonly, nonatomic) NSUUID *rowID; // @synthesize rowID=_rowID;
 @property(readonly, nonatomic) NSUUID *columnID; // @synthesize columnID=_columnID;
 @property(readonly, nonatomic) __weak id <ICTableCellMergeableStringObserving> changeObserver; // @synthesize changeObserver=_changeObserver;

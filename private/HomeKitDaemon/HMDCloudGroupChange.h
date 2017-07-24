@@ -10,6 +10,7 @@
 
 @interface HMDCloudGroupChange : HMFObject
 {
+    _Bool _temporaryCache;
     _Bool _decryptionFailed;
     _Bool _encryptionFailed;
     HMDCloudGroup *_cloudGroup;
@@ -29,6 +30,7 @@
 @property(readonly, nonatomic) __weak HMDCloudGroup *cloudGroup; // @synthesize cloudGroup=_cloudGroup;
 @property(nonatomic) _Bool encryptionFailed; // @synthesize encryptionFailed=_encryptionFailed;
 @property(nonatomic) _Bool decryptionFailed; // @synthesize decryptionFailed=_decryptionFailed;
+@property(readonly, nonatomic, getter=isTemporaryCache) _Bool temporaryCache; // @synthesize temporaryCache=_temporaryCache;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *objectChanges;
 - (_Bool)isRootRecord:(id)arg1;
@@ -63,7 +65,7 @@
 @property(readonly, nonatomic) NSArray *allTransactionStoreRowIDs;
 - (id)description;
 - (id)shortDescription;
-- (id)initWithGroup:(id)arg1;
+- (id)initWithGroup:(id)arg1 temporaryCache:(_Bool)arg2;
 - (id)init;
 
 @end

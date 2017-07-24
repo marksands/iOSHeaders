@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class LSDocumentProxy, NSArray, NSSet, NSString, NSURL, _LSDiskUsage;
+@class LSDocumentProxy, NSArray, NSSet, NSString, NSURL, _LSBundleIDValidationToken, _LSDiskUsage;
 
 @protocol _LSDReadProtocol
 - (void)mapPlugInBundleIdentifiersToContainingBundleIdentifiers:(NSSet *)arg1 completionHandler:(void (^)(NSDictionary *, NSError *))arg2;
@@ -17,7 +17,7 @@
 - (void)getKnowledgeUUIDAndSequenceNumberWithCompletionHandler:(void (^)(NSUUID *, NSNumber *))arg1;
 - (void)getDiskUsage:(_LSDiskUsage *)arg1 completionHandler:(void (^)(_LSDiskUsage *, NSError *))arg2;
 - (void)getURLOverrideForURL:(NSURL *)arg1 completionHandler:(void (^)(NSURL *, NSError *))arg2;
-- (void)getLocalizedNameWithBundleType:(NSString *)arg1 bundleIdentifier:(NSString *)arg2 bundleUUID:(NSString *)arg3 context:(NSString *)arg4 shortNameOnly:(_Bool)arg5 preferredLocalizations:(NSArray *)arg6 completionHandler:(void (^)(NSString *, NSError *))arg7;
+- (void)getLocalizedNameWithBundleType:(NSString *)arg1 bundleIdentifier:(NSString *)arg2 bundleUUID:(NSString *)arg3 context:(NSString *)arg4 shortNameOnly:(_Bool)arg5 preferredLocalizations:(NSArray *)arg6 validationToken:(_LSBundleIDValidationToken *)arg7 completionHandler:(void (^)(NSString *, NSError *))arg8;
 - (void)getKernelPackageExtensionsWithCompletionHandler:(void (^)(NSArray *, NSError *))arg1;
 - (void)getServerStoreWithCompletionHandler:(void (^)(id, id, NSError *))arg1;
 - (void)getServerStatusWithCompletionHandler:(void (^)(unsigned int))arg1;

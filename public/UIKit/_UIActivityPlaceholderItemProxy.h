@@ -14,6 +14,8 @@ __attribute__((visibility("hidden")))
     id _uikit_placeholderItem;
 }
 
++ (id)unproxiedItemsForItems:(id)arg1;
++ (id)unproxiedItemForItem:(id)arg1;
 - (void).cxx_destruct;
 - (_Bool)respondsToSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;

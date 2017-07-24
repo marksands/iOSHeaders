@@ -8,7 +8,7 @@
 
 #import <Silex/SXVideoControlItem-Protocol.h>
 
-@class NSString, SXSkipButton, SXTimeline, SXUpNextItem, SXUpNextView, SXVideoButton, UIActivityIndicatorView;
+@class NSString, SXSkipButton, SXTimeline, SXUpNextButton, SXUpNextItem, SXUpNextView, SXVideoButton, UIActivityIndicatorView;
 @protocol SXUpNextViewControllerDelegate;
 
 @interface SXUpNextViewController : UIViewController <SXVideoControlItem>
@@ -22,8 +22,10 @@
     SXVideoButton *_replayButton;
     SXSkipButton *_skipButton;
     UIActivityIndicatorView *_activityIndicator;
+    SXUpNextButton *_upNextButton;
 }
 
+@property(retain, nonatomic) SXUpNextButton *upNextButton; // @synthesize upNextButton=_upNextButton;
 @property(retain, nonatomic) UIActivityIndicatorView *activityIndicator; // @synthesize activityIndicator=_activityIndicator;
 @property(retain, nonatomic) SXSkipButton *skipButton; // @synthesize skipButton=_skipButton;
 @property(retain, nonatomic) SXVideoButton *replayButton; // @synthesize replayButton=_replayButton;
@@ -44,6 +46,7 @@
 - (void)hide:(_Bool)arg1 withAnimationCoordinator:(id)arg2;
 @property(readonly, nonatomic) double autoAppearanceTimeInterval;
 @property(readonly, nonatomic) _Bool hideable;
+- (void)viewDidLoad;
 - (void)loadView;
 - (id)init;
 

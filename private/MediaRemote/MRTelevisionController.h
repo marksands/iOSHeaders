@@ -4,33 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <MediaRemote/MRExternalDeviceController.h>
 
-#import <MediaRemote/NSNetServiceBrowserDelegate-Protocol.h>
-#import <MediaRemote/NSNetServiceDelegate-Protocol.h>
+#import <MediaRemote/MRExternalDeviceControllerDelegate-Protocol.h>
 
-@class NSMutableSet, NSNetServiceBrowser, NSString;
-@protocol MRTelevisionDelegate, OS_dispatch_queue;
+@class NSString, _MRTelevisionControllerBlockCallback;
 
 __attribute__((visibility("hidden")))
-@interface MRTelevisionController : NSObject <NSNetServiceBrowserDelegate, NSNetServiceDelegate>
+@interface MRTelevisionController : MRExternalDeviceController <MRExternalDeviceControllerDelegate>
 {
-    NSObject<OS_dispatch_queue> *_serialQueue;
-    NSNetServiceBrowser *_serviceBrowser;
-    NSMutableSet *_discoveredDevices;
-    NSMutableSet *_resolvingServices;
-    _Bool _discovering;
-    id <MRTelevisionDelegate> _delegate;
+    _MRTelevisionControllerBlockCallback *_discoveryCallback;
+    _MRTelevisionControllerBlockCallback *_removalCallback;
 }
 
-@property(readonly, nonatomic, getter=isDiscovering) _Bool discovering; // @synthesize discovering=_discovering;
-@property(nonatomic) id <MRTelevisionDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)netService:(id)arg1 didUpdateTXTRecordData:(id)arg2;
-- (void)netServiceDidResolveAddress:(id)arg1;
-- (void)netServiceBrowser:(id)arg1 didRemoveService:(id)arg2 moreComing:(_Bool)arg3;
-- (void)netServiceBrowser:(id)arg1 didFindService:(id)arg2 moreComing:(_Bool)arg3;
-- (void)endDiscovery;
-- (void)beginDiscovery;
++ (Class)externalDeviceClass;
+@property(retain, nonatomic) _MRTelevisionControllerBlockCallback *removalCallback; // @synthesize removalCallback=_removalCallback;
+@property(retain, nonatomic) _MRTelevisionControllerBlockCallback *discoveryCallback; // @synthesize discoveryCallback=_discoveryCallback;
+- (void)externalDeviceController:(id)arg1 didRemoveDevice:(id)arg2;
+- (void)externalDeviceController:(id)arg1 didDiscoverDevice:(id)arg2;
 - (void)dealloc;
 - (id)init;
 

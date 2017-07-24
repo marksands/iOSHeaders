@@ -7,38 +7,34 @@
 #import <SearchUI/SearchUITableViewController.h>
 
 #import <SearchUI/SKStoreProductViewControllerDelegatePrivate-Protocol.h>
-#import <SearchUI/SearchUIFeedbackDelegate-Protocol.h>
 #import <SearchUI/SearchUITableHeaderViewDelegate-Protocol.h>
 #import <SearchUI/UIGestureRecognizerDelegate-Protocol.h>
 #import <SearchUI/_MKPlaceViewControllerFeedbackDelegate-Protocol.h>
 
-@class NSArray, NSMutableArray, NSMutableSet, NSString, SearchUITableModel;
-@protocol SearchUIResultTableViewDelegate;
+@class NSArray, NSMutableArray, NSMutableOrderedSet, NSMutableSet, NSString;
 
-@interface SearchUIResultTableViewController : SearchUITableViewController <SearchUITableHeaderViewDelegate, SKStoreProductViewControllerDelegatePrivate, _MKPlaceViewControllerFeedbackDelegate, UIGestureRecognizerDelegate, SearchUIFeedbackDelegate>
+@interface SearchUIResultTableViewController : SearchUITableViewController <SearchUITableHeaderViewDelegate, SKStoreProductViewControllerDelegatePrivate, _MKPlaceViewControllerFeedbackDelegate, UIGestureRecognizerDelegate>
 {
-    id <SearchUIResultTableViewDelegate> _delegate;
     NSArray *_sections;
-    SearchUITableModel *_tableModel;
     NSMutableSet *_expandedSections;
     NSMutableSet *_sectionsThatHaveBeenExpanded;
     NSMutableArray *_potentiallyVisibleCells;
-    NSArray *_latestVisibleResultsAccountedForInFeedback;
+    NSMutableOrderedSet *_latestVisibleResultsAccountedForInFeedback;
     unsigned long long _lastVisibleResultsFeedbackEvent;
     NSMutableArray *_potentiallyVisibleHeaders;
     NSArray *_latestVisibleHeadersAccountedForInFeedback;
+    double _cachedHeaderHeight;
 }
 
+@property double cachedHeaderHeight; // @synthesize cachedHeaderHeight=_cachedHeaderHeight;
 @property(retain) NSArray *latestVisibleHeadersAccountedForInFeedback; // @synthesize latestVisibleHeadersAccountedForInFeedback=_latestVisibleHeadersAccountedForInFeedback;
 @property(retain) NSMutableArray *potentiallyVisibleHeaders; // @synthesize potentiallyVisibleHeaders=_potentiallyVisibleHeaders;
 @property unsigned long long lastVisibleResultsFeedbackEvent; // @synthesize lastVisibleResultsFeedbackEvent=_lastVisibleResultsFeedbackEvent;
-@property(retain) NSArray *latestVisibleResultsAccountedForInFeedback; // @synthesize latestVisibleResultsAccountedForInFeedback=_latestVisibleResultsAccountedForInFeedback;
+@property(retain) NSMutableOrderedSet *latestVisibleResultsAccountedForInFeedback; // @synthesize latestVisibleResultsAccountedForInFeedback=_latestVisibleResultsAccountedForInFeedback;
 @property(retain) NSMutableArray *potentiallyVisibleCells; // @synthesize potentiallyVisibleCells=_potentiallyVisibleCells;
 @property(retain) NSMutableSet *sectionsThatHaveBeenExpanded; // @synthesize sectionsThatHaveBeenExpanded=_sectionsThatHaveBeenExpanded;
 @property(retain) NSMutableSet *expandedSections; // @synthesize expandedSections=_expandedSections;
-@property(retain) SearchUITableModel *tableModel; // @synthesize tableModel=_tableModel;
 @property(retain) NSArray *sections; // @synthesize sections=_sections;
-@property __weak id <SearchUIResultTableViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)placeViewController:(id)arg1 shouldLogFeedbackOfType:(int)arg2;
 - (_Bool)view:(id)arg1 isVisibleInBounds:(struct CGRect)arg2;
@@ -50,28 +46,20 @@
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)modalViewControllerClosed;
 - (void)productViewController:(id)arg1 didFinishWithResult:(long long)arg2;
-- (void)deselectRowsForIndexPath:(id)arg1 animated:(_Bool)arg2;
-- (void)viewWillAppear:(_Bool)arg1;
-- (void)unhideCellsForIndexPath:(id)arg1;
-- (void)customViewForInteractiveHighlightForIndexPath:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)tableView:(id)arg1 editActionsForRowAtIndexPath:(id)arg2;
 - (void)tableViewDidFinishReload:(id)arg1;
 - (id)fallbackPeekViewControllerForIndexPath:(id)arg1;
+@property(readonly) NSString *currentQueryString;
 - (id)viewControllerForIndexPath:(id)arg1 isPeek:(_Bool)arg2;
-- (id)punchoutsForIndexPath:(id)arg1;
-- (id)nextCardForIndexPath:(id)arg1;
 - (void)performExpansion:(_Bool)arg1 withSectionIndex:(unsigned long long)arg2;
 - (_Bool)sectionIsClearable:(id)arg1;
+- (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)clearResultsFromSection:(id)arg1;
 - (void)toggleExpansionForSection:(id)arg1;
-@property(readonly) NSString *currentQueryString;
+- (double)offScreenContentScrollDistance;
 @property(readonly, nonatomic) double headerHeight;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
-- (void)enumerateSelectableCellsForIndexPath:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
-- (void)tableView:(id)arg1 didDeselectRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 didUnhighlightRowAtIndexPath:(id)arg2;
-- (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (void)openUserActivityForResult:(id)arg1;
 - (_Bool)defaultApplicationExistsAndSupportsOpenInPlaceForResult:(id)arg1 open:(_Bool)arg2;
 - (unsigned long long)handleSelectionOfResult:(id)arg1;
@@ -79,13 +67,10 @@
 - (void)didEngageResult:(id)arg1;
 - (void)didEngageActionItem:(id)arg1 actionPerformed:(_Bool)arg2;
 - (id)cellForIndexPath:(id)arg1 reuseIfPossible:(_Bool)arg2;
-- (id)cardSectionForIndexPath:(id)arg1;
-- (id)resultForIndexPath:(id)arg1;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
-- (long long)numberOfSectionsInTableView:(id)arg1;
 - (unsigned long long)indexOfSection:(id)arg1;
 - (_Bool)sectionShouldBeExpanded:(id)arg1;
 - (void)updateDataModel;
+- (void)reloadResult:(id)arg1 inResultSection:(id)arg2;
 - (void)replaceResult:(id)arg1 withResult:(id)arg2 inResultSection:(id)arg3;
 - (void)updateWithResultSections:(id)arg1;
 - (id)init;

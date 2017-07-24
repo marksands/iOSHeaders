@@ -12,6 +12,8 @@
 
 + (id)serviceViewControllerInterface;
 + (id)exportedInterface;
+- (void)viewServiceDidTerminateWithError:(id)arg1;
+- (void)dismiss;
 
 @end
 

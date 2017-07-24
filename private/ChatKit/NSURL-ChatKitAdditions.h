@@ -14,6 +14,7 @@
 @property(readonly, nonatomic) NSArray *ckSuggestedReplies;
 @property(readonly, nonatomic) NSString *ckLaunchURLPostComposeDismissal;
 @property(readonly, nonatomic) _Bool ckIsUnitTestingURL;
+@property(readonly, nonatomic) _Bool ckIsLaunchAppURL;
 @property(readonly, nonatomic) _Bool ckAllowRetargeting;
 @property(readonly, nonatomic) NSDictionary *ckLaunchURLBalloonPluginPayload;
 @property(readonly, nonatomic) NSString *ckLaunchURLBalloonPluginBundleID;

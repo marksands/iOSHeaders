@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     _Bool enablePageShadows;
     _Bool enableTileEdgeColoring;
     _Bool enableAccessibilityDrawing;
+    double screenScaleFactor;
 }
 
 - (void).cxx_destruct;

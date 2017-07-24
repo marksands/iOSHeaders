@@ -6,7 +6,7 @@
 
 #import <HomeKitDaemon/HMDBackingStoreModelObject.h>
 
-@class NSData;
+@class NSData, NSNumber;
 
 @interface HMDSharedHomeModel : HMDBackingStoreModelObject
 {
@@ -15,6 +15,7 @@
 + (id)properties;
 
 // Remaining properties
+@property(retain, nonatomic) NSNumber *configurationVersion; // @dynamic configurationVersion;
 @property(retain, nonatomic) NSData *homeData; // @dynamic homeData;
 
 @end

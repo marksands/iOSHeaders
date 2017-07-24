@@ -10,12 +10,16 @@
 @class NSDate, NSSet, NSString;
 
 @protocol PLSyncableAsset <NSObject, PLSyncableObject>
+@property(readonly, nonatomic) _Bool hasAdjustmentsOrLegacyAdjustments;
+@property(readonly, copy, nonatomic) NSString *syncedAdjustmentFingerprint;
 @property(readonly, nonatomic) id faceAdjustmentVersion;
-@property(readonly, nonatomic) _Bool faceProcessed;
+@property(readonly, copy, nonatomic) NSDate *dateForComparingAdjustmentVersions;
+@property(readonly, nonatomic) _Bool faceDetectionComplete;
 @property(readonly, nonatomic) long long height;
 @property(readonly, nonatomic) long long width;
-@property(readonly, copy, nonatomic) NSDate *dateForComparingAdjustmentVersions;
 @property(retain, nonatomic) NSSet *detectedFaces;
 @property(readonly, retain, nonatomic) NSString *cloudIdentifier;
+- (NSString *)syncDescription;
+- (void)markForNeedingFaceDetection;
 @end
 

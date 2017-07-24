@@ -18,7 +18,7 @@
 + (id)logContextFromTraits:(id)arg1;
 + (id)logContextWithDefaultTraitsForCachedContext;
 + (id)logContextWithDefaultTraits;
-+ (id)defaultLogContext;
++ (id)defaultGlobalLogContext;
 + (id)emptyLogContext;
 @property(readonly, nonatomic) NSArray *logMsgStates; // @synthesize logMsgStates=_logMsgStates;
 - (void).cxx_destruct;
@@ -32,10 +32,11 @@
 - (void)_registerApplicationIdentifierState;
 - (void)_registerDeviceIdentifierState;
 - (void)_registerLogContextWithTraits:(id)arg1;
+- (void)_initializeGlobalDefaultStates;
 - (void)_initializeDefaultStates;
 - (id)currentExperimentsState;
 - (id)logMsgStateOfType:(int)arg1;
-- (void)registerUserSessionStateOfType:(unsigned long long)arg1 isNavSessionAllowed:(_Bool)arg2;
+- (void)registerUserSessionStateOfType:(unsigned long long)arg1 isNavSessionAllowed:(_Bool)arg2 eventTime:(double)arg3;
 - (void)unregisterLogMsgStateOfType:(int)arg1 stateOrigin:(id)arg2;
 - (void)unregisterLogMsgStateOfType:(int)arg1;
 - (void)registerLogMsgState:(id)arg1;
@@ -43,6 +44,7 @@
 - (void)mergeLogContext:(id)arg1;
 - (id)initWithTraits:(id)arg1;
 - (id)initWithDefaultTraits;
+- (id)initWithGlobalDefaultStates;
 - (id)initWithDefaultStates;
 - (id)init;
 

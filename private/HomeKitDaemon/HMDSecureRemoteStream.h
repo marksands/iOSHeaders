@@ -47,7 +47,7 @@
 - (void).cxx_destruct;
 - (id)logIdentifier;
 - (void)handleSecureMessage:(id)arg1 fromTransport:(id)arg2;
-- (void)handleCompletedMessage:(id)arg1 options:(id)arg2 responsePayload:(id)arg3 error:(id)arg4;
+- (void)handleCompletedMessage:(id)arg1 options:(id)arg2 responsePayload:(id)arg3 error:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)sendMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)stop;
 - (void)_closeWithError:(id)arg1;

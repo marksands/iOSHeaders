@@ -14,7 +14,7 @@
 {
 }
 
-+ (void)postAppPurgingNotificationWithAppsToPurge:(id)arg1 completion:(CDUnknownBlockType)arg2;
++ (void)postAppPurgingNotificationWithCompletion:(CDUnknownBlockType)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

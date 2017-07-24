@@ -10,24 +10,48 @@
 
 @interface GVLayout : NSObject
 {
+    unsigned long long *savedOrder;
+    unsigned long long currentCrossings;
     int direction;
     GVGraph *graph;
     NSMutableArray *selfEdges;
-    NSMutableArray *layers;
+    NSMutableArray *ranks;
     struct CGSize separation;
 }
 
 + (struct CGSize)layoutGraph:(id)arg1 withDirection:(int)arg2 separation:(struct CGSize)arg3;
-@property(retain, nonatomic) NSMutableArray *layers; // @synthesize layers;
+@property(retain, nonatomic) NSMutableArray *ranks; // @synthesize ranks;
 @property(retain, nonatomic) NSMutableArray *selfEdges; // @synthesize selfEdges;
 @property(nonatomic) struct CGSize separation; // @synthesize separation;
 @property(nonatomic) int direction; // @synthesize direction;
 @property(nonatomic) GVGraph *graph; // @synthesize graph;
-- (void)initializeVertexCoordinates;
+- (void)assignRankCoordinates;
+- (void)assignNodeCoordinates;
+- (void)straightenY;
+- (void)straightenX;
+- (void)packCutY:(unsigned long long)arg1;
+- (void)packCutX:(unsigned long long)arg1;
+- (void)medianPosition:(unsigned long long)arg1;
+- (void)initializeNodeCoordinates;
+- (void)assignNodePriorities;
 - (void)assignCoordinates;
+- (void)transpose;
+- (void)weightedMedian:(unsigned long long)arg1;
+- (void)medianSort:(id)arg1 withRespectTo:(id)arg2;
+- (unsigned long long)medianValueOf:(id)arg1 withRespectTo:(id)arg2;
+- (void)initializeOrder;
+- (void)commitOrder;
+- (void)restoreOrder;
+- (void)saveOrder;
+- (unsigned long long)crossings;
 - (void)orderVertices;
-- (void)initializeLayers;
-- (void)assignLayers;
+- (void)buildRankIterators;
+- (void)balanceRanks;
+- (void)normalizeRanks;
+- (void)minimizeCutValues;
+- (void)makeFeasibleTree;
+- (void)initializeRanks;
+- (void)assignRanks;
 - (void)undoRemoveCycles;
 - (void)removeCycles;
 - (void)_removeCycleDFS:(id)arg1 visistedNodes:(id)arg2 nodesInStack:(id)arg3;
@@ -35,7 +59,6 @@
 - (void)removeSelfEdges;
 - (struct CGSize)doLayout:(id)arg1 direction:(int)arg2 separation:(struct CGSize)arg3;
 - (void)dealloc;
-- (id)init;
 
 @end
 

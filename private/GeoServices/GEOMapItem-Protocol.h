@@ -19,6 +19,7 @@
 @property(readonly, nonatomic, getter=_wifiFingerprintLabelType) int wifiFingerprintLabelType;
 @property(readonly, nonatomic, getter=_hasWifiFingerprintLabelType) _Bool hasWifiFingerprintLabelType;
 @property(readonly, nonatomic) NSData *externalTransitStationCode;
+@property(readonly, nonatomic, getter=_browseCategories) NSArray *browseCategories;
 @property(readonly, nonatomic, getter=_venueInfo) id <GEOMapItemVenueInfo> venueInfo;
 @property(readonly, nonatomic, getter=_venueCategoryBrowseType) int venueCategoryBrowseType;
 @property(readonly, nonatomic, getter=_venueFeatureType) int venueFeatureType;
@@ -28,6 +29,7 @@
 @property(readonly, nonatomic, getter=_quickLinks) NSArray *quickLinks;
 @property(readonly, nonatomic, getter=_messageLink) GEOMessageLink *messageLink;
 @property(readonly, nonatomic, getter=_isStandaloneBrand) _Bool isStandAloneBrand;
+@property(readonly, nonatomic, getter=_parsecSectionType) int parsecSectionType;
 @property(readonly, nonatomic, getter=_featureLink) GEORestaurantFeaturesLink *featureLink;
 @property(readonly, nonatomic, getter=_hasFeatureLink) _Bool hasFeatureLink;
 @property(readonly, nonatomic) NSArray *spatialMappedCategories;
@@ -129,16 +131,13 @@
 - (_Bool)isEqualToMapItem:(id <GEOMapItem>)arg1;
 - (NSURL *)_bestBrandIconURLForSize:(struct CGSize)arg1 allowSmaller:(_Bool)arg2;
 - (NSString *)weatherDisplayName;
+- (NSString *)shortAddress;
 - (GEOAddressObject *)addressObject;
 - (id <GEOMapItem>)_mapItemByStrippingOptionalData;
 - (GEOMapItemAdditionalPlaceInfo *)_asPlaceInfo;
 - (_Bool)_hasLocalizedCategoryNamesForType:(unsigned int)arg1;
 - (NSArray *)_localizedCategoryNamesForType:(unsigned int)arg1;
 - (GEOMapRegion *)_arrivalMapRegionForTransportType:(int)arg1;
-- (unsigned int)_travelDistanceForTransportType:(int)arg1;
-- (unsigned int)_travelTimeForTransportType:(int)arg1;
-- (_Bool)_hasTravelTimeForTransportType:(int)arg1;
-- (int)_recommendedTransportType;
 - (NSString *)_spokenAddressForLocale:(NSString *)arg1;
 - (NSString *)spokenNameForLocale:(NSString *)arg1;
 @end

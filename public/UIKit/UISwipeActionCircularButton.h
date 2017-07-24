@@ -13,8 +13,8 @@ __attribute__((visibility("hidden")))
 
 + (id)titleFont;
 + (double)maximumButtonHeight;
++ (double)defaultButtonWidth;
 - (void)setBackgroundColor:(id)arg1;
-- (double)buttonWidth;
 - (void)setTitle:(id)arg1 forState:(unsigned long long)arg2;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;

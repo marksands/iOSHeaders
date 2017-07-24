@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSString, SACFAbstractClientCommand;
+@class NSString, SACFAbstractClientCommand, SACFClientFlowScript;
 
 @protocol CFScripting
 - (id)initWithConnectionName:(NSString *)arg1;
+- (void)updateScriptCacheForFlowScript:(SACFClientFlowScript *)arg1 completion:(void (^)(_Bool))arg2;
 - (void)performWarmup;
-- (void)performWarmupAndEvaluateScriptWithScriptHint:(NSString *)arg1 usingCachedJSContext:(_Bool)arg2;
-- (void)performCommandExecutionForCommand:(SACFAbstractClientCommand *)arg1 usingCachedJSContext:(_Bool)arg2 completion:(void (^)(SABaseCommand *, CFScripterMetrics *))arg3;
+- (void)performWarmupAndEvaluateScriptWithScriptHint:(NSString *)arg1;
+- (void)performCommandExecutionForCommand:(SACFAbstractClientCommand *)arg1 completion:(void (^)(SABaseCommand *))arg2;
 @end
 

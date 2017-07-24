@@ -7,18 +7,24 @@
 #import <Metal/NSObject-Protocol.h>
 
 @class MTLCompileOptions, MTLComputePipelineDescriptor, MTLDepthStencilDescriptor, MTLHeapDescriptor, MTLRenderPipelineDescriptor, MTLSamplerDescriptor, MTLTextureDescriptor, NSArray, NSBundle, NSObject, NSString, NSURL;
-@protocol MTLBuffer, MTLCommandQueue, MTLComputePipelineState, MTLDepthStencilState, MTLFence, MTLFunction, MTLHeap, MTLIndirectArgumentEncoder, MTLLibrary, MTLRenderPipelineState, MTLSamplerState, MTLTexture, OS_dispatch_data;
+@protocol MTLArgumentEncoder, MTLBuffer, MTLCommandQueue, MTLComputePipelineState, MTLDepthStencilState, MTLFence, MTLFunction, MTLHeap, MTLLibrary, MTLRenderPipelineState, MTLSamplerState, MTLTexture, OS_dispatch_data;
 
 @protocol MTLDevice <NSObject>
 @property(readonly, getter=areProgrammableSamplePositionsSupported) _Bool programmableSamplePositionsSupported;
+@property(readonly) unsigned long long maxThreadgroupMemoryLength;
+@property(readonly) unsigned long long currentAllocatedSize;
+@property(readonly, getter=areRasterOrderGroupsSupported) _Bool rasterOrderGroupsSupported;
+@property(readonly) unsigned long long argumentBuffersSupport;
+@property(readonly) unsigned long long readWriteTextureSupport;
 @property(readonly, getter=isDepth24Stencil8PixelFormatSupported) _Bool depth24Stencil8PixelFormatSupported;
 @property(readonly) unsigned long long recommendedMaxWorkingSetSize;
 @property(readonly, getter=isRemovable) _Bool removable;
 @property(readonly, getter=isHeadless) _Bool headless;
 @property(readonly, getter=isLowPower) _Bool lowPower;
 @property(readonly) CDStruct_14f26992 maxThreadsPerThreadgroup;
+@property(readonly) unsigned long long registryID;
 @property(readonly) NSString *name;
-- (id <MTLIndirectArgumentEncoder>)newIndirectArgumentEncoderWithArguments:(NSArray *)arg1;
+- (id <MTLArgumentEncoder>)newArgumentEncoderWithArguments:(NSArray *)arg1;
 - (void)getDefaultSamplePositions:(CDStruct_6e3f967a *)arg1 count:(unsigned long long)arg2;
 - (unsigned long long)minimumLinearTextureAlignmentForPixelFormat:(unsigned long long)arg1;
 - (_Bool)supportsTextureSampleCount:(unsigned long long)arg1;
@@ -52,8 +58,5 @@
 - (CDStruct_4bcfbbae)heapTextureSizeAndAlignWithDescriptor:(MTLTextureDescriptor *)arg1;
 - (id <MTLCommandQueue>)newCommandQueueWithMaxCommandBufferCount:(unsigned long long)arg1;
 - (id <MTLCommandQueue>)newCommandQueue;
-
-@optional
-@property(readonly, getter=areRasterOrderGroupsSupported) _Bool rasterOrderGroupsSupported;
 @end
 

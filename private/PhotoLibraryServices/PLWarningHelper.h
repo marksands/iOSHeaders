@@ -30,7 +30,6 @@
 @property(retain, nonatomic, setter=_setAssets:) NSArray *_assets; // @synthesize _assets=__assets;
 - (id)_usedElsewhereWarningTextForAssets:(id)arg1 additionalPhotoStreamAssets:(id)arg2 actualDeletionCount:(long long)arg3;
 - (id)_cloudSharedWarningTextForAssets:(id)arg1;
-- (void)_getExpungeWarningMessage:(id *)arg1 buttonTitle:(id *)arg2 forAssets:(id)arg3;
 - (void)_getDeletionWarningTitle:(id *)arg1 message:(id *)arg2 buttonTitle:(id *)arg3;
 - (void)dealloc;
 

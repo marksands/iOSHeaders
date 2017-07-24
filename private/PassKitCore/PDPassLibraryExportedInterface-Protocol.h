@@ -10,6 +10,8 @@
 
 @protocol PDPassLibraryExportedInterface <PDXPCServiceExportedInterface>
 - (void)peerPaymentPassUniqueIDWithHandler:(void (^)(NSString *))arg1;
+- (void)passWithDPANIdentifier:(NSString *)arg1 handler:(void (^)(PKPaymentPass *))arg2;
+- (void)passWithFPANIdentifier:(NSString *)arg1 handler:(void (^)(PKPaymentPass *))arg2;
 - (void)expressFelicaTransitPassWithHandler:(void (^)(PKPass *))arg1;
 - (void)canAddFelicaPassWithHandler:(void (^)(_Bool))arg1;
 - (void)defaultPaymentPassWithHandler:(void (^)(PKPaymentPass *))arg1;

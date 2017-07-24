@@ -38,11 +38,13 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (_Bool)commitPlaceholderInsertionWithContext:(id)arg1 dataSourceUpdates:(CDUnknownBlockType)arg2;
 - (_Bool)deletePlaceholder:(id)arg1;
-- (void)insertPlaceholderAtIndexPath:(id)arg1 withContext:(id)arg2;
-- (void)animateDragItem:(id)arg1 toTarget:(id)arg2;
-- (void)animateDragItem:(id)arg1 toCell:(id)arg2 withPreviewParameters:(id)arg3;
-- (void)animateDragItem:(id)arg1 toRowAtIndexPath:(id)arg2 withPreviewParameters:(id)arg3;
-- (void)animateDragItem:(id)arg1 intoRowAtIndexPath:(id)arg2 rect:(struct CGRect)arg3;
+- (void)insertPlaceholderAtIndexPath:(id)arg1 withContext:(id)arg2 previewParameters:(id)arg3;
+- (id)animateDragItem:(id)arg1 toTarget:(id)arg2;
+- (id)animateDragItem:(id)arg1 toCell:(id)arg2 withPreviewParameters:(id)arg3;
+- (id)animateDragItem:(id)arg1 toRowAtIndexPath:(id)arg2 withPreviewParameters:(id)arg3;
+- (id)animateDragItem:(id)arg1 intoRowAtIndexPath:(id)arg2 rect:(struct CGRect)arg3;
+- (id)defaultAnimatorForDragItem:(id)arg1;
+- (void)dropInteraction:(id)arg1 concludeDrop:(id)arg2;
 - (void)dropInteraction:(id)arg1 item:(id)arg2 willAnimateDropWithAnimator:(id)arg3;
 - (id)dropInteraction:(id)arg1 previewForDroppingItem:(id)arg2 withDefault:(id)arg3;
 - (void)dropInteraction:(id)arg1 performDrop:(id)arg2;

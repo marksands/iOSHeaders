@@ -34,7 +34,6 @@
 - (id)clusteringStatus;
 - (void)cancelFaceClustering;
 - (void)performFaceClusteringWithCompletion:(CDUnknownBlockType)arg1;
-- (void)requestFaceClusteringWithCompletion:(CDUnknownBlockType)arg1;
 - (void)performFaceClusteringAndWait;
 - (void)performFaceClusteringIfNecessaryAndWait;
 - (unsigned long long)numberOfFacesPendingClustering;
@@ -47,7 +46,7 @@
 - (_Bool)buildPersonsWithCanceler:(id)arg1 keyFaceUpdateBlock:(CDUnknownBlockType)arg2 error:(id *)arg3;
 - (id)context;
 - (long long)clustererState;
-- (_Bool)isClusterCacheValid:(id *)arg1;
+- (id)differencesBetweenClustersInClusterCacheAndLibrary:(id *)arg1;
 - (_Bool)getFaceClusters:(id *)arg1 clusteringThreshold:(double *)arg2 utilizingGPU:(_Bool *)arg3 error:(id *)arg4;
 - (_Bool)reclusterFacesWithThreshold:(id)arg1 shouldRecluster:(_Bool)arg2 withContext:(id)arg3 error:(id *)arg4;
 - (_Bool)resetFaceClusteringStateWithContext:(id)arg1 error:(id *)arg2;

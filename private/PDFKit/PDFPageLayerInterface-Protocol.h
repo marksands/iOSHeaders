@@ -16,6 +16,7 @@
 - (void)restoreOriginalTileLayout;
 - (void)saveOriginalTileLayout;
 - (void)clearTiles;
+- (void)forceTileUpdate;
 - (_Bool)enablesTileUpdates;
 - (void)setEnableTileUpdates:(_Bool)arg1;
 - (NSArray *)pageLayerEffects;

@@ -16,15 +16,15 @@
     id <HKDecimalPrecisionRule> _allowedDecimalPrecisionRule;
     NSDictionary *_perUnitDecimalPrecision;
     _Bool _shouldHideAverageLine;
-    _Bool _shouldStartDayAtNoon;
     _Bool _shouldConnectSamplesWithLines;
     long long _defaultChartStyle;
     id <HKInteractiveChartsAxisScalingRule> _axisScalingRule;
+    long long _preferredTimeScope;
 }
 
+@property(nonatomic) long long preferredTimeScope; // @synthesize preferredTimeScope=_preferredTimeScope;
 @property(nonatomic) _Bool shouldConnectSamplesWithLines; // @synthesize shouldConnectSamplesWithLines=_shouldConnectSamplesWithLines;
 @property(retain, nonatomic) id <HKInteractiveChartsAxisScalingRule> axisScalingRule; // @synthesize axisScalingRule=_axisScalingRule;
-@property(nonatomic) _Bool shouldStartDayAtNoon; // @synthesize shouldStartDayAtNoon=_shouldStartDayAtNoon;
 @property(nonatomic) _Bool shouldHideAverageLine; // @synthesize shouldHideAverageLine=_shouldHideAverageLine;
 @property(readonly, nonatomic) long long defaultChartStyle; // @synthesize defaultChartStyle=_defaultChartStyle;
 - (void).cxx_destruct;
@@ -33,6 +33,14 @@
 - (void)adjustedBoundsForPortraitChartWithMin:(double)arg1 max:(double)arg2 minOut:(double *)arg3 maxOut:(double *)arg4 decimalPrecision:(long long *)arg5 unit:(id)arg6 timeScope:(long long)arg7;
 - (id)_ruleForKey:(id)arg1 timeScope:(long long)arg2;
 - (void)_setRule:(id)arg1 forKey:(id)arg2 timeScope:(long long)arg3;
+- (_Bool)lineChartUsesValueAxisAnnotationForTimeScope:(long long)arg1;
+- (void)setLineChartUsesValueAxisAnnotation:(_Bool)arg1 forTimeScope:(long long)arg2;
+- (_Bool)lineChartUsesPointMarkerImageForTimeScope:(long long)arg1;
+- (void)setLineChartUsesPointMarkerImage:(_Bool)arg1 forTimeScope:(long long)arg2;
+- (_Bool)lineChartExtendLastValueForTimeScope:(long long)arg1;
+- (void)setLineChartExtendLastValue:(_Bool)arg1 forTimeScope:(long long)arg2;
+- (_Bool)lineChartFlatLastValueForTimeScope:(long long)arg1;
+- (void)setLineChartFlatLastValue:(_Bool)arg1 forTimeScope:(long long)arg2;
 - (double)chartPointRadiusForTimeScope:(long long)arg1;
 - (void)setChartPointRadius:(double)arg1 forTimeScope:(long long)arg2;
 - (double)chartPointLineWidthForTimeScope:(long long)arg1;

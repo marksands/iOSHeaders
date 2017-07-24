@@ -9,6 +9,7 @@
 #import <CloudDocs/NSSecureCoding-Protocol.h>
 
 @class BRMangledID, NSData, NSDate, NSDictionary, NSNumber, NSPurgeableData, NSSet, NSString, NSURL;
+@protocol OS_dispatch_queue;
 
 @interface BRContainer : NSObject <NSSecureCoding>
 {
@@ -36,6 +37,8 @@
     _Bool _shouldUsePurgeableData;
     NSData *_dataRepresentation;
     NSPurgeableData *_purgeableDataRepresentation;
+    NSObject<OS_dispatch_queue> *_observationSetupQueueForDefaultConnection;
+    NSObject<OS_dispatch_queue> *_observationSetupQueueForSecondaryConnection;
 }
 
 + (id)_iconURLsWithProperties:(id)arg1 mangledID:(id)arg2;

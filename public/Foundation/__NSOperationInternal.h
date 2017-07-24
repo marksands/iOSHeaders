@@ -6,51 +6,43 @@
 
 #import <objc/NSObject.h>
 
-@class NSOperation, NSOperationQueue;
+@class NSHashTable, NSMutableArray, NSOperation, NSOperationQueue;
 
 __attribute__((visibility("hidden")))
 @interface __NSOperationInternal : NSObject
 {
-    unsigned char __pad1[8];
-    NSOperation *__outerOp;
+    struct os_unfair_lock_s __lock;
     NSOperation *__prevOp;
     NSOperation *__nextOp;
     NSOperation *__nextPriOp;
     NSOperationQueue *__queue;
-    id __dependencies;
-    id __down_dependencies;
+    NSMutableArray *__dependencies;
+    NSHashTable *__down_dependencies;
     long long __unfinished_deps;
     CDUnknownBlockType __completion;
     void *__obsInfo;
     void *__implicitObsInfo;
-    long long __seqno;
     double __thread_prio;
-    id __children;
-    int __RC;
-    int __state;
+    // Error parsing type: AC, name: __state
     BOOL __prio;
-    unsigned char __cached_isReady;
-    unsigned char __isCancelled;
-    unsigned char __isBarrier;
-    // Error parsing type: AC, name: __appliedQoS
+    // Error parsing type: AB, name: __cached_isReady
+    // Error parsing type: AB, name: __isCancelled
     // Error parsing type: AC, name: __propertyQoS
-    // Error parsing type: AC, name: __inferredQoS
-    // Error parsing type: AC, name: __promotedQoS
     struct _opaque_pthread_mutex_t __wait_mutex;
     struct _opaque_pthread_cond_t {
         long long __sig;
         char __opaque[40];
     } __wait_cond;
-    struct _opaque_pthread_t *__pthread;
     char *__nameBuffer;
     id __activity;
-    struct pthread_override_s *__ov;
-    unsigned char __pad3[0];
+    // Error parsing type: AC, name: __isExecutingObserverCount
+    // Error parsing type: AC, name: __isFinishedObserverCount
+    // Error parsing type: AC, name: __isReadyObserverCount
+    // Error parsing type: AC, name: __isCancelledObserverCount
 }
 
 + (void)_observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 changeKind:(unsigned long long)arg3 oldValue:(id)arg4 newValue:(id)arg5 indexes:(id)arg6 context:(void *)arg7;
 - (id)_activity;
-- (id)__;
 - (void)_start:(id)arg1;
 - (id)_dependencies;
 - (void)_removeDependency:(id)arg1 outer:(id)arg2;

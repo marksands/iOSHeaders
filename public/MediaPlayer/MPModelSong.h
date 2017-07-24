@@ -6,7 +6,7 @@
 
 #import <MediaPlayer/MPModelObject.h>
 
-@class MPModelAlbum, MPModelArtist, MPModelComposer, MPModelFileAsset, MPModelGenre, MPModelHomeSharingAsset, MPModelLyrics, MPModelPlaybackPosition, MPModelStoreAsset, NSDate, NSString;
+@class MPGaplessInfo, MPModelAlbum, MPModelArtist, MPModelComposer, MPModelFileAsset, MPModelGenre, MPModelHomeSharingAsset, MPModelLyrics, MPModelPlaybackPosition, MPModelStoreAsset, NSDate, NSString;
 
 @interface MPModelSong : MPModelObject
 {
@@ -20,6 +20,7 @@
     _Bool _hasCloudSyncSource;
     float _volumeNormalization;
     float _userRating;
+    float _volumeAdjustment;
     NSString *_title;
     NSString *_grouping;
     double _duration;
@@ -28,6 +29,7 @@
     long long _beatsPerMinute;
     NSString *_copyrightText;
     long long _year;
+    MPGaplessInfo *_gaplessInfo;
     NSString *_classicalWork;
     NSString *_classicalMovement;
     long long _classicalMovementCount;
@@ -49,6 +51,10 @@
 
 + (id)__MPModelRelationshipSongPlaybackPosition__PROPERTY;
 + (id)__playbackPosition__KEY;
++ (id)__MPModelPropertySongVolumeAdjustment__PROPERTY;
++ (id)__volumeAdjustment__KEY;
++ (id)__MPModelPropertySongGaplessInfo__PROPERTY;
++ (id)__gaplessInfo__KEY;
 + (id)__MPModelPropertySongUserRating__PROPERTY;
 + (id)__userRating__KEY;
 + (id)__MPModelRelationshipSongStoreAsset__PROPERTY;
@@ -148,6 +154,8 @@
 @property(nonatomic) long long classicalMovementCount; // @synthesize classicalMovementCount=_classicalMovementCount;
 @property(copy, nonatomic) NSString *classicalMovement; // @synthesize classicalMovement=_classicalMovement;
 @property(copy, nonatomic) NSString *classicalWork; // @synthesize classicalWork=_classicalWork;
+@property(nonatomic) float volumeAdjustment; // @synthesize volumeAdjustment=_volumeAdjustment;
+@property(retain, nonatomic) MPGaplessInfo *gaplessInfo; // @synthesize gaplessInfo=_gaplessInfo;
 @property(nonatomic) float userRating; // @synthesize userRating=_userRating;
 @property(nonatomic) long long year; // @synthesize year=_year;
 @property(nonatomic) float volumeNormalization; // @synthesize volumeNormalization=_volumeNormalization;

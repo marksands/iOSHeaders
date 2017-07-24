@@ -36,7 +36,8 @@
 - (void).cxx_destruct;
 - (id)buildCanvasForPublisherOperationResult:(id)arg1 andScale:(double)arg2 andSettings:(id)arg3;
 - (void)loadLayoutWithLoadGroup:(id)arg1 andArticle:(id)arg2 andSettings:(id)arg3;
-@property(readonly, nonatomic) double contentHeight;
+- (id)sectionItemViewController;
+- (double)sectionItemHeightFor:(double)arg1;
 - (void)doMoreFromPublisher:(id)arg1;
 - (void)whenLoaded:(CDUnknownBlockType)arg1;
 - (void)viewDidLayoutSubviews;

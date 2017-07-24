@@ -6,15 +6,21 @@
 
 #import <AXMediaUtilities/AXMEvaluationNode.h>
 
+@class NSURL;
+
 @interface AXMModelDetectorNode : AXMEvaluationNode
 {
+    NSURL *_modelURL;
 }
 
 + (id)title;
-+ (_Bool)requiresVisionKit;
 + (_Bool)isSupported;
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSURL *modelURL; // @synthesize modelURL=_modelURL;
+- (void).cxx_destruct;
 - (void)evaluate:(id)arg1;
+- (_Bool)preloadModelIfNeeded:(id *)arg1;
+- (_Bool)requiresVisionFramework;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)nodeInitialize;

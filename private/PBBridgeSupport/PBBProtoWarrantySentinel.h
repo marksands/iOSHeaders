@@ -23,6 +23,7 @@
     } _has;
 }
 
++ (Class)appleLanguagesType;
 @property(retain, nonatomic) NSString *deviceName; // @synthesize deviceName=_deviceName;
 @property(retain, nonatomic) NSString *appleLocale; // @synthesize appleLocale=_appleLocale;
 @property(retain, nonatomic) NSMutableArray *appleLanguages; // @synthesize appleLanguages=_appleLanguages;

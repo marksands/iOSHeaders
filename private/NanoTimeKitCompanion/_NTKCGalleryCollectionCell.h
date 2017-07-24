@@ -6,7 +6,7 @@
 
 #import <UIKit/UICollectionViewCell.h>
 
-@class NSString, NTKCFaceContainerView, UIImage, UIImageView, UILabel, UIView;
+@class NSLayoutConstraint, NSString, NTKCFaceContainerView, UIFontMetrics, UIImage, UIImageView, UILabel, UIView;
 
 @interface _NTKCGalleryCollectionCell : UICollectionViewCell
 {
@@ -14,23 +14,32 @@
     UIView *_highlightedView;
     UILabel *_nameLabel;
     UIImageView *_nameImageView;
+    NSLayoutConstraint *_nameBaselineConstraint;
+    NSLayoutConstraint *_leadingImageConstraint;
+    NSLayoutConstraint *_trailingImageConstraint;
     _Bool _active;
     NSString *_calloutName;
     UIImage *_calloutImage;
+    UIFontMetrics *_fontMetrics;
 }
 
 + (struct CGSize)itemSizeWithCalloutName:(_Bool)arg1 andCalloutImage:(_Bool)arg2;
 + (id)reuseIdentifier;
+@property(retain, nonatomic) UIFontMetrics *fontMetrics; // @synthesize fontMetrics=_fontMetrics;
 @property(nonatomic) _Bool active; // @synthesize active=_active;
 @property(retain, nonatomic) UIImage *calloutImage; // @synthesize calloutImage=_calloutImage;
 @property(copy, nonatomic) NSString *calloutName; // @synthesize calloutName=_calloutName;
 - (void).cxx_destruct;
+- (id)previewViewAndRect:(struct CGRect *)arg1;
 - (void)_highlight;
 - (void)setSelected:(_Bool)arg1;
 - (void)setHighlighted:(_Bool)arg1;
+- (void)updateConstraints;
 @property(retain, nonatomic) UIView *faceView;
 - (void)layoutSubviews;
 - (void)prepareForReuse;
+- (void)_fontSizeDidChange;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

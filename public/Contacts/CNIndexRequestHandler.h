@@ -21,7 +21,7 @@
 
 @property(retain, nonatomic) CNIndexClientState *clientState; // @synthesize clientState=_clientState;
 @property(nonatomic) _Bool isFullSyncNeeded; // @synthesize isFullSyncNeeded=_isFullSyncNeeded;
-@property(nonatomic) unsigned long long batchSize; // @synthesize batchSize=_batchSize;
+@property(readonly, nonatomic) unsigned long long batchSize; // @synthesize batchSize=_batchSize;
 @property(readonly, nonatomic) id <CNSpotlightIndexingLogger> logger; // @synthesize logger=_logger;
 @property(retain, nonatomic) id <CNCSSearchableIndex> index; // @synthesize index=_index;
 @property(retain, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;

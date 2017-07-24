@@ -7,16 +7,18 @@
 #import <MapKit/MKPlaceSectionViewController.h>
 
 #import <MapKit/MKModuleViewControllerProtocol-Protocol.h>
+#import <MapKit/MKStackingViewControllerFixedHeightAware-Protocol.h>
 #import <MapKit/_MKInfoCardChildViewControllerAnalyticsDelegate-Protocol.h>
 
 @class MKMapItem, MKPlaceSectionRowView, NSLayoutConstraint, NSString, NSTextAttachment, UIImage, UIImageView, UILabel;
 @protocol MKPlaceParentInfoViewControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface MKPlaceParentInfoViewController : MKPlaceSectionViewController <MKModuleViewControllerProtocol, _MKInfoCardChildViewControllerAnalyticsDelegate>
+@interface MKPlaceParentInfoViewController : MKPlaceSectionViewController <MKModuleViewControllerProtocol, _MKInfoCardChildViewControllerAnalyticsDelegate, MKStackingViewControllerFixedHeightAware>
 {
     MKPlaceSectionRowView *_sectionRow;
     NSTextAttachment *_attachment;
+    _Bool _resizableViewsDisabled;
     _Bool _accessibilityMode;
     id <MKPlaceParentInfoViewControllerDelegate> _delegate;
     NSLayoutConstraint *_topConstraint;
@@ -44,7 +46,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSLayoutConstraint *leadingLayoutGuideConstraint; // @synthesize leadingLayoutGuideConstraint=_leadingLayoutGuideConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *topConstraint; // @synthesize topConstraint=_topConstraint;
 @property(nonatomic) __weak id <MKPlaceParentInfoViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) _Bool resizableViewsDisabled; // @synthesize resizableViewsDisabled=_resizableViewsDisabled;
 - (void).cxx_destruct;
+- (double)extraHeightToReserveInLayout;
 - (id)infoCardChildPossibleActions;
 - (void)_contentSizeDidChange;
 - (void)infoCardThemeChanged:(id)arg1;

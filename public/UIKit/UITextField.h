@@ -27,7 +27,7 @@
 #import <UIKit/_UITextFieldContent_Internal-Protocol.h>
 #import <UIKit/_UITextFieldVisualStyleSubject-Protocol.h>
 
-@class CUICatalog, CUIStyleEffectConfiguration, NSAttributedString, NSDictionary, NSIndexSet, NSLayoutConstraint, NSLayoutManager, NSString, NSTextContainer, NSTextStorage, UIButton, UIColor, UIDragInteraction, UIDropInteraction, UIFieldEditor, UIFont, UIImage, UIImageView, UIInputContextHistory, UILabel, UIPasteConfiguration, UISystemInputViewController, UITapGestureRecognizer, UITextFieldAtomBackgroundView, UITextFieldBackgroundView, UITextFieldBorderView, UITextFieldLabel, UITextInputTraits, UITextInteractionAssistant, UITextPasteController, UITextPosition, UITextRange, UIView, UIVisualEffectView, _UIBaselineLayoutStrut, _UICascadingTextStorage, _UIDetachedFieldEditorBackgroundView, _UIFloatingContentView, _UIFullFontSize, _UITextFieldContentView, _UITextFieldVisualStyle;
+@class CUICatalog, CUIStyleEffectConfiguration, NSArray, NSAttributedString, NSDictionary, NSIndexSet, NSLayoutConstraint, NSLayoutManager, NSString, NSTextContainer, NSTextStorage, UIButton, UIColor, UIDragInteraction, UIDropInteraction, UIFieldEditor, UIFont, UIImage, UIImageView, UIInputContextHistory, UILabel, UIPasteConfiguration, UISystemInputViewController, UITapGestureRecognizer, UITextFieldAtomBackgroundView, UITextFieldBackgroundView, UITextFieldBorderView, UITextFieldLabel, UITextInputTraits, UITextInteractionAssistant, UITextPasteController, UITextPosition, UITextRange, UIView, UIVisualEffectView, _UIBaselineLayoutStrut, _UICascadingTextStorage, _UIDetachedFieldEditorBackgroundView, _UIFloatingContentView, _UIFullFontSize, _UITextFieldContentView, _UITextFieldVisualStyle;
 @protocol UITextDragDelegate, UITextDragDropSupport, UITextDropDelegate, UITextFieldDelegate, UITextInputDelegate, UITextInputTokenizer, UITextPasteDelegate;
 
 @interface UITextField : UIControl <UIKeyboardInput, _UILayoutBaselineUpdating, _UIFloatingContentViewDelegate, UIGestureRecognizerDelegate, UIKeyInputPrivate, _UITextFieldVisualStyleSubject, UIViewGhostedRangeSupporting, UITextInputTraits_Private, _UITextFieldContent_Internal, UIPopoverControllerDelegate, UITextDragSupporting, UITextDropSupporting, UITextPasteConfigurationSupporting_Internal, UITextFieldContent, UITextDraggable, UITextDroppable, UITextPasteConfigurationSupporting, UITextInput, NSCoding, UIContentSizeCategoryAdjusting>
@@ -111,6 +111,7 @@
     CUICatalog *_cuiCatalog;
     CUIStyleEffectConfiguration *_cuiStyleEffectConfiguration;
     double _roundedRectBackgroundCornerRadius;
+    NSArray *_overriddenAttributesForEditing;
     _Bool _adjustsFontForContentSizeCategory;
     _Bool _tvUseVibrancy;
     _Bool _disableTextColorUpdateOnTraitCollectionChange;
@@ -336,8 +337,8 @@
 - (void)_resetSelectionUI;
 - (void)_clearSelectionUI;
 - (void)selectAll;
+- (void)_applyHighlightedAnimated:(_Bool)arg1;
 - (void)setHighlighted:(_Bool)arg1;
-- (void)_setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setEnabled:(_Bool)arg1;
 - (void)_setEnabled:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setInactiveHasDimAppearance:(_Bool)arg1;
@@ -375,8 +376,11 @@
 - (_Bool)keyboardInput:(id)arg1 shouldInsertText:(id)arg2 isMarkedText:(_Bool)arg3;
 - (void)_applicationResuming:(id)arg1;
 - (unsigned long long)_controlEventsForActionTriggered;
-- (void)_willDetachFieldEditor;
+- (void)_invalidateAfterUpdatingEditingAttributes;
+- (void)_didUpdateAfterDetachingFieldEditor;
+- (void)_willUpdateAfterDetachingFieldEditor;
 - (void)_didAttachFieldEditor;
+- (void)_willAttachFieldEditor;
 - (void)_addFieldEditorToView;
 - (id)_defaultPromptString;
 - (void)_detachFieldEditor;
@@ -456,6 +460,7 @@
 @property(copy, nonatomic) NSAttributedString *attributedText;
 - (void)_scrollRangeToVisible:(struct _NSRange)arg1 animated:(_Bool)arg2;
 - (void)_sanitizeText:(id)arg1;
+- (void)sanitizeAttributedText:(id)arg1;
 - (_Bool)_textNeedsSanitizing:(id)arg1;
 - (void)_setAttributedText:(id)arg1 onFieldEditorAndSetCaretSelectionAfterText:(_Bool)arg2;
 @property(copy, nonatomic) NSString *text;
@@ -563,7 +568,12 @@
 - (id)_preferredConfigurationForFocusAnimation:(long long)arg1 inContext:(id)arg2;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (_Bool)canBecomeFocused;
+- (void)_setForegroundViewsAlpha:(double)arg1;
 - (void)_setDisableFocus:(_Bool)arg1;
+- (void)cancelTrackingWithEvent:(id)arg1;
+- (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)pressesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)pressesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)pressesChanged:(id)arg1 withEvent:(id)arg2;
@@ -648,6 +658,7 @@
 @property(nonatomic) _Bool isSingleLineDocument;
 @property(nonatomic) long long keyboardType; // @dynamic keyboardType;
 @property(nonatomic) _Bool learnsCorrections;
+@property(nonatomic) _Bool loadKeyboardsForSiriLanguage;
 @property(copy, nonatomic) UIPasteConfiguration *pasteConfiguration; // @dynamic pasteConfiguration;
 @property(copy, nonatomic) NSString *recentInputIdentifier;
 @property(copy, nonatomic) NSString *responseContext;

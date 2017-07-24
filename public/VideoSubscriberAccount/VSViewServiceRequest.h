@@ -20,9 +20,11 @@ __attribute__((visibility("hidden")))
     _Bool _shouldInferFeaturedProviders;
     VSAccountMetadataRequest *_accountMetadataRequest;
     VSOptional *_requestingAppDisplayName;
+    NSString *_requestingAppAdamID;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSString *requestingAppAdamID; // @synthesize requestingAppAdamID=_requestingAppAdamID;
 @property(retain, nonatomic) VSOptional *requestingAppDisplayName; // @synthesize requestingAppDisplayName=_requestingAppDisplayName;
 @property(nonatomic) _Bool shouldInferFeaturedProviders; // @synthesize shouldInferFeaturedProviders=_shouldInferFeaturedProviders;
 @property(copy, nonatomic) VSAccountMetadataRequest *accountMetadataRequest; // @synthesize accountMetadataRequest=_accountMetadataRequest;

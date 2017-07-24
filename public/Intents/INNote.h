@@ -10,13 +10,13 @@
 #import <Intents/NSCopying-Protocol.h>
 #import <Intents/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSDateComponents, NSString;
+@class INSpeakableString, NSArray, NSDateComponents, NSString;
 
 @interface INNote : NSObject <INCacheableContainer, NSCopying, NSSecureCoding>
 {
-    NSString *_title;
+    INSpeakableString *_title;
     NSArray *_contents;
-    NSString *_groupName;
+    INSpeakableString *_groupName;
     NSDateComponents *_createdDateComponents;
     NSDateComponents *_modifiedDateComponents;
     NSString *_identifier;
@@ -26,11 +26,12 @@
 @property(readonly, copy) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, copy) NSDateComponents *modifiedDateComponents; // @synthesize modifiedDateComponents=_modifiedDateComponents;
 @property(readonly, copy) NSDateComponents *createdDateComponents; // @synthesize createdDateComponents=_createdDateComponents;
-@property(readonly, copy) NSString *groupName; // @synthesize groupName=_groupName;
+@property(readonly, copy) INSpeakableString *groupName; // @synthesize groupName=_groupName;
 @property(readonly, copy) NSArray *contents; // @synthesize contents=_contents;
-@property(readonly, copy) NSString *title; // @synthesize title=_title;
+@property(readonly, copy) INSpeakableString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

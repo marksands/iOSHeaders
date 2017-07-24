@@ -20,9 +20,11 @@
     NSMutableDictionary *_perAppVPNEvaluators;
     NSObject<OS_dispatch_source> *_smoothingTimer;
     struct tcp_connection_fallback_watch_s *_fallbackWatcher;
+    NSObject<OS_dispatch_source> *_mptcpWatcher;
 }
 
 + (id)sharedSystemPathMonitor;
+@property NSObject<OS_dispatch_source> *mptcpWatcher; // @synthesize mptcpWatcher=_mptcpWatcher;
 @property struct tcp_connection_fallback_watch_s *fallbackWatcher; // @synthesize fallbackWatcher=_fallbackWatcher;
 @property(retain) NSObject<OS_dispatch_source> *smoothingTimer; // @synthesize smoothingTimer=_smoothingTimer;
 @property(retain) NSMutableDictionary *perAppVPNEvaluators; // @synthesize perAppVPNEvaluators=_perAppVPNEvaluators;

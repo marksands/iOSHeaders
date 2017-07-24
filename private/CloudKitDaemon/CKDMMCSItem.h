@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
     NSString *_authToken;
     NSData *_authRequest;
     NSString *_uploadReceipt;
+    double _uploadReceiptExpiration;
     NSMutableArray *_sectionItems;
     NSError *_error;
     NSData *_assetKey;
@@ -78,6 +79,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSData *assetKey; // @synthesize assetKey=_assetKey;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) NSMutableArray *sectionItems; // @synthesize sectionItems=_sectionItems;
+@property(nonatomic) double uploadReceiptExpiration; // @synthesize uploadReceiptExpiration=_uploadReceiptExpiration;
 @property(retain, nonatomic) NSString *uploadReceipt; // @synthesize uploadReceipt=_uploadReceipt;
 @property(retain, nonatomic) NSData *authRequest; // @synthesize authRequest=_authRequest;
 @property(retain, nonatomic) NSString *authToken; // @synthesize authToken=_authToken;
@@ -107,6 +109,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 - (void).cxx_destruct;
 - (id)getFileMetadataWithFileHandle:(id)arg1 error:(id *)arg2;
+- (id)getFileMetadataWithProxy:(id)arg1 fileHandle:(id)arg2 error:(id *)arg3;
 - (id)getFileSizeWithError:(id *)arg1;
 - (id)getFileSizeWithProxy:(id)arg1 error:(id *)arg2;
 - (id)openWithError:(id *)arg1;

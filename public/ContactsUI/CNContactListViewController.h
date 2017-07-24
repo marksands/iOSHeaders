@@ -88,7 +88,7 @@
 @property(nonatomic) _Bool shouldRefreshMeContact; // @synthesize shouldRefreshMeContact=_shouldRefreshMeContact;
 - (void).cxx_destruct;
 - (void)vCardImportControllerDidCompleteQueue:(id)arg1;
-- (void)vCardImportController:(id)arg1 didSaveContact:(id)arg2;
+- (void)vCardImportController:(id)arg1 didSaveContacts:(id)arg2;
 - (void)vCardImportController:(id)arg1 presentViewController:(id)arg2 animated:(_Bool)arg3;
 - (id)_tableView:(id)arg1 dropSessionDidUpdate:(id)arg2 withDestinationIndexPath:(id)arg3;
 - (_Bool)_tableView:(id)arg1 canHandleDropSession:(id)arg2;
@@ -111,6 +111,7 @@
 - (void)tableView:(id)arg1 didHighlightRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didDeselectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(long long)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
@@ -120,6 +121,7 @@
 - (long long)tableView:(id)arg1 sectionForSectionIndexTitle:(id)arg2 atIndex:(long long)arg3;
 - (id)sectionIndexTitlesForTableView:(id)arg1;
 - (_Bool)isContactWithIdentifierMeContactOrLinkedToMeContact:(id)arg1;
+- (_Bool)canSelectContactAtIndexPath:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
@@ -157,6 +159,7 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)configureNavigationBarForLargeTitles;
 - (void)viewDidLoad;
+- (void)_updateTableViewRowHeight;
 - (void)loadView;
 @property(retain, nonatomic) NSObject<CNContactDataSource> *dataSource; // @synthesize dataSource=_dataSource;
 - (_Bool)isHandlingSearch;

@@ -34,6 +34,7 @@
 - (void).cxx_destruct;
 - (id)description;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
+- (id)jsonDictionary;
 - (id)NSDictionary;
 - (id)allObjects;
 - (id)allKeys;

@@ -7,22 +7,26 @@
 #import <objc/NSObject.h>
 
 #import <CoreSuggestionsInternals/APSConnectionDelegate-Protocol.h>
+#import <CoreSuggestionsInternals/SGJournalCalendarObserver-Protocol.h>
 
-@class APSConnection, CKContainer, CKDatabase, NSError, NSOperation, NSOperationQueue, NSString, _SGDCloudKitSyncPersistedState;
+@class APSConnection, CKContainer, CKDatabase, NSError, NSMutableArray, NSOperation, NSOperationQueue, NSString, SGFuture, _SGDCloudKitSyncPersistedState;
 @protocol OS_dispatch_queue;
 
-@interface SGDCloudKitSync : NSObject <APSConnectionDelegate>
+@interface SGDCloudKitSync : NSObject <APSConnectionDelegate, SGJournalCalendarObserver>
 {
     CKDatabase *_database;
     CDUnknownBlockType _callback;
+    CDUnknownBlockType _deleteAllSyncedItemsCallback;
     APSConnection *_apsConnection;
     NSObject<OS_dispatch_queue> *_queue;
     NSOperationQueue *_opQueue;
+    NSMutableArray *_operationsToAddToOpQueue;
     CKContainer *_container;
+    SGFuture *_accountInfoFuture;
     _SGDCloudKitSyncPersistedState *_persistedState;
     long long _suspendCount;
     _Bool _noZone;
-    _Bool _disabled;
+    _Bool _disabledBecauseOutOfDateSoftware;
     NSOperation *_inProgressProcureSaltOperation;
     NSOperation *_inProgressCreateZoneOperation;
     NSOperation *_inProgressDeleteZoneOperation;
@@ -31,6 +35,9 @@
     NSError *_createZoneError;
     NSError *_deleteZoneError;
     NSError *_procureSaltError;
+    _Bool _processingStateChanges;
+    _Bool _pendingProcessStateChanges;
+    struct ct_green_tea_logger_s *_greenTeaLogger;
 }
 
 + (id)sharedInstance;
@@ -42,16 +49,40 @@
 - (void)connection:(id)arg1 didReceiveIncomingMessage:(id)arg2;
 - (void)connection:(id)arg1 didReceivePublicToken:(id)arg2;
 - (void)connection:(id)arg1 didReceiveToken:(id)arg2 forTopic:(id)arg3 identifier:(id)arg4;
+- (void)cancelEvents:(id)arg1;
+- (void)addEvents:(id)arg1;
+- (void)calendarDeleted;
+- (void)orphanEvent:(id)arg1;
+- (void)rejectEventFromOtherDevice:(id)arg1;
+- (void)rejectEventFromThisDevice:(id)arg1;
+- (void)confirmEventFromOtherDevice:(id)arg1;
+- (void)confirmEventFromThisDevice:(id)arg1;
+- (void)cancelEvent:(id)arg1;
+- (void)addEvent:(id)arg1;
+- (void)deleteZoneWithCompletion:(CDUnknownBlockType)arg1;
+- (void)deleteStorageEvent:(id)arg1;
 - (id)recordZoneId;
+- (void)invokeNewEntitiesCallbackWithEntity:(id)arg1;
+- (void)setDeleteAllSyncedItemsCallback:(CDUnknownBlockType)arg1;
 - (void)setNewEntitiesCallback:(CDUnknownBlockType)arg1;
+- (void)deleteGroupId:(id)arg1;
 - (void)addEntity:(id)arg1;
 - (void)setDatabase:(id)arg1;
 - (void)createSubscriptionWithRetries:(unsigned long long)arg1;
 - (id)apsEnvironmentStringForContainer:(id)arg1;
+- (id)shouldRemoveEventsFromEventKit;
+- (id)accountInfo;
+- (void)accountChanged:(id)arg1;
+- (void)processStateChanges;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)dealloc;
 - (id)init;
+- (id)addOperation;
 - (id)addOperation:(id)arg1;
-- (id)addWriteOperationForRecordGetter:(CDUnknownBlockType)arg1 withRetries:(unsigned long long)arg2 isFirstTry:(_Bool)arg3;
-- (id)addWriteOperationForRecordGetter:(CDUnknownBlockType)arg1 withRetries:(unsigned long long)arg2;
+- (id)addWriteOperationForRecordGetter:(CDUnknownBlockType)arg1 deleteGetter:(CDUnknownBlockType)arg2 withRetries:(unsigned long long)arg3 isFirstTry:(_Bool)arg4;
+- (id)addWriteOperationForRecordGetter:(CDUnknownBlockType)arg1 deleteGetter:(CDUnknownBlockType)arg2 withRetries:(unsigned long long)arg3;
+- (id)addDeleteAndRecreateZoneOperation;
+- (_Bool)shouldRecreateZoneForRecordError:(id)arg1 operationError:(id)arg2;
 - (id)addFetchNewEntitiesAttemptOperationWithRetries:(unsigned long long)arg1;
 - (id)addFetchNewEntitiesOperation;
 - (id)addProcureSaltAttemptOperationWithRetries:(unsigned long long)arg1;
@@ -59,11 +90,12 @@
 - (id)ckErrorForRecordZoneId:(id)arg1 inError:(id)arg2;
 - (id)ckErrorForRecordId:(id)arg1 inError:(id)arg2;
 - (id)addProcureSaltOperation;
+- (id)addManateeSanityCheckOperation;
 - (id)addCreateZoneAttemptOperationWithRetries:(unsigned long long)arg1;
 - (id)addCreateZoneOperation;
 - (id)addDeleteZoneAttemptOperationWithRetries:(unsigned long long)arg1;
 - (id)addDeleteZoneOperation;
-- (_Bool)willPauseForError:(id)arg1;
+- (_Bool)pauseIfNeededAndReturnRetryEligibilityForError:(id)arg1;
 - (id)getUnderlyingError:(id)arg1;
 - (void)resume;
 - (void)suspendAndResumeAfter:(double)arg1;
@@ -71,6 +103,8 @@
 - (void)failSalt;
 - (void)disable;
 - (void)clearErrors;
+- (void)_addDependency:(id)arg1 toTrain:(id)arg2;
+- (void)_coupleOperationTrainWithStart:(id)arg1 end:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

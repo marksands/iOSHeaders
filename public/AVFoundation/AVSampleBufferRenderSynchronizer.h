@@ -31,6 +31,11 @@
 - (void)addRenderer:(id)arg1;
 - (_Bool)_addRenderer:(id)arg1 error:(id *)arg2;
 @property(readonly) NSArray *renderers;
+- (long long)_addedAudioRendererCountInternal;
+- (long long)_addedAudioRendererCount;
+- (_Bool)_multipleAudioRenderersDisallowed;
+- (_Bool)_rendererConfigurationIsValid:(id *)arg1;
+- (_Bool)_canAddRendererInternal:(id)arg1 error:(id *)arg2;
 - (void)removeTimeObserver:(id)arg1;
 - (id)addBoundaryTimeObserverForTimes:(id)arg1 queue:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)addPeriodicTimeObserverForInterval:(CDStruct_1b6d18a9)arg1 queue:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;

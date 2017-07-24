@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFTextColumnSection-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString;
 
-@interface SFTextColumnSection : NSObject <SFTextColumnSection, NSSecureCoding>
+@interface SFTextColumnSection : NSObject <SFTextColumnSection, NSSecureCoding, NSCopying>
 {
     CDStruct_82065ba4 _has;
     _Bool _textNoWrap;
@@ -24,6 +25,7 @@
 @property(nonatomic) _Bool textNoWrap; // @synthesize textNoWrap=_textNoWrap;
 @property(copy, nonatomic) NSArray *textLines; // @synthesize textLines=_textLines;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

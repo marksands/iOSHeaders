@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class HKActivityRingView, HKActivitySummary, HKUnit, UIFont, UIImageView, UILabel, UILayoutGuide;
+@class HKActivityRingView, HKActivitySummary, HKUnit, NSMutableArray, UIFont, UIImageView, UILabel, UILayoutGuide;
 
 @interface HKActivityTodayWidgetView : UIView
 {
@@ -25,13 +25,17 @@
     UIView *_textContainerView;
     UILayoutGuide *_labelsTopLayoutGuide;
     UILayoutGuide *_labelsBottomLayoutGuide;
+    NSMutableArray *_sizeDepedentConstraints;
 }
 
 + (id)_integerFormatter;
 + (double)preferredHeight;
+@property(retain, nonatomic) NSMutableArray *sizeDepedentConstraints; // @synthesize sizeDepedentConstraints=_sizeDepedentConstraints;
 - (void).cxx_destruct;
 - (void)_renderRingImage;
 - (void)_animateCurrentActivitySummary;
+- (void)_updateForCurrentSizeCategory;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)_constrainLabels;
 - (void)_updateStandTitleLabelWithSummary:(id)arg1;
 - (void)_updateMoveValueLabelWithSummary:(id)arg1;
@@ -44,7 +48,6 @@
 - (void)setIsWheelchairUser:(_Bool)arg1;
 - (void)setActiveEnergyUnit:(id)arg1 basalEnergyUnit:(id)arg2;
 - (void)setActivitySummary:(id)arg1 animated:(_Bool)arg2;
-- (void)layoutSubviews;
 - (void)setupSubviews;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 activeEnergyUnit:(id)arg2 basalEnergyUnit:(id)arg3;

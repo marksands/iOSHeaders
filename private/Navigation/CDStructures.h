@@ -29,8 +29,8 @@ struct NSDictionary {
 };
 
 struct PolylineCoordinate {
-    unsigned int _field1;
-    float _field2;
+    unsigned int index;
+    float offset;
 };
 
 struct _NSRange {

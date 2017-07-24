@@ -6,19 +6,13 @@
 
 #import <Silex/SXAction.h>
 
-@class EKEvent;
-
 @interface SXEventAction : SXAction
 {
-    EKEvent *_event;
 }
 
-@property(readonly, nonatomic) EKEvent *event; // @synthesize event=_event;
-- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)createEventWithEventStore:(id)arg1;
 - (Class)handlerClass;
-- (id)initWithEvent:(id)arg1 addition:(id)arg2;
-- (id)initWithAddition:(id)arg1;
 
 @end
 

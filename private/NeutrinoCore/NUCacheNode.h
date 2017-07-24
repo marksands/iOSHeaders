@@ -33,7 +33,7 @@
 - (id)_evaluateVideo:(out id *)arg1;
 - (id)_evaluateImage:(out id *)arg1;
 - (id)_evaluateImageGeometry:(out id *)arg1;
-- (id)newRenderRequestWithOriginalRequest:(id)arg1 persistentURL:(id)arg2;
+- (id)newRenderRequestWithOriginalRequest:(id)arg1 persistentURL:(id)arg2 error:(out id *)arg3;
 - (id)cacheIdentifier;
 - (id)generatePersistentURLWithExtension:(id)arg1;
 - (id)resolvedSourceNode:(out id *)arg1;

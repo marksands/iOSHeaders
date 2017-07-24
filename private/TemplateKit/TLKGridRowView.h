@@ -26,7 +26,7 @@
 @property(retain) NSMutableArray *imageViews; // @synthesize imageViews=_imageViews;
 @property(retain) NSMutableArray *labels; // @synthesize labels=_labels;
 @property(retain) TLKTableRow *tableRow; // @synthesize tableRow=_tableRow;
-@property __weak TLKGridLayoutManager *manager; // @synthesize manager=_manager;
+@property(retain) TLKGridLayoutManager *manager; // @synthesize manager=_manager;
 - (void).cxx_destruct;
 - (id)description;
 - (void)setStylesForEverything;

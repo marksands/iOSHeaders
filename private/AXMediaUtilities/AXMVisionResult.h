@@ -20,6 +20,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)resultWithFeatures:(id)arg1 orientation:(id)arg2;
 + (id)resultWithImage:(id)arg1 features:(id)arg2 orientation:(id)arg3;
 @property(retain, nonatomic) NSString *detectedTextDescription; // @synthesize detectedTextDescription=_detectedTextDescription;
 @property(retain, nonatomic) NSString *detectedFeatureDescription; // @synthesize detectedFeatureDescription=_detectedFeatureDescription;
@@ -35,7 +36,6 @@
 @property(readonly, nonatomic) NSString *localizedDetectedTextHint;
 @property(readonly, nonatomic) AXMLanguage *detectedTextLanguage;
 - (id)localizedStringFormatterForExpression:(id)arg1;
-- (id)sanitizedResult;
 @property(readonly, nonatomic) AXMVisionFeature *assetMetadataFeature;
 @property(readonly, nonatomic) AXMVisionFeature *colorInfoFeature;
 - (id)sortedFeatures;

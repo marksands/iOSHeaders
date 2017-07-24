@@ -9,10 +9,11 @@
 #import <Vision/NSCopying-Protocol.h>
 #import <Vision/NSSecureCoding-Protocol.h>
 #import <Vision/VNFaceprintModel-Protocol.h>
+#import <Vision/VNSerializing-Protocol.h>
 
 @class NSData, NSString;
 
-@interface VNFaceprint : NSObject <VNFaceprintModel, NSSecureCoding, NSCopying>
+@interface VNFaceprint : NSObject <VNFaceprintModel, NSSecureCoding, NSCopying, VNSerializing>
 {
     unsigned int _platform;
     unsigned int _profile;
@@ -32,8 +33,9 @@
 - (unsigned long long)hash;
 - (id)computeDistanceToFaceprint:(id)arg1 withDistanceFunction:(long long)arg2 error:(id *)arg3;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)init_CVML_MIGRATION_ONLY_WithData:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)serializeStateAndReturnError:(id *)arg1;
+- (id)initWithState:(id)arg1 error:(id *)arg2;
 - (id)initWithCoder:(id)arg1;
 
 @end

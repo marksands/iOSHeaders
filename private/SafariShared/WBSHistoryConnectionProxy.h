@@ -32,6 +32,7 @@
 - (void)debugGetDatabaseURLWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)groupVisitsIntoSessionsBetweenStartDate:(id)arg1 endDate:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)getVisitedLinksWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)getServiceInfo:(CDUnknownBlockType)arg1;
 - (void)ensureConnected:(CDUnknownBlockType)arg1;
 - (CDUnknownBlockType)_defaultProxyErrorHandlerWithSimpleReplyCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)dealloc;

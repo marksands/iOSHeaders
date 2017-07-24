@@ -17,7 +17,7 @@
     struct __SCNetworkReachability *_reachability;
     unsigned int _reachabilityFlags;
     NSObject<OS_dispatch_queue> *_queue;
-    _Bool _isConnected;
+    _Bool _canReachTheNetwork;
     _Bool _isUpdating;
     int _localLatencyCount;
     double _localLatency;
@@ -29,7 +29,7 @@
 
 + (id)sharedNetworkController;
 @property _Bool isUpdating; // @synthesize isUpdating=_isUpdating;
-@property _Bool isConnected; // @synthesize isConnected=_isConnected;
+@property(nonatomic) _Bool canReachTheNetwork; // @synthesize canReachTheNetwork=_canReachTheNetwork;
 @property(readonly, nonatomic) double localBandwidthBytes; // @synthesize localBandwidthBytes=_localBandwidthBytes;
 @property(readonly, nonatomic) double localBandwidth; // @synthesize localBandwidth=_localBandwidth;
 @property(readonly, nonatomic) int localLatencyCount; // @synthesize localLatencyCount=_localLatencyCount;

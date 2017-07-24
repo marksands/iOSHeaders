@@ -11,7 +11,7 @@
 #import <MapKit/MKQuickRouteManagerDelegate-Protocol.h>
 #import <MapKit/MKQuickRouteTransportTypeFinding-Protocol.h>
 
-@class CLLocation, GEOAutomobileOptions, GEOTransitOptions, MKMapItem, NSHashTable, NSLock, NSNumber, NSString, _MKQuickRouteManager;
+@class CLLocation, GEOAutomobileOptions, GEOTransitOptions, MKMapItem, NSHashTable, NSLock, NSNumber, NSString, NSTimer, _MKQuickRouteManager;
 @protocol GEOTransitLineItem, MKETAProviderDelegate, _MKPlaceItem;
 
 __attribute__((visibility("hidden")))
@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _etaTransportType;
     double _etaTravelTime;
     _Bool _active;
+    NSTimer *_refreshTimer;
     CLLocation *_currentLocation;
     id <MKETAProviderDelegate> _delegate;
     GEOAutomobileOptions *_automobileOptions;
@@ -46,7 +47,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)findDirectionsTypeForOriginCoordinate:(struct CLLocationCoordinate2D)arg1 destinationCoordinate:(struct CLLocationCoordinate2D)arg2 handler:(CDUnknownBlockType)arg3;
 - (_Bool)quickRouteShouldOnlyUseAutomobile;
-- (_Bool)quickRouteShouldIncludeTransit;
+- (_Bool)quickRouteShouldIncludeTransitWhenNotPreferredTransportType;
 - (void)quickRouteManager:(id)arg1 didUpdateETA:(id)arg2 error:(id)arg3 animated:(_Bool)arg4;
 - (void)locationManager:(id)arg1 didUpdateVehicleHeading:(double)arg2 timestamp:(id)arg3;
 - (void)locationManager:(id)arg1 didUpdateVehicleSpeed:(double)arg2 timestamp:(id)arg3;
@@ -72,9 +73,13 @@ __attribute__((visibility("hidden")))
 - (void)_notifyETAAllObservers;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
+- (void)_cancelTimer;
+- (void)_startTimer;
+- (void)_refreshTimer;
 - (void)cancel;
 - (void)start;
 - (void)_commonInit;
+- (void)dealloc;
 - (id)initWithLineItem:(id)arg1;
 - (id)initWithPlaceItem:(id)arg1;
 

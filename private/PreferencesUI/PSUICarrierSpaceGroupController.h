@@ -6,29 +6,30 @@
 
 #import <Foundation/NSObject.h>
 
-#import <PreferencesUI/CTCarrierSpaceClientDelegate-Protocol.h>
 #import <PreferencesUI/PSSpecifierGroupController-Protocol.h>
+#import <PreferencesUI/RemoteUIControllerDelegate-Protocol.h>
 
-@class CTCarrierSpaceCapabilities, CTCarrierSpaceClient, NSString, PSListController, PSSpecifier;
-@protocol OS_dispatch_queue;
+@class CTCarrierSpaceCapabilities, NSString, PSListController, PSSpecifier, RemoteUIController;
 
-@interface PSUICarrierSpaceGroupController : NSObject <CTCarrierSpaceClientDelegate, PSSpecifierGroupController>
+@interface PSUICarrierSpaceGroupController : NSObject <RemoteUIControllerDelegate, PSSpecifierGroupController>
 {
-    NSObject<OS_dispatch_queue> *_carrierSpaceQueue;
+    RemoteUIController *_remoteUIController;
     PSListController *_listController;
     PSSpecifier *_groupSpecifier;
-    CTCarrierSpaceClient *_carrierSpaceClient;
     CTCarrierSpaceCapabilities *_capabilities;
 }
 
 @property(retain, nonatomic) CTCarrierSpaceCapabilities *capabilities; // @synthesize capabilities=_capabilities;
-@property(retain, nonatomic) CTCarrierSpaceClient *carrierSpaceClient; // @synthesize carrierSpaceClient=_carrierSpaceClient;
 @property(nonatomic) __weak PSSpecifier *groupSpecifier; // @synthesize groupSpecifier=_groupSpecifier;
 @property(nonatomic) __weak PSListController *listController; // @synthesize listController=_listController;
+@property(retain, nonatomic) RemoteUIController *remoteUIController; // @synthesize remoteUIController=_remoteUIController;
 - (void).cxx_destruct;
-- (void)plansDidChange:(id)arg1;
-- (void)usageDidChange:(id)arg1;
-- (void)capabilitiesDidChange:(id)arg1;
+- (void)remoteUIController:(id)arg1 willPresentModalNavigationController:(id)arg2;
+- (void)dismissUserConsent;
+- (void)showConsentFlow:(id)arg1;
+- (void)carrierSpaceChanged;
+- (id)descriptionForUsage:(id)arg1;
+- (id)descriptionForPlans:(id)arg1;
 - (id)specifiers;
 - (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2;
 

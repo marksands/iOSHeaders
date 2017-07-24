@@ -9,7 +9,7 @@
 #import <CoreSpeech/AVVoiceControllerRecordDelegate-Protocol.h>
 #import <CoreSpeech/CSBeepCancellerDelegate-Protocol.h>
 
-@class AVVoiceController, CSBeepCanceller, NSString;
+@class AVVoiceController, CSAudioSampleRateConverter, CSBeepCanceller, NSString;
 @protocol CSAudioRecorderDelegate, OS_dispatch_queue;
 
 @interface CSAudioRecorder : NSObject <AVVoiceControllerRecordDelegate, CSBeepCancellerDelegate>
@@ -20,13 +20,17 @@
     struct OpaqueAudioConverter *_deinterleaver;
     struct AudioBufferList _interleavedABL;
     struct AudioBufferList *_pNonInterleavedABL;
+    CSAudioSampleRateConverter *_sampleRateConverter;
+    _Bool _needSampleRateConversion;
     id <CSAudioRecorderDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <CSAudioRecorderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_createSampleRateConverterIfNeeded;
 - (void)_createDeInterleaverIfNeeded;
 - (id)_deinterleaveBufferIfNeeded:(id)arg1;
+- (id)_samplingRateConvertIfNeeded:(id)arg1;
 - (void)voiceTriggerOccuredNotification:(id)arg1;
 - (void)updateVoiceTriggerAOPModel:(id)arg1;
 - (void)enableVoiceTriggerOnAOP:(_Bool)arg1;
@@ -43,6 +47,7 @@
 - (void)setMeteringEnabled:(_Bool)arg1;
 - (unsigned long long)alertStartTime;
 - (_Bool)playAlertSoundForType:(long long)arg1;
+- (_Bool)playRecordStartingAlertAndResetEndpointer;
 - (_Bool)setAlertSoundFromURL:(id)arg1 forType:(long long)arg2;
 - (void)voiceControllerRecordBufferAvailable:(id)arg1 buffer:(id)arg2;
 - (void)beepCancellerDidCancelSamples:(id)arg1 buffer:(id)arg2 timestamp:(unsigned long long)arg3;
@@ -50,6 +55,7 @@
 - (void)_processAudioChain:(id)arg1 atTime:(unsigned long long)arg2;
 - (id)voiceTriggerInfo;
 - (id)recordRoute;
+- (_Bool)isNarrowBand;
 - (_Bool)isRecording;
 - (void)stopRecording;
 - (_Bool)startRecording;

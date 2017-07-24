@@ -37,7 +37,6 @@
 + (id)dateTimeLunarDateFont;
 + (double)timeSubtitleBaselineY;
 + (double)timeToListInsetXforPage:(unsigned long long)arg1;
-+ (double)_listToWeatherIndentX;
 + (struct UIEdgeInsets)_cachedGlyphInsetsForString:(id)arg1 withFont:(id)arg2;
 + (struct UIEdgeInsets)timeLabelInsetsForTimeString:(id)arg1;
 + (double)timeToSubtitleLabelBaselineDifferenceY;
@@ -59,7 +58,6 @@
 + (struct CGRect)suggestedFrameForListForPage:(unsigned long long)arg1 pageBounds:(struct CGRect)arg2 insets:(struct UIEdgeInsets)arg3 scrollsDateTime:(_Bool)arg4;
 + (struct CGRect)suggestedFrameForListForPage:(unsigned long long)arg1 pageBounds:(struct CGRect)arg2 insets:(struct UIEdgeInsets)arg3;
 + (struct CGRect)suggestedFrameForListForPage:(unsigned long long)arg1 pageBounds:(struct CGRect)arg2;
-+ (struct CGPoint)suggestedLeadingBottomCornerForWeatherViewForPageBounds:(struct CGRect)arg1;
 + (struct CGRect)suggestedFrameForSearchControllerForPageBounds:(struct CGRect)arg1;
 + (_Bool)usesSideAlignedMainPageLayout;
 + (unsigned long long)dateTimeLayoutForPage:(unsigned long long)arg1;

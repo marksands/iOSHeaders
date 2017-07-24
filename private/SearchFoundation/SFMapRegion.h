@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFMapRegion-Protocol.h>
 
 @class NSData, NSDictionary, NSString;
 
-@interface SFMapRegion : NSObject <SFMapRegion, NSSecureCoding>
+@interface SFMapRegion : NSObject <SFMapRegion, NSSecureCoding, NSCopying>
 {
     CDStruct_d6cfdf4e _has;
     double _southLat;
@@ -25,6 +26,7 @@
 @property(nonatomic) double northLat; // @synthesize northLat=_northLat;
 @property(nonatomic) double westLng; // @synthesize westLng=_westLng;
 @property(nonatomic) double southLat; // @synthesize southLat=_southLat;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

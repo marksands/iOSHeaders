@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class UIViewRunningAnimationEntry;
+@class UIViewInProcessAnimationState, UIViewRunningAnimationEntry;
 @protocol OS_dispatch_queue, UIVectorOperatable, UIViewAnimationComposing;
 
 __attribute__((visibility("hidden")))
@@ -18,11 +18,13 @@ __attribute__((visibility("hidden")))
     id <UIVectorOperatable> _pendingVelocity;
     int _ownershipCount;
     id <UIViewAnimationComposing> _composer;
+    UIViewInProcessAnimationState *_animationState;
     CDUnknownBlockType _invalidationCallback;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType invalidationCallback; // @synthesize invalidationCallback=_invalidationCallback;
 @property(nonatomic) int ownershipCount; // @synthesize ownershipCount=_ownershipCount;
+@property(nonatomic) __weak UIViewInProcessAnimationState *animationState; // @synthesize animationState=_animationState;
 @property(retain, nonatomic) id <UIViewAnimationComposing> composer; // @synthesize composer=_composer;
 - (void).cxx_destruct;
 - (id)velocityTarget:(_Bool)arg1;

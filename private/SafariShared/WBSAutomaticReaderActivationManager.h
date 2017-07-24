@@ -24,6 +24,8 @@
 - (void).cxx_destruct;
 - (id)_defaultPreferenceValue;
 - (id)_perSitePreferenceValue:(_Bool)arg1;
+- (void)_submitOptInOutStateForAnalyticsGivenAutomaticReaderIsNotGloballyEnabled;
+- (void)submitOptInOutStateForAnalytics;
 - (void)setAutomaticReaderEnabledByDefault:(_Bool)arg1 removingExistingPreferencesForSites:(_Bool)arg2;
 - (void)getAutomaticReaderEnabledByDefaultUsingBlock:(CDUnknownBlockType)arg1;
 - (void)setAutomaticReaderEnabled:(_Bool)arg1 forDomain:(id)arg2;

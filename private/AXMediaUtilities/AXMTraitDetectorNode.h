@@ -16,7 +16,6 @@
 }
 
 + (id)title;
-+ (_Bool)requiresVisionKit;
 + (_Bool)isSupported;
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) double colorDistanceTheshold; // @synthesize colorDistanceTheshold=_colorDistanceTheshold;
@@ -24,6 +23,7 @@
 @property(nonatomic) long long sampleFrequency; // @synthesize sampleFrequency=_sampleFrequency;
 - (void)evaluate:(id)arg1;
 - (void)_evaluateColorInformation:(id)arg1;
+- (_Bool)requiresVisionFramework;
 - (void)nodeInitialize;
 
 @end

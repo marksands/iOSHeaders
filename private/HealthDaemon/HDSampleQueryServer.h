@@ -13,10 +13,12 @@
 {
     _Bool _suspended;
     NSObject<OS_dispatch_queue> *_batchQueue;
+    _Bool _includeTimeZones;
     unsigned long long _limit;
     NSArray *_sortDescriptors;
 }
 
+@property(readonly, nonatomic) _Bool includeTimeZones; // @synthesize includeTimeZones=_includeTimeZones;
 @property(readonly, nonatomic) NSArray *sortDescriptors; // @synthesize sortDescriptors=_sortDescriptors;
 @property(readonly, nonatomic) unsigned long long limit; // @synthesize limit=_limit;
 - (void).cxx_destruct;

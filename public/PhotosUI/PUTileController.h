@@ -13,7 +13,6 @@
     _Bool _active;
     _Bool _detached;
     _Bool _shouldPreserveCurrentContent;
-    _Bool _shouldAvoidSnapshotting;
     _Bool _reusable;
     _Bool _wantsVisibleRectChanges;
     NSString *_reuseIdentifier;
@@ -27,7 +26,6 @@
 @property(readonly, nonatomic) __weak PUTilingView *tilingView; // @synthesize tilingView=_tilingView;
 @property(nonatomic) long long animationCount; // @synthesize animationCount=_animationCount;
 @property(nonatomic, getter=isReusable) _Bool reusable; // @synthesize reusable=_reusable;
-@property(readonly, nonatomic) _Bool shouldAvoidSnapshotting; // @synthesize shouldAvoidSnapshotting=_shouldAvoidSnapshotting;
 @property(nonatomic) _Bool shouldPreserveCurrentContent; // @synthesize shouldPreserveCurrentContent=_shouldPreserveCurrentContent;
 @property(readonly, nonatomic) NSString *reuseIdentifier; // @synthesize reuseIdentifier=_reuseIdentifier;
 @property(nonatomic, getter=isDetached) _Bool detached; // @synthesize detached=_detached;
@@ -39,6 +37,7 @@
 - (id)generateAssetTransitionInfo;
 - (void)setLayoutInfo:(id)arg1;
 - (void)setTilingView:(id)arg1;
+@property(readonly, nonatomic) _Bool shouldAvoidInPlaceSnapshottedFadeOut;
 @property(readonly, nonatomic) _Bool isAnimating;
 - (void)reuseIfApplicable;
 - (void)setPreloadedImage:(id)arg1;

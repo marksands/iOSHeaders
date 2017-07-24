@@ -6,7 +6,7 @@
 
 #import <MediaPlayer/MPStoreAssetPlaybackResponse.h>
 
-@class MPStoreHLSAssetInfo, NSArray, NSDate;
+@class MPStoreHLSAssetInfo, NSArray, NSDate, NSDictionary;
 
 @interface MPMutableStoreAssetPlaybackResponse : MPStoreAssetPlaybackResponse
 {
@@ -16,6 +16,7 @@
 @property(retain, nonatomic) MPStoreHLSAssetInfo *hlsAssetInfo; // @dynamic hlsAssetInfo;
 @property(copy, nonatomic) NSArray *fileAssetInfoList; // @dynamic fileAssetInfoList;
 @property(copy, nonatomic) NSDate *expirationDate; // @dynamic expirationDate;
+@property(copy, nonatomic) NSDictionary *dialogDictionary; // @dynamic dialogDictionary;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

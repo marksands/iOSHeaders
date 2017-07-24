@@ -6,28 +6,26 @@
 
 #import <TemplateKit/TLKStackView.h>
 
-@class SFMediaPlayerCardSection, SFPunchout, SKUIPlayButton, SearchUITableViewController, UILabel, UIView;
+@class SFPunchout, SKUIPlayButton, SearchUITrailersCardSectionView, UILabel, UIView;
 
 @interface SearchUITrailerView : TLKStackView
 {
+    SearchUITrailersCardSectionView *_cardSectionView;
     UILabel *_titleLabel;
     SKUIPlayButton *_playButton;
     SFPunchout *_punchout;
-    SearchUITableViewController *_controller;
-    SFMediaPlayerCardSection *_section;
     UIView *_centeredBoxView;
 }
 
 @property(retain) UIView *centeredBoxView; // @synthesize centeredBoxView=_centeredBoxView;
-@property(retain) SFMediaPlayerCardSection *section; // @synthesize section=_section;
-@property __weak SearchUITableViewController *controller; // @synthesize controller=_controller;
 @property(retain) SFPunchout *punchout; // @synthesize punchout=_punchout;
 @property(retain) SKUIPlayButton *playButton; // @synthesize playButton=_playButton;
 @property(retain) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property __weak SearchUITrailersCardSectionView *cardSectionView; // @synthesize cardSectionView=_cardSectionView;
 - (void).cxx_destruct;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)playTrailer;
-- (id)initWithMediaItem:(id)arg1 controller:(id)arg2 section:(id)arg3;
+- (id)initWithMediaItem:(id)arg1 cardSectionView:(id)arg2;
 
 @end
 

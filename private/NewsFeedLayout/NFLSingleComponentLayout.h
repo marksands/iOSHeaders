@@ -8,7 +8,7 @@
 
 #import <NewsFeedLayout/NFLFeedComponentLayout-Protocol.h>
 
-@class NFLLayoutData, NFLRankedLayout, NSArray, NSString;
+@class NFLFeedCollectionViewLayoutAttributes, NFLRankedLayout, NSArray, NSString;
 @protocol NFLFeedTileInfo;
 
 @interface NFLSingleComponentLayout : NSObject <NFLFeedComponentLayout>
@@ -28,7 +28,7 @@
 @property(readonly, nonatomic) unsigned long long rowSpan;
 @property(readonly, nonatomic) unsigned long long columnSpan;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, nonatomic) NFLLayoutData *layoutData;
+@property(readonly, nonatomic) NFLFeedCollectionViewLayoutAttributes *layoutAttributes;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -21,7 +21,6 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) _Bool isReliable; // @dynamic isReliable;
 @property(readonly, nonatomic) NSString *meaningLabel; // @dynamic meaningLabel;
-@property(readonly, nonatomic) double reliabilityScore; // @dynamic reliabilityScore;
 @property(readonly) Class superclass;
 @end
 

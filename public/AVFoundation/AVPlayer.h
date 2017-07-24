@@ -38,6 +38,7 @@
 + (_Bool)isIAPDExtendedModeActive;
 + (_Bool)automaticallyNotifiesObserversOfAutoSwitchStreamVariants;
 - (_Bool)_allowsVideoPlaybackWhileInBackground;
+- (_Bool)_isVideoPlaybackAllowedWhileInBackground;
 - (void)_setAllowsVideoPlaybackWhileInBackground:(_Bool)arg1;
 - (_Bool)_limitsBandwidthForCellularAccess;
 - (void)_setLimitsBandwidthForCellularAccess:(_Bool)arg1;

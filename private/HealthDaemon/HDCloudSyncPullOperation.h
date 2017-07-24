@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CKServerChangeToken, HDCloudSyncOperationConfiguration, HDCloudSyncStore, HDCloudSyncStoreRecord, NSMutableArray, _HDCloudSyncStorePersistableState;
+@class CKServerChangeToken, HDCloudSyncOperationConfiguration, HDCloudSyncStore, HDCloudSyncStoreRecord, NSFileHandle, NSMutableArray, _HDCloudSyncStorePersistableState;
 @protocol OS_dispatch_queue;
 
 @interface HDCloudSyncPullOperation : NSObject
@@ -18,19 +18,22 @@
     _HDCloudSyncStorePersistableState *_persistedStoreState;
     NSMutableArray *_fetchedChangeRecords;
     CKServerChangeToken *_serverChangeToken;
+    NSFileHandle *_fileHandle;
     CDUnknownBlockType _completion;
 }
 
++ (id)_assetFileHandleWithName:(id)arg1 error:(id *)arg2;
 - (void).cxx_destruct;
 - (void)_queue_endFetchChangesOperation:(id)arg1 success:(_Bool)arg2 error:(id)arg3;
 - (_Bool)_applySyncChanges:(id)arg1 store:(id)arg2 error:(id *)arg3;
 - (id)_zipArchiveExtractorForChangeRecord:(id)arg1 assetContentInMemory:(_Bool)arg2 error:(id *)arg3;
-- (_Bool)_persistFetchedChangeRecord:(id)arg1 assetContentInMemory:(_Bool)arg2 error:(id *)arg3;
+- (_Bool)_queue_persistFetchedArchiveAsset:(id)arg1 error:(id *)arg2;
 - (void)_fetchRecordsCompletionForOperation:(id)arg1 recordsByRecordID:(id)arg2 operatioError:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_perRecordCompletionForOperation:(id)arg1 record:(id)arg2 recordID:(id)arg3 recordAssetContentInMemory:(_Bool)arg4 error:(id)arg5 errorCompletion:(CDUnknownBlockType)arg6;
 - (void)_queue_fetchAssetForChangeRecord:(id)arg1 continuation:(CDUnknownBlockType)arg2;
 - (_Bool)_shouldApplyAnchorRangeMap:(id)arg1 receivedAnchorMap:(id)arg2;
-- (id)_queue_requiredRecordsWithFetchedChangeRecords:(id)arg1;
+- (_Bool)_isValidAnchorRangeMap:(id)arg1 lastAnchorMap:(id)arg2 error:(id *)arg3;
+- (id)_queue_requiredRecordsWithFetchedChangeRecords:(id)arg1 error:(id *)arg2;
 - (_Bool)_isValidChangeRecord:(id)arg1;
 - (void)_recordChangedForOperation:(id)arg1 record:(id)arg2;
 - (_Bool)_queue_updatePersistedServerChangeToken:(id)arg1 error:(id *)arg2;
@@ -39,7 +42,7 @@
 - (void)_queue_helpFetchAssetsForOrderedChangeRecords:(id)arg1 operation:(id)arg2 recordIndex:(long long)arg3;
 - (void)_fetchRecordZoneChangesCompletionForOperation:(id)arg1 error:(id)arg2;
 - (void)_queue_setupAndTriggerFetchChangesOperation:(id)arg1 store:(id)arg2;
-- (id)_getFetchChangesOperationForStore:(id)arg1 error:(id *)arg2;
+- (id)_getFetchChangesOperationForStore:(id)arg1;
 - (void)_queue_pullFromStore:(id)arg1;
 - (void)_queue_startPullOperation;
 - (void)_finishWithSuccess:(_Bool)arg1 error:(id)arg2;

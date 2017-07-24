@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFLatLng-Protocol.h>
 
 @class NSData, NSDictionary, NSString;
 
-@interface SFLatLng : NSObject <SFLatLng, NSSecureCoding>
+@interface SFLatLng : NSObject <SFLatLng, NSSecureCoding, NSCopying>
 {
     CDStruct_b993dc87 _has;
     double _lat;
@@ -21,6 +22,7 @@
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) double lng; // @synthesize lng=_lng;
 @property(nonatomic) double lat; // @synthesize lat=_lat;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

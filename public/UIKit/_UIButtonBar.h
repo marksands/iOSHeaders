@@ -76,6 +76,7 @@
 - (void)_setNeedsVisualUpdate;
 - (id)_layoutForGroup:(id)arg1;
 - (id)_targetActionForBarButtonItem:(id)arg1;
+@property(nonatomic) _Bool allowsViewWrappers;
 @property(nonatomic) _Bool createsPopoverLayoutGuides;
 - (void)_updateToFitInWidth:(double)arg1;
 - (double)_estimatedWidth;

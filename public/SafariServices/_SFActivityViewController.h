@@ -24,7 +24,7 @@
 @property(nonatomic) __weak _SFSafariSharingExtensionController *sharingExtensionController; // @synthesize sharingExtensionController=_sharingExtensionController;
 @property(readonly, nonatomic) _Bool viewCanEarlyDismiss; // @synthesize viewCanEarlyDismiss=_viewCanEarlyDismiss;
 - (void).cxx_destruct;
-- (void)prepareMessageActivity:(id)arg1 fromWebView:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)prepareMessageActivity:(id)arg1 withWebView:(id)arg2 URL:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_processJavaScriptFinalizeReturnedItems:(id)arg1 forExtension:(id)arg2;
 - (id)_extensionItemForExtensionActivity:(id)arg1;
 - (id)_javaScriptProcessingFileURLInExtension:(id)arg1;

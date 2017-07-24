@@ -37,6 +37,7 @@
     _Bool _inlineMediaPlaybackRequiresPlaysInlineAttribute;
     _Bool _allowsInlineMediaPlaybackAfterFullscreen;
     _Bool _allowsBlockSelection;
+    unsigned long long _dragLiftDelay;
     _Bool _invisibleAutoplayNotPermitted;
     _Bool _mediaDataLoadsAutomatically;
     _Bool _attachmentElementEnabled;
@@ -46,7 +47,8 @@
     _Bool _controlledByAutomation;
     _Bool _applePayEnabled;
     _Bool _needsStorageAccessFromFileURLsQuirk;
-    NSString *_overrideContentSecurityPolicy;
+    struct RetainPtr<NSString> _overrideContentSecurityPolicy;
+    struct RetainPtr<NSString> _mediaContentTypesRequiringHardwareSupport;
     _Bool _suppressesIncrementalRendering;
     _Bool _allowsAirPlayForMediaPlayback;
     _Bool _allowsPictureInPictureMediaPlayback;
@@ -83,6 +85,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (id)init;
+@property(nonatomic, setter=_setMediaContentTypesRequiringHardwareSupport:) NSString *_mediaContentTypesRequiringHardwareSupport;
 @property(nonatomic, setter=_setOverrideContentSecurityPolicy:) NSString *_overrideContentSecurityPolicy;
 @property(nonatomic, setter=_setNeedsStorageAccessFromFileURLsQuirk:) _Bool _needsStorageAccessFromFileURLsQuirk;
 @property(nonatomic, setter=_setApplePayEnabled:) _Bool _applePayEnabled;
@@ -95,6 +98,7 @@
 @property(nonatomic, setter=_setAttachmentElementEnabled:) _Bool _attachmentElementEnabled;
 @property(nonatomic, setter=_setMediaDataLoadsAutomatically:) _Bool _mediaDataLoadsAutomatically;
 @property(nonatomic, setter=_setInvisibleAutoplayNotPermitted:) _Bool _invisibleAutoplayNotPermitted;
+@property(nonatomic, setter=_setDragLiftDelay:) unsigned long long _dragLiftDelay;
 @property(nonatomic, setter=_setAllowsBlockSelection:) _Bool _allowsBlockSelection;
 @property(nonatomic, setter=_setAllowsInlineMediaPlaybackAfterFullscreen:) _Bool _allowsInlineMediaPlaybackAfterFullscreen;
 @property(nonatomic, setter=_setInlineMediaPlaybackRequiresPlaysInlineAttribute:) _Bool _inlineMediaPlaybackRequiresPlaysInlineAttribute;

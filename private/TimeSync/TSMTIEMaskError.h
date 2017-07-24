@@ -16,6 +16,7 @@
 @property(nonatomic) double mtie; // @synthesize mtie=_mtie;
 @property(nonatomic) double mask; // @synthesize mask=_mask;
 @property(nonatomic) double observationInterval; // @synthesize observationInterval=_observationInterval;
+- (id)description;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class AVPlayerItem, NSString;
+@class AVPlayerItem, NSNumber;
 
 @interface ISPlayerContent : NSObject
 {
@@ -15,14 +15,14 @@
     int _photoEXIFOrientation;
     struct CGImage *_photo;
     AVPlayerItem *_videoPlayerItem;
-    NSString *_playbackStyleIdentifier;
+    NSNumber *_variationIdentifier;
     CDStruct_1b6d18a9 _photoTime;
     CDStruct_1b6d18a9 _videoDuration;
     CDStruct_1b6d18a9 _prePhotoFrameTime;
     CDStruct_1b6d18a9 _postPhotoFrameTime;
 }
 
-@property(readonly, copy, nonatomic) NSString *playbackStyleIdentifier; // @synthesize playbackStyleIdentifier=_playbackStyleIdentifier;
+@property(readonly, nonatomic) NSNumber *variationIdentifier; // @synthesize variationIdentifier=_variationIdentifier;
 @property(readonly, nonatomic) _Bool photoIsOriginal; // @synthesize photoIsOriginal=_photoIsOriginal;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 postPhotoFrameTime; // @synthesize postPhotoFrameTime=_postPhotoFrameTime;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 prePhotoFrameTime; // @synthesize prePhotoFrameTime=_prePhotoFrameTime;
@@ -36,7 +36,7 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
-- (id)initWithPhoto:(struct CGImage *)arg1 photoIsOriginal:(_Bool)arg2 photoEXIFOrientation:(int)arg3 photoTime:(CDStruct_1b6d18a9)arg4 videoDuration:(CDStruct_1b6d18a9)arg5 photoHasColorAdjustments:(_Bool)arg6 videoPlayerItem:(id)arg7 prePhotoFrameTime:(CDStruct_1b6d18a9)arg8 postPhotoFrameTime:(CDStruct_1b6d18a9)arg9 playbackStyleIdentifier:(id)arg10;
+- (id)initWithPhoto:(struct CGImage *)arg1 photoIsOriginal:(_Bool)arg2 photoEXIFOrientation:(int)arg3 photoTime:(CDStruct_1b6d18a9)arg4 videoDuration:(CDStruct_1b6d18a9)arg5 photoHasColorAdjustments:(_Bool)arg6 videoPlayerItem:(id)arg7 prePhotoFrameTime:(CDStruct_1b6d18a9)arg8 postPhotoFrameTime:(CDStruct_1b6d18a9)arg9 variationIdentifier:(id)arg10;
 
 @end
 

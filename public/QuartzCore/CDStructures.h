@@ -373,12 +373,11 @@ struct Layer {
     struct Atomic _field2;
     struct Data _field3;
     struct Ref<CA::Render::Object> _field4;
-    struct Ref<CA::Render::Object> _field5;
-    struct Ref<CA::Render::TypedArray<CA::Render::Layer>> _field6;
-    struct Layer *_field7;
-    struct Ref<CA::Render::Layer::Ext> _field8;
-    struct Ref<CA::Render::TypedArray<CA::Render::Animation>> _field9;
-    struct Ref<CA::Render::Handle> _field10;
+    struct Ref<CA::Render::TypedArray<CA::Render::Layer>> _field5;
+    struct Layer *_field6;
+    struct Ref<CA::Render::Layer::Ext> _field7;
+    struct Ref<CA::Render::TypedArray<CA::Render::Animation>> _field8;
+    struct Ref<CA::Render::Handle> _field9;
 };
 
 struct LayoutList;
@@ -520,7 +519,16 @@ struct Shape;
 
 struct Shared;
 
-struct Shmem;
+struct Shmem {
+    CDUnknownFunctionPointerType *_field1;
+    struct Atomic _field2;
+    unsigned long long _field3;
+    void *_field4;
+    unsigned int _field5;
+    struct Atomic _field6;
+    CDUnknownFunctionPointerType _field7;
+    void *_field8;
+};
 
 struct SpinLock {
     CDStruct_fcaf9308 _field1;

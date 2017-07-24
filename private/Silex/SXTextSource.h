@@ -6,38 +6,39 @@
 
 #import <objc/NSObject.h>
 
-@class NSAttributedString, NSLocale, NSMutableIndexSet, NSString, SXFontAttributesConstructor;
-@protocol SXTextSourceDataSource;
+@class NSLocale, NSMutableIndexSet, NSString, SXFontAttributesConstructor;
+@protocol SXTextSourceDataSource, SXTextStyleFontDescribing;
 
 @interface SXTextSource : NSObject
 {
     id <SXTextSourceDataSource> _dataSource;
     NSString *_string;
-    NSAttributedString *_attributedString;
     NSMutableIndexSet *_deletedRangeOffsets;
     NSMutableIndexSet *_insertedRangeOffsets;
     NSMutableIndexSet *_rangesExcludedOfParagraphSpacing;
     SXFontAttributesConstructor *_fontAttributeConstructor;
+    id <SXTextStyleFontDescribing> _defaultFontDescribing;
 }
 
+@property(readonly, nonatomic) id <SXTextStyleFontDescribing> defaultFontDescribing; // @synthesize defaultFontDescribing=_defaultFontDescribing;
 @property(readonly, nonatomic) SXFontAttributesConstructor *fontAttributeConstructor; // @synthesize fontAttributeConstructor=_fontAttributeConstructor;
 @property(retain, nonatomic) NSMutableIndexSet *rangesExcludedOfParagraphSpacing; // @synthesize rangesExcludedOfParagraphSpacing=_rangesExcludedOfParagraphSpacing;
 @property(retain, nonatomic) NSMutableIndexSet *insertedRangeOffsets; // @synthesize insertedRangeOffsets=_insertedRangeOffsets;
 @property(retain, nonatomic) NSMutableIndexSet *deletedRangeOffsets; // @synthesize deletedRangeOffsets=_deletedRangeOffsets;
-@property(retain, nonatomic) NSAttributedString *attributedString; // @synthesize attributedString=_attributedString;
 @property(readonly, nonatomic) NSString *string; // @synthesize string=_string;
 @property(readonly, nonatomic) __weak id <SXTextSourceDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (id)randomColorWithAlpha:(double)arg1;
 - (id)description;
 - (id)fontFaceForTextDescribing:(id)arg1 inheritingFromTextStyle:(id)arg2;
+- (struct _NSRange)rangeInBounds:(struct _NSRange)arg1;
 @property(readonly, nonatomic) NSLocale *locale;
-- (void)applyTextStyle:(id)arg1 baseTextStyle:(id)arg2 onParagraphStyle:(id)arg3 onRange:(struct _NSRange)arg4 onAttributedString:(id)arg5 resultingDropCapStyle:(id *)arg6;
+- (id)attributesForTextStyle:(id)arg1 baseTextStyle:(id)arg2 onParagraphStyle:(id)arg3 forRange:(struct _NSRange)arg4 resultingDropCapStyle:(id *)arg5 textResizer:(id)arg6;
 - (id)characterStyleFromAttributes:(id)arg1 context:(id)arg2;
 - (int)listNumberTypeForListType:(unsigned long long)arg1;
 - (int)listLabelTypeForListType:(unsigned long long)arg1;
 - (id)populateArray:(id)arg1 withValue:(id)arg2 forSize:(unsigned long long)arg3;
-- (void)applyListStylingOnTextTangierStorage:(id)arg1;
+- (void)applyListStylingOnTextTangierStorage:(id)arg1 usingAttributesMap:(id)arg2;
 - (void)applyAdditionsOnTextTangierStorage:(id)arg1;
 - (void)applyStylingOnTextTangierStorage:(id)arg1;
 - (struct _NSRange)rangeForRange:(struct _NSRange)arg1;

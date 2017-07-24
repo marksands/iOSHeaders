@@ -6,7 +6,12 @@
 
 #import <CloudKit/CKRecord.h>
 
-@interface CKRecord (BRCSerializationAdditions)
+#import <CloudDocsDaemon/PQLValuable-Protocol.h>
+
+@class NSString;
+
+@interface CKRecord (BRCSerializationAdditions) <PQLValuable>
++ (id)newFromSqliteValue:(struct sqlite3_value *)arg1;
 - (void)serializeVersion:(id)arg1 diffs:(unsigned long long)arg2 deadInServerTruth:(_Bool)arg3;
 - (void)serializeStatInfo:(id)arg1 diffs:(unsigned long long)arg2 stageID:(id)arg3 deadInServerTruth:(_Bool)arg4 pcsChaining:(_Bool)arg5;
 - (void)serializeFilename:(id)arg1 forCreation:(_Bool)arg2 setExtension:(_Bool)arg3 inSharedAlias:(_Bool)arg4;
@@ -23,5 +28,12 @@
 - (_Bool)deserializeAliasInfo:(id *)arg1 serverZone:(id)arg2 error:(id *)arg3;
 - (_Bool)deserializeFilename:(id *)arg1 basename:(id *)arg2 bounceno:(id *)arg3 extension:(id *)arg4 userInfo:(id)arg5 error:(id *)arg6;
 - (_Bool)_deserializeValue:(id *)arg1 forKey:(id)arg2 encrypted:(_Bool)arg3 expectClass:(Class)arg4 allowNil:(_Bool)arg5 errorDescription:(id *)arg6;
+- (void)sqliteBind:(struct sqlite3_stmt *)arg1 index:(int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 @end
 

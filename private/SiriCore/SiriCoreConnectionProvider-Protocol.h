@@ -24,6 +24,8 @@
 - (void)setPolicyRoute:(SAConnectionPolicyRoute *)arg1;
 - (NSString *)resolvedHost;
 - (_Bool)shouldFallbackFromError:(NSError *)arg1;
+- (_Bool)isNetworkDownError:(NSError *)arg1;
+- (_Bool)isPeerNotNearbyError:(NSError *)arg1;
 - (_Bool)isPeerConnectionError:(NSError *)arg1;
 - (void)close;
 - (void)updateConnectionMetrics:(SiriCoreConnectionMetrics *)arg1 completion:(void (^)(void))arg2;

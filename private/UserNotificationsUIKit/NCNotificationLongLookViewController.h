@@ -35,7 +35,6 @@
 - (void)scrollViewDidScroll:(id)arg1;
 - (_Bool)longLookPresentationControllerShouldAllowKeyboardOnAppearance:(id)arg1;
 - (struct CGRect)longLookPresentationController:(id)arg1 frameForTransitionViewInPresentationSuperview:(id)arg2;
-- (id)_presentingNotificationViewController;
 - (long long)longLookTransitionTypeForTransitionDelegate:(id)arg1;
 - (void)_handleBackgroundTap:(id)arg1;
 - (void)_handleCloseButton:(id)arg1;
@@ -55,6 +54,7 @@
 - (void)contentProviderDismissCustomContent:(id)arg1 animated:(_Bool)arg2;
 - (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)viewWillLayoutSubviews;
 - (void)viewWillAppear:(_Bool)arg1;
 - (_Bool)restoreInputViews;

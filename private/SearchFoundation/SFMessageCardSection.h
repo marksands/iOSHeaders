@@ -6,12 +6,13 @@
 
 #import <SearchFoundation/SFCardSection.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFMessageCardSection-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString, SFCard, SFColor;
 
-@interface SFMessageCardSection : SFCardSection <SFMessageCardSection, NSSecureCoding>
+@interface SFMessageCardSection : SFCardSection <SFMessageCardSection, NSSecureCoding, NSCopying>
 {
     CDStruct_bb96dcf2 _has;
     _Bool _canBeHidden;
@@ -42,6 +43,7 @@
 @property(copy, nonatomic) NSString *punchoutPickerTitle;
 @property(copy, nonatomic) NSArray *punchoutOptions;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
@@ -63,6 +65,7 @@
 @property(nonatomic) _Bool hideDivider;
 @property(retain, nonatomic) SFCard *nextCard;
 @property(copy, nonatomic) NSArray *parameterKeyPaths;
+@property(copy, nonatomic) NSString *resultIdentifier;
 @property(readonly) Class superclass;
 
 @end

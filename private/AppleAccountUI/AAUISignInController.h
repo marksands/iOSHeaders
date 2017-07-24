@@ -15,9 +15,11 @@
 {
     NSDictionary *_authenticationResults;
     id <AIDAServiceOwnerProtocol> _serviceOwnersManager;
+    _Bool __shouldForceOperation;
     NSString *_serviceType;
 }
 
+@property(nonatomic, setter=_setShouldForceOperation:) _Bool _shouldForceOperation; // @synthesize _shouldForceOperation=__shouldForceOperation;
 @property(retain, nonatomic) NSString *serviceType; // @synthesize serviceType=_serviceType;
 - (void).cxx_destruct;
 - (unsigned long long)supportedInterfaceOrientations;
@@ -25,11 +27,11 @@
 - (void)signInViewController:(id)arg1 didCompleteWithAuthenticationResults:(id)arg2;
 - (void)_delegate_signInControllerDidCancel;
 - (void)_delegate_signInControllerDidCompleteWithSuccess:(_Bool)arg1 error:(id)arg2;
-- (void)_attemptSignInForService:(id)arg1 withAuthenticationResults:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_attemptSignInForService:(id)arg1 withAuthenticationResults:(id)arg2 parentViewController:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_performAuthenticationForAccount:(id)arg1 serviceType:(id)arg2 inViewController:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_mainQueue_presentSpinnerViewControllerInParentViewController:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_mainQueue_presentAlertForError:(id)arg1 inViewController:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_mainQueue_continueSignInWithAuthenticationResults:(id)arg1;
+- (void)_mainQueue_continueSignInWithAuthenticationResults:(id)arg1 parentViewController:(id)arg2;
 - (void)_mainQueue_presentContinueUsingInViewController:(id)arg1 account:(id)arg2 serviceType:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)prepareInViewController:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(retain, nonatomic, setter=_setServiceOwnersManager:) id <AIDAServiceOwnerProtocol> _serviceOwnersManager;

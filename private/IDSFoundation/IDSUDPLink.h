@@ -23,6 +23,7 @@
     _Bool _wantsAWDL;
     _Bool _wantsWiFi;
     _Bool _wantsCellular;
+    _Bool _useDefaultInterfaceOnly;
     _Bool _allowsLinkLocal;
     _Bool _skipTransportThread;
     _Bool _needToConnect;
@@ -54,6 +55,7 @@
 @property(readonly) double lastDestinationReceived; // @synthesize lastDestinationReceived=_lastDestinationReceived;
 @property double lastDestinationSent; // @synthesize lastDestinationSent=_lastDestinationSent;
 @property(readonly) _Bool isInvalidated; // @synthesize isInvalidated=_isInvalidated;
+@property _Bool useDefaultInterfaceOnly; // @synthesize useDefaultInterfaceOnly=_useDefaultInterfaceOnly;
 @property(readonly) int socket; // @synthesize socket=_socket;
 @property unsigned short port; // @synthesize port=_port;
 @property(retain) NSString *deviceUniqueID; // @synthesize deviceUniqueID=_deviceUniqueID;

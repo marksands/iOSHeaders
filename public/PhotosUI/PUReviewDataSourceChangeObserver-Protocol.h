@@ -6,9 +6,9 @@
 
 #import <PhotosUI/NSObject-Protocol.h>
 
-@class PUReviewDataSource;
+@class PUReviewDataSource, PXArrayChangeDetails;
 
 @protocol PUReviewDataSourceChangeObserver <NSObject>
-- (void)reviewDataSourceDidChange:(PUReviewDataSource *)arg1;
+- (void)reviewDataSourceDidChange:(PUReviewDataSource *)arg1 changeDetails:(PXArrayChangeDetails *)arg2;
 @end
 

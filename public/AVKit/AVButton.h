@@ -6,12 +6,13 @@
 
 #import <UIKit/UIButton.h>
 
-@class AVMicaPackage, NSNumber, NSString, NSTimer;
+@class AVMicaPackage, AVUserInteractionObserverGestureRecognizer, NSNumber, NSString, NSTimer, UIViewPropertyAnimator;
 
 @interface AVButton : UIButton
 {
     _Bool _wasLongPressed;
     _Bool _treatsForcePressAsLongPress;
+    _Bool _multipleTouchesEndsTracking;
     _Bool _disablesHighlightWhenLongPressed;
     _Bool _wasForcePressTriggered;
     _Bool _collapsed;
@@ -27,12 +28,14 @@
     NSString *_fullScreenAlternateImageName;
     NSString *_inlineAlternateImageName;
     AVMicaPackage *_micaPackage;
+    UIViewPropertyAnimator *_highlightAnimator;
     double _trackingStartTime;
     double _horizontalTranslationOfLongPress;
     NSNumber *_previousHorizontalPositionOfLongPress;
     NSTimer *_longPressTimer;
+    AVUserInteractionObserverGestureRecognizer *_userInteractionGestureRecognizer;
     struct CGSize _extrinsicContentSize;
-    struct UIEdgeInsets _hitRectInsets;
+    struct NSDirectionalEdgeInsets _hitRectInsets;
 }
 
 + (id)buttonWithAccessibilityIdentifier:(id)arg1;
@@ -41,12 +44,14 @@
 @property(nonatomic, getter=isIncluded) _Bool included; // @synthesize included=_included;
 @property(nonatomic, getter=isCollapsed) _Bool collapsed; // @synthesize collapsed=_collapsed;
 @property(nonatomic) struct CGSize extrinsicContentSize; // @synthesize extrinsicContentSize=_extrinsicContentSize;
+@property(retain, nonatomic) AVUserInteractionObserverGestureRecognizer *userInteractionGestureRecognizer; // @synthesize userInteractionGestureRecognizer=_userInteractionGestureRecognizer;
 @property(nonatomic) __weak NSTimer *longPressTimer; // @synthesize longPressTimer=_longPressTimer;
 @property(retain, nonatomic) NSNumber *previousHorizontalPositionOfLongPress; // @synthesize previousHorizontalPositionOfLongPress=_previousHorizontalPositionOfLongPress;
 @property(nonatomic) double horizontalTranslationOfLongPress; // @synthesize horizontalTranslationOfLongPress=_horizontalTranslationOfLongPress;
 @property(nonatomic) _Bool wasForcePressTriggered; // @synthesize wasForcePressTriggered=_wasForcePressTriggered;
 @property(nonatomic) double trackingStartTime; // @synthesize trackingStartTime=_trackingStartTime;
-@property(nonatomic) struct UIEdgeInsets hitRectInsets; // @synthesize hitRectInsets=_hitRectInsets;
+@property(nonatomic) __weak UIViewPropertyAnimator *highlightAnimator; // @synthesize highlightAnimator=_highlightAnimator;
+@property(nonatomic) struct NSDirectionalEdgeInsets hitRectInsets; // @synthesize hitRectInsets=_hitRectInsets;
 @property(nonatomic) _Bool disablesHighlightWhenLongPressed; // @synthesize disablesHighlightWhenLongPressed=_disablesHighlightWhenLongPressed;
 @property(retain, nonatomic) AVMicaPackage *micaPackage; // @synthesize micaPackage=_micaPackage;
 @property(copy, nonatomic) NSString *inlineAlternateImageName; // @synthesize inlineAlternateImageName=_inlineAlternateImageName;
@@ -54,16 +59,16 @@
 @property(copy, nonatomic) NSString *inlineImageName; // @synthesize inlineImageName=_inlineImageName;
 @property(copy, nonatomic) NSString *fullScreenImageName; // @synthesize fullScreenImageName=_fullScreenImageName;
 @property(copy, nonatomic) NSString *imageName; // @synthesize imageName=_imageName;
+@property(nonatomic) _Bool multipleTouchesEndsTracking; // @synthesize multipleTouchesEndsTracking=_multipleTouchesEndsTracking;
 @property(nonatomic) double maximumForceSinceTrackingBegan; // @synthesize maximumForceSinceTrackingBegan=_maximumForceSinceTrackingBegan;
 @property(nonatomic) double force; // @synthesize force=_force;
 @property(nonatomic) double forceThreshold; // @synthesize forceThreshold=_forceThreshold;
 @property(nonatomic) _Bool treatsForcePressAsLongPress; // @synthesize treatsForcePressAsLongPress=_treatsForcePressAsLongPress;
 @property(nonatomic) _Bool wasLongPressed; // @synthesize wasLongPressed=_wasLongPressed;
 - (void).cxx_destruct;
-- (void)_animateHighlightAndImageCrossFadeIfNeeded;
 - (id)_preferredImageName;
 - (void)_resetTrackedState;
-- (id)_availabilityObserver;
+- (void)_handleUserInteractionGestureRecognizer:(id)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGRect)hitRect;

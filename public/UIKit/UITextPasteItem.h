@@ -8,7 +8,7 @@
 
 #import <UIKit/UITextPasteItem-Protocol.h>
 
-@class NSDictionary, NSItemProvider, NSString, UITextPasteCoordinator;
+@class NSArray, NSDictionary, NSItemProvider, NSString, UITextPasteCoordinator;
 
 __attribute__((visibility("hidden")))
 @interface UITextPasteItem : NSObject <UITextPasteItem>
@@ -17,13 +17,16 @@ __attribute__((visibility("hidden")))
     id _localObject;
     NSDictionary *_defaultAttributes;
     UITextPasteCoordinator *_coordinator;
+    NSArray *_supportedPasteConfigurationClasses;
 }
 
+@property(retain, nonatomic) NSArray *supportedPasteConfigurationClasses; // @synthesize supportedPasteConfigurationClasses=_supportedPasteConfigurationClasses;
 @property(readonly, nonatomic) UITextPasteCoordinator *coordinator; // @synthesize coordinator=_coordinator;
 @property(retain, nonatomic) NSDictionary *defaultAttributes; // @synthesize defaultAttributes=_defaultAttributes;
 @property(retain, nonatomic) id localObject; // @synthesize localObject=_localObject;
 @property(retain, nonatomic) NSItemProvider *itemProvider; // @synthesize itemProvider=_itemProvider;
 - (void).cxx_destruct;
+- (void)setDefaultResult;
 - (void)setNoResult;
 - (void)setAttachmentResult:(id)arg1;
 - (void)setAttributedStringResult:(id)arg1;

@@ -27,8 +27,8 @@
     _Bool _didStopMeasuring;
     NSString *_filePathForUnexpectedFailure;
     unsigned long long _lineNumberForUnexpectedFailure;
-    unsigned long long _callAddressForCurrentWait;
-    NSArray *_callAddressesForLastCreatedExpectation;
+    NSString *_filePathForNestedFailure;
+    unsigned long long _lineNumberForNestedFailure;
     long long _runLoopNestingCount;
     XCTWaiter *_currentWaiter;
     NSMutableArray *_failureRecords;
@@ -36,12 +36,14 @@
     _Bool _shouldIgnoreSubsequentFailures;
     NSMutableArray *_teardownBlocks;
     _Bool _hasDequeuedTeardownBlocks;
+    _Bool _hasAttemptedToCaptureScreenshotOnFailure;
     XCTAttachmentManager *_attachmentManager;
     XCUITestContext *_testContext;
 }
 
 @property(readonly) XCUITestContext *testContext; // @synthesize testContext=_testContext;
 @property(retain) XCTAttachmentManager *attachmentManager; // @synthesize attachmentManager=_attachmentManager;
+@property _Bool hasAttemptedToCaptureScreenshotOnFailure; // @synthesize hasAttemptedToCaptureScreenshotOnFailure=_hasAttemptedToCaptureScreenshotOnFailure;
 @property _Bool hasDequeuedTeardownBlocks; // @synthesize hasDequeuedTeardownBlocks=_hasDequeuedTeardownBlocks;
 @property(readonly) NSMutableArray *teardownBlocks; // @synthesize teardownBlocks=_teardownBlocks;
 @property(retain, nonatomic) XCTWaiter *currentWaiter; // @synthesize currentWaiter=_currentWaiter;
@@ -49,8 +51,8 @@
 @property _Bool shouldHaltWhenReceivesControl; // @synthesize shouldHaltWhenReceivesControl=_shouldHaltWhenReceivesControl;
 @property(retain, nonatomic) NSMutableArray *failureRecords; // @synthesize failureRecords=_failureRecords;
 @property long long runLoopNestingCount; // @synthesize runLoopNestingCount=_runLoopNestingCount;
-@property(copy) NSArray *callAddressesForLastCreatedExpectation; // @synthesize callAddressesForLastCreatedExpectation=_callAddressesForLastCreatedExpectation;
-@property unsigned long long callAddressForCurrentWait; // @synthesize callAddressForCurrentWait=_callAddressForCurrentWait;
+@property unsigned long long lineNumberForNestedFailure; // @synthesize lineNumberForNestedFailure=_lineNumberForNestedFailure;
+@property(copy) NSString *filePathForNestedFailure; // @synthesize filePathForNestedFailure=_filePathForNestedFailure;
 @property unsigned long long lineNumberForUnexpectedFailure; // @synthesize lineNumberForUnexpectedFailure=_lineNumberForUnexpectedFailure;
 @property(copy) NSString *filePathForUnexpectedFailure; // @synthesize filePathForUnexpectedFailure=_filePathForUnexpectedFailure;
 @property(retain, nonatomic) NSMutableSet *expectations; // @synthesize expectations=_expectations;

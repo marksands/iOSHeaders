@@ -11,18 +11,12 @@
 @interface MTVibrantStyling : NSObject
 {
     CAFilter *_composedFilter;
-    _Bool _inputReversed;
     UIColor *_color;
     double _alpha;
     NSString *_blendMode;
-    UIColor *_burnColor;
-    UIColor *_darkenColor;
 }
 
 + (id)vibrantStylingWithPrivateStyle:(long long)arg1;
-@property(readonly, nonatomic, getter=_inputReversed) _Bool inputReversed; // @synthesize inputReversed=_inputReversed;
-@property(readonly, copy, nonatomic, getter=_darkenColor) UIColor *darkenColor; // @synthesize darkenColor=_darkenColor;
-@property(readonly, copy, nonatomic, getter=_burnColor) UIColor *burnColor; // @synthesize burnColor=_burnColor;
 @property(readonly, copy, nonatomic) NSString *blendMode; // @synthesize blendMode=_blendMode;
 @property(readonly, nonatomic) double alpha; // @synthesize alpha=_alpha;
 @property(readonly, nonatomic) UIColor *color; // @synthesize color=_color;

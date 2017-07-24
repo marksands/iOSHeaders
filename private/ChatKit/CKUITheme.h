@@ -21,6 +21,9 @@
 @property(readonly, nonatomic) UIColor *darkAppTintColor; // @synthesize darkAppTintColor=_darkAppTintColor;
 @property(nonatomic) long long HUDStyle; // @synthesize HUDStyle=_HUDStyle;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) UIColor *syncProgressUserActionButtonTextColor;
+@property(readonly, nonatomic) UIColor *syncProgressUserMessageColor;
+@property(readonly, nonatomic) UIColor *syncProgressLabelColor;
 @property(readonly, nonatomic) UIColor *businessNavTintColor;
 @property(readonly, nonatomic) UIColor *businessNavBarTintColor;
 @property(readonly, nonatomic) UIColor *businessInfoViewDescriptionTextColor;
@@ -28,6 +31,10 @@
 @property(readonly, nonatomic) UIColor *fsmPickerCurrentPageColor;
 @property(readonly, nonatomic) UIColor *fsmPickerTextColor;
 @property(readonly, nonatomic) UIColor *stickerDetailsSubheaderTextColor;
+@property(readonly, nonatomic) double browserAppStripLightPluginCellOpacity;
+@property(readonly, nonatomic) double browserAppStripDimmedPluginCellOpacity;
+@property(readonly, nonatomic) UIColor *browserAppStripSeperatorBorderColor;
+@property(readonly, nonatomic) UIColor *browserAppStripSeperatorBackgroundColor;
 @property(readonly, nonatomic) UIColor *browserSwitcherBorderColor;
 @property(readonly, nonatomic) UIColor *browserSwitcherGutterDividerColor;
 @property(readonly, nonatomic) UIColor *browserSwitcherGutterColor;

@@ -6,14 +6,16 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class UIInputViewSet, UIView;
+@class UIInputViewSet, UIKBKeyplaneChangeContext, UIView;
 @protocol _UIRemoteKeyboardControllerDelegate;
 
 @protocol _UIRemoteKeyboardViewSource <NSObject>
+@property(nonatomic) _Bool dontDismissReachability;
 @property(readonly, nonatomic) _Bool isOnScreenRotating;
 @property(readonly, nonatomic) UIInputViewSet *inputViewSet;
 @property(readonly, nonatomic) UIView *hostView;
 @property(retain, nonatomic) id <_UIRemoteKeyboardControllerDelegate> controllerDelegate;
+- (void)updateForKeyplaneChangeWithContext:(UIKBKeyplaneChangeContext *)arg1;
 - (void)checkPlaceholdersForRemoteKeyboards;
 @end
 

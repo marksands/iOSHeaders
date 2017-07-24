@@ -13,9 +13,9 @@
 @interface PKPeerPaymentAccount : NSObject <NSSecureCoding>
 {
     _Bool _identityVerificationRequired;
-    _Bool _documentSubmissionRequired;
     _Bool _termsAcceptanceRequired;
     unsigned long long _state;
+    unsigned long long _stage;
     NSString *_countryCode;
     PKCurrencyAmount *_currentBalance;
     NSString *_termsIdentifier;
@@ -30,7 +30,6 @@
 @property(copy, nonatomic) NSString *associatedPassTypeIdentifier; // @synthesize associatedPassTypeIdentifier=_associatedPassTypeIdentifier;
 @property(copy, nonatomic) NSString *associatedPassSerialNumber; // @synthesize associatedPassSerialNumber=_associatedPassSerialNumber;
 @property(nonatomic) _Bool termsAcceptanceRequired; // @synthesize termsAcceptanceRequired=_termsAcceptanceRequired;
-@property(nonatomic) _Bool documentSubmissionRequired; // @synthesize documentSubmissionRequired=_documentSubmissionRequired;
 @property(nonatomic) _Bool identityVerificationRequired; // @synthesize identityVerificationRequired=_identityVerificationRequired;
 @property(copy, nonatomic) NSArray *supportedFeatureDescriptors; // @synthesize supportedFeatureDescriptors=_supportedFeatureDescriptors;
 @property(copy, nonatomic) NSURL *associatedPassURL; // @synthesize associatedPassURL=_associatedPassURL;
@@ -38,8 +37,11 @@
 @property(copy, nonatomic) NSString *termsIdentifier; // @synthesize termsIdentifier=_termsIdentifier;
 @property(copy, nonatomic) PKCurrencyAmount *currentBalance; // @synthesize currentBalance=_currentBalance;
 @property(copy, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
+@property(nonatomic) unsigned long long stage; // @synthesize stage=_stage;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

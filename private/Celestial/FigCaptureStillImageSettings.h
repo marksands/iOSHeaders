@@ -36,6 +36,7 @@
     unsigned int _thumbnailWidth;
     unsigned int _thumbnailHeight;
     _Bool _noiseReductionEnabled;
+    _Bool _burstQualityCaptureEnabled;
     float _scaleFactor;
     unsigned int _shutterSound;
     int _flashMode;
@@ -100,6 +101,7 @@
 @property(nonatomic) int flashMode; // @synthesize flashMode=_flashMode;
 @property(nonatomic) unsigned int shutterSound; // @synthesize shutterSound=_shutterSound;
 @property(nonatomic) float scaleFactor; // @synthesize scaleFactor=_scaleFactor;
+@property(nonatomic) _Bool burstQualityCaptureEnabled; // @synthesize burstQualityCaptureEnabled=_burstQualityCaptureEnabled;
 @property(nonatomic) _Bool noiseReductionEnabled; // @synthesize noiseReductionEnabled=_noiseReductionEnabled;
 @property(nonatomic) unsigned int thumbnailHeight; // @synthesize thumbnailHeight=_thumbnailHeight;
 @property(nonatomic) unsigned int thumbnailWidth; // @synthesize thumbnailWidth=_thumbnailWidth;

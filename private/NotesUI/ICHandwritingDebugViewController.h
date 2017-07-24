@@ -6,10 +6,12 @@
 
 #import <UIKit/UIViewController.h>
 
-@class NSArray, NSObject, UIActivityIndicatorView, UITextView;
+#import <NotesUI/PKVisualizationManager-Protocol.h>
+
+@class NSArray, NSObject, NSString, UIActivityIndicatorView, UITextView;
 @protocol ICHandwritingDebugDelegate, OS_dispatch_queue;
 
-@interface ICHandwritingDebugViewController : UIViewController
+@interface ICHandwritingDebugViewController : UIViewController <PKVisualizationManager>
 {
     id <ICHandwritingDebugDelegate> _handwritingDebugDelegate;
     NSArray *_drawings;
@@ -24,12 +26,19 @@
 @property(retain, nonatomic) NSArray *drawings; // @synthesize drawings=_drawings;
 @property(nonatomic) __weak id <ICHandwritingDebugDelegate> handwritingDebugDelegate; // @synthesize handwritingDebugDelegate=_handwritingDebugDelegate;
 - (void).cxx_destruct;
+- (void)visualizationManagerDidUpdateRecognitionStatus:(id)arg1;
 - (void)close;
 - (void)tapToRadar:(id)arg1;
 - (void)refresh;
 - (id)handwritingDebugWindow;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

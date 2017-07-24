@@ -11,7 +11,7 @@
 + (void)px_preloadPlayOverlayGlyphsIfNeeded;
 + (id)px_playOverlayImage:(unsigned long long)arg1;
 + (id)px_imageFromSolidColor:(id)arg1;
-+ (id)px_PhotosUICoreImageNamed:(id)arg1;
++ (id)px_imageNamed:(id)arg1;
 - (id)px_backdropImageWithStyle:(long long)arg1;
 - (id)px_debugImageWithStrokeRect:(struct CGRect)arg1;
 - (id)px_ASTCCompressedImageWithBlockSize:(unsigned int)arg1;

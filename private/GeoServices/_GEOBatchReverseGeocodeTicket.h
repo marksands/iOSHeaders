@@ -17,8 +17,8 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (_Bool)isEqualForHistoryToTicket:(id)arg1;
-- (void)_batchReverseGeocodeWithRequest:(id)arg1 handler:(CDUnknownBlockType)arg2 networkActivity:(CDUnknownBlockType)arg3;
-- (void)submitWithHandler:(CDUnknownBlockType)arg1 timeout:(long long)arg2 networkActivity:(CDUnknownBlockType)arg3;
+- (void)_batchReverseGeocodeWithRequest:(id)arg1 auditToken:(id)arg2 handler:(CDUnknownBlockType)arg3 networkActivity:(CDUnknownBlockType)arg4;
+- (void)submitWithHandler:(CDUnknownBlockType)arg1 auditToken:(id)arg2 timeout:(long long)arg3 networkActivity:(CDUnknownBlockType)arg4;
 - (void)cancel;
 - (id)description;
 - (id)initWithBatchReverseGeocodeRequest:(id)arg1 shiftLocationsIfNeeded:(_Bool)arg2 traits:(id)arg3;

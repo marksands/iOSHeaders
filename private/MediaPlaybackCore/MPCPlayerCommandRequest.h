@@ -12,10 +12,12 @@
 {
     unsigned int _command;
     NSDictionary *_options;
+    NSDictionary *_userInitiatedOptions;
     MPCMediaRemoteController *_controller;
 }
 
 @property(readonly, nonatomic) MPCMediaRemoteController *controller; // @synthesize controller=_controller;
+@property(copy, nonatomic) NSDictionary *userInitiatedOptions; // @synthesize userInitiatedOptions=_userInitiatedOptions;
 @property(readonly, copy, nonatomic) NSDictionary *options; // @synthesize options=_options;
 @property(readonly, nonatomic) unsigned int command; // @synthesize command=_command;
 - (void).cxx_destruct;

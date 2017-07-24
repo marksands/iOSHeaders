@@ -8,7 +8,7 @@
 
 #import <NewsTransport/NSCopying-Protocol.h>
 
-@class NSString, NTPBTodayWidgetConfig;
+@class NSData, NSString, NTPBTodayWidgetConfig;
 
 @interface NTPBHeadlineResultOperationFetchInfo : PBCodable <NSCopying>
 {
@@ -17,6 +17,7 @@
     double _inputSlotsLimit;
     long long _onboardingVersion;
     long long _reachabilityStatus;
+    NSData *_clickThroughRateByPersonalizationFeatureIDData;
     NSString *_contentStoreFrontID;
     NSString *_headlineSourceIdentifier;
     NSString *_userID;
@@ -32,6 +33,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSData *clickThroughRateByPersonalizationFeatureIDData; // @synthesize clickThroughRateByPersonalizationFeatureIDData=_clickThroughRateByPersonalizationFeatureIDData;
 @property(nonatomic) double inputSlotsLimit; // @synthesize inputSlotsLimit=_inputSlotsLimit;
 @property(nonatomic) long long onboardingVersion; // @synthesize onboardingVersion=_onboardingVersion;
 @property(retain, nonatomic) NTPBTodayWidgetConfig *widgetConfig; // @synthesize widgetConfig=_widgetConfig;
@@ -51,6 +53,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasClickThroughRateByPersonalizationFeatureIDData;
 @property(nonatomic) _Bool hasInputSlotsLimit;
 @property(nonatomic) _Bool hasOnboardingVersion;
 @property(readonly, nonatomic) _Bool hasWidgetConfig;

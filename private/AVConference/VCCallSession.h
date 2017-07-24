@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <AVConference/AVCRateControllerDelegate-Protocol.h>
 #import <AVConference/VCAudioIOSink-Protocol.h>
@@ -370,7 +370,6 @@ __attribute__((visibility("hidden")))
 - (void)didReceiveCaptions:(id)arg1;
 - (int)sipCallback:(int)arg1 callID:(unsigned int)arg2 msgIn:(const char *)arg3 msgOut:(char *)arg4 optional:(void *)arg5 confIndex:(int *)arg6;
 - (_Bool)disconnectInternal:(_Bool)arg1 disconnectError:(id)arg2 didRemoteCancel:(_Bool)arg3;
-- (_Bool)enrichCallEndError:(id *)arg1;
 - (int)mapPacketMultiplexModeToSIPMode:(long long)arg1;
 - (int)mapPacketMultiplexModeToRTPMode:(long long)arg1;
 - (void)handleDuplicationEnabled:(_Bool)arg1 activeConnection:(id)arg2;
@@ -497,8 +496,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)configureLegacyTransportWithInviteInfo:(id)arg1 error:(id *)arg2;
 - (int)setSKEBlobOnTransportSession;
 - (_Bool)setupIDSConnectionForCallID:(unsigned int)arg1 destination:(id)arg2 socket:(int)arg3 error:(id *)arg4;
-- (void)handleMediaReceivedOverRelayLink;
-- (void)handleMediaReceivedOverPeerToPeerLink;
+- (void)handleMediaReceivedOverRelayLinkWithConnectionId:(int)arg1;
+- (void)handleMediaReceivedOverPeerToPeerLinkWithConnectionId:(int)arg1;
 - (int)flushBasebandQueueWithPayloads:(id)arg1 flushCount:(unsigned int *)arg2;
 - (void)setupPreferredInterfaceMessage;
 - (void)setupMomentsMessages;

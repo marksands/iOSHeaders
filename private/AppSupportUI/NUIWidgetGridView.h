@@ -25,7 +25,6 @@
 }
 
 + (double)itemWidth;
-+ (unsigned long long)maxNumberOfItems;
 @property(readonly, nonatomic) double currentLabelOutset; // @synthesize currentLabelOutset=_currentLabelOutset;
 @property(nonatomic) double centerAdjustmentAllowed; // @synthesize centerAdjustmentAllowed=_centerAdjustmentAllowed;
 @property(nonatomic) long long subtitleStyle; // @synthesize subtitleStyle=_subtitleStyle;
@@ -42,6 +41,7 @@
 - (void)generateItems;
 - (CDStruct_a157df34)borrowableSpaceForCellAtIndex:(unsigned long long)arg1;
 - (CDStruct_a157df34)entitledExtraSpaceForCellAtIndex:(unsigned long long)arg1;
+- (unsigned long long)maxNumberOfItems;
 - (unsigned long long)itemsPerRow;
 - (id)cellForGridViewItemAtIndex:(long long)arg1;
 - (void)reloadData;

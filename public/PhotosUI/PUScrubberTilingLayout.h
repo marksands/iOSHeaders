@@ -6,7 +6,7 @@
 
 #import <PhotosUI/PUSectionedTilingLayout.h>
 
-@class NSIndexPath, NSMutableDictionary, NSNumber;
+@class NSIndexPath, NSMutableDictionary;
 @protocol PUScrubberTilingLayoutDelegate;
 
 __attribute__((visibility("hidden")))
@@ -38,13 +38,11 @@ __attribute__((visibility("hidden")))
     double _loupeAmount;
     NSIndexPath *_expandedItemIndexPath;
     double _expandedItemPlayheadProgress;
-    NSNumber *_expandedItemSnappingProgress;
     struct CGSize _interItemSpacing;
     struct UIEdgeInsets _contentPadding;
 }
 
 @property(nonatomic) _Bool snapToExpandedItem; // @synthesize snapToExpandedItem=_snapToExpandedItem;
-@property(retain, nonatomic) NSNumber *expandedItemSnappingProgress; // @synthesize expandedItemSnappingProgress=_expandedItemSnappingProgress;
 @property(nonatomic) double expandedItemPlayheadProgress; // @synthesize expandedItemPlayheadProgress=_expandedItemPlayheadProgress;
 @property(nonatomic) double expandedItemWidth; // @synthesize expandedItemWidth=_expandedItemWidth;
 @property(nonatomic) _Bool showPlayheadForExpandedItem; // @synthesize showPlayheadForExpandedItem=_showPlayheadForExpandedItem;

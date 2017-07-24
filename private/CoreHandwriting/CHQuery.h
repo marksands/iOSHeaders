@@ -8,35 +8,36 @@
 
 #import <CoreHandwriting/CHRecognitionSessionObserver-Protocol.h>
 
-@class CHRecognitionSession, NSString;
+@class CHRecognitionSession, CHRecognitionSessionResult, NSString;
 @protocol CHQueryDelegate, OS_dispatch_queue;
 
 @interface CHQuery : NSObject <CHRecognitionSessionObserver>
 {
     NSObject<OS_dispatch_queue> *_processingQueue;
+    CHRecognitionSessionResult *_lastProcessedSessionResult;
     _Bool __queryActive;
-    _Bool __queryResultNeedsUpdating;
     id <CHQueryDelegate> _delegate;
     CHRecognitionSession *_recognitionSession;
 }
 
-@property(nonatomic) _Bool _queryResultNeedsUpdating; // @synthesize _queryResultNeedsUpdating=__queryResultNeedsUpdating;
 @property(nonatomic) _Bool _queryActive; // @synthesize _queryActive=__queryActive;
 @property(readonly, retain, nonatomic) CHRecognitionSession *recognitionSession; // @synthesize recognitionSession=_recognitionSession;
 @property(nonatomic) id <CHQueryDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)recognitionSessionDidUpdateRecognitionResult:(id)arg1;
 - (_Bool)wantsHighFrequencyNotifications;
-- (void)_updateQueryResultIfNeeded;
+- (void)_updateForRecognitionSessionResultChangeIfNeeded;
+- (void)waitForPendingUpdates;
 - (void)pause;
 - (void)start;
 - (void)dealloc;
 - (id)initWithRecognitionSession:(id)arg1;
 - (id)init;
-- (id)sessionResultWaitingForPendingTasks:(_Bool)arg1;
+@property(readonly, retain, nonatomic) NSString *debugName;
 @property(readonly, retain, nonatomic) NSObject<OS_dispatch_queue> *processingQueue;
-- (void)queryResultDidChange;
-- (void)setNeedsQueryResultUpdating;
-- (void)updateQueryResult;
+- (id)q_sessionResult;
+- (void)q_queryResultDidChange;
+- (void)q_setNeedsQueryResultUpdating;
+- (void)q_updateQueryResult;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -11,11 +11,13 @@
 @interface TUTestState : NSObject
 {
     NSMutableDictionary *_objects;
+    int _signalCount;
 }
 
 - (void).cxx_destruct;
 - (int)waitWithTimeout:(double)arg1;
 - (void)signal;
+- (void)incrementIntegerForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
 - (id)objectForKeyedSubscript:(id)arg1;
 - (id)description;

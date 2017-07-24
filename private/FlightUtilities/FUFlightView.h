@@ -10,7 +10,7 @@
 #import <FlightUtilities/UIPageViewControllerDataSource-Protocol.h>
 #import <FlightUtilities/UIPageViewControllerDelegate-Protocol.h>
 
-@class FUFLightTrack, FUPlaneTrackerAnnotationView, MKMapView, NSArray, NSLayoutConstraint, NSMutableArray, NSString, UIPageControl, UIPageViewController, UIVisualEffectView;
+@class FUFLightTrack, FUPlaneTrackerAnnotationView, MKMapView, NSArray, NSLayoutConstraint, NSMutableArray, NSString, UIPageControl, UIPageViewController, UIScrollView, UIVisualEffectView;
 @protocol FUFlightViewDelegate;
 
 @interface FUFlightView : UIView <UIPageViewControllerDelegate, UIPageViewControllerDataSource, FUFlightInfoViewProtocol>
@@ -20,6 +20,7 @@
     FUFLightTrack *_currentTrack;
     NSMutableArray *_controllers;
     UIPageViewController *_pageViewController;
+    UIScrollView *_pageViewContainer;
     _Bool _spotlightMode;
     NSLayoutConstraint *_pageControllerHeightConstraint;
     NSArray *_allLegs;
@@ -33,6 +34,11 @@
     UIView *_borderLineViewLandscape;
     UIView *_borderLineViewPortrait;
     UIPageControl *_pageControl;
+    NSLayoutConstraint *_pageContainerHeightConstraint;
+    NSLayoutConstraint *_lanscapeConstraint1;
+    NSLayoutConstraint *_lanscapeConstraint2;
+    NSLayoutConstraint *_lanscapeConstraint3;
+    NSLayoutConstraint *_portraitConstraint1;
     UIView *_errorView;
     UIView *_loadingView;
     NSArray *_flights;
@@ -54,6 +60,11 @@
 @property(retain, nonatomic) NSArray *flights; // @synthesize flights=_flights;
 @property(retain) UIView *loadingView; // @synthesize loadingView=_loadingView;
 @property(retain) UIView *errorView; // @synthesize errorView=_errorView;
+@property(nonatomic) __weak NSLayoutConstraint *portraitConstraint1; // @synthesize portraitConstraint1=_portraitConstraint1;
+@property(nonatomic) __weak NSLayoutConstraint *lanscapeConstraint3; // @synthesize lanscapeConstraint3=_lanscapeConstraint3;
+@property(nonatomic) __weak NSLayoutConstraint *lanscapeConstraint2; // @synthesize lanscapeConstraint2=_lanscapeConstraint2;
+@property(nonatomic) __weak NSLayoutConstraint *lanscapeConstraint1; // @synthesize lanscapeConstraint1=_lanscapeConstraint1;
+@property(nonatomic) __weak NSLayoutConstraint *pageContainerHeightConstraint; // @synthesize pageContainerHeightConstraint=_pageContainerHeightConstraint;
 @property(nonatomic) __weak UIPageControl *pageControl; // @synthesize pageControl=_pageControl;
 @property(nonatomic) __weak UIView *borderLineViewPortrait; // @synthesize borderLineViewPortrait=_borderLineViewPortrait;
 @property(nonatomic) __weak UIView *borderLineViewLandscape; // @synthesize borderLineViewLandscape=_borderLineViewLandscape;
@@ -84,6 +95,7 @@
 - (void)addTrack:(id)arg1;
 - (void)setAbsoluteIndex:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (void)updateMapArcs;
+- (void)updatePageControllerScrolling;
 - (_Bool)setFlights:(id)arg1 selectedFlight:(long long)arg2 selectedLeg:(long long)arg3;
 - (id)allLegs;
 - (unsigned long long)absoluteLegIndex;
@@ -91,6 +103,7 @@
 - (id)currentLeg;
 - (id)currentFlight;
 - (void)traitCollectionDidChange:(id)arg1;
+- (void)updateOrienationConstraints;
 - (void)updateConstraints;
 - (void)layoutSubviews;
 - (_Bool)preservesSuperviewLayoutMargins;
@@ -99,8 +112,8 @@
 - (void)showError;
 - (void)showLoading;
 - (void)updateBorderLines;
-- (_Bool)landscapeModeAffectedByTraitsChange:(id)arg1;
 - (_Bool)landscapeMode;
+- (_Bool)landscapeModeForTraits:(id)arg1;
 - (void)setupStyles;
 - (void)removeMapBackground;
 - (void)awakeFromNib;

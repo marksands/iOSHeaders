@@ -10,6 +10,9 @@
 {
 }
 
++ (id)checkpointTraceSystem;
++ (id)checkpointTraceProcess;
++ (id)checkpointTraceThread;
 + (id)xpc;
 + (id)weakLink;
 + (id)network;

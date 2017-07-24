@@ -19,8 +19,10 @@
     NSString *_currencyCode;
     NSDecimalNumber *_cardBalance;
     NSDecimalNumber *_maxAmount;
+    NSDecimalNumber *_minAmount;
 }
 
+@property(copy, nonatomic) NSDecimalNumber *minAmount; // @synthesize minAmount=_minAmount;
 @property(copy, nonatomic) NSDecimalNumber *maxAmount; // @synthesize maxAmount=_maxAmount;
 @property(copy, nonatomic) NSDecimalNumber *cardBalance; // @synthesize cardBalance=_cardBalance;
 @property(copy, nonatomic) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;

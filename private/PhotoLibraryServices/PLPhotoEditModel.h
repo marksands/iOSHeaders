@@ -67,6 +67,8 @@
     _Bool _autoLoopEnabled;
     NSDictionary *_autoLoopRecipe;
     NSString *_autoLoopFlavor;
+    _Bool _fusionEnabled;
+    NSDictionary *_fusionParameters;
     _Bool _depthEffectEnabled;
     NSDictionary *_depthEffectSettings;
     long long _inputOrientation;
@@ -106,6 +108,8 @@
 @property(readonly, nonatomic) long long inputOrientation; // @synthesize inputOrientation=_inputOrientation;
 @property(readonly, nonatomic) NSDictionary *depthEffectSettings; // @synthesize depthEffectSettings=_depthEffectSettings;
 @property(readonly, nonatomic, getter=isDepthEffectEnabled) _Bool depthEffectEnabled; // @synthesize depthEffectEnabled=_depthEffectEnabled;
+@property(readonly, nonatomic) NSDictionary *fusionParameters; // @synthesize fusionParameters=_fusionParameters;
+@property(readonly, nonatomic, getter=isFusionEnabled) _Bool fusionEnabled; // @synthesize fusionEnabled=_fusionEnabled;
 @property(readonly, nonatomic) NSNumber *muted; // @synthesize muted=_muted;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 stillPhotoTime; // @synthesize stillPhotoTime=_stillPhotoTime;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 trimEndTime; // @synthesize trimEndTime=_trimEndTime;

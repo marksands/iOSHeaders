@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (id)_performableKeyCommandsWithResponder:(id)arg1;
 - (void)_HUDPopTimerFired:(id)arg1;
 - (void)_applicationWillResignActive;
+- (void)_didTakeScreenshot;
 - (void)_scheduleHUDPresentation;
 - (void)handlePhysicalKeyboardEvent:(id)arg1;
 - (void)dealloc;

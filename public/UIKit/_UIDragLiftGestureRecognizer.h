@@ -11,5 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (_Bool)shouldBeRequiredToFailByGestureRecognizer:(id)arg1;
+
 @end
 

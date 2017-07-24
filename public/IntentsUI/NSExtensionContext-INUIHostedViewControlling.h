@@ -7,6 +7,7 @@
 #import <Foundation/NSExtensionContext.h>
 
 @interface NSExtensionContext (INUIHostedViewControlling)
+- (id)interfaceParametersDescription;
 @property(readonly, nonatomic) struct CGSize hostedViewMaximumAllowedSize;
 @property(readonly, nonatomic) struct CGSize hostedViewMinimumAllowedSize;
 @end

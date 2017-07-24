@@ -6,25 +6,23 @@
 
 #import <UIKit/UIView.h>
 
-#import <AVKit/UIPopoverPresentationControllerDelegate-Protocol.h>
-
-@class AVRoutePickerViewController, NSString, UIButton, UIColor;
+@class AVMicaPackage, MPMediaControlsStandaloneViewController, UIButton, UIColor;
 @protocol AVRoutePickerViewDelegate;
 
-@interface AVRoutePickerView : UIView <UIPopoverPresentationControllerDelegate>
+@interface AVRoutePickerView : UIView
 {
     UIColor *_activeTintColor;
     UIButton *_routePickerButton;
+    UIButton *_customButton;
     _Bool _airPlayActive;
-    AVRoutePickerViewController *_routePickerViewController;
-    _Bool _routePickerButtonHidden;
+    AVMicaPackage *_routePickerButtonMicaPackage;
+    MPMediaControlsStandaloneViewController *_routePickerViewController;
     id <AVRoutePickerViewDelegate> _delegate;
     long long _routePickerButtonStyle;
 }
 
-@property long long routePickerButtonStyle; // @synthesize routePickerButtonStyle=_routePickerButtonStyle;
-@property(readonly, getter=isRoutePickerButtonHidden) _Bool routePickerButtonHidden; // @synthesize routePickerButtonHidden=_routePickerButtonHidden;
-@property __weak id <AVRoutePickerViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) long long routePickerButtonStyle; // @synthesize routePickerButtonStyle=_routePickerButtonStyle;
+@property(nonatomic) __weak id <AVRoutePickerViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_defaultActiveTintColor;
 - (void)_outputContextDevicesDidChange:(id)arg1;
@@ -32,16 +30,19 @@
 - (void)_registerNotifications;
 - (void)_routePickerButtonTapped:(id)arg1;
 - (void)_createOrUpdateRoutePickerButton;
-@property(retain) UIColor *activeTintColor;
-- (long long)adaptivePresentationStyleForPresentationController:(id)arg1 traitCollection:(id)arg2;
+- (void)updateButtonAppearance;
+- (void)setCustomButton:(id)arg1;
+- (id)customButton;
+- (void)setAirPlayActive:(_Bool)arg1;
+- (_Bool)isAirPlayActive;
+@property(retain, nonatomic) UIColor *activeTintColor;
+- (void)didMoveToWindow;
+- (void)tintColorDidChange;
+- (struct CGSize)intrinsicContentSize;
+- (void)layoutSubviews;
+- (void)setBounds:(struct CGRect)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

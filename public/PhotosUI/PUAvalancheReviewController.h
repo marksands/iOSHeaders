@@ -156,7 +156,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (unsigned long long)supportedInterfaceOrientations;
 - (_Bool)shouldAutorotate;
-- (_Bool)automaticallyAdjustsScrollViewInsets;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (_Bool)pu_wantsNavigationBarVisible;
 - (_Bool)pu_wantsTabBarVisible;

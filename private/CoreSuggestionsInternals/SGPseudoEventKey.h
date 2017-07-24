@@ -21,6 +21,8 @@
 @property(readonly, nonatomic) NSString *groupId; // @synthesize groupId=_groupId;
 @property(readonly, nonatomic) NSString *domain; // @synthesize domain=_domain;
 - (void).cxx_destruct;
+- (id)alternativeKeysForEventKitQuery;
+- (_Bool)isDropoff;
 - (id)keyForEventKitQuery;
 @property(readonly, copy) NSString *description;
 - (id)serialize;

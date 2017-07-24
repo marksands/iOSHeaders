@@ -25,6 +25,7 @@
     double _longitude;
 }
 
++ (id)directionsButtonImage;
 + (_Bool)supportsResult:(id)arg1;
 @property double longitude; // @synthesize longitude=_longitude;
 @property double latitude; // @synthesize latitude=_latitude;

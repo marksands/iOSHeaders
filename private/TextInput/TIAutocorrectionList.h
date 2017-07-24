@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <TextInput/NSSecureCoding-Protocol.h>
 
@@ -30,6 +30,7 @@
 @property(readonly, nonatomic) TIKeyboardCandidate *autocorrection; // @synthesize autocorrection=_autocorrection;
 @property(readonly, nonatomic) _Bool shouldAcceptTopCandidate;
 @property(readonly, nonatomic) NSArray *candidates;
+- (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithCandidates:(id)arg1 shouldAcceptTopCandidate:(_Bool)arg2;

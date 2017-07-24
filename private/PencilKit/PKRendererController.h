@@ -17,6 +17,7 @@
     // Error parsing type: Ai, name: _cancelAllRendering
     // Error parsing type: Ai, name: _cancelLongRunningRenderingCount
     NSMutableArray *_postPresentCallbacks;
+    _Bool _isTorndown;
     unsigned int _resolveFramebuffer;
     unsigned int _resolveColorRenderbuffer;
     int renderbufferWidth;
@@ -54,8 +55,9 @@
 @property(readonly, nonatomic) PKStrokeGenerator *inputController; // @synthesize inputController=_inputController;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *renderQueue; // @synthesize renderQueue=_renderQueue;
 - (void).cxx_destruct;
+- (void)drawingCancelledWithCompletion:(CDUnknownBlockType)arg1;
 - (void)drawingCancelled;
-- (void)drawingEnded:(id)arg1;
+- (void)drawingEnded:(id)arg1 finishStrokeBlock:(CDUnknownBlockType)arg2;
 - (void)drawingBeganWithStroke:(id)arg1;
 - (void)drawStrokesAfterClear:(id)arg1 clippedToStrokeSpaceRect:(struct CGRect)arg2 strokeTransform:(struct CGAffineTransform)arg3 useLayerContext:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)drawStrokesAfterClear:(id)arg1 clippedToStrokeSpaceRect:(struct CGRect)arg2 completion:(CDUnknownBlockType)arg3;
@@ -83,9 +85,10 @@
 - (struct CGImage *)newCGImageWithClipRect:(struct CGRect)arg1;
 - (struct CGImage *)newCGImage;
 - (void)renderTilesIntoTiles:(id)arg1;
-- (void)renderTiles:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)copyIntoTiles:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)drawStrokes:(id)arg1 intoTile:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)renderTiles:(id)arg1;
+- (void)_copyIntoTilesFromRenderQueue:(id)arg1;
+- (void)copyIntoTiles:(id)arg1;
+- (_Bool)drawStrokes:(id)arg1 intoTile:(id)arg2 renderCount:(long long)arg3;
 - (void)setupNewTile:(id)arg1;
 - (void)didTeardownTile;
 - (struct CGRect)getContentsBoundsInStrokeSpace;
@@ -102,6 +105,7 @@
 - (void)cancelLongRunningRenders;
 - (void)cancelAllRendering;
 - (void)setup;
+- (void)dealloc;
 - (void)teardown;
 - (id)initWithPixelSize:(struct CGSize)arg1 actualSize:(struct CGSize)arg2;
 - (id)init;

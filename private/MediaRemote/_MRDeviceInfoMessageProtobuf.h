@@ -24,6 +24,7 @@
     _Bool _allowsPairing;
     _Bool _connected;
     _Bool _supportsACL;
+    _Bool _supportsExtendedMotion;
     _Bool _supportsSharedQueue;
     _Bool _supportsSystemPairing;
     struct {
@@ -32,11 +33,13 @@
         unsigned int allowsPairing:1;
         unsigned int connected:1;
         unsigned int supportsACL:1;
+        unsigned int supportsExtendedMotion:1;
         unsigned int supportsSharedQueue:1;
         unsigned int supportsSystemPairing:1;
     } _has;
 }
 
+@property(nonatomic) _Bool supportsExtendedMotion; // @synthesize supportsExtendedMotion=_supportsExtendedMotion;
 @property(nonatomic) _Bool supportsSharedQueue; // @synthesize supportsSharedQueue=_supportsSharedQueue;
 @property(nonatomic) _Bool supportsACL; // @synthesize supportsACL=_supportsACL;
 @property(retain, nonatomic) NSString *systemMediaApplication; // @synthesize systemMediaApplication=_systemMediaApplication;
@@ -60,6 +63,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSupportsExtendedMotion;
 @property(nonatomic) _Bool hasSupportsSharedQueue;
 @property(nonatomic) _Bool hasSupportsACL;
 @property(readonly, nonatomic) _Bool hasSystemMediaApplication;

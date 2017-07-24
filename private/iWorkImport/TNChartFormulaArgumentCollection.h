@@ -31,7 +31,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (id)elementAtIndex:(unsigned long long)arg1;
 - (unsigned long long)count;
-- (id)wrappedChartFormulaWithID:(CDStruct_a91f2c80)arg1 andLocale:(id)arg2;
+- (id)wrappedChartFormulaWithID:(CDStruct_ed6d627d)arg1 andLocale:(id)arg2;
 - (id)description;
 - (void)dealloc;
 - (id)initWithFormula:(struct TSCEFormula *)arg1 inOwner:(const UUIDData_5fbc143e *)arg2 usingCalcEngine:(id)arg3;

@@ -8,6 +8,7 @@
 
 @interface HMDBackingStoreTransactionActions : HMDBackingStoreTransactionOptions
 {
+    _Bool _local;
     _Bool _changed;
     _Bool _saveToAssistant;
     _Bool _saveToSharedUserAccount;
@@ -17,11 +18,13 @@
 @property(readonly, nonatomic) _Bool saveToSharedUserAccount; // @synthesize saveToSharedUserAccount=_saveToSharedUserAccount;
 @property(readonly, nonatomic) _Bool saveToAssistant; // @synthesize saveToAssistant=_saveToAssistant;
 @property(readonly, nonatomic) _Bool changed; // @synthesize changed=_changed;
+@property(readonly, nonatomic) _Bool local; // @synthesize local=_local;
 - (id)description;
 - (id)logIdentifier;
 - (void)markSaveToSharedUserAccount;
 - (void)markSaveToAssistant;
 - (void)markChanged;
+- (void)markLocalChanged;
 - (id)initWithOptions:(id)arg1;
 
 @end

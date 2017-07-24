@@ -33,6 +33,7 @@
     PKPaymentApplication *_devicePrimaryPaymentApplication;
     PKPaymentApplication *_devicePrimaryContactlessPaymentApplication;
     PKPaymentApplication *_devicePrimaryInAppPaymentApplication;
+    NSSet *_deviceInAppPaymentApplications;
     NSString *_cobrandName;
     NSURL *_transactionServiceURL;
     NSString *_transactionPushTopic;
@@ -56,6 +57,7 @@
 @property(copy, nonatomic) NSURL *transactionServiceURL; // @synthesize transactionServiceURL=_transactionServiceURL;
 @property(copy, nonatomic) NSString *cobrandName; // @synthesize cobrandName=_cobrandName;
 @property(nonatomic, getter=isCobranded) _Bool cobranded; // @synthesize cobranded=_cobranded;
+@property(retain, nonatomic) NSSet *deviceInAppPaymentApplications; // @synthesize deviceInAppPaymentApplications=_deviceInAppPaymentApplications;
 @property(retain, nonatomic) PKPaymentApplication *devicePrimaryInAppPaymentApplication; // @synthesize devicePrimaryInAppPaymentApplication=_devicePrimaryInAppPaymentApplication;
 @property(retain, nonatomic) PKPaymentApplication *devicePrimaryContactlessPaymentApplication; // @synthesize devicePrimaryContactlessPaymentApplication=_devicePrimaryContactlessPaymentApplication;
 @property(retain, nonatomic) PKPaymentApplication *devicePrimaryPaymentApplication; // @synthesize devicePrimaryPaymentApplication=_devicePrimaryPaymentApplication;
@@ -75,11 +77,13 @@
 @property(copy, nonatomic) NSString *primaryAccountNumberSuffix; // @synthesize primaryAccountNumberSuffix=_primaryAccountNumberSuffix;
 @property(copy, nonatomic) NSString *primaryAccountIdentifier; // @synthesize primaryAccountIdentifier=_primaryAccountIdentifier;
 - (void).cxx_destruct;
+- (id)sortedPaymentApplications:(id)arg1 ascending:(_Bool)arg2;
 - (id)_launchURLForPassAction:(id)arg1;
 - (id)addValueURL;
 @property(readonly, copy, nonatomic) PKFelicaPassProperties *felicaProperties;
 - (id)notificationCenterTitle;
 - (id)_localizedSuspendedReasonForAID:(id)arg1;
+- (_Bool)supportsWebPaymentMode:(long long)arg1 withExclusionList:(id)arg2;
 - (void)sanitizePaymentApplications;
 - (void)updateDevicePaymentApplicationsWithSecureElementIdentifiers:(id)arg1;
 - (unsigned long long)contactlessActivationState;

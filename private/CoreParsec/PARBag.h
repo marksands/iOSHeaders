@@ -37,10 +37,14 @@
 - (id)_bag_objectOfClass:(Class)arg1 forKey:(id)arg2 override:(_Bool)arg3;
 - (id)_bag_objectOfClass:(Class)arg1 forKey:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *tuscanyConfiguration;
+@property(readonly, nonatomic) _Bool use2LayerRanking;
 @property(readonly, nonatomic) NSArray *anonymousMetadataPreference;
 @property(readonly, nonatomic) _Bool collectAnonymousMetadata;
 @property(readonly, nonatomic) _Bool collectScores;
 @property(readonly, nonatomic) _Bool sampleFeatures;
+@property(readonly, nonatomic) _Bool smartHistoryFeatureFeedbackEnabled;
+@property(readonly, nonatomic) unsigned long long smartHistorySampleThreshold;
+@property(readonly, nonatomic) unsigned long long smartHistoryCompletionReturnCount;
 @property(readonly, nonatomic) unsigned long long smartHistoryMaxRows;
 @property(readonly, nonatomic) unsigned long long smartHistoryTimeout;
 @property(readonly, nonatomic) _Bool smartHistoryEnabled;

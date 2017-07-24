@@ -133,6 +133,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldAllowDrawableInGroups:(id)arg1 forImport:(_Bool)arg2;
 - (_Bool)pageMastersAllowDrawable:(id)arg1;
 - (_Bool)cellCommentsAllowedOnInfo:(id)arg1;
+- (_Bool)isDrawableOnPageMaster:(id)arg1;
 - (id)pageMasterOwningModel:(id)arg1;
 - (_Bool)isSectionModel:(id)arg1;
 - (void)setValue:(double)arg1 forMargin:(int)arg2;

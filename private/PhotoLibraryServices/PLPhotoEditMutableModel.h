@@ -20,6 +20,8 @@
 @property(nonatomic) struct CGSize inputSize; // @dynamic inputSize;
 @property(copy, nonatomic) NSDictionary *depthEffectSettings; // @dynamic depthEffectSettings;
 @property(nonatomic, getter=isDepthEffectEnabled) _Bool depthEffectEnabled; // @dynamic depthEffectEnabled;
+@property(copy, nonatomic) NSDictionary *fusionParameters; // @dynamic fusionParameters;
+@property(nonatomic, getter=isFusionEnabled) _Bool fusionEnabled; // @dynamic fusionEnabled;
 @property(retain, nonatomic) NSNumber *muted; // @dynamic muted;
 @property(nonatomic) CDStruct_1b6d18a9 stillPhotoTime; // @dynamic stillPhotoTime;
 @property(nonatomic) CDStruct_1b6d18a9 trimEndTime; // @dynamic trimEndTime;

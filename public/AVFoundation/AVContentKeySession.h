@@ -43,9 +43,9 @@
 - (void)issueContentKeyRequestWithCustomURLHandler:(struct OpaqueFigCustomURLHandler *)arg1 identifier:(id)arg2 requestInfo:(struct __CFDictionary *)arg3 requestID:(unsigned long long)arg4 providesPersistableKey:(_Bool)arg5;
 - (void)issueContentKeyRequestWithCustomURLProviderContext:(id)arg1 identifier:(id)arg2 initializationData:(id)arg3 providesPersistableKey:(_Bool)arg4;
 - (_Bool)clientCanReceivePersistableContentKeyRequest;
-- (id)createProtectorSessionIdentifierIfNecessary;
+- (void)createProtectorSessionIdentifierIfNecessary;
 - (int)decodeKeyRequestInitializationData:(id)arg1 IntoSinfs:(id *)arg2 CodecType:(id *)arg3 MediaType:(id *)arg4 ContainerType:(id *)arg5;
-- (id)setAppIdentifier:(id)arg1;
+- (int)setAppIdentifier:(id)arg1;
 - (int)createAndInstallCustomURLHandlerForAsset:(id)arg1 outHandler:(struct OpaqueFigCustomURLHandler **)arg2;
 - (void)_handleRequest:(struct __CFDictionary *)arg1 withRequestID:(unsigned long long)arg2 fromHandler:(struct OpaqueFigCustomURLHandler *)arg3 willHandleRequest:(_Bool *)arg4;
 - (const struct OpaqueFigContentKeySession *)_figContentKeySession;

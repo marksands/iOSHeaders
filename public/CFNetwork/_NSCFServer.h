@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSNumber, NSString;
+@class NSDictionary, NSNumber, NSString;
 @protocol OS_tcp_listener;
 
 @interface _NSCFServer : NSObject
@@ -15,6 +15,7 @@
     long long _type;
     long long _listenerPort;
     NSString *_interface;
+    NSDictionary *_configuration;
     NSNumber *_listenerID;
     NSObject<OS_tcp_listener> *_listener;
 }
@@ -26,6 +27,7 @@
 @property(retain) NSObject<OS_tcp_listener> *listener; // @synthesize listener=_listener;
 @property(retain) NSNumber *listenerID; // @synthesize listenerID=_listenerID;
 @property(getter=isCoprocessorInterfaceEnabled) _Bool enableCoprocessorInterface; // @synthesize enableCoprocessorInterface=_enableCoprocessorInterface;
+@property(retain) NSDictionary *configuration; // @synthesize configuration=_configuration;
 @property(retain) NSString *interface; // @synthesize interface=_interface;
 @property long long listenerPort; // @synthesize listenerPort=_listenerPort;
 @property long long type; // @synthesize type=_type;

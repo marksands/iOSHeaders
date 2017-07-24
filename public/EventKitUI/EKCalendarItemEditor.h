@@ -68,11 +68,9 @@ __attribute__((visibility("hidden")))
 - (void)_presentDetachSheet;
 - (id)_viewForSheet;
 - (id)_nameForDeleteButton;
-- (_Bool)_canDetachSingleOccurrence;
 - (_Bool)_performSave:(long long)arg1 animated:(_Bool)arg2;
 - (void)_performDelete:(long long)arg1;
 - (void)deleteClicked:(id)arg1;
-- (_Bool)allowsDeletingFutureOccurrences;
 - (void)tableViewDidFinishReload:(id)arg1;
 - (void)tableViewDidStartReload:(id)arg1;
 - (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
@@ -111,7 +109,7 @@ __attribute__((visibility("hidden")))
 - (void)editItemWantsInjectableViewControllerToBeShown:(id)arg1;
 - (void)editItemTextChanged:(id)arg1;
 - (void)editItemDidEndEditing:(id)arg1;
-- (void)_setWantsToEnableDoneButtonAfterTextChanged;
+- (void)_updateDoneButtonState;
 - (void)editItem:(id)arg1 didSaveFromDetailViewController:(_Bool)arg2;
 - (void)editItemDidStartEditing:(id)arg1;
 - (void)_revertEvent;
@@ -155,6 +153,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)supportedInterfaceOrientations;
 - (void)applicationDidResume;
 - (void)viewDidLoad;
+- (void)updateNavButtonsWithSpacing;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

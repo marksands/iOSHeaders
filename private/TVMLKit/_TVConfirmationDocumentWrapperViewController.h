@@ -6,13 +6,24 @@
 
 #import <UIKit/UIViewController.h>
 
-@interface _TVConfirmationDocumentWrapperViewController : UIViewController
+#import <TVMLKit/UIGestureRecognizerDelegate-Protocol.h>
+
+@class NSString;
+
+@interface _TVConfirmationDocumentWrapperViewController : UIViewController <UIGestureRecognizerDelegate>
 {
 }
 
 - (void)viewDidLayoutSubviews;
 - (void)tapped;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)loadView;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

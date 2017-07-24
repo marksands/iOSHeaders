@@ -16,13 +16,16 @@
     _Bool _allowsPublisherPadApp;
     _Bool _allowsPublisherPhoneApp;
     _Bool _allowsPublisherWebSite;
+    _Bool _preferredOffer;
     struct {
         unsigned int allowsPublisherPadApp:1;
         unsigned int allowsPublisherPhoneApp:1;
         unsigned int allowsPublisherWebSite:1;
+        unsigned int preferredOffer:1;
     } _has;
 }
 
+@property(nonatomic) _Bool preferredOffer; // @synthesize preferredOffer=_preferredOffer;
 @property(nonatomic) _Bool allowsPublisherWebSite; // @synthesize allowsPublisherWebSite=_allowsPublisherWebSite;
 @property(nonatomic) _Bool allowsPublisherPadApp; // @synthesize allowsPublisherPadApp=_allowsPublisherPadApp;
 @property(nonatomic) _Bool allowsPublisherPhoneApp; // @synthesize allowsPublisherPhoneApp=_allowsPublisherPhoneApp;
@@ -35,6 +38,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasPreferredOffer;
 @property(nonatomic) _Bool hasAllowsPublisherWebSite;
 @property(nonatomic) _Bool hasAllowsPublisherPadApp;
 @property(nonatomic) _Bool hasAllowsPublisherPhoneApp;

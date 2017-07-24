@@ -11,7 +11,7 @@
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class HMDEventTriggerDevice, HMDEventTriggerExecutionSession, HMDTriggerConfirmationTimer, NSObject, NSString, NSUUID;
+@class HMDEventTriggerDevice, HMDEventTriggerExecutionSession, HMDTriggerConfirmationTimer, HomeKitEventTriggerUserConfirmationReceiverSessionEvent, NSMutableArray, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
 @interface HMDEventTriggerUserConfirmationSession : HMDEventTriggerSession <HMFDumpState, HMFLogging, HMFTimerDelegate, HMFMessageReceiver>
@@ -19,9 +19,13 @@
     HMDEventTriggerExecutionSession *_executionSession;
     HMDEventTriggerDevice *_requestingDevice;
     HMDTriggerConfirmationTimer *_userResponseTimer;
+    HomeKitEventTriggerUserConfirmationReceiverSessionEvent *_metricEvent;
+    NSMutableArray *_metricSendEvents;
 }
 
 + (id)logCategory;
+@property(retain, nonatomic) NSMutableArray *metricSendEvents; // @synthesize metricSendEvents=_metricSendEvents;
+@property(retain, nonatomic) HomeKitEventTriggerUserConfirmationReceiverSessionEvent *metricEvent; // @synthesize metricEvent=_metricEvent;
 @property(retain, nonatomic) HMDTriggerConfirmationTimer *userResponseTimer; // @synthesize userResponseTimer=_userResponseTimer;
 @property(readonly, nonatomic) HMDEventTriggerDevice *requestingDevice; // @synthesize requestingDevice=_requestingDevice;
 @property(nonatomic) __weak HMDEventTriggerExecutionSession *executionSession; // @synthesize executionSession=_executionSession;
@@ -38,6 +42,7 @@
 - (void)_askForUserPermissionFromDevice:(id)arg1 executionSessionID:(id)arg2;
 - (void)askForUserPermission:(id)arg1;
 - (void)_registerForMessages;
+- (void)dealloc;
 - (id)initWithSessionID:(id)arg1 eventTrigger:(id)arg2 workQueue:(id)arg3 msgDispatcher:(id)arg4 requestingDevice:(id)arg5;
 
 // Remaining properties

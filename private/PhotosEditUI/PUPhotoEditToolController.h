@@ -44,6 +44,7 @@
 @property(readonly, nonatomic) PLPhotoEditMutableModel *photoEditModel; // @synthesize photoEditModel=_photoEditModel;
 @property(readonly, nonatomic) long long layoutOrientation;
 - (void).cxx_destruct;
+- (struct CGRect)contentRectInCoordinateSpace:(id)arg1;
 - (void)didResignActiveTool;
 - (void)animateResigningActiveTool;
 - (void)willResignActiveTool;

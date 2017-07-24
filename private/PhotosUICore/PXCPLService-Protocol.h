@@ -8,7 +8,6 @@
 
 @protocol PXCPLService <NSObject>
 @property(copy, nonatomic) CDUnknownBlockType handler;
-@property(readonly, nonatomic) struct PXCPLServiceStatus serviceStatus;
 - (void)performAction:(long long)arg1;
 - (_Bool)canPerformAction:(long long)arg1;
 @end

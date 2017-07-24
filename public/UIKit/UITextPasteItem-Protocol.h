@@ -12,6 +12,7 @@
 @property(readonly, nonatomic) NSDictionary *defaultAttributes;
 @property(readonly, nonatomic) id localObject;
 @property(readonly, nonatomic) NSItemProvider *itemProvider;
+- (void)setDefaultResult;
 - (void)setNoResult;
 - (void)setAttachmentResult:(NSTextAttachment *)arg1;
 - (void)setAttributedStringResult:(NSAttributedString *)arg1;

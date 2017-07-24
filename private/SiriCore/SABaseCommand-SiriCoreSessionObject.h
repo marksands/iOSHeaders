@@ -11,6 +11,7 @@
 @class NSString;
 
 @interface SABaseCommand (SiriCoreSessionObject) <SiriCoreSessionObject>
+- (_Bool)siriCore_supportedByLocalSession;
 - (void)siriCore_setSessionRequestId:(id)arg1;
 - (id)siriCore_requestId;
 - (void)siriCore_dispatchSendCompletionsWithResult:(long long)arg1 error:(id)arg2;

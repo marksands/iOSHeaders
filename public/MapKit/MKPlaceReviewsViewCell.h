@@ -6,7 +6,7 @@
 
 #import <MapKit/MKPlaceSectionRowView.h>
 
-@class NSDate, NSLayoutConstraint, NSString, UIImage, UIImageView, _MKUILabel;
+@class MKPlaceReviewAvatarGenerator, NSDate, NSLayoutConstraint, NSString, UIImageView, _MKUILabel;
 
 __attribute__((visibility("hidden")))
 @interface MKPlaceReviewsViewCell : MKPlaceSectionRowView
@@ -14,30 +14,27 @@ __attribute__((visibility("hidden")))
     UIImageView *_pictureView;
     _MKUILabel *_detailLabel;
     _MKUILabel *_reviewLabel;
-    NSDate *_date;
     NSLayoutConstraint *_reviewLabelTopConstraint;
-    NSLayoutConstraint *_reviewLabelToBottomConstraint;
     NSLayoutConstraint *_reviewLabelToAuthorLabelConstraint;
     NSLayoutConstraint *_authorLabelBaselineConstraint;
+    MKPlaceReviewAvatarGenerator *_avatarGenerator;
     unsigned long long _rating;
     NSString *_author;
+    NSDate *_date;
 }
 
 @property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(copy, nonatomic) NSString *author; // @synthesize author=_author;
 @property(nonatomic) unsigned long long rating; // @synthesize rating=_rating;
+@property(retain, nonatomic) MKPlaceReviewAvatarGenerator *avatarGenerator; // @synthesize avatarGenerator=_avatarGenerator;
 - (void).cxx_destruct;
 - (unsigned long long)maxCharacters;
-- (void)updateDetailLabelText;
 - (id)detailLabelText;
-- (void)setAuthor:(id)arg1 date:(id)arg2 rating:(unsigned long long)arg3;
-@property(nonatomic) __weak NSString *reviewText; // @dynamic reviewText;
-- (void)setLocale:(id)arg1;
-@property(nonatomic) __weak UIImage *picture; // @dynamic picture;
-- (void)updateConstraints;
+- (void)setReviewText:(id)arg1;
+- (void)setPicture:(id)arg1;
+- (void)setReview:(id)arg1;
 - (void)_updatePictureTheme:(id)arg1;
 - (void)infoCardThemeChanged:(id)arg1;
-- (id)standardDateAuthorLabel;
 - (void)_updateBaselineConstraints;
 - (void)_contentSizeDidChange;
 - (id)initWithFrame:(struct CGRect)arg1;

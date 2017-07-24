@@ -15,7 +15,10 @@
     id <NAScheduler> _serializer;
 }
 
-+ (_Bool)_shouldCaptureEventForStreamName:(id)arg1;
++ (double)_schedulingAssertionTimeout;
++ (_Bool)_isSchedulingRelatedNotification:(id)arg1 streamName:(id)arg2;
++ (_Bool)_isSleepNotification:(id)arg1 streamName:(id)arg2;
++ (_Bool)_isSyncNotification:(id)arg1 streamName:(id)arg2;
 @property(retain, nonatomic) id <NAScheduler> serializer; // @synthesize serializer=_serializer;
 @property(retain, nonatomic) NSMutableArray *listeners; // @synthesize listeners=_listeners;
 - (void).cxx_destruct;

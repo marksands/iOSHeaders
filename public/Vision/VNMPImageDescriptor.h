@@ -14,12 +14,12 @@
 __attribute__((visibility("hidden")))
 @interface VNMPImageDescriptor : NSObject <NSSecureCoding, VNSerializingInternal>
 {
+    long long _internalNonSerializedDescriptorId;
     float _quality;
     float _nextLeafDescriptorDistance;
     float _previousLeafDescriptorDistance;
     float _nextLeafTotalDistance;
     float _previousLeafTotalDistance;
-    long long _descriptorId;
     NSString *_externalImageId;
     long long _exifTimestamp;
     void *_colorGaborDescriptor;
@@ -49,7 +49,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) float quality; // @synthesize quality=_quality;
 @property(readonly) long long exifTimestamp; // @synthesize exifTimestamp=_exifTimestamp;
 @property(readonly) NSString *externalImageId; // @synthesize externalImageId=_externalImageId;
-@property(readonly) long long descriptorId; // @synthesize descriptorId=_descriptorId;
+@property(readonly) long long descriptorId; // @synthesize descriptorId=_internalNonSerializedDescriptorId;
 - (void).cxx_destruct;
 - (id)initWithRawColorGaborDescriptor:(id)arg1;
 @property(readonly) NSData *rawColorGaborDescriptor;
@@ -66,7 +66,6 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)serializeStateIntoData:(id)arg1 startingAtByteOffset:(unsigned long long)arg2 error:(id *)arg3;
 @property(readonly, nonatomic) unsigned long long serializedLength;
 - (void)encodeWithCoder:(id)arg1;
-- (id)init_FOR_CVML_MIGRATION_ONLY_WithDescriptorId:(long long)arg1 externalId:(id)arg2 exifTimestamp:(long long)arg3 qualityScore:(float)arg4 rawDescriptorData:(id)arg5 rawDescriptorDataStride:(unsigned long long)arg6 rawDescriptorDataCount:(unsigned long long)arg7;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithImageData:(id)arg1 andCustomQualityScore:(float)arg2 context:(id)arg3 error:(id *)arg4;
 - (id)initWithImageData:(id)arg1 andQualityCriteria:(id)arg2 context:(id)arg3 error:(id *)arg4;

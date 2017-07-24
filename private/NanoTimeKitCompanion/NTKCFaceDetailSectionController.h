@@ -31,6 +31,7 @@
 @property(readonly, nonatomic) NSString *titleForHeader; // @synthesize titleForHeader=_titleForHeader;
 - (void).cxx_destruct;
 - (id)_newSectionHeader;
+- (void)faceDidChangeResourceDirectory;
 - (void)faceDidChange;
 - (void)didSelectRow:(long long)arg1;
 - (_Bool)_canSelectRow:(long long)arg1;

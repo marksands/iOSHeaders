@@ -26,6 +26,7 @@
     NSUUID *_supersedingUUID;
     id <PKPlugIn> _supersededBy;
     NSUUID *_multipleInstanceUUID;
+    NSString *_serviceExtension;
     NSDictionary *_discoveryExtensions;
     NSArray *_sandboxExtensions;
     id _queuedHostPrincipal;
@@ -52,6 +53,7 @@
 @property(retain) id queuedHostPrincipal; // @synthesize queuedHostPrincipal=_queuedHostPrincipal;
 @property(retain) NSArray *sandboxExtensions; // @synthesize sandboxExtensions=_sandboxExtensions;
 @property(retain) NSDictionary *discoveryExtensions; // @synthesize discoveryExtensions=_discoveryExtensions;
+@property(retain) NSString *serviceExtension; // @synthesize serviceExtension=_serviceExtension;
 @property(retain) NSUUID *multipleInstanceUUID; // @synthesize multipleInstanceUUID=_multipleInstanceUUID;
 @property(retain) id <PKPlugIn> supersededBy; // @synthesize supersededBy=_supersededBy;
 @property(retain) NSUUID *supersedingUUID; // @synthesize supersedingUUID=_supersedingUUID;

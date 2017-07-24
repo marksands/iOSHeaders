@@ -24,7 +24,6 @@
 - (void)evictAllExceptRange:(struct _NSRange)arg1;
 - (void)removeAllObjects;
 - (id)objectForRange:(struct _NSRange)arg1;
-- (void)dealloc;
 - (id)initWithBackfiller:(CDUnknownBlockType)arg1;
 - (id)initWithBackfiller:(CDUnknownBlockType)arg1 evictionManager:(id)arg2;
 

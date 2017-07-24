@@ -98,6 +98,8 @@
 - (void)_notifyQueueFeederContentsChanged;
 - (id)metadataItemForPlaylistIndex:(long long)arg1;
 - (unsigned long long)indexForContentItemID:(id)arg1;
+- (id)contentItemIDForPlaylistIndex:(long long)arg1;
+- (_Bool)isPlaceholderItemForContentItemID:(id)arg1;
 - (id)itemForContentItemID:(id)arg1;
 - (id)itemForPlaylistIndex:(long long)arg1;
 - (void)handlePlaybackFailureForItem:(id)arg1;

@@ -9,7 +9,7 @@
 #import <PencilKit/UIDragInteractionDelegate-Protocol.h>
 #import <PencilKit/UIGestureRecognizerDelegate-Protocol.h>
 
-@class CAShapeLayer, NSString, PKSelectionController, PKStrokeSelection, UIDragInteraction, UIDragPreview, UIImage, UIImageView, UITapGestureRecognizer;
+@class CAShapeLayer, NSString, PKSelectionController, PKStrokeSelection, UIDragInteraction, UIDragPreview, UIImage, UIImageView, UIPanGestureRecognizer, UITapGestureRecognizer;
 
 @interface PKSelectionView : UIView <UIDragInteractionDelegate, UIGestureRecognizerDelegate>
 {
@@ -21,6 +21,7 @@
     UITapGestureRecognizer *editMenuGR;
     CAShapeLayer *_lassoLayer;
     CAShapeLayer *_whiteLassoLayer;
+    UIPanGestureRecognizer *dragGR;
     UIDragPreview *_previewProvider;
     _Bool _isDragging;
     _Bool _wantsDragPlatter;
@@ -36,18 +37,16 @@
 @property(readonly, nonatomic) _Bool isDragging; // @synthesize isDragging=_isDragging;
 - (void).cxx_destruct;
 - (void)updateLocation:(struct CGPoint)arg1;
-- (_Bool)_dragInteraction:(id)arg1 competingGestureRecognizerShouldDelayLift:(id)arg2;
-- (void)_api_dragInteraction:(id)arg1 session:(id)arg2 willEndWithOperation:(unsigned long long)arg3;
-- (void)_clearPreviewProviderForDragItem:(id)arg1;
-- (void)setWantsDragPlatter:(_Bool)arg1 forSession:(id)arg2;
-- (void)setDragItemToStrokeImageForSession:(id)arg1;
+- (void)dragInteraction:(id)arg1 session:(id)arg2 willEndWithOperation:(unsigned long long)arg3;
 - (void)animateViewToOriginalPosition;
 - (void)makeViewAliveAtLocation:(struct CGPoint)arg1;
 - (void)dragInteraction:(id)arg1 sessionDidMove:(id)arg2;
+- (void)_dragWillBegin;
 - (void)dragInteraction:(id)arg1 sessionWillBegin:(id)arg2;
+- (void)dragSelection:(id)arg1;
 - (void)_addShadowToStroke;
-- (id)_api_dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
-- (id)dragInteraction:(id)arg1 previewForCancellingItem:(id)arg2 withDefault:(id)arg3;
+- (id)dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
+- (_Bool)dragInteraction:(id)arg1 prefersFullSizePreviewsForSession:(id)arg2;
 - (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)targetForAction:(SEL)arg1 withSender:(id)arg2;
@@ -55,7 +54,8 @@
 - (void)toggleEditMenu;
 - (_Bool)canBecomeFirstResponder;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)setupLasso;
+- (void)setupAnimatedLasso;
+- (void)willMoveToWindow:(id)arg1;
 - (struct CGColor *)selectionColor;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 strokeSelection:(id)arg2 selectionController:(id)arg3;

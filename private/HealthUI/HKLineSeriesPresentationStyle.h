@@ -17,11 +17,13 @@
     UIImage *_pointMarkerImage;
     UIImage *_lineEndCap;
     HKAxisLabelStyle *_annotationStyle;
+    HKAxisLabelStyle *_axisAnnotationStyle;
     double _sineWaveSmoothingFactor;
 }
 
 @property(nonatomic) double sineWaveSmoothingFactor; // @synthesize sineWaveSmoothingFactor=_sineWaveSmoothingFactor;
 @property(nonatomic) _Bool shouldApplyRollingAverage; // @synthesize shouldApplyRollingAverage=_shouldApplyRollingAverage;
+@property(retain, nonatomic) HKAxisLabelStyle *axisAnnotationStyle; // @synthesize axisAnnotationStyle=_axisAnnotationStyle;
 @property(retain, nonatomic) HKAxisLabelStyle *annotationStyle; // @synthesize annotationStyle=_annotationStyle;
 @property(retain, nonatomic) UIImage *lineEndCap; // @synthesize lineEndCap=_lineEndCap;
 @property(retain, nonatomic) UIImage *pointMarkerImage; // @synthesize pointMarkerImage=_pointMarkerImage;

@@ -11,14 +11,14 @@
 @interface HKLineSeries : HKGraphSeries
 {
     _Bool _flatLastValue;
-    _Bool _annotateLastValue;
+    _Bool _extendLastValue;
     NSArray *_unhighlightedPresentationStyles;
     NSArray *_highlightedPresentationStyles;
     NSArray *_selectedPresentationStyles;
     UIImage *_selectedPointMarkerImage;
 }
 
-@property(nonatomic) _Bool annotateLastValue; // @synthesize annotateLastValue=_annotateLastValue;
+@property(nonatomic) _Bool extendLastValue; // @synthesize extendLastValue=_extendLastValue;
 @property(nonatomic) _Bool flatLastValue; // @synthesize flatLastValue=_flatLastValue;
 @property(retain, nonatomic) UIImage *selectedPointMarkerImage; // @synthesize selectedPointMarkerImage=_selectedPointMarkerImage;
 @property(retain, nonatomic) NSArray *selectedPresentationStyles; // @synthesize selectedPresentationStyles=_selectedPresentationStyles;
@@ -41,7 +41,7 @@
 - (void)drawSeriesWithBlockCoordinates:(id)arg1 axisRect:(struct CGRect)arg2 zoomLevelConfiguration:(id)arg3 pointTransform:(struct CGAffineTransform)arg4 renderContext:(struct CGContext *)arg5 secondaryRenderContext:(id)arg6;
 - (void)_enumerateSinePathsFromBlockCoordinates:(id)arg1 transfrom:(struct CGAffineTransform)arg2 zoomLevelConfiguration:(id)arg3 presentationStyle:(id)arg4 axisRect:(struct CGRect)arg5 handler:(CDUnknownBlockType)arg6;
 - (void)_enumerateSawToothPathsFromBlockCoordinates:(id)arg1 transform:(struct CGAffineTransform)arg2 zoomLevelConfiguration:(id)arg3 presentationStyle:(id)arg4 axisRect:(struct CGRect)arg5 handler:(CDUnknownBlockType)arg6;
-- (void)_addAnnotationForValue:(double)arg1;
+- (void)_addAxisAnnotationForValue:(double)arg1;
 - (void)_enumeratePathsFromBlockCoordinates:(id)arg1 axisRect:(struct CGRect)arg2 zoomLevelConfiguration:(id)arg3 transform:(struct CGAffineTransform)arg4 presentationStyle:(id)arg5 handler:(CDUnknownBlockType)arg6;
 - (void)_enumerateCoordinateListByRemovingOffscreenPoints:(id)arg1 withTransform:(struct CGAffineTransform)arg2 presentationStyle:(id)arg3 zoomLevelConfiguration:(id)arg4 axisRect:(struct CGRect)arg5 block:(CDUnknownBlockType)arg6;
 - (void)_enumerateCoordinateList:(id)arg1 withTransform:(struct CGAffineTransform)arg2 presentationStyle:(id)arg3 zoomLevelConfiguration:(id)arg4 axisRect:(struct CGRect)arg5 block:(CDUnknownBlockType)arg6;

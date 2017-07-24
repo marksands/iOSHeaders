@@ -15,7 +15,6 @@ __attribute__((visibility("hidden")))
     _Bool _canceledOnCommittedNavigation;
     _Bool _completionHandlerBlocksWebProcess;
     _Bool _shouldHideWebContent;
-    _Bool _showMessageAsTitle;
     long long _presentationStyle;
     NSString *_title;
     NSString *_message;
@@ -29,7 +28,6 @@ __attribute__((visibility("hidden")))
 }
 
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
-@property(nonatomic) _Bool showMessageAsTitle; // @synthesize showMessageAsTitle=_showMessageAsTitle;
 @property(nonatomic) _Bool shouldHideWebContent; // @synthesize shouldHideWebContent=_shouldHideWebContent;
 @property(copy, nonatomic) NSString *secondaryActionTitle; // @synthesize secondaryActionTitle=_secondaryActionTitle;
 @property(copy, nonatomic) NSString *primaryActionTitle; // @synthesize primaryActionTitle=_primaryActionTitle;

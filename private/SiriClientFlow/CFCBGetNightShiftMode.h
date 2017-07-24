@@ -15,7 +15,7 @@
 {
 }
 
-+ (id)newAceObjectWithDictionary:(id)arg1 context:(id)arg2;
++ (id)aceObjectWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getNightShiftModeWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getNightShiftMode;
 - (id)encodedClassName;

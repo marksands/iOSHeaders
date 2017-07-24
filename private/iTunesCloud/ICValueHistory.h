@@ -27,7 +27,7 @@
 - (void)removeAllValues;
 - (id)lastValue;
 - (id)firstValueBeforeTimestamp:(unsigned long long)arg1;
-- (id)firstValueAfterTimestamp:(unsigned long long)arg1;
+- (id)firstValueAfterOrEqualToTimestamp:(unsigned long long)arg1;
 - (void)enumerateValuesUsingBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) long long count;
 - (void)addValuesFromHistory:(id)arg1;

@@ -8,14 +8,16 @@
 
 #import <CTCarrierSpace/NSSecureCoding-Protocol.h>
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface CTCarrierSpaceAppsInfo : NSObject <NSSecureCoding>
 {
     NSArray *_appsList;
+    NSString *_appsURL;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSString *appsURL; // @synthesize appsURL=_appsURL;
 @property(retain, nonatomic) NSArray *appsList; // @synthesize appsList=_appsList;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;

@@ -8,11 +8,12 @@
 
 #import <IDSFoundation/NSCopying-Protocol.h>
 
-@class IDSDestination, NSArray, NSData, NSDate, NSDictionary, NSMutableDictionary, NSNumber, NSString;
+@class IDSDestination, IDSOutgoingMessageCheckpointTrace, NSArray, NSData, NSDate, NSDictionary, NSMutableDictionary, NSNumber, NSString;
 
 @interface IDSSendParameters : NSObject <NSCopying>
 {
     NSMutableDictionary *_params;
+    IDSOutgoingMessageCheckpointTrace *_checkpointTrace;
 }
 
 - (void).cxx_destruct;
@@ -46,6 +47,7 @@
 @property(nonatomic) _Bool useDictAsTopLevel;
 @property(nonatomic) _Bool compressed;
 @property(nonatomic) _Bool expectsPeerResponse;
+@property(retain, nonatomic) NSString *metricReportIdentifier;
 @property(retain, nonatomic) NSData *groupData;
 @property(retain, nonatomic) NSString *sessionID;
 @property(retain, nonatomic) NSNumber *messageType;
@@ -77,7 +79,9 @@
 @property(retain, nonatomic) NSDictionary *protobuf;
 @property(retain, nonatomic) NSDictionary *message;
 @property(retain, nonatomic) NSData *data;
+@property(retain, nonatomic) IDSOutgoingMessageCheckpointTrace *checkpointTrace; // @synthesize checkpointTrace=_checkpointTrace;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+- (id)dictionaryRepresentationIncludingTrace:(_Bool)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;

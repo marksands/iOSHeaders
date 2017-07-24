@@ -13,7 +13,7 @@
 
 @interface _SFPBCard : PBCodable <_SFPBCard, NSSecureCoding>
 {
-    CDStruct_f633cd92 _has;
+    CDStruct_79b01e37 _has;
     int _type;
     int _source;
     NSString *_title;
@@ -28,8 +28,12 @@
     _SFPBURL *_urlValue;
     NSData *_entityIdentifier;
     NSString *_resultIdentifier;
+    unsigned long long _queryId;
+    NSString *_fbr;
 }
 
+@property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
+@property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
 @property(copy, nonatomic) NSString *resultIdentifier; // @synthesize resultIdentifier=_resultIdentifier;
 @property(copy, nonatomic) NSData *entityIdentifier; // @synthesize entityIdentifier=_entityIdentifier;
 @property(nonatomic) int source; // @synthesize source=_source;
@@ -53,6 +57,8 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasFbr;
+@property(readonly, nonatomic) _Bool hasQueryId;
 @property(readonly, nonatomic) _Bool hasResultIdentifier;
 @property(readonly, nonatomic) _Bool hasEntityIdentifier;
 @property(readonly, nonatomic) _Bool hasSource;

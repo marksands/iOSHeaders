@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOABAssignmentResponse, GEOPDPlace, GEOPlace, GEORPCurrentEnvironmentManifestURLs, GEORPMapLocation, GEORPPersonalizedMaps, GEORPPlaceInfo, GEORPTransitLineTileInfo, GEOServicesState, NSMutableArray, NSString;
+@class GEOABAssignmentResponse, GEOPDPlace, GEOPlace, GEORPCurrentEnvironmentManifestURLs, GEORPMapLocation, GEORPNavigationSettings, GEORPPersonalizedMaps, GEORPPlaceInfo, GEORPTransitLineTileInfo, GEOServicesState, NSMutableArray, NSString;
 
 @interface GEORPProblemContext : PBCodable <NSCopying>
 {
@@ -26,6 +26,7 @@
     NSString *_lastSearchString;
     NSString *_lastUserTypedSearchString;
     GEORPMapLocation *_mapLocation;
+    GEORPNavigationSettings *_navigationSettings;
     GEOPlace *_originalPlace;
     GEORPPersonalizedMaps *_personalizedMaps;
     int _pinType;
@@ -50,6 +51,7 @@
 + (Class)directionsResponseType;
 + (Class)directionsRequestType;
 + (Class)visibleTileSetType;
+@property(retain, nonatomic) GEORPNavigationSettings *navigationSettings; // @synthesize navigationSettings=_navigationSettings;
 @property(retain, nonatomic) GEORPPersonalizedMaps *personalizedMaps; // @synthesize personalizedMaps=_personalizedMaps;
 @property(retain, nonatomic) GEOServicesState *servicesState; // @synthesize servicesState=_servicesState;
 @property(retain, nonatomic) NSMutableArray *directionsWaypointPlaceInfos; // @synthesize directionsWaypointPlaceInfos=_directionsWaypointPlaceInfos;
@@ -82,6 +84,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasNavigationSettings;
 @property(readonly, nonatomic) _Bool hasPersonalizedMaps;
 @property(readonly, nonatomic) _Bool hasServicesState;
 - (id)directionsWaypointPlaceInfoAtIndex:(unsigned long long)arg1;

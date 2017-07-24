@@ -12,7 +12,6 @@
 
 + (_Bool)supportsSecureCoding;
 - (id)_dictionaryRepresentation;
-- (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(readonly, nonatomic) long long code;

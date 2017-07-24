@@ -9,8 +9,6 @@
 @class VCAudioIO;
 
 @protocol VCAudioIODelegate <NSObject>
-
-@optional
 - (void)didResumeAudioIO:(VCAudioIO *)arg1;
 - (void)didSuspendAudioIO:(VCAudioIO *)arg1;
 @end

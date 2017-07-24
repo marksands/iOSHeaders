@@ -18,12 +18,14 @@
     NSString *_deviceTypeName;
     UITextView *_messageView;
     id <PKPaymentSetupPrivacyFooterViewDelegate> _delegate;
+    NSString *_privacyText;
     UIColor *_messageColor;
     UIColor *_linkColor;
 }
 
 @property(copy, nonatomic) UIColor *linkColor; // @synthesize linkColor=_linkColor;
 @property(copy, nonatomic) UIColor *messageColor; // @synthesize messageColor=_messageColor;
+@property(copy, nonatomic) NSString *privacyText; // @synthesize privacyText=_privacyText;
 @property(nonatomic) id <PKPaymentSetupPrivacyFooterViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3;

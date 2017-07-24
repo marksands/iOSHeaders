@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <ContactsFoundation/CNQueueingStrategy-Protocol.h>
 
@@ -16,8 +16,8 @@
     CDUnknownBlockType _overflowHandler;
 }
 
+- (void).cxx_destruct;
 - (void)enqueueObject:(id)arg1 buffer:(id)arg2;
-- (void)dealloc;
 - (id)initWithCapacity:(unsigned long long)arg1 overflowHandler:(CDUnknownBlockType)arg2;
 - (id)initWithCapacity:(unsigned long long)arg1;
 

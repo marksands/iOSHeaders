@@ -6,17 +6,17 @@
 
 #import <objc/NSObject.h>
 
-@class EAGLContext, NSBundle, NSMutableArray, NSMutableDictionary;
+@class CLKUIMmapFile, EAGLContext, NSBundle, NSMutableArray, NSMutableDictionary;
 
 @interface NTKCharacterResourceLoader : NSObject
 {
     EAGLContext *_context;
     NSBundle *_bundle;
     unsigned long long _clients;
-    struct NUMemFile _commonBankLatn;
-    struct NUMemFile _commonBankArab;
-    struct NUMemFile _minnieBank;
-    struct NUMemFile _mickeyBank;
+    CLKUIMmapFile *_commonBankLatn;
+    CLKUIMmapFile *_commonBankArab;
+    CLKUIMmapFile *_minnieBank;
+    CLKUIMmapFile *_mickeyBank;
     struct NTKCharacterPrograms _programs;
     NSMutableDictionary *_mapping;
     NSMutableArray *_array;
@@ -34,7 +34,7 @@
 - (id)textureWithName:(id)arg1 prefix:(id)arg2;
 - (void)_loadTextures;
 - (void)localeChanged;
-- (struct NUMemFile)_loadBank:(id)arg1 toArrays:(unsigned long long)arg2 allowNewKeys:(_Bool)arg3;
+- (id)_loadBank:(id)arg1 toArrays:(unsigned long long)arg2 allowNewKeys:(_Bool)arg3;
 - (void)_loadPrograms;
 - (void)removeClient;
 - (void)addClient;

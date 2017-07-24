@@ -20,7 +20,7 @@
 @property(nonatomic) struct CGRect bounds;
 @property(nonatomic) double contentScale;
 @property(nonatomic) struct CGSize size;
-- (shared_ptr_edb96180)bitmapData:(struct Texture *)arg1;
+- (shared_ptr_fa6aa836)bitmapData:(struct Texture *)arg1;
 - (void)renderWithTimestamp:(double)arg1 completion:(function_30b369b8)arg2;
 - (void)destroyRenderTarget;
 - (void)createRenderTarget;

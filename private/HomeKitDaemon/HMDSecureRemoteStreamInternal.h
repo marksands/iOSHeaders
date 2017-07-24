@@ -80,6 +80,7 @@
 - (void)stop;
 - (void)_start;
 - (void)start;
+@property(readonly) double requestTimeout;
 - (void)dealloc;
 - (id)initWithType:(long long)arg1 commitTimeout:(unsigned long long)arg2 clientIdleTimeout:(unsigned long long)arg3 serverIdleTimeout:(unsigned long long)arg4 sendInternalTimeout:(unsigned long long)arg5 sendUserTimeout:(unsigned long long)arg6;
 - (id)init;

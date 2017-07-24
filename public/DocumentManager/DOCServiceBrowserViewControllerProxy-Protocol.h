@@ -18,13 +18,14 @@
 - (void)getTransitionControllerForItem:(FPItem *)arg1 completionBlock:(void (^)(id <DOCServiceTransitionProtocol>))arg2;
 - (void)getTransitionControllerForURL:(NSURL *)arg1 completionBlock:(void (^)(id <DOCServiceTransitionProtocol>))arg2;
 - (void)updateSearchContext:(DOCSearchContext *)arg1;
+- (void)highlightItem:(FPItem *)arg1;
 - (void)deselectAllItems;
 - (void)selectAllItems;
 - (void)clearCurrentOpenInteraction;
 - (void)clearCurrentInteraction;
-- (void)showContentForLocation:(DOCConcreteLocation *)arg1 completionBlock:(void (^)(void))arg2;
+- (void)showContentForLocation:(DOCConcreteLocation *)arg1 completionBlock:(void (^)(DOCConcreteLocation *))arg2;
+- (void)showPickerForLocation:(DOCConcreteLocation *)arg1 completionBlock:(void (^)(void))arg2;
 - (void)createFolderNamed:(NSString *)arg1;
-- (void)exportToCurrentLocation;
 - (void)importDocumentWithURL:(NSURL *)arg1 intoLocation:(DOCConcreteLocation *)arg2 completion:(void (^)(DOCItem *, NSError *))arg3;
 - (void)importDocumentWithURLWrapper:(FPSandboxingURLWrapper *)arg1 intoLocation:(DOCConcreteLocation *)arg2 completion:(void (^)(DOCItem *, NSError *))arg3;
 - (void)getSaveLocationForCurrentBrowserOrDefaultSaveLocationWithCompletionBlock:(void (^)(DOCConcreteLocation *))arg1;

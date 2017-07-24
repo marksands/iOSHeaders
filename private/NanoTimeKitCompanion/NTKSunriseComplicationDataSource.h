@@ -8,12 +8,12 @@
 
 #import <NanoTimeKitCompanion/NTKTimelineEntryModelCacheDataSource-Protocol.h>
 
-@class CLLocation, NSNumber, NSString, NTKTimelineEntryModelCache;
+@class CLLocation, NSString, NTKTimelineEntryModelCache;
 
 @interface NTKSunriseComplicationDataSource : NTKComplicationDataSource <NTKTimelineEntryModelCacheDataSource>
 {
     NTKTimelineEntryModelCache *_entryModelCache;
-    struct NSNumber *_token;
+    struct NSString *_token;
     CLLocation *_location;
     NSString *_locationName;
 }
@@ -22,8 +22,10 @@
 + (_Bool)acceptsComplicationType:(unsigned long long)arg1;
 @property(retain, nonatomic) NSString *locationName; // @synthesize locationName=_locationName;
 @property(retain, nonatomic) CLLocation *location; // @synthesize location=_location;
-@property(retain, nonatomic) NSNumber *token; // @synthesize token=_token;
+@property(retain, nonatomic) NSString *token; // @synthesize token=_token;
 - (void).cxx_destruct;
+- (void)_updateLocationNameForLocation:(id)arg1;
+- (void)_handleLocation:(id)arg1 error:(id)arg2;
 - (void)_invalidate;
 - (void)_stopObserving;
 - (void)_startObserving;

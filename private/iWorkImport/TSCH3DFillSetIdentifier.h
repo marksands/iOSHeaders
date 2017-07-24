@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 + (id)identifierWithFillPropertyType:(int)arg1 seriesIndex:(unsigned long long)arg2 textureSetID:(id)arg3;
 + (id)identifierWithFillName:(id)arg1 seriesName:(id)arg2 textureSetID:(id)arg3;
 @property(readonly, nonatomic) NSString *textureSetID; // @synthesize textureSetID=_textureSetID;
+- (void).cxx_destruct;
 - (void)didInitFromSOS;
 - (id)mipmapTextureSetFilename;
 - (id)lowResTextureSetFilename;
@@ -38,7 +39,6 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 - (id)init;
 - (void)saveToArchive:(struct Chart3DFillArchive *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct Chart3DFillArchive *)arg1 unarchiver:(id)arg2;

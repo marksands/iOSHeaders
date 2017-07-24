@@ -22,7 +22,6 @@
 - (long long)cellFillMode;
 - (int)thumbnailImageFormat;
 - (struct CGSize)baseInterItemSpacing;
-- (double)globalFooterMinHeight;
 - (unsigned long long)supportedInterfaceOrientations;
 
 @end

@@ -49,14 +49,6 @@ struct unique_ptr<corespeech::CSAudioCircularBufferImpl<unsigned short>, std::__
     } __ptr_;
 };
 
-struct vector<double, std::__1::allocator<double>> {
-    double *__begin_;
-    double *__end_;
-    struct __compressed_pair<double *, std::__1::allocator<double>> {
-        double *__first_;
-    } __end_cap_;
-};
-
 struct vector<float, std::__1::allocator<float>> {
     float *__begin_;
     float *__end_;

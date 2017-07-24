@@ -9,12 +9,13 @@
 #import <Silex/STTextTangierInteractiveCanvasControllerDataSource-Protocol.h>
 #import <Silex/STTextTangierInteractiveCanvasControllerDelegate-Protocol.h>
 #import <Silex/SXTextComponentLayoutHosting-Protocol.h>
+#import <Silex/SXTextSelecting-Protocol.h>
 #import <Silex/SXViewportChangeListener-Protocol.h>
 
 @class NSMutableSet, NSString, STScrollView, STTangierRepDirectLayerHostProvider, STTangierTextRenderCollector, STTextTangierCanvasViewController, STTextTangierDocumentRoot, STTextTangierInteractiveCanvasController, SXViewport, TSKDocumentRoot, TSWPSelection, UIView;
 @protocol OS_dispatch_semaphore, SXTangierControllerDelegate;
 
-@interface SXTangierController : NSObject <STTextTangierInteractiveCanvasControllerDelegate, STTextTangierInteractiveCanvasControllerDataSource, SXViewportChangeListener, SXTextComponentLayoutHosting>
+@interface SXTangierController : NSObject <STTextTangierInteractiveCanvasControllerDelegate, STTextTangierInteractiveCanvasControllerDataSource, SXViewportChangeListener, SXTextComponentLayoutHosting, SXTextSelecting>
 {
     STTextTangierDocumentRoot *_documentRoot;
     _Bool _enclosingCanvasScrolling;
@@ -60,6 +61,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) TSKDocumentRoot *documentRoot;
 - (id)layoutDescriptionForComponent:(id)arg1;
+- (void)endSelection;
 @property(readonly, nonatomic) _Bool shouldClipToScrollViewBoundsInVisibleBounds;
 - (id)interactiveCanvasController:(id)arg1 delegateConformingToProtocol:(id)arg2 forRep:(id)arg3;
 - (_Bool)interactiveCanvasControllerIsRelatedCanvasScrolling:(id)arg1;

@@ -6,19 +6,24 @@
 
 #import <PhotosUICore/PXSettings.h>
 
-@class PXViewControllerPinchTransitionSettings, PXViewControllerZoomTransitionSettings;
+@class PXViewControllerPinchTransitionSettings, PXViewControllerSwipeDownTransitionSettings, PXViewControllerZoomTransitionSettings;
 
 @interface PXViewControllerTransitionSettings : PXSettings
 {
+    _Bool _enableWorkaroundFor32213992;
     PXViewControllerZoomTransitionSettings *_zoomTransitionSettings;
     PXViewControllerPinchTransitionSettings *_pinchTransitionSettings;
+    PXViewControllerSwipeDownTransitionSettings *_swipeDownTransitionSettings;
 }
 
 + (id)sharedInstance;
 + (id)settingsControllerModule;
+@property(retain, nonatomic) PXViewControllerSwipeDownTransitionSettings *swipeDownTransitionSettings; // @synthesize swipeDownTransitionSettings=_swipeDownTransitionSettings;
 @property(retain, nonatomic) PXViewControllerPinchTransitionSettings *pinchTransitionSettings; // @synthesize pinchTransitionSettings=_pinchTransitionSettings;
 @property(retain, nonatomic) PXViewControllerZoomTransitionSettings *zoomTransitionSettings; // @synthesize zoomTransitionSettings=_zoomTransitionSettings;
+@property(nonatomic) _Bool enableWorkaroundFor32213992; // @synthesize enableWorkaroundFor32213992=_enableWorkaroundFor32213992;
 - (void).cxx_destruct;
+- (void)setDefaultValues;
 - (id)parentSettings;
 
 @end

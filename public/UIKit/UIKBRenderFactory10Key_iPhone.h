@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (id)defaultKeyShadowColorName;
 - (void)_customizeGeometry:(id)arg1 forKey:(id)arg2 contents:(id)arg3;
 - (_Bool)useRoundCorner;
+- (struct UIEdgeInsets)symbolFrameInsets;
 
 @end
 

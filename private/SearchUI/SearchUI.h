@@ -10,7 +10,8 @@
 {
 }
 
-+ (id)viewsForCardSections:(id)arg1 style:(unsigned long long)arg2 feedbackListeners:(id)arg3;
++ (double)idealPlatterWidthForOrientation:(long long)arg1;
++ (double)idealPlatterWidth;
 + (id)viewsForCardSections:(id)arg1 style:(unsigned long long)arg2 feedbackListener:(id)arg3;
 + (id)viewForCardSection:(id)arg1 style:(unsigned long long)arg2 feedbackListener:(id)arg3;
 + (id)cardViewControllerForResult:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;

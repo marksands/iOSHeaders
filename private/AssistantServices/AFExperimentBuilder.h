@@ -16,14 +16,14 @@
     NSString *_deploymentGroupIdentifier;
     NSDictionary *_deploymentGroupProperties;
     long long _deploymentReason;
-    struct __flags {
+    struct _builderFlags {
         unsigned int isDirty:1;
         unsigned int hasConfigurationIdentifier:1;
         unsigned int hasConfigurationVersion:1;
         unsigned int hasDeploymentGroupIdentifier:1;
         unsigned int hasDeploymentGroupProperties:1;
         unsigned int hasDeploymentReason:1;
-    } __flags;
+    } _builderFlags;
 }
 
 - (void).cxx_destruct;

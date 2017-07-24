@@ -9,13 +9,15 @@
 #import <PassKitCore/NSCopying-Protocol.h>
 #import <PassKitCore/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSDate, NSDictionary, NSNumber, NSSet, NSString, NSURL, PKBarcode, PKImage, PKNFCPayload, PKPassDisplayProfile, PKPassPersonalization, PKPaymentPass, UIImage;
+@class NSArray, NSDate, NSDictionary, NSNumber, NSSet, NSString, NSURL, PKBarcode, PKImage, PKLiveRenderedShaderSet, PKNFCPayload, PKPassDisplayProfile, PKPassLiveRenderedImageSet, PKPassPersonalization, PKPaymentPass, UIImage;
 
 @interface PKPass : PKObject <NSCopying, NSSecureCoding>
 {
+    PKLiveRenderedShaderSet *_liveRenderedShaderSet;
     _Bool _remotePass;
     _Bool _voided;
     _Bool _hasStoredValue;
+    _Bool _liveRenderedBackground;
     _Bool _revoked;
     unsigned long long _passType;
     NSString *_serialNumber;
@@ -51,6 +53,7 @@
 @property(nonatomic, getter=isRevoked) _Bool revoked; // @synthesize revoked=_revoked;
 @property(retain, nonatomic) NSDate *modifiedDate; // @synthesize modifiedDate=_modifiedDate;
 @property(retain, nonatomic) NSDate *ingestedDate; // @synthesize ingestedDate=_ingestedDate;
+@property(nonatomic) _Bool liveRenderedBackground; // @synthesize liveRenderedBackground=_liveRenderedBackground;
 @property(readonly, nonatomic) PKImage *partialFrontFaceImagePlaceholder; // @synthesize partialFrontFaceImagePlaceholder=_partialFrontFaceImagePlaceholder;
 @property(nonatomic) _Bool hasStoredValue; // @synthesize hasStoredValue=_hasStoredValue;
 @property(copy, nonatomic, setter=setNFCPayload:) PKNFCPayload *nfcPayload; // @synthesize nfcPayload=_nfcPayload;
@@ -87,6 +90,8 @@
 - (id)initWithCoder:(id)arg1;
 - (_Bool)isEqualToPassIncludingMetadata:(id)arg1;
 @property(readonly, nonatomic) struct CGRect logoRect;
+@property(readonly, nonatomic) PKLiveRenderedShaderSet *liveRenderedShaderSet;
+@property(readonly, nonatomic) PKPassLiveRenderedImageSet *liveRenderedImageSet;
 - (id)thumbnailImage;
 - (id)stripImage;
 - (id)backgroundImage;

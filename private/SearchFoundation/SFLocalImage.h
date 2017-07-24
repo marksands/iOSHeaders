@@ -6,12 +6,13 @@
 
 #import <SearchFoundation/SFImage.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFLocalImage-Protocol.h>
 
 @class NSData, NSDictionary, NSString;
 
-@interface SFLocalImage : SFImage <SFLocalImage, NSSecureCoding>
+@interface SFLocalImage : SFImage <SFLocalImage, NSSecureCoding, NSCopying>
 {
     CDStruct_1ae5a928 _has;
     int _localImageType;
@@ -19,6 +20,7 @@
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) int localImageType; // @synthesize localImageType=_localImageType;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

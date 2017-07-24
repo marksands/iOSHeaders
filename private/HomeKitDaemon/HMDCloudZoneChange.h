@@ -10,6 +10,7 @@
 
 @interface HMDCloudZoneChange : HMFObject
 {
+    _Bool _temporaryCache;
     NSUUID *_identifier;
     HMDCloudZone *_cloudZone;
 }
@@ -17,6 +18,7 @@
 + (id)shortDescription;
 @property(nonatomic) __weak HMDCloudZone *cloudZone; // @synthesize cloudZone=_cloudZone;
 @property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic, getter=isTemporaryCache) _Bool temporaryCache; // @synthesize temporaryCache=_temporaryCache;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *objectChanges;
 - (id)changeWithObjectID:(id)arg1;
@@ -44,7 +46,7 @@
 @property(readonly, nonatomic) _Bool decryptionFailed;
 - (id)description;
 - (id)shortDescription;
-- (id)initWithZone:(id)arg1;
+- (id)initWithZone:(id)arg1 temporaryCache:(_Bool)arg2;
 - (id)init;
 
 @end

@@ -27,6 +27,8 @@
 @property __weak AKController *controller; // @synthesize controller=_controller;
 @property(retain) NSUndoManager *undoManager; // @synthesize undoManager=_undoManager;
 - (void).cxx_destruct;
+- (void)observePageControllerRequestsEnableRegistration:(id)arg1;
+- (void)observePageControllerRequestsDisableRegistration:(id)arg1;
 - (void)_endEditingOfTextIfAnnotationsDeleted:(id)arg1;
 - (void)_undoActionForSelectionState:(id)arg1;
 - (void)_registerUndoForSelectionOnPageModelController:(id)arg1;

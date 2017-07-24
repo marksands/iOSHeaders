@@ -36,6 +36,8 @@
     unsigned long long _interfaceOrientation;
     NSString *_primaryOpenApplication;
     NSString *_secondaryOpenApplication;
+    NSString *_pipOpenApplication;
+    NSArray *_allOpenApplications;
     NSArray *_installedApplications;
     NSString *_stagedAdHocIdentityCertificateFingerprint;
     NSArray *_trustedAnchorCertificateFingerprints;
@@ -56,6 +58,8 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)allPropertyKeys;
++ (id)CRKKeyForDMFKey:(id)arg1;
++ (id)keyTranslations;
 @property(copy, nonatomic) NSString *managementLockPasscode; // @synthesize managementLockPasscode=_managementLockPasscode;
 @property(copy, nonatomic) NSArray *availableAirPlayRoutes; // @synthesize availableAirPlayRoutes=_availableAirPlayRoutes;
 @property(copy, nonatomic) NSDictionary *activeAirPlayRoute; // @synthesize activeAirPlayRoute=_activeAirPlayRoute;
@@ -74,6 +78,8 @@
 @property(copy, nonatomic) NSString *stagedAdHocIdentityCertificateFingerprint; // @synthesize stagedAdHocIdentityCertificateFingerprint=_stagedAdHocIdentityCertificateFingerprint;
 @property(copy, nonatomic) NSArray *installedApplications; // @synthesize installedApplications=_installedApplications;
 @property(nonatomic, getter=isAppLocked) _Bool appLocked; // @synthesize appLocked=_appLocked;
+@property(copy, nonatomic) NSArray *allOpenApplications; // @synthesize allOpenApplications=_allOpenApplications;
+@property(copy, nonatomic) NSString *pipOpenApplication; // @synthesize pipOpenApplication=_pipOpenApplication;
 @property(copy, nonatomic) NSString *secondaryOpenApplication; // @synthesize secondaryOpenApplication=_secondaryOpenApplication;
 @property(copy, nonatomic) NSString *primaryOpenApplication; // @synthesize primaryOpenApplication=_primaryOpenApplication;
 @property(nonatomic, getter=isOrientationLocked) _Bool orientationLocked; // @synthesize orientationLocked=_orientationLocked;
@@ -99,11 +105,14 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)valueForUndefinedKey:(id)arg1;
+- (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (_Bool)isEqualToDevice:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)description;
 - (id)initWithIdentifier:(id)arg1;
+- (_Bool)isApplicationOpen:(id)arg1;
 
 @end
 

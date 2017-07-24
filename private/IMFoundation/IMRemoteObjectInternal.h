@@ -18,7 +18,6 @@
     Protocol *_protocol;
     NSString *_portName;
     NSString *_processName;
-    _Bool _forceSecureCoding;
     _Bool _willBeTerminated;
     int _pid;
 }

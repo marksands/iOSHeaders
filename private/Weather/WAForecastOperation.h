@@ -6,7 +6,7 @@
 
 #import <Foundation/NSOperation.h>
 
-@class City, NSArray, NSCalendar, NSData, NSDate, NSDictionary, NSError, NSLocale, NSString, WACurrentForecast, WAForecastModel, WFAirQualityConditions, WFAirQualityRequest, WFDailyForecastRequest, WFForecastRequest, WFHourlyForecastRequest, WFLocation, WFWeatherConditions;
+@class City, NSArray, NSCalendar, NSData, NSDate, NSDictionary, NSError, NSLocale, NSString, WACurrentForecast, WAForecastModel, WFAirQualityConditions, WFAirQualityRequest, WFDailyForecastRequest, WFForecastRequest, WFHourlyForecastRequest, WFLocation, WFServiceConnection, WFWeatherConditions;
 
 @interface WAForecastOperation : NSOperation
 {
@@ -33,8 +33,10 @@
     NSLocale *_locale;
     NSString *_trackingParameter;
     NSData *_rawAPIData;
+    WFServiceConnection *_connection;
 }
 
+@property(retain, nonatomic) WFServiceConnection *connection; // @synthesize connection=_connection;
 @property(retain, nonatomic) NSData *rawAPIData; // @synthesize rawAPIData=_rawAPIData;
 @property(nonatomic) _Bool shouldAttachRawAPIData; // @synthesize shouldAttachRawAPIData=_shouldAttachRawAPIData;
 @property(retain) NSString *trackingParameter; // @synthesize trackingParameter=_trackingParameter;
@@ -66,8 +68,8 @@
 - (void)cancel;
 - (void)main;
 - (_Bool)_needsGeolocation;
-- (id)initWithLocation:(id)arg1;
-- (id)initWithCity:(id)arg1;
+- (id)initWithLocation:(id)arg1 onConnection:(id)arg2;
+- (id)initWithCity:(id)arg1 onConnection:(id)arg2;
 
 @end
 

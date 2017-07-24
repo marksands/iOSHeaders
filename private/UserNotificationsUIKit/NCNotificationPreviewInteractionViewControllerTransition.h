@@ -17,6 +17,7 @@
     id <UIViewControllerTransitioningDelegate> _transitionDelegate;
     _UIViewControllerOneToOneTransitionContext *_transitionContext;
     NCLongLookAnimator *_animator;
+    CDUnknownBlockType _completion;
 }
 
 - (void).cxx_destruct;
@@ -24,9 +25,9 @@
 - (void)performTransitionFromView:(id)arg1 toView:(id)arg2 containerView:(id)arg3;
 - (void)performWithCustomAnimator:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)prepareTransitionFromView:(id)arg1 toView:(id)arg2 containerView:(id)arg3;
-- (id)initForDismissingViewController:(id)arg1 toViewController:(id)arg2 WithTransitionDelegate:(id)arg3;
-- (id)initForPresentingViewController:(id)arg1 fromViewController:(id)arg2 withTransitionDelegate:(id)arg3;
-- (id)_initForPresentation:(_Bool)arg1 presentingViewController:(id)arg2 presentedViewController:(id)arg3 transitionDelegate:(id)arg4;
+- (id)initForDismissingViewController:(id)arg1 toViewController:(id)arg2 WithTransitionDelegate:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (id)initForPresentingViewController:(id)arg1 fromViewController:(id)arg2 withTransitionDelegate:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (id)_initForPresentation:(_Bool)arg1 presentingViewController:(id)arg2 presentedViewController:(id)arg3 transitionDelegate:(id)arg4 completion:(CDUnknownBlockType)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

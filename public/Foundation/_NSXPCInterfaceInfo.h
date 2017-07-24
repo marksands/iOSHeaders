@@ -10,10 +10,7 @@ __attribute__((visibility("hidden")))
 @interface _NSXPCInterfaceInfo : NSObject
 {
     unsigned long long _remoteVersion;
-    struct _opaque_pthread_rwlock_t {
-        long long __sig;
-        char __opaque[192];
-    } _knownSelectorsLock;
+    struct os_unfair_lock_s _knownSelectorsLock;
     struct __CFDictionary *_knownSelectors;
     struct __CFDictionary *_methodInfo;
     Class _xpcDOSubclass;

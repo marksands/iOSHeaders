@@ -6,10 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class CKDatabase, CKOperationGroup, HDProfile, NSString;
+@class CKContainer, CKDatabase, CKOperationGroup, HDProfile, NSString;
 
 @interface HDCloudSyncOperationConfiguration : NSObject
 {
+    CKContainer *_container;
     CKDatabase *_privateDatabase;
     CKOperationGroup *_operationGroup;
     NSString *_syncContainerPrefix;
@@ -26,6 +27,7 @@
 @property(readonly, copy, nonatomic) NSString *syncContainerPrefix; // @synthesize syncContainerPrefix=_syncContainerPrefix;
 @property(readonly, nonatomic) CKOperationGroup *operationGroup; // @synthesize operationGroup=_operationGroup;
 @property(readonly, nonatomic) CKDatabase *privateDatabase; // @synthesize privateDatabase=_privateDatabase;
+@property(readonly, nonatomic) CKContainer *container; // @synthesize container=_container;
 - (void).cxx_destruct;
 - (id)initWithCKContainer:(id)arg1 operationGroup:(id)arg2 syncContainerPrefix:(id)arg3 ownerIdentifier:(id)arg4 profile:(id)arg5 options:(unsigned long long)arg6 reason:(long long)arg7;
 

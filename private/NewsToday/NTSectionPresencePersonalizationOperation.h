@@ -6,21 +6,23 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class FCPersonalizationTreatment, NSDictionary, NSObject;
+@class FCPersonalizationTreatment, NSArray, NSDictionary, NSObject;
 @protocol FRReadonlyPersonalizationAggregateStore;
 
 @interface NTSectionPresencePersonalizationOperation : FCOperation
 {
     NSObject<FRReadonlyPersonalizationAggregateStore> *_aggregateStore;
     FCPersonalizationTreatment *_personalizationTreatment;
-    NSDictionary *_sectionPresenceConfigsByPersonalizationFeature;
+    NSArray *_absoluteRequests;
+    NSArray *_relativeRequests;
     CDUnknownBlockType _personalizationCompletion;
     NSDictionary *_result;
 }
 
 @property(copy, nonatomic) NSDictionary *result; // @synthesize result=_result;
 @property(copy, nonatomic) CDUnknownBlockType personalizationCompletion; // @synthesize personalizationCompletion=_personalizationCompletion;
-@property(copy, nonatomic) NSDictionary *sectionPresenceConfigsByPersonalizationFeature; // @synthesize sectionPresenceConfigsByPersonalizationFeature=_sectionPresenceConfigsByPersonalizationFeature;
+@property(copy, nonatomic) NSArray *relativeRequests; // @synthesize relativeRequests=_relativeRequests;
+@property(copy, nonatomic) NSArray *absoluteRequests; // @synthesize absoluteRequests=_absoluteRequests;
 @property(copy, nonatomic) FCPersonalizationTreatment *personalizationTreatment; // @synthesize personalizationTreatment=_personalizationTreatment;
 @property(retain, nonatomic) NSObject<FRReadonlyPersonalizationAggregateStore> *aggregateStore; // @synthesize aggregateStore=_aggregateStore;
 - (void).cxx_destruct;

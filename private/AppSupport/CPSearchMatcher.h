@@ -25,6 +25,7 @@
 - (_Bool)matches:(id)arg1 matchType:(int)arg2;
 - (_Bool)matches:(id)arg1;
 - (_Bool)matchesUTF8String:(const char *)arg1 matchType:(int)arg2;
+- (_Bool)matchesUTF8String:(const char *)arg1 matchType:(int)arg2 matchOptions:(int)arg3;
 - (_Bool)matchesUTF8String:(const char *)arg1;
 - (_Bool)matchesASCIIString:(const char *)arg1 matchType:(int)arg2;
 

@@ -15,13 +15,7 @@
 - (id)init;
 
 // Remaining properties
-@property(nonatomic) _Bool hasAcknowledgedFirstUseAlert; // @dynamic hasAcknowledgedFirstUseAlert;
 @property(readonly, nonatomic) _Bool shouldAlwaysBeEnabled; // @dynamic shouldAlwaysBeEnabled;
-@property(readonly, nonatomic) _Bool shouldDisableArtraceButton; // @dynamic shouldDisableArtraceButton;
-@property(readonly, nonatomic) _Bool shouldDisableInternalButtons; // @dynamic shouldDisableInternalButtons;
-@property(readonly, nonatomic) _Bool shouldDisableLaunchingClockToTimer; // @dynamic shouldDisableLaunchingClockToTimer;
-@property(readonly, nonatomic) _Bool shouldDisableScreenRecordingButton; // @dynamic shouldDisableScreenRecordingButton;
-@property(readonly, nonatomic) _Bool shouldEnablePrototypeFeatures; // @dynamic shouldEnablePrototypeFeatures;
 @property(readonly, nonatomic) _Bool shouldExcludeControlCenterFromStatusBarOverrides; // @dynamic shouldExcludeControlCenterFromStatusBarOverrides;
 
 @end

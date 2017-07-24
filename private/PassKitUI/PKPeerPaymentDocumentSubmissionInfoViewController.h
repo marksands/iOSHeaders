@@ -10,7 +10,7 @@
 #import <PassKitUI/PKPeerPaymentDocumentSubmissionControllerDelegate-Protocol.h>
 #import <PassKitUI/PKPeerPaymentDocumentSubmissionViewControllerResponder-Protocol.h>
 
-@class NSString, PKExplanationView, PKPeerPaymentDocumentSubmissionController, UIBarButtonItem;
+@class NSString, NSTimer, PKExplanationView, PKPeerPaymentDocumentSubmissionController, UIBarButtonItem;
 
 @interface PKPeerPaymentDocumentSubmissionInfoViewController : PKExplanationViewController <PKPeerPaymentDocumentSubmissionControllerDelegate, PKExplanationViewDelegate, PKPeerPaymentDocumentSubmissionViewControllerResponder>
 {
@@ -19,10 +19,13 @@
     long long _context;
     long long _currentState;
     long long _currentSide;
+    NSTimer *_timerDismissAfterSuccess;
     UIBarButtonItem *_cancelButtonItem;
 }
 
 - (void).cxx_destruct;
+- (void)captureController:(id)arg1 requestsDismissCurrentViewControllerAnimated:(_Bool)arg2;
+- (void)captureController:(id)arg1 requestsPresentViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)captureController:(id)arg1 didChangeStateTo:(long long)arg2;
 - (void)didSelectSetupLater;
 - (void)explanationViewDidSelectSetupLater:(id)arg1;

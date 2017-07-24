@@ -31,9 +31,11 @@
 - (void).cxx_destruct;
 - (id)preferredAttributesForTTTextStyle:(unsigned int)arg1;
 - (id)filterStyleAttributes:(id)arg1 range:(struct _NSRange)arg2;
+- (void)styleText:(id)arg1 inExactRange:(struct _NSRange)arg2 fixModelAttributes:(_Bool)arg3 enableLetterpress:(_Bool)arg4;
 - (void)styleText:(id)arg1 inExactRange:(struct _NSRange)arg2 fixModelAttributes:(_Bool)arg3;
 - (void)styleText:(id)arg1 inRange:(struct _NSRange)arg2 fixModelAttributes:(_Bool)arg3;
 - (void)styleListsAndIndentsInAttributedString:(id)arg1 inRange:(struct _NSRange)arg2;
+- (void)removeLetterpressInTextStorage:(id)arg1 inRange:(struct _NSRange)arg2;
 - (void)addLetterpressInTextStorage:(id)arg1 inRange:(struct _NSRange)arg2;
 - (void)styleFontInAttributedString:(id)arg1 inRange:(struct _NSRange)arg2 contentSizeCategory:(id)arg3;
 - (void)styleFontInTextStorage:(id)arg1 inRange:(struct _NSRange)arg2;

@@ -27,8 +27,6 @@
 - (_Bool)_decompressArchive:(struct archive *)arg1 intoArchiveDirectory:(id)arg2 error:(id *)arg3;
 - (struct archive *)_decompressionArchive;
 - (void)decompressContents:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_decompressInputWithReader:(CDUnknownBlockType)arg1 writer:(CDUnknownBlockType)arg2 mainEntry:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
-- (_Bool)_decompressContents:(id)arg1 error:(id *)arg2 mainEntry:(_Bool)arg3;
 - (_Bool)_decompressContents:(id)arg1 inMemoryWithError:(id *)arg2 mainEntry:(_Bool)arg3;
 - (int)_compressionCompleteForArchive:(struct archive *)arg1 error:(id *)arg2;
 - (int)_archiveDirectoryName:(id)arg1 withArchive:(struct archive *)arg2 error:(id *)arg3;
@@ -38,7 +36,6 @@
 - (int)_compressContents:(id)arg1 withArchive:(struct archive *)arg2 error:(id *)arg3;
 - (struct archive *)_compressionArchive;
 - (void)compressContents:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_compressInputWithReader:(CDUnknownBlockType)arg1 writer:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_compressContents:(id)arg1 error:(id *)arg2;
 - (void)unregisterBlocks;
 - (void)registerBlocks:(CDUnknownBlockType)arg1 writer:(CDUnknownBlockType)arg2;

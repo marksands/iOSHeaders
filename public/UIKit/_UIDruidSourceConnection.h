@@ -18,11 +18,10 @@ __attribute__((visibility("hidden")))
     NSXPCConnection *_connection;
     id <_DUIServerSessionSource> _serverSession;
     _Bool _cancelled;
-    _Bool _hostIsActive;
-    _Bool _originatedInHostedWindow;
     CDUnknownBlockType _itemImageProviderBlock;
     CDUnknownBlockType _itemDetailProviderBlock;
     CDUnknownBlockType _itemUpdateBlock;
+    CDUnknownBlockType _canHandOffCancelledItemsBlock;
     CDUnknownBlockType _handOffCancelledItemsBlock;
     CDUnknownBlockType _dragCompletionBlock;
     CDUnknownBlockType _dataTransferFinishedBlock;
@@ -31,6 +30,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) CDUnknownBlockType dataTransferFinishedBlock; // @synthesize dataTransferFinishedBlock=_dataTransferFinishedBlock;
 @property(copy, nonatomic) CDUnknownBlockType dragCompletionBlock; // @synthesize dragCompletionBlock=_dragCompletionBlock;
 @property(copy, nonatomic) CDUnknownBlockType handOffCancelledItemsBlock; // @synthesize handOffCancelledItemsBlock=_handOffCancelledItemsBlock;
+@property(copy, nonatomic) CDUnknownBlockType canHandOffCancelledItemsBlock; // @synthesize canHandOffCancelledItemsBlock=_canHandOffCancelledItemsBlock;
 @property(copy, nonatomic) CDUnknownBlockType itemUpdateBlock; // @synthesize itemUpdateBlock=_itemUpdateBlock;
 @property(copy, nonatomic) CDUnknownBlockType itemDetailProviderBlock; // @synthesize itemDetailProviderBlock=_itemDetailProviderBlock;
 @property(copy, nonatomic) CDUnknownBlockType itemImageProviderBlock; // @synthesize itemImageProviderBlock=_itemImageProviderBlock;
@@ -40,8 +40,6 @@ __attribute__((visibility("hidden")))
 - (oneway void)dragFailed;
 - (oneway void)dragEndedWithOperation:(unsigned long long)arg1;
 - (oneway void)handOffCancelledItems:(id)arg1 withFence:(id)arg2;
-- (void)_hostDidDeactivate;
-- (void)_hostWillBecomeActive;
 - (oneway void)checkCanHandOffCancelledItemsWithReply:(CDUnknownBlockType)arg1;
 - (oneway void)updateDetail:(id)arg1 forItemIndex:(unsigned long long)arg2;
 - (oneway void)requestDetailForItemIndex:(unsigned long long)arg1 reply:(CDUnknownBlockType)arg2;

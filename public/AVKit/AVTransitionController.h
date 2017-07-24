@@ -40,7 +40,7 @@
 @property(readonly, nonatomic) _Bool wantsInteractiveStart;
 - (void)gestureTrackerDidFinishTracking:(id)arg1;
 - (void)gestureTrackerDidCancelTracking:(id)arg1;
-- (void)gestureTracker:(id)arg1 didTrackPercentComplete:(double)arg2 translation:(struct CGPoint)arg3 rotation:(double)arg4;
+- (void)gestureTracker:(id)arg1 didTrackPercentComplete:(double)arg2 translation:(struct CGPoint)arg3 rotation:(double)arg4 locationInWindow:(struct CGPoint)arg5;
 - (void)gestureTracker:(id)arg1 didBeginTrackingGesture:(long long)arg2;
 - (_Bool)gestureTrackerShouldTrackPanToDismiss:(id)arg1;
 - (_Bool)gestureTrackerShouldTrackPinchToDismiss:(id)arg1;

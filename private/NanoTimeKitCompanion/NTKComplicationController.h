@@ -23,6 +23,7 @@
     NSDate *_pauseDate;
     long long _cachingMode;
     long long _updatingMode;
+    long long _animationMode;
     long long _effectiveFaceDataMode;
 }
 
@@ -33,6 +34,7 @@
 + (Class)controllerClassForComplicationType:(unsigned long long)arg1 family:(long long)arg2;
 + (id)controllerForComplication:(id)arg1 withRequestedFamily:(long long)arg2 face:(id)arg3 slot:(id)arg4;
 @property(readonly, nonatomic) long long effectiveFaceDataMode; // @synthesize effectiveFaceDataMode=_effectiveFaceDataMode;
+@property(readonly, nonatomic) long long animationMode; // @synthesize animationMode=_animationMode;
 @property(readonly, nonatomic) long long updatingMode; // @synthesize updatingMode=_updatingMode;
 @property(readonly, nonatomic) long long cachingMode; // @synthesize cachingMode=_cachingMode;
 @property(nonatomic) _Bool showsLockedUI; // @synthesize showsLockedUI=_showsLockedUI;
@@ -61,10 +63,12 @@
 - (void)_deactivate;
 - (void)deactivate;
 - (void)setDataMode:(long long)arg1 forDisplayWrapper:(id)arg2;
+- (void)_applyAnimationMode;
 - (void)_applyCachingMode;
 - (void)_applyUpdatingMode;
 - (void)_updateInternalModes;
 - (void)_updateEffectiveFaceDataMode;
+- (void)_updateEffectiveAnimationMode;
 - (void)_updateEffectiveUpdatingMode;
 - (void)_updateEffectiveCachingMode;
 - (void)DEPRECATEDInvalidate;

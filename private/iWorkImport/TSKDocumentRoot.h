@@ -9,7 +9,7 @@
 #import <iWorkImport/TSKAccessControllerDelegate-Protocol.h>
 #import <iWorkImport/TSKModel-Protocol.h>
 
-@class NSDictionary, NSMutableArray, NSString, TSKAccessController, TSKAnnotationAuthor, TSKAnnotationAuthorStorage, TSKChangeNotifier, TSKDocumentSupport, TSKPasteboardController, TSKSelectionDispatcher, TSSStylesheet, TSSTheme, TSULocale;
+@class NSDictionary, NSMutableArray, NSString, TSCHTextCache, TSKAccessController, TSKAnnotationAuthor, TSKAnnotationAuthorStorage, TSKChangeNotifier, TSKDocumentSupport, TSKPasteboardController, TSKSelectionDispatcher, TSSStylesheet, TSSTheme, TSULocale;
 @protocol TSKDocumentRootDelegate;
 
 __attribute__((visibility("hidden")))
@@ -91,8 +91,6 @@ __attribute__((visibility("hidden")))
 - (void)willClose;
 - (void)documentDidLoad;
 - (void)didSaveWithEncryptionChange;
-- (_Bool)documentCacheHasAtMostFileProtection:(id)arg1;
-- (void)changeDocumentCacheFileProtection:(id)arg1;
 - (id)uniqueDocumentCachePathForProposedPath:(id)arg1;
 - (struct CGImageSource *)newImageSourceForDocumentCachePath:(id)arg1;
 - (_Bool)writeData:(id)arg1 atDocumentCachePath:(id)arg2;
@@ -112,6 +110,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;
 @property(nonatomic) __weak id <TSKDocumentRootDelegate> delegate;
+@property(readonly) TSCHTextCache *tsch_textCache;
 - (void)setUIState:(id)arg1 forChart:(id)arg2;
 - (id)UIStateForChart:(id)arg1;
 - (id)stylesToNotResizeInStylesheet:(id)arg1;

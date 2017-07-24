@@ -9,9 +9,5 @@
 @interface NSFileManager (TSPersistence)
 - (_Bool)tsp_linkOrCopyItemAtURL:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
 - (_Bool)tsp_linkDirectoryContentsAtURL:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
-- (_Bool)tsp_copyDocumentAtURL:(id)arg1 toURL:(id)arg2 linkingData:(_Bool)arg3 error:(id *)arg4;
-- (void)tsp_assertDefaultFileProtectionAtDocumentURL:(id)arg1;
-- (_Bool)tsp_setDefaultFileProtectionForDirectoryPath:(id)arg1 error:(id *)arg2;
-- (_Bool)tsp_setDefaultFileProtectionAtDocumentURL:(id)arg1 error:(id *)arg2;
 @end
 

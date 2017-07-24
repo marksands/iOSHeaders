@@ -6,15 +6,15 @@
 
 #import <objc/NSObject.h>
 
+#import <AccessibilityUtilities/AXIPCServerClientRegistrationDelegate-Protocol.h>
+
 @class NSMutableDictionary, NSMutableSet, NSString;
 
-@interface AXIPCServer : NSObject
+@interface AXIPCServer : NSObject <AXIPCServerClientRegistrationDelegate>
 {
     CDUnknownBlockType _defaultHandler;
     struct __CFRunLoopSource *_serverRunLoopSource;
-    struct __CFRunLoopSource *_clientInvalidationSource;
     unsigned int _serverPort;
-    unsigned int _clientInvalidationPort;
     NSMutableDictionary *_validSecurityTokens;
     NSMutableSet *_connectedClients;
     CDUnknownBlockType _clientInvalidationHandler;
@@ -37,10 +37,12 @@
 - (_Bool)_handleErrorWithMessage:(id)arg1 outError:(id *)arg2;
 - (void)_handleIncomingMessage:(id)arg1 securityToken:(CDStruct_52eb0d21)arg2 auditToken:(CDStruct_4c969caf)arg3 clientPort:(unsigned int)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)_handleClientRegistration:(id)arg1;
+- (void)serverClientRegistrationInvalidated:(id)arg1;
 - (void)_startServerThread;
 - (void)_applyCustomQueueSize;
 - (void)_handleClientInvalidation:(unsigned int)arg1;
 - (void)setQueueSize:(unsigned int)arg1;
+- (_Bool)__slowpath__clientWithAuditToken:(CDStruct_4c969caf)arg1 hasRequiredEntitlementFromSet:(id)arg2;
 - (_Bool)_clientWithPort:(unsigned int)arg1 auditToken:(CDStruct_4c969caf)arg2 hasAnyEntitlementRequiredForMessage:(id)arg3;
 - (void)removePossibleRequiredEntitlement:(id)arg1 forMessageWithKey:(int)arg2;
 - (void)addPossibleRequiredEntitlement:(id)arg1 forMessageWithKey:(int)arg2;
@@ -58,10 +60,15 @@
 @property(copy, nonatomic) CDUnknownBlockType clientInvalidationCallback;
 @property(copy, nonatomic) CDUnknownBlockType defaultHandler;
 - (void)setServiceRunLoopSource:(struct __CFRunLoopSource *)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithPort:(unsigned int)arg1 serviceRunLoopSource:(struct __CFRunLoopSource *)arg2;
 - (id)initWithServiceName:(id)arg1 perPidService:(_Bool)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

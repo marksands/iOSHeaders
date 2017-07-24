@@ -25,7 +25,7 @@
 - (void)_peripheralAvailabilityDidUpdate:(id)arg1;
 - (unsigned long long)_arrowStyleForToolTag:(long long)arg1;
 - (void)_setRectangleToFitTextOnTextAnnotation:(id)arg1;
-- (id)_defaultFillableColor;
+- (id)_defaultFillColorForAnnotationOfClass:(Class)arg1;
 - (id)_defaultHeartTypingAttributesWithFillColor:(id)arg1;
 - (id)_defaultTextBoxTypingAttributes;
 - (id)_defaultTypingAttributes;

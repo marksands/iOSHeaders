@@ -26,7 +26,7 @@
 @property(nonatomic) __weak HLPHelpItem *parent; // @synthesize parent=_parent;
 - (void).cxx_destruct;
 - (id)debugDescription;
-- (id)initWithDictionary:(id)arg1 helpBookURL:(id)arg2;
+- (id)initWithDictionary:(id)arg1 helpBookURL:(id)arg2 serverType:(long long)arg3;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

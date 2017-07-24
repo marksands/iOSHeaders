@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, NSDate, NSMutableArray, NSString, NSTimer, TIKeyboardCandidate, UIKBBackgroundView, UIKBKeyView, UIKeyboardPredictionBarGrabber, UIKeyboardPredictionCell, UILabel, UITextSuggestion, UITouch;
+@class LAContext, NSArray, NSDate, NSMutableArray, NSString, NSTimer, TIKeyboardCandidate, UIKBBackgroundView, UIKBKeyView, UIKeyboardPredictionBarGrabber, UIKeyboardPredictionCell, UILabel, UITextSuggestion, UITouch;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardPredictionView : UIView
@@ -44,6 +44,7 @@ __attribute__((visibility("hidden")))
     UIKBKeyView *m_collapsedView;
     int _notifyBatterySaverToken;
     unsigned long long m_numberOfVisibleCells;
+    LAContext *m_myContext;
     int _state;
     UITouch *_activeTouch;
     UITextSuggestion *_currentFirstTextSuggestion;
@@ -77,6 +78,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int state; // @synthesize state=_state;
 @property(retain, nonatomic) UITouch *activeTouch; // @synthesize activeTouch=_activeTouch;
 - (id)description;
+- (_Bool)setOriginalUserInput:(id)arg1 asTypedText:(id)arg2;
 - (_Bool)hasPredictions;
 - (_Bool)isTextSuggestion;
 - (double)heightBeforeStateChangeForInterfaceOrientation:(long long)arg1;

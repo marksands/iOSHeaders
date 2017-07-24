@@ -6,13 +6,12 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <SearchUI/SearchUIResultTableViewDelegate-Protocol.h>
 #import <SearchUI/UIGestureRecognizerDelegate-Protocol.h>
 
 @class NSString, SearchUIReplicatorView, SearchUIResultTableViewController, SearchUISearchField, UIView;
 @protocol SFFeedbackListener, SearchUIResultViewDelegate;
 
-@interface SearchUIResultViewController : UIViewController <UIGestureRecognizerDelegate, SearchUIResultTableViewDelegate>
+@interface SearchUIResultViewController : UIViewController <UIGestureRecognizerDelegate>
 {
     SearchUIResultTableViewController *_resultTableViewController;
     SearchUIReplicatorView *_replicatorView;
@@ -38,11 +37,6 @@
 - (void)viewDidLayoutSubviews;
 - (void)replaceResult:(id)arg1 withResult:(id)arg2 inResultSection:(id)arg3;
 @property(retain, nonatomic) UIView *footerView;
-- (void)didChangeExpansionStateForSection:(id)arg1 expanded:(_Bool)arg2;
-- (_Bool)sectionShouldBeExpanded:(id)arg1;
-- (_Bool)sectionIsClearable:(id)arg1;
-- (void)clearResultsFromSection:(id)arg1;
-@property(readonly) NSString *currentQueryString;
 - (id)init;
 
 // Remaining properties

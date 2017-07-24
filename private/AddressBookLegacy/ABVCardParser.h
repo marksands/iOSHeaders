@@ -131,6 +131,7 @@
 - (void)dealloc;
 - (id)initWithData:(id)arg1 watchdogTimer:(id)arg2;
 - (id)initWithData:(id)arg1;
+- (id)init;
 
 @end
 

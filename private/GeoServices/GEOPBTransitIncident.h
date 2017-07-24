@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString, PBUnknownFields;
+@class GEOPBTransitArtwork, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPBTransitIncident : PBCodable <NSCopying>
 {
@@ -19,6 +19,7 @@
     unsigned int _endDatetime;
     int _iconEnum;
     unsigned int _incidentIndex;
+    GEOPBTransitArtwork *_incidentTypeArtwork;
     NSString *_longDescriptionString;
     NSString *_messageForAllBlocking;
     NSString *_messageForIncidentType;
@@ -41,6 +42,7 @@
 }
 
 + (Class)affectedEntityType;
+@property(retain, nonatomic) GEOPBTransitArtwork *incidentTypeArtwork; // @synthesize incidentTypeArtwork=_incidentTypeArtwork;
 @property(retain, nonatomic) NSString *messageForIncidentType; // @synthesize messageForIncidentType=_messageForIncidentType;
 @property(retain, nonatomic) NSString *messageForAllBlocking; // @synthesize messageForAllBlocking=_messageForAllBlocking;
 @property(retain, nonatomic) NSString *messageString; // @synthesize messageString=_messageString;
@@ -66,6 +68,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasIncidentTypeArtwork;
 @property(readonly, nonatomic) _Bool hasMessageForIncidentType;
 @property(readonly, nonatomic) _Bool hasMessageForAllBlocking;
 @property(readonly, nonatomic) _Bool hasMessageString;

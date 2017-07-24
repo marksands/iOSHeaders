@@ -29,8 +29,8 @@
 - (id)_substrokesForStroke:(id)arg1;
 - (struct CGVector)_averageVectorFromSubstroke:(id)arg1 toSubstroke:(id)arg2 withOrientation:(struct CGVector)arg3 strokeRef:(id)arg4;
 - (long long)_compareDistanceInWritingSequenceOfStroke:(id)arg1 andStroke:(id)arg2 toReferenceStroke:(id)arg3;
-- (void)_getMergingMiddleOfLineCost:(double *)arg1 mergingMiddleOfLineTimestamp:(double *)arg2 mergingMiddleOfLineStroke:(id *)arg3 forStrokeSubstrokes:(id)arg4 toLineGroup:(id)arg5;
-- (void)_getMergingEndOfLineCost:(double *)arg1 mergingEndOfLineTimestamp:(double *)arg2 mergingEndOfLineStroke:(id *)arg3 forStrokeSubstrokes:(id)arg4 toLineGroup:(id)arg5;
+- (void)_getMergingMiddleOfLineCost:(double *)arg1 mergingMiddleOfLineStroke:(id *)arg2 forStrokeSubstrokes:(id)arg3 toLineGroup:(id)arg4;
+- (void)_getMergingEndOfLineCost:(double *)arg1 mergingEndOfLineStroke:(id *)arg2 forStrokeSubstrokes:(id)arg3 toLineGroup:(id)arg4;
 - (id)_writingDirectionSortedStrokeIdentifiersFromSubstrokes:(id)arg1 localWritingOrientations:(vector_892a0aec *)arg2;
 - (double)_verticalOffsetForBoundsHeight:(double)arg1 andScaleFactor:(double)arg2;
 - (double)_scaleFactorForBoundsHeight:(double)arg1;

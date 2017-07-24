@@ -23,17 +23,9 @@
 @property(retain, nonatomic) NSURL *broadcastURL; // @synthesize broadcastURL=_broadcastURL;
 - (void).cxx_destruct;
 - (oneway void)setMicrophoneEnabledPersistent:(_Bool)arg1;
-- (oneway void)setBroadcastingState:(_Bool)arg1;
 - (oneway void)setHasUserConsentForMicrophone:(_Bool)arg1;
 - (oneway void)setHasUserConsentForCamera:(_Bool)arg1;
-- (id)getBroadcastURL;
-- (_Bool)getHasUserConsentForMicrophone;
-- (_Bool)getHasUserConsentForCamera;
-- (_Bool)getSystemRecordState;
-- (_Bool)getMicrophoneEnabledPersistentState;
-- (_Bool)getMicrophoneState;
-- (_Bool)getBroadcastingState;
-- (_Bool)getRecordingState;
+- (oneway void)synchronousGetCurrentState:(CDUnknownBlockType)arg1;
 - (void)connection:(id)arg1 handleInvocation:(id)arg2 isReply:(_Bool)arg3;
 - (oneway void)recordingTimerDidUpdate:(id)arg1;
 - (oneway void)recordingLockInterrupted:(id)arg1;

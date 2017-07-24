@@ -63,6 +63,7 @@
 - (id)_cxindexProgressPath;
 - (void)registerSceneTaxonomySHA:(id)arg1;
 - (void)applyUpdates:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)_updatesEnsuringMutableArraysFromUpdates:(id)arg1;
 - (id)_updatesAfterConvertingDetectedFacesToAssetsInUpdates:(id)arg1;
 - (id)_updatesAfterConvertingPersonsToAssetsInUpdates:(id)arg1;
 - (void)resetSearchIndexWithReason:(long long)arg1 dropCompletion:(CDUnknownBlockType)arg2;

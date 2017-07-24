@@ -42,6 +42,7 @@
 - (void)appendDelayedAlbumCountUpdatesToXPCMessage:(id)arg1;
 - (void)popDelayedAlbumCountUpdates:(id *)arg1;
 - (void)recordAssetForAlbumCountUpdate:(id)arg1;
+- (void)forceAlbumCountUpdate:(id)arg1;
 - (void)recordAlbumCountUpdate:(id)arg1;
 - (void)_recordDelayedAlbumCountUpdate:(id)arg1;
 - (void)popDelayedSearchIndexUpdates:(id *)arg1;
@@ -51,7 +52,6 @@
 - (void)recordAssetForSearchIndexUpdate:(id)arg1;
 - (void)recordAdditionalAssetAttributesForSearchIndexUpdate:(id)arg1;
 - (void)recordDetectedFaceForSearchIndexUpdate:(id)arg1;
-- (void)recordPersonReferenceForSearchIndexUpdate:(id)arg1;
 - (void)recordPersonForSearchIndexUpdate:(id)arg1;
 - (void)_recordAssetForSearchIndexUpdate:(id)arg1;
 - (void)_recordDetectedFaceUUIDInsertForSearchIndexUpdate:(id)arg1;

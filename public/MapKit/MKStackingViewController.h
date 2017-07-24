@@ -7,12 +7,13 @@
 #import <UIKit/UIViewController.h>
 
 #import <MapKit/UIScrollViewDelegate-Protocol.h>
+#import <MapKit/_MKAnimationStackViewDelegate-Protocol.h>
 #import <MapKit/_MKStackViewDelegate-Protocol.h>
 
 @class NSArray, NSHashTable, NSLayoutConstraint, NSMapTable, NSSet, NSString, UIScrollView, UIView, _MKStackView, _MKStackingContentView;
 @protocol MKStackingViewControllerDelegate;
 
-@interface MKStackingViewController : UIViewController <_MKStackViewDelegate, UIScrollViewDelegate>
+@interface MKStackingViewController : UIViewController <_MKStackViewDelegate, _MKAnimationStackViewDelegate, UIScrollViewDelegate>
 {
     _MKStackView *_stackView;
     _MKStackingContentView *_contentView;
@@ -69,6 +70,7 @@
 - (double)stackView:(id)arg1 distanceBetweenUpperView:(id)arg2 andLowerView:(id)arg3;
 - (void)_callViewControllersLayoutDelegateIfNeeded;
 - (void)_updateStackViewSubviewsAndChildVCsEntering:(id)arg1 exiting:(id)arg2;
+- (void)stackViewNeedsLayout:(id)arg1;
 - (void)_updateFixedHeightAwareControllers;
 - (double)heightForInitialLayoutWithWidth:(double)arg1 removeWidthConstraintWhenDone:(_Bool)arg2;
 - (double)_fittingHeightForView:(id)arg1;

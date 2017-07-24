@@ -53,8 +53,7 @@ __attribute__((visibility("hidden")))
 - (struct MMCSItemReaderWriter *)getMMCSItemReaderForItemID:(unsigned long long)arg1 error:(id *)arg2;
 - (id)conformingOperation;
 - (void)didGetMetricsForRequest:(id)arg1;
-- (void)didPutSectionWithSignature:(id)arg1 receipt:(id)arg2 error:(id)arg3;
-- (void)didPutItemID:(unsigned long long)arg1 signature:(id)arg2 receipt:(id)arg3 error:(id)arg4;
+- (void)didPutSectionWithSignature:(id)arg1 results:(id)arg2;
 - (void)didPutItemID:(unsigned long long)arg1 signature:(id)arg2 results:(id)arg3;
 - (void)didGetItemID:(unsigned long long)arg1 signature:(id)arg2 path:(id)arg3 error:(id)arg4 results:(id)arg5;
 - (void)handleCommand:(id)arg1 forItem:(id)arg2;

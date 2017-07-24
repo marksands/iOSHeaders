@@ -22,6 +22,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)drawTextInRect:(struct CGRect)arg1;
 - (void)layoutSubviews;
+- (id)init;
 
 @end
 

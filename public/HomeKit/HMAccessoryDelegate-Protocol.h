@@ -6,7 +6,7 @@
 
 #import <HomeKit/NSObject-Protocol.h>
 
-@class HMAccessory, HMCharacteristic, HMService, NSString;
+@class HMAccessory, HMAccessoryProfile, HMCharacteristic, HMService, NSString;
 
 @protocol HMAccessoryDelegate <NSObject>
 
@@ -14,6 +14,8 @@
 - (void)accessory:(HMAccessory *)arg1 didUpdateFirmwareVersion:(NSString *)arg2;
 - (void)accessory:(HMAccessory *)arg1 service:(HMService *)arg2 didUpdateValueForCharacteristic:(HMCharacteristic *)arg3;
 - (void)accessoryDidUpdateReachability:(HMAccessory *)arg1;
+- (void)accessory:(HMAccessory *)arg1 didRemoveProfile:(HMAccessoryProfile *)arg2;
+- (void)accessory:(HMAccessory *)arg1 didAddProfile:(HMAccessoryProfile *)arg2;
 - (void)accessoryDidUpdateServices:(HMAccessory *)arg1;
 - (void)accessory:(HMAccessory *)arg1 didUpdateAssociatedServiceTypeForService:(HMService *)arg2;
 - (void)accessory:(HMAccessory *)arg1 didUpdateNameForService:(HMService *)arg2;

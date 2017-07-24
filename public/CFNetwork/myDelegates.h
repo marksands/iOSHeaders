@@ -6,15 +6,17 @@
 
 #import <Foundation/NSObject.h>
 
+#import <CFNetwork/NSURLSessionDelegate-Protocol.h>
 #import <CFNetwork/NSURLSessionTaskDelegate-Protocol.h>
 
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface myDelegates : NSObject <NSURLSessionTaskDelegate>
+@interface myDelegates : NSObject <NSURLSessionTaskDelegate, NSURLSessionDelegate>
 {
 }
 
+- (void)URLSession:(id)arg1 didReceiveChallenge:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)URLSession:(id)arg1 readClosedForStreamTask:(id)arg2;
 - (void)URLSession:(id)arg1 writeClosedForStreamTask:(id)arg2;
 - (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;

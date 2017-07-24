@@ -13,5 +13,8 @@
 - (TSDLayout *)layoutForHint:(id <TSDHint>)arg1 parentLayout:(TSDLayout *)arg2;
 - (id <TSDHint>)nextHintForSize:(struct CGSize)arg1 parentLayout:(TSDLayout *)arg2 previousHint:(id <TSDHint>)arg3 horizontally:(_Bool)arg4 outFinished:(out _Bool *)arg5;
 - (TSDLayout *)nextLayoutForSize:(struct CGSize)arg1 parentLayout:(TSDLayout *)arg2 previousHint:(id <TSDHint>)arg3 horizontally:(_Bool)arg4 outFinished:(out _Bool *)arg5;
+
+@optional
+- (void)reset;
 @end
 

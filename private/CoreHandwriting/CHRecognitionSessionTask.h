@@ -13,25 +13,28 @@
 {
     _Bool _cancelled;
     _Bool _saveInputDrawings;
+    long long _status;
     id <CHRecognitionSessionTaskDelegate> _delegate;
     NSArray *_locales;
+    id <CHStrokeProvider> _strokeProvider;
     CHRecognitionSessionResult *_outputResult;
-    id <CHStrokeProvider> __strokeProvider;
     CHRecognitionSessionResult *__inputResult;
     NSObject<OS_dispatch_queue> *__recognizersQueue;
 }
 
 @property(readonly, retain, nonatomic) NSObject<OS_dispatch_queue> *_recognizersQueue; // @synthesize _recognizersQueue=__recognizersQueue;
 @property(readonly, retain, nonatomic) CHRecognitionSessionResult *_inputResult; // @synthesize _inputResult=__inputResult;
-@property(readonly, retain, nonatomic) id <CHStrokeProvider> _strokeProvider; // @synthesize _strokeProvider=__strokeProvider;
 @property(retain, nonatomic, setter=_setOutputResult:) CHRecognitionSessionResult *outputResult; // @synthesize outputResult=_outputResult;
 @property(nonatomic) _Bool saveInputDrawings; // @synthesize saveInputDrawings=_saveInputDrawings;
+@property(readonly, retain, nonatomic) id <CHStrokeProvider> strokeProvider; // @synthesize strokeProvider=_strokeProvider;
 @property(readonly, copy, nonatomic) NSArray *locales; // @synthesize locales=_locales;
 @property(nonatomic) id <CHRecognitionSessionTaskDelegate> delegate; // @synthesize delegate=_delegate;
 @property _Bool cancelled; // @synthesize cancelled=_cancelled;
+@property(nonatomic, setter=_setStatus:) long long status; // @synthesize status=_status;
 - (id)_recognitionResultsFromLocaleResults:(id)arg1 inputStrokeIdentifiers:(id)arg2 inputDrawing:(id)arg3 cutPoints:(id)arg4;
 - (id)_recognitionResultsForStrokeGroup:(id)arg1 groupingStrategy:(id)arg2;
 - (void)_logResultsIfAppropriateWithStrokeProvider:(id)arg1;
+- (_Bool)_isTransitionValidFromStatus:(long long)arg1 toStatus:(long long)arg2;
 - (void)cancel;
 - (void)main;
 - (void)dealloc;

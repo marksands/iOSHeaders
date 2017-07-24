@@ -47,7 +47,7 @@
 @property(nonatomic) long long mode; // @synthesize mode=_mode;
 - (void).cxx_destruct;
 - (void)_updateSpinningAnimations;
-- (_Bool)_shouldShowSpinningAnimations;
+- (_Bool)_isSpinningSupportedForLayoutStyle:(long long)arg1;
 - (void)_performModeSwitchAnimationFromMode:(long long)arg1 toMode:(long long)arg2 animated:(_Bool)arg3;
 - (void)_performHighlightAnimation;
 - (void)_updateOuterAndInnerLayers;

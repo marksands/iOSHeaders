@@ -29,6 +29,7 @@
     UITextInputTraits *_textInputTraits;
     struct _NSRange _markedTextRange;
     struct _NSRange _markedTextSelection;
+    NSDictionary *_markedTextStyle;
     struct {
         unsigned int delegateRespondsToTextInputShouldBeginEditing:1;
         unsigned int delegateRespondsToTextInputShouldChangeCharactersInRangeReplacementText:1;
@@ -240,8 +241,8 @@
 - (id)_senderForDelegateNotifications;
 - (void)_cancelDictationIfNecessaryForChangeInRange:(struct _NSRange)arg1;
 - (void)_detachFromLayoutManager;
-- (void)_commonInitWithLayoutManager:(id)arg1;
-- (id)initWithLayoutManager:(id)arg1;
+- (void)dealloc;
+- (id)_initWithLayoutManager:(id)arg1;
 - (id)_selectableText;
 - (_Bool)_shouldPerformUICalloutBarButtonReplaceAction:(SEL)arg1 forText:(id)arg2 checkAutocorrection:(_Bool)arg3;
 - (void)_phraseBoundaryGesture:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import <Preferences/PSTableCell.h>
 
-@class NSMutableArray, NSMutableDictionary, NSString, PSCapacityBarView, PSLegendColorView, UILabel;
+@class NSMutableArray, NSMutableDictionary, NSString, PSCapacityBarView, PSLegendColorView, UIFont, UILabel;
 
 @interface PSCapacityBarCell : PSTableCell
 {
@@ -17,16 +17,19 @@
     UILabel *_otherLabel;
     PSLegendColorView *_otherLegend;
     PSCapacityBarView *_barView;
+    UIFont *_legendFont;
     NSMutableArray *_legendConstraints;
     NSMutableArray *_legendViews;
     NSMutableDictionary *_legendTextCache;
     NSMutableDictionary *_legendColorCache;
+    _Bool _hideLegend;
     _Bool _showOtherLegend;
     _Bool _sizesAreMem;
     NSString *_sizeFormat;
 }
 
 + (id)specifierWithTitle:(id)arg1;
++ (double)defaultCellHeight;
 - (void).cxx_destruct;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
 - (id)usageString:(id)arg1;
@@ -34,7 +37,9 @@
 - (id)legendTextForCategory:(id)arg1;
 - (id)legendColorForCategory:(id)arg1;
 - (void)updateConstraints;
+- (void)initializeViews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

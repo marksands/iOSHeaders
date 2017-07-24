@@ -68,6 +68,7 @@
 - (id)snapshotContextForRequester:(id)arg1;
 - (id)disableHostingForReason:(id)arg1;
 - (void)setLayer:(id)arg1 hidden:(_Bool)arg2 forRequester:(id)arg3;
+- (void)setLayer:(id)arg1 alpha:(double)arg2 forRequester:(id)arg3;
 - (void)setContextId:(unsigned int)arg1 hidden:(_Bool)arg2 forRequester:(id)arg3;
 - (void)orderRequesterFront:(id)arg1;
 - (void)disableHostingForRequester:(id)arg1;

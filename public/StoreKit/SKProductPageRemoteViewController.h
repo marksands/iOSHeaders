@@ -25,8 +25,7 @@
 - (void)setScriptContextDictionary:(id)arg1;
 - (void)setProductPageStyle:(id)arg1;
 - (void)finishStarRatingPromptWithRating:(id)arg1;
-- (void)setAskToBuy:(_Bool)arg1;
-- (void)setupWithClientBundleID:(id)arg1 clientIdentifier:(id)arg2;
+- (void)setupWithClientBundleID:(id)arg1 bagType:(long long)arg2;
 - (void)setPreview:(id)arg1;
 - (void)setClientIdentifier:(id)arg1;
 - (void)setAffiliateIdentifier:(id)arg1;
@@ -35,12 +34,14 @@
 - (void)loadProductWithRequest:(id)arg1;
 - (void)loadProductWithPageDictionary:(id)arg1;
 - (void)finishImmediately;
+- (void)setAskToBuy:(_Bool)arg1;
 - (void)setPromptString:(id)arg1;
 - (void)setShowsRightBarButton:(_Bool)arg1;
 - (void)setRightBarButtonTitle:(id)arg1;
 - (void)setCancelButtonTitle:(id)arg1;
 - (void)setShowsStoreButton:(_Bool)arg1;
 - (void)finishWithResult:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)viewServiceDidTerminateWithError:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

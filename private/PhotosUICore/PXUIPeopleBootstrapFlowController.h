@@ -6,12 +6,17 @@
 
 #import <PhotosUICore/PXPeopleBootstrapFlowController.h>
 
-@class PHPerson;
+@class PHPerson, PXPeopleBootstrapConfirmationViewController, PXPeopleBootstrapFinalViewController;
 
 @interface PXUIPeopleBootstrapFlowController : PXPeopleBootstrapFlowController
 {
+    PXPeopleBootstrapConfirmationViewController *_confirmationViewController;
+    PXPeopleBootstrapFinalViewController *_finalViewController;
 }
 
+@property(retain, nonatomic) PXPeopleBootstrapFinalViewController *finalViewController; // @synthesize finalViewController=_finalViewController;
+@property(retain, nonatomic) PXPeopleBootstrapConfirmationViewController *confirmationViewController; // @synthesize confirmationViewController=_confirmationViewController;
+- (void).cxx_destruct;
 - (void)_mergePerson:(id)arg1 toPerson:(id)arg2;
 - (void)_namePerson:(id)arg1 toContact:(id)arg2 withChangeRequest:(id)arg3;
 - (void)_namePerson:(id)arg1 toString:(id)arg2 withChangeRequest:(id)arg3;
@@ -20,9 +25,11 @@
 - (void)_addToPeopleAlbumWithChangeRequest:(id)arg1;
 - (void)_unfavoritePersonWithChangeRequest:(id)arg1;
 - (void)_favoritePersonWithChangeRequest:(id)arg1;
+- (id)_postNamingViewController;
 @property(readonly, nonatomic) PHPerson *sourcePerson;
 - (void)done:(id)arg1;
-- (id)viewControllersForBootstrapFlow;
+- (void)recomputeViewControllersForChangeInKeyPath:(id)arg1;
+- (void)computeViewControllersForBootstrapFlow;
 
 @end
 

@@ -32,6 +32,8 @@
 - (id)optionPasswordAuthenticationReason;
 - (void)setOptionAuthenticationTitle:(id)arg1;
 - (id)optionAuthenticationTitle;
+- (void)setOptionPasscodeTitle:(id)arg1;
+- (id)optionPasscodeTitle;
 - (void)setOptionPasscodeScreenBlur:(id)arg1;
 - (id)optionPasscodeScreenBlur;
 - (void)setOptionPasscodeScreenStyle:(id)arg1;

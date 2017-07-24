@@ -5,7 +5,6 @@
 //
 
 @protocol SSRemoteViewControllerHostToServiceInterface
-- (void)activeInterfaceOrientationChanged:(long long)arg1;
 - (void)tearDownScreenshotExperience;
 @end
 

@@ -14,10 +14,10 @@
 {
 }
 
-- (void)removeObserver:(struct __CTServerConnection *)arg1:(const void *)arg2:(struct __CFString *)arg3:(const void *)arg4;
-- (void)addObserver:(struct __CTServerConnection *)arg1:(const void *)arg2:(CDUnknownFunctionPointerType)arg3:(struct __CFString *)arg4:(const void *)arg5:(long long)arg6;
-- (struct __CTServerConnection *)defaultCenter;
-- (id)copyMyPhoneNumber;
+- (void)_CTServerConnectionUnregisterForNotification:(struct __CTServerConnection *)arg1:(struct __CFString *)arg2;
+- (void)_CTServerConnectionRegisterBlockForNotification:(struct __CTServerConnection *)arg1:(struct __CFString *)arg2:(CDUnknownBlockType)arg3;
+- (void)_CTServerConnectionCopyPhoneNumber:(struct __CTServerConnection *)arg1:(int)arg2:(id *)arg3:(id *)arg4:(id *)arg5:(id *)arg6;
+- (struct __CTServerConnection *)_CTServerConnectionCreateOnTargetQueue:(struct __CFAllocator *)arg1:(struct __CFString *)arg2:(id)arg3:(CDUnknownBlockType)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

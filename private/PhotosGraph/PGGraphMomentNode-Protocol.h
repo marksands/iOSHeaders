@@ -14,7 +14,9 @@
 @property(readonly) _Bool happensPartiallyAtMyHomeOrWork;
 @property(readonly) _Bool happensPartiallyAtHome;
 @property(readonly) unsigned long long numberOfAssetsWithPeople;
-- (void)momentEnumeratePersonNodesUsingBlock:(void (^)(PGGraphEdge *, PGGraphPersonNode *, _Bool *))arg1;
+- (void)momentEnumerateMeaningNodesUsingBlock:(void (^)(PGGraphMeaningEdge *, PGGraphMeaningNode *, _Bool *))arg1;
+- (void)momentEnumerateCollectionNodesUsingBlock:(void (^)(PGGraphEdge *, PGGraphCollectionNode *, _Bool *))arg1;
+- (void)momentEnumeratePersonNodesUsingBlock:(void (^)(PGGraphPresentEdge *, PGGraphPersonNode *, _Bool *))arg1;
 - (void)momentEnumerateRemoteAddressNodesUsingBlock:(void (^)(PGGraphEdge *, PGGraphAddressNode *, _Bool *))arg1;
 - (void)momentEnumerateAddressNodesUsingBlock:(void (^)(PGGraphEdge *, PGGraphAddressNode *, _Bool *))arg1;
 - (void)momentEnumerateCelebratedHolidayNodesUsingBlock:(void (^)(PGGraphEdge *, PGGraphHolidayNode *, _Bool *))arg1;

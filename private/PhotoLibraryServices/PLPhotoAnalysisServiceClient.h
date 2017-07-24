@@ -24,12 +24,13 @@
 - (id)initWithLibraryURL:(id)arg1;
 - (void)invalidate;
 - (id)init;
+- (_Bool)rebuildPersonsWithOptions:(id)arg1 error:(id *)arg2;
 - (id)faceCandidatesForKeyFaceForPersonsWithLocalIdentifiers:(id)arg1 error:(id *)arg2;
 - (void)personPromoterAdvancedStatus:(CDUnknownBlockType)arg1;
 - (void)personPromoterStatus:(CDUnknownBlockType)arg1;
 - (id)requestSuggestedMePersonIdentifierWithError:(id *)arg1;
 - (void)faceProcessingStatusForUserInterface:(CDUnknownBlockType)arg1;
-- (_Bool)isClusterCacheValid:(id *)arg1;
+- (id)differencesBetweenClustersInClusterCacheAndLibrary:(id *)arg1;
 - (id)faceClusteringInformation:(unsigned long long)arg1 error:(id *)arg2;
 - (_Bool)processPersonsWithOptions:(id)arg1 error:(id *)arg2;
 - (_Bool)reclusterFacesWithOptions:(id)arg1 error:(id *)arg2;
@@ -86,6 +87,7 @@
 - (id)requestCurationDebugInformationForAssetLocalIdentifier:(id)arg1 precision:(unsigned long long)arg2 error:(id *)arg3;
 - (id)requestRelatedDebugInformationBetweenReferenceAssetCollectionForLocalIdentifier:(id)arg1 andRelatedAssetCollectionForLocalIdentifier:(id)arg2 options:(id)arg3 precision:(unsigned long long)arg4 relatedType:(unsigned long long)arg5 error:(id *)arg6;
 - (id)requestRelatedDebugInformationBetweenAssetForLocalIdentifier:(id)arg1 andRelatedAssetCollectionForLocalIdentifier:(id)arg2 options:(id)arg3 precision:(unsigned long long)arg4 relatedType:(unsigned long long)arg5 error:(id *)arg6;
+- (void)invalidateGraphWithReply:(CDUnknownBlockType)arg1;
 - (void)rebuildGraphWithProgress:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)notifyWhenGraphReadyWithCoalescingIdentifier:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (id)requestAssetsForPersonIdentifiers:(id)arg1 withError:(id *)arg2;

@@ -11,11 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (id)fieldEditorTextAttributesStoringOriginalDefaultTextAttributes:(id)arg1;
-- (id)editedAttributedTextForText:(id)arg1 defaultAttributes:(id)arg2;
-- (id)editedAttributeValueForName:(id)arg1 value:(id)arg2;
-- (id)uneditedAttributeNameForName:(id)arg1;
-- (id)attributeNamesToEdit;
+- (id)overridingEditingAttributes:(id)arg1 forOriginalAttributes:(id)arg2;
+- (id)namesOfAttributesToOverrideForEditing;
 - (void)handleTextVibrancy;
 - (_Bool)textShouldUseVibrancy;
 - (id)parentViewForTextContentView;

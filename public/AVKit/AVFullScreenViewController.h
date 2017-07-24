@@ -23,10 +23,13 @@
 @property(readonly, nonatomic) UIView *presentationBackgroundView; // @synthesize presentationBackgroundView=_presentationBackgroundView;
 - (void).cxx_destruct;
 - (long long)preferredWhitePointAdaptivityStyle;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (long long)preferredStatusBarStyle;
 - (_Bool)prefersStatusBarHidden;
 - (_Bool)modalPresentationCapturesStatusBarAppearance;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
+- (_Bool)canBecomeFirstResponder;
 - (id)targetForAction:(SEL)arg1 withSender:(id)arg2;
 - (id)keyCommands;
 - (void)fullScreenPresentationDidEnd:(_Bool)arg1;

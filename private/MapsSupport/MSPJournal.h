@@ -31,7 +31,7 @@ __attribute__((visibility("hidden")))
 - (void)noteChangeWithState:(id)arg1 payload:(id)arg2;
 - (void)noteChangeWithState:(id)arg1 affectedObject:(id)arg2;
 - (void)noteChangeWithState:(id)arg1;
-- (void)sendTelemetryForState:(id)arg1 value:(id)arg2;
+- (void)sendTelemetryForState:(id)arg1 affectedObject:(id)arg2;
 - (void)appendToLog:(id)arg1 format:(id)arg2;
 - (void)appendToJournal:(id)arg1 format:(id)arg2;
 - (void)rotateLogIfNeeded;

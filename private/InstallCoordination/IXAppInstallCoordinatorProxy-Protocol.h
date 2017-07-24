@@ -12,6 +12,7 @@
 - (oneway void)_clientDelegate_didCancelWithError:(NSError *)arg1 client:(unsigned long long)arg2;
 - (oneway void)_clientDelegate_didComplete;
 - (oneway void)_clientDelegate_placeholderDidInstall;
+- (oneway void)_clientDelegate_shouldBeginRestoringUserData;
 - (oneway void)_clientDelegate_promiseDidBeginFulfillmentWithIdentifier:(unsigned long long)arg1;
 - (oneway void)_clientDelegate_didPause;
 - (oneway void)_clientDelegate_didResume;

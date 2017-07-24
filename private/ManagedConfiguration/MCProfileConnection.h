@@ -102,6 +102,7 @@
 - (id)acceptedMIMETypes;
 - (id)updateProfileWithIdentifier:(id)arg1 outError:(id *)arg2;
 - (void)removeProfileWithIdentifier:(id)arg1 installationType:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)removeProtectedProfileAsyncWithIdentifier:(id)arg1 installationType:(long long)arg2;
 - (void)removeProfileAsyncWithIdentifier:(id)arg1 installationType:(long long)arg2;
 - (void)removeProfileWithIdentifier:(id)arg1 installationType:(long long)arg2;
 - (void)removeProfileWithIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -205,7 +206,7 @@
 - (void)setAsk:(_Bool)arg1 forBoolSetting:(id)arg2 configurationUUID:(id)arg3 toSystem:(_Bool)arg4 user:(_Bool)arg5 passcode:(id)arg6 waitUntilCompleted:(_Bool)arg7 completion:(CDUnknownBlockType)arg8;
 - (void)setAsk:(_Bool)arg1 forBoolSetting:(id)arg2 configurationUUID:(id)arg3 toSystem:(_Bool)arg4 user:(_Bool)arg5 passcode:(id)arg6 completion:(CDUnknownBlockType)arg7;
 - (void)setAsk:(_Bool)arg1 forBoolSetting:(id)arg2 configurationUUID:(id)arg3 toSystem:(_Bool)arg4 user:(_Bool)arg5 passcode:(id)arg6;
-- (void)setBoolValue:(_Bool)arg1 ask:(_Bool)arg2 forSetting:(id)arg3 configurationUUID:(id)arg4 toSystem:(_Bool)arg5 user:(_Bool)arg6 passcode:(id)arg7 waitUntilCompleted:(_Bool)arg8 completion:(CDUnknownBlockType)arg9;
+- (void)setBoolValue:(_Bool)arg1 ask:(_Bool)arg2 forSetting:(id)arg3 configurationUUID:(id)arg4 toSystem:(_Bool)arg5 user:(_Bool)arg6 passcode:(id)arg7 credentialSet:(id)arg8 waitUntilCompleted:(_Bool)arg9 completion:(CDUnknownBlockType)arg10;
 - (void)setBoolValue:(_Bool)arg1 ask:(_Bool)arg2 forSetting:(id)arg3 configurationUUID:(id)arg4 toSystem:(_Bool)arg5 user:(_Bool)arg6 passcode:(id)arg7 completion:(CDUnknownBlockType)arg8;
 - (void)setBoolValue:(_Bool)arg1 ask:(_Bool)arg2 forSetting:(id)arg3 configurationUUID:(id)arg4 toSystem:(_Bool)arg5 user:(_Bool)arg6 passcode:(id)arg7;
 - (void)setBoolValue:(_Bool)arg1 ask:(_Bool)arg2 forSetting:(id)arg3 toSystem:(_Bool)arg4 user:(_Bool)arg5 passcode:(id)arg6 completion:(CDUnknownBlockType)arg7;
@@ -216,7 +217,7 @@
 - (void)setBoolValue:(_Bool)arg1 forSetting:(id)arg2;
 - (void)setParameters:(id)arg1 forValueSetting:(id)arg2;
 - (void)setParameters:(id)arg1 forBoolSetting:(id)arg2;
-- (void)setParametersForSettingsByType:(id)arg1 configurationUUID:(id)arg2 toSystem:(_Bool)arg3 user:(_Bool)arg4 passcode:(id)arg5 waitUntilCompleted:(_Bool)arg6 completion:(CDUnknownBlockType)arg7;
+- (void)setParametersForSettingsByType:(id)arg1 configurationUUID:(id)arg2 toSystem:(_Bool)arg3 user:(_Bool)arg4 passcode:(id)arg5 credentialSet:(id)arg6 waitUntilCompleted:(_Bool)arg7 completion:(CDUnknownBlockType)arg8;
 - (void)setParametersForSettingsByType:(id)arg1 toSystem:(_Bool)arg2 user:(_Bool)arg3 passcode:(id)arg4 waitUntilCompleted:(_Bool)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)setParametersForSettingsByType:(id)arg1 toSystem:(_Bool)arg2 user:(_Bool)arg3 passcode:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)setParametersForSettingsByType:(id)arg1 passcode:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -266,6 +267,7 @@
 - (_Bool)isAirPlaySettingsUIAllowedOutAsk:(_Bool *)arg1;
 - (void)setAirPlaySettingsUIAllowed:(_Bool)arg1 ask:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)shouldDestroyOldKeybag;
+- (void)setFingerprintUnlockAllowed:(_Bool)arg1 credentialSet:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)setFingerprintUnlockAllowed:(_Bool)arg1 passcode:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (unsigned long long)gracePeriod;
 - (void)setGracePeriod:(unsigned long long)arg1 passcode:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
@@ -320,7 +322,9 @@
 - (void)setPredictiveKeyboardAllowed:(_Bool)arg1;
 - (void)setSmartPunctuationAllowed:(_Bool)arg1;
 - (void)setAutoCorrectionAllowed:(_Bool)arg1;
+- (_Bool)isAccessibilitySpeechAllowed;
 - (_Bool)isDictationAllowed;
+- (_Bool)isProximitySetupToNewDeviceAllowed;
 - (_Bool)isSpellCheckAllowed;
 - (_Bool)isKeyboardShortcutsAllowed;
 - (_Bool)isPredictiveKeyboardAllowed;
@@ -392,6 +396,7 @@
 - (_Bool)isAdTrackingLimited;
 - (_Bool)isWebContentFilteringInEffect;
 - (_Bool)isWebTextDefineAllowed;
+- (_Bool)isCellularPlanModificationAllowed;
 - (_Bool)isAppCellularDataModificationAllowed;
 - (_Bool)isAutomaticAppUpdatesModificationAllowed;
 - (void)setAutomaticAppUpdatesAllowed:(_Bool)arg1;
@@ -412,7 +417,7 @@
 - (id)managedMedia;
 - (id)managedAppIDs;
 - (void)migratePostMDMDataMigratorWithContext:(int)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)migrateWithContext:(int)arg1 passcodeWasSetInBackup:(_Bool)arg2 forceAllowHostPairing:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)migrateWithContext:(int)arg1 passcodeWasSetInBackup:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setManagedEmailDomains:(id)arg1;
 - (id)managedEmailDomains;
 - (id)managedAppIDsWithFlags:(int)arg1;
@@ -505,6 +510,14 @@
 - (id)restrictionEnforcedHomeScreenLayout;
 - (id)knownAirPrintIPPURLStrings;
 - (_Bool)isTeslaCloudConfigurationAvailable;
+- (id)deviceOrganizationCountry;
+- (id)deviceOrganizationZipCode;
+- (id)deviceOrganizationRegion;
+- (id)deviceOrganizationCity;
+- (id)deviceOrganizationAddressLine3;
+- (id)deviceOrganizationAddressLine2;
+- (id)deviceOrganizationAddressLine1;
+- (id)deviceOrganizationAddress;
 - (id)deviceDepartmentName;
 - (id)deviceOrganizationName;
 - (int)userMode;

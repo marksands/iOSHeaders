@@ -7,27 +7,25 @@
 #import <objc/NSObject.h>
 
 #import <PhotosUICore/PXCPLService-Protocol.h>
-#import <PhotosUICore/PXCPLStatusDelegate-Protocol.h>
 
-@class NSString, PXCPLStatus;
+@class NSString, PXCPLServiceStatus, PXCPLState, PXCPLStatus;
 @protocol OS_dispatch_queue;
 
-@interface PXUICPLService : NSObject <PXCPLStatusDelegate, PXCPLService>
+@interface PXUICPLService : NSObject <PXCPLService>
 {
     NSObject<OS_dispatch_queue> *_serialQueue;
     PXCPLStatus *_statusProvider;
-    struct PXCPLServiceStatus _serviceStatus;
+    PXCPLState *_state;
+    PXCPLServiceStatus *_serviceStatus;
     CDUnknownBlockType _handler;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler=_handler;
 - (void).cxx_destruct;
-- (void)_serviceStatusDidChange:(struct PXCPLServiceStatus)arg1;
-- (void)cplStatus:(id)arg1 currentSnapshotDidChange:(struct PXCPLStatusSnapshot)arg2;
+- (void)_serviceStatusDidChange:(id)arg1;
+- (void)_setState:(id)arg1;
 - (void)performAction:(long long)arg1;
 - (_Bool)canPerformAction:(long long)arg1;
-@property(readonly, nonatomic) struct PXCPLServiceStatus serviceStatus;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties

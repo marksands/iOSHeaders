@@ -10,6 +10,7 @@
 
 @protocol CCUIContentModuleContextDelegate <NSObject>
 - (void)dismissExpandedViewForContentModuleContext:(CCUIContentModuleContext *)arg1;
+- (void)requestExpandModuleForContentModuleContext:(CCUIContentModuleContext *)arg1;
 - (void)contentModuleContext:(CCUIContentModuleContext *)arg1 enqueueStatusUpdate:(CCUIStatusUpdate *)arg2;
 @end
 

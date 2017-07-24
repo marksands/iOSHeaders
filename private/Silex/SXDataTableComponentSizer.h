@@ -21,6 +21,7 @@
 @property(retain, nonatomic) SXDataTableComponentController *dataTableComponentController; // @synthesize dataTableComponentController=_dataTableComponentController;
 @property(retain, nonatomic) SXDataTableLayouter *layouter; // @synthesize layouter=_layouter;
 - (void).cxx_destruct;
+- (id)tableStyleForComponent:(id)arg1 documentController:(id)arg2;
 - (id)textComponentLayoutHostingForDataTableComponentController:(id)arg1;
 - (id)contentSizeCategoryForDataTableComponentController:(id)arg1;
 - (id)documentColumnLayoutForDataTableComponentController:(id)arg1;
@@ -28,7 +29,7 @@
 - (id)componentForDataTableComponentController:(id)arg1;
 - (double)widthForDataTableComponentController:(id)arg1;
 - (double)calculateHeightForWidth:(double)arg1 inColumnLayout:(id)arg2;
-- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 componentStyle:(id)arg3 context:(id)arg4 documentColumnLayout:(id)arg5 layoutAttributes:(id)arg6;
+- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 componentStyle:(id)arg3 context:(id)arg4 layoutAttributes:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

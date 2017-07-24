@@ -21,6 +21,7 @@
 - (void)deleteLastCharacter;
 - (void)setStringValue:(NSString *)arg1;
 - (NSString *)stringValue;
+- (double)getCurrentTitleFontSize;
 - (void)setTitle:(NSString *)arg1 font:(UIFont *)arg2;
 - (void)hideError;
 - (void)setPINPolicyString:(NSString *)arg1 visible:(_Bool)arg2;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <VectorKit/VKLabelNavFeature-Protocol.h>
 
@@ -41,6 +41,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isOnRoute; // @synthesize isOnRoute=_isOnRoute;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (_Bool)hasLabelWithArtwork;
 @property(readonly, nonatomic) _Bool isTrafficCameraFeature;
 @property(readonly, nonatomic) _Bool isEtaFeature;
 @property(nonatomic) _Bool isPicked; // @synthesize isPicked=_isPicked;

@@ -11,7 +11,6 @@
 @interface SPApplication : NSObject
 {
     _Bool _isWebClip;
-    _Bool _isHiddenSystemApp;
     NSString *_displayIdentifier;
     NSString *_displayName;
     NSString *_longDisplayName;
@@ -20,7 +19,6 @@
     NSString *_shortVersion;
 }
 
-@property(nonatomic) _Bool isHiddenSystemApp; // @synthesize isHiddenSystemApp=_isHiddenSystemApp;
 @property(nonatomic) _Bool isWebClip; // @synthesize isWebClip=_isWebClip;
 @property(retain, nonatomic) NSString *shortVersion; // @synthesize shortVersion=_shortVersion;
 @property(retain, nonatomic) NSURL *URL; // @synthesize URL=_URL;

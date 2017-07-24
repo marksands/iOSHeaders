@@ -69,6 +69,7 @@
     _Bool hasDefaultContents;
     _Bool acceptsPayloads;
     _Bool displaySecureEditsUsingPlainText;
+    _Bool loadKeyboardsForSiriLanguage;
     NSIndexSet *PINEntrySeparatorIndexes;
     long long forceDictationKeyboardType;
 }
@@ -78,6 +79,7 @@
 + (id)defaultTextInputTraits;
 + (long long)configuredAppearanceForAppearance:(long long)arg1 withTraitEnvironment:(id)arg2;
 + (long long)accessibleAppearanceForAppearance:(long long)arg1;
+@property(nonatomic) _Bool loadKeyboardsForSiriLanguage; // @synthesize loadKeyboardsForSiriLanguage;
 @property(nonatomic) long long textScriptType; // @synthesize textScriptType;
 @property(nonatomic) _Bool isCarPlayIdiom; // @synthesize isCarPlayIdiom;
 @property(nonatomic) _Bool disableInputBars; // @synthesize disableInputBars;

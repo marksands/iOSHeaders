@@ -45,7 +45,6 @@
 @property(readonly, nonatomic) long long cellBannerTextAlignment;
 @property(readonly, nonatomic) long long cellFillMode;
 @property(readonly, nonatomic) int thumbnailImageFormat;
-@property(readonly, nonatomic) double globalFooterMinHeight;
 - (unsigned long long)supportedInterfaceOrientations;
 @property(readonly, nonatomic) struct CGSize contentSizeForViewInPopover;
 - (id)init;

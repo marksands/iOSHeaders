@@ -55,6 +55,8 @@
 - (void)_setScanType:(unsigned int)arg1;
 - (void)_setTypeName:(id)arg1;
 - (void)_setIvarName:(id)arg1;
+- (id)fullIvarNameAtOffset:(unsigned int)arg1;
+- (id)_fullIvarNameAtOffset:(unsigned int)arg1 leafOffset:(unsigned int *)arg2 depth:(unsigned int)arg3;
 - (id)getLeafFieldAtOffset:(unsigned int)arg1 leafOffset:(unsigned int *)arg2;
 - (id)_getFieldAtOffset:(unsigned int)arg1;
 - (void)serializeWithClassMap:(id)arg1 simpleSerializer:(id)arg2 version:(unsigned int)arg3;

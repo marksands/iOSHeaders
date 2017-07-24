@@ -72,10 +72,14 @@
 - (_Bool)internalPerformInContext:(id)arg1 error:(id *)arg2;
 - (_Bool)performInContext:(id)arg1 error:(id *)arg2;
 - (void)applyConfigurationOfRequest:(id)arg1;
+- (void)copyStateOfRequest:(id)arg1;
+- (id)newDefaultRequestInstance;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)warmUpRequestPerformer:(id)arg1 error:(id *)arg2;
 - (_Bool)hasCancellationHook;
 - (void)setValue:(id)arg1 forRequestOption:(id)arg2;
+- (id)valueForPrivateOption:(id)arg1;
+- (void)setValue:(id)arg1 forPrivateOption:(id)arg2;
 - (id)initWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)init;

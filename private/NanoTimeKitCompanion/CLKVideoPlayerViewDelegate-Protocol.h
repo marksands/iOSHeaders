@@ -9,7 +9,11 @@
 @class CLKVideoPlayerView;
 
 @protocol CLKVideoPlayerViewDelegate <NSObject>
+- (void)videoPlayerViewDidFinishPlayingVideoToEnd:(CLKVideoPlayerView *)arg1;
 - (void)videoPlayerViewDidPauseAfterPlayingVideoToEnd:(CLKVideoPlayerView *)arg1;
 - (void)videoPlayerViewDidBeginPlaying:(CLKVideoPlayerView *)arg1;
+
+@optional
+- (void)videoPlayerViewWillBeginPlaying:(CLKVideoPlayerView *)arg1;
 @end
 

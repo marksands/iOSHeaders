@@ -6,9 +6,11 @@
 
 #import <Foundation/NSObject.h>
 
+#import <MediaPlayer/ICEnvironmentMonitorObserver-Protocol.h>
+
 @class MPAVController, MPAVItem, MPQueueFeeder, MPRTCReportingSessionSummaryEvent, NSMutableDictionary, NSNumber, NSString;
 
-@interface MPRTCReportingController : NSObject
+@interface MPRTCReportingController : NSObject <ICEnvironmentMonitorObserver>
 {
     long long _currentInterfaceType;
     MPAVItem *_currentItem;
@@ -55,6 +57,12 @@
 - (void)_avControllerBufferingStateDidChangeNotification:(id)arg1;
 - (void)dealloc;
 - (id)initWithPlayer:(id)arg1 clientName:(id)arg2 clientType:(int)arg3 clientVersion:(long long)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

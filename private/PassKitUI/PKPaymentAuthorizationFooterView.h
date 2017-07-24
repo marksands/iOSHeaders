@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSLayoutConstraint, NSMutableArray, NSString, PKGlyphView, PKPaymentAuthorizationLayout, UIButton, UILabel;
+@class NSLayoutConstraint, NSMutableArray, PKGlyphView, PKPaymentAuthorizationLayout, UIButton, UILabel;
 
 @interface PKPaymentAuthorizationFooterView : UIView
 {
@@ -20,13 +20,16 @@
     NSLayoutConstraint *_overallHeightConstraint;
     NSMutableArray *_hiddenConstraints;
     NSMutableArray *_regularConstraints;
+    NSMutableArray *_seperatorConstraints;
+    _Bool _showSeperatorView;
     long long _state;
     UIButton *_payWithPasscodeButton;
     PKPaymentAuthorizationLayout *_layout;
-    NSString *_localizedConfirmationTitle;
+    unsigned long long _confirmationStyle;
 }
 
-@property(copy, nonatomic) NSString *localizedConfirmationTitle; // @synthesize localizedConfirmationTitle=_localizedConfirmationTitle;
+@property(nonatomic) _Bool showSeperatorView; // @synthesize showSeperatorView=_showSeperatorView;
+@property(nonatomic) unsigned long long confirmationStyle; // @synthesize confirmationStyle=_confirmationStyle;
 @property(retain, nonatomic) PKPaymentAuthorizationLayout *layout; // @synthesize layout=_layout;
 @property(readonly, nonatomic) UIButton *payWithPasscodeButton; // @synthesize payWithPasscodeButton=_payWithPasscodeButton;
 @property(nonatomic) long long state; // @synthesize state=_state;

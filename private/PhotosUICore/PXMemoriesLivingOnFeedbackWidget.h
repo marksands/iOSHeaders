@@ -37,7 +37,7 @@
 @property(readonly, nonatomic) long long contentLayoutStyle;
 @property(readonly, nonatomic) long long contentViewAnchoringType;
 - (struct CGSize)_layoutTokenViewsWithWidth:(double)arg1;
-- (void)_loadTokenViewsWithSuperview:(id)arg1;
+- (id)_tokenViewsWithSuperview:(struct NSObject *)arg1;
 - (void)_loadFeaturesFromPhotosGraphData:(id)arg1;
 - (struct NSObject *)_loadContentView;
 @property(readonly, nonatomic) NSObject<PXAnonymousView> *contentView; // @synthesize contentView=_contentView;

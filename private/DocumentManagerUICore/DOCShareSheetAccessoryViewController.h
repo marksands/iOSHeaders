@@ -14,7 +14,6 @@
 
 - (void)tagView:(id)arg1 didDeleteTag:(id)arg2;
 - (void)addTagButtonPressed;
-- (void)updateThumbnailWithItem:(id)arg1;
 - (_Bool)shouldShowAddTagButton;
 - (void)viewDidLoad;
 - (void)loadView;

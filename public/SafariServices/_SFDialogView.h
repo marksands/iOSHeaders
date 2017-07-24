@@ -26,13 +26,13 @@
 - (void).cxx_destruct;
 - (void)_keyboardDismissGesture:(id)arg1;
 - (void)didAppear;
-@property(nonatomic) _Bool showMessageAsTitle;
 - (void)setPrimaryActionTitle:(id)arg1 secondaryActionTitle:(id)arg2;
 - (void)setPasswordText:(id)arg1 placeholder:(id)arg2;
 - (void)setInputText:(id)arg1 placeholder:(id)arg2;
 - (void)setUsesOpaqueAppearance:(_Bool)arg1;
 - (void)setObscuredInsets:(struct UIEdgeInsets)arg1;
 - (void)setMessageText:(id)arg1;
+- (void)setTitleText:(id)arg1;
 - (_Bool)becomeFirstResponder;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

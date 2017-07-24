@@ -36,7 +36,7 @@
 - (void)_onQueue_setLeaseStatus:(id)arg1 updatedLeaseExpirationDate:(id)arg2;
 - (void)_performAutomaticRefresh;
 - (id)_newOperationForPlaybackRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)performPlaybackRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)performPlaybackRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic, getter=isAutomaticallyRefreshingLease) _Bool automaticallyRefreshingLease;
 - (void)endAutomaticallyRefreshingLease;
 - (void)beginAutomaticallyRefreshingLease;

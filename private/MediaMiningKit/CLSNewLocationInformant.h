@@ -15,6 +15,7 @@
 + (id)areaOfInterestCategories;
 + (_Bool)doesRegion:(id)arg1 containLocation:(id)arg2;
 + (_Bool)doesRegion:(id)arg1 intersectOtherRegion:(id)arg2;
++ (struct CLLocationCoordinate2D)shiftedCoordinatesFromOriginalCoordinates:(struct CLLocationCoordinate2D)arg1;
 + (id)shiftedLocationFromOriginalLocation:(id)arg1;
 + (id)businessItemsForRegion:(id)arg1;
 + (id)createPlacesForBusinessItems:(id)arg1;

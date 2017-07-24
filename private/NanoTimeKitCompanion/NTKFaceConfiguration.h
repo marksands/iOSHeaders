@@ -15,6 +15,7 @@
 {
     NSMutableDictionary *_complications;
     NSMutableDictionary *_editModeConfigurations;
+    NSMutableDictionary *_metrics;
     _Bool _resourceDirectoryExists;
     NSString *_name;
 }
@@ -23,6 +24,7 @@
 @property(nonatomic) _Bool resourceDirectoryExists; // @synthesize resourceDirectoryExists=_resourceDirectoryExists;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (void)_applyMetrics:(id)arg1;
 - (void)_applyComplicationsDescription:(id)arg1;
 - (void)_applyCustomizationDescription:(id)arg1 editModeMapping:(id)arg2;
 - (id)initWithJSONDictionary:(id)arg1 editModeMapping:(id)arg2;
@@ -34,6 +36,10 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_enumerateComplicationsWithBlock:(CDUnknownBlockType)arg1;
 - (void)_enumerateEditModeConfigurationsWithBlock:(CDUnknownBlockType)arg1;
+- (void)setMetricsFromConfiguration:(id)arg1;
+- (void)incrementMetricForKey:(id)arg1;
+- (void)setMetric:(id)arg1 forKey:(id)arg2;
+- (id)metricForKey:(id)arg1;
 - (void)appendEditModesToDailySnapshotKey:(id)arg1;
 - (id)validationString;
 - (id)description;

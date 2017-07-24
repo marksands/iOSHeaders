@@ -153,6 +153,9 @@
 - (void)controllerPopToRoot:(id)arg1;
 - (void)controllerPop:(id)arg1;
 - (void)controller:(id)arg1 pushInterfaceController:(id)arg2 initializationContextID:(id)arg3;
+- (void)removePageInterfaceCreationContextsForIDs:(id)arg1;
+- (id)pageInterfaceCreationContextForID:(id)arg1;
+- (id)storePageInterfaceCreationContext:(id)arg1;
 - (id)interfaceCreationContextForID:(id)arg1;
 - (id)storeInterfaceCreationContext:(id)arg1;
 - (_Bool)_sendDataToApp:(id)arg1 reply:(CDUnknownBlockType)arg2;

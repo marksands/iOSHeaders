@@ -127,10 +127,14 @@
 @property(nonatomic) double courseAccuracy;
 @property(readonly, nonatomic) _Bool hasAccurateCourse;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
+- (id)initWithGEOCoordinate:(CDStruct_c3b9c2ee)arg1 isUserLocation:(_Bool)arg2 floorOrdinal:(int)arg3;
 - (id)initWithGEOCoordinate:(CDStruct_c3b9c2ee)arg1 floorOrdinal:(int)arg2;
+- (id)initWithGEOCoordinate:(CDStruct_c3b9c2ee)arg1 isUserLocation:(_Bool)arg2;
 - (id)initWithGEOCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (id)initWithLatitude:(double)arg1 longitude:(double)arg2 isUserLocation:(_Bool)arg3 floorOrdinal:(int)arg4;
 - (id)initWithLatitude:(double)arg1 longitude:(double)arg2 floorOrdinal:(int)arg3;
 - (id)initWithLatitude:(double)arg1 longitude:(double)arg2;
+- (id)initWithLocation:(id)arg1 isUserLocation:(_Bool)arg2 floorOrdinal:(int)arg3;
 - (id)initWithLocation:(id)arg1 floorOrdinal:(int)arg2;
 - (id)initWithLocation:(id)arg1;
 

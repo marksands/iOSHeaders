@@ -13,8 +13,22 @@
 @interface _MRGameControllerAccelerationProtobuf : PBCodable <NSCopying>
 {
     NSData *_data;
+    float _w;
+    float _x;
+    float _y;
+    float _z;
+    struct {
+        unsigned int w:1;
+        unsigned int x:1;
+        unsigned int y:1;
+        unsigned int z:1;
+    } _has;
 }
 
+@property(nonatomic) float w; // @synthesize w=_w;
+@property(nonatomic) float z; // @synthesize z=_z;
+@property(nonatomic) float y; // @synthesize y=_y;
+@property(nonatomic) float x; // @synthesize x=_x;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -25,6 +39,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasW;
+@property(nonatomic) _Bool hasZ;
+@property(nonatomic) _Bool hasY;
+@property(nonatomic) _Bool hasX;
 @property(readonly, nonatomic) _Bool hasData;
 - (void)dealloc;
 

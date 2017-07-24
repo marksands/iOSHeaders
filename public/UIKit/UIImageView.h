@@ -19,11 +19,13 @@
     _Bool _templateSettingsAreInvalid;
     _Bool _edgeInsetsForEffectsAreValid;
     _Bool _adjustsImageWhenAncestorFocused;
+    _Bool _masksFocusEffectToContents;
     _Bool __animatesContents;
     UILayoutGuide *_focusedFrameGuide;
 }
 
 @property(nonatomic, setter=_setAnimatesContents:) _Bool _animatesContents; // @synthesize _animatesContents=__animatesContents;
+@property(nonatomic) _Bool masksFocusEffectToContents; // @synthesize masksFocusEffectToContents=_masksFocusEffectToContents;
 @property(readonly) UILayoutGuide *focusedFrameGuide; // @synthesize focusedFrameGuide=_focusedFrameGuide;
 @property(nonatomic) _Bool adjustsImageWhenAncestorFocused; // @synthesize adjustsImageWhenAncestorFocused=_adjustsImageWhenAncestorFocused;
 @property(nonatomic, setter=_setEdgeInsetsForEffectsAreValid:) _Bool _edgeInsetsForEffectsAreValid; // @synthesize _edgeInsetsForEffectsAreValid;

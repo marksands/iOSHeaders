@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)newFromSqliteValue:(struct Mem *)arg1;
++ (id)newFromSqliteValue:(struct sqlite3_value *)arg1;
 @property(retain, nonatomic) NSString *pcsKeyID; // @synthesize pcsKeyID=_pcsKeyID;
 @property(copy, nonatomic) NSData *pcsData; // @synthesize pcsData=_pcsData;
 @property(copy, nonatomic) NSString *etag; // @synthesize etag=_etag;

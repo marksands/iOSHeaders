@@ -52,7 +52,6 @@
 - (void)_configurePlayerWhenEnteringPIP;
 - (struct CGRect)_videoRectForBounds:(struct CGRect)arg1;
 @property(readonly, nonatomic) struct CGRect videoRect;
-- (void)_scaleVideoLayerUsingLanczosFilterWithSublayerTransform:(struct CATransform3D)arg1;
 - (void)setLanczosFilterDownscaleFactor:(long long)arg1;
 - (long long)lanczosFilterDownscaleFactor;
 - (void)setLanczosFilterDownscalingEnabled:(_Bool)arg1;

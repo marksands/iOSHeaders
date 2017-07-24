@@ -22,7 +22,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)supportsRTL;
 - (_Bool)supportsPastingIntoGroups;
 - (void)applicationDidFinishLaunching;
-- (id)resourcePreinstalledTags;
 - (id)defaultHyperlinkURL;
 - (_Bool)URLIsValidForImportedHyperlink:(id)arg1 targetDocumentRoot:(id)arg2;
 - (id)invalidURLSchemes;

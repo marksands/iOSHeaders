@@ -13,6 +13,7 @@
 - (void)didAttemptToDisableiCloudBackups:(long long)arg1 error:(NSError *)arg2;
 - (void)didFetchSyncStateStats:(NSDictionary *)arg1;
 - (void)didAttemptToDisableAllDevicesResult:(_Bool)arg1;
+- (void)didPerformAdditionalStorageRequiredCheck:(unsigned long long)arg1 forAccountId:(NSString *)arg2;
 - (void)didAttemptToSetEnabledTo:(_Bool)arg1 result:(_Bool)arg2;
 - (void)updateCloudKitState;
 - (void)qosClassWhileServicingRequestsResponse:(unsigned int)arg1 identifier:(NSString *)arg2;
@@ -20,7 +21,7 @@
 - (void)stickerPackUpdated:(NSDictionary *)arg1;
 - (void)pinCodeAlertCompleted:(NSString *)arg1 deviceName:(NSString *)arg2 deviceType:(NSString *)arg3 phoneNumber:(NSString *)arg4 responseFromDevice:(_Bool)arg5 wasCancelled:(_Bool)arg6;
 - (void)displayPinCodeForAccount:(NSString *)arg1 pinCode:(NSNumber *)arg2 deviceName:(NSString *)arg3 deviceType:(NSString *)arg4 phoneNumber:(NSString *)arg5;
-- (void)lastFailedMessageIDChanged:(long long)arg1;
+- (void)lastFailedMessageDateChanged:(long long)arg1;
 - (void)unreadCountChanged:(long long)arg1;
 - (void)databaseChatSpamUpdated:(NSString *)arg1;
 - (void)databaseNoLongerFull;

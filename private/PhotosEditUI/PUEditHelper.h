@@ -21,7 +21,7 @@
     NSMapTable *_loadRequestMap;
 }
 
-+ (id)computeRecipeForEditSource:(id)arg1 variation:(unsigned int)arg2 editModel:(id)arg3 error:(id *)arg4;
++ (id)computeAnalysisResultForEditSource:(id)arg1 editModel:(id)arg2 error:(id *)arg3;
 + (id)requestEditModelChangeForAsset:(id)arg1 performChanges:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (id)sharedInstance;
 @property(retain, nonatomic) NSMapTable *loadRequestMap; // @synthesize loadRequestMap=_loadRequestMap;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSManagedObjectContext, NSPersistentStore;
+@class NSDate, NSManagedObjectContext, NSPersistentHistoryToken, NSPersistentStore;
 @protocol OS_dispatch_queue;
 
 @interface ICXPCStoreCrossProcessChangeListener : NSObject
@@ -14,13 +14,16 @@
     _Bool _listening;
     NSPersistentStore *_store;
     NSManagedObjectContext *_context;
-    id _previousGenerationToken;
+    NSPersistentHistoryToken *_previousHistoryToken;
+    NSDate *_previousHistoryDate;
     NSObject<OS_dispatch_queue> *_queue;
 }
 
++ (id)contextSaveNotificationFromPersistentHistoryResult:(id)arg1 latestToken:(id *)arg2 latestTimestamp:(id *)arg3;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic, getter=isListening) _Bool listening; // @synthesize listening=_listening;
-@property(retain, nonatomic) id previousGenerationToken; // @synthesize previousGenerationToken=_previousGenerationToken;
+@property(retain, nonatomic) NSDate *previousHistoryDate; // @synthesize previousHistoryDate=_previousHistoryDate;
+@property(retain, nonatomic) NSPersistentHistoryToken *previousHistoryToken; // @synthesize previousHistoryToken=_previousHistoryToken;
 @property(nonatomic) __weak NSManagedObjectContext *context; // @synthesize context=_context;
 @property(nonatomic) __weak NSPersistentStore *store; // @synthesize store=_store;
 - (void).cxx_destruct;

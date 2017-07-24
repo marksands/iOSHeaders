@@ -37,7 +37,6 @@
 - (_Bool)hasCandidateInForwardDirection:(_Bool)arg1 granularity:(int)arg2;
 - (_Bool)handleTabKeyWithShift:(_Bool)arg1;
 - (_Bool)handleNumberKey:(unsigned long long)arg1;
-- (void)setCompletionContext:(NSString *)arg1;
 - (void)showCaret:(_Bool)arg1 gradually:(_Bool)arg2;
 - (void)setInlineText:(NSString *)arg1;
 - (void)setCandidates:(TIKeyboardCandidateResultSet *)arg1 type:(int)arg2 inlineText:(NSString *)arg3 inlineRect:(struct CGRect)arg4 maxX:(double)arg5 layout:(_Bool)arg6;

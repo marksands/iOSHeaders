@@ -14,6 +14,8 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (Class)class;
+- (Class)superclass;
 - (id)_web_createTarget;
 
 @end

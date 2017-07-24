@@ -8,18 +8,3 @@
 
 typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
 
-#pragma mark Typedef'd Structures
-
-// Ambiguous groups
-typedef struct {
-    double _field1;
-    double _field2;
-    double _field3;
-} CDStruct_39925896;
-
-typedef struct {
-    double sectionTitleSlotCost;
-    double firstHeadlineSlotCost;
-    double subsequentHeadlineSlotCost;
-} CDStruct_e510593e;
-

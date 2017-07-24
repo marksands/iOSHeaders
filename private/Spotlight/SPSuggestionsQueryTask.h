@@ -34,6 +34,7 @@
 - (id)searchThroughSection:(id)arg1;
 - (id)suggestionsDebugLog:(id)arg1;
 - (id)displayedText;
+- (_Bool)readyToUpdate;
 
 @end
 

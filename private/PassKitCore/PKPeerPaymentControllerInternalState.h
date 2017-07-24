@@ -22,6 +22,7 @@
     PKPeerPaymentQuote *_quote;
     PKPeerPaymentPerformResponse *_performQuoteResponse;
     PKPeerPaymentQuoteCertificatesResponse *_quoteCertificatesResponse;
+    NSString *_accountName;
     NSString *_accountNumber;
     NSString *_routingNumber;
     PKPeerPaymentQuoteRequest *_quoteRequest;
@@ -31,6 +32,7 @@
 @property(retain, nonatomic) PKPeerPaymentQuoteRequest *quoteRequest; // @synthesize quoteRequest=_quoteRequest;
 @property(copy, nonatomic) NSString *routingNumber; // @synthesize routingNumber=_routingNumber;
 @property(copy, nonatomic) NSString *accountNumber; // @synthesize accountNumber=_accountNumber;
+@property(copy, nonatomic) NSString *accountName; // @synthesize accountName=_accountName;
 @property(retain, nonatomic) PKPeerPaymentQuoteCertificatesResponse *quoteCertificatesResponse; // @synthesize quoteCertificatesResponse=_quoteCertificatesResponse;
 @property(retain, nonatomic) PKPeerPaymentPerformResponse *performQuoteResponse; // @synthesize performQuoteResponse=_performQuoteResponse;
 @property(retain, nonatomic) PKPeerPaymentQuote *quote; // @synthesize quote=_quote;

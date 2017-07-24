@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 
 + (id)defaultHighlightWithContext:(id)arg1 includeCommentWithAuthor:(id)arg2;
 @property(copy, nonatomic) NSString *textAttributeUUIDString; // @synthesize textAttributeUUIDString=_textAttributeUUIDString;
-@property(nonatomic) TSWPStorage *parentStorage; // @synthesize parentStorage=_parentStorage;
+@property(nonatomic) __weak TSWPStorage *parentStorage; // @synthesize parentStorage=_parentStorage;
 @property(retain, nonatomic) TSDCommentStorage *commentStorage; // @synthesize commentStorage=_commentStorage;
 - (void).cxx_destruct;
 - (_Bool)isInDocument;

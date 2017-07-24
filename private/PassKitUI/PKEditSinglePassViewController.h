@@ -6,14 +6,16 @@
 
 #import <UIKit/UIViewController.h>
 
+#import <PassKitUI/PKEditPassesDetailsResponder-Protocol.h>
 #import <PassKitUI/PKEditPassesPerformanceTestResponder-Protocol.h>
 #import <PassKitUI/PKPassDeleteHandler-Protocol.h>
 #import <PassKitUI/WLCardViewDelegate-Protocol.h>
 
-@class NSString, PKPass, PKPassView, UIBarButtonItem;
+@class NSString, PKGroup, PKPass, PKPassView, UIBarButtonItem;
 
-@interface PKEditSinglePassViewController : UIViewController <WLCardViewDelegate, PKPassDeleteHandler, PKEditPassesPerformanceTestResponder>
+@interface PKEditSinglePassViewController : UIViewController <WLCardViewDelegate, PKPassDeleteHandler, PKEditPassesPerformanceTestResponder, PKEditPassesDetailsResponder>
 {
+    PKGroup *_group;
     PKPass *_pass;
     PKPassView *_passView;
     UIBarButtonItem *_deleteBarButton;
@@ -25,6 +27,8 @@
 - (void).cxx_destruct;
 - (void)showPassDetails;
 - (void)passViewDidPresentPassDetails:(id)arg1;
+- (id)pass;
+- (id)group;
 - (void)disableDeleteButton;
 - (void)enableDeleteButton;
 - (void)_deletePassConfirmed;
@@ -37,7 +41,7 @@
 - (void)viewDidLoad;
 - (void)setPerformanceTestName:(id)arg1;
 - (void)setPerformanceTest:(long long)arg1;
-- (id)initWithPass:(id)arg1;
+- (id)initWithGroup:(id)arg1 pass:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,17 +6,17 @@
 
 #import <FileProvider/FPXXPCListenerConfiguration.h>
 
-@class NSFileProviderMessageInterface;
+@class FPFileProviderService;
 
 __attribute__((visibility("hidden")))
 @interface FPXXPCListenerMessagingConfiguration : FPXXPCListenerConfiguration
 {
-    NSFileProviderMessageInterface *_messageInterface;
+    FPFileProviderService *_service;
 }
 
 - (void).cxx_destruct;
 - (_Bool)setupDelegate:(id)arg1 error:(id *)arg2;
-- (id)initWithMessageInterface:(id)arg1 context:(id)arg2;
+- (id)initWithService:(id)arg1 context:(id)arg2;
 
 @end
 

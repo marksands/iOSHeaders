@@ -52,7 +52,7 @@
 - (long long)_updateFrequency;
 - (void)_validate;
 - (void)_endSession;
-- (id)_stringWithSign:(id)arg1;
+- (id)_signPrefixString;
 - (long long)_timePeriodForElapsedTime:(double)arg1;
 - (id)_sessionAttributedTextForIndex:(unsigned long long)arg1 withStyle:(id)arg2;
 - (id)_sessionCacheKey;

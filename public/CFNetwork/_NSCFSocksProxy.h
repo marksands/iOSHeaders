@@ -8,7 +8,7 @@
 
 #import <CFNetwork/NSProxyConnectionDelegate-Protocol.h>
 
-@class NSProxyConnection, NSString, SocksHandshake;
+@class NSDictionary, NSProxyConnection, NSString, SocksHandshake;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -20,10 +20,12 @@ __attribute__((visibility("hidden")))
     SocksHandshake *_socksHandshake;
     NSProxyConnection *_inbound;
     NSProxyConnection *_outbound;
+    NSDictionary *_configuration;
 }
 
-+ (void)handleIncomingConnection:(id)arg1 queue:(id)arg2;
++ (void)handleIncomingConnection:(id)arg1 queue:(id)arg2 configuration:(id)arg3;
 + (id)proxyServers;
+@property(retain) NSDictionary *configuration; // @synthesize configuration=_configuration;
 @property(retain) NSProxyConnection *outbound; // @synthesize outbound=_outbound;
 @property(retain) NSProxyConnection *inbound; // @synthesize inbound=_inbound;
 - (void).cxx_destruct;

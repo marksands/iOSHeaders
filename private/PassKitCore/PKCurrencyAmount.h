@@ -21,6 +21,7 @@
 @property(readonly, copy, nonatomic) NSString *currency; // @synthesize currency=_currency;
 @property(readonly, copy, nonatomic) NSDecimalNumber *amount; // @synthesize amount=_amount;
 - (void).cxx_destruct;
+- (id)minimalFormattedStringValue;
 - (id)formattedStringValue;
 - (id)description;
 - (id)initWithCoder:(id)arg1;

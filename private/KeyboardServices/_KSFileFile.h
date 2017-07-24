@@ -24,6 +24,7 @@
 + (int)protectionFromURL:(id)arg1;
 - (void).cxx_destruct;
 - (void)restoreToPath:(id)arg1;
+- (void)consistencyCheck;
 - (id)description;
 - (id)URL;
 - (id)lastModified;

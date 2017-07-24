@@ -26,6 +26,8 @@
     NSString *_albumArtistName;
     NSString *_albumName;
     NSData *_appMetricsData;
+    int _artworkDataHeight;
+    int _artworkDataWidth;
     NSString *_artworkMIMEType;
     NSString *_artworkURL;
     NSString *_assetURL;
@@ -34,6 +36,7 @@
     NSData *_collectionInfoData;
     NSString *_composer;
     NSString *_contentIdentifier;
+    NSData *_currentPlaybackDate;
     float _defaultPlaybackRate;
     NSData *_deviceSpecificUserInfo;
     NSString *_directorName;
@@ -60,6 +63,7 @@
     int _radioStationType;
     int _seasonNumber;
     NSString *_seriesName;
+    NSString *_serviceIdentifier;
     NSString *_subtitle;
     NSString *_title;
     int _totalDiscCount;
@@ -93,6 +97,8 @@
         unsigned int radioStationIdentifier:1;
         unsigned int releaseDate:1;
         unsigned int startTime:1;
+        unsigned int artworkDataHeight:1;
+        unsigned int artworkDataWidth:1;
         unsigned int chapterCount:1;
         unsigned int defaultPlaybackRate:1;
         unsigned int discNumber:1;
@@ -130,6 +136,10 @@
 }
 
 + (void)initialize;
+@property(retain, nonatomic) NSData *currentPlaybackDate; // @synthesize currentPlaybackDate=_currentPlaybackDate;
+@property(nonatomic) int artworkDataHeight; // @synthesize artworkDataHeight=_artworkDataHeight;
+@property(nonatomic) int artworkDataWidth; // @synthesize artworkDataWidth=_artworkDataWidth;
+@property(retain, nonatomic) NSString *serviceIdentifier; // @synthesize serviceIdentifier=_serviceIdentifier;
 @property(nonatomic) double inferredTimestamp; // @synthesize inferredTimestamp=_inferredTimestamp;
 @property(nonatomic) double elapsedTimeTimestamp; // @synthesize elapsedTimeTimestamp=_elapsedTimeTimestamp;
 @property(retain, nonatomic) NSData *collectionInfoData; // @synthesize collectionInfoData=_collectionInfoData;
@@ -208,6 +218,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasCurrentPlaybackDate;
+@property(nonatomic) _Bool hasArtworkDataHeight;
+@property(nonatomic) _Bool hasArtworkDataWidth;
+@property(readonly, nonatomic) _Bool hasServiceIdentifier;
 @property(nonatomic) _Bool hasInferredTimestamp;
 @property(nonatomic) _Bool hasElapsedTimeTimestamp;
 @property(readonly, nonatomic) _Bool hasCollectionInfoData;

@@ -25,6 +25,8 @@
 - (_Bool)internalPerformInContext:(id)arg1 error:(id *)arg2;
 - (id)trackerType;
 @property(retain, nonatomic) VNDetectedObjectObservation *inputObservation; // @synthesize inputObservation=_inputObservation;
+- (void)applyConfigurationOfRequest:(id)arg1;
+- (id)newDefaultRequestInstance;
 - (id)initWithDetectedObjectObservation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithDetectedObjectObservation:(id)arg1;
 - (id)initWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

@@ -47,10 +47,12 @@
 - (void).cxx_destruct;
 - (void)tryPIN:(id)arg1;
 - (void)_receivedObject:(id)arg1 flags:(unsigned int)arg2;
+- (void)_handleSetupActionRequest:(id)arg1 responseHandler:(CDUnknownBlockType)arg2;
 - (void)_startBuddySession;
 - (void)_sendPreAuthInfo;
 - (void)_sendConfigInfo;
 - (int)_runCoreCDPSetup;
+- (void)_runSFSessionActivated;
 - (void)_runSFSessionStart;
 - (void)_run;
 - (void)_completedWithError:(id)arg1;

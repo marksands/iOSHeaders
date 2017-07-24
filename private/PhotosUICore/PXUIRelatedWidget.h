@@ -42,6 +42,7 @@
 - (void)scrollViewControllerDidBeginScrolling:(id)arg1;
 - (id)px_diagnosticsItemProvidersForPoint:(struct CGPoint)arg1 inCoordinateSpace:(id)arg2;
 - (void)tilingControllerZoomAnimationCoordinator:(id)arg1 enumerateTilesToAnimateInLayerWithType:(long long)arg2 layout:(id)arg3 zoomAnimationContext:(id)arg4 usingBlock:(CDUnknownBlockType)arg5;
+- (void)prepareForInteractiveTransition:(id)arg1;
 - (_Bool)containsPoint:(struct CGPoint)arg1 forCoordinateSpace:(id)arg2;
 - (id)zoomAnimationCoordinatorForContext:(id)arg1;
 - (id)regionOfInterestForContext:(id)arg1;

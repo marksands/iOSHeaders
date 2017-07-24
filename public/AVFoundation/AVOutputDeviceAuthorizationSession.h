@@ -16,6 +16,7 @@
 
 + (id)sharedAuthorizationSession;
 + (void)initialize;
+- (void)outputDeviceAuthorizationSessionImplDidExpireWithReplacementImpl:(id)arg1;
 - (_Bool)outputDeviceAuthorizationSessionImpl:(id)arg1 shouldRetryAuthorizationRequest:(id)arg2 reason:(id)arg3;
 - (void)outputDeviceAuthorizationSessionImpl:(id)arg1 didProvideAuthorizationRequest:(id)arg2;
 @property __weak id <AVOutputDeviceAuthorizationSessionDelegate> delegate;

@@ -6,7 +6,7 @@
 
 #import <HealthDaemon/HDCloudSyncRecord.h>
 
-@class NSNumber, NSURL;
+@class HDSyncAnchorRangeMap, NSNumber, NSURL;
 
 @interface HDCloudSyncChangeRecord : HDCloudSyncRecord
 {
@@ -14,6 +14,7 @@
     int _protocolVersion;
     NSURL *_changesetArchiveFileURL;
     unsigned long long _changeIndex;
+    HDSyncAnchorRangeMap *_decodedSyncAnchorRangeMap;
 }
 
 + (id)_assetForCKRecord:(id)arg1 error:(id *)arg2;
@@ -26,13 +27,14 @@
 + (_Bool)isChangeRecord:(id)arg1 inSequence:(id)arg2;
 + (_Bool)isChangeRecord:(id)arg1;
 + (id)recordWithCKRecord:(id)arg1 error:(id *)arg2;
+@property(readonly, nonatomic) HDSyncAnchorRangeMap *decodedSyncAnchorRangeMap; // @synthesize decodedSyncAnchorRangeMap=_decodedSyncAnchorRangeMap;
 @property(readonly, nonatomic) int protocolVersion; // @synthesize protocolVersion=_protocolVersion;
 @property(readonly, nonatomic) unsigned long long changeIndex; // @synthesize changeIndex=_changeIndex;
 @property(readonly, nonatomic) NSURL *changesetArchiveFileURL; // @synthesize changesetArchiveFileURL=_changesetArchiveFileURL;
 - (void).cxx_destruct;
 - (id)description;
 - (_Bool)shouldFetchAssetContentInMemory;
-- (id)decodedSyncAnchorRangeMap;
+- (id)_decodedSyncAnchorRangeMapForAnchorRangeData:(id)arg1;
 - (long long)compare:(id)arg1;
 @property(readonly, nonatomic) _Bool finalForSequence;
 - (id)initWithSyncAnchorRangeMapData:(id)arg1 changeIndex:(unsigned long long)arg2 changesetAsset:(id)arg3 protocolVersion:(int)arg4 options:(id)arg5 sequenceRecordID:(id)arg6 record:(id)arg7 schemaVersion:(long long)arg8;

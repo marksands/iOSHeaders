@@ -22,6 +22,7 @@
     NSString *_deviceName;
     NSString *_hashedEmail;
     NSString *_hashedPhone;
+    NSString *_hotspotPSK;
     SFDevice *_peerDevice;
     CDUnknownBlockType _progressHandler;
     CDUnknownBlockType _promptForPINHandler;
@@ -30,6 +31,7 @@
 @property(copy, nonatomic) CDUnknownBlockType promptForPINHandler; // @synthesize promptForPINHandler=_promptForPINHandler;
 @property(copy, nonatomic) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;
 @property(retain, nonatomic) SFDevice *peerDevice; // @synthesize peerDevice=_peerDevice;
+@property(retain, nonatomic) NSString *hotspotPSK; // @synthesize hotspotPSK=_hotspotPSK;
 @property(retain, nonatomic) NSString *hashedPhone; // @synthesize hashedPhone=_hashedPhone;
 @property(retain, nonatomic) NSString *hashedEmail; // @synthesize hashedEmail=_hashedEmail;
 @property(retain, nonatomic) NSString *deviceName; // @synthesize deviceName=_deviceName;

@@ -4,48 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Preferences/PSTableCell.h>
+#import <Preferences/PSCapacityBarCell.h>
 
-@class AAUIiCloudCustomUIView, NSArray, NSLayoutConstraint, NSMutableDictionary, NSNumber, UIButton, UIColor, UIStackView, UIView;
-
-@interface AAUIiCloudStorageGraphTableCell : PSTableCell
+@interface AAUIiCloudStorageGraphTableCell : PSCapacityBarCell
 {
-    NSArray *_mediaUsage;
-    NSMutableDictionary *_mediaWeightCorrectedPercentUsage;
-    NSNumber *_bytesAvailable;
-    NSNumber *_totalBytes;
-    NSNumber *_bytesUsed;
-    _Bool _viewsInstantiated;
-    AAUIiCloudCustomUIView *_icloudStorageGraph;
-    UIView *_header;
-    UIStackView *_footer;
-    UIButton *_disclosureButton;
-    _Bool _loadingRequest;
-    UIColor *_barBackgroundColor;
-    NSLayoutConstraint *_icloudStorageGraphHeightConstraint;
-    NSArray *_verticalConstraints;
-    NSArray *_mediaUsageLabels;
 }
 
-- (void).cxx_destruct;
-- (_Bool)isAccessibilityContentSize;
-- (_Bool)isContentSizeCategoryGreaterThanLarge;
-- (id)mediaUsageFont;
-- (double)icloudStorageGraphHeight;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)traitCollectionDidChange:(id)arg1;
-- (void)drawFooter;
-- (id)constructViewWithMediaDictionary:(id)arg1 previousView:(id)arg2;
-- (void)constructMediaPercentUsage;
-- (void)drawWithViews;
-- (double)offsetForAccessoryView;
-- (void)shiftHeaderView:(id)arg1 belowView:(id)arg2 offset:(double)arg3;
-- (void)shiftHeaderView:(id)arg1 offset:(float)arg2;
-- (void)shiftHeaderView:(id)arg1;
-- (void)drawHeader;
-- (void)updateForCurrentSizeCategory;
-- (void)layoutSubviews;
-- (id)_sizeStringFromNumberOfBytes:(id)arg1;
+- (id)_catagoriesForSpecifer:(id)arg1;
+- (id)_psCapacityBarDataForSpecifier:(id)arg1;
+- (void)_setConditionalSpecifier:(id)arg1 property:(id)arg2 forKey:(id)arg3;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
 
 @end

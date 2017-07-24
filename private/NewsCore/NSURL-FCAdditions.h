@@ -7,7 +7,7 @@
 #import <Foundation/NSURL.h>
 
 @interface NSURL (FCAdditions)
-+ (id)fc_articleListDirectoryWithFileName:(id)arg1;
++ (id)fc_fileURLForWidgetReferralItemWithName:(id)arg1;
 + (id)fc_safeURLWithString:(id)arg1;
 - (id)fc_URLByDeletingFragment;
 - (id)fc_URLByDeletingQuery;

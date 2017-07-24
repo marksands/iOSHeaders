@@ -9,8 +9,6 @@
 @class NSString, UIView;
 
 @protocol PUMutablePhotosGlobalFooterView <NSObject>
-@property(nonatomic) _Bool onlyGrowsTaller;
-@property(nonatomic) _Bool centerSubviewsVertically;
 @property(retain, nonatomic) UIView *accessoryView;
 @property(copy, nonatomic) CDUnknownBlockType action;
 @property(copy, nonatomic) NSString *actionConfirmationAlertButtonTitle;
@@ -18,7 +16,6 @@
 @property(copy, nonatomic) NSString *actionTitle;
 @property(nonatomic) double progress;
 @property(nonatomic, getter=isPaused) _Bool paused;
-@property(nonatomic, getter=isHighlighted) _Bool highlighted;
 @property(copy, nonatomic) NSString *subtitle2;
 @property(copy, nonatomic) NSString *subtitle1;
 @property(copy, nonatomic) NSString *title;

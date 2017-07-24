@@ -8,7 +8,7 @@
 
 #import <NanoTimeKitCompanion/NTKUpNextElementCoordinatorObserver-Protocol.h>
 
-@class NSArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, NTKUpNextElementCoordinator;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, NTKUpNextElementCoordinator;
 @protocol NTKUpNextFaceElementControllerDelegate;
 
 @interface NTKUpNextFaceElementController : NSObject <NTKUpNextElementCoordinatorObserver>
@@ -25,6 +25,12 @@
     NSArray *_hiddenIndices;
     NSMutableSet *_hiddenBundleIdentifiers;
     NSMutableDictionary *_becameVisibleDates;
+    NSMutableArray *_pendingOperations;
+    _Bool _isMonitoringElements;
+    _Bool _isBacklightOn;
+    _Bool _isShowingContentElements;
+    _Bool _performingBatch;
+    _Bool _postedScrollEvent;
     _Bool _showsCanonicalContent;
     id <NTKUpNextFaceElementControllerDelegate> _delegate;
     unsigned long long _state;
@@ -35,16 +41,24 @@
 @property(nonatomic) _Bool showsCanonicalContent; // @synthesize showsCanonicalContent=_showsCanonicalContent;
 @property(nonatomic) __weak id <NTKUpNextFaceElementControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_updateMonitoringVisibilityForAllElement;
 - (void)_endMonitoringVisibilityForElement:(id)arg1;
 - (void)_beginMonitoringVisibilityForElement:(id)arg1;
 - (void)elementReceivedFeedback:(id)arg1 isPositive:(_Bool)arg2;
 - (void)elementWasTapped:(id)arg1;
+- (void)scrollViewDidScroll;
+- (void)_updateNoContentState;
 - (_Bool)elementCoordinator:(id)arg1 isElementAtIndexPathVisible:(id)arg2;
 - (void)elementCoordinator:(id)arg1 didMoveElement:(id)arg2 fromIndexPath:(id)arg3 toIndexPath:(id)arg4;
 - (void)elementCoordinator:(id)arg1 didInsertElement:(id)arg2 atIndexPath:(id)arg3;
 - (void)elementCoordinator:(id)arg1 didRemoveElement:(id)arg2 atIndexPath:(id)arg3;
 - (void)elementCoordinator:(id)arg1 didReloadElement:(id)arg2 atIndexPath:(id)arg3;
 - (void)elementCoordinator:(id)arg1 performBatchUpdateBlock:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_performOperations:(id)arg1 toSection:(unsigned long long)arg2;
+- (void)_performBatchUpdateUpdatingNoContent:(_Bool)arg1 usingBlock:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_performOrEnqueueOperation:(id)arg1;
+- (void)_setElement:(id)arg1 atIndexPath:(id)arg2 hidden:(_Bool)arg3;
+- (void)_enumerateCoordinatorElementWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)complicationDescriptors;
 - (void)elementDidBecomeHidden:(id)arg1;
 - (void)elementWillBecomeVisible:(id)arg1;
@@ -54,11 +68,12 @@
 - (id)_coordinatorIndexPathForFaceIndexPath:(id)arg1;
 - (id)_faceIndexPathForCoordinatorIndexPath:(id)arg1;
 - (_Bool)_isElementHidden:(id)arg1;
-- (void)_didDisableDataSource:(id)arg1;
-- (void)_didEnableDataSource:(id)arg1;
+- (void)_setDataSource:(id)arg1 enabled:(_Bool)arg2;
 @property(readonly, nonatomic) NSSet *disabledDataSources;
 - (_Bool)isDataSourceWithBundleIdentifierEnabled:(id)arg1;
 - (void)setEnabled:(_Bool)arg1 forDataSourceWithBundleIdentifier:(id)arg2;
+- (void)setShowsCanonicalContent:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_loadNewElementCoordinatorWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_loadNewElementCoordinator;
 - (void)dealloc;
 - (id)init;

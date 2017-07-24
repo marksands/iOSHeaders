@@ -6,13 +6,15 @@
 
 #import <objc/NSObject.h>
 
-@class NSDictionary;
+@class NSDictionary, NSURLRequest;
 
 @interface AAUIServerHookResponse : NSObject
 {
     NSDictionary *_additionalPayload;
+    NSURLRequest *_continuationRequest;
 }
 
+@property(copy, nonatomic) NSURLRequest *continuationRequest; // @synthesize continuationRequest=_continuationRequest;
 @property(copy, nonatomic) NSDictionary *additionalPayload; // @synthesize additionalPayload=_additionalPayload;
 - (void).cxx_destruct;
 

@@ -27,6 +27,7 @@
 - (void)setBusFormat:(unsigned int)arg1 scope:(unsigned int)arg2 format:(AVAudioFormat *)arg3 reply:(void (^)(NSArray *, NSError *))arg4;
 - (void)reset;
 - (void)uninitialize:(void (^)(void))arg1;
+- (void)setWorkIntervalPort:(CAXPCObject *)arg1;
 - (void)initialize2:(int)arg1 formats:(NSData *)arg2 maxFrames:(unsigned long long)arg3 buffer:(CAXPCObject *)arg4 bufferSize:(unsigned int)arg5 beginSem:(CAXPCObject *)arg6 endSem:(CAXPCObject *)arg7 reply:(void (^)(NSError *))arg8;
 - (void)initialize:(unsigned long long)arg1 reply:(void (^)(unsigned long long, unsigned long long, unsigned long long, NSData *, _Bool, NSError *))arg2;
 - (void)getBusses:(unsigned int)arg1 reply:(void (^)(NSArray *))arg2;

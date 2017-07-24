@@ -456,7 +456,9 @@
 - (id)readDataFromPasteboard:(id)arg1 withIndex:(long long)arg2;
 - (id)supportedPasteboardTypesForCurrentSelection;
 - (id)_supportedPasteboardTypesForCurrentSelection;
+- (_Bool)_insertFragmentWithoutPreservingStyle:(id)arg1 atDestination:(id)arg2 smartReplace:(_Bool)arg3 collapseToEnd:(_Bool)arg4;
 - (_Bool)performsTwoStepPaste:(id)arg1;
+- (_Bool)performTwoStepDrop:(id)arg1 atDestination:(id)arg2 isMove:(_Bool)arg3;
 - (_Bool)fragmentContainsRichContent:(id)arg1;
 - (_Bool)hasRichlyEditableSelection;
 - (_Bool)isInsideRichlyEditableTextWidget;
@@ -597,8 +599,10 @@
 - (void)_restoreViewportSettingsWithSize:(struct CGSize)arg1;
 - (void)dragInteraction:(id)arg1 session:(id)arg2 didEndWithOperation:(unsigned long long)arg3;
 - (id)dragInteraction:(id)arg1 previewForCancellingItem:(id)arg2 withDefault:(id)arg3;
+- (void)dragInteraction:(id)arg1 willAnimateLiftWithAnimator:(id)arg2 session:(id)arg3;
 - (id)dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
 - (id)targetedDragPreviewFromCurrentTextIndicatorData;
+- (struct CGRect)convertRectWithDocumentScale:(struct CGRect)arg1;
 - (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
 - (void)_didChangeDragCaretRectFromRect:(struct CGRect)arg1 toRect:(struct CGRect)arg2;
 @property(getter=_acceptsFirstResponder, setter=_setAcceptsFirstResponder:) _Bool _acceptsFirstResponder;
@@ -805,6 +809,7 @@
 @property(nonatomic) long long keyboardAppearance; // @dynamic keyboardAppearance;
 @property(nonatomic) long long keyboardType; // @dynamic keyboardType;
 @property(nonatomic) _Bool learnsCorrections;
+@property(nonatomic) _Bool loadKeyboardsForSiriLanguage;
 @property(copy, nonatomic) NSString *recentInputIdentifier;
 @property(copy, nonatomic) NSString *responseContext;
 @property(nonatomic) _Bool returnKeyGoesToNextResponder;

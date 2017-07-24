@@ -101,6 +101,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isRootLayoutForInspectorGeometry;
 @property(readonly, nonatomic) id <NSFastEnumeration> childTextLayoutsForExteriorWrap;
 - (void)invalidateSize;
+- (void)invalidatePosition;
 - (id)dependentLayouts;
 - (id)computeLayoutGeometry;
 - (_Bool)allowIntersectionOfChildLayout:(id)arg1;

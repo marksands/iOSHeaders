@@ -6,7 +6,7 @@
 
 #import <PassKitCore/NSObject-Protocol.h>
 
-@class NSData, NSSet, NSString, PKExpressPassInformation, PKPass, PKPaymentApplication;
+@class NSCalendar, NSData, NSDate, NSSet, NSString, PKExpressPassInformation, PKPass, PKPaymentApplication;
 @protocol PKPaymentDataProviderDelegate;
 
 @protocol PKPaymentDataProvider <NSObject>
@@ -30,6 +30,8 @@
 - (_Bool)supportsNotificationsForPass:(PKPass *)arg1;
 - (_Bool)supportsMessagesForPass:(PKPass *)arg1;
 - (_Bool)supportsTransactionsForPass:(PKPass *)arg1;
+- (void)transactionCountByYearForPassWithUniqueIdentifier:(NSString *)arg1 withTransactionSource:(unsigned long long)arg2 withBackingData:(unsigned long long)arg3 calendar:(NSCalendar *)arg4 completion:(void (^)(NSDictionary *))arg5;
+- (void)transactionsForPaymentPassWithUniqueIdentifier:(NSString *)arg1 withTransactionSource:(unsigned long long)arg2 withBackingData:(unsigned long long)arg3 startDate:(NSDate *)arg4 endDate:(NSDate *)arg5 limit:(long long)arg6 completion:(void (^)(NSSet *))arg7;
 - (void)transactionsForPaymentPassWithUniqueIdentifier:(NSString *)arg1 withTransactionSource:(unsigned long long)arg2 withBackingData:(unsigned long long)arg3 limit:(long long)arg4 completion:(void (^)(NSSet *))arg5;
 - (NSString *)transactionsAppLaunchTokenForPassWithUniqueIdentifier:(NSString *)arg1;
 - (void)startServiceModeForPassWithUniqueIdentifier:(NSString *)arg1 visibleViewController:(id)arg2;

@@ -101,6 +101,7 @@
 - (void)remote_allSourcesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_addSourceWithBundleIdentifier:(id)arg1 name:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)remote_hasSourceWithBundleIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)remote_hasSampleWithBundleIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_invalidateActivityAlertSuppressionForIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_suppressActivityAlertsForIdentifier:(id)arg1 suppressionReason:(long long)arg2 timeoutUntilDate:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)remote_closeTransactionWithDataType:(id)arg1 anchor:(id)arg2 ackTime:(id)arg3 completion:(CDUnknownBlockType)arg4;

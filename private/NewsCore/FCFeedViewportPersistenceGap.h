@@ -24,7 +24,7 @@
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
-- (id)copyWithAdditionalHiddenElements:(id)arg1;
+- (id)copyWithHiddenElements:(id)arg1;
 - (id)copyWithIdentifier:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly) unsigned long long hash;

@@ -66,6 +66,7 @@
 - (id)_dateLabelPreferredFont;
 @property(readonly, nonatomic, getter=_dateLabelFont) UIFont *dateLabelFont;
 - (void)_updateTextAttributesForDateLabel;
+- (id)_updateTitleAttributesForAttributedString:(id)arg1;
 - (id)_attributedStringForTitle:(id)arg1;
 @property(copy, nonatomic) NSString *title;
 - (void)_setText:(id)arg1 withFinalLabel:(id)arg2 setter:(CDUnknownBlockType)arg3 andTransitionLabel:(id)arg4 setter:(CDUnknownBlockType)arg5;
@@ -73,6 +74,8 @@
 - (id)_lazyTitleLabel;
 - (id)_newTitleLabel;
 - (void)_updateTextAttributesForTitleLabel:(id)arg1;
+@property(readonly, nonatomic, getter=_titleLabelFont) UIFont *titleLabelFont;
+- (id)_titleLabelPreferredFont;
 @property(retain, nonatomic) UIImage *icon;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)_layoutManager;

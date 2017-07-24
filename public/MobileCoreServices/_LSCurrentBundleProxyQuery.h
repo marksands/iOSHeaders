@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)supportsSecureCoding;
++ (double)cacheInterval;
 + (id)currentBundleProxyQuery;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

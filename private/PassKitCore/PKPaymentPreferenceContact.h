@@ -10,6 +10,7 @@
 
 @interface PKPaymentPreferenceContact : PKPaymentPreference
 {
+    _Bool _showPhoneticName;
     NSOrderedSet *_contactKeys;
     NSString *_addNewTitle;
     NSString *_addExistingTitle;
@@ -17,6 +18,7 @@
     unsigned long long _type;
 }
 
+@property(nonatomic) _Bool showPhoneticName; // @synthesize showPhoneticName=_showPhoneticName;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(copy, nonatomic) NSString *editExistingTitle; // @synthesize editExistingTitle=_editExistingTitle;
 @property(copy, nonatomic) NSString *addExistingTitle; // @synthesize addExistingTitle=_addExistingTitle;

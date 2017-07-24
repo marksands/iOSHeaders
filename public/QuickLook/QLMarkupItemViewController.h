@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) QLMUViewController *markupViewController; // @synthesize markupViewController=_markupViewController;
 - (void).cxx_destruct;
 - (void)controllerWantsToShowShareSheet:(id)arg1;
+- (id)registeredKeyCommands;
 - (void)prepareForActionSheetPresentation;
 - (_Bool)canShowToolBar;
 - (_Bool)canEnterFullScreen;

@@ -15,8 +15,8 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) DMFOSUpdateInformation *information; // @synthesize information=_information;
-@property(nonatomic) unsigned long long action; // @synthesize action=_action;
+@property(readonly, nonatomic) DMFOSUpdateInformation *information; // @synthesize information=_information;
+@property(readonly, nonatomic) unsigned long long action; // @synthesize action=_action;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

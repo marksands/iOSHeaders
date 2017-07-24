@@ -9,7 +9,8 @@
 @class NSArray, NSNumber, NSString;
 
 @protocol HDCloudSyncServerInterface <NSObject>
-- (void)remote_fetchCloudSyncStatusWithCompletion:(void (^)(NSDate *, _Bool, NSError *))arg1;
+- (void)remote_disableCloudSyncAndDeleteAllCloudDataWithCompletion:(void (^)(_Bool, NSError *))arg1;
+- (void)remote_fetchCloudSyncStatusWithCompletion:(void (^)(_Bool, NSDate *, NSDate *, _Bool, NSError *))arg1;
 - (void)remote_fetchCloudDescriptionWithCompletion:(void (^)(NSString *, NSError *))arg1;
 - (void)remote_forceCloudResetWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)remote_forceCloudSyncWithOptions:(unsigned long long)arg1 completion:(void (^)(_Bool, NSError *))arg2;

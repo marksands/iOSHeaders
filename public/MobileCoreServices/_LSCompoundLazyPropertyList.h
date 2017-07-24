@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (_Bool)_getValue:(id *)arg1 forPropertyListKey:(id)arg2;
-- (id)_loadPropertyListPeeking:(_Bool)arg1;
+- (_Bool)_getPropertyList:(id *)arg1;
 - (id)initWithLazyPropertyLists:(id)arg1;
 
 @end

@@ -6,7 +6,7 @@
 
 #import <UIKit/UICollectionReusableView.h>
 
-@class NCNotificationListSectionRevealHintChevron, NSDate, UILabel, UIViewFloatAnimatableProperty;
+@class NSDate, SBUILegibilityLabel, SBUILegibilityView, UIViewFloatAnimatableProperty;
 
 @interface NCNotificationListSectionRevealHintView : UICollectionReusableView
 {
@@ -17,8 +17,8 @@
     double _revealPercentage;
     double _initialRevealPercentageForPersistentTitle;
     NSDate *_titleDate;
-    UILabel *_revealHintTitle;
-    NCNotificationListSectionRevealHintChevron *_revealHintChevron;
+    SBUILegibilityLabel *_revealHintTitle;
+    SBUILegibilityView *_revealHintChevron;
     double _hintingAlpha;
     double _hintingTranslation;
     UIViewFloatAnimatableProperty *_hintingAlphaFloatAnimatableProperty;
@@ -31,8 +31,8 @@
 @property(retain, nonatomic) UIViewFloatAnimatableProperty *hintingAlphaFloatAnimatableProperty; // @synthesize hintingAlphaFloatAnimatableProperty=_hintingAlphaFloatAnimatableProperty;
 @property(nonatomic) double hintingTranslation; // @synthesize hintingTranslation=_hintingTranslation;
 @property(nonatomic) double hintingAlpha; // @synthesize hintingAlpha=_hintingAlpha;
-@property(retain, nonatomic) NCNotificationListSectionRevealHintChevron *revealHintChevron; // @synthesize revealHintChevron=_revealHintChevron;
-@property(retain, nonatomic) UILabel *revealHintTitle; // @synthesize revealHintTitle=_revealHintTitle;
+@property(retain, nonatomic) SBUILegibilityView *revealHintChevron; // @synthesize revealHintChevron=_revealHintChevron;
+@property(retain, nonatomic) SBUILegibilityLabel *revealHintTitle; // @synthesize revealHintTitle=_revealHintTitle;
 @property(nonatomic, getter=isDonePerformingInitialReveal) _Bool donePerformingInitialReveal; // @synthesize donePerformingInitialReveal=_donePerformingInitialReveal;
 @property(nonatomic, getter=isRecentsNotificationSectionEmpty) _Bool recentsNotificationSectionEmpty; // @synthesize recentsNotificationSectionEmpty=_recentsNotificationSectionEmpty;
 @property(nonatomic, getter=isShowingPersistentTitle) _Bool showingPersistentTitle; // @synthesize showingPersistentTitle=_showingPersistentTitle;
@@ -43,6 +43,7 @@
 - (void)_setupHintingFloatAnimatableProperties;
 - (void)_fadeOutHintingWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_animateHintingWithCompletion:(CDUnknownBlockType)arg1;
+- (id)_chevronImage;
 - (void)_updateHintTitleFont;
 - (void)_updateHintTitle;
 - (void)_updateAlpha;
@@ -64,6 +65,7 @@
 - (void)_configureRevealHintTitleIfNecessary;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)layoutSubviews;
+- (void)updateForLegibilitySettings:(id)arg1;
 - (void)performHintingFadeOutIfNecessaryAnimated:(_Bool)arg1;
 - (void)performHintingAnimated:(_Bool)arg1 withFadeOut:(_Bool)arg2;
 - (void)dealloc;

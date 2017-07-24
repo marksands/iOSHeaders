@@ -8,6 +8,6 @@
 
 @interface NSString (TSKAdditions)
 + (id)tsk_normalizedDisplayName:(id)arg1;
-+ (id)tsk_localizedDisplayNameWithFirstName:(id)arg1 lastName:(id)arg2;
+- (id)tsk_URLByPercentEncoding;
 @end
 

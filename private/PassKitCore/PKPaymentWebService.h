@@ -8,7 +8,7 @@
 
 #import <PassKitCore/NSURLSessionDownloadDelegate-Protocol.h>
 
-@class NSArray, NSHashTable, NSMutableDictionary, NSObject, NSString, NSURL, NSURLSession, PKPaymentDevice, PKPaymentWebServiceBackgroundContext, PKPaymentWebServiceContext;
+@class NSArray, NSHashTable, NSMutableDictionary, NSObject, NSString, NSURL, NSURLSession, PKPaymentDevice, PKPaymentHeroImageController, PKPaymentWebServiceBackgroundContext, PKPaymentWebServiceContext;
 @protocol OS_dispatch_queue, PKPaymentWebServiceArchiver, PKPaymentWebServiceBackgroundDelegate, PKPaymentWebServiceTargetDeviceProtocol;
 
 @interface PKPaymentWebService : PKWebService <NSURLSessionDownloadDelegate>
@@ -19,6 +19,7 @@
     NSObject<OS_dispatch_queue> *_delegateQueue;
     NSObject<OS_dispatch_queue> *_backgroundDownloadQueue;
     NSHashTable *_delegates;
+    PKPaymentHeroImageController *_heroImageController;
     _Bool _sharedService;
     PKPaymentWebServiceContext *_context;
     PKPaymentWebServiceBackgroundContext *_backgroundContext;
@@ -73,7 +74,7 @@
 - (unsigned long long)checkMerchantStatus:(id)arg1 forDomain:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (unsigned long long)availableDevicesWithCompletion:(CDUnknownBlockType)arg1;
 - (unsigned long long)_performRewrapRequest:(id)arg1 responseHandler:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
-- (unsigned long long)redeemSession:(id)arg1 remotePaymentInstrument:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (unsigned long long)redeemSession:(id)arg1 remotePaymentInstrument:(id)arg2 paymentApplication:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (unsigned long long)retainSession:(id)arg1 wrappedPayment:(id)arg2 pass:(id)arg3 applicationData:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (unsigned long long)completeSession:(id)arg1 wrappedPayment:(id)arg2 pass:(id)arg3 applicationData:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (unsigned long long)rewrapInAppPayment:(id)arg1 merchantIdentifier:(id)arg2 hostApplicationIdentifier:(id)arg3 applicationData:(id)arg4 pass:(id)arg5 completion:(CDUnknownBlockType)arg6;
@@ -123,7 +124,8 @@
 - (void)processRetryRequest:(id)arg1 responseData:(id)arg2 orginalRequest:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (_Bool)_isSandboxAccount;
 - (void)signNonce:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (id)defaultUserInfoForErrorDomain:(id)arg1 andErrorCode:(long long)arg2;
+- (id)logFacility;
+- (id)forbiddenErrorWithResponse:(id)arg1;
 @property(readonly) NSArray *delegates;
 - (void)invalidateBackgroundSession;
 - (void)startBackgroundURLSessionWithIdentifier:(id)arg1 context:(id)arg2 backgroundDelegate:(id)arg3 completion:(CDUnknownBlockType)arg4;

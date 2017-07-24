@@ -23,7 +23,7 @@
 
 + (id)itemForActionItem:(id)arg1 isGrouped:(_Bool)arg2;
 + (id)navigationListItemsForUserActionListModel:(id)arg1;
-+ (id)localizedLabelForActionItem:(id)arg1;
++ (id)localizedLabelForActionItem:(id)arg1 usingPropertyLabel:(_Bool)arg2;
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(nonatomic) __weak CNUINavigationListItem *defaultItem; // @synthesize defaultItem=_defaultItem;
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;

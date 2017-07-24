@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) int socket; // @synthesize socket=_socket;
 @property(copy, nonatomic) NSString *destination; // @synthesize destination=_destination;
+- (void)setReportingAgent:(struct opaqueRTCReporting *)arg1;
 - (void)didEnableDuplication:(_Bool)arg1 activeConnection:(id)arg2;
 - (void)discardConnection:(id)arg1;
 - (void)connectionCallback:(id)arg1 isInitialConnection:(_Bool)arg2;

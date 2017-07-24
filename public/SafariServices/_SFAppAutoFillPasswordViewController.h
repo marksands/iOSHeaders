@@ -24,6 +24,7 @@
 - (void)remoteViewControllerWillDismiss:(id)arg1;
 - (void)_addRemoteView;
 - (void)_connectToService;
+- (void)_applicationDidEnterBackground:(id)arg1;
 - (id)init;
 
 // Remaining properties

@@ -19,9 +19,9 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
-@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-@property(copy, nonatomic) NSString *UUID; // @synthesize UUID=_UUID;
+@property(readonly, copy, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
+@property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, copy, nonatomic) NSString *UUID; // @synthesize UUID=_UUID;
 - (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;

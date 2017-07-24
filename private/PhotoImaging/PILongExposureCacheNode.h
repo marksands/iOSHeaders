@@ -17,7 +17,7 @@
 - (void).cxx_destruct;
 - (id)_evaluateImageGeometry:(out id *)arg1;
 - (void)resolveSourceWithResponse:(struct NUResponse *)arg1;
-- (id)newRenderRequestWithOriginalRequest:(id)arg1 persistentURL:(id)arg2;
+- (id)newRenderRequestWithOriginalRequest:(id)arg1 persistentURL:(id)arg2 error:(out id *)arg3;
 - (_Bool)tryLoadPersistentURL:(id)arg1 error:(out id *)arg2;
 - (id)persistentMaskURL;
 - (id)persistentURL;

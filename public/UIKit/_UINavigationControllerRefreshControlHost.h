@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     UINavigationController *_navigationController;
     double _restingHeightOfRefreshControl;
     UIView *_hostContainerView;
+    double _unobstructedHeight;
     UIRefreshControl *_refreshControl;
     NSArray *_refreshControlConstraints;
 }
@@ -26,12 +27,17 @@ __attribute__((visibility("hidden")))
 + (_Bool)canHostRefreshControlOwnedByScrollView:(id)arg1 inNavigationController:(id)arg2;
 @property(retain) NSArray *refreshControlConstraints; // @synthesize refreshControlConstraints=_refreshControlConstraints;
 @property(retain) UIRefreshControl *refreshControl; // @synthesize refreshControl=_refreshControl;
+@property(nonatomic) double unobstructedHeight; // @synthesize unobstructedHeight=_unobstructedHeight;
 @property(retain, nonatomic) UIView *hostContainerView; // @synthesize hostContainerView=_hostContainerView;
 @property(nonatomic) double restingHeightOfRefreshControl; // @synthesize restingHeightOfRefreshControl=_restingHeightOfRefreshControl;
 @property(readonly, nonatomic) __weak UINavigationController *navigationController; // @synthesize navigationController=_navigationController;
 @property(nonatomic) __weak id <_UINavigationControllerRefreshControlHostDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly) __weak UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 - (void).cxx_destruct;
+- (double)_alphaForRefreshingControlStateWithPossiblyObstructedContent;
+- (double)_thresholdForObstructedContentZeroAlpha;
+- (double)_thresholdForObstructedContentFullAlpha;
+- (void)_updateFadeOutProgress;
 - (void)_installRefreshControlIntoContainerView;
 - (void)_removeRefreshControlFromContainerView;
 - (void)_notifyLayoutDidChange;

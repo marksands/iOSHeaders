@@ -25,7 +25,6 @@
 - (void)_requestRemoteViewController;
 - (void)_addRemoteView;
 - (void)storeRemoteViewController:(id)arg1 presentRequestedViewControllerWithIdentifier:(id)arg2;
-- (void)storeRemoteViewController:(id)arg1 setPreferredStatusBarStyle:(long long)arg2;
 - (void)storeRemoteViewControllerNeedsTabSelection:(id)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (id)initWithParameters:(id)arg1;

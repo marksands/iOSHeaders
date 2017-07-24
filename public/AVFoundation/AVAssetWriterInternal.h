@@ -7,7 +7,7 @@
 #import <Foundation/NSObject.h>
 
 @class AVAssetWriterHelper, AVKeyPathDependencyManager, AVWeakReference;
-@protocol OS_dispatch_queue;
+@protocol AVAssetWriterFinishWritingDelegate, OS_dispatch_queue;
 
 @interface AVAssetWriterInternal : NSObject
 {
@@ -15,7 +15,10 @@
     AVAssetWriterHelper *helper;
     NSObject<OS_dispatch_queue> *helperReadWriteQueue;
     AVKeyPathDependencyManager *keyPathDependencyManager;
+    id <AVAssetWriterFinishWritingDelegate> finishWritingDelegate;
 }
+
+- (void).cxx_destruct;
 
 @end
 

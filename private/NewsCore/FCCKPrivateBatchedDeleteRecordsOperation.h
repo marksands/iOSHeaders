@@ -11,6 +11,7 @@
 @interface FCCKPrivateBatchedDeleteRecordsOperation : FCOperation
 {
     _Bool _skipPreflight;
+    _Bool _handleIdentityLoss;
     FCCKPrivateDatabase *_database;
     NSArray *_recordIDsToDelete;
     CDUnknownBlockType _deleteRecordsCompletionBlock;
@@ -23,6 +24,7 @@
 @property(retain, nonatomic) NSMutableArray *resultDeletedRecordIDs; // @synthesize resultDeletedRecordIDs=_resultDeletedRecordIDs;
 @property(retain, nonatomic) NSMutableArray *remainingBatchesOfRecordIDsToDelete; // @synthesize remainingBatchesOfRecordIDsToDelete=_remainingBatchesOfRecordIDsToDelete;
 @property(copy, nonatomic) CDUnknownBlockType deleteRecordsCompletionBlock; // @synthesize deleteRecordsCompletionBlock=_deleteRecordsCompletionBlock;
+@property(nonatomic) _Bool handleIdentityLoss; // @synthesize handleIdentityLoss=_handleIdentityLoss;
 @property(nonatomic) _Bool skipPreflight; // @synthesize skipPreflight=_skipPreflight;
 @property(copy, nonatomic) NSArray *recordIDsToDelete; // @synthesize recordIDsToDelete=_recordIDsToDelete;
 @property(retain, nonatomic) FCCKPrivateDatabase *database; // @synthesize database=_database;

@@ -6,9 +6,11 @@
 
 #import <Silex/SXComponentBehaviorHandler.h>
 
-@class UIInterpolatingMotionEffect, UIView;
+#import <Silex/SXViewportChangeListener-Protocol.h>
 
-@interface SXMotionImageComponentBehaviorHandler : SXComponentBehaviorHandler
+@class NSString, UIInterpolatingMotionEffect, UIView;
+
+@interface SXMotionImageComponentBehaviorHandler : SXComponentBehaviorHandler <SXViewportChangeListener>
 {
     _Bool _windowed;
     _Bool _horizontal;
@@ -19,6 +21,7 @@
     UIInterpolatingMotionEffect *_xMotionEffect;
     UIInterpolatingMotionEffect *_yMotionEffect;
     double _amplitude;
+    struct CGRect _originalFrame;
 }
 
 @property(nonatomic) _Bool vertical; // @synthesize vertical=_vertical;
@@ -30,12 +33,21 @@
 @property(nonatomic) unsigned long long viewHierarchyIndex; // @synthesize viewHierarchyIndex=_viewHierarchyIndex;
 @property(retain, nonatomic) UIView *motionContentView; // @synthesize motionContentView=_motionContentView;
 @property(retain, nonatomic) UIView *clippingView; // @synthesize clippingView=_clippingView;
+@property(nonatomic) struct CGRect originalFrame; // @synthesize originalFrame=_originalFrame;
 - (void).cxx_destruct;
+- (void)updateEdgeAntialiasingForViewport:(id)arg1;
+- (void)viewport:(id)arg1 appearStateChangedFromState:(unsigned long long)arg2;
 - (void)destroyMotionDetection;
 - (void)setupMotionDetection;
 - (void)destroyWithBehaviorController:(id)arg1;
 - (void)setupWithBehaviorController:(id)arg1;
 - (id)initWithComponentView:(id)arg1 withBehavior:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

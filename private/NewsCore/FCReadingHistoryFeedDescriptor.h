@@ -14,7 +14,7 @@
 - (id)backingHeadlineIDs;
 - (id)name;
 - (id)initWithReadingHistory:(id)arg1 identifier:(id)arg2;
-- (id)initWithPrivateZoneController:(id)arg1 identifier:(id)arg2;
+- (id)initWithPrivateDataController:(id)arg1 identifier:(id)arg2;
 
 @end
 

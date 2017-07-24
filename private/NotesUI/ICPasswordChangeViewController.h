@@ -16,6 +16,7 @@
     _Bool _isSetupForChangePassword;
     _Bool _isInSettings;
     _Bool _isSetupForInitialPassword;
+    _Bool _usingLargerAXSizes;
     ICScrollViewKeyboardResizer *_scrollViewResizer;
     UIScrollView *_scrollView;
     ICPasswordUtilities *_passwordUtilities;
@@ -30,6 +31,7 @@
     UITextField *_verifyTextField;
     UITextField *_hintTextField;
     NSArray *_orderedTextFields;
+    UILabel *_useTouchIDLabel;
     UISwitch *_useTouchIDSwitch;
     UIBarButtonItem *_doneButton;
     UIBarButtonItem *_cancelButton;
@@ -39,8 +41,13 @@
     long long _incorrectPasswordAttempts;
     UIView *_touchIDContainer;
     CDUnknownBlockType _completionHandler;
+    NSArray *_defaultConstraints;
+    NSArray *_alternateConstraintsForAXLargerTextSizes;
 }
 
+@property(retain, nonatomic) NSArray *alternateConstraintsForAXLargerTextSizes; // @synthesize alternateConstraintsForAXLargerTextSizes=_alternateConstraintsForAXLargerTextSizes;
+@property(retain, nonatomic) NSArray *defaultConstraints; // @synthesize defaultConstraints=_defaultConstraints;
+@property(nonatomic) _Bool usingLargerAXSizes; // @synthesize usingLargerAXSizes=_usingLargerAXSizes;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(nonatomic) __weak UIView *touchIDContainer; // @synthesize touchIDContainer=_touchIDContainer;
 @property(nonatomic) long long incorrectPasswordAttempts; // @synthesize incorrectPasswordAttempts=_incorrectPasswordAttempts;
@@ -51,6 +58,7 @@
 @property(nonatomic) __weak UIBarButtonItem *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(nonatomic) __weak UIBarButtonItem *doneButton; // @synthesize doneButton=_doneButton;
 @property(nonatomic) __weak UISwitch *useTouchIDSwitch; // @synthesize useTouchIDSwitch=_useTouchIDSwitch;
+@property(nonatomic) __weak UILabel *useTouchIDLabel; // @synthesize useTouchIDLabel=_useTouchIDLabel;
 @property(retain, nonatomic) NSArray *orderedTextFields; // @synthesize orderedTextFields=_orderedTextFields;
 @property(nonatomic) __weak UITextField *hintTextField; // @synthesize hintTextField=_hintTextField;
 @property(nonatomic) __weak UITextField *verifyTextField; // @synthesize verifyTextField=_verifyTextField;
@@ -69,6 +77,9 @@
 @property(nonatomic) _Bool isSetupForChangePassword; // @synthesize isSetupForChangePassword=_isSetupForChangePassword;
 - (void).cxx_destruct;
 - (void)setupAccessibility;
+- (void)updateFonts;
+- (void)contentSizeCategoryDidChange;
+- (void)traitCollectionDidChange:(id)arg1;
 - (id)keyboardResizerScrollView;
 - (double)topInsetForResizer:(id)arg1;
 - (double)consumedBottomAreaForResizer:(id)arg1;

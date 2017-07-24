@@ -29,12 +29,14 @@
 - (void)addExperimentObserver:(id)arg1 queue:(id)arg2;
 - (id)clientConfigurationValueForKey:(id)arg1;
 - (id)_debugClientConfig;
+- (void)updateURLComponents:(id)arg1 forExperimentType:(long long)arg2 dispatcherRequestType:(int)arg3;
 - (id)experimentURLForURL:(id)arg1 type:(long long)arg2 dispatcherRequestType:(int)arg3;
 - (id)experimentAssignmentForType:(long long)arg1 dispatcherRequestType:(int)arg2;
 - (id)_reportAProblemClientMetadata;
 - (id)_siriClientMetadata;
 - (id)_parsecClientMetadata;
 - (id)_mapsAbClientMetadata;
+- (void)abAssignUUIDWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)refreshDatasetABStatus:(id)arg1;
 - (id)clientConfig;
 - (id)experimentAssignments;

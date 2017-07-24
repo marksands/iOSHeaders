@@ -38,6 +38,7 @@
 @property(readonly, nonatomic) GEOABAssignmentResponse *experimentsInfo;
 - (void)_executeRefreshWithinTime:(double)arg1;
 - (void)_setupRefreshActivity;
+- (void)abAssignUUIDWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)refreshDatasetABStatus:(id)arg1;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;

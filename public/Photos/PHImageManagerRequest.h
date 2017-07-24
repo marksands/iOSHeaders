@@ -20,6 +20,7 @@
     int _requestID;
     int _registrationRefCount;
     NSString *_pathForAdjustmentFile;
+    unsigned long long _phase;
     id <_PLImageLoadingAsset> _asset;
     id _domain;
     CDUnknownBlockType _cancellationHandler;
@@ -55,6 +56,7 @@
 @property(readonly, nonatomic) id domain; // @synthesize domain=_domain;
 @property(readonly, nonatomic) id <_PLImageLoadingAsset> asset; // @synthesize asset=_asset;
 @property(readonly, nonatomic) int requestID; // @synthesize requestID=_requestID;
+@property(nonatomic) unsigned long long phase; // @synthesize phase=_phase;
 - (void).cxx_destruct;
 - (void)clearResultHandler;
 @property(readonly, nonatomic) NSString *pathForAdjustmentFile; // @synthesize pathForAdjustmentFile=_pathForAdjustmentFile;

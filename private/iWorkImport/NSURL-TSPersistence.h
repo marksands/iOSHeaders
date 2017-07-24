@@ -8,15 +8,17 @@
 
 @interface NSURL (TSPersistence)
 - (_Bool)tsp_getIsUbiquitousValue:(_Bool *)arg1 promised:(_Bool)arg2 error:(id *)arg3;
+- (_Bool)tsp_isOnSameVolumeAs:(id)arg1;
+- (id)tsp_reachableFileURLByDeletingUnreachablePathComponents;
 - (_Bool)tsp_isOnAPFSVolume;
 - (_Bool)tsp_isOnForeignVolume;
 - (id)tsp_fileSystemTypeName;
 - (_Bool)tsp_isUbiquitous;
-- (_Bool)tsp_isEqualToURLExceptPrivate:(id)arg1;
 - (id)tsp_URLExceptPrivate;
 - (id)tsp_pathExceptPrivate;
 - (id)tsp_fileIdentifier;
 - (id)tsp_embeddedUTI;
+- (_Bool)tsp_matchesURL:(id)arg1 canCompareFileID:(_Bool)arg2;
 - (_Bool)tsp_matchesURL:(id)arg1;
 - (_Bool)tsp_isIWorkAVAssetURL;
 @end

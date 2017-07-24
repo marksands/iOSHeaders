@@ -47,9 +47,12 @@
 - (_Bool)validateUndo:(id)arg1;
 - (void)undo:(id)arg1;
 - (id)akController;
+- (void)enableLimitedSearch;
 - (_Bool)bookmarksChanged;
 - (void)updateBookmarksInPDFDocument;
+- (id)_bookmarksCatalog;
 - (id)bookmarkedPages;
+- (void)setBookmarked:(_Bool)arg1 atPageIndex:(unsigned long long)arg2;
 - (void)setShowsAnnotations:(_Bool)arg1;
 - (_Bool)showsAnnotations;
 - (id)selectionFromPage:(id)arg1 atCharacterIndex:(unsigned long long)arg2 toPage:(id)arg3 atCharacterIndex:(unsigned long long)arg4;
@@ -67,7 +70,7 @@
 - (void)removePageAtIndex:(unsigned long long)arg1;
 - (void)insertPage:(id)arg1 atIndex:(unsigned long long)arg2;
 - (unsigned long long)indexForPage:(id)arg1;
-- (id)rawPageAtIndex:(unsigned long long)arg1;
+- (id)_rawPageAtIndex:(unsigned long long)arg1;
 - (void)_notifyAKAdaptorPagePlaceholder:(id)arg1 wasReplacedWithPage:(id)arg2 atIndex:(unsigned long long)arg3;
 - (id)pageAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long pageCount;
@@ -125,6 +128,8 @@
 - (void)beginSaveVisualizer;
 - (id)_dataFromXMP:(struct __CFData *)arg1 withRootPath:(id)arg2 keys:(id)arg3;
 - (id)_getNearestOutline:(id)arg1 forDestination:(id)arg2;
+- (_Bool)_verifyAnnotationArray:(id)arg1;
+- (_Bool)_verifyAnnotationDictionary:(id)arg1;
 - (id)_SASLSanitize:(id)arg1;
 - (_Bool)_isNonAsciiSpace:(id)arg1;
 - (_Bool)_isCommonlyMappedToNothing:(id)arg1;

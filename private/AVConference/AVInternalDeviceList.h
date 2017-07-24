@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableArray;
 
@@ -20,9 +20,11 @@ __attribute__((visibility("hidden")))
 + (id)newDeviceList;
 @property(copy, nonatomic) CDUnknownBlockType changeListener;
 - (id)deviceList;
+- (void)notifyDeviceListChanged;
 - (void)dealloc;
 - (void)cleanup;
 - (id)init;
+- (unsigned int)dataSourceControlID;
 
 @end
 

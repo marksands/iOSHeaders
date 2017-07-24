@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_requiresDatabaseMappingEntitlement;
 - (_Bool)_shouldCacheResolvedResults;
 - (void)_enumerateWithXPCConnection:(id)arg1 block:(CDUnknownBlockType)arg2;
-- (int)calculatePriorityForApp:(id)arg1 cloudOwner:(id)arg2 preferredHandler:(id)arg3;
+- (int)calculatePriorityForApp:(id)arg1 cloudOwner:(id)arg2 preferredHandler:(id)arg3 typeIsWildcard:(_Bool)arg4;
 - (void)dealloc;
 - (id)initWithDocumentProxy:(id)arg1 withTypeDeclarer:(_Bool)arg2 style:(unsigned char)arg3 handlerRank:(id)arg4;
 

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class HKQuantity, NSNumber, NSString;
+@class HDActivityCacheHeartRateStatisticsBuilder, HKQuantity, NSNumber, NSString;
 @protocol HDActivityCacheStatisticsBuilderSourceOrderDelegate;
 
 @interface HDActivityCacheStatisticsBuilder : NSObject
@@ -14,7 +14,6 @@
     vector_53e1d725 _workouts;
     vector_81c32433 _standHourSamples;
     vector_6dc0ebed _activationLogSamples;
-    vector_cffd497f _heartRateSamples;
     HKQuantity *_lastActiveEnergyValue;
     HKQuantity *_lastDistanceWalkingValue;
     NSNumber *_lastFlightsClimbedValue;
@@ -30,8 +29,10 @@
     NSString *_loggingName;
     double _intervalDuration;
     id <HDActivityCacheStatisticsBuilderSourceOrderDelegate> _sourceOrderDelegate;
+    HDActivityCacheHeartRateStatisticsBuilder *_heartRateStatisticsBuilder;
 }
 
+@property(retain, nonatomic) HDActivityCacheHeartRateStatisticsBuilder *heartRateStatisticsBuilder; // @synthesize heartRateStatisticsBuilder=_heartRateStatisticsBuilder;
 @property(nonatomic) __weak id <HDActivityCacheStatisticsBuilderSourceOrderDelegate> sourceOrderDelegate; // @synthesize sourceOrderDelegate=_sourceOrderDelegate;
 @property(nonatomic) double intervalDuration; // @synthesize intervalDuration=_intervalDuration;
 - (id).cxx_construct;
@@ -43,7 +44,6 @@
 - (double)_maxTimestampInSourceTotals:(const map_c63dce6d *)arg1;
 - (double)_minTimestampInSourceTotals:(const map_c63dce6d *)arg1;
 - (_Bool)_sourceMapIsEmpty:(const map_c63dce6d *)arg1;
-- (id)heartRateReadings;
 - (id)workoutSamplesWithSourceManager:(id)arg1;
 - (id)createStandStatisticsWithCalendar:(id)arg1;
 - (id)createExerciseStatisticsWithIntervalComponents:(id)arg1 calendar:(id)arg2;
@@ -51,8 +51,6 @@
 - (id)_createStatisticsForType:(id)arg1 withIntervalComponents:(id)arg2 calendar:(id)arg3;
 - (id)createStatisticsCollectionWithType:(id)arg1 intervalComponents:(id)arg2 calendar:(id)arg3;
 - (vector_6dc0ebed)_activeSourceVectorFromActivationLogSamples:(const vector_e4bf223f *)arg1;
-- (void)clearEphemeralDataForTypeCode:(long long)arg1;
-- (void)addHeartRateSamples:(const vector_cffd497f *)arg1;
 - (void)addDeepBreathingSessionDuration:(double)arg1;
 - (void)addWorkoutSample:(struct HDActivityCacheStatisticsBuilderSample)arg1 typeCode:(long long)arg2;
 - (void)addDeviceSamples:(const vector_e4bf223f *)arg1 typeCode:(long long)arg2;
@@ -77,7 +75,7 @@
 - (id)activeEnergyValue;
 - (vector_c1c297d2)_sourceOrderForTypeCode:(long long)arg1;
 - (id)init;
-- (id)initWithTimePeriod:(id)arg1 loggingName:(id)arg2;
+- (id)initWithDateInterval:(id)arg1 loggingName:(id)arg2;
 
 @end
 

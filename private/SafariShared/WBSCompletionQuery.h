@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <SafariShared/NSCopying-Protocol.h>
+
 @class NSArray, NSString, NSURLRequest;
 
-@interface WBSCompletionQuery : NSObject
+@interface WBSCompletionQuery : NSObject <NSCopying>
 {
     NSString *_normalizedQueryStringForParsec;
     _Bool _forLastSearch;
@@ -35,7 +37,7 @@
 @property(copy, nonatomic) NSURLRequest *parsecSearchRequest; // @synthesize parsecSearchRequest=_parsecSearchRequest;
 @property(copy, nonatomic) NSString *parsecFeedbackQueryIdentifier; // @synthesize parsecFeedbackQueryIdentifier=_parsecFeedbackQueryIdentifier;
 @property(nonatomic) unsigned long long triggerEvent; // @synthesize triggerEvent=_triggerEvent;
-@property(nonatomic) long long queryID; // @synthesize queryID=_queryID;
+@property(readonly, nonatomic) long long queryID; // @synthesize queryID=_queryID;
 @property(copy, nonatomic) NSString *rewrittenQueryStringFromParsec; // @synthesize rewrittenQueryStringFromParsec=_rewrittenQueryStringFromParsec;
 @property(copy) NSArray *querySuggestions; // @synthesize querySuggestions=_querySuggestions;
 @property(nonatomic, getter=isForLastSearch) _Bool forLastSearch; // @synthesize forLastSearch=_forLastSearch;
@@ -44,7 +46,11 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *normalizedQueryStringForParsec;
 - (id)description;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithQueryString:(id)arg1 queryID:(long long)arg2;
 - (id)initWithQueryString:(id)arg1;
+- (id)_initWithQueryString:(id)arg1 queryID:(long long)arg2 timestamp:(time_point_e708cccf)arg3 indexInFeedbackArray:(unsigned long long)arg4 triggerEvent:(unsigned long long)arg5;
+- (id)init;
 
 @end
 

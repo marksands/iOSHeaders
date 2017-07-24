@@ -10,8 +10,13 @@
 
 @interface NPKProtoSecureElementGetPairingInfoRequest : PBRequest <NSCopying>
 {
+    _Bool _setAuthRandomIfNotPaired;
+    struct {
+        unsigned int setAuthRandomIfNotPaired:1;
+    } _has;
 }
 
+@property(nonatomic) _Bool setAuthRandomIfNotPaired; // @synthesize setAuthRandomIfNotPaired=_setAuthRandomIfNotPaired;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -21,6 +26,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSetAuthRandomIfNotPaired;
 
 @end
 

@@ -59,6 +59,7 @@
 - (void)trackingManager:(id)arg1 trackingFeatureLocationDidChange:(id)arg2 appliedOrientation:(id)arg3;
 - (void)trackingManager:(id)arg1 didFinishTrackingFeature:(id)arg2 appliedOrientation:(id)arg3;
 - (void)trackingManager:(id)arg1 didBeginTrackingFeature:(id)arg2 appliedOrientation:(id)arg3;
+@property(readonly, nonatomic) NSArray *trackedModelClassifiers;
 @property(readonly, nonatomic) NSArray *trackedRectangles;
 @property(readonly, nonatomic) NSArray *trackedText;
 @property(readonly, nonatomic) NSArray *trackedFaces;
@@ -72,6 +73,7 @@
 - (void)axmAppendRecursiveDescription:(id)arg1 withIndentation:(long long)arg2;
 - (id)axmDescription;
 - (void)purgeResources:(CDUnknownBlockType)arg1;
+- (void)prewarmEngine;
 - (void)updateEngineConfiguration:(CDUnknownBlockType)arg1;
 - (void)disableResultCaching;
 - (void)enableResultCachingWithCacheSize:(long long)arg1;
@@ -110,6 +112,8 @@
 @property(readonly, nonatomic) NSArray *sourceNodes;
 - (void)_queue_handleEvaluatedContext:(id)arg1 result:(id)arg2 error:(id)arg3;
 - (void)_queue_evaluateWithSource:(id)arg1 context:(id)arg2;
+- (_Bool)_queue_activeEvaluationNodesExclusivelyUseVisionFramework:(id)arg1;
+- (void)_queue_logEvaluatedResult:(id)arg1;
 - (id)_queue_activeEvaluationNodesForOptions:(id)arg1 applyPriorityScheduling:(_Bool)arg2;
 - (_Bool)_queue_shouldEvaluateNode:(id)arg1 withOptions:(id)arg2;
 - (void)_queue_remotelyEvaluateWithSource:(id)arg1 context:(id)arg2;

@@ -17,6 +17,7 @@
 - (void).cxx_destruct;
 - (void)_connectIfNecessary;
 - (void)_disconnect;
+- (void)removeSectionID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)overriddenSettingsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)originalSettingsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)settingOverridesWithCompletion:(CDUnknownBlockType)arg1;

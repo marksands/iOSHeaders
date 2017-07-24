@@ -12,17 +12,17 @@
 
 @interface DOCThumbnailIconKey : NSObject <NSCopying>
 {
-    _Bool _downloaded;
+    _Bool _folded;
     NSString *_type;
 }
 
-@property(readonly, nonatomic) _Bool downloaded; // @synthesize downloaded=_downloaded;
+@property(readonly, nonatomic) _Bool folded; // @synthesize folded=_folded;
 @property(readonly, nonatomic) NSString *type; // @synthesize type=_type;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)initWithType:(id)arg1 downloaded:(_Bool)arg2;
+- (id)initWithType:(id)arg1 folded:(_Bool)arg2;
 
 @end
 

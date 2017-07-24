@@ -23,7 +23,6 @@
         _Bool videoPlayersLoadingAllowed;
     } _isValid;
     _Bool _isUserTransformingTile;
-    _Bool _isInFocus;
     _Bool _forceBadgesVisible;
     _Bool _isUpdatingDisplayedContent;
     _Bool _isFavorite;
@@ -76,7 +75,6 @@
 @property(copy, nonatomic) PUOperationStatus *loadingStatus; // @synthesize loadingStatus=_loadingStatus;
 @property(nonatomic) _Bool forceBadgesVisible; // @synthesize forceBadgesVisible=_forceBadgesVisible;
 @property(nonatomic) double focusValue; // @synthesize focusValue=_focusValue;
-@property(nonatomic, setter=setInFocus:) _Bool isInFocus; // @synthesize isInFocus=_isInFocus;
 @property(nonatomic, setter=setUserTransformingTile:) _Bool isUserTransformingTile; // @synthesize isUserTransformingTile=_isUserTransformingTile;
 @property(copy, nonatomic) PUModelTileTransform *modelTileTransform; // @synthesize modelTileTransform=_modelTileTransform;
 @property(retain, nonatomic) id <PUDisplayAsset> asset; // @synthesize asset=_asset;

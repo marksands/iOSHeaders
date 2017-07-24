@@ -6,7 +6,7 @@
 
 #import <AppleAccountUI/NSObject-Protocol.h>
 
-@class AAUIServerHookResponse, NSDictionary, RUIElement, RUIObjectModel;
+@class AAUIServerHookResponse, NSDictionary, NSHTTPURLResponse, RUIElement, RUIObjectModel;
 @protocol AAUIServerHookDelegate;
 
 @protocol AAUIServerHook <NSObject>
@@ -18,5 +18,6 @@
 
 @optional
 @property(retain, nonatomic) AAUIServerHookResponse *serverHookResponse;
+- (void)harvestDataFromResponse:(NSHTTPURLResponse *)arg1;
 @end
 

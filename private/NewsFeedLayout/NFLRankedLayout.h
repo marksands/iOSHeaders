@@ -8,12 +8,12 @@
 
 #import <NewsFeedLayout/NSCopying-Protocol.h>
 
-@class NFLLayoutData, NSMutableDictionary;
+@class NFLFeedCollectionViewLayoutAttributes, NSMutableDictionary;
 
 @interface NFLRankedLayout : NSObject <NSCopying>
 {
     _Bool _vetoed;
-    NFLLayoutData *_layoutData;
+    NFLFeedCollectionViewLayoutAttributes *_layoutAttributes;
     double _rank;
     NSMutableDictionary *_ranks;
 }
@@ -21,7 +21,7 @@
 @property(copy, nonatomic) NSMutableDictionary *ranks; // @synthesize ranks=_ranks;
 @property(nonatomic) _Bool vetoed; // @synthesize vetoed=_vetoed;
 @property(nonatomic) double rank; // @synthesize rank=_rank;
-@property(retain, nonatomic) NFLLayoutData *layoutData; // @synthesize layoutData=_layoutData;
+@property(retain, nonatomic) NFLFeedCollectionViewLayoutAttributes *layoutAttributes; // @synthesize layoutAttributes=_layoutAttributes;
 - (void).cxx_destruct;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class TimingCollection, VCConnectionManager;
 @protocol OS_dispatch_queue;
@@ -34,8 +34,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) VCConnectionManager *connectionManager; // @synthesize connectionManager=_connectionManager;
 @property(copy, nonatomic) CDUnknownBlockType eventHandler; // @synthesize eventHandler=_eventHandler;
 - (void)reportNetworkConditionsDegraded;
-- (void)handleMediaReceivedOverPeerToPeerLink;
-- (void)handleMediaReceivedOverRelayLink;
+- (void)handleMediaReceivedOverPeerToPeerLinkWithConnectionId:(int)arg1;
+- (void)handleMediaReceivedOverRelayLinkWithConnectionId:(int)arg1;
 - (_Bool)getConnectionSetupData:(id *)arg1 withOptions:(id)arg2 error:(id *)arg3;
 @property(readonly, nonatomic) unsigned int connectionSetupRTTEstimate;
 @property(readonly, nonatomic) _Bool isRemoteOSPreLion;

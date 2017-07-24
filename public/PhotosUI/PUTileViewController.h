@@ -44,6 +44,7 @@
 - (void)_updateVisibleRectView;
 - (void)_invalidateTintView;
 - (void)_updateTintView;
+- (void)_updateDynamicStateDebugging;
 - (void)didChangeVisibleRect;
 - (_Bool)wantsVisibleRectChanges;
 - (struct CGRect)visibleRect;

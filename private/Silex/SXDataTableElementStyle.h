@@ -10,5 +10,7 @@
 {
 }
 
+- (id)valueForLookupKey:(id)arg1;
+
 @end
 

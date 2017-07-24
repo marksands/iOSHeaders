@@ -9,7 +9,7 @@
 #import <InstallCoordination/NSCopying-Protocol.h>
 #import <InstallCoordination/NSSecureCoding-Protocol.h>
 
-@class NSDictionary, NSString;
+@class NSArray, NSDictionary, NSString;
 
 @interface IXPlaceholderAttributes : NSObject <NSSecureCoding, NSCopying>
 {
@@ -18,9 +18,11 @@
     NSDictionary *_extensionDictionary;
     NSString *_minimumOSVersion;
     NSDictionary *_requiredDeviceCapabilities;
+    NSArray *_sbAppTags;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSArray *sbAppTags; // @synthesize sbAppTags=_sbAppTags;
 @property(copy, nonatomic) NSDictionary *requiredDeviceCapabilities; // @synthesize requiredDeviceCapabilities=_requiredDeviceCapabilities;
 @property(copy, nonatomic) NSString *minimumOSVersion; // @synthesize minimumOSVersion=_minimumOSVersion;
 @property(copy, nonatomic) NSDictionary *extensionDictionary; // @synthesize extensionDictionary=_extensionDictionary;

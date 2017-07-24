@@ -14,6 +14,7 @@
 {
     _Bool _localDevice;
     NSString *_networkUsageLabel;
+    long long _deviceType;
     NSString *_subscriptionStatus;
     NSString *_planType;
     NSDate *_billingCycleEndDate;
@@ -26,6 +27,7 @@
 @property(retain, nonatomic) NSString *planType; // @synthesize planType=_planType;
 @property(retain, nonatomic) NSString *subscriptionStatus; // @synthesize subscriptionStatus=_subscriptionStatus;
 @property(nonatomic) _Bool localDevice; // @synthesize localDevice=_localDevice;
+@property(nonatomic) long long deviceType; // @synthesize deviceType=_deviceType;
 @property(retain, nonatomic) NSString *networkUsageLabel; // @synthesize networkUsageLabel=_networkUsageLabel;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;

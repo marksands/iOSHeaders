@@ -12,7 +12,7 @@
 #import <HealthDaemon/_HKAchievementPredicateWorkoutsEnvironmentDataSource-Protocol.h>
 #import <HealthDaemon/_HKActivitySummaryHistoryEnvironmentDataSource-Protocol.h>
 
-@class HDAchievementDataStoreV2, HDAchievementEngineV2, HDProfile, HKActivitySummary, HKQuantity, NSArray, NSCalendar, NSDate, NSMutableArray, NSString, _HKAchievementPredicateEnvironment;
+@class HDAchievementDataStoreV2, HDAchievementEngineV2, HDProfile, HKActivitySummary, HKQuantity, NSArray, NSCalendar, NSDate, NSMutableArray, NSMutableDictionary, NSString, _HKAchievementPredicateEnvironment;
 @protocol HDDailyActivityGoalDetectionDelegate, OS_dispatch_queue;
 
 @interface HDAchievementDetective : NSObject <_HKActivitySummaryHistoryEnvironmentDataSource, _HKAchievementPredicateWorkoutsEnvironmentDataSource, HDAchievementEngineDataProviding, HDCurrentActivitySummaryHelperObserver, HDAchievementEvaluationDelegate>
@@ -49,6 +49,7 @@
     HKActivitySummary *_todayActivitySummary;
     HKActivitySummary *_yesterdayActivitySummary;
     NSMutableArray *_workouts;
+    NSMutableDictionary *_workoutsByType;
     HKActivitySummary *_observedTodayActivitySummary;
     HKActivitySummary *_observedYesterdayActivitySummary;
     CDUnknownBlockType _commitHandler;
@@ -64,6 +65,7 @@
 @property(copy, nonatomic) CDUnknownBlockType commitHandler; // @synthesize commitHandler=_commitHandler;
 @property(retain, nonatomic) HKActivitySummary *observedYesterdayActivitySummary; // @synthesize observedYesterdayActivitySummary=_observedYesterdayActivitySummary;
 @property(retain, nonatomic) HKActivitySummary *observedTodayActivitySummary; // @synthesize observedTodayActivitySummary=_observedTodayActivitySummary;
+@property(retain, nonatomic) NSMutableDictionary *workoutsByType; // @synthesize workoutsByType=_workoutsByType;
 @property(retain, nonatomic) NSMutableArray *workouts; // @synthesize workouts=_workouts;
 @property(retain, nonatomic) HKActivitySummary *yesterdayActivitySummary; // @synthesize yesterdayActivitySummary=_yesterdayActivitySummary;
 @property(retain, nonatomic) HKActivitySummary *todayActivitySummary; // @synthesize todayActivitySummary=_todayActivitySummary;
@@ -98,7 +100,7 @@
 - (void).cxx_destruct;
 - (id)createEvaluatedAchievementWithDefinition:(id)arg1;
 - (id)evaluateAchievementExpression:(id)arg1;
-- (_Bool)_updateEnvironmentForProgress;
+- (_Bool)updateEnvironmentForProgress;
 - (void)currentDynamicAchievementsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_injectNow:(id)arg1;
 - (void)_clearInjectedUnitTestingDependencies;
@@ -150,6 +152,7 @@
 - (void)_addWorkout:(id)arg1;
 - (void)_companion_runForWorkouts:(id)arg1 engine:(id)arg2 environment:(id)arg3;
 - (void)_gizmo_runForWorkoutsWithEngine:(id)arg1 environment:(id)arg2;
+- (void)_detectAchievementsWithEngine:(id)arg1 triggers:(unsigned long long)arg2 environment:(id)arg3;
 - (id)_runAchievementEngine:(id)arg1 withPredicateEnvironment:(id)arg2 dataStore:(id)arg3 todayActivitySummary:(id)arg4 yesterdayActivitySummary:(id)arg5 currentDate:(id)arg6 addedWorkouts:(id)arg7;
 - (id)_runQueue_detectAchievementsForActivitySummaries:(id)arg1 workouts:(id)arg2;
 - (id)_runQueue_detectAchievementsForTodayOnlyWithActivitySummaries:(id)arg1 workouts:(id)arg2;

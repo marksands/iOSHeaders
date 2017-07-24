@@ -6,11 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <ProactiveML/PMLEvaluationTrackerProtocol-Protocol.h>
 #import <ProactiveML/PMLLogRegTrackerProtocol-Protocol.h>
+#import <ProactiveML/PMLMultiLabelEvaluationTrackerProtocol-Protocol.h>
 
 @class NSString;
 
-@interface PMLFidesTracker : NSObject <PMLLogRegTrackerProtocol>
+@interface PMLFidesTracker : NSObject <PMLLogRegTrackerProtocol, PMLEvaluationTrackerProtocol, PMLMultiLabelEvaluationTrackerProtocol>
 {
     struct NSString *_planId;
 }
@@ -18,8 +20,11 @@
 - (void).cxx_destruct;
 - (id)initWithPlist:(id)arg1 chunks:(id)arg2 context:(id)arg3;
 - (id)toPlistWithChunks:(id)arg1;
-- (id)trackGradient:(id)arg1 minibatchStats:(id)arg2 evaluationMetrics:(id)arg3 serverIteration:(unsigned long long)arg4;
-- (id)trackWeights:(id)arg1 minibatchStats:(id)arg2 evaluationMetrics:(id)arg3;
+- (id)trackPrecisionAtK:(id)arg1 minibatchStats:(id)arg2;
+- (id)trackPrecisionAtK:(id)arg1;
+- (id)trackEvaluationMetrics:(id)arg1 minibatchStats:(id)arg2;
+- (id)trackGradient:(id)arg1 scaleFactor:(float)arg2 l2norm:(float)arg3 minibatchStats:(id)arg4 evaluationMetrics:(id)arg5 serverIteration:(unsigned long long)arg6;
+- (id)trackWeights:(id)arg1 scaleFactor:(float)arg2 l2norm:(float)arg3 minibatchStats:(id)arg4 evaluationMetrics:(id)arg5;
 - (id)initWithPlanId:(struct NSString *)arg1;
 - (id)init;
 

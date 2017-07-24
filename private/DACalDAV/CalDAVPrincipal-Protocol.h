@@ -46,7 +46,7 @@
 @property(retain, nonatomic) NSString *calendarHomeSyncToken;
 @property(retain, nonatomic) NSURL *calendarHomeURL;
 @property(retain, nonatomic) NSString *fullName;
-@property(retain, nonatomic) NSSet *calendarUserAddresses;
+@property(retain, nonatomic) NSSet *preferredCalendarUserAddresses;
 @property(readonly, nonatomic) id <CoreDAVTaskManager> taskManager;
 @property(readonly, nonatomic) id <CalDAVAccount> account;
 @property(readonly, nonatomic) NSString *uid;

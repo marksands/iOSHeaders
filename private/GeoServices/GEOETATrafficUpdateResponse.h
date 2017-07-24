@@ -16,6 +16,7 @@
     NSMutableArray *_cameras;
     GEOPDDatasetABStatus *_datasetAbStatus;
     GEOETAServiceResponseSummary *_etaServiceSummary;
+    NSData *_responseId;
     NSMutableArray *_routes;
     NSData *_sessionState;
     int _status;
@@ -24,6 +25,7 @@
 
 + (Class)cameraType;
 + (Class)routeType;
+@property(retain, nonatomic) NSData *responseId; // @synthesize responseId=_responseId;
 @property(retain, nonatomic) NSMutableArray *cameras; // @synthesize cameras=_cameras;
 @property(retain, nonatomic) GEOPDDatasetABStatus *datasetAbStatus; // @synthesize datasetAbStatus=_datasetAbStatus;
 @property(retain, nonatomic) NSData *sessionState; // @synthesize sessionState=_sessionState;
@@ -38,6 +40,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasResponseId;
 - (id)cameraAtIndex:(unsigned long long)arg1;
 - (unsigned long long)camerasCount;
 - (void)addCamera:(id)arg1;

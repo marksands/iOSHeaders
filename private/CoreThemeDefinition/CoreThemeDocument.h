@@ -68,10 +68,10 @@
 - (void)_automaticSRGBGenerationFromP3;
 - (_Bool)_matchesAllExceptGamut:(id)arg1 andKeySpec:(id)arg2;
 - (void)_optimizeForDeviceTraits;
-- (void)incrementallyPackRenditionsSinceDate:(id)arg1;
-- (void)packRenditions;
+- (void)incrementallyPackRenditionsSinceDate:(id)arg1 error:(id *)arg2;
+- (void)packRenditionsError:(id *)arg1;
 - (void)_groupPackableRenditions;
-- (void)_updateRenditionPackings:(id)arg1;
+- (_Bool)_updateRenditionPackings:(id)arg1 error:(id *)arg2;
 - (void)_insertRendition:(id)arg1 forKey:(id)arg2;
 - (void)_delete:(id)arg1 withRendition:(id)arg2;
 - (void)_removeRedundantPDFBasedRenditions:(id)arg1;
@@ -152,6 +152,7 @@
 - (id)_addAssetsFromCustomAssetInfos:(id)arg1 bitSource:(id)arg2 error:(id *)arg3;
 - (void)deleteNamedAssets:(id)arg1 shouldDeleteAssetFiles:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)importNamedAssetsWithImportInfos:(id)arg1 referenceFiles:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (_Bool)canImportNamedAssetImportInfo:(id)arg1;
 - (void)importNamedAssetsFromFileURLs:(id)arg1 referenceFiles:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_backwardsCompatibilityPatchForLayoutDirection;
 - (void)_tidyUpLayerStacks;

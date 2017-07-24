@@ -11,14 +11,18 @@
 #import <NewsUI/SXAdControllerDelegate-Protocol.h>
 
 @class FCArticle, NSString;
-@protocol NUAdProvider;
+@protocol NUAdProvider, NUAdSettings, NUDevice;
 
 @interface NUArticleAdManager : NSObject <NUAdContextProvider, SXAdControllerDelegate, SXAdControllerDataSource>
 {
     FCArticle *_article;
     id <NUAdProvider> _adProvider;
+    id <NUAdSettings> _settings;
+    id <NUDevice> _device;
 }
 
+@property(readonly, nonatomic) id <NUDevice> device; // @synthesize device=_device;
+@property(readonly, nonatomic) id <NUAdSettings> settings; // @synthesize settings=_settings;
 @property(readonly, nonatomic) id <NUAdProvider> adProvider; // @synthesize adProvider=_adProvider;
 @property(readonly, nonatomic) FCArticle *article; // @synthesize article=_article;
 - (void).cxx_destruct;
@@ -28,7 +32,7 @@
 - (void)adController:(id)arg1 componentWithIdentifier:(id)arg2 failedToLoadBannerView:(id)arg3 error:(id)arg4;
 - (void)adController:(id)arg1 componentWithIdentifier:(id)arg2 didLoadBannerView:(id)arg3;
 - (CDUnknownBlockType)adController:(id)arg1 requiresAdForRequest:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (id)initWithArticle:(id)arg1 adProvider:(id)arg2;
+- (id)initWithArticle:(id)arg1 adProvider:(id)arg2 settings:(id)arg3 device:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -10,6 +10,8 @@
 
 @protocol _SFPBFlightLeg <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasBaggageClaim;
+@property(copy, nonatomic) NSString *baggageClaim;
 @property(readonly, nonatomic) _Bool hasTitle;
 @property(copy, nonatomic) NSString *title;
 @property(readonly, nonatomic) _Bool hasDivertedAirport;

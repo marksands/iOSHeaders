@@ -29,12 +29,12 @@
 - (void)_resourcesWithPredicate:(id)arg1 limit:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)_predicatesForNonThumbnails;
 - (id)_predicateForKeyFacePrefetching;
-- (id)_predicatesForMemoriesPrefetching;
+- (id)_predicateToPrefetchMemories:(id)arg1;
+- (id)_resourcesToPrefetchForAsset:(id)arg1;
+- (id)_prefetchResourceForAsset:(id)arg1 inResourceTypes:(id)arg2;
 - (id)_predicatesForThumbnails;
+- (_Bool)_shouldPrefetchMediums;
 - (id)_lastCompletePrefetchDate;
-- (id)_resourcePredicatesToPrefetchForMemory:(id)arg1;
-- (id)_memoriesToPrefetch;
-- (_Bool)_shouldPrefetchMemoryMovieCuratedAssets;
 - (id)_predicateForMaxFilesize:(long long)arg1;
 - (id)_predicateForResourceCreatedAfterDate:(id)arg1;
 - (id)_predicateForImageResourcePixelsLessOrEqual:(long long)arg1;

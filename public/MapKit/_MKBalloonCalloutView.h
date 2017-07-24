@@ -10,7 +10,7 @@
 
 @interface _MKBalloonCalloutView : UIView
 {
-    UIImageView *_shadowView;
+    UIView *_shadowView;
     UIView *_containerView;
     UIColor *_balloonTintColor;
     UIColor *_strokeColor;
@@ -22,6 +22,7 @@
     UIView *_innerBackgroundView;
     UIImageView *_imageView;
     struct CGSize _intrinsicSize;
+    struct CGSize _shadowSize;
     _Bool _originatesAsSmallBalloon;
     double _croppedImageScale;
     UIImageView *_contentViewMaskView;

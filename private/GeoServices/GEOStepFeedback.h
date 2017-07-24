@@ -8,29 +8,28 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSData, NSMutableArray;
+@class NSData;
 
 @interface GEOStepFeedback : PBCodable <NSCopying>
 {
     double _completionTimeStamp;
-    NSMutableArray *_guidanceFeedbacks;
-    NSMutableArray *_instructionErrors;
     NSData *_routeID;
     unsigned int _routeIndex;
     unsigned int _stepID;
+    NSData *_tripID;
     _Bool _completedStep;
+    _Bool _lightGuidance;
     struct {
         unsigned int completionTimeStamp:1;
         unsigned int routeIndex:1;
         unsigned int stepID:1;
         unsigned int completedStep:1;
+        unsigned int lightGuidance:1;
     } _has;
 }
 
-+ (Class)guidanceFeedbackType;
-+ (Class)instructionErrorType;
-@property(retain, nonatomic) NSMutableArray *guidanceFeedbacks; // @synthesize guidanceFeedbacks=_guidanceFeedbacks;
-@property(retain, nonatomic) NSMutableArray *instructionErrors; // @synthesize instructionErrors=_instructionErrors;
+@property(retain, nonatomic) NSData *tripID; // @synthesize tripID=_tripID;
+@property(nonatomic) _Bool lightGuidance; // @synthesize lightGuidance=_lightGuidance;
 @property(nonatomic) unsigned int routeIndex; // @synthesize routeIndex=_routeIndex;
 @property(retain, nonatomic) NSData *routeID; // @synthesize routeID=_routeID;
 @property(nonatomic) _Bool completedStep; // @synthesize completedStep=_completedStep;
@@ -46,14 +45,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)guidanceFeedbackAtIndex:(unsigned long long)arg1;
-- (unsigned long long)guidanceFeedbacksCount;
-- (void)addGuidanceFeedback:(id)arg1;
-- (void)clearGuidanceFeedbacks;
-- (id)instructionErrorAtIndex:(unsigned long long)arg1;
-- (unsigned long long)instructionErrorsCount;
-- (void)addInstructionError:(id)arg1;
-- (void)clearInstructionErrors;
+@property(readonly, nonatomic) _Bool hasTripID;
+@property(nonatomic) _Bool hasLightGuidance;
 @property(nonatomic) _Bool hasRouteIndex;
 @property(readonly, nonatomic) _Bool hasRouteID;
 @property(nonatomic) _Bool hasCompletedStep;

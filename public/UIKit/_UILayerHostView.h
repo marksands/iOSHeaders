@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, retain, nonatomic) CALayerHost *layerHost;
 @property(nonatomic) _Bool inheritsSecurity;
 @property(nonatomic) unsigned int contextID;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

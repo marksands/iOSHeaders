@@ -46,13 +46,6 @@ struct _NSRange {
     unsigned long long length;
 };
 
-struct _PDFMargins {
-    double _field1;
-    double _field2;
-    double _field3;
-    double _field4;
-};
-
 struct _opaque_pthread_t {
     long long _field1;
     struct __darwin_pthread_handler_rec *_field2;

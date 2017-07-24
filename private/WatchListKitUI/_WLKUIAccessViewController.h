@@ -6,12 +6,12 @@
 
 #import <UIKit/UIViewController.h>
 
-@class NSArray, NSDictionary, WLKSpinnerView, WLKUIAccessView_iOS;
+@class NSArray, NSDictionary, WLKUIAccessView_iOS, WLKUISpinnerView;
 
 @interface _WLKUIAccessViewController : UIViewController
 {
     WLKUIAccessView_iOS *_accessView;
-    WLKSpinnerView *_loadingView;
+    WLKUISpinnerView *_loadingView;
     NSArray *_bundleIDs;
     NSDictionary *_options;
     _Bool _hasCalledCompletion;

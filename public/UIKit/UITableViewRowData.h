@@ -57,7 +57,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double minimumRowHeight; // @synthesize minimumRowHeight=_minimumRowHeight;
 - (void).cxx_destruct;
 - (long long)sectionForSectionRowData:(id)arg1;
-- (_Bool)ensureHeightsFaultedInForIndexPath:(id)arg1 availHeight:(double)arg2 edgeInset:(struct UIEdgeInsets)arg3 scrollPosition:(long long)arg4;
+- (_Bool)ensureHeightsFaultedInForScrollToIndexPath:(id)arg1 withScrollPosition:(long long)arg2 boundsHeight:(double)arg3;
 - (void)_assertValidIndexPath:(id)arg1 allowEmptySection:(_Bool)arg2;
 - (id)_previousIndexPathOrSectionHeader:(id)arg1;
 - (id)_nextIndexPathOrSectionHeader:(id)arg1;

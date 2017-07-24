@@ -37,6 +37,7 @@
 - (void)updateTableView;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidLoad;
+- (void)loadView;
 - (id)init;
 
 // Remaining properties

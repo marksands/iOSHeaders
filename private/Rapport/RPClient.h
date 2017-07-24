@@ -6,11 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSXPCConnection;
+@class NSMutableSet, NSXPCConnection;
 @protocol OS_dispatch_queue;
 
 @interface RPClient : NSObject
 {
+    NSMutableSet *_assertions;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
@@ -26,6 +27,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
 - (void)diagnosticShow:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)activateAssertionWithIdentifier:(id)arg1;
 - (void)_invalidated;
 - (void)invalidate;
 - (void)_interrupted;

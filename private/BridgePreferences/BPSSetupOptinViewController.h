@@ -48,6 +48,7 @@
 - (void)viewDidLayoutSubviews;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
+- (double)alternateButtonDetailTextPaddingWithImage;
 - (double)okayButtonTopPadding;
 - (double)imageDetailPadding;
 - (double)sidePadding;

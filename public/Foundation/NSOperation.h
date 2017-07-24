@@ -17,8 +17,11 @@
 
 + (id)currentOperation;
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
+- (id)__graphDescription:(unsigned long long)arg1;
+- (id)debugDescription;
+- (void)removeObserver:(id)arg1 forKeyPath:(id)arg2;
+- (void)addObserver:(id)arg1 forKeyPath:(id)arg2 options:(unsigned long long)arg3 context:(void *)arg4;
 - (id)_activity;
-- (id)__;
 - (id)description;
 - (void)start;
 - (void)main;
@@ -45,7 +48,6 @@
 - (void)setObservationInfo:(void *)arg1;
 - (void *)observationInfo;
 - (id)_implicitObservationInfo;
-- (long long)_effQoS;
 
 @end
 

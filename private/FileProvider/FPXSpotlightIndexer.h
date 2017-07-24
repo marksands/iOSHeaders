@@ -42,7 +42,6 @@ __attribute__((visibility("hidden")))
 - (void)markInitialIndexingDoneIfNeeded;
 - (_Bool)_isInInitialIndexing;
 - (_Bool)shouldSwizzleLastUsedDate;
-- (void)indexItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_dropIndexWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)dropIndexWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)invalidate;

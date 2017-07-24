@@ -12,8 +12,10 @@
 - (id)ipsos_betterDescription;
 @property unsigned long long ipsos_eventAttributes;
 @property unsigned long long ipsos_eventStatus;
+@property double ipsos_experimentalConfidence;
 @property double ipsos_confidence;
 @property(readonly) double ipsos_duration;
+@property unsigned long long ipsos_usedBubblesCount;
 @property _Bool ipsos_disableTimeAdjustment;
 @property _Bool ipsos_allDayPreferred;
 @property(retain) IPMessageUnit *ipsos_messageUnit;

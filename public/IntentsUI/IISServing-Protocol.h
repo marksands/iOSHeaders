@@ -7,6 +7,6 @@
 @class INImage;
 
 @protocol IISServing
-- (void)fetchSizeForINImage:(INImage *)arg1 reply:(void (^)(struct, NSError *))arg2;
+- (void)loadImageDataAndSizeForImage:(INImage *)arg1 reply:(void (^)(INImage *, NSError *))arg2;
 @end
 

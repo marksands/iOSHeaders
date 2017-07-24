@@ -156,7 +156,6 @@
 - (void)_updateColors;
 - (void)setAllDayDrawingStyle:(_Bool)arg1 animated:(_Bool)arg2;
 - (_Bool)hasIcon;
-@property(nonatomic, getter=isFacebook) _Bool facebook;
 @property(nonatomic, getter=isBirthday) _Bool birthday;
 @property(nonatomic, getter=isCancelled) _Bool cancelled;
 - (void)_invalidateContentBounds;

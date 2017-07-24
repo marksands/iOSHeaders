@@ -19,6 +19,7 @@
 }
 
 - (void).cxx_destruct;
+- (long long)navigationItemLargeTitleDisplayMode;
 - (void)statusBarWillAnimateByHeight:(double)arg1;
 - (_Bool)canBeShownFromSuspendedState;
 - (void)formSheetViewDidDisappear;
@@ -45,6 +46,7 @@
 - (void)setRootController:(id)arg1;
 - (id)parentController;
 - (void)setParentController:(id)arg1;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

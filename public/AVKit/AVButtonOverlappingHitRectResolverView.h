@@ -11,6 +11,7 @@
 }
 
 + (void)_collectAVButtonsInSubviewsOfView:(id)arg1 buttons:(id)arg2;
+- (void)_visualizeHitView:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 
 @end

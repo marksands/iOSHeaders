@@ -9,26 +9,35 @@
 #import <CoreSpeech/CSAudioConverterDelegate-Protocol.h>
 #import <CoreSpeech/CSSpeechManagerDelegate-Protocol.h>
 
-@class CSAudioConverter, CSEndpointerProxy, CSSpeechManager, NSDictionary, NSString;
+@class CSAudioConverter, CSAudioFileWriter, CSAudioSampleRateConverter, CSEndpointerProxy, CSSpeechManager, NSDictionary, NSString;
 @protocol CSEndpointAnalyzer, CSSpeechControllerDelegate, OS_dispatch_queue;
 
 @interface CSSpeechController : NSObject <CSSpeechManagerDelegate, CSAudioConverterDelegate>
 {
     NSObject<OS_dispatch_queue> *_queue;
+    CSAudioConverter *_opusAudioConverter;
+    CSAudioConverter *_narrowBandOpusConverter;
     CSAudioConverter *_audioConverter;
+    CSAudioSampleRateConverter *_downsampler;
     NSDictionary *_requestedRecordSettings;
     NSDictionary *_lastVoiceTriggerInfo;
     _Bool _isOpus;
     _Bool _isActivated;
+    _Bool _isNarrowBand;
+    _Bool _twoShotNotificationEnabled;
     id <CSSpeechControllerDelegate> _delegate;
     CSEndpointerProxy *_endpointerProxy;
     CSSpeechManager *_speechManager;
     NSDictionary *_avvcContext;
+    CSAudioFileWriter *_audioFileWriter;
     unsigned long long _activeChannel;
 }
 
 + (id)sharedController;
+@property(nonatomic) _Bool twoShotNotificationEnabled; // @synthesize twoShotNotificationEnabled=_twoShotNotificationEnabled;
 @property(nonatomic) unsigned long long activeChannel; // @synthesize activeChannel=_activeChannel;
+@property(retain, nonatomic) CSAudioFileWriter *audioFileWriter; // @synthesize audioFileWriter=_audioFileWriter;
+@property(nonatomic) _Bool isNarrowBand; // @synthesize isNarrowBand=_isNarrowBand;
 @property(nonatomic) _Bool isActivated; // @synthesize isActivated=_isActivated;
 @property(nonatomic) _Bool isOpus; // @synthesize isOpus=_isOpus;
 @property(retain, nonatomic) NSDictionary *avvcContext; // @synthesize avvcContext=_avvcContext;
@@ -66,6 +75,11 @@
 - (_Bool)setAlertSoundFromURL:(id)arg1 forType:(long long)arg2;
 - (void)audioConverterDidConvertPackets:(id)arg1 packets:(id)arg2 timestamp:(unsigned long long)arg3;
 - (void)_setupAudioConverter:(_Bool)arg1;
+- (void)_setupDownsamplerIfNeeded;
+- (void)speechManagerEndRecordInterruption:(id)arg1;
+- (void)speechManagerBeginRecordInterruption:(id)arg1 withContext:(id)arg2;
+- (void)speechManagerBeginRecordInterruption:(id)arg1;
+- (void)speechManagerRecordHardwareConfigurationDidChange:(id)arg1 toConfiguration:(long long)arg2;
 - (id)speechManagerRecordingContext;
 - (void)speechManagerDidStopForwarding:(id)arg1 forReason:(long long)arg2;
 - (void)speechManagerDidStartForwarding:(id)arg1 successfully:(_Bool)arg2 error:(id)arg3;

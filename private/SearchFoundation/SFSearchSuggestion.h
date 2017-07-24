@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFSearchSuggestion-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString;
 
-@interface SFSearchSuggestion : NSObject <SFSearchSuggestion, NSSecureCoding>
+@interface SFSearchSuggestion : NSObject <SFSearchSuggestion, NSSecureCoding, NSCopying>
 {
     struct {
         unsigned int score:1;
@@ -42,6 +43,7 @@
 @property(copy, nonatomic) NSString *suggestion; // @synthesize suggestion=_suggestion;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

@@ -26,7 +26,7 @@
 @property(readonly, nonatomic, getter=isCopyright) _Bool copyright; // @dynamic copyright;
 @property(readonly, nonatomic, getter=isGlossary) _Bool glossary; // @dynamic glossary;
 - (_Bool)categoryContainKey:(id)arg1;
-- (id)initWithDictionary:(id)arg1 helpBookURL:(id)arg2;
+- (id)initWithDictionary:(id)arg1 helpBookURL:(id)arg2 serverType:(long long)arg3;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

@@ -25,7 +25,6 @@
 - (int)layoutAttributeForAnchor:(long long)arg1;
 - (double)factorForLayoutAttribute:(int)arg1;
 - (_Bool)componentBlueprint:(id)arg1 shouldIntersectWithComponentBlueprint:(id)arg2;
-- (_Bool)stackComponents:(id)arg1 containsComponent:(id)arg2;
 - (_Bool)stack:(id)arg1 stackComponents:(id)arg2 containsComponentIncludingAnchoredComponents:(id)arg3 forSourceComponent:(id)arg4;
 - (_Bool)intersectionPossibleForComponentWithBlueprint:(id)arg1 anchoredToComponentWithBlueprint:(id)arg2 layoutBlueprint:(id)arg3 columnStack:(id)arg4;
 - (_Bool)anchorPossibleForComponentWithBlueprint:(id)arg1 anchoredToComponentWithBlueprint:(id)arg2 layoutBlueprint:(id)arg3 columnStack:(id)arg4;

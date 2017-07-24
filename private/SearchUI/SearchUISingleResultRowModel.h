@@ -17,6 +17,8 @@
 
 @property(retain) SFSearchResult *result; // @synthesize result=_result;
 - (void).cxx_destruct;
+- (double)leadingSeparatorImageInset;
+- (int)separatorStyle;
 - (id)dragURL;
 - (id)dragText;
 - (id)descriptionText;

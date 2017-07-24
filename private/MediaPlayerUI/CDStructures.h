@@ -32,21 +32,3 @@ struct UIEdgeInsets {
     double right;
 };
 
-struct _NSRange {
-    unsigned long long _field1;
-    unsigned long long _field2;
-};
-
-#pragma mark Typedef'd Structures
-
-typedef struct {
-    long long numberOfAvailableSkips;
-    long long skipFrequency;
-    double skipInterval;
-} CDStruct_dcf4dde6;
-
-typedef struct {
-    struct CGRect _field1;
-    struct CGRect _field2;
-} CDStruct_62e32a95;
-

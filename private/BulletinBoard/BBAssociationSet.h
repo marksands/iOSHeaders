@@ -6,12 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class NSMapTable;
+@class NSString;
 
 @interface BBAssociationSet : NSObject
 {
+    NSString *_associationSetKey;
     unsigned long long _associatedObjectMemoryPointerFunction;
-    NSMapTable *_associatedObjectsByObject;
 }
 
 + (id)setWithWeakAssociation;
@@ -21,7 +21,6 @@
 - (id)associatedObjectsForObject:(id)arg1;
 - (void)associateObject:(id)arg1 withObject:(id)arg2;
 - (id)_initWithMemoryPointerFunction:(unsigned long long)arg1;
-@property(readonly, nonatomic) unsigned long long objectCount;
 
 @end
 

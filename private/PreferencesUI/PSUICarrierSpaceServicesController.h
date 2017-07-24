@@ -6,40 +6,26 @@
 
 #import <Preferences/PSListController.h>
 
-#import <PreferencesUI/CTCarrierSpaceClientDelegate-Protocol.h>
+@class NSArray;
 
-@class CTCarrierSpaceClient, NSArray, NSObject, NSString, PSUIAppInstallController;
-@protocol OS_dispatch_queue;
-
-@interface PSUICarrierSpaceServicesController : PSListController <CTCarrierSpaceClientDelegate>
+@interface PSUICarrierSpaceServicesController : PSListController
 {
-    NSObject<OS_dispatch_queue> *_carrierSpaceQueue;
-    CTCarrierSpaceClient *_carrierSpaceClient;
     NSArray *_appsList;
     PSListController *_phoneSettingsController;
-    PSUIAppInstallController *_appInstallController;
 }
 
-@property(retain, nonatomic) PSUIAppInstallController *appInstallController; // @synthesize appInstallController=_appInstallController;
 @property(retain, nonatomic) PSListController *phoneSettingsController; // @synthesize phoneSettingsController=_phoneSettingsController;
 @property(retain, nonatomic) NSArray *appsList; // @synthesize appsList=_appsList;
-@property(retain, nonatomic) CTCarrierSpaceClient *carrierSpaceClient; // @synthesize carrierSpaceClient=_carrierSpaceClient;
 - (void).cxx_destruct;
-- (void)appsDidChange:(id)arg1;
 - (void)moreAppsTapped:(id)arg1;
 - (_Bool)shouldShowMoreApps;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)primaryAppSpecifier;
 - (id)specifiers;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)simStatusChanged;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

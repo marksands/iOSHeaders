@@ -7,7 +7,7 @@
 #import <Metal/MTLDevice-Protocol.h>
 
 @class MTLCommandQueueDescriptor, MTLComputePipelineDescriptor, MTLStructType, MTLTextureDescriptor, NSArray, NSData, NSObject, NSString, _MTLIndirectArgumentBufferLayout;
-@protocol MTLCommandQueue, MTLComputePipelineState, MTLDeviceSPI, MTLFunction, MTLIndirectArgumentEncoder, MTLPipelineLibrarySPI, MTLTexture, MTLTextureLayout, OS_dispatch_data;
+@protocol MTLArgumentEncoder, MTLCommandQueue, MTLComputePipelineState, MTLDeviceSPI, MTLFunction, MTLIndirectArgumentEncoder, MTLPipelineLibrarySPI, MTLTexture, MTLTextureLayout, OS_dispatch_data;
 
 @protocol MTLDeviceSPI <MTLDevice>
 + (void)registerDevices;
@@ -65,6 +65,7 @@
 @property(readonly) unsigned long long doubleFPConfig;
 @property(readonly) unsigned long long singleFPConfig;
 @property(readonly) unsigned long long halfFPConfig;
+- (id <MTLArgumentEncoder>)newArgumentEncoderWithLayout:(_MTLIndirectArgumentBufferLayout *)arg1;
 - (id <MTLIndirectArgumentEncoder>)newIndirectArgumentEncoderWithLayout:(_MTLIndirectArgumentBufferLayout *)arg1;
 - (_MTLIndirectArgumentBufferLayout *)newIndirectArgumentBufferLayoutWithStructType:(MTLStructType *)arg1;
 - (id <MTLCommandQueue>)newCommandQueueWithDescriptor:(MTLCommandQueueDescriptor *)arg1;
@@ -81,6 +82,7 @@
 @optional
 @property(readonly, getter=isQuadDataSharingSupported) _Bool quadDataSharingSupported;
 @property(readonly) const struct MTLTargetDeviceArch *targetDeviceInfo;
+@property(readonly) unsigned long long indirectArgumentBuffersSupport;
 @property _Bool shaderDebugInfoCaching;
 - (NSString *)productName;
 - (NSString *)familyName;
@@ -91,6 +93,7 @@
 - (void)startCollectingPipelineDescriptors;
 - (id <MTLPipelineLibrarySPI>)newPipelineLibraryWithFilePath:(NSString *)arg1 error:(id *)arg2;
 - (id <MTLComputePipelineState>)newComputePipelineStateWithImageFilterFunctionsSPI:(NSArray *)arg1 imageFilterFunctionInfo:(const CDStruct_dbc1e4aa *)arg2 error:(id *)arg3;
+- (id <MTLIndirectArgumentEncoder>)newIndirectArgumentEncoderWithArguments:(NSArray *)arg1;
 - (void *)getShaderCacheKeys;
 - (id <MTLFunction>)newFunctionWithGLIR:(void *)arg1 inputsDescription:(NSObject<OS_dispatch_data> *)arg2 functionType:(unsigned long long)arg3;
 - (id <MTLFunction>)newFunctionWithGLIR:(void *)arg1 functionType:(unsigned long long)arg2;

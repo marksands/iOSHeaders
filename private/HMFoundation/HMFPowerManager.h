@@ -13,23 +13,36 @@
 {
     unsigned int _interestNotification;
     _Bool _hasBattery;
-    _Bool _running;
+    _Bool _powerSourceNotificationsEnabled;
+    _Bool _powerStateNotificationsEnabled;
     float _batteryLevel;
+    unsigned int _powerStateNotificationConnection;
+    unsigned int _powerStateNotification;
     long long _batteryState;
+    long long _sleepState;
     NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     struct IONotificationPort *_notificationPort;
+    struct IONotificationPort *_powerStateNotificationPort;
+    struct __CFRunLoopSource *_powerStateSource;
 }
 
 + (id)sharedManager;
 + (void)initialize;
+@property(readonly, nonatomic) struct __CFRunLoopSource *powerStateSource; // @synthesize powerStateSource=_powerStateSource;
+@property(readonly, nonatomic) unsigned int powerStateNotification; // @synthesize powerStateNotification=_powerStateNotification;
+@property(readonly, nonatomic) struct IONotificationPort *powerStateNotificationPort; // @synthesize powerStateNotificationPort=_powerStateNotificationPort;
+@property(readonly, nonatomic) unsigned int powerStateNotificationConnection; // @synthesize powerStateNotificationConnection=_powerStateNotificationConnection;
 @property(readonly, nonatomic) struct IONotificationPort *notificationPort; // @synthesize notificationPort=_notificationPort;
-@property(nonatomic, getter=isRunning) _Bool running; // @synthesize running=_running;
+@property(nonatomic, getter=arePowerStateNotificationsEnabled) _Bool powerStateNotificationsEnabled; // @synthesize powerStateNotificationsEnabled=_powerStateNotificationsEnabled;
+@property(nonatomic, getter=arePowerSourceNotificationsEnabled) _Bool powerSourceNotificationsEnabled; // @synthesize powerSourceNotificationsEnabled=_powerSourceNotificationsEnabled;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(readonly) _Bool hasBattery; // @synthesize hasBattery=_hasBattery;
 @property(readonly, nonatomic) unsigned int interestNotification; // @synthesize interestNotification=_interestNotification;
 - (void).cxx_destruct;
+- (void)_deregisterForPowerStateNotifications:(_Bool)arg1;
+- (void)_registerForPowerStateNotifications;
 - (void)_deregisterForPowerSourceNotifications:(_Bool)arg1;
 - (void)_registerForPowerSourceNotifications;
 - (void)updateBatteryState:(unsigned int)arg1;
@@ -37,8 +50,11 @@
 @property float batteryLevel; // @synthesize batteryLevel=_batteryLevel;
 - (void)notifyBatteryStateChange:(long long)arg1;
 @property long long batteryState; // @synthesize batteryState=_batteryState;
-- (void)stop;
-- (void)start;
+@property(nonatomic) long long sleepState; // @synthesize sleepState=_sleepState;
+- (void)stopPowerStateNotifications;
+- (void)startPowerStateNotifications;
+- (void)stopPowerSourceNotifications;
+- (void)startPowerSourceNotifications;
 - (void)dealloc;
 - (id)init;
 

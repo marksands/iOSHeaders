@@ -32,7 +32,6 @@ __attribute__((visibility("hidden")))
 - (void)setupBackgroundViewForNewSplitTraits:(id)arg1;
 - (int)_clipCornersOfView:(id)arg1;
 - (_Bool)visible;
-- (long long)currentHandBias;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

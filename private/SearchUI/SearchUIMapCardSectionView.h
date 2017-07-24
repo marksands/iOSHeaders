@@ -33,6 +33,8 @@
 @property(retain, nonatomic) MKMapView *mapView; // @synthesize mapView=_mapView;
 - (void).cxx_destruct;
 - (void)mapView:(id)arg1 regionDidChangeAnimated:(_Bool)arg2;
+- (id)mapView:(id)arg1 viewForAnnotation:(id)arg2;
+- (_Bool)_pinShouldFloat;
 - (id)_uiColorFromSFColor:(id)arg1;
 - (id)_clLocationFromSFLatLng:(id)arg1;
 - (void)_mapButtonPressed:(id)arg1;
@@ -46,10 +48,8 @@
 - (struct CGSize)intrinsicContentSize;
 - (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)setFeedbackDelegate:(id)arg1;
 - (void)reloadData;
-- (id)initWithCardSection:(id)arg1 style:(unsigned long long)arg2;
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
+- (id)initWithCardSection:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

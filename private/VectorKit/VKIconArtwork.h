@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSMutableArray, VKImage;
 
@@ -21,10 +21,15 @@ __attribute__((visibility("hidden")))
     struct CGColor *_fullBleedColor;
 }
 
+@property(readonly, nonatomic) struct Style style; // @synthesize style=_style;
 @property(nonatomic) struct CGColor *fullBleedColor; // @synthesize fullBleedColor=_fullBleedColor;
 @property(readonly, nonatomic) double contentScale; // @synthesize contentScale=_contentScale;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (Matrix_8746f91e)anchorPoint;
+- (Box_3fb92e00)localCollisionBounds;
+- (Box_55c4a776)localRenderBounds;
+- (_Bool)hasBounds;
 - (void)_cleanUpAfterDrawing;
 - (id)_newImage;
 - (id)_newImageWithText:(id)arg1 fontName:(id)arg2;

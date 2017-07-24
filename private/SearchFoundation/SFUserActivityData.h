@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFUserActivityData-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString;
 
-@interface SFUserActivityData : NSObject <SFUserActivityData, NSSecureCoding>
+@interface SFUserActivityData : NSObject <SFUserActivityData, NSSecureCoding, NSCopying>
 {
     NSString *_activityType;
     NSArray *_userInfo;
@@ -21,6 +22,7 @@
 @property(copy, nonatomic) NSArray *userInfo; // @synthesize userInfo=_userInfo;
 @property(copy, nonatomic) NSString *activityType; // @synthesize activityType=_activityType;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

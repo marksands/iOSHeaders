@@ -11,7 +11,7 @@
 @interface PSStorageAppCell : PSTableCell
 {
     NSMutableArray *_constraints;
-    UIImageView *_appIconView;
+    UIImageView *_iconView;
     UILabel *_titleLabel;
     UILabel *_infoLabel;
     UILabel *_sizeLabel;

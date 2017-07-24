@@ -23,10 +23,13 @@
     unsigned long long _intraSectionFilteringOptions;
     unsigned long long _maximumStoriesAllocation;
     unsigned long long _minimumStoriesAllocation;
+    unsigned long long _personalizedPresenceFeatureClickPrior;
+    unsigned long long _personalizedPresenceFeatureImpressionPrior;
     unsigned long long _seenArticlesMinimumTimeSinceFirstSeenToFilter;
     NTPBArticleIDsTodaySectionSpecificConfig *_articleIDsTodaySectionConfig;
     NTPBArticleListTodaySectionSpecificConfig *_articleListTodaySectionConfig;
     NSString *_backgroundGradientColor;
+    NSString *_compactName;
     NSString *_discoverMoreVideosSubtitle;
     NSString *_discoverMoreVideosTitle;
     NSString *_discoverMoreVideosUrl;
@@ -36,15 +39,18 @@
     NSString *_name;
     NSString *_nameColor;
     NSString *_personalizationFeatureID;
-    NTPBPersonalizedSectionPresenceConfig *_personalizedSectionPresenceConfig;
+    NTPBPersonalizedSectionPresenceConfig *_personalizedPresenceConfig;
+    NSString *_personalizedPresenceFeatureID;
     NTPBPersonalizedTodaySectionSpecificConfig *_personalizedTodaySectionConfig;
     int _readArticlesFilterMethod;
+    NSString *_referralBarName;
     int _sectionType;
     int _seenArticlesFilterMethod;
     _Bool _displaysAsVideoPlaylist;
     _Bool _glanceable;
     _Bool _presenceDeterminedByPersonalization;
     _Bool _shownInFavoritesOnlyMode;
+    _Bool _videoPlaysMutedByDefault;
     struct {
         unsigned int cachedResultCutoffTime:1;
         unsigned int fallbackOrder:1;
@@ -52,6 +58,8 @@
         unsigned int intraSectionFilteringOptions:1;
         unsigned int maximumStoriesAllocation:1;
         unsigned int minimumStoriesAllocation:1;
+        unsigned int personalizedPresenceFeatureClickPrior:1;
+        unsigned int personalizedPresenceFeatureImpressionPrior:1;
         unsigned int seenArticlesMinimumTimeSinceFirstSeenToFilter:1;
         unsigned int leadingCellPromotionPolicy:1;
         unsigned int readArticlesFilterMethod:1;
@@ -61,13 +69,20 @@
         unsigned int glanceable:1;
         unsigned int presenceDeterminedByPersonalization:1;
         unsigned int shownInFavoritesOnlyMode:1;
+        unsigned int videoPlaysMutedByDefault:1;
     } _has;
 }
 
+@property(retain, nonatomic) NSString *referralBarName; // @synthesize referralBarName=_referralBarName;
+@property(nonatomic) unsigned long long personalizedPresenceFeatureClickPrior; // @synthesize personalizedPresenceFeatureClickPrior=_personalizedPresenceFeatureClickPrior;
+@property(nonatomic) unsigned long long personalizedPresenceFeatureImpressionPrior; // @synthesize personalizedPresenceFeatureImpressionPrior=_personalizedPresenceFeatureImpressionPrior;
+@property(retain, nonatomic) NSString *personalizedPresenceFeatureID; // @synthesize personalizedPresenceFeatureID=_personalizedPresenceFeatureID;
+@property(retain, nonatomic) NSString *compactName; // @synthesize compactName=_compactName;
+@property(nonatomic) _Bool videoPlaysMutedByDefault; // @synthesize videoPlaysMutedByDefault=_videoPlaysMutedByDefault;
 @property(retain, nonatomic) NSString *discoverMoreVideosSubtitle; // @synthesize discoverMoreVideosSubtitle=_discoverMoreVideosSubtitle;
 @property(nonatomic) _Bool glanceable; // @synthesize glanceable=_glanceable;
 @property(retain, nonatomic) NSString *backgroundGradientColor; // @synthesize backgroundGradientColor=_backgroundGradientColor;
-@property(retain, nonatomic) NTPBPersonalizedSectionPresenceConfig *personalizedSectionPresenceConfig; // @synthesize personalizedSectionPresenceConfig=_personalizedSectionPresenceConfig;
+@property(retain, nonatomic) NTPBPersonalizedSectionPresenceConfig *personalizedPresenceConfig; // @synthesize personalizedPresenceConfig=_personalizedPresenceConfig;
 @property(nonatomic) _Bool presenceDeterminedByPersonalization; // @synthesize presenceDeterminedByPersonalization=_presenceDeterminedByPersonalization;
 @property(retain, nonatomic) NSString *discoverMoreVideosUrl; // @synthesize discoverMoreVideosUrl=_discoverMoreVideosUrl;
 @property(retain, nonatomic) NSString *discoverMoreVideosTitle; // @synthesize discoverMoreVideosTitle=_discoverMoreVideosTitle;
@@ -95,6 +110,12 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasReferralBarName;
+@property(nonatomic) _Bool hasPersonalizedPresenceFeatureClickPrior;
+@property(nonatomic) _Bool hasPersonalizedPresenceFeatureImpressionPrior;
+@property(readonly, nonatomic) _Bool hasPersonalizedPresenceFeatureID;
+@property(readonly, nonatomic) _Bool hasCompactName;
+@property(nonatomic) _Bool hasVideoPlaysMutedByDefault;
 @property(readonly, nonatomic) _Bool hasDiscoverMoreVideosSubtitle;
 @property(nonatomic) _Bool hasLeadingCellPromotionPolicy;
 @property(nonatomic) int leadingCellPromotionPolicy; // @synthesize leadingCellPromotionPolicy=_leadingCellPromotionPolicy;
@@ -106,7 +127,7 @@
 - (void)clearQueueMemberships;
 @property(readonly, nonatomic) unsigned long long *queueMemberships;
 @property(readonly, nonatomic) unsigned long long queueMembershipsCount;
-@property(readonly, nonatomic) _Bool hasPersonalizedSectionPresenceConfig;
+@property(readonly, nonatomic) _Bool hasPersonalizedPresenceConfig;
 @property(nonatomic) _Bool hasPresenceDeterminedByPersonalization;
 @property(readonly, nonatomic) _Bool hasDiscoverMoreVideosUrl;
 @property(readonly, nonatomic) _Bool hasDiscoverMoreVideosTitle;

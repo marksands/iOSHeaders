@@ -10,29 +10,31 @@
 
 @interface _HDCloudSyncStorePersistableState : NSObject
 {
+    NSString *_ownerIdentifier;
+    NSString *_containerIdentifier;
     CKServerChangeToken *_serverChangeToken;
     unsigned long long _baselineEpoch;
     NSDate *_rebaseDeadline;
     NSDate *_lastSyncDate;
     NSDictionary *_emptyZoneDateByZoneID;
     NSDate *_lastCheckDate;
-    NSString *_ownerIdentifier;
 }
 
-@property(readonly, nonatomic) NSString *ownerIdentifier; // @synthesize ownerIdentifier=_ownerIdentifier;
 @property(readonly, nonatomic) NSDate *lastCheckDate; // @synthesize lastCheckDate=_lastCheckDate;
 @property(readonly, nonatomic) NSDictionary *emptyZoneDateByZoneID; // @synthesize emptyZoneDateByZoneID=_emptyZoneDateByZoneID;
 @property(readonly, nonatomic) NSDate *lastSyncDate; // @synthesize lastSyncDate=_lastSyncDate;
 @property(readonly, nonatomic) NSDate *rebaseDeadline; // @synthesize rebaseDeadline=_rebaseDeadline;
 @property(readonly, nonatomic) unsigned long long baselineEpoch; // @synthesize baselineEpoch=_baselineEpoch;
 @property(readonly, nonatomic) CKServerChangeToken *serverChangeToken; // @synthesize serverChangeToken=_serverChangeToken;
+@property(readonly, nonatomic) NSString *containerIdentifier; // @synthesize containerIdentifier=_containerIdentifier;
+@property(readonly, nonatomic) NSString *ownerIdentifier; // @synthesize ownerIdentifier=_ownerIdentifier;
 - (void).cxx_destruct;
-- (id)stateByRecordingLastCheckDate;
+- (id)stateByRecordingLastCheckDate:(id)arg1;
 - (id)stateWithEmptyZones:(id)arg1;
-- (id)stateByRecordingLastSyncDateForOwnerIdentifier:(id)arg1;
+- (id)stateByRecordingLastSyncDate:(id)arg1;
 - (id)stateByResettingRebaselineDeadline;
 - (id)stateWithServerChangeToken:(id)arg1;
-- (id)initWithServerChangeToken:(id)arg1 baselineEpoch:(unsigned long long)arg2 rebaseDeadline:(id)arg3 lastSyncDate:(id)arg4 emptyZones:(id)arg5 lastCheckDate:(id)arg6 ownerIdentifier:(id)arg7;
+- (id)initWithServerChangeToken:(id)arg1 baselineEpoch:(unsigned long long)arg2 rebaseDeadline:(id)arg3 lastSyncDate:(id)arg4 emptyZones:(id)arg5 lastCheckDate:(id)arg6 ownerIdentifier:(id)arg7 containerIdentifier:(id)arg8;
 
 @end
 

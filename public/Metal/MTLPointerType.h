@@ -12,14 +12,15 @@
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
+- (id)elementArrayType;
+- (id)elementStructType;
 
 // Remaining properties
 @property(readonly) unsigned long long access; // @dynamic access;
 @property(readonly) unsigned long long alignment; // @dynamic alignment;
 @property(readonly) unsigned long long dataSize; // @dynamic dataSize;
-@property(readonly) _Bool elementIsIndirectArgumentBuffer; // @dynamic elementIsIndirectArgumentBuffer;
+@property(readonly) _Bool elementIsArgumentBuffer; // @dynamic elementIsArgumentBuffer;
 @property(readonly) unsigned long long elementType; // @dynamic elementType;
-@property(readonly) MTLType *elementTypeDescription; // @dynamic elementTypeDescription;
 
 @end
 

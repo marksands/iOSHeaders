@@ -21,6 +21,7 @@
     id <CHRecognitionSessionDataSource> _dataSource;
     NSArray *__effectiveLocales;
     NSMutableDictionary *__recognizersByLocaleID;
+    unsigned long long __changeCoalescingIndex;
     NSMutableArray *__changeObservers;
     NSMutableArray *__inputDrawingClients;
     NSObject<OS_dispatch_queue> *__tasksWorkQueue;
@@ -35,6 +36,7 @@
 @property(readonly, retain, nonatomic) NSObject<OS_dispatch_queue> *_tasksWorkQueue; // @synthesize _tasksWorkQueue=__tasksWorkQueue;
 @property(readonly, retain, nonatomic) NSMutableArray *_inputDrawingClients; // @synthesize _inputDrawingClients=__inputDrawingClients;
 @property(readonly, retain, nonatomic) NSMutableArray *_changeObservers; // @synthesize _changeObservers=__changeObservers;
+@property(nonatomic) unsigned long long _changeCoalescingIndex; // @synthesize _changeCoalescingIndex=__changeCoalescingIndex;
 @property(readonly, retain, nonatomic) NSMutableDictionary *_recognizersByLocaleID; // @synthesize _recognizersByLocaleID=__recognizersByLocaleID;
 @property(nonatomic, setter=_setHasUnprocessedChanges:) _Bool _hasUnprocessedChanges; // @synthesize _hasUnprocessedChanges=__hasUnprocessedChanges;
 @property(copy, nonatomic, setter=_setEffectiveLocales:) NSArray *_effectiveLocales; // @synthesize _effectiveLocales=__effectiveLocales;
@@ -45,13 +47,11 @@
 - (void)_cleanupCachedRecognizers;
 - (id)recognizerForLocale:(id)arg1;
 - (void)_processPendingStrokeChangesIfAvailable;
-- (void)_handleDelayedProcessingTimerFired;
 - (void)_scheduleProcessStrokeProviderChangesImmediately:(_Bool)arg1;
 - (double)_preferredCoalescingInterval;
 - (_Bool)_isReadyToProcessChanges;
 - (void)rebuildRecognitionResults;
 - (void)setNeedsRecognitionUpdate;
-- (void)strokeProviderStrokesChanged;
 - (id)indexableContent;
 - (_Bool)_hasPendingRecognitionTasks;
 - (void)_notifyObserversWithBlock:(CDUnknownBlockType)arg1;
@@ -67,6 +67,7 @@
 - (void)unregisterChangeObserver:(id)arg1;
 - (void)registerChangeObserver:(id)arg1;
 - (id)lastRecognitionResultWaitingForPendingTasks;
+- (void)waitForPendingRecognitionTasks;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

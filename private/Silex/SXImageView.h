@@ -74,6 +74,8 @@
 @property(nonatomic) _Bool shouldShowLoadingIndicator; // @synthesize shouldShowLoadingIndicator=_shouldShowLoadingIndicator;
 - (void).cxx_destruct;
 - (_Bool)accessibilityIgnoresInvertColors;
+- (void)didEndDragging;
+- (void)didStartDragging;
 @property(readonly, nonatomic) NSString *dragIdentifier;
 @property(readonly, nonatomic) UIView *dragPreviewView;
 @property(readonly, nonatomic) id <UIItemProviderWriting> dragObject;

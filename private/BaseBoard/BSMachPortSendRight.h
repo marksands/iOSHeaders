@@ -16,7 +16,6 @@
 + (void)_queue_destroyPort:(unsigned int)arg1;
 + (id)_rightDescription;
 + (id)bootstrapLookUpWithName:(id)arg1;
-+ (id)taskNameForPID:(int)arg1;
 + (id)wrapSendRight:(unsigned int)arg1;
 + (id)bootstrapLookUpPortWithName:(id)arg1;
 + (id)taskNamePortForPID:(int)arg1;
@@ -30,9 +29,7 @@
 - (id)initWithNonRetainingPort:(unsigned int)arg1;
 - (id)initFromReceiveRight:(id)arg1;
 - (id)initWithCopyOfRight:(id)arg1;
-- (id)_initWithCopyOfPort:(unsigned int)arg1 previousTrace:(id)arg2;
 - (id)initWithCopyOfPort:(unsigned int)arg1;
-- (id)_initWithPort:(unsigned int)arg1 previousTrace:(id)arg2;
 - (id)initWithPort:(unsigned int)arg1;
 - (unsigned int)sendRight;
 - (id)initWithSendRight:(unsigned int)arg1;

@@ -117,6 +117,7 @@
 - (void)stopLocalSetup;
 - (void)startLocalSetup;
 - (void)getRegisteredIdentities;
+- (void)repairAccounts;
 - (void)reRegisterWithUserID:(NSString *)arg1 action:(NSNumber *)arg2 service:(NSString *)arg3;
 - (void)idsiCloudSignInDataMigratorForID:(NSString *)arg1;
 - (void)kickGetDependentForAccount:(NSString *)arg1;

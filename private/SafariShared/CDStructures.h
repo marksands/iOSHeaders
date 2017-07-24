@@ -10,7 +10,15 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
-struct BookmarkAndHistoryCompletionMatch;
+struct BookmarkAndHistoryCompletionMatch {
+    unsigned int _field1;
+    long long _field2;
+    long long _field3;
+    unsigned long long _field4;
+    unsigned long long _field5;
+    id _field6;
+    float _field7;
+};
 
 struct CGSize {
     double width;
@@ -57,7 +65,7 @@ struct OpaqueJSContext;
 
 struct OpaqueJSValue;
 
-struct PassRefPtr<SafariShared::BookmarkAndHistoryCompletionMatch> {
+struct Ref<SafariShared::BookmarkAndHistoryCompletionMatch> {
     struct BookmarkAndHistoryCompletionMatch *_field1;
 };
 
@@ -301,9 +309,9 @@ typedef struct {
 } CDStruct_f2b84ca7;
 
 // Template types
-typedef struct PassRefPtr<SafariShared::BookmarkAndHistoryCompletionMatch> {
+typedef struct Ref<SafariShared::BookmarkAndHistoryCompletionMatch> {
     struct BookmarkAndHistoryCompletionMatch *_field1;
-} PassRefPtr_8dece646;
+} Ref_ba1e7e0b;
 
 typedef struct Ref<SafariShared::HistoryURLCompletionItem> {
     struct HistoryURLCompletionItem *_field1;

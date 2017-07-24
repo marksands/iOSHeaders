@@ -55,6 +55,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)collectionView:(id)arg1 canHandleDropSession:(id)arg2;
 - (void)collectionView:(id)arg1 performDropWithCoordinator:(id)arg2;
 - (_Bool)_collectionView:(id)arg1 prefersFullSizePreviewsForDragSession:(id)arg2;
+- (_Bool)collectionView:(id)arg1 dragSessionIsRestrictedToDraggingApplication:(id)arg2;
+- (_Bool)collectionView:(id)arg1 dragSessionAllowsMoveOperation:(id)arg2;
 - (void)collectionView:(id)arg1 dragSessionDidEnd:(id)arg2;
 - (void)collectionView:(id)arg1 dragSessionWillBegin:(id)arg2;
 - (id)collectionView:(id)arg1 dragPreviewParametersForItemAtIndexPath:(id)arg2;

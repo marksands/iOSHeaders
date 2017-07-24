@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface IMDCKUtilities : NSObject
 {
@@ -14,15 +14,22 @@
 + (id)sharedInstance;
 + (id)im_AKSecurityLevelKey;
 @property(nonatomic) _Bool useDeprecatedApi; // @synthesize useDeprecatedApi=_useDeprecatedApi;
+- (id)lastDeviceBackUpDate;
+- (id)newfilteredArrayRemovingCKRecordDupes:(id)arg1;
 - (_Bool)deviceConditionsAllowPeriodicSync;
 - (void)primaryAccountHasiCloudBackupEnabledWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_personIdFromAccount:(id)arg1;
 - (void)fetchiCloudAccountPersonID:(CDUnknownBlockType)arg1;
 - (void)_fetchPrimaryAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_accountStore;
+- (_Bool)errorIndicatesZoneNotCreated:(id)arg1;
+- (id)extractRecordIDsDeletedFromCKPartialError:(id)arg1;
+- (_Bool)acceptableErrorCodeWhileDeleting:(id)arg1;
 - (_Bool)isRecoverableCloudKitError:(id)arg1 withRetryInterval:(id *)arg2;
 - (_Bool)errorIndicatesDeviceConditionsDontAllowSync:(id)arg1;
 - (_Bool)CKPartialError:(id)arg1 onlyHasErrorCodes:(id)arg2;
+- (_Bool)CKPartialErrorOnlyHasQuotaExceededError:(id)arg1;
+- (_Bool)CKPartialError:(id)arg1 hasErrorCode:(id)arg2;
 - (id)extractServerRecordFromCKServerErrorRecordChanged:(id)arg1;
 - (id)_errorsFromPartialError:(id)arg1;
 - (_Bool)_isCKErrorPartialFailure:(id)arg1;
@@ -40,8 +47,14 @@
 - (void)setCloudKitSyncingEnabled:(_Bool)arg1;
 - (_Bool)cloudKitSyncingEnabled;
 - (long long)_mininimumServerBagClientValue;
+- (void)checkiCloudQuota:(CDUnknownBlockType)arg1;
+- (unsigned long long)messageDatabaseSize;
+- (void)isFirstSyncWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)shouldForceArchivedMessagesSync;
 - (_Bool)shouldUseDevContainer;
+- (void)broadcastInstantStateChangeNotification;
 - (id)init;
+- (id)_truthDatabase;
 - (id)_truthContainer;
 - (void)isEligibleForTruthZoneWithCompletionDeprecated:(CDUnknownBlockType)arg1;
 - (void)account:(id)arg1 fetchCloudKitAccountStatusWithCompletion:(CDUnknownBlockType)arg2;

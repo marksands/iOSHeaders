@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSData, NSDate, NSString;
+@class GEOApplicationAuditToken, NSData, NSDate, NSString;
 
 @protocol GEOTrafficProbeProxy
-- (void)reportBatchTrafficProbes:(NSData *)arg1;
-- (void)reportRealtimeTrafficProbes:(NSData *)arg1 probeCount:(unsigned long long)arg2 recvTime:(NSDate *)arg3 forTripId:(NSString *)arg4;
+- (void)reportBatchTrafficProbes:(NSData *)arg1 auditToken:(GEOApplicationAuditToken *)arg2;
+- (void)reportRealtimeTrafficProbes:(NSData *)arg1 probeCount:(unsigned long long)arg2 recvTime:(NSDate *)arg3 forTripId:(NSString *)arg4 auditToken:(GEOApplicationAuditToken *)arg5;
 @end
 

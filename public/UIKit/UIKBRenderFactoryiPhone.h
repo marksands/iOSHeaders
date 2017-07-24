@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)popupSymbolTextOffset;
 - (struct CGPoint)variantAnnotationTextOffset;
 - (struct CGPoint)variantSymbolTextOffset;
+- (double)variantWideShadowWeight;
 - (struct UIEdgeInsets)variantSymbolFrameInsets;
 - (struct UIEdgeInsets)variantDisplayFrameInsets;
 - (struct UIEdgeInsets)variantPaddedFrameInsets;
@@ -51,6 +52,7 @@ __attribute__((visibility("hidden")))
 - (id)dictationKeyImageName;
 - (id)globalEmojiKeyImageName;
 - (id)globalKeyImageName;
+- (struct CGPoint)ZWNJKeyOffset;
 - (struct CGPoint)secondaryShiftKeyOffset;
 - (struct CGPoint)shiftKeyOffset;
 - (struct CGPoint)deleteKeyOffset;

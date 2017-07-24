@@ -22,6 +22,7 @@
     _Bool _invalidated;
     NSObject<OS_dispatch_queue> *_clientQueue;
     CDUnknownBlockType _clientBlock;
+    int _clientState;
     AWAttentionAwarenessConfiguration *_configuration;
 }
 

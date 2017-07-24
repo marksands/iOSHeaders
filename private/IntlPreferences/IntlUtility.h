@@ -16,6 +16,7 @@
     NSMutableArray *mBidiTestedLanguagesArray;
 }
 
++ (long long)formattingContextFromIUDisplayNameContext:(unsigned long long)arg1;
 + (_Bool)upgradeAppleLanguagesFrom:(id)arg1 to:(id)arg2;
 + (id)restrictedCountryCodes;
 + (id)supportedCalendars;
@@ -25,7 +26,7 @@
 + (id)preferredLanguagesForRegion:(id)arg1;
 + (id)preferredLanguagesForRegionWithoutFiltering:(id)arg1;
 + (int)UDisplayContextForIUDisplayNameContext:(unsigned long long)arg1;
-+ (id)languageNameOverrides;
++ (_Bool)forceCapitalizationInLanguageLists;
 + (id)defaultNumberingSystemForLocaleID:(id)arg1;
 + (id)shortDisplayNameForNumberingSystemWithIdentifier:(id)arg1 localeIdentifier:(id)arg2;
 + (id)displayNameForNumberingSystemWithIdentifier:(id)arg1 localeIdentifier:(id)arg2;
@@ -51,20 +52,18 @@
 + (id)languageIdentifierFromIdentifier:(id)arg1 withRegion:(id)arg2;
 + (id)baseSystemLanguages;
 + (id)stdLanguageIDs;
-+ (id)languageCharSetList;
 + (id)sharedIntlUtility;
-- (id)localizedNameForScript:(short)arg1;
-- (_Bool)canRenderLanguage:(id)arg1;
 - (id)displayNameForRegion:(id)arg1 displayLanguage:(id)arg2 capitalization:(unsigned long long)arg3 short:(_Bool)arg4;
 - (id)displayNameForRegion:(id)arg1 displayLanguage:(id)arg2 capitalization:(unsigned long long)arg3;
-- (id)displayNameForLocale:(id)arg1 displayLanguage:(id)arg2 capitalization:(unsigned long long)arg3 short:(_Bool)arg4;
-- (id)ICUdisplayNameForLanguage:(id)arg1 capitalization:(struct ULocaleDisplayNames *)arg2;
-- (id)displayNameForDialect:(id)arg1 context:(unsigned long long)arg2 displayLanguage:(id)arg3;
 - (id)displayNameForNormalizedLanguage:(id)arg1 context:(unsigned long long)arg2 displayLanguage:(id)arg3;
 - (id)displayNameForLanguage:(id)arg1 context:(unsigned long long)arg2 displayLanguage:(id)arg3;
 - (id)localizedLanguageForLanguage:(id)arg1;
+- (id)localizedNameForScript:(short)arg1;
+- (_Bool)canRenderLanguage:(id)arg1;
+- (id)displayNameForLocale:(id)arg1 displayLanguage:(id)arg2 capitalization:(unsigned long long)arg3 short:(_Bool)arg4;
+- (id)ICUdisplayNameForLanguage:(id)arg1 capitalization:(struct ULocaleDisplayNames *)arg2;
+- (id)displayNameForDialect:(id)arg1 context:(unsigned long long)arg2 displayLanguage:(id)arg3;
 - (id)languageList;
-- (void)dealloc;
 - (id)displayNameForLabelForLunarCalendarID:(id)arg1 displayLanguage:(id)arg2;
 
 @end

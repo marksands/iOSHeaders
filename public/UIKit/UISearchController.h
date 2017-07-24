@@ -70,6 +70,7 @@
 - (void)_updateSearchResultsPositionWithDelta:(struct CGSize)arg1;
 - (void)_updateSearchResultsContentScrollViewWithDelta:(struct CGSize)arg1;
 - (void)_adjustSearchBarSizeForOrientation:(long long)arg1;
+- (_Bool)_containedInNavigationPaletteAndNotHidden;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLayoutSubviews;
 - (void)_keyboardWillHide:(id)arg1;

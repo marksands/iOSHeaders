@@ -15,9 +15,11 @@
     NSDate *_nonMigratableDeviceGracePeriodStartDate;
     NSDate *_dateOfCloudTabDevicesSyncRequest;
     NSDate *_dateOfLastCloudTabDevicesUpdate;
+    NSDate *_dateOfDeviceEligibilityUpdate;
     NSMutableDictionary *_nonMigratableDeviceIdentifiersToLastModifiedDates;
     WBSDeviceEligibilityInformation *_deviceEligibilityInformation;
     _Bool _readyToMigrate;
+    _Bool _hasInFlightCloudTabDevicesSyncRequest;
     id <WBSLogger> _keyActionsLogger;
 }
 
@@ -28,6 +30,7 @@
 - (_Bool)_isCloudTabDeviceDataPastExpiration;
 - (_Bool)_isInternalInstall;
 - (_Bool)_isDateInGracePeriod:(id)arg1;
+- (double)_deviceEligibilityUpdateInterval;
 - (double)_minimumWaitForCloudTabDevicesUpdateAfterSync;
 - (double)_maximumAgeForCloudTabDevicesUpdate;
 - (double)_nonMigratableDeviceGracePeriod;
@@ -37,6 +40,7 @@
 - (void)_logDevicesExcludedFromUpdateWithDevices:(id)arg1;
 - (void)_logKeyActionForUpdateWithDevice:(id)arg1;
 - (void)_logKeyAction:(id)arg1;
+- (void)_fetchDeviceEligibilityInformationWithCloudTabDeviceProvider:(id)arg1 deviceEligibilityFetcher:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)updateWithCloudTabDeviceProvider:(id)arg1 deviceEligibilityFetcher:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) NSDate *earliestPossibleDateOfMigration;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;

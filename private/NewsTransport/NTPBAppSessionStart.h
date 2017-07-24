@@ -13,12 +13,14 @@
 @interface NTPBAppSessionStart : PBCodable <NSCopying>
 {
     long long _lastAppSessionTimestamp;
+    int _appsAutoSubscribeFeedCount;
     NSMutableArray *_autoSubscribedFeedIds;
     NSString *_campaignId;
     NSString *_campaignType;
     int _channelSubscriptionCount;
     NSString *_creativeId;
     NSMutableArray *_groupableFeedIds;
+    int _internalAutoSubscribeFeedCount;
     NSString *_notificationArticleId;
     NSMutableArray *_notificationChannelIds;
     int _notificationEnabledChannelsCount;
@@ -27,8 +29,10 @@
     NSString *_notificationSourceChannelId;
     int _notitificationsEnabledChannelsCount;
     NSMutableArray *_paidSubscriptionChannelIds;
+    int _portraitAutoSubscribeFeedCount;
     NSString *_referringSourceApplication;
     NSString *_referringUrl;
+    int _safariAutoSubscribeFeedCount;
     int _sessionStartMethod;
     NSMutableArray *_subscribedFeedIds;
     int _topicSubscriptionCount;
@@ -41,9 +45,13 @@
     _Bool _startedFromNotification;
     struct {
         unsigned int lastAppSessionTimestamp:1;
+        unsigned int appsAutoSubscribeFeedCount:1;
         unsigned int channelSubscriptionCount:1;
+        unsigned int internalAutoSubscribeFeedCount:1;
         unsigned int notificationEnabledChannelsCount:1;
         unsigned int notitificationsEnabledChannelsCount:1;
+        unsigned int portraitAutoSubscribeFeedCount:1;
+        unsigned int safariAutoSubscribeFeedCount:1;
         unsigned int sessionStartMethod:1;
         unsigned int topicSubscriptionCount:1;
         unsigned int widgetArticleRank:1;
@@ -59,6 +67,10 @@
 + (Class)notificationChannelIdsType;
 + (Class)paidSubscriptionChannelIdsType;
 + (Class)visibleViewsType;
+@property(nonatomic) int internalAutoSubscribeFeedCount; // @synthesize internalAutoSubscribeFeedCount=_internalAutoSubscribeFeedCount;
+@property(nonatomic) int appsAutoSubscribeFeedCount; // @synthesize appsAutoSubscribeFeedCount=_appsAutoSubscribeFeedCount;
+@property(nonatomic) int safariAutoSubscribeFeedCount; // @synthesize safariAutoSubscribeFeedCount=_safariAutoSubscribeFeedCount;
+@property(nonatomic) int portraitAutoSubscribeFeedCount; // @synthesize portraitAutoSubscribeFeedCount=_portraitAutoSubscribeFeedCount;
 @property(retain, nonatomic) NSMutableArray *groupableFeedIds; // @synthesize groupableFeedIds=_groupableFeedIds;
 @property(retain, nonatomic) NSMutableArray *autoSubscribedFeedIds; // @synthesize autoSubscribedFeedIds=_autoSubscribedFeedIds;
 @property(retain, nonatomic) NTPBWidgetEngagement *widgetEngagement; // @synthesize widgetEngagement=_widgetEngagement;
@@ -93,6 +105,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasInternalAutoSubscribeFeedCount;
+@property(nonatomic) _Bool hasAppsAutoSubscribeFeedCount;
+@property(nonatomic) _Bool hasSafariAutoSubscribeFeedCount;
+@property(nonatomic) _Bool hasPortraitAutoSubscribeFeedCount;
 - (id)groupableFeedIdsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)groupableFeedIdsCount;
 - (void)addGroupableFeedIds:(id)arg1;

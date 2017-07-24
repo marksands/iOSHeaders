@@ -6,7 +6,7 @@
 
 #import <iWorkImport/TSKApplicationDelegate.h>
 
-@class NSArray, NSSet, NSString, TSADocumentRoot;
+@class NSArray, NSString, TSADocumentRoot;
 @protocol TSADownloadDelegate;
 
 __attribute__((visibility("hidden")))
@@ -14,12 +14,10 @@ __attribute__((visibility("hidden")))
 {
     TSADocumentRoot *mDocumentRoot;
     id <TSADownloadDelegate> _downloadDelegate;
-    NSSet *_resourcePreinstalledTags;
 }
 
 + (void)resetSharedConfigurations;
 + (id)sharedDelegate;
-@property(readonly, copy, nonatomic) NSSet *resourcePreinstalledTags; // @synthesize resourcePreinstalledTags=_resourcePreinstalledTags;
 @property(retain, nonatomic) id <TSADownloadDelegate> downloadDelegate; // @synthesize downloadDelegate=_downloadDelegate;
 @property(nonatomic) TSADocumentRoot *documentRoot; // @synthesize documentRoot=mDocumentRoot;
 - (void)setAppTextDefaults:(id)arg1;
@@ -64,6 +62,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isReadableDocumentType:(id)arg1;
 @property(readonly, nonatomic) NSArray *importableDocumentTypes;
 @property(readonly, nonatomic) NSArray *readableDocumentTypes;
+@property(readonly, nonatomic) NSArray *nativeDocumentTypes;
 @property(readonly, nonatomic) NSString *nativeSFFDocumentType;
 @property(readonly, nonatomic) NSString *tangierEditingFormatDocumentType;
 @property(readonly, nonatomic) NSString *templateDocumentExtension;

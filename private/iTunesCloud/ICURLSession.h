@@ -11,7 +11,7 @@
 #import <iTunesCloud/NSURLSessionDownloadDelegate-Protocol.h>
 
 @class NSMutableDictionary, NSMutableOrderedSet, NSMutableSet, NSString, NSURLSession;
-@protocol OS_dispatch_queue;
+@protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface ICURLSession : NSObject <NSURLSessionDelegate, NSURLSessionDownloadDelegate, NSURLSessionDataDelegate>
 {
@@ -22,11 +22,16 @@
     NSMutableSet *_activeRequests;
     NSMutableDictionary *_completionHandlers;
     _Bool _paused;
+    NSObject<OS_dispatch_source> *_requestTimeoutTimer;
     NSURLSession *_urlSession;
 }
 
 @property(readonly, nonatomic) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
 - (void).cxx_destruct;
+- (void)_updateProgressForRequest:(id)arg1 withTotalBytesWritten:(long long)arg2 totalBytesExpectedToWrite:(long long)arg3;
+- (double)_timeoutForRequest:(id)arg1;
+- (void)_scheduleNextRequestTimeoutCheck;
+- (void)_checkRequestTimeouts;
 - (id)_newResponseForRequest:(id)arg1;
 - (id)_requestForTask:(id)arg1;
 - (void)_finishRequest:(id)arg1;
@@ -46,6 +51,7 @@
 - (void)processInitialResponse:(id)arg1 toRequest:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)resume;
 - (void)pause;
+- (void)cancelRequest:(id)arg1 withError:(id)arg2;
 - (void)cancelRequest:(id)arg1;
 - (void)enqueueAVDownloadRequest:(id)arg1 toDestination:(id)arg2 withOptions:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)enqueueAVDownloadRequest:(id)arg1 withOptions:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

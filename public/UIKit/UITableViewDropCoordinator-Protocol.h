@@ -7,16 +7,16 @@
 #import <UIKit/NSObject-Protocol.h>
 
 @class NSArray, NSIndexPath, NSString, UIDragItem, UIDragPreviewTarget, UITableViewDropProposal;
-@protocol UIDropSession, UITableViewDropPlaceholderContext;
+@protocol UIDragAnimating, UIDropSession, UITableViewDropPlaceholderContext;
 
 @protocol UITableViewDropCoordinator <NSObject>
 @property(readonly, nonatomic) id <UIDropSession> session;
 @property(readonly, nonatomic) UITableViewDropProposal *proposal;
 @property(readonly, nonatomic) NSIndexPath *destinationIndexPath;
 @property(readonly, nonatomic) NSArray *items;
-- (void)dropItem:(UIDragItem *)arg1 toTarget:(UIDragPreviewTarget *)arg2;
-- (void)dropItem:(UIDragItem *)arg1 intoRowAtIndexPath:(NSIndexPath *)arg2 rect:(struct CGRect)arg3;
-- (void)dropItem:(UIDragItem *)arg1 toRowAtIndexPath:(NSIndexPath *)arg2;
+- (id <UIDragAnimating>)dropItem:(UIDragItem *)arg1 toTarget:(UIDragPreviewTarget *)arg2;
+- (id <UIDragAnimating>)dropItem:(UIDragItem *)arg1 intoRowAtIndexPath:(NSIndexPath *)arg2 rect:(struct CGRect)arg3;
+- (id <UIDragAnimating>)dropItem:(UIDragItem *)arg1 toRowAtIndexPath:(NSIndexPath *)arg2;
 - (id <UITableViewDropPlaceholderContext>)dropItem:(UIDragItem *)arg1 toPlaceholderInsertedAtIndexPath:(NSIndexPath *)arg2 withReuseIdentifier:(NSString *)arg3 rowHeight:(double)arg4 cellUpdateHandler:(void (^)(UITableViewCell *))arg5;
 @end
 

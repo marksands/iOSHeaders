@@ -17,11 +17,14 @@
 
 @property(retain) NSArray *results; // @synthesize results=_results;
 - (void).cxx_destruct;
+- (double)leadingSeparatorImageInset;
+- (int)separatorStyle;
 - (id)dragAppBundleID;
 - (id)dragURL;
 - (id)dragText;
 - (id)dragSubtitle;
 - (id)dragTitle;
+- (_Bool)isSuggestion;
 - (_Bool)isDraggable;
 - (_Bool)isTappable;
 - (id)nextCard;

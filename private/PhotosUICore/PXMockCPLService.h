@@ -8,34 +8,26 @@
 
 #import <PhotosUICore/PXCPLService-Protocol.h>
 
-@class NSArray, NSString;
+@class NSString, PXCPLServiceStatus;
 @protocol OS_dispatch_queue, PXCPLService;
 
 @interface PXMockCPLService : NSObject <PXCPLService>
 {
     NSObject<OS_dispatch_queue> *_serialQueue;
     id <PXCPLService> _cplService;
-    struct PXCPLServiceStatus _serviceStatus;
-    NSArray *_events;
-    unsigned long long _nextEvent;
-    unsigned long long _currentGeneration;
+    PXCPLServiceStatus *_serviceStatus;
     CDUnknownBlockType _handler;
 }
 
-+ (id)_events;
-+ (id)_eventsByFileURL;
-+ (id)_eventsByPlist;
-+ (id)_eventsByName;
++ (id)_mockEvent;
 + (_Bool)shouldUseMockService;
 @property(copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler=_handler;
 - (void).cxx_destruct;
-- (void)_serviceStatusDidChange:(struct PXCPLServiceStatus)arg1 duration:(double)arg2 generation:(unsigned long long)arg3;
-- (void)_updateAndExecuteEvents;
-- (void)_executeNextEventForGeneration:(unsigned long long)arg1;
+- (void)_serviceStatusDidChange:(id)arg1;
+- (void)_deliverMockServiceStatus;
 - (void)performAction:(long long)arg1;
 - (_Bool)canPerformAction:(long long)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-@property(readonly, nonatomic) struct PXCPLServiceStatus serviceStatus;
 - (void)dealloc;
 - (id)initWithCPLService:(id)arg1;
 - (id)init;

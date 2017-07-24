@@ -15,20 +15,24 @@ __attribute__((visibility("hidden")))
 {
     int _shapeType;
     NSString *_name;
+    unsigned long long _position;
 }
 
 + (id)p_nameForShapeType:(int)arg1;
 + (id)p_baseStringForKey:(id)arg1;
+@property(nonatomic) unsigned long long p_position; // @synthesize p_position=_position;
 @property(readonly, nonatomic) int shapeType; // @synthesize shapeType=_shapeType;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
+@property(readonly, nonatomic) NSString *accessibilityName;
+- (unsigned long long)positionInCategoryWithID:(id)arg1;
 - (id)pathSourceWithSize:(struct CGSize)arg1;
 @property(readonly, nonatomic) NSArray *keywords;
 @property(readonly, nonatomic) NSArray *baseKeywords;
 @property(readonly, nonatomic) NSString *baseName;
-- (id)initWithShapeType:(int)arg1;
+- (id)initWithShapeType:(int)arg1 position:(unsigned long long)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

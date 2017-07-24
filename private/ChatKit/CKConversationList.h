@@ -34,6 +34,7 @@
 - (void)unpendConversation;
 - (void)beginTrackingConversation:(id)arg1 forChat:(id)arg2;
 - (void)_postConversationListChangedNotification;
+- (id)topMostConversation;
 - (void)resort;
 - (id)conversations;
 - (_Bool)hasActiveConversations;

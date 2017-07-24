@@ -33,7 +33,6 @@
 @property(readonly, nonatomic) id observedObject;
 - (void)stopObserving;
 - (void)startObserving;
-- (void)dealloc;
 - (id)initWithObservedObject:(id)arg1 observer:(id)arg2 keyPaths:(id)arg3 retainingObservedObject:(_Bool)arg4 options:(unsigned long long)arg5 changesBlock:(CDUnknownBlockType)arg6;
 
 @end

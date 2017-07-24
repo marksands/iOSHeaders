@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 {
     _Bool _locked;
     _Bool _createsPopoverLayoutGuides;
+    _Bool _allowsViewWrappers;
     NSLayoutDimension *_verticalSizeGuide;
     NSLayoutDimension *_minimumSpaceGuide;
     NSLayoutDimension *_flexibleSpaceGuide;
@@ -24,6 +25,7 @@ __attribute__((visibility("hidden")))
     NSLayoutDimension *_groupSpacingGuide;
 }
 
+@property(nonatomic) _Bool allowsViewWrappers; // @synthesize allowsViewWrappers=_allowsViewWrappers;
 @property(nonatomic) _Bool createsPopoverLayoutGuides; // @synthesize createsPopoverLayoutGuides=_createsPopoverLayoutGuides;
 @property(retain, nonatomic) NSLayoutDimension *groupSpacingGuide; // @synthesize groupSpacingGuide=_groupSpacingGuide;
 @property(retain, nonatomic) NSLayoutDimension *groupSizeGuide; // @synthesize groupSizeGuide=_groupSizeGuide;

@@ -11,7 +11,7 @@
 }
 
 - (id)getSuperVectorWithEndPoint:(unsigned long long)arg1;
-- (id)getAnalyzedResult;
+- (id)getAnalyzedResultForPhraseId:(unsigned int)arg1;
 - (void)analyzeWavData:(id)arg1 numSamples:(unsigned long long)arg2;
 - (void)resetBest;
 - (void)reset;

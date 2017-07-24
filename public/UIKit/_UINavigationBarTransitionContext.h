@@ -42,11 +42,14 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool isRTL; // @synthesize isRTL=_isRTL;
 @property(retain, nonatomic) _UINavigationBarItemStack *stack; // @synthesize stack=_stack;
 @property(nonatomic) UINavigationBar *navigationBar; // @synthesize navigationBar=_navigationBar;
+@property(nonatomic) _Bool endWithLargeTitle; // @synthesize endWithLargeTitle=_endWithLargeTitle;
+@property(nonatomic) _Bool beginWithLargeTitle; // @synthesize beginWithLargeTitle=_beginWithLargeTitle;
 - (void).cxx_destruct;
 - (void)_removeAllClippingViews;
 - (void)_addClippingView:(id)arg1;
 @property(readonly, nonatomic) double contentViewMaxY;
 @property(readonly, nonatomic) double contentViewFittingHeight;
+@property(readonly, nonatomic) UIView *viewUsingEaseInCurve;
 @property(readonly, nonatomic) UIView *viewUsingEaseOutCurve;
 @property(readonly, nonatomic) UIView *viewFadingInFromCustomAlpha;
 - (void)cancel;

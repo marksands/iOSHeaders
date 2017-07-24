@@ -18,7 +18,6 @@
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
 - (_Bool)_queue_isUsable;
-- (id)_initWithPort:(unsigned int)arg1 previousTrace:(id)arg2;
 - (id)initWithPort:(unsigned int)arg1;
 - (id)init;
 

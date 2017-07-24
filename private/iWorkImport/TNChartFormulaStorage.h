@@ -36,7 +36,7 @@ __attribute__((visibility("hidden")))
 - (struct __CFDictionary *)p_cfDictionary;
 - (id)formulaTypeEnumerator;
 - (id)formulaListForType:(unsigned long long)arg1;
-- (id)formulaForID:(CDStruct_a91f2c80)arg1;
+- (id)formulaForID:(CDStruct_ed6d627d)arg1;
 - (id)copyByRewriting:(_Bool)arg1 withCalcEngine:(id)arg2 andHostUID:(const UUIDData_5fbc143e *)arg3;
 - (unsigned long long)count;
 - (_Bool)isEqualToFormulaStorage:(id)arg1;

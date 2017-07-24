@@ -23,12 +23,14 @@ __attribute__((visibility("hidden")))
     NSDictionary *_titleAttributes;
     double _restingHeightOfTitleView;
     UIView *_accessoryView;
+    unsigned long long _accessoryViewHorizontalAlignment;
     _UINavigationControllerRefreshControlHost *_refreshControlHost;
     UIFontMetrics *_fontMetrics;
 }
 
 @property(readonly, nonatomic) UIFontMetrics *fontMetrics; // @synthesize fontMetrics=_fontMetrics;
 @property(retain, nonatomic) _UINavigationControllerRefreshControlHost *refreshControlHost; // @synthesize refreshControlHost=_refreshControlHost;
+@property(nonatomic) unsigned long long accessoryViewHorizontalAlignment; // @synthesize accessoryViewHorizontalAlignment=_accessoryViewHorizontalAlignment;
 @property(nonatomic) _Bool alignAccessoryViewToTitleBaseline; // @synthesize alignAccessoryViewToTitleBaseline=_alignAccessoryViewToTitleBaseline;
 @property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
 @property(readonly, nonatomic) double restingHeightOfTitleView; // @synthesize restingHeightOfTitleView=_restingHeightOfTitleView;

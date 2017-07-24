@@ -112,6 +112,8 @@
 - (void)addToWebAccessOptedInListWithTagID:(id)arg1;
 - (void)notifyWebAccessOptedInListChanged;
 - (void)notifyPurchaseListChanged;
+- (void)notifyPurchaseRemovedWithTagIDs:(id)arg1;
+- (void)notifyPurchaseAddedWithTagIDs:(id)arg1;
 - (void)saveToDisk;
 - (void)loadLocalCachesFromStore;
 - (void)_applicationDidEnterBackground;

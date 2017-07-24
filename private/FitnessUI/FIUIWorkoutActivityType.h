@@ -8,7 +8,7 @@
 
 #import <FitnessUI/NSCoding-Protocol.h>
 
-@class HKQuantity, NSDictionary;
+@class HKQuantity, NSDictionary, NSString;
 
 @interface FIUIWorkoutActivityType : NSObject <NSCoding>
 {
@@ -32,6 +32,7 @@
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+@property(readonly, nonatomic) NSString *uniqueIdentifier;
 - (id)activityTypeByAddingLapLength:(double)arg1;
 - (id)localizedNameComponents;
 - (id)localizedName;
@@ -46,6 +47,8 @@
 - (id)initWithActivityTypeIdentifier:(unsigned long long)arg1 isIndoor:(_Bool)arg2 metadata:(id)arg3;
 - (id)initWithActivityTypeIdentifier:(unsigned long long)arg1 isIndoor:(_Bool)arg2;
 - (id)allAvailableMetrics;
+- (id)allAvailableMetricsWithIsMachineWorkout:(_Bool)arg1;
+- (_Bool)isAvailableMetricType:(unsigned long long)arg1 withIsMachineWorkout:(_Bool)arg2;
 - (id)defaultEnabledMetrics;
 - (id)appendMachineMetricsIfPossibleToMetrics:(id)arg1 maxNumMetrics:(long long)arg2;
 - (id)_machineProvidedMetrics;

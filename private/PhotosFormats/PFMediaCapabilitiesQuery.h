@@ -16,13 +16,15 @@
 @property(retain) NSMutableDictionary *capabilitiesInformation; // @synthesize capabilitiesInformation=_capabilitiesInformation;
 - (void).cxx_destruct;
 - (void)addLivePhotoInformationToDictionary:(id)arg1;
+- (void)addTranscodeChoiceWithOptions:(id)arg1;
 - (void)addVendorSpecificInformation;
 - (void)addHEIFContainerInformationToDictionary:(id)arg1;
 - (void)addHEVCCodecInformationToDictionary:(id)arg1;
 - (void)addCodecInformation;
 - (void)addVersion;
-- (void)gatherCapabilities;
+- (void)gatherCapabilitiesWithOptions:(id)arg1;
 - (id)dictionaryRepresentation;
+- (id)initWithOptions:(id)arg1;
 - (id)init;
 
 @end

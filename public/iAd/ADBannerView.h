@@ -17,6 +17,7 @@
     id <ADBannerViewDelegate> _weakDelegate;
     id <ADBannerViewInternalDelegate> _weakInternalDelegate;
     _Bool _displayed;
+    _Bool _reUsed;
     _Bool _bannerLoaded;
     _Bool _bannerViewActionInProgress;
     _Bool _createdForIBInternal;
@@ -48,7 +49,9 @@
     NSString *_originID;
     NSDate *_adDisplayDate;
     NSDate *_loadStartTime;
+    NSDate *_webLoadStartTime;
     NSDate *_loadEndTime;
+    double _adDataLoadTime;
     double _bannerLoadTime;
     struct CGSize _portraitSize;
     struct CGSize _landscapeSize;
@@ -63,7 +66,9 @@
 + (void)setServerURL:(id)arg1;
 + (_Bool)requiresConstraintBasedLayout;
 @property(nonatomic) double bannerLoadTime; // @synthesize bannerLoadTime=_bannerLoadTime;
+@property(nonatomic) double adDataLoadTime; // @synthesize adDataLoadTime=_adDataLoadTime;
 @property(copy, nonatomic) NSDate *loadEndTime; // @synthesize loadEndTime=_loadEndTime;
+@property(copy, nonatomic) NSDate *webLoadStartTime; // @synthesize webLoadStartTime=_webLoadStartTime;
 @property(copy, nonatomic) NSDate *loadStartTime; // @synthesize loadStartTime=_loadStartTime;
 @property(copy, nonatomic) NSDate *adDisplayDate; // @synthesize adDisplayDate=_adDisplayDate;
 @property(copy, nonatomic) NSString *originID; // @synthesize originID=_originID;
@@ -94,6 +99,7 @@
 @property(readonly, nonatomic) int internalAdType; // @synthesize internalAdType=_internalAdType;
 @property(readonly, nonatomic) long long options; // @synthesize options=_options;
 @property(nonatomic) long long lastErrorCode; // @synthesize lastErrorCode=_lastErrorCode;
+@property(nonatomic) _Bool reUsed; // @synthesize reUsed=_reUsed;
 @property(nonatomic) _Bool displayed; // @synthesize displayed=_displayed;
 @property(nonatomic) int slotPosition; // @synthesize slotPosition=_slotPosition;
 @property(nonatomic) int screenfuls; // @synthesize screenfuls=_screenfuls;
@@ -182,6 +188,7 @@
 - (id)uniqueIdentifier;
 - (void)setInternalAdType:(int)arg1;
 - (void)cycleImpressionImmediately;
+- (_Bool)hasImpressed;
 - (_Bool)canReuseForContext:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)_accessibilityUserTestingElementAttributes;

@@ -45,6 +45,7 @@
 - (unsigned long long)hash;
 - (void)openWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)dealloc;
+- (void)openInWebBrowser:(_Bool)arg1 setOpenStrategy:(long long)arg2 webBrowserState:(id)arg3 configuration:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)openInWebBrowser:(_Bool)arg1 setOpenStrategy:(long long)arg2 webBrowserState:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)openInWebBrowser:(_Bool)arg1 setAppropriateOpenStrategyAndWebBrowserState:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property long long openStrategy; // @dynamic openStrategy;

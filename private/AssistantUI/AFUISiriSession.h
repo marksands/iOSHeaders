@@ -12,7 +12,7 @@
 #import <AssistantUI/AFUISpeechSynthesisLocalDelegate-Protocol.h>
 #import <AssistantUI/AFUIStateMachineDelegate-Protocol.h>
 
-@class AFConnection, AFUIAppIntentDeliverer, AFUISpeechSynthesis, AFUIStateMachine, NSMutableSet, NSString;
+@class AFConnection, AFSettingsConnection, AFUIAppIntentDeliverer, AFUISiriSessionInfo, AFUISpeechSynthesis, AFUIStateMachine, NSMutableSet, NSString;
 @protocol AFUISiriSessionDelegate, AFUISiriSessionLocalDataSource, AFUISiriSessionLocalDelegate, OS_dispatch_group, OS_dispatch_queue;
 
 @interface AFUISiriSession : NSObject <AFAssistantUIService, AFSpeechDelegate, AFUIStateMachineDelegate, AFUISpeechSynthesisLocalDelegate, AFUISiriSession>
@@ -25,11 +25,13 @@
     CDUnknownBlockType _continuePendingRequest;
     _Bool _sendContextBeforeContinuingSpeechRequest;
     AFUIAppIntentDeliverer *_currentAppIntentDeliverer;
+    AFSettingsConnection *_settingsConnection;
     _Bool _eyesFree;
     _Bool _isProcessingAcousticIdRequest;
     id <AFUISiriSessionDelegate> _delegate;
     id <AFUISiriSessionLocalDataSource> _localDataSource;
     id <AFUISiriSessionLocalDelegate> _localDelegate;
+    AFUISiriSessionInfo *_siriSessionInfo;
     AFConnection *_connection;
     NSObject<OS_dispatch_group> *_currentSpeechRequestGroup;
 }
@@ -39,12 +41,15 @@
 + (unsigned long long)availabilityState;
 @property(retain, nonatomic, getter=_currentSpeechRequestGroup, setter=_setCurrentSpeechRequestGroup:) NSObject<OS_dispatch_group> *currentSpeechRequestGroup; // @synthesize currentSpeechRequestGroup=_currentSpeechRequestGroup;
 @property(readonly, nonatomic, getter=_connection) AFConnection *connection; // @synthesize connection=_connection;
+@property(retain, nonatomic) AFUISiriSessionInfo *siriSessionInfo; // @synthesize siriSessionInfo=_siriSessionInfo;
 @property(readonly, nonatomic) _Bool isProcessingAcousticIdRequest; // @synthesize isProcessingAcousticIdRequest=_isProcessingAcousticIdRequest;
 @property(nonatomic, getter=isEyesFree) _Bool eyesFree; // @synthesize eyesFree=_eyesFree;
 @property(nonatomic) __weak id <AFUISiriSessionLocalDelegate> localDelegate; // @synthesize localDelegate=_localDelegate;
 @property(nonatomic) __weak id <AFUISiriSessionLocalDataSource> localDataSource; // @synthesize localDataSource=_localDataSource;
 @property(retain, nonatomic) id <AFUISiriSessionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_updateActiveAccount:(id)arg1;
+- (void)settingsConnectionDidChangeActiveAccount:(id)arg1;
 - (void)_authenticationUIPresented;
 - (id)underlyingConnection;
 - (float)recordingPowerLevel;
@@ -104,6 +109,8 @@
 - (void)assistantConnection:(id)arg1 speechRecordingDidChangeAVRecordRoute:(id)arg2;
 - (void)assistantConnection:(id)arg1 speechRecordingDidBeginOnAVRecordRoute:(id)arg2 audioSessionID:(unsigned int)arg3;
 - (void)assistantConnectionSpeechRecordingWillBegin:(id)arg1;
+- (void)_updateAssistantVersion:(id)arg1;
+- (void)assistantConnection:(id)arg1 didLoadAssistant:(id)arg2;
 - (void)assistantConnection:(id)arg1 handleIntent:(id)arg2 inBackgroundAppWithBundleId:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)assistantConnection:(id)arg1 extensionRequestFinishedForApplication:(id)arg2 error:(id)arg3;
 - (void)assistantConnection:(id)arg1 extensionRequestWillStartForApplication:(id)arg2;

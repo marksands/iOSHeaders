@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 {
     _Bool _isUnitTestingAccount;
     _Bool _accountWantsPushRegistration;
+    _Bool _accountWantsFlowControl;
     _Bool _isAnonymousAccount;
     _Bool _haveWarnedAboutServerPreferredPushEnvironment;
     CKAccountOverrideInfo *_fakeAccountInfo;
@@ -36,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak CKDClientContext *context; // @synthesize context=_context;
 @property(readonly, nonatomic) CKDBackingAccount *backingAccount; // @synthesize backingAccount=_backingAccount;
 @property(retain, nonatomic) ACAccountType *acAccountType; // @synthesize acAccountType=_acAccountType;
+@property(nonatomic) _Bool accountWantsFlowControl; // @synthesize accountWantsFlowControl=_accountWantsFlowControl;
 @property(nonatomic) _Bool accountWantsPushRegistration; // @synthesize accountWantsPushRegistration=_accountWantsPushRegistration;
 @property(nonatomic) _Bool isUnitTestingAccount; // @synthesize isUnitTestingAccount=_isUnitTestingAccount;
 @property(readonly, nonatomic) CKAccountOverrideInfo *fakeAccountInfo; // @synthesize fakeAccountInfo=_fakeAccountInfo;

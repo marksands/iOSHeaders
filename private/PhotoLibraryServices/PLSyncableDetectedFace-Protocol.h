@@ -8,14 +8,17 @@
 #import <PhotoLibraryServices/PFPhotosFaceRepresentation-Protocol.h>
 #import <PhotoLibraryServices/PLSyncableObject-Protocol.h>
 
-@class NSDate, NSSet;
+@class NSDate, NSSet, NSString;
 @protocol PLSyncablePerson;
 
 @protocol PLSyncableDetectedFace <NSObject, PFPhotosFaceRepresentation, PLSyncableObject>
+@property(nonatomic) short cloudLocalState;
+@property(nonatomic) int trainingType;
 @property(nonatomic) int cloudNameSource;
 @property(nonatomic) int nameSource;
 @property(nonatomic) _Bool hidden;
 @property(nonatomic) _Bool manual;
+@property(readonly, nonatomic) _Bool isTrainingFace;
 @property(nonatomic) long long sourceHeight;
 @property(nonatomic) long long sourceWidth;
 @property(retain, nonatomic) id <PLSyncablePerson> personBeingKeyFace;
@@ -26,5 +29,7 @@
 @property(nonatomic) double size;
 @property(nonatomic) double centerY;
 @property(nonatomic) double centerX;
+- (NSString *)syncDescription;
+- (NSString *)pointerDescription;
 @end
 

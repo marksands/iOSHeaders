@@ -26,6 +26,7 @@
 - (id)exclusionPathIndexes;
 - (id)wpLayout;
 - (id)wpStorage;
+- (struct CGSize)boundingSize;
 - (double)baselineForLastLine;
 - (id)firstColumn;
 - (id)textLayout;

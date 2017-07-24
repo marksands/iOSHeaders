@@ -4,21 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIKBRenderFactory.h>
+#import <UIKit/UIKBRenderFactoryiPhone.h>
+
+@class UIKBRenderFactory;
 
 __attribute__((visibility("hidden")))
-@interface UIKBRenderFactory_Composite : UIKBRenderFactory
+@interface UIKBRenderFactory_Composite : UIKBRenderFactoryiPhone
 {
-    UIKBRenderFactory *_baseFactory;
     UIKBRenderFactory *_overlayFactory;
 }
 
-- (id)methodSignatureForSelector:(SEL)arg1;
-- (void)forwardInvocation:(id)arg1;
+- (_Bool)isTallPopup;
+- (double)popupFontSize;
+- (struct CGPoint)popupSymbolTextOffset;
+- (struct CGPoint)variantAnnotationTextOffset;
+- (struct CGPoint)variantSymbolTextOffset;
+- (struct UIEdgeInsets)variantSymbolFrameInsets;
+- (struct UIEdgeInsets)variantPaddedFrameInsets;
+- (struct UIEdgeInsets)wideShadowPopupMenuInsets;
+- (struct UIEdgeInsets)wideShadowPaddleInsets;
 - (id)initWithRenderingContext:(id)arg1 skipLayoutSegments:(_Bool)arg2;
-- (id)_overlayMethodSelectors;
 - (Class)_overlayFactoryClass;
-- (Class)_baseFactoryClass;
 
 @end
 

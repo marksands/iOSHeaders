@@ -6,11 +6,12 @@
 
 #import <PhotosUICore/PXSettings.h>
 
-@class PUScrubberSettings, PUSwipeDownSettings;
+@class PUScrubberSettings;
 
 @interface PUOneUpSettings : PXSettings
 {
     _Bool _showInitialDetailsIndicator;
+    _Bool _enableSuggestionsAnalysis;
     _Bool _initialDetailsIndicatorShouldSlideIn;
     _Bool _allowUserTransform;
     _Bool _allowBadges;
@@ -19,7 +20,6 @@
     _Bool _allowDoubleTapZoom;
     _Bool _allowFullsizeJPEGDisplay;
     _Bool _showFacesAreaRect;
-    _Bool _useFigPhotoTiledLayer;
     _Bool _hideToolbarWhenShowingAccessoryView;
     _Bool _useGlobalDetailsVisibility;
     _Bool _useGlobalCommentsVisibility;
@@ -28,10 +28,12 @@
     _Bool _allowStatusBar;
     _Bool _doubleTapZoomAreaExcludesBars;
     _Bool _doubleTapZoomAreaExcludesBackground;
+    _Bool _enableFigPhotoTiledLayer;
+    _Bool _useURLForLargePhotosWithFigPhotoTiledLayer;
+    _Bool _forceURLWithFigPhotoTiledLayer;
     _Bool _playVideoInScrubber;
     _Bool _lockScrollDuringLivePhotoPlayback;
-    _Bool _showScrubberForLivePhoto;
-    _Bool _showStillTimeSnappingIndicator;
+    _Bool _livePhotoScrubberShowForPlayback;
     _Bool _allowGIFPlayback;
     _Bool _showGIFLoadingDelays;
     _Bool _useDebuggingColors;
@@ -42,13 +44,11 @@
     _Bool _simulateAssetContentDownload;
     _Bool _simulateAssetContentDownloadFailure;
     long long _suggestionsStyle;
-    long long _suggestionsScheme;
     long long _suggestionMinimumAssetAgeInDays;
-    double _simulatedSuggestionDelay;
+    long long _simulatedAssetVariationSuggestion;
     double _initialDetailsIndicatorDelay;
     double _initialDetailsIndicatorDuration;
     long long _titleTapAction;
-    PUSwipeDownSettings *_swipeDownSettings;
     PUScrubberSettings *_scrubberSettings;
     unsigned long long _scaleToFitBehavior;
     long long _userNavigationMaximumDistance;
@@ -77,7 +77,6 @@
     double _doubleTapZoomFactor;
     double _videoPauseThreshold;
     double _livePhotoInteractionThreshold;
-    long long _livePhotoFrameCuration;
     unsigned long long _viewModelCacheCountLimit;
     double _visibilityDurationForEnteringQuickPagingRegime;
     double _visibilityDurationForExitingQuickPagingRegime;
@@ -125,13 +124,14 @@
 @property(nonatomic) double visibilityDurationForExitingQuickPagingRegime; // @synthesize visibilityDurationForExitingQuickPagingRegime=_visibilityDurationForExitingQuickPagingRegime;
 @property(nonatomic) double visibilityDurationForEnteringQuickPagingRegime; // @synthesize visibilityDurationForEnteringQuickPagingRegime=_visibilityDurationForEnteringQuickPagingRegime;
 @property(nonatomic) unsigned long long viewModelCacheCountLimit; // @synthesize viewModelCacheCountLimit=_viewModelCacheCountLimit;
-@property(nonatomic) long long livePhotoFrameCuration; // @synthesize livePhotoFrameCuration=_livePhotoFrameCuration;
-@property(nonatomic) _Bool showStillTimeSnappingIndicator; // @synthesize showStillTimeSnappingIndicator=_showStillTimeSnappingIndicator;
-@property(nonatomic) _Bool showScrubberForLivePhoto; // @synthesize showScrubberForLivePhoto=_showScrubberForLivePhoto;
+@property(nonatomic) _Bool livePhotoScrubberShowForPlayback; // @synthesize livePhotoScrubberShowForPlayback=_livePhotoScrubberShowForPlayback;
 @property(nonatomic) _Bool lockScrollDuringLivePhotoPlayback; // @synthesize lockScrollDuringLivePhotoPlayback=_lockScrollDuringLivePhotoPlayback;
 @property(nonatomic) double livePhotoInteractionThreshold; // @synthesize livePhotoInteractionThreshold=_livePhotoInteractionThreshold;
 @property(nonatomic) double videoPauseThreshold; // @synthesize videoPauseThreshold=_videoPauseThreshold;
 @property(nonatomic) _Bool playVideoInScrubber; // @synthesize playVideoInScrubber=_playVideoInScrubber;
+@property(nonatomic) _Bool forceURLWithFigPhotoTiledLayer; // @synthesize forceURLWithFigPhotoTiledLayer=_forceURLWithFigPhotoTiledLayer;
+@property(nonatomic) _Bool useURLForLargePhotosWithFigPhotoTiledLayer; // @synthesize useURLForLargePhotosWithFigPhotoTiledLayer=_useURLForLargePhotosWithFigPhotoTiledLayer;
+@property(nonatomic) _Bool enableFigPhotoTiledLayer; // @synthesize enableFigPhotoTiledLayer=_enableFigPhotoTiledLayer;
 @property(nonatomic) _Bool doubleTapZoomAreaExcludesBackground; // @synthesize doubleTapZoomAreaExcludesBackground=_doubleTapZoomAreaExcludesBackground;
 @property(nonatomic) _Bool doubleTapZoomAreaExcludesBars; // @synthesize doubleTapZoomAreaExcludesBars=_doubleTapZoomAreaExcludesBars;
 @property(nonatomic) double doubleTapZoomFactor; // @synthesize doubleTapZoomFactor=_doubleTapZoomFactor;
@@ -163,7 +163,6 @@
 @property(nonatomic) double minimumVisibleContentHeight; // @synthesize minimumVisibleContentHeight=_minimumVisibleContentHeight;
 @property(nonatomic) double accessoryInitialTopPosition; // @synthesize accessoryInitialTopPosition=_accessoryInitialTopPosition;
 @property(nonatomic) long long accessoryViewType; // @synthesize accessoryViewType=_accessoryViewType;
-@property(nonatomic) _Bool useFigPhotoTiledLayer; // @synthesize useFigPhotoTiledLayer=_useFigPhotoTiledLayer;
 @property(nonatomic) _Bool showFacesAreaRect; // @synthesize showFacesAreaRect=_showFacesAreaRect;
 @property(nonatomic) long long userNavigationMaximumDistance; // @synthesize userNavigationMaximumDistance=_userNavigationMaximumDistance;
 @property(nonatomic) _Bool allowFullsizeJPEGDisplay; // @synthesize allowFullsizeJPEGDisplay=_allowFullsizeJPEGDisplay;
@@ -174,15 +173,14 @@
 @property(nonatomic) _Bool allowUserTransform; // @synthesize allowUserTransform=_allowUserTransform;
 @property(nonatomic) unsigned long long scaleToFitBehavior; // @synthesize scaleToFitBehavior=_scaleToFitBehavior;
 @property(retain, nonatomic) PUScrubberSettings *scrubberSettings; // @synthesize scrubberSettings=_scrubberSettings;
-@property(retain, nonatomic) PUSwipeDownSettings *swipeDownSettings; // @synthesize swipeDownSettings=_swipeDownSettings;
 @property(nonatomic) long long titleTapAction; // @synthesize titleTapAction=_titleTapAction;
 @property(nonatomic) double initialDetailsIndicatorDuration; // @synthesize initialDetailsIndicatorDuration=_initialDetailsIndicatorDuration;
 @property(nonatomic) double initialDetailsIndicatorDelay; // @synthesize initialDetailsIndicatorDelay=_initialDetailsIndicatorDelay;
 @property(nonatomic) _Bool initialDetailsIndicatorShouldSlideIn; // @synthesize initialDetailsIndicatorShouldSlideIn=_initialDetailsIndicatorShouldSlideIn;
+@property(nonatomic) _Bool enableSuggestionsAnalysis; // @synthesize enableSuggestionsAnalysis=_enableSuggestionsAnalysis;
 @property(nonatomic) _Bool showInitialDetailsIndicator; // @synthesize showInitialDetailsIndicator=_showInitialDetailsIndicator;
-@property(nonatomic) double simulatedSuggestionDelay; // @synthesize simulatedSuggestionDelay=_simulatedSuggestionDelay;
+@property(nonatomic) long long simulatedAssetVariationSuggestion; // @synthesize simulatedAssetVariationSuggestion=_simulatedAssetVariationSuggestion;
 @property(nonatomic) long long suggestionMinimumAssetAgeInDays; // @synthesize suggestionMinimumAssetAgeInDays=_suggestionMinimumAssetAgeInDays;
-@property(nonatomic) long long suggestionsScheme; // @synthesize suggestionsScheme=_suggestionsScheme;
 @property(nonatomic) long long suggestionsStyle; // @synthesize suggestionsStyle=_suggestionsStyle;
 - (void).cxx_destruct;
 - (void)_updatePrototypeRelatedSettings;

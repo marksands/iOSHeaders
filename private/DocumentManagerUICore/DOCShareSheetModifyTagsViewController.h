@@ -6,19 +6,24 @@
 
 #import <DocumentManagerUICore/DOCShareSheetBaseViewController.h>
 
-@class NSLayoutConstraint;
+@class DOCTagEditorViewController, NSLayoutConstraint;
 
 @interface DOCShareSheetModifyTagsViewController : DOCShareSheetBaseViewController
 {
     NSLayoutConstraint *_loadingHeightConstraint;
+    DOCTagEditorViewController *_tagEditorViewController;
+    NSLayoutConstraint *_tagEditorTopConstraint;
     struct CGSize _shareUISize;
 }
 
+@property(readonly, nonatomic) NSLayoutConstraint *tagEditorTopConstraint; // @synthesize tagEditorTopConstraint=_tagEditorTopConstraint;
+@property(nonatomic) __weak DOCTagEditorViewController *tagEditorViewController; // @synthesize tagEditorViewController=_tagEditorViewController;
 @property(readonly, nonatomic) NSLayoutConstraint *loadingHeightConstraint; // @synthesize loadingHeightConstraint=_loadingHeightConstraint;
 @property(readonly, nonatomic) struct CGSize shareUISize; // @synthesize shareUISize=_shareUISize;
 - (void).cxx_destruct;
 - (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillLayoutSubviews;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;

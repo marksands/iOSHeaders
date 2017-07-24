@@ -10,7 +10,7 @@
 #import <UIKit/UITableViewDataSource-Protocol.h>
 #import <UIKit/UITableViewDelegate-Protocol.h>
 
-@class NSArray, NSString, UINavigationController, UITableViewController, UIWindow;
+@class NSArray, NSString, UINavigationController, UITableViewController;
 
 @interface UIReferenceLibraryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
 {
@@ -20,7 +20,8 @@
     UITableViewController *_multiDefViewController;
     UIViewController *_longDefViewController;
     long long _oldPopoverStyle;
-    UIWindow *_rotationDecider;
+    _Bool _enableRotation;
+    _Bool _previousIgnoreOrientation;
     CDUnknownBlockType _dismissCompletionHandler;
 }
 
@@ -38,16 +39,20 @@
 + (_Bool)_shouldShowDefineForTermOfLength:(long long)arg1;
 + (_Bool)_shouldShowDefineForTerm:(id)arg1;
 @property(copy, nonatomic) CDUnknownBlockType dismissCompletionHandler; // @synthesize dismissCompletionHandler=_dismissCompletionHandler;
-@property(retain, nonatomic, setter=_setRotationDecider:) UIWindow *_rotationDecider; // @synthesize _rotationDecider;
 - (void).cxx_destruct;
-- (void)traitCollectionDidChange:(id)arg1;
+- (void)window:(id)arg1 setupWithInterfaceOrientation:(long long)arg2;
+- (long long)_preferredInterfaceOrientationGivenCurrentOrientation:(long long)arg1;
 - (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (_Bool)shouldAutorotate;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)enableRotation;
+- (void)setEnableRotation:(_Bool)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)_didResignContentViewControllerOfPopover:(id)arg1;
 - (void)_willBecomeContentViewControllerOfPopover:(id)arg1;
 - (void)_setPopoverController:(id)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
-- (unsigned long long)supportedInterfaceOrientations;
 - (id)_colorAttributes;
 - (id)_dictionaryDefinitionAttributes;
 - (id)_localizedDictionaryTitleAttributes;

@@ -26,6 +26,7 @@
     NSString *_savedSearchTerm;
 }
 
++ (_Bool)capitalizeLanguageNames;
 @property(nonatomic) _Bool searchIsActive; // @synthesize searchIsActive=_searchIsActive;
 @property(retain, nonatomic) NSString *savedSearchTerm; // @synthesize savedSearchTerm=_savedSearchTerm;
 @property(retain, nonatomic) NSArray *filteredDeviceLanguages; // @synthesize filteredDeviceLanguages=_filteredDeviceLanguages;

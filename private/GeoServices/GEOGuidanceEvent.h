@@ -23,6 +23,7 @@
     GEOSignGuidance *_signGuidance;
     GEOSpokenGuidance *_spokenGuidance;
     int _startValidDistance;
+    _Bool _sticky;
     struct {
         unsigned int maxSpeed:1;
         unsigned int minSpeed:1;
@@ -32,9 +33,11 @@
         unsigned int identifier:1;
         unsigned int offsetForDistanceString:1;
         unsigned int startValidDistance:1;
+        unsigned int sticky:1;
     } _has;
 }
 
+@property(nonatomic) _Bool sticky; // @synthesize sticky=_sticky;
 @property(nonatomic) int offsetForDistanceString; // @synthesize offsetForDistanceString=_offsetForDistanceString;
 @property(nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) double maxSpeed; // @synthesize maxSpeed=_maxSpeed;
@@ -55,6 +58,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSticky;
 @property(nonatomic) _Bool hasOffsetForDistanceString;
 @property(nonatomic) _Bool hasIdentifier;
 - (int)StringAsEventType:(id)arg1;

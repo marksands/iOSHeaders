@@ -24,7 +24,7 @@
 #import <MessageUI/UINavigationControllerDelegate-Protocol.h>
 #import <MessageUI/UIPopoverPresentationControllerDelegate-Protocol.h>
 
-@class CNContactPickerViewController, CNContactViewController, MFAddressPickerReformatter, MFAttachment, MFComposeActivityContinuationOperation, MFComposeImageSizeView, MFComposeRecipient, MFComposeRecipientTextView, MFComposeSubjectView, MFFuture, MFLANContinuationAgent, MFLock, MFMailAccountProxyGenerator, MFMailMarkup, MFMailPopoverManager, MFMailSignatureController, MFMailboxUid, MFMessageContentProgressLayer, MFModernComposeRecipientAtom, MFMutableMessageHeaders, MFOutgoingMessageDelivery, MFRecentComposeRecipient, MFSecureMIMECompositionManager, NSArray, NSDate, NSDictionary, NSObject, NSString, NSTimer, QLPreviewController, UIAlertController, UIBarButtonItem, UIImagePickerController, UIKeyCommand, UIProgressView, UIResponder, UIView, _MFMailCompositionContext;
+@class CNContactPickerViewController, CNContactViewController, MFAddressPickerReformatter, MFAttachment, MFComposeActivityContinuationOperation, MFComposeImageSizeView, MFComposeRecipient, MFComposeRecipientTextView, MFComposeSubjectView, MFFuture, MFLANContinuationAgent, MFLock, MFMailAccountProxyGenerator, MFMailMarkup, MFMailPopoverManager, MFMailSignatureController, MFMailboxUid, MFMessageContentProgressLayer, MFModernComposeRecipientAtom, MFMutableMessageHeaders, MFOutgoingMessageDelivery, MFRecentComposeRecipient, MFSecureMIMECompositionManager, NSArray, NSDate, NSDictionary, NSMutableSet, NSObject, NSString, NSTimer, QLPreviewController, UIAlertController, UIBarButtonItem, UIImagePickerController, UIKeyCommand, UIProgressView, UIResponder, UIView, _MFMailCompositionContext;
 @protocol MFComposeBodyField, MFMailComposeViewControllerDelegate, NSCoding, OS_dispatch_group;
 
 @interface MFMailComposeController : UIViewController <UINavigationControllerDelegate, CNContactViewControllerDelegate, MFMailComposeToFieldDelegate, NSUserActivityDelegate, MFComposeActivityContinuationOperationDelegate, QLPreviewControllerDelegate, MFMailComposeViewDelegate, MFComposeHeaderViewDelegate, MFComposeSubjectViewDelegate, MFComposeImageSizeViewDelegate, MFComposeRecipientTextViewDelegate, MFSecureMIMECompositionManagerDelegate, MFComposeTypeFactoryDelegate, UIImagePickerControllerDelegate, UIPopoverPresentationControllerDelegate, MFGroupDetailViewControllerDelegate, CNContactPickerDelegate>
@@ -120,11 +120,13 @@
     int _sourceAccountManagement;
     MFComposeRecipient *_recipientPresentingCard;
     NSString *_originatingBundleID;
+    long long _drawingInsertCount;
     UIAlertController *_popoverAlert;
     QLPreviewController *_previewController;
     MFAttachment *_previewingAttachment;
     CNContactViewController *_contactViewController;
     unsigned long long _markupReplyAttachmentLoadingProgress;
+    NSMutableSet *_drawingFileAttachments;
 }
 
 + (id)preferenceForKey:(id)arg1;
@@ -132,6 +134,7 @@
 + (_Bool)isSetupForDeliveryAllowingRestrictedAccounts:(_Bool)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (void)initialize;
+@property(retain, nonatomic) NSMutableSet *drawingFileAttachments; // @synthesize drawingFileAttachments=_drawingFileAttachments;
 @property(nonatomic) unsigned long long markupReplyAttachmentLoadingProgress; // @synthesize markupReplyAttachmentLoadingProgress=_markupReplyAttachmentLoadingProgress;
 @property(nonatomic) _Bool delayToShowMarkupHasPassed; // @synthesize delayToShowMarkupHasPassed=_delayToShowMarkupHasPassed;
 @property(nonatomic) _Bool attachmentToMarkupIsLoaded; // @synthesize attachmentToMarkupIsLoaded=_attachmentToMarkupIsLoaded;
@@ -140,6 +143,7 @@
 @property(retain, nonatomic) MFAttachment *previewingAttachment; // @synthesize previewingAttachment=_previewingAttachment;
 @property(nonatomic) __weak QLPreviewController *previewController; // @synthesize previewController=_previewController;
 @property(retain, nonatomic) UIAlertController *popoverAlert; // @synthesize popoverAlert=_popoverAlert;
+@property(nonatomic) long long drawingInsertCount; // @synthesize drawingInsertCount=_drawingInsertCount;
 @property(nonatomic) _Bool autosaveIsValid; // @synthesize autosaveIsValid=_autosaveIsValid;
 @property(nonatomic) _Bool useMailDrop; // @synthesize useMailDrop=_useMailDrop;
 @property(nonatomic) int sourceAccountManagement; // @synthesize sourceAccountManagement=_sourceAccountManagement;
@@ -313,6 +317,7 @@
 - (void)_physicallyScaleImagesToScale:(unsigned long long)arg1;
 - (_Bool)_shouldUseMailDrop;
 - (void)_promptForMailDropIfNecessaryWithContinuation:(CDUnknownBlockType)arg1;
+- (void)_checkForUnencryptedWithContinuation:(CDUnknownBlockType)arg1;
 - (void)_checkForCanSendMailWithContinuation:(CDUnknownBlockType)arg1;
 - (void)_checkForEmptySubjectWithContinuation:(CDUnknownBlockType)arg1;
 - (void)_checkForInvalidAddressesWithContinuation:(CDUnknownBlockType)arg1;
@@ -324,8 +329,8 @@
 - (id)_messageForAutosave;
 - (id)_messageForRemoteDelivery;
 - (id)_messageForDraft;
-- (id)_messageUseSuspendInfo:(_Bool)arg1 endingEditing:(_Bool)arg2;
-- (id)_outgoingMessageWithSubstituteDocument:(id)arg1 useSuspendInfo:(_Bool)arg2 endingEditing:(_Bool)arg3;
+- (id)_messageWithCompositionSpecification:(id)arg1 useSuspendInfo:(_Bool)arg2 endingEditing:(_Bool)arg3;
+- (id)_outgoingMessageWithSubstituteDocument:(id)arg1 compositionSpecification:(id)arg2 useSuspendInfo:(_Bool)arg3 endingEditing:(_Bool)arg4;
 - (void)_leaveMessageInOutbox;
 - (void)close:(id)arg1;
 - (void)_close;
@@ -334,6 +339,8 @@
 - (void)_autosaveTimerFired:(id)arg1;
 - (_Bool)_shouldAutosaveAfterTimerFiredWithInterval:(double)arg1;
 - (void)_setAutosaveIsValid:(_Bool)arg1;
+- (void)_startAutosaveTimerIfNeeded;
+- (void)contentDidChange;
 - (unsigned long long)_sizeForScale:(unsigned long long)arg1 imagesOnly:(_Bool)arg2;
 - (void)_setIsLoading:(_Bool)arg1;
 - (void)imageSizeView:(id)arg1 changedSelectedScaleTo:(unsigned long long)arg2;
@@ -479,6 +486,7 @@
 - (void)clearInitialTitle;
 - (void)setInitialTitle:(id)arg1;
 - (id)navigationBarTitle;
+@property(readonly, nonatomic) long long countofDrawingAttachmentsLeftInCompose;
 - (void)clearAllFields;
 - (void)dismissSheet;
 - (_Bool)hosted;

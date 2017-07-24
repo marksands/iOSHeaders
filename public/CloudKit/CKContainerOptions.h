@@ -16,9 +16,11 @@
     _Bool _returnPCSMetadata;
     _Bool _useMMCSEncryptionV2;
     _Bool _bypassPCSEncryption;
+    _Bool _enforceNamedOperationGroups;
     CKAccountOverrideInfo *_accountInfoOverride;
 }
 
+@property(nonatomic) _Bool enforceNamedOperationGroups; // @synthesize enforceNamedOperationGroups=_enforceNamedOperationGroups;
 @property(nonatomic) _Bool bypassPCSEncryption; // @synthesize bypassPCSEncryption=_bypassPCSEncryption;
 @property(nonatomic) _Bool useMMCSEncryptionV2; // @synthesize useMMCSEncryptionV2=_useMMCSEncryptionV2;
 @property(nonatomic) _Bool returnPCSMetadata; // @synthesize returnPCSMetadata=_returnPCSMetadata;

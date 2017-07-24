@@ -18,10 +18,10 @@
     long long _rightMargin;
     long long _gutter;
     unsigned long long _numberOfColumns;
-    long long _topPadding;
     double _columnWidth;
-    long long _bottomPadding;
     long long _leftColumnOffset;
+    long long _topPadding;
+    long long _bottomPadding;
     long long _rightColumnOffset;
     double _leftInset;
     double _rightInset;
@@ -38,10 +38,10 @@
 @property(nonatomic) double rightInset; // @synthesize rightInset=_rightInset;
 @property(nonatomic) double leftInset; // @synthesize leftInset=_leftInset;
 @property(nonatomic) long long rightColumnOffset; // @synthesize rightColumnOffset=_rightColumnOffset;
+@property(nonatomic) long long bottomPadding; // @synthesize bottomPadding=_bottomPadding;
+@property(nonatomic) long long topPadding; // @synthesize topPadding=_topPadding;
 @property(readonly, nonatomic) long long leftColumnOffset; // @synthesize leftColumnOffset=_leftColumnOffset;
-@property(readonly, nonatomic) long long bottomPadding; // @synthesize bottomPadding=_bottomPadding;
 @property(readonly, nonatomic) double columnWidth; // @synthesize columnWidth=_columnWidth;
-@property(readonly, nonatomic) long long topPadding; // @synthesize topPadding=_topPadding;
 @property(readonly, nonatomic) unsigned long long numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;
 @property(readonly, nonatomic) long long gutter; // @synthesize gutter=_gutter;
 @property(readonly, nonatomic) long long rightMargin; // @synthesize rightMargin=_rightMargin;

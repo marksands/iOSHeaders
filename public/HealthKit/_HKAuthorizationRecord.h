@@ -19,6 +19,8 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)recordWithSharingDisabledFromRecord:(id)arg1;
++ (id)recordWithReadingDisabledFromRecord:(id)arg1;
 @property(readonly, nonatomic) double modificationDate; // @synthesize modificationDate=_modificationDate;
 @property(readonly, nonatomic) long long modificationEpoch; // @synthesize modificationEpoch=_modificationEpoch;
 @property(readonly, nonatomic) long long objectAnchor; // @synthesize objectAnchor=_objectAnchor;
@@ -30,6 +32,8 @@
 - (_Bool)isCompatibleStatus:(long long)arg1;
 - (_Bool)readingEnabled;
 - (_Bool)sharingEnabled;
+- (_Bool)deniedReading;
+- (_Bool)deniedSharing;
 - (_Bool)requestedReading;
 - (_Bool)requestedSharing;
 - (unsigned long long)hash;

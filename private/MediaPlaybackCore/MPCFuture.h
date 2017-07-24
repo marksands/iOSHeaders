@@ -38,6 +38,7 @@
 - (void).cxx_destruct;
 - (void)_onQueue_finalize;
 - (id)description;
+- (void)dealloc;
 - (void)invalidate;
 - (void)finishWithError:(id)arg1;
 - (void)finishWithValue:(id)arg1;

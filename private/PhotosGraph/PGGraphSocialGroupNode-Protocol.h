@@ -6,9 +6,13 @@
 
 #import <PhotosGraph/NSObject-Protocol.h>
 
+@class NSSet;
+
 @protocol PGGraphSocialGroupNode <NSObject>
 @property(readonly, nonatomic) unsigned long long rank;
-- (void)socialGroupEnumeratePersonNodesUsingBlock:(void (^)(PGGraphEdge *, PGGraphMomentNode *, _Bool *))arg1;
+- (void)socialGroupEnumeratePersonNodesUsingBlock:(void (^)(PGGraphEdge *, PGGraphPersonNode *, _Bool *))arg1;
 - (void)socialGroupEnumerateMomentNodesUsingBlock:(void (^)(PGGraphEdge *, PGGraphMomentNode *, _Bool *))arg1;
+- (NSSet *)socialGroupPersonNodes;
+- (NSSet *)socialGroupMomentNodes;
 @end
 

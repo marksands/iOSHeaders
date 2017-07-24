@@ -9,19 +9,25 @@
 #import <CFNetwork/NSStreamDelegate-Protocol.h>
 #import <CFNetwork/NSURLSessionTaskDelegate-Protocol.h>
 
-@class NSInputStream, NSOutputStream, NSString;
+@class NSError, NSInputStream, NSOutputStream, NSString;
 
 __attribute__((visibility("hidden")))
 @interface myDelegatesForEventTest : NSObject <NSURLSessionTaskDelegate, NSStreamDelegate>
 {
     NSInputStream *_inStream;
     NSOutputStream *_outStream;
+    NSError *_outputStreamError;
+    NSError *_inputStreamError;
     _Bool _eventRec;
 }
 
+@property(retain) NSError *inputStreamError; // @synthesize inputStreamError=_inputStreamError;
+@property(retain) NSError *outputStreamError; // @synthesize outputStreamError=_outputStreamError;
 - (void)closeStreams;
+- (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
 - (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;
 - (void)URLSession:(id)arg1 streamTask:(id)arg2 didBecomeInputStream:(id)arg3 outputStream:(id)arg4;
+- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -13,6 +13,7 @@
 
 @interface NTKUpNextBaseCell : UICollectionViewCell <UIGestureRecognizerDelegate>
 {
+    struct CGSize _shadowSize;
     UIImageView *_shadowView;
     CALayer *_imageLayer;
     CAFilter *_brightnessFilter;
@@ -40,6 +41,7 @@
 - (void)setContentImage:(id)arg1 animated:(_Bool)arg2;
 - (void)setContentBrightness:(double)arg1 animated:(_Bool)arg2;
 - (void)layoutSubviews;
+- (void)prepareForReuse;
 - (void)didLongPress:(id)arg1;
 - (void)setHighlighted:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -137,6 +137,8 @@
 - (void)_layoutTopBarForLayoutStyle:(long long)arg1;
 - (struct CGSize)_topBarSizeForLayoutStyle:(long long)arg1;
 - (double)_interpolatedTopBarHeight;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 forAspectRatio:(long long)arg2;
 - (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

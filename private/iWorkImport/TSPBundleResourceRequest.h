@@ -48,6 +48,7 @@ __attribute__((visibility("hidden")))
 - (id)alternateFileURLForDocumentResourceInfo:(id)arg1;
 - (void)accessQueue_conditionallyBeginAccessingResourcesWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, copy) NSString *description;
+- (id)initWithDocumentResourceInfos:(id)arg1 documentResourceCache:(id)arg2 documentResourceRegistry:(id)arg3 bundle:(id)arg4;
 - (id)initWithTags:(id)arg1 documentResourceCache:(id)arg2 documentResourceRegistry:(id)arg3 bundle:(id)arg4;
 - (id)init;
 

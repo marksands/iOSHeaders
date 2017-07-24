@@ -75,6 +75,7 @@
 - (_Bool)_needsUpdate;
 - (void)didPerformChanges;
 - (id)mutableChangeObject;
+- (void)viewControllerViewSafeAreaInsetsDidChange;
 - (void)viewControllerLayoutOrientationDidChange;
 - (void)viewControllerTraitCollectionDidChange;
 - (void)viewControllerViewWillTransitionToSize:(struct CGSize)arg1;

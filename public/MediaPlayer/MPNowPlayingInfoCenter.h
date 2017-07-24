@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSDate, NSDictionary, NSMutableDictionary, NSMutableSet, NSString;
+@class MPArtworkResizeUtility, NSDate, NSDictionary, NSMutableDictionary, NSMutableSet, NSString;
 @protocol MPNowPlayingInfoLyricsDelegate, MPNowPlayingPlaybackQueueDataSource, MPNowPlayingPlaybackQueueDelegate, OS_dispatch_queue;
 
 @interface MPNowPlayingInfoCenter : NSObject
@@ -14,9 +14,11 @@
     NSDictionary *_nowPlayingInfo;
     NSDictionary *_queuedNowPlayingInfo;
     NSDictionary *_convertedNowPlayingInfo;
-    NSMutableSet *_contentItemIdentifiersSentToMediaRemote;
     _Bool _coalescingUpdates;
+    NSMutableSet *_contentItemIdentifiersSentToMediaRemote;
     NSMutableDictionary *_mutatedContentItems;
+    NSMutableDictionary *_mutatedPlaybackQueueRequests;
+    MPArtworkResizeUtility *_artworkResizeUtility;
     unsigned long long _playbackState;
     NSDate *_pushDate;
     NSObject<OS_dispatch_queue> *_queue;
@@ -44,15 +46,19 @@
 - (void)_registerPlaybackQueueDataSourceCallbacks:(id)arg1;
 - (void)_removeToken:(void **)arg1;
 - (void)_pushContentItemsUpdate;
+- (void)_getArtworkForRequest:(void *)arg1 item:(id)arg2 returnItem:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_getLyricsForRequest:(void *)arg1 item:(id)arg2 returnItem:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_getInfoForRequest:(void *)arg1 item:(id)arg2 returnItem:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_getLanguageOptionsForRequest:(void *)arg1 item:(id)arg2 returnItem:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_clearPlaybackQueueDataSourceCallbacks;
-- (id)_queryChildItemFromDatasource:(id)arg1 atIndexPath:(id)arg2 fromRoot:(id)arg3;
+- (id)_queryChildItemFromDataSource:(id)arg1 atIndexPath:(id)arg2 fromRoot:(id)arg3;
 - (void)_contentItemChangedNotification:(id)arg1;
-- (void)_asynchronousRequests:(void *)arg1 forItem:(id)arg2 mediaRemoteContentItem:(void *)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)beginObservingChangesForContentItemIDs:(id)arg1;
 - (void)endPlaybackQueueContentItemUpdates;
 - (void)beginPlaybackQueueContentItemUpdates;
 - (void)invalidatePlaybackQueue;
 @property unsigned long long playbackState;
+@property(readonly, nonatomic) NSDictionary *_mediaRemoteNowPlayingInfo;
 @property(copy) NSDictionary *nowPlayingInfo;
 - (void)_pushNowPlayingInfoAndRetry:(_Bool)arg1;
 @property(nonatomic) __weak id <MPNowPlayingInfoLyricsDelegate> lyricsDelegate;

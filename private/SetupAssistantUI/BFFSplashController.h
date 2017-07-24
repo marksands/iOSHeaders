@@ -6,17 +6,21 @@
 
 #import <UIKit/UIViewController.h>
 
+#import <SetupAssistantUI/UIScrollViewDelegate-Protocol.h>
+
 @class BFFPaneHeaderView, NSMutableArray, NSString, UIColor, UIImage, UIScrollView, UIView, _UIBackdropView;
 
-@interface BFFSplashController : UIViewController
+@interface BFFSplashController : UIViewController <UIScrollViewDelegate>
 {
     BFFPaneHeaderView *_headerView;
     UIScrollView *_scrollView;
-    _UIBackdropView *_trayBackdrop;
+    _UIBackdropView *_lightTrayBackdrop;
+    _UIBackdropView *_ultraLightTrayBackdrop;
     UIView *_buttonTray;
     NSMutableArray *_buttons;
     UIColor *_tint;
     _Bool _disableIconTint;
+    _Bool _scrollingDisabled;
     _Bool _fullWidthContent;
     _Bool _usesTwoButtonLayout;
     UIImage *_icon;
@@ -27,6 +31,7 @@
 
 @property(nonatomic) _Bool usesTwoButtonLayout; // @synthesize usesTwoButtonLayout=_usesTwoButtonLayout;
 @property(nonatomic) _Bool fullWidthContent; // @synthesize fullWidthContent=_fullWidthContent;
+@property(nonatomic, getter=isScrollingDisabled) _Bool scrollingDisabled; // @synthesize scrollingDisabled=_scrollingDisabled;
 @property(nonatomic) _Bool disableIconTint; // @synthesize disableIconTint=_disableIconTint;
 @property(retain, nonatomic) UIColor *tint; // @synthesize tint=_tint;
 @property(nonatomic) long long contentViewPosition; // @synthesize contentViewPosition=_contentViewPosition;
@@ -35,6 +40,8 @@
 @property(retain, nonatomic) UIImage *icon; // @synthesize icon=_icon;
 - (void).cxx_destruct;
 - (void)_buttonPressed:(id)arg1;
+- (void)_updateTrayVisibility;
+- (void)scrollViewDidScroll:(id)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (id)contentScrollView;
@@ -51,6 +58,12 @@
 - (void)addButtonWithTitle:(id)arg1 style:(long long)arg2 action:(CDUnknownBlockType)arg3;
 - (void)setTitle:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

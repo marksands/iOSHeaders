@@ -129,8 +129,6 @@
 - (id)safeDescription;
 - (id)description;
 - (id)_safeDescription:(_Bool)arg1;
-- (id)awakeAfterUsingCoder:(id)arg1;
-- (id)replacementObjectForCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

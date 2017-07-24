@@ -7,7 +7,7 @@
 #import <MapKit/NSObject-Protocol.h>
 
 @protocol MKQuickRouteManagerDelegate <NSObject>
-- (_Bool)quickRouteShouldIncludeTransit;
+- (_Bool)quickRouteShouldIncludeTransitWhenNotPreferredTransportType;
 - (_Bool)quickRouteShouldOnlyUseAutomobile;
 
 @optional

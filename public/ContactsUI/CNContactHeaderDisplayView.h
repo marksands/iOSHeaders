@@ -30,8 +30,8 @@
     struct CGSize _maxNameSize;
 }
 
-+ (id)contactHeaderViewWithContact:(id)arg1 allowsPhotoDrops:(_Bool)arg2;
-+ (id)contactHeaderViewWithContact:(id)arg1;
++ (id)contactHeaderViewWithContact:(id)arg1 allowsPhotoDrops:(_Bool)arg2 delegate:(id)arg3;
++ (id)contactHeaderViewWithContact:(id)arg1 delegate:(id)arg2;
 + (id)makePhotoViewWithMonogrammerStyle:(long long)arg1 shouldAllowTakePhotoAction:(_Bool)arg2 shouldAllowImageDrops:(_Bool)arg3;
 + (id)descriptorForRequiredKeysForContactFormatter:(id)arg1 includingAvatarViewDescriptors:(_Bool)arg2;
 @property(retain) NSLayoutConstraint *taglineHeightConstraint; // @synthesize taglineHeightConstraint=_taglineHeightConstraint;
@@ -68,8 +68,8 @@
 - (void)updateFontSizes;
 - (void)tintColorDidChange;
 @property(nonatomic) unsigned long long avatarStyle;
-- (id)initWithContact:(id)arg1 frame:(struct CGRect)arg2 monogrammerStyle:(long long)arg3 shouldAllowImageDrops:(_Bool)arg4;
-- (id)initWithContact:(id)arg1 frame:(struct CGRect)arg2;
+- (id)initWithContact:(id)arg1 frame:(struct CGRect)arg2 monogrammerStyle:(long long)arg3 shouldAllowImageDrops:(_Bool)arg4 delegate:(id)arg5;
+- (id)initWithContact:(id)arg1 frame:(struct CGRect)arg2 delegate:(id)arg3;
 @property(readonly, nonatomic) double photoMinTopMargin;
 @property(readonly, nonatomic) double photoLabelSpacing;
 - (id)descriptorForRequiredKeys;

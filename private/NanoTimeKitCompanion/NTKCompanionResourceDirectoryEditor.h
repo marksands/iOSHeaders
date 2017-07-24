@@ -10,11 +10,17 @@
 
 @interface NTKCompanionResourceDirectoryEditor : NSObject
 {
+    _Bool _resourceDirectoryIsHardLink;
     NSString *_resourceDirectory;
     long long _state;
     NSString *_galleryPreviewResourceDirectory;
 }
 
++ (struct CGSize)_watchPhotoVideoSize;
++ (struct CGSize)_watchPhotoImageSize;
++ (void)_imageDataForAsset:(id)arg1 completion:(CDUnknownBlockType)arg2;
++ (id)_cropAndScaleUIImage:(id)arg1 cropRect:(struct CGRect)arg2 outputSize:(struct CGSize)arg3;
++ (id)_videoAssetOf:(id)arg1;
 + (id)_scaleImage:(id)arg1 toLongestEdgeInPixels:(double)arg2;
 + (id)_writeAsset:(id)arg1 image:(id)arg2 withImageCrop:(struct CGRect)arg3 to:(id)arg4;
 + (_Bool)_transcodeIrisVideoOf:(id)arg1 forPhoto:(id)arg2 withCrop:(struct CGRect)arg3 into:(id)arg4 previewOnly:(_Bool)arg5;
@@ -28,6 +34,8 @@
 - (void).cxx_destruct;
 - (void)finalizeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)generateGalleryPreviewResourceDirectoryWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_deleteResourceDirectoryHardLinkIfNecessary;
+- (void)dealloc;
 - (id)initWithResourceDirectory:(id)arg1;
 
 @end

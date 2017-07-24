@@ -20,7 +20,6 @@
 @property(nonatomic) __weak id <SSDittoHostViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)dismiss;
-- (void)activeInterfaceOrientationChanged:(long long)arg1;
 - (void)dismissScreenshotExperience;
 - (void)screenshotExperienceHasDismissed;
 - (void)viewServiceDidTerminateWithError:(id)arg1;

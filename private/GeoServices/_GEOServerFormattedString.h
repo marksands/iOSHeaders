@@ -20,6 +20,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *separators;
 @property(readonly, nonatomic) NSArray *formatTokens;
 @property(readonly, nonatomic) NSArray *formatStrings;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithString:(id)arg1;
 
 // Remaining properties

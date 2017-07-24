@@ -28,6 +28,7 @@
 @property(readonly) AVCameraCalibrationData *cameraCalibrationData;
 @property(readonly) long long depthDataAccuracy;
 @property(readonly, getter=isDepthDataFiltered) _Bool depthDataFiltered;
+@property(readonly) long long depthDataQuality;
 @property(readonly) struct __CVBuffer *depthDataMap;
 @property(readonly) unsigned int depthDataType;
 - (id)dictionaryRepresentationForAuxiliaryDataType:(id *)arg1;

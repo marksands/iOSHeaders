@@ -13,7 +13,6 @@
     _Bool _isRoot;
     NSString *_mountPoint;
     unsigned long long _initialFreespace;
-    NSString *_uuid;
     NSDictionary *_thresholds;
 }
 
@@ -23,7 +22,6 @@
 + (id)volumeWithMountpoint:(id)arg1;
 + (id)volumeWithPath:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *thresholds; // @synthesize thresholds=_thresholds;
-@property(readonly, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 @property(readonly) unsigned long long initialFreespace; // @synthesize initialFreespace=_initialFreespace;
 @property(readonly, nonatomic) NSString *mountPoint; // @synthesize mountPoint=_mountPoint;
 @property(readonly) _Bool isRoot; // @synthesize isRoot=_isRoot;

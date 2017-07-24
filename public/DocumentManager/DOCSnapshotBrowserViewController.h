@@ -8,13 +8,12 @@
 
 #import <DocumentManager/DOCNavigationBarOverwriteProtocol-Protocol.h>
 
-@class DOCConcreteLocation, NSString, UIBarButtonItem;
+@class DOCConcreteLocation, NSString;
 
 @interface DOCSnapshotBrowserViewController : UIViewController <DOCNavigationBarOverwriteProtocol>
 {
     _Bool _isTopNavigationItem;
     DOCConcreteLocation *_location;
-    UIBarButtonItem *_overriddenLeftButton;
     NSString *_overriddenTitle;
     NSString *_searchQuery;
 }
@@ -24,7 +23,6 @@
 @property(retain) NSString *searchQuery; // @synthesize searchQuery=_searchQuery;
 @property _Bool isTopNavigationItem; // @synthesize isTopNavigationItem=_isTopNavigationItem;
 @property(retain) NSString *overriddenTitle; // @synthesize overriddenTitle=_overriddenTitle;
-@property(retain) UIBarButtonItem *overriddenLeftButton; // @synthesize overriddenLeftButton=_overriddenLeftButton;
 @property(retain) DOCConcreteLocation *location; // @synthesize location=_location;
 - (void).cxx_destruct;
 

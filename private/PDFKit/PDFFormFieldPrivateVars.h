@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 @interface PDFFormFieldPrivateVars : NSObject
 {
     PDFDocument *document;
+    struct CGRect bounds;
     int fieldType;
     long long buttonType;
     NSString *fieldName;

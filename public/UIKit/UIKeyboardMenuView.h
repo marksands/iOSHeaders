@@ -83,6 +83,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldShowSelectionExtraViewForIndexPath:(id)arg1;
 - (void)highlightRow:(unsigned long long)arg1;
 - (void)updateSelectionWithPoint:(struct CGPoint)arg1;
+- (struct CGRect)interactiveBounds;
 - (id)indexPathForInputSwitcherCellIncludingInteractiveInsetsAtPoint:(struct CGPoint)arg1;
 - (void)autoscrollTimerFired:(id)arg1;
 - (void)stopAnyAutoscrolling;

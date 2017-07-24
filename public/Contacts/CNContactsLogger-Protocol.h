@@ -9,6 +9,8 @@
 @class CNContact, NSArray, NSData, NSError, NSPredicate, NSString;
 
 @protocol CNContactsLogger <NSObject>
+- (void)XPCConnectionWasInterrupted;
+- (void)XPCConnectionWasInvalidated;
 - (void)internalError:(NSError *)arg1;
 - (void)SPIUsageLackingEntitlementRejectedForPID:(int)arg1;
 - (void)SPIUsageLackingEntitlementGrantedForPID:(int)arg1;
@@ -21,27 +23,28 @@
 - (void)didFetchEncodedContacts:(NSData *)arg1 error:(NSError *)arg2;
 - (void)didFetchContacts:(NSArray *)arg1 error:(NSError *)arg2;
 - (void)fetchEncodedContactsMatchingPredicate:(NSPredicate *)arg1 unifyResults:(_Bool)arg2 keysToFetch:(NSArray *)arg3;
+- (void)fetchContactsProgressivelyMatchingPredicate:(NSPredicate *)arg1 unifyResults:(_Bool)arg2 keysToFetch:(NSArray *)arg3;
 - (void)fetchContactsMatchingPredicate:(NSPredicate *)arg1 unifyResults:(_Bool)arg2 keysToFetch:(NSArray *)arg3;
 - (void)noAccessToContactsWithError:(NSError *)arg1;
 - (void)contactsAccessWasGranted:(_Bool)arg1;
 - (void)tccAccessRequestWasDenied;
 - (void)tccAccessPreflightWasDenied;
-- (void)servicingContactsRequest:(void (^)(void))arg1;
-- (void)clearingChangeHistory:(void (^)(void))arg1;
-- (void)fetchingChangeHistory:(void (^)(void))arg1;
-- (void)unregisteringForChangeHistory:(void (^)(void))arg1;
-- (void)registeringForChangeHistory:(void (^)(void))arg1;
-- (void)saving:(void (^)(void))arg1;
-- (void)fetchingDefaultContainerIdentifier:(void (^)(void))arg1;
-- (void)fetchingContainers:(void (^)(void))arg1;
-- (void)fetchingGroups:(void (^)(void))arg1;
-- (void)fetchingContactIdentifierWithMatchingDictionary:(void (^)(void))arg1;
-- (void)fetchingContactWithUserActivity:(void (^)(void))arg1;
-- (void (^)(void))beginFetchingContacts;
-- (void)fetchingContacts:(void (^)(void))arg1;
-- (void)fetchingContactCount:(void (^)(void))arg1;
-- (void)changingMeContact:(void (^)(void))arg1;
-- (void)fetchingMeContactIdentifier:(void (^)(void))arg1;
-- (void (^)(void))beginRequestingAccessForContacts;
+- (void)servicingContactsRequest:(void (^)(void (^)(void)))arg1;
+- (void)clearingChangeHistory:(void (^)(void (^)(void)))arg1;
+- (void)fetchingChangeHistory:(void (^)(void (^)(void)))arg1;
+- (void)unregisteringForChangeHistory:(void (^)(void (^)(void)))arg1;
+- (void)registeringForChangeHistory:(void (^)(void (^)(void)))arg1;
+- (void)saving:(void (^)(void (^)(void)))arg1;
+- (void)fetchingDefaultContainerIdentifier:(void (^)(void (^)(void)))arg1;
+- (void)fetchingContainers:(void (^)(void (^)(void)))arg1;
+- (void)fetchingGroups:(void (^)(void (^)(void)))arg1;
+- (void)fetchingContactIdentifierWithMatchingDictionary:(void (^)(void (^)(void)))arg1;
+- (void)fetchingContactWithUserActivity:(void (^)(void (^)(void)))arg1;
+- (void)fetchingContactsBatch:(void (^)(void (^)(void)))arg1;
+- (void)fetchingContacts:(void (^)(void (^)(void)))arg1;
+- (void)fetchingContactCount:(void (^)(void (^)(void)))arg1;
+- (void)changingMeContact:(void (^)(void (^)(void)))arg1;
+- (void)fetchingMeContactIdentifier:(void (^)(void (^)(void)))arg1;
+- (void)requestingAccessForContacts:(void (^)(void (^)(void)))arg1;
 @end
 

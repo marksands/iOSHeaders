@@ -127,7 +127,7 @@ __attribute__((visibility("hidden")))
 - (void)simulateHealthIssueWithContainer:(id)arg1 status:(id)arg2 brokenStructure:(_Bool)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)gatherInformationForPath:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)dumpCoordinationInfoTo:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)dumpDatabaseTo:(id)arg1 containerID:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)dumpDatabaseTo:(id)arg1 containerID:(id)arg2 includeAllItems:(_Bool)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)printStatus:(id)arg1 containerID:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)performSelfCheck:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)resetBudgets:(id)arg1 reply:(CDUnknownBlockType)arg2;
@@ -163,6 +163,7 @@ __attribute__((visibility("hidden")))
 - (void)getContainerURLForID:(id)arg1 forProcess:(CDStruct_4c969caf)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)presyncContainerWithID:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)getContainerURLForID:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)getContainerURLForID:(id)arg1 recreateDocumentsIfNeeded:(_Bool)arg2 reply:(CDUnknownBlockType)arg3;
 - (oneway void)checkinAskClientIfUsingUbiquity:(_Bool)arg1;
 
 // Remaining properties

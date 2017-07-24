@@ -6,13 +6,13 @@
 
 #import <MobileCoreServices/_LSLazyPropertyList.h>
 
-@class NSData;
+@class NSData, _LSPlistHint;
 
 __attribute__((visibility("hidden")))
 @interface _LSConcreteLazyPropertyList : _LSLazyPropertyList
 {
     NSData *_plistData;
-    id _plistHint;
+    _LSPlistHint *_plistHint;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (_Bool)_getValue:(id *)arg1 forPropertyListKey:(id)arg2;
-- (id)_loadPropertyListPeeking:(_Bool)arg1;
+- (_Bool)_getPropertyList:(id *)arg1;
 - (id)initWithPropertyListData:(id)arg1;
 
 @end

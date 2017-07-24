@@ -6,18 +6,22 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class NSArray, NSIndexPath, NSOrderedSet, UIDragPreviewParameters, UITableViewCell;
+@class NSArray, NSIndexPath, NSOrderedSet, UIDragPreviewParameters, UITableViewCell, _UITableViewDropAnimationContainerView;
 @protocol UIDragSession;
 
 @protocol _UITableViewDragControllerDelegate <NSObject>
+- (_Bool)_dragSessionIsRestrictedToDraggingApplication:(id <UIDragSession>)arg1;
+- (_Bool)_dragSessionAllowsMoveOperation:(id <UIDragSession>)arg1;
 - (void)_endAnimatingDropOfCell:(UITableViewCell *)arg1;
-- (void)_beginAnimatingDropOfCell:(UITableViewCell *)arg1;
+- (_UITableViewDropAnimationContainerView *)_beginAnimatingDropOfCell:(UITableViewCell *)arg1 isCanceling:(_Bool)arg2;
 - (void)_dragSessionDidEnd:(id <UIDragSession>)arg1;
-- (void)_updateAppearanceForRowsInDrag;
 - (void)_dragSessionWillBegin:(id <UIDragSession>)arg1;
 - (NSArray *)_itemsForAddingToDragSession:(id <UIDragSession>)arg1 atIndexPath:(NSIndexPath *)arg2 point:(struct CGPoint)arg3;
 - (NSArray *)_itemsForBeginningDragSession:(id <UIDragSession>)arg1 atIndexPath:(NSIndexPath *)arg2;
-- (void)_prepareForDragLiftOfRowsAtIndexPaths:(NSOrderedSet *)arg1;
+- (void)_updateAppearanceOfVisibleRowsForDragState;
+- (void)_animateDragCancelForCell:(UITableViewCell *)arg1;
+- (void)_animateLiftOfRowsAtIndexPaths:(NSOrderedSet *)arg1;
+- (void)_prepareToLiftRowsAtIndexPaths:(NSOrderedSet *)arg1;
 - (UIDragPreviewParameters *)_dragPreviewParametersForIndexPath:(NSIndexPath *)arg1;
 - (NSOrderedSet *)_rowsToIncludeInDragAtIndexPath:(NSIndexPath *)arg1;
 - (_Bool)_canBeginDragAtPoint:(struct CGPoint)arg1 indexPath:(NSIndexPath *)arg2;

@@ -9,10 +9,12 @@
 __attribute__((visibility("hidden")))
 @interface MTLIndirectArgumentDescriptorInternal : MTLIndirectArgumentDescriptor
 {
-    struct MTLIndirectArgumentDescriptorPrivate _private;
+    struct MTLArgumentDescriptorPrivate _private;
 }
 
 + (id)indirectArgumentDescriptor;
+- (void)setConstantBlockAlignment:(unsigned long long)arg1;
+- (unsigned long long)constantBlockAlignment;
 - (void)setTextureType:(unsigned long long)arg1;
 - (unsigned long long)textureType;
 - (void)setAccess:(unsigned long long)arg1;

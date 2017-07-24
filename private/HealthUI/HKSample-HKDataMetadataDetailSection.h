@@ -6,7 +6,14 @@
 
 #import <HealthKit/HKSample.h>
 
-@interface HKSample (HKDataMetadataDetailSection)
+#import <HealthUI/HKDataMetadataObject-Protocol.h>
+
+@class NSDictionary;
+
+@interface HKSample (HKDataMetadataDetailSection) <HKDataMetadataObject>
 - (void)addDetailValuesToSection:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) NSDictionary *metadata;
 @end
 

@@ -6,13 +6,16 @@
 
 #import <SearchUI/SFFeedbackListener-Protocol.h>
 
-@class SFCardSectionEngagementFeedback, SFResultEngagementFeedback, UIView;
+@class NSString, SFCardSectionEngagementFeedback, SFResultEngagementFeedback, UIView, UIViewController;
 
 @protocol SearchUIFeedbackDelegate <SFFeedbackListener>
 
 @optional
-- (_Bool)didHandleCardSectionEngagement:(SFCardSectionEngagementFeedback *)arg1;
 - (void)cardSectionViewDidInvalidateSize:(UIView *)arg1;
+- (_Bool)didHandleCardSectionEngagement:(SFCardSectionEngagementFeedback *)arg1;
+- (void)updateViewControllerTitle:(NSString *)arg1;
+- (void)presentViewController:(UIViewController *)arg1;
+- (void)cardSectionViewDidInvalidateSize:(UIView *)arg1 animate:(_Bool)arg2;
 - (_Bool)shouldHandleCardSectionEngagement:(SFCardSectionEngagementFeedback *)arg1;
 - (void)didEngageActionItem:(SFResultEngagementFeedback *)arg1 actionPerformed:(_Bool)arg2;
 @end

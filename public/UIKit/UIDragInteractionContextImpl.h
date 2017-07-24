@@ -9,7 +9,7 @@
 #import <UIKit/UIDragAnimating-Protocol.h>
 #import <UIKit/UIDragInteractionContext-Protocol.h>
 
-@class NSArray, NSMutableArray, NSString;
+@class NSArray, NSMutableArray, NSString, UIDelayedAction;
 
 __attribute__((visibility("hidden")))
 @interface UIDragInteractionContextImpl : NSObject <UIDragInteractionContext, UIDragAnimating>
@@ -24,9 +24,13 @@ __attribute__((visibility("hidden")))
     NSArray *_items;
     CDUnknownBlockType _animations;
     CDUnknownBlockType _completion;
+    UIDelayedAction *_gateTimer;
+    UIDelayedAction *_cancellationTimer;
     struct CGPoint _initialLocation;
 }
 
+@property(retain, nonatomic) UIDelayedAction *cancellationTimer; // @synthesize cancellationTimer=_cancellationTimer;
+@property(retain, nonatomic) UIDelayedAction *gateTimer; // @synthesize gateTimer=_gateTimer;
 @property(nonatomic) _Bool hasBegunDrag; // @synthesize hasBegunDrag=_hasBegunDrag;
 @property(nonatomic, getter=isAccessibilityDrag) _Bool accessibilityDrag; // @synthesize accessibilityDrag=_accessibilityDrag;
 @property(nonatomic, getter=isPreparedForLift) _Bool preparedForLift; // @synthesize preparedForLift=_preparedForLift;

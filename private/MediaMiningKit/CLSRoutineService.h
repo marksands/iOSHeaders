@@ -25,7 +25,7 @@
 - (void).cxx_destruct;
 - (id)_placemarksFromLocationsOfInterest:(id)arg1;
 - (void)_pinPendingVisits;
-- (id)_fetchHomeAndWorkLocationsOfInterest;
+- (id)_fetchHomeAndWorkLocationsOfInterestWithRoutineManager:(id)arg1;
 - (id)_fetchLocationsOfInterestWithinDateInterval:(id)arg1;
 - (void)_buildLocationsOfInterestCache;
 - (double)_disambiguationDistanceForDevicePlacementType:(unsigned long long)arg1;

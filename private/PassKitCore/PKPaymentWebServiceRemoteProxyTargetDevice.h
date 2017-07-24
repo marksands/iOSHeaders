@@ -28,6 +28,8 @@
 - (void)addPassData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)handlePotentialExpressPass:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)validateTransferPreconditionsWithCompletion:(CDUnknownBlockType)arg1;
+- (void)secureElementOwnershipStateForCurrentUserWithCompletion:(CDUnknownBlockType)arg1;
+- (void)claimSecureElementForCurrentUserWithCompletion:(CDUnknownBlockType)arg1;
 - (void)downloadAllPaymentPasses;
 - (void)validateAddPreconditionsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)canProvisionPaymentPassWithPrimaryAccountIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;

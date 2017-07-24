@@ -21,6 +21,7 @@
 + (id)originalWithGeometry;
 + (id)sushiLevel1Filter;
 + (id)sourceFilterIncludingOrientation:(_Bool)arg1;
++ (id)autoCropFilter;
 
 @end
 

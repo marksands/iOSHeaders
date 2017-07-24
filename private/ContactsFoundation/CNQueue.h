@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSArray, NSMutableArray;
 @protocol CNQueueingStrategy;
@@ -18,6 +18,7 @@
 + (id)boundedQueueWithCapacity:(unsigned long long)arg1 overflowHandler:(CDUnknownBlockType)arg2;
 + (id)boundedQueueWithCapacity:(unsigned long long)arg1;
 + (id)priorityQueueWithComparator:(CDUnknownBlockType)arg1;
+- (void).cxx_destruct;
 - (id)drain;
 - (void)dequeueObject:(id)arg1;
 - (id)dequeue;
@@ -25,7 +26,6 @@
 - (void)enqueue:(id)arg1;
 @property(readonly) NSArray *allObjects;
 @property(readonly) unsigned long long count;
-- (void)dealloc;
 - (id)initWithStrategy:(id)arg1;
 - (id)init;
 

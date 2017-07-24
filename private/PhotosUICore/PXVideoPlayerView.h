@@ -19,6 +19,7 @@
     _Bool _allowsEdgeAntialiasing;
     ISWrappedAVPlayer *_player;
     UIImage *_placeholderImage;
+    NSArray *_placeholderImageFilters;
     double _videoAppearanceCrossfadeDuration;
     long long _placeholderDisplayMode;
     long long _videoViewContentMode;
@@ -31,6 +32,7 @@
 @property(nonatomic) long long placeholderDisplayMode; // @synthesize placeholderDisplayMode=_placeholderDisplayMode;
 @property(nonatomic) struct CGRect placeholderImageContentsRect; // @synthesize placeholderImageContentsRect=_placeholderImageContentsRect;
 @property(nonatomic) double videoAppearanceCrossfadeDuration; // @synthesize videoAppearanceCrossfadeDuration=_videoAppearanceCrossfadeDuration;
+@property(copy, nonatomic) NSArray *placeholderImageFilters; // @synthesize placeholderImageFilters=_placeholderImageFilters;
 @property(retain, nonatomic) UIImage *placeholderImage; // @synthesize placeholderImage=_placeholderImage;
 @property(retain, nonatomic) ISWrappedAVPlayer *player; // @synthesize player=_player;
 - (void).cxx_destruct;

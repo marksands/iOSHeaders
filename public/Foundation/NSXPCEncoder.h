@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
         unsigned long long dataSize;
         char *data;
         _Bool isVM;
+        _Bool isStack;
     } _encoder;
     unsigned long long _genericIndex;
     _Bool _topLevelDictionary;
@@ -30,7 +31,6 @@ __attribute__((visibility("hidden")))
     _Bool _askForReplacement;
 }
 
-+ (id)_dataWithXPCObject:(id)arg1;
 @property id <NSXPCEncoderDelegate> delegate; // @synthesize delegate=_delegate;
 @property NSXPCConnection *_connection; // @synthesize _connection;
 - (void)encodeConditionalObject:(id)arg1 forKey:(id)arg2;
@@ -49,6 +49,7 @@ __attribute__((visibility("hidden")))
 - (void)_encodeInvocation:(id)arg1 isReply:(_Bool)arg2 into:(id)arg3;
 - (id)_newRootXPCObject;
 - (void)_startTopLevelDictionary;
+- (void)_encodeUnkeyedObject:(id)arg1;
 - (void)encodeObject:(id)arg1 forKey:(id)arg2;
 - (void)_encodeObject:(id)arg1;
 - (void)_checkObject:(id)arg1;
@@ -60,6 +61,7 @@ __attribute__((visibility("hidden")))
 - (id)debugDescription;
 - (void)dealloc;
 - (id)init;
+- (id)initWithStackSpace:(char *)arg1 size:(unsigned long long)arg2;
 - (id)connection;
 
 @end

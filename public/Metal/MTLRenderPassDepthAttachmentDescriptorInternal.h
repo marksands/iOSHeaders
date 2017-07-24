@@ -16,6 +16,8 @@ __attribute__((visibility("hidden")))
 - (const struct MTLRenderPassAttachmentDescriptorPrivate *)_descriptorPrivate;
 - (void)setDepthResolveFilter:(unsigned long long)arg1;
 - (unsigned long long)depthResolveFilter;
+- (void)setStoreActionOptions:(unsigned long long)arg1;
+- (unsigned long long)storeActionOptions;
 - (void)setStoreAction:(unsigned long long)arg1;
 - (unsigned long long)storeAction;
 - (void)setLoadAction:(unsigned long long)arg1;

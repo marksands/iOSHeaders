@@ -15,7 +15,7 @@
 {
 }
 
-+ (id)newAceObjectWithDictionary:(id)arg1 context:(id)arg2;
++ (id)aceObjectWithDictionary:(id)arg1 context:(id)arg2;
 + (id)autoCompleteFetchRequestWithDictionary:(id)arg1 context:(id)arg2;
 + (id)autoCompleteFetchRequest;
 - (_Bool)requiresResponse;

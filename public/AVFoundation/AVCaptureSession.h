@@ -21,6 +21,7 @@
 + (id)allSessionPresets;
 + (id)dotString;
 + (void)initialize;
+- (void)cancelForegroundAutoResumeAfterDate:(id)arg1;
 - (void)_updateSourceDeviceDepthDataDeliveryEnabled;
 - (void)_handleNotification:(id)arg1 payload:(id)arg2;
 - (void)_notifyMediaServerdDied;

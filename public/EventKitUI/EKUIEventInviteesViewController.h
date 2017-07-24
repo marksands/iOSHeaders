@@ -64,7 +64,6 @@ __attribute__((visibility("hidden")))
 - (void)_searcherStateChanged:(long long)arg1;
 - (void)_requestDismissal;
 - (void)_refreshIfNeeded;
-- (id)_attendeesWithoutOrganizerAndLocations;
 - (id)_sectionForIndex:(unsigned long long)arg1;
 - (long long)_indexForSection:(id)arg1;
 - (id)_viewControllerForPresentingViewControllers;

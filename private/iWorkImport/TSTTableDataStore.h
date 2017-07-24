@@ -42,7 +42,6 @@ __attribute__((visibility("hidden")))
 - (void)validate;
 - (void)debugDump;
 - (void)saveToArchive:(struct DataStore *)arg1 archiver:(id)arg2 isInTheDocument:(_Bool)arg3;
-- (void)upgradeStyleDataLists;
 - (void)upgradeDataStoreCellStorage;
 - (_Bool)needToUpgradeCellStorage;
 - (void)setStorageParentToInfo:(id)arg1;
@@ -64,6 +63,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSTTableDataList *importWarningSetDataList;
 @property(readonly, nonatomic) TSTTableDataList *commentStorageDataList;
 @property(readonly, nonatomic) TSTTableDataList *multipleChoiceListFormatDataList;
+- (void)resetDataLists;
 @property(readonly, nonatomic) TSTTableDataList *formatDataList;
 @property(readonly, nonatomic) TSTTableDataList *richTextPayloadDataList;
 @property(readonly, nonatomic) TSTTableDataList *formulaErrorDataList;

@@ -12,17 +12,25 @@
 
 @interface NTPBDeviceInfo : PBCodable <NSCopying>
 {
+    long long _deviceDstOffset;
+    long long _deviceUtcOffset;
+    NSString *_deviceOsVersion;
     NSMutableArray *_devicePreferredLanguages;
     NSString *_devicePushToken;
     NSString *_deviceTimezone;
     int _deviceTokenEnv;
     NSString *_deviceType;
     struct {
+        unsigned int deviceDstOffset:1;
+        unsigned int deviceUtcOffset:1;
         unsigned int deviceTokenEnv:1;
     } _has;
 }
 
 + (Class)devicePreferredLanguageType;
+@property(nonatomic) long long deviceDstOffset; // @synthesize deviceDstOffset=_deviceDstOffset;
+@property(nonatomic) long long deviceUtcOffset; // @synthesize deviceUtcOffset=_deviceUtcOffset;
+@property(retain, nonatomic) NSString *deviceOsVersion; // @synthesize deviceOsVersion=_deviceOsVersion;
 @property(retain, nonatomic) NSMutableArray *devicePreferredLanguages; // @synthesize devicePreferredLanguages=_devicePreferredLanguages;
 @property(retain, nonatomic) NSString *deviceTimezone; // @synthesize deviceTimezone=_deviceTimezone;
 @property(retain, nonatomic) NSString *deviceType; // @synthesize deviceType=_deviceType;
@@ -36,6 +44,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasDeviceDstOffset;
+@property(nonatomic) _Bool hasDeviceUtcOffset;
+@property(readonly, nonatomic) _Bool hasDeviceOsVersion;
 - (id)devicePreferredLanguageAtIndex:(unsigned long long)arg1;
 - (unsigned long long)devicePreferredLanguagesCount;
 - (void)addDevicePreferredLanguage:(id)arg1;

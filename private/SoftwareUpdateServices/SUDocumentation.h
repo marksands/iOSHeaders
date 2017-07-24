@@ -45,6 +45,10 @@
 - (id)localizedStringFromBundle:(struct __CFBundle *)arg1 key:(id)arg2;
 - (void)_clearTransientDocumentationData;
 - (id)description;
+- (id)pngImageDataFromBundle:(struct __CFBundle *)arg1 fileName:(id)arg2;
+- (id)_getSUImage:(id)arg1;
+- (id)getFullWidthImage;
+- (id)getIconImage;
 - (_Bool)hasAnyDocumentation;
 - (id)licenseAgreement;
 - (id)releaseNotes;

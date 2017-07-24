@@ -49,6 +49,7 @@
 - (_Bool)deferAuthorization;
 - (void)setDeferAuthorization:(_Bool)arg1;
 - (id)vasPasses;
+- (void)setCredential:(id)arg1;
 - (void)setVasPasses:(id)arg1;
 - (id)currentPass;
 - (void)setCurrentPass:(id)arg1;

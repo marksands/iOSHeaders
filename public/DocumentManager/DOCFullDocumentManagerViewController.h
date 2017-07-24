@@ -11,16 +11,15 @@
 #import <DocumentManager/UINavigationControllerDelegate-Protocol.h>
 #import <DocumentManager/UISearchBarDelegate-Protocol.h>
 
-@class DOCBrowserViewController, DOCConcreteLocation, DOCFullVC_DOCInfoViewController, DOCPromptView, DOCSearchBar, DOCSourceViewController, NSArray, NSString, UIAlertAction, UIBarButtonItem, UINavigationController, UISearchBar, UIView, UIViewController;
+@class DOCBrowserViewController, DOCConcreteLocation, DOCDocumentManagerNavigationViewController, DOCFullVC_DOCInfoViewController, DOCPromptView, DOCSearchBar, DOCSourceViewController, NSArray, NSString, UIAlertAction, UIBarButtonItem, UISearchBar, UIView, UIViewController;
+@protocol DOCFullDocumentManagerViewControllerDelegate;
 
 @interface DOCFullDocumentManagerViewController : DOCBaseDocumentBrowserViewController <DOCSourceViewControllerDelegate, DOCDocumentBrowserDelegate, UISearchBarDelegate, UINavigationControllerDelegate>
 {
     DOCSourceViewController *_sourceViewController;
-    DOCBrowserViewController *_browserViewController;
     UIView *_dimmingView;
-    _Bool _shouldDisplayToolbar;
     UIAlertAction *_createNewFolderAction;
-    UIBarButtonItem *_newFolderActionBarButton;
+    UIBarButtonItem *_duplicateActionBarButton;
     UIBarButtonItem *_moveActionBarButton;
     UIBarButtonItem *_shareActionBarButton;
     UIBarButtonItem *_deleteActionBarButton;
@@ -31,40 +30,42 @@
     DOCPromptView *_promptView;
     NSArray *_customActions;
     DOCFullVC_DOCInfoViewController *_currentInfoViewController;
+    _Bool _isPreparingParent;
     _Bool _isDisplayingEmptyCollection;
     unsigned long long _numberOfItemsInCollection;
     unsigned long long _numberOfSelectedItems;
-    _Bool _isThirdPartyUI;
     DOCSearchBar *_accessorySearchBar;
     NSArray *_additionalToolbarButtonItems;
+    DOCDocumentManagerNavigationViewController *_internalNavigationController;
     UIViewController *_rootViewController;
     DOCConcreteLocation *_shownSource;
-    UINavigationController *_internalNavigationController;
-    UIBarButtonItem *_overriddenLeftButton;
+    id <DOCFullDocumentManagerViewControllerDelegate> _fullDocumentManagerDelegate;
+    DOCBrowserViewController *_currentBrowserViewController;
+    DOCBrowserViewController *_previousBrowserViewController;
     UISearchBar *_searchBar;
 }
 
 @property(retain) UISearchBar *searchBar; // @synthesize searchBar=_searchBar;
-@property(retain) UIBarButtonItem *overriddenLeftButton; // @synthesize overriddenLeftButton=_overriddenLeftButton;
-@property(retain) UINavigationController *internalNavigationController; // @synthesize internalNavigationController=_internalNavigationController;
+@property(retain) DOCBrowserViewController *previousBrowserViewController; // @synthesize previousBrowserViewController=_previousBrowserViewController;
+@property(retain) DOCBrowserViewController *currentBrowserViewController; // @synthesize currentBrowserViewController=_currentBrowserViewController;
+@property(nonatomic) __weak id <DOCFullDocumentManagerViewControllerDelegate> fullDocumentManagerDelegate; // @synthesize fullDocumentManagerDelegate=_fullDocumentManagerDelegate;
 @property(retain, nonatomic) DOCConcreteLocation *shownSource; // @synthesize shownSource=_shownSource;
 @property(retain, nonatomic) UIViewController *rootViewController; // @synthesize rootViewController=_rootViewController;
-@property(readonly) DOCBrowserViewController *browserViewController; // @synthesize browserViewController=_browserViewController;
+@property(readonly) DOCDocumentManagerNavigationViewController *internalNavigationController; // @synthesize internalNavigationController=_internalNavigationController;
 - (id)additionalToolbarButtonItems;
 - (void).cxx_destruct;
+- (id)currentViewController;
 - (id)_navigationControllerDimmingColorForParallaxTransition:(id)arg1;
 - (id)navigationController:(id)arg1 animationControllerForOperation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
+- (_Bool)_navigationControllerShouldUseBuiltinInteractionController:(id)arg1;
 - (void)navigationController:(id)arg1 didShowViewController:(id)arg2 animated:(_Bool)arg3;
+- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)_dismissPicker;
 - (void)_tapPickerCancelButton;
 - (void)newFolderNameTextFieldDidChange:(id)arg1;
 - (void)createNewFolder:(id)arg1;
-- (id)createSnapshotControllerForBrowser;
-- (id)previousSnapshotFromController:(id)arg1;
-- (id)backButtonForBrowserSnapshot:(id)arg1;
-- (void)popBrowserViewController:(_Bool)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (void)popBrowserViewControllerButtonAction;
 - (void)showLocationOnTopOfCurrentBrowser:(id)arg1 animated:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (void)browser:(id)arg1 didResolveShownLocation:(id)arg2;
 - (void)browser:(id)arg1 wantsToShowLocation:(id)arg2;
 - (void)_clearSearch:(_Bool)arg1 updatePalette:(_Bool)arg2;
 - (void)_clearSearch:(_Bool)arg1;
@@ -79,8 +80,9 @@
 - (void)browser:(id)arg1 isDisplayingEmptyCollection:(_Bool)arg2;
 - (void)dismissButtonWasTappedInBrowser:(id)arg1;
 - (void)locationsButtonWasTappedInBrowser:(id)arg1 sourceRect:(struct CGRect)arg2;
-- (void)browser:(id)arg1 willDisplayThirdPartyUI:(_Bool)arg2;
+- (void)browser:(id)arg1 didUpdateCurrentLocationCanSelect:(_Bool)arg2;
 - (void)browser:(id)arg1 didUpdateCurrentLocationIsWritable:(_Bool)arg2;
+- (void)browserDidFinishGatheringItemsAndThumbnails:(id)arg1;
 - (void)browser:(id)arg1 didUpdateImportSupportInCurrentLocation:(_Bool)arg2;
 - (void)browser:(id)arg1 didSelectItems:(id)arg2;
 - (void)sourceViewController:(id)arg1 didSelectLocation:(id)arg2;
@@ -96,6 +98,7 @@
 - (void)_recoverSelectedItems:(id)arg1;
 - (void)_shareSelectedItems:(id)arg1;
 - (void)_moveSelectedItems:(id)arg1;
+- (void)_duplicateSelectedItems:(id)arg1;
 - (void)_trashSelectedItems:(id)arg1;
 - (void)actionBarButtonTriggered:(id)arg1;
 - (id)shareAction;
@@ -115,14 +118,14 @@
 - (void)showSearchViewControllerIfNeededWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)hideDimmingViewIfNeeded;
 - (void)showDimmingViewIfNeeded;
+- (id)searchController;
 - (id)effectiveBrowserViewController;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)_exportToCurrentLocation:(id)arg1;
 - (void)setAdditionalLeadingNavigationBarButtonItems:(id)arg1;
 - (void)setAdditionalTrailingNavigationBarButtonItems:(id)arg1;
-- (void)popBrowserFromNoParentLocation:(id)arg1;
-- (void)fetchParentAndShowBackButtonIfNeededWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (void)showLocation:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
+- (void)snapshotForParentLocationFrom:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)prepareParentHierarchyIfNeededWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)showLocation:(id)arg1 animated:(_Bool)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
 - (void)_toggleSelectionMode;
 - (void)showSources:(id)arg1 sourceRect:(struct CGRect)arg2;
 - (void)showSources:(id)arg1;
@@ -132,6 +135,8 @@
 - (id)_createFlexibleSpace;
 - (void)_updateToolbarActionsForViewcontroller:(id)arg1;
 - (_Bool)canPerformAction:(id)arg1;
+- (void)clearCurrentOpenInteraction;
+- (void)clearCurrentInteraction;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)popToRootViewController;
@@ -141,12 +146,10 @@
 - (void)_updatePopoverOriginsIfNeeded;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)traitCollectionDidChange:(id)arg1;
-- (void)revealDocumentAtURL:(id)arg1 shouldImport:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)revealDocumentAtURL:(id)arg1 importIfNeeded:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_defaultTitleTextAttributes;
-- (void)_updateOverlayOnViewController:(id)arg1 forTranstion:(_Bool)arg2 animated:(_Bool)arg3;
+- (void)_updateOverlayOnViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)_updateOverlayOnViewController:(id)arg1;
-- (void)_updateBrowserOverlayForTranstion:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)_updateBrowserOverlay;
 - (void)setAllowsPickingMultipleItems:(_Bool)arg1;
 - (void)setAdditionalToolbarButtonItems:(id)arg1;
 - (void)setDelegate:(id)arg1;

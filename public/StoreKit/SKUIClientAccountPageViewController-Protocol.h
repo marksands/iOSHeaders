@@ -9,7 +9,7 @@
 @class NSError, NSNumber;
 
 @protocol SKUIClientAccountPageViewController <NSObject>
-- (void)dismissViewController;
+- (void)dismissViewControllerWithResult:(NSNumber *)arg1 error:(NSError *)arg2;
 - (void)didPrepareWithResult:(NSNumber *)arg1 error:(NSError *)arg2;
 @end
 

@@ -20,15 +20,18 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)availableFontAttributesArrayMatchingRequests:(id)arg1 options:(unsigned long long)arg2;
++ (id)attributesFromFontInfo:(id)arg1 assetDesignLanguages:(id)arg2;
 + (id)enabledKeyboardLanguages;
 + (Class)getASAssetQueryClass;
 + (_Bool)activateFontsFromAssetURL:(id)arg1;
 + (unsigned long long)calculateDownloadSize:(id)arg1;
++ (id)availableMobileAssetsWithOptions:(unsigned int)arg1 manager:(id)arg2 error:(id *)arg3;
++ (unsigned int)defaultQueryOptions;
 + (_Bool)shouldRetryWithServer;
 + (_Bool)shouldTryServer;
-+ (_Bool)fontInfo:(id)arg1 matchDescriptor:(struct __CTFontDescriptor *)arg2;
-+ (id)availableMobileAssets:(_Bool)arg1 error:(id *)arg2;
-+ (_Bool)shouldIgnoreFontAsset:(id)arg1;
++ (_Bool)fontInfo:(id)arg1 andAssetDesignLanguages:(id)arg2 matchesRequest:(id)arg3;
++ (id)availableMobileAssetsWithOptions:(unsigned int)arg1 error:(id *)arg2;
++ (_Bool)shouldIgnoreFontAssetWithAttributes:(id)arg1;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)preciousFontLanguages;

@@ -129,8 +129,8 @@
 - (void)accountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)setClientBundleID:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (id)_credentialItemWithAccountIdentifier:(id)arg1 serviceName:(id)arg2;
-- (id)_handleAccountAdd:(id)arg1 withDataclassActions:(id)arg2;
-- (id)_handleAccountMod:(id)arg1 withDataclassActions:(id)arg2;
+- (_Bool)_handleAccountAdd:(id)arg1 withDataclassActions:(id)arg2 error:(id *)arg3;
+- (_Bool)_handleAccountMod:(id)arg1 withDataclassActions:(id)arg2 withError:(id *)arg3;
 - (void)_noteAccountStoreDidSaveAccountsWithAccountTypeIdentifiers:(id)arg1 accountIdentifiers:(id)arg2;
 - (void)_setAccountManagedObjectRelationships:(id)arg1 withAccount:(id)arg2 oldAccount:(id)arg3 error:(id *)arg4;
 - (_Bool)_canSaveAccount:(id)arg1;
@@ -140,12 +140,12 @@
 - (id)_accountWithIdentifier:(id)arg1;
 - (void)_deleteAccountNoSave:(id)arg1 withDataclassActions:(id)arg2 error:(id *)arg3;
 - (void)deleteAccountNoSave:(id)arg1 error:(id *)arg2;
-- (void)_updateAccountNoSave:(id)arg1 withDataclassActions:(id)arg2 error:(id *)arg3;
+- (_Bool)_updateAccountNoSave:(id)arg1 withDataclassActions:(id)arg2 error:(id *)arg3;
 - (void)updateAccountNoSave:(id)arg1 error:(id *)arg2;
 - (id)_addAccountNoSave:(id)arg1 withDataclassActions:(id)arg2 error:(id *)arg3;
 - (void)addAccountNoSave:(id)arg1 error:(id *)arg2;
-- (id)_save;
-- (id)_removeAccountNoSave:(id)arg1 withDataclassActions:(id)arg2;
+- (_Bool)_saveWithError:(id *)arg1;
+- (_Bool)_removeAccountNoSave:(id)arg1 withDataclassActions:(id)arg2 withError:(id *)arg3;
 - (_Bool)accountsExistWithAccountTypeIdentifier:(id)arg1;
 - (void)accountsOnPairedDeviceWithAccountType:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (id)accountsWithAccountTypeIdentifier:(id)arg1;

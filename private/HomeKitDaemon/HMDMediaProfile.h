@@ -6,11 +6,12 @@
 
 #import <HomeKitDaemon/HMDAccessoryProfile.h>
 
-@class HMDMediaSession, NSObject;
+@class HMDAccessorySettingGroup, HMDMediaSession, NSObject;
 @protocol OS_dispatch_queue;
 
 @interface HMDMediaProfile : HMDAccessoryProfile
 {
+    HMDAccessorySettingGroup *_rootSettings;
     HMDMediaSession *_mediaSession;
     NSObject<OS_dispatch_queue> *_propertyQueue;
 }
@@ -23,6 +24,8 @@
 - (id)initWithCoder:(id)arg1;
 - (void)notifyClientsOfUpdatedMediaSession:(id)arg1;
 @property(retain) HMDMediaSession *mediaSession; // @synthesize mediaSession=_mediaSession;
+- (void)notifyClientsOfUpdatedRootSettings:(id)arg1;
+@property(retain) HMDAccessorySettingGroup *rootSettings; // @synthesize rootSettings=_rootSettings;
 - (void)configureWithMessageDispatcher:(id)arg1;
 - (id)initWithAccessory:(id)arg1;
 - (id)initWithAccessory:(id)arg1 uniqueIdentifier:(id)arg2 services:(id)arg3;

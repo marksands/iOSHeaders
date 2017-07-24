@@ -57,7 +57,6 @@
 - (void)_attemptCDPEnable:(CDUnknownBlockType)arg1;
 - (void)_handlePreflightError:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handleJoinResult:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_requestPostLockoutAccountReset:(CDUnknownBlockType)arg1;
 - (void)_enrollOrDisableCDPAfterEnabledStateVerified:(CDUnknownBlockType)arg1;
 - (void)_handleiCDPStatusCheckError:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handleCloudDataProtectionStateWithCompletion:(CDUnknownBlockType)arg1;

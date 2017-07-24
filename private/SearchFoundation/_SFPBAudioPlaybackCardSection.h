@@ -9,7 +9,7 @@
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/_SFPBAudioPlaybackCardSection-Protocol.h>
 
-@class NSArray, NSData, NSString, _SFPBColor, _SFPBImage, _SFPBText;
+@class NSArray, NSData, NSString, _SFPBColor, _SFPBImage, _SFPBRichText, _SFPBText;
 
 @interface _SFPBAudioPlaybackCardSection : PBCodable <_SFPBAudioPlaybackCardSection, NSSecureCoding>
 {
@@ -34,8 +34,16 @@
     NSString *_bottomImageEmoji;
     NSArray *_playCommands;
     NSArray *_stopCommands;
+    _SFPBRichText *_detailText;
+    _SFPBRichText *_title;
+    _SFPBRichText *_subtitle;
+    _SFPBImage *_thumbnail;
 }
 
+@property(retain, nonatomic) _SFPBImage *thumbnail; // @synthesize thumbnail=_thumbnail;
+@property(retain, nonatomic) _SFPBRichText *subtitle; // @synthesize subtitle=_subtitle;
+@property(retain, nonatomic) _SFPBRichText *title; // @synthesize title=_title;
+@property(retain, nonatomic) _SFPBRichText *detailText; // @synthesize detailText=_detailText;
 @property(copy, nonatomic) NSArray *stopCommands; // @synthesize stopCommands=_stopCommands;
 @property(copy, nonatomic) NSArray *playCommands; // @synthesize playCommands=_playCommands;
 @property(nonatomic) int state; // @synthesize state=_state;
@@ -65,6 +73,10 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasThumbnail;
+@property(readonly, nonatomic) _Bool hasSubtitle;
+@property(readonly, nonatomic) _Bool hasTitle;
+@property(readonly, nonatomic) _Bool hasDetailText;
 - (id)stopCommandsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)stopCommandsCount;
 - (void)addStopCommands:(id)arg1;

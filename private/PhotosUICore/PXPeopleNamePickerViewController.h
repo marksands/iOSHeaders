@@ -41,7 +41,7 @@
 - (void)_hideResultsView;
 - (void)_showResultsView;
 - (double)_titleViewMaxWidthForEditing:(_Bool)arg1;
-- (void)_keyboardWillShow:(id)arg1;
+- (void)_keyboardDidShow:(id)arg1;
 - (void)_keyboardWillHide:(id)arg1;
 - (void)_applicationDidEnterBackground;
 - (void)endNamingSession;

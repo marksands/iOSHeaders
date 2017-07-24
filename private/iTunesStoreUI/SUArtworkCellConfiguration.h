@@ -8,7 +8,7 @@
 
 #import <iTunesStoreUI/ISStoreURLOperationDelegate-Protocol.h>
 
-@class NSMutableArray, NSMutableDictionary, NSString;
+@class NSMutableArray, NSMutableDictionary, NSNumber, NSString;
 
 @interface SUArtworkCellConfiguration : SUArrayCellConfiguration <ISStoreURLOperationDelegate>
 {
@@ -32,6 +32,9 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentage;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentageCachedResponses;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSessionDuration;
 @property(readonly) Class superclass;
 
 @end

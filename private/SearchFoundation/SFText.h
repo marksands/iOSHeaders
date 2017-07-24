@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFText-Protocol.h>
 
 @class NSData, NSDictionary, NSString;
 
-@interface SFText : NSObject <SFText, NSSecureCoding>
+@interface SFText : NSObject <SFText, NSSecureCoding, NSCopying>
 {
     CDStruct_6afdaceb _has;
     NSString *_text;
@@ -23,6 +24,7 @@
 @property(nonatomic) unsigned long long maxLines; // @synthesize maxLines=_maxLines;
 @property(copy) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

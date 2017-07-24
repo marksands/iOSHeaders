@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, getter=isOpenInRestrictionInEffect) _Bool openInRestrictionInEffect;
 @property(readonly) NSNumber *maximumRating;
 @property(readonly) NSSet *restrictedBundleIDs;
+- (_Bool)cleanRemovedSystemApplicationsList;
 
 @end
 

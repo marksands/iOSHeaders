@@ -33,7 +33,6 @@
 - (void)_addVisitedLinksForItemsIfNeeded:(id)arg1;
 - (void)_removeAllVisitedLinks;
 - (id)_createHistoryStore;
-- (id)historyStore;
 - (void)historyStore:(id)arg1 didRemoveItems:(id)arg2;
 - (void)historyStore:(id)arg1 didRemoveVisits:(id)arg2;
 - (void)historyStoreDidFailDatabaseIntegrityCheck:(id)arg1;
@@ -42,9 +41,9 @@
 - (void)_dispatchHistoryCleared:(id)arg1;
 - (void)_dispatchHistoryItemsRemovedDuringLoading:(id)arg1;
 - (void)_dispatchHistoryItemsRemoved:(id)arg1;
-- (void)_dispatchHistoryItemDidChange:(id)arg1;
+- (void)_dispatchHistoryItemDidChange:(id)arg1 byUserInitiatedAction:(_Bool)arg2;
 - (void)_dispatchHistoryItemWillChange:(id)arg1;
-- (void)_dispatchHistoryItemsAdded:(id)arg1;
+- (void)_dispatchHistoryItemsAdded:(id)arg1 byUserInitiatedAction:(_Bool)arg2;
 - (void)_dispatchHistoryItemsLoaded:(id)arg1;
 - (void)_dispatchHistoryLoaded;
 - (void)_sendNotification:(id)arg1 withItems:(id)arg2;

@@ -7,25 +7,39 @@
 #import <UIKit/UIViewController.h>
 
 #import <MediaPlayer/MPMediaControlsClientController-Protocol.h>
+#import <MediaPlayer/UIViewControllerAnimatedTransitioning-Protocol.h>
+#import <MediaPlayer/UIViewControllerTransitioningDelegate-Protocol.h>
 
-@class MPMediaControlsRemoteViewController, NSString, UIVisualEffectView, _UIAsyncInvocation;
+@class MPMediaControlsConfiguration, MPMediaControlsRemoteViewController, NSString, UIVisualEffectView, _UIAsyncInvocation;
 
-@interface MPMediaControlsViewController : UIViewController <MPMediaControlsClientController>
+@interface MPMediaControlsViewController : UIViewController <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, MPMediaControlsClientController>
 {
     _UIAsyncInvocation *_cancelRequest;
+    _Bool _hasPresented;
     MPMediaControlsRemoteViewController *_remoteViewController;
     UIVisualEffectView *_backgroundView;
+    MPMediaControlsConfiguration *_configuration;
 }
 
+@property(readonly, nonatomic) MPMediaControlsConfiguration *configuration; // @synthesize configuration=_configuration;
 @property(retain, nonatomic) UIVisualEffectView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) MPMediaControlsRemoteViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
 - (void).cxx_destruct;
-- (void)_addRemoteView;
 - (void)_requestRemoteViewController;
-- (void)dismissFromTap:(id)arg1;
+- (void)_addRemoteView;
+- (void)animateTransition:(id)arg1;
+- (double)transitionDuration:(id)arg1;
+- (id)presentationControllerForPresentedViewController:(id)arg1 presentingViewController:(id)arg2 sourceViewController:(id)arg3;
+- (id)animationControllerForDismissedController:(id)arg1;
+- (id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3;
+- (void)tapGestureRecognized:(id)arg1;
+- (void)dismiss;
+- (_Bool)prefersStatusBarHidden;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
+- (id)initWithConfiguration:(id)arg1;
 - (id)init;
 
 // Remaining properties

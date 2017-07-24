@@ -14,13 +14,16 @@
 {
     NSMutableArray *_alightNotificationFeedbacks;
     NSData *_directionResponseID;
+    NSMutableArray *_guidanceFeedbacks;
     NSMutableArray *_stepFeedbacks;
     NSMutableArray *_trafficRerouteFeedbacks;
 }
 
++ (Class)guidanceFeedbackType;
 + (Class)alightNotificationFeedbackType;
 + (Class)trafficRerouteFeedbackType;
 + (Class)stepFeedbackType;
+@property(retain, nonatomic) NSMutableArray *guidanceFeedbacks; // @synthesize guidanceFeedbacks=_guidanceFeedbacks;
 @property(retain, nonatomic) NSMutableArray *alightNotificationFeedbacks; // @synthesize alightNotificationFeedbacks=_alightNotificationFeedbacks;
 @property(retain, nonatomic) NSMutableArray *trafficRerouteFeedbacks; // @synthesize trafficRerouteFeedbacks=_trafficRerouteFeedbacks;
 @property(retain, nonatomic) NSMutableArray *stepFeedbacks; // @synthesize stepFeedbacks=_stepFeedbacks;
@@ -35,6 +38,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)guidanceFeedbackAtIndex:(unsigned long long)arg1;
+- (unsigned long long)guidanceFeedbacksCount;
+- (void)addGuidanceFeedback:(id)arg1;
+- (void)clearGuidanceFeedbacks;
 - (id)alightNotificationFeedbackAtIndex:(unsigned long long)arg1;
 - (unsigned long long)alightNotificationFeedbacksCount;
 - (void)addAlightNotificationFeedback:(id)arg1;

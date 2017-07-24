@@ -31,6 +31,7 @@
     VCHistogram *_REDDiscardedCount;
     VCHistogram *_REDNumPayloadsUsed;
     VCHistogram *_REDMaxDelay;
+    VCHistogram *_videoStall;
     int _duration;
     int _adjustedDuration;
     double _totalVideoStallTime;
@@ -100,6 +101,7 @@
 @property(readonly) VCHistogram *REDDiscardedCount; // @synthesize REDDiscardedCount=_REDDiscardedCount;
 @property(readonly) VCHistogram *REDReceivedCount; // @synthesize REDReceivedCount=_REDReceivedCount;
 @property(readonly) VCHistogram *REDErasureCompensationRate; // @synthesize REDErasureCompensationRate=_REDErasureCompensationRate;
+@property(readonly) VCHistogram *videoStall; // @synthesize videoStall=_videoStall;
 @property(readonly) VCHistogram *videoJitter; // @synthesize videoJitter=_videoJitter;
 @property(readonly) VCHistogram *videoEncodingBitrate; // @synthesize videoEncodingBitrate=_videoEncodingBitrate;
 @property(readonly) VCHistogram *videoResolution; // @synthesize videoResolution=_videoResolution;

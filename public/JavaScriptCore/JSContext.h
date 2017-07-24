@@ -12,7 +12,6 @@
 {
     JSVirtualMachine *m_virtualMachine;
     struct OpaqueJSContext *m_context;
-    JSWrapperMap *m_wrapperMap;
     struct Strong<JSC::JSObject> m_exception;
     CDUnknownBlockType _exceptionHandler;
 }
@@ -41,6 +40,7 @@
 - (void)dealloc;
 - (id)initWithVirtualMachine:(id)arg1;
 - (id)init;
+- (void)ensureWrapperMap;
 - (struct OpaqueJSContext *)JSGlobalContextRef;
 - (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
 - (id)objectForKeyedSubscript:(id)arg1;

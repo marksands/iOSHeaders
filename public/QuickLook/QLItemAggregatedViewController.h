@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) QLItemViewController *currentPreviewViewController; // @synthesize currentPreviewViewController=_currentPreviewViewController;
 - (id)delegate;
 - (void).cxx_destruct;
+- (id)draggableView;
 - (void)buttonPressedWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)transitionWillFinish:(_Bool)arg1 didComplete:(_Bool)arg2;
 - (void)transitionDidFinish:(_Bool)arg1 didComplete:(_Bool)arg2;

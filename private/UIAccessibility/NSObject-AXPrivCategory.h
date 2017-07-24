@@ -67,6 +67,7 @@
 - (id)accessibilitySpeechHint;
 - (id)_accessibilityWebAreaURL;
 - (id)accessibilityURL;
+- (id)accessibilityDatetimeValue;
 - (id)_accessibilityUserTestingActionIdentifiers;
 - (_Bool)_accessibilityPerformUserTestingAction:(id)arg1;
 - (id)_accessibilityUserTestingActions;
@@ -195,6 +196,7 @@
 - (_Bool)_accessibilityShouldReleaseAfterUnregistration;
 - (void)accessibilityElementDidLoseFocus;
 - (void)accessibilityElementDidBecomeFocused;
+- (id)_accessibilityLoadAccessibilityInformationSupplementaryItems;
 - (void)_accessibilityLoadAccessibilityInformation;
 - (void)_accessibilityPlayKeyboardClickSound;
 - (void)_accessibilityPlaySystemSound:(int)arg1;
@@ -288,6 +290,7 @@
 - (id)_accessibilityAncestorIsAccessibilityElementsHidden;
 - (id)_accessibilityAncestorIsKindOf:(Class)arg1;
 - (id)_accessibilityViewAncestorIsKindOf:(Class)arg1;
+- (id)_accessibilityFindViewAncestor:(CDUnknownBlockType)arg1 startWithSelf:(_Bool)arg2;
 - (_Bool)_accessibilityIsDescendantOfElement:(id)arg1;
 - (_Bool)_accessibilityIsViewDescendantOfElement:(id)arg1;
 - (id)accessibilityViewWithIdentifier:(id)arg1;
@@ -345,6 +348,7 @@
 - (id)_accessibilityWindow;
 - (_Bool)_accessibilityUsesSpecialKeyboardDismiss;
 - (id)_accessibilityRemoteApplication;
+- (void)_accessibilityRegisterForDictationLifecycleNotifications;
 - (id)_accessibilityApplication;
 - (void)_setAccessibilityTableCellUsesDetailTextAsValue:(_Bool)arg1;
 - (_Bool)_accessibilityTableCellUsesDetailTextAsValue;
@@ -412,6 +416,7 @@
 - (id)_getAccessibilityAttributedString;
 - (void)accessibilitySetValue:(id)arg1 forAttribute:(long long)arg2;
 - (id)accessibilityAttributeValue:(long long)arg1;
+- (long long)_accessibilityReinterpretVoiceOverCommand:(long long)arg1;
 - (struct CGRect)_accessibilityFocusableFrameForZoom;
 - (id)__accessibilityRetrieveFrameOrPathDelegate;
 - (id)accessibilityAttributeValue:(long long)arg1 forParameter:(id)arg2;

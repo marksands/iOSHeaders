@@ -6,7 +6,7 @@
 
 #import <Navigation/NSObject-Protocol.h>
 
-@class GEOAlightNotificationFeedback, GEOETARoute, GEOStep, MNActiveRouteDetails, MNAudioOutputSetting, MNGuidanceLaneInfo, MNGuidanceSignInfo, MNLocationDetails, MNNavigationSessionManager, MNTracePlaybackDetails, MNTrafficIncidentAlertDetails, NSArray, NSDate, NSError, NSString, NSUUID;
+@class GEOAlightNotificationFeedback, GEOETARoute, GEOStep, MNActiveRouteDetails, MNActiveRouteInfo, MNAudioOutputSetting, MNGuidanceEventFeedback, MNGuidanceLaneInfo, MNGuidanceSignInfo, MNLocationDetails, MNNavigationSessionManager, MNTracePlaybackDetails, MNTrafficIncidentAlertDetails, NSArray, NSDate, NSError, NSString, NSUUID;
 
 @protocol MNNavigationSessionManagerDelegate <NSObject>
 - (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didUpdateTracePlaybackDetails:(MNTracePlaybackDetails *)arg2;
@@ -21,10 +21,15 @@
 - (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didInvalidateTrafficIncidentAlert:(MNTrafficIncidentAlertDetails *)arg2;
 - (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didUpdateTrafficIncidentAlert:(MNTrafficIncidentAlertDetails *)arg2;
 - (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didReceiveTrafficIncidentAlert:(MNTrafficIncidentAlertDetails *)arg2;
+- (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 updatedGuidanceEventFeedback:(MNGuidanceEventFeedback *)arg2;
+- (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 newGuidanceEventFeedback:(MNGuidanceEventFeedback *)arg2;
 - (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didEnableGuidancePrompts:(_Bool)arg2;
 - (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 hideLaneDirectionsForId:(NSUUID *)arg2;
 - (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 showLaneDirections:(MNGuidanceLaneInfo *)arg2;
+- (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 usePersistentDisplay:(_Bool)arg2;
 - (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 updateSignsWithInfo:(MNGuidanceSignInfo *)arg2;
+- (void)navigationSessionManagerEndGuidanceUpdate:(MNNavigationSessionManager *)arg1;
+- (void)navigationSessionManagerBeginGuidanceUpdate:(MNNavigationSessionManager *)arg1;
 - (void)navigationSessionManagerHideSecondaryStep:(MNNavigationSessionManager *)arg1;
 - (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 displaySecondaryStep:(GEOStep *)arg2 instructions:(NSArray *)arg3 shieldType:(int)arg4 shieldText:(NSString *)arg5 drivingSide:(int)arg6;
 - (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 displayManeuverAlertForAnnouncementStage:(unsigned long long)arg2;
@@ -36,13 +41,14 @@
 - (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didUpdateAlternateRoutes:(NSArray *)arg2;
 - (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 failedRerouteWithErrorCode:(long long)arg2;
 - (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didSwitchToNewTransportType:(int)arg2 newRoute:(MNActiveRouteDetails *)arg3;
-- (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didRerouteWithDetails:(MNActiveRouteDetails *)arg2 locationDetails:(MNLocationDetails *)arg3;
+- (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didRerouteWithDetails:(MNActiveRouteDetails *)arg2 locationDetails:(MNLocationDetails *)arg3 withAlternateRoutes:(NSArray *)arg4;
 - (void)navigationSessionManagerDidCancelReroute:(MNNavigationSessionManager *)arg1;
 - (void)navigationSessionManagerWillReroute:(MNNavigationSessionManager *)arg1;
 - (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didUpdateHeading:(double)arg2 accuracy:(double)arg3;
-- (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didUpdateTrafficForETARoute:(GEOETARoute *)arg2 from:(unsigned int)arg3 to:(unsigned int)arg4 withRouteDetails:(MNActiveRouteDetails *)arg5;
+- (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didUpdateTrafficForETARoute:(GEOETARoute *)arg2 from:(unsigned int)arg3 to:(unsigned int)arg4 forRoute:(MNActiveRouteInfo *)arg5;
+- (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didUpdateETAResponseForRoute:(MNActiveRouteInfo *)arg2;
 - (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didUpdateRemainingTime:(double)arg2 remainingDistance:(double)arg3;
-- (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didUpdateDisplayETA:(NSDate *)arg2 displayRemainingMinutes:(unsigned long long)arg3 withRouteDetails:(MNActiveRouteDetails *)arg4;
+- (void)navigationSessionManager:(MNNavigationSessionManager *)arg1 didUpdateDisplayETA:(NSDate *)arg2 displayRemainingMinutes:(unsigned long long)arg3 forRoute:(MNActiveRouteInfo *)arg4;
 - (void)navigationSessionManagerWillResumeFromPause:(MNNavigationSessionManager *)arg1;
 - (void)navigationSessionManagerWillPause:(MNNavigationSessionManager *)arg1;
 - (void)navigationSessionManagerDidArrive:(MNNavigationSessionManager *)arg1;

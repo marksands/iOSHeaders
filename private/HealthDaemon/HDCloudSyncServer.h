@@ -14,6 +14,7 @@
 {
 }
 
+- (void)remote_disableCloudSyncAndDeleteAllCloudDataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_fetchCloudSyncStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_fetchCloudDescriptionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_forceCloudResetWithCompletion:(CDUnknownBlockType)arg1;

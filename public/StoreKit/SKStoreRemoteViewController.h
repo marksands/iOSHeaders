@@ -21,8 +21,8 @@
 @property(nonatomic) __weak id <SKStoreRemoteViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)presentRequestedViewControllerWithIdentifier:(id)arg1;
-- (void)setPreferredStatusBarStyle:(long long)arg1;
 - (void)setNeedsTabSelection;
+- (void)viewServiceDidTerminateWithError:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -23,6 +23,7 @@
     NSUUID *_linkUUID;
     long long _relayServerProvider;
     NSData *_relaySessionToken;
+    NSData *_relaySessionKey;
 }
 
 - (void).cxx_destruct;

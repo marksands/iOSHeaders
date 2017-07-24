@@ -15,36 +15,37 @@
 {
     PMLTrainingStore *_store;
     id <PMLMultiLabelEvaluationTrackerProtocol> _tracker;
-    struct NSString *_planId;
     PMLSessionDescriptor *_sessionDescriptor;
     unsigned long long _maxSessionsLimit;
     NSArray *_evaluationPoints;
     NSDictionary *_models;
     SGQPMultiLabelModel *_multiLabelModel;
     _Bool _isSynchronous;
+    struct NSString *_planId;
 }
 
 @property(readonly, nonatomic) unsigned long long maxSessionsLimit; // @synthesize maxSessionsLimit=_maxSessionsLimit;
 @property(readonly, nonatomic) PMLSessionDescriptor *sessionDescriptor; // @synthesize sessionDescriptor=_sessionDescriptor;
 @property(readonly, nonatomic) id <PMLMultiLabelEvaluationTrackerProtocol> tracker; // @synthesize tracker=_tracker;
 @property(readonly, nonatomic) PMLTrainingStore *store; // @synthesize store=_store;
+@property(readonly, nonatomic) _Bool isSynchronous; // @synthesize isSynchronous=_isSynchronous;
+@property(readonly, nonatomic) NSString *planId; // @synthesize planId=_planId;
 - (void).cxx_destruct;
 - (id)initWithPlist:(id)arg1 chunks:(id)arg2 context:(id)arg3;
 - (id)toPlistWithChunks:(id)arg1;
 - (id)runWhile:(CDUnknownBlockType)arg1 didFinish:(_Bool *)arg2;
 - (void)runUntilDoneForTesting;
-- (_Bool)run;
+- (id)run;
 - (id)precisionCountsAtEvaluationPointsForSessions:(id)arg1;
-- (void)evaluateSessionsSince:(double)arg1;
+- (id)evaluateSessionsSince:(double)arg1;
 - (id)initWithStore:(id)arg1 tracker:(id)arg2 planId:(struct NSString *)arg3 isSynchronous:(_Bool)arg4 model:(id)arg5 maxSessionsLimit:(unsigned long long)arg6 evaluteAtKs:(id)arg7 multiLabelModel:(id)arg8;
 - (id)initWithStore:(id)arg1 tracker:(id)arg2 planId:(struct NSString *)arg3 isSynchronous:(_Bool)arg4 model:(id)arg5 maxSessionsLimit:(unsigned long long)arg6 evaluteAtKs:(id)arg7 modelsAndAssociatedLabels:(id)arg8;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) _Bool isSynchronous;
-@property(readonly, nonatomic) NSString *planId;
 @property(readonly) Class superclass;
 
 @end

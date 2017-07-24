@@ -13,7 +13,6 @@
 @property(readonly) _Bool hasContactsUIEntitlement;
 @property(readonly) _Bool internalAccessLevelGranted;
 @property(readonly) _Bool testingAccessLevelGranted;
-@property(readonly) _Bool canSetAutomaticLocationGeocodingAllowedValue;
 @property(readonly) _Bool canModifyCalendarDatabase;
 @property(readonly) _Bool canMakeSpotlightChanges;
 @property(readonly) _Bool canModifySuggestedEventCalendar;

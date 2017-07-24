@@ -6,27 +6,31 @@
 
 #import <objc/NSObject.h>
 
-@class AVAsset, NSString, UIImage;
+@class AVAsset, AVVideoComposition, NSString, UIImage;
 
 __attribute__((visibility("hidden")))
 @interface PUOneUpSuggestion : NSObject
 {
     long long _preferredPresentationStyle;
     NSString *_localizedTitle;
+    UIImage *_titleIcon;
     NSString *_localizedMessage;
     NSString *_localizedDismissButtonTitle;
     UIImage *_image;
     AVAsset *_loopingVideoAsset;
+    AVVideoComposition *_loopingVideoComposition;
     CDUnknownBlockType _markAsSeenHandler;
     CDUnknownBlockType _dismissHandler;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType dismissHandler; // @synthesize dismissHandler=_dismissHandler;
 @property(copy, nonatomic) CDUnknownBlockType markAsSeenHandler; // @synthesize markAsSeenHandler=_markAsSeenHandler;
+@property(retain, nonatomic) AVVideoComposition *loopingVideoComposition; // @synthesize loopingVideoComposition=_loopingVideoComposition;
 @property(retain, nonatomic) AVAsset *loopingVideoAsset; // @synthesize loopingVideoAsset=_loopingVideoAsset;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(retain, nonatomic) NSString *localizedDismissButtonTitle; // @synthesize localizedDismissButtonTitle=_localizedDismissButtonTitle;
 @property(retain, nonatomic) NSString *localizedMessage; // @synthesize localizedMessage=_localizedMessage;
+@property(retain, nonatomic) UIImage *titleIcon; // @synthesize titleIcon=_titleIcon;
 @property(retain, nonatomic) NSString *localizedTitle; // @synthesize localizedTitle=_localizedTitle;
 @property(nonatomic) long long preferredPresentationStyle; // @synthesize preferredPresentationStyle=_preferredPresentationStyle;
 - (void).cxx_destruct;

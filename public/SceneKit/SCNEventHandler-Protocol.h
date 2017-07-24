@@ -12,6 +12,7 @@
 @property(nonatomic) SCNView *view;
 @property(readonly, nonatomic) SCNNode *freeCamera;
 @property(nonatomic) _Bool enableFreeCamera;
+@property(nonatomic) _Bool enabled;
 - (NSArray *)gestureRecognizers;
 - (void)activateFreeCamera;
 - (_Bool)wantsRedraw;

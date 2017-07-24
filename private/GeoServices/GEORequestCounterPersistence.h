@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)countsStartingFrom:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)incrementAtTime:(id)arg1 app:(id)arg2 requestType:(unsigned char)arg3 result:(unsigned char)arg4 withCompletion:(CDUnknownBlockType)arg5;
 - (void)incrementForApp:(id)arg1 requestType:(unsigned char)arg2 result:(unsigned char)arg3 withCompletion:(CDUnknownBlockType)arg4;
+- (void)dealloc;
 - (id)initWithDBFilePath:(id)arg1 maxCountAge:(double)arg2;
 - (id)init;
 

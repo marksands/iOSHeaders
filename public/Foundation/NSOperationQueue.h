@@ -18,8 +18,10 @@
 + (id)mainQueue;
 + (id)currentQueue;
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
-- (id)__;
+- (void)removeObserver:(id)arg1 forKeyPath:(id)arg2;
+- (void)addObserver:(id)arg1 forKeyPath:(id)arg2 options:(unsigned long long)arg3 context:(void *)arg4;
 - (id)description;
+- (id)__graphDescription;
 - (void)waitUntilAllOperationsAreFinished;
 - (void)cancelAllOperations;
 @property(copy) NSString *name;

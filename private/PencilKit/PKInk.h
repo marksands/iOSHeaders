@@ -19,8 +19,6 @@
     PKInkBehavior *_behavior;
 }
 
-+ (double)__KEYNOTE__lineWidthMultiplierForUsingApp:(_Bool)arg1 identifier:(id)arg2;
-+ (id)__KEYNOTE__inkWithIdentifier:(id)arg1 color:(id)arg2 version:(unsigned long long)arg3;
 + (id)inkWithIdentifier:(id)arg1 color:(id)arg2 version:(unsigned long long)arg3;
 + (id)inkWithIdentifier:(id)arg1 color:(id)arg2;
 + (id)inkWithIdentifier:(id)arg1 color:(id)arg2 widthMultiplier:(double)arg3;

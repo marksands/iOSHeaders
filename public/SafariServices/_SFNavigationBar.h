@@ -14,11 +14,10 @@
 #import <SafariServices/_UIBasicAnimationFactory-Protocol.h>
 
 @class NSArray, NSAttributedString, NSString, NSTimer, SFCrossfadingImageView, SFNavigationBarReaderButton, UIButton, UIColor, UIImageView, UILabel, UILongPressGestureRecognizer, UITextField, _SFDimmingButton, _SFDismissButton, _SFFluidProgressView, _SFNavigationBarBackdrop, _SFNavigationBarItem, _SFNavigationBarLabelsContainer, _SFNavigationBarURLButton, _SFToolbar, _UIBackdropViewSettings;
-@protocol UIDragSession, _SFNavigationBarDelegate;
+@protocol _SFNavigationBarDelegate;
 
 @interface _SFNavigationBar : UIView <_UIBasicAnimationFactory, _SFFluidProgressViewDelegate, _SFNavigationBarURLButtonDelegate, UIGestureRecognizerDelegate, UIDragInteractionDelegate, UIDropInteractionDelegate>
 {
-    id <UIDragSession> _unifiedFieldDragSession;
     UIButton *_compressedBarButton;
     UIView *_controlsContainer;
     _SFNavigationBarLabelsContainer *_labelsContainer;
@@ -119,7 +118,6 @@
 - (void)dropInteraction:(id)arg1 performDrop:(id)arg2;
 - (id)_api_dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
 - (_Bool)dropInteraction:(id)arg1 canHandleSession:(id)arg2;
-- (void)_api_dragInteraction:(id)arg1 session:(id)arg2 willEndWithOperation:(unsigned long long)arg3;
 - (void)dragInteraction:(id)arg1 sessionWillBegin:(id)arg2;
 - (id)_api_dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
 - (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
@@ -135,6 +133,7 @@
 - (_Bool)navigationBarURLButtonShouldCopy:(id)arg1;
 - (void)navigationBarURLButtonDidReceivePasteCommand:(id)arg1;
 - (void)navigationBarURLButtonDidReceiveCopyCommand:(id)arg1;
+- (_Bool)navigationBarURLButton:(id)arg1 shouldShowMenuForGestureWithRecognizer:(id)arg2;
 - (id)textForNavigationBarURLButton:(id)arg1;
 - (double)URLFieldHorizontalMargin;
 - (void)_updatePlaceholderText;
@@ -217,6 +216,8 @@
 - (id)initWithFrame:(struct CGRect)arg1 inputMode:(unsigned long long)arg2;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)_barMetricsDidChange;
+- (void)_updateURLOutlineCornerRadius;
+- (void)_updateProgressViewCornerRadius;
 - (void)_updateFonts;
 @property(readonly, nonatomic) UIButton *readerAppearanceButton;
 @property(nonatomic) _Bool hasToolbar;
@@ -230,7 +231,9 @@
 @property(readonly, nonatomic) double visualHeight;
 - (void)_updateBarTintColorMetrics;
 - (void)_updateBackdropStyle;
+- (_Bool)_shouldUpdateBackdropStyleForTransitionFromItem:(id)arg1 toItem:(id)arg2;
 - (id)_backdropInputSettings;
+@property(readonly, nonatomic) double dismissButtonPadding;
 @property(readonly, nonatomic) struct CGSize dismissButtonSize;
 - (void)setDismissButtonStyle:(long long)arg1 animated:(_Bool)arg2;
 @property(readonly, nonatomic) _Bool isShowingPreferredControlsTintColor;

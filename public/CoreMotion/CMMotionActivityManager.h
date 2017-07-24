@@ -17,6 +17,7 @@
     NSOperationQueue *fHandlerQueue;
 }
 
++ (long long)authorizationStatus;
 + (_Bool)isActivityAvailable;
 - (void)_handleQueryResponse:(shared_ptr_bdcc6d0f)arg1 onQueue:(id)arg2 withHandler:(CDUnknownBlockType)arg3;
 - (void)stopActivityUpdates;

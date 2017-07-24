@@ -6,7 +6,7 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
-@class GEOComposedRoute, GEODirectionsRequest, NSArray, NSDictionary, NSNumber;
+@class GEOApplicationAuditToken, GEOComposedRoute, GEODirectionsRequest, NSArray, NSDictionary, NSNumber;
 
 @protocol GEODirectionServiceTicket <NSObject>
 @property(readonly, nonatomic) _Bool isDoom;
@@ -17,6 +17,6 @@
 @property(readonly, nonatomic) _Bool isReroute;
 @property(readonly, nonatomic) GEODirectionsRequest *request;
 - (void)cancel;
-- (void)submitWithHandler:(void (^)(GEODirectionsResponse *, NSError *, id <GEODirectionsError>))arg1 networkActivity:(void (^)(_Bool))arg2;
+- (void)submitWithHandler:(void (^)(GEODirectionsResponse *, NSError *, id <GEODirectionsError>))arg1 auditToken:(GEOApplicationAuditToken *)arg2 networkActivity:(void (^)(_Bool))arg3;
 @end
 

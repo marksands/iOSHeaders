@@ -25,7 +25,6 @@
 - (void)setPropertiesByName:(id)arg1;
 - (id)propertiesByName;
 - (id)_dictionaryRepresentation;
-@property(readonly, copy) NSString *description;
 @property(copy, nonatomic) NSMeasurement *distanceRemaining;
 @property(copy, nonatomic) NSNumber *chargePercentRemaining;
 @property(copy, nonatomic) NSNumber *fuelPercentRemaining;
@@ -39,6 +38,7 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

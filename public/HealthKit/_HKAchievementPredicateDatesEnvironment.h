@@ -19,6 +19,7 @@
     NSDate *_firstWristOnDateToday;
     double _currentTimeZoneOffset;
     long long _dayOfWeekToday;
+    long long _dayOfFitnessWeekToday;
     long long _dayOfMonthToday;
     long long _numberOfDaysInCurrentMonth;
     NSDate *_startOfCurrentFitnessWeek;
@@ -37,6 +38,7 @@
 - (id)_startOfCurrentFitnessWeek;
 @property(readonly, nonatomic) long long numberOfDaysInCurrentMonth;
 @property(readonly, nonatomic) long long dayOfMonthToday;
+@property(readonly, nonatomic) long long dayOfFitnessWeekToday;
 @property(readonly, nonatomic) long long dayOfWeekToday;
 @property(readonly, nonatomic) double currentTimeZoneOffset;
 @property(readonly, nonatomic) NSNumber *firstWristOnDateToday;

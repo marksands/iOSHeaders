@@ -25,7 +25,6 @@
 - (void)setPropertiesByName:(id)arg1;
 - (id)propertiesByName;
 - (id)_dictionaryRepresentation;
-@property(readonly, copy) NSString *description;
 @property(nonatomic) long long sortType;
 @property(copy, nonatomic) NSArray *tasks;
 @property(copy, nonatomic) NSArray *taskLists;
@@ -40,6 +39,7 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

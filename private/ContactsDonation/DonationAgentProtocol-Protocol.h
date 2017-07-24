@@ -8,8 +8,7 @@
 
 @protocol DonationAgentProtocol
 - (void)removeAllRejectionsWithCompletionHandler:(void (^)(NSError *))arg1;
-- (void)listRejectionsWithCompletionHandler:(void (^)(NSArray *, NSError *))arg1;
-- (void)rejectValuesWithCollectionIdentifier:(NSString *)arg1 completionHandler:(void (^)(NSError *))arg2;
+- (void)rejectValuesWithClusterIdentifier:(NSString *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)rejectValueWithDonationIdentifier:(NSString *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)changeFromAccount:(ACAccount *)arg1 toAccount:(ACAccount *)arg2 completionHandler:(void (^)(NSError *))arg3;
 - (void)meCardDonations:(void (^)(NSArray *, NSError *))arg1;

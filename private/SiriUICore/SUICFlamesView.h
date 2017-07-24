@@ -85,6 +85,7 @@
 - (void)traitCollectionDidChange:(id)arg1;
 - (float)_currentMicPowerLevel;
 - (void)_updateCurveLayer:(id)arg1;
+- (_Bool)_isOriginatingProcessInBackground;
 @property(readonly, nonatomic) _Bool isRenderingEnabled;
 - (void)stopRenderingAndCleanupGL;
 - (_Bool)inDictationMode;

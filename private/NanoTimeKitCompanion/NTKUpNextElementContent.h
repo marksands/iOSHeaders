@@ -25,6 +25,8 @@
     CLKTextProvider *_description2TextProvider;
     UIColor *_tintColor;
     unsigned long long _style;
+    unsigned long long _description1FontStyle;
+    unsigned long long _description2FontStyle;
     NTKUpNextAccessoryDescription *_descriptionAccessory;
     struct CGRect _imageFocusRect;
 }
@@ -34,6 +36,8 @@
 @property(nonatomic) unsigned int headerImageEdge; // @synthesize headerImageEdge=_headerImageEdge;
 @property(nonatomic) _Bool bodyImageShouldStretch; // @synthesize bodyImageShouldStretch=_bodyImageShouldStretch;
 @property(nonatomic) _Bool tintColorAffectsHeader; // @synthesize tintColorAffectsHeader=_tintColorAffectsHeader;
+@property(nonatomic) unsigned long long description2FontStyle; // @synthesize description2FontStyle=_description2FontStyle;
+@property(nonatomic) unsigned long long description1FontStyle; // @synthesize description1FontStyle=_description1FontStyle;
 @property(nonatomic) _Bool useMonospaceFont; // @synthesize useMonospaceFont=_useMonospaceFont;
 @property(nonatomic) unsigned long long style; // @synthesize style=_style;
 @property(copy, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;

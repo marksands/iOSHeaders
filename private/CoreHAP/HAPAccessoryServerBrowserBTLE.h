@@ -57,7 +57,7 @@
 - (void).cxx_destruct;
 - (void)_handleTargetedScanTimeout;
 - (void)_updateTargetedScanTimer;
-- (_Bool)_shouldCreateHAPAccessoryServerWithIdentifier:(id)arg1 statusFlags:(id)arg2 stateNumber:(id)arg3 category:(id)arg4 configNumber:(id)arg5 forPeripheral:(id)arg6 advertisementFormat:(unsigned long long)arg7 setupHash:(id)arg8 stateChanged:(_Bool *)arg9;
+- (_Bool)_shouldCreateHAPAccessoryServerWithIdentifier:(id)arg1 statusFlags:(id)arg2 stateNumber:(id)arg3 category:(id)arg4 configNumber:(id)arg5 forPeripheral:(id)arg6 advertisementFormat:(unsigned long long)arg7 setupHash:(id)arg8 stateChanged:(_Bool *)arg9 connectReason:(unsigned char *)arg10;
 - (void)_reportReachabilityForAccessoryWithIdentifier:(id)arg1;
 - (void)_performTargetedScanForAccessoryWithIdentifier:(id)arg1;
 - (void)_connectPendingConnections;
@@ -65,7 +65,7 @@
 - (void)_removeFromPendingConnections:(id)arg1;
 - (void)_addToPendingConnections:(id)arg1;
 - (void)_performTimedConnectionRequestForIdentifier:(id)arg1;
-- (void)_createHAPAccessoryAndNotifyDelegateWithPeripheral:(id)arg1 name:(id)arg2 pairingUsername:(id)arg3 statusFlags:(id)arg4 stateNumber:(id)arg5 stateChanged:(_Bool)arg6 configNumber:(id)arg7 category:(id)arg8 connectionIdleTime:(unsigned char)arg9 format:(unsigned long long)arg10 setupHash:(id)arg11 encryptedPayload:(id)arg12;
+- (void)_createHAPAccessoryAndNotifyDelegateWithPeripheral:(id)arg1 name:(id)arg2 pairingUsername:(id)arg3 statusFlags:(id)arg4 stateNumber:(id)arg5 stateChanged:(_Bool)arg6 connectReason:(unsigned char)arg7 configNumber:(id)arg8 category:(id)arg9 connectionIdleTime:(unsigned char)arg10 format:(unsigned long long)arg11 setupHash:(id)arg12 encryptedPayload:(id)arg13;
 - (id)hapCharacteristicsForEncryptedPayload:(id)arg1 identifier:(id)arg2 shouldConnect:(_Bool *)arg3;
 - (_Bool)_delegateRespondsToSelector:(SEL)arg1;
 - (id)_cachedCharacteristicForInstanceID:(id)arg1 identifier:(id)arg2;

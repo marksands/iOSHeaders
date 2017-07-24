@@ -19,12 +19,14 @@
     NSString *_type;
     NSString *_identifier;
     JSManagedValue *_managedObject;
+    _Bool _observersEnabled;
     IKJSDataItem *_parent;
     NSArray *_parentAccessorSequence;
 }
 
 + (id)boxObject:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *parentAccessorSequence; // @synthesize parentAccessorSequence=_parentAccessorSequence;
+@property(nonatomic) _Bool observersEnabled; // @synthesize observersEnabled=_observersEnabled;
 @property(readonly, nonatomic) __weak IKJSDataItem *parent; // @synthesize parent=_parent;
 - (void).cxx_destruct;
 - (_Bool)_isBoxed;

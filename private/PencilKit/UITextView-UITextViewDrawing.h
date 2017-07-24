@@ -17,8 +17,8 @@
 - (_Bool)_canAddDrawing;
 - (_Bool)_canAddStroke;
 - (void)_didEndStroke;
-- (void)_willBeginNewStroke;
-- (void)_undoDrawingBounds:(struct CGRect)arg1 ofAttachmentUUID:(id)arg2;
+- (void)_willBeginNewStrokeForTouch:(id)arg1;
+- (void)_undoDrawingBounds:(struct CGRect)arg1 viewBounds:(struct CGRect)arg2 ofAttachmentUUID:(id)arg3;
 - (void)_growView:(id)arg1 textAttachment:(id)arg2 atCharacterIndex:(long long)arg3 step:(double)arg4 stop:(CDUnknownBlockType)arg5;
 - (void)_removeDrawingAttachment:(id)arg1 withView:(id)arg2;
 - (id)_insertEmptyDrawingAttachmentAtLocation:(long long)arg1;
@@ -28,7 +28,6 @@
 @property(nonatomic) __weak id <UITextViewDrawingDelegate> drawingDelegate;
 @property(copy, nonatomic) PKLinedPaper *linedPaper;
 @property(copy, nonatomic) PKInk *ink;
-- (void)dealloc;
 - (void)_clearDrawingInfo;
 - (id)_pkTiledView;
 - (id)_drawingInfo;

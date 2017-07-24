@@ -86,6 +86,7 @@ __attribute__((visibility("hidden")))
 - (id)_connectionCellForRow:(long long)arg1;
 - (id)_messageCellForSection:(long long)arg1;
 - (void)_configureLeadingForDeparturesCell:(id)arg1 width:(double)arg2 compressed:(_Bool)arg3;
+- (id)_multipartStringSeparator;
 - (void)_configureDeparturesCell:(id)arg1 forIndexPath:(id)arg2;
 - (id)_operatingHoursDescriptionForSequence:(id)arg1;
 - (id)_startEndDatesForSequence:(id)arg1 date:(id)arg2;

@@ -19,6 +19,7 @@
     NSUUID *_uuid;
 }
 
++ (_Bool)areAnySpeakersConfigured;
 + (_Bool)areAnyAccessoriesConfigured;
 + (id)siriHomeIdentifier;
 + (_Bool)areHomesConfigured;

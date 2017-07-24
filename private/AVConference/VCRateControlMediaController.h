@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class AVCStatisticsCollector, SenderLargeFrameInfo;
 
@@ -51,8 +51,10 @@ __attribute__((visibility("hidden")))
     double _lastBasebandHighNBDCDTime;
     _Bool _isBasebandQueuingDelayHigh;
     void *_logBasebandDump;
+    unsigned int _afrcRemoteEstimatedBandwidth;
 }
 
+@property(nonatomic) unsigned int afrcRemoteEstimatedBandwidth; // @synthesize afrcRemoteEstimatedBandwidth=_afrcRemoteEstimatedBandwidth;
 @property(nonatomic) _Bool shouldDisableLargeFrameRequestsWhenInitialRampUp; // @synthesize shouldDisableLargeFrameRequestsWhenInitialRampUp=_shouldDisableLargeFrameRequestsWhenInitialRampUp;
 @property(nonatomic) _Bool isRateLimitedMaxTimeExceeded; // @synthesize isRateLimitedMaxTimeExceeded=_isRateLimitedMaxTimeExceeded;
 @property(readonly, nonatomic) _Bool isInThrottlingMode; // @synthesize isInThrottlingMode=_isInThrottlingMode;

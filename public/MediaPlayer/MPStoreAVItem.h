@@ -65,8 +65,6 @@
 @property(readonly, nonatomic) MPMediaPlaybackItemMetadata *playbackItemMetadata; // @synthesize playbackItemMetadata=_playbackItemMetadata;
 @property(readonly, nonatomic) unsigned long long options; // @synthesize options=_options;
 - (void).cxx_destruct;
-- (double)_expectedStopTimeWithPlaybackInfo:(id)arg1;
-- (double)_expectedStartTimeWithPlaybackInfo:(id)arg1;
 - (void)_updateBookmarkTimeIfNecessary:(double)arg1 isCheckpoint:(_Bool)arg2;
 - (id)_storeUbiquitousIdentifier;
 - (_Bool)_shouldRememberBookmarkTime;
@@ -102,6 +100,7 @@
 - (id)lastResourceLoadingError;
 - (_Bool)isStreamingLowQualityAsset;
 - (_Bool)didDeferLeaseStart;
+- (_Bool)_isBackgroundPlaybackRestricted;
 - (id)artworkCatalogForPlaybackTime:(double)arg1;
 - (void)_willResignActivePlayerItem;
 - (void)_willBecomeActivePlayerItem;

@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 - (void)resetObserverAndChildren:(void *)arg1;
 - (void)find:(CDStruct_3de10e06 *)arg1;
 - (void)dealloc;
+- (id)retainedObserver;
 - (void *)observer;
 - (id)initWithObserver:(void *)arg1 parent:(id)arg2;
 

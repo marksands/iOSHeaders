@@ -51,6 +51,7 @@
     NSDate *_dateConnectionWentOut;
     NSTimer *_timeoutEnforcer;
     _Bool _retry;
+    int _serverRequestedRetryCount;
     _Bool _isLoadedOnMainThread;
     long long _sentBytesCount;
     long long _receivedBytesCount;

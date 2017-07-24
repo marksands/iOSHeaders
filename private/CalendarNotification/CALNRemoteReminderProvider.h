@@ -22,6 +22,7 @@
 - (void)_handleDeclineAndRemindMessageWithUserInfo:(id)arg1;
 - (id)_sortedListOfCalendarsFromEventStore:(id)arg1;
 - (id)_springBoardRemindersShortcutItemsFromEventStore:(id)arg1;
+- (void)updateQuickActions;
 - (void)_updateBadgeCount:(id)arg1;
 - (void)protectedAcknowledgeAlarm:(_Bool)arg1 forBulletinWithEntityID:(id)arg2 externalID:(id)arg3 extraActions:(CDUnknownBlockType)arg4;
 - (void)bulletinAcknowledgedWithResponse:(id)arg1 acknowledgeAlarm:(_Bool)arg2 extraActions:(CDUnknownBlockType)arg3;
@@ -33,6 +34,8 @@
 - (id)clearedInfoForBulletins:(id)arg1 lastClearedInfo:(id)arg2;
 - (id)bulletinsWithRequestParameters:(id)arg1 lastCleared:(id)arg2;
 - (id)sortDescriptors;
+- (id)sectionIcon;
+- (id)sectionDisplayName;
 - (id)defaultSectionInfo;
 - (id)universalSectionIdentifier;
 - (id)sectionIdentifier;
@@ -62,6 +65,7 @@
 - (void)acknowledgeLocationAlertWithURL:(id)arg1 entityID:(id)arg2;
 - (id)protectedItemForBulletinRecordID:(id)arg1;
 - (id)entityScheme;
+- (void)activate;
 - (void)dealloc;
 - (id)initWithNotificationFetchBlock:(CDUnknownBlockType)arg1;
 

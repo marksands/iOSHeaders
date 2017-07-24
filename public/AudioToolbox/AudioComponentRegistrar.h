@@ -16,6 +16,7 @@
 }
 
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (void)resumeListeners;
 - (void)dealloc;
 - (id)initForMode:(_Bool)arg1;
 

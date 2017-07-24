@@ -6,13 +6,14 @@
 
 #import <UIKit/_UIButtonBarLayout.h>
 
-@class NSLayoutConstraint, UIBarButtonItem, UILayoutGuide, UIView;
+@class NSLayoutConstraint, UIBarButtonItem, UILayoutGuide, UIView, _UITAMICAdaptorView;
 
 __attribute__((visibility("hidden")))
 @interface _UIButtonBarItemLayout : _UIButtonBarLayout
 {
     UIBarButtonItem *_item;
     UIView *_itemView;
+    _UITAMICAdaptorView *_itemViewWrapper;
     NSLayoutConstraint *_requestedSize;
     NSLayoutConstraint *_maximumAlignmentSize;
     NSLayoutConstraint *_groupSameSize;
@@ -35,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (void)_addLayoutViews:(id)arg1;
 - (void)_configure;
 - (void)_updateItemViewSizing;
+- (void)_updateCustomView;
 - (_Bool)_shouldBeDirty;
 - (id)_item;
 - (double)minimumLayoutWidthGivenMinimumSpaceWidth:(double)arg1;

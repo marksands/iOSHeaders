@@ -40,7 +40,7 @@
 - (id)genericLabel;
 - (void)setLocalRecordHasAdditionalProperties:(_Bool)arg1;
 - (void)dealloc;
-- (id)initWithData:(id)arg1;
+- (id)initWithData:(id)arg1 watchdogTimer:(id)arg2;
 
 @end
 

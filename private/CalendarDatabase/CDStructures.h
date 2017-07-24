@@ -135,7 +135,9 @@ typedef struct {
     unsigned int supportsAutoGeocodingStructuredLocations:1;
     unsigned int supportsJunkReporting:1;
     unsigned int supportsPhoneNumbers:1;
-} CDStruct_c955b4da;
+    unsigned int attendeesUseDeletedByOrganizerStatus:1;
+    unsigned int prohibitsSlicingEventsWithAttendees:1;
+} CDStruct_8c90384f;
 
 typedef struct {
     int _field1;

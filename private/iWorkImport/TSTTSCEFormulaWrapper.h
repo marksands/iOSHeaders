@@ -21,6 +21,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) const struct TSCEFormula *formula; // @synthesize formula=_formula;
 - (void)saveToPropertyCommandMessage:(struct Message *)arg1 archiver:(id)arg2;
 - (id)initFromPropertyCommandMessage:(const struct Message *)arg1 unarchiver:(id)arg2;
+- (_Bool)isEquivalent:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)p_mightBeEqual:(id)arg1;
+@property(readonly) unsigned long long hash;
 - (void)didInitFromSOS;
 - (id)propertiesMatchingThoseInMap:(id)arg1;
 - (id)objectByRemovingPropertiesInMap:(id)arg1 addingPropertiesInMap:(id)arg2 updateInverseResetPropertyMap:(id)arg3 updateInverseSetPropertyMap:(id)arg4;
@@ -32,7 +36,6 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

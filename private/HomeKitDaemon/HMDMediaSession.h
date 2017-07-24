@@ -11,7 +11,7 @@
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDAirPlayEndpoint, HMFMessageDispatcher, NSMutableArray, NSMutableSet, NSObject, NSSet, NSString, NSUUID;
+@class HMDMediaEndpoint, HMFMessageDispatcher, NSMutableArray, NSMutableSet, NSObject, NSSet, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
 @interface HMDMediaSession : HMFObject <HMFMessageReceiver, HMFDumpState, HMFLogging, NSSecureCoding>
@@ -21,7 +21,7 @@
     _Bool _connecting;
     NSUUID *_uuid;
     NSString *_sessionIdentifier;
-    HMDAirPlayEndpoint *_endpoint;
+    HMDMediaEndpoint *_endpoint;
     long long _playbackState;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSMutableArray *_pendingBlocks;
@@ -35,7 +35,7 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(nonatomic, getter=isConnecting) _Bool connecting; // @synthesize connecting=_connecting;
 @property(nonatomic) long long playbackState; // @synthesize playbackState=_playbackState;
-@property(retain, nonatomic) HMDAirPlayEndpoint *endpoint; // @synthesize endpoint=_endpoint;
+@property(retain, nonatomic) HMDMediaEndpoint *endpoint; // @synthesize endpoint=_endpoint;
 @property(readonly, copy, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 @property(readonly, copy, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;

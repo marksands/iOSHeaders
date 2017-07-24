@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (void)_notifyPropertyChanged:(long long)arg1;
+@property(nonatomic) double screenScaleFactor;
 @property(nonatomic) _Bool enablePageShadows;
 @property(nonatomic, setter=forceWebKitMainThread:) _Bool isForcingWebKitMainThread;
 @property(retain, nonatomic) UIColor *pageColor;

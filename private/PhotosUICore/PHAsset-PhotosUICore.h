@@ -7,6 +7,7 @@
 #import <Photos/PHAsset.h>
 
 @interface PHAsset (PhotosUICore)
++ (id)px_orderedAssetsFromAssets:(id)arg1 sortDescriptors:(id)arg2;
 + (id)px_fetchPlacesAssetsInAssetCollection:(id)arg1 options:(id)arg2;
 + (id)px_fetchAssetsInArray:(id)arg1;
 @property(readonly, nonatomic) long long px_currentVariationType;

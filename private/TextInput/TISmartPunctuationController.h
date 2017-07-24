@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSCharacterSet, TISmartPunctuationOptions;
 
@@ -19,6 +19,8 @@
     NSCharacterSet *_openerCharacterSet;
     NSCharacterSet *_germanApostrophePrecedingSet;
     NSCharacterSet *_dutchApostropheFollowingSet;
+    NSCharacterSet *_cornerBracketCharacterSet;
+    NSCharacterSet *_bookTitleMarkCharacterSet;
     NSCharacterSet *_dashCharacterSet;
     NSCharacterSet *_enDashCharacterSet;
     _Bool _smartQuotesEnabled;
@@ -27,11 +29,13 @@
     TISmartPunctuationOptions *_smartPunctuationOptions;
 }
 
++ (id)_chineseContextualVariantMapping;
 @property(retain, nonatomic) TISmartPunctuationOptions *smartPunctuationOptions; // @synthesize smartPunctuationOptions=_smartPunctuationOptions;
 @property(nonatomic) unsigned long long autoQuoteType; // @synthesize autoQuoteType=_autoQuoteType;
 @property(nonatomic) _Bool smartDashesEnabled; // @synthesize smartDashesEnabled=_smartDashesEnabled;
 @property(nonatomic) _Bool smartQuotesEnabled; // @synthesize smartQuotesEnabled=_smartQuotesEnabled;
 - (id)_checkInput:(id)arg1 forContextualDashesInDocumentState:(id)arg2;
+- (id)_checkInput:(id)arg1 forContextualChinesePunctuationInDocumentState:(id)arg2;
 - (id)_checkInput:(id)arg1 forContextualQuotesInDocumentState:(id)arg2;
 - (id)_alternatingStringForInputString:(id)arg1 isLockedInput:(_Bool)arg2 hasMarkedText:(_Bool)arg3;
 - (void)reset;

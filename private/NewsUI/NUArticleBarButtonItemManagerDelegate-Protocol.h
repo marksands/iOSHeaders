@@ -10,8 +10,8 @@
 
 @protocol NUArticleBarButtonItemManagerDelegate <NSObject>
 - (void)articleBarButtonItemManagerDidLayoutBarButtonItems:(NUArticleBarButtonItemManager *)arg1;
-- (void)articleBarButtonItemManager:(NUArticleBarButtonItemManager *)arg1 preformShareActionForBarButtonItem:(UIBarButtonItem *)arg2;
-- (void)articleBarButtonItemManager:(NUArticleBarButtonItemManager *)arg1 preformNextActionForBarButtonItem:(UIBarButtonItem *)arg2;
-- (void)articleBarButtonItemManager:(NUArticleBarButtonItemManager *)arg1 preformDoneActionForBarButtonItem:(UIBarButtonItem *)arg2;
+- (void)articleBarButtonItemManager:(NUArticleBarButtonItemManager *)arg1 performShareActionForBarButtonItem:(UIBarButtonItem *)arg2;
+- (void)articleBarButtonItemManager:(NUArticleBarButtonItemManager *)arg1 performNextActionForBarButtonItem:(UIBarButtonItem *)arg2;
+- (void)articleBarButtonItemManager:(NUArticleBarButtonItemManager *)arg1 performDoneActionForBarButtonItem:(UIBarButtonItem *)arg2;
 @end
 

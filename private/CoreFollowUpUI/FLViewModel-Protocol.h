@@ -11,7 +11,7 @@
 @protocol FLViewModel <NSObject>
 - (void)setItemChangeHandler:(void (^)(void))arg1;
 - (void)refreshItemsForItem:(FLFollowUpItem *)arg1 withCompletionHandler:(void (^)(_Bool, NSError *))arg2;
-- (void)refreshItemsWithCompletionHandler:(void (^)(_Bool, NSError *))arg1;
+- (void)refreshItems:(NSArray *)arg1 withCompletionHandler:(void (^)(NSDictionary *, NSError *))arg2;
 - (NSArray *)groups;
 - (NSArray *)allPendingItems;
 - (id)initWithIdentifier:(NSString *)arg1;

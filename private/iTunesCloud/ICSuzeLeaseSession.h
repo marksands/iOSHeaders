@@ -6,13 +6,15 @@
 
 #import <objc/NSObject.h>
 
-@class ICFPLeaseSyncSession, ICSuzeLeaseSessionConfiguration, NSOperationQueue;
+@class ICFPLeaseSyncSession, ICSuzeLeaseSessionConfiguration, NSDate, NSOperationQueue;
 @protocol ICSuzeLeaseSessionDelegate, OS_dispatch_queue, OS_dispatch_source;
 
 @interface ICSuzeLeaseSession : NSObject
 {
+    long long _automaticRefreshCount;
     NSObject<OS_dispatch_queue> *_calloutQueue;
     _Bool _isRunning;
+    NSDate *_leaseExpirationDate;
     NSObject<OS_dispatch_source> *_leaseRenewTimer;
     ICFPLeaseSyncSession *_leaseSyncSession;
     NSOperationQueue *_operationQueue;
@@ -24,10 +26,13 @@
 @property(readonly, copy, nonatomic) ICSuzeLeaseSessionConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)_updateRenewalTimerWithResponse:(id)arg1;
+- (void)_updateRenewalTimer;
 - (void)_renewLeaseTimerAction;
 - (id)_newSuzeLeaseRequestWithType:(long long)arg1 clientData:(id)arg2;
 - (void)stopLeaseSessionWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)startLeaseSessionWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)endAutomaticallyRefreshingLease;
+- (void)beginAutomaticallyRefreshingLease;
 - (void)dealloc;
 - (id)initWithConfiguration:(id)arg1;
 

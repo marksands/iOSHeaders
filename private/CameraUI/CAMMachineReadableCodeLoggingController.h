@@ -16,6 +16,7 @@
 @property(nonatomic, setter=_setSeenMachineReadableObjectOfAcceptableSize:) _Bool _seenMachineReadableObjectOfAcceptableSize; // @synthesize _seenMachineReadableObjectOfAcceptableSize=__seenMachineReadableObjectOfAcceptableSize;
 - (void)resetLoggingState;
 - (void)logMachineReadableCodeResult:(id)arg1 isOfSignificantSize:(_Bool)arg2;
+- (void)logMachineReadableCodeResultDuringInactiveAppState;
 - (id)init;
 
 @end

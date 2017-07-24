@@ -40,6 +40,7 @@
 @property(readonly) CDStruct_79c71658 highResStillImageDimensions;
 @property(readonly, getter=isStillImageISPMultiBandNoiseReductionSupported) _Bool stillImageISPMultiBandNoiseReductionSupported;
 @property(readonly, getter=isISPMultiBandNoiseReductionSupported) _Bool ispMultiBandNoiseReductionSupported;
+@property(readonly, getter=isStereoFusionSupported) _Bool stereoFusionSupported;
 @property(readonly, getter=isQuadraHighResStillImageSupported) _Bool quadraHighResStillImageSupported;
 @property(readonly, getter=isHighResStillImageSupported) _Bool highResStillImageSupported;
 @property(readonly, getter=isHDRSupported) _Bool hdrSupported;
@@ -50,6 +51,8 @@
 @property(readonly) _Bool needsPreviewDPCC;
 @property(readonly, getter=isHighResPhotoFormat) _Bool highResPhotoFormat;
 @property(readonly, getter=isPhotoFormat) _Bool photoFormat;
+- (int)verticalSensorBinningFactor;
+- (int)horizontalSensorBinningFactor;
 - (_Bool)capturesStillsFromVideoStream;
 @property(readonly) _Bool prefersSensorHDREnabled;
 - (int)sensorHDRCompanionIndex;
@@ -58,7 +61,6 @@
 - (CDStruct_79c71658)sensorCropDimensions;
 - (id)frontEndScalerCompanionFormats;
 - (_Bool)isMultiStreamFormat;
-- (float)sensorBinningRatio;
 @property(readonly) int autoFocusSystem;
 - (int)maxIntegrationTimeOverride;
 - (float)aeMaxGain;

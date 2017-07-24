@@ -18,6 +18,9 @@ __attribute__((visibility("hidden")))
 - (struct UIEdgeInsets)buttonAlignmentRectInsets:(id)arg1;
 - (struct CGSize)buttonIntrinsicContentSize:(id)arg1;
 - (void)button:(id)arg1 traitCollectionDidChange:(id)arg2;
+- (void)buttonWillMoveToSuperview:(id)arg1;
+- (void)buttonWillMoveToWindow:(id)arg1;
+- (void)buttonLayoutSubviews:(id)arg1 baseImplementation:(CDUnknownBlockType)arg2;
 - (void)updateButton:(id)arg1 toUseButtonShapes:(_Bool)arg2;
 - (void)configureButton:(id)arg1 withAppearanceDelegate:(id)arg2 fromBarItem:(id)arg3;
 - (void)updateButton:(id)arg1 forEnabledState:(_Bool)arg2;

@@ -49,8 +49,6 @@
     long long _playCount;
     long long _shareCount;
     long long _viewCount;
-    NSString *_groupingUUID;
-    unsigned long long _groupingState;
     NSData *_facesData;
 }
 
@@ -61,8 +59,6 @@
 + (_Bool)supportsSecureCoding;
 + (_Bool)serverSupportsVision;
 @property(copy, nonatomic) NSData *facesData; // @synthesize facesData=_facesData;
-@property(nonatomic) unsigned long long groupingState; // @synthesize groupingState=_groupingState;
-@property(copy, nonatomic) NSString *groupingUUID; // @synthesize groupingUUID=_groupingUUID;
 @property(nonatomic) long long viewCount; // @synthesize viewCount=_viewCount;
 @property(nonatomic) long long shareCount; // @synthesize shareCount=_shareCount;
 @property(nonatomic) long long playCount; // @synthesize playCount=_playCount;

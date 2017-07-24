@@ -19,7 +19,8 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)closeWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)finalizeComponentAndDataSectionWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)willWriteDataWithTotalLength:(unsigned long long)arg1;
+- (void)willWriteData:(id)arg1;
+- (void)truncateZipAtFirstDeletedData:(id)arg1;
 - (id)zipArchiveWriter;
 - (id)componentZipArchiveWriter;
 - (id)newRawDataWriteChannelForRelativePath:(id)arg1 originalLastModificationDate:(id)arg2 originalSize:(unsigned long long)arg3 originalCRC:(unsigned int)arg4 forceCalculatingSizeAndCRCForPreservingLastModificationDate:(_Bool)arg5;

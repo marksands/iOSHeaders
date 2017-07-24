@@ -19,7 +19,6 @@
     NSData *_lastKnownSyncAnchor;
     NSString *_clientCacheIdentifier;
     Class _currentQueryClass;
-    _Bool _resetSyncAnchor;
     _Bool _ignoreNewBatches;
     _Bool _gotSomeChanges;
     _Bool _useCourtesyMingling;

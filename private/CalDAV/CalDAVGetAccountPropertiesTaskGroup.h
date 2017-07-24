@@ -13,7 +13,7 @@
     _Bool _supportsCalendarUserSearch;
     NSURL *_delegatePrincipalURL;
     NSSet *_calendarHomes;
-    NSSet *_userAddresses;
+    NSSet *_preferredUserAddresses;
     NSURL *_inboxURL;
     NSURL *_outboxURL;
     NSURL *_dropboxURL;
@@ -29,12 +29,13 @@
 @property(readonly, nonatomic) NSURL *dropboxURL; // @synthesize dropboxURL=_dropboxURL;
 @property(readonly, nonatomic) NSURL *outboxURL; // @synthesize outboxURL=_outboxURL;
 @property(readonly, nonatomic) NSURL *inboxURL; // @synthesize inboxURL=_inboxURL;
-@property(readonly, nonatomic) NSSet *userAddresses; // @synthesize userAddresses=_userAddresses;
+@property(readonly, nonatomic) NSSet *preferredUserAddresses; // @synthesize preferredUserAddresses=_preferredUserAddresses;
 @property(readonly, nonatomic) NSSet *calendarHomes; // @synthesize calendarHomes=_calendarHomes;
 @property(retain, nonatomic) NSURL *delegatePrincipalURL; // @synthesize delegatePrincipalURL=_delegatePrincipalURL;
 - (void).cxx_destruct;
 - (void)processPrincipalHeaders:(id)arg1;
 - (_Bool)forceOptionsRequest;
+- (id)userAddresses;
 - (void)_setPropertiesFromParsedResponses:(id)arg1;
 - (id)homeSet;
 - (void)startTaskGroup;

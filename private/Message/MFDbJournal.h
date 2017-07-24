@@ -27,7 +27,7 @@
 + (void)initialize;
 - (_Bool)_markMailboxForReconciliation:(_Bool)arg1 db:(struct sqlite3 *)arg2;
 - (long long)mergeWithLibrary:(id)arg1;
-- (_Bool)_processJournalFile:(id)arg1 db:(struct sqlite3 *)arg2;
+- (int)_processJournalFile:(id)arg1 db:(struct sqlite3 *)arg2;
 - (void)clear;
 - (_Bool)_writeToDisk:(struct sqlite3 *)arg1;
 - (int)_executeStatements:(id)arg1 db:(struct sqlite3 *)arg2;

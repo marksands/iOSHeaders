@@ -21,6 +21,7 @@
 @property(retain, nonatomic) FCKeyValueStore *localStore; // @synthesize localStore=_localStore;
 @property(retain, nonatomic) NSMutableDictionary *tagSettingsEntriesByTagID; // @synthesize tagSettingsEntriesByTagID=_tagSettingsEntriesByTagID;
 - (void).cxx_destruct;
+- (id)allTagSettingsRecords;
 - (void)handleSyncWithTagSettingsRecord:(id)arg1;
 - (id)webAccessOptedInTagIDs;
 - (void)setWebAccessOptInForTagID:(id)arg1 webAccessOptIn:(_Bool)arg2;

@@ -11,30 +11,28 @@
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class NSObject, NSString, NSUUID;
+@class HMDBackgroundTaskAgentTimer, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
 @interface HMDTimeEvent : HMDEvent <NSSecureCoding, HMFDumpState, HMFLogging, HMFMessageReceiver>
 {
     _Bool _repetitive;
-    NSString *_timerID;
+    HMDBackgroundTaskAgentTimer *_btaTimer;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) HMDBackgroundTaskAgentTimer *btaTimer; // @synthesize btaTimer=_btaTimer;
 @property(readonly, nonatomic) _Bool repetitive; // @synthesize repetitive=_repetitive;
-@property(readonly, nonatomic) NSString *timerID; // @synthesize timerID=_timerID;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)dateComponentsForDate:(id)arg1;
 - (void)_reactiveTriggerAfterDelay;
 - (void)timerFired:(id)arg1;
-- (void)_stopTimer:(CDUnknownBlockType)arg1;
-- (void)_startTimer:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)_nextTimerDate;
 - (void)_activate:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)isActive;
 - (void)_updateRepetitive;
+- (void)_initialize;
 - (id)initWithModel:(id)arg1 home:(id)arg2;
 
 // Remaining properties

@@ -43,8 +43,6 @@
     NSMutableDictionary *_registeredObjects;
 }
 
-+ (long long)currentSplashScreenVersion;
-+ (id)sharedPreferences;
 + (id)eventStoreChangedDistributedNotificationName;
 + (long long)authorizationStatusForEntityType:(unsigned long long)arg1;
 + (unsigned long long)ekEventStoreInitOptionsFromCalDatabaseInitOptions:(int)arg1;
@@ -134,7 +132,7 @@
 - (id)publicObjectWithPersistentObject:(id)arg1;
 - (id)objectWithObjectID:(id)arg1;
 - (_Bool)objectWithIDExists:(id)arg1;
-- (id)registerFetchedObjectWithID:(id)arg1 withDefaultLoadedProperties:(id)arg2 inSet:(id)arg3;
+- (id)registerFetchedObjectWithID:(id)arg1 withDefaultLoadedPropertyKeys:(id)arg2 values:(id)arg3;
 - (id)registerFetchedObjectWithID:(id)arg1;
 - (id)_addFetchedObjectWithID:(id)arg1;
 - (void)_forgetRegisteredObjects;
@@ -142,6 +140,7 @@
 - (void)_unregisterObject:(id)arg1;
 - (void)_registerObject:(id)arg1;
 - (void)_registerObjectImmediate:(id)arg1;
+- (_Bool)refreshSource:(id)arg1 userRequested:(_Bool)arg2;
 - (void)refreshSourcesIfNecessary;
 - (id)refreshSourcesIfNecessary:(_Bool)arg1;
 - (_Bool)_refreshDASource:(id)arg1 isUserRequested:(_Bool)arg2;
@@ -225,6 +224,8 @@
 - (_Bool)removeReminder:(id)arg1 error:(id *)arg2;
 - (_Bool)saveReminder:(id)arg1 commit:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)saveReminder:(id)arg1 error:(id *)arg2;
+- (void)_removeCachedCalendarWithID:(id)arg1;
+- (void)_clearCachedCalendars;
 - (void)setDefaultCalendarForNewReminders:(id)arg1;
 - (id)defaultCalendarForNewReminders;
 - (id)acquireDefaultCalendarForNewReminders;
@@ -251,7 +252,7 @@
 - (id)_eventWithURI:(id)arg1 checkValid:(_Bool)arg2;
 - (_Bool)_parseURI:(id)arg1 expectedScheme:(id)arg2 identifier:(id *)arg3 options:(id *)arg4;
 - (id)eventWithIdentifier:(id)arg1;
-- (_Bool)deleteCalendar:(id)arg1 forEntityType:(int)arg2 error:(id *)arg3;
+- (_Bool)deleteCalendar:(id)arg1 forEntityType:(unsigned long long)arg2 error:(id *)arg3;
 - (_Bool)removeCalendar:(id)arg1 commit:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)saveCalendar:(id)arg1 commit:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)removeCalendar:(id)arg1 error:(id *)arg2;
@@ -264,12 +265,13 @@
 - (id)_deletableCalendars;
 - (id)_allCalendars;
 - (void)_loadCalendarsIfNeeded;
-- (void)_cacheCalendarWithObjectID:(id)arg1 withDefaultLoadedProperties:(id)arg2;
+- (void)_cacheCalendarWithObjectID:(id)arg1 withDefaultLoadedPropertyValues:(id)arg2 forKeys:(id)arg3;
 - (void)_logMainThreadFetchWarningIfNeeded;
 - (id)calendarsForEntityType:(unsigned long long)arg1;
 - (_Bool)markCalendarAlerted:(id)arg1;
 - (_Bool)hideCalendarsFromNotificationCenter:(id)arg1 error:(id *)arg2;
 @property(readonly, nonatomic) NSArray *calendars;
+- (void)_clearCachedSources;
 - (_Bool)removeSource:(id)arg1 commit:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)saveSource:(id)arg1 commit:(_Bool)arg2 error:(id *)arg3;
 - (id)sourceWithExternalID:(id)arg1;
@@ -281,6 +283,7 @@
 - (void)_loadSourcesIfNeeded;
 - (void)_cacheSourceWithObjectID:(id)arg1;
 - (id)_sourceWithID:(id)arg1;
+@property(readonly, nonatomic) unsigned long long lastConfirmedSplashScreenVersion;
 @property(readonly, nonatomic) _Bool automaticLocationGeocodingAllowed;
 - (void)_saveWithoutNotify;
 @property(readonly, nonatomic) NSString *eventStoreIdentifier;

@@ -6,11 +6,11 @@
 
 #import <FileProvider/FPCancellable-Protocol.h>
 
-@class NSData, NSError, NSString;
+@class NSDictionary, NSError, NSString;
 @protocol FPCancellable;
 
 @protocol FPOperationClient <FPCancellable>
-- (void)operationDidProgressWithIdentifier:(NSString *)arg1 data:(NSData *)arg2 error:(NSError *)arg3 completionHandler:(void (^)(void))arg4;
+- (void)operationDidProgressWithInfo:(NSDictionary *)arg1 error:(NSError *)arg2 completionHandler:(void (^)(void))arg3;
 - (oneway void)setCancellationHandler:(id <FPCancellable>)arg1;
 - (NSString *)description;
 @end

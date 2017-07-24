@@ -13,23 +13,31 @@
 @interface PKProtobufPaymentInstrument : PBCodable <NSCopying>
 {
     double _ingestedDate;
+    long long _peerPaymentAccountBalance;
     NSMutableArray *_associatedWebDomains;
     NSString *_displayName;
     NSString *_issuerCountryCode;
     NSData *_manifestHash;
     NSString *_passID;
     NSMutableArray *_paymentApplications;
+    NSString *_peerPaymentAccountCurrency;
     NSString *_primaryAccountIdentifier;
     NSString *_primaryAccountNumberSuffix;
+    _Bool _hasAssociatedPeerPaymentAccount;
     _Bool _supportsAutomaticSelection;
     struct {
         unsigned int ingestedDate:1;
+        unsigned int peerPaymentAccountBalance:1;
+        unsigned int hasAssociatedPeerPaymentAccount:1;
         unsigned int supportsAutomaticSelection:1;
     } _has;
 }
 
 + (Class)associatedWebDomainsType;
 + (Class)paymentApplicationsType;
+@property(nonatomic) long long peerPaymentAccountBalance; // @synthesize peerPaymentAccountBalance=_peerPaymentAccountBalance;
+@property(retain, nonatomic) NSString *peerPaymentAccountCurrency; // @synthesize peerPaymentAccountCurrency=_peerPaymentAccountCurrency;
+@property(nonatomic) _Bool hasAssociatedPeerPaymentAccount; // @synthesize hasAssociatedPeerPaymentAccount=_hasAssociatedPeerPaymentAccount;
 @property(retain, nonatomic) NSString *issuerCountryCode; // @synthesize issuerCountryCode=_issuerCountryCode;
 @property(nonatomic) _Bool supportsAutomaticSelection; // @synthesize supportsAutomaticSelection=_supportsAutomaticSelection;
 @property(retain, nonatomic) NSMutableArray *associatedWebDomains; // @synthesize associatedWebDomains=_associatedWebDomains;
@@ -50,6 +58,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasPeerPaymentAccountBalance;
+@property(readonly, nonatomic) _Bool hasPeerPaymentAccountCurrency;
+@property(nonatomic) _Bool hasHasAssociatedPeerPaymentAccount;
 @property(readonly, nonatomic) _Bool hasIssuerCountryCode;
 @property(nonatomic) _Bool hasSupportsAutomaticSelection;
 - (id)associatedWebDomainsAtIndex:(unsigned long long)arg1;

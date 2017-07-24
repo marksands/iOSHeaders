@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (struct UIEdgeInsets)collectionViewLayoutContentInsetForOrientation:(long long)arg1;
 - (double)interItemSpacing;
 
 @end

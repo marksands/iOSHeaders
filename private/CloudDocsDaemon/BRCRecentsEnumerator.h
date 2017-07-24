@@ -37,7 +37,7 @@ __attribute__((visibility("hidden")))
 - (void)enumerateChangesFromChangeToken:(id)arg1 limit:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_enumerateChangesFromChangeToken:(id)arg1 limit:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)maxNotifRankWasFlushed;
-- (id)_deletedDocIdResultSetFromNotifRank:(unsigned long long)arg1 toNotifRank:(unsigned long long)arg2;
+- (id)_deletedDocIdResultSetFromNotifRank:(unsigned long long)arg1 batchSize:(unsigned long long)arg2;
 - (void)_handleResetForRowID:(long long)arg1 notifRank:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)changeTokenForNotifRank:(unsigned long long)arg1;
 - (void)_readyForIndexingWithAckedRank:(unsigned long long)arg1;

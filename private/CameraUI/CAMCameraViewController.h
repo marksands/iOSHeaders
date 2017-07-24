@@ -20,7 +20,6 @@
 @interface CAMCameraViewController : UIViewController <CAMCaptureResultDelegate, CAMPersistenceResultDelegate, CAMCVCStillImageResultCoordinatorDelegate, CAMIrisVideoControllerDelegate, CAMViewfinderReviewButtonSource, NSCoding, NSSecureCoding>
 {
     _Bool _automaticallyManagesCameraSession;
-    id <CAMCameraConfigurationDelegate> _configurationDelegate;
     id <CAMCameraCaptureDelegate> _captureDelegate;
     CUCaptureController *_captureController;
     CAMTimelapseController *_timelapseController;
@@ -64,7 +63,6 @@
 @property(readonly, nonatomic) CAMTimelapseController *timelapseController; // @synthesize timelapseController=_timelapseController;
 @property(readonly, nonatomic) CUCaptureController *captureController; // @synthesize captureController=_captureController;
 @property(nonatomic) __weak id <CAMCameraCaptureDelegate> captureDelegate; // @synthesize captureDelegate=_captureDelegate;
-@property(nonatomic) __weak id <CAMCameraConfigurationDelegate> configurationDelegate; // @synthesize configurationDelegate=_configurationDelegate;
 - (void).cxx_destruct;
 - (id)reviewButton;
 - (void)handleReviewButtonReleased:(id)arg1;
@@ -90,6 +88,8 @@
 - (void)_notifyCaptureDelegateOfCompletedCaptureOfPhoto:(id)arg1 withProperties:(id)arg2 error:(id)arg3;
 - (id)_previewImageFromVideoURL:(id)arg1;
 - (id)_resultQueueSafeImageFromSurface:(void *)arg1 imageOrientation:(long long)arg2;
+@property(nonatomic) __weak id <CAMCameraConfigurationDelegate> configurationDelegate;
+- (struct CGSize)viewSystemLayoutSizeFittingSize:(struct CGSize)arg1 forCaptureMode:(long long)arg2;
 - (unsigned long long)_capturePersistenceBehaviorForViewfinderPersistenceBehavior:(unsigned long long)arg1;
 - (unsigned long long)_viewfinderPersistenceBehaviorForCapturePersistenceBehavior:(unsigned long long)arg1;
 @property(nonatomic, getter=isPerformingTileTransition) _Bool performingTileTransition;

@@ -7,11 +7,12 @@
 #import <Foundation/NSObject.h>
 
 #import <UIKit/UITextDraggableGeometry-Protocol.h>
+#import <UIKit/UITextDraggableGeometryFastSameViewOperationsSupporting-Protocol.h>
 
 @class NSLayoutManager, NSString, UIView;
 @protocol UITextDragSupporting><UITextDropSupporting;
 
-@interface UILayoutManagerBasedDraggableGeometry : NSObject <UITextDraggableGeometry>
+@interface UILayoutManagerBasedDraggableGeometry : NSObject <UITextDraggableGeometry, UITextDraggableGeometryFastSameViewOperationsSupporting>
 {
     long long _geometryOptions;
     UIView<UITextDragSupporting><UITextDropSupporting> *_view;
@@ -32,7 +33,7 @@
 - (CDUnknownBlockType)_targetedPreviewProviderForImage:(id)arg1 inRange:(struct _NSRange)arg2;
 - (id)_draggableTextInRange:(id)arg1;
 - (id)performSameViewDropOperation:(id)arg1;
-- (id)combinedAttributedStringForTextRanges:(id)arg1;
+- (id)attributedStringsForTextRanges:(id)arg1;
 - (id)previewForDroppingText:(id)arg1 toPosition:(id)arg2 inContainerView:(id)arg3;
 - (id)draggableObjectsForTextRange:(id)arg1;
 - (id)textRangeForAttachmentInTextRange:(id)arg1 atPoint:(struct CGPoint)arg2;

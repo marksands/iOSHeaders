@@ -100,9 +100,11 @@
 - (_Bool)prefersStatusBarHidden;
 - (long long)desiredStatusBarAnimation;
 - (_Bool)wantsStatusBarVisible;
+- (void)viewWillLayoutSubviews;
 - (void)loadView;
 - (Class)_viewClass;
 - (void)setupNavigationItem;
+- (_Bool)wantsLegacyImageUI;
 - (_Bool)wantsAutoloopUI;
 - (_Bool)clientIsWallpaper;
 @property(readonly, nonatomic) NSString *localizedTitle;

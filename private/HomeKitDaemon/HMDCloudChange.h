@@ -10,6 +10,7 @@
 
 @interface HMDCloudChange : HMFObject
 {
+    NSUUID *_objectID;
     HMDCloudRecord *_cloudRecord;
     unsigned long long _changeType;
     unsigned long long _replayType;
@@ -21,8 +22,9 @@
 @property(nonatomic) unsigned long long replayType; // @synthesize replayType=_replayType;
 @property(nonatomic) unsigned long long changeType; // @synthesize changeType=_changeType;
 @property(readonly, nonatomic) HMDCloudRecord *cloudRecord; // @synthesize cloudRecord=_cloudRecord;
+@property(readonly, nonatomic) NSUUID *objectID; // @synthesize objectID=_objectID;
 - (void).cxx_destruct;
-- (void)replayChange:(id)arg1;
+- (void)replayChange:(id)arg1 stagedChange:(id)arg2;
 - (void)updateChangeWithRecord:(id)arg1;
 @property(readonly, nonatomic) CKRecordID *recordID;
 @property(readonly, nonatomic) CKRecord *record;
@@ -36,7 +38,7 @@
 @property(readonly, nonatomic, getter=isDeleted) _Bool deleteChange;
 @property(readonly, nonatomic, getter=isUpdated) _Bool updateChange;
 @property(readonly, nonatomic, getter=isAdded) _Bool addChange;
-@property(readonly, nonatomic) NSUUID *objectID;
+- (id)change;
 - (id)description;
 - (id)shortDescription;
 - (id)_initWithChangeType:(unsigned long long)arg1 cloudRecord:(id)arg2;

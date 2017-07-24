@@ -11,13 +11,14 @@
 #import <AssistantUI/AFUISiriRemoteViewControllerDelegate-Protocol.h>
 #import <AssistantUI/AFUISiriSessionLocalDataSource-Protocol.h>
 #import <AssistantUI/AFUISiriSessionLocalDelegate-Protocol.h>
+#import <AssistantUI/AFUISiriViewDataSource-Protocol.h>
 #import <AssistantUI/AFUISiriViewDelegate-Protocol.h>
 #import <AssistantUI/SiriUIAudioRoutePickerControllerDelegate-Protocol.h>
 
 @class AFUIDelayedActionCommandCache, AFUIRequestOptions, AFUISiriRemoteViewController, AFUISiriSession, NSNumber, NSObject, NSString, SiriUIAudioRoutePickerController, SiriUIConfiguration, UIStatusBar, UIView;
 @protocol AFUISiriRemoteViewHosting, AFUISiriViewControllerDataSource, AFUISiriViewControllerDelegate, OS_dispatch_queue;
 
-@interface AFUISiriViewController : UIViewController <AFUISiriRemoteViewControllerDataSource, AFUISiriRemoteViewControllerDelegate, AFUISiriViewDelegate, SiriUIAudioRoutePickerControllerDelegate, AFUISiriSessionLocalDataSource, AFUISiriSessionLocalDelegate, AFUIDelayedActionCommandCacheDelegate>
+@interface AFUISiriViewController : UIViewController <AFUISiriRemoteViewControllerDataSource, AFUISiriRemoteViewControllerDelegate, AFUISiriViewDelegate, SiriUIAudioRoutePickerControllerDelegate, AFUISiriSessionLocalDataSource, AFUISiriSessionLocalDelegate, AFUIDelayedActionCommandCacheDelegate, AFUISiriViewDataSource>
 {
     _Bool _active;
     _Bool _attemptingRemoteViewControllerPresentation;
@@ -41,6 +42,7 @@
     _Bool _hasCalledBeginAppearanceTransition;
     _Bool _hasCalledEndAppearanceTransition;
     _Bool _inHoldToTalkMode;
+    _Bool _viewDisappearing;
     id <AFUISiriViewControllerDataSource> _dataSource;
     id <AFUISiriViewControllerDelegate> _delegate;
     AFUISiriSession *_session;
@@ -53,6 +55,7 @@
     double _viewDidAppearTime;
 }
 
+@property(nonatomic, getter=isViewDisappearing) _Bool viewDisappearing; // @synthesize viewDisappearing=_viewDisappearing;
 @property(nonatomic, getter=_viewDidAppearTime, setter=_setViewDidAppearTime:) double viewDidAppearTime; // @synthesize viewDidAppearTime=_viewDidAppearTime;
 @property(retain, nonatomic, getter=_recordingStartedTimeValue, setter=_setRecordingStartedTimeValue:) NSNumber *recordingStartedTimeValue; // @synthesize recordingStartedTimeValue=_recordingStartedTimeValue;
 @property(copy, nonatomic, getter=_currentRequestOptions, setter=_setCurrentRequestOptions:) AFUIRequestOptions *currentRequestOptions; // @synthesize currentRequestOptions=_currentRequestOptions;
@@ -74,6 +77,7 @@
 @property(nonatomic) __weak id <AFUISiriViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <AFUISiriViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
+- (void)siriSessionDidUpdateSessionInfo:(id)arg1;
 - (void)siriSessionDidEnd:(id)arg1;
 - (void)siriSessionWillEnd:(id)arg1;
 - (_Bool)siriSessionCanEnd:(id)arg1;
@@ -102,6 +106,8 @@
 - (void)_didDetectAudioRoutePickerTap;
 - (void)_setAudioRoutePickerBluetoothOn:(_Bool)arg1;
 - (void)_setShowAudioRoutePicker:(_Bool)arg1;
+- (id)activeAccountForSiriView:(id)arg1;
+- (id)assistantVersionForSiriView:(id)arg1;
 - (void)siriView:(id)arg1 didReceiveSiriActivationMessageWithSource:(long long)arg2;
 - (_Bool)siriView:(id)arg1 attemptUnlockWithPassword:(id)arg2;
 - (void)siriViewDidReceiveHelpAction:(id)arg1;
@@ -183,6 +189,7 @@
 - (void)siriRemoteViewController:(id)arg1 handlePasscodeUnlockWithCompletion:(CDUnknownBlockType)arg2;
 - (void)siriRemoteViewController:(id)arg1 setBugReportingAvailable:(_Bool)arg2;
 - (void)siriRemoteViewController:(id)arg1 setHelpButtonEmphasized:(_Bool)arg2;
+- (void)siriRemoteViewController:(id)arg1 setStatusBarHidden:(_Bool)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)siriRemoteViewController:(id)arg1 setStatusBarHidden:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)siriRemoteViewController:(id)arg1 willDismissViewControllerWithStatusBarStyle:(long long)arg2;
 - (void)siriRemoteViewController:(id)arg1 willPresentViewControllerWithStatusBarStyle:(long long)arg2;
@@ -201,7 +208,6 @@
 - (void)siriRemoteViewController:(id)arg1 viewServiceDidTerminateWithError:(id)arg2;
 - (long long)siriRemoteViewControllerRequestsActivationSource:(id)arg1;
 - (void)siriRemoteViewController:(id)arg1 didEncounterUnexpectedServiceError:(id)arg2;
-- (id)lastAppUpdateTimeForSiriRemoteViewController:(id)arg1;
 - (unsigned long long)lockStateForSiriRemoteViewController:(id)arg1;
 - (id)siriRemoteViewController:(id)arg1 bulletinWithIdentifier:(id)arg2;
 - (void)_enqueueRemoteViewControllerMessageBlockWithWeaklyReferencedRemoteViewController:(CDUnknownBlockType)arg1;
@@ -223,21 +229,25 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)_recordUIDismissal;
 - (void)_recordUIAppearance;
+- (void)_willEnterFullScreenScreenshotMode:(id)arg1;
+- (void)_windowDidResignKey:(id)arg1;
+- (void)_windowDidBecomeKey:(id)arg1;
 - (void)_applicationDidBecomeActive:(id)arg1;
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (void)_applicationWillResignActive:(id)arg1;
 @property(readonly, nonatomic) _Bool hasScreenSnapshot;
 - (struct CGRect)_statusBarFrame;
 - (void)_removeStatusBar;
-- (void)_hideStatusBarAnimated:(_Bool)arg1;
-- (void)_showStatusBarAnimated:(_Bool)arg1;
+- (void)_hideStatusBarAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_showStatusBarAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_statusBarFrameDidChange:(id)arg1;
 - (id)_siriView;
 - (void)loadView;
+- (void)proximityStatusChanged:(_Bool)arg1;
 - (void)exitUITrackingMode;
 - (void)enterUITrackingMode;
 @property(readonly, nonatomic) _Bool isProcessingAcousticIdRequest;
-- (void)setShowsStatusBar:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setShowsStatusBar:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)underlyingConnection;
 - (void)dealloc;
 - (id)init;

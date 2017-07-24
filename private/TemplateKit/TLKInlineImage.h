@@ -6,16 +6,14 @@
 
 #import <TemplateKit/TLKFormattedTextItem.h>
 
-@class TLKImage, UIImage;
+@class TLKImage;
 
 @interface TLKInlineImage : TLKFormattedTextItem
 {
-    UIImage *_image;
     TLKImage *_tlkImage;
 }
 
 @property(retain) TLKImage *tlkImage; // @synthesize tlkImage=_tlkImage;
-@property(retain) UIImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
 - (id)observableProperties;
 

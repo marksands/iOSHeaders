@@ -23,6 +23,7 @@
 - (id)_breathingTemplate;
 - (id)_reminderTemplate;
 - (id)_workoutTemplate;
+- (id)_nowPlayingTemplate;
 - (id)_musicTemplate;
 - (id)_worldClockTemplate;
 - (id)_alarmTemplate;

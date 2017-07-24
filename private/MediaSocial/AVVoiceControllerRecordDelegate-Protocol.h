@@ -12,6 +12,8 @@
 
 @optional
 - (void)voiceControllerRecordBufferAvailable:(AVVoiceController *)arg1 buffer:(AVVCAudioBuffer *)arg2;
+- (void)voiceControllerMediaServicesWereReset:(AVVoiceController *)arg1;
+- (void)voiceControllerMediaServicesWereLost:(AVVoiceController *)arg1;
 - (void)voiceControllerEndRecordInterruption:(AVVoiceController *)arg1;
 - (void)voiceControllerBeginRecordInterruption:(AVVoiceController *)arg1 withContext:(NSDictionary *)arg2;
 - (void)voiceControllerBeginRecordInterruption:(AVVoiceController *)arg1;

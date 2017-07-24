@@ -7,6 +7,6 @@
 #import <Foundation/NSArray.h>
 
 @interface NSArray (Additions)
-- (id)arrayCappedToMaxItems:(long long)arg1;
+- (id)arrayCappedToMaxItems:(unsigned long long)arg1;
 @end
 

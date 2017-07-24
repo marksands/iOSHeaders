@@ -56,7 +56,7 @@
 - (void)getDeviceInfo:(void (^)(NSDictionary *))arg1;
 - (void)retrieveRequestSettings:(void (^)(NSDictionary *, NSDictionary *, NSDictionary *))arg1;
 - (void)fetchNewProfilesWithCompletion:(void (^)(_Bool, NSError *))arg1 additionalParameters:(NSDictionary *)arg2;
-- (void)registerHasNewProfileCompletion:(void (^)(_Bool))arg1;
+- (void)registerHasNewProfileCompletion:(void (^)(_Bool, _Bool))arg1;
 - (void)setUserInPurchaseFlow:(_Bool)arg1;
 - (void)didProvisionEsimWithIccid:(NSString *)arg1;
 - (void)didPurchasePlanWithIccid:(NSString *)arg1 downloadProfile:(_Bool)arg2;
@@ -72,5 +72,6 @@
 - (void)isRoamingPlanSupportAvailable:(void (^)(_Bool))arg1;
 - (void)isMultipleDataPlanSupportAvailable:(void (^)(_Bool))arg1;
 - (void)isNewDataPlanCapable:(void (^)(_Bool))arg1;
+- (void)ping;
 @end
 

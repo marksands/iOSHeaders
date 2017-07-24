@@ -116,7 +116,8 @@
 @property(readonly, nonatomic) UITextPosition *beginningOfDocument;
 - (void)unmarkText;
 - (void)setMarkedText:(id)arg1 selectedRange:(struct _NSRange)arg2;
-@property(copy, nonatomic) NSDictionary *markedTextStyle;
+- (void)setMarkedTextStyle:(id)arg1;
+@property(readonly, nonatomic) NSDictionary *markedTextStyle;
 @property(readonly, nonatomic) UITextRange *markedTextRange;
 @property(copy) UITextRange *selectedTextRange;
 - (void)clearText;

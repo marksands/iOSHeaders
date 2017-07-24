@@ -17,6 +17,9 @@ __attribute__((visibility("hidden")))
 - (id)newChildOperationInfoOfClass:(Class)arg1;
 - (id)activityCreate;
 - (id)initWithOperationInfo:(id)arg1 clientContext:(id)arg2;
+- (void)setPCSData:(id)arg1 forFetchedShareID:(id)arg2;
+- (void)setPCSData:(id)arg1 forFetchedZoneID:(id)arg2;
+- (void)setPCSData:(id)arg1 forFetchedRecordID:(id)arg2;
 
 @end
 

@@ -15,7 +15,9 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (void)_resetForLink;
 - (_Bool)shouldClusterAllowSelectionGestures:(_Bool)arg1 atPoint:(struct CGPoint)arg2 toBegin:(_Bool)arg3;
+- (_Bool)doesControlDelegate;
 - (id)initWithView:(id)arg1;
 
 @end

@@ -9,7 +9,7 @@
 #import <SafariServices/RequestDesktopSiteWebProcessPlugInListener-Protocol.h>
 #import <SafariServices/SFReaderWebProcessControllerProtocol-Protocol.h>
 
-@class NSDictionary, NSMutableSet, NSString, SFWebProcessPlugInCertificateWarningController, SFWebProcessPlugInPageExtensionController, _SFReaderWebProcessPlugInPageController, _SFWebProcessPlugInPageSafeBrowsingController, _WKRemoteObjectInterface;
+@class NSDictionary, NSMutableSet, NSString, SFWebProcessPlugInCertificateWarningController, SFWebProcessPlugInPageExtensionController, _SFReaderWebProcessPlugInPageController, _SFWebProcessPlugInPageSafeBrowsingController, _SFWebProcessSharingLinkExtractor, _WKRemoteObjectInterface;
 @protocol RequestDesktopSiteUIProcessListener, SFReaderEventsListener;
 
 @interface _SFWebProcessPlugInReaderEnabledPageController : _SFWebProcessPlugInAutoFillPageController <RequestDesktopSiteWebProcessPlugInListener, SFReaderWebProcessControllerProtocol>
@@ -22,6 +22,7 @@
     NSDictionary *_initialScrollPositionAsDictionary;
     _SFWebProcessPlugInPageSafeBrowsingController *_safeBrowsingController;
     SFWebProcessPlugInPageExtensionController *_extensionController;
+    _SFWebProcessSharingLinkExtractor *_sharingLinkExtractor;
     SFWebProcessPlugInCertificateWarningController *_certificateWarningController;
     id <RequestDesktopSiteUIProcessListener> _requestDesktopSiteUIProcessListener;
     _WKRemoteObjectInterface *_requestDesktopSiteWebProcessPlugInListenerInterface;
@@ -70,7 +71,7 @@
 - (void)_setUpReaderControllerInterface;
 - (void)_setUpReaderActivityListenerProxy;
 - (void)readerTextWasExtracted:(id)arg1;
-- (void)didDetermineReaderAvailability:(_Bool)arg1;
+- (void)didDetermineReaderAvailability:(_Bool)arg1 dueToSameDocumentNavigation:(_Bool)arg2;
 - (void)willDestroyBrowserContextController:(id)arg1;
 - (id)initWithPlugIn:(id)arg1 contextController:(id)arg2;
 

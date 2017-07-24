@@ -11,13 +11,13 @@
 @interface SXPresentationAttributes : NSObject
 {
     _Bool _fadeInComponents;
-    _Bool _showDebugAppearanceStateIndicator;
+    _Bool _enableViewportDebugging;
     NSString *_contentSizeCategory;
     unsigned long long _presentationMode;
     struct CGSize _canvasSize;
 }
 
-@property(nonatomic) _Bool showDebugAppearanceStateIndicator; // @synthesize showDebugAppearanceStateIndicator=_showDebugAppearanceStateIndicator;
+@property(nonatomic) _Bool enableViewportDebugging; // @synthesize enableViewportDebugging=_enableViewportDebugging;
 @property(nonatomic) _Bool fadeInComponents; // @synthesize fadeInComponents=_fadeInComponents;
 @property(nonatomic) unsigned long long presentationMode; // @synthesize presentationMode=_presentationMode;
 @property(retain, nonatomic) NSString *contentSizeCategory; // @synthesize contentSizeCategory=_contentSizeCategory;

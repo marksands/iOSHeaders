@@ -82,6 +82,7 @@
 - (_Bool)isMakingEmergencyCall;
 - (_Bool)hasActiveOrPendingCallOrFaceTime;
 - (_Bool)hasActiveOrPendingCall;
+- (_Bool)hasActiveEndpointCall;
 - (_Bool)hasActiveCall;
 - (void)resumeMediaForApp:(id)arg1;
 - (void)resumeMedia;

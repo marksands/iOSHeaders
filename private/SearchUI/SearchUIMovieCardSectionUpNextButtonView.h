@@ -14,7 +14,7 @@
 @property _Bool isInUpNext; // @synthesize isInUpNext=_isInUpNext;
 - (void)buttonPressed;
 - (void)updateUpNextStatus:(_Bool)arg1;
-- (id)initIsInUpNext:(_Bool)arg1 controller:(id)arg2 section:(id)arg3;
+- (id)initIsInUpNext:(_Bool)arg1 cardSectionView:(id)arg2;
 
 @end
 

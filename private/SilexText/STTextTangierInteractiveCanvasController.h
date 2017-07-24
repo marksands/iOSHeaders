@@ -29,6 +29,7 @@
 @property(nonatomic) __weak id <STTextTangierInteractiveCanvasControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 - (void).cxx_destruct;
+- (void)teardown;
 - (id)extraMenuItems;
 - (void)endUISession;
 - (_Bool)p_shouldLayoutAndRenderOnThreadForcePendingLayout:(_Bool)arg1;

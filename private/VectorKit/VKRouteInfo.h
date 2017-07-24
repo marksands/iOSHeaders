@@ -4,25 +4,29 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
-@class GEOComposedRoute, NSString;
+@class GEOComposedRoute, VKRouteEtaDescription;
 
 @interface VKRouteInfo : NSObject
 {
     GEOComposedRoute *_route;
-    NSString *_etaText;
-    struct PolylineCoordinate _uniqueStart;
-    struct PolylineCoordinate _uniqueEnd;
+    VKRouteEtaDescription *_etaDescription;
+    struct vector<gm::Range<geo::PolylineCoordinate>, std::__1::allocator<gm::Range<geo::PolylineCoordinate>>> _uniqueSections;
 }
 
-@property(nonatomic) struct PolylineCoordinate uniqueEnd; // @synthesize uniqueEnd=_uniqueEnd;
-@property(nonatomic) struct PolylineCoordinate uniqueStart; // @synthesize uniqueStart=_uniqueStart;
-@property(retain, nonatomic) NSString *etaText; // @synthesize etaText=_etaText;
+@property(retain, nonatomic) VKRouteEtaDescription *etaDescription; // @synthesize etaDescription=_etaDescription;
 @property(readonly, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
 - (id).cxx_construct;
+- (void).cxx_destruct;
+- (unsigned long long)uniqueSectionCount;
+- (struct PolylineCoordinate)uniqueSectionEnd:(unsigned long long)arg1;
+- (struct PolylineCoordinate)uniqueSectionStart:(unsigned long long)arg1;
+- (void)addUniqueSectionStart:(struct PolylineCoordinate)arg1 end:(struct PolylineCoordinate)arg2;
+@property(readonly, nonatomic) _Bool hasRouteEta;
 - (void)dealloc;
-- (id)initWithComposedRoute:(id)arg1 etaText:(id)arg2 uniqueStart:(struct PolylineCoordinate)arg3 uniqueEnd:(struct PolylineCoordinate)arg4;
+- (id)initWithComposedRoute:(id)arg1 etaDescription:(id)arg2;
+- (id)initWithComposedRoute:(id)arg1 etaText:(id)arg2;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <NewsCore/FCFetchOperation.h>
 
-@class FCCloudContext, FCFeedTransformationEndOfArticle, FCFeedTransformationPersonalizedSort, FCHeadline;
+@class FCCloudContext, FCFeedTransformationEndOfArticle, FCFeedTransformationPersonalizedSort, FCFeedTransformationUnreadFirst, FCHeadline;
 @protocol FCFeedPersonalizing;
 
 @interface FCEndOfArticleFetchOperation : FCFetchOperation
@@ -23,10 +23,12 @@
     id <FCFeedPersonalizing> _feedPersonalizer;
     FCHeadline *_headline;
     FCFeedTransformationPersonalizedSort *_personalizationTransform;
+    FCFeedTransformationUnreadFirst *_unreadTransformation;
     FCFeedTransformationEndOfArticle *_endOfArticleTransform;
 }
 
 @property(retain, nonatomic) FCFeedTransformationEndOfArticle *endOfArticleTransform; // @synthesize endOfArticleTransform=_endOfArticleTransform;
+@property(retain, nonatomic) FCFeedTransformationUnreadFirst *unreadTransformation; // @synthesize unreadTransformation=_unreadTransformation;
 @property(retain, nonatomic) FCFeedTransformationPersonalizedSort *personalizationTransform; // @synthesize personalizationTransform=_personalizationTransform;
 @property(retain, nonatomic) FCHeadline *headline; // @synthesize headline=_headline;
 @property(retain, nonatomic) id <FCFeedPersonalizing> feedPersonalizer; // @synthesize feedPersonalizer=_feedPersonalizer;

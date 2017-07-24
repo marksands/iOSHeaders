@@ -11,11 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)iCloudSynchronize;
-+ (void)iCloudFetch;
-+ (void)p_setSyncedDefaults:(id)arg1;
-+ (id)syncedDefaults;
-+ (id)p_keysToSync;
 + (void)registerUserDefaults:(_Bool)arg1;
 + (void)setAutomaticTextReplacement:(_Bool)arg1;
 + (void)setAutomaticQuoteSubstitution:(_Bool)arg1;
@@ -30,6 +25,7 @@ __attribute__((visibility("hidden")))
 + (void)setReplacementsDictionary:(id)arg1;
 + (id)appReplacementsDictionary;
 + (id)replacementsDictionary;
++ (id)p_caseInsensitiveDictionary:(id)arg1 mergedWithDictionary:(id)arg2;
 + (id)quotesArrayForLanguage:(id)arg1;
 + (_Bool)automaticTextReplacement;
 + (_Bool)automaticQuoteSubstitution;

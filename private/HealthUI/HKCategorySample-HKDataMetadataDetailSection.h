@@ -7,6 +7,7 @@
 #import <HealthKit/HKCategorySample.h>
 
 @interface HKCategorySample (HKDataMetadataDetailSection)
+- (void)_addDefaultCategoryDetailValuesToSection:(id)arg1;
 - (void)addDetailValuesToSection:(id)arg1;
 @end
 

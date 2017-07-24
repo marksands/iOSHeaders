@@ -8,11 +8,12 @@
 
 #import <XCTest/XCTUIApplicationMonitor-Protocol.h>
 
-@class NSMutableDictionary, NSMutableSet, NSString;
+@class NSMutableDictionary, NSMutableSet, NSString, XCUIApplicationRegistry;
 @protocol OS_dispatch_queue;
 
 @interface XCUIApplicationMonitor : NSObject <XCTUIApplicationMonitor>
 {
+    XCUIApplicationRegistry *_applicationRegistry;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_applicationImplementations;
     NSMutableDictionary *_applicationProcessesForPID;
@@ -26,6 +27,7 @@
 @property(readonly, copy) NSMutableDictionary *applicationProcessesForPID; // @synthesize applicationProcessesForPID=_applicationProcessesForPID;
 @property(readonly, copy) NSMutableDictionary *applicationImplementations; // @synthesize applicationImplementations=_applicationImplementations;
 @property NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(readonly) XCUIApplicationRegistry *applicationRegistry; // @synthesize applicationRegistry=_applicationRegistry;
 - (void)requestAutomationSessionForTestTargetWithPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)updatedApplicationStateSnapshot:(id)arg1;
 - (void)applicationWithBundleID:(id)arg1 didUpdatePID:(int)arg2 state:(unsigned long long)arg3;

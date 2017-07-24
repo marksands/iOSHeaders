@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFPunchout-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString, SFUserActivityData;
 
-@interface SFPunchout : NSObject <SFPunchout, NSSecureCoding>
+@interface SFPunchout : NSObject <SFPunchout, NSSecureCoding, NSCopying>
 {
     NSString *_name;
     NSString *_bundleIdentifier;
@@ -31,6 +32,7 @@
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

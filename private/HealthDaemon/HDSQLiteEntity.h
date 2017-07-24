@@ -52,6 +52,7 @@
 + (_Bool)deleteEntitiesInDatabase:(id)arg1 predicate:(id)arg2 error:(id *)arg3;
 + (_Bool)enumerateQueryResultsFromColumns:(id)arg1 properties:(id)arg2 predicate:(id)arg3 groupBy:(id)arg4 orderingProperties:(id)arg5 limit:(long long)arg6 database:(id)arg7 error:(id *)arg8 enumerationHandler:(CDUnknownBlockType)arg9;
 + (_Bool)enumerateEntitiesInDatabase:(id)arg1 predicate:(id)arg2 error:(id *)arg3 enumerationHandler:(CDUnknownBlockType)arg4;
++ (id)firstInDatabase:(id)arg1 predicate:(id)arg2 orderingProperties:(id)arg3 orderingDirections:(id)arg4 error:(id *)arg5;
 + (id)anyInDatabase:(id)arg1 predicate:(id)arg2 error:(id *)arg3;
 @property(readonly, nonatomic) long long persistentID; // @synthesize persistentID=_persistentID;
 @property(readonly, copy) NSString *description;

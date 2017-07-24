@@ -8,6 +8,5 @@
 
 @interface NSPredicate (RelativeRanks)
 + (id)_predicateForItemsWithAttribute:(id)arg1;
-+ (id)_predicateForItemsWithScoreFeatures:(id)arg1;
 @end
 

@@ -43,7 +43,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *routesAndContingencies;
 - (id)_composedRouteForRoute:(id)arg1;
 - (void)_debugAddGuidanceEventsForRoute:(id)arg1 response:(id)arg2;
-- (void)_createIncidentsOnRoute:(id)arg1;
 - (void)_attachAlternateStartRoute:(id)arg1 toRouteID:(id)arg2;
 - (void)_stitchRoutesFromArray:(id)arg1 addToRoutes:(id)arg2 includeDepartureRoutes:(_Bool)arg3;
 - (void)_buildAllRouteTypes:(id)arg1;

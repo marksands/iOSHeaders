@@ -6,18 +6,18 @@
 
 #import <NewsCore/FCFeedDescriptor.h>
 
-@class FCPrivateZoneController;
+@class FCPrivateDataController;
 
 @interface FCPrivateZoneFeedDescriptor : FCFeedDescriptor
 {
-    FCPrivateZoneController *_privateZoneController;
+    FCPrivateDataController *_privateDataController;
 }
 
-@property(retain, nonatomic) FCPrivateZoneController *privateZoneController; // @synthesize privateZoneController=_privateZoneController;
+@property(retain, nonatomic) FCPrivateDataController *privateDataController; // @synthesize privateDataController=_privateDataController;
 - (void).cxx_destruct;
 - (id)backingHeadlineIDs;
 - (id)streamOfLatestHeadlinesWithContext:(id)arg1;
-- (id)initWithPrivateZoneController:(id)arg1 identifier:(id)arg2;
+- (id)initWithPrivateDataController:(id)arg1 identifier:(id)arg2;
 - (id)initWithIdentifier:(id)arg1;
 
 @end

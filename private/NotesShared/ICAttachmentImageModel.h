@@ -11,6 +11,8 @@
 }
 
 + (id)contentInfoTextWithAttachmentCount:(unsigned long long)arg1;
+- (_Bool)canConvertToHTMLForSharing;
+- (id)attributesForSharingHTMLWithTagName:(id *)arg1 textContent:(id *)arg2;
 - (long long)previewImageOrientation;
 - (struct CGAffineTransform)previewImageOrientationTransform;
 - (_Bool)supportsQuickLook;

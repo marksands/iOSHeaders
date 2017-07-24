@@ -6,12 +6,10 @@
 
 #import <objc/NSObject.h>
 
-#import <UserNotificationsUIKit/UIContentContainer-Protocol.h>
-
-@class NSString, UILabel, UIPresentationController, UIView, _UIStatesFeedbackGenerator;
+@class UILabel, UIPresentationController, UIView, _UIStatesFeedbackGenerator;
 @protocol NCLongLookPresentationController, UIViewControllerTransitionCoordinator;
 
-@interface NCLongLookPresentationControllerHelper : NSObject <UIContentContainer>
+@interface NCLongLookPresentationControllerHelper : NSObject
 {
     UIView *_sourceView;
     struct CGRect _sourceViewInitialFrame;
@@ -35,10 +33,8 @@
 - (void).cxx_destruct;
 - (void)keyboardWillHide:(id)arg1;
 - (void)keyboardWillShow:(id)arg1;
-- (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
-- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2 superBlock:(CDUnknownBlockType)arg3;
 - (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
-- (void)systemLayoutFittingSizeDidChangeForChildContentContainer:(id)arg1;
 - (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
 @property(readonly, nonatomic) struct CGSize preferredContentSize;
 - (_Bool)_shouldDisableInteractionDuringTransitions;
@@ -63,12 +59,6 @@
 - (struct UIEdgeInsets)_contentInsetWithPresentedFrame:(struct CGRect)arg1 inContainerViewWithBounds:(struct CGRect)arg2;
 - (struct CGRect)_frameOfPresentedViewInContainerViewWithBounds:(struct CGRect)arg1;
 - (id)initWithLongLookPresentationController:(id)arg1 andSourceView:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

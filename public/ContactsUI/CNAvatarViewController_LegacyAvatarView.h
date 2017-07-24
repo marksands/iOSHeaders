@@ -9,7 +9,7 @@
 #import <ContactsUI/CNAvatarViewDelegate-Protocol.h>
 
 @class CNAvatarView, CNContactStore, NSArray, NSString, PRPersonaStore;
-@protocol CNUILikenessRendering;
+@protocol CNSchedulerProvider, CNUILikenessRendering;
 
 __attribute__((visibility("hidden")))
 @interface CNAvatarViewController_LegacyAvatarView : CNAvatarViewController <CNAvatarViewDelegate>
@@ -20,10 +20,12 @@ __attribute__((visibility("hidden")))
     PRPersonaStore *_personaStore;
     id <CNUILikenessRendering> _imageRenderer;
     unsigned long long _style;
+    id <CNSchedulerProvider> _schedulerProvider;
     CNAvatarView *_avatarView;
 }
 
 @property(nonatomic) __weak CNAvatarView *avatarView; // @synthesize avatarView=_avatarView;
+@property(readonly, nonatomic) id <CNSchedulerProvider> schedulerProvider; // @synthesize schedulerProvider=_schedulerProvider;
 @property(nonatomic) unsigned long long style; // @synthesize style=_style;
 @property(readonly, nonatomic) id <CNUILikenessRendering> imageRenderer; // @synthesize imageRenderer=_imageRenderer;
 @property(nonatomic, getter=isThreeDTouchEnabled) _Bool threeDTouchEnabled; // @synthesize threeDTouchEnabled=_threeDTouchEnabled;

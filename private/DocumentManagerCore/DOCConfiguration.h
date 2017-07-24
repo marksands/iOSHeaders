@@ -9,10 +9,11 @@
 #import <DocumentManagerCore/NSCopying-Protocol.h>
 #import <DocumentManagerCore/NSSecureCoding-Protocol.h>
 
-@class DOCConcreteLocation, FPSandboxingURLWrapper, NSArray, NSString;
+@class DOCConcreteLocation, NSArray, NSString;
 
 @interface DOCConfiguration : NSObject <NSCopying, NSSecureCoding>
 {
+    _Bool _shouldIgnoreInteractionMode;
     _Bool _inProcess;
     _Bool _forPickingDocuments;
     _Bool _sourceIsManaged;
@@ -20,9 +21,12 @@
     _Bool _pickingItemsShouldBumpLastOpenDate;
     _Bool _suppressBlackCallout;
     _Bool _singleSourceMode;
+    _Bool _preferLastUsedDate;
+    _Bool _shouldOpenInApp;
     _Bool _restoreLastVisitedLocation;
     _Bool _sourceIsWritableFileProvider;
     _Bool _capNumberOfItemsDynamically;
+    _Bool _skipDownload;
     _Bool _showCollectionControls;
     _Bool _showListModeButton;
     _Bool _showSearchInNavBar;
@@ -32,17 +36,20 @@
     _Bool _useExpandedSourceList;
     _Bool _showLocationPopover;
     _Bool _onlyShowiCloudDrive;
+    _Bool _enableThumbnailFadeAnimation;
     DOCConcreteLocation *_defaultLocation;
     unsigned long long _interactionMode;
     NSArray *_excludedDocumentTypes;
-    FPSandboxingURLWrapper *_url;
+    NSArray *_urls;
     NSString *_hostIdentifier;
     NSArray *_hiddenSourcesIdentifiers;
     unsigned long long _maximumNumberOfItemsToFetch;
     unsigned long long _maximumNumberOfRows;
     unsigned long long _targetSelectionBrowserMode;
+    unsigned long long _browserViewContext;
     NSString *_roleIdentifier;
     NSArray *_forbiddenActionIdentifiers;
+    double _thumbnailFetchingTimeOut;
     NSArray *_documentTypes;
 }
 
@@ -51,8 +58,11 @@
 + (id)configurationForImportingDocumentsWithContentTypes:(id)arg1 mode:(unsigned long long)arg2;
 + (id)configurationForOpeningDocumentsOfApplicationWithBundleIdentifier:(id)arg1;
 @property(copy, nonatomic) NSArray *documentTypes; // @synthesize documentTypes=_documentTypes;
+@property _Bool enableThumbnailFadeAnimation; // @synthesize enableThumbnailFadeAnimation=_enableThumbnailFadeAnimation;
+@property double thumbnailFetchingTimeOut; // @synthesize thumbnailFetchingTimeOut=_thumbnailFetchingTimeOut;
 @property(retain) NSArray *forbiddenActionIdentifiers; // @synthesize forbiddenActionIdentifiers=_forbiddenActionIdentifiers;
 @property(copy, nonatomic) NSString *roleIdentifier; // @synthesize roleIdentifier=_roleIdentifier;
+@property unsigned long long browserViewContext; // @synthesize browserViewContext=_browserViewContext;
 @property unsigned long long targetSelectionBrowserMode; // @synthesize targetSelectionBrowserMode=_targetSelectionBrowserMode;
 @property _Bool onlyShowiCloudDrive; // @synthesize onlyShowiCloudDrive=_onlyShowiCloudDrive;
 @property _Bool showLocationPopover; // @synthesize showLocationPopover=_showLocationPopover;
@@ -63,12 +73,15 @@
 @property _Bool showSearchInNavBar; // @synthesize showSearchInNavBar=_showSearchInNavBar;
 @property _Bool showListModeButton; // @synthesize showListModeButton=_showListModeButton;
 @property _Bool showCollectionControls; // @synthesize showCollectionControls=_showCollectionControls;
+@property _Bool skipDownload; // @synthesize skipDownload=_skipDownload;
 @property _Bool capNumberOfItemsDynamically; // @synthesize capNumberOfItemsDynamically=_capNumberOfItemsDynamically;
 @property unsigned long long maximumNumberOfRows; // @synthesize maximumNumberOfRows=_maximumNumberOfRows;
 @property unsigned long long maximumNumberOfItemsToFetch; // @synthesize maximumNumberOfItemsToFetch=_maximumNumberOfItemsToFetch;
 @property _Bool sourceIsWritableFileProvider; // @synthesize sourceIsWritableFileProvider=_sourceIsWritableFileProvider;
 @property _Bool restoreLastVisitedLocation; // @synthesize restoreLastVisitedLocation=_restoreLastVisitedLocation;
 @property(copy, nonatomic) NSArray *hiddenSourcesIdentifiers; // @synthesize hiddenSourcesIdentifiers=_hiddenSourcesIdentifiers;
+@property _Bool shouldOpenInApp; // @synthesize shouldOpenInApp=_shouldOpenInApp;
+@property _Bool preferLastUsedDate; // @synthesize preferLastUsedDate=_preferLastUsedDate;
 @property _Bool singleSourceMode; // @synthesize singleSourceMode=_singleSourceMode;
 @property _Bool suppressBlackCallout; // @synthesize suppressBlackCallout=_suppressBlackCallout;
 @property _Bool pickingItemsShouldBumpLastOpenDate; // @synthesize pickingItemsShouldBumpLastOpenDate=_pickingItemsShouldBumpLastOpenDate;
@@ -76,12 +89,14 @@
 @property _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
 @property _Bool forPickingDocuments; // @synthesize forPickingDocuments=_forPickingDocuments;
 @property(copy) NSString *hostIdentifier; // @synthesize hostIdentifier=_hostIdentifier;
-@property(retain) FPSandboxingURLWrapper *url; // @synthesize url=_url;
+@property(retain) NSArray *urls; // @synthesize urls=_urls;
 @property(copy, nonatomic) NSArray *excludedDocumentTypes; // @synthesize excludedDocumentTypes=_excludedDocumentTypes;
 @property _Bool inProcess; // @synthesize inProcess=_inProcess;
+@property _Bool shouldIgnoreInteractionMode; // @synthesize shouldIgnoreInteractionMode=_shouldIgnoreInteractionMode;
 @property unsigned long long interactionMode; // @synthesize interactionMode=_interactionMode;
 @property(retain) DOCConcreteLocation *defaultLocation; // @synthesize defaultLocation=_defaultLocation;
 - (void).cxx_destruct;
+- (unsigned long long)interactionModeForPreparing;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

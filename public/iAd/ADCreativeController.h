@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <iAd/ADWebProcessDelegate-Protocol.h>
 #import <iAd/WKNavigationDelegate-Protocol.h>
@@ -54,6 +54,7 @@
 - (void)adSpaceActionViewControllerWillPresent:(id)arg1;
 - (void)unregisterExportedObjectInterface;
 - (void)loadAdImpression:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (struct CGRect)frameForCreativeView;
 - (id)_userAgentForUserAgentString:(id)arg1;
 - (id)_customUserAgentString;
 - (id)_incrementCreativeIdentifier;

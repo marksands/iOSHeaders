@@ -57,36 +57,6 @@ struct PXAssetBadgeInfo {
     long long count;
 };
 
-struct PXCPLServiceStatus {
-    long long state;
-    long long pauseReason;
-    unsigned long long activity;
-    long long action;
-    double pendingProgress;
-    unsigned long long pendingNumberOfItems;
-    double lastSuccessfulSyncTimeIntervalSinceReferenceDate;
-    double exitTimeIntervalSinceReferenceDate;
-    unsigned long long numberOfItemsFailingToUpload;
-};
-
-struct PXCPLStatusSnapshot {
-    _Bool isSyncing;
-    double exitTimeIntervalSinceReferenceDate;
-    double lastSuccessfulSyncTimeIntervalSinceReferenceDate;
-    unsigned long long numberOfItemsToUpload;
-    double itemsToUploadProgress;
-    unsigned long long numberOfItemsToAdd;
-    unsigned long long numberOfOriginalsToDownload;
-    unsigned long long numberOfItemsFailingToUpload;
-    _Bool isUserPaused;
-    _Bool isInBatterySaverMode;
-    _Bool isExceedingBatteryQuota;
-    _Bool isExceedingCellularQuota;
-    _Bool isExceedingLocalStorageQuota;
-    _Bool isExceedingQuota;
-    _Bool isClientVersionTooOld;
-};
-
 struct PXContextualNotificationVisualState {
     _Bool onscreen;
     struct CGRect containingFrame;
@@ -337,10 +307,6 @@ typedef struct {
 typedef struct {
     _Bool button;
 } CDStruct_6d279c03;
-
-typedef struct {
-    _Bool output;
-} CDStruct_db2bc502;
 
 typedef struct {
     _Bool selectedIndexPaths;

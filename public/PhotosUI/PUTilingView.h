@@ -153,7 +153,7 @@
 - (void)_adjustScrollViewPagingDeceleration;
 - (void)_handleChangeFromBounds:(struct CGRect)arg1 fromFrame:(struct CGRect)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)layoutSubviews;
+- (void)layoutSublayersOfLayer:(id)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (id)initWithCoder:(id)arg1;

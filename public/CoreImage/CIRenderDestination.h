@@ -15,6 +15,7 @@
 
 - (id)debugDescription;
 - (id)description;
+- (id)imageRepresentation;
 @property _Bool blendsInDestinationColorSpace;
 @property(retain, nonatomic) CIBlendKernel *blendKernel;
 @property(nonatomic) struct CGColorSpace *colorSpace;
@@ -32,7 +33,7 @@
 - (id)initWithMTLTexture:(id)arg1 commandBuffer:(id)arg2;
 - (id)initWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2 pixelFormat:(unsigned int)arg3 colorSpace:(struct CGColorSpace *)arg4 pixelBufferProvider:(CDUnknownBlockType)arg5;
 - (id)initWithPixelBuffer:(struct __CVBuffer *)arg1;
--     // Error parsing type: ^{RenderTask=^^?{atomic<unsigned int>=AI}*iiBQ^{Node}{CGRect={CGPoint=dd}{CGSize=dd}}iQ^{__CFString}{vector<std::__1::unique_ptr<CI::TileTask, CI::ObjectDeleter<CI::TileTask> >, std::__1::allocator<std::__1::unique_ptr<CI::TileTask, CI::ObjectDeleter<CI::TileTask> > > >=^{unique_ptr<CI::TileTask, CI::ObjectDeleter<CI::TileTask> >}^{unique_ptr<CI::TileTask, CI::ObjectDeleter<CI::TileTask> >}{__compressed_pair<std::__1::unique_ptr<CI::TileTask, CI::ObjectDeleter<CI::TileTask> > *, std::__1::allocator<std::__1::unique_ptr<CI::TileTask, CI::ObjectDeleter<CI::TileTask> > > >=^{unique_ptr<CI::TileTask, CI::ObjectDeleter<CI::TileTask> >}}}dQQ}32@0:8^{Image=^^?{atomic<unsigned int>=AI}{CGRect={CGPoint=dd}{CGSize=dd}}^{__CFURL}^v^vIQ}16^{Context=^^?{atomic<unsigned int>=AI}^{CGColorSpace}^{CGColorSpace}iBBBB^{CGContext}fB{CGRect={CGPoint=dd}{CGSize=dd}}{CGAffineTransform=dddddd}IQQiB[1024{TreeCacheElement=Q^{Kernel}}]Q^{ObjectCache<CI::Node>}^{ObjectCache<CI::Node>}dd@^{RenderTask}B@@}24, name: _render:withContext:
+-     // Error parsing type: ^{RenderTask=^^?{atomic<unsigned int>=AI}*iiBQ^{Node}{CGRect={CGPoint=dd}{CGSize=dd}}iQ^{__CFString}{vector<std::__1::unique_ptr<CI::TileTask, CI::ObjectDeleter<CI::TileTask> >, std::__1::allocator<std::__1::unique_ptr<CI::TileTask, CI::ObjectDeleter<CI::TileTask> > > >=^{unique_ptr<CI::TileTask, CI::ObjectDeleter<CI::TileTask> >}^{unique_ptr<CI::TileTask, CI::ObjectDeleter<CI::TileTask> >}{__compressed_pair<std::__1::unique_ptr<CI::TileTask, CI::ObjectDeleter<CI::TileTask> > *, std::__1::allocator<std::__1::unique_ptr<CI::TileTask, CI::ObjectDeleter<CI::TileTask> > > >=^{unique_ptr<CI::TileTask, CI::ObjectDeleter<CI::TileTask> >}}}dQQQ}32@0:8^{Image=^^?{atomic<unsigned int>=AI}{CGRect={CGPoint=dd}{CGSize=dd}}^{__CFURL}^v^vIQ}16^{Context=^^?{atomic<unsigned int>=AI}^{CGColorSpace}^{CGColorSpace}iBBBB^{CGContext}fB{CGRect={CGPoint=dd}{CGSize=dd}}{CGAffineTransform=dddddd}IQQiB[1024{TreeCacheElement=Q^{Kernel}}]Q^{ObjectCache<CI::Node>}^{ObjectCache<CI::Node>}dd@^{RenderTask}B@@}24, name: _render:withContext:
 - (void)dealloc;
 -     // Error parsing type: @52@0:8^{RenderDestination=^^?{atomic<unsigned int>=AI}}16Q24Q32i40^{CGColorSpace=}44, name: _initWithInternalRenderDestination:width:height:format:colorspace:
 -     // Error parsing type: ^{RenderDestination=^^?{atomic<unsigned int>=AI}}16@0:8, name: _internalRenderDestination

@@ -12,12 +12,16 @@
 {
     NSArray *_keysToFetch;
     CDUnknownBlockType _contactFilter;
+    NSString *_outputKey;
+    long long _type;
     NSString *_fragment;
     NSPredicate *_predicate;
 }
 
 @property(retain, nonatomic) NSPredicate *predicate; // @synthesize predicate=_predicate;
 @property(copy, nonatomic) NSString *fragment; // @synthesize fragment=_fragment;
+@property(nonatomic) long long type; // @synthesize type=_type;
+@property(retain, nonatomic) NSString *outputKey; // @synthesize outputKey=_outputKey;
 @property(copy, nonatomic) CDUnknownBlockType contactFilter; // @synthesize contactFilter=_contactFilter;
 @property(retain, nonatomic) NSArray *keysToFetch; // @synthesize keysToFetch=_keysToFetch;
 - (void).cxx_destruct;
@@ -30,7 +34,6 @@
 - (id)initWithPostalAddress:(id)arg1;
 - (id)initWithNameComponents:(id)arg1;
 - (id)initWithFullText:(id)arg1;
-- (id)initWithFragment:(id)arg1;
 
 @end
 

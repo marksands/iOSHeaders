@@ -44,6 +44,7 @@
 - (oneway void)acousticIDRequestDidFinishWithSuccess:(_Bool)arg1;
 - (oneway void)musicWasDetected;
 - (oneway void)acousticIDRequestWillStart;
+- (oneway void)quickStopWasHandledWithActions:(unsigned long long)arg1;
 - (oneway void)requestRequestedDismissAssistant;
 - (oneway void)requestRequestedOpenURL:(NSURL *)arg1 reply:(void (^)(_Bool))arg2;
 - (oneway void)requestRequestedOpenApplicationWithBundleID:(NSString *)arg1 URL:(NSURL *)arg2 reply:(void (^)(_Bool))arg3;

@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFApiResults-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString;
 
-@interface SFApiResults : NSObject <SFApiResults, NSSecureCoding>
+@interface SFApiResults : NSObject <SFApiResults, NSSecureCoding, NSCopying>
 {
     CDStruct_60289f39 _has;
     int _status;
@@ -24,6 +25,7 @@
 @property(nonatomic) int resultType; // @synthesize resultType=_resultType;
 @property(nonatomic) int status; // @synthesize status=_status;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

@@ -28,7 +28,6 @@
     _Bool _useFlaggedForUnreadCount;
     _Bool _expressionIsSanitized;
     _Bool _includeRemoteBodyContent;
-    _Bool _includeUnreconciledData;
     NSIndexSet *_libraryIdentifiers;
 }
 
@@ -51,8 +50,10 @@
 + (id)criterionForLibraryID:(id)arg1;
 + (id)criterionForConversationID:(long long)arg1;
 + (id)criterionForNotDeletedConversationID:(long long)arg1;
++ (id)messageIsJournaledCriterion:(_Bool)arg1;
 + (id)messageIsDeletedCriterion:(_Bool)arg1;
 + (id)criterionExcludingMailboxes:(id)arg1;
++ (id)criterionForAccount:(id)arg1;
 + (id)criterionForMailboxURL:(id)arg1;
 + (id)criterionForMailbox:(id)arg1;
 + (id)expressionForDate:(id)arg1;
@@ -63,7 +64,6 @@
 + (id)criteriaFromDefaultsArray:(id)arg1 removingRecognizedKeys:(_Bool)arg2;
 + (id)criteriaFromDefaultsArray:(id)arg1;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-@property(nonatomic) _Bool includeUnreconciledData; // @synthesize includeUnreconciledData=_includeUnreconciledData;
 @property(nonatomic) _Bool includeRemoteBodyContent; // @synthesize includeRemoteBodyContent=_includeRemoteBodyContent;
 @property(nonatomic) _Bool expressionIsSanitized; // @synthesize expressionIsSanitized=_expressionIsSanitized;
 @property(nonatomic) _Bool includeRelatedMessages; // @synthesize includeRelatedMessages=_includeRelatedMessages;
@@ -133,6 +133,7 @@
 - (id)_evaluateFTSCriterionWithIndex:(id)arg1 mailboxIDs:(id)arg2;
 - (id)criterionForSQL;
 - (id)_criterionForSQL;
+- (id)_SQLExpressionForMailboxCriterion;
 - (_Bool)hasLibraryIDCriterion;
 - (id)SQLExpressionWithContext:(CDStruct_f28f5ac0 *)arg1 depth:(unsigned int)arg2;
 - (id)fixOnce;

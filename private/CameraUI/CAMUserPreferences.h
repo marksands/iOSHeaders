@@ -12,7 +12,8 @@
 {
     _Bool _didResetTorchMode;
     _Bool _shouldShowGridView;
-    _Bool _shouldShowQRBanners;
+    _Bool _QRBannersEnabledInSettings;
+    _Bool _forceEnableQRBanners;
     _Bool _shouldCaptureHDREV0;
     _Bool _preserveEffectFilter;
     _Bool _preserveCaptureMode;
@@ -35,14 +36,17 @@
     double _burstDelayAfterTouchDownCapture;
     long long _overriddenBackCaptureInterval;
     long long _overriddenFrontCaptureInterval;
-    NSUserDefaults *_underlyingUserDefaults;
+    NSUserDefaults *__underlyingUserDefaults;
+    double __resetTimeoutOverride;
 }
 
 + (long long)defaultFilterTypeForMode:(long long)arg1;
 + (id)_defaultCaptureConfiguration;
 + (id)preferences;
++ (_Bool)_fallBackToCameraDefaultsForBundleIdentifier:(id)arg1;
+@property(readonly, nonatomic) double _resetTimeoutOverride; // @synthesize _resetTimeoutOverride=__resetTimeoutOverride;
 @property(readonly, nonatomic) _Bool _preferHEVCWhenAvailable; // @synthesize _preferHEVCWhenAvailable=__preferHEVCWhenAvailable;
-@property(retain, nonatomic, getter=_underlyingUserDefaults, setter=_setUnderlyingUserDefaults:) NSUserDefaults *underlyingUserDefaults; // @synthesize underlyingUserDefaults=_underlyingUserDefaults;
+@property(retain, nonatomic, getter=_underlyingUserDefaults, setter=_setUnderlyingUserDefaults:) NSUserDefaults *_underlyingUserDefaults; // @synthesize _underlyingUserDefaults=__underlyingUserDefaults;
 @property(readonly, nonatomic) long long overriddenFrontCaptureInterval; // @synthesize overriddenFrontCaptureInterval=_overriddenFrontCaptureInterval;
 @property(readonly, nonatomic) long long overriddenBackCaptureInterval; // @synthesize overriddenBackCaptureInterval=_overriddenBackCaptureInterval;
 @property(readonly, nonatomic) _Bool burstFollowsEncoderSettings; // @synthesize burstFollowsEncoderSettings=_burstFollowsEncoderSettings;
@@ -62,7 +66,8 @@
 @property(readonly, nonatomic) long long slomoConfiguration; // @synthesize slomoConfiguration=_slomoConfiguration;
 @property(readonly, nonatomic) long long videoConfiguration; // @synthesize videoConfiguration=_videoConfiguration;
 @property(readonly, nonatomic) _Bool shouldCaptureHDREV0; // @synthesize shouldCaptureHDREV0=_shouldCaptureHDREV0;
-@property(readonly, nonatomic) _Bool shouldShowQRBanners; // @synthesize shouldShowQRBanners=_shouldShowQRBanners;
+@property(nonatomic) _Bool forceEnableQRBanners; // @synthesize forceEnableQRBanners=_forceEnableQRBanners;
+@property(readonly, nonatomic) _Bool QRBannersEnabledInSettings; // @synthesize QRBannersEnabledInSettings=_QRBannersEnabledInSettings;
 @property(readonly, nonatomic) _Bool shouldShowGridView; // @synthesize shouldShowGridView=_shouldShowGridView;
 @property(retain, nonatomic) CAMConflictingControlConfiguration *conflictingControlConfiguration; // @synthesize conflictingControlConfiguration=_conflictingControlConfiguration;
 @property(retain, nonatomic) CAMCaptureConfiguration *captureConfiguration; // @synthesize captureConfiguration=_captureConfiguration;
@@ -70,10 +75,10 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) long long photoEncodingBehavior;
 @property(readonly, nonatomic) long long videoEncodingBehavior;
+@property(readonly, nonatomic) _Bool shouldShowQRBanners;
 - (_Bool)shouldResetCaptureConfiguration;
 - (void)writePreferences;
-- (_Bool)readPreferencesWithLaunchOptions:(id)arg1 emulationMode:(long long)arg2 forceReset:(_Bool)arg3;
-- (void)readPreferences;
+- (_Bool)readPreferencesWithLaunchOptions:(id)arg1 emulationMode:(long long)arg2 callActive:(_Bool)arg3;
 - (long long)_sanitizeEffectFilterType:(long long)arg1 forMode:(long long)arg2;
 - (id)filterTypesForMode:(long long)arg1;
 

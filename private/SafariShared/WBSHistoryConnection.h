@@ -23,6 +23,7 @@
 - (void)getVisitedLinksWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)beginHistoryAccessSession:(CDUnknownBlockType)arg1;
 - (void)beginURLCompletionSession:(CDUnknownBlockType)arg1;
+- (void)getServiceInfo:(CDUnknownBlockType)arg1;
 - (void)ensureConnected:(CDUnknownBlockType)arg1;
 - (id)initWithHistoryService:(id)arg1;
 

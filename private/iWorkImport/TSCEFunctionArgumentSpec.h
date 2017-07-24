@@ -50,6 +50,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned char rangeContext; // @synthesize rangeContext=mRangeContext;
 @property(readonly, nonatomic) int argumentContext; // @synthesize argumentContext=mArgumentContext;
 @property(readonly, nonatomic) int accessorMode; // @synthesize accessorMode=mAccessorMode;
+- (_Bool)isModeEnabled:(short)arg1;
 - (_Bool)typeIsDisallowed:(int)arg1 value:(struct TSCEValue *)arg2;
 @property(readonly, nonatomic) NSArray *disallowedTypes;
 - (id)localizedFunctionNameForLocale:(id)arg1;

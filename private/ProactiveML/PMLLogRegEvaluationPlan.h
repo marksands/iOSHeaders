@@ -21,6 +21,8 @@
     double _skew;
     _Bool _isMultiLabel;
     unsigned long long _positiveLabel;
+    double _threshold;
+    unsigned long long _evaluationLevel;
     _Bool _isSynchronous;
     struct NSString *_planId;
 }
@@ -40,8 +42,8 @@
 @property(readonly, copy) NSString *description;
 - (id)normalizeRegressor:(id)arg1;
 - (void)loadSessionsSince:(double)arg1 block:(CDUnknownBlockType)arg2;
-- (_Bool)run;
-- (id)initWithStore:(id)arg1 tracker:(id)arg2 planId:(struct NSString *)arg3 isSynchronous:(_Bool)arg4 sessionDescriptor:(id)arg5 maxSessionsLimit:(unsigned long long)arg6 currentModelWeights:(id)arg7 skew:(double)arg8 isMultiLabel:(_Bool)arg9 positiveLabel:(unsigned long long)arg10;
+- (id)run;
+- (id)initWithStore:(id)arg1 tracker:(id)arg2 planId:(struct NSString *)arg3 isSynchronous:(_Bool)arg4 sessionDescriptor:(id)arg5 maxSessionsLimit:(unsigned long long)arg6 currentModelWeights:(id)arg7 skew:(double)arg8 threshold:(double)arg9 isMultiLabel:(_Bool)arg10 positiveLabel:(unsigned long long)arg11 evaluationLevel:(unsigned long long)arg12;
 - (id)init;
 
 // Remaining properties

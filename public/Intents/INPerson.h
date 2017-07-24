@@ -10,11 +10,12 @@
 #import <Intents/INPersonExport-Protocol.h>
 #import <Intents/INSpeakable-Protocol.h>
 #import <Intents/NSCopying-Protocol.h>
+#import <Intents/NSMutableCopying-Protocol.h>
 #import <Intents/NSSecureCoding-Protocol.h>
 
 @class INImage, INPersonHandle, NSArray, NSPersonNameComponents, NSString;
 
-@interface INPerson : NSObject <INCacheableContainer, INSpeakable, INPersonExport, NSCopying, NSSecureCoding>
+@interface INPerson : NSObject <INCacheableContainer, INSpeakable, INPersonExport, NSMutableCopying, NSCopying, NSSecureCoding>
 {
     NSString *_displayName;
     NSPersonNameComponents *_nameComponents;
@@ -54,6 +55,7 @@
 - (id)_displayName;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
@@ -70,8 +72,10 @@
 @property(readonly, copy, nonatomic) NSString *lastName;
 @property(readonly, copy, nonatomic) NSString *firstName;
 - (id)cacheableObjects;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
 - (id)initWithPersonHandle:(id)arg1 nameComponents:(id)arg2 displayName:(id)arg3 image:(id)arg4 contactIdentifier:(id)arg5 customIdentifier:(id)arg6 aliases:(id)arg7 suggestionType:(long long)arg8;
+- (id)spokenPhrases;
 @property(readonly, copy, nonatomic) NSArray *siriMatches;
 @property(readonly, nonatomic) NSArray *alternativeSpeakableMatches;
 @property(readonly, nonatomic) NSString *vocabularyIdentifier;

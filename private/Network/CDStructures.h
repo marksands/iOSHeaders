@@ -25,6 +25,12 @@ struct netagent {
 struct netcore_stats_data_usage_snapshot {
     unsigned long long bytes_in;
     unsigned long long bytes_out;
+    unsigned long long multipath_bytes_in_cell;
+    unsigned long long multipath_bytes_out_cell;
+    unsigned long long multipath_bytes_in_wifi;
+    unsigned long long multipath_bytes_out_wifi;
+    unsigned long long multipath_bytes_in_initial;
+    unsigned long long multipath_bytes_out_initial;
 };
 
 struct netcore_stats_network_event {
@@ -70,6 +76,12 @@ struct netcore_stats_tcp_statistics_report {
     unsigned long long packets_duplicate;
     unsigned long long packets_ooo;
     unsigned long long packets_retransmitted;
+    unsigned long long multipath_bytes_in_cell;
+    unsigned long long multipath_bytes_out_cell;
+    unsigned long long multipath_bytes_in_wifi;
+    unsigned long long multipath_bytes_out_wifi;
+    unsigned long long multipath_bytes_in_initial;
+    unsigned long long multipath_bytes_out_initial;
     unsigned int time_to_dns_resolved_msecs;
     unsigned int time_to_dns_start_msecs;
     unsigned int dns_resolved_time_msecs;
@@ -89,6 +101,7 @@ struct netcore_stats_tcp_statistics_report {
     unsigned int app_data_stall_timer_msecs;
     int interface_type;
     int connected_interface_type;
+    int multipath_service_type;
     unsigned int dns_answers_cached:1;
     unsigned int connected:1;
     unsigned int cellular_fallback:1;
@@ -98,8 +111,9 @@ struct netcore_stats_tcp_statistics_report {
     unsigned int kernel_reporting_read_stalled:1;
     unsigned int kernel_reporting_write_stalled:1;
     unsigned int tcp_fast_open:1;
-    unsigned int __pad_bits:7;
-    unsigned char __pad[2];
+    unsigned int first_party:1;
+    unsigned int __pad_bits:6;
+    unsigned char __pad[6];
 };
 
 struct nw_connection_report_s {
@@ -110,6 +124,12 @@ struct nw_connection_report_s {
     unsigned long long bytes_retransmitted;
     unsigned long long packets_in;
     unsigned long long packets_out;
+    unsigned long long multipath_bytes_in_cell;
+    unsigned long long multipath_bytes_out_cell;
+    unsigned long long multipath_bytes_in_wifi;
+    unsigned long long multipath_bytes_out_wifi;
+    unsigned long long multipath_bytes_in_initial;
+    unsigned long long multipath_bytes_out_initial;
     unsigned int current_rtt_msecs;
     unsigned int smoothed_rtt_msecs;
     unsigned int best_rtt_msecs;
@@ -132,6 +152,7 @@ struct nw_connection_report_s {
     unsigned int ipv6_dns_server_count;
     int failure_reason;
     int connected_interface_type;
+    int multipath_service_type;
     int connection_mode;
     int apple_host;
     int apple_app;
@@ -157,7 +178,9 @@ struct nw_connection_report_s {
     unsigned int ipv6_available:1;
     unsigned int used_tfo:1;
     unsigned int tls_version_timeout:1;
-    unsigned int __pad_bits:6;
+    unsigned int first_party:1;
+    unsigned int __pad_bits:5;
+    unsigned char __pad[3];
 };
 
 struct nw_protocol {

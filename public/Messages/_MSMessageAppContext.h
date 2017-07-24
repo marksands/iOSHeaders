@@ -9,13 +9,14 @@
 #import <Messages/_MSMessageComposeExtensionImplProtocol-Protocol.h>
 
 @class MSConversation, NSMapTable, NSString, UIViewController;
-@protocol _MSMessageComposeExtensionImplProtocol, _MSMessageComposeExtensionProtocol, _MSMessageComposeHostImplProtocol;
+@protocol _MSMessageComposeExtensionImplProtocol, _MSMessageComposeHostImplProtocol;
 
 @interface _MSMessageAppContext : NSObject <_MSMessageComposeExtensionImplProtocol>
 {
     id <_MSMessageComposeExtensionImplProtocol> _context;
+    id <_MSMessageComposeExtensionImplProtocol> _keepAliveContext;
     NSMapTable *_conversationsByIdentifier;
-    id <_MSMessageComposeExtensionProtocol> _containingContext;
+    id <_MSMessageComposeExtensionImplProtocol> _containingContext;
     MSConversation *_activeConversation;
     id <_MSMessageComposeHostImplProtocol> _hostContext;
 }
@@ -23,7 +24,7 @@
 + (id)activeExtensionContext;
 @property(retain, nonatomic) id <_MSMessageComposeHostImplProtocol> hostContext; // @synthesize hostContext=_hostContext;
 @property(readonly, nonatomic) MSConversation *activeConversation; // @synthesize activeConversation=_activeConversation;
-@property(retain, nonatomic) id <_MSMessageComposeExtensionProtocol> containingContext; // @synthesize containingContext=_containingContext;
+@property(retain, nonatomic) id <_MSMessageComposeExtensionImplProtocol> containingContext; // @synthesize containingContext=_containingContext;
 - (void).cxx_destruct;
 - (void)_handleTextInputPayload:(id)arg1 withPayloadID:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)endDisablingUserInteraction;
@@ -48,9 +49,12 @@
 - (void)stageRichLink:(id)arg1 skipShelf:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)stageMediaItem:(id)arg1 skipShelf:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)stageAppItem:(id)arg1 skipShelf:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) __weak UIViewController *stickerViewController;
 @property(readonly, nonatomic) __weak UIViewController *viewController;
 - (id)updatedConversationForConversationState:(id)arg1;
 @property(nonatomic) unsigned long long presentationStyle;
+- (void)_releaseKeepAliveContext;
+- (void)_keepContextAlive;
 - (id)initWithAppContext:(id)arg1;
 
 // Remaining properties

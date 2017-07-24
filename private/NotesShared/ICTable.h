@@ -18,7 +18,10 @@
 @property(retain, nonatomic) NSMutableDictionary *columnTextStorages; // @synthesize columnTextStorages=_columnTextStorages;
 - (void).cxx_destruct;
 - (id)subtableWithDocument:(id)arg1 forSelectionContainingColumnIndices:(id)arg2 rowIndices:(id)arg3;
+- (_Bool)isEmptyAtColumnIdentifiers:(id)arg1 rowIdentifiers:(id)arg2;
+- (_Bool)isEmptyAtColumnIndexes:(id)arg1 rowIndexes:(id)arg2;
 - (_Bool)rowIsEmptyAtIndex:(unsigned long long)arg1;
+- (_Bool)columnIsEmptyAtIndex:(unsigned long long)arg1;
 - (id)joinedAttributedStringForColumns:(id)arg1 rows:(id)arg2;
 - (id)copyIntoNewDocumentWithReplicaID:(id)arg1;
 @property(readonly, nonatomic) CRTTCompatibleDocument *ttDocument;

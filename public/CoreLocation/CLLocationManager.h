@@ -21,6 +21,8 @@
 + (_Bool)dumpLogsWithMessage:(id)arg1;
 + (void)setDefaultEffectiveBundle:(id)arg1;
 + (void)setDefaultEffectiveBundleIdentifier:(id)arg1;
++ (void)setBackgroundIndicatorEnabled:(_Bool)arg1 forBundle:(id)arg2;
++ (void)setBackgroundIndicatorEnabled:(_Bool)arg1 forBundleIdentifier:(id)arg2;
 + (void)setAuthorizationStatusByType:(int)arg1 forBundle:(id)arg2;
 + (void)setAuthorizationStatusByType:(int)arg1 forBundleIdentifier:(id)arg2;
 + (void)setAuthorizationStatus:(_Bool)arg1 forBundle:(id)arg2;
@@ -47,6 +49,8 @@
 + (_Bool)locationServicesEnabled;
 + (id)sharedManager;
 + (_Bool)isMicroLocationAvailable;
++ (void)setBackgroundIndicatorEnabled:(_Bool)arg1 forLocationDictionary:(id)arg2;
++ (_Bool)backgroundIndicatorEnabledForLocationDictionary:(id)arg1;
 + (void)setEntityAuthorization:(unsigned long long)arg1 forLocationDictionary:(id)arg2;
 + (void)setEntityAuthorized:(_Bool)arg1 forLocationDictionary:(id)arg2;
 + (unsigned long long)allowableAuthorizationForLocationDictionary:(id)arg1;

@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     double _safariSquishHeightQuantizationOffset;
     double _safariViewControllerSquishHeightQuantizationOffset;
     _Bool _usesLargerBarMetrics;
+    double _urlOutlineCornerRadius;
     double _defaultBarHeight;
     double _urlContainerTop;
     double _urlOutlineHeight;
@@ -36,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double urlContainerTop; // @synthesize urlContainerTop=_urlContainerTop;
 @property(readonly, nonatomic) double minimumBarHeight; // @synthesize minimumBarHeight=_minimumBarHeight;
 @property(readonly, nonatomic) double defaultBarHeight; // @synthesize defaultBarHeight=_defaultBarHeight;
+@property(readonly, nonatomic) double urlOutlineCornerRadius; // @synthesize urlOutlineCornerRadius=_urlOutlineCornerRadius;
 @property(readonly, nonatomic) _Bool usesLargerBarMetrics; // @synthesize usesLargerBarMetrics=_usesLargerBarMetrics;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) double narrowEditingScaleFactor;

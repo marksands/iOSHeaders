@@ -13,17 +13,20 @@
 @interface GEOApplicationAuditToken : NSObject <NSSecureCoding>
 {
     NSData *_tokenData;
-    NSString *_bundleId;
+    NSString *_proxiedBundleId;
+    NSString *_resolvedBundleId;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) NSString *proxiedBundleId; // @synthesize proxiedBundleId=_proxiedBundleId;
 - (void).cxx_destruct;
+- (id)_bundleIdForAuditToken;
 - (_Bool)isEqual:(id)arg1;
-@property(readonly, nonatomic) NSString *bundleId; // @synthesize bundleId=_bundleId;
+- (id)bundleId;
 - (id)backingTokenData;
 - (id)init;
 - (id)description;
-- (id)initWithApplicationBundleId:(id)arg1;
+- (id)initWithProxiedApplicationBundleId:(id)arg1;
 - (id)initWithAuditTokenData:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

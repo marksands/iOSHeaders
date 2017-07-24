@@ -18,13 +18,14 @@
 + (id)logCategory;
 @property(readonly, nonatomic) __weak HMDHome *home; // @synthesize home=_home;
 - (void).cxx_destruct;
-- (void)lookupAndApplyObjectChange:(id)arg1 result:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)lookupAndApplyObjectChange:(id)arg1 previous:(id)arg2 result:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_scanResidentDevices;
 - (void)_scanTriggers;
 - (void)_scanServiceGroups;
 - (void)_scanActionSets;
 - (void)_scanZones;
 - (void)_scanRooms;
+- (void)_scanSettingGroup:(id)arg1;
 - (void)_scanAccessoriesAndServices;
 - (void)scanObjects;
 - (id)logIdentifier;

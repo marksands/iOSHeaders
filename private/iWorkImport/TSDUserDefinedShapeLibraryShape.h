@@ -16,18 +16,24 @@ __attribute__((visibility("hidden")))
     NSString *_name;
     TSUBezierPath *_bezierPath;
     NSString *_bezierPathString;
+    NSString *_identifier;
+    unsigned long long _position;
 }
 
+@property(nonatomic) unsigned long long p_position; // @synthesize p_position=_position;
+@property(readonly, nonatomic) NSString *p_identifier; // @synthesize p_identifier=_identifier;
 @property(readonly, nonatomic) NSString *p_bezierPathString; // @synthesize p_bezierPathString=_bezierPathString;
 @property(readonly, nonatomic) TSUBezierPath *p_bezierPath; // @synthesize p_bezierPath=_bezierPath;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
+@property(readonly, nonatomic) NSString *accessibilityName;
 @property(readonly, nonatomic) int shapeType;
+- (unsigned long long)positionInCategoryWithID:(id)arg1;
 - (id)pathSourceWithSize:(struct CGSize)arg1;
 @property(readonly, nonatomic) NSArray *keywords;
-- (id)initWithBezierPathString:(id)arg1 name:(id)arg2;
+- (id)initWithIdentifier:(id)arg1 bezierPathString:(id)arg2 name:(id)arg3 position:(unsigned long long)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

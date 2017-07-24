@@ -14,6 +14,7 @@
 
 + (_Bool)supportsSecureCoding;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)mergeValuesFromDisplayContext:(id)arg1;
 
 // Remaining properties
 @property(copy, nonatomic) NSString *callDirectoryExtensionIdentifier; // @dynamic callDirectoryExtensionIdentifier;

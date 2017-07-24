@@ -62,6 +62,7 @@
 - (id)feedbackListener;
 - (void)setParsecFeedbackAllowed:(_Bool)arg1;
 - (id)initWithClient:(id)arg1 clientQueue:(id)arg2;
+- (id)initWithClient:(id)arg1 clientQueue:(id)arg2 config:(id)arg3 session:(id)arg4;
 @property(readonly, nonatomic) id <SFFeedbackListener> listener;
 
 // Remaining properties

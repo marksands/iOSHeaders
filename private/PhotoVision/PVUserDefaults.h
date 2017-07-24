@@ -10,18 +10,15 @@
 {
 }
 
++ (unsigned long long)minimumFaceGroupSizeForCreatingMergeCandidates;
 + (_Bool)personBuilderMergeCandidatesDisabled;
 + (_Bool)personBuildingDisabled;
 + (_Bool)suggestionsLogEnabled;
-+ (long long)maxFaceCountForClustering;
-+ (long long)minFaceCountToTriggerClustering;
-+ (long long)percentRenameToThreshold;
-+ (long long)countRenameToThreshold;
-+ (long long)percentRenameFromThreshold;
-+ (long long)countRenameFromThreshold;
++ (unsigned long long)maxFaceCountForClustering;
++ (unsigned long long)minFaceCountToTriggerClustering;
 + (_Bool)quarantineTwinsOnAssetEnabled;
++ (unsigned long long)minimumSuggestionSize;
 + (float)facePrimarySuggestionsThreshold;
-+ (float)faceMergeFaceOverlapThreshold;
 + (float)faceMergeFaceprintDistanceThreshold;
 + (float)faceClusteringThreshold;
 + (double)_doubleValueForKey:(id)arg1 defaultValue:(double)arg2;

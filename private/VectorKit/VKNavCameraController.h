@@ -10,7 +10,7 @@
 #import <VectorKit/VKNavContextObserver-Protocol.h>
 #import <VectorKit/VKNavigationCameraController-Protocol.h>
 
-@class GEOMapRegion, GEORouteMatch, NSString, VKAttachedNavGestureCameraBehavior, VKDetachedNavGestureCameraBehavior, VKGestureCameraBehavior, VKNavContext, VKSceneConfiguration, VKScreenCanvas, VKTimedAnimation;
+@class GEOMapRegion, NSString, VKAttachedNavGestureCameraBehavior, VKDetachedNavGestureCameraBehavior, VKGestureCameraBehavior, VKNavContext, VKSceneConfiguration, VKScreenCanvas, VKTimedAnimation;
 @protocol VKInteractiveMap><VKMapDataAccess, VKNavGestureCameraBehavior;
 
 __attribute__((visibility("hidden")))
@@ -76,7 +76,8 @@ __attribute__((visibility("hidden")))
     double _maxFramingDistance;
     double _framingDistanceAfterManeuver;
     VKNavContext *_navContext;
-    GEORouteMatch *_routeMatch;
+    CDStruct_2c43369c _locationCoordinate;
+    struct PolylineCoordinate _routeCoordinate;
     _Bool _frameAllGroupedManeuvers;
     unsigned char _maxManeuversToFrame;
     _Bool _ignorePointsBehind;
@@ -87,6 +88,8 @@ __attribute__((visibility("hidden")))
     float _animationTime;
     _Bool _isTracking;
     shared_ptr_e963992e _taskContext;
+    double _depthNear;
+    _Bool _sentZoomNotification;
     VKScreenCanvas<VKInteractiveMap><VKMapDataAccess> *_screenCanvas;
     VKSceneConfiguration *_sceneConfiguration;
     long long _baseDisplayRate;
@@ -117,6 +120,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double zoomScale;
 - (void)_updateZoomScaleLimts;
 - (void)_setNeedsUpdate;
+- (void)navContextCameraHeadingOverrideDidChange:(id)arg1;
 - (void)navContextStateDidChange:(id)arg1;
 - (void)updateSpringsForFramingCamera;
 - (void)_addAdditionalRoutePointsToFrameToList:(vector_be85b44e *)arg1;
@@ -170,7 +174,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)wantsTimerTick;
 - (void)puckAnimator:(id)arg1 updatedTargetPosition:(const Coordinate3D_bc242218 *)arg2;
 - (void)puckAnimatorDidStop:(id)arg1;
-- (void)_updateRouteMatch;
 - (void)updateLocation:(const Coordinate3D_bc242218 *)arg1 andCourse:(const Unit_3d259e8a *)arg2;
 - (void)puckAnimator:(id)arg1 updatedPosition:(const Coordinate3D_bc242218 *)arg2 course:(const Unit_3d259e8a *)arg3;
 - (void)puckAnimator:(id)arg1 runAnimation:(id)arg2;
@@ -185,7 +188,7 @@ __attribute__((visibility("hidden")))
 - (void)stopPanningAtPoint:(struct CGPoint)arg1;
 - (void)updatePanWithTranslation:(struct CGPoint)arg1;
 - (void)startPanningAtPoint:(struct CGPoint)arg1 panAtStartPoint:(_Bool)arg2;
-- (void)_updateObserverOnZoom:(_Bool)arg1 couldZoomIn:(_Bool)arg2 couldZoomOut:(_Bool)arg3;
+- (void)_updateObserverCouldZoomIn:(_Bool)arg1 couldZoomOut:(_Bool)arg2;
 - (void)stopPinchingWithFocusPoint:(struct CGPoint)arg1;
 - (void)updatePinchWithFocusPoint:(struct CGPoint)arg1 oldFactor:(double)arg2 newFactor:(double)arg3;
 - (void)startPinchingWithFocusPoint:(struct CGPoint)arg1;
@@ -193,7 +196,7 @@ __attribute__((visibility("hidden")))
 - (void)_setDetached:(_Bool)arg1;
 - (void)startWithPounce:(_Bool)arg1 startLocation:(CDStruct_c3b9c2ee)arg2 startCourse:(double)arg3 pounceCompletionHandler:(CDUnknownBlockType)arg4;
 - (void)dealloc;
-- (id)initWithTaskContext:(shared_ptr_e963992e)arg1;
+- (id)initWithTaskContext:(shared_ptr_e963992e)arg1 device:(struct Device *)arg2;
 - (id)init;
 
 // Remaining properties

@@ -22,7 +22,6 @@
     NSDictionary *_vocalizerConfig;
 }
 
-+ (id)legacyPlatforms;
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSDictionary *vocalizerConfig; // @synthesize vocalizerConfig=_vocalizerConfig;
 @property(nonatomic) float volume; // @synthesize volume=_volume;

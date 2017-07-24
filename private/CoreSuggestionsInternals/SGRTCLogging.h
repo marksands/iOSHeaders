@@ -26,6 +26,9 @@
 
 + (_Bool)_createEmptyFileAtPath:(id)arg1;
 + (id)defaultLogger;
++ (id)locationTypeForRealtimeEvent:(id)arg1;
++ (id)locationTypeForEntity:(id)arg1;
++ (id)locationTypeForHandle:(id)arg1 latitude:(double)arg2 longitude:(double)arg3 airportCode:(id)arg4 address:(id)arg5 label:(id)arg6;
 + (unsigned long long)launchCountForApp:(id)arg1 afterDate:(id)arg2 lowerBucket:(unsigned long long)arg3 bucketSize:(unsigned long long)arg4 bucketLimit:(unsigned long long)arg5;
 + (unsigned long long)numberOfDaysBetweenDate:(id)arg1 andDate:(id)arg2;
 + (double)round:(double)arg1 toSignificantFigures:(long long)arg2;
@@ -49,6 +52,7 @@
 - (id)_createRTCReporting;
 - (id)logsToSend;
 - (id)whitelistedLogFromLog:(id)arg1;
+- (void)logEventInteractionForRealtimeEvent:(id)arg1 parentEntity:(id)arg2 interface:(unsigned short)arg3 actionType:(unsigned short)arg4;
 - (void)logEventInteractionForEntitySync:(id)arg1 interface:(unsigned short)arg2 actionType:(unsigned short)arg3;
 - (void)logEventInteractionForEntity:(id)arg1 interface:(unsigned short)arg2 actionType:(unsigned short)arg3;
 - (void)logEventExtractionForTemplateName:(id)arg1 extractionStatus:(unsigned short)arg2 outputExceptions:(id)arg3 outputInfos:(id)arg4 jsMessageLogs:(id)arg5 jsOutputLogs:(id)arg6 timingProcessing:(unsigned long long)arg7;
@@ -57,9 +61,11 @@
 - (void)_logAndIncrementEventCountForDictionary:(id)arg1;
 - (_Bool)_incrementInteractionSummaryForEventDuplicateKey:(id)arg1 interactionKey:(id)arg2;
 - (void)enrichInteractionSummaryLog:(id)arg1;
-- (id)_createInteractionSummaryForEntity:(id)arg1 interactionKey:(id)arg2 interactionAttributes:(id)arg3;
-- (id)_createInteractionForEntity:(id)arg1 interactionKey:(id)arg2 interactionAttributes:(id)arg3;
+- (id)_createInteractionSummaryForDuplicateKey:(id)arg1 expirationDate:(id)arg2 interactionKey:(id)arg3 interactionAttributes:(id)arg4;
+- (id)_createInteractionForEventWithStartTime:(id)arg1 interactionKey:(id)arg2 interactionAttributes:(id)arg3;
 - (id)_interactionAttributesForEntity:(id)arg1 parentEntity:(id)arg2;
+- (id)_interactionAttributesForRealtimeEvent:(id)arg1 parentEntity:(id)arg2;
+- (id)_interactionAttributesForTags:(id)arg1 parentEntity:(id)arg2;
 - (void)updateAndScheduleDiskWrite;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

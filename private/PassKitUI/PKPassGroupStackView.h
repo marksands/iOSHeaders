@@ -8,13 +8,14 @@
 
 #import <PassKitUI/PKPassDeleteAnimationControllerDelegate-Protocol.h>
 #import <PassKitUI/PKPassDeleteHandler-Protocol.h>
+#import <PassKitUI/PKPassFooterViewDelegate-Protocol.h>
 #import <PassKitUI/PKPassGroupViewDelegate-Protocol.h>
 #import <PassKitUI/PKPaymentServiceDelegate-Protocol.h>
 
-@class NSMutableArray, NSMutableDictionary, NSObject, NSString, NSTimer, PKGroup, PKPGSVSectionHeaderContext, PKPass, PKPassDeleteAnimationController, PKPassFooterView, PKPassGroupView, PKPassthroughView, PKPaymentService, PKPeerPaymentAccount, PKReusablePassViewQueue, PKSecureElement, UIColor, UIImageView, UIView;
+@class NSMutableArray, NSMutableDictionary, NSObject, NSString, NSTimer, PKGroup, PKPGSVSectionHeaderContext, PKPass, PKPassDeleteAnimationController, PKPassFooterView, PKPassGroupView, PKPassthroughView, PKPaymentService, PKReusablePassViewQueue, PKSecureElement, UIColor, UIImageView, UIView;
 @protocol OS_dispatch_source, PKPassGroupStackViewDatasource, PKPassGroupStackViewDelegate><UIScrollViewDelegate;
 
-@interface PKPassGroupStackView : UIScrollView <PKPassGroupViewDelegate, PKPassDeleteAnimationControllerDelegate, PKPaymentServiceDelegate, PKPassDeleteHandler>
+@interface PKPassGroupStackView : UIScrollView <PKPassGroupViewDelegate, PKPassDeleteAnimationControllerDelegate, PKPaymentServiceDelegate, PKPassFooterViewDelegate, PKPassDeleteHandler>
 {
     PKPassGroupView *_modallyPresentedGroupView;
     PKGroup *_modallyPresentedGroup;
@@ -41,8 +42,11 @@
         unsigned int hasPasses:1;
         unsigned int hasPaymentHeader:1;
         unsigned int hasPassHeader:1;
+        unsigned int hasPaymentHeaderView:1;
+        unsigned int hasPassHeaderView:1;
         unsigned int hasFooter:1;
         unsigned int isDeleting:1;
+        unsigned int isCompactModalPresentation:1;
         unsigned int isContinuingModalPresentation:1;
         unsigned int forceSubheaderUpdate:1;
         unsigned int forceFooterUpdate:1;
@@ -92,14 +96,15 @@
     NSObject<OS_dispatch_source> *_brightnessNotificationTimer;
     _Bool _delegateWantsTopContentSeparation;
     _Bool _delegateWantsBottomContentSeparation;
-    PKPeerPaymentAccount *_peerPaymentAccount;
     _Bool _footerSuppressed;
+    _Bool _hasOutstandingPeerPaymentAccountActions;
     id <PKPassGroupStackViewDatasource> _datasource;
     UIColor *_pageIndicatorTintColor;
     UIColor *_currentPageIndicatorTintColor;
 }
 
 + (id)backgroundColor;
+@property(nonatomic) _Bool hasOutstandingPeerPaymentAccountActions; // @synthesize hasOutstandingPeerPaymentAccountActions=_hasOutstandingPeerPaymentAccountActions;
 @property(copy, nonatomic) UIColor *currentPageIndicatorTintColor; // @synthesize currentPageIndicatorTintColor=_currentPageIndicatorTintColor;
 @property(copy, nonatomic) UIColor *pageIndicatorTintColor; // @synthesize pageIndicatorTintColor=_pageIndicatorTintColor;
 @property(nonatomic) _Bool footerSuppressed; // @synthesize footerSuppressed=_footerSuppressed;
@@ -134,7 +139,6 @@
 - (void)paymentDeviceDidBecomeAvailable;
 - (void)paymentDeviceDidLeaveRestrictedMode;
 - (void)paymentDeviceDidEnterRestrictedMode;
-- (void)_handlePeerPaymentAccountDidChangeNotification:(id)arg1;
 - (void)_cancelSuspendedTransition;
 - (void)_resumeSuspendedTransition;
 - (void)_suspendTransition;
@@ -208,6 +212,7 @@
 - (unsigned long long)_maximumNumberOfVisiblePilePasses;
 - (double)_maxYOfPassFrontFaceAtIndex:(unsigned long long)arg1;
 - (double)_yForSingleGroupView:(id)arg1;
+- (double)_yForModallyPresentedGroupIgnoringCompactState:(_Bool)arg1;
 - (double)_yForModallyPresentedGroup;
 - (double)_yForGroupInTableAtIndex:(unsigned long long)arg1;
 - (double)_transformedYForNativeYInTable:(double)arg1 withBounds:(struct CGRect)arg2 index:(unsigned long long)arg3;
@@ -241,11 +246,13 @@
 - (void)_updatePassFooterViewIfNecessaryWithContext:(id)arg1 becomeVisibleDelay:(double)arg2;
 - (void)_updatePassFooterViewIfNecessaryAnimated:(_Bool)arg1 withBecomeVisibleDelay:(double)arg2;
 - (long long)_footerStateForPassView:(id)arg1 withContext:(id)arg2;
+- (double)_passFooterAlphaWhenVisible;
 - (_Bool)_canShowPassFooter;
 - (_Bool)_passEligibleForFooter:(id)arg1;
 - (void)_presentPassIngestionWithAnimation:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_presentGroupStackViewWithAnimation:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_presentModalGroupViewPostAnimationActions;
+- (void)_refreshBrightness;
 - (void)_brightnessDidChange:(id)arg1;
 - (void)_animateToBrightnessValue:(double)arg1 duration:(double)arg2;
 - (void)_presentModalGroupView:(id)arg1 animated:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
@@ -255,6 +262,7 @@
 - (unsigned long long)_edgeStylesObscuredByTopMiddleOfPassStyle:(long long)arg1;
 - (struct _NSRange)_rangeOfEagerLoadedIndexes;
 - (id)_stackedIndices;
+- (struct _NSRange)_rangeOfVisibleIndexesIgnoringBottomInset:(_Bool)arg1;
 - (struct _NSRange)_rangeOfVisibleIndexes;
 - (unsigned long long)_startVisibleIndex;
 - (void)_removeGroupViewAsSubviewWithGroupID:(id)arg1;
@@ -292,6 +300,7 @@
 - (CDStruct_86e25f83)_layoutStateForHeaderContextInTable:(id)arg1 withBounds:(struct CGRect)arg2;
 - (void)layoutHeaderFootersAnimated:(_Bool)arg1;
 - (void)layoutSubviews;
+- (void)safeAreaInsetsDidChange;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)gotoBaseTestState;

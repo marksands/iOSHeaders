@@ -15,8 +15,8 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) unsigned long long appState; // @synthesize appState=_appState;
-@property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
+@property(readonly, nonatomic) unsigned long long appState; // @synthesize appState=_appState;
+@property(readonly, copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

@@ -51,6 +51,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
+@property(readonly, nonatomic) struct CGSize croppedScaledSize;
+@property(readonly, nonatomic) struct CGPoint croppedScaledAnchorPoint;
 - (double)_topOffset;
 @property(readonly, nonatomic) struct CGSize unscaledSize;
 @property(readonly, nonatomic) struct CGPoint unscaledAnchorPoint;
@@ -61,8 +63,6 @@
 @property(readonly, nonatomic, getter=isOversized) _Bool oversized;
 @property(readonly, nonatomic) struct CGAffineTransform liftTransform;
 @property(readonly, nonatomic) double liftAlpha;
-@property(readonly, nonatomic) struct CGSize croppedScaledSize;
-@property(readonly, nonatomic) struct CGPoint croppedScaledAnchorPoint;
 @property(readonly, nonatomic) struct CGSize boundingSize;
 @property(readonly, nonatomic) double backAlpha;
 @property(readonly, nonatomic) UIDragPreviewParameters *parameters;

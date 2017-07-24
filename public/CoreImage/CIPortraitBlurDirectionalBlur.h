@@ -15,13 +15,16 @@ __attribute__((visibility("hidden")))
     NSNumber *inputMaxBlur;
     NSNumber *inputHorizontalBlur;
     NSNumber *inputAntiAliasBlurStrength;
+    NSNumber *inputUseMetal;
 }
 
+@property(copy, nonatomic) NSNumber *inputUseMetal; // @synthesize inputUseMetal;
 @property(copy, nonatomic) NSNumber *inputAntiAliasBlurStrength; // @synthesize inputAntiAliasBlurStrength;
 @property(copy, nonatomic) NSNumber *inputMaxBlur; // @synthesize inputMaxBlur;
 @property(copy, nonatomic) NSNumber *inputHorizontalBlur; // @synthesize inputHorizontalBlur;
 @property(retain) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
+- (id)_kernelMetal;
 - (id)_kernel;
 
 @end

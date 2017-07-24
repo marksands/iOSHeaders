@@ -9,13 +9,14 @@
 #import <HealthDaemon/CBCentralManagerPrivateDelegate-Protocol.h>
 #import <HealthDaemon/CBPairingAgentDelegate-Protocol.h>
 
-@class CBCentralManager, CBUUID, HDDataCollectionManager, HDIdentifierTable, HDProfile, NSLock, NSMutableArray, NSMutableDictionary, NSSet, NSString;
+@class CBCentralManager, CBUUID, HDDataCollectionManager, HDIdentifierTable, HDProfile, NSData, NSLock, NSMutableArray, NSMutableDictionary, NSSet, NSString;
 @protocol OS_dispatch_queue;
 
 @interface HDHealthServiceManager : NSObject <CBCentralManagerPrivateDelegate, CBPairingAgentDelegate>
 {
     int _privacyNotificationToken;
     CBCentralManager *_central;
+    NSData *_btAdvertisingAddress;
     NSObject<OS_dispatch_queue> *_queue;
     HDDataCollectionManager *_dataCollectionManager;
     HDProfile *_profile;
@@ -47,8 +48,10 @@
 @property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 @property(retain, nonatomic) HDDataCollectionManager *dataCollectionManager; // @synthesize dataCollectionManager=_dataCollectionManager;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(retain, nonatomic) NSData *btAdvertisingAddress; // @synthesize btAdvertisingAddress=_btAdvertisingAddress;
 @property(retain, nonatomic) CBCentralManager *central; // @synthesize central=_central;
 - (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)shortDescription;
 - (void)pairingAgent:(id)arg1 peerDidRequestPairing:(id)arg2 type:(long long)arg3 passkey:(id)arg4;
 - (void)pairingAgent:(id)arg1 peerDidUnpair:(id)arg2;
@@ -83,6 +86,8 @@
 - (void)extendPrivateModeLease:(id)arg1 forDuration:(unsigned short)arg2;
 - (void)_queue_handleMFASuccessNotification;
 - (id)setOOBPairingEnabled:(_Bool)arg1;
+- (void)removeConnectingPeripheralsWithError:(id)arg1;
+- (void)removeAllDisconnectedPeripherals;
 - (void)_disconnectPeripheralWithDeviceIdentifier:(id)arg1 error:(id)arg2;
 - (void)servicesInvalidatedForDevice:(id)arg1 withError:(id)arg2;
 - (void)disconnectHealthService:(unsigned long long)arg1;
@@ -99,6 +104,7 @@
 - (_Bool)setHealthUpdatesEnabled:(_Bool)arg1 fromDevice:(id)arg2 error:(id *)arg3;
 - (_Bool)healthUpdatesEnabledFromDevice:(id)arg1 error:(id *)arg2;
 - (id)reviewSavedHealthServiceSessionsWithError:(id *)arg1;
+- (void)dealloc;
 - (id)initWithProfile:(id)arg1 centralManager:(id)arg2 queue:(id)arg3;
 - (id)initWithProfile:(id)arg1;
 

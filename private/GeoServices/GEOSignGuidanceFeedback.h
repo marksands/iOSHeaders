@@ -10,13 +10,11 @@
 
 @interface GEOSignGuidanceFeedback : PBCodable <NSCopying>
 {
-    int _primarySignDetailIndex;
-    int _primarySignTitleIndex;
-    int _secondarySignIndex;
+    int _signDetailIndex;
+    int _signTitleIndex;
     struct {
-        unsigned int primarySignDetailIndex:1;
-        unsigned int primarySignTitleIndex:1;
-        unsigned int secondarySignIndex:1;
+        unsigned int signDetailIndex:1;
+        unsigned int signTitleIndex:1;
     } _has;
 }
 
@@ -29,12 +27,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasSecondarySignIndex;
-@property(nonatomic) int secondarySignIndex; // @synthesize secondarySignIndex=_secondarySignIndex;
-@property(nonatomic) _Bool hasPrimarySignDetailIndex;
-@property(nonatomic) int primarySignDetailIndex; // @synthesize primarySignDetailIndex=_primarySignDetailIndex;
-@property(nonatomic) _Bool hasPrimarySignTitleIndex;
-@property(nonatomic) int primarySignTitleIndex; // @synthesize primarySignTitleIndex=_primarySignTitleIndex;
+@property(nonatomic) _Bool hasSignDetailIndex;
+@property(nonatomic) int signDetailIndex; // @synthesize signDetailIndex=_signDetailIndex;
+@property(nonatomic) _Bool hasSignTitleIndex;
+@property(nonatomic) int signTitleIndex; // @synthesize signTitleIndex=_signTitleIndex;
 
 @end
 

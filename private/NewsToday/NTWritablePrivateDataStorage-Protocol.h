@@ -7,8 +7,10 @@
 #import <NewsToday/NSObject-Protocol.h>
 
 @class NSArray;
+@protocol FCTodayReadHistoryItem;
 
 @protocol NTWritablePrivateDataStorage <NSObject>
+- (void)writeReadHistoryItem:(id <FCTodayReadHistoryItem>)arg1;
 - (void)writeSeenHistoryItems:(NSArray *)arg1;
 @end
 

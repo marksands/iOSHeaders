@@ -6,12 +6,13 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
-@class NSArray, NSDate, NSSet, NSString;
+@class NSArray, NSDate, NSOrderedSet, NSSet, NSString;
 @protocol GEOTransitDepartureSequence, GEOTransitLine, GEOTransitSystem;
 
 @protocol GEOMapItemTransitSchedule <NSObject>
 @property(readonly, nonatomic) NSDate *lastFullScheduleValidDate;
 @property(readonly, nonatomic) NSArray *departureSequences;
+- (NSOrderedSet *)headSignsForLine:(id <GEOTransitLine>)arg1;
 - (NSArray *)allSequencesForSystem:(id <GEOTransitSystem>)arg1 direction:(NSString *)arg2;
 - (NSArray *)inactiveLinesForSystem:(id <GEOTransitSystem>)arg1 relativeToDateFromBlock:(NSDate * (^)(id <GEOTransitDepartureSequence>))arg2 excludingIncidentEntities:(NSSet *)arg3;
 - (NSDate *)serviceResumesDateForLine:(id <GEOTransitLine>)arg1 excludingIncidentEntities:(NSSet *)arg2 afterDate:(NSDate *)arg3 blocked:(out _Bool *)arg4;

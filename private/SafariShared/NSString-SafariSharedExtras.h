@@ -27,6 +27,7 @@
 - (_Bool)safari_isJavaScriptURLString;
 - (id)safari_domainFromHost;
 - (unsigned long long)safari_countOfString:(id)arg1;
+- (_Bool)safari_isPathExtensionAllowedForAnalytics;
 - (id)safari_stringBySubstitutingHTMLEntitiesForAmpersandAndAngleBrackets;
 - (id)safari_stringBySubstitutingAmpersandAndAngleBracketsForHTMLEntities;
 - (_Bool)safari_hasDirectionalPrefix;

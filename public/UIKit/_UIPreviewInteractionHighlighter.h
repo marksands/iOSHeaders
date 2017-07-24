@@ -6,15 +6,17 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, UIView, _UIInteractiveHighlightEffect;
+@class NSArray, UIControl, UIView, _UIInteractiveHighlightEffect;
 @protocol UIInteraction, _UIInteractiveHighlighting;
 
 @interface _UIPreviewInteractionHighlighter : NSObject
 {
     UIView *_view;
     id <_UIInteractiveHighlighting> _interactiveHighlightView;
+    UIControl *_compatibilityHighlightView;
     _UIInteractiveHighlightEffect *_interactiveHighlightEffect;
     NSArray *_accessoryHighlightEffects;
+    _UIInteractiveHighlightEffect *_presentationControllerHighlightEffect;
     id <UIInteraction> _interaction;
     _Bool _animatesContentEffects;
     _Bool _animatesBackgroundEffects;
@@ -24,23 +26,29 @@
     _Bool _shouldApplyEffectsOnProxyView;
     _Bool _shouldApplyContentEffects;
     _Bool _shouldApplyBackgroundEffects;
+    _Bool _shouldEndWithCancelAnimation;
     _Bool _shouldTransferViewOwnership;
+    _Bool _cancelsInteractionWhenScrolling;
     CDUnknownBlockType _completionBlock;
     CDUnknownBlockType _privateCompletionBlock;
     UIView *_customContainerView;
 }
 
+@property(nonatomic) _Bool cancelsInteractionWhenScrolling; // @synthesize cancelsInteractionWhenScrolling=_cancelsInteractionWhenScrolling;
 @property(nonatomic) _Bool shouldTransferViewOwnership; // @synthesize shouldTransferViewOwnership=_shouldTransferViewOwnership;
 @property(nonatomic) __weak UIView *customContainerView; // @synthesize customContainerView=_customContainerView;
 @property(copy, nonatomic) CDUnknownBlockType privateCompletionBlock; // @synthesize privateCompletionBlock=_privateCompletionBlock;
+@property(nonatomic) _Bool shouldEndWithCancelAnimation; // @synthesize shouldEndWithCancelAnimation=_shouldEndWithCancelAnimation;
 @property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
 @property(readonly, nonatomic) __weak UIView *view; // @synthesize view=_view;
 @property(nonatomic) _Bool shouldApplyBackgroundEffects; // @synthesize shouldApplyBackgroundEffects=_shouldApplyBackgroundEffects;
 @property(nonatomic) _Bool shouldApplyContentEffects; // @synthesize shouldApplyContentEffects=_shouldApplyContentEffects;
 @property(nonatomic) _Bool shouldApplyEffectsOnProxyView; // @synthesize shouldApplyEffectsOnProxyView=_shouldApplyEffectsOnProxyView;
 - (void).cxx_destruct;
+- (void)_setHighlighted:(_Bool)arg1 forViewIfNeeded:(id)arg2;
 - (void)_prepareAccessoryViewsForScrollView:(id)arg1 environment:(id)arg2;
 - (void)_prepareContentEffectsForInteraction:(id)arg1;
+- (void)_applyHighlightEffectsToViewControllerDuringCancellation:(id)arg1;
 - (void)_viewControllerPresentationDidEnd;
 - (void)_delayedViewControllerPresentationDidCancel;
 - (void)_animateForDelayedViewControllerPresentation;

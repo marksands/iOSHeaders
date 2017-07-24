@@ -12,17 +12,21 @@
 + (id)_languagesForRegionWithoutFiltering:(id)arg1;
 + (id)_languageNameOverrides;
 + (id)_languagesToExemplarStrings;
++ (id)_ICUdisplayNameForLanguage:(id)arg1 capitalization:(struct ULocaleDisplayNames *)arg2;
 + (id)_normalizedLanguageIdentifierFromString:(id)arg1;
 + (id)_addLikelySubtagsForLocaleIdentifier:(id)arg1;
++ (id)_displayNameForNormalizedLanguage:(id)arg1 context:(long long)arg2 displayLanguage:(id)arg3;
++ (id)matchedLanguagesFromAvailableLanguages:(id)arg1 forPreferredLanguages:(id)arg2;
++ (id)displayNameForRegion:(id)arg1 displayLanguage:(id)arg2 context:(long long)arg3 short:(_Bool)arg4;
++ (id)displayNameForLanguage:(id)arg1 displayLanguage:(id)arg2 context:(long long)arg3;
 + (id)languageFromLanguage:(id)arg1 byReplacingRegion:(id)arg2;
 + (id)baseLanguageFromLanguage:(id)arg1;
 + (id)systemLanguagesForRegion:(id)arg1;
 + (id)supportedRegions;
++ (id)exemplarForLanguage:(id)arg1;
 + (id)supportedLanguages;
 + (id)baseSystemLanguages;
 + (id)deviceLanguage;
-- (id)_ICUdisplayNameForLanguage:(id)arg1 capitalization:(struct ULocaleDisplayNames *)arg2;
-- (id)_displayNameForNormalizedLanguage:(id)arg1 context:(long long)arg2 displayLanguage:(id)arg3;
 - (id)displayNameForRegion:(id)arg1 displayLanguage:(id)arg2 context:(long long)arg3 short:(_Bool)arg4;
 - (id)displayNameForLanguage:(id)arg1 displayLanguage:(id)arg2 context:(long long)arg3;
 @end

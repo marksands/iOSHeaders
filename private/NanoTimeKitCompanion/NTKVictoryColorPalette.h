@@ -16,6 +16,7 @@
 + (_Bool)colorHasWhiteElements:(unsigned long long)arg1;
 + (id)_grayColor;
 + (id)_offWhiteColor;
++ (id)digitalComplicationsPlatterColorForColor:(unsigned long long)arg1;
 + (id)digitalComplicationsColorForColor:(unsigned long long)arg1;
 + (id)analogDotColorForColor:(unsigned long long)arg1;
 + (id)analogComplicationsColorForColor:(unsigned long long)arg1;

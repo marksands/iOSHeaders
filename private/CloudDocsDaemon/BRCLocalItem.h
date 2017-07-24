@@ -67,8 +67,7 @@
 @property(readonly, nonatomic) BRCItemID *itemID; // @synthesize itemID=_itemID;
 @property(readonly, nonatomic) unsigned long long dbRowID; // @synthesize dbRowID=_dbRowID;
 - (void).cxx_destruct;
-- (_Bool)_standaloneItemIsVisibleAtURL:(id)arg1;
-- (_Bool)_computedUserVisibleStatus;
+- (_Bool)_computedUserVisibleStatusAtPath:(id)arg1;
 - (_Bool)startDownloadInTask:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (_Bool)evictInTask:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 @property(readonly, nonatomic) _Bool isRejected;
@@ -82,10 +81,10 @@
 - (void)markBounceFailed;
 - (void)markBounceFinished;
 - (void)beginBounceAndSaveToDBWithBounceNumber:(unsigned long long)arg1;
-- (void)beginBounceWithBounceNumber:(unsigned long long)arg1;
 - (void)markMetadataLive;
-- (void)markLiveFromStageWithAppLibrary:(id)arg1;
+- (void)markLiveFromStageWithPath:(id)arg1;
 - (void)updateStructuralCKInfoFromServerItem:(id)arg1;
+- (id)computedDestinationFilenameFromServerItem:(id)arg1;
 - (void)updateItemMetadataFromServerItem:(id)arg1 appliedSharingPermission:(_Bool)arg2;
 - (void)updateStatMetadataFromServerItem:(id)arg1;
 - (void)clearFromStage;
@@ -105,6 +104,7 @@
 - (void)_markLostWhenReplacedByItem:(id)arg1 backoffMode:(unsigned char)arg2;
 - (void)handleUnknownItemError;
 - (void)markItemForgottenByServer;
+- (void)resetAfterSyncJobsDeletion;
 - (void)markLatestRequestAcknowledgedInZone:(id)arg1;
 - (void)markLatestSyncRequestRejectedInZone:(id)arg1;
 - (void)markLatestSyncRequestFailedInZone:(id)arg1;
@@ -118,6 +118,7 @@
 - (_Bool)_contentXattrsHaveChangedAtRelativeAPath:(id)arg1;
 - (_Bool)updateLocationAndMetaFromFSAtPath:(id)arg1 parentGlobalID:(id)arg2;
 - (_Bool)updateFromFSAtPath:(id)arg1 parentGlobalID:(id)arg2;
+- (_Bool)_checkForSharedToMeItemInTrashWithPath:(id)arg1;
 - (void)_updateAppLibraryAndSharingOptionsFromFSAtPath:(id)arg1;
 - (_Bool)_checkZoneUpdateFromFSAtPath:(id)arg1 parentGlobalID:(id)arg2;
 - (void)updateFromFSAtPath:(id)arg1;
@@ -143,8 +144,8 @@
 - (_Bool)_isInterestingUpdateForNotifs;
 - (_Bool)_deleteFromDB:(id)arg1 keepAliases:(_Bool)arg2;
 - (_Bool)_updateInDB:(id)arg1 diffs:(unsigned long long)arg2;
-- (_Bool)userVisibleStatusMightHaveChangedForDiffs:(unsigned long long)arg1;
 - (_Bool)_insertInDB:(id)arg1 dbRowID:(unsigned long long)arg2;
+- (void)wasMarkedDead;
 - (void)_updateSharedZoneBoostingWithDiffs:(unsigned long long)arg1;
 - (void)_updateSyncUpSchedulerWithDiffs:(unsigned long long)arg1;
 - (id)_syncZones;
@@ -152,7 +153,8 @@
 - (void)createSyncUpJob;
 - (unsigned long long)maskForDiffsToSyncUpForZone:(id)arg1;
 - (unsigned long long)metadataSyncUpMask;
-- (void)_updateAppLibraryPristineStates;
+- (void)_updateAppLibraryPristineStatesAfterCreation;
+- (void)_updateAppLibraryPristineStatesAfterMarkingDead;
 - (id)parentItemOnFS;
 - (id)parentItemIDInZone;
 - (id)itemParentGlobalID;
@@ -228,6 +230,7 @@
 @property(readonly, nonatomic) BRCDocumentItem *asDocument;
 @property(readonly, nonatomic) BRCDirectoryItem *asDirectory;
 @property(readonly, nonatomic) BRCAliasItem *asBRAlias;
+- (void)updateParentZoneRowID:(id)arg1;
 - (id)structureRecordBeingDeadInServerTruth:(_Bool)arg1 pcsChained:(_Bool)arg2 inZone:(id)arg3;
 - (id)structureRecordIDInZone:(id)arg1;
 - (id)aliasItemID;

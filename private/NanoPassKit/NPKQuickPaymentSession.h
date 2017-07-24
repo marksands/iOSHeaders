@@ -74,7 +74,7 @@
 - (void)_updateAuthorizationValidity;
 - (void)_internalQueue_updateContactlessValidityAndPerformWork:(CDUnknownBlockType)arg1;
 - (void)_internalQueue_updateSessionWithCurrentPassAndLoyaltyState;
-- (_Bool)_sessionQueue_authorizeWithDeferredAuthorization:(_Bool)arg1;
+- (_Bool)_sessionQueue_authorizeWithDeferredAuthorization:(_Bool)arg1 useCredential:(_Bool)arg2;
 - (_Bool)_sessionQueue_enablePersistentCardEmulation;
 - (_Bool)_sessionQueue_startContactlessSessionWithSuccessfulCompletionOnInternalQueue:(CDUnknownBlockType)arg1;
 - (void)_sessionQueue_invokeAppropriateCallbackForActivationWithSuccess:(_Bool)arg1 invokeOnSuccess:(_Bool)arg2 contactlessValidity:(unsigned long long)arg3 forPass:(id)arg4;

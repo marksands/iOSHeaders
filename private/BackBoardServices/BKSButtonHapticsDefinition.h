@@ -24,7 +24,6 @@
 - (id)initWithCoder:(id)arg1;
 - (void)updateFromDefinition:(id)arg1 withChangeInspectorBlock:(CDUnknownBlockType)arg2;
 @property(nonatomic) long long clickHapticAssetType;
-@property(nonatomic) long long clickForceThreshold;
 @property(readonly, nonatomic, getter=isLongPressEnabled) long long longPressEnabled;
 @property(nonatomic) double maximumLongPressTimeInterval;
 @property(nonatomic) double minimumLongPressTimeInterval;

@@ -7,6 +7,6 @@
 @class SSActiveInterfaceOrientationObserver;
 
 @protocol SSActiveInterfaceOrientationObserverDelegate
-- (void)activeInterfaceOrientationObserver:(SSActiveInterfaceOrientationObserver *)arg1 observedChangeToInterfaceOrientation:(long long)arg2;
+- (void)activeInterfaceOrientationObserver:(SSActiveInterfaceOrientationObserver *)arg1 observedChangeToInterfaceOrientation:(long long)arg2 withDuration:(double)arg3;
 @end
 

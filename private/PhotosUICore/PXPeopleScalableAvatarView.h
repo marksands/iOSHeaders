@@ -18,8 +18,10 @@
 @property(retain, nonatomic) id <PXPerson> person; // @synthesize person=_person;
 @property(retain) UIImageView *imageView; // @synthesize imageView=_imageView;
 - (void).cxx_destruct;
+- (void)_updateImageAndWait:(_Bool)arg1;
 - (void)updateImage;
 - (void)viewScaleDidChange;
+- (void)setPersonAndWaitForImage:(id)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

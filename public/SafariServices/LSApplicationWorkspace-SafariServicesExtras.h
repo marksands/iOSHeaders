@@ -7,6 +7,7 @@
 #import <MobileCoreServices/LSApplicationWorkspace.h>
 
 @interface LSApplicationWorkspace (SafariServicesExtras)
+- (void)_sf_openURL:(id)arg1 inApplication:(id)arg2 withOptions:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_sf_openURL:(id)arg1 withOptions:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @end
 

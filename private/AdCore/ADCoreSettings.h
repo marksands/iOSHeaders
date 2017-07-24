@@ -10,17 +10,15 @@
 
 @interface ADCoreSettings : ADSingleton
 {
-    _Bool _isManagedAppleID;
     _Bool _educationModeEnabled;
     _Bool _internationalRoaming;
     _Bool _hasDeterminedRoamingStatus;
     int _connectionType;
+    float _timezone;
     int _runState;
     NSUUID *_IDFA;
     NSURL *_defaultServerURL;
     NSURL *_defaultConfigurationServerURL;
-    double _segmentRetrievalInterval;
-    double _maxSegmentSendInterval;
     double _jingleTimeoutInterval;
     double _adServerTimeoutInterval;
     double _NSURLConnectionTimeout;
@@ -28,7 +26,6 @@
     NSString *_osVersionAndBuild;
     NSString *_deviceModel;
     NSString *_bundleIdentifier;
-    double _timezone;
     NSString *_homeCarrierMCC;
     NSString *_homeCarrierMNC;
     NSString *_currentCarrierMCC;
@@ -47,8 +44,7 @@
 @property(copy, nonatomic) NSString *homeCarrierMNC; // @synthesize homeCarrierMNC=_homeCarrierMNC;
 @property(copy, nonatomic) NSString *homeCarrierMCC; // @synthesize homeCarrierMCC=_homeCarrierMCC;
 @property(readonly, nonatomic) _Bool educationModeEnabled; // @synthesize educationModeEnabled=_educationModeEnabled;
-@property(readonly, nonatomic) _Bool isManagedAppleID; // @synthesize isManagedAppleID=_isManagedAppleID;
-@property(nonatomic) double timezone; // @synthesize timezone=_timezone;
+@property(nonatomic) float timezone; // @synthesize timezone=_timezone;
 @property(nonatomic) int connectionType; // @synthesize connectionType=_connectionType;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(retain, nonatomic) NSString *deviceModel; // @synthesize deviceModel=_deviceModel;
@@ -57,26 +53,25 @@
 @property(nonatomic) double NSURLConnectionTimeout; // @synthesize NSURLConnectionTimeout=_NSURLConnectionTimeout;
 @property(nonatomic) double adServerTimeoutInterval; // @synthesize adServerTimeoutInterval=_adServerTimeoutInterval;
 @property(nonatomic) double jingleTimeoutInterval; // @synthesize jingleTimeoutInterval=_jingleTimeoutInterval;
-@property(nonatomic) double maxSegmentSendInterval; // @synthesize maxSegmentSendInterval=_maxSegmentSendInterval;
-@property(nonatomic) double segmentRetrievalInterval; // @synthesize segmentRetrievalInterval=_segmentRetrievalInterval;
 @property(retain, nonatomic) NSURL *defaultConfigurationServerURL; // @synthesize defaultConfigurationServerURL=_defaultConfigurationServerURL;
 @property(retain, nonatomic) NSURL *defaultServerURL; // @synthesize defaultServerURL=_defaultServerURL;
 @property(retain, nonatomic) NSUUID *IDFA; // @synthesize IDFA=_IDFA;
 - (void).cxx_destruct;
+@property(nonatomic) double maxSegmentSendInterval;
+@property(nonatomic) double segmentRetrievalInterval;
 @property(readonly, nonatomic) NSString *localeIdentifier;
 - (void)gatherTelephonyData;
 @property(readonly, nonatomic) _Bool deviceLimitsAdTracking;
 @property(readonly, nonatomic) _Bool limitAdTrackingRestrictionEnabledBySpringboard;
 - (void)reloadStorefront:(CDUnknownBlockType)arg1;
-- (double)timeZone;
 - (int)deviceRunStateForBundleIdentifier:(id)arg1;
 - (id)deviceDescription;
-- (_Bool)isManagedAppleId;
+@property(readonly, nonatomic) _Bool isManagedAppleID;
+@property(readonly, nonatomic) NSString *customJinglePayload;
 @property(readonly, nonatomic) NSString *iTunesAccountIdentifier;
 @property(readonly, nonatomic) SSAccount *iTunesStoreAccount;
 @property(readonly, nonatomic) NSString *iCloudAccountIdentifier;
 @property(readonly, nonatomic) ACAccount *iCloudAccount;
-- (void)refresh:(CDUnknownBlockType)arg1;
 - (void)expire;
 - (id)init;
 

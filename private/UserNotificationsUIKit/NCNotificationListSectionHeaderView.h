@@ -8,15 +8,18 @@
 
 #import <UserNotificationsUIKit/NCNotificationListClearButtonDelegate-Protocol.h>
 
-@class NCNotificationListClearButton, NSString, UILabel;
+@class NCNotificationListClearButton, NSString, SBUILegibilityLabel;
 @protocol NCNotificationListSectionHeaderViewDelegate;
 
 @interface NCNotificationListSectionHeaderView : UICollectionReusableView <NCNotificationListClearButtonDelegate>
 {
+    _Bool _shouldOverrideForReveal;
     id <NCNotificationListSectionHeaderViewDelegate> _delegate;
-    UILabel *_titleLabel;
+    double _overrideAlpha;
+    SBUILegibilityLabel *_titleLabel;
     NCNotificationListClearButton *_clearButton;
     NSString *_sectionIdentifier;
+    struct CGPoint _overrideCenter;
 }
 
 + (id)_labelFont;
@@ -24,9 +27,13 @@
 + (double)headerHeightWithWidth:(double)arg1 title:(id)arg2;
 @property(copy, nonatomic) NSString *sectionIdentifier; // @synthesize sectionIdentifier=_sectionIdentifier;
 @property(retain, nonatomic) NCNotificationListClearButton *clearButton; // @synthesize clearButton=_clearButton;
-@property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(retain, nonatomic) SBUILegibilityLabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(nonatomic) struct CGPoint overrideCenter; // @synthesize overrideCenter=_overrideCenter;
+@property(nonatomic) double overrideAlpha; // @synthesize overrideAlpha=_overrideAlpha;
+@property(nonatomic) _Bool shouldOverrideForReveal; // @synthesize shouldOverrideForReveal=_shouldOverrideForReveal;
 @property(nonatomic) __weak id <NCNotificationListSectionHeaderViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_resetRevealOverrides;
 - (void)_layoutClearButtonWithScale:(double)arg1;
 - (void)_layoutTitleLabelWithScale:(double)arg1;
 - (double)_titleLabelBaselineOffset;
@@ -35,6 +42,8 @@
 - (long long)_graphicsQuality;
 - (void)clearButtonViewDidDismissForceTouchView:(id)arg1;
 - (void)clearButtonViewDidPresentForceTouchView:(id)arg1;
+- (void)applyLayoutAttributes:(id)arg1;
+- (void)updateForLegibilitySettings:(id)arg1;
 - (void)setClearButtonVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)contentSizeDidChange;
 - (_Bool)dismissModalFullScreenIfNeeded;

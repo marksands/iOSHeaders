@@ -17,6 +17,7 @@
 
 @property(retain, nonatomic) UIWebView *webView; // @synthesize webView=_webView;
 - (void).cxx_destruct;
+- (void)webViewDidFinishLoad:(id)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (id)localizedStringFromDictionary:(id)arg1;

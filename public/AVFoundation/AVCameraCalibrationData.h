@@ -15,6 +15,7 @@
 
 - (id)_distortionLookupTableFromCoefficients:(id)arg1 distortionCenter:(struct CGPoint)arg2 pixelSize:(float)arg3 referenceDimensions:(struct CGSize)arg4 lookupTableLength:(int)arg5;
 - (void)dealloc;
+- (id)_initEmpty;
 - (struct CGImageMetadata *)copyAuxiliaryMetadata;
 - (id)cameraCalibrationDataWithExifOrientation:(unsigned int)arg1;
 - (id)initWithDepthMetadataDictionary:(id)arg1;

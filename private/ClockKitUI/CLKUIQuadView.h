@@ -6,21 +6,20 @@
 
 #import <UIKit/UIView.h>
 
-@class CADisplayLink, NSArray, NSMutableArray;
+@class CLKUIQuadViewDisplayLink, NSArray, NSMutableArray;
 @protocol CLKUIQuadViewDelegate;
 
 @interface CLKUIQuadView : UIView
 {
     NSMutableArray *_mutableQuads;
+    CLKUIQuadViewDisplayLink *_displayLink;
     struct {
         unsigned int quadViewWillDisplay:1;
     } _delegateRespondsTo;
     id <CLKUIQuadViewDelegate> _delegate;
-    CADisplayLink *_displayLink;
 }
 
 + (id)quadViewWithFrame:(struct CGRect)arg1;
-@property(retain, nonatomic) CADisplayLink *displayLink; // @synthesize displayLink=_displayLink;
 @property(nonatomic) __weak id <CLKUIQuadViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_discardContents;
@@ -34,10 +33,8 @@
 - (void)addQuadsFromArray:(id)arg1;
 - (void)addQuad:(id)arg1;
 @property(readonly, nonatomic) NSArray *quads;
-@property(nonatomic) long long preferredFramesPerSecond;
 @property(nonatomic, getter=isPaused) _Bool paused;
-- (void)_setupDisplayLink;
-- (void)_displayLinkFired:(id)arg1;
+@property(nonatomic) long long preferredFramesPerSecond;
 - (void)_prepareAndRenderForTime:(double)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

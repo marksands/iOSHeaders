@@ -34,13 +34,13 @@
 - (void)viewModel:(id)arg1 didChange:(id)arg2;
 - (_Bool)photosDetailsUIViewControllerRequestDismissal:(id)arg1;
 - (id)_createAccessoryViewControllerForAssetReference:(id)arg1;
-- (long long)_accessoryViewTypeForAssetReference:(id)arg1;
+- (long long)_accessoryViewTypeForAsset:(id)arg1;
 - (void)_invalidateAccessoryViewControllersForAssetReferences:(id)arg1;
 - (id)assetReferenceForAccessoryViewController:(id)arg1;
 - (id)accessoryViewControllerForAssetReference:(id)arg1 createIfNeeded:(_Bool)arg2;
 - (id)accessoryViewControllerForAssetReference:(id)arg1;
 - (_Bool)shouldHideToolbarWhenShowingAccessoryViewControllerForAssetReference:(id)arg1;
-- (_Bool)canProvideAccessoryViewControllerForAssetReference:(id)arg1 type:(out long long *)arg2;
+- (long long)accessoryViewTypeForAsset:(id)arg1;
 - (id)initWithBrowsingSession:(id)arg1;
 - (id)init;
 

@@ -6,11 +6,13 @@
 
 #import <StoreKit/NSObject-Protocol.h>
 
-@class NSString, SKStoreRemoteViewController;
+@class NSError, NSString, SKStoreRemoteViewController;
 
 @protocol SKStoreRemoteViewControllerDelegate <NSObject>
 - (void)storeRemoteViewController:(SKStoreRemoteViewController *)arg1 presentRequestedViewControllerWithIdentifier:(NSString *)arg2;
-- (void)storeRemoteViewController:(SKStoreRemoteViewController *)arg1 setPreferredStatusBarStyle:(long long)arg2;
 - (void)storeRemoteViewControllerNeedsTabSelection:(SKStoreRemoteViewController *)arg1;
+
+@optional
+- (void)storeRemoteViewControllerTerminatedWithError:(NSError *)arg1;
 @end
 

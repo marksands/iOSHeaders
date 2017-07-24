@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFSportsTeam-Protocol.h>
 
 @class NSData, NSDictionary, NSString, SFImage;
 
-@interface SFSportsTeam : NSObject <SFSportsTeam, NSSecureCoding>
+@interface SFSportsTeam : NSObject <SFSportsTeam, NSSecureCoding, NSCopying>
 {
     SFImage *_logo;
     NSString *_record;
@@ -27,6 +28,7 @@
 @property(copy, nonatomic) NSString *record; // @synthesize record=_record;
 @property(retain, nonatomic) SFImage *logo; // @synthesize logo=_logo;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

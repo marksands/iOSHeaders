@@ -9,14 +9,17 @@
 #import <iWorkImport/TSWPOffscreenColumn-Protocol.h>
 
 @class NSString, TPPageController;
+@protocol TSWPFlowInfo;
 
 __attribute__((visibility("hidden")))
 @interface TPVisibleColumnProxy : NSObject <TSWPOffscreenColumn>
 {
     unsigned long long _pageIndex;
+    id <TSWPFlowInfo> _flowInfo;
     TPPageController *_pageController;
 }
 
+- (void).cxx_destruct;
 - (id)p_targetLastHint;
 - (id)p_targetFirstHint;
 - (void)trimToCharIndex:(unsigned long long)arg1 inTarget:(id)arg2 removeFootnoteReferenceCount:(unsigned long long)arg3 removeAutoNumberFootnoteCount:(unsigned long long)arg4;
@@ -25,7 +28,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)startAnchoredCharIndex;
 @property(readonly, nonatomic) struct _NSRange range;
 - (unsigned long long)startCharIndex;
-- (void)dealloc;
+- (id)initWithPageIndex:(unsigned long long)arg1 pageController:(id)arg2 flowInfo:(id)arg3;
 - (id)initWithPageIndex:(unsigned long long)arg1 pageController:(id)arg2;
 
 // Remaining properties

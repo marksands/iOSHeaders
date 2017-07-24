@@ -6,7 +6,7 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class NSArray, SearchUIDropTarget;
+@class NSArray, SearchUIDragSource, SearchUIDropTarget, UIView;
 @protocol SearchUIFeedbackDelegate, SearchUIRowModel;
 
 @interface SearchUITableViewCell : UITableViewCell
@@ -15,6 +15,8 @@
     id <SearchUIRowModel> _rowModel;
     unsigned long long _style;
     id <SearchUIFeedbackDelegate> _delegate;
+    UIView *_sizingContainer;
+    SearchUIDragSource *_dragSource;
     SearchUIDropTarget *_dropTarget;
 }
 
@@ -22,16 +24,21 @@
 + (_Bool)canCellExpandWithResults:(id)arg1;
 + (id)convertResultIfNecessary:(id)arg1;
 + (id)reuseIdentifierForResult:(id)arg1;
-+ (id)rowViewsForResult:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
-+ (id)rowViewForResult:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
++ (id)cellViewForRowModel:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
 @property(retain) SearchUIDropTarget *dropTarget; // @synthesize dropTarget=_dropTarget;
+@property(retain) SearchUIDragSource *dragSource; // @synthesize dragSource=_dragSource;
+@property(retain) UIView *sizingContainer; // @synthesize sizingContainer=_sizingContainer;
 @property __weak id <SearchUIFeedbackDelegate> delegate; // @synthesize delegate=_delegate;
 @property _Bool isExpanded; // @synthesize isExpanded=_isExpanded;
 @property unsigned long long style; // @synthesize style=_style;
 @property(retain) id <SearchUIRowModel> rowModel; // @synthesize rowModel=_rowModel;
 - (void).cxx_destruct;
-- (id)dragSourceRowModel;
+- (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1;
+- (struct CGSize)intrinsicContentSize;
 - (_Bool)shouldHideBottomSeparator;
+- (void)updateChevronVisible:(_Bool)arg1 leaveSpaceForChevron:(_Bool)arg2;
 - (void)roundNecessaryCornersForView:(id)arg1;
 - (void)setSectionLocation:(int)arg1 animated:(_Bool)arg2;
 - (_Bool)isExpandable;

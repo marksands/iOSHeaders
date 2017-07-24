@@ -13,9 +13,10 @@
 
 + (id)renderInfoWithCompletedTask:(id)arg1;
 - (id)description;
-@property(readonly) long long kernelPixelsProcessed;
-@property(readonly) double kernelExecutionTime;
+- (long long)pixelsOverdrawn;
+@property(readonly) long long pixelsProcessed;
 @property(readonly) long long passCount;
+@property(readonly) double kernelExecutionTime;
 - (void)dealloc;
 - (id)initWithCompletedTask:(id)arg1;
 - (id)_pdfDataRepresentation;

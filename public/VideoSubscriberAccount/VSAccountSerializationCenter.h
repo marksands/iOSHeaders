@@ -6,18 +6,16 @@
 
 #import <objc/NSObject.h>
 
-@class NSOperationQueue, NSUndoManager, VSAccountChannelsCenter, VSAccountStore;
+@class NSOperationQueue, NSUndoManager, VSPersistentStorage;
 
 @interface VSAccountSerializationCenter : NSObject
 {
     NSOperationQueue *_serializationQueue;
-    VSAccountStore *_accountStore;
-    VSAccountChannelsCenter *_accountChannelsCenter;
+    VSPersistentStorage *_storage;
 }
 
 + (id)defaultSerializationCenter;
-@property(retain, nonatomic) VSAccountChannelsCenter *accountChannelsCenter; // @synthesize accountChannelsCenter=_accountChannelsCenter;
-@property(retain, nonatomic) VSAccountStore *accountStore; // @synthesize accountStore=_accountStore;
+@property(retain, nonatomic) VSPersistentStorage *storage; // @synthesize storage=_storage;
 @property(retain, nonatomic) NSOperationQueue *serializationQueue; // @synthesize serializationQueue=_serializationQueue;
 - (void).cxx_destruct;
 - (id)importData:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;

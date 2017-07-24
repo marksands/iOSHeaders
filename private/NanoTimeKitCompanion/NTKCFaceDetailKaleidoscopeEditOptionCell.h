@@ -6,26 +6,20 @@
 
 #import <NanoTimeKitCompanion/NTKCFaceDetailEditOptionCell.h>
 
-@class NTKKaleidoscopeCustomAssetOption;
 @protocol NTKCFaceDetailKaleidoscopeEditOptionCellDelegate;
 
 @interface NTKCFaceDetailKaleidoscopeEditOptionCell : NTKCFaceDetailEditOptionCell
 {
-    long long _extraSectionIndex;
-    NTKKaleidoscopeCustomAssetOption *_extraOption;
     id <NTKCFaceDetailKaleidoscopeEditOptionCellDelegate> delegate;
+    long long _userOptionIndex;
 }
 
+@property(nonatomic) long long userOptionIndex; // @synthesize userOptionIndex=_userOptionIndex;
 @property(nonatomic) __weak id <NTKCFaceDetailKaleidoscopeEditOptionCellDelegate> delegate; // @synthesize delegate;
 - (void).cxx_destruct;
-- (_Bool)_isExtraSection:(long long)arg1;
 - (void)selectUserOption;
-- (id)_imageForIndexPath:(id)arg1;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 willDisplayCell:(id)arg2 forItemAtIndexPath:(id)arg3;
-- (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
-- (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (void)_setupFromCollection;
 
 @end

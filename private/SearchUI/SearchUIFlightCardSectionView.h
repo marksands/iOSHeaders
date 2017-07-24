@@ -4,23 +4,29 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeSectionView.h>
+#import <SearchUI/SearchUICardSectionView.h>
 
 #import <SearchUI/FUFlightViewControllerDelegate-Protocol.h>
 
-@class NSString, SFFlightCardSection;
+@class FUFlightViewController, NSString, NUIContainerBoxView, SFFlightCardSection;
 
-@interface SearchUIFlightCardSectionView : SearchUILayoutFreeSectionView <FUFlightViewControllerDelegate>
+@interface SearchUIFlightCardSectionView : SearchUICardSectionView <FUFlightViewControllerDelegate>
 {
+    FUFlightViewController *_flightViewController;
     unsigned long long _lastSelectedLegIndex;
 }
 
 @property unsigned long long lastSelectedLegIndex; // @synthesize lastSelectedLegIndex=_lastSelectedLegIndex;
+@property(retain) FUFlightViewController *flightViewController; // @synthesize flightViewController=_flightViewController;
+- (void).cxx_destruct;
 - (void)flightController:(id)arg1 didSelectLeg:(long long)arg2 ofFlight:(long long)arg3;
 - (_Bool)spansFullWidth;
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
+- (void)updateChevronVisible:(_Bool)arg1 leaveSpaceForChevron:(_Bool)arg2;
+- (id)setupContentView;
+- (id)initWithCardSection:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
 
 // Remaining properties
+@property(retain) NUIContainerBoxView *contentView; // @dynamic contentView;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

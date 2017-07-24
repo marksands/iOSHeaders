@@ -23,6 +23,7 @@
 - (void)cancel;
 @property(readonly, getter=isCancelled) _Bool cancelled;
 @property(copy) CDUnknownBlockType cancellationHandler;
+- (void)addChild:(id)arg1 withPendingUnitCount:(long long)arg2;
 - (void)resignCurrent;
 - (void)becomeCurrentWithPendingUnitCount:(long long)arg1;
 - (void)setUserInfoObject:(id)arg1 forKey:(id)arg2;

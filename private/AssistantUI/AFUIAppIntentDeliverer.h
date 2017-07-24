@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class AFWatchdogTimer, BKSApplicationStateMonitor, BKSProcessAssertion, NSString;
+@class AFSafetyBlock, AFWatchdogTimer, BKSApplicationStateMonitor, BKSProcessAssertion, NSString;
 @protocol OS_dispatch_group, OS_dispatch_queue;
 
 @interface AFUIAppIntentDeliverer : NSObject
@@ -17,7 +17,7 @@
     NSObject<OS_dispatch_group> *_assertionSetupGroup;
     NSObject<OS_dispatch_queue> *_queue;
     AFWatchdogTimer *_requestTimer;
-    NSObject<OS_dispatch_group> *_requestGroup;
+    AFSafetyBlock *_requestCompletionBlock;
     NSString *_bundleIdentifier;
 }
 

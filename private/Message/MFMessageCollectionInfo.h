@@ -12,11 +12,9 @@
 {
     MFMessageInfoOrderedSet *_messageInfoSet;
     long long _messageCollectionHash;
-    MFMessageInfo *_stickyPlaceholder;
 }
 
 + (unsigned long long)stateForMessages:(id)arg1;
-@property(retain, nonatomic) MFMessageInfo *stickyPlaceholder; // @synthesize stickyPlaceholder=_stickyPlaceholder;
 @property(readonly, nonatomic) long long messageCollectionHash; // @synthesize messageCollectionHash=_messageCollectionHash;
 @property(copy, nonatomic) CDUnknownBlockType duplicatePreferenceComparator;
 - (unsigned long long)state;
@@ -36,6 +34,7 @@
 @property(readonly, nonatomic) MFMessageInfo *lastMessage;
 @property(readonly, nonatomic) MFMessageInfo *firstMessage;
 @property(readonly, nonatomic) _Bool isEmpty;
+- (id)debugDescription;
 - (void)dealloc;
 - (id)initWithHash:(long long)arg1 comparator:(CDUnknownBlockType)arg2;
 

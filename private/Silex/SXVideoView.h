@@ -6,16 +6,32 @@
 
 #import <UIKit/UIView.h>
 
-@class AVPlayerLayer, SXPlaybackCoordinator;
+@class AVPlayerLayer, SXKeyValueObserver, SXPlaybackCoordinator;
+@protocol SXVideoViewDelegate;
 
 @interface SXVideoView : UIView
 {
+    id <SXVideoViewDelegate> _delegate;
+    SXKeyValueObserver *_videoRectObserver;
+    SXKeyValueObserver *_dimensionsObserver;
+    SXKeyValueObserver *_readyForDisplayObserver;
     SXPlaybackCoordinator *_playbackCoordinator;
 }
 
 + (Class)layerClass;
 @property(nonatomic) __weak SXPlaybackCoordinator *playbackCoordinator; // @synthesize playbackCoordinator=_playbackCoordinator;
+@property(retain, nonatomic) SXKeyValueObserver *readyForDisplayObserver; // @synthesize readyForDisplayObserver=_readyForDisplayObserver;
+@property(retain, nonatomic) SXKeyValueObserver *dimensionsObserver; // @synthesize dimensionsObserver=_dimensionsObserver;
+@property(retain, nonatomic) SXKeyValueObserver *videoRectObserver; // @synthesize videoRectObserver=_videoRectObserver;
+@property(nonatomic) __weak id <SXVideoViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (_Bool)accessibilityActivate;
+- (void)removePlayerLayerObservers;
+- (void)addPlayerLayerObservers;
+- (void)updateVideoGravityWithDimensions:(struct CGSize)arg1;
+- (void)removeVideoDimensionObserver;
+- (void)addVideoDimensionObserverIfNeeded;
+- (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

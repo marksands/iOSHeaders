@@ -12,7 +12,6 @@
 
 @interface FBApplicationInfo : FBBundleInfo <BSDescriptionProviding>
 {
-    NSString *_displayName;
     NSURL *_executableURL;
     NSURL *_bundleContainerURL;
     NSURL *_dataContainerURL;
@@ -99,11 +98,8 @@
 @property(readonly, retain, nonatomic) NSURL *dataContainerURL; // @synthesize dataContainerURL=_dataContainerURL;
 @property(readonly, retain, nonatomic) NSURL *bundleContainerURL; // @synthesize bundleContainerURL=_bundleContainerURL;
 @property(readonly, retain, nonatomic) NSURL *executableURL; // @synthesize executableURL=_executableURL;
-@property(readonly, copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
-- (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;
-- (id)succinctDescription;
 - (void)_lock_loadFolderNamesIfNecessary;
 - (void)_loadFromProxy:(id)arg1;
 - (void)_synchronize:(CDUnknownBlockType)arg1;
@@ -113,8 +109,6 @@
 @property(readonly, nonatomic, getter=hasUniversalProvisioningProfile) _Bool universalProvisioningProfile; // @dynamic universalProvisioningProfile;
 @property(readonly, nonatomic, getter=hasFreeDeveloperProvisioningProfile) _Bool freeDeveloperProvisioningProfile; // @dynamic freeDeveloperProvisioningProfile;
 @property(readonly, nonatomic) long long signatureState; // @dynamic signatureState;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 - (_Bool)statusBarHiddenForInterfaceOrientation:(long long)arg1 onDisplay:(id)arg2;
 - (_Bool)builtOnOrAfterSDKVersion:(id)arg1;
 - (void)acceptApplicationSignatureIdentity;
@@ -133,6 +127,8 @@
 - (id)_initWithBundleIdentifier:(id)arg1 url:(id)arg2;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

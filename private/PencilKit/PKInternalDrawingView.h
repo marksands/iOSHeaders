@@ -26,6 +26,7 @@
     _Bool _isSelecting;
     struct CGPoint _drawingBeganLocation;
     _Bool _isErasingObjects;
+    struct CGPoint _oldEraseLocation;
     _Bool _isDrawing;
     _Bool _disableWideGamut;
     _Bool _zooming;
@@ -98,6 +99,7 @@
 @property(readonly, nonatomic) id pkaxOpenGLView;
 - (void)updatePanEdgesForTransform:(struct CGAffineTransform)arg1;
 - (void)paste:(id)arg1;
+- (void)duplicate:(id)arg1;
 - (void)cut:(id)arg1;
 - (void)copy:(id)arg1;
 - (void)delete:(id)arg1;
@@ -115,7 +117,7 @@
 - (void)cancelNonDrawingGestures;
 - (struct CGPoint)applyTransformToTouchLocation:(struct CGPoint)arg1;
 - (struct CGAffineTransform)fitTransform;
-- (void)drawingCancelled:(CDUnknownBlockType)arg1;
+- (void)drawingCancelled;
 - (void)drawStrokeWithPath:(struct CGPath *)arg1;
 - (void)registerUndoForStroke:(id)arg1;
 - (void)drawingEnded:(id)arg1;
@@ -124,11 +126,14 @@
 - (CDStruct_f17e9403)drawingInputPoint:(struct CGPoint)arg1 forTouch:(id)arg2 predicted:(_Bool)arg3;
 - (void)drawingBegan:(id)arg1;
 - (void)postDrawingBeganAnnouncementFor:(id)arg1;
+- (void)eraseStrokesForPoint:(struct CGPoint)arg1 prevPoint:(struct CGPoint)arg2;
 - (void)eraseStrokesForPoint:(struct CGPoint)arg1;
 @property(readonly, nonatomic) _Bool isRendering;
 @property(nonatomic) _Bool contentHidden;
 - (void)setDrawing:(id)arg1 image:(id)arg2 imageDrawing:(id)arg3 completion:(CDUnknownBlockType)arg4 fullyRenderedCompletionBlock:(CDUnknownBlockType)arg5;
+- (void)_setDrawing:(id)arg1 tiles:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)setDrawing:(id)arg1;
+- (void)delayCompletionBlockUntilPresentation:(CDUnknownBlockType)arg1;
 - (void)rotate:(id)arg1;
 - (void)rotateIfNeeded;
 - (void)updateImageTransform:(id)arg1;
@@ -152,6 +157,7 @@
 - (void)setOpaque:(_Bool)arg1;
 - (void)_drawingDisplay;
 - (void)drawNowIfNeeded;
+- (void)handleDrawingShouldPause:(_Bool)arg1;
 - (void)setNeedsDrawingDisplay;
 - (void)setBackgroundImage:(struct CGImage *)arg1;
 - (void)setBackgroundColor:(id)arg1;

@@ -26,10 +26,12 @@
     NSUUID *_currentHomeUUID;
     HMDAssistantCommandHelper *_assistantCommandHelper;
     HMDHome *_home;
+    unsigned long long _startTime;
 }
 
 + (void)initialize;
 + (id)logCategory;
+@property(nonatomic) unsigned long long startTime; // @synthesize startTime=_startTime;
 @property(retain, nonatomic) HMDHome *home; // @synthesize home=_home;
 @property(nonatomic) _Bool completionHandlerCalled; // @synthesize completionHandlerCalled=_completionHandlerCalled;
 @property(retain, nonatomic) HMDAssistantCommandHelper *assistantCommandHelper; // @synthesize assistantCommandHelper=_assistantCommandHelper;
@@ -47,6 +49,7 @@
 - (void)handleGetColor:(id)arg1 forObjects:(id)arg2 serviceType:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)handleSetColor:(id)arg1 forObjects:(id)arg2 service:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)readRequestsForCharacteristic:(id)arg1;
+- (id)addStatusCharacteristicsIfNeeded:(id)arg1;
 - (void)addActivationCharacteristicsIfNeeded:(id)arg1 forCharacteristic:(id)arg2;
 - (id)handleReadWriteResponses:(id)arg1 error:(id)arg2 forAction:(id)arg3 inServiceType:(id)arg4 results:(id)arg5 forObjects:(id)arg6;
 - (_Bool)populateColorResult:(id)arg1 serviceType:(id)arg2 service:(id)arg3 action:(id)arg4 responses:(id)arg5 forObjects:(id)arg6;
@@ -66,6 +69,7 @@
 - (void)reportUnlockRequired:(CDUnknownBlockType)arg1;
 - (void)reportResults:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)reportOutcome:(id)arg1 results:(id)arg2 handler:(CDUnknownBlockType)arg3;
+- (void)_logEvent:(id)arg1;
 - (id)filterObjects:(id)arg1 forCharacteristics:(id)arg2;
 - (id)filterObjects:(id)arg1 forCharacteristicTypes:(id)arg2;
 - (id)objectsWithSearchFilter:(id)arg1 inHome:(id)arg2;

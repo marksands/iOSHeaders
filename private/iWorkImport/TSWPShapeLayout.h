@@ -6,6 +6,7 @@
 
 #import <iWorkImport/TSDShapeLayout.h>
 
+#import <iWorkImport/TSKChangeSourceObserver-Protocol.h>
 #import <iWorkImport/TSWPColumnMetrics-Protocol.h>
 #import <iWorkImport/TSWPLayoutParent-Protocol.h>
 #import <iWorkImport/TSWPStorageObserver-Protocol.h>
@@ -14,7 +15,7 @@
 @protocol TSWPShapeLayoutDelegate;
 
 __attribute__((visibility("hidden")))
-@interface TSWPShapeLayout : TSDShapeLayout <TSWPLayoutParent, TSWPColumnMetrics, TSWPStorageObserver>
+@interface TSWPShapeLayout : TSDShapeLayout <TSWPLayoutParent, TSWPColumnMetrics, TSWPStorageObserver, TSKChangeSourceObserver>
 {
     TSDWrapSegments *_cachedInteriorWrapSegments;
     _Bool _observingStorage;
@@ -60,6 +61,7 @@ __attribute__((visibility("hidden")))
 - (id)interiorWrapSegments;
 - (void)updateChildrenFromInfo;
 - (void)createContainedLayoutForEditing;
+- (void)processChanges:(id)arg1 forChangeSource:(id)arg2;
 - (_Bool)isInvisibleAutosizingShape;
 - (void)createContainedLayoutForInstructionalText;
 - (void)invalidatePath;

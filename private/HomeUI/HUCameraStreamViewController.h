@@ -12,7 +12,7 @@
 #import <HomeUI/HUPresentationDelegateHost-Protocol.h>
 #import <HomeUI/PGPictureInPictureProxyDelegate-Protocol.h>
 
-@class HFCameraAudioManager, HFCameraItem, HFItem, HFItemManager, HUCameraMicrophoneButton, HUCameraStreamContentViewController, MPVolumeSlider, NSString, PGPictureInPictureProxy, UIBarButtonItem;
+@class HFCameraAudioManager, HFCameraItem, HFItem, HFItemManager, HUCameraMicrophoneButton, HUCameraStreamContentViewController, MPVolumeSlider, NSArray, NSString, PGPictureInPictureProxy, UIBarButtonItem;
 @protocol HUCameraStreamViewControllerDelegate, HUPresentationDelegate;
 
 @interface HUCameraStreamViewController : UIViewController <HFItemManagerDelegate, HUPresentationDelegate, PGPictureInPictureProxyDelegate, HUItemPresentationContainer, HUPresentationDelegateHost>
@@ -27,6 +27,7 @@
     UIViewController *_lastPresentingViewController;
     HFCameraAudioManager *_cameraAudioManager;
     MPVolumeSlider *_volumeSlider;
+    NSArray *_toolbarItemConstraints;
     UIBarButtonItem *_volumeBarButtonItem;
     HUCameraMicrophoneButton *_microphoneButton;
     UIBarButtonItem *_microphoneBarButtonItem;
@@ -36,6 +37,7 @@
 @property(retain, nonatomic) UIBarButtonItem *microphoneBarButtonItem; // @synthesize microphoneBarButtonItem=_microphoneBarButtonItem;
 @property(retain, nonatomic) HUCameraMicrophoneButton *microphoneButton; // @synthesize microphoneButton=_microphoneButton;
 @property(retain, nonatomic) UIBarButtonItem *volumeBarButtonItem; // @synthesize volumeBarButtonItem=_volumeBarButtonItem;
+@property(retain, nonatomic) NSArray *toolbarItemConstraints; // @synthesize toolbarItemConstraints=_toolbarItemConstraints;
 @property(retain, nonatomic) MPVolumeSlider *volumeSlider; // @synthesize volumeSlider=_volumeSlider;
 @property(retain, nonatomic) HFCameraAudioManager *cameraAudioManager; // @synthesize cameraAudioManager=_cameraAudioManager;
 @property(nonatomic) __weak UIViewController *lastPresentingViewController; // @synthesize lastPresentingViewController=_lastPresentingViewController;
@@ -55,7 +57,6 @@
 @property(readonly, nonatomic) HFItem *hu_presentedItem;
 - (id)finishPresentation:(id)arg1 animated:(_Bool)arg2;
 - (void)_presentCameraDetailsWithViewController:(id)arg1;
-- (void)_updateToolbarButtonFramesForSize:(struct CGSize)arg1;
 - (void)_updateMicrophoneButton;
 - (void)_updateNavigationItemTitle;
 - (void)_updateCameraAudioManager;
@@ -74,7 +75,7 @@
 - (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
 - (long long)preferredStatusBarUpdateAnimation;
 - (_Bool)prefersStatusBarHidden;
-- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (void)viewWillLayoutSubviews;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

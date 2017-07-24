@@ -22,12 +22,15 @@
 + (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
+- (id)EKRecurrenceRule;
+- (id)initWithEKRecurrenceRule:(id)arg1;
 @property(readonly, copy, nonatomic) NSDate *endDate;
 @property(readonly, copy, nonatomic) NSDate *startDate;
 @property(readonly, copy, nonatomic) NSDateInterval *dateInterval;

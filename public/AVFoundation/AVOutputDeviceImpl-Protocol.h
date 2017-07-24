@@ -6,7 +6,7 @@
 
 #import <AVFoundation/NSObject-Protocol.h>
 
-@class NSArray, NSDictionary, NSNumber, NSString;
+@class AVOutputDevice, NSArray, NSDictionary, NSNumber, NSString;
 
 @protocol AVOutputDeviceImpl <NSObject>
 @property(readonly, nonatomic) _Bool groupContainsGroupLeader;
@@ -14,6 +14,8 @@
 @property(readonly, nonatomic) _Bool canBeGroupLeader;
 @property(readonly, copy, nonatomic) NSString *groupID;
 @property(readonly, nonatomic) _Bool canBeGrouped;
+@property(readonly) _Bool canSetVolume;
+@property(readonly) float volume;
 @property(readonly, nonatomic) _Bool canAccessRemoteAssets;
 @property(readonly, nonatomic) _Bool requiresAuthorization;
 @property(readonly, nonatomic) unsigned long long deviceFeatures;
@@ -28,7 +30,9 @@
 @property(readonly, nonatomic) long long deviceType;
 @property(readonly, copy, nonatomic) NSString *ID;
 @property(readonly, copy, nonatomic) NSString *name;
+@property __weak AVOutputDevice *parentOutputDevice;
 - (void)setAdministrativeConfiguration:(NSDictionary *)arg1 administrationPassword:(NSString *)arg2 completionHandler:(void (^)(_Bool, NSError *, NSDictionary *))arg3;
+- (void)setVolume:(float)arg1;
 - (void)setSecondDisplayEnabled:(_Bool)arg1;
 @end
 

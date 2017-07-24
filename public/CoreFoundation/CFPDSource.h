@@ -40,6 +40,7 @@ __attribute__((visibility("hidden")))
     _Bool _hasPreviouslyBeenUnableToDetermineSandboxAccess;
 }
 
++ (void)removeObservationConnectionsForIdentifier:(unsigned long long)arg1;
 - (void)dealloc;
 - (id)acceptMessage:(id)arg1;
 - (void)attachSizeWarningsToReply:(id)arg1 forByteCount:(unsigned long long)arg2;
@@ -50,7 +51,7 @@ __attribute__((visibility("hidden")))
 - (void)handleAvoidCache;
 - (id)copyCachedObservationConnectionForMessage:(id)arg1;
 - (void)setObserved:(_Bool)arg1 bySenderOfMessage:(id)arg2;
-- (void)stopNotifyingObserver:(long long)arg1;
+- (void)stopNotifyingObserver:(id)arg1;
 - (int)validateMessage:(id)arg1 withNewKey:(id)arg2 newValue:(id)arg3 currentPlistData:(id)arg4 containerPath:(const char *)arg5 diagnosticMessage:(const char **)arg6;
 - (int)validateSandboxPermissionsForMessage:(id)arg1 containerPath:(const char *)arg2 accessType:(int)arg3;
 - (int)validatePOSIXPermissionsForMessage:(id)arg1 accessType:(int)arg2 fullyValidated:(_Bool *)arg3;
@@ -64,7 +65,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)enqueueNewKey:(id)arg1 value:(id)arg2 size:(unsigned long long)arg3 encoding:(int)arg4;
 - (_Bool)hasObservers;
 - (void)drainPendingChanges;
-- (void)asyncNotifyObserversOfChanges;
+- (void)asyncNotifyObserversOfWriteFromConnection:(id)arg1;
 - (id)copyPropertyListValidatingPlist:(_Bool)arg1;
 - (id)copyPropertyListWithoutDrainingPendingChangesValidatingPlist:(_Bool)arg1;
 - (void)handleDeviceUnlock;

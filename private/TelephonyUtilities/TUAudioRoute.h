@@ -10,31 +10,41 @@
 
 @interface TUAudioRoute : NSObject
 {
+    NSString *_uniqueIdentifier;
+    NSString *_name;
     TUAudioRoutePreferredRouteOptions *_preferredRouteOptions;
     NSDictionary *_route;
 }
 
-@property(retain, nonatomic) NSDictionary *route; // @synthesize route=_route;
+@property(readonly, copy, nonatomic) NSDictionary *route; // @synthesize route=_route;
 @property(retain, nonatomic) TUAudioRoutePreferredRouteOptions *preferredRouteOptions; // @synthesize preferredRouteOptions=_preferredRouteOptions;
+@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(copy, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 - (void).cxx_destruct;
+- (unsigned long long)hash;
+- (_Bool)isEqualToTUAudioRoute:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) NSArray *identifiersOfOtherConnectedDevices;
 - (void)_updatePreferredRouteOptions;
 - (_Bool)_routeNameEqualTo:(id)arg1;
+- (_Bool)_routeTypeEqualTo:(id)arg1;
 @property(readonly, nonatomic, getter=isHeadphoneJackConnected) _Bool headphoneJackConnected;
 @property(readonly, copy, nonatomic) NSString *bluetoothProductIdentifier;
 @property(readonly, nonatomic) long long deviceModelType;
 @property(readonly, nonatomic, getter=isPreferred) _Bool preferred;
 @property(readonly, nonatomic) long long bluetoothEndpointType;
+@property(readonly, nonatomic, getter=isDefaultRoute) _Bool defaultRoute;
 @property(readonly, nonatomic, getter=isWirelessHeadset) _Bool wirelessHeadset;
 @property(readonly, nonatomic, getter=isWiredHeadset) _Bool wiredHeadset;
 @property(readonly, nonatomic, getter=isWiredHeadphones) _Bool wiredHeadphones;
 @property(readonly, nonatomic, getter=isBluetooth) _Bool bluetooth;
+@property(readonly, nonatomic, getter=isBluetoothLE) _Bool bluetoothLE;
 @property(readonly, nonatomic, getter=isCarAudio) _Bool carAudio;
 @property(readonly, nonatomic, getter=isAirTunes) _Bool airTunes;
 @property(readonly, nonatomic, getter=isSpeaker) _Bool speaker;
 @property(readonly, nonatomic, getter=isReceiver) _Bool receiver;
+@property(readonly, nonatomic, getter=isHandset) _Bool handset;
 @property(readonly, nonatomic, getter=isCurrentlyPicked) _Bool currentlyPicked;
-@property(readonly, nonatomic) NSString *uniqueIdentifier;
 - (id)description;
 - (id)initWithDictionary:(id)arg1;
 

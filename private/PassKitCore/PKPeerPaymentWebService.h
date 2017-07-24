@@ -28,12 +28,14 @@
 @property(readonly, nonatomic) id <PKPeerPaymentWebServiceArchiver> archiver; // @synthesize archiver=_archiver;
 @property(retain, nonatomic) PKPeerPaymentWebServiceContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (void)_updateRequestWithCurrentTargetDevice:(id)arg1;
 - (_Bool)_isValidResponse:(id)arg1 error:(id)arg2;
 - (void)_archiveContext;
 - (void)_handleRetryAfterRegisterWithRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_deviceScoreForEndpoint:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_deviceRegistrationDataWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_deviceIdentifier;
+- (unsigned long long)peerPaymentRequestStatementWithCompletion:(CDUnknownBlockType)arg1;
 - (unsigned long long)peerPaymentBankLookupWithCountryCode:(id)arg1 query:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (unsigned long long)peerPaymentUpdatePreferencesWithRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (unsigned long long)peerPaymentPreferencesWithCompletion:(CDUnknownBlockType)arg1;
@@ -41,7 +43,6 @@
 - (unsigned long long)peerPaymentStatusWithPaymentIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (unsigned long long)peerPaymentPerformQuoteWithRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (unsigned long long)peerPaymentDocumentSubmissionRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (unsigned long long)peerPaymentAcceptableDocumentsWithCompletion:(CDUnknownBlockType)arg1;
 - (unsigned long long)peerPaymentIdentityVerificationRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (unsigned long long)peerPaymentQuoteCertificatesForDestination:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (unsigned long long)peerPaymentQuoteWithRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -56,8 +57,9 @@
 @property(readonly, nonatomic) NSURL *peerPaymentServiceURL;
 @property(readonly, nonatomic) _Bool needsRegistration;
 - (void)sharedPeerPaymentServiceChanged:(id)arg1;
+- (id)logFacility;
 - (void)handleWillPerformHTTPRedirectionWithResponse:(id)arg1 redirectHandler:(CDUnknownBlockType)arg2;
-- (id)defaultUserInfoForErrorDomain:(id)arg1 andErrorCode:(long long)arg2;
+- (id)forbiddenErrorWithResponse:(id)arg1;
 - (void)handleResponse:(id)arg1 withError:(id)arg2 data:(id)arg3 task:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (id)initWithContext:(id)arg1 targetDevice:(id)arg2 archiver:(id)arg3;
 - (id)initWithContext:(id)arg1 targetDevice:(id)arg2;

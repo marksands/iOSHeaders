@@ -100,6 +100,8 @@
 @property(readonly, nonatomic, getter=_rowSpacing) double rowSpacing;
 @property(readonly, nonatomic, getter=_tableAttributes) UICollectionViewTableLayoutAttributes *tableAttributes;
 @property(readonly, nonatomic, getter=_tableLayout) UICollectionViewTableLayout *tableLayout;
+- (void)_highlightDidEndForCell:(id)arg1 withInteraction:(id)arg2;
+- (void)_prepareHighlightForCell:(id)arg1 withInteraction:(id)arg2;
 - (_Bool)_shouldDrawThickSeparators;
 - (void)_userSelectCell:(id)arg1;
 - (void)_accessoryButtonAction:(id)arg1;
@@ -114,7 +116,7 @@
 - (void)_endReorderingForCell:(id)arg1 wasCancelled:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)_updateCollectionViewInteractiveMovementTargetPositionForTouch:(id)arg1;
 - (void)_draggingReorderingCell:(id)arg1 yDelta:(double)arg2 touch:(id)arg3;
-- (void)_beginReorderingForCell:(id)arg1 touch:(id)arg2;
+- (_Bool)_beginReorderingForCell:(id)arg1 touch:(id)arg2;
 - (_Bool)_isReorderControlActiveForCell:(id)arg1;
 - (_Bool)_isCellReorderable:(id)arg1;
 - (id)_reorderingCell;

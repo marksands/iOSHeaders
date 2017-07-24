@@ -15,17 +15,22 @@
     id <CNScheduler> _workQueue;
 }
 
-+ (id)propertyDescriptionAndTransformByRecentKind;
++ (CDUnknownBlockType)transformForPropertyDescription:(id)arg1;
++ (id)supportedPropertyDescriptions;
 + (id)supportedRecentsKinds;
 + (id)supportedRecentsDomains;
-+ (id)predicateForSearchingPropertiesOfContact:(id)arg1;
-+ (id)queryForPropertiesInContact:(id)arg1;
++ (id)predicateForSearchingHandlesForAllSupportedKinds:(id)arg1;
++ (id)queryForHandles:(id)arg1;
++ (id)handlesForContactProperties:(id)arg1;
++ (id)allHandlesToSearchForFromContact:(id)arg1;
 + (id)descriptorForRequiredKeys;
 @property(readonly, nonatomic) id <CNScheduler> workQueue; // @synthesize workQueue=_workQueue;
 @property(readonly, nonatomic) CRRecentContactsLibrary *recentsLibrary; // @synthesize recentsLibrary=_recentsLibrary;
 - (void).cxx_destruct;
 - (void)removeRecents:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (id)recentsContactsMatchingPropertiesOfContact:(id)arg1;
+- (id)recentsContactsMatchingHandles:(id)arg1;
+- (id)recentContactsMatchingContactProperties:(id)arg1;
+- (id)recentContactsMatchingAllPropertiesOfContact:(id)arg1;
 - (id)initWithRecentsLibrary:(id)arg1 schedulerProvider:(id)arg2;
 
 @end

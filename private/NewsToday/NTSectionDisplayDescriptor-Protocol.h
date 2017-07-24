@@ -9,6 +9,7 @@
 @class NSString, NSURL;
 
 @protocol NTSectionDisplayDescriptor <NSCopying>
+@property(readonly, nonatomic) _Bool videoPlaysMutedByDefault;
 @property(readonly, copy, nonatomic) NSString *backgroundGradientColor;
 @property(readonly, copy, nonatomic) NSURL *discoverMoreVideosURL;
 @property(readonly, copy, nonatomic) NSString *discoverMoreVideosSubtitle;

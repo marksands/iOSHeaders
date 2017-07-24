@@ -6,18 +6,20 @@
 
 #import <objc/NSObject.h>
 
-@class MNLocation, MNNavigationSession, MNObserverHashTable;
+@class GEOApplicationAuditToken, MNLocation, MNNavigationSession, MNObserverHashTable;
 
 __attribute__((visibility("hidden")))
 @interface MNLocationTracker : NSObject
 {
     MNObserverHashTable *_safeDelegate;
     int _state;
+    GEOApplicationAuditToken *_auditToken;
     MNLocation *_lastMatchedLocation;
     MNNavigationSession *_navigationSession;
     _Bool _localizeRoadNames;
 }
 
+@property(retain, nonatomic, getter=_auditToken, setter=_setAuditToken:) GEOApplicationAuditToken *auditToken; // @synthesize auditToken=_auditToken;
 @property(readonly, nonatomic) __weak MNNavigationSession *navigationSession; // @synthesize navigationSession=_navigationSession;
 @property(readonly, nonatomic) MNObserverHashTable *safeDelegate; // @synthesize safeDelegate=_safeDelegate;
 @property(readonly, nonatomic) MNLocation *lastMatchedLocation; // @synthesize lastMatchedLocation=_lastMatchedLocation;

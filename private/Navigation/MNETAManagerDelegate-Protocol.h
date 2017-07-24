@@ -11,7 +11,6 @@
 @protocol MNETAManagerDelegate <NSObject>
 - (void)etaManager:(MNETAManager *)arg1 updatedTrafficForETARoute:(GEOETARoute *)arg2 from:(unsigned int)arg3 to:(unsigned int)arg4;
 - (void)etaManager:(MNETAManager *)arg1 receivedTrafficIncidentAlert:(MNTrafficIncidentAlert *)arg2;
-- (void)etaManagerUpdatedTrafficIncidents:(MNETAManager *)arg1;
 - (void)etaManager:(MNETAManager *)arg1 updatedIncidentsForRoute:(GEOComposedRoute *)arg2 etaRoute:(GEOETARoute *)arg3 incidentsOffset:(unsigned int)arg4;
 - (void)etaManager:(MNETAManager *)arg1 failedToReceiveETAResponse:(NSError *)arg2;
 - (void)etaManager:(MNETAManager *)arg1 receivedETAResponse:(GEOETATrafficUpdateResponse *)arg2;

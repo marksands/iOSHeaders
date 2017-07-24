@@ -14,7 +14,7 @@
 #import <PassKitUI/PKPaymentServiceDelegate-Protocol.h>
 
 @class NSMutableArray, NSNumber, NSObject, NSString, PKAuthenticator, PKContactlessInterfaceSession, PKFooterTransactionView, PKPassLibrary, PKPassPaymentApplicationView, PKPassPaymentPayStateView, PKPassPaymentSummaryView, PKPassValueAddedServiceInfoView, PKPaymentService, PKPeerPaymentContactResolver, PKPeerPaymentService, UIButton, UIView, UIViewController;
-@protocol OS_dispatch_source;
+@protocol OS_dispatch_source, UICoordinateSpace;
 
 @interface PKPassPaymentContainerView : PKPassFooterContentView <PKPaymentServiceDelegate, PKAuthenticatorDelegate, PKPassPaymentSummaryViewDelegate, PKPassPaymentPayStateViewDelegate, PKPassPaymentApplicationViewDelegate, PKContactlessInterfaceSessionDelegate>
 {
@@ -24,8 +24,11 @@
     PKPassPaymentPayStateView *_payStateView;
     PKPeerPaymentService *_peerPaymentService;
     PKPeerPaymentContactResolver *_transactionFooterContactResolver;
+    id <UICoordinateSpace> _fixedScreenCoordinateSpace;
     PKFooterTransactionView *_transactionView;
     UIView *_summaryView;
+    unsigned long long _transactionUpdateCounter;
+    NSString *_ignoringUpdatesFromTransactionIdentifier;
     PKPassLibrary *_passLibrary;
     PKPassPaymentSummaryView *_paymentSummaryView;
     PKPassPaymentApplicationView *_applicationsView;
@@ -41,6 +44,7 @@
     _Bool _returnToSummaryOnFingerOff;
     _Bool _transitioning;
     NSMutableArray *_transitionCompletionHandlers;
+    _Bool _glyphStateDirty;
     _Bool _waitingForGlyphView;
     long long _transactionSubstate;
     _Bool _holdingTerminalSubstate;
@@ -94,6 +98,8 @@
 - (_Bool)_canAuthenticateWithPasscode;
 - (_Bool)_canAuthenticateWithBiometrics;
 - (void)_updateAuthenticatorState;
+- (void)_setGlyphState:(long long)arg1 animated:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)_setGlyphState:(long long)arg1 animated:(_Bool)arg2;
 - (void)_executeTransitionCompletionHandlers:(_Bool)arg1;
 - (void)_addTransitionCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_endTransition:(_Bool)arg1;
@@ -123,11 +129,9 @@
 - (void)_handleEnterBackgroundNotification:(id)arg1;
 - (void)_handleEnterForegroundNotification:(id)arg1;
 - (_Bool)_isLifecycleNotificationRelevant:(id)arg1;
-- (void)_handlePeerPaymentAccountDidChangeNotification:(id)arg1;
 - (void)_updateApplicationsView;
 - (void)_updateContentViewsWithMessage:(id)arg1 appLaunchToken:(id)arg2;
-- (void)_updateContentViewsWithTransaction:(id)arg1 felicaProperties:(id)arg2 peerPaymentAccount:(id)arg3;
-- (void)_updateContentViewsWithPeerPaymentAccount:(id)arg1;
+- (void)_updateContentViewsWithTransaction:(id)arg1 felicaProperties:(id)arg2;
 - (void)_updateContentViewsWithFelicaProperties:(id)arg1;
 - (void)_updateContentViewsWithTransaction:(id)arg1;
 - (void)_applyLatestTransactionContentWithCompletion:(CDUnknownBlockType)arg1;
@@ -147,7 +151,6 @@
 - (void)_performAuthentication;
 - (void)_cancelSummaryAuthenticationTimer;
 - (void)_beginSummaryAuthenticationIfNecessary;
-- (_Bool)isPassAuthorized;
 - (_Bool)_restartPaymentAuthorization;
 - (void)_endPaymentAuthorization;
 - (void)_beginPaymentAuthorizationWithImmediatePasscode:(_Bool)arg1;
@@ -178,21 +181,22 @@
 - (void)dismissPasscodeViewController;
 - (void)presentPasscodeViewController:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)_cancelBiometricRecognitionAndPromptUserAction:(long long)arg1;
-- (void)authenticatorDidEncounterMatchMiss:(id)arg1;
 - (void)authenticator:(id)arg1 didRequestUserAction:(long long)arg2;
+- (void)authenticatorDidEncounterMatchMiss:(id)arg1;
 - (void)authenticatorDidEncounterFingerOff:(id)arg1;
 - (void)authenticatorDidEncounterFingerOn:(id)arg1;
 - (void)authenticatorWillRestartEvaluation:(id)arg1;
-- (void)paymentApplicationView:(id)arg1 didSelectApplication:(id)arg2;
+- (void)paymentApplicationView:(id)arg1 didSelectApplication:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)didBecomeHiddenAnimated:(_Bool)arg1;
 - (void)willBecomeHiddenAnimated:(_Bool)arg1;
 - (void)didBecomeVisibleAnimated:(_Bool)arg1;
 - (void)willBecomeVisibleAnimated:(_Bool)arg1;
+- (_Bool)isPassAuthorized;
 - (void)_layoutValueAddedServiceSubviews;
 - (void)_layoutPaymentSubviews;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithStyle:(long long)arg1 pass:(id)arg2 context:(id)arg3 paymentSession:(id)arg4;
+- (id)initWithStyle:(long long)arg1 pass:(id)arg2 context:(id)arg3 paymentSession:(id)arg4 paymentService:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

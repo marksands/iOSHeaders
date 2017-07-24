@@ -7,13 +7,14 @@
 #import <objc/NSObject.h>
 
 @class NSMutableDictionary;
-@protocol OS_xpc_object, WebBookmarksXPCConnectionDelegate;
+@protocol OS_dispatch_queue, OS_xpc_object, WebBookmarksXPCConnectionDelegate;
 
 @interface WebBookmarksXPCConnection : NSObject
 {
     NSMutableDictionary *_messageHandlers;
     NSMutableDictionary *_entitlementLookupCache;
     NSObject<OS_xpc_object> *_connection;
+    NSObject<OS_dispatch_queue> *_connectionQueue;
     id <WebBookmarksXPCConnectionDelegate> _delegate;
 }
 

@@ -15,6 +15,7 @@
     NSDictionary *_responseDictionary;
 }
 
+@property(readonly, copy, nonatomic) NSDictionary *responseDictionary; // @synthesize responseDictionary=_responseDictionary;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_buttonActionKeyForType:(long long)arg1;

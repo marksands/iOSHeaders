@@ -6,13 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
-@class BSSignal, NSString;
+@class BSAtomicSignal, NSString;
 @protocol OS_dispatch_queue, OS_xpc_object;
 
 @interface BSBaseXPCClient : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
-    BSSignal *_invalidationSignal;
+    BSAtomicSignal *_invalidationSignal;
     NSObject<OS_xpc_object> *_serverEndpoint;
     NSString *_serviceName;
     _Bool _clientInvalidated;

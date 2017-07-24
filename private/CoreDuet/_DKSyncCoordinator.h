@@ -12,19 +12,33 @@
 @interface _DKSyncCoordinator : NSObject
 {
     NSObject<OS_dispatch_queue> *_executionQueue;
-    _Bool _observersRegistered;
-    NSArray *_streamNamesObserved;
+    _Bool _periodJobIsRegistered;
+    _Bool _databaseObserversRegistered;
+    _Bool _cloudSyncAvailablityObserverRegistered;
+    _Bool _syncPolicyChangedObserverRegistered;
+    _Bool _triggeredSyncObserverRegistered;
+    NSArray *_streamNamesObservedForAdditions;
+    NSArray *_streamNamesObservedForDeletions;
+    _Bool _previousIsCloudSyncAvailable;
     _DKKnowledgeStorage *_storage;
 }
 
-+ (id)changeSetForSyncWithTombstones:(id)arg1 startDate:(id)arg2 endDate:(id)arg3;
-+ (id)changeSetForSyncWithInsertedObjects:(id)arg1 startDate:(id)arg2 endDate:(id)arg3;
 @property(readonly, nonatomic) _DKKnowledgeStorage *storage; // @synthesize storage=_storage;
 - (void).cxx_destruct;
 - (void)deleteRemoteStateWithReply:(CDUnknownBlockType)arg1;
+- (void)_unregisterSyncPolicyChangedObserver;
+- (void)_registerSyncPolicyChangedObserver;
+- (void)_syncPolicyDidChange:(id)arg1;
+- (void)_unregisterCloudSyncAvailablityObserver;
+- (void)_registerCloudSyncAvailablityObserver;
+- (void)_cloudSyncAvailabilityDidChange:(id)arg1;
 - (void)_unregisterDatabaseObservers;
 - (void)_registerDatabaseObservers;
 - (void)_databaseDidDeleteFromStream:(id)arg1;
+- (void)_databaseDidDeleteFromStreamName:(id)arg1;
+- (void)_databaseDidAddToStream:(id)arg1;
+- (void)_databaseDidAddToStreamName:(id)arg1;
+- (void)_databaseDidHaveInsertsAndDeletesWithInsertsAndDeletesCount:(unsigned long long)arg1;
 - (void)_databaseDidHaveInsertsAndDeletes:(id)arg1;
 - (void)_unregisterPeriodicJob;
 - (void)_registerPeriodicJob;
@@ -36,21 +50,32 @@
 - (void)_sendNotificationsForAppliedRemoteDeletionChangeSet:(id)arg1 deleted:(unsigned long long)arg2;
 - (void)_sendNotificationsForAppliedRemoteAdditionChangeSet:(id)arg1;
 - (_Bool)_performSyncUpWithPolicy:(id)arg1 changeSet:(id)arg2;
-- (_Bool)_performSyncUpWithPolicy:(id)arg1 additionChangeSet:(id)arg2 deletionChangeSet:(id)arg3 error:(id *)arg4;
+- (_Bool)_performSyncUpWithPolicy:(id)arg1 queryStartDate:(id)arg2 localChangeSets:(id)arg3 error:(id *)arg4;
 - (_Bool)_performSyncDownWithPolicy:(id)arg1 deletionChangeSets:(id)arg2;
 - (_Bool)_performSyncDownWithPolicy:(id)arg1 additionChangeSets:(id)arg2;
-- (_Bool)_performSyncDownWithPolicy:(id)arg1 allChanges:(id)arg2 error:(id *)arg3;
-- (void)_performSyncWithPolicy:(id)arg1 allChanges:(id)arg2 additionChangeSet:(id)arg3 deletionChangeSet:(id)arg4 reply:(CDUnknownBlockType)arg5;
-- (void)_performSyncWithPolicy:(id)arg1 isTriggeredSync:(_Bool)arg2 reply:(CDUnknownBlockType)arg3;
+- (_Bool)_performSyncDownWithPolicy:(id)arg1 queryStartDate:(id)arg2 error:(id *)arg3;
+- (id)_prunedAdditionChangeSetsFromSyncChanges:(id)arg1;
+- (id)_prunedAdditionChangeSets:(id)arg1 withDevicesToPrune:(id)arg2;
+- (id)_fetchLocalChangeSetsSinceQueryStartDate:(id)arg1 error:(id *)arg2;
+- (void)_deleteEventsForDevices:(id)arg1;
+- (_Bool)_device:(id)arg1 hasMissingChangeSetInDeletionChangeSets:(id)arg2;
+- (id)_changeSetsByDeviceFromChangeSets:(id)arg1;
+- (void)_performSyncWithPolicy:(id)arg1 isTriggeredSync:(_Bool)arg2 localChangeSets:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)performSyncWithPolicy:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (id)_queryStartDateGivenPolicy:(id)arg1 isTriggeredSync:(_Bool)arg2;
+- (id)changeSetForSyncWithTombstones:(id)arg1 startDate:(id)arg2 endDate:(id)arg3;
+- (id)changeSetForSyncWithInsertedObjects:(id)arg1 startDate:(id)arg2 endDate:(id)arg3;
 - (void)syncWithReply:(CDUnknownBlockType)arg1;
+- (void)_setIfHigherSequenceNumber:(unsigned long long)arg1 ofLastDeletionChangeSetProcessedFromDevice:(id)arg2;
+- (unsigned long long)_sequenceNumberOfLastDeletionChangeSetProcessedFromDevice:(id)arg1;
 - (void)_setLastChangeCount:(unsigned long long)arg1;
 - (unsigned long long)_lastChangeCount;
 - (void)_addLastSyncDate:(id)arg1;
 - (id)_lastDaySyncDates;
 - (id)_lastSyncDate;
 - (_Bool)_shouldDeleteZones;
+- (void)_possiblyPerformInitialSync;
+- (void)_performSyncAvailabilityChangedActions;
 - (void)dealloc;
 - (id)initWithStorage:(id)arg1;
 

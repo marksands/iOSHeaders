@@ -6,22 +6,23 @@
 
 #import <QuartzCore/CALayer.h>
 
-@class PKDrawing, PKRendererController;
+@class NSArray, PKRendererController;
 
 @interface PKRendererTile : CALayer
 {
+    // Error parsing type: Aq, name: _renderCount
     _Bool _outOfDate;
     PKRendererController *_rendererController;
     long long _level;
     long long _yOffset;
-    PKDrawing *_renderedDrawing;
+    NSArray *_renderedStrokes;
     struct CGRect _drawingFrame;
 }
 
 + (struct CGRect)layerFrameForLevel:(long long)arg1 yOffset:(long long)arg2 frameScale:(double)arg3;
 + (double)tileHeightForLevel:(long long)arg1 scale:(double)arg2;
 @property _Bool outOfDate; // @synthesize outOfDate=_outOfDate;
-@property(nonatomic) __weak PKDrawing *renderedDrawing; // @synthesize renderedDrawing=_renderedDrawing;
+@property(retain, nonatomic) NSArray *renderedStrokes; // @synthesize renderedStrokes=_renderedStrokes;
 @property(readonly, nonatomic) long long yOffset; // @synthesize yOffset=_yOffset;
 @property(readonly, nonatomic) long long level; // @synthesize level=_level;
 @property __weak PKRendererController *rendererController; // @synthesize rendererController=_rendererController;
@@ -29,6 +30,8 @@
 - (void).cxx_destruct;
 - (id)debugDescription;
 - (id)description;
+@property(readonly) long long renderCount;
+- (void)cancel;
 - (id)splitForScale:(double)arg1;
 - (void)update;
 - (void)updateFrameForScale:(double)arg1;

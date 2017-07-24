@@ -17,8 +17,7 @@
 }
 
 - (void).cxx_destruct;
-- (_Bool)persistViewControllerAfterFeedback;
-- (void)userSentPositiveFeedback:(id)arg1 negativeFeedback:(id)arg2;
+- (void)userSentPositiveFeedback:(id)arg1 negativeFeedback:(id)arg2 customFeedback:(id)arg3;
 - (void)userIndicatedDislike;
 - (void)userIndicatedLike;
 - (id)negativeFeedbackKeys;

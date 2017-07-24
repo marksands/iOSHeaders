@@ -15,17 +15,15 @@
     id <SXFontIndex> _fontIndex;
     SXImageController *_imageController;
     NSMutableDictionary *_componentTextStyles;
+    NSMutableDictionary *_componentStyles;
 }
 
-+ (id)textFetchingQueue;
+@property(retain, nonatomic) NSMutableDictionary *componentStyles; // @synthesize componentStyles=_componentStyles;
 @property(retain, nonatomic) NSMutableDictionary *componentTextStyles; // @synthesize componentTextStyles=_componentTextStyles;
 @property(retain, nonatomic) SXImageController *imageController; // @synthesize imageController=_imageController;
 @property(readonly, nonatomic) id <SXFontIndex> fontIndex; // @synthesize fontIndex=_fontIndex;
 @property(readonly, nonatomic) SXDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
-- (void)fetchMainText:(CDUnknownBlockType)arg1;
-- (void)fetchAllText:(CDUnknownBlockType)arg1;
-- (void)fetchDocumentText:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)mergeJSONObjects:(id)arg1;
 - (id)mergedObjectsWithIdentifier:(id)arg1 andDefaultIdentifiers:(id)arg2 fromDictionary:(id)arg3;
 @property(readonly, nonatomic) UIColor *documentBackgroundColor;

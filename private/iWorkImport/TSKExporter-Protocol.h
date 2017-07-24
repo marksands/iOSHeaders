@@ -27,7 +27,7 @@
 - (void)setSaveToURL:(NSURL *)arg1;
 - (void)setTypeUTI:(NSString *)arg1;
 - (NSString *)typeUTI;
-- (NSString *)exportPathForOutputPath:(NSString *)arg1;
+- (NSURL *)exportURLForOutputURL:(NSURL *)arg1;
 - (_Bool)needsSupplementalFiles;
 - (TSUProgress *)progress;
 - (void)setUsePackageFormat:(_Bool)arg1;

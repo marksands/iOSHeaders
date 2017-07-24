@@ -7,11 +7,12 @@
 #import <objc/NSObject.h>
 
 #import <TelephonyUtilities/NSCopying-Protocol.h>
+#import <TelephonyUtilities/NSMutableCopying-Protocol.h>
 #import <TelephonyUtilities/NSSecureCoding-Protocol.h>
 
 @class NSPersonNameComponents, NSString;
 
-@interface TUCallDisplayContext : NSObject <NSCopying, NSSecureCoding>
+@interface TUCallDisplayContext : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
 {
     int _legacyAddressBookIdentifier;
     NSPersonNameComponents *_personNameComponents;
@@ -47,9 +48,11 @@
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
+- (id)displayContextByMergingWithDisplayContext:(id)arg1;
 - (void)setFirstName:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *firstName;
 - (id)init;

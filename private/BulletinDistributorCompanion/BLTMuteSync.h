@@ -7,11 +7,13 @@
 #import <objc/NSObject.h>
 
 @class NPSManager, NSMutableDictionary, NSSet;
+@protocol OS_dispatch_queue;
 
 @interface BLTMuteSync : NSObject
 {
     NSMutableDictionary *_mutedSectionIdentifiersForDay;
     NPSManager *_npsManager;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
 - (void).cxx_destruct;
@@ -19,7 +21,7 @@
 - (void)addSectionIdentifiers:(id)arg1;
 - (_Bool)isMutedForTodaySectionIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSSet *mutedForTodaySectionIdentifiers;
-- (void)_sync;
+- (void)_queue_sync;
 - (void)_loadMutedSectionIdentifiers;
 - (void)_cleanMuteIdentifiers;
 - (void)_updateObservers;

@@ -6,10 +6,13 @@
 
 #import <iTunesCloud/ICAsyncOperation.h>
 
-@class ICStoreRequestContext, NSString;
+@class ICStoreRequestContext, ICStoreURLRequest, NSObject, NSString;
+@protocol OS_dispatch_queue;
 
 @interface ICMusicSubscriptionPlaybackRequestOperation : ICAsyncOperation
 {
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    ICStoreURLRequest *_activeURLRequest;
     _Bool _delegatedPlayback;
     NSString *_assetSourceStorefrontID;
     long long _requestType;
@@ -36,6 +39,8 @@
 @property(copy, nonatomic) NSString *assetSourceStorefrontID; // @synthesize assetSourceStorefrontID=_assetSourceStorefrontID;
 - (void).cxx_destruct;
 - (void)start;
+- (void)cancel;
+- (id)init;
 
 @end
 

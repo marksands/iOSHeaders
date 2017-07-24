@@ -6,37 +6,23 @@
 
 #import <TSReading/TSDScrollView.h>
 
-@class STAXCustomRotorProvider, UIView;
-@protocol STScrollViewDataSource, STScrollViewDelegate;
+@class STAXCustomRotorProvider;
+@protocol STScrollViewDelegate;
 
 @interface STScrollView : TSDScrollView
 {
-    _Bool _shouldAccountForHeader;
     id <STScrollViewDelegate> _scrollViewDelegate;
-    id <STScrollViewDataSource> _scrollViewDataSource;
     STAXCustomRotorProvider *_customRotorProvider;
-    UIView *_headerView;
-    double _headerHeight;
 }
 
-@property(nonatomic) _Bool shouldAccountForHeader; // @synthesize shouldAccountForHeader=_shouldAccountForHeader;
-@property(nonatomic) double headerHeight; // @synthesize headerHeight=_headerHeight;
-@property(retain, nonatomic) UIView *headerView; // @synthesize headerView=_headerView;
 @property(retain, nonatomic) STAXCustomRotorProvider *customRotorProvider; // @synthesize customRotorProvider=_customRotorProvider;
-@property(nonatomic) __weak id <STScrollViewDataSource> scrollViewDataSource; // @synthesize scrollViewDataSource=_scrollViewDataSource;
 @property(nonatomic) __weak id <STScrollViewDelegate> scrollViewDelegate; // @synthesize scrollViewDelegate=_scrollViewDelegate;
 - (void).cxx_destruct;
-- (void)setFrameUsingCenterAndBounds:(struct CGRect)arg1 onView:(id)arg2;
-- (void)setContentInset:(struct UIEdgeInsets)arg1;
-- (struct UIEdgeInsets)contentInset;
-- (void)setContentOffset:(struct CGPoint)arg1;
-- (void)setFrame:(struct CGRect)arg1;
-- (void)showHeader;
-- (void)reloadHeader;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (id)accessibilityCustomRotors;
 @property(readonly, nonatomic) _Bool isBouncing;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
+- (void)safeAreaInsetsDidChange;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

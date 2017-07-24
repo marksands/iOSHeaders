@@ -59,6 +59,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)iPadFudgeLayout;
 - (double)predictiveKeyCornerRadius;
 - (double)skinnyKeyThreshold;
+- (id)ZWNJKeyImageName;
 - (id)messagesWriteboardKeyImageName;
 - (id)shiftLockImageName;
 - (id)shiftOnKeyImageName;
@@ -71,6 +72,7 @@ __attribute__((visibility("hidden")))
 - (id)dictationKeyImageName;
 - (id)globalEmojiKeyImageName;
 - (id)globalKeyImageName;
+- (struct CGPoint)ZWNJKeyOffset;
 - (struct CGPoint)secondaryShiftKeyOffset;
 - (struct CGPoint)returnKeyOffset;
 - (struct CGPoint)shiftKeyOffset;

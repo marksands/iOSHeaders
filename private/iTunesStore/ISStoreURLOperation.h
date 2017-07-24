@@ -8,7 +8,7 @@
 
 #import <iTunesStore/ISBiometricSessionDelegate-Protocol.h>
 
-@class NSNumber, NSString, SSBiometricAuthenticationContext, SSURLBagContext, SSVFairPlaySAPSession;
+@class NSNumber, NSString, SSBag, SSBiometricAuthenticationContext, SSURLBagContext, SSVFairPlaySAPSession;
 @protocol ISBiometricSessionDelegate, ISStoreURLOperationDelegate;
 
 @interface ISStoreURLOperation : ISURLOperation <ISBiometricSessionDelegate>
@@ -30,6 +30,7 @@
     _Bool _shouldSendDSIDHeader;
     SSBiometricAuthenticationContext *_biometricAuthenticationContext;
     id <ISBiometricSessionDelegate> _biometricSessionDelegate;
+    SSBag *_bag;
 }
 
 + (id)_storeFrontIdentifierForAccount:(id)arg1;
@@ -40,15 +41,20 @@
 + (id)_restrictionsHeaderValue;
 + (void)_addITunesStoreHeadersToRequest:(id)arg1 withURLBag:(id)arg2 account:(id)arg3 clientBundleIdentifier:(id)arg4;
 + (void)_addITunesStoreHeadersToRequest:(id)arg1 withURLBag:(id)arg2 accountIdentifier:(id)arg3 clientBundleIdentifier:(id)arg4;
++ (void)_addITunesStoreHeadersToRequest:(id)arg1 withSSBag:(id)arg2 account:(id)arg3 clientBundleIdentifier:(id)arg4;
++ (void)_addITunesStoreHeadersToRequest:(id)arg1 withSSBag:(id)arg2 accountIdentifier:(id)arg3 clientBundleIdentifier:(id)arg4;
++ (id)_ssBag_copyExtraHeadersForURL:(id)arg1 bag:(id)arg2;
++ (id)_ssBag_copyHeaderPatternsFromBag:(id)arg1;
 + (id)propertyListOperationWithURLBagKey:(id)arg1;
 + (id)pingOperationWithUrl:(id)arg1;
 + (id)itemPingOperationWithIdentifier:(unsigned long long)arg1 urlBagKey:(id)arg2;
 + (void)handleITunesStoreResponseHeaders:(id)arg1 request:(id)arg2 withAccountIdentifier:(id)arg3 shouldRetry:(_Bool *)arg4;
 + (void)addITunesStoreHeadersToRequest:(id)arg1 withAccountIdentifier:(id)arg2;
+@property(retain, nonatomic) SSBag *bag; // @synthesize bag=_bag;
 @property _Bool shouldSendDSIDHeader; // @synthesize shouldSendDSIDHeader=_shouldSendDSIDHeader;
 @property _Bool shouldSuppressUserInfo; // @synthesize shouldSuppressUserInfo=_shouldSuppressUserInfo;
 @property long long machineDataStyle; // @synthesize machineDataStyle=_machineDataStyle;
-@property id <ISBiometricSessionDelegate> biometricSessionDelegate; // @synthesize biometricSessionDelegate=_biometricSessionDelegate;
+@property __weak id <ISBiometricSessionDelegate> biometricSessionDelegate; // @synthesize biometricSessionDelegate=_biometricSessionDelegate;
 @property _Bool useUserSpecificURLBag; // @synthesize useUserSpecificURLBag=_useUserSpecificURLBag;
 @property _Bool urlKnownToBeTrusted; // @synthesize urlKnownToBeTrusted=_urlKnownToBeTrusted;
 @property(nonatomic, getter=isURLBagRequest) _Bool URLBagRequest; // @synthesize URLBagRequest=_isURLBagRequest;
@@ -72,6 +78,9 @@
 - (void)_addStandardQueryParametersForURL:(id)arg1;
 - (id)_account;
 - (void)_setStoreFrontIdentifier:(id)arg1 isTransient:(_Bool)arg2;
+- (_Bool)_ssBag_shouldSendGUIDForURL:(id)arg1 withBag:(id)arg2;
+- (id)_ssBag_copyGUIDPatternsFromBag:(id)arg1;
+- (id)_ssBag_copyGUIDSchemesFromBag:(id)arg1;
 - (void)sender:(id)arg1 didFallbackToPassword:(_Bool)arg2;
 - (void)_willSendRequest:(id)arg1;
 - (_Bool)shouldFollowRedirectWithRequest:(id)arg1 returningError:(id *)arg2;
@@ -92,7 +101,7 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property id <ISStoreURLOperationDelegate> delegate; // @dynamic delegate;
+@property __weak id <ISStoreURLOperationDelegate> delegate; // @dynamic delegate;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;

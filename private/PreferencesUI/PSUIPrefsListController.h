@@ -10,12 +10,13 @@
 #import <PreferencesUI/DevicePINControllerDelegate-Protocol.h>
 #import <PreferencesUI/PSSpotlightSearchResultsControllerDelegate-Protocol.h>
 #import <PreferencesUI/RadiosPreferencesDelegate-Protocol.h>
+#import <PreferencesUI/UISearchBarDelegate-Protocol.h>
 #import <PreferencesUI/UISearchResultsUpdating-Protocol.h>
 
-@class AAUIProfilePictureStore, ACAccountStore, AIDAServiceOwnersManager, CSSearchQuery, EAAccessory, NSArray, NSDictionary, NSObject, NSSet, NSString, PSSpecifier, PSSpotlightSearchResultsController, PSUIClassroomVisibilityArbitrator, PSUIHealthKitVisibilityArbitrator, PSUIHomeKitVisibilityArbitrator, UISearchController, UIViewController, VSAccountStore;
+@class AAUIProfilePictureStore, ACAccountStore, AIDAServiceOwnersManager, CSSearchQuery, EAAccessory, HFHomeSettingsVisibilityArbitrator, NSArray, NSDictionary, NSObject, NSSet, NSString, PSKeyboardNavigationSearchController, PSSpecifier, PSSpotlightSearchResultsController, PSUIClassroomVisibilityArbitrator, PSUIHealthKitVisibilityArbitrator, UIViewController, VSAccountStore;
 @protocol OS_dispatch_queue, PSController;
 
-@interface PSUIPrefsListController : PSListController <AAUISignInControllerDelegate, UISearchResultsUpdating, PSSpotlightSearchResultsControllerDelegate, RadiosPreferencesDelegate, DevicePINControllerDelegate>
+@interface PSUIPrefsListController : PSListController <AAUISignInControllerDelegate, UISearchResultsUpdating, PSSpotlightSearchResultsControllerDelegate, UISearchBarDelegate, RadiosPreferencesDelegate, DevicePINControllerDelegate>
 {
     _Bool _didFirstLoad;
     EAAccessory *_speakerAccessory;
@@ -48,7 +49,7 @@
     ACAccountStore *_accountStore;
     NSString *_pendingOffsetItemName;
     PSUIClassroomVisibilityArbitrator *_classroomVisibilityArbitrator;
-    PSUIHomeKitVisibilityArbitrator *_homeKitVisibilityArbitrator;
+    HFHomeSettingsVisibilityArbitrator *_homeKitVisibilityArbitrator;
     PSUIHealthKitVisibilityArbitrator *_healthKitVisibilityArbitrator;
     VSAccountStore *_videoSubscriberAccountStore;
     AIDAServiceOwnersManager *_serviceOwnersManager;
@@ -56,7 +57,7 @@
     _Bool _skipSelectingGeneralOnLaunch;
     NSString *_wifiString;
     NSString *_bluetoothString;
-    UISearchController *_spotlightSearchController;
+    PSKeyboardNavigationSearchController *_spotlightSearchController;
     PSSpotlightSearchResultsController *_spotlightResultsController;
     CSSearchQuery *_searchQuery;
 }
@@ -66,11 +67,20 @@
 + (id)radiosPreferences;
 @property(retain, nonatomic) CSSearchQuery *searchQuery; // @synthesize searchQuery=_searchQuery;
 @property(retain, nonatomic) PSSpotlightSearchResultsController *spotlightResultsController; // @synthesize spotlightResultsController=_spotlightResultsController;
-@property(retain, nonatomic) UISearchController *spotlightSearchController; // @synthesize spotlightSearchController=_spotlightSearchController;
+@property(retain, nonatomic) PSKeyboardNavigationSearchController *spotlightSearchController; // @synthesize spotlightSearchController=_spotlightSearchController;
 @property(copy, nonatomic) NSString *bluetoothString; // @synthesize bluetoothString=_bluetoothString;
 @property(copy, nonatomic) NSString *wifiString; // @synthesize wifiString=_wifiString;
 @property(nonatomic) _Bool skipSelectingGeneralOnLaunch; // @synthesize skipSelectingGeneralOnLaunch=_skipSelectingGeneralOnLaunch;
 - (void).cxx_destruct;
+- (_Bool)searchBarShouldEndEditing:(id)arg1;
+- (void)searchBarTextDidEndEditing:(id)arg1;
+- (void)dismissPopover;
+- (_Bool)_canSelectSpecifierAtIndexPath:(id)arg1;
+- (void)_tabKeyPressed;
+- (void)_downArrowKeyPressed;
+- (void)_upArrowKeyPressed;
+- (id)keyCommands;
+- (_Bool)canBecomeFirstResponder;
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (id)searchResultsController:(id)arg1 iconForCategory:(id)arg2;
 - (long long)searchResultsController:(id)arg1 sortCategory1:(id)arg2 sortCategory2:(id)arg3;

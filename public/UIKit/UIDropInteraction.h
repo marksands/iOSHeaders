@@ -31,7 +31,6 @@
     id <UIDropInteractionEffect> _interactionEffect;
 }
 
-+ (id)destinationInteractionWithDelegate:(id)arg1;
 @property(nonatomic, getter=_wantsDefaultVisualBehavior, setter=_setWantsDefaultVisualBehavior:) _Bool wantsDefaultVisualBehavior; // @synthesize wantsDefaultVisualBehavior=_wantsDefaultVisualBehavior;
 @property(retain, nonatomic) id <UIDropInteractionEffect> interactionEffect; // @synthesize interactionEffect=_interactionEffect;
 @property(readonly, copy, nonatomic, getter=_pasteConfiguration) UIPasteConfiguration *pasteConfiguration; // @synthesize pasteConfiguration=_pasteConfiguration;
@@ -46,8 +45,8 @@
 - (unsigned long long)_setLastDragOperation:(unsigned long long)arg1 forbidden:(_Bool)arg2 precise:(_Bool)arg3 prefersFullSizePreview:(_Bool)arg4 onSession:(id)arg5;
 - (unsigned long long)_validateDragOperation:(unsigned long long)arg1 forSelector:(SEL)arg2 onSession:(id)arg3;
 - (_Bool)_canHandleDragEvent:(id)arg1;
-- (void)draggingItem:(id)arg1 willAnimateSetDownWithAnimator:(id)arg2;
-- (struct CGRect)targetFrameOfDraggingItem:(id)arg1 inCoordinateSpace:(id)arg2;
+- (void)_draggingItem:(id)arg1 willAnimateSetDownWithAnimator:(id)arg2;
+- (struct CGRect)_targetFrameOfDraggingItem:(id)arg1 inCoordinateSpace:(id)arg2;
 - (void)_prepareForSetDownAnimationInWindow:(id)arg1 withDraggingItem:(id)arg2 visibleDroppedItem:(id)arg3;
 - (id)_dropItemForDroppingDraggingItem:(id)arg1;
 - (void)_cleanupItemsInSessionAfterDrop:(id)arg1;

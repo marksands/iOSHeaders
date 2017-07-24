@@ -8,8 +8,7 @@
 
 #import <NewsCore/FCStreaming-Protocol.h>
 
-@class NSMutableSet, NSString, SFMoreResults;
-@protocol FCContentContext;
+@class FCCloudContext, NSMutableOrderedSet, NSString, SFMoreResults, SFRankingFeedback;
 
 @interface FCArticleSearchStream : NSObject <FCStreaming>
 {
@@ -17,14 +16,14 @@
     _Bool _finished;
     NSString *_query;
     SFMoreResults *_moreResults;
-    id <FCContentContext> _contentContext;
-    CDUnknownBlockType _operationConstructor;
-    NSMutableSet *_articleSearchResults;
+    SFRankingFeedback *_rankingFeedback;
+    FCCloudContext *_cloudContext;
+    NSMutableOrderedSet *_articleSearchResults;
 }
 
-@property(retain, nonatomic) NSMutableSet *articleSearchResults; // @synthesize articleSearchResults=_articleSearchResults;
-@property(copy, nonatomic) CDUnknownBlockType operationConstructor; // @synthesize operationConstructor=_operationConstructor;
-@property(retain, nonatomic) id <FCContentContext> contentContext; // @synthesize contentContext=_contentContext;
+@property(retain, nonatomic) NSMutableOrderedSet *articleSearchResults; // @synthesize articleSearchResults=_articleSearchResults;
+@property(retain, nonatomic) FCCloudContext *cloudContext; // @synthesize cloudContext=_cloudContext;
+@property(retain, nonatomic) SFRankingFeedback *rankingFeedback; // @synthesize rankingFeedback=_rankingFeedback;
 @property(retain, nonatomic) SFMoreResults *moreResults; // @synthesize moreResults=_moreResults;
 @property(copy, nonatomic) NSString *query; // @synthesize query=_query;
 @property(nonatomic, getter=isFinished) _Bool finished; // @synthesize finished=_finished;

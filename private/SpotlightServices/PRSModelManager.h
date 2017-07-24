@@ -21,9 +21,9 @@
 + (void)loadModelWithURL:(id)arg1 type:(unsigned long long)arg2 directivesPath:(id)arg3 intoModelDict:(id)arg4 error:(id *)arg5;
 + (id)directivesFromFilePath:(id)arg1;
 + (_Bool)loadModelsWithDirectory:(id)arg1 intoModelDict:(id)arg2;
-+ (void)enumerateModelTypesWithHandler:(CDUnknownBlockType)arg1;
 + (void)pathsFor:(unsigned long long)arg1 withParentPath:(id)arg2 modelPath:(id *)arg3 directivesPath:(id *)arg4;
 + (void)cannedInfoForType:(unsigned long long)arg1 directivesPath:(id *)arg2 modelName:(id *)arg3;
++ (id)errorDomain;
 + (id)sharedModelManager;
 @property(nonatomic) unsigned long long activeCount; // @synthesize activeCount=_activeCount;
 @property(retain, nonatomic) NSMutableDictionary *models; // @synthesize models=_models;

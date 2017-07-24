@@ -85,8 +85,8 @@ struct iovec {
 };
 
 struct mach_timebase_info {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned int numer;
+    unsigned int denom;
 };
 
 struct os_activity_breadcrumb_s {

@@ -11,6 +11,7 @@
 
 @protocol PLRootLibraryNavigationController <NSObject, PLCloudFeedNavigating>
 - (UIViewController *)navigateToMemoryWithLocalIdentifier:(NSString *)arg1;
+- (void)navigateToRevealTheMostRecentMemoryAnimated:(_Bool)arg1;
 - (_Bool)assetIsAvailableForNavigationInMoments:(PLManagedAsset *)arg1 refetchSectionsIfNeeded:(_Bool)arg2;
 - (_Bool)assetIsAvailableForNavigationInMoments:(PLManagedAsset *)arg1;
 - (_Bool)cloudFeedIsAvailableForNavigation;

@@ -9,7 +9,7 @@
 #import <SafariServices/SFServiceViewControllerProtocol-Protocol.h>
 #import <SafariServices/_SFActivityDelegate-Protocol.h>
 
-@class NSDate, NSString, _SFWebViewUsageMonitor;
+@class NSDate, NSString, SFUserNotification, WKProcessPool, _SFWebViewUsageMonitor;
 
 __attribute__((visibility("hidden")))
 @interface SFBrowserServiceViewController : _SFBrowserContentViewController <_SFActivityDelegate, SFServiceViewControllerProtocol>
@@ -17,14 +17,20 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _activityViewControllerInfoFetchCompletionHandler;
     _SFWebViewUsageMonitor *_usageMonitor;
     NSDate *_lastHostApplicationSuspendDate;
+    WKProcessPool *_processPool;
     _Bool _isBeingUsedForLinkPreview;
+    SFUserNotification *_userNotification;
+    NSString *_hostApplicationCallbackURLScheme;
 }
 
 + (id)_exportedInterface;
 + (id)_remoteViewControllerInterface;
+@property(copy, nonatomic) NSString *hostApplicationCallbackURLScheme; // @synthesize hostApplicationCallbackURLScheme=_hostApplicationCallbackURLScheme;
+@property(retain, nonatomic) SFUserNotification *userNotification; // @synthesize userNotification=_userNotification;
 @property(nonatomic) _Bool isBeingUsedForLinkPreview; // @synthesize isBeingUsedForLinkPreview=_isBeingUsedForLinkPreview;
 - (void).cxx_destruct;
 - (void)safariActivity:(id)arg1 didFinish:(_Bool)arg2;
+- (id)_applicationPayloadForOpeningInSafari;
 - (void)_closeDatabasesOnBackgroundingOrDismissal;
 - (void)_recordHostAppIdAndURLForTapToRadar:(id)arg1;
 - (void)_hostApplicationDidEnterBackground;
@@ -42,10 +48,11 @@ __attribute__((visibility("hidden")))
 - (void)_fetchActivityViewControllerInfoForURL:(id)arg1 title:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)didFetchCustomActivities:(id)arg1 excludedActivityTypes:(id)arg2;
 - (void)_getSafariDataSharingModeWithPrivacyPrompt:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_toggleSafariDataSharingModeFromToolbar:(id)arg1;
 - (id)websiteDataStoreConfiguration;
 - (_Bool)_ensureWebsiteDataStoreURL:(id)arg1 cookieStoreURL:(id)arg2;
 - (id)_webDataStoreRootURL;
+- (void)openCurrentURLInSafari;
+- (void)decideCookieSharingForURL:(id)arg1 callbackURLScheme:(id)arg2;
 - (void)loadURL:(id)arg1;
 - (id)processPool;
 - (id)processPoolConfiguration;

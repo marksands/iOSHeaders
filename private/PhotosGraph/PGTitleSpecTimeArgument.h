@@ -13,6 +13,7 @@
 
 + (id)argumentWithTimeType:(unsigned long long)arg1;
 @property(readonly) unsigned long long type; // @synthesize type=_type;
+- (id)_yearsAgoStringWithEventNodes:(id)arg1 relativeToDateComponents:(id)arg2;
 - (id)_birthdayTitleWithMomentNodes:(id)arg1;
 - (id)_anniversaryTitleWithMomentNodes:(id)arg1;
 - (id)_yearsAgoTitle;

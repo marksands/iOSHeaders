@@ -4010,7 +4010,7 @@ struct ShapeInfoArchive {
     struct Reference *_field6;
     struct Reference *_field7;
     struct Reference *_field8;
-    struct Range *_field9;
+    _Bool _field9;
 };
 
 struct ShapeStyleArchive {
@@ -4584,21 +4584,21 @@ struct TSCEASTNodeArrayReferenceIteratorState {
 };
 
 struct TSCEASTNodeCrossTableCellReference {
-    unsigned int row:21;
-    unsigned int column:15;
+    int row;
+    short column;
     unsigned int rowIsAbsolute:1;
     unsigned int columnIsAbsolute:1;
     CDStruct_e6eac3cb tableID;
 };
 
 struct TSCEASTNodeCrossTableColumnReference {
-    unsigned int column:15;
+    short column;
     unsigned int columnIsAbsolute:1;
     CDStruct_e6eac3cb tableID;
 };
 
 struct TSCEASTNodeCrossTableRowReference {
-    unsigned int row:21;
+    int row;
     unsigned int rowIsAbsolute:1;
     CDStruct_e6eac3cb tableID;
 };
@@ -4838,8 +4838,8 @@ struct TSCERegionNode {
 
 struct TSCERelativeCellRef {
     struct {
-        unsigned int row:21;
-        unsigned int column:15;
+        int row;
+        short column;
     } relativeCoord;
     UUIDData_5fbc143e tableUID;
     unsigned int columnIsAbsolute:1;
@@ -5267,16 +5267,17 @@ struct TSWPLineFragment {
     vector_5a1d2cc3 _field19;
     struct vector<TSWPUIAttachmentData, std::__1::allocator<TSWPUIAttachmentData>> _field20;
     struct TSWPTypesettingState *_field21;
-    double _field22;
-    id _field23;
+    unsigned int _field22;
+    double _field23;
     id _field24;
-    struct vector<TSWPAdornments, std::__1::allocator<TSWPAdornments>> _field25;
-    struct TSWPAdornmentLine *_field26;
-    id _field27;
-    unsigned int _field28;
-    struct vector<TSWPLFCharIndexData, std::__1::allocator<TSWPLFCharIndexData>> _field29;
-    id _field30;
-    double _field31;
+    id _field25;
+    struct vector<TSWPAdornments, std::__1::allocator<TSWPAdornments>> _field26;
+    struct TSWPAdornmentLine *_field27;
+    id _field28;
+    unsigned int _field29;
+    struct vector<TSWPLFCharIndexData, std::__1::allocator<TSWPLFCharIndexData>> _field30;
+    id _field31;
+    double _field32;
 };
 
 struct TSWPLineFragmentArray;
@@ -5597,8 +5598,9 @@ struct TargetHintArchive {
     unsigned int _field9;
     unsigned int _field10;
     struct DoublePoint *_field11;
-    struct DoubleSize *_field12;
-    unsigned int _field13;
+    unsigned int _field12;
+    _Bool _field13;
+    struct DoubleSize *_field14;
 };
 
 struct TexCoordTilingShaderEffectState {
@@ -7131,13 +7133,13 @@ struct map<unsigned int, SFUtility::ObjcSharedPtr<NSObject>, std::__1::less<unsi
     } _field1;
 };
 
-struct map<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>>> {
-    struct __tree<std::__1::__value_type<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>>> {
+struct map<unsigned int, std::__1::map<long long, TSPComponent *, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, TSPComponent *>>>, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, std::__1::map<long long, TSPComponent *, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, TSPComponent *>>>>>> {
+    struct __tree<std::__1::__value_type<unsigned int, std::__1::map<long long, TSPComponent *, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, TSPComponent *>>>>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, std::__1::map<long long, TSPComponent *, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, TSPComponent *>>>>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, std::__1::map<long long, TSPComponent *, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, TSPComponent *>>>>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>, void *>>> {
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, std::__1::map<long long, TSPComponent *, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, TSPComponent *>>>>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>, std::__1::less<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, std::__1::map<long long, TSPComponent *, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, TSPComponent *>>>>, std::__1::less<unsigned int>, true>> {
             unsigned long long __first_;
         } __pair3_;
     } __tree_;
@@ -7480,20 +7482,16 @@ struct set<wchar_t, std::__1::less<wchar_t>, std::__1::allocator<wchar_t>> {
     } _field1;
 };
 
-struct shared_count {
-    struct sp_counted_base *_field1;
-};
-
 struct shared_ptr<StateSpec>;
 
 struct shared_ptr<TSCEAbstractVector> {
     struct TSCEAbstractVector *_field1;
-    struct shared_count _field2;
+    struct __shared_weak_count *_field2;
 };
 
 struct shared_ptr<TSCEValue> {
     struct TSCEValue *_field1;
-    struct shared_count _field2;
+    struct __shared_weak_count *_field2;
 };
 
 struct shared_ptr<TSP::ArchiveInfo> {
@@ -7530,8 +7528,6 @@ struct sockaddr_in {
     struct in_addr _field4;
     char _field5[8];
 };
-
-struct sp_counted_base;
 
 struct stack<EQKitLayoutContext, std::__1::deque<EQKitLayoutContext, std::__1::allocator<EQKitLayoutContext>>> {
     struct deque<EQKitLayoutContext, std::__1::allocator<EQKitLayoutContext>> _field1;
@@ -10191,10 +10187,10 @@ typedef struct {
 } CDStruct_44ada6bf;
 
 typedef struct {
-    _Bool applicationExists;
-    _Bool oldPluginExists;
-    _Bool currentPluginExists;
-} CDStruct_22e7ec3e;
+    _Bool _field1;
+    _Bool _field2;
+    _Bool _field3;
+} CDStruct_2a4d9400;
 
 typedef struct {
     _Bool _field1;
@@ -10259,13 +10255,6 @@ typedef struct {
 } CDStruct_316206b0;
 
 typedef struct {
-    unsigned short _field1;
-    unsigned char _field2;
-    unsigned int :1;
-    unsigned int :1;
-} CDStruct_f2a491fb;
-
-typedef struct {
     CDUnknownFunctionPointerType _field1;
     CDUnknownFunctionPointerType _field2;
     CDUnknownFunctionPointerType _field3;
@@ -10282,8 +10271,7 @@ typedef struct {
 
 typedef struct {
     unsigned int formulaID:24;
-    unsigned int reserved:8;
-} CDStruct_a91f2c80;
+} CDStruct_ed6d627d;
 
 typedef struct {
     double _field1;
@@ -10341,6 +10329,13 @@ typedef struct {
     int columnOffset;
     int rowOffset;
 } CDStruct_945081a1;
+
+typedef struct {
+    int _field1;
+    short _field2;
+    unsigned int :1;
+    unsigned int :1;
+} CDStruct_382da14b;
 
 typedef struct {
     long long _field1;

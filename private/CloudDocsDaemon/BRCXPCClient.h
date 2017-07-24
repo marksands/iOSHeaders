@@ -41,7 +41,7 @@ __attribute__((visibility("hidden")))
 - (void)_startSharingOperationAfterAcceptation:(struct _BRCFrameworkOperation *)arg1 client:(id)arg2 item:(id)arg3;
 - (id)_sharingOperationItemFromLookup:(id)arg1 url:(id)arg2 allowDirectory:(_Bool)arg3 error:(id *)arg4;
 - (void)setupNonSandboxedAccessForUbiquityContainers:(id)arg1 forBundleID:(id)arg2;
-- (void)_setupAppLibraryAndZoneWithID:(id)arg1 andSendReply:(CDUnknownBlockType)arg2;
+- (void)_setupAppLibraryAndZoneWithID:(id)arg1 recreateDocumentsIfNeeded:(_Bool)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)_startDownloadItemsAtURLs:(id)arg1 pos:(unsigned long long)arg2 options:(unsigned long long)arg3 error:(id)arg4 reply:(CDUnknownBlockType)arg5;
 - (void)_addExternalDocumentReferenceTo:(id)arg1 underParent:(id)arg2 forceReparent:(_Bool)arg3 reply:(CDUnknownBlockType)arg4;
 - (id)_createBookmarkWithTarget:(id)arg1 targetPath:(id)arg2 parentPath:(id)arg3 aliasName:(id)arg4 error:(id *)arg5;

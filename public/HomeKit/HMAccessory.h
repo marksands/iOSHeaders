@@ -11,12 +11,13 @@
 #import <HomeKit/HMObjectMerge-Protocol.h>
 #import <HomeKit/NSSecureCoding-Protocol.h>
 
-@class HMAccessoryCategory, HMApplicationData, HMDelegateCaller, HMFMessageDispatcher, HMFSoftwareVersion, HMHome, HMRoom, HMThreadSafeMutableArrayCollection, NSArray, NSNumber, NSString, NSUUID;
+@class HMAccessoryCategory, HMApplicationData, HMDelegateCaller, HMFMessageDispatcher, HMFSoftwareVersion, HMHome, HMRemoteLoginHandler, HMRoom, HMSoftwareUpdateController, HMThreadSafeMutableArrayCollection, NSArray, NSNumber, NSString, NSUUID;
 @protocol HMAccessoryDelegate, OS_dispatch_queue;
 
 @interface HMAccessory : NSObject <NSSecureCoding, HMFMessageReceiver, HMObjectMerge, HMMutableApplicationData>
 {
     _Bool _currentAccessory;
+    HMSoftwareUpdateController *_softwareUpdateController;
     _Bool _firmwareUpdateAvailable;
     _Bool _reachable;
     _Bool _bridgedAccessory;
@@ -41,12 +42,14 @@
     unsigned long long _additionalSetupStatus;
     NSNumber *_accessoryFlags;
     long long _certificationStatus;
+    long long _associationOptions;
     HMFMessageDispatcher *_msgDispatcher;
     long long _reachableTransports;
     HMThreadSafeMutableArrayCollection *_currentServices;
     NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     NSUUID *_uuid;
+    HMRemoteLoginHandler *_remoteLoginHandler;
     HMDelegateCaller *_delegateCaller;
     HMThreadSafeMutableArrayCollection *_accessoryProfiles;
 }
@@ -56,6 +59,7 @@
 + (id)_mediaProfilesForAccessoryProfiles:(id)arg1;
 @property(retain, nonatomic) HMThreadSafeMutableArrayCollection *accessoryProfiles; // @synthesize accessoryProfiles=_accessoryProfiles;
 @property(retain, nonatomic) HMDelegateCaller *delegateCaller; // @synthesize delegateCaller=_delegateCaller;
+@property(copy) HMRemoteLoginHandler *remoteLoginHandler; // @synthesize remoteLoginHandler=_remoteLoginHandler;
 @property(copy, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
@@ -63,6 +67,7 @@
 @property(nonatomic) _Bool paired; // @synthesize paired=_paired;
 @property(nonatomic) long long reachableTransports; // @synthesize reachableTransports=_reachableTransports;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
+@property(nonatomic) long long associationOptions; // @synthesize associationOptions=_associationOptions;
 @property(retain, nonatomic) NSNumber *accessoryFlags; // @synthesize accessoryFlags=_accessoryFlags;
 @property(nonatomic) unsigned long long additionalSetupStatus; // @synthesize additionalSetupStatus=_additionalSetupStatus;
 @property(nonatomic) unsigned long long transportTypes; // @synthesize transportTypes=_transportTypes;
@@ -77,6 +82,7 @@
 - (void)updateApplicationData:(id)arg1 forService:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)updateApplicationData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_configureProfilesWithContext:(id)arg1;
+@property(readonly, copy) NSArray *profiles;
 - (void)_handleAccessoryCategoryChanged:(id)arg1;
 - (void)_handleServiceTypeAssociated:(id)arg1;
 - (void)_handleServiceRenamed:(id)arg1;
@@ -132,6 +138,8 @@
 @property(copy) NSString *storeID; // @synthesize storeID=_storeID;
 - (id)_valueForCharacteristic:(id)arg1 ofService:(id)arg2;
 - (id)_accessoryInformationService;
+- (void)setSoftwareUpdateController:(id)arg1;
+- (id)softwareUpdateController;
 @property(copy) HMFSoftwareVersion *softwareVersion; // @synthesize softwareVersion=_softwareVersion;
 @property(copy) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;
 @property(copy, nonatomic) NSString *firmwareVersion; // @synthesize firmwareVersion=_firmwareVersion;

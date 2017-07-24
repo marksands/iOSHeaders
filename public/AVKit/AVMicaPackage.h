@@ -14,18 +14,20 @@
 @interface AVMicaPackage : NSObject <CAMLParserDelegate, CAStateControllerDelegate>
 {
     NSString *_state;
-    CAStateController *_stateController;
     NSString *_packageName;
+    CAStateController *_stateController;
+    long long _layoutDirection;
     CALayer *_rootLayer;
     struct CGSize _targetSize;
-    struct CGSize _glyphSizeWithinUnscaledBounds;
+    struct CGSize _unscaledSize;
 }
 
 + (id)classSubstitions;
 @property(retain, nonatomic) CALayer *rootLayer; // @synthesize rootLayer=_rootLayer;
-@property(readonly, nonatomic) NSString *packageName; // @synthesize packageName=_packageName;
+@property(nonatomic) long long layoutDirection; // @synthesize layoutDirection=_layoutDirection;
 @property(readonly, nonatomic) CAStateController *stateController; // @synthesize stateController=_stateController;
-@property(nonatomic) struct CGSize glyphSizeWithinUnscaledBounds; // @synthesize glyphSizeWithinUnscaledBounds=_glyphSizeWithinUnscaledBounds;
+@property(readonly, nonatomic) NSString *packageName; // @synthesize packageName=_packageName;
+@property(nonatomic) struct CGSize unscaledSize; // @synthesize unscaledSize=_unscaledSize;
 @property(nonatomic) struct CGSize targetSize; // @synthesize targetSize=_targetSize;
 @property(copy, nonatomic) NSString *state; // @synthesize state=_state;
 - (void).cxx_destruct;
@@ -34,9 +36,11 @@
 - (id)availableStates;
 - (void)transitionToStateWithName:(id)arg1 onLayer:(id)arg2;
 - (void)transitionToStateWithName:(id)arg1;
+- (void)_recursivelySetFillColor:(id)arg1 rootLayer:(id)arg2;
 - (id)_recursivelyFindSublayerWithName:(id)arg1 rootLayer:(id)arg2;
 - (Class)CAMLParser:(id)arg1 didFailToFindClassWithName:(id)arg2;
-- (id)initWithPackageName:(id)arg1;
+- (void)setFillColor:(id)arg1;
+- (id)initWithPackageName:(id)arg1 layoutDirection:(long long)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

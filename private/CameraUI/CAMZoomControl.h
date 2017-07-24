@@ -19,6 +19,8 @@
     _Bool __shouldShowZoomDial;
     id <CAMZoomControlDelegate> _delegate;
     long long _layoutStyle;
+    double _zoomButtonMaxYWhenContracted;
+    double _zoomDialRadius;
     long long _orientation;
     CAMZoomButton *__zoomButton;
     CAMZoomDial *__zoomDial;
@@ -46,6 +48,8 @@
 @property(readonly, nonatomic) CAMZoomButton *_zoomButton; // @synthesize _zoomButton=__zoomButton;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(nonatomic, getter=isZoomDialEnabled) _Bool zoomDialEnabled; // @synthesize zoomDialEnabled=_zoomDialEnabled;
+@property(nonatomic) double zoomDialRadius; // @synthesize zoomDialRadius=_zoomDialRadius;
+@property(nonatomic) double zoomButtonMaxYWhenContracted; // @synthesize zoomButtonMaxYWhenContracted=_zoomButtonMaxYWhenContracted;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
 @property(nonatomic) long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 @property(nonatomic) __weak id <CAMZoomControlDelegate> delegate; // @synthesize delegate=_delegate;
@@ -76,6 +80,8 @@
 - (void)setShouldShowZoomDial:(_Bool)arg1 animationSpeed:(double)arg2 afterDelay:(double)arg3;
 - (void)_setShouldShowZoomDial:(_Bool)arg1 animationSpeed:(double)arg2;
 - (void)setZoomDialEnabled:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)updateToContentSize:(id)arg1;
+@property(readonly, nonatomic) double zoomDialBorderWidth;
 @property(nonatomic) _Bool shouldDisableValuesBelow2x;
 @property(nonatomic) _Bool shouldShowLabelAt2x;
 - (void)_setZoomFactor:(double)arg1 shouldNotifyDelegate:(_Bool)arg2;

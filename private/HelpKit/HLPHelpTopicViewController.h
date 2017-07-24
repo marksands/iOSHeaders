@@ -59,6 +59,7 @@
 - (void)helpTopicViewControllerShowHelpBookInfo:(id)arg1;
 - (void)helpTopicViewController:(id)arg1 failToLoadWithError:(id)arg2;
 - (void)helpTopicViewControllerDoneButtonTapped:(id)arg1;
+- (void)helpTopicViewControllerCurrentTopicIsPassionPoint:(id)arg1;
 - (_Bool)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(long long)arg3;
 - (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
 - (void)webViewDidFinishLoad:(id)arg1;

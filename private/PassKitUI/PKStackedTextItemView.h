@@ -40,6 +40,7 @@
 - (double)_prepareViewForReuse:(id)arg1;
 - (void)_updateAlignmentAnimated:(_Bool)arg1;
 - (void)_updateSubviewsAnimated:(_Bool)arg1;
+- (void)prepareForReuse;
 - (void)layoutIfNeededAnimated:(_Bool)arg1;
 - (void)layoutSubviews;
 - (CDStruct_c7197326)boundingMetricForWidth:(double)arg1;

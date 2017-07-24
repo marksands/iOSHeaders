@@ -9,7 +9,7 @@
 #import <GeoServices/GEOResourceManifestTileGroupObserver-Protocol.h>
 #import <GeoServices/GEORoutePreloadSession-Protocol.h>
 
-@class GEOComposedRoute, NSMutableDictionary, NSString;
+@class GEOApplicationAuditToken, GEOComposedRoute, NSMutableDictionary, NSString;
 @protocol GEORoutePreloadSessionDelegate;
 
 @interface GEORoutePreloader : NSObject <GEOResourceManifestTileGroupObserver, GEORoutePreloadSession>
@@ -27,6 +27,7 @@
     unsigned long long _networkQuality;
     id <GEORoutePreloadSessionDelegate> _delegate;
     double _stepSizeInMeters;
+    GEOApplicationAuditToken *_token;
 }
 
 + (id)preloaderForRoute:(id)arg1;

@@ -22,7 +22,7 @@
 @property(readonly, nonatomic) id <FCHeadlineProviding> deflatedHeadline; // @synthesize deflatedHeadline=_deflatedHeadline;
 @property(readonly, nonatomic) NSString *articleID; // @synthesize articleID=_articleID;
 - (void).cxx_destruct;
-- (id)initWithParsecSearchResult:(id)arg1 contentContext:(id)arg2;
+- (id)initWithParsecSearchResult:(id)arg1 cloudContext:(id)arg2;
 
 @end
 

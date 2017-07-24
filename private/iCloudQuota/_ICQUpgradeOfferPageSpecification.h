@@ -20,9 +20,11 @@
     ICQLink *_bottomLink;
     NSString *_finePrintFormat;
     NSArray *_finePrintLinks;
+    NSString *_bottomLinkVisibleKey;
 }
 
 + (id)upgradeOfferPageSpecificationSampleForLevel:(long long)arg1;
+@property(retain, nonatomic) NSString *bottomLinkVisibleKey; // @synthesize bottomLinkVisibleKey=_bottomLinkVisibleKey;
 @property(retain, nonatomic) NSArray *finePrintLinks; // @synthesize finePrintLinks=_finePrintLinks;
 @property(retain, nonatomic) NSString *finePrintFormat; // @synthesize finePrintFormat=_finePrintFormat;
 @property(retain, nonatomic) ICQLink *bottomLink; // @synthesize bottomLink=_bottomLink;
@@ -34,6 +36,8 @@
 @property(retain, nonatomic) NSString *iconBundleIdentifier; // @synthesize iconBundleIdentifier=_iconBundleIdentifier;
 @property(readonly, nonatomic) NSDictionary *serverDict; // @synthesize serverDict=_serverDict;
 - (void).cxx_destruct;
+- (id)copyWithBindings:(id)arg1;
+- (id)copy;
 - (id)debugDescription;
 - (id)initWithServerDictionary:(id)arg1 pageIdentifier:(id)arg2;
 - (id)initWithServerDictionary:(id)arg1;

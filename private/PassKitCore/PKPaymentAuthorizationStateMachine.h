@@ -8,7 +8,7 @@
 
 #import <PassKitCore/PKContinuityPaymentCoordinatorDelegate-Protocol.h>
 
-@class NSMutableArray, NSString, PKContinuityPaymentCoordinator, PKContinuityPaymentService, PKInAppPaymentSession, PKPaymentAuthorizationClientCallbackStateParam, PKPaymentAuthorizationDataModel, PKPaymentService, PKPaymentWebService;
+@class NSMutableArray, NSString, PKContinuityPaymentCoordinator, PKContinuityPaymentService, PKInAppPaymentSession, PKPaymentAuthorizationClientCallbackStateParam, PKPaymentAuthorizationDataModel, PKPaymentService, PKPaymentWebService, PKPeerPaymentSession;
 @protocol OS_dispatch_source, PKAggregateDictionaryProtocol, PKPaymentAuthorizationStateMachineDelegate;
 
 @interface PKPaymentAuthorizationStateMachine : NSObject <PKContinuityPaymentCoordinatorDelegate>
@@ -21,6 +21,7 @@
     PKPaymentAuthorizationDataModel *_model;
     id <PKAggregateDictionaryProtocol> _aggregateDictionary;
     PKInAppPaymentSession *_inAppPaymentSession;
+    PKPeerPaymentSession *_peerPaymentSession;
     PKContinuityPaymentService *_continuityPaymentService;
     double _updatePaymentDeviceTimeout;
     id <PKPaymentAuthorizationStateMachineDelegate> _delegate;
@@ -48,6 +49,7 @@
 @property(nonatomic) __weak id <PKPaymentAuthorizationStateMachineDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) double updatePaymentDeviceTimeout; // @synthesize updatePaymentDeviceTimeout=_updatePaymentDeviceTimeout;
 @property(retain, nonatomic) PKContinuityPaymentService *continuityPaymentService; // @synthesize continuityPaymentService=_continuityPaymentService;
+@property(retain, nonatomic) PKPeerPaymentSession *peerPaymentSession; // @synthesize peerPaymentSession=_peerPaymentSession;
 @property(retain, nonatomic) PKInAppPaymentSession *inAppPaymentSession; // @synthesize inAppPaymentSession=_inAppPaymentSession;
 @property(retain, nonatomic) id <PKAggregateDictionaryProtocol> aggregateDictionary; // @synthesize aggregateDictionary=_aggregateDictionary;
 @property(retain, nonatomic) PKPaymentAuthorizationDataModel *model; // @synthesize model=_model;
@@ -66,7 +68,6 @@
 - (void)_unregisterForNotifications;
 - (void)_registerForNotifications;
 - (void)_performDidAuthorizeCallbackWithParam:(id)arg1;
-- (void)_performRedeemRequestWithParam:(id)arg1;
 - (void)_performRewrapRequestWithParam:(id)arg1;
 - (void)_performPrepareTransactionDetailsRequestWithParam:(id)arg1;
 - (void)_performNonceRequestWithParam:(id)arg1;
@@ -75,7 +76,9 @@
 - (void)_enqueueDidAuthorizePaymentWithPayment:(id)arg1;
 - (void)_enqueueDidAuthorizePaymentWithRemotePayment:(id)arg1;
 - (void)_enqueueDidAuthorizePaymentWithToken:(id)arg1;
+- (void)_enqueueDidSelectRemotePaymentInstrument:(id)arg1 paymentApplication:(id)arg2;
 - (void)_enqueueDidSelectRemotePaymentInstrument:(id)arg1;
+- (void)_enqueueDidSelectPaymentPass:(id)arg1 paymentApplication:(id)arg2;
 - (void)_enqueueDidSelectPaymentPass:(id)arg1;
 - (void)_enqueueDidSelectShippingContact:(id)arg1;
 - (void)_enqueueDidRequestMerchantSession;
@@ -110,7 +113,9 @@
 - (void)didAuthenticateWithCredential:(id)arg1;
 - (void)didReceivePaymentMethodCompleteWithSummaryItems:(id)arg1;
 - (void)didReceivePaymentMethodCompleteWithUpdate:(id)arg1;
+- (void)didSelectRemotePaymentInstrument:(id)arg1 paymentApplication:(id)arg2;
 - (void)didSelectRemotePaymentInstrument:(id)arg1;
+- (void)didSelectPaymentPass:(id)arg1 paymentApplication:(id)arg2;
 - (void)didSelectPaymentPass:(id)arg1;
 - (void)didReceiveShippingMethodCompleteWithStatus:(long long)arg1 paymentSummaryItems:(id)arg2;
 - (void)didReceiveShippingMethodCompleteWithUpdate:(id)arg1;

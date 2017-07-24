@@ -26,11 +26,13 @@
 - (void)decreaseWeightForLinkWithLabel:(id)arg1 between:(id)arg2 and:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)increaseWeightForLinkWithLabel:(id)arg1 between:(id)arg2 and:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)writeBatch;
-- (void)setValue:(id)arg1 forKey:(id)arg2;
+- (void)setValue:(id)arg1 forKey:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)triplesComponentsMatching:(id)arg1 error:(id *)arg2;
-- (id)valueForKey:(id)arg1;
+- (id)dictionaryRepresentationForKeysMatching:(id)arg1 error:(id *)arg2;
 - (id)dictionaryRepresentationAndReturnError:(id *)arg1;
+- (id)valuesForKeysMatching:(id)arg1 error:(id *)arg2;
 - (id)valuesAndReturnError:(id *)arg1;
+- (id)keysMatching:(id)arg1 error:(id *)arg2;
 - (id)keysAndReturnError:(id *)arg1;
 - (void)synchronize;
 - (id)init;

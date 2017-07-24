@@ -16,17 +16,20 @@
     double _expirationDate;
 }
 
-@property _Bool updateInFlight; // @synthesize updateInFlight=_updateInFlight;
-@property(nonatomic) double expirationDate; // @synthesize expirationDate=_expirationDate;
-@property(retain, nonatomic) NSString *toroIDString; // @synthesize toroIDString=_toroIDString;
-@property(retain, nonatomic) NSString *userTargeting; // @synthesize userTargeting=_userTargeting;
+@property(readonly) _Bool updateInFlight; // @synthesize updateInFlight=_updateInFlight;
+@property(readonly, nonatomic) double expirationDate; // @synthesize expirationDate=_expirationDate;
+@property(readonly, nonatomic) NSString *toroIDString; // @synthesize toroIDString=_toroIDString;
+@property(readonly, nonatomic) NSString *userTargeting; // @synthesize userTargeting=_userTargeting;
 - (void).cxx_destruct;
 - (void)expire;
 - (void)refreshTargetingData:(CDUnknownBlockType)arg1;
 - (id)targetingParameter;
 - (id)targetingString;
+- (void)setUserTargeting:(id)arg1;
 - (_Bool)dataHasExpired;
+- (void)setExpirationDate:(double)arg1;
 - (_Bool)idHasChanged;
+- (void)setToroIDString:(id)arg1;
 - (void)saveTargetingData;
 - (id)init;
 - (id)initWithDictionary:(id)arg1;

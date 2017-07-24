@@ -16,18 +16,27 @@
 
 + (id)rowModelsForResult:(id)arg1;
 + (id)resultsForMultiResultRowInSection:(id)arg1 startingAtIndex:(unsigned long long)arg2;
++ (id)gridLayoutsForCardSections:(id)arg1;
++ (id)rowModelsForCardSections:(id)arg1 result:(id)arg2;
++ (id)tableModelWithResult:(id)arg1;
++ (id)tableModelWithCardSections:(id)arg1;
 + (id)tableModelWithSections:(id)arg1 expandedSections:(id)arg2;
 @property(retain) NSArray *sections; // @synthesize sections=_sections;
 @property(retain) NSArray *tableRowModel; // @synthesize tableRowModel=_tableRowModel;
 - (void).cxx_destruct;
 - (id)description;
 - (id)indexPathForResult:(id)arg1;
+- (_Bool)shouldLeaveSpaceForChevronForIndexPath:(id)arg1;
+- (_Bool)shouldDisplayChevronForIndexPath:(id)arg1;
 - (id)cardSectionForIndexPath:(id)arg1;
+- (id)sectionForIndexPath:(id)arg1;
 - (id)resultForIndexPath:(id)arg1;
 - (id)rowModelForIndexPath:(id)arg1;
-- (id)indexPathsForSelectingForIndexPath:(id)arg1;
+- (struct _NSRange)rowRangeForSelectingForIndexPath:(id)arg1;
+- (_Bool)indexPathExists:(id)arg1;
 - (long long)numberOfRowsForSection:(long long)arg1;
 - (void)replaceResult:(id)arg1 withResult:(id)arg2 inResultSection:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (unsigned long long)numberOfSections;
 
 @end
 

@@ -13,6 +13,7 @@
 @interface GEOABAssignmentResponse : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    unsigned long long _branchExpirationTtlHours;
     unsigned long long _refreshIntervalSeconds;
     double _timestamp;
     NSMutableArray *_assignments;
@@ -26,6 +27,7 @@
     _Bool _invalidatePoiCache;
     _Bool _invalidateTileCache;
     struct {
+        unsigned int branchExpirationTtlHours:1;
         unsigned int refreshIntervalSeconds:1;
         unsigned int timestamp:1;
         unsigned int invalidatePoiCache:1;
@@ -34,6 +36,7 @@
 }
 
 + (Class)assignmentType;
+@property(nonatomic) unsigned long long branchExpirationTtlHours; // @synthesize branchExpirationTtlHours=_branchExpirationTtlHours;
 @property(retain, nonatomic) GEOABSecondPartyPlaceRequestClientMetaData *mapsAbClientMetadata; // @synthesize mapsAbClientMetadata=_mapsAbClientMetadata;
 @property(retain, nonatomic) GEOABSecondPartyPlaceRequestClientMetaData *rapClientMetadata; // @synthesize rapClientMetadata=_rapClientMetadata;
 @property(retain, nonatomic) GEOABSecondPartyPlaceRequestClientMetaData *siriClientMetadata; // @synthesize siriClientMetadata=_siriClientMetadata;
@@ -55,6 +58,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasBranchExpirationTtlHours;
 @property(readonly, nonatomic) _Bool hasMapsAbClientMetadata;
 @property(readonly, nonatomic) _Bool hasRapClientMetadata;
 @property(readonly, nonatomic) _Bool hasSiriClientMetadata;

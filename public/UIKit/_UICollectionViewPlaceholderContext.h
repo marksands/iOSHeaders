@@ -9,7 +9,7 @@
 #import <UIKit/UICollectionViewPlaceholderContext-Protocol.h>
 #import <UIKit/_UICollectionViewDropPlaceholderContext-Protocol.h>
 
-@class NSIndexPath, NSString, NSUUID, UIDragItem;
+@class NSIndexPath, NSString, NSUUID, UIDragItem, _UIDropAnimationHandlers;
 @protocol _UICollectionViewPlaceholderContextDelegate;
 
 __attribute__((visibility("hidden")))
@@ -19,17 +19,21 @@ __attribute__((visibility("hidden")))
     NSString *_reuseIdentifier;
     NSIndexPath *_originalInsertionIndexPath;
     CDUnknownBlockType _cellUpdateHandler;
+    _UIDropAnimationHandlers *_animationHandlers;
     id <_UICollectionViewPlaceholderContextDelegate> _delegate;
     UIDragItem *_dragItem;
 }
 
 @property(retain, nonatomic) UIDragItem *dragItem; // @synthesize dragItem=_dragItem;
 @property(nonatomic) __weak id <_UICollectionViewPlaceholderContextDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) _UIDropAnimationHandlers *animationHandlers; // @synthesize animationHandlers=_animationHandlers;
 @property(copy, nonatomic) CDUnknownBlockType cellUpdateHandler; // @synthesize cellUpdateHandler=_cellUpdateHandler;
 @property(retain, nonatomic) NSIndexPath *originalInsertionIndexPath; // @synthesize originalInsertionIndexPath=_originalInsertionIndexPath;
 @property(retain, nonatomic) NSString *reuseIdentifier; // @synthesize reuseIdentifier=_reuseIdentifier;
 @property(retain, nonatomic) NSUUID *shadowUpdateIdentifier; // @synthesize shadowUpdateIdentifier=_shadowUpdateIdentifier;
 - (void).cxx_destruct;
+- (void)addCompletion:(CDUnknownBlockType)arg1;
+- (void)addAnimations:(CDUnknownBlockType)arg1;
 @property(readonly, copy) NSString *description;
 - (void)setNeedsCellUpdate;
 - (_Bool)commitInsertionWithDataSourceUpdates:(CDUnknownBlockType)arg1;

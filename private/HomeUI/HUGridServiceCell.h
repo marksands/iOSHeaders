@@ -8,7 +8,7 @@
 
 #import <HomeUI/HUAccessoryViewCellProtocol-Protocol.h>
 
-@class HFItem, HUGridServiceCellLayoutOptions, HUGridServiceCellTextView, HUIconView, HUVisualEffectContainerView, NSString, UIActivityIndicatorView, UILabel, UIView;
+@class HFItem, HUGridServiceCellLayoutOptions, HUGridServiceCellTextView, HUIconView, HUVisualEffectContainerView, NSString, UIActivityIndicatorView, UILabel, UIView, UIVisualEffectView;
 @protocol NACancelable;
 
 @interface HUGridServiceCell : HUGridCell <HUAccessoryViewCellProtocol>
@@ -23,6 +23,7 @@
     HUIconView *_iconView;
     HUGridServiceCellTextView *_serviceTextView;
     UILabel *_coloredDescriptionLabel;
+    UIVisualEffectView *_descriptionLabelEffectView;
     id <NACancelable> _showUpdatingStateAfterDelayToken;
     id <NACancelable> _showProgressIndicatorAfterDelayToken;
     UIView *_overrideAccessoryView;
@@ -40,6 +41,7 @@
 @property(retain, nonatomic) id <NACancelable> showUpdatingStateAfterDelayToken; // @synthesize showUpdatingStateAfterDelayToken=_showUpdatingStateAfterDelayToken;
 @property(nonatomic) _Bool showingUpdatingState; // @synthesize showingUpdatingState=_showingUpdatingState;
 @property(nonatomic) _Bool hasUpdatedUISinceLastReuse; // @synthesize hasUpdatedUISinceLastReuse=_hasUpdatedUISinceLastReuse;
+@property(retain, nonatomic) UIVisualEffectView *descriptionLabelEffectView; // @synthesize descriptionLabelEffectView=_descriptionLabelEffectView;
 @property(retain, nonatomic) UILabel *coloredDescriptionLabel; // @synthesize coloredDescriptionLabel=_coloredDescriptionLabel;
 @property(retain, nonatomic) HUGridServiceCellTextView *serviceTextView; // @synthesize serviceTextView=_serviceTextView;
 @property(retain, nonatomic) HUIconView *iconView; // @synthesize iconView=_iconView;
@@ -51,7 +53,7 @@
 - (void)_createExclamationViewIfNecessary;
 - (void)_updateAccessoryView;
 - (void)_updateSecondaryContentDisplayStyle;
-- (void)_getDescription:(id *)arg1 nameTextColor:(id *)arg2 descriptionTextColor:(id *)arg3;
+- (id)_textConfiguration;
 - (id)_descriptionTextAttributesWithColor:(id)arg1;
 - (void)_updateText;
 - (void)layoutSubviews;

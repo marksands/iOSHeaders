@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <VectorKit/VKLRUCacheDelegate-Protocol.h>
 #import <VectorKit/VKTileSourceClient-Protocol.h>
@@ -31,7 +31,9 @@ __attribute__((visibility("hidden")))
     NSMutableSet *_fallbackTiles;
     NSMutableSet *_neighborTiles;
     unsigned long long _neighborMode;
-    CDUnknownBlockType _fallbackFunction;
+    unsigned char _fallbackFunction;
+    _Bool _useStableFallback;
+    VKTileKeyList *_previousTiles;
     _Bool _prefetchEnabled;
     VKTileCache *_tilePool;
     VKTileSource *_tilesSources[33];
@@ -48,7 +50,6 @@ __attribute__((visibility("hidden")))
     id <VKMapLayer> _debugLayer;
     GEOTileKeyList *_debugLayerKeys;
     unsigned long long _tileReserveLimit;
-    unsigned long long _tileMaximumLimit;
     unsigned int _prefetchNumberOfScreens;
     _Bool _useSmallTileCache;
     float _lastMidDisplayZoomLevel;
@@ -69,7 +70,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double contentScale; // @synthesize contentScale=_contentScale;
 @property(readonly, nonatomic) GEOTileKeyList *debugLayerKeys; // @synthesize debugLayerKeys=_debugLayerKeys;
 @property(retain, nonatomic) id <VKMapLayer> debugLayer; // @synthesize debugLayer=_debugLayer;
-@property(nonatomic) _Bool useSmallTileCache; // @synthesize useSmallTileCache=_useSmallTileCache;
 @property(readonly, nonatomic) float loadingProgress; // @synthesize loadingProgress=_loadingProgress;
 @property(nonatomic) shared_ptr_a3c46825 styleManager; // @synthesize styleManager=_styleManager;
 @property(readonly, nonatomic) NSSet *neighborTiles; // @synthesize neighborTiles=_neighborTiles;
@@ -78,7 +78,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) VKTileKeyList *keysInView; // @synthesize keysInView=_keysInView;
 @property(nonatomic, getter=isPrefetchEnabled) _Bool prefetchEnabled; // @synthesize prefetchEnabled=_prefetchEnabled;
 @property(nonatomic) unsigned long long neighborMode; // @synthesize neighborMode=_neighborMode;
-@property(copy, nonatomic) CDUnknownBlockType fallbackFunction; // @synthesize fallbackFunction=_fallbackFunction;
+@property(nonatomic) _Bool useStableFallback; // @synthesize useStableFallback=_useStableFallback;
+@property(nonatomic) unsigned char fallbackFunction; // @synthesize fallbackFunction=_fallbackFunction;
 @property(nonatomic) int mode; // @synthesize mode=_mode;
 @property(nonatomic) id <VKTileProviderClient> client; // @synthesize client=_client;
 - (id).cxx_construct;
@@ -89,6 +90,7 @@ __attribute__((visibility("hidden")))
 - (void)dirtyTilesFromTileSource:(id)arg1;
 - (void)tileSource:(id)arg1 dirtyTilesWithinRect:(const Box_3d7e3c2c *)arg2 level:(long long)arg3;
 - (void)_dirtyTile:(id)arg1 source:(id)arg2 layer:(unsigned char)arg3;
+- (void)dirtyTile:(const struct VKTileKey *)arg1 source:(id)arg2;
 - (void)invalidateTilesFromTileSource:(id)arg1;
 - (void)tileSource:(id)arg1 invalidateTilesWithState:(unsigned long long)arg2;
 - (void)tileSource:(id)arg1 invalidateKeys:(id)arg2;
@@ -101,8 +103,9 @@ __attribute__((visibility("hidden")))
 - (void)_updateTimers:(int)arg1;
 - (id)selectTiles:(int *)arg1 needRasterization:(_Bool *)arg2;
 - (void)_fillHoles:(id)arg1 context:(struct LayoutContext *)arg2;
+- (void)bestAccuracyFallbackForHoles:(id)arg1 context:(struct LayoutContext *)arg2 previousTiles:(id)arg3;
 - (void)rescindOverlappedTiles;
-- (void)releaseBestAccuracyFallbackTilesForTile:(id)arg1 context:(struct LayoutContext *)arg2;
+- (void)releaseBestAccuracyFallbackTilesForTile:(id)arg1 context:(struct LayoutContext *)arg2 previousTiles:(id)arg3;
 - (void)timerFired:(id)arg1;
 - (void)_prefetchTiles;
 - (void)cancelLoadForMapTile:(id)arg1;

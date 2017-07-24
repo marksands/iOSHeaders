@@ -24,6 +24,7 @@
     double _lastComplicationUpdateTime;
     struct CGColorSpace *_extendedSRGBcolorSpace;
     float _crownTurnsPerRotation;
+    double _dayDuration;
     unsigned long long _currentAsset;
     unsigned long long _currentStyle;
 }
@@ -38,6 +39,7 @@
 - (id)_swatchForAsset:(unsigned long long)arg1;
 - (id)_quadWithStyle:(unsigned long long)arg1 asset:(unsigned long long)arg2;
 - (id)_textureForAsset:(unsigned long long)arg1;
+- (id)_pathfinderForAsset:(unsigned long long)arg1;
 - (id)_imageForAsset:(unsigned long long)arg1;
 - (void)_updateComplications;
 - (void)_updatePathForTime:(double)arg1;
@@ -61,6 +63,8 @@
 - (void)_configureForTransitionFraction:(double)arg1 fromEditMode:(long long)arg2 toEditMode:(long long)arg3;
 - (void)_applyTransitionFraction:(double)arg1 fromOption:(id)arg2 toOption:(id)arg3 forCustomEditMode:(long long)arg4 slot:(id)arg5;
 - (void)_applyOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
+- (void)_cleanupAfterEditing;
+- (void)_prepareForEditing;
 - (double)_verticalPaddingForStatusBar;
 - (struct CGPoint)_contentCenterOffset;
 - (long long)_legacyLayoutOverrideforComplicationType:(unsigned long long)arg1 slot:(id)arg2;
@@ -68,7 +72,9 @@
 - (id)_newLegacyViewForComplication:(id)arg1 family:(long long)arg2 slot:(id)arg3;
 - (void)_loadLayoutRules;
 - (void)_configureReusableTimeView:(id)arg1;
+- (double)_kaleidoscopeTime;
 - (void)quadViewWillDisplay:(id)arg1 forTime:(double)arg2;
+- (void)_disableCrown;
 - (void)_applyFrozen;
 - (void)_renderSynchronouslyWithImageQueueDiscard:(_Bool)arg1;
 - (void)_unloadSnapshotContentViews;

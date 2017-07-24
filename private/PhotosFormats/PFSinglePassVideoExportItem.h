@@ -21,7 +21,7 @@
     NSObject<OS_dispatch_queue> *_stateQueue;
     AVAsset *_inputAsset;
     AVAssetTrack *_videoTrack;
-    AVAssetTrack *_audioTrack;
+    NSArray *_additionalTracks;
     NSFileHandle *_conversionOutputFileHandle;
     NSURL *_destinationFileURL;
     unsigned long long _outputFileLastEndOffset;
@@ -30,10 +30,10 @@
     PFProportionalIntegralController *_bitRateController;
     AVAssetReader *_assetReader;
     AVAssetReaderTrackOutput *_videoReaderTrackOutput;
-    AVAssetReaderTrackOutput *_audioReaderTrackOutput;
+    NSArray *_additionalReaderTrackOutputs;
     AVAssetWriter *_assetWriter;
     AVAssetWriterInput *_videoWriterInput;
-    AVAssetWriterInput *_audioWriterInput;
+    NSArray *_additionalWriterInputs;
     NSObject<OS_dispatch_source> *_outputFileSizeChangeSource;
     unsigned long long _minimumChunkLength;
     NSObject<OS_dispatch_group> *_inputReadingCompletionGroup;
@@ -49,10 +49,10 @@
 @property(retain) NSObject<OS_dispatch_group> *inputReadingCompletionGroup; // @synthesize inputReadingCompletionGroup=_inputReadingCompletionGroup;
 @property unsigned long long minimumChunkLength; // @synthesize minimumChunkLength=_minimumChunkLength;
 @property(retain) NSObject<OS_dispatch_source> *outputFileSizeChangeSource; // @synthesize outputFileSizeChangeSource=_outputFileSizeChangeSource;
-@property(retain) AVAssetWriterInput *audioWriterInput; // @synthesize audioWriterInput=_audioWriterInput;
+@property(retain) NSArray *additionalWriterInputs; // @synthesize additionalWriterInputs=_additionalWriterInputs;
 @property(retain) AVAssetWriterInput *videoWriterInput; // @synthesize videoWriterInput=_videoWriterInput;
 @property(retain) AVAssetWriter *assetWriter; // @synthesize assetWriter=_assetWriter;
-@property(retain) AVAssetReaderTrackOutput *audioReaderTrackOutput; // @synthesize audioReaderTrackOutput=_audioReaderTrackOutput;
+@property(retain) NSArray *additionalReaderTrackOutputs; // @synthesize additionalReaderTrackOutputs=_additionalReaderTrackOutputs;
 @property(retain) AVAssetReaderTrackOutput *videoReaderTrackOutput; // @synthesize videoReaderTrackOutput=_videoReaderTrackOutput;
 @property(retain) AVAssetReader *assetReader; // @synthesize assetReader=_assetReader;
 @property(retain) PFProportionalIntegralController *bitRateController; // @synthesize bitRateController=_bitRateController;
@@ -62,7 +62,7 @@
 @property _Bool shouldDeleteDestinationURLOnDeallocation; // @synthesize shouldDeleteDestinationURLOnDeallocation=_shouldDeleteDestinationURLOnDeallocation;
 @property(retain) NSURL *destinationFileURL; // @synthesize destinationFileURL=_destinationFileURL;
 @property(retain) NSFileHandle *conversionOutputFileHandle; // @synthesize conversionOutputFileHandle=_conversionOutputFileHandle;
-@property(retain) AVAssetTrack *audioTrack; // @synthesize audioTrack=_audioTrack;
+@property(retain) NSArray *additionalTracks; // @synthesize additionalTracks=_additionalTracks;
 @property(retain) AVAssetTrack *videoTrack; // @synthesize videoTrack=_videoTrack;
 @property(retain) AVAsset *inputAsset; // @synthesize inputAsset=_inputAsset;
 @property(retain) NSObject<OS_dispatch_queue> *stateQueue; // @synthesize stateQueue=_stateQueue;

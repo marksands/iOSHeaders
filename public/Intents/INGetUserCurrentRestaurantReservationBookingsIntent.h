@@ -27,7 +27,6 @@
 @property(copy, nonatomic) INRestaurant *restaurant; // @synthesize restaurant=_restaurant;
 - (void).cxx_destruct;
 - (id)_dictionaryRepresentation;
-@property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
@@ -36,6 +35,7 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

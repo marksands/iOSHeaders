@@ -6,37 +6,35 @@
 
 #import <objc/NSObject.h>
 
-#import <CoreParsec/PARClientXPC-Protocol.h>
 #import <CoreParsec/SFFeedbackListener-Protocol.h>
 #import <CoreParsec/SFResourceLoader-Protocol.h>
 
-@class GEOSearchFoundationFeedbackListener, NSFileManager, NSString, NSXPCConnection, PARBag, PARImageLoader, PARRanker, PARSearchClient, PARSessionConfiguration;
+@class GEOSearchFoundationFeedbackListener, NSFileManager, NSString, NSXPCConnection, PARBag, PARRanker, PARSearchClient, PARSessionConfiguration;
 @protocol PARSessionDelegate;
 
-@interface PARSession : NSObject <PARClientXPC, SFFeedbackListener, SFResourceLoader>
+@interface PARSession : NSObject <SFFeedbackListener, SFResourceLoader>
 {
     NSFileManager *_fileManager;
-    PARImageLoader *_imageLoader;
     GEOSearchFoundationFeedbackListener *_mapsListener;
     PARBag *_bag;
     PARSearchClient *_client;
-    PARSessionConfiguration *_configuration;
-    NSXPCConnection *_connection;
     id <PARSessionDelegate> _delegate;
     PARRanker *_ranker;
+    PARSessionConfiguration *_configuration;
 }
 
 + (id)sessionWithConfiguration:(id)arg1 delegate:(id)arg2 startImmediately:(_Bool)arg3;
 + (id)sessionWithConfiguration:(id)arg1;
 + (id)sharedSession;
 + (id)sharedPARSessionWithConfiguration:(id)arg1;
-@property(retain) PARRanker *ranker; // @synthesize ranker=_ranker;
-@property(nonatomic) __weak id <PARSessionDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
 @property(retain, nonatomic) PARSessionConfiguration *configuration; // @synthesize configuration=_configuration;
+@property(retain) PARRanker *ranker; // @synthesize ranker=_ranker;
+@property __weak id <PARSessionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) PARSearchClient *client; // @synthesize client=_client;
-@property(readonly) PARBag *bag; // @synthesize bag=_bag;
+@property(retain) PARBag *bag; // @synthesize bag=_bag;
 - (void).cxx_destruct;
+- (void)reportFeedback:(id)arg1 queryId:(unsigned long long)arg2;
+- (void)reportEvent:(id)arg1;
 - (void)didGradeLookupHintRelevancy:(id)arg1;
 - (void)didGradeResultRelevancy:(id)arg1;
 - (void)didGoToSearch:(id)arg1;
@@ -66,18 +64,14 @@
 - (_Bool)loadImage:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (unsigned long long)enabledStatus;
 - (void)fileHandleAndAttributesForResource:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)reportEvent:(id)arg1;
 - (void)loadTask:(id)arg1;
 - (id)taskWithRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)awaitBag;
+@property(readonly, nonatomic) NSXPCConnection *connection;
 - (void)start;
-- (void)dealloc;
 - (id)initWithConfiguration:(id)arg1 connection:(id)arg2 delegate:(id)arg3 startImmediately:(_Bool)arg4;
 - (id)initWithConfiguration:(id)arg1;
 - (id)initWithConfiguration:(id)arg1 connection:(id)arg2;
-- (void)didDeleteResource:(id)arg1;
-- (void)didDownloadResource:(id)arg1;
-- (void)bagDidLoad:(id)arg1 error:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

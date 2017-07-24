@@ -9,7 +9,6 @@
 @interface NSURL (SXAdditions)
 + (id)sx_sanitizedURLForWebView:(id)arg1 navigationAction:(id)arg2;
 + (_Bool)sx_canHandleNavigationAction:(id)arg1;
-- (_Bool)sx_handleExternalURLWithPrompt;
 - (_Bool)_sx_isFeldsparURL;
 - (id)sx_sanitizedURL;
 @end

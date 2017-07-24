@@ -10,27 +10,27 @@
 #import <Vision/VNObservationsCacheKeyProviding-Protocol.h>
 #import <Vision/VNSequencedRequestSupporting-Protocol.h>
 
-@class NSDictionary, VNImageBuffer;
+@class VNImageBuffer;
 
 @interface VNImageSpecifier : NSObject <VNObservationsCacheKeyProviding, VNSequencedRequestSupporting, NSCopying>
 {
     VNImageBuffer *_imageBuffer;
 }
 
-+ (id)imageSpecifierWithData:(id)arg1 orientation:(int)arg2 options:(id)arg3 error:(id *)arg4;
-+ (id)imageSpecifierWithData:(id)arg1 orientation:(int)arg2 error:(id *)arg3;
++ (id)imageSpecifierWithData:(id)arg1 orientation:(unsigned int)arg2 options:(id)arg3 error:(id *)arg4;
++ (id)imageSpecifierWithData:(id)arg1 orientation:(unsigned int)arg2 error:(id *)arg3;
 + (id)imageSpecifierWithData:(id)arg1 error:(id *)arg2;
-+ (id)imageSpecifierWithURL:(id)arg1 orientation:(int)arg2 options:(id)arg3 error:(id *)arg4;
-+ (id)imageSpecifierWithURL:(id)arg1 orientation:(int)arg2 error:(id *)arg3;
++ (id)imageSpecifierWithURL:(id)arg1 orientation:(unsigned int)arg2 options:(id)arg3 error:(id *)arg4;
++ (id)imageSpecifierWithURL:(id)arg1 orientation:(unsigned int)arg2 error:(id *)arg3;
 + (id)imageSpecifierWithURL:(id)arg1 error:(id *)arg2;
-+ (id)imageSpecifierWithCIImage:(id)arg1 orientation:(int)arg2 options:(id)arg3 error:(id *)arg4;
-+ (id)imageSpecifierWithCIImage:(id)arg1 orientation:(int)arg2 error:(id *)arg3;
++ (id)imageSpecifierWithCIImage:(id)arg1 orientation:(unsigned int)arg2 options:(id)arg3 error:(id *)arg4;
++ (id)imageSpecifierWithCIImage:(id)arg1 orientation:(unsigned int)arg2 error:(id *)arg3;
 + (id)imageSpecifierWithCIImage:(id)arg1 error:(id *)arg2;
-+ (id)imageSpecifierWithCGImage:(struct CGImage *)arg1 orientation:(int)arg2 options:(id)arg3 error:(id *)arg4;
-+ (id)imageSpecifierWithCGImage:(struct CGImage *)arg1 orientation:(int)arg2 error:(id *)arg3;
++ (id)imageSpecifierWithCGImage:(struct CGImage *)arg1 orientation:(unsigned int)arg2 options:(id)arg3 error:(id *)arg4;
++ (id)imageSpecifierWithCGImage:(struct CGImage *)arg1 orientation:(unsigned int)arg2 error:(id *)arg3;
 + (id)imageSpecifierWithCGImage:(struct CGImage *)arg1 error:(id *)arg2;
-+ (id)imageSpecifierWithCVPixelBuffer:(struct __CVBuffer *)arg1 orientation:(int)arg2 options:(id)arg3 error:(id *)arg4;
-+ (id)imageSpecifierWithCVPixelBuffer:(struct __CVBuffer *)arg1 orientation:(int)arg2 error:(id *)arg3;
++ (id)imageSpecifierWithCVPixelBuffer:(struct __CVBuffer *)arg1 orientation:(unsigned int)arg2 options:(id)arg3 error:(id *)arg4;
++ (id)imageSpecifierWithCVPixelBuffer:(struct __CVBuffer *)arg1 orientation:(unsigned int)arg2 error:(id *)arg3;
 + (id)imageSpecifierWithCVPixelBuffer:(struct __CVBuffer *)arg1 error:(id *)arg2;
 + (id)imageSpecifierWithObject:(id)arg1 error:(id *)arg2;
 - (void).cxx_destruct;
@@ -41,9 +41,6 @@
 - (id)imageBufferAndReturnError:(id *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initInternal;
-
-// Remaining properties
-@property(copy, nonatomic) NSDictionary *imageBufferOptions;
 
 @end
 

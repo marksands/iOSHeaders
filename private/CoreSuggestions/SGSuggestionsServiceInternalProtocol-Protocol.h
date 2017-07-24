@@ -9,6 +9,7 @@
 @class NSArray, NSData, NSDate, NSString, NSURL;
 
 @protocol SGSuggestionsServiceInternalProtocol <_SGSuggestionsServiceBaseProtocol>
+- (void)deleteCloudKitZoneWithCompletion:(void (^)(NSError *))arg1;
 - (void)suggestionsFromEmailContent:(NSString *)arg1 headers:(NSData *)arg2 source:(NSString *)arg3 options:(unsigned long long)arg4 withCompletion:(void (^)(NSArray *, NSError *))arg5;
 - (void)suggestionsFromMockData:(id)arg1 withCompletion:(void (^)(NSArray *, NSError *))arg2;
 - (_Bool)sleep:(id *)arg1;

@@ -10,7 +10,6 @@
 
 @interface NSXPCConnection (HKAppExtensions)
 @property(readonly, copy, nonatomic) NSString *hk_signingIdentifier;
-@property(readonly, copy, nonatomic) NSString *hk_bundleIdentifier;
 @property(readonly, nonatomic) _Bool hk_isAppExtension;
 @end
 

@@ -14,12 +14,12 @@
     NSString *_identifier;
     unsigned long long _allocation;
     NSDictionary *_properties;
-    struct __flags {
+    struct _builderFlags {
         unsigned int isDirty:1;
         unsigned int hasIdentifier:1;
         unsigned int hasAllocation:1;
         unsigned int hasProperties:1;
-    } __flags;
+    } _builderFlags;
 }
 
 - (void).cxx_destruct;

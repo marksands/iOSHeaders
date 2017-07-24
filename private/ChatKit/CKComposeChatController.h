@@ -22,8 +22,10 @@
     CKComposeNavbarManager *_navbarManager;
     NSDictionary *_bizIntent;
     CKBusinessInfoView *_businessInfoView;
+    CDUnknownBlockType _deferredSendAnimationBlock;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType deferredSendAnimationBlock; // @synthesize deferredSendAnimationBlock=_deferredSendAnimationBlock;
 @property(retain, nonatomic) CKBusinessInfoView *businessInfoView; // @synthesize businessInfoView=_businessInfoView;
 @property(retain, nonatomic) NSDictionary *bizIntent; // @synthesize bizIntent=_bizIntent;
 @property(retain, nonatomic) CKComposeNavbarManager *navbarManager; // @synthesize navbarManager=_navbarManager;
@@ -54,8 +56,10 @@
 - (void)sendAnimationManagerWillStartAnimation:(id)arg1 context:(id)arg2;
 - (_Bool)becomeFirstResponder;
 - (void)messageEntryViewSendButtonHitWhileDisabled:(id)arg1;
+- (void)_passKitUIDismissed:(id)arg1;
 - (void)messageEntryViewSendButtonHit:(id)arg1;
 - (void)messageEntryViewDidChange:(id)arg1;
+- (_Bool)_shouldValidatePayloadBeforeSendingPayload:(id)arg1;
 - (void)reloadEntryViewIfNeeded;
 - (double)_entryViewTopInsetPadding;
 - (id)inputAccessoryView;

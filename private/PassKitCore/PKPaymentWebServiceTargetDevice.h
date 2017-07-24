@@ -25,6 +25,8 @@
 - (_Bool)supportsExpressModeForExpressPassType:(long long)arg1;
 - (_Bool)felicaSecureElementIsAvailable;
 - (void)paymentWebService:(id)arg1 validateTransferPreconditionsWithCompletion:(CDUnknownBlockType)arg2;
+- (unsigned long long)secureElementOwnershipStateForCurrentUser;
+- (_Bool)claimSecureElementForCurrentUser;
 - (void)paymentWebService:(id)arg1 removePass:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)downloadAllPaymentPassesForPaymentWebService:(id)arg1;
 - (void)paymentWebService:(id)arg1 handlePotentialExpressPass:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
@@ -33,6 +35,7 @@
 - (void)_validateCommonPreconditionsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)paymentWebService:(id)arg1 validateAddPreconditionsWithCompletion:(CDUnknownBlockType)arg2;
 - (_Bool)paymentWebService:(id)arg1 canProvisionPaymentPassWithPrimaryAccountIdentifier:(id)arg2;
+- (id)paymentWebService:(id)arg1 passesOfType:(unsigned long long)arg2;
 - (_Bool)paymentWebService:(id)arg1 hasPassesOfType:(unsigned long long)arg2;
 - (void)paymentWebService:(id)arg1 setNewAuthRandomIfNecessaryReturningPairingState:(CDUnknownBlockType)arg2;
 - (id)deviceName;
@@ -51,6 +54,8 @@
 - (id)secureElementIdentifiers;
 - (void)startBackgroundVerificationObserverForPass:(id)arg1 verificationMethod:(id)arg2;
 - (void)noteForegroundVerificationObserverActive:(_Bool)arg1;
+- (void)setMaximumPaymentCards:(unsigned long long)arg1;
+- (unsigned long long)maximumPaymentCards;
 - (void)noteProvisioningUserInterfaceDidDisappear;
 - (void)noteProvisioningUserInterfaceDidAppear;
 - (void)noteProvisioningDidEnd;

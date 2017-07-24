@@ -35,7 +35,7 @@
 @property __weak id <NFLRankedLayoutSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)fetchCoordinator:(id)arg1 fetchOperationForKeys:(id)arg2 context:(id)arg3 qualityOfService:(long long)arg4 relativePriority:(long long)arg5;
-- (void)fetchCoordinator:(id)arg1 filterKeysToFetch:(id)arg2 context:(id)arg3;
+- (void)fetchCoordinator:(id)arg1 filterKeysToFetch:(id)arg2 isFirstAttempt:(_Bool)arg3 context:(id)arg4;
 - (void)fetchCoordinator:(id)arg1 addFetchOperation:(id)arg2 context:(id)arg3;
 - (void)rankedLayoutsForRequests:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithFeedSettings:(id)arg1 qualityOfService:(long long)arg2;

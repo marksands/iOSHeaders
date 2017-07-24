@@ -23,20 +23,23 @@
 @property(nonatomic) _Bool disableXAxis; // @synthesize disableXAxis=_disableXAxis;
 @property(nonatomic) struct CGSize minimumSize; // @synthesize minimumSize=_minimumSize;
 - (void).cxx_destruct;
+- (void)setDetailView:(id)arg1;
 - (void)graphView:(id)arg1 didUpdateYAxisWidth:(double)arg2 toWidth:(double)arg3;
-- (void)graphView:(id)arg1 didUpdateVisibleValueRange:(id)arg2;
+- (void)graphView:(id)arg1 didFinishUserScrollingToValueRange:(id)arg2;
+- (void)graphView:(id)arg1 didUpdateVisibleValueRange:(id)arg2 changeContext:(long long)arg3;
+- (void)_marginStyleChangeForContext:(long long)arg1 graphView:(id)arg2;
 - (id)_dateAxisStyle;
 - (id)_xAxisLabelFont;
 - (void)_createDateLabelSlider;
-- (id)_createGraphViewWithDateZoom:(long long)arg1;
+- (void)_setupGraphViewSelectionStyle;
+- (id)_createGraphViewWithDateZoom:(long long)arg1 previousDateZoom:(long long)arg2 previousXAxisSpace:(double)arg3;
 - (void)viewWillLayoutSubviews;
 - (void)_resizeDateLabelSlider:(struct CGSize)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
-- (long long)dateZoom;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDateZoom:(long long)arg1;
+- (id)initWithDateZoom:(long long)arg1 previousDateZoom:(long long)arg2 previousXAxisSpace:(double)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

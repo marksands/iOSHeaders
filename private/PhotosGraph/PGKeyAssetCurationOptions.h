@@ -19,10 +19,12 @@
     CLLocation *_referenceLocation;
     NSSet *_referencePersonUUIDs;
     unsigned long long _precision;
+    double _prefilterAssetsWithFacesThreshold;
     PHAsset *_referenceAsset;
 }
 
 @property(readonly, nonatomic) PHAsset *referenceAsset; // @synthesize referenceAsset=_referenceAsset;
+@property(nonatomic) double prefilterAssetsWithFacesThreshold; // @synthesize prefilterAssetsWithFacesThreshold=_prefilterAssetsWithFacesThreshold;
 @property(nonatomic) _Bool prefilterAssetsWithFaces; // @synthesize prefilterAssetsWithFaces=_prefilterAssetsWithFaces;
 @property(nonatomic) _Bool useSummarizer; // @synthesize useSummarizer=_useSummarizer;
 @property(nonatomic) _Bool complete; // @synthesize complete=_complete;

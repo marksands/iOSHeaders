@@ -35,6 +35,7 @@
 @property(readonly) unsigned long long hash;
 - (id)initWithType:(long long)arg1 name:(id)arg2 identificationHint:(id)arg3 icon:(id)arg4;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) INImage *image;
 @property(readonly, nonatomic) NSString *title;

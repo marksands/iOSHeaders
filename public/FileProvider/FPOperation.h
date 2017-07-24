@@ -24,7 +24,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_queue;
 @property(readonly, getter=isFinished) _Bool finished; // @synthesize finished=_finished;
 - (void).cxx_destruct;
-- (void)operationDidProgressWithIdentifier:(id)arg1 data:(id)arg2 error:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)operationDidProgressWithInfo:(id)arg1 error:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (oneway void)invalidate;
 - (oneway void)setCancellationHandler:(id)arg1;
 - (void)_setRemoteCancellationHandler:(id)arg1;
@@ -39,6 +39,7 @@
 - (void)_setFinished:(_Bool)arg1;
 - (void)dealloc;
 - (id)description;
+- (id)operationDescription;
 - (id)init;
 
 @end

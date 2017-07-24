@@ -71,8 +71,6 @@
 - (void)devicePicker:(id)arg1 didSelectDevice:(id)arg2;
 - (void)cancelRemoteApprovalTapped:(id)arg1;
 - (void)approveFromAnotherDevice:(_Bool)arg1;
-- (void)cdpContext:(id)arg1 promptToInformUserOfAccountLockOutWithCompletion:(CDUnknownBlockType)arg2;
-- (void)cdpContext:(id)arg1 promptToInformUserOfAccountUnlockWithCompletion:(CDUnknownBlockType)arg2;
 - (void)cdpContext:(id)arg1 promptForAdoptionOfMultipleICSC:(CDUnknownBlockType)arg2;
 - (void)_presentRemoteApprovalViewControllerWithEscapeOfferMask:(unsigned long long)arg1;
 - (void)_presentRemoteSecretControllerWithNewestDevice:(id)arg1;
@@ -91,6 +89,7 @@
 - (void)cdpContext:(id)arg1 promptForInteractiveAuthenticationWithCompletion:(CDUnknownBlockType)arg2;
 - (void)_presentRootController:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_dismissPresentedViewControllerCompletion:(CDUnknownBlockType)arg1;
+- (void)handleBackPopCompletion;
 - (void)backTappedFromRoot:(id)arg1;
 - (void)cancelTapped:(id)arg1;
 

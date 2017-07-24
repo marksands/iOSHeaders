@@ -13,6 +13,7 @@
 {
     _Bool _registered;
     _Bool _expectRemediation;
+    int _sourceAppPid;
     unsigned int _controlUnit;
     long long _status;
     NSURL *_url;
@@ -58,6 +59,7 @@
 @property(retain) NWPathEvaluator *evaluator; // @synthesize evaluator=_evaluator;
 @property(retain) NSMutableData *pendingData; // @synthesize pendingData=_pendingData;
 @property _Bool registered; // @synthesize registered=_registered;
+@property int sourceAppPid; // @synthesize sourceAppPid=_sourceAppPid;
 @property(copy) NSString *sourceAppIdentifier; // @synthesize sourceAppIdentifier=_sourceAppIdentifier;
 @property(readonly) unsigned long long socketIdentifier; // @synthesize socketIdentifier=_socketIdentifier;
 @property(readonly) long long direction; // @synthesize direction=_direction;

@@ -44,10 +44,18 @@
 }
 
 + (void)getBehaviorOptionForKey:(id)arg1 isContainerOption:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
++ (long long)_untrustedDatabaseEnvironment;
++ (id)_checkSelfContainerIdentifier;
++ (void)_checkSelfCloudServicesEntitlement;
++ (id)_untrustedEntitlementForKey:(id)arg1;
++ (void)registerCompletedLongLivedOperationWithID:(id)arg1;
 + (void)unregisterOutstandingOperationWithID:(id)arg1;
 + (void)registerOutstandingOperationWithID:(id)arg1;
 + (id)sharedOutstandingOperations;
++ (id)sharedCompletedLongLivedOperationIDs;
 + (id)containerWithIdentifier:(id)arg1;
++ (id)containerIDForContainerIdentifier:(id)arg1;
++ (id)containerIDForContainerIdentifier:(id)arg1 environment:(long long)arg2;
 + (id)defaultContainer;
 @property(nonatomic) unsigned long long stateHandle; // @synthesize stateHandle=_stateHandle;
 @property(retain, nonatomic) NSMutableDictionary *fakeEntitlements; // @synthesize fakeEntitlements=_fakeEntitlements;
@@ -114,10 +122,12 @@
 - (void)addOperation:(id)arg1;
 - (void)consumeSandboxExtensions:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)_cleanupSandboxExtensionHandles:(id)arg1;
+- (void)getFileMetadataWithFileHandle:(id)arg1 openInfo:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)openFileWithOpenInfo:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)handleOperationCheckpoint:(id)arg1 forOperationWithID:(id)arg2;
 - (void)handleOperationCompletion:(id)arg1 forOperationWithID:(id)arg2;
 - (void)handleOperationProgress:(id)arg1 forOperationWithID:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)handleOperationStatistics:(id)arg1 forOperationWithID:(id)arg2;
 - (void)handleOperationProgress:(id)arg1 forOperationWithID:(id)arg2;
 - (id)daemonWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)connectionWithError:(id *)arg1;
@@ -126,10 +136,7 @@
 - (void)_prepareForDaemonLaunch;
 - (id)databaseWithDatabaseScope:(long long)arg1;
 @property(readonly, nonatomic) NSString *containerIdentifier;
-- (long long)_untrustedDatabaseEnvironment;
-- (id)_checkSelfContainerIdentifier;
-- (void)_checkSelfCloudServicesEntitlement;
-- (id)_untrustedEntitlementForKey:(id)arg1;
+- (id)_untrustedContainerEntitlementsForKey:(id)arg1;
 @property(copy, nonatomic) CKAccountOverrideInfo *accountInfoOverride;
 - (_Bool)masqueradeAsThirdPartyApp;
 - (void)setMasqueradeAsThirdPartyApp:(_Bool)arg1;

@@ -8,7 +8,7 @@
 
 #import <PencilKit/CHStrokeProvider-Protocol.h>
 
-@class NSArray, NSSet, NSString, PKDrawing;
+@class NSArray, NSString, PKDrawing;
 @protocol CHStrokeProviderVersion;
 
 @interface PKStrokeProvider : NSObject <CHStrokeProvider>
@@ -20,13 +20,13 @@
 - (void).cxx_destruct;
 - (id)strokeForIdentifier:(id)arg1;
 - (long long)compareOrderOfStroke:(id)arg1 toStroke:(id)arg2;
+- (long long)compareOrderOfStrokeWithIdentifier:(id)arg1 toStrokeWithIdentifier:(id)arg2;
 - (_Bool)enumerateChangesSinceVersion:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 @property(readonly, copy) NSArray *orderedStrokes;
 @property(readonly, retain) id <CHStrokeProviderVersion> strokeProviderVersion;
 - (id)initWithDrawing:(id)arg1;
 
 // Remaining properties
-@property(readonly, copy) NSSet *allStrokes;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

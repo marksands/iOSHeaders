@@ -19,6 +19,7 @@
     _Bool _gameCenterEnabled;
     _Bool _gameCenterEverEnabled;
     _Bool _isAutoDownload;
+    _Bool _sideLoadedDeviceBasedVPP;
     NSString *_iAdAttribution;
     NSString *_iAdConversionDate;
     NSString *_iAdImpressionDate;
@@ -58,6 +59,7 @@
 + (id)metadataFromPlistAtURL:(id)arg1 error:(id *)arg2;
 + (id)metadataFromPlistData:(id)arg1 error:(id *)arg2;
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool sideLoadedDeviceBasedVPP; // @synthesize sideLoadedDeviceBasedVPP=_sideLoadedDeviceBasedVPP;
 @property(copy, nonatomic) NSString *referrerApp; // @synthesize referrerApp=_referrerApp;
 @property(copy, nonatomic) NSString *referrerURL; // @synthesize referrerURL=_referrerURL;
 @property(nonatomic) _Bool isAutoDownload; // @synthesize isAutoDownload=_isAutoDownload;

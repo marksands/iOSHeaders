@@ -9,8 +9,7 @@
 @class NSArray, NSDictionary, NSString;
 
 @protocol PXFeedbackFormDelegate <NSObject>
-- (_Bool)persistViewControllerAfterFeedback;
-- (void)userSentPositiveFeedback:(NSDictionary *)arg1 negativeFeedback:(NSDictionary *)arg2;
+- (void)userSentPositiveFeedback:(NSDictionary *)arg1 negativeFeedback:(NSDictionary *)arg2 customFeedback:(NSString *)arg3;
 - (void)userIndicatedDislike;
 - (void)userIndicatedLike;
 - (_Bool)shouldDisplaySecondaryFeedbackButtons;
@@ -18,5 +17,9 @@
 - (NSArray *)negativeFeedbackKeys;
 - (NSString *)viewTitleForRadar;
 - (NSString *)longTitleText;
+
+@optional
+- (_Bool)shouldContinuePresentingFormAfterFeedback;
+- (_Bool)wantsCustomFeedbackSection;
 @end
 

@@ -10,6 +10,8 @@
 + (id)safari_dictionaryWithContentsOfData:(id)arg1 options:(unsigned long long)arg2;
 + (id)safari_dictionaryWithPropertyListData:(id)arg1 options:(unsigned long long)arg2;
 + (id)safari_dictionaryWithPropertyListData:(id)arg1;
+- (id)safari_diffWithDictionary:(id)arg1;
+- (id)_safari_sortedTupleArray;
 - (id)safari_mapAndFilterKeysAndObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)safari_setForKey:(id)arg1;
 - (id)safari_UUIDForKey:(id)arg1;

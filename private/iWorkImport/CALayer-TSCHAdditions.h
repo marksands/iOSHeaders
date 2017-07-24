@@ -8,20 +8,20 @@
 
 @interface CALayer (TSCHAdditions)
 - (void)removeCDEEditorFlipOutAnimation;
-- (void)addCDEEditorFlipOutAnimationToPosition:(struct CGPoint)arg1 toLeft:(_Bool)arg2 cameraDistance:(double)arg3;
+- (void)addCDEEditorFlipOutAnimationToPosition:(struct CGPoint)arg1 beginTime:(double)arg2 toLeft:(_Bool)arg3 cameraDistance:(double)arg4;
 - (void)removeCDEEditorFlipInAnimation;
-- (void)addCDEEditorFlipInAnimationFromPosition:(struct CGPoint)arg1 fromLeft:(_Bool)arg2 cameraDistance:(double)arg3;
+- (void)addCDEEditorFlipInAnimationFromPosition:(struct CGPoint)arg1 beginTime:(double)arg2 fromLeft:(_Bool)arg3 cameraDistance:(double)arg4;
 - (void)removeCDEChartFlipAnimationFromPosition;
-- (void)addCDEChartFlipAnimationFromPosition:(struct CGPoint)arg1 toLeft:(_Bool)arg2 cameraDistance:(double)arg3;
+- (void)addCDEChartFlipAnimationFromPosition:(struct CGPoint)arg1 beginTime:(double)arg2 toLeft:(_Bool)arg3 cameraDistance:(double)arg4;
 - (void)removeCDEChartFlipAnimationToFinalPosition;
-- (void)addCDEChartFlipAnimationToFinalPosition:(struct CGPoint)arg1 fromLeft:(_Bool)arg2 cameraDistance:(double)arg3;
+- (void)addCDEChartFlipAnimationToFinalPosition:(struct CGPoint)arg1 beginTime:(double)arg2 fromLeft:(_Bool)arg3 cameraDistance:(double)arg4;
 - (void)removeCDEShieldOutAnimation;
-- (void)addCDEShieldOutAnimation;
+- (void)addCDEShieldOutAnimation:(double)arg1;
 - (void)removeCDEShieldInAnimation;
-- (void)addCDEShieldInAnimation;
+- (void)addCDEShieldInAnimation:(double)arg1;
 - (void)addPerspectiveProjectionWithDistance:(double)arg1;
 - (void)removeCallbackAnimationWithName:(id)arg1;
-- (void)addCallbackAnimationWithName:(id)arg1 duration:(double)arg2 target:(id)arg3 selector:(SEL)arg4;
+- (void)addCallbackAnimationWithName:(id)arg1 beginTime:(double)arg2 duration:(double)arg3 target:(id)arg4 selector:(SEL)arg5;
 - (void)removeZoomAnimation;
 - (void)addZoomAnimationFromPoint:(struct CGPoint)arg1 speed:(double)arg2;
 @end

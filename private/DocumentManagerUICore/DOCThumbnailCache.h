@@ -17,13 +17,18 @@
     NSMapTable *_cachedIconItems;
     NSMutableDictionary *_cachedGenericItems;
     NSCache *_recentlyUsedItems;
+    long long _thumnailFetchingPriority;
 }
 
++ (void)resetThumnailFetchingPriorityValue;
++ (void)decreaseThumnailFetchingPriority;
++ (void)increaseThumnailFetchingPriority;
 + (void)clearCache;
-+ (id)iconForContentType:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4 downloaded:(_Bool)arg5;
-+ (id)thumbnailForItem:(id)arg1 size:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 style:(unsigned long long)arg5;
-+ (id)thumbnailForItem:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4;
++ (id)iconForContentType:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4 folded:(_Bool)arg5;
++ (id)thumbnailForItem:(id)arg1 size:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 style:(unsigned long long)arg5 folded:(_Bool)arg6;
++ (id)thumbnailForItem:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4 folded:(_Bool)arg5;
 + (id)sharedCache;
+@property(nonatomic) long long thumnailFetchingPriority; // @synthesize thumnailFetchingPriority=_thumnailFetchingPriority;
 @property(readonly, nonatomic) NSCache *recentlyUsedItems; // @synthesize recentlyUsedItems=_recentlyUsedItems;
 @property(readonly, nonatomic) NSMutableDictionary *cachedGenericItems; // @synthesize cachedGenericItems=_cachedGenericItems;
 @property(readonly, nonatomic) NSMapTable *cachedIconItems; // @synthesize cachedIconItems=_cachedIconItems;
@@ -31,13 +36,17 @@
 @property(readonly, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
+- (unsigned int)currentQOS;
 - (void)markThumbnailAsRecentlyUsed:(id)arg1;
-- (id)_iconForContentType:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4 downloaded:(_Bool)arg5;
-- (id)_thumbnailForItem:(id)arg1 size:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 style:(unsigned long long)arg5;
+- (id)_iconForContentType:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4 folded:(_Bool)arg5 qos:(unsigned int)arg6;
+- (id)_thumbnailForItem:(id)arg1 size:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 style:(unsigned long long)arg5 folded:(_Bool)arg6 qos:(unsigned int)arg7;
+- (void)resetThumnailFetchingPriorityValue;
+- (void)decreaseThumnailFetchingPriority;
+- (void)increaseThumnailFetchingPriority;
 - (void)clearCache;
-- (id)iconForContentType:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4 downloaded:(_Bool)arg5;
-- (id)thumbnailForItem:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4;
-- (id)thumbnailForItem:(id)arg1 size:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 style:(unsigned long long)arg5;
+- (id)iconForContentType:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4 folded:(_Bool)arg5;
+- (id)thumbnailForItem:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4 folded:(_Bool)arg5;
+- (id)thumbnailForItem:(id)arg1 size:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 style:(unsigned long long)arg5 folded:(_Bool)arg6;
 - (id)init;
 
 @end

@@ -28,6 +28,8 @@
 + (void)_drawIconInContext:(struct CGContext *)arg1 imageSize:(struct CGSize)arg2 iconBase:(id)arg3 calendar:(id)arg4 dayNumberString:(id)arg5 dateNameBlock:(CDUnknownBlockType)arg6 dateNameFormatType:(long long)arg7 format:(long long)arg8 showGrid:(_Bool)arg9;
 + (void)drawIconInContext:(struct CGContext *)arg1 imageSize:(struct CGSize)arg2 iconBase:(id)arg3 dateComponents:(id)arg4 dateNameFormatType:(long long)arg5 format:(long long)arg6 showGrid:(_Bool)arg7;
 + (void)drawIconInContext:(struct CGContext *)arg1 imageSize:(struct CGSize)arg2 iconBase:(id)arg3 date:(id)arg4 calendar:(id)arg5 format:(int)arg6;
++ (id)_whiteImage;
++ (id)getMaskedIconImageWithFormat:(int)arg1 imageScale:(double)arg2;
 + (id)_iconImageWithFormat:(int)arg1 square:(_Bool)arg2 outline:(_Bool)arg3 drawBlock:(CDUnknownBlockType)arg4;
 + (int)_iconVariantForFormat:(int)arg1 scale:(double)arg2 outline:(_Bool)arg3;
 + (id)iconImageWithDateComponents:(id)arg1 dateNameFormatType:(long long)arg2 format:(int)arg3 square:(_Bool)arg4 showGrid:(_Bool)arg5;

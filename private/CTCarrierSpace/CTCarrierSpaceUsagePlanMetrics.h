@@ -15,6 +15,7 @@
     _Bool _currentUsedPlan;
     _Bool _throttled;
     NSString *_planLabel;
+    long long _planCategory;
     CTCarrierSpaceUsagePlanItemData *_dataUsage;
     CTCarrierSpaceUsagePlanItemMessages *_messages;
     CTCarrierSpaceUsagePlanItemVoice *_voice;
@@ -30,6 +31,7 @@
 @property(retain, nonatomic) CTCarrierSpaceUsagePlanItemMessages *messages; // @synthesize messages=_messages;
 @property(retain, nonatomic) CTCarrierSpaceUsagePlanItemData *dataUsage; // @synthesize dataUsage=_dataUsage;
 @property(nonatomic) _Bool currentUsedPlan; // @synthesize currentUsedPlan=_currentUsedPlan;
+@property(nonatomic) long long planCategory; // @synthesize planCategory=_planCategory;
 @property(retain, nonatomic) NSString *planLabel; // @synthesize planLabel=_planLabel;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;

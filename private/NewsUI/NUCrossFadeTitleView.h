@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NUCrossFadeViewAnimator, UIImageView, UILabel;
+@class NUCrossFadeViewAnimator, NUTextAndGlyphView, UIImageView, UILabel;
 @protocol NUTitleViewStyler;
 
 @interface NUCrossFadeTitleView : UIView
@@ -14,16 +14,20 @@
     id <NUTitleViewStyler> _styler;
     UIImageView *_titleImageView;
     UILabel *_titleLabel;
+    NUTextAndGlyphView *_textAndGlyphView;
     unsigned long long _displayValueType;
     NUCrossFadeViewAnimator *_animator;
 }
 
 @property(readonly, nonatomic) NUCrossFadeViewAnimator *animator; // @synthesize animator=_animator;
 @property(nonatomic) unsigned long long displayValueType; // @synthesize displayValueType=_displayValueType;
+@property(readonly, nonatomic) NUTextAndGlyphView *textAndGlyphView; // @synthesize textAndGlyphView=_textAndGlyphView;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(readonly, nonatomic) UIImageView *titleImageView; // @synthesize titleImageView=_titleImageView;
 @property(retain, nonatomic) id <NUTitleViewStyler> styler; // @synthesize styler=_styler;
 - (void).cxx_destruct;
+- (id)_applyStylesToTextAndGlyph:(id)arg1 styleType:(unsigned long long)arg2;
+- (id)_applyStylesToText:(id)arg1 styleType:(unsigned long long)arg2;
 - (id)applyStylesToValueFromTitleViewUpdate:(id)arg1;
 - (id)viewForValueType:(unsigned long long)arg1;
 @property(readonly, nonatomic) struct CGRect visibleFrame;

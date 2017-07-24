@@ -45,6 +45,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)_matchType:(const char *)arg1 size:(unsigned long long)arg2;
 @property(readonly) const char *objCType;
+- (void)getValue:(void *)arg1 size:(unsigned long long)arg2;
 - (void)getValue:(void *)arg1;
 - (id)init;
 - (_Bool)isNSValue__;

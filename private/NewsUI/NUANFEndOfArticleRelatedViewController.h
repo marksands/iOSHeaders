@@ -38,7 +38,8 @@
 - (id)buildCanvasWithTitle:(id)arg1 withScale:(double)arg2 andSettings:(id)arg3;
 - (void)loadLayoutWithLoadGroup:(id)arg1 andSettings:(id)arg2;
 - (void)whenLoaded:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic) double contentHeight;
+- (id)sectionItemViewController;
+- (double)sectionItemHeightFor:(double)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (id)initWithDataProvider:(id)arg1;

@@ -23,6 +23,7 @@
     NSNumber *_progressValue;
     NSNumber *_goalValue;
     NSNumber *_referenceProgressValue;
+    NSNumber *_paceToReachGoal;
     NSString *_progressMilestoneLocalizationKeyPrefix;
 }
 
@@ -35,6 +36,7 @@
 + (id)_formatValue:(id)arg1 usingFormatterNamed:(id)arg2;
 + (id)_valueFromPlaceholder:(id)arg1 withAchievement:(id)arg2 context:(id)arg3;
 @property(retain, nonatomic) NSString *progressMilestoneLocalizationKeyPrefix; // @synthesize progressMilestoneLocalizationKeyPrefix=_progressMilestoneLocalizationKeyPrefix;
+@property(retain, nonatomic) NSNumber *paceToReachGoal; // @synthesize paceToReachGoal=_paceToReachGoal;
 @property(retain, nonatomic) NSNumber *referenceProgressValue; // @synthesize referenceProgressValue=_referenceProgressValue;
 @property(retain, nonatomic) NSNumber *goalValue; // @synthesize goalValue=_goalValue;
 @property(retain, nonatomic) NSNumber *progressValue; // @synthesize progressValue=_progressValue;
@@ -59,7 +61,7 @@
 - (id)_initWithDefinitionIdentifier:(id)arg1 completedDate:(id)arg2 value:(id)arg3 workoutActivityType:(unsigned long long)arg4;
 - (id)_initWithDefinitionIdentifier:(id)arg1 completedDate:(id)arg2 value:(id)arg3;
 - (id)_replacePlaceholdersInString:(id)arg1 withContext:(id)arg2;
-- (id)_pluralizeLocalizedString:(id)arg1 completeNumberOfTimes:(long long)arg2;
+- (id)_pluralizeLocalizedString:(id)arg1 context:(id)arg2;
 - (id)_buildKeyWithPrefix:(id)arg1 keyBaseString:(id)arg2 includingUserName:(_Bool)arg3 isWheelchairUser:(_Bool)arg4;
 - (id)_localizedStringWithContext:(id)arg1;
 - (id)localizedShareDescriptionWithNumberOfTimesAchieved:(long long)arg1 isWheelchairUser:(_Bool)arg2;
@@ -71,7 +73,9 @@
 - (id)localizedDescriptionForAlertWithUserName:(id)arg1;
 - (id)localizedDescriptionWithNumberOfTimesAchieved:(long long)arg1 isWheelchairUser:(_Bool)arg2;
 - (id)localizedDescriptionWithNumberOfTimesAchieved:(long long)arg1;
-- (id)localizedDescription;
+- (id)localizedDescriptionFriendAchieved;
+- (id)localizedDescriptionAchieved;
+- (id)localizedDescriptionUnachieved;
 - (id)localizedTitleWithIsWheelchairUser:(_Bool)arg1;
 - (id)localizedTitle;
 - (_Bool)_isWheelchairUser;

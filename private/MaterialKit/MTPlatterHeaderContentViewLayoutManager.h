@@ -30,7 +30,7 @@
 @property(readonly, nonatomic, getter=_shouldReverseLayoutDirection) _Bool shouldReverseLayoutDirection;
 - (void)layoutDateLabelWithScale:(double)arg1;
 - (void)layoutUtilityButtonWithScale:(double)arg1;
-- (void)layoutTitleLabelWithScale:(double)arg1;
+- (void)layoutTitleLabelWithTrailingXLimit:(double)arg1 scale:(double)arg2;
 - (void)layoutIconButtonWithScale:(double)arg1;
 @property(readonly, nonatomic) double contentBaseline;
 - (double)headerHeightForWidth:(double)arg1;

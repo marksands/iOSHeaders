@@ -6,21 +6,23 @@
 
 #import <GeoServices/GEOSimpleTileRequester.h>
 
+#import <GeoServices/GEOSimpleTileRequesterSubclass-Protocol.h>
 #import <GeoServices/NSURLConnectionDelegate-Protocol.h>
 
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface GEOVoltaireSimpleTileRequester : GEOSimpleTileRequester <NSURLConnectionDelegate>
+@interface GEOVoltaireSimpleTileRequester : GEOSimpleTileRequester <NSURLConnectionDelegate, GEOSimpleTileRequesterSubclass>
 {
 }
 
-- (id)localizationURLForTileKey:(struct _GEOTileKey *)arg1;
-- (id)_localizationURLForTileKey:(struct _GEOTileKey *)arg1;
+- (id)localizationURLForTileKey:(const struct _GEOTileKey *)arg1;
+- (id)_localizationURLForTileKey:(const struct _GEOTileKey *)arg1;
 - (id)newXPCDataRequestForTileKey:(struct _GEOTileKey *)arg1;
-- (id)urlForTileKey:(struct _GEOTileKey *)arg1;
+- (unsigned char)_authTypeForTileKey:(const struct _GEOTileKey *)arg1;
+- (id)urlForTileKey:(const struct _GEOTileKey *)arg1;
 - (unsigned int)tileEditionForKey:(struct _GEOTileKey *)arg1;
-- (int)checksumMethodForIncomingTileDataWithKey:(struct _GEOTileKey *)arg1;
+- (int)checksumMethodForIncomingTileDataWithKey:(const struct _GEOTileKey *)arg1;
 - (unsigned int)tileSetForKey:(const struct _GEOTileKey *)arg1;
 
 // Remaining properties

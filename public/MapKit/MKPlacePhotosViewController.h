@@ -22,6 +22,9 @@ __attribute__((visibility("hidden")))
     UIScrollView *_photosContainerScrollView;
     UIView *_photosContainer;
     MKPhotoSmallAttributionView *_photosSmallAttributionsView;
+    double _lastPhotoScrollOffset;
+    _Bool _photoScrollViewScrollingLeft;
+    _Bool _photoScrollViewScrollingRight;
     _Bool _canUseFullscreenViewer;
     _Bool _canUseGallery;
     _Bool _photoLoaded;
@@ -40,6 +43,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <MKPlaceCardPhotosControllerDelegate><MKPlaceCardActionControllerDelegate> photosControllerDelegate; // @synthesize photosControllerDelegate=_photosControllerDelegate;
 @property(nonatomic) __weak _MKPlaceViewController *owner; // @synthesize owner=_owner;
 - (void).cxx_destruct;
+- (void)viewDidLayoutSubviews;
+- (void)viewLayoutMarginsDidChange;
 - (id)infoCardChildPossibleActions;
 - (id)placePhotoViewerGetDelegatesMapItem;
 - (void)placePhotoViewerWillClose:(id)arg1 photo:(id)arg2 onIndex:(unsigned long long)arg3;
@@ -53,14 +58,15 @@ __attribute__((visibility("hidden")))
 - (void)_updatePhotoBackgroundColor:(id)arg1;
 - (void)infoCardThemeChanged:(id)arg1;
 - (void)updateAttributionPositionWithOffset:(double)arg1;
+- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
-- (void)viewDidLayoutSubviews;
 - (struct CGSize)sizeForIndex:(unsigned long long)arg1;
 - (void)layoutImages;
 - (void)_createImageViews;
 - (void)openURL;
 - (id)attributionString;
 - (void)addAttributionCell;
+- (void)dealloc;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;

@@ -41,6 +41,7 @@
 @property(copy, nonatomic) INRestaurant *restaurant; // @synthesize restaurant=_restaurant;
 - (void).cxx_destruct;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

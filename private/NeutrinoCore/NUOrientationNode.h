@@ -10,11 +10,12 @@
 
 @interface NUOrientationNode : NUTransformNode
 {
-    NUImageTransform *_transform;
     long long _orientation;
+    NUImageTransform *_transform;
 }
 
 + (id)applyOrientation:(long long)arg1 to:(id)arg2;
+@property(retain) NUImageTransform *transform; // @synthesize transform=_transform;
 @property(readonly) long long orientation; // @synthesize orientation=_orientation;
 - (void).cxx_destruct;
 - (id)_evaluateVideo:(out id *)arg1;

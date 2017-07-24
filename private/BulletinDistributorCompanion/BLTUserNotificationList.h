@@ -12,12 +12,10 @@
 @interface BLTUserNotificationList : NSObject
 {
     NSXPCConnection *_connection;
-    NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_queue;
 }
 
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(retain, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;
 - (void)_queue_invalidatedConnection;
@@ -25,7 +23,7 @@
 - (void)_invalidate;
 - (void)_queue_ensureConnection;
 - (void)isNotificationImminentWithPublisherBulletinID:(id)arg1 sectionID:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)initWithQueue:(id)arg1;
+- (id)init;
 
 @end
 

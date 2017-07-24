@@ -14,7 +14,7 @@
     _Bool _usesTextChecker;
     _Bool _usesRetrocorrection;
     _Bool _usesWordNgramModel;
-    _Bool _usesWordNgramModelAdaptation;
+    _Bool _usesAdaptation;
     _Bool _completionsShouldSharePrefix;
     _Bool _testing;
     TIInputMode *_inputMode;
@@ -28,7 +28,7 @@
 @property(nonatomic, getter=isTesting) _Bool testing; // @synthesize testing=_testing;
 @property(nonatomic) _Bool completionsShouldSharePrefix; // @synthesize completionsShouldSharePrefix=_completionsShouldSharePrefix;
 @property(nonatomic) unsigned long long maxWordsPerPrediction; // @synthesize maxWordsPerPrediction=_maxWordsPerPrediction;
-@property(nonatomic) _Bool usesWordNgramModelAdaptation; // @synthesize usesWordNgramModelAdaptation=_usesWordNgramModelAdaptation;
+@property(nonatomic) _Bool usesAdaptation; // @synthesize usesAdaptation=_usesAdaptation;
 @property(nonatomic) _Bool usesWordNgramModel; // @synthesize usesWordNgramModel=_usesWordNgramModel;
 @property(nonatomic) _Bool usesRetrocorrection; // @synthesize usesRetrocorrection=_usesRetrocorrection;
 @property(nonatomic) _Bool usesTextChecker; // @synthesize usesTextChecker=_usesTextChecker;
@@ -38,6 +38,7 @@
 @property(copy, nonatomic) NSString *staticDictionaryPath; // @synthesize staticDictionaryPath=_staticDictionaryPath;
 @property(retain, nonatomic) TIInputMode *inputMode; // @synthesize inputMode=_inputMode;
 - (id)propertyList;
+@property(nonatomic) _Bool usesWordNgramModelAdaptation;
 - (void)dealloc;
 
 @end

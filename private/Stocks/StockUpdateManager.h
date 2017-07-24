@@ -36,8 +36,8 @@
 - (void)updateStockComprehensive:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)updateStockComprehensive:(id)arg1;
 - (void)updateStocksComprehensive:(id)arg1;
-- (void)reestablishBackgroundSession;
-- (void)backgroundUpdateAllStocksBasic:(id)arg1 withCompletion:(CDUnknownBlockType)arg2 finishEventsHandler:(CDUnknownBlockType)arg3;
+- (void)reestablishBackgroundSessionForManager:(id)arg1 stocks:(id)arg2 withFinishEventsHandler:(CDUnknownBlockType)arg3;
+- (void)backgroundUpdateAllStocksBasic:(id)arg1 earliestBeginDate:(id)arg2;
 - (void)reset;
 - (void)cancel;
 - (void)failWithError:(id)arg1;

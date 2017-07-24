@@ -26,6 +26,7 @@
 - (void)_pdfDocumentWasUnlocked:(id)arg1;
 - (void)didEndDisplayingItem:(id)arg1;
 - (id)scrubbingAtFraction:(double)arg1 betweenIndexPath:(id)arg2 andIndexPath:(id)arg3 outDiscreteFraction:(double *)arg4;
+- (void)didSelectItemAtIndexPath:(id)arg1;
 - (void)selectionChanged;
 - (void)configureItem:(id)arg1 forRepresentedObject:(id)arg2 andViewIndexPath:(id)arg3 usingOptionalImage:(id)arg4;
 - (id)indexPathForRepresentedObject:(id)arg1;
@@ -33,6 +34,7 @@
 - (id)currentIndexPath;
 - (long long)numberOfItemsInSection:(long long)arg1;
 - (void)setHorizontalMode:(_Bool)arg1;
+@property(nonatomic) long long layoutMode;
 @property(nonatomic) struct CGSize thumbnailSize;
 @property(readonly, nonatomic) NSArray *selectedPages;
 @property(copy, nonatomic) UIColor *backgroundColor;

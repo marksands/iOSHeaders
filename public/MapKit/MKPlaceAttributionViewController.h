@@ -12,7 +12,7 @@
 #import <MapKit/_MKInfoCardChildViewControllerAnalyticsDelegate-Protocol.h>
 
 @class MKMapItem, MKPlaceAttributionCell, NSArray, NSAttributedString, NSString, _MKMapItemAttribution;
-@protocol _MKInfoCardAnaylticsDelegate;
+@protocol _MKInfoCardAnalyticsDelegate;
 
 __attribute__((visibility("hidden")))
 @interface MKPlaceAttributionViewController : MKPlaceSectionViewController <MKPlaceAttributionCellDelegate, MKStackingViewControllerFixedHeightAware, _MKInfoCardChildViewControllerAnalyticsDelegate, MKModuleViewControllerProtocol>
@@ -23,10 +23,10 @@ __attribute__((visibility("hidden")))
     NSAttributedString *_attributionString;
     MKPlaceAttributionCell *_attributionCell;
     _MKMapItemAttribution *_attribution;
-    id <_MKInfoCardAnaylticsDelegate> _analyticsDelegate;
+    id <_MKInfoCardAnalyticsDelegate> _analyticsDelegate;
 }
 
-@property(nonatomic) __weak id <_MKInfoCardAnaylticsDelegate> analyticsDelegate; // @synthesize analyticsDelegate=_analyticsDelegate;
+@property(nonatomic) __weak id <_MKInfoCardAnalyticsDelegate> analyticsDelegate; // @synthesize analyticsDelegate=_analyticsDelegate;
 @property(retain, nonatomic) _MKMapItemAttribution *attribution; // @synthesize attribution=_attribution;
 @property(nonatomic) _Bool resizableViewsDisabled; // @synthesize resizableViewsDisabled=_resizableViewsDisabled;
 @property(retain) MKPlaceAttributionCell *attributionCell; // @synthesize attributionCell=_attributionCell;
@@ -38,6 +38,8 @@ __attribute__((visibility("hidden")))
 - (id)infoAttributionString;
 - (void)infoCardThemeChanged:(id)arg1;
 - (double)extraHeightToReserveInLayout;
+- (void)updateLogo;
+- (void)viewDidLoad;
 - (void)loadView;
 
 // Remaining properties

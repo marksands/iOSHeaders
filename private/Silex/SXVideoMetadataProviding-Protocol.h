@@ -7,6 +7,8 @@
 #import <Silex/NSObject-Protocol.h>
 
 @protocol SXVideoMetadataProviding <NSObject>
+@property(readonly, nonatomic) double volume;
+@property(readonly, nonatomic) _Bool muted;
 @property(readonly, nonatomic) double timePlayed;
 @property(readonly, nonatomic) double framerate;
 @property(readonly, nonatomic) double time;

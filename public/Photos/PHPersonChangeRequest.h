@@ -105,7 +105,7 @@
 - (id)personUUID;
 @property(copy, nonatomic) NSString *displayName;
 @property(copy, nonatomic) NSString *name;
-@property(nonatomic) long long manualOrder;
+@property(nonatomic) unsigned long long manualOrder;
 @property(nonatomic) long long type;
 @property(readonly, nonatomic) PHObjectPlaceholder *placeholderForCreatedPerson;
 - (void)encodeToXPCDict:(id)arg1;

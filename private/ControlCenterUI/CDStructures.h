@@ -47,22 +47,3 @@ struct UIEdgeInsets {
     double right;
 };
 
-#pragma mark Typedef'd Structures
-
-typedef struct {
-    int hour;
-    int minute;
-} CDStruct_bdf7039f;
-
-typedef struct {
-    _Bool active;
-    _Bool enabled;
-    _Bool sunSchedulePermitted;
-    int mode;
-    struct {
-        CDStruct_bdf7039f fromTime;
-        CDStruct_bdf7039f toTime;
-    } schedule;
-    unsigned long long disableFlags;
-} CDStruct_0b0a24e2;
-

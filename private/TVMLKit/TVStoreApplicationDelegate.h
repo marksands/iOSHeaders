@@ -47,6 +47,7 @@
 - (void)reload;
 - (void)didShowViewController;
 - (void)setupWithBootURL:(id)arg1;
+- (id)appLocalBootURL;
 - (id)bootURL;
 - (id)cachedBagPath;
 - (void)dealloc;

@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class MTLStructType, MTLType, NSString;
+@class MTLPointerType, MTLStructType, NSString;
 
 @interface MTLArgument : NSObject
 {
@@ -23,8 +23,8 @@
 @property(readonly) unsigned long long bufferDataSize; // @dynamic bufferDataSize;
 @property(readonly) unsigned long long bufferDataType; // @dynamic bufferDataType;
 @property(readonly) MTLArgument *bufferIndirectArgumentType; // @dynamic bufferIndirectArgumentType;
+@property(readonly) MTLPointerType *bufferPointerType; // @dynamic bufferPointerType;
 @property(readonly) MTLStructType *bufferStructType; // @dynamic bufferStructType;
-@property(readonly) MTLType *dataTypeDescription; // @dynamic dataTypeDescription;
 @property(readonly) unsigned long long index; // @dynamic index;
 @property(readonly) unsigned long long indirectConstantAlignment; // @dynamic indirectConstantAlignment;
 @property(readonly) unsigned long long indirectConstantDataSize; // @dynamic indirectConstantDataSize;

@@ -36,6 +36,7 @@
 + (shared_ptr_e9f752ce)stubForLocale:(id)arg1 adaptationContext:(id)arg2 staticResourcePaths:(id)arg3 dynamicResourcePath:(id)arg4;
 + (shared_ptr_e9f752ce)modelForLocale:(id)arg1 adaptationContext:(id)arg2 staticResourcePaths:(id)arg3 dynamicResourcePath:(id)arg4;
 + (void)resetClientAndRecipientCache;
++ (void)setOfflineTrainingEnabled:(_Bool)arg1;
 + (void)setAsynchronousLoad:(_Bool)arg1;
 @property(retain, nonatomic) TILanguageModelAdaptationContext *adaptationContext; // @synthesize adaptationContext=_adaptationContext;
 @property(retain, nonatomic) NSString *recipientIdentifier; // @synthesize recipientIdentifier=_recipientIdentifier;

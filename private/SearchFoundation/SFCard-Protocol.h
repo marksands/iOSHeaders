@@ -11,6 +11,8 @@
 @protocol SFCard <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+@property(copy, nonatomic) NSString *fbr;
+@property(nonatomic) unsigned long long queryId;
 @property(copy, nonatomic) NSString *resultIdentifier;
 @property(copy, nonatomic) NSData *entityIdentifier;
 @property(nonatomic) int source;

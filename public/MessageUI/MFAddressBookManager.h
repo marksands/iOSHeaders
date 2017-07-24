@@ -20,7 +20,6 @@
 - (void)_handleAddressBookPrefsChangeNotification;
 - (void)_handleAddressBookChangeNotification;
 - (id)_clientWeakReferences;
-- (void)_applicationResumed:(id)arg1;
 - (void *)addressBook;
 - (void)dealloc;
 - (id)init;

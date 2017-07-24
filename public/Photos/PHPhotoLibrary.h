@@ -128,9 +128,10 @@
 - (id)bfa_photoLibrary;
 - (id)bfa_tombstoneObjectForOID:(id)arg1 uuid:(id)arg2 propertyHint:(unsigned long long)arg3;
 - (id)bfa_fetchObjectsForOIDs:(id)arg1 propertyHint:(unsigned long long)arg2;
+- (id)faceClusterSequenceNumbersOfFacesWithClusterSequenceNumbers:(id)arg1 error:(id *)arg2;
 - (_Bool)isFaceProcessingFinished;
 - (id)faceClusterSequenceNumbersOfKeyFacesInAlgorithmicFaceGroupsForPerson:(id)arg1 verifiedClusterSequenceNumbers:(id)arg2;
-- (id)suggestionsForPersonLocalIdentifier:(id)arg1 clusterSequenceNumbers:(id)arg2 excludePersonLocalIdentifers:(id)arg3;
+- (id)suggestionsForPersonLocalIdentifier:(id)arg1 clusterSequenceNumbers:(id)arg2 excludePersonLocalIdentifiers:(id)arg3 minimumSuggestionFaceCount:(unsigned long long)arg4;
 - (void)personPromotionProcessingStatusForUserInterface:(CDUnknownBlockType)arg1;
 - (void)faceProcessingStatusForUserInterface:(CDUnknownBlockType)arg1;
 - (id)suggestedMePersonIdentifierWithError:(id *)arg1;
@@ -165,6 +166,7 @@
 - (id)deletedAssetUUIDsForAnalysisByWorkerType:(short)arg1 fetchLimit:(unsigned long long)arg2 error:(id *)arg3;
 - (void)requestCountOfAnalysisRecordsForDeletedAssetsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)workInfoForAnalysisWithWorkerType:(short)arg1 additionalStatesToExclude:(id)arg2 fetchLimit:(unsigned long long)arg3 error:(id *)arg4;
+- (id)analysisProgressCountsForWorkerType:(short)arg1;
 - (void)requestAnalysisProgressCountsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_requestAnalysisProgressWithCompletion:(CDUnknownBlockType)arg1;
 - (void)requestTotalProgressCountsForWorkerType:(short)arg1 states:(id)arg2 completion:(CDUnknownBlockType)arg3;

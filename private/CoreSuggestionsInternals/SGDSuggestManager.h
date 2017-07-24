@@ -9,7 +9,7 @@
 #import <CoreSuggestionsInternals/SGDSuggestManagerAllProtocol-Protocol.h>
 
 @class CNContactStore, EKEventStore, NSDictionary, NSOperationQueue, NSString, NSXPCConnection, SGDManagerForCTS, SGQueryPredictions, SGServiceContext, SGSqlEntityStore, SGSuggestHistory, _PASNotificationToken;
-@protocol OS_dispatch_queue, PMLTrainingProtocol;
+@protocol PMLTrainingProtocol;
 
 @interface SGDSuggestManager : NSObject <SGDSuggestManagerAllProtocol>
 {
@@ -24,7 +24,6 @@
     CNContactStore *_contactStore;
     NSDictionary *_bundleIdToPET;
     id <PMLTrainingProtocol> _pmlTraining;
-    NSObject<OS_dispatch_queue> *_eventMetricsQueue;
     SGQueryPredictions *_queryPredictions;
     SGServiceContext *_context;
     NSString *_clientName;
@@ -37,6 +36,7 @@
 @property(readonly, nonatomic) SGServiceContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (id)_maybeFormatString;
+- (void)deleteCloudKitZoneWithCompletion:(CDUnknownBlockType)arg1;
 - (void)setQueryPredictionsForTesting:(id)arg1;
 - (void)clearContactAggregatorConversation:(id)arg1;
 - (void)clearContactAggregator;
@@ -50,6 +50,8 @@
 - (void)logMetricSuggestedContactDetailUsed:(id)arg1 contactIdentifier:(id)arg2 bundleId:(id)arg3;
 - (void)logMetricContactSearchResultSelected:(id)arg1 contactIdentifier:(id)arg2 bundleId:(id)arg3;
 - (void)logMetricAutocompleteUserSelectedRecordId:(id)arg1 contactIdentifier:(id)arg2 bundleId:(id)arg3;
+- (void)logMetricContactSearchResult:(int)arg1 recordId:(id)arg2 contactIdentifier:(id)arg3 bundleId:(id)arg4;
+- (void)logMetricAutocompleteResult:(int)arg1 recordId:(id)arg2 contactIdentifier:(id)arg3 bundleId:(id)arg4;
 - (struct SGMContactDetailUsedApp_)_appEnumForBundleId:(id)arg1;
 - (void)waitForEventWithIdentifier:(id)arg1 toAppearInEventStoreWithLastModificationDate:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)noopWithCompletion:(CDUnknownBlockType)arg1;
@@ -94,7 +96,6 @@
 - (void)rejectEvent:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)confirmEventByRecordId:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)confirmEvent:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_delayedBannerConfirmWithEvent:(id)arg1;
 - (void)originFromRecordId:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)eventFromUniqueId:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)resolveFullDownloadRequests:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
@@ -113,6 +114,7 @@
 - (_Bool)isSGEntity:(id)arg1 duplicateOfEKEvent:(id)arg2 withStore:(id)arg3;
 - (id)curatedEventKeyForExactMatchOfPseudoEvent:(id)arg1 candidates:(id)arg2;
 - (id)shortNamesAndRealtimeEventsFromEntity:(id)arg1 enrichments:(id)arg2 store:(id)arg3;
+- (id)filterPastEvents:(id)arg1;
 - (void)suggestionsFromEmailContent:(id)arg1 headers:(id)arg2 source:(id)arg3 options:(unsigned long long)arg4 withCompletion:(CDUnknownBlockType)arg5;
 - (void)_suggestionsFromSearchableItem:(id)arg1 options:(unsigned long long)arg2 dissectIfNecessary:(_Bool)arg3 withCompletion:(CDUnknownBlockType)arg4;
 - (void)harvestedSuggestionsFromMessage:(id)arg1 bundleIdentifier:(id)arg2 options:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;

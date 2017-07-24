@@ -6,36 +6,33 @@
 
 #import <objc/NSObject.h>
 
-@class NSDate, NSMutableArray, NSString;
-@protocol OS_dispatch_queue, OS_dispatch_source;
+@class GEOLogMsgCacheDBInfo, NSDate, NSMutableArray, NSString;
 
 @interface GEOLogMessageCacheManager : NSObject
 {
     NSString *_logMessageCacheFilePath;
-    struct sqlite3 *_logMessageCacheDatabase;
+    GEOLogMsgCacheDBInfo *_logMsgCacheDBInfo;
+    NSString *_policyIdentifier;
     NSString *_adaptorId;
+    int _supportedLogMessageType;
     _Bool _fromLogFrameworkAdaptor;
     long long _logMessageCacheIterator;
     long long _logMessageCacheEndIterator;
     NSMutableArray *_retrivedLogMessageCacheIds;
-    NSObject<OS_dispatch_queue> *_databaseQueue;
-    void *_databaseQueueIdentityKey;
-    void *_databaseQueueIdentityValue;
     long long _maxNumberOfLogMessagesAllowedInCache;
     long long _logMessagesOverflowPurgeSize;
     unsigned long long _encryptionType;
-    NSObject<OS_dispatch_source> *_logMessageCacheTransactionTimer;
-    _Bool _logMessageCacheTransactionPending;
-    long long _pendingLogMessageCount;
     _Bool _realtimeAdaptor;
     long long _cacheCountFlushThreshold;
     NSDate *_oldestLogMessageInCache;
 }
 
++ (id)logMsgCacheDatabaseObjectForPolicyIdentity:(id)arg1;
 @property(nonatomic) unsigned long long encryptionType; // @synthesize encryptionType=_encryptionType;
 - (void).cxx_destruct;
 - (void)_stopLogMessageCacheTransactionTimer;
 - (void)_startLogMessageCacheTransactionTimer;
+- (void)_rollbackLogMessageCacheTransaction;
 - (void)_commitLogMessageCacheTransaction;
 - (void)_beginLogMessageCacheTransaction;
 - (void)_setLogMessageCacheDBJournalMode;
@@ -51,6 +48,7 @@
 - (void)_deleteExpiredLogMessageCacheDBFile:(double)arg1;
 - (void)_addRetryCountColumnToTable;
 - (void)_migrateDatabaseIfNeeded;
+- (void)_migrateLogMessageCacheTableFromOldDatabase:(id)arg1;
 - (void)_createTables;
 - (_Bool)_executeSQL:(id)arg1;
 - (void)_openCreateLogMessageCacheDBFile;
@@ -60,6 +58,8 @@
 - (int)_sqlite3_open_protection_flag;
 - (_Bool)_encryptionEnabled;
 - (_Bool)_usingInMemoryLogMessageCacheFile;
+- (id)_updatedSQLQueryFromQuery:(id)arg1;
+- (void)rollbackLogMessageCacheTransaction;
 - (void)commitLogMessageCacheTransaction;
 - (void)beginLogMessageCacheTransaction;
 - (_Bool)shouldFlushLogMessageCache;
@@ -72,9 +72,12 @@
 - (id)retrieveFirstBatchOfLogMessagesWithLimitCount:(long long)arg1 limitSize:(long long)arg2;
 - (void)resetLogMessageCacheIterator;
 - (void)insertLogMessageIntoCache:(id)arg1;
+- (void)openCreateLogMessageCache;
 - (void)openLogMessageCache;
+- (void)_setupWithLogMsgCacheFilePath:(id)arg1 policyIdentifier:(id)arg2 maxNumberOfLogMessagesAllowedInCache:(long long)arg3 logMessagesOverflowPurgeSize:(long long)arg4 encryptionType:(unsigned long long)arg5 realtimeAdaptor:(_Bool)arg6 cacheCountFlushThreshold:(long long)arg7 adaptorId:(id)arg8 supportedLogMessageType:(int)arg9 fromLogFrameworkAdaptor:(_Bool)arg10;
 - (void)dealloc;
-- (id)initWithLogMessageCacheFilePath:(id)arg1 maxNumberOfLogMessagesAllowedInCache:(long long)arg2 logMessagesOverflowPurgeSize:(long long)arg3 encryptionType:(unsigned long long)arg4 realtimeAdaptor:(_Bool)arg5 cacheCountFlushThreshold:(long long)arg6 adaptorId:(id)arg7 fromLogFrameworkAdaptor:(_Bool)arg8;
+- (id)initWithLogMessageCacheFilePath:(id)arg1 policyIdentifier:(id)arg2 maxNumberOfLogMessagesAllowedInCache:(long long)arg3 logMessagesOverflowPurgeSize:(long long)arg4 encryptionType:(unsigned long long)arg5 realtimeAdaptor:(_Bool)arg6 cacheCountFlushThreshold:(long long)arg7 adaptorId:(id)arg8 supportedLogMessageType:(int)arg9 fromLogFrameworkAdaptor:(_Bool)arg10;
+- (id)initWithLogMessageCacheDBInfo:(id)arg1 logMessageCacheFilePath:(id)arg2 policyIdentifier:(id)arg3 maxNumberOfLogMessagesAllowedInCache:(long long)arg4 logMessagesOverflowPurgeSize:(long long)arg5 encryptionType:(unsigned long long)arg6 realtimeAdaptor:(_Bool)arg7 cacheCountFlushThreshold:(long long)arg8 adaptorId:(id)arg9 supportedLogMessageType:(int)arg10 fromLogFrameworkAdaptor:(_Bool)arg11;
 @property(nonatomic) NSDate *oldestLogMessageInCache;
 
 @end

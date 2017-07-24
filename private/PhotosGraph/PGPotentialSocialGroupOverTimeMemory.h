@@ -13,10 +13,12 @@
     PGGraphSocialGroupNode *_socialGroupNode;
     NSSet *_personNodes;
     NSArray *_curatedAssets;
+    NSArray *_facedAssets;
     NSString *_uuid;
 }
 
 @property(readonly) NSString *uuid; // @synthesize uuid=_uuid;
+@property(retain) NSArray *facedAssets; // @synthesize facedAssets=_facedAssets;
 @property(retain) NSArray *curatedAssets; // @synthesize curatedAssets=_curatedAssets;
 @property(readonly) NSSet *personNodes; // @synthesize personNodes=_personNodes;
 @property(readonly) PGGraphSocialGroupNode *socialGroupNode; // @synthesize socialGroupNode=_socialGroupNode;

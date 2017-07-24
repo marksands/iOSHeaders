@@ -56,7 +56,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)updateCollectionViewWithDeletedSections:(id)arg1 insertedSections:(id)arg2 updatedSections:(id)arg3;
 - (long long)_layoutTilesAndGetNumberOfTilesOmittedWithCollectionView:(id)arg1 tileLayoutAttributes:(id)arg2 fixedLayoutAttributes:(id)arg3 origin:(inout struct CGPoint *)arg4 size:(inout struct CGSize *)arg5 sectionContentSize:(struct CGSize)arg6 itemCount:(long long)arg7 section:(long long)arg8;
-- (struct CGRect)_layoutHorizontalSectionFooterIfNecessary:(id)arg1 fixedLayoutAttributes:(id)arg2 floatingLayoutAttributes:(id)arg3 footerConfig:(long long)arg4 origin:(struct CGPoint)arg5 size:(struct CGSize)arg6 section:(long long)arg7;
+- (struct CGRect)_layoutHorizontalSectionFooterIfNecessary:(id)arg1 fixedLayoutAttributes:(id)arg2 floatingLayoutAttributes:(id)arg3 footerConfig:(long long)arg4 origin:(struct CGPoint)arg5 size:(struct CGSize)arg6 section:(long long)arg7 isJoined:(_Bool)arg8;
 - (struct CGRect)_layoutVerticalSectionHeaderIfNecessary:(id)arg1 fixedLayoutAttributes:(id)arg2 floatingLayoutAttributes:(id)arg3 section:(long long)arg4;
 - (void)_getSizeForHorizontalFlowDirection:(out struct CGSize *)arg1 headerSize:(out struct CGSize *)arg2 footerSize:(out struct CGSize *)arg3 fixedLayoutAttributes:(id)arg4 tileLayoutAttributes:(id)arg5 floatingLayoutAttributes:(id)arg6 type:(out long long *)arg7 forSection:(long long)arg8 isJoined:(_Bool)arg9;
 - (void)_getSizeForVerticalFlowDirection:(out struct CGSize *)arg1 headerSize:(out struct CGSize *)arg2 footerSize:(out struct CGSize *)arg3 fixedLayoutAttributes:(id)arg4 tileLayoutAttributes:(id)arg5 floatingLayoutAttributes:(id)arg6 type:(out long long *)arg7 forSection:(long long)arg8 isJoined:(_Bool)arg9;

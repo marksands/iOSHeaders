@@ -6,9 +6,12 @@
 
 #import <PhotosGraph/NSObject-Protocol.h>
 
-@class NSArray, NSDate, NSSet;
+@class NSArray, NSDate, NSSet, NSString;
 
 @protocol PGGraphCollectionNode <NSObject>
+- (NSString *)collectionUpgradingMeaningLabelForWeekend;
+- (unsigned long long)collectionNumberOfAssets;
+- (void)collectionEnumerateChildCollectionNodesUsingBlock:(void (^)(PGGraphEdge *, PGGraphCollectionNode *, _Bool *))arg1;
 - (NSSet *)collectionMeaningLabels;
 - (NSSet *)collectionMeaningNodes;
 - (void)collectionEnumerateMeaningNodesUsingBlock:(void (^)(PGGraphMeaningEdge *, PGGraphMeaningNode *, _Bool *))arg1;

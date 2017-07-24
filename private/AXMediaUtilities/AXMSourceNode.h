@@ -20,7 +20,7 @@
 @property(nonatomic) _Bool shouldProcessRemotely; // @synthesize shouldProcessRemotely=_shouldProcessRemotely;
 - (void).cxx_destruct;
 - (void)triggerWithContext:(id)arg1 cacheKey:(id)arg2 resultHandler:(CDUnknownBlockType)arg3;
-- (void)create:(id)arg1;
+- (void)produceImage:(id)arg1;
 - (void)_nodeQueue_removeAllResultHandlers;
 - (void)removeAllResultHandlers;
 - (void)_nodeQueue_removeResultHandler:(CDUnknownBlockType)arg1;

@@ -11,6 +11,7 @@
 
 @protocol SFCardSection <NSSecureCoding, NSObject>
 @property(retain, nonatomic) SFColor *backgroundColor;
+@property(copy, nonatomic) NSString *resultIdentifier;
 @property(copy, nonatomic) NSString *cardSectionId;
 @property(copy, nonatomic) NSArray *parameterKeyPaths;
 @property(copy, nonatomic) NSArray *commands;

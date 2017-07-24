@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 + (id)serviceViewControllerInterface;
 + (id)exportedInterface;
 @property(nonatomic) __weak SKAccountPageViewController *accountPageViewController; // @synthesize accountPageViewController=_accountPageViewController;
-- (void)dismissViewController;
+- (void)dismissViewControllerWithResult:(id)arg1 error:(id)arg2;
 - (void)didPrepareWithResult:(id)arg1 error:(id)arg2;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 

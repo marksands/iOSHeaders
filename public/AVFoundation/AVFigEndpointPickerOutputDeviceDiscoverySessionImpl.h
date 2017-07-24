@@ -8,7 +8,7 @@
 
 #import <AVFoundation/AVOutputDeviceDiscoverySessionImpl-Protocol.h>
 
-@class AVOutputDeviceDiscoverySession, AVOutputDeviceDiscoverySessionAvailableOutputDevices, AVWeakReference, NSArray, NSString;
+@class AVAudioSession, AVOutputDeviceDiscoverySession, AVOutputDeviceDiscoverySessionAvailableOutputDevices, AVWeakReference, NSString;
 @protocol OS_dispatch_queue;
 
 @interface AVFigEndpointPickerOutputDeviceDiscoverySessionImpl : NSObject <AVOutputDeviceDiscoverySessionImpl>
@@ -20,12 +20,10 @@
     unsigned long long _features;
 }
 
-+ (id)outputDeviceDiscoverySessionImplWithDeviceFeatures:(unsigned long long)arg1;
 + (void)initialize;
 @property __weak AVOutputDeviceDiscoverySession *parentOutputDeviceDiscoverySession; // @synthesize parentOutputDeviceDiscoverySession=_parentSession;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool devicePresenceDetected;
-@property(readonly) NSArray *availableOutputDeviceGroups;
 @property(readonly, nonatomic) AVOutputDeviceDiscoverySessionAvailableOutputDevices *availableOutputDevicesObject;
 - (void)outputDeviceDiscoverySessionDidChangeDiscoveryMode:(id)arg1;
 - (void)dealloc;
@@ -33,6 +31,7 @@
 - (void)_removeFigEndpointPickerNotifications;
 - (void)_addFigEndpointPickerNotifications;
 - (int)_configureFigEndpointPickerWithFeature:(unsigned long long)arg1;
+@property(retain, nonatomic) AVAudioSession *targetAudioSession;
 - (id)initWithDeviceFeatures:(unsigned long long)arg1;
 - (id)init;
 

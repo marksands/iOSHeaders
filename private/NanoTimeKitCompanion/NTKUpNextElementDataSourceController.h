@@ -22,8 +22,10 @@
     NSMutableArray *_updates;
     NTKUpNextScheduler *_updateScheduler;
     NTKUpNextScheduler *_reloadScheduler;
+    _Bool _hasUnlockedSinceFirstBoot;
     _Bool _isPerformingReload;
     NSMutableArray *_enqueuedBlocks;
+    _Bool _willUnload;
     Class _dataSourceClass;
     NTKUpNextElementDataSource *_dataSource;
     unsigned long long _state;
@@ -45,6 +47,7 @@
 - (_Bool)hasElementWithId:(id)arg1 inSection:(unsigned long long)arg2;
 - (void)elementDidBecomeHidden:(id)arg1;
 - (void)elementWillBecomeVisible:(id)arg1;
+- (void)_queue_processUpdates:(id)arg1 forSection:(unsigned long long)arg2;
 - (void)_queue_performUpdates;
 - (void)_queue_scheduleUpdate:(id)arg1;
 - (id)_groupElements:(id)arg1 bySections:(id)arg2;
@@ -60,8 +63,10 @@
 - (void)addElements:(id)arg1 toSection:(unsigned long long)arg2;
 - (void)invalidateElements;
 - (id)elementOperationQueue;
+- (void)prepareToUnload;
 - (void)pause;
 - (void)resume;
+- (void)_handleDeviceLockStateChange:(id)arg1;
 - (void)_handleSignifiantTimeChange:(id)arg1;
 - (void)dealloc;
 - (id)initWithDataSourceClass:(Class)arg1;

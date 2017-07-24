@@ -40,6 +40,7 @@
     _Bool _isChangingObscuredInsetsInteractively;
     struct UIEdgeInsets _unobscuredSafeAreaInsets;
     _Bool _haveSetUnobscuredSafeAreaInsets;
+    unsigned long long _obscuredInsetEdgesAffectedBySafeArea;
     long long _interfaceOrientationOverride;
     _Bool _overridesInterfaceOrientation;
     _Bool _allowsViewportShrinkToFit;
@@ -71,7 +72,7 @@
     _Bool _delayUpdateVisibleContentRects;
     _Bool _hadDelayedUpdateVisibleContentRects;
     int _activeAnimatedResizeCount;
-    struct Vector<std::__1::function<void ()>, 0, WTF::CrashOnOverflow, 16> _snapshotsDeferredDuringResize;
+    struct Vector<WTF::Function<void ()>, 0, WTF::CrashOnOverflow, 16> _snapshotsDeferredDuringResize;
     struct RetainPtr<NSMutableArray> _stableStatePresentationUpdateCallbacks;
     struct RetainPtr<WKPasswordView> _passwordView;
     _Bool _hasScheduledVisibleRectUpdate;
@@ -119,7 +120,8 @@
 - (void)_enclosingScrollerScrollingEnded:(id)arg1;
 - (void)_didScroll;
 - (struct CGRect)_visibleContentRect;
-- (struct CGRect)_visibleRectInEnclosingScrollView:(id)arg1;
+- (struct CGRect)_visibleRectInEnclosingView:(id)arg1;
+@property(readonly, nonatomic) UIView *_enclosingViewForExposedRectComputation;
 - (void)_scrollViewDidInterruptDecelerating:(id)arg1;
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
 - (void)scrollViewDidEndZooming:(id)arg1 withView:(id)arg2 atScale:(double)arg3;
@@ -149,7 +151,7 @@
 - (void)_scrollToContentScrollPosition:(struct FloatPoint)arg1 scrollOrigin:(struct IntPoint)arg2;
 - (void)_zoomToRect:(struct FloatRect)arg1 atScale:(double)arg2 origin:(struct FloatPoint)arg3 animated:(_Bool)arg4;
 - (void)_zoomToPoint:(struct FloatPoint)arg1 atScale:(double)arg2 animated:(_Bool)arg3;
-- (PassRefPtr_d1f98d0a)_takeViewSnapshot;
+- (RefPtr_9e5ffaf0)_takeViewSnapshot;
 - (void)_restorePageStateToUnobscuredCenter:(optional_c1d3839d)arg1 scale:(double)arg2;
 - (void)_restorePageScrollPosition:(optional_c1d3839d)arg1 scrollOrigin:(struct FloatPoint)arg2 previousObscuredInset:(BoxExtent_b0036987)arg3 scale:(double)arg4;
 - (void)_couldNotRestorePageState;
@@ -200,6 +202,7 @@
 - (void)setFrame:(struct CGRect)arg1;
 @property(readonly, nonatomic) _Bool _isBackground;
 - (void)_populateArchivedSubviews:(id)arg1;
+@property(nonatomic, setter=_setViewportSizeForCSSViewportUnits:) struct CGSize _viewportSizeForCSSViewportUnits;
 @property(nonatomic) _Bool allowsLinkPreview;
 - (struct OpaqueWKPage *)_pageForTesting;
 @property(copy, nonatomic) NSString *customUserAgent;
@@ -236,6 +239,7 @@
 - (void)_initializeWithConfiguration:(id)arg1;
 - (_Bool)_mayAutomaticallyShowVideoPictureInPicture;
 - (_Bool)_isShowingVideoPictureInPicture;
+- (_Bool)_isValid;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)setSemanticContentAttribute:(long long)arg1;
 @property(readonly, nonatomic) _WKWebViewPrintFormatter *_webViewPrintFormatter;
@@ -243,6 +247,7 @@
 @property(readonly, nonatomic) NSData *_dataForDisplayedPDF;
 @property(readonly, nonatomic, getter=_isDisplayingPDF) _Bool _displayingPDF;
 - (id)_viewForFindUI;
+- (void)_clearOverrideLayoutParameters;
 - (void)_overrideLayoutParametersWithMinimumLayoutSize:(struct CGSize)arg1 maximumUnobscuredSizeOverride:(struct CGSize)arg2;
 - (void)_overrideLayoutParametersWithMinimumLayoutSize:(struct CGSize)arg1 minimumLayoutSizeForMinimalUI:(struct CGSize)arg2 maximumUnobscuredSizeOverride:(struct CGSize)arg3;
 - (void)_snapshotRect:(struct CGRect)arg1 intoImageOfWidth:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -257,8 +262,10 @@
 @property(nonatomic, setter=_setBackgroundExtendsBeyondPage:) _Bool _backgroundExtendsBeyondPage;
 - (void)_setMaximumUnobscuredSizeOverride:(struct CGSize)arg1;
 @property(readonly, nonatomic) struct CGSize _maximumUnobscuredSizeOverride;
+- (void)_clearInterfaceOrientationOverride;
 @property(nonatomic, setter=_setInterfaceOrientationOverride:) long long _interfaceOrientationOverride;
 @property(nonatomic, setter=_setUnobscuredSafeAreaInsets:) struct UIEdgeInsets _unobscuredSafeAreaInsets;
+@property(nonatomic, setter=_setObscuredInsetEdgesAffectedBySafeArea:) unsigned long long _obscuredInsetEdgesAffectedBySafeArea;
 @property(nonatomic, setter=_setObscuredInsets:) struct UIEdgeInsets _obscuredInsets;
 - (void)_setMinimumLayoutSizeOverride:(struct CGSize)arg1;
 @property(readonly, nonatomic) struct CGSize _minimumLayoutSizeOverride;
@@ -328,6 +335,7 @@
 @property(readonly, nonatomic) NSString *_MIMEType;
 @property(readonly, nonatomic) NSURL *_committedURL;
 @property(readonly, nonatomic) NSArray *_certificateChain;
+- (id)_loadRequest:(id)arg1 shouldOpenExternalURLs:(_Bool)arg2;
 - (id)_loadData:(id)arg1 MIMEType:(id)arg2 characterEncodingName:(id)arg3 baseURL:(id)arg4 userData:(id)arg5;
 - (void)_loadAlternateHTMLString:(id)arg1 baseURL:(id)arg2 forUnreachableURL:(id)arg3;
 @property(readonly, nonatomic) NSURL *_unreachableURL;
@@ -335,6 +343,7 @@
 @property(readonly, nonatomic) WKBrowsingContextHandle *_handle;
 @property(readonly, nonatomic) id _remoteObjectRegistry;
 @property(nonatomic, getter=_isEditable, setter=_setEditable:) _Bool _editable;
+- (void)_simulateLongPressActionAtLocation:(struct CGPoint)arg1;
 - (void)_simulatePrepareForDataInteractionSession:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_simulatedItemsForSession:(id)arg1;
 - (void)_simulateWillBeginDataInteractionWithSession:(id)arg1;
@@ -365,13 +374,14 @@
 - (void)didStartFormControlInteraction;
 - (void)selectFormAccessoryPickerRow:(int)arg1;
 - (void)dismissFormAccessoryView;
+- (void)applyAutocorrection:(id)arg1 toString:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)keyboardAccessoryBarPrevious;
 - (void)keyboardAccessoryBarNext;
 - (struct CGPoint)_convertPointFromViewToContents:(struct CGPoint)arg1;
 - (struct CGPoint)_convertPointFromContentsToView:(struct CGPoint)arg1;
 @property(readonly, nonatomic) struct CGRect _contentVisibleRect;
-- (void)requestDraggableElementAtPosition:(struct CGPoint)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (id)draggableElementAtPosition:(struct CGPoint)arg1;
+- (void)_requestDraggableElementAtPosition:(struct CGPoint)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (id)_draggableElementAtPosition:(struct CGPoint)arg1;
 - (id)_contentsOfUserInterfaceItem:(id)arg1;
 @property(readonly, nonatomic) id <_WKWebViewPrintProvider> _printProvider;
 - (Class)_printFormatterClass;

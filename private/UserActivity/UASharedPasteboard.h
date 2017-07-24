@@ -13,6 +13,8 @@
     UASharedPasteboardManager *_manager;
 }
 
++ (void)stopPreventingPasteboardSharing;
++ (void)startPreventingPasteboardSharing;
 + (id)remotePasteboard;
 + (void)localPasteboardDidPasteGeneration:(unsigned long long)arg1;
 + (void)clearLocalPasteboardInformation;

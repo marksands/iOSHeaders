@@ -16,9 +16,12 @@
     CLKFont *_font;
     CLKFont *_smallCapsBaseFont;
     NSParagraphStyle *_paragraphStyle;
+    double _minimumScaleFactor;
 }
 
 + (id)styleWithFont:(id)arg1 smallCapsBaseFont:(id)arg2 uppercase:(_Bool)arg3 paragraphStyle:(id)arg4;
++ (id)styleWithFont:(id)arg1 smallCapsBaseFont:(id)arg2 uppercase:(_Bool)arg3 paragraphStyle:(id)arg4 minimumScaleFactor:(double)arg5;
+@property(nonatomic) double minimumScaleFactor; // @synthesize minimumScaleFactor=_minimumScaleFactor;
 @property(copy, nonatomic) NSParagraphStyle *paragraphStyle; // @synthesize paragraphStyle=_paragraphStyle;
 @property(nonatomic) _Bool uppercase; // @synthesize uppercase=_uppercase;
 @property(copy, nonatomic) CLKFont *smallCapsBaseFont; // @synthesize smallCapsBaseFont=_smallCapsBaseFont;

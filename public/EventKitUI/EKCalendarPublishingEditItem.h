@@ -8,12 +8,12 @@
 
 #import <EventKitUI/CalendarPublishingActivityDelegate-Protocol.h>
 
-@class NSString, UIActivityIndicatorView, UILabel, UIView;
+@class NSString, UIActivityIndicatorView, UILabel, UITableViewHeaderFooterView, UIView;
 
 @interface EKCalendarPublishingEditItem : EKCalendarEditItem <CalendarPublishingActivityDelegate>
 {
     _Bool _published;
-    UIView *_footerView;
+    UITableViewHeaderFooterView *_footerView;
     UILabel *_descriptionLabel;
     UILabel *_publishingLabel;
     UIActivityIndicatorView *_spinner;
@@ -35,7 +35,6 @@
 - (unsigned long long)numberOfSubitems;
 - (_Bool)configureWithCalendar:(id)arg1;
 @property(readonly, nonatomic) UIView *footerView;
-- (void)layoutForWidth:(double)arg1;
 - (void)_applyStyleToUILabel:(id)arg1;
 - (void)reset;
 

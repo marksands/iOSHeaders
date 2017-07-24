@@ -6,7 +6,7 @@
 
 #import <CoreImage/CIFilter.h>
 
-@class AVCameraCalibrationData, CIImage, CIVector, NSDictionary, NSNumber;
+@class AVCameraCalibrationData, CIImage, CIVector, NSNumber;
 
 __attribute__((visibility("hidden")))
 @interface CIDepthEffectMakeBlurMap : CIFilter
@@ -21,12 +21,12 @@ __attribute__((visibility("hidden")))
     CIVector *inputFocusRect;
     NSNumber *inputScale;
     AVCameraCalibrationData *inputCalibrationData;
-    NSDictionary *inputTuningParameters;
+    id inputAuxDataMetadata;
 }
 
 + (id)customAttributes;
 @property(retain, nonatomic) AVCameraCalibrationData *inputCalibrationData; // @synthesize inputCalibrationData;
-@property(retain, nonatomic) NSDictionary *inputTuningParameters; // @synthesize inputTuningParameters;
+@property(retain, nonatomic) id inputAuxDataMetadata; // @synthesize inputAuxDataMetadata;
 @property(copy, nonatomic) NSNumber *inputScale; // @synthesize inputScale;
 @property(retain, nonatomic) CIVector *inputFocusRect; // @synthesize inputFocusRect;
 @property(retain, nonatomic) CIVector *inputFaceMidPoint; // @synthesize inputFaceMidPoint;
@@ -37,11 +37,11 @@ __attribute__((visibility("hidden")))
 @property(retain) CIImage *inputShiftmapImage; // @synthesize inputShiftmapImage;
 @property(retain) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (id)_nativeImage;
+- (id)_nativeImage:(id)arg1;
 - (id)_metalImage;
-- (id)_nativeCIFaceMaskImage:(id)arg1;
+- (id)_nativeCIFaceMaskImage:(id)arg1 tuningParameters:(id)arg2;
 - (_Bool)_needToRunFaceMask;
-- (id)_nativeCILensModelImage;
+- (id)_nativeCILensModelImage:(id)arg1;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 
 @end

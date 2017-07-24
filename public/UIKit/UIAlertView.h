@@ -35,7 +35,6 @@
 + (void)applyTransformToAllAlerts:(struct CGAffineTransform)arg1;
 + (_Bool)_springBoardAlertDisplayingOverApplicationAlert;
 + (void)_setSpringBoardAlertDisplayingOverApplicationAlert:(_Bool)arg1;
-+ (id)_alertWindow;
 + (struct CGSize)minimumSize;
 + (id)_alertViewForWindow:(id)arg1;
 + (id)_alertViewForSessionWithRemoteViewController:(id)arg1;

@@ -13,14 +13,12 @@
 @interface MapsSuggestionsSingleElementTypeDeduper : MapsSuggestionsBaseDeduper <MapsSuggestionsDeduper>
 {
     unsigned long long _type;
-    unsigned long long _behavior;
 }
 
 + (_Bool)isEnabled;
 - (_Bool)dedupeByEnrichingEntry:(id)arg1 withEntry:(id)arg2;
 @property(readonly, nonatomic) NSString *uniqueName;
 - (id)initWithType:(unsigned long long)arg1;
-- (id)initWithType:(unsigned long long)arg1 behavior:(unsigned long long)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSDate, NSHashTable, NSOperationQueue, WAForecastModel;
+@class NSDate, NSHashTable, NSOperationQueue, WAForecastModel, WFServiceConnection;
 
 @interface WATodayModel : NSObject
 {
@@ -14,10 +14,14 @@
     NSOperationQueue *_modelOperationQueue;
     WAForecastModel *_forecastModel;
     NSDate *_lastUpdateDate;
+    WFServiceConnection *_connection;
+    struct ct_green_tea_logger_s *_greenTeaLogger;
 }
 
 + (id)modelWithLocation:(id)arg1;
 + (id)autoupdatingLocationModelWithPreferences:(id)arg1 effectiveBundleIdentifier:(id)arg2;
+@property(nonatomic) struct ct_green_tea_logger_s *greenTeaLogger; // @synthesize greenTeaLogger=_greenTeaLogger;
+@property(retain, nonatomic) WFServiceConnection *connection; // @synthesize connection=_connection;
 @property(retain, nonatomic) NSDate *lastUpdateDate; // @synthesize lastUpdateDate=_lastUpdateDate;
 - (void).cxx_destruct;
 - (void)_persistStateWithModel:(id)arg1;
@@ -33,6 +37,7 @@
 - (void)_forecastUpdateCompleted:(id)arg1 forecastModel:(id)arg2 error:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_locationUpdateCompleted:(id)arg1 error:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)executeModelUpdateWithCompletion:(CDUnknownBlockType)arg1;
+- (void)dealloc;
 - (id)initWithLocation:(id)arg1;
 - (id)init;
 

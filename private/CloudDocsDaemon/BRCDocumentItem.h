@@ -58,7 +58,7 @@
 - (void)markLatestSyncRequestRejectedInZone:(id)arg1;
 - (void)markNeedsReading;
 - (void)markDead;
-- (void)markLiveFromStageWithAppLibrary:(id)arg1;
+- (void)markLiveFromStageWithPath:(id)arg1;
 - (void)clearFromStage;
 - (void)appDidResolveConflictLoserWithEtag:(id)arg1;
 - (void)forceiWorkSharingInfoResend;

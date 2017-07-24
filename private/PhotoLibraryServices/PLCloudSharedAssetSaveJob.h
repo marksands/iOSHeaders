@@ -53,15 +53,14 @@
 - (void)executeDaemonOperationDeleteAssetJobType;
 - (void)_incrementDerivativesCount:(long long)arg1 thumbnailsCount:(long long)arg2;
 - (void)_prefetchLimitForDerivatives:(long long *)arg1 thumbnails:(long long *)arg2;
-- (_Bool)_shouldPrefetchSharedAssets;
 - (_Bool)_processInflightAsset:(id)arg1 mediaAssetType:(unsigned long long)arg2;
 - (void)executeDaemonOperationDownloadPendingAssetsJobType;
 - (void)executeDaemonOperationSaveAssetMetadataForCollectionsJobType;
 - (void)_performSaveTransactionAndWaitOnLibrary:(id)arg1 transaction:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_addDownloadNotification:(id)arg1;
 - (short)attemptLightweightReimportAssetData;
-- (void)saveJobAssetWithPlaceholderKind:(short)arg1;
 - (void)_updatePhotoIrisPropertiesIfNecessaryForAsset:(id)arg1 inManagedObjectContext:(id)arg2;
+- (void)_updateAsset:(id)arg1 withImageFileURL:(id)arg2;
 - (_Bool)_processSaveAssetWithPlaceholderKind:(short)arg1 withAssetDataFilePath:(id)arg2;
 - (void)_processInFlightCommentsForAsset:(id)arg1 inAlbum:(id)arg2 inPhotoLibrary:(id)arg3;
 - (_Bool)_parseISO6709String:(id)arg1 outLatitude:(double *)arg2 outLongitude:(double *)arg3;

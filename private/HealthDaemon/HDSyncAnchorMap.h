@@ -17,6 +17,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)anchorMapWithAnchorMap:(id)arg1;
 + (id)syncAnchorMapWithSyncAnchorRangeMap:(id)arg1;
 @property(retain, nonatomic) NSMutableDictionary *anchorsByObjectType; // @synthesize anchorsByObjectType=_anchorsByObjectType;
 - (void).cxx_destruct;

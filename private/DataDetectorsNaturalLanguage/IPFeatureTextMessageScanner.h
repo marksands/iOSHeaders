@@ -23,6 +23,8 @@
 - (void).cxx_destruct;
 - (id)commonComponentsForConfidence;
 - (id)eventSpecificComponentsForConfidence:(id)arg1;
+- (double)experimentalConfidenceForEvent:(id)arg1 experimentalBaseConfidence:(double)arg2;
+- (void)experimentalConfidenceForEvents:(id)arg1;
 - (double)confidenceForEvent:(id)arg1 baseConfidence:(double)arg2;
 - (void)confidenceForEvents:(id)arg1;
 - (void)resetScanState;

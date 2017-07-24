@@ -6,24 +6,24 @@
 
 #import <objc/NSObject.h>
 
-@class NSString;
+@class MTPowerAssertion, NSString;
 
 @interface MTAgentNotification : NSObject
 {
     long long _type;
     NSString *_name;
-    id _capturedToken;
+    MTPowerAssertion *_powerAssertion;
 }
 
-+ (id)notificationWithType:(long long)arg1 name:(id)arg2 capturedToken:(id)arg3;
++ (id)notificationWithType:(long long)arg1 name:(id)arg2 powerAssertionTimeout:(double)arg3;
 + (id)notificationWithType:(long long)arg1 name:(id)arg2;
-@property(retain, nonatomic) id capturedToken; // @synthesize capturedToken=_capturedToken;
+@property(retain, nonatomic) MTPowerAssertion *powerAssertion; // @synthesize powerAssertion=_powerAssertion;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (void)releaseToken;
-- (id)initWithType:(long long)arg1 name:(id)arg2 capturedToken:(id)arg3;
+- (void)releaseAssertion;
+- (id)initWithType:(long long)arg1 name:(id)arg2 powerAssertionTimeout:(double)arg3;
 
 @end
 

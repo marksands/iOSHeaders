@@ -17,12 +17,14 @@
 
 @property(retain, nonatomic) ICAttachment *attachment; // @synthesize attachment=_attachment;
 - (void).cxx_destruct;
+- (id)attachmentInContext:(id)arg1;
 - (id)attachmentUTI;
 - (id)attachmentIdentifier;
 - (_Bool)isEqualToModelComparable:(id)arg1;
 - (id)printableTextAttachment;
 - (id)attachmentAttributesForAttributedString;
 - (void)fixAttachmentForAttributedString:(id)arg1 range:(struct _NSRange)arg2 forPlainText:(_Bool)arg3;
+- (double)viewCornerRadius;
 - (_Bool)usesTextAttachmentView;
 - (_Bool)allowsTextAttachmentView;
 - (id)initWithData:(id)arg1 ofType:(id)arg2;

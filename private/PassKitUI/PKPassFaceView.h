@@ -6,7 +6,7 @@
 
 #import <PassKitUI/WLEasyToHitCustomView.h>
 
-@class CAFilter, NSArray, NSMutableArray, NSMutableSet, PKPass, PKPassColorProfile, PKPassFaceTemplate, UIImage, UIImageView, UIView;
+@class CAFilter, NSArray, NSMutableArray, NSMutableSet, PKLiveRenderedCardFaceView, PKPass, PKPassColorProfile, PKPassFaceTemplate, UIImage, UIImageView, UIView;
 @protocol PKPassFaceDelegate;
 
 @interface PKPassFaceView : WLEasyToHitCustomView
@@ -28,8 +28,10 @@
     double _dimmer;
     NSMutableArray *_headerBucketViews;
     NSMutableArray *_bodyBucketViews;
+    PKLiveRenderedCardFaceView *_liveBackgroundView;
     unsigned long long _contentViewCreatedRegions;
     unsigned long long _invariantViewCreatedRegions;
+    _Bool _showsLiveRendering;
     _Bool _clipsContent;
     _Bool _allowBackgroundPlaceHolders;
     id <PKPassFaceDelegate> _delegate;
@@ -63,6 +65,7 @@
 - (void)_flushContentViewsForRegions:(unsigned long long)arg1;
 - (void)_createContentViewsForRegions:(unsigned long long)arg1;
 - (void)_createInvariantViewsForRegions:(unsigned long long)arg1;
+@property(nonatomic) _Bool showsLiveRendering;
 - (void)createBodyContentViews;
 - (void)createHeaderContentViews;
 - (void)createBodyInvariantViews;
@@ -78,6 +81,7 @@
 - (void)setDimmer:(double)arg1 animated:(_Bool)arg2;
 - (void)_createDimmingFilterIfNecessary;
 @property(readonly, nonatomic) _Bool bodyContentCreated;
+- (void)setLiveMotionEnabled:(_Bool)arg1;
 @property(readonly, nonatomic) PKPassColorProfile *colorProfile;
 @property(readonly, nonatomic) PKPass *pass;
 - (void)removeContentView:(id)arg1 ofType:(long long)arg2;

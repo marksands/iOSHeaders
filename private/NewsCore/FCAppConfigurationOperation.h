@@ -11,6 +11,7 @@
 
 @interface FCAppConfigurationOperation : FCOperation
 {
+    _Bool _useSecureConnection;
     FCCKContentDatabase *_contentDatabase;
     NSString *_resourceID;
     FCAppConfigurationResource *_cachedResource;
@@ -23,6 +24,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *completionQueue; // @synthesize completionQueue=_completionQueue;
 @property(copy, nonatomic) CDUnknownBlockType configurationCompletionHandler; // @synthesize configurationCompletionHandler=_configurationCompletionHandler;
 @property(copy, nonatomic) FCAppConfigurationResource *cachedResource; // @synthesize cachedResource=_cachedResource;
+@property(nonatomic) _Bool useSecureConnection; // @synthesize useSecureConnection=_useSecureConnection;
 @property(copy, nonatomic) NSString *resourceID; // @synthesize resourceID=_resourceID;
 @property(retain, nonatomic) FCCKContentDatabase *contentDatabase; // @synthesize contentDatabase=_contentDatabase;
 - (void).cxx_destruct;
@@ -30,6 +32,7 @@
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;
 - (_Bool)validateOperation;
+- (id)init;
 
 @end
 

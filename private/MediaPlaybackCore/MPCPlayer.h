@@ -12,7 +12,6 @@
 
 @interface MPCPlayer : NSObject <MPCMediaRemoteMuxerDelegate>
 {
-    NSPointerArray *_nowPlayingInfoHandlers;
     NSPointerArray *_playbackErrorObservers;
     NSPointerArray *_playbackIntentObservers;
     _Bool _shouldRestorePlaybackState;
@@ -47,13 +46,10 @@
 - (void)restorePlaybackStateCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) NSArray *playbackIntentObservers;
 @property(readonly, copy, nonatomic) NSArray *playbackErrorObservers;
-@property(readonly, copy, nonatomic) NSArray *nowPlayingInfoHandlers;
 - (void)unregisterPlaybackIntentObserver:(id)arg1;
 - (void)unregisterPlaybackErrorObserver:(id)arg1;
-- (void)unregisterNowPlayingInfoHandler:(id)arg1;
 - (void)registerPlaybackIntentObserver:(id)arg1;
 - (void)registerPlaybackErrorObserver:(id)arg1;
-- (void)registerNowPlayingInfoHandler:(id)arg1;
 - (void)recordLyricsViewEvent:(id)arg1;
 - (void)clearPlaybackQueueWithCompletion:(CDUnknownBlockType)arg1;
 - (void)addPlaybackIntent:(id)arg1 withOptions:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;

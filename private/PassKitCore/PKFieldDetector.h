@@ -6,15 +6,15 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSHashTable, PKFieldProperties;
+@class NSHashTable, NSLock, PKFieldProperties;
 @protocol OS_dispatch_queue, PKFieldDetectorDelegate;
 
 @interface PKFieldDetector : NSObject
 {
     NSHashTable *_observers;
+    NSLock *_observersLock;
     PKFieldProperties *_fieldProperties;
     NSObject<OS_dispatch_queue> *_fieldDetectorSerialQueue;
-    NSObject<OS_dispatch_queue> *_observersConcurrentQueue;
     NSObject<OS_dispatch_queue> *_replyQueue;
     id <PKFieldDetectorDelegate> _delegate;
 }

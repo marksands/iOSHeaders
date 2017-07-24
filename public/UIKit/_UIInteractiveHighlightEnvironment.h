@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSUUID, UIScreen, UIView, UIViewProgressAnimatableProperty, UIViewPropertyAnimator, UIVisualEffectView, _UIInteractiveHighlightEffectWindow;
+@class NSArray, NSUUID, UIScreen, UIView, UIViewFloatAnimatableProperty, UIViewPropertyAnimator, UIVisualEffectView, _UIInteractiveHighlightEffectWindow;
 
 __attribute__((visibility("hidden")))
 @interface _UIInteractiveHighlightEnvironment : NSObject
@@ -17,8 +17,9 @@ __attribute__((visibility("hidden")))
     UIVisualEffectView *_backgroundEffectView;
     UIView *_contentView;
     UIView *_contentClipView;
+    UIView *_contentOverlayView;
     UIViewPropertyAnimator *_backgroundEffectAnimator;
-    UIViewProgressAnimatableProperty *_backgroundEffectProgress;
+    UIViewFloatAnimatableProperty *_backgroundEffectProgress;
     NSArray *_viewRecords;
     _UIInteractiveHighlightEnvironment *_parentEnvironment;
     _UIInteractiveHighlightEnvironment *_childEnvironment;
@@ -42,7 +43,7 @@ __attribute__((visibility("hidden")))
 - (void)removeViewRecordsIfNeeded;
 - (long long)indexOfViewRecordForView:(id)arg1;
 - (id)newViewRecordForView:(id)arg1 options:(unsigned long long)arg2;
-- (void)applyLayoutGuide:(id)arg1;
+- (void)applyContentInsets:(struct UIEdgeInsets)arg1;
 - (void)reset;
 - (void)setHidden:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 @property(nonatomic, getter=isHidden) _Bool hidden;

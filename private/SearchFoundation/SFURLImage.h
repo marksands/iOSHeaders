@@ -6,12 +6,13 @@
 
 #import <SearchFoundation/SFImage.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFURLImage-Protocol.h>
 
 @class NSData, NSDictionary, NSString, NSURL;
 
-@interface SFURLImage : SFImage <SFURLImage, NSSecureCoding>
+@interface SFURLImage : SFImage <SFURLImage, NSSecureCoding, NSCopying>
 {
     NSURL *_urlValue;
 }
@@ -19,6 +20,7 @@
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSURL *urlValue; // @synthesize urlValue=_urlValue;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

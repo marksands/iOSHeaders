@@ -17,6 +17,9 @@
 @property(getter=isNavigationBarBottomTrailingCornerRounded) _Bool navigationBarBottomTrailingCornerRounded;
 - (void)setNavigationBarBlurProgress:(double)arg1 animated:(_Bool)arg2;
 - (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(_Bool)arg3;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (id)initWithNavigationBarClass:(Class)arg1 toolbarClass:(Class)arg2;
 - (id)initWithRootViewController:(id)arg1;
 - (id)init;

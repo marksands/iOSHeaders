@@ -6,7 +6,7 @@
 
 #import <PhotosGraph/PGPotentialMemory.h>
 
-@class NSMutableSet, NSSet, NSString;
+@class NSArray, NSMutableSet, NSSet, NSString;
 
 @interface PGPotentialMeaningfulEventAggregationMemory : PGPotentialMemory
 {
@@ -14,10 +14,12 @@
     NSMutableSet *_mutableMomentNodes;
     unsigned long long _meaning;
     NSString *_key;
+    NSArray *_relevantAssets;
 }
 
+@property(retain, nonatomic) NSArray *relevantAssets; // @synthesize relevantAssets=_relevantAssets;
 @property(retain, nonatomic) NSString *key; // @synthesize key=_key;
-@property(readonly) NSSet *collectionNodes; // @synthesize collectionNodes=_collectionNodes;
+@property(retain, nonatomic) NSSet *collectionNodes; // @synthesize collectionNodes=_collectionNodes;
 @property(readonly) unsigned long long meaning; // @synthesize meaning=_meaning;
 - (void).cxx_destruct;
 - (double)score;

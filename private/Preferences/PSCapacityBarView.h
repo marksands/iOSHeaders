@@ -6,12 +6,11 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, PSCapacityBarData, UIColor;
+@class PSCapacityBarData, UIColor;
 
 @interface PSCapacityBarView : UIView
 {
     PSCapacityBarData *_barData;
-    NSArray *_orderedCategories;
     UIColor *_barBackgroundColor;
     UIColor *_barSeparatorColor;
     UIColor *_barOtherDataColor;
@@ -20,10 +19,8 @@
 @property(retain, nonatomic) UIColor *barOtherDataColor; // @synthesize barOtherDataColor=_barOtherDataColor;
 @property(retain, nonatomic) UIColor *barSeparatorColor; // @synthesize barSeparatorColor=_barSeparatorColor;
 @property(retain, nonatomic) UIColor *barBackgroundColor; // @synthesize barBackgroundColor=_barBackgroundColor;
-@property(readonly) NSArray *orderedCategories; // @synthesize orderedCategories=_orderedCategories;
 @property(retain, nonatomic) PSCapacityBarData *barData; // @synthesize barData=_barData;
 - (void).cxx_destruct;
-- (id)orderCategories;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

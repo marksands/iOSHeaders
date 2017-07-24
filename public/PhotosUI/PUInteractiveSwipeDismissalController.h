@@ -6,16 +6,17 @@
 
 #import <PhotosUI/PUInteractiveDismissalController.h>
 
+#import <PhotosUI/PXVerticalSwipeGestureRecognizerHelperDelegate-Protocol.h>
 #import <PhotosUI/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSHashTable, NSString, PUChangeDirectionValueFilter, PUSwipedDownTileTracker, UIPanGestureRecognizer;
+@class NSString, PUChangeDirectionValueFilter, PUSwipedDownTileTracker, PXVerticalSwipeGestureRecognizerHelper, UIPanGestureRecognizer;
 
 __attribute__((visibility("hidden")))
-@interface PUInteractiveSwipeDismissalController : PUInteractiveDismissalController <UIGestureRecognizerDelegate>
+@interface PUInteractiveSwipeDismissalController : PUInteractiveDismissalController <UIGestureRecognizerDelegate, PXVerticalSwipeGestureRecognizerHelperDelegate>
 {
     _Bool _handlingPanGestureRecognizer;
     UIPanGestureRecognizer *__panGestureRecognizer;
-    NSHashTable *__dependentScrollViews;
+    PXVerticalSwipeGestureRecognizerHelper *_verticalSwipeGestureRecognzierHelper;
     PUChangeDirectionValueFilter *__dismissGestureDirectionValueFilter;
     PUSwipedDownTileTracker *__swipedDownTileTracker;
 }
@@ -23,9 +24,10 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic, setter=_setSwipedDownTileTracker:) PUSwipedDownTileTracker *_swipedDownTileTracker; // @synthesize _swipedDownTileTracker=__swipedDownTileTracker;
 @property(retain, nonatomic, setter=_setDismissGestureDirectionValueFilter:) PUChangeDirectionValueFilter *_dismissGestureDirectionValueFilter; // @synthesize _dismissGestureDirectionValueFilter=__dismissGestureDirectionValueFilter;
 @property(nonatomic, getter=_isHandlingPanGestureRecognizer, setter=_setHandlingPanGestureRecognizer:) _Bool handlingPanGestureRecognizer; // @synthesize handlingPanGestureRecognizer=_handlingPanGestureRecognizer;
-@property(readonly, nonatomic) NSHashTable *_dependentScrollViews; // @synthesize _dependentScrollViews=__dependentScrollViews;
+@property(readonly, nonatomic) PXVerticalSwipeGestureRecognizerHelper *verticalSwipeGestureRecognzierHelper; // @synthesize verticalSwipeGestureRecognzierHelper=_verticalSwipeGestureRecognzierHelper;
 @property(retain, nonatomic, setter=_setPanGestureRecognizer:) UIPanGestureRecognizer *_panGestureRecognizer; // @synthesize _panGestureRecognizer=__panGestureRecognizer;
 - (void).cxx_destruct;
+- (_Bool)verticalSwipeGestureRecognizerHelper:(id)arg1 shouldRecognizeSwipeDownGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)_handlePanGestureRecognizer:(id)arg1;

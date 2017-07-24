@@ -16,6 +16,7 @@
 @interface FCAssetManager : NSObject <FCAssetHandleDelegate, FCCacheCoordinatorDelegate, FCCacheFlushing>
 {
     _Bool _flushUnusedAssets;
+    _Bool _shouldUseSecureConnectionForCKAssetDownloads;
     NSURL *_directoryURLForCachedAssets;
     NSString *_name;
     NSString *_parentDirectory;
@@ -38,6 +39,7 @@
 @property(copy, nonatomic) NSString *parentDirectory; // @synthesize parentDirectory=_parentDirectory;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) NSURL *directoryURLForCachedAssets; // @synthesize directoryURLForCachedAssets=_directoryURLForCachedAssets;
+@property(nonatomic) _Bool shouldUseSecureConnectionForCKAssetDownloads; // @synthesize shouldUseSecureConnectionForCKAssetDownloads=_shouldUseSecureConnectionForCKAssetDownloads;
 @property(nonatomic) _Bool flushUnusedAssets; // @synthesize flushUnusedAssets=_flushUnusedAssets;
 - (void).cxx_destruct;
 - (id)_transformerForAssetAtPath:(id)arg1 fromNetworkEvent:(id)arg2;
@@ -49,10 +51,11 @@
 - (unsigned long long)cacheCoordinatorCurrentSizeWithReadLock:(id)arg1;
 - (id)operationToFetchFileForAssetHandle:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)assetHandleForData:(id)arg1 lifetimeHint:(long long)arg2;
-- (id)assetHandleForRemoteURL:(id)arg1 lifetimeHint:(long long)arg2;
+- (id)assetHandleForCKAssetURLString:(id)arg1 lifetimeHint:(long long)arg2;
+- (id)assetHandleForURL:(id)arg1 lifetimeHint:(long long)arg2;
 - (id)initWithName:(id)arg1 directory:(id)arg2 networkBehaviorMonitor:(id)arg3;
 - (id)init;
-- (id)assetHandleForRecordID:(id)arg1 field:(long long)arg2 contentDatabase:(id)arg3;
+- (id)assetHandleForRecordID:(id)arg1 field:(long long)arg2 lifetimeHint:(long long)arg3 contentDatabase:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

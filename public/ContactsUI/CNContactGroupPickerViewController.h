@@ -20,12 +20,12 @@ __attribute__((visibility("hidden")))
     id <CNContactGroupPickerDelegate> _groupPickerDelegate;
 }
 
-+ (id)pickableGroupsWithPickedGroups:(id)arg1;
++ (id)pickableGroupsWithPickedGroups:(id)arg1 policy:(id)arg2;
 + (id)propertySections;
-+ (_Bool)propertiesLeftToPickWithPickedGroups:(id)arg1;
++ (_Bool)propertiesLeftToPickWithPickedGroups:(id)arg1 policy:(id)arg2;
 @property(nonatomic) __weak id <CNContactGroupPickerDelegate> groupPickerDelegate; // @synthesize groupPickerDelegate=_groupPickerDelegate;
 - (void).cxx_destruct;
-- (id)_loadPickableGroupsWithPickedGroups:(id)arg1;
+- (id)_loadPickableGroupsWithPickedGroups:(id)arg1 policy:(id)arg2;
 - (void)cancel:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(long long)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;

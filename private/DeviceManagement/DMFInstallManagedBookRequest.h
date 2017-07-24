@@ -10,6 +10,7 @@
 
 @interface DMFInstallManagedBookRequest : CATTaskRequest
 {
+    NSString *_originator;
     NSNumber *_iTunesStoreID;
     NSString *_persistentID;
     NSString *_author;
@@ -17,18 +18,10 @@
     NSString *_version;
     NSURL *_URL;
     unsigned long long _type;
-    NSString *_promptTitle;
-    NSString *_message;
-    NSString *_loginButtonText;
-    NSString *_cancelButtonText;
 }
 
 + (_Bool)supportsSecureCoding;
 + (Class)whitelistedClassForResultObject;
-@property(copy, nonatomic) NSString *cancelButtonText; // @synthesize cancelButtonText=_cancelButtonText;
-@property(copy, nonatomic) NSString *loginButtonText; // @synthesize loginButtonText=_loginButtonText;
-@property(copy, nonatomic) NSString *message; // @synthesize message=_message;
-@property(copy, nonatomic) NSString *promptTitle; // @synthesize promptTitle=_promptTitle;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(copy, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 @property(copy, nonatomic) NSString *version; // @synthesize version=_version;
@@ -36,6 +29,7 @@
 @property(copy, nonatomic) NSString *author; // @synthesize author=_author;
 @property(copy, nonatomic) NSString *persistentID; // @synthesize persistentID=_persistentID;
 @property(copy, nonatomic) NSNumber *iTunesStoreID; // @synthesize iTunesStoreID=_iTunesStoreID;
+@property(copy, nonatomic) NSString *originator; // @synthesize originator=_originator;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

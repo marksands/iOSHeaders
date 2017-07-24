@@ -10,7 +10,6 @@
 @protocol HKFitnessMachineConnectionClientInterface, HKFitnessMachineConnectionInitiatorClientInterface;
 
 @protocol HDWorkoutServerInterface <NSObject>
-- (void)remote_forgetAllFitnessMachinesWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)remote_setActivityType:(unsigned long long)arg1;
 - (void)remote_forbidConnectionForFitnessMachineSessionUUID:(NSUUID *)arg1 withConnectionUUID:(NSUUID *)arg2;
 - (void)remote_permitConnectionForFitnessMachineSessionUUID:(NSUUID *)arg1 withConnectionUUID:(NSUUID *)arg2;
@@ -19,6 +18,7 @@
 - (void)remote_simulateAccept;
 - (void)remote_simulateTapWithFitnessMachineType:(unsigned long long)arg1;
 - (void)remote_markClientReadyWithConnectionUUID:(NSUUID *)arg1;
+- (void)remote_endFitnessMachineConnectionForFitnessMachineSessionUUID:(NSUUID *)arg1 withConnectionUUID:(NSUUID *)arg2;
 - (void)remote_endFitnessMachineConnectionWithUUID:(NSUUID *)arg1;
 - (void)remote_registerClient:(id <HKFitnessMachineConnectionClientInterface>)arg1 withConnectionUUID:(NSUUID *)arg2;
 - (void)remote_startWatchAppWithWorkoutConfiguration:(HKWorkoutConfiguration *)arg1 completion:(void (^)(_Bool, NSError *))arg2;

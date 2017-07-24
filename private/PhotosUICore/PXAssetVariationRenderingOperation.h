@@ -15,7 +15,7 @@
     long long _variationType;
     NSURL *_inputImageURL;
     NSURL *_inputVideoURL;
-    NSDictionary *_recipe;
+    NSDictionary *_analysisResult;
     PLPhotoEditModel *_baseEditModel;
     CDUnknownBlockType _startHandler;
     NSURL *_outputImageURL;
@@ -44,17 +44,15 @@
 @property(readonly, nonatomic) _Bool renderAllResources; // @synthesize renderAllResources=_renderAllResources;
 @property(readonly, nonatomic) struct CGSize targetSize; // @synthesize targetSize=_targetSize;
 @property(readonly, copy, nonatomic) PLPhotoEditModel *baseEditModel; // @synthesize baseEditModel=_baseEditModel;
-@property(readonly, copy, nonatomic) NSDictionary *recipe; // @synthesize recipe=_recipe;
+@property(readonly, copy, nonatomic) NSDictionary *analysisResult; // @synthesize analysisResult=_analysisResult;
 @property(readonly, nonatomic) NSURL *inputVideoURL; // @synthesize inputVideoURL=_inputVideoURL;
 @property(readonly, nonatomic) NSURL *inputImageURL; // @synthesize inputImageURL=_inputImageURL;
 @property(readonly, nonatomic) long long variationType; // @synthesize variationType=_variationType;
 - (void).cxx_destruct;
-- (void)_performNonnativeRender;
-- (void)_performNativeRender;
 - (void)main;
 - (void)cancel;
 - (void)_timeout;
-- (id)initWithInputImageURL:(id)arg1 inputVideoURL:(id)arg2 variationType:(long long)arg3 recipe:(id)arg4 baseEditModel:(id)arg5 outputImageURL:(id)arg6 outputVideoURL:(id)arg7 targetSize:(struct CGSize)arg8 renderAllResources:(_Bool)arg9;
+- (id)initWithInputImageURL:(id)arg1 inputVideoURL:(id)arg2 variationType:(long long)arg3 analysisResult:(id)arg4 baseEditModel:(id)arg5 outputImageURL:(id)arg6 outputVideoURL:(id)arg7 targetSize:(struct CGSize)arg8 renderAllResources:(_Bool)arg9;
 - (id)init;
 
 @end

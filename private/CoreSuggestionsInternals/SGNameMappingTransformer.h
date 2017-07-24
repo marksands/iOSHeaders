@@ -13,18 +13,18 @@
 @interface SGNameMappingTransformer : NSObject <PMLTransformerProtocol>
 {
     NSString *_nameMappings[6];
-    long long _minimumConfidence;
+    int _minimumConfidence;
     CDUnknownBlockType _confidenceMapper;
 }
 
-+ (id)withFullNameMapping:(id)arg1 firstNameMapping:(id)arg2 lastNameMapping:(id)arg3 minimumConfidence:(long long)arg4 confidenceMapper:(CDUnknownBlockType)arg5 andPossessive:(id)arg6;
++ (id)withFullNameMapping:(id)arg1 firstNameMapping:(id)arg2 lastNameMapping:(id)arg3 minimumConfidence:(int)arg4 confidenceMapper:(CDUnknownBlockType)arg5 andPossessive:(id)arg6;
 + (id)withFullNameMapping:(id)arg1 firstNameMapping:(id)arg2 lastNameMapping:(id)arg3 andPossessive:(id)arg4;
 + (void)initialize;
 - (void).cxx_destruct;
 - (_Bool)isPossessive:(id)arg1;
 - (id)transform:(id)arg1;
-- (long long)nameMappingForToken:(id)arg1 withConfidence:(long long *)arg2;
-- (id)initWithFullNameMapping:(id)arg1 firstNameMapping:(id)arg2 lastNameMapping:(id)arg3 minimumConfidence:(long long)arg4 confidenceMapper:(CDUnknownBlockType)arg5 andPossessive:(id)arg6;
+- (long long)nameMappingForToken:(id)arg1 withConfidence:(int *)arg2;
+- (id)initWithFullNameMapping:(id)arg1 firstNameMapping:(id)arg2 lastNameMapping:(id)arg3 minimumConfidence:(int)arg4 confidenceMapper:(CDUnknownBlockType)arg5 andPossessive:(id)arg6;
 
 @end
 

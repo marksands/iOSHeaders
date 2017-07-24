@@ -16,10 +16,9 @@
 - (unsigned long long)hf_validComponents;
 - (long long)hf_compareNextMatchingDate:(id)arg1 withCalendar:(id)arg2;
 - (long long)hf_compareNextMatchingDate:(id)arg1;
+- (id)hf_negativeValue;
 - (id)hf_absoluteValue;
 - (double)hf_timeInterval;
 - (_Bool)hf_isEqualToHomeKitRecurrence:(id)arg1;
-- (id)hf_longLocalizedHomeKitRecurrenceDescription;
-- (id)hf_shortLocalizedHomeKitRecurrenceDescription;
 @end
 

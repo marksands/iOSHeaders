@@ -12,6 +12,8 @@
 }
 
 @property(nonatomic, getter=isHeterogeneous) _Bool heterogeneous; // @synthesize heterogeneous=_heterogeneous;
+- (_Bool)flipsHorizontallyInOppositeLayoutDirection;
+- (long long)developmentLayoutDirection;
 - (id)invalidationContextForBoundsChange:(struct CGRect)arg1;
 - (double)contentHeightThatFitsItemCount:(long long)arg1 expectedWidth:(double)arg2;
 

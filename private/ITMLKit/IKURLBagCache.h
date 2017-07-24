@@ -7,25 +7,32 @@
 #import <objc/NSObject.h>
 
 @class ISLoadURLBagOperation, ISURLBag, NSString;
+@protocol OS_dispatch_queue;
 
 @interface IKURLBagCache : NSObject
 {
-    struct os_unfair_lock_s _bagOperationLock;
     id _isURLBagDidLoadToken;
+    struct os_unfair_lock_s _bagOperationLock;
     ISURLBag *_bag;
     NSString *_cachePath;
     ISLoadURLBagOperation *_pendingBagOperation;
+    NSObject<OS_dispatch_queue> *_updateBagQueue;
 }
 
++ (id)_cachedBagFromCachePath:(id *)arg1;
 + (id)URLBagContext;
++ (id)sharedInMemoryBagCache;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *updateBagQueue; // @synthesize updateBagQueue=_updateBagQueue;
 @property(nonatomic) __weak ISLoadURLBagOperation *pendingBagOperation; // @synthesize pendingBagOperation=_pendingBagOperation;
 @property(readonly, nonatomic) NSString *cachePath; // @synthesize cachePath=_cachePath;
-@property(readonly, nonatomic) ISURLBag *bag; // @synthesize bag=_bag;
+@property(readonly) ISURLBag *bag; // @synthesize bag=_bag;
 - (void).cxx_destruct;
-- (void)_updateWithBag:(id)arg1;
-- (void)_bagDidLoadNotification:(id)arg1;
+- (void)_persistURLBag;
+- (void)_updateWithBag:(id)arg1 invalidate:(_Bool)arg2;
 - (void)updateWithInvalidation:(_Bool)arg1;
 - (void)dealloc;
+- (id)debugDescription;
+- (id)_initWithCachePath:(id)arg1 cachedBag:(id)arg2;
 - (id)initWithCachePath:(id)arg1;
 - (id)init;
 

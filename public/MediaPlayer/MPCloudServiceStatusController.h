@@ -6,13 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
+#import <MediaPlayer/ICEnvironmentMonitorObserver-Protocol.h>
 #import <MediaPlayer/ISURLBagObserver-Protocol.h>
 #import <MediaPlayer/SSVPlaybackLeaseDelegate-Protocol.h>
 
 @class NSOperationQueue, NSString, SSVFairPlaySubscriptionController, SSVFairPlaySubscriptionStatus, SSVPlaybackLease, SSVSubscriptionStatus;
 @protocol OS_dispatch_queue;
 
-@interface MPCloudServiceStatusController : NSObject <ISURLBagObserver, SSVPlaybackLeaseDelegate>
+@interface MPCloudServiceStatusController : NSObject <ICEnvironmentMonitorObserver, ISURLBagObserver, SSVPlaybackLeaseDelegate>
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     unsigned long long _accountStoreChangeObservationCount;
@@ -63,7 +64,6 @@
 - (void)_endUsingSubscriptionLease;
 - (void)_beginUsingSubscriptionLeaseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_subscriptionStatusDidChangeNotification:(id)arg1;
-- (void)_networkReachabilityDidChangeNotification:(id)arg1;
 - (void)_fairPlaySubscriptionControllerSubscriptionStatusDidChangeNotification:(id)arg1;
 - (void)_cloudClientAuthenticationDidChange;
 - (void)_accountStoreChangedNotification:(id)arg1;
@@ -104,6 +104,7 @@
 - (void)playbackLease:(id)arg1 didEndWithReasonType:(unsigned long long)arg2;
 - (void)playbackLease:(id)arg1 automaticRefreshDidFinishWithResponse:(id)arg2 error:(id)arg3;
 - (void)bagDidChange:(id)arg1;
+- (void)environmentMonitorDidChangeNetworkReachability:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -62,7 +62,7 @@
 - (void).cxx_destruct;
 - (long long)developmentLayoutDirection;
 - (struct CGPoint)_contentOffsetForScrollingToSection:(long long)arg1;
-- (struct UIEdgeInsets)_fastScrollingIndexBarInsets;
+- (struct UIEdgeInsets)_focusFastScrollingIndexBarInsets;
 - (_Bool)_shouldScrollToContentBeginningInRightToLeft;
 @property(nonatomic) _Bool sectionFootersPinToVisibleBounds;
 @property(nonatomic) _Bool sectionHeadersPinToVisibleBounds;
@@ -96,6 +96,8 @@
 - (void)_getSizingInfosWithExistingSizingDictionary:(id)arg1;
 - (void)_updateDelegateFlags;
 @property(nonatomic) long long scrollDirection;
+- (void)_updateCollectionViewScrollableAxis;
+- (void)_setCollectionView:(id)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
 - (id)_layoutAttributesForItemsInRect:(struct CGRect)arg1;
 - (_Bool)_boundsAndInsetsAreValidForReferenceDimension;

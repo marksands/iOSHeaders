@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSString;
+@class NSSet, NSString, NSUserDefaults, PEXSettingsKVOObserver;
 
 @interface PEXSettings : NSObject
 {
@@ -15,12 +15,23 @@
         long long __sig;
         char __opaque[56];
     } _lock;
+    NSSet *_disabledBundleIdentifiers;
+    NSUserDefaults *_defaults;
+    PEXSettingsKVOObserver *_kvoObserver;
     _Bool _appConnectionsLocationsEnabled;
 }
 
++ (void)clearTestSettings;
++ (_Bool)servantShouldRespondToQuery:(id)arg1;
++ (void)disableBundleIdentifier:(id)arg1;
 + (id)sharedInstance;
++ (void)initialize;
 @property(nonatomic, getter=isAppConnectionsLocationsEnabled) _Bool appConnectionsLocationsEnabled; // @synthesize appConnectionsLocationsEnabled=_appConnectionsLocationsEnabled;
 - (void).cxx_destruct;
+- (void)_clearTestSettings;
+- (_Bool)_bundleIdentifierIsEnabled:(id)arg1;
+- (void)_disableBundleIdentifier:(id)arg1;
+- (void)_refreshDisabledBundleIds;
 - (_Bool)_showLocationsFoundInApps;
 - (void)_updateSettingsValues;
 - (void)_unsubscribe;

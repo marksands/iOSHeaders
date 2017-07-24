@@ -28,6 +28,7 @@
 - (void)_removeItemsFromSessionCache:(id)arg1;
 - (void)_addItemToSessionCache:(id)arg1;
 - (void)_insertItem:(id)arg1 withSessionKey:(id)arg2;
+- (void)_requestSessionKeyForDate:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (_Bool)_getKey:(id *)arg1 forDate:(double)arg2;
 - (id)_orderedSessionKeys;
 - (id)sessionForItem:(id)arg1;

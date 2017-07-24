@@ -12,11 +12,15 @@
 {
     PKRendererController *_rendererController;
     double _scale;
+    long long _cancelCount;
 }
 
+@property(nonatomic) long long cancelCount; // @synthesize cancelCount=_cancelCount;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(retain, nonatomic) PKRendererController *rendererController; // @synthesize rendererController=_rendererController;
 - (void).cxx_destruct;
+- (void)resume;
+- (void)cancel;
 - (void)renderStrokes:(id)arg1 clippedToStrokeSpaceRect:(struct CGRect)arg2 scale:(double)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)renderDrawing:(id)arg1 clippedToStrokeSpaceRect:(struct CGRect)arg2 scale:(double)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)renderDrawing:(id)arg1 completion:(CDUnknownBlockType)arg2;

@@ -6,13 +6,14 @@
 
 #import <PassKitUI/PKEditTableViewController.h>
 
+#import <PassKitUI/PKEditPassesDetailsResponder-Protocol.h>
 #import <PassKitUI/PKGroupDelegate-Protocol.h>
 #import <PassKitUI/UIViewControllerPreviewingDelegate-Protocol.h>
 
 @class NSString, PKGroup, PKPass, UIBarButtonItem, UITableView;
 @protocol PKEditGroupViewControllerDelegate, PKGroupDelegate, UIViewControllerPreviewing;
 
-@interface PKEditGroupViewController : PKEditTableViewController <PKGroupDelegate, UIViewControllerPreviewingDelegate>
+@interface PKEditGroupViewController : PKEditTableViewController <PKGroupDelegate, UIViewControllerPreviewingDelegate, PKEditPassesDetailsResponder>
 {
     PKGroup *_group;
     id <PKGroupDelegate> _savedDelegate;
@@ -25,6 +26,8 @@
 }
 
 - (void).cxx_destruct;
+- (id)pass;
+- (id)group;
 - (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
 - (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
 - (id)viewControllerForRowAtIndexPath:(id)arg1;

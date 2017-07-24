@@ -7,12 +7,13 @@
 #import <objc/NSObject.h>
 
 #import <AssistantServices/AFExperimentForSiriVOXSounds-Protocol.h>
+#import <AssistantServices/AFExperimentForSiriVOXTapToSiriBehavior-Protocol.h>
 #import <AssistantServices/NSCopying-Protocol.h>
 #import <AssistantServices/NSSecureCoding-Protocol.h>
 
 @class NSDictionary, NSString;
 
-@interface AFExperiment : NSObject <AFExperimentForSiriVOXSounds, NSCopying, NSSecureCoding>
+@interface AFExperiment : NSObject <AFExperimentForSiriVOXSounds, AFExperimentForSiriVOXTapToSiriBehavior, NSCopying, NSSecureCoding>
 {
     NSString *_configurationIdentifier;
     NSString *_configurationVersion;
@@ -40,6 +41,8 @@
 @property(readonly, nonatomic) _Bool playsSessionInactiveSoundForSiriVOXSounds;
 @property(readonly, nonatomic) _Bool playsTwoShotSoundForSiriVOXSounds;
 - (id)builder;
+- (void)logExperimentExposureForTapToSiriBehavior;
+@property(readonly, nonatomic) _Bool playsSound;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

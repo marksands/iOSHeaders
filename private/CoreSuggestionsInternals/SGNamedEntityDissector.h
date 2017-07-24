@@ -10,14 +10,15 @@
 {
     struct _opaque_pthread_mutex_t _lock;
     void *_nlpTagger;
-    void *_nlpIdentifier;
     _Bool _significanceCheckEnabled;
+    int _linguisticDataNotificationToken;
 }
 
 - (void)dissectInternal:(id)arg1 inContext:(id)arg2;
 - (id)entitiesInPlainText:(id)arg1 withEligibleRegions:(id)arg2 source:(id)arg3 cloudSync:(_Bool)arg4 algorithms:(id)arg5;
 - (id)_entitiesInPlainText:(id)arg1 withEligibleRegions:(id)arg2 dataDetections:(id)arg3 source:(id)arg4 cloudSync:(_Bool)arg5 algorithms:(id)arg6;
 - (_Bool)_isSignificantMessage:(id)arg1 store:(id)arg2;
+- (void)_registerForNotifications;
 - (void)dealloc;
 - (id)init;
 - (id)initWithSignificanceCheckEnabled:(_Bool)arg1;

@@ -4,40 +4,73 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <IMDaemonCore/IMDCKAbstractSyncController.h>
 
-@interface IMDCKSyncController : NSObject
+@class CKFetchRecordZonesOperation, NSDate, NSTimer;
+
+@interface IMDCKSyncController : IMDCKAbstractSyncController
 {
+    NSDate *_syncStartDate;
+    NSTimer *_longRunningSyncTimer;
+    CKFetchRecordZonesOperation *_cloudKitMetricsFetchOp;
 }
 
 + (id)sharedInstance;
-- (_Bool)isSyncInProgress;
+@property(retain, nonatomic) CKFetchRecordZonesOperation *cloudKitMetricsFetchOp; // @synthesize cloudKitMetricsFetchOp=_cloudKitMetricsFetchOp;
+@property(retain, nonatomic) NSTimer *longRunningSyncTimer; // @synthesize longRunningSyncTimer=_longRunningSyncTimer;
+@property(retain, nonatomic) NSDate *syncStartDate; // @synthesize syncStartDate=_syncStartDate;
+- (void).cxx_destruct;
+- (_Bool)isSyncing;
+- (void)updateAllCachedSyncStateFlags;
+- (void)_setSyncStateFlagsWithAccountStatus:(long long)arg1;
+- (void)updateSyncStateFlags;
 - (void)updateCloudKitSyncingState;
-- (void)_noteMeticsForSyncEndedWithSuccces:(_Bool)arg1 duration:(id)arg2;
+- (void)setCloudKitSyncState:(_Bool)arg1;
+- (void)_noteMeticsForSyncEndedWithSuccces:(_Bool)arg1;
 - (void)syncChatsWithMessageContext:(id)arg1;
 - (void)_writeDownSyncDate;
 - (long long)_manualSyncAttemptCount;
 - (long long)_periodicSyncAttemptCount;
 - (void)_noteSyncEnded;
-- (void)_noteMeticsForSyncStartFrom:(id)arg1 fullSync:(_Bool)arg2;
+- (void)_noteMetricsForSyncStartFrom:(id)arg1 fullSync:(_Bool)arg2;
 - (void)_noteDownSyncStartedWithIsPeriodicSync:(_Bool)arg1;
+- (void)_autoBugCaptureWithSubType:(id)arg1 debugDescription:(id)arg2;
 - (void)_beginExitStateCleanupIfNeededWithActivity:(id)arg1;
 - (void)_ifCloudKitAbleToSyncCallBlock:(CDUnknownBlockType)arg1 activity:(id)arg2;
 - (void)_syncChatsWithActivity:(id)arg1;
+- (void)syncDeletesToCloudKit;
 - (void)_beginPeriodicSyncWithActivity:(id)arg1 shouldCheckDeviceConditions:(_Bool)arg2 attemptCount:(unsigned long long)arg3;
 - (_Bool)_errorIndicatesDeviceNotGoodForSync:(id)arg1;
 - (void)beginInitialSyncAttemptCount:(unsigned long long)arg1;
 - (void)recordMetricIsCloudKitEnabled;
 - (void)performMetricForSuccessfulSync;
 - (void)kickOffCloudKitSyncIfNeededOnImagentLaunch;
+- (void)beginComingBackOnlineSync;
+- (_Bool)_chatSyncedRecently;
+- (double)_minimumChatComingOnlineSyncInterval;
+- (_Bool)_serverDoesNotAllowComingBackOnlineChatSync;
 - (void)beginFullSyncPeriodic:(_Bool)arg1 shouldCheckDeviceConditions:(_Bool)arg2 activity:(id)arg3;
 - (void)beginChatSyncPeriodic:(_Bool)arg1 activity:(id)arg2;
 - (void)beginInitialSync;
 - (void)_postSyncStateChanged;
+- (void)dealloc;
 - (id)init;
 - (void)_kickOffNightlyPeriodicSyncIfApplicable;
+- (void)_logIMAutomaticHistorySyncDidNotOccurMetricsUnderFirstUnlock:(_Bool)arg1 isSyncing:(_Bool)arg2 deviceConditionsAllowSync:(_Bool)arg3 syncNotCompletedRecently:(_Bool)arg4;
+- (_Bool)_syncNotCompletedRecently;
+- (double)_IMAHDAgentFallbackIntervalInSeconds;
+- (void)_dispatchNotification:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (void)registerForSyncStateChanges;
+- (void)_didUpdatePersistentValueNotification:(id)arg1;
+- (void)_didRecieveSyncStateChangeNotification:(id)arg1;
+- (void)_instantStateChange:(id)arg1;
 - (void)_postMetricsToCloudKitOnAutomaticHistoryDeletionAgentLaunch;
 - (unsigned long long)_maxTimeToDeferInSeconds;
+- (id)rampManager;
+- (id)attachmentSyncController;
+- (id)exitManager;
+- (id)chatSyncController;
+- (id)messageSyncController;
 
 @end
 

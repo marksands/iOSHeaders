@@ -12,17 +12,37 @@
 
 @interface CUTCheckpoint : NSObject <NSSecureCoding>
 {
+    _Bool _frozen;
+    _Bool _assertsUseAfterFreeze;
+    _Bool _shouldLogTouches;
     NSString *_name;
+    NSString *_uniqueIdentifier;
 }
 
-+ (id)descriptionForInterval:(double)arg1;
++ (id)_reportDateFormatter;
++ (id)_whitelistedClasses;
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool shouldLogTouches; // @synthesize shouldLogTouches=_shouldLogTouches;
+@property(nonatomic) _Bool assertsUseAfterFreeze; // @synthesize assertsUseAfterFreeze=_assertsUseAfterFreeze;
+@property(readonly, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
-- (id)descriptionWithDate:(id *)arg1;
-- (id)initWithCoder:(id)arg1;
+- (id)_reportEndDate;
+- (id)_reportStartDate;
+- (id)_reportName;
+- (id)_reportMetadata;
+- (void)_appendReportToMutableString:(id)arg1 indentation:(long long)arg2 paddedNameLength:(long long)arg3;
+- (id)report;
+- (id)_freezeBacktrace;
+- (_Bool)_assertNotFrozen;
+- (_Bool)isFrozen;
+- (void)_freeze;
+- (void)freeze;
+- (id)description;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithName:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithName:(id)arg1 uniqueIdentifier:(id)arg2;
 
 @end
 

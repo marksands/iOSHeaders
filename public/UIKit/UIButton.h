@@ -45,6 +45,7 @@
         unsigned int suppressAccessibilityUnderline:1;
         unsigned int requiresLayoutForPropertyChange:1;
         unsigned int adjustsImageSizeForAccessibilityContentSizeCategory:1;
+        unsigned int disableAutomaticTitleAnimations:1;
     } _buttonFlags;
     UIView *_effectiveContentView;
     _UIButtonMaskAnimationView *_maskAnimationView;
@@ -188,6 +189,7 @@
 - (struct UIEdgeInsets)alignmentRectInsets;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeForTitle:(id)arg1 attributedTitle:(id)arg2 image:(id)arg3 backgroundImage:(id)arg4 titlePaddingInsets:(struct UIEdgeInsets *)arg5;
 - (id)viewForLastBaselineLayout;
 - (void)updateConstraints;
 - (id)_titleOrImageViewForBaselineLayout;
@@ -275,6 +277,7 @@
 - (_Bool)_isEffectivelyDisabledExternalButton;
 - (_Bool)_isExternalRoundedRectButtonWithPressednessState;
 - (_Bool)_isModernButton;
+@property(nonatomic, getter=_disableAutomaticTitleAnimations, setter=_setDisableAutomaticTitleAnimations:) _Bool _disableAutomaticTitleAnimations;
 - (void)setContentVerticalAlignment:(long long)arg1;
 - (void)setContentHorizontalAlignment:(long long)arg1;
 @property(readonly, nonatomic) UIImageView *imageView;

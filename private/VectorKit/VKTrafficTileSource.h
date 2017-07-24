@@ -8,20 +8,21 @@
 
 #import <VectorKit/VKTileSourceClient-Protocol.h>
 
-@class NSString, VKTileCache, VKTileKeyList, VKTileKeyMap, VKTileSource, VKTrafficDynamicTileSource;
+@class NSString, VKRoadTileSource, VKTileCache, VKTileKeyList, VKTrafficDynamicTileSource;
 
 __attribute__((visibility("hidden")))
 @interface VKTrafficTileSource : VKTileSetBackedTileSource <VKTileSourceClient>
 {
     VKTileKeyList *_building;
-    VKTileKeyMap *_pendingTraffic;
-    VKTileSource *_roadTileSource;
+    VKRoadTileSource *_roadTileSource;
     VKTrafficDynamicTileSource *_dynamicTileSource;
     VKTileCache *_recentTrafficTiles;
+    struct map<VKTileKey, geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, bool (*)(const VKTileKey &, const VKTileKey &), std::__1::allocator<std::__1::pair<const VKTileKey, geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>> *_incompleteTiles;
     _Bool _buildTrafficTexture;
 }
 
-@property(retain, nonatomic) VKTileSource *roadTileSource; // @synthesize roadTileSource=_roadTileSource;
+@property(readonly, nonatomic) VKTrafficDynamicTileSource *dynamicTileSource; // @synthesize dynamicTileSource=_dynamicTileSource;
+@property(nonatomic) VKRoadTileSource *roadTileSource; // @synthesize roadTileSource=_roadTileSource;
 - (_Bool)minimumZoomLevelBoundsCamera;
 - (void)setSharedResources:(id)arg1;
 - (void)didStopLoadingTilesWithError:(id)arg1;
@@ -29,19 +30,22 @@ __attribute__((visibility("hidden")))
 - (_Bool)tileSource:(id)arg1 keyIsNeeded:(const struct VKTileKey *)arg2;
 - (void)dirtyTilesFromTileSource:(id)arg1;
 - (void)tileSource:(id)arg1 dirtyTilesWithinRect:(const Box_3d7e3c2c *)arg2 level:(long long)arg3;
+- (void)expireTilesForTileSource:(id)arg1;
 - (void)invalidateTilesFromTileSource:(id)arg1;
 - (void)tileSource:(id)arg1 invalidateTilesWithState:(unsigned long long)arg2;
 - (void)tileSource:(id)arg1 invalidateKeys:(id)arg2;
 - (void)tileSource:(id)arg1 invalidateKey:(const struct VKTileKey *)arg2;
 - (void)tileSource:(id)arg1 didFailToLoadTileForKey:(const struct VKTileKey *)arg2 error:(id)arg3;
 - (void)tileSource:(id)arg1 didFailToDecodeTileForKey:(const struct VKTileKey *)arg2;
+- (_Bool)_shouldDecodeTile:(const struct VKTileKey *)arg1;
 - (void)tileSource:(id)arg1 didFetchTile:(id)arg2 forKey:(const struct VKTileKey *)arg3;
 - (void)failedToDecodeSourceKey:(const struct VKTileKey *)arg1;
-- (void)fetchedTile:(id)arg1 forKey:(const struct VKTileKey *)arg2;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
 - (void)_fetchedTile:(id)arg1;
 - (void)didFailToLoadTileKey:(const struct _GEOTileKey *)arg1 error:(id)arg2;
+- (void)fetchTileForKey:(const struct VKTileKey *)arg1 sourceKey:(const struct VKTileKey *)arg2;
 - (void)fetchTileForKey:(const struct VKTileKey *)arg1;
+- (id)tileForSourceKey:(const struct VKTileKey *)arg1 renderKey:(const struct VKTileKey *)arg2;
 - (id)tileForKey:(const struct VKTileKey *)arg1;
 - (_Bool)canFetchTileForKey:(const struct VKTileKey *)arg1;
 - (void)setContentScale:(double)arg1;
@@ -50,8 +54,9 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldObeyHybridUnavailableRegions;
 - (long long)maximumZoomLevelWithoutOverride;
 - (long long)maximumZoomLevel;
-- (void)sawTileForKey:(const struct VKTileKey *)arg1;
-- (void)_generatedTraffic:(id)arg1;
+- (void)_acceptTileIfComplete:(id)arg1 forKey:(const struct VKTileKey *)arg2;
+- (void)_acceptPendingTilesIfCompletedWithTile:(id)arg1;
+- (void)_constructTile:(id)arg1 forKey:(struct VKTileKey)arg2;
 - (void)populateVisibleTileSets:(id)arg1 withTiles:(id)arg2;
 - (void)clearCaches;
 - (void)dealloc;

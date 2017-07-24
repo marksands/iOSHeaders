@@ -43,6 +43,9 @@
 @property(nonatomic) _Bool isDelayed; // @synthesize isDelayed=_isDelayed;
 @property(nonatomic) _Bool shouldPreventLargeAnnotationState; // @synthesize shouldPreventLargeAnnotationState=_shouldPreventLargeAnnotationState;
 - (void).cxx_destruct;
+- (void)invertColorStatusDidChange:(id)arg1;
+- (void)removeColorInvertFilterToLayer:(id)arg1;
+- (void)addColorInvertFilterToLayer:(id)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 @property(retain, nonatomic) id <FMAnnotation><MKAnnotation> annotation; // @dynamic annotation;
 - (void)_setupSpringActions;
@@ -55,6 +58,7 @@
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2 delay:(double)arg3;
 - (void)updateStyleForAnnotation:(id)arg1;
 - (void)prepareForReuse;
+- (void)dealloc;
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2 tintColor:(id)arg3;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;

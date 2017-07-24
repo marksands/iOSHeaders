@@ -11,7 +11,9 @@
 }
 
 + (id)_plistName;
-- (id)_plistMoodIdentifiers;
++ (_Bool)shouldUseSceneIdentifier:(id)arg1;
+- (void)_combineMoodVectors;
+- (unsigned long long)_sourceInputCount;
 - (double)weight;
 
 @end

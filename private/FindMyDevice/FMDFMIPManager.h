@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 - (id)getNeedsLocateAckLostModeFileURL;
 - (id)getManagedLostModeFileURL;
+- (void)_disableFMIPUsingToken:(id)arg1 inContext:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_initiateLostModeExitAuthForIDSDeviceID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_updateNeedsLocateAckLostModeWithInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_updateManagedLostModeWithInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -50,6 +51,7 @@
 - (void)markPairedDeviceWithUDID:(id)arg1 asMissingUsingToken:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)markAsMissingSupportedForPairedDeviceWithUDID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)disableFMIPUsingToken:(id)arg1 forPairedDeviceWithUDID:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (void)disableFMIPUsingToken:(id)arg1 inContext:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)disableFMIPUsingToken:(id)arg1 inContext:(unsigned long long)arg2;
 - (id)enableFMIPInContext:(unsigned long long)arg1;
 - (void)didChangeFMIPAccountInfo:(id)arg1;
@@ -70,6 +72,7 @@
 - (unsigned long long)_managedLostModeType;
 - (_Bool)isManagedLostModeActive;
 - (_Bool)lostModeIsActive;
+- (void)activationLockVersionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)addNotificationRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)showDailyLocateReport;
 - (void)setDailyLocateReportEnabled:(_Bool)arg1;

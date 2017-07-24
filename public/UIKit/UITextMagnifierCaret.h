@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 + (id)sharedCaretMagnifier;
 @property(nonatomic) double yOffset; // @synthesize yOffset=_yOffset;
 @property(nonatomic) struct CGPoint offset; // @synthesize offset=_offset;
+- (double)offsetFromMagnificationPoint;
 - (_Bool)isHorizontal;
 - (void)stopMagnifying:(_Bool)arg1;
 - (void)beginMagnifyingTarget:(id)arg1 text:(id)arg2 magnificationPoint:(struct CGPoint)arg3 offset:(struct CGPoint)arg4 animated:(_Bool)arg5;

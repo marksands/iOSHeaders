@@ -4,21 +4,22 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeSectionView.h>
+#import <SearchUI/SearchUICardSectionView.h>
 
 @class TLKKeyValueView;
 
-@interface SearchUIKeyValueDataCardSectionView : SearchUILayoutFreeSectionView
+@interface SearchUIKeyValueDataCardSectionView : SearchUICardSectionView
 {
-    TLKKeyValueView *_keyValueView;
 }
 
++ (int)separatorStyleForCardSection:(id)arg1;
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
-@property(retain) TLKKeyValueView *keyValueView; // @synthesize keyValueView=_keyValueView;
-- (void).cxx_destruct;
 - (void)updateWithCardSection:(id)arg1;
 - (id)convertSFKeyValueData:(id)arg1;
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
+- (id)setupContentView;
+
+// Remaining properties
+@property(retain) TLKKeyValueView *contentView; // @dynamic contentView;
 
 @end
 

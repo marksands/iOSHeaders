@@ -26,6 +26,7 @@
     float _fieldOfViewZoomFactor;
     float _originalOrthoScale;
     float _orthographicZoomFactor;
+    _Bool _enabled;
     _Bool _translationAllowed;
     _Bool _didEverFocusNode;
     _Bool _isSceneBoundingSphereComputed;
@@ -116,6 +117,7 @@
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (id)gestureRecognizers;
 - (void)cameraDidChange;
+- (void)willBeginInteraction;
 - (void)_setupUpVector;
 - (void)cameraWillChange;
 - (void)viewDidDrawAtTime:(double)arg1;
@@ -155,6 +157,7 @@
 @property(nonatomic) double friction;
 @property(nonatomic) _Bool enableInertia;
 @property(nonatomic) _Bool allowsTranslation;
+@property(nonatomic) _Bool enabled;
 @property(readonly, nonatomic) SCNCameraController *cameraController; // @synthesize cameraController=_cameraController;
 - (void)dealloc;
 - (id)initWithView:(id)arg1;

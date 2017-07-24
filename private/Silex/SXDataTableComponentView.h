@@ -37,6 +37,8 @@
 @property(retain, nonatomic) SXDataTableComponentController *dataTableComponentController; // @synthesize dataTableComponentController=_dataTableComponentController;
 @property(retain, nonatomic) SXDataTableView *tableView; // @synthesize tableView=_tableView;
 - (void).cxx_destruct;
+- (id)descriptorForIndexPath:(CDStruct_2fea82da)arg1;
+- (id)contentViewForBehavior:(id)arg1;
 - (void)updateShadowOpacity;
 - (void)setupShadowsIfNeeded;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;

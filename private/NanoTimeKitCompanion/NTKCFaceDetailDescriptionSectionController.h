@@ -13,11 +13,13 @@
 
 @interface NTKCFaceDetailDescriptionSectionController : NTKCFaceDetailSectionController <NTKCFaceDetailExpandableDescriptionCellDelegate>
 {
+    _Bool _external;
     id <NTKCFaceDetailDescriptionSectionDelegate> _delegate;
 }
 
-+ (id)_descriptionForFace:(id)arg1 inGallery:(_Bool)arg2;
-+ (_Bool)hasDescriptionSectionForFace:(id)arg1 inGallery:(_Bool)arg2;
++ (id)_descriptionForFace:(id)arg1 inGallery:(_Bool)arg2 orExternal:(_Bool)arg3;
++ (_Bool)hasDescriptionSectionForFace:(id)arg1 inGallery:(_Bool)arg2 orExternal:(_Bool)arg3;
+@property(nonatomic) _Bool external; // @synthesize external=_external;
 @property(nonatomic) __weak id <NTKCFaceDetailDescriptionSectionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)descriptionCellDidExpand:(id)arg1;
@@ -26,6 +28,7 @@
 - (void)faceDidChange;
 - (id)titleForHeader;
 - (void)_commonInit;
+- (id)initWithTableView:(id)arg1 face:(id)arg2 inGallery:(_Bool)arg3 external:(_Bool)arg4;
 
 // Remaining properties
 @property(retain, nonatomic) NTKCFaceDetailExpandableDescriptionCell *cell; // @dynamic cell;

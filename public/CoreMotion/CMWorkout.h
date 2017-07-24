@@ -22,6 +22,8 @@
 + (id)workoutName:(long long)arg1;
 + (_Bool)supportsSecureCoding;
 + (_Bool)isAvailable;
++ (long long)CMWorkoutTypeFromCLMotionActivityType:(int)arg1;
++ (int)CLMotionActivityTypeFromCMWorkoutType:(long long)arg1;
 - (id)description;
 @property(readonly, nonatomic) long long type;
 @property(readonly, nonatomic) NSUUID *sessionId;

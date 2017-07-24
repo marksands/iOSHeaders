@@ -8,7 +8,6 @@
 
 @class NSData, NSError, NSURL, QLZipArchive;
 
-__attribute__((visibility("hidden")))
 @interface QLZipArchiveEntry : NSObject
 {
     struct archive_entry *_entry;

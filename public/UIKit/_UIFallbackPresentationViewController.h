@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIViewController.h>
+#import <UIKit/UIApplicationRotationFollowingController.h>
 
 @class UIWindow, _UIFallbackPresentationWindow;
 
-@interface _UIFallbackPresentationViewController : UIViewController
+@interface _UIFallbackPresentationViewController : UIApplicationRotationFollowingController
 {
     _UIFallbackPresentationWindow *_presentationWindow;
     _Bool _hasPreservedKeyboardInputViews;
@@ -27,9 +27,6 @@
 - (void)_preserveInputViewsAnimated:(_Bool)arg1;
 - (void)_dismissViewControllerWithTransition:(int)arg1 from:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_presentViewController:(id)arg1 sendingView:(id)arg2 animated:(_Bool)arg3;
-- (_Bool)shouldAutorotate;
-- (unsigned long long)supportedInterfaceOrientations;
-- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)viewDidLoad;
 
 @end

@@ -22,6 +22,7 @@
     NSMutableArray *_localizedIncidentSpokenTexts;
     NSMutableArray *_localizedIncidentSubBanners;
     int _previousBannerChange;
+    unsigned int _secondsSaved;
     unsigned int _showAtDistance;
     GEOFormattedString *_spokenPrompt;
     _Bool _disableFasterRerouteByDefault;
@@ -31,6 +32,7 @@
         unsigned int incidentDistance:1;
         unsigned int incidentIndex:1;
         unsigned int previousBannerChange:1;
+        unsigned int secondsSaved:1;
         unsigned int showAtDistance:1;
         unsigned int disableFasterRerouteByDefault:1;
     } _has;
@@ -39,6 +41,7 @@
 + (Class)localizedIncidentSpokenTextType;
 + (Class)localizedIncidentSubBannerType;
 + (Class)localizedIncidentBannerType;
+@property(nonatomic) unsigned int secondsSaved; // @synthesize secondsSaved=_secondsSaved;
 @property(nonatomic) unsigned int incidentIndex; // @synthesize incidentIndex=_incidentIndex;
 @property(nonatomic) unsigned int incidentDistance; // @synthesize incidentDistance=_incidentDistance;
 @property(nonatomic) unsigned int hideAtDistance; // @synthesize hideAtDistance=_hideAtDistance;
@@ -59,6 +62,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSecondsSaved;
 - (int)StringAsBannerStyle:(id)arg1;
 - (id)bannerStyleAsString:(int)arg1;
 @property(nonatomic) _Bool hasBannerStyle;

@@ -12,6 +12,8 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct BuddyAllocator;
+
 struct _PASDeviceStateSystemCallbacks {
     CDUnknownFunctionPointerType _field1;
     CDUnknownFunctionPointerType _field2;
@@ -30,5 +32,11 @@ struct _PASTuple2 {
 struct _opaque_pthread_mutex_t {
     long long __sig;
     char __opaque[56];
+};
+
+struct unique_ptr<(anonymous namespace)::BuddyAllocator, std::__1::default_delete<(anonymous namespace)::BuddyAllocator>> {
+    struct __compressed_pair<(anonymous namespace)::BuddyAllocator *, std::__1::default_delete<(anonymous namespace)::BuddyAllocator>> {
+        struct BuddyAllocator *__first_;
+    } __ptr_;
 };
 

@@ -39,6 +39,8 @@
 + (id)unavailableSystemPayloadsInEphemeralMultiUser;
 + (id)supervisedRequiredPayloads;
 + (id)cellularRequiredPayloads;
++ (id)mdmAdoptablePayloads;
++ (id)applicablePayloadsForB238;
 + (id)minimumWatchVersionRequirementsForPayloads;
 + (id)unavailablePayloadsInEphemeralMultiUser;
 @property(nonatomic) _Bool mustInstallNonInteractively; // @synthesize mustInstallNonInteractively=_mustInstallNonInteractively;

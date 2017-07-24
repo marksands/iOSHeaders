@@ -42,6 +42,7 @@
     NNMKBatchRequestHandler *_batchRequestHandler;
 }
 
++ (_Bool)prepareForSystemAppDeletion:(id *)arg1;
 @property(retain, nonatomic) NNMKBatchRequestHandler *batchRequestHandler; // @synthesize batchRequestHandler=_batchRequestHandler;
 @property(retain, nonatomic) NNMKInitialSyncProgressTracker *initialSyncProgressTracker; // @synthesize initialSyncProgressTracker=_initialSyncProgressTracker;
 @property(retain, nonatomic) NNMKResendScheduler *resendScheduler; // @synthesize resendScheduler=_resendScheduler;

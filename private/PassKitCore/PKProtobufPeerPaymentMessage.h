@@ -8,13 +8,13 @@
 
 #import <PassKitCore/NSCopying-Protocol.h>
 
-@class NSData, NSString;
+@class NSString;
 
 @interface PKProtobufPeerPaymentMessage : PBCodable <NSCopying>
 {
     long long _amount;
     NSString *_currency;
-    NSData *_externalizedControllerState;
+    NSString *_identifer;
     NSString *_memo;
     NSString *_paymentIdentifier;
     NSString *_recipientAddress;
@@ -26,7 +26,6 @@
     CDStruct_9fb36b4c _has;
 }
 
-@property(retain, nonatomic) NSData *externalizedControllerState; // @synthesize externalizedControllerState=_externalizedControllerState;
 @property(retain, nonatomic) NSString *memo; // @synthesize memo=_memo;
 @property(retain, nonatomic) NSString *transactionIdentifier; // @synthesize transactionIdentifier=_transactionIdentifier;
 @property(retain, nonatomic) NSString *paymentIdentifier; // @synthesize paymentIdentifier=_paymentIdentifier;
@@ -35,6 +34,7 @@
 @property(retain, nonatomic) NSString *senderAddress; // @synthesize senderAddress=_senderAddress;
 @property(nonatomic) long long amount; // @synthesize amount=_amount;
 @property(retain, nonatomic) NSString *currency; // @synthesize currency=_currency;
+@property(retain, nonatomic) NSString *identifer; // @synthesize identifer=_identifer;
 @property(nonatomic) unsigned int version; // @synthesize version=_version;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
@@ -46,7 +46,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasExternalizedControllerState;
 @property(readonly, nonatomic) _Bool hasMemo;
 @property(readonly, nonatomic) _Bool hasTransactionIdentifier;
 @property(readonly, nonatomic) _Bool hasPaymentIdentifier;
@@ -59,6 +58,7 @@
 - (id)typeAsString:(int)arg1;
 @property(nonatomic) _Bool hasType;
 @property(nonatomic) int type; // @synthesize type=_type;
+@property(readonly, nonatomic) _Bool hasIdentifer;
 
 @end
 

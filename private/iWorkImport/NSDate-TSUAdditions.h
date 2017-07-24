@@ -12,9 +12,11 @@
 - (id)p_ruleForOverAWeekAgoForDate:(id)arg1;
 - (id)p_ruleForUpToSevenDaysAgoAndNotYesterdayForDate:(id)arg1;
 - (id)p_ruleForYesterday:(id)arg1;
+- (id)p_ruleForYesterdayShortAsPossible:(id)arg1;
 - (id)p_rule1To23HoursAgo:(long long)arg1;
 - (id)p_rule1To59MinutesAgo:(long long)arg1;
 - (id)tsu_relativeAnnotationStringForEarlierDate:(id)arg1;
+- (id)tsu_relativeAnnotationStringForEarlierDate:(id)arg1 shortAsPossible:(_Bool)arg2;
 @property(readonly, nonatomic) CDStruct_d65e47c4 tsu_DOSTime;
 - (id)tsu_initWithDOSTime:(CDStruct_d65e47c4)arg1;
 @end

@@ -15,6 +15,7 @@
 - (id)_personalizedFeedTransformationWithLimit:(unsigned long long)arg1 otherArticleIDs:(id)arg2;
 - (id)_feedTransformationWithOtherArticleIDs:(id)arg1;
 - (void)performOperation;
+- (void)_buildGroupWithCatchUpOperation:(id)arg1;
 
 @end
 

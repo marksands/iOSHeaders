@@ -14,7 +14,6 @@
 {
     _Bool _readonly;
     _Bool _backedByFileProvider;
-    _Bool _wasProvidedAsData;
     NSData *_scope;
     NSURL *_url;
     NSString *_providerIdentifier;
@@ -26,7 +25,6 @@
 @property(readonly, nonatomic) NSString *itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
 @property(readonly, nonatomic) NSString *domainIdentifier; // @synthesize domainIdentifier=_domainIdentifier;
 @property(readonly, nonatomic) NSString *providerIdentifier; // @synthesize providerIdentifier=_providerIdentifier;
-@property(nonatomic) _Bool wasProvidedAsData; // @synthesize wasProvidedAsData=_wasProvidedAsData;
 @property(readonly, nonatomic, getter=isBackedByFileProvider) _Bool backedByFileProvider; // @synthesize backedByFileProvider=_backedByFileProvider;
 @property(readonly, nonatomic, getter=isReadonly) _Bool readonly; // @synthesize readonly=_readonly;
 @property(readonly, copy, nonatomic) NSURL *url; // @synthesize url=_url;

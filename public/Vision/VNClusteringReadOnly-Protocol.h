@@ -7,6 +7,7 @@
 @class NSArray, NSData, NSDictionary, NSNumber, NSSet;
 
 @protocol VNClusteringReadOnly
+- (NSNumber *)maximumFaceIdInModelAndReturnError:(id *)arg1;
 - (NSDictionary *)getDistances:(NSArray *)arg1 to:(NSArray *)arg2 error:(id *)arg3;
 - (NSArray *)getClustersForClusterIds:(NSArray *)arg1 options:(NSDictionary *)arg2 error:(id *)arg3;
 - (NSDictionary *)getDistanceBetweenLevel1Clusters:(NSArray *)arg1 error:(id *)arg2;

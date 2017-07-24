@@ -9,6 +9,7 @@
 @class GEOComposedRoute, MNTrafficIncidentAlert, MNTrafficIncidentAlertUpdater;
 
 @protocol MNTrafficIncidentAlertUpdaterDelegate <NSObject>
+- (_Bool)trafficIncidentAlertUpdaterIsCurrentlySpeaking:(MNTrafficIncidentAlertUpdater *)arg1;
 - (double)trafficIncidentAlertUpdaterTimeUntilNextAnnouncement:(MNTrafficIncidentAlertUpdater *)arg1;
 - (double)trafficIncidentAlertUpdaterTimeSinceLastAnnouncement:(MNTrafficIncidentAlertUpdater *)arg1;
 - (double)trafficIncidentAlertUpdaterRemainingTimeOnRoute:(MNTrafficIncidentAlertUpdater *)arg1;

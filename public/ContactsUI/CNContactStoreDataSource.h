@@ -17,6 +17,7 @@
     NSDictionary *_sectionHeadersDictionary;
     NSObject<OS_dispatch_queue> *_queue;
     _Bool _loadingSnapshot;
+    _Bool _fetchUnified;
     CNContactFormatter *contactFormatter;
     id <CNContactDataSourceDelegate> delegate;
     CNContactStoreFilter *_filter;
@@ -28,6 +29,7 @@
 + (id)keyPathsForValuesAffectingEffectiveFilter;
 + (_Bool)isErrorPossiblyRelatedToExtraStores:(id)arg1;
 @property(copy, nonatomic) CNContact *meContact; // @synthesize meContact=_meContact;
+@property(nonatomic) _Bool fetchUnified; // @synthesize fetchUnified=_fetchUnified;
 @property(retain, nonatomic) NSArray *keysToFetch; // @synthesize keysToFetch=_keysToFetch;
 @property(retain, nonatomic) CNContactStore *store; // @synthesize store=_store;
 @property(copy, nonatomic) CNContactStoreFilter *filter; // @synthesize filter=_filter;

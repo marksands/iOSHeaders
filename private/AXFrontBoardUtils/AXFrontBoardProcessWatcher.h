@@ -26,6 +26,7 @@
 - (void)processDidExit:(id)arg1;
 - (void)processManager:(id)arg1 didRemoveProcess:(id)arg2;
 - (void)processManager:(id)arg1 didAddProcess:(id)arg2;
+- (_Bool)_processStateChangeIsTaskStateChangeFrom:(id)arg1 to:(id)arg2;
 - (_Bool)_processStateChangeIsVisibilityStateChangeFrom:(id)arg1 to:(id)arg2;
 - (void)_validateFocusedApps:(long long)arg1;
 - (id)_processDescriptionForPID:(int)arg1;

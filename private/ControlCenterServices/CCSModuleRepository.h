@@ -9,6 +9,7 @@
 #import <ControlCenterServices/LSApplicationWorkspaceObserverProtocol-Protocol.h>
 
 @class NSArray, NSDictionary, NSHashTable, NSSet, NSString;
+@protocol BSDefaultObserver;
 
 @interface CCSModuleRepository : NSObject <LSApplicationWorkspaceObserverProtocol>
 {
@@ -19,6 +20,7 @@
     NSSet *_interestingBundleIdentifiers;
     struct MGNotificationTokenStruct *_mobileGestaltNotificationToken;
     NSHashTable *_observers;
+    NSObject<BSDefaultObserver> *_internalDefaultsObserver;
     _Bool _ignoreWhitelist;
     NSSet *_loadableModuleIdentifiers;
 }
@@ -30,6 +32,8 @@
 @property(nonatomic) _Bool ignoreWhitelist; // @synthesize ignoreWhitelist=_ignoreWhitelist;
 @property(readonly, copy, nonatomic) NSSet *loadableModuleIdentifiers; // @synthesize loadableModuleIdentifiers=_loadableModuleIdentifiers;
 - (void).cxx_destruct;
+- (void)_unregisterForInternalPreferenceChanges;
+- (void)_registerForInternalPreferenceChanges;
 - (void)_stopObservingGestaltQuestions;
 - (void)_startObservingMobileGestaltQuestions:(id)arg1 withChangeHandler:(CDUnknownBlockType)arg2;
 - (id)_gestaltQuestionsForModuleMetadata:(id)arg1;

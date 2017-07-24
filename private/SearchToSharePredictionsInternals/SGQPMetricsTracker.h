@@ -31,7 +31,10 @@
 - (void).cxx_destruct;
 - (void)setLoggingOutletForAllTrackers:(id)arg1;
 - (void)resultEngaged;
+- (id)currentLanguage;
+- (id)currentABgroup;
 - (void)searchPerformedWithQuery:(id)arg1;
+- (void)genericSearchSuggestionEngaged:(id)arg1;
 - (void)categoryEngaged:(id)arg1;
 - (void)showedCategoriesWithIdentifiers:(id)arg1;
 - (void)generatedCategories:(id)arg1 fromMessages:(id)arg2 conversation:(id)arg3 language:(id)arg4 abGroup:(id)arg5 totalCategoriesRanked:(unsigned long long)arg6;

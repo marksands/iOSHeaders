@@ -26,9 +26,8 @@
     NSObject<OS_dispatch_source> *_debugSignalSource;
 }
 
-+ (void)_registerForTokenChangeNotificationsWithQueue:(id)arg1;
-+ (void)_lostBirdProviderFromClient:(id)arg1;
-+ (void)_gainedBirdProviderFromClient:(id)arg1;
++ (void)_lostBirdProvider:(id)arg1;
++ (void)_gainedBirdProvider:(id)arg1;
 + (void)ensureProvidersIfNecessaryForClaim:(id)arg1 readingAtLocation:(id)arg2 queue:(id)arg3 thenContinue:(CDUnknownBlockType)arg4;
 + (void)_wakeUpBirdWithUID:(unsigned int)arg1 queue:(id)arg2 thenContinue:(CDUnknownBlockType)arg3;
 - (oneway void)tiePresenterForID:(id)arg1 toItemAtURL:(id)arg2;

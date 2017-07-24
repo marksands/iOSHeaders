@@ -23,7 +23,8 @@
 @property(nonatomic) long long mode; // @synthesize mode=_mode;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
-- (id)prunedCollectionForOSVersion:(unsigned int)arg1;
+- (id)filteredCollectionForOSVersion:(unsigned int)arg1;
+- (id)filteredCollectionWithObjectsPassingTest:(CDUnknownBlockType)arg1;
 - (id)initWithEditMode:(long long)arg1 localizedName:(id)arg2 options:(id)arg3 collectionType:(unsigned long long)arg4;
 @property(readonly, nonatomic) NSString *optionsDescription;
 @property(readonly, nonatomic) long long swatchStyle;

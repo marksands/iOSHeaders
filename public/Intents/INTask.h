@@ -9,11 +9,11 @@
 #import <Intents/NSCopying-Protocol.h>
 #import <Intents/NSSecureCoding-Protocol.h>
 
-@class INSpatialEventTrigger, INTemporalEventTrigger, NSDateComponents, NSString;
+@class INSpatialEventTrigger, INSpeakableString, INTemporalEventTrigger, NSDateComponents, NSString;
 
 @interface INTask : NSObject <NSCopying, NSSecureCoding>
 {
-    NSString *_title;
+    INSpeakableString *_title;
     long long _status;
     long long _taskType;
     INSpatialEventTrigger *_spatialEventTrigger;
@@ -31,9 +31,10 @@
 @property(readonly, copy) INSpatialEventTrigger *spatialEventTrigger; // @synthesize spatialEventTrigger=_spatialEventTrigger;
 @property(readonly) long long taskType; // @synthesize taskType=_taskType;
 @property(readonly) long long status; // @synthesize status=_status;
-@property(readonly, copy) NSString *title; // @synthesize title=_title;
+@property(readonly, copy) INSpeakableString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

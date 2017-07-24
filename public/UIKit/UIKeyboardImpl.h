@@ -48,6 +48,7 @@
     double m_changeTime;
     id m_changedDelegate;
     struct __CFRunLoopObserver *m_observer;
+    _Bool m_hasOutstandingObserverCallbackTask;
     unsigned long long m_textInputChangingCount;
     _Bool m_textInputChangingText;
     _Bool m_textInputChangingDirection;
@@ -117,7 +118,6 @@
     _Bool m_updateLayoutOnShowKeyboard;
     _Bool m_receivedCandidatesInCurrentInputMode;
     int _currentAlertReason;
-    _Bool m_textInputTraitsNeedAutofill;
     _UIKeyboardFeedbackGenerator *m_feedbackGenerator;
     _Bool m_canUpdateIdleTimer;
     _Bool m_scrolling;
@@ -137,11 +137,14 @@
     UIDelayedAction *m_detachHardwareKeyboardAction;
     UIView *m_capsLockSign;
     _Bool m_didAutomaticallyInsertSpaceBeforeChangingInputMode;
+    _Bool m_disableSmartInsertDelete;
     int m_predictionType;
     _Bool m_repeatDeleteFromHardwareKeyboard;
     UIDelayedAction *m_disablePredictionViewTimer;
     double m_lastDisablePredictionViewTime;
     NSMutableDictionary *m_autofillGroup;
+    _Bool m_delegateNeedsAutofill;
+    _Bool m_cachedNeedAutofill;
     _Bool m_isAutofilling;
     long long m_pendingAutofillIndex;
     _Bool m_showsCandidateBar;
@@ -190,6 +193,7 @@
 + (id)normalizedInputModesFromPreference;
 + (struct CGSize)keyboardSizeForInterfaceOrientation:(long long)arg1;
 + (_Bool)keyboardOrientation:(long long)arg1 isEquivalentToOrientation:(long long)arg2;
++ (struct CGSize)sizeForInterfaceOrientation:(long long)arg1 ignoreInputView:(_Bool)arg2;
 + (struct CGSize)sizeForInterfaceOrientation:(long long)arg1;
 + (struct CGSize)defaultSizeForInterfaceOrientation:(long long)arg1;
 + (struct UIEdgeInsets)deviceSpecificStaticHitBufferForInterfaceOrientation:(long long)arg1 inputMode:(id)arg2;
@@ -225,6 +229,7 @@
 @property(nonatomic) _Bool animateUpdateBars; // @synthesize animateUpdateBars=m_animateUpdateBars;
 @property(nonatomic) _Bool suppressUpdateLayout; // @synthesize suppressUpdateLayout=m_suppressUpdateLayout;
 @property(nonatomic) _Bool softwareKeyboardShownByTouch; // @synthesize softwareKeyboardShownByTouch=m_softwareKeyboardShownByTouch;
+@property(nonatomic) _Bool disableSmartInsertDelete; // @synthesize disableSmartInsertDelete=m_disableSmartInsertDelete;
 @property(nonatomic) _Bool geometryIsChanging; // @synthesize geometryIsChanging;
 @property(nonatomic) _Bool committingCandidate; // @synthesize committingCandidate;
 @property(retain, nonatomic) UIAlertView *keyboardAlertView; // @synthesize keyboardAlertView;
@@ -353,6 +358,8 @@
 - (void)performKeyBehaviorConfirm;
 - (void)_handleKeyBehavior:(unsigned long long)arg1 forKeyType:(id)arg2;
 - (void)_nop;
+- (_Bool)shouldShowDictationKey;
+- (_Bool)shouldShowInternationalKey;
 - (void)updateReturnKey:(_Bool)arg1;
 - (void)updateReturnKey;
 - (void)setReturnKeyEnabled:(_Bool)arg1;
@@ -677,6 +684,7 @@
 - (void)finishSetExtensionInputMode:(id)arg1 didChangeDirection:(_Bool)arg2;
 - (void)finishSetKeyboardInputMode:(id)arg1 didChangeDirection:(_Bool)arg2;
 - (void)reinitializeAfterInputModeSwitch:(_Bool)arg1;
+- (void)updateForHandBiasChange;
 - (void)updatePredictionView;
 - (void)updateSmartPunctuationOptionsForLocaleIdentifier:(id)arg1;
 - (void)cleanUpBeforeInputModeSwitch;
@@ -740,6 +748,7 @@
 - (void)clearAutofillStates;
 - (void)clearAutofillGroup;
 - (_Bool)needAutofillCandidate:(id)arg1;
+- (_Bool)delegateAlreadyInAutofillGroup;
 - (long long)doTraits:(id)arg1 matchTextContentType:(id)arg2;
 - (void)setPendingAutofillIndex:(long long)arg1;
 - (void)refreshAutofillStateIfNecessary;

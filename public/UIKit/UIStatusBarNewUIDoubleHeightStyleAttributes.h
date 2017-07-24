@@ -4,17 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIStatusBarNewUIStyleAttributes.h>
+#import <UIKit/UIStatusBarNewUIActionableStyleAttributes.h>
 
 __attribute__((visibility("hidden")))
-@interface UIStatusBarNewUIDoubleHeightStyleAttributes : UIStatusBarNewUIStyleAttributes
+@interface UIStatusBarNewUIDoubleHeightStyleAttributes : UIStatusBarNewUIActionableStyleAttributes
 {
 }
 
 - (_Bool)isDoubleHeight;
 - (double)heightForMetrics:(long long)arg1;
-- (_Bool)shouldProduceReturnEvent;
-- (id)initWithRequest:(id)arg1 backgroundColor:(id)arg2 foregroundColor:(id)arg3 hasBusyBackground:(_Bool)arg4;
 
 @end
 

@@ -11,9 +11,9 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (id)_overlayMethodSelectors;
+- (struct UIEdgeInsets)wideShadowPaddleInsets;
+- (double)variantWideShadowWeight;
 - (Class)_overlayFactoryClass;
-- (Class)_baseFactoryClass;
 
 @end
 

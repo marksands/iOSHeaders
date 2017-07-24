@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class HDCloudSyncOperationConfiguration, NSMutableSet;
+@class HDCloudSyncMasterRecord, HDCloudSyncOperationConfiguration, HDCloudSyncStore, HDCloudSyncStoreRecord, NSMutableDictionary, NSMutableSet, NSSet, NSUUID;
 @protocol OS_dispatch_queue;
 
 @interface HDCloudSyncFetchOperation : NSObject
@@ -14,6 +14,22 @@
     HDCloudSyncOperationConfiguration *_configuration;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableSet *_emptyZoneIDs;
+    double _timeIntervalBeforeOwnershipTransfer;
+    NSMutableDictionary *_storeRecordsCacheMap;
+    HDCloudSyncMasterRecord *_masterRecord;
+    NSSet *_recordZoneIDs;
+    NSMutableSet *_candidateSyncStorePushIdentifiers;
+    NSUUID *_syncStorePushIdentifier;
+    HDCloudSyncStoreRecord *_pushStoreRecord;
+    HDCloudSyncStore *_syncPushStore;
+    NSMutableSet *_syncStorePullIdentifiers;
+    NSMutableSet *_abandonedStoreIdentifiers;
+    NSMutableSet *_reclaimedIdentifiers;
+    NSMutableSet *_sequenceRecords;
+    NSMutableDictionary *_inactiveRecordZonesByStoreIdentifierMap;
+    NSMutableSet *_emptyZonesForGarbageCollection;
+    _Bool _rebaseRequired;
+    _Bool _sequenceCheckRequired;
     CDUnknownBlockType _completion;
 }
 
@@ -21,15 +37,21 @@
 - (_Bool)_orderedChangeRecordSequenceRequiresRebase:(id)arg1;
 - (_Bool)_isValidChangeRecord:(id)arg1 forStoreRecord:(id)arg2;
 - (void)_verifySequenceForPushStore:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_verifySequenceForStoreRecord:(id)arg1 syncStore:(id)arg2 result:(id)arg3;
-- (void)_deleteInactiveZones:(id)arg1 emptyZones:(id)arg2;
+- (void)_verifySequenceForStoreRecord:(id)arg1 syncStore:(id)arg2;
+- (void)_deleteRecordZones:(id)arg1;
+- (void)_deleteRecordZonesWithLostManateeIdentitiesForPartialError:(id)arg1;
 - (_Bool)_updateLocalAnchorMapForStore:(id)arg1 syncAnchorMap:(id)arg2 error:(id *)arg3;
 - (long long)_verifyAnchorRangesForSyncStore:(id)arg1 storeRecord:(id)arg2 error:(id *)arg3;
 - (id)_lastestPushStoreIdentifierWithPushStoreIdentifiers:(id)arg1 storeRecordsCacheMap:(id)arg2;
 - (id)_syncStorePushIdentifierWithError:(id *)arg1;
 - (void)_persistState:(id)arg1 syncStore:(id)arg2;
-- (void)_processSyncCacheDataWithStoreRecordsMap:(id)arg1 sequenceRecordsCacheMap:(id)arg2 syncStorePushIdentifiers:(id)arg3 syncStorePullIdentifiers:(id)arg4;
+- (void)_queue_garbageCollectInactiveZones;
+- (void)_queue_checkForSeizableAbandonedZones;
+- (_Bool)_queue_validatePushStore;
+- (void)_queue_validateSequenceRecords;
+- (void)_queue_computeInactiveAndAbandonedStoreIdentifiers;
 - (void)_queue_updateSyncCacheDataWithRecords:(id)arg1;
+- (_Bool)_queue_processSyncRecord:(id)arg1;
 - (_Bool)_canIgnorePartialFailureError:(id)arg1 fetchedRecords:(id)arg2 error:(id *)arg3;
 - (id)_generateAllRecordIDsFromZoneIDs:(id)arg1;
 - (void)_queue_fetchHeaderRecordsForZoneID:(id)arg1 continuation:(CDUnknownBlockType)arg2;
@@ -37,8 +59,9 @@
 - (void)_queue_fetchHeaderRecordsInBatchesForZoneID:(id)arg1;
 - (void)_fetchSyncZonesAndHeaderRecords;
 - (id)_fetchRecordsOperationForZones:(id)arg1;
+- (double)_determineTimeIntervalBeforeOwnershipTransfer;
 - (void)_incrementAggdCountForResultStatus:(long long)arg1;
-- (void)_finishWithResult:(id)arg1 error:(id)arg2;
+- (void)_finishWithStatus:(long long)arg1 error:(id)arg2;
 - (void)startWithCompletion:(CDUnknownBlockType)arg1;
 - (id)initWithConfiguration:(id)arg1;
 

@@ -13,12 +13,12 @@
 __attribute__((visibility("hidden")))
 @interface TSTCellSelection : TSKSelection <TSDTextSelection>
 {
-    long long mSelectionType;
-    struct TSUCellCoord mAnchorCellID;
-    TSTCellRegion *mCellRegion;
-    TSTCellRegion *mBaseRegion;
-    struct TSUCellCoord mCursorCellID;
-    struct _NSRange mSearchReferenceRange;
+    struct TSUCellCoord _anchorCellID;
+    struct TSUCellCoord _cursorCellID;
+    TSTCellRegion *_cellRegion;
+    long long _selectionType;
+    TSTCellRegion *_baseRegion;
+    struct _NSRange _searchReferenceRange;
 }
 
 + (Class)archivedSelectionClass;
@@ -27,12 +27,13 @@ __attribute__((visibility("hidden")))
 + (id)selectionWithTableModel:(id)arg1 cellRegion:(id)arg2;
 + (id)selectionWithTableModel:(id)arg1 cellUID:(const struct TSTCellUID *)arg2;
 + (id)selectionWithTableModel:(id)arg1 cellID:(struct TSUCellCoord)arg2;
-@property(nonatomic) struct _NSRange searchReferenceRange; // @synthesize searchReferenceRange=mSearchReferenceRange;
-@property(readonly, nonatomic) struct TSUCellCoord cursorCellID; // @synthesize cursorCellID=mCursorCellID;
-@property(readonly, nonatomic) TSTCellRegion *baseRegion; // @synthesize baseRegion=mBaseRegion;
-@property(readonly, nonatomic) struct TSUCellCoord anchorCellID; // @synthesize anchorCellID=mAnchorCellID;
-@property(readonly, nonatomic) long long selectionType; // @synthesize selectionType=mSelectionType;
-@property(readonly, nonatomic) TSTCellRegion *cellRegion; // @synthesize cellRegion=mCellRegion;
+@property(nonatomic) struct _NSRange searchReferenceRange; // @synthesize searchReferenceRange=_searchReferenceRange;
+@property(readonly, nonatomic) struct TSUCellCoord cursorCellID; // @synthesize cursorCellID=_cursorCellID;
+@property(readonly, nonatomic) TSTCellRegion *baseRegion; // @synthesize baseRegion=_baseRegion;
+@property(readonly, nonatomic) struct TSUCellCoord anchorCellID; // @synthesize anchorCellID=_anchorCellID;
+@property(readonly, nonatomic) long long selectionType; // @synthesize selectionType=_selectionType;
+@property(readonly, nonatomic) TSTCellRegion *cellRegion; // @synthesize cellRegion=_cellRegion;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool isAtEndOfLine;
 @property(readonly, nonatomic) struct _NSRange range;
 - (_Bool)intersectsPartialMergeRangeInTable:(id)arg1;
@@ -58,14 +59,14 @@ __attribute__((visibility("hidden")))
 - (id)selectionByExtendingWithCellRange:(struct TSUCellRect)arg1 inTable:(id)arg2 selectionType:(long long)arg3 cursorCell:(struct TSUCellCoord)arg4;
 - (void)saveToArchive:(struct SelectionArchive *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct SelectionArchive *)arg1 unarchiver:(id)arg2;
-@property(readonly, nonatomic) unsigned long long cellCount; // @dynamic cellCount;
-- (void)dealloc;
+- (struct TSUCellCoord)logicalCellIDInTable:(id)arg1;
+@property(readonly, nonatomic) unsigned long long cellCount;
 - (id)initWithTableModel:(id)arg1 columnIndices:(id)arg2;
 - (id)initWithTableModel:(id)arg1 rowIndices:(id)arg2;
 - (id)initWithTableModel:(id)arg1 cellRegion:(id)arg2;
 - (id)initWithTableModel:(id)arg1 andPreviousSelection:(id)arg2 offsetBy:(CDStruct_945081a1)arg3;
-- (id)initWithTableModel:(id)arg1 rowOrColumn:(long long)arg2 index:(unsigned int)arg3 count:(unsigned int)arg4;
-- (id)initWithTableModel:(id)arg1 startingColumnIndex:(unsigned short)arg2 numberOfColumns:(unsigned short)arg3;
+- (id)initWithTableModel:(id)arg1 rowOrColumn:(long long)arg2 index:(unsigned short)arg3 count:(unsigned short)arg4;
+- (id)initWithTableModel:(id)arg1 startingColumnIndex:(unsigned char)arg2 numberOfColumns:(unsigned short)arg3;
 - (id)initWithTableModel:(id)arg1 startingRowIndex:(unsigned short)arg2 numberOfRows:(unsigned short)arg3;
 - (id)initWithTableModel:(id)arg1 andCellID:(struct TSUCellCoord)arg2;
 - (id)initWithTableModel:(id)arg1 cellID:(struct TSUCellCoord)arg2 selectionType:(long long)arg3;
@@ -76,6 +77,8 @@ __attribute__((visibility("hidden")))
 - (id)initWithTableModel:(id)arg1 cellRegion:(id)arg2 anchorCellID:(struct TSUCellCoord)arg3 cursorCellID:(struct TSUCellCoord)arg4 selectionType:(long long)arg5;
 - (id)initWithTableModel:(id)arg1 cellRegion:(id)arg2 anchorCellID:(struct TSUCellCoord)arg3 cursorCellID:(struct TSUCellCoord)arg4 baseRegion:(id)arg5;
 - (id)initWithTableModel:(id)arg1 cellRegion:(id)arg2 anchorCellID:(struct TSUCellCoord)arg3 cursorCellID:(struct TSUCellCoord)arg4 baseRegion:(id)arg5 selectionType:(long long)arg6;
+- (id)initWithCellRegion:(id)arg1 anchorCellID:(struct TSUCellCoord)arg2 cursorCellID:(struct TSUCellCoord)arg3 baseRegion:(id)arg4 selectionType:(long long)arg5;
+- (id)initWithCellRegion:(id)arg1 anchorCellID:(struct TSUCellCoord)arg2 cursorCellID:(struct TSUCellCoord)arg3 baseRegion:(id)arg4 selectionType:(long long)arg5 searchReferenceRange:(struct _NSRange)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

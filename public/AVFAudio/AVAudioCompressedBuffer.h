@@ -18,5 +18,9 @@
 - (id)initWithFormat:(id)arg1 packetCapacity:(unsigned int)arg2;
 - (id)initWithFormat:(id)arg1 packetCapacity:(unsigned int)arg2 maximumPacketSize:(long long)arg3;
 
+// Remaining properties
+@property(readonly, nonatomic) unsigned int byteCapacity; // @dynamic byteCapacity;
+@property(nonatomic) unsigned int byteLength; // @dynamic byteLength;
+
 @end
 

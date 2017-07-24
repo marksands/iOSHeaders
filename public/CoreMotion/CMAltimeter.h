@@ -11,6 +11,7 @@
     id _internal;
 }
 
++ (long long)authorizationStatus;
 + (_Bool)isSignificantElevationAvailable;
 + (_Bool)isRelativeAltitudeAvailable;
 + (void)initialize;

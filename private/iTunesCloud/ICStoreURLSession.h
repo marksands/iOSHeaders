@@ -10,6 +10,7 @@
 {
 }
 
++ (id)prioritizedSharedStoreURLSession;
 + (id)sharedStoreURLSession;
 - (void)_processDialogResponse:(id)arg1 toRequest:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_performAuthenticationForResponse:(id)arg1 toRequest:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

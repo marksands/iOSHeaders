@@ -41,10 +41,12 @@
 - (id)_keyAssetFetchResultForRelatedCollection:(id)arg1 referenceAsset:(id)arg2;
 - (id)_collectionListRelatedToObject:(id)arg1;
 - (id)_referenceObjectFromCollectionListFetchResult:(id)arg1;
+- (id)_referenceObject;
 - (void)_continueBackgroundLoadWithReferenceObject:(id)arg1 relatedCollections:(id)arg2;
 - (id)_collectionsRelatedToReferenceObject:(id)arg1;
 - (void)_continueBackgroundLoadWithReferenceObject:(id)arg1 attemptIndex:(long long)arg2;
 - (void)_startBackgroundLoad;
+- (id)createPhotosDataSourceForRelatedEntry:(id)arg1;
 - (void)_setDataSource:(id)arg1 changeDetails:(id)arg2;
 - (void)unregisterChangeObserver:(id)arg1 context:(void *)arg2;
 - (void)registerChangeObserver:(id)arg1 context:(void *)arg2;

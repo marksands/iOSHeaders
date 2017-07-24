@@ -18,15 +18,18 @@
     NSData *_oldRouteID;
     NSMutableArray *_oldRouteIncidents;
     unsigned int _oldRouteTravelTime;
+    int _rerouteType;
     unsigned int _reroutedRouteHistoricTravelTime;
     NSData *_reroutedRouteID;
     unsigned int _reroutedRouteTravelTime;
+    NSData *_responseId;
     _Bool _backgrounded;
     struct {
         unsigned int actionType:1;
         unsigned int alertType:1;
         unsigned int oldRouteHistoricTravelTime:1;
         unsigned int oldRouteTravelTime:1;
+        unsigned int rerouteType:1;
         unsigned int reroutedRouteHistoricTravelTime:1;
         unsigned int reroutedRouteTravelTime:1;
         unsigned int backgrounded:1;
@@ -34,6 +37,7 @@
 }
 
 + (Class)oldRouteIncidentsType;
+@property(retain, nonatomic) NSData *responseId; // @synthesize responseId=_responseId;
 @property(nonatomic) _Bool backgrounded; // @synthesize backgrounded=_backgrounded;
 @property(retain, nonatomic) NSData *reroutedRouteID; // @synthesize reroutedRouteID=_reroutedRouteID;
 @property(retain, nonatomic) NSData *oldRouteID; // @synthesize oldRouteID=_oldRouteID;
@@ -52,6 +56,11 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasResponseId;
+- (int)StringAsRerouteType:(id)arg1;
+- (id)rerouteTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasRerouteType;
+@property(nonatomic) int rerouteType; // @synthesize rerouteType=_rerouteType;
 @property(nonatomic) _Bool hasBackgrounded;
 - (int)StringAsAlertType:(id)arg1;
 - (id)alertTypeAsString:(int)arg1;

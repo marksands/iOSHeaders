@@ -6,15 +6,11 @@
 
 #import <Social/SLSheetImagePreviewView.h>
 
-@class UIImage;
-
 __attribute__((visibility("hidden")))
 @interface SLSheetPreComposedAppIconImageView : SLSheetImagePreviewView
 {
-    UIImage *_shadowImage;
 }
 
-- (void).cxx_destruct;
 - (struct CGSize)intrinsicContentSize;
 - (struct UIEdgeInsets)alignmentRectInsets;
 - (void)setImage:(id)arg1;

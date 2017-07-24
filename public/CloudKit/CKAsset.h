@@ -46,6 +46,7 @@
     NSData *_wrappedAssetKey;
     NSData *_referenceSignature;
     NSString *_uploadReceipt;
+    double _uploadReceiptExpiration;
     long long _storageGroupingPolicy;
     CKAssetTransferOptions *_assetTransferOptions;
     long long _arrayIndex;
@@ -73,6 +74,7 @@
 @property(nonatomic) _Bool hasSize; // @synthesize hasSize=_hasSize;
 @property(nonatomic) _Bool wasCached; // @synthesize wasCached=_wasCached;
 @property(nonatomic) long long storageGroupingPolicy; // @synthesize storageGroupingPolicy=_storageGroupingPolicy;
+@property(nonatomic) double uploadReceiptExpiration; // @synthesize uploadReceiptExpiration=_uploadReceiptExpiration;
 @property(copy, nonatomic) NSString *uploadReceipt; // @synthesize uploadReceipt=_uploadReceipt;
 @property(retain, nonatomic) NSData *referenceSignature; // @synthesize referenceSignature=_referenceSignature;
 @property(retain, nonatomic) NSData *wrappedAssetKey; // @synthesize wrappedAssetKey=_wrappedAssetKey;

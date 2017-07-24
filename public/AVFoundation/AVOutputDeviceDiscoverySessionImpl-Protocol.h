@@ -6,13 +6,12 @@
 
 #import <AVFoundation/NSObject-Protocol.h>
 
-@class AVOutputDeviceDiscoverySession, AVOutputDeviceDiscoverySessionAvailableOutputDevices, NSArray;
+@class AVAudioSession, AVOutputDeviceDiscoverySession, AVOutputDeviceDiscoverySessionAvailableOutputDevices;
 
 @protocol AVOutputDeviceDiscoverySessionImpl <NSObject>
-+ (id)outputDeviceDiscoverySessionImplWithDeviceFeatures:(unsigned long long)arg1;
 @property(readonly, nonatomic) _Bool devicePresenceDetected;
-@property(readonly) NSArray *availableOutputDeviceGroups;
 @property(readonly, nonatomic) AVOutputDeviceDiscoverySessionAvailableOutputDevices *availableOutputDevicesObject;
+@property(retain, nonatomic) AVAudioSession *targetAudioSession;
 @property __weak AVOutputDeviceDiscoverySession *parentOutputDeviceDiscoverySession;
 - (void)outputDeviceDiscoverySessionDidChangeDiscoveryMode:(AVOutputDeviceDiscoverySession *)arg1;
 @end

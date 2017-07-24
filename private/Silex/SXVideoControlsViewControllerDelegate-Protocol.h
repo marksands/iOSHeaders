@@ -9,6 +9,8 @@
 @class SXVideoControlsViewController;
 
 @protocol SXVideoControlsViewControllerDelegate <NSObject>
+- (void)videoControlsViewController:(SXVideoControlsViewController *)arg1 didToggleControlVisibility:(_Bool)arg2;
+- (void)videoControlsViewControllsWantsToToggleVolume:(SXVideoControlsViewController *)arg1;
 - (void)videoControlsViewControllerWantsSelectCaptions:(SXVideoControlsViewController *)arg1;
 - (void)videoControlsViewControllerWantsToLearnMore:(SXVideoControlsViewController *)arg1;
 - (void)videoControlsViewControllerWantsToSeePrivacyStatement:(SXVideoControlsViewController *)arg1;

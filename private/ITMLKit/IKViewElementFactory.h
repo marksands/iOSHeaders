@@ -21,7 +21,7 @@
     IKViewElementStyleFactory *_styleFactory;
 }
 
-+ (id)elementsForDocumentElement:(id)arg1 sparse:(_Bool)arg2 styleFactory:(id *)arg3;
++ (_Bool)elementsForDocumentElement:(id)arg1 context:(id)arg2;
 + (_Bool)isDependentByTagName:(id)arg1;
 + (Class)elementClassByTagName:(id)arg1;
 + (void)registerClass:(Class)arg1 forElementName:(id)arg2 elementType:(unsigned long long)arg3 dependent:(_Bool)arg4;

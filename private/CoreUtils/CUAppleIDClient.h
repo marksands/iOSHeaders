@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSData, NSDictionary, NSString;
+@class NSArray, NSData, NSDictionary, NSString;
 
 @interface CUAppleIDClient : NSObject
 {
@@ -23,6 +23,7 @@
     NSString *_myAppleID;
     CUAppleIDClient *_myInfoClient;
     NSString *_peerAppleID;
+    NSArray *_peerAppleIDs;
     NSData *_peerCertificateData;
     NSData *_peerValidationData;
     NSData *_myCertificateData;
@@ -35,6 +36,7 @@
 @property(copy, nonatomic) NSData *myCertificateData; // @synthesize myCertificateData=_myCertificateData;
 @property(copy, nonatomic) NSData *peerValidationData; // @synthesize peerValidationData=_peerValidationData;
 @property(copy, nonatomic) NSData *peerCertificateData; // @synthesize peerCertificateData=_peerCertificateData;
+@property(copy, nonatomic) NSArray *peerAppleIDs; // @synthesize peerAppleIDs=_peerAppleIDs;
 @property(copy, nonatomic) NSString *peerAppleID; // @synthesize peerAppleID=_peerAppleID;
 @property(retain, nonatomic) CUAppleIDClient *myInfoClient; // @synthesize myInfoClient=_myInfoClient;
 @property(copy, nonatomic) NSString *myAppleID; // @synthesize myAppleID=_myAppleID;

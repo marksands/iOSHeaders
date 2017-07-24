@@ -30,7 +30,7 @@
 - (void)start;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
-- (_Bool)_closeConnection;
+- (void)_closeConnection;
 - (_Bool)_openConnectionIfNecessary;
 
 // Remaining properties

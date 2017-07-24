@@ -15,7 +15,7 @@
     struct RetainPtr<NSArray> _itemProviders;
     struct RetainPtr<NSArray> _cachedTypeIdentifiers;
     struct RetainPtr<NSArray> _typeToFileURLMaps;
-    struct RetainPtr<NSArray> _preferredTypeIdentifiers;
+    struct RetainPtr<NSArray> _supportedTypeIdentifiers;
     struct RetainPtr<NSArray> _registrationInfoLists;
     long long _numberOfItems;
     long long _changeCount;
@@ -36,6 +36,7 @@
 - (id)registrationInfoAtIndex:(unsigned long long)arg1;
 - (void)doAfterLoadingProvidedContentIntoFileURLs:(CDUnknownBlockType)arg1 synchronousTimeout:(double)arg2;
 - (void)doAfterLoadingProvidedContentIntoFileURLs:(CDUnknownBlockType)arg1;
+- (id)typeIdentifierToLoadForRegisteredTypeIdentfiers:(id)arg1;
 @property(readonly, nonatomic) long long numberOfFiles;
 @property(readonly, nonatomic) NSArray *fileURLsForDataInteraction;
 - (id)valuesForPasteboardType:(id)arg1 inItemSet:(id)arg2;
@@ -45,7 +46,7 @@
 @property(copy, nonatomic) NSArray *itemProviders;
 - (id)pasteboardTypes;
 - (id)pasteboardTypesByFidelityForItemAtIndex:(unsigned long long)arg1;
-- (void)updatePreferredTypeIdentifiers:(id)arg1;
+- (void)updateSupportedTypeIdentifiers:(id)arg1;
 - (id)init;
 
 // Remaining properties

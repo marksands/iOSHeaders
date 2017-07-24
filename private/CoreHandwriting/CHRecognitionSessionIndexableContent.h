@@ -17,7 +17,6 @@
 @property(readonly, copy, nonatomic) NSString *presentableTextRepresentation; // @synthesize presentableTextRepresentation=_presentableTextRepresentation;
 @property(readonly, copy, nonatomic) NSString *indexableTextRepresentation; // @synthesize indexableTextRepresentation=_indexableTextRepresentation;
 - (void)dealloc;
-@property(readonly, copy, nonatomic) NSString *textRepresentation;
 - (id)initWithIndexableTextRepresentation:(id)arg1 presentableTextRepresentation:(id)arg2;
 
 @end

@@ -14,7 +14,6 @@
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (_Bool)acceptEagerResultWithFeatures:(id)arg1 featuresToLog:(id *)arg2;
-- (_Bool)didEndpointWithFeatures:(id)arg1 audioTimestamp:(double)arg2 featuresToLog:(id *)arg3 endpointPosterior:(float *)arg4;
 - (id)defaultServerEndpointFeatures;
 - (_Bool)didEndpointWithFeatures:(id)arg1 audioTimestamp:(double)arg2 featuresToLog:(id *)arg3 endpointPosterior:(float *)arg4 extraDelayMs:(int *)arg5;
 - (void)updateEndpointerDelayedTriggerSwitch:(_Bool)arg1;

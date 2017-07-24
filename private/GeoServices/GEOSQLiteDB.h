@@ -6,25 +6,36 @@
 
 #import <objc/NSObject.h>
 
-@class NSError, NSMapTable, NSMutableArray, NSString;
-@protocol OS_dispatch_queue;
+@class NSDictionary, NSError, NSMapTable, NSMutableArray, NSString, NSURL;
+@protocol OS_dispatch_group, OS_dispatch_queue, OS_os_log;
 
 @interface GEOSQLiteDB : NSObject
 {
-    char *_logFacility;
+    NSObject<OS_os_log> *_log;
     struct sqlite3 *_db;
     NSError *_lastError;
-    NSString *_dbFilePath;
+    NSURL *_databaseFileURL;
     int _sqliteFlags;
+    NSDictionary *_pragmas;
     CDUnknownBlockType _setupBlock;
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_externalFilesQueue;
+    NSObject<OS_dispatch_group> *_externalFilesGroup;
+    NSMutableArray *_externalFilesActiveChannels;
     NSMapTable *_preparedStatements;
     _Bool _isInTransaction;
+    _Bool _isTemporaryInMemoryDatabase;
+    _Bool _didEncounterExternalResourceErrorInTransaction;
+    // Error parsing type: (?="flag"{atomic_flag="_Value"AB}"dummy"i), name: _didTearDown
     NSMutableArray *_filesAddedDuringTransaction;
     NSMutableArray *_filesDeletedDuringTransaction;
+    NSMapTable *_virtualTables;
 }
 
++ (id)defaultPragmas;
 - (void).cxx_destruct;
+- (_Bool)writeBlobData:(id)arg1 toTable:(const char *)arg2 column:(const char *)arg3 rowID:(long long)arg4 error:(id *)arg5;
+- (long long)lastInsertRowID;
 - (_Bool)deleteExternalResourceAtURL:(id)arg1 error:(id *)arg2;
 - (_Bool)writeExternalResourceWithData:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
 - (_Bool)reportSQLiteErrorCode:(int)arg1 method:(id)arg2 error:(id *)arg3;
@@ -41,6 +52,7 @@
 - (_Bool)bindRealParameter:(const char *)arg1 toValue:(double)arg2 inStatement:(struct sqlite3_stmt *)arg3 error:(id *)arg4;
 - (_Bool)bindInt64Parameter:(const char *)arg1 toValue:(long long)arg2 inStatement:(struct sqlite3_stmt *)arg3 error:(id *)arg4;
 - (_Bool)bindIntParameter:(const char *)arg1 toValue:(int)arg2 inStatement:(struct sqlite3_stmt *)arg3 error:(id *)arg4;
+- (_Bool)bindZeroBlobParameter:(const char *)arg1 length:(unsigned long long)arg2 inStatement:(struct sqlite3_stmt *)arg3 error:(id *)arg4;
 - (_Bool)bindBlobNoCopyParameter:(const char *)arg1 toValue:(id)arg2 inStatement:(struct sqlite3_stmt *)arg3 error:(id *)arg4;
 - (_Bool)bindBlobParameter:(const char *)arg1 toValue:(id)arg2 inStatement:(struct sqlite3_stmt *)arg3 error:(id *)arg4;
 - (_Bool)bindTextParameter:(const char *)arg1 toValue:(id)arg2 inStatement:(struct sqlite3_stmt *)arg3 error:(id *)arg4;
@@ -50,22 +62,42 @@
 - (void)clearStatement:(id)arg1;
 - (_Bool)prepareStatement:(const char *)arg1 forKey:(id)arg2;
 - (_Bool)createTable:(const char *)arg1 withDrop:(const char *)arg2;
+- (_Bool)unregisterVirtualTable:(id)arg1;
+- (_Bool)registerVirtualTable:(id)arg1;
 - (void)_debug_lockDB:(id)arg1;
 - (void)_debug_unlockDB:(id)arg1;
 - (void)dealloc;
+- (void)_closeDB;
 - (void)tearDown;
+- (int)_setPragmas;
+- (_Bool)_deleteAllDatabaseFilesIfCorrupt:(int)arg1;
+- (void)_deleteAndReopenDatabaseIfCorrupt:(int)arg1;
+- (void)_createParentDirectory;
+- (int)_openDatabaseFile;
+- (int)_openAndConfigure;
+- (_Bool)_openAndConfigureWithRetryIfCorrupt;
 - (_Bool)setup;
 - (void)_execute:(CDUnknownBlockType)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (void)executeAsync:(CDUnknownBlockType)arg1;
 - (void)executeAsync:(CDUnknownBlockType)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (void)executeSync:(CDUnknownBlockType)arg1;
 - (void)executeSync:(CDUnknownBlockType)arg1 errorHandler:(CDUnknownBlockType)arg2;
-- (id)initWithQueueName:(const char *)arg1 logFacility:(const char *)arg2 dbFilePath:(id)arg3 sqliteFlags:(int)arg4 setupBlock:(CDUnknownBlockType)arg5;
+- (id)description;
+- (id)initWithQueueName:(const char *)arg1 log:(id)arg2 databaseFileURL:(id)arg3 sqliteFlags:(int)arg4 pragmas:(id)arg5 setupBlock:(CDUnknownBlockType)arg6;
+- (id)initWithQueueName:(const char *)arg1 logFacility:(const char *)arg2 dbFilePath:(id)arg3 sqliteFlags:(int)arg4 pragmas:(id)arg5 setupBlock:(CDUnknownBlockType)arg6;
+@property(readonly, nonatomic) NSDictionary *pragmas;
 @property(readonly, nonatomic) _Bool isDBReady;
 @property(readonly, nonatomic) NSError *lastError;
 @property(readonly, nonatomic) NSString *dbFilePath;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *isolationQueue;
 @property(readonly, nonatomic) struct sqlite3 *sqliteDB;
+- (id)UUIDForColumn:(int)arg1 inStatment:(struct sqlite3_stmt *)arg2;
+- (_Bool)bindParameter:(const char *)arg1 toUUID:(id)arg2 inStatement:(struct sqlite3_stmt *)arg3 error:(id *)arg4;
+- (_Bool)_waitForAllTransactionExternalResources;
+- (void)_channelEncounteredError:(int)arg1;
+- (void)_channelCleanupFailedWithError:(int)arg1;
+- (void)_doneWritingToChannel:(id)arg1;
+- (void)_writeTransactionExternalResourceWithData:(id)arg1 toURL:(id)arg2;
 
 @end
 

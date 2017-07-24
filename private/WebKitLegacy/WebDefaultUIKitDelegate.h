@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 - (void)webView:(id)arg1 willAddPlugInView:(id)arg2;
 - (_Bool)isUnperturbedDictationResultMarker:(id)arg1;
 - (long long)getPasteboardChangeCount;
+- (_Bool)performTwoStepDrop:(id)arg1 atDestination:(id)arg2 isMove:(_Bool)arg3;
 - (_Bool)performsTwoStepPaste:(id)arg1;
 - (_Bool)hasRichlyEditableSelection;
 - (int)deviceOrientation;

@@ -7,17 +7,20 @@
 #import <objc/NSObject.h>
 
 #import <HealthDaemon/HDDiagnosticObject-Protocol.h>
+#import <HealthDaemon/HDHealthDaemonReadyObserver-Protocol.h>
 #import <HealthDaemon/HDPeriodicActivityDelegate-Protocol.h>
 
-@class ACAccountStore, HDAsynchronousTaskTree, HDDaemon, HDPeriodicActivity, NSMutableArray, NSString;
+@class ACAccountStore, HDAsynchronousTaskTree, HDDaemon, HDPeriodicActivity, NSDate, NSMutableArray, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HDCloudSyncCoordinator : NSObject <HDDiagnosticObject, HDPeriodicActivityDelegate>
+@interface HDCloudSyncCoordinator : NSObject <HDDiagnosticObject, HDPeriodicActivityDelegate, HDHealthDaemonReadyObserver>
 {
     HDDaemon *_daemon;
     NSObject<OS_dispatch_queue> *_queue;
     HDPeriodicActivity *_periodicActivity;
     _Bool _queue_syncInProgress;
+    NSDate *_queue_lastSuccessfulPullDate;
+    NSDate *_queue_lastSuccessfulPushDate;
     HDAsynchronousTaskTree *_activeTaskGroup;
     NSMutableArray *_pendingTaskGroups;
     ACAccountStore *_accountStore;
@@ -31,24 +34,32 @@
 - (_Bool)periodicActivityRequiresProtectedData:(id)arg1;
 - (void)performPeriodicActivity:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)periodicActivity:(id)arg1 configureXPCActivityCriteria:(id)arg2;
-- (_Bool)_shouldPermitCloudSync;
+- (void)_updateCachedLastSyncDatesWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_setupPeriodicActivity;
 - (void)_queue_triggerSyncForiCloudLogin;
 - (void)_fetchDescriptionForProfile:(id)arg1 options:(unsigned long long)arg2 reason:(long long)arg3 taskTree:(id)arg4 resultHandler:(CDUnknownBlockType)arg5;
 - (void)_resetProfile:(id)arg1 options:(unsigned long long)arg2 reason:(long long)arg3 taskTree:(id)arg4;
 - (void)_syncProfile:(id)arg1 options:(unsigned long long)arg2 reason:(long long)arg3 taskTree:(id)arg4;
 - (_Bool)_queue_hasTooManyPendingTaskGroupsWithError:(id *)arg1;
 - (void)_queue_startNextTaskGroup;
+- (void)_queue_disableAndDeleteCloudSyncDataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_queue_fetchCloudDescriptionWithOptions:(unsigned long long)arg1 reason:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_queue_resetAllProfilesWithOptions:(unsigned long long)arg1 reason:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_queue_syncAllProfilesWithOptions:(unsigned long long)arg1 reason:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)_unitTest_shouldSyncProfile:(id)arg1;
+- (_Bool)_canPerformCloudSyncWithError:(id *)arg1;
+- (void)_considerMigratingHealthAccountDataclassState;
+- (void)_setHealthAccountDataclassEnabled:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_checkiCloudAccountStatus;
+- (void)_respondToACAccountStoreDidChange;
+- (void)disableAndDeleteAllSyncDataWithCompletion:(CDUnknownBlockType)arg1;
+- (void)disableSyncLocallyWithCompletion:(CDUnknownBlockType)arg1;
+- (void)fetchSyncStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)createShareWithRecipient:(id)arg1 sampleTypes:(id)arg2 maxSampleAge:(id)arg3 profile:(id)arg4 error:(id *)arg5;
 - (void)fetchCloudDescriptionWithOptions:(unsigned long long)arg1 reason:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)resetAllProfilesWithOptions:(unsigned long long)arg1 reason:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)syncAllProfilesWithOptions:(unsigned long long)arg1 reason:(long long)arg2 completion:(CDUnknownBlockType)arg3;
-- (_Bool)_canSyncWithError:(id *)arg1;
-- (void)_setHealthAccountDataclassState;
-- (void)_checkiCloudAccountStatus;
-- (void)_respondToACAccountStoreDidChange;
+- (void)daemonReady:(id)arg1;
 - (id)initWithDaemon:(id)arg1;
 
 // Remaining properties

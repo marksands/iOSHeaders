@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CDSession, NSDate, NSMutableArray, NSMutableDictionary, NSString;
+@class CDSession, NSMutableArray, NSMutableDictionary, NSString;
 @protocol OS_dispatch_queue;
 
 @interface CDAttribute : NSObject
@@ -27,7 +27,6 @@
     int revocationToken;
     unsigned short _admissionMask;
     NSMutableDictionary *costCache;
-    NSDate *lastUpdate;
     _Bool delayedUpdatePending;
     NSMutableDictionary *tokenCache;
     NSMutableDictionary *dateCache;
@@ -69,8 +68,8 @@
 - (unsigned long long)meteringIsActive:(id)arg1;
 - (void)meteringInsertCachedToken:(id)arg1 meteringToken:(unsigned long long)arg2;
 - (id)meteringLookupCachedToken:(id)arg1;
-- (void)updateDuetWithCost;
-- (id)updateCostOnDownload:(id)arg1 meteringToken:(unsigned long long)arg2 date:(id)arg3;
+- (void)reportAccumulatedCost;
+- (_Bool)accumulateCostDictionary:(id)arg1 meteringToken:(unsigned long long)arg2 date:(id)arg3;
 - (id)fullNameFromString:(id)arg1 clientId:(unsigned long long)arg2 error:(id *)arg3;
 - (_Bool)setResourceAvailabilityBlockWithError:(id *)arg1 handler:(CDUnknownBlockType)arg2;
 - (_Bool)setAdmissionRevocationBlockWithError:(id *)arg1 handler:(CDUnknownBlockType)arg2;

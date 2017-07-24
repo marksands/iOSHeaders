@@ -6,24 +6,34 @@
 
 #import <HomeKitDaemon/HMDCloudChange.h>
 
-@class HMDBackingStoreModelObject;
+#import <HomeKitDaemon/HMDBackingStoreChangeObject-Protocol.h>
 
-@interface HMDCloudObjectChange : HMDCloudChange
+@class HMDBackingStoreModelObject, NSSet, NSString;
+
+@interface HMDCloudObjectChange : HMDCloudChange <HMDBackingStoreChangeObject>
 {
     HMDBackingStoreModelObject *_objectChange;
 }
 
 @property(retain, nonatomic) HMDBackingStoreModelObject *objectChange; // @synthesize objectChange=_objectChange;
 - (void).cxx_destruct;
-- (void)replayChange:(id)arg1;
+- (void)replayChange:(id)arg1 stagedChange:(id)arg2;
 - (id)record;
 - (void)updateWithObjectChange:(id)arg1;
 - (void)updateCloudRecord:(id)arg1;
 - (void)forceChangeToDelete;
 - (id)objectID;
+@property(readonly, nonatomic) NSSet *dependentUUIDs;
+@property(readonly, nonatomic) HMDBackingStoreModelObject *change;
 - (id)initWithCloudObjectRecord:(id)arg1;
 - (id)initWithObjectChange:(id)arg1;
 - (id)_initWithObjectChange:(id)arg1 cloudObjectRecord:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

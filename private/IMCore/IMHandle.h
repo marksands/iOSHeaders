@@ -6,11 +6,11 @@
 
 #import <objc/NSObject.h>
 
-#import <IMCore/NSCoding-Protocol.h>
+#import <IMCore/NSSecureCoding-Protocol.h>
 
 @class IMAccount, IMPerson, IMServiceImpl, MKMapItem, NSArray, NSAttributedString, NSData, NSDate, NSDictionary, NSMutableArray, NSSet, NSString;
 
-@interface IMHandle : NSObject <NSCoding>
+@interface IMHandle : NSObject <NSSecureCoding>
 {
     IMAccount *_account;
     NSString *_id;
@@ -75,6 +75,7 @@
 + (id)filterIMHandlesForAccountSiblings:(id)arg1 onAccount:(id)arg2;
 + (id)bestIMHandleInArray:(id)arg1;
 + (id)imHandlesForIMPerson:(id)arg1;
++ (_Bool)supportsSecureCoding;
 + (id)nameOfStatus:(unsigned long long)arg1;
 + (void)_loadStatusNames;
 + (_Bool)notificationsEnabled;

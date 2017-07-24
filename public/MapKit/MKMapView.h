@@ -127,7 +127,6 @@
         unsigned int changingMapType:1;
         unsigned int userRotatedAwayFromVerticalYaw:1;
         unsigned int goingToDefaultLocation:1;
-        unsigned int delayLocationUpdatesUntilInitialRendering:1;
         unsigned int isDraggingAnnotationView:1;
         unsigned int showsPressedLabelMarkerEffect:1;
         unsigned int shouldLoadFallbackTiles:1;
@@ -162,6 +161,11 @@
     _Bool _lastPossiblyVisible;
     unsigned long long _cachedVenueIDWithFocus;
     short _cachedDisplayedFloorOrdinalForVenueWithFocus;
+    struct CLLocationCoordinate2D _oldCenterCoordinate;
+    double _oldHeading;
+    double _oldPitch;
+    double _oldAltitude;
+    _Bool _compassSuppressedForFloorPicker;
     double _compassVisibleRotationThreshold;
     long long _interactionMode;
     unsigned long long _currentFlyoverAnimationID;
@@ -177,6 +181,7 @@
 + (CDStruct_b7cb895d)_regionThatFitsMapType:(unsigned long long)arg1 viewSize:(struct CGSize)arg2 viewInsets:(struct UIEdgeInsets)arg3 edgePadding:(struct UIEdgeInsets)arg4 region:(CDStruct_b7cb895d)arg5 minZoomLevel:(double)arg6 maxZoomLevel:(double)arg7 snapToZoomLevel:(_Bool)arg8;
 @property(readonly, nonatomic) long long compassViewStyle; // @synthesize compassViewStyle=_compassViewStyle;
 @property(readonly, nonatomic) long long compassViewSize; // @synthesize compassViewSize=_compassViewSize;
+@property(nonatomic, getter=_isCompassSuppressedForFloorPicker, setter=_setCompassSuppressedForFloorPicker:) _Bool compassSuppressedForFloorPicker; // @synthesize compassSuppressedForFloorPicker=_compassSuppressedForFloorPicker;
 @property(nonatomic) int attributionCorner; // @synthesize attributionCorner=_attributionCorner;
 @property(nonatomic, getter=_currentFlyoverAnimationID, setter=_setCurrentFlyoverAnimationID:) unsigned long long currentFlyoverAnimationID; // @synthesize currentFlyoverAnimationID=_currentFlyoverAnimationID;
 @property(nonatomic, getter=_useBalloonCalloutsForLabels, setter=_setUseBalloonCalloutsForLabels:) _Bool useBalloonCalloutsForLabels; // @synthesize useBalloonCalloutsForLabels=_useBalloonCalloutsForLabels;
@@ -223,6 +228,11 @@
 - (void)removeAnnotationRepresentation:(id)arg1;
 - (void)addAnnotationRepresentation:(id)arg1 allowAnimation:(_Bool)arg2;
 - (void)_addAnnotationsCustomFeatureStoreIfNeeded;
+- (void)mapLayer:(id)arg1 arTrackingStateDidChange:(unsigned long long)arg2 reason:(unsigned long long)arg3;
+- (void)mapLayer:(id)arg1 didEncounterARError:(id)arg2;
+- (void)mapLayerDidExitAR:(id)arg1;
+- (void)mapLayerDidEnterAR:(id)arg1;
+- (void)mapLayerWillEnterAR:(id)arg1;
 - (void)setFlyoverMode:(int)arg1;
 - (void)_resumeFlyoverAnimation;
 - (void)_pauseFlyoverAnimation;
@@ -231,8 +241,11 @@
 - (void)_performFlyoverAnimation:(id)arg1 animateToStart:(_Bool)arg2;
 - (void)_performFlyoverAnimation:(id)arg1;
 - (void)_prepareFlyoverAnimation:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)setSelectedVenueComponentId:(unsigned long long)arg1;
+- (void)deselectVenuePoiFeatureId;
+- (void)setSelectedVenuePoiFeatureId:(unsigned long long)arg1;
+- (_Bool)displayedFloorIsDefaultForBuildingsInVenue:(id)arg1;
 - (short)displayedFloorOrdinalForBuildingsInVenue:(id)arg1;
+- (void)resetDisplayedFloorOrdinalForAllVenues;
 - (void)setDisplayedFloorOrdinal:(short)arg1 forBuildingsInVenue:(id)arg2;
 - (double)zoomToFocusVenueBuilding:(id)arg1;
 - (double)zoomToFocusVenue:(id)arg1;
@@ -302,6 +315,9 @@
 @property(readonly, nonatomic, getter=_canEnter3DModeFlyover) _Bool canEnter3DModeFlyover;
 @property(readonly, nonatomic, getter=_canEnter3DMode) _Bool canEnter3DMode;
 @property(readonly, nonatomic, getter=_isPitched) _Bool pitched;
+- (void)_exitARMode;
+- (void)_enterARModeWithLocation:(id)arg1;
+- (void)_enterARMode;
 - (void)_exit3DMode;
 - (void)_enter3DMode;
 - (struct CGRect)convertMapRect:(CDStruct_02837cd9)arg1 toRectToView:(id)arg2;
@@ -407,6 +423,7 @@
 - (void)mapLayer:(id)arg1 didChangeRegionAnimated:(_Bool)arg2;
 - (void)mapLayer:(id)arg1 willChangeRegionAnimated:(_Bool)arg2;
 - (void)mapLayerDidDraw:(id)arg1;
+- (_Bool)_mapViewHasUpdatedCamera;
 - (void)mapLayerDidChangeVisibleRegion:(id)arg1;
 - (void)mapLayer:(id)arg1 flyoverTourLabelDidChange:(id)arg2;
 - (void)mapLayer:(id)arg1 didStopFlyoverTourCompleted:(_Bool)arg2;
@@ -470,7 +487,7 @@
 - (void)_startEffects;
 - (id)beginStoppingEffects;
 - (void)_stopEffects;
-- (void)_updateScrollContainerView:(_Bool)arg1 midstream:(_Bool)arg2;
+- (void)_updateScrollContainerView:(_Bool)arg1 forReason:(long long)arg2;
 - (void)_updateFallbackTileLoading;
 - (void)_updateScrollingAndGestures;
 - (double)_boundedZoomLevel:(double)arg1;
@@ -489,6 +506,7 @@
 - (void)_updateIconsShouldAlignToPixels;
 - (_Bool)_iconsShouldAlignToPixels;
 - (void)toggleLocationConsole:(id)arg1;
+@property(readonly, nonatomic, getter=_currentEnvironmentLabelFrame) struct CGRect currentEnvironmentLabelFrame;
 @property(nonatomic, getter=_showsCurrentEnvironmentName, setter=_setShowsCurrentEnvironmentName:) _Bool showsCurrentEnvironmentName;
 - (_Bool)_isUsingDevResourceStyleSheet;
 - (void)_updateEnvironmentLabelText;
@@ -524,7 +542,6 @@
 @property(readonly, nonatomic) MKUserLocation *userLocation;
 - (_Bool)hasRenderedSomething;
 @property(readonly, nonatomic, getter=isUserLocationVisible) _Bool userLocationVisible;
-@property(nonatomic, getter=_shouldDelayLocationUpdatesUntilInitialRendering, setter=_setShouldDelayLocationUpdatesUntilInitialRendering:) _Bool shouldDelayLocationUpdatesUntilIntialRendering;
 @property(nonatomic) _Bool showsUserLocation;
 - (void)_setTracePlaybackSpeedMultiplier:(double)arg1;
 @property(nonatomic, getter=_panWithMomentum, setter=_setPanWithMomentum:) _Bool panWithMomentum;
@@ -709,12 +726,14 @@
 @property(readonly, nonatomic, getter=_detailedDescriptionDictionaryRepresentation) NSDictionary *detailedDescriptionDictionaryRepresentation;
 @property(readonly, nonatomic, getter=_detailedDescription) NSString *detailedDescription;
 @property(readonly, nonatomic, getter=_visibleTileSets) NSArray *visibleTileSets;
-- (void)_setRouteContextAnnotationText:(id)arg1 forRoute:(id)arg2;
+- (void)_setAlternateRouteContextAnnotationETAComparison:(unsigned char)arg1 forRoute:(id)arg2;
+- (void)_setRouteContextAnnotationText:(id)arg1 tollCurrency:(unsigned char)arg2 forRoute:(id)arg3;
 - (void)_clearRouteContext;
 - (void)_setRouteContextInspectedLegIndex:(unsigned long long)arg1 inspectedStepIndex:(unsigned long long)arg2;
-- (vector_78caa0aa)_uniqueRangesForRoutes:(id)arg1;
+- (vector_e1d6d9eb)_uniqueRangesForRoutes:(id)arg1;
 - (void)_setRouteContextForRoutes:(id)arg1 selectedRouteIndex:(unsigned long long)arg2;
 - (void)_setRouteContextForRoute:(id)arg1;
+- (id)_flattenedAnnotationsForAnnotationViews:(id)arg1 maxdisplayPriority:(float *)arg2;
 @property(nonatomic) __weak id <MKMapViewDelegate> delegate; // @dynamic delegate;
 - (double)_distanceFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2 fromView:(id)arg3 withPrecision:(long long)arg4;
 - (struct CGRect)_convertMapRect:(CDStruct_02837cd9)arg1 toRectToView:(id)arg2;

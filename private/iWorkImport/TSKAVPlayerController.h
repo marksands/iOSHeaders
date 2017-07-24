@@ -53,10 +53,6 @@ __attribute__((visibility("hidden")))
 - (void)playerItemDidPlayToEndTimeAtRate:(float)arg1;
 - (void)removePeriodicTimeObserver:(id)arg1;
 - (id)addPeriodicTimeObserverForInterval:(double)arg1 block:(CDUnknownBlockType)arg2;
-- (void)p_closedCaptioningStatusDidChange:(id)arg1;
-- (void)p_updateClosedCaptionDisplayEnabled;
-- (void)p_stopObservingClosedCaptionDisplayEnabled;
-- (void)p_startObservingClosedCaptionDisplayEnabled;
 - (_Bool)p_canFastForwardAtCurrentTime;
 @property(readonly, nonatomic) _Bool canFastForward;
 - (_Bool)p_canFastReverseAtCurrentTime;

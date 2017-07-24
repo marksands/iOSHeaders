@@ -13,6 +13,7 @@
 {
     NSDate *_minXValue;
     NSDate *_maxXValue;
+    _Bool _displayAboveAxisLabels;
     NSNumber *_minYValue;
     NSNumber *_maxYValue;
     id <FIUIChartSeriesDataSource> _dataSource;
@@ -20,6 +21,7 @@
     struct UIEdgeInsets _edgeInsets;
 }
 
+@property(nonatomic) _Bool displayAboveAxisLabels; // @synthesize displayAboveAxisLabels=_displayAboveAxisLabels;
 @property(retain, nonatomic) FIUIChartDataSet *dataSet; // @synthesize dataSet=_dataSet;
 @property(nonatomic) __weak id <FIUIChartSeriesDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) struct UIEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;

@@ -65,7 +65,6 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
-- (void)viewDidLoad;
 - (void)loadView;
 - (void)applicationWillSuspend;
 - (void)dealloc;

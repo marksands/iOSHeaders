@@ -106,6 +106,7 @@
 - (void)restoreContentEdgeInsetsForZoomTransition:(id)arg1;
 - (void)ensureFinalContentEdgeInsetsForZoomTransition:(id)arg1;
 - (id)zoomAnimationCoordinatorForZoomTransition:(id)arg1;
+- (void)prepareForInteractiveTransition:(id)arg1;
 - (void)scrollRegionOfInterestToVisible:(id)arg1 forTransition:(id)arg2;
 - (void)preloadWithSourceRegionOfInterest:(id)arg1 forTransition:(id)arg2;
 - (id)_regionOfInterestForContext:(id)arg1;
@@ -113,6 +114,7 @@
 - (void)restoreBackgroundColor:(id)arg1 forTransition:(id)arg2;
 - (id)removeBackgroundColorForTransition:(id)arg1;
 - (id)px_endPointForTransition:(id)arg1;
+- (_Bool)px_canPerformSwipeDownTransitionWithMasterViewController:(id)arg1;
 - (_Bool)px_canPerformZoomTransitionWithMasterViewController:(id)arg1;
 - (_Bool)px_canPerformZoomTransitionWithDetailViewController:(id)arg1;
 - (_Bool)px_canPerformPinchTransitionWithMasterViewController:(id)arg1;
@@ -163,6 +165,7 @@
 - (void)_updateScrollViewControllerContentInset;
 - (_Bool)_dismissSelfIfSafeAnimated:(_Bool)arg1;
 - (struct CGSize)preferredContentSize;
+- (void)_viewWillLayoutBeforeAppearing;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

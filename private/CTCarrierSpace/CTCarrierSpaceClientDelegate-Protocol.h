@@ -6,18 +6,15 @@
 
 #import <CTCarrierSpace/NSObject-Protocol.h>
 
-@class CTCarrierSpaceAppsInfo, CTCarrierSpaceCapabilities, CTCarrierSpacePlanGroupOptionInfo, CTCarrierSpacePlansInfo, CTCarrierSpaceUsageInfo, NSDictionary;
+@class CTCarrierSpaceCapabilities, CTCarrierSpacePlanGroupOptionInfo, NSDictionary;
 
 @protocol CTCarrierSpaceClientDelegate <NSObject>
 
 @optional
 - (void)purchasedPlan:(CTCarrierSpacePlanGroupOptionInfo *)arg1 didChangeStatus:(long long)arg2 context:(NSDictionary *)arg3;
 - (void)dataPlanMetricsDidChange;
-- (void)appsDidChange:(CTCarrierSpaceAppsInfo *)arg1;
 - (void)appsDidChange;
-- (void)plansDidChange:(CTCarrierSpacePlansInfo *)arg1;
 - (void)plansDidChange;
-- (void)usageDidChange:(CTCarrierSpaceUsageInfo *)arg1;
 - (void)usageDidChange;
 - (void)userConsentFlowInfoDidChange;
 - (void)capabilitiesDidChange:(CTCarrierSpaceCapabilities *)arg1;

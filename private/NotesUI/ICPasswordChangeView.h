@@ -6,10 +6,16 @@
 
 #import <UIKit/UIView.h>
 
+@class ICPasswordChangeViewController;
+
 @interface ICPasswordChangeView : UIView
 {
+    ICPasswordChangeViewController *_parentViewController;
 }
 
+@property(nonatomic) __weak ICPasswordChangeViewController *parentViewController; // @synthesize parentViewController=_parentViewController;
+- (void).cxx_destruct;
+- (void)updateConstraints;
 - (void)layoutSubviews;
 
 @end

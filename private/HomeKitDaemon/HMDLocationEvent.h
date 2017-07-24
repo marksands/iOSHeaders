@@ -20,6 +20,7 @@
 + (id)logCategory;
 @property(retain, nonatomic) CLRegion *region; // @synthesize region=_region;
 - (void).cxx_destruct;
+- (id)metricData;
 - (void)didExitRegion:(id)arg1;
 - (void)didEnterRegion:(id)arg1;
 - (void)informLocationEventOccuranceToResident;
@@ -36,6 +37,8 @@
 - (id)dumpState;
 - (void)_handleRetrieveLocationEventForEventTrigger:(id)arg1;
 - (void)_handleUpdateRequest:(id)arg1;
+- (void)checkFMFStatus:(id)arg1;
+- (void)fmfStatusUpdateNotification:(id)arg1;
 - (void)_registerForMessages;
 - (id)emptyModelObject;
 - (_Bool)isActive;

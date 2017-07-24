@@ -8,11 +8,12 @@
 
 #import <PhotosUI/PUPhotosSectionHeaderViewDelegate-Protocol.h>
 #import <PhotosUI/PUSectionedGridLayoutDelegate-Protocol.h>
+#import <PhotosUI/PXEditableNavigationTitleViewDelegate-Protocol.h>
 
-@class NSObject, NSString, PHAssetCollection, PHFetchResult, PUPhotosAlbumViewControllerSpec, PUPhotosPickerViewController;
+@class NSObject, NSString, PHAssetCollection, PHFetchResult, PUPhotosAlbumViewControllerSpec, PUPhotosPickerViewController, PXEditableNavigationTitleView;
 @protocol PLAlbumProtocol;
 
-@interface PUPhotosAlbumViewController : PUPhotosGridViewController <PUSectionedGridLayoutDelegate, PUPhotosSectionHeaderViewDelegate>
+@interface PUPhotosAlbumViewController : PUPhotosGridViewController <PUSectionedGridLayoutDelegate, PUPhotosSectionHeaderViewDelegate, PXEditableNavigationTitleViewDelegate>
 {
     struct {
         _Bool sectionHeadersEnabled;
@@ -23,26 +24,34 @@
     PHAssetCollection *_assetCollection;
     struct NSObject *_album;
     PUPhotosAlbumViewControllerSpec *__albumSpec;
+    PXEditableNavigationTitleView *_editableTitleView;
 }
 
+@property(readonly, nonatomic) PXEditableNavigationTitleView *editableTitleView; // @synthesize editableTitleView=_editableTitleView;
 @property(retain, nonatomic, setter=_setAlbumSpec:) PUPhotosAlbumViewControllerSpec *_albumSpec; // @synthesize _albumSpec=__albumSpec;
 @property(nonatomic, setter=_setHasAccurateCounts:) _Bool _hasAccurateCounts; // @synthesize _hasAccurateCounts=__hasAccurateCounts;
 @property(nonatomic, setter=_setCountingAssetTypes:) _Bool _isCountingAssetTypes; // @synthesize _isCountingAssetTypes=__isCountingAssetTypes;
 @property(retain, nonatomic) NSObject<PLAlbumProtocol> *album; // @synthesize album=_album;
 @property(readonly, nonatomic) PHAssetCollection *assetCollection; // @synthesize assetCollection=_assetCollection;
 - (void).cxx_destruct;
+- (void)dropInteraction:(id)arg1 performDrop:(id)arg2;
 - (void)_collectionView:(id)arg1 performDropWithCoordinator:(id)arg2;
 - (id)_collectionView:(id)arg1 dropSessionDidUpdate:(id)arg2 withDestinationIndexPath:(id)arg3;
-- (_Bool)_collectionView:(id)arg1 canHandleDropSesson:(id)arg2;
 - (void)_performMoveDropWithCoordinator:(id)arg1;
-- (void)_performAddDropWithCoordinator:(id)arg1;
-- (void)_fetchAssetsFromDrop:(id)arg1 importIfNeeded:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_performAddDropWithSession:(id)arg1;
+- (_Bool)canHandleDropSession:(id)arg1;
 - (_Bool)canDragIn;
+- (_Bool)canDragOut;
+- (void)editableNavigationTitleViewDidEndEditing:(id)arg1;
+- (id)editableNavigationTitleView:(id)arg1 validateNewText:(id)arg2;
+- (void)photosDataSource:(id)arg1 didReceivePhotoLibraryChange:(id)arg2;
 - (void)didTapHeaderView:(id)arg1;
 - (struct UIEdgeInsets)sectionedGridLayout:(id)arg1 finalContentInsetForCurrentContentInset:(struct UIEdgeInsets)arg2;
 - (double)sectionedGridLayout:(id)arg1 aspectRatioForItemAtIndexPath:(id)arg2;
 - (double)sectionedGridLayout:(id)arg1 accessibilitySectionHeaderHeightForVisualSection:(long long)arg2;
 - (double)sectionedGridLayout:(id)arg1 sectionHeaderHeightForVisualSection:(long long)arg2;
+- (_Bool)_navigateToBottomIfNeededAnimated:(_Bool)arg1;
+- (_Bool)pu_handleSecondTabTap;
 - (void)handleTransitionFade:(_Bool)arg1 animate:(_Bool)arg2;
 - (_Bool)prepareForDismissingForced:(_Bool)arg1;
 - (void)handleAddFromAction;
@@ -50,6 +59,7 @@
 - (void)setupScrubber;
 - (void)_countAssetTypesIfNeeded;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (unsigned long long)userEventSourceType;
 - (long long)cellFillMode;
@@ -57,6 +67,8 @@
 - (_Bool)isCameraRoll;
 - (_Bool)isTrashBinViewController;
 - (struct CGPoint)contentOffsetForPreheating;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)_ensureEditableTitleView;
 - (void)updateTitle;
 - (void)configureGlobalFooterView:(id)arg1;
 @property(readonly, nonatomic) NSString *globalFooterSubtitle;
@@ -79,6 +91,7 @@
 @property(readonly, nonatomic) PHFetchResult *assetCollectionAssets;
 - (void)setAssetCollection:(id)arg1 fetchResultContainingAssetCollection:(id)arg2 filterPredicate:(id)arg3;
 - (void)setAssetCollection:(id)arg1 fetchResultContainingAssetCollection:(id)arg2 filterPredicate:(id)arg3 existingFetchResults:(id)arg4;
+- (void)setAssetCollection:(id)arg1;
 - (void)setAlbum:(struct NSObject *)arg1 existingFetchResult:(id)arg2;
 - (void)setSessionInfo:(id)arg1;
 - (id)filterPredicateForAlbum:(struct NSObject *)arg1;

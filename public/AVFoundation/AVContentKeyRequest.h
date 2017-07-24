@@ -34,6 +34,7 @@
 - (struct OpaqueFigCPECryptor *)figCryptor;
 @property(readonly) _Bool canProvidePersistableContentKey;
 - (void)_setError:(id)arg1;
+- (void)_sendDictionaryForURLRequest:(id)arg1;
 @property(readonly) NSError *error;
 - (int)_prepareForKeyRenewal;
 - (void)_clearContext;

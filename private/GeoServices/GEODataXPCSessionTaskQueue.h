@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary, NSMutableIndexSet;
+@class NSMutableDictionary, _GEODataXPCSessionTaskQueueHelper;
 @protocol GEODataXPCConnectionManager, OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -15,20 +15,25 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_isolation;
     id <GEODataXPCConnectionManager> _connectionManager;
     NSMutableDictionary *_pendingTasks;
-    NSMutableIndexSet *_inflightQueues;
+    _GEODataXPCSessionTaskQueueHelper *_helper;
 }
 
-@property(readonly, nonatomic) NSMutableIndexSet *inflightQueues; // @synthesize inflightQueues=_inflightQueues;
 @property(readonly, nonatomic) NSMutableDictionary *pendingTasks; // @synthesize pendingTasks=_pendingTasks;
 @property(readonly, nonatomic) id <GEODataXPCConnectionManager> connectionManager; // @synthesize connectionManager=_connectionManager;
 - (void).cxx_destruct;
+- (void)configureLimits:(id)arg1;
+- (unsigned int)taskCountLimitForQueue:(unsigned int)arg1;
+- (void)decrementTaskCountForQueue:(unsigned int)arg1;
+- (void)incrementTaskCountForQueue:(unsigned int)arg1;
+- (unsigned int)inflightTaskCountForQueue:(unsigned int)arg1;
+- (_Bool)reachedTaskCountLimitForQueue:(unsigned int)arg1;
 - (_Bool)removeQueuedTask:(id)arg1;
 - (void)sendNextTaskForQueue:(unsigned int)arg1;
 - (void)enqueueTask:(id)arg1;
 - (void)sendTaskImmediately:(id)arg1;
 - (void)sendTask:(id)arg1;
 - (id)description;
-- (id)initWithIsolationQueue:(id)arg1 connectionManager:(id)arg2;
+- (id)initWithIsolationQueue:(id)arg1 limits:(id)arg2 connectionManager:(id)arg3;
 - (id)init;
 
 @end

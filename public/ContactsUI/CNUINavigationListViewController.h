@@ -46,6 +46,7 @@
 - (id)dequeueReusableDetailCell;
 - (id)dequeueReusableStandardCell;
 - (void)navigationListView:(id)arg1 accessoryButtonTappedForRowWithIndexPath:(id)arg2;
+- (_Bool)canExpandItem:(id)arg1;
 - (void)toggleItem:(id)arg1;
 - (void)expandItem:(id)arg1;
 - (double)cellSeparatorHeight;

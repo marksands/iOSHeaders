@@ -11,7 +11,8 @@
 @interface NCNotificationListCollectionViewFlowLayout : UICollectionViewFlowLayout
 {
     _Bool _isChangingBounds;
-    unsigned long long _slideGestureState;
+    _Bool _showingNotificationsHistory;
+    double _forcedContentSizeHeight;
     NSMutableArray *_insertedIndexPaths;
     NSMutableArray *_removedIndexPaths;
     NSMutableArray *_replacedIndexPaths;
@@ -20,25 +21,19 @@
 @property(retain, nonatomic) NSMutableArray *replacedIndexPaths; // @synthesize replacedIndexPaths=_replacedIndexPaths;
 @property(retain, nonatomic) NSMutableArray *removedIndexPaths; // @synthesize removedIndexPaths=_removedIndexPaths;
 @property(retain, nonatomic) NSMutableArray *insertedIndexPaths; // @synthesize insertedIndexPaths=_insertedIndexPaths;
-@property(nonatomic) unsigned long long slideGestureState; // @synthesize slideGestureState=_slideGestureState;
+@property(nonatomic, getter=isShowingNotificationsHistory) _Bool showingNotificationsHistory; // @synthesize showingNotificationsHistory=_showingNotificationsHistory;
+@property(nonatomic) double forcedContentSizeHeight; // @synthesize forcedContentSizeHeight=_forcedContentSizeHeight;
 - (void).cxx_destruct;
-- (unsigned long long)_numberOfElementsInPreviousSectionsFromSection:(unsigned long long)arg1;
-- (struct CGPoint)_centerPositionForSlideAnimationForSupplementaryElementAtIndexPath:(id)arg1 withCurrentCenter:(struct CGPoint)arg2;
-- (struct CGPoint)_centerPositionForSlideAnimationForItemAtIndexPath:(id)arg1 withCurrentCenter:(struct CGPoint)arg2;
-- (double)_animationDistance;
-- (double)_slideGestureAnimationFriction;
-- (double)_slideGestureAnimationTension;
 - (CDUnknownBlockType)_animationForReusableView:(id)arg1 toLayoutAttributes:(id)arg2 type:(unsigned long long)arg3;
-- (id)finalLayoutAttributesForDisappearingSupplementaryElementOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)finalLayoutAttributesForDisappearingItemAtIndexPath:(id)arg1;
-- (id)initialLayoutAttributesForAppearingSupplementaryElementOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)initialLayoutAttributesForAppearingItemAtIndexPath:(id)arg1;
 - (void)finalizeCollectionViewUpdates;
 - (void)prepareForCollectionViewUpdates:(id)arg1;
+- (struct CGSize)collectionViewContentSize;
+@property(readonly, nonatomic) struct CGSize effectiveContentSize;
 - (void)finalizeAnimatedBoundsChange;
 - (void)prepareForAnimatedBoundsChange:(struct CGRect)arg1;
 - (id)invalidationContextForBoundsChange:(struct CGRect)arg1;
-@property(readonly, nonatomic, getter=isPerformingSlideGestureAnimation) _Bool performingSlideGestureAnimation;
 
 @end
 

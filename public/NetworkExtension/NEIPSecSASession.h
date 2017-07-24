@@ -21,7 +21,7 @@
 @property(retain) NSObject<OS_dispatch_queue> *internalDelegateQueue; // @synthesize internalDelegateQueue=_internalDelegateQueue;
 @property(retain) NSMutableArray *larvalSAs; // @synthesize larvalSAs=_larvalSAs;
 @property(retain) NSMutableArray *securityAssociations; // @synthesize securityAssociations=_securityAssociations;
-@property(retain) NSObject<NEIPSecSASessionDelegate> *delegate; // @synthesize delegate=_delegate;
+@property __weak NSObject<NEIPSecSASessionDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (void)startIdleTimeout:(unsigned int)arg1 incomingSA:(id)arg2 outgoingSA:(id)arg3;

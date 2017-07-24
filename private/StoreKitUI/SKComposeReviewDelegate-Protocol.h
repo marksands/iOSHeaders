@@ -11,6 +11,7 @@
 @protocol SKComposeReviewDelegate <NSObject>
 
 @optional
+- (void)reviewComposeViewController:(SKComposeReviewViewController *)arg1 didFinishSubmitting:(_Bool)arg2;
 - (void)reviewComposeViewControllerDidFinish:(SKComposeReviewViewController *)arg1;
 @end
 

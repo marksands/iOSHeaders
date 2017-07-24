@@ -7,7 +7,7 @@
 #import <UIKit/UIView.h>
 
 @class NSArray, NSHashTable;
-@protocol _MKStackViewDelegate;
+@protocol _MKAnimationStackViewDelegate, _MKStackViewDelegate;
 
 __attribute__((visibility("hidden")))
 @interface _MKStackView : UIView
@@ -17,9 +17,11 @@ __attribute__((visibility("hidden")))
     _Bool _bottomConstraintShouldBeGreaterThanOrEqual;
     id <_MKStackViewDelegate> _stackDelegate;
     NSArray *_stackedSubviews;
+    id <_MKAnimationStackViewDelegate> _stackAnimationDelegate;
 }
 
 @property(nonatomic) _Bool bottomConstraintShouldBeGreaterThanOrEqual; // @synthesize bottomConstraintShouldBeGreaterThanOrEqual=_bottomConstraintShouldBeGreaterThanOrEqual;
+@property(nonatomic) __weak id <_MKAnimationStackViewDelegate> stackAnimationDelegate; // @synthesize stackAnimationDelegate=_stackAnimationDelegate;
 @property(copy, nonatomic) NSArray *stackedSubviews; // @synthesize stackedSubviews=_stackedSubviews;
 @property(nonatomic) __weak id <_MKStackViewDelegate> stackDelegate; // @synthesize stackDelegate=_stackDelegate;
 - (void).cxx_destruct;

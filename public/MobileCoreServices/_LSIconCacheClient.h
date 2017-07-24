@@ -6,24 +6,20 @@
 
 #import <MobileCoreServices/_LSIconCache.h>
 
-@class NSXPCConnection;
-
 __attribute__((visibility("hidden")))
 @interface _LSIconCacheClient : _LSIconCache
 {
-    NSXPCConnection *_connection;
     unsigned long long _sandboxExtensionHandle;
 }
 
++ (id)sharedInstance;
 @property unsigned long long sandboxExtensionHandle; // @synthesize sandboxExtensionHandle=_sandboxExtensionHandle;
-@property(readonly) NSXPCConnection *connection; // @synthesize connection=_connection;
-- (void).cxx_destruct;
 - (void)setAlternateIconName:(id)arg1 forIdentifier:(id)arg2 iconsDictionary:(id)arg3 withResult:(CDUnknownBlockType)arg4;
 - (id)getAlternateIconNameForIdentifier:(id)arg1;
 - (void)invalidateCacheEntriesForBundleIdentifier:(id)arg1 clearAlternateName:(_Bool)arg2 validationDictionary:(id)arg3;
 - (id)iconBitmapDataWithResourceDirectoryURL:(id)arg1 boundContainerURL:(id)arg2 dataContainerURL:(id)arg3 bundleIdentifier:(id)arg4 iconsDictionary:(id)arg5 cacheKey:(id)arg6 variant:(int)arg7 options:(int)arg8;
 - (void)_fetchCacheURLAndSalt;
-- (void)dealloc;
+- (id)connection;
 - (id)init;
 
 @end

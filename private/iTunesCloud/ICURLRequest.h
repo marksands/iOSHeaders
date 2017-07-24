@@ -37,10 +37,12 @@
     NSURL *_responseDataURL;
     NSError *_error;
     NSDictionary *_avDownloadOptions;
+    double _lastUpdateTime;
     CDUnknownBlockType _completionHandler;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
+@property(nonatomic) double lastUpdateTime; // @synthesize lastUpdateTime=_lastUpdateTime;
 @property(nonatomic) _Bool shouldRetry; // @synthesize shouldRetry=_shouldRetry;
 @property(retain, nonatomic) NSDictionary *avDownloadOptions; // @synthesize avDownloadOptions=_avDownloadOptions;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;

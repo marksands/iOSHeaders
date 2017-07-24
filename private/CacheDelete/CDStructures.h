@@ -16,13 +16,14 @@ typedef struct {
     double _field3;
     double _field4;
     double _field5;
-    int _field6;
-    _Bool _field7;
-    long long _field8;
+    double _field6;
+    int _field7;
+    _Bool _field8;
     long long _field9;
     long long _field10;
     long long _field11;
     long long _field12;
-    char _field13[0];
-} CDStruct_029d4d3a;
+    long long _field13;
+    char _field14[0];
+} CDStruct_1285e12c;
 

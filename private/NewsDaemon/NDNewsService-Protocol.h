@@ -6,10 +6,12 @@
 
 #import <NewsDaemon/NSObject-Protocol.h>
 
-@class NDHeadlineParameters, NSArray, NSDate;
+@class NSArray, NSDate;
+@protocol NTHeadlineAnalyticsElementProviding, NTHeadlineResultOperationInfoProviding;
 
 @protocol NDNewsService <NSObject>
+- (void)markAnalyticsElement:(id <NTHeadlineAnalyticsElementProviding>)arg1 asReadAtDate:(NSDate *)arg2 withCompletion:(void (^)(NSError *))arg3;
 - (void)markAnalyticsElements:(NSArray *)arg1 asSeenAtDate:(NSDate *)arg2 withCompletion:(void (^)(NSError *))arg3;
-- (void)fetchLatestHeadlinesWithParameters:(NDHeadlineParameters *)arg1 completion:(void (^)(NDHeadlineResults *, NSError *))arg2;
+- (void)fetchLatestHeadlinesWithParameters:(id <NTHeadlineResultOperationInfoProviding>)arg1 completion:(void (^)(NTHeadlineResults *, NSDictionary *, NSObject<NTHeadlineResultOperationFetchInfoProviding> *, NSError *, _Bool))arg2;
 @end
 

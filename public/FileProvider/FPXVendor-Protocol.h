@@ -8,7 +8,7 @@
 #import <FileProvider/FPXVendorMessaging-Protocol.h>
 #import <FileProvider/FPXVendorObservation-Protocol.h>
 
-@class FPItemID, FPSandboxingURLWrapper, NSArray, NSDate, NSDictionary, NSFileProviderMessageInterface, NSString, NSURL;
+@class FPFileProviderService, FPItemID, FPSandboxingURLWrapper, NSArray, NSDate, NSDictionary, NSString, NSURL;
 
 @protocol FPXVendor <FPXOperationService, FPXVendorObservation, FPXVendorMessaging>
 - (void)removeTrashedItemsOlderThanDate:(NSDate *)arg1 completionHandler:(void (^)(void))arg2;
@@ -20,7 +20,7 @@
 - (void)didChangeItemID:(FPItemID *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)updateDomains:(NSDictionary *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)privilegedValuesForAttributes:(NSArray *)arg1 forItemAtURL:(NSURL *)arg2 completionHandler:(void (^)(NSDictionary *, NSError *))arg3;
-- (void)fetchRemoteFileProviderEndpointForProtocolName:(NSString *)arg1 messageInterface:(NSFileProviderMessageInterface *)arg2 needsItemURL:(_Bool)arg3 completionHandler:(void (^)(NSXPCListenerEndpoint *, NSURL *, NSError *))arg4;
+- (void)fetchRemoteFileProviderEndpointForProtocolName:(NSString *)arg1 service:(FPFileProviderService *)arg2 itemURL:(NSURL *)arg3 needsItemURL:(_Bool)arg4 completionHandler:(void (^)(NSXPCListenerEndpoint *, NSArray *, NSURL *, NSError *))arg5;
 - (void)trashItemAtURL:(NSURL *)arg1 completionHandler:(void (^)(FPItem *, NSError *))arg2;
 - (void)itemForURL:(NSURL *)arg1 completionHandler:(void (^)(FPItem *, NSError *))arg2;
 - (void)identifierForItemAtURL:(NSURL *)arg1 completionHandler:(void (^)(FPItemID *, NSError *))arg2;

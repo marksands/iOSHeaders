@@ -13,7 +13,6 @@
 - (double)effectiveFirstBaselineOffsetFromContentTop;
 - (double)effectiveBaselineOffsetFromContentBottom;
 - (struct UIEdgeInsets)effectiveAlignmentRectInsets;
-- (_Bool)_nui_supportsBaselinesWithoutAutolayout;
 - (long long)_nui_isUIButtonType;
 
 // Remaining properties

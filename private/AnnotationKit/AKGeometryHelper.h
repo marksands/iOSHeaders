@@ -19,6 +19,7 @@
 + (struct CGRect)_alignedStableRectForRect:(struct CGRect)arg1 alignToContent:(_Bool)arg2 alignToScreenUsingPageController:(id)arg3 orAlignToBitmapContext:(struct CGContext *)arg4 usingAnnotation:(id)arg5;
 + (struct CGRect)renderingAlignedTextRectForRect:(struct CGRect)arg1 alignToScreenUsingPageController:(id)arg2 orAlignToContext:(struct CGContext *)arg3 usingAnnotation:(id)arg4;
 + (struct CGRect)renderingStrokeAlignedRectForRect:(struct CGRect)arg1 withStrokeWidth:(double)arg2 alignToScreenUsingPageController:(id)arg3 orAlignToContext:(struct CGContext *)arg4 usingAnnotation:(id)arg5;
++ (struct CGRect)convertRect:(struct CGRect)arg1 fromScreenPointsToView:(id)arg2;
 + (struct CGRect)convertRect:(struct CGRect)arg1 fromViewToScreenPixels:(id)arg2 useNativeScale:(_Bool)arg3;
 + (struct CGRect)boundsOfRotatedRectangle:(struct CGRect)arg1 angle:(double)arg2;
 + (id)_cornersOfRotatedRectangle:(struct CGRect)arg1 angle:(double)arg2;

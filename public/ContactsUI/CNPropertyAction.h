@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) CNPropertyGroupItem *propertyItem;
 - (id)initWithContact:(id)arg1 propertyItem:(id)arg2;
 - (id)initWithContact:(id)arg1 propertyItems:(id)arg2;
+- (id)initWithContact:(id)arg1;
 
 // Remaining properties
 @property(nonatomic) __weak id <CNPropertyActionDelegate> delegate; // @dynamic delegate;

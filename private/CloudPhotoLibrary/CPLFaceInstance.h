@@ -62,6 +62,7 @@
 @property(nonatomic, getter=isKeyFace) _Bool keyFace;
 @property(readonly, nonatomic, getter=isNoneState) _Bool noneState;
 - (void)clearState;
+- (id)pointerDescription;
 - (long long)compare:(id)arg1;
 
 @end

@@ -10,6 +10,8 @@
 @class NSArray, NSString, SFCard, SFCardSection, SFSearchResult;
 
 @protocol SearchUIRowModel <NSObject, SearchUIDragObject>
+- (double)leadingSeparatorImageInset;
+- (int)separatorStyle;
 - (_Bool)isTappable;
 - (SFCard *)nextCard;
 - (Class)viewClass;

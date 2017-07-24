@@ -9,23 +9,26 @@
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDHomePresence, HMDHomePresenceUpdate, NSMutableDictionary, NSString;
+@class HMDBackgroundTaskAgentTimer, HMDHomePresence, HMDHomePresenceUpdate, NSMutableDictionary, NSString;
 
 @interface HMDHomePresenceMonitor : HMDHomePresenceBase <HMFLogging, NSSecureCoding>
 {
     NSMutableDictionary *_presenceMap;
     HMDHomePresence *_currentHomePresence;
     HMDHomePresenceUpdate *_homePresenceUpdate;
+    HMDBackgroundTaskAgentTimer *_btaAuditTimer;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)logCategory;
+@property(readonly, nonatomic) HMDBackgroundTaskAgentTimer *btaAuditTimer; // @synthesize btaAuditTimer=_btaAuditTimer;
 @property(retain, nonatomic) HMDHomePresenceUpdate *homePresenceUpdate; // @synthesize homePresenceUpdate=_homePresenceUpdate;
 @property(retain, nonatomic) HMDHomePresence *currentHomePresence; // @synthesize currentHomePresence=_currentHomePresence;
 @property(readonly, nonatomic) NSMutableDictionary *presenceMap; // @synthesize presenceMap=_presenceMap;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)_submitPresenceReportMetricWithPayload:(id)arg1 error:(id)arg2;
 - (void)_evaluatePresence:(id)arg1 presenceStatusUpdateReason:(id)arg2;
 - (void)_updateUserPresence:(id)arg1 presenceAuth:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)handleUserHomePresencePayload:(id)arg1 device:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -35,7 +38,13 @@
 - (void)addNewUser:(id)arg1;
 - (void)_addUser:(id)arg1;
 - (void)_preparePresenceMap;
+- (void)residentChanged;
+- (void)_startAuditTimer;
+- (void)_auditPresenceMap;
+- (void)timerFired:(id)arg1;
 - (void)handleHomeDataLoadedNotification:(id)arg1;
+- (void)_submitHomePresenceMetric;
+- (void)registerQueriableAwdMetrics;
 - (void)_registerForMessages;
 - (void)configure:(id)arg1 messageDispatcher:(id)arg2;
 - (void)dealloc;

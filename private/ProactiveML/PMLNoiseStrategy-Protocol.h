@@ -7,10 +7,11 @@
 #import <ProactiveML/NSObject-Protocol.h>
 #import <ProactiveML/PMLPlistAndChunksSerializableProtocol-Protocol.h>
 
-@class PMLDenseMatrix, PMLDenseVector, PMLModelWeights, PMLSparseMatrix, PMLSparseVector;
+@class PMLDenseMatrix, PMLDenseVector, PMLModelWeights, PMLMutableDenseVector, PMLSparseMatrix, PMLSparseVector;
 
 @protocol PMLNoiseStrategy <NSObject, PMLPlistAndChunksSerializableProtocol>
 @property int maxIterations;
+- (void)addNoiseToDenseVector:(PMLMutableDenseVector *)arg1;
 - (void)addNoiseToSparseMatrix:(PMLSparseMatrix *)arg1;
 - (void)addNoiseToSparseVector:(PMLSparseVector *)arg1;
 - (void)addNoiseToObjectiveFeatures:(PMLDenseVector *)arg1;

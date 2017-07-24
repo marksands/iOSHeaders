@@ -8,9 +8,10 @@
 #import <NewsCore/NSMutableCopying-Protocol.h>
 #import <NewsCore/NSObject-Protocol.h>
 
-@class NSDate, NSString;
+@class CKRecord, NSDate, NSString;
 
 @protocol FCReadingHistoryItem <NSObject, NSCopying, NSMutableCopying>
+@property(readonly, nonatomic) CKRecord *asCKRecord;
 @property(readonly, nonatomic) unsigned long long articleLikingStatus;
 @property(readonly, nonatomic) _Bool hasArticleBeenConsumed;
 @property(readonly, nonatomic) _Bool hasArticleBeenMarkedOffensive;

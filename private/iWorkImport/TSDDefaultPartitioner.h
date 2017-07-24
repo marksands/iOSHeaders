@@ -7,22 +7,30 @@
 #import <Foundation/NSObject.h>
 
 #import <iWorkImport/TSDCanvasDelegate-Protocol.h>
+#import <iWorkImport/TSDDynamicCanvasDelegate-Protocol.h>
 #import <iWorkImport/TSDPartitioner-Protocol.h>
+#import <iWorkImport/TSKChangeSourceObserver-Protocol.h>
 
-@class NSString, TSDCanvas, TSDLayout, TSUPointerKeyDictionary;
-@protocol TSDCanvasProxyDelegate, TSDInfo;
+@class NSString, TSDCanvas, TSDDrawableInfo, TSUPointerKeyDictionary;
+@protocol TSDCanvasProxyDelegate;
 
 __attribute__((visibility("hidden")))
-@interface TSDDefaultPartitioner : NSObject <TSDPartitioner, TSDCanvasDelegate>
+@interface TSDDefaultPartitioner : NSObject <TSKChangeSourceObserver, TSDDynamicCanvasDelegate, TSDPartitioner, TSDCanvasDelegate>
 {
-    NSObject<TSDInfo> *mInfo;
+    TSDDrawableInfo *mInfo;
     TSDCanvas *mCanvas;
-    TSDLayout *mLayout;
     TSUPointerKeyDictionary *mMainRepsByCanvas;
     TSUPointerKeyDictionary *mCachedImagesByCanvas;
     TSUPointerKeyDictionary *mPartialRepsByCanvas;
 }
 
+- (void)processChanges:(id)arg1 forChangeSource:(id)arg2;
+- (void)preprocessChanges:(id)arg1 forChangeSource:(id)arg2;
+- (void)i_layoutUnregistered:(id)arg1;
+- (void)i_layoutRegistered:(id)arg1;
+- (id)p_childRepForRep:(id)arg1 toNotifyForInfo:(id)arg2;
+- (id)p_repsForInfo:(id)arg1;
+- (id)p_layoutsForInfo:(id)arg1;
 - (unsigned long long)p_edgesForHintBounds:(struct CGRect)arg1;
 - (id)p_nextHintForSize:(struct CGSize)arg1 previousHint:(id)arg2 horizontally:(_Bool)arg3;
 - (id)p_firstHintForSize:(struct CGSize)arg1;
@@ -36,6 +44,7 @@ __attribute__((visibility("hidden")))
 - (id)i_repForCanvas:(id)arg1;
 - (id)i_layout;
 - (id)documentRoot;
+- (void)reset;
 - (id)nextLayoutForSize:(struct CGSize)arg1 parentLayout:(id)arg2 previousHint:(id)arg3 horizontally:(_Bool)arg4 outFinished:(out _Bool *)arg5;
 - (id)nextHintForSize:(struct CGSize)arg1 parentLayout:(id)arg2 previousHint:(id)arg3 horizontally:(_Bool)arg4 outFinished:(out _Bool *)arg5;
 - (id)layoutForHint:(id)arg1 parentLayout:(id)arg2;

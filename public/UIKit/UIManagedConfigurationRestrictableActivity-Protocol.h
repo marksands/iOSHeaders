@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSArray, NSString;
+@class NSString;
 
 @protocol UIManagedConfigurationRestrictableActivity
+@property(copy, nonatomic) NSString *sourceApplicationBundleID;
 @property(nonatomic) _Bool sourceIsManaged;
-- (_Bool)canPerformWithActivityItems:(NSArray *)arg1 hostApplicationBundleID:(NSString *)arg2;
 @end
 

@@ -4,19 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeTableCell.h>
+#import <SearchUI/SearchUITableViewCell.h>
 
 #import <SearchUI/CNAvatarViewDelegate-Protocol.h>
 #import <SearchUI/NUIContainerStackViewDelegate-Protocol.h>
 
-@class CNAvatarView, NSMutableDictionary, NSString, NUIContainerStackView, SFSearchResult, SearchUIAccessoryViewController, SearchUIForceTouchGestureRecognizer, SearchUITextAreaView, SearchUIThumbnailView;
+@class CNAvatarView, NSMutableDictionary, NSString, NUIContainerStackView, SFSearchResult, SearchUIAccessoryViewController, SearchUIForceTouchGestureRecognizer, SearchUIThumbnailView, TLKDetailsView;
 
-@interface SearchUISingleResultTableViewCell : SearchUILayoutFreeTableCell <NUIContainerStackViewDelegate, CNAvatarViewDelegate>
+@interface SearchUISingleResultTableViewCell : SearchUITableViewCell <NUIContainerStackViewDelegate, CNAvatarViewDelegate>
 {
     SFSearchResult *_result;
     NUIContainerStackView *_innerContainer;
     SearchUIThumbnailView *_thumbnailView;
-    SearchUITextAreaView *_textAreaView;
+    TLKDetailsView *_detailsView;
     NSMutableDictionary *_accessoryViewControllers;
     SearchUIAccessoryViewController *_accessoryViewControllerForResult;
     CNAvatarView *_contactView;
@@ -24,11 +24,12 @@
 }
 
 + (void)addViewIfNecessary:(id)arg1 toStackView:(id)arg2 removeFromStackView:(id)arg3;
++ (id)textForTitleText:(id)arg1;
 @property(retain) SearchUIForceTouchGestureRecognizer *forceTouchRecognizer; // @synthesize forceTouchRecognizer=_forceTouchRecognizer;
 @property(retain) CNAvatarView *contactView; // @synthesize contactView=_contactView;
 @property(retain) SearchUIAccessoryViewController *accessoryViewControllerForResult; // @synthesize accessoryViewControllerForResult=_accessoryViewControllerForResult;
 @property(retain) NSMutableDictionary *accessoryViewControllers; // @synthesize accessoryViewControllers=_accessoryViewControllers;
-@property(retain) SearchUITextAreaView *textAreaView; // @synthesize textAreaView=_textAreaView;
+@property(retain) TLKDetailsView *detailsView; // @synthesize detailsView=_detailsView;
 @property(retain) SearchUIThumbnailView *thumbnailView; // @synthesize thumbnailView=_thumbnailView;
 @property(retain) NUIContainerStackView *innerContainer; // @synthesize innerContainer=_innerContainer;
 @property(retain) SFSearchResult *result; // @synthesize result=_result;

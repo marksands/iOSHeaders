@@ -36,6 +36,7 @@
 @property(nonatomic) _Bool hideHeader;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForHeaderInSection:(long long)arg3;
 - (void)updateViewLayoutAnimated:(_Bool)arg1 relayout:(_Bool)arg2;
+- (id)preferredFocusEnvironments;
 - (_Bool)contentFlowsVertically;
 - (id)makeCollectionViewWithFrame:(struct CGRect)arg1;
 - (void)updateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;

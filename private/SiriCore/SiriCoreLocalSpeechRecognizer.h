@@ -30,7 +30,7 @@
 @property(readonly, nonatomic) __weak id <SiriCoreLocalSpeechRecognizerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_readProfileAndUserDataWithLanguage:(id)arg1 allowOverride:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
-- (oneway void)speechServiceDidFinishRecognitionWithError:(id)arg1;
+- (oneway void)speechServiceDidFinishRecognitionWithStatistics:(id)arg1 error:(id)arg2;
 - (void)_writeDESRecord;
 - (oneway void)speechServiceDidRecognizePackage:(id)arg1;
 - (oneway void)speechServiceDidRecognizeRawEagerRecognitionCandidate:(id)arg1;
@@ -47,10 +47,11 @@
 - (void)updateSpeechProfileWithLanguage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateSpeechProfileWithLanguage:(id)arg1 userData:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)createSpeechProfileWithLanguage:(id)arg1 JSONData:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)startSpeechRecognitionWithLanguage:(id)arg1 task:(id)arg2 context:(id)arg3 narrowband:(_Bool)arg4 detectUtterances:(_Bool)arg5 maximumRecognitionDuration:(double)arg6 secureOfflineOnly:(_Bool)arg7 censorSpeech:(_Bool)arg8 originalAudioFileURL:(id)arg9 overrides:(id)arg10 modelOverrideURL:(id)arg11 didStartHandler:(CDUnknownBlockType)arg12;
+- (void)startSpeechRecognitionWithLanguage:(id)arg1 task:(id)arg2 context:(id)arg3 narrowband:(_Bool)arg4 detectUtterances:(_Bool)arg5 maximumRecognitionDuration:(double)arg6 farField:(_Bool)arg7 secureOfflineOnly:(_Bool)arg8 censorSpeech:(_Bool)arg9 originalAudioFileURL:(id)arg10 overrides:(id)arg11 modelOverrideURL:(id)arg12 didStartHandler:(CDUnknownBlockType)arg13;
 - (id)_serviceWithFunctionName:(id)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (id)_service;
 - (id)_connection;
+- (id)_newConnection;
 - (id)init;
 - (id)initWithDelegate:(id)arg1 instanceUUID:(unsigned char [16])arg2;
 

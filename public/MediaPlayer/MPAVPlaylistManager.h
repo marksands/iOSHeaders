@@ -18,7 +18,6 @@
 @interface MPAVPlaylistManager : NSObject <MPQueueFeederDelegate, MPAVQueueCoordinatorDataSource, MPAVQueueController, MPQueueBehaviorManaging, NSCoding>
 {
     MPAVItem *_currentItem;
-    _Bool _currentItemDidLoadDurationTimeRange;
     _Bool _goToTargetIndex;
     long long _lastSelectionDirection;
     MPQueuePlayer *_player;
@@ -49,9 +48,7 @@
 - (long long)_indexForStringIdentifier:(id)arg1;
 - (id)_nowplayingContentItemForIndex:(long long)arg1;
 - (id)_nowplayingContentItemIdentifierForIndex:(long long)arg1;
-- (void)_updateMaximumQueueDepthForItemIndex:(long long)arg1 inQueueFeeder:(id)arg2;
 - (void)_updateAudioSessionModeWithIndex:(unsigned long long)arg1;
-- (void)_setCurrentItemDidLoadDurationTimeRange:(_Bool)arg1;
 - (unsigned long long)_playbackIndexForDelta:(long long)arg1 fromIndex:(unsigned long long)arg2 ignoreElapsedTime:(_Bool)arg3 totalItemCount:(unsigned long long)arg4 didReachEnd:(_Bool *)arg5;
 - (void)_notifyQueueFeederContentsChanged;
 - (void)_applyVolumeNormalizationForQueuedItems;
@@ -83,6 +80,8 @@
 - (id)playlistFeederForPlaylistIndex:(long long)arg1;
 - (id)metadataItemForPlaylistIndex:(long long)arg1;
 - (unsigned long long)indexForContentItemID:(id)arg1;
+- (id)contentItemIDForPlaylistIndex:(long long)arg1;
+- (_Bool)isPlaceholderItemForContentItemID:(id)arg1;
 - (id)itemForContentItemID:(id)arg1;
 - (id)itemForPlaylistIndex:(long long)arg1;
 - (void)handlePlaybackFailureForItem:(id)arg1;

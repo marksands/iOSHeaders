@@ -68,6 +68,7 @@
 - (void)didAdoptGroup:(id)arg1;
 - (id)ongoingExtensionCollectionOperations;
 - (id)ongoingCollectOperationsWithOperations:(id)arg1;
+- (void)notifyPromiseCancellationIfNeeded:(id)arg1;
 - (void)didTerminateDiagnosticExtension:(id)arg1;
 - (_Bool)shouldCollectDiagnosticWithId:(id)arg1;
 - (_Bool)isRunningDE:(id)arg1;

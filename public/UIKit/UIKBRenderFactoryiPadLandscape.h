@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 
 - (double)defaultVariantSizeThreshold;
 - (double)skinnyKeyThreshold;
+- (id)ZWNJKeyImageName;
 - (id)messagesWriteboardKeyImageName;
 - (id)shiftLockImageName;
 - (id)shiftOnKeyImageName;

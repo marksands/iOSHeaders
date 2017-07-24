@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface CBBlueLightClient : NSObject
 {
@@ -13,6 +13,8 @@
 
 + (_Bool)supportsBlueLightReduction;
 @property _Bool supported; // @synthesize supported=_supported;
+- (_Bool)getWarningStrength:(float *)arg1;
+- (_Bool)getWarningCCT:(float *)arg1;
 - (_Bool)setStrength:(float)arg1 withPeriod:(float)arg2 commit:(_Bool)arg3;
 - (_Bool)setStrength:(float)arg1 commit:(_Bool)arg2;
 - (_Bool)getStrength:(float *)arg1;

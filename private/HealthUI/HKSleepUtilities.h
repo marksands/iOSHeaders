@@ -11,7 +11,6 @@
 }
 
 + (id)verticalNumericalAxis;
-+ (id)goalLineSeriesWithColor:(id)arg1 axis:(id)arg2;
 
 @end
 

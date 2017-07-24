@@ -15,8 +15,7 @@
 }
 
 + (void)removeAllRejectionsWithScope:(id)arg1;
-+ (void)listRejectionsWithScope:(id)arg1;
-+ (void)rejectValuesWithCollectionIdentifier:(id)arg1 scope:(id)arg2;
++ (void)rejectValuesWithClusterIdentifier:(id)arg1 scope:(id)arg2;
 + (void)rejectValueWithDonationIdentifier:(id)arg1 scope:(id)arg2;
 + (void)changeFromAccount:(id)arg1 toAccount:(id)arg2 scope:(id)arg3;
 + (void)meCardDonationsWithScope:(id)arg1;
@@ -24,8 +23,7 @@
 + (void)removeDonatedMeCardValuesForIdentifiers:(id)arg1 scope:(id)arg2;
 + (void)donateMeCardValues:(id)arg1 scope:(id)arg2;
 - (id)removeAllRejections;
-- (id)listRejections;
-- (id)rejectValuesWithCollectionIdentifier:(id)arg1;
+- (id)rejectValuesWithClusterIdentifier:(id)arg1;
 - (id)changeFromAccount:(id)arg1 toAccount:(id)arg2;
 - (id)rejectValueWithDonationIdentifier:(id)arg1;
 - (id)meCardDonations;

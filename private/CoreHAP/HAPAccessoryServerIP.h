@@ -24,7 +24,6 @@
     _Bool _continuingLegacyWACpairing;
     _Bool _wacStarted;
     _Bool _hasStartedPairing;
-    _Bool _supportsTimedWrite;
     NSString *_model;
     NSString *_sourceVersion;
     unsigned long long _statusFlags;
@@ -45,7 +44,6 @@
 }
 
 + (id)sharedPairOperationQueue;
-@property(nonatomic) _Bool supportsTimedWrite; // @synthesize supportsTimedWrite=_supportsTimedWrite;
 @property(nonatomic) _Bool hasStartedPairing; // @synthesize hasStartedPairing=_hasStartedPairing;
 @property(retain, nonatomic) HMFTimer *bonjourEventTimer; // @synthesize bonjourEventTimer=_bonjourEventTimer;
 @property(nonatomic, getter=isWacStarted) _Bool wacStarted; // @synthesize wacStarted=_wacStarted;
@@ -119,8 +117,9 @@
 - (void)handleUpdatesForCharacteristics:(id)arg1 stateNumber:(id)arg2;
 - (void)_handleWriteResponseObject:(id)arg1 type:(unsigned long long)arg2 httpStatus:(int)arg3 error:(id)arg4 requestTuples:(id)arg5 queue:(id)arg6 completion:(CDUnknownBlockType)arg7;
 - (void)_handlePrepareWriteResponseObject:(id)arg1 type:(unsigned long long)arg2 prepareIdentifier:(id)arg3 httpStatus:(int)arg4 error:(id)arg5 requestTuples:(id)arg6 timeout:(double)arg7 queue:(id)arg8 completion:(CDUnknownBlockType)arg9;
+- (void)_performExecuteWriteValues:(id)arg1 prepareIdentifier:(id)arg2 timeout:(double)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)_performTimedWriteValues:(id)arg1 timeout:(double)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)_performWriteValues:(id)arg1 prepareIdentifier:(id)arg2 timeout:(double)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)_performWriteValues:(id)arg1 timeout:(double)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_writeCharacteristicValues:(id)arg1 timeout:(double)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)writeCharacteristicValues:(id)arg1 timeout:(double)arg2 completionQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_handleReadResponseObject:(id)arg1 type:(unsigned long long)arg2 httpStatus:(int)arg3 error:(id)arg4 characteristics:(id)arg5 queue:(id)arg6 completion:(CDUnknownBlockType)arg7;
@@ -154,12 +153,9 @@
 - (void)_continuePairingAfterWAC:(id)arg1;
 - (int)_continuePairingWithSetupCode:(id)arg1;
 - (void)_continuePairingAfterConfirmingLegacyWAC;
-- (void)_pairVerifyContinueWAC;
-- (void)_pairVerifyStartWAC;
 - (void)_pairSetupContinueWAC;
 - (void)_pairSetupStartWAC;
 - (void)_invalidateWAC;
-- (void)startReprovisioning;
 @property(readonly, nonatomic, getter=isWacAccessory) _Bool wacAccessory;
 - (void)updateWithWACDevice:(id)arg1;
 - (id)initWithWACDeviceDictionary:(id)arg1 keyStore:(id)arg2 browser:(id)arg3;

@@ -18,7 +18,7 @@
 + (id)suggestionWithValue:(id)arg1 currencyCode:(id)arg2;
 @property(nonatomic) _Bool usedMaximumSuggestion; // @synthesize usedMaximumSuggestion=_usedMaximumSuggestion;
 @property(copy, nonatomic) NSString *displayValue; // @synthesize displayValue=_displayValue;
-@property(copy, nonatomic) NSDecimalNumber *value; // @synthesize value=_value;
+@property(readonly, copy, nonatomic) NSDecimalNumber *value; // @synthesize value=_value;
 - (void).cxx_destruct;
 - (id)description;
 - (unsigned long long)hash;

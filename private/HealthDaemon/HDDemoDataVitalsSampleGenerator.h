@@ -43,7 +43,6 @@
 - (id)respirationRateForDemoPerson:(id)arg1 atTime:(double)arg2;
 - (struct HDDemoDataHeartRate)heartRateForDemoPerson:(id)arg1 atTime:(double)arg2;
 - (void)generateSamplesForDemoPerson:(id)arg1 atTime:(double)arg2 sampleDate:(id)arg3 objectCollection:(id)arg4;
-- (void)generateFirstRunSampleForDemoPerson:(id)arg1 firstDate:(id)arg2 objectCollection:(id)arg3;
 - (void)setupWithDemoDataGenerator:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

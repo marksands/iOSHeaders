@@ -6,7 +6,7 @@
 
 #import <HMFoundation/HMFObject.h>
 
-@class CKRecordID, CKRecordZone, CKServerChangeToken, CKSubscription, HMDBackingStoreCacheZone, HMDCloudCache, NSString;
+@class CKRecordID, CKRecordZone, CKRecordZoneSubscription, CKServerChangeToken, HMDBackingStoreCacheZone, HMDCloudCache, NSString;
 
 @interface HMDCloudZone : HMFObject
 {
@@ -15,7 +15,7 @@
     HMDCloudCache *_cache;
     CKRecordZone *_zone;
     NSString *_subscriptionName;
-    CKSubscription *_subscription;
+    CKRecordZoneSubscription *_subscription;
     CKServerChangeToken *_serverChangeToken;
     HMDBackingStoreCacheZone *_backingStoreZone;
 }
@@ -24,7 +24,7 @@
 + (void)createZoneWithName:(id)arg1 owner:(id)arg2 cloudCache:(id)arg3 completion:(CDUnknownBlockType)arg4;
 @property(retain, nonatomic) HMDBackingStoreCacheZone *backingStoreZone; // @synthesize backingStoreZone=_backingStoreZone;
 @property(retain, nonatomic) CKServerChangeToken *serverChangeToken; // @synthesize serverChangeToken=_serverChangeToken;
-@property(retain, nonatomic) CKSubscription *subscription; // @synthesize subscription=_subscription;
+@property(retain, nonatomic) CKRecordZoneSubscription *subscription; // @synthesize subscription=_subscription;
 @property(retain, nonatomic) NSString *subscriptionName; // @synthesize subscriptionName=_subscriptionName;
 @property(nonatomic, getter=hasDecrypted) _Bool decrypted; // @synthesize decrypted=_decrypted;
 @property(nonatomic, getter=hasRecordsAvaliable) _Bool recordsAvailable; // @synthesize recordsAvailable=_recordsAvailable;
@@ -33,9 +33,10 @@
 - (void).cxx_destruct;
 - (void)deleteZone;
 - (void)_initializeServerChangeToken:(id)arg1;
+- (void)_initializeSubscription:(id)arg1;
 @property(readonly, nonatomic, getter=hasServerTokenAvaliable) _Bool serverTokenAvaliable;
 @property(readonly, nonatomic) NSString *owner;
-- (id)createCloudZoneChange;
+- (id)createCloudZoneChangeTemporaryCache:(_Bool)arg1;
 - (void)deleteCloudRecord:(id)arg1;
 - (void)updateCloudRecord:(id)arg1;
 - (_Bool)isRootCloudRecord:(id)arg1;

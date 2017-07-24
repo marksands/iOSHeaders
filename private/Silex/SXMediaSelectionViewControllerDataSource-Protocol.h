@@ -6,11 +6,13 @@
 
 #import <Silex/NSObject-Protocol.h>
 
-@class NSString, SXMediaSelectionViewController;
+@class NSIndexPath, NSString, SXMediaSelectionViewController;
 
 @protocol SXMediaSelectionViewControllerDataSource <NSObject>
-- (unsigned long long)indexOfSelectedMediaSelectionOptionForMediaSelectionViewController:(SXMediaSelectionViewController *)arg1;
-- (NSString *)mediaSelectionViewController:(SXMediaSelectionViewController *)arg1 displayNameForMediaSelectionOptionAtIndex:(unsigned long long)arg2;
-- (unsigned long long)numberOfMediaSelectionOptionsInMediaSelectionViewController:(SXMediaSelectionViewController *)arg1;
+- (unsigned long long)mediaSelectionViewController:(SXMediaSelectionViewController *)arg1 indexOfSelectedMediaSelectionOptionInGroup:(unsigned long long)arg2;
+- (NSString *)mediaSelectionViewController:(SXMediaSelectionViewController *)arg1 displayNameForMediaSelectionOptionAtIndexPath:(NSIndexPath *)arg2;
+- (NSString *)mediaSelectionViewController:(SXMediaSelectionViewController *)arg1 displayNameForMediaSelectionGroup:(unsigned long long)arg2;
+- (unsigned long long)mediaSelectionViewController:(SXMediaSelectionViewController *)arg1 numberOfMediaSelectionOptionsInGroup:(unsigned long long)arg2;
+- (unsigned long long)numberOfMediaSelectionGroupsInMediaSelectionViewController:(SXMediaSelectionViewController *)arg1;
 @end
 

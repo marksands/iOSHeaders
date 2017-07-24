@@ -4,23 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIViewController.h>
+#import <WatchListKitUI/WLKUILoadingViewController.h>
 
-@class SSLookupItemOffer, UIBarButtonItem, UIButton, WLKChannelDetails, _WLKUIAppInstallConfirmationView, _WLKUIAppInstallLockup;
+@class NSString, SSLookupItemOffer, UIBarButtonItem, UIButton, WLKChannelDetails, _WLKUIAppInstallConfirmationView, _WLKUIAppInstallLockup;
 
-@interface _WLKUIAppInstallConfirmationViewController : UIViewController
+@interface _WLKUIAppInstallConfirmationViewController : WLKUILoadingViewController
 {
     WLKChannelDetails *_channel;
     _WLKUIAppInstallConfirmationView *_confirmationView;
     SSLookupItemOffer *_itemOffer;
+    NSString *_updateTitle;
+    NSString *_updateMessage;
     CDUnknownBlockType _cancelationHandler;
     CDUnknownBlockType _actionHandler;
     UIButton *_actionButton;
     _WLKUIAppInstallLockup *_lockup;
+    unsigned long long _state;
     UIBarButtonItem *_barButtonItem;
 }
 
 @property(retain, nonatomic) UIBarButtonItem *barButtonItem; // @synthesize barButtonItem=_barButtonItem;
+@property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(retain, nonatomic) _WLKUIAppInstallLockup *lockup; // @synthesize lockup=_lockup;
 @property(retain, nonatomic) UIButton *actionButton; // @synthesize actionButton=_actionButton;
 @property(copy, nonatomic) CDUnknownBlockType actionHandler; // @synthesize actionHandler=_actionHandler;
@@ -34,6 +38,9 @@
 - (void)loadView;
 - (void)setInstallingState;
 - (void)setPreInstallState;
+- (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
+- (void)setUpdateTitle:(id)arg1;
+- (void)setUpdateMessage:(id)arg1;
 - (void)setMessage:(id)arg1;
 - (void)setTitle:(id)arg1;
 - (id)itemOffer;

@@ -7,16 +7,17 @@
 #import <NewsCore/NSMutableCopying-Protocol.h>
 #import <NewsCore/NSObject-Protocol.h>
 
-@class NSArray, NSNumber, NSSet, NSString;
+@class NSArray, NSDictionary, NSNumber, NSSet, NSString;
 @protocol FCDerivedPersonalizationData><NSCoding;
 
 @protocol FCTodayPrivateData <NSObject, NSMutableCopying>
 @property(readonly, copy, nonatomic) NSNumber *onboardingVersion;
 @property(readonly, copy, nonatomic) NSString *feldsparID;
-@property(readonly, copy, nonatomic) NSArray *recentlyReadHistoryItems;
+@property(readonly, copy, nonatomic) NSDictionary *recentlyReadHistoryItems;
 @property(readonly, copy, nonatomic) NSArray *recentlySeenHistoryItems;
 @property(readonly, copy, nonatomic) NSArray *rankedPersonalSubscribedTagIDs;
 @property(readonly, copy, nonatomic) NSSet *purchasedTagIDs;
+@property(readonly, copy, nonatomic) NSSet *autoFavoriteTagIDs;
 @property(readonly, copy, nonatomic) NSSet *mutedTagIDs;
 @property(readonly, copy, nonatomic) id <FCDerivedPersonalizationData><NSCoding> derivedPersonalizationData;
 @end

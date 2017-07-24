@@ -4,15 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeSectionView.h>
+#import <SearchUI/SearchUICardSectionView.h>
 
 @class NUIContainerStackView, SearchUIVibrantLabel, UIImageView;
 
-@interface SearchUISuggestionCardSectionView : SearchUILayoutFreeSectionView
+@interface SearchUISuggestionCardSectionView : SearchUICardSectionView
 {
     UIImageView *_iconView;
     SearchUIVibrantLabel *_suggestionLabel;
-    NUIContainerStackView *_stackView;
 }
 
 + (id)suggestedContactIconWithStyle:(unsigned long long)arg1;
@@ -20,13 +19,14 @@
 + (id)_imageForSuggestion:(id)arg1 withStyle:(unsigned long long)arg2;
 + (id)_imageColorForStyle:(unsigned long long)arg1;
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
-@property(retain) NUIContainerStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain) SearchUIVibrantLabel *suggestionLabel; // @synthesize suggestionLabel=_suggestionLabel;
 @property(retain) UIImageView *iconView; // @synthesize iconView=_iconView;
 - (void).cxx_destruct;
-- (_Bool)shouldDrawBackground;
 - (void)updateWithCardSection:(id)arg1;
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
+- (id)setupContentView;
+
+// Remaining properties
+@property(retain) NUIContainerStackView *contentView; // @dynamic contentView;
 
 @end
 

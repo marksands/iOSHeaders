@@ -48,6 +48,7 @@
 - (NSObject<TSWPColumnMetrics> *)columnMetricsForCharIndex:(unsigned long long)arg1 outRange:(struct _NSRange *)arg2;
 
 @optional
+@property(readonly, nonatomic) _Bool isLinked;
 @property(readonly, nonatomic) _Bool repShouldPreventCaret;
 @property(readonly, nonatomic) struct __CFLocale *hyphenationLocale;
 @property(readonly, nonatomic) _Bool shouldHyphenate;

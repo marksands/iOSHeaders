@@ -99,6 +99,7 @@
 + (id)keyPathsForValuesAffectingCanScanBackward;
 + (id)keyPathsForValuesAffectingCanScanForward;
 + (id)keyPathsForValuesAffectingCanSeek;
++ (id)keyPathsForValuesAffectingTimeControlStatus;
 + (id)keyPathsForValuesAffectingHasShareableContent;
 + (id)keyPathsForValuesAffectingHasTrimmableContent;
 + (id)keyPathsForValuesAffectingHasSeekableLiveStreamingContent;
@@ -214,6 +215,7 @@
 - (void)beginScrubbing;
 - (void)seekToTime:(double)arg1;
 - (_Bool)canSeek;
+- (long long)timeControlStatus;
 - (_Bool)_isMarkedNotSerializablePlayerItem:(id)arg1;
 - (_Bool)_isRestrictedFromSavingPlayerItem:(id)arg1;
 - (_Bool)hasShareableContent;

@@ -27,6 +27,9 @@
 - (id)headerView;
 - (double)keyboardHeightOffset;
 - (void)_keyboardLayoutChanged;
+- (_Bool)isVerySmallScreen;
+- (_Bool)isSmallScreen;
+- (void)startListeningForKeyboardEvents;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

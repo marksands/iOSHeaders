@@ -8,7 +8,8 @@
 
 #import <GeoServices/GEOResourceManifestTileGroupObserver-Protocol.h>
 
-@class GEODBReader, GEODBWriter, NSLock, NSMapTable, NSMutableArray, NSString;
+@class GEODBReader, GEODBWriter, NSLock, NSMapTable, NSMutableArray, NSObject, NSString;
+@protocol OS_dispatch_queue;
 
 @interface GEOTileServerLocalProxy : GEOTileServerProxy <GEOResourceManifestTileGroupObserver>
 {
@@ -18,6 +19,7 @@
     NSMapTable *_providers;
     NSMutableArray *_inProgress;
     NSLock *_inProgressLock;
+    NSObject<OS_dispatch_queue> *_workQueue;
 }
 
 - (void).cxx_destruct;

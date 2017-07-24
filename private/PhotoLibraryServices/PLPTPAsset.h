@@ -40,11 +40,11 @@
     _Bool _highFrameRateVideo;
     _Bool _timeLapseVideo;
     NSString *_relatedUUID;
-    _Bool _requiresFormatConversion;
+    long long _conversionGroup;
 }
 
 @property(readonly, copy, nonatomic) NSData *event; // @synthesize event=_event;
-@property(readonly, nonatomic) _Bool requiresFormatConversion; // @synthesize requiresFormatConversion=_requiresFormatConversion;
+@property(readonly, nonatomic) long long conversionGroup; // @synthesize conversionGroup=_conversionGroup;
 @property(readonly, copy, nonatomic) NSString *relatedUUID; // @synthesize relatedUUID=_relatedUUID;
 @property(readonly, nonatomic, getter=isTimeLapseVideo) _Bool timeLapseVideo; // @synthesize timeLapseVideo=_timeLapseVideo;
 @property(readonly, nonatomic, getter=isHighFrameRateVideo) _Bool highFrameRateVideo; // @synthesize highFrameRateVideo=_highFrameRateVideo;

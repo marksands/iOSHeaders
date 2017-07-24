@@ -6,7 +6,7 @@
 
 #import <UIKit/UICollectionViewCell.h>
 
-@class NSArray, PXPersonImageRequest, PXRoundedCornerOverlayView, UIImage, UIImageView;
+@class PXPersonImageRequest, PXRoundedCornerOverlayView, UIImage, UIImageView;
 
 @interface PXPeopleBootstrapCollectionViewCell : UICollectionViewCell
 {
@@ -16,7 +16,6 @@
     unsigned long long _presentationStatus;
     PXPersonImageRequest *_imageRequest;
     PXRoundedCornerOverlayView *_roundCornerOverlay;
-    NSArray *_selectionFilters;
     UIImageView *_checkmark;
     UIImageView *_badgeView;
     UIImageView *_imageView;
@@ -33,7 +32,6 @@
 @property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 @property(readonly, nonatomic) UIImageView *badgeView; // @synthesize badgeView=_badgeView;
 @property(readonly, nonatomic) UIImageView *checkmark; // @synthesize checkmark=_checkmark;
-@property(readonly, copy, nonatomic) NSArray *selectionFilters; // @synthesize selectionFilters=_selectionFilters;
 @property(readonly, nonatomic) PXRoundedCornerOverlayView *roundCornerOverlay; // @synthesize roundCornerOverlay=_roundCornerOverlay;
 @property(nonatomic) _Bool isVerified; // @synthesize isVerified=_isVerified;
 @property(nonatomic) _Bool isMergeCandidate; // @synthesize isMergeCandidate=_isMergeCandidate;

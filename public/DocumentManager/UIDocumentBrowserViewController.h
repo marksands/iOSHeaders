@@ -8,12 +8,15 @@
 
 #import <DocumentManager/DOCAppearanceProtocol-Protocol.h>
 #import <DocumentManager/DOCHostDocumentBrowserViewControllerInterface-Protocol.h>
+#import <DocumentManager/DOCKeyCommandHandlingViewController-Protocol.h>
+#import <DocumentManager/DOCRemoteViewControllerDelegate-Protocol.h>
+#import <DocumentManager/DOCViewServiceErrorViewControllerDelegate-Protocol.h>
 #import <DocumentManager/NSCoding-Protocol.h>
 
-@class DOCAppearance, DOCConfiguration, DOCDocBrowserVC_UIActivityViewController, NSArray, NSOperationQueue, NSString, UIColor, _UIResilientRemoteViewContainerViewController;
+@class DOCAppearance, DOCConfiguration, DOCDocBrowserVC_UIActivityViewController, NSArray, NSOperationQueue, NSString, UIColor, UIView, _UIResilientRemoteViewContainerViewController;
 @protocol DOCServiceBrowserViewControllerProxy, DOCServiceDocumentBrowserViewControllerInterface, UIDocumentBrowserViewControllerDelegate;
 
-@interface UIDocumentBrowserViewController : UIViewController <DOCHostDocumentBrowserViewControllerInterface, DOCAppearanceProtocol, NSCoding>
+@interface UIDocumentBrowserViewController : UIViewController <DOCHostDocumentBrowserViewControllerInterface, DOCRemoteViewControllerDelegate, DOCViewServiceErrorViewControllerDelegate, DOCKeyCommandHandlingViewController, DOCAppearanceProtocol, NSCoding>
 {
     _UIResilientRemoteViewContainerViewController *_remoteViewController;
     DOCDocBrowserVC_UIActivityViewController *_activityViewController;
@@ -21,6 +24,7 @@
     id <DOCServiceDocumentBrowserViewControllerInterface> _serviceProxy;
     NSOperationQueue *_serviceQueue;
     _Bool _isDisplayingRemoteViewController;
+    UIView *_trackingViewsContainer;
     _Bool _allowsDocumentCreation;
     _Bool _allowsPickingMultipleItems;
     _Bool _shouldDelayRemoteViewController;
@@ -73,6 +77,10 @@
 - (void)_didTriggerActionWithIdentifier:(id)arg1 onItems:(id)arg2;
 - (void)_commitDocumentURLPreview:(id)arg1;
 - (void)_presentActivityViewControllerForItems:(id)arg1 withPopoverTracker:(id)arg2;
+- (void)setServiceKeyCommands:(id)arg1;
+- (void)didPerformKeyCommand:(id)arg1;
+- (id)keyCommands;
+- (id)_sandboxingURLWrapperForURL:(id)arg1 readonly:(_Bool)arg2 error:(id *)arg3;
 - (void)_displayActivityControllerWithItems:(id)arg1 popoverTracker:(id)arg2 barButtonItem:(id)arg3;
 - (void)addOperationToServiceQueue:(CDUnknownBlockType)arg1;
 - (id)remoteBarButtonForUUID:(id)arg1;
@@ -81,6 +89,9 @@
 - (void)updateBrowserProxyWithCompletion:(CDUnknownBlockType)arg1;
 - (void)prepareItems:(id)arg1 usingBookmark:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (_Bool)_delegateRespondsToSelector:(SEL)arg1;
+- (void)_showDocumentBrowserViewController:(_Bool)arg1;
+- (void)_showErrorViewController;
+- (void)_clearShownViewControllers;
 @property(nonatomic) unsigned long long browserUserInterfaceStyle; // @dynamic browserUserInterfaceStyle;
 @property(copy, nonatomic) NSString *createButtonTitle;
 @property(nonatomic) double createButtonAspectRatio;
@@ -88,19 +99,28 @@
 @property(readonly) _Bool isCreateEnabled;
 @property(readonly, copy, nonatomic) NSArray *allowedContentTypes;
 - (long long)preferredStatusBarStyle;
+- (void)didTapTryAgainInErrorViewController:(id)arg1;
+- (void)remoteViewController:(id)arg1 didTerminateViewServiceWithError:(id)arg2;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (void)_importDocumentAtURL:(id)arg1 neighbourURL:(id)arg2 mode:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)importDocumentAtURL:(id)arg1 byMoving:(_Bool)arg2 toCurrentBrowserLocationWithCompletion:(CDUnknownBlockType)arg3;
+- (void)importDocumentAtURL:(id)arg1 mode:(unsigned long long)arg2 toCurrentBrowserLocationWithCompletion:(CDUnknownBlockType)arg3;
+- (void)importDocumentAtURL:(id)arg1 nextToDocumentAtURL:(id)arg2 mode:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)transitionControllerForDocumentURL:(id)arg1;
+- (void)revealDocumentAtURL:(id)arg1 importIfNeeded:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)revealDocumentAtURL:(id)arg1 shouldImport:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)updateAppearance:(id)arg1;
 - (void)_displayRemoteControllerIfNeeded;
+- (void)_embedViewController:(id)arg1;
+- (void)_embedDocumentBrowserViewController;
 - (void)viewDidLoad;
 - (void)__commonInit;
 - (id)initWithConfiguration:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initForOpeningFilesWithContentTypes:(id)arg1;
+- (id)init;
 - (void)prepareDocumentFromURL:(id)arg1 byMoving:(_Bool)arg2 toLocation:(id)arg3 completion:(CDUnknownBlockType)arg4;
 
 // Remaining properties

@@ -103,6 +103,7 @@
 - (void)isRoamingPlanSupportAvailable:(CDUnknownBlockType)arg1;
 - (void)isMultipleDataPlanSupportAvailable:(CDUnknownBlockType)arg1;
 - (void)isNewDataPlanCapable:(CDUnknownBlockType)arg1;
+- (void)ping;
 - (id)init;
 - (void)_connect_sync;
 - (void)_ensureConnected_sync;

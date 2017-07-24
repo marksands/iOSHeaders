@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
     UILabel *_axDummySubtitleLabel;
     UITableViewCell *_axDummyCell;
     _Bool _inCustomTransition;
+    _Bool _noResultsFound;
     NSString *_searchText;
     NSString *_selectedDisplayTitle;
     CDUnknownBlockType __runImmediatelyAfterViewDidAppear;
@@ -48,6 +49,7 @@ __attribute__((visibility("hidden")))
 + (id)pushTransition;
 + (id)newSearchBar;
 + (id)gridViewControllerSpec;
+@property(nonatomic) _Bool noResultsFound; // @synthesize noResultsFound=_noResultsFound;
 @property(retain, nonatomic) PHCachingImageManager *cachingImageManager; // @synthesize cachingImageManager=_cachingImageManager;
 @property(copy, nonatomic, setter=_setRunImmediatelyAfterViewDidAppear:) CDUnknownBlockType _runImmediatelyAfterViewDidAppear; // @synthesize _runImmediatelyAfterViewDidAppear=__runImmediatelyAfterViewDidAppear;
 @property(nonatomic, getter=isInCustomTransition) _Bool inCustomTransition; // @synthesize inCustomTransition=_inCustomTransition;
@@ -64,6 +66,8 @@ __attribute__((visibility("hidden")))
 - (void)searchResultsDataSourceHasPendingChanges:(id)arg1;
 - (void)searchBarSearchButtonClicked:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
+- (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(long long)arg3;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;

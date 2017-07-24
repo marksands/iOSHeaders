@@ -9,7 +9,7 @@
 #import <AXSpringBoardServerInstance/AXHAServerDelegate-Protocol.h>
 #import <AXSpringBoardServerInstance/AXUIClientDelegate-Protocol.h>
 
-@class NSDictionary, NSString, UIApplicationSceneClientSettingsDiffInspector;
+@class NSDictionary, NSString, NSTimer, UIApplicationSceneClientSettingsDiffInspector;
 
 @interface AXSBHearingAidDeviceController : NSObject <AXUIClientDelegate, AXHAServerDelegate>
 {
@@ -20,10 +20,12 @@
     _Bool _holdingMediaForConnection;
     _Bool _holdingPhoneForConnection;
     NSDictionary *_preferredRoute;
+    NSTimer *_preferredRouteTimer;
 }
 
 + (id)sharedController;
 + (void)_accessibilityPerformValidations:(id)arg1;
+@property(retain, nonatomic) NSTimer *preferredRouteTimer; // @synthesize preferredRouteTimer=_preferredRouteTimer;
 @property(retain, nonatomic) NSDictionary *preferredRoute; // @synthesize preferredRoute=_preferredRoute;
 @property(nonatomic) _Bool holdingPhoneForConnection; // @synthesize holdingPhoneForConnection=_holdingPhoneForConnection;
 @property(nonatomic) _Bool holdingMediaForConnection; // @synthesize holdingMediaForConnection=_holdingMediaForConnection;

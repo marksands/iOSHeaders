@@ -4,13 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface IMDCKMessageSyncCKOperationFactory : NSObject
 {
 }
 
 - (id)fetchArchivedRecordsOperationWithSyncToken:(id)arg1 zoneID:(id)arg2;
+- (id)_fetchOptionsDictionaryWithFetchOptions:(id)arg1 andZoneID:(id)arg2;
 - (id)deleteMessageCKOperationUsingRecordIDstoDelete:(id)arg1;
 - (id)saveMessagesCKOperationUsingRecordsToSave:(id)arg1 operationGroupName:(id)arg2;
 - (id)fetchMessageZoneChangesCKOperationUsingToken:(id)arg1 zoneID:(id)arg2 resultsLimit:(unsigned long long)arg3 operationGroupName:(id)arg4;

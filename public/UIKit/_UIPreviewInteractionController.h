@@ -21,8 +21,6 @@ __attribute__((visibility("hidden")))
     _Bool _commitTransitionScheduled;
     _Bool _performingCommitTransition;
     _Bool _hasTransitionedToPreview;
-    _Bool _currentPreviewActionsGestureAppliesToPlatter;
-    _Bool _previewActionsGestureInProgress;
     id <_UIPreviewInteractionControllerDelegate> _delegate;
     UIView *_sourceView;
     UIViewController *_presentingViewController;
@@ -48,8 +46,6 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) __weak id <UIViewControllerPreviewing_Internal> currentPreviewingContext; // @synthesize currentPreviewingContext=_currentPreviewingContext;
-@property(nonatomic) _Bool previewActionsGestureInProgress; // @synthesize previewActionsGestureInProgress=_previewActionsGestureInProgress;
-@property(nonatomic) _Bool currentPreviewActionsGestureAppliesToPlatter; // @synthesize currentPreviewActionsGestureAppliesToPlatter=_currentPreviewActionsGestureAppliesToPlatter;
 @property(nonatomic) struct CGPoint initialLocationForPreviewActionsPanning; // @synthesize initialLocationForPreviewActionsPanning=_initialLocationForPreviewActionsPanning;
 @property(retain, nonatomic) _UIPreviewActionsController *previewActionsController; // @synthesize previewActionsController=_previewActionsController;
 @property(retain, nonatomic) _UITouchesObservingGestureRecognizer *gestureRecognizerForPreviewActions; // @synthesize gestureRecognizerForPreviewActions=_gestureRecognizerForPreviewActions;

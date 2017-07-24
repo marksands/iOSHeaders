@@ -13,7 +13,6 @@
 @interface _TVBgImageLoadingViewController : UIViewController <TVAppTemplateController>
 {
     TVImageProxy *_bgImageProxy;
-    IKViewElement *_tmpDocumentBanner;
     UIView *_rightLargeTitleButton;
     _Bool _appliedNavigationItem;
     IKViewElement *_navigationItemElement;

@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
     _Bool m_show;
     struct CGRect m_splitGap;
     _Bool m_suppressAXSHairlineThickening;
+    _Bool m_setShowsCandidateInline;
     _Bool _hideAssistantBar;
     _Bool _shouldShow;
 }

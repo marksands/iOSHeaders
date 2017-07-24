@@ -22,6 +22,7 @@
 + (id)_resultWithPersistentID:(long long)arg1 bundleID:(id)arg2 status:(long long)arg3 error:(id)arg4;
 + (_Bool)supportsSecureCoding;
 + (id)resultWithValidActivity:(long long)arg1 bundleID:(id)arg2;
++ (id)resultWithRestrictedActivity:(long long)arg1 bundleID:(id)arg2;
 + (id)resultWithInvalidActivity:(long long)arg1 bundleID:(id)arg2;
 + (id)resultWithExistingActivity:(long long)arg1 bundleID:(id)arg2;
 @property(nonatomic) long long status; // @synthesize status=_status;

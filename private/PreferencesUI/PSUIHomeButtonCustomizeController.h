@@ -31,9 +31,9 @@
 - (void)consumeTriplePressUpForButtonKind:(long long)arg1;
 - (void)consumeDoublePressDownForButtonKind:(long long)arg1;
 - (void)segmentedControl:(id)arg1 didSelectSegmentAtIndex:(unsigned long long)arg2;
+- (void)_makeConstraints;
 - (void)barButtonTapped;
 - (void)setListeningForHomeButtonPresses:(_Bool)arg1;
-- (void)viewDidLayoutSubviews;
 - (void)willBecomeActive;
 - (void)willResignActive;
 - (void)viewDidDisappear:(_Bool)arg1;

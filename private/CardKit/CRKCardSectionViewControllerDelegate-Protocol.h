@@ -6,12 +6,13 @@
 
 #import <CardKit/CRFeedbackListener-Protocol.h>
 
-@class CRKCardSectionViewController, INIntent, INInteraction, NSSet;
+@class CRKCardSectionViewController, INIntent, INInteraction, NSSet, UIViewController;
 @protocol CRCommand;
 
 @protocol CRKCardSectionViewControllerDelegate <CRFeedbackListener>
 
 @optional
+- (void)presentViewController:(UIViewController *)arg1 forCardSectionViewController:(CRKCardSectionViewController *)arg2;
 - (void)cardSectionViewController:(CRKCardSectionViewController *)arg1 didHandleParameters:(NSSet *)arg2 forInteraction:(INInteraction *)arg3;
 - (struct CGSize)boundingSizeForCardSectionViewController:(CRKCardSectionViewController *)arg1;
 - (void)cardSectionViewController:(CRKCardSectionViewController *)arg1 requestsHandlingOfIntent:(INIntent *)arg2;

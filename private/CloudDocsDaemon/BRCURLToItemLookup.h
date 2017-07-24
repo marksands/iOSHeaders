@@ -104,6 +104,7 @@
 - (_Bool)_applyOrDownloadThumbnailIfNecessary:(id)arg1 si:(id)arg2 url:(id)arg3 updatedAddition:(_Bool *)arg4 applySchedulerState:(int *)arg5;
 - (_Bool)tryToDeleteItemInNamespace:(unsigned char)arg1;
 - (void)tryToUpdateItemInNamespace:(unsigned char)arg1 withDstLookup:(id)arg2;
+- (_Bool)_bouncePathMatchIfNecessaryWithLookup:(id)arg1 localItem:(id)arg2 serverItem:(id)arg3 bounceNamespace:(unsigned char)arg4 applyNamespace:(unsigned char)arg5;
 - (_Bool)_canUpdatePathMatch:(const CDStruct_177058d5 *)arg1 hasAdditionsToApply:(_Bool)arg2;
 - (_Bool)_removeDirectory:(id)arg1 atPath:(id)arg2 error:(id *)arg3;
 - (void)_moveMissingItemAsideInNamespace:(unsigned char)arg1;

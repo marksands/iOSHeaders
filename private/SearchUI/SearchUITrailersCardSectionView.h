@@ -4,13 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeSectionView.h>
+#import <SearchUI/SearchUICardSectionView.h>
 
-@interface SearchUITrailersCardSectionView : SearchUILayoutFreeSectionView
+@class NUIContainerStackView;
+
+@interface SearchUITrailersCardSectionView : SearchUICardSectionView
 {
 }
 
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
+- (id)setupContentView;
+- (id)initWithCardSection:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
+
+// Remaining properties
+@property(retain) NUIContainerStackView *contentView; // @dynamic contentView;
 
 @end
 

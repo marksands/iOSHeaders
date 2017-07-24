@@ -13,8 +13,14 @@
 @interface NFLPickYourFavoritesTileInfo : NSObject <NFLFeedTileInfo>
 {
     NSString *_groupIdentifier;
+    NSString *_title;
+    NSString *_body;
+    NSString *_buttonTitle;
 }
 
+@property(readonly, copy, nonatomic) NSString *buttonTitle; // @synthesize buttonTitle=_buttonTitle;
+@property(readonly, copy, nonatomic) NSString *body; // @synthesize body=_body;
+@property(readonly, copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, copy, nonatomic) NSString *groupIdentifier; // @synthesize groupIdentifier=_groupIdentifier;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long bookmarkOffsetType;
@@ -24,6 +30,7 @@
 @property(readonly, nonatomic) unsigned long long tileInfoType;
 @property(readonly, copy, nonatomic) NSString *identifier;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

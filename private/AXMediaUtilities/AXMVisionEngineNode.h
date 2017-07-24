@@ -23,7 +23,6 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)title;
-+ (_Bool)requiresVisionKit;
 + (_Bool)isSupported;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *nodeQueue; // @synthesize nodeQueue=_nodeQueue;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
@@ -37,8 +36,10 @@
 - (void)connect:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)freeResources;
 - (void)nodeInitialize;
 - (id)initWithIdentifier:(id)arg1;
+@property(readonly, nonatomic) _Bool requiresVisionFramework;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

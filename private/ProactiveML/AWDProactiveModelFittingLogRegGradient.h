@@ -15,6 +15,8 @@
     unsigned long long _iteration;
     unsigned long long _timestamp;
     AWDProactiveModelFittingEvalMetrics *_evaluationMetrics;
+    float _gradientL2norm;
+    float _gradientScaleFactor;
     AWDProactiveModelFittingMinibatchStats *_minibatchStats;
     AWDProactiveModelFittingModelInfo *_modelInfo;
     AWDProactiveModelFittingSparseFloatVector *_sparseFloatGradient;
@@ -22,9 +24,13 @@
     struct {
         unsigned int iteration:1;
         unsigned int timestamp:1;
+        unsigned int gradientL2norm:1;
+        unsigned int gradientScaleFactor:1;
     } _has;
 }
 
+@property(nonatomic) float gradientL2norm; // @synthesize gradientL2norm=_gradientL2norm;
+@property(nonatomic) float gradientScaleFactor; // @synthesize gradientScaleFactor=_gradientScaleFactor;
 @property(retain, nonatomic) AWDProactiveModelFittingQuantizedSparseVector *sparseQuantizedGradient; // @synthesize sparseQuantizedGradient=_sparseQuantizedGradient;
 @property(nonatomic) unsigned long long iteration; // @synthesize iteration=_iteration;
 @property(retain, nonatomic) AWDProactiveModelFittingEvalMetrics *evaluationMetrics; // @synthesize evaluationMetrics=_evaluationMetrics;
@@ -42,6 +48,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasGradientL2norm;
+@property(nonatomic) _Bool hasGradientScaleFactor;
 @property(readonly, nonatomic) _Bool hasSparseQuantizedGradient;
 @property(nonatomic) _Bool hasIteration;
 @property(readonly, nonatomic) _Bool hasEvaluationMetrics;

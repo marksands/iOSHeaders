@@ -24,6 +24,7 @@
 @property(nonatomic) double timeElapsed; // @synthesize timeElapsed=_timeElapsed;
 - (void).cxx_destruct;
 - (void)animatePlaybackProgressWithFrame:(struct CGRect)arg1;
+- (void)animateToStart;
 - (struct CGSize)intrinsicContentSize;
 - (struct CGRect)frameForProgress:(double)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

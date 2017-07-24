@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)sharedUIDelegate;
+- (unsigned long long)webView:(id)arg1 dragDestinationActionMaskForSession:(id)arg2;
 - (void)webViewSupportedOrientationsUpdated:(id)arg1;
 - (id)webView:(id)arg1 generateReplacementFile:(id)arg2;
 - (_Bool)webView:(id)arg1 shouldReplaceUploadFile:(id)arg2 usingGeneratedFilename:(id *)arg3;

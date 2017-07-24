@@ -6,34 +6,26 @@
 
 #import <AVKit/AVBackgroundView.h>
 
-@class NSArray, NSMutableDictionary, NSString, SXAutoLayoutLabel, UILabel, UIView;
+@class NSArray, NSLayoutConstraint, NSMutableDictionary, UIView;
 
 @interface SXUpNextView : AVBackgroundView
 {
-    NSString *_title;
-    NSString *_subtitle;
-    NSArray *_accessoryViews;
-    SXAutoLayoutLabel *_titleLabel;
-    UILabel *_subtitleLabel;
     UIView *_contentView;
-    NSMutableDictionary *_accessoryViewBackgroundViews;
+    NSArray *_accessoryViews;
+    NSMutableDictionary *_backgroundViews;
+    NSLayoutConstraint *_contentViewTrailingLayoutConstraint;
 }
 
-@property(retain, nonatomic) NSMutableDictionary *accessoryViewBackgroundViews; // @synthesize accessoryViewBackgroundViews=_accessoryViewBackgroundViews;
-@property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
-@property(readonly, nonatomic) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
-@property(retain, nonatomic) SXAutoLayoutLabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(retain, nonatomic) NSLayoutConstraint *contentViewTrailingLayoutConstraint; // @synthesize contentViewTrailingLayoutConstraint=_contentViewTrailingLayoutConstraint;
+@property(retain, nonatomic) NSMutableDictionary *backgroundViews; // @synthesize backgroundViews=_backgroundViews;
 @property(retain, nonatomic) NSArray *accessoryViews; // @synthesize accessoryViews=_accessoryViews;
-@property(retain, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
-@property(retain, nonatomic) NSString *title; // @synthesize title=_title;
+@property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 - (void).cxx_destruct;
-- (id)keyForAccessoryView:(id)arg1;
-- (void)setBackgroundView:(id)arg1 forAcccessoryView:(id)arg2;
-- (void)removeBackgroundViewForAccessoryView:(id)arg1;
-- (id)backgroundViewForAccessoryView:(id)arg1;
+- (id)keyForView:(id)arg1;
+- (void)setBackgroundView:(id)arg1 forView:(id)arg2;
+- (void)removeBackgroundViewForView:(id)arg1;
+- (id)backgroundViewForView:(id)arg1;
 - (void)setAccessoryViews:(id)arg1 animated:(_Bool)arg2;
-- (void)setSubtitle:(id)arg1 animated:(_Bool)arg2;
-- (void)setTitle:(id)arg1 animated:(_Bool)arg2;
 - (struct CGSize)intrinsicContentSize;
 - (void)updateConstraints;
 - (id)initWithFrame:(struct CGRect)arg1;

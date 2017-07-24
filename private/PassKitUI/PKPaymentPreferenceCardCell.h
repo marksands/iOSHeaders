@@ -27,6 +27,7 @@
     NSString *_availabilityStringPrefix;
 }
 
++ (double)textOffset;
 @property(nonatomic) _Bool dimCardArt; // @synthesize dimCardArt=_dimCardArt;
 @property(nonatomic) _Bool showAvailability; // @synthesize showAvailability=_showAvailability;
 @property(nonatomic) _Bool showBillingAddress; // @synthesize showBillingAddress=_showBillingAddress;
@@ -44,8 +45,9 @@
 - (void)_updateCellContent;
 - (id)_passAvailabilityString;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)setUserInteractionEnabled:(_Bool)arg1;
+- (void)setEnabled:(_Bool)arg1;
 - (void)setHasError:(_Bool)arg1;
+- (void)prepareForReuse;
 - (id)initWithReuseIdentifier:(id)arg1;
 - (void)pk_applyAppearance:(id)arg1;
 

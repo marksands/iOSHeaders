@@ -6,12 +6,14 @@
 
 #import <CoreParsec/NSObject-Protocol.h>
 
-@class NSData, NSDictionary, NSString, _CPActionItemForFeedback, _CPLocalFeature, _CPPunchoutForFeedback;
+@class NSData, NSDictionary, NSString, _CPActionItemForFeedback, _CPPunchoutForFeedback, _CPStruct;
 
 @protocol _CPSearchResultForFeedback <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasUserInput;
+@property(copy, nonatomic) NSString *userInput;
 @property(readonly, nonatomic) _Bool hasFbr;
-@property(copy, nonatomic) NSData *fbr;
+@property(copy, nonatomic) NSString *fbr;
 @property(readonly, nonatomic) _Bool hasPubliclyIndexable;
 @property(nonatomic) _Bool publiclyIndexable;
 @property(readonly, nonatomic) _Bool hasIsLocalApplicationResult;
@@ -36,9 +38,10 @@
 @property(copy, nonatomic) NSString *applicationBundleIdentifier;
 @property(readonly, nonatomic) _Bool hasResultBundleId;
 @property(copy, nonatomic) NSString *resultBundleId;
-@property(copy, nonatomic) NSDictionary *localFeatures;
+@property(readonly, nonatomic) _Bool hasLocalFeatures;
+@property(retain, nonatomic) _CPStruct *localFeatures;
 @property(readonly, nonatomic) _Bool hasSrf;
-@property(copy, nonatomic) NSData *srf;
+@property(copy, nonatomic) NSString *srf;
 @property(readonly, nonatomic) _Bool hasType;
 @property(nonatomic) int type;
 @property(readonly, nonatomic) _Bool hasPunchout;
@@ -51,7 +54,5 @@
 @property(copy, nonatomic) NSString *identifier;
 - (id)initWithDictionary:(NSDictionary *)arg1;
 - (id)initWithJSON:(NSData *)arg1;
-- (void)setLocalFeatures:(_CPLocalFeature *)arg1 forKey:(NSString *)arg2;
-- (_Bool)getLocalFeatures:(id *)arg1 forKey:(NSString *)arg2;
 @end
 

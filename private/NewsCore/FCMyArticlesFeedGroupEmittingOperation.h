@@ -24,6 +24,7 @@
 - (id)_joinedFeedTransformation;
 - (id)_nonEditorialFeedTransformationWithFeedContext:(id)arg1 feedItemScores:(id)arg2 showStoriesOnlyFromFavorites:(_Bool)arg3;
 - (void)performOperation;
+- (id)interleaveHeadlines:(id)arg1 withPublisherDiversificationPenalty:(double)arg2;
 
 @end
 

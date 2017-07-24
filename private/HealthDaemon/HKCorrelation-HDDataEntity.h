@@ -9,6 +9,6 @@
 @interface HKCorrelation (HDDataEntity)
 - (void)hd_cleanupBeforeJournalInsertion;
 - (id)hd_relatedJournalEntries;
-- (_Bool)hd_insertRelatedDataWithProfile:(id)arg1 database:(id)arg2 entityPersistentID:(id)arg3 sourceID:(id)arg4 externalSyncObjectCode:(long long)arg5 error:(id *)arg6;
+- (_Bool)hd_insertRelatedDataWithPersistentID:(id)arg1 insertionContext:(id)arg2 profile:(id)arg3 database:(id)arg4 error:(id *)arg5;
 @end
 

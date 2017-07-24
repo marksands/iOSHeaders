@@ -11,10 +11,10 @@
 @interface UIDragItem : NSObject
 {
     _UIDraggingItem *_draggingItem;
+    _UIDragSessionImpl *_dragSession;
     NSItemProvider *_itemProvider;
     id _localObject;
     CDUnknownBlockType _previewProvider;
-    _UIDragSessionImpl *__dragSession;
     _UIInternalDraggingItem *_internalDraggingItem;
     _UIDragPreviewProvider *_preferredPreviewProvider;
     UITargetedDragPreview *_targetedLiftPreview;
@@ -31,10 +31,10 @@
 @property(retain, nonatomic, getter=_targetedLiftPreview, setter=_setTargetedLiftPreview:) UITargetedDragPreview *targetedLiftPreview; // @synthesize targetedLiftPreview=_targetedLiftPreview;
 @property(retain, nonatomic, getter=_preferredPreviewProvider, setter=_setPreferredPreviewProvider:) _UIDragPreviewProvider *preferredPreviewProvider; // @synthesize preferredPreviewProvider=_preferredPreviewProvider;
 @property(retain, nonatomic, getter=_internalDraggingItem, setter=_setInternalDraggingItem:) _UIInternalDraggingItem *internalDraggingItem; // @synthesize internalDraggingItem=_internalDraggingItem;
-@property(nonatomic) __weak _UIDragSessionImpl *_dragSession; // @synthesize _dragSession=__dragSession;
 @property(copy, nonatomic) CDUnknownBlockType previewProvider; // @synthesize previewProvider=_previewProvider;
 @property(retain, nonatomic) id localObject; // @synthesize localObject=_localObject;
 @property(retain, nonatomic) NSItemProvider *itemProvider; // @synthesize itemProvider=_itemProvider;
+@property(nonatomic, getter=_dragSession, setter=_setDragSession:) __weak _UIDragSessionImpl *_dragSession; // @synthesize _dragSession;
 @property(retain, nonatomic, getter=_draggingItem, setter=_setDraggingItem:) _UIDraggingItem *_draggingItem; // @synthesize _draggingItem;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) struct CGSize _visibleDropItemSize;

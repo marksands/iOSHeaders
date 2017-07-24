@@ -9,6 +9,7 @@
 @interface UIView (UIAccessibilityPrivate)
 - (void)_accessibilitySetAllowsSiblingsWhenOvergrown:(_Bool)arg1;
 - (_Bool)_accessibilityAllowsSiblingsWhenOvergrown;
+- (void)_accessibilitySetOverridesInvalidFrames:(_Bool)arg1;
 - (_Bool)_accessibilityOverridesInvalidFrames;
 - (id)_accessibilitySubviews;
 - (id)_accessibleSubviews;

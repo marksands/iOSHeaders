@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class GEOResourceManifestConfiguration, NSError, NSLocale, NSString, VKSharedResources, VKTileKeyList, VKTileKeyMap, VKTilePool;
 @protocol VKTileSourceClient, VKTileSourceZoomDelegate;
@@ -57,6 +57,7 @@ __attribute__((visibility("hidden")))
 - (void)fetchedTile:(id)arg1 forKey:(const struct VKTileKey *)arg2;
 - (void)failedToDecodeSourceKey:(const struct VKTileKey *)arg1;
 - (_Bool)_shouldDecodeTile:(const struct VKTileKey *)arg1;
+- (void)cancelAllDownloads;
 - (void)cancelDownload:(const struct _GEOTileKey *)arg1;
 - (void)performDownload:(const struct _GEOTileKey *)arg1;
 - (_Bool)cancelFetchForKey:(const struct VKTileKey *)arg1;

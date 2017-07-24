@@ -8,6 +8,7 @@
 
 #import <MapKit/INIntentResponseObserver-Protocol.h>
 
+@class NSString;
 @protocol _MXIntentResponseObserver;
 
 __attribute__((visibility("hidden")))
@@ -20,8 +21,15 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)stopObserving;
 - (void)didReceiveError:(id)arg1;
+- (void)intentResponseDidUpdate:(id)arg1 withSerializedCacheItems:(id)arg2;
 - (void)intentResponseDidUpdate:(id)arg1;
 - (id)initWithObserver:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

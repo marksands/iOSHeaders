@@ -12,12 +12,13 @@
 #import <PassKitUI/UITableViewDataSource-Protocol.h>
 #import <PassKitUI/UITableViewDelegate-Protocol.h>
 
-@class CNPostalAddress, NSString, PKAddressSearchModel, UISearchBar, UITableView, _UINavigationControllerPalette;
+@class CNPostalAddress, NSArray, NSString, PKAddressSearchModel, UISearchBar, UITableView, _UINavigationControllerPalette;
 @protocol PKAddressSearcherViewControllerDelegate;
 
 @interface PKAddressSearcherViewController : UIViewController <UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, PKAddressSearchModelDelegate, PKAddressEditorViewControllerDelegate>
 {
     id <PKAddressSearcherViewControllerDelegate> _delegate;
+    NSArray *_requiredKeys;
     UISearchBar *_searchBar;
     UITableView *_tableView;
     _UINavigationControllerPalette *_palette;
@@ -32,6 +33,7 @@
 @property(retain, nonatomic) _UINavigationControllerPalette *palette; // @synthesize palette=_palette;
 @property(retain, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 @property(retain, nonatomic) UISearchBar *searchBar; // @synthesize searchBar=_searchBar;
+@property(retain, nonatomic) NSArray *requiredKeys; // @synthesize requiredKeys=_requiredKeys;
 @property(nonatomic) id <PKAddressSearcherViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)addressEditorViewControllerDidCancel:(id)arg1;

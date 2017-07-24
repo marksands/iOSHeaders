@@ -6,20 +6,19 @@
 
 #import <objc/NSObject.h>
 
-@class NSLocale, NSSet;
+@class AXMLanguage, NSLocale;
 
 @interface AXMTextProcessingOperation : NSObject
 {
-    _Bool _correctSpelling;
-    _Bool _filterForOCR;
-    NSSet *_spellCheckingLanguages;
+    AXMLanguage *_language;
 }
 
-@property(nonatomic) _Bool filterForOCR; // @synthesize filterForOCR=_filterForOCR;
-@property(retain, nonatomic) NSSet *spellCheckingLanguages; // @synthesize spellCheckingLanguages=_spellCheckingLanguages;
-@property(nonatomic) _Bool correctSpelling; // @synthesize correctSpelling=_correctSpelling;
++ (id)operationWithSystemLanguage;
++ (id)operationWithLanguage:(id)arg1;
+@property(readonly, nonatomic) AXMLanguage *language; // @synthesize language=_language;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSLocale *lexiconLocale;
+- (id)_initWithLanguage:(id)arg1;
 
 @end
 

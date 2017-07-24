@@ -31,6 +31,7 @@
 @property(retain, nonatomic) id <MTLFunction> fragmentFunction; // @dynamic fragmentFunction;
 @property(copy, nonatomic) NSString *label; // @dynamic label;
 @property(nonatomic) unsigned long long maxTessellationFactor; // @dynamic maxTessellationFactor;
+@property(nonatomic) unsigned long long rasterSampleCount; // @dynamic rasterSampleCount;
 @property(nonatomic, getter=isRasterizationEnabled) _Bool rasterizationEnabled; // @dynamic rasterizationEnabled;
 @property(nonatomic) unsigned long long sampleCount; // @dynamic sampleCount;
 @property(nonatomic) unsigned long long stencilAttachmentPixelFormat; // @dynamic stencilAttachmentPixelFormat;

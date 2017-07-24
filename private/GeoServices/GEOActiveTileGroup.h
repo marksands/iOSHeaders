@@ -17,6 +17,7 @@
     unsigned long long _hybridUnavailableRegionsSpace;
     CDStruct_95bda58d _activeScales;
     CDStruct_95bda58d _activeScenarios;
+    struct GEOMapLayersMetadata _mapLayersMetadata;
     NSString *_abExperimentURL;
     NSMutableArray *_activeResources;
     NSString *_addressCorrectionInitURL;
@@ -73,6 +74,7 @@
     NSMutableArray *_xmlChecksums;
     NSMutableArray *_xmls;
     struct {
+        unsigned int mapLayersMetadata:1;
         unsigned int locationShiftVersion:1;
         unsigned int modelVersion:1;
         unsigned int operationMode:1;
@@ -100,6 +102,7 @@
 + (Class)attributionType;
 + (Class)resourceType;
 + (Class)tileSetType;
+@property(nonatomic) struct GEOMapLayersMetadata mapLayersMetadata; // @synthesize mapLayersMetadata=_mapLayersMetadata;
 @property(retain, nonatomic) NSString *proactiveRoutingURL; // @synthesize proactiveRoutingURL=_proactiveRoutingURL;
 @property(retain, nonatomic) NSString *logMessageUsageV3URL; // @synthesize logMessageUsageV3URL=_logMessageUsageV3URL;
 @property(retain, nonatomic) NSString *batchTrafficProbeURL; // @synthesize batchTrafficProbeURL=_batchTrafficProbeURL;
@@ -164,6 +167,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasMapLayersMetadata;
 @property(readonly, nonatomic) _Bool hasProactiveRoutingURL;
 @property(readonly, nonatomic) _Bool hasLogMessageUsageV3URL;
 @property(readonly, nonatomic) _Bool hasBatchTrafficProbeURL;
@@ -319,6 +323,7 @@
 - (_Bool)isHybridModeAvailableForTileKey:(const struct _GEOTileKey *)arg1;
 - (_Bool)isAvailableForTileKey:(const struct _GEOTileKey *)arg1;
 - (double)timeToLiveForTileKey:(const struct _GEOTileKey *)arg1;
+- (int)requestStyleForTileKey:(const struct _GEOTileKey *)arg1;
 - (unsigned int)versionForTileKey:(const struct _GEOTileKey *)arg1;
 - (id)localizationURLStringForTileKey:(const struct _GEOTileKey *)arg1;
 - (id)baseURLStringForTileKey:(const struct _GEOTileKey *)arg1;

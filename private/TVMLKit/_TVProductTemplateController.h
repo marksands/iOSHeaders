@@ -43,6 +43,7 @@ __attribute__((visibility("hidden")))
     NSIndexPath *_autoHighlightIndexPath;
     _Bool _fadedIn;
     double _impressionThreshold;
+    _Bool _preloadOnLayout;
     struct CGSize _contentSizeEnsured;
     UIImageView *_topHeroImageView;
     UIView *_topHeroSeparatorView;
@@ -60,8 +61,9 @@ __attribute__((visibility("hidden")))
 - (void)_updateBackgroundTintViewEffects;
 - (void)_updateBackgroundTintView;
 - (void)_configureBackgroundTintView;
+- (_Bool)_shouldUsePartialScrollingTemplate;
 - (struct UIEdgeInsets)_cellMarginForIndex:(long long)arg1 partialMargins:(struct UIEdgeInsets *)arg2;
-- (id)_spacingMetricsForViewControllers:(id)arg1;
+- (id)_spacingMetricsForViewControllers:(id)arg1 contentSize:(struct CGSize *)arg2;
 - (void)_configureWithBgImage:(id)arg1 backdropImage:(id)arg2;
 - (id)_backgroundImageProxy;
 - (struct CGSize)_backgroundImageProxySize;
@@ -70,6 +72,7 @@ __attribute__((visibility("hidden")))
 - (void)_configureWithBgElement:(id)arg1;
 - (void)_configureTopHeroImage:(id)arg1;
 - (id)_relatedSectionHeaderView;
+- (unsigned long long)_lastFocusableCellIndex;
 - (id)_yOffsetForView:(id)arg1 withScrollView:(id)arg2 targetYOffset:(double)arg3;
 - (id)_canonicalIDForElement:(id)arg1;
 - (id)_adamIDForElement:(id)arg1;

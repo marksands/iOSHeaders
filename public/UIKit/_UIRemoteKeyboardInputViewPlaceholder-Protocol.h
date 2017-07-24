@@ -7,6 +7,8 @@
 @class UIView;
 
 @protocol _UIRemoteKeyboardInputViewPlaceholder
+@property(retain, nonatomic) UIView *associatedView;
+@property(retain, nonatomic) UIView *fallbackView;
 @property(readonly, retain) UIView *placeheldView;
 @property(nonatomic) struct CGSize fixedSize;
 - (_Bool)refreshPlaceholder;

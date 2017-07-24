@@ -6,11 +6,12 @@
 
 #import <SpotlightUI/NSObject-Protocol.h>
 
-@class SPSearchQueryContext;
+@class SPSearchQueryContext, SPUISearchHeader;
 
 @protocol SPUISearchHeaderDelegate <NSObject>
 - (void)cancelButtonPressed;
+- (void)dictationButtonPressed;
 - (void)didBeginEditing;
-- (void)queryContextDidChange:(SPSearchQueryContext *)arg1 allowZKW:(_Bool)arg2;
+- (void)queryContextDidChange:(SPSearchQueryContext *)arg1 fromSearchHeader:(SPUISearchHeader *)arg2 allowZKW:(_Bool)arg3;
 @end
 

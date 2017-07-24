@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFTitleSubtitleTuple-Protocol.h>
 
 @class NSData, NSDictionary, NSString;
 
-@interface SFTitleSubtitleTuple : NSObject <SFTitleSubtitleTuple, NSSecureCoding>
+@interface SFTitleSubtitleTuple : NSObject <SFTitleSubtitleTuple, NSSecureCoding, NSCopying>
 {
     NSString *_title;
     NSString *_subtitle;
@@ -21,6 +22,7 @@
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

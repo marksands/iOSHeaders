@@ -8,27 +8,29 @@
 
 #import <MapsSupport/MSPQuerySourceObserver-Protocol.h>
 
-@class MSPQuerySource, NSArray, NSMapTable, NSString;
+@class MSPQuerySource, NSArray, NSString, _MSPQueryState;
 @protocol OS_dispatch_queue;
 
 @interface MSPQuery : NSObject <MSPQuerySourceObserver>
 {
+    _MSPQueryState *_lastState;
     MSPQuerySource *_source;
-    NSMapTable *_unmappedContentsMap;
-    NSArray *_contents;
-    NSArray *_unmappedContents;
     CDUnknownBlockType _changeHandler;
     NSObject<OS_dispatch_queue> *_changeHandlerQueue;
+    NSArray *_unmappedContents;
 }
 
+@property(readonly, nonatomic) NSArray *unmappedContents; // @synthesize unmappedContents=_unmappedContents;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *changeHandlerQueue; // @synthesize changeHandlerQueue=_changeHandlerQueue;
 @property(readonly, copy, nonatomic) CDUnknownBlockType changeHandler; // @synthesize changeHandler=_changeHandler;
-@property(readonly, nonatomic) NSArray *unmappedContents; // @synthesize unmappedContents=_unmappedContents;
-@property(readonly) NSArray *contents; // @synthesize contents=_contents;
 - (void).cxx_destruct;
-- (id)unmappedObjectForContentsObject:(id)arg1;
+@property(readonly, getter=_visibleState) _MSPQueryState *visibleState;
 - (void)setChangeHandler:(CDUnknownBlockType)arg1 queue:(id)arg2;
-- (void)_didChangeSourceWithContents:(id)arg1 unmappedContents:(id)arg2 map:(id)arg3 forContext:(id)arg4;
+- (id)originalIdentifierForObjectAtIndex:(unsigned long long)arg1;
+- (id)originalIdentifierForObject:(id)arg1;
+@property(readonly) NSArray *contents;
+@property(retain, getter=_lastState, setter=_setLastState:) _MSPQueryState *lastState;
+- (void)_didChangeSourceWithNewState:(id)arg1 context:(id)arg2 inContainer:(id)arg3;
 - (id)_initWithSource:(id)arg1;
 
 // Remaining properties

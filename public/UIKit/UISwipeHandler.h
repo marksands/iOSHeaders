@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (void)_swipeRecognizerChanged:(id)arg1;
 - (void)_swipeRecognizerBegan:(id)arg1;
 - (void)_swipeRecognizerDidRecognize:(id)arg1;
+- (unsigned long long)_directionForGestureRecognizer:(id)arg1;
 - (void)_dismissalRecognizerDidRecognize:(id)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;

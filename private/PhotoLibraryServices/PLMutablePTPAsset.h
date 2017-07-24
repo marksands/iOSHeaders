@@ -13,7 +13,7 @@
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(nonatomic) _Bool requiresFormatConversion; // @dynamic requiresFormatConversion;
+@property(nonatomic) long long conversionGroup; // @dynamic conversionGroup;
 @property(copy, nonatomic) NSString *relatedUUID; // @dynamic relatedUUID;
 @property(nonatomic, getter=isTimeLapseVideo) _Bool timeLapseVideo; // @dynamic timeLapseVideo;
 @property(nonatomic, getter=isHighFrameRateVideo) _Bool highFrameRateVideo; // @dynamic highFrameRateVideo;

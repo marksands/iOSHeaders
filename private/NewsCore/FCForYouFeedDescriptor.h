@@ -8,17 +8,17 @@
 
 #import <NewsCore/FCFeedPaginating-Protocol.h>
 
-@class FCAppConfiguration, FCSubscriptionList, NSString;
+@class FCAppConfigurationManager, FCSubscriptionList, NSString;
 
 @interface FCForYouFeedDescriptor : FCFeedDescriptor <FCFeedPaginating>
 {
     unsigned long long _trendingAndSavedStoriesCount;
-    FCAppConfiguration *_appConfiguration;
+    FCAppConfigurationManager *_appConfigurationManager;
     FCSubscriptionList *_subscriptionList;
 }
 
 @property(retain, nonatomic) FCSubscriptionList *subscriptionList; // @synthesize subscriptionList=_subscriptionList;
-@property(retain, nonatomic) FCAppConfiguration *appConfiguration; // @synthesize appConfiguration=_appConfiguration;
+@property(retain, nonatomic) FCAppConfigurationManager *appConfigurationManager; // @synthesize appConfigurationManager=_appConfigurationManager;
 @property(nonatomic) unsigned long long trendingAndSavedStoriesCount; // @synthesize trendingAndSavedStoriesCount=_trendingAndSavedStoriesCount;
 - (void).cxx_destruct;
 - (void)d_fetchAllHeadlinesWithCloudContext:(id)arg1 sinceDate:(id)arg2 filter:(_Bool)arg3 personalize:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
@@ -33,7 +33,7 @@
 - (id)offlineFeedGroupEmitters;
 - (id)iAdFeedID;
 - (id)name;
-- (id)initWithIdentifier:(id)arg1 trendingAndSavedStoriesCount:(long long)arg2 appConfiguration:(id)arg3 subscriptionList:(id)arg4;
+- (id)initWithIdentifier:(id)arg1 trendingAndSavedStoriesCount:(long long)arg2 appConfigurationManager:(id)arg3 subscriptionList:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

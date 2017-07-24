@@ -40,6 +40,7 @@
 - (void)remote_allSourcesWithCompletion:(void (^)(NSArray *, NSError *))arg1;
 - (void)remote_addSourceWithBundleIdentifier:(NSString *)arg1 name:(NSString *)arg2 completion:(void (^)(HKSource *, NSError *))arg3;
 - (void)remote_hasSourceWithBundleIdentifier:(NSString *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
+- (void)remote_hasSampleWithBundleIdentifier:(NSString *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)remote_closeTransactionWithDataType:(HKObjectType *)arg1 anchor:(NSNumber *)arg2 ackTime:(NSNumber *)arg3 completion:(void (^)(_Bool, NSError *))arg4;
 - (void)remote_setBackgroundDeliveryFrequency:(long long)arg1 forDataType:(HKObjectType *)arg2 handler:(void (^)(_Bool, NSError *))arg3;
 - (void)remote_clientResumedWithCompletion:(void (^)(_Bool, NSError *))arg1;

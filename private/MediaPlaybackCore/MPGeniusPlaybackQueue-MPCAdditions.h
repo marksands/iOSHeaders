@@ -7,9 +7,9 @@
 #import <MediaPlayer/MPGeniusPlaybackQueue.h>
 
 @interface MPGeniusPlaybackQueue (MPCAdditions)
-- (void)_createPlaybackContextFromCloudControllerWithSeedItem:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_createPlaybackContextFromMediaLibraryWithSeedItem:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_createPlaybackContextWithRecommendedContentWithSeedAdamID:(long long)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)createPlaybackContextWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_getPlaybackContextFromCloudControllerWithSeedItem:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_getPlaybackContextFromMediaLibraryWithSeedItem:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_getPlaybackContextWithRecommendedContentWithSeedAdamID:(long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)getPlaybackContextWithCompletion:(CDUnknownBlockType)arg1;
 @end
 

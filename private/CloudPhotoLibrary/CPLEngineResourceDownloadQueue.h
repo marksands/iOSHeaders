@@ -34,7 +34,7 @@
 - (id)enumeratorForDownloadedResources;
 - (_Bool)removeAllBackgroundDownloadTasksForItemWithIdentifier:(id)arg1 error:(id *)arg2;
 - (_Bool)resetDequeuedBackgroundDownloadTasksWithError:(id *)arg1;
-- (id)dequeueNextBackgroundDownloadTasksForResourceType:(unsigned long long)arg1 maximumSize:(unsigned long long)arg2 error:(id *)arg3;
+- (id)dequeueNextBackgroundDownloadTasksForResourceType:(unsigned long long)arg1 maximumSize:(unsigned long long)arg2 maximumCount:(unsigned long long)arg3 error:(id *)arg4;
 - (_Bool)markBackgroundDownloadTaskForResourceAsSuceeded:(id)arg1 error:(id *)arg2;
 - (_Bool)removeBackgroundDownloadTaskForResource:(id)arg1 error:(id *)arg2;
 - (_Bool)reenqueueBackgroundDownloadTaskForResource:(id)arg1 bumpRetryCount:(_Bool)arg2 didDiscard:(_Bool *)arg3 error:(id *)arg4;

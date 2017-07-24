@@ -71,8 +71,6 @@ struct GEOJunctionElement {
     } _field4;
 };
 
-struct PolylineCoordinateRange;
-
 struct UIEdgeInsets {
     double top;
     double left;
@@ -122,6 +120,10 @@ struct _NSRange {
     unsigned long long length;
 };
 
+struct __hash_node_base<std::__1::__hash_node<_MKAnnotationViewPair, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<_MKAnnotationViewPair, void *>*> *__next_;
+};
+
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, NSDictionary *, _value_ptr>, void *>>, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, NSDictionary *, _value_ptr>, void *>>, void *>*> *__next_;
 };
@@ -167,6 +169,17 @@ struct mutex {
     } __m_;
 };
 
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<_MKAnnotationViewPair, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<_MKAnnotationViewPair, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<_MKAnnotationViewPair, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<_MKAnnotationViewPair, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<_MKAnnotationViewPair, void *>*> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<_MKAnnotationViewPair, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<_MKAnnotationViewPair, void *>*>*>> {
+                unsigned long long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
 struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, NSDictionary *, _value_ptr>, void *>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, NSDictionary *, _value_ptr>, void *>>, void *>*>*>>> {
     struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, NSDictionary *, _value_ptr>, void *>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, NSDictionary *, _value_ptr>, void *>>, void *>*>*>>> {
         struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, NSDictionary *, _value_ptr>, void *>>, void *>*> **__first_;
@@ -193,11 +206,36 @@ struct unordered_map<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::
     } __table_;
 };
 
-struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> {
-    struct PolylineCoordinateRange *_field1;
-    struct PolylineCoordinateRange *_field2;
-    struct __compressed_pair<URS::PolylineCoordinateRange *, std::__1::allocator<URS::PolylineCoordinateRange>> {
-        struct PolylineCoordinateRange *_field1;
+struct unordered_set<_MKAnnotationViewPair, std::__1::hash<_MKAnnotationViewPair>, std::__1::equal_to<_MKAnnotationViewPair>, std::__1::allocator<_MKAnnotationViewPair>> {
+    struct __hash_table<_MKAnnotationViewPair, std::__1::hash<_MKAnnotationViewPair>, std::__1::equal_to<_MKAnnotationViewPair>, std::__1::allocator<_MKAnnotationViewPair>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<_MKAnnotationViewPair, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<_MKAnnotationViewPair, void *>*>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<_MKAnnotationViewPair, void *>*>, std::__1::allocator<std::__1::__hash_node<_MKAnnotationViewPair, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<_MKAnnotationViewPair, void *>*> __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::hash<_MKAnnotationViewPair>> {
+            unsigned long long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::equal_to<_MKAnnotationViewPair>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct vector<MKAnnotationView *, std::__1::allocator<MKAnnotationView *>> {
+    id *__begin_;
+    id *__end_;
+    struct __compressed_pair<MKAnnotationView **, std::__1::allocator<MKAnnotationView *>> {
+        id *__first_;
+    } __end_cap_;
+};
+
+struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>;
+
+struct vector<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>, std::__1::allocator<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>>> {
+    struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> *_field1;
+    struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> *_field2;
+    struct __compressed_pair<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>*, std::__1::allocator<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>>> {
+        struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> *_field1;
     } _field3;
 };
 
@@ -316,11 +354,11 @@ typedef struct {
     double height;
 } CDStruct_8caa76fc;
 
-typedef struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> {
-    struct PolylineCoordinateRange *_field1;
-    struct PolylineCoordinateRange *_field2;
-    struct __compressed_pair<URS::PolylineCoordinateRange *, std::__1::allocator<URS::PolylineCoordinateRange>> {
-        struct PolylineCoordinateRange *_field1;
+typedef struct vector<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>, std::__1::allocator<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>>> {
+    struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> *_field1;
+    struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> *_field2;
+    struct __compressed_pair<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>*, std::__1::allocator<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>>> {
+        struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> *_field1;
     } _field3;
-} vector_78caa0aa;
+} vector_e1d6d9eb;
 

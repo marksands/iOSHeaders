@@ -13,23 +13,22 @@
 
 @interface CKAppInteractionsContext : NSObject <NSCopying, NSSecureCoding>
 {
-    // Error parsing type: , name: _outOfAppLaunchBoundaryDonationsCountByBundleId
-    // Error parsing type: , name: _filteredDuetEventsUUIDsByBundleId
+    // Error parsing type: , name: _outOfAppLaunchBoundaryDonationsCountByIntentTypeAndBundleId
+    // Error parsing type: , name: numberOfDiscardedDonationsByIntentTypeAndBundleId
 }
 
 + (_Bool)supportsSecureCoding;
 - (CDUnknownBlockType).cxx_destruct;
-- (void)setNumberOfOutOfAppLaunchBoundaryDonations:(long long)arg1 forBundleId:(id)arg2;
-- (void)setFilteredDuetEventsUUIDs:(id)arg1 forBundleId:(id)arg2;
+- (void)updateDiscardedDonations:(double)arg1 forIntentType:(id)arg2 andBundleId:(id)arg3;
+- (void)incrementNumberOfOutOfAppLaunchBoundaryDonationsForBundleId:(id)arg1 intent:(id)arg2;
 - (id)copyWithZone:(void *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init:(id)arg1;
 - (id)init;
-@property(nonatomic, readonly) NSDictionary *filteredDuetEventsUUIDsByBundleId;
-@property(nonatomic, readonly) NSDictionary *outOfAppLaunchBoundaryDonationsCountByBundleId;
-@property(nonatomic, copy) NSDictionary *_filteredDuetEventsUUIDsByBundleId; // @synthesize _filteredDuetEventsUUIDsByBundleId;
-@property(nonatomic, copy) NSDictionary *_outOfAppLaunchBoundaryDonationsCountByBundleId; // @synthesize _outOfAppLaunchBoundaryDonationsCountByBundleId;
+@property(nonatomic, copy) NSDictionary *numberOfDiscardedDonationsByIntentTypeAndBundleId; // @synthesize numberOfDiscardedDonationsByIntentTypeAndBundleId;
+@property(nonatomic, readonly) NSDictionary *outOfAppLaunchBoundaryDonationsCountByIntentTypeAndBundleId;
+@property(nonatomic, copy) NSDictionary *_outOfAppLaunchBoundaryDonationsCountByIntentTypeAndBundleId; // @synthesize _outOfAppLaunchBoundaryDonationsCountByIntentTypeAndBundleId;
 
 @end
 

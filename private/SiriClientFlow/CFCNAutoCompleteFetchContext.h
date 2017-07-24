@@ -14,7 +14,7 @@
 {
 }
 
-+ (id)newAceObjectWithDictionary:(id)arg1 context:(id)arg2;
++ (id)aceObjectWithDictionary:(id)arg1 context:(id)arg2;
 + (id)autoCompleteFetchContextWithDictionary:(id)arg1 context:(id)arg2;
 + (id)autoCompleteFetchContext;
 @property(copy, nonatomic) NSString *title;

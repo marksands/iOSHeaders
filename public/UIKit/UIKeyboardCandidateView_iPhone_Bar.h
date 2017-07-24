@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (void)layoutSubviews;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGSize)_defaultSize;
 - (void)setCandidateViewExtended:(_Bool)arg1;
 - (unsigned long long)_numberOfColumns:(_Bool)arg1;

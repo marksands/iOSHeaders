@@ -26,7 +26,7 @@
 + (_Bool)supportsSecureCoding;
 + (id)imageNamed:(id)arg1;
 + (id)imageWithImageData:(id)arg1;
-+ (id)imageWithURL:(id)arg1 desiredWidth:(double)arg2 height:(double)arg3;
++ (id)imageWithURL:(id)arg1 width:(double)arg2 height:(double)arg3;
 + (id)imageWithURL:(id)arg1;
 + (void)buildFromCachePayload:(id)arg1 identifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 @property(nonatomic, setter=_setImageSize:) CDStruct_8caa76fc _imageSize; // @synthesize _imageSize;
@@ -39,8 +39,9 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly) unsigned long long hash;
 - (id)_initWithData:(id)arg1;
-- (id)_init;
 - (id)_initWithIdentifier:(id)arg1;
 - (id)init;
 @property(readonly, copy, nonatomic) NSString *cacheIdentifier;
@@ -49,7 +50,6 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

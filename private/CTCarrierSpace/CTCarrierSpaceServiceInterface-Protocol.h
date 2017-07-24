@@ -16,7 +16,7 @@
 - (void)authenticationDidFail:(NSError *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)authenticationDidComplete:(CTCarrierSpaceAuthInfo *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)setUserInAuthFlow:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
-- (void)testMode:(_Bool)arg1 jsonDict:(NSDictionary *)arg2 completion:(void (^)(NSError *))arg3;
+- (void)testMode:(_Bool)arg1 config:(NSDictionary *)arg2 completion:(void (^)(NSError *))arg3;
 - (void)ping:(void (^)(NSError *))arg1;
 - (void)fetchDataPlanMetrics:(void (^)(CTCarrierSpaceDataPlanMetrics *, NSError *))arg1;
 - (void)purchasePlan:(CTCarrierSpacePlanGroupOptionInfo *)arg1 completion:(void (^)(NSError *))arg2;

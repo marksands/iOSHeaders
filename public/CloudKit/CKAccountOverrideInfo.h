@@ -15,12 +15,14 @@
 {
     _Bool _isUnitTestingAccount;
     _Bool _accountWantsPushRegistration;
+    _Bool _accountWantsFlowControl;
     NSString *_email;
     NSString *_password;
     NSString *_secondEmail;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool accountWantsFlowControl; // @synthesize accountWantsFlowControl=_accountWantsFlowControl;
 @property(nonatomic) _Bool accountWantsPushRegistration; // @synthesize accountWantsPushRegistration=_accountWantsPushRegistration;
 @property(nonatomic) _Bool isUnitTestingAccount; // @synthesize isUnitTestingAccount=_isUnitTestingAccount;
 @property(copy, nonatomic) NSString *secondEmail; // @synthesize secondEmail=_secondEmail;
@@ -34,6 +36,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)CKPropertiesDescription;
+- (id)initAnonymousAccount;
 - (id)initWithEmail:(id)arg1 password:(id)arg2;
 
 @end

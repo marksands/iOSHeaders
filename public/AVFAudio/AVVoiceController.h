@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class AVAudioFormat, NSDictionary, NSString, NSXPCConnection;
 @protocol AVVoiceControllerPlaybackDelegate, AVVoiceControllerRecordDelegate, AVVoiceControllerVoiceTriggerDelegate, Endpointer;
@@ -53,6 +53,7 @@
 - (int)doStartRecordingAtTime:(unsigned long long)arg1 behavior:(id)arg2;
 - (_Bool)playRecordStartingAlertAndResetEndpointer;
 - (void)resetEndpointer;
+- (_Bool)playAlertSoundForType:(int)arg1 overrideMode:(long long)arg2;
 - (_Bool)playAlertSoundForType:(int)arg1;
 - (_Bool)setAlertSoundFromURL:(id)arg1 forType:(int)arg2;
 - (_Bool)prepareRecordWithSettings:(id)arg1 error:(id *)arg2;
@@ -80,6 +81,7 @@
 - (void)startpointDetected;
 - (void)finishedRecording;
 - (void)recordBufferReceived:(struct MyAudioQueueBuffer *)arg1 atTime:(unsigned long long)arg2;
+- (void)avAudioPCMRecordBufferReceived:(id)arg1 atTime:(unsigned long long)arg2;
 - (void)lpcmRecordBufferReceived:(struct AudioQueueBuffer *)arg1 atTime:(unsigned long long)arg2;
 - (void)beganRecording;
 - (void)handleMediaServerReset:(id)arg1;

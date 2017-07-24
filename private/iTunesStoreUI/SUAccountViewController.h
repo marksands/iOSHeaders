@@ -20,6 +20,7 @@
 + (id)_latestAccountViewController;
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(readonly, nonatomic, getter=_mescalSession) SUMescalSession *_mescalSession; // @synthesize _mescalSession;
+- (_Bool)_shouldUseWebViewFastPath;
 - (void)_mescalDidOpenWithSession:(id)arg1 error:(id)arg2;
 - (void)_forceOrientationBackToSupportedOrientation;
 - (id)_bagKeyForStyle:(long long)arg1;

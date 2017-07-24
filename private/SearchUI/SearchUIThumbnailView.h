@@ -16,6 +16,7 @@
     UIView *_overlayPlayButton;
 }
 
++ (id)thumbnailForResult:(id)arg1;
 @property(retain) UIView *overlayPlayButton; // @synthesize overlayPlayButton=_overlayPlayButton;
 @property(retain) SearchUIImageView *imageView; // @synthesize imageView=_imageView;
 @property(retain) SFDetailedRowCardSection *detailedCardSection; // @synthesize detailedCardSection=_detailedCardSection;

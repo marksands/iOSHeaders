@@ -11,6 +11,9 @@
 @protocol ISURLOperationDelegate <ISOperationDelegate>
 
 @optional
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentageCachedResponses;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentage;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSessionDuration;
 - (NSString *)URLCacheID;
 - (NSURLCache *)URLCache;
 - (NSURLCredential *)operation:(ISURLOperation *)arg1 credentialForAuthenticationChallenge:(NSURLAuthenticationChallenge *)arg2;

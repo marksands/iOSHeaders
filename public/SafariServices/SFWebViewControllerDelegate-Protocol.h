@@ -9,6 +9,7 @@
 @class NSArray, NSError, NSURL, NSURLAuthenticationChallenge, SFWebViewController, UIViewController, WKBackForwardListItem, WKNavigation, WKNavigationAction, WKNavigationResponse, WKWebView, WKWebViewConfiguration, _WKActivatedElementInfo, _WKFrameHandle;
 
 @protocol SFWebViewControllerDelegate <NSObject>
+- (void)webViewControllerDidChangeSafeAreaShouldAffectObscuredInsets:(SFWebViewController *)arg1;
 - (void)webViewControllerDidChangeSafeAreaInsets:(SFWebViewController *)arg1;
 - (void)webViewController:(SFWebViewController *)arg1 printFrame:(_WKFrameHandle *)arg2;
 - (UIViewController *)presentingViewControllerForWebViewController:(SFWebViewController *)arg1;

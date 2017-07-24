@@ -80,7 +80,7 @@
 - (id)dataForPhoto:(id)arg1 format:(int)arg2 allowPlaceholder:(_Bool)arg3 width:(int *)arg4 height:(int *)arg5 bytesPerRow:(int *)arg6 dataWidth:(int *)arg7 dataHeight:(int *)arg8 imageDataOffset:(int *)arg9;
 - (void)deleteThumbnailsWithIdentifier:(id)arg1 orIndex:(unsigned long long)arg2 uuid:(id)arg3;
 - (void)setThumbnailsForAsset:(id)arg1 withImage:(id)arg2;
-- (void)_setThumbnailsWithIdentifier:(id)arg1 index:(unsigned long long)arg2 validSRGBImage:(id)arg3 assetUUID:(id)arg4;
+- (void)_setThumbnailsWithIdentifier:(id)arg1 thumbnailIndex:(unsigned long long)arg2 image:(id)arg3 assetUUID:(id)arg4;
 - (void)discardCachedThumbnailDownscalerContexts;
 - (void)endThumbnailSafePropertyUpdatesOnAsset:(id)arg1 withToken:(id)arg2;
 - (id)beginThumbnailSafePropertyUpdatesOnAsset:(id)arg1;

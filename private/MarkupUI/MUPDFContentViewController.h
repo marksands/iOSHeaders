@@ -10,7 +10,7 @@
 #import <MarkupUI/PDFAKControllerDelegateProtocol-Protocol.h>
 #import <MarkupUI/PDFViewDelegatePrivate-Protocol.h>
 
-@class MUPDFPageLabelView, NSArray, NSLayoutConstraint, NSString, PDFDocument, PDFPage, PDFThumbnailView, PDFView, UIScrollView, UIVisualEffectView;
+@class MUPDFPageLabelView, NSArray, NSLayoutConstraint, NSString, PDFDocument, PDFPage, PDFThumbnailView, PDFView, UIScrollView, UIView;
 
 @interface MUPDFContentViewController : MUContentViewController <PDFAKControllerDelegateProtocol, PDFViewDelegatePrivate, MUContentViewControllerProtocol>
 {
@@ -25,7 +25,7 @@
     NSArray *_sourceContentReplacedAnnotationMaps;
     PDFView *_pdfView;
     PDFThumbnailView *_thumbnailView;
-    UIVisualEffectView *_thumbnailViewHolder;
+    UIView *_thumbnailViewHolder;
     NSArray *_thumbnailViewHolderConstraints;
     NSLayoutConstraint *_thumbnailViewHolderRevealConstraint;
     MUPDFPageLabelView *_pageLabelView;
@@ -45,7 +45,7 @@
 @property(retain) NSLayoutConstraint *thumbnailViewHolderRevealConstraint; // @synthesize thumbnailViewHolderRevealConstraint=_thumbnailViewHolderRevealConstraint;
 @property(retain) NSArray *thumbnailViewHolderConstraints; // @synthesize thumbnailViewHolderConstraints=_thumbnailViewHolderConstraints;
 @property _Bool constraintsAreHorizontal; // @synthesize constraintsAreHorizontal=_constraintsAreHorizontal;
-@property(retain) UIVisualEffectView *thumbnailViewHolder; // @synthesize thumbnailViewHolder=_thumbnailViewHolder;
+@property(retain) UIView *thumbnailViewHolder; // @synthesize thumbnailViewHolder=_thumbnailViewHolder;
 @property(nonatomic) _Bool forcesPDFViewTopAlignment; // @synthesize forcesPDFViewTopAlignment=_forcesPDFViewTopAlignment;
 @property(retain) PDFThumbnailView *thumbnailView; // @synthesize thumbnailView=_thumbnailView;
 @property(retain) PDFView *pdfView; // @synthesize pdfView=_pdfView;

@@ -14,8 +14,10 @@
     NSArray *_articlesToHide;
     NSMapTable *_personalizedScores;
     NSMapTable *_agedPersonalizedScores;
+    NSMapTable *_diversifiedPersonalizedScores;
 }
 
+@property(retain, nonatomic) NSMapTable *diversifiedPersonalizedScores; // @synthesize diversifiedPersonalizedScores=_diversifiedPersonalizedScores;
 @property(retain, nonatomic) NSMapTable *agedPersonalizedScores; // @synthesize agedPersonalizedScores=_agedPersonalizedScores;
 @property(retain, nonatomic) NSMapTable *personalizedScores; // @synthesize personalizedScores=_personalizedScores;
 @property(retain, nonatomic) NSArray *articlesToHide; // @synthesize articlesToHide=_articlesToHide;

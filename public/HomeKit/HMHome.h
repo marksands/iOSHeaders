@@ -17,6 +17,10 @@
 
 @interface HMHome : NSObject <_HMLocationHandlerDelegate, NSSecureCoding, HMFMessageReceiver, HMObjectMerge, HMMutableApplicationData>
 {
+    _Bool _automaticSoftwareUpdateEnabled;
+    long long _minimumMediaUserPrivilege;
+    _Bool _mediaPeerToPeerEnabled;
+    NSString *_mediaPassword;
     _Bool _primary;
     _Bool _notificationsEnabled;
     _Bool _ownerUser;
@@ -57,6 +61,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)isValidMediaPassword:(id)arg1 error:(id *)arg2;
 @property(readonly, copy, nonatomic) NSArray *triggerOwnedActionSets; // @synthesize triggerOwnedActionSets=_triggerOwnedActionSets;
 @property(retain, nonatomic) HMRoom *homeAsRoom; // @synthesize homeAsRoom=_homeAsRoom;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
@@ -64,6 +69,10 @@
 @property(nonatomic) int locationAuthorization; // @synthesize locationAuthorization=_locationAuthorization;
 @property(nonatomic, getter=isAdminUser) _Bool adminUser; // @synthesize adminUser=_adminUser;
 @property(nonatomic, getter=isOwnerUser) _Bool ownerUser; // @synthesize ownerUser=_ownerUser;
+@property(copy) NSString *mediaPassword; // @synthesize mediaPassword=_mediaPassword;
+@property(getter=isMediaPeerToPeerEnabled) _Bool mediaPeerToPeerEnabled; // @synthesize mediaPeerToPeerEnabled=_mediaPeerToPeerEnabled;
+@property long long minimumMediaUserPrivilege; // @synthesize minimumMediaUserPrivilege=_minimumMediaUserPrivilege;
+@property(getter=isAutomaticSoftwareUpdateEnabled) _Bool automaticSoftwareUpdateEnabled; // @synthesize automaticSoftwareUpdateEnabled=_automaticSoftwareUpdateEnabled;
 @property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentMediaSessions; // @synthesize currentMediaSessions=_currentMediaSessions;
 @property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentOutgoingInvitations; // @synthesize currentOutgoingInvitations=_currentOutgoingInvitations;
 @property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentResidentDevices; // @synthesize currentResidentDevices=_currentResidentDevices;
@@ -94,10 +103,15 @@
 - (void)updateApplicationData:(id)arg1 forRoom:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)updateApplicationData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+- (id)messageDestination;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)reEvaluateHomeHubState;
+- (void)_removeIncompatibleTrigger:(id)arg1;
+- (void)_notifyDelegateOfTriggerUpdated:(id)arg1;
+- (void)_notifyDelegateOfTriggerRemoved:(id)arg1;
+- (void)_notifyDelegateOfTriggerAdded:(id)arg1;
 - (void)_notifyDelegateOfAccesoryInvitationsUpdateForUser:(id)arg1;
 - (void)notifyDelegateOfAccesoryInvitationsUpdateForUser:(id)arg1;
 - (void)_notifyDelegateOfAccessControlUpdateForUser:(id)arg1;
@@ -146,9 +160,6 @@
 - (void)_handleUpdateMediaSession:(id)arg1;
 - (void)_handleAddedMediaSession:(id)arg1;
 - (void)_handleRemovedMediaSession:(id)arg1;
-- (void)_handleAccessoryReprovisionedNotification:(id)arg1;
-- (void)_reprovisionAccessory:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)reprovisionAccessory:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_removeIdentifier:(id)arg1 bridgeUUID:(id)arg2;
 - (void)_addIdentifier:(id)arg1 bridgeUUID:(id)arg2;
 - (void)_removeServices:(id)arg1;
@@ -279,7 +290,7 @@
 - (id)residentDevices;
 - (id)_createFailedAccessoriesListFromError:(id)arg1;
 - (void)_removeUser:(id)arg1 confirm:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)_addUser:(id)arg1 privilege:(unsigned long long)arg2 confirmWithLocalUser:(_Bool)arg3 confirmWithRemoteUser:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)_addUser:(id)arg1 privilege:(long long)arg2 confirmWithLocalUser:(_Bool)arg3 confirmWithRemoteUser:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)_inviteWithUserInformation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)inviteUsersWithInviteInformation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)inviteUsers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -287,8 +298,8 @@
 - (void)removeUserWithoutConfirmation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_addUser:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)addUser:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)_addUserWithoutConfirmation:(id)arg1 privilege:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)addUserWithoutConfirmation:(id)arg1 privilege:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_addUserWithoutConfirmation:(id)arg1 privilege:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)addUserWithoutConfirmation:(id)arg1 privilege:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_removeUser:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removeUser:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_addUserWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -320,6 +331,10 @@
 - (void)_queryRemoteAccessWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)queryRemoteAccessWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)mediaSessions;
+- (void)updateAutomaticSoftwareUpdateEnabled:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)updateMediaPassword:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)updateMediaPeerToPeerEnabled:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)updateMinimumMediaUserPrivilege:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

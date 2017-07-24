@@ -8,7 +8,7 @@
 
 #import <GeoServices/GEOMapAccessRestrictions-Protocol.h>
 
-@class GEOComposedWaypoint, GEOMapRegion, GEORoute, GEORouteAttributes, GEORouteSet, GEOStyleAttributes, GEOTransitDecoderData, GEOTransitSuggestedRoute, GEOZilchDecoder, NSArray, NSData, NSDate, NSHashTable, NSMutableArray, NSString;
+@class GEOComposedWaypoint, GEOMapRegion, GEORoute, GEORouteAttributes, GEORouteInitializerData, GEORouteSet, GEOStyleAttributes, GEOTransitDecoderData, GEOTransitSuggestedRoute, GEOZilchDecoder, NSArray, NSData, NSDate, NSHashTable, NSMutableArray, NSString;
 @protocol GEOServerFormattedString, GEOTransitRoutingIncidentMessage;
 
 @interface GEOComposedRoute : NSObject <GEOMapAccessRestrictions>
@@ -62,6 +62,7 @@
     _Bool _isWalkingOnlyTransitRoute;
     GEOComposedWaypoint *_origin;
     GEOComposedWaypoint *_destination;
+    GEORouteInitializerData *_routeInitializerData;
 }
 
 @property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
@@ -151,12 +152,14 @@
 - (int)formOfWayAt:(unsigned int)arg1;
 - (void)getFormOfWay:(int *)arg1 roadClass:(int *)arg2 at:(unsigned int)arg3;
 - (void)maneuverDisplayHasChanged;
+- (void)_createTrafficIncidentsForRouteInitializerData:(id)arg1;
 @property(nonatomic) unsigned int historicTravelTime;
 @property(readonly, nonatomic) _Bool hasHistoricTravelTime;
 @property(nonatomic) unsigned int expectedTime; // @synthesize expectedTime=_expectedTime;
 @property(readonly, nonatomic) _Bool hasExpectedTime;
 - (void)notifyTrafficUpdated;
 - (unsigned long long)trafficColorOffsetAtIndex:(unsigned long long)arg1;
+- (unsigned int)trafficColorForDistanceRemaining:(double)arg1;
 @property(readonly, nonatomic) unsigned int *trafficColorOffsets;
 @property(readonly, nonatomic) unsigned long long trafficColorOffsetsCount;
 @property(readonly, nonatomic) unsigned int *trafficColors;
@@ -207,6 +210,7 @@
 @property(readonly, nonatomic) GEOStyleAttributes *styleAttributes;
 @property(readonly, nonatomic) GEORouteAttributes *routeAttributes;
 @property(readonly, nonatomic) int transportType;
+@property(readonly, nonatomic) GEORouteInitializerData *routeInitializerData;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 @property(readonly, copy) NSString *description;
@@ -215,6 +219,7 @@
 - (id)initWithSuggestedRoute:(id)arg1 decoderData:(id)arg2 origin:(id)arg3 destination:(id)arg4;
 - (id)initWithSuggestedRoute:(id)arg1 decoderData:(id)arg2;
 - (void)updateRouteWithOrigin:(id)arg1 destination:(id)arg2;
+- (id)initWithRoute:(id)arg1 initializerData:(id)arg2;
 - (id)initWithRoute:(id)arg1 origin:(id)arg2 destination:(id)arg3;
 - (id)initWithRoute:(id)arg1;
 - (id)initWithCompanionRoute:(id)arg1;

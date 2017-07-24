@@ -19,10 +19,8 @@
     double _exerciseMinutesDailyAverage;
     double _distanceTraveled;
     long long _workouts;
-    double _workoutCalorieAverage;
 }
 
-@property(readonly, nonatomic) double workoutCalorieAverage; // @synthesize workoutCalorieAverage=_workoutCalorieAverage;
 @property(readonly, nonatomic) long long workouts; // @synthesize workouts=_workouts;
 @property(readonly, nonatomic) double distanceTraveled; // @synthesize distanceTraveled=_distanceTraveled;
 @property(readonly, nonatomic) double exerciseMinutesDailyAverage; // @synthesize exerciseMinutesDailyAverage=_exerciseMinutesDailyAverage;
@@ -34,7 +32,7 @@
 @property(readonly, nonatomic) long long daysMeetingMoveGoalByFactorOfTwo; // @synthesize daysMeetingMoveGoalByFactorOfTwo=_daysMeetingMoveGoalByFactorOfTwo;
 @property(readonly, nonatomic) long long daysMeetingMoveGoal; // @synthesize daysMeetingMoveGoal=_daysMeetingMoveGoal;
 @property(readonly, nonatomic) long long daysMeetingAllGoals; // @synthesize daysMeetingAllGoals=_daysMeetingAllGoals;
-- (id)initWithNumberOfDaysInMonth:(unsigned long long)arg1 daysMeetingAllGoals:(long long)arg2 daysMeetingMoveGoal:(long long)arg3 daysMeetingMoveGoalByFactorOfTwo:(long long)arg4 daysMeetingExerciseGoal:(long long)arg5 daysMeetingStandGoal:(long long)arg6 activeCalories:(double)arg7 exerciseMinutes:(double)arg8 distanceTraveled:(double)arg9 workouts:(long long)arg10 workoutCalorieAverage:(double)arg11;
+- (id)initWithNumberOfDaysInMonth:(unsigned long long)arg1 daysMeetingAllGoals:(long long)arg2 daysMeetingMoveGoal:(long long)arg3 daysMeetingMoveGoalByFactorOfTwo:(long long)arg4 daysMeetingExerciseGoal:(long long)arg5 daysMeetingStandGoal:(long long)arg6 activeCalories:(double)arg7 exerciseMinutes:(double)arg8 distanceTraveled:(double)arg9 workouts:(long long)arg10;
 
 @end
 

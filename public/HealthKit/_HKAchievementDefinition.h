@@ -87,7 +87,7 @@
 @property(retain, nonatomic) NSExpression *expressionForGoalValue;
 @property(retain, nonatomic) NSExpression *expressionForProgressValue;
 @property(retain, nonatomic) NSExpression *expressionForEarnedValue;
-- (id)debugDescription;
+- (id)description;
 - (long long)compareDisplayOrderOfDefinition:(id)arg1;
 
 @end

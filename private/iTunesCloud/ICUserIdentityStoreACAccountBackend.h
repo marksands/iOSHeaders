@@ -8,16 +8,37 @@
 
 #import <iTunesCloud/ICUserIdentityStoreBackend-Protocol.h>
 
-@class ACAccountStore, ICUserVerificationContext, NSNumber, NSString;
+@class ACAccountStore, ACAccountType, ICUserIdentityProperties, ICUserVerificationContext, NSArray, NSMapTable, NSMutableDictionary, NSNumber, NSString;
+@protocol ICUserIdentityStoreBackendDelegate, OS_dispatch_queue;
 
 @interface ICUserIdentityStoreACAccountBackend : NSObject <ICUserIdentityStoreBackend>
 {
+    NSObject<OS_dispatch_queue> *_accessSerialQueue;
+    id _activeAccountDSIDValue;
+    id _activeLockerAccountDSIDValue;
     ACAccountStore *_accountStore;
+    NSMapTable *_accountToIdentityProperties;
+    NSArray *_allStoreAccounts;
+    NSObject<OS_dispatch_queue> *_callbackQueue;
+    NSMutableDictionary *_dsidToAccount;
+    id _primaryICloudAccountIdentityPropertiesValue;
+    ACAccountType *_storeAccountType;
+    id <ICUserIdentityStoreBackendDelegate> _delegate;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) __weak id <ICUserIdentityStoreBackendDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_synchronize;
+- (id)_storeAccountType;
+- (id)_storeAccountForDSID:(id)arg1;
+- (id)_primaryICloudAccountIdentityProperties;
+- (id)_newUserIdentityPropertiesForAccount:(id)arg1;
+- (id)_allStoreAccounts;
+- (id)_activeLockerAccountDSID;
+- (id)_activeAccountDSID;
 - (void)_applyIdentityProperties:(id)arg1 toAccount:(id)arg2;
+- (void)_accountStoreDidChangeNotification:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -25,11 +46,15 @@
 - (id)verificationContextForDSID:(id)arg1;
 - (void)synchronize;
 - (void)setIdentityProperties:(id)arg1 forDSID:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
-@property(copy, nonatomic) NSNumber *activeLockerAccountDSID;
-@property(copy, nonatomic) NSNumber *activeAccountDSID;
+- (void)updateActiveLockerAccountDSID:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)updateActiveAccountDSID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)replaceIdentityProperties:(id)arg1 forDSID:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)removeIdentityForDSID:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+@property(readonly, copy, nonatomic) ICUserIdentityProperties *primaryICloudAccountIdentityProperties;
 - (id)identityPropertiesForDSID:(id)arg1;
+@property(readonly, nonatomic) NSNumber *activeLockerAccountDSID;
+@property(readonly, nonatomic) NSNumber *activeAccountDSID;
+- (void)dealloc;
 - (id)initWithACAccountStore:(id)arg1;
 - (id)init;
 

@@ -24,6 +24,7 @@
 @property(readonly, copy, nonatomic) NSDictionary *serverTrackInfo;
 @property(readonly, nonatomic) long long storeAdamID;
 @property(readonly, nonatomic) double startTime;
+@property(readonly, nonatomic) long long likeState;
 @property(readonly, nonatomic, getter=isSkippable) _Bool skippable;
 @property(readonly, copy, nonatomic) ICStoreHLSAssetInfo *hlsAsset;
 @property(readonly, nonatomic) _Bool hasStartTime;

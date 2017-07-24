@@ -6,19 +6,19 @@
 
 #import <objc/NSObject.h>
 
-@class PXUICPLService;
+@class PXCPLServiceStatus, PXUICPLService;
 
 @interface PUStorageManagementCPLService : NSObject
 {
     PXUICPLService *_cplUIService;
-    struct PXCPLServiceStatus _lastServiceStatusUpdated;
+    PXCPLServiceStatus *_lastServiceStatusUpdated;
     CDUnknownBlockType _uploadCallbackHandler;
 }
 
 + (id)sharedCPLService;
 @property(copy, nonatomic) CDUnknownBlockType uploadCallbackHandler; // @synthesize uploadCallbackHandler=_uploadCallbackHandler;
 - (void).cxx_destruct;
-- (void)_updateUploadCallbackHandler:(struct PXCPLServiceStatus)arg1;
+- (void)_updateUploadCallbackHandler:(id)arg1;
 @property(readonly, nonatomic) _Bool hasCompletedInitialUpload;
 - (void)_initCPLService;
 - (id)init;

@@ -41,6 +41,8 @@
     _Bool _waitingOnReadGroup;
     NSOutputStream *_outputStream;
     NSObject<OS_dispatch_source> *_openTimer;
+    NSObject<OS_dispatch_source> *_staleConnectionTimer;
+    unsigned long long _readWriteCounter;
 }
 
 + (void)getMetricsContext:(CDUnknownBlockType)arg1;
@@ -56,7 +58,10 @@
 - (_Bool)isEstablishing;
 - (_Bool)isMultipath;
 - (_Bool)shouldFallbackFromError:(id)arg1;
+- (_Bool)isNetworkDownError:(id)arg1;
+- (_Bool)isPeerNotNearbyError:(id)arg1;
 - (_Bool)isPeerConnectionError:(id)arg1;
+- (void)_closeWithError:(id)arg1;
 - (void)close;
 - (id)resolvedHost;
 - (_Bool)providerStatsIndicatePoorLinkQuality;
@@ -68,6 +73,9 @@
 - (void)_cancelOpenTimer;
 - (void)_setupOpenTimer;
 - (_Bool)supportsInitialPayload;
+- (void)_cancelStaleConnectionTimer;
+- (void)_setupStaleConnectionTimer;
+- (void)_streamDidBecomeUnviable;
 - (void)URLSession:(id)arg1 streamTask:(id)arg2 didBecomeInputStream:(id)arg3 outputStream:(id)arg4;
 - (void)URLSession:(id)arg1 didReceiveChallenge:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)URLSession:(id)arg1 didBecomeInvalidWithError:(id)arg2;

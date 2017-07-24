@@ -35,8 +35,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (double)autoFitContentScaleForSheet:(id)arg1;
-+ (double)p_contentScaleAutoFitForSheet:(id)arg1;
-+ (id)p_cachedAutoFitContentScaleDictionary;
++ (double)p_unclampedAutoFitContentScaleForSheet:(id)arg1;
++ (id)cachedAutoFitContentScaleDictionary;
 @property(readonly, nonatomic) _Bool inDynamicContentScaleChange; // @synthesize inDynamicContentScaleChange=_inDynamicContentScaleChange;
 @property(retain, nonatomic) TNPrintProperties *printProperties; // @synthesize printProperties=_printProperties;
 @property(nonatomic) _Bool maxPageCoordinateValid; // @synthesize maxPageCoordinateValid=_maxPageCoordinateValid;

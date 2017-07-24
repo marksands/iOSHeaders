@@ -14,7 +14,7 @@
 {
 }
 
-+ (id)newAceObjectWithDictionary:(id)arg1 context:(id)arg2;
++ (id)aceObjectWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getMobileGestaltStringRequestWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getMobileGestaltStringRequest;
 + (_Bool)isValidKey:(id)arg1;

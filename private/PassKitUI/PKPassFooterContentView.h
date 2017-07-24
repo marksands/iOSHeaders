@@ -11,8 +11,6 @@
 
 @interface PKPassFooterContentView : UIView
 {
-    _Bool _isVisibleAsFooter;
-    _Bool _isPassAuthorized;
     long long _style;
     id <PKPassFooterContentViewDelegate> _delegate;
     PKPass *_pass;
@@ -21,8 +19,6 @@
     UIView *_bottomRule;
 }
 
-@property(readonly, nonatomic) _Bool isPassAuthorized; // @synthesize isPassAuthorized=_isPassAuthorized;
-@property(readonly, nonatomic) _Bool isVisibleAsFooter; // @synthesize isVisibleAsFooter=_isVisibleAsFooter;
 @property(readonly, nonatomic) UIView *bottomRule; // @synthesize bottomRule=_bottomRule;
 @property(readonly, nonatomic) UIButton *infoButton; // @synthesize infoButton=_infoButton;
 @property(readonly, nonatomic) PKLinkedAppIconView *appIconView; // @synthesize appIconView=_appIconView;
@@ -32,6 +28,7 @@
 - (void).cxx_destruct;
 - (double)_bottomRulePadding;
 - (void)_infoButtonPressed:(id)arg1;
+@property(readonly, nonatomic, getter=isPassAuthorized) _Bool passAuthorized;
 - (void)didBecomeHiddenAnimated:(_Bool)arg1;
 - (void)willBecomeHiddenAnimated:(_Bool)arg1;
 - (void)didBecomeVisibleAnimated:(_Bool)arg1;

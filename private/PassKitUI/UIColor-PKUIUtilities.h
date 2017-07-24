@@ -7,6 +7,7 @@
 #import <UIKit/UIColor.h>
 
 @interface UIColor (PKUIUtilities)
++ (id)pkui_osloErrorColor;
 + (id)colorWithPKColor:(id)arg1;
 @end
 

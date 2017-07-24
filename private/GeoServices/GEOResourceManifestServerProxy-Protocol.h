@@ -6,7 +6,7 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
-@class GEOActiveTileGroup, GEOResourceManifestConfiguration, NSArray, NSNumber, NSObject, NSString;
+@class GEOActiveTileGroup, GEOResourceManifestConfiguration, NSArray, NSNumber, NSObject, NSProgress, NSString;
 @protocol GEOResourceManifestServerProxyDelegate, OS_dispatch_queue;
 
 @protocol GEOResourceManifestServerProxy <NSObject>
@@ -15,12 +15,14 @@
 - (void)getResourceManifestWithHandler:(void (^)(GEOResourceManifestDownload *, NSError *))arg1;
 - (oneway void)resetActiveTileGroup;
 - (oneway void)setActiveTileGroupIdentifier:(NSNumber *)arg1;
+- (NSProgress *)updateProgress;
 - (void)deactivateResourceScenario:(int)arg1;
 - (void)activateResourceScenario:(int)arg1;
 - (void)deactivateResourceScale:(int)arg1;
 - (void)activateResourceScale:(int)arg1;
 - (void)performOpportunisticResourceLoading;
-- (void)forceUpdate:(void (^)(NSError *))arg1;
+- (void)cancelCurrentManifestUpdate;
+- (void)forceUpdate:(long long)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)updateIfNecessary:(void (^)(NSError *))arg1;
 - (void)setManifestToken:(NSString *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (GEOResourceManifestConfiguration *)configuration;

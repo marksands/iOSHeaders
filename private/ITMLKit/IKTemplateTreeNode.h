@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <ITMLKit/NSCopying-Protocol.h>
+
 @class IKViewElementStyle, IKViewElementStyleComposer, NSDictionary, NSString;
 
-@interface IKTemplateTreeNode : NSObject
+@interface IKTemplateTreeNode : NSObject <NSCopying>
 {
     IKTemplateTreeNode *_parentNode;
     NSString *_nodeName;
@@ -24,6 +26,7 @@
 @property(readonly, nonatomic) __weak IKTemplateTreeNode *parentNode; // @synthesize parentNode=_parentNode;
 - (void).cxx_destruct;
 - (id)initWithNodeName:(id)arg1 styleOverrides:(id)arg2 parentNode:(id)arg3;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)unsupportedFunctionNameForLocale:(id)arg1;
++ (_Bool)isModeEnabled:(short)arg1 functionIndex:(short)arg2;
 + (id)functionSpecForFunctionName:(id)arg1;
 + (id)functionSpecForFunctionIndex:(int)arg1;
 + (id)specWithFunctionName:(id)arg1 minArgs:(id)arg2 maxArgs:(id)arg3 repeatingGroupSize:(id)arg4 isOperator:(int)arg5 shipVersion:(int)arg6 arguments:(id)arg7 functionIndex:(int)arg8;

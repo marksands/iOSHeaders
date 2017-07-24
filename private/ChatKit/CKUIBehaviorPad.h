@@ -11,6 +11,7 @@
 }
 
 - (_Bool)shouldPopoverSuggestionsBanner;
+- (unsigned long long)suggestedAppStripLimit;
 - (id)fullscreenPickerActionLayoutAxisPrioritiesForWidth:(double)arg1;
 - (_Bool)shouldAlignRecipientGlyphsWithMargins;
 - (double)photoPickerMaxPopoverPhotoHeight;

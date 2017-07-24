@@ -104,6 +104,7 @@
 - (id)filteredAttributedSubstringFromRange:(struct _NSRange)arg1;
 - (id)dataFromRange:(struct _NSRange)arg1 documentAttributes:(id)arg2 error:(id *)arg3;
 - (id)standardizedAttributedStringFixingTextAttachments;
+- (void)styleTextInRange:(struct _NSRange)arg1;
 - (_Bool)isEditing;
 @property(readonly, nonatomic) _Bool isEditingTemporaryAttributes;
 - (void)endTemporaryAttributeEditing;
@@ -147,11 +148,13 @@
 - (void)resetUndoManager;
 - (void)breakUndoCoalescing;
 - (id)newCoalescingUndoGroup;
+- (void)applyUndoWithBlock:(CDUnknownBlockType)arg1;
 - (void)applyUndoGroup:(id)arg1;
 - (void)addUndoCommand:(id)arg1;
 @property(readonly, nonatomic) NSObject<TTTextUndoTarget> *undoTarget;
 - (void)edited:(unsigned long long)arg1 range:(struct _NSRange)arg2 changeInLength:(long long)arg3;
 @property(readonly, nonatomic) TTMergeableAttributedString *mergeableString;
+- (struct _NSRange)logicalRangeForLocation:(unsigned long long)arg1;
 - (id)string;
 - (void)editedAttributeRange:(struct _NSRange)arg1;
 - (void)editedRange:(struct _NSRange)arg1 changeInLength:(long long)arg2;

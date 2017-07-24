@@ -14,12 +14,14 @@
 @interface CCUIAppLauncherModule : NSObject <CCUIContentModule>
 {
     NSBundle *_bundle;
+    _Bool _supportsApplicationShortcuts;
     NSString *_applicationIdentifier;
     NSString *_displayName;
     CCUIContentModuleContext *_contentModuleContext;
     NSURL *_launchURL;
 }
 
+@property(nonatomic) _Bool supportsApplicationShortcuts; // @synthesize supportsApplicationShortcuts=_supportsApplicationShortcuts;
 @property(copy, nonatomic) NSURL *launchURL; // @synthesize launchURL=_launchURL;
 @property(retain, nonatomic) CCUIContentModuleContext *contentModuleContext; // @synthesize contentModuleContext=_contentModuleContext;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;

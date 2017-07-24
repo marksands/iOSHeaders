@@ -17,6 +17,7 @@
 + (id)negativeSceneNamesByROILabel;
 + (id)positiveSceneNamesByROILabel;
 + (id)urbanSceneNames;
++ (id)nonWaterSceneNames;
 + (id)waterSceneNames;
 + (id)nonNatureSceneNames;
 + (id)natureSceneNames;

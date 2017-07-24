@@ -7,11 +7,12 @@
 #import <UIKit/UIViewController.h>
 
 #import <MapKit/MKPlaceSectionViewDelegate-Protocol.h>
+#import <MapKit/_MKAnimationStackViewDelegate-Protocol.h>
 
 @class MKPlaceSectionView, NSString;
 
 __attribute__((visibility("hidden")))
-@interface MKPlaceSectionViewController : UIViewController <MKPlaceSectionViewDelegate>
+@interface MKPlaceSectionViewController : UIViewController <_MKAnimationStackViewDelegate, MKPlaceSectionViewDelegate>
 {
     MKPlaceSectionView *_sectionView;
 }
@@ -22,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (void)sectionView:(id)arg1 didSelectRow:(id)arg2 atIndex:(unsigned long long)arg3;
 - (void)sectionView:(id)arg1 didSelectHeader:(id)arg2;
 - (_Bool)_viewHostsLayoutEngineAllowsTAMIC_NO;
+- (void)stackViewNeedsLayout:(id)arg1;
 @property(readonly, nonatomic) MKPlaceSectionView *sectionView; // @synthesize sectionView=_sectionView;
 - (void)dealloc;
 - (void)loadView;

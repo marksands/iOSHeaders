@@ -22,6 +22,7 @@
     UIImage *_landscapeImagePhone;
     struct UIEdgeInsets _imageInsets;
     struct UIEdgeInsets _landscapeImagePhoneInsets;
+    struct UIEdgeInsets _additionalSelectionInsets;
     double _width;
     UIView *_view;
     id _appearanceStorage;
@@ -59,6 +60,7 @@
     id <_UIBarButtonItemViewOwner> __viewOwner;
     CDUnknownBlockType __autoValidationHandler;
     UILayoutGuide *__popoverLayoutGuide;
+    NSArray *__backButtonAlternateTitles;
     UIBarButtonItemGroup *_buttonGroup;
 }
 
@@ -70,6 +72,7 @@
 @property(readonly, nonatomic) __weak UIBarButtonItemGroup *buttonGroup; // @synthesize buttonGroup=_buttonGroup;
 @property(readonly, nonatomic) _Bool _needsViewUpdateForLetterpressImage; // @synthesize _needsViewUpdateForLetterpressImage=__needsViewUpdateForLetterpressImage;
 @property(readonly, nonatomic) _Bool _viewWantsLetterpressImage; // @synthesize _viewWantsLetterpressImage=__viewWantsLetterpressImage;
+@property(copy, nonatomic, setter=_setBackButtonAlternateTitles:) NSArray *_backButtonAlternateTitles; // @synthesize _backButtonAlternateTitles=__backButtonAlternateTitles;
 @property(retain, nonatomic, setter=_setPopoverLayoutGuide:) UILayoutGuide *_popoverLayoutGuide; // @synthesize _popoverLayoutGuide=__popoverLayoutGuide;
 @property(copy, nonatomic, setter=_setAutoValidationHandler:) CDUnknownBlockType _autoValidationHandler; // @synthesize _autoValidationHandler=__autoValidationHandler;
 @property(nonatomic, setter=_setViewOwner:) __weak id <_UIBarButtonItemViewOwner> _viewOwner; // @synthesize _viewOwner=__viewOwner;
@@ -148,8 +151,7 @@
 - (void)_connectInterfaceBuilderEventConnection:(id)arg1;
 - (double)_width;
 - (void)_setWidth:(double)arg1;
-- (void)_setInteractions:(id)arg1;
-- (id)_interactions;
+@property(retain, nonatomic, setter=_setInteractions:) NSArray *_interactions;
 @property(retain, nonatomic, setter=_setGestureRecognizers:) NSArray *_gestureRecognizers;
 - (id)createViewForToolbar:(id)arg1;
 - (id)createViewForNavigationItem:(id)arg1;
@@ -159,6 +161,7 @@
 - (_Bool)_shouldBezelSystemButtonImage;
 @property(nonatomic, setter=_setImageHasEffects:) _Bool _imageHasEffects;
 @property(readonly, nonatomic) UIToolbarButton *_toolbarButton;
+@property(nonatomic, setter=_setAdditionalSelectionInsets:) struct UIEdgeInsets _additionalSelectionInsets;
 - (void)_setMiniImageInsets:(struct UIEdgeInsets)arg1;
 - (struct UIEdgeInsets)_miniImageInsets;
 - (void)_setMiniImage:(id)arg1;
@@ -183,6 +186,7 @@
 - (void)setView:(id)arg1;
 - (id)nextResponder;
 - (id)window;
+@property(readonly, copy) NSString *description;
 - (_Bool)isEqual:(id)arg1;
 - (void)_updateView;
 - (void)_getToolbarSystemItemEdgeInsetsWithImageInsets:(struct UIEdgeInsets *)arg1 forBarStyle:(long long)arg2 landscape:(_Bool)arg3 alwaysBordered:(_Bool)arg4;
@@ -194,7 +198,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

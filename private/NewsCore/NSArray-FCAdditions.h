@@ -60,6 +60,7 @@
 - (id)fc_arrayByRemovingObject:(id)arg1;
 - (id)fc_arrayByFlattening;
 - (unsigned long long)fc_countOfObjectsPassingTest:(CDUnknownBlockType)arg1;
+- (id)fc_arrayOfObjectsFailingTest:(CDUnknownBlockType)arg1;
 - (id)fc_arrayOfObjectsPassingTest:(CDUnknownBlockType)arg1;
 - (id)fc_orderedSetByTransformingWithBlock:(CDUnknownBlockType)arg1;
 - (id)fc_setOfObjectsPassingTest:(CDUnknownBlockType)arg1;
@@ -76,7 +77,8 @@
 - (id)fc_firstObjectFromIndex:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2;
 - (id)fc_firstObjectPassingTest:(CDUnknownBlockType)arg1;
 - (id)fc_onlyObject;
-- (id)fc_dictionaryOfSortedArraysWithKeyBlock:(CDUnknownBlockType)arg1;
+- (id)fc_dictionaryOfTransformedSortedObjectsWithKeyBlock:(CDUnknownBlockType)arg1 valueBlock:(CDUnknownBlockType)arg2;
+- (id)fc_dictionaryOfSortedObjectsWithKeyBlock:(CDUnknownBlockType)arg1;
 - (id)fc_dictionaryWithValueBlock:(CDUnknownBlockType)arg1;
 - (id)fc_dictionaryWithKeyBlock:(CDUnknownBlockType)arg1;
 - (id)fc_dictionaryWithKeySelector:(SEL)arg1 valueSelector:(SEL)arg2;

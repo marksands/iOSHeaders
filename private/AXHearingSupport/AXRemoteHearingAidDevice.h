@@ -140,6 +140,7 @@
 - (void)selectProgram:(id)arg1 forEar:(int)arg2;
 - (void)_writeAllProgramSelectionsToPeripheral;
 - (void)_updateSelectedProgramsProperties;
+- (id)combinedPrograms;
 - (id)programs;
 - (_Bool)showCombinedPrograms;
 - (_Bool)programsListsAreEqual;

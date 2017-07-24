@@ -10,6 +10,7 @@
 {
 }
 
+- (double)viewCornerRadius;
 - (_Bool)supportsThumbnailView;
 
 @end

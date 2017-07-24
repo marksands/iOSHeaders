@@ -20,21 +20,21 @@
 - (id)verb;
 - (void)setDomain:(id)arg1;
 - (id)domain;
-- (void)_redactForMissingPrivacyEntitlementOptions:(unsigned long long)arg1;
+- (void)_redactForMissingPrivacyEntitlementOptions:(unsigned long long)arg1 containingAppBundleId:(id)arg2;
 - (id)_dictionaryRepresentation;
-@property(readonly, copy) NSString *description;
 - (void)setGroupName:(id)arg1;
 @property(readonly, copy, nonatomic) INSpeakableString *groupName;
 - (void)setTaskTitles:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *taskTitles;
 - (void)setTitle:(id)arg1;
-@property(readonly, copy, nonatomic) NSString *title;
+@property(readonly, copy, nonatomic) INSpeakableString *title;
 - (id)initWithTitle:(id)arg1 taskTitles:(id)arg2 groupName:(id)arg3;
 - (id)_metadata;
 - (id)_typedBackingStore;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

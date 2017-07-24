@@ -6,18 +6,21 @@
 
 #import <CoreImage/CIFilter.h>
 
-@class CIImage;
+@class CIImage, NSNumber;
 
 __attribute__((visibility("hidden")))
 @interface CIPortraitBlurPreProcess : CIFilter
 {
     CIImage *inputImage;
     CIImage *inputBlurmapImage;
+    NSNumber *inputUseMetal;
 }
 
+@property(copy, nonatomic) NSNumber *inputUseMetal; // @synthesize inputUseMetal;
 @property(retain) CIImage *inputBlurmapImage; // @synthesize inputBlurmapImage;
 @property(retain) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
+- (id)_kernelMetal;
 - (id)_kernel;
 
 @end

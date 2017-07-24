@@ -6,21 +6,22 @@
 
 #import <Silex/SXComponent.h>
 
-@class SXContainerContentDisplay, SXJSONArray;
+@class SXJSONArray;
+@protocol SXContentDisplay;
 
 @interface SXContainerComponent : SXComponent
 {
 }
 
++ (Class)classForProtocolProperty:(id)arg1 withValue:(id)arg2;
 + (CDUnknownBlockType)purgeClassBlockForPropertyWithName:(id)arg1;
 + (CDUnknownBlockType)objectValueClassBlockForPropertyWithName:(id)arg1;
 + (id)typeString;
-- (id)contentDisplayWithValue:(id)arg1 withType:(int)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) SXJSONArray *allComponents; // @dynamic allComponents;
 @property(readonly, nonatomic) SXJSONArray *components; // @dynamic components;
-@property(readonly, nonatomic) SXContainerContentDisplay *contentDisplay; // @dynamic contentDisplay;
+@property(readonly, nonatomic) id <SXContentDisplay> contentDisplay; // @dynamic contentDisplay;
 
 @end
 

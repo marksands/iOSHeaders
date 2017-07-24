@@ -13,7 +13,6 @@
 
 @interface HFCharacteristicValueManager : NSObject <HFCharacteristicValueSource>
 {
-    NAFuture *readCompleteFuture;
     id <HFCharacteristicValueReader> _valueReader;
     id <HFCharacteristicValueWriter> _valueWriter;
     long long __debug_totalNumberOfIssuedBatchReadRequests;
@@ -28,9 +27,11 @@
     NSMutableDictionary *_cachedWriteErrorsKeyedByCharacteristicIdentifier;
     NSMutableDictionary *_cachedExecutionErrorsKeyedByActionSetIdentifier;
     NACancelationToken *_inFlightReadCancelationToken;
+    NAFuture *_firstReadCompleteFuture;
 }
 
 + (id)na_identity;
+@property(readonly, nonatomic) NAFuture *firstReadCompleteFuture; // @synthesize firstReadCompleteFuture=_firstReadCompleteFuture;
 @property(retain, nonatomic) NACancelationToken *inFlightReadCancelationToken; // @synthesize inFlightReadCancelationToken=_inFlightReadCancelationToken;
 @property(retain, nonatomic) NSMutableDictionary *cachedExecutionErrorsKeyedByActionSetIdentifier; // @synthesize cachedExecutionErrorsKeyedByActionSetIdentifier=_cachedExecutionErrorsKeyedByActionSetIdentifier;
 @property(retain, nonatomic) NSMutableDictionary *cachedWriteErrorsKeyedByCharacteristicIdentifier; // @synthesize cachedWriteErrorsKeyedByCharacteristicIdentifier=_cachedWriteErrorsKeyedByCharacteristicIdentifier;
@@ -45,7 +46,6 @@
 @property(nonatomic) long long _debug_totalNumberOfIssuedBatchReadRequests; // @synthesize _debug_totalNumberOfIssuedBatchReadRequests=__debug_totalNumberOfIssuedBatchReadRequests;
 @property(retain, nonatomic) id <HFCharacteristicValueWriter> valueWriter; // @synthesize valueWriter=_valueWriter;
 @property(retain, nonatomic) id <HFCharacteristicValueReader> valueReader; // @synthesize valueReader=_valueReader;
-@property(retain, nonatomic) NAFuture *readCompleteFuture; // @synthesize readCompleteFuture;
 - (void).cxx_destruct;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;

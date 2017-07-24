@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CKDatabase, FCCKPrivateDatabaseSchema, FCNetworkBehaviorMonitor, NSArray, NSData, NSDate;
+@class CKDatabase, FCCKPrivateDatabaseSchema, FCNetworkBehaviorMonitor, NSArray, NSData, NSDate, NSOperationQueue;
 @protocol FCCKDatabaseEncryptionDelegate, OS_dispatch_group, OS_dispatch_queue;
 
 @interface FCCKPrivateDatabase : NSObject
@@ -25,6 +25,8 @@
     NSArray *_containers;
     FCCKPrivateDatabaseSchema *_schema;
     NSObject<OS_dispatch_queue> *_queue;
+    NSOperationQueue *_serialOperationQueue;
+    NSOperationQueue *_noPreflightOperationQueue;
     NSArray *_middleware;
     NSArray *_remainingStartUpMiddleware;
     NSArray *_operationMiddleware;
@@ -33,6 +35,8 @@
     long long _startUpResult;
     unsigned long long _countOfFailedStartUpAttempts;
     NSDate *_dateOfLastFailedStartUpAttempt;
+    NSArray *_zoneRestorationSources;
+    NSArray *_zonePruningAssistants;
 }
 
 + (CDUnknownBlockType)_privateDatabaseDeprecatedRecordTestBlock;
@@ -40,6 +44,8 @@
 + (id)testingDatabaseWithCKDatabase:(id)arg1 middleware:(id)arg2 encryptionDelegate:(id)arg3;
 + (id)testingDatabaseWithCKDatabase:(id)arg1 middleware:(id)arg2;
 + (id)testingDatabase;
+@property(readonly, nonatomic) NSArray *zonePruningAssistants; // @synthesize zonePruningAssistants=_zonePruningAssistants;
+@property(readonly, nonatomic) NSArray *zoneRestorationSources; // @synthesize zoneRestorationSources=_zoneRestorationSources;
 @property(retain, nonatomic) NSDate *dateOfLastFailedStartUpAttempt; // @synthesize dateOfLastFailedStartUpAttempt=_dateOfLastFailedStartUpAttempt;
 @property(nonatomic) unsigned long long countOfFailedStartUpAttempts; // @synthesize countOfFailedStartUpAttempts=_countOfFailedStartUpAttempts;
 @property(nonatomic) long long startUpResult; // @synthesize startUpResult=_startUpResult;
@@ -51,6 +57,8 @@
 @property(retain, nonatomic) NSArray *operationMiddleware; // @synthesize operationMiddleware=_operationMiddleware;
 @property(retain, nonatomic) NSArray *remainingStartUpMiddleware; // @synthesize remainingStartUpMiddleware=_remainingStartUpMiddleware;
 @property(retain, nonatomic) NSArray *middleware; // @synthesize middleware=_middleware;
+@property(retain, nonatomic) NSOperationQueue *noPreflightOperationQueue; // @synthesize noPreflightOperationQueue=_noPreflightOperationQueue;
+@property(retain, nonatomic) NSOperationQueue *serialOperationQueue; // @synthesize serialOperationQueue=_serialOperationQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) FCCKPrivateDatabaseSchema *schema; // @synthesize schema=_schema;
 @property(retain, nonatomic) NSArray *containers; // @synthesize containers=_containers;
@@ -66,6 +74,9 @@
 - (void)_possiblySimulateCrashForError:(id)arg1 message:(id)arg2;
 - (void)reportFatalStartUpError:(id)arg1;
 - (void)reportEncryptionMigrationError:(id)arg1;
+- (void)reportRecoverableStartUpError:(id)arg1;
+- (void)takeDatabaseOfflineDueToError:(id)arg1;
+@property(readonly, nonatomic) NSArray *zoneIDsUsingSecureContainer;
 - (void)_cancelOperation:(id)arg1;
 - (id)_mapObjects:(id)arg1 withRecordMiddlewareBlock:(CDUnknownBlockType)arg2;
 - (id)_clientError:(id)arg1;
@@ -103,6 +114,13 @@
 - (void)addCKOperation:(id)arg1 destination:(long long)arg2;
 - (void)enumerateActiveDestinationsWithOptions:(long long)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)enumeratePayloadsWithRecordIDs:(id)arg1 records:(id)arg2 zoneIDs:(id)arg3 zones:(id)arg4 options:(long long)arg5 payloadHandler:(CDUnknownBlockType)arg6;
+@property(readonly, nonatomic, getter=isTemporarilySuspended) _Bool suspend;
+@property(readonly, nonatomic, getter=isOnline) _Bool online;
+@property(readonly, nonatomic, getter=isStartingUp) _Bool startingUp;
+- (void)fetchSecureDatabaseSupportedWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)registerZonePruningAssistants:(id)arg1;
+- (void)registerZoneRestorationSources:(id)arg1;
+- (id)_queueForOperation:(id)arg1;
 - (void)addOperation:(id)arg1;
 - (id)initWithContainerIdentifier:(id)arg1 secureContainerIdentifier:(id)arg2 productionEnvironment:(_Bool)arg3 encryptionDelegate:(id)arg4 networkBehaviorMonitor:(id)arg5 privateDataSyncingEnabled:(_Bool)arg6;
 - (id)initWithContainers:(id)arg1 database:(id)arg2 databaseWithZoneWidePCS:(id)arg3 secureDatabase:(id)arg4 schema:(id)arg5 middleware:(id)arg6 encryptionDelegate:(id)arg7 networkBehaviorMonitor:(id)arg8;

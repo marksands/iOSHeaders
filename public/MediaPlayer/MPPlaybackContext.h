@@ -13,6 +13,7 @@
 @interface MPPlaybackContext : NSObject <NSCoding>
 {
     _Bool _shouldStartPlayback;
+    _Bool _requireFinalTracklist;
     _Bool _shouldRestartPlayback;
     long long _startIndex;
     long long _shuffleType;
@@ -29,6 +30,7 @@
 @property(nonatomic) long long repeatType; // @synthesize repeatType=_repeatType;
 @property(nonatomic) long long shuffleType; // @synthesize shuffleType=_shuffleType;
 @property(nonatomic) _Bool shouldRestartPlayback; // @synthesize shouldRestartPlayback=_shouldRestartPlayback;
+@property(nonatomic) _Bool requireFinalTracklist; // @synthesize requireFinalTracklist=_requireFinalTracklist;
 @property(nonatomic) _Bool shouldStartPlayback; // @synthesize shouldStartPlayback=_shouldStartPlayback;
 @property(nonatomic) long long startIndex; // @synthesize startIndex=_startIndex;
 - (void).cxx_destruct;

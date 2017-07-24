@@ -6,14 +6,18 @@
 
 #import <SearchFoundation/SFFeedback.h>
 
-@class SFCard;
+@class NSString, SFCard;
 
 @interface SFCardViewAppearFeedback : SFFeedback
 {
+    unsigned int _level;
     SFCard *_card;
+    NSString *_fbr;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
+@property(nonatomic) unsigned int level; // @synthesize level=_level;
 @property(retain, nonatomic) SFCard *card; // @synthesize card=_card;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

@@ -17,18 +17,18 @@ __attribute__((visibility("hidden")))
     NSPointerArray *_enrolledBindables;
     NSPointerArray *_attachedBindables;
     NSMutableOrderedSet *_contexts;
+    id <_UICanvasLifecycleStateMonitoring> _lifecycleMonitor;
     _Bool __registeredPreCommitHandler;
     NSMutableArray *__preCommitHandlers;
     CDUnknownBlockType __realPreCommitHandler;
     CDUnknownBlockType __realPostCommitHandler;
     id <_UIContextBinding> _substrate;
-    id <_UICanvasLifecycleStateMonitoring> _lifecycleMonitor;
     long long _contextManagementPolicy;
 }
 
 + (id)createContextForBindable:(id)arg1 withSubstrate:(id)arg2;
 @property(nonatomic) long long contextManagementPolicy; // @synthesize contextManagementPolicy=_contextManagementPolicy;
-@property(readonly, nonatomic) id <_UICanvasLifecycleStateMonitoring> lifecycleMonitor; // @synthesize lifecycleMonitor=_lifecycleMonitor;
+@property(readonly, nonatomic) __weak id <_UICanvasLifecycleStateMonitoring> lifecycleMonitor; // @synthesize lifecycleMonitor=_lifecycleMonitor;
 @property(readonly, nonatomic) id <_UIContextBinding> substrate; // @synthesize substrate=_substrate;
 - (void).cxx_destruct;
 - (void)_synchronizeDrawingWithFence:(id)arg1 preCommitHandler:(CDUnknownBlockType)arg2;
@@ -47,8 +47,11 @@ __attribute__((visibility("hidden")))
 - (void)createContextsWithTest:(CDUnknownBlockType)arg1 creationAction:(CDUnknownBlockType)arg2;
 - (void)purgeContextsWithPurgeAction:(CDUnknownBlockType)arg1;
 - (_Bool)bindbleEnrolled:(id)arg1;
+- (id)_enrolledBindablePointersAsCopy:(_Bool)arg1;
+- (id)_attachedBindablePointersAsCopy:(_Bool)arg1;
 @property(readonly, nonatomic) NSArray *attachedBindables;
 @property(readonly, nonatomic) NSArray *enrolledBindables;
+- (void)updateBindable:(id)arg1;
 - (void)detachBindable:(id)arg1;
 - (void)attachBindable:(id)arg1;
 - (void)expellBindable:(id)arg1;

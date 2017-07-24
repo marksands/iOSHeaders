@@ -30,14 +30,14 @@
     NSError *_error;
     id <IKAppDocumentDelegate> _delegate;
     double _impressionThreshold;
-    IKViewElementStyleFactory *_styleFactory;
     NSMutableDictionary *_impressions;
     IKJSObject *_owner;
+    IKViewElementStyleFactory *_styleFactory;
 }
 
+@property(retain, nonatomic) IKViewElementStyleFactory *styleFactory; // @synthesize styleFactory=_styleFactory;
 @property(readonly, nonatomic) __weak IKJSObject *owner; // @synthesize owner=_owner;
 @property(retain, nonatomic) NSMutableDictionary *impressions; // @synthesize impressions=_impressions;
-@property(retain, nonatomic) IKViewElementStyleFactory *styleFactory; // @synthesize styleFactory=_styleFactory;
 @property(nonatomic) double impressionThreshold; // @synthesize impressionThreshold=_impressionThreshold;
 @property(getter=isSubtreeUpdated) _Bool subtreeUpdated; // @synthesize subtreeUpdated=_subtreeUpdated;
 @property(nonatomic, getter=isUpdated) _Bool updated; // @synthesize updated=_updated;

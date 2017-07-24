@@ -13,7 +13,7 @@
 
 @interface PKPaymentAuthorizationRemoteAlertViewControllerExportedObject : NSObject <PKPaymentAuthorizationServiceProtocol>
 {
-    _Bool _didForceDismiss;
+    _Bool _dismissed;
     NSMutableSet *_completionHandlers;
     id <PKPaymentAuthorizationServiceProtocol> _delegate;
     PKPaymentAuthorizationRemoteAlertViewController *_controller;
@@ -31,7 +31,7 @@
 - (void)authorizationDidAuthorizePurchaseCompleteWithStatus:(long long)arg1;
 - (void)authorizationDidAuthorizePaymentCompleteWithResult:(id)arg1;
 - (void)authorizationDidRequestMerchantSessionCompleteWithSession:(id)arg1 error:(id)arg2;
-- (void)forceDismissDidComplete;
+- (void)dismissed;
 - (void)handleDismissWithCompletion:(CDUnknownBlockType)arg1;
 - (void)handleHostApplicationDidBecomeActive;
 - (void)handleHostApplicationWillResignActive:(_Bool)arg1;

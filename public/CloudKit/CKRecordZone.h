@@ -9,11 +9,12 @@
 #import <CloudKit/NSCopying-Protocol.h>
 #import <CloudKit/NSSecureCoding-Protocol.h>
 
-@class CKContainerID, CKEncryptedDate, CKRecordZoneID, CKServerChangeToken, NSData, NSString;
+@class CKContainerID, CKEncryptedDate, CKRecordZoneID, CKServerChangeToken, NSData, NSDate, NSString;
 
 @interface CKRecordZone : NSObject <NSSecureCoding, NSCopying>
 {
     _Bool _needsZoneishPCSRolled;
+    _Bool _zoneKeyRollAllowed;
     _Bool _serializeProtectionData;
     int _deviceCount;
     CKRecordZoneID *_zoneID;
@@ -24,6 +25,7 @@
     NSData *_protectionData;
     NSString *_protectionEtag;
     NSData *_zoneishProtectionData;
+    NSDate *_zonePCSModificationDate;
     CKEncryptedDate *_encryptedLastZoneishPCSRollDate;
     NSData *_pcsKeyID;
     NSData *_zoneishKeyID;
@@ -41,6 +43,8 @@
 @property(retain, nonatomic) NSData *zoneishKeyID; // @synthesize zoneishKeyID=_zoneishKeyID;
 @property(retain, nonatomic) NSData *pcsKeyID; // @synthesize pcsKeyID=_pcsKeyID;
 @property(retain, nonatomic) CKEncryptedDate *encryptedLastZoneishPCSRollDate; // @synthesize encryptedLastZoneishPCSRollDate=_encryptedLastZoneishPCSRollDate;
+@property(retain, nonatomic) NSDate *zonePCSModificationDate; // @synthesize zonePCSModificationDate=_zonePCSModificationDate;
+@property(nonatomic) _Bool zoneKeyRollAllowed; // @synthesize zoneKeyRollAllowed=_zoneKeyRollAllowed;
 @property(nonatomic) _Bool needsZoneishPCSRolled; // @synthesize needsZoneishPCSRolled=_needsZoneishPCSRolled;
 @property(retain, nonatomic) NSData *zoneishProtectionData; // @synthesize zoneishProtectionData=_zoneishProtectionData;
 @property(retain, nonatomic) NSString *protectionEtag; // @synthesize protectionEtag=_protectionEtag;

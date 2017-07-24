@@ -79,6 +79,7 @@
 - (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
 - (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
 - (void)tilingControllerZoomAnimationCoordinator:(id)arg1 enumerateTilesToAnimateInLayerWithType:(long long)arg2 layout:(id)arg3 zoomAnimationContext:(id)arg4 usingBlock:(CDUnknownBlockType)arg5;
+- (void)prepareForInteractiveTransition:(id)arg1;
 - (id)zoomAnimationCoordinatorForZoomTransition:(id)arg1;
 - (id)regionOfInterestForTransition:(id)arg1;
 - (id)px_endPointForTransition:(id)arg1;
@@ -112,6 +113,7 @@
 - (id)_photosDetailsContextForMemoryObjectReference:(id)arg1;
 - (void)_navigateToMemoryAtSectionObjectReference:(id)arg1;
 - (void)_handleScrollViewTap:(id)arg1;
+- (void)revealMostRecentMemoryAnimated:(_Bool)arg1;
 - (id)showDetailsForMemoryWithLocalIdentifier:(id)arg1;
 - (id)_showMemoryDetailsForContext:(id)arg1 animated:(_Bool)arg2;
 - (void)_updateBarAppearance;
@@ -130,6 +132,8 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
+- (id)_suppressionContexts;
+- (_Bool)_appAllowsSupressionOfAlerts;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

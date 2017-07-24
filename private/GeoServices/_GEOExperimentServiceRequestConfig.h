@@ -12,6 +12,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)standardConfig;
+- (unsigned char)requestCounterInfoTypeForRequest:(id)arg1;
+- (int)dataRequestKindForRequest:(id)arg1;
 - (unsigned long long)urlType;
 
 @end

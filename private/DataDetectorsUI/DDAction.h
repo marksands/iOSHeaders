@@ -45,6 +45,7 @@
 @property(nonatomic) _Bool companion; // @synthesize companion=_companion;
 @property _Bool isDefaultAction; // @synthesize isDefaultAction=_isDefaultAction;
 - (void).cxx_destruct;
+- (id)displayNameForEmails:(id)arg1 phoneNumbers:(id)arg2;
 - (void)invalidate;
 - (void)adaptForPresentationInPopover:(_Bool)arg1;
 - (id)description;

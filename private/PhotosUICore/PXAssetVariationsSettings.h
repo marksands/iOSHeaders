@@ -17,8 +17,6 @@
     _Bool _showLoopBadges;
     _Bool _invalidateCachedPreviews;
     _Bool _useLiveRenderedPreviews;
-    _Bool _preemptiveSaveRendering;
-    _Bool _allowCachingRenderedResources;
     long long _selectionBehavior;
     double _selectionDetailsDismissalDelay;
     long long _suggestionsScheme;
@@ -27,8 +25,6 @@
 
 + (id)sharedInstance;
 + (id)settingsControllerModule;
-@property(nonatomic) _Bool allowCachingRenderedResources; // @synthesize allowCachingRenderedResources=_allowCachingRenderedResources;
-@property(nonatomic) _Bool preemptiveSaveRendering; // @synthesize preemptiveSaveRendering=_preemptiveSaveRendering;
 @property(nonatomic) _Bool useLiveRenderedPreviews; // @synthesize useLiveRenderedPreviews=_useLiveRenderedPreviews;
 @property(nonatomic) _Bool invalidateCachedPreviews; // @synthesize invalidateCachedPreviews=_invalidateCachedPreviews;
 @property(nonatomic) _Bool showLoopBadges; // @synthesize showLoopBadges=_showLoopBadges;

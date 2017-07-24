@@ -16,6 +16,7 @@
     unsigned long long _numRetries;
     _Bool _allowAuthentication;
     _Bool _requiresMescal;
+    _Bool _encodeQueryParams;
     id <WLKNetworkRequestOperationDelegate> _delegate;
     NSDictionary *_additionalHeaderFields;
     NSString *_serverRouteKey;
@@ -47,6 +48,7 @@
 @property(readonly, copy, nonatomic) NSDictionary *serverRouteReplacements; // @synthesize serverRouteReplacements=_serverRouteReplacements;
 @property(readonly, copy, nonatomic) NSString *serverRouteKey; // @synthesize serverRouteKey=_serverRouteKey;
 @property(retain, nonatomic) NSDictionary *additionalHeaderFields; // @synthesize additionalHeaderFields=_additionalHeaderFields;
+@property(nonatomic) _Bool encodeQueryParams; // @synthesize encodeQueryParams=_encodeQueryParams;
 @property(nonatomic) _Bool requiresMescal; // @synthesize requiresMescal=_requiresMescal;
 @property(nonatomic) _Bool allowAuthentication; // @synthesize allowAuthentication=_allowAuthentication;
 @property(nonatomic) __weak id <WLKNetworkRequestOperationDelegate> delegate; // @synthesize delegate=_delegate;

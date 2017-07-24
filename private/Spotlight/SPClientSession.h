@@ -6,13 +6,14 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray;
+@class NSArray, PARSession;
 
 @interface SPClientSession : NSObject
 {
     NSArray *_searchDomains;
     _Bool _observersAdded;
     int _prefsToken;
+    PARSession *_session;
     _Bool _infinitePatience;
 }
 

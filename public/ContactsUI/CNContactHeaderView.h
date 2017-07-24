@@ -54,7 +54,7 @@
 - (void)updateWithNewContact:(id)arg1;
 - (void)updateConstraints;
 - (void)dealloc;
-- (id)initWithContact:(id)arg1 frame:(struct CGRect)arg2 monogrammerStyle:(long long)arg3 shouldAllowTakePhotoAction:(_Bool)arg4 shouldAllowImageDrops:(_Bool)arg5;
+- (id)initWithContact:(id)arg1 frame:(struct CGRect)arg2 monogrammerStyle:(long long)arg3 shouldAllowTakePhotoAction:(_Bool)arg4 shouldAllowImageDrops:(_Bool)arg5 delegate:(id)arg6;
 - (id)descriptorForRequiredKeys;
 
 // Remaining properties

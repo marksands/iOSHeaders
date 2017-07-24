@@ -44,10 +44,13 @@ __attribute__((visibility("hidden")))
     FULabel *_labelDurationTitle;
     FULabel *_labelDurationValue;
     FULabel *_labelDurationComplete;
+    FULabel *_labelBaggageClaimTitle;
+    FULabel *_labelBaggageClaimValue;
     FUSeparator *_sep1;
     FUSeparator *_sep2;
     FUSeparator *_sep3;
     FUSeparator *_sep4;
+    FUSeparator *_sep5;
     NSLayoutConstraint *_leadingInset;
     NSLayoutConstraint *_trailingInset;
     NSLayoutConstraint *_bottomMargin;
@@ -72,10 +75,13 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSLayoutConstraint *bottomMargin; // @synthesize bottomMargin=_bottomMargin;
 @property(retain, nonatomic) NSLayoutConstraint *trailingInset; // @synthesize trailingInset=_trailingInset;
 @property(retain, nonatomic) NSLayoutConstraint *leadingInset; // @synthesize leadingInset=_leadingInset;
+@property __weak FUSeparator *sep5; // @synthesize sep5=_sep5;
 @property __weak FUSeparator *sep4; // @synthesize sep4=_sep4;
 @property __weak FUSeparator *sep3; // @synthesize sep3=_sep3;
 @property __weak FUSeparator *sep2; // @synthesize sep2=_sep2;
 @property __weak FUSeparator *sep1; // @synthesize sep1=_sep1;
+@property __weak FULabel *labelBaggageClaimValue; // @synthesize labelBaggageClaimValue=_labelBaggageClaimValue;
+@property __weak FULabel *labelBaggageClaimTitle; // @synthesize labelBaggageClaimTitle=_labelBaggageClaimTitle;
 @property __weak FULabel *labelDurationComplete; // @synthesize labelDurationComplete=_labelDurationComplete;
 @property __weak FULabel *labelDurationValue; // @synthesize labelDurationValue=_labelDurationValue;
 @property __weak FULabel *labelDurationTitle; // @synthesize labelDurationTitle=_labelDurationTitle;
@@ -105,7 +111,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) FUFlight *flight; // @synthesize flight=_flight;
 - (void).cxx_destruct;
 - (void)updateLabelVisibility:(id)arg1 constraint:(id)arg2;
-- (_Bool)knownDelay;
 - (void)flightButtonTapped:(id)arg1;
 - (void)updateFlightStatus;
 - (void)updateFlightDates;
@@ -117,8 +122,8 @@ __attribute__((visibility("hidden")))
 - (void)updateTimeLabel:(id)arg1 constraint:(id)arg2 withString:(id)arg3;
 - (void)updateLocationInfo;
 - (void)updateAirlineInformation;
-- (void)setFlight:(id)arg1 legIndex:(unsigned long long)arg2 multiFlights:(_Bool)arg3;
-- (void)updateForFollowupContent;
+- (void)setFlight:(id)arg1 legIndex:(unsigned long long)arg2 multiFlights:(_Bool)arg3 spotlightMode:(_Bool)arg4;
+- (void)updateForFollowupContent:(_Bool)arg1;
 - (void)dealloc;
 - (void)updateFlightButtonIcon;
 - (void)setupLabelStylesWithStyle:(unsigned long long)arg1;

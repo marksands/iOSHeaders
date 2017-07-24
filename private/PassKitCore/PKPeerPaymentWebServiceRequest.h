@@ -6,10 +6,15 @@
 
 #import <PassKitCore/PKOverlayableWebServiceRequest.h>
 
+@protocol PKPeerPaymentWebServiceTargetDeviceProtocol;
+
 @interface PKPeerPaymentWebServiceRequest : PKOverlayableWebServiceRequest
 {
+    id <PKPeerPaymentWebServiceTargetDeviceProtocol> _targetDevice;
 }
 
+@property(retain, nonatomic) id <PKPeerPaymentWebServiceTargetDeviceProtocol> targetDevice; // @synthesize targetDevice=_targetDevice;
+- (void).cxx_destruct;
 - (id)_murlRequestWithURL:(id)arg1;
 - (id)_urlRequestWithServiceURL:(id)arg1 account:(id)arg2;
 - (id)_urlRequestWithServiceURL:(id)arg1 account:(id)arg2 deviceIdentifier:(id)arg3;

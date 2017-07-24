@@ -10,6 +10,7 @@
 #import <SpriteKit/NSCopying-Protocol.h>
 
 @class CIFilter, NSArray, NSString, SKTextureAtlas, SKTextureCache;
+@protocol OS_dispatch_queue;
 
 @interface SKTexture : NSObject <NSCopying, NSCoding>
 {
@@ -35,6 +36,7 @@
     NSString *_originalAtlasName;
     NSString *_subTextureName;
     SKTextureCache *_textureCache;
+    NSObject<OS_dispatch_queue> *_textureSyncQueue;
     _Bool _performFullCapture;
     _Bool _isRepeatable;
     SKTextureAtlas *_rootAtlas;
@@ -55,6 +57,7 @@
 + (id)textureWithImageNamed:(id)arg1 rect:(struct CGRect)arg2;
 + (id)textureWithImageNamed:(id)arg1;
 + (void)preloadTextures:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
++ (id)preloadQueue;
 + (id)lookupTextureCacheForName:(id)arg1;
 + (void)registerTextureCache:(id)arg1 forName:(id)arg2;
 + (id)textureWithIOSurfaceID:(unsigned int)arg1 width:(unsigned int)arg2 height:(unsigned int)arg3 format:(unsigned int)arg4;

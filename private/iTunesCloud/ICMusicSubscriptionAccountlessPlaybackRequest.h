@@ -23,7 +23,7 @@
 @property(copy, nonatomic) NSString *householdID; // @synthesize householdID=_householdID;
 @property(copy, nonatomic) NSString *assetSourceStorefrontID; // @synthesize assetSourceStorefrontID=_assetSourceStorefrontID;
 - (void).cxx_destruct;
-- (void)performWithResponseHandler:(CDUnknownBlockType)arg1;
+- (id)performWithResponseHandler:(CDUnknownBlockType)arg1;
 - (id)initWithRequestContext:(id)arg1 storeSubscriptionAdamID:(long long)arg2;
 
 @end

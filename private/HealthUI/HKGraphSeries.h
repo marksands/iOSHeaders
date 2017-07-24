@@ -8,7 +8,7 @@
 
 #import <HealthUI/HKGraphSeriesDataSourceDelegate-Protocol.h>
 
-@class HKAxis, HKChartLink, HKGraphSeriesDataSource, HKPropertyAnimationApplier, HKValueRange, NSArray, NSMutableDictionary, NSString, NSUUID, UIColor;
+@class HKAxis, HKGraphSeriesDataSource, HKPropertyAnimationApplier, HKValueRange, NSArray, NSMutableDictionary, NSString, NSUUID, UIColor;
 @protocol HKGraphSeriesAxisAnnotation, HKGraphSeriesAxisScalingRule, HKSeriesDelegate;
 
 @interface HKGraphSeries : NSObject <HKGraphSeriesDataSourceDelegate>
@@ -25,7 +25,6 @@
     HKGraphSeriesDataSource *_dataSource;
     NSArray *_titleLegendEntries;
     NSArray *_detailLegendEntries;
-    HKChartLink *_chartLink;
     id <HKSeriesDelegate> _delegate;
     id <HKGraphSeriesAxisAnnotation> _axisAnnotationDelegate;
     double _alpha;
@@ -48,7 +47,6 @@
 @property(nonatomic) double alpha; // @synthesize alpha=_alpha;
 @property(nonatomic) __weak id <HKGraphSeriesAxisAnnotation> axisAnnotationDelegate; // @synthesize axisAnnotationDelegate=_axisAnnotationDelegate;
 @property(nonatomic) __weak id <HKSeriesDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) HKChartLink *chartLink; // @synthesize chartLink=_chartLink;
 @property(retain, nonatomic) NSArray *detailLegendEntries; // @synthesize detailLegendEntries=_detailLegendEntries;
 @property(retain, nonatomic) NSArray *titleLegendEntries; // @synthesize titleLegendEntries=_titleLegendEntries;
 @property(retain, nonatomic) HKGraphSeriesDataSource *dataSource; // @synthesize dataSource=_dataSource;
@@ -72,8 +70,7 @@
 - (void)_enumeratePathIndexesInValueRange:(id)arg1 zoomLevel:(long long)arg2 block:(CDUnknownBlockType)arg3;
 - (id)_coordinateListsForGeneratorWithXAxis:(id)arg1 zoomScale:(double)arg2 chartRect:(struct CGRect)arg3 contentOffset:(struct CGPoint)arg4;
 - (id)_visibleXValueRangeWithAxis:(id)arg1 chartRect:(struct CGRect)arg2 contentOffset:(struct CGPoint)arg3 zoomScale:(double)arg4;
-- (void)_setDirty;
-- (void)_sendInvalidateToDelegate;
+- (void)_setDirtyWithNewData:(_Bool)arg1;
 - (void)dataSourceDidUpdateCache:(id)arg1;
 - (void)enumerateCoordinatesInChartRect:(struct CGRect)arg1 xAxis:(id)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 xAxisTransform:(struct CGAffineTransform)arg5 roundToViewScale:(_Bool)arg6 rejectPointsOutOfChartRect:(_Bool)arg7 block:(CDUnknownBlockType)arg8;
 - (void)enumerateCoordinatesInChartRect:(struct CGRect)arg1 xAxis:(id)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 xAxisTransform:(struct CGAffineTransform)arg5 roundToViewScale:(_Bool)arg6 block:(CDUnknownBlockType)arg7;

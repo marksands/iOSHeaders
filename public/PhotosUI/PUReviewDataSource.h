@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSHashTable, NSMutableArray, NSMutableDictionary;
+@class NSHashTable, NSMutableArray, NSMutableDictionary, NSMutableSet;
 
 @interface PUReviewDataSource : NSObject
 {
@@ -17,10 +17,10 @@
     NSMutableDictionary *__enqueuedBurstAssetIdentifiersByBurstIdentifier;
     NSMutableDictionary *__enqueuedBurstAssetsByAssetIdentifier;
     long long __nestedPerformChanges;
-    long long __pendingChangeNotifications;
+    NSMutableSet *__updatedAssetIdentifiers;
 }
 
-@property(nonatomic, setter=_setPendingChangeNotifications:) long long _pendingChangeNotifications; // @synthesize _pendingChangeNotifications=__pendingChangeNotifications;
+@property(readonly, nonatomic) NSMutableSet *_updatedAssetIdentifiers; // @synthesize _updatedAssetIdentifiers=__updatedAssetIdentifiers;
 @property(nonatomic, setter=_setNestedPerformChanges:) long long _nestedPerformChanges; // @synthesize _nestedPerformChanges=__nestedPerformChanges;
 @property(readonly, nonatomic) NSMutableDictionary *_enqueuedBurstAssetsByAssetIdentifier; // @synthesize _enqueuedBurstAssetsByAssetIdentifier=__enqueuedBurstAssetsByAssetIdentifier;
 @property(readonly, nonatomic) NSMutableDictionary *_enqueuedBurstAssetIdentifiersByBurstIdentifier; // @synthesize _enqueuedBurstAssetIdentifiersByBurstIdentifier=__enqueuedBurstAssetIdentifiersByBurstIdentifier;
@@ -32,23 +32,19 @@
 - (id)description;
 - (id)orderedIdentifiers;
 - (id)assetsByIdentifier;
-- (void)_notifyObserversOfDataSourceChange;
 - (void)unregisterChangeObserver:(id)arg1;
 - (void)registerChangeObserver:(id)arg1;
 - (void)performChanges:(CDUnknownBlockType)arg1;
 - (void)processPendingBurstAssets;
 - (void)enqueuePendingBurstAsset:(id)arg1;
 - (void)removeRepresentativeAssetForBurstIdentifier:(id)arg1;
-- (void)removeAssetWithIdentifier:(id)arg1;
 - (void)removeAllAssets;
-- (_Bool)_removeAssetWithIdentifier:(id)arg1;
+- (void)removeAssetWithIdentifier:(id)arg1;
 - (void)replaceAsset:(id)arg1;
 - (void)insertAssets:(id)arg1;
 - (void)insertAsset:(id)arg1;
-- (void)_insertAssetWithoutNotifying:(id)arg1;
 - (id)existingRepresentativeAssetForBurstIdentifier:(id)arg1;
 - (id)existingAssetForIdentifier:(id)arg1;
-- (id)_initWithAssetIdentifiers:(id)arg1 assetsByIdentifier:(id)arg2 representativeAssetsByBurstIdentifier:(id)arg3;
 - (id)init;
 
 @end

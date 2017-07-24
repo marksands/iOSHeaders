@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
     struct CGRect _endingNewTitleViewFrame;
     struct CGRect _endingNewBackButtonFrame;
     struct CGSize _titleTransitionDistance;
+    double _titleTransitionAdjustment;
 }
 
 - (void)complete;
@@ -25,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)_prepareLargeTitleView;
 - (void)_prepareContentView;
 - (void)_prepareScaleTransition;
+- (id)viewUsingEaseInCurve;
 - (int)transition;
 
 @end

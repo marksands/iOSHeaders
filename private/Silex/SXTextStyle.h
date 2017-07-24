@@ -8,13 +8,15 @@
 
 #import <Silex/SXTextStyleFontDescribing-Protocol.h>
 
-@class NSString, SXJSONArray, SXShadow, SXTextDecoration, SXTextStroke, SXTextStyleFontAttributes, UIColor;
+@class NSString, SXJSONArray, SXShadow, SXTextDecoration, SXTextStroke, UIColor;
+@protocol SXTextStyleFontAttributes;
 
 @interface SXTextStyle : SXJSONObject <SXTextStyleFontDescribing>
 {
 }
 
 + (CDUnknownBlockType)valueClassBlockForPropertyWithName:(id)arg1;
++ (Class)classForProtocolProperty:(id)arg1 withValue:(id)arg2;
 - (long long)fontSizeWithValue:(id)arg1 withType:(int)arg2;
 - (int)verticalAlignmentWithValue:(id)arg1 withType:(int)arg2;
 - (long long)textTransformWithValue:(id)arg1 withType:(int)arg2;
@@ -23,7 +25,7 @@
 @property(readonly, nonatomic) UIColor *backgroundColor; // @dynamic backgroundColor;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) SXTextStyleFontAttributes *fontAttributes; // @dynamic fontAttributes;
+@property(readonly, nonatomic) id <SXTextStyleFontAttributes> fontAttributes; // @dynamic fontAttributes;
 @property(readonly, nonatomic) NSString *fontName; // @dynamic fontName;
 @property(readonly, nonatomic) long long fontSize; // @dynamic fontSize;
 @property(readonly) unsigned long long hash;

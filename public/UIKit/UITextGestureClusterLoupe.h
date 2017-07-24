@@ -11,12 +11,10 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (Class)loupeGestureType;
 - (void)canBeginDragCursor:(id)arg1;
 - (void)loupeGestureWithState:(long long)arg1 atGesturePoint:(CDUnknownBlockType)arg2 shouldCancel:(_Bool *)arg3;
 - (void)loupeGesture:(id)arg1;
-- (id)initWithView:(id)arg1;
-- (void)adjustLoupeGesture;
+- (id)initWithView:(id)arg1 modeClass:(Class)arg2;
 
 @end
 

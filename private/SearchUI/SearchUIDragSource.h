@@ -26,11 +26,14 @@
 @property(retain) UIView *overrideDragPreviewView; // @synthesize overrideDragPreviewView=_overrideDragPreviewView;
 @property(retain) id <SearchUIDragObject> dragObject; // @synthesize dragObject=_dragObject;
 - (void).cxx_destruct;
+- (_Bool)_shouldPerformHitTestingForDragSessionInView:(id)arg1;
 - (id)_requiredContextIDsForDragSessionInView:(id)arg1;
+- (_Bool)dragInteraction:(id)arg1 sessionIsRestrictedToDraggingApplication:(id)arg2;
 - (_Bool)dragInteraction:(id)arg1 sessionAllowsMoveOperation:(id)arg2;
+- (void)dragInteraction:(id)arg1 sessionWillBegin:(id)arg2;
 - (id)dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
 - (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
-- (id)dragPreviewViewWithDragObject:(id)arg1;
+- (id)dragParametersForPreviewView:(id)arg1;
 - (id)initWithView:(id)arg1 dragObject:(id)arg2;
 
 // Remaining properties

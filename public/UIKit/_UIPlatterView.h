@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSValue, UIImageView, _DUIPreview, _UIPlatterShadowView, _UIPortalView, _UIShapeView;
+@class NSValue, _DUIPreview, _UIPlatterShadowView, _UIPortalView, _UIShapeView;
 
 @interface _UIPlatterView : UIView
 {
@@ -26,7 +26,6 @@
     NSValue *_anchorPointValueToAdjustToOnMoveToWindow;
     UIView *_backgroundView;
     _UIPlatterShadowView *_diffuseShadowView;
-    UIImageView *_gradientMaskView;
     _UIShapeView *_platterMaskView;
     _UIShapeView *_portalMaskView;
     _UIPortalView *_portalView;
@@ -36,14 +35,11 @@
     struct CGSize _overrideSize;
     struct CGSize _contentSize;
     struct UIEdgeInsets _contentInsets;
-    struct CGRect _gradientMaskCroppingRect;
-    struct CGRect _gradientMaskFullRect;
     struct CGAffineTransform _additionalTransform;
     struct CGAffineTransform _containerCounterScaleTransform;
     struct CGAffineTransform _containerCounterRotationTransform;
 }
 
-+ (id)gradientMaskWithHorizontalEdge:(_Bool)arg1 verticalEdge:(_Bool)arg2;
 @property(nonatomic) struct CGAffineTransform containerCounterRotationTransform; // @synthesize containerCounterRotationTransform=_containerCounterRotationTransform;
 @property(nonatomic) struct CGAffineTransform containerCounterScaleTransform; // @synthesize containerCounterScaleTransform=_containerCounterScaleTransform;
 @property(readonly, nonatomic) _UIPlatterShadowView *rimShadowView; // @synthesize rimShadowView=_rimShadowView;
@@ -51,9 +47,6 @@
 @property(retain, nonatomic) _UIPortalView *portalView; // @synthesize portalView=_portalView;
 @property(readonly, nonatomic) _UIShapeView *portalMaskView; // @synthesize portalMaskView=_portalMaskView;
 @property(readonly, nonatomic) _UIShapeView *platterMaskView; // @synthesize platterMaskView=_platterMaskView;
-@property(readonly, nonatomic) struct CGRect gradientMaskFullRect; // @synthesize gradientMaskFullRect=_gradientMaskFullRect;
-@property(readonly, nonatomic) struct CGRect gradientMaskCroppingRect; // @synthesize gradientMaskCroppingRect=_gradientMaskCroppingRect;
-@property(readonly, nonatomic) UIImageView *gradientMaskView; // @synthesize gradientMaskView=_gradientMaskView;
 @property(readonly, nonatomic) _UIPlatterShadowView *diffuseShadowView; // @synthesize diffuseShadowView=_diffuseShadowView;
 @property(readonly, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(nonatomic) _Bool precisionMode; // @synthesize precisionMode=_precisionMode;

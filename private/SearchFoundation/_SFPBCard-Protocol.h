@@ -10,6 +10,10 @@
 
 @protocol _SFPBCard <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasFbr;
+@property(copy, nonatomic) NSString *fbr;
+@property(readonly, nonatomic) _Bool hasQueryId;
+@property(nonatomic) unsigned long long queryId;
 @property(readonly, nonatomic) _Bool hasResultIdentifier;
 @property(copy, nonatomic) NSString *resultIdentifier;
 @property(readonly, nonatomic) _Bool hasEntityIdentifier;

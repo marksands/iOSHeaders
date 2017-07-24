@@ -7,6 +7,7 @@
 #import <UIKit/UIVibrancyEffect.h>
 
 @interface UIVibrancyEffect (CCUIAdditions)
++ (id)controlCenterScrollViewDarkeningVibrancyEffect;
 + (id)controlCenterSecondaryVibrancyEffect;
 + (id)controlCenterPrimaryVibrancyEffect;
 @end

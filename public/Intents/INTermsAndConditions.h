@@ -25,6 +25,7 @@
 @property(readonly, nonatomic) NSString *localizedTermsAndConditionsText; // @synthesize localizedTermsAndConditionsText=_localizedTermsAndConditionsText;
 - (void).cxx_destruct;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

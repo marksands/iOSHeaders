@@ -42,6 +42,7 @@
 - (void)unblockEngineElementOnce:(NSString *)arg1;
 - (void)unblockEngineElement:(NSString *)arg1;
 - (void)blockEngineElement:(NSString *)arg1;
+- (void)reportSetting:(NSString *)arg1 hasBeenSetToValue:(NSString *)arg2;
 - (void)addInfoToLog:(NSString *)arg1;
 - (void)compactFileCacheWithCompletionHandler:(void (^)(NSError *))arg1;
 - (void)cloudCacheGetDescriptionForRecordWithIdentifier:(NSString *)arg1 related:(_Bool)arg2 completionHandler:(void (^)(id, id, NSError *))arg3;

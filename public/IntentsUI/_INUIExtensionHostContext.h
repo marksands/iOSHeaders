@@ -22,7 +22,7 @@
 - (void).cxx_destruct;
 - (void)requestHandlingOfIntent:(id)arg1;
 - (id)_errorHandlingExtensionContextProxy;
-- (void)setHostedViewMinimumAllowedSize:(struct CGSize)arg1 maximumAllowedSize:(struct CGSize)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)setExtensionContextState:(id)arg1 completion:(CDUnknownBlockType)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

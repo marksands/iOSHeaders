@@ -9,10 +9,11 @@
 #import <SafariShared/WBSCloudTabDeviceProvider-Protocol.h>
 
 @class NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, WBSCloudTabDevice;
-@protocol WBSCloudTabStoreDelegate;
+@protocol OS_dispatch_queue, WBSCloudTabStoreDelegate;
 
 @interface WBSCloudTabStore : NSObject <WBSCloudTabDeviceProvider>
 {
+    NSObject<OS_dispatch_queue> *_internalQueue;
     NSMutableArray *_syncedCloudTabDevicesFromKVS;
     NSMutableDictionary *_deviceUUIDsToCloseRequestsFromKVS;
     _Bool _hasAttemptedToRemoveCurrentDeviceFromKVS;
@@ -24,7 +25,7 @@
     id <WBSCloudTabStoreDelegate> _wbsDelegate;
 }
 
-+ (id)_errorMessageForCode:(long long)arg1;
++ (id)_debugErrorMessageForCode:(long long)arg1;
 + (id)errorWithCode:(long long)arg1;
 @property(readonly, nonatomic) _Bool syncAgentIsAvailable; // @synthesize syncAgentIsAvailable=_syncAgentIsAvailable;
 @property(nonatomic) __weak id <WBSCloudTabStoreDelegate> wbsDelegate; // @synthesize wbsDelegate=_wbsDelegate;
@@ -41,11 +42,14 @@
 - (void)_syncAgentProxyConnectionWasInvalidated:(id)arg1;
 - (id)_devicesByRemovingDevicesFromKVSWithOutstandingCloseRequests:(id)arg1;
 - (void)_addDeviceDictionaryFromKVS:(id)arg1 deviceUUID:(id)arg2;
-- (_Bool)_closeTabs:(id)arg1 onDevice:(id)arg2;
-- (_Bool)_writeCloseRequestForTab:(id)arg1 onDevice:(id)arg2 deviceIsStoredInCloudKit:(_Bool)arg3;
 - (void)_pruneOrphanedCloseRequestsFromKVS;
+- (void)_tabsWereClosed:(id)arg1 onDevice:(id)arg2 deviceIsStoredInCloudKit:(_Bool)arg3 syncedCloudTabDevices:(id)arg4;
+- (void)_tabWasClosed:(id)arg1 onDevice:(id)arg2 deviceIsStoredInCloudKit:(_Bool)arg3 syncedCloudTabDevices:(id)arg4;
+- (unsigned long long)_indexOfDevice:(id)arg1 inSyncedCloudTabDevices:(id)arg2;
 - (void)_addCloseRequestDictionary:(id)arg1 toDeviceUUIDsToCloseRequestsDictionary:(id)arg2 requestUUID:(id)arg3;
 - (id)_deviceWithTabsWithOutstandingCloseRequestsRemoved:(id)arg1 closeRequestsForDevice:(id)arg2;
+- (_Bool)_closeTabs:(id)arg1 onDevice:(id)arg2;
+- (_Bool)_writeCloseRequestForTab:(id)arg1 onDevice:(id)arg2 deviceIsStoredInCloudKit:(_Bool)arg3;
 - (void)deleteAllDevicesFromCloudKit;
 - (void)handleCloseTabRequestsFromCloudKit;
 - (void)fetchSyncedCloudTabDevicesAndCloseRequestsFromCloudKit;

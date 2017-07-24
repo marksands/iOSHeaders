@@ -50,6 +50,7 @@
 - (void)prepareQueueForPlayback;
 - (MPMediaItem *)nowPlayingItemAtIndex:(NSNumber *)arg1;
 - (MPRadioStation *)queueAsRadioStation;
+- (MPMediaQuery *)queueAsQuery;
 - (void)appendQueueDescriptor:(MPMusicPlayerQueueDescriptor *)arg1;
 - (void)prependQueueDescriptor:(MPMusicPlayerQueueDescriptor *)arg1;
 - (void)playItem:(MPMediaItem *)arg1;

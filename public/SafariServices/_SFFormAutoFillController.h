@@ -8,7 +8,7 @@
 
 #import <SafariServices/SFFormMetadataObserver-Protocol.h>
 
-@class NSString, NSTimer, SFFormAutocompleteState, UIView, WKWebView, _WKRemoteObjectInterface;
+@class NSMutableIndexSet, NSString, NSTimer, SFFormAutocompleteState, UIView, WKWebView, _WKRemoteObjectInterface;
 @protocol SFFormAutoFillControllerDelegate, SFFormAutoFiller, WBUFormAutoFillWebView;
 
 @interface _SFFormAutoFillController : NSObject <SFFormMetadataObserver>
@@ -19,6 +19,7 @@
     id <SFFormAutoFiller> _autoFiller;
     SFFormAutocompleteState *_state;
     NSTimer *_prefillTimer;
+    NSMutableIndexSet *_uniqueIDsOfFormsThatWereAutoFilled;
     _Bool _metadataCorrectionsEnabled;
 }
 
@@ -30,6 +31,7 @@
 - (void)textDidChangeInTextField:(id)arg1 inForm:(id)arg2 inFrame:(id)arg3;
 - (void)didCollectFormMetadataForPreFilling:(id)arg1 atURL:(id)arg2 ancestorFramesOfFormToPreFill:(id)arg3;
 - (void)authenticateForAutoFillOnPageLoad:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)_didCollectURLsForPreFilling:(id)arg1 atURL:(id)arg2;
 - (void)didCollectURLsForPreFilling:(id)arg1 atURL:(id)arg2;
 - (void)willSubmitFormValues:(id)arg1 userObject:(id)arg2 submissionHandler:(CDUnknownBlockType)arg3;
 - (void)fieldFocusedWithInputSession:(id)arg1;

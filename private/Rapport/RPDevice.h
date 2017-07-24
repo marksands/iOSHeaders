@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class CUMobileDevice, NSData, NSDictionary, NSString, NSUUID;
+@class CUMobileDevice, CUPairedPeer, NSData, NSDictionary, NSString, NSUUID;
 
 @interface RPDevice : NSObject
 {
@@ -24,6 +24,7 @@
     NSUUID *_identifier;
     NSString *_model;
     NSString *_name;
+    CUPairedPeer *_pairedPeer;
     NSUUID *_pairingIdentifier;
     NSData *_txtData;
     NSDictionary *_txtDictionary;
@@ -54,6 +55,7 @@
 @property(readonly, nonatomic) int smoothedRSSI; // @synthesize smoothedRSSI=_smoothedRSSI;
 @property(readonly, nonatomic) int rawRSSI; // @synthesize rawRSSI=_rawRSSI;
 @property(copy, nonatomic) NSUUID *pairingIdentifier; // @synthesize pairingIdentifier=_pairingIdentifier;
+@property(retain, nonatomic) CUPairedPeer *pairedPeer; // @synthesize pairedPeer=_pairedPeer;
 @property(readonly, nonatomic) _Bool needsSetup; // @synthesize needsSetup=_needsSetup;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *model; // @synthesize model=_model;

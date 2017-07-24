@@ -14,9 +14,9 @@
 + (id)columnsDefinition;
 + (id)databaseTable;
 + (_Bool)persistState:(id)arg1 storeUUID:(id)arg2 shouldReplace:(_Bool)arg3 healthDatabase:(id)arg4 error:(id *)arg5;
-+ (id)persistedStateForStoreUUID:(id)arg1 healthDatabase:(id)arg2 error:(id *)arg3;
++ (id)persistedStateForStoreUUID:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (id)_propertiesForEntity;
-+ (id)storeIdentifierForOwnerIdentifier:(id)arg1 profile:(id)arg2 error:(id *)arg3;
++ (id)storeIdentifierForOwnerIdentifier:(id)arg1 containerIdentifier:(id)arg2 profile:(id)arg3 error:(id *)arg4;
 + (_Bool)rebaseRequiredByDate:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 
 @end

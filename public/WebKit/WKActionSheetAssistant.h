@@ -18,9 +18,11 @@ __attribute__((visibility("hidden")))
     struct WeakObjCPtr<id<WKActionSheetAssistantDelegate>> _delegate;
     struct RetainPtr<WKActionSheet> _interactionSheet;
     RetainPtr_5a40b48a _elementInfo;
+    optional_4e0547bb _positionInformation;
     UIView *_view;
     _Bool _needsLinkIndicator;
     _Bool _isPresentingDDUserInterface;
+    _Bool _hasPendingActionSheet;
 }
 
 @property(nonatomic) _Bool needsLinkIndicator; // @synthesize needsLinkIndicator=_needsLinkIndicator;
@@ -47,6 +49,7 @@ __attribute__((visibility("hidden")))
 - (id)hostViewForSheet;
 - (struct CGRect)_presentationRectForSheetGivenPoint:(struct CGPoint)arg1 inHostView:(id)arg2;
 - (id)superviewForSheet;
+- (_Bool)synchronouslyRetrievePositionInformation;
 - (void)dealloc;
 - (id)initWithView:(id)arg1;
 @property(nonatomic) __weak id <WKActionSheetAssistantDelegate> delegate;

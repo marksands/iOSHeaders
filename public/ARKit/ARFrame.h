@@ -8,12 +8,13 @@
 
 #import <ARKit/NSCopying-Protocol.h>
 
-@class ARAnchor, ARCamera, ARLightEstimate, ARPlaneData, ARPointCloud, ARTrackingErrorData, NSArray;
+@class ARAnchor, ARCamera, ARLightEstimate, ARPlaneData, ARPointCloud, ARTrackingErrorData, NSArray, NSDate;
 
 @interface ARFrame : NSObject <NSCopying>
 {
     ARPlaneData *_cachedHorizontalPlaneData;
     ARPlaneData *_cachedVerticalPlaneData;
+    _Bool _shouldRestrictFrameRate;
     double _timestamp;
     struct __CVBuffer *_capturedImage;
     ARCamera *_camera;
@@ -24,8 +25,11 @@
     ARAnchor *_worldOrigin;
     ARTrackingErrorData *_trackingErrorData;
     long long _targetFramesPerSecond;
+    NSDate *_captureDate;
 }
 
+@property(retain, nonatomic) NSDate *captureDate; // @synthesize captureDate=_captureDate;
+@property(nonatomic) _Bool shouldRestrictFrameRate; // @synthesize shouldRestrictFrameRate=_shouldRestrictFrameRate;
 @property(nonatomic) long long targetFramesPerSecond; // @synthesize targetFramesPerSecond=_targetFramesPerSecond;
 @property(retain, nonatomic) ARTrackingErrorData *trackingErrorData; // @synthesize trackingErrorData=_trackingErrorData;
 @property(retain, nonatomic) ARAnchor *worldOrigin; // @synthesize worldOrigin=_worldOrigin;

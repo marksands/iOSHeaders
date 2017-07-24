@@ -23,6 +23,7 @@
 @property(nonatomic) __weak id <PKTitleQueryDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)queryDidUpdateResult:(id)arg1;
+@property(readonly, copy, nonatomic) NSString *transcribedTitle;
 - (void)dealloc;
 - (void)pause;
 - (void)start;

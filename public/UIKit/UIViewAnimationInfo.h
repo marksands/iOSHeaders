@@ -14,16 +14,20 @@ __attribute__((visibility("hidden")))
 {
     NSMutableDictionary *_animatablePropertyStates;
     NSMutableDictionary *_presentationModifiers;
+    NSMutableDictionary *_modifierGroupRequestHandlers;
     NSMutableDictionary *_isPartOfHigherOrderProperty;
     NSObject<OS_dispatch_queue> *_lockingQueue;
 }
 
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *lockingQueue; // @synthesize lockingQueue=_lockingQueue;
 @property(retain, nonatomic) NSMutableDictionary *isPartOfHigherOrderProperty; // @synthesize isPartOfHigherOrderProperty=_isPartOfHigherOrderProperty;
+@property(retain, nonatomic) NSMutableDictionary *modifierGroupRequestHandlers; // @synthesize modifierGroupRequestHandlers=_modifierGroupRequestHandlers;
 @property(retain, nonatomic) NSMutableDictionary *presentationModifiers; // @synthesize presentationModifiers=_presentationModifiers;
 @property(retain, nonatomic) NSMutableDictionary *animatablePropertyStates; // @synthesize animatablePropertyStates=_animatablePropertyStates;
 - (void).cxx_destruct;
 - (void)performWithLock:(CDUnknownBlockType)arg1;
+- (void)setModifierGroupRequestHandler:(id)arg1 forKey:(id)arg2;
+- (id)modifierGroupRequestHandlerForKey:(id)arg1;
 - (void)setPresentationModifier:(id)arg1 forKey:(id)arg2;
 - (id)presentationModifierForKey:(id)arg1;
 - (void)setAnimatablePropertyState:(id)arg1 forKey:(id)arg2;

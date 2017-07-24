@@ -6,12 +6,13 @@
 
 #import <SearchFoundation/SFText.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFRichText-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString;
 
-@interface SFRichText : SFText <SFRichText, NSSecureCoding>
+@interface SFRichText : SFText <SFRichText, NSSecureCoding, NSCopying>
 {
     struct {
         unsigned int starRating:1;
@@ -29,6 +30,7 @@
 @property(copy, nonatomic) NSString *contentAdvisory; // @synthesize contentAdvisory=_contentAdvisory;
 @property(nonatomic) double starRating; // @synthesize starRating=_starRating;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

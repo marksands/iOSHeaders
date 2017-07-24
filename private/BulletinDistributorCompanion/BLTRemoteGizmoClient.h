@@ -15,11 +15,9 @@
 @interface BLTRemoteGizmoClient : BLTRemoteObject <BLTBulletinSendQueueDelegate, BLTGizmoClient>
 {
     BLTBulletinSendQueuePassthrough *_bulletinSendQueue;
-    _Bool _pairedDeviceReady;
     id <BLTCompanionServer> _server;
 }
 
-@property(getter=isPairedDeviceReady) _Bool pairedDeviceReady; // @synthesize pairedDeviceReady=_pairedDeviceReady;
 @property(nonatomic) __weak id <BLTCompanionServer> server; // @synthesize server=_server;
 - (void).cxx_destruct;
 - (void)queuePendingRequests;
@@ -33,6 +31,7 @@
 - (void)handleDismissActionRequest:(id)arg1;
 - (void)handleSnoozeActionRequest:(id)arg1;
 - (void)handleAcknowledgeActionRequest:(id)arg1;
+- (void)_pingPairedDeviceWithRetry:(unsigned long long)arg1;
 - (void)_pingPairedDevice;
 - (void)setLastKnownConnectionStatus:(unsigned long long)arg1;
 - (void)updateBulletinList:(id)arg1;

@@ -6,10 +6,15 @@
 
 #import <Foundation/NSObject.h>
 
+#import <Preferences/NSCopying-Protocol.h>
+
 @class NSArray;
 
-@interface PSCapacityBarData : NSObject
+@interface PSCapacityBarData : NSObject <NSCopying>
 {
+    NSArray *_orderedCategories;
+    NSArray *_adjustedCategories;
+    _Bool _hideTinyCategories;
     int _sortStyle;
     long long _categoryLimit;
     long long _capacity;
@@ -21,8 +26,12 @@
 @property long long bytesUsed; // @synthesize bytesUsed=_bytesUsed;
 @property long long capacity; // @synthesize capacity=_capacity;
 @property int sortStyle; // @synthesize sortStyle=_sortStyle;
+@property _Bool hideTinyCategories; // @synthesize hideTinyCategories=_hideTinyCategories;
 @property long long categoryLimit; // @synthesize categoryLimit=_categoryLimit;
 - (void).cxx_destruct;
+@property(readonly) NSArray *adjustedCategories;
+@property(readonly) NSArray *orderedCategories;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

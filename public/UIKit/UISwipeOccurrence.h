@@ -13,6 +13,7 @@
 @interface UISwipeOccurrence : NSObject <UISwipeActionPullViewDelegate>
 {
     _Bool _active;
+    _Bool _shouldReenableUserInteractions;
     NSIndexPath *_indexPath;
     unsigned long long _currentDirection;
     UIView *_swipedView;
@@ -21,6 +22,7 @@
     UISwipeActionPullView *_leadingPullView;
     UISwipeActionPullView *_trailingPullView;
     NSDictionary *_swipeDirectionToPullView;
+    struct CGPoint _swipedViewInitialPosition;
     struct UIEdgeInsets _extraInsets;
 }
 
@@ -28,8 +30,10 @@
 @property(retain, nonatomic) UISwipeActionPullView *trailingPullView; // @synthesize trailingPullView=_trailingPullView;
 @property(retain, nonatomic) UISwipeActionPullView *leadingPullView; // @synthesize leadingPullView=_leadingPullView;
 @property(nonatomic) __weak UISwipeActionController *controller; // @synthesize controller=_controller;
+@property(nonatomic) _Bool shouldReenableUserInteractions; // @synthesize shouldReenableUserInteractions=_shouldReenableUserInteractions;
 @property(nonatomic) _Bool active; // @synthesize active=_active;
 @property(retain, nonatomic) UIContextualAction *currentAction; // @synthesize currentAction=_currentAction;
+@property(nonatomic) struct CGPoint swipedViewInitialPosition; // @synthesize swipedViewInitialPosition=_swipedViewInitialPosition;
 @property(retain, nonatomic) UIView *swipedView; // @synthesize swipedView=_swipedView;
 @property(nonatomic) struct UIEdgeInsets extraInsets; // @synthesize extraInsets=_extraInsets;
 @property(nonatomic) unsigned long long currentDirection; // @synthesize currentDirection=_currentDirection;

@@ -9,13 +9,13 @@
 #import <Messages/_MSMessageComposeExtensionImplProtocol-Protocol.h>
 
 @class MSConversation, NSData, NSString, UIViewController;
-@protocol _MSMessageComposeExtensionProtocol, _MSMessageComposeHostImplProtocol;
+@protocol _MSMessageComposeExtensionImplProtocol, _MSMessageComposeHostImplProtocol;
 
 @interface _MSMessageAppBundleContext : NSObject <_MSMessageComposeExtensionImplProtocol>
 {
     NSData *_conversationStateData;
     _Bool _wantsLiveView;
-    id <_MSMessageComposeExtensionProtocol> _containingContext;
+    id <_MSMessageComposeExtensionImplProtocol> _containingContext;
     UIViewController *_viewController;
     MSConversation *_activeConversation;
     unsigned long long _presentationStyle;
@@ -26,7 +26,7 @@
 @property(nonatomic) unsigned long long presentationStyle; // @synthesize presentationStyle=_presentationStyle;
 @property(readonly, nonatomic) MSConversation *activeConversation; // @synthesize activeConversation=_activeConversation;
 @property(readonly, nonatomic) __weak UIViewController *viewController; // @synthesize viewController=_viewController;
-@property(retain, nonatomic) id <_MSMessageComposeExtensionProtocol> containingContext; // @synthesize containingContext=_containingContext;
+@property(retain, nonatomic) id <_MSMessageComposeExtensionImplProtocol> containingContext; // @synthesize containingContext=_containingContext;
 - (void).cxx_destruct;
 - (void)dismiss;
 - (void)requestPresentationStyle:(unsigned long long)arg1;
@@ -53,6 +53,7 @@
 - (void)_remoteViewDidBecomeReadyForDisplay;
 - (struct CGRect)initialFrameOfHostView;
 - (void)_sendWillBecomeActiveMessage;
+@property(readonly, nonatomic) __weak UIViewController *stickerViewController;
 - (id)initWithViewController:(id)arg1 conversationStateData:(id)arg2 wantsLiveView:(_Bool)arg3;
 
 // Remaining properties

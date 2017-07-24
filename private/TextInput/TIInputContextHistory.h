@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <TextInput/NSCopying-Protocol.h>
 #import <TextInput/NSSecureCoding-Protocol.h>
@@ -16,14 +16,15 @@
     NSMutableArray *_entries;
     NSMutableArray *_pendingEntries;
     NSSet *_recipientIdentifiers;
-    NSString *_senderIdentifier;
+    NSSet *_senderIdentifiers;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSArray *pendingEntries; // @synthesize pendingEntries=_pendingEntries;
 @property(readonly, nonatomic) NSArray *entries; // @synthesize entries=_entries;
-@property(readonly, nonatomic) NSString *senderIdentifier; // @synthesize senderIdentifier=_senderIdentifier;
+@property(readonly, nonatomic) NSSet *senderIdentifiers; // @synthesize senderIdentifiers=_senderIdentifiers;
 @property(readonly, nonatomic) NSSet *recipientIdentifiers; // @synthesize recipientIdentifiers=_recipientIdentifiers;
+@property(readonly, nonatomic) NSString *senderIdentifier; // @dynamic senderIdentifier;
 @property(readonly, nonatomic) NSString *mostRecentNonSenderTextEntry;
 @property(readonly, nonatomic) NSString *aggregateText;
 - (_Bool)hasPendingEntries;
@@ -41,6 +42,7 @@
 - (void)dealloc;
 - (id)initWithRecipientIdentifiers:(id)arg1;
 - (id)initWithRecipientIdentifiers:(id)arg1 senderIdentifier:(id)arg2;
+- (id)initWithRecipientIdentifiers:(id)arg1 senderIdentifiers:(id)arg2;
 
 @end
 

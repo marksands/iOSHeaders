@@ -29,6 +29,7 @@
 - (void)failedToEndIndexBatchWithSpotlight:(id)arg1 willRetry:(_Bool)arg2;
 - (void)failedToBeginIndexBatchWithSpotlight:(id)arg1;
 - (void)failedToFetchClientStateFromSpotlight:(id)arg1 willRetry:(_Bool)arg2;
+- (id)_stringForSpotlightError:(id)arg1 willRetry:(_Bool)arg2;
 - (void)failedToFetchSearchableForContactIdentifiers:(id)arg1 error:(id)arg2;
 - (void)failedToClearChangeHistory:(id)arg1 toChangeAnchor:(id)arg2 error:(id)arg3;
 - (void)failedToFetchContactForChange:(id)arg1;

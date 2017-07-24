@@ -6,16 +6,12 @@
 
 #import <Foundation/NSXPCCoder.h>
 
-@class NSObject, NSXPCConnection, NSXPCInterface;
+@class NSObject, NSXPCConnection;
 @protocol OS_xpc_object;
 
 __attribute__((visibility("hidden")))
 @interface NSXPCDecoder : NSXPCCoder
 {
-    NSObject<OS_xpc_object> *_root;
-    NSObject<OS_xpc_object> *_oolObjects;
-    NSXPCInterface *_interface;
-    SEL _replyToSelector;
     unsigned long long _genericIndex;
     struct {
         char *data;
@@ -28,12 +24,10 @@ __attribute__((visibility("hidden")))
     unsigned int _collectionPointer;
     id _allowedClassesList[128];
     long long _allowedClassesIndex;
+    NSObject<OS_xpc_object> *_oolObjects;
 }
 
-+ (id)_createXPCObjectWithData:(id)arg1;
 @property NSXPCConnection *_connection; // @synthesize _connection;
-@property SEL replyToSelector; // @synthesize replyToSelector=_replyToSelector;
-@property(retain) NSXPCInterface *interface; // @synthesize interface=_interface;
 - (id)decodeXPCObjectOfType:(struct _xpc_type_s *)arg1 forKey:(id)arg2;
 - (id)decodeXPCObjectForKey:(id)arg1;
 - (const char *)_decodeCStringForKey:(id)arg1;
@@ -47,7 +41,9 @@ __attribute__((visibility("hidden")))
 - (_Bool)decodeBoolForKey:(id)arg1;
 - (id)_decodeArrayOfObjectsForKey:(id)arg1;
 - (id)allowedClasses;
-- (id)_decodeInvocationFromRoot;
+- (int)__decodeXPCObject:(id)arg1 allowingSimpleMessageSend:(_Bool)arg2 outInvocation:(id *)arg3 outArguments:(id *)arg4 outArgumentsMaxCount:(unsigned long long)arg5 outMethodSignature:(id *)arg6 outSelector:(SEL *)arg7 isReply:(_Bool)arg8 replySelector:(SEL)arg9 interface:(id)arg10;
+- (id)_decodeReplyFromXPCObject:(id)arg1 forSelector:(SEL)arg2 interface:(id)arg3;
+- (int)_decodeMessageFromXPCObject:(id)arg1 allowingSimpleMessageSend:(_Bool)arg2 outInvocation:(id *)arg3 outArguments:(id *)arg4 outArgumentsMaxCount:(unsigned long long)arg5 outMethodSignature:(id *)arg6 outSelector:(SEL *)arg7 interface:(id)arg8;
 - (id)decodeObjectOfClasses:(id)arg1 forKey:(id)arg2;
 - (id)decodeObjectOfClass:(Class)arg1 forKey:(id)arg2;
 - (id)_decodeObjectOfClasses:(id)arg1 atObject:(CDStruct_1b1be194 *)arg2;
@@ -59,7 +55,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)allowsKeyedCoding;
 - (id)debugDescription;
 - (void)dealloc;
-- (id)_initWithRootXPCObject:(id)arg1;
+- (void)_startReadingFromXPCObject:(id)arg1;
+- (id)init;
 - (id)connection;
 
 @end

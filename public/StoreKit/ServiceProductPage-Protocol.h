@@ -12,8 +12,7 @@
 - (void)setScriptContextDictionary:(NSDictionary *)arg1;
 - (void)setProductPageStyle:(NSNumber *)arg1;
 - (void)finishStarRatingPromptWithRating:(NSNumber *)arg1;
-- (void)setAskToBuy:(_Bool)arg1;
-- (void)setupWithClientBundleID:(NSString *)arg1 clientIdentifier:(NSString *)arg2;
+- (void)setupWithClientBundleID:(NSString *)arg1 bagType:(long long)arg2;
 - (void)setPreview:(NSNumber *)arg1;
 - (void)setClientIdentifier:(NSString *)arg1;
 - (void)setAffiliateIdentifier:(NSString *)arg1;
@@ -22,6 +21,7 @@
 - (void)loadProductWithRequest:(NSDictionary *)arg1;
 - (void)loadProductWithPageDictionary:(NSDictionary *)arg1;
 - (void)finishImmediately;
+- (void)setAskToBuy:(_Bool)arg1;
 - (void)setPromptString:(NSString *)arg1;
 - (void)setShowsRightBarButton:(_Bool)arg1;
 - (void)setRightBarButtonTitle:(NSString *)arg1;

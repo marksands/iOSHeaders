@@ -30,7 +30,6 @@
 - (id)coordinatesForBlock:(id)arg1 blockPath:(CDStruct_6ca94699)arg2 xAxis:(id)arg3 yAxis:(id)arg4;
 - (void)_addCoordinate:(id)arg1 toPath:(id)arg2;
 - (void)_drawStrokeWithBlockCoordinates:(id)arg1 pointTransform:(struct CGAffineTransform)arg2 context:(struct CGContext *)arg3 axisRect:(struct CGRect)arg4;
-- (void)_updateSecondaryRenderContextWithBlockCoordinates:(id)arg1 pointTransform:(struct CGAffineTransform)arg2 axisRect:(struct CGRect)arg3 secondaryRenderContext:(id)arg4;
 - (void)drawSeriesWithBlockCoordinates:(id)arg1 axisRect:(struct CGRect)arg2 zoomLevelConfiguration:(id)arg3 pointTransform:(struct CGAffineTransform)arg4 renderContext:(struct CGContext *)arg5 secondaryRenderContext:(id)arg6;
 - (_Bool)shouldInvertAxis;
 

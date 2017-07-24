@@ -10,6 +10,9 @@
 {
 }
 
++ (id)assetVersion;
++ (id)osBuild;
++ (id)score;
 + (id)decayRate;
 + (id)algorithm;
 

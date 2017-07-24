@@ -46,6 +46,12 @@ __attribute__((visibility("hidden")))
     double _callMaxAudioStallInterval;
     double _lastReportedAudioStallTime;
     double _lastReportedVideoStallTime;
+    unsigned int _noRemoteAtCallEnd;
+    unsigned int _remoteNoRemoteAtCallEnd;
+    unsigned int _totalConnectionTime;
+    unsigned int _startConnectionTime;
+    unsigned int _transportConnectionTime;
+    unsigned int _mediaConnectionTime;
     unsigned int _callMode;
     unsigned int _callDeviceRole;
     unsigned int _callTransportType;
@@ -65,6 +71,8 @@ __attribute__((visibility("hidden")))
 - (void)updateTargetBitrateForSegment:(id)arg1 newValue:(int)arg2;
 - (int)adaptiveLearningState;
 - (void)processEventWithCategory:(unsigned short)arg1 type:(unsigned short)arg2 payload:(id)arg3;
+- (void)updateConnectionTimes:(id)arg1;
+- (void)updateRelayInfo:(id)arg1;
 - (void)updateNoRemoteState:(_Bool)arg1;
 - (void)updateRedState:(id)arg1;
 - (void)updateErrorCode:(id)arg1;

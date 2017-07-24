@@ -13,6 +13,7 @@
 @interface DOCItem : NSObject <NSSecureCoding>
 {
     FPSandboxingURLWrapper *_wrapper;
+    _Bool _needsToBeImported;
     NSString *_contentType;
     NSURL *_fileURL;
     NSString *_bookmarkableString;
@@ -26,10 +27,14 @@
 @property(copy, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(copy, nonatomic) NSString *contentType; // @synthesize contentType=_contentType;
 - (void).cxx_destruct;
+- (void)setNeedsToBeImported:(_Bool)arg1;
+- (_Bool)needsToBeImported;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)fileURLForUploading;
+- (id)coordinatedFileURL;
+- (void)copyURLToInbox:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)prepareForMode:(unsigned long long)arg1 usingBookmark:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (id)initWithURL:(id)arg1 fileProviderItem:(id)arg2;
 - (id)initWithBookmarkableString:(id)arg1 fileProviderItem:(id)arg2;

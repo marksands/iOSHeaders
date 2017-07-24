@@ -6,10 +6,12 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class MPAVRoute, UIActivityIndicatorView, UIImageView, UILabel, UISwitch, UIView;
+#import <MediaPlayer/MPAVRoutingThemeableCellView-Protocol.h>
+
+@class MPAVRoute, NSString, UIActivityIndicatorView, UIImageView, UILabel, UISwitch, UIView;
 @protocol MPAVRoutingTableViewCellDelegate;
 
-@interface MPAVRoutingTableViewCell : UITableViewCell
+@interface MPAVRoutingTableViewCell : UITableViewCell <MPAVRoutingThemeableCellView>
 {
     UIImageView *_iconImageView;
     UILabel *_routeNameLabel;
@@ -22,12 +24,16 @@
     _Bool _mirroringSwitchVisible;
     _Bool _debugCell;
     _Bool _pendingSelection;
+    _Bool _useSmartAudioCheckmarkStyle;
+    _Bool _provideOwnSeparator;
     id <MPAVRoutingTableViewCellDelegate> _delegate;
     MPAVRoute *_route;
     unsigned long long _mirroringStyle;
     unsigned long long _iconStyle;
 }
 
+@property(nonatomic) _Bool provideOwnSeparator; // @synthesize provideOwnSeparator=_provideOwnSeparator;
+@property(nonatomic) _Bool useSmartAudioCheckmarkStyle; // @synthesize useSmartAudioCheckmarkStyle=_useSmartAudioCheckmarkStyle;
 @property(nonatomic, getter=isPendingSelection) _Bool pendingSelection; // @synthesize pendingSelection=_pendingSelection;
 @property(nonatomic, getter=isDebugCell) _Bool debugCell; // @synthesize debugCell=_debugCell;
 @property(nonatomic) unsigned long long iconStyle; // @synthesize iconStyle=_iconStyle;
@@ -37,6 +43,8 @@
 @property(nonatomic) __weak id <MPAVRoutingTableViewCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_updateSpinnerStyle;
+- (void)_updateSmartAudioAccessory;
+- (id)_checkmarkImageForSmartAudio;
 - (id)_iconImageForRoute:(id)arg1;
 - (id)_detailTextForRoute:(id)arg1;
 - (_Bool)_shouldShowSeparateBatteryPercentagesForBatteryLevel:(id)arg1;
@@ -44,13 +52,21 @@
 - (void)_mirroringSwitchValueDidChange:(id)arg1;
 - (void)_configureDetailLabel:(id)arg1;
 - (void)_configureLabel:(id)arg1;
-- (id)_currentDeviceRoutingIconImageName;
-- (id)_routingImageStyleName;
 - (void)setMirroringSwitchVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setAccessoryType:(long long)arg1;
 - (void)setTintColor:(id)arg1;
 - (void)layoutSubviews;
+- (id)separatorView;
+- (id)iconView;
+- (id)subtitleView;
+- (id)titleView;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

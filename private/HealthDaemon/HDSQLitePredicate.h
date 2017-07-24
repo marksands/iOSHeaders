@@ -14,6 +14,7 @@
 
 + (id)truePredicate;
 + (id)falsePredicate;
++ (id)booleanPredicateWithValue:(_Bool)arg1;
 + (id)compoundPredicateWithPredicate:(id)arg1 otherPredicate:(id)arg2;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

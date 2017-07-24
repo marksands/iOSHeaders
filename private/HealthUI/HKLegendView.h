@@ -6,7 +6,7 @@
 
 #import <HealthUI/HKBorderLineView.h>
 
-@class NSArray, NSMutableArray, UIColor, UIStackView, UIView;
+@class NSArray, NSLayoutConstraint, NSMutableArray, UIColor, UIStackView, UIView;
 
 @interface HKLegendView : HKBorderLineView
 {
@@ -14,11 +14,17 @@
     NSMutableArray *_leftEntryViews;
     NSMutableArray *_rightEntryViews;
     UIView *_topDividerView;
+    NSLayoutConstraint *_leadingConstraint;
+    NSLayoutConstraint *_trailingConstraint;
+    NSLayoutConstraint *_topConstraint;
+    NSLayoutConstraint *_bottomConstraint;
     NSArray *_leftEntries;
     NSArray *_rightEntries;
     UIColor *_topBorderColor;
+    struct UIEdgeInsets _edgeInsets;
 }
 
+@property(nonatomic) struct UIEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
 @property(retain, nonatomic) UIColor *topBorderColor; // @synthesize topBorderColor=_topBorderColor;
 @property(readonly, nonatomic) NSArray *rightEntries; // @synthesize rightEntries=_rightEntries;
 @property(readonly, nonatomic) NSArray *leftEntries; // @synthesize leftEntries=_leftEntries;

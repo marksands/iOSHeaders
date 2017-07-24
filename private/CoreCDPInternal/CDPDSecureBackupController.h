@@ -16,7 +16,6 @@
     id <CDPStateUIProviderInternal> _uiProvider;
     id <CDPDSecureBackupDelegate> _delegate;
     NSDictionary *_cachedAccountInfo;
-    NSDictionary *_cachedAccountLockoutInfo;
     id <CDPDSecureBackupProxy> _secureBackupProxy;
     CDPDSecureBackupConfiguration *_configuration;
 }
@@ -25,18 +24,11 @@
 @property(retain, nonatomic) CDPDSecureBackupConfiguration *configuration; // @synthesize configuration=_configuration;
 @property(retain, nonatomic) id <CDPDSecureBackupProxy> secureBackupProxy; // @synthesize secureBackupProxy=_secureBackupProxy;
 @property(nonatomic) _Bool fakeNearlyDepletedRecords; // @synthesize fakeNearlyDepletedRecords=_fakeNearlyDepletedRecords;
-@property(retain, nonatomic) NSDictionary *cachedAccountLockoutInfo; // @synthesize cachedAccountLockoutInfo=_cachedAccountLockoutInfo;
 @property(retain, nonatomic) NSDictionary *cachedAccountInfo; // @synthesize cachedAccountInfo=_cachedAccountInfo;
 @property(readonly, nonatomic) __weak id <CDPDSecureBackupDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) id <CDPStateUIProviderInternal> uiProvider; // @synthesize uiProvider=_uiProvider;
 @property(retain, nonatomic) CDPContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
-- (void)_accountLockoutInfoWithCompletion:(CDUnknownBlockType)arg1;
-- (void)accountLockoutInfoWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_setBackoffDate:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)setBackoffDate:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)resetAccountLockOutWithCompletion:(CDUnknownBlockType)arg1;
-- (void)lockAccountOutWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)_disableRecoveryKey:(id *)arg1;
 - (void)disableRecoveryKeyWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)_disableSecureBackup:(id *)arg1;

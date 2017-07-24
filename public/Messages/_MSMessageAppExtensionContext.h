@@ -9,13 +9,13 @@
 #import <Messages/_MSMessageComposeExtensionImplProtocol-Protocol.h>
 
 @class MSConversation, NSString, UIViewController;
-@protocol _MSMessageComposeExtensionProtocol, _MSMessageComposeHostImplProtocol;
+@protocol _MSMessageComposeExtensionImplProtocol, _MSMessageComposeHostImplProtocol;
 
 @interface _MSMessageAppExtensionContext : NSExtensionContext <_MSMessageComposeExtensionImplProtocol>
 {
     id <_MSMessageComposeHostImplProtocol> _hostContext;
     unsigned long long _presentationStyle;
-    id <_MSMessageComposeExtensionProtocol> _containingContext;
+    id <_MSMessageComposeExtensionImplProtocol> _containingContext;
     MSConversation *_activeConversation;
     struct __CFRunLoopObserver *_principalObjectCreationObserver;
     struct CGRect _initialFrameOfHostView;
@@ -27,7 +27,7 @@
 @property(readonly, nonatomic) struct __CFRunLoopObserver *principalObjectCreationObserver; // @synthesize principalObjectCreationObserver=_principalObjectCreationObserver;
 @property(readonly, nonatomic) struct CGRect initialFrameOfHostView; // @synthesize initialFrameOfHostView=_initialFrameOfHostView;
 @property(retain, nonatomic) MSConversation *activeConversation; // @synthesize activeConversation=_activeConversation;
-@property(retain, nonatomic) id <_MSMessageComposeExtensionProtocol> containingContext; // @synthesize containingContext=_containingContext;
+@property(retain, nonatomic) id <_MSMessageComposeExtensionImplProtocol> containingContext; // @synthesize containingContext=_containingContext;
 @property(nonatomic) unsigned long long presentationStyle; // @synthesize presentationStyle=_presentationStyle;
 @property(retain, nonatomic) id <_MSMessageComposeHostImplProtocol> hostContext; // @synthesize hostContext=_hostContext;
 - (void).cxx_destruct;
@@ -57,6 +57,7 @@
 - (void)_resignActive;
 - (void)_becomeActiveWithConversationState:(id)arg1 presentationState:(id)arg2;
 - (void)_handlePrincipalObjectCreated;
+@property(readonly, nonatomic) __weak UIViewController *stickerViewController;
 @property(readonly, nonatomic) __weak UIViewController *viewController;
 - (void)openURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_uninstallPrincipalObjectObserverIfNeeded;

@@ -6,11 +6,12 @@
 
 #import <ContactsUI/NSObject-Protocol.h>
 
-@class CNContactGroupPickerViewController, NSArray, NSString;
+@class CNContactGroupPickerViewController, CNPolicy, NSArray, NSString;
 
 @protocol CNContactGroupPickerDelegate <NSObject>
 - (void)contactGroupPickerDidFinish:(CNContactGroupPickerViewController *)arg1 withGroup:(NSString *)arg2;
 - (void)contactGroupPickerDidCancel:(CNContactGroupPickerViewController *)arg1;
+- (CNPolicy *)policy;
 - (NSArray *)alreadyPickedGroups;
 @end
 

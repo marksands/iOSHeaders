@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)indexOfField:(id)arg1;
 - (void)removeField:(id)arg1;
 - (void)addField:(id)arg1;
+- (id)findFieldWithTextAttributeUUIDString:(id)arg1;
 - (unsigned long long)sortedSearchForIndexOfField:(id)arg1;
 - (id)parentStorage;
 - (void)setParentStorage:(id)arg1;

@@ -39,7 +39,6 @@
 - (id)scoresForTagIDs:(id)arg1;
 - (id)rankTagIDsDescending:(id)arg1;
 - (id)limitArticlesByFlowRate:(id)arg1 timeInterval:(double)arg2 publisherCount:(unsigned long long)arg3;
-- (double)computeUserFeedbackScoreForArticle:(id)arg1 timestamp:(double)arg2;
 - (id)diversifyArticles:(id)arg1 limit:(unsigned long long)arg2;
 - (id)sortArticles:(id)arg1;
 - (id)sortArticles:(id)arg1 options:(long long)arg2;

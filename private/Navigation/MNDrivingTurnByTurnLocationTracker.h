@@ -28,6 +28,7 @@
 
 - (void).cxx_destruct;
 - (void)tunnelLocationProjector:(id)arg1 didUpdateLocation:(id)arg2;
+- (_Bool)trafficIncidentAlertUpdaterIsCurrentlySpeaking:(id)arg1;
 - (double)trafficIncidentAlertUpdaterTimeUntilNextAnnouncement:(id)arg1;
 - (double)trafficIncidentAlertUpdaterTimeSinceLastAnnouncement:(id)arg1;
 - (double)trafficIncidentAlertUpdaterRemainingTimeOnRoute:(id)arg1;
@@ -39,7 +40,6 @@
 - (void)etaManager:(id)arg1 didUpdateAlternateRoutes:(id)arg2;
 - (void)etaManager:(id)arg1 updatedTrafficForETARoute:(id)arg2 from:(unsigned int)arg3 to:(unsigned int)arg4;
 - (void)etaManager:(id)arg1 receivedTrafficIncidentAlert:(id)arg2;
-- (void)etaManagerUpdatedTrafficIncidents:(id)arg1;
 - (void)etaManager:(id)arg1 updatedIncidentsForRoute:(id)arg2 etaRoute:(id)arg3 incidentsOffset:(unsigned int)arg4;
 - (void)etaManager:(id)arg1 failedToReceiveETAResponse:(id)arg2;
 - (void)etaManager:(id)arg1 receivedETAResponse:(id)arg2;
@@ -52,13 +52,14 @@
 - (int)_detectedMotionForLocation:(id)arg1;
 - (_Bool)_checkArrivalForLocation:(id)arg1;
 - (void)_updateForArrival;
-- (void)_updateForReroute:(id)arg1;
+- (void)_updateForReroute:(id)arg1 rerouteReason:(unsigned long long)arg2 request:(id)arg3 response:(id)arg4;
 - (void)_updateForLocation:(id)arg1;
 - (id)_overrideLocationForLocation:(id)arg1;
 - (id)_newMapMatcherForRoute:(id)arg1;
 - (id)_matchedLocationForLocation:(id)arg1;
 - (void)stopTracking;
 - (void)startTracking;
+- (void)_setAuditToken:(id)arg1;
 - (_Bool)shouldProjectAlongRoute;
 - (int)transportType;
 - (void)_sendRouteHintForLocation:(id)arg1;

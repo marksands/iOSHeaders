@@ -12,6 +12,7 @@
 {
     UIImageView *_invalidRowView;
     _Bool _leftAlignDetailLabel;
+    _Bool _didSetupEditableTextFieldLargeText;
     long long _remoteUIAccessoryType;
     UIView *_remoteUIAccessoryView;
     UIButton *_detailLinkButton;
@@ -39,6 +40,7 @@
 - (void)setHTMLData:(id)arg1 sourceURL:(id)arg2 delegate:(id)arg3;
 - (void)_showActivityIndicatorAccessory;
 - (void)_setRemoteUIAccessoryType:(long long)arg1 withColor:(id)arg2;
+- (id)editableTextField;
 - (id)_disclosureChevronImage:(_Bool)arg1;
 - (id)_checkmarkImage:(_Bool)arg1;
 - (void)_accessoriesChanged;

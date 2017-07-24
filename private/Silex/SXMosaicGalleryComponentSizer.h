@@ -18,8 +18,6 @@
 @property(retain, nonatomic) SXMosaicGalleryLayouter *layouter; // @synthesize layouter=_layouter;
 - (void).cxx_destruct;
 - (id)documentColumnLayoutForGalleryLayouter:(id)arg1;
-- (void)updateComponentBlueprint:(id)arg1;
-- (Class)componentBlueprintClass;
 - (unsigned long long)numberOfItemsForGalleryLayouter:(id)arg1;
 - (_Bool)galleryLayouter:(id)arg1 viewIsCurrentlyFullscreenForItemAtIndex:(unsigned long long)arg2;
 - (id)galleryLayouter:(id)arg1 viewForItemAtIndex:(unsigned long long)arg2;

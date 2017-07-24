@@ -17,7 +17,9 @@
     _KSSystemTask *_pushTask;
     _Bool _taskRun;
     NSArray *_languagesIfOffline;
+    _Bool _attemptingConnection;
     _Bool _retryPending;
+    _Bool _needRetry;
 }
 
 + (Class)infoClass;

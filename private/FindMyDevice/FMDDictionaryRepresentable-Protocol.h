@@ -9,7 +9,7 @@
 @class NSDictionary;
 
 @protocol FMDDictionaryRepresentable <NSObject>
-- (NSDictionary *)dictionaryValue;
+@property(readonly, nonatomic) NSDictionary *dictionaryValue;
 - (id)initWithDictionary:(NSDictionary *)arg1;
 @end
 

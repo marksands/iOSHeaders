@@ -9,10 +9,11 @@
 #import <AuthKitUI/AKAppleIDAuthenticationInAppContextAlertDelegate-Protocol.h>
 #import <AuthKitUI/UITextFieldDelegate-Protocol.h>
 
-@class NSString, UIButton, UILabel, UITextField, UIView, UIVisualEffectView;
+@class NSString, UIButton, UIControl, UILabel, UITextField, UIView, UIVisualEffectView;
 
 @interface AKModalSignInViewController : AKBaseSignInViewController <AKAppleIDAuthenticationInAppContextAlertDelegate, UITextFieldDelegate>
 {
+    UIControl *_firstResponder;
     UILabel *_titleLabel;
     UILabel *_bodyLabel;
     UITextField *_passwordField;
@@ -30,8 +31,11 @@
 - (void).cxx_destruct;
 - (void)displayAlertForContext:(id)arg1 error:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)textFieldShouldReturn:(id)arg1;
-- (void)iForgotButtonWasTapped:(id)arg1;
+- (_Bool)canBecomeFirstResponder;
+- (_Bool)resignFirstResponder;
 - (_Bool)becomeFirstResponder;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (void)iForgotButtonWasTapped:(id)arg1;
 - (void)updateViewConstraints;
 - (void)setupConstraints;
 - (void)createViews;

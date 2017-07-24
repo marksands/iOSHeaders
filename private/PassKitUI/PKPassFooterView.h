@@ -9,7 +9,7 @@
 #import <PassKitUI/PKPassFooterContentViewDelegate-Protocol.h>
 
 @class NSObject, NSString, PKPassFooterContentView, PKPassView, PKPaymentSessionHandle;
-@protocol OS_dispatch_group, OS_dispatch_source;
+@protocol OS_dispatch_group, OS_dispatch_source, PKPassFooterViewDelegate;
 
 @interface PKPassFooterView : UIView <PKPassFooterContentViewDelegate>
 {
@@ -24,8 +24,10 @@
     unsigned char _contentViewVisibility;
     NSObject<OS_dispatch_group> *_sessionDelayGroup;
     long long _state;
+    id <PKPassFooterViewDelegate> _delegate;
 }
 
+@property(nonatomic) __weak id <PKPassFooterViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) long long state; // @synthesize state=_state;
 @property(retain, nonatomic) PKPassView *passView; // @synthesize passView=_passView;
 - (void).cxx_destruct;
@@ -38,7 +40,6 @@
 - (void)_advanceContentViewVisibilityToState:(unsigned char)arg1 animated:(_Bool)arg2;
 - (void)_advanceVisibilityToState:(unsigned char)arg1 animated:(_Bool)arg2;
 - (void)_setContentView:(id)arg1 animated:(_Bool)arg2;
-- (void)_setContentView:(id)arg1;
 - (void)_configureForValueAddedServiceWithContext:(id)arg1;
 - (void)_configureForPersonalizedPaymentApplicationWithContext:(id)arg1;
 - (void)_acquireContactlessInterfaceSessionWithHandler:(CDUnknownBlockType)arg1;
@@ -50,7 +51,7 @@
 - (void)passFooterContentViewDidEndAuthenticating:(id)arg1;
 - (void)passFooterContentViewDidBeginAuthenticating:(id)arg1;
 - (void)passFooterContentViewRequestsSessionSuppression:(id)arg1;
-@property(readonly, nonatomic) _Bool isPassAuthorized;
+@property(readonly, nonatomic, getter=isPassAuthorized) _Bool passAuthorized;
 - (void)configureForState:(long long)arg1 context:(id)arg2 passView:(id)arg3;
 - (void)didBecomeHiddenAnimated:(_Bool)arg1;
 - (void)didBecomeVisibleAnimated:(_Bool)arg1;

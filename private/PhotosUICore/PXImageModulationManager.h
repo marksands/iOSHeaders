@@ -11,9 +11,10 @@
 }
 
 + (id)sharedImageModulationManager;
-+ (unsigned long long)optionsForAsset:(id)arg1;
-- (void)checkInImageAdjuster:(id)arg1;
-- (id)checkOutImageAdjusterWithOptions:(unsigned long long)arg1;
++ (long long)optionsForAsset:(id)arg1;
++ (double)HDRValueForAsset:(id)arg1;
+- (void)checkInImageLayerModulator:(id)arg1;
+- (id)checkoutImageLayerModulatorWithOptions:(long long)arg1;
 - (id)_init;
 - (id)init;
 

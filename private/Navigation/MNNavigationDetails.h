@@ -6,20 +6,20 @@
 
 #import <objc/NSObject.h>
 
-@class GEOComposedRoute, GEONavigationGuidanceState, MNActiveRouteDetails, MNLocation, MNRoutePlanningDetails, NSArray, NSDictionary, NSMapTable, NSMutableDictionary, NSString;
+@class GEOComposedRoute, GEONavigationGuidanceState, MNActiveRouteDetails, MNActiveRouteInfo, MNLocation, MNRoutePlanningDetails, NSArray, NSMapTable, NSMutableDictionary, NSString;
 
 __attribute__((visibility("hidden")))
 @interface MNNavigationDetails : NSObject
 {
     MNActiveRouteDetails *_activeRouteDetails;
     MNLocation *_location;
-    GEOComposedRoute *_route;
     unsigned long long _routeIndex;
     _Bool _isDetour;
     GEONavigationGuidanceState *_guidanceState;
-    NSMutableDictionary *_routes;
-    NSMutableDictionary *_alternateRoutes;
-    NSMapTable *_routeInfo;
+    NSMapTable *_routeIDLookup;
+    NSMutableDictionary *_routeLookup;
+    MNActiveRouteInfo *_currentRoute;
+    NSArray *_alternateRoutes;
     NSArray *_possibleCommuteDestinations;
     NSMutableDictionary *_trafficIncidentAlerts;
     _Bool _guidancePromptsEnabled;
@@ -69,7 +69,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double proceedToRouteDistance; // @synthesize proceedToRouteDistance=_proceedToRouteDistance;
 @property(readonly, nonatomic) unsigned long long reconnectionRouteIndex; // @synthesize reconnectionRouteIndex=_reconnectionRouteIndex;
 @property(readonly, nonatomic) unsigned long long routeIndex; // @synthesize routeIndex=_routeIndex;
-@property(readonly, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
 @property(retain, nonatomic) GEONavigationGuidanceState *guidanceState; // @synthesize guidanceState=_guidanceState;
 @property(nonatomic) int navigationState; // @synthesize navigationState=_navigationState;
 @property(nonatomic) int headingOrientation; // @synthesize headingOrientation=_headingOrientation;
@@ -77,19 +76,23 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool guidancePromptsEnabled; // @synthesize guidancePromptsEnabled=_guidancePromptsEnabled;
 @property(retain, nonatomic) MNLocation *location; // @synthesize location=_location;
 @property(retain, nonatomic) MNRoutePlanningDetails *routePlanningDetails; // @synthesize routePlanningDetails=_routePlanningDetails;
-@property(retain, nonatomic) MNActiveRouteDetails *activeRouteDetails; // @synthesize activeRouteDetails=_activeRouteDetails;
+@property(readonly, nonatomic) MNActiveRouteDetails *activeRouteDetails; // @synthesize activeRouteDetails=_activeRouteDetails;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
+- (void)_updateRouteIDLookup;
 - (id)removeTrafficIncidentAlertWithDetails:(id)arg1;
 - (id)updateWithTrafficIncidentAlertDetails:(id)arg1;
 - (id)routeInfoForRoute:(id)arg1;
-- (void)setAlternateRouteDetails:(id)arg1;
-- (id)routeForRouteDetailsID:(id)arg1;
+- (id)routeInfoForID:(id)arg1;
+- (void)updateETAResponseForRoute:(id)arg1;
+- (void)setAlternateRoutes:(id)arg1;
+- (void)setActiveRouteDetails:(id)arg1 withAlternateRoutes:(id)arg2;
 - (void)updatePossibleCommuteDestinations:(id)arg1;
 @property(readonly, nonatomic) unsigned long long legIndex;
 @property(readonly, nonatomic) unsigned long long stepIndex;
 @property(readonly, nonatomic) int navigationType;
-@property(readonly, nonatomic) NSDictionary *alternateRoutes;
+@property(readonly, nonatomic) NSArray *alternateRoutes;
+@property(readonly, nonatomic) GEOComposedRoute *currentRoute;
 - (id)init;
 
 @end

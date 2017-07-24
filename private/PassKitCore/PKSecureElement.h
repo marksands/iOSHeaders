@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSHashTable, NSLock, NSNumber, NSString;
+@class NSArray, NSHashTable, NSLock, NSNumber, NSString, NSUUID;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface PKSecureElement : NSObject
@@ -26,6 +26,7 @@
 + (id)secureElementIdentifiers;
 + (id)primarySecureElementIdentifier;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSUUID *ownerUserUUID;
 @property(readonly, nonatomic) NSArray *secureElementIdentifiers;
 @property(readonly, nonatomic) NSString *primarySecureElementIdentifier;
 @property(readonly, nonatomic) NSNumber *primaryJSBLSequenceCounter;
@@ -35,8 +36,11 @@
 @property(readonly, nonatomic) _Bool isDeletingAllApplets;
 @property(readonly, nonatomic) _Bool isInRestrictedMode;
 @property(readonly, nonatomic) _Bool isProductionSigned;
+@property(readonly, nonatomic) _Bool isOwnable;
 @property(copy, nonatomic) CDUnknownBlockType secureElementSessionPostlude;
 @property(copy, nonatomic) CDUnknownBlockType secureElementSessionPrelude;
+- (_Bool)setOwnerUserUUID:(id)arg1 keybagUUID:(id)arg2;
+- (unsigned long long)ownershipStateForUserUUID:(id)arg1;
 - (_Bool)supportsExpressModeForExpressPassType:(long long)arg1;
 - (void)unregisterObserver:(id)arg1;
 - (void)registerObserver:(id)arg1;
@@ -44,6 +48,7 @@
 - (void)connectToServerWithPushTopic:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)queueConnectionToSeverForAppletIdentifiers:(id)arg1;
 - (_Bool)queueConnectionToSeverWithPushTopic:(id)arg1;
+- (void)signedPlatformDataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)stateInformationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)signatureForAuthToken:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)signChallenge:(id)arg1 signatureEntanglementMode:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;

@@ -14,8 +14,8 @@
 {
     long long _expectedSendSize;
     long long _expectedReceiveSize;
-    NSString *_operationGroupID;
     CKOperationConfiguration *_defaultConfiguration;
+    NSString *_operationGroupID;
     NSString *_name;
     CKOperationGroupSystemImposedInfo *_systemImposedInfo;
     NSNumber *_quantityNumber;
@@ -27,7 +27,6 @@
 @property(copy, nonatomic) NSNumber *quantityNumber; // @synthesize quantityNumber=_quantityNumber;
 @property(retain, nonatomic) CKOperationGroupSystemImposedInfo *systemImposedInfo; // @synthesize systemImposedInfo=_systemImposedInfo;
 @property(copy) NSString *name; // @synthesize name=_name;
-@property(copy) CKOperationConfiguration *defaultConfiguration; // @synthesize defaultConfiguration=_defaultConfiguration;
 @property(readonly, copy, nonatomic) NSString *operationGroupID; // @synthesize operationGroupID=_operationGroupID;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
@@ -38,6 +37,7 @@
 @property(readonly, nonatomic) long long approximateReceiveBytes;
 @property(readonly, nonatomic) long long approximateSendBytes;
 - (long long)_approximateBytesForTransferSize:(long long)arg1;
+@property(copy) CKOperationConfiguration *defaultConfiguration; // @synthesize defaultConfiguration=_defaultConfiguration;
 @property long long expectedReceiveSize; // @synthesize expectedReceiveSize=_expectedReceiveSize;
 @property long long expectedSendSize; // @synthesize expectedSendSize=_expectedSendSize;
 @property unsigned long long quantity;

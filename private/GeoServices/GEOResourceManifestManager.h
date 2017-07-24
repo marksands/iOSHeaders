@@ -71,6 +71,9 @@
 - (void)deactivateResourceScale:(int)arg1;
 - (void)activateResourceScenario:(int)arg1;
 - (void)activateResourceScale:(int)arg1;
+- (void)cancelCurrentManifestUpdate;
+- (id)updateProgress;
+- (void)updateManifest:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateManifest:(CDUnknownBlockType)arg1;
 - (void)updateManifestIfNecessary:(CDUnknownBlockType)arg1;
 - (void)setManifestToken:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -90,12 +93,13 @@
 - (id)allResourceNames;
 - (void)_scheduleCachedResourceInfoPurgeTimer;
 - (_Bool)supportsTileStyle:(int)arg1 size:(int)arg2 scale:(int)arg3;
-- (id)disputedBordersQueryStringForTileKey:(const struct _GEOTileKey *)arg1 country:(id)arg2 region:(id)arg3;
+- (id)disputedBordersQueryItemsForTileKey:(const struct _GEOTileKey *)arg1 country:(id)arg2 region:(id)arg3;
 - (_Bool)isDisputedBordersWhitelistedForTileKey:(const struct _GEOTileKey *)arg1 country:(id)arg2 region:(id)arg3;
 - (id)languageForTileKey:(const struct _GEOTileKey *)arg1 overrideLocale:(id)arg2;
 - (id)languageForTileKey:(const struct _GEOTileKey *)arg1;
 - (_Bool)isAvailableForTileKey:(const struct _GEOTileKey *)arg1;
 - (double)timeToLiveForTileKey:(const struct _GEOTileKey *)arg1;
+- (int)requestStyleForTileKey:(const struct _GEOTileKey *)arg1;
 - (unsigned int)versionForTileKey:(const struct _GEOTileKey *)arg1;
 - (id)localizationURLStringIfNecessaryForTileKey:(const struct _GEOTileKey *)arg1 overrideLocale:(id)arg2;
 - (id)baseURLStringForTileKey:(const struct _GEOTileKey *)arg1;

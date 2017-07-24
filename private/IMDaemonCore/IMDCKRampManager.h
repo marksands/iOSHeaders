@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @protocol OS_dispatch_queue;
 
@@ -19,6 +19,7 @@
 - (void)fetchLatestRampStateFromCK:(CDUnknownBlockType)arg1;
 - (void)_writeRampStateAllowed:(_Bool)arg1 promoted:(_Bool)arg2 visible:(_Bool)arg3;
 - (void)_fetchLatestRampStateFromCK:(CDUnknownBlockType)arg1;
+- (_Bool)_shouldSendPriorityRequest;
 - (id)_rampUpRecordID;
 - (void)_scheduleOperation:(id)arg1;
 - (id)_CKUtilitiesSharedInstance;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSString;
 
@@ -13,8 +13,11 @@
     NSString *_name;
     NSString *_address;
     struct BTDeviceImpl *_device;
+    unsigned int _connectingServiceMask;
 }
 
+- (unsigned int)getConnectingServiceMask;
+- (void)setConnectingServicemask:(unsigned int)arg1;
 - (_Bool)setUserName:(id)arg1;
 - (_Bool)isAppleAudioDevice;
 - (void)setSyncGroup:(int)arg1 enabled:(_Bool)arg2;

@@ -48,6 +48,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool usesTiledViews;
 - (struct CGRect)visibleRect;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) NSDictionary *markedTextStyle;
 @property(nonatomic) struct _NSRange markedRange;
 - (void)setLayoutOrientation:(long long)arg1;
 @property(readonly, nonatomic) long long layoutOrientation;

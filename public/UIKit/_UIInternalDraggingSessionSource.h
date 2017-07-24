@@ -18,6 +18,8 @@ __attribute__((visibility("hidden")))
     _UIDragSetDownAnimation *_setDownAnimation;
     long long _stateAfterSetDown;
     _Bool _sentWillEnd;
+    _Bool _hostIsActive;
+    _Bool _originatedInHostedWindow;
     _Bool _prefersFullSizePreview;
     unsigned int _sessionIdentifier;
     _UIDraggingSession *_publicSession;
@@ -51,6 +53,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak UIDragEvent *dragEvent; // @synthesize dragEvent=_dragEvent;
 @property(readonly, nonatomic) _UIDraggingSession *publicSession; // @synthesize publicSession=_publicSession;
 - (void).cxx_destruct;
+- (void)_hostDidDeactivate;
+- (void)_hostWillBecomeActive;
 @property(readonly, nonatomic) _Bool canAddItems;
 - (void)cancelDrag;
 @property(readonly, nonatomic) _Bool shouldCancelOnAppDeactivation;

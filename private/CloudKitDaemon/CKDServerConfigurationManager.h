@@ -6,12 +6,15 @@
 
 #import <objc/NSObject.h>
 
-@class CKDServerConfiguration, NSMutableDictionary, NSMutableSet, NSOperationQueue;
+#import <CloudKitDaemon/CKDSystemAvailabilityWatcher-Protocol.h>
+
+@class CKDServerConfiguration, NSMutableDictionary, NSMutableSet, NSOperationQueue, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 __attribute__((visibility("hidden")))
-@interface CKDServerConfigurationManager : NSObject
+@interface CKDServerConfigurationManager : NSObject <CKDSystemAvailabilityWatcher>
 {
+    _Bool _shouldDropAllConfigurations;
     int _iCloudEnvNotifToken;
     NSObject<OS_dispatch_source> *_switchNotifSource;
     NSOperationQueue *_configurationQueue;
@@ -24,6 +27,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)sharedManager;
+@property(nonatomic) _Bool shouldDropAllConfigurations; // @synthesize shouldDropAllConfigurations=_shouldDropAllConfigurations;
 @property(nonatomic) int iCloudEnvNotifToken; // @synthesize iCloudEnvNotifToken=_iCloudEnvNotifToken;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(retain, nonatomic) NSMutableDictionary *containerSpecificInfoOperations; // @synthesize containerSpecificInfoOperations=_containerSpecificInfoOperations;
@@ -39,6 +43,7 @@ __attribute__((visibility("hidden")))
 - (void)expireGlobalConfiguration;
 - (void)_behaviorOptionsChanged:(id)arg1;
 - (void)_dropAllConfigurations;
+- (void)_reallyDropAllConfigurations;
 - (void)serverEnvironmentForOperation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)containerScopedUserIDForOperation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)publicURLForServerType:(long long)arg1 operation:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -49,6 +54,13 @@ __attribute__((visibility("hidden")))
 - (id)init;
 - (void)_watchForSwitchPrefFileChanges;
 - (id)_uniqueStringForContainerAndAccount:(id)arg1;
+- (void)systemAvailabilityChanged:(unsigned long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

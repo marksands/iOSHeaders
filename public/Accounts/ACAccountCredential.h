@@ -7,11 +7,13 @@
 #import <objc/NSObject.h>
 
 #import <Accounts/ACProtobufCoding-Protocol.h>
+#import <Accounts/NSCoding-Protocol.h>
+#import <Accounts/NSCopying-Protocol.h>
 #import <Accounts/NSSecureCoding-Protocol.h>
 
 @class ACAccount, NSDate, NSMutableDictionary, NSMutableSet, NSSet, NSString;
 
-@interface ACAccountCredential : NSObject <NSSecureCoding, ACProtobufCoding>
+@interface ACAccountCredential : NSObject <ACProtobufCoding, NSCoding, NSCopying, NSSecureCoding>
 {
     NSMutableDictionary *_credentialItems;
     NSString *_credentialType;
@@ -64,6 +66,7 @@
 - (id)initWithPassword:(id)arg1;
 - (id)initWithOAuthToken:(id)arg1 tokenSecret:(id)arg2;
 - (id)initWithOAuth2Token:(id)arg1 refreshToken:(id)arg2 expiryDate:(id)arg3;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 

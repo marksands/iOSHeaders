@@ -27,7 +27,8 @@ typedef struct {
 typedef struct {
     unsigned int lastKnownResyncID:1;
     unsigned int resyncID:1;
-} CDStruct_a41f3871;
+    unsigned int syncID:1;
+} CDStruct_02c44088;
 
 typedef struct {
     unsigned int pending:1;

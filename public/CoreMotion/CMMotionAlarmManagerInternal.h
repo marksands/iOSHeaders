@@ -20,7 +20,7 @@
 
 + (id)instance;
 - (void)_handleAlarmFire:(id)arg1;
-- (_Bool)_launchRemoteAppWithError:(id *)arg1;
+- (_Bool)_launchRemoteAppWithError:(id *)arg1 delegate:(id)arg2;
 - (_Bool)_acknowledgeAlarm:(id)arg1 error:(id *)arg2;
 - (_Bool)_unregisterAlarm:(id)arg1 error:(id *)arg2;
 - (_Bool)_registerAlarm:(id)arg1 error:(id *)arg2;

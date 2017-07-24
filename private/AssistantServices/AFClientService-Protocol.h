@@ -6,7 +6,7 @@
 
 #import <AssistantServices/NSObject-Protocol.h>
 
-@class AFApplicationInfo, AFAudioPlaybackRequest, AFMetrics, AFRequestInfo, AFSpeechRequestOptions, AFSpeechSynthesisRecord, NSArray, NSData, NSDictionary, NSError, NSSet, NSString, NSURL, SASPronunciationContext, SASetApplicationContext;
+@class AFApplicationInfo, AFAudioPlaybackRequest, AFClientConfiguration, AFMetrics, AFRequestInfo, AFSpeechRequestOptions, AFSpeechSynthesisRecord, NSArray, NSData, NSDictionary, NSError, NSSet, NSString, NSURL, SASPronunciationContext, SASetApplicationContext;
 
 @protocol AFClientService <NSObject>
 - (oneway void)_sendFeedbackToAppPreferencesPredictorForMetricsContext:(NSString *)arg1 selectedBundleId:(NSString *)arg2;
@@ -22,7 +22,7 @@
 - (oneway void)_sendLargeData:(NSData *)arg1 reply:(void (^)(NSString *, NSData *))arg2;
 - (oneway void)_pingServiceForIdentifier:(NSString *)arg1 reply:(void (^)(NSDictionary *))arg2;
 - (oneway void)_listInstalledServicesWithReply:(void (^)(NSDictionary *))arg1;
-- (oneway void)adviseSessionArbiterToContinueWithPreviousWinner;
+- (oneway void)adviseSessionArbiterToContinueWithPreviousWinner:(_Bool)arg1;
 - (oneway void)reportIssueForError:(NSError *)arg1 type:(long long)arg2 context:(NSDictionary *)arg3;
 - (oneway void)updateSpeechSynthesisRecord:(AFSpeechSynthesisRecord *)arg1;
 - (oneway void)endUpdateOutputAudioPower;
@@ -56,11 +56,11 @@
 - (oneway void)startAcousticIDRequestWithOptions:(AFSpeechRequestOptions *)arg1 context:(NSString *)arg2 completion:(void (^)(NSError *))arg3;
 - (oneway void)startSpeechPronunciationRequestWithOptions:(AFSpeechRequestOptions *)arg1 context:(SASPronunciationContext *)arg2 completion:(void (^)(NSError *))arg3;
 - (oneway void)startRecordingForPendingSpeechRequestWithOptions:(AFSpeechRequestOptions *)arg1 requestId:(unsigned long long)arg2 completion:(void (^)(NSError *))arg3;
-- (oneway void)startRequestWithInfo:(AFRequestInfo *)arg1 completion:(void (^)(NSError *))arg2;
+- (oneway void)startRequestWithInfo:(AFRequestInfo *)arg1 activationEvent:(long long)arg2 completion:(void (^)(NSError *))arg3;
 - (oneway void)endSession;
 - (oneway void)didDismissUI;
 - (oneway void)willPresentUIWithReply:(void (^)(void))arg1;
-- (oneway void)setVoiceOverIsActive:(_Bool)arg1;
+- (oneway void)setConfiguration:(AFClientConfiguration *)arg1;
 - (oneway void)setCarDNDActive:(_Bool)arg1;
 - (oneway void)setIsStark:(_Bool)arg1;
 - (oneway void)setLockState:(_Bool)arg1 showingLockScreen:(_Bool)arg2;

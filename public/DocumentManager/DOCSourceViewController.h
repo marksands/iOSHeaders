@@ -40,6 +40,8 @@
 - (void)prepareForPopoverPresentation:(id)arg1;
 - (void)updateViewsForParent:(id)arg1;
 - (void)embedViewController:(id)arg1;
+- (void)didPickItem:(id)arg1;
+- (void)showLocation:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)reflectSelectedLocation:(id)arg1;
 - (void)removeViewController:(id)arg1;
 - (void)willMoveToParentViewController:(id)arg1;

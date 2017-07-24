@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <NewsFeedLayout/NFLGenericCellNoImageProperties.h>
+#import <NewsFeedLayout/NFLAbstractHeadlineProperties.h>
 
 @class UIColor;
 
-@interface NFLTrendingProperties : NFLGenericCellNoImageProperties
+@interface NFLTrendingProperties : NFLAbstractHeadlineProperties
 {
     UIColor *_bylineColor;
     double _bylineLineHeight;
@@ -26,8 +26,6 @@
 - (id)titleFontWithTemplate:(id)arg1;
 @property(readonly, nonatomic) UIColor *bylineColor; // @synthesize bylineColor=_bylineColor;
 - (id)bylineFontColorWithTemplate:(id)arg1;
-- (id)titleFontReadColorWithTemplate:(id)arg1;
-- (id)titleFontColorWithTemplate:(id)arg1;
 - (double)titleLineHeightWithTemplate:(id)arg1;
 - (double)_bylineFontSize;
 - (double)titleFontSizeWithTemplate:(id)arg1;
@@ -39,7 +37,7 @@
 - (double)ageLabelToAccessoryLabelSpacingWithTemplate:(id)arg1;
 - (double)titleToAccessorySpacingWithTemplate:(id)arg1;
 - (double)publisherLogoToTitleSpacingWithTemplate:(id)arg1;
-- (id)initWithLayout:(id)arg1 columnIrrespectiveProperties:(id)arg2 fontCache:(id)arg3 scaleValue:(double)arg4 dynamicTypeScale:(double)arg5;
+- (id)initWithLayout:(id)arg1 columnIrrespectiveProperties:(id)arg2 fontCache:(id)arg3 scaleValue:(double)arg4 headlineScales:(CDStruct_3d2913aa)arg5;
 
 @end
 

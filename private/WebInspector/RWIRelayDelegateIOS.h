@@ -32,6 +32,7 @@
 - (id)relaySetupResponseForClientConnection:(id)arg1;
 - (void)relay:(id)arg1 unhandledApplicationXPCMessage:(id)arg2;
 - (void)relay:(id)arg1 activateApplicationWithBundleIdentifier:(id)arg2;
+- (void)relayClientConnectionDidChange:(id)arg1;
 - (void)relay:(id)arg1 applicationUpdated:(id)arg2;
 - (void)relay:(id)arg1 applicationDisconnected:(id)arg2;
 - (void)relay:(id)arg1 applicationConnected:(id)arg2;

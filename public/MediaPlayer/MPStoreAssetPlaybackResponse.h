@@ -9,10 +9,11 @@
 #import <MediaPlayer/NSCopying-Protocol.h>
 #import <MediaPlayer/NSMutableCopying-Protocol.h>
 
-@class MPStoreHLSAssetInfo, NSArray, NSDate;
+@class MPStoreHLSAssetInfo, NSArray, NSDate, NSDictionary;
 
 @interface MPStoreAssetPlaybackResponse : NSObject <NSCopying, NSMutableCopying>
 {
+    NSDictionary *_dialogDictionary;
     NSDate *_expirationDate;
     NSArray *_fileAssetInfoList;
     MPStoreHLSAssetInfo *_hlsAssetInfo;
@@ -23,6 +24,7 @@
 @property(readonly, nonatomic) MPStoreHLSAssetInfo *hlsAssetInfo; // @synthesize hlsAssetInfo=_hlsAssetInfo;
 @property(readonly, copy, nonatomic) NSArray *fileAssetInfoList; // @synthesize fileAssetInfoList=_fileAssetInfoList;
 @property(readonly, copy, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
+@property(readonly, copy, nonatomic) NSDictionary *dialogDictionary; // @synthesize dialogDictionary=_dialogDictionary;
 - (void).cxx_destruct;
 - (id)_copyWithPlaybackResponseClass:(Class)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

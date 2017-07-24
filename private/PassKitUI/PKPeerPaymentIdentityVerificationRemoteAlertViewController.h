@@ -8,11 +8,11 @@
 
 #import <PassKitUI/PKPaymentSetupViewControllerDelegate-Protocol.h>
 
-@class NSString, PKNavigationController, PKPeerPaymentDocumentSubmissionController, PKPeerPaymentWebService;
+@class NSString, PKNavigationController, PKPeerPaymentIdentityVerificationController, PKPeerPaymentWebService;
 
 @interface PKPeerPaymentIdentityVerificationRemoteAlertViewController : SBUIRemoteAlertServiceViewController <PKPaymentSetupViewControllerDelegate>
 {
-    PKPeerPaymentDocumentSubmissionController *_captureController;
+    PKPeerPaymentIdentityVerificationController *_controller;
     PKNavigationController *_navController;
     PKPeerPaymentWebService *_webService;
 }

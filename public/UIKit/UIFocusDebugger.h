@@ -13,8 +13,9 @@
 + (id)_ancestryForEnvironment:(id)arg1;
 + (id)simulateFocusUpdateRequestFromEnvironment:(id)arg1;
 + (id)checkFocusabilityForItem:(id)arg1;
-+ (id)_statusForFocusSystem:(id)arg1;
-+ (id)_fullStatus;
++ (id)_legacy_checkFocusabilityForView:(id)arg1;
++ (id)_statusForFocusSystem:(id)arg1 includeFocusSystem:(_Bool)arg2;
++ (id)_verboseStatus;
 + (id)status;
 + (id)help;
 

@@ -6,9 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
+#import <MediaPlayer/ICEnvironmentMonitorObserver-Protocol.h>
+
+@class NSString;
 @protocol OS_dispatch_queue;
 
-@interface MPNetworkPlayabilityMonitor : NSObject
+@interface MPNetworkPlayabilityMonitor : NSObject <ICEnvironmentMonitorObserver>
 {
     long long _effectiveNetworkTypeForCloudPlayback;
     double _lastAverageBitrate;
@@ -24,9 +27,15 @@
 @property(readonly, nonatomic) double lastAverageBitrate;
 @property(readonly, nonatomic) long long effectiveNetworkTypeForPlayback;
 - (void)adjustEffectiveNetworkTypeUsingPreviouslyPlayedItem:(id)arg1;
-- (void)_networkTypeDidChangeNotification:(id)arg1;
+- (void)environmentMonitorDidChangeNetworkType:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

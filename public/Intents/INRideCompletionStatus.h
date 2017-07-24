@@ -42,6 +42,7 @@
 @property(retain, nonatomic) NSUserActivity *completionUserActivity; // @synthesize completionUserActivity=_completionUserActivity;
 - (void).cxx_destruct;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
 - (id)_newValue;
 - (id)_initWithValue:(id)arg1;

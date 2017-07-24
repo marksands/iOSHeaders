@@ -4,6 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#pragma mark Blocks
+
+typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
+
 #pragma mark Named Structures
 
 struct CGAffineTransform {
@@ -40,21 +44,21 @@ struct CovariantVectorInterface<acv::tracking::detection::IAlignedSurface<float>
 
 struct IAlignedSurfaceDetector<float>;
 
-struct Image {
-    struct shared_ptr<acv::graphics::ImageBuffer> _field1;
-};
+struct ImageBuffer<unsigned char>;
 
-struct ImageBuffer;
+struct ImageT<unsigned char> {
+    struct shared_ptr<acv::graphics::ImageBuffer<unsigned char>> _field1;
+};
 
 struct MarkerDetector {
     struct shared_ptr<acv::vision::marker::MarkerDetectorImpl> _field1;
     struct Settings _field2;
     struct map<int, acv::vision::marker::ReferenceMarker, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, acv::vision::marker::ReferenceMarker>>> _field3;
-    struct Image _field4;
-    struct Image _field5;
-    struct Image _field6;
-    struct Image _field7;
-    struct Image _field8;
+    struct ImageT<unsigned char> _field4;
+    struct ImageT<unsigned char> _field5;
+    struct ImageT<unsigned char> _field6;
+    struct ImageT<unsigned char> _field7;
+    struct ImageT<unsigned char> _field8;
     struct vector<float, std::__1::allocator<float>> _field9;
     struct vector<unsigned char, std::__1::allocator<unsigned char>> _field10;
     struct vector<float, std::__1::allocator<float>> _field11;
@@ -113,8 +117,8 @@ struct shared_ptr<acv::CovariantVectorInterface<acv::tracking::detection::IAlign
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<acv::graphics::ImageBuffer> {
-    struct ImageBuffer *_field1;
+struct shared_ptr<acv::graphics::ImageBuffer<unsigned char>> {
+    struct ImageBuffer<unsigned char> *_field1;
     struct __shared_weak_count *_field2;
 };
 
@@ -204,11 +208,11 @@ typedef struct {
 } CDStruct_1ef3fb1f;
 
 typedef struct {
-    long long value;
-    int timescale;
-    unsigned int flags;
-    long long epoch;
-} CDStruct_1b6d18a9;
+    long long _field1;
+    int _field2;
+    unsigned int _field3;
+    long long _field4;
+} CDStruct_198678f7;
 
 typedef struct {
     long long state;

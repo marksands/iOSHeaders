@@ -25,10 +25,12 @@
 - (void)overwriteEvent:(id)arg1;
 - (void)rejectContact:(id)arg1;
 - (void)orphanEvent:(id)arg1;
-- (void)rejectEvent:(id)arg1;
+- (void)rejectEventFromOtherDevice:(id)arg1;
+- (void)rejectEventFromThisDevice:(id)arg1;
 - (void)confirmContact:(id)arg1;
 - (void)confirmOrRejectContact:(id)arg1;
-- (void)confirmEvent:(id)arg1;
+- (void)confirmEventFromOtherDevice:(id)arg1;
+- (void)confirmEventFromThisDevice:(id)arg1;
 - (void)cancelEvents:(id)arg1;
 - (void)cancelEvent:(id)arg1;
 - (void)addContact:(id)arg1;

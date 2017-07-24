@@ -18,15 +18,20 @@
     NSError *_error;
     NSArray *_results;
     NSString *_debug;
+    long long _requestType;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) long long requestType; // @synthesize requestType=_requestType;
 @property(retain, nonatomic) NSString *debug; // @synthesize debug=_debug;
 @property(nonatomic) _Bool resultsNeedFiltering; // @synthesize resultsNeedFiltering=_resultsNeedFiltering;
 @property(retain, nonatomic) NSArray *results; // @synthesize results=_results;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
+- (void)logTransactionSuccessfulWithLogType:(unsigned long long)arg1;
+- (void)logEngagement:(id)arg1 rank:(unsigned long long)arg2 input:(id)arg3 logType:(unsigned long long)arg4;
+- (void)logResultsShown:(unsigned long long)arg1 couldHaveShown:(unsigned long long)arg2 serverOverride:(_Bool)arg3 logType:(unsigned long long)arg4;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
@@ -38,9 +43,9 @@
 - (_Bool)isPlaceholder;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initPlaceholderWithUUID:(id)arg1;
-- (id)initWithError:(id)arg1;
-- (id)initWithResults:(id)arg1;
+- (id)initPlaceholderWithUUID:(id)arg1 requestType:(long long)arg2;
+- (id)initWithError:(id)arg1 requestType:(long long)arg2;
+- (id)initWithResults:(id)arg1 requestType:(long long)arg2;
 
 @end
 

@@ -80,10 +80,14 @@
 - (id)initWithIdentifier:(id)arg1 sendChangeNotification:(_Bool)arg2;
 - (id)initWithIdentifier:(id)arg1;
 - (id)init;
+@property(nonatomic) _Bool isSecureContextAttributeEnabled;
+@property(nonatomic) NSString *mediaContentTypesRequiringHardwareSupport;
 @property(nonatomic) _Bool quickLookDocumentSavingEnabled;
+@property(nonatomic) _Bool mediaUserGestureInheritsFromDocument;
 @property(nonatomic) _Bool credentialManagementEnabled;
 @property(nonatomic) _Bool resourceTimingEnabled;
 @property(nonatomic) _Bool userTimingEnabled;
+@property(nonatomic) _Bool displayContentsEnabled;
 @property(nonatomic) _Bool intersectionObserverEnabled;
 - (void)setModernMediaControlsEnabled:(_Bool)arg1;
 - (_Bool)modernMediaControlsEnabled;
@@ -110,8 +114,8 @@
 - (_Bool)iceCandidateFilteringEnabled;
 - (void)setEnumeratingAllNetworkInterfacesEnabled:(_Bool)arg1;
 - (_Bool)enumeratingAllNetworkInterfacesEnabled;
-- (void)setUseAVFoundationAudioCapture:(_Bool)arg1;
-- (_Bool)useAVFoundationAudioCapture;
+- (void)setMockCaptureDevicesPromptEnabled:(_Bool)arg1;
+- (_Bool)mockCaptureDevicesPromptEnabled;
 - (void)setMockCaptureDevicesEnabled:(_Bool)arg1;
 - (_Bool)mockCaptureDevicesEnabled;
 @property(nonatomic) _Bool allowsInlineMediaPlaybackAfterFullscreen;
@@ -122,6 +126,8 @@
 - (void)setHTTPEquivEnabled:(_Bool)arg1;
 - (_Bool)metaRefreshEnabled;
 - (void)setMetaRefreshEnabled:(_Bool)arg1;
+- (void)setMediaPreloadingEnabled:(_Bool)arg1;
+- (_Bool)mediaPreloadingEnabled;
 @property(nonatomic) _Bool linkPreloadEnabled;
 - (void)setWebRTCLegacyAPIEnabled:(_Bool)arg1;
 - (_Bool)webRTCLegacyAPIEnabled;
@@ -131,8 +137,6 @@
 - (_Bool)mediaStreamEnabled;
 - (void)setMediaDevicesEnabled:(_Bool)arg1;
 - (_Bool)mediaDevicesEnabled;
-- (void)setSubtleCryptoEnabled:(_Bool)arg1;
-- (_Bool)subtleCryptoEnabled;
 - (void)setMediaKeysStorageDirectory:(id)arg1;
 - (id)mediaKeysStorageDirectory;
 - (void)setShouldConvertPositionStyleOnCopy:(_Bool)arg1;
@@ -244,6 +248,10 @@
 - (_Bool)paginateDuringLayoutEnabled;
 - (void)setSpatialNavigationEnabled:(_Bool)arg1;
 - (_Bool)isSpatialNavigationEnabled;
+- (void)setAsyncFrameScrollingEnabled:(_Bool)arg1;
+- (_Bool)asyncFrameScrollingEnabled;
+- (void)setFrameFlattening:(int)arg1;
+- (int)frameFlattening;
 - (void)setFrameFlatteningEnabled:(_Bool)arg1;
 - (_Bool)isFrameFlatteningEnabled;
 - (void)setDiskImageCacheEnabled:(_Bool)arg1;

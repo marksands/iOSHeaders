@@ -9,7 +9,7 @@
 #import <EventKitUI/CLLocationManagerDelegate-Protocol.h>
 #import <EventKitUI/MKSearchCompleterDelegate-Protocol.h>
 
-@class CLGeocoder, CLInUseAssertion, CLLocationManager, CNAutocompleteStore, EKEventStore, EKOccurrenceCacheLocationSearch, EKStructuredLocation, MKLocalSearch, MKLocalSearchCompleter, NSArray, NSCharacterSet, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSString;
+@class CLGeocoder, CLInUseAssertion, CLLocationManager, CNContactStore, EKEventStore, EKOccurrenceCacheLocationSearch, EKStructuredLocation, MKLocalSearch, MKLocalSearchCompleter, NSArray, NSCharacterSet, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSString;
 @protocol CNCancelable, EKUILocationSearchModelDelegate, GEOMapServiceCompletionTicket, OS_dispatch_queue;
 
 @interface EKUILocationSearchModel : NSObject <CLLocationManagerDelegate, MKSearchCompleterDelegate>
@@ -20,6 +20,8 @@
     EKStructuredLocation *_currentLocation;
     CLGeocoder *_geocoder;
     MKLocalSearch *_localSearch;
+    CNContactStore *_contactStore;
+    id <CNCancelable> _contactsSearchToken;
     NSObject<OS_dispatch_queue> *_recentsQueue;
     NSObject<OS_dispatch_queue> *_eventsQueue;
     EKEventStore *_eventStore;
@@ -33,8 +35,6 @@
     NSMutableArray *_frequentsSearchResults;
     NSMutableArray *_eventsSearchResults;
     NSMutableArray *_contactsSearchResults;
-    CNAutocompleteStore *_contactAutocompleteStore;
-    id <CNCancelable> _currentFetch;
     NSArray *_mapCompletionSearchResults;
     id <EKUILocationSearchModelDelegate> _delegate;
 }
@@ -60,8 +60,7 @@
 - (void)updateEventLocations:(id)arg1;
 - (void)searchFrequentLocations:(id)arg1;
 - (void)updateRecents:(id)arg1;
-- (void)autocompleteFetch:(id)arg1 didFailWithError:(id)arg2;
-- (void)autocompleteFetch:(id)arg1 didReceiveResults:(id)arg2;
+- (void)updateContacts:(id)arg1;
 - (void)completerDidUpdateResults:(id)arg1 finished:(_Bool)arg2;
 - (void)dedupeResults;
 - (void)beginSearchForTerm:(id)arg1;

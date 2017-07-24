@@ -24,8 +24,7 @@ __attribute__((visibility("hidden")))
 - (void)CADDatabaseSetShowsDeclinedEvents:(_Bool)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)CADDatabaseExportICSDataForCalendarItems:(id)arg1 preventLineFolding:(_Bool)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)CADDatabaseImportICSData:(id)arg1 intoCalendarWithID:(int)arg2 optionsMask:(unsigned long long)arg3 reply:(CDUnknownBlockType)arg4;
-- (void)CADDatabaseSetAutomaticLocationGeocodingAllowed:(_Bool)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)CADDatabaseIsAutomaticLocationGeocodingAllowed:(CDUnknownBlockType)arg1;
+- (void)CADDatabaseLastConfirmedSplashScreenVersion:(CDUnknownBlockType)arg1;
 - (_Bool)_CADDatabaseCanModifyCalendarDatabase;
 - (void)CADDatabaseCanModifyCalendarDatabase:(CDUnknownBlockType)arg1;
 - (void)CADDatabaseGetNextAssignableColorWithReply:(CDUnknownBlockType)arg1;

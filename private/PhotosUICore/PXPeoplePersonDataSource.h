@@ -8,25 +8,21 @@
 
 #import <PhotosUICore/PHPhotoLibraryChangeObserver-Protocol.h>
 
-@class NSDictionary, NSObject, NSString, PXPeopleFaceTileImageManager;
-@protocol OS_dispatch_queue;
+@class NSDictionary, NSMutableDictionary, NSString, PXPeopleFaceTileImageManager;
 
 @interface PXPeoplePersonDataSource : PXPeopleDataSource <PHPhotoLibraryChangeObserver>
 {
     PXPeopleFaceTileImageManager *_imageManager;
-    NSDictionary *_keyFacesByPersons;
+    NSMutableDictionary *_keyFacesByPersons;
     NSDictionary *_assetsByFaces;
-    NSObject<OS_dispatch_queue> *_imageManagerDataSourceLoadingQueue;
     unsigned long long _personFetchType;
 }
 
-+ (id)allPeopleDataSourceWithFetchLimit:(unsigned long long)arg1;
-+ (id)otherPeopleDataSourceWithFetchLimit:(unsigned long long)arg1;
-+ (id)importantPeopleDataSourceWithFetchLimit:(unsigned long long)arg1;
 @property(nonatomic) unsigned long long personFetchType; // @synthesize personFetchType=_personFetchType;
 - (void).cxx_destruct;
 - (id)_assetForFace:(id)arg1;
 - (id)_faceForPerson:(id)arg1;
+- (void)updateKeyFace:(id)arg1 forPerson:(id)arg2;
 - (void)removeVisiblePerson:(id)arg1;
 - (void)addVisiblePerson:(id)arg1;
 - (void)photoLibraryDidChange:(id)arg1;
@@ -40,11 +36,10 @@
 - (id)_fetchResultForFetchType:(unsigned long long)arg1 fetchOptions:(id)arg2;
 - (id)_itemsArrayFromObjects:(id)arg1;
 - (id)titleAtIndex:(unsigned long long)arg1;
-- (void)_handleMembersLoadedWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_cacheFacesAndAssets;
 - (void)loadObjectsAndUpdateMembersWithCompletion:(CDUnknownBlockType)arg1;
 - (void)stopListeningForChanges;
 - (void)startListeningForChanges;
-- (id)initWithImageManagerSupportAndName:(id)arg1 objectsReloadBlock:(CDUnknownBlockType)arg2 asynchronousLoad:(_Bool)arg3 callbackDelegate:(id)arg4;
 - (id)initWithName:(id)arg1 personFetchType:(unsigned long long)arg2 fetchLimit:(unsigned long long)arg3;
 - (id)initWithName:(id)arg1 personFetchType:(unsigned long long)arg2 objects:(id)arg3;
 

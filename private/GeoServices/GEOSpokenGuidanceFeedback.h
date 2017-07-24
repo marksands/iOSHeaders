@@ -10,15 +10,15 @@
 
 @interface GEOSpokenGuidanceFeedback : PBCodable <NSCopying>
 {
-    float _duration;
     int _spokenGuidanceIndex;
+    _Bool _shortPrompt;
     struct {
-        unsigned int duration:1;
         unsigned int spokenGuidanceIndex:1;
+        unsigned int shortPrompt:1;
     } _has;
 }
 
-@property(nonatomic) float duration; // @synthesize duration=_duration;
+@property(nonatomic) _Bool shortPrompt; // @synthesize shortPrompt=_shortPrompt;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -28,7 +28,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasDuration;
+@property(nonatomic) _Bool hasShortPrompt;
 @property(nonatomic) _Bool hasSpokenGuidanceIndex;
 @property(nonatomic) int spokenGuidanceIndex; // @synthesize spokenGuidanceIndex=_spokenGuidanceIndex;
 

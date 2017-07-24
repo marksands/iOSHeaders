@@ -25,6 +25,7 @@
 - (_Bool)incrementPlayCountForStopTime:(double)arg1;
 - (void)incrementPlayCountForPlayingToEnd;
 - (void)incrementSkipCount;
+- (void)incrementPlayCount;
 - (void)noteWasPlayedToTime:(double)arg1 skipped:(_Bool)arg2;
 - (void)markNominalAmountHasBeenPlayed;
 - (double)nominalHasBeenPlayedThreshold;

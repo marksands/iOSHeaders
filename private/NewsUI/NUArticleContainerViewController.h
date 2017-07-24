@@ -51,9 +51,9 @@
 - (void)interstitialAdManager:(id)arg1 didUnloadInterstitialPage:(id)arg2;
 - (void)interstitialAdManager:(id)arg1 didLoadInterstitialPage:(id)arg2;
 - (void)articleBarButtonItemManagerDidLayoutBarButtonItems:(id)arg1;
-- (void)articleBarButtonItemManager:(id)arg1 preformShareActionForBarButtonItem:(id)arg2;
-- (void)articleBarButtonItemManager:(id)arg1 preformNextActionForBarButtonItem:(id)arg2;
-- (void)articleBarButtonItemManager:(id)arg1 preformDoneActionForBarButtonItem:(id)arg2;
+- (void)articleBarButtonItemManager:(id)arg1 performShareActionForBarButtonItem:(id)arg2;
+- (void)articleBarButtonItemManager:(id)arg1 performNextActionForBarButtonItem:(id)arg2;
+- (void)articleBarButtonItemManager:(id)arg1 performDoneActionForBarButtonItem:(id)arg2;
 - (id)pageViewController:(id)arg1 viewControllerAfterViewController:(id)arg2;
 - (id)pageViewController:(id)arg1 viewControllerBeforeViewController:(id)arg2;
 - (void)pageViewController:(id)arg1 viewController:(id)arg2 changedVisibilityFactor:(double)arg3;

@@ -6,10 +6,12 @@
 
 #import <UIKit/UIView.h>
 
-@class AVAudioOnlyIndicatorView, AVExternalPlaybackIndicatorView, AVPlaybackControlsView, AVStatusBarBackgroundGradientView, AVUnsupportedContentIndicatorView;
+#import <AVKit/AVPlaybackControlsViewDelegate-Protocol.h>
+
+@class AVExternalPlaybackIndicatorView, AVPlaybackControlsView, AVStatusBarBackgroundGradientView, NSString, UIImageView, __AVPlayerLayerView;
 @protocol AVPlayerViewControllerContentViewDelegate;
 
-@interface AVPlayerViewControllerContentView : UIView
+@interface AVPlayerViewControllerContentView : UIView <AVPlaybackControlsViewDelegate>
 {
     _Bool _needsInitialLayout;
     id <AVPlayerViewControllerContentViewDelegate> _delegate;
@@ -19,15 +21,17 @@
     AVStatusBarBackgroundGradientView *_statusBarBackgroundGradientView;
     AVPlaybackControlsView *_playbackControlsView;
     AVExternalPlaybackIndicatorView *_externalPlaybackIndicatorView;
-    AVUnsupportedContentIndicatorView *_unsupportedContentIndicatorView;
-    AVAudioOnlyIndicatorView *_audioOnlyIndicatorView;
-    UIView *_playerLayerView;
+    UIImageView *_unsupportedContentIndicatorView;
+    UIImageView *_audioOnlyIndicatorView;
+    __AVPlayerLayerView *_playerLayerView;
+    NSString *_targetVideoGravity;
 }
 
+@property(copy, nonatomic) NSString *targetVideoGravity; // @synthesize targetVideoGravity=_targetVideoGravity;
 @property(nonatomic) _Bool needsInitialLayout; // @synthesize needsInitialLayout=_needsInitialLayout;
-@property(readonly, nonatomic) UIView *playerLayerView; // @synthesize playerLayerView=_playerLayerView;
-@property(readonly, nonatomic) AVAudioOnlyIndicatorView *audioOnlyIndicatorView; // @synthesize audioOnlyIndicatorView=_audioOnlyIndicatorView;
-@property(readonly, nonatomic) AVUnsupportedContentIndicatorView *unsupportedContentIndicatorView; // @synthesize unsupportedContentIndicatorView=_unsupportedContentIndicatorView;
+@property(readonly, nonatomic) __AVPlayerLayerView *playerLayerView; // @synthesize playerLayerView=_playerLayerView;
+@property(readonly, nonatomic) UIImageView *audioOnlyIndicatorView; // @synthesize audioOnlyIndicatorView=_audioOnlyIndicatorView;
+@property(readonly, nonatomic) UIImageView *unsupportedContentIndicatorView; // @synthesize unsupportedContentIndicatorView=_unsupportedContentIndicatorView;
 @property(readonly, nonatomic) AVExternalPlaybackIndicatorView *externalPlaybackIndicatorView; // @synthesize externalPlaybackIndicatorView=_externalPlaybackIndicatorView;
 @property(readonly, nonatomic) AVPlaybackControlsView *playbackControlsView; // @synthesize playbackControlsView=_playbackControlsView;
 @property(readonly, nonatomic) AVStatusBarBackgroundGradientView *statusBarBackgroundGradientView; // @synthesize statusBarBackgroundGradientView=_statusBarBackgroundGradientView;
@@ -36,8 +40,14 @@
 @property(readonly, nonatomic) UIView *playerLayerAndContentOverlayContainerView; // @synthesize playerLayerAndContentOverlayContainerView=_playerLayerAndContentOverlayContainerView;
 @property(nonatomic) __weak id <AVPlayerViewControllerContentViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)updatePlayerLayerAndContentOverlayContainerViewLayoutMarginsForVideoGravity:(id)arg1;
+- (id)_mediaTimingFunctionForCurrentAnimationCurve;
+- (void)_applyVideoGravityIfNeeded:(long long)arg1;
+- (void)_updatePlayerLayerAndContentOverlayContainerViewLayoutMarginsForVideoGravity:(long long)arg1;
+- (long long)_preferredVideoGravity;
+- (void)_updateVideoGravityDuringLayoutSubviewsAndAssertThatIfYouBreakThisMethodYouOwnThisMethod;
+- (void)playbackControlsView:(id)arg1 interactiveContentOverlayViewLayoutMarginsDidChange:(struct UIEdgeInsets)arg2 shouldLayoutIfNeeded:(_Bool)arg3;
 - (void)layoutSubviews;
+- (void)didMoveToWindow;
 @property(readonly, nonatomic) _Bool isDescendantOfNonPagingScrollView;
 @property(readonly, nonatomic) _Bool isCoveringWindow;
 - (void)setExternalPlaybackIndicatorTitle:(id)arg1 subtitle:(id)arg2;
@@ -49,6 +59,12 @@
 - (void)addPlayerLayerAndContentOverlayContainerViewIfNeeded;
 - (void)dealloc;
 - (id)initWithPlayerLayerView:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,15 +6,16 @@
 
 #import <iWorkImport/NSObject-Protocol.h>
 
-@class NSURL, TSAImportController;
+@class NSProgress, NSURL, TSAImportController;
 
 @protocol TSAImportDelegate <NSObject>
 
 @optional
+- (void)importControllerDidFinishResourceAccess:(TSAImportController *)arg1;
+- (void)importController:(TSAImportController *)arg1 willBeginResourceAccessWithProgress:(NSProgress *)arg2;
 - (_Bool)areNewExternalReferencesToDataAllowedForImportController:(TSAImportController *)arg1;
 - (void)importController:(TSAImportController *)arg1 documentDidMoveToURL:(NSURL *)arg2;
 - (void)importControllerDidRunOutOfSpace:(TSAImportController *)arg1;
-- (void)importControllerDidCancelImport:(TSAImportController *)arg1;
 - (void)willSaveImportedDocument:(TSAImportController *)arg1;
 @end
 

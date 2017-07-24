@@ -321,7 +321,6 @@
 @property(readonly, copy, nonatomic) NSArray *albums;
 @property(readonly, retain, nonatomic) PLManagedFolder *rootFolder;
 @property(readonly, retain, nonatomic) PLManagedAlbumList *rootAlbumList;
-- (id)memoryWithUuid:(id)arg1;
 - (struct NSObject *)albumWithUuid:(id)arg1;
 - (struct NSObject *)eventWithName:(id)arg1 andImportSessionIdentifier:(id)arg2;
 @property(readonly, retain, nonatomic) PLFetchingAlbum *userLibraryAlbum;

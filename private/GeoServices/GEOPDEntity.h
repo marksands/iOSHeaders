@@ -16,9 +16,11 @@
     NSMutableArray *_altFaxs;
     NSMutableArray *_altTelephones;
     NSMutableArray *_altUrls;
+    int _displayStyle;
     NSString *_fax;
     NSMutableArray *_localizedCategorys;
     NSMutableArray *_names;
+    int _searchSection;
     NSMutableArray *_spokenNames;
     NSString *_telephone;
     int _type;
@@ -29,6 +31,8 @@
     _Bool _isStandaloneBrand;
     _Bool _telephoneAdsOptOut;
     struct {
+        unsigned int displayStyle:1;
+        unsigned int searchSection:1;
         unsigned int type:1;
         unsigned int altTelephoneAdsOptOut:1;
         unsigned int isDisputed:1;
@@ -70,6 +74,14 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsSearchSection:(id)arg1;
+- (id)searchSectionAsString:(int)arg1;
+@property(nonatomic) _Bool hasSearchSection;
+@property(nonatomic) int searchSection; // @synthesize searchSection=_searchSection;
+- (int)StringAsDisplayStyle:(id)arg1;
+- (id)displayStyleAsString:(int)arg1;
+@property(nonatomic) _Bool hasDisplayStyle;
+@property(nonatomic) int displayStyle; // @synthesize displayStyle=_displayStyle;
 @property(nonatomic) _Bool hasIsStandaloneBrand;
 @property(nonatomic) _Bool hasAltTelephoneAdsOptOut;
 @property(nonatomic) _Bool hasTelephoneAdsOptOut;

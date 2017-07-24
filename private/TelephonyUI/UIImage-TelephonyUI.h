@@ -7,12 +7,14 @@
 #import <UIKit/UIImage.h>
 
 @interface UIImage (TelephonyUI)
++ (id)telephonyUI_AudioControlsGlyphForDeviceModelType:(long long)arg1;
++ (id)telephonyUI_AudioRouteGlyphForDeviceModelType:(long long)arg1;
 + (id)telephonyUI_speakerAudioRouteGlyphImage;
++ (id)telephonyUI_BluetoothAudioControlGlyphImage;
 + (id)telephonyUI_BluetoothAudioRouteGlyphImage;
 + (id)telephonyUI_muteAudioRouteGlyphImage;
 + (id)telephonyUI_CarPlayAudioRouteGlyphImage;
 + (id)telephonyUI_headphonesAudioRouteGlyphImage;
-+ (id)telephonyUI_AirPodsAudioRouteGlyphImage;
 + (id)telephonyUI_iPodAudioRouteGlyphImage;
 + (id)telephonyUI_iPadAudioRouteGlyphImage;
 + (id)telephonyUI_iPhoneAudioRouteGlyphImage;

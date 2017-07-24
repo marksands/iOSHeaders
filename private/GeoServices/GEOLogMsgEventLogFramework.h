@@ -14,12 +14,14 @@
 {
     unsigned long long _messageSize;
     NSMutableArray *_logFrameworkItems;
+    unsigned int _messageCount;
     int _messageType;
     int _metricState;
     int _metricType;
     int _purgeReason;
     struct {
         unsigned int messageSize:1;
+        unsigned int messageCount:1;
         unsigned int messageType:1;
         unsigned int metricState:1;
         unsigned int metricType:1;
@@ -30,6 +32,7 @@
 + (Class)logFrameworkItemType;
 @property(retain, nonatomic) NSMutableArray *logFrameworkItems; // @synthesize logFrameworkItems=_logFrameworkItems;
 @property(nonatomic) unsigned long long messageSize; // @synthesize messageSize=_messageSize;
+@property(nonatomic) unsigned int messageCount; // @synthesize messageCount=_messageCount;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -53,6 +56,7 @@
 @property(nonatomic) _Bool hasMessageType;
 @property(nonatomic) int messageType; // @synthesize messageType=_messageType;
 @property(nonatomic) _Bool hasMessageSize;
+@property(nonatomic) _Bool hasMessageCount;
 - (int)StringAsMetricState:(id)arg1;
 - (id)metricStateAsString:(int)arg1;
 @property(nonatomic) _Bool hasMetricState;

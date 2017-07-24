@@ -23,8 +23,10 @@ __attribute__((visibility("hidden")))
     double _backgroundAlphaFactor;
     long long _backgroundStyle;
     id <_SFNavigationBarURLButtonDelegate> _delegate;
+    double _urlOutlineCornerRadius;
 }
 
+@property(nonatomic, setter=setURLOutlineCornerRadius:) double urlOutlineCornerRadius; // @synthesize urlOutlineCornerRadius=_urlOutlineCornerRadius;
 @property(nonatomic) __weak id <_SFNavigationBarURLButtonDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) _Bool usesLightOverlayAndTintAlpha; // @synthesize usesLightOverlayAndTintAlpha=_usesLightOverlayAndTintAlpha;
 @property(nonatomic) long long backgroundStyle; // @synthesize backgroundStyle=_backgroundStyle;

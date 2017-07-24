@@ -9,7 +9,7 @@
 #import <CoreParsec/NSSecureCoding-Protocol.h>
 #import <CoreParsec/_CPSearchResultForFeedback-Protocol.h>
 
-@class NSData, NSDictionary, NSString, _CPActionItemForFeedback, _CPPunchoutForFeedback;
+@class NSData, NSString, _CPActionItemForFeedback, _CPPunchoutForFeedback, _CPStruct;
 
 @interface _CPSearchResultForFeedback : PBCodable <_CPSearchResultForFeedback, NSSecureCoding>
 {
@@ -30,8 +30,8 @@
     NSString *_identifier;
     _CPActionItemForFeedback *_action;
     _CPPunchoutForFeedback *_punchout;
-    NSData *_srf;
-    NSDictionary *_localFeatures;
+    NSString *_srf;
+    _CPStruct *_localFeatures;
     NSString *_resultBundleId;
     NSString *_applicationBundleIdentifier;
     NSString *_sectionBundleIdentifier;
@@ -41,10 +41,12 @@
     NSString *_intendedQuery;
     NSString *_correctedQuery;
     NSString *_completedQuery;
-    NSData *_fbr;
+    NSString *_fbr;
+    NSString *_userInput;
 }
 
-@property(copy, nonatomic) NSData *fbr; // @synthesize fbr=_fbr;
+@property(copy, nonatomic) NSString *userInput; // @synthesize userInput=_userInput;
+@property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
 @property(nonatomic) _Bool publiclyIndexable; // @synthesize publiclyIndexable=_publiclyIndexable;
 @property(nonatomic) _Bool isLocalApplicationResult; // @synthesize isLocalApplicationResult=_isLocalApplicationResult;
 @property(copy, nonatomic) NSString *completedQuery; // @synthesize completedQuery=_completedQuery;
@@ -57,8 +59,8 @@
 @property(copy, nonatomic) NSString *sectionBundleIdentifier; // @synthesize sectionBundleIdentifier=_sectionBundleIdentifier;
 @property(copy, nonatomic) NSString *applicationBundleIdentifier; // @synthesize applicationBundleIdentifier=_applicationBundleIdentifier;
 @property(copy, nonatomic) NSString *resultBundleId; // @synthesize resultBundleId=_resultBundleId;
-@property(copy, nonatomic) NSDictionary *localFeatures; // @synthesize localFeatures=_localFeatures;
-@property(copy, nonatomic) NSData *srf; // @synthesize srf=_srf;
+@property(retain, nonatomic) _CPStruct *localFeatures; // @synthesize localFeatures=_localFeatures;
+@property(copy, nonatomic) NSString *srf; // @synthesize srf=_srf;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(retain, nonatomic) _CPPunchoutForFeedback *punchout; // @synthesize punchout=_punchout;
 @property(retain, nonatomic) _CPActionItemForFeedback *action; // @synthesize action=_action;
@@ -73,6 +75,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasUserInput;
 @property(readonly, nonatomic) _Bool hasFbr;
 @property(readonly, nonatomic) _Bool hasPubliclyIndexable;
 @property(readonly, nonatomic) _Bool hasIsLocalApplicationResult;
@@ -86,8 +89,7 @@
 @property(readonly, nonatomic) _Bool hasSectionBundleIdentifier;
 @property(readonly, nonatomic) _Bool hasApplicationBundleIdentifier;
 @property(readonly, nonatomic) _Bool hasResultBundleId;
-- (void)setLocalFeatures:(id)arg1 forKey:(id)arg2;
-- (_Bool)getLocalFeatures:(id *)arg1 forKey:(id)arg2;
+@property(readonly, nonatomic) _Bool hasLocalFeatures;
 @property(readonly, nonatomic) _Bool hasSrf;
 @property(readonly, nonatomic) _Bool hasType;
 @property(readonly, nonatomic) _Bool hasPunchout;
@@ -95,6 +97,7 @@
 @property(readonly, nonatomic) _Bool hasTopHit;
 @property(readonly, nonatomic) _Bool hasIdentifier;
 - (id)initWithFacade:(id)arg1;
+- (id)feedbackJSON;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

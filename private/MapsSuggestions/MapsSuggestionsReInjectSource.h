@@ -16,6 +16,8 @@
     NSString *_path;
 }
 
++ (struct NSArray *)_entriesFromFileAtPath:(id)arg1;
++ (struct NSArray *)_entriesFromMultilineString:(id)arg1;
 + (unsigned long long)disposition;
 + (_Bool)isEnabled;
 @property(retain, nonatomic) NSString *path; // @synthesize path=_path;

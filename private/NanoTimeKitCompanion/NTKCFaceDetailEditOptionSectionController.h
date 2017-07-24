@@ -28,6 +28,8 @@
 - (void).cxx_destruct;
 - (void)_customizeActionRow:(id)arg1 withEditOption:(id)arg2;
 - (id)_actionNameForOption:(id)arg1;
+- (void)_refreshActionRowContent;
+- (void)_dequeueActionRow;
 - (void)reloadActionRow;
 - (_Bool)_handleDidSelectActionRowForOption:(id)arg1;
 - (_Bool)_handleDidSelectOption:(id)arg1;

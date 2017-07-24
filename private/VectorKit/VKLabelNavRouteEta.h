@@ -4,34 +4,33 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <VectorKit/VKLabelNavFeature-Protocol.h>
 
-@class NSString, VKLabelNavRoadLabel, VKRouteInfo;
+@class NSString, VKLabelNavRoadLabel, VKRouteEtaDescription, VKRouteInfo;
 
 __attribute__((visibility("hidden")))
 @interface VKLabelNavRouteEta : NSObject <VKLabelNavFeature>
 {
     VKLabelNavRoadLabel *_etaLabel;
+    unsigned long long _etaLabelArtworkKey;
     _Bool _isAwayFromRoute;
     _Bool _isOnRoute;
-    unsigned char _etaComparisonToMain;
     struct PolylineCoordinate _routeOffset;
     Mercator2_57ec32b6 _mercatorPoint;
     _Bool _selected;
     VKRouteInfo *_routeInfo;
-    NSString *_displayText;
+    VKRouteEtaDescription *_displayEtaDescription;
     _Bool _isPicked;
 }
 
 + (shared_ptr_c5d816ee)styleQueryForNavContext:(const struct NavContext *)arg1 selected:(_Bool)arg2 etaComparison:(unsigned char)arg3;
-+ (id)artworkForLabelText:(id)arg1 navContext:(const struct NavContext *)arg2 styleQuery:(shared_ptr_c5d816ee)arg3 alignment:(unsigned char)arg4 artworkCache:(struct VKLabelNavArtworkCache *)arg5;
-@property(readonly, nonatomic) unsigned char etaComparisonToMain; // @synthesize etaComparisonToMain=_etaComparisonToMain;
++ (id)artworkForEtaDescription:(id)arg1 navContext:(const struct NavContext *)arg2 styleQuery:(shared_ptr_c5d816ee)arg3 orientation:(unsigned char)arg4 artworkCache:(struct VKLabelNavArtworkCache *)arg5 selected:(_Bool)arg6;
 @property(nonatomic) _Bool isPicked; // @synthesize isPicked=_isPicked;
-@property(readonly, nonatomic) NSString *displayText; // @synthesize displayText=_displayText;
-@property(readonly, nonatomic) VKRouteInfo *routeInfo; // @synthesize routeInfo=_routeInfo;
-@property(readonly, nonatomic) _Bool selected; // @synthesize selected=_selected;
+@property(readonly, nonatomic) VKRouteEtaDescription *displayEtaDescription; // @synthesize displayEtaDescription=_displayEtaDescription;
+@property(retain, nonatomic) VKRouteInfo *routeInfo; // @synthesize routeInfo=_routeInfo;
+@property(nonatomic) _Bool selected; // @synthesize selected=_selected;
 @property(readonly, nonatomic) VKLabelNavRoadLabel *label; // @synthesize label=_etaLabel;
 @property(nonatomic) Mercator2_57ec32b6 mercatorPoint; // @synthesize mercatorPoint=_mercatorPoint;
 @property(readonly, nonatomic) struct PolylineCoordinate routeOffset; // @synthesize routeOffset=_routeOffset;
@@ -47,12 +46,13 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *shieldDisplayGroup;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) _Bool isRamp;
-- (void)recreateRoadSignWithAlignment:(unsigned char)arg1 text:(id)arg2 selected:(_Bool)arg3 navContext:(struct NavContext *)arg4 artworkCache:(struct VKLabelNavArtworkCache *)arg5;
+- (_retain_ptr_86da96eb)updateRoadSignWithOrientation:(unsigned char)arg1 navContext:(const struct NavContext *)arg2 artworkCache:(struct VKLabelNavArtworkCache *)arg3;
 - (void)prepareStyleVarsWithContext:(struct NavContext *)arg1;
-- (void)createLabelWithNavContext:(struct NavContext *)arg1 alignment:(unsigned char)arg2 text:(id)arg3 selected:(_Bool)arg4 artworkCache:(struct VKLabelNavArtworkCache *)arg5;
+- (void)createLabelWithNavContext:(const struct NavContext *)arg1 orientation:(unsigned char)arg2 etaDescription:(id)arg3 selected:(_Bool)arg4 artworkCache:(struct VKLabelNavArtworkCache *)arg5;
 - (void)layoutWithNavContext:(struct NavContext *)arg1;
 - (void)_clearLabel;
 - (void)dealloc;
+@property(readonly, nonatomic) unsigned char etaComparisonToMain;
 - (id)initWithRouteInfo:(id)arg1;
 
 @end

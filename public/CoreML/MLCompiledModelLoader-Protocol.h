@@ -7,6 +7,6 @@
 @class MLVersionInfo;
 
 @protocol MLCompiledModelLoader
-+ (id)loadModelFromCompiledArchive:(struct _MLModelInputArchiver *)arg1 versionInfo:(MLVersionInfo *)arg2 error:(id *)arg3;
++ (id)loadModelFromCompiledArchive:(struct _MLModelInputArchiver *)arg1 modelVersionInfo:(MLVersionInfo *)arg2 compilerVersionInfo:(MLVersionInfo *)arg3 error:(id *)arg4;
 @end
 

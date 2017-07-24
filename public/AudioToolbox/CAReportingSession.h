@@ -34,8 +34,11 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned short serviceType; // @synthesize serviceType=_serviceType;
 @property _Bool started; // @synthesize started=_started;
 - (void).cxx_destruct;
+- (id)createSummaryEventForSession;
+- (void)endSync:(_Bool)arg1;
 - (void)end;
 - (void)sendMessage:(id)arg1 category:(unsigned short)arg2 type:(unsigned short)arg3 reply:(CDUnknownBlockType)arg4;
+- (void)startSync:(_Bool)arg1;
 - (void)start;
 - (id)initWithID:(long long)arg1;
 

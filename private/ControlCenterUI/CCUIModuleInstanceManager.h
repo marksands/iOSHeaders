@@ -24,11 +24,13 @@
 
 + (id)sharedInstance;
 + (void)setupSharedInstanceWithSystemAgent:(id)arg1;
++ (void)initialize;
 @property(copy, nonatomic) NSSet *enabledModuleIdentifiers; // @synthesize enabledModuleIdentifiers=_enabledModuleIdentifiers;
 @property(nonatomic) __weak id <CCUIContentModuleContextDelegate> contextDelegate; // @synthesize contextDelegate=_contextDelegate;
 - (void).cxx_destruct;
 - (id)_instantiateModuleWithMetadata:(id)arg1;
 - (void)dismissExpandedViewForContentModuleContext:(id)arg1;
+- (void)requestExpandModuleForContentModuleContext:(id)arg1;
 - (void)contentModuleContext:(id)arg1 enqueueStatusUpdate:(id)arg2;
 - (void)loadableModulesChangedForModuleRepository:(id)arg1;
 - (void)_runBlockOnObservers:(CDUnknownBlockType)arg1;

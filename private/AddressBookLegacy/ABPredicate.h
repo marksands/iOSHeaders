@@ -31,7 +31,7 @@
 - (void)bindString:(id)arg1 toStatement:(struct CPSqliteStatement *)arg2 withBindingOffset:(int *)arg3;
 - (void)ab_bindJoinClauseComponentOfStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
 - (void)ab_bindWhereClauseComponentOfStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
-- (void)evaluateCallbackWithSqliteContext:(struct sqlite3_context *)arg1 predicateContext:(id)arg2 values:(struct Mem **)arg3 count:(int)arg4;
+- (void)evaluateCallbackWithSqliteContext:(struct sqlite3_context *)arg1 predicateContext:(id)arg2 values:(struct sqlite3_value **)arg3 count:(int)arg4;
 - (id)callbackContext;
 - (_Bool)hasCallback;
 - (id)queryRankStringForPredicateIdentifier:(int)arg1;

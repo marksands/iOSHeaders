@@ -45,7 +45,6 @@ __attribute__((visibility("hidden")))
 - (id)pageView;
 - (id)PDFPage;
 - (void)setPDFPage:(id)arg1;
-- (void)setPageImagePool:(id)arg1;
 - (void)setPageBreakMargins:(struct UIEdgeInsets)arg1;
 - (void)setPDFView:(id)arg1;
 - (void)setRenderingProperties:(id)arg1;

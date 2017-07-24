@@ -14,9 +14,12 @@
 + (id)secondaryMaterialView;
 + (id)primaryMaterialView;
 + (id)moduleBackgroundMaterialView;
-+ (id)_secondaryMaterialView;
-+ (id)_primaryMaterialView;
-+ (id)_moduleBackgroundMaterialView;
++ (id)controlCenterLightFill;
++ (id)controlCenterTertiaryMaterial;
++ (id)controlCenterDarkMaterial;
++ (id)_tertiaryMaterialView;
++ (id)_lightFillMaterialView;
++ (id)_darkMaterialView;
 
 @end
 

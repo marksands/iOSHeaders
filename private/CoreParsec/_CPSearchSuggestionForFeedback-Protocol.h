@@ -10,6 +10,8 @@
 
 @protocol _CPSearchSuggestionForFeedback <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasFbr;
+@property(copy, nonatomic) NSString *fbr;
 @property(readonly, nonatomic) _Bool hasType;
 @property(nonatomic) int type;
 @property(readonly, nonatomic) _Bool hasScore;

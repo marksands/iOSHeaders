@@ -33,7 +33,7 @@
 - (void)t_startOverridingContentStoreFrontID:(id)arg1;
 - (void)_refreshUbiquityIdentityToken;
 - (void)_setStoreFrontDependentPropertiesWithStoreFrontLockingEnabled:(_Bool)arg1;
-- (void)fetchIsHSA2WithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)checkAlliOSDevicesRunningMajorOSVersionOrLater:(long long)arg1 orInactiveForTimeInterval:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)currentStoreFrontID;
 @property(readonly, nonatomic) NSString *supportedContentStoreFrontID;
 @property(readonly, nonatomic) _Bool isContentStoreFrontSupported;

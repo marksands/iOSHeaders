@@ -10,12 +10,13 @@
 {
 }
 
-- (id)tintColor;
+- (id)tintColorForUnhighlightedTextLabel;
 - (id)colorForTouchFocusLayer;
 - (id)colorForTouchFocusLayerSelected;
 - (id)colorForKnobContentSelected;
 - (id)colorForKnobFocusLayerSelected;
 - (id)colorForTouchContentSelected;
+- (_Bool)shouldUpdateButtonOpacityForKnobUnfocused;
 - (_Bool)showBezelInTouch;
 
 @end

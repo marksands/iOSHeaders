@@ -10,6 +10,7 @@
 
 @protocol NSFilePresenterXPCInterface <NSFileCoordinationDebugInfoXPCInteface>
 - (oneway void)logSuspensionWarning;
+- (oneway void)setProviderPurposeIdentifier:(NSString *)arg1;
 - (oneway void)updateLastEventID:(unsigned long long)arg1;
 - (oneway void)observePresenterChange:(_Bool)arg1 forSubitemAtURL:(NSURLPromisePair *)arg2;
 - (oneway void)observeVersionChangeOfKind:(NSString *)arg1 toItemAtURL:(NSURLPromisePair *)arg2 withClientID:(NSString *)arg3 name:(NSString *)arg4;

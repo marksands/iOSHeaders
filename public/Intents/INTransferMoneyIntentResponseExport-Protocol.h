@@ -7,9 +7,10 @@
 #import <Intents/JSExport-Protocol.h>
 #import <Intents/NSObject-Protocol.h>
 
-@class INDateComponentsRange, INPaymentAccount, INPaymentAmount, NSString;
+@class INCurrencyAmount, INDateComponentsRange, INPaymentAccount, INPaymentAmount, NSString;
 
 @protocol INTransferMoneyIntentResponseExport <NSObject, JSExport>
+@property(copy, nonatomic) INCurrencyAmount *transferFee;
 @property(copy, nonatomic) NSString *transactionNote;
 @property(copy, nonatomic) INDateComponentsRange *transactionScheduledDate;
 @property(copy, nonatomic) INPaymentAmount *transactionAmount;

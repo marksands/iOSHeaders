@@ -6,7 +6,7 @@
 
 #import <CoreImage/CIFilter.h>
 
-@class CIImage, NSDictionary, NSNumber;
+@class CIImage, NSDictionary, NSNumber, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CIPortraitBlur : CIFilter
@@ -16,18 +16,23 @@ __attribute__((visibility("hidden")))
     NSNumber *inputLumaNoiseScale;
     NSNumber *inputScale;
     NSDictionary *inputTuningParameters;
+    NSString *inputShape;
 }
 
 + (id)customAttributes;
+@property(retain, nonatomic) NSString *inputShape; // @synthesize inputShape;
 @property(retain, nonatomic) NSDictionary *inputTuningParameters; // @synthesize inputTuningParameters;
 @property(copy, nonatomic) NSNumber *inputScale; // @synthesize inputScale;
 @property(copy, nonatomic) NSNumber *inputLumaNoiseScale; // @synthesize inputLumaNoiseScale;
 @property(retain) CIImage *inputBlurmapImage; // @synthesize inputBlurmapImage;
 @property(retain) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (id)outputImageMetal;
-- (id)outputImageNative;
-- (id)ourBlendKernel;
+- (id)outputImage:(_Bool)arg1;
+- (id)_ourBlendKernelMetal;
+- (id)_ourBlendKernel;
+- (id)_kernelsWithShapes;
+- (id)_kernelWithShapesMetal;
+- (id)_kernelMetal;
 - (id)_kernel;
 
 @end

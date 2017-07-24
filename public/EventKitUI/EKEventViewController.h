@@ -121,6 +121,7 @@
 - (void)tableView:(id)arg1 didHighlightRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (void)viewDidLayoutSubviews;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (id)_sectionsForTableView:(id)arg1;
@@ -151,6 +152,8 @@
 - (void)eventDetailItemWantsRefeshForHeightChange;
 - (void)_presentDetachSheet;
 @property(nonatomic) __weak UIViewController *confirmationAlertPresentationSourceViewController;
+- (_Bool)_usingiPadPopover;
+- (void)viewLayoutMarginsDidChange;
 - (struct CGSize)preferredContentSize;
 - (void)_performDelete:(long long)arg1;
 - (void)_presentValidationAlert:(id)arg1;

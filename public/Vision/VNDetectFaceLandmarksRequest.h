@@ -12,23 +12,26 @@
 
 @interface VNDetectFaceLandmarksRequest : VNImageBasedRequest <VNFaceObservationAccepting>
 {
+    NSNumber *_cascadeStepCount;
     _Bool _refineMouthRegion;
     _Bool _refineLeftEyeRegion;
     _Bool _refineRightEyeRegion;
     _Bool _performBlinkDetection;
-    NSNumber *_cascadeStepCount;
 }
 
-@property(retain, nonatomic) NSNumber *cascadeStepCount; // @synthesize cascadeStepCount=_cascadeStepCount;
 @property(nonatomic) _Bool performBlinkDetection; // @synthesize performBlinkDetection=_performBlinkDetection;
 @property(nonatomic) _Bool refineRightEyeRegion; // @synthesize refineRightEyeRegion=_refineRightEyeRegion;
 @property(nonatomic) _Bool refineLeftEyeRegion; // @synthesize refineLeftEyeRegion=_refineLeftEyeRegion;
 @property(nonatomic) _Bool refineMouthRegion; // @synthesize refineMouthRegion=_refineMouthRegion;
+@property(retain, nonatomic) NSNumber *cascadeStepCount; // @synthesize cascadeStepCount=_cascadeStepCount;
 - (void).cxx_destruct;
 - (_Bool)internalPerformInContext:(id)arg1 error:(id *)arg2;
+- (void)applyConfigurationOfRequest:(id)arg1;
 - (void)_determineFacesToProcessFrom:(id)arg1 outputFacesThatNeedNoProcessing:(id)arg2 outputFacesThatNeedAlignment:(id)arg3 outputFacesThatNeedLandmarks:(id)arg4;
 - (long long)dependencyProcessingOrdinality;
 - (_Bool)warmUpRequestPerformer:(id)arg1 error:(id *)arg2;
+- (id)sequencedRequestPreviousObservationsKey;
+- (id)observationsCacheKey;
 - (id)initWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1;
 

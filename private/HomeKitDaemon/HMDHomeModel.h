@@ -15,9 +15,12 @@
 + (id)properties;
 
 // Remaining properties
-@property(retain, nonatomic) NSNumber *configurationVersion; // @dynamic configurationVersion;
+@property(retain, nonatomic) NSNumber *automaticSoftwareUpdateEnabled; // @dynamic automaticSoftwareUpdateEnabled;
 @property(retain, nonatomic) NSString *defaultRoomUUID; // @dynamic defaultRoomUUID;
 @property(retain, nonatomic) NSData *homeLocationData; // @dynamic homeLocationData;
+@property(retain, nonatomic) NSString *mediaPassword; // @dynamic mediaPassword;
+@property(retain, nonatomic) NSNumber *mediaPeerToPeerEnabled; // @dynamic mediaPeerToPeerEnabled;
+@property(retain, nonatomic) NSNumber *minimumMediaUserPrivilege; // @dynamic minimumMediaUserPrivilege;
 @property(retain, nonatomic) NSString *name; // @dynamic name;
 @property(retain, nonatomic) NSString *ownerName; // @dynamic ownerName;
 @property(retain, nonatomic) NSData *ownerPublicKey; // @dynamic ownerPublicKey;

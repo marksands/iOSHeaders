@@ -111,6 +111,7 @@
 @property(readonly, nonatomic) CDStruct_1b6d18a9 photoIrisVideoDuration;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 photoIrisStillDisplayTime;
 @property(readonly, nonatomic) _Bool isPhotoIrisPlaceholder;
+@property(readonly, nonatomic) unsigned long long originalFilesize;
 @property(readonly, nonatomic) _Bool isTemporaryPlaceholder;
 @property(readonly, nonatomic) NSString *uniformTypeIdentifier;
 @property(readonly, nonatomic) NSString *localizedGeoDescription;

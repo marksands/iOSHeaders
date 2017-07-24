@@ -10,19 +10,19 @@
 
 @interface DOCThumbnailIconOperation : DOCThumbnailBaseOperation
 {
-    _Bool _downloaded;
+    _Bool _folded;
     NSString *_contentType;
 }
 
-+ (id)synchronousDocumentIconForContentType:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4 downloaded:(_Bool)arg5;
++ (id)synchronousDocumentIconForContentType:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4 folded:(_Bool)arg5;
 + (id)synchronousFolderIcon:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 icon:(id)arg4 style:(unsigned long long)arg5;
 + (id)synchronousFolderIconWithSize:(struct CGSize)arg1 scale:(double)arg2 style:(unsigned long long)arg3;
-+ (id)synchronousIconForContentType:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4 downloaded:(_Bool)arg5;
-@property(readonly, nonatomic) _Bool downloaded; // @synthesize downloaded=_downloaded;
++ (id)synchronousIconForContentType:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4 folded:(_Bool)arg5;
+@property(readonly, nonatomic) _Bool folded; // @synthesize folded=_folded;
 @property(readonly, nonatomic) NSString *contentType; // @synthesize contentType=_contentType;
 - (void).cxx_destruct;
 - (_Bool)generateThumbnail:(id *)arg1 representativeIcon:(_Bool *)arg2;
-- (id)initWithContentType:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 delegate:(id)arg4 style:(unsigned long long)arg5 downloaded:(_Bool)arg6;
+- (id)initWithContentType:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 delegate:(id)arg4 style:(unsigned long long)arg5 folded:(_Bool)arg6 qos:(unsigned int)arg7;
 
 @end
 

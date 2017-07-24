@@ -6,17 +6,13 @@
 
 #import <GeoServices/GEOTileRequester.h>
 
-@class NSTimer;
-
 @interface GEOTestTileRequester : GEOTileRequester
 {
-    NSTimer *_timer;
 }
 
 + (unsigned char)tileProviderIdentifier;
-- (void).cxx_destruct;
 - (void)dealloc;
-- (void)_sendResults:(id)arg1;
+- (void)_sendResults;
 - (void)start;
 
 @end

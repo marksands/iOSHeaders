@@ -69,6 +69,7 @@
 @property(retain, nonatomic) HKQuantity *appleExerciseTime;
 @property(retain, nonatomic) HKQuantity *activeEnergyBurned;
 - (void)_validateQuantityAssignment:(id)arg1 expectedUnit:(id)arg2 propertyName:(id)arg3;
+- (_Bool)_useHourlyGoalComparison;
 - (_Bool)_hasStandHoursGoal;
 - (_Bool)_hasExerciseGoal;
 @property(readonly, nonatomic, getter=_hasMoveGoal) _Bool hasMoveGoal;

@@ -34,6 +34,7 @@
 - (void)setTransform:(struct CGAffineTransform)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)positionAdPrivacyMark;
 - (void)disableDimmerView;
 - (void)enablePrivacyButton;
 @property(readonly, nonatomic) ADInterstitialAd *interstitialAd;

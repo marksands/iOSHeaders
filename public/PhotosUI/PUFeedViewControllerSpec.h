@@ -31,18 +31,18 @@ __attribute__((visibility("hidden")))
     _Bool _shouldHideBarsInLandscape;
     _Bool _shouldShowInvitationsInPopover;
     _Bool _shouldUseFullscreenLayout;
-    _Bool _shouldUseLargeNavbarTitle;
     NSIndexSet *_qualityImageFormats;
     long long _largeNumberOfSubjectsForLikes;
     PUFeedViewControllerSpec *_popoverFeedViewControllerSpec;
     PUPhotosGridViewControllerSpec *_gridSpec;
     PUPhotosPickerViewControllerSpec *_photosPickerSpec;
     long long _promptStyle;
+    double _standardSideMargins;
     struct CGSize _minimumVideoTileSize;
     struct CGSize _thumbnailSize;
 }
 
-@property(readonly, nonatomic) _Bool shouldUseLargeNavbarTitle; // @synthesize shouldUseLargeNavbarTitle=_shouldUseLargeNavbarTitle;
+@property(readonly, nonatomic) double standardSideMargins; // @synthesize standardSideMargins=_standardSideMargins;
 @property(readonly, nonatomic) _Bool shouldUseFullscreenLayout; // @synthesize shouldUseFullscreenLayout=_shouldUseFullscreenLayout;
 @property(readonly, nonatomic) long long promptStyle; // @synthesize promptStyle=_promptStyle;
 @property(readonly, nonatomic) PUPhotosPickerViewControllerSpec *photosPickerSpec; // @synthesize photosPickerSpec=_photosPickerSpec;

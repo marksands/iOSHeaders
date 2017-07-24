@@ -14,13 +14,14 @@ __attribute__((visibility("hidden")))
     NSOperationQueue *mOperationQueue;
 }
 
-+ (struct CGImage *)newImageForDarkBackground:(struct CGImage *)arg1 atScale:(double)arg2 ofSize:(struct CGSize)arg3;
++ (struct CGImage *)newImageForDarkBackground:(struct CGImage *)arg1 atScale:(double)arg2 ofSize:(struct CGSize)arg3 inset:(struct CGSize)arg4;
 + (void)applyFakeShadowForPresetsIfNecessary:(id)arg1 documentRoot:(id)arg2;
 + (id)swatchCache;
 - (void).cxx_destruct;
 - (id)imageForMoviePreset:(id)arg1 imageSize:(struct CGSize)arg2 imageScale:(double)arg3 movieInfo:(id)arg4 shouldClipVertically:(_Bool)arg5 documentRoot:(id)arg6 renderForWideGamut:(_Bool)arg7;
 - (id)p_thumbnailImageDataForImageData:(id)arg1;
 - (id)p_maskInfoForMovieInfo:(id)arg1 context:(id)arg2;
+- (struct CGSize)swatchInsetForShapeStyle:(id)arg1 shapeType:(int)arg2;
 - (struct CGSize)imageSizeForPreset:(id)arg1 swatchSize:(struct CGSize)arg2;
 - (struct CGImage *)p_newImageWithConnectionLineKnobsForShape:(id)arg1 atScale:(double)arg2 ofSize:(struct CGSize)arg3 overImage:(struct CGImage *)arg4;
 - (id)imageForImagePreset:(id)arg1 imageSize:(struct CGSize)arg2 imageScale:(double)arg3 imageInfo:(id)arg4 shouldClipVertically:(_Bool)arg5 documentRoot:(id)arg6 renderForWideGamut:(_Bool)arg7;

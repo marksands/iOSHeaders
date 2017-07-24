@@ -10,13 +10,16 @@
 #import <ChatKit/UIViewControllerTransitioningDelegate-Protocol.h>
 
 @class CKAppManagerViewController, NSString, UINavigationController;
+@protocol CKBrowserAppManagerViewControllerDelegate;
 
 @interface CKBrowserAppManagerViewController : CKBrowserViewController <UIViewControllerTransitioningDelegate, CKAppManagerViewControllerDelegate>
 {
     UINavigationController *_navController;
     CKAppManagerViewController *_appViewController;
+    id <CKBrowserAppManagerViewControllerDelegate> _delegate;
 }
 
+@property(nonatomic) __weak id <CKBrowserAppManagerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)presentationControllerForPresentedViewController:(id)arg1 presentingViewController:(id)arg2 sourceViewController:(id)arg3;
 - (id)animationControllerForDismissedController:(id)arg1;
@@ -31,8 +34,10 @@
 - (_Bool)shouldShowChatChrome;
 - (long long)browserPresentationStyle;
 - (void)dismiss;
+- (void)browserAppManagerDidSelectPlugin:(id)arg1;
 - (void)appManagerViewControllerDidFinish:(id)arg1;
 - (void)viewDidLoad;
+- (void)viewWillAppear:(_Bool)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

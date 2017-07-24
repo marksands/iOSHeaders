@@ -36,6 +36,7 @@
 - (void)startScrubbingAnimated:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)speakTime;
 - (void)_render;
+- (void)_layoutRenderer;
 - (void)layoutSubviews;
 - (void)_willEnterForeground;
 - (void)_didEnterBackground;

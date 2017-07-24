@@ -19,6 +19,7 @@
 @property(readonly) long long frequency; // @synthesize frequency=_frequency;
 @property(readonly) unsigned long long interval; // @synthesize interval=_interval;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

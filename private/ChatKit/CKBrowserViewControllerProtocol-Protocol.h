@@ -6,7 +6,7 @@
 
 #import <ChatKit/NSObject-Protocol.h>
 
-@class CKBrowserDragManager, IMBalloonPlugin, IMBalloonPluginDataSource, NSData, NSNumber, NSObject, NSString, NSURL, UIViewController;
+@class CKBrowserDragManager, IMBalloonPlugin, IMBalloonPluginDataSource, NSArray, NSData, NSNumber, NSObject, NSString, NSURL, UIViewController;
 @protocol CKBrowserViewControllerSendDelegate, UIViewControllerTransitioningDelegate;
 
 @protocol CKBrowserViewControllerProtocol <NSObject>
@@ -41,6 +41,8 @@
 @property(readonly, nonatomic) unsigned long long badgeValue;
 @property(retain, nonatomic) NSData *conversationEngramID;
 @property(readonly, nonatomic) _Bool wasExpandedPresentation;
+@property(retain, nonatomic) NSString *sender;
+@property(retain, nonatomic) NSArray *recipients;
 - (void)killExtensionProcess;
 - (void)setStoreLaunchURL:(NSURL *)arg1 sourceApplication:(NSString *)arg2;
 - (void)messageAddedWithDataSource:(IMBalloonPluginDataSource *)arg1;

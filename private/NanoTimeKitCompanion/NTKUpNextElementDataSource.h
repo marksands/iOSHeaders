@@ -6,6 +6,7 @@
 
 #import <objc/NSObject.h>
 
+@class NSString;
 @protocol NTKUpNextElementDataSourceDelegate;
 
 @interface NTKUpNextElementDataSource : NSObject
@@ -13,18 +14,23 @@
     _Bool _running;
     id <NTKUpNextElementDataSourceDelegate> _delegate;
     unsigned long long _state;
+    NSString *_logHeader;
 }
 
++ (id)sampleContentElements;
++ (_Bool)wantsReloadForFirstDeviceUnlock;
 + (_Bool)wantsReloadForSignificantTimeChange;
 + (_Bool)wantsAppPrewarm;
 + (id)overrideLocalizedDataSourceName;
 + (id)overrideDataSourceImage;
 + (id)bundleIdentifier;
 + (id)dataSourceClasses;
+@property(readonly, nonatomic) NSString *logHeader; // @synthesize logHeader=_logHeader;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(readonly, nonatomic, getter=isRunning) _Bool running; // @synthesize running=_running;
 @property(nonatomic) __weak id <NTKUpNextElementDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)loadLoggingHeader;
 - (id)complicationDescriptor;
 - (void)setRunning:(_Bool)arg1;
 - (void)elementWithIdentifierDidBecomeHidden:(id)arg1;

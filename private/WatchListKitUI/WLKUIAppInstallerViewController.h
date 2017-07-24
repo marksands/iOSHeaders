@@ -6,25 +6,30 @@
 
 #import <UIKit/UINavigationController.h>
 
-@class NSString, UIVisualEffectView, WLKChannelDetails, _WLKUIAppInstallConfirmationViewController;
+@class NSString, WLKChannelDetails, _WLKUIAppInstallConfirmationViewController;
 
 @interface WLKUIAppInstallerViewController : UINavigationController
 {
     CDUnknownBlockType _completionBlock;
     double _lastProgress;
     CDUnknownBlockType _progressBlock;
-    UIVisualEffectView *_tvBackgroundView;
     _WLKUIAppInstallConfirmationViewController *_confirmationController;
     WLKChannelDetails *_channel;
     NSString *_localizedContentTitle;
+    NSString *_contentType;
     NSString *_confirmationTitle;
     NSString *_confirmationBody;
+    NSString *_updateBody;
+    NSString *_updateTitle;
     NSString *_confirmationInstallButtonTitle;
 }
 
 @property(copy, nonatomic) NSString *confirmationInstallButtonTitle; // @synthesize confirmationInstallButtonTitle=_confirmationInstallButtonTitle;
+@property(copy, nonatomic) NSString *updateTitle; // @synthesize updateTitle=_updateTitle;
+@property(copy, nonatomic) NSString *updateBody; // @synthesize updateBody=_updateBody;
 @property(copy, nonatomic) NSString *confirmationBody; // @synthesize confirmationBody=_confirmationBody;
 @property(copy, nonatomic) NSString *confirmationTitle; // @synthesize confirmationTitle=_confirmationTitle;
+@property(copy, nonatomic) NSString *contentType; // @synthesize contentType=_contentType;
 @property(copy, nonatomic) NSString *localizedContentTitle; // @synthesize localizedContentTitle=_localizedContentTitle;
 @property(readonly, copy, nonatomic) WLKChannelDetails *channel; // @synthesize channel=_channel;
 - (void).cxx_destruct;
@@ -33,7 +38,6 @@
 - (void)_dismissAppInstallWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_beginInstallingApp;
 - (void)beginInstallingAppWithProgressHandler:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)beginInstallingAppWithCompletion:(CDUnknownBlockType)arg1;
 - (void)loadView;
 - (void)_initConfirmation;
 - (id)initWithChannel:(id)arg1;

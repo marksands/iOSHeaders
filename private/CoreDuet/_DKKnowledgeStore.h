@@ -25,6 +25,7 @@
 
 + (id)knowledgeStoreWithDirectReadOnlyAccessWithStore:(id)arg1 storeDirectory:(id)arg2;
 + (id)knowledgeStoreWithDirectReadOnlyAccessWithConnection:(id)arg1 storeDirectory:(id)arg2;
++ (id)userKnowledgeStoreWithDirectReadOnlyAccess;
 + (id)knowledgeStoreWithDirectReadOnlyAccess;
 + (id)userKnowledgeStore;
 + (id)knowledgeStore;

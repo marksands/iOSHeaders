@@ -6,20 +6,28 @@
 
 #import <SetupAssistantUI/BFFSplashController.h>
 
+@class NSString;
+
 @interface BFFOnBoardingSplashController : BFFSplashController
 {
+    NSString *_preferencesKey;
+    long long _feature;
+    CDUnknownBlockType _completion;
 }
 
++ (_Bool)needsToRunForFeature:(long long)arg1 useBuddyPreference:(_Bool)arg2;
++ (id)cloudConfigSkipKey;
+@property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
+@property(readonly, nonatomic) long long feature; // @synthesize feature=_feature;
+- (void).cxx_destruct;
 - (id)movieView;
 - (void)movieReady:(id)arg1 error:(id)arg2;
 - (id)placeholderImageForFeature:(long long)arg1;
-- (void)tappedContinue;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
-- (long long)feature;
-- (id)init;
+- (id)initWithFeature:(long long)arg1 useBuddyPreference:(_Bool)arg2;
 
 @end
 

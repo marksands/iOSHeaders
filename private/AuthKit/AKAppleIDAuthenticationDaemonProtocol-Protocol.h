@@ -10,6 +10,7 @@
 @protocol NSSecureCoding;
 
 @protocol AKAppleIDAuthenticationDaemonProtocol <NSObject>
+- (void)fetchURLBagWithCompletion:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)emailsForAltDSID:(NSString *)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (void)activeLoginCode:(void (^)(NSString *, NSError *))arg1;
 - (void)isDevicePasscodeProtected:(void (^)(_Bool, NSError *))arg1;
@@ -35,7 +36,7 @@
 - (void)updateStateWithExternalAuthenticationResponse:(NSHTTPURLResponse *)arg1 forAppleID:(NSString *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)validateLoginCode:(unsigned long long)arg1 forAppleID:(NSString *)arg2 withCompletion:(void (^)(_Bool, NSError *))arg3;
 - (void)generateLoginCodeWithCompletion:(void (^)(NSNumber *, NSError *))arg1;
-- (void)checkSecurityUpgradeEligibilityForAppleID:(NSString *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
+- (void)checkSecurityUpgradeEligibilityForAltDSID:(NSString *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)authenticateWithContext:(AKAppleIDAuthenticationContext *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
 @end
 

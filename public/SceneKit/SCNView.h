@@ -20,7 +20,6 @@
     unsigned long long __ibPreferredRenderingAPI;
     unsigned int _ibNoMultisampling:1;
     unsigned long long _renderingAPI;
-    unsigned int _allowsBrowsing:1;
     unsigned int _isOpaque:1;
     unsigned int _rendersContinuously:1;
     unsigned int _firstDrawDone:1;

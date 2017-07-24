@@ -9,7 +9,7 @@
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDAccessory, HMDAccessoryInvitation, HMDUser, HMDUserManagementOperationManager, HMFTimer, NSArray, NSDate, NSDictionary, NSMutableArray, NSObject, NSString, NSUUID;
+@class HAPPairingIdentity, HMDAccessory, HMDAccessoryInvitation, HMDUser, HMDUserManagementOperationManager, HMFTimer, NSArray, NSDate, NSDictionary, NSMutableArray, NSObject, NSString, NSUUID;
 @protocol HMDUserManagementOperationDelegate, OS_dispatch_queue;
 
 @interface HMDUserManagementOperation : HMFObject <HMFTimerDelegate, NSSecureCoding>
@@ -26,6 +26,7 @@
     HMDUser *_user;
     HMDAccessory *_accessory;
     NSDate *_expirationDate;
+    HAPPairingIdentity *_ownerPairingIdentity;
     NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     HMFTimer *_expirationTimer;
@@ -43,6 +44,7 @@
 @property(readonly, nonatomic) HMFTimer *expirationTimer; // @synthesize expirationTimer=_expirationTimer;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
+@property(retain, nonatomic) HAPPairingIdentity *ownerPairingIdentity; // @synthesize ownerPairingIdentity=_ownerPairingIdentity;
 @property(readonly, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
 @property(retain, nonatomic) HMDAccessory *accessory; // @synthesize accessory=_accessory;
 @property(readonly, nonatomic) HMDUser *user; // @synthesize user=_user;
@@ -50,6 +52,7 @@
 @property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property __weak id <HMDUserManagementOperationDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1;
 - (void)timerDidFire:(id)arg1;
 - (id)dictionaryEncoding;
 - (void)encodeWithCoder:(id)arg1;

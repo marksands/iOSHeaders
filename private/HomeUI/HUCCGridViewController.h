@@ -35,6 +35,7 @@
 - (void)layoutOptionsEditor:(id)arg1 didUpdateLayoutOptions:(id)arg2;
 - (void)presentationCoordinator:(id)arg1 pressedStateDidChange:(_Bool)arg2 forItem:(id)arg3;
 - (_Bool)presentationCoordinator:(id)arg1 shouldBeginPresentationWithContext:(id)arg2;
+- (long long)preferredModalPresentationStyleForPresentationCoordinator:(id)arg1;
 - (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
 - (id)itemManager:(id)arg1 futureToUpdateItems:(id)arg2 itemUpdateOptions:(id)arg3;

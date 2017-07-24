@@ -30,7 +30,6 @@ __attribute__((visibility("hidden")))
     BRCAppLibrary *_appLibrary;
     _Bool _needsZoneAndAppLibraryActivation;
     NSURL *_shareDocumentURL;
-    NSURL *_aliasURL;
     NSString *_documentName;
     BRCXPCClient *_xpcClient;
     NSObject<OS_dispatch_queue> *_queue;

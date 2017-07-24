@@ -6,7 +6,7 @@
 
 #import <NotesShared/ICNote.h>
 
-@class NSArray, PKInk, TTTextStorage;
+@class ICCollaborationColorManager, NSArray, PKInk, TTTextStorage;
 
 @interface ICNote (UI)
 - (void)updatePKDrawingsWithHandwritingRecognitionEnabled:(_Bool)arg1;
@@ -38,8 +38,10 @@
 - (id)attachmentFromObject:(id)arg1 createIfNecessary:(_Bool)arg2;
 @property(readonly, nonatomic) NSArray *attachmentActivityItemsForSharing;
 @property(readonly, nonatomic) long long primaryWritingDirection;
+- (id)uiAttributedString;
 @property(readonly, nonatomic) TTTextStorage *textStorageWithoutCreating;
 @property(readonly, nonatomic) TTTextStorage *textStorage;
+@property(readonly, retain, nonatomic) ICCollaborationColorManager *collaborationColorManager;
 - (void)didMergeNoteDocument:(id)arg1 withUserInfo:(id)arg2;
 - (void)willMergeNoteDocument:(id)arg1 withUserInfo:(id)arg2;
 - (void)noteDidReplaceDocument;

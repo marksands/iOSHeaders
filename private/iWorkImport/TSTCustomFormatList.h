@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)upgradedCustomFormatList:(id)arg1;
 - (void)enumerateCustomFormatsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)initWithContext:(id)arg1;
 - (id)initWithType:(int)arg1 context:(id)arg2;

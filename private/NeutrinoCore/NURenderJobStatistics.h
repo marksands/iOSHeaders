@@ -45,8 +45,8 @@
 @property(readonly) double renderLatency;
 @property(readonly) double prepareDuration;
 @property(readonly) double prepareLatency;
-- (void)didRunStage:(long long)arg1;
-- (void)willRunStage:(long long)arg1;
+- (void)renderJob:(id)arg1 didRunStage:(long long)arg2;
+- (void)renderJob:(id)arg1 willRunStage:(long long)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

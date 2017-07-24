@@ -29,6 +29,8 @@
 @property(readonly, nonatomic) unsigned long long muid;
 - (id)mapsIdentifier;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)encodeWithXPCCoder:(id)arg1;
+- (id)initWithXPCCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithPlace:(id)arg1;

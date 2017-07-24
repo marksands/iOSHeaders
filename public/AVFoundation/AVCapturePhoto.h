@@ -13,6 +13,7 @@
     AVCapturePhotoInternal *_internal;
 }
 
+- (unsigned int)_orientation;
 - (struct __CVBuffer *)_embeddedThumbnailSourcePixelBuffer;
 - (id)portraitMetadata;
 - (id)livePhotoMovieFileURL;

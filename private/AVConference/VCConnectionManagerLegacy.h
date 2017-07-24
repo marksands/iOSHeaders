@@ -6,7 +6,7 @@
 
 #import <AVConference/VCConnectionManager.h>
 
-@class NSMutableArray;
+@class NSMutableArray, NSString;
 @protocol VCConnectionProtocol;
 
 __attribute__((visibility("hidden")))
@@ -15,8 +15,10 @@ __attribute__((visibility("hidden")))
     id <VCConnectionProtocol> _pendingPrimaryConnection;
     id <VCConnectionProtocol> _pendingSecondaryConnection;
     NSMutableArray *_validConnections;
+    NSString *_relayConnectionID;
 }
 
+@property(copy, nonatomic) NSString *relayConnectionID; // @synthesize relayConnectionID=_relayConnectionID;
 @property(retain, nonatomic) id <VCConnectionProtocol> pendingSecondaryConnection; // @synthesize pendingSecondaryConnection=_pendingSecondaryConnection;
 @property(retain, nonatomic) id <VCConnectionProtocol> pendingPrimaryConnection; // @synthesize pendingPrimaryConnection=_pendingPrimaryConnection;
 - (_Bool)shouldHandoverWhenUpdateWRMDuplication:(int)arg1;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSUUID, SFClient, SFService;
+@class NSUUID, SFClient, SFService, SFSession;
 @protocol OS_dispatch_queue;
 
 @interface SFDeviceSetupServiceiOS : NSObject
@@ -16,21 +16,21 @@
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
     NSUUID *_peer;
+    _Bool _pinShowing;
     SFClient *_preventExitForLocaleClient;
     SFService *_sfService;
     _Bool _sfServiceActivated;
+    SFSession *_sfSession;
     CDUnknownBlockType _completionHandler;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     CDUnknownBlockType _showPINHandlerEx;
     CDUnknownBlockType _showPINHandler;
     CDUnknownBlockType _hidePINHandler;
     CDUnknownBlockType _progressHandlerEx;
-    CDUnknownBlockType _progressHandler;
     CDUnknownBlockType _receivedObjectHandler;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType receivedObjectHandler; // @synthesize receivedObjectHandler=_receivedObjectHandler;
-@property(copy, nonatomic) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;
 @property(copy, nonatomic) CDUnknownBlockType progressHandlerEx; // @synthesize progressHandlerEx=_progressHandlerEx;
 @property(copy, nonatomic) CDUnknownBlockType hidePINHandler; // @synthesize hidePINHandler=_hidePINHandler;
 @property(copy, nonatomic) CDUnknownBlockType showPINHandler; // @synthesize showPINHandler=_showPINHandler;
@@ -41,6 +41,7 @@
 - (void)_handleSessionSecured:(id)arg1;
 - (void)_handleSessionEnded:(id)arg1;
 - (void)_handleSessionStarted:(id)arg1;
+- (void)sendSetupAction:(unsigned int)arg1 info:(id)arg2 responseHandler:(CDUnknownBlockType)arg3;
 - (void)sendObject:(id)arg1;
 - (void)_receivedObject:(id)arg1 flags:(unsigned int)arg2;
 - (void)_sfServiceStart;

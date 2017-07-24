@@ -44,6 +44,7 @@
 - (void)authenticator:(id)arg1 didRequestUserAction:(long long)arg2;
 - (void)authenticatorDidEncounterFingerOff:(id)arg1;
 - (void)authenticatorDidEncounterFingerOn:(id)arg1;
+- (_Bool)paymentPass:(id *)arg1 paymentApplication:(id *)arg2 fromAID:(id)arg3;
 - (void)_invalidPaymentDataWithParam:(id)arg1;
 - (void)_didCancel;
 - (void)_didFailWithFatalError:(id)arg1;

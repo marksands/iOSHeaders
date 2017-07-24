@@ -12,7 +12,6 @@
 
 + (id)desiredKeys;
 - (_Bool)mergeLocalRecord:(id)arg1 withRemoteRecord:(id)arg2;
-- (id)recordZoneName;
 - (id)initWithReadingListEntries:(id)arg1 merge:(_Bool)arg2;
 
 @end

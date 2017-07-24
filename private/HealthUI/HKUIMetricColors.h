@@ -15,6 +15,8 @@
     UIColor *_gradientBottomColor;
     UIColor *_contextViewPrimaryTextColor;
     UIColor *_contextViewSecondaryTextColor;
+    UIColor *_contextViewInfoButtonGlyphColor;
+    UIColor *_contextViewInfoButtonBackgroundColor;
     UIColor *_contextViewChartGradientTopColor;
     UIColor *_contextViewChartGradientBottomColor;
 }
@@ -30,6 +32,8 @@
 + (id)vitalsColors;
 @property(retain, nonatomic) UIColor *contextViewChartGradientBottomColor; // @synthesize contextViewChartGradientBottomColor=_contextViewChartGradientBottomColor;
 @property(retain, nonatomic) UIColor *contextViewChartGradientTopColor; // @synthesize contextViewChartGradientTopColor=_contextViewChartGradientTopColor;
+@property(retain, nonatomic) UIColor *contextViewInfoButtonBackgroundColor; // @synthesize contextViewInfoButtonBackgroundColor=_contextViewInfoButtonBackgroundColor;
+@property(retain, nonatomic) UIColor *contextViewInfoButtonGlyphColor; // @synthesize contextViewInfoButtonGlyphColor=_contextViewInfoButtonGlyphColor;
 @property(retain, nonatomic) UIColor *contextViewSecondaryTextColor; // @synthesize contextViewSecondaryTextColor=_contextViewSecondaryTextColor;
 @property(retain, nonatomic) UIColor *contextViewPrimaryTextColor; // @synthesize contextViewPrimaryTextColor=_contextViewPrimaryTextColor;
 @property(retain, nonatomic) UIColor *gradientBottomColor; // @synthesize gradientBottomColor=_gradientBottomColor;

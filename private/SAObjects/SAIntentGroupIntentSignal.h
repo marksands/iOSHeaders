@@ -14,6 +14,7 @@
 
 + (id)intentSignalWithDictionary:(id)arg1 context:(id)arg2;
 + (id)intentSignal;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
 @property(retain, nonatomic) SAIntentGroupProtobufMessage *intent;
 - (id)encodedClassName;

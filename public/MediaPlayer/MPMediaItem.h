@@ -104,6 +104,7 @@
 - (void)incrementSkipCount;
 - (void)noteWasPlayedToTime:(double)arg1 skipped:(_Bool)arg2;
 - (void)markNominalAmountHasBeenPlayed;
+- (void)incrementPlayCount;
 - (_Bool)didSkipWithPlayedToTime:(double)arg1;
 - (id)valuesForProperties:(id)arg1;
 - (id)valueForProperty:(id)arg1;

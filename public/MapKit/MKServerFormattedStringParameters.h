@@ -6,11 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
+#import <MapKit/NSCoding-Protocol.h>
 #import <MapKit/NSCopying-Protocol.h>
 
 @class NSDictionary;
 
-@interface MKServerFormattedStringParameters : NSObject <NSCopying>
+@interface MKServerFormattedStringParameters : NSObject <NSCopying, NSCoding>
 {
     long long _instructionsDistanceDetailLevel;
     NSDictionary *_variableOverides;
@@ -23,6 +24,8 @@
 - (_Bool)isEqualToServerFormattedStringParameters:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithInstructionsDistanceDetailLevel:(long long)arg1 variableOverrides:(id)arg2;
 
 @end

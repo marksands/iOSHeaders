@@ -17,7 +17,7 @@
 + (id)_sortedComponentsFromComponents:(id)arg1;
 + (id)_firstComponentInTimeFromComponents:(id)arg1 momentNodes:(id)arg2 curationAddressNodes:(id)arg3;
 + (id)_beautifiedLocationStringWithTitleComponents:(id)arg1 momentNodes:(id)arg2 insertLineBreak:(_Bool)arg3 keyAssetAddressNode:(id)arg4 curationAddressNodes:(id)arg5 isMatchingKeyAsset:(_Bool *)arg6;
-+ (id)_commonCityTitleComponentsFromMomentNodes:(id)arg1 ignoredAddressNodes:(id)arg2 incompleteLocationsResolver:(id)arg3;
++ (id)_commonCityTitleComponentsFromMomentNodes:(id)arg1 remainingAddressNodes:(id)arg2 ignoredAddressNodes:(id)arg3 incompleteLocationResolver:(id)arg4;
 + (id)_sortedAOINodesCombinationsForCombinations:(id)arg1 aoiNodesToAddressNodesMapTable:(id)arg2;
 + (id)_recursiveValidAOINodesForCombination:(id)arg1 validCombinationLengths:(struct _NSRange)arg2 validationBlock:(CDUnknownBlockType)arg3 currentCombination:(id)arg4 visitedNodes:(id)arg5;
 + (id)_validAOINodesForCombination:(id)arg1 validCombinationLengths:(struct _NSRange)arg2 validationBlock:(CDUnknownBlockType)arg3;
@@ -25,7 +25,7 @@
 + (float)_weightForAOINode:(id)arg1 withAddressNodes:(id)arg2;
 + (id)_commonAOIComponentsForAddressNodes:(id)arg1 aoiDisplayType:(unsigned long long)arg2 containsEntertainmentPOI:(_Bool)arg3;
 + (id)_filteredAOINodesForAddressNodes:(id)arg1;
-+ (id)_filteredAddressNodesWithAddressNodes:(id)arg1 momentsNodes:(id)arg2 incompleteLocationResolver:(id)arg3 filterSignificantLocationsOption:(unsigned long long)arg4;
++ (id)_filteredAddressNodesWithAddressNodes:(id)arg1 momentNodes:(id)arg2 incompleteLocationResolver:(id)arg3 filterSignificantLocationsOption:(unsigned long long)arg4;
 + (void)generateLocationTitleForTripWithMomentNodes:(id)arg1 result:(CDUnknownBlockType)arg2;
 + (void)generateLocationTitleWithOptions:(id)arg1 result:(CDUnknownBlockType)arg2;
 

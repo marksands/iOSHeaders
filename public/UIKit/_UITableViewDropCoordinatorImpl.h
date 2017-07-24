@@ -31,10 +31,10 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_dropItem:(id)arg1 toCell:(id)arg2;
 - (void)_dropItem:(id)arg1 toTarget:(id)arg2;
-- (void)dropItem:(id)arg1 toTarget:(id)arg2;
+- (id)dropItem:(id)arg1 toTarget:(id)arg2;
 - (void)_dropItem:(id)arg1 toRowAtIndexPath:(id)arg2;
-- (void)dropItem:(id)arg1 toRowAtIndexPath:(id)arg2;
-- (void)dropItem:(id)arg1 intoRowAtIndexPath:(id)arg2 rect:(struct CGRect)arg3;
+- (id)dropItem:(id)arg1 toRowAtIndexPath:(id)arg2;
+- (id)dropItem:(id)arg1 intoRowAtIndexPath:(id)arg2 rect:(struct CGRect)arg3;
 - (id)_dropItem:(id)arg1 toPlaceholderInsertedAtIndexPath:(id)arg2 withReuseIdentifier:(id)arg3 rowHeight:(double)arg4 cellUpdateHandler:(CDUnknownBlockType)arg5;
 - (id)dropItem:(id)arg1 toPlaceholderInsertedAtIndexPath:(id)arg2 withReuseIdentifier:(id)arg3 rowHeight:(double)arg4 cellUpdateHandler:(CDUnknownBlockType)arg5;
 @property(readonly, nonatomic) id <UIDropSession> _dropSession;

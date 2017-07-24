@@ -25,6 +25,9 @@ __attribute__((visibility("hidden")))
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (void)_addSubview:(id)arg1 positioned:(long long)arg2 relativeTo:(id)arg3;
+- (void)sendSubviewToBack:(id)arg1;
+- (void)bringSubviewToFront:(id)arg1;
 - (void)willRemoveSubview:(id)arg1;
 - (void)_unstickView:(id)arg1;
 - (void)_stickViewToBack:(id)arg1;

@@ -14,7 +14,6 @@
 + (void)pu_animateWithEnforcedDuration:(double)arg1 animations:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)_pu_animateWithDuration:(double)arg1 enforced:(_Bool)arg2 animations:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)pu_removeAllGeometryAnimationsRecursively:(_Bool)arg1;
-@property(readonly, nonatomic) _Bool pu_hasHiddenAncestor;
 - (void)pu_setCenterAndBoundsForFrameRect:(struct CGRect)arg1;
 - (id)_pu_ancestorSharedWithView:(id)arg1;
 - (struct CGAffineTransform)pu_convertTransform:(struct CGAffineTransform)arg1 toView:(id)arg2;

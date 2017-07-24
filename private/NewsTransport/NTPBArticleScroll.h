@@ -8,7 +8,7 @@
 
 #import <NewsTransport/NSCopying-Protocol.h>
 
-@class NSData, NSString;
+@class NSData, NSMutableArray, NSString;
 
 @interface NTPBArticleScroll : PBCodable <NSCopying>
 {
@@ -16,6 +16,7 @@
     NSData *_articleSessionId;
     NSData *_articleViewingSessionId;
     NSData *_feedViewExposureId;
+    NSMutableArray *_fractionalCohortMemberships;
     NSString *_referencedArticleId;
     int _scrollHostViewType;
     NSString *_scrollVelocity;
@@ -36,6 +37,8 @@
     } _has;
 }
 
++ (Class)fractionalCohortMembershipType;
+@property(retain, nonatomic) NSMutableArray *fractionalCohortMemberships; // @synthesize fractionalCohortMemberships=_fractionalCohortMemberships;
 @property(nonatomic) float scrollingVelocity; // @synthesize scrollingVelocity=_scrollingVelocity;
 @property(nonatomic) float verticalScrollPositionEnding; // @synthesize verticalScrollPositionEnding=_verticalScrollPositionEnding;
 @property(nonatomic) float verticalScrollPositionStarting; // @synthesize verticalScrollPositionStarting=_verticalScrollPositionStarting;
@@ -59,6 +62,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)fractionalCohortMembershipAtIndex:(unsigned long long)arg1;
+- (unsigned long long)fractionalCohortMembershipsCount;
+- (void)addFractionalCohortMembership:(id)arg1;
+- (void)clearFractionalCohortMemberships;
 @property(nonatomic) _Bool hasScrollingVelocity;
 @property(nonatomic) _Bool hasVerticalScrollPositionEnding;
 @property(nonatomic) _Bool hasVerticalScrollPositionStarting;

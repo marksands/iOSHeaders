@@ -6,27 +6,38 @@
 
 #import <objc/NSObject.h>
 
-@class GEOComposedRoute, GEOETARoute, NSDate, NSUUID;
+#import <Navigation/NSSecureCoding-Protocol.h>
+
+@class GEOComposedRoute, GEOETARoute, GEOETATrafficUpdateResponse, GEORouteInitializerData, NSArray, NSDate, NSUUID;
 
 __attribute__((visibility("hidden")))
-@interface MNActiveRouteInfo : NSObject
+@interface MNActiveRouteInfo : NSObject <NSSecureCoding>
 {
+    GEORouteInitializerData *_routeInitializerData;
     NSUUID *_routeID;
     GEOComposedRoute *_route;
     GEOETARoute *_etaRoute;
+    NSArray *_routeIncidents;
     NSDate *_displayETA;
     unsigned long long _displayRemainingMinutes;
     unsigned long long _alternateRouteIndex;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) unsigned long long alternateRouteIndex; // @synthesize alternateRouteIndex=_alternateRouteIndex;
 @property(nonatomic) unsigned long long displayRemainingMinutes; // @synthesize displayRemainingMinutes=_displayRemainingMinutes;
 @property(retain, nonatomic) NSDate *displayETA; // @synthesize displayETA=_displayETA;
+@property(retain, nonatomic) NSArray *routeIncidents; // @synthesize routeIncidents=_routeIncidents;
 @property(retain, nonatomic) GEOETARoute *etaRoute; // @synthesize etaRoute=_etaRoute;
 @property(retain, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
 @property(readonly, nonatomic) NSUUID *routeID; // @synthesize routeID=_routeID;
 - (void).cxx_destruct;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)updateWithETARoute:(id)arg1 offsetInMeters:(double)arg2;
 - (id)initWithRoute:(id)arg1;
+@property(retain, nonatomic) GEOETATrafficUpdateResponse *etaResponse;
+- (void)setRouteID:(id)arg1;
 
 @end
 

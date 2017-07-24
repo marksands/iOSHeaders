@@ -32,7 +32,18 @@ struct UIEdgeInsets {
     double right;
 };
 
+struct _NSRange {
+    unsigned long long location;
+    unsigned long long length;
+};
+
 #pragma mark Typedef'd Structures
+
+typedef struct {
+    double headlineStyle1Scale;
+    double headlineStyle2Scale;
+    double headlineStyle3Scale;
+} CDStruct_3d2913aa;
 
 typedef struct {
     long long typeACellType;

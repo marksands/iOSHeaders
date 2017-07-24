@@ -22,6 +22,7 @@
     double _feedGutter;
     double _adjustedFeedWidth;
     long long _columnCount;
+    unsigned long long _layoutOptions;
     double _columnWidth;
     double _horizontalMarginWidth;
     double _rowHeight;
@@ -52,6 +53,7 @@
 @property(readonly, nonatomic) double rowHeight; // @synthesize rowHeight=_rowHeight;
 @property(readonly, nonatomic) double horizontalMarginWidth; // @synthesize horizontalMarginWidth=_horizontalMarginWidth;
 @property(readonly, nonatomic) double columnWidth; // @synthesize columnWidth=_columnWidth;
+@property(readonly, nonatomic) unsigned long long layoutOptions; // @synthesize layoutOptions=_layoutOptions;
 @property(readonly, nonatomic) long long columnCount; // @synthesize columnCount=_columnCount;
 @property(readonly, nonatomic) struct CGSize viewportSize; // @synthesize viewportSize=_viewportSize;
 @property(readonly, nonatomic) double adjustedFeedWidth; // @synthesize adjustedFeedWidth=_adjustedFeedWidth;
@@ -61,11 +63,12 @@
 @property(retain, nonatomic) FCHeadlineTemplate *defaultHeadlineTemplate; // @synthesize defaultHeadlineTemplate=_defaultHeadlineTemplate;
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) UIColor *feedBackgroundColor;
+- (double)cellHeightForRowSpan:(long long)arg1;
 - (double)cellWidthForColumnSpan:(long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithViewportSize:(struct CGSize)arg1 viewportInsets:(struct UIEdgeInsets)arg2 preferredContentSizeCategory:(id)arg3 showAccessoryText:(_Bool)arg4 authenticationSetup:(_Bool)arg5 showingPrefetchedPurchase:(_Bool)arg6;
-- (id)initWithViewportSize:(struct CGSize)arg1 viewportInsets:(struct UIEdgeInsets)arg2 preferredContentSizeCategory:(id)arg3 showAccessoryText:(_Bool)arg4 layoutType:(long long)arg5 authenticationSetup:(_Bool)arg6 showingPrefetchedPurchase:(_Bool)arg7;
-- (id)initWithViewportSize:(struct CGSize)arg1 defaultFeedLayoutSearchConfiguration:(id)arg2 columnCount:(long long)arg3 feedGutter:(double)arg4 verticalMarginInRows:(double)arg5 preferredContentSizeCategory:(id)arg6 maximumContentInset:(double)arg7 selectionCornerRadius:(double)arg8 selectionInset:(double)arg9 showAccessoryText:(_Bool)arg10 authenticationSetup:(_Bool)arg11 showingPrefetchedPurchase:(_Bool)arg12;
+- (id)initWithViewportSize:(struct CGSize)arg1 viewportInsets:(struct UIEdgeInsets)arg2 preferredContentSizeCategory:(id)arg3 showAccessoryText:(_Bool)arg4;
+- (id)initWithViewportSize:(struct CGSize)arg1 viewportInsets:(struct UIEdgeInsets)arg2 preferredContentSizeCategory:(id)arg3 showAccessoryText:(_Bool)arg4 layoutType:(long long)arg5 layoutOptions:(unsigned long long)arg6;
+- (id)initWithViewportSize:(struct CGSize)arg1 defaultFeedLayoutSearchConfiguration:(id)arg2 columnCount:(long long)arg3 feedGutter:(double)arg4 verticalMarginInRows:(double)arg5 preferredContentSizeCategory:(id)arg6 maximumContentInset:(double)arg7 selectionCornerRadius:(double)arg8 selectionInset:(double)arg9 showAccessoryText:(_Bool)arg10 layoutOptions:(unsigned long long)arg11;
 - (id)init;
 
 @end

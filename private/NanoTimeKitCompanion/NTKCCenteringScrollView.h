@@ -14,10 +14,12 @@
 {
     struct CGRect _originalCrop;
     UIView *_centeredView;
+    double _maximumZoomRatio;
     struct CGSize _minimumDisplaySize;
     struct CGRect _cropRect;
 }
 
+@property(nonatomic) double maximumZoomRatio; // @synthesize maximumZoomRatio=_maximumZoomRatio;
 @property(nonatomic) struct CGSize minimumDisplaySize; // @synthesize minimumDisplaySize=_minimumDisplaySize;
 @property(nonatomic) struct CGRect cropRect; // @synthesize cropRect=_cropRect;
 @property(retain, nonatomic) UIView *centeredView; // @synthesize centeredView=_centeredView;

@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <IMDaemonCore/IMDCKAbstractSyncController.h>
 
-@class CKOperationConfiguration, CKRecordID, IMDCKDatabaseManager, IMDRecordZoneManager, NSNumber;
+@class CKOperationConfiguration, CKRecordID, IMDCKDatabaseManager, IMDRecordZoneManager, NSNumber, NSObject;
 @protocol OS_dispatch_queue;
 
-@interface IMDCKExitManager : NSObject
+@interface IMDCKExitManager : IMDCKAbstractSyncController
 {
-    _Bool _isFetchingState;
     CKRecordID *_exitRecordID;
     CKOperationConfiguration *_exitConfigurtation;
     NSNumber *_saltZoneCreatedOverride;
@@ -27,10 +26,10 @@
 @property(retain, nonatomic) NSNumber *saltZoneCreatedOverride; // @synthesize saltZoneCreatedOverride=_saltZoneCreatedOverride;
 @property(retain, nonatomic) CKOperationConfiguration *exitConfigurtation; // @synthesize exitConfigurtation=_exitConfigurtation;
 @property(retain, nonatomic) CKRecordID *exitRecordID; // @synthesize exitRecordID=_exitRecordID;
-@property _Bool isFetchingState; // @synthesize isFetchingState=_isFetchingState;
-- (void)submitCloudKitMetricWithData:(id)arg1 operationGroupName:(id)arg2 attempToCreatZone:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)sendCloudKitZoneFetchRequestToNoteFeatureIsOn;
+- (void)submitCloudKitMetricWithData:(id)arg1 operationGroupName:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)submitCloudKitMetricWithOperationGroupName:(id)arg1;
-- (void)writeSyncCompletedRecordWithDate:(id)arg1 attemptToCreateZone:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)writeSyncCompletedRecordWithDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)writeInitialSyncCompletedRecordIfNeeded;
 - (_Bool)_saltZoneCreated;
 - (void)_scheduleOperation:(id)arg1;

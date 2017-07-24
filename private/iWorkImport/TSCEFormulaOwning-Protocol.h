@@ -10,9 +10,9 @@
 
 @protocol TSCEFormulaOwning <NSObject>
 - (void)beginRewriteForCalculationEngine:(TSCECalculationEngine *)arg1 spec:(TSCEFormulaRewriteSpec *)arg2;
-- (void)rewriteForCalculationEngine:(TSCECalculationEngine *)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(TSCEFormulaRewriteSpec *)arg3;
+- (void)rewriteForCalculationEngine:(TSCECalculationEngine *)arg1 formulaID:(CDStruct_ed6d627d)arg2 rewriteSpec:(TSCEFormulaRewriteSpec *)arg3;
 - (void)invalidateForCalculationEngine:(TSCECalculationEngine *)arg1;
 - (void)writeResultsForCalculationEngine:(TSCECalculationEngine *)arg1;
-- (CDStruct_22e7ec3e)recalculateForCalculationEngine:(TSCECalculationEngine *)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(_Bool)arg3 hasCalculatedPrecedents:(_Bool)arg4;
+- (CDStruct_2a4d9400)recalculateForCalculationEngine:(TSCECalculationEngine *)arg1 formulaID:(CDStruct_ed6d627d)arg2 isInCycle:(_Bool)arg3 hasCalculatedPrecedents:(_Bool)arg4;
 @end
 

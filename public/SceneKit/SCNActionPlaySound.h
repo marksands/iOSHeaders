@@ -12,6 +12,7 @@
 }
 
 + (id)playAudioSource:(id)arg1 waitForCompletion:(_Bool)arg2;
++ (_Bool)supportsSecureCoding;
 - (id)parameters;
 - (id)reversedAction;
 - (id)copyWithZone:(struct _NSZone *)arg1;

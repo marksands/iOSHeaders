@@ -17,7 +17,6 @@
     NSMutableDictionary *_queryDependentCategoryProbabilities;
     PRSCEPData *_queryIndependentCategoryProbabilities;
     NSMutableOrderedSet *_cepBlacklistSet;
-    unsigned long long _topHitThreshold;
     NSArray *_parsecCategoryOrder;
     NSString *_shortcutSectionBundleID;
     NSDictionary *_sqfData;
@@ -32,7 +31,6 @@
 @property _Bool allow_coreduet_influence; // @synthesize allow_coreduet_influence=_allow_coreduet_influence;
 @property(retain) NSString *shortcutSectionBundleID; // @synthesize shortcutSectionBundleID=_shortcutSectionBundleID;
 @property(retain) NSArray *parsecCategoryOrder; // @synthesize parsecCategoryOrder=_parsecCategoryOrder;
-@property unsigned long long topHitThreshold; // @synthesize topHitThreshold=_topHitThreshold;
 @property(retain) NSMutableOrderedSet *cepBlacklistSet; // @synthesize cepBlacklistSet=_cepBlacklistSet;
 @property(retain) PRSCEPData *queryIndependentCategoryProbabilities; // @synthesize queryIndependentCategoryProbabilities=_queryIndependentCategoryProbabilities;
 @property(retain) NSMutableDictionary *queryDependentCategoryProbabilities; // @synthesize queryDependentCategoryProbabilities=_queryDependentCategoryProbabilities;

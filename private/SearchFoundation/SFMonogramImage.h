@@ -6,12 +6,13 @@
 
 #import <SearchFoundation/SFImage.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFMonogramImage-Protocol.h>
 
 @class NSData, NSDictionary, NSString;
 
-@interface SFMonogramImage : SFImage <SFMonogramImage, NSSecureCoding>
+@interface SFMonogramImage : SFImage <SFMonogramImage, NSSecureCoding, NSCopying>
 {
     NSString *_monogramLetters;
 }
@@ -19,6 +20,7 @@
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *monogramLetters; // @synthesize monogramLetters=_monogramLetters;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

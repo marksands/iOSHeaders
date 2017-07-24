@@ -19,7 +19,8 @@
 - (void).cxx_destruct;
 - (id)_correctionsStore;
 - (id)_feedbackProcessor;
-- (void)setCorrections:(id)arg1 forFingerprint:(id)arg2 onDomain:(id)arg3;
+- (void)setCorrectionSet:(id)arg1;
+- (void)_setCorrections:(id)arg1 forFingerprint:(id)arg2 onDomain:(id)arg3;
 - (void)getCorrectionsForFormFieldFingerprint:(id)arg1 onDomain:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 @end

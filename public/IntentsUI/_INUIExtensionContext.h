@@ -8,20 +8,22 @@
 
 #import <IntentsUI/_INUIExtensionContextVending-Protocol.h>
 
-@class NSString;
+@class NSString, _INUIExtensionContextState;
 
 @interface _INUIExtensionContext : NSExtensionContext <_INUIExtensionContextVending>
 {
-    struct CGSize _cachedHostedViewMinimumAllowedSize;
-    struct CGSize _cachedHostedViewMaximumAllowedSize;
+    _INUIExtensionContextState *_currentExtensionContextState;
 }
 
 + (id)_extensionAuxiliaryVendorProtocol;
 + (id)_extensionAuxiliaryHostProtocol;
+- (void).cxx_destruct;
 - (void)_requestHandlingOfIntent:(id)arg1;
+- (id)interfaceParametersDescription;
+- (struct CGSize)_bestAllowedSizeForAllowedSizesDictionary:(id)arg1;
 - (struct CGSize)hostedViewMaximumAllowedSize;
 - (struct CGSize)hostedViewMinimumAllowedSize;
-- (void)setHostedViewMinimumAllowedSize:(struct CGSize)arg1 maximumAllowedSize:(struct CGSize)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)setExtensionContextState:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_errorHandlingHostProxy;
 - (id)initWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 contextUUID:(id)arg3;
 

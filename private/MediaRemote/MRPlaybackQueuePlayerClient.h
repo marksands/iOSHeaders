@@ -6,64 +6,45 @@
 
 #import <Foundation/NSObject.h>
 
-@class MRPlaybackQueueContentItemCallbacks, MRPlaybackQueuePlayerPathClient, NSArray;
+@class NSDictionary, NSMutableDictionary, NSMutableSet;
 @protocol OS_dispatch_queue;
 
-__attribute__((visibility("hidden")))
 @interface MRPlaybackQueuePlayerClient : NSObject
 {
-    NSObject<OS_dispatch_queue> *_serialQueue;
-    MRPlaybackQueueContentItemCallbacks *_createPlaybackQueueForRequestCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_createItemForIdentifierCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_createItemForOffsetCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_createChildItemCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_metadataCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_languageOptionCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_infoCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_lyricsCallbacks;
-    MRPlaybackQueueContentItemCallbacks *_artworkCallbacks;
-    MRPlaybackQueuePlayerPathClient *_playbackQueueClient;
-    CDUnknownBlockType _beginLyricsEventCallback;
-    CDUnknownBlockType _endLyricsEventCallback;
+    NSMutableDictionary *_cache;
+    NSMutableDictionary *_lookup;
+    NSMutableSet *_requests;
+    void *_context;
     void *_playerPath;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
-@property(readonly, nonatomic) void *playerPath; // @synthesize playerPath=_playerPath;
-@property(copy, nonatomic) CDUnknownBlockType endLyricsEventCallback;
-@property(copy, nonatomic) CDUnknownBlockType beginLyricsEventCallback;
-@property(readonly, nonatomic) void *context;
-- (void)invalidatePlaybackQueueWithContext:(void *)arg1;
-- (void)invalidatePlaybackQueue;
-- (void *)requsetsForIdentifier:(id)arg1;
+- (id)description;
+- (void)_invalidate;
+- (_Bool)augmentCommandOptions:(id)arg1 forCommand:(unsigned int)arg2;
+- (void)invalidateWithContext:(void *)arg1;
+- (void)invalidate;
+- (id)subscribedContentItemsIdentifiers:(id)arg1 forRequest:(void *)arg2;
+- (id)subscribedContentItems:(id)arg1 forRequest:(void *)arg2;
+- (id)subscribedContentItemRequests:(id)arg1;
 - (id)subscribedContentItems:(id)arg1;
+- (void)addPlaybackQueue:(void *)arg1 forRequest:(void *)arg2;
+- (void *)requestForContentItem:(void *)arg1;
+- (id)offsetForQueueIdentifier:(void *)arg1;
 - (long long)offsetForContentItem:(void *)arg1;
 - (id)offsetsForContentItem:(void *)arg1;
-- (void)addPlaybackQueue:(void *)arg1 forRequest:(void *)arg2;
 - (void *)contentItemForOffset:(long long)arg1;
 - (void *)nowPlayingItem;
-- (_Bool)removeCallback:(void *)arg1;
-@property(readonly, nonatomic) NSArray *artworkCallbacks;
-- (void *)addArtworkCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) NSArray *lyricsCallbacks;
-- (void *)addLyricsCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) NSArray *infoCallbacks;
-- (void *)addInfoCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) NSArray *languageOptionsCallbacks;
-- (void *)addLanguageOptionsCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) NSArray *metadataCallbacks;
-- (void *)addMetadataCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) NSArray *createChildItemCallbacks;
-- (void *)addCreateChildItemCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) NSArray *createItemForOffsetCallbacks;
-- (void *)addCreateItemForOffsetCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) NSArray *createItemForIdentifierCallbacks;
-- (void *)addCreateItemForIdentifierCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-@property(readonly, nonatomic) NSArray *createPlaybackQueueForRequestCallbacks;
-- (void *)addCreatePlaybackQueueForRequestCallback:(CDUnknownBlockType)arg1 prepend:(_Bool)arg2;
-- (id)_callbacksFromList:(id)arg1;
-- (void *)_addCallback:(id)arg1 toList:(id *)arg2 prepend:(_Bool)arg3;
-@property(readonly, nonatomic) void *capabilities;
-@property(readonly, nonatomic) _Bool hasPlaybackQueueCallbacks;
+- (void *)requestForIdentifer:(id)arg1;
+- (_Bool)hasRequest:(id)arg1;
+- (void)removeRequest:(id)arg1;
+- (void)addRequest:(void *)arg1;
+@property(nonatomic) void *context;
+- (void)_OnQueue_setContext:(void *)arg1;
+@property(readonly, nonatomic) NSDictionary *lookup;
+@property(readonly, nonatomic) void *playerPath;
+- (id)writeData;
+- (void)readData:(id)arg1;
 - (void)dealloc;
 - (id)initWithPlayerPath:(void *)arg1 queue:(id)arg2;
 

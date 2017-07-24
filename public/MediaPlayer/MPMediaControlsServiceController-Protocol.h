@@ -6,8 +6,9 @@
 
 #import <MediaPlayer/NSObject-Protocol.h>
 
+@class MPMediaControlsConfiguration;
+
 @protocol MPMediaControlsServiceController <NSObject>
-@property(nonatomic) struct UIEdgeInsets scrollViewInsets;
-- (void)viewWillPresentRemotelyWithSize:(struct CGSize)arg1;
+@property(retain, nonatomic) MPMediaControlsConfiguration *configuration;
 @end
 

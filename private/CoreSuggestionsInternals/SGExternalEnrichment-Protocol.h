@@ -5,6 +5,7 @@
 //
 
 @protocol SGExternalEnrichment
+- (void)flushWrites;
 - (void)write;
 @end
 

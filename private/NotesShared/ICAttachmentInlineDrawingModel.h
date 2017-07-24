@@ -11,6 +11,9 @@
 }
 
 + (id)contentInfoTextWithAttachmentCount:(unsigned long long)arg1;
+- (id)correctedHardlinkURLFileExtensionForExtention:(id)arg1;
+- (_Bool)canConvertToHTMLForSharing;
+- (id)attributesForSharingHTMLWithTagName:(id *)arg1 textContent:(id *)arg2;
 - (id)searchableTextContentInNote;
 - (id)additionalIndexableTextContentInNote;
 - (id)standaloneTitleForNote;

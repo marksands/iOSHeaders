@@ -7,13 +7,12 @@
 #import <objc/NSObject.h>
 
 #import <AuthKit/AKAppleIDAuthenticationLimitedUIProvider-Protocol.h>
-#import <AuthKit/CDPAuthProvider-Protocol.h>
 #import <AuthKit/NSSecureCoding-Protocol.h>
 
-@class AKAccountRecoveryContext, AKAnisetteData, AKDevice, CDPRecoveryController, NSArray, NSDictionary, NSNumber, NSSet, NSString, NSUUID;
+@class AKAnisetteData, AKDevice, AKNativeAccountRecoveryController, NSArray, NSDictionary, NSNumber, NSSet, NSString, NSUUID;
 @protocol AKAnisetteServiceProtocol, CDPStateUIProvider, OS_dispatch_queue;
 
-@interface AKAppleIDAuthenticationContext : NSObject <AKAppleIDAuthenticationLimitedUIProvider, CDPAuthProvider, NSSecureCoding>
+@interface AKAppleIDAuthenticationContext : NSObject <AKAppleIDAuthenticationLimitedUIProvider, NSSecureCoding>
 {
     id <CDPStateUIProvider> _cdpUiProvider;
     NSString *_generatedCode;
@@ -25,14 +24,14 @@
     struct __CFUserNotification *_activeSecondFactoryEntryPrompt;
     CDUnknownBlockType _secondFactoryEntryCompletion;
     NSObject<OS_dispatch_queue> *_secondFactorQueue;
-    CDPRecoveryController *_recoveryController;
     AKDevice *_proxiedDevice;
     AKDevice *_companionDevice;
-    AKAccountRecoveryContext *_inProgressRecoveryContext;
     NSString *_interpolatedReason;
+    AKNativeAccountRecoveryController *_nativeRecoveryController;
     _Bool _isProxyingForApp;
     _Bool _shouldSendIdentityTokenForRemoteUI;
     _Bool _isPasswordEditable;
+    _Bool _shouldSkipInitialReachabilityCheck;
     _Bool _isUsernameEditable;
     _Bool _shouldAllowAppleIDCreation;
     _Bool _needsCredentialRecovery;
@@ -125,6 +124,7 @@
 @property(nonatomic) _Bool isUsernameEditable; // @synthesize isUsernameEditable=_isUsernameEditable;
 @property(copy, nonatomic) NSString *username; // @synthesize username=_username;
 @property(retain, nonatomic) id <CDPStateUIProvider> cdpUiProvider; // @synthesize cdpUiProvider=_cdpUiProvider;
+@property(readonly, nonatomic) _Bool _shouldSkipInitialReachabilityCheck; // @synthesize _shouldSkipInitialReachabilityCheck;
 @property(copy, nonatomic, setter=_setMessage:) NSString *_message; // @synthesize _message;
 @property(copy, nonatomic, setter=_setShortLivedToken:) NSString *_shortLivedToken; // @synthesize _shortLivedToken;
 @property(nonatomic) _Bool _isPasswordEditable; // @synthesize _isPasswordEditable;
@@ -146,9 +146,6 @@
 - (void)presentLoginAlertWithError:(id)arg1 title:(id)arg2 message:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)dismissBasicLoginUIWithCompletion:(CDUnknownBlockType)arg1;
 - (void)presentBasicLoginUIWithCompletion:(CDUnknownBlockType)arg1;
-- (id)_mapICSCRecoveryResultsToAuthKit:(id)arg1;
-- (void)cdpContext:(id)arg1 verifyMasterKey:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)cdpContext:(id)arg1 performSilentRecoveryTokenRenewal:(CDUnknownBlockType)arg2;
 - (void)dismissNativeRecoveryUIWithCompletion:(CDUnknownBlockType)arg1;
 - (void)presentNativeRecoveryUIWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) AKDevice *companionDevice;

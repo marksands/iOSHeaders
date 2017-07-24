@@ -12,6 +12,7 @@
 
 @interface HMPBMetadata : PBCodable <NSCopying>
 {
+    NSMutableArray *_hapCategories;
     NSMutableArray *_hapCharacteristics;
     NSMutableArray *_hapServices;
     int _version;
@@ -20,8 +21,10 @@
     } _has;
 }
 
++ (Class)hapCategoriesType;
 + (Class)hapServicesType;
 + (Class)hapCharacteristicsType;
+@property(retain, nonatomic) NSMutableArray *hapCategories; // @synthesize hapCategories=_hapCategories;
 @property(retain, nonatomic) NSMutableArray *hapServices; // @synthesize hapServices=_hapServices;
 @property(retain, nonatomic) NSMutableArray *hapCharacteristics; // @synthesize hapCharacteristics=_hapCharacteristics;
 @property(nonatomic) int version; // @synthesize version=_version;
@@ -35,6 +38,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)hapCategoriesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)hapCategoriesCount;
+- (void)addHapCategories:(id)arg1;
+- (void)clearHapCategories;
 - (id)hapServicesAtIndex:(unsigned long long)arg1;
 - (unsigned long long)hapServicesCount;
 - (void)addHapServices:(id)arg1;

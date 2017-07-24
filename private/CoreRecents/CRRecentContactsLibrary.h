@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSXPCConnection;
 @protocol OS_dispatch_queue;
@@ -28,6 +28,7 @@
 + (struct NSObject *)_recentEventForGroupMembers:(id)arg1 displayName:(id)arg2 date:(id)arg3 weight:(id)arg4 metadata:(id)arg5 options:(unsigned long long)arg6;
 + (id)defaultInstance;
 - (int)_daemonProcessID;
+- (id)_removeRecentContactsMatchingQuery:(id)arg1;
 - (void)_removeAllRecentContactsWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)removeRecentContacts:(id)arg1 error:(out id *)arg2;
 - (_Bool)_removeRecentContactsWithRecentIDs:(id)arg1 syncKeys:(id)arg2 recentsDomain:(id)arg3 error:(out id *)arg4;

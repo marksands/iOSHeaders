@@ -21,7 +21,7 @@
 - (_Bool)processRenewResponseData:(id)arg1 error:(id *)arg2;
 - (_Bool)importLeaseSyncResponseData:(id)arg1 error:(id *)arg2;
 - (_Bool)getLeaseSyncRenewRequestData:(id *)arg1 error:(id *)arg2;
-- (_Bool)getLeaseSyncEndRequestData:(id *)arg1 didReleaseSlot:(_Bool *)arg2 error:(id *)arg3;
+- (_Bool)endLeaseSyncAndReturnError:(id *)arg1;
 
 @end
 

@@ -35,10 +35,13 @@
 - (void).cxx_destruct;
 - (void)cardSectionViewDidDisappearForCardSection:(id)arg1 withDisappearanceFeedback:(id)arg2;
 - (void)cardSectionViewDidAppearForCardSection:(id)arg1 withAppearanceFeedback:(id)arg2;
+- (void)cardSectionViewWillAppearForCardSection:(id)arg1 withAppearanceFeedback:(id)arg2;
 - (void)userDidEngageCardSection:(id)arg1 withEngagementFeedback:(id)arg2;
 - (void)didEngageCardSection:(id)arg1;
+- (id)cardSectionViewController:(id)arg1 interfaceSectionsForInteraction:(id)arg2;
 - (id)cardSectionViewController:(id)arg1 handledParametersForInteraction:(id)arg2;
 - (id)cardSectionViewController:(id)arg1 interactionWithIdentifier:(id)arg2;
+- (void)presentViewController:(id)arg1 forCardSectionViewController:(id)arg2;
 - (void)cardSectionViewControllerShouldBeRemoved:(id)arg1;
 - (void)cardSectionViewController:(id)arg1 didHandleParameters:(id)arg2 forInteraction:(id)arg3;
 - (_Bool)performCommand:(id)arg1 forCardSectionViewController:(id)arg2;
@@ -50,11 +53,14 @@
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)didMoveToParentViewController:(id)arg1;
 - (void)loadView;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (id)_generateCardViewAppearanceFeedback;
+- (_Bool)_isActuallyVisible;
 - (void)_finishLoading;
 - (void)_configureCardSectionViewController:(id)arg1 forCardSection:(id)arg2;
 - (_Bool)_askDelegateToPerformReferentialCommand:(id)arg1;

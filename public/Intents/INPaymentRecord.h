@@ -34,6 +34,7 @@
 @property(readonly, copy, nonatomic) INPerson *payee; // @synthesize payee=_payee;
 - (void).cxx_destruct;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

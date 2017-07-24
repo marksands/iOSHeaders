@@ -8,7 +8,7 @@
 
 #import <HomeUI/UIScrollViewDelegate-Protocol.h>
 
-@class HFWallpaper, NSString, UIButton, UIImage, UIImageView, UIScrollView, UIVisualEffectView;
+@class HFWallpaper, NSString, UIButton, UIImage, UIImageView, UIScrollView, UIView, UIVisualEffectView;
 @protocol HUWallpaperEditingViewControllerDelegate;
 
 @interface HUWallpaperEditingViewController : UIViewController <UIScrollViewDelegate>
@@ -19,16 +19,18 @@
     UIImage *_image;
     UIScrollView *_scrollView;
     UIImageView *_imageView;
+    UIView *_buttonContainerView;
+    UIView *_buttonSeparatorView;
     UIButton *_cancelButton;
     UIButton *_setButton;
-    UIVisualEffectView *_cancelButtonBackgroundView;
-    UIVisualEffectView *_setButtonBackgroundView;
+    UIVisualEffectView *_buttonBackgroundView;
 }
 
-@property(retain, nonatomic) UIVisualEffectView *setButtonBackgroundView; // @synthesize setButtonBackgroundView=_setButtonBackgroundView;
-@property(retain, nonatomic) UIVisualEffectView *cancelButtonBackgroundView; // @synthesize cancelButtonBackgroundView=_cancelButtonBackgroundView;
+@property(retain, nonatomic) UIVisualEffectView *buttonBackgroundView; // @synthesize buttonBackgroundView=_buttonBackgroundView;
 @property(retain, nonatomic) UIButton *setButton; // @synthesize setButton=_setButton;
 @property(retain, nonatomic) UIButton *cancelButton; // @synthesize cancelButton=_cancelButton;
+@property(retain, nonatomic) UIView *buttonSeparatorView; // @synthesize buttonSeparatorView=_buttonSeparatorView;
+@property(retain, nonatomic) UIView *buttonContainerView; // @synthesize buttonContainerView=_buttonContainerView;
 @property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 @property(retain, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
@@ -37,7 +39,8 @@
 @property(nonatomic) __weak id <HUWallpaperEditingViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)transparentButtonWithTitle:(id)arg1;
-- (id)buttonsView;
+- (id)_createButtonConstraints;
+- (id)_createButtonViews;
 - (id)viewForZoomingInScrollView:(id)arg1;
 - (void)updateScrollViewScale;
 - (void)buttonTouchFinished:(id)arg1;

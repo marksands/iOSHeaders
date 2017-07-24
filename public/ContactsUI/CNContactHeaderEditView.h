@@ -24,7 +24,7 @@
 }
 
 + (id)makePhotoViewWithMonogrammerStyle:(long long)arg1 shouldAllowTakePhotoAction:(_Bool)arg2 shouldAllowImageDrops:(_Bool)arg3;
-+ (id)contactHeaderViewWithContact:(id)arg1 editingGroups:(id)arg2 shouldAllowTakePhotoAction:(_Bool)arg3;
++ (id)contactHeaderViewWithContact:(id)arg1 editingGroups:(id)arg2 shouldAllowTakePhotoAction:(_Bool)arg3 delegate:(id)arg4;
 @property(retain, nonatomic) NSLayoutConstraint *tableToTrailingReadableGuideConstraint; // @synthesize tableToTrailingReadableGuideConstraint=_tableToTrailingReadableGuideConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *tableToTrailingEdgeConstraint; // @synthesize tableToTrailingEdgeConstraint=_tableToTrailingEdgeConstraint;
 @property(nonatomic) _Bool pinToReadableContentGuide; // @synthesize pinToReadableContentGuide=_pinToReadableContentGuide;
@@ -48,7 +48,7 @@
 - (void)updateConstraints;
 - (void)updateFontSizes;
 - (void)setEditingGroups:(id)arg1 withUpdate:(_Bool)arg2;
-- (id)initWithContact:(id)arg1 editingGroups:(id)arg2 frame:(struct CGRect)arg3 shouldAllowTakePhotoAction:(_Bool)arg4;
+- (id)initWithContact:(id)arg1 editingGroups:(id)arg2 frame:(struct CGRect)arg3 shouldAllowTakePhotoAction:(_Bool)arg4 delegate:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

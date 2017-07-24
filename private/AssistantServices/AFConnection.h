@@ -9,7 +9,7 @@
 #import <AssistantServices/AFAudioPowerUpdaterDelegate-Protocol.h>
 #import <AssistantServices/NSXPCListenerDelegate-Protocol.h>
 
-@class AFAudioPowerUpdater, NSArray, NSError, NSMutableDictionary, NSString, NSUUID, NSXPCConnection;
+@class AFAudioPowerUpdater, AFClientConfiguration, NSArray, NSError, NSMutableDictionary, NSString, NSUUID, NSXPCConnection;
 @protocol AFAssistantUIService, AFSpeechDelegate, OS_dispatch_group, OS_dispatch_queue;
 
 @interface AFConnection : NSObject <NSXPCListenerDelegate, AFAudioPowerUpdaterDelegate>
@@ -29,6 +29,7 @@
     unsigned int _hasOutstandingRequest:1;
     unsigned int _audioSessionID;
     AFAudioPowerUpdater *_inputAudioPowerUpdater;
+    AFClientConfiguration *_clientConfiguration;
     unsigned int _clientStateIsInSync:1;
     unsigned int _voiceOverIsActive:1;
     NSError *_lastRetryError;
@@ -41,7 +42,6 @@
 + (void)defrost;
 + (id)outputVoice;
 + (id)currentLanguageCode;
-+ (_Bool)userDataSyncNeeded;
 + (void)stopMonitoringAvailability;
 + (_Bool)isAvailable;
 + (void)beginMonitoringAvailability;
@@ -50,11 +50,12 @@
 + (_Bool)siriIsSupportedForLanguageCode:(id)arg1 deviceProductVersion:(id)arg2 error:(id *)arg3;
 + (_Bool)assistantIsSupportedForLanguageCode:(id)arg1 error:(id *)arg2;
 + (void)initialize;
++ (_Bool)userDataSyncNeeded;
 @property(nonatomic) __weak id <AFSpeechDelegate> speechDelegate; // @synthesize speechDelegate=_speechDelegate;
 @property(nonatomic) __weak id <AFAssistantUIService> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_speechRecordingDidFailWithError:(id)arg1;
-- (void)adviseSessionArbiterToContinueWithPreviousWinner;
+- (void)adviseSessionArbiterToContinueWithPreviousWinner:(_Bool)arg1;
 - (void)updateSpeechSynthesisRecord:(id)arg1;
 - (void)endUpdateOutputAudioPower;
 - (void)beginUpdateOutputAudioPowerWithCompletion:(CDUnknownBlockType)arg1;
@@ -100,12 +101,14 @@
 - (CDUnknownBlockType)startRecordingAndGetContinueBlockForPendingSpeechRequestWithOptions:(id)arg1;
 - (void)startRecordingForPendingSpeechRequestWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)startSpeechRequestWithOptions:(id)arg1;
-- (void)_startRequestWithInfo:(id)arg1 analyticsEventProvider:(CDUnknownBlockType)arg2;
+- (void)_startRequestWithInfo:(id)arg1 activationEvent:(long long)arg2 analyticsEventProvider:(CDUnknownBlockType)arg3;
+- (void)startRequestWithInfo:(id)arg1 activationEvent:(long long)arg2;
 - (void)startRequestWithInfo:(id)arg1;
 - (void)startRequestWithCorrectedText:(id)arg1 forSpeechIdentifier:(id)arg2 userSelectionResults:(id)arg3;
 - (void)startContinuationRequestWithUserInfo:(id)arg1;
 - (void)startDirectActionRequestWithString:(id)arg1;
 - (void)startRequestWithText:(id)arg1;
+- (void)setConfiguration:(id)arg1;
 - (void)setVoiceOverIsActive:(_Bool)arg1;
 - (void)setCarDNDActive:(_Bool)arg1;
 - (void)setIsStark:(_Bool)arg1;

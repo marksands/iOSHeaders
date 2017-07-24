@@ -6,17 +6,17 @@
 
 #import <PencilKit/NSObject-Protocol.h>
 
-@class NSArray, NSSet;
+@class NSArray;
 @protocol CHStroke, CHStrokeIdentifier, CHStrokeProviderVersion;
 
 @protocol CHStrokeProvider <NSObject>
 @property(readonly, copy) NSArray *orderedStrokes;
 @property(readonly, retain) id <CHStrokeProviderVersion> strokeProviderVersion;
 - (_Bool)enumerateChangesSinceVersion:(id <CHStrokeProviderVersion>)arg1 usingBlock:(void (^)(NSSet *, NSSet *, _Bool *))arg2;
-- (long long)compareOrderOfStroke:(id <CHStroke>)arg1 toStroke:(id <CHStroke>)arg2;
+- (long long)compareOrderOfStrokeWithIdentifier:(id <CHStrokeIdentifier>)arg1 toStrokeWithIdentifier:(id <CHStrokeIdentifier>)arg2;
 - (id <CHStroke>)strokeForIdentifier:(id <CHStrokeIdentifier>)arg1;
 
 @optional
-@property(readonly, copy) NSSet *allStrokes;
+- (long long)compareOrderOfStroke:(id <CHStroke>)arg1 toStroke:(id <CHStroke>)arg2;
 @end
 

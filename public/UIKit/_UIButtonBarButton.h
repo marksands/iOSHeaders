@@ -27,6 +27,9 @@ __attribute__((visibility("hidden")))
 - (struct UIEdgeInsets)alignmentRectInsets;
 - (struct CGSize)intrinsicContentSize;
 - (void)traitCollectionDidChange:(id)arg1;
+- (void)willMoveToWindow:(id)arg1;
+- (void)willMoveToSuperview:(id)arg1;
+- (void)layoutSubviews;
 @property(nonatomic, getter=isSpringLoaded) _Bool springLoaded;
 - (void)_configureFromBarItem:(id)arg1 appearanceDelegate:(id)arg2 isBackButton:(_Bool)arg3;
 @property(readonly, nonatomic) NSLayoutConstraint *heightMinimizingConstraint;

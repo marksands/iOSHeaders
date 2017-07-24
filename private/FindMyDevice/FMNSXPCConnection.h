@@ -27,6 +27,7 @@
 - (void)addFailureBlock:(CDUnknownBlockType)arg1;
 - (id)remoteObjectProxy;
 - (void)dealloc;
+- (id)initWithConfiguration:(id)arg1 exportedObject:(id)arg2;
 - (id)initWithConfiguration:(id)arg1;
 
 // Remaining properties

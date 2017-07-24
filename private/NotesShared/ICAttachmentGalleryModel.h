@@ -23,7 +23,8 @@
 - (void)writeMergeableData;
 - (_Bool)mergeWithMergeableData:(id)arg1;
 @property(readonly, nonatomic) CROrderedSet *attachmentIdentifiersOrderedSet; // @dynamic attachmentIdentifiersOrderedSet;
-- (id)subAttachmentAtIndex:(unsigned long long)arg1;
+- (id)singleSubAttachmentAtIndex:(unsigned long long)arg1;
+- (id)subAttachmentIdentifierAtIndex:(unsigned long long)arg1;
 - (id)subAttachmentIdentifiers;
 - (unsigned long long)subAttachmentsCount;
 - (unsigned long long)indexOfSubAttachmentWithIdentifier:(id)arg1;
@@ -35,6 +36,7 @@
 - (_Bool)showThumbnailInNoteList;
 - (id)titleForSubAttachment:(id)arg1;
 - (_Bool)attachmentHasMergeableData;
+- (id)firstSubAttachment;
 - (_Bool)hasThumbnailImage;
 - (id)previewImageTypeUTI;
 - (_Bool)canSaveURLWithOtherAttachments;

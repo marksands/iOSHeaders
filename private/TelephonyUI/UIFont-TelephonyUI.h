@@ -9,8 +9,10 @@
 @interface UIFont (TelephonyUI)
 + (id)telephonyUIFontWithDescriptor:(id)arg1;
 + (id)telephonyUISubheadlineShortFont;
++ (id)telephonyUIFootnoteShortFont;
 + (id)telephonyUIBodyShortItalicFont;
 + (id)telephonyUIBodyShortEmphasizedFont;
 + (id)telephonyUIBodyShortFont;
+- (id)telephonyUIFontByAddingCaseSensitiveLayoutEnabledAttribute;
 @end
 

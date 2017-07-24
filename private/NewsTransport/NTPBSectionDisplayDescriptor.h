@@ -19,11 +19,14 @@
     NSString *_name;
     NSString *_nameColor;
     _Bool _displaysAsVideoPlaylist;
+    _Bool _videoPlaysMutedByDefault;
     struct {
         unsigned int displaysAsVideoPlaylist:1;
+        unsigned int videoPlaysMutedByDefault:1;
     } _has;
 }
 
+@property(nonatomic) _Bool videoPlaysMutedByDefault; // @synthesize videoPlaysMutedByDefault=_videoPlaysMutedByDefault;
 @property(retain, nonatomic) NSString *discoverMoreVideosSubtitle; // @synthesize discoverMoreVideosSubtitle=_discoverMoreVideosSubtitle;
 @property(retain, nonatomic) NSString *backgroundGradientColor; // @synthesize backgroundGradientColor=_backgroundGradientColor;
 @property(retain, nonatomic) NSString *discoverMoreVideosURLString; // @synthesize discoverMoreVideosURLString=_discoverMoreVideosURLString;
@@ -40,6 +43,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasVideoPlaysMutedByDefault;
 @property(readonly, nonatomic) _Bool hasDiscoverMoreVideosSubtitle;
 @property(readonly, nonatomic) _Bool hasBackgroundGradientColor;
 @property(readonly, nonatomic) _Bool hasDiscoverMoreVideosURLString;

@@ -57,6 +57,7 @@
 @property _Bool calIsEnabledForCalendar;
 @property(retain) NSString *calHostname;
 @property(readonly, copy) NSDictionary *calPrincipals;
+@property(readonly) _Bool calIsRestrictedForCalendar;
 @property(readonly) _Bool calIsMissingParentAccount;
 @property(readonly) _Bool calIsExchangeAccount;
 @property(readonly) _Bool calIsEnabled;

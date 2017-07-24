@@ -6,11 +6,9 @@
 
 #import <objc/NSObject.h>
 
-#import <UserNotificationsUIKit/NCDebugInfoProvider-Protocol.h>
+@class NSMutableDictionary;
 
-@class NSMutableDictionary, NSString;
-
-@interface NCNotificationExtensionCache : NSObject <NCDebugInfoProvider>
+@interface NCNotificationExtensionCache : NSObject
 {
     struct NSMutableDictionary *_extensions;
 }
@@ -23,16 +21,9 @@
 - (struct NSMutableDictionary *)_sectionDictForSection:(id)arg1;
 - (void)_removeAllExtensions;
 - (void)_addExtension:(id)arg1;
-- (id)debugInfoPlist;
 - (void)registerExtensions:(id)arg1;
 - (id)extensionForNotificationRequest:(id)arg1;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

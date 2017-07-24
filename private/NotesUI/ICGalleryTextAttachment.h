@@ -10,5 +10,7 @@
 {
 }
 
+- (double)viewCornerRadius;
+
 @end
 

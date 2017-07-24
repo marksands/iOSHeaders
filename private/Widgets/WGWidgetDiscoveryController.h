@@ -23,7 +23,7 @@
     NSMutableDictionary *_identifiersToDatums;
     NSMutableDictionary *_dataSourceIdentifiersToDatumIdentifiers;
     NSMutableDictionary *_identifiersToWidgetInfos;
-    NSMutableDictionary *_requesterIDsToWidgetIDsToWidgets;
+    NSMutableDictionary *_widgetIDsToWidgets;
     NSMutableArray *_orderedEnabledTodayIdentifiers;
     NSArray *_orderedVisibleTodayIdentifiers;
     NSMutableArray *_orderedEnabledWidgetsIdentifiers;

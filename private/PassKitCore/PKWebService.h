@@ -30,6 +30,9 @@
 + (id)_sharedCookieStorage;
 + (id)account;
 - (void).cxx_destruct;
+- (void)logResponse:(id)arg1 withData:(id)arg2;
+- (void)logRequest:(id)arg1;
+- (id)logFacility;
 - (id)_urlRequestTaggedWithDiagnosticReasonHeader:(id)arg1 forTaskID:(unsigned long long)arg2;
 - (void)_cleanUpDiagnosticReasonsForTaskID:(unsigned long long)arg1;
 - (void)_associateDiagnosticReasonsWithTaskID:(unsigned long long)arg1;
@@ -41,7 +44,7 @@
 - (void)URLSession:(id)arg1 didBecomeInvalidWithError:(id)arg2;
 - (void)URLSession:(id)arg1 task:(id)arg2 willPerformHTTPRedirection:(id)arg3 newRequest:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (_Bool)_trustPassesExtendedValidation:(struct __SecTrust *)arg1;
-- (id)errorWithDomain:(id)arg1 errorCode:(long long)arg2 andForbiddenResponse:(id)arg3;
+- (id)forbiddenErrorWithResponse:(id)arg1;
 - (id)_accountStore;
 - (void)setUrlSession:(id)arg1;
 - (id)urlSession;
@@ -57,7 +60,6 @@
 @property(readonly) ACAccount *primaryAppleAccount;
 @property(readonly) ACAccount *account;
 - (void)handleWillPerformHTTPRedirectionWithResponse:(id)arg1 redirectHandler:(CDUnknownBlockType)arg2;
-- (id)defaultUserInfoForErrorDomain:(id)arg1 andErrorCode:(long long)arg2;
 - (_Bool)canBypassTrustExtendedValidation;
 - (void)processRetryRequest:(id)arg1 responseData:(id)arg2 orginalRequest:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)handleResponse:(id)arg1 withError:(id)arg2 data:(id)arg3 task:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;

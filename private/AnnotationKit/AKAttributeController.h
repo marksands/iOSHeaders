@@ -58,8 +58,8 @@
 - (void)_restorePersistedAttributes;
 - (void)_persistCurrentAttributes;
 - (void)_updateInk;
+- (void)resetToLastDrawingInk;
 - (void)setDefaultInkIdentifier;
-- (void)setSignatureInk;
 - (void)restoreStrokeColorToSystemDefault;
 - (_Bool)strokeColorIsEqualTo:(id)arg1;
 - (void)updateAttributeSenderState:(id)arg1 segment:(long long)arg2 enabled:(_Bool)arg3;

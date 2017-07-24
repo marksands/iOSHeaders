@@ -108,6 +108,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isMostRecentlyExplicitPercent;
 @property(readonly, nonatomic) _Bool hasAnyFormats;
 @property(readonly, nonatomic) int impliedFormatType;
+@property(readonly, nonatomic) int currentFormatNegativeStyle;
 @property(readonly, nonatomic) _Bool currentFormatUsesAccountingStyle;
 @property(readonly, nonatomic) NSString *customFormatString;
 - (int)p_mostRecentlySetTextFormatType;

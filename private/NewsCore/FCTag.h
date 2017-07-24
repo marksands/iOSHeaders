@@ -24,6 +24,7 @@
     _Bool _publisherPaidLeakyPaywallOptOut;
     _Bool _publisherPaidWebAccessOptIn;
     _Bool _hideAccessoryText;
+    _Bool _isHidden;
     NSString *_identifier;
     NSString *_versionKey;
     NSString *_name;
@@ -102,6 +103,7 @@
 @property(copy, nonatomic) NTPBFeedConfiguration *feedConfiguration; // @synthesize feedConfiguration=_feedConfiguration;
 @property(retain, nonatomic) FCInterestToken *tagInterestToken; // @synthesize tagInterestToken=_tagInterestToken;
 @property(copy, nonatomic) NSString *pptFeedIDOverride; // @synthesize pptFeedIDOverride=_pptFeedIDOverride;
+@property(readonly, nonatomic) _Bool isHidden; // @synthesize isHidden=_isHidden;
 @property(readonly, nonatomic) unsigned long long groupingEligibility; // @synthesize groupingEligibility=_groupingEligibility;
 @property(readonly, nonatomic) _Bool hideAccessoryText; // @synthesize hideAccessoryText=_hideAccessoryText;
 @property(readonly, nonatomic) FCAssetHandle *nameImageMaskWidgetHQAssetHandle; // @synthesize nameImageMaskWidgetHQAssetHandle=_nameImageMaskWidgetHQAssetHandle;
@@ -175,7 +177,7 @@
 @property(readonly, nonatomic) _Bool isWhite;
 @property(readonly, nonatomic) FCTagBanner *bannerImageForMask; // @synthesize bannerImageForMask=_bannerImageForMask;
 @property(readonly, nonatomic) long long feedType;
-- (_Bool)shouldPrefetchPurchase;
+- (id)prefetchPurchaseOffer;
 - (id)authorizationURL;
 - (_Bool)isAuthenticationSetup;
 - (_Bool)isPurchaseSetup;

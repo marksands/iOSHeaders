@@ -36,7 +36,6 @@
     _Bool _userActivityWasCreatedSent;
     _Bool _indexInProcess;
     long long _inWillSaveCallback;
-    CSSearchableItemAttributeSet *_contentAttributeSet;
     NSDate *_expirationDate;
     NSString *_contentUserAction;
     NSString *_teamIdentifier;
@@ -178,7 +177,7 @@
 - (void)didSynchronizeUserActivity;
 - (void)willSynchronizeUserActivityWithHandler:(CDUnknownBlockType)arg1;
 - (void)tellDaemonAboutNewLSUserActivity;
-- (id)copyWithNewUUID;
+- (id)copyWithNewUUID:(_Bool)arg1;
 - (id)initWithManager:(id)arg1 userActivityInfo:(id)arg2;
 @property(getter=isEligibleForPublicIndexing) _Bool eligibleForPublicIndexing; // @dynamic eligibleForPublicIndexing;
 @property(getter=isEligibleForReminders) _Bool eligibleForReminders; // @dynamic eligibleForReminders;

@@ -6,7 +6,7 @@
 
 #import <Foundation/NSOperation.h>
 
-@class NSObject, NSString, TSKDocumentRoot, UIView;
+@class NSObject, NSString, TSKDocumentRoot, TSUImage, UIView;
 @protocol TSDSwatchRenderingOperationDelegate, TSKAccessControllerReadTicket, TSSPreset;
 
 __attribute__((visibility("hidden")))
@@ -22,14 +22,17 @@ __attribute__((visibility("hidden")))
     unsigned long long mInsertPopoverPageType;
     unsigned long long mInsertPopoverPageNumber;
     NSString *mIdentifier;
+    TSUImage *mSwatch;
     id <TSKAccessControllerReadTicket> mRenderingTicket;
     _Bool mWaitingToBecomeReady;
     _Bool mRenderForWideGamut;
     _Bool mSuppressesAnimation;
     id <TSDSwatchRenderingOperationDelegate> mDelegate;
+    _Bool mDeliversImageAutomatically;
 }
 
 @property(nonatomic) _Bool suppressesAnimation; // @synthesize suppressesAnimation=mSuppressesAnimation;
+@property(nonatomic) _Bool deliversImageAutomatically; // @synthesize deliversImageAutomatically=mDeliversImageAutomatically;
 @property(readonly, nonatomic) _Bool renderForWideGamut; // @synthesize renderForWideGamut=mRenderForWideGamut;
 @property(copy) NSString *identifier; // @synthesize identifier=mIdentifier;
 @property unsigned long long insertPopoverPageNumber; // @synthesize insertPopoverPageNumber=mInsertPopoverPageNumber;
@@ -48,6 +51,7 @@ __attribute__((visibility("hidden")))
 - (struct UIEdgeInsets)swatchEdgeInsets;
 - (_Bool)needsPressedStateBackground;
 @property(readonly, nonatomic) struct CGImage *deliveredImage;
+- (void)deliverSwatch;
 - (void)deliverCGImage:(struct CGImage *)arg1;
 - (void)p_didFinishRendering;
 - (void)p_deliverResultOnMainThread:(id)arg1;

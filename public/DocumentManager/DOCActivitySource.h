@@ -12,11 +12,13 @@
 
 @interface DOCActivitySource : NSObject <UIActivityItemSource>
 {
+    _Bool _isAccessingSecurityScopedResource;
     DOCItem *_item;
 }
 
 @property(retain, nonatomic) DOCItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
+- (void)dealloc;
 - (id)activityViewController:(id)arg1 itemForActivityType:(id)arg2;
 - (id)activityViewControllerPlaceholderItem:(id)arg1;
 - (id)initWithItem:(id)arg1;

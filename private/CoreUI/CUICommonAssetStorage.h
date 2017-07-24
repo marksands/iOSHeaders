@@ -46,8 +46,8 @@ __attribute__((visibility("hidden")))
     unsigned int _isMemoryMapped:1;
     unsigned int _reserved:30;
     NSSet *_externalTags;
-    unsigned short _renditionInfoCacheLookup[10];
-    id _renditionInfoCache[10];
+    unsigned short _renditionInfoCacheLookup[20];
+    id _renditionInfoCache[20];
     struct os_unfair_lock_s _lock;
     struct os_unfair_lock_s _renditionInfoCacheLock;
 }
@@ -76,6 +76,7 @@ __attribute__((visibility("hidden")))
 - (const struct _renditionkeytoken *)renditionKeyForName:(const char *)arg1 hotSpot:(struct CGPoint *)arg2;
 - (struct _renditionkeytoken)_swapRenditionKeyToken:(struct _renditionkeytoken)arg1;
 - (id)renditionInfoForIdentifier:(unsigned short)arg1;
+- (void)enumerateKeysAndObjectsWithoutIgnoringUsingBlock:(CDUnknownBlockType)arg1;
 - (_Bool)enumerateKeysAndObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)assetKeysMatchingBlock:(CDUnknownBlockType)arg1;
 - (id)allAssetKeys;

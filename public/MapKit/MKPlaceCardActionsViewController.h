@@ -20,12 +20,14 @@ __attribute__((visibility("hidden")))
     _Bool _showTopSeparator;
     _Bool _allowRowSelection;
     _Bool _useMarginLayout;
+    _Bool _showTopButtonSeparator;
     NSArray *_actionItemArray;
     NSArray *_viewArray;
     MKPlaceActionManager *_actionManager;
 }
 
 @property(nonatomic) __weak MKPlaceActionManager *actionManager; // @synthesize actionManager=_actionManager;
+@property(nonatomic) _Bool showTopButtonSeparator; // @synthesize showTopButtonSeparator=_showTopButtonSeparator;
 @property(nonatomic) _Bool useMarginLayout; // @synthesize useMarginLayout=_useMarginLayout;
 @property(nonatomic) _Bool allowRowSelection; // @synthesize allowRowSelection=_allowRowSelection;
 @property(retain, nonatomic) NSArray *viewArray; // @synthesize viewArray=_viewArray;

@@ -14,7 +14,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) CLLocation *location; // @synthesize location=_location;
+@property(readonly, copy, nonatomic) CLLocation *location; // @synthesize location=_location;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

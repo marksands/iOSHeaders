@@ -14,8 +14,12 @@ __attribute__((visibility("hidden")))
     NSArray *_outputDevices;
     MRExternalDevice *_externalDevice;
     MRAVOutputDevice *_designatedGroupLeader;
+    NSString *_localizedName;
+    NSString *_uniqueIdentifier;
 }
 
+@property(retain, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+@property(retain, nonatomic) NSString *localizedName; // @synthesize localizedName=_localizedName;
 @property(retain, nonatomic) MRAVOutputDevice *designatedGroupLeader; // @synthesize designatedGroupLeader=_designatedGroupLeader;
 @property(retain, nonatomic) MRExternalDevice *externalDevice; // @synthesize externalDevice=_externalDevice;
 @property(copy, nonatomic) NSArray *outputDevices; // @synthesize outputDevices=_outputDevices;
@@ -27,8 +31,6 @@ __attribute__((visibility("hidden")))
 - (void)addOutputDevices:(id)arg1 withReplyQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)containsOutputDevice:(id)arg1;
 @property(readonly, nonatomic, getter=isLocalEndpoint) _Bool localEndpoint;
-@property(readonly, nonatomic) NSString *uniqueIdentifier;
-@property(readonly, nonatomic) NSString *localizedName;
 - (id)description;
 - (void)dealloc;
 - (id)initWithOutputDevices:(id)arg1;

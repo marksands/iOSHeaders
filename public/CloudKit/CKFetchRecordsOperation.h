@@ -21,7 +21,6 @@
     CDUnknownBlockType _fetchRecordsCompletionBlock;
     NSMutableSet *_packagesToDestroy;
     NSMutableDictionary *_assetInfoByArrayIndexByRecordKeyByRecordID;
-    NSMutableDictionary *_signaturesOfAssetsByRecordIDAndKey;
     NSDictionary *_assetTransferOptionsByRecordTypeAndKey;
     NSMutableDictionary *_recordIDsToRecords;
     NSMutableDictionary *_recordErrors;
@@ -40,7 +39,6 @@
 @property(retain, nonatomic) NSMutableDictionary *recordErrors; // @synthesize recordErrors=_recordErrors;
 @property(retain, nonatomic) NSMutableDictionary *recordIDsToRecords; // @synthesize recordIDsToRecords=_recordIDsToRecords;
 @property(retain, nonatomic) NSDictionary *assetTransferOptionsByRecordTypeAndKey; // @synthesize assetTransferOptionsByRecordTypeAndKey=_assetTransferOptionsByRecordTypeAndKey;
-@property(retain, nonatomic) NSMutableDictionary *signaturesOfAssetsByRecordIDAndKey; // @synthesize signaturesOfAssetsByRecordIDAndKey=_signaturesOfAssetsByRecordIDAndKey;
 @property(retain, nonatomic) NSMutableDictionary *assetInfoByArrayIndexByRecordKeyByRecordID; // @synthesize assetInfoByArrayIndexByRecordKeyByRecordID=_assetInfoByArrayIndexByRecordKeyByRecordID;
 @property(nonatomic) _Bool dropInMemoryAssetContentASAP; // @synthesize dropInMemoryAssetContentASAP=_dropInMemoryAssetContentASAP;
 @property(nonatomic) _Bool shouldFetchAssetContentInMemory; // @synthesize shouldFetchAssetContentInMemory=_shouldFetchAssetContentInMemory;

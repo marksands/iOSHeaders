@@ -130,6 +130,7 @@ __attribute__((visibility("hidden")))
 - (id)supportedSushiModes;
 - (id)defaultDecoderVersion;
 - (id)defaultInputEnableVendorLensCorrection;
+- (id)defaultInputMoireAmount;
 - (id)defaultInputNoiseReductionSharpnessAmount;
 - (id)defaultInputNoiseReductionDetailAmount;
 - (id)defaultInputNoiseReductionContrastAmount;
@@ -140,6 +141,7 @@ __attribute__((visibility("hidden")))
 - (void)setInputDecoderVersion:(id)arg1;
 - (void)setInputBoost:(id)arg1;
 - (void)setInputEV:(id)arg1;
+- (void)setInputMoireAmount:(id)arg1;
 - (void)setInputNoiseReductionDetailAmount:(id)arg1;
 - (void)setInputNoiseReductionContrastAmount:(id)arg1;
 - (void)setInputNoiseReductionSharpnessAmount:(id)arg1;

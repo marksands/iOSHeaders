@@ -13,14 +13,17 @@
 - (_Bool)LATStatusChangeInProgress;
 - (void)handleIDFAReset:(CDUnknownBlockType)arg1;
 - (void)setLimitAdTrackingStatus:(_Bool)arg1 timestamp:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)sendSegmentsAndLATToAdPlatformsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)updateDeviceLATStatusWithError:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)sendLATStatusToAdPlatforms:(CDUnknownBlockType)arg1;
 - (void)sendSegmentDataToAdPlatforms:(CDUnknownBlockType)arg1;
 - (void)retrieveSegmentDataFromiTunes:(CDUnknownBlockType)arg1;
 - (_Bool)isActiveRecord;
+- (void)reconcileIDFAandLAT;
 - (void)resetiAdIDs:(CDUnknownBlockType)arg1;
 - (void)ensureiAdIDs;
+- (void)removeIDForClientType:(long long)arg1;
 - (_Bool)hasIDForClientType:(long long)arg1;
-- (void)postInitSetup;
 
 // Remaining properties
 @property(retain, nonatomic) NSString *IDFA; // @dynamic IDFA;

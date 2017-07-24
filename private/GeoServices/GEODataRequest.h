@@ -11,7 +11,6 @@
 @class GEOApplicationAuditToken, NSData, NSDictionary, NSString, NSURL;
 @protocol OS_xpc_object;
 
-__attribute__((visibility("hidden")))
 @interface GEODataRequest : NSObject <GEOStateCapturing>
 {
     NSURL *_URL;

@@ -19,6 +19,7 @@
     NSArray *_activeConstraints;
 }
 
++ (id)generatorFieldFont;
 @property(retain, nonatomic) NSArray *activeConstraints; // @synthesize activeConstraints=_activeConstraints;
 @property(retain, nonatomic) NSArray *generatorFields; // @synthesize generatorFields=_generatorFields;
 - (void).cxx_destruct;

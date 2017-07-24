@@ -25,6 +25,8 @@
 - (void).cxx_destruct;
 - (_Bool)shouldBeginTransitionToExpandedContentModule;
 @property(readonly, nonatomic) double preferredExpandedContentHeight;
+- (void)reconfigureView;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)refreshState;
 - (void)buttonTapped:(id)arg1 forEvent:(id)arg2;
@@ -35,7 +37,6 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) double preferredExpandedContentWidth;
 @property(readonly, nonatomic) _Bool providesOwnPlatter;
-@property(readonly, nonatomic) _Bool shouldHidePlatterWhenExpanded;
 @property(readonly) Class superclass;
 
 @end

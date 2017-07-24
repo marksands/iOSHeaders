@@ -7,6 +7,7 @@
 @class DOCConcreteLocation;
 
 @protocol DOCServiceSourceViewControllerProxy
+- (void)showPickerForLocation:(DOCConcreteLocation *)arg1 completionBlock:(void (^)(void))arg2;
 - (void)reflectSelectedLocation:(DOCConcreteLocation *)arg1;
 @end
 

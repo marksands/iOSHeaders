@@ -32,6 +32,8 @@
 @property(readonly, nonatomic) NSMutableDictionary *users; // @synthesize users=_users;
 @property(retain, nonatomic) NSString *presenceType; // @synthesize presenceType=_presenceType;
 - (void).cxx_destruct;
+- (id)presenceMetricData;
+- (id)metricData;
 - (void)_transactionObjectRemoved:(id)arg1 message:(id)arg2;
 - (void)_transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (id)modelObjectWithChangeType:(unsigned long long)arg1;
@@ -49,6 +51,7 @@
 - (void)didEndExecutionSession:(id)arg1;
 - (void)_evaluatePresenceEvent:(id)arg1;
 - (void)_handleHomePresenceUpdate:(id)arg1;
+- (void)_activate:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_registerForMessages;
 - (id)thisUser;
 - (id)emptyModelObject;
@@ -58,6 +61,7 @@
 - (id)createPayload;
 - (void)configure:(id)arg1 messageDispatcher:(id)arg2 queue:(id)arg3 delegate:(id)arg4;
 @property(readonly, copy) NSString *description;
+- (void)dealloc;
 - (id)initWithModel:(id)arg1 home:(id)arg2;
 
 // Remaining properties

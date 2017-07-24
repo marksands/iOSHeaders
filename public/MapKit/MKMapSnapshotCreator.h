@@ -20,7 +20,6 @@
 }
 
 + (_Bool)supportsSharingThumbnails;
-+ (_Bool)supportsHighResolutionSnapshots;
 @property(retain, nonatomic) MKMapSnapshotRequest *servingRequest; // @synthesize servingRequest=_servingRequest;
 - (void).cxx_destruct;
 - (void)createSnapShotWithCoordinate:(struct CLLocationCoordinate2D)arg1 zoomLevel:(unsigned long long)arg2 size:(struct CGSize)arg3 handler:(CDUnknownBlockType)arg4;

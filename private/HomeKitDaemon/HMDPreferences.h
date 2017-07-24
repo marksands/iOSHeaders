@@ -6,13 +6,31 @@
 
 #import <HMFoundation/HMFObject.h>
 
-@interface HMDPreferences : HMFObject
+#import <HomeKitDaemon/HMFObject-Protocol.h>
+
+@class NSArray, NSMutableDictionary, NSObject, NSString;
+@protocol OS_dispatch_queue;
+
+@interface HMDPreferences : HMFObject <HMFObject>
 {
+    NSMutableDictionary *_preferences;
+    NSObject<OS_dispatch_queue> *_propertyQueue;
 }
 
 + (id)sharedPreferences;
-- (unsigned long long)maximumSecureRemoteStreams;
-- (double)defaultSecureRemoteMessageTimeout;
+@property(readonly) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
+- (void).cxx_destruct;
+- (id)preferenceForKey:(id)arg1;
+- (void)addPreference:(id)arg1;
+@property(readonly, copy) NSArray *preferences;
+@property(readonly, copy) NSString *propertyDescription;
+- (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

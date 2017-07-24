@@ -9,7 +9,7 @@
 #import <iWorkImport/TSDImportExportDelegate-Protocol.h>
 #import <iWorkImport/TSDScrollingAwareChangeSource-Protocol.h>
 
-@class NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSObject, NSSet, NSString, SFUCryptoKey, TSAFunctionBrowserState, TSAShortcutController, TSCECalculationEngine, TSKCustomFormatList, TSKViewState, TSPLazyReference, TSTCustomFormatList;
+@class NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSObject, NSSet, NSString, SFUCryptoKey, TSACachedDocumentInfo, TSAFunctionBrowserState, TSAShortcutController, TSCECalculationEngine, TSKCustomFormatList, TSKViewState, TSPLazyReference, TSTCustomFormatList;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -66,6 +66,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool didLoadDocumentFromTemplate; // @synthesize didLoadDocumentFromTemplate=_didLoadDocumentFromTemplate;
 @property(nonatomic) _Bool hasPreUFFVersion; // @synthesize hasPreUFFVersion=_hasPreUFFVersion;
 @property(nonatomic, getter=isDocumentCurrentlyImporting) _Bool documentCurrentlyImporting; // @synthesize documentCurrentlyImporting=_documentCurrentlyImporting;
+@property(readonly, nonatomic) _Bool isLoaded; // @synthesize isLoaded=_didLoadControllers;
 @property(readonly, nonatomic) _Bool documentLocaleWasUpdated; // @synthesize documentLocaleWasUpdated=_documentLocaleWasUpdated;
 @property(readonly, nonatomic) _Bool isClosed; // @synthesize isClosed=_isClosed;
 @property(copy, nonatomic) NSArray *buildVersionHistory; // @synthesize buildVersionHistory=_buildVersionHistory;
@@ -77,7 +78,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *defaultDraftName;
 @property(readonly, nonatomic) NSString *name;
 - (_Bool)shouldCancelScrollingToSelectionPath:(id)arg1 forChanges:(id)arg2;
-- (void)changeDocumentCacheFileProtection:(id)arg1;
 - (id)uniqueDocumentCachePathForProposedPath:(id)arg1;
 - (struct CGImageSource *)newImageSourceForDocumentCachePath:(id)arg1;
 - (_Bool)writeData:(id)arg1 atDocumentCachePath:(id)arg2;
@@ -162,6 +162,7 @@ __attribute__((visibility("hidden")))
 - (void)cleanupForImportFailure;
 - (void)willUnload;
 - (void)fulfillPasteboardPromises;
+- (id)additionalResourceRequestsForObjectContext:(id)arg1;
 - (id)additionalDocumentPropertiesForWrite;
 - (id)packageDataForWrite;
 - (void)saveToArchive:(struct DocumentArchive *)arg1 archiver:(id)arg2;
@@ -173,6 +174,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)objectsNeedToBeMigrated:(id)arg1;
 - (id)makeIsolatedStyleMapper;
 - (id)makeStyleMapper;
+@property(readonly, nonatomic) TSACachedDocumentInfo *cachedDocumentInfo;
 - (id)tsa_delegate;
 - (void)dealloc;
 - (unsigned long long)writingDirection;

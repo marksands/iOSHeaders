@@ -19,6 +19,6 @@
 - (void)fetchAllCacheEntriesWithRequesterHandler:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)requestPhoneNumbers:(NSArray *)arg1 allowCellularDataForLookup:(_Bool)arg2 traits:(GEOMapServiceTraits *)arg3 auditToken:(GEOApplicationAuditToken *)arg4 requesterHandler:(void (^)(GEOPDPlaceResponse *, NSError *, NSDictionary *))arg5;
 - (void)requestComponentsFromNetwork:(NSDictionary *)arg1 identifier:(GEOMapItemIdentifier *)arg2 resultProviderID:(int)arg3 traits:(GEOMapServiceTraits *)arg4 auditToken:(GEOApplicationAuditToken *)arg5 requesterHandler:(void (^)(GEOPDPlaceResponse *, NSError *, NSDictionary *))arg6;
-- (void)requestIdentifiers:(NSArray *)arg1 resultProviderID:(int)arg2 includeETA:(_Bool)arg3 traits:(GEOMapServiceTraits *)arg4 options:(unsigned long long)arg5 auditToken:(GEOApplicationAuditToken *)arg6 requesterHandler:(void (^)(GEOPDPlaceResponse *, NSError *, NSDictionary *))arg7;
+- (void)requestIdentifiers:(NSArray *)arg1 resultProviderID:(int)arg2 traits:(GEOMapServiceTraits *)arg3 options:(unsigned long long)arg4 auditToken:(GEOApplicationAuditToken *)arg5 requesterHandler:(void (^)(GEOPDPlaceResponse *, NSError *, NSDictionary *))arg6;
 @end
 

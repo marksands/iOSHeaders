@@ -6,13 +6,14 @@
 
 #import <NanoTimeKitCompanion/NTKCompanionResourceDirectoryEditor.h>
 
-@class NSMutableArray, NSMutableDictionary;
+@class NSCache, NSMutableArray, NSMutableDictionary;
 
 @interface NTKCompanionCustomPhotosEditor : NTKCompanionResourceDirectoryEditor
 {
     NSMutableDictionary *_pickedPhotos;
     NSMutableDictionary *_newPhotos;
     NSMutableArray *_orderList;
+    NSCache *_scaledImageCache;
     _Bool _previewIsValid;
 }
 
@@ -22,11 +23,13 @@
 - (id)_fetchAssetsForNewPhotos:(id)arg1;
 - (void)_fetchAssetsForPickedPhotos;
 - (void)_readPickedPhotosFrom:(id)arg1;
+- (struct CGSize)minimumNormalizedCropSizeForPhotoAtIndex:(long long)arg1;
 - (struct CGRect)originalCropForPhotoAtIndex:(long long)arg1;
-- (id)imageInPhotoLibraryForPhotoAtIndex:(long long)arg1;
-- (id)imageForPhotoAtIndex:(long long)arg1;
+- (void)imageInPhotoLibraryForPhotoAtIndex:(long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)imageAndCropForPhotoAtIndex:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)isPhotoInPhotoLibraryAtIndex:(long long)arg1;
-- (void)setOriginalCrop:(struct CGRect)arg1 forPhotoAtIndex:(long long)arg2;
+- (_Bool)canChangeOriginalCropOfPhotoAtIndex:(long long)arg1;
+- (_Bool)setOriginalCrop:(struct CGRect)arg1 forPhotoAtIndex:(long long)arg2;
 - (void)movePhotoAtIndex:(long long)arg1 toIndex:(long long)arg2;
 - (void)deletePhotoAtIndex:(long long)arg1;
 - (_Bool)addAssetsFromAssetList:(id)arg1;

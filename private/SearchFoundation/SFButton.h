@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFButton-Protocol.h>
 
 @class NSData, NSDictionary, NSString, SFImage;
 
-@interface SFButton : NSObject <SFButton, NSSecureCoding>
+@interface SFButton : NSObject <SFButton, NSSecureCoding, NSCopying>
 {
     CDStruct_e4e3bb5e _has;
     _Bool _isSelected;
@@ -24,6 +25,7 @@
 @property(retain, nonatomic) SFImage *selectedImage; // @synthesize selectedImage=_selectedImage;
 @property(retain, nonatomic) SFImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

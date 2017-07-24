@@ -6,11 +6,12 @@
 
 #import <HMFoundation/HMFObject.h>
 
+#import <HomeKitDaemon/HMDHomePresenceCheck-Protocol.h>
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
 @class HMDDevice, HMDHome, NSArray, NSDictionary, NSString;
 
-@interface HMDHomePresence : HMFObject <HMFLogging>
+@interface HMDHomePresence : HMFObject <HMFLogging, HMDHomePresenceCheck>
 {
     HMDHome *_home;
     NSDictionary *_userPresenceMap;
@@ -26,8 +27,9 @@
 - (_Bool)areUsersAtHome:(id)arg1;
 - (_Bool)isUserNotAtHome:(id)arg1;
 - (_Bool)isUserAtHome:(id)arg1;
-@property(readonly, nonatomic, getter=isAnyUserAtHome) _Bool anyUserAtHome;
-@property(readonly, nonatomic, getter=isNoUserAtHome) _Bool noUserAtHome;
+- (_Bool)isAnyUserAtHome;
+- (_Bool)isNoUserAtHome;
+- (id)serializedDictionary;
 @property(readonly, nonatomic) NSArray *authorizedUsers;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, copy) NSString *description;

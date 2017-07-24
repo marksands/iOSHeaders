@@ -8,11 +8,10 @@
 
 #import <VoiceMemos/UIAppearanceContainer-Protocol.h>
 
-@class NSString, RCAudioRouteBarButton, RCAudioRouteBarButtonContainer;
+@class NSString, RCAudioRouteBarButton;
 
 @interface RCAudioRouteBarButtonItem : UIBarButtonItem <UIAppearanceContainer>
 {
-    RCAudioRouteBarButtonContainer *_contentView;
     RCAudioRouteBarButton *_button;
 }
 
@@ -21,6 +20,7 @@
 - (void)_toggleSpeakerAction;
 - (void)_showAvailableRoutesAction;
 - (void)_routeButtonAction;
+- (void)_routeBarButtonDidChangeNotification:(id)arg1;
 - (void)_audioRouteControllerPickedRouteDidChangeNotification:(id)arg1;
 - (void)_audioRouteControllerAvailableRoutesMaskDidChangeNotification:(id)arg1;
 - (void)dealloc;

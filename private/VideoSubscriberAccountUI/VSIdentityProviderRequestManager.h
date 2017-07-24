@@ -24,8 +24,7 @@
     VSApplicationController *_applicationController;
     VSOptional *_currentApplicationControllerRequest;
     VSOptional *_account;
-    VSOptional *_accountStore;
-    VSOptional *_accountChannelsCenter;
+    VSOptional *_storage;
     VSPreferences *_preferences;
     NSObject<OS_dispatch_source> *_applicationControllerTimerSource;
     double _applicationControllerTimerLeeway;
@@ -40,8 +39,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *applicationControllerTimerSource; // @synthesize applicationControllerTimerSource=_applicationControllerTimerSource;
 @property(retain, nonatomic) VSPreferences *preferences; // @synthesize preferences=_preferences;
 @property(nonatomic) _Bool didCreateAccount; // @synthesize didCreateAccount=_didCreateAccount;
-@property(retain, nonatomic) VSOptional *accountChannelsCenter; // @synthesize accountChannelsCenter=_accountChannelsCenter;
-@property(retain, nonatomic) VSOptional *accountStore; // @synthesize accountStore=_accountStore;
+@property(retain, nonatomic) VSOptional *storage; // @synthesize storage=_storage;
 @property(retain, nonatomic) VSOptional *account; // @synthesize account=_account;
 @property(retain, nonatomic) VSOptional *currentApplicationControllerRequest; // @synthesize currentApplicationControllerRequest=_currentApplicationControllerRequest;
 @property(retain, nonatomic) VSApplicationController *applicationController; // @synthesize applicationController=_applicationController;

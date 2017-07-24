@@ -10,15 +10,18 @@
 #import <NewsUI/NUAdContextProvider-Protocol.h>
 #import <NewsUI/NUAdProvider-Protocol.h>
 
-@class NSString, NUAdManagerConfiguration, NUAdStore;
+@class NSString, NUAdStore;
+@protocol NUAdManagerConfigurationProvider, NUDevice;
 
 @interface NUAdManager : NSObject <NUAdContextProvider, NUAdProvider, NUAdAnalyticsProvider>
 {
     NUAdStore *_adStore;
-    NUAdManagerConfiguration *_configuration;
+    id <NUAdManagerConfigurationProvider> _configurationProvider;
+    id <NUDevice> _device;
 }
 
-@property(readonly, nonatomic) NUAdManagerConfiguration *configuration; // @synthesize configuration=_configuration;
+@property(readonly, nonatomic) id <NUDevice> device; // @synthesize device=_device;
+@property(readonly, nonatomic) id <NUAdManagerConfigurationProvider> configurationProvider; // @synthesize configurationProvider=_configurationProvider;
 @property(readonly, nonatomic) NUAdStore *adStore; // @synthesize adStore=_adStore;
 - (void).cxx_destruct;
 - (id)videoInTodayHeaderDefinition;
@@ -48,7 +51,7 @@
 - (void)interstitialViewForContextProviders:(id)arg1 contextProvidersWithKeys:(id)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
 - (void)interstitialViewForContextProviders:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)bannerViewForIdentifier:(id)arg1 contextProviders:(id)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
-- (id)initWithConfiguration:(id)arg1;
+- (id)initWithConfigurationProvider:(id)arg1 device:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

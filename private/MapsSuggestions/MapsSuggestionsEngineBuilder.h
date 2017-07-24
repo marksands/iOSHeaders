@@ -13,6 +13,7 @@
 
 @interface MapsSuggestionsEngineBuilder : NSObject <MapsSuggestionsObject>
 {
+    _Bool _hasTracker;
     id <MapsSuggestionsStrategy> _strategy;
     long long _managerStyle;
     id <MapsSuggestionsLocationUpdater> _locationUpdater;
@@ -41,6 +42,7 @@
 @property(retain, nonatomic) NSMutableArray *includeImprovers; // @synthesize includeImprovers=_includeImprovers;
 @property(retain, nonatomic) NSMutableArray *includeFilters; // @synthesize includeFilters=_includeFilters;
 @property(retain, nonatomic) NSMutableArray *sourceClasses; // @synthesize sourceClasses=_sourceClasses;
+@property(nonatomic) _Bool hasTracker; // @synthesize hasTracker=_hasTracker;
 @property(retain, nonatomic) id <MapsSuggestionsLocationUpdater> locationUpdater; // @synthesize locationUpdater=_locationUpdater;
 @property(nonatomic) long long managerStyle; // @synthesize managerStyle=_managerStyle;
 @property(retain, nonatomic) id <MapsSuggestionsStrategy> strategy; // @synthesize strategy=_strategy;
@@ -55,6 +57,7 @@
 - (id)withImprovers:(id)arg1;
 - (id)withoutFilters:(id)arg1;
 - (id)withFilters:(id)arg1;
+- (id)withoutTracker;
 - (id)withLocationUpdater:(id)arg1;
 @property(readonly, nonatomic) NSString *uniqueName;
 

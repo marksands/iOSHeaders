@@ -24,11 +24,13 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithPropertyListDictionary:(id)arg1;
 - (id)initWithURL:(id)arg1;
+@property(readonly, nonatomic) unsigned int adjustmentRenderTypes;
 @property(readonly, copy, nonatomic) NSString *editorBundleID;
 @property(readonly, nonatomic) long long adjustmentBaseVersion;
 @property(readonly, nonatomic) NSData *adjustmentData;
 @property(readonly, copy, nonatomic) NSString *adjustmentFormatVersion;
 @property(readonly, copy, nonatomic) NSString *adjustmentFormatIdentifier;
+- (id)initWithFormatIdentifier:(id)arg1 formatVersion:(id)arg2 data:(id)arg3 baseVersion:(long long)arg4 editorBundleID:(id)arg5 renderTypes:(unsigned int)arg6;
 - (id)initWithFormatIdentifier:(id)arg1 formatVersion:(id)arg2 data:(id)arg3 baseVersion:(long long)arg4 editorBundleID:(id)arg5;
 - (id)initWithFormatIdentifier:(id)arg1 formatVersion:(id)arg2 data:(id)arg3 baseVersion:(long long)arg4;
 

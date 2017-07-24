@@ -14,6 +14,7 @@
 - (void)_resizeCornerRadius;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (struct CGSize)intrinsicContentSize;
 - (id)initWithImage:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

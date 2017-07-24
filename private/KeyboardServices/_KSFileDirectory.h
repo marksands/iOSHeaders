@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 - (id)findEntryWithComparison:(CDUnknownBlockType)arg1 recursively:(_Bool)arg2;
 - (void)restoreToPath:(id)arg1;
+- (void)consistencyCheck;
 - (id)description;
 - (void)performOnEverything:(CDUnknownBlockType)arg1;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;

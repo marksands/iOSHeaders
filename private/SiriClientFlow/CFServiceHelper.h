@@ -25,7 +25,6 @@
 - (void)handleRemoteCommand:(id)arg1 isOneWay:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)handleCommand:(id)arg1 isOneWay:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)handleCommand:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)handleFetchScriptCommand:(id)arg1 completionWithMetrics:(CDUnknownBlockType)arg2;
 - (_Bool)isTimeoutSuspended;
 - (_Bool)isDeviceLockedWithPasscode;
 - (id)assistantLocalizedStringForKey:(id)arg1 table:(id)arg2 bundle:(id)arg3;

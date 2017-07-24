@@ -41,7 +41,7 @@
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (struct UIEdgeInsets)collectionListMargin;
-- (long long)updateCollectionViewControllers;
+- (long long)updateCollectionViewControllersAndForceReload:(_Bool)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;

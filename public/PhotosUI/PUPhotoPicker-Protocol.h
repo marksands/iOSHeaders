@@ -14,7 +14,6 @@
 @property(nonatomic) long long actionType;
 @property(readonly, nonatomic) NSDictionary *properties;
 @property(readonly, nonatomic) _Bool convertAutoloopsToGIF;
-@property(readonly, nonatomic) _Bool onlyShowAutoloopVideos;
 @property(readonly, nonatomic) _Bool showsPrompt;
 @property(readonly, nonatomic) unsigned long long multipleSelectionLimit;
 @property(readonly, nonatomic) _Bool allowsMultipleSelection;

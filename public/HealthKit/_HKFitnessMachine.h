@@ -33,7 +33,7 @@
 - (void)_setRequestedTypes:(id)arg1;
 - (void)_setBrand:(id)arg1;
 - (void)_setDevice:(id)arg1;
-- (void)setActivityType:(unsigned long long)arg1;
+- (void)_setActivityType:(unsigned long long)arg1;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

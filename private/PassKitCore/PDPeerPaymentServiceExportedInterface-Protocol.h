@@ -6,17 +6,20 @@
 
 #import <PassKitCore/PDXPCServiceExportedInterface-Protocol.h>
 
-@class NSDecimalNumber, NSString, NSURL, PKPaymentPass, PKPeerPaymentAccount, PKPeerPaymentWebServiceContext;
+@class NSData, NSDecimalNumber, NSString, NSURL, PKPaymentPass, PKPeerPaymentAccount, PKPeerPaymentWebServiceContext;
 
 @protocol PDPeerPaymentServiceExportedInterface <PDXPCServiceExportedInterface>
 - (void)updateMockAccountBalanceByAddingAmount:(NSDecimalNumber *)arg1 completion:(void (^)(PKPeerPaymentAccount *))arg2;
 - (void)downloadPassIfNecessaryWithCompletion:(void (^)(_Bool))arg1;
 - (void)balanceForPass:(PKPaymentPass *)arg1 completion:(void (^)(PKCurrencyAmount *))arg2;
+- (void)updateMemo:(NSString *)arg1 forTransactionWithIdentifier:(NSString *)arg2 handler:(void (^)(void))arg3;
 - (void)noteAccountDeletedWithCompletion:(void (^)(void))arg1;
+- (void)presentPeerPaymentTermsAndConditionsWithTermsURL:(NSURL *)arg1 termsIdentifier:(NSString *)arg2 completion:(void (^)(_Bool))arg3;
 - (void)presentRegistrationFlowWithAccount:(PKPeerPaymentAccount *)arg1 completion:(void (^)(_Bool))arg2;
-- (void)presentIdentityVerificationFlowWithType:(unsigned long long)arg1 completion:(void (^)(_Bool))arg2;
+- (void)presentIdentityVerificationFlowWithResponseData:(NSData *)arg1 completion:(void (^)(_Bool))arg2;
 - (void)registrationStatusWithCompletion:(void (^)(unsigned long long))arg1;
-- (void)registerDeviceWithRegistrationURL:(NSURL *)arg1 pushToken:(NSString *)arg2 completion:(void (^)(_Bool))arg3;
+- (void)unregisterDeviceWithCompletion:(void (^)(_Bool))arg1;
+- (void)registerDeviceWithCompletion:(void (^)(_Bool))arg1;
 - (void)deleteAccountWithCompletion:(void (^)(void))arg1;
 - (void)updateAccountWithCompletion:(void (^)(PKPeerPaymentAccount *))arg1;
 - (void)accountWithCompletion:(void (^)(PKPeerPaymentAccount *))arg1;

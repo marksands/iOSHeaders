@@ -21,6 +21,7 @@
 - (long long)routeType;
 - (id)routeUID;
 - (_Bool)isDeviceRoute;
+- (_Bool)isB238Route;
 - (_Bool)isAppleTVRoute;
 - (id)connection;
 - (id)description;

@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (struct WebEditCommandProxy *)command;
-- (id)initWithWebEditCommandProxy:(PassRefPtr_a848c359)arg1;
+- (id)initWithWebEditCommandProxy:(Ref_9c2c5577 *)arg1;
 
 @end
 

@@ -24,13 +24,14 @@ __attribute__((visibility("hidden")))
 - (_Bool)usesAdvancedActions;
 - (_Bool)allowsUserInteraction;
 - (_Bool)canBecomeFocused;
+- (_Bool)showsTouchWhenHighlighted;
 - (long long)buttonType;
 - (id)highlightImage;
 - (double)neededSizeForImageSet:(id)arg1;
 - (id)contentsImage;
 - (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
 - (id)_timeImageSet;
-- (_Bool)_isRadarItemEnabled;
+- (_Bool)_showRadarButtonForInternalInstalls;
 - (void)_gatheringLogsDidChangeStatusNotification:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

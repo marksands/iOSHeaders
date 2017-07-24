@@ -27,6 +27,7 @@
     NSDecimalNumber *_subtotalAmount;
     NSString *_currencyCode;
     NSDate *_transactionDate;
+    NSDate *_transactionStatusChangedDate;
     PKMerchant *_merchant;
     NSString *_locality;
     NSString *_administrativeArea;
@@ -44,7 +45,6 @@
     NSData *_endStationCode;
     NSString *_endStation;
     long long _peerPaymentType;
-    NSString *_peerPaymentCounterpartName;
     NSString *_peerPaymentCounterpartHandle;
     NSString *_peerPaymentMemo;
     PKPaymentTransactionForeignExchangeInformation *_foreignExchangeInformation;
@@ -64,6 +64,7 @@
     unsigned long long _transactionSource;
 }
 
++ (id)cloudStoreTransactionDeviceDataRecordTypeRecordNamePrefix;
 + (_Bool)supportsSecureCoding;
 + (id)paymentTransactionWithSource:(unsigned long long)arg1 dictionary:(id)arg2 hasNotificationServiceData:(_Bool)arg3;
 + (id)paymentTransactionWithSource:(unsigned long long)arg1;
@@ -91,7 +92,6 @@
 @property(retain, nonatomic) PKPaymentTransactionForeignExchangeInformation *foreignExchangeInformation; // @synthesize foreignExchangeInformation=_foreignExchangeInformation;
 @property(copy, nonatomic) NSString *peerPaymentMemo; // @synthesize peerPaymentMemo=_peerPaymentMemo;
 @property(copy, nonatomic) NSString *peerPaymentCounterpartHandle; // @synthesize peerPaymentCounterpartHandle=_peerPaymentCounterpartHandle;
-@property(copy, nonatomic) NSString *peerPaymentCounterpartName; // @synthesize peerPaymentCounterpartName=_peerPaymentCounterpartName;
 @property(nonatomic) long long peerPaymentType; // @synthesize peerPaymentType=_peerPaymentType;
 @property(copy, nonatomic) NSString *endStation; // @synthesize endStation=_endStation;
 @property(copy, nonatomic) NSData *endStationCode; // @synthesize endStationCode=_endStationCode;
@@ -110,6 +110,7 @@
 @property(retain, nonatomic) NSString *administrativeArea; // @synthesize administrativeArea=_administrativeArea;
 @property(retain, nonatomic) NSString *locality; // @synthesize locality=_locality;
 @property(retain, nonatomic) PKMerchant *merchant; // @synthesize merchant=_merchant;
+@property(copy, nonatomic) NSDate *transactionStatusChangedDate; // @synthesize transactionStatusChangedDate=_transactionStatusChangedDate;
 @property(copy, nonatomic) NSDate *transactionDate; // @synthesize transactionDate=_transactionDate;
 @property(copy, nonatomic) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;
 @property(copy, nonatomic) NSDecimalNumber *subtotalAmount; // @synthesize subtotalAmount=_subtotalAmount;
@@ -119,14 +120,14 @@
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (id)_transactionTypeString;
-- (id)_transactionStatusString;
 - (id)_transactionSourceString;
 - (id)description;
 @property(readonly, nonatomic) _Bool hasBackingData;
 @property(readonly, nonatomic) _Bool hasTransactionSource;
+@property(nonatomic) unsigned long long peerPaymentStatus;
 @property(retain, nonatomic) CLLocation *location;
 @property(readonly, nonatomic) __weak NSString *displayLocation;
-- (id)recordName;
+- (id)recordTypesAndNames;
 - (void)encodeWithCloudStoreCoder:(id)arg1;
 - (id)initWithCloudStoreCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

@@ -28,12 +28,14 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_actionsViewControllerHeightConstraint;
     UIView *_effectView;
     NSArray *_verticalConstraints;
+    double _borderMargin;
     UIView *_headerContainerView;
     UIView *_actionsListView;
 }
 
 @property(retain, nonatomic) UIView *actionsListView; // @synthesize actionsListView=_actionsListView;
 @property(retain, nonatomic) UIView *headerContainerView; // @synthesize headerContainerView=_headerContainerView;
+@property(nonatomic) double borderMargin; // @synthesize borderMargin=_borderMargin;
 @property(retain, nonatomic) NSArray *verticalConstraints; // @synthesize verticalConstraints=_verticalConstraints;
 @property(retain, nonatomic) UIView *effectView; // @synthesize effectView=_effectView;
 @property(retain, nonatomic) NSLayoutConstraint *actionsViewControllerHeightConstraint; // @synthesize actionsViewControllerHeightConstraint=_actionsViewControllerHeightConstraint;

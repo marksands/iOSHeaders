@@ -14,9 +14,14 @@
 {
     NSString *_identifier;
     NSXPCConnection *_connection;
+    _Bool _connected;
 }
 
 - (void).cxx_destruct;
+- (void)_invalidateConnection;
+- (void)_noteConnectionDropped;
+- (void)_connectToServerIfNecessary;
+- (id)_remoteInterfaceWithErrorHandler:(CDUnknownBlockType)arg1;
 - (void)getCardItemsWithHandler:(CDUnknownBlockType)arg1;
 - (void)setCardItems:(id)arg1;
 - (void)dealloc;

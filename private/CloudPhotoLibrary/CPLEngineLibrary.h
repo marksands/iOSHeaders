@@ -75,6 +75,7 @@
 - (unsigned long long)totalAssetCountOnServer;
 - (void)updateAssetCountsFromServer:(id)arg1;
 - (void)_updateTotalAssetCountWithAssetCounts:(id)arg1;
+- (void)setConnectedToNetwork:(_Bool)arg1;
 - (void)setHasCellularBudget:(_Bool)arg1 hasBatteryBudget:(_Bool)arg2 isBudgetValid:(_Bool)arg3;
 @property(nonatomic) _Bool iCloudLibraryClientVersionTooOld;
 @property(copy, nonatomic) NSDate *exitDeleteTime;

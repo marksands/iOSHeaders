@@ -20,6 +20,9 @@ __attribute__((visibility("hidden")))
 - (void)_selectionWillBeginChanging:(id)arg1;
 - (void)_selectionChanged:(id)arg1;
 - (void)_currentPageChanged:(id)arg1;
+- (void)_pageRotationChanged:(id)arg1;
+- (void)_teardownRotationNotificationObservationForPageAtIndex:(unsigned long long)arg1;
+- (void)_setupRotationNotificationObservationForPageAtIndex:(unsigned long long)arg1;
 - (void)_teardownGestureRecognizersForView:(id)arg1 andDocument:(id)arg2;
 - (void)_setupGestureRecognizersForView:(id)arg1 andDocument:(id)arg2;
 - (void)_uninstallAllOverlays;
@@ -32,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)pdfView:(id)arg1 didSetDocument:(id)arg2;
 - (void)pdfView:(id)arg1 willSetDocument:(id)arg2;
 @property(readonly, nonatomic) __weak PDFView *pdfView;
+- (void)_teardown;
 - (void)teardown;
 - (void)dealloc;
 - (id)initWithPDFView:(id)arg1;

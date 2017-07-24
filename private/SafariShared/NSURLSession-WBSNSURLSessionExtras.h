@@ -8,6 +8,7 @@
 
 @interface NSURLSession (WBSNSURLSessionExtras)
 + (id)safari_sharedSession;
+- (void)safari_downloadImageWithURL:(id)arg1 completionHandlerIncludingErrors:(CDUnknownBlockType)arg2;
 - (void)safari_downloadImageWithURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)safari_downloadFirstValidImageWithURLs:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_safari_downloadFirstValidImageWithURLs:(id)arg1 failedURLDownloadsToErrorsDictionary:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

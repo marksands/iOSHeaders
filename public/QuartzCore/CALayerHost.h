@@ -11,9 +11,11 @@
 }
 
 + (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (id)defaultValueForKey:(id)arg1;
 + (_Bool)_hasRenderLayerSubclass;
 @property _Bool rendersAsynchronously;
 @property _Bool inheritsSecurity;
+@property _Bool inheritsTime;
 @property unsigned int contextId;
 - (void)layerDidBecomeVisible:(_Bool)arg1;
 - (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;

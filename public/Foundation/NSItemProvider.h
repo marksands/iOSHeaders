@@ -67,6 +67,7 @@
 - (id)_representationConformingToType:(id)arg1;
 - (id)representations;
 - (void)_addRepresentationType:(id)arg1 preferredRepresentation:(long long)arg2 loader:(CDUnknownBlockType)arg3;
+- (void)_addRepresentationType_v2:(id)arg1 preferredRepresentation:(long long)arg2 loader:(CDUnknownBlockType)arg3;
 - (id)_availableTypesWithFilterBlock:(CDUnknownBlockType)arg1;
 - (_Bool)_hasRepresentationConformingToType:(id)arg1;
 - (_Bool)_hasRepresentationOfType:(id)arg1;

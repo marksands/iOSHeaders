@@ -34,6 +34,7 @@
 @property(readonly, nonatomic) _Bool hasClient;
 @property(readonly, nonatomic) _Bool hasOrigin;
 - (void)dealloc;
+- (id)customDescription;
 - (id)customDictionaryRepresentation;
 
 @end

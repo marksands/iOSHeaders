@@ -59,12 +59,7 @@ struct __cow_state_t {
     struct os_unfair_lock_s _field1;
     unsigned long long _field2;
     unsigned long long _field3;
-    struct {
-        CDUnknownFunctionPointerType _field1;
-        CDUnknownFunctionPointerType _field2;
-        CDUnknownFunctionPointerType _field3;
-        CDUnknownFunctionPointerType _field4;
-    } _field4;
+    CDStruct_183601bc *_field4;
 };
 
 struct __va_list_tag {
@@ -158,6 +153,8 @@ typedef struct {
     long long _field2;
 } CDStruct_912cb5d2;
 
+typedef struct CDStruct_183601bc;
+
 typedef struct {
     struct NSMethodFrameArgInfo *_field1;
     struct NSMethodFrameArgInfo *_field2;
@@ -177,6 +174,6 @@ typedef struct {
         struct __CFDictionary *children;
     } elements;
     void *singleChildKey;
-    struct *callbacks;
+    CDStruct_183601bc *callbacks;
 } CDStruct_a86bd46d;
 

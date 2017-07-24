@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSMutableDictionary, NSMutableSet, NSOperationQueue, NSString;
+@class NSMutableDictionary, NSMutableSet, NSOperationQueue, NSString, WFServiceConnection;
 @protocol OS_dispatch_queue;
 
 @interface WAForecastModelController : NSObject
@@ -16,10 +16,14 @@
     NSObject<OS_dispatch_queue> *_completionHandlerQueue;
     NSMutableSet *_updatingCities;
     NSMutableDictionary *_completionHandlersForCity;
+    WFServiceConnection *_connection;
+    struct ct_green_tea_logger_s *_greenTeaLogger;
     NSString *_trackingParameter;
 }
 
 @property(copy) NSString *trackingParameter; // @synthesize trackingParameter=_trackingParameter;
+@property(nonatomic) struct ct_green_tea_logger_s *greenTeaLogger; // @synthesize greenTeaLogger=_greenTeaLogger;
+@property(retain, nonatomic) WFServiceConnection *connection; // @synthesize connection=_connection;
 @property(retain) NSMutableDictionary *completionHandlersForCity; // @synthesize completionHandlersForCity=_completionHandlersForCity;
 @property(retain) NSMutableSet *updatingCities; // @synthesize updatingCities=_updatingCities;
 @property(retain) NSObject<OS_dispatch_queue> *completionHandlerQueue; // @synthesize completionHandlerQueue=_completionHandlerQueue;
@@ -33,6 +37,7 @@
 - (_Bool)fetchForecastForCities:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)fetchForecastForCity:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)isCityBeingUpdated:(id)arg1;
+- (void)dealloc;
 - (id)init;
 
 @end

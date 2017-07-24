@@ -11,19 +11,24 @@
 #import <PassKitUI/UIViewControllerTransitioningDelegate-Protocol.h>
 
 @class NSString, UINavigationController;
-@protocol PKObservableContentContainer;
+@protocol PKObservableContentContainer, UICoordinateSpace;
 
 @interface PKCompactNavigationContainerController : UIViewController <UIViewControllerTransitioningDelegate, UINavigationControllerDelegate, PKContentContainerObserver>
 {
     UIViewController *_presentationContextVC;
-    struct CGSize _navigationControllerSize;
+    _Bool _isRoot;
+    struct CGSize _childViewControllerPreferredContentSize;
     struct CGRect _statusBarFrame;
     _Bool _presentingNavigationController;
     UINavigationController<PKObservableContentContainer> *_containedNavigationController;
+    id <UICoordinateSpace> _exclusionCoordinateSpace;
+    struct CGRect _exclusionRect;
 }
 
 + (id)dimmingColor;
 @property(nonatomic, getter=isPresentingNavigationController) _Bool presentingNavigationController; // @synthesize presentingNavigationController=_presentingNavigationController;
+@property(readonly, nonatomic) id <UICoordinateSpace> exclusionCoordinateSpace; // @synthesize exclusionCoordinateSpace=_exclusionCoordinateSpace;
+@property(readonly, nonatomic) struct CGRect exclusionRect; // @synthesize exclusionRect=_exclusionRect;
 @property(readonly, nonatomic) UINavigationController<PKObservableContentContainer> *containedNavigationController; // @synthesize containedNavigationController=_containedNavigationController;
 - (void).cxx_destruct;
 - (void)statusBarFrameWillChange:(id)arg1;
@@ -38,10 +43,12 @@
 - (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)contentContainer:(id)arg1 preferredContentSizeDidChangeForChildContentContainer:(id)arg2;
 - (void)updateChildViewControllerSizeWithTopViewController:(id)arg1 animated:(_Bool)arg2;
-- (struct CGSize)_navigationControllerSizeForViewController:(id)arg1;
 - (id)_backgroundColor;
+- (void)setExclusionRect:(struct CGRect)arg1 withCoordinateSpace:(id)arg2;
 - (struct CGSize)modalPresentationSize;
-- (struct CGSize)navigationControllerSizeForChildViewControllerPreferredContentSize:(struct CGSize)arg1;
+- (struct CGSize)childViewControllerSizeForNavigationControllerSize:(struct CGSize)arg1;
+- (struct CGSize)navigationControllerSizeForChildViewControllerPreferredContentSize:(struct CGSize)arg1 isRoot:(_Bool)arg2;
+- (struct CGSize)childViewControllerPreferredContentSizeForSize:(struct CGSize)arg1 isRoot:(_Bool)arg2;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
 - (void)loadView;

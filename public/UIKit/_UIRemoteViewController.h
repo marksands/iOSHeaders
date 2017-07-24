@@ -63,6 +63,7 @@
     unsigned long long _preferredScreenEdgesDeferringSystemGestures;
     _Bool _isUnderlappingStatusBar;
     _Bool __shouldUpdateRemoteTextEffectsWindow;
+    long long _preferredUserInterfaceStyle;
     _Bool _isUpdatingSize;
     _Bool _serviceViewShouldShareTouchesWithHost;
     BKSTouchDeliveryPolicyAssertion *_touchDeliveryPolicyAssertion;
@@ -88,6 +89,7 @@
 - (void)__trampolineButtonPressData:(id)arg1 canceled:(_Bool)arg2;
 - (id)_cancelTouchesForCurrentEventInHostedContent;
 - (void)_prepareTouchDeliveryPolicy;
+- (void)_noteWindowState:(_Bool)arg1;
 - (void)updateTouchInterdictionViewLayout;
 - (void)__setInterdictServiceViewTouches:(_Bool)arg1;
 - (_Bool)__interdictServiceViewTouches;
@@ -120,6 +122,8 @@
 - (void)__setSupportedInterfaceOrientations:(id)arg1;
 - (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)_traitCollectionDidChange:(id)arg1;
+- (void)__viewServiceDidUpdatePreferredUserInterfaceStyle:(long long)arg1;
+- (long long)preferredUserInterfaceStyle;
 - (void)__viewServiceDidUpdatePreferredScreenEdgesDeferringSystemGestures:(long long)arg1;
 - (unsigned long long)preferredScreenEdgesDeferringSystemGestures;
 - (void)__viewServiceDidUpdatePreferredWhitePointAdaptationStyle:(long long)arg1 animationSettings:(id)arg2;

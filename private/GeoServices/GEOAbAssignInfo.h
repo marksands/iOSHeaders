@@ -8,16 +8,19 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOAnalyticsTime, NSString, PBUnknownFields;
+@class NSString, PBUnknownFields;
 
 @interface GEOAbAssignInfo : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    unsigned long long _relativeTimestamp;
     NSString *_abAssignId;
-    GEOAnalyticsTime *_analyticsTime;
+    struct {
+        unsigned int relativeTimestamp:1;
+    } _has;
 }
 
-@property(retain, nonatomic) GEOAnalyticsTime *analyticsTime; // @synthesize analyticsTime=_analyticsTime;
+@property(nonatomic) unsigned long long relativeTimestamp; // @synthesize relativeTimestamp=_relativeTimestamp;
 @property(retain, nonatomic) NSString *abAssignId; // @synthesize abAssignId=_abAssignId;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
@@ -30,8 +33,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasAnalyticsTime;
+@property(nonatomic) _Bool hasRelativeTimestamp;
 @property(readonly, nonatomic) _Bool hasAbAssignId;
+- (id)initWithAbAssignId:(id)arg1 createdAtDate:(id)arg2;
 
 @end
 

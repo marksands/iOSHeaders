@@ -8,7 +8,7 @@
 
 #import <iTunesStore/ISStoreURLOperationDelegate-Protocol.h>
 
-@class ISURLBag, NSString, SSURLBagContext;
+@class ISURLBag, NSNumber, NSString, SSURLBagContext;
 
 @interface ISLoadURLBagOperation : ISOperation <ISStoreURLOperationDelegate>
 {
@@ -39,6 +39,9 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentage;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentageCachedResponses;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSessionDuration;
 @property(readonly) Class superclass;
 
 @end

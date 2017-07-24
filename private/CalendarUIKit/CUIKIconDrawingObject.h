@@ -37,8 +37,11 @@
 @property(readonly, nonatomic) double minFullDateNameFontScale;
 @property(readonly, nonatomic) double dateNameHorizontalInset;
 @property(readonly, nonatomic) double dateNameBaselineVerticalInset;
-- (_Bool)_useSmallerFont:(id)arg1;
+- (_Bool)_shouldUseJ207SmallerFont:(id)arg1;
+- (id)_systemG2FromFont:(id)arg1;
 - (id)dateNameFont:(id)arg1;
+- (id)dateNameFont:(id)arg1 size:(double)arg2;
+- (double)dateNameFontSizeForName:(id)arg1;
 @property(readonly, nonatomic) double dayNumberTrackingValue;
 @property(readonly, nonatomic) double dayNumberBaselineVerticalInset;
 @property(readonly, nonatomic) UIFont *dayNumberFont;

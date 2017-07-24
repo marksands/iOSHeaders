@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <iAd/ADBannerViewInternalDelegate-Protocol.h>
 #import <iAd/ADInterstitialAdDelegate-Protocol.h>
@@ -72,6 +72,7 @@
 - (void)enablePolicyEngine;
 - (void)_enablePolicyEngineWithReason:(id)arg1;
 - (id)init;
+- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

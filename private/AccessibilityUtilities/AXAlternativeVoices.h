@@ -30,6 +30,7 @@
 - (id)alternativeVoiceIdentifiersForLangauge:(id)arg1;
 - (_Bool)isAlexAvailableForLanguage:(id)arg1;
 - (_Bool)isSiriVoiceIdentifier:(id)arg1;
+- (_Bool)isOldSiriVoiceIdentifier:(id)arg1;
 - (_Bool)isAlternativeVoice:(id)arg1;
 - (_Bool)isAlternativeVoiceIdentifier:(id)arg1 forLanguage:(id)arg2;
 @property(readonly, copy, nonatomic) NSSet *supportedSiriLanguages;

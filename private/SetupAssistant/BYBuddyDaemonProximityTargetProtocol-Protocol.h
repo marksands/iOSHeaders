@@ -11,7 +11,7 @@
 @protocol BYBuddyDaemonProximityTargetProtocol <NSObject>
 - (void)receivedLanguage:(NSString *)arg1 locale:(NSString *)arg2 model:(NSString *)arg3 deviceClass:(NSString *)arg4;
 - (void)proximityConnectionTerminated;
-- (void)proximityConnectionInitiated:(CUMessageSession *)arg1;
+- (void)proximityConnectionPreparing:(CUMessageSession *)arg1;
 - (void)dismissProximityPinCode;
 - (void)displayProximityPinCode:(NSString *)arg1 visual:(_Bool)arg2;
 - (void)proximititySetupCompleted:(NSError *)arg1;

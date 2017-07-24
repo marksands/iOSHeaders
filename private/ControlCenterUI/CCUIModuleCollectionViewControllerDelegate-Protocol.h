@@ -19,5 +19,6 @@
 - (void)moduleCollectionViewController:(CCUIModuleCollectionViewController *)arg1 didFinishInteractionWithModule:(id <CCUIContentModule>)arg2;
 - (void)moduleCollectionViewController:(CCUIModuleCollectionViewController *)arg1 didBeginInteractionWithModule:(id <CCUIContentModule>)arg2;
 - (long long)interfaceOrientationForModuleCollectionViewController:(CCUIModuleCollectionViewController *)arg1;
+- (_Bool)moduleCollectionViewController:(CCUIModuleCollectionViewController *)arg1 shouldForwardAppearanceCall:(_Bool)arg2 animated:(_Bool)arg3;
 @end
 

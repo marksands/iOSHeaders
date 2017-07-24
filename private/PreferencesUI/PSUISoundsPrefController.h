@@ -33,6 +33,7 @@
 - (void)setVolumeAfterRateLimiting;
 - (void)volumeChangedExternally:(id)arg1;
 - (id)volume:(id)arg1;
+- (void)startRingtonePreview;
 - (id)soundEffects:(id)arg1;
 - (void)setSoundEffects:(id)arg1 specifier:(id)arg2;
 - (void)dealloc;

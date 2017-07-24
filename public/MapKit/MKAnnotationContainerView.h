@@ -94,7 +94,7 @@ __attribute__((visibility("hidden")))
 - (void)_updateAnnotationView:(id)arg1;
 - (struct CGPoint)pointForCoordinate:(struct CLLocationCoordinate2D)arg1;
 - (struct CLLocationCoordinate2D)coordinateForAnnotationView:(id)arg1;
-- (void)_updateAnnotationViewPerspectiveMidsteam:(_Bool)arg1;
+- (void)updateAnnotationViewsForReason:(long long)arg1;
 - (void)deselectAnnotationView:(id)arg1 animated:(_Bool)arg2;
 - (void)_setSelectedAnnotationView:(id)arg1 bounce:(_Bool)arg2 pressed:(_Bool)arg3 scrollToFit:(_Bool)arg4;
 - (void)_setSelectedAnnotationView:(id)arg1 bounce:(_Bool)arg2 pressed:(_Bool)arg3 scrollToFit:(_Bool)arg4 avoid:(struct CGRect)arg5;

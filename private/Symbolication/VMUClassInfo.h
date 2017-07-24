@@ -38,8 +38,6 @@
 + (id)descriptionForTypeEncoding:(const char *)arg1 ivarName:(const char *)arg2;
 + (id)classInfoWithClassName:(id)arg1 binaryPath:(id)arg2 type:(int)arg3;
 + (id)_genericBlockByrefInfo;
-+ (void)disableTestingVersion;
-+ (void)enableTestingVersion;
 + (void)initialize;
 @property(readonly, nonatomic) unsigned int pointerSize; // @synthesize pointerSize=_remotePointerSize;
 @property(readonly, nonatomic) VMUClassInfo *superclassInfo; // @synthesize superclassInfo=_superclassLayout;
@@ -72,6 +70,7 @@
 - (void)enumerateScanningLocationsForSize:(unsigned int)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateTypeFieldsWithBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateAllFieldsWithBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateClassHierarchyWithBlock:(CDUnknownBlockType)arg1;
 - (unsigned int)_totalIvarCount;
 @property(readonly, nonatomic) VMUClassInfo *genericInfo;
 - (void)enumerateExternalValuesFromObject:(unsigned long long)arg1 withSize:(unsigned int)arg2 block:(CDUnknownBlockType)arg3;

@@ -52,6 +52,7 @@ __attribute__((visibility("hidden")))
 - (void)_stopObservingProgress:(id)arg1;
 - (void)_startObservingProgress:(id)arg1;
 - (void)dumpToContext:(id)arg1;
+- (void)dumpDictionary:(id)arg1 withMaxCount:(unsigned long long)arg2 toContext:(id)arg3;
 - (void)updateDownloadThrottleForDocument:(id)arg1 toState:(int)arg2;
 - (void)updateUploadThrottleForDocument:(id)arg1 toState:(int)arg2;
 - (void)addProgress:(id)arg1 forDocument:(id)arg2 inGroup:(BOOL)arg3;

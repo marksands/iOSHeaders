@@ -16,6 +16,7 @@
 }
 
 + (id)titleFont;
++ (id)titleFontforTitle:(id)arg1;
 @property(retain, nonatomic) TLKImageView *secondaryImageView; // @synthesize secondaryImageView=_secondaryImageView;
 @property(retain, nonatomic) TLKVibrantLabel *secondaryLabel; // @synthesize secondaryLabel=_secondaryLabel;
 @property(retain, nonatomic) TLKVibrantLabel *titleLabel; // @synthesize titleLabel=_titleLabel;

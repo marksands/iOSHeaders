@@ -10,6 +10,7 @@
 
 @interface SPUINavigationBar : UINavigationBar
 {
+    _Bool _roundedCornerVisible;
     UIView *_topDividerView;
     double _currentBlurProgress;
 }
@@ -17,11 +18,11 @@
 + (_Bool)_supportsCanvasView;
 @property double currentBlurProgress; // @synthesize currentBlurProgress=_currentBlurProgress;
 @property(retain) UIView *topDividerView; // @synthesize topDividerView=_topDividerView;
+@property(nonatomic, getter=isRoundedCornerVisible) _Bool roundedCornerVisible; // @synthesize roundedCornerVisible=_roundedCornerVisible;
 - (void).cxx_destruct;
 - (void)performShowSeparator:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)showSeparator:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)performUpdateBlurProgress:(double)arg1 animated:(_Bool)arg2;
-@property(getter=isRoundedCornerVisible) _Bool roundedCornerVisible;
 - (void)updateBlurProgress:(double)arg1 animated:(_Bool)arg2;
 - (void)didAddSubview:(id)arg1;
 - (id)_popNavigationItemWithTransition:(int)arg1;

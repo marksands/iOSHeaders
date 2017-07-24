@@ -17,6 +17,7 @@
     id _context;
     long long _qualityOfService;
     long long _relativePriority;
+    unsigned long long _numberOfFetchAttempts;
     NSObject<OS_dispatch_queue> *_completionQueue;
     CDUnknownBlockType _completion;
     NSDate *_requestDate;
@@ -25,6 +26,7 @@
 @property(retain, nonatomic) NSDate *requestDate; // @synthesize requestDate=_requestDate;
 @property(readonly, copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *completionQueue; // @synthesize completionQueue=_completionQueue;
+@property(nonatomic) unsigned long long numberOfFetchAttempts; // @synthesize numberOfFetchAttempts=_numberOfFetchAttempts;
 @property(readonly, nonatomic) _Bool isUserFacing; // @synthesize isUserFacing=_isUserFacing;
 @property(readonly, nonatomic) long long relativePriority; // @synthesize relativePriority=_relativePriority;
 @property(readonly, nonatomic) long long qualityOfService; // @synthesize qualityOfService=_qualityOfService;

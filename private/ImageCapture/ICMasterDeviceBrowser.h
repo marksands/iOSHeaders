@@ -30,7 +30,7 @@
 - (int)start:(id)arg1;
 - (void)removeMSCamera:(id)arg1;
 - (int)addMSCamera:(id)arg1;
-- (int)addExFATCamera:(id)arg1;
+- (int)updateExFATCamera:(id)arg1;
 - (void)removePTPCamera:(id)arg1;
 - (int)addPTPCamera:(id)arg1;
 - (void)removeBrowser:(id)arg1;

@@ -6,33 +6,23 @@
 
 #import <UIKit/UITableViewCell.h>
 
-#import <HealthUI/HKMultilineCellHeightEstimatable-Protocol.h>
+@class UILabel;
 
-@class NSString, UILabel, UITextView;
-
-@interface _HKMedicalIDMultilineStringCell : UITableViewCell <HKMultilineCellHeightEstimatable>
+@interface _HKMedicalIDMultilineStringCell : UITableViewCell
 {
     UILabel *_titleLabel;
-    UITextView *_textLabel;
-    NSString *_stringValue;
+    UILabel *_detailLabel;
 }
 
-@property(retain, nonatomic) NSString *stringValue; // @synthesize stringValue=_stringValue;
++ (id)defaultReuseIdentifier;
+@property(retain, nonatomic) UILabel *detailLabel; // @synthesize detailLabel=_detailLabel;
+@property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void).cxx_destruct;
-- (double)estimatedHeightWithWidth:(double)arg1;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)layoutSubviews;
-@property(nonatomic, getter=isBodyTextInteractive) _Bool bodyTextInteractive;
-@property(retain, nonatomic) NSString *title;
+- (id)description;
 - (void)_contentSizeCategoryDidChange:(id)arg1;
-- (void)dealloc;
+- (void)setUpConstraints;
+- (void)setUpSubViews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_buttonBarLeadingConstraint;
     NSLayoutConstraint *_buttonBarTrailingConstraint;
     NSMapTable *_absorptionTable;
+    double _standardEdgeSpacing;
     double _topPadding;
 }
 
@@ -28,6 +29,9 @@ __attribute__((visibility("hidden")))
 - (void)_setBackButtonBackgroundImage:(id)arg1 forState:(unsigned long long)arg2 barMetrics:(long long)arg3;
 - (void)_UIAppearance_setBackButtonBackgroundImage:(id)arg1 forState:(unsigned long long)arg2 barMetrics:(long long)arg3;
 - (void)_appearanceChanged;
+- (long long)barMetrics;
+- (double)defaultTextPadding;
+- (double)defaultEdgeSpacing;
 - (double)absorptionForItem:(id)arg1;
 - (id)_computeEdgeAbsorptionForItems:(id)arg1;
 - (unsigned long long)edgesPaddingBarButtonItem:(id)arg1;
@@ -37,6 +41,7 @@ __attribute__((visibility("hidden")))
 - (void)updateContent;
 - (void)updateConstraints;
 - (id)_newButtonBarWithItems:(id)arg1;
+- (void)_updateButtonBarConstraintConstantsForItems:(id)arg1 inView:(id)arg2;
 - (void)tintColorDidChange;
 - (void)safeAreaInsetsDidChange;
 - (void)layoutMarginsDidChange;

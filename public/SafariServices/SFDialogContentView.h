@@ -41,7 +41,7 @@ __attribute__((visibility("hidden")))
 - (void)setPasswordText:(id)arg1 placeholder:(id)arg2;
 - (void)setInputText:(id)arg1 placeholder:(id)arg2;
 - (void)setMessageText:(id)arg1;
-@property(nonatomic) _Bool showMessageAsTitle;
+- (void)setTitleText:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)layoutSubviews;
 - (void)updateConstraints;

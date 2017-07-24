@@ -6,9 +6,10 @@
 
 #import <Contacts/NSObject-Protocol.h>
 
-@protocol CNContactsLogger, CNSpotlightIndexingLogger;
+@protocol CNContactsLogger, CNRegulatoryLogger, CNSpotlightIndexingLogger;
 
 @protocol CNContactsLoggerProvider <NSObject>
+@property(readonly, nonatomic) id <CNRegulatoryLogger> regulatoryLogger;
 @property(readonly, nonatomic) id <CNSpotlightIndexingLogger> spotlightIndexingLogger;
 @property(readonly, nonatomic) id <CNContactsLogger> contactsLogger;
 @end

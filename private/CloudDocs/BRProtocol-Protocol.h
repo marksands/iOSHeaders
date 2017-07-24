@@ -120,6 +120,7 @@
 - (void)deleteAllContentsOfContainerID:(NSString *)arg1 onClient:(_Bool)arg2 onServer:(_Bool)arg3 wait:(_Bool)arg4 reply:(void (^)(NSError *))arg5;
 - (oneway void)updateContainerMetadataForID:(NSString *)arg1;
 - (void)getContainerURLForID:(NSString *)arg1 forProcess:(CDStruct_6ad76789)arg2 reply:(void (^)(NSURL *, NSData *, NSString *, NSError *))arg3;
+- (void)getContainerURLForID:(NSString *)arg1 recreateDocumentsIfNeeded:(_Bool)arg2 reply:(void (^)(NSURL *, NSData *, NSString *, NSError *))arg3;
 - (void)getContainerURLForID:(NSString *)arg1 reply:(void (^)(NSURL *, NSData *, NSString *, NSError *))arg2;
 - (void)presyncContainerWithID:(NSString *)arg1 reply:(void (^)(NSError *))arg2;
 - (oneway void)checkinAskClientIfUsingUbiquity:(_Bool)arg1;
@@ -144,7 +145,7 @@
 - (void)printStatus:(NSFileHandle *)arg1 containerID:(NSString *)arg2 reply:(void (^)(_Bool, NSError *))arg3;
 - (void)performSelfCheck:(NSFileHandle *)arg1 reply:(void (^)(_Bool, NSError *))arg2;
 - (void)dumpCoordinationInfoTo:(NSFileHandle *)arg1 reply:(void (^)(_Bool, NSError *))arg2;
-- (void)dumpDatabaseTo:(NSFileHandle *)arg1 containerID:(NSString *)arg2 reply:(void (^)(_Bool, NSError *))arg3;
+- (void)dumpDatabaseTo:(NSFileHandle *)arg1 containerID:(NSString *)arg2 includeAllItems:(_Bool)arg3 reply:(void (^)(_Bool, NSError *))arg4;
 - (void)resetBudgets:(NSSet *)arg1 reply:(void (^)(NSError *))arg2;
 - (void)setupInstanceWithDict:(NSDictionary *)arg1 reply:(void (^)(_Bool, NSError *))arg2;
 @end

@@ -40,6 +40,9 @@
 + (id)fromReply;
 + (id)fromForwardedMessage;
 + (id)defaultDuration;
++ (id)templateException;
++ (id)titleGeneratedFromSubject;
++ (id)titleGeneratedFromTemplate;
 + (id)significantSender;
 + (id)isSent;
 + (id)fromSync;
@@ -48,6 +51,7 @@
 + (id)messagesAppUsageLevel:(unsigned char)arg1;
 + (id)mailAppUsageLevel:(unsigned char)arg1;
 + (id)calendarAppUsageLevel:(float)arg1;
++ (id)usedBubblesCount:(unsigned char)arg1;
 + (id)participantCount:(unsigned char)arg1;
 + (id)confidenceScore:(float)arg1;
 + (id)naturalLanguageEventAttributes:(unsigned long long)arg1;
@@ -94,6 +98,7 @@
 - (_Bool)isMessagesAppUsageLevel;
 - (_Bool)isMailAppUsageLevel;
 - (_Bool)isCalendarAppUsageLevel;
+- (_Bool)isUsedBubblesCount;
 - (_Bool)isParticipantCount;
 - (_Bool)isConfidenceScore;
 - (_Bool)isNaturalLanguageEventLanguageID;

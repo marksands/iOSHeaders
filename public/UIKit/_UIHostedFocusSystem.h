@@ -17,8 +17,9 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) __weak id <UIFocusEnvironment> hostEnvironment; // @synthesize hostEnvironment=_hostEnvironment;
 - (void).cxx_destruct;
-- (_Bool)_requiresFocusedItemToHaveContainingView;
 - (_Bool)_isEligibleForFocusInteraction;
+- (_Bool)_postsFocusUpdateNotifications;
+- (_Bool)_requiresFocusedItemToHaveContainingView;
 - (void)_setFocusSoundGenerator:(id)arg1;
 - (id)_focusSoundGenerator;
 - (id)_hostFocusSystem;

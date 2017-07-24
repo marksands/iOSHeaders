@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSString, UIActivityIndicatorView, UILabel;
+@class NSString, UIActivityIndicatorView, UILabel, UITableView;
 
 @interface PKSpinnerHeaderView : UIView
 {
@@ -14,12 +14,16 @@
     UIActivityIndicatorView *_spinner;
     _Bool _showSpinner;
     NSString *_headerText;
+    UITableView *_tableView;
 }
 
++ (id)_labelFont;
 + (double)sectionHeight;
+@property(nonatomic) __weak UITableView *tableView; // @synthesize tableView=_tableView;
 @property(nonatomic) _Bool showSpinner; // @synthesize showSpinner=_showSpinner;
 @property(retain, nonatomic) NSString *headerText; // @synthesize headerText=_headerText;
 - (void).cxx_destruct;
+- (void)_systemTextSizeChanged;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1 text:(id)arg2 showSpinner:(_Bool)arg3;
 

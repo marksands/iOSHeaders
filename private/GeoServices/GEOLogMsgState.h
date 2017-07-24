@@ -8,13 +8,12 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOLogMsgStateApplicationIdentifier, GEOLogMsgStateCarPlay, GEOLogMsgStateCohortsSession, GEOLogMsgStateDeviceBase, GEOLogMsgStateDeviceConnection, GEOLogMsgStateDeviceIdentifier, GEOLogMsgStateDeviceLocale, GEOLogMsgStateExperiments, GEOLogMsgStateExtension, GEOLogMsgStateFlyover, GEOLogMsgStateMapRestore, GEOLogMsgStateMapSettings, GEOLogMsgStateMapUI, GEOLogMsgStateMapUIShown, GEOLogMsgStateMapView, GEOLogMsgStateMapViewLocation, GEOLogMsgStateMapsServer, GEOLogMsgStateNavigation, GEOLogMsgStatePairedDevice, GEOLogMsgStatePlaceCard, GEOLogMsgStatePlaceRequest, GEOLogMsgStateRealtimeTrafficProbe, GEOLogMsgStateReportAnIssue, GEOLogMsgStateRoute, GEOLogMsgStateSuggestions, GEOLogMsgStateTileSet, GEOLogMsgStateTransit, GEOLogMsgStateUserSession, NSString;
+@class GEOLogMsgStateApplicationIdentifier, GEOLogMsgStateCarPlay, GEOLogMsgStateDeviceBase, GEOLogMsgStateDeviceConnection, GEOLogMsgStateDeviceIdentifier, GEOLogMsgStateDeviceLocale, GEOLogMsgStateExperiments, GEOLogMsgStateExtension, GEOLogMsgStateFlyover, GEOLogMsgStateMapRestore, GEOLogMsgStateMapSettings, GEOLogMsgStateMapUI, GEOLogMsgStateMapUIShown, GEOLogMsgStateMapView, GEOLogMsgStateMapViewLocation, GEOLogMsgStateMapsServer, GEOLogMsgStateNavigation, GEOLogMsgStatePairedDevice, GEOLogMsgStatePlaceCard, GEOLogMsgStatePlaceRequest, GEOLogMsgStateRealtimeTrafficProbe, GEOLogMsgStateReportAnIssue, GEOLogMsgStateRoute, GEOLogMsgStateSuggestions, GEOLogMsgStateTileSet, GEOLogMsgStateTransit, GEOLogMsgStateUserSession, NSString;
 
 @interface GEOLogMsgState : PBCodable <NSCopying>
 {
     GEOLogMsgStateApplicationIdentifier *_applicationIdentifier;
     GEOLogMsgStateCarPlay *_carPlay;
-    GEOLogMsgStateCohortsSession *_cohortsSession;
     GEOLogMsgStateDeviceBase *_deviceBase;
     GEOLogMsgStateDeviceConnection *_deviceConnection;
     GEOLogMsgStateDeviceIdentifier *_deviceIdentifier;
@@ -58,7 +57,6 @@
 @property(retain, nonatomic) GEOLogMsgStateFlyover *flyover; // @synthesize flyover=_flyover;
 @property(retain, nonatomic) GEOLogMsgStateRoute *route; // @synthesize route=_route;
 @property(retain, nonatomic) GEOLogMsgStatePlaceCard *placeCard; // @synthesize placeCard=_placeCard;
-@property(retain, nonatomic) GEOLogMsgStateCohortsSession *cohortsSession; // @synthesize cohortsSession=_cohortsSession;
 @property(retain, nonatomic) GEOLogMsgStateExperiments *experiments; // @synthesize experiments=_experiments;
 @property(retain, nonatomic) GEOLogMsgStateUserSession *userSession; // @synthesize userSession=_userSession;
 @property(retain, nonatomic) GEOLogMsgStateMapUIShown *mapUiShown; // @synthesize mapUiShown=_mapUiShown;
@@ -97,7 +95,6 @@
 @property(readonly, nonatomic) _Bool hasFlyover;
 @property(readonly, nonatomic) _Bool hasRoute;
 @property(readonly, nonatomic) _Bool hasPlaceCard;
-@property(readonly, nonatomic) _Bool hasCohortsSession;
 @property(readonly, nonatomic) _Bool hasExperiments;
 @property(readonly, nonatomic) _Bool hasUserSession;
 @property(readonly, nonatomic) _Bool hasMapUiShown;

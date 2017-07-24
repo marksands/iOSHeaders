@@ -6,11 +6,9 @@
 
 #import <AnnotationKit/NSObject-Protocol.h>
 
-@class AKAnnotation, NSString;
 @protocol AKAnnotationEditor;
 
 @protocol AKAnnotationEditorDelegate <NSObject>
-- (void)editorController:(id <AKAnnotationEditor>)arg1 editedAnnotation:(AKAnnotation *)arg2 toText:(NSString *)arg3;
 
 @optional
 - (void)didShowAnnotationEditor:(id <AKAnnotationEditor>)arg1;

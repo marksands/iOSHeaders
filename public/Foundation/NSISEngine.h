@@ -8,7 +8,7 @@
 
 #import <Foundation/NSISVariableDelegate-Protocol.h>
 
-@class NSHashTable, NSISVariable, NSISVariableChangeTracker, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSThread, _NSISVariableObservable;
+@class NSHashTable, NSISVariable, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSThread, _NSISVariableObservable;
 @protocol NSISEngineDelegate, NSObservable;
 
 @interface NSISEngine : NSObject <NSISVariableDelegate>
@@ -19,7 +19,6 @@
     NSMutableArray *_variablesWithValueRestrictionViolations;
     NSMutableArray *_pendingRemovals;
     NSHashTable *_pendingMarkerDelegates;
-    NSISVariableChangeTracker *_variableChangeTracker;
     NSObject<NSObservable> *_variableChangeTransactionSignal;
     NSMapTable *_variableObservables;
     _NSISVariableObservable *_dirtyObservables;
@@ -91,6 +90,7 @@
 - (_Bool)_variableIsAbsentExceptForObjectiveRow:(id)arg1;
 - (_Bool)hasValue:(double *)arg1 forExpression:(id)arg2;
 - (double)valueForExpression:(id)arg1;
+- (_Bool)hasValueForPossiblyDeallocatedVariable:(id)arg1;
 - (_Bool)hasValue:(double *)arg1 forVariable:(id)arg2;
 - (double)valueForVariable:(id)arg1;
 - (void)withDelegateCallsDisabled:(CDUnknownBlockType)arg1;
@@ -119,30 +119,21 @@
 - (double)valueForVariableWithoutIntegralizationAdjustments:(id)arg1;
 - (void)performModifications:(CDUnknownBlockType)arg1 withUnsatisfiableConstraintsHandler:(CDUnknownBlockType)arg2;
 - (id)fixUpValueRestrictionViolationsWithInfeasibilityHandlingBehavior:(long long)arg1;
-- (unsigned long long)minimizeConstantInObjectiveRowWithHead:(id)arg1;
-- (id)chooseOutgoingRowHeadForIncomingRowHead:(id)arg1 resolveTiesRandomly:(_Bool)arg2;
 - (id)handleUnsatisfiableRowWithHead:(id)arg1 body:(id)arg2 usingInfeasibilityHandlingBehavior:(long long)arg3 mutuallyExclusiveConstraints:(id *)arg4;
 - (id)fallbackMarkerForConstraintToBreakInRowWithHead:(id)arg1 body:(id)arg2;
 - (id)errorVariableIntroducedByBreakingConstraintWithMarker:(id)arg1 errorIsPositive:(_Bool)arg2;
 - (void)replaceMarker:(id)arg1 withMarkerPlusCoefficient:(double)arg2 timesVariable:(id)arg3;
 - (void)performPendingChangeNotificationsForItem:(id)arg1;
 - (void)performPendingChangeNotifications;
-- (void)sendChangeNotificationForVariable:(id)arg1;
 - (_Bool)isTrackingVariableChanges;
-- (void)_noteValueOfVariable:(id)arg1 changedFrom:(double)arg2;
 - (void)_dirtyListRemoveObservable:(id)arg1;
 - (void)_dirtyListPrependObservable:(id)arg1;
 - (_Bool)_dirtyListContainsObservable:(id)arg1;
-- (void)_sendSolutionDidChange;
-- (void)pivotToMakeBodyVar:(id)arg1 newHeadOfRowWithHead:(id)arg2 andDropRow:(_Bool)arg3;
-- (void)substituteOutAllOccurencesOfBodyVar:(id)arg1 withExpression:(id)arg2;
 - (void)addExpression:(id)arg1 times:(double)arg2 toRowWithHead:(id)arg3 body:(id)arg4;
 - (void)addExpression:(id)arg1 priority:(double)arg2 times:(double)arg3 toObjectiveRowWithHead:(id)arg4 body:(id)arg5;
 - (void)addVariable:(id)arg1 coefficient:(double)arg2 toRowWithHead:(id)arg3 body:(id)arg4;
 - (void)addVariable:(id)arg1 priority:(double)arg2 times:(double)arg3 toObjectiveRowWithHead:(id)arg4 body:(id)arg5;
 - (void)removeBodyVarFromAllRows:(id)arg1;
-- (void)removeRowWithHead:(id)arg1;
-- (void)setRowWithHead:(id)arg1 body:(id)arg2;
 - (void)setIntegralizationAdjustment:(double)arg1 forMarker:(id)arg2;
 - (double)integralizationAdjustmentForMarker:(id)arg1;
 - (id)nsis_descriptionOfVariable:(id)arg1;
@@ -159,18 +150,11 @@
 - (id)positiveErrorVarForBrokenConstraintWithMarker:(id)arg1;
 - (id)_brokenConstraintPositiveErrorsIfAvailable;
 - (id)_brokenConstraintPositiveErrors;
-- (void)rowCrossIndexNoteDroppedBodyVar:(id)arg1;
-- (void)rowCrossIndexNoteBodyVariable:(id)arg1 wasRemovedFromRowWithHead:(id)arg2;
-- (void)rowCrossIndexNoteBodyVariable:(id)arg1 wasAddedToRowWithHead:(id)arg2;
 - (void)enumerateRowsCrossIndex:(CDUnknownBlockType)arg1;
-- (id)rowHeadsForRowsContainingBodyVar:(id)arg1;
 - (void)rawRemoveRowWithHead:(id)arg1;
 - (void)rawSetRowWithHead:(id)arg1 body:(id)arg2;
 - (id)allRowHeads;
 - (void)enumerateRows:(CDUnknownBlockType)arg1;
-- (id)rowBodyForObjectiveHead:(id)arg1;
-- (id)rowBodyForNonObjectiveHead:(id)arg1;
-- (id)rowBodyForHead:(id)arg1;
 @property struct __CFDictionary *integralizationAdjustmentsForConstraintMarkers;
 - (_Bool)_disambiguateFrame:(struct CGRect *)arg1 forAmbiguousItem:(id)arg2 withOldFrame:(struct CGRect)arg3;
 

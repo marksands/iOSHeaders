@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (struct CGSize)intrinsicContentSize;
 - (double)mapViewHeight;
-- (void)setLabelText:(id)arg1;
+- (void)setLocationsNumber:(unsigned long long)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (_Bool)hasTitle;
 

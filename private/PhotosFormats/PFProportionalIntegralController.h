@@ -18,6 +18,7 @@
     double _proportionalGain;
     double _integralGain;
     long long _output;
+    long long _outputMin;
     long long _outputMax;
     NSMutableArray *_statistics;
 }
@@ -25,6 +26,7 @@
 @property _Bool outputReady; // @synthesize outputReady=_outputReady;
 @property(retain) NSMutableArray *statistics; // @synthesize statistics=_statistics;
 @property long long outputMax; // @synthesize outputMax=_outputMax;
+@property long long outputMin; // @synthesize outputMin=_outputMin;
 @property long long output; // @synthesize output=_output;
 @property double integralGain; // @synthesize integralGain=_integralGain;
 @property double proportionalGain; // @synthesize proportionalGain=_proportionalGain;

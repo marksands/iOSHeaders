@@ -7,12 +7,13 @@
 #import <UIKit/UIActivity.h>
 
 #import <UIKit/CNContactPickerDelegate-Protocol.h>
+#import <UIKit/CNContactViewControllerDelegate-Protocol.h>
 #import <UIKit/UIImagePickerControllerDelegate-Protocol.h>
 #import <UIKit/UINavigationControllerDelegate-Protocol.h>
 
 @class CNContact, CNContactPickerViewController, NSString, UIImage, UIImagePickerController;
 
-@interface UIAssignToContactActivity : UIActivity <CNContactPickerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface UIAssignToContactActivity : UIActivity <CNContactPickerDelegate, CNContactViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
     UIImage *_image;
     CNContactPickerViewController *_peoplePicker;
@@ -26,6 +27,8 @@
 @property(retain, nonatomic) CNContactPickerViewController *peoplePicker; // @synthesize peoplePicker=_peoplePicker;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
+- (void)contactViewController:(id)arg1 didCompleteWithContact:(id)arg2;
+- (_Bool)contactViewController:(id)arg1 shouldPerformDefaultActionForContactProperty:(id)arg2;
 - (void)imagePickerControllerDidCancel:(id)arg1;
 - (void)imagePickerController:(id)arg1 didFinishPickingMediaWithInfo:(id)arg2;
 - (void)contactPicker:(id)arg1 didSelectContact:(id)arg2;

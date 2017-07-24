@@ -21,17 +21,11 @@
     double _tagPersonalizationCoeff;
     double _tagSpecificityCoeff;
     double _optionalTagSpecificityScore;
-    double _articleEntityScoreWeightRatio;
-    double _utilityWeightAlpha;
-    double _utilityWeightBeta;
     long long _heuristicOption;
 }
 
 + (id)configurationWithTreatment:(id)arg1 deviceIsiPad:(_Bool)arg2;
 @property(readonly, nonatomic) long long heuristicOption; // @synthesize heuristicOption=_heuristicOption;
-@property(readonly, nonatomic) double utilityWeightBeta; // @synthesize utilityWeightBeta=_utilityWeightBeta;
-@property(readonly, nonatomic) double utilityWeightAlpha; // @synthesize utilityWeightAlpha=_utilityWeightAlpha;
-@property(readonly, nonatomic) double articleEntityScoreWeightRatio; // @synthesize articleEntityScoreWeightRatio=_articleEntityScoreWeightRatio;
 @property(readonly, nonatomic) double optionalTagSpecificityScore; // @synthesize optionalTagSpecificityScore=_optionalTagSpecificityScore;
 @property(readonly, nonatomic) double tagSpecificityCoeff; // @synthesize tagSpecificityCoeff=_tagSpecificityCoeff;
 @property(readonly, nonatomic) double tagPersonalizationCoeff; // @synthesize tagPersonalizationCoeff=_tagPersonalizationCoeff;
@@ -45,7 +39,7 @@
 @property(readonly, nonatomic) unsigned long long searchBranchMultiplier; // @synthesize searchBranchMultiplier=_searchBranchMultiplier;
 @property(readonly, nonatomic) unsigned long long heuristicSampleSize; // @synthesize heuristicSampleSize=_heuristicSampleSize;
 @property(readonly, nonatomic) unsigned long long maxArticleCombos; // @synthesize maxArticleCombos=_maxArticleCombos;
-- (id)initWithHeuristicSampleSize:(unsigned long long)arg1 searchBranchMultiplier:(unsigned long long)arg2 searchBranchDecay:(double)arg3 searchTimeLimit:(double)arg4 tagSizeCoeff:(double)arg5 tagFavoritedCoeff:(double)arg6 tagAutoFavoritedCoeff:(double)arg7 tagGroupableCoeff:(double)arg8 tagArticleScoreCoeff:(double)arg9 tagPersonalizationCoeff:(double)arg10 tagSpecificityCoeff:(double)arg11 optionalTagSpecificityScore:(double)arg12 articleEntityScoreWeightRatio:(double)arg13 utilityWeightAlpha:(double)arg14 utilityWeightBeta:(double)arg15 heuristicOption:(long long)arg16;
+- (id)initWithHeuristicSampleSize:(unsigned long long)arg1 searchBranchMultiplier:(unsigned long long)arg2 searchBranchDecay:(double)arg3 searchTimeLimit:(double)arg4 tagSizeCoeff:(double)arg5 tagFavoritedCoeff:(double)arg6 tagAutoFavoritedCoeff:(double)arg7 tagGroupableCoeff:(double)arg8 tagArticleScoreCoeff:(double)arg9 tagPersonalizationCoeff:(double)arg10 tagSpecificityCoeff:(double)arg11 optionalTagSpecificityScore:(double)arg12 heuristicOption:(long long)arg13;
 
 @end
 

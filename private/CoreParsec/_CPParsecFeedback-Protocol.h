@@ -18,8 +18,6 @@
 @property(copy, nonatomic) NSString *parsecDeveloperID;
 @property(readonly, nonatomic) _Bool hasRelTimestamp;
 @property(nonatomic) unsigned long long relTimestamp;
-@property(readonly, nonatomic) _Bool hasClientQueryId;
-@property(nonatomic) unsigned long long clientQueryId;
 @property(readonly, nonatomic) _Bool hasQueryId;
 @property(nonatomic) unsigned long long queryId;
 @property(readonly, nonatomic) _Bool hasPayload;

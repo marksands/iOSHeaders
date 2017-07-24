@@ -10,6 +10,8 @@
 {
 }
 
++ (_Bool)shouldOnlyDrawWithPencil;
++ (_Bool)deviceSupportsPencil;
 + (struct CGSize)notesDeviceDrawingSize;
 + (_Bool)notesDeviceSupportsLetterpress;
 + (_Bool)notesLowEndHardware;

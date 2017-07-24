@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *bottomInsetConstraint;
     NSLayoutConstraint *leftInsetConstraint;
     NSLayoutConstraint *rightInsetConstraint;
+    long long layoutMode;
 }
 
 - (void).cxx_destruct;

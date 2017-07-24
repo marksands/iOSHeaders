@@ -12,7 +12,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) unsigned long long status; // @synthesize status=_status;
+@property(readonly, nonatomic) unsigned long long status; // @synthesize status=_status;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithStatus:(unsigned long long)arg1;

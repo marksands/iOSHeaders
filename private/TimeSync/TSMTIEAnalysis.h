@@ -10,8 +10,8 @@
 
 @interface TSMTIEAnalysis : NSObject
 {
-    long long _numberOfEdges;
-    double *_edgeTimesInSeconds;
+    long long _numberOfErrors;
+    double *_errorTimestampsInSeconds;
     double *_timeErrorsInSeconds;
     double *_adjustedTimeErrorsInSeconds;
     double *_negativeAdjustedTimeErrorsInSeconds;
@@ -28,7 +28,6 @@
     double _highestFrequency;
 }
 
-+ (id)analyseEdgeTimes:(const double *)arg1 numberOfEdges:(long long)arg2;
 @property(nonatomic) double highestFrequency; // @synthesize highestFrequency=_highestFrequency;
 @property(nonatomic) double lowestFrequency; // @synthesize lowestFrequency=_lowestFrequency;
 @property(nonatomic) double cumulativeTimeError; // @synthesize cumulativeTimeError=_cumulativeTimeError;
@@ -47,9 +46,9 @@
 - (void)calculateMTIEFromStartWindowSize:(long long)arg1 toEndWindowSize:(long long)arg2;
 - (void)calculateMTIEWithThreadingOption:(long long)arg1;
 - (void)calculateMTIE;
-- (void)calculateTimeErrors;
 - (void)_processMTIEFromWindowSize:(long long)arg1 toWindowSize:(long long)arg2;
-- (id)initWithEdgeTimes:(const double *)arg1 numberOfEdges:(long long)arg2;
+- (id)initWithTimeErrorValues:(id)arg1;
+- (id)initWithTimestamps:(const double *)arg1 andErrors:(const double *)arg2 numberOfErrors:(long long)arg3;
 
 @end
 

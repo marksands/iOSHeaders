@@ -37,7 +37,8 @@ __attribute__((visibility("hidden")))
     CDStruct_1b6d18a9 _minimumTrimLength;
     CDStruct_1b6d18a9 _photoTrimBuffer;
     UIImpactFeedbackGenerator *_impactGenerator;
-    _Bool _embiggenPhotoLoupe;
+    long long _changeDepth;
+    _Bool _canEditKeyTime;
     _Bool __photoLoupeHidden;
     _Bool __trimControlsHidden;
     AVAsset *_asset;
@@ -61,7 +62,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) CDStruct_1b6d18a9 trimStartTime; // @synthesize trimStartTime=_trimStartTime;
 @property(nonatomic) CDStruct_1b6d18a9 trimEndTime; // @synthesize trimEndTime=_trimEndTime;
 @property(copy, nonatomic) NSArray *snapKeyTimes; // @synthesize snapKeyTimes=_snapKeyTimes;
-@property(nonatomic) _Bool embiggenPhotoLoupe; // @synthesize embiggenPhotoLoupe=_embiggenPhotoLoupe;
+@property(nonatomic) _Bool canEditKeyTime; // @synthesize canEditKeyTime=_canEditKeyTime;
 @property(nonatomic) CDStruct_1b6d18a9 keyTime; // @synthesize keyTime=_keyTime;
 @property(nonatomic) double horizontalInset; // @synthesize horizontalInset=_horizontalInset;
 @property(nonatomic, setter=_setUntrimmedDuration:) CDStruct_1b6d18a9 untrimmedDuration; // @synthesize untrimmedDuration=_untrimmedDuration;
@@ -94,11 +95,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isAssetDurationLoaded) _Bool assetDurationLoaded;
 - (double)horizontalOffsetForTime:(CDStruct_1b6d18a9)arg1;
 - (CDStruct_1b6d18a9)timeForElement:(long long)arg1;
-@property(readonly, nonatomic, getter=isTrimmed) _Bool trimmed;
-- (void)setTrimEndTime:(CDStruct_1b6d18a9)arg1 animated:(_Bool)arg2;
-- (void)setTrimStartTime:(CDStruct_1b6d18a9)arg1 animated:(_Bool)arg2;
-- (void)setEmbiggenPhotoLoupe:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)setKeyTime:(CDStruct_1b6d18a9)arg1 animated:(_Bool)arg2;
+@property(readonly, nonatomic) long long trimStatus;
+- (void)performAnimatedChanges:(CDUnknownBlockType)arg1;
 @property(retain, nonatomic) UIImage *placeholderImage;
 - (void)reloadThumbnails;
 @property(retain, nonatomic) ISWrappedAVPlayer *videoPlayer;

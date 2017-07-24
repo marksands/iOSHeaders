@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <ITMLKit/NSCopying-Protocol.h>
+
 @class IKStylesGroup, NSMutableDictionary;
 
-@interface IKStyleFactory : NSObject
+@interface IKStyleFactory : NSObject <NSCopying>
 {
     IKStylesGroup *_stylesGroup;
     NSMutableDictionary *_styleListsByClassSelector;
@@ -22,6 +24,7 @@
 - (void)setViewElementStylesDirty;
 - (id)styleListForClassSelector:(id)arg1;
 - (id)initWithStylesGroup:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

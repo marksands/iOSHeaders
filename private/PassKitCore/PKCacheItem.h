@@ -6,16 +6,22 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSDate;
+#import <PassKitCore/NSSecureCoding-Protocol.h>
 
-@interface PKCacheItem : NSObject
+@class NSDate, PKPeerPaymentRecipient;
+
+@interface PKCacheItem : NSObject <NSSecureCoding>
 {
     NSDate *_insertDate;
-    id _item;
+    PKPeerPaymentRecipient *_item;
 }
 
-@property(readonly, nonatomic) id item; // @synthesize item=_item;
++ (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) PKPeerPaymentRecipient *item; // @synthesize item=_item;
 - (void).cxx_destruct;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (_Bool)isNewerThan:(id)arg1;
 - (_Bool)hasExpired;
 - (id)initWithItem:(id)arg1;
 

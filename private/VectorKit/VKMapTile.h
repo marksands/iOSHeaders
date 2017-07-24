@@ -42,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (id)detailedDescription;
 - (id)description;
 - (void)dealloc;
+- (void)clear;
 - (id)initWithKey:(const struct VKTileKey *)arg1;
 
 @end

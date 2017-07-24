@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSString, UIButton, UIImage, UILabel, _WLKUIAppInstallLockup;
+@class NSLayoutConstraint, NSString, UIButton, UIImage, UILabel, _WLKUIAppInstallLockup;
 
 @interface _WLKUIAppInstallConfirmationView : UIView
 {
@@ -15,6 +15,7 @@
     UILabel *_imageSubtitleView;
     UILabel *_titleView;
     UILabel *_messageView;
+    NSLayoutConstraint *_buttonHeightConstraint;
     UIImage *_appIcon;
     NSString *_appName;
     NSString *_ageRating;
@@ -43,7 +44,12 @@
 - (void).cxx_destruct;
 - (void)_layoutForIos;
 - (void)_layoutForTvos;
+- (id)preferredFocusEnvironments;
+- (void)_updateForPreferredContentSize;
+- (_Bool)_isLargeContentSize;
+- (void)_contentSizeCategoryDidChange;
 - (void)layoutSubviews;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

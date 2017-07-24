@@ -16,6 +16,7 @@
 - (void)removeInteractionsForCalendar:(id)arg1;
 - (void)handleEventDeletion:(id)arg1;
 - (void)handleEventUpdate:(id)arg1;
+- (void)prepareForEventUpdate:(id)arg1;
 - (void)handleEventCreation:(id)arg1;
 
 @end

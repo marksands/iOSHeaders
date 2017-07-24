@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class DOCTargetSelectionBrowserViewController;
+@class DOCTargetSelectionBrowserViewController, NSArray;
 
 @protocol DOCTargetSelectionBrowserViewControllerDelegate
+- (void)targetSelectionController:(DOCTargetSelectionBrowserViewController *)arg1 didExportToURLs:(NSArray *)arg2;
 - (void)targetSelectionControllerWasCancelled:(DOCTargetSelectionBrowserViewController *)arg1;
 @end
 

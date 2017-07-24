@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSData, NSURL;
+@class NSArray, NSData, NSMutableDictionary, NSURL;
 @protocol OS_dispatch_queue;
 
 @interface _LSDefaults : NSObject
@@ -16,6 +16,9 @@
     NSURL *_systemGroupContainerURL;
     NSURL *_userContainerURL;
     NSData *_hmacSecret;
+    NSMutableDictionary *_darwinNotificationNames;
+    unsigned int _darwinNotificationNamesUID;
+    struct os_unfair_lock_s _darwinNotificationNamesLock;
     _Bool _inSyncBubble;
     _Bool _inXCTestRigInsecure;
     _Bool _appleInternal;
@@ -44,6 +47,7 @@
 - (id)debugDescription;
 @property(readonly) NSData *HMACSecret;
 @property(readonly) NSArray *preferredLocalizations; // @dynamic preferredLocalizations;
+@property(readonly) long long concurrentInstallOperations;
 @property(readonly) double databaseSaveLatency;
 @property(readonly) double databaseSaveInterval;
 - (id)preferencesFileChangeNotificationName;

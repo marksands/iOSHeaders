@@ -10,6 +10,7 @@
 @protocol OS_dispatch_queue;
 
 @protocol GEOActiveTileGroupMigrationTask <NSProgressReporting>
+@property(readonly) long long estimatedWeight;
 - (void)removeOldData:(GEOActiveTileGroup *)arg1;
 - (void)populateTileGroup:(GEOActiveTileGroup *)arg1;
 - (void)cancel;

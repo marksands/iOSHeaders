@@ -8,12 +8,12 @@
 
 @interface _MTLIndirectArgumentBufferLayout : NSObject
 {
-    struct _MTLIndirectArgumentBufferLayoutPrivate *_private;
 }
 
-- (void)setStructType:(id)arg1;
-- (id)pointerTypeForResourceAtIndex:(unsigned long long)arg1;
-- (id)argumentForResourceAtIndex:(unsigned long long)arg1;
+- (unsigned long long)constantOffsetAtIndex:(unsigned long long)arg1;
+@property(readonly) unsigned long long alignment; // @dynamic alignment;
+@property(readonly) unsigned long long encodedLength; // @dynamic encodedLength;
+@property(readonly) _Bool bufferLayoutMatchesFrontEndLayout; // @dynamic bufferLayoutMatchesFrontEndLayout;
 - (unsigned long long)uniqueIdentifierForSamplerAtIndex:(unsigned long long)arg1 inIndirectArgumentBuffer:(id)arg2 atOffset:(unsigned long long)arg3;
 - (unsigned long long)uniqueIdentifierForTextureAtIndex:(unsigned long long)arg1 inIndirectArgumentBuffer:(id)arg2 atOffset:(unsigned long long)arg3;
 - (void *)virtualAddressForBufferAtIndex:(unsigned long long)arg1 inIndirectArgumentBuffer:(id)arg2 atOffset:(unsigned long long)arg3;

@@ -45,7 +45,7 @@ __attribute__((visibility("hidden")))
 - (id)plist;
 - (void)resume;
 - (void)setServerZone:(id)arg1;
-- (_Bool)dumpTablesToContext:(id)arg1 error:(id *)arg2;
+- (_Bool)dumpTablesToContext:(id)arg1 includeAllItems:(_Bool)arg2 error:(id *)arg3;
 - (id)initWithMangledID:(id)arg1 dbRowID:(id)arg2 db:(id)arg3 plist:(id)arg4 session:(id)arg5 initialCreation:(_Bool)arg6;
 - (void)removeAppLibrary:(id)arg1;
 - (void)addAppLibrary:(id)arg1;

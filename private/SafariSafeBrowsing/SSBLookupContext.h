@@ -19,6 +19,8 @@
 - (void)lookUpURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)init;
+- (void)_forceUpdateRemoteConfigurationFromServerWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_forceLoadRemoteConfigurationFromDiskWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_getServiceStatusWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_getDatabaseStatusWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_forceDatabaseUpdateWithCompletionHandler:(CDUnknownBlockType)arg1;

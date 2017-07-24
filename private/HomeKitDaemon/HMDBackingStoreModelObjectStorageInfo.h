@@ -6,18 +6,27 @@
 
 #import <HMFoundation/HMFObject.h>
 
+@class HMFVersion;
+
 @interface HMDBackingStoreModelObjectStorageInfo : HMFObject
 {
     Class _classObj;
-    unsigned long long _loggingLevel;
+    unsigned long long _logging;
+    HMFVersion *_readOnly;
+    HMFVersion *_unavailable;
 }
 
 + (id)deprecatedField;
-+ (id)infoWithClass:(Class)arg1;
++ (id)infoWithClass:(Class)arg1 logging:(unsigned long long)arg2 readOnly:(id)arg3 unavailable:(id)arg4;
++ (id)infoWithClass:(Class)arg1 logging:(unsigned long long)arg2 readOnly:(id)arg3;
 + (id)infoWithClass:(Class)arg1 logging:(unsigned long long)arg2;
-@property(nonatomic) unsigned long long loggingLevel; // @synthesize loggingLevel=_loggingLevel;
-@property(nonatomic) Class classObj; // @synthesize classObj=_classObj;
-- (id)initWithClass:(Class)arg1;
++ (id)infoWithClass:(Class)arg1;
+@property(nonatomic) HMFVersion *unavailable; // @synthesize unavailable=_unavailable;
+@property(nonatomic) HMFVersion *readOnly; // @synthesize readOnly=_readOnly;
+@property(readonly, nonatomic) unsigned long long logging; // @synthesize logging=_logging;
+@property(readonly, nonatomic) Class classObj; // @synthesize classObj=_classObj;
+- (id)description;
+- (id)initWithClass:(Class)arg1 logging:(unsigned long long)arg2 readOnly:(id)arg3 unavailable:(id)arg4;
 
 @end
 

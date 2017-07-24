@@ -6,20 +6,29 @@
 
 #import <objc/NSObject.h>
 
+#import <Home/NAIdentifiable-Protocol.h>
+
 @class NSString;
 
-@interface HFUserHandle : NSObject
+@interface HFUserHandle : NSObject <NAIdentifiable>
 {
     NSString *_userID;
     unsigned long long _type;
 }
 
++ (id)na_identity;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(readonly, copy, nonatomic) NSString *userID; // @synthesize userID=_userID;
 - (void).cxx_destruct;
-- (id)description;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy) NSString *description;
 - (id)initWithType:(unsigned long long)arg1 userID:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

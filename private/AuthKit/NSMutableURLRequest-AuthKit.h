@@ -10,6 +10,8 @@
 + (id)ak_proxiedAnisetteHeadersWithData:(id)arg1;
 + (id)ak_anisetteHeadersWithCompanionData:(id)arg1;
 + (id)ak_anisetteHeadersWithData:(id)arg1;
++ (id)ak_deviceUDIDHeader;
++ (id)ak_clientInfoHeader;
 + (id)ak_timeZoneHeader;
 + (id)ak_localeHeader;
 + (id)ak_clientTimeHeader;

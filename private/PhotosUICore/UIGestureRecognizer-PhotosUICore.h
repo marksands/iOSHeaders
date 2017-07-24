@@ -7,6 +7,7 @@
 #import <UIKit/UIGestureRecognizer.h>
 
 @interface UIGestureRecognizer (PhotosUICore)
+- (_Bool)px_isPanGestureRecognizerOfScrollView:(id *)arg1;
 - (struct CGPoint)px_locationInCoordinateSpace:(id)arg1;
 - (void)px_cancel;
 @end

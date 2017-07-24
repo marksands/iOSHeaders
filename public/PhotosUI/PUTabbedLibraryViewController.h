@@ -57,6 +57,8 @@
 - (id)_tabRootViewControllerInNavigationController:(id)arg1;
 - (id)_snapBackRootViewControllerInNavigationController:(id)arg1;
 - (id)navigateToMemoryWithLocalIdentifier:(id)arg1;
+- (void)navigateToRevealTheMostRecentMemoryAnimated:(_Bool)arg1;
+- (id)_navigateToMemories;
 - (_Bool)assetIsAvailableForNavigationInMoments:(id)arg1 refetchSectionsIfNeeded:(_Bool)arg2;
 - (_Bool)assetIsAvailableForNavigationInMoments:(id)arg1;
 - (struct NSObject *)_availableAlbumToNavigateToAsset:(id)arg1 preferredAlbum:(struct NSObject *)arg2;

@@ -22,6 +22,7 @@
     double _fontRatio;
 }
 
++ (id)titleForType:(long long)arg1;
 + (id)buttonWithType:(long long)arg1 style:(long long)arg2;
 + (Class)layerClass;
 - (void).cxx_destruct;
@@ -32,6 +33,7 @@
 - (struct CGSize)intrinsicContentSize;
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)applyAccessibilityValues;
 - (id)initWithPaymentButtonType:(long long)arg1 paymentButtonStyle:(long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithCoder:(id)arg1;

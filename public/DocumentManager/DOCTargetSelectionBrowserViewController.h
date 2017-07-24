@@ -27,6 +27,9 @@
 @property(nonatomic) __weak id <DOCTargetSelectionBrowserViewControllerDelegate> targetSelectionDelegate; // @synthesize targetSelectionDelegate=_targetSelectionDelegate;
 - (void).cxx_destruct;
 - (void)notifyDelegateOfCancellation;
+- (void)_dismissWithBlock:(CDUnknownBlockType)arg1;
+- (void)filesExportedAtURLs:(id)arg1;
+- (void)cancelPresentation;
 - (void)dismissViewController;
 - (void)updateAppearance:(id)arg1;
 - (void)_cancelButtonPressed:(id)arg1;

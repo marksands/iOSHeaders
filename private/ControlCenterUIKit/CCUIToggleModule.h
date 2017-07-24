@@ -20,6 +20,7 @@
 @property(retain, nonatomic) CCUIContentModuleContext *contentModuleContext; // @synthesize contentModuleContext=_contentModuleContext;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) UIViewController<CCUIContentModuleContentViewController> *contentViewController;
+- (void)reconfigureView;
 - (void)refreshState;
 @property(readonly, copy, nonatomic) NSString *glyphState;
 @property(readonly, copy, nonatomic) CAPackage *glyphPackage;

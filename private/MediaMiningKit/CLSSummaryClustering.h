@@ -47,6 +47,8 @@
 @property(nonatomic) _Bool enableConcurency; // @synthesize enableConcurency=_enableConcurency;
 - (id)_adaptiveElection:(id)arg1 maximumNumberOfItems:(unsigned long long)arg2 progressBlock:(CDUnknownBlockType)arg3;
 - (id)performWithDataset:(id)arg1 maximumNumberOfItems:(unsigned long long)arg2 progressBlock:(CDUnknownBlockType)arg3;
+- (id)_densityClustersWithDataset:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
+- (id)densityClustersWithDataset:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (id)init;
 - (CDUnknownBlockType)densityClusteringDistanceBlock;
 

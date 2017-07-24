@@ -8,18 +8,19 @@
 
 #import <HomeKitDaemon/HAPAccessoryServerBrowserDelegate-Protocol.h>
 #import <HomeKitDaemon/HAPAccessoryServerDelegate-Protocol.h>
-#import <HomeKitDaemon/HMDAirPlayBrowserDelegate-Protocol.h>
+#import <HomeKitDaemon/HMDMediaBrowserDelegate-Protocol.h>
 #import <HomeKitDaemon/HMDWatchSystemStateDelegate-Protocol.h>
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class HAPAccessoryServerBrowserBTLE, HAPAccessoryServerBrowserIP, HAPAccessoryServerBrowserRelay, HMDAirPlayBrowser, HMDHomeManager, HMFMessageDispatcher, HMFTimer, NSArray, NSHashTable, NSMapTable, NSMutableArray, NSMutableSet, NSObject, NSString, NSUUID;
+@class HAPAccessoryServerBrowserBTLE, HAPAccessoryServerBrowserIP, HAPAccessoryServerBrowserRelay, HMDHomeManager, HMDMediaBrowser, HMFMessageDispatcher, NSArray, NSHashTable, NSMapTable, NSMutableArray, NSMutableSet, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
-@interface HMDAccessoryBrowser : HMFObject <HAPAccessoryServerBrowserDelegate, HAPAccessoryServerDelegate, HMFMessageReceiver, HMFTimerDelegate, HMDAirPlayBrowserDelegate, HMDWatchSystemStateDelegate>
+@interface HMDAccessoryBrowser : HMFObject <HAPAccessoryServerBrowserDelegate, HAPAccessoryServerDelegate, HMFMessageReceiver, HMFTimerDelegate, HMDMediaBrowserDelegate, HMDWatchSystemStateDelegate>
 {
     NSMutableSet *_unpairedHAPAccessories;
-    NSMutableSet *_unassociatedAirPlayAccessories;
+    NSMutableSet *_unassociatedMediaAccessories;
+    NSMutableSet *_deviceSetupMediaAccessories;
     _Bool _appIsInForeground;
     _Bool _activeSiriCommand;
     NSObject<OS_dispatch_queue> *_workQueue;
@@ -34,13 +35,11 @@
     HAPAccessoryServerBrowserIP *_ipAccessoryServerBrowser;
     HAPAccessoryServerBrowserBTLE *_btleAccessoryServerBrowser;
     HAPAccessoryServerBrowserRelay *_relayAccessoryServerBrowser;
-    HMDAirPlayBrowser *_airPlayBrowser;
-    HMFTimer *_stopReprovisioningTimer;
-    NSString *_identifierOfAccessoryBeingReprovisioned;
+    HMDMediaBrowser *_mediaBrowser;
     NSMutableSet *_identifiersOfBTLEPairedAccessories;
     NSObject<OS_dispatch_source> *_reachabilityTimerForBTLE;
     NSMutableSet *_identifiersOfPairedAccessories;
-    NSMutableSet *_identifiersOfAirPlayPairedAccessories;
+    NSMutableSet *_identifiersOfMediaPairedAccessories;
     NSMutableArray *_currentlyPairingAccessories;
     NSHashTable *_tombstonedHAPAccessoryServers;
     NSHashTable *_discoveringBLEAccessoryServerIdentifiers;
@@ -51,15 +50,13 @@
 @property(readonly, nonatomic) NSHashTable *discoveringBLEAccessoryServerIdentifiers; // @synthesize discoveringBLEAccessoryServerIdentifiers=_discoveringBLEAccessoryServerIdentifiers;
 @property(readonly, nonatomic) NSHashTable *tombstonedHAPAccessoryServers; // @synthesize tombstonedHAPAccessoryServers=_tombstonedHAPAccessoryServers;
 @property(retain, nonatomic) NSMutableArray *currentlyPairingAccessories; // @synthesize currentlyPairingAccessories=_currentlyPairingAccessories;
-@property(retain, nonatomic) NSMutableSet *identifiersOfAirPlayPairedAccessories; // @synthesize identifiersOfAirPlayPairedAccessories=_identifiersOfAirPlayPairedAccessories;
+@property(retain, nonatomic) NSMutableSet *identifiersOfMediaPairedAccessories; // @synthesize identifiersOfMediaPairedAccessories=_identifiersOfMediaPairedAccessories;
 @property(retain, nonatomic) NSMutableSet *identifiersOfPairedAccessories; // @synthesize identifiersOfPairedAccessories=_identifiersOfPairedAccessories;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *reachabilityTimerForBTLE; // @synthesize reachabilityTimerForBTLE=_reachabilityTimerForBTLE;
 @property(retain, nonatomic) NSMutableSet *identifiersOfBTLEPairedAccessories; // @synthesize identifiersOfBTLEPairedAccessories=_identifiersOfBTLEPairedAccessories;
-@property(retain, nonatomic) NSString *identifierOfAccessoryBeingReprovisioned; // @synthesize identifierOfAccessoryBeingReprovisioned=_identifierOfAccessoryBeingReprovisioned;
 @property(nonatomic) _Bool activeSiriCommand; // @synthesize activeSiriCommand=_activeSiriCommand;
 @property(nonatomic) _Bool appIsInForeground; // @synthesize appIsInForeground=_appIsInForeground;
-@property(retain, nonatomic) HMFTimer *stopReprovisioningTimer; // @synthesize stopReprovisioningTimer=_stopReprovisioningTimer;
-@property(retain, nonatomic) HMDAirPlayBrowser *airPlayBrowser; // @synthesize airPlayBrowser=_airPlayBrowser;
+@property(retain, nonatomic) HMDMediaBrowser *mediaBrowser; // @synthesize mediaBrowser=_mediaBrowser;
 @property(readonly, nonatomic) HAPAccessoryServerBrowserRelay *relayAccessoryServerBrowser; // @synthesize relayAccessoryServerBrowser=_relayAccessoryServerBrowser;
 @property(retain, nonatomic) HAPAccessoryServerBrowserBTLE *btleAccessoryServerBrowser; // @synthesize btleAccessoryServerBrowser=_btleAccessoryServerBrowser;
 @property(retain, nonatomic) HAPAccessoryServerBrowserIP *ipAccessoryServerBrowser; // @synthesize ipAccessoryServerBrowser=_ipAccessoryServerBrowser;
@@ -112,9 +109,9 @@
 - (void)_stopReconfirmTimer:(id)arg1;
 - (void)_handlePairingInterruptedTimeout:(id)arg1 error:(id)arg2;
 - (void)_notifyDelegatesOfRemovedAccessoryServer:(id)arg1 error:(id)arg2;
-- (void)accessoryServerBrowser:(id)arg1 didFinishWACForAccessoryWithIdentifier:(id)arg2 error:(id)arg3;
-- (void)_notifyDelegatesOfWACCompletionForAccessoryServerWithIdentifier:(id)arg1 error:(id)arg2;
 - (void)accessoryServerBrowser:(id)arg1 didFindAccessoryServer:(id)arg2 stateChanged:(_Bool)arg3 stateNumber:(id)arg4;
+- (void)_checkIfPairingWithPairedAccessoryServer:(id)arg1 errorCode:(long long)arg2;
+- (void)_removePairingInformation:(id)arg1 errorCode:(long long)arg2;
 - (void)accessoryServerBrowser:(id)arg1 accessoryServer:(id)arg2 didUpdateValuesForCharacteristics:(id)arg3 stateNumber:(id)arg4 broadcast:(_Bool)arg5;
 - (void)_notifyDelegatesOfNewPairedAccessoryServer:(id)arg1 stateChanged:(_Bool)arg2 stateNumber:(id)arg3;
 - (void)_resurrectAccessoryServer:(id)arg1;
@@ -135,9 +132,6 @@
 - (void)cancelPairingWithAccessoryDescription:(id)arg1 error:(id)arg2;
 - (void)_cancelPairingWithAccessory:(id)arg1 error:(id)arg2;
 - (void)_handleSetupCodeAvailable:(id)arg1;
-- (void)_sendRemovedNewAccessoryData:(id)arg1;
-- (void)_sendAddedNewAccessoryData:(id)arg1;
-- (void)_sendNewAccessoryData:(id)arg1 messageName:(id)arg2;
 - (void)_notifyDelegatesOfNewAccessory:(id)arg1;
 - (id)_unpairedAccessoryForServer:(id)arg1;
 - (id)_unpairedAccessoryWithServerIdentifier:(id)arg1;
@@ -159,7 +153,6 @@
 - (void)_startDiscoveringPairedAccessories;
 - (void)_discoverAccessoryServer:(id)arg1 linkType:(long long)arg2 errorHandler:(CDUnknownBlockType)arg3;
 - (void)timerDidFire:(id)arg1;
-- (void)_stopReprovisioningTimerHandler;
 - (_Bool)_isBrowsingAllowed;
 - (void)_startOrStopAccessoryDiscovery;
 - (void)_stopBtleAccessoryReachabilityProbeTimer;
@@ -172,13 +165,14 @@
 - (void)addUnpairedAccessoryServer:(id)arg1 identifier:(id)arg2;
 - (void)deregisterPairedAccessory:(id)arg1;
 - (void)registerPairedAccessory:(id)arg1 btleTransport:(_Bool)arg2 airPlay:(_Bool)arg3;
+- (unsigned long long)numPairedIPAccessories;
 - (void)_addUnpairedAccessoryForServer:(id)arg1;
 - (void)_removePairingInformationForUnpairedAccessory:(id)arg1;
-- (void)handleRemovedUnpairedHAPAccessory:(id)arg1;
+- (void)_handleRemovedUnpairedHAPAccessory:(id)arg1;
 - (void)removeUnpairedHAPAccessory:(id)arg1;
 - (void)addUnpairedHAPAccessory:(id)arg1;
-- (void)removeUnassociatedAirPlayAccessory:(id)arg1;
-- (void)addUnassociatedAirPlayAccessory:(id)arg1;
+- (void)removeUnassociatedMediaAccessory:(id)arg1;
+- (void)addUnassociatedMediaAccessory:(id)arg1 forDeviceSetup:(_Bool)arg2;
 - (id)_pairingInformationForUnpairedAccessory:(id)arg1;
 - (id)_unpairedAccessoryMatchingPairingInfo:(id)arg1;
 - (id)unpairedAccessoryWithUUID:(id)arg1;
@@ -193,8 +187,6 @@
 - (void)handleNoActiveHomeKitApp:(id)arg1;
 - (void)_handleNoActiveHomeKitAppOrSiriCommand;
 - (void)handleHomeKitAppInForeground:(id)arg1;
-- (void)_reprovisionAccessoryWithIdentifier:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)reprovisionAccessoryWithIdentifier:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)activate:(_Bool)arg1;
 - (void)discoverAccessoryServer:(id)arg1 linkType:(long long)arg2 errorHandler:(CDUnknownBlockType)arg3;
 - (void)stopTrackingBTLEAccessoriesWithIdentifiers:(id)arg1;
@@ -206,12 +198,18 @@
 - (void)handleRemovedAccessoryAdvertisement:(id)arg1;
 - (void)handleAddedAccessoryAdvertisement:(id)arg1;
 - (void)_notifyDelegatesOfReachability:(_Bool)arg1 forAccessoryWithIdentifier:(id)arg2;
-- (void)_sendNewAccessoryData:(id)arg1 added:(_Bool)arg2;
+- (void)notifyDelegatesOfReachability:(_Bool)arg1 forAccessoryWithIdentifier:(id)arg2;
+- (void)_sendNewAccessoryData:(id)arg1 added:(_Bool)arg2 requiresSPIEntitlement:(_Bool)arg3;
+- (void)_handleRemovedAccessory:(id)arg1;
 - (void)handleRemovedAccessory:(id)arg1;
+- (void)_handleAddedAccessory:(id)arg1;
 - (void)handleAddedAccessory:(id)arg1;
+@property(readonly, nonatomic) NSArray *deviceSetupMediaAccessories;
+@property(readonly, nonatomic) NSArray *unassociatedMediaAccessories;
+- (id)unassociatedHAPAccessories;
 @property(readonly, copy) NSArray *unassociatedAccessories;
-- (void)addUnassociatedAccessory:(id)arg1;
-@property(readonly, nonatomic) NSArray *unassociatedAirPlayAccessories;
+- (void)removeUnassociatedAccessory:(id)arg1;
+- (void)addUnassociatedAccessory:(id)arg1 forDeviceSetup:(_Bool)arg2;
 - (void)dealloc;
 - (void)updateBroadcastKeyForIdentifer:(id)arg1 key:(id)arg2 keyUpdatedStateNumber:(id)arg3 keyUpdatedTime:(double)arg4;
 - (void)updateStateForIdentifier:(id)arg1 stateNumber:(id)arg2;

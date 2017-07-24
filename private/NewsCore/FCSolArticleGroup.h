@@ -6,13 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class FCHeadlineClusteringRules, FCSolTagID, NSDictionary, NSMutableSet, NSSet;
+@class FCHeadlineClusteringRules, FCSolTagID, NSMutableSet, NSSet;
 
 @interface FCSolArticleGroup : NSObject
 {
     FCSolTagID *_tagId;
     NSSet *_articles;
-    NSDictionary *_articleScores;
     double _personalizationScore;
     FCHeadlineClusteringRules *_rules;
     NSMutableSet *_topArticles;
@@ -28,12 +27,11 @@
 @property(readonly, nonatomic) NSMutableSet *topArticles; // @synthesize topArticles=_topArticles;
 @property(retain, nonatomic) FCHeadlineClusteringRules *rules; // @synthesize rules=_rules;
 @property(nonatomic) double personalizationScore; // @synthesize personalizationScore=_personalizationScore;
-@property(retain, nonatomic) NSDictionary *articleScores; // @synthesize articleScores=_articleScores;
 @property(retain, nonatomic) NSSet *articles; // @synthesize articles=_articles;
 @property(retain, nonatomic) FCSolTagID *tagId; // @synthesize tagId=_tagId;
 - (void).cxx_destruct;
 - (void)computeTopArticlesAndScore;
-- (id)initWithTagId:(id)arg1 personalizationScore:(double)arg2 articles:(id)arg3 articleScores:(id)arg4 rules:(id)arg5;
+- (id)initWithTagId:(id)arg1 personalizationScore:(double)arg2 articles:(id)arg3 rules:(id)arg4;
 
 @end
 

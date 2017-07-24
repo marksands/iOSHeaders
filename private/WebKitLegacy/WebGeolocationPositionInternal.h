@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)initWithCoreGeolocationPosition:(PassRefPtr_1f71bc30)arg1;
+- (id)initWithCoreGeolocationPosition:(RefPtr_f6a7fd22 *)arg1;
 
 @end
 

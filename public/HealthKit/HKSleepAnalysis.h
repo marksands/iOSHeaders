@@ -6,12 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSDateInterval;
+@class NSArray;
 
 @interface HKSleepAnalysis : NSObject
 {
     _Bool _containsAsleepSamples;
-    NSDateInterval *_dateInterval;
     NSArray *_sleepDays;
     long long _consistencyCount;
     double _averageEfficiency;
@@ -28,9 +27,8 @@
 @property(readonly, nonatomic) long long consistencyCount; // @synthesize consistencyCount=_consistencyCount;
 @property(readonly, nonatomic) _Bool containsAsleepSamples; // @synthesize containsAsleepSamples=_containsAsleepSamples;
 @property(readonly, copy, nonatomic) NSArray *sleepDays; // @synthesize sleepDays=_sleepDays;
-@property(readonly, copy, nonatomic) NSDateInterval *dateInterval; // @synthesize dateInterval=_dateInterval;
 - (void).cxx_destruct;
-- (id)initWithDateInterval:(id)arg1 sleepDays:(id)arg2 containsAsleepSamples:(_Bool)arg3 consistencyCount:(long long)arg4 averageEfficiency:(double)arg5 averageTimeInBed:(double)arg6 averageTimeAlseep:(double)arg7 averageNumberOfInterruptions:(long long)arg8;
+- (id)initWithSleepDays:(id)arg1 containsAsleepSamples:(_Bool)arg2 consistencyCount:(long long)arg3 averageEfficiency:(double)arg4 averageTimeInBed:(double)arg5 averageTimeAlseep:(double)arg6 averageNumberOfInterruptions:(long long)arg7;
 
 @end
 

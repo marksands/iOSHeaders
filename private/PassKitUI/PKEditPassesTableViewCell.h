@@ -6,10 +6,11 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class PKPass;
+@class PKPass, UIActivityIndicatorView;
 
 @interface PKEditPassesTableViewCell : UITableViewCell
 {
+    UIActivityIndicatorView *_activityView;
     PKPass *_pass;
 }
 

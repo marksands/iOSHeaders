@@ -12,12 +12,14 @@
 {
     unsigned long long _mediaType;
     unsigned long long _galleryType;
+    unsigned long long _videoType;
     NSString *_mediaId;
     NSDictionary *_metaData;
 }
 
 @property(retain, nonatomic) NSDictionary *metaData; // @synthesize metaData=_metaData;
 @property(retain, nonatomic) NSString *mediaId; // @synthesize mediaId=_mediaId;
+@property(nonatomic) unsigned long long videoType; // @synthesize videoType=_videoType;
 @property(nonatomic) unsigned long long galleryType; // @synthesize galleryType=_galleryType;
 @property(nonatomic) unsigned long long mediaType; // @synthesize mediaType=_mediaType;
 - (void).cxx_destruct;

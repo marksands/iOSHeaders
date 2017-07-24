@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <VectorKit/VKGesturingCameraController-Protocol.h>
 
@@ -28,10 +28,8 @@ __attribute__((visibility("hidden")))
     struct CGPoint _pitchStartScreenPoint;
     _Bool _notifyCameraStateChanges;
     VKCameraController *_cameraController;
-    int _flyoverMode;
 }
 
-- (void)setFlyoverMode:(int)arg1;
 - (_Bool)isRotating;
 - (_Bool)isPanning;
 - (_Bool)isPinching;

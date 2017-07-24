@@ -82,7 +82,7 @@
 - (void)makeRulerVertical;
 - (id)_accessibilityHitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)accessibilityElements;
-- (void)drawingCancelled:(CDUnknownBlockType)arg1;
+- (void)drawingCancelled;
 - (void)drawingEnded:(id)arg1;
 - (void)drawingMoved:(id)arg1 withEvent:(id)arg2;
 - (void)drawingBegan:(id)arg1;

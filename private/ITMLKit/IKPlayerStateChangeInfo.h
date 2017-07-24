@@ -22,6 +22,7 @@
 - (void).cxx_destruct;
 - (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
 - (id)objectForKeyedSubscript:(id)arg1;
+@property(nonatomic) double rate;
 @property(nonatomic) double elapsedTime;
 @property(nonatomic) double duration;
 - (id)initWithState:(long long)arg1 oldState:(long long)arg2;

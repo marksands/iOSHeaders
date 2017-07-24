@@ -11,7 +11,7 @@
 #import <ContactsUI/CNContactChangesObserver-Protocol.h>
 
 @class CNAvatarCardController, CNContact, CNContactStore, NSArray, NSString, PRPersonaStore, UIImage, UIImageView, UINavigationController;
-@protocol CNAvatarViewDelegate, CNCancelable, CNUILikenessRendering;
+@protocol CNAvatarViewDelegate, CNCancelable, CNSchedulerProvider, CNUILikenessRendering;
 
 @interface CNAvatarView : UIView <CNContactChangesObserver, CNAvatarCardControllerDelegate, CNCardTransitioning>
 {
@@ -40,6 +40,7 @@
     long long _displayedImageState;
     UINavigationController *_contactViewNavigationController;
     CNAvatarCardController *_cardController;
+    id <CNSchedulerProvider> _schedulerProvider;
     UIImage *_overrideImage;
     long long _monogrammerStyle;
 }
@@ -58,6 +59,7 @@
 @property(retain, nonatomic) UIImage *overrideImage; // @synthesize overrideImage=_overrideImage;
 @property _Bool registeredContactAction; // @synthesize registeredContactAction=_registeredContactAction;
 @property _Bool registeredInNotifier; // @synthesize registeredInNotifier=_registeredInNotifier;
+@property(retain, nonatomic) id <CNSchedulerProvider> schedulerProvider; // @synthesize schedulerProvider=_schedulerProvider;
 @property(retain, nonatomic) CNAvatarCardController *cardController; // @synthesize cardController=_cardController;
 @property(retain, nonatomic) UINavigationController *contactViewNavigationController; // @synthesize contactViewNavigationController=_contactViewNavigationController;
 @property(nonatomic) long long displayedImageState; // @synthesize displayedImageState=_displayedImageState;
@@ -112,7 +114,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;
-- (id)initWithImageRenderer:(id)arg1 threeDTouchEnabled:(_Bool)arg2 style:(unsigned long long)arg3;
+- (id)initWithImageRenderer:(id)arg1 threeDTouchEnabled:(_Bool)arg2 style:(unsigned long long)arg3 schedulerProvider:(id)arg4;
 - (id)initWithImageRenderer:(id)arg1 threeDTouchEnabled:(_Bool)arg2;
 - (id)initWithSettings:(id)arg1;
 - (id)initWithContactStore:(id)arg1 personaStore:(id)arg2 threeDTouchEnabled:(_Bool)arg3;

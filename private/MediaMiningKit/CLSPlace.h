@@ -26,6 +26,7 @@
 @property(readonly, nonatomic) CLCircularRegion *region; // @synthesize region=_region;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (id)description;
 - (id)presentationString;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

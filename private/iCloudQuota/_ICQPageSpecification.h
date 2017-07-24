@@ -21,6 +21,7 @@
 @property(retain, nonatomic) NSString *pageTitle; // @synthesize pageTitle=_pageTitle;
 @property(retain, nonatomic) NSString *pageIdentifier; // @synthesize pageIdentifier=_pageIdentifier;
 - (void).cxx_destruct;
+- (id)copyWithBindings:(id)arg1;
 - (id)debugDescription;
 
 @end

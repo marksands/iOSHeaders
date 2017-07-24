@@ -8,7 +8,7 @@
 
 @protocol FPDRemoteFileProvider
 - (void)deleteSearchableItemsWithDomainIdentifiers:(NSArray *)arg1 completionHandler:(void (^)(NSError *))arg2;
-- (void)stopAccessingProviderEndpointForProtocolName:(NSString *)arg1;
+- (void)stopAccessingProviderEndpoint;
 - (void)startAccessingProviderEndpointForProtocolName:(NSString *)arg1 completionHandler:(void (^)(NSXPCListenerEndpoint *, NSError *))arg2;
 - (void)resolveItemID:(FPItemID *)arg1 completionHandler:(void (^)(NSURL *, NSError *))arg2;
 - (void)didChangeItemID:(FPItemID *)arg1 completionHandler:(void (^)(NSError *))arg2;

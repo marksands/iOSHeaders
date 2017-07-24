@@ -27,7 +27,10 @@
     NSString *_userQuery;
     NSString *_filterQuery;
     long long _strongRankingQueryCount;
+    long long _dominantRankingQueryCount;
+    long long _dominatedRankingQueryCount;
     long long _maxCount;
+    long long _completionResultCount;
     long long _queryID;
     NSString *_completionString;
     NSArray *_completionAttributes;
@@ -38,7 +41,10 @@
 @property(retain, nonatomic) NSArray *completionAttributes; // @synthesize completionAttributes=_completionAttributes;
 @property(retain, nonatomic) NSString *completionString; // @synthesize completionString=_completionString;
 @property(nonatomic) long long queryID; // @synthesize queryID=_queryID;
+@property(nonatomic) long long completionResultCount; // @synthesize completionResultCount=_completionResultCount;
 @property(nonatomic) long long maxCount; // @synthesize maxCount=_maxCount;
+@property(nonatomic) long long dominatedRankingQueryCount; // @synthesize dominatedRankingQueryCount=_dominatedRankingQueryCount;
+@property(nonatomic) long long dominantRankingQueryCount; // @synthesize dominantRankingQueryCount=_dominantRankingQueryCount;
 @property(nonatomic) long long strongRankingQueryCount; // @synthesize strongRankingQueryCount=_strongRankingQueryCount;
 @property(retain, nonatomic) NSString *filterQuery; // @synthesize filterQuery=_filterQuery;
 @property(nonatomic) int rankingType; // @synthesize rankingType=_rankingType;

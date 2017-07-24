@@ -30,6 +30,7 @@
 - (MFMailAccountProxyGenerator *)accountProxyGenerator;
 
 @optional
+- (void)contentDidChange;
 - (void)addSignature:(_Bool)arg1;
 @end
 

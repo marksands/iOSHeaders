@@ -13,10 +13,10 @@
 @interface GEOPDIcon : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
-    GEOPDPhoto *_icon;
+    GEOPDPhoto *_image;
 }
 
-@property(retain, nonatomic) GEOPDPhoto *icon; // @synthesize icon=_icon;
+@property(retain, nonatomic) GEOPDPhoto *image; // @synthesize image=_image;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
@@ -28,7 +28,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasIcon;
+@property(readonly, nonatomic) _Bool hasImage;
 
 @end
 

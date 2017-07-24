@@ -58,6 +58,10 @@
 - (id)displayableErrorForProvisioningError:(id)arg1;
 - (id)displayableErrorForError:(id)arg1;
 - (id)_displayableErrorOverrideForUnderlyingError:(id)arg1;
+- (_Bool)_hasPaymentPassWithPaymentMethodType:(unsigned long long)arg1;
+- (_Bool)hasDebitPaymentPass;
+- (_Bool)hasCreditPaymentPass;
+- (_Bool)hasPaymentPass;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1;
 - (void)_downloadMoreInfoItemURLs:(id)arg1 withMetadata:(id)arg2 completion:(CDUnknownBlockType)arg3;

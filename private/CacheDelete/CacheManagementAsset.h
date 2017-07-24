@@ -22,6 +22,7 @@
     double _consumed_date;
     double _download_start_date;
     double _download_completion_date;
+    double _last_viewed_date;
     NSString *_absolutePath;
 }
 
@@ -32,6 +33,7 @@
 + (id)assetWithRelativePath:(id)arg1 identifier:(id)arg2 expirationDate:(id)arg3 contentType:(id)arg4 metadata:(id)arg5 priority:(int)arg6;
 @property _Bool hasLegacyXattrs; // @synthesize hasLegacyXattrs=_hasLegacyXattrs;
 @property(retain) NSString *absolutePath; // @synthesize absolutePath=_absolutePath;
+@property double last_viewed_date; // @synthesize last_viewed_date=_last_viewed_date;
 @property double download_completion_date; // @synthesize download_completion_date=_download_completion_date;
 @property double download_start_date; // @synthesize download_start_date=_download_start_date;
 @property double consumed_date; // @synthesize consumed_date=_consumed_date;
@@ -51,6 +53,8 @@
 - (void)commit;
 - (id)fullPath;
 @property(retain, nonatomic) NSData *thumbnailData;
+- (id)lastViewedDate;
+- (void)setLastViewedDate:(id)arg1;
 - (id)downloadCompletionDate;
 - (void)setDownloadCompletionDate:(id)arg1;
 - (id)downloadStartDate;
@@ -62,8 +66,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (CDStruct_029d4d3a *)createFlattenedAsset:(long long *)arg1;
-- (id)initWithFlattenedAsset:(CDStruct_029d4d3a *)arg1;
+- (CDStruct_1285e12c *)createFlattenedAsset:(long long *)arg1;
+- (id)initWithFlattenedAsset:(CDStruct_1285e12c *)arg1;
 - (id)initWithRelativePath:(id)arg1 identifier:(id)arg2 expirationDate:(id)arg3 contentType:(id)arg4 metadata:(id)arg5 priority:(int)arg6;
 
 @end

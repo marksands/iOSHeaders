@@ -17,7 +17,7 @@
 
 + (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) NSUUID *inviteeUUID; // @synthesize inviteeUUID=_inviteeUUID;
-@property(readonly, copy, nonatomic) NSString *inviteeName; // @synthesize inviteeName=_inviteeName;
+@property(copy, nonatomic) NSString *inviteeName; // @synthesize inviteeName=_inviteeName;
 @property(readonly, copy, nonatomic) NSString *inviteeUserID; // @synthesize inviteeUserID=_inviteeUserID;
 - (void).cxx_destruct;
 - (id)description;

@@ -13,9 +13,11 @@
 {
     id <SFCardSection> _cardSection;
     NSString *_cardSectionId;
+    NSString *_resultId;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *resultId; // @synthesize resultId=_resultId;
 @property(copy, nonatomic) NSString *cardSectionId; // @synthesize cardSectionId=_cardSectionId;
 @property(retain, nonatomic) id <SFCardSection> cardSection; // @synthesize cardSection=_cardSection;
 - (void).cxx_destruct;

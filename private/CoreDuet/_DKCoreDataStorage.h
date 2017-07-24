@@ -13,7 +13,6 @@
 {
     NSManagedObjectModel *_managedObjectModel;
     NSMutableDictionary *_paths;
-    NSMutableDictionary *_syncPaths;
     NSMutableDictionary *_managedObjectContexts;
     NSMutableDictionary *_persistentStoreCoordinators;
     NSObject<OS_dispatch_queue> *_queueMOC;
@@ -23,6 +22,7 @@
     NSCloudKitMirroringDelegate *_mirroringDelegate;
     _Bool _readOnly;
     _Bool _localOnly;
+    _Bool _sync;
     NSString *_directory;
     NSURL *_modelURL;
     NSString *_databaseName;
@@ -45,12 +45,12 @@
 @property __weak id <_DKCoreDataStorageDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly) NSString *databaseName; // @synthesize databaseName=_databaseName;
 @property(readonly) NSURL *modelURL; // @synthesize modelURL=_modelURL;
+@property(readonly) _Bool sync; // @synthesize sync=_sync;
 @property(readonly) _Bool localOnly; // @synthesize localOnly=_localOnly;
 @property(readonly) _Bool readOnly; // @synthesize readOnly=_readOnly;
 @property(readonly) NSString *directory; // @synthesize directory=_directory;
 - (void).cxx_destruct;
 - (id)copyStorageFor:(id)arg1 toDirectory:(id)arg2;
-- (id)syncDatabasePathFor:(id)arg1;
 - (id)databasePathFor:(id)arg1;
 - (_Bool)deleteStorageFor:(id)arg1;
 - (_Bool)_deleteDatabaseFiles:(id)arg1;
@@ -76,6 +76,8 @@
 - (void)removePersistentStoresInCoordinator:(id)arg1;
 - (void)invalidateManagedObjectContextAndPersistentStoreCoordinatorFor:(id)arg1;
 - (void)handleDataProtectionChangeFor:(id)arg1 willBeAvailable:(_Bool)arg2;
+- (id)initWithDirectory:(id)arg1 databaseName:(id)arg2 modelURL:(id)arg3 readOnly:(_Bool)arg4 localOnly:(_Bool)arg5 sync:(_Bool)arg6;
+- (id)initWithDirectory:(id)arg1 databaseName:(id)arg2 modelURL:(id)arg3 sync:(_Bool)arg4;
 - (id)initWithDirectory:(id)arg1 databaseName:(id)arg2 modelURL:(id)arg3 readOnly:(_Bool)arg4 localOnly:(_Bool)arg5;
 - (id)init;
 

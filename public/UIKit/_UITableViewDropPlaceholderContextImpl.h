@@ -9,7 +9,7 @@
 #import <UIKit/_UITableViewPlaceholderContext-Protocol.h>
 
 @class NSString, NSUUID, UIDragItem;
-@protocol _UITableViewPlaceholderContextDelegate;
+@protocol UIDragAnimating, _UITableViewPlaceholderContextDelegate;
 
 __attribute__((visibility("hidden")))
 @interface _UITableViewDropPlaceholderContextImpl : NSObject <_UITableViewPlaceholderContext>
@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSString *_reuseIdentifier;
     double _rowHeight;
     CDUnknownBlockType _cellUpdateHandler;
+    id <UIDragAnimating> _animator;
     NSUUID *_shadowUpdateIdentifier;
     id <_UITableViewPlaceholderContextDelegate> _delegate;
     UIDragItem *_dragItem;
@@ -25,12 +26,15 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIDragItem *dragItem; // @synthesize dragItem=_dragItem;
 @property(nonatomic) __weak id <_UITableViewPlaceholderContextDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic, getter=_shadowUpdateIdentifier, setter=_setShadowUpdateIdentifier:) NSUUID *shadowUpdateIdentifier; // @synthesize shadowUpdateIdentifier=_shadowUpdateIdentifier;
+@property(retain, nonatomic, getter=_animator, setter=_setAnimator:) id <UIDragAnimating> animator; // @synthesize animator=_animator;
 @property(copy, nonatomic) CDUnknownBlockType cellUpdateHandler; // @synthesize cellUpdateHandler=_cellUpdateHandler;
 @property(nonatomic) double rowHeight; // @synthesize rowHeight=_rowHeight;
 @property(retain, nonatomic) NSString *reuseIdentifier; // @synthesize reuseIdentifier=_reuseIdentifier;
 - (void).cxx_destruct;
 - (_Bool)deletePlaceholder;
 - (_Bool)commitInsertionWithDataSourceUpdates:(CDUnknownBlockType)arg1;
+- (void)addCompletion:(CDUnknownBlockType)arg1;
+- (void)addAnimations:(CDUnknownBlockType)arg1;
 - (id)initWithDelegate:(id)arg1 dragItem:(id)arg2 reuseIdentifier:(id)arg3 rowHeight:(double)arg4 cellUpdateHandler:(CDUnknownBlockType)arg5;
 
 // Remaining properties

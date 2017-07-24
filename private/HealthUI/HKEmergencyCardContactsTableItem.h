@@ -45,7 +45,6 @@
 - (double)tableView:(id)arg1 heightForRowAtIndex:(long long)arg2;
 - (id)title;
 - (id)tableView:(id)arg1 cellForRowAtIndex:(long long)arg2;
-- (void)_configureAddContactCellLayoutForRowIndex:(long long)arg1;
 - (id)_dequeueAndConfigureContactEditCellForIndex:(long long)arg1 inTableView:(id)arg2;
 - (id)_dequeueAndConfigureContactViewCellForIndex:(long long)arg1 inTableView:(id)arg2;
 - (_Bool)refreshFromData;

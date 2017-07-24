@@ -13,9 +13,11 @@
 - (void)willRemoveAllRejections;
 - (void)didListRejections;
 - (void)willListRejections;
-- (void)couldNotRejectUnknownCollectionIdentifier:(NSString *)arg1;
-- (void)didRejectCollectionIdentifier:(NSString *)arg1;
-- (void)willRejectCollectionIdentifier:(NSString *)arg1;
+- (void)couldNotRejectClusterIdentifier:(NSString *)arg1 error:(NSError *)arg2;
+- (void)couldNotRejectUnknownClusterIdentifier:(NSString *)arg1;
+- (void)didRejectClusterIdentifier:(NSString *)arg1;
+- (void)willRejectClusterIdentifier:(NSString *)arg1;
+- (void)couldNotRejectDonationIdentifier:(NSString *)arg1 error:(NSError *)arg2;
 - (void)couldNotRejectUnknownDonationIdentifier:(NSString *)arg1;
 - (void)didRejectDonationIdentifier:(NSString *)arg1;
 - (void)willRejectDonationIdentifier:(NSString *)arg1;

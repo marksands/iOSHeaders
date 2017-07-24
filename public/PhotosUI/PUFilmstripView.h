@@ -15,6 +15,7 @@
 __attribute__((visibility("hidden")))
 @interface PUFilmstripView : UIView <PUTilingViewTileSource, PUTilingViewTileTransitionDelegate, UIScrollViewDelegate>
 {
+    _Bool _needsUpdateThumbnailAspectRatio;
     _Bool _needsUpdateDataSource;
     _Bool _needsUpdateLayout;
     PUTileViewAnimator *_animator;
@@ -26,9 +27,11 @@ __attribute__((visibility("hidden")))
     PUTilingView *__tilingView;
     PUFilmstripMediaProvider *__mediaProvider;
     PUFilmstripDataSource *__dataSource;
+    double __thumbnailAspectRatio;
     struct CGRect _visibleRect;
 }
 
+@property(nonatomic, setter=_setThumbnailAspectRatio:) double _thumbnailAspectRatio; // @synthesize _thumbnailAspectRatio=__thumbnailAspectRatio;
 @property(retain, nonatomic, setter=_setDataSource:) PUFilmstripDataSource *_dataSource; // @synthesize _dataSource=__dataSource;
 @property(retain, nonatomic, setter=_setMediaProvider:) PUFilmstripMediaProvider *_mediaProvider; // @synthesize _mediaProvider=__mediaProvider;
 @property(readonly, nonatomic) PUTilingView *_tilingView; // @synthesize _tilingView=__tilingView;
@@ -43,7 +46,6 @@ __attribute__((visibility("hidden")))
 - (id)tilingView:(id)arg1 tileTransitionCoordinatorForChangeFromFrame:(struct CGRect)arg2 toFrame:(struct CGRect)arg3 duration:(double)arg4;
 - (id)tilingView:(id)arg1 tileTransitionCoordinatorForTransitionFromLayout:(id)arg2 toLayout:(id)arg3 withContext:(id)arg4;
 - (id)tilingView:(id)arg1 tileControllerWithIndexPath:(id)arg2 kind:(id)arg3 dataSource:(id)arg4;
-- (double)_thumbnailAspectRatio;
 - (id)_filmstripLayout;
 - (void)_updateLayoutIfNeeded;
 - (void)_updateDataSourceIfNeeded;
@@ -52,6 +54,8 @@ __attribute__((visibility("hidden")))
 - (void)_invalidateDataSource;
 - (_Bool)_isMediaProviderValid;
 - (void)_invalidateMediaProvider;
+- (void)_updateThumbnailAspectRatioIfNeeded;
+- (void)_invalidateThumbnailAspectRatio;
 - (void)_setNeedsUpdate;
 - (void)layoutSubviews;
 - (void)reloadThumbnails;

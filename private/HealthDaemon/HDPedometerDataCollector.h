@@ -20,6 +20,7 @@
 + (id)createCollectorsForCurrentHardware:(id)arg1;
 - (void).cxx_destruct;
 - (void)userCharacteristicsManager:(id)arg1 didUpdateUserProfile:(id)arg2;
+- (void)setUserCondition:(id)arg1;
 - (_Bool)queue_userConditionIsSet;
 - (_Bool)queue_userIsAbleBodied;
 - (id)_queue_pedometer;

@@ -37,6 +37,8 @@
 - (void)didTouchUpInside;
 - (void)didTouchDown;
 - (void)getLaunchURLForTimelineEntryDate:(id)arg1 timeTravelDate:(id)arg2 withHandler:(CDUnknownBlockType)arg3;
+- (void)resumeAnimations;
+- (void)pauseAnimations;
 - (void)resume;
 - (void)pause;
 @property(readonly, nonatomic) _Bool supportsTapAction;

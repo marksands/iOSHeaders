@@ -30,11 +30,13 @@
     _Bool _suggestionLoggingSessionOpen;
     _Bool _suggestionsLoggingEnabled;
     _Bool _personBuilderMergeCandidatesEnabled;
+    unsigned long long _lastMinimumFaceGroupSizeForCreatingMergeCandidates;
 }
 
 + (long long)applicationDataFolderIdentifier;
 + (_Bool)runsExclusively;
 + (short)workerType;
+@property(nonatomic) unsigned long long lastMinimumFaceGroupSizeForCreatingMergeCandidates; // @synthesize lastMinimumFaceGroupSizeForCreatingMergeCandidates=_lastMinimumFaceGroupSizeForCreatingMergeCandidates;
 @property(nonatomic) _Bool personBuilderMergeCandidatesEnabled; // @synthesize personBuilderMergeCandidatesEnabled=_personBuilderMergeCandidatesEnabled;
 @property(nonatomic) unsigned long long incrementalPersonProcessingStage; // @synthesize incrementalPersonProcessingStage=_incrementalPersonProcessingStage;
 - (void).cxx_destruct;
@@ -46,7 +48,8 @@
 - (id)densityClusteringForObjects:(id)arg1 maximumDistance:(double)arg2 minimumNumberOfObjects:(unsigned long long)arg3 withDistanceBlock:(CDUnknownBlockType)arg4;
 - (id)performSocialGroupsIdentifiersWithPersonClusterManager:(id)arg1 forPersons:(id)arg2 overTheYearsComputation:(_Bool)arg3 updateBlock:(CDUnknownBlockType)arg4;
 - (id)suggestedMeIdentifierWithPersonClusterManager:(id)arg1 forPersons:(id)arg2 updateBlock:(CDUnknownBlockType)arg3;
-- (id)keyFaceForPerson:(id)arg1 qualityMeasureByFace:(id)arg2;
+- (id)keyFaceForPerson:(id)arg1 qualityMeasureByFace:(id)arg2 updateBlock:(CDUnknownBlockType)arg3;
+- (void)rebuildPersonsWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)processPersonsWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (_Bool)_promotePersonsWithError:(id *)arg1;
 - (_Bool)_buildPersonsIncrementally:(_Bool)arg1 error:(id *)arg2;
@@ -78,6 +81,7 @@
 - (id)_facesRequiringFaceCropGenerationForAsset:(id)arg1 error:(id *)arg2;
 - (_Bool)_generateAndPersistFaceCropsOfFaces:(id)arg1 inImage:(id)arg2 forAsset:(id)arg3 error:(id *)arg4;
 - (_Bool)_validateAsset:(id)arg1 error:(id *)arg2;
+- (void)setLastMinimumFaceGroupSizeForCreatingMergeCandidate:(unsigned long long)arg1;
 - (void)_setStateValue:(id)arg1 forKey:(id)arg2;
 - (void)_readState;
 - (id)workerStateFileURL;
@@ -85,7 +89,6 @@
 - (_Bool)hasStandaloneJobsForScenario:(unsigned long long)arg1;
 - (_Bool)hasAdditionalJobsForScenario:(unsigned long long)arg1 requestReason:(unsigned long long)arg2;
 - (id)statusAsDictionary;
-- (_Bool)_needToRunClusteringJob;
 - (_Bool)_needToRunPersonPromoterForScenario:(unsigned long long)arg1;
 - (_Bool)_needToRunPersonBuildingJobForScenario:(unsigned long long)arg1;
 - (_Bool)_needToRunClusteringJobForScenario:(unsigned long long)arg1;
@@ -124,7 +127,7 @@
 - (void)terminatePhotoVision;
 - (id)_photoVisionAllowingCreation:(_Bool)arg1 error:(id *)arg2;
 - (_Bool)_synchronouslyGenerateFaceTilesForFaces:(id)arg1 fromAsset:(id)arg2 assetImage:(id)arg3 error:(id *)arg4;
-- (id)_suggestionsForPersonLocalIdentifier:(id)arg1 clusterSequenceNumbers:(id)arg2 excludePersonLocalIdentifers:(id)arg3 operation:(id)arg4 error:(id *)arg5;
+- (id)_suggestionsForPersonLocalIdentifier:(id)arg1 clusterSequenceNumbers:(id)arg2 excludePersonLocalIdentifiers:(id)arg3 operation:(id)arg4 context:(id)arg5 error:(id *)arg6;
 - (void)_logAnalysisStatistics;
 - (void)_resetAnalysisStatistics;
 - (void)_performFullCVMLCleanup;

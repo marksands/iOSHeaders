@@ -14,6 +14,7 @@
 @interface SFBLEScanner : NSObject <CBCentralManagerDelegate>
 {
     _Bool _activateCalled;
+    _Bool _activated;
     _Bool _activeScan;
     CBCentralManager *_centralManager;
     struct NSMutableDictionary *_devices;
@@ -49,8 +50,10 @@
     CURetrier *_startRetrier;
     _Bool _timeoutFired;
     NSObject<OS_dispatch_source> *_timeoutTimer;
+    _Bool _updating;
     struct LogCategory *_ucat;
     _Bool _rssiLog;
+    _Bool _rssiLogStdOut;
     _Bool _scanCache;
     unsigned int _changeFlags;
     CDUnknownBlockType _bluetoothStateChangedHandler;
@@ -80,6 +83,7 @@
 @property(nonatomic) long long scanInterval; // @synthesize scanInterval=_scanInterval;
 @property(nonatomic) _Bool scanCache; // @synthesize scanCache=_scanCache;
 @property(nonatomic) long long rssiThreshold; // @synthesize rssiThreshold=_rssiThreshold;
+@property(nonatomic) _Bool rssiLogStdOut; // @synthesize rssiLogStdOut=_rssiLogStdOut;
 @property(nonatomic) _Bool rssiLog; // @synthesize rssiLog=_rssiLog;
 @property(nonatomic) double rescanInterval; // @synthesize rescanInterval=_rescanInterval;
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
@@ -107,6 +111,7 @@
 - (_Bool)_needActiveScan;
 - (void)_invokeBlockActivateSafe:(CDUnknownBlockType)arg1;
 - (void)_foundDevice:(id)arg1 advertisementData:(id)arg2 rssi:(long long)arg3 fields:(id)arg4;
+- (void)performUpdate:(CDUnknownBlockType)arg1;
 - (void)_invalidate;
 - (void)invalidate;
 - (void)_activateWithCompletion:(CDUnknownBlockType)arg1;

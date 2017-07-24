@@ -9,7 +9,7 @@
 #import <AssistantServices/NSCopying-Protocol.h>
 #import <AssistantServices/NSSecureCoding-Protocol.h>
 
-@class NSURL;
+@class NSDictionary, NSURL;
 
 @interface AFAudioPlaybackRequest : NSObject <NSCopying, NSSecureCoding>
 {
@@ -18,9 +18,11 @@
     long long _numberOfLoops;
     double _fadeInDuration;
     double _fadeOutDuration;
+    NSDictionary *_userInfo;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(readonly, nonatomic) double fadeOutDuration; // @synthesize fadeOutDuration=_fadeOutDuration;
 @property(readonly, nonatomic) double fadeInDuration; // @synthesize fadeInDuration=_fadeInDuration;
 @property(readonly, nonatomic) float volume; // @synthesize volume=_volume;
@@ -34,7 +36,7 @@
 - (unsigned long long)hash;
 - (id)_descriptionWithIndent:(unsigned long long)arg1;
 - (id)description;
-- (id)initWithItemURL:(id)arg1 numberOfLoops:(long long)arg2 volume:(float)arg3 fadeInDuration:(double)arg4 fadeOutDuration:(double)arg5;
+- (id)initWithItemURL:(id)arg1 numberOfLoops:(long long)arg2 volume:(float)arg3 fadeInDuration:(double)arg4 fadeOutDuration:(double)arg5 userInfo:(id)arg6;
 - (id)builder;
 
 @end

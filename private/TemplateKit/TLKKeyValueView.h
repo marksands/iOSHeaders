@@ -36,7 +36,7 @@
 - (_Bool)trailingGridIsHidden;
 - (_Bool)leadingGridIsHidden;
 - (long long)currentStackViewDistribution;
-- (long long)containerStackView:(id)arg1 alignmentForArrangedSubview:(id)arg2;
+- (struct CGRect)containerView:(id)arg1 layoutFrameForArrangedSubview:(id)arg2 withProposedFrame:(struct CGRect)arg3;
 - (void)observedPropertiesChanged;
 - (void)styleDidChange:(unsigned long long)arg1;
 - (id)observableProperties;

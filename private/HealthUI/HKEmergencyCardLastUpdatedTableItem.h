@@ -6,36 +6,14 @@
 
 #import <HealthUI/HKEmergencyCardTableItem.h>
 
-#import <HealthUI/HKIDUpdatedAndEditCellDelegate-Protocol.h>
-
-@class HKIDUpdatedAndEditCell, NSDateFormatter, NSString, UILabel;
-@protocol HKEmergencyCardLastUpdatedTableItemDelegate;
-
-@interface HKEmergencyCardLastUpdatedTableItem : HKEmergencyCardTableItem <HKIDUpdatedAndEditCellDelegate>
+@interface HKEmergencyCardLastUpdatedTableItem : HKEmergencyCardTableItem
 {
-    HKIDUpdatedAndEditCell *_cell;
     _Bool _editable;
-    UILabel *_lastUpdatedLabel;
-    NSDateFormatter *_dateFormatter;
-    id <HKEmergencyCardLastUpdatedTableItemDelegate> _delegate;
-    unsigned long long _dateType;
 }
 
-@property(nonatomic) unsigned long long dateType; // @synthesize dateType=_dateType;
-@property(nonatomic) __weak id <HKEmergencyCardLastUpdatedTableItemDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
-- (void)updatedAndEditCellDidTapEditButton:(id)arg1;
-- (struct UIEdgeInsets)separatorInset;
 - (id)tableView:(id)arg1 cellForRowAtIndex:(long long)arg2;
-- (id)updatedCell;
 - (_Bool)hasPresentableData;
-- (id)initInEditMode:(_Bool)arg1 updatedDateType:(unsigned long long)arg2 editable:(_Bool)arg3;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (id)initInEditMode:(_Bool)arg1 editable:(_Bool)arg2;
 
 @end
 

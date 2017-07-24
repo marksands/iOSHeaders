@@ -17,6 +17,8 @@
     double _scale;
     FPItemManager *_itemManager;
     NSString *_providerIdentifier;
+    CDUnknownBlockType _perThumbnailCompletionBlock;
+    CDUnknownBlockType _thumbnailsFetchCompletionBlock;
     CDUnknownBlockType _perThumbnailCompletionBlock_v2;
     CDUnknownBlockType _thumbnailsFetchCompletionBlock_v2;
 }
@@ -24,9 +26,12 @@
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) CDUnknownBlockType thumbnailsFetchCompletionBlock_v2; // @synthesize thumbnailsFetchCompletionBlock_v2=_thumbnailsFetchCompletionBlock_v2;
 @property(copy, nonatomic) CDUnknownBlockType perThumbnailCompletionBlock_v2; // @synthesize perThumbnailCompletionBlock_v2=_perThumbnailCompletionBlock_v2;
+@property(copy, nonatomic) CDUnknownBlockType thumbnailsFetchCompletionBlock; // @synthesize thumbnailsFetchCompletionBlock=_thumbnailsFetchCompletionBlock;
+@property(copy, nonatomic) CDUnknownBlockType perThumbnailCompletionBlock; // @synthesize perThumbnailCompletionBlock=_perThumbnailCompletionBlock;
 - (void).cxx_destruct;
 - (void)finishWithResult:(id)arg1 error:(id)arg2;
-- (void)operationDidProgressWithIdentifier:(id)arg1 data:(id)arg2 error:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)operationDidProgressWithInfo:(id)arg1 error:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)transformData:(id)arg1 forLegacyCompletionBlockWithType:(id)arg2;
 - (void)main;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

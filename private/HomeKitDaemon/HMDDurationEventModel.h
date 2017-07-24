@@ -12,7 +12,7 @@
 {
 }
 
-+ (id)eventModelWithDictionary:(id)arg1 home:(id)arg2 eventTriggerUUID:(id)arg3;
++ (id)eventModelWithDictionary:(id)arg1 home:(id)arg2 eventTriggerUUID:(id)arg3 message:(id)arg4;
 + (id)properties;
 
 // Remaining properties

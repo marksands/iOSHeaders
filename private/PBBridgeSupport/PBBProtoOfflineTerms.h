@@ -20,6 +20,7 @@
     NSData *_warranty;
 }
 
++ (Class)appleLanguagesType;
 @property(retain, nonatomic) NSMutableArray *appleLanguages; // @synthesize appleLanguages=_appleLanguages;
 @property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 @property(retain, nonatomic) NSString *languageCode; // @synthesize languageCode=_languageCode;

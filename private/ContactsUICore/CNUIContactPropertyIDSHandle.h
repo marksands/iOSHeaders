@@ -18,6 +18,7 @@
 
 + (id)idsIDForEmail:(id)arg1;
 + (id)idsIDForPhoneNumber:(id)arg1;
++ (id)supportedContactPropertyKeys;
 @property(readonly, copy, nonatomic) NSString *idsID; // @synthesize idsID=_idsID;
 @property(readonly, copy, nonatomic) CNContactProperty *contactProperty; // @synthesize contactProperty=_contactProperty;
 - (void).cxx_destruct;

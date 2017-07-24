@@ -43,7 +43,6 @@
 - (void)_remote_setSection:(NSString *)arg1 forAdSpaceWithIdentifier:(NSString *)arg2;
 - (void)_remote_closeAdSpaceWithIdentifier:(NSString *)arg1;
 - (void)_remote_reportTotalCreativeRequestCount:(long long)arg1 forAdSpaceWithIdentifier:(NSString *)arg2;
-- (void)_remote_checkAdspaceCanBeReusedWithIdentifier:(NSString *)arg1 withConfiguration:(ADAdSpaceConfiguration *)arg2 completionHandler:(void (^)(_Bool))arg3;
 - (void)_remote_requestAdSpaceWithConfiguration:(ADAdSpaceConfiguration *)arg1;
 - (void)_remote_addClientToSegments:(NSArray *)arg1 replaceExisting:(_Bool)arg2 privateSegment:(_Bool)arg3;
 - (void)_remote_requestAttributionDetailsWithBlock:(void (^)(NSDictionary *))arg1;

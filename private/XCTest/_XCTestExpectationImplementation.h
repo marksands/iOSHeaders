@@ -17,7 +17,9 @@
     _Bool _hasBeenWaitedOn;
     unsigned long long _expectedFulfillmentCount;
     unsigned long long _numberOfFulfillments;
+    unsigned long long _creationToken;
     unsigned long long _fulfillmentToken;
+    NSArray *_creationCallStackReturnAddresses;
     NSArray *_fulfillCallStackReturnAddresses;
     _Bool _inverted;
     _Bool _assertForOverFulfill;
@@ -30,7 +32,9 @@
 @property(nonatomic) unsigned long long numberOfFulfillments; // @synthesize numberOfFulfillments=_numberOfFulfillments;
 @property(nonatomic) unsigned long long expectedFulfillmentCount; // @synthesize expectedFulfillmentCount=_expectedFulfillmentCount;
 @property(copy) NSArray *fulfillCallStackReturnAddresses; // @synthesize fulfillCallStackReturnAddresses=_fulfillCallStackReturnAddresses;
+@property(copy) NSArray *creationCallStackReturnAddresses; // @synthesize creationCallStackReturnAddresses=_creationCallStackReturnAddresses;
 @property unsigned long long fulfillmentToken; // @synthesize fulfillmentToken=_fulfillmentToken;
+@property unsigned long long creationToken; // @synthesize creationToken=_creationToken;
 @property _Bool assertForOverFulfill; // @synthesize assertForOverFulfill=_assertForOverFulfill;
 @property _Bool inverted; // @synthesize inverted=_inverted;
 @property _Bool hasBeenWaitedOn; // @synthesize hasBeenWaitedOn=_hasBeenWaitedOn;

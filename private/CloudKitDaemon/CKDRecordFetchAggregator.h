@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 @interface CKDRecordFetchAggregator : CKDDatabaseOperation
 {
     CKDRecordCache *_recordCache;
+    _Bool _useRecordCache;
     _Bool _fetchAssetContents;
     _Bool _preserveOrdering;
     _Bool _started;
@@ -47,6 +48,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSDictionary *assetTransferOptionsByRecordTypeAndKey; // @synthesize assetTransferOptionsByRecordTypeAndKey=_assetTransferOptionsByRecordTypeAndKey;
 @property(nonatomic) _Bool fetchAssetContents; // @synthesize fetchAssetContents=_fetchAssetContents;
 @property(copy, nonatomic) CDUnknownBlockType fetchAggregatorCompletionBlock; // @synthesize fetchAggregatorCompletionBlock=_fetchAggregatorCompletionBlock;
+@property(nonatomic) _Bool useRecordCache; // @synthesize useRecordCache=_useRecordCache;
 - (void).cxx_destruct;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
 - (void)_finishRecordFetchAggregator;

@@ -13,9 +13,10 @@
 + (_Bool)_isCloudKitErrorDomain:(id)arg1;
 + (id)errorWithDomain:(id)arg1 code:(long long)arg2 userInfo:(id)arg3;
 - (id)_allPartialErrors;
+- (long long)_code;
 - (_Bool)isNetworkUnavailable;
 - (_Bool)isKeychainSyncingInProgress;
-- (_Bool)isAccountRequiresiCDPError;
+- (_Bool)isManateeNotAvailableError;
 - (_Bool)isUnrecoverableDecryptionError;
 - (_Bool)isPartialError;
 - (_Bool)isChangeTokenExpired;

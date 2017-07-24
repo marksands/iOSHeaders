@@ -14,6 +14,7 @@
 {
 }
 
++ (void)initialize;
 - (void)beginRequestWithExtensionContext:(id)arg1;
 - (void)serviceExtensionTimeWillExpire;
 - (void)didReceiveNotificationRequest:(id)arg1 withContentHandler:(CDUnknownBlockType)arg2;

@@ -10,18 +10,18 @@
 
 @interface _MRPlaybackQueueCapabilitiesProtobuf : PBCodable <NSCopying>
 {
-    _Bool _requestByIdenfifiers;
+    _Bool _requestByIdentifiers;
     _Bool _requestByRange;
     _Bool _requestByRequest;
     struct {
-        unsigned int requestByIdenfifiers:1;
+        unsigned int requestByIdentifiers:1;
         unsigned int requestByRange:1;
         unsigned int requestByRequest:1;
     } _has;
 }
 
 @property(nonatomic) _Bool requestByRequest; // @synthesize requestByRequest=_requestByRequest;
-@property(nonatomic) _Bool requestByIdenfifiers; // @synthesize requestByIdenfifiers=_requestByIdenfifiers;
+@property(nonatomic) _Bool requestByIdentifiers; // @synthesize requestByIdentifiers=_requestByIdentifiers;
 @property(nonatomic) _Bool requestByRange; // @synthesize requestByRange=_requestByRange;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -33,7 +33,7 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(nonatomic) _Bool hasRequestByRequest;
-@property(nonatomic) _Bool hasRequestByIdenfifiers;
+@property(nonatomic) _Bool hasRequestByIdentifiers;
 @property(nonatomic) _Bool hasRequestByRange;
 
 @end

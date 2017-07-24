@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (_Bool)canBecomeFocused;
 - (_Bool)usesAdvancedActions;
+- (_Bool)showsTouchWhenHighlighted;
 - (long long)buttonType;
 - (void)_pressAndHoldButton:(id)arg1;
 - (void)_doubleTapButton:(id)arg1;

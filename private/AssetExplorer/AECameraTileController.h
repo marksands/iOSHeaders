@@ -14,6 +14,7 @@
 @interface AECameraTileController : NSObject <AECameraTilePresentationDelegate>
 {
     id <AECameraTileSource> _cameraTileSource;
+    long long _captureModeForLayout;
     AECameraTile *_mostRecentCameraTile;
     AECameraTilePresentationViewController *_presentationViewController;
     CAMCameraViewController *_cameraViewController;
@@ -26,6 +27,7 @@
 @property(readonly, nonatomic, getter=_cameraViewController) CAMCameraViewController *cameraViewController; // @synthesize cameraViewController=_cameraViewController;
 @property(readonly, nonatomic, getter=_presentationViewController) AECameraTilePresentationViewController *presentationViewController; // @synthesize presentationViewController=_presentationViewController;
 @property(retain, nonatomic, getter=_mostRecentCameraTile, setter=_setMostRecentCameraTile:) AECameraTile *mostRecentCameraTile; // @synthesize mostRecentCameraTile=_mostRecentCameraTile;
+@property(nonatomic) long long captureModeForLayout; // @synthesize captureModeForLayout=_captureModeForLayout;
 @property(nonatomic) __weak id <AECameraTileSource> cameraTileSource; // @synthesize cameraTileSource=_cameraTileSource;
 - (void).cxx_destruct;
 - (void)presentationNavigationControllerWillBeDismissed:(id)arg1;

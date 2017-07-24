@@ -7,6 +7,8 @@
 #import <NewsTransport/NTPBHeadlineResultOperationInfo.h>
 
 @interface NTPBHeadlineResultOperationInfo (NTAdditions)
+- (void)setDynamicThumbnailSizeMinimumSizeInPixels:(struct CGSize)arg1;
+- (struct CGSize)dynamicThumbnailSizeMinimumSizeInPixels;
 - (id)assetsDirectoryFileURL;
 - (void)setAssetsDirectoryFileURL:(id)arg1;
 @end

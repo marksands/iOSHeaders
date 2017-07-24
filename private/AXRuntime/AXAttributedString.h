@@ -48,6 +48,7 @@
 - (const struct __CFAttributedString *)cfAttributedString;
 - (void)replaceString:(struct __CFString *)arg1;
 - (unsigned short)characterAtIndex:(unsigned long long)arg1;
+- (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;
 - (unsigned long long)length;
 - (void)convertAttachmentsWithBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;

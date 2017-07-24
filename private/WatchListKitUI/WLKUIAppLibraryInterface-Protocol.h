@@ -12,7 +12,9 @@
 @property(readonly, nonatomic) NSArray *test;
 @property(readonly, nonatomic) NSArray *installed;
 @property(readonly, nonatomic) NSArray *subscribed;
+- (_Bool)isAppInstalled:(NSString *)arg1;
 - (void)presentPurchase:(NSDictionary *)arg1;
+- (_Bool)isShowingInstaller;
 - (void)installAppForChannel:(NSString *)arg1:(JSValue *)arg2:(JSValue *)arg3:(JSValue *)arg4;
 @end
 

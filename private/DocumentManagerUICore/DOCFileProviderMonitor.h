@@ -6,18 +6,19 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary, NSString;
+@class NSMutableDictionary, NSOrderedSet;
 
 @interface DOCFileProviderMonitor : NSObject
 {
     id _providerMonitoringContext;
     NSMutableDictionary *_providerNames;
-    NSString *_monitoredIdentifier;
+    NSOrderedSet *_monitoredIdentifiers;
     CDUnknownBlockType _monitorCallback;
 }
 
 - (void).cxx_destruct;
-- (void)monitorProviderNameForIdentifier:(id)arg1 callback:(CDUnknownBlockType)arg2;
+- (void)notifyIfNecessary;
+- (void)monitorProviderNamesForIdentifiers:(id)arg1 callback:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)init;
 

@@ -10,7 +10,7 @@
 #import <MediaPlaybackCore/MPRTCReportingItemSessionContaining-Protocol.h>
 #import <MediaPlaybackCore/MPShuffleControllerDataSource-Protocol.h>
 
-@class MPCPlaybackRequestEnvironment, MPIdentifierSet, MPModelRequest, MPModelResponse, MPPlaceholderAVItem, MPShuffleController, NSDictionary, NSHashTable, NSObject, NSOperationQueue, NSString;
+@class MPCPlaybackRequestEnvironment, MPIdentifierSet, MPModelRequest, MPModelResponse, MPPlaceholderAVItem, MPPlaybackPlaceholderMediaItem, MPShuffleController, NSDictionary, NSHashTable, NSObject, NSOperationQueue, NSString;
 @protocol OS_dispatch_queue;
 
 @interface MPCModelQueueFeeder : MPQueueFeeder <MPRTCReportingItemSessionContaining, MPShuffleControllerDataSource, MPCQueueBehaviorManaging>
@@ -18,6 +18,8 @@
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSHashTable *_activeModelGenericAVItems;
     NSDictionary *_assetStoreFronts;
+    unsigned long long _backgroundTaskIdentifier;
+    unsigned long long _backgroundTasks;
     long long _currentRevisionID;
     NSDictionary *_endTimeModifications;
     CDUnknownBlockType _finalTracklistLoadingCompletionHandler;
@@ -25,6 +27,7 @@
     _Bool _hasLoadedFinalResponse;
     NSOperationQueue *_operationQueue;
     MPPlaceholderAVItem *_placeholderAVItem;
+    MPPlaybackPlaceholderMediaItem *_placeholderMediaItem;
     MPModelRequest *_request;
     MPModelResponse *_response;
     NSString *_rtcReportingPlayQueueSourceIdentifier;
@@ -54,14 +57,14 @@
 - (_Bool)_hasPlaceholderItemAtIndex:(unsigned long long)arg1;
 - (id)_genericObjectForModelObject:(id)arg1;
 - (id)_equivalencySourceAdamIDForIdentifierSet:(id)arg1;
+- (void)_endBackgroundTaskAssertion;
 - (long long)_currentPreferredStartIndexWithFinalResponse:(_Bool)arg1;
+- (void)_beginBackgroundTaskAssertion;
 - (void)_responseDidInvalidateNotification:(id)arg1;
 - (void)_playbackUserDefaultsMusicShuffleTypeDidChangeNotification:(id)arg1;
 - (void)_playbackUserDefaultsMusicRepeatTypeDidChangeNotification:(id)arg1;
 - (void)_allowsHighQualityMusicStreamingOnCellularDidChangeNotification:(id)arg1;
-- (long long)indexForItemID:(id)arg1;
-- (id)itemIDAtIndex:(long long)arg1;
-- (id)queueIdentifierForItemID:(id)arg1;
+- (_Bool)isPlaceholderItemForQueueIdentifier:(id)arg1;
 - (_Bool)supportsAddToQueue;
 - (unsigned long long)shuffleController:(id)arg1 countOfItemIdentifier:(id)arg2 withMaximumCount:(unsigned long long)arg3;
 - (id)shuffleController:(id)arg1 identifierForItemAtIndex:(unsigned long long)arg2;
@@ -74,6 +77,7 @@
 - (void)reloadWithPlaybackContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (long long)realShuffleType;
 - (long long)realRepeatType;
+- (id)query;
 - (_Bool)playerPreparesItemsForPlaybackAsynchronously;
 - (id)playbackInfoForIdentifier:(id)arg1;
 - (unsigned long long)indexOfMediaItem:(id)arg1;

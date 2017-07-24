@@ -19,6 +19,8 @@
 @property(nonatomic) _Bool restrictsValuesToTicks; // @synthesize restrictsValuesToTicks=_restrictsValuesToTicks;
 @property(nonatomic) unsigned long long segmentCount; // @synthesize segmentCount=_segmentCount;
 - (void).cxx_destruct;
+- (void)accessibilityDecrement;
+- (void)accessibilityIncrement;
 - (struct CGRect)trackRectForBounds:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setValue:(float)arg1 animated:(_Bool)arg2;

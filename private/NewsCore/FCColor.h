@@ -16,6 +16,7 @@
     double _alpha;
 }
 
++ (id)clearColor;
 + (id)blackColor;
 + (id)whiteColor;
 + (id)colorWithHexString:(id)arg1;

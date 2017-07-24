@@ -6,19 +6,21 @@
 
 #import <UIKit/UIView.h>
 
+#import <MediaPlayer/MPAVRoutingControllerDelegate-Protocol.h>
 #import <MediaPlayer/MPDetailSliderDelegate-Protocol.h>
 #import <MediaPlayer/MPVideoOverlay-Protocol.h>
 #import <MediaPlayer/UIPopoverPresentationControllerDelegate-Protocol.h>
 
-@class MPAVController, MPAVItem, MPAudioAndSubtitlesController, MPDetailSlider, MPKnockoutButton, MPVideoView, MPVolumeSlider, NSArray, NSLayoutConstraint, NSString, UIActivityIndicatorView, UIButton, UILabel, UINavigationBar, UIStatusBar, UIViewController, _UIBackdropView;
+@class MPAVController, MPAVItem, MPAVRoutingController, MPAudioAndSubtitlesController, MPDetailSlider, MPKnockoutButton, MPVideoView, MPVolumeSlider, NSArray, NSLayoutConstraint, NSString, UIActivityIndicatorView, UIButton, UILabel, UINavigationBar, UIStatusBar, UIViewController, _UIBackdropView;
 @protocol MPVideoControllerProtocol, MPVideoOverlayDelegate;
 
-@interface MPVideoPlaybackOverlayView : UIView <UIPopoverPresentationControllerDelegate, MPVideoOverlay, MPDetailSliderDelegate>
+@interface MPVideoPlaybackOverlayView : UIView <UIPopoverPresentationControllerDelegate, MPAVRoutingControllerDelegate, MPVideoOverlay, MPDetailSliderDelegate>
 {
     MPDetailSlider *_scrubber;
     MPKnockoutButton *_playPauseButton;
     MPKnockoutButton *_fullscreenButton;
     MPKnockoutButton *_pictureInPictureButton;
+    MPKnockoutButton *_airplayButton;
     UIStatusBar *_statusBar;
     UIButton *_doneButton;
     UIActivityIndicatorView *_loadingIndicator;
@@ -30,6 +32,7 @@
     MPKnockoutButton *_leftButton;
     MPKnockoutButton *_rightButton;
     UIButton *_audioAndSubtitlesButton;
+    MPAVRoutingController *_airplayController;
     UIView *_topBarLayoutGuide;
     UIView *_topBarItemsGuide;
     UIView *_bottomBarTopLayoutGuide;
@@ -52,7 +55,7 @@
     NSArray *_topBarTraitCollectionConstraints;
     NSArray *_topItems;
     NSArray *_bottomItems;
-    _Bool allowsWirelessPlayback;
+    _Bool _allowsWirelessPlayback;
     _Bool navigationBarHidden;
     _Bool _automaticallyHandleTransportControls;
     _Bool _allowsExitFromFullscreen;
@@ -88,7 +91,7 @@
 @property(nonatomic) unsigned long long visibleParts; // @synthesize visibleParts;
 @property(nonatomic) unsigned long long desiredParts; // @synthesize desiredParts;
 @property(nonatomic) unsigned long long disabledParts; // @synthesize disabledParts;
-@property(nonatomic) _Bool allowsWirelessPlayback; // @synthesize allowsWirelessPlayback;
+@property(nonatomic) _Bool allowsWirelessPlayback; // @synthesize allowsWirelessPlayback=_allowsWirelessPlayback;
 @property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;
 @property(retain, nonatomic) MPAVController *player; // @synthesize player=_player;
 @property(nonatomic) __weak id <MPVideoOverlayDelegate> delegate; // @synthesize delegate=_delegate;
@@ -103,6 +106,7 @@
 - (_Bool)updateTimeBasedValues;
 - (void)_updateLoadingIndicator;
 - (void)_updateScaleButton;
+- (void)_updateAirplayButton;
 - (void)_unregisterForPlayerNotifications:(id)arg1;
 - (void)_unregisterForItemNotifications:(id)arg1;
 - (void)_startSeeking;
@@ -128,8 +132,11 @@
 - (void)_itemChanged:(id)arg1;
 - (void)_effectiveScaleModeDidChange:(id)arg1;
 - (void)_durationAvailable:(id)arg1;
+- (void)_applicationWillEnterForegroundNotification:(id)arg1;
+- (void)_applicationDidEnterBackgroundNotification:(id)arg1;
 - (void)_alternateTracksAvailable:(id)arg1;
 - (void)_activeAudioRouteDidChange:(id)arg1;
+- (void)routingControllerAvailableRoutesDidChange:(id)arg1;
 - (void)_skipButtonTouchUpOutside:(id)arg1;
 - (void)_skipButtonTouchUpInside:(id)arg1;
 - (void)_skipButtonTouchCancel:(id)arg1;
@@ -139,6 +146,7 @@
 - (void)_observeControl:(id)arg1;
 - (void)_pictureInPictureButtonTapped:(id)arg1;
 - (void)_fullscreenButtonTapped:(id)arg1;
+- (void)_airplayButtonTapped:(id)arg1;
 - (void)_doneButtonTapped:(id)arg1;
 - (void)_buttonInteractionEnded:(id)arg1;
 - (void)_buttonInteractionCanceled:(id)arg1;

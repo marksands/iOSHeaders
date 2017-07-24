@@ -29,8 +29,12 @@
     MCDPCModel *_model;
     CADisplayLink *_displayLink;
     double _elapsedTime;
+    long long _playingItemIndex;
+    long long _totalItemCount;
 }
 
+@property(nonatomic) long long totalItemCount; // @synthesize totalItemCount=_totalItemCount;
+@property(nonatomic) long long playingItemIndex; // @synthesize playingItemIndex=_playingItemIndex;
 @property(nonatomic) double elapsedTime; // @synthesize elapsedTime=_elapsedTime;
 @property(retain, nonatomic) CADisplayLink *displayLink; // @synthesize displayLink=_displayLink;
 @property(retain, nonatomic) MCDPCModel *model; // @synthesize model=_model;
@@ -46,6 +50,8 @@
 - (void).cxx_destruct;
 - (void)nowPlayingViewControllerMore:(id)arg1;
 - (_Bool)nowPlayingViewControllerCanShowMore:(id)arg1;
+- (void)nowPlayingViewControllerAddToLibrary:(id)arg1;
+- (_Bool)nowPlayingViewControllerCanShowAddToLibrary:(id)arg1;
 - (id)nowPlayingViewControllerGetPlaybackRate:(id)arg1;
 - (void)nowPlayingViewControllerChangePlaybackRate:(id)arg1;
 - (_Bool)nowPlayingViewControllerCanShowChangePlaybackRate:(id)arg1;
@@ -80,6 +86,7 @@
 - (void)_displayLinkTick:(id)arg1;
 - (void)_processArtwork;
 - (void)_performChangeRequest:(id)arg1;
+- (void)_updateTrackQueueIndex;
 - (id)_currentlyPlayingSong;
 - (id)_currentlyPlayingItem;
 - (id)_songForIndexPath:(id)arg1;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSNumber, NSString, NSTimer;
 
@@ -12,7 +12,7 @@
 {
     NSString *_modificationStamp;
     NSNumber *_cachedUnreadMessageCount;
-    NSNumber *_cachedLastFailedMessageID;
+    NSNumber *_cachedLastFailedMessageDate;
     _Bool _suppressedUpdates;
     _Bool _pendingDBUpdatePost;
     NSTimer *_suppressedUpdatesTimer;
@@ -32,7 +32,7 @@
 - (id)replaceMessageAcknowledgmentsWithNewMessageAcknowledgment:(id)arg1 associatedMessageGUID:(id)arg2 sender:(id)arg3;
 - (void)postCountChanges;
 - (void)rebuildUnreadMessageCount;
-- (void)rebuildLastFailedMessageID;
+- (void)rebuildLastFailedMessageDate;
 - (void)databaseChatSpamUpdated:(id)arg1;
 - (void)updateStamp;
 - (void)_postDBUpdate;
@@ -42,7 +42,7 @@
 - (_Bool)isSuppressDatabaseUpdates;
 - (void)cleanseAttachments;
 - (long long)unreadMessagesCount;
-- (long long)lastFailedMessageID;
+- (long long)lastFailedMessageDate;
 - (id)markMessagesAsReadWithRoomname:(id)arg1 onService:(id)arg2 upToGUID:(id)arg3 readDate:(id)arg4 fromMe:(_Bool)arg5;
 - (id)markMessagesAsReadWithHandle:(id)arg1 onService:(id)arg2 upToGUID:(id)arg3 readDate:(id)arg4 fromMe:(_Bool)arg5;
 - (id)markMessagesAsReadWithRoomNames:(id)arg1 onServices:(id)arg2 upToGUID:(id)arg3 readDate:(id)arg4 fromMe:(_Bool)arg5;

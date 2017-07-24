@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 {
     CKDDecryptRecordsOperation *_decryptOperation;
     _Bool _useCachedEtags;
+    _Bool _useRecordCache;
     _Bool _forcePCSDecrypt;
     _Bool _shouldFetchAssetContent;
     _Bool _shouldFetchAssetContentInMemory;
@@ -30,7 +31,6 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_group> *_fetchRecordsGroup;
     NSMutableDictionary *_errorsByRecordID;
     NSMapTable *_downloadTasksByRecordID;
-    NSDictionary *_signaturesOfAssetsByRecordIDAndKey;
     NSDictionary *_assetTransferOptionsByRecordTypeAndKey;
     NSSet *_assetFieldNamesToPublishURLs;
     unsigned long long _requestedTTL;
@@ -49,7 +49,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool shouldFetchAssetContentInMemory; // @synthesize shouldFetchAssetContentInMemory=_shouldFetchAssetContentInMemory;
 @property(nonatomic) _Bool shouldFetchAssetContent; // @synthesize shouldFetchAssetContent=_shouldFetchAssetContent;
 @property(retain, nonatomic) NSDictionary *assetTransferOptionsByRecordTypeAndKey; // @synthesize assetTransferOptionsByRecordTypeAndKey=_assetTransferOptionsByRecordTypeAndKey;
-@property(retain, nonatomic) NSDictionary *signaturesOfAssetsByRecordIDAndKey; // @synthesize signaturesOfAssetsByRecordIDAndKey=_signaturesOfAssetsByRecordIDAndKey;
 @property(retain, nonatomic) NSMapTable *downloadTasksByRecordID; // @synthesize downloadTasksByRecordID=_downloadTasksByRecordID;
 @property(retain, nonatomic) NSMutableDictionary *errorsByRecordID; // @synthesize errorsByRecordID=_errorsByRecordID;
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *fetchRecordsGroup; // @synthesize fetchRecordsGroup=_fetchRecordsGroup;
@@ -64,6 +63,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) CDUnknownBlockType recordFetchProgressBlock; // @synthesize recordFetchProgressBlock=_recordFetchProgressBlock;
 @property(retain, nonatomic) NSArray *fullRecordsToFetch; // @synthesize fullRecordsToFetch=_fullRecordsToFetch;
 @property(nonatomic) _Bool forcePCSDecrypt; // @synthesize forcePCSDecrypt=_forcePCSDecrypt;
+@property(nonatomic) _Bool useRecordCache; // @synthesize useRecordCache=_useRecordCache;
 @property(nonatomic) _Bool useCachedEtags; // @synthesize useCachedEtags=_useCachedEtags;
 - (void).cxx_destruct;
 - (void)main;
@@ -73,7 +73,7 @@ __attribute__((visibility("hidden")))
 - (void)_didDownloadAssetsWithError:(id)arg1;
 - (void)_finishAllDownloadTasksWithError:(id)arg1;
 - (void)_addDownloadTaskForRecord:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (_Bool)_prepareAsset:(id)arg1 record:(id)arg2 recordKey:(id)arg3 signature:(id)arg4 assetTransferOptions:(id)arg5;
+- (_Bool)_prepareAsset:(id)arg1 record:(id)arg2 recordKey:(id)arg3 assetTransferOptions:(id)arg4;
 - (void)_handleRecordFetch:(id)arg1 recordID:(id)arg2 etagMatched:(_Bool)arg3 responseCode:(id)arg4;
 - (void)_decryptPropertiesOnRecord:(id)arg1 recordID:(id)arg2;
 @property(readonly, nonatomic) _Bool hasRecordDecryptOperation;

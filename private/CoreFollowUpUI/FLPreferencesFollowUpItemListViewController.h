@@ -25,8 +25,8 @@
 - (id)detailSpecifiersForFollowUpItem:(id)arg1;
 - (id)followUpItemSpecifiers;
 - (void)handleURL:(id)arg1;
-- (id)title;
 - (id)specifiers;
+- (void)setSpecifier:(id)arg1;
 - (id)_topViewModel;
 
 @end

@@ -15,8 +15,10 @@
     long long _family;
     NTKComplication *_complication;
     id <NTKTemplateComplicationDisplay> _display;
+    NSString *_bundleIdentifier;
 }
 
+@property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(nonatomic) __weak id <NTKTemplateComplicationDisplay> display; // @synthesize display=_display;
 @property(retain, nonatomic) NTKComplication *complication; // @synthesize complication=_complication;
 @property(nonatomic) long long family; // @synthesize family=_family;

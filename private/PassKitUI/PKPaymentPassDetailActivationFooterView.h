@@ -17,7 +17,7 @@
 - (void).cxx_destruct;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (void)setActivationButtonAction:(SEL)arg1;
+- (void)setActivationButtonTarget:(id)arg1 action:(SEL)arg2;
 - (void)setActivationButtonText:(id)arg1;
 - (void)setFooterText:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

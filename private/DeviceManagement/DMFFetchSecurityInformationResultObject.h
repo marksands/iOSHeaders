@@ -14,7 +14,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) DMFSecurityInformation *securityInformation; // @synthesize securityInformation=_securityInformation;
+@property(readonly, copy, nonatomic) DMFSecurityInformation *securityInformation; // @synthesize securityInformation=_securityInformation;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

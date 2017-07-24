@@ -13,14 +13,14 @@
     _Bool _shouldInsetAllSeparators;
     long long _numberOfItems;
     double _rowHeight;
-    double __separatorHeight;
+    double _separatorHeight;
     long long __numberOfSeparators;
 }
 
 @property(readonly, nonatomic) long long _numberOfSeparators; // @synthesize _numberOfSeparators=__numberOfSeparators;
-@property(readonly, nonatomic) double _separatorHeight; // @synthesize _separatorHeight=__separatorHeight;
 @property(nonatomic) _Bool shouldInsetAllSeparators; // @synthesize shouldInsetAllSeparators=_shouldInsetAllSeparators;
 @property(nonatomic) _Bool shouldShowSeparators; // @synthesize shouldShowSeparators=_shouldShowSeparators;
+@property(nonatomic) double separatorHeight; // @synthesize separatorHeight=_separatorHeight;
 @property(nonatomic) double rowHeight; // @synthesize rowHeight=_rowHeight;
 @property(readonly, nonatomic) long long numberOfItems; // @synthesize numberOfItems=_numberOfItems;
 - (struct CGRect)_frameForSeparatorAtIndex:(long long)arg1;

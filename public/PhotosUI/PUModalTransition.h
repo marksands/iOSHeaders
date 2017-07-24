@@ -23,6 +23,8 @@
 - (void)animateTransition:(id)arg1;
 - (void)cancelInteractiveTransition;
 - (void)finishInteractiveTransition;
+- (id)presentingViewController;
+- (void)imageModulationIntensityDidChange;
 - (void)completeInteractiveDismissTransitionFinished:(_Bool)arg1;
 - (void)completeInteractivePresentTransitionFinished:(_Bool)arg1;
 - (void)transitionWillDismissInteractively:(_Bool)arg1;

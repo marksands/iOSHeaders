@@ -18,9 +18,17 @@
     AWDProactiveModelFittingModelInfo *_modelInfo;
     AWDProactiveModelFittingSparseFloatVector *_sparseFloatWeights;
     AWDProactiveModelFittingQuantizedSparseVector *_sparseQuantizedWeights;
-    CDStruct_b5306035 _has;
+    float _weightsL2norm;
+    float _weightsScaleFactor;
+    struct {
+        unsigned int timestamp:1;
+        unsigned int weightsL2norm:1;
+        unsigned int weightsScaleFactor:1;
+    } _has;
 }
 
+@property(nonatomic) float weightsL2norm; // @synthesize weightsL2norm=_weightsL2norm;
+@property(nonatomic) float weightsScaleFactor; // @synthesize weightsScaleFactor=_weightsScaleFactor;
 @property(retain, nonatomic) AWDProactiveModelFittingQuantizedSparseVector *sparseQuantizedWeights; // @synthesize sparseQuantizedWeights=_sparseQuantizedWeights;
 @property(retain, nonatomic) AWDProactiveModelFittingEvalMetrics *evaluationMetrics; // @synthesize evaluationMetrics=_evaluationMetrics;
 @property(retain, nonatomic) AWDProactiveModelFittingMinibatchStats *minibatchStats; // @synthesize minibatchStats=_minibatchStats;
@@ -37,6 +45,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasWeightsL2norm;
+@property(nonatomic) _Bool hasWeightsScaleFactor;
 @property(readonly, nonatomic) _Bool hasSparseQuantizedWeights;
 @property(readonly, nonatomic) _Bool hasEvaluationMetrics;
 @property(readonly, nonatomic) _Bool hasMinibatchStats;

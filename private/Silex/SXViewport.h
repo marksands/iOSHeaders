@@ -17,24 +17,28 @@
     NSHashTable *_boundsListeners;
     NSHashTable *_appearStateListeners;
     NSHashTable *_documentSizeListeners;
+    NSHashTable *_contentFrameListeners;
     NSHashTable *_interfaceOrientationListeners;
     SXViewport *_viewportBeforeUpdates;
     UIScrollView *_view;
     struct CGSize _documentSize;
     struct CGRect _bounds;
     struct CGRect _dynamicBounds;
+    struct CGRect _contentFrame;
 }
 
 @property(readonly, nonatomic) UIScrollView *view; // @synthesize view=_view;
 @property(nonatomic) _Bool groupChanges; // @synthesize groupChanges=_groupChanges;
 @property(retain, nonatomic) SXViewport *viewportBeforeUpdates; // @synthesize viewportBeforeUpdates=_viewportBeforeUpdates;
 @property(retain, nonatomic) NSHashTable *interfaceOrientationListeners; // @synthesize interfaceOrientationListeners=_interfaceOrientationListeners;
+@property(retain, nonatomic) NSHashTable *contentFrameListeners; // @synthesize contentFrameListeners=_contentFrameListeners;
 @property(retain, nonatomic) NSHashTable *documentSizeListeners; // @synthesize documentSizeListeners=_documentSizeListeners;
 @property(retain, nonatomic) NSHashTable *appearStateListeners; // @synthesize appearStateListeners=_appearStateListeners;
 @property(retain, nonatomic) NSHashTable *boundsListeners; // @synthesize boundsListeners=_boundsListeners;
 @property(retain, nonatomic) NSHashTable *dynamicBoundsListeners; // @synthesize dynamicBoundsListeners=_dynamicBoundsListeners;
 @property(nonatomic) long long interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
 @property(nonatomic) unsigned long long appearState; // @synthesize appearState=_appearState;
+@property(nonatomic) struct CGRect contentFrame; // @synthesize contentFrame=_contentFrame;
 @property(nonatomic) struct CGSize documentSize; // @synthesize documentSize=_documentSize;
 @property(nonatomic) struct CGRect dynamicBounds; // @synthesize dynamicBounds=_dynamicBounds;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
@@ -51,6 +55,7 @@
 - (void)reset;
 @property(readonly, nonatomic) _Bool isPopulated;
 - (void)interfaceOrientationChangedFromOrientation:(long long)arg1;
+- (void)contentFrameDidChangeFromFrame:(struct CGRect)arg1;
 - (void)documentSizeDidChangeFromSize:(struct CGSize)arg1;
 - (void)appearStateChangedFromState:(unsigned long long)arg1;
 - (void)boundsDidChangeFromBounds:(struct CGRect)arg1;

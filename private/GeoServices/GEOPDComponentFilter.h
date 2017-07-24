@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDAddressFilter, GEOPDAddressObjectFilter, GEOPDAmenitiesFilter, GEOPDAssociatedAppFilter, GEOPDBoundsFilter, GEOPDBusinessClaimFilter, GEOPDCaptionedPhotoFilter, GEOPDContainedPlaceFilter, GEOPDETAFilter, GEOPDEntityFilter, GEOPDExternalActionFilter, GEOPDFactoidFilter, GEOPDFlyoverFilter, GEOPDHoursFilter, GEOPDIconFilter, GEOPDLocationEventFilter, GEOPDMessageLinkFilter, GEOPDPhotoFilter, GEOPDPlaceInfoFilter, GEOPDPlacecardURLFilter, GEOPDPriceDescriptionFilter, GEOPDQuickLinkFilter, GEOPDRapFilter, GEOPDRatingFilter, GEOPDRawAttributeFilter, GEOPDRestaurantReservationLinkFilter, GEOPDResultSnippetFilter, GEOPDReviewFilter, GEOPDRoadAccessInfoFilter, GEOPDSimpleRestaurantMenuTextFilter, GEOPDSpatialLookupFilter, GEOPDStyleAttributesFilter, GEOPDTextBlockFilter, GEOPDTipFilter, GEOPDTransitAttributionFilter, GEOPDTransitIncidentFilter, GEOPDTransitInfoFilter, GEOPDTransitInfoSnippetFilter, GEOPDTransitScheduleFilter, GEOPDVenueInfoFilter, GEOPDWifiFingerprintFilter, PBUnknownFields;
+@class GEOPDAddressFilter, GEOPDAddressObjectFilter, GEOPDAmenitiesFilter, GEOPDAssociatedAppFilter, GEOPDBoundsFilter, GEOPDBrowseCategoriesFilter, GEOPDBusinessClaimFilter, GEOPDCaptionedPhotoFilter, GEOPDContainedPlaceFilter, GEOPDETAFilter, GEOPDEntityFilter, GEOPDExternalActionFilter, GEOPDFactoidFilter, GEOPDFlyoverFilter, GEOPDHoursFilter, GEOPDIconFilter, GEOPDLocationEventFilter, GEOPDMessageLinkFilter, GEOPDPhotoFilter, GEOPDPlaceInfoFilter, GEOPDPlacecardURLFilter, GEOPDPriceDescriptionFilter, GEOPDQuickLinkFilter, GEOPDRapFilter, GEOPDRatingFilter, GEOPDRawAttributeFilter, GEOPDRestaurantReservationLinkFilter, GEOPDResultSnippetFilter, GEOPDReviewFilter, GEOPDRoadAccessInfoFilter, GEOPDSimpleRestaurantMenuTextFilter, GEOPDSpatialLookupFilter, GEOPDStyleAttributesFilter, GEOPDTextBlockFilter, GEOPDTipFilter, GEOPDTransitAttributionFilter, GEOPDTransitIncidentFilter, GEOPDTransitInfoFilter, GEOPDTransitInfoSnippetFilter, GEOPDTransitScheduleFilter, GEOPDVenueInfoFilter, GEOPDWifiFingerprintFilter, PBUnknownFields;
 
 @interface GEOPDComponentFilter : PBCodable <NSCopying>
 {
@@ -19,6 +19,7 @@
     GEOPDAmenitiesFilter *_amenitiesFilter;
     GEOPDAssociatedAppFilter *_associatedAppFilter;
     GEOPDBoundsFilter *_boundsFilter;
+    GEOPDBrowseCategoriesFilter *_browseCategoriesFilter;
     GEOPDBusinessClaimFilter *_businessClaimFilter;
     GEOPDCaptionedPhotoFilter *_captionedPhotoFilter;
     GEOPDContainedPlaceFilter *_containedPlaceFilter;
@@ -56,6 +57,7 @@
     GEOPDWifiFingerprintFilter *_wifiFingerprintFilter;
 }
 
+@property(retain, nonatomic) GEOPDBrowseCategoriesFilter *browseCategoriesFilter; // @synthesize browseCategoriesFilter=_browseCategoriesFilter;
 @property(retain, nonatomic) GEOPDPriceDescriptionFilter *priceDescriptionFilter; // @synthesize priceDescriptionFilter=_priceDescriptionFilter;
 @property(retain, nonatomic) GEOPDIconFilter *iconFilter; // @synthesize iconFilter=_iconFilter;
 @property(retain, nonatomic) GEOPDWifiFingerprintFilter *wifiFingerprintFilter; // @synthesize wifiFingerprintFilter=_wifiFingerprintFilter;
@@ -108,6 +110,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasBrowseCategoriesFilter;
 @property(readonly, nonatomic) _Bool hasPriceDescriptionFilter;
 @property(readonly, nonatomic) _Bool hasIconFilter;
 @property(readonly, nonatomic) _Bool hasWifiFingerprintFilter;
@@ -157,7 +160,6 @@
 - (id)initRestaurantReservationLinkFilterWithTraits:(id)arg1;
 - (id)initCaptionedPhotoFilterWithTraits:(id)arg1;
 - (id)initPhotoFilterWithTraits:(id)arg1;
-- (id)initETAFilterWithTraits:(id)arg1;
 - (id)initEntityFilterWithSpokenNames;
 
 @end

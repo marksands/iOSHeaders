@@ -20,6 +20,7 @@
     NSObject<OS_dispatch_group> *_activitySummaryBarrierGroup;
     NSObject<OS_dispatch_queue> *_queue;
     NSDate *_projectedOffWristDateToday;
+    long long _totalActiveDays;
     id <FITypicalDayActivityModelDelegate> _delegate;
 }
 
@@ -29,6 +30,7 @@
 - (id)_bucketDateForIndex:(unsigned long long)arg1 startOfDay:(id)arg2;
 - (id)_queue_fetchActivitySummariesOrderedByCacheIndexWithCalendar:(id)arg1;
 - (void)_queue_populateHistogramsAndOffWristDateForToday;
+@property(readonly, nonatomic) long long totalActiveDays;
 - (id)_queue_calculateProjectedOffWristDateFromActivitySummaries:(id)arg1;
 - (id)_queue_createHistogramForGoalType:(unsigned long long)arg1 activitySummaries:(id)arg2;
 - (void)_waitUntilActivitySummaryLoaded;

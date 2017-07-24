@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) NSString *searchQuery;
-- (void)submitWithHandler:(CDUnknownBlockType)arg1 networkActivity:(CDUnknownBlockType)arg2;
+- (void)submitWithHandler:(CDUnknownBlockType)arg1 auditToken:(id)arg2 timeout:(long long)arg3 networkActivity:(CDUnknownBlockType)arg4;
 - (id)initWithRequest:(id)arg1 shiftLocationsIfNeeded:(_Bool)arg2 traits:(id)arg3;
 
 // Remaining properties

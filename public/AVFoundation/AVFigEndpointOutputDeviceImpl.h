@@ -8,27 +8,36 @@
 
 #import <AVFoundation/AVOutputDeviceImpl-Protocol.h>
 
-@class NSArray, NSNumber, NSString;
+@class AVOutputDevice, AVWeakReference, NSArray, NSNumber, NSString;
 
 @interface AVFigEndpointOutputDeviceImpl : NSObject <AVOutputDeviceImpl>
 {
+    AVOutputDevice *_parentDevice;
+    AVWeakReference *_weakObserver;
     struct OpaqueFigEndpoint *_figEndpoint;
 }
 
 + (void)initialize;
+@property __weak AVOutputDevice *parentOutputDevice; // @synthesize parentOutputDevice=_parentDevice;
+- (void).cxx_destruct;
 - (void)setAdministrativeConfiguration:(id)arg1 administrationPassword:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) _Bool groupContainsGroupLeader;
 @property(readonly, nonatomic) _Bool isGroupLeader;
 @property(readonly, nonatomic) _Bool canBeGroupLeader;
 @property(readonly, copy, nonatomic) NSString *groupID;
 @property(readonly, nonatomic) _Bool canBeGrouped;
+- (void)setVolume:(float)arg1;
+- (void)_canSetEndpointVolumeDidChangeForEndpointWithID:(struct __CFString *)arg1;
+@property(readonly) _Bool canSetVolume;
+- (void)_volumeDidChangeForEndpointWithID:(struct __CFString *)arg1;
+@property(readonly) float volume;
 - (void)setSecondDisplayEnabled:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool canAccessRemoteAssets;
 @property(readonly, nonatomic) _Bool requiresAuthorization;
 @property(readonly, nonatomic) unsigned long long deviceFeatures;
 @property(readonly, copy, nonatomic) NSArray *connectedPairedDevices;
 @property(readonly, nonatomic, getter=isInUseByPairedDevice) _Bool inUseByPairedDevice;
-@property(readonly, nonatomic) struct OpaqueFigEndpoint *figEndpoint;
+- (struct OpaqueFigEndpoint *)figEndpoint;
 @property(readonly, nonatomic) NSNumber *rightBatteryLevel;
 @property(readonly, nonatomic) NSNumber *leftBatteryLevel;
 @property(readonly, nonatomic) NSNumber *caseBatteryLevel;

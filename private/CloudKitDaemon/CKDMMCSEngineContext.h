@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
     NSMutableIndexSet *_inMemoryItemsIDs;
 }
 
-+ (void)tearDownMMCSEngineWithContext:(id)arg1;
++ (_Bool)tearDownMMCSEngineWithContext:(id)arg1;
 + (id)setupMMCSEngineWithApplicationBundleID:(id)arg1 path:(id)arg2 wasCached:(_Bool *)arg3 error:(id *)arg4;
 + (_Bool)hasCachedCKDMMCSEngineContextForPath:(id)arg1;
 + (id)sharedContextsByPath;

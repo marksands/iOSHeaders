@@ -6,7 +6,7 @@
 
 #import <WatchKit/NSObject-Protocol.h>
 
-@class NSArray, NSData, NSDictionary, NSString, NSUUID;
+@class NSData, NSDictionary, NSString, NSUUID;
 
 @protocol SPRemoteInterfaceProtocol <NSObject>
 - (void)layoutDirection:(long long)arg1;
@@ -25,7 +25,6 @@
 - (void)receiveData:(NSData *)arg1 fromIdentifier:(NSString *)arg2;
 
 @optional
-- (void)extensionDidBeginUsingWithLaunchEnv:(NSDictionary *)arg1 launchArgs:(NSArray *)arg2 completion:(void (^)(NSDictionary *))arg3;
 - (void)replyTimingData:(NSDictionary *)arg1;
 - (void)receiveNativeComplicationRequest:(NSDictionary *)arg1 completion:(void (^)(NSDictionary *))arg2;
 @end

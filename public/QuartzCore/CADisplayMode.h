@@ -22,6 +22,7 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) unsigned long long preferredScale;
+@property(readonly, nonatomic) unsigned long long internalRepresentation;
 @property(readonly, copy, nonatomic) NSString *colorGamut;
 @property(readonly, copy, nonatomic) NSString *colorMode;
 @property(readonly, nonatomic) _Bool isVirtual;

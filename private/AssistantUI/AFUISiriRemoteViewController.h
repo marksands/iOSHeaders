@@ -71,6 +71,7 @@
 - (void)getScreenshotWithReplyHandler:(CDUnknownBlockType)arg1;
 - (void)setBugReportingAvailable:(_Bool)arg1;
 - (void)setHelpButtonEmphasized:(_Bool)arg1;
+- (void)setStatusBarHidden:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setStatusBarHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)serviceWillDismissViewControllerWithStatusBarStyle:(long long)arg1;
 - (void)serviceWillPresentViewControllerWithStatusBarStyle:(long long)arg1;
@@ -85,13 +86,13 @@
 - (void)serviceUserRelevantEventDidOccur;
 - (void)serviceStartRequestWithOptions:(id)arg1;
 - (void)serviceDidReadBulletinWithIdentifier:(id)arg1;
-- (void)serviceLastAppUpdateTimeWithReplyHandler:(CDUnknownBlockType)arg1;
 - (void)serviceBulletinWithIdentifier:(id)arg1 replyHandler:(CDUnknownBlockType)arg2;
 - (void)serviceStartGuidedAccess;
 - (void)serviceRequestsDismissal:(_Bool)arg1;
 - (void)serviceRequestsActivationSourceWithReplyHandler:(CDUnknownBlockType)arg1;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 

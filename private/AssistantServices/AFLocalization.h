@@ -19,7 +19,7 @@
 - (void).cxx_destruct;
 - (id)loadInfoForVoicesWithLanguageCode:(id)arg1;
 - (id)defaultOutputVoiceForSiriSessionLanguage:(id)arg1;
-- (id)allOutputVoiceIdentifierssForSiriLanguage:(id)arg1;
+- (id)allOutputVoiceIdentifiersForSiriLanguage:(id)arg1;
 - (id)localizedNameOfVoiceGender:(long long)arg1 inDisplayLanguage:(id)arg2;
 - (id)localizedGenderOfOutputVoice:(id)arg1 inDisplayLanguage:(id)arg2;
 - (id)localizedNameOfOutputVoice:(id)arg1 inDisplayLanguage:(id)arg2;

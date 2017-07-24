@@ -16,6 +16,7 @@
 + (_Bool)readMetadataType:(unsigned char)arg1 fromFileURL:(id)arg2 value:(id *)arg3 error:(id *)arg4;
 + (id)quickTimeMetadataItemsWithKey:(id)arg1 value:(id)arg2;
 + (id)quickTimeMetadataItemValueFromAsset:(id)arg1 withKey:(id)arg2;
++ (_Bool)hasValidMetadataForLoopingVideoAsset:(id)arg1;
 + (id)metadataItemValueFromAsset:(id)arg1 withKey:(id)arg2 keySpace:(id)arg3;
 
 @end

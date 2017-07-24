@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned int multipleChoiceListFormatID; // @synthesize multipleChoiceListFormatID=_multipleChoiceListFormatID;
 @property(readonly, nonatomic) int initialValue; // @synthesize initialValue=_initialValue;
 - (void).cxx_destruct;
+- (id)stringFromDouble:(double)arg1 locale:(id)arg2;
 - (id)asMultipleChoiceListFormat;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

@@ -9,9 +9,11 @@
 @class MCDPlayableContentPlaybackManager, UIViewController;
 
 @protocol MCDPlayableContentQueueManagerDelegate <NSObject>
+- (void)contentManagerCompletedAllPlayback:(MCDPlayableContentPlaybackManager *)arg1;
 - (void)contentManager:(MCDPlayableContentPlaybackManager *)arg1 presentViewController:(UIViewController *)arg2;
 - (void)contentManagerReloadData:(MCDPlayableContentPlaybackManager *)arg1;
 - (void)contentManagerInitiatedPlaybackFromPlaybackQueue:(MCDPlayableContentPlaybackManager *)arg1;
+- (void)contentManager:(MCDPlayableContentPlaybackManager *)arg1 displayItemIndex:(long long)arg2 totalItemCount:(long long)arg3;
 - (void)contentManager:(MCDPlayableContentPlaybackManager *)arg1 shouldShowPlaybackQueue:(_Bool)arg2;
 @end
 

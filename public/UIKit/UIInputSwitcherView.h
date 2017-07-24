@@ -6,7 +6,7 @@
 
 #import <UIKit/UIKeyboardMenuView.h>
 
-@class NSArray, NSMutableArray;
+@class NSArray, NSMutableArray, UIInputSwitcherGestureState;
 
 __attribute__((visibility("hidden")))
 @interface UIInputSwitcherView : UIKeyboardMenuView
@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *m_inputModes;
     NSArray *m_inputSwitcherItems;
     _Bool m_isForDictation;
+    UIInputSwitcherGestureState *m_gestureState;
     _Bool _messagesWriteboardFromSwitcher;
     _Bool _fileReportFromSwitcher;
     _Bool _showsSwitches;
@@ -52,6 +53,7 @@ __attribute__((visibility("hidden")))
 - (void)didSelectItemAtIndex:(unsigned long long)arg1;
 - (_Bool)shouldSelectItemAtIndex:(unsigned long long)arg1;
 - (void)updateSelectionWithPoint:(struct CGPoint)arg1;
+- (void)_segmentControlValueDidChange:(id)arg1;
 - (void)selectInputMode:(id)arg1;
 - (void)setInputMode:(id)arg1;
 - (void)selectRowForInputMode:(id)arg1;

@@ -6,22 +6,16 @@
 
 #import <BarcodeSupport/BCSAction.h>
 
-@class NSString;
-
 __attribute__((visibility("hidden")))
 @interface BCSWiFiConfigurationAction : BCSAction
 {
-    NSString *_ssid;
-    NSString *_password;
-    _Bool _isWEP;
 }
 
-- (void).cxx_destruct;
+- (id)actionPickerItems;
 - (void)performDefaultAction;
 - (id)debugDescriptionExtraInfoDictionary;
 - (id)localizedDefaultActionDescription;
 - (id)_wiFiConfigurationData;
-- (void)determineActionabilityWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)initWithData:(id)arg1;
 
 @end

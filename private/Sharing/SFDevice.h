@@ -8,7 +8,7 @@
 
 #import <Sharing/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSString, NSUUID, SFBLEDevice;
+@class NSArray, NSString, NSUUID, SFBLEDevice, SFProximityEstimator;
 
 @interface SFDevice : NSObject <NSSecureCoding>
 {
@@ -33,9 +33,11 @@
     NSString *_model;
     NSString *_name;
     NSString *_requestSSID;
+    SFProximityEstimator *_setupProximityEstimator;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) SFProximityEstimator *setupProximityEstimator; // @synthesize setupProximityEstimator=_setupProximityEstimator;
 @property(nonatomic) _Bool paired; // @synthesize paired=_paired;
 @property(nonatomic) unsigned char osVersion; // @synthesize osVersion=_osVersion;
 @property(nonatomic) _Bool watchLocked; // @synthesize watchLocked=_watchLocked;

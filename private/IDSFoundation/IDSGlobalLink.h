@@ -21,7 +21,7 @@
     unsigned short _startPort;
     int _portRange;
     unsigned char _protocolVersion;
-    NSString *_appName;
+    NSString *_appNameBase64;
     id <IDSLinkDelegate> _delegate;
     id <IDSLinkDelegate> _alternateDelegate;
     CDUnknownBlockType _connectReadyHandler;

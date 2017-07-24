@@ -21,6 +21,7 @@
 @property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 - (void).cxx_destruct;
 - (void)visionEngine:(id)arg1 evaluateSource:(id)arg2 context:(id)arg3 options:(long long)arg4 result:(CDUnknownBlockType)arg5;
+- (void)prewarmVisionEngineService;
 - (id)_serviceProxy;
 - (void)dealloc;
 - (void)_destroyXPCConnection;

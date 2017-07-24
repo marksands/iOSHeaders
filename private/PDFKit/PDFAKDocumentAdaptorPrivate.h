@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     AKController *akController;
     id <PDFAKControllerDelegateProtocol> pdfAKControllerDelegate;
     AKToolbarView *akToolbarView;
+    double modelBaseScaleFactor;
 }
 
 - (void).cxx_destruct;

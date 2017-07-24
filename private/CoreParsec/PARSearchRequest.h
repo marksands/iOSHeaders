@@ -19,11 +19,11 @@
     NSString *_l3version;
     NSArray *_localContextualSuggestions;
     SFSearchSuggestion *_engagedSuggestion;
-    SFSearchSuggestion *_completionCacheSuggestion;
+    NSArray *_completionCacheSuggestions;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) SFSearchSuggestion *completionCacheSuggestion; // @synthesize completionCacheSuggestion=_completionCacheSuggestion;
+@property(retain, nonatomic) NSArray *completionCacheSuggestions; // @synthesize completionCacheSuggestions=_completionCacheSuggestions;
 @property(retain, nonatomic) SFSearchSuggestion *engagedSuggestion; // @synthesize engagedSuggestion=_engagedSuggestion;
 @property(copy, nonatomic) NSArray *localContextualSuggestions; // @synthesize localContextualSuggestions=_localContextualSuggestions;
 @property(copy, nonatomic) NSString *l3version; // @synthesize l3version=_l3version;

@@ -6,8 +6,8 @@
 
 #import <NewsCore/NSObject-Protocol.h>
 
-@class FCAppConfiguration, FCFeedGroupEmittingContext, FCFeedGroupEmittingOperation, NSString;
-@protocol FCFeedGroupOutlining, NSCoding;
+@class FCFeedGroupEmittingContext, FCFeedGroupEmittingOperation, NSString;
+@protocol FCAppConfiguration, FCFeedGroupOutlining, NSCoding;
 
 @protocol FCFeedGroupEmitting <NSObject>
 @property(readonly, copy, nonatomic) NSString *groupEmitterIdentifier;
@@ -20,7 +20,7 @@
 @property(readonly, nonatomic) _Bool isRequiredByFollowingEmitters;
 @property(readonly, nonatomic) _Bool requiresForYouCatchUpOperation;
 @property(readonly, nonatomic) _Bool emitsSingletonGroups;
-- (NSString *)backingChannelTagIDWithAppConfig:(FCAppConfiguration *)arg1;
+- (NSString *)backingChannelTagIDWithAppConfig:(id <FCAppConfiguration>)arg1;
 - (_Bool)canMergeHeadlinesFromGroup:(id <FCFeedGroupOutlining>)arg1 intoGroup:(id <FCFeedGroupOutlining>)arg2;
 - (_Bool)canMergeGroupsUnconditionally;
 - (_Bool)supportsPagination;

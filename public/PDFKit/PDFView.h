@@ -22,6 +22,8 @@
 - (struct CGRect)convertRootViewRect:(struct CGRect)arg1 toPageLayer:(id)arg2;
 - (struct CGRect)convertRectToRootView:(struct CGRect)arg1 fromPageLayer:(id)arg2;
 - (struct CGRect)rootViewBounds;
+- (void)setShowsScrollIndicators:(_Bool)arg1;
+- (_Bool)showsScrollIndicators;
 - (void)setEnableSelectionDrawing:(_Bool)arg1;
 - (_Bool)enableSelectionDrawing;
 - (void)callPageVisibilityDelegateMethodForOverlayAdaptorOnly:(int)arg1 forPageView:(id)arg2 atPageIndex:(unsigned long long)arg3;
@@ -30,6 +32,7 @@
 - (void)setNewPageVisibilityDelegate:(id)arg1 withOldDelegate:(id)arg2;
 - (void)setAkAnnotationEditingEnabled:(_Bool)arg1;
 - (_Bool)akAnnotationEditingEnabled;
+- (id)akRedoToolbarItem;
 - (id)akUndoToolbarItem;
 - (id)akToolbarViewItemTintColor;
 - (void)setAkToolbarViewItemTintColor:(id)arg1;
@@ -55,8 +58,13 @@
 - (void)endEditingAnnotation;
 - (id)popupManager;
 - (void)setPopupManager:(id)arg1;
+- (void)setNeedsDisplayInRect:(struct CGRect)arg1;
+- (void)setNeedsDisplay;
+- (void)_forceTileRefresh;
 - (void)enableTextSelectionHandles;
 - (void)clearTextSelectionHandles;
+- (void)setLollipopMagnifierPage:(id)arg1 forPagePoint:(struct CGPoint)arg2;
+- (void)clearLollipopMagnifier;
 - (void)setTextSelectionMagnifierPage:(id)arg1 forPagePoint:(struct CGPoint)arg2;
 - (void)clearTextSelectionMagnifier;
 - (id)swipeGestureRecognizer;
@@ -105,6 +113,8 @@
 - (void)resizeDisplayView:(id)arg1;
 - (struct CGSize)pageViewSizeForPage:(id)arg1;
 - (void)updateCurrentPageUsingViewCenter;
+- (void)pdfViewDidChangePage:(id)arg1;
+- (void)pdfViewDidChangeScale:(id)arg1;
 - (void)documentDidEndWrite:(id)arg1;
 - (void)documentDidBeginWrite:(id)arg1;
 - (void)scrollViewSaysPageMayHaveChanged:(id)arg1;
@@ -123,9 +133,13 @@
 - (double)pageViewHeight:(id)arg1;
 - (struct CGRect)normalizedPageBounds:(id)arg1;
 - (id)PDFLayout;
-- (struct _PDFMargins)pdfMargins;
 - (id)_api_dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
+- (id)dragInteraction:(id)arg1 itemsForAddingToSession:(id)arg2 withTouchAtPoint:(struct CGPoint)arg3;
+- (void)showTextSelectionMenuIfPossible;
+- (void)dragInteraction:(id)arg1 session:(id)arg2 didEndWithOperation:(unsigned long long)arg3;
+- (void)dragInteraction:(id)arg1 willAnimateLiftWithAnimator:(id)arg2 session:(id)arg3;
 - (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
+- (id)_dragItemsAtLocationInView:(struct CGPoint)arg1;
 - (_Bool)_hasDraggableSelectionAtLocation:(struct CGPoint)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
@@ -171,12 +185,13 @@
 - (void)selectAll:(id)arg1;
 - (void)clearSelection;
 - (void)setCurrentSelection:(id)arg1 animate:(_Bool)arg2;
+- (void)setCurrentSelectionNoClear:(id)arg1;
 @property(retain, nonatomic) PDFSelection *currentSelection;
 - (void)performAction:(id)arg1;
 - (void)performBeep;
 - (long long)areaOfInterestForPoint:(struct CGPoint)arg1;
 - (long long)areaOfInterestForMouse:(id)arg1;
-@property(readonly, nonatomic) double sizeToFitScaleFactor;
+@property(readonly, nonatomic) double scaleFactorForSizeToFit;
 @property(nonatomic) _Bool autoScales;
 @property(readonly, nonatomic) _Bool canZoomOut;
 - (void)zoomOut:(id)arg1;
@@ -188,7 +203,7 @@
 - (void)_setupPageViewController;
 - (void)usePageViewController:(_Bool)arg1 withViewOptions:(id)arg2;
 - (id)documentViewController;
-- (_Bool)isUsingPageViewController;
+@property(readonly, nonatomic) _Bool isUsingPageViewController;
 @property(nonatomic) long long interpolationQuality;
 @property(retain, nonatomic) UIColor *backgroundColor;
 - (void)takeBackgroundColorFrom:(id)arg1;

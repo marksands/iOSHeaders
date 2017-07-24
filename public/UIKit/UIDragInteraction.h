@@ -10,7 +10,7 @@
 #import <UIKit/UIInteraction-Protocol.h>
 #import <UIKit/_UIViewDraggingSourceDelegate-Protocol.h>
 
-@class NSArray, NSString, UIDragInteractionContextImpl, UIGestureRecognizer, UIView, _UIDragAcceleratorGestureRecognizer, _UIDragAddItemsGesture, _UIDragLiftGestureRecognizer, _UIDragSessionImpl, _UIDraggingSession, _UIRelationshipGestureRecognizer;
+@class NSArray, NSString, UIDragInteractionContextImpl, UIView, _UIDragAcceleratorGestureRecognizer, _UIDragAddItemsGesture, _UIDragLiftGestureRecognizer, _UIDragSessionImpl, _UIRelationshipGestureRecognizer;
 @protocol UIDragInteractionDelegate, UIDragInteractionEffect;
 
 @interface UIDragInteraction : NSObject <UIGestureRecognizerDelegate, _UIViewDraggingSourceDelegate, UIInteraction>
@@ -25,11 +25,13 @@
     _UIDragAcceleratorGestureRecognizer *_gestureRecognizerForAcceleratedDragInitiation;
     _UIRelationshipGestureRecognizer *_gestureRecognizerForFailureRelationship;
     _UIRelationshipGestureRecognizer *_gestureRecognizerForExclusionRelationship;
+    _Bool _allowsSimultaneousRecognitionDuringLift;
     _Bool _cancellationTimerEnabled;
     _Bool _competingLongPressOnLift;
     _Bool _acceleratedDragGestureEnabled;
     _Bool _automaticallyAddsFailureRelationships;
     _Bool _allowsMultipleSessions;
+    _Bool _additionalTouchesCancelLift;
     id <UIDragInteractionDelegate> _delegate;
     UIView *_view;
     id <UIDragInteractionEffect> _interactionEffect;
@@ -40,9 +42,9 @@
     long long _addItemsGestureConfiguration;
 }
 
-+ (id)sourceInteractionWithDelegate:(id)arg1;
 + (_Bool)isEnabledByDefault;
 + (void)_cancelAllDrags;
+@property(nonatomic, getter=_additionalTouchesCancelLift, setter=_setAdditionalTouchesCancelLift:) _Bool additionalTouchesCancelLift; // @synthesize additionalTouchesCancelLift=_additionalTouchesCancelLift;
 @property(nonatomic, getter=_addItemsGestureConfiguration, setter=_setAddItemsGestureConfiguration:) long long addItemsGestureConfiguration; // @synthesize addItemsGestureConfiguration=_addItemsGestureConfiguration;
 @property(nonatomic, getter=_allowsMultipleSessions, setter=_setAllowsMultipleSessions:) _Bool allowsMultipleSessions; // @synthesize allowsMultipleSessions=_allowsMultipleSessions;
 @property(nonatomic, getter=_automaticallyAddsFailureRelationships, setter=_setAutomaticallyAddsFailureRelationships:) _Bool automaticallyAddsFailureRelationships; // @synthesize automaticallyAddsFailureRelationships=_automaticallyAddsFailureRelationships;
@@ -55,13 +57,9 @@
 @property(nonatomic, getter=_liftDelay, setter=_setLiftDelay:) double liftDelay; // @synthesize liftDelay=_liftDelay;
 @property(retain, nonatomic) id <UIDragInteractionEffect> interactionEffect; // @synthesize interactionEffect=_interactionEffect;
 @property(nonatomic) __weak UIView *view; // @synthesize view=_view;
+@property(nonatomic) _Bool allowsSimultaneousRecognitionDuringLift; // @synthesize allowsSimultaneousRecognitionDuringLift=_allowsSimultaneousRecognitionDuringLift;
 @property(readonly, nonatomic) __weak id <UIDragInteractionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)addRepresentations:(id)arg1;
-- (void)addRepresentation:(id)arg1;
-@property(readonly, nonatomic) NSArray *representations;
-@property(readonly, nonatomic) _UIDraggingSession *session;
-@property(readonly, nonatomic) UIGestureRecognizer *sessionInitiationGestureRecognizer;
 @property(nonatomic, getter=isEnabled) _Bool enabled;
 - (void)didMoveToView:(id)arg1;
 - (void)willMoveToView:(id)arg1;
@@ -97,18 +95,24 @@
 - (_Bool)_beginLiftForItems:(id)arg1 session:(id)arg2 animated:(_Bool)arg3;
 - (void)_prepareForLiftAtPoint:(struct CGPoint)arg1 usingAccessibility:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_openCompetingGestureRecognizerGateCancelingGestures:(id)arg1;
-- (void)_cancelCompetingGestureRecognizerGateTimer;
-- (void)_gateCompetingGestureRecognizers;
+- (void)_invalidateCancellationTimerWithContext:(id)arg1;
+- (void)_invalidateCompetingGestureRecognizerGateTimerWithContext:(id)arg1;
+- (void)_gateCompetingGestureRecognizersWithContext:(id)arg1;
 - (_Bool)_wantsTimeDelayedFailureRequirementGate;
-- (_Bool)_addItems;
+- (_Bool)_accessibilityAddItemsToDragSessionAtPoint:(struct CGPoint)arg1;
+- (_Bool)_accessibilityCanAddItemsToDragSession;
+- (void)_updateInteractionEffectWithContext:(id)arg1 notifyDelegate:(_Bool)arg2;
+- (_Bool)_addItemsWithTouchPoint:(struct CGPoint)arg1;
 - (_Bool)_canExcludeCompetingGestureRecognizer:(id)arg1;
 - (_Bool)_shouldDelayCompetingGestureRecognizer:(id)arg1;
 - (id)_interactionGestureRecognizers;
 - (void)_queryDelegate:(id)arg1 forLiftPreviewsUsingItems:(id)arg2 session:(id)arg3;
-- (id)_queryDelegate:(id)arg1 forItemsForAddingToSession:(id)arg2 atPoint:(struct CGPoint)arg3 oldTempSession:(id)arg4;
+- (id)_queryDelegate:(id)arg1 forItemsForAddingToSession:(id)arg2 atPoint:(struct CGPoint)arg3;
 - (id)_queryDelegate:(id)arg1 forItemsForBeginningSession:(id)arg2;
 - (void)_handoffSession:(id)arg1;
+- (void)_beginDragWithBeginBlock:(CDUnknownBlockType)arg1;
 - (void)_beginDragWithGestureRecognizer:(id)arg1;
+- (void)_immediatelyBeginDragWithTouch:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_accessibilityPrepareForDragAtPoint:(struct CGPoint)arg1 completion:(CDUnknownBlockType)arg2;
 - (struct CGPoint)_locationInView:(id)arg1;
 - (_Bool)_isActive;
@@ -117,6 +121,7 @@
 - (void)setLiftDelay:(double)arg1;
 - (void)setDragCancellationDelay:(double)arg1;
 - (void)_cancelDrag;
+@property(copy, nonatomic, getter=_allowedTouchTypes, setter=_setAllowedTouchTypes:) NSArray *allowedTouchTypes;
 - (id)initWithDelegate:(id)arg1;
 
 // Remaining properties

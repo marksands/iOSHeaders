@@ -11,6 +11,7 @@
 @protocol PDContinuityPaymentServiceExportedInterface <PDXPCServiceExportedInterface>
 - (void)sendPaymentSetupRequest:(PKRemoteDevice *)arg1 appDisplayName:(NSString *)arg2 handler:(void (^)(NSError *))arg3;
 - (void)fetchRemoteDevicesWithHandler:(void (^)(NSArray *, NSError *))arg1;
+- (void)canMakePaymentsWithRemoteDevicesWithHandler:(void (^)(_Bool, NSError *))arg1;
 - (void)hasRemoteDevicesWithHandler:(void (^)(_Bool, NSError *))arg1;
 - (void)cancelRemotePaymentRequest:(PKRemotePaymentRequest *)arg1 handler:(void (^)(NSError *))arg2;
 - (void)presentContinuityPaymentInterfaceWithRequestIdentifier:(NSString *)arg1 handler:(void (^)(NSError *))arg2;

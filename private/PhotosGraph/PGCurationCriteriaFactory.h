@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)_indexSetFromBaseSceneNames:(id)arg1;
++ (id)_indexSetFromBaseSceneNames:(id)arg1 leafSceneNames:(id)arg2;
 + (id)_tripScenesTrait;
 + (id)_restaurantScenesTrait;
 + (id)_longTripCriteriaWithGraph:(id)arg1;

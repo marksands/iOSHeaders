@@ -6,9 +6,9 @@
 
 #import <Silex/NSObject-Protocol.h>
 
-@class SXMediaSelectionViewController;
+@class NSIndexPath, SXMediaSelectionViewController;
 
 @protocol SXMediaSelectionViewControllerDelegate <NSObject>
-- (void)mediaSelectionViewController:(SXMediaSelectionViewController *)arg1 selectMediaSelectionOptionAtIndex:(unsigned long long)arg2;
+- (void)mediaSelectionViewController:(SXMediaSelectionViewController *)arg1 selectMediaSelectionOptionAtIndexPath:(NSIndexPath *)arg2;
 @end
 

@@ -9,6 +9,7 @@
 @protocol GEONavXPCInterface
 - (void)updateNavigationRouteStatus:(NSData *)arg1;
 - (void)updateNavigationRouteDetails:(NSData *)arg1 routeStatus:(NSData *)arg2 routeContext:(NSData *)arg3;
+- (void)clearPreviewRoutesWithRouteContext:(NSData *)arg1;
 - (void)updatePreviewRoutes:(NSArray *)arg1 expectedNumberOfRoutes:(unsigned long long)arg2 routeContext:(NSData *)arg3;
 - (void)anticipatePreviewRoute:(NSData *)arg1 routeContext:(NSData *)arg2;
 @end

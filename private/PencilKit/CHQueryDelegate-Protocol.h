@@ -10,8 +10,5 @@
 
 @protocol CHQueryDelegate <NSObject>
 - (void)queryDidUpdateResult:(CHQuery *)arg1;
-
-@optional
-- (void)searchQueryDidUpdateFoundItems:(CHQuery *)arg1;
 @end
 

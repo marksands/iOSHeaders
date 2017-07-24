@@ -6,9 +6,9 @@
 
 #import <NewsCore/NSObject-Protocol.h>
 
-@class FCTagsFetchOperation, NSDictionary;
+@class FCTagsFetchOperation, NSArray;
 
 @protocol FCTagsFetchOperationDelegate <NSObject>
-- (void)tagsFetchOperation:(FCTagsFetchOperation *)arg1 didFetchTagsByID:(NSDictionary *)arg2;
+- (void)tagsFetchOperation:(FCTagsFetchOperation *)arg1 didFetchTags:(NSArray *)arg2;
 @end
 

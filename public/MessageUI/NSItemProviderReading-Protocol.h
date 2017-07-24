@@ -10,6 +10,9 @@
 
 @protocol NSItemProviderReading <NSObject>
 + (NSArray *)readableTypeIdentifiersForItemProvider;
+
+@optional
++ (id)objectWithItemProviderData:(NSData *)arg1 typeIdentifier:(NSString *)arg2 error:(id *)arg3;
 - (id)initWithItemProviderData:(NSData *)arg1 typeIdentifier:(NSString *)arg2 error:(id *)arg3;
 @end
 

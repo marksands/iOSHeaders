@@ -7,11 +7,12 @@
 #import <Messages/_MSMessageComposeExtensionProtocol-Protocol.h>
 
 @class BKSAnimationFenceHandle, MSConversation, MSMessage, MSRichLink, UIViewController, _MSMessageMediaPayload;
-@protocol _MSMessageComposeExtensionProtocol, _MSMessageComposeHostImplProtocol;
+@protocol _MSMessageComposeExtensionImplProtocol, _MSMessageComposeHostImplProtocol;
 
 @protocol _MSMessageComposeExtensionImplProtocol <_MSMessageComposeExtensionProtocol>
 @property(retain, nonatomic) id <_MSMessageComposeHostImplProtocol> hostContext;
-@property(retain, nonatomic) id <_MSMessageComposeExtensionProtocol> containingContext;
+@property(retain, nonatomic) id <_MSMessageComposeExtensionImplProtocol> containingContext;
+@property(readonly, nonatomic) __weak UIViewController *stickerViewController;
 @property(readonly, nonatomic) __weak UIViewController *viewController;
 @property(nonatomic) unsigned long long presentationStyle;
 @property(readonly, nonatomic) MSConversation *activeConversation;

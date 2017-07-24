@@ -11,8 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (void)setPreinstalledTags:(id)arg1;
-+ (id)preinstalledTags;
 + (long long)resourceAccessTypeForResourceRequest:(id)arg1;
 + (id)bundle;
 + (id)createResourceRequestForDocumentResourceInfos:(id)arg1 resourceContext:(id)arg2;

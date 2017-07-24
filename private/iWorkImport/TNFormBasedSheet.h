@@ -11,21 +11,22 @@
 __attribute__((visibility("hidden")))
 @interface TNFormBasedSheet : TNSheet
 {
-    UUIDData_5fbc143e mTableUID;
-    TSTInfo *mTableInfo;
-    NSString *mImportedTargetName;
+    TSTInfo *_tableInfo;
+    NSString *_importedTargetName;
+    UUIDData_5fbc143e _tableUID;
 }
 
+@property(retain, nonatomic) NSString *importedTargetName; // @synthesize importedTargetName=_importedTargetName;
+@property(nonatomic) UUIDData_5fbc143e tableUID; // @synthesize tableUID=_tableUID;
 - (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)resolveImportedTargetNameInDocumentRoot:(id)arg1;
 - (id)initWithContext:(id)arg1 importedTargetName:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromUnarchiver:(id)arg1;
 - (_Bool)shouldBeDisplayed;
 - (void)clearTableInfoCache;
-@property(readonly) TSTInfo *tableInfo;
-- (void)dealloc;
-@property(nonatomic) UUIDData_5fbc143e tableUID;
+@property(readonly, nonatomic) TSTInfo *tableInfo; // @synthesize tableInfo=_tableInfo;
 - (_Bool)isForm;
 - (double)contentScale;
 

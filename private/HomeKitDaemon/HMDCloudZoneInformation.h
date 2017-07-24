@@ -14,6 +14,7 @@
 @interface HMDCloudZoneInformation : HMFObject <NSSecureCoding, HMDBackingStoreObjectProtocol>
 {
     _Bool _fetchFailed;
+    _Bool _zoneCreated;
     _Bool _handlesCloudRecord;
     NSUUID *_uuid;
     NSString *_ownerName;
@@ -27,6 +28,7 @@
 + (id)cloudZonesWithDictionary:(id)arg1;
 @property(nonatomic, getter=doesHandlesCloudRecord) _Bool handlesCloudRecord; // @synthesize handlesCloudRecord=_handlesCloudRecord;
 @property(nonatomic) long long schemaVersion; // @synthesize schemaVersion=_schemaVersion;
+@property(nonatomic, getter=isZoneCreated) _Bool zoneCreated; // @synthesize zoneCreated=_zoneCreated;
 @property(nonatomic, getter=didFetchFailed) _Bool fetchFailed; // @synthesize fetchFailed=_fetchFailed;
 @property(retain, nonatomic) NSString *ownerName; // @synthesize ownerName=_ownerName;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;

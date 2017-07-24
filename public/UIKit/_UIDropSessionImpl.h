@@ -7,12 +7,13 @@
 #import <Foundation/NSObject.h>
 
 #import <UIKit/UIDropSession-Protocol.h>
+#import <UIKit/_UIDragDropSessionInternal-Protocol.h>
 
 @class NSArray, NSProgress, NSString, _UIInternalDraggingSessionDestination;
 @protocol UIDragSession;
 
 __attribute__((visibility("hidden")))
-@interface _UIDropSessionImpl : NSObject <UIDropSession>
+@interface _UIDropSessionImpl : NSObject <UIDropSession, _UIDragDropSessionInternal>
 {
     NSArray *_items;
     id <UIDragSession> _localDragSession;
@@ -24,12 +25,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long progressIndicatorStyle; // @synthesize progressIndicatorStyle=_progressIndicatorStyle;
 @property(readonly, nonatomic) id <UIDragSession> localDragSession; // @synthesize localDragSession=_localDragSession;
 - (void).cxx_destruct;
+@property(readonly, nonatomic, getter=_allowsItemsToUpdate) _Bool _allowsItemsToUpdate;
 - (void)_itemsNeedUpdate:(id)arg1;
 - (id)_createItemsOfClass:(Class)arg1 synchronouslyIfPossible:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)session;
+- (id)_draggingSession;
 @property(readonly, nonatomic, getter=_operationMask) unsigned long long operationMask;
 - (id)loadObjectsOfClass:(Class)arg1 completion:(CDUnknownBlockType)arg2;
-- (_Bool)canLoadObjectsOfClasses:(id)arg1;
 - (_Bool)canLoadObjectsOfClass:(Class)arg1;
 - (_Bool)hasItemsConformingToTypeIdentifiers:(id)arg1;
 @property(readonly, nonatomic, getter=isRestrictedToDraggingApplication) _Bool restrictedToDraggingApplication;

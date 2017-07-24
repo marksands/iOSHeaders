@@ -11,6 +11,7 @@
 }
 
 + (id)fusionKernel;
++ (id)blur3x3Kernel;
 + (id)blur5x5Kernel;
 + (id)blur7x7Kernel;
 + (id)nccCoarseKernel;

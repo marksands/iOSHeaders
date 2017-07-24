@@ -26,8 +26,6 @@
     } _has;
 }
 
-+ (int)recommendedTransportTypeForPlaceData:(id)arg1;
-+ (id)etaForPlaceData:(id)arg1 transportType:(int)arg2;
 @property(retain, nonatomic) GEORouteTrafficDetail *routeTrafficDetail; // @synthesize routeTrafficDetail=_routeTrafficDetail;
 @property(nonatomic) unsigned int historicTravelTime; // @synthesize historicTravelTime=_historicTravelTime;
 @property(nonatomic) unsigned int distance; // @synthesize distance=_distance;

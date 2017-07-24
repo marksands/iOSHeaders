@@ -8,18 +8,18 @@
 
 #import <FileProvider/FPXRequestHandlingProxyCreating-Protocol.h>
 
-@class FPXExtensionContext, NSFileProviderMessageInterface, NSString;
+@class FPFileProviderService, FPXExtensionContext, NSString;
 
 __attribute__((visibility("hidden")))
 @interface FPXRequestHandlingProxyFactory : NSObject <FPXRequestHandlingProxyCreating>
 {
-    NSFileProviderMessageInterface *_messageInterface;
+    FPFileProviderService *_service;
     FPXExtensionContext *_context;
 }
 
 - (void).cxx_destruct;
 - (void)fetchProxyForItemIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (id)initWithMessageInterface:(id)arg1 context:(id)arg2;
+- (id)initWithService:(id)arg1 context:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

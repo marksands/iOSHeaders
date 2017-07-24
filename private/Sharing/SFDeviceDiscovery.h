@@ -9,7 +9,7 @@
 #import <Sharing/NSSecureCoding-Protocol.h>
 #import <Sharing/SFXPCInterface-Protocol.h>
 
-@class NSSet, NSXPCConnection;
+@class NSSet, NSString, NSXPCConnection;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface SFDeviceDiscovery : NSObject <NSSecureCoding, SFXPCInterface>
@@ -34,18 +34,22 @@
     CDUnknownBlockType _deviceChangedHandler;
     unsigned long long _discoveryFlags;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
+    long long _fastScanMode;
     CDUnknownBlockType _interruptionHandler;
     CDUnknownBlockType _invalidationHandler;
+    NSString *_purpose;
     long long _rssiThreshold;
     long long _scanRate;
     long long _scanState;
     double _timeout;
     CDUnknownBlockType _timeoutHandler;
+    long long _scanRateOverride;
     CDUnknownBlockType _scanStateChangedHandler;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) CDUnknownBlockType scanStateChangedHandler; // @synthesize scanStateChangedHandler=_scanStateChangedHandler;
+@property(nonatomic) long long scanRateOverride; // @synthesize scanRateOverride=_scanRateOverride;
 @property(copy, nonatomic) CDUnknownBlockType timeoutHandler; // @synthesize timeoutHandler=_timeoutHandler;
 @property(nonatomic) double timeout; // @synthesize timeout=_timeout;
 @property(nonatomic) _Bool targetUserSession; // @synthesize targetUserSession=_targetUserSession;
@@ -53,9 +57,11 @@
 @property(nonatomic) long long scanRate; // @synthesize scanRate=_scanRate;
 @property(nonatomic) _Bool scanCache; // @synthesize scanCache=_scanCache;
 @property(nonatomic) long long rssiThreshold; // @synthesize rssiThreshold=_rssiThreshold;
+@property(copy, nonatomic) NSString *purpose; // @synthesize purpose=_purpose;
 @property(nonatomic) _Bool overrideScreenOff; // @synthesize overrideScreenOff=_overrideScreenOff;
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
 @property(copy, nonatomic) CDUnknownBlockType interruptionHandler; // @synthesize interruptionHandler=_interruptionHandler;
+@property(nonatomic) long long fastScanMode; // @synthesize fastScanMode=_fastScanMode;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(nonatomic) unsigned long long discoveryFlags; // @synthesize discoveryFlags=_discoveryFlags;
 @property(copy, nonatomic) CDUnknownBlockType deviceChangedHandler; // @synthesize deviceChangedHandler=_deviceChangedHandler;
@@ -75,6 +81,8 @@
 - (void)_invalidated;
 - (void)invalidate;
 - (void)_interrupted;
+- (void)fastScanCancel:(id)arg1;
+- (void)fastScanTrigger:(id)arg1;
 - (int)_ensureXPCStarted;
 - (void)_activateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)activateWithCompletion:(CDUnknownBlockType)arg1;

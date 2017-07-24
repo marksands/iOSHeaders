@@ -9,31 +9,25 @@
 #import <CoreCDPInternal/CDPDAuthListener-Protocol.h>
 #import <CoreCDPInternal/CDPDCircleListener-Protocol.h>
 
-@class CDPContext, NSString;
+@class NSString;
 @protocol CDPDAuthProviderInternal, CDPDCircleProxy;
 
 @interface CDPDManateeStateController : NSObject <CDPDAuthListener, CDPDCircleListener>
 {
-    CDPContext *_context;
     id <CDPDCircleProxy> _circleProxy;
     id <CDPDAuthProviderInternal> _authProvider;
-    _Bool _lastKnownMasterViewState;
-    _Bool _isPerformingSecurityLevelCheck;
 }
 
 - (void).cxx_destruct;
 - (void)_sendNotification:(const char *)arg1 withValue:(unsigned long long)arg2;
 - (void)reportManateeUnavailable;
 - (void)reportManateeAvailable;
-- (void)_beginTransactionedSecurityLevelCheck;
-- (id)_manateeSerializationQueue;
 - (void)circleViewStatusChanged;
 - (void)circleStatusChanged;
 - (void)securityLevelChanged:(_Bool)arg1;
-- (id)_cdpErrorFromAuthKitError:(id)arg1;
+- (_Bool)isPrimaryAccountHSA2;
 - (_Bool)_checkSecurityEligibility:(id *)arg1;
 - (void)fetchManateeAvailabilityWithCompletion:(CDUnknownBlockType)arg1;
-- (id)initWithContext:(id)arg1 circleProxy:(id)arg2 authProvider:(id)arg3;
 - (id)initWithCircleProxy:(id)arg1 authProvider:(id)arg2;
 
 // Remaining properties

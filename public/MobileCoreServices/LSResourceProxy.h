@@ -17,7 +17,6 @@
     _Bool __privateDocumentIconAllowOverride;
     _Bool __boundIconIsPrerendered;
     NSString *_localizedName;
-    unsigned long long _propertyListCachingStrategy;
     NSString *__boundApplicationIdentifier;
     NSURL *__boundContainerURL;
     NSURL *__boundDataContainerURL;
@@ -43,9 +42,9 @@
 @property(copy, nonatomic, setter=_setBoundDataContainerURL:) NSURL *_boundDataContainerURL; // @synthesize _boundDataContainerURL=__boundDataContainerURL;
 @property(copy, nonatomic, setter=_setBoundContainerURL:) NSURL *_boundContainerURL; // @synthesize _boundContainerURL=__boundContainerURL;
 @property(copy, nonatomic, setter=_setBoundApplicationIdentifier:) NSString *_boundApplicationIdentifier; // @synthesize _boundApplicationIdentifier=__boundApplicationIdentifier;
-@property(nonatomic) unsigned long long propertyListCachingStrategy; // @synthesize propertyListCachingStrategy=_propertyListCachingStrategy;
 @property(nonatomic, setter=_setBoundIconIsBadge:) _Bool boundIconIsBadge; // @synthesize boundIconIsBadge=_boundIconIsBadge;
 @property(copy, nonatomic, setter=_setLocalizedName:) NSString *localizedName; // @synthesize localizedName=_localizedName;
+@property(nonatomic) unsigned long long propertyListCachingStrategy;
 - (id)iconDataForVariant:(int)arg1 withOptions:(int)arg2;
 - (id)_privateDocumentIconNamesAsCacheKey;
 - (id)iconDataForVariant:(int)arg1;

@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 {
     CUPairingDaemon *_daemon;
     _Bool _pmEntitledDeleteIdentity;
+    _Bool _pmEntitledHomeKit;
     _Bool _pmEntitledRead;
     _Bool _pmEntitledRemovePeer;
     _Bool _pmEntitledWrite;

@@ -6,12 +6,13 @@
 
 #import <SearchFoundation/SFActionItem.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFMediaOffer-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString, NSURL, SFImage, SFLatLng, SFPunchout;
 
-@interface SFMediaOffer : SFActionItem <SFMediaOffer, NSSecureCoding>
+@interface SFMediaOffer : SFActionItem <SFMediaOffer, NSSecureCoding, NSCopying>
 {
     CDStruct_c119988d _has;
     _Bool _isEnabled;
@@ -28,6 +29,7 @@
 @property(copy, nonatomic) NSString *sublabel; // @synthesize sublabel=_sublabel;
 @property(retain, nonatomic) SFActionItem *actionItem; // @synthesize actionItem=_actionItem;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

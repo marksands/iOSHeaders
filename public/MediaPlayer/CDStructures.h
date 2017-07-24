@@ -77,10 +77,6 @@ struct ModelPropertyBase {
     struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field4;
 };
 
-struct NSDictionary {
-    Class _field1;
-};
-
 struct NSMapTable {
     Class _field1;
 };

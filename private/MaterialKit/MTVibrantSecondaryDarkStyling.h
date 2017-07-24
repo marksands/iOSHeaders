@@ -10,6 +10,7 @@
 {
 }
 
+- (id)blendMode;
 - (_Bool)_inputReversed;
 - (id)_darkenColor;
 - (id)_burnColor;

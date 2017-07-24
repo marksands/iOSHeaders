@@ -21,9 +21,9 @@
 }
 
 @property _Bool intercept; // @synthesize intercept=_intercept;
-@property(retain) PMLModelRegressor *objective; // @synthesize objective=_objective;
-@property(retain) PMLSparseMatrix *covariates; // @synthesize covariates=_covariates;
-@property(retain) PMLModelWeights *weights; // @synthesize weights=_weights;
+@property(retain, nonatomic) PMLModelRegressor *objective; // @synthesize objective=_objective;
+@property(retain, nonatomic) PMLSparseMatrix *covariates; // @synthesize covariates=_covariates;
+@property(retain, nonatomic) PMLModelWeights *weights; // @synthesize weights=_weights;
 - (void).cxx_destruct;
 - (id)batchPredict:(id)arg1;
 - (float)predict:(id)arg1;

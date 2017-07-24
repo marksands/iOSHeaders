@@ -7,17 +7,23 @@
 #import <objc/NSObject.h>
 
 @class ADCapData, ADTargetingData, NSString;
+@protocol OS_dispatch_queue;
 
 @interface ADSearchSession : NSObject
 {
+    NSObject<OS_dispatch_queue> *_idNotificationQueue;
+    _Bool _notificationReceivedAndWaiting;
     int _appsRank;
     NSString *_appID;
     NSString *_appVersion;
     ADCapData *_capData;
     ADTargetingData *_targetingData;
     NSString *_campaignNamespace;
+    NSObject *_notificationObserver;
 }
 
+@property(nonatomic) _Bool notificationReceivedAndWaiting; // @synthesize notificationReceivedAndWaiting=_notificationReceivedAndWaiting;
+@property(retain, nonatomic) NSObject *notificationObserver; // @synthesize notificationObserver=_notificationObserver;
 @property(retain, nonatomic) NSString *campaignNamespace; // @synthesize campaignNamespace=_campaignNamespace;
 @property(retain, nonatomic) ADTargetingData *targetingData; // @synthesize targetingData=_targetingData;
 @property(retain, nonatomic) ADCapData *capData; // @synthesize capData=_capData;

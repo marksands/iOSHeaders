@@ -6,11 +6,12 @@
 
 #import <NotesShared/NSObject-Protocol.h>
 
-@class NSMutableDictionary, TTMergeableStringVersionedDocument;
+@class NSAttributedString, NSMutableDictionary, TTMergeableStringVersionedDocument;
 
 @protocol ICNoteUI <NSObject>
 
 @optional
+- (NSAttributedString *)uiAttributedString;
 - (void)createMissingAttachmentsInTextStorage;
 - (void)didMergeNoteDocument:(TTMergeableStringVersionedDocument *)arg1 withUserInfo:(NSMutableDictionary *)arg2;
 - (void)willMergeNoteDocument:(TTMergeableStringVersionedDocument *)arg1 withUserInfo:(NSMutableDictionary *)arg2;

@@ -22,13 +22,14 @@
 - (long long)indexOfItemIdentifier:(id <MPAVItemQueueIdentifier>)arg1;
 - (long long)indexWithDelta:(long long)arg1 fromIndex:(long long)arg2 ignoreElapsedTime:(_Bool)arg3 didReachEnd:(_Bool *)arg4;
 - (void)setCurrentIndex:(long long)arg1 selectionDirection:(long long)arg2;
+- (NSString *)contentItemIDForPlaylistIndex:(long long)arg1;
 - (unsigned long long)indexForContentItemID:(NSString *)arg1;
 - (MPAVItem *)itemForPlaylistIndex:(long long)arg1;
 - (void)updateForSoundCheckDefaultsChange;
 - (void)handlePlaybackFailureForItem:(MPAVItem *)arg1;
-- (void)_setCurrentItemDidLoadDurationTimeRange:(_Bool)arg1;
 - (void)disconnectPlayer;
 - (void)connectPlayer;
+- (_Bool)isPlaceholderItemForContentItemID:(NSString *)arg1;
 - (MPAVItem *)itemForContentItemID:(NSString *)arg1;
 - (void)finalizeStateRestorationWithCompletionHandler:(void (^)(NSError *))arg1;
 - (void)reloadWithPlaybackContext:(MPPlaybackContext *)arg1 completionHandler:(void (^)(NSError *))arg2;

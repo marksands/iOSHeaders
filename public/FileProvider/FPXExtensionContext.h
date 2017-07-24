@@ -8,14 +8,13 @@
 
 #import <FileProvider/FPXVendor-Protocol.h>
 
-@class FPXDomainContext, NSHashTable, NSMutableDictionary, NSMutableSet, NSObject, NSOperationQueue, NSString;
+@class FPXDomainContext, NSHashTable, NSMutableDictionary, NSMutableSet, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface FPXExtensionContext : NSExtensionContext <FPXVendor>
 {
     NSMutableSet *_listenerDelegates;
-    NSOperationQueue *_operationQueue;
     NSObject<OS_dispatch_queue> *_notificationQueue;
     NSObject<OS_dispatch_queue> *_actionsQueue;
     NSObject<OS_dispatch_queue> *_queue;
@@ -35,19 +34,20 @@ __attribute__((visibility("hidden")))
 - (void)startOperation:(id)arg1 toFetchDefaultContainerForBundleIdentifier:(id)arg2 englishName:(id)arg3 inDomainIdentifier:(id)arg4 reply:(CDUnknownBlockType)arg5;
 - (void)startOperation:(id)arg1 toFetchItemID:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)startOperation:(id)arg1 toFetchParentForItem:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (void)startOperation:(id)arg1 toCreateFolderWithName:(id)arg2 underParent:(id)arg3 reply:(CDUnknownBlockType)arg4;
+- (void)startOperation:(id)arg1 toCreateFolderWithName:(id)arg2 underParent:(id)arg3 bounceOnCollision:(_Bool)arg4 reply:(CDUnknownBlockType)arg5;
 - (void)startOperation:(id)arg1 toDeleteItems:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)startOperation:(id)arg1 toRenameItem:(id)arg2 toNewName:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)startOperation:(id)arg1 toReparentItems:(id)arg2 underParent:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)startOperation:(id)arg1 toImportDocumentsAtURLs:(id)arg2 withSandboxExtensions:(id)arg3 lastUsedDates:(id)arg4 intoFolderWithIdentifier:(id)arg5 bounceOnCollision:(_Bool)arg6 reply:(CDUnknownBlockType)arg7;
 - (void)_importDocumentAtURL:(id)arg1 intoFolderWithIdentifier:(id)arg2 bounceOnCollision:(_Bool)arg3 reply:(CDUnknownBlockType)arg4;
 - (id)_bounceFilenameAtURL:(id)arg1 error:(id *)arg2;
-- (id)_messageInterfacesForMessageInterfaceNames:(id)arg1 itemID:(id)arg2;
-- (void)fetchSupportedMessageInterfacesForItemID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)fetchSupportedMessageInterfacesForDocumentAtURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)_servicesForServiceNames:(id)arg1 itemID:(id)arg2;
+- (void)fetchSupportedServicesForItemID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)fetchSupportedServicesForDocumentAtURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)_proxyWithCancellationHandler:(id)arg1 forClientOperation:(id)arg2;
-- (void)fetchRemoteFileProviderEndpointForProtocolName:(id)arg1 messageInterface:(id)arg2 needsItemURL:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
-@property(readonly, nonatomic) NSMutableSet *listenerDelegates;
+- (void)fetchRemoteFileProviderEndpointForProtocolName:(id)arg1 service:(id)arg2 itemURL:(id)arg3 needsItemURL:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)removeListenerDelegate:(id)arg1;
+- (void)addListenerDelegate:(id)arg1;
 - (void)enumeratorWasInvalidated:(id)arg1;
 - (void)_startObservingCollectionWithProperties:(id)arg1 observer:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)valuesForAttributes:(id)arg1 forItemAtURL:(id)arg2 allowIdentifiers:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -71,6 +71,7 @@ __attribute__((visibility("hidden")))
 - (void)itemChangedAtURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removeTrashedItemsOlderThanDate:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)refreshInstalledAppsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)defaultInstance;
 - (void)deleteSearchableItemsWithDomainIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)evictItemAtURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)startProvidingItemAtURL:(id)arg1 readingOptions:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -86,6 +87,7 @@ __attribute__((visibility("hidden")))
 - (id)instanceForDomainIdentifier:(id)arg1;
 - (id)domainContextForIdentifier:(id)arg1;
 - (void)invalidate;
+- (void)_setTransaction:(id)arg1;
 - (void)startWithPrincipalInstance:(id)arg1 domains:(id)arg2 alternateContentsDictionary:(id)arg3;
 - (id)initWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 contextUUID:(id)arg3;
 

@@ -11,21 +11,28 @@
 }
 
 + (id)sharedInstance;
++ (void)__setSingleton__im:(id)arg1;
++ (id)__singleton__im;
+- (id)lastSyncErrors;
+- (void)syncDeletesToCloudKit;
 - (void)printCachedRampState;
 - (void)fetchLatestRampState;
 - (void)removePathFromiCloudBackups:(id)arg1;
 - (void)setiCloudBackupsDisabled:(_Bool)arg1;
 - (void)toggleiCloudBackupsIfNeeded;
 - (void)writeCloudKitSyncCounts:(id)arg1;
-- (void)fetchSyncStateStats;
+- (void)fetchSyncStateStatistics;
 - (void)purgeAttachments:(long long)arg1;
+- (void)metricAttachments:(long long)arg1;
 - (void)deleteSalt;
 - (void)printCachedSalt;
 - (void)fetchLatestSalt;
 - (void)clearTombStoneMessagesTable;
 - (void)loadDeletedMessagesWithLimit:(long long)arg1;
 - (void)_updateCloudKitState;
+- (_Bool)isInExitState;
 - (void)_didAttemptToDisableAllDevicesResult:(_Bool)arg1;
+- (void)_didPerformAdditionalStorageRequiredCheck:(unsigned long long)arg1 forAccountId:(id)arg2;
 - (void)_didAttemptToSetEnabledTo:(_Bool)arg1 result:(_Bool)arg2;
 - (id)lastSyncDate;
 - (_Bool)isSyncing;
@@ -36,6 +43,7 @@
 - (_Bool)rampedIntoTruthZone;
 - (_Bool)removedFromiCloudBackup;
 - (void)tryToDisableAllDevices;
+- (void)performAdditionalStorageRequiredCheck;
 - (void)setEnabled:(_Bool)arg1;
 - (_Bool)isEnabled;
 - (_Bool)shouldShowCloudKitUI;

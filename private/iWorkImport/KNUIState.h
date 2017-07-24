@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
     double _desktopNavigatorViewWidth;
     double _desktopOutlineViewWidth;
     double _desktopPresenterNotesHeight;
+    double _desktopPresenterNotesScrollPosition;
     NSSet *_collapsedSlideNodes;
     NSSet *_outlineCollapsedSlideNodes;
     NSSet *_outlineHasBodySlideNodes;
@@ -52,6 +53,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSSet *outlineCollapsedSlideNodes; // @synthesize outlineCollapsedSlideNodes=_outlineCollapsedSlideNodes;
 @property(copy, nonatomic) NSSet *collapsedSlideNodes; // @synthesize collapsedSlideNodes=_collapsedSlideNodes;
 @property(nonatomic) _Bool desktopOutlineViewDefaultFixed; // @synthesize desktopOutlineViewDefaultFixed=_desktopOutlineViewDefaultFixed;
+@property(nonatomic) double desktopPresenterNotesScrollPosition; // @synthesize desktopPresenterNotesScrollPosition=_desktopPresenterNotesScrollPosition;
 @property(nonatomic) double desktopPresenterNotesHeight; // @synthesize desktopPresenterNotesHeight=_desktopPresenterNotesHeight;
 @property(nonatomic) double desktopOutlineViewWidth; // @synthesize desktopOutlineViewWidth=_desktopOutlineViewWidth;
 @property(nonatomic) double desktopNavigatorViewWidth; // @synthesize desktopNavigatorViewWidth=_desktopNavigatorViewWidth;

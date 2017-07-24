@@ -9,13 +9,14 @@
 #import <NewsCore/FCKeyValueStoreCoding-Protocol.h>
 #import <NewsCore/FCMutableReadingHistoryItem-Protocol.h>
 
-@class NSDate, NSString;
+@class CKRecord, NSDate, NSString;
 
 @interface NTPBReadingHistoryItem (FCReadingHistory) <FCMutableReadingHistoryItem, FCKeyValueStoreCoding>
 + (id)readValueFromKeyValuePair:(id)arg1;
 + (int)keyValuePairType;
 + (id)readingHistoryItemWithCKRecord:(id)arg1;
 - (void)writeToKeyValuePair:(id)arg1;
+@property(readonly, nonatomic) CKRecord *asCKRecord;
 - (void)setArticleLikingStatus:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long articleLikingStatus;
 - (void)setHasArticleBeenConsumed:(_Bool)arg1;

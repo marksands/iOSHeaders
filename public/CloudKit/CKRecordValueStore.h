@@ -33,6 +33,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_validateRecordValue:(id)arg1;
 - (void)_validateRecordKey:(id)arg1;
+- (void)_validateKeyUniquenessForKey:(id)arg1;
 - (_Bool)checkProperties:(_Bool)arg1 withValueCheckBlock:(CDUnknownBlockType)arg2;
 - (void)resetChangedKeys;
 - (id)changedKeys;

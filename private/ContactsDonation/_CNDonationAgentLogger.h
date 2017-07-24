@@ -22,9 +22,11 @@
 - (void)willRemoveAllRejections;
 - (void)didListRejections;
 - (void)willListRejections;
-- (void)couldNotRejectUnknownCollectionIdentifier:(id)arg1;
-- (void)didRejectCollectionIdentifier:(id)arg1;
-- (void)willRejectCollectionIdentifier:(id)arg1;
+- (void)couldNotRejectClusterIdentifier:(id)arg1 error:(id)arg2;
+- (void)couldNotRejectUnknownClusterIdentifier:(id)arg1;
+- (void)didRejectClusterIdentifier:(id)arg1;
+- (void)willRejectClusterIdentifier:(id)arg1;
+- (void)couldNotRejectDonationIdentifier:(id)arg1 error:(id)arg2;
 - (void)couldNotRejectUnknownDonationIdentifier:(id)arg1;
 - (void)didRejectDonationIdentifier:(id)arg1;
 - (void)willRejectDonationIdentifier:(id)arg1;

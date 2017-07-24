@@ -29,13 +29,17 @@
 - (id)_queue_generateEurotasData;
 - (void)_queue_updateFitnessMachine;
 - (void)_queue_metricsAddedToWorkout:(id)arg1;
-- (void)_queue_quantititesAddedToWorkout:(id)arg1;
+- (void)_queue_quantitiesAddedToWorkout:(id)arg1;
 - (void)_readHeartRateEnabledPreference;
+@property(readonly, nonatomic) _Bool connected;
 - (void)metricsAddedToWorkout:(id)arg1;
-- (void)quantititesAddedToWorkout:(id)arg1;
+- (void)quantitiesAddedToWorkout:(id)arg1;
+- (void)resumeCurrentSession;
+- (void)pauseCurrentSession;
 - (void)disconnectHealthServiceSession;
 - (void)connectToHealthServiceSession:(unsigned long long)arg1;
 @property(readonly, nonatomic) HDHealthServiceManager *healthServiceManager;
+- (void)dealloc;
 - (id)initWithProfile:(id)arg1;
 
 @end

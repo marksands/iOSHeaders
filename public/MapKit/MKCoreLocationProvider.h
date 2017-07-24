@@ -10,8 +10,8 @@
 #import <MapKit/CLLocationManagerVehicleDelegate-Protocol.h>
 #import <MapKit/MKLocationProvider-Protocol.h>
 
-@class CLLocation, CLLocationManager, NSBundle, NSLock, NSString;
-@protocol MKLocationProviderDelegate;
+@class CLLocation, CLLocationManager, NSBundle, NSString;
+@protocol MKLocationProviderDelegate, OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface MKCoreLocationProvider : NSObject <CLLocationManagerDelegate, CLLocationManagerVehicleDelegate, MKLocationProvider>
@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _authorizationRequestBlock;
     _Bool _waitingForAuthorization;
     _Bool _hasQueriedAuthorization;
-    NSLock *_authorizationLock;
+    NSObject<OS_dispatch_queue> *_authorizationQueue;
     _Bool _alternate;
 }
 
@@ -48,7 +48,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double timeScale;
 @property(readonly, nonatomic) _Bool isTracePlayer;
 @property(readonly, nonatomic) _Bool shouldShiftIfNecessary;
+- (void)authorizationStatusOnQueue:(id)arg1 result:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) int authorizationStatus;
+- (int)_authorizationStatusOnQueue;
 @property(readonly, nonatomic) double expectedGpsUpdateInterval;
 @property(nonatomic) int headingOrientation;
 @property(nonatomic) _Bool matchInfoEnabled;

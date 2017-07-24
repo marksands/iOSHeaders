@@ -161,6 +161,7 @@
 - (id)findFirstVisibleResponder;
 - (_Bool)shouldSelectResponderOnAppearance;
 - (void)_scrollToSpecifierNamed:(id)arg1;
+- (_Bool)_isEmptyGroup:(unsigned long long)arg1;
 - (void)_scrollToSpecifierWithID:(id)arg1 animated:(_Bool)arg2;
 - (void)viewWillAppear:(_Bool)arg1;
 - (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
@@ -178,6 +179,7 @@
 - (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)createPrequeuedPSTableCells:(unsigned long long)arg1;
@@ -197,7 +199,6 @@
 - (void)viewDidLayoutSubviews;
 - (void)_updateSectionContentInsetWithAnimation:(_Bool)arg1;
 - (void)loadView;
-- (long long)navigationItemLargeTitleDisplayMode;
 - (_Bool)_isRegularWidth;
 - (long long)tableViewStyle;
 - (Class)tableViewClass;

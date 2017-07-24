@@ -8,20 +8,27 @@
 
 #import <NeutrinoCore/NUDepthProperties-Protocol.h>
 
-@class NSString;
+@class AVDepthData, NSDictionary, NSString;
 
 @interface NUCGAuxiliaryImageProperties : NSObject <NUDepthProperties>
 {
+    id _imageSource;
     NSString *_auxiliaryType;
+    AVDepthData *_depthData;
+    NSDictionary *_auxiliaryData;
     CDStruct_d58201db _size;
 }
 
+@property(retain) NSDictionary *auxiliaryData; // @synthesize auxiliaryData=_auxiliaryData;
+@property(retain) AVDepthData *depthData; // @synthesize depthData=_depthData;
 @property CDStruct_912cb5d2 size; // @synthesize size=_size;
 @property(copy) NSString *auxiliaryType; // @synthesize auxiliaryType=_auxiliaryType;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
+- (id)depthData:(out id *)arg1;
+- (id)auxiliaryData:(out id *)arg1;
 @property(readonly) NSString *depthType;
-- (id)initWitProperties:(id)arg1;
+- (id)initWitProperties:(id)arg1 imageSource:(struct CGImageSource *)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -9,6 +9,8 @@
 @class UIImage;
 
 @interface ICAttachmentDrawingModel (UI)
+- (_Bool)canConvertToHTMLForSharing;
+- (id)attributesForSharingHTMLWithTagName:(id *)arg1 textContent:(id *)arg2;
 - (id)dataForTypeIdentifier:(id)arg1;
 - (id)fileURLForTypeIdentifier:(id)arg1;
 - (id)providerFileTypes;

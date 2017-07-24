@@ -7,7 +7,6 @@
 #import <UIKit/UIViewController.h>
 
 @class CAPackage, CCUILabeledRoundButton, NSString, UIColor, UIControl, UIImage;
-@protocol CCUIControlCenterSystemAgent;
 
 @interface CCUILabeledRoundButtonViewController : UIViewController
 {
@@ -15,8 +14,8 @@
     _Bool _toggleStateOnTap;
     _Bool _enabled;
     _Bool _inoperative;
+    _Bool _useLightStyle;
     NSString *_subtitle;
-    id <CCUIControlCenterSystemAgent> _systemAgent;
     CAPackage *_glyphPackage;
     NSString *_glyphState;
     UIImage *_glyphImage;
@@ -27,6 +26,7 @@
 
 @property(retain, nonatomic) UIControl *button; // @synthesize button=_button;
 @property(retain, nonatomic) CCUILabeledRoundButton *buttonContainer; // @synthesize buttonContainer=_buttonContainer;
+@property(nonatomic) _Bool useLightStyle; // @synthesize useLightStyle=_useLightStyle;
 @property(retain, nonatomic) UIColor *highlightColor; // @synthesize highlightColor=_highlightColor;
 @property(nonatomic, getter=isInoperative) _Bool inoperative; // @synthesize inoperative=_inoperative;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
@@ -35,13 +35,14 @@
 @property(retain, nonatomic) UIImage *glyphImage; // @synthesize glyphImage=_glyphImage;
 @property(copy, nonatomic) NSString *glyphState; // @synthesize glyphState=_glyphState;
 @property(retain, nonatomic) CAPackage *glyphPackage; // @synthesize glyphPackage=_glyphPackage;
-@property(nonatomic) __weak id <CCUIControlCenterSystemAgent> systemAgent; // @synthesize systemAgent=_systemAgent;
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 - (void).cxx_destruct;
 - (void)loadView;
 @property(copy, nonatomic) NSString *title; // @dynamic title;
 - (void)buttonTapped:(id)arg1;
+- (id)initWithGlyphPackage:(id)arg1 highlightColor:(id)arg2 useLightStyle:(_Bool)arg3;
 - (id)initWithGlyphPackage:(id)arg1 highlightColor:(id)arg2;
+- (id)initWithGlyphImage:(id)arg1 highlightColor:(id)arg2 useLightStyle:(_Bool)arg3;
 - (id)initWithGlyphImage:(id)arg1 highlightColor:(id)arg2;
 
 @end

@@ -22,6 +22,7 @@
 + (id)defaultManager;
 @property(readonly, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 - (void).cxx_destruct;
+- (void)fetchAssetsFromDrop:(id)arg1 importIfNeeded:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_sourcesForItemProviders:(id)arg1;
 - (id)_assetsForImportedItemProviders:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

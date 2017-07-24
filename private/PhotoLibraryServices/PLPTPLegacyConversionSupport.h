@@ -16,9 +16,9 @@
     PFMediaCapabilities *_peerMediaCapabilities;
 }
 
-@property(retain) PFMediaCapabilities *peerMediaCapabilities; // @synthesize peerMediaCapabilities=_peerMediaCapabilities;
-@property(retain) PHMediaFormatConversionManager *mediaFormatConversionManager; // @synthesize mediaFormatConversionManager=_mediaFormatConversionManager;
 - (void).cxx_destruct;
+- (id)conversionResultForAsset:(id)arg1 isVideo:(_Bool)arg2 isRender:(_Bool)arg3;
+@property(readonly, nonatomic) _Bool supportsTranscodeChoice;
 - (id)init;
 
 // Remaining properties

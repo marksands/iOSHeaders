@@ -23,7 +23,7 @@
 @property(retain, nonatomic) UILabel *temperatureLabel; // @synthesize temperatureLabel=_temperatureLabel;
 - (void).cxx_destruct;
 - (void)_setupConstraints;
-- (void)applyVibrancyToTime;
+- (void)applyVibrancyToTimeWithEffect:(id)arg1;
 @property(retain, nonatomic) UIImage *conditionsImage;
 @property(copy, nonatomic) NSAttributedString *time;
 @property(copy, nonatomic) NSAttributedString *temperature;

@@ -12,7 +12,6 @@
 @property(readonly, nonatomic, getter=isRestrictedToDraggingApplication) _Bool restrictedToDraggingApplication;
 @property(readonly, nonatomic) _Bool allowsMoveOperation;
 @property(readonly, nonatomic) NSArray *items;
-- (_Bool)canLoadObjectsOfClasses:(NSArray *)arg1;
 - (_Bool)canLoadObjectsOfClass:(Class)arg1;
 - (_Bool)hasItemsConformingToTypeIdentifiers:(NSArray *)arg1;
 - (struct CGPoint)locationInView:(UIView *)arg1;

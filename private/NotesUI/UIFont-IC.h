@@ -7,6 +7,7 @@
 #import <UIKit/UIFont.h>
 
 @interface UIFont (IC)
++ (struct UIFont *)preferredFontForStyle:(unsigned int)arg1 contentSizeCategory:(id)arg2;
 + (long long)stepsBetweenContentSizeCategory:(id)arg1 andCategory:(id)arg2;
 + (id)contentSizeCategories;
 + (double)preferredFontSizeWithBaseSize:(double)arg1 withContentSizeCategory:(id)arg2 minSize:(double)arg3 maxSize:(double)arg4;
@@ -21,6 +22,7 @@
 + (struct UIFont *)preferredFontForHeadingTextWithContentSizeCategory:(id)arg1;
 + (struct UIFont *)preferredFontForTitleTextWithContentSizeCategory:(id)arg1;
 + (double)pointSizeForBodyTextWithContentSizeCategory:(id)arg1;
++ (struct UIFont *)navBarButtonFontUsingSingleLineA:(_Bool)arg1;
 + (struct UIFont *)attachmentBrowserTitleFont;
 + (struct UIFont *)listViewDetailFont;
 + (struct UIFont *)listViewTitleFont;

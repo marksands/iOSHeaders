@@ -10,9 +10,10 @@
 @protocol IXAppInstallCoordinatorProxy;
 
 @protocol IXClientProtocol <NSObject>
+- (void)displayUserPresentableErrorForApp:(NSString *)arg1 code:(long long)arg2;
 - (void)registerTransientObserver:(NSXPCListenerEndpoint *)arg1 forClientIdentifiers:(NSSet *)arg2 respondingToSelectors:(unsigned long long)arg3;
 - (void)registerObserverMachServiceName:(NSString *)arg1 forClientIdentifiers:(NSSet *)arg2 respondingToSelectors:(unsigned long long)arg3;
-- (void)uninstallAppWithBundleID:(NSString *)arg1 completion:(void (^)(NSError *))arg2;
+- (void)uninstallAppWithBundleID:(NSString *)arg1 requestUserConfirmation:(_Bool)arg2 completion:(void (^)(NSError *))arg3;
 - (void)ping;
 - (void)prioritizeCoordinatorForAppWithBundleID:(NSString *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)setIsPaused:(_Bool)arg1 forCoordinatorForAppWithBundleID:(NSString *)arg2 completion:(void (^)(NSError *))arg3;
@@ -20,8 +21,8 @@
 - (void)setRemovability:(unsigned long long)arg1 forAppWithBundleID:(NSString *)arg2 completion:(void (^)(NSError *))arg3;
 - (void)removabilityForAppWithBundleID:(NSString *)arg1 completion:(void (^)(unsigned long long, NSError *))arg2;
 - (void)killDaemonForTesting;
-- (void)purgeRegisteredCoordinatorsAndPromises:(void (^)(NSError *))arg1;
-- (void)fetchRegisteredDataPromiseInfo:(void (^)(NSArray *, NSError *))arg1;
+- (void)purgeRegisteredCoordinatorsAndPromisesForCreator:(unsigned long long)arg1 completion:(void (^)(NSError *))arg2;
+- (void)fetchRegisteredDataPromiseInfoForCreator:(unsigned long long)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (void)fetchSeedsForCoordinatorsWithIntent:(unsigned long long)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (void)createAppInstallCoordinatorForClientObject:(id <IXAppInstallCoordinatorProxy>)arg1 withSeed:(IXAppInstallCoordinatorSeed *)arg2 createIfNotExisting:(_Bool)arg3 completion:(void (^)(id <IXSCoordinatedAppInstallProxy>, IXAppInstallCoordinatorSeed *, _Bool, NSError *))arg4;
 - (void)reEstablishOutOfBandStreamingZipTransferDataPromiseConnectionForUUID:(NSUUID *)arg1 completion:(void (^)(id <IXSPromisedOutOfBandStreamingZipTransferProxy>, NSError *))arg2;

@@ -47,7 +47,7 @@
 - (id)getDefaultExtension;
 - (void)disableSpamFiltering;
 - (unsigned char)enableSpamForExtensionID:(id)arg1 withName:(id)arg2;
-- (void)showPrivacyAccessWarning:(id)arg1;
+- (void)showPrivacyAccessWarning:(id)arg1 isToggle:(_Bool)arg2;
 - (void)setSpamFilteringEnabled:(id)arg1 specifier:(id)arg2;
 - (void)enableSpamFiltering:(id)arg1;
 - (void)setConversationListFilteringEnabled:(id)arg1 specifier:(id)arg2;

@@ -17,6 +17,7 @@
 + (id)containeriOSLegacyIdentifierDescription;
 + (id)containerNameDescription;
 + (id)containerIdentifierDescription;
++ (id)sourceContactForValue:(id)arg1 labeledValueIdentifier:(id)arg2 propertyKey:(id)arg3 inUnifiedContact:(id)arg4;
 + (void)addLinkedIdentifier:(id)arg1 toLabeledValue:(id)arg2;
 + (unsigned long long)indexOfUnifiedIdentifier:(id)arg1 onNonUnifiedMultiValue:(id)arg2 withIdentifierMap:(id)arg3;
 + (id)groupIdentifiersByLabeledValue:(id)arg1 forProperty:(id)arg2;

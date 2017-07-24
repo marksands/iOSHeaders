@@ -53,11 +53,15 @@
     NSString *_verificationToken;
     NSObject<OS_dispatch_queue> *_queue;
     NSError *_error;
+    NSString *_activityLabel;
+    NSString *_activityUUID;
     SESWrapper *_ses;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) SESWrapper *ses; // @synthesize ses=_ses;
+@property(copy, nonatomic) NSString *activityUUID; // @synthesize activityUUID=_activityUUID;
+@property(copy, nonatomic) NSString *activityLabel; // @synthesize activityLabel=_activityLabel;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(copy, nonatomic) NSString *verificationToken; // @synthesize verificationToken=_verificationToken;
@@ -157,6 +161,8 @@
 - (void)populateWithInfo:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)init;
+- (id)initWithUserActivityLabel:(id)arg1;
 - (id)_CreateSecureBackupConnection;
 
 @end

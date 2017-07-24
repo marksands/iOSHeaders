@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSSet, PGGraphNode;
+@class NSSet, PGGraphAddressNode;
 
 @interface PGLocationTitleOptions : NSObject
 {
@@ -14,7 +14,7 @@
     _Bool _useTripTitleForLongDuration;
     _Bool _insertLineBreak;
     NSSet *_momentNodes;
-    PGGraphNode *_keyAssetAddressNode;
+    PGGraphAddressNode *_keyAssetAddressNode;
     NSSet *_curationAddressNodes;
     unsigned long long _aoiDisplayType;
     unsigned long long _peopleDisplayType;
@@ -29,7 +29,7 @@
 @property(nonatomic) _Bool useCities; // @synthesize useCities=_useCities;
 @property(nonatomic) unsigned long long aoiDisplayType; // @synthesize aoiDisplayType=_aoiDisplayType;
 @property(retain, nonatomic) NSSet *curationAddressNodes; // @synthesize curationAddressNodes=_curationAddressNodes;
-@property(retain, nonatomic) PGGraphNode *keyAssetAddressNode; // @synthesize keyAssetAddressNode=_keyAssetAddressNode;
+@property(retain, nonatomic) PGGraphAddressNode *keyAssetAddressNode; // @synthesize keyAssetAddressNode=_keyAssetAddressNode;
 @property(retain, nonatomic) NSSet *momentNodes; // @synthesize momentNodes=_momentNodes;
 - (void).cxx_destruct;
 - (id)init;

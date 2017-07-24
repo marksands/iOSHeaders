@@ -11,6 +11,7 @@
 @interface MRAVReconnaissanceSession : NSObject
 {
     _Bool _searchInProgress;
+    unsigned int _endpointFeatures;
     NSSet *_matchingOutputDeviceUIDsSet;
     MRAVRoutingDiscoverySession *_discoverySession;
     id _discoverySessionCallbackToken;
@@ -28,6 +29,7 @@
 @property(retain, nonatomic) id discoverySessionCallbackToken; // @synthesize discoverySessionCallbackToken=_discoverySessionCallbackToken;
 @property(retain, nonatomic) MRAVRoutingDiscoverySession *discoverySession; // @synthesize discoverySession=_discoverySession;
 @property(retain, nonatomic) NSSet *matchingOutputDeviceUIDsSet; // @synthesize matchingOutputDeviceUIDsSet=_matchingOutputDeviceUIDsSet;
+@property(readonly, nonatomic) unsigned int endpointFeatures; // @synthesize endpointFeatures=_endpointFeatures;
 - (void)_endSearch;
 - (void)_concludeSearch;
 - (void)_timeoutTimerFired:(id)arg1;
@@ -36,7 +38,7 @@
 - (void)beginSearchWithTimeout:(double)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) NSArray *matchingOutputDeviceUIDs;
 - (void)dealloc;
-- (id)initWithOutputDeviceUIDs:(id)arg1;
+- (id)initWithOutputDeviceUIDs:(id)arg1 features:(unsigned int)arg2;
 
 @end
 

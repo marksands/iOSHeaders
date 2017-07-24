@@ -46,6 +46,7 @@
 
 + (Class)routeDescriptionsType;
 + (Class)stepType;
++ (id)syntheticRouteDetailsWithOrigin:(id)arg1 destination:(id)arg2 transportType:(int)arg3 destinationName:(id)arg4;
 @property(retain, nonatomic) NSMutableArray *routeDescriptions; // @synthesize routeDescriptions=_routeDescriptions;
 @property(retain, nonatomic) NSData *originalRouteID; // @synthesize originalRouteID=_originalRouteID;
 @property(retain, nonatomic) NSString *trafficDescription; // @synthesize trafficDescription=_trafficDescription;

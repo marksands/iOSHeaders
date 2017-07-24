@@ -39,8 +39,8 @@
 - (void)deferringReindexAsFailedToPrepareForReindexing;
 - (void)willReindexItemsWithIdentifiers:(NSArray *)arg1;
 - (void)noContactChangesToIndex;
-- (void)reindexingSearchableItemsWithIdentifiers:(void (^)(void))arg1;
-- (void)reindexingAllSearchableItems:(void (^)(void))arg1;
-- (void)indexingContacts:(void (^)(void))arg1;
+- (void)reindexingSearchableItemsWithIdentifiers:(void (^)(void (^)(void)))arg1;
+- (void)reindexingAllSearchableItems:(void (^)(void (^)(void)))arg1;
+- (void)indexingContacts:(void (^)(void (^)(void)))arg1;
 @end
 

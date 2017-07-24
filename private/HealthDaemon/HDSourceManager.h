@@ -21,6 +21,7 @@
 + (_Bool)_isLocalDeviceBundleIdentifier:(id)arg1;
 + (id)_applicationNameForBundleIdentifier:(id)arg1;
 - (void).cxx_destruct;
+- (void)_applicationsUninstalledNotification:(id)arg1;
 - (CDUnknownBlockType)_setNameModifyBlockWithName:(id)arg1;
 - (id)_getNameForBundleIdentifier:(id)arg1 isCurrentDevice:(_Bool)arg2;
 - (id)_createSourceEntityForBundleIdentifier:(id)arg1 name:(id)arg2 options:(unsigned long long)arg3 isCurrentDevice:(_Bool)arg4 productType:(id)arg5 error:(id *)arg6;
@@ -29,6 +30,7 @@
 - (id)_createSourceEntityForLocalDeviceWithError:(id *)arg1;
 - (id)_fetchClientSourceForPersistentID:(id)arg1 error:(id *)arg2;
 - (id)_sourcePersistentIDsFromSourceEntities:(id)arg1;
+- (void)_deleteSourceIfNoSampleFoundWithBundleIdentifier:(id)arg1;
 - (_Bool)_deleteSourceWithEntity:(id)arg1 bundleIdentifier:(id)arg2 error:(id *)arg3;
 - (_Bool)deleteSourceWithBundleIdentifier:(id)arg1 error:(id *)arg2;
 - (_Bool)createSourcesWithCodables:(id)arg1 provenance:(long long)arg2 error:(id *)arg3;
@@ -48,6 +50,8 @@
 - (id)sourceForClient:(id)arg1 createIfNecessary:(_Bool)arg2 error:(id *)arg3;
 - (id)healthAppSourceWithError:(id *)arg1;
 - (id)localDeviceSourceWithError:(id *)arg1;
+- (id)_predicateForSourceBundleIdentifier:(id)arg1 localOnly:(_Bool)arg2;
+- (id)localSourceForSourceID:(id)arg1 error:(id *)arg2;
 - (id)localSourceForBundleIdentifier:(id)arg1 error:(id *)arg2;
 - (id)allSourcesForBundleIdentifier:(id)arg1 error:(id *)arg2;
 - (_Bool)setLocalDeviceSourceUUID:(id)arg1 bundleIdentifier:(id)arg2 error:(id *)arg3;

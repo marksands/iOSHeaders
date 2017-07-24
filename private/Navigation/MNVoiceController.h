@@ -42,7 +42,7 @@ __attribute__((visibility("hidden")))
 - (void)endAnnounce;
 - (void)prepareToAnnounce;
 - (void)warmUpTTS;
-- (void)beepIfNecessaryForShortPromptType:(unsigned long long)arg1;
+- (void)beepIfNecessaryForShortPromptType:(unsigned long long)arg1 textToSpeak:(id)arg2;
 - (_Bool)isPlayingAudio;
 - (_Bool)isSpeaking;
 - (void)clearAllEvents;

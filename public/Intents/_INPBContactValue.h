@@ -20,6 +20,7 @@
     NSString *_fullName;
     _INPBImageValue *_image;
     NSString *_lastName;
+    NSString *_nickName;
     NSString *_relationship;
     int _suggestionType;
     _INPBValueMetadata *_valueMetadata;
@@ -32,6 +33,7 @@
 
 + (Class)aliasesType;
 + (id)options;
+@property(retain, nonatomic) NSString *nickName; // @synthesize nickName=_nickName;
 @property(retain, nonatomic) NSMutableArray *aliases; // @synthesize aliases=_aliases;
 @property(nonatomic) _Bool isMe; // @synthesize isMe=_isMe;
 @property(retain, nonatomic) NSString *relationship; // @synthesize relationship=_relationship;
@@ -52,6 +54,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasNickName;
 - (id)aliasesAtIndex:(unsigned long long)arg1;
 - (unsigned long long)aliasesCount;
 - (void)addAliases:(id)arg1;

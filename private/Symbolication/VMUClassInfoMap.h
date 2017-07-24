@@ -22,8 +22,6 @@
 
 + (void)_destroyRetainedLinearArray:(id *)arg1 withCount:(unsigned int)arg2;
 + (_Bool)supportsSecureCoding;
-+ (void)disableTestingVersion;
-+ (void)enableTestingVersion;
 + (void)initialize;
 + (void)_claimUnarchivingOfClass:(id)arg1;
 - (void).cxx_destruct;

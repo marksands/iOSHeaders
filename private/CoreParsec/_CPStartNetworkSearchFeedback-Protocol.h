@@ -9,7 +9,14 @@
 @class NSData, NSDictionary, NSString;
 
 @protocol _CPStartNetworkSearchFeedback <NSObject>
+@property(readonly, nonatomic) unsigned long long whichTrigger;
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasTuscanyStatus;
+@property(nonatomic) int tuscanyStatus;
+@property(readonly, nonatomic) _Bool hasLookupSelectionType;
+@property(nonatomic) int lookupSelectionType;
+@property(readonly, nonatomic) _Bool hasTriggerEvent;
+@property(nonatomic) int triggerEvent;
 @property(readonly, nonatomic) _Bool hasEndpoint;
 @property(nonatomic) int endpoint;
 @property(copy, nonatomic) NSDictionary *headers;
@@ -17,8 +24,6 @@
 @property(copy, nonatomic) NSString *url;
 @property(readonly, nonatomic) _Bool hasQueryId;
 @property(nonatomic) unsigned long long queryId;
-@property(readonly, nonatomic) _Bool hasTriggerEvent;
-@property(nonatomic) int triggerEvent;
 @property(readonly, nonatomic) _Bool hasUuid;
 @property(copy, nonatomic) NSString *uuid;
 @property(readonly, nonatomic) _Bool hasInput;

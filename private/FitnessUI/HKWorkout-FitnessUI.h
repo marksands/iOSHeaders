@@ -14,13 +14,13 @@
 + (_Bool)fiui_isHeartRateSupportedForActivityType:(unsigned long long)arg1 isIndoor:(_Bool)arg2;
 + (id)fiui_supportedGoalTypesForActivityType:(id)arg1;
 + (id)fiui_supportedMetricsForActivityType:(id)arg1;
-+ (double)fiui_weightedAverageHeartRateWithReadings:(id)arg1 startDate:(id)arg2 endDate:(id)arg3;
 + (double)fiui_weightedAverageHeartRateWithSamples:(id)arg1 startDate:(id)arg2 endDate:(id)arg3;
 - (id)fiui_splitsFromDistanceSamples:(id)arg1 distanceInMetersPerSplit:(double)arg2;
 - (long long)fiui_strokeStyle;
 - (long long)fiui_swimmingLocationType;
 - (id)fiui_lapLength;
 - (double)fiui_averageTimePerLap;
+- (id)fiui_connectedGymBrandName;
 - (_Bool)fiui_isConnectedGymWorkout;
 - (double)fiui_averagePace;
 - (id)_fiui_averagePaceQty;

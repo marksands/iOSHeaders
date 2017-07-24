@@ -14,14 +14,15 @@
 __attribute__((visibility("hidden")))
 @interface QLSingleItemThumbnailGenerator : NSObject <QLItemThumbnailGeneratorProtocolInternal, NSSecureCoding>
 {
-    QLItem *_item;
     UIImage *_thumbnail;
     struct CGSize _thumbnailSize;
     _Bool _isRepresentative;
     QLItemThumbnailGenerator *_thumbnailGenerator;
+    QLItem *_item;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) __weak QLItem *item; // @synthesize item=_item;
 @property(retain, nonatomic) QLItemThumbnailGenerator *thumbnailGenerator; // @synthesize thumbnailGenerator=_thumbnailGenerator;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;

@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 - (void)deny;
 - (void)allow;
 - (void)cancelMediaDevicesEnumerationRequest;
-- (id)initWithMediaDevicesEnumerationRequest:(PassRefPtr_3f5ed6a4)arg1;
+- (id)initWithMediaDevicesEnumerationRequest:(Ref_74df6cd4 *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -11,7 +11,7 @@
 @interface PLPersistedPersonMetadata : NSObject
 {
     short _keyFacePickSource;
-    int _manualOrder;
+    unsigned int _manualOrder;
     int _type;
     int _verifiedType;
     int _cloudVerifiedType;
@@ -51,7 +51,7 @@
 @property(nonatomic) int cloudVerifiedType; // @synthesize cloudVerifiedType=_cloudVerifiedType;
 @property(nonatomic) int verifiedType; // @synthesize verifiedType=_verifiedType;
 @property(nonatomic) int type; // @synthesize type=_type;
-@property(nonatomic) int manualOrder; // @synthesize manualOrder=_manualOrder;
+@property(nonatomic) unsigned int manualOrder; // @synthesize manualOrder=_manualOrder;
 @property(retain, nonatomic) NSString *personUri; // @synthesize personUri=_personUri;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) NSString *fullName; // @synthesize fullName=_fullName;
@@ -60,7 +60,9 @@
 - (void).cxx_destruct;
 - (void)_saveMetadata;
 - (id)_metadataData;
-- (_Bool)_readMetadata;
+- (_Bool)readMetadata;
+- (_Bool)readDetectedFaces;
+- (_Bool)_readUUID;
 - (id)description;
 - (_Bool)_insertRejectedFacesOnPerson:(id)arg1 fromDataInManagedObjectContext:(id)arg2 deferUnmatched:(_Bool)arg3;
 - (_Bool)_insertDetectedFacesOnPerson:(id)arg1 fromDataInManagedObjectContext:(id)arg2 deferUnmatched:(_Bool)arg3;
@@ -70,6 +72,7 @@
 - (id)insertPersonFromDataInManagedObjectContext:(id)arg1;
 - (void)writePersistedData;
 - (id)detectedFaceIdentifiers;
+- (id)initWithPersistedDataAtURL:(id)arg1 deferUnarchiving:(_Bool)arg2;
 - (id)initWithPersistedDataAtURL:(id)arg1;
 - (id)initWithPLPerson:(id)arg1 metadataURL:(id)arg2;
 - (id)initWithPLPerson:(id)arg1;

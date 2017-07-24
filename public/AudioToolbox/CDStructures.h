@@ -34,17 +34,18 @@ struct AUExtRenderingServer {
     int _field4;
     struct IOThread *_field5;
     _Bool _field6;
-    int _field7;
+    unsigned int _field7;
     int _field8;
-    struct IPCAUSharedMemory _field9;
-    struct unique_ptr<SemaphoreIOMessenger_Receiver, std::__1::default_delete<SemaphoreIOMessenger_Receiver>> _field10;
-    union AURenderEvent *_field11;
+    int _field9;
+    struct IPCAUSharedMemory _field10;
+    struct unique_ptr<SemaphoreIOMessenger_Receiver, std::__1::default_delete<SemaphoreIOMessenger_Receiver>> _field11;
     union AURenderEvent *_field12;
-    id _field13;
-    CDUnknownBlockType _field14;
-    _Bool _field15;
-    long long _field16;
-    struct AUEventSchedule *_field17;
+    union AURenderEvent *_field13;
+    id _field14;
+    CDUnknownBlockType _field15;
+    _Bool _field16;
+    long long _field17;
+    struct AUEventSchedule *_field18;
 };
 
 struct AUInputElement;
@@ -214,9 +215,11 @@ struct IOThread;
 
 struct IPCAURenderingClient {
     CDUnknownFunctionPointerType *_vptr$IPCAURenderingClient;
+    id mRemote;
     _Bool mInitialized;
     _Bool mRenderPrioritySet;
     _Bool mIsOffline;
+    _Bool mSentWorkInterval;
     struct IPCAUSharedMemory mSharedMemory;
     struct unique_ptr<SemaphoreIOMessenger_Sender, std::__1::default_delete<SemaphoreIOMessenger_Sender>> mMessenger;
     double mOutputSampleRate;

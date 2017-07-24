@@ -8,11 +8,12 @@
 
 #import <Silex/ADBannerViewDelegate-Protocol.h>
 #import <Silex/SXAdDisplayInstructions-Protocol.h>
+#import <Silex/SXAdDocumentStateObserver-Protocol.h>
 #import <Silex/SXViewportChangeListener-Protocol.h>
 
 @class ADBannerView, NSError, NSString, SXIAdDebugView;
 
-@interface SXIAdComponentView : SXComponentView <ADBannerViewDelegate, SXAdDisplayInstructions, SXViewportChangeListener>
+@interface SXIAdComponentView : SXComponentView <ADBannerViewDelegate, SXAdDisplayInstructions, SXViewportChangeListener, SXAdDocumentStateObserver>
 {
     _Bool _hasInvalidatedLayout;
     _Bool _isReceivingViewportChanges;
@@ -42,6 +43,8 @@
 - (void)sendOpportunityEvent;
 - (_Bool)shouldSendOpportunityEvent;
 - (void)visibilityStateDidChangeFromState:(long long)arg1;
+- (void)adDocumentDisappeared;
+- (void)adDocumentAppearing;
 - (void)stopDisplayingAdWithError:(unsigned long long)arg1;
 - (void)bannerView:(id)arg1 didFailToReceiveAdWithError:(id)arg2;
 - (void)bannerViewDidLoadAd:(id)arg1;
@@ -58,12 +61,11 @@
 - (void)registerForViewportChanges;
 - (void)viewport:(id)arg1 dynamicBoundsDidChangeFromBounds:(struct CGRect)arg2;
 - (void)presentComponent;
-- (void)viewport:(id)arg1 appearStateChangedFromState:(unsigned long long)arg2;
 - (void)applicationDidBecomeActive:(id)arg1;
 - (void)applicationDidEnterBackground:(id)arg1;
 - (void)adSheetDisconnectedNotification:(id)arg1;
 - (void)dealloc;
-- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 context:(id)arg3 configuration:(id)arg4;
+- (id)initWithComponent:(id)arg1 configuration:(id)arg2 context:(id)arg3 analyticsReporting:(id)arg4 appStateMonitor:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

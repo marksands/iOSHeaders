@@ -12,17 +12,9 @@
 {
     NSURL *_invitationURL;
     NSString *_programID;
-    NSString *_title;
-    NSString *_message;
-    NSString *_continueButtonText;
-    NSString *_cancelButtonText;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSString *cancelButtonText; // @synthesize cancelButtonText=_cancelButtonText;
-@property(copy, nonatomic) NSString *continueButtonText; // @synthesize continueButtonText=_continueButtonText;
-@property(copy, nonatomic) NSString *message; // @synthesize message=_message;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(copy, nonatomic) NSString *programID; // @synthesize programID=_programID;
 @property(copy, nonatomic) NSURL *invitationURL; // @synthesize invitationURL=_invitationURL;
 - (void).cxx_destruct;

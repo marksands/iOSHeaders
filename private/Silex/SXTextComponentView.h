@@ -34,6 +34,7 @@
 - (_Bool)gestureShouldBegin:(id)arg1;
 - (id)textSource;
 - (struct CGRect)frameForTextRange:(struct _NSRange)arg1;
+- (struct CGRect)absoluteTextViewFrame;
 - (void)applyAddition:(id)arg1;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)receivedInfo:(id)arg1 fromLayoutingPhaseWithIdentifier:(id)arg2;

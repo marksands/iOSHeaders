@@ -39,8 +39,6 @@
 @property(copy) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
 - (void)copySourceAppInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)cacheSourceAppInfo;
-- (_Bool)getCachedSourceAppInfo;
 @property _Bool isOpen;
 @property(retain) NEFilterAbsoluteVerdict *currentVerdict;
 - (void)close;

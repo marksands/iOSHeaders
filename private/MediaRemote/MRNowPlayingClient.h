@@ -6,26 +6,28 @@
 
 #import <Foundation/NSObject.h>
 
+#import <MediaRemote/MRNowPlayingClientState-Protocol.h>
+
 @class NSArray, NSMutableArray;
 @protocol OS_dispatch_queue;
 
-@interface MRNowPlayingClient : NSObject
+@interface MRNowPlayingClient : NSObject <MRNowPlayingClientState>
 {
     void *_client;
     NSObject<OS_dispatch_queue> *_serialQueue;
     int _notifyRestoreClientStateForLaunch;
-    void *_activePlayer;
-    NSMutableArray *_playerClients;
     void *_activePlayerPath;
+    NSMutableArray *_playerClients;
     NSArray *_nowPlayingClients;
 }
 
 @property(readonly, nonatomic) NSArray *nowPlayingClients; // @synthesize nowPlayingClients=_nowPlayingClients;
-@property(nonatomic) void *activePlayerPath; // @synthesize activePlayerPath=_activePlayerPath;
 @property(readonly, nonatomic) void *client; // @synthesize client=_client;
 - (id)description;
+- (void)restoreNowPlayingClientState;
+- (void)removePlayer:(void *)arg1;
 - (id)nowPlayingPlayerClientForPlayerPath:(void *)arg1;
-- (void *)activePlayer;
+@property(nonatomic) void *activePlayerPath;
 - (void)dealloc;
 - (id)initWithClient:(void *)arg1;
 

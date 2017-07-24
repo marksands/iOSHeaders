@@ -12,13 +12,15 @@
 
 @interface CTCarrierSpacePlanGroupInfo : NSObject <NSSecureCoding>
 {
-    NSString *_groupId;
+    long long _planCategory;
     NSArray *_groupOptionsList;
+    NSString *_groupId;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) NSArray *groupOptionsList; // @synthesize groupOptionsList=_groupOptionsList;
 @property(retain, nonatomic) NSString *groupId; // @synthesize groupId=_groupId;
+@property(retain, nonatomic) NSArray *groupOptionsList; // @synthesize groupOptionsList=_groupOptionsList;
+@property(nonatomic) long long planCategory; // @synthesize planCategory=_planCategory;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

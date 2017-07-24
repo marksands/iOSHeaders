@@ -25,7 +25,7 @@
 - (void)endAutoTriggerOfVideoFrameEvents;
 - (void)autoTriggerVideoFrameEventsWithAVCaptureSession:(id)arg1 options:(id)arg2 delegate:(id)arg3;
 - (void)nodeInitialize;
-- (void)create:(id)arg1;
+- (void)produceImage:(id)arg1;
 - (void)setShouldProcessRemotely:(_Bool)arg1;
 
 @end

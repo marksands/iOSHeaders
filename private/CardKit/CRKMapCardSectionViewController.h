@@ -27,6 +27,7 @@
 - (void)_updateContentSize;
 - (void)_loadCardSectionViewIfNeeded;
 - (void)_loadMapCardSectionView;
+- (id)_unhandledParameters;
 - (void)_loadCardSectionView;
 - (void)_snapshotCardSectionView;
 - (void)viewWillDisappear:(_Bool)arg1;

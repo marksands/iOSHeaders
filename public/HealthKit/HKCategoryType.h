@@ -10,6 +10,7 @@
 {
 }
 
++ (id)_categoryTypeWithCode:(long long)arg1;
 - (id)_predicateForSDKVersion:(unsigned int)arg1;
 - (_Bool)_validateMetadata:(id)arg1 error:(id *)arg2;
 - (long long)_defaultValue;

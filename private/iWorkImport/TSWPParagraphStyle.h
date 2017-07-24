@@ -65,6 +65,8 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (double)ascent;
 - (id)objectByRemovingPropertiesInMap:(id)arg1 addingPropertiesInMap:(id)arg2 updateInverseResetPropertyMap:(id)arg3 updateInverseSetPropertyMap:(id)arg4;
+@property(readonly, nonatomic) _Bool allowAsBookmarkSuggestionStyle;
+@property(readonly, nonatomic) _Bool showInSuggestedBookmarksList;
 
 @end
 

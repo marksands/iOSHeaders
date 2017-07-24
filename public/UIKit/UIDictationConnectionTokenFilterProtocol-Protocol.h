@@ -11,7 +11,8 @@
 @protocol UIDictationConnectionTokenFilterProtocol <NSObject>
 - (void)dictationConnection:(UIDictationConnection *)arg1 didFilterTokensWithFilterState:(id)arg2 forFinalize:(_Bool)arg3;
 - (void)dictationConnection:(UIDictationConnection *)arg1 filterState:(id)arg2 processFilteredToken:(UIDictationToken *)arg3 forFinalize:(_Bool)arg4;
-- (UIDictationToken *)dictationConnection:(UIDictationConnection *)arg1 filterState:(id)arg2 token:(UIDictationToken *)arg3 secureInput:(_Bool)arg4 forFinalize:(_Bool)arg5;
+- (_Bool)dictationConnection:(UIDictationConnection *)arg1 filterState:(id)arg2 shouldCheckpointAtToken:(UIDictationToken *)arg3;
 - (id)dictationConnection:(UIDictationConnection *)arg1 willFilterTokensWithLanguageModel:(NSString *)arg2 forFinalize:(_Bool)arg3;
+- (struct __CFString *)resultTransformForLanguageModel:(NSString *)arg1;
 @end
 

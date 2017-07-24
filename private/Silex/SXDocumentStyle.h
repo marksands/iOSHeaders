@@ -17,6 +17,7 @@
 // Remaining properties
 @property(readonly, nonatomic) UIColor *backgroundColor; // @dynamic backgroundColor;
 @property(readonly, nonatomic) SXFill *fill; // @dynamic fill;
+@property(readonly, nonatomic) UIColor *topBackgroundColor; // @dynamic topBackgroundColor;
 
 @end
 

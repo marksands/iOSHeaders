@@ -10,7 +10,6 @@
 {
 }
 
-- (id)recordZoneName;
 - (id)initWithEntryID:(id)arg1;
 
 @end

@@ -8,7 +8,7 @@
 
 #import <Intents/NSCopying-Protocol.h>
 
-@class NSString, PBUnknownFields, _INPBDateTime, _INPBSpatialEventTrigger, _INPBTemporalEventTrigger;
+@class NSString, PBUnknownFields, _INPBDataString, _INPBDateTime, _INPBSpatialEventTrigger, _INPBTemporalEventTrigger;
 
 @interface _INPBTask : PBCodable <NSCopying>
 {
@@ -20,7 +20,7 @@
     int _status;
     int _taskType;
     _INPBTemporalEventTrigger *_temporalEventTrigger;
-    NSString *_title;
+    _INPBDataString *_title;
     struct {
         unsigned int status:1;
         unsigned int taskType:1;
@@ -33,7 +33,7 @@
 @property(retain, nonatomic) _INPBDateTime *createdDateTime; // @synthesize createdDateTime=_createdDateTime;
 @property(retain, nonatomic) _INPBTemporalEventTrigger *temporalEventTrigger; // @synthesize temporalEventTrigger=_temporalEventTrigger;
 @property(retain, nonatomic) _INPBSpatialEventTrigger *spatialEventTrigger; // @synthesize spatialEventTrigger=_spatialEventTrigger;
-@property(retain, nonatomic) NSString *title; // @synthesize title=_title;
+@property(retain, nonatomic) _INPBDataString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;

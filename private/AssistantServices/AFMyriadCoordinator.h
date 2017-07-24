@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class AFMyriadRecord, NSDate, NSDateFormatter, NSMutableDictionary, NSString, NSUUID, _DKKnowledgeStore;
+@class AFMyriadRecord, AFPowerAssertionManager, NSDate, NSDateFormatter, NSMutableDictionary, NSString, NSUUID, _DKKnowledgeStore;
 @protocol OS_dispatch_queue, OS_dispatch_semaphore, OS_dispatch_source;
 
 @interface AFMyriadCoordinator : NSObject
@@ -27,6 +27,7 @@
     NSString *_timerLabel;
     NSObject<OS_dispatch_source> *_timer;
     NSObject<OS_dispatch_semaphore> *_wiproxReadinessSemaphore;
+    AFPowerAssertionManager *_powerAssertionManager;
     AFMyriadRecord *_triggerRecord;
     int _nTimesContinued;
     int _nTimesExtended;
@@ -48,6 +49,8 @@
     NSDate *_lastSiriActivationTime;
     NSDate *_triggerTime;
     int _nDeltaTs;
+    unsigned long long _lastDecisionTime;
+    _Bool _lastDecision;
     unsigned short _lastPHash;
 }
 

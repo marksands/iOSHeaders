@@ -16,6 +16,9 @@
 @property(retain, nonatomic) NSNumber *timeStamp; // @synthesize timeStamp=_timeStamp;
 - (void).cxx_destruct;
 - (_Bool)internalPerformInContext:(id)arg1 error:(id *)arg2;
+- (void)applyConfigurationOfRequest:(id)arg1;
+- (id)sequencedRequestPreviousObservationsKey;
+- (id)observationsCacheKey;
 - (_Bool)warmUpRequestPerformer:(id)arg1 error:(id *)arg2;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1;
 

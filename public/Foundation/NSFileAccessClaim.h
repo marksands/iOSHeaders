@@ -105,6 +105,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithClient:(id)arg1 claimID:(id)arg2 purposeID:(id)arg3;
 - (void)_setupWithClaimID:(id)arg1 purposeID:(id)arg2;
+- (_Bool)shouldInformProvidersAboutEndOfWriteWithOptions:(unsigned long long)arg1;
 - (_Bool)shouldReadingWithOptions:(unsigned long long)arg1 causePresenterToRelinquish:(id)arg2;
 
 @end

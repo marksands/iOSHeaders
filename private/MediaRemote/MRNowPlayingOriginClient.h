@@ -6,12 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
+#import <MediaRemote/MRNowPlayingClientState-Protocol.h>
+
 @class NSArray, NSMutableArray, NSString;
 @protocol OS_dispatch_queue;
 
-@interface MRNowPlayingOriginClient : NSObject
+@interface MRNowPlayingOriginClient : NSObject <MRNowPlayingClientState>
 {
-    int _notifyRestoreClientStateForLaunch;
     void *_origin;
     NSObject<OS_dispatch_queue> *_serialQueue;
     _Bool _canBeNowPlayingApp;
@@ -27,6 +28,9 @@
     CDUnknownBlockType _playbackQueueCallback;
     CDUnknownBlockType _capabilitiesCallback;
     CDUnknownBlockType _commandCallback;
+    CDUnknownBlockType _beginLyricsEventCallback;
+    CDUnknownBlockType _endLyricsEventCallback;
+    void *_activeNowPlayingClient;
     NSMutableArray *_nowPlayingClients;
     unsigned int _hardwareRemoteBehavior;
 }
@@ -34,13 +38,16 @@
 @property(nonatomic) unsigned int hardwareRemoteBehavior; // @synthesize hardwareRemoteBehavior=_hardwareRemoteBehavior;
 @property(readonly, nonatomic) void *origin; // @synthesize origin=_origin;
 - (id)description;
+- (void)restoreNowPlayingClientState;
 - (void)_unregisterMediaServerNotifications;
 - (void)_registerMediaServerNotifications;
 - (void)_avSessionMediaServicesResetNotification:(id)arg1;
 - (void)dispatchQueuedContentChanges;
 - (void)startQueuingContentChanges;
 - (void)notifyChangeOfContentItem:(void *)arg1 withRequest:(void *)arg2;
+- (void)removeClient:(void *)arg1;
 - (id)nowPlayingClientForPlayerPath:(void *)arg1;
+@property(nonatomic) void *activeNowPlayingClient;
 @property(nonatomic) union _MRColor tintColor;
 @property(nonatomic) unsigned int visibility;
 @property(nonatomic) unsigned int routeDiscoveryMode;
@@ -48,6 +55,8 @@
 @property(nonatomic) _Bool canBeNowPlayingApp;
 @property(copy, nonatomic) NSString *parentApplication;
 @property(copy, nonatomic) NSArray *applicationPickedRoutes;
+@property(copy, nonatomic) CDUnknownBlockType endLyricsEventCallback;
+@property(copy, nonatomic) CDUnknownBlockType beginLyricsEventCallback;
 @property(copy, nonatomic) CDUnknownBlockType commandCallback;
 @property(copy, nonatomic) CDUnknownBlockType playbackQueueCallback;
 @property(readonly, nonatomic) NSArray *nowPlayingClients;

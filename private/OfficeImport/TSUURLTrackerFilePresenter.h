@@ -8,7 +8,7 @@
 
 #import <OfficeImport/NSFilePresenter-Protocol.h>
 
-@class NSOperationQueue, NSString, NSURL;
+@class NSOperationQueue, NSSet, NSString, NSURL;
 
 __attribute__((visibility("hidden")))
 @interface TSUURLTrackerFilePresenter : NSObject <NSFilePresenter>
@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
+@property(readonly) NSSet *observedPresentedItemUbiquityAttributes;
 @property(readonly, copy) NSURL *primaryPresentedItemURL;
 @property(readonly) Class superclass;
 

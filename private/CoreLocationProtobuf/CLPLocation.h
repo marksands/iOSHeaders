@@ -23,6 +23,9 @@
     CLPMotionActivity *_dominantMotionActivity;
     int _floor;
     float _horizontalAccuracy;
+    float _horzUncSemiMaj;
+    float _horzUncSemiMajAz;
+    float _horzUncSemiMin;
     int _modeIndicator;
     CLPMotionActivity *_motionActivity;
     int _motionActivityConfidence;
@@ -40,6 +43,9 @@
         unsigned int course:1;
         unsigned int courseAccuracy:1;
         unsigned int floor:1;
+        unsigned int horzUncSemiMaj:1;
+        unsigned int horzUncSemiMajAz:1;
+        unsigned int horzUncSemiMin:1;
         unsigned int modeIndicator:1;
         unsigned int motionActivityConfidence:1;
         unsigned int motionActivityType:1;
@@ -53,6 +59,9 @@
 }
 
 + (Class)appBundleIdIndicesType;
+@property(nonatomic) float horzUncSemiMajAz; // @synthesize horzUncSemiMajAz=_horzUncSemiMajAz;
+@property(nonatomic) float horzUncSemiMin; // @synthesize horzUncSemiMin=_horzUncSemiMin;
+@property(nonatomic) float horzUncSemiMaj; // @synthesize horzUncSemiMaj=_horzUncSemiMaj;
 @property(nonatomic) float speedAccuracy; // @synthesize speedAccuracy=_speedAccuracy;
 @property(nonatomic) float courseAccuracy; // @synthesize courseAccuracy=_courseAccuracy;
 @property(retain, nonatomic) CLPMotionActivity *dominantMotionActivity; // @synthesize dominantMotionActivity=_dominantMotionActivity;
@@ -84,6 +93,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasHorzUncSemiMajAz;
+@property(nonatomic) _Bool hasHorzUncSemiMin;
+@property(nonatomic) _Bool hasHorzUncSemiMaj;
 - (int)StringAsModeIndicator:(id)arg1;
 - (id)modeIndicatorAsString:(int)arg1;
 @property(nonatomic) _Bool hasModeIndicator;

@@ -14,11 +14,17 @@
 {
     NSData *_challengeResponse;
     NSData *_cryptogram;
+    _Bool _authRandomSet;
     _Bool _pending;
     _Bool _success;
-    CDStruct_5ee4970e _has;
+    struct {
+        unsigned int authRandomSet:1;
+        unsigned int pending:1;
+        unsigned int success:1;
+    } _has;
 }
 
+@property(nonatomic) _Bool authRandomSet; // @synthesize authRandomSet=_authRandomSet;
 @property(retain, nonatomic) NSData *challengeResponse; // @synthesize challengeResponse=_challengeResponse;
 @property(retain, nonatomic) NSData *cryptogram; // @synthesize cryptogram=_cryptogram;
 @property(nonatomic) _Bool success; // @synthesize success=_success;
@@ -33,6 +39,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasAuthRandomSet;
 @property(readonly, nonatomic) _Bool hasChallengeResponse;
 @property(readonly, nonatomic) _Bool hasCryptogram;
 @property(nonatomic) _Bool hasSuccess;

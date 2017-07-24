@@ -43,6 +43,7 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_titleTrailingConstraint;
     _Bool _isUserLocation;
     _Bool _optionSmallScreen;
+    _Bool _constraintsCreated;
     id <_MKPlaceItem> _placeItem;
     id <GEOTransitLineItem> _lineItem;
     id <MKPlaceCardHeaderViewControllerDelegate> _delegate;
@@ -59,6 +60,7 @@ __attribute__((visibility("hidden")))
 - (void)updateViews;
 - (void)_createViews;
 - (id)newLabel;
+- (_Bool)_mapItemShouldDisplayDistance:(id)arg1;
 - (void)ETAProviderUpdated:(id)arg1;
 - (void)_loadLogo;
 - (_Bool)_willShowDistance;
@@ -71,10 +73,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double currentMinimalModeInterpolationFactor;
 - (void)hideTitle:(_Bool)arg1;
 - (void)updateHeaderTitle;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)_commonInit;
 - (id)initWithLineItem:(id)arg1 layout:(unsigned long long)arg2;
 - (id)initWithPlaceItem:(id)arg1 layout:(unsigned long long)arg2;
+- (id)titleFont;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

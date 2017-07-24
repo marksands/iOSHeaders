@@ -12,7 +12,7 @@
 #import <PhotoLibraryServices/PLCloudUserSessionHandling-Protocol.h>
 #import <PhotoLibraryServices/PLForegroundObserver-Protocol.h>
 
-@class CPLLibraryManager, NSDate, NSMutableDictionary, NSMutableSet, NSNumber, NSString, PFCoalescer, PLBatterySaverWatcher, PLCloudBatchDownloader, PLCloudBatchUploader, PLCloudInMemoryTaskManager, PLCloudResourceManager, PLCloudTaskManager, PLPhotoLibrary;
+@class CPLLibraryManager, NSDate, NSNumber, NSString, PFCoalescer, PLBatterySaverWatcher, PLCloudBatchDownloader, PLCloudBatchUploader, PLCloudInMemoryTaskManager, PLCloudPhotoLibraryUploadTracker, PLCloudResourceManager, PLCloudTaskManager, PLPhotoLibrary;
 @protocol OS_dispatch_queue, OS_dispatch_source, OS_xpc_object;
 
 @interface PLCloudPhotoLibraryManager : NSObject <CPLResourceProgressDelegate, CPLLibraryManagerDelegate, PLForegroundObserver, PLBatterySaverWatcherDelegate, PLCloudUserSessionHandling>
@@ -48,8 +48,6 @@
     PLCloudResourceManager *_resourceManager;
     NSObject<OS_dispatch_source> *_unpauseDispatchTimer;
     NSObject<OS_dispatch_source> *_userUnpauseDispatchTimer;
-    NSMutableDictionary *_trackedResourceProgressSize;
-    NSMutableDictionary *_trackedResourceMasterUploaded;
     NSDate *_pendingResetSyncDate;
     _Bool _initializedMaster;
     PFCoalescer *_coalescer;
@@ -57,16 +55,10 @@
     unsigned long long _boundForUploadingPhotos;
     unsigned long long _boundForUploadingVideos;
     unsigned long long _boundForUploadingOtherItems;
-    unsigned long long _totalNumberOfUnpushedMasters;
-    unsigned long long _totalNumberOfPushedMasters;
-    unsigned long long _totalNumberOfUploadedMasters;
-    unsigned long long _totalSizeOfUnpushedOriginals;
-    unsigned long long _totalSizeOfPushedOriginals;
-    unsigned long long _totalUploadedOriginalSize;
-    NSMutableSet *_mastersToUpload;
     NSObject<OS_dispatch_source> *_workInProgressTimer;
     _Bool _significantWork;
     PLCloudInMemoryTaskManager *_inMemoryTaskManager;
+    PLCloudPhotoLibraryUploadTracker *_uploadTracker;
     _Bool _inResetSync;
     unsigned long long _numberOfPhotosToUpload;
     unsigned long long _numberOfVideosToUpload;
@@ -119,12 +111,11 @@
 - (unsigned long long)_inq_numberOfVideosToUpload;
 - (unsigned long long)_inq_numberOfPhotosToUpload;
 - (unsigned long long)_inq_numberOfOtherItemsToUpload;
-- (void)_resetTotalUploadByteSize;
 - (void)_updateTransferCounts;
 - (id)cplStatus;
 - (id)getCPLState;
 - (_Bool)isPausedForDownloadRequestHighPriority:(_Bool)arg1;
-- (void)foregroundMonitor:(id)arg1 changedStateToForeground:(_Bool)arg2 context:(id)arg3;
+- (void)foregroundMonitor:(id)arg1 changedStateToForeground:(_Bool)arg2 forBundleIdentifier:(id)arg3 context:(id)arg4;
 - (_Bool)_isColorAwareResource:(unsigned long long)arg1 adjustedResource:(_Bool)arg2;
 - (void)_recoverFromPauseUnderDiskPressureIfNeeded;
 - (void)_updateAsset:(id)arg1 withImageFileURL:(id)arg2;
@@ -138,7 +129,6 @@
 - (void)libraryManager:(id)arg1 inMemoryDownloadDidFinishForResourceTransferTask:(id)arg2 data:(id)arg3 withError:(id)arg4;
 - (void)libraryManager:(id)arg1 uploadDidProgress:(float)arg2 forResourceTransferTask:(id)arg3;
 - (void)libraryManager:(id)arg1 uploadDidFinishForResourceTransferTask:(id)arg2 withError:(id)arg3;
-- (id)_constructResourceKeyForResource:(id)arg1;
 - (void)libraryManager:(id)arg1 uploadDidStartForResourceTransferTask:(id)arg2;
 - (void)libraryManager:(id)arg1 backgroundDownloadDidFailForResource:(id)arg2;
 - (void)libraryManager:(id)arg1 backgroundDownloadDidFinishForResource:(id)arg2;
@@ -186,6 +176,7 @@
 - (unsigned int)_registerToChangeHubNotification;
 - (void)batterySaverModeDidChange:(_Bool)arg1;
 - (void)_processNextTransaction;
+- (void)_handleOptimizeSettingChange;
 - (void)_updatePendingResetSyncDate;
 - (_Bool)_setupTimerForUnpause;
 - (void)_constructUnpauseTimerFrom:(id)arg1 to:(id)arg2;
@@ -215,6 +206,8 @@
 - (void)cplHasBackgroundDownloadOperationsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)endsSignificantWork;
 - (void)beginsSignificantWorkWithResourcesSize:(unsigned long long)arg1 initialOrResetSync:(_Bool)arg2;
+- (void)_runOneTimeMigrationStepsIfNecessary;
+- (void)_initializeMasterAndSizeCalculation;
 - (void)_openCPLLibrary;
 - (id)init;
 - (void)updateLastKnownIndexFromChangeHub;

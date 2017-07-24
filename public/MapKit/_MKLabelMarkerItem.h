@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 
 + (id)labelMarkerItemWithLabelMarker:(id)arg1;
 - (void).cxx_destruct;
+- (id)_place;
 - (int)_venueFeatureType;
 - (_Bool)_hasVenueFeatureType;
 - (id)_venueInfo;

@@ -14,6 +14,7 @@
     _Bool _skipPeer;
     _Bool _skipEdge;
     _Bool _imposePolicyBan;
+    _Bool _requiresURLSession;
     NSURL *_url;
     SAConnectionPolicyRoute *_connectionPolicyRoute;
     NSString *_aceHost;
@@ -25,6 +26,7 @@
     NSString *_connectionId;
 }
 
+@property(nonatomic) _Bool requiresURLSession; // @synthesize requiresURLSession=_requiresURLSession;
 @property(nonatomic) _Bool imposePolicyBan; // @synthesize imposePolicyBan=_imposePolicyBan;
 @property(copy, nonatomic) NSString *connectionId; // @synthesize connectionId=_connectionId;
 @property(copy, nonatomic) NSString *peerAssistantIdentifier; // @synthesize peerAssistantIdentifier=_peerAssistantIdentifier;

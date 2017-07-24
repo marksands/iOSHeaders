@@ -32,15 +32,15 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic) _Bool schedulerIsAvailable; // @synthesize schedulerIsAvailable=_schedulerIsAvailable;
 - (void).cxx_destruct;
-- (void)ensureTokenRefreshForAppContainerTuple:(id)arg1 apsEnvironmentString:(id)arg2 useAPSPublicToken:(_Bool)arg3 darkWakeEnabled:(_Bool)arg4 isCKSystemService:(_Bool)arg5 completionBlock:(CDUnknownBlockType)arg6;
+- (void)ensureTokenRefreshForAppContainerTuple:(id)arg1 apsEnvironmentString:(id)arg2 darkWakeEnabled:(_Bool)arg3 isCKSystemService:(_Bool)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (void)forceTokenRefreshForAllClients;
 - (void)unregisterAllTokensWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)unregisterTokenForAppContainerTuple:(id)arg1;
 - (void)handlePushTokenDidUpdate:(id)arg1;
 - (void)handlePublicPushTokenDidUpdate:(id)arg1;
 - (void)refreshAllClientsNow;
-- (void)_removeApsToken:(id)arg1 appContainerTuple:(id)arg2 apsEnvironmentString:(id)arg3 usesAPSPublicToken:(long long)arg4 darkWakeEnabled:(_Bool)arg5 isCKSystemService:(_Bool)arg6 completionBlock:(CDUnknownBlockType)arg7;
-- (void)_refreshApsToken:(id)arg1 appContainerTuple:(id)arg2 apsEnvironmentString:(id)arg3 usesAPSPublicToken:(long long)arg4 darkWakeEnabled:(_Bool)arg5 isCKSystemService:(_Bool)arg6 completionBlock:(CDUnknownBlockType)arg7;
+- (void)_removeApsToken:(id)arg1 appContainerTuple:(id)arg2 apsEnvironmentString:(id)arg3 darkWakeEnabled:(_Bool)arg4 isCKSystemService:(_Bool)arg5 completionBlock:(CDUnknownBlockType)arg6;
+- (void)_refreshApsToken:(id)arg1 appContainerTuple:(id)arg2 apsEnvironmentString:(id)arg3 darkWakeEnabled:(_Bool)arg4 isCKSystemService:(_Bool)arg5 completionBlock:(CDUnknownBlockType)arg6;
 - (void)tokenRefreshChanged;
 - (void)registerTokenRefreshActivity;
 - (void)setSchedulerAvailable:(_Bool)arg1;

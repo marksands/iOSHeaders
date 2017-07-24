@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class AFAudioPlaybackRequest, NSURL;
+@class AFAudioPlaybackRequest, NSDictionary, NSURL;
 
 @interface AFAudioPlaybackRequestBuilder : NSObject
 {
@@ -16,18 +16,21 @@
     float _volume;
     double _fadeInDuration;
     double _fadeOutDuration;
-    struct __flags {
+    NSDictionary *_userInfo;
+    struct _builderFlags {
         unsigned int isDirty:1;
         unsigned int hasItemURL:1;
         unsigned int hasNumberOfLoops:1;
         unsigned int hasVolume:1;
         unsigned int hasFadeInDuration:1;
         unsigned int hasFadeOutDuration:1;
-    } __flags;
+        unsigned int hasUserInfo:1;
+    } _builderFlags;
 }
 
 - (void).cxx_destruct;
 - (id)build;
+- (id)setUserInfo:(id)arg1;
 - (id)setFadeOutDuration:(double)arg1;
 - (id)setFadeInDuration:(double)arg1;
 - (id)setVolume:(float)arg1;

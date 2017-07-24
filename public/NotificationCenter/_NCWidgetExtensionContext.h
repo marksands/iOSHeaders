@@ -28,7 +28,6 @@ __attribute__((visibility("hidden")))
 - (long long)widgetLargestAvailableDisplayMode;
 - (void)_setMaximumSize:(struct CGSize)arg1 forDisplayMode:(long long)arg2;
 - (struct CGSize)_maximumSizeForDisplayMode:(long long)arg1;
-- (void)invalidateWidgetDisplayProperties;
 - (void)openURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)openURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 contextUUID:(id)arg3;

@@ -15,6 +15,8 @@
 + (id)rules;
 + (id)_assetWithName:(id)arg1 andLoadBlock:(CDUnknownBlockType)arg2;
 + (void)_reset;
++ (void)_invokeOnUpdateBlock;
++ (void)registerOnUpdateBlock:(CDUnknownBlockType)arg1;
 + (void)initialize;
 
 @end

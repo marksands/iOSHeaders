@@ -10,10 +10,10 @@
 
 @protocol _CPResultEngagementFeedback <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
-@property(readonly, nonatomic) _Bool hasResultHadTitle;
-@property(nonatomic) _Bool resultHadTitle;
-@property(readonly, nonatomic) _Bool hasTitleTextForResultEngagement;
-@property(copy, nonatomic) NSString *titleTextForResultEngagement;
+@property(readonly, nonatomic) _Bool hasMatchesUnengagedSuggestion;
+@property(nonatomic) _Bool matchesUnengagedSuggestion;
+@property(readonly, nonatomic) _Bool hasTitleText;
+@property(copy, nonatomic) NSString *titleText;
 @property(readonly, nonatomic) _Bool hasResult;
 @property(retain, nonatomic) _CPSearchResultForFeedback *result;
 @property(readonly, nonatomic) _Bool hasActionTarget;

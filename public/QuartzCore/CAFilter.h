@@ -34,11 +34,14 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)description;
 - (struct Object *)CA_copyRenderValue;
 - (void)dealloc;
 - (void)setDefaults;
 - (id)valueForKey:(id)arg1;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
+@property(getter=isAccessibility) _Bool accessibility;
+@property _Bool obscuresProtectedContent;
 @property _Bool cachesInputImage;
 @property(getter=isEnabled) _Bool enabled;
 - (_Bool)enabled;

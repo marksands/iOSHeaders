@@ -15,7 +15,10 @@
 
 - (void).cxx_destruct;
 - (_Bool)internalPerformInContext:(id)arg1 error:(id *)arg2;
-@property(copy, nonatomic) NSArray *clusterIDs;
+- (void)applyConfigurationOfRequest:(id)arg1;
+- (id)sequencedRequestPreviousObservationsKey;
+- (id)observationsCacheKey;
+@property(copy, nonatomic) NSArray *clusterIDs; // @synthesize clusterIDs=_clusterIDs;
 - (id)initWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 @end

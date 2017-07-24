@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (void)setActiveSelection:(id)arg1;
 - (void)_clearSelection;
 - (void)clearSelection;
 - (id)_getPagePoint:(struct CGPoint *)arg1 forGesture:(id)arg2;
@@ -23,7 +24,9 @@ __attribute__((visibility("hidden")))
 - (void)_updateLollipopDrag:(id)arg1;
 - (void)_updateWordDrag:(id)arg1;
 - (_Bool)_canWordDrag:(id)arg1;
+- (void)_postAnnotationNotification:(id)arg1;
 - (void)_handleAnnotation:(id)arg1;
+- (_Bool)_shouldHandleAnnotation:(id)arg1;
 - (void)_updateState:(int)arg1 forGesture:(id)arg2;
 - (void)showTextSelectionMenu:(_Bool)arg1;
 - (void)_showTextSelectionMenu;

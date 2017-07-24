@@ -6,7 +6,7 @@
 
 #import <Foundation/NSOperation.h>
 
-@class NSObject, NSString, SKUIClientContext, SKUIRedeemConfiguration;
+@class NSObject, NSString, SKUIClientContext, SKUIRedeemConfiguration, SKUIRedeemViewController;
 @protocol OS_dispatch_queue;
 
 @interface SKUIRedeemPreflightOperation : NSOperation
@@ -18,9 +18,11 @@
     NSString *_redeemCode;
     SKUIRedeemConfiguration *_redeemConfiguration;
     _Bool _forcesAuthentication;
+    SKUIRedeemViewController *_redeemViewController;
 }
 
 @property(nonatomic) _Bool forcesAuthentication; // @synthesize forcesAuthentication=_forcesAuthentication;
+@property(nonatomic) __weak SKUIRedeemViewController *redeemViewController; // @synthesize redeemViewController=_redeemViewController;
 - (void).cxx_destruct;
 - (id)_redeemCodeMetadataWithClientContext:(id)arg1;
 - (id)_authenticationContext;

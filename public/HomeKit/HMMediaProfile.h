@@ -8,11 +8,12 @@
 
 #import <HomeKit/_HMMediaProfileDelegate-Protocol.h>
 
-@class HMMediaSession, NSObject, NSString;
+@class HMAccessorySettings, HMMediaSession, NSObject, NSString;
 @protocol HMMediaProfileDelegate, OS_dispatch_queue;
 
 @interface HMMediaProfile : HMAccessoryProfile <_HMMediaProfileDelegate>
 {
+    HMAccessorySettings *_settings;
     id <HMMediaProfileDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_propertyQueue;
 }
@@ -22,7 +23,11 @@
 - (void).cxx_destruct;
 - (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
 - (void)mediaProfile:(id)arg1 didUpdateMediaSession:(id)arg2;
+- (void)mediaProfile:(id)arg1 didUpdateRootGroup:(id)arg2;
 @property(readonly, copy) HMMediaSession *mediaSession;
+- (void)_notifyDelegateOfUpdatedSettings:(id)arg1;
+- (void)setSettings:(id)arg1;
+@property(readonly) HMAccessorySettings *settings; // @synthesize settings=_settings;
 - (id)initWithAccessoryProfile:(id)arg1;
 - (id)init;
 

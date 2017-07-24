@@ -6,19 +6,20 @@
 
 #import <UIKit/UIView.h>
 
-#import <PDFKit/PDFAccessibilityNodeParent-Protocol.h>
 #import <PDFKit/PDFDocumentPageChangeDelegate-Protocol.h>
-#import <PDFKit/PageImagePoolDelegate-Protocol.h>
+#import <PDFKit/PDFPageBackgroundManagerDelegate-Protocol.h>
 
 @class NSString, PDFDocumentViewPrivate;
 
 __attribute__((visibility("hidden")))
-@interface PDFDocumentView : UIView <PDFAccessibilityNodeParent, PageImagePoolDelegate, PDFDocumentPageChangeDelegate>
+@interface PDFDocumentView : UIView <PDFPageBackgroundManagerDelegate, PDFDocumentPageChangeDelegate>
 {
     PDFDocumentViewPrivate *_private;
 }
 
 - (void).cxx_destruct;
+- (void)recieveBackgroundImage:(id)arg1 atBackgroundQuality:(int)arg2 forPage:(id)arg3;
+- (id)backgroundImageForPage:(id)arg1 withQuality:(int *)arg2;
 - (void)changedBoundsForBoxNotification:(id)arg1;
 - (void)_updateVisibilityDelegateForVisiblePageView:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)_shiftPagesAtIndex:(unsigned long long)arg1 downwards:(_Bool)arg2;
@@ -28,11 +29,10 @@ __attribute__((visibility("hidden")))
 - (id)_createPageView:(id)arg1;
 - (void)enableTextSelectionHandles;
 - (void)clearTextSelectionHandles;
-- (void)forceUpdateWithDuration:(double)arg1;
-- (void)setWillForceUpdateWithDuration;
+- (void)forceUpdateActivePageIndex:(unsigned long long)arg1 withMaxDuration:(double)arg2;
+- (void)willForceUpdate;
 - (void)previewRotateShiftPages:(double)arg1;
 - (void)setSelection:(id)arg1;
-- (void)updateVisibilityWithWaitDuration:(double)arg1;
 - (void)updateVisibility;
 - (struct CGSize)documentViewSize;
 - (void)layoutDocumentView;

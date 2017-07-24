@@ -20,14 +20,14 @@
     _Bool _useWallTime;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSObject<OS_dispatch_source> *_dispatchTimer;
+    NSString *_label;
     CDUnknownBlockType _processBlock;
     CDUnknownBlockType _cancelBlock;
-    NSString *_label;
 }
 
-@property(retain, nonatomic) NSString *label; // @synthesize label=_label;
 @property(copy, nonatomic) CDUnknownBlockType cancelBlock; // @synthesize cancelBlock=_cancelBlock;
 @property(copy, nonatomic) CDUnknownBlockType processBlock; // @synthesize processBlock=_processBlock;
+@property(retain, nonatomic) NSString *label; // @synthesize label=_label;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *dispatchTimer; // @synthesize dispatchTimer=_dispatchTimer;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(nonatomic) _Bool useWallTime; // @synthesize useWallTime=_useWallTime;

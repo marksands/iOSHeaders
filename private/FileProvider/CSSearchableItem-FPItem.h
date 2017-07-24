@@ -12,6 +12,7 @@
 
 @interface CSSearchableItem (FPItem) <NSFileProviderItem_Private>
 + (id)fp_queryFetchAttributes;
+@property(readonly, copy) NSString *fp_appContainerBundleIdentifier;
 @property(readonly, nonatomic, getter=isSharedByCurrentUser) _Bool sharedByCurrentUser;
 - (id)sharingCurrentUserPermissions;
 @property(readonly, nonatomic) NSDictionary *userInfo;
@@ -24,7 +25,7 @@
 @property(readonly, copy, nonatomic) NSError *uploadingError;
 @property(readonly, nonatomic, getter=isUploading) _Bool uploading;
 @property(readonly, copy, nonatomic) NSData *tagData;
-@property(readonly) NSString *fp_spotlightDomainIdentifier;
+@property(readonly, copy) NSString *fp_spotlightDomainIdentifier;
 @property(readonly, nonatomic) unsigned long long capabilities;
 @property(readonly, nonatomic) NSPersonNameComponents *mostRecentEditorNameComponents;
 @property(readonly, nonatomic) NSPersonNameComponents *ownerNameComponents;
@@ -34,7 +35,7 @@
 - (id)sharingCurrentUserRole;
 @property(readonly, copy, nonatomic) NSNumber *childItemCount;
 @property(readonly, nonatomic, getter=isTrashed) _Bool trashed;
-@property(readonly) NSString *providerIdentifier;
+@property(readonly, copy) NSString *providerIdentifier;
 @property(readonly, copy, nonatomic) NSNumber *documentSize;
 @property(readonly, nonatomic, getter=isUploaded) _Bool uploaded;
 @property(readonly, copy, nonatomic) NSDate *lastUsedDate;
@@ -42,7 +43,7 @@
 @property(readonly, copy, nonatomic) NSDate *creationDate;
 @property(readonly, copy, nonatomic) NSString *typeIdentifier;
 @property(readonly, copy, nonatomic) NSString *displayName;
-@property(readonly) NSString *fp_domainIdentifier;
+@property(readonly, copy) NSString *fp_domainIdentifier;
 @property(readonly, copy, nonatomic) NSString *parentItemIdentifier;
 @property(readonly, copy, nonatomic) NSString *itemIdentifier;
 
@@ -55,7 +56,7 @@
 @property(readonly, copy) NSNumber *hasUnresolvedConflicts;
 @property(readonly) unsigned long long hash;
 @property(readonly, getter=isHidden) _Bool hidden;
-@property(readonly) NSString *sharingPermissions;
+@property(readonly, copy) NSString *sharingPermissions;
 @property(readonly) Class superclass;
 @end
 

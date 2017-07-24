@@ -6,7 +6,7 @@
 
 #import <QuartzCore/CALayer.h>
 
-@class CADisplay, GEOMapRegion, GEOResourceManifestConfiguration, NSArray, NSString, VKClassicGlobeCanvas, VKLabelMarker, VKMapCameraController, VKMapCanvas, VKMemoryObserver, VKNavCameraController, VKNavContext, VKPolylineOverlay, VKPuckAnimator, VKSceneConfiguration, VKTimedAnimation;
+@class CADisplay, GEOMapRegion, GEOResourceManifestConfiguration, MDARController, NSArray, NSString, VKClassicGlobeCanvas, VKLabelMarker, VKMapCameraController, VKMapCanvas, VKMemoryObserver, VKNavCameraController, VKNavContext, VKPolylineOverlay, VKPuckAnimator, VKSceneConfiguration, VKTimedAnimation;
 @protocol GEORoutePreloadSession, VKMapViewDelegate;
 
 @interface VKMapView : CALayer
@@ -43,6 +43,8 @@
     Unit_3d259e8a _lastAnimatedCourse;
     struct unique_ptr<md::MapEngine, std::__1::default_delete<md::MapEngine>> _mapEngine;
     _Bool _didFinishSnapshotting;
+    int _flyoverMode;
+    MDARController *_arController;
 }
 
 @property(readonly, nonatomic) VKPuckAnimator *userLocationAnimator; // @synthesize userLocationAnimator=_userLocationAnimator;
@@ -170,8 +172,8 @@
 @property(readonly, nonatomic) _Bool canEnter3DMode;
 - (void)exit3DMode;
 - (void)enter3DMode;
-- (void)deselectVenueComponentId;
-- (void)setSelectedVenueComponentId:(unsigned long long)arg1;
+- (void)deselectVenuePoiFeatureId;
+- (void)setSelectedVenuePoiFeatureId:(unsigned long long)arg1;
 - (void)deselectFeatureId;
 - (void)setSelectedFeatureId:(unsigned long long)arg1;
 - (id)boundsContextForSelectedTransitLines;
@@ -231,6 +233,7 @@
 - (void)setContentsScale:(double)arg1;
 - (void)dealloc;
 - (id)initShouldRasterize:(_Bool)arg1 inBackground:(_Bool)arg2 manifestConfiguration:(id)arg3 contentScale:(double)arg4;
+- (void)activateInternalSettings;
 @property(nonatomic) _Bool allowDatelineWraparound;
 - (void)setCenterCoordinate:(CDStruct_c3b9c2ee)arg1 altitude:(double)arg2 yaw:(double)arg3 pitch:(double)arg4 duration:(double)arg5 timingCurve:(CDUnknownBlockType)arg6 completion:(CDUnknownBlockType)arg7;
 @property(readonly, nonatomic) CDStruct_071ac149 centerCoordinate;
@@ -266,7 +269,10 @@
 - (id)clearVenueBuildingFloorSelections;
 - (void)setDisplayedFloorOrdinal:(short)arg1 forVenueBuilding:(id)arg2;
 - (short)displayedFloorOrdinalForVenueBuilding:(id)arg1;
+- (_Bool)displayedFloorIsDefaultForVenueBuilding:(id)arg1;
 - (id)venueWithID:(unsigned long long)arg1;
+- (id)venueAtLocation:(CDStruct_c3b9c2ee)arg1 withMarginForError:(_Bool)arg2 includeNonRevealedVenues:(_Bool)arg3;
+- (id)venueAtLocation:(CDStruct_c3b9c2ee)arg1 withMarginForError:(_Bool)arg2;
 - (id)venueAtLocation:(CDStruct_c3b9c2ee)arg1;
 - (id)venueBuildingWithFocus;
 - (id)venueWithFocus;
@@ -353,12 +359,19 @@
 - (shared_ptr_144c31f6)styleForFeature:(shared_ptr_430519ce)arg1;
 - (shared_ptr_664b6d77)stylesheet;
 // Error parsing type for property mapEngine:
-// Property attributes: Tr^{MapEngine=^^?{shared_ptr<md::TaskContext>=^{TaskContext}^{__shared_weak_count}}{_retain_ptr<_MapEngineRenderQueueSource *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{unique_ptr<ggl::DisplayLink, std::__1::default_delete<ggl::DisplayLink> >={__compressed_pair<ggl::DisplayLink *, std::__1::default_delete<ggl::DisplayLink> >=^{DisplayLink}}}{unique_ptr<ggl::SnapshotRunLoop, std::__1::default_delete<ggl::SnapshotRunLoop> >={__compressed_pair<ggl::SnapshotRunLoop *, std::__1::default_delete<ggl::SnapshotRunLoop> >=^{SnapshotRunLoop}}}^{RunLoop}{unique_ptr<md::AnimationManager, std::__1::default_delete<md::AnimationManager> >={__compressed_pair<md::AnimationManager *, std::__1::default_delete<md::AnimationManager> >=^{AnimationManager}}}{unique_ptr<md::AnimationRunner, std::__1::default_delete<md::AnimationRunner> >={__compressed_pair<md::AnimationRunner *, std::__1::default_delete<md::AnimationRunner> >=^{AnimationRunner}}}{shared_ptr<md::RunLoopController>=^{RunLoopController}^{__shared_weak_count}}@@@@{unique_ptr<md::CartographicRenderer, std::__1::default_delete<md::CartographicRenderer> >={__compressed_pair<md::CartographicRenderer *, std::__1::default_delete<md::CartographicRenderer> >=^{CartographicRenderer}}}{unique_ptr<md::realistic::RealisticRenderer, std::__1::default_delete<md::realistic::RealisticRenderer> >={__compressed_pair<md::realistic::RealisticRenderer *, std::__1::default_delete<md::realistic::RealisticRenderer> >=^{RealisticRenderer}}}^{Renderer}{unique_ptr<md::LayoutContext, std::__1::default_delete<md::LayoutContext> >={__compressed_pair<md::LayoutContext *, std::__1::default_delete<md::LayoutContext> >=^{LayoutContext}}}{_retain_ptr<VKCamera *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{unique_ptr<md::LogicManager, std::__1::default_delete<md::LogicManager> >={__compressed_pair<md::LogicManager *, std::__1::default_delete<md::LogicManager> >=^{LogicManager}}}{unique_ptr<md::FlyoverAvailability, std::__1::default_delete<md::FlyoverAvailability> >={__compressed_pair<md::FlyoverAvailability *, std::__1::default_delete<md::FlyoverAvailability> >=^{FlyoverAvailability}}}BBB{atomic<bool>=AB}{atomic<bool>=AB}B},R,N
+// Property attributes: Tr^{MapEngine=^^?{shared_ptr<md::TaskContext>=^{TaskContext}^{__shared_weak_count}}{_retain_ptr<GEOResourceManifestConfiguration *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}^{Device}{_retain_ptr<_MapEngineRenderQueueSource *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{unique_ptr<ggl::DisplayLink, std::__1::default_delete<ggl::DisplayLink> >={__compressed_pair<ggl::DisplayLink *, std::__1::default_delete<ggl::DisplayLink> >=^{DisplayLink}}}{unique_ptr<ggl::SnapshotRunLoop, std::__1::default_delete<ggl::SnapshotRunLoop> >={__compressed_pair<ggl::SnapshotRunLoop *, std::__1::default_delete<ggl::SnapshotRunLoop> >=^{SnapshotRunLoop}}}^{RunLoop}{unique_ptr<md::AnimationManager, std::__1::default_delete<md::AnimationManager> >={__compressed_pair<md::AnimationManager *, std::__1::default_delete<md::AnimationManager> >=^{AnimationManager}}}{unique_ptr<md::AnimationRunner, std::__1::default_delete<md::AnimationRunner> >={__compressed_pair<md::AnimationRunner *, std::__1::default_delete<md::AnimationRunner> >=^{AnimationRunner}}}{shared_ptr<md::RunLoopController>=^{RunLoopController}^{__shared_weak_count}}@@@@{unique_ptr<md::CartographicRenderer, std::__1::default_delete<md::CartographicRenderer> >={__compressed_pair<md::CartographicRenderer *, std::__1::default_delete<md::CartographicRenderer> >=^{CartographicRenderer}}}{unique_ptr<md::realistic::RealisticRenderer, std::__1::default_delete<md::realistic::RealisticRenderer> >={__compressed_pair<md::realistic::RealisticRenderer *, std::__1::default_delete<md::realistic::RealisticRenderer> >=^{RealisticRenderer}}}^{Renderer}{unique_ptr<md::LayoutContext, std::__1::default_delete<md::LayoutContext> >={__compressed_pair<md::LayoutContext *, std::__1::default_delete<md::LayoutContext> >=^{LayoutContext}}}{_retain_ptr<VKCamera *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{unique_ptr<md::LogicManager, std::__1::default_delete<md::LogicManager> >={__compressed_pair<md::LogicManager *, std::__1::default_delete<md::LogicManager> >=^{LogicManager}}}BBB{atomic<bool>=AB}{atomic<bool>=AB}B},R,N
 
 @property(readonly, nonatomic) VKMapCanvas *mapCanvas;
 - (void)debugHighlightFeatureMarker:(const shared_ptr_430519ce *)arg1;
 - (id)currentCanvas;
 - (id)iconForStyleAttributes:(id)arg1 contentScale:(double)arg2 size:(long long)arg3 customIconID:(unsigned long long)arg4 transparent:(_Bool)arg5;
+- (id)roadLabelTilesInScene;
+- (void)setARInterfaceOrientation:(long long)arg1;
+- (void)arController:(id)arg1 didChangeTrackingState:(unsigned long long)arg2 reason:(unsigned long long)arg3;
+- (void)arController:(id)arg1 didEncounterError:(id)arg2;
+- (void)map:(id)arg1 didEnterARMode:(_Bool)arg2;
+- (void)exitARMode;
+- (void)enterARModeAtCoordinate:(CDStruct_c3b9c2ee)arg1;
 
 @end
 

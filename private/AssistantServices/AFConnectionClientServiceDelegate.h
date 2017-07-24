@@ -53,6 +53,7 @@
 - (oneway void)musicWasDetected;
 - (oneway void)acousticIDRequestWillStart;
 - (oneway void)getBulletinContext:(CDUnknownBlockType)arg1;
+- (oneway void)quickStopWasHandledWithActions:(unsigned long long)arg1;
 - (oneway void)requestRequestedDismissAssistant;
 - (oneway void)requestRequestedOpenURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (oneway void)requestRequestedOpenApplicationWithBundleID:(id)arg1 URL:(id)arg2 reply:(CDUnknownBlockType)arg3;

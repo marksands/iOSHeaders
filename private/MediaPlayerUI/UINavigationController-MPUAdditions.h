@@ -7,9 +7,7 @@
 #import <UIKit/UINavigationController.h>
 
 @interface UINavigationController (MPUAdditions)
-- (void)MPU_pushViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)MPU_popToViewController:(id)arg1 animated:(_Bool)arg2 popRequestSentCompletion:(CDUnknownBlockType)arg3;
 - (void)MPU_popToViewControllerBeforeViewController:(id)arg1 animated:(_Bool)arg2;
-- (void)MPU_popToRootViewControllerAnimated:(_Bool)arg1;
 @end
 

@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface ASInvitationMailContext : NSObject
 {
@@ -14,8 +14,10 @@
     int _emailResponse;
     NSString *_eventUID;
     NSString *_serverID;
+    NSArray *_attendeeUUIDs;
 }
 
+@property(retain, nonatomic) NSArray *attendeeUUIDs; // @synthesize attendeeUUIDs=_attendeeUUIDs;
 @property(nonatomic) int emailResponse; // @synthesize emailResponse=_emailResponse;
 @property(nonatomic) _Bool isMyInvite; // @synthesize isMyInvite=_isMyInvite;
 @property(retain, nonatomic) NSString *serverID; // @synthesize serverID=_serverID;

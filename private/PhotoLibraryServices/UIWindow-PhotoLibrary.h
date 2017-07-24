@@ -7,6 +7,6 @@
 #import <UIKit/UIWindow.h>
 
 @interface UIWindow (PhotoLibrary)
-- (void)presentViewController:(id)arg1 animated:(_Bool)arg2;
+- (void)pl_presentViewController:(id)arg1 animated:(_Bool)arg2;
 @end
 

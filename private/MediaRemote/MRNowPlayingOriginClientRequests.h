@@ -6,10 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
+#import <MediaRemote/MRNowPlayingClientState-Protocol.h>
+
 @class NSMutableArray, NSMutableDictionary;
 @protocol OS_dispatch_queue;
 
-@interface MRNowPlayingOriginClientRequests : NSObject
+@interface MRNowPlayingOriginClientRequests : NSObject <MRNowPlayingClientState>
 {
     void *_origin;
     NSObject<OS_dispatch_queue> *_serialQueue;
@@ -19,8 +21,10 @@
 }
 
 @property(readonly, nonatomic) void *origin; // @synthesize origin=_origin;
+- (void)restoreNowPlayingClientState;
 - (CDUnknownBlockType)transactionCallbackForName:(unsigned long long)arg1;
 - (void)setTransactionCallback:(CDUnknownBlockType)arg1 forName:(unsigned long long)arg2;
+- (void)removeClient:(void *)arg1;
 - (id)nowPlayingClientRequestsForPlayerPath:(void *)arg1;
 - (id)nowPlayingClients;
 - (void)dealloc;

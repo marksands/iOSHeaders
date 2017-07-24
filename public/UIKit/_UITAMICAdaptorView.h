@@ -18,11 +18,14 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_height;
     struct CGSize _layoutSize;
     _Bool _inLayout;
+    float _sizingPriority;
     UILayoutGuide *_sizingLayoutGuide;
 }
 
 + (_Bool)shouldWrapView:(id)arg1;
 @property(retain, nonatomic) UILayoutGuide *sizingLayoutGuide; // @synthesize sizingLayoutGuide=_sizingLayoutGuide;
+@property(nonatomic) float sizingPriority; // @synthesize sizingPriority=_sizingPriority;
+@property(readonly, nonatomic) UIView *view; // @synthesize view=_view;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
 - (void)_geometryChanges:(id)arg1 forAncestor:(id)arg2;

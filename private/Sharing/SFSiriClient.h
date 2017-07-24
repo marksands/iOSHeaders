@@ -19,13 +19,18 @@
     struct NSMutableArray *_requests;
     VSSpeechSynthesizer *_speechSynthesizer;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
+    CDUnknownBlockType _siriDialogHandler;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType siriDialogHandler; // @synthesize siriDialogHandler=_siriDialogHandler;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
 - (void)_speechDidFinishRequest:(id)arg1 finished:(_Bool)arg2 error:(id)arg3;
 - (void)speechSynthesizer:(id)arg1 didFinishSpeakingRequest:(id)arg2 successfully:(_Bool)arg3 withError:(id)arg4;
 - (void)speechSynthesizer:(id)arg1 didStartSpeakingRequest:(id)arg2;
+- (void)_deviceSetupEnd;
+- (void)deviceSetupEnd;
+- (void)deviceSetupBegin;
 - (void)_processQueuedRequests;
 - (void)stopSpeaking;
 - (void)_speakText:(id)arg1 rate:(double)arg2 completion:(CDUnknownBlockType)arg3;
@@ -33,6 +38,8 @@
 - (void)speakText:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_invalidate;
 - (void)invalidate;
+- (void)_activate;
+- (void)activate;
 - (id)init;
 
 // Remaining properties

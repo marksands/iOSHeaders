@@ -6,16 +6,14 @@
 
 #import <CoreParsec/NSObject-Protocol.h>
 
-@class NSData, NSDictionary, NSString;
+@class NSData, NSDictionary, _CPError;
 
 @protocol _CPErrorFeedback <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
-@property(readonly, nonatomic) _Bool hasDomain;
-@property(copy, nonatomic) NSString *domain;
-@property(readonly, nonatomic) _Bool hasCode;
-@property(nonatomic) int code;
-@property(readonly, nonatomic) _Bool hasReason;
-@property(copy, nonatomic) NSString *reason;
+@property(readonly, nonatomic) _Bool hasUnderlyingError;
+@property(retain, nonatomic) _CPError *underlyingError;
+@property(readonly, nonatomic) _Bool hasError;
+@property(retain, nonatomic) _CPError *error;
 @property(readonly, nonatomic) _Bool hasTimestamp;
 @property(nonatomic) unsigned long long timestamp;
 - (id)initWithDictionary:(NSDictionary *)arg1;

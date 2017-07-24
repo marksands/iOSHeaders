@@ -8,7 +8,7 @@
 
 #import <PassKitUI/UIWebViewDelegate-Protocol.h>
 
-@class NSString, NSURL, UIWebView;
+@class NSString, NSURL, PKPaymentProvisioningController, UIWebView;
 @protocol PKPaymentSetupViewControllerDelegate;
 
 @interface PKPaymentCardIneligibleViewController : UIViewController <UIWebViewDelegate>
@@ -19,6 +19,7 @@
     long long _reason;
     long long _context;
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
+    PKPaymentProvisioningController *_provisioningController;
     NSURL *_learnMoreURL;
     CDUnknownBlockType _learnMorePresentationHandler;
     CDUnknownBlockType _continueActionHandler;
@@ -28,6 +29,7 @@
 @property(copy, nonatomic) CDUnknownBlockType continueActionHandler; // @synthesize continueActionHandler=_continueActionHandler;
 @property(copy, nonatomic) CDUnknownBlockType learnMorePresentationHandler; // @synthesize learnMorePresentationHandler=_learnMorePresentationHandler;
 @property(retain, nonatomic) NSURL *learnMoreURL; // @synthesize learnMoreURL=_learnMoreURL;
+@property(retain, nonatomic) PKPaymentProvisioningController *provisioningController; // @synthesize provisioningController=_provisioningController;
 @property(nonatomic) id <PKPaymentSetupViewControllerDelegate> setupDelegate; // @synthesize setupDelegate=_setupDelegate;
 @property(nonatomic) long long context; // @synthesize context=_context;
 @property(nonatomic) long long reason; // @synthesize reason=_reason;

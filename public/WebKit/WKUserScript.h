@@ -21,6 +21,7 @@
 @property(readonly, nonatomic, getter=isForMainFrameOnly) _Bool forMainFrameOnly;
 @property(readonly, nonatomic) long long injectionTime;
 @property(readonly, copy, nonatomic) NSString *source;
+- (void)dealloc;
 - (id)initWithSource:(id)arg1 injectionTime:(long long)arg2 forMainFrameOnly:(_Bool)arg3;
 @property(readonly, nonatomic) _WKUserContentWorld *_userContentWorld;
 - (id)_initWithSource:(id)arg1 injectionTime:(long long)arg2 forMainFrameOnly:(_Bool)arg3 legacyWhitelist:(id)arg4 legacyBlacklist:(id)arg5 associatedURL:(id)arg6 userContentWorld:(id)arg7;

@@ -30,12 +30,13 @@
 @property(retain) TLKRichText *richText; // @synthesize richText=_richText;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (id)string;
+- (id)attributedString;
 - (struct CGRect)containerView:(id)arg1 layoutFrameForArrangedSubview:(id)arg2 withProposedFrame:(struct CGRect)arg3;
 - (struct UIEdgeInsets)containerStackView:(id)arg1 minimumSpacingAdjecentToArrangedSubview:(id)arg2;
 - (void)updateRoundedCornerLabels:(id)arg1;
 - (void)updateIcons:(id)arg1;
 - (void)updateStarRating:(id)arg1;
+- (void)makeTertiary;
 - (void)setFont:(id)arg1;
 - (void)disableUnbatchedUpdates;
 - (void)disableObserver:(_Bool)arg1;

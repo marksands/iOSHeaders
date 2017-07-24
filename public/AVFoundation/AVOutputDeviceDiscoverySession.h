@@ -6,22 +6,22 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVOutputDeviceDiscoverySessionAvailableOutputDevices, AVOutputDeviceDiscoverySessionInternal, NSArray;
+@class AVAudioSession, AVOutputDeviceDiscoverySessionAvailableOutputDevices, AVOutputDeviceDiscoverySessionInternal, NSArray;
 
 @interface AVOutputDeviceDiscoverySession : NSObject
 {
     AVOutputDeviceDiscoverySessionInternal *_outputDeviceDiscoverySession;
 }
 
-+ (Class)defaultOutputDeviceDiscoverySessionImplClass;
++ (id)outputDeviceDiscoverySessionFactory;
 + (void)initialize;
 - (void)outputDeviceDiscoverySessionImpl:(id)arg1 didExpireWithReplacement:(id)arg2;
 - (void)outputDeviceDiscoverySessionImplDidChangeAvailableOutputDevices:(id)arg1;
 @property(readonly, nonatomic) _Bool devicePresenceDetected;
-@property(readonly, nonatomic) NSArray *availableOutputDeviceGroups;
 @property(readonly, nonatomic) AVOutputDeviceDiscoverySessionAvailableOutputDevices *availableOutputDevicesObject;
 @property(readonly, nonatomic) NSArray *availableOutputDevices;
 @property(nonatomic) long long discoveryMode;
+@property(retain, nonatomic) AVAudioSession *targetAudioSession;
 - (id)impl;
 - (void)dealloc;
 - (id)initWithOutputDeviceDiscoverySessionImpl:(id)arg1;

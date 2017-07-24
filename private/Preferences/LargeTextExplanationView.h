@@ -8,11 +8,12 @@
 
 #import <Preferences/PSHeaderFooterView-Protocol.h>
 
-@class UILabel;
+@class UILabel, UITextView;
 
 @interface LargeTextExplanationView : UIView <PSHeaderFooterView>
 {
     UILabel *_bodyExampleLabel;
+    UITextView *_bodyExampleTextView;
 }
 
 - (void).cxx_destruct;

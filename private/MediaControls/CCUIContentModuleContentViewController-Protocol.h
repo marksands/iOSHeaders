@@ -11,7 +11,6 @@
 
 @optional
 @property(readonly, nonatomic) _Bool providesOwnPlatter;
-@property(readonly, nonatomic) _Bool shouldHidePlatterWhenExpanded;
 @property(readonly, nonatomic) double preferredExpandedContentWidth;
 - (void)controlCenterDidDismiss;
 - (void)controlCenterWillPresent;

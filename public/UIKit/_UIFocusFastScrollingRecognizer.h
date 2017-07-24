@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     NSMapTable *_swipeSequences;
     NSTimer *_swipeIntervalTimer;
     UIScrollView *_previewingScrollView;
+    NSTimer *_previewingTouchTimer;
     _Bool _enabled;
     id <_UIFocusFastScrollingRecognizerDelegate> _delegate;
 }
@@ -31,6 +32,9 @@ __attribute__((visibility("hidden")))
 - (void)focusEnginePanGesture:(id)arg1 touchEndedAtDigitizerLocation:(struct CGPoint)arg2;
 - (void)focusEnginePanGesture:(id)arg1 touchMovedToDigitizerLocation:(struct CGPoint)arg2;
 - (void)focusEnginePanGesture:(id)arg1 touchBeganAtDigitizerLocation:(struct CGPoint)arg2;
+- (void)_deactivatePreviewingScrollViewIfNecessary;
+- (void)_activatePreviewingScrollView;
+- (void)_activatePreviewingScrollViewAfterDelay;
 - (void)_notifyDelegateWithScrollView:(id)arg1 scrollingStyle:(long long)arg2 heading:(unsigned long long)arg3;
 - (_Bool)_scrollViewIsEligibleForFastScrolling:(id)arg1 alongHeading:(unsigned long long)arg2;
 - (id)_scrollViewsContainingCurrentlyFocusedItem;

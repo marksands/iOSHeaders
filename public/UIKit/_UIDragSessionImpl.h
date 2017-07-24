@@ -7,13 +7,14 @@
 #import <Foundation/NSObject.h>
 
 #import <UIKit/UIDragSession-Protocol.h>
+#import <UIKit/_UIDragDropSessionInternal-Protocol.h>
 #import <UIKit/_UIDraggingItemVisualTarget-Protocol.h>
 #import <UIKit/_UIDraggingSessionDelegate-Protocol.h>
 
 @class NSArray, NSHashTable, NSMapTable, NSMutableArray, NSSet, NSString, UIDragInteraction, _UIDraggingSession, _UIInternalDraggingSessionSource;
 
 __attribute__((visibility("hidden")))
-@interface _UIDragSessionImpl : NSObject <_UIDraggingSessionDelegate, UIDragSession, _UIDraggingItemVisualTarget>
+@interface _UIDragSessionImpl : NSObject <_UIDraggingSessionDelegate, UIDragSession, _UIDraggingItemVisualTarget, _UIDragDropSessionInternal>
 {
     _UIDraggingSession *_session;
     NSMapTable *_itemByDraggingItem;
@@ -21,6 +22,7 @@ __attribute__((visibility("hidden")))
     NSMapTable *_dragSourceInteractionByItem;
     NSHashTable *_allInteractions;
     _UIInternalDraggingSessionSource *_internalSessionSource;
+    _Bool _didHandOffDragImage;
     id _localContext;
     UIDragInteraction *_primaryInteraction;
 }
@@ -30,8 +32,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) __weak UIDragInteraction *primaryInteraction; // @synthesize primaryInteraction=_primaryInteraction;
 @property(retain, nonatomic) id localContext; // @synthesize localContext=_localContext;
 - (void).cxx_destruct;
-- (void)draggingItem:(id)arg1 willAnimateSetDownWithAnimator:(id)arg2;
-- (struct CGRect)targetFrameOfDraggingItem:(id)arg1 inCoordinateSpace:(id)arg2;
+- (void)_draggingItem:(id)arg1 willAnimateSetDownWithAnimator:(id)arg2;
+- (struct CGRect)_targetFrameOfDraggingItem:(id)arg1 inCoordinateSpace:(id)arg2;
 - (void)_prepareForSetDownAnimationInWindow:(id)arg1 withDraggingItem:(id)arg2 visibleDroppedItem:(id)arg3;
 - (void)draggingSessionDidTransferItems:(id)arg1;
 - (void)draggingSessionDidEnd:(id)arg1 withOperation:(unsigned long long)arg2;
@@ -43,7 +45,6 @@ __attribute__((visibility("hidden")))
 - (void)draggingSessionWillBegin:(id)arg1;
 - (_Bool)draggingSessionPrefersFullSizePreviews:(id)arg1;
 - (unsigned long long)draggingSession:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;
-- (_Bool)canLoadObjectsOfClasses:(id)arg1;
 - (_Bool)canLoadObjectsOfClass:(Class)arg1;
 - (_Bool)hasItemsConformingToTypeIdentifiers:(id)arg1;
 @property(readonly, nonatomic, getter=isRestrictedToDraggingApplication) _Bool restrictedToDraggingApplication;
@@ -51,8 +52,10 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)locationInView:(id)arg1;
 @property(readonly, nonatomic) NSArray *items;
 - (void)_cancelDrag;
+@property(readonly, nonatomic, getter=_allowsItemsToUpdate) _Bool _allowsItemsToUpdate;
 - (void)_itemsNeedUpdate:(id)arg1;
-@property(retain, nonatomic) _UIDraggingSession *session;
+- (void)_setDraggingSession:(id)arg1;
+- (id)_draggingSession;
 - (id)dragSourceInteractionForDragItem:(id)arg1;
 - (void)addItems:(id)arg1 forDragSourceInteraction:(id)arg2;
 - (id)itemForDraggingItem:(id)arg1;

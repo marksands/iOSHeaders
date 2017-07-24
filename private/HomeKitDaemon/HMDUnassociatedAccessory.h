@@ -18,6 +18,7 @@
     HMAccessoryCategory *_category;
     NSUUID *_uuid;
     NSString *_identifier;
+    long long _associationOptions;
     NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     HMFMessageDispatcher *_messageDispatcher;
@@ -29,6 +30,7 @@
 @property(readonly, nonatomic) HMFMessageDispatcher *messageDispatcher; // @synthesize messageDispatcher=_messageDispatcher;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
+@property(readonly) long long associationOptions; // @synthesize associationOptions=_associationOptions;
 @property(readonly, copy) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, copy) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;

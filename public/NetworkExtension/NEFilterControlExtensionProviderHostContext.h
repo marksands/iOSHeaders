@@ -25,7 +25,7 @@
 - (void)provideURLAppendStringMap:(id)arg1;
 - (void)provideRemediationMap:(id)arg1;
 - (void)notifyRulesChanged;
-- (void)handleReportForFlow:(id)arg1 action:(int)arg2;
+- (void)handleReport:(id)arg1;
 - (void)handleNewFlow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 
 // Remaining properties

@@ -10,6 +10,7 @@
 
 @protocol FTPasswordManager <NSObject>
 - (_Bool)isiCloudSignedIn;
+- (NSString *)iCloudUsername;
 - (void)cleanUpAccountsBasedOnInUseUsernames:(NSArray *)arg1 profileIDs:(NSArray *)arg2 completionBlock:(void (^)(_Bool))arg3;
 - (void)cleanUpAccountsWithUsername:(NSString *)arg1 orProfileID:(NSString *)arg2 basedOnInUseUsernames:(NSArray *)arg3 profileIDs:(NSArray *)arg4 completionBlock:(void (^)(_Bool))arg5;
 - (NSString *)profileIDForACAccount:(ACAccount *)arg1;

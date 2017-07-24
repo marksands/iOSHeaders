@@ -11,7 +11,7 @@
 
 @interface SCNCameraController : NSObject
 {
-    // Error parsing type: {?="angles""initialTransformWorld"{?="columns"[4]}"initialOrientationWorld"{?="vector"}}, name: _orientationState
+    // Error parsing type: {?="angles""initialAbsoluteAngles""initialTransformWorld"{?="columns"[4]}"initialOrientationWorld"{?="vector"}}, name: _orientationState
     // Error parsing type: {?="start""current""last"}, name: _inputLocation
     // Error parsing type: {?="localArcballAdjustement""sphereLocationStart""sphereLocationCurrent"}, name: _arcball
     struct {
@@ -25,8 +25,7 @@
     } _inertia;
     // Error parsing type: , name: _up
     // Error parsing type: , name: _target
-    float _verticalMaximumAngle;
-    float _horizontalMaximumAngle;
+    // Error parsing type: , name: _maximumAbsoluteAngles
     _Bool _handlingInteraction;
     _Bool _drivenBydefaultNavigationCameraController;
     _Bool _automaticTarget;
@@ -46,6 +45,7 @@
 - (void)_updateArcballOrientation;
 - (struct)_convertRotationFromWorldToPointOfView:(struct)arg1;
 - (void)_updateRotation;
+- (void)_capOrientationAnglesToMaximum;
 - (struct)_orientationForMode;
 - (void)_rotateByX:(float)arg1 Y:(float)arg2;
 - (void)_translateInCameraSpaceByX:(float)arg1 Y:(float)arg2 Z:(float)arg3;
@@ -54,7 +54,7 @@
 -     // Error parsing type: 48@0:8{CGPoint=dd}16{CGSize=dd}32, name: _directionForScreenPoint:viewport:
 -     // Error parsing type: 44@0:816f24{CGSize=dd}28, name: _orthographicViewSpaceTranslationForZoomAtScreenPoint:scaleDelta:viewport:
 - (void)_resetOrientationState;
-- (void)dollyZoomBy:(float)arg1 onScreenPoint:(struct CGPoint)arg2 viewport:(struct CGSize)arg3;
+- (void)dollyBy:(float)arg1 onScreenPoint:(struct CGPoint)arg2 viewport:(struct CGSize)arg3;
 - (void)rollBy:(float)arg1 aroundScreenPoint:(struct CGPoint)arg2 viewport:(struct CGSize)arg3;
 - (void)endInteraction:(struct CGPoint)arg1 withViewport:(struct CGSize)arg2 velocity:(struct CGPoint)arg3;
 - (void)continueInteraction:(struct CGPoint)arg1 withViewport:(struct CGSize)arg2 sensitivity:(double)arg3;
@@ -65,7 +65,7 @@
 - (void)clearRoll;
 - (struct)unrolledWorldOrientation:(out float *)arg1;
 - (_Bool)useOrbitInteractionMode;
-- (void)dollyZoomToTarget:(float)arg1;
+- (void)dollyToTarget:(float)arg1;
 - (void)rollAroundTarget:(float)arg1;
 - (void)rollCameraSpaceBy:(float)arg1 withPoint:(struct CGPoint)arg2 viewport:(struct CGSize)arg3;
 - (void)rotateByX:(float)arg1 Y:(float)arg2;

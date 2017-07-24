@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class AVPlayerItem, AVQueuePlayer, NSValue, _CLKPlayerView;
+@class AVAsset, AVPlayerItem, AVQueuePlayer, NSURL, NSValue, _CLKPlayerView;
 @protocol CLKVideoPlayerViewDelegate;
 
 @interface CLKVideoPlayerView : UIView
@@ -15,6 +15,9 @@
     AVQueuePlayer *_player;
     AVPlayerItem *_playerItem;
     AVPlayerItem *_observedItem;
+    AVPlayerItem *_queuedItem;
+    NSURL *_assetURL;
+    AVAsset *_asset;
     id _periodicTimeObserver;
     CDStruct_1b6d18a9 _willBeginPlayingTime;
     UIView *_pausedView;
@@ -31,6 +34,7 @@
 @property(readonly, nonatomic) _Bool playing; // @synthesize playing=_playing;
 @property(nonatomic) __weak id <CLKVideoPlayerViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)queueVideo:(id)arg1;
 - (void)play;
 - (void)_play;
 - (void)preroll;

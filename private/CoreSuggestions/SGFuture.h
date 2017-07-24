@@ -20,14 +20,20 @@
     NSObject<OS_dispatch_queue> *_workQueue;
 }
 
++ (void)waitForFuturesToComplete:(id)arg1 withCallback:(CDUnknownBlockType)arg2;
++ (id)createWithImmediateResult:(id)arg1 error:(id)arg2;
 + (id)createAfter:(id)arg1 onCreate:(CDUnknownBlockType)arg2;
 + (id)futureForObject:(id)arg1 withKey:(void *)arg2 onCreate:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(readonly, nonatomic) _Bool isComplete; // @synthesize isComplete=_isComplete;
 - (void).cxx_destruct;
 - (_Bool)_finishWithResult:(id)arg1 orError:(id)arg2;
+- (CDUnknownBlockType)completer;
+- (_Bool)completeWithResult:(id)arg1 error:(id)arg2;
 - (_Bool)fail:(id)arg1;
 - (_Bool)succeed:(id)arg1;
+- (id)error;
+- (id)result;
 - (void)wait:(CDUnknownBlockType)arg1;
 - (id)wait;
 - (void)dealloc;

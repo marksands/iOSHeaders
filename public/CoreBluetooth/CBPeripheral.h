@@ -71,6 +71,7 @@
 - (void)handleNameUpdated:(id)arg1;
 - (void)removeAllL2CAPChannels;
 - (id)l2capChannelForPeer:(id)arg1 withPsm:(unsigned short)arg2;
+- (void)openL2CAPChannel:(unsigned short)arg1 options:(id)arg2;
 - (void)openL2CAPChannel:(unsigned short)arg1;
 - (void)getTimeSyncData;
 - (_Bool)hasTag:(id)arg1;

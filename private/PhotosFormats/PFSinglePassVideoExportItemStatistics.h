@@ -10,22 +10,28 @@
 
 @interface PFSinglePassVideoExportItemStatistics : NSObject
 {
+    float _frameRate;
     unsigned long long _lastOutputChunkTimestamp;
     NSMutableArray *_outputChunkMeasurements;
     unsigned long long _processedOutputTotalBytes;
+    unsigned long long _processedVideoSampleBytes;
+    unsigned long long _processedAdditionalSampleBytes;
     double _conversionDuration;
     double _lastProcessedInputFramePresentationTime;
-    long long _processedInputFrameCount;
+    long long _processedOutputFrameCount;
     unsigned long long _targetOutputTotalBytes;
     double _targetPlaybackDuration;
 }
 
-+ (id)statisticsWithTargetPlaybackDuration:(CDStruct_1b6d18a9)arg1 targetOutputTotalBytes:(unsigned long long)arg2;
++ (id)statisticsWithTargetPlaybackDuration:(CDStruct_1b6d18a9)arg1 frameRate:(float)arg2 targetOutputTotalBytes:(unsigned long long)arg3;
+@property float frameRate; // @synthesize frameRate=_frameRate;
 @property double targetPlaybackDuration; // @synthesize targetPlaybackDuration=_targetPlaybackDuration;
 @property unsigned long long targetOutputTotalBytes; // @synthesize targetOutputTotalBytes=_targetOutputTotalBytes;
-@property long long processedInputFrameCount; // @synthesize processedInputFrameCount=_processedInputFrameCount;
+@property long long processedOutputFrameCount; // @synthesize processedOutputFrameCount=_processedOutputFrameCount;
 @property double lastProcessedInputFramePresentationTime; // @synthesize lastProcessedInputFramePresentationTime=_lastProcessedInputFramePresentationTime;
 @property double conversionDuration; // @synthesize conversionDuration=_conversionDuration;
+@property unsigned long long processedAdditionalSampleBytes; // @synthesize processedAdditionalSampleBytes=_processedAdditionalSampleBytes;
+@property unsigned long long processedVideoSampleBytes; // @synthesize processedVideoSampleBytes=_processedVideoSampleBytes;
 @property unsigned long long processedOutputTotalBytes; // @synthesize processedOutputTotalBytes=_processedOutputTotalBytes;
 @property(retain) NSMutableArray *outputChunkMeasurements; // @synthesize outputChunkMeasurements=_outputChunkMeasurements;
 @property unsigned long long lastOutputChunkTimestamp; // @synthesize lastOutputChunkTimestamp=_lastOutputChunkTimestamp;

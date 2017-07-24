@@ -12,19 +12,12 @@
 {
     NFLAbstractCellPropertyProvider *_propertyProvider;
     NFLFeedSettings *_feedSettings;
-    double _columnWidth;
-    long long _minimumColumnSpan;
-    long long _maximumColumnSpan;
 }
 
-@property(readonly, nonatomic) long long maximumColumnSpan; // @synthesize maximumColumnSpan=_maximumColumnSpan;
-@property(nonatomic) long long minimumColumnSpan; // @synthesize minimumColumnSpan=_minimumColumnSpan;
-@property(nonatomic) double columnWidth; // @synthesize columnWidth=_columnWidth;
 @property(nonatomic) __weak NFLFeedSettings *feedSettings; // @synthesize feedSettings=_feedSettings;
 @property(retain, nonatomic) NFLAbstractCellPropertyProvider *propertyProvider; // @synthesize propertyProvider=_propertyProvider;
 - (void).cxx_destruct;
 - (id)layoutDataForTileInfo:(id)arg1 template:(id)arg2 columnSpan:(unsigned long long)arg3 showAccessoryText:(_Bool)arg4;
-- (id)layoutAttributesForTileInfo:(id)arg1;
 - (id)initWithFeedSettings:(id)arg1;
 - (id)init;
 

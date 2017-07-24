@@ -6,12 +6,13 @@
 
 #import <DocumentManagerUICore/NSObject-Protocol.h>
 
-@class FPItem;
+@class NSArray;
 @protocol DOCTagEditorDelegate;
 
 @protocol DOCTagEditorPresenter <NSObject>
-@property(retain, nonatomic) FPItem *item;
+@property(retain, nonatomic) NSArray *items;
 @property(nonatomic) __weak id <DOCTagEditorDelegate> delegate;
+@property(nonatomic) _Bool delayResizingUntilAppeared;
 @property(nonatomic) _Bool pinTextFieldToTopBound;
 @property(nonatomic) _Bool useCompactColorPicker;
 @property(nonatomic) _Bool showAddTagConfirmButtons;

@@ -11,6 +11,7 @@
 @protocol SBUIPluginViewControllerInterface <NSObject>
 
 @optional
+@property(readonly, nonatomic) _Bool shouldTurnOnScreenOnAppearance;
 - (void)animateDisappearanceFromContext:(SBUIPluginAppearanceContext *)arg1;
 - (void)willAnimateDisappearanceFromContext:(SBUIPluginAppearanceContext *)arg1;
 - (void)animateAppearanceFromContext:(SBUIPluginAppearanceContext *)arg1;

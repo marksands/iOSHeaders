@@ -34,7 +34,7 @@
     _Bool _isInternalInstall;
     unsigned long long _defaultNumberOfMessagesToLoad;
     unsigned long long _daemonUnreadCount;
-    long long _daemonLastFailedMessageID;
+    long long _daemonLastFailedMessageDate;
     NSUserActivity *_userActivity;
     NSMutableDictionary *_chatsBeingLoadedMap;
     NSMutableDictionary *_chatPersonIDToChatMap;
@@ -101,7 +101,7 @@
 - (void)_setChatHasCommunicatedOveriMessage:(id)arg1;
 - (_Bool)_hasChat:(id)arg1 forService:(id)arg2;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
-- (long long)lastFailedMessageID;
+- (long long)lastFailedMessageDate;
 - (unsigned long long)unreadCount;
 - (id)_createdChatForRoom:(id)arg1 onAccount:(id)arg2;
 - (id)_createdChatForIMHandles:(id)arg1 style:(unsigned char)arg2 groupID:(id)arg3 displayName:(id)arg4 joinedChatsOnly:(_Bool)arg5;
@@ -131,7 +131,7 @@
 - (void)_noteChatDealloc:(id)arg1;
 - (void)_noteChatInit:(id)arg1;
 - (void)verifyFilteringForAllChats;
-- (void)enumerateAllChatsAndAttachmentSizes:(CDUnknownBlockType)arg1;
+- (void)enumerateAllChatsAndIncludingSyncedAttachmentSizes:(_Bool)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)_IMChatGetIdentifiersAndServicesTestHook:(id)arg1 identifiers:(id *)arg2 services:(id *)arg3 personCentricEnabled:(_Bool)arg4;
 - (void)_chat_closeSession:(id)arg1;
 - (void)_chat_loadAttachments:(id)arg1 queryID:(id)arg2;
@@ -182,7 +182,7 @@
 - (void)historyQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4 limit:(unsigned long long)arg5;
 - (void)_checkLimitAndSetMessagesToKeepLoadedIfNeeded:(unsigned long long)arg1 chat:(id)arg2;
 - (void)historicalMessageGUIDsDeleted:(id)arg1 chatGUIDs:(id)arg2 queryID:(id)arg3;
-- (void)lastFailedMessageIDChanged:(long long)arg1;
+- (void)lastFailedMessageDateChanged:(long long)arg1;
 - (void)unreadCountChanged:(long long)arg1;
 - (void)chat:(id)arg1 updated:(id)arg2;
 - (void)_updateInfo:(id)arg1 forGUID:(id)arg2 updatingUnreadCount:(_Bool)arg3;

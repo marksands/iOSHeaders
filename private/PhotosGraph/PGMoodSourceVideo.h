@@ -11,6 +11,7 @@
 }
 
 + (id)_plistName;
+- (id)_assetsByMomentIDs;
 - (id)_plistMoodIdentifiers;
 - (double)weight;
 

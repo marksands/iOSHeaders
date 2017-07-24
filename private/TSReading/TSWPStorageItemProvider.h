@@ -6,11 +6,11 @@
 
 #import <Foundation/NSObject.h>
 
-#import <TSReading/UIItemProviderWriting-Protocol.h>
+#import <TSReading/NSItemProviderWriting-Protocol.h>
 
 @class NSArray, NSString;
 
-@interface TSWPStorageItemProvider : NSObject <UIItemProviderWriting>
+@interface TSWPStorageItemProvider : NSObject <NSItemProviderWriting>
 {
     NSString *_string;
 }

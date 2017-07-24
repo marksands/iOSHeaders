@@ -6,27 +6,23 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSMutableArray;
+@class NSArray;
 
 @interface SXColumnStack : NSObject
 {
-    NSMutableArray *_columnStack;
-    long long _numberOfColumns;
+    NSArray *_columnStack;
 }
 
-@property(nonatomic) long long numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;
-@property(retain, nonatomic) NSMutableArray *columnStack; // @synthesize columnStack=_columnStack;
+@property(readonly, nonatomic) NSArray *columnStack; // @synthesize columnStack=_columnStack;
 - (void).cxx_destruct;
 - (id)description;
-@property(readonly, nonatomic) NSArray *stack;
-- (id)stackComponentForComponent:(id)arg1;
-- (void)addStackComponent:(id)arg1 toColumnRange:(struct _NSRange)arg2;
-- (id)lastComponentsInColumnRange:(struct _NSRange)arg1;
-- (id)componentsAfterComponent:(id)arg1 inRange:(struct _NSRange)arg2 onlyFirstComponents:(_Bool)arg3;
-- (id)componentsBeforeComponent:(id)arg1 inRange:(struct _NSRange)arg2 onlyFirstComponents:(_Bool)arg3;
-- (id)componentsInColumnRange:(struct _NSRange)arg1;
-- (id)initWithNumberOfColumns:(long long)arg1;
-- (id)init;
+- (unsigned long long)rangeInBounds:(struct _NSRange)arg1;
+- (id)componentsAfterComponent:(id)arg1;
+- (id)allComponentsAfterComponent:(id)arg1;
+- (id)componentsBeforeComponent:(id)arg1;
+- (id)allComponentsBeforeComponent:(id)arg1;
+- (void)addComponentBlueprint:(id)arg1;
+- (id)initWithNumberOfColumns:(unsigned long long)arg1;
 
 @end
 

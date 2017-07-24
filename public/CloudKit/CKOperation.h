@@ -6,7 +6,7 @@
 
 #import <Foundation/NSOperation.h>
 
-@class CKOperationConfiguration, CKOperationGroup, CKOperationInfo, CKOperationMMCSRequestOptions, CKOperationMetrics, CKPlaceholderOperation, CKTimeLogger, NSArray, NSDictionary, NSError, NSObject, NSString;
+@class CKOperationConfiguration, CKOperationGroup, CKOperationInfo, CKOperationMMCSRequestOptions, CKOperationMetrics, CKPlaceholderOperation, CKTimeLogger, NSArray, NSDictionary, NSError, NSMutableArray, NSMutableDictionary, NSObject, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_source, OS_os_activity, OS_os_transaction, OS_voucher;
 
 @interface CKOperation : NSOperation
@@ -27,16 +27,18 @@
     CDUnknownBlockType _longLivedOperationWasPersistedBlock;
     NSObject<OS_dispatch_source> *_timeoutSource;
     long long _usesBackgroundSessionOverride;
+    NSError *_cancelError;
+    NSMutableArray *_savedRequestUUIDs;
+    NSMutableDictionary *_savedResponseHTTPHeadersByRequestUUID;
+    NSMutableDictionary *_savedW3CNavigationTimingByRequestUUID;
     CKPlaceholderOperation *_placeholderOperation;
     NSError *_error;
     NSString *_sectionID;
     NSString *_parentSectionID;
     id _context;
     CKTimeLogger *_timeLogger;
-    NSArray *_requestUUIDs;
     CKOperationMetrics *_metrics;
-    NSDictionary *_w3cNavigationTimingByRequestUUID;
-    NSDictionary *_responseHTTPHeadersByRequestUUID;
+    CDUnknownBlockType _requestCompletedBlock;
     NSString *_sourceApplicationBundleIdentifier;
     NSString *_sourceApplicationSecondaryIdentifier;
     NSString *_authPromptReason;
@@ -55,10 +57,8 @@
 @property(retain, nonatomic) NSString *authPromptReason; // @synthesize authPromptReason=_authPromptReason;
 @property(retain, nonatomic) NSString *sourceApplicationSecondaryIdentifier; // @synthesize sourceApplicationSecondaryIdentifier=_sourceApplicationSecondaryIdentifier;
 @property(retain, nonatomic) NSString *sourceApplicationBundleIdentifier; // @synthesize sourceApplicationBundleIdentifier=_sourceApplicationBundleIdentifier;
-@property(retain, nonatomic) NSDictionary *responseHTTPHeadersByRequestUUID; // @synthesize responseHTTPHeadersByRequestUUID=_responseHTTPHeadersByRequestUUID;
-@property(retain, nonatomic) NSDictionary *w3cNavigationTimingByRequestUUID; // @synthesize w3cNavigationTimingByRequestUUID=_w3cNavigationTimingByRequestUUID;
+@property(copy, nonatomic) CDUnknownBlockType requestCompletedBlock; // @synthesize requestCompletedBlock=_requestCompletedBlock;
 @property(retain, nonatomic) CKOperationMetrics *metrics; // @synthesize metrics=_metrics;
-@property(retain, nonatomic) NSArray *requestUUIDs; // @synthesize requestUUIDs=_requestUUIDs;
 @property(retain, nonatomic) CKTimeLogger *timeLogger; // @synthesize timeLogger=_timeLogger;
 @property(readonly, nonatomic) id context; // @synthesize context=_context;
 @property(readonly, nonatomic) NSString *parentSectionID; // @synthesize parentSectionID=_parentSectionID;
@@ -66,7 +66,11 @@
 @property(nonatomic) _Bool clouddConnectionInterrupted; // @synthesize clouddConnectionInterrupted=_clouddConnectionInterrupted;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) _Bool isFinished; // @synthesize isFinished=_isFinished;
-@property(retain, nonatomic) CKPlaceholderOperation *placeholderOperation; // @synthesize placeholderOperation=_placeholderOperation;
+@property(retain) CKPlaceholderOperation *placeholderOperation; // @synthesize placeholderOperation=_placeholderOperation;
+@property(retain, nonatomic) NSMutableDictionary *savedW3CNavigationTimingByRequestUUID; // @synthesize savedW3CNavigationTimingByRequestUUID=_savedW3CNavigationTimingByRequestUUID;
+@property(retain, nonatomic) NSMutableDictionary *savedResponseHTTPHeadersByRequestUUID; // @synthesize savedResponseHTTPHeadersByRequestUUID=_savedResponseHTTPHeadersByRequestUUID;
+@property(retain, nonatomic) NSMutableArray *savedRequestUUIDs; // @synthesize savedRequestUUIDs=_savedRequestUUIDs;
+@property(retain, nonatomic) NSError *cancelError; // @synthesize cancelError=_cancelError;
 @property(nonatomic) _Bool isOutstandingOperation; // @synthesize isOutstandingOperation=_isOutstandingOperation;
 @property(nonatomic) long long usesBackgroundSessionOverride; // @synthesize usesBackgroundSessionOverride=_usesBackgroundSessionOverride;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *timeoutSource; // @synthesize timeoutSource=_timeoutSource;
@@ -75,6 +79,9 @@
 @property(retain, nonatomic) CKOperationGroup *group; // @synthesize group=_group;
 @property(copy, nonatomic) CKOperationConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSDictionary *w3cNavigationTimingByRequestUUID;
+@property(readonly, nonatomic) NSDictionary *responseHTTPHeadersByRequestUUID;
+@property(readonly, nonatomic) NSArray *requestUUIDs;
 - (void)setTimeoutIntervalForResource:(double)arg1;
 - (double)timeoutIntervalForResource;
 - (void)setTimeoutIntervalForRequest:(double)arg1;
@@ -85,6 +92,7 @@
 - (_Bool)allowsCellularAccess;
 - (void)setContainer:(id)arg1;
 - (id)container;
+- (_Bool)_wantsFlowControl;
 - (long long)qualityOfService;
 - (void)setQualityOfService:(long long)arg1;
 @property(readonly, nonatomic) CKOperationConfiguration *resolvedConfiguration; // @synthesize resolvedConfiguration=_resolvedConfiguration;
@@ -93,6 +101,7 @@
 - (void)_finishInternalOnCallbackQueueWithError:(id)arg1;
 - (void)_handleCompletionCallback:(id)arg1;
 - (void)_handleRemoteProxyFailureWithError:(id)arg1;
+- (void)_handleStatisticsCallback:(id)arg1;
 - (void)_handleProgressCallback:(id)arg1;
 - (void)_handleCheckpointCallback:(id)arg1;
 @property(nonatomic) _Bool usesBackgroundSession;
@@ -101,15 +110,18 @@
 - (id)CKDescriptionPropertiesWithPublic:(_Bool)arg1 private:(_Bool)arg2 shouldExpand:(_Bool)arg3;
 - (void)processOperationResult:(id)arg1;
 @property(nonatomic) _Bool isExecuting;
+- (id)_findBestThrottleError:(id)arg1;
 - (void)_installTimeoutSource;
 - (void)_uninstallTimeoutSource;
 - (void)cancel;
+- (void)cancelWithUnderlyingError:(id)arg1;
 @property(readonly, nonatomic) CKOperationInfo *operationInfo;
 - (Class)operationClass;
 - (Class)operationInfoClass;
 - (void)fillFromOperationInfo:(id)arg1;
 - (void)fillOutOperationInfo:(id)arg1;
 - (_Bool)isConcurrent;
+- (void)setCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)main;
 - (_Bool)CKOperationShouldRun:(id *)arg1;
 - (_Bool)hasCKOperationCallbacksSet;

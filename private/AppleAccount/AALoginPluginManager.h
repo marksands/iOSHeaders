@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class AAStorableLoginContext, NSArray;
+@class NSArray;
 @protocol AASetupAssistantDelegateService, OS_dispatch_queue;
 
 @interface AALoginPluginManager : NSObject
@@ -14,7 +14,6 @@
     NSArray *_allowedPluginBundleIDs;
     NSArray *_plugins;
     _Bool _shouldStashLoginResponse;
-    AAStorableLoginContext *_stashedLoginContext;
     NSObject<OS_dispatch_queue> *_pluginNotificationQueue;
     id <AASetupAssistantDelegateService> _idsPlugin;
     _Bool _shouldSkipiTunesPlugin;

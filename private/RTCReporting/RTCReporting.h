@@ -56,6 +56,7 @@
 - (_Bool)uploadDataArray:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)uploadFileWithURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)serverSupportsFileUpload;
+- (_Bool)setDigestKey:(id)arg1 algorithm:(int)arg2;
 
 @end
 

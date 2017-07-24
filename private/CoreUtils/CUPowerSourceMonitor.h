@@ -36,9 +36,9 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(nonatomic) unsigned int changeFlags; // @synthesize changeFlags=_changeFlags;
 - (void).cxx_destruct;
-- (void)_handlePowerSourceUpdate:(id)arg1 desc:(id)arg2 adapter:(_Bool)arg3;
+- (void)_handlePowerSourceUpdate:(id)arg1 desc:(id)arg2 adapterDesc:(id)arg3;
 - (void)_handlePowerSourceLost:(id)arg1 sourceID:(id)arg2;
-- (void)_handlePowerSourceFound:(id)arg1 desc:(id)arg2 adapter:(_Bool)arg3;
+- (void)_handlePowerSourceFound:(id)arg1 desc:(id)arg2 adapterDesc:(id)arg3;
 - (void)_updatePowerSources;
 - (void)invalidate;
 - (void)_activateWithCompletion:(CDUnknownBlockType)arg1;

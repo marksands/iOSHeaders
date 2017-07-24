@@ -54,6 +54,7 @@
 @property(retain, nonatomic) EKSuggestedEventInfo *suggestionInfo;
 - (id)privacyLevelString;
 - (void)_detachWithStartDate:(id)arg1 newStartDate:(id)arg2 future:(_Bool)arg3;
+- (id)committedCopy;
 - (void)rebase;
 - (_Bool)_noRemainingEarlierOccurrences;
 - (_Bool)_eventIsTheOnlyRemainingOccurrence;
@@ -88,6 +89,8 @@
 - (void)_adjustForNewCalendarBeforeCommit;
 - (void)_filterExceptionDates;
 - (void)_clearExceptionDatesAndUpdateDetachedOriginalDates;
+- (void)_applyTimeChangesToMaster;
+- (id)_updateMasterDate:(id)arg1 forChangeToOccurrenceDate:(id)arg2 fromOriginalOccurrenceDate:(id)arg3;
 - (_Bool)commitWithSpan:(long long)arg1 error:(id *)arg2;
 - (void)_willCommit;
 - (id)_generateNewUniqueID;

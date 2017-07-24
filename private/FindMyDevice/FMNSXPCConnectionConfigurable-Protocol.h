@@ -10,6 +10,7 @@
 
 @protocol FMNSXPCConnectionConfigurable <NSObject>
 @property(readonly, nonatomic) _Bool machService;
+@property(readonly, nonatomic) NSXPCInterface *exportedInterface;
 @property(readonly, nonatomic) NSXPCInterface *remoteInterface;
 @property(readonly, nonatomic) unsigned long long options;
 @property(readonly, nonatomic) NSString *serviceName;

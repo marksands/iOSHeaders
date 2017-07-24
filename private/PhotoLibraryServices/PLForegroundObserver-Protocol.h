@@ -6,9 +6,9 @@
 
 #import <PhotoLibraryServices/NSObject-Protocol.h>
 
-@class PLForegroundMonitor;
+@class NSString, PLForegroundMonitor;
 
 @protocol PLForegroundObserver <NSObject>
-- (void)foregroundMonitor:(PLForegroundMonitor *)arg1 changedStateToForeground:(_Bool)arg2 context:(id)arg3;
+- (void)foregroundMonitor:(PLForegroundMonitor *)arg1 changedStateToForeground:(_Bool)arg2 forBundleIdentifier:(NSString *)arg3 context:(id)arg4;
 @end
 

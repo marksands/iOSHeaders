@@ -6,39 +6,21 @@
 
 #import <SearchUI/SearchUIAccessoryViewController.h>
 
-#import <SearchUI/NUIContainerStackViewDelegate-Protocol.h>
+@class TLKAuxilliaryTextView;
 
-@class NSString, SearchUIVibrantLabel, UILabel;
-
-@interface SearchUIAuxiliaryTextViewController : SearchUIAccessoryViewController <NUIContainerStackViewDelegate>
+@interface SearchUIAuxiliaryTextViewController : SearchUIAccessoryViewController
 {
-    unsigned long long _style;
-    UILabel *_topLabel;
-    UILabel *_middleLabel;
-    SearchUIVibrantLabel *_bottomLabel;
+    _Bool _shouldCenter;
+    TLKAuxilliaryTextView *_auxilliaryTextView;
 }
 
-+ (double)scaledRichTextValue:(double)arg1;
 + (_Bool)supportsResult:(id)arg1;
-@property(retain) SearchUIVibrantLabel *bottomLabel; // @synthesize bottomLabel=_bottomLabel;
-@property(retain) UILabel *middleLabel; // @synthesize middleLabel=_middleLabel;
-@property(retain) UILabel *topLabel; // @synthesize topLabel=_topLabel;
-@property unsigned long long style; // @synthesize style=_style;
+@property _Bool shouldCenter; // @synthesize shouldCenter=_shouldCenter;
+@property(retain) TLKAuxilliaryTextView *auxilliaryTextView; // @synthesize auxilliaryTextView=_auxilliaryTextView;
 - (void).cxx_destruct;
-- (struct CGRect)containerView:(id)arg1 layoutFrameForArrangedSubview:(id)arg2 withProposedFrame:(struct CGRect)arg3;
-- (_Bool)onlyTopLabelMissing;
-- (_Bool)showsOnlyTopText;
-- (_Bool)showsOnlyMiddleText;
-- (_Bool)labelHasText:(id)arg1;
 - (void)updateWithResult:(id)arg1;
 - (id)setupViewWithStyle:(unsigned long long)arg1;
 - (_Bool)shouldVerticallyCenter;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

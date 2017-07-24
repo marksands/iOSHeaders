@@ -6,14 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class CSAsset, CSAudioCircularBuffer, CSKeywordAnalyzerNDAPI, NSDictionary, NSString;
+@class CSAsset, CSAudioCircularBuffer, CSKeywordAnalyzerNDAPI, NSString;
 
 @interface CSVTUIKeywordDetector : NSObject
 {
     NSString *_languageCode;
     CSAsset *_currentAsset;
     CSKeywordAnalyzerNDAPI *_keywordAnalyzer;
-    NSDictionary *_lastKeywordAnalyzeResult;
     float _lastKeywordScore;
     float _keywordThreshold;
     CSAudioCircularBuffer *_audioBuffer;

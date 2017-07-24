@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) __weak PUActivityItemSourceController *itemSourceController; // @synthesize itemSourceController=_itemSourceController;
 - (void).cxx_destruct;
+- (_Bool)_itemIsVideoAtURL:(id)arg1;
 - (void)performActivity;
 - (void)prepareWithActivityItems:(id)arg1;
 - (_Bool)canPerformWithActivityItems:(id)arg1;

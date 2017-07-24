@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface IMDAttachmentStore : NSObject
 {
@@ -15,6 +15,7 @@
 - (_Bool)deleteAttachmentWithGUID:(id)arg1;
 - (_Bool)deleteAttachmentDataForTransfer:(id)arg1;
 - (_Bool)deleteAttachmentsWithGUIDs:(id)arg1;
+- (void)markAllAttachmentsAsNeedingCloudKitSync;
 - (id)_updatedMessageBody:(id)arg1 replacingGuid:(id)arg2 withGuid:(id)arg3;
 - (_Bool)updateLegacyTransferGUIDOnMessageIfNeeded:(id)arg1;
 - (_Bool)updateLegacyTransferGUIDIfNeeded:(id)arg1;

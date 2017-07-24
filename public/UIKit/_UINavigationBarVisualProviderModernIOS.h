@@ -17,14 +17,17 @@ __attribute__((visibility("hidden")))
 @interface _UINavigationBarVisualProviderModernIOS : _UINavigationBarVisualProvider <_UINavigationBarContentViewDelegate, _UINavigationItemChangeObserver, _UINavigationControllerRefreshControlHostDelegate, _UIBasicAnimationFactory>
 {
     _UIBarBackground *_backgroundView;
+    UIView *_largeTitleMaskView;
     _UINavigationBarContentView *_contentView;
     UIView *_canvasView;
     _UINavigationBarLargeTitleView *_largeTitleView;
     _UINavigationBarModernPromptView *_promptView;
     UILabel *_weeTitleLabel;
     _UINavigationBarTransitionContext *_transitionContext;
+    struct CGSize _previousBarSize;
     _Bool _hasIdiom;
-    _Bool _useInlineBackgroundHeightWhenLarge;
+    _Bool _backgroundTransparentWhenNotCollapsed;
+    _Bool _didReceiveBarSizeChangeResultingInProgressChange;
     _UINavigationControllerRefreshControlHost *_refreshControlHost;
 }
 
@@ -90,6 +93,7 @@ __attribute__((visibility("hidden")))
 - (id)_defaultWeeTitleAttributes;
 - (id)_defaultTitleAttributes;
 - (id)_resolveLargeTitleAttributes;
+- (_Bool)_stackWantsSearchDisplayedForItem:(id)arg1;
 - (_Bool)_stackWantsLargeTitleDisplayedForItem:(id)arg1;
 - (_Bool)_stackWantsExtendedContentViewForItem:(id)arg1;
 - (_Bool)allowLargeTitleView;
@@ -101,6 +105,8 @@ __attribute__((visibility("hidden")))
 - (void)updateArchivedSubviews:(id)arg1;
 - (void)provideViewsForContents:(id)arg1 topItem:(id)arg2 backItem:(id)arg3;
 - (void)_invalidateIntrinsicContentSizeAndNotifySizeChanged;
+- (void)recordBarSize:(struct CGSize)arg1;
+- (void)barSizeChanged;
 - (void)changeLayout;
 - (void)changeAppearance;
 - (double)_contentBackgroundExtension;

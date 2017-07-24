@@ -26,6 +26,8 @@
             unsigned long long trace_id;
             unsigned long long timestamp;
             unsigned long long thread;
+            struct mach_timebase_info timebase;
+            char *dsc_uuid;
             char *image_uuid;
             char *image_path;
             struct timeval tv_gmt;
@@ -70,8 +72,8 @@
             } timesync;
         } ;
         struct {
-            char *message;
             unsigned long long message_size;
+            unsigned char ttl;
         } statedump;
     } _eint;
     CDStruct_c6d697a1 *_event;
@@ -84,6 +86,7 @@
     unsigned long long _retainCount;
     NSString *_processImagePath;
     NSString *_senderImagePath;
+    NSString *_logMessage;
     unsigned long long _uuidi;
 }
 
@@ -100,11 +103,16 @@
 @property(readonly, nonatomic) NSString *category;
 @property(readonly, nonatomic) NSString *subsystem;
 @property(readonly, nonatomic) unsigned long long senderImageOffset;
+@property(readonly, nonatomic) NSString *sender;
 @property(readonly, nonatomic) NSString *senderImagePath;
+@property(readonly, nonatomic) const char *senderImageUUIDBytes;
 @property(readonly, nonatomic) NSUUID *senderImageUUID;
+@property(readonly, nonatomic) NSString *process;
 @property(readonly, nonatomic) NSString *processImagePath;
+@property(readonly, nonatomic) const char *processImageUUIDBytes;
 @property(readonly, nonatomic) NSUUID *processImageUUID;
 - (unsigned long long)processUniqueIdentifier;
+@property(readonly, nonatomic) unsigned long long machContinuousTimestamp;
 @property(readonly, nonatomic) unsigned long long continuousNanosecondsSinceBoot;
 @property(readonly, nonatomic) NSUUID *bootUUID;
 @property(readonly, nonatomic) unsigned long long transitionActivityIdentifier;
@@ -116,6 +124,7 @@
 @property(readonly, nonatomic) struct timeval *unixDate;
 @property(readonly, nonatomic) NSTimeZone *timeZone;
 @property(readonly, nonatomic) NSDate *date;
+@property(readonly, nonatomic) unsigned long long timeToLive;
 @property(readonly, nonatomic) unsigned long long threadIdentifier;
 @property(readonly, nonatomic) unsigned long long traceIdentifier;
 @property(readonly, nonatomic) unsigned long long size;

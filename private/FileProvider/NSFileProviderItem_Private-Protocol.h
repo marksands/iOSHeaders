@@ -12,10 +12,11 @@
 
 @optional
 @property(readonly, copy, nonatomic) NSString *displayName;
-@property(readonly) NSString *fp_domainIdentifier;
-@property(readonly) NSString *fp_spotlightDomainIdentifier;
-@property(readonly) NSString *sharingPermissions;
-@property(readonly) NSString *providerIdentifier;
+@property(readonly, copy) NSString *fp_appContainerBundleIdentifier;
+@property(readonly, copy) NSString *fp_domainIdentifier;
+@property(readonly, copy) NSString *fp_spotlightDomainIdentifier;
+@property(readonly, copy) NSString *sharingPermissions;
+@property(readonly, copy) NSString *providerIdentifier;
 @property(readonly, getter=isHidden) _Bool hidden;
 @property(readonly, copy, getter=isDownloadRequested) NSNumber *downloadRequested;
 @property(readonly, copy) NSString *containerDisplayName;

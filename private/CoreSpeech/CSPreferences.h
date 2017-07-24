@@ -12,6 +12,8 @@
 
 + (id)sharedPreferences;
 + (void)initialize;
+- (_Bool)_markSATEnrollmentWithMarker:(id)arg1 forLanguage:(id)arg2;
+- (_Bool)_markSATEnrollmentMigratedForLanguageCode:(id)arg1;
 - (_Bool)_markSATEnrollmentSuccessForLanguageCode:(id)arg1;
 - (void)notifyUserVoiceProfileUpdateReady;
 - (id)getUserVoiceProfileUpdateDirectory;
@@ -24,6 +26,8 @@
 - (id)_CSSATUploadPath;
 - (id)_CSSATUpdatePath;
 - (id)CSSATBasePath;
+- (id)assistantAudioFileLogDirectory;
+- (id)assistantLogDirectory;
 - (id)voiceTriggerAudioLogDirectory;
 - (id)baseDir;
 - (void)setFileLoggingLevel:(id)arg1;
@@ -31,6 +35,7 @@
 - (_Bool)fileLoggingIsEnabled;
 - (void)setFileLoggingIsEnabled:(_Bool)arg1;
 - (_Bool)_storeModeEnabled;
+- (_Bool)twoShotNotificationEnabled;
 - (_Bool)voiceTriggerInCoreSpeech;
 - (_Bool)voiceTriggerEnabled;
 

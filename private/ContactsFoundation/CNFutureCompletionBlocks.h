@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSMutableArray;
 
@@ -14,13 +14,13 @@
     _Bool _shouldCallImmediately;
 }
 
+- (void).cxx_destruct;
 - (void)flushCompletionBlocksWithFutureResult:(id)arg1;
 - (void)addCompletionBlock:(CDUnknownBlockType)arg1 orCallWithFutureResult:(id)arg2;
 - (void)addFailureBlock:(CDUnknownBlockType)arg1 orCallWithFutureResult:(id)arg2;
 - (void)addSuccessBlock:(CDUnknownBlockType)arg1 orCallWithFutureResult:(id)arg2;
 - (void)setShouldCallImmediately:(_Bool)arg1;
 - (_Bool)shouldCallImmediately;
-- (void)dealloc;
 - (id)init;
 
 @end

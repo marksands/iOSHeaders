@@ -76,7 +76,7 @@ __attribute__((visibility("hidden")))
 - (void)tschLoadFromArchive:(const struct ThemeArchive *)arg1 unarchiver:(id)arg2;
 - (void)tsdSaveToArchive:(struct ThemeArchive *)arg1 archiver:(id)arg2;
 - (void)tsdLoadFromArchive:(const struct ThemeArchive *)arg1 unarchiver:(id)arg2;
-- (void)installContactCurvedShadowPresetsInStylesheet:(id)arg1;
+- (void)installContactCurvedShadowPresets;
 - (void)installMoviePresetsInStylesheet:(id)arg1;
 - (void)p_addStyleIfNotExisting:(id)arg1 inStylesheet:(id)arg2 withIdentifier:(id)arg3 presets:(id)arg4;
 - (void)upgradeStylesWithBlock:(CDUnknownBlockType)arg1;

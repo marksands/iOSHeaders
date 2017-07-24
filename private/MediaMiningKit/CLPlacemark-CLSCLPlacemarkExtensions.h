@@ -13,6 +13,9 @@
 + (unsigned long long)presentationOptionsForPlacemarks:(id)arg1;
 + (id)presentationStringForPlacemarks:(id)arg1 options:(unsigned long long)arg2;
 + (id)placemarkFromLitePlacemark:(id)arg1;
+@property(readonly, nonatomic) _Bool isOcean;
+@property(readonly, nonatomic) _Bool isIsland;
+- (int)cls_precisePlaceType;
 @property(readonly, nonatomic) NSString *administrativeAreaCode;
 @property(readonly, nonatomic) NSString *fullAdministrativeArea;
 - (_Bool)isEqualToPlacemark:(id)arg1;

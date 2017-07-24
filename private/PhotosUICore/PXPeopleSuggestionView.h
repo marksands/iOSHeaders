@@ -6,7 +6,7 @@
 
 #import <PhotosUICore/PXSmartScaleView.h>
 
-@class CAShapeLayer, PXPersonImageRequest, UIImageView, UIView;
+@class CAShapeLayer, NSDateFormatter, PXPersonImageRequest, UIImageView, UILabel, UIView;
 @protocol PXPerson;
 
 @interface PXPeopleSuggestionView : PXSmartScaleView
@@ -19,9 +19,13 @@
     UIView *_dimView;
     CAShapeLayer *_spotlightLayer;
     PXPersonImageRequest *_imageRequest;
+    NSDateFormatter *_dateFormatter;
+    UILabel *_dateLabel;
     struct CGRect _faceRect;
 }
 
+@property(retain, nonatomic) UILabel *dateLabel; // @synthesize dateLabel=_dateLabel;
+@property(retain, nonatomic) NSDateFormatter *dateFormatter; // @synthesize dateFormatter=_dateFormatter;
 @property(retain, nonatomic) PXPersonImageRequest *imageRequest; // @synthesize imageRequest=_imageRequest;
 @property(nonatomic) _Bool validSpotlight; // @synthesize validSpotlight=_validSpotlight;
 @property(nonatomic) _Bool needsSpotlightUpdate; // @synthesize needsSpotlightUpdate=_needsSpotlightUpdate;
@@ -32,8 +36,10 @@
 @property(nonatomic) struct CGRect faceRect; // @synthesize faceRect=_faceRect;
 @property(readonly, nonatomic) id <PXPerson> suggestion; // @synthesize suggestion=_suggestion;
 - (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (double)_faceScale;
 - (struct CGRect)_scaledFaceRect;
+- (void)_updateDateFieldWithSuggestion:(id)arg1;
 - (void)_updateSpotlightAnimated:(_Bool)arg1;
 - (void)_updateSuggestionImageWithAnimatedSpotlight:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)setSuggestion:(id)arg1 animated:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;

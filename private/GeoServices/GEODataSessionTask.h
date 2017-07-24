@@ -54,6 +54,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSError *error;
 - (void)cancel;
 - (void)start;
+@property float priority;
 @property(readonly, copy) NSString *debugDescription;
 - (void)dealloc;
 - (id)initWithSession:(id)arg1 rules:(id)arg2 delegate:(id)arg3 delegateQueue:(id)arg4 requestKind:(int)arg5;

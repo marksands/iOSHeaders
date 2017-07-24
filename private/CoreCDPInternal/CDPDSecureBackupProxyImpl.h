@@ -14,8 +14,6 @@
 {
 }
 
-- (void)setBackOffDateWithInfo:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (void)backOffDateWithInfo:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (_Bool)disableWithInfo:(id)arg1 error:(id *)arg2;
 - (void)disableWithInfo:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)recoverWithInfo:(id)arg1 error:(id *)arg2;

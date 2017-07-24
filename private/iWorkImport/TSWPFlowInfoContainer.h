@@ -13,12 +13,12 @@
 __attribute__((visibility("hidden")))
 @interface TSWPFlowInfoContainer : TSPObject <TSWPFlowInfoContainer>
 {
-    NSMutableArray *_flowInfos;
     unsigned long long _nextUserInterfaceIdentifier;
+    NSMutableArray *_flowInfos;
 }
 
-@property(nonatomic) unsigned long long nextUserInterfaceIdentifier; // @synthesize nextUserInterfaceIdentifier=_nextUserInterfaceIdentifier;
 @property(retain, nonatomic) NSMutableArray *flowInfos; // @synthesize flowInfos=_flowInfos;
+@property(nonatomic) unsigned long long nextUserInterfaceIdentifier; // @synthesize nextUserInterfaceIdentifier=_nextUserInterfaceIdentifier;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *debugDescription;
 - (void)saveToArchive:(struct FlowInfoContainerArchive *)arg1 archiver:(id)arg2;
@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)removeFlowInfo:(id)arg1;
 - (void)addFlowInfo:(id)arg1;
 - (void)addFlowInfo:(id)arg1 dolcContext:(id)arg2;
+- (_Bool)containsFlowInfo:(id)arg1;
 - (id)initWithContext:(id)arg1;
 
 // Remaining properties

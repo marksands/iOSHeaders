@@ -49,9 +49,13 @@
 - (id)authKitAccountWithAppleID:(id)arg1;
 - (id)authKitAccountWithDSID:(id)arg1;
 - (id)authKitAccountWithAltDSID:(id)arg1;
-- (id)_tokenWithName:(id)arg1 forAccount:(id)arg2;
+- (id)_tokenWithName:(id)arg1 forAccount:(id)arg2 error:(id *)arg3;
 - (void)removeMasterTokenForAccount:(id)arg1;
 - (id)masterTokenForAccount:(id)arg1;
+- (id)passwordResetTokenBackupForAccount:(id)arg1 error:(id *)arg2;
+- (id)passwordResetTokenForAccount:(id)arg1 error:(id *)arg2;
+- (id)continuationTokenForAccount:(id)arg1 error:(id *)arg2;
+- (id)hearbeatTokenForAccount:(id)arg1 error:(id *)arg2;
 - (id)passwordResetTokenBackupForAccount:(id)arg1;
 - (id)passwordResetTokenForAccount:(id)arg1;
 - (id)continuationTokenForAccount:(id)arg1;

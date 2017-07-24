@@ -12,7 +12,7 @@
 #import <AVKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <AVKit/UIPopoverPresentationControllerDelegate-Protocol.h>
 
-@class AVAppBasedStatusBarAppearanceController, AVFullScreenViewController, AVNowPlayingInfoController, AVPictureInPictureController, AVPlaybackControlsController, AVPlaybackControlsVisibilityController, AVPlayer, AVPlayerController, AVPlayerView, AVPlayerViewControllerContentView, AVTransitionController, MPVolumeController, NSDictionary, NSString, NSTimer, UIPopoverPresentationController, UIScreen, UIView, UIWindow, __AVPlayerLayerView;
+@class AVAppBasedStatusBarAppearanceController, AVFullScreenViewController, AVNowPlayingInfoController, AVPictureInPictureController, AVPlaybackControlsController, AVPlaybackControlsVisibilityController, AVPlayer, AVPlayerController, AVPlayerView, AVPlayerViewControllerContentView, AVTransitionController, NSDictionary, NSString, UIPopoverPresentationController, UIScreen, UIView, UIWindow, __AVPlayerLayerView;
 @protocol AVPlayerViewControllerDelegate;
 
 @interface AVPlayerViewController : UIViewController <AVPictureInPictureControllerDelegate, UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate, AVPlaybackControlsVisibilityControllerDelegate, AVFullScreenViewControllerDelegate>
@@ -32,7 +32,6 @@
     AVPlaybackControlsVisibilityController *_playbackControlsVisibilityController;
     AVPlaybackControlsController *_playbackControlsController;
     AVAppBasedStatusBarAppearanceController *_appBasedStatusBarAppearanceController;
-    MPVolumeController *_volumeController;
     AVPlayerView *_playerViewControllerView;
     __AVPlayerLayerView *_playerLayerView;
     id _screenDidConnectObserver;
@@ -42,8 +41,6 @@
     id _nowPlayingControllerDidReceiveStopCommandEventObserver;
     id _applicationSuspendedObserver;
     id _playerControllerPlaybackDidEndObserver;
-    NSTimer *_loadingIndicatorTimer;
-    _Bool _playbackControlsViewControllerShouldShowLoadingIndicator;
     _Bool _playbackControlsViewControllerPictureInPictureButtonEnabled;
     _Bool _transitionFromFullScreenOrDismissViewControllerWhenEnteringBackgroundAfterPictureInPictureStart;
     id <AVPlayerViewControllerDelegate> _delegate;
@@ -88,6 +85,7 @@
 @property(nonatomic) _Bool entersFullScreenWhenPlaybackBegins; // @synthesize entersFullScreenWhenPlaybackBegins=_entersFullScreenWhenPlaybackBegins;
 - (void).cxx_destruct;
 - (id)keyCommandResponderForFullScreenViewController:(id)arg1;
+- (void)fullScreenViewControllerNeedsAppBasedStatusBarAppearanceUpdate:(id)arg1;
 - (_Bool)prefersStatusBarHiddenForFullScreenViewController:(id)arg1;
 - (void)fullScreenViewControllerDidEndFullScreenPresentation:(id)arg1 wasInteractive:(_Bool)arg2;
 - (id)viewForFullScreenViewController:(id)arg1;
@@ -110,7 +108,6 @@
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (_Bool)_modalPresentationStyleIsFullScreen;
 - (_Bool)_isTransitioningToOrFromFullScreen;
-- (id)_mediaSelectionViewController;
 - (void)_mediaSelectionDoneButtonTapped:(id)arg1;
 - (void)_togglePictureInPicture;
 - (void)_transitionFromFullScreenAnimated:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -122,7 +119,7 @@
 - (void)_handleDoubleDoubleTapGesture:(id)arg1;
 - (void)_handleSingleTapGesture:(id)arg1;
 - (void)_handleDoubleTapGesture:(id)arg1;
-- (void)_updatePlaybackControlsViewController;
+- (void)_updatePlaybackControlsController;
 - (void)_updatePlayerLayerViewAndContentOverlayViewExcludingScreen:(id)arg1;
 - (void)_updatePlayerLayerViewAndContentOverlayView;
 - (void)_updateExternalPlaybackIndicatorView;
@@ -130,14 +127,15 @@
 - (_Bool)_isAudioOnlyContent;
 - (void)_updateUnsupportedContentIndicatorView;
 - (_Bool)_isUnsupportedContent;
-- (void)_fireLoadingIndicatorTimer:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)_handleFastForwardKeyUpCommand:(id)arg1;
-- (void)_handleFastForwardKeyDownCommand:(id)arg1;
-- (void)_handleRewindKeyUpCommand:(id)arg1;
-- (void)_handleRewindKeyDownCommand:(id)arg1;
-- (void)_handleVolumeDownKeyCommand:(id)arg1;
-- (void)_handleVolumeUpKeyCommand:(id)arg1;
+- (void)_handleFastForwardKeyReleasedCommand:(id)arg1;
+- (void)_handleFastForwardKeyPressedCommand:(id)arg1;
+- (void)_handleRewindKeyReleasedCommand:(id)arg1;
+- (void)_handleRewindKeyPressedCommand:(id)arg1;
+- (void)_handleVolumeDownKeyReleasedCommand:(id)arg1;
+- (void)_handleVolumeDownKeyPressedCommand:(id)arg1;
+- (void)_handleVolumeUpKeyReleasedCommand:(id)arg1;
+- (void)_handleVolumeUpKeyPressedCommand:(id)arg1;
 - (void)_handleShowPreviousFrameKeyCommand:(id)arg1;
 - (void)_handleGoToBeginningKeyCommand:(id)arg1;
 - (void)_handleShowNextFrameKeyCommand:(id)arg1;
@@ -150,6 +148,7 @@
 - (_Bool)_ignoreAppSupportedOrientations;
 - (long long)preferredStatusBarStyle;
 - (_Bool)prefersStatusBarHidden;
+- (_Bool)modalPresentationCapturesStatusBarAppearance;
 - (long long)preferredWhitePointAdaptivityStyle;
 - (void)didMoveToParentViewController:(id)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;

@@ -6,15 +6,17 @@
 
 #import <MaterialKit/MTVibrantStyling.h>
 
+@class UIColor;
+
 @interface MTCompoundVibrantStyling : MTVibrantStyling
 {
 }
 
 - (id)_layerConfig;
 - (id)composedFilter;
-- (_Bool)_inputReversed;
-- (id)_darkenColor;
-- (id)_burnColor;
+@property(readonly, nonatomic, getter=_inputReversed) _Bool inputReversed;
+@property(readonly, copy, nonatomic, getter=_darkenColor) UIColor *darkenColor;
+@property(readonly, copy, nonatomic, getter=_burnColor) UIColor *burnColor;
 - (id)blendMode;
 
 @end

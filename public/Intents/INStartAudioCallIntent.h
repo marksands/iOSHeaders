@@ -20,9 +20,8 @@
 - (id)verb;
 - (void)setDomain:(id)arg1;
 - (id)domain;
-- (void)_redactForMissingPrivacyEntitlementOptions:(unsigned long long)arg1;
+- (void)_redactForMissingPrivacyEntitlementOptions:(unsigned long long)arg1 containingAppBundleId:(id)arg2;
 - (id)_dictionaryRepresentation;
-@property(readonly, copy) NSString *description;
 @property(nonatomic, setter=setTTYType:) long long ttyType;
 - (void)setContacts:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *contacts;
@@ -39,6 +38,7 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

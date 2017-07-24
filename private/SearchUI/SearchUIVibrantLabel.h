@@ -4,22 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UILabel.h>
+#import <TemplateKit/TLKVibrantLabel.h>
 
-@interface SearchUIVibrantLabel : UILabel
+@interface SearchUIVibrantLabel : TLKVibrantLabel
 {
-    unsigned long long _style;
 }
 
-+ (_Bool)richTextOverridesAsyncLoader:(id)arg1;
-+ (id)vibrantTextColorForStyle:(unsigned long long)arg1;
-+ (id)textColorForStyle:(unsigned long long)arg1;
-@property unsigned long long style; // @synthesize style=_style;
-- (void)setVibrancyEnabled:(_Bool)arg1;
-- (id)attributedStringForRichText:(id)arg1;
-- (void)updateWithRichText:(id)arg1;
-- (void)setFont:(id)arg1;
-- (void)willMoveToSuperview:(id)arg1;
++ (id)vibrantTextColorForSearchUIStyle:(unsigned long long)arg1;
++ (id)textColorForSearchUIStyle:(unsigned long long)arg1;
+- (void)updateWithSFRichText:(id)arg1;
 - (id)initWithStyle:(unsigned long long)arg1;
 
 @end

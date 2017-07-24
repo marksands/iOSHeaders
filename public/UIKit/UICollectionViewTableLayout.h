@@ -205,6 +205,7 @@
 - (id)invalidationContextForBoundsChange:(struct CGRect)arg1;
 - (_Bool)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
 - (struct CGPoint)_contentOffsetFromProposedContentOffset:(struct CGPoint)arg1 forScrollingToItemAtIndexPath:(id)arg2 atScrollPosition:(unsigned long long)arg3;
+- (void)_setCollectionView:(id)arg1;
 - (void)prepareForTransitionToLayout:(id)arg1;
 - (void)prepareForTransitionFromLayout:(id)arg1;
 - (void)prepareLayout;

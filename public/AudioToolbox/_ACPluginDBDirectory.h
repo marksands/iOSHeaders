@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 - (void)scanDirectory;
 - (void)loadAllComponents:(struct AudioComponentVector *)arg1;
 - (void)monitorDirectory;
-- (void)eventStreamCallback:(id)arg1;
+- (void)eventStreamCallback:(id)arg1 flags:(const unsigned int *)arg2;
 - (_Bool)refreshModificationDate;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

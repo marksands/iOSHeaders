@@ -17,7 +17,7 @@
     struct UIEdgeInsets _subheaderMargins;
 }
 
-+ (id)createUpdatedHeaderContextForGroupStackView:(id)arg1 passType:(unsigned long long)arg2 currentContext:(id)arg3 allowSubheader:(_Bool)arg4;
++ (id)createUpdatedHeaderContextForGroupStackView:(id)arg1 passType:(unsigned long long)arg2 currentContext:(id)arg3 allowHeader:(_Bool)arg4 allowSubheader:(_Bool)arg5;
 @property(nonatomic) struct UIEdgeInsets subheaderMargins; // @synthesize subheaderMargins=_subheaderMargins;
 @property(readonly, nonatomic) UIView<PKPGSVSectionSubheaderView> *subheaderView; // @synthesize subheaderView=_subheaderView;
 @property(nonatomic) struct UIEdgeInsets headerMargins; // @synthesize headerMargins=_headerMargins;

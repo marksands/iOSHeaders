@@ -11,7 +11,7 @@
 - (void)showApplicationBadgeForPendingUpdates;
 - (void)removeUpdateBulletins;
 - (void)hideApplicationBadgeForPendingUpdates;
-- (void)updateAll:(void (^)(_Bool, NSError *))arg1;
+- (void)updateAllWithJobResults:(void (^)(_Bool, NSArray *, NSError *))arg1;
 - (void)reloadFromServerInBackgroundWithCompletionBlock:(void (^)(NSArray *, NSError *))arg1;
 - (void)reloadFromServerWithCompletionBlock:(void (^)(NSArray *, NSError *))arg1;
 - (void)refreshUpdateCountWithCompletionBlock:(void (^)(long long, NSError *))arg1;

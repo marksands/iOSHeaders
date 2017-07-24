@@ -167,6 +167,7 @@
 @property(readonly, nonatomic) long long transitionType; // @synthesize transitionType=_transitionType;
 @property(readonly, nonatomic) __weak UIViewController *presentingViewController; // @synthesize presentingViewController=_presentingViewController;
 @property(readonly, nonatomic) _Bool isOneUpPresented;
+- (id)browsingSessionCreateIfNeeded:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithPhotosDataSource:(id)arg1;
 - (id)initWithBrowsingSessionCreationBlock:(CDUnknownBlockType)arg1;

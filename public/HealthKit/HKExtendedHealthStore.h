@@ -24,6 +24,7 @@
 - (void).cxx_destruct;
 - (void)clientRemote_achievementDefinitionUnviewedCountChanged;
 - (void)clientRemote_achievementsWereAddedOrRemoved;
+- (void)expressionValue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)achievementAssetAvailabilityOnPairedDeviceForIdentifiers:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)resetAchievementDefinitionAlertedStates:(_Bool)arg1 availabilityStates:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)nextScheduledAchievementDefinitionAlertTaskDateWithCompletion:(CDUnknownBlockType)arg1;

@@ -6,40 +6,45 @@
 
 #import <UIKit/UIView.h>
 
-@class AVAsset, NSLayoutConstraint, NSString, PXContextualNotification, PXVideoPlayerView, UIImage, UIImageView, UILabel;
+@class AVAsset, AVPlayerItem, AVVideoComposition, NSLayoutConstraint, NSString, PXContextualNotification, PXVideoPlayerView, UIImage, UIImageView, UILabel;
 
 @interface PXContextualNotificationView : UIView
 {
-    struct {
-        _Bool mediaViewHeight;
-    } _needsUpdateFlags;
     _Bool _useRegularHitTesting;
     long long _style;
     PXContextualNotification *_contextualNotification;
     NSString *_title;
+    UIImage *_titleIcon;
     NSString *_message;
     UIImage *_image;
     AVAsset *_loopingVideoAsset;
+    AVVideoComposition *_loopingVideoComposition;
     UIView *_contentView;
     UILabel *_titleLabel;
+    UIImageView *_titleIconView;
     UILabel *_messageLabel;
     UIImageView *_dismissIconView;
     PXVideoPlayerView *_mediaView;
+    NSLayoutConstraint *_mediaViewHeightConstraint;
     double __mediaAspectRatio;
-    NSLayoutConstraint *__mediaViewHeightConstraint;
+    AVPlayerItem *__loopingPlayerItem;
 }
 
-@property(retain, nonatomic, setter=_setMediaViewHeightConstraint:) NSLayoutConstraint *_mediaViewHeightConstraint; // @synthesize _mediaViewHeightConstraint=__mediaViewHeightConstraint;
+@property(retain, nonatomic, setter=_setLoopingPlayerItem:) AVPlayerItem *_loopingPlayerItem; // @synthesize _loopingPlayerItem=__loopingPlayerItem;
 @property(nonatomic, setter=_setMediaAspectRatio:) double _mediaAspectRatio; // @synthesize _mediaAspectRatio=__mediaAspectRatio;
+@property(readonly, nonatomic) NSLayoutConstraint *mediaViewHeightConstraint; // @synthesize mediaViewHeightConstraint=_mediaViewHeightConstraint;
 @property(readonly, nonatomic) PXVideoPlayerView *mediaView; // @synthesize mediaView=_mediaView;
 @property(readonly, nonatomic) UIImageView *dismissIconView; // @synthesize dismissIconView=_dismissIconView;
 @property(readonly, nonatomic) UILabel *messageLabel; // @synthesize messageLabel=_messageLabel;
+@property(readonly, nonatomic) UIImageView *titleIconView; // @synthesize titleIconView=_titleIconView;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property(nonatomic) _Bool useRegularHitTesting; // @synthesize useRegularHitTesting=_useRegularHitTesting;
-@property(retain, nonatomic) AVAsset *loopingVideoAsset; // @synthesize loopingVideoAsset=_loopingVideoAsset;
+@property(copy, nonatomic) AVVideoComposition *loopingVideoComposition; // @synthesize loopingVideoComposition=_loopingVideoComposition;
+@property(copy, nonatomic) AVAsset *loopingVideoAsset; // @synthesize loopingVideoAsset=_loopingVideoAsset;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
+@property(retain, nonatomic) UIImage *titleIcon; // @synthesize titleIcon=_titleIcon;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) __weak PXContextualNotification *contextualNotification; // @synthesize contextualNotification=_contextualNotification;
 @property(readonly, nonatomic) long long style; // @synthesize style=_style;
@@ -47,8 +52,8 @@
 - (_Bool)isPointInsidePassthroughArea:(struct CGPoint)arg1;
 - (_Bool)isPointInsideDismissArea:(struct CGPoint)arg1;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)_handleDidSetVideoAudioSessionForAsset:(id)arg1;
-- (void)updateConstraints;
+- (void)_handleDidSetVideoAudioSession;
+- (void)_updateLoopingPlayerItem;
 - (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

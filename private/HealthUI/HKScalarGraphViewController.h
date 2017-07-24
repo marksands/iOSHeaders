@@ -12,6 +12,7 @@
 }
 
 @property(readonly, nonatomic) double minimumHeight; // @synthesize minimumHeight=_minimumHeight;
+- (void)_setupGraphViewSelectionStyle;
 - (id)_buildGraphViewWithLabelDimension:(id)arg1;
 - (void)_pinView:(id)arg1 toParentView:(id)arg2;
 - (void)viewDidLoad;

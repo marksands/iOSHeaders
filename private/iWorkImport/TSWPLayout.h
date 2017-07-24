@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool optimizeSegmentationOfEmptyLines; // @synthesize optimizeSegmentationOfEmptyLines=_optimizeSegmentationOfEmptyLines;
 @property(readonly, retain, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
 @property(readonly, nonatomic) TSWPStorage *storage; // @synthesize storage=_storage;
+@property(readonly, nonatomic) _Bool isLinked;
 - (id)textColorOverride;
 @property(readonly, nonatomic) TSUBezierPath *interiorClippingPath;
 - (id)styleProvider;

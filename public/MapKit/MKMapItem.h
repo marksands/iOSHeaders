@@ -11,7 +11,7 @@
 #import <MapKit/NSItemProviderWriting-Protocol.h>
 #import <MapKit/NSSecureCoding-Protocol.h>
 
-@class GEOAddress, GEOFeatureStyleAttributes, GEOMapItemDetourInfo, GEOMapRegion, GEOPDBusinessClaim, GEOPDFlyover, GEOPlace, MKMapItemIdentifier, MKMapItemMetadata, MKPlacemark, NSArray, NSData, NSNumber, NSNumberFormatter, NSString, NSTimeZone, NSURL, _MKMapItemPhotosAttribution, _MKMapItemPlaceAttribution, _MKMapItemReviewsAttribution, _MKPlaceReservationInfo;
+@class GEOAddress, GEOFeatureStyleAttributes, GEOMapItemDetourInfo, GEOMapItemStorage, GEOMapItemStorageUserValues, GEOMapRegion, GEOPDBusinessClaim, GEOPDFlyover, GEOPlace, MKMapItemIdentifier, MKMapItemMetadata, MKPlacemark, NSArray, NSData, NSNumber, NSNumberFormatter, NSString, NSTimeZone, NSURL, _MKMapItemPhotosAttribution, _MKMapItemPlaceAttribution, _MKMapItemReviewsAttribution, _MKPlaceReservationInfo;
 @protocol GEOEncyclopedicInfo, GEOMapItem, GEOMapItemPrivate, GEOMapItemTransitInfo, GEOMapItemVenueInfo, GEOTransitAttribution, NSObject;
 
 @interface MKMapItem : NSObject <NSSecureCoding, NSItemProviderReading, NSItemProviderWriting, GEOURLSerializable>
@@ -27,14 +27,12 @@
     _MKMapItemPlaceAttribution *_attribution;
     _MKMapItemPhotosAttribution *_photosAttribution;
     _MKMapItemReviewsAttribution *_reviewsAttribution;
-    NSString *_name;
-    NSString *_phoneNumber;
-    NSURL *_url;
-    NSTimeZone *_timeZone;
+    GEOMapItemStorageUserValues *_userValues;
     id <NSObject> _didResolveAttributionToken;
     NSString *_shortAddress;
     NSString *_firstLocalizedCategoryName;
     NSNumberFormatter *_numberFormatterForAdamId;
+    NSString *_localizedSampleSizeForUserRatingScoreString;
     _Bool _isMapItemTypeTransit;
     MKMapItemMetadata *_metadata;
     GEOPlace *_place;
@@ -73,7 +71,6 @@
 + (id)_itemWithGeoMapItem:(id)arg1;
 + (id)_mapItemWithWithLocation:(id)arg1 addressDictionary:(id)arg2 name:(id)arg3 businessURL:(id)arg4 phoneNumber:(id)arg5 sessionID:(id)arg6 muid:(unsigned long long)arg7 attributionID:(id)arg8 sampleSizeForUserRatingScore:(unsigned int)arg9 normalizedUserRatingScore:(float)arg10;
 + (_Bool)supportsSecureCoding;
-+ (id)newObjectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 options:(id)arg3 error:(id *)arg4;
 + (id)readableTypeIdentifiersForItemProvider;
 + (id)writableTypeIdentifiersForItemProvider;
 + (id)ticketForMapsDataString:(id)arg1 name:(id)arg2;
@@ -103,6 +100,7 @@
 @property(readonly, nonatomic, getter=_messageURLString) NSString *messageURLString;
 @property(readonly, nonatomic, getter=_messageID) NSString *messageID;
 @property(readonly, nonatomic, getter=_isStandAloneBrand) _Bool isStandAloneBrand;
+@property(readonly, nonatomic, getter=_parsecSectionType) int parsecSectionType;
 @property(readonly, nonatomic, getter=_isMapItemTypeBrand) _Bool isMapItemTypeBrand;
 @property(readonly, nonatomic, getter=_isMapItemTypeAddress) _Bool isMapItemTypeAddress;
 @property(readonly, nonatomic, getter=_isMapItemTypeSettlement) _Bool isMapItemTypeSettlement;
@@ -130,6 +128,7 @@
 - (id)_postalAddressFromMeCardUsingAddressIdentifier:(id)arg1;
 - (id)_addressFormattedAsCity;
 - (id)_addressOrNil:(id)arg1;
+- (void)validateMessageIDWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_bestBrandIconURLForSize:(struct CGSize)arg1 allowSmaller:(_Bool)arg2;
 - (_Bool)_canGetDirections;
 - (id)_urlExtraStorage;
@@ -144,9 +143,6 @@
 @property(readonly, nonatomic, getter=_handle) NSData *handle;
 - (void)openInMapsWithLaunchOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)openInMapsWithLaunchOptions:(id)arg1;
-- (unsigned int)_travelDistanceForTransportType:(int)arg1;
-- (unsigned int)_travelTimeForTransportType:(int)arg1;
-- (int)_recommendedTransportType;
 @property(readonly, nonatomic, getter=_poiPinpointURLString) NSString *poiPinpointURLString;
 @property(readonly, nonatomic, getter=_poiSurveyURLString) NSString *poiSurveyURLString;
 @property(readonly, nonatomic, getter=_placeDataAsData) NSData *placeDataAsData;
@@ -182,6 +178,7 @@
 @property(readonly, nonatomic, getter=_normalizedUserRatingScore) float normalizedUserRatingScore;
 @property(readonly, nonatomic, getter=_priceDescription) NSString *priceDescription;
 @property(readonly, nonatomic, getter=_hasPriceDescription) _Bool hasPriceDescription;
+@property(readonly, nonatomic, getter=_localizedSampleSizeForUserRatingScoreString) NSString *localizedSampleSizeForUserRatingScoreString;
 @property(readonly, nonatomic, getter=_sampleSizeForUserRatingScore) unsigned int sampleSizeForUserRatingScore;
 @property(readonly, nonatomic, getter=_hasUserRatingScore) _Bool hasUserRatingScore;
 @property(readonly, nonatomic, getter=_resultProviderID) int resultProviderID;
@@ -189,6 +186,7 @@
 @property(readonly, nonatomic, getter=_muid) unsigned long long muid;
 @property(readonly, nonatomic, getter=_hasMUID) _Bool hasMUID;
 @property(readonly, nonatomic, getter=_identifier) MKMapItemIdentifier *identifier;
+@property(readonly, nonatomic, getter=_browseCategories) NSArray *browseCategories;
 @property(readonly, nonatomic, getter=_venueInfo) id <GEOMapItemVenueInfo> venueInfo;
 @property(readonly, nonatomic, getter=_venueCategoryBrowseType) long long venueCategoryBrowseType;
 @property(readonly, nonatomic, getter=_venueFeatureType) long long venueFeatureType;
@@ -217,6 +215,9 @@
 @property(readonly, nonatomic, getter=_phoneNumberOptsOutOfAds) _Bool phoneNumberOptsOutOfAds;
 @property(copy, nonatomic) NSString *phoneNumber;
 @property(copy, nonatomic) NSString *name;
+@property(readonly, nonatomic) GEOMapItemStorageUserValues *userValues;
+@property(readonly, nonatomic, getter=_geoMapItemStorageForDragAndDrop) GEOMapItemStorage *geoMapItemStorageForDragAndDrop;
+@property(readonly, nonatomic, getter=_geoMapItemStorageForPersistence) GEOMapItemStorage *geoMapItemStorageForPersistence;
 @property(readonly, nonatomic, getter=_geoMapItem) id <GEOMapItemPrivate> geoMapItem;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;

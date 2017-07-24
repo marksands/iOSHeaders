@@ -6,12 +6,23 @@
 
 #import <NotesUI/TTTextStorage.h>
 
-@interface ICTableTextStorage : TTTextStorage
+#import <NotesUI/NSTextStorageDelegate-Protocol.h>
+
+@class NSString;
+
+@interface ICTableTextStorage : TTTextStorage <NSTextStorageDelegate>
 {
 }
 
+- (void)textStorage:(id)arg1 didProcessEditing:(unsigned long long)arg2 range:(struct _NSRange)arg3 changeInLength:(long long)arg4;
 - (void)replaceCharactersInRange:(struct _NSRange)arg1 withAttributedString:(id)arg2;
 - (id)initWithDocument:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

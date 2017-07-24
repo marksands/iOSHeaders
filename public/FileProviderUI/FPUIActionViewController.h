@@ -10,7 +10,7 @@
 #import <FileProviderUI/FPUIActionRemoteContextDelegate-Protocol.h>
 #import <FileProviderUI/FPUIActionRemoteViewControllerDelegate-Protocol.h>
 
-@class NSArray, NSString, NSURL, _UIResilientRemoteViewContainerViewController;
+@class NSArray, NSError, NSString, NSURL, _UIResilientRemoteViewContainerViewController;
 @protocol FPUIActionExtensionViewControllerProtocol, FPUIActionViewControllerDelegate;
 
 @interface FPUIActionViewController : UIViewController <FPUIActionRemoteViewControllerDelegate, FPUIActionRemoteContextDelegate, DOCAppearanceProtocol>
@@ -21,6 +21,7 @@
     NSString *_providerIdentifier;
     NSString *_actionIdentifier;
     NSString *_actionTitle;
+    NSError *_error;
     NSArray *_items;
     NSURL *_authenticationURL;
     NSString *_domainIdentifier;
@@ -28,8 +29,8 @@
     unsigned long long _browserUserInterfaceStyle;
 }
 
-+ (id)actionControllerForInlineAuthenticationToDomainIdentifier:(id)arg1 providerIdentifier:(id)arg2;
-+ (id)actionControllerForAuthenticationToDomainIdentifier:(id)arg1 providerIdentifier:(id)arg2;
++ (id)actionControllerForInlineError:(id)arg1 providerIdentifier:(id)arg2;
++ (id)actionControllerForError:(id)arg1 providerIdentifier:(id)arg2;
 + (id)actionControllerForAuthenticationUsingURL:(id)arg1 providerIdentifier:(id)arg2;
 + (id)actionControllerForActionIdentifier:(id)arg1 actionTitle:(id)arg2 items:(id)arg3 providerIdentifier:(id)arg4 domainIdentifier:(id)arg5;
 @property(readonly, nonatomic) unsigned long long browserUserInterfaceStyle; // @synthesize browserUserInterfaceStyle=_browserUserInterfaceStyle;
@@ -38,6 +39,7 @@
 @property(retain, nonatomic) NSString *domainIdentifier; // @synthesize domainIdentifier=_domainIdentifier;
 @property(retain, nonatomic) NSURL *authenticationURL; // @synthesize authenticationURL=_authenticationURL;
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
+@property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) NSString *actionTitle; // @synthesize actionTitle=_actionTitle;
 @property(retain, nonatomic) NSString *actionIdentifier; // @synthesize actionIdentifier=_actionIdentifier;
 @property(retain, nonatomic) NSString *providerIdentifier; // @synthesize providerIdentifier=_providerIdentifier;

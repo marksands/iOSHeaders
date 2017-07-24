@@ -9,12 +9,10 @@
 #import <NetworkExtension/NSCopying-Protocol.h>
 #import <NetworkExtension/NSSecureCoding-Protocol.h>
 
-@class NWEndpoint;
+@class NSUUID, NWEndpoint;
 
 @interface NEFilterSocketFlow : NEFilterFlow <NSSecureCoding, NSCopying>
 {
-    unsigned char _uuid[16];
-    unsigned char _euuid[16];
     struct sockaddr_storage _lastLocalAddress;
     struct sockaddr_storage _lastRemoteAddress;
     int _socketFamily;
@@ -22,11 +20,15 @@
     int _socketProtocol;
     NWEndpoint *_remoteEndpoint;
     NWEndpoint *_localEndpoint;
+    NSUUID *_uuid;
+    NSUUID *_euuid;
     unsigned long long _socketID;
 }
 
 + (_Bool)supportsSecureCoding;
 @property unsigned long long socketID; // @synthesize socketID=_socketID;
+@property(copy, nonatomic) NSUUID *euuid; // @synthesize euuid=_euuid;
+@property(copy, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property int socketProtocol; // @synthesize socketProtocol=_socketProtocol;
 @property int socketType; // @synthesize socketType=_socketType;
 @property int socketFamily; // @synthesize socketFamily=_socketFamily;
@@ -34,14 +36,8 @@
 @property(copy) NWEndpoint *remoteEndpoint; // @synthesize remoteEndpoint=_remoteEndpoint;
 - (void).cxx_destruct;
 - (id)description;
-- (_Bool)getCachedSourceAppInfo;
-- (void)cacheSourceAppInfo;
 - (void)lastLocalAddress:(struct sockaddr *)arg1;
 - (void)lastRemoteAddress:(struct sockaddr *)arg1;
-- (unsigned char (*)[16])euuid;
-- (unsigned char (*)[16])uuid;
-- (void)setEffectiveProcUUID:(unsigned char [16])arg1;
-- (void)setProcUUID:(unsigned char [16])arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

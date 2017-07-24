@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CALayer, NSMapTable, NSMutableArray, NSMutableSet, PDFAccessibilityEffectLayer, PDFPage, PDFPageLayer, PDFPagePopupLayer, PDFPageSearchLayer, PDFPageSelectionLayer, PDFRenderingProperties, UIImage, UITextView;
+@class CALayer, NSMapTable, NSMutableArray, PDFPage, PDFPageLayer, PDFPagePopupLayer, PDFPageSearchLayer, PDFPageSelectionLayer, PDFRenderingProperties, UITextView;
 @protocol PDFPageLayerGeometryInterface;
 
 __attribute__((visibility("hidden")))
@@ -18,10 +18,8 @@ __attribute__((visibility("hidden")))
     PDFPageLayer *pageLayer;
     PDFPageSearchLayer *searchLayer;
     PDFPageSelectionLayer *selectionLayer;
-    PDFAccessibilityEffectLayer *accessibilityLayer;
     CALayer *backgroundLayer;
-    _Bool hasBackgroundImage;
-    NSMutableSet *coachMarks;
+    int backgroundQuality;
     NSMutableArray *pageMarkups;
     PDFPagePopupLayer *popupLayer;
     NSMapTable *pageWidgetMapTable;
@@ -32,12 +30,12 @@ __attribute__((visibility("hidden")))
     CALayer *bookmarkLayer;
     struct CGSize bookmarkSize;
     UITextView *activeTextView;
-    struct CGRect lastMagnifierRect;
-    CALayer *magnifierLayer;
-    UIImage *magnifierImage;
+    CALayer *textMagnifierLayer;
     struct CGImage *magnifierImageMask;
     struct CGSize magnifierSize;
-    struct CGRect lastActiveSpanFrame;
+    CALayer *lollipopMagnifierLayer;
+    struct CGImage *lollipopImageMask;
+    struct CGSize lollipopSize;
 }
 
 - (void).cxx_destruct;

@@ -13,7 +13,7 @@
 
 @interface PRSL2FeatureVector : NSObject <NSSecureCoding, NSCopying>
 {
-    double _features[967];
+    double _features[943];
     double *_expanded_floating_point_features;
     unsigned long long _expanded_floating_point_features_count;
     double _originalL2Score;
@@ -46,6 +46,7 @@
 - (id)_dictionaryRepresentationWithoutDefaultValues:(_Bool)arg1;
 - (id)dictionaryRepresentation;
 - (void)setValue:(id)arg1 forFeatureName:(id)arg2;
+- (double)valueForFeatureName:(id)arg1;
 - (double)valueForFeature:(unsigned long long)arg1;
 - (void)setValue:(id)arg1 forFeature:(unsigned long long)arg2;
 - (void)setDouble:(double)arg1 forFeature:(unsigned long long)arg2;

@@ -8,22 +8,29 @@
 
 #import <CommunicationsSetupUI/AKAppleIDAuthenticationDelegate-Protocol.h>
 #import <CommunicationsSetupUI/CNFRegWizardControllerDelegate-Protocol.h>
+#import <CommunicationsSetupUI/IMCloudKitEventHandler-Protocol.h>
 
-@class CKFilteringListController, CKNSExtension, NSString, UIProgressHUD;
+@class CKFilteringListController, CKNSExtension, IMCloudKitSyncProgress, NSString, UIProgressHUD;
 
-@interface CKSettingsMessagesController : CNFRegListController <CNFRegWizardControllerDelegate, AKAppleIDAuthenticationDelegate>
+@interface CKSettingsMessagesController : CNFRegListController <CNFRegWizardControllerDelegate, AKAppleIDAuthenticationDelegate, IMCloudKitEventHandler>
 {
     _Bool _showingChildViewController;
     int _profileToken;
+    _Bool _startedSync;
+    _Bool _startedEnableChange;
     CKFilteringListController *_filteringController;
     id _beginMappingID;
     CKNSExtension *_ckExtension;
     UIProgressHUD *_cloudKitProgressView;
+    IMCloudKitSyncProgress *_lastSyncProgress;
 }
 
 + (id)currentKeepMessages;
 + (int)currentMessageAutoKeepOptionForType:(int)arg1;
 + (_Bool)currentMessageAutoKeepForType:(int)arg1;
+@property(retain, nonatomic) IMCloudKitSyncProgress *lastSyncProgress; // @synthesize lastSyncProgress=_lastSyncProgress;
+@property(nonatomic) _Bool startedEnableChange; // @synthesize startedEnableChange=_startedEnableChange;
+@property(nonatomic) _Bool startedSync; // @synthesize startedSync=_startedSync;
 @property(retain, nonatomic) UIProgressHUD *cloudKitProgressView; // @synthesize cloudKitProgressView=_cloudKitProgressView;
 @property(retain, nonatomic) CKNSExtension *ckExtension; // @synthesize ckExtension=_ckExtension;
 @property(retain) id beginMappingID; // @synthesize beginMappingID=_beginMappingID;
@@ -35,8 +42,6 @@
 - (id)_madridSettingsController;
 - (void)hideSpinner;
 - (void)showSpinnerMessage:(id)arg1;
-- (void)_stopListeningForNotifications;
-- (void)_startListeningForNotifications;
 - (void)_clearMessagesAppExtensionSalt;
 - (void)_setupAccountHandlersForDisabling;
 - (_Bool)_allAccountsAreDeactivated;
@@ -67,16 +72,18 @@
 - (id)readReceiptSpecifierIdentifiers;
 - (_Bool)shouldShowReadReceipts;
 - (void)_displayICloudErrorMessage;
-- (void)tryToDisableAllDevicesDidReturn:(id)arg1;
-- (void)setEnabledDidReturned:(id)arg1;
-- (void)cloudKitSettingsChnaged;
-- (id)_lastSyncDateLabel;
-- (id)_lastSyncLabel;
+- (void)cloudKitEventNotificationManager:(id)arg1 syncProgressDidUpdate:(id)arg2;
+- (void)cloudKitEventNotificationManager:(id)arg1 didDisableAllDevices:(_Bool)arg2 error:(id)arg3;
+- (void)cloudKitEventNotificationManager:(id)arg1 didChangeEnabled:(_Bool)arg2 error:(id)arg3;
+- (void)_cloudKitSyncEnabledStateChanged:(_Bool)arg1 error:(id)arg2;
+- (void)cloudKitEventNotificationManager:(id)arg1 syncStateDidChange:(id)arg2;
+- (id)_lastSyncDateLabel:(id)arg1;
+- (id)_lastSyncLabel:(id)arg1;
 - (id)syncToiCloudEnabled:(id)arg1;
-- (_Bool)eligibleForTruthZone;
 - (void)syncToiCloudNow:(id)arg1;
 - (void)_warnAboutDisablingICloud:(id)arg1;
 - (void)setiMessageOniCloudEnabled:(id)arg1 specifier:(id)arg2;
+- (void)setCloudKitSyncEnabled:(_Bool)arg1;
 - (id)iMessageOniCloudEnabled:(id)arg1;
 - (_Bool)enableiCloudSwitch;
 - (id)iCloudSettingsSpecificerIdentifiers;

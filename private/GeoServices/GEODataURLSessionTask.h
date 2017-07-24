@@ -9,7 +9,7 @@
 #import <GeoServices/GEODataSessionTask-Protocol.h>
 #import <GeoServices/GEOStateCapturing-Protocol.h>
 
-@class GEOClientMetrics, GEODataRequest, NSData, NSError, NSHTTPURLResponse, NSMutableData, NSString, NSURL, NSURLRequest, NSURLSessionDataTask, NSURLSessionTaskMetrics;
+@class GEOClientMetrics, GEODataRequest, GEODataURLSessionTaskQueue, NSData, NSError, NSHTTPURLResponse, NSMutableData, NSString, NSURL, NSURLRequest, NSURLSessionDataTask, NSURLSessionTaskMetrics;
 @protocol GEODataSessionTaskDelegate, OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -24,15 +24,21 @@ __attribute__((visibility("hidden")))
     NSData *_cachedData;
     NSMutableData *_receivedData;
     NSURLSessionTaskMetrics *_urlTaskMetrics;
+    GEODataURLSessionTaskQueue *_taskQueue;
     double _startTime;
     double _endTime;
     int _requestKind;
     unsigned int _taskIdentifier;
     unsigned long long _stateCaptureHandle;
+    float _priority;
+    unsigned int _sessionIdentifier;
     _Bool _backingTaskNeedsResume;
     _Bool _finished;
+    unsigned int _qos;
 }
 
+@property(nonatomic) unsigned int sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
+@property(retain, nonatomic) GEODataURLSessionTaskQueue *taskQueue; // @synthesize taskQueue=_taskQueue;
 @property(readonly, nonatomic) _Bool finished; // @synthesize finished=_finished;
 @property(readonly, nonatomic) NSURLSessionDataTask *backingTask; // @synthesize backingTask=_backingTask;
 @property(readonly, nonatomic) double startTime; // @synthesize startTime=_startTime;
@@ -44,6 +50,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 @property(readonly, nonatomic) GEODataRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
+- (void)notifyDelegateWithSession:(id)arg1;
 @property(readonly, nonatomic) NSString *remoteAddressAndPort;
 @property(readonly, nonatomic) GEOClientMetrics *clientMetrics;
 @property(readonly) _Bool failedDueToCancel;
@@ -54,9 +61,12 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSHTTPURLResponse *response;
 @property(readonly, nonatomic) NSData *receivedData;
 @property(readonly, nonatomic) _Bool protocolBufferHasPreamble;
+@property float priority;
 @property(readonly, copy) NSString *description;
 - (void)cancel;
 - (void)_prepareForRestart;
+@property(readonly, nonatomic, getter=isTileRequest) _Bool tileRequest;
+- (void)_start;
 - (void)start;
 - (void)dealloc;
 - (id)initWithSession:(id)arg1 delegate:(id)arg2 delegateQueue:(id)arg3 requestKind:(int)arg4;
@@ -70,6 +80,8 @@ __attribute__((visibility("hidden")))
 - (void)didReceiveData:(id)arg1;
 - (void)didReceiveResponse:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)createURLSessionTaskWithSession:(id)arg1 request:(id)arg2;
+@property(readonly, nonatomic) float _priority;
+- (void)startDequeuedFromQueue:(id)arg1;
 - (_Bool)didValidateEntityTagForData:(id *)arg1 entityTag:(id *)arg2;
 @property(readonly) double elapsedTime;
 @property(readonly, nonatomic) NSURL *originalRequestURL;

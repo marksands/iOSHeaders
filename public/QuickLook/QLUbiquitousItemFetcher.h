@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)_deleteTempraryZipPackageFileIfNeeded;
 - (id)_createURLForPackageIfNeeded;
 - (void)_removeUpdateBlockIfNeeded:(CDUnknownBlockType)arg1;
+- (id)newItemProvider;
 @property(readonly, nonatomic) NSURL *fileURL;
 - (id)fetchedContent;
 - (id)shareableItem;

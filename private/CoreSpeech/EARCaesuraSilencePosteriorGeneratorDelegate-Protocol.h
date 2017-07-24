@@ -6,8 +6,10 @@
 
 #import <CoreSpeech/NSObject-Protocol.h>
 
+@class EARClientSilenceFeatures;
+
 @protocol EARCaesuraSilencePosteriorGeneratorDelegate <NSObject>
-- (void)silenceScoreEstimateAvailable:(float)arg1 clientProcessedAudioMs:(float)arg2;
+- (void)clientSilenceFeaturesAvailable:(EARClientSilenceFeatures *)arg1;
 
 @optional
 - (void)silenceDurationEstimateAvailable:(float *)arg1 numEstimates:(unsigned long long)arg2 clientProcessedAudioMs:(float)arg3;

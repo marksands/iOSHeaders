@@ -77,6 +77,7 @@
 @property _Bool _duetPreauthorized; // @dynamic _duetPreauthorized;
 @property unsigned long long _forcedNetworkServiceType; // @dynamic _forcedNetworkServiceType;
 @property _Bool _forcesNewConnections; // @dynamic _forcesNewConnections;
+@property _Bool _ignoreDidReceiveResponseDisposition; // @dynamic _ignoreDidReceiveResponseDisposition;
 @property _Bool _infersDiscretionaryFromOriginatingClient; // @dynamic _infersDiscretionaryFromOriginatingClient;
 @property(copy) NSString *_ledBellyServiceIdentifier; // @dynamic _ledBellyServiceIdentifier;
 @property double _longLivedConnectionCacheCellPurgeTimeout; // @dynamic _longLivedConnectionCacheCellPurgeTimeout;
@@ -101,6 +102,7 @@
 @property(getter=_isProxySession) _Bool _proxySession; // @dynamic _proxySession;
 @property _Bool _requiresClientToOpenFiles; // @dynamic _requiresClientToOpenFiles;
 @property _Bool _requiresPowerPluggedIn; // @dynamic _requiresPowerPluggedIn;
+@property _Bool _requiresSustainedDataDelivery; // @dynamic _requiresSustainedDataDelivery;
 @property _Bool _respectsAllowsCellularAccessForDiscretionaryTasks; // @dynamic _respectsAllowsCellularAccessForDiscretionaryTasks;
 @property _Bool _sessionSendsLaunchOnDemandEvents; // @dynamic _sessionSendsLaunchOnDemandEvents;
 @property _Bool _shouldPreserveBackgroundSessionDisposition; // @dynamic _shouldPreserveBackgroundSessionDisposition;
@@ -110,6 +112,7 @@
 @property(copy) NSString *_sourceApplicationBundleIdentifier; // @dynamic _sourceApplicationBundleIdentifier;
 @property(copy) NSString *_sourceApplicationSecondaryIdentifier; // @dynamic _sourceApplicationSecondaryIdentifier;
 @property _Bool _supportsAVAssetDownloads; // @dynamic _supportsAVAssetDownloads;
+@property(copy) NSArray *_suppressedHTTPHeaders; // @dynamic _suppressedHTTPHeaders;
 @property(copy) NSString *_tcpConnectionPoolName; // @dynamic _tcpConnectionPoolName;
 @property long long _timingDataOptions; // @dynamic _timingDataOptions;
 @property(copy) NSString *_tlsTrustPinningPolicyName; // @dynamic _tlsTrustPinningPolicyName;

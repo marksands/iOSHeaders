@@ -8,7 +8,7 @@
 
 #import <PassKitCore/NSSecureCoding-Protocol.h>
 
-@class NSData, NSString;
+@class NSString;
 
 @interface PKTrustedDeviceEnrollmentInfo : NSObject <NSSecureCoding>
 {
@@ -18,16 +18,10 @@
     NSString *_deviceUDID;
     NSString *_productType;
     NSString *_secureElementIdentifier;
-    NSString *_certificate;
-    NSData *_signature;
-    unsigned long long _secureElementHardwareVersion;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool supportsAccessExpressMode; // @synthesize supportsAccessExpressMode=_supportsAccessExpressMode;
-@property(nonatomic) unsigned long long secureElementHardwareVersion; // @synthesize secureElementHardwareVersion=_secureElementHardwareVersion;
-@property(retain, nonatomic) NSData *signature; // @synthesize signature=_signature;
-@property(retain, nonatomic) NSString *certificate; // @synthesize certificate=_certificate;
 @property(retain, nonatomic) NSString *secureElementIdentifier; // @synthesize secureElementIdentifier=_secureElementIdentifier;
 @property(retain, nonatomic) NSString *productType; // @synthesize productType=_productType;
 @property(retain, nonatomic) NSString *deviceUDID; // @synthesize deviceUDID=_deviceUDID;

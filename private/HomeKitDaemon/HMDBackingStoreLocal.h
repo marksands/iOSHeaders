@@ -21,6 +21,7 @@
     struct sqlite3_stmt *deleteGroup;
     struct sqlite3_stmt *selectGroups;
     struct sqlite3_stmt *updateGroupToken;
+    struct sqlite3_stmt *updateGroupSubscription;
     struct sqlite3_stmt *insertShare;
     struct sqlite3_stmt *updateShareShare;
     struct sqlite3_stmt *updateShareUsers;
@@ -37,6 +38,7 @@
     struct sqlite3_stmt *selectRecordNameNoShare;
     struct sqlite3_stmt *selectRecords;
     struct sqlite3_stmt *deleteRecord;
+    struct sqlite3_stmt *flushPushedXact;
     struct sqlite3_stmt *insertLog;
     struct sqlite3_stmt *updateLogXactID;
     struct sqlite3_stmt *selectLog;
@@ -70,6 +72,7 @@
 - (void)_fetchRecordsWithGroupID:(long long)arg1 share:(long long)arg2 names:(id)arg3 callback:(CDUnknownBlockType)arg4;
 - (void)_fetchRecordsWithGroupID:(long long)arg1 share:(long long)arg2 parent:(id)arg3 type:(id)arg4 callback:(CDUnknownBlockType)arg5;
 - (void)_fetchRecordsWithGroupID:(long long)arg1 share:(long long)arg2 parentUuids:(id)arg3 callback:(CDUnknownBlockType)arg4;
+- (id)_fetchRecordWithUUID:(id)arg1 root:(id)arg2 error:(id *)arg3;
 - (void)_fetchRecordsWithGroupID:(long long)arg1 share:(long long)arg2 uuids:(id)arg3 callback:(CDUnknownBlockType)arg4;
 - (void)_fetchRecordsWithGroupID:(long long)arg1 share:(long long)arg2 callback:(CDUnknownBlockType)arg3;
 - (id)_deleteRecordWithGroupID:(long long)arg1 share:(long long)arg2 recordName:(id)arg3;
@@ -79,6 +82,7 @@
 - (id)_deleteShareWithID:(long long)arg1;
 - (long long)_insertShareWithGroupID:(long long)arg1 root:(id)arg2 target:(id)arg3 error:(id *)arg4;
 - (id)_fetchGroupsForZone:(id)arg1 withError:(id *)arg2;
+- (id)_updateGroupWithID:(long long)arg1 subscription:(id)arg2;
 - (id)_updateGroupWithID:(long long)arg1 serverChangeToken:(id)arg2;
 - (id)_deleteGroupWithID:(long long)arg1;
 - (long long)_insertGroupWithZoneID:(long long)arg1 root:(id)arg2 owner:(id)arg3 subscription:(id)arg4 error:(id *)arg5;
@@ -91,7 +95,7 @@
 - (id)_begin;
 - (id)_instanceResources:(_Bool)arg1 migrate:(_Bool)arg2;
 - (void)_freeResources;
-- (id)flush;
+- (id)flush:(_Bool)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)initWithDB:(id)arg1 migrate:(_Bool)arg2 error:(id *)arg3;

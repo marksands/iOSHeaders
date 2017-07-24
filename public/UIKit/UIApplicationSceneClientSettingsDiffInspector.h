@@ -12,6 +12,7 @@
 
 - (void)_observeOtherSetting:(unsigned long long)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)observeUserInterfaceStyleWithBlock:(CDUnknownBlockType)arg1;
+- (void)observeWantsExclusiveForegroundWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeScreenEdgesDeferringSystemGesturesWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeReachabilitySupportedWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeWhitePointAdaptivityStyleWithBlock:(CDUnknownBlockType)arg1;

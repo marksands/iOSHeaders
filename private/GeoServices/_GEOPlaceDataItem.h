@@ -21,9 +21,11 @@ __attribute__((visibility("hidden")))
     GEOPDMultiLocalizedString *_disambiguationLabel;
     GEOMapItemDetourInfo *_detourInfo;
     _GEOEncyclopedicInfo *_encyclopedicInfo;
+    id <GEOMapItemVenueInfo> _venueInfo;
     GEOAddressObject *_addressObject;
     NSString *_name;
     NSData *_externalTransitStationCode;
+    NSArray *_currentOperatingHours;
 }
 
 - (void).cxx_destruct;
@@ -37,18 +39,21 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=_wifiFingerprintConfidence) unsigned int wifiFingerprintConfidence;
 @property(readonly, nonatomic, getter=_hasWifiFingerprintConfidence) _Bool hasWifiFingerprintConfidence;
 - (id)_wifiFingerprintComponent;
+@property(readonly, nonatomic, getter=_browseCategories) NSArray *browseCategories;
 @property(readonly, nonatomic, getter=_venueInfo) id <GEOMapItemVenueInfo> venueInfo;
 @property(readonly, nonatomic, getter=_venueCategoryBrowseType) int venueCategoryBrowseType;
 @property(readonly, nonatomic, getter=_venueFeatureType) int venueFeatureType;
 @property(readonly, nonatomic, getter=_hasVenueFeatureType) _Bool hasVenueFeatureType;
 @property(readonly, nonatomic) NSData *externalTransitStationCode;
 - (id)weatherDisplayName;
+- (id)shortAddress;
 - (id)addressObject;
 @property(readonly, nonatomic) _Bool hasExpiredComponents;
 @property(readonly, nonatomic) GEOMapItemDetourInfo *detourInfo;
 @property(readonly, nonatomic, getter=_quickLinks) NSArray *quickLinks;
 @property(readonly, nonatomic, getter=_messageLink) GEOMessageLink *messageLink;
 @property(readonly, nonatomic, getter=_isStandaloneBrand) _Bool isStandAloneBrand;
+@property(readonly, nonatomic, getter=_parsecSectionType) int parsecSectionType;
 @property(readonly, nonatomic, getter=_featureLink) GEORestaurantFeaturesLink *featureLink;
 @property(readonly, nonatomic, getter=_hasFeatureLink) _Bool hasFeatureLink;
 @property(readonly, nonatomic, getter=_businessClaim) GEOPDBusinessClaim *businessClaim;
@@ -123,10 +128,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=_hasResultProviderID) _Bool hasResultProviderID;
 @property(readonly, nonatomic, getter=_roadAccessPoints) NSArray *roadAccessPoints;
 - (id)_arrivalMapRegionForTransportType:(int)arg1;
-- (unsigned int)_travelDistanceForTransportType:(int)arg1;
-- (unsigned int)_travelTimeForTransportType:(int)arg1;
-- (_Bool)_hasTravelTimeForTransportType:(int)arg1;
-- (int)_recommendedTransportType;
 - (id)_spokenAddressForLocale:(id)arg1;
 @property(readonly, nonatomic, getter=_addressGeocodeAccuracy) int addressGeocodeAccuracy;
 @property(readonly, nonatomic) GEOAddress *geoAddress;

@@ -18,7 +18,6 @@
     _Bool _previewOriginalAllowsLongPress;
     _Bool _previewOriginalTimesOut;
     _Bool _livePhotoTrimAllowed;
-    _Bool _crossfadeDuringLivePhotoTrim;
     long long _renderPriority;
     double _cropSideMargins;
     double _cropWheelSize;
@@ -30,7 +29,6 @@
 + (id)settingsControllerModule;
 + (id)sharedInstance;
 @property(nonatomic) double minimumLivePhotoTrimDuration; // @synthesize minimumLivePhotoTrimDuration=_minimumLivePhotoTrimDuration;
-@property(nonatomic) _Bool crossfadeDuringLivePhotoTrim; // @synthesize crossfadeDuringLivePhotoTrim=_crossfadeDuringLivePhotoTrim;
 @property(nonatomic) _Bool livePhotoTrimAllowed; // @synthesize livePhotoTrimAllowed=_livePhotoTrimAllowed;
 @property(nonatomic) double previewOriginalDuration; // @synthesize previewOriginalDuration=_previewOriginalDuration;
 @property(nonatomic) _Bool previewOriginalTimesOut; // @synthesize previewOriginalTimesOut=_previewOriginalTimesOut;

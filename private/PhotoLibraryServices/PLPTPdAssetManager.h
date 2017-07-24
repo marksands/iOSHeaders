@@ -27,10 +27,11 @@
 @property(retain, nonatomic) NSFileManager *fileManager; // @synthesize fileManager;
 - (id)fetchObjectIDsForAssetsExposedToPTPFromObjectIDs:(id)arg1;
 @property(readonly, retain) PLManagedObjectContext *managedObjectContext;
+- (id)_performResultTransactionAndWait:(CDUnknownBlockType)arg1;
+- (void)_performTransactionAndWait:(CDUnknownBlockType)arg1;
 - (id)_performResultBlockAndWait:(CDUnknownBlockType)arg1;
 - (void)_performBlockAndWait:(CDUnknownBlockType)arg1;
 - (void)markSignpostForAsset:(id)arg1 endMarker:(_Bool)arg2 adjusted:(_Bool)arg3 arg4:(unsigned long long)arg4;
-- (void)_performTransactionAndWait:(CDUnknownBlockType)arg1;
 - (id)_ptpAssetEnumeratorAllAssets;
 - (id)_ptpInformationForAllAssets;
 - (id)_allAssetObjectIDs;
@@ -39,7 +40,7 @@
 - (void)setPtpDelegate:(id)arg1;
 - (_Bool)_ptpDeletePhotoWithAssetID:(id)arg1 andExtension:(id)arg2;
 - (_Bool)ptpDeletePhotoWithKey:(id)arg1 andExtension:(id)arg2;
-- (id)dataByJPEGCompressingCGImage:(struct CGImage *)arg1 toLengthLimit:(long long)arg2 initialCompressionQuality:(float)arg3 size:(struct CGSize)arg4;
+- (id)dataByJPEGCompressingCGImage:(struct CGImage *)arg1 toLengthLimit:(long long)arg2 initialCompressionQuality:(float)arg3 size:(struct CGSize)arg4 orientation:(long long)arg5;
 - (id)_generateThumbnailForAsset:(id)arg1 imagePath:(id)arg2 size:(struct CGSize)arg3 compressionQuality:(float)arg4;
 - (id)dataForThumbnailFileAtPath:(id)arg1 rotatedToOrientation:(long long)arg2 size:(struct CGSize)arg3 compressionQuality:(float)arg4;
 - (id)_ptpThumbnailForFullSizeRenderWithAssetID:(id)arg1 size:(struct CGSize)arg2 compressionQuality:(float)arg3;

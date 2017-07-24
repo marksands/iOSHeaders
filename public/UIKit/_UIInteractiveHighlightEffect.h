@@ -6,23 +6,23 @@
 
 #import <Foundation/NSObject.h>
 
-@class UILayoutGuide, UIView, UIVisualEffectView, _UIInteractiveHighlightEnvironment, _UIPortalView;
+@class UIView, UIVisualEffectView, _UIInteractiveHighlightEnvironment, _UIPortalView;
 
 __attribute__((visibility("hidden")))
 @interface _UIInteractiveHighlightEffect : NSObject
 {
     UIView *_view;
     UIVisualEffectView *_effectView;
-    UILayoutGuide *_preferredLayoutGuide;
     _UIInteractiveHighlightEnvironment *_environment;
     UIView *_superview;
     _UIPortalView *_portalView;
+    struct UIEdgeInsets _preferredContentInsets;
 }
 
 @property(nonatomic) __weak _UIPortalView *portalView; // @synthesize portalView=_portalView;
 @property(nonatomic) __weak UIView *superview; // @synthesize superview=_superview;
 @property(retain, nonatomic) _UIInteractiveHighlightEnvironment *environment; // @synthesize environment=_environment;
-@property(nonatomic) __weak UILayoutGuide *preferredLayoutGuide; // @synthesize preferredLayoutGuide=_preferredLayoutGuide;
+@property(nonatomic) struct UIEdgeInsets preferredContentInsets; // @synthesize preferredContentInsets=_preferredContentInsets;
 @property(nonatomic) __weak UIVisualEffectView *effectView; // @synthesize effectView=_effectView;
 @property(nonatomic) __weak UIView *view; // @synthesize view=_view;
 - (void).cxx_destruct;

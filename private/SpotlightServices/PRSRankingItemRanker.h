@@ -11,6 +11,7 @@
 @interface PRSRankingItemRanker : NSObject
 {
     _Bool _isInternalDevice;
+    _Bool _policyDisabled;
     NSString *_searchString;
     CSAttributeEvaluator *_evaluator;
     NSMapTable *_bundleFeatures;
@@ -20,11 +21,19 @@
     NSString *_meContactIdentifier;
 }
 
++ (id)importantAttributesForBundle:(id)arg1;
++ (id)appsBundle;
++ (id)musicBundle;
++ (id)calendarBundle;
++ (id)messagesBundle;
++ (id)notesBundle;
++ (id)mailBundle;
 + (CDUnknownBlockType)shouldUpdateFuncForSnippetFeature:(unsigned long long)arg1;
 + (id)contactsBundle;
 + (id)sortedUniqueBundleFeatureValuesFromBundleFeatures:(id)arg1;
 + (id)requiredAttributes;
 + (void)initialize;
+@property(nonatomic) _Bool policyDisabled; // @synthesize policyDisabled=_policyDisabled;
 @property(retain, nonatomic) NSString *meContactIdentifier; // @synthesize meContactIdentifier=_meContactIdentifier;
 @property(nonatomic) double experimentalWeight2; // @synthesize experimentalWeight2=_experimentalWeight2;
 @property(nonatomic) double experimentalWeight1; // @synthesize experimentalWeight1=_experimentalWeight1;
@@ -37,8 +46,8 @@
 - (void)prepareItems:(id)arg1 inBundle:(id)arg2;
 - (void)resetbundleFeaturesScratchBuf;
 - (CDUnknownBlockType)comparatorByJoiningComparator:(CDUnknownBlockType)arg1 withPredicate:(id)arg2;
+- (_Bool)wasItemCreatedWithinAWeek:(id)arg1;
 - (void)rerankItemsWithPolicyForBundleItems:(id)arg1;
-- (void)applyDedupePolicyToItems:(id)arg1;
 - (void)updateScoresForPreparedItems:(id)arg1;
 - (_Bool)updateFeedbackScoresForPreparedItems:(id)arg1 currentL2ModelVersion:(id *)arg2 currentL2ShadowModelVersion:(id *)arg3 currentL3ModelVersion:(id *)arg4;
 - (void)hackMusicResultsWithItem:(id)arg1 featureVector:(id)arg2;
@@ -52,7 +61,7 @@
 - (void)updateResultSetContext:(struct _resultset_computation_ctx *)arg1 andUniqueScores:(id)arg2 withResultSetItems:(id)arg3;
 - (void)deactivate;
 - (void)activate;
-- (id)rankingConfigurationWithMeContact:(id)arg1 emailAddresses:(id)arg2 phoneFavorites:(id)arg3 vipList:(id)arg4;
+- (id)rankingConfigurationWithMeContact:(id)arg1 emailAddresses:(id)arg2 phoneFavorites:(id)arg3 vipList:(id)arg4 clientBundle:(id)arg5;
 - (id)rankingConfiguration;
 - (void)dealloc;
 - (id)initWithSearchString:(id)arg1 language:(id)arg2 experimentalWeight1:(double)arg3 experimentalWeight2:(double)arg4;

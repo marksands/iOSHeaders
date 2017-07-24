@@ -30,8 +30,6 @@
 - (id)initWithCoder:(id)arg1;
 - (id)userVisibleQueryFromSearchURL:(id)arg1 allowQueryThatLooksLikeURL:(_Bool)arg2;
 - (id)userVisibleQueryFromSearchURL:(id)arg1;
-- (_Bool)_userVisibleQueryContainsPeriodOrHomoglyphForPeriod:(id)arg1;
-- (_Bool)_userVisibleQueryContainsInteriorWhitespace:(id)arg1;
 - (id)suggestionsURLForUserTypedString:(id)arg1;
 - (id)searchURLForUserTypedString:(id)arg1;
 - (_Bool)searchShouldUseSafeSearchTemplate;

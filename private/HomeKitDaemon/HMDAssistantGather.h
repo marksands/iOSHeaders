@@ -24,6 +24,7 @@
 @property(nonatomic) __weak HMDHomeManager *manager; // @synthesize manager=_manager;
 - (void).cxx_destruct;
 - (void)getSyncEntityObjectsWithValidity:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (unsigned long long)numberOfHomeKitObjects;
 @property(readonly, nonatomic) NSArray *homeKitObjects;
 - (void)_gatherHomeKitObjects;
 - (void)gatherHomeKitObjects;

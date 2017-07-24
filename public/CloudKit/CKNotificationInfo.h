@@ -73,7 +73,6 @@
 - (void)_setAlertLocalizationArgsNoValidate:(id)arg1;
 - (void)_setAlertLocalizationKeyNoValidate:(id)arg1;
 - (void)_setAlertBodyNoValidate:(id)arg1;
-- (void)_sanityCheckNotificationParameters;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

@@ -82,6 +82,7 @@
 + (id)fetchAssetsInAssetCollection:(id)arg1 options:(id)arg2;
 + (id)fetchAssetsInBoundingBoxWithTopLeftLocation:(id)arg1 bottomRightLocation:(id)arg2 options:(id)arg3;
 + (id)fetchAssetsGroupedByFaceUUIDForFaces:(id)arg1;
++ (long long)countOfAssetsWithLocationFromUUIDs:(id)arg1;
 + (_Bool)_isLivePhotoWithPhotoIris:(_Bool)arg1 hasAdjustments:(_Bool)arg2 videoCpDuration:(long long)arg3 videoCPVisibility:(unsigned short)arg4 sourceType:(unsigned long long)arg5;
 + (void)_batchFetchAdditionalPropertySetsIfNeeded:(id)arg1 forAssets:(id)arg2;
 + (id)_unfetchedPropertySetsForAssets:(id)arg1 fromPropertySets:(id)arg2;
@@ -175,7 +176,7 @@
 @property(readonly, nonatomic) long long mediaType; // @synthesize mediaType=_mediaType;
 @property(readonly, nonatomic) long long playbackStyle; // @synthesize playbackStyle=_playbackStyle;
 - (void).cxx_destruct;
-- (id)variationSuggestionStatesDetails;
+@property(readonly, nonatomic) NSString *variationSuggestionStatesDetails;
 @property(readonly, nonatomic) NSString *metadataDebugDescription;
 - (id)detailedDebugDescriptionInLibrary:(id)arg1;
 - (id)adjustmentsDebugMetadata;
@@ -206,6 +207,7 @@
 - (id)adjustmentVersion;
 @property(readonly, nonatomic) _Bool canPerformSharingAction;
 - (_Bool)canPerformEditOperation:(long long)arg1;
+- (void)getFingerPrintForAssetType:(long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)getMasterFingerPrintWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic, getter=isTrashed) _Bool trashed;
 @property(readonly, nonatomic) _Bool isTimelapsePlaceholder;
@@ -282,6 +284,7 @@
 - (int)analysisStateForWorkerType:(short)arg1 outLastIgnoreDate:(id *)arg2 outIgnoreUntilDate:(id *)arg3;
 @property(readonly, nonatomic) NSData *distanceIdentity;
 @property(readonly, nonatomic) NSSet *sceneClassifications;
+- (id)curationProperties;
 - (id)adjustmentProperties;
 - (id)assetUserActivityProperties;
 - (id)assetAnalysisStateProperties;

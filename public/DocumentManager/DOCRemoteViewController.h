@@ -9,11 +9,13 @@
 #import <DocumentManager/DOCRemoteContextInterface-Protocol.h>
 
 @class DOCAppearance, DOCConfiguration, DOCRemoteContext;
+@protocol DOCRemoteViewControllerDelegate;
 
 @interface DOCRemoteViewController : _UIRemoteViewController <DOCRemoteContextInterface>
 {
     DOCAppearance *_lastAppearance;
     _Bool _isBrowserViewController;
+    id <DOCRemoteViewControllerDelegate> _delegate;
     DOCRemoteContext *_hostContext;
     DOCConfiguration *_configuration;
 }
@@ -27,6 +29,7 @@
 @property _Bool isBrowserViewController; // @synthesize isBrowserViewController=_isBrowserViewController;
 @property(retain) DOCConfiguration *configuration; // @synthesize configuration=_configuration;
 @property(retain) DOCRemoteContext *hostContext; // @synthesize hostContext=_hostContext;
+@property __weak id <DOCRemoteViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)fetchAllSourcesWithCompletionHandler:(CDUnknownBlockType)arg1;

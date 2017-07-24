@@ -20,8 +20,11 @@
 + (id)stringWithNumber:(id)arg1 decimalPrecision:(unsigned long long)arg2;
 @property(readonly, nonatomic) FIUIUnitManager *unitManager; // @synthesize unitManager=_unitManager;
 - (void).cxx_destruct;
+- (id)localizedDistanceByStrokeStyle:(id)arg1 isPoolSwim:(_Bool)arg2;
 - (id)localizedHeartRateUnitString;
+- (id)localizedStringWithBeatsPerMinute:(double)arg1 requirePositiveValue:(_Bool)arg2;
 - (id)localizedStringWithBeatsPerMinute:(double)arg1;
+- (id)localizedStringWithHeartRate:(id)arg1 unitStyle:(unsigned long long)arg2 requirePositiveValue:(_Bool)arg3;
 - (id)localizedStringWithHeartRate:(id)arg1 unitStyle:(unsigned long long)arg2;
 - (id)localizedStringWithHeartRate:(id)arg1;
 - (id)localizedTitleForSplit:(id)arg1 unit:(id)arg2 lapIndex:(long long)arg3 useShortFormat:(_Bool)arg4;

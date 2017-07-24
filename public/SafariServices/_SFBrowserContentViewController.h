@@ -27,7 +27,7 @@
 #import <SafariServices/_SFSafeBrowsingControllerDelegate-Protocol.h>
 #import <SafariServices/_SFSingleBookmarkNavigationControllerDelegate-Protocol.h>
 
-@class NSArray, NSString, SFReaderEnabledWebViewController, SFReaderViewController, SFSafariViewControllerConfiguration, UIColor, UITapGestureRecognizer, WBSAutomaticReaderActivationManager, WBSFluidProgressController, WBSFluidProgressState, WKBackForwardListItem, WKPreferences, _SFBrowserToolbar, _SFBrowserView, _SFCalendarEventDetector, _SFDownloadController, _SFDynamicBarAnimator, _SFFindOnPageView, _SFMailContentProvider, _SFNavigationBar, _SFNavigationBarItem, _SFPageLoadErrorController, _SFPrintController, _SFReloadOptionsController, _SFSafariSharingExtensionController, _SFSafeBrowsingController, _SFSecIdentityPreferencesController, _SFTelephonyNavigationMitigationPolicy, _SFURLSpoofingMitigator, _WKActivatedElementInfo, _WKUserInitiatedAction;
+@class NSArray, NSString, SFReaderEnabledWebViewController, SFReaderViewController, SFSafariViewControllerConfiguration, UIColor, UITapGestureRecognizer, WBSAutomaticReaderActivationManager, WBSFluidProgressController, WBSFluidProgressState, WKBackForwardListItem, WKPreferences, _SFBrowserToolbar, _SFBrowserView, _SFCalendarEventDetector, _SFDownloadController, _SFDynamicBarAnimator, _SFFindOnPageView, _SFFluidProgressView, _SFMailContentProvider, _SFNavigationBar, _SFNavigationBarItem, _SFPageLoadErrorController, _SFPrintController, _SFReloadOptionsController, _SFSafariSharingExtensionController, _SFSafeBrowsingController, _SFSecIdentityPreferencesController, _SFTelephonyNavigationMitigationPolicy, _SFURLSpoofingMitigator, _WKActivatedElementInfo, _WKUserInitiatedAction;
 
 @interface _SFBrowserContentViewController : UIViewController <SFReaderAppearanceViewControllerDelegate, SFReaderEnabledWebViewControllerDelegate, _SFActivityViewControllerDelegate, _SFBrowserKeyCommandMethods, _SFDownloadControllerDelegate, _SFDynamicBarAnimatorDelegate, _SFFindOnPageViewDelegate, _SFBrowserToolbarDataSource, _SFBrowserToolbarDelegate, _SFMailContentProviderDataSource, _SFNavigationBarDelegate, _SFPageLoadErrorControllerDelegate, _SFPrintControllerDelegate, _SFSafeBrowsingControllerDelegate, _SFSingleBookmarkNavigationControllerDelegate, UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate, UIScrollViewDelegate, WBSFluidProgressControllerWindowDelegate, WBSFluidProgressStateSource>
 {
@@ -35,16 +35,19 @@
     SFReaderViewController *_readerViewController;
     _Bool _showingReader;
     WKBackForwardListItem *_lastBackFowardListItemOnWhichReaderWasActivated;
+    unsigned long long _lastReaderDeactivationMode;
     _SFNavigationBar *_navigationBar;
     _SFBrowserToolbar *_bottomToolbar;
     _SFMailContentProvider *_cachedMailContentProvider;
     _WKUserInitiatedAction *_lastUserInitiatedAction;
+    _Bool _canOpenDownloadForInitialLoad;
     _SFDynamicBarAnimator *_dynamicBarAnimator;
     _Bool _scrollViewIsDragging;
     _SFNavigationBarItem *_navigationBarItem;
     _SFURLSpoofingMitigator *_URLSpoofingMitigator;
     WBSFluidProgressState *_fluidProgressState;
     WBSFluidProgressController *_fluidProgressController;
+    _SFFluidProgressView *_cachedFluidProgressView;
     UITapGestureRecognizer *_showBarsFromBottomBarRecognizer;
     _Bool _pageScrollsWithBottomBar;
     _Bool _updatingGeometryFromDynamicBarAnimator;
@@ -61,6 +64,7 @@
     _Bool _shouldDismissReaderInReponseToSameDocumentNavigation;
     _Bool _EVOrganizationNameIsValid;
     NSString *_EVOrganizationName;
+    _Bool _isShowingHTTPAuthenticationDialog;
     _Bool _isSuppressingPreviewProgressAnimation;
     _SFSafariSharingExtensionController *_sharingExtensionController;
     _Bool _didReceivePolicyForInitialLoad;
@@ -158,6 +162,7 @@
 - (void)readerAppearanceViewControllerDidChangeFont:(id)arg1;
 - (long long)adaptivePresentationStyleForPresentationController:(id)arg1 traitCollection:(id)arg2;
 - (void)navigationBarReaderAppearanceButtonWasTapped:(id)arg1;
+- (_Bool)navigationBar:(id)arg1 shouldPermitShareOperation:(long long)arg2;
 - (id)navigationBarURLForSharing:(id)arg1;
 - (void)navigationBarStopLoadingButtonWasTapped:(id)arg1;
 - (void)navigationBarReaderButtonWasLongPressed:(id)arg1;
@@ -173,13 +178,14 @@
 - (void)compressedNavigationBarWasTapped:(id)arg1;
 - (void)navigationBarMetricsDidChange:(id)arg1;
 - (void)popoverPresentationController:(id)arg1 willRepositionPopoverToRect:(inout struct CGRect *)arg2 inView:(inout id *)arg3;
-- (void)browserToolbarOpenInSafariLongPressed:(id)arg1;
-- (void)_toggleSafariDataSharingModeFromToolbar:(id)arg1;
 - (void)browserToolbarOpenInSafari:(id)arg1;
 - (void)browserToolbarShowActionSheet:(id)arg1;
 - (void)browserToolbarGoForward:(id)arg1;
 - (void)browserToolbarGoBack:(id)arg1;
+- (double)browserToolbarDismissButtonPadding:(id)arg1;
 - (struct CGSize)browserToolbarDismissButtonSize:(id)arg1;
+@property(readonly, nonatomic) _Bool _isUsedForAuthentication;
+- (_Bool)browserToolbarShouldShowOpenInSafariBarButtonItem:(id)arg1;
 - (_Bool)browserToolbarCanOpenPageInSafari:(id)arg1;
 - (_Bool)browserToolbarCanShowAction:(id)arg1;
 - (_Bool)browserToolbarCanGoForward:(id)arg1;
@@ -229,11 +235,13 @@
 - (void)webViewControllerDidChangeEstimatedProgress:(id)arg1;
 - (void)webViewControllerDidChangeLoadingState:(id)arg1;
 - (void)webViewController:(id)arg1 didClickLinkInReaderWithRequest:(id)arg2;
-- (void)webViewControllerDidDetermineReaderAvailability:(id)arg1;
+- (void)webViewControllerDidDetermineReaderAvailability:(id)arg1 dueToSameDocumentNavigation:(_Bool)arg2;
 - (void)webViewController:(id)arg1 didFinishNavigation:(id)arg2;
 - (void)webViewController:(id)arg1 didCommitNavigation:(id)arg2;
 - (void)webViewController:(id)arg1 didReceiveServerRedirectForProvisionalNavigation:(id)arg2;
 - (void)webViewController:(id)arg1 didStartProvisionalNavigation:(id)arg2;
+- (void)_openCurrentURLInSafari;
+- (id)_applicationPayloadForOpeningInSafari;
 @property(readonly, nonatomic) _Bool canInstallProfiles;
 @property(readonly, nonatomic) _Bool canPrint;
 - (void)_recordHostAppIdAndURLForTapToRadar:(id)arg1;
@@ -256,7 +264,10 @@
 - (id)_EVOrganizationName;
 - (_Bool)_isSecure;
 - (void)loadRequest:(id)arg1;
-- (void)_setShowingReader:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)_setShowingReader:(_Bool)arg1 deactivationMode:(unsigned long long)arg2 animated:(_Bool)arg3;
+- (void)_toggleReaderFromExplicitUserAction;
+- (void)_showReaderAnimated:(_Bool)arg1;
+- (void)_hideReaderAnimated:(_Bool)arg1 deactivationMode:(unsigned long long)arg2;
 - (void)_setWebView:(id)arg1;
 - (void)_updateDynamicBarGeometry;
 - (double)_maximumHeightObscuredByBottomBar;
@@ -275,12 +286,12 @@
 @property(readonly, nonatomic) _Bool _usesScrollToTopView;
 - (void)_scrollToTopFromScrollToTopView;
 - (_Bool)_canScrollToTopInView:(id)arg1;
+- (void)webViewControllerDidChangeSafeAreaShouldAffectObscuredInsets:(id)arg1;
 - (void)webViewControllerDidChangeSafeAreaInsets:(id)arg1;
 - (void)_updateCurrentScrollViewInsets;
 - (void)_updateWebViewShrinkToFit;
 - (_Bool)_isSplitScreen;
 - (void)_updateWebViewLayoutSize;
-- (struct UIEdgeInsets)_webViewSafeAreaInsets;
 - (struct UIEdgeInsets)_effectiveWebViewSafeAreaInsets;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)_viewDidTransitionToSize:(struct CGSize)arg1;

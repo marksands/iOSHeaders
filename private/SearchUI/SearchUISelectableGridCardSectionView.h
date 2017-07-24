@@ -4,26 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeSectionView.h>
+#import <SearchUI/SearchUICardSectionView.h>
 
 #import <SearchUI/TLKSelectableGridViewDelegate-Protocol.h>
 
 @class NSString, TLKSelectableGridView;
 
-@interface SearchUISelectableGridCardSectionView : SearchUILayoutFreeSectionView <TLKSelectableGridViewDelegate>
+@interface SearchUISelectableGridCardSectionView : SearchUICardSectionView <TLKSelectableGridViewDelegate>
 {
-    TLKSelectableGridView *_gridView;
 }
 
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
-@property(retain) TLKSelectableGridView *gridView; // @synthesize gridView=_gridView;
-- (void).cxx_destruct;
 - (void)selectableGridView:(id)arg1 didChangeSelectedIndex:(long long)arg2;
 - (id)convertSFTitleSubtitleData:(id)arg1;
 - (void)updateWithCardSection:(id)arg1;
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
+- (id)setupContentView;
 
 // Remaining properties
+@property(retain) TLKSelectableGridView *contentView; // @dynamic contentView;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

@@ -21,6 +21,7 @@
 + (id)requestViewControllerWithConnectionHandler:(CDUnknownBlockType)arg1;
 @property(nonatomic) __weak id <_SFWebAppViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)didDecideCookieSharingForURL:(id)arg1 shouldCancel:(_Bool)arg2;
 - (void)willOpenURLInHostApplication:(id)arg1;
 - (void)setRemoteSwipeGestureEnabled:(_Bool)arg1;
 - (void)executeCustomActivityProxyID:(id)arg1;

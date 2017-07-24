@@ -15,8 +15,11 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)previewActionsWithURL:(id)arg1 validatedURL:(id)arg2 result:(struct __DDResult *)arg3 context:(id)arg4;
 + (_Bool)handlesUrl:(id)arg1 result:(struct __DDResult *)arg2;
 + (id)validatedURLWithURL:(id)arg1 result:(struct __DDResult *)arg2;
++ (id)ddPreviewActionItemsForWebURL:(id)arg1;
++ (id)ddPreviewActionItemsForSimpleDDActions:(id)arg1;
 - (id)commitURL;
 - (void)setPreviewMode:(_Bool)arg1;
 - (_Bool)requiresEmbeddingNavigationController;

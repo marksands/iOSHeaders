@@ -51,6 +51,7 @@
 + (id)__album__KEY;
 + (id)__MPModelRelationshipGenericSong__PROPERTY;
 + (id)__song__KEY;
++ (id)genericObjectWithModelObject:(id)arg1;
 + (id)kindWithRelationshipKinds:(id)arg1;
 + (id)requiredStoreLibraryPersonalizationProperties;
 @property(retain, nonatomic) MPModelRadioStation *radioStation; // @synthesize radioStation=_radioStation;

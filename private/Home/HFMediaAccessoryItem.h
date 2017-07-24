@@ -6,21 +6,22 @@
 
 #import <Home/HFItem.h>
 
+#import <Home/HFAccessorySettings-Protocol.h>
 #import <Home/HFHomeKitItemProtocol-Protocol.h>
 #import <Home/HFItemBuilderItem-Protocol.h>
 #import <Home/HFServiceLikeBuilderCreating-Protocol.h>
 #import <Home/HFServiceLikeItem-Protocol.h>
 
-@class HMAccessory, HMMediaProfile, NSString;
+@class HMAccessory, HMAccessorySettings, HMMediaProfile, NSString;
 @protocol HFCharacteristicValueSource, HFHomeKitObject;
 
-@interface HFMediaAccessoryItem : HFItem <HFHomeKitItemProtocol, HFServiceLikeItem, HFServiceLikeBuilderCreating, HFItemBuilderItem>
+@interface HFMediaAccessoryItem : HFItem <HFHomeKitItemProtocol, HFServiceLikeItem, HFServiceLikeBuilderCreating, HFItemBuilderItem, HFAccessorySettings>
 {
     id <HFCharacteristicValueSource> _valueSource;
-    HMMediaProfile *_mediaProfile;
+    HMAccessory *_accessory;
 }
 
-@property(readonly, nonatomic) HMMediaProfile *mediaProfile; // @synthesize mediaProfile=_mediaProfile;
+@property(readonly, nonatomic) HMAccessory *accessory; // @synthesize accessory=_accessory;
 @property(readonly, nonatomic) id <HFCharacteristicValueSource> valueSource; // @synthesize valueSource=_valueSource;
 - (void).cxx_destruct;
 - (void)_decorateOutcomeForPlaybackState:(id)arg1;
@@ -34,12 +35,13 @@
 - (id)primaryStateControlItem;
 - (id)copyWithValueSource:(id)arg1;
 @property(readonly, nonatomic) id <HFHomeKitObject> homeKitObject;
+@property(readonly, nonatomic) HMAccessorySettings *settings;
 - (id)togglePlayState;
 - (id)_subclass_updateWithOptions:(id)arg1;
-@property(readonly, nonatomic) HMAccessory *accessory;
+@property(readonly, nonatomic) HMMediaProfile *mediaProfile;
 @property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithValueSource:(id)arg1 mediaProfile:(id)arg2;
+- (id)initWithValueSource:(id)arg1 accessory:(id)arg2;
 - (id)init;
 
 // Remaining properties

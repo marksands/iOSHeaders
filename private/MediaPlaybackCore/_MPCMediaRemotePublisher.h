@@ -7,11 +7,12 @@
 #import <objc/NSObject.h>
 
 #import <MediaPlaybackCore/MPCPlaybackEngineEventObserving-Protocol.h>
+#import <MediaPlaybackCore/MPNowPlayingInfoLyricsDelegate-Protocol.h>
 #import <MediaPlaybackCore/MPNowPlayingPlaybackQueueDataSource_Private-Protocol.h>
 
 @class MPCPlaybackEngine, MPNowPlayingInfoCenter, MPRemoteCommandCenter, NSString;
 
-@interface _MPCMediaRemotePublisher : NSObject <MPNowPlayingPlaybackQueueDataSource_Private, MPCPlaybackEngineEventObserving>
+@interface _MPCMediaRemotePublisher : NSObject <MPNowPlayingPlaybackQueueDataSource_Private, MPNowPlayingInfoLyricsDelegate, MPCPlaybackEngineEventObserving>
 {
     _Bool _initializedSupportedCommands;
     _Bool _engineRestoringState;
@@ -26,10 +27,12 @@
 @property(nonatomic, getter=hasInitializedSupportedCommands) _Bool initializedSupportedCommands; // @synthesize initializedSupportedCommands=_initializedSupportedCommands;
 @property(readonly, nonatomic) __weak MPCPlaybackEngine *playbackEngine; // @synthesize playbackEngine=_playbackEngine;
 - (void).cxx_destruct;
-- (id)_commandCenterForCarPlay;
 - (void)_performCommandEvent:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_updateSupportedCommands;
+- (void)_likedStateChangedNotification:(id)arg1;
 - (void)_durationAvailableNotification:(id)arg1;
+- (void)nowPlayingInfoCenter:(id)arg1 didEndLyricsEvent:(id)arg2;
+- (void)nowPlayingInfoCenter:(id)arg1 didBeginLyricsEvent:(id)arg2;
 - (void)engineDidEndStateRestoration:(id)arg1;
 - (void)engineWillBeginStateRestoration:(id)arg1;
 - (void)engine:(id)arg1 didChangeShuffleType:(long long)arg2;

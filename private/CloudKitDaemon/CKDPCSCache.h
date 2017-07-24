@@ -40,9 +40,9 @@ __attribute__((visibility("hidden")))
 - (void)updateMemoryCacheWithRecordPCSData:(id)arg1 forRecordWithID:(id)arg2 databaseScope:(long long)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
 - (void)updateMemoryCacheWithZonePCSData:(id)arg1 forZoneWithID:(id)arg2 databaseScope:(long long)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
 - (void)_updateMemoryCacheWithPCSData:(id)arg1 forItemWithID:(id)arg2 inMemoryCache:(id)arg3 databaseScope:(long long)arg4 withCompletionHandler:(CDUnknownBlockType)arg5;
-- (void)setPCSData:(id)arg1 forFetchedShareID:(id)arg2 withScope:(long long)arg3 fetchError:(id)arg4 withCompletionHandler:(CDUnknownBlockType)arg5;
-- (void)setPCSData:(id)arg1 forFetchedZoneID:(id)arg2 withScope:(long long)arg3 fetchError:(id)arg4 withCompletionHandler:(CDUnknownBlockType)arg5;
-- (void)setPCSData:(id)arg1 forFetchedRecordID:(id)arg2 withScope:(long long)arg3 fetchError:(id)arg4 withCompletionHandler:(CDUnknownBlockType)arg5;
+- (void)_setPCSData:(id)arg1 forFetchedShareID:(id)arg2 withScope:(long long)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
+- (void)_setPCSData:(id)arg1 forFetchedZoneID:(id)arg2 withScope:(long long)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
+- (void)_setPCSData:(id)arg1 forFetchedRecordID:(id)arg2 withScope:(long long)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
 - (void)fetchPCSForShareWithID:(id)arg1 forOperation:(id)arg2 options:(unsigned long long)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
 - (void)fetchPCSForZoneWithID:(id)arg1 forOperation:(id)arg2 options:(unsigned long long)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
 - (void)fetchPCSForRecordWithID:(id)arg1 forOperation:(id)arg2 options:(unsigned long long)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;

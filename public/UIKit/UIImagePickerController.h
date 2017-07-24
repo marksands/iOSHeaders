@@ -8,7 +8,7 @@
 
 #import <UIKit/NSCoding-Protocol.h>
 
-@class NSArray, NSExtension, NSMutableDictionary, NSObject, NSString, UIView;
+@class NSArray, NSExtension, NSMutableDictionary, NSObject, NSString, UIView, UIViewController;
 @protocol OS_dispatch_queue, UINavigationControllerDelegate><UIImagePickerControllerDelegate;
 
 @interface UIImagePickerController : UINavigationController <NSCoding>
@@ -24,6 +24,10 @@
     Class _photoPickerRequestOptionsClass;
     CDUnknownBlockType _photoPickerDisplayCompletion;
     CDUnknownBlockType _photoPickerPreviewDisplayCompletion;
+    _Bool _photoPickerDidStartDelayingPresentation;
+    _Bool _photoPickerDidEndDelayingPresentation;
+    _Bool _photoPickerIsPreheating;
+    UIViewController *_photoPickerPreheatedViewController;
     CDStruct_d1897728 _imagePickerFlags;
     unsigned long long _savingOptions;
     NSExtension *_photosExtension;
@@ -48,17 +52,19 @@
 - (void)_autoDismiss;
 - (struct CGSize)_adjustedContentSizeForPopover:(struct CGSize)arg1;
 - (void)_setupControllersForCurrentMediaTypes;
-- (void)_setupControllersForCurrentSourceType;
-- (id)popViewControllerAnimated:(_Bool)arg1;
+- (void)_handleTopViewControllerReadyForDisplay:(id)arg1;
+- (void)_setupControllersForCurrentSourceTypeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)didSelectMultipleMediaItemsWithInfoDictionaries:(id)arg1;
 - (void)didSelectMediaWithInfoDictionary:(id)arg1;
 - (void)didDisplayPhotoPickerPreview;
+- (void)_handleEndingPhotoPickerPresentationDelay;
 - (void)didDisplayPhotoPickerSourceType:(id)arg1;
 - (void)setPhotoPickerViewControllerTitle:(id)arg1;
+- (void)_handlePushViewController:(id)arg1;
 - (void)requestViewControllerFromPhotoPickerWithRequestIdentifier:(id)arg1;
-- (id)_handleDismissCurrentViewControllerFromPhotoPickerAnimated:(_Bool)arg1;
 - (void)dismissCurrentViewControllerFromPhotoPickerAnimated:(id)arg1;
 - (void)cancelPhotoPicker;
+- (_Bool)_hasTraitCollectionUpdates;
 - (void)_testPerformPreviewOfFirstPhoto;
 - (_Bool)_isPhotoPickerExtensionEnabled;
 - (void)_invalidatePhotoPickerServices;
@@ -73,6 +79,7 @@
 - (void)_serializeHandlingMatchingExtensions:(id)arg1 error:(id)arg2 completion:(CDUnknownBlockType)arg3;
 @property(readonly) NSObject<OS_dispatch_queue> *photosExtensionDiscoveryQueue;
 - (void)_createInitialControllerWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)_shouldDelayPresentation;
 - (void)_removeAllChildren;
 - (unsigned long long)supportedInterfaceOrientations;
 - (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
@@ -82,6 +89,7 @@
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillUnload;
+- (void)_viewControllerPresentationDidInitiate;
 @property(nonatomic) long long cameraFlashMode;
 @property(nonatomic) long long cameraCaptureMode;
 - (_Bool)_isCameraCaptureModeValid:(long long)arg1;

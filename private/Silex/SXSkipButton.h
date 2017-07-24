@@ -19,6 +19,10 @@
 @property(retain, nonatomic) SXAutoLayoutLabel *skipInLabel; // @synthesize skipInLabel=_skipInLabel;
 @property(nonatomic) unsigned long long threshold; // @synthesize threshold=_threshold;
 - (void).cxx_destruct;
+- (unsigned long long)accessibilityTraits;
+- (id)accessibilityLabel;
+- (id)accessibilityElements;
+- (_Bool)isAccessibilityElement;
 - (void)updateConstraints;
 - (id)initWithFrame:(struct CGRect)arg1;
 

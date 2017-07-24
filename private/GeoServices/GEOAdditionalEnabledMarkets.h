@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, PBUnknownFields;
+@class NSArray, NSDictionary, NSMutableArray, PBUnknownFields;
 
 @interface GEOAdditionalEnabledMarkets : PBCodable <NSCopying>
 {
@@ -35,8 +35,8 @@
 - (unsigned long long)transitMarketsCount;
 - (void)addTransitMarket:(id)arg1;
 - (void)clearTransitMarkets;
-- (id)queryString;
-- (id)queryParameters;
+@property(readonly, nonatomic) NSArray *queryItems;
+@property(readonly, nonatomic) NSDictionary *queryParameters;
 - (void)reload;
 
 @end

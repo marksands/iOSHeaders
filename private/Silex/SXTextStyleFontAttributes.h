@@ -6,14 +6,26 @@
 
 #import <Silex/SXJSONFontAttributes.h>
 
-@interface SXTextStyleFontAttributes : SXJSONFontAttributes
+#import <Silex/SXTextStyleFontAttributes-Protocol.h>
+
+@class NSString;
+
+@interface SXTextStyleFontAttributes : SXJSONFontAttributes <SXTextStyleFontAttributes>
 {
 }
 
 - (unsigned long long)weightLabelWithValue:(id)arg1 withType:(int)arg2;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) NSString *familyName;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) long long style;
+@property(readonly) Class superclass;
+@property(readonly, nonatomic) long long weight;
 @property(readonly, nonatomic) unsigned long long weightLabel; // @dynamic weightLabel;
+@property(readonly, nonatomic) long long width;
 
 @end
 

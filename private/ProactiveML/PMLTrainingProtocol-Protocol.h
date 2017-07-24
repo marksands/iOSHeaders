@@ -6,7 +6,7 @@
 
 #import <ProactiveML/NSObject-Protocol.h>
 
-@class NSArray, NSData, NSDictionary, NSString, PMLModelHandle, PMLSessionDescriptor, PMLSparseVector, PMLSpotlightReference;
+@class NSArray, NSData, NSDictionary, NSString, PMLSessionDescriptor, PMLSparseVector, PMLSpotlightReference;
 
 @protocol PMLTrainingProtocol <NSObject>
 - (_Bool)modelServerUpdateWithPayload:(NSData *)arg1 error:(id *)arg2;
@@ -17,8 +17,6 @@
 - (void)deleteSessionsWithBundleID:(NSString *)arg1;
 - (void)deleteSessionsWithDomainIdentifiers:(NSArray *)arg1 bundleID:(NSString *)arg2;
 - (void)deleteSessionsWithIdentifiers:(NSArray *)arg1 bundleID:(NSString *)arg2;
-- (void)addSessionWithCovariates:(PMLSparseVector *)arg1 source:(NSData *)arg2 label:(long long)arg3 model:(PMLModelHandle *)arg4 spotlightReference:(PMLSpotlightReference *)arg5 isInternal:(_Bool)arg6;
-- (void)addSessionWithCovariates:(PMLSparseVector *)arg1 label:(long long)arg2 model:(PMLModelHandle *)arg3 spotlightReference:(PMLSpotlightReference *)arg4 isInternal:(_Bool)arg5;
 - (void)addSessionWithCovariates:(PMLSparseVector *)arg1 label:(long long)arg2 sessionDescriptor:(PMLSessionDescriptor *)arg3 spotlightReference:(PMLSpotlightReference *)arg4 isInternal:(_Bool)arg5;
 - (void)addSessionWithCovariates:(PMLSparseVector *)arg1 source:(NSData *)arg2 label:(long long)arg3 sessionDescriptor:(PMLSessionDescriptor *)arg4 spotlightReference:(PMLSpotlightReference *)arg5 isInternal:(_Bool)arg6;
 @end

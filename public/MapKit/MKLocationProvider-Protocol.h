@@ -6,8 +6,8 @@
 
 #import <MapKit/NSObject-Protocol.h>
 
-@class CLLocation, NSBundle, NSString;
-@protocol MKLocationProviderDelegate;
+@class CLLocation, NSBundle, NSObject, NSString;
+@protocol MKLocationProviderDelegate, OS_dispatch_queue;
 
 @protocol MKLocationProvider <NSObject>
 @property(readonly, nonatomic) double timeScale;
@@ -27,6 +27,7 @@
 @property(retain, nonatomic) NSBundle *effectiveBundle;
 @property(nonatomic) __weak id <MKLocationProviderDelegate> delegate;
 - (void)dismissHeadingCalibrationDisplay;
+- (void)authorizationStatusOnQueue:(NSObject<OS_dispatch_queue> *)arg1 result:(void (^)(int))arg2;
 - (void)requestWhenInUseAuthorizationWithPrompt;
 - (void)requestWhenInUseAuthorization;
 - (void)stopUpdatingVehicleHeading;

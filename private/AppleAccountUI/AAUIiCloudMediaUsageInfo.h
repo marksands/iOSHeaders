@@ -21,6 +21,7 @@
 @property(retain, nonatomic) UIColor *representativeColor; // @synthesize representativeColor=_representativeColor;
 @property(retain, nonatomic) NSString *mediaType; // @synthesize mediaType=_mediaType;
 - (void).cxx_destruct;
+- (id)capacityBarCatagory;
 - (id)initWithMediaType:(id)arg1 representativeColor:(id)arg2 bytesUsed:(float)arg3;
 
 @end

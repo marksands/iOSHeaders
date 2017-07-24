@@ -11,7 +11,6 @@
 
 @interface PushButtonMonitor : NSObject
 {
-    struct __IOHIDEventSystemClient *_hidClient;
     unsigned long long _lastTap;
     unsigned long long _lastDoubleTap;
     SBSBiometricsService *_sbBiometricsService;
@@ -23,13 +22,10 @@
 @property(nonatomic) _Bool doubleTapDetected; // @synthesize doubleTapDetected=_doubleTapDetected;
 @property(nonatomic) __weak id <PushButtonDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)powerPressed;
-- (void)consumeDoubleTapAfter:(unsigned long long)arg1;
-- (void)consumeDoubleTap;
+- (void)doubleTappedAt:(id)arg1;
+- (void)consumeDoubleTapAfter:(long long)arg1;
+- (void)consumeDoubleTapWithReason:(id)arg1;
 - (id)prearmAssertion;
-- (void)stop;
-- (void)start;
-- (void)dealloc;
 - (id)init;
 
 @end

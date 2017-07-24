@@ -12,6 +12,7 @@
 @protocol SiriCoreSessionObject <NSObject>
 @property(copy, nonatomic) NSString *refId;
 @property(copy, nonatomic) NSString *aceId;
+- (_Bool)siriCore_supportedByLocalSession;
 - (void)siriCore_setSessionRequestId:(NSString *)arg1;
 - (NSString *)siriCore_requestId;
 - (void)siriCore_dispatchSendCompletionsWithResult:(long long)arg1 error:(NSError *)arg2;

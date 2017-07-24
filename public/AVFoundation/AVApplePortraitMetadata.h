@@ -16,7 +16,6 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, getter=isDisparityNormalized) _Bool disparityNormalized;
 @property(readonly) struct CGRect focusRectangle;
 @property(readonly) NSIndexSet *indexesOfShallowDepthOfFieldObservations;
 @property(readonly) NSData *faceObservationsData;

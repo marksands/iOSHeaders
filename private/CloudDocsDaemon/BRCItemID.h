@@ -25,9 +25,9 @@
 + (_Bool)migrateItemIDsToVersion5WithDB:(id)arg1 serverTruth:(_Bool)arg2;
 + (id)parseMangledItemIDString:(id)arg1 mangledID:(id *)arg2 etag:(id *)arg3 session:(id)arg4;
 + (_Bool)supportsSecureCoding;
-+ (_Bool)isDocumentsItemIDWithSQLiteValue:(struct Mem *)arg1;
-+ (_Bool)isRootItemIDWithSQLiteValue:(struct Mem *)arg1;
-+ (id)newFromSqliteValue:(struct Mem *)arg1;
++ (_Bool)isDocumentsItemIDWithSQLiteValue:(struct sqlite3_value *)arg1;
++ (_Bool)isRootItemIDWithSQLiteValue:(struct sqlite3_value *)arg1;
++ (id)newFromSqliteValue:(struct sqlite3_value *)arg1;
 + (id)documentsItemIDWithAppLibraryRowID:(id)arg1;
 - (void).cxx_destruct;
 - (id)derivedAliasItemIDWithOwnerName:(id)arg1;

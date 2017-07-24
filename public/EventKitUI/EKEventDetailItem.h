@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long maximumNumberOfSubItems;
 @property(readonly, nonatomic) _Bool requiresLayoutForSubitemCount;
 - (void)editItemViewController:(id)arg1 didCompleteWithAction:(int)arg2;
+- (id)editItemEventToDetach;
 - (_Bool)editItemViewControllerShouldShowDetachAlert;
 - (_Bool)editItemViewControllerSave:(id)arg1;
 - (_Bool)saveAndDismissWithForce:(_Bool)arg1;

@@ -11,8 +11,10 @@
 
 @interface AKController : NSObject
 {
+    _Bool _isUsedOnDarkBackground;
     _Bool overlayShouldPixelate;
     _Bool _isTornDown;
+    _Bool _allEditingDisabled;
     _Bool _annotationEditingEnabled;
     _Bool _pencilAlwaysDraws;
     _Bool _isTestingInstance;
@@ -45,7 +47,8 @@
     long long _lastPasteboardChangeCount;
     unsigned long long _creationCascadingMultiplier;
     AKPageController *_lastCreationCascadingPageController;
-    double _akModelToScreenPixelScaleOfFirstEncounteredPage;
+    double _akModelToCanvasFixedPixelScaleOfFirstEncounteredPage;
+    double _screenPixelsToCanvasPixelsDownscale;
     AKToolbarView *_modernToolbarView;
 }
 
@@ -63,7 +66,8 @@
 @property(nonatomic) _Bool shapeDetectionEnabled; // @synthesize shapeDetectionEnabled=_shapeDetectionEnabled;
 @property(nonatomic) _Bool selectNewlyCreatedAnnotations; // @synthesize selectNewlyCreatedAnnotations=_selectNewlyCreatedAnnotations;
 @property(nonatomic) _Bool isLogging; // @synthesize isLogging=_isLogging;
-@property double akModelToScreenPixelScaleOfFirstEncounteredPage; // @synthesize akModelToScreenPixelScaleOfFirstEncounteredPage=_akModelToScreenPixelScaleOfFirstEncounteredPage;
+@property double screenPixelsToCanvasPixelsDownscale; // @synthesize screenPixelsToCanvasPixelsDownscale=_screenPixelsToCanvasPixelsDownscale;
+@property double akModelToCanvasFixedPixelScaleOfFirstEncounteredPage; // @synthesize akModelToCanvasFixedPixelScaleOfFirstEncounteredPage=_akModelToCanvasFixedPixelScaleOfFirstEncounteredPage;
 @property(nonatomic) _Bool hideAllAdornments; // @synthesize hideAllAdornments=_hideAllAdornments;
 @property __weak AKPageController *lastCreationCascadingPageController; // @synthesize lastCreationCascadingPageController=_lastCreationCascadingPageController;
 @property unsigned long long creationCascadingMultiplier; // @synthesize creationCascadingMultiplier=_creationCascadingMultiplier;
@@ -90,11 +94,13 @@
 @property unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
 @property(nonatomic) _Bool pencilAlwaysDraws; // @synthesize pencilAlwaysDraws=_pencilAlwaysDraws;
 @property(nonatomic) _Bool annotationEditingEnabled; // @synthesize annotationEditingEnabled=_annotationEditingEnabled;
+@property(nonatomic) _Bool allEditingDisabled; // @synthesize allEditingDisabled=_allEditingDisabled;
 @property(retain) UIView *toolbarView; // @synthesize toolbarView=_toolbarView;
 @property(retain) AKModelController *modelController; // @synthesize modelController=_modelController;
 @property __weak id <AKControllerDelegateProtocol> delegate; // @synthesize delegate=_delegate;
 @property _Bool isTornDown; // @synthesize isTornDown=_isTornDown;
 @property(nonatomic) _Bool overlayShouldPixelate; // @synthesize overlayShouldPixelate;
+@property(nonatomic) _Bool isUsedOnDarkBackground; // @synthesize isUsedOnDarkBackground=_isUsedOnDarkBackground;
 - (void).cxx_destruct;
 - (void)endLogging;
 - (void)beginLogging:(id)arg1 documentType:(id)arg2;

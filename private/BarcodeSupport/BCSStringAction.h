@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (id)_searchActionLabel;
 - (void)performAction;
 - (void)performDefaultAction;
 - (id)defaultActionTargetApplicationBundleIdentifier;

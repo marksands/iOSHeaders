@@ -145,6 +145,7 @@ __attribute__((visibility("hidden")))
 + (void)raiseNumberError;
 + (void)raiseUnkownFunctionErrorForString:(id)arg1;
 + (void)raiseTypeExceptionForValue:(struct TSCEValue)arg1 functionSpec:(id)arg2 argumentIndex:(int)arg3 locale:(id)arg4;
++ (void)raiseDisallowedStockModeError:(id)arg1;
 + (void)raiseNotReadyError;
 + (id)notReadyError;
 + (void)raiseAbortError;

@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)isValidShortPromptType:(unsigned long long)arg1;
-+ (id)eventWithPrompt:(unsigned long long)arg1 options:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 + (id)eventWithText:(id)arg1 fallbackPrompt:(unsigned long long)arg2 options:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
 @property(readonly, copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
 @property(readonly, nonatomic) unsigned long long shortPromptType; // @synthesize shortPromptType=_shortPromptType;

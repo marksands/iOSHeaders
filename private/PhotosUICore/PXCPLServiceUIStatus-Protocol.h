@@ -18,5 +18,6 @@
 @property(readonly, nonatomic, getter=isPaused) _Bool paused;
 @property(readonly, nonatomic) NSString *failureDescription;
 @property(readonly, nonatomic) NSString *stateDescription;
+@property(readonly, nonatomic) NSString *referencedItemsDescription;
 @end
 

@@ -32,6 +32,7 @@
     NSString *_commentText;
 }
 
++ (_Bool)areVideoSourcesStreamShareSources:(id)arg1;
 @property(retain, nonatomic) NSString *commentText; // @synthesize commentText=_commentText;
 @property(retain, nonatomic) NSArray *recipients; // @synthesize recipients=_recipients;
 @property(retain, nonatomic) NSString *albumName; // @synthesize albumName=_albumName;
@@ -41,6 +42,7 @@
 @property(readonly, nonatomic) NSArray *videosSources; // @synthesize videosSources=_videosSources;
 @property(nonatomic) __weak id <PUVideoTrimQueueControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)cleanupResources;
 - (void)editVideoViewControllerDidCancel:(id)arg1;
 - (void)editVideoViewController:(id)arg1 didTrimVideoWithOptions:(id)arg2;
 - (void)_sendDidFinish;

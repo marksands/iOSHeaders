@@ -8,6 +8,7 @@
 
 @protocol SearchUIDragObject
 - (SFSearchResult *)identifyingResult;
+- (_Bool)isSuggestion;
 - (NSString *)dragAppBundleID;
 - (NSURL *)dragURL;
 - (NSString *)dragText;

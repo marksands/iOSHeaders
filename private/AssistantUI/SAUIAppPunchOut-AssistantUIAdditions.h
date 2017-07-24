@@ -7,8 +7,10 @@
 #import <SAObjects/SAUIAppPunchOut.h>
 
 @interface SAUIAppPunchOut (AssistantUIAdditions)
+- (id)_afui_installAppPunchout;
 - (void)afui_getInstallAppPunchoutWithCompletion:(CDUnknownBlockType)arg1;
 - (id)afui_punchOutAppNotAvailableViews;
 - (id)afui_punchOutFailureViews;
+- (void)afui_populateStoreServicesData:(CDUnknownBlockType)arg1;
 @end
 

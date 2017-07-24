@@ -19,9 +19,11 @@
     id <_UIPreviewInteractionViewControllerTransition> _appearanceTransition;
     id <_UIPreviewInteractionViewControllerTransition> _disappearanceTransition;
     CDUnknownBlockType _privatePresentationBlock;
+    CDUnknownBlockType _privatePresentationCompletionBlock;
 }
 
 @property(nonatomic) _Bool shouldPresentAutomatically; // @synthesize shouldPresentAutomatically=_shouldPresentAutomatically;
+@property(copy, nonatomic) CDUnknownBlockType privatePresentationCompletionBlock; // @synthesize privatePresentationCompletionBlock=_privatePresentationCompletionBlock;
 @property(copy, nonatomic) CDUnknownBlockType privatePresentationBlock; // @synthesize privatePresentationBlock=_privatePresentationBlock;
 @property(nonatomic) _Bool shouldFlipFromAndToViewsForDisappearanceTransition; // @synthesize shouldFlipFromAndToViewsForDisappearanceTransition=_shouldFlipFromAndToViewsForDisappearanceTransition;
 @property(nonatomic) _Bool shouldUseCATransitions; // @synthesize shouldUseCATransitions=_shouldUseCATransitions;
@@ -30,6 +32,7 @@
 @property(retain, nonatomic) UIPreviewPresentationController *presentationController; // @synthesize presentationController=_presentationController;
 @property(retain, nonatomic) UIViewController *viewController; // @synthesize viewController=_viewController;
 - (void).cxx_destruct;
+- (void)_completeViewControllerPresentationImmediately;
 - (void)presentViewController;
 - (id)initWithViewController:(id)arg1;
 

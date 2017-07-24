@@ -14,8 +14,6 @@ __attribute__((visibility("hidden")))
 + (id)resolverMatchingNameWithContextContainer:(id)arg1 inDocumentRoot:(id)arg2 contextContainerName:(id)arg3;
 + (id)resolverMatchingName:(id)arg1 inDocumentRoot:(id)arg2 contextResolver:(id)arg3;
 + (id)resolverContainerMatchingName:(id)arg1 inDocumentRoot:(id)arg2;
-+ (void)setResolverClass:(Class)arg1;
-+ (Class)resolverClass;
 
 @end
 

@@ -7,12 +7,12 @@
 #import <Intents/JSExport-Protocol.h>
 #import <Intents/NSObject-Protocol.h>
 
-@class INNoteContent, INSpeakableString, NSString;
+@class INNoteContent, INSpeakableString;
 
 @protocol INCreateNoteIntentExport <NSObject, JSExport>
 @property(copy, nonatomic) INSpeakableString *groupName;
 @property(copy, nonatomic) INNoteContent *content;
-@property(copy, nonatomic) NSString *title;
+@property(copy, nonatomic) INSpeakableString *title;
 - (id)init;
 @end
 

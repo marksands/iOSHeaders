@@ -9,9 +9,9 @@
 @class LSAppLink, NSString;
 
 @interface NSURL (SafariServicesExtras)
-+ (void)_sf_urlsFromDropSession:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (void)_sf_urlsFromDragItems:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (_Bool)_sf_canCreateURLsFromDropSession:(id)arg1;
-@property(copy, nonatomic, setter=_sf_setTitle:) NSString *_sf_title;
+@property(readonly, nonatomic) NSString *_sf_topLevelDomain;
 @property(readonly, nonatomic) _Bool sf_isFacetimeURL;
 @property(readonly, nonatomic) NSString *sf_absoluteStringWithoutFragment;
 @property(readonly, nonatomic) LSAppLink *sf_appLink;

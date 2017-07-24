@@ -6,7 +6,7 @@
 
 #import <PhotosUICore/PXSettings.h>
 
-@class PUAirPlaySettings, PUAlbumListSettings, PUFeedSettings, PUIrisSettings, PULoggingSettings, PUMedusaSettings, PUMemoriesSettings, PUMomentsSettings, PUOneUpSettings, PUPerformanceDiagnosticsSettings, PUPhotoEditProtoSettings, PUPhotosGridSettings, PUSceneSettings, PUSlideshowSettings, PUTilingViewSettings, PUWelcomeSettings, PUWorkaroundSettings;
+@class PUAirPlaySettings, PUAlbumListSettings, PUFeedSettings, PUIrisSettings, PUMedusaSettings, PUMemoriesSettings, PUMomentsSettings, PUOneUpSettings, PUPerformanceDiagnosticsSettings, PUPhotoEditProtoSettings, PUPhotosGridSettings, PUSceneSettings, PUSlideshowSettings, PUTilingViewSettings, PUWelcomeSettings, PUWorkaroundSettings;
 
 @interface PURootSettings : PXSettings
 {
@@ -31,7 +31,6 @@
     PUIrisSettings *_irisSettings;
     Class _orbInterfaceThemeClass;
     PUPerformanceDiagnosticsSettings *_performanceDiagnosticsSettings;
-    PULoggingSettings *_loggingSettings;
 }
 
 + (void)_deleteAllDiagnosticFiles;
@@ -48,7 +47,6 @@
 + (void)setupStatusBarDoubleTapOnInternalDevices;
 + (id)settingsControllerModule;
 + (id)sharedInstance;
-@property(retain, nonatomic) PULoggingSettings *loggingSettings; // @synthesize loggingSettings=_loggingSettings;
 @property(retain, nonatomic) PUPerformanceDiagnosticsSettings *performanceDiagnosticsSettings; // @synthesize performanceDiagnosticsSettings=_performanceDiagnosticsSettings;
 @property(retain, nonatomic) Class orbInterfaceThemeClass; // @synthesize orbInterfaceThemeClass=_orbInterfaceThemeClass;
 @property(retain, nonatomic) PUIrisSettings *irisSettings; // @synthesize irisSettings=_irisSettings;

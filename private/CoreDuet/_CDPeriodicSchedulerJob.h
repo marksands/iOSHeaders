@@ -29,8 +29,6 @@
 @property(readonly) long long period; // @synthesize period=_period;
 - (void).cxx_destruct;
 - (id)initWithPeriod:(long long)arg1 interval:(double)arg2 schedulerJobName:(id)arg3 queue:(id)arg4 handler:(CDUnknownBlockType)arg5;
-- (id)initWithPeriod:(long long)arg1 schedulerJobName:(id)arg2 queue:(id)arg3 handler:(CDUnknownBlockType)arg4;
-- (id)initWithPeriod:(long long)arg1 schedulerJobName:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (id)init;
 
 @end

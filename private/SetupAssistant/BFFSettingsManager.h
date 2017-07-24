@@ -33,6 +33,7 @@
 - (void)_applyStashedPreferences;
 - (unsigned long long)_restoreConfiguration;
 - (void)applySafeHavenStash;
+- (void)reset;
 - (_Bool)_stashPaths;
 - (_Bool)_stashConfiguration;
 - (void)hideStashInSafeHaven;

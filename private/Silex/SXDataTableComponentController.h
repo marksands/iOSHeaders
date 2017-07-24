@@ -9,22 +9,22 @@
 #import <Silex/SXDataTableDataSource-Protocol.h>
 #import <Silex/SXTextSourceDataSource-Protocol.h>
 
-@class NSArray, NSString, SXDataRecordValueTransformerFactory, SXDataTableDictionary, SXDataTableStyle;
-@protocol SXDataTableComponentControllerDataSource;
+@class NSArray, NSString, SXDataRecordValueTransformerFactory, SXDataTableDictionary;
+@protocol SXDataTableComponentControllerDataSource, SXDataTableStyleFactory;
 
 @interface SXDataTableComponentController : NSObject <SXTextSourceDataSource, SXDataTableDataSource>
 {
     SXDataTableDictionary *_cellObjects;
     SXDataTableDictionary *_textLayouters;
     id <SXDataTableComponentControllerDataSource> _dataSource;
+    id <SXDataTableStyleFactory> _styleFactory;
     NSArray *_records;
-    SXDataTableStyle *_tableStyle;
     SXDataRecordValueTransformerFactory *_recordValueTransformerFactory;
 }
 
 @property(retain, nonatomic) SXDataRecordValueTransformerFactory *recordValueTransformerFactory; // @synthesize recordValueTransformerFactory=_recordValueTransformerFactory;
-@property(retain, nonatomic) SXDataTableStyle *tableStyle; // @synthesize tableStyle=_tableStyle;
 @property(retain, nonatomic) NSArray *records; // @synthesize records=_records;
+@property(readonly, nonatomic) id <SXDataTableStyleFactory> styleFactory; // @synthesize styleFactory=_styleFactory;
 @property(readonly, nonatomic) id <SXDataTableComponentControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(readonly, nonatomic) SXDataTableDictionary *textLayouters; // @synthesize textLayouters=_textLayouters;
 @property(readonly, nonatomic) SXDataTableDictionary *cellObjects; // @synthesize cellObjects=_cellObjects;
@@ -70,8 +70,9 @@
 - (CDStruct_2fea82da)indexPathSubstractingHeaders:(CDStruct_2fea82da)arg1;
 - (_Bool)shouldTreatIndexPathAsHeader:(CDStruct_2fea82da)arg1;
 - (_Bool)indexPathIsHeader:(CDStruct_2fea82da)arg1;
+- (void)prepareForLayout;
 - (void)loadRecords;
-- (id)initWithDataSource:(id)arg1;
+- (id)initWithStyleFactory:(id)arg1 dataSource:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

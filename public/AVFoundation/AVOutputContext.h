@@ -8,7 +8,7 @@
 
 #import <AVFoundation/NSSecureCoding-Protocol.h>
 
-@class AVFigEndpointPickerOutputContextImpl, AVOutputContextInternal, NSString;
+@class AVOutputContextInternal, NSString;
 
 @interface AVOutputContext : NSObject <NSSecureCoding>
 {
@@ -18,7 +18,7 @@
 + (_Bool)outputContextExistsWithRemoteOutputDevice;
 + (void)resetOutputDeviceForAllOutputContexts;
 + (_Bool)supportsSecureCoding;
-+ (id)outputContextForControllingOutputDeviceGroup:(id)arg1;
++ (id)outputContextForID:(id)arg1;
 + (id)outputContextForControllingOutputDeviceGroupWithID:(id)arg1;
 + (id)iTunesAudioContext;
 + (id)sharedSystemScreenContext;
@@ -30,7 +30,6 @@
 + (id)allOutputContextImplClasses;
 + (Class)defaultOutputContextImplClass;
 + (void)initialize;
-+ (id)outputContextWithEndpointPickerUUID:(id)arg1;
 - (void)outputContextImpl:(id)arg1 didExpireWithReplacement:(id)arg2;
 - (void)outputContextImpl:(id)arg1 didCloseCommunicationChannel:(id)arg2;
 - (void)outputContextImpl:(id)arg1 didReceiveData:(id)arg2 fromCommunicationChannel:(id)arg3;
@@ -38,13 +37,18 @@
 - (void)setCommunicationChannelDelegate:(id)arg1;
 - (id)communicationChannelDelegate;
 - (id)outgoingCommunicationChannel;
+- (void)setVolume:(float)arg1;
+- (void)outputContextImplDidChangeCanSetVolume:(id)arg1;
+- (_Bool)canSetVolume;
+- (void)outputContextImplDidChangeVolume:(id)arg1;
+- (float)volume;
+- (void)outputContextImplDidChangeProvidesControlForAllVolumeFeatures:(id)arg1;
+- (_Bool)providesControlForAllVolumeFeatures;
 - (void)removeOutputDevice:(id)arg1;
 - (void)addOutputDevice:(id)arg1;
 - (void)setOutputDevices:(id)arg1;
 - (void)outputContextImplDidChangeOutputDevices:(id)arg1;
 - (id)outputDevices;
-- (void)outputContextImplDidChangeOutputDeviceGroup:(id)arg1;
-- (id)outputDeviceGroup;
 - (void)outputContextImplDidChangeGlobalOutputDeviceConfiguration:(id)arg1;
 - (void)outputContextImplDidChangeOutputDevice:(id)arg1;
 - (void)outputContextImpl:(id)arg1 didInitiateDestinationChange:(id)arg2;
@@ -56,7 +60,9 @@
 @property(readonly, nonatomic) NSString *deviceName;
 - (void)setApplicationProcessID:(int)arg1;
 - (int)applicationProcessID;
+- (id)outputContextType;
 - (id)ID;
+- (id)contextID;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)impl;
@@ -65,7 +71,6 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithOutputContextImpl:(id)arg1;
 - (id)init;
-@property(readonly, nonatomic) AVFigEndpointPickerOutputContextImpl *figEndpointPickerOutputContextImpl;
 
 @end
 

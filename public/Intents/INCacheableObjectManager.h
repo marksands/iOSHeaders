@@ -6,20 +6,19 @@
 
 #import <objc/NSObject.h>
 
-@class NSHashTable;
+@protocol INCacheableObjectManagerDelegate, OS_dispatch_queue;
 
 @interface INCacheableObjectManager : NSObject
 {
-    NSHashTable *_observers;
+    NSObject<OS_dispatch_queue> *_observerMutationQueue;
+    id <INCacheableObjectManagerDelegate> _delegate;
 }
 
 + (id)sharedManager;
+@property(nonatomic) __weak id <INCacheableObjectManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)broadcastCacheableObject:(id)arg1;
-- (void)removeObserver:(id)arg1;
-- (void)addObserver:(id)arg1;
+- (void)forwardCacheableObject:(id)arg1;
 - (id)_init;
-- (id)init;
 
 @end
 

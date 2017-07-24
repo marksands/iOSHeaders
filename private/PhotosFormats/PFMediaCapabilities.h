@@ -14,16 +14,19 @@
 }
 
 + (id)stringForSupport:(long long)arg1;
-+ (id)capabilitiesInformationForCurrentDevice;
++ (id)capabilitiesInformationForCurrentDeviceWithOptions:(id)arg1;
 + (id)legacyCapabilities;
++ (id)capabilitiesForCurrentDeviceWithOptions:(id)arg1;
 + (id)capabilitiesForCurrentDevice;
 + (id)testCapabilitiesNotSupportingHEIF;
 + (id)testCapabilitiesNotSupportingHEVC;
 @property(retain) NSDictionary *capabilitiesInformation; // @synthesize capabilitiesInformation=_capabilitiesInformation;
 - (void).cxx_destruct;
+- (id)description;
 - (long long)userDefaultsPeerOverrideValue;
 - (long long)supportValueByApplyingUserDefaultsPeerOverrideToValue:(long long)arg1 selector:(SEL)arg2;
 - (id)opaqueRepresentation;
+- (_Bool)supportsTranscodeChoice;
 - (long long)supportForAVAsset:(id)arg1;
 - (long long)supportForFormatDescription:(struct opaqueCMFormatDescription *)arg1;
 - (long long)supportForLivePhotoVersion:(id)arg1;

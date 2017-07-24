@@ -10,6 +10,7 @@
 
 @interface NTNewsHeadlineResultOperation : NTHeadlineResultOperation
 {
+    _Bool _lastOperationFailedToFinish;
     NSDate *_filterDate;
     NTHeadlineResults *_resultHeadlineResults;
     NSDictionary *_resultAssetHandlesByAssetID;
@@ -23,13 +24,16 @@
 @property(copy, nonatomic) NTPBHeadlineResultOperationFetchInfo *resultFetchInfo; // @synthesize resultFetchInfo=_resultFetchInfo;
 @property(copy, nonatomic) NSDictionary *resultAssetHandlesByAssetID; // @synthesize resultAssetHandlesByAssetID=_resultAssetHandlesByAssetID;
 @property(copy, nonatomic) NTHeadlineResults *resultHeadlineResults; // @synthesize resultHeadlineResults=_resultHeadlineResults;
+@property(nonatomic) _Bool lastOperationFailedToFinish; // @synthesize lastOperationFailedToFinish=_lastOperationFailedToFinish;
 @property(copy, nonatomic) NSDate *filterDate; // @synthesize filterDate=_filterDate;
 - (void).cxx_destruct;
 - (void)_finalizeHeadlineResultsWithSectionDescriptors:(id)arg1 catchUpOperationResultsBySectionDescriptor:(id)arg2 articleIDsOfLeadingCells:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_fetchHeadlineResultsWithFetchHelper:(id)arg1 maximumCachedAgeForForYou:(unsigned long long)arg2 maximumCachedAgeForTrendingByParsec:(unsigned long long)arg3 aggregator:(id)arg4 feedPersonalizer:(id)arg5 todayData:(id)arg6 completion:(CDUnknownBlockType)arg7;
 - (void)_assembleQueueDescriptorsWithConfig:(id)arg1 allowOnlyWatchEligibleSections:(_Bool)arg2 respectsWidgetVisibleSectionsLimit:(_Bool)arg3 personalizationTreatment:(id)arg4 aggregateStore:(id)arg5 appConfiguration:(id)arg6 todayData:(id)arg7 completion:(CDUnknownBlockType)arg8;
+- (id)_sectionCTRsWithTodayConfig:(id)arg1 personalizationTreatment:(id)arg2 aggregateStore:(id)arg3;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;
+- (void)prepareOperation;
 - (_Bool)validateOperation;
 - (id)init;
 

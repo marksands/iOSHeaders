@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NSURL *storeURL; // @synthesize storeURL=_storeURL;
 @property(retain, nonatomic) NSDictionary *storeOptions; // @synthesize storeOptions=_storeOptions;
 - (void).cxx_destruct;
+- (void)vacuumStore;
 - (void)backupPersistentStore;
 @property(readonly, nonatomic) NSURL *backupsDirectoryURL;
 - (_Bool)isTooLowOnDiskSpace;

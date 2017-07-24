@@ -17,7 +17,7 @@
 - (void).cxx_destruct;
 - (struct CGImage *)newBGRAImageInOrientation:(long long)arg1 usingSurface:(void *)arg2;
 - (struct CGImage *)newBGRAImageOfFormat:(long long)arg1 inOrientation:(long long)arg2 usingSurface:(void *)arg3;
-- (id)_extractedIsolatedColorspacePropertiesFromMetadata:(id)arg1;
+- (id)_neededColorspacePropertiesFromMetadata:(id)arg1;
 - (id)newJPEGDataInOrientation:(long long)arg1 usingSurface:(void *)arg2 withMetadata:(id)arg3;
 - (id)newJPEGDataOfFormat:(long long)arg1 inOrientation:(long long)arg2 usingSurface:(void *)arg3 withMetadata:(id)arg4;
 - (void *)_newRotatedSurface:(void *)arg1 withOrientation:(long long)arg2;

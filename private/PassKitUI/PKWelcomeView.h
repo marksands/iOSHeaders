@@ -31,6 +31,7 @@
 + (struct UIEdgeInsets)headerImageMargins;
 + (double)defaultHeight;
 + (_Bool)isAvailable;
++ (double)indicatorSpacing;
 + (double)buttonHeight;
 + (double)buttonSpacing;
 + (double)textToButtonSpacing;

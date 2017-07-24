@@ -61,6 +61,8 @@
 - (id)productName;
 - (_Bool)_buildIsOverridden;
 - (double)maxTimeIntervalSinceLastZoneishPCSKeyRoll;
+- (void)setForceManateeZoneDecryptionFailureOnFetch:(_Bool)arg1;
+- (_Bool)forceManateeZoneDecryptionFailureOnFetch;
 - (void)setUseEnhancedPCSEncryptionContext:(_Bool)arg1;
 - (_Bool)useEnhancedPCSEncryptionContext;
 - (void)setRollZonePCSIdentities:(_Bool)arg1;
@@ -83,7 +85,6 @@
 - (double)PCSCacheMinTime;
 - (unsigned long long)PCSCacheSize;
 - (_Bool)sandboxCloudD;
-- (_Bool)validateMescalResponses;
 - (void)setEnableMescal:(_Bool)arg1;
 - (_Bool)enableMescal;
 - (_Bool)isAppleInternalInstall;

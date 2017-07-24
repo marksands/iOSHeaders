@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 - (id)traitsForExtendedCellSize:(struct CGSize)arg1 highlighted:(_Bool)arg2 groupHeader:(_Bool)arg3 edges:(unsigned long long)arg4;
 - (id)traitsForHWRCellSize:(struct CGSize)arg1 highlighted:(_Bool)arg2;
 - (id)traitsForToggleButtonWithSize:(struct CGSize)arg1 highlighted:(_Bool)arg2 edges:(unsigned long long)arg3;
-- (id)traitsForCellSize:(struct CGSize)arg1 highlighted:(_Bool)arg2 edges:(_Bool)arg3;
+- (id)traitsForCellSize:(struct CGSize)arg1 highlighted:(_Bool)arg2 edges:(unsigned long long)arg3;
 - (id)initWithRenderingContext:(id)arg1;
 - (id)controlKeyDividerColorName;
 - (id)controlKeyForegroundColorName;

@@ -61,6 +61,7 @@
     _Bool __isPerformingPreviewCommitTransition;
     _Bool __suppressColorSettings;
     _Bool __shouldShowAccessoryAfterUnlock;
+    _Bool __didPlayCurrentLivePhoto;
     _Bool _isPresentedForPreview;
     _Bool _isCommitingPreview;
     _Bool _allowsPreviewActions;
@@ -101,6 +102,7 @@
 @property(nonatomic, setter=setAllowsPreviewActions:) _Bool allowsPreviewActions; // @synthesize allowsPreviewActions=_allowsPreviewActions;
 @property(nonatomic, setter=setCommitingPreview:) _Bool isCommitingPreview; // @synthesize isCommitingPreview=_isCommitingPreview;
 @property(nonatomic, setter=setPresentedForPreview:) _Bool isPresentedForPreview; // @synthesize isPresentedForPreview=_isPresentedForPreview;
+@property(nonatomic, setter=_setDidPlayCurrentLivePhoto:) _Bool _didPlayCurrentLivePhoto; // @synthesize _didPlayCurrentLivePhoto=__didPlayCurrentLivePhoto;
 @property(readonly, nonatomic) PUOneUpSuggestionsController *suggestionController; // @synthesize suggestionController=_suggestionController;
 @property(readonly, nonatomic) PXUserEventTracker *userEventTracker; // @synthesize userEventTracker=_userEventTracker;
 @property(readonly, nonatomic) PUAggregateDictionaryTracer *aggregateDictionaryTracer; // @synthesize aggregateDictionaryTracer=_aggregateDictionaryTracer;
@@ -147,6 +149,7 @@
 @property(copy, nonatomic) CDUnknownBlockType unlockDeviceStatus; // @synthesize unlockDeviceStatus=_unlockDeviceStatus;
 @property(readonly, nonatomic) PUBrowsingSession *browsingSession; // @synthesize browsingSession=_browsingSession;
 - (void).cxx_destruct;
+- (_Bool)oneUpSuggestionsController:(id)arg1 canShowSuggestion:(id)arg2 forAssetReference:(id)arg3;
 - (void)oneUpSuggestionsController:(id)arg1 didSelectSuggestion:(id)arg2 forAssetReference:(id)arg3;
 - (id)viewControllerForOneUpSuggestionsController:(id)arg1;
 - (struct CGRect)oneUpSuggestionsController:(id)arg1 frameForAssetReference:(id)arg2 inCoordinateSpace:(id)arg3;
@@ -306,6 +309,7 @@
 - (id)_assetViewModelAtIndexPath:(id)arg1 layout:(id)arg2;
 - (id)_currentAssetViewModel;
 - (id)_assetReferenceAtIndexPath:(id)arg1 layout:(id)arg2;
+- (double)px_imageModulationIntensity;
 - (double)px_HDRFocus;
 - (_Bool)_requireUnlockedDeviceForAccessoryView;
 - (id)_currentAccessoryViewController;

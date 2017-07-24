@@ -13,7 +13,7 @@
 #import <SpotlightUI/SearchUIResultViewTestingDelegate-Protocol.h>
 #import <SpotlightUI/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSArray, NSString, NSTimer, SPUILockScreenFooterView, SPUIResultViewController, SPUISearchFirstTimeViewController, SPUISearchHeader, UITableView, UIView, _UILegibilitySettings;
+@class NSArray, NSMutableSet, NSString, NSTimer, SPUILockScreenFooterView, SPUIResultViewController, SPUISearchFirstTimeViewController, SPUISearchHeader, UITableView, UIView, _UILegibilitySettings;
 @protocol SPUISearchViewControllerDelegate;
 
 @interface SPUISearchViewController : UIViewController <SPUISearchHeaderDelegate, SearchUIFirstTimeExperienceDelegate, SPUIResultViewDelegate, UIGestureRecognizerDelegate, SFFeedbackListener, SearchUIResultViewTestingDelegate>
@@ -26,6 +26,7 @@
     id <SPUISearchViewControllerDelegate> _delegate;
     _UILegibilitySettings *_legibilitySettings;
     SPUISearchHeader *_searchHeader;
+    NSMutableSet *_allHeaderViews;
     SPUISearchFirstTimeViewController *_firstTimeExperienceViewController;
     SPUIResultViewController *_searchResultViewController;
     SPUIResultViewController *_proactiveResultViewController;
@@ -51,6 +52,7 @@
 @property(retain) SPUIResultViewController *proactiveResultViewController; // @synthesize proactiveResultViewController=_proactiveResultViewController;
 @property(retain) SPUIResultViewController *searchResultViewController; // @synthesize searchResultViewController=_searchResultViewController;
 @property(retain) SPUISearchFirstTimeViewController *firstTimeExperienceViewController; // @synthesize firstTimeExperienceViewController=_firstTimeExperienceViewController;
+@property(retain) NSMutableSet *allHeaderViews; // @synthesize allHeaderViews=_allHeaderViews;
 @property(retain) SPUISearchHeader *searchHeader; // @synthesize searchHeader=_searchHeader;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property(nonatomic) __weak id <SPUISearchViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -62,11 +64,12 @@
 - (void)didSwipeUpOnTableView;
 - (void)cancelButtonPressed;
 - (_Bool)queryIsPresent;
+- (void)dictationButtonPressed;
 - (void)didBeginEditing;
 - (_Bool)isVisible;
 - (_Bool)allowInternet;
 - (void)didUpdateFromResults;
-- (void)queryContextDidChange:(id)arg1 allowZKW:(_Bool)arg2;
+- (void)queryContextDidChange:(id)arg1 fromSearchHeader:(id)arg2 allowZKW:(_Bool)arg3;
 - (void)performTestBlock:(CDUnknownBlockType)arg1 waitingForNotificationNamed:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)popToSpotlight;
 - (void)scrollScrollView:(id)arg1 iterations:(unsigned long long)arg2 initiation:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
@@ -79,11 +82,11 @@
 - (void)firstTimeExperienceContinueButtonPressed;
 - (void)activateFirstTimeExperienceViewAnimate:(_Bool)arg1;
 - (void)activateFirstTimeExperienceViewIfNecessary;
-- (void)hideSeparator;
 - (void)activateViewController:(id)arg1 animate:(_Bool)arg2;
 - (void)viewDidLayoutSubviews;
 - (id)activeViewController;
-- (id)currentQuery;
+- (void)didUpdateContentScrolledOffScreenStatus:(_Bool)arg1 animated:(_Bool)arg2;
+@property(readonly) NSString *currentQuery;
 - (id)contentScrollView;
 - (void)didChangeExpansionStateForSection:(id)arg1 expanded:(_Bool)arg2;
 - (_Bool)sectionShouldBeExpanded:(id)arg1;
@@ -105,6 +108,8 @@
 - (void)performSearchWithQuery:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)didEngageResult:(id)arg1;
+- (void)updateHeaderViewsWithBlock:(CDUnknownBlockType)arg1;
+- (id)createAdditionalHeaderView;
 @property(readonly, nonatomic) UIView *headerView;
 - (void)dealloc;
 - (id)init;

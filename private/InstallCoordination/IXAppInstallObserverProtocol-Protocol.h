@@ -13,6 +13,7 @@
 - (oneway void)_client_coordinatorWithSeed:(IXAppInstallCoordinatorSeed *)arg1 remoteProxy:(id <IXSCoordinatedAppInstallProxy>)arg2 didCancelWithReason:(NSError *)arg3 client:(unsigned long long)arg4;
 - (oneway void)_client_coordinatorDidCompleteSuccessfullyWithSeed:(IXAppInstallCoordinatorSeed *)arg1 remoteProxy:(id <IXSCoordinatedAppInstallProxy>)arg2;
 - (oneway void)_client_coordinatorDidInstallPlaceholderWithSeed:(IXAppInstallCoordinatorSeed *)arg1 remoteProxy:(id <IXSCoordinatedAppInstallProxy>)arg2;
+- (oneway void)_client_coordinatorShouldBeginRestoringUserDataWithSeed:(IXAppInstallCoordinatorSeed *)arg1 remoteProxy:(id <IXSCoordinatedAppInstallProxy>)arg2;
 - (oneway void)_client_coordinatorWithSeed:(IXAppInstallCoordinatorSeed *)arg1 remoteProxy:(id <IXSCoordinatedAppInstallProxy>)arg2 configuredPromiseDidBeginFulfillment:(unsigned long long)arg3;
 - (oneway void)_client_coordinatorShouldPauseWithSeed:(IXAppInstallCoordinatorSeed *)arg1 remoteProxy:(id <IXSCoordinatedAppInstallProxy>)arg2;
 - (oneway void)_client_coordinatorShouldResumeWithSeed:(IXAppInstallCoordinatorSeed *)arg1 remoteProxy:(id <IXSCoordinatedAppInstallProxy>)arg2;

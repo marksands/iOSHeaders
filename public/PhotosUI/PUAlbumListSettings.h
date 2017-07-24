@@ -13,10 +13,12 @@ __attribute__((visibility("hidden")))
     _Bool _allowPeopleAlbum;
     _Bool _allowScenesAlbum;
     _Bool _allowMemoriesAlbum;
+    _Bool _allowNavigationTitleEditing;
 }
 
 + (id)settingsControllerModule;
 + (id)sharedInstance;
+@property(nonatomic) _Bool allowNavigationTitleEditing; // @synthesize allowNavigationTitleEditing=_allowNavigationTitleEditing;
 @property(nonatomic) _Bool allowMemoriesAlbum; // @synthesize allowMemoriesAlbum=_allowMemoriesAlbum;
 @property(nonatomic) _Bool allowScenesAlbum; // @synthesize allowScenesAlbum=_allowScenesAlbum;
 @property(nonatomic) _Bool allowPeopleAlbum; // @synthesize allowPeopleAlbum=_allowPeopleAlbum;

@@ -38,14 +38,12 @@
     id __videoWillPlayToPhotoObserver;
     ISPlayerState *_lastAppliedLayoutInfo;
     ISPlayerOutputContent *__outputContent;
-    NSString *_playbackStyleIdentifier;
     double _lastAppliedScale;
     CDStruct_1b6d18a9 __videoForwardPlaybackEndTime;
 }
 
 @property(nonatomic, setter=_setVideoForwardPlaybackEndTime:) CDStruct_1b6d18a9 _videoForwardPlaybackEndTime; // @synthesize _videoForwardPlaybackEndTime=__videoForwardPlaybackEndTime;
 @property(nonatomic, setter=_setLastAppliedScale:) double lastAppliedScale; // @synthesize lastAppliedScale=_lastAppliedScale;
-@property(copy, nonatomic, setter=_setPlaybackStyleIdentifier:) NSString *playbackStyleIdentifier; // @synthesize playbackStyleIdentifier=_playbackStyleIdentifier;
 @property(retain, nonatomic, setter=_setOutputContent:) ISPlayerOutputContent *_outputContent; // @synthesize _outputContent=__outputContent;
 @property(retain, nonatomic, setter=_setLastAppliedLayoutInfo:) ISPlayerState *lastAppliedLayoutInfo; // @synthesize lastAppliedLayoutInfo=_lastAppliedLayoutInfo;
 @property(retain, nonatomic, setter=_setVideoWillPlayToPhotoObserver:) id _videoWillPlayToPhotoObserver; // @synthesize _videoWillPlayToPhotoObserver=__videoWillPlayToPhotoObserver;
@@ -104,7 +102,6 @@
 - (void)_videoDidPlayToEnd;
 - (void)willRemoveOutput:(id)arg1;
 - (void)didAddOutput:(id)arg1;
-- (void)playbackStyleIdentifierDidChange;
 - (void)removeOutput:(id)arg1;
 - (void)addOutput:(id)arg1;
 - (void)activeBehaviorDidChange;

@@ -6,15 +6,10 @@
 
 #import <NotesUI/ICAttachmentActivityItemSource.h>
 
-@class NSURL;
-
 @interface ICAttachmentGalleryActivityItemSource : ICAttachmentActivityItemSource
 {
-    NSURL *_temporaryURL;
 }
 
-@property(copy, nonatomic) NSURL *temporaryURL; // @synthesize temporaryURL=_temporaryURL;
-- (void).cxx_destruct;
 - (id)activityViewController:(id)arg1 itemForActivityType:(id)arg2;
 - (id)activityViewController:(id)arg1 attachmentNameForActivityType:(id)arg2;
 - (id)activityViewController:(id)arg1 dataTypeIdentifierForActivityType:(id)arg2;

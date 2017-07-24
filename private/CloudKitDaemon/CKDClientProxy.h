@@ -17,8 +17,6 @@
     _Bool _sandboxed;
     _Bool _canUsePackages;
     _Bool _canOpenByID;
-    _Bool _canUseCKDuringBuddy;
-    _Bool _canUseCKBeforeFirstUnlock;
     _Bool _holdAllOperations;
     _Bool _hasFakeEntitlements;
     int _pid;
@@ -57,8 +55,6 @@
 @property(retain, nonatomic) CKWatchdog *watchdog; // @synthesize watchdog=_watchdog;
 @property(retain, nonatomic) NSMutableSet *pendingOperationIDs; // @synthesize pendingOperationIDs=_pendingOperationIDs;
 @property(nonatomic) _Bool holdAllOperations; // @synthesize holdAllOperations=_holdAllOperations;
-@property(nonatomic) _Bool canUseCKBeforeFirstUnlock; // @synthesize canUseCKBeforeFirstUnlock=_canUseCKBeforeFirstUnlock;
-@property(nonatomic) _Bool canUseCKDuringBuddy; // @synthesize canUseCKDuringBuddy=_canUseCKDuringBuddy;
 @property(nonatomic) _Bool canOpenByID; // @synthesize canOpenByID=_canOpenByID;
 @property(nonatomic) _Bool canUsePackages; // @synthesize canUsePackages=_canUsePackages;
 @property(retain, nonatomic) NSMutableArray *pendingContexts; // @synthesize pendingContexts=_pendingContexts;
@@ -161,11 +157,12 @@
 - (void)performDiscoverUserIdentitiesOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)fetchAllLongLivedOperationIDsWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchLongLivedOperationsWithIDs:(id)arg1 setupInfo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)getFileMetadataWithFileHandle:(id)arg1 openInfo:(id)arg2 error:(id *)arg3;
 - (id)openFileWithOpenInfo:(id)arg1 error:(id *)arg2;
 - (void)handleCheckpointForOperationWithID:(id)arg1 withArguments:(id)arg2;
-- (void)_handleCompletionForOperationWithID:(id)arg1 isLongLived:(_Bool)arg2 withResult:(id)arg3 block:(CDUnknownBlockType)arg4;
 - (void)_handleCompletionForOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)_handleProgressForOperationWithID:(id)arg1 withArguments:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_handleStatisticsForOperation:(id)arg1 withArguments:(id)arg2;
 - (void)_handleProgressForOperation:(id)arg1 withArguments:(id)arg2;
 - (void)_handleProgressForOperation:(id)arg1 withArguments:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)requestApplicationPermission:(unsigned long long)arg1 setupInfo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -180,7 +177,6 @@
 - (void)_addOperationWithOperationInfo:(id)arg1 factoryBlock:(CDUnknownBlockType)arg2;
 - (_Bool)_isConnectionAuthorizedForOperation:(id)arg1 error:(id *)arg2;
 - (_Bool)darkWakeEnabledEntitlement;
-- (_Bool)usePublicTokenEntitlement;
 - (id)apsEnvironmentEntitlement;
 - (id)_clientPrefixEntitlement;
 - (id)applicationIdentifier;
@@ -188,7 +184,6 @@
 - (_Bool)hasDisplaysSystemAcceptPromptEntitlement;
 - (_Bool)hasParticipantPIIEntitlement;
 - (_Bool)hasOutOfProcessUIEntitlement;
-- (_Bool)hasAllowAccessBeforeFirstUnlockSinceBootEntitlement;
 - (_Bool)hasLightweightPCSEntitlement;
 - (_Bool)hasAllowAccessDuringBuddyEntitlement;
 - (_Bool)hasDarkWakeNetworkReachabilityEnabledEntitlement;

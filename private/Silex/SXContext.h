@@ -6,15 +6,15 @@
 
 #import <objc/NSObject.h>
 
-@class SXAdController, SXDocumentController, SXEmbedController, SXEventCenter, SXHost;
-@protocol SXPresentationDelegate, SXReachabilityProvider, SXResourceDataSource, SXTextComponentLayoutHosting;
+@class SXAdController, SXDocumentController, SXEmbedController, SXHost;
+@protocol SXPresentationDelegate, SXReachabilityProvider, SXResourceDataSource, SXTextComponentLayoutHosting, SXTextContentProvider;
 
 @interface SXContext : NSObject
 {
     SXHost *_host;
     SXDocumentController *_documentController;
+    id <SXTextContentProvider> _textContentProvider;
     SXAdController *_adController;
-    SXEventCenter *_eventCenter;
     SXEmbedController *_embedController;
     id <SXReachabilityProvider> _reachabilityProvider;
     id <SXResourceDataSource> _resourceDataSource;
@@ -28,8 +28,8 @@
 @property(readonly, nonatomic) __weak id <SXResourceDataSource> resourceDataSource; // @synthesize resourceDataSource=_resourceDataSource;
 @property(retain, nonatomic) id <SXReachabilityProvider> reachabilityProvider; // @synthesize reachabilityProvider=_reachabilityProvider;
 @property(readonly, nonatomic) SXEmbedController *embedController; // @synthesize embedController=_embedController;
-@property(readonly, nonatomic) SXEventCenter *eventCenter; // @synthesize eventCenter=_eventCenter;
 @property(readonly, nonatomic) SXAdController *adController; // @synthesize adController=_adController;
+@property(readonly, nonatomic) id <SXTextContentProvider> textContentProvider; // @synthesize textContentProvider=_textContentProvider;
 @property(readonly, nonatomic) SXDocumentController *documentController; // @synthesize documentController=_documentController;
 @property(readonly, nonatomic) SXHost *host; // @synthesize host=_host;
 - (void).cxx_destruct;

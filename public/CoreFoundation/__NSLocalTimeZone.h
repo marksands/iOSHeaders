@@ -12,9 +12,6 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)supportsSecureCoding;
-- (unsigned long long)retainCount;
-- (oneway void)release;
-- (id)retain;
 - (id)replacementObjectForPortCoder:(id)arg1;
 - (Class)classForCoder;
 - (void)encodeWithCoder:(id)arg1;

@@ -33,6 +33,7 @@
 - (id)_newSuggestionSection;
 @property(readonly) SFSearchResult *actualSearchSuggestionResult;
 - (void)searchAgentClearedResults:(id)arg1;
+- (void)_truncateResultsSectionToFit;
 - (void)searchAgentUpdatedResults:(id)arg1;
 - (_Bool)isResultOriginalSearchSuggestion:(id)arg1;
 - (id)initWithSearchModel:(id)arg1;

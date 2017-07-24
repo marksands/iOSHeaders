@@ -6,65 +6,72 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPClientSession-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSArray, NSData, NSDictionary, NSString;
 
-@interface _CPClientSession : PBCodable <NSCopying>
+@interface _CPClientSession : PBCodable <_CPClientSession, NSSecureCoding>
 {
-    double _sessionStartSince1970;
-    NSString *_agent;
-    NSMutableArray *_cpResourceVersions;
-    int _previousSessionEndReason;
-    NSMutableArray *_sessionFeedbacks;
-    NSString *_userGuidString;
-    NSString *_version;
-    _Bool _firstUseOfTheDay;
-    _Bool _removeTimestamps;
     struct {
-        unsigned int sessionStartSince1970:1;
+        unsigned int sessionStart:1;
+        unsigned int previousSessionEndReason:1;
         unsigned int firstUseOfTheDay:1;
+        unsigned int firstUseDate:1;
         unsigned int removeTimestamps:1;
     } _has;
+    _Bool _firstUseOfTheDay;
+    _Bool _removeTimestamps;
+    int _previousSessionEndReason;
+    NSString *_agent;
+    NSString *_userGuidString;
+    NSDictionary *_resourceVersions;
+    double _sessionStart;
+    double _firstUseDate;
+    NSString *_version;
+    NSArray *_feedbacks;
 }
 
-+ (Class)sessionFeedbacksType;
-+ (Class)cpResourceVersionType;
+@property(copy, nonatomic) NSArray *feedbacks; // @synthesize feedbacks=_feedbacks;
+@property(copy, nonatomic) NSString *version; // @synthesize version=_version;
 @property(nonatomic) _Bool removeTimestamps; // @synthesize removeTimestamps=_removeTimestamps;
-@property(retain, nonatomic) NSMutableArray *sessionFeedbacks; // @synthesize sessionFeedbacks=_sessionFeedbacks;
-@property(retain, nonatomic) NSString *version; // @synthesize version=_version;
-@property(retain, nonatomic) NSMutableArray *cpResourceVersions; // @synthesize cpResourceVersions=_cpResourceVersions;
-@property(nonatomic) int previousSessionEndReason; // @synthesize previousSessionEndReason=_previousSessionEndReason;
-@property(nonatomic) double sessionStartSince1970; // @synthesize sessionStartSince1970=_sessionStartSince1970;
-@property(retain, nonatomic) NSString *userGuidString; // @synthesize userGuidString=_userGuidString;
-@property(retain, nonatomic) NSString *agent; // @synthesize agent=_agent;
+@property(nonatomic) double firstUseDate; // @synthesize firstUseDate=_firstUseDate;
 @property(nonatomic) _Bool firstUseOfTheDay; // @synthesize firstUseOfTheDay=_firstUseOfTheDay;
+@property(nonatomic) int previousSessionEndReason; // @synthesize previousSessionEndReason=_previousSessionEndReason;
+@property(nonatomic) double sessionStart; // @synthesize sessionStart=_sessionStart;
+@property(copy, nonatomic) NSDictionary *resourceVersions; // @synthesize resourceVersions=_resourceVersions;
+@property(copy, nonatomic) NSString *userGuidString; // @synthesize userGuidString=_userGuidString;
+@property(copy, nonatomic) NSString *agent; // @synthesize agent=_agent;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-@property(nonatomic) _Bool hasRemoveTimestamps;
-- (id)sessionFeedbacksAtIndex:(unsigned long long)arg1;
-- (unsigned long long)sessionFeedbacksCount;
-- (void)addSessionFeedbacks:(id)arg1;
-- (void)clearSessionFeedbacks;
+- (id)feedbackAtIndex:(unsigned long long)arg1;
+- (unsigned long long)feedbackCount;
+- (void)addFeedback:(id)arg1;
+- (void)clearFeedback;
+- (void)setFeedback:(id)arg1;
 @property(readonly, nonatomic) _Bool hasVersion;
-- (id)cpResourceVersionAtIndex:(unsigned long long)arg1;
-- (unsigned long long)cpResourceVersionsCount;
-- (void)addCpResourceVersion:(id)arg1;
-- (void)clearCpResourceVersions;
-- (int)StringAsPreviousSessionEndReason:(id)arg1;
-- (id)previousSessionEndReasonAsString:(int)arg1;
-@property(nonatomic) _Bool hasSessionStartSince1970;
+@property(readonly, nonatomic) _Bool hasRemoveTimestamps;
+@property(readonly, nonatomic) _Bool hasFirstUseDate;
+@property(readonly, nonatomic) _Bool hasFirstUseOfTheDay;
+@property(readonly, nonatomic) _Bool hasPreviousSessionEndReason;
+@property(readonly, nonatomic) _Bool hasSessionStart;
+- (void)setResourceVersions:(id)arg1 forKey:(id)arg2;
+- (_Bool)getResourceVersions:(id *)arg1 forKey:(id)arg2;
 @property(readonly, nonatomic) _Bool hasUserGuidString;
 @property(readonly, nonatomic) _Bool hasAgent;
-@property(nonatomic) _Bool hasFirstUseOfTheDay;
+- (_Bool)requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

@@ -29,6 +29,7 @@
 - (id)_grandSlamAccount;
 - (id)_accountStore;
 - (id)_account;
+- (void)renewCredentialsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_urlForEventType:(id)arg1;
 - (id)requestForEventType:(id)arg1;
 - (void)addPayload:(id)arg1 toRequest:(id)arg2;

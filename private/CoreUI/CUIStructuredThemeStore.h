@@ -20,6 +20,7 @@
     unsigned long long _themeIndex;
     NSString *_bundleID;
     NSCache *_namedRenditionKeyCache;
+    CDUnknownFunctionPointerType _attributePresent;
 }
 
 - (void)clearRenditionCache;

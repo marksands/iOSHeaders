@@ -17,6 +17,7 @@
 {
     _Bool _representativeIcon;
     _Bool _needsUpdate;
+    unsigned int _qos_queue;
     DOCThumbnailCache *_cache;
     double _scale;
     id <DOCThumbnail> _fallback;
@@ -28,6 +29,7 @@
     struct CGSize _size;
 }
 
+@property(readonly, nonatomic) unsigned int qos_queue; // @synthesize qos_queue=_qos_queue;
 @property(readonly, nonatomic) NSOperation *operation; // @synthesize operation=_operation;
 @property(readonly, nonatomic) UIImage *thumbnailImage; // @synthesize thumbnailImage=_thumbnailImage;
 @property(readonly, nonatomic) NSHashTable *listeners; // @synthesize listeners=_listeners;
@@ -55,7 +57,7 @@
 - (id)createOperationWithSize:(struct CGSize)arg1 scale:(double)arg2 style:(unsigned long long)arg3;
 - (void)kickstart;
 - (void)dealloc;
-- (id)initWithCache:(id)arg1 queueLabel:(const char *)arg2 size:(struct CGSize)arg3 scale:(double)arg4 fallback:(id)arg5 style:(unsigned long long)arg6;
+- (id)initWithCache:(id)arg1 queueLabel:(const char *)arg2 size:(struct CGSize)arg3 scale:(double)arg4 fallback:(id)arg5 style:(unsigned long long)arg6 qos:(unsigned int)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

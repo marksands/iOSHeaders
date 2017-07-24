@@ -10,7 +10,6 @@
 {
 }
 
-- (id)recordZoneName;
 - (id)initWithReferenceToChannelMembershipID:(id)arg1;
 
 @end

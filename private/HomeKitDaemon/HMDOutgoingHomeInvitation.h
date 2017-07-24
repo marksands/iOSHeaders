@@ -34,12 +34,12 @@
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (void)updateUserManagementOperations:(id)arg1;
 - (void)updateInvitationState:(long long)arg1;
+- (_Bool)refreshDisplayName;
 - (void)updateUser:(id)arg1;
 - (id)describeWithFormat;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(readonly, nonatomic) NSArray *accessoryInvitationsInformation;
-- (void)invitationRemovedDuringMerge;
 - (void)cancel;
 @property(readonly, nonatomic, getter=isComplete) _Bool complete;
 - (id)description;

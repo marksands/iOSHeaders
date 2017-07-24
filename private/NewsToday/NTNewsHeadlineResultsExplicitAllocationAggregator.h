@@ -14,6 +14,8 @@
 @interface NTNewsHeadlineResultsExplicitAllocationAggregator : NSObject <NTHeadlineResultsAggregator>
 {
     _Bool _allowLeadingCell;
+    _Bool _allowSectionTitles;
+    _Bool _respectMinMaxLimit;
     id <FCFeedPersonalizing> _feedPersonalizer;
     NTPBSectionSlotCostInfo *_nonVideoSectionSlotCostInfo;
     NTPBSectionSlotCostInfo *_videoSectionSlotCostInfo;
@@ -25,15 +27,17 @@
 @property(copy, nonatomic) NSObject<FCTodayPrivateData> *todayData; // @synthesize todayData=_todayData;
 @property(copy, nonatomic) NSDate *filterDate; // @synthesize filterDate=_filterDate;
 @property(nonatomic) double slotsLimit; // @synthesize slotsLimit=_slotsLimit;
+@property(nonatomic) _Bool respectMinMaxLimit; // @synthesize respectMinMaxLimit=_respectMinMaxLimit;
+@property(nonatomic) _Bool allowSectionTitles; // @synthesize allowSectionTitles=_allowSectionTitles;
 @property(nonatomic) _Bool allowLeadingCell; // @synthesize allowLeadingCell=_allowLeadingCell;
 @property(copy, nonatomic) NTPBSectionSlotCostInfo *videoSectionSlotCostInfo; // @synthesize videoSectionSlotCostInfo=_videoSectionSlotCostInfo;
 @property(copy, nonatomic) NTPBSectionSlotCostInfo *nonVideoSectionSlotCostInfo; // @synthesize nonVideoSectionSlotCostInfo=_nonVideoSectionSlotCostInfo;
 @property(retain, nonatomic) id <FCFeedPersonalizing> feedPersonalizer; // @synthesize feedPersonalizer=_feedPersonalizer;
 - (void).cxx_destruct;
 - (id)_sectionFilterTransformationWithDescriptor:(id)arg1 priorClusterIDsInOtherSections:(id)arg2 priorClusterIDsInSection:(id)arg3 otherArticleIDs:(id)arg4;
-- (id)_feedItemsForSection:(id)arg1 feedItems:(id)arg2 previouslyChosenItems:(id)arg3 allowLeadingCell:(_Bool)arg4 leadingCellArticleID:(id *)arg5 priorClusterIDsInOtherSections:(id)arg6 sectionFeedItemsLimit:(unsigned long long)arg7 otherArticleIDs:(id)arg8 remainingSlots:(double)arg9 slotsUsed:(double *)arg10;
+- (id)_feedItemsForSection:(id)arg1 feedItems:(id)arg2 previouslyChosenItems:(id)arg3 allowLeadingCell:(_Bool)arg4 leadingCellArticleID:(id *)arg5 priorClusterIDsInOtherSections:(id)arg6 sectionFeedItemsLimit:(unsigned long long)arg7 otherArticleIDs:(id)arg8 remainingSlots:(double)arg9 slotsUsed:(double *)arg10 noMoreFeedItemsToGive:(_Bool *)arg11 noRoomForMoreFeedItems:(_Bool *)arg12;
 - (id)aggregateSections:(id)arg1 feedItemsBySectionDescriptor:(id)arg2;
-- (id)initWithFeedPersonalizer:(id)arg1 nonVideoSectionSlotCostInfo:(id)arg2 videoSectionSlotCostInfo:(id)arg3 allowLeadingCell:(_Bool)arg4 filterDate:(id)arg5 todayData:(id)arg6 slotsLimit:(double)arg7;
+- (id)initWithFeedPersonalizer:(id)arg1 nonVideoSectionSlotCostInfo:(id)arg2 videoSectionSlotCostInfo:(id)arg3 allowLeadingCell:(_Bool)arg4 allowSectionTitles:(_Bool)arg5 respectMinMaxLimit:(_Bool)arg6 filterDate:(id)arg7 todayData:(id)arg8 slotsLimit:(double)arg9;
 - (id)init;
 
 // Remaining properties

@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AssistantUI/NSObject-Protocol.h>
+#import <AssistantUI/AFUISiriSessionListener-Protocol.h>
 
 @class AFDialogPhase, AFUISiriSession, SAUIDelayedActionCancelCommand, SAUIDelayedActionCommand;
 
-@protocol AFUISiriSessionLocalDelegate <NSObject>
+@protocol AFUISiriSessionLocalDelegate <AFUISiriSessionListener>
 - (void)siriSessionDidEnd:(AFUISiriSession *)arg1;
 - (void)siriSessionWillEnd:(AFUISiriSession *)arg1;
 - (_Bool)siriSessionCanEnd:(AFUISiriSession *)arg1;

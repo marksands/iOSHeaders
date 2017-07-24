@@ -8,7 +8,7 @@
 
 #import <PhotoVision/PVFaceClusteringProtocol-Protocol.h>
 
-@class CVMLRequestHandler, NSDate, NSLock, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSMutableSet, NSNumber, NSString, NSURL, PVCanceler, PVContext, PVDataAccessor, PVEventManager, PVQueue, PVSuggestionRequest;
+@class CVMLRequestHandler, NSDate, NSLock, NSMutableArray, NSMutableDictionary, NSMutableSet, NSNumber, NSSet, NSString, NSURL, PVCanceler, PVContext, PVDataAccessor, PVEventManager, PVQueue, PVSuggestionRequest;
 @protocol PVCVMLIntegrating;
 
 @interface PVClusterer : NSObject <PVFaceClusteringProtocol>
@@ -22,7 +22,7 @@
     NSString *_clusteringType;
     NSNumber *_threshold;
     CVMLRequestHandler *_requestHandler;
-    NSMutableIndexSet *_faceCSNsInClusterCache;
+    NSSet *_faceCSNsInClusterCache;
     unsigned long long _nextSeqNum;
     NSMutableSet *_faceIdStrsToAdd;
     NSMutableSet *_faceCSNsToRemove;
@@ -60,8 +60,7 @@
 - (id)_propertyDictionaryFileURL;
 - (id)clusterFaceIdsArrayForClusterid:(unsigned long long)arg1 error:(id *)arg2;
 - (_Bool)getClusters:(id *)arg1 threshold:(double *)arg2 utilizingGPU:(_Bool *)arg3 error:(id *)arg4;
-- (_Bool)_validateLibraryClustersWithCVMLClusters:(id)arg1 error:(id *)arg2;
-- (_Bool)isClusterCacheValid:(id *)arg1;
+- (id)differencesBetweenClustersInClusterCacheAndLibrary:(id *)arg1;
 - (_Bool)_processingQueueGetCVMLClusters:(id)arg1 minimumClusterSize:(unsigned long long)arg2 returnClusterAsMutableSet:(_Bool)arg3 error:(id *)arg4;
 - (void)_appendToClusterLog:(id)arg1;
 - (_Bool)cancelAllSuggestionRequests;
@@ -72,9 +71,8 @@
 - (void)_processingQueueRestoreClusterCache;
 - (_Bool)_processingQueueResetClusterCache;
 - (_Bool)_processingQueueCreateCluteringCacheWithCacheDirectoryURL:(id)arg1 clusterData:(id)arg2 threshold:(id)arg3 error:(id *)arg4;
-- (_Bool)saveClusterCache:(id *)arg1;
 - (_Bool)_processingQueueSaveClusterCache:(id *)arg1;
-- (id)_processingQueueGetFaceClusterSequenceNumbersInClusterCache:(id *)arg1;
+- (_Bool)_processingQueueGetFaceClusterSequenceNumbersInClusterCache:(id *)arg1 lastClusterSequenceNumber:(unsigned long long *)arg2 error:(id *)arg3;
 - (void)_processingQueueSyncClustererWithPhotoLibraryUsingFacesInClusterCache:(id)arg1 withCanceler:(id)arg2;
 - (void)_processingQueueQuickSyncClustererWithPhotoLibraryUsingFacesInClusterCache:(id)arg1 cvmlClusters:(id *)arg2 withCanceler:(id)arg3;
 - (void)_removeEmptyGroups;
@@ -89,7 +87,7 @@
 - (void)_recordClusterRebuildRequired:(_Bool)arg1;
 - (void)_recordClusteringState:(_Bool)arg1;
 - (void)cancelClustering;
-- (void)requestClusteringWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_cancelClusteringAndRestoreClusterCache:(_Bool)arg1;
 - (void)performClusteringWithCompletion:(CDUnknownBlockType)arg1;
 - (void)clusterAndWait;
 - (void)clusterIfNecessaryAndWait;

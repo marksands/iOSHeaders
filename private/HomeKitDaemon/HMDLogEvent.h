@@ -17,6 +17,7 @@
     unsigned long long _endTime;
 }
 
++ (id)stringForSource:(unsigned long long)arg1;
 @property(nonatomic) unsigned long long endTime; // @synthesize endTime=_endTime;
 @property(nonatomic) unsigned long long startTime; // @synthesize startTime=_startTime;
 @property(retain, nonatomic) NSError *eventError; // @synthesize eventError=_eventError;

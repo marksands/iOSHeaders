@@ -15,10 +15,14 @@
 
 + (id)sharedInstance;
 - (void).cxx_destruct;
+- (double)getTopicsMultiplierForSource:(id)arg1 andAlgorithm:(id)arg2;
 - (double)nonReaderTextWeight;
 - (double)halfValuePosition;
 - (id)portraitVariantName;
+- (int)maxNumberOfTopicRecords;
+- (int)minNumberOfTopicRecords;
 - (double)scalingFactorForMappingId:(id)arg1;
+- (double)remoteTopicsMultiplier;
 - (id)resourceForMappingId:(id)arg1;
 - (double)topicsSigmoidPeakValue;
 - (double)topicsScalingFactor;

@@ -8,14 +8,17 @@
 
 #import <PBBridgeSupport/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSData, NSMutableArray, NSString;
 
 @interface PBBProtoSendLanguageAndLocale : PBCodable <NSCopying>
 {
     NSMutableArray *_appleLanguages;
     NSString *_appleLocale;
+    NSData *_archivedPreferences;
 }
 
++ (Class)appleLanguagesType;
+@property(retain, nonatomic) NSData *archivedPreferences; // @synthesize archivedPreferences=_archivedPreferences;
 @property(retain, nonatomic) NSString *appleLocale; // @synthesize appleLocale=_appleLocale;
 @property(retain, nonatomic) NSMutableArray *appleLanguages; // @synthesize appleLanguages=_appleLanguages;
 - (void).cxx_destruct;
@@ -28,6 +31,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasArchivedPreferences;
 @property(readonly, nonatomic) _Bool hasAppleLocale;
 - (id)appleLanguagesAtIndex:(unsigned long long)arg1;
 - (unsigned long long)appleLanguagesCount;

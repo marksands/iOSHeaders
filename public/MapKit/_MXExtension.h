@@ -42,14 +42,11 @@
 - (_Bool)canSupportIntentClass:(Class)arg1;
 - (_Bool)canSupportIntent:(id)arg1;
 - (id)_loadImage:(id)arg1;
-- (void)_extensionContextHost:(id)arg1 wantsToCacheObject:(id)arg2;
-- (void)extensionContextHost:(id)arg1 wantsToCacheObject:(id)arg2;
-- (void)extensionContextHost:(id)arg1 wantsToCacheImage:(id)arg2;
+- (void)_loadCacheItems:(id)arg1;
 - (id)startSendingUpdatesForIntent:(id)arg1 toObserver:(id)arg2;
 - (id)handleIntent:(id)arg1 expectResponseClass:(Class)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (id)confirmIntent:(id)arg1 expectResponseClass:(Class)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (id)resolveIntentSlot:(id)arg1 forIntent:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (void)handleIntent:(id)arg1 expectResponseClass:(Class)arg2 completion:(CDUnknownBlockType)arg3;
 
 @end
 

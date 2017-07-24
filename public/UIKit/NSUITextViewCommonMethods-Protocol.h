@@ -7,7 +7,7 @@
 #import <UIKit/NSTextContainerView-Protocol.h>
 #import <UIKit/NSTextLayoutOrientationProvider-Protocol.h>
 
-@class NSTextContainer;
+@class NSDictionary, NSTextContainer;
 
 @protocol NSUITextViewCommonMethods <NSTextLayoutOrientationProvider, NSTextContainerView>
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1 avoidAdditionalLayout:(_Bool)arg2;
@@ -20,6 +20,7 @@
 - (struct CGRect)visibleRect;
 
 @optional
+@property(readonly, nonatomic) NSDictionary *markedTextStyle;
 @property(nonatomic) struct _NSRange markedRange;
 @property(nonatomic) __weak NSTextContainer *textContainer;
 @end

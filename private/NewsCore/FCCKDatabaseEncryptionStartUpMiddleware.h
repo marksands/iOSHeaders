@@ -20,12 +20,16 @@
 + (id)sentinelRecordID;
 @property(retain, nonatomic) id <FCCKDatabaseMigrator> encryptionMigrator; // @synthesize encryptionMigrator=_encryptionMigrator;
 - (void).cxx_destruct;
-- (void)_createSentinelsForDatabase:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_fetchSentinelsWithDatabase:(id)arg1 createIfMissing:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_handleIdentityLossWithDatabase:(id)arg1 sentinel:(id)arg2 secureSentinel:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (_Bool)_shouldHandleIdentityLossWithSentinel:(id)arg1 secureSentinel:(id)arg2 error:(id)arg3;
+- (_Bool)_shouldFailGracefullyWithSentinel:(id)arg1 secureSentinel:(id)arg2 error:(id)arg3;
+- (void)_createSentinelsIfNeededForDatabase:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_fetchSentinelsWithDatabase:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_adoptSentinel:(id)arg1 secureSentinel:(id)arg2 forDatabase:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)_postMigrationDeleteRecordIDs:(id)arg1 withSentinel:(id)arg2 secureSentinel:(id)arg3 database:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)_postMigrationDeleteZoneIDs:(id)arg1 recordIDs:(id)arg2 withSentinel:(id)arg3 secureSentinel:(id)arg4 database:(id)arg5 completion:(CDUnknownBlockType)arg6;
+- (_Bool)_deleteAfterMigration;
 - (void)_migrateWithSentinel:(id)arg1 secureSentinel:(id)arg2 database:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)_tryToEnableEncryptionForDatabase:(id)arg1 onlyIfPreviouslyEnabled:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_tryToEnableEncryptionForDatabase:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performStartUpForDatabase:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithEncryptionMigrator:(id)arg1;
 

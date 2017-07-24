@@ -27,7 +27,10 @@
 + (_Bool)metalBufferSanitizerEnabled;
 @property(readonly) NSObject<OS_dispatch_queue> *serialQueue; // @synthesize serialQueue=_serialQueue;
 @property(readonly) unsigned long long globalTraceObjectID; // @synthesize globalTraceObjectID=_globalTraceObjectID;
+- (id)newArgumentEncoderWithLayout:(id)arg1;
 - (id)newIndirectArgumentEncoderWithArguments:(id)arg1;
+- (id)newArgumentEncoderWithArguments:(id)arg1;
+- (id)newArgumentEncoderWithArguments:(id)arg1 structType:(id *)arg2;
 @property(readonly) struct IndirectArgumentBufferCapabilities indirectArgumentBufferCapabilities; // @dynamic indirectArgumentBufferCapabilities;
 - (void)getDefaultSamplePositions:(CDStruct_6e3f967a *)arg1 count:(unsigned long long)arg2;
 - (void)_purgeDevice;
@@ -132,6 +135,11 @@
 - (void)compilerPropagatesThreadPriority:(_Bool)arg1;
 - (void)_setDeviceWrapper:(id)arg1;
 @property(readonly) NSString *name;
+- (_Bool)isQuadDataSharingSupported;
+@property(readonly, getter=areRasterOrderGroupsSupported) _Bool rasterOrderGroupsSupported;
+@property(readonly) unsigned long long indirectArgumentBuffersSupport;
+@property(readonly) unsigned long long argumentBuffersSupport;
+@property(readonly) unsigned long long readWriteTextureSupport;
 - (id)newLibraryWithURL:(id)arg1 error:(id *)arg2;
 - (void)releaseCacheEntry:(struct MTLLibraryContainer *)arg1;
 - (id)newLibraryWithFile:(id)arg1 error:(id *)arg2;

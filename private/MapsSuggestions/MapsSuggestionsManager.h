@@ -95,7 +95,7 @@
 @property(readonly, nonatomic) NSString *uniqueName;
 - (void)updateLocation:(id)arg1;
 - (void)dealloc;
-- (id)initWithStrategy:(id)arg1 locationUpdater:(id)arg2;
+- (id)initWithStrategy:(id)arg1 locationUpdater:(id)arg2 fetchETA:(_Bool)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

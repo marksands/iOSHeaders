@@ -23,6 +23,7 @@
 }
 
 + (id)describeAlgorithm:(unsigned long long)arg1;
++ (id)allocWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) unsigned long long extractionAssetVersion; // @synthesize extractionAssetVersion=_extractionAssetVersion;
 @property(readonly, nonatomic) NSString *extractionOsBuild; // @synthesize extractionOsBuild=_extractionOsBuild;
 @property(readonly, nonatomic) double decayRate; // @synthesize decayRate=_decayRate;
@@ -30,9 +31,9 @@
 @property(readonly, nonatomic) unsigned long long algorithm; // @synthesize algorithm=_algorithm;
 @property(readonly, nonatomic) PPSource *source; // @synthesize source=_source;
 @property(readonly, nonatomic) PPNamedEntity *entity; // @synthesize entity=_entity;
-- (void).cxx_destruct;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
 
 @end
 

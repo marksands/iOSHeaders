@@ -25,6 +25,7 @@
 @property(nonatomic) _Bool internalOverrideTTYAvailability;
 @property(retain, nonatomic) NSString *preferredRelayNumber;
 @property(nonatomic) _Bool ttyShouldBeRealtime;
+@property(nonatomic) double lastDBVacuum;
 @property(nonatomic) double lastCallCountReset;
 @property(nonatomic) long long outgoingTTYCallCount;
 @property(nonatomic) long long incomingTTYCallCount;

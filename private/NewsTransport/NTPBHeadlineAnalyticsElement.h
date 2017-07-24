@@ -15,6 +15,7 @@
     long long _articleVersion;
     NSString *_articleID;
     NSString *_channelID;
+    NSString *_preseenCountTrackingIdentifier;
     _Bool _needsSeenStateTracking;
     struct {
         unsigned int articleVersion:1;
@@ -22,6 +23,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *preseenCountTrackingIdentifier; // @synthesize preseenCountTrackingIdentifier=_preseenCountTrackingIdentifier;
 @property(retain, nonatomic) NSString *channelID; // @synthesize channelID=_channelID;
 @property(nonatomic) _Bool needsSeenStateTracking; // @synthesize needsSeenStateTracking=_needsSeenStateTracking;
 @property(nonatomic) long long articleVersion; // @synthesize articleVersion=_articleVersion;
@@ -35,6 +37,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasPreseenCountTrackingIdentifier;
 @property(readonly, nonatomic) _Bool hasChannelID;
 @property(nonatomic) _Bool hasNeedsSeenStateTracking;
 @property(nonatomic) _Bool hasArticleVersion;

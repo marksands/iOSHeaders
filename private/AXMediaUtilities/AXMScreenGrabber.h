@@ -10,7 +10,7 @@
 {
 }
 
-- (id)grabScreenWithRect:(struct CGRect)arg1 orientation:(long long)arg2 error:(id *)arg3;
+- (id)grabScreenWithRect:(struct CGRect)arg1 orientation:(long long)arg2 renderToPixelBufferNow:(_Bool)arg3 error:(id *)arg4;
 - (id)init;
 
 @end

@@ -29,6 +29,7 @@
     NSMutableArray *_serviceTags;
     NSData *_sessionState;
     GEOTFTrafficSnapshot *_trafficSnapshot;
+    NSData *_tripID;
     _Bool _includeBetterRouteSuggestion;
     _Bool _needServerLatency;
     _Bool _useClientTimepointAsNow;
@@ -50,6 +51,7 @@
 + (Class)destinationWaypointTypedType;
 + (Class)routeType;
 @property(retain, nonatomic) NSMutableArray *serviceTags; // @synthesize serviceTags=_serviceTags;
+@property(retain, nonatomic) NSData *tripID; // @synthesize tripID=_tripID;
 @property(retain, nonatomic) GEOPDABClientDatasetMetadata *abClientMetadata; // @synthesize abClientMetadata=_abClientMetadata;
 @property(retain, nonatomic) GEOCommonOptions *commonOptions; // @synthesize commonOptions=_commonOptions;
 @property(retain, nonatomic) NSData *sessionState; // @synthesize sessionState=_sessionState;
@@ -78,6 +80,7 @@
 - (unsigned long long)serviceTagsCount;
 - (void)addServiceTag:(id)arg1;
 - (void)clearServiceTags;
+@property(readonly, nonatomic) _Bool hasTripID;
 @property(nonatomic) _Bool hasMaxAlternateRouteCount;
 @property(nonatomic) unsigned int maxAlternateRouteCount; // @synthesize maxAlternateRouteCount=_maxAlternateRouteCount;
 @property(readonly, nonatomic) _Bool hasAbClientMetadata;

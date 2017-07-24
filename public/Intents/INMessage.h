@@ -11,7 +11,7 @@
 #import <Intents/NSCopying-Protocol.h>
 #import <Intents/NSSecureCoding-Protocol.h>
 
-@class INPerson, NSArray, NSDate, NSNumber, NSString;
+@class INPerson, INSpeakableString, NSArray, NSDate, NSNumber, NSString;
 
 @interface INMessage : NSObject <INCacheableContainer, INMessageExport, NSCopying, NSSecureCoding>
 {
@@ -21,6 +21,7 @@
     NSDate *_dateSent;
     INPerson *_sender;
     NSArray *_recipients;
+    INSpeakableString *_groupName;
     long long _messageType;
     NSDate *_dateMessageWasLastRead;
     NSNumber *_numberOfAttachments;
@@ -32,6 +33,7 @@
 @property(readonly, copy, nonatomic) NSNumber *numberOfAttachments; // @synthesize numberOfAttachments=_numberOfAttachments;
 @property(readonly, copy, nonatomic) NSDate *dateMessageWasLastRead; // @synthesize dateMessageWasLastRead=_dateMessageWasLastRead;
 @property(readonly, nonatomic) long long messageType; // @synthesize messageType=_messageType;
+@property(readonly, copy, nonatomic) INSpeakableString *groupName; // @synthesize groupName=_groupName;
 @property(readonly, copy, nonatomic) NSArray *recipients; // @synthesize recipients=_recipients;
 @property(readonly, copy, nonatomic) INPerson *sender; // @synthesize sender=_sender;
 @property(readonly, copy, nonatomic) NSDate *dateSent; // @synthesize dateSent=_dateSent;
@@ -40,6 +42,7 @@
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
@@ -49,6 +52,8 @@
 - (id)initWithIdentifier:(id)arg1 content:(id)arg2 dateSent:(id)arg3 sender:(id)arg4 recipients:(id)arg5;
 - (id)initWithIdentifier:(id)arg1 conversationIdentifier:(id)arg2 content:(id)arg3 dateSent:(id)arg4 sender:(id)arg5 recipients:(id)arg6 messageType:(long long)arg7;
 - (id)initWithIdentifier:(id)arg1 conversationIdentifier:(id)arg2 content:(id)arg3 dateSent:(id)arg4 sender:(id)arg5 recipients:(id)arg6 dateMessageWasLastRead:(id)arg7 numberOfAttachments:(id)arg8 messageType:(long long)arg9 messageEffectType:(long long)arg10;
+- (id)initWithIdentifier:(id)arg1 conversationIdentifier:(id)arg2 content:(id)arg3 dateSent:(id)arg4 sender:(id)arg5 recipients:(id)arg6 groupName:(id)arg7 messageType:(long long)arg8;
+- (id)initWithIdentifier:(id)arg1 conversationIdentifier:(id)arg2 content:(id)arg3 dateSent:(id)arg4 sender:(id)arg5 recipients:(id)arg6 groupName:(id)arg7 dateMessageWasLastRead:(id)arg8 numberOfAttachments:(id)arg9 messageType:(long long)arg10 messageEffectType:(long long)arg11;
 - (id)cacheableObjects;
 
 // Remaining properties

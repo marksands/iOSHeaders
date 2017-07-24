@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class PDFDocument, PDFPageView, PDFPageViewController, PDFRenderingProperties, PDFView, PageImagePool, UIScrollView;
+@class PDFDocument, PDFPageBackgroundManager, PDFPageViewController, PDFRenderingProperties, PDFView, UIScrollView;
 
 __attribute__((visibility("hidden")))
 @interface PDFDocumentViewControllerPrivate : NSObject
@@ -15,12 +15,10 @@ __attribute__((visibility("hidden")))
     PDFDocument *document;
     PDFRenderingProperties *renderingProperties;
     PDFPageViewController *activePageView;
-    PageImagePool *pageImagePool;
+    PDFPageBackgroundManager *pageBackgroundManager;
     double minScale;
     double maxScale;
     _Bool displaysRTL;
-    struct CGRect delayedCoachMarkFrame;
-    PDFPageView *delayedCoachMarkPageView;
     UIScrollView *scrollView;
     _Bool showTextSelectionHandles;
 }

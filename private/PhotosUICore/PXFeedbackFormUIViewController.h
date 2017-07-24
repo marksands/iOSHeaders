@@ -8,17 +8,20 @@
 
 #import <PhotosUICore/UITableViewDataSource-Protocol.h>
 #import <PhotosUICore/UITableViewDelegate-Protocol.h>
+#import <PhotosUICore/UITextViewDelegate-Protocol.h>
 
-@class NSArray, NSMutableDictionary, NSString, UITableViewController;
+@class NSArray, NSMutableDictionary, NSString, UITableViewController, UITextView;
 @protocol PXFeedbackFormDelegate;
 
-@interface PXFeedbackFormUIViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface PXFeedbackFormUIViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 {
     _Bool _userLikedIt;
+    _Bool _wantsCustomFeedbackSection;
     NSArray *_positiveFeedbackKeys;
     NSMutableDictionary *_positiveFeedbackValues;
     NSArray *_negativeFeedbackKeys;
     NSMutableDictionary *_negativeFeedbackValues;
+    UITextView *_customFeedbackTextView;
     UITableViewController *_tableViewController;
     id <PXFeedbackFormDelegate> _delegate;
 }
@@ -30,6 +33,8 @@
 - (id)_feedbackKeyForIndexPath:(id)arg1;
 - (void)_setSelectionStateForKey:(id)arg1 inSection:(long long)arg2 to:(_Bool)arg3;
 - (_Bool)_isSelectedRow:(id)arg1 inSection:(long long)arg2;
+- (void)_handleDoneButtonWasPressedOnCustomFeedbackView;
+- (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
@@ -38,7 +43,7 @@
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)sendFeedback:(id)arg1;
 - (void)viewDidLoad;
-- (id)initWithDelegate:(id)arg1 positiveKeys:(id)arg2 negativeKeys:(id)arg3;
+- (id)initWithDelegate:(id)arg1 positiveKeys:(id)arg2 negativeKeys:(id)arg3 wantsCustomFeedbackSection:(_Bool)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

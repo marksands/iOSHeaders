@@ -6,7 +6,7 @@
 
 #import <CoreData/NSManagedObject.h>
 
-@class NSData, NSDate, NSNumber, NSSet, NSString;
+@class NSData, NSDate, NSNumber, NSSet, NSString, NSURL;
 
 @interface _DKStructuredMetadataMO : NSManagedObject
 {
@@ -15,6 +15,13 @@
 + (id)fetchRequest;
 
 // Remaining properties
+@property(copy, nonatomic) NSString *_CDEntityMetadataKey__bestLanguage; // @dynamic _CDEntityMetadataKey__bestLanguage;
+@property(copy, nonatomic) NSString *_CDEntityMetadataKey__name; // @dynamic _CDEntityMetadataKey__name;
+@property(nonatomic) short _CDPortraitMetadataKey__algorithm; // @dynamic _CDPortraitMetadataKey__algorithm;
+@property(nonatomic) short _CDPortraitMetadataKey__assetVersion; // @dynamic _CDPortraitMetadataKey__assetVersion;
+@property(nonatomic) double _CDPortraitMetadataKey__decayRate; // @dynamic _CDPortraitMetadataKey__decayRate;
+@property(copy, nonatomic) NSString *_CDPortraitMetadataKey__osBuild; // @dynamic _CDPortraitMetadataKey__osBuild;
+@property(nonatomic) double _CDPortraitMetadataKey__score; // @dynamic _CDPortraitMetadataKey__score;
 @property(copy, nonatomic) NSNumber *_DKAppInstallMetadataKey__isInstall; // @dynamic _DKAppInstallMetadataKey__isInstall;
 @property(copy, nonatomic) NSString *_DKAppInstallMetadataKey__primaryCategory; // @dynamic _DKAppInstallMetadataKey__primaryCategory;
 @property(retain, nonatomic) NSData *_DKAppInstallMetadataKey__subCategories; // @dynamic _DKAppInstallMetadataKey__subCategories;
@@ -23,7 +30,7 @@
 @property(copy, nonatomic) NSDate *_DKApplicationActivityMetadataKey__expirationDate; // @dynamic _DKApplicationActivityMetadataKey__expirationDate;
 @property(copy, nonatomic) NSNumber *_DKApplicationActivityMetadataKey__isPubliclyIndexable; // @dynamic _DKApplicationActivityMetadataKey__isPubliclyIndexable;
 @property(copy, nonatomic) NSString *_DKApplicationActivityMetadataKey__itemIdentifier; // @dynamic _DKApplicationActivityMetadataKey__itemIdentifier;
-@property(copy, nonatomic) NSString *_DKApplicationActivityMetadataKey__itemRelatedContentURL; // @dynamic _DKApplicationActivityMetadataKey__itemRelatedContentURL;
+@property(copy, nonatomic) NSURL *_DKApplicationActivityMetadataKey__itemRelatedContentURL; // @dynamic _DKApplicationActivityMetadataKey__itemRelatedContentURL;
 @property(copy, nonatomic) NSString *_DKApplicationActivityMetadataKey__itemRelatedUniqueIdentifier; // @dynamic _DKApplicationActivityMetadataKey__itemRelatedUniqueIdentifier;
 @property(copy, nonatomic) NSString *_DKApplicationActivityMetadataKey__title; // @dynamic _DKApplicationActivityMetadataKey__title;
 @property(copy, nonatomic) NSString *_DKApplicationMetadataKey__backboardState; // @dynamic _DKApplicationMetadataKey__backboardState;
@@ -39,6 +46,7 @@
 @property(copy, nonatomic) NSString *_DKAudioMetadataKey__preferredDataSource; // @dynamic _DKAudioMetadataKey__preferredDataSource;
 @property(copy, nonatomic) NSNumber *_DKAudioMetadataKey__routeChangeReason; // @dynamic _DKAudioMetadataKey__routeChangeReason;
 @property(copy, nonatomic) NSString *_DKAudioMetadataKey__selectedDataSource; // @dynamic _DKAudioMetadataKey__selectedDataSource;
+@property(copy, nonatomic) NSString *_DKBatterySaverMetadataKey__source; // @dynamic _DKBatterySaverMetadataKey__source;
 @property(copy, nonatomic) NSString *_DKBluetoothMetadataKey__address; // @dynamic _DKBluetoothMetadataKey__address;
 @property(copy, nonatomic) NSNumber *_DKBluetoothMetadataKey__deviceType; // @dynamic _DKBluetoothMetadataKey__deviceType;
 @property(copy, nonatomic) NSString *_DKBluetoothMetadataKey__name; // @dynamic _DKBluetoothMetadataKey__name;
@@ -97,7 +105,7 @@
 @property(copy, nonatomic) NSNumber *_DKNowPlayingMetadataKey__elapsed; // @dynamic _DKNowPlayingMetadataKey__elapsed;
 @property(copy, nonatomic) NSString *_DKNowPlayingMetadataKey__genre; // @dynamic _DKNowPlayingMetadataKey__genre;
 @property(copy, nonatomic) NSNumber *_DKNowPlayingMetadataKey__identifier; // @dynamic _DKNowPlayingMetadataKey__identifier;
-@property(copy, nonatomic) NSNumber *_DKNowPlayingMetadataKey__playing; // @dynamic _DKNowPlayingMetadataKey__playing;
+@property(nonatomic) short _DKNowPlayingMetadataKey__playing; // @dynamic _DKNowPlayingMetadataKey__playing;
 @property(copy, nonatomic) NSString *_DKNowPlayingMetadataKey__title; // @dynamic _DKNowPlayingMetadataKey__title;
 @property(copy, nonatomic) NSDate *_DKPeriodMetadataKey__periodEnd; // @dynamic _DKPeriodMetadataKey__periodEnd;
 @property(copy, nonatomic) NSDate *_DKPeriodMetadataKey__periodStart; // @dynamic _DKPeriodMetadataKey__periodStart;
@@ -113,6 +121,12 @@
 @property(copy, nonatomic) NSDate *_DKSunriseSunsetMetadataKey__nextSunset; // @dynamic _DKSunriseSunsetMetadataKey__nextSunset;
 @property(copy, nonatomic) NSDate *_DKSunriseSunsetMetadataKey__previousSunrise; // @dynamic _DKSunriseSunsetMetadataKey__previousSunrise;
 @property(copy, nonatomic) NSDate *_DKSunriseSunsetMetadataKey__previousSunset; // @dynamic _DKSunriseSunsetMetadataKey__previousSunset;
+@property(retain, nonatomic) NSData *_QPMetricsMetadataKey__CandidateList; // @dynamic _QPMetricsMetadataKey__CandidateList;
+@property(copy, nonatomic) NSString *_QPMetricsMetadataKey__Query; // @dynamic _QPMetricsMetadataKey__Query;
+@property(copy, nonatomic) NSNumber *_QPMetricsMetadataKey__QueryEngaged; // @dynamic _QPMetricsMetadataKey__QueryEngaged;
+@property(retain, nonatomic) NSData *_QPMetricsMetadataKey__QueryList; // @dynamic _QPMetricsMetadataKey__QueryList;
+@property(copy, nonatomic) NSNumber *_QPMetricsMetadataKey__ResultEngaged; // @dynamic _QPMetricsMetadataKey__ResultEngaged;
+@property(copy, nonatomic) NSNumber *_QPMetricsMetadataKey__TimeStamp; // @dynamic _QPMetricsMetadataKey__TimeStamp;
 @property(copy, nonatomic) NSNumber *com_apple_calendarUIKit_userActivity_date; // @dynamic com_apple_calendarUIKit_userActivity_date;
 @property(copy, nonatomic) NSNumber *com_apple_calendarUIKit_userActivity_endDate; // @dynamic com_apple_calendarUIKit_userActivity_endDate;
 @property(copy, nonatomic) NSString *com_apple_calendarUIKit_userActivity_externalID; // @dynamic com_apple_calendarUIKit_userActivity_externalID;

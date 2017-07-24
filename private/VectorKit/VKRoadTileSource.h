@@ -6,16 +6,28 @@
 
 #import <VectorKit/VKVectorTileSource.h>
 
+@class VKTrafficTileSource;
+
 __attribute__((visibility("hidden")))
 @interface VKRoadTileSource : VKVectorTileSource
 {
+    VKTrafficTileSource *_trafficTileSource;
+    struct map<VKTileKey, geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, bool (*)(const VKTileKey &, const VKTileKey &), std::__1::allocator<std::__1::pair<const VKTileKey, geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>> *_inflightTiles;
+    _Bool _trafficEnabled;
 }
 
+@property(nonatomic) _Bool trafficEnabled; // @synthesize trafficEnabled=_trafficEnabled;
+@property(retain, nonatomic) VKTrafficTileSource *trafficTileSource; // @synthesize trafficTileSource=_trafficTileSource;
 - (void)releaseTraffic;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
+- (void)_fetchedTile:(id)arg1;
+- (void)clearCaches;
+- (void)expireAllTraffic;
+- (id)inflightTileForKey:(const struct VKTileKey *)arg1;
 - (_Bool)shouldObeyHybridUnavailableRegions;
 - (unsigned char)mapLayerForZoomLevelRange;
 - (_Bool)minimumZoomLevelBoundsCamera;
+- (void)dealloc;
 - (id)initWithTileSet:(id)arg1 resourceManifestConfiguration:(id)arg2 locale:(id)arg3 sharedResources:(id)arg4 taskContext:(shared_ptr_e963992e)arg5;
 
 @end

@@ -18,7 +18,7 @@
     _Bool _cobranded;
     _Bool _deletePending;
     _Bool _hasUserSelectableContactlessPaymentApplications;
-    _Bool _supportsPeerPayment;
+    _Bool _hasAssociatedPeerPaymentAccount;
     PKImage *_logoImage;
     PKImage *_backgroundImage;
     unsigned long long _expressPassTypesMask;
@@ -60,7 +60,7 @@
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSData *backgroundImageEncoded; // @synthesize backgroundImageEncoded=_backgroundImageEncoded;
 @property(retain, nonatomic) NSData *logoImageEncoded; // @synthesize logoImageEncoded=_logoImageEncoded;
-@property(nonatomic) _Bool supportsPeerPayment; // @synthesize supportsPeerPayment=_supportsPeerPayment;
+@property(nonatomic) _Bool hasAssociatedPeerPaymentAccount; // @synthesize hasAssociatedPeerPaymentAccount=_hasAssociatedPeerPaymentAccount;
 @property(retain, nonatomic) NSDate *pendingAddValueDate; // @synthesize pendingAddValueDate=_pendingAddValueDate;
 @property(retain, nonatomic) NSDecimalNumber *lastAddValueAmount; // @synthesize lastAddValueAmount=_lastAddValueAmount;
 @property(retain, nonatomic) NSArray *backFieldBuckets; // @synthesize backFieldBuckets=_backFieldBuckets;

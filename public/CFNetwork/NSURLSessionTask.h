@@ -27,6 +27,8 @@
 @property _Bool _extractorPreparedForExtraction; // @synthesize _extractorPreparedForExtraction=__extractorPreparedForExtraction;
 @property _Bool _extractorFinishedDecoding; // @synthesize _extractorFinishedDecoding=__extractorFinishedDecoding;
 @property float priority; // @synthesize priority=_priority;
+- (void)_consumePendingBytesReceivedEncoded;
+- (void)_appendCountOfPendingBytesReceivedEncoded:(long long)arg1;
 - (void)_finishProgressReporting;
 - (void)_completeUploadProgress;
 - (id)_transactionMetrics;
@@ -80,6 +82,8 @@
 @property(setter=_setConnectionIsCellular:) _Bool _connectionIsCellular; // @dynamic _connectionIsCellular;
 @property(copy) NSArray *_contentDispositionFallbackArray; // @dynamic _contentDispositionFallbackArray;
 @property int _cookieAcceptPolicy; // @dynamic _cookieAcceptPolicy;
+@property long long _countOfBytesReceivedEncoded; // @dynamic _countOfBytesReceivedEncoded;
+@property long long _countOfPendingBytesReceivedEncoded; // @dynamic _countOfPendingBytesReceivedEncoded;
 @property(retain) struct _CFURLRequest *_currentCFURLRequest; // @dynamic _currentCFURLRequest;
 @property unsigned int _darkWakePowerAssertion; // @dynamic _darkWakePowerAssertion;
 @property(retain, nonatomic) NSDictionary *_dependencyInfo; // @dynamic _dependencyInfo;

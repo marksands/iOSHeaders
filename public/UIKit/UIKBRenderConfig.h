@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double blurSaturation; // @synthesize blurSaturation=_blurSaturation;
 @property(nonatomic) double blurRadius; // @synthesize blurRadius=_blurRadius;
 @property(nonatomic) long long forceQuality; // @synthesize forceQuality=_forceQuality;
+@property(readonly, nonatomic) long long blurEffectStyle;
 @property(readonly, nonatomic) long long backdropStyle;
 @property(readonly, nonatomic) _Bool whiteText;
 - (id)description;

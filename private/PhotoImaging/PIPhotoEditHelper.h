@@ -14,7 +14,6 @@
 + (id)filterNameForEffectName:(id)arg1;
 + (id)effectNameForFilterName:(id)arg1;
 + (_Bool)is3DEffect:(id)arg1;
-+ (void)addAutoLoopMetadataToMetadataArray:(id)arg1 withKey:(id)arg2 value:(id)arg3;
 + (void)removeAssetIdentifierFromMetadataArray:(id)arg1;
 + (void)addAssetIdentifier:(id)arg1 toMetadataArray:(id)arg2;
 + (void)addAssetIdentifier:(id)arg1 toMetadataDictionary:(id)arg2;

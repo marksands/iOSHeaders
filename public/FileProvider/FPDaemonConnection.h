@@ -34,9 +34,8 @@
 - (void)bookmarkableStringFromDocumentURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateLastUsedDateForFileURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)extendBookmarkForFileURL:(id)arg1 toConsumerID:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)fetchSupportedMessageInterfacesForItemID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)fetchSupportedMessageInterfacesForDocumentAtURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)fetchRemoteMessageInterfaceProviderWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (void)fetchSupportedServicesForDocumentAtURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)fetchRemoteServiceEndpointCreatingProviderWithIdentifier:(id)arg1 itemURL:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)fetchRemoteFileProviderWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (oneway void)endMonitoringProviderChangesWithIdentifier:(id)arg1;
 - (void)beginMonitoringProviderChangesWithReceiver:(id)arg1 receiverIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

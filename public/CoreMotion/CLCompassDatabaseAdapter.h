@@ -17,7 +17,7 @@
 + (_Bool)isSupported;
 + (id)getSilo;
 + (void)performSyncOnSilo:(id)arg1 invoker:(CDUnknownBlockType)arg2;
-+ (void)becameFatallyBlocked:(id)arg1;
++ (void)becameFatallyBlocked:(id)arg1 index:(unsigned long long)arg2;
 - (_Bool)syncgetLookupBiasWithMagneticField:(CDStruct_03942939)arg1 acceleration:(CDStruct_03942939)arg2 bias:(CDStruct_03942939 *)arg3 level:(int *)arg4 noResults:(_Bool *)arg5;
 - (void)getBiasWithMagneticField:(CDStruct_03942939)arg1 acceleration:(CDStruct_03942939)arg2;
 - (int)syncgetPendingSetBiasCount;

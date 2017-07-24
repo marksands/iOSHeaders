@@ -15,7 +15,9 @@
 
 @property(readonly, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (id)fetchResourcesWithIdentifiers:(id)arg1 downloadAssets:(_Bool)arg2 cacheLifetimeHint:(long long)arg3 relativePriority:(long long)arg4 callBackQueue:(id)arg5 completionBlock:(CDUnknownBlockType)arg6;
 - (id)cachedResourcesWithIdentifiers:(id)arg1;
+- (id)fetchFontResourcesWithIdentifiers:(id)arg1 downloadAssets:(_Bool)arg2 relativePriority:(long long)arg3 callBackQueue:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (id)fetchResourcesWithIdentifiers:(id)arg1 downloadAssets:(_Bool)arg2 relativePriority:(long long)arg3 callBackQueue:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (id)initWithContext:(id)arg1;
 - (id)init;

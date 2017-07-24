@@ -10,7 +10,6 @@
 
 @interface HMDResidentUser : HMDUser
 {
-    NSString *_displayName;
     NSString *_deviceIdentifier;
     unsigned long long _configurationState;
 }
@@ -24,12 +23,11 @@
 - (id)modelObjectWithChangeType:(unsigned long long)arg1;
 - (_Bool)mergeFromUser:(id)arg1 dataVersion:(long long)arg2;
 - (_Bool)configureWithIDSDevice:(id)arg1;
+- (_Bool)refreshDisplayName;
 @property(nonatomic) unsigned long long configurationState; // @synthesize configurationState=_configurationState;
 - (void)setDeviceIdentifier:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *deviceIdentifier; // @synthesize deviceIdentifier=_deviceIdentifier;
-- (void)setDisplayName:(id)arg1;
-- (id)displayName;
-- (id)initWithUserID:(id)arg1 pairingIdentity:(id)arg2 displayName:(id)arg3 deviceIdentifier:(id)arg4 configurationState:(unsigned long long)arg5;
+- (id)initWithUserID:(id)arg1 displayName:(id)arg2 pairingIdentity:(id)arg3 deviceIdentifier:(id)arg4 configurationState:(unsigned long long)arg5;
 - (id)initWithModelObject:(id)arg1;
 
 @end

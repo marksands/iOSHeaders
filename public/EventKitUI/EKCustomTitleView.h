@@ -6,18 +6,24 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, UILabel;
+@class NSArray, UIImageView, UILabel;
 
 @interface EKCustomTitleView : UIView
 {
+    UILabel *_originalTitle;
     UILabel *_title;
+    UIImageView *_originalImage;
+    UIImageView *_titleImage;
     UILabel *_subTitle;
-    NSArray *_verticalConstraints;
+    NSArray *_changingConstraints;
 }
 
-@property(retain) NSArray *verticalConstraints; // @synthesize verticalConstraints=_verticalConstraints;
+@property(retain) NSArray *changingConstraints; // @synthesize changingConstraints=_changingConstraints;
 @property(retain) UILabel *subTitle; // @synthesize subTitle=_subTitle;
+@property(retain) UIImageView *titleImage; // @synthesize titleImage=_titleImage;
+@property(retain) UIImageView *originalImage; // @synthesize originalImage=_originalImage;
 @property(retain) UILabel *title; // @synthesize title=_title;
+@property(retain) UILabel *originalTitle; // @synthesize originalTitle=_originalTitle;
 - (void).cxx_destruct;
 - (void)animateOutWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)animateInWithCompletionBlock:(CDUnknownBlockType)arg1;

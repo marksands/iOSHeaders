@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFFlight-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString;
 
-@interface SFFlight : NSObject <SFFlight, NSSecureCoding>
+@interface SFFlight : NSObject <SFFlight, NSSecureCoding, NSCopying>
 {
     NSString *_flightID;
     NSString *_carrierCode;
@@ -33,6 +34,7 @@
 @property(copy, nonatomic) NSString *carrierCode; // @synthesize carrierCode=_carrierCode;
 @property(copy, nonatomic) NSString *flightID; // @synthesize flightID=_flightID;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

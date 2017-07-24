@@ -8,7 +8,7 @@
 
 #import <Intents/NSCopying-Protocol.h>
 
-@class NSString, PBUnknownFields, _INPBDateTimeRange, _INPBFinancialAccountValue, _INPBPaymentAmountValue;
+@class NSString, PBUnknownFields, _INPBCurrencyAmountValue, _INPBDateTimeRange, _INPBFinancialAccountValue, _INPBPaymentAmountValue;
 
 @interface _INPBTransferMoneyIntentResponse : PBCodable <NSCopying>
 {
@@ -18,9 +18,11 @@
     _INPBPaymentAmountValue *_transactionAmount;
     NSString *_transactionNote;
     _INPBDateTimeRange *_transactionScheduledDate;
+    _INPBCurrencyAmountValue *_transferFee;
 }
 
 + (id)options;
+@property(retain, nonatomic) _INPBCurrencyAmountValue *transferFee; // @synthesize transferFee=_transferFee;
 @property(retain, nonatomic) NSString *transactionNote; // @synthesize transactionNote=_transactionNote;
 @property(retain, nonatomic) _INPBDateTimeRange *transactionScheduledDate; // @synthesize transactionScheduledDate=_transactionScheduledDate;
 @property(retain, nonatomic) _INPBPaymentAmountValue *transactionAmount; // @synthesize transactionAmount=_transactionAmount;
@@ -36,6 +38,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasTransferFee;
 @property(readonly, nonatomic) _Bool hasTransactionNote;
 @property(readonly, nonatomic) _Bool hasTransactionScheduledDate;
 @property(readonly, nonatomic) _Bool hasTransactionAmount;

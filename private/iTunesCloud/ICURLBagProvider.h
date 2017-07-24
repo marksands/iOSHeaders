@@ -14,6 +14,7 @@
     NSMutableDictionary *_cache;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_callbackQueue;
+    NSMutableDictionary *_pendingOperationsForCacheKey;
 }
 
 + (id)sharedBagProvider;
@@ -21,6 +22,7 @@
 - (void)_handleUserIdentityStoreDidChangeNotification:(id)arg1;
 - (void)_fetchBagForRequestContext:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_getCacheKeyForRequestContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)invalidateCache;
 - (void)getBagForRequestContext:(id)arg1 forceRefetch:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)getBagForRequestContext:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;

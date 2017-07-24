@@ -9,8 +9,6 @@
 __attribute__((visibility("hidden")))
 @interface _CFPrefsObservationConnectionContext : NSObject
 {
-    struct os_unfair_lock_s _lock;
-    long long _identifier;
     struct __CFArray *_observedSources;
 }
 

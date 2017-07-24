@@ -46,8 +46,8 @@
 - (void)applicationInstallsDidUpdateIcon:(id)arg1;
 - (void)applicationInstallsDidChange:(id)arg1;
 - (void)applicationInstallsDidStart:(id)arg1;
-- (void)_workQueue_removeInstalledApplicationFromModelForBundleID:(id)arg1 forInstall:(_Bool)arg2 withReason:(id)arg3;
-- (void)_workQueue_removePlaceholderFromModelForBundleID:(id)arg1 forInstall:(_Bool)arg2 withReason:(id)arg3;
+- (void)_workQueue_removeInstalledApplicationFromModelForBundleID:(id)arg1 withReason:(id)arg2;
+- (void)_workQueue_removePlaceholderFromModelForBundleID:(id)arg1 withReason:(id)arg2;
 - (_Bool)_workQueue_applicationHasBeenModified:(id)arg1 applicationProxy:(id)arg2;
 - (void)_workQueue_notePlaceholdersModifiedSignificantly:(id)arg1;
 - (id)_workQueue_placeholderForProxy:(id)arg1 filterExisting:(_Bool)arg2 updateExistingIfNecessary:(_Bool)arg3 createIfNecessary:(_Bool)arg4 createReason:(id)arg5;
@@ -55,7 +55,6 @@
 - (id)_workQueue_applicationsForProxies:(id)arg1 createIfNecessary:(_Bool)arg2 createReason:(id)arg3 createdApplications:(id *)arg4 existingApplications:(id *)arg5 filterExistingApplications:(id *)arg6 unmappedProxies:(id *)arg7;
 - (id)_workQueue_placeholdersForProxies:(id)arg1 updateExistingIfNecessary:(_Bool)arg2 createIfNecessary:(_Bool)arg3 createReason:(id)arg4 createdPlaceholders:(id *)arg5 existingPlaceholders:(id *)arg6 filterExistingPlaceholders:(id *)arg7 unmappedProxies:(id *)arg8;
 - (void)_load;
-- (id)_filterProxiesByInclusionFilter:(id)arg1 filter:(CDUnknownBlockType)arg2;
 - (void)_workQueue_decrementSynchronizationActionCount;
 - (void)_workQueue_incrementSynchronizationActionCount;
 - (void)_workQueue_executeInstallSynchronizationBlocksIfAppropriate;
@@ -68,6 +67,7 @@
 - (void)_notifyDidAddPlaceholders:(id)arg1;
 - (void)_notifyForType:(long long)arg1 synchronously:(_Bool)arg2 withCastingBlock:(CDUnknownBlockType)arg3;
 - (id)_observeType:(long long)arg1 withBlock:(id)arg2;
+- (void)noteSystemAppDidFinishLaunching;
 - (void)executeOrPendInstallSynchronizationBlock:(CDUnknownBlockType)arg1;
 - (id)observeDidChangeNetworkUsageWithBlock:(CDUnknownBlockType)arg1;
 - (id)observeDidDemoteApplicationsWithBlock:(CDUnknownBlockType)arg1;

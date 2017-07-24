@@ -16,12 +16,14 @@
     CKBalloonImageView *_mask;
     CKBalloonImageView *_effectViewMask;
     CKGradientView *_gradientView;
+    struct CGRect _gradientOverrideFrame;
 }
 
-@property(nonatomic) _Bool wantsGradient; // @synthesize wantsGradient=_wantsGradient;
 @property(retain, nonatomic) CKGradientView *gradientView; // @synthesize gradientView=_gradientView;
 @property(retain, nonatomic) CKBalloonImageView *effectViewMask; // @synthesize effectViewMask=_effectViewMask;
 @property(retain, nonatomic) CKBalloonImageView *mask; // @synthesize mask=_mask;
+@property(nonatomic) struct CGRect gradientOverrideFrame; // @synthesize gradientOverrideFrame=_gradientOverrideFrame;
+@property(nonatomic) _Bool wantsGradient; // @synthesize wantsGradient=_wantsGradient;
 @property(nonatomic) BOOL color; // @synthesize color=_color;
 - (void).cxx_destruct;
 - (void)setEffectViewMaskImage:(id)arg1;

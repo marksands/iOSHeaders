@@ -25,6 +25,9 @@
 - (id)build;
 - (void)appendName:(id)arg1 typeCode:(const char *)arg2 value:(const void *)arg3;
 - (void)appendName:(id)arg1 cgSize:(struct CGSize)arg2;
+- (void)appendName:(id)arg1 doubleValue:(double)arg2;
+- (void)appendName:(id)arg1 floatValue:(float)arg2;
+- (void)appendName:(id)arg1 unsignedIntegerValue:(unsigned long long)arg2;
 - (void)appendName:(id)arg1 integerValue:(long long)arg2;
 - (void)appendName:(id)arg1 boolValue:(_Bool)arg2;
 - (void)appendName:(id)arg1 object:(id)arg2;

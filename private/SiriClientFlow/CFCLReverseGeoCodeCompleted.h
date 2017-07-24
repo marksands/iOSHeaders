@@ -14,7 +14,7 @@
 {
 }
 
-+ (id)newAceObjectWithDictionary:(id)arg1 context:(id)arg2;
++ (id)aceObjectWithDictionary:(id)arg1 context:(id)arg2;
 + (id)reverseGeoCodeCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)reverseGeoCodeCompleted;
 @property(copy, nonatomic) NSDictionary *address;

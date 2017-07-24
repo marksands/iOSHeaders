@@ -339,6 +339,7 @@
 - (void)_beginPinningInputViewsOnBehalfOfResponder:(id)arg1;
 - (void)_clearPinningResponders;
 - (void)_setHosted:(_Bool)arg1;
+- (int)_isKeyboardDeactivated;
 - (void)setDeactivatedKeyboard:(_Bool)arg1;
 - (void)_dismissOverlayedUI;
 - (void)forceReloadInputViews;

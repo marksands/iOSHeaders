@@ -14,7 +14,7 @@
 {
 }
 
-+ (id)newAceObjectWithDictionary:(id)arg1 context:(id)arg2;
++ (id)aceObjectWithDictionary:(id)arg1 context:(id)arg2;
 + (id)nightShiftScheduleWithDictionary:(id)arg1 context:(id)arg2;
 + (id)nightShiftSchedule;
 @property(retain, nonatomic) CFCBNightShiftTransitionTime *toTime;

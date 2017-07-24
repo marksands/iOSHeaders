@@ -22,11 +22,11 @@ __attribute__((visibility("hidden")))
 - (void)addVariables:(id)arg1;
 - (id)variableBlendTexture;
 - (id)variableBlendFactor;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)autorelease;
 - (oneway void)release;
 - (unsigned long long)retainCount;
 - (id)retain;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

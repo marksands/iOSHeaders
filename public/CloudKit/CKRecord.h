@@ -127,6 +127,7 @@
 @property(readonly, nonatomic) _Bool hasPropertiesRequiringDecryption;
 @property(readonly, nonatomic) _Bool hasModifiedPropertiesRequiringEncryption;
 @property(readonly, nonatomic) _Bool hasPropertiesRequiringEncryption;
+- (_Bool)_valueIsUsingCKEncryptedData:(id)arg1;
 @property(readonly, nonatomic) _Bool containsPackageValues;
 @property(readonly, nonatomic) _Bool containsAssetValues;
 - (_Bool)_checkProperties:(_Bool)arg1 encryptedStore:(_Bool)arg2 withValueCheckBlock:(CDUnknownBlockType)arg3;

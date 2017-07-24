@@ -402,6 +402,12 @@ typedef struct ?<float __attribute__((ext_vector_type(4))), std::__1::allocator<
 
 #pragma mark Typedef'd Structures
 
+typedef struct {
+    double groupingDuration;
+    double recognitionDuration;
+    double totalDuration;
+} CDStruct_a0ca6847;
+
 // Template types
 typedef struct Matrix<float> {
     CDUnknownFunctionPointerType *_field1;

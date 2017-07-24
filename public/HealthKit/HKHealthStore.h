@@ -99,7 +99,6 @@
 - (void)workoutDidComplete:(id)arg1;
 - (void)closeTransactionForType:(id)arg1 anchor:(id)arg2 ackTime:(id)arg3 query:(id)arg4;
 - (void)queryDidFinishExecuting:(id)arg1;
-- (void)_forgetAllFitnessMachinesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_resourceQueue_addFitnessMachineConnectionInitiator:(id)arg1;
 - (id)_createFitnessMachineConnectionInitiator;
 - (id)_resourceQueue_fitnessMachineConnectionForUUID:(id)arg1;
@@ -179,7 +178,7 @@
 - (void)allAuthorizationRecordsForType:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)retrieveAllAuthorizationRecordsForDocumentType:(id)arg1 bundleIdentifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)allAuthorizationRecordsForBundleIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (id)_typesIncludingParentsFromTypes:(id)arg1;
+- (void)_throwIfParentTypeNotRequestedForSharing:(_Bool)arg1 types:(id)arg2;
 - (void)_throwIfAuthorizationDisallowedForSharing:(_Bool)arg1 types:(id)arg2;
 - (void)handleAuthorizationForExtensionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)requestAuthorizationToShareTypes:(id)arg1 readTypes:(id)arg2 shouldPrompt:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
@@ -195,6 +194,7 @@
 - (void)allSourcesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)addSourceWithBundleIdentifier:(id)arg1 name:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)hasSourceWithBundleIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)hasSampleWithBundleIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchPluginServiceEndpointForIdentifier:(id)arg1 endpointHandler:(CDUnknownBlockType)arg2 errorHandler:(CDUnknownBlockType)arg3;
 - (void)_profileServerProxyWithCompletion:(CDUnknownBlockType)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (void)_workoutServerProxyWithCompletion:(CDUnknownBlockType)arg1 errorHandler:(CDUnknownBlockType)arg2;
@@ -218,6 +218,7 @@
 - (id)init;
 - (void)removeHealthServicePairing:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)addHealthServicePairing:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)healthPeripheralsWithFilter:(unsigned long long)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)healthServicePairingsWithHandler:(CDUnknownBlockType)arg1;
 - (void)unregisterPeripheralIdentifier:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)registerPeripheralIdentifier:(id)arg1 name:(id)arg2 services:(id)arg3 withCompletion:(CDUnknownBlockType)arg4;
@@ -226,7 +227,9 @@
 - (void)endHealthServiceDiscovery:(id)arg1;
 - (void)startHealthServiceDiscovery:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)setBadgeCount:(long long)arg1 forDomain:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)disableCloudSyncAndDeleteAllCloudDataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchCloudSyncStatusWithCompletion:(CDUnknownBlockType)arg1;
+- (void)fetchCloudSyncRequiredWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchCloudDescriptionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)forceCloudResetWithCompletion:(CDUnknownBlockType)arg1;
 - (void)forceCloudSyncWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;

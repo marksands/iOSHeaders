@@ -34,7 +34,7 @@
 @property(retain, nonatomic) FCCKPrivateDatabase *database; // @synthesize database=_database;
 - (void).cxx_destruct;
 - (void)resetForRetry;
-- (_Bool)canRetryWithError:(id)arg1 retryAfter:(double *)arg2;
+- (_Bool)canRetryWithError:(id)arg1 retryAfter:(id *)arg2;
 - (unsigned long long)maxRetries;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;

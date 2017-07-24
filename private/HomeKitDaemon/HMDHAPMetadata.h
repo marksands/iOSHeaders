@@ -64,6 +64,7 @@
 @property(retain, nonatomic) NSNumber *version; // @synthesize version=_version;
 - (void).cxx_destruct;
 - (id)protoBufObjectWithEncodingOption:(id)arg1;
+- (id)statusHAPCharacteristicTypes;
 - (id)aliasedHAPServiceTypes;
 - (id)aliasedHAPCharacteristicTypes;
 - (_Bool)checkTupleExistsInSet:(id)arg1 forChrType:(id)arg2 svcType:(id)arg3;
@@ -83,6 +84,7 @@
 - (id)mapToAssistantUnitName:(id)arg1;
 - (id)mapCharacteristicValueType:(id)arg1;
 - (id)characteristicValueUnit:(id)arg1;
+- (id)getStatusCharacteristicTypes:(id)arg1;
 - (id)getCharacteristicTypeAlias:(id)arg1;
 - (id)getAliasedCharacteristicTypes:(id)arg1;
 - (id)getServiceTypeAlias:(id)arg1;
@@ -95,6 +97,7 @@
 - (_Bool)supportsLocalization:(id)arg1;
 - (id)categoryForType:(id)arg1;
 - (id)categoryForIdentifier:(id)arg1;
+- (id)audioAccessoryCategory;
 - (id)categoryForOther;
 - (_Bool)shouldHomeAppShowTileForServiceType:(id)arg1;
 - (_Bool)shouldAllowHomeNotificationForCharacteristicType:(id)arg1 serviceType:(id)arg2;
@@ -117,7 +120,7 @@
 - (id)serviceNameFromType:(id)arg1;
 - (id)characteristicTypeFromName:(id)arg1;
 - (id)characteristicNameFromType:(id)arg1;
-- (id)xpcData;
+- (id)xpcData:(_Bool)arg1;
 - (id)initWithDictionary:(id)arg1 hapMetadata:(id)arg2 error:(id *)arg3;
 
 // Remaining properties

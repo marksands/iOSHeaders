@@ -9,5 +9,6 @@
 @protocol _DUIClientSessionAccessibility
 - (oneway void)dragDidEndWithOperation:(unsigned long long)arg1;
 - (oneway void)dragStatusDidChange:(_DUIAccessibilityDragStatus *)arg1;
+- (oneway void)dragWillBeginWithReply:(void (^)(void))arg1;
 @end
 

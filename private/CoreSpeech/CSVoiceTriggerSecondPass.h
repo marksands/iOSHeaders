@@ -24,7 +24,6 @@
     float _keywordThreshold;
     float _keywordLoggingThreshold;
     float _lastScore;
-    float _bestKeywordScore;
     float _recognizerScore;
     float _recognizerScoreScaleFactor;
     CSSpeechManager *_speechManager;
@@ -37,17 +36,17 @@
     CSSpeakerModel *_speakerModel;
     unsigned long long _secondPassTimeout;
     unsigned long long _numAnalyzedSamples;
-    unsigned long long _bestKeywordStart;
-    unsigned long long _bestKeywordEnd;
     unsigned long long _extraSamplesAtStart;
     unsigned long long _nearMissDelayTimeout;
     unsigned long long _nearMissCandidateDetectedSamples;
     NSDictionary *_lastAnalyzerResult;
     long long _numBypassSamples;
+    unsigned long long _earlyDetectFiredMachTime;
     unsigned long long _activeChannel;
 }
 
 @property(nonatomic) unsigned long long activeChannel; // @synthesize activeChannel=_activeChannel;
+@property(nonatomic) unsigned long long earlyDetectFiredMachTime; // @synthesize earlyDetectFiredMachTime=_earlyDetectFiredMachTime;
 @property(nonatomic) float recognizerScoreScaleFactor; // @synthesize recognizerScoreScaleFactor=_recognizerScoreScaleFactor;
 @property(nonatomic) _Bool recognizerResultPending; // @synthesize recognizerResultPending=_recognizerResultPending;
 @property(nonatomic) _Bool isRunningRecognizer; // @synthesize isRunningRecognizer=_isRunningRecognizer;
@@ -59,9 +58,6 @@
 @property(nonatomic) unsigned long long nearMissDelayTimeout; // @synthesize nearMissDelayTimeout=_nearMissDelayTimeout;
 @property(nonatomic) _Bool useSAT; // @synthesize useSAT=_useSAT;
 @property(nonatomic) unsigned long long extraSamplesAtStart; // @synthesize extraSamplesAtStart=_extraSamplesAtStart;
-@property(nonatomic) unsigned long long bestKeywordEnd; // @synthesize bestKeywordEnd=_bestKeywordEnd;
-@property(nonatomic) unsigned long long bestKeywordStart; // @synthesize bestKeywordStart=_bestKeywordStart;
-@property(nonatomic) float bestKeywordScore; // @synthesize bestKeywordScore=_bestKeywordScore;
 @property(nonatomic) float lastScore; // @synthesize lastScore=_lastScore;
 @property(nonatomic) float keywordLoggingThreshold; // @synthesize keywordLoggingThreshold=_keywordLoggingThreshold;
 @property(nonatomic) float keywordThreshold; // @synthesize keywordThreshold=_keywordThreshold;
@@ -88,6 +84,9 @@
 - (void)speechManagerLPCMRecordBufferAvailable:(id)arg1 chunk:(id)arg2;
 - (void)voiceTriggerFirstPass:(id)arg1 didDetectKeyword:(id)arg2;
 - (void)setBypassForSeconds:(double)arg1;
+- (void)_setAsset:(id)arg1;
+- (void)setAsset:(id)arg1;
+- (void)_reset;
 - (void)reset;
 - (id)initWithManager:(id)arg1 asset:(id)arg2;
 

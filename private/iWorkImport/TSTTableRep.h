@@ -155,6 +155,7 @@ __attribute__((visibility("hidden")))
 - (struct CGAffineTransform)p_horizontalAlignmentTransformForHyperlinkWithBounds:(struct CGRect)arg1 inCell:(struct TSUCellCoord)arg2;
 - (struct TSUCellCoord)p_cellIDForHyperlinkField:(id)arg1;
 - (id)p_columnForCellID:(struct TSUCellCoord)arg1;
+- (struct TSUCellCoord)logicalCellIDForUnscaledCanvasPoint:(struct CGPoint)arg1;
 - (id)editorSelection;
 - (void)contentsRectForCellRangeAcrossSpaces:(struct TSUCellRect)arg1 contentsCenterInfo:(CDStruct_7bd98050 *)arg2 canvasFrame:(struct CGRect *)arg3 contentsRect:(struct CGRect *)arg4;
 - (struct CGRect)boundsForCellSelection:(struct TSUCellCoord)arg1;

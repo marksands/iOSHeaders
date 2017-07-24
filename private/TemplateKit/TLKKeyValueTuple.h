@@ -6,19 +6,19 @@
 
 #import <TemplateKit/TLKObject.h>
 
-@class TLKMultilineText;
+@class NSString;
 
 @interface TLKKeyValueTuple : TLKObject
 {
-    TLKMultilineText *_key;
-    TLKMultilineText *_value;
+    NSString *_key;
+    NSString *_value;
 }
 
 + (id)tuplesForKeys:(id)arg1 values:(id)arg2;
 + (id)tuplesForDictionary:(id)arg1;
 + (id)tupleWithKey:(id)arg1 value:(id)arg2;
-@property(retain) TLKMultilineText *value; // @synthesize value=_value;
-@property(retain) TLKMultilineText *key; // @synthesize key=_key;
+@property(retain) NSString *value; // @synthesize value=_value;
+@property(retain) NSString *key; // @synthesize key=_key;
 - (void).cxx_destruct;
 - (id)observableProperties;
 

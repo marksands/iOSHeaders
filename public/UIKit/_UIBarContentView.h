@@ -51,8 +51,10 @@ __attribute__((visibility("hidden")))
 - (void)_appearanceChanged;
 @property(readonly, nonatomic) double backButtonMargin; // @dynamic backButtonMargin;
 - (double)absorptionForItem:(id)arg1;
+@property(readonly, nonatomic) double defaultTextPadding;
 @property(readonly, nonatomic) double defaultEdgeSpacing;
 - (unsigned long long)edgesPaddingBarButtonItem:(id)arg1;
+@property(readonly, nonatomic) _Bool isRTL;
 @property(readonly, nonatomic) long long barType;
 - (id)initWithFrame:(struct CGRect)arg1;
 

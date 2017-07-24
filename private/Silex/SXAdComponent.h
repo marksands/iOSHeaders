@@ -6,12 +6,23 @@
 
 #import <Silex/SXComponent.h>
 
-@interface SXAdComponent : SXComponent
+#import <Silex/SXComponentAdvertisingMetadataProviding-Protocol.h>
+
+@class NSString, SXJSONDictionary;
+
+@interface SXAdComponent : SXComponent <SXComponentAdvertisingMetadataProviding>
 {
     unsigned long long adType;
 }
 
 @property(readonly, nonatomic) unsigned long long adType; // @synthesize adType;
+
+// Remaining properties
+@property(readonly, nonatomic) SXJSONDictionary *advertising; // @dynamic advertising;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

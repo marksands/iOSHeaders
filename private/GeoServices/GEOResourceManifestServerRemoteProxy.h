@@ -39,7 +39,9 @@ __attribute__((visibility("hidden")))
 - (void)performOpportunisticResourceLoading;
 - (void)setManifestToken:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)getResourceManifestWithHandler:(CDUnknownBlockType)arg1;
-- (void)forceUpdate:(CDUnknownBlockType)arg1;
+- (id)updateProgress;
+- (void)cancelCurrentManifestUpdate;
+- (void)forceUpdate:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateIfNecessary:(CDUnknownBlockType)arg1;
 - (oneway void)resetActiveTileGroup;
 - (oneway void)setActiveTileGroupIdentifier:(id)arg1;

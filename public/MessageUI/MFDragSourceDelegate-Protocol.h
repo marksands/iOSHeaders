@@ -6,7 +6,7 @@
 
 #import <MessageUI/NSObject-Protocol.h>
 
-@class MFDragSource, NSArray, NSData, UIView;
+@class MFDragSource, NSArray, NSData, NSString, UIView;
 @protocol UIDragSession, UIItemProviderWriting;
 
 @protocol MFDragSourceDelegate <NSObject>
@@ -17,6 +17,7 @@
 - (_Bool)dragSource:(MFDragSource *)arg1 sessionAllowsMoveOperation:(id <UIDragSession>)arg2;
 - (void)dragSource:(MFDragSource *)arg1 willEndInteractionWithItems:(NSArray *)arg2 dropOperation:(unsigned long long)arg3;
 - (id)dragSource:(MFDragSource *)arg1 localObjectForDraggableItem:(id <UIItemProviderWriting>)arg2;
+- (NSString *)dragSource:(MFDragSource *)arg1 suggestedNameForDraggableItem:(id <UIItemProviderWriting>)arg2;
 - (UIView *)dragSource:(MFDragSource *)arg1 previewForDraggableItem:(id <UIItemProviderWriting>)arg2;
 - (NSData *)dragSource:(MFDragSource *)arg1 teamDataForDraggableItem:(id <UIItemProviderWriting>)arg2;
 @end

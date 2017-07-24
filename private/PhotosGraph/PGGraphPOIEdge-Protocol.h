@@ -7,6 +7,7 @@
 #import <PhotosGraph/NSObject-Protocol.h>
 
 @protocol PGGraphPOIEdge <NSObject>
+- (_Bool)poiIsSpecial;
 - (_Bool)poiIsImproved;
 @end
 

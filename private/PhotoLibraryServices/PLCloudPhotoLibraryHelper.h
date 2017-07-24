@@ -10,6 +10,8 @@
 {
 }
 
++ (void)setShouldSendOptimizeFeedbackOnce:(_Bool)arg1;
++ (_Bool)shouldSendOptimizeFeedbackOnce;
 + (void)enableCPL:(CDUnknownBlockType)arg1;
 
 @end

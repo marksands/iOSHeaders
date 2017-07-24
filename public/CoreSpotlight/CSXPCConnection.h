@@ -17,6 +17,7 @@
     NSObject<OS_xpc_object> *_connection;
 }
 
++ (id)appIdentifierFromTeamAppTuple:(id)arg1;
 + (id)dataWrapperForKey:(const char *)arg1 sizeKey:(const char *)arg2 fromXPCDictionary:(id)arg3;
 + (_Bool)dictionary:(id)arg1 setSharedMemory:(void *)arg2 forKey:(const char *)arg3 size:(unsigned long long)arg4 forSizeKey:(const char *)arg5;
 + (void)dictionary:(id)arg1 setStringArray:(id)arg2 forKey:(const char *)arg3;

@@ -7,16 +7,10 @@
 #import <NotesShared/ICAttachmentGalleryModel.h>
 
 @interface ICAttachmentGalleryModel (UI)
-+ (void)deleteAllTemporaryPDFs;
 - (id)fileURLForTypeIdentifier:(id)arg1;
 - (id)providerFileTypes;
-- (id)generateTemporaryFilePDFWithProgress:(id)arg1 error:(id *)arg2;
-- (void)deleteTemporaryPDFIfNecessary;
-- (id)tempPDFPath;
-- (id)tempFolderPath;
 - (id)activityItems;
 - (id)quicklookPreviewItems;
-- (id)itemProvider;
 - (CDUnknownBlockType)genericBrickThumbnailCreator;
 - (CDUnknownBlockType)genericListThumbnailCreator;
 @end

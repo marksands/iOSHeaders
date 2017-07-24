@@ -13,7 +13,6 @@
 @interface PARAsyncCard : SFCard <NSSecureCoding>
 {
     double _scale;
-    unsigned long long _queryId;
     unsigned long long _clientQueryId;
 }
 
@@ -21,7 +20,6 @@
 + (id)cardWithTitle:(id)arg1 url:(id)arg2 session:(id)arg3 scale:(double)arg4 queryId:(unsigned long long)arg5 clientQueryId:(unsigned long long)arg6;
 + (id)cardWithTitle:(id)arg1 url:(id)arg2 session:(id)arg3 scale:(double)arg4 queryId:(unsigned long long)arg5;
 @property(readonly, nonatomic) unsigned long long clientQueryId; // @synthesize clientQueryId=_clientQueryId;
-@property(readonly, nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(readonly, copy, nonatomic) NSURL *cardURL;
 - (void)encodeWithCoder:(id)arg1;

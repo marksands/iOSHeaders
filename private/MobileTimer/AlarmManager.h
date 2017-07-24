@@ -21,6 +21,7 @@
     NSDate *lastModified;
 }
 
++ (id)assistantSyncNotificationName;
 + (id)copySleepAlarmFromPreferences;
 + (void)writeSleepAlarmToPreferences:(id)arg1;
 + (id)copyReadAlarmsFromPreferences;

@@ -24,14 +24,12 @@
 - (void)_checkCache;
 - (_Bool)_isTimeToCheck;
 - (void)_setNextTimeToCheck;
-- (void)_addReplyInfo:(id)arg1 forSectionID:(id)arg2 bulletinID:(id)arg3;
-- (id)_keyForSectionID:(id)arg1 bulletinID:(id)arg2;
-- (id)_firstReplyInfoWithNoReplyWithSectionID:(id)arg1 bulletinID:(id)arg2;
-- (id)_firstReplyInfoWithNoDidPlayStateWithSectionID:(id)arg1 bulletinID:(id)arg2;
-- (void)purgeReplyInfo:(id)arg1 withSectionID:(id)arg2 bulletinID:(id)arg3;
-- (id)retrieveReplyInfoWithSectionID:(id)arg1 bulletinID:(id)arg2;
-- (void)cacheDidPlayLightsAndSirens:(unsigned long long)arg1 withSectionID:(id)arg2 bulletinID:(id)arg3;
-- (void)cacheReply:(CDUnknownBlockType)arg1 withSectionID:(id)arg2 bulletinID:(id)arg3 publicationDate:(id)arg4;
+- (void)_addReplyInfo:(id)arg1 forReplyToken:(id)arg2;
+- (id)_firstReplyInfoWithNoReplyWithReplyToken:(id)arg1;
+- (id)_firstReplyInfoWithNoDidPlayStateWithReplyToken:(id)arg1;
+- (void)purgeReplyInfo:(id)arg1 withReplyToken:(id)arg2;
+- (id)cacheDidPlayLightsAndSirens:(unsigned long long)arg1 withReplyToken:(id)arg2;
+- (void)cacheReply:(CDUnknownBlockType)arg1 withSectionID:(id)arg2 bulletinID:(id)arg3 publicationDate:(id)arg4 replyToken:(id)arg5;
 - (id)init;
 
 @end

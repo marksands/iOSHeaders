@@ -29,6 +29,7 @@
 - (void)scanAddedAnnotations;
 - (void)_postAnnotationsChangedNotificationCoalesced;
 - (void)postAnnotationsChangedNotification;
+- (_Bool)didChangeBounds;
 - (void)printActivePageAnnotations;
 - (void)resetChangedAnnotations;
 - (id)changedAnnotations;
@@ -39,6 +40,9 @@
 - (void)addScannedAnnotation:(id)arg1;
 - (void)setDisplaysMarkupAnnotations:(_Bool)arg1;
 - (void)addAnnotationFormField:(id)arg1;
+- (void)_removeWidgetAnnotationFromLookupDictionary:(id)arg1;
+- (void)_addWidgetAnnotationToLookupDictionary:(id)arg1;
+- (id)annotationsForFieldName:(id)arg1;
 - (id)annotationWithUUID:(id)arg1;
 - (void)getAnnotations;
 - (id)scannedAnnotations;
@@ -98,6 +102,7 @@
 @property(readonly, nonatomic) unsigned long long numberOfCharacters;
 - (void)transformContext:(struct CGContext *)arg1 forBox:(long long)arg2;
 - (struct CGAffineTransform)transformForBox:(long long)arg1;
+- (struct CGRect)columnFrameAtPoint:(struct CGPoint)arg1;
 - (id)unsupportedFeatures;
 - (id)selectionForCodeRange:(struct _NSRange)arg1;
 - (struct CGImage *)_newCGImageWithBox:(long long)arg1 bitmapSize:(struct CGSize)arg2 scale:(double)arg3 offset:(struct CGPoint)arg4 fillBackground:(_Bool)arg5 withRotation:(_Bool)arg6 withAntialiasing:(_Bool)arg7 withAnnotations:(_Bool)arg8 withBookmark:(_Bool)arg9 withDelegate:(id)arg10;

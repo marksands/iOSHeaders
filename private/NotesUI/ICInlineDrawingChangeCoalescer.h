@@ -7,27 +7,25 @@
 #import <objc/NSObject.h>
 
 @class ICAttachment, ICSelectorDelayer, PKDrawing;
-@protocol OS_dispatch_queue;
 
 @interface ICInlineDrawingChangeCoalescer : NSObject
 {
     ICAttachment *_attachment;
     ICSelectorDelayer *_processChangesSelectorDelayer;
-    NSObject<OS_dispatch_queue> *_textContentQueue;
     PKDrawing *_latestDrawing;
     unsigned long long _numberOfChanges;
 }
 
 @property(nonatomic) unsigned long long numberOfChanges; // @synthesize numberOfChanges=_numberOfChanges;
 @property(retain, nonatomic) PKDrawing *latestDrawing; // @synthesize latestDrawing=_latestDrawing;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *textContentQueue; // @synthesize textContentQueue=_textContentQueue;
 @property(retain, nonatomic) ICSelectorDelayer *processChangesSelectorDelayer; // @synthesize processChangesSelectorDelayer=_processChangesSelectorDelayer;
 @property(retain, nonatomic) ICAttachment *attachment; // @synthesize attachment=_attachment;
 - (void).cxx_destruct;
-- (void)processDrawingChanges;
+- (void)processIndexableContent;
 - (void)mergeDrawingChanges;
 - (void)updateNowIfNecessary;
 - (void)drawingDataDidChange:(id)arg1;
+- (_Bool)hasChanges;
 - (void)dealloc;
 - (id)initWithAttachment:(id)arg1;
 

@@ -11,6 +11,7 @@
 }
 
 + (_Bool)isTransitionSupportedWithMasterViewController:(id)arg1 detailViewController:(id)arg2;
+- (void)animateZoomTransition:(id)arg1 withInitialVelocity:(struct PXDisplayVelocity)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)animateTransition:(id)arg1;
 - (double)transitionDuration:(id)arg1;
 - (_Bool)supportsEdgeSwipeBackGesture;

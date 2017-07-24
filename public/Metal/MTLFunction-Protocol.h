@@ -7,7 +7,7 @@
 #import <Metal/NSObject-Protocol.h>
 
 @class NSArray, NSDictionary, NSString;
-@protocol MTLDevice, MTLIndirectArgumentEncoder;
+@protocol MTLArgumentEncoder, MTLDevice;
 
 @protocol MTLFunction <NSObject>
 @property(readonly) NSDictionary *functionConstantsDictionary;
@@ -19,7 +19,7 @@
 @property(readonly) unsigned long long functionType;
 @property(readonly) id <MTLDevice> device;
 @property(copy) NSString *label;
-- (id <MTLIndirectArgumentEncoder>)newIndirectArgumentEncoderWithBufferIndex:(unsigned long long)arg1 reflection:(id *)arg2;
-- (id <MTLIndirectArgumentEncoder>)newIndirectArgumentEncoderWithBufferIndex:(unsigned long long)arg1;
+- (id <MTLArgumentEncoder>)newArgumentEncoderWithBufferIndex:(unsigned long long)arg1 reflection:(id *)arg2;
+- (id <MTLArgumentEncoder>)newArgumentEncoderWithBufferIndex:(unsigned long long)arg1;
 @end
 

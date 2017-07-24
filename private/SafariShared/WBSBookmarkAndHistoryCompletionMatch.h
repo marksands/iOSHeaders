@@ -21,7 +21,7 @@
 - (id)title;
 - (id)originalURLString;
 @property(readonly, nonatomic) id <WBSURLCompletionMatchData> data;
-- (id)initWithBookmarkAndHistoryCompletionMatch:(PassRefPtr_8dece646)arg1 userInput:(id)arg2;
+- (id)initWithBookmarkAndHistoryCompletionMatch:(Ref_ba1e7e0b *)arg1 userInput:(id)arg2;
 
 @end
 

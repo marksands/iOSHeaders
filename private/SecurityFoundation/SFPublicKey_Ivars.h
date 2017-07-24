@@ -11,5 +11,7 @@
     struct __SecKey *secKey;
 }
 
+- (void)dealloc;
+
 @end
 

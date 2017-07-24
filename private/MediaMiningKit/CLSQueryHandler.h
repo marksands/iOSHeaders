@@ -12,6 +12,7 @@
 @interface CLSQueryHandler : NSObject
 {
     id <CLSQueryPerformerProtocol> _query;
+    double _internalProgressTimeInterval;
     NSObject<OS_dispatch_source> *_timer;
     unsigned long long _retryLevel;
     double _nextRetryTime;
@@ -36,8 +37,11 @@
 - (void).cxx_destruct;
 - (unsigned long long)_cacheMapItems:(id)arg1;
 - (void)cancel;
+- (void)_cancel;
 - (void)_handleError:(id)arg1;
 - (void)_heartBeat;
+- (void)_startQuery;
+- (void)_handleQueryResultsForQuery:(id)arg1 items:(id)arg2 error:(id)arg3;
 - (void)_forwardToGeoThread;
 - (void)cacheItems;
 - (id)initWithQueryPerformer:(id)arg1 geoServiceThread:(id)arg2 loggingConnection:(id)arg3;

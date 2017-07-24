@@ -119,6 +119,12 @@ struct RTRenderable;
 
 struct SCNOctree;
 
+struct SdfPath {
+    struct intrusive_ptr<const Sdf_PathNode> _field1;
+};
+
+struct Sdf_PathNode;
+
 struct SkyDescriptor {
     float _field1;
     float _field2;
@@ -167,13 +173,15 @@ struct UsdAttr;
 struct UsdAttribute {
     int _field1;
     struct Usd_PrimDataHandle _field2;
-    struct TfToken _field3;
+    struct SdfPath _field3;
+    struct TfToken _field4;
 };
 
 struct UsdPrim {
     int _field1;
     struct Usd_PrimDataHandle _field2;
-    struct TfToken _field3;
+    struct SdfPath _field3;
+    struct TfToken _field4;
 };
 
 struct UsdTimeCode {
@@ -273,6 +281,10 @@ struct intrusive_ptr<VtArray<int>::_Data> {
 
 struct intrusive_ptr<VtArray<unsigned int>::_Data> {
     struct _Data *_field1;
+};
+
+struct intrusive_ptr<const Sdf_PathNode> {
+    struct Sdf_PathNode *_field1;
 };
 
 struct intrusive_ptr<const Usd_PrimData> {

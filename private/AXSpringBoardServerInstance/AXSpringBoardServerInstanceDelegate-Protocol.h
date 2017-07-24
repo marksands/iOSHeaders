@@ -44,6 +44,7 @@
 - (_Bool)isSpeakThisTemporarilyDisabledWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)hasActiveOrPendingCallOrFaceTimeWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)hasActiveOrPendingCallWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
+- (_Bool)hasActiveEndpointCallWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)hasActiveCallWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)serverInstance:(_AXSpringBoardServerInstance *)arg1 pauseMedia:(_Bool)arg2 forBundleId:(NSString *)arg3;
 - (void)serverInstance:(_AXSpringBoardServerInstance *)arg1 showSpeechPlaybackControls:(_Bool)arg2;

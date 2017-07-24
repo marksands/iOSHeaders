@@ -41,8 +41,6 @@
 - (id)_initWithBundleIdentifier:(id)arg1 alreadyKnownUsage:(id)arg2 validationToken:(id)arg3;
 - (_Bool)fetchClientSideWithError:(id *)arg1;
 - (_Bool)fetchServerSideWithConnection:(id)arg1 error:(id *)arg2;
-- (_Bool)_isValidWithConnection:(id)arg1;
-- (id)_validationTokenPayload;
 
 @end
 

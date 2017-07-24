@@ -17,5 +17,6 @@
 - (void)contentModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg1 didFinishInteractionWithModule:(id <CCUIContentModule>)arg2;
 - (void)contentModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg1 didBeginInteractionWithModule:(id <CCUIContentModule>)arg2;
 - (struct CGRect)compactModeFrameForContentModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg1;
+- (_Bool)contentModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg1 shouldForwardAppearanceCall:(_Bool)arg2 animated:(_Bool)arg3;
 @end
 

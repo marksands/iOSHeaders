@@ -6,12 +6,13 @@
 
 #import <NewsCore/NSObject-Protocol.h>
 
-@class FCAppConfiguration;
+@class FCAppConfigurationManager;
 
 @protocol FCAppConfigurationObserving <NSObject>
 
 @optional
-- (void)appConfigurationTrendingTopicsDidChange:(FCAppConfiguration *)arg1;
-- (void)appConfigurationDidChange:(FCAppConfiguration *)arg1;
+- (void)appConfigurationManagerUserDidJoinOrLeaveExperiment:(FCAppConfigurationManager *)arg1;
+- (void)appConfigurationTrendingTopicsDidChange:(FCAppConfigurationManager *)arg1;
+- (void)appConfigurationDidChange:(FCAppConfigurationManager *)arg1;
 @end
 

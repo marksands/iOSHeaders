@@ -73,6 +73,7 @@
 @property(getter=isOpaque) _Bool opaque;
 @property(getter=isDoubleSided) _Bool doubleSided;
 @property(getter=isHidden) _Bool hidden;
+@property(retain) id cornerContents;
 @property double anchorPointZ;
 @property struct CGPoint anchorPoint;
 @property(copy) NSString *fillMode;
@@ -129,7 +130,6 @@
 @property(copy) NSString *contentsGravity;
 @property(copy) NSString *contentsFormat;
 @property unsigned int edgeAntialiasingMask;
-@property(retain) id cornerContents;
 @property(retain) id contents;
 - (_Bool)containsPoint:(struct CGPoint)arg1;
 - (id)hitTest:(struct CGPoint)arg1;

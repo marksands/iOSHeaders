@@ -8,7 +8,6 @@
 
 @class NSSet, NSString;
 
-__attribute__((visibility("hidden")))
 @interface VSValueTypeProperty : NSObject
 {
     NSString *_name;

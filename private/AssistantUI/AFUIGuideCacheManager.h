@@ -17,7 +17,6 @@
 
 + (id)sharedManager;
 - (void).cxx_destruct;
-- (void)dealloc;
 - (id)_aceObjectDictionaryAtFilepath:(id)arg1;
 - (id)_cachedGuideUpdate;
 - (id)_pathForCachedGuideUpdate;
@@ -30,6 +29,7 @@
 @property(readonly, nonatomic) SAGuidanceSuggestedUtterances *cachedSuggestedUtterances;
 @property(readonly, nonatomic) SAGuidanceGuideSnippet *cachedGuideSnippet;
 @property(readonly, nonatomic) NSNumber *cachedGuideTag;
+- (void)dealloc;
 - (id)init;
 
 @end

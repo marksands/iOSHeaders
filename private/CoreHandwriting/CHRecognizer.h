@@ -140,7 +140,7 @@
 - (void)_prepareTransliterationVariantMap;
 - (id)initWithType:(int)arg1 mode:(int)arg2 learningDictionaryURL:(id)arg3;
 - (id)initWithType:(int)arg1 mode:(int)arg2 locale:(struct __CFLocale *)arg3 learningDictionaryURL:(id)arg4;
-- (id)defaultPunctuationResultsForRecognitionType:(int)arg1;
+- (id)defaultPunctuationResultsForRecognitionType:(int)arg1 withStrokeCount:(unsigned long long)arg2;
 
 @end
 

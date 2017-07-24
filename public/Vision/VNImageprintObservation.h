@@ -30,7 +30,6 @@
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)init_CVML_MIGRATION_ONLY_WithIdentitifer:(id)arg1 descriptorId:(long long)arg2 externalId:(id)arg3 exifTimestamp:(long long)arg4 qualityScore:(float)arg5 rawDescriptorData:(id)arg6 rawDescriptorDataStride:(unsigned long long)arg7 rawDescriptorDataCount:(unsigned long long)arg8;
 - (id)initWithCoder:(id)arg1;
 
 @end

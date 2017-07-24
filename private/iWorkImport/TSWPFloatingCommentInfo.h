@@ -33,11 +33,14 @@ __attribute__((visibility("hidden")))
 + (id)bezierPathForExportCommentOutline;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *annotationUUID;
+- (id)commandForUpgradingToACommentForAuthor:(id)arg1;
 - (id)commandForDeletingComment;
 - (id)commandForDeletingReply:(id)arg1;
 - (id)commandForEditingReply:(id)arg1 withReplyText:(id)arg2;
+- (id)commandForReplacingCreatedReplyWithReplyText:(id)arg1 author:(id)arg2;
 - (id)commandForCreatingReplyWithReplyText:(id)arg1 author:(id)arg2;
 - (id)commandForChangingCommentText:(id)arg1;
+- (id)commandForInsertingWithCommentText:(id)arg1;
 - (_Bool)isInDocument;
 - (_Bool)wantsAnnotationPopover;
 @property(copy, nonatomic) TSDCommentStorage *storage;

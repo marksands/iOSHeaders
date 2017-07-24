@@ -6,10 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
+#import <Metal/MTLArgumentEncoder-Protocol.h>
+
 @class NSString, _MTLIndirectArgumentBufferLayout;
 @protocol MTLDevice;
 
-@interface _MTLIndirectArgumentEncoder : NSObject
+@interface _MTLIndirectArgumentEncoder : NSObject <MTLArgumentEncoder>
 {
     id <MTLDevice> _device;
     NSString *_label;
@@ -18,10 +20,28 @@
 
 @property(readonly, nonatomic) _MTLIndirectArgumentBufferLayout *layout; // @synthesize layout=_layout;
 @property(copy) NSString *label; // @synthesize label=_label;
-- (id)newIndirectArgumentEncoderForBufferAtIndex:(unsigned long long)arg1;
+- (void)setArgumentBuffer:(id)arg1 offset:(unsigned long long)arg2;
+- (void)setArgumentBuffer:(id)arg1 startOffset:(unsigned long long)arg2 arrayElement:(unsigned long long)arg3;
+- (void)setIndirectArgumentBuffer:(id)arg1 offset:(unsigned long long)arg2;
+- (void)setIndirectArgumentBuffer:(id)arg1 startOffset:(unsigned long long)arg2 arrayElement:(unsigned long long)arg3;
+- (void *)constantDataAtIndex:(unsigned long long)arg1;
+- (void)setSamplerStates:(const id *)arg1 withRange:(struct _NSRange)arg2;
+- (void)setSamplerState:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)setTextures:(const id *)arg1 withRange:(struct _NSRange)arg2;
+- (void)setTexture:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)setBuffers:(const id *)arg1 offsets:(const unsigned long long *)arg2 withRange:(struct _NSRange)arg3;
+- (void)setBuffer:(id)arg1 offset:(unsigned long long)arg2 atIndex:(unsigned long long)arg3;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 device:(id)arg2;
 @property(readonly, nonatomic) id <MTLDevice> device;
+
+// Remaining properties
+@property(readonly) unsigned long long alignment;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long encodedLength; // @dynamic encodedLength;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -13,6 +13,7 @@
 @interface PXAssetsTileTransitionCoordinator : NSObject <PXTileTransitionAnimationCoordinator>
 {
     _Bool _treatRemovalsAsDeletes;
+    _Bool _delayInsertions;
     _Bool __shouldCrossfade;
     PXTilingChange *__tilingChange;
     PXBasicTileAnimationOptions *__basicAnimationOptions;
@@ -36,6 +37,7 @@
 @property(readonly, nonatomic) _Bool _shouldCrossfade; // @synthesize _shouldCrossfade=__shouldCrossfade;
 @property(readonly, nonatomic) PXBasicTileAnimationOptions *_basicAnimationOptions; // @synthesize _basicAnimationOptions=__basicAnimationOptions;
 @property(readonly, nonatomic) PXTilingChange *_tilingChange; // @synthesize _tilingChange=__tilingChange;
+@property(nonatomic) _Bool delayInsertions; // @synthesize delayInsertions=_delayInsertions;
 @property(nonatomic) _Bool treatRemovalsAsDeletes; // @synthesize treatRemovalsAsDeletes=_treatRemovalsAsDeletes;
 - (void).cxx_destruct;
 - (_Bool)useDoubleSidedAnimationForUpdatedTileWithIdentifier:(struct PXTileIdentifier)arg1 fromGeometry:(struct PXTileGeometry)arg2 fromUserData:(id)arg3 toGeometry:(struct PXTileGeometry)arg4 toUserData:(id)arg5;

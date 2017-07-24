@@ -16,7 +16,7 @@
 }
 
 + (void)performSyncOnSilo:(id)arg1 invoker:(CDUnknownBlockType)arg2;
-+ (void)becameFatallyBlocked:(id)arg1;
++ (void)becameFatallyBlocked:(id)arg1 index:(unsigned long long)arg2;
 + (id)getSilo;
 + (_Bool)isSupported;
 @property(nonatomic) _Bool valid; // @synthesize valid=_valid;

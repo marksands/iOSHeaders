@@ -8,7 +8,7 @@
 
 #import <iTunesStore/SSURLSessionManagerDelegate-Protocol.h>
 
-@class ISDataProvider, ISURLRequestPerformance, NSArray, NSCountedSet, NSData, NSMutableData, NSObject, NSString, NSURLCache, NSURLRequest, NSURLResponse, NSURLSessionTask, SSAuthenticationContext, SSHTTPArchive, SSMutableURLRequestProperties, SSURLRequestProperties, SSURLSessionManager;
+@class ISDataProvider, ISURLRequestPerformance, NSArray, NSCountedSet, NSData, NSMutableData, NSNumber, NSObject, NSString, NSURLCache, NSURLRequest, NSURLResponse, NSURLSessionTask, SSAuthenticationContext, SSBag, SSHTTPArchive, SSMutableURLRequestProperties, SSURLRequestProperties, SSURLSessionManager;
 @protocol ISURLOperationDelegate, OS_dispatch_queue;
 
 @interface ISURLOperation : ISOperation <SSURLSessionManagerDelegate>
@@ -105,6 +105,9 @@
 @property(readonly, nonatomic) _Bool shouldSetCookies;
 @property(readonly, nonatomic) _Bool shouldRequireCellular;
 @property(readonly, nonatomic) _Bool shouldDisableCellular;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentageCachedResponses;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentage;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSessionDuration;
 - (_Bool)shouldFollowRedirectWithRequest:(id)arg1 returningError:(id *)arg2;
 - (id)newRequestWithURL:(id)arg1;
 - (void)handleResponse:(id)arg1;
@@ -118,10 +121,12 @@
 - (id)init;
 
 // Remaining properties
+@property(readonly, nonatomic) SSBag *bag;
 @property(readonly, copy) NSString *debugDescription;
 @property __weak id <ISURLOperationDelegate> delegate; // @dynamic delegate;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) _Bool isURLBagRequest;
 @property(readonly) Class superclass;
 
 @end

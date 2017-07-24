@@ -9,19 +9,20 @@
 #import <SafariServices/SFRemoteViewControllerProtocol-Protocol.h>
 
 @class NSString;
-@protocol SFBrowserRemoveViewControllerDelegate;
+@protocol SFBrowserRemoteViewControllerDelegate;
 
 __attribute__((visibility("hidden")))
 @interface SFBrowserRemoteViewController : _UIRemoteViewController <SFRemoteViewControllerProtocol>
 {
-    id <SFBrowserRemoveViewControllerDelegate> _delegate;
+    id <SFBrowserRemoteViewControllerDelegate> _delegate;
 }
 
 + (id)exportedInterface;
 + (id)serviceViewControllerInterface;
 + (id)requestViewControllerWithConnectionHandler:(CDUnknownBlockType)arg1;
-@property(nonatomic) __weak id <SFBrowserRemoveViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <SFBrowserRemoteViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)didDecideCookieSharingForURL:(id)arg1 shouldCancel:(_Bool)arg2;
 - (void)willOpenURLInHostApplication:(id)arg1;
 - (void)executeCustomActivityProxyID:(id)arg1;
 - (void)fetchActivityViewControllerInfoForURL:(id)arg1 title:(id)arg2;

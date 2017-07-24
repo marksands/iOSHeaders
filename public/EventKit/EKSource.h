@@ -78,6 +78,7 @@
 - (void)setPreferredEventPrivateValueRaw:(int)arg1;
 - (int)preferredEventPrivateValueRaw;
 @property(nonatomic) long long sourceType;
+@property(readonly, nonatomic) _Bool hasOwnerEmailAddress;
 
 @end
 

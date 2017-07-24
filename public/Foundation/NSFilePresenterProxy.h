@@ -40,6 +40,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) _Bool disconnected;
 - (void)disconnect;
 - (void)forwardRelinquishmentForWritingClaim:(_Bool)arg1 withID:(id)arg2 purposeID:(id)arg3 subitemURL:(id)arg4 options:(unsigned long long)arg5 completionHandler:(CDUnknownBlockType)arg6;
+- (void)observeNewProvider:(id)arg1;
 - (void)observePresenterChange:(_Bool)arg1 atSubitemURL:(id)arg2;
 - (void)observeVersionChangeOfKind:(id)arg1 withClientID:(id)arg2 name:(id)arg3 subitemPath:(id)arg4;
 - (void)observeChangeAtSubitemPath:(id)arg1;

@@ -12,9 +12,9 @@
 }
 
 + (id)title;
-+ (_Bool)requiresVisionKit;
 + (_Bool)isSupported;
 @property(nonatomic) unsigned long long recognitionOptions; // @synthesize recognitionOptions=_recognitionOptions;
+- (_Bool)requiresVisionFramework;
 
 @end
 

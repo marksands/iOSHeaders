@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
 - (void)clearBackPointerToParentInfoIfNeeded:(id)arg1;
 @property(nonatomic) NSObject<TSDContainerInfo> *parentInfo;
+- (void)invalidateLayoutInfoProvider;
 - (id)copyWithContext:(id)arg1;
 @property(readonly, nonatomic) TPDocumentRoot *documentRoot;
 @property(readonly) unsigned long long hash;

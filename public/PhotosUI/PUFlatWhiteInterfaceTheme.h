@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
 - (void)configureSlideshowMusicHeaderTitleLabel:(id)arg1;
 @property(readonly, nonatomic) UIColor *slideshowMusicHeaderTextColor;
 @property(readonly, nonatomic) UIColor *slideshowMusicHeaderBackgroundColor;
-@property(readonly, nonatomic) UIImage *slideshowAirplayImage;
 @property(readonly, nonatomic) UIColor *slideshowSeparatorColor;
 @property(readonly, nonatomic) struct UIEdgeInsets slideshowSeparatorInset;
 @property(readonly, nonatomic) UIColor *slideshowChromeBarTintColor;
@@ -90,6 +89,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) UIColor *photoEditingDepthButtonEnabledColor;
 @property(readonly, nonatomic) UIColor *photoEditingIrisDisabledColor;
 @property(readonly, nonatomic) UIColor *photoEditingIrisEnabledColor;
+@property(readonly, nonatomic) UIColor *photoEditingAutoEnhanceDisabledColor;
+@property(readonly, nonatomic) UIColor *photoEditingAutoEnhanceEnabledColor;
 @property(readonly, nonatomic) UIColor *photoEditingCropToggleButtonColor;
 @property(readonly, nonatomic) UIFont *photoEditingCropToggleButtonFont;
 @property(readonly, nonatomic) UIFont *photoEditingCropTiltWheelFont;
@@ -104,6 +105,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) UIColor *photoEditingOverlayBadgeColor;
 @property(readonly, nonatomic) UIFont *photoEditingTooltipFont;
 @property(readonly, nonatomic) UIColor *photoEditingTooltipColor;
+@property(readonly, nonatomic) UIColor *photoEditingAdjustmentsBarCurrentPositionMarkerColor;
+@property(readonly, nonatomic) UIColor *photoEditingAdjustmentsBarOriginalPositionMarkerColor;
 @property(readonly, nonatomic) UIColor *photoEditingAdjustmentsBarDisabledColor;
 @property(readonly, nonatomic) UIColor *photoEditingAdjustmentsBarHighlightColor;
 @property(readonly, nonatomic) UIColor *photoEditingAdjustmentsBarMainColor;
@@ -199,10 +202,17 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double photoCollectionToolbarTextTitleSpacerWidth;
 @property(readonly, nonatomic) UIColor *emptyPlaceholderViewBackgroundColor;
 @property(readonly, nonatomic) unsigned long long emptyPlaceholderStyle;
-- (void)configurePhotoCollectionCloudQuotaBannerTextView:(id)arg1;
+- (id)photoCollectionCloudQuotaBannerLinkTextColorHighlighted:(_Bool)arg1;
+- (id)photoCollectionCloudQuotaBannerLinkTextFont;
+- (struct NSDirectionalEdgeInsets)photoCollectionCloudQuotaBannerTextMargins;
+- (id)photoCollectionCloudQuotaBannerTextColorHighlighted:(_Bool)arg1;
+- (long long)photoCollectionCloudQuotaBannerTextAlignment;
+- (id)photoCollectionCloudQuotaBannerBackgroundColorHighlighted:(_Bool)arg1;
+- (id)photoCollectionCloudQuotaBannerFont;
 - (void)configurePhotoCollectionGlobalFooterProgressView:(id)arg1 paused:(_Bool)arg2;
 - (void)configurePhotoCollectionGlobalFooterSubtitleTextView:(id)arg1;
-- (id)photoCollectionGlobalFooterSubtitleTextViewAttributesHighlighted:(_Bool)arg1 disabled:(_Bool)arg2;
+- (id)photoCollectionGlobalFooterSubtitleTextViewLinkTextAttributes;
+- (id)photoCollectionGlobalFooterSubtitleTextViewAttributesDisabled:(_Bool)arg1;
 - (void)configurePhotoCollectionGlobalFooterSubtitleLabel:(id)arg1;
 - (void)configurePhotoCollectionGlobalFooterTitleLabel:(id)arg1;
 - (void)_configurePhotoCollectionGlobalFooterLabel:(id)arg1 withFontDescriptor:(id)arg2 textColor:(id)arg3;

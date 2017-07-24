@@ -23,6 +23,8 @@
 - (_Bool)setPlaceholderAttributes:(id)arg1 error:(id *)arg2;
 - (_Bool)launchProhibited:(_Bool *)arg1 error:(id *)arg2;
 - (_Bool)setLaunchProhibited:(_Bool)arg1 error:(id *)arg2;
+- (id)sinfDataWithError:(id *)arg1;
+- (_Bool)setSinfData:(id)arg1 error:(id *)arg2;
 - (id)metadataWithError:(id *)arg1;
 - (_Bool)setMetadata:(id)arg1 error:(id *)arg2;
 @property(copy, nonatomic) MIStoreMetadata *metadata; // @dynamic metadata;

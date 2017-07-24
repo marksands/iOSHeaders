@@ -24,6 +24,7 @@
     _Bool _administrator;
     NSDictionary *_dictionaryRepresentation;
     NSDate *_expirationDate;
+    long long _carrierBundlingStatusType;
     long long _reasonType;
     long long _statusType;
     long long _statusCode;
@@ -35,6 +36,7 @@
 @property(readonly, nonatomic, getter=isAdministrator) _Bool administrator; // @synthesize administrator=_administrator;
 @property(readonly, nonatomic) long long statusType; // @synthesize statusType=_statusType;
 @property(readonly, nonatomic) long long reasonType; // @synthesize reasonType=_reasonType;
+@property(readonly, nonatomic) long long carrierBundlingStatusType; // @synthesize carrierBundlingStatusType=_carrierBundlingStatusType;
 @property(readonly, nonatomic, getter=isPurchaser) _Bool purchaser; // @synthesize purchaser=_purchaser;
 @property(readonly, nonatomic, getter=isEligibleForFreeTrial) _Bool eligibleForFreeTrial; // @synthesize eligibleForFreeTrial=_eligibleForFreeTrial;
 @property(readonly, nonatomic, getter=isInFreeTrial) _Bool inFreeTrial; // @synthesize inFreeTrial=_inFreeTrial;
@@ -47,6 +49,7 @@
 @property(readonly, nonatomic, getter=isMinorAccountHolder) _Bool minorAccountHolder; // @synthesize minorAccountHolder=_minorAccountHolder;
 @property(readonly, copy, nonatomic) NSDictionary *dictionaryRepresentation; // @synthesize dictionaryRepresentation=_dictionaryRepresentation;
 - (void).cxx_destruct;
+- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithResponseDictionary:(id)arg1;
 

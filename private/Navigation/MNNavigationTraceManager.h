@@ -71,7 +71,7 @@ __attribute__((visibility("hidden")))
 - (void)tracePlayerDidStayOnRoute:(id)arg1;
 - (void)tracePlayer:(id)arg1 didJumpToRouteResponse:(id)arg2 request:(id)arg3 origin:(id)arg4 destination:(id)arg5;
 - (void)tracePlayer:(id)arg1 didPlayAtTime:(double)arg2;
-- (void)tracePlayer:(id)arg1 didSeekToTime:(double)arg2 location:(id)arg3;
+- (void)tracePlayer:(id)arg1 didSeekToTime:(double)arg2 fromTime:(double)arg3 location:(id)arg4;
 - (void)tracePlayer:(id)arg1 didSeekToTransportType:(int)arg2;
 - (void)tracePlayerDidResume:(id)arg1;
 - (void)tracePlayerDidPause:(id)arg1;

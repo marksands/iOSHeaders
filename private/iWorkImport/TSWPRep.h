@@ -43,7 +43,7 @@ __attribute__((visibility("hidden")))
     _Bool _hudStateDirty;
     _Bool _invalidateHUDState;
     _Bool _useKeyboardWhenEditing;
-    CALayer *_dragAndDropCaretLayer;
+    double _listLevelIndents[9];
     TSWPSelection *_dropSelection;
     _Bool _isShowingCommentKnobs;
     _Bool _tornDown;
@@ -61,7 +61,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CALayer *floatingCaretLayer; // @synthesize floatingCaretLayer=_floatingCaretLayer;
 @property(retain, nonatomic) NSArray *searchReferences; // @synthesize searchReferences=_searchReferences;
 @property(readonly, nonatomic) struct CGAffineTransform transformToConvertNaturalToScaledRoot; // @synthesize transformToConvertNaturalToScaledRoot=_transformToConvertNaturalToScaledRoot;
-@property(nonatomic) TSWPSelection *dropSelection; // @synthesize dropSelection=_dropSelection;
 @property(nonatomic) _Bool useKeyboardWhenEditing; // @synthesize useKeyboardWhenEditing=_useKeyboardWhenEditing;
 @property(readonly, nonatomic) TSWPTextEditor *textEditor; // @synthesize textEditor=_textEditor;
 @property(nonatomic) struct _NSRange dragRange; // @synthesize dragRange=_dragRange;

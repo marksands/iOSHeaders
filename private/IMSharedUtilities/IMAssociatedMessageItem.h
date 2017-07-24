@@ -6,9 +6,13 @@
 
 #import <IMSharedUtilities/IMMessageItem.h>
 
+#import <IMSharedUtilities/IMRemoteObjectCoding-Protocol.h>
+#import <IMSharedUtilities/NSCopying-Protocol.h>
+#import <IMSharedUtilities/NSSecureCoding-Protocol.h>
+
 @class NSArray, NSString;
 
-@interface IMAssociatedMessageItem : IMMessageItem
+@interface IMAssociatedMessageItem : IMMessageItem <NSSecureCoding, NSCopying, IMRemoteObjectCoding>
 {
     NSString *_associatedMessageGUID;
     long long _associatedMessageType;
@@ -16,10 +20,12 @@
     struct _NSRange _associatedMessageRange;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSArray *consumedSessionPayloads; // @synthesize consumedSessionPayloads=_consumedSessionPayloads;
 @property(nonatomic) struct _NSRange associatedMessageRange; // @synthesize associatedMessageRange=_associatedMessageRange;
 @property(nonatomic) long long associatedMessageType; // @synthesize associatedMessageType=_associatedMessageType;
 @property(retain, nonatomic) NSString *associatedMessageGUID; // @synthesize associatedMessageGUID=_associatedMessageGUID;
+- (_Bool)isEqual:(id)arg1;
 - (_Bool)isSticker;
 - (_Bool)isMessageEdit;
 - (_Bool)isBreadcrumb;

@@ -6,6 +6,7 @@
 
 #import <UIKit/UITableViewController.h>
 
+#import <ChatKit/CKCloudKitSyncProgressViewControllerDelegate-Protocol.h>
 #import <ChatKit/CKConversationListCellDelegate-Protocol.h>
 #import <ChatKit/CKConversationResultsControllerDelegate-Protocol.h>
 #import <ChatKit/CKTranscriptPreviewControllerDelegate-Protocol.h>
@@ -14,13 +15,13 @@
 #import <ChatKit/UISearchControllerDelegate-Protocol.h>
 #import <ChatKit/UITableViewDataSource-Protocol.h>
 #import <ChatKit/UITableViewDelegate-Protocol.h>
+#import <ChatKit/UITableViewDragDestinationDelegate-Protocol.h>
 #import <ChatKit/UIViewControllerPreviewingDelegate-Protocol.h>
 #import <ChatKit/UIViewControllerPreviewingDelegate_Private-Protocol.h>
-#import <ChatKit/_UIViewDraggingDestinationDelegate-Protocol.h>
 
-@class CKConversation, CKConversationList, CKConversationSearchResultsController, CKMessagesController, CKScheduledUpdater, NSArray, NSIndexPath, NSString, UIBarButtonItem, UISearchController, UITableView, UIView;
+@class CKCloudKitSyncProgressViewController, CKConversation, CKConversationList, CKConversationSearchResultsController, CKMessagesController, CKScheduledUpdater, NSArray, NSIndexPath, NSString, UIBarButtonItem, UISearchController, UITableView, UIView;
 
-@interface CKConversationListController : UITableViewController <UISearchControllerDelegate, UISearchBarDelegate, CKConversationResultsControllerDelegate, CKConversationListCellDelegate, _UIViewDraggingDestinationDelegate, CKTranscriptPreviewControllerDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
+@interface CKConversationListController : UITableViewController <UISearchControllerDelegate, UISearchBarDelegate, CKCloudKitSyncProgressViewControllerDelegate, CKConversationResultsControllerDelegate, CKConversationListCellDelegate, UITableViewDragDestinationDelegate, CKTranscriptPreviewControllerDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 {
     UITableView *_table;
     NSIndexPath *_previouslySelectedIndexPath;
@@ -45,8 +46,10 @@
     UISearchController *_searchController;
     CKConversationSearchResultsController *_searchResultsController;
     CDUnknownBlockType _searchCompletion;
+    CKCloudKitSyncProgressViewController *_syncProgressViewController;
 }
 
+@property(retain, nonatomic) CKCloudKitSyncProgressViewController *syncProgressViewController; // @synthesize syncProgressViewController=_syncProgressViewController;
 @property(copy, nonatomic) CDUnknownBlockType searchCompletion; // @synthesize searchCompletion=_searchCompletion;
 @property(retain, nonatomic) CKConversationSearchResultsController *searchResultsController; // @synthesize searchResultsController=_searchResultsController;
 @property(retain, nonatomic) UISearchController *searchController; // @synthesize searchController=_searchController;
@@ -66,6 +69,10 @@
 @property(nonatomic) __weak CKMessagesController *messagesController; // @synthesize messagesController=_messagesController;
 @property(nonatomic) __weak CKConversationList *conversationList; // @synthesize conversationList=_conversationList;
 - (void).cxx_destruct;
+- (void)cloudKitSyncProgressViewController:(id)arg1 actionButtonWasPressed:(long long)arg2 errors:(id)arg3;
+- (void)cloudKitSyncProgressViewControllerDidChangeVisibility:(id)arg1;
+- (void)_updateSyncProgressIfNeeded;
+- (_Bool)_toolbarContainsCustomView:(id)arg1;
 @property(readonly, nonatomic) _Bool shouldShowPendingCell;
 - (void)selectConversationClosestToDeletedIndex:(unsigned long long)arg1;
 - (void)selectNextSequentialConversation:(_Bool)arg1;
@@ -77,15 +84,9 @@
 - (void)_keyboardWillHide:(id)arg1;
 - (void)_keyboardWillShow:(id)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
-- (_Bool)_cellHighlightedForDrag:(id)arg1;
-- (id)_itemProvidersFromDraggingInfo:(id)arg1;
-- (id)_indexPathOfDroppedCell;
-- (unsigned long long)view:(id)arg1 draggingUpdated:(id)arg2;
-- (void)view:(id)arg1 performDragOperation:(id)arg2;
-- (void)view:(id)arg1 draggingExited:(id)arg2;
-- (_Bool)view:(id)arg1 prepareForDragOperation:(id)arg2;
-- (_Bool)view:(id)arg1 allowsSimultaneousDragToEnter:(id)arg2;
-- (unsigned long long)view:(id)arg1 draggingEntered:(id)arg2;
+- (id)_tableView:(id)arg1 dropSessionDidUpdate:(id)arg2 withDestinationIndexPath:(id)arg3;
+- (_Bool)_tableView:(id)arg1 canHandleDropSession:(id)arg2;
+- (void)_tableView:(id)arg1 performDropWithCoordinator:(id)arg2;
 - (void)searcherDidComplete:(id)arg1;
 - (void)searcher:(id)arg1 userDidDeleteChatGUID:(id)arg2;
 - (void)searcher:(id)arg1 userDidSelectChatGUID:(id)arg2 messageGUID:(id)arg3;
@@ -154,6 +155,7 @@
 - (void)_updateConversationFilteredFlagsAndReportSpam;
 - (void)updateNoMessagesDialog;
 - (void)updateConversationList;
+- (void)updateSMSSpamConversationsDisplayName;
 - (void)endHoldingConversationListUpdatesForKey:(id)arg1;
 - (void)beginHoldingConversationListUpdatesForKey:(id)arg1;
 - (void)scrollToTop;
@@ -175,6 +177,7 @@
 - (void)_chatItemsDidChange:(id)arg1;
 - (void)_conversationPinStateChangedNotification:(id)arg1;
 - (void)_conversationContactPhotosEnabledChangedNotification:(id)arg1;
+- (void)_conversationSpamFilteringStateChangedNotification:(id)arg1;
 - (void)_conversationFilteringStateChangedNotification:(id)arg1;
 - (void)_conversationMuteDidChangeNotification:(id)arg1;
 - (void)_conversationDisplayNameChangedNotification:(id)arg1;

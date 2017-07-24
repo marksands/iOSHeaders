@@ -76,6 +76,7 @@
 - (void)_setEnabled:(_Bool)arg1;
 - (id)_fontForFooter;
 - (id)_attributedStringForFooter;
+- (_Bool)_isGreenTeaCapable;
 - (_Bool)_hasValidCredentials;
 - (id)_tableFooterView;
 - (id)_passwordCell;

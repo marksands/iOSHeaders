@@ -14,6 +14,8 @@
 @interface WFWeatherStoreService : NSObject <WFWeatherStore>
 {
     WFWeatherStoreServiceConfiguration *_configuration;
+    CDUnknownBlockType _forecastRequestStartingCallback;
+    CDUnknownBlockType _locationGeocodeForCoordinateRequestStartingCallback;
     NSObject<OS_dispatch_queue> *_incomingRequestQueue;
     NSObject<OS_dispatch_queue> *_parseQueue;
     NSObject<OS_dispatch_queue> *_mapQueue;
@@ -32,6 +34,8 @@
 @property(retain) NSObject<OS_dispatch_queue> *mapQueue; // @synthesize mapQueue=_mapQueue;
 @property(retain) NSObject<OS_dispatch_queue> *parseQueue; // @synthesize parseQueue=_parseQueue;
 @property(retain) NSObject<OS_dispatch_queue> *incomingRequestQueue; // @synthesize incomingRequestQueue=_incomingRequestQueue;
+@property(copy, nonatomic) CDUnknownBlockType locationGeocodeForCoordinateRequestStartingCallback; // @synthesize locationGeocodeForCoordinateRequestStartingCallback=_locationGeocodeForCoordinateRequestStartingCallback;
+@property(copy, nonatomic) CDUnknownBlockType forecastRequestStartingCallback; // @synthesize forecastRequestStartingCallback=_forecastRequestStartingCallback;
 @property(copy, nonatomic) WFWeatherStoreServiceConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)_executeCallbacksForURL:(id)arg1 requestIdentifier:(id)arg2 conditions:(id)arg3 error:(id)arg4;

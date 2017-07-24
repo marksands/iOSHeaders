@@ -29,6 +29,8 @@
     NSNumber *_childItemCount;
     NSURL *_url;
     NSURL *_localRepresentationURL;
+    NSNumber *_parentZoneRowID;
+    NSNumber *_zoneRowID;
     NSMutableDictionary *_attrs;
     id _replacement;
     union {
@@ -58,8 +60,8 @@
     _Bool _isNetworkOffline;
 }
 
-+ (id)containerItemForContainer:(id)arg1;
-+ (id)containerItemForContainer:(id)arg1 withItem:(id)arg2;
++ (id)containerItemForContainer:(id)arg1 forceScan:(_Bool)arg2;
++ (id)containerItemForContainer:(id)arg1 withDocumentsItem:(id)arg2;
 + (id)askDaemonQueryItemForURL:(id)arg1 andFakeFSEvent:(_Bool)arg2 error:(id *)arg3;
 + (id)askDaemonQueryItemForURL:(id)arg1 error:(id *)arg2;
 + (_Bool)supportsSecureCoding;
@@ -89,7 +91,7 @@
 - (void)attachLogicalExtension:(id)arg1 physicalExtension:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
-@property(readonly) NSString *fp_spotlightDomainIdentifier;
+@property(readonly, copy) NSString *fp_spotlightDomainIdentifier;
 - (id)sharedItemRole;
 - (_Bool)isHiddenExt;
 @property(readonly, nonatomic, getter=isTrashed) _Bool trashed;
@@ -122,7 +124,6 @@
 @property(readonly, nonatomic) NSNumber *mtime;
 @property(readonly, nonatomic) NSNumber *size;
 @property(readonly, nonatomic) NSString *appLibraryID;
-@property(readonly, nonatomic) NSString *bookmarkData;
 @property(readonly, nonatomic) NSString *physicalName;
 @property(readonly, nonatomic) NSString *logicalName;
 @property(readonly, nonatomic) NSString *parentPath;
@@ -131,7 +132,7 @@
 @property(readonly, nonatomic) NSURL *localRepresentationURL;
 @property(readonly, copy) NSString *containerDisplayName;
 @property(readonly, nonatomic) NSURL *url;
-@property(readonly) NSString *sharingPermissions;
+@property(readonly, copy) NSString *sharingPermissions;
 @property(readonly, nonatomic) NSPersonNameComponents *mostRecentEditorNameComponents;
 @property(readonly, nonatomic) NSPersonNameComponents *ownerNameComponents;
 - (id)owner;
@@ -152,6 +153,7 @@
 - (id)fileSize;
 @property(readonly, copy, nonatomic) NSNumber *childItemCount;
 @property(readonly, nonatomic) unsigned long long capabilities;
+@property(readonly, nonatomic) NSDictionary *userInfo;
 @property(readonly, copy) NSURL *fileURL;
 @property(readonly, getter=isHidden) _Bool hidden;
 @property(readonly, copy, nonatomic) NSNumber *documentSize;
@@ -163,12 +165,12 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly) NSString *fp_domainIdentifier;
+@property(readonly, copy) NSString *fp_appContainerBundleIdentifier;
+@property(readonly, copy) NSString *fp_domainIdentifier;
 @property(readonly, nonatomic) NSNumber *isDownloadRequested;
 @property(readonly, nonatomic) _Bool isTrashed;
-@property(readonly) NSString *providerIdentifier;
+@property(readonly, copy) NSString *providerIdentifier;
 @property(readonly) Class superclass;
-@property(readonly, nonatomic) NSDictionary *userInfo;
 
 @end
 

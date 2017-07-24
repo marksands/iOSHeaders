@@ -17,6 +17,7 @@
 
 + (_Bool)autoListInsertionEnabled;
 + (void)setAutoListInsertionEnabled:(_Bool)arg1;
++ (id)settingsDescriptionForNamedStyle:(unsigned int)arg1;
 + (id)icaxStyleDescriptionForNamedStyle:(unsigned int)arg1;
 + (id)titleForNamedStyle:(unsigned int)arg1;
 + (void)setNoteDefaultNamedStyle:(unsigned int)arg1;

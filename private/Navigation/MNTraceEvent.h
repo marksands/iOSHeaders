@@ -29,6 +29,8 @@
 @property(readonly, nonatomic) unsigned long long stepIndex; // @synthesize stepIndex=_stepIndex;
 @property(readonly, nonatomic) double timeSinceStartOfRoute; // @synthesize timeSinceStartOfRoute=_timeSinceStartOfRoute;
 - (void).cxx_destruct;
+- (id)shieldToText:(id)arg1;
+- (id)instructionsFromSignDescription:(id)arg1;
 - (id)stringByInstructions:(id)arg1;
 - (id)description;
 @property(readonly, nonatomic) NSString *secondaryDescription;

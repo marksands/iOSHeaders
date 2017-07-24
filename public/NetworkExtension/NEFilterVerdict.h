@@ -13,6 +13,7 @@
 
 @interface NEFilterVerdict : NSObject <NSSecureCoding, NSCopying>
 {
+    _Bool _shouldReport;
     _Bool _needRules;
     _Bool _drop;
     _Bool _remediate;
@@ -30,6 +31,7 @@
 @property _Bool remediate; // @synthesize remediate=_remediate;
 @property _Bool drop; // @synthesize drop=_drop;
 @property _Bool needRules; // @synthesize needRules=_needRules;
+@property _Bool shouldReport; // @synthesize shouldReport=_shouldReport;
 - (void).cxx_destruct;
 - (id)initWithDrop:(_Bool)arg1 remediate:(_Bool)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;

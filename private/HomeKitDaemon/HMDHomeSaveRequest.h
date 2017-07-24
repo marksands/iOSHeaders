@@ -10,6 +10,7 @@
 
 @interface HMDHomeSaveRequest : HMFObject
 {
+    _Bool _incrementGeneration;
     HMDHome *_home;
     NSString *_reason;
     NSDictionary *_information;
@@ -17,6 +18,7 @@
     HMDBackingStoreModelObject *_objectChange;
 }
 
+@property(readonly, nonatomic) _Bool incrementGeneration; // @synthesize incrementGeneration=_incrementGeneration;
 @property(readonly, nonatomic) HMDBackingStoreModelObject *objectChange; // @synthesize objectChange=_objectChange;
 @property(readonly, nonatomic) unsigned long long saveOptions; // @synthesize saveOptions=_saveOptions;
 @property(readonly, nonatomic) NSDictionary *information; // @synthesize information=_information;

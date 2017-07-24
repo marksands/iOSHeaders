@@ -10,8 +10,7 @@
 
 @protocol CNDonationAgentAdapter <NSObject>
 - (CNFuture *)removeAllRejections;
-- (CNFuture *)listRejections;
-- (CNFuture *)rejectValuesWithCollectionIdentifier:(NSString *)arg1;
+- (CNFuture *)rejectValuesWithClusterIdentifier:(NSString *)arg1;
 - (CNFuture *)rejectValueWithDonationIdentifier:(NSString *)arg1;
 - (CNFuture *)changeFromAccount:(ACAccount *)arg1 toAccount:(ACAccount *)arg2;
 - (CNFuture *)meCardDonations;

@@ -18,7 +18,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)lookForCharacteristicByAccessoryUUID:(id)arg1 serviceID:(id)arg2 characteristicID:(id)arg3 inHome:(id)arg4 outError:(id *)arg5;
++ (id)lookForCharacteristicByAccessoryUUID:(id)arg1 serviceID:(id)arg2 characteristicID:(id)arg3 inHome:(id)arg4 checkForSupport:(_Bool)arg5 outError:(id *)arg6;
 + (id)compareValueOfCharacteristic:(id)arg1 againstValue:(id)arg2 operatorType:(id)arg3;
 + (id)logCategory;
 @property(retain, nonatomic) id previousValue; // @synthesize previousValue=_previousValue;

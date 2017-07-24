@@ -6,11 +6,11 @@
 
 #import <EventKitUI/EKCalendarEditItem.h>
 
-@class NSMutableArray, UILabel, UISwitch, UIView;
+@class NSMutableArray, UILabel, UISwitch, UITableViewHeaderFooterView;
 
 @interface EKCalendarAbstractSwitchEditItem : EKCalendarEditItem
 {
-    UIView *_footerView;
+    UITableViewHeaderFooterView *_footerView;
     UILabel *_descriptionLabel;
     _Bool _underlyingCalendarState;
     _Bool _switchState;

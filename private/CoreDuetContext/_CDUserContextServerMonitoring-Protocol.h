@@ -9,6 +9,7 @@
 @class NSString;
 
 @protocol _CDUserContextServerMonitoring <NSObject>
+- (void)handleRegistrationCompleted:(NSString *)arg1 handler:(void (^)(_Bool))arg2;
 - (void)handleContextualChange:(NSString *)arg1 handler:(void (^)(_Bool))arg2;
 @end
 

@@ -16,6 +16,7 @@
     struct _NUIBoxArrangement _arrangement;
     id <NUIArrangementContainer> _container;
     id <NUIBoxArrangementDataSource> _dataSource;
+    double _scale;
 }
 
 - (id).cxx_construct;
@@ -23,11 +24,14 @@
 - (struct CGRect)layoutFrameForArrangedSubview:(id)arg1 withProposedContentFrame:(struct CGRect)arg2;
 - (struct CGSize)contentLayoutSizeFittingSize:(struct CGSize)arg1 forArrangedSubview:(id)arg2;
 - (void)positionItemsInBounds:(struct CGRect)arg1 block:(CDUnknownBlockType)arg2;
+- (void)_cacheDisplayScaleIfNeeded;
 - (struct CGSize)layoutSizeFittingSize:(struct CGSize)arg1;
 - (_Bool)supportsAsynchronousMeasurement;
 - (void)populateBoxArrangementCells:(vector_0b89710d *)arg1;
 - (void)reloadData;
 @property(nonatomic, getter=isBaselineRelativeArrangement) _Bool baselineRelativeArrangement;
+@property(readonly, nonatomic) __weak id <NUIBoxArrangementDataSource> dataSource;
+@property(readonly, nonatomic) __weak id <NUIArrangementContainer> container;
 - (void)dealloc;
 - (id)initWithContainer:(id)arg1 dataSource:(id)arg2;
 

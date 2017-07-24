@@ -16,16 +16,16 @@
     SFUserNotification *_notification;
     NSUUID *_peer;
     SFPasswordSharingInfo *_promptedInfo;
-    _Bool _sessionSecured;
-    NSDate *_shareClock;
-    _Bool _validationRecordSent;
     SFService *_service;
-    _Bool _serviceActivated;
+    int _serviceState;
+    NSDate *_shareClock;
+    double _shareTime;
     id <SFPasswordSharingServiceDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSString *_networkName;
 }
 
++ (unsigned int)passwordSharingAvailability;
 @property(retain, nonatomic) NSString *networkName; // @synthesize networkName=_networkName;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(nonatomic) __weak id <SFPasswordSharingServiceDelegate> delegate; // @synthesize delegate=_delegate;
@@ -35,15 +35,15 @@
 - (_Bool)__activateCalled;
 - (_Bool)_shouldPromptForNetwork:(id)arg1;
 - (id)messageForDisplayName:(id)arg1 deviceName:(id)arg2 info:(id)arg3;
-- (void)_sendPasswordDeclinedWithError:(int)arg1;
-- (void)_sendPasswordReceived;
-- (void)_handleReceivedPassword:(id)arg1;
-- (void)_receivedObject:(id)arg1 flags:(unsigned int)arg2;
-- (void)_handleSessionStarted:(id)arg1;
-- (void)_serviceStart;
 - (void)_promptUserWithInfo:(id)arg1 message:(id)arg2;
 - (void)_passInfoToDelegate:(id)arg1;
+- (void)_sendPasswordDeclinedWithError:(int)arg1;
+- (void)_sendPasswordReceived;
+- (void)_receivedObject:(id)arg1 flags:(unsigned int)arg2;
 - (void)_handleUserNotificationResponse:(int)arg1;
+- (void)_handleSessionStarted:(id)arg1;
+- (void)_handleReceivedPassword:(id)arg1;
+- (int)_runServiceStart;
 - (void)_run;
 - (void)invalidate;
 - (void)activate;

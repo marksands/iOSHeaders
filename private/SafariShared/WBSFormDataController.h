@@ -6,14 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class NSDictionary, NSMutableArray, NSMutableDictionary;
-@protocol OS_dispatch_queue;
+@class NSMutableArray, NSMutableDictionary, WBSKeychainCredentialNotificationMonitor, WBSPair, WBSURLCredentialCache;
 
 @interface WBSFormDataController : NSObject
 {
-    NSDictionary *_allCredentialsCache;
-    NSObject<OS_dispatch_queue> *_allCredentialsCacheAccessQueue;
-    int _keychainChangedNotificationToken;
+    WBSURLCredentialCache *_credentialCache;
+    WBSKeychainCredentialNotificationMonitor *_keychainMonitor;
+    id _keychainNotificationRegistrationToken;
     NSMutableDictionary *_completionDB;
     NSMutableDictionary *_valuesDB;
     NSMutableDictionary *_preferredLabelsMap;
@@ -21,6 +20,7 @@
     NSMutableDictionary *_domainToLastUsedUsernameAndProtectionSpace;
     NSMutableArray *_recentlyUsedAutoFillSets;
     NSMutableDictionary *_preferredLabelForUniqueIDOfPersonMap;
+    WBSPair *_cachedBirthdayAndLocalizedStrings;
 }
 
 + (id)contactKeyForString:(id)arg1;
@@ -36,6 +36,9 @@
 + (id)continuingFieldsInFormControls:(id)arg1 startingAtIndex:(unsigned long long)arg2 textFieldsOnly:(_Bool)arg3 ignorePositioning:(_Bool)arg4;
 + (id)stringWithAddressBookValue:(id)arg1 key:(id)arg2;
 + (id)specifierForControl:(id)arg1;
++ (_Bool)formContainsDateFields:(id)arg1 matchingAddressBookMatch:(id)arg2;
++ (id)allSynonymsForMatch:(id)arg1;
++ (id)specifierForAddressBookLabel:(id)arg1;
 + (id)allAddressBookNonAddressPropertyKeys;
 + (id)allAddressBookAddressComponentKeys;
 + (id)addressBookAddressPropertyKey;
@@ -47,6 +50,7 @@
 + (_Bool)convertNumber:(id)arg1 toAutoFillFormType:(unsigned long long *)arg2;
 + (id)dontSaveMarker;
 - (void).cxx_destruct;
+- (void)notifyKeychainWasDirectlyAffectedBySafari;
 - (id)addressBookMatchesForFullNameForContact:(id)arg1;
 - (id)substituteCredential:(id)arg1 inProtectionSpace:(id)arg2;
 - (void)updateLastUsedUsernameAndExtractUsernameAndPasswordFromForm:(id)arg1 atURL:(id)arg2 username:(id *)arg3 password:(id *)arg4;
@@ -54,6 +58,8 @@
 - (_Bool)hasCredentialsForPageWithMainFrame:(id)arg1;
 - (id)metadataOfActiveFormOrBestFormForPageLevelAutoFill:(id)arg1 frame:(struct OpaqueFormAutoFillFrame **)arg2 forPrefillingCredentials:(_Bool)arg3;
 - (id)activeOrFirstAutoFillableFormFromProvider:(id)arg1 frame:(struct OpaqueFormAutoFillFrame **)arg2 forPrefillingCredentials:(_Bool)arg3;
+- (void)_getCredentialMatches:(id *)arg1 andPotentialMatches:(id *)arg2 withCredentialsByProtectionSpace:(id)arg3 forURL:(id)arg4 matchingPartialUsername:(id)arg5 omittingCredentialsUserHasDeniedAccessTo:(_Bool)arg6;
+- (void)getCredentialMatchesForURL:(id)arg1 matchingPartialUsername:(id)arg2 omittingCredentialsUserHasDeniedAccessTo:(_Bool)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
 - (void)getCredentialMatches:(id *)arg1 andPotentialMatches:(id *)arg2 forURL:(id)arg3 matchingPartialUsername:(id)arg4 omittingCredentialsUserHasDeniedAccessTo:(_Bool)arg5;
 - (void)getCredentialMatches:(id *)arg1 andPotentialMatches:(id *)arg2 forURL:(id)arg3 matchingPartialUsername:(id)arg4;
 - (id)credentialMatchesForURL:(id)arg1 matchingPartialString:(id)arg2;
@@ -102,6 +108,10 @@
 - (id)matchesForControl:(id)arg1 inDomain:(id)arg2 matchingPartialString:(id)arg3 usingOnlyAddressBookData:(_Bool)arg4 preferredLabel:(id)arg5 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg6;
 - (id)matchesForControl:(id)arg1 atURL:(id)arg2 matchingPartialString:(id)arg3 usingOnlyAddressBookData:(_Bool)arg4 contact:(id)arg5 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg6;
 - (id)matchesForControl:(id)arg1 atURL:(id)arg2 matchingPartialString:(id)arg3 usingOnlyAddressBookData:(_Bool)arg4 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg5;
+- (_Bool)addressBookHasDataForLabel:(id)arg1;
+- (id)bestAddressBookLabelForFormMetadata:(id)arg1 formControlValue:(id)arg2;
+- (id)_cachedLocalizedStringsForBirthdate:(id)arg1;
+- (void)_currentLocaleDidChange:(id)arg1;
 - (void)addABMatchesForValueSpecifier:(id)arg1 matchingPartialString:(id)arg2 toArray:(id)arg3 preferredLabel:(id)arg4 contact:(id)arg5 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg6;
 - (id)addressBookMatchesForProperty:(id)arg1 key:(id)arg2 label:(id)arg3 partialString:(id)arg4 contact:(id)arg5 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg6;
 - (id)addressBookMatchesForProperty:(id)arg1 key:(id)arg2 label:(id)arg3;
@@ -129,6 +139,7 @@
 - (void)pruneCompletionDB;
 - (void)loadCompletionDBIfNeeded;
 - (void)dealloc;
+- (id)initWithAggressiveKeychainCaching:(_Bool)arg1;
 - (id)init;
 
 @end

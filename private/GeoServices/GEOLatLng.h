@@ -15,6 +15,10 @@
     PBUnknownFields *_unknownFields;
     double _lat;
     double _lng;
+    _Bool _gtLog;
+    struct {
+        unsigned int gtLog:1;
+    } _has;
 }
 
 @property(nonatomic) double lng; // @synthesize lng=_lng;
@@ -30,6 +34,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasGtLog;
+@property(nonatomic) _Bool gtLog;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
 - (id)initWithCoordinate:(CDStruct_c3b9c2ee)arg1;
 - (id)initWithLatitude:(double)arg1 longitude:(double)arg2;

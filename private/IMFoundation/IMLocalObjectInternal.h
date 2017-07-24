@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class IMMessageContext, NSLock, NSMutableArray, NSProtocolChecker, NSRecursiveLock, NSString;
+@class IMMessageContext, NSArray, NSLock, NSMutableArray, NSProtocolChecker, NSRecursiveLock, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_semaphore, OS_xpc_object;
 
 @interface IMLocalObjectInternal : NSObject
@@ -27,7 +27,7 @@
     _Bool _pendingComponentQueueProcessing;
     _Bool _busyForwarding;
     _Bool _offMainThread;
-    _Bool _forceSecureCoding;
+    NSArray *_whitelistedClasses;
 }
 
 - (void)dealloc;

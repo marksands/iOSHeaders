@@ -24,10 +24,18 @@
     double _relatedness;
     double _specificity;
     double _parentRawScore;
+    double _relatednessThreshold;
+    double _relatednessKWeight;
+    double _topicScoreWeight;
+    double _highestScoringRelativeScoreMultiplier;
     NSString *_storedNodeIdentifier;
 }
 
 @property(retain, nonatomic) NSString *storedNodeIdentifier; // @synthesize storedNodeIdentifier=_storedNodeIdentifier;
+@property(nonatomic) double highestScoringRelativeScoreMultiplier; // @synthesize highestScoringRelativeScoreMultiplier=_highestScoringRelativeScoreMultiplier;
+@property(nonatomic) double topicScoreWeight; // @synthesize topicScoreWeight=_topicScoreWeight;
+@property(nonatomic) double relatednessKWeight; // @synthesize relatednessKWeight=_relatednessKWeight;
+@property(nonatomic) double relatednessThreshold; // @synthesize relatednessThreshold=_relatednessThreshold;
 @property(nonatomic) double parentRawScore; // @synthesize parentRawScore=_parentRawScore;
 @property(nonatomic) double specificity; // @synthesize specificity=_specificity;
 @property(nonatomic) double relatedness; // @synthesize relatedness=_relatedness;
@@ -51,7 +59,7 @@
 - (long long)compare:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithIdentifier:(id)arg1 displayedElements:(id)arg2 allTopicCollections:(id)arg3;
+- (id)initWithIdentifier:(id)arg1 displayedElements:(id)arg2 allTopicCollections:(id)arg3 relatednessThreshold:(double)arg4 relatednessKWeight:(double)arg5 topicScoreWeight:(double)arg6 highestScoringRelativeScoreMultiplier:(double)arg7;
 
 @end
 

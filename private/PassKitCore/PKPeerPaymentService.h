@@ -14,21 +14,28 @@
     PKXPCService *_remoteService;
     PKPeerPaymentAccount *_account;
     NSObject<OS_dispatch_queue> *_accountQueue;
+    long long _accountChangedNotificationSuspensionCount;
 }
 
++ (id)sharedInstance;
 - (void).cxx_destruct;
 - (id)_synchronousRemoteObjectProxyForSelector:(SEL)arg1;
 - (id)_remoteObjectProxyWithFailureHandler:(CDUnknownBlockType)arg1;
 - (void)_accountChanged:(id)arg1;
 - (void)_sharedPeerPaymentWebServiceContextWithCompletion:(CDUnknownBlockType)arg1;
-- (void)registerDeviceWithRegistrationURL:(id)arg1 pushToken:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)unregisterDeviceWithCompletion:(CDUnknownBlockType)arg1;
+- (void)registerDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)downloadPassIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)balanceForPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateMockAccountBalanceByAddingAmount:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)updateMemo:(id)arg1 forTransactionWithIdentifier:(id)arg2;
 - (void)noteAccountDeleted;
+- (void)presentPeerPaymentTermsAndConditionsWithAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)presentRegistrationFlowWithAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)presentIdentityVerificationFlowWithType:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)presentIdentityVerificationFlowWithResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)registrationStatusWithCompletion:(CDUnknownBlockType)arg1;
+- (void)resumeAccountChangedNotifications;
+- (void)suspendAccountChangedNotifications;
 - (void)deleteAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (void)accountWithCompletion:(CDUnknownBlockType)arg1;

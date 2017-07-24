@@ -13,6 +13,7 @@
     id _internalImplementation;
 }
 
++ (void)setSharedTestObservationCenter:(id)arg1;
 + (id)sharedTestObservationCenter;
 - (void)_testCase:(id)arg1 didFinishActivity:(id)arg2;
 - (void)_testCase:(id)arg1 willStartActivity:(id)arg2;
@@ -34,6 +35,7 @@
 - (id)description;
 - (void)dealloc;
 - (id)init;
+- (id)initBasicCenter;
 
 @end
 

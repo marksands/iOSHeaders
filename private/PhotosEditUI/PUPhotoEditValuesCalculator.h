@@ -26,6 +26,7 @@
 - (void)_ensureInitialImageValuesAreComputed;
 - (void)_ensureCurrentImageValuesAreComputed;
 - (void)computeAutoEnhanceWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)invalidate;
 - (_Bool)hasImageValues;
 - (void)precomputeImageValuesWithOptionalCompletion:(CDUnknownBlockType)arg1;
 - (void)precomputeImageValuesWithCompletion:(CDUnknownBlockType)arg1;

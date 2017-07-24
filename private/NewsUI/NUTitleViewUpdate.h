@@ -28,6 +28,7 @@
 @property(readonly, copy, nonatomic) NSString *accessibilityTitle;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithValue:(id)arg1 valueType:(unsigned long long)arg2 styleType:(unsigned long long)arg3;
+- (id)initWithText:(id)arg1 styleType:(unsigned long long)arg2 glyph:(id)arg3;
 - (id)initWithText:(id)arg1 styleType:(unsigned long long)arg2;
 - (id)initWithImage:(id)arg1;
 - (id)init;

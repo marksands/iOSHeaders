@@ -20,6 +20,7 @@
     long long _numberOfAssetPreparationsCompleted;
     double _currentAssetPreparationProgress;
     PUProgressIndicatorView *_preparationProgressView;
+    _Bool _isDismissed;
     NSArray *_photosActivities;
     id <PUActivityViewControllerDelegate> _delegate;
 }
@@ -55,7 +56,7 @@
 - (void)_removeRemakerProgressView;
 - (void)_showRemakerProgressView:(id)arg1 forMail:(_Bool)arg2 withCancelationHandler:(CDUnknownBlockType)arg3;
 - (void)_handleUserCancelWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_puActivity:(id)arg1 didComplete:(_Bool)arg2;
+- (void)_activity:(id)arg1 didComplete:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithAssetItems:(id)arg1 photosApplicationActivities:(id)arg2;
 

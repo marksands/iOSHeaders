@@ -12,8 +12,8 @@
 
 @interface LSDocumentProxy : LSResourceProxy <NSSecureCoding>
 {
-    CDStruct_4c969caf _managedSourceAuditToken;
-    _Bool _hasManagedSourceAuditToken;
+    CDStruct_4c969caf _sourceAuditToken;
+    _Bool _isContentManaged;
     NSString *_containerOwnerApplicationIdentifier;
     NSURL *_URL;
     NSString *_name;
@@ -21,16 +21,23 @@
     NSString *_MIMEType;
 }
 
-+ (_Bool)supportsSecureCoding;
-+ (id)documentProxyForName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3;
 + (id)documentProxyForName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3 sourceIsManaged:(_Bool)arg4;
 + (id)documentProxyForName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3 managedSourceAuditToken:(const CDStruct_4c969caf *)arg4;
 + (id)documentProxyForURL:(id)arg1 sourceIsManaged:(_Bool)arg2;
 + (id)documentProxyForURL:(id)arg1 managedSourceAuditToken:(const CDStruct_4c969caf *)arg2;
++ (_Bool)supportsSecureCoding;
++ (id)documentProxyForName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3;
++ (id)documentProxyForURL:(id)arg1;
++ (id)documentProxyForName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3 isContentManaged:(_Bool)arg4 sourceAuditToken:(const CDStruct_4c969caf *)arg5;
++ (id)documentProxyForURL:(id)arg1 isContentManaged:(_Bool)arg2 sourceAuditToken:(const CDStruct_4c969caf *)arg3;
 @property(readonly, nonatomic) NSString *MIMEType; // @synthesize MIMEType=_MIMEType;
 @property(readonly, nonatomic) NSString *typeIdentifier; // @synthesize typeIdentifier=_typeIdentifier;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+@property(readonly, nonatomic, getter=isContentManaged) _Bool contentManaged; // @synthesize contentManaged=_isContentManaged;
+@property(readonly, nonatomic) const CDStruct_4c969caf *managedSourceAuditToken;
+@property(readonly, nonatomic) _Bool sourceIsManaged;
+- (id)debugDescription;
 - (id)description;
 - (id)uniqueIdentifier;
 - (void)encodeWithCoder:(id)arg1;
@@ -39,12 +46,11 @@
 - (id)applicationsAvailableForOpeningFromAirDropWithError:(id *)arg1;
 - (id)applicationsAvailableForOpeningWithError:(id *)arg1;
 - (id)applicationsAvailableForOpeningWithHandlerRanks:(id)arg1 error:(id *)arg2;
-@property(readonly, nonatomic) const CDStruct_4c969caf *managedSourceAuditToken; // @dynamic managedSourceAuditToken;
-@property(readonly, nonatomic) _Bool sourceIsManaged; // @dynamic sourceIsManaged;
+@property(readonly, nonatomic) const CDStruct_4c969caf *sourceAuditToken; // @dynamic sourceAuditToken;
 @property(readonly, nonatomic) NSString *containerOwnerApplicationIdentifier; // @synthesize containerOwnerApplicationIdentifier=_containerOwnerApplicationIdentifier;
 @property(readonly, getter=isImageOrVideo) _Bool imageOrVideo;
 - (void)dealloc;
-- (id)initWithURL:(id)arg1 name:(id)arg2 type:(id)arg3 MIMEType:(id)arg4 managedSourceAuditToken:(const CDStruct_4c969caf *)arg5;
+- (id)initWithURL:(id)arg1 name:(id)arg2 type:(id)arg3 MIMEType:(id)arg4 isContentManaged:(_Bool)arg5 sourceAuditToken:(const CDStruct_4c969caf *)arg6;
 - (id)applicationsAvailableForOpeningWithTypeDeclarer:(_Bool)arg1 style:(unsigned char)arg2 error:(id *)arg3;
 - (id)_boundDocumentProxy;
 

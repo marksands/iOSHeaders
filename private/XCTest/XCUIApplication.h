@@ -59,6 +59,7 @@
 @property(readonly) _Bool running;
 @property(nonatomic) int processID;
 @property(nonatomic) unsigned long long state;
+- (_Bool)exists;
 - (id)application;
 @property(readonly) id <XCTRunnerAutomationSession> automationSession;
 - (id)description;
@@ -69,7 +70,7 @@
 - (unsigned long long)elementType;
 @property(readonly) NSString *bundleID;
 @property(readonly) NSString *path;
-- (void)commonInitWithApplicationImpl:(id)arg1;
+- (void)commonInitWithApplicationImpl:(id)arg1 isTestDependency:(_Bool)arg2;
 - (id)initPrivateWithPath:(id)arg1 bundleID:(id)arg2;
 - (id)initWithBundleIdentifier:(id)arg1;
 - (id)init;

@@ -36,6 +36,7 @@
     GEOTimeCheckpoints *_timeCheckpoints;
     _Bool _endsOnFwy;
     _Bool _shouldChainManeuver;
+    _Bool _stayOn;
     _Bool _toFreeway;
     _Bool _tollAhead;
     _Bool _tollPrior;
@@ -53,6 +54,7 @@
         unsigned int stepID:1;
         unsigned int endsOnFwy:1;
         unsigned int shouldChainManeuver:1;
+        unsigned int stayOn:1;
         unsigned int toFreeway:1;
         unsigned int tollAhead:1;
         unsigned int tollPrior:1;
@@ -84,6 +86,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasStayOn;
+@property(nonatomic) _Bool stayOn; // @synthesize stayOn=_stayOn;
 - (id)guidanceEventAtIndex:(unsigned long long)arg1;
 - (unsigned long long)guidanceEventsCount;
 - (void)addGuidanceEvent:(id)arg1;

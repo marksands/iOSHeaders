@@ -41,6 +41,8 @@ __attribute__((visibility("hidden")))
 - (void)saveOriginalTileLayout;
 - (void)clearTiles;
 - (_Bool)enablesTileUpdates;
+- (void)_forceTileUpdate;
+- (void)forceTileUpdate;
 - (void)setEnableTileUpdates:(_Bool)arg1;
 - (id)pageLayerEffects;
 - (void)removePageLayerEffectByUUID:(id)arg1;

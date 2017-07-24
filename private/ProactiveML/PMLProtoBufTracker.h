@@ -21,6 +21,8 @@
     id <PMLTrackerAdapterProtocol> _adapter;
 }
 
++ (id)messageForGradient:(id)arg1 scaleFactor:(float)arg2 l2norm:(float)arg3 minibatchStats:(id)arg4 evaluationMetrics:(id)arg5 serverIteration:(unsigned long long)arg6 modelInfo:(id)arg7 numberOfBuckets:(unsigned long long)arg8;
++ (id)messageForWeights:(id)arg1 scaleFactor:(float)arg2 l2norm:(float)arg3 minibatchStats:(id)arg4 evaluationMetrics:(id)arg5 modelInfo:(id)arg6 numberOfBuckets:(unsigned long long)arg7;
 + (id)parsecTrackerForPlanId:(struct NSString *)arg1;
 + (id)awdTrackerForPlanId:(struct NSString *)arg1;
 + (id)trackerForPlanId:(struct NSString *)arg1;
@@ -28,11 +30,12 @@
 - (void).cxx_destruct;
 - (id)initWithPlist:(id)arg1 chunks:(id)arg2 context:(id)arg3;
 - (id)toPlistWithChunks:(id)arg1;
-- (void)trackPrecisionAtK:(id)arg1;
-- (void)trackEvaluationMetrics:(id)arg1 minibatchStats:(id)arg2;
+- (id)trackPrecisionAtK:(id)arg1 minibatchStats:(id)arg2;
+- (id)trackPrecisionAtK:(id)arg1;
+- (id)trackEvaluationMetrics:(id)arg1 minibatchStats:(id)arg2;
 - (void)trackObjectiveFeatures:(id)arg1 featureMatrix:(id)arg2 minibatchSize:(unsigned long long)arg3 support:(float)arg4;
-- (id)trackGradient:(id)arg1 minibatchStats:(id)arg2 evaluationMetrics:(id)arg3 serverIteration:(unsigned long long)arg4;
-- (id)trackWeights:(id)arg1 minibatchStats:(id)arg2 evaluationMetrics:(id)arg3;
+- (id)trackGradient:(id)arg1 scaleFactor:(float)arg2 l2norm:(float)arg3 minibatchStats:(id)arg4 evaluationMetrics:(id)arg5 serverIteration:(unsigned long long)arg6;
+- (id)trackWeights:(id)arg1 scaleFactor:(float)arg2 l2norm:(float)arg3 minibatchStats:(id)arg4 evaluationMetrics:(id)arg5;
 - (id)init;
 - (id)initWithAdapter:(id)arg1 modelInfo:(id)arg2 quantizationBuckets:(unsigned long long)arg3;
 - (id)initWithAdapter:(id)arg1 modelInfo:(id)arg2;

@@ -25,6 +25,7 @@
 @property(readonly, nonatomic) _Bool HTMLInputElementIsUserEdited;
 @property(nonatomic) _Bool HTMLInputElementIsAutoFilled;
 @property(readonly, nonatomic) struct CGRect elementBounds;
+- (id)renderedImageWithOptions:(unsigned int)arg1 width:(id)arg2;
 - (id)renderedImageWithOptions:(unsigned int)arg1;
 - (id)htmlIFrameElementContentFrame;
 - (void)dealloc;

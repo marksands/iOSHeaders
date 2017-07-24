@@ -14,18 +14,10 @@
     NSString *_destinationDeviceID;
     NSString *_password;
     double _scanWaitInterval;
-    NSString *_title;
-    NSString *_message;
-    NSString *_acceptButtonText;
-    NSString *_declineButtonText;
 }
 
 + (_Bool)supportsSecureCoding;
 + (Class)whitelistedClassForResultObject;
-@property(copy, nonatomic) NSString *declineButtonText; // @synthesize declineButtonText=_declineButtonText;
-@property(copy, nonatomic) NSString *acceptButtonText; // @synthesize acceptButtonText=_acceptButtonText;
-@property(copy, nonatomic) NSString *message; // @synthesize message=_message;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) double scanWaitInterval; // @synthesize scanWaitInterval=_scanWaitInterval;
 @property(copy, nonatomic) NSString *password; // @synthesize password=_password;
 @property(copy, nonatomic) NSString *destinationDeviceID; // @synthesize destinationDeviceID=_destinationDeviceID;

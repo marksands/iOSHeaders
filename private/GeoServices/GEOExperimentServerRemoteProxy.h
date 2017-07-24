@@ -26,6 +26,7 @@
 - (void)_debug_fetchAllAvailableExperiments:(CDUnknownBlockType)arg1;
 - (void)_debug_setQuerySubstring:(id)arg1 forExperimentType:(long long)arg2 dispatcherRequestType:(int)arg3;
 - (void)forceUpdate;
+- (void)abAssignUUIDWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)refreshDatasetABStatus:(id)arg1;
 @property(readonly, nonatomic) GEOABAssignmentResponse *experimentsInfo;
 - (void)dealloc;

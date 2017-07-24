@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <CoreParsec/NSObject-Protocol.h>
+#import <CoreParsec/_CPFeedbackJSONObject-Protocol.h>
 
-@protocol _CPProcessableFeedback <NSObject>
+@protocol _CPProcessableFeedback <_CPFeedbackJSONObject>
 @property(readonly, nonatomic) unsigned long long timestamp;
 @property(readonly, nonatomic) _Bool requiresQueryId;
 @end

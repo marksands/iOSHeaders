@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (_Bool)isDummyNode;
+- (void)computePriority;
 
 @end
 

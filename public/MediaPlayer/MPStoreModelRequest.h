@@ -6,17 +6,19 @@
 
 #import <MediaPlayer/MPModelRequest.h>
 
-@class MPStoreUserEnvironment;
+@class NSString;
 
 @interface MPStoreModelRequest : MPModelRequest
 {
     _Bool _didSetTimeoutInterval;
-    MPStoreUserEnvironment *_userEnvironment;
     double _timeoutInterval;
+    NSString *_clientIdentifier;
+    NSString *_clientVersion;
 }
 
+@property(copy, nonatomic) NSString *clientVersion; // @synthesize clientVersion=_clientVersion;
+@property(copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 @property(nonatomic) double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
-@property(copy, nonatomic) MPStoreUserEnvironment *userEnvironment; // @synthesize userEnvironment=_userEnvironment;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

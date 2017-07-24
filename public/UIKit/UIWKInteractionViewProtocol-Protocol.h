@@ -10,7 +10,6 @@
 - (void)_cancelLongPressGestureRecognizer;
 - (NSArray *)webSelectionRects;
 - (_Bool)textInteractionGesture:(long long)arg1 shouldBeginAtPoint:(struct CGPoint)arg2;
-- (_Bool)pointIsInAssistedNode:(struct CGPoint)arg1;
 - (_Bool)hasSelectablePositionAtPoint:(struct CGPoint)arg1;
 - (_Bool)hasMarkedText;
 - (NSString *)markedText;
@@ -46,5 +45,6 @@
 - (void)clearSelection;
 - (void)changeBlockSelectionWithTouchAt:(struct CGPoint)arg1 withSelectionTouch:(long long)arg2 forHandle:(long long)arg3;
 - (void)changeSelectionWithTouchAt:(struct CGPoint)arg1 withSelectionTouch:(long long)arg2 baseIsStart:(_Bool)arg3 withFlags:(long long)arg4;
+- (_Bool)pointIsInAssistedNode:(struct CGPoint)arg1;
 @end
 

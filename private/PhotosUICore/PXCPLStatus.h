@@ -8,12 +8,12 @@
 
 #import <PhotosUICore/CPLStatusDelegate-Protocol.h>
 
-@class CPLStatus, NSProgress, NSString, PLPhotoLibrary;
-@protocol OS_dispatch_queue, PXCPLStatusDelegate;
+@class CPLStatus, NSProgress, NSString, PLPhotoLibrary, PXCPLState;
+@protocol OS_dispatch_queue;
 
 @interface PXCPLStatus : NSObject <CPLStatusDelegate>
 {
-    struct PXCPLStatusSnapshot _currentSnapshot;
+    PXCPLState *_state;
     NSObject<OS_dispatch_queue> *_serialQueue;
     CPLStatus *_cplStatus;
     unsigned long long _syncProgressState;
@@ -23,11 +23,11 @@
     unsigned long long _needsUpdate;
     double _lastUpdate;
     _Bool _isUpdating;
-    id <PXCPLStatusDelegate> _delegate;
+    CDUnknownBlockType _handler;
 }
 
-@property(nonatomic) __weak id <PXCPLStatusDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) struct PXCPLStatusSnapshot currentSnapshot; // @synthesize currentSnapshot=_currentSnapshot;
+@property(readonly, nonatomic) PXCPLState *state; // @synthesize state=_state;
+@property(copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler=_handler;
 - (void).cxx_destruct;
 - (void)statusDidChange:(id)arg1;
 - (void)syncWithCloudPhotoLibrary;
@@ -40,7 +40,8 @@
 - (void)_scheduleUpdateForType:(unsigned long long)arg1;
 - (void)_schedulePendingUpdates;
 - (void)_performUpdate;
-- (_Bool)_performUpdateForType:(unsigned long long)arg1 inputSnapshot:(struct PXCPLStatusSnapshot)arg2 outputSnapshot:(struct PXCPLStatusSnapshot *)arg3 failedUpdateTypes:(unsigned long long *)arg4;
+- (id)_updateState:(id)arg1 requestedTypes:(unsigned long long)arg2 failedTypes:(unsigned long long *)arg3;
+- (void)setState:(id)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)_initWithInitialSynchronousUpdateType:(unsigned long long)arg1;

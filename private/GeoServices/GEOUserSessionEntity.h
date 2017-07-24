@@ -31,6 +31,7 @@
 - (id)description;
 - (id)initWithSessionEntityString:(id)arg1;
 - (id)initWithSessionID:(struct GEOSessionID)arg1 sessionCreationTime:(double)arg2 sequenceNumber:(unsigned int)arg3;
+- (double)sessionRelativeTimestampForEventTime:(double)arg1;
 @property(readonly) double sessionRelativeTimestamp;
 - (unsigned int)rawSequenceNumber;
 

@@ -10,6 +10,8 @@
 
 @protocol _CPLookupHintRelevancyFeedback <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasContext;
+@property(copy, nonatomic) NSString *context;
 @property(readonly, nonatomic) _Bool hasGrade;
 @property(nonatomic) int grade;
 @property(readonly, nonatomic) _Bool hasDiscarded;

@@ -7,6 +7,9 @@
 #import <HomeKit/HMAccessoryCategory.h>
 
 @interface HMAccessoryCategory (HMDHAPMetadata)
++ (id)categoryForProductInfo:(id)arg1;
++ (id)categoryWithCategoryIdentifier:(id)arg1;
 + (id)categoryWithIdentifier:(id)arg1;
++ (id)categoryIdentifierForCategory:(id)arg1;
 @end
 

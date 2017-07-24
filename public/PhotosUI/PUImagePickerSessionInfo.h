@@ -12,18 +12,18 @@ __attribute__((visibility("hidden")))
 @interface PUImagePickerSessionInfo : PUSessionInfo
 {
     _Bool _showsPrompt;
+    unsigned long long _selectionLimit;
     NSString *_staticPrompt;
 }
 
 @property(copy, nonatomic) NSString *staticPrompt; // @synthesize staticPrompt=_staticPrompt;
 @property(nonatomic) _Bool showsPrompt; // @synthesize showsPrompt=_showsPrompt;
+- (void)setSelectionLimit:(unsigned long long)arg1;
+- (unsigned long long)selectionLimit;
 - (void).cxx_destruct;
 - (id)localizedPrompt;
 - (_Bool)isSelectingAssets;
 - (id)initWithPhotoSelectionManager:(id)arg1;
-
-// Remaining properties
-@property(nonatomic) unsigned long long selectionLimit;
 
 @end
 

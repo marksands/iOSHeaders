@@ -6,9 +6,11 @@
 
 #import <UIKit/UIControl.h>
 
+#import <ControlCenterUIKit/UIGestureRecognizerDelegate-Protocol.h>
+
 @class CAPackage, CCUICAPackageView, NSString, UIColor, UIImage, UIImageView, UIView;
 
-@interface CCUIButtonModuleView : UIControl
+@interface CCUIButtonModuleView : UIControl <UIGestureRecognizerDelegate>
 {
     UIView *_highlightedBackgroundView;
     UIImageView *_glyphImageView;
@@ -19,8 +21,10 @@
     UIColor *_selectedGlyphColor;
     CAPackage *_glyphPackage;
     NSString *_glyphState;
+    struct NSDirectionalEdgeInsets _contentEdgeInsets;
 }
 
+@property(nonatomic) struct NSDirectionalEdgeInsets contentEdgeInsets; // @synthesize contentEdgeInsets=_contentEdgeInsets;
 @property(copy, nonatomic) NSString *glyphState; // @synthesize glyphState=_glyphState;
 @property(retain, nonatomic) CAPackage *glyphPackage; // @synthesize glyphPackage=_glyphPackage;
 @property(retain, nonatomic) UIColor *selectedGlyphColor; // @synthesize selectedGlyphColor=_selectedGlyphColor;
@@ -32,15 +36,19 @@
 - (void)_setGlyphPackage:(id)arg1;
 - (void)_setGlyphImage:(id)arg1;
 - (void)_updateForStateChange;
-- (void)_dragExit:(id)arg1;
-- (void)_dragEnter:(id)arg1;
-- (void)_touchUpOutside:(id)arg1;
-- (void)_touchUpInside:(id)arg1;
-- (void)_touchDown:(id)arg1;
+- (void)_handlePressGesture:(id)arg1;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (void)layoutSubviews;
 - (void)setEnabled:(_Bool)arg1;
 - (void)setSelected:(_Bool)arg1;
 - (void)setHighlighted:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

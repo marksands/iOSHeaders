@@ -10,7 +10,6 @@
 
 @protocol GEOVenueIdentifier, GEOVenueLabel;
 
-__attribute__((visibility("hidden")))
 @interface GEOMapItemVenueBuilding : NSObject <GEOMapItemVenueBuilding>
 {
     id <GEOVenueIdentifier> _identifier;

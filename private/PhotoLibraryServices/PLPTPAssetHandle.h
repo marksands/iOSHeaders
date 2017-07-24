@@ -6,24 +6,25 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSManagedObjectID, NSString;
+@class NSManagedObjectID;
 
 @interface PLPTPAssetHandle : NSObject
 {
+    _Bool _requiresConversion;
     long long _type;
     NSManagedObjectID *_assetID;
     NSManagedObjectID *_sidecarID;
-    NSString *_fileExtension;
 }
 
-@property(readonly, copy, nonatomic) NSString *fileExtension; // @synthesize fileExtension=_fileExtension;
+@property(readonly, nonatomic) _Bool requiresConversion; // @synthesize requiresConversion=_requiresConversion;
 @property(readonly, copy, nonatomic) NSManagedObjectID *sidecarID; // @synthesize sidecarID=_sidecarID;
 @property(readonly, copy, nonatomic) NSManagedObjectID *assetID; // @synthesize assetID=_assetID;
 @property(readonly, nonatomic) long long type; // @synthesize type=_type;
+- (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
-- (void)dealloc;
-- (id)initWithType:(long long)arg1 assetID:(id)arg2 sidecarID:(id)arg3 fileExtension:(id)arg4;
+- (id)assetHandleBySettingRequiresConversion;
+- (id)initWithType:(long long)arg1 assetID:(id)arg2 sidecarID:(id)arg3 requiresConversion:(_Bool)arg4;
 
 @end
 

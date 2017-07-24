@@ -15,6 +15,7 @@
     unsigned long long _type;
 }
 
++ (id)_navigationDestinationForMKMapItem:(id)arg1;
 + (id)_navigationDestinationWithItems:(id)arg1;
 + (void)navigationDestinationForItemProviders:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)navigationDestinationForDropSession:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -27,6 +28,7 @@
 @property(nonatomic) _Bool opensInNewTab; // @synthesize opensInNewTab=_opensInNewTab;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
+@property(readonly, copy, nonatomic) NSString *privacyPreservingDescription;
 @property(readonly, nonatomic) NSArray *navigationDestinations;
 @property(readonly, nonatomic) NSString *text;
 @property(readonly, nonatomic) NSURL *URL;

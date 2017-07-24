@@ -38,7 +38,7 @@
 - (void)setUpTap;
 - (id)initWithEmail:(id)arg1 fullName:(id)arg2 firstName:(id)arg3 lastName:(id)arg4 placement:(unsigned long long)arg5 options:(unsigned long long)arg6;
 - (id)initWithContact:(id)arg1 placement:(unsigned long long)arg2 options:(unsigned long long)arg3;
-- (id)initWithParticipant:(id)arg1 placement:(unsigned long long)arg2 options:(unsigned long long)arg3;
+- (id)initWithIdentity:(id)arg1 placement:(unsigned long long)arg2 options:(unsigned long long)arg3;
 - (id)initWithPlacement:(unsigned long long)arg1 options:(unsigned long long)arg2;
 - (id)init;
 

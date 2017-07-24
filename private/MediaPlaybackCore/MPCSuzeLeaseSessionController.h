@@ -21,7 +21,7 @@
 + (id)sharedController;
 - (void).cxx_destruct;
 - (void)suzeLeaseSession:(id)arg1 leaseRenewalDidFailWithError:(id)arg2;
-- (void)stopLeaseSessionWithToken:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)stopLeaseSession:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)startLeaseSessionWithConfiguration:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_init;
 

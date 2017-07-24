@@ -27,11 +27,6 @@ struct FaceList {
     struct list<vision::DCN::boundingbox, std::__1::allocator<vision::DCN::boundingbox>> _field1;
 };
 
-struct _NSRange {
-    unsigned long long _field1;
-    unsigned long long _field2;
-};
-
 struct __list_node_base<vision::DCN::boundingbox, void *> {
     struct __list_node_base<vision::DCN::boundingbox, void *> *_field1;
     struct __list_node_base<vision::DCN::boundingbox, void *> *_field2;
@@ -61,13 +56,6 @@ struct blob<float, 3>;
 struct blob<float, 4>;
 
 struct blob<unsigned char __attribute__((ext_vector_type(4))), 2>;
-
-struct cached_command_encoder_status {
-    int _field1;
-    id _field2[4];
-    int _field3[8];
-    char _field4[1024];
-};
 
 struct fast_pyramid_resizer;
 
@@ -127,14 +115,6 @@ struct vImage_Buffer {
     unsigned long long height;
     unsigned long long width;
     unsigned long long rowBytes;
-};
-
-struct vector<Espresso::cached_command_encoder_status, std::__1::allocator<Espresso::cached_command_encoder_status>> {
-    struct cached_command_encoder_status *__begin_;
-    struct cached_command_encoder_status *__end_;
-    struct __compressed_pair<Espresso::cached_command_encoder_status *, std::__1::allocator<Espresso::cached_command_encoder_status>> {
-        struct cached_command_encoder_status *__first_;
-    } __end_cap_;
 };
 
 struct vector<FaceLandmarkDetectorPoint, std::__1::allocator<FaceLandmarkDetectorPoint>> {

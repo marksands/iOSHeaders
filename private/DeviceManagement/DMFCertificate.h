@@ -19,9 +19,9 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) _Bool isIdentity; // @synthesize isIdentity=_isIdentity;
-@property(copy, nonatomic) NSData *data; // @synthesize data=_data;
-@property(copy, nonatomic) NSString *commonName; // @synthesize commonName=_commonName;
+@property(readonly, nonatomic) _Bool isIdentity; // @synthesize isIdentity=_isIdentity;
+@property(readonly, copy, nonatomic) NSData *data; // @synthesize data=_data;
+@property(readonly, copy, nonatomic) NSString *commonName; // @synthesize commonName=_commonName;
 - (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;

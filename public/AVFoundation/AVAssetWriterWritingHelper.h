@@ -20,6 +20,7 @@
 }
 
 + (id)finalStepWorkaroundOperationWithFigAssetWriter:(struct OpaqueFigAssetWriter *)arg1;
++ (id)finishWritingDelegateOperationWithAssetWriter:(id)arg1 andFigAssetWriter:(struct OpaqueFigAssetWriter *)arg2 andDelegate:(id)arg3;
 + (id)prepareInputsOperationsWithInputs:(id)arg1;
 - (id)_transitionToFinishWritingHelperWithFinishWritingOperations:(id)arg1;
 - (id)_makeFinishWritingOperationsWithCustomFigAssetWriterFinishOperation:(id)arg1;

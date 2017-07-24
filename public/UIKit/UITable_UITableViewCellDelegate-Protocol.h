@@ -7,6 +7,7 @@
 #import <UIKit/UITable-Protocol.h>
 
 @class NSArray, NSIndexPath, NSString, UITableViewCell, UITouch, UIView, _UITableViewCellActionButton;
+@protocol UIInteraction;
 
 @protocol UITable_UITableViewCellDelegate <UITable>
 @property(readonly, nonatomic, getter=_isEditingForSwipeDeletion) _Bool editingForSwipeDeletion;
@@ -18,6 +19,8 @@
 @property(readonly, nonatomic, getter=_popoverControllerStyle) long long popoverControllerStyle;
 @property(readonly, nonatomic, getter=_rawSeparatorInset) struct UIEdgeInsets rawSeparatorInset;
 @property(readonly, nonatomic, getter=_rowSpacing) double rowSpacing;
+- (void)_highlightDidEndForCell:(UITableViewCell *)arg1 withInteraction:(id <UIInteraction>)arg2;
+- (void)_prepareHighlightForCell:(UITableViewCell *)arg1 withInteraction:(id <UIInteraction>)arg2;
 - (_Bool)_shouldDrawThickSeparators;
 - (void)_userSelectCell:(UITableViewCell *)arg1;
 - (void)_accessoryButtonAction:(UIView *)arg1;
@@ -31,7 +34,7 @@
 - (void)_didInsertRowForTableCell:(UITableViewCell *)arg1;
 - (void)_endReorderingForCell:(UITableViewCell *)arg1 wasCancelled:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)_draggingReorderingCell:(UITableViewCell *)arg1 yDelta:(double)arg2 touch:(UITouch *)arg3;
-- (void)_beginReorderingForCell:(UITableViewCell *)arg1 touch:(UITouch *)arg2;
+- (_Bool)_beginReorderingForCell:(UITableViewCell *)arg1 touch:(UITouch *)arg2;
 - (_Bool)_isReorderControlActiveForCell:(UITableViewCell *)arg1;
 - (_Bool)_isCellReorderable:(UITableViewCell *)arg1;
 - (UIView *)_reorderingCell;

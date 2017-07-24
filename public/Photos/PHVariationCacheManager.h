@@ -29,8 +29,8 @@
 - (_Bool)_performChangesForAssetIdentifier:(id)arg1 changesBlock:(CDUnknownBlockType)arg2;
 - (id)gatingResultForVariationType:(long long)arg1 assetIdentifier:(id)arg2;
 - (void)saveGatingResult:(id)arg1 forVariationType:(long long)arg2 assetIdentifier:(id)arg3;
-- (id)recipeForVariationType:(long long)arg1 assetIdentifier:(id)arg2;
-- (void)saveRecipe:(id)arg1 forVariationType:(long long)arg2 assetIdentifier:(id)arg3;
+- (id)analysisResultForAssetIdentifier:(id)arg1;
+- (void)saveAnalysisResult:(id)arg1 assetIdentifier:(id)arg2;
 - (id)_suggestionKeyForVariationType:(long long)arg1;
 - (id)_gatingKeyForVariationType:(long long)arg1;
 - (id)_recipeKeyForVariationType:(long long)arg1;

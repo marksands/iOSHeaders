@@ -20,9 +20,8 @@
 - (id)verb;
 - (void)setDomain:(id)arg1;
 - (id)domain;
-- (void)_redactForMissingPrivacyEntitlementOptions:(unsigned long long)arg1;
+- (void)_redactForMissingPrivacyEntitlementOptions:(unsigned long long)arg1 containingAppBundleId:(id)arg2;
 - (id)_dictionaryRepresentation;
-@property(readonly, copy) NSString *description;
 - (void)setRelativeAudioSourceReference:(long long)arg1;
 @property(readonly, nonatomic) long long relativeAudioSourceReference;
 - (void)setAudioSource:(long long)arg1;
@@ -33,6 +32,7 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

@@ -60,6 +60,7 @@
     int _widgetDisplayMode;
     int _widgetModeType;
     NSData *_widgetSessionId;
+    NSString *_widgetUserId;
     _Bool _iosSettingsNotificationsEnabled;
     _Bool _isNewUser;
     _Bool _isPaidSubscriber;
@@ -114,6 +115,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *widgetUserId; // @synthesize widgetUserId=_widgetUserId;
 @property(nonatomic) long long testBucket; // @synthesize testBucket=_testBucket;
 @property(retain, nonatomic) NSData *appProcessLifetimeId; // @synthesize appProcessLifetimeId=_appProcessLifetimeId;
 @property(retain, nonatomic) NSString *personalizationPortraitVariantName; // @synthesize personalizationPortraitVariantName=_personalizationPortraitVariantName;
@@ -178,6 +180,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasWidgetUserId;
 @property(nonatomic) _Bool hasTestBucket;
 @property(readonly, nonatomic) _Bool hasAppProcessLifetimeId;
 @property(readonly, nonatomic) _Bool hasPersonalizationPortraitVariantName;

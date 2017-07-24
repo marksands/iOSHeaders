@@ -23,6 +23,8 @@
 - (oneway void)_remote_setAttributes:(IXPlaceholderAttributes *)arg1 completion:(void (^)(NSError *))arg2;
 - (oneway void)_remote_getLaunchProhibitedWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (oneway void)_remote_setLaunchProhibited:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
+- (oneway void)_remote_getSinfDataWithCompletion:(void (^)(NSData *, NSError *))arg1;
+- (oneway void)_remote_setSinfPromiseUUID:(NSUUID *)arg1 completion:(void (^)(NSError *))arg2;
 - (oneway void)_remote_getMetadataWithCompletion:(void (^)(MIStoreMetadata *, NSError *))arg1;
 - (oneway void)_remote_setMetadataPromiseUUID:(NSUUID *)arg1 completion:(void (^)(NSError *))arg2;
 @end

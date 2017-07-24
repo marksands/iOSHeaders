@@ -41,6 +41,7 @@
 - (void)storeValue:(id)arg1 forLookupKey:(id)arg2;
 - (id)objectForLookupKey:(id)arg1;
 - (void)storeObject:(id)arg1 forLookupKey:(id)arg2;
+- (id)flatCopy;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)explodedBackingObjects;
 - (void)setBackingObject:(id)arg1 forPropertiesOfClass:(Class)arg2;

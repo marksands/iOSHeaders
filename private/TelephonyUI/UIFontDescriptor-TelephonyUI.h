@@ -9,6 +9,7 @@
 @interface UIFontDescriptor (TelephonyUI)
 + (id)telephonyUIPreferredFontDescriptorWithTextStyle:(id)arg1 addingSymbolicTraits:(unsigned int)arg2;
 + (id)telephonyUISubheadlineShortFontDescriptor;
++ (id)telephonyUIFootnoteShortFontDescriptor;
 + (id)telephonyUIBodyShortItalicFontDescriptor;
 + (id)telephonyUIBodyShortEmphasizedFontDescriptor;
 + (id)telephonyUIBodyShortFontDescriptor;

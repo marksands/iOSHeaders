@@ -14,7 +14,8 @@
 - (_Bool)mgHasMesa;
 - (_Bool)mgHasSecureElement;
 - (_Bool)mgHasSiriCapability;
-- (_Bool)restrictionsEnabled;
+- (_Bool)canShowAppleIDScreen;
+- (_Bool)canShowPasscodeScreen;
 - (_Bool)canShowTouchIDScreen;
 - (_Bool)canShowPaymentScreen;
 - (_Bool)canShowSiriScreen;

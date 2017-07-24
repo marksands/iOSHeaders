@@ -27,7 +27,7 @@
 @property(retain, nonatomic) NSArray *colors; // @synthesize colors=_colors;
 @property(nonatomic) __weak UIView<CKGradientReferenceView> *referenceView; // @synthesize referenceView=_referenceView;
 - (void).cxx_destruct;
-- (id)gradient;
+@property(readonly, nonatomic) UIImage *gradient;
 - (void)updateGradientImage;
 - (void)updateAnimation;
 - (void)_removeAllAnimations:(_Bool)arg1;

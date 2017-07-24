@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) _Bool canPlayPhotoIris;
 @property(readonly, nonatomic, getter=isLivePhoto) _Bool livePhoto;
 @property(readonly, nonatomic) _Bool isAnimatedImage;
+@property(readonly, nonatomic) unsigned long long originalFilesize;
 @property(readonly, nonatomic) NSString *uniformTypeIdentifier;
 @property(readonly, nonatomic) _Bool isTemporaryPlaceholder;
 @property(readonly, nonatomic) NSString *localizedGeoDescription;

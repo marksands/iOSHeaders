@@ -18,6 +18,11 @@ struct DatabaseStatus {
     struct vector<SafeBrowsing::DatabaseStatus::Database, std::__1::allocator<SafeBrowsing::DatabaseStatus::Database>> m_databases;
 };
 
+struct DatabaseUpdaterStatus {
+    int state;
+    int provider;
+};
+
 struct LookupContext;
 
 struct LookupResult {
@@ -36,7 +41,7 @@ struct ServiceStatus {
     int m_pid;
     struct vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>> m_activeTransactions;
     struct vector<SafeBrowsing::ServiceStatus::Connection, std::__1::allocator<SafeBrowsing::ServiceStatus::Connection>> m_connections;
-    int m_databaseUpdaterState;
+    struct vector<SafeBrowsing::ServiceStatus::DatabaseUpdaterStatus, std::__1::allocator<SafeBrowsing::ServiceStatus::DatabaseUpdaterStatus>> m_databaseUpdatersStatuses;
 };
 
 struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
@@ -87,6 +92,14 @@ struct vector<SafeBrowsing::ServiceStatus::Connection, std::__1::allocator<SafeB
     struct Connection *__end_;
     struct __compressed_pair<SafeBrowsing::ServiceStatus::Connection *, std::__1::allocator<SafeBrowsing::ServiceStatus::Connection>> {
         struct Connection *__first_;
+    } __end_cap_;
+};
+
+struct vector<SafeBrowsing::ServiceStatus::DatabaseUpdaterStatus, std::__1::allocator<SafeBrowsing::ServiceStatus::DatabaseUpdaterStatus>> {
+    struct DatabaseUpdaterStatus *__begin_;
+    struct DatabaseUpdaterStatus *__end_;
+    struct __compressed_pair<SafeBrowsing::ServiceStatus::DatabaseUpdaterStatus *, std::__1::allocator<SafeBrowsing::ServiceStatus::DatabaseUpdaterStatus>> {
+        struct DatabaseUpdaterStatus *__first_;
     } __end_cap_;
 };
 

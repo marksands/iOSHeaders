@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 + (id)supportedContentTypes;
 + (Class)transformerClass;
 - (void).cxx_destruct;
+- (id)draggableView;
 - (void)animationTimerFired:(double)arg1;
 - (long long)preferredWhitePointAdaptivityStyle;
 - (struct CGSize)imageSize;

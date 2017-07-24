@@ -11,7 +11,7 @@
     struct NEIPSecDB_s *_internalSession;
 }
 
-@property struct NEIPSecDB_s *internalSession; // @synthesize internalSession=_internalSession;
+@property(nonatomic) struct NEIPSecDB_s *internalSession; // @synthesize internalSession=_internalSession;
 - (void)dealloc;
 - (void)startIdleTimeout:(unsigned int)arg1 incomingSA:(id)arg2 outgoingSA:(id)arg3;
 - (_Bool)migrateSA:(id)arg1;

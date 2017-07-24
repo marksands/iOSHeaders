@@ -10,6 +10,7 @@
 
 @interface SGTextMessageItem : NSObject
 {
+    NSString *_content;
     NSString *_language;
     SGTextMessage *_message;
     NSArray *_features;

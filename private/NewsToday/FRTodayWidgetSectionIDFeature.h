@@ -6,13 +6,18 @@
 
 #import <NewsToday/FRPersonalizationFeature.h>
 
+@class NSString;
+
 @interface FRTodayWidgetSectionIDFeature : FRPersonalizationFeature
 {
+    NSString *_sectionID;
 }
 
+@property(readonly, nonatomic) NSString *sectionID; // @synthesize sectionID=_sectionID;
+- (void).cxx_destruct;
 - (id)fr_description;
 - (id)initWithPersonalizationIdentifier:(id)arg1;
-- (id)initWithTagID:(id)arg1;
+- (id)initWithSectionID:(id)arg1;
 - (id)init;
 
 @end

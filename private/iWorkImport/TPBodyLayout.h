@@ -101,6 +101,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) struct __CFLocale *hyphenationLocale;
+@property(readonly, nonatomic) _Bool isLinked;
 @property(readonly, nonatomic) struct CGRect maskRect;
 @property(readonly, nonatomic) _Bool repShouldPreventCaret;
 @property(readonly, nonatomic) _Bool shouldHyphenate;

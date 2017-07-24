@@ -4,13 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeSectionView.h>
+#import <SearchUI/SearchUICardSectionView.h>
 
-@interface SearchUIActivityIndicatorCardSectionView : SearchUILayoutFreeSectionView
+@class TLKActivityIndicatorView;
+
+@interface SearchUIActivityIndicatorCardSectionView : SearchUICardSectionView
 {
 }
 
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
++ (_Bool)supportsRecyclingForCardSection:(id)arg1;
+- (void)updateWithCardSection:(id)arg1;
+- (id)setupContentView;
+
+// Remaining properties
+@property(retain) TLKActivityIndicatorView *contentView; // @dynamic contentView;
 
 @end
 

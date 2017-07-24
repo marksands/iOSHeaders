@@ -9,29 +9,31 @@
 #import <XCTest/XCTElementSnapshotProvider-Protocol.h>
 #import <XCTest/XCUIElementTypeQueryProvider-Protocol.h>
 
-@class NSArray, NSOrderedSet, NSString, XCElementSnapshot, XCUIApplication, XCUIElement;
+@class NSArray, NSOrderedSet, NSString, XCElementSnapshot, XCTElementQuery, XCUIApplication, XCUIElement;
 @protocol XCTElementSetTransformer;
 
 @interface XCUIElementQuery : NSObject <XCTElementSnapshotProvider, XCUIElementTypeQueryProvider>
 {
     _Bool _changesScope;
+    _Bool _stopsOnFirstMatch;
     XCUIElementQuery *_inputQuery;
     unsigned long long _expressedType;
     NSArray *_expressedIdentifiers;
     NSOrderedSet *_lastInput;
     NSOrderedSet *_lastOutput;
-    id <XCTElementSetTransformer> _transformer;
     XCElementSnapshot *_rootElementSnapshot;
     NSString *_queryDescription;
+    id <XCTElementSetTransformer> _transformer;
 }
 
+@property(retain) id <XCTElementSetTransformer> transformer; // @synthesize transformer=_transformer;
 @property(readonly, copy) NSString *queryDescription; // @synthesize queryDescription=_queryDescription;
 @property(retain) XCElementSnapshot *rootElementSnapshot; // @synthesize rootElementSnapshot=_rootElementSnapshot;
-@property(retain) id <XCTElementSetTransformer> transformer; // @synthesize transformer=_transformer;
 @property(copy) NSOrderedSet *lastOutput; // @synthesize lastOutput=_lastOutput;
 @property(copy) NSOrderedSet *lastInput; // @synthesize lastInput=_lastInput;
 @property(copy) NSArray *expressedIdentifiers; // @synthesize expressedIdentifiers=_expressedIdentifiers;
 @property unsigned long long expressedType; // @synthesize expressedType=_expressedType;
+@property _Bool stopsOnFirstMatch; // @synthesize stopsOnFirstMatch=_stopsOnFirstMatch;
 @property _Bool changesScope; // @synthesize changesScope=_changesScope;
 @property(readonly) XCUIElementQuery *inputQuery; // @synthesize inputQuery=_inputQuery;
 @property(readonly, copy) XCUIElementQuery *statusItems;
@@ -120,7 +122,7 @@
 @property(readonly, copy) XCElementSnapshot *elementSnapshotForDebugDescription;
 - (id)matchingSnapshotsForLocallyEvaluatedQuery:(id)arg1 error:(id *)arg2;
 - (id)matchingSnapshotsWithError:(id *)arg1;
-- (id)backingQuery;
+@property(readonly, copy) XCTElementQuery *backingQuery;
 - (id)matchingSnapshotsHandleUIInterruption:(_Bool)arg1 withError:(id *)arg2;
 @property(readonly, copy) NSArray *allElementsBoundByIndex;
 @property(readonly, copy) NSArray *allElementsBoundByAccessibilityElement;
@@ -128,6 +130,12 @@
 - (id)_descendantMatchingAccessibilityElement:(id)arg1;
 - (id)objectForKeyedSubscript:(id)arg1;
 - (id)elementMatchingType:(unsigned long long)arg1 identifier:(id)arg2;
+@property(readonly) XCUIElement *firstMatch;
+- (id)elementWithPlaceholderValue:(id)arg1;
+- (id)elementWithValue:(id)arg1;
+- (id)elementWithIdentifier:(id)arg1;
+- (id)elementWithLabel:(id)arg1;
+- (id)elementWithTitle:(id)arg1;
 - (id)elementMatchingPredicate:(id)arg1;
 - (id)elementBoundByIndex:(unsigned long long)arg1;
 - (id)elementAtIndex:(unsigned long long)arg1;
@@ -147,14 +155,16 @@
 - (id)filter:(CDUnknownBlockType)arg1;
 - (id)childrenMatchingType:(unsigned long long)arg1;
 - (id)descendantsMatchingType:(unsigned long long)arg1;
+- (id)debugDescriptionWithSnapshot:(id)arg1;
 @property(readonly, copy) NSString *debugDescription;
-- (id)_debugInfoWithIndent:(id *)arg1;
+- (id)_debugDescriptionWithIndent:(id *)arg1 rootElementSnapshot:(id)arg2;
 @property(readonly, copy) NSString *elementDescription;
 - (id)_derivedExpressedIdentifiers;
 - (unsigned long long)_derivedExpressedType;
 @property(readonly) XCUIApplication *application;
 @property(readonly) unsigned long long count;
 - (id)initWithInputQuery:(id)arg1 queryDescription:(id)arg2 transformer:(id)arg3;
+- (id)init;
 - (void)dealloc;
 
 // Remaining properties

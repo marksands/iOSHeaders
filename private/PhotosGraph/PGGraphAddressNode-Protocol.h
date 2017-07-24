@@ -11,6 +11,7 @@
 @protocol PGGraphAddressNode <NSObject>
 - (void)addressEnumerateAreaNodesUsingBlock:(void (^)(PGGraphEdge *, PGGraphAreaNode *, _Bool *))arg1;
 - (NSSet *)areaNodes;
+- (_Bool)isOcean;
 - (_Bool)locationIsImproved;
 @end
 

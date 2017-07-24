@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSString;
+@class NSDictionary, NSString;
 
 __attribute__((visibility("hidden")))
 @interface SocksHandshake : NSObject
@@ -14,9 +14,11 @@ __attribute__((visibility("hidden")))
     _Bool _finished;
     unsigned short _port;
     NSString *_host;
+    NSDictionary *_credentials;
 }
 
 + (id)socksHadshakeWithVersion:(int)arg1;
+@property(retain) NSDictionary *credentials; // @synthesize credentials=_credentials;
 @property unsigned short port; // @synthesize port=_port;
 @property(retain) NSString *host; // @synthesize host=_host;
 @property _Bool finished; // @synthesize finished=_finished;

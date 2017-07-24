@@ -10,9 +10,11 @@
 
 @interface MCDErrorLoadingView : UIView
 {
+    _Bool _shouldEnableNetwork;
     id <MCDErrorViewDelegate> _delegate;
 }
 
+@property(nonatomic) _Bool shouldEnableNetwork; // @synthesize shouldEnableNetwork=_shouldEnableNetwork;
 @property(nonatomic) __weak id <MCDErrorViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)retryButtonPressed:(id)arg1;

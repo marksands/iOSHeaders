@@ -29,6 +29,8 @@ __attribute__((visibility("hidden")))
 - (void)_dismissViewController;
 - (void)_presentViewController;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
+- (void)dealloc;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

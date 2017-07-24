@@ -6,20 +6,23 @@
 
 #import <HealthUI/HKDataMetadataSimpleSection.h>
 
-@class HKDisplayTypeController, HKSample, HKUnitPreferenceController;
+@class HKDisplayTypeController, HKUnitPreferenceController, NSObject;
+@protocol HKDataMetadataObject;
 
 @interface HKDataMetadataDetailSection : HKDataMetadataSimpleSection
 {
-    HKSample *_sample;
+    NSObject<HKDataMetadataObject> *_object;
     HKDisplayTypeController *_displayTypeController;
     HKUnitPreferenceController *_unitController;
 }
 
 @property(readonly, nonatomic) HKUnitPreferenceController *unitController; // @synthesize unitController=_unitController;
 @property(readonly, nonatomic) HKDisplayTypeController *displayTypeController; // @synthesize displayTypeController=_displayTypeController;
-@property(readonly, nonatomic) HKSample *sample; // @synthesize sample=_sample;
+@property(readonly, nonatomic) NSObject<HKDataMetadataObject> *object; // @synthesize object=_object;
 - (void).cxx_destruct;
+- (void)_addPrivateMetadataIfAppropriateKey:(id)arg1 value:(id)arg2;
 - (void)_loadMetadataValues;
+- (id)initWithWorkoutEvent:(id)arg1;
 - (id)initWithSample:(id)arg1 displayTypeController:(id)arg2 unitController:(id)arg3;
 
 @end

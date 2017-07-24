@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NSString *attachmentUTI; // @synthesize attachmentUTI=_attachmentUTI;
 @property(retain, nonatomic) NSString *attachmentIdentifier; // @synthesize attachmentIdentifier=_attachmentIdentifier;
 - (void).cxx_destruct;
+- (id)attachmentInContext:(id)arg1;
 - (_Bool)isEqualToModelComparable:(id)arg1;
 
 // Remaining properties

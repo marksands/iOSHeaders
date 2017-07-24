@@ -10,7 +10,7 @@
 #import <CoreParsec/_CPMapsCardSectionEngagementFeedback-Protocol.h>
 #import <CoreParsec/_CPProcessableFeedback-Protocol.h>
 
-@class NSData, NSString, _CPCardSectionForFeedback, _CPPunchoutForFeedback;
+@class NSData, NSDictionary, NSString, _CPPunchoutForFeedback;
 
 @interface _CPMapsCardSectionEngagementFeedback : PBCodable <_CPProcessableFeedback, _CPMapsCardSectionEngagementFeedback, NSSecureCoding>
 {
@@ -25,11 +25,13 @@
     int _feedbackType;
     unsigned long long _timestamp;
     _CPPunchoutForFeedback *_destination;
-    _CPCardSectionForFeedback *_cardSection;
+    NSString *_cardSectionId;
+    NSString *_resultId;
 }
 
+@property(copy, nonatomic) NSString *resultId; // @synthesize resultId=_resultId;
+@property(copy, nonatomic) NSString *cardSectionId; // @synthesize cardSectionId=_cardSectionId;
 @property(nonatomic) int feedbackType; // @synthesize feedbackType=_feedbackType;
-@property(retain, nonatomic) _CPCardSectionForFeedback *cardSection; // @synthesize cardSection=_cardSection;
 @property(nonatomic) int actionCardType; // @synthesize actionCardType=_actionCardType;
 @property(nonatomic) int triggerEvent; // @synthesize triggerEvent=_triggerEvent;
 @property(retain, nonatomic) _CPPunchoutForFeedback *destination; // @synthesize destination=_destination;
@@ -38,23 +40,26 @@
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithJSON:(id)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
-- (id)dictionaryRepresentation;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasResultId;
+@property(readonly, nonatomic) _Bool hasCardSectionId;
 @property(readonly, nonatomic) _Bool hasFeedbackType;
-@property(readonly, nonatomic) _Bool hasCardSection;
 @property(readonly, nonatomic) _Bool hasActionCardType;
 @property(readonly, nonatomic) _Bool hasTriggerEvent;
 @property(readonly, nonatomic) _Bool hasDestination;
 @property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)init;
 - (id)initWithFacade:(id)arg1;
 @property(readonly, nonatomic) _Bool requiresQueryId;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) id feedbackJSON;
 @property(readonly) Class superclass;
 
 @end

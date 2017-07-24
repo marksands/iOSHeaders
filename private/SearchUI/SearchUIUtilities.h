@@ -15,6 +15,9 @@
 + (id)localizedStringForKey:(id)arg1;
 + (void)requestDeviceUnlockWithSuccessHandler:(CDUnknownBlockType)arg1;
 + (_Bool)deviceIsAuthenticated;
++ (id)sendFeedbackForPunchout:(id)arg1 toListener:(id)arg2 fromCardSection:(id)arg3 triggerEvent:(unsigned long long)arg4;
++ (_Bool)shouldHandleCardSectionEngagement:(id)arg1 feedbackListener:(id)arg2;
++ (void)openPunchout:(id)arg1 fromCardSection:(id)arg2 toListener:(id)arg3 triggerEvent:(unsigned long long)arg4;
 + (void)performOpenTask:(CDUnknownBlockType)arg1;
 + (id)openOptions;
 + (void)openUserActivity:(id)arg1 applicationBundleIdentifier:(id)arg2;
@@ -41,6 +44,7 @@
 + (id)shortSubheadBoldFont;
 + (id)shortTitle1Font;
 + (id)hyphenatableStringForString:(id)arg1;
++ (_Bool)isLargeIpad;
 + (double)standardTableCellContentInset;
 + (double)onePixelForCurrentScreenResolution;
 + (double)separatorHeight;
@@ -48,7 +52,7 @@
 + (id)uiColorForSFColor:(id)arg1;
 + (id)vibrantButtonColorForStyle:(unsigned long long)arg1;
 + (id)buttonColorForStyle:(unsigned long long)arg1;
-+ (id)textColorForStyle:(unsigned long long)arg1;
++ (id)textColorForSearchUIStyle:(unsigned long long)arg1;
 + (struct CGSize)maxThumbnailSize;
 + (void)initialize;
 

@@ -12,7 +12,8 @@
 
 @interface UISocialActivity : UIApplicationExtensionActivity <UIManagedConfigurationRestrictableActivity>
 {
-    _Bool sourceIsManaged;
+    _Bool _sourceIsManaged;
+    NSString *_sourceApplicationBundleID;
     NSString *_builtinActivityType;
     SLComposeViewController *_socialComposeViewController;
 }
@@ -21,7 +22,8 @@
 + (long long)activityCategory;
 @property(retain, nonatomic) SLComposeViewController *socialComposeViewController; // @synthesize socialComposeViewController=_socialComposeViewController;
 @property(copy, nonatomic) NSString *builtinActivityType; // @synthesize builtinActivityType=_builtinActivityType;
-@property(nonatomic) _Bool sourceIsManaged; // @synthesize sourceIsManaged;
+@property(copy, nonatomic) NSString *sourceApplicationBundleID; // @synthesize sourceApplicationBundleID=_sourceApplicationBundleID;
+@property(nonatomic) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
 - (void).cxx_destruct;
 - (_Bool)_wantsAttachmentURLItemData;
 - (_Bool)_wantsThumbnailItemData;
@@ -34,7 +36,6 @@
 - (void)_prepareComposeViewController:(id)arg1 withInjectedExtensionItems:(id)arg2;
 - (void)prepareWithActivityExtensionItemData:(id)arg1;
 - (_Bool)canPerformWithActivityItems:(id)arg1;
-- (_Bool)canPerformWithActivityItems:(id)arg1 hostApplicationBundleID:(id)arg2;
 - (_Bool)_canBeExcludeWhenMatchingWithContext:(id)arg1;
 - (id)activityType;
 - (id)debugDescription;

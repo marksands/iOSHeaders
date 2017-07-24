@@ -47,6 +47,7 @@
 - (id)uidGeneratedIfNecessaryWithLocalEvent:(void *)arg1;
 - (void)postProcessApplicationData;
 - (void)saveToCalendarWithParentASEvent:(id)arg1 existingRecord:(void *)arg2 intoCalendar:(void *)arg3 shouldMergeProperties:(_Bool)arg4 outMergeDidChooseLocalProperties:(_Bool *)arg5 account:(id)arg6;
+- (_Bool)fillOutMissingExternalIds;
 - (_Bool)verifyExternalIds;
 - (id)serverIdForCalFrameworkWithParentServerId:(id)arg1;
 - (id)serverIdForCalFrameworkWithParentEvent:(id)arg1;

@@ -8,16 +8,16 @@
 
 @interface SiriCoreNetworkQualityReport : NSObject
 {
-    int _cellularInstant;
-    int _cellularHistorical;
-    int _wifiInstant;
-    int _wifiHistorical;
+    long long _cellularInstant;
+    long long _cellularHistorical;
+    long long _wifiInstant;
+    long long _wifiHistorical;
 }
 
-@property(nonatomic) int wifiHistorical; // @synthesize wifiHistorical=_wifiHistorical;
-@property(nonatomic) int wifiInstant; // @synthesize wifiInstant=_wifiInstant;
-@property(nonatomic) int cellularHistorical; // @synthesize cellularHistorical=_cellularHistorical;
-@property(nonatomic) int cellularInstant; // @synthesize cellularInstant=_cellularInstant;
+@property(nonatomic) long long wifiHistorical; // @synthesize wifiHistorical=_wifiHistorical;
+@property(nonatomic) long long wifiInstant; // @synthesize wifiInstant=_wifiInstant;
+@property(nonatomic) long long cellularHistorical; // @synthesize cellularHistorical=_cellularHistorical;
+@property(nonatomic) long long cellularInstant; // @synthesize cellularInstant=_cellularInstant;
 
 @end
 

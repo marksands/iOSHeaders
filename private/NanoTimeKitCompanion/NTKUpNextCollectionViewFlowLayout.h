@@ -6,12 +6,10 @@
 
 #import <UIKit/UICollectionViewFlowLayout.h>
 
-@class CAMediaTimingFunction, NSDictionary, NSIndexPath, NSSet, NTKUpNextCollectionViewFlowLayoutAttributes;
+@class NSDictionary, NSIndexPath, NSSet, NTKUpNextCollectionViewFlowLayoutAttributes;
 
 @interface NTKUpNextCollectionViewFlowLayout : UICollectionViewFlowLayout
 {
-    CAMediaTimingFunction *_easeInFunction;
-    CAMediaTimingFunction *_easeOutFunction;
     NSDictionary *_layoutInfo;
     NSDictionary *_headerLayoutInfo;
     NTKUpNextCollectionViewFlowLayoutAttributes *_decorationLayoutInfo;
@@ -19,6 +17,7 @@
     NSSet *_sectionsWithHeaders;
     _Bool _needsHeaderUpdate;
     _Bool _needsInsetsUpdate;
+    _Bool _useFixedLowTransitionLayout;
     _Bool _snappingEnabled;
     double _topItemsAlpha;
     double _headerAlpha;
@@ -28,9 +27,10 @@
     NSIndexPath *_bottomElementIndexPath;
     double _topOffsetForSnapping;
     double _topOffsetForScrolling;
-    double _transitionLandingAdjustment;
-    double _highTransitionStartOffset;
-    double _bottomGapSize;
+    double _lowTransitionScale;
+    double _highTransitionScale;
+    double _highTransitionShift;
+    double _highTransitionBottomOffset;
     NSIndexPath *_indexPathToSnapTo;
     double _snappingOffset;
 }
@@ -39,9 +39,11 @@
 @property(nonatomic) double snappingOffset; // @synthesize snappingOffset=_snappingOffset;
 @property(retain, nonatomic) NSIndexPath *indexPathToSnapTo; // @synthesize indexPathToSnapTo=_indexPathToSnapTo;
 @property(nonatomic, getter=isSnappingEnabled) _Bool snappingEnabled; // @synthesize snappingEnabled=_snappingEnabled;
-@property(nonatomic) double bottomGapSize; // @synthesize bottomGapSize=_bottomGapSize;
-@property(nonatomic) double highTransitionStartOffset; // @synthesize highTransitionStartOffset=_highTransitionStartOffset;
-@property(nonatomic) double transitionLandingAdjustment; // @synthesize transitionLandingAdjustment=_transitionLandingAdjustment;
+@property(nonatomic) double highTransitionBottomOffset; // @synthesize highTransitionBottomOffset=_highTransitionBottomOffset;
+@property(nonatomic) _Bool useFixedLowTransitionLayout; // @synthesize useFixedLowTransitionLayout=_useFixedLowTransitionLayout;
+@property(nonatomic) double highTransitionShift; // @synthesize highTransitionShift=_highTransitionShift;
+@property(nonatomic) double highTransitionScale; // @synthesize highTransitionScale=_highTransitionScale;
+@property(nonatomic) double lowTransitionScale; // @synthesize lowTransitionScale=_lowTransitionScale;
 @property(nonatomic) double topOffsetForScrolling; // @synthesize topOffsetForScrolling=_topOffsetForScrolling;
 @property(nonatomic) double topOffsetForSnapping; // @synthesize topOffsetForSnapping=_topOffsetForSnapping;
 @property(retain, nonatomic) NSIndexPath *bottomElementIndexPath; // @synthesize bottomElementIndexPath=_bottomElementIndexPath;

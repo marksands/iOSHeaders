@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSMessage, NSData, NSDecimalNumber, NSString, PKCurrencyAmount, PKProtobufPeerPaymentMessage;
+@class MSMessage, NSDecimalNumber, NSString, NSUUID, PKCurrencyAmount, PKProtobufPeerPaymentMessage;
 
 @interface PKPeerPaymentMessage : NSObject
 {
@@ -17,15 +17,11 @@
 @property(readonly, nonatomic) MSMessage *underlyingMessage; // @synthesize underlyingMessage=_underlyingMessage;
 - (void).cxx_destruct;
 - (id)description;
-- (id)_dataWithDataURL:(id)arg1;
-- (id)_dataURLWithData:(id)arg1;
 - (void)_updateLayoutContents;
-- (void)_updateSummayText;
+- (void)_updateSummaryText;
 - (void)_updateDataURL;
 - (void)updateWithPeerPaymentPerformResponse:(id)arg1;
-- (void)updateSummaryTextWithSenderParticipantIdentifier:(id)arg1;
 @property(readonly, nonatomic) _Bool hasBeenSent;
-@property(copy, nonatomic) NSData *externalizedControllerState;
 @property(copy, nonatomic) NSString *memo;
 @property(copy, nonatomic) NSString *transactionIdentifier;
 @property(copy, nonatomic) NSString *paymentIdentifier;
@@ -36,6 +32,7 @@
 @property(copy, nonatomic) NSDecimalNumber *amount;
 @property(copy, nonatomic) NSString *currency;
 @property(nonatomic) unsigned long long type;
+@property(readonly, copy, nonatomic) NSUUID *identifier;
 - (id)initWithUnderlyingMessage:(id)arg1;
 - (id)initWithType:(unsigned long long)arg1 session:(id)arg2;
 - (id)initWithType:(unsigned long long)arg1;

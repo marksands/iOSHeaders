@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) HKQuantity *quantity; // @synthesize quantity=_quantity;
 - (void).cxx_destruct;
 - (id)datumForChangeSince:(id)arg1 newIdentifier:(id)arg2 newResumeContext:(id)arg3;
+- (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithIdentifier:(id)arg1 dateInterval:(id)arg2 resumeContext:(id)arg3 quantity:(id)arg4 options:(unsigned long long)arg5;

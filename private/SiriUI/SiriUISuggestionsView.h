@@ -11,6 +11,7 @@
 
 @interface SiriUISuggestionsView : UIView
 {
+    UIView *_contentView;
     UILabel *_headerLabel;
     UILabel *_oldHeaderLabel;
     UILabel *_subheaderLabel;
@@ -22,6 +23,7 @@
     NSMutableOrderedSet *_pendedSuggestions;
     SiriUIAcousticIDSpinner *_acousticIDSpinner;
     unsigned long long _numberOfSuggestions;
+    struct NSDirectionalEdgeInsets _edgeInsets;
     UIView *_guideView;
     SiriUISuggestionsHeaderText *_headerText;
     SiriUISuggestionsHeaderText *_subheaderText;
@@ -43,7 +45,6 @@
 - (void).cxx_destruct;
 - (void)acousticIDSpinnerDidHide:(id)arg1;
 - (id)_createSpringAnimation:(double)arg1;
-- (struct NSDirectionalEdgeInsets)_directionalLayoutMargins;
 - (double)_suggestionFontSize;
 - (double)_headerToLargeSubheaderOffset;
 - (double)_headerToSubheaderOffset;

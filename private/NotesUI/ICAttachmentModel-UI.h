@@ -16,7 +16,6 @@
 - (struct UIImage *)fileIconWithPreferredSize:(struct CGSize)arg1;
 - (id)activityItems;
 @property(readonly, nonatomic) NSArray *quicklookPreviewItems;
-- (id)itemProvider;
 @property(readonly, nonatomic) CDUnknownBlockType genericBrickThumbnailCreator;
 @property(readonly, nonatomic) CDUnknownBlockType genericListThumbnailCreator;
 

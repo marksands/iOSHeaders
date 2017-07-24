@@ -13,9 +13,9 @@
     NSMutableDictionary *_callMetadata;
 }
 
-@property(retain, nonatomic) NSMutableDictionary *callMetadata; // @synthesize callMetadata=_callMetadata;
+@property(readonly, nonatomic) NSMutableDictionary *callMetadata; // @synthesize callMetadata=_callMetadata;
 - (void).cxx_destruct;
-- (_Bool)isEmpty;
+@property(readonly, nonatomic, getter=isEmpty) _Bool empty;
 - (id)description;
 - (id)metadataForProvider:(Class)arg1;
 - (void)setMetadata:(id)arg1 forProvider:(Class)arg2;

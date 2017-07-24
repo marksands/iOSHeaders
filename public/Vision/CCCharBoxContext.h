@@ -52,6 +52,8 @@ __attribute__((visibility("hidden")))
 @property char *pulseVectorHeightCharBox; // @synthesize pulseVectorHeightCharBox;
 @property float *floatVectorSumProd; // @synthesize floatVectorSumProd;
 - (void)releaseAllocations;
+- (_Bool)makeAllocationsForWidth:(unsigned long long)arg1;
+- (void)dealloc;
 - (void)resetBoxBounds;
 - (void)copyFlagValue:(unsigned long long)arg1 toTarget:(unsigned long long)arg2 atIndex:(unsigned int)arg3;
 - (unsigned int)checkFlag:(unsigned long long)arg1 atIndex:(unsigned int)arg2;

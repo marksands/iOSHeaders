@@ -102,6 +102,8 @@
 - (id)wakeToken;
 @property(readonly, nonatomic) NSString *dockType;
 @property(readonly, nonatomic) NSString *hardwareRevision;
+- (id)firmwareRevisionPending;
+- (id)firmwareRevisionActive;
 @property(readonly, nonatomic) NSString *firmwareRevision;
 @property(readonly, nonatomic) NSString *serialNumber;
 @property(readonly, nonatomic) NSString *modelNumber;

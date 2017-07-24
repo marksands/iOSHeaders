@@ -28,13 +28,17 @@
 - (id)fileURLForTypeIdentifier:(id)arg1;
 - (id)providerFileTypes;
 - (id)providerDataTypes;
+- (id)dataForQuickLook;
 @property(readonly, nonatomic) _Bool supportsQuickLook;
 @property(readonly, nonatomic) NSString *previewItemTitle;
+- (id)correctedHardlinkURLFileExtensionForExtention:(id)arg1;
 - (id)generateHardLinkURLIfNecessaryForURL:(id)arg1 withFileName:(id)arg2;
 - (id)generateHardLinkURLIfNecessaryForURL:(id)arg1;
 @property(readonly, nonatomic) NSURL *previewItemURL;
 - (id)titleForSubAttachment:(id)arg1;
 - (id)hardLinkFolderPath;
+- (_Bool)canConvertToHTMLForSharing;
+- (id)attributesForSharingHTMLWithTagName:(id *)arg1 textContent:(id *)arg2;
 - (id)localizedFallbackSubtitleMac;
 - (id)localizedFallbackSubtitleIOS;
 - (id)localizedFallbackTitle;

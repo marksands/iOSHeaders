@@ -22,7 +22,6 @@
 - (void).cxx_destruct;
 - (id)initWithClientLiteWithConnectionName:(id)arg1;
 - (id)initWithServiceHelper:(id)arg1 withConnectionName:(id)arg2;
-- (void)submitMetricsForDomain:(id)arg1 timings:(id)arg2 originalCommandId:(id)arg3;
 - (void)executeCommand:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)warmUpWithScriptHint:(id)arg1;
 - (void)warmUp;

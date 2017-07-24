@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NSDateComponents *offset; // @synthesize offset=_offset;
 @property(retain, nonatomic) NSString *significantEvent; // @synthesize significantEvent=_significantEvent;
 - (void).cxx_destruct;
+- (id)metricData;
 - (id)_nextTimerDate;
 - (void)_transactionObjectRemoved:(id)arg1 message:(id)arg2;
 - (void)_transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;

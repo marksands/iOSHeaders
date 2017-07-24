@@ -14,7 +14,9 @@
 {
     NSLock *_coordinatorLock;
     NTKUpNextElementCoordinator *_coordinator;
+    NTKUpNextElementCoordinator *_staticCoordinator;
     NTKFaceCollection *_libraryCollection;
+    _Bool _isEditing;
 }
 
 + (id)applicationPrewarmIdentifiers;
@@ -25,12 +27,18 @@
 - (void)_unloadCoordinatorIfNeeded;
 - (void)_loadCoordinatorIfNeeded;
 - (_Bool)_faceCollectionContainsFaceNeedingElementCoordinator:(id)arg1;
+- (_Bool)_needsLiveElementCoordinator;
 - (_Bool)_faceNeedsElementCoordinator:(id)arg1;
 - (void)faceCollectionDidLoad:(id)arg1;
 - (void)faceCollection:(id)arg1 didRemoveFace:(id)arg2 atIndex:(unsigned long long)arg3;
 - (void)faceCollection:(id)arg1 didAddFace:(id)arg2 atIndex:(unsigned long long)arg3;
+- (void)prewarm;
+- (void)_clockViewControllerDidEndEditing;
+- (void)_clockViewControllerDidBeginEditing;
+- (id)canonicalElementCoordinator;
 - (id)sharedElementCoordinator;
 - (void)setLibraryCollection:(id)arg1;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

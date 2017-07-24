@@ -18,8 +18,6 @@
 - (id)_remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)_remoteObjectProxyWithFailureHandler:(CDUnknownBlockType)arg1;
 - (id)_remoteObjectProxy;
-- (void)trustedDeviceEnrollmentInfoWithAccountDSID:(id)arg1 sessionData:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)trustedDeviceEnrollmentSignatureForDevice:(unsigned long long)arg1 withAccountDSID:(id)arg2 sessionData:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)trustedDeviceEnrollmentSignatureForDevice:(unsigned long long)arg1 accountDSID:(id)arg2 sessionData:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)trustedDeviceEnrollmentInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (id)init;

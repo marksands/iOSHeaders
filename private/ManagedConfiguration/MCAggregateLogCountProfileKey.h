@@ -15,6 +15,7 @@
 + (id)_type:(unsigned long long)arg1;
 + (id)signedByApple;
 + (id)signed;
++ (id)carrier;
 + (id)all;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 - (unsigned long long)value;

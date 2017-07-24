@@ -37,10 +37,12 @@
 - (void)paymentAuthorizationCoordinator:(id)arg1 didSelectPaymentMethod:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)paymentAuthorizationCoordinatorDidFinish:(id)arg1;
 - (id)summaryItemsForQuote:(id)arg1 withAlternateFundingSource:(id)arg2;
+- (id)displayNameForRecipientAddress:(id)arg1 foundInContacts:(_Bool *)arg2;
 - (id)displayNameForRecipientAddress:(id)arg1;
 - (id)_displayableErrorOverrideForUnderlyingError:(id)arg1;
 - (id)displayableErrorForError:(id)arg1;
 - (void)_handleAccountChanged:(id)arg1;
+@property(readonly, nonatomic) PKPaymentPass *peerPaymentPass;
 @property(readonly, nonatomic) PKPeerPaymentAccount *account;
 - (void)handleTermsAcceptanceRequiredWithError:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)handleIdentityVerificationWithError:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -56,7 +58,7 @@
 - (void)quoteWithAmount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)selectMode:(unsigned long long)arg1;
 - (void)identifyRecipientSelf;
-- (void)identifyRecipientWithRoutingNumber:(id)arg1 accountNumber:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)identifyRecipientWithRoutingNumber:(id)arg1 accountNumber:(id)arg2 accountName:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)identifyRecipientWithAddress:(id)arg1 senderAddress:(id)arg2 completion:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) PKPeerPaymentPerformResponse *performQuoteResponse;
 @property(readonly, nonatomic) PKPeerPaymentQuote *quote;

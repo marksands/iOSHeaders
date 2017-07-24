@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 + (id)_currentLocale;
 + (id)_preferredLanguages;
 + (id)_currentCountry;
++ (id)_cacheDirectoryPath;
 + (_Bool)_createCachesDirectory;
 + (id)_cachesPathForFileBaseName:(id)arg1 fileExtension:(id)arg2;
 + (id)_frameworkPathForFileBaseName:(id)arg1 fileExtension:(id)arg2;

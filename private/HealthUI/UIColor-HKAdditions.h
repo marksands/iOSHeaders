@@ -23,8 +23,15 @@
 + (id)hk_activityMoveGoalMetGradientBottomColor;
 + (id)hk_activityMoveGoalMetGradientTopColor;
 + (id)hk_activityMoveGoalLineColor;
++ (id)hk_chartLightGrayGraphColor;
++ (id)hk_chartLightGrayTextColor;
 + (id)hk_chartDefaultCurrentValueColor;
 + (id)hk_chartAxisLabelColor;
++ (id)hk_chartBackgroundColor;
++ (id)hk_darkInfoButtonBackgroundColor;
++ (id)hk_darkInfoButtonGlyphColor;
++ (id)hk_defaultInfoButtonBackgroundColor;
++ (id)hk_defaultInfoButtonGlyphColor;
 + (id)hk_defaultGradientBottomColor;
 + (id)hk_defaultGradientTopColor;
 + (id)hk_defaultSecondaryTextColor;
@@ -37,6 +44,8 @@
 + (id)hk_resultsGradientBottomColor;
 + (id)hk_resultsGradientTopColor;
 + (id)hk_resultsKeyColor;
++ (id)hk_sleepAsleepGradientBottomColor;
++ (id)hk_sleepAsleepGradientTopColor;
 + (id)hk_sleepGradientBottomColor;
 + (id)hk_sleepGradientTopColor;
 + (id)hk_sleepKeyColor;

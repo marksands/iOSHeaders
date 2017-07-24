@@ -9,6 +9,6 @@
 @class NTKCFaceDetailKaleidoscopeEditOptionCell;
 
 @protocol NTKCFaceDetailKaleidoscopeEditOptionCellDelegate <NTKCFaceDetailEditOptionCellDelegate>
-- (void)kaleidoscopeEditOptionCellDidSelectCustomOption:(NTKCFaceDetailKaleidoscopeEditOptionCell *)arg1;
+- (void)kaleidoscopeEditOptionCellDidSelectUserOption:(NTKCFaceDetailKaleidoscopeEditOptionCell *)arg1;
 @end
 

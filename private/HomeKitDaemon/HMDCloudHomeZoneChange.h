@@ -35,7 +35,7 @@
 - (id)allTransactionStoreRowIDs;
 - (_Bool)encryptionFailed;
 - (_Bool)decryptionFailed;
-- (id)initWithZone:(id)arg1;
+- (id)initWithZone:(id)arg1 temporaryCache:(_Bool)arg2;
 
 @end
 

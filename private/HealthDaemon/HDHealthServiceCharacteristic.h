@@ -33,12 +33,12 @@
 + (id)uuid;
 @property(readonly, nonatomic) NSDate *updateTime; // @synthesize updateTime=_updateTime;
 - (void).cxx_destruct;
+@property(readonly, copy) NSString *description;
 - (id)getBinaryValueWithError:(id *)arg1;
 - (id)_init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

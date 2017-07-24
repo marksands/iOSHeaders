@@ -10,7 +10,6 @@
 {
 }
 
-- (id)recordZoneName;
 - (id)initWithHistoryItemIDs:(id)arg1;
 
 @end

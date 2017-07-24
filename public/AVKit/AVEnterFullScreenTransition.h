@@ -10,8 +10,7 @@
 {
 }
 
-- (void)updateWithPercentComplete:(double)arg1 translation:(struct CGPoint)arg2 rotation:(double)arg3;
-- (struct CGRect)initialFrameForToViewController;
+- (void)updateWithPercentComplete:(double)arg1 translation:(struct CGPoint)arg2 rotation:(double)arg3 locationInWindow:(struct CGPoint)arg4;
 - (void)animateAlongsideInteractiveTransitionAnimationForCancelling;
 - (void)animateAlongsideInteractiveTransitionAnimationForFinishing;
 - (void)animateAlongsideNonInteractiveTransitionAnimation;

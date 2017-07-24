@@ -18,7 +18,6 @@
 - (void)addOperationWithOperationInfo:(id)arg1;
 - (_Bool)hasTCCAuthorization;
 - (_Bool)darkWakeEnabledEntitlement;
-- (_Bool)usePublicTokenEntitlement;
 - (id)apsEnvironmentEntitlement;
 - (id)_clientPrefixEntitlement;
 - (id)applicationIdentifier;
@@ -26,7 +25,6 @@
 - (_Bool)hasDisplaysSystemAcceptPromptEntitlement;
 - (_Bool)hasParticipantPIIEntitlement;
 - (_Bool)hasOutOfProcessUIEntitlement;
-- (_Bool)hasAllowAccessBeforeFirstUnlockSinceBootEntitlement;
 - (_Bool)hasLightweightPCSEntitlement;
 - (_Bool)hasAllowAccessDuringBuddyEntitlement;
 - (_Bool)hasDarkWakeNetworkReachabilityEnabledEntitlement;

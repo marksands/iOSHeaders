@@ -21,8 +21,8 @@
 - (void)_callReplyHandler:(id)arg1 ofInvocation:(id)arg2 withError:(id)arg3;
 - (long long)replyBlockArgumentIndex:(id)arg1;
 - (id)_getReplyBlockFromInvocation:(id)arg1;
-- (id)_replaceReplyBlockInInvocation:(id)arg1 retryingAfterInitializationWithProxy:(id)arg2;
-- (_Bool)shouldReplaceReplyBlockForInvocation:(id)arg1;
+- (id)_replaceReplyBlockInInvocation:(id)arg1 retryingAfterInitializationWithProxyHolder:(id)arg2;
+- (_Bool)_shouldResendInitializationOptionsForInvocation:(id)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (id)initWithXPCConnection:(id)arg1 protocol:(id)arg2 synchronous:(_Bool)arg3;

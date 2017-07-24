@@ -150,6 +150,8 @@ __attribute__((visibility("hidden")))
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 cancelPrefetchingForRowsAtIndexPaths:(id)arg2;
 - (void)tableView:(id)arg1 prefetchRowsAtIndexPaths:(id)arg2;
+- (_Bool)tableView:(id)arg1 dragSessionIsRestrictedToDraggingApplication:(id)arg2;
+- (_Bool)tableView:(id)arg1 dragSessionAllowsMoveOperation:(id)arg2;
 - (void)tableView:(id)arg1 dragSessionDidEnd:(id)arg2;
 - (void)tableView:(id)arg1 dragSessionWillBegin:(id)arg2;
 - (id)tableView:(id)arg1 dragPreviewParametersForRowAtIndexPath:(id)arg2;

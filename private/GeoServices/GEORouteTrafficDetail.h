@@ -14,12 +14,14 @@
 {
     int _routeTrafficCondition;
     NSString *_spokenRouteName;
+    NSString *_unabbreviatedRouteName;
     NSString *_writtenRouteName;
     struct {
         unsigned int routeTrafficCondition:1;
     } _has;
 }
 
+@property(retain, nonatomic) NSString *unabbreviatedRouteName; // @synthesize unabbreviatedRouteName=_unabbreviatedRouteName;
 @property(retain, nonatomic) NSString *spokenRouteName; // @synthesize spokenRouteName=_spokenRouteName;
 @property(retain, nonatomic) NSString *writtenRouteName; // @synthesize writtenRouteName=_writtenRouteName;
 - (void).cxx_destruct;
@@ -32,6 +34,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasUnabbreviatedRouteName;
 @property(readonly, nonatomic) _Bool hasSpokenRouteName;
 @property(readonly, nonatomic) _Bool hasWrittenRouteName;
 - (int)StringAsRouteTrafficCondition:(id)arg1;

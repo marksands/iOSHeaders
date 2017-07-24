@@ -31,7 +31,7 @@
 @property(retain, nonatomic) IKURLBagCache *bagCache; // @synthesize bagCache=_bagCache;
 @property(retain, nonatomic) NSString *cookieURL; // @synthesize cookieURL=_cookieURL;
 - (void).cxx_destruct;
-- (void)_updateWithBag:(id)arg1 withMetrics:(_Bool)arg2;
+- (void)_updateWithBag:(id)arg1;
 - (void)invalidateBag;
 - (id)getBag;
 - (void)_subscriptionStatusChanged;

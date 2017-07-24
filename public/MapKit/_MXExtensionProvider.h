@@ -6,12 +6,10 @@
 
 #import <Foundation/NSObject.h>
 
-#import <MapKit/INExtensionContextHostDelegate-Protocol.h>
-
-@class NSArray, NSString, _MXAssetStorage, _MXExtensionDispatchCenter, _MXExtensionMatchingMerger, _MXExtensionServiceCenter;
+@class NSArray, _MXAssetStorage, _MXExtensionDispatchCenter, _MXExtensionMatchingMerger, _MXExtensionServiceCenter;
 
 __attribute__((visibility("hidden")))
-@interface _MXExtensionProvider : NSObject <INExtensionContextHostDelegate>
+@interface _MXExtensionProvider : NSObject
 {
     Class _extensionMatchingClass;
     id _matchingContext;
@@ -48,12 +46,6 @@ __attribute__((visibility("hidden")))
 - (id)addExtensionsUpdateHandler:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

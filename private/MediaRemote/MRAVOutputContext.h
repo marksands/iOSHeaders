@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVOutputContext, NSArray, NSMutableArray;
+@class AVOutputContext, NSArray, NSMutableArray, NSString;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_pendingModifications;
     NSObject<OS_dispatch_queue> *_serialQueue;
     unsigned int _type;
+    NSString *_uniqueIdentifier;
     AVOutputContext *_avOutputContext;
 }
 
@@ -23,13 +24,16 @@ __attribute__((visibility("hidden")))
 + (id)sharedSystemAudioContext;
 + (id)sharedAudioPresentationContext;
 @property(readonly, nonatomic) AVOutputContext *avOutputContext; // @synthesize avOutputContext=_avOutputContext;
+@property(readonly, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(readonly, nonatomic) unsigned int type; // @synthesize type=_type;
+- (_Bool)_contextSupportsMultipleDevices;
 - (void)_clearAnyCompletedModifications;
 - (void)_commitModification:(id)arg1;
 - (id)_pendingModifications;
 - (void)_reloadOutputDevices;
 - (void)_unregisterNotifications;
 - (void)_registerNotifications;
+- (void)_outputContextChangeInitiatedNotification:(id)arg1;
 - (void)_outputDevicesDidChangeNotification:(id)arg1;
 - (void)removeAllOutputDevicesWithCallbackQueue:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)removeOutputDevices:(id)arg1 withCallbackQueue:(id)arg2 block:(CDUnknownBlockType)arg3;

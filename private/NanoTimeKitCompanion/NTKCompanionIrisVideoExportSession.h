@@ -11,9 +11,7 @@
 
 @interface NTKCompanionIrisVideoExportSession : NSObject
 {
-    long long _onceExport;
     NSObject<OS_dispatch_queue> *_exportQueue;
-    long long _onceEncode;
     NSObject<OS_dispatch_queue> *_encodeQueue;
     AVAsset *_video;
     unsigned long long _bitrate;
@@ -32,8 +30,6 @@
 @property(readonly, nonatomic) struct CGRect crop; // @synthesize crop=_crop;
 @property(readonly, nonatomic) AVAsset *video; // @synthesize video=_video;
 - (void).cxx_destruct;
-- (id)_encodeQ;
-- (id)_exportQ;
 - (id)_makeWriter;
 - (id)_makeReader;
 - (void)exportAsynchronouslyWithCompletion:(CDUnknownBlockType)arg1;

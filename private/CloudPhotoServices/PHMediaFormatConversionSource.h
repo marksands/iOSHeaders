@@ -17,19 +17,22 @@
     NSString *_renderOriginatingSignature;
     NSString *_livePhotoPairingIdentifier;
     id _hevcTrackFormatDescription;
+    struct CGSize _imageDimensions;
 }
 
 + (Class)requestClass;
 + (id)sourceForFileURL:(id)arg1;
++ (id)imageSourceForFileURL:(id)arg1 dimensions:(struct CGSize)arg2;
 + (id)imageSourceForFileURL:(id)arg1;
 + (id)videoSourceForFileURL:(id)arg1;
-+ (id)sourceForFileURL:(id)arg1 mediaType:(long long)arg2;
++ (id)sourceForFileURL:(id)arg1 mediaType:(long long)arg2 imageDimensions:(struct CGSize)arg3;
 @property(retain) id hevcTrackFormatDescription; // @synthesize hevcTrackFormatDescription=_hevcTrackFormatDescription;
 @property _Bool didCheckForLivePhotoPairingIdentifier; // @synthesize didCheckForLivePhotoPairingIdentifier=_didCheckForLivePhotoPairingIdentifier;
 @property(retain, nonatomic) NSString *livePhotoPairingIdentifier; // @synthesize livePhotoPairingIdentifier=_livePhotoPairingIdentifier;
 @property _Bool containsHEIFImage; // @synthesize containsHEIFImage=_containsHEIFImage;
 @property _Bool containsHEVCVideo; // @synthesize containsHEVCVideo=_containsHEVCVideo;
 @property _Bool preflighted; // @synthesize preflighted=_preflighted;
+@property struct CGSize imageDimensions; // @synthesize imageDimensions=_imageDimensions;
 @property(copy) NSString *renderOriginatingSignature; // @synthesize renderOriginatingSignature=_renderOriginatingSignature;
 - (void).cxx_destruct;
 - (void)checkForLivePhotoPairingIdentifier;

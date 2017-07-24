@@ -69,7 +69,7 @@
 - (void)viewDidLayoutSubviews;
 - (id)_overlayView;
 - (id)_viewControllerWithElement:(id)arg1 existingController:(id)arg2;
-- (void)_updateSupplementaryViewControllersWithElements:(id)arg1 updateStyles:(_Bool)arg2;
+- (_Bool)_updateSupplementaryViewControllersWithElements:(id)arg1 updateStyles:(_Bool)arg2;
 - (struct UIEdgeInsets)collectionListMargin;
 - (_Bool)collectionView:(id)arg1 shouldHandleLongPressForItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didReceiveLongPressForItemAtIndexPath:(id)arg2;

@@ -11,6 +11,7 @@
 }
 
 + (_Bool)isAuthorizedForRecording;
++ (long long)authorizationStatus;
 + (_Bool)isGyroRecordingAvailable;
 + (_Bool)isAccelerometerRecordingAvailable;
 + (_Bool)isRecordingAvailableForType:(int)arg1;

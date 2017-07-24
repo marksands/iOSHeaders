@@ -39,6 +39,7 @@
 - (void)updateIfNeeded;
 - (_Bool)needsUpdate;
 - (void)_transitionImageRequestersToDataSource:(id)arg1;
+- (id)_imageRequesterForAssetReference:(id)arg1;
 - (id)_imageRequesterForIndexPath:(struct PXSimpleIndexPath)arg1 inDataSource:(id)arg2;
 - (void)_registerDefaultTiles;
 - (id)badgeManager;

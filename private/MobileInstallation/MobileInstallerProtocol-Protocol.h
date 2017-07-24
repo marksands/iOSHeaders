@@ -4,11 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSArray, NSData, NSDictionary, NSObject, NSString, NSURL;
+@class NSArray, NSData, NSDictionary, NSError, NSObject, NSString, NSURL;
 
 @protocol MobileInstallerProtocol
 - (void)dieForTesting;
 - (void)snapshotWKAppInCompanionAppID:(NSString *)arg1 toURL:(NSURL *)arg2 options:(NSDictionary *)arg3 completion:(void (^)(NSDictionary *, NSError *))arg4;
+- (void)getAppMetadataForApp:(NSString *)arg1 completion:(void (^)(MIBundleMetadata *, NSError *))arg2;
+- (void)updatePlaceholderMetadataForApp:(NSString *)arg1 installType:(unsigned long long)arg2 failureReason:(unsigned long long)arg3 underlyingError:(NSError *)arg4 failureSource:(unsigned long long)arg5 completion:(void (^)(NSError *))arg6;
 - (void)updateAppDataProtectionWithOptions:(NSDictionary *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)updateiTunesMetadataForLSWithIdentifier:(NSString *)arg1 options:(NSDictionary *)arg2 plistData:(NSData *)arg3 completion:(void (^)(NSError *))arg4;
 - (void)updateSinfForLSWithIdentifier:(NSString *)arg1 withOptions:(NSDictionary *)arg2 sinfData:(NSData *)arg3 completion:(void (^)(NSDictionary *, NSError *))arg4;

@@ -16,6 +16,7 @@
 }
 
 + (_Bool)deviceHasSEP;
++ (_Bool)isSiriPlugin:(id)arg1;
 + (id)callerDisplayNameWithPid:(int)arg1 bundleId:(id *)arg2;
 + (id)_pluginDisplayNameForUUID:(id)arg1 bundleId:(id *)arg2;
 + (id)_pluginDisplayNameForPID:(int)arg1 bundleId:(id *)arg2;

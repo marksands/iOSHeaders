@@ -4,24 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <HomeKitDaemon/HMDAccessory.h>
+#import <HomeKitDaemon/HMDMediaAccessory.h>
 
-@class HMDMediaProfile;
-
-@interface HMDAirPlayAccessory : HMDAccessory
+@interface HMDAirPlayAccessory : HMDMediaAccessory
 {
-    HMDMediaProfile *_mediaProfile;
 }
 
-+ (_Bool)supportsSecureCoding;
-@property(readonly) HMDMediaProfile *mediaProfile; // @synthesize mediaProfile=_mediaProfile;
-- (void).cxx_destruct;
-- (id)initWithCoder:(id)arg1;
-- (id)dumpSimpleState;
-- (id)dumpState;
-- (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (id)transactionWithObjectChangeType:(unsigned long long)arg1;
-- (id)init;
 - (id)initWithTransaction:(id)arg1 home:(id)arg2;
 
 @end

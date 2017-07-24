@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
-- (void)loadAttributionInfoForIdentifier:(id)arg1 version:(unsigned int)arg2 allowNetwork:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)loadAttributionInfoForIdentifier:(id)arg1 allowNetwork:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)initWithAttributionManifest:(id)arg1;
 
 @end

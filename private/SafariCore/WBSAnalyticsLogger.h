@@ -23,6 +23,9 @@
 - (void)didSuccessfullyMigrateToCKBookmarksAsPrimaryMigrator:(_Bool)arg1;
 - (void)didStartMigratingToCKBookmarksAsPrimaryMigrator:(_Bool)arg1 localState:(long long)arg2 remoteState:(long long)arg3;
 - (void)unableToSilentlyMigrateToCKBookmarksWithReason:(int)arg1;
+- (void)submitAutomaticReaderActivation:(int)arg1;
+- (void)didToggleDomainSpecificAutomaticReader:(_Bool)arg1;
+- (void)didToggleGloballyUseAutomaticReader:(_Bool)arg1;
 - (void)userTappedAutoFillQuickTypeSuggestionWithCategory:(int)arg1 formProperty:(id)arg2;
 - (void)showedAutoFillQuickTypeSuggestionWithCategory:(int)arg1 formProperty:(id)arg2;
 - (void)didSelectContactAutoFillSet:(int)arg1 hasPreviouslyCustomizedSet:(_Bool)arg2;

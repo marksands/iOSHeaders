@@ -9,34 +9,39 @@
 #import <AXMediaUtilities/AXMJSONSerializable-Protocol.h>
 #import <AXMediaUtilities/NSSecureCoding-Protocol.h>
 
-@class AXMLanguage, AXMVisionFeatureAssetMetadata, AXMVisionFeatureColorInfo, AXMVisionFeatureFaceLandmarks, NSDictionary, NSString;
+@class AXMLanguage, AXMTaggedText, AXMVisionFeatureAssetMetadata, AXMVisionFeatureColorInfo, AXMVisionFeatureFaceLandmarks, NSArray, NSDictionary, NSNumber, NSString;
 
 @interface AXMVisionFeature : NSObject <AXMJSONSerializable, NSSecureCoding>
 {
-    float _horizonAngle;
     unsigned long long _featureType;
-    double _creationDate;
-    double _confidence;
-    NSString *_value;
+    NSArray *_subfeatures;
     NSString *_barcodeType;
     long long _ocrFeatureType;
     AXMLanguage *_detectionLanguage;
+    double _creationDate;
+    struct CGRect _frame;
+    struct CGRect _normalizedFrame;
+    NSString *_value;
+    NSNumber *_isValueSpeakable;
+    AXMTaggedText *_taggedText;
     AXMVisionFeatureColorInfo *_colorInfo;
     AXMVisionFeatureAssetMetadata *_assetMetadata;
     double _blur;
     double _brightness;
+    double _confidence;
+    struct CGAffineTransform _horizonTransform;
+    float _horizonAngle;
     AXMVisionFeatureFaceLandmarks *_faceLandmarks;
     AXMVisionFeatureFaceLandmarks *_faceLandmarks3d;
     NSDictionary *_faceExpressionsAndConfidence;
-    unsigned long long _faceId;
     long long _likelyExpression;
-    struct CGSize _canvasSize;
-    struct CGRect _frame;
-    struct CGRect _normalizedFrame;
-    struct CGAffineTransform _horizonTransform;
+    unsigned long long _faceId;
     // Error parsing type: {?="columns"[4]}, name: _facePose
+    struct CGSize _canvasSize;
 }
 
++ (id)flattenedFeatureList:(id)arg1;
++ (void)_append:(id)arg1 toList:(id)arg2;
 + (id)debugNameForFeatureType:(unsigned long long)arg1;
 + (_Bool)supportsSecureCoding;
 + (id)featureWithAssetMetadata:(id)arg1;
@@ -49,38 +54,19 @@
 + (id)featureWithVisionRequest:(id)arg1 blurResult:(id)arg2 canvasSize:(struct CGSize)arg3;
 + (id)featureWithVisionRequest:(id)arg1 humanResult:(id)arg2 canvasSize:(struct CGSize)arg3;
 + (id)featureWithVisionRequest:(id)arg1 faceResult:(id)arg2 canvasSize:(struct CGSize)arg3;
++ (id)featureWithVisionRequest:(id)arg1 textResult:(id)arg2 canvasSize:(struct CGSize)arg3 context:(id)arg4;
 + (id)featureWithFutharkFeature:(id)arg1 canvasSize:(struct CGSize)arg2 context:(id)arg3;
++ (id)textLineWithBoundingBox:(struct CGRect)arg1 sequences:(id)arg2 canvasSize:(struct CGSize)arg3 context:(id)arg4;
++ (id)textRegionWithBoundingBox:(struct CGRect)arg1 lines:(id)arg2 canvasSize:(struct CGSize)arg3 context:(id)arg4;
++ (id)textDocumentWithBoundingBox:(struct CGRect)arg1 regions:(id)arg2 canvasSize:(struct CGSize)arg3 context:(id)arg4;
 + (id)featureWithMetadata:(id)arg1 canvasSize:(struct CGSize)arg2;
 + (id)unitTestingHorizonFeature;
 + (id)unitTestingFaceFeature;
 + (id)unitTestingFeature;
 + (id)unitTestingFeatureWithType:(unsigned long long)arg1 canvasSize:(struct CGSize)arg2 frame:(struct CGRect)arg3 value:(id)arg4 barcodeType:(id)arg5 ocrFeatureType:(long long)arg6;
-@property(nonatomic) struct CGSize canvasSize; // @synthesize canvasSize=_canvasSize;
-@property(nonatomic) long long likelyExpression; // @synthesize likelyExpression=_likelyExpression;
-@property(nonatomic) float horizonAngle; // @synthesize horizonAngle=_horizonAngle;
-@property(nonatomic) struct CGAffineTransform horizonTransform; // @synthesize horizonTransform=_horizonTransform;
-// Error parsing type for property facePose:
-// Property attributes: T{?=[4]},N,V_facePose
-
-@property(nonatomic) unsigned long long faceId; // @synthesize faceId=_faceId;
-@property(retain, nonatomic) NSDictionary *faceExpressionsAndConfidence; // @synthesize faceExpressionsAndConfidence=_faceExpressionsAndConfidence;
-@property(retain, nonatomic) AXMVisionFeatureFaceLandmarks *faceLandmarks3d; // @synthesize faceLandmarks3d=_faceLandmarks3d;
-@property(retain, nonatomic) AXMVisionFeatureFaceLandmarks *faceLandmarks; // @synthesize faceLandmarks=_faceLandmarks;
-@property(nonatomic) double brightness; // @synthesize brightness=_brightness;
-@property(nonatomic) double blur; // @synthesize blur=_blur;
-@property(retain, nonatomic) AXMVisionFeatureAssetMetadata *assetMetadata; // @synthesize assetMetadata=_assetMetadata;
-@property(retain, nonatomic) AXMVisionFeatureColorInfo *colorInfo; // @synthesize colorInfo=_colorInfo;
-@property(retain, nonatomic) AXMLanguage *detectionLanguage; // @synthesize detectionLanguage=_detectionLanguage;
-@property(nonatomic) long long ocrFeatureType; // @synthesize ocrFeatureType=_ocrFeatureType;
-@property(retain, nonatomic) NSString *barcodeType; // @synthesize barcodeType=_barcodeType;
-@property(retain, nonatomic) NSString *value; // @synthesize value=_value;
-@property(nonatomic) double confidence; // @synthesize confidence=_confidence;
-@property(nonatomic) struct CGRect normalizedFrame; // @synthesize normalizedFrame=_normalizedFrame;
-@property(nonatomic) struct CGRect frame; // @synthesize frame=_frame;
-@property(nonatomic) double creationDate; // @synthesize creationDate=_creationDate;
-@property(readonly, nonatomic) unsigned long long featureType; // @synthesize featureType=_featureType;
 - (void).cxx_destruct;
 - (double)confidenceForExpression:(long long)arg1;
+@property(readonly, nonatomic) long long likelyExpression;
 - (id)stringForExpression:(long long)arg1;
 - (long long)expressionForString:(id)arg1;
 @property(readonly) unsigned long long hash;
@@ -88,8 +74,15 @@
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, copy) NSString *description;
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, nonatomic) _Bool isTrackable;
 - (id)_nameForOCRFeatureType:(long long)arg1;
+@property(readonly, nonatomic) _Bool isTrackable;
+@property(readonly, nonatomic) _Bool isTextDiacritic;
+@property(readonly, nonatomic) _Bool isTextCharacter;
+@property(readonly, nonatomic) _Bool isTextSequence;
+@property(readonly, nonatomic) _Bool isTextLine;
+@property(readonly, nonatomic) _Bool isTextRegion;
+@property(readonly, nonatomic) _Bool isTextDocument;
+@property(readonly, nonatomic) _Bool isOCR;
 @property(readonly, nonatomic) _Bool isRectangle;
 @property(readonly, nonatomic) _Bool isAssetMetadata;
 @property(readonly, nonatomic) _Bool isMediaLegibility;
@@ -97,16 +90,43 @@
 @property(readonly, nonatomic) _Bool isBlur;
 @property(readonly, nonatomic) _Bool isBrightness;
 @property(readonly, nonatomic) _Bool isColor;
+@property(readonly, nonatomic) _Bool isModelClassification;
 @property(readonly, nonatomic) _Bool isClassification;
-@property(readonly, nonatomic) _Bool isOCR;
 @property(readonly, nonatomic) _Bool isHuman;
 @property(readonly, nonatomic) _Bool isFace;
 @property(readonly, nonatomic) _Bool isBarcode;
+- (_Bool)_isTextFeatureValueSpeakable;
+@property(readonly, nonatomic) _Bool isValueSpeakable;
+- (id)_valueForTextFeature;
+@property(readonly, nonatomic) NSString *value;
+@property(readonly, nonatomic) float horizonAngle;
+@property(readonly, nonatomic) struct CGAffineTransform horizonTransform;
+// Error parsing type for property facePose:
+// Property attributes: T{?=[4]},R,N
+
+@property(readonly, nonatomic) unsigned long long faceId;
+@property(readonly, nonatomic) NSDictionary *faceExpressionsAndConfidence;
+@property(readonly, nonatomic) AXMVisionFeatureFaceLandmarks *faceLandmarks3d;
+@property(readonly, nonatomic) AXMVisionFeatureFaceLandmarks *faceLandmarks;
+@property(readonly, nonatomic) double brightness;
+@property(readonly, nonatomic) double blur;
+@property(readonly, nonatomic) AXMVisionFeatureAssetMetadata *assetMetadata;
+@property(readonly, nonatomic) AXMVisionFeatureColorInfo *colorInfo;
+@property(readonly, nonatomic) AXMLanguage *detectionLanguage;
+@property(readonly, nonatomic) long long ocrFeatureType;
+@property(readonly, nonatomic) NSString *barcodeType;
+@property(readonly, nonatomic) double confidence;
+@property(readonly, nonatomic) struct CGRect normalizedFrame;
+@property(readonly, nonatomic) struct CGRect frame;
+@property(readonly, nonatomic) double creationDate;
+@property(readonly, nonatomic) NSArray *subfeatures;
+@property(readonly, nonatomic) unsigned long long featureType;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)_serializeWithCoder:(id)arg1 orDictionary:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)_initWithType:(unsigned long long)arg1 value:(id)arg2 confidence:(double)arg3 canvasSize:(struct CGSize)arg4 frame:(struct CGRect)arg5 normalizedFrame:(struct CGRect)arg6;
+- (id)_init;
+@property(readonly, nonatomic) AXMTaggedText *taggedText;
 
 // Remaining properties
 @property(readonly) Class superclass;

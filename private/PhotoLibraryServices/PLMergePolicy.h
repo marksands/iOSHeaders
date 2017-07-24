@@ -10,7 +10,7 @@
 {
 }
 
-- (_Bool)resolveConflicts:(id)arg1 error:(id *)arg2;
+- (_Bool)resolveOptimisticLockingVersionConflicts:(id)arg1 error:(id *)arg2;
 
 @end
 

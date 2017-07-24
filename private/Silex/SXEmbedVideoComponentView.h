@@ -25,6 +25,7 @@
 @property(retain, nonatomic) WKWebView *webView; // @synthesize webView=_webView;
 - (void).cxx_destruct;
 - (_Bool)allowHierarchyRemoval;
+- (unsigned long long)analyticsVideoType;
 - (unsigned long long)analyticsMediaType;
 - (void)_webViewDidExitFullscreen:(id)arg1;
 - (void)_webViewDidEnterFullscreen:(id)arg1;
@@ -42,7 +43,7 @@
 - (void)visibilityStateDidChangeFromState:(long long)arg1;
 - (void)viewport:(id)arg1 appearStateChangedFromState:(unsigned long long)arg2;
 - (void)presentComponent;
-- (id)initWithComponent:(id)arg1 componentLayout:(id)arg2 context:(id)arg3 configuration:(id)arg4;
+- (id)initWithComponent:(id)arg1 configuration:(id)arg2 context:(id)arg3 analyticsReporting:(id)arg4 appStateMonitor:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

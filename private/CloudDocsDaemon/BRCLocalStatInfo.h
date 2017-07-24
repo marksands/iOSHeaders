@@ -63,7 +63,7 @@ __attribute__((visibility("hidden")))
 - (void)_setCKInfo:(id)arg1;
 - (void)_setItemScope:(unsigned char)arg1;
 - (void)_setParentID:(id)arg1;
-- (void)setFilename:(id)arg1 forcePhysicalName:(id)arg2;
+- (void)setFilename:(id)arg1 forcePhysicalName:(id)arg2 serverName:(id)arg3;
 - (void)setFilename:(id)arg1;
 @property(readonly, nonatomic) NSString *filename;
 - (id)copyWithZone:(struct _NSZone *)arg1;

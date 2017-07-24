@@ -24,6 +24,7 @@
 
 + (void)setSuffixForRemoteXCTests:(id)arg1;
 + (id)suffixForRemoteXCTests;
++ (id)displayNameConstructorsWithContext:(struct LSContext *)arg1 node:(id)arg2 error:(id *)arg3;
 + (id)displayNameConstructorWithContext:(struct LSContext *)arg1 node:(id)arg2 error:(id *)arg3;
 + (void)setShowAllExtensions:(_Bool)arg1;
 + (_Bool)showAllExtensions;
@@ -32,10 +33,11 @@
 + (void)getExtensionRange:(struct _NSRange *)arg1 secondaryExtensionRange:(struct _NSRange *)arg2 fromFileName:(id)arg3 considerConfusables:(_Bool)arg4;
 - (void).cxx_destruct;
 - (void)getUnlocalizedBaseName:(id *)arg1 extension:(id *)arg2 requiresAdditionalBiDiControlCharacters:(_Bool *)arg3;
+- (id)unlocalizedNameWithContext:(struct LSContext *)arg1 asIfShowingAllExtensions:(id)arg2;
 - (id)unlocalizedNameWithContext:(struct LSContext *)arg1;
 - (id)init;
 - (_Bool)canSetExtensionHiddenWithContext:(struct LSContext *)arg1;
-- (_Bool)showExtensionWithContext:(struct LSContext *)arg1;
+- (_Bool)showExtensionWithContext:(struct LSContext *)arg1 asIfShowingAllExtensions:(id)arg2;
 - (_Bool)mayHideExtensionWithContext:(struct LSContext *)arg1;
 - (_Bool)wantsHiddenExtension;
 - (id)insertCompleteNameBiDiControlCharacters:(id)arg1;

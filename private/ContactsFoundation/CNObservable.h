@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <ContactsFoundation/CNObservable-Protocol.h>
 
@@ -90,6 +90,7 @@
 - (id)flatMap:(CDUnknownBlockType)arg1 schedulerProvider:(id)arg2;
 - (id)flatMap:(CDUnknownBlockType)arg1;
 - (id)filter:(CDUnknownBlockType)arg1;
+- (void)enumerateObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)doOnTerminate:(CDUnknownBlockType)arg1;
 - (id)doOnSubscribe:(CDUnknownBlockType)arg1;
 - (id)doOnNext:(CDUnknownBlockType)arg1;

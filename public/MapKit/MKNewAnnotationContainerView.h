@@ -23,7 +23,8 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)setAnnotationViewsRotationRadians:(double)arg1 animation:(id)arg2;
 - (void)_updateAddedAnnotationRotation:(id)arg1;
-- (void)_updateAnnotationViewPerspectiveMidsteam:(_Bool)arg1;
+- (void)updateAnnotationViewsForReason:(long long)arg1;
+- (void)updateAnnotationViewsWithDelay;
 - (void)_updateCollidableAnnotationViews;
 - (void)_updateClusterableAnnotationViews:(id)arg1 withID:(id)arg2;
 - (id)_existingClusterViewsForClusterID:(id)arg1;

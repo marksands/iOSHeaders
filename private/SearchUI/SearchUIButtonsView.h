@@ -6,16 +6,14 @@
 
 #import <AppSupportUI/NUIContainerBoxView.h>
 
-@class SFMediaInfoCardSection, SearchUITableViewController;
+@class SearchUIMovieCardSectionView;
 
 @interface SearchUIButtonsView : NUIContainerBoxView
 {
-    SearchUITableViewController *_controller;
-    SFMediaInfoCardSection *_section;
+    SearchUIMovieCardSectionView *_cardSectionView;
 }
 
-@property(retain) SFMediaInfoCardSection *section; // @synthesize section=_section;
-@property __weak SearchUITableViewController *controller; // @synthesize controller=_controller;
+@property __weak SearchUIMovieCardSectionView *cardSectionView; // @synthesize cardSectionView=_cardSectionView;
 - (void).cxx_destruct;
 - (id)buttonWithTitle:(id)arg1 subtitle:(id)arg2 punchoutURL:(id)arg3;
 - (id)buttonForOffer:(id)arg1 playable:(id)arg2;
@@ -23,8 +21,9 @@
 - (id)buttonForPlayable:(id)arg1;
 - (_Bool)channelHasBeenSeen:(id)arg1 seenChannels:(id)arg2;
 - (id)buttonsForPlayables:(id)arg1 channels:(id)arg2 currentEpisode:(id)arg3 isUpNextable:(_Bool)arg4 isUpNexted:(_Bool)arg5;
+- (void)sendErrorFeedbackIfNecessary:(id)arg1;
 - (void)fetchButtonsWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (id)initWithSection:(id)arg1 controller:(id)arg2;
+- (id)initWithCardSectionView:(id)arg1;
 
 @end
 

@@ -41,7 +41,7 @@ __attribute__((visibility("hidden")))
 - (void)stop;
 - (void)speak:(id)arg1 shortPromptType:(unsigned long long)arg2 ignorePromptStyle:(_Bool)arg3 minimumRequiredLevel:(unsigned long long)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (void)speak:(id)arg1 shortPromptType:(unsigned long long)arg2 ignorePromptStyle:(_Bool)arg3 completionBlock:(CDUnknownBlockType)arg4;
-- (_Bool)_beepIfNecessaryWithShortPromptType:(unsigned long long)arg1;
+- (_Bool)_beepIfNecessaryWithShortPromptType:(unsigned long long)arg1 textToSpeak:(id)arg2;
 - (_Bool)_isVoiceGuidanceEnabled;
 
 // Remaining properties

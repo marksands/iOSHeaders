@@ -18,7 +18,8 @@
 }
 
 - (void).cxx_destruct;
-- (id)_bodyText1;
+- (struct CGSize)_snapshotSize;
+- (id)_bodyText;
 - (id)_titleText;
 - (void)_cancel;
 - (void)explanationViewDidSelectContinue:(id)arg1;

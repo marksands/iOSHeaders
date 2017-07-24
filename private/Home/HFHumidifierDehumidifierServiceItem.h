@@ -10,7 +10,7 @@
 {
 }
 
-- (void)_getDescription:(out id *)arg1 controlDescription:(out id *)arg2 optionalDescriptions:(out id *)arg3 forResponse:(id)arg4 humidityFormatter:(id)arg5;
+- (void)_formatDescription:(out id *)arg1 controlDescription:(out id *)arg2 optionalDescriptions:(out id *)arg3 forResponse:(id)arg4;
 - (id)_subclass_updateWithOptions:(id)arg1;
 - (id)createControlItems;
 

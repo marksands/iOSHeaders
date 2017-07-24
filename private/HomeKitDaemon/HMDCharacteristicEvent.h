@@ -17,6 +17,7 @@
 + (id)logCategory;
 @property(retain, nonatomic) id eventValue; // @synthesize eventValue=_eventValue;
 - (void).cxx_destruct;
+- (id)metricData;
 - (void)_transactionObjectRemoved:(id)arg1 message:(id)arg2;
 - (void)_transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (id)modelObjectWithChangeType:(unsigned long long)arg1;

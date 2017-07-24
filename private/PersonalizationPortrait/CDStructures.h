@@ -22,6 +22,10 @@ struct PPMNamedEntityDonationSource_ {
     unsigned long long _field1;
 };
 
+struct PPMPortraitComponent_ {
+    unsigned long long _field1;
+};
+
 struct PPMTopicDonationErrorReason_ {
     unsigned long long _field1;
 };

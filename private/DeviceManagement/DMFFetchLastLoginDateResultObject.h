@@ -14,7 +14,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSDictionary *lastLoginDatesByAppleID; // @synthesize lastLoginDatesByAppleID=_lastLoginDatesByAppleID;
+@property(readonly, copy, nonatomic) NSDictionary *lastLoginDatesByAppleID; // @synthesize lastLoginDatesByAppleID=_lastLoginDatesByAppleID;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

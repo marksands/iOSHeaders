@@ -35,7 +35,6 @@
 - (void)addComponentView:(id)arg1;
 - (id)componentViewsForRole:(int)arg1 recursive:(_Bool)arg2;
 - (double)suggestedContainerHeightForWidth:(double)arg1;
-- (struct CGRect)originalFrameForContentView:(id)arg1 behavior:(id)arg2;
 - (id)contentViewForBehavior:(id)arg1;
 - (void)presentComponent;
 

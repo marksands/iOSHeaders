@@ -33,7 +33,9 @@
 - (id)_stringifiedPropertiesForEvent:(id)arg1 propertyValueArray:(id)arg2;
 - (_Bool)_validatePropertyValues:(id)arg1;
 - (id)_keyMetadataForEvent:(id)arg1;
+- (void)_setValue:(id)arg1 forEvent:(id)arg2 stringifiedProperties:(id)arg3 metaData:(id)arg4;
 - (void)_logValue:(id)arg1 forEvent:(id)arg2 stringifiedProperties:(id)arg3 metaData:(id)arg4;
+- (void)_trackEvent:(id)arg1 withPropertyValues:(id)arg2 value:(id)arg3 overwrite:(_Bool)arg4;
 - (void)_trackEvent:(id)arg1 withPropertyValues:(id)arg2 value:(id)arg3;
 - (void)_checkPropertySubsets:(id)arg1;
 - (void)_checkKeyLengthForEvent:(id)arg1 metaData:(id)arg2;

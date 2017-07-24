@@ -18,6 +18,7 @@
 + (id)_historyItemIdentifierForURLString:(id)arg1;
 + (id)sharedInstance;
 - (void).cxx_destruct;
+- (void)_sanitizeAttributeSet:(id)arg1;
 - (void)_computeCoreSpotlightIndexingRequirementsForAllBookmarksIDs:(id)arg1 indexedBookmarksIDs:(id)arg2 outIndexIDs:(id *)arg3 outRemoveIDs:(id *)arg4;
 - (void)_computeCoreSpotlightIDsForBookmarks:(id)arg1;
 - (id)_indexedBookmarksIDs:(id *)arg1;

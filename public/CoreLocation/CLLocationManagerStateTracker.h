@@ -10,12 +10,14 @@
 {
     struct _CLLocationManagerStateTrackerState _state;
     void *_identifier;
+    _Bool _inTransaction;
 }
 
 + (const char *)trackerStateTypeName;
 + (unsigned long long)trackerStateSize;
 - (void *)identifier;
 - (_Bool)dumpState:(void *)arg1 withSize:(unsigned long long)arg2 hints:(struct os_state_hints_s *)arg3;
+- (void)updateState:(CDUnknownBlockType)arg1;
 @property(nonatomic) _Bool courtesyPromptNeeded;
 @property(nonatomic) _Bool matchInfoEnabled;
 @property(nonatomic) _Bool updatingVehicleHeading;
@@ -41,7 +43,9 @@
 @property(nonatomic) double desiredAccuracy;
 @property(nonatomic) double distanceFilter;
 - (void)dealloc;
-- (id)initWithQueue:(id)arg1 withIdentifier:(void *)arg2;
+- (id)initWithQueue:(id)arg1 identifier:(void *)arg2 state:(CDUnknownBlockType)arg3;
+- (id)initWithQueue:(id)arg1 identifier:(void *)arg2;
+- (id)initInSilo:(id)arg1 withIdentifier:(void *)arg2 state:(CDUnknownBlockType)arg3;
 - (id)initInSilo:(id)arg1 withIdentifier:(void *)arg2;
 
 @end

@@ -9,14 +9,16 @@
 @class DOCBrowserViewController, DOCConcreteLocation, DOCItem, NSArray;
 
 @protocol DOCDocumentBrowserDelegate <NSObject>
+- (void)browserDidFinishGatheringItemsAndThumbnails:(DOCBrowserViewController *)arg1;
 - (void)dismissButtonWasTappedInBrowser:(DOCBrowserViewController *)arg1;
 - (void)locationsButtonWasTappedInBrowser:(DOCBrowserViewController *)arg1 sourceRect:(struct CGRect)arg2;
+- (void)browser:(DOCBrowserViewController *)arg1 didUpdateCurrentLocationCanSelect:(_Bool)arg2;
 - (void)browser:(DOCBrowserViewController *)arg1 didUpdateCurrentLocationIsWritable:(_Bool)arg2;
 - (void)browser:(DOCBrowserViewController *)arg1 didUpdateImportSupportInCurrentLocation:(_Bool)arg2;
 - (void)browser:(DOCBrowserViewController *)arg1 didUpdateNumberOfItems:(unsigned long long)arg2;
 - (void)browser:(DOCBrowserViewController *)arg1 isDisplayingEmptyCollection:(_Bool)arg2;
+- (void)browser:(DOCBrowserViewController *)arg1 didResolveShownLocation:(DOCConcreteLocation *)arg2;
 - (void)browser:(DOCBrowserViewController *)arg1 wantsToShowLocation:(DOCConcreteLocation *)arg2;
-- (void)browser:(DOCBrowserViewController *)arg1 willDisplayThirdPartyUI:(_Bool)arg2;
 - (void)browser:(DOCBrowserViewController *)arg1 didSelectItems:(NSArray *)arg2;
 - (void)browser:(DOCBrowserViewController *)arg1 didCommitPreviewOfDocument:(DOCItem *)arg2;
 - (void)browser:(DOCBrowserViewController *)arg1 didPickItem:(DOCItem *)arg2;

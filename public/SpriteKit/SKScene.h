@@ -104,6 +104,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_setBackgroundContentsWithBuffer:(struct __CVBuffer *)arg1;
 - (void)_notifyNextDirtyState;
+- (void)_setDirty;
 - (_Bool)_isDirty;
 - (void)_setNeedsRender;
 - (void)_setNeedsUpdate;

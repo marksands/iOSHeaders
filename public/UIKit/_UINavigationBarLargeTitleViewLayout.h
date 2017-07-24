@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     UILabel *_titleLabel;
     double _titleRestingHeight;
     UIView *_accessoryView;
+    unsigned long long _accessoryViewHorizontalAlignment;
     _UINavigationControllerRefreshControlHost *_refreshControlHost;
     double _restingHeightOfRefreshControl;
     UIView *_refreshHostContainerView;
@@ -26,6 +27,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIView *refreshHostContainerView; // @synthesize refreshHostContainerView=_refreshHostContainerView;
 @property(nonatomic) double restingHeightOfRefreshControl; // @synthesize restingHeightOfRefreshControl=_restingHeightOfRefreshControl;
 @property(readonly, nonatomic) _UINavigationControllerRefreshControlHost *refreshControlHost; // @synthesize refreshControlHost=_refreshControlHost;
+@property(nonatomic) unsigned long long accessoryViewHorizontalAlignment; // @synthesize accessoryViewHorizontalAlignment=_accessoryViewHorizontalAlignment;
 @property(nonatomic) _Bool alignAccessoryViewToTitleBaseline; // @synthesize alignAccessoryViewToTitleBaseline=_alignAccessoryViewToTitleBaseline;
 @property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
 @property(readonly, nonatomic) double titleRestingHeight; // @synthesize titleRestingHeight=_titleRestingHeight;
@@ -38,7 +40,9 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)sizeFittingSize:(struct CGSize)arg1 titleType:(long long)arg2;
 - (double)_textHeightForSize:(struct CGSize)arg1 titleType:(long long)arg2;
 - (void)setContentHidden:(_Bool)arg1;
+- (void)setContentAlpha:(double)arg1;
 - (void)cleanupAfterLayoutTransitionCompleted;
+- (double)_unobstructedHeightOfRefreshControlWithFrame:(struct CGRect)arg1;
 - (void)layoutViewsWithOffset:(struct UIOffset)arg1 useRestingTitleHeight:(_Bool)arg2;
 - (void)layoutViews;
 - (void)_enforceRefreshHostContainerViewOrdering;

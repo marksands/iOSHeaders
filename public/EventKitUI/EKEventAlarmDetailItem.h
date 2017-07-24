@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) EKAlarmsViewModel *alarmsViewModel; // @synthesize alarmsViewModel=_alarmsViewModel;
 - (void).cxx_destruct;
-- (_Bool)editItemIsExternallyOrganized;
 - (_Bool)editItemViewControllerShouldShowDetachAlert;
 - (_Bool)editItemViewControllerSave:(id)arg1;
 - (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned long long)arg2;

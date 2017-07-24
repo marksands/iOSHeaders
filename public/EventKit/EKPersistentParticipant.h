@@ -33,7 +33,6 @@
 - (id)displayName;
 - (void)setUUID:(id)arg1;
 - (id)UUID;
-- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

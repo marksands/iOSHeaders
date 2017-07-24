@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <TelephonyUtilities/NSCopying-Protocol.h>
+
 @class NSString;
 
-@interface TUMetadataDestinationID : NSObject
+@interface TUMetadataDestinationID : NSObject <NSCopying>
 {
     NSString *_destinationID;
     NSString *_countryCode;
@@ -24,6 +26,7 @@
 @property(readonly, copy, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 @property(readonly, copy, nonatomic) NSString *destinationID; // @synthesize destinationID=_destinationID;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;

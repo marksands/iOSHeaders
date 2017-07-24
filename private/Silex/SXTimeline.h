@@ -23,6 +23,7 @@
 - (void).cxx_destruct;
 - (void)executeActionsForTime:(double)arg1 withDuration:(double)arg2;
 - (double)executionTimeOfTime:(double)arg1 withinDuration:(double)arg2;
+- (_Bool)hasPassedTimeOffset:(double)arg1;
 - (void)performBlock:(CDUnknownBlockType)arg1 at:(double)arg2;
 - (void)performBlock:(CDUnknownBlockType)arg1 after:(double)arg2;
 - (void)resetTime;

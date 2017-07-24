@@ -8,13 +8,15 @@
 
 #import <GeoServices/GEORequestCounterProtocol-Protocol.h>
 
-@class NSString;
+@class GEORequestCounterPersistence, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GEORequestCounterLocalProxy : NSObject <GEORequestCounterProtocol>
 {
+    GEORequestCounterPersistence *_persistence;
 }
 
+- (void).cxx_destruct;
 - (void)incrementCountsForLogMsgCollection:(id)arg1 appId:(id)arg2 result:(unsigned char)arg3;
 - (void)fetchTrafficProbeCollectionsStartingFrom:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)recordTrafficProbeCollectionAt:(id)arg1 tripId:(id)arg2 locationCount:(int)arg3 result:(unsigned char)arg4;
@@ -24,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)incrementAtTime:(id)arg1 app:(id)arg2 requestType:(unsigned char)arg3 result:(unsigned char)arg4;
 - (void)incrementForApp:(id)arg1 requestType:(unsigned char)arg2 result:(unsigned char)arg3;
 @property(nonatomic) _Bool countersEnabled;
+- (id)initWithPersistence:(id)arg1;
 - (id)init;
 
 // Remaining properties

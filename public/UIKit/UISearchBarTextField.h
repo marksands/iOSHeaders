@@ -6,10 +6,12 @@
 
 #import <UIKit/UITextField.h>
 
-@class NSMutableDictionary, NSValue, _UISearchBarSearchFieldBackgroundView;
+#import <UIKit/_UISearchBarTextFieldOrMailReplacement-Protocol.h>
+
+@class NSMutableDictionary, NSString, NSValue, _UISearchBarSearchFieldBackgroundView;
 
 __attribute__((visibility("hidden")))
-@interface UISearchBarTextField : UITextField
+@interface UISearchBarTextField : UITextField <_UISearchBarTextFieldOrMailReplacement>
 {
     NSMutableDictionary *_customClearButtons;
     NSMutableDictionary *_iconOffsets;
@@ -41,6 +43,9 @@ __attribute__((visibility("hidden")))
 - (void)_clearBackgroundViews;
 - (void)_updateBackgroundViewsAnimated:(_Bool)arg1;
 - (void)updateForBackdropStyle:(unsigned long long)arg1;
+- (void)_applyHighlightedAnimated:(_Bool)arg1;
+- (void)_setBackgroundViewsAlpha:(double)arg1;
+- (void)_setAnimatesBackgroundCornerRadius:(_Bool)arg1;
 - (id)_createEffectsBackgroundViewWithStyle:(unsigned long long)arg1 applyFilter:(id)arg2;
 - (void)_updateBackgroundView:(id)arg1 withStyle:(unsigned long long)arg2 filter:(id)arg3;
 - (struct CGRect)placeholderRectForBounds:(struct CGRect)arg1;
@@ -71,6 +76,12 @@ __attribute__((visibility("hidden")))
 - (id)_clearButtonImageForState:(unsigned long long)arg1;
 - (void)_setClearButtonImage:(id)arg1 forState:(unsigned long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

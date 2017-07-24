@@ -6,6 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
+#import <UIKit/UIDragGestureRecognizerDelegate-Protocol.h>
 #import <UIKit/UIInteraction-Protocol.h>
 #import <UIKit/UIInteraction_Internal-Protocol.h>
 #import <UIKit/UISpringLoadedInteractionBehaviorDelegate-Protocol.h>
@@ -13,9 +14,10 @@
 @class NSString, UIDelayedAction, UISpringLoadedInteractionContextImpl, UIView;
 @protocol UISpringLoadedInteractionBehavior, UISpringLoadedInteractionEffect;
 
-@interface UISpringLoadedInteraction : NSObject <UISpringLoadedInteractionBehaviorDelegate, UIInteraction_Internal, UIInteraction>
+@interface UISpringLoadedInteraction : NSObject <UISpringLoadedInteractionBehaviorDelegate, UIInteraction_Internal, UIDragGestureRecognizerDelegate, UIInteraction>
 {
     UIView *_view;
+    double _possibleStateDuration;
     id <UISpringLoadedInteractionBehavior> _interactionBehavior;
     id <UISpringLoadedInteractionEffect> _interactionEffect;
     UISpringLoadedInteractionContextImpl *_context;
@@ -24,25 +26,20 @@
     UIDelayedAction *_activateAction;
 }
 
-+ (id)springLoadedInteractionWithActivationHandler:(CDUnknownBlockType)arg1;
 + (id)springLoadedInteractionWithHandler:(CDUnknownBlockType)arg1;
 + (id)hysteresisBehaviorWithBeginningVelocity:(double)arg1 cancelingVelocity:(double)arg2;
 + (id)_defaultInteractionBehavior;
-+ (id)defaultInteractionBehavior;
-+ (id)hysteresisBehavior;
 + (id)_blinkEffect;
-+ (id)blinkEffect;
-+ (id)scaleEffect;
 @property(retain, nonatomic) UIDelayedAction *activateAction; // @synthesize activateAction=_activateAction;
 @property(retain, nonatomic) UIDelayedAction *emphasizeAction; // @synthesize emphasizeAction=_emphasizeAction;
 @property(copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler=_handler;
 @property(retain, nonatomic) UISpringLoadedInteractionContextImpl *context; // @synthesize context=_context;
 @property(readonly, nonatomic) id <UISpringLoadedInteractionEffect> interactionEffect; // @synthesize interactionEffect=_interactionEffect;
 @property(readonly, nonatomic) id <UISpringLoadedInteractionBehavior> interactionBehavior; // @synthesize interactionBehavior=_interactionBehavior;
+@property(nonatomic, setter=_setPossibleStateDuration:) double _possibleStateDuration; // @synthesize _possibleStateDuration;
 @property(nonatomic) __weak UIView *view; // @synthesize view=_view;
 - (void).cxx_destruct;
-- (_Bool)_shouldContinueInteractionWithContext:(id)arg1;
-- (_Bool)_shouldBeginInteractionWithContext:(id)arg1;
+- (_Bool)_shouldAllowInteractionWithContext:(id)arg1;
 - (void)_resetBehavior;
 - (void)_cancelActions;
 - (void)_activateSpringLoading:(id)arg1;
@@ -52,11 +49,6 @@
 - (void)_reloadSpringLoadedInteractionBehavior;
 - (void)setState:(long long)arg1;
 - (void)_springloadedStateChanged:(id)arg1;
-- (id)visualEffect;
-- (void)setVisualEffect:(id)arg1;
-- (void)setBehavior:(id)arg1;
-- (id)behavior;
-- (void)setInteractionBehavior:(id)arg1;
 - (id)_dynamicGestureRecognizersForEvent:(id)arg1;
 - (void)didMoveToView:(id)arg1;
 - (void)willMoveToView:(id)arg1;

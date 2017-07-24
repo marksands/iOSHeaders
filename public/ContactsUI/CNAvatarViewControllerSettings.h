@@ -7,7 +7,7 @@
 #import <Foundation/NSObject.h>
 
 @class CNContactStore, PRPersonaStore;
-@protocol CNUILikenessRendering, CNUIPRLikenessResolver;
+@protocol CNSchedulerProvider, CNUILikenessRendering, CNUIPRLikenessResolver;
 
 @interface CNAvatarViewControllerSettings : NSObject
 {
@@ -16,23 +16,25 @@
     unsigned long long _style;
     id <CNUIPRLikenessResolver> _likenessResolver;
     id <CNUILikenessRendering> _likenessRenderer;
+    id <CNSchedulerProvider> _schedulerProvider;
     PRPersonaStore *_personaStore;
 }
 
-+ (id)settingsWithLikenessResolver:(id)arg1 likenessRenderer:(id)arg2 threeDTouchEnabled:(_Bool)arg3;
++ (id)settingsWithLikenessResolver:(id)arg1 likenessRenderer:(id)arg2 threeDTouchEnabled:(_Bool)arg3 schedulerProvider:(id)arg4;
 + (id)settingsWithContactStore:(id)arg1 personaStore:(id)arg2 threeDTouchEnabled:(_Bool)arg3;
 + (id)settingsWithContactStore:(id)arg1 threeDTouchEnabled:(_Bool)arg2;
 + (id)settingsWithContactStore:(id)arg1;
 + (id)defaultSettings;
 + (_Bool)threeDTouchEnabledDefaultValue;
 @property(retain, nonatomic) PRPersonaStore *personaStore; // @synthesize personaStore=_personaStore;
+@property(retain, nonatomic) id <CNSchedulerProvider> schedulerProvider; // @synthesize schedulerProvider=_schedulerProvider;
 @property(retain, nonatomic) id <CNUILikenessRendering> likenessRenderer; // @synthesize likenessRenderer=_likenessRenderer;
 @property(retain, nonatomic) id <CNUIPRLikenessResolver> likenessResolver; // @synthesize likenessResolver=_likenessResolver;
 @property(nonatomic) unsigned long long style; // @synthesize style=_style;
 @property(nonatomic) _Bool threeDTouchEnabled; // @synthesize threeDTouchEnabled=_threeDTouchEnabled;
 @property(retain, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;
 - (void).cxx_destruct;
-- (id)initWithLikenessResolver:(id)arg1 likenessRenderer:(id)arg2 threeDTouchEnabled:(_Bool)arg3;
+- (id)initWithLikenessResolver:(id)arg1 likenessRenderer:(id)arg2 threeDTouchEnabled:(_Bool)arg3 schedulerProvider:(id)arg4;
 
 @end
 

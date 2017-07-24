@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <VectorKit/GEOResourceManifestTileGroupObserver-Protocol.h>
 
@@ -20,7 +20,14 @@ __attribute__((visibility("hidden")))
     shared_ptr_479d1306 _arrowTexture;
     struct map<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>>>> _textureDictionary;
     VKResourceManager *_resourceManager;
-    struct Device *_device;
+    struct Device {
+        CDUnknownFunctionPointerType *;
+        struct DeviceVersion;
+        struct DeviceCapabilities;
+        struct DeviceAPIProperties;
+        int;
+        int;
+    } *_device;
 }
 
 - (id).cxx_construct;
@@ -36,7 +43,7 @@ __attribute__((visibility("hidden")))
 - (shared_ptr_479d1306)textureWithName:(id)arg1 samplerState:(shared_ptr_cedd5232)arg2;
 - (id)dataWithName:(id)arg1 fromResourceManager:(id)arg2;
 - (void)dealloc;
-- (id)initWithConfiguration:(id)arg1 resourceManager:(id)arg2 device:(struct Device *)arg3;
+- (id)initWithConfiguration:(id)arg1 resourceManager:(id)arg2 device:(Device_9226c869 *)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

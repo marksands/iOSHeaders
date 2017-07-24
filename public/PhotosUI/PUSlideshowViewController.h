@@ -85,7 +85,6 @@ __attribute__((visibility("hidden")))
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)finishSession;
-- (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;

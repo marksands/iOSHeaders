@@ -14,6 +14,7 @@
 {
     NSString *_name;
     _Bool _dirty;
+    _Bool _autoUpdating;
     int _abUid;
     int _abIdentifier;
     NSString *_actionType;
@@ -30,6 +31,7 @@
 }
 
 + (void)_runLookupWithStore:(id)arg1;
++ (id)rematchEntrySnapshot:(id)arg1 withStore:(id)arg2 noMatchFound:(_Bool *)arg3;
 + (id)createLabeledValueForFavoritesEntryValue:(id)arg1 label:(id)arg2 iOSLegacyIdentifier:(int)arg3 propertyKey:(id)arg4;
 + (id)labeledValueValueForFavoritesEntryValue:(id)arg1 propertyKey:(id)arg2;
 + (id)instantMessageAddressForFavoritesEntryValue:(id)arg1;
@@ -41,6 +43,7 @@
 + (id)contactFormatter;
 + (id)sharedContactStore;
 + (void)initialize;
+@property(readonly, nonatomic) _Bool autoUpdating; // @synthesize autoUpdating=_autoUpdating;
 @property(nonatomic) int abIdentifier; // @synthesize abIdentifier=_abIdentifier;
 @property(nonatomic) int abUid; // @synthesize abUid=_abUid;
 @property(copy, nonatomic) NSString *originalName; // @synthesize originalName=_originalName;
@@ -65,7 +68,7 @@
 - (void)_queueLookup;
 - (void)dictionaryRepresentation:(id *)arg1 isDirty:(_Bool *)arg2;
 - (id)dictionaryRepresentation;
-- (id)initWithDictionaryRepresentation:(id)arg1 store:(id)arg2;
+- (id)initWithDictionaryRepresentation:(id)arg1 store:(id)arg2 autoUpdating:(_Bool)arg3;
 - (_Bool)isEqual:(id)arg1;
 - (void)recheckContactStore;
 @property(readonly, nonatomic) CNContactProperty *contactProperty;

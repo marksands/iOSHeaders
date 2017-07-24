@@ -10,6 +10,7 @@
 @protocol AAUIServerHook;
 
 @protocol AAUIServerHookDelegate <NSObject>
+- (void)dismissObjectModelsAnimated:(_Bool)arg1 completion:(void (^)(void))arg2;
 - (UIViewController *)presentationContextForHook:(id <AAUIServerHook>)arg1;
 @end
 

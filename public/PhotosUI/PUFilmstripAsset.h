@@ -16,8 +16,6 @@ __attribute__((visibility("hidden")))
     unsigned long long _pixelWidth;
     unsigned long long _pixelHeight;
     _Bool __isSourceTimeAccurate;
-    long long playbackStyle;
-    long long playbackVariation;
     double _sourceTime;
     AVAsset *__asset;
     double __normalizedTime;
@@ -31,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isEqual:(id)arg1;
 - (long long)compare:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic) unsigned long long originalFilesize;
 @property(readonly, nonatomic) NSString *uniformTypeIdentifier;
 @property(readonly, nonatomic) _Bool hasPhotoColorAdjustments;
 @property(readonly, nonatomic) _Bool isTemporaryPlaceholder;
@@ -49,8 +48,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isPhotoIrisPlaceholder;
 @property(readonly, nonatomic) _Bool canPlayPhotoIris;
 @property(readonly, nonatomic, getter=isLivePhoto) _Bool livePhoto;
-@property(readonly, nonatomic) long long playbackVariation; // @synthesize playbackVariation;
-@property(readonly, nonatomic) long long playbackStyle; // @synthesize playbackStyle;
+@property(readonly, nonatomic) long long playbackVariation;
+@property(readonly, nonatomic) long long playbackStyle;
 @property(readonly, nonatomic) unsigned long long mediaSubtypes;
 @property(readonly, nonatomic) unsigned long long mediaType;
 @property(readonly, nonatomic) CLLocation *location;

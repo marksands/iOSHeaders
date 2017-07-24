@@ -6,7 +6,9 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
+@class GEOApplicationAuditToken, GEOLatLng;
+
 @protocol _GEOLocationShifterProxy <NSObject>
-- (void)shiftCoordinate:(CDStruct_c3b9c2ee)arg1 completionHandler:(void (^)(GEOLocationShiftFunctionResponse *, _Bool, NSError *))arg2;
+- (void)shiftLatLng:(GEOLatLng *)arg1 auditToken:(GEOApplicationAuditToken *)arg2 completionHandler:(void (^)(GEOLocationShiftFunctionResponse *, _Bool, NSError *))arg3;
 @end
 

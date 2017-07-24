@@ -6,16 +6,18 @@
 
 #import <Foundation/NSObject.h>
 
-@class MRAVRoutingClientController, MRNotificationClient, NSArray, NSMutableArray, NSMutableDictionary;
+@class MRAVRoutingClientController, MRNotificationClient, NSArray, NSMutableArray;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface MRMediaRemoteServiceClient : NSObject
 {
     NSObject<OS_dispatch_queue> *_serialQueue;
+    NSObject<OS_dispatch_queue> *_playbackQueueDispatchQueue;
     NSMutableArray *_registeredOrigins;
     MRAVRoutingClientController *_routingClientController;
-    NSMutableDictionary *_transactionSources;
+    void *_activePlayerPath;
+    int _notifyRestoreClientStateForLaunch;
     struct MRMediaRemoteService *_service;
     MRNotificationClient *_notificationClient;
 }
@@ -23,12 +25,13 @@ __attribute__((visibility("hidden")))
 + (id)sharedServiceClient;
 @property(readonly, nonatomic) MRNotificationClient *notificationClient; // @synthesize notificationClient=_notificationClient;
 @property(readonly, nonatomic) struct MRMediaRemoteService *service; // @synthesize service=_service;
-- (void)sendTransaction:(unsigned long long)arg1 withData:(id)arg2 forPlayer:(void *)arg3;
 - (void)fetchPickableRoutesWithCategory:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)unregisterAllOriginsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)unregisterOrigin:(void *)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)registerOrigin:(void *)arg1 withCompletion:(CDUnknownBlockType)arg2;
+@property(nonatomic) void *activePlayerPath;
 @property(readonly, nonatomic) NSArray *registeredOrigins;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *playbackQueueDispatchQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workerSerialQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workerQueue;
 - (void)dealloc;

@@ -18,11 +18,13 @@
 @property(readonly, nonatomic) long long seenArticlesMinimumTimeSinceFirstSeenToFilter;
 @property(readonly, nonatomic) int seenArticlesFilterMethod;
 @property(readonly, nonatomic) int readArticlesFilterMethod;
-@property(readonly, nonatomic) long long maximumStoriesAllocation;
-@property(readonly, nonatomic) long long minimumStoriesAllocation;
-@property(readonly, nonatomic) long long fallbackOrder;
-@property(readonly, nonatomic) long long cachedResultCutoffTime;
+@property(readonly, nonatomic) unsigned long long maximumStoriesAllocation;
+@property(readonly, nonatomic) unsigned long long minimumStoriesAllocation;
+@property(readonly, nonatomic) unsigned long long fallbackOrder;
+@property(readonly, nonatomic) unsigned long long cachedResultCutoffTime;
 @property(readonly, copy, nonatomic) NSString *personalizationFeatureID;
+@property(readonly, copy, nonatomic) NSString *referralBarName;
+@property(readonly, copy, nonatomic) NSString *compactName;
 @property(readonly, copy, nonatomic) NSString *identifier;
 @end
 

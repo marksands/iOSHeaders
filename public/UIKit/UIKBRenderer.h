@@ -43,6 +43,7 @@ __attribute__((visibility("hidden")))
 - (id)pathForSplitGeometry:(id)arg1;
 - (id)pathForFlickPopupGeometries:(id)arg1;
 - (id)pathForFlickGeometry:(id)arg1;
+- (id)pathForFlickWidth:(double)arg1 height:(double)arg2 handleLength:(double)arg3 keyMiddle:(struct CGPoint)arg4 angle:(double)arg5;
 - (id)pathForRenderGeometry:(id)arg1;
 - (id)pathForConcaveCornerWithGeometry:(id)arg1;
 - (void)addPathForSplitGeometry:(id)arg1;

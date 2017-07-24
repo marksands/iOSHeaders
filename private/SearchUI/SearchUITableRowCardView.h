@@ -4,25 +4,28 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUILayoutFreeSectionView.h>
+#import <SearchUI/SearchUICardSectionView.h>
 
 @class TLKGridRowView;
 
-@interface SearchUITableRowCardView : SearchUILayoutFreeSectionView
+@interface SearchUITableRowCardView : SearchUICardSectionView
 {
-    TLKGridRowView *_rowView;
 }
 
 + (_Bool)isAHeader:(id)arg1;
 + (struct UIEdgeInsets)defaultLayoutMargins;
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
 + (double)largestImageSizeForSection:(id)arg1;
-@property(retain) TLKGridRowView *rowView; // @synthesize rowView=_rowView;
-- (void).cxx_destruct;
++ (int)separatorStyleForCardSection:(id)arg1;
 - (struct UIEdgeInsets)verticalBaselineInsetsForHeader:(_Bool)arg1 isCompactTable:(_Bool)arg2;
 - (struct UIEdgeInsets)verticalBaselineInsetsForRowsWithCompactTable:(_Bool)arg1;
+- (void)containerView:(id)arg1 willMeasureArrangedSubviewsFittingSize:(struct CGSize)arg2 forReason:(long long)arg3;
 - (void)updateWithCardSection:(id)arg1 manager:(id)arg2;
-- (id)initWithCardSection:(id)arg1 gridData:(id)arg2 controller:(id)arg3 style:(unsigned long long)arg4;
+- (id)setupContentView;
+- (id)initWithCardSection:(id)arg1 gridData:(id)arg2 style:(unsigned long long)arg3 feedbackDelegate:(id)arg4;
+
+// Remaining properties
+@property(retain) TLKGridRowView *contentView; // @dynamic contentView;
 
 @end
 

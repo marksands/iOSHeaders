@@ -8,7 +8,7 @@
 
 #import <NanoPreferencesSync/NSFilePresenter-Protocol.h>
 
-@class NSOperationQueue, NSString, NSURL;
+@class NSOperationQueue, NSSet, NSString, NSURL;
 @protocol NPSDomainAccessorFilePresenterDelegate, OS_dispatch_queue;
 
 @interface NPSDomainAccessorFilePresenter : NSObject <NSFilePresenter>
@@ -38,6 +38,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly) NSSet *observedPresentedItemUbiquityAttributes;
 @property(readonly, copy) NSURL *primaryPresentedItemURL;
 @property(readonly) Class superclass;
 

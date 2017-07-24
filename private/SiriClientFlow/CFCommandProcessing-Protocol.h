@@ -10,7 +10,6 @@
 
 @protocol CFCommandProcessing <NSObject>
 - (void)isDeviceLockedWithPasscodeWithCompletion:(void (^)(_Bool))arg1;
-- (void)handleOneWayCommand:(SABaseCommand *)arg1 reply:(void (^)(SABaseCommand *))arg2;
 - (void)handleCommand:(SABaseCommand *)arg1 reply:(void (^)(SABaseCommand *))arg2;
 - (void)handleOneWayCommand:(SABaseCommand *)arg1;
 @end

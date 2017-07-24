@@ -13,6 +13,7 @@
     CMPedometerProxy *_pedometerProxy;
 }
 
++ (long long)authorizationStatus;
 + (_Bool)isPedometerEventTrackingAvailable;
 + (_Bool)isCadenceAvailable;
 + (_Bool)isPaceAvailable;

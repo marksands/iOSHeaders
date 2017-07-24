@@ -13,6 +13,7 @@
     NSArray *_titleAndSubtitleVisibleContraints;
     NSArray *_justTitleVisibleContraints;
     NSArray *_justSubtitleVisibleContraints;
+    NSArray *_justTitleAndActionVisibleContraints;
     NSString *_actionText;
     NSString *_subtitleText;
     UIColor *_actionColor;

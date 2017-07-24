@@ -29,6 +29,7 @@
 - (void)setBugReportingAvailable:(_Bool)arg1;
 - (void)pulseHelpButton;
 - (void)setHelpButtonEmphasized:(_Bool)arg1;
+- (void)setStatusBarHidden:(_Bool)arg1 animated:(_Bool)arg2 completion:(void (^)(_Bool))arg3;
 - (void)setStatusBarHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)serviceWillDismissViewControllerWithStatusBarStyle:(long long)arg1;
 - (void)serviceWillPresentViewControllerWithStatusBarStyle:(long long)arg1;
@@ -43,7 +44,6 @@
 - (void)serviceUserRelevantEventDidOccur;
 - (void)serviceStartRequestWithOptions:(AFUIRequestOptions *)arg1;
 - (void)serviceDidReadBulletinWithIdentifier:(NSString *)arg1;
-- (void)serviceLastAppUpdateTimeWithReplyHandler:(void (^)(NSDate *))arg1;
 - (void)serviceBulletinWithIdentifier:(NSString *)arg1 replyHandler:(void (^)(AFBulletin *))arg2;
 - (void)serviceStartGuidedAccess;
 - (void)serviceRequestsDismissal:(_Bool)arg1;

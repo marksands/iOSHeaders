@@ -39,7 +39,7 @@
     NSURL *_defaultCalendarURL;
     NSString *_uid;
     id <CalDAVAccount> _account;
-    NSSet *_calendarUserAddresses;
+    NSSet *_preferredCalendarUserAddresses;
     NSString *_fullName;
     NSString *_principalPath;
     NSString *_inboxCTag;
@@ -88,7 +88,7 @@
 @property(retain, nonatomic) NSString *inboxCTag; // @synthesize inboxCTag=_inboxCTag;
 @property(retain, nonatomic) NSString *principalPath; // @synthesize principalPath=_principalPath;
 @property(retain, nonatomic) NSString *fullName; // @synthesize fullName=_fullName;
-@property(retain, nonatomic) NSSet *calendarUserAddresses; // @synthesize calendarUserAddresses=_calendarUserAddresses;
+@property(retain, nonatomic) NSSet *preferredCalendarUserAddresses; // @synthesize preferredCalendarUserAddresses=_preferredCalendarUserAddresses;
 @property(nonatomic) id <CalDAVAccount> account; // @synthesize account=_account;
 @property(retain, nonatomic) NSString *uid; // @synthesize uid=_uid;
 @property(retain, nonatomic) NSMutableSet *deletedCalendarURLs; // @synthesize deletedCalendarURLs=_deletedCalendarURLs;
@@ -133,8 +133,8 @@
 @property(readonly, nonatomic) NSURL *APSSubscriptionURL;
 @property(readonly, nonatomic) NSString *APSTopic;
 @property(nonatomic) _Bool calendarsAreDirty; // @synthesize calendarsAreDirty=_calendarsAreDirty;
-- (void)setCalendarUserAddresses:(id)arg1 forCalendar:(id)arg2;
-- (id)calendarUserAddressesForCalendar:(id)arg1;
+- (void)setPreferredCalendarUserAddresses:(id)arg1 forCalendar:(id)arg2;
+- (id)preferredCalendarUserAddressesForCalendar:(id)arg1;
 - (void)removecalendarWithURL:(id)arg1;
 - (void)removeCalendar:(id)arg1;
 - (id)defaultTodoCalendarTitle;
@@ -163,6 +163,7 @@
 @property(readonly, nonatomic) NSDictionary *subCalPropertiesByURL;
 @property(retain, nonatomic) NSString *calendarHomeSyncToken;
 @property(retain, nonatomic) NSURL *calendarHomeURL; // @synthesize calendarHomeURL=_calendarHomeURL;
+- (id)calendarUserAddresses;
 - (_Bool)_userAddressSet:(id)arg1 isEqualToSet:(id)arg2;
 @property(readonly, nonatomic) MobileCalDAVAccount *daAccount;
 - (id)configuration;

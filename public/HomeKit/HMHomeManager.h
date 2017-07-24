@@ -104,7 +104,7 @@
 - (void)_processHomeConfigurationRequest:(id)arg1 refreshRequested:(_Bool)arg2;
 - (void)_fetchHomeConfigurationWithPrivacyCheckWithCache:(_Bool)arg1 refreshRequested:(_Bool)arg2;
 - (void)_start;
-- (void)_pingDeviceWithUUID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_pingDeviceWithUUID:(id)arg1 secure:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_dumpHomeConfigurationFile:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dumpHomeConfigurationFile:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_restartWithHomeConfiguration:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

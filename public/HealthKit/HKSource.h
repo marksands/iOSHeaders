@@ -27,7 +27,7 @@
 + (id)_generateIdentifierForAppleDevice;
 + (id)_sourceNameWithRepresentsCurrentDevice:(_Bool)arg1 defaultSource:(_Bool)arg2;
 + (id)_currentSourceProductType:(_Bool)arg1;
-+ (id)_sourceBundleIdentifierWithEntitlements:(id)arg1 clientBundleIdentifier:(id)arg2 isExtension:(_Bool)arg3;
++ (id)_sourceBundleIdentifierWithEntitlements:(id)arg1 processBundleIdentifier:(id)arg2 isExtension:(_Bool)arg3;
 + (_Bool)_representsCurrentDeviceWithBundleIdentifier:(id)arg1;
 + (id)_connectedGymSource;
 + (id)_localDeviceSource;

@@ -53,6 +53,13 @@ struct CGSize {
     double height;
 };
 
+struct NSDirectionalEdgeInsets {
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+};
+
 struct NSHashTable {
     Class _field1;
 };
@@ -70,10 +77,10 @@ struct NSString {
 };
 
 struct PHDisplayVelocity {
-    double x;
-    double y;
-    double scale;
-    double rotation;
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
 };
 
 struct PUAlbumListCellContentView {
@@ -111,18 +118,6 @@ struct PXAssetBadgeInfo {
     unsigned long long badges;
     double duration;
     long long count;
-};
-
-struct PXCPLServiceStatus {
-    long long state;
-    long long pauseReason;
-    unsigned long long activity;
-    long long action;
-    double pendingProgress;
-    unsigned long long pendingNumberOfItems;
-    double lastSuccessfulSyncTimeIntervalSinceReferenceDate;
-    double exitTimeIntervalSinceReferenceDate;
-    unsigned long long numberOfItemsFailingToUpload;
 };
 
 struct PXSimpleIndexPath {

@@ -21,8 +21,8 @@ __attribute__((visibility("hidden")))
 - (void)decrementOutstandingReplyCount;
 - (void)incrementOutstandingReplyCount;
 - (id)progressForSequence:(unsigned long long)arg1;
-- (void)removeSequence:(unsigned long long)arg1;
-- (unsigned long long)sequenceWithProgress:(id)arg1;
+- (void)removeProgressSequence:(unsigned long long)arg1;
+- (unsigned long long)sequenceForProgress:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

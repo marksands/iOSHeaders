@@ -34,7 +34,7 @@
 - (void)updateConstraints;
 - (void)setValue:(id)arg1 isPlaceholder:(_Bool)arg2;
 - (id)addValue:(id)arg1 isPlaceholder:(_Bool)arg2;
-- (id)_applyBoldStylingToValueString:(id)arg1;
+- (id)_applyStylingToValueString:(id)arg1 defaultColor:(id)arg2;
 - (id)_createValueView;
 - (void)_createSubviews;
 - (void)prepareForReuse;

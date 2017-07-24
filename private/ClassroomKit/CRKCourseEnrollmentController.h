@@ -9,7 +9,7 @@
 #import <ClassroomKit/CATTaskOperationNotificationDelegate-Protocol.h>
 #import <ClassroomKit/CRKStudentDaemonProxyObserver-Protocol.h>
 
-@class CATRemoteTaskOperation, CRKStudentDaemonProxy, NSArray, NSString;
+@class CATRemoteTaskOperation, CRKStudentDaemonProxy, NSArray, NSSet, NSString;
 @protocol CRKCourseEnrollmentControllerDelegate;
 
 @interface CRKCourseEnrollmentController : NSObject <CRKStudentDaemonProxyObserver, CATTaskOperationNotificationDelegate>
@@ -22,14 +22,19 @@
     NSArray *_courseInvitations;
     NSArray *_activeCourseIdentifiers;
     NSArray *_activeInstructorIdentifiers;
+    NSSet *_currentScreenObservers;
 }
 
+@property(retain, nonatomic) NSSet *currentScreenObservers; // @synthesize currentScreenObservers=_currentScreenObservers;
 @property(copy, nonatomic) NSArray *activeInstructorIdentifiers; // @synthesize activeInstructorIdentifiers=_activeInstructorIdentifiers;
 @property(copy, nonatomic) NSArray *activeCourseIdentifiers; // @synthesize activeCourseIdentifiers=_activeCourseIdentifiers;
 @property(copy, nonatomic) NSArray *courseInvitations; // @synthesize courseInvitations=_courseInvitations;
 @property(copy, nonatomic) NSArray *courses; // @synthesize courses=_courses;
 - (void).cxx_destruct;
 - (void)taskOperation:(id)arg1 didPostNotificationWithName:(id)arg2 userInfo:(id)arg3;
+- (void)screenObserversHaveChanged:(id)arg1;
+- (void)fetchScreenObserversDidFinish:(id)arg1;
+- (void)fetchScreenObservers;
 - (void)fetchCourseInvitationsOperationDidFinish:(id)arg1;
 - (void)fetchCourseInvitations;
 - (void)storeCourses;

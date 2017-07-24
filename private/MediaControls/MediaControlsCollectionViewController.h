@@ -6,20 +6,19 @@
 
 #import <UIKit/UIViewController.h>
 
+#import <MediaControls/MediaControlsPanelViewControllerDelegate-Protocol.h>
 #import <MediaControls/UIGestureRecognizerDelegate-Protocol.h>
 #import <MediaControls/UIScrollViewDelegate-Protocol.h>
 
-@class NSMutableDictionary, NSMutableSet, NSString, UIScrollView, UITapGestureRecognizer;
-@protocol MediaControlsCollectionViewDataSource;
+@class NSArray, NSMutableDictionary, NSMutableSet, NSString, UIScrollView, UITapGestureRecognizer;
+@protocol MediaControlsCollectionItemViewController, MediaControlsCollectionViewDataSource;
 
-@interface MediaControlsCollectionViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
+@interface MediaControlsCollectionViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate, MediaControlsPanelViewControllerDelegate>
 {
-    UIScrollView *_scrollView;
     NSMutableDictionary *_activeViewControllers;
     NSMutableSet *_inactiveViewControllers;
     NSMutableDictionary *_activeBackgroundViews;
     NSMutableSet *_inactiveBackgroundViews;
-    _Bool _needsInitialSizeTransitionForRemote;
     _Bool _displayMultipleDestinations;
     id <MediaControlsCollectionViewDataSource> _dataSource;
     CDUnknownBlockType _dismissalBlock;
@@ -27,9 +26,11 @@
     long long _routeViewControllerIndex;
     UIViewController *_routingViewController;
     UITapGestureRecognizer *_tapGestureRecognizer;
+    UIScrollView *_scrollView;
     struct UIEdgeInsets _scrollViewInsets;
 }
 
+@property(retain, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) UITapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;
 @property(retain, nonatomic) UIViewController *routingViewController; // @synthesize routingViewController=_routingViewController;
 @property(nonatomic) _Bool displayMultipleDestinations; // @synthesize displayMultipleDestinations=_displayMultipleDestinations;
@@ -40,10 +41,12 @@
 @property(nonatomic) __weak id <MediaControlsCollectionViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (void)_handleScrollViewTap:(id)arg1;
+- (void)_didSelectRoute;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
-- (void)_attemptDismissal;
+- (void)didDismissMediaControlsPanelViewController:(id)arg1;
+- (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (long long)_indexAtPoint:(struct CGPoint)arg1;
 - (struct CGRect)_rectForViewAtIndex:(long long)arg1 multi:(_Bool)arg2 size:(struct CGSize)arg3;
 - (struct CGRect)_rectForViewAtIndex:(long long)arg1;
@@ -66,9 +69,10 @@
 - (id)_createOrReuseBackgroundView;
 - (void)_reflectMode;
 - (void)_adjustForEnvironmentChangeWithSize:(struct CGSize)arg1 transitionCoordinator:(id)arg2;
+@property(readonly, nonatomic) NSArray *visibleBottomViewControllers;
+@property(readonly, nonatomic) NSArray *visibleTopViewControllers;
+@property(readonly, nonatomic) UIViewController<MediaControlsCollectionItemViewController> *selectedViewController;
 - (void)reloadData;
-- (void)_willAppearInRemoteViewController;
-- (void)didMoveToParentViewController:(id)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;

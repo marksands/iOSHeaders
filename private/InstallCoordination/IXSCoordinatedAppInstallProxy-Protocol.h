@@ -18,6 +18,8 @@
 - (oneway void)_remote_fireObserversForProxy:(id <IXAppInstallCoordinatorProxy>)arg1;
 - (oneway void)_remote_getErrorInfo:(void (^)(unsigned long long, NSError *))arg1;
 - (oneway void)_remote_getIsComplete:(void (^)(_Bool, NSError *))arg1;
+- (oneway void)_remote_getPreparationPromise:(void (^)(IXDataPromiseSeed *, NSError *))arg1;
+- (oneway void)_remote_setPreparationPromiseUUID:(NSUUID *)arg1 completion:(void (^)(NSError *))arg2;
 - (oneway void)_remote_hasUserDataPromise:(void (^)(_Bool, NSError *))arg1;
 - (oneway void)_remote_getUserDataPromise:(void (^)(IXDataPromiseSeed *, NSError *))arg1;
 - (oneway void)_remote_setUserDataPromiseUUID:(NSUUID *)arg1 completion:(void (^)(NSError *))arg2;

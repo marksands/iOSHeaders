@@ -9,11 +9,11 @@
 #import <MediaPlayer/MPAVRoutingControllerDelegate-Protocol.h>
 #import <MediaPlayer/NSCoding-Protocol.h>
 
-@class MPAVRoutingController, MPAVRoutingSheet, MPAudioVideoRoutingPopoverController, MPVolumeSlider, NSString, UIButton, UIImage, UILabel;
+@class MPAVRoutingController, MPMediaControlsStandaloneViewController, MPVolumeSlider, NSString, UIButton, UIImage, UILabel;
 
 @interface MPVolumeView : UIView <MPAVRoutingControllerDelegate, NSCoding>
 {
-    MPAVRoutingSheet *_routingSheet;
+    MPMediaControlsStandaloneViewController *_mediaControlsViewController;
     MPAVRoutingController *_routingController;
     _Bool _hasNonDefaultRouteButtonImages;
     _Bool _hasNonDefaultMaxVolumeSliderImage;
@@ -23,7 +23,6 @@
     _Bool _routeButtonShowsTouchWhenHighlighted;
     _Bool _routeDiscoveryEnabled;
     UILabel *_routeLabel;
-    MPAudioVideoRoutingPopoverController *_routePopoverController;
     _Bool _showingButton;
     _Bool _showingLabel;
     _Bool _showingSlider;
@@ -35,10 +34,8 @@
     _Bool _wirelessRouteIsPicked;
     _Bool _wirelessRoutesAvailable;
     _Bool _pushedRouteDiscoveryModeState;
-    unsigned long long _routePopoverPermittedArrowDirections;
 }
 
-@property(nonatomic) unsigned long long routePopoverPermittedArrowDirections; // @synthesize routePopoverPermittedArrowDirections=_routePopoverPermittedArrowDirections;
 - (void).cxx_destruct;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
@@ -49,8 +46,6 @@
 - (void)_getDefaultVolumeSliderFrame:(struct CGRect *)arg1 routeButtonFrame:(struct CGRect *)arg2 forBounds:(struct CGRect)arg3;
 - (void)_displayAudioRoutePicker;
 - (id)_defaultRouteButtonImageAsSelected:(_Bool)arg1;
-- (void)_unregisterNotifications;
-- (void)_registerNotifications;
 - (void)_createSubviews;
 - (id)_routeButton;
 - (void)_setVolumeAudioCategory:(id)arg1;
@@ -79,9 +74,8 @@
 - (id)minimumVolumeSliderImageForState:(unsigned long long)arg1;
 @property(readonly, nonatomic, getter=areWirelessRoutesAvailable) _Bool wirelessRoutesAvailable;
 @property(readonly, nonatomic, getter=isWirelessRouteActive) _Bool wirelessRouteActive;
-- (void)popoverControllerDidDismissPopover:(id)arg1;
+- (void)routingController:(id)arg1 volumeControlAvailabilityDidChange:(_Bool)arg2;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
-- (void)willMoveToWindow:(id)arg1;
 - (void)setHidden:(_Bool)arg1;
 - (void)setAlpha:(double)arg1;
 - (void)didMoveToWindow;

@@ -6,10 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
+#import <MediaRemote/MRNowPlayingClientState-Protocol.h>
+
 @class NSMutableDictionary;
 @protocol OS_dispatch_queue;
 
-@interface MRNowPlayingOriginClientManager : NSObject
+@interface MRNowPlayingOriginClientManager : NSObject <MRNowPlayingClientState>
 {
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSMutableDictionary *_originClients;
@@ -17,6 +19,10 @@
 }
 
 + (id)sharedManager;
+- (void)removePlayer:(void *)arg1;
+- (void)removeClient:(void *)arg1;
+- (void)removeOrigin:(void *)arg1;
+- (void)restoreNowPlayingClientState;
 - (void)playerClientRequestsForUnresolvedPlayerPath:(void *)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)clientRequestsForUnresolvedPlayerPath:(void *)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)originClientRequestsForUnresolvedPlayerPath:(void *)arg1 completion:(CDUnknownBlockType)arg2;

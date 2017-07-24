@@ -19,7 +19,6 @@
 
 + (id)pairedWatchCountryCode;
 + (id)expressionForWorkoutsCompletedInMonthOffset:(long long)arg1;
-+ (id)expressionForAverageWorkoutCaloriesBurnedInMonthOffset:(long long)arg1;
 + (id)expressionForDailyAverageActiveCaloriesBurnedInMonthOffset:(long long)arg1;
 + (id)expressionForDistanceTraveledInMonthOffset:(long long)arg1;
 + (id)expressionForExerciseMinutesInMonthOffset:(long long)arg1;
@@ -35,12 +34,15 @@
 @property(readonly, nonatomic) _HKAchievementPredicateDatesEnvironment *dates; // @synthesize dates=_dates;
 @property(readonly, nonatomic) _HKAchievementPredicateActivityDataEnvironment *activityData; // @synthesize activityData=_activityData;
 - (void).cxx_destruct;
+- (id)consecutiveAllGoalsStartingDaysAgo:(id)arg1;
+- (id)consecutiveStandGoalsStartingDaysAgo:(id)arg1;
+- (id)consecutiveExerciseGoalsStartingDaysAgo:(id)arg1;
+- (id)consecutiveMoveGoalsStartingDaysAgo:(id)arg1;
 @property(readonly, nonatomic) NSString *currentDefinitionIdentifier;
 - (void)setCurrentDefinitionIdentifier:(id)arg1;
-@property(readonly, nonatomic) NSString *currentCountryCode;
+- (id)currentCountryCode;
 - (void)setCurrentLocale:(id)arg1;
 - (id)maxNumber:(id)arg1 otherNumber:(id)arg2;
-- (id)minNumber:(id)arg1 otherNumber:(id)arg2;
 - (id)initWithActivityDataEnvironment:(id)arg1 datesEnvironment:(id)arg2 workoutsEnvironment:(id)arg3;
 
 @end

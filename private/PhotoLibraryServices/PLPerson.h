@@ -47,7 +47,8 @@
 + (_Bool)person:(id)arg1 isBetterMergeTargetThanPerson:(id)arg2;
 + (void)resetCloudStateInPhotoLibrary:(id)arg1 hardReset:(_Bool)arg2;
 + (id)personsToPrefetchInManagedObjectContext:(id)arg1;
-+ (id)personsToUploadInPhotoLibrary:(id)arg1 limit:(long long)arg2;
++ (id)personsToUploadInManagedObjectContext:(id)arg1 limit:(long long)arg2;
++ (id)_predicateForSupportedVerifiedTypesForUpload;
 + (id)listOfSyncedProperties;
 - (_Bool)dedupeGraphPersons:(id)arg1 error:(id *)arg2;
 - (void)mergePersons:(id)arg1 withOptimalState:(id)arg2;
@@ -56,6 +57,7 @@
 - (id)finalMergeTargetPerson;
 - (id)pickKeyFaceOptimalStateForContactDedupeWithPersons:(id)arg1;
 - (void)prepareForUserInitiatedMergeWithPersons:(id)arg1;
+- (id)reverseOrderedMergeTargetPersons;
 - (id)pickOptimalStateForUserInitiatedMergeWithPersons:(id)arg1 nominalTarget:(id)arg2;
 - (id)_nameRelatedMetadataKeys;
 - (void)persistMetadataToFileSystemInBackground;
@@ -70,6 +72,7 @@
 @property(nonatomic) int effectiveVerifiedType;
 - (void)rejectFaceIfPossible:(id)arg1 shouldCreateFaceCrop:(_Bool)arg2;
 - (void)resetAllFacesToDefault;
+- (id)faceGroupDescription;
 - (id)debugLogDescription;
 - (void)setKeyFace:(id)arg1 pickSource:(short)arg2;
 - (id)mutableInvalidMergeCandidates;
@@ -81,13 +84,14 @@
 - (void)willSave;
 - (void)prepareForDeletion;
 - (_Bool)shouldIndexForSearch;
+- (id)syncDescription;
 @property(readonly, nonatomic) _Bool isTombstone;
 @property(readonly, nonatomic) _Bool graphVerified;
 @property(readonly, nonatomic) _Bool userVerified;
 - (void)setKeyFaceToPicked;
 @property(readonly, nonatomic) _Bool keyFaceIsPicked;
 @property(readonly, retain, nonatomic) id localID;
-- (void)setCPLInferredMergeTarget:(id)arg1;
+- (void)setCPLSyncedMergeTarget:(id)arg1;
 - (id)cplPersonChange;
 - (id)cplFullRecord;
 - (_Bool)isSyncableChange;
@@ -111,7 +115,7 @@
 @property(retain, nonatomic) NSSet *invalidMergeCandidates; // @dynamic invalidMergeCandidates;
 @property(retain, nonatomic) PLDetectedFace *keyFace; // @dynamic keyFace;
 @property(nonatomic) short keyFacePickSource; // @dynamic keyFacePickSource;
-@property(nonatomic) int manualOrder; // @dynamic manualOrder;
+@property(nonatomic) unsigned int manualOrder; // @dynamic manualOrder;
 @property(retain, nonatomic) NSSet *mergeCandidates; // @dynamic mergeCandidates;
 @property(retain, nonatomic) NSSet *mergeSourcePersons; // @dynamic mergeSourcePersons;
 @property(retain, nonatomic) PLPerson *mergeTargetPerson; // @dynamic mergeTargetPerson;

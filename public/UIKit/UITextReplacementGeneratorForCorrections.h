@@ -11,6 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface UITextReplacementGeneratorForCorrections : UITextReplacementGenerator
 {
+    _Bool _showRevertingAutocorrectionInPredictionView;
     _Bool _forceHistoryReplacement;
     _Bool _forceAutocorrectionGuesses;
     _Bool _forceSpellingGuesses;

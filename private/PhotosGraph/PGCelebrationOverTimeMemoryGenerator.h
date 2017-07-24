@@ -20,7 +20,7 @@
 - (id)_potentialMemoriesForDryTesting;
 - (id)_nameForHolidayMomentNodes:(id)arg1;
 - (void)_postProcessMemory:(id)arg1 withPotentialMemory:(id)arg2;
-- (id)_potentialMemories:(unsigned long long)arg1;
+- (void)_enumeratePotentialMemoriesUsingBlock:(CDUnknownBlockType)arg1;
 
 @end
 

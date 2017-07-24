@@ -11,7 +11,7 @@
 
 @interface NTKAVListingFaceBaseView : NTKAVFaceBaseView
 {
-    CDUnknownBlockType _unpauseFromSwitcherBlock;
+    _Bool _updateWhenUnpausing;
     NTKTaskScheduler *_taskScheduler;
     _Bool _preLoadingVideoOnSleep;
     _Bool _preLoadedVideoOnSleep;

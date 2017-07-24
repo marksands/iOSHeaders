@@ -25,7 +25,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *annotationUUID;
 - (_Bool)isInDocument;
 - (void)commentWillBeAddedToDocumentRoot;
-@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) _Bool isHighlight;
 @property(readonly, nonatomic) int annotationDisplayStringType;
 @property(readonly, nonatomic) int annotationType;
@@ -40,6 +39,7 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

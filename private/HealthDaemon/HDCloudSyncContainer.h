@@ -6,34 +6,39 @@
 
 #import <objc/NSObject.h>
 
-@class CKContainer, CKOperationGroup, HDCloudSyncFetchOperationResult, HDCloudSyncOperationConfiguration, HDProfile, NSString;
+@class CKContainer, HDProfile;
 @protocol OS_dispatch_queue;
 
 @interface HDCloudSyncContainer : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
-    NSString *_ownerIdentifier;
-    HDCloudSyncFetchOperationResult *_fetchOperationResult;
-    CKOperationGroup *_group;
-    HDCloudSyncOperationConfiguration *_operationConfiguration;
     long long _pullOperationFailureCount;
+    _Bool _secondaryContainer;
     HDProfile *_profile;
     CKContainer *_syncContainer;
 }
 
++ (id)cloudSyncKeyValueDomainWithProfile:(id)arg1;
 @property(retain, nonatomic) CKContainer *syncContainer; // @synthesize syncContainer=_syncContainer;
 @property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
+@property(readonly, nonatomic) _Bool secondaryContainer; // @synthesize secondaryContainer=_secondaryContainer;
 - (void).cxx_destruct;
+- (id)_lastSuccessfulPullKey;
 - (id)description;
+- (id)_operationGroupForReason:(long long)arg1 options:(unsigned long long)arg2;
+- (void)_disableCloudSyncWithCompletion:(CDUnknownBlockType)arg1;
+- (void)disableAndDeleteAllSyncDataWithTaskTree:(id)arg1;
+- (void)disableSyncLocallyWithTaskTree:(id)arg1;
 - (void)fetchSyncStatusWithTaskTree:(id)arg1 resultsHandler:(CDUnknownBlockType)arg2;
-- (id)_cloudSyncContainerDescriptionFromFetchOperationResult:(id)arg1;
+- (id)_cloudSyncContainerDescriptionFromFetchOperationResult:(id)arg1 configuration:(id)arg2;
 - (void)fetchDescriptionWithOptions:(unsigned long long)arg1 reason:(long long)arg2 taskTree:(id)arg3 resultHandler:(CDUnknownBlockType)arg4;
 - (void)_fetchStatusWithOptions:(unsigned long long)arg1 reason:(long long)arg2 taskTree:(id)arg3 resultHandler:(CDUnknownBlockType)arg4;
 - (void)resetWithOptions:(unsigned long long)arg1 reason:(long long)arg2 taskTree:(id)arg3;
-- (void)_startPullOperationForStoreIdentifier:(id)arg1 taskTree:(id)arg2;
+- (void)_startPullOperationForStoreIdentifier:(id)arg1 configuration:(id)arg2 fetchOperationResult:(id)arg3 taskTree:(id)arg4;
 - (void)_recordSuccessfulPull;
 - (void)syncWithOptions:(unsigned long long)arg1 reason:(long long)arg2 taskTree:(id)arg3;
 - (void)syncWithOptions:(unsigned long long)arg1 reason:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)initAsSecondaryWithProfile:(id)arg1 syncContainer:(id)arg2;
 - (id)initWithProfile:(id)arg1 syncContainer:(id)arg2;
 
 @end

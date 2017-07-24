@@ -13,8 +13,8 @@
 @interface MLFeatureValue : NSObject <NSCopying>
 {
     _Bool _undefined;
-    id _value;
     long long _type;
+    id _value;
     NSObject *_objectValue;
 }
 
@@ -27,11 +27,12 @@
 + (id)featureValueWithInt64:(long long)arg1;
 + (id)undefinedFeatureValueWithType:(long long)arg1;
 @property(retain, nonatomic) NSObject *objectValue; // @synthesize objectValue=_objectValue;
+@property(retain) id value; // @synthesize value=_value;
 @property(readonly, nonatomic, getter=isUndefined) _Bool undefined; // @synthesize undefined=_undefined;
 @property(readonly, nonatomic) long long type; // @synthesize type=_type;
-@property(retain) id value; // @synthesize value=_value;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (_Bool)isEqualToFeatureValue:(id)arg1;
 - (id)description;
 @property(readonly, nonatomic) MLMultiArray *multiArrayValue;
@@ -40,6 +41,7 @@
 @property(readonly, copy, nonatomic) NSString *stringValue;
 @property(readonly, nonatomic) double doubleValue;
 @property(readonly, nonatomic) long long int64Value;
+- (void)dealloc;
 - (id)initWithUndefinedValueAndType:(long long)arg1;
 - (id)initWithValue:(id)arg1 type:(long long)arg2;
 - (id)debugQuickLookObject;

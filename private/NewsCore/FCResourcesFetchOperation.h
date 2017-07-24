@@ -12,6 +12,7 @@
 @interface FCResourcesFetchOperation : FCMultiStepFetchOperation
 {
     _Bool _shouldDownloadAssets;
+    long long _cacheLifetimeHint;
     NSArray *_resourceIDs;
     id <FCContentContext> _context;
     NSArray *_resources;
@@ -20,6 +21,7 @@
 @property(retain, nonatomic) NSArray *resources; // @synthesize resources=_resources;
 @property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
 @property(readonly, nonatomic) NSArray *resourceIDs; // @synthesize resourceIDs=_resourceIDs;
+@property(nonatomic) long long cacheLifetimeHint; // @synthesize cacheLifetimeHint=_cacheLifetimeHint;
 @property(nonatomic) _Bool shouldDownloadAssets; // @synthesize shouldDownloadAssets=_shouldDownloadAssets;
 - (void).cxx_destruct;
 - (_Bool)_shoudUsePermanentURLForResourceID:(id)arg1;

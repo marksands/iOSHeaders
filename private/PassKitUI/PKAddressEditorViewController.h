@@ -12,7 +12,7 @@
 #import <PassKitUI/UITableViewDelegate-Protocol.h>
 #import <PassKitUI/UITextFieldDelegate-Protocol.h>
 
-@class CNMutablePostalAddress, CNPostalAddressFormattingSpecification, MKLocalSearchCompleter, NSArray, NSMutableArray, NSString, PKAddressTextField;
+@class CNMutablePostalAddress, CNPostalAddressFormattingSpecification, MKLocalSearchCompleter, NSArray, NSString, PKAddressTextField;
 @protocol PKAddressEditorViewControllerDelegate;
 
 @interface PKAddressEditorViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, MKLocalSearchCompleterDelegate, PKCountryPickerViewControllerDelegate>
@@ -24,12 +24,16 @@
     NSString *_phoneticName;
     CNMutablePostalAddress *_inputAddress;
     NSString *_inputLabel;
+    NSString *_originalName;
+    NSString *_originalPhoneticName;
+    CNMutablePostalAddress *_originalAddress;
     CNPostalAddressFormattingSpecification *_addressFormatter;
     NSArray *_suggestions;
     MKLocalSearchCompleter *_searchCompleter;
     PKAddressTextField *_currentlySelectedField;
     PKAddressTextField *_nameTextField;
-    NSMutableArray *_highlightedFieldKeys;
+    NSArray *_editingFields;
+    NSArray *_highlightedFieldKeys;
     NSArray *_requiredFieldKeys;
     NSArray *_errors;
     long long _style;
@@ -38,12 +42,16 @@
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(retain, nonatomic) NSArray *errors; // @synthesize errors=_errors;
 @property(retain, nonatomic) NSArray *requiredFieldKeys; // @synthesize requiredFieldKeys=_requiredFieldKeys;
-@property(retain, nonatomic) NSMutableArray *highlightedFieldKeys; // @synthesize highlightedFieldKeys=_highlightedFieldKeys;
+@property(retain, nonatomic) NSArray *highlightedFieldKeys; // @synthesize highlightedFieldKeys=_highlightedFieldKeys;
+@property(retain, nonatomic) NSArray *editingFields; // @synthesize editingFields=_editingFields;
 @property(retain, nonatomic) PKAddressTextField *nameTextField; // @synthesize nameTextField=_nameTextField;
 @property(retain, nonatomic) PKAddressTextField *currentlySelectedField; // @synthesize currentlySelectedField=_currentlySelectedField;
 @property(retain, nonatomic) MKLocalSearchCompleter *searchCompleter; // @synthesize searchCompleter=_searchCompleter;
 @property(retain, nonatomic) NSArray *suggestions; // @synthesize suggestions=_suggestions;
 @property(retain, nonatomic) CNPostalAddressFormattingSpecification *addressFormatter; // @synthesize addressFormatter=_addressFormatter;
+@property(retain, nonatomic) CNMutablePostalAddress *originalAddress; // @synthesize originalAddress=_originalAddress;
+@property(retain, nonatomic) NSString *originalPhoneticName; // @synthesize originalPhoneticName=_originalPhoneticName;
+@property(retain, nonatomic) NSString *originalName; // @synthesize originalName=_originalName;
 @property(retain, nonatomic) NSString *inputLabel; // @synthesize inputLabel=_inputLabel;
 @property(retain, nonatomic) CNMutablePostalAddress *inputAddress; // @synthesize inputAddress=_inputAddress;
 @property(retain, nonatomic) NSString *phoneticName; // @synthesize phoneticName=_phoneticName;
@@ -63,10 +71,10 @@
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)_validateAddressRequirements;
-- (id)_textContentTypeForField:(id)arg1;
 - (void)_showCountryPicker;
 - (void)_updateWithPostalAddress:(id)arg1;
-- (id)_editingFields;
+- (void)assignErrorToField:(id)arg1;
+- (void)recomputeEditingFields;
 - (void)cancel;
 - (void)donePressed;
 - (void)viewDidAppear:(_Bool)arg1;

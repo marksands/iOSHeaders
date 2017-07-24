@@ -16,7 +16,7 @@
 
 + (id)getSilo;
 + (void)performSyncOnSilo:(id)arg1 invoker:(CDUnknownBlockType)arg2;
-+ (void)becameFatallyBlocked:(id)arg1;
++ (void)becameFatallyBlocked:(id)arg1 index:(unsigned long long)arg2;
 + (_Bool)isSupported;
 - (void)fetchGeomagneticModelData:(CDUnknownBlockType)arg1;
 - (_Bool)syncgetDoSync:(CDUnknownBlockType)arg1;

@@ -152,11 +152,12 @@
 - (void)clearHistoryVisitsAddedAfterDate:(id)arg1 beforeDate:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_updateGenerationForVisits:(id)arg1;
 - (void)getVisitsCreatedAfterDate:(id)arg1 beforeDate:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)visitTitleWasUpdated:(id)arg1;
 - (void)visitsWereModified:(id)arg1;
 - (void)visitsWereAdded:(id)arg1;
 - (void)itemWasReplaced:(id)arg1 byItem:(id)arg2;
-- (void)itemsWereModified:(id)arg1;
-- (void)itemsWereAdded:(id)arg1;
+- (void)itemsWereModified:(id)arg1 byUserInitiatedAction:(_Bool)arg2;
+- (void)itemsWereAdded:(id)arg1 byUserInitiatedAction:(_Bool)arg2;
 - (void)waitForLoadingToComplete;
 - (void)startLoading;
 - (void)closeWithCompletionHandler:(CDUnknownBlockType)arg1;

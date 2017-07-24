@@ -10,6 +10,7 @@
 {
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)orientationConstraintInWorldSpace:(_Bool)arg1 withBlock:(CDUnknownBlockType)arg2;
 + (id)positionConstraintInWorldSpace:(_Bool)arg1 withBlock:(CDUnknownBlockType)arg2;
 + (id)transformConstraintInWorldSpace:(_Bool)arg1 withBlock:(CDUnknownBlockType)arg2;

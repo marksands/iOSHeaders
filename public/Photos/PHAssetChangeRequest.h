@@ -52,6 +52,7 @@
     CDStruct_1b6d18a9 _imageDisplayTime;
 }
 
++ (void)undeleteAssets:(id)arg1;
 + (void)expungeAssets:(id)arg1;
 + (void)deleteAssets:(id)arg1;
 + (id)changeRequestForAsset:(id)arg1;
@@ -95,6 +96,7 @@
 - (_Bool)validateAdjustmentDataForAssetMutation:(id)arg1 error:(id *)arg2;
 - (_Bool)validateVideoURLForAssetMutation:(id)arg1 error:(id *)arg2;
 - (_Bool)_validateImageURLForAssetMutation:(id)arg1 error:(id *)arg2;
+- (_Bool)_validateAndGenerateStillImageForLoopingLivePhotoWithContentEditingOutput:(id)arg1 error:(id *)arg2;
 - (void)setAnalysisState:(int)arg1 lastIgnoredDate:(id)arg2 ignoreUntilDate:(id)arg3 forWorkerType:(short)arg4 allowUnsafeSetProcessed:(_Bool)arg5;
 - (void)setAnalysisState:(int)arg1 lastIgnoredDate:(id)arg2 ignoreUntilDate:(id)arg3 forWorkerType:(short)arg4;
 - (void)encodeToXPCDict:(id)arg1;

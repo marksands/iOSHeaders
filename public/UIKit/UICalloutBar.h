@@ -122,7 +122,7 @@
 - (double)supressHorizontalXMovementIfNeededForPoint:(struct CGPoint)arg1 proposedX:(double)arg2;
 - (_Bool)rectClear:(struct CGRect)arg1;
 - (void)resetPage;
-- (struct CGRect)textEffectsWindowBoundsWithoutStatusBar;
+- (struct CGRect)textEffectsWindowSafeArea;
 - (int)textEffectsVisibilityLevel;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)removeFromSuperview;

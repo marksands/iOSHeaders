@@ -26,5 +26,8 @@
 - (id)initWithPredicate:(id)arg1 object:(id)arg2;
 - (void)dealloc;
 
+// Remaining properties
+@property(nonatomic) unsigned long long expectedFulfillmentCount; // @dynamic expectedFulfillmentCount;
+
 @end
 

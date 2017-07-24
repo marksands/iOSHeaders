@@ -17,6 +17,7 @@
 - (void)setMaxBitrate:(unsigned int)arg1;
 - (void)setMTU:(unsigned short)arg1;
 - (void)setRATType:(unsigned long long)arg1;
+@property(readonly) NSData *relaySessionKey;
 @property(readonly) NSData *relaySessionToken;
 @property(readonly) long long relayServerProvider;
 @property(readonly) unsigned long long remoteRATType;
@@ -31,7 +32,7 @@
 @property(readonly) NSUUID *linkUUID;
 @property(readonly) BOOL linkID;
 - (id)description;
-- (id)initWithLinkID:(BOOL)arg1 linkUUID:(id)arg2 flags:(unsigned char)arg3 networkType:(unsigned char)arg4 connectionType:(long long)arg5 RATType:(unsigned long long)arg6 MTU:(unsigned short)arg7 remoteNetworkType:(unsigned char)arg8 remoteConnectionType:(long long)arg9 remoteRATType:(unsigned long long)arg10 maxBitrate:(unsigned int)arg11 relayServerProvider:(long long)arg12 relaySessionToken:(id)arg13;
+- (id)initWithLinkID:(BOOL)arg1 linkUUID:(id)arg2 flags:(unsigned char)arg3 networkType:(unsigned char)arg4 connectionType:(long long)arg5 RATType:(unsigned long long)arg6 MTU:(unsigned short)arg7 remoteNetworkType:(unsigned char)arg8 remoteConnectionType:(long long)arg9 remoteRATType:(unsigned long long)arg10 maxBitrate:(unsigned int)arg11 relayServerProvider:(long long)arg12 relaySessionToken:(id)arg13 relaySessionKey:(id)arg14;
 - (id)initWithDummyInformation;
 
 @end

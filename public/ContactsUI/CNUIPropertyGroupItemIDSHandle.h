@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     CNUIContactPropertyIDSHandle *_contactPropertyHandle;
 }
 
++ (_Bool)supportsPropertyGroupItem:(id)arg1;
 @property(readonly, nonatomic) CNUIContactPropertyIDSHandle *contactPropertyHandle; // @synthesize contactPropertyHandle=_contactPropertyHandle;
 @property(readonly, copy, nonatomic) CNPropertyGroupItem *propertyGroupItem; // @synthesize propertyGroupItem=_propertyGroupItem;
 - (void).cxx_destruct;

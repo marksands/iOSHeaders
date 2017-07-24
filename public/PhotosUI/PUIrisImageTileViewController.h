@@ -51,6 +51,7 @@ __attribute__((visibility("hidden")))
 - (void)applyLayoutInfo:(id)arg1;
 - (void)addToTilingView:(id)arg1;
 - (void)removeAllAnimations;
+- (void)updateMutableImageLayerModulator:(id)arg1;
 - (id)loadView;
 
 // Remaining properties

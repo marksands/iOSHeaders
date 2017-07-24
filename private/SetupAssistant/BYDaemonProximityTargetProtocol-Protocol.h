@@ -6,13 +6,14 @@
 
 #import <SetupAssistant/NSObject-Protocol.h>
 
-@class SASProximityInformation;
+@class SASProximityHandshake, SASProximityInformation;
 
 @protocol BYDaemonProximityTargetProtocol <NSObject>
-- (void)storedInformation:(void (^)(SASProximityInformation *))arg1;
+- (void)storeHandshake:(SASProximityHandshake *)arg1;
 - (void)storeInformation:(SASProximityInformation *)arg1;
-- (void)resumeProximitySetup:(void (^)(SASProximityInformation *, CUMessageSession *, _Bool))arg1;
+- (void)resumeProximitySetup:(void (^)(SASProximityHandshake *, SASProximityInformation *, CUMessageSession *, _Bool))arg1;
 - (void)hasConnection:(void (^)(_Bool))arg1;
+- (void)endPairing;
 - (void)endAdvertisingProximitySetup;
 - (void)beginAdvertisingProximitySetup;
 @end

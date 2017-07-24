@@ -25,6 +25,7 @@
 
 @property(nonatomic) struct CGRect caretBeforeTap; // @synthesize caretBeforeTap=_caretBeforeTap;
 @property(retain, nonatomic) NSString *wordBeforeTap; // @synthesize wordBeforeTap=_wordBeforeTap;
+- (_Bool)shouldEnqueueObserverUpdates;
 - (void)lookup:(id)arg1 fromRect:(struct CGRect)arg2;
 - (void)lookup:(id)arg1 withRange:(struct _NSRange)arg2 fromRect:(struct CGRect)arg3;
 - (void)showShareSheetFor:(id)arg1 fromRect:(struct CGRect)arg2;
@@ -40,7 +41,6 @@
 - (void)rangeSelectionStarted:(struct CGPoint)arg1;
 - (void)updateWithMagnifierTerminalPoint:(_Bool)arg1;
 - (void)updateSelectionWithPoint:(struct CGPoint)arg1;
-- (void)loupeGestureWithState:(long long)arg1 atGesturePoint:(CDUnknownBlockType)arg2 shouldCancel:(_Bool *)arg3;
 - (void)selectionChangedWithTouchAt:(struct CGPoint)arg1 withSelectionTouch:(long long)arg2 withFlags:(long long)arg3;
 - (void)selectionChangedWithTouchAt:(struct CGPoint)arg1 withSelectionTouch:(long long)arg2;
 - (void)selectionChangedWithGestureAt:(struct CGPoint)arg1 withGesture:(long long)arg2 withState:(long long)arg3 withFlags:(long long)arg4;
@@ -63,6 +63,7 @@
 - (_Bool)containerIsAtom;
 - (_Bool)overrideGestureRecognizerShouldBegin:(id)arg1;
 - (_Bool)overrideGestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (Class)loupeClusterClass;
 - (Class)selectionClusterClass;
 - (void)dealloc;
 - (id)initWithView:(id)arg1;

@@ -24,6 +24,7 @@
 + (id)fileQueueGroup;
 + (id)fileGlobalQueue;
 + (id)concurrentFileLoadLimitSemaphore;
++ (long long)updateFileWriteCounterBy:(long long)arg1 identifier:(id)arg2;
 + (void)purgePreviewImageFilesForIdentifiers:(id)arg1;
 + (void)purgeAllPreviewImageFiles;
 + (void)deleteStrandedAttachmentPreviewImagesInContext:(id)arg1;
@@ -62,6 +63,7 @@
 - (_Bool)makeSurePreviewImageDirectoryExists:(id *)arg1;
 - (void)saveScaledImageFromImageSrc:(struct CGImageSource *)arg1 typeUTI:(struct __CFString *)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setImageData:(id)arg1 withSize:(struct CGSize)arg2 scale:(double)arg3 completion:(CDUnknownBlockType)arg4;
+- (_Bool)imageIsWriting;
 - (_Bool)imageIsValid;
 - (struct CGAffineTransform)orientedImageTransform;
 - (void)invalidateCache;

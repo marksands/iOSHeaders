@@ -15,11 +15,13 @@
 - (void)getUpdateProgress:(JSValue *)arg1;
 - (NSArray *)getItems;
 - (NSDictionary *)getItemWithChildren:(NSString *)arg1:(NSArray *)arg2;
+- (NSString *)getShowIdentifierForStoreIdentifier:(NSNumber *)arg1;
 - (unsigned long long)getItemCount;
 - (NSDictionary *)getItem:(NSString *)arg1:(NSArray *)arg2;
 - (void)getImageForItem:(NSString *)arg1:(NSDictionary *)arg2:(JSValue *)arg3;
 - (_Bool)getIsInitialImport;
 - (_Bool)getIsUpdateInProgress;
 - (NSDictionary *)findItemByStoreIdentifier:(NSNumber *)arg1:(NSArray *)arg2;
+- (NSDictionary *)findItemByPersistentIdentifier:(id)arg1:(NSArray *)arg2;
 @end
 

@@ -10,11 +10,7 @@
 
 @interface CUDashboardClient : NSObject
 {
-    union {
-        struct sockaddr sa;
-        struct sockaddr_in v4;
-        struct sockaddr_in6 v6;
-    } _destAddr;
+    CDUnion_fab80606 _destAddr;
     unsigned int _destLen;
     unsigned char _key[32];
     char _model[32];

@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     _Bool _portalHidden;
     int _animationCount;
     _UIInternalDraggingItem *_item;
+    unsigned long long _droppedItemIndex;
     UIView *_retargetingContainerView;
     _UIPortalView *_retargetingContainerPortalView;
     UIView *_view;
@@ -36,6 +37,7 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _targetUpdateHandler;
     CDUnknownBlockType _midpointHandler;
     CDUnknownBlockType _nearCompletionHandler;
+    CDUnknownBlockType _updatedDroppedItemHandler;
     struct CGPoint _center;
     struct CGPoint _initialVelocity;
     struct CGPoint _initialTargetVelocity;
@@ -52,6 +54,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool fastAnimation; // @synthesize fastAnimation=_fastAnimation;
 @property(nonatomic) struct CGPoint initialTargetVelocity; // @synthesize initialTargetVelocity=_initialTargetVelocity;
 @property(nonatomic) struct CGPoint initialVelocity; // @synthesize initialVelocity=_initialVelocity;
+@property(copy, nonatomic) CDUnknownBlockType updatedDroppedItemHandler; // @synthesize updatedDroppedItemHandler=_updatedDroppedItemHandler;
 @property(copy, nonatomic) CDUnknownBlockType nearCompletionHandler; // @synthesize nearCompletionHandler=_nearCompletionHandler;
 @property(copy, nonatomic) CDUnknownBlockType midpointHandler; // @synthesize midpointHandler=_midpointHandler;
 @property(copy, nonatomic) CDUnknownBlockType targetUpdateHandler; // @synthesize targetUpdateHandler=_targetUpdateHandler;
@@ -69,6 +72,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIView *view; // @synthesize view=_view;
 @property(retain, nonatomic) _UIPortalView *retargetingContainerPortalView; // @synthesize retargetingContainerPortalView=_retargetingContainerPortalView;
 @property(retain, nonatomic) UIView *retargetingContainerView; // @synthesize retargetingContainerView=_retargetingContainerView;
+@property(nonatomic) unsigned long long droppedItemIndex; // @synthesize droppedItemIndex=_droppedItemIndex;
 @property(retain, nonatomic) _UIInternalDraggingItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
 

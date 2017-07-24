@@ -10,23 +10,22 @@
 
 @interface PLCPLFacePushSupport : NSObject
 {
-    CDUnknownBlockType _lazyAdjustmentFingerprint;
     id <PLSyncContext> _syncContext;
 }
 
 + (void)markPushedFaceMatchingRef:(id)arg1 inAsset:(id)arg2;
 + (_Bool)_shouldPushBeingKeyFace:(id)arg1;
-+ (void)applyFaceChangesFromAsset:(id)arg1 toAssetChange:(id)arg2 withLazyAdjustmentFingerprint:(CDUnknownBlockType)arg3 inPhotoLibrary:(id)arg4;
++ (_Bool)isFaceSyncable:(id)arg1;
++ (void)applyFaceChangesFromAsset:(id)arg1 toAssetChange:(id)arg2 inPhotoLibrary:(id)arg3;
 - (id)rejectedPersonIdentifiersForFace:(id)arg1;
 - (id)cplFaceRefFromFace:(id)arg1;
-- (_Bool)isFaceSyncable:(id)arg1;
 - (id)cplFaceRefsFromFaces:(id)arg1 algorithmVersion:(long long *)arg2;
+- (id)_facesAdjustmentsFingerprintFromAsset:(id)arg1 assetChange:(id)arg2;
 - (_Bool)_faceAnalysisWasPerformedOnLatestAdjustmentOfAsset:(id)arg1;
-- (id)_facesAdjustmentsFingerprintFromAsset:(id)arg1;
 - (id)cplFaceAnalysisRefFromAsset:(id)arg1 algorithmVersion:(long long *)arg2;
 - (void)applyFaceChangesFromAsset:(id)arg1 toAssetChange:(id)arg2;
 - (void)dealloc;
-- (id)initWithLazyAdjustmentFingerprint:(CDUnknownBlockType)arg1 syncContext:(id)arg2;
+- (id)initWithSyncContext:(id)arg1;
 
 @end
 

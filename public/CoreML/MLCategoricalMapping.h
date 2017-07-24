@@ -8,20 +8,20 @@
 
 #import <CoreML/MLModelSpecificationLoader-Protocol.h>
 
-@class NSDictionary;
+@class MLFeatureValue, NSDictionary;
 
 @interface MLCategoricalMapping : MLModel <MLModelSpecificationLoader>
 {
-    NSDictionary *_columnMapping;
+    NSDictionary *_mapping;
+    MLFeatureValue *_valueOnUnknown;
 }
 
-+ (id)columnMapping:(id)arg1 dataTransformerName:(id)arg2 inputDescription:(id)arg3 outputDescription:(id)arg4 orderedInputFeatureNames:(id)arg5 orderedOutputFeatureNames:(id)arg6;
-+ (id)columnMapping:(id)arg1 inputDescription:(id)arg2 outputDescription:(id)arg3 orderedInputFeatureNames:(id)arg4 orderedOutputFeatureNames:(id)arg5;
 + (id)loadModelFromSpecification:(struct _MLModelSpecification *)arg1 error:(id *)arg2;
-@property(readonly, nonatomic) NSDictionary *columnMapping; // @synthesize columnMapping=_columnMapping;
+@property(readonly, nonatomic) MLFeatureValue *valueOnUnknown; // @synthesize valueOnUnknown=_valueOnUnknown;
+@property(readonly, nonatomic) NSDictionary *mapping; // @synthesize mapping=_mapping;
 - (void).cxx_destruct;
 - (id)predictionFromFeatures:(id)arg1 options:(id)arg2 error:(id *)arg3;
-- (id)initWith:(id)arg1 dataTransformerName:(id)arg2 inputDescription:(id)arg3 outputDescription:(id)arg4 orderedInputFeatureNames:(id)arg5 orderedOutputFeatureNames:(id)arg6;
+- (id)initWithMapping:(id)arg1 valueOnUnknown:(id)arg2 dataTransformerName:(id)arg3 inputDescription:(id)arg4 outputDescription:(id)arg5 orderedInputFeatureNames:(id)arg6 orderedOutputFeatureNames:(id)arg7;
 
 @end
 

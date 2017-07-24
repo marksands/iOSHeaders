@@ -6,9 +6,11 @@
 
 #import <PassKitUI/NSObject-Protocol.h>
 
-@class PKPeerPaymentDocumentSubmissionController;
+@class PKPeerPaymentDocumentSubmissionController, UIViewController;
 
 @protocol PKPeerPaymentDocumentSubmissionControllerDelegate <NSObject>
+- (void)captureController:(PKPeerPaymentDocumentSubmissionController *)arg1 requestsDismissCurrentViewControllerAnimated:(_Bool)arg2;
+- (void)captureController:(PKPeerPaymentDocumentSubmissionController *)arg1 requestsPresentViewController:(UIViewController *)arg2 animated:(_Bool)arg3;
 - (void)captureController:(PKPeerPaymentDocumentSubmissionController *)arg1 didChangeStateTo:(long long)arg2;
 @end
 

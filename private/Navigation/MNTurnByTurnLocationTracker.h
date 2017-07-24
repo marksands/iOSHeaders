@@ -34,7 +34,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_allowSwitchToTransportType:(int)arg1 forLocation:(id)arg2;
 - (int)_detectedMotionForLocation:(id)arg1;
 - (void)_updateForArrival;
-- (void)_updateForReroute:(id)arg1;
+- (void)_updateForReroute:(id)arg1 rerouteReason:(unsigned long long)arg2 request:(id)arg3 response:(id)arg4;
 - (void)_updateForLocation:(id)arg1;
 - (id)_overrideLocationForLocation:(id)arg1;
 - (id)_newMapMatcherForRoute:(id)arg1;

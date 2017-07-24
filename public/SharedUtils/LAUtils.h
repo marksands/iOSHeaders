@@ -10,6 +10,7 @@
 {
 }
 
++ (id)truncateString:(id)arg1 maxLength:(long long)arg2;
 + (_Bool)isMultiUser;
 + (_Bool)callerRunningOnForeground:(id)arg1;
 

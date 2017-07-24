@@ -23,9 +23,10 @@
 @property(readonly, copy, nonatomic) NSNumber *onboardingVersion;
 @property(readonly, copy, nonatomic) NSString *feldsparID;
 @property(readonly, copy, nonatomic) NSArray *recentlySeenHistoryItems;
-@property(readonly, copy, nonatomic) NSArray *recentlyReadHistoryItems;
+@property(readonly, copy, nonatomic) NSDictionary *recentlyReadHistoryItems;
 @property(readonly, copy, nonatomic) NSArray *rankedPersonalSubscribedTagIDs;
 @property(readonly, copy, nonatomic) NSSet *purchasedTagIDs;
+@property(readonly, copy, nonatomic) NSSet *autoFavoriteTagIDs;
 @property(readonly, copy, nonatomic) NSSet *mutedTagIDs;
 @property(readonly, copy, nonatomic) id <FCDerivedPersonalizationData><NSCoding> derivedPersonalizationData;
 - (id)initWithDictionary:(id)arg1;

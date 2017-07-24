@@ -21,7 +21,7 @@
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)dictionaryValue;
+@property(readonly, nonatomic) NSDictionary *dictionaryValue;
 - (id)initWithDictionary:(id)arg1;
 - (void)appendMetaData:(id)arg1;
 - (id)init;

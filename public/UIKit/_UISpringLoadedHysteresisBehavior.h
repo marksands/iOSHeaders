@@ -32,9 +32,6 @@ __attribute__((visibility("hidden")))
 - (void)_tick:(id)arg1;
 - (void)setupDisplayLink;
 - (void)interactionDidFinish:(id)arg1;
-- (_Bool)_shouldRecognizeInteraction;
-- (_Bool)shouldContinueInteraction:(id)arg1 withGestureRecognizer:(id)arg2;
-- (_Bool)shouldBeginInteraction:(id)arg1 withGestureRecognizer:(id)arg2;
 - (_Bool)shouldAllowInteraction:(id)arg1 withContext:(id)arg2;
 
 // Remaining properties

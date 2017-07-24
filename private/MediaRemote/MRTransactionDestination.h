@@ -11,8 +11,9 @@
 
 @interface MRTransactionDestination : NSObject
 {
+    void *_playerPath;
     MRTransactionPacketizer *_packetizer;
-    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_serialQueue;
     unsigned long long _name;
 }
 
@@ -20,7 +21,7 @@
 - (void)unpacketize:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)packetsFromMessage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dealloc;
-- (id)initWithName:(unsigned long long)arg1;
+- (id)initWithName:(unsigned long long)arg1 playerPath:(void *)arg2;
 
 @end
 

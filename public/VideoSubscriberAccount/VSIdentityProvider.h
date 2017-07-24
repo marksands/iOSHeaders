@@ -24,12 +24,12 @@
     NSArray *_supportedAuthenticationSchemes;
     NSURL *_authenticationURL;
     NSURL *_appStoreRoomURL;
-    NSString *_appAdamID;
+    NSArray *_appAdamIDs;
 }
 
 + (id)keyPathsForValuesAffectingDisplayName;
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSString *appAdamID; // @synthesize appAdamID=_appAdamID;
+@property(copy, nonatomic) NSArray *appAdamIDs; // @synthesize appAdamIDs=_appAdamIDs;
 @property(copy, nonatomic) NSURL *appStoreRoomURL; // @synthesize appStoreRoomURL=_appStoreRoomURL;
 @property(copy, nonatomic) NSURL *authenticationURL; // @synthesize authenticationURL=_authenticationURL;
 @property(nonatomic, getter=isDeveloper) _Bool developer; // @synthesize developer=_developer;
@@ -42,6 +42,7 @@
 @property(retain, nonatomic) VSOptional *providerID; // @synthesize providerID=_providerID;
 @property(retain, nonatomic) VSOptional *uniqueID; // @synthesize uniqueID=_uniqueID;
 - (void).cxx_destruct;
+- (_Bool)isFullySupportedForRequestsExpectingAuthenticationSchemes:(id)arg1;
 - (_Bool)supportsRequestsExpectingAuthenticationSchemes:(id)arg1;
 @property(readonly, nonatomic) _Bool supportsTemplatesSufficientForCurrentPlatform;
 @property(readonly, nonatomic) _Bool supportsTemplatesSufficientForSomeKnownPlatform;

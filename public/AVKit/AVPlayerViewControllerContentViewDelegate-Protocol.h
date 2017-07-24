@@ -6,11 +6,11 @@
 
 #import <AVKit/NSObject-Protocol.h>
 
-@class AVPlayerViewControllerContentView, NSString;
+@class AVPlayerViewControllerContentView;
 
 @protocol AVPlayerViewControllerContentViewDelegate <NSObject>
 - (struct CGSize)playerViewControllerContentViewContentDimensions;
-- (NSString *)playerViewControllerContentViewVideoGravity;
+- (void)playerViewControllerContentViewDidMoveToWindow:(AVPlayerViewControllerContentView *)arg1;
 - (void)playerViewControllerContentViewWillLayoutSubviews:(AVPlayerViewControllerContentView *)arg1;
 @end
 

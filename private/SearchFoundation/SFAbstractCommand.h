@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFAbstractCommand-Protocol.h>
 
 @class NSData, NSDictionary, NSString, SFCommandValue;
 
-@interface SFAbstractCommand : NSObject <SFAbstractCommand, NSSecureCoding>
+@interface SFAbstractCommand : NSObject <SFAbstractCommand, NSSecureCoding, NSCopying>
 {
     CDStruct_f953fb60 _has;
     int _type;
@@ -22,6 +23,7 @@
 @property(retain, nonatomic) SFCommandValue *value; // @synthesize value=_value;
 @property(nonatomic) int type; // @synthesize type=_type;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

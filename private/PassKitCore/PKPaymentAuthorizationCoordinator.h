@@ -46,6 +46,7 @@
 - (id)_remoteObjectProxy;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)dismissWithCompletion:(CDUnknownBlockType)arg1;
+- (void)presentWithOrientation:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)presentWithCompletion:(CDUnknownBlockType)arg1;
 @property(nonatomic, setter=_setPrivateDelegate:) __weak id <PKPaymentAuthorizationCoordinatorPrivateDelegate> _privateDelegate;
 @property(nonatomic) __weak id <PKPaymentAuthorizationCoordinatorDelegate> delegate;

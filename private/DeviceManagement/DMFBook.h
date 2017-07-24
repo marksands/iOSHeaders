@@ -23,13 +23,13 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) unsigned long long state; // @synthesize state=_state;
-@property(nonatomic) unsigned long long type; // @synthesize type=_type;
-@property(copy, nonatomic) NSString *version; // @synthesize version=_version;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
-@property(copy, nonatomic) NSString *author; // @synthesize author=_author;
-@property(copy, nonatomic) NSNumber *iTunesStoreID; // @synthesize iTunesStoreID=_iTunesStoreID;
-@property(copy, nonatomic) NSString *persistentID; // @synthesize persistentID=_persistentID;
+@property(readonly, nonatomic) unsigned long long state; // @synthesize state=_state;
+@property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
+@property(readonly, copy, nonatomic) NSString *version; // @synthesize version=_version;
+@property(readonly, copy, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, copy, nonatomic) NSString *author; // @synthesize author=_author;
+@property(readonly, copy, nonatomic) NSNumber *iTunesStoreID; // @synthesize iTunesStoreID=_iTunesStoreID;
+@property(readonly, copy, nonatomic) NSString *persistentID; // @synthesize persistentID=_persistentID;
 - (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;

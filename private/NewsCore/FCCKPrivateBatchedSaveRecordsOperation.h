@@ -11,6 +11,7 @@
 @interface FCCKPrivateBatchedSaveRecordsOperation : FCOperation
 {
     _Bool _skipPreflight;
+    _Bool _handleIdentityLoss;
     FCCKPrivateDatabase *_database;
     NSArray *_recordsToSave;
     long long _savePolicy;
@@ -24,11 +25,13 @@
 @property(retain, nonatomic) NSMutableArray *resultSavedRecords; // @synthesize resultSavedRecords=_resultSavedRecords;
 @property(retain, nonatomic) NSMutableArray *remainingBatchesOfRecordsToSave; // @synthesize remainingBatchesOfRecordsToSave=_remainingBatchesOfRecordsToSave;
 @property(copy, nonatomic) CDUnknownBlockType saveRecordsCompletionBlock; // @synthesize saveRecordsCompletionBlock=_saveRecordsCompletionBlock;
+@property(nonatomic) _Bool handleIdentityLoss; // @synthesize handleIdentityLoss=_handleIdentityLoss;
 @property(nonatomic) _Bool skipPreflight; // @synthesize skipPreflight=_skipPreflight;
 @property(nonatomic) long long savePolicy; // @synthesize savePolicy=_savePolicy;
 @property(copy, nonatomic) NSArray *recordsToSave; // @synthesize recordsToSave=_recordsToSave;
 @property(retain, nonatomic) FCCKPrivateDatabase *database; // @synthesize database=_database;
 - (void).cxx_destruct;
+- (void)_subdivideRemainingBatches;
 - (void)_continueModifying;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)resetForRetry;

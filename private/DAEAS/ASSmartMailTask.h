@@ -17,8 +17,10 @@
     NSString *_originalLongId;
     _Bool _retryWithoutReferences;
     _Bool _replaceMime;
+    _Bool _shouldNotRetry;
 }
 
+@property(nonatomic) _Bool shouldNotRetry; // @synthesize shouldNotRetry=_shouldNotRetry;
 - (void).cxx_destruct;
 - (_Bool)processContext:(id)arg1;
 - (void)handleTopLevelErrorStatus:(id)arg1;

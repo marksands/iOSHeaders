@@ -30,6 +30,7 @@
     _Bool _simulatesClearingDiscardableDataAfterOperations;
 }
 
++ (_Bool)_deletes:(unsigned long long)arg1 mayRepresentDataLossIfAppliedTo:(unsigned long long)arg2;
 + (void)clearDiscardableDataFromAllContainers;
 + (void)_preventAssertionsForDuplicateStorageIdentifiersInContainersCreatedPerfomingBlock:(CDUnknownBlockType)arg1;
 + (void)_disableLogging;

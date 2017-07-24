@@ -6,12 +6,13 @@
 
 #import <SearchFoundation/SFCardSection.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFSuggestionCardSection-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString, SFCard, SFColor, SFRichText;
 
-@interface SFSuggestionCardSection : SFCardSection <SFSuggestionCardSection, NSSecureCoding>
+@interface SFSuggestionCardSection : SFCardSection <SFSuggestionCardSection, NSSecureCoding, NSCopying>
 {
     CDStruct_5c63c26d _has;
     _Bool _canBeHidden;
@@ -40,6 +41,7 @@
 @property(copy, nonatomic) NSString *punchoutPickerTitle;
 @property(copy, nonatomic) NSArray *punchoutOptions;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
@@ -60,6 +62,7 @@
 @property(nonatomic) _Bool hideDivider;
 @property(retain, nonatomic) SFCard *nextCard;
 @property(copy, nonatomic) NSArray *parameterKeyPaths;
+@property(copy, nonatomic) NSString *resultIdentifier;
 @property(readonly) Class superclass;
 
 @end

@@ -23,6 +23,7 @@
 + (id)positiveFeedbackForEvent:(id)arg1 indexPath:(id)arg2;
 + (id)tapEventForElement:(id)arg1 indexPath:(id)arg2;
 + (id)elementVisible:(id)arg1 indexPath:(id)arg2 duration:(double)arg3;
++ (id)scrolledEvent;
 @property(readonly, nonatomic) double duration; // @synthesize duration=_duration;
 @property(readonly, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;

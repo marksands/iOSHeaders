@@ -87,7 +87,7 @@
     struct CGSize __targetSize;
     struct CGPoint __lastPreheatedContentOffset;
     struct CGSize __assetsAddedCachedSectionHeaderSize;
-    struct UIEdgeInsets __targetSafeAreaInsets;
+    struct UIEdgeInsets __previousSafeAreaInsets;
 }
 
 + (void)initialize;
@@ -125,11 +125,11 @@
 @property(retain, nonatomic, setter=_setTapGestureRecognizer:) UITapGestureRecognizer *_tapGestureRecognizer; // @synthesize _tapGestureRecognizer=__tapGestureRecognizer;
 @property(nonatomic, getter=_areViewsInSyncWithModel, setter=_setViewsInSyncWithModel:) _Bool _viewsInSyncWithModel; // @synthesize _viewsInSyncWithModel=__viewsInSyncWithModel;
 @property(nonatomic, setter=_setLoadedSectionInfosWindowSize:) long long _loadedSectionInfosWindowSize; // @synthesize _loadedSectionInfosWindowSize=__loadedSectionInfosWindowSize;
+@property(nonatomic, setter=_setPreviousSafeAreaInsets:) struct UIEdgeInsets _previousSafeAreaInsets; // @synthesize _previousSafeAreaInsets=__previousSafeAreaInsets;
 @property(retain, nonatomic, setter=_setTargetCollectionView:) UICollectionView *_targetCollectionView; // @synthesize _targetCollectionView=__targetCollectionView;
 @property(retain, nonatomic, setter=_setCurrentCollectionView:) UICollectionView *_currentCollectionView; // @synthesize _currentCollectionView=__currentCollectionView;
 @property(nonatomic, setter=_setTargetCollectionViewType:) long long _targetCollectionViewType; // @synthesize _targetCollectionViewType=__targetCollectionViewType;
 @property(nonatomic, setter=_setCurrentCollectionViewType:) long long _currentCollectionViewType; // @synthesize _currentCollectionViewType=__currentCollectionViewType;
-@property(nonatomic, setter=_setTargetSafeAreaInsets:) struct UIEdgeInsets _targetSafeAreaInsets; // @synthesize _targetSafeAreaInsets=__targetSafeAreaInsets;
 @property(nonatomic, setter=_setTargetSize:) struct CGSize _targetSize; // @synthesize _targetSize=__targetSize;
 @property(nonatomic, setter=_setBarsState:) long long _barsState; // @synthesize _barsState=__barsState;
 @property(retain, nonatomic, setter=_setRotationLastRestorableState:) PUFeedViewControllerRestorableState *_rotationLastRestorableState; // @synthesize _rotationLastRestorableState=__rotationLastRestorableState;
@@ -241,6 +241,7 @@
 - (_Bool)collectionView:(id)arg1 layout:(id)arg2 shouldShowCaptionForTileAtIndexPath:(id)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 mininumSizeForTileAtIndexPath:(id)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 imageSizeForTileAtIndexPath:(id)arg3;
+- (struct UIEdgeInsets)_desiredSafeAreaInsetsForCollectionViewType:(long long)arg1;
 - (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 contentInsetsForSection:(long long)arg3;
 - (long long)collectionView:(id)arg1 layout:(id)arg2 typeForSection:(long long)arg3;
 - (long long)_typeForSectionInfo:(id)arg1;
@@ -349,6 +350,7 @@
 - (_Bool)_appAllowsSupressionOfAlerts;
 - (_Bool)pu_shouldActAsTabRootViewController;
 - (struct CGSize)contentSizeForViewInPopover;
+- (void)viewSafeAreaInsetsDidChange;
 - (_Bool)canBecomeFirstResponder;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;

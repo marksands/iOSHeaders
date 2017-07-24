@@ -6,12 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class NSDateFormatter, NSMutableDictionary, NSSet;
+@class NSDateFormatter, NSMutableDictionary;
 
 @interface SGReverseTemplatesJSDataDetectors : NSObject
 {
     NSMutableDictionary *_scanners;
-    NSSet *_availLocales;
     NSDateFormatter *_dateFormatter;
     NSDateFormatter *_naiveDateFormatter;
     NSDateFormatter *_noTimeFormatter;

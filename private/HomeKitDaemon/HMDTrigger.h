@@ -7,15 +7,16 @@
 #import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMDBackingStoreObjectProtocol-Protocol.h>
+#import <HomeKitDaemon/HMDBulletinIdentifiers-Protocol.h>
 #import <HomeKitDaemon/HMFDumpState-Protocol.h>
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDDevice, HMDHome, HMDUser, HMFMessageDispatcher, NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSObject, NSString, NSUUID;
+@class HMDDevice, HMDHome, HMDUser, HMFMessageDispatcher, NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDTrigger : HMFObject <HMFMessageReceiver, NSSecureCoding, HMFDumpState, HMFLogging, HMDBackingStoreObjectProtocol>
+@interface HMDTrigger : HMFObject <HMDBulletinIdentifiers, HMFMessageReceiver, NSSecureCoding, HMFDumpState, HMFLogging, HMDBackingStoreObjectProtocol>
 {
     _Bool _active;
     NSString *_name;
@@ -48,7 +49,7 @@
 - (id)emptyModelObject;
 - (id)backingStoreObjects:(long long)arg1;
 - (id)modelObjectWithChangeType:(unsigned long long)arg1;
-- (id)modelObjectWithChangeType:(unsigned long long)arg1 version:(long long)arg2;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1 version:(id)arg2;
 - (void)_transactionObjectRemoved:(id)arg1 message:(id)arg2;
 - (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
 - (void)_transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
@@ -72,13 +73,16 @@
 - (void)_handleAddTriggerOwnedActionSetRequest:(id)arg1;
 - (void)_handleAddActionSetRequest:(id)arg1;
 - (void)_handleRenameRequest:(id)arg1;
-- (void)activate:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_activate:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_activateAfterResidentChangeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)activateAfterResidentChangeWithCompletion:(CDUnknownBlockType)arg1;
-- (void)activateWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_activateWithCompletion:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic, getter=isConfigured) _Bool configured;
 - (_Bool)shouldActivateOnLocalDevice;
 @property(readonly, nonatomic, getter=isOwnedByThisDevice) _Bool ownedByThisDevice;
 - (void)invalidate;
 - (void)configure:(id)arg1 messageDispatcher:(id)arg2 queue:(id)arg3;
+- (_Bool)_isTriggerFiredNotificationEntitled;
 - (void)sendTriggerFiredNotification:(id)arg1;
 - (void)_recentFireDateUpdated:(id)arg1;
 - (void)triggerFired;
@@ -98,8 +102,12 @@
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)logIdentifier;
-- (id)initWithModel:(id)arg1 home:(id)arg2;
+- (id)initWithModel:(id)arg1 home:(id)arg2 message:(id)arg3;
 - (id)initWithName:(id)arg1 uuid:(id)arg2;
+@property(readonly, nonatomic) NSDictionary *bulletinContext;
+@property(readonly, nonatomic) NSDictionary *actionContext;
+@property(readonly, copy, nonatomic) NSUUID *contextSPIUniqueIdentifier;
+@property(readonly, copy, nonatomic) NSString *contextID;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFMediaItem-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString, SFImage, SFPunchout, SFText;
 
-@interface SFMediaItem : NSObject <SFMediaItem, NSSecureCoding>
+@interface SFMediaItem : NSObject <SFMediaItem, NSSecureCoding, NSCopying>
 {
     NSString *_title;
     SFText *_subtitleText;
@@ -39,6 +40,7 @@
 @property(retain, nonatomic) SFText *subtitleText; // @synthesize subtitleText=_subtitleText;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

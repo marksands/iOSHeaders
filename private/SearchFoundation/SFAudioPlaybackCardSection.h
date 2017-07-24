@@ -6,12 +6,13 @@
 
 #import <SearchFoundation/SFCardSection.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/SFAudioPlaybackCardSection-Protocol.h>
 
-@class NSArray, NSData, NSDictionary, NSString, SFCard, SFColor, SFImage, SFText;
+@class NSArray, NSData, NSDictionary, NSString, SFCard, SFColor, SFImage, SFRichText, SFText;
 
-@interface SFAudioPlaybackCardSection : SFCardSection <SFAudioPlaybackCardSection, NSSecureCoding>
+@interface SFAudioPlaybackCardSection : SFCardSection <SFAudioPlaybackCardSection, NSSecureCoding, NSCopying>
 {
     CDStruct_29067556 _has;
     _Bool _canBeHidden;
@@ -34,9 +35,17 @@
     NSString *_bottomImageEmoji;
     NSArray *_playCommands;
     NSArray *_stopCommands;
+    SFRichText *_detailText;
+    SFRichText *_title;
+    SFRichText *_subtitle;
+    SFImage *_thumbnail;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) SFImage *thumbnail; // @synthesize thumbnail=_thumbnail;
+@property(retain, nonatomic) SFRichText *subtitle; // @synthesize subtitle=_subtitle;
+@property(retain, nonatomic) SFRichText *title; // @synthesize title=_title;
+@property(retain, nonatomic) SFRichText *detailText; // @synthesize detailText=_detailText;
 @property(copy, nonatomic) NSArray *stopCommands; // @synthesize stopCommands=_stopCommands;
 @property(copy, nonatomic) NSArray *playCommands; // @synthesize playCommands=_playCommands;
 @property(nonatomic) int state; // @synthesize state=_state;
@@ -58,6 +67,7 @@
 @property(copy, nonatomic) NSString *punchoutPickerTitle;
 @property(copy, nonatomic) NSArray *punchoutOptions;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
@@ -78,6 +88,7 @@
 @property(nonatomic) _Bool hideDivider;
 @property(retain, nonatomic) SFCard *nextCard;
 @property(copy, nonatomic) NSArray *parameterKeyPaths;
+@property(copy, nonatomic) NSString *resultIdentifier;
 @property(readonly) Class superclass;
 
 @end

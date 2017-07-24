@@ -123,6 +123,8 @@
 - (void)_setManualLayoutFrame:(struct CGRect)arg1;
 - (void)_setOwningView:(id)arg1;
 - (void)_owningViewIsDeallocating;
+- (id)_autolayoutTraceAtLevel:(long long)arg1 recursively:(_Bool)arg2;
+- (id)_descriptionForLayoutTrace;
 @property(readonly, nonatomic) _Bool hasAmbiguousLayout;
 - (id)constraintsAffectingLayoutForAxis:(long long)arg1;
 - (void)traitCollectionDidChange:(id)arg1;

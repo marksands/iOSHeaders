@@ -14,7 +14,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSArray *availableUpdates; // @synthesize availableUpdates=_availableUpdates;
+@property(readonly, copy, nonatomic) NSArray *availableUpdates; // @synthesize availableUpdates=_availableUpdates;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

@@ -12,6 +12,7 @@
 @protocol _UINavigationBarDelegatePrivate <UINavigationBarDelegate>
 
 @optional
+- (struct CGRect)_incomingNavigationBarFrame;
 - (void)_navigationItemDidUpdateSearchController:(UINavigationItem *)arg1 oldSearchController:(UISearchController *)arg2;
 - (void)_navigationBarDidEndAnimation:(UINavigationBar *)arg1;
 - (_Bool)isNavigationBarHidden;

@@ -29,6 +29,7 @@
     PHRelationshipChangeRequestHelper *_movieCuratedAssetsHelper;
 }
 
++ (id)changeRequestForRemotelyViewedMemoryWithLocalIdentifier:(id)arg1;
 + (void)deleteMemories:(id)arg1;
 + (_Bool)canGenerateUUIDWithoutEntitlements;
 + (id)validateMemoryTitle:(id)arg1 error:(id *)arg2;

@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
     _Bool _shouldPinContentToTop;
     unsigned long long _options;
     double _maximumToolbarHeight;
+    double _maximumAccessoryToolbarHeight;
     UIColor *_backgroundColorOverride;
     long long _tileInitialContentMode;
     struct CGSize _progressIndicatorSize;
@@ -52,6 +53,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, setter=_setShouldDisplayBadges:) _Bool shouldDisplayBadges; // @synthesize shouldDisplayBadges=_shouldDisplayBadges;
 @property(nonatomic, setter=_setShouldUseUserTransformTiles:) _Bool shouldUseUserTransformTiles; // @synthesize shouldUseUserTransformTiles=_shouldUseUserTransformTiles;
 @property(nonatomic, setter=_setShouldUseContentGuideInsets:) _Bool shouldUseContentGuideInsets; // @synthesize shouldUseContentGuideInsets=_shouldUseContentGuideInsets;
+@property(nonatomic, setter=_setMaximumAccessoryToolbarHeight:) double maximumAccessoryToolbarHeight; // @synthesize maximumAccessoryToolbarHeight=_maximumAccessoryToolbarHeight;
 @property(nonatomic, setter=_setMaximumToolbarHeight:) double maximumToolbarHeight; // @synthesize maximumToolbarHeight=_maximumToolbarHeight;
 @property(nonatomic, setter=_setShouldUseCompactTitleView:) _Bool shouldUseCompactTitleView; // @synthesize shouldUseCompactTitleView=_shouldUseCompactTitleView;
 @property(nonatomic, setter=_setShouldPlaceButtonsInNavigationBar:) _Bool shouldPlaceButtonsInNavigationBar; // @synthesize shouldPlaceButtonsInNavigationBar=_shouldPlaceButtonsInNavigationBar;

@@ -4,25 +4,33 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <GeoServices/_GEOServiceRequesterOp.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOProtobufSessionTaskDelegate-Protocol.h>
 
-@class GEOProtobufSessionTask, NSString;
+@class GEODataRequest, GEOProtobufSessionTask, NSNumber, NSString, PBRequest;
 
 __attribute__((visibility("hidden")))
-@interface _GEODataSessionTaskRequesterOp : _GEOServiceRequesterOp <GEOProtobufSessionTaskDelegate>
+@interface _GEODataSessionTaskRequesterOp : NSObject <GEOProtobufSessionTaskDelegate>
 {
     GEOProtobufSessionTask *_task;
-    int _dataRequestKind;
     _Bool _canceled;
+    PBRequest *_request;
+    NSString *_debugRequestName;
+    CDUnknownBlockType _completionHandler;
+    NSNumber *_serviceTypeNumber;
+    GEODataRequest *_dataRequest;
+    int _experimentDispatcherRequestType;
+    NSString *_appIdentifier;
 }
 
 - (void).cxx_destruct;
+- (id)_userInfoForTask:(id)arg1;
 - (void)protobufSession:(id)arg1 didCompleteTask:(id)arg2;
 - (void)startWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)cancel;
 - (void)_cleanup;
+- (void)dealloc;
 - (id)initWithRequest:(id)arg1 auditToken:(id)arg2 urlType:(unsigned long long)arg3 additionalURLQueryItems:(id)arg4 additionalHTTPHeaders:(id)arg5 debugRequestName:(id)arg6 serviceType:(id)arg7 experimentType:(long long)arg8 experimentDispatcherRequestType:(int)arg9 timeout:(double)arg10 shouldThrottleRequests:(_Bool)arg11 throttleKey:(id)arg12 dataRequestKind:(int)arg13 traits:(id)arg14;
 
 // Remaining properties

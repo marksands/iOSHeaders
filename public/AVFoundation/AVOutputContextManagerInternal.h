@@ -6,10 +6,11 @@
 
 #import <Foundation/NSObject.h>
 
-@protocol AVOutputContextManagerImpl;
+@protocol AVOutputContextManagerImpl, OS_dispatch_queue;
 
 @interface AVOutputContextManagerInternal : NSObject
 {
+    NSObject<OS_dispatch_queue> *ivarAccessQueue;
     id <AVOutputContextManagerImpl> impl;
 }
 

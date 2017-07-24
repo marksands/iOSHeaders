@@ -25,9 +25,11 @@
 - (void).cxx_destruct;
 - (void)layoutSubviews;
 - (void)sizeToFit;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (double)height;
 - (double)width;
+- (double)widthWithHeight:(double)arg1;
 - (double)horizontalSpacing;
 - (void)setknockOutBorderWidth:(double)arg1;
 - (void)_commonInit;

@@ -12,8 +12,8 @@
 
 + (id)server;
 - (_Bool)isBrailleInputUIShowing;
-- (_Bool)triggerCommand:(int)arg1 withArgument:(id)arg2;
-- (_Bool)triggerCommand:(int)arg1;
+- (_Bool)triggerCommand:(long long)arg1 withArgument:(id)arg2;
+- (_Bool)triggerCommand:(long long)arg1;
 - (id)currentFocusedElement;
 - (id)lastScreenChange;
 - (id)currentRotorName;

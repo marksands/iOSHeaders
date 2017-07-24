@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/SFCardSection-Protocol.h>
 #import <SearchFoundation/SFJSONSerializable-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSString, SFCard, SFColor;
 
-@interface SFCardSection : NSObject <SFJSONSerializable, SFCardSection>
+@interface SFCardSection : NSObject <SFJSONSerializable, SFCardSection, NSCopying>
 {
     _Bool _hasBottomPadding;
     _Bool _canBeHidden;
@@ -27,9 +28,11 @@
     NSArray *_parameterKeyPaths;
     NSString *_cardSectionId;
     SFColor *_backgroundColor;
+    NSString *_resultIdentifier;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *resultIdentifier; // @synthesize resultIdentifier=_resultIdentifier;
 @property(retain, nonatomic) SFColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(copy, nonatomic) NSString *cardSectionId; // @synthesize cardSectionId=_cardSectionId;
 @property(copy, nonatomic) NSArray *parameterKeyPaths; // @synthesize parameterKeyPaths=_parameterKeyPaths;
@@ -44,6 +47,9 @@
 @property(retain, nonatomic) SFCard *nextCard; // @synthesize nextCard=_nextCard;
 @property(copy, nonatomic) NSString *type; // @synthesize type=_type;
 - (void).cxx_destruct;
+@property(readonly) unsigned long long hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(nonatomic) _Bool hideDivider; // @synthesize hideDivider=_hideDivider;
@@ -53,7 +59,6 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

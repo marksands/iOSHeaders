@@ -21,12 +21,12 @@
 - (void)remote_simulateDisconnect;
 - (void)remote_simulateAccept;
 - (void)remote_simulateTapWithFitnessMachineType:(unsigned long long)arg1;
-- (void)remote_forgetAllFitnessMachinesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_setActivityType:(unsigned long long)arg1;
 - (void)remote_forbidConnectionForFitnessMachineSessionUUID:(id)arg1 withConnectionUUID:(id)arg2;
 - (void)remote_permitConnectionForFitnessMachineSessionUUID:(id)arg1 withConnectionUUID:(id)arg2;
 - (void)remote_registerConnectionInitiatorClient:(id)arg1 withConnectionUUID:(id)arg2;
 - (void)remote_markClientReadyWithConnectionUUID:(id)arg1;
+- (void)remote_endFitnessMachineConnectionForFitnessMachineSessionUUID:(id)arg1 withConnectionUUID:(id)arg2;
 - (void)remote_endFitnessMachineConnectionWithUUID:(id)arg1;
 - (void)remote_registerClient:(id)arg1 withConnectionUUID:(id)arg2;
 - (void)remote_startWatchAppWithWorkoutConfiguration:(id)arg1 completion:(CDUnknownBlockType)arg2;

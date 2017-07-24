@@ -8,16 +8,14 @@
 
 #import <CalendarDaemon/NSSecureCoding-Protocol.h>
 
-@class CADObjectID, NSArray, NSMutableDictionary;
+@class CADObjectID, NSArray;
 
 @interface CADEntityWrapper : NSObject <NSSecureCoding>
 {
     int _entityType;
     int _rowID;
-    NSArray *_loadedKeys;
     NSArray *_loadedValues;
     CADObjectID *_objectID;
-    NSMutableDictionary *_loadedProperties;
     _Bool _deleted;
 }
 
@@ -25,7 +23,7 @@
 @property(readonly, nonatomic) _Bool deleted; // @synthesize deleted=_deleted;
 - (void).cxx_destruct;
 - (id)objectID;
-- (id)loadedProperties;
+- (id)loadedValues;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithCalEntity:(void *)arg1 propertiesToLoad:(id)arg2;

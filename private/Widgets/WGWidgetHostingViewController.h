@@ -99,7 +99,7 @@
 - (void)_noteOutstandingUpdateRequestForSequence:(id)arg1;
 - (void)_setLargestAvailableDisplayMode:(long long)arg1;
 - (double)_updatePreferredContentSizeWithHeight:(double)arg1;
-- (double)_validatedHeightForHeight:(double)arg1 enforcingDisplayMode:(_Bool)arg2;
+- (struct CGSize)_validatedPreferredContentSizeForHeight:(double)arg1 enforcingDisplayMode:(_Bool)arg2;
 - (double)_contentWidth;
 - (struct UIEdgeInsets)_marginInsets;
 - (struct CGSize)_maxSizeForDisplayMode:(long long)arg1;
@@ -129,6 +129,7 @@
 - (void)_packageViewWithBlock:(CDUnknownBlockType)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)_captureLayerTree:(CDUnknownBlockType)arg1;
 - (void)_invalidateSnapshotWithForce:(_Bool)arg1 removingSnapshotFilesForActiveDisplayMode:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_removeAllSnapshotFilesInActiveDisplayModeForContentSizeCategory:(id)arg1;
 - (void)_removeAllSnapshotFilesForActiveDisplayMode;
 - (void)_removeAllSnapshotFilesDueToIssue:(_Bool)arg1;
 - (void)_removeAllSnapshotFilesMatchingPredicate:(id)arg1 dueToIssue:(_Bool)arg2;
@@ -151,6 +152,7 @@
 - (void)_abortActiveSequence;
 - (void)_initiateNewSequenceIfNecessary;
 - (_Bool)_isActiveSequence:(id)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
 - (void)setPreferredContentSize:(struct CGSize)arg1;
 - (_Bool)shouldAutomaticallyForwardAppearanceMethods;

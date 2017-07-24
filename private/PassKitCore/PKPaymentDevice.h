@@ -44,7 +44,6 @@
 - (id)configurationData;
 - (id)rewrapDataWithDeviceIdentifier:(id)arg1 certificates:(id)arg2;
 - (void)signData:(id)arg1 signatureEntanglementMode:(unsigned long long)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
-- (void)trustedDeviceEnrollmentInfoWithAccountDSID:(id)arg1 sessionData:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)registrationDataWithAuthToken:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)queueConnectionToTrustedServiceManagerForPushTopic:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)dealloc;

@@ -19,6 +19,7 @@
 - (void)siriViewController:(id <SiriUIViewController>)arg1 didHideVibrantView:(UIView *)arg2;
 - (AFDataStore *)persistentDataStoreForSiriViewController:(id <SiriUIViewController>)arg1;
 - (void)cancelRequestForSiriSnippetViewController:(id <SiriUIViewController>)arg1;
+- (void)siriViewControllerDidResignFirstResponder:(id <SiriUIViewController>)arg1;
 - (void)siriViewController:(id <SiriUIViewController>)arg1 addSelectionResponse:(SAUIListItem *)arg2;
 - (SAUIListItem *)siriViewController:(id <SiriUIViewController>)arg1 listItemToPickInAutodisambiguationForListItems:(NSArray *)arg2;
 - (SiriUIDisambiguationItem *)siriViewController:(id <SiriUIViewController>)arg1 disambiguationItemForListItem:(SAUIListItem *)arg2 disambiguationKey:(NSString *)arg3;
@@ -40,7 +41,7 @@
 - (void)siriViewController:(id <SiriUIViewController>)arg1 performAceCommands:(NSArray *)arg2;
 
 @optional
-- (_Bool)siriViewControllerShouldSupportTextInput:(id <SiriUIViewController>)arg1;
+- (_Bool)inTextInputModeForSiriViewController:(id <SiriUIViewController>)arg1;
 - (void)showCorrectionScreenForSiriViewController:(id <SiriUIViewController>)arg1;
 - (_Bool)shouldEnableInteractionForSiriViewController:(id <SiriUIViewController>)arg1;
 @end

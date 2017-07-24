@@ -38,9 +38,10 @@
 - (id)URLRequestHelper;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue;
 @property(readonly, nonatomic) __weak id <AVAssetResourceLoaderDelegate> delegate;
+- (id)_getDelegateOnStateQueue;
 - (id)stateQueue;
 - (void)setDelegate:(id)arg1 queue:(id)arg2;
-- (void)setDelegate:(id)arg1;
+- (void)_setDelegateOnStateQueue:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithURLRequestHelper:(id)arg1 asset:(id)arg2;
@@ -50,8 +51,8 @@
 - (void)rejectProtectionSpaceAndContinueWithChallenge:(id)arg1;
 - (void)continueWithoutCredentialForAuthenticationChallenge:(id)arg1;
 - (void)cancelAuthenticationChallenge:(id)arg1;
-- (void)_rejectChallenge:(id)arg1 withError:(id)arg2;
 - (void)useCredential:(id)arg1 forAuthenticationChallenge:(id)arg2;
+- (void)_sendAuthResponseForChallenge:(id)arg1 disposition:(long long)arg2 credential:(id)arg3 error:(id)arg4;
 - (id)cachedContentInformationForURL:(id)arg1;
 - (void)cacheContentInformation:(id)arg1 forURL:(id)arg2;
 - (id)customURLBridge;

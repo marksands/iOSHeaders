@@ -29,6 +29,7 @@
 - (id)badgeInfoPromiseForAssetAtIndexPath:(id)arg1;
 - (id)indexPathForAssetCollection:(id)arg1;
 - (id)assetCollectionAtIndexPath:(id)arg1;
+- (id)indexPathForAssetWithIdentifier:(id)arg1;
 - (id)indexPathForAssetReference:(id)arg1;
 - (id)assetReferenceAtIndexPath:(id)arg1;
 - (long long)numberOfSubItemsAtIndexPath:(id)arg1;

@@ -6,14 +6,14 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class NSIndexPath, UITableViewCell, UITableViewDropProposal, _UITableViewDropCoordinatorImpl, _UITableViewDropPlaceholderContextImpl;
+@class NSIndexPath, UITableViewCell, UITableViewDropProposal, _UITableViewDropAnimationContainerView, _UITableViewDropCoordinatorImpl, _UITableViewDropPlaceholderContextImpl;
 @protocol UIDragSession, UIDropSession;
 
 @protocol _UITableViewDropControllerDelegate <NSObject>
 - (void)_endAnimatingDropIntoCell:(UITableViewCell *)arg1;
 - (void)_beginAnimatingDropIntoCell:(UITableViewCell *)arg1;
 - (void)_endAnimatingDropOfCell:(UITableViewCell *)arg1;
-- (void)_beginAnimatingDropOfCell:(UITableViewCell *)arg1;
+- (_UITableViewDropAnimationContainerView *)_beginAnimatingDropOfCell:(UITableViewCell *)arg1 isCanceling:(_Bool)arg2;
 - (_Bool)_commitPlaceholderInsertionWithContext:(_UITableViewDropPlaceholderContextImpl *)arg1 dataSourceUpdates:(void (^)(NSIndexPath *))arg2;
 - (NSIndexPath *)_deletePlaceholderForContext:(_UITableViewDropPlaceholderContextImpl *)arg1;
 - (NSIndexPath *)_insertPlaceholderAtIndexPath:(NSIndexPath *)arg1 withContext:(_UITableViewDropPlaceholderContextImpl *)arg2;

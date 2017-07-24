@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSArray, NSString, NSURL;
+@class NSArray, NSError, NSString, NSURL;
 
 @protocol FPUIActionExtensionViewControllerProtocol
 - (void)_setBrowserUserInterfaceStyle:(unsigned long long)arg1;
 - (void)_configureWithDomainIdentifier:(NSString *)arg1;
 - (void)_prepareAuthenticationUsingURL:(NSURL *)arg1;
-- (void)_prepareForAuthentication;
+- (void)_prepareForError:(NSError *)arg1;
 - (void)_prepareForServerCreation;
 - (void)_prepareForActionWithIdentifier:(NSString *)arg1 items:(NSArray *)arg2;
 @end

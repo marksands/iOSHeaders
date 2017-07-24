@@ -16,6 +16,7 @@
 __attribute__((visibility("hidden")))
 @interface PUPhotoPickerHostViewController : _UIRemoteViewController <PUPhotoPickerHostExtensionProvider, PUPhotoPickerActionHandler, PUPhotoPickerTestSupportHandler>
 {
+    _Bool __invalidated;
     NSExtensionContext *_hostExtensionContext;
     long long _actionType;
     NSString *_actionTypeDescription;
@@ -24,6 +25,7 @@ __attribute__((visibility("hidden")))
     PUPhotoPickerAppearance *_photoPickerAppearance;
 }
 
+@property(nonatomic, getter=_isInvalidated) _Bool _invalidated; // @synthesize _invalidated=__invalidated;
 @property(retain, nonatomic) PUPhotoPickerAppearance *photoPickerAppearance; // @synthesize photoPickerAppearance=_photoPickerAppearance;
 @property(nonatomic) __weak id <PUPhotoPickerHostViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long secondaryActionType; // @synthesize secondaryActionType=_secondaryActionType;
@@ -46,6 +48,9 @@ __attribute__((visibility("hidden")))
 - (long long)preferredStatusBarUpdateAnimation;
 - (void)performPhotoPickerPreviewOfFirstAsset;
 - (void)invalidate;
+- (void)_invalidateIfNeeded;
+- (void)didMoveToParentViewController:(id)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 
 // Remaining properties

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSSet;
+@class NSArray, NSDate, NSDictionary, NSSet;
 
 @interface PGMoodGeneratorOptions : NSObject
 {
@@ -14,10 +14,14 @@
     long long _memorySubcategory;
     NSArray *_moodHistory;
     NSSet *_momentIDs;
+    NSDate *_referenceDate;
     NSArray *_prefetchedAssets;
+    NSDictionary *_sceneIdentifiersByMomentNodeIdentifier;
 }
 
+@property(retain) NSDictionary *sceneIdentifiersByMomentNodeIdentifier; // @synthesize sceneIdentifiersByMomentNodeIdentifier=_sceneIdentifiersByMomentNodeIdentifier;
 @property(retain) NSArray *prefetchedAssets; // @synthesize prefetchedAssets=_prefetchedAssets;
+@property(retain) NSDate *referenceDate; // @synthesize referenceDate=_referenceDate;
 @property(retain) NSSet *momentIDs; // @synthesize momentIDs=_momentIDs;
 @property(retain) NSArray *moodHistory; // @synthesize moodHistory=_moodHistory;
 @property long long memorySubcategory; // @synthesize memorySubcategory=_memorySubcategory;

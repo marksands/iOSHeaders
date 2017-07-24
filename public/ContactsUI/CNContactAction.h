@@ -37,6 +37,7 @@
 @property(readonly, nonatomic) CNMutableContact *mutableContact;
 - (id)initWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 destructive:(_Bool)arg4;
 - (id)initWithContact:(id)arg1;
+- (id)init;
 
 @end
 

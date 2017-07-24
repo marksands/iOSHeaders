@@ -11,7 +11,6 @@
 @protocol PUInterfaceTheme <NSObject>
 @property(readonly, nonatomic) UIColor *slideshowMusicHeaderTextColor;
 @property(readonly, nonatomic) UIColor *slideshowMusicHeaderBackgroundColor;
-@property(readonly, nonatomic) UIImage *slideshowAirplayImage;
 @property(readonly, nonatomic) struct UIEdgeInsets slideshowSeparatorInset;
 @property(readonly, nonatomic) UIColor *slideshowSeparatorColor;
 @property(readonly, nonatomic) UIColor *slideshowChromeBarTintColor;
@@ -62,6 +61,8 @@
 @property(readonly, nonatomic) UIColor *photoEditingDepthButtonEnabledColor;
 @property(readonly, nonatomic) UIColor *photoEditingIrisDisabledColor;
 @property(readonly, nonatomic) UIColor *photoEditingIrisEnabledColor;
+@property(readonly, nonatomic) UIColor *photoEditingAutoEnhanceDisabledColor;
+@property(readonly, nonatomic) UIColor *photoEditingAutoEnhanceEnabledColor;
 @property(readonly, nonatomic) UIColor *photoEditingCropToggleButtonColor;
 @property(readonly, nonatomic) UIFont *photoEditingCropToggleButtonFont;
 @property(readonly, nonatomic) UIFont *photoEditingCropTiltWheelFont;
@@ -81,6 +82,8 @@
 @property(readonly, nonatomic) UIFont *photoEditingAdjustmentsModePickerValueFont;
 @property(readonly, nonatomic) UIFont *photoEditingAdjustmentsModePickerFont;
 @property(readonly, nonatomic) UIFont *photoEditingAdjustmentsModeLabelFont;
+@property(readonly, nonatomic) UIColor *photoEditingAdjustmentsBarOriginalPositionMarkerColor;
+@property(readonly, nonatomic) UIColor *photoEditingAdjustmentsBarCurrentPositionMarkerColor;
 @property(readonly, nonatomic) UIColor *photoEditingAdjustmentsBarDisabledColor;
 @property(readonly, nonatomic) UIColor *photoEditingAdjustmentsBarHighlightColor;
 @property(readonly, nonatomic) UIColor *photoEditingAdjustmentsBarMainColor;
@@ -198,10 +201,17 @@
 - (void)configureAlbumListSubtitleLabel:(UILabel *)arg1 asOpaque:(_Bool)arg2;
 - (void)configureAlbumListTitleLabel:(UILabel *)arg1 asOpaque:(_Bool)arg2;
 - (void)configureAlbumListTitleTextField:(UITextField *)arg1 asOpaque:(_Bool)arg2;
-- (void)configurePhotoCollectionCloudQuotaBannerTextView:(UITextView *)arg1;
+- (UIColor *)photoCollectionCloudQuotaBannerLinkTextColorHighlighted:(_Bool)arg1;
+- (UIFont *)photoCollectionCloudQuotaBannerLinkTextFont;
+- (struct NSDirectionalEdgeInsets)photoCollectionCloudQuotaBannerTextMargins;
+- (UIColor *)photoCollectionCloudQuotaBannerTextColorHighlighted:(_Bool)arg1;
+- (long long)photoCollectionCloudQuotaBannerTextAlignment;
+- (UIColor *)photoCollectionCloudQuotaBannerBackgroundColorHighlighted:(_Bool)arg1;
+- (UIFont *)photoCollectionCloudQuotaBannerFont;
 - (void)configurePhotoCollectionGlobalFooterProgressView:(UIProgressView *)arg1 paused:(_Bool)arg2;
 - (void)configurePhotoCollectionGlobalFooterSubtitleTextView:(UITextView *)arg1;
-- (NSDictionary *)photoCollectionGlobalFooterSubtitleTextViewAttributesHighlighted:(_Bool)arg1 disabled:(_Bool)arg2;
+- (NSDictionary *)photoCollectionGlobalFooterSubtitleTextViewLinkTextAttributes;
+- (NSDictionary *)photoCollectionGlobalFooterSubtitleTextViewAttributesDisabled:(_Bool)arg1;
 - (void)configurePhotoCollectionGlobalFooterSubtitleLabel:(UILabel *)arg1;
 - (void)configurePhotoCollectionGlobalFooterTitleLabel:(UILabel *)arg1;
 - (NSDictionary *)photoCollectionHeaderActionButtonAttributesForStyle:(long long)arg1;

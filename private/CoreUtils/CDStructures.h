@@ -74,6 +74,11 @@ struct in_addr {
     unsigned int s_addr;
 };
 
+struct iovec {
+    void *iov_base;
+    unsigned long long iov_len;
+};
+
 struct os_state_data_decoder_s {
     char _field1[64];
     char _field2[64];
@@ -112,4 +117,18 @@ struct sockaddr_in6 {
     struct in6_addr sin6_addr;
     unsigned int sin6_scope_id;
 };
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    unsigned char bytes[6];
+} CDStruct_83abfce7;
+
+#pragma mark Typedef'd Unions
+
+typedef union {
+    struct sockaddr sa;
+    struct sockaddr_in v4;
+    struct sockaddr_in6 v6;
+} CDUnion_fab80606;
 

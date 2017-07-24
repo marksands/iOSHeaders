@@ -6,15 +6,18 @@
 
 #import <objc/NSObject.h>
 
+#import <FileProvider/FPItemCollectionDelegate-Protocol.h>
 #import <FileProvider/NSCopying-Protocol.h>
 #import <FileProvider/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSFileProviderDomain, NSFileProviderManager, NSString, NSURL;
+@class FPItemCollection, NSArray, NSFileProviderDomain, NSFileProviderManager, NSString, NSURL;
 
-@interface FPProvider : NSObject <NSSecureCoding, NSCopying>
+@interface FPProvider : NSObject <FPItemCollectionDelegate, NSSecureCoding, NSCopying>
 {
     NSURL *_storageURL;
+    FPItemCollection *_itemCollection;
     _Bool _enabled;
+    _Bool _empty;
     _Bool _isReadOnly;
     NSString *_identifier;
     NSFileProviderDomain *_domain;
@@ -39,21 +42,30 @@
 @property(readonly, nonatomic) NSArray *supportedFileTypes; // @synthesize supportedFileTypes=_supportedFileTypes;
 @property(readonly, nonatomic) NSArray *supportedSortDescriptors; // @synthesize supportedSortDescriptors=_supportedSortDescriptors;
 @property(readonly, nonatomic) _Bool isReadOnly; // @synthesize isReadOnly=_isReadOnly;
+@property(readonly, nonatomic, getter=isEmpty) _Bool empty; // @synthesize empty=_empty;
 @property(readonly, nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(readonly, nonatomic) long long type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSString *localizedName; // @synthesize localizedName=_localizedName;
 @property(readonly, nonatomic) NSFileProviderDomain *domain; // @synthesize domain=_domain;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (void)collection:(id)arg1 didPerformBatchUpdateWithReplayBlock:(CDUnknownBlockType)arg2;
+- (void)dataForCollectionShouldBeReloaded:(id)arg1;
+- (void)collection:(id)arg1 didUpdateItemsAtIndexPaths:(id)arg2 changes:(id)arg3;
+- (void)collection:(id)arg1 didDeleteItemsAtIndexPaths:(id)arg2;
+- (void)collection:(id)arg1 didMoveItemsFromIndexPaths:(id)arg2 toIndexPaths:(id)arg3;
+- (void)collection:(id)arg1 didInsertItemsAtIndexPaths:(id)arg2;
 - (void)setEnabled:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setEnabled:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
+- (void)stopObservingIfEmpty;
+- (void)startObservingIfEmpty;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)debugDescription;
-- (id)description;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 - (id)_initWithIdentifier:(id)arg1 domain:(id)arg2 localizedName:(id)arg3 storageURL:(id)arg4 supportedFileTypes:(id)arg5 type:(long long)arg6 isReadOnly:(_Bool)arg7 isEnabled:(_Bool)arg8;
 - (id)init;
 @property(readonly, nonatomic) _Bool supportsEnumeration;
@@ -63,6 +75,9 @@
 @property(readonly, nonatomic) NSString *version;
 @property(readonly, nonatomic) NSURL *storageURL;
 - (void)setStorageURL:(id)arg1;
+
+// Remaining properties
+@property(readonly) Class superclass;
 
 @end
 

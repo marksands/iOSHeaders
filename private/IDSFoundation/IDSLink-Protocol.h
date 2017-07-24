@@ -20,5 +20,8 @@
 - (NSDictionary *)copyLinkStatsDict;
 - (NSString *)generateLinkReport:(double)arg1 isCurrentLink:(_Bool)arg2;
 - (unsigned long long)sendPacketBuffer:(CDStruct_3b17df7f *)arg1 toDeviceUniqueID:(NSString *)arg2 cbuuid:(NSString *)arg3;
+
+@optional
+- (void)start;
 @end
 

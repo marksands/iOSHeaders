@@ -14,9 +14,10 @@
 {
 }
 
+- (id)pluginManager;
 - (id)switcherView:(id)arg1 indexPathOfModelWithIdentifier:(id)arg2;
 - (id)switcherView:(id)arg1 modelAtIndexPath:(id)arg2 type:(long long *)arg3;
-- (unsigned long long)numberOfPluginsInSwitcherView:(id)arg1;
+- (unsigned long long)numberOfPluginsInSwitcherView:(id)arg1 forSection:(unsigned long long)arg2;
 - (id)init;
 
 // Remaining properties

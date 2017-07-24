@@ -14,6 +14,7 @@
     _Bool _crossfadeEnabled;
     _Bool _audioEnabled;
     _Bool _playIsSticky;
+    _Bool _longExposureVitality;
     _Bool _playDuringHint;
     _Bool _showStateOverlay;
     _Bool _prerollBeforePlaying;
@@ -55,6 +56,7 @@
 @property(nonatomic) _Bool prerollBeforePlaying; // @synthesize prerollBeforePlaying=_prerollBeforePlaying;
 @property(nonatomic) _Bool showStateOverlay; // @synthesize showStateOverlay=_showStateOverlay;
 @property(nonatomic) _Bool playDuringHint; // @synthesize playDuringHint=_playDuringHint;
+@property(nonatomic) _Bool longExposureVitality; // @synthesize longExposureVitality=_longExposureVitality;
 @property(nonatomic) _Bool playIsSticky; // @synthesize playIsSticky=_playIsSticky;
 @property(nonatomic) _Bool audioEnabled; // @synthesize audioEnabled=_audioEnabled;
 @property(nonatomic) _Bool crossfadeEnabled; // @synthesize crossfadeEnabled=_crossfadeEnabled;

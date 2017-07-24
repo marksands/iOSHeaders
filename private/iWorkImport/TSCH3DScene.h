@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSMutableArray, NSMutableDictionary, TSCH3DCamera, TSCH3DSceneObject, TSCH3DScenePropertyAccessor, TSUNoCopyDictionary;
+@class NSArray, NSMutableArray, NSMutableDictionary, TSCH3DCamera, TSCH3DSceneObject, TSCH3DScenePropertyAccessor, TSUNoCopyDictionary;
 @protocol TSCH3DSceneDelegate, TSCH3DScenePropertyAccessorFactory;
 
 __attribute__((visibility("hidden")))
@@ -60,6 +60,7 @@ __attribute__((visibility("hidden")))
 - (void)overrideObjects;
 - (void)resetObjects;
 - (id)objects;
+@property(readonly, nonatomic) NSArray *debugObjects;
 @property(retain, nonatomic) TSCH3DCamera *camera;
 @property(retain, nonatomic) TSCH3DSceneObject *main;
 @property(retain, nonatomic) NSObject<TSCH3DScenePropertyAccessorFactory> *accessorFactory;

@@ -60,6 +60,9 @@ __attribute__((visibility("hidden")))
 + (void)splitRandomSeed:(unsigned long long)arg1 intoLo:(int *)arg2 hi:(int *)arg3;
 + (unsigned long long)randomSeedFromRandomLo:(int)arg1 hi:(int)arg2;
 + (unsigned long long)generateRandomSeed;
++ (Class)resolverClass;
++ (_Bool)isTerminating;
++ (void)terminate;
 + (_Bool)localVariablesEnabled;
 @property(nonatomic) _Bool duringRollback; // @synthesize duringRollback=_duringRollback;
 @property(retain) id <TSKMultiTableRemapping> currentTableIdRemapper; // @synthesize currentTableIdRemapper=_currentTableIdRemapper;
@@ -179,11 +182,11 @@ __attribute__((visibility("hidden")))
 - (void)setError:(id)arg1 forCell:(const struct TSCECellRef *)arg2;
 - (void)removeFormulasFromRange:(struct TSCERangeRef)arg1;
 - (void)removeAllFormulasFromOwner:(const UUIDData_5fbc143e *)arg1;
-- (void)removeFormula:(CDStruct_a91f2c80)arg1 inOwner:(const UUIDData_5fbc143e *)arg2;
-- (void)replaceFormula:(CDStruct_a91f2c80)arg1 inOwner:(const UUIDData_5fbc143e *)arg2 precedentIterator:(CDUnknownFunctionPointerType)arg3 userData:(void *)arg4 calculatedRemoteDataInterest:(id)arg5 clearCycle:(_Bool)arg6;
-- (void)replaceFormula:(CDStruct_a91f2c80)arg1 inOwner:(const UUIDData_5fbc143e *)arg2 precedentIterator:(CDUnknownFunctionPointerType)arg3 userData:(void *)arg4 clearCycle:(_Bool)arg5;
-- (void)replaceFormula:(CDStruct_a91f2c80)arg1 inOwner:(const UUIDData_5fbc143e *)arg2 precedentIterator:(CDUnknownFunctionPointerType)arg3 userData:(void *)arg4;
-- (void)addFormula:(CDStruct_a91f2c80)arg1 inOwner:(const UUIDData_5fbc143e *)arg2 precedentIterator:(CDUnknownFunctionPointerType)arg3 userData:(void *)arg4;
+- (void)removeFormula:(CDStruct_ed6d627d)arg1 inOwner:(const UUIDData_5fbc143e *)arg2;
+- (void)replaceFormula:(CDStruct_ed6d627d)arg1 inOwner:(const UUIDData_5fbc143e *)arg2 precedentIterator:(CDUnknownFunctionPointerType)arg3 userData:(void *)arg4 calculatedRemoteDataInterest:(id)arg5 clearCycle:(_Bool)arg6;
+- (void)replaceFormula:(CDStruct_ed6d627d)arg1 inOwner:(const UUIDData_5fbc143e *)arg2 precedentIterator:(CDUnknownFunctionPointerType)arg3 userData:(void *)arg4 clearCycle:(_Bool)arg5;
+- (void)replaceFormula:(CDStruct_ed6d627d)arg1 inOwner:(const UUIDData_5fbc143e *)arg2 precedentIterator:(CDUnknownFunctionPointerType)arg3 userData:(void *)arg4;
+- (void)addFormula:(CDStruct_ed6d627d)arg1 inOwner:(const UUIDData_5fbc143e *)arg2 precedentIterator:(CDUnknownFunctionPointerType)arg3 userData:(void *)arg4;
 - (void)closeTransaction:(id)arg1;
 - (id)openTransaction;
 - (UUIDData_5fbc143e)uuidForTableUID:(const UUIDData_5fbc143e *)arg1 andIndex:(unsigned short)arg2 direction:(_Bool)arg3;

@@ -12,7 +12,7 @@
 #import <iTunesStoreUI/SUPreviewOverlayContainer-Protocol.h>
 #import <iTunesStoreUI/UIPopoverControllerDelegate-Protocol.h>
 
-@class ISURLRequestPerformance, NSString, SSAuthenticationContext, SSMutableURLRequestProperties, SSURLRequestProperties, SUNavigationMenuViewController, SUPageSectionGroup, SUSearchFieldController, SUSegmentedControl, SUStorePageProtocol, SUWebScriptReloadContext, UIPopoverController, _UIBackdropView;
+@class ISURLRequestPerformance, NSNumber, NSString, SSAuthenticationContext, SSMutableURLRequestProperties, SSURLRequestProperties, SUNavigationMenuViewController, SUPageSectionGroup, SUSearchFieldController, SUSegmentedControl, SUStorePageProtocol, SUWebScriptReloadContext, UIPopoverController, _UIBackdropView;
 @protocol SUStorePageViewControllerDelegate;
 
 @interface SUStorePageViewController : SUViewController <SKUITabBarItemRootViewController, SUMenuViewControllerDelegate, SUPreviewOverlayContainer, UIPopoverControllerDelegate, ISURLOperationDelegate>
@@ -107,6 +107,7 @@
 - (id)_activePageSection;
 - (id)_activeChildViewController;
 - (_Bool)_shouldDisplaySegmentedControlInNavigationBar:(id)arg1;
+- (void)_setUseWebViewFastPath:(_Bool)arg1;
 - (void)_setSegmentedControl:(id)arg1;
 - (void)_setHeaderView:(id)arg1;
 - (_Bool)_reloadWithURLRequestProperties:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
@@ -203,6 +204,9 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentage;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSamplingPercentageCachedResponses;
+@property(readonly, nonatomic) NSNumber *metricsLoadURLSessionDuration;
 @property(readonly) Class superclass;
 
 @end

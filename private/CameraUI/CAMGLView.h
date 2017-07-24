@@ -22,9 +22,11 @@
     long long _drawableHeight;
     CDUnknownBlockType _renderNotifyBlock;
     EAGLContext *__atomicContext;
+    long long __atomicContentMode;
     struct CGSize __atomicFixedSize;
 }
 
+@property(setter=_setAtomicContentMode:) long long _atomicContentMode; // @synthesize _atomicContentMode=__atomicContentMode;
 @property(nonatomic, getter=_isDisabledLayoutForGLLayerInternal, setter=_setDisableLayoutForGLLayerInternal:) _Bool _disableLayoutForGLLayerInternal; // @synthesize _disableLayoutForGLLayerInternal=__disableLayoutForGLLayerInternal;
 @property(setter=_setShouldDeleteFramebuffer:) _Bool _shouldDeleteFramebuffer; // @synthesize _shouldDeleteFramebuffer=__shouldDeleteFramebuffer;
 @property(setter=_setAtomicFixedSize:) struct CGSize _atomicFixedSize; // @synthesize _atomicFixedSize=__atomicFixedSize;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @interface VKDebugTree : NSObject
 {
@@ -20,7 +20,6 @@
 - (void)populateData;
 - (void)deactivate;
 - (void)activate:(id)arg1;
-- (id)init;
 
 @end
 

@@ -9,7 +9,7 @@
 #import <WebUI/UISearchBarDelegate-Protocol.h>
 #import <WebUI/UISearchResultsUpdating-Protocol.h>
 
-@class NSArray, NSString, UISearchController, WBUPasswordPickerViewController, _UINavigationControllerPalette;
+@class NSArray, NSString, UISearchController, WBUPasswordPickerViewController;
 
 @interface _WBUPasswordPicker : UITableViewController <UISearchBarDelegate, UISearchResultsUpdating>
 {
@@ -17,7 +17,6 @@
     NSArray *_savedPasswords;
     NSArray *_matchingPasswords;
     WBUPasswordPickerViewController *_pickerViewController;
-    _UINavigationControllerPalette *_palette;
     UISearchController *_searchController;
     NSString *_searchPattern;
     long long _sectionForPrompt;
@@ -36,7 +35,6 @@
 - (void)tableView:(id)arg1 accessoryButtonTappedForRowWithIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 titleForFooterInSection:(long long)arg2;
@@ -46,7 +44,6 @@
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (id)initWithPasswordPickerViewController:(id)arg1;
 

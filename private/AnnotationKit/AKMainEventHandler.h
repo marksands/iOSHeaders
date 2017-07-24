@@ -24,6 +24,10 @@
     unsigned long long _currentModifierFlags;
     AKPageController *_dragPageController;
     AKAlignmentGuideController *_dragAlignmentGuideController;
+    double _draggedAnnotationsMaxLeftEdge;
+    double _draggedAnnotationsMinRightEdge;
+    double _draggedAnnotationsMaxBottomEdge;
+    double _draggedAnnotationsMinTopEdge;
     UIEvent *_lastEventWithValidLocationForAutoscroll;
     UIEvent *_lastLeftMouseDownEvent;
     AKAnnotation *_annotationToBeginEditingOnDragEnd;
@@ -46,6 +50,10 @@
 @property _Bool wasSelectedByLongPressRecognizer; // @synthesize wasSelectedByLongPressRecognizer=_wasSelectedByLongPressRecognizer;
 @property(retain) UIEvent *lastLeftMouseDownEvent; // @synthesize lastLeftMouseDownEvent=_lastLeftMouseDownEvent;
 @property(retain) UIEvent *lastEventWithValidLocationForAutoscroll; // @synthesize lastEventWithValidLocationForAutoscroll=_lastEventWithValidLocationForAutoscroll;
+@property double draggedAnnotationsMinTopEdge; // @synthesize draggedAnnotationsMinTopEdge=_draggedAnnotationsMinTopEdge;
+@property double draggedAnnotationsMaxBottomEdge; // @synthesize draggedAnnotationsMaxBottomEdge=_draggedAnnotationsMaxBottomEdge;
+@property double draggedAnnotationsMinRightEdge; // @synthesize draggedAnnotationsMinRightEdge=_draggedAnnotationsMinRightEdge;
+@property double draggedAnnotationsMaxLeftEdge; // @synthesize draggedAnnotationsMaxLeftEdge=_draggedAnnotationsMaxLeftEdge;
 @property struct CGPoint lastDragActualLocationInWindow; // @synthesize lastDragActualLocationInWindow=_lastDragActualLocationInWindow;
 @property struct CGPoint lastDragActualLocation; // @synthesize lastDragActualLocation=_lastDragActualLocation;
 @property struct CGPoint lastDragPoint; // @synthesize lastDragPoint=_lastDragPoint;
@@ -68,6 +76,7 @@
 - (void)_updateSelectionWithAnnotation:(id)arg1 onPageController:(id)arg2;
 - (_Bool)_didNotHandleEventSoDeselect;
 - (void)_setCurrentPageBasedOnPageController:(id)arg1;
+- (struct CGPoint)_modelPointFromPointInWindow:(struct CGPoint)arg1 usingPageController:(id)arg2;
 - (void)applyToAllSelectedAnnotationsRotateEvent:(id)arg1 orRecognizer:(id)arg2;
 - (void)finishTranslationOfAllSelectedAnnotations;
 - (void)applyTranslationToAllSelectedAnnotations:(struct CGPoint)arg1;

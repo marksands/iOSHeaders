@@ -8,23 +8,23 @@
 
 #import <PhotosUICore/PXPhotoLibraryUIChangeObserver-Protocol.h>
 
-@class NSArray, NSString;
-@protocol OS_dispatch_queue, PXPeopleSectionedDataSourceDelegate;
+@class NSArray, NSHashTable, NSString;
+@protocol OS_dispatch_queue;
 
 @interface PXPeopleSectionedDataSource : NSObject <PXPhotoLibraryUIChangeObserver>
 {
-    id <PXPeopleSectionedDataSourceDelegate> _delegate;
     NSString *_localizedTitle;
     NSArray *_dataSources;
     NSObject<OS_dispatch_queue> *_reloadQueue;
     id _pauseToken;
+    NSHashTable *_changeObservers;
 }
 
+@property(retain, nonatomic) NSHashTable *changeObservers; // @synthesize changeObservers=_changeObservers;
 @property(retain, nonatomic) id pauseToken; // @synthesize pauseToken=_pauseToken;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *reloadQueue; // @synthesize reloadQueue=_reloadQueue;
 @property(readonly, copy, nonatomic) NSArray *dataSources; // @synthesize dataSources=_dataSources;
 @property(copy, nonatomic) NSString *localizedTitle; // @synthesize localizedTitle=_localizedTitle;
-@property(nonatomic) __weak id <PXPeopleSectionedDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (unsigned long long)_fetchTypeForPersonType:(long long)arg1;
 - (long long)_sectionForFetchType:(unsigned long long)arg1;
@@ -41,13 +41,16 @@
 - (void)resumeListeningForChanges;
 - (void)pauseListeningForChangesWithTimeout:(double)arg1;
 - (void)stopListeningToLibraryNotifications;
+- (void)startListeningToLibraryNotifications;
 - (void)loadAndStartListeningToLibraryNotifications;
-- (void)_loadObjectsAndUpdateMembersWithCompletion:(CDUnknownBlockType)arg1;
+- (void)removeChangeObserver:(id)arg1;
+- (void)addChangeObserver:(id)arg1;
 - (void)reloadFromDatabase;
 - (id)indexPathForInsertingMember:(id)arg1 intoSection:(long long)arg2;
 - (void)changeMembersAtIndexPaths:(id)arg1 toPersonType:(long long)arg2 changeDetailsBlock:(CDUnknownBlockType)arg3;
 - (void)moveMemberAtIndexPath:(id)arg1 toIndexPath:(id)arg2 shouldUpdateImmediately:(_Bool)arg3;
 - (id)indexPathOfMember:(id)arg1;
+- (id)allMembers;
 - (unsigned long long)totalMemberCount;
 - (unsigned long long)photoQuantityAtIndexPath:(id)arg1;
 - (id)titleAtIndexPath:(id)arg1;

@@ -15,16 +15,17 @@
     IKViewElement *_cardElement;
     IKTextElement *_textElement;
     IKImageElement *_imageElement;
+    double _preferredHeight;
     UIView *_cardView;
     _TVImageView *_tvImageView;
     _TVLabel *_tvLabel;
 }
 
-+ (double)cellHeightForTraitCollection:(id)arg1;
 @property(retain, nonatomic) _TVLabel *tvLabel; // @synthesize tvLabel=_tvLabel;
 @property(retain, nonatomic) _TVImageView *tvImageView; // @synthesize tvImageView=_tvImageView;
 @property(retain, nonatomic) UIView *cardView; // @synthesize cardView=_cardView;
 @property(nonatomic, getter=isImageLoaded) _Bool imageLoaded; // @synthesize imageLoaded=_imageLoaded;
+@property(nonatomic) double preferredHeight; // @synthesize preferredHeight=_preferredHeight;
 @property(retain, nonatomic) IKImageElement *imageElement; // @synthesize imageElement=_imageElement;
 @property(retain, nonatomic) IKTextElement *textElement; // @synthesize textElement=_textElement;
 @property(retain, nonatomic) IKViewElement *cardElement; // @synthesize cardElement=_cardElement;

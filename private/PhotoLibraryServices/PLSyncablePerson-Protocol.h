@@ -16,6 +16,8 @@
 @property(readonly, nonatomic) _Bool userVerified;
 @property(retain, nonatomic) NSString *fullName;
 @property(retain, nonatomic) NSString *personUUID;
+- (NSString *)syncDescription;
+- (NSString *)pointerDescription;
 - (void)setKeyFaceToPicked;
 @end
 

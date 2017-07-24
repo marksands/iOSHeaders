@@ -7,6 +7,8 @@
 #import <NanoRegistry/NRDevice.h>
 
 @interface NRDevice (VersionFactories)
++ (_Bool)activePairedDeviceSupportsDNDAssertionSync;
++ (_Bool)activePairedDeviceSupportsAddBulletinReplyToken;
 + (_Bool)activePairedDeviceSupportsMultiplteAttachments;
 + (_Bool)activePairedDeviceSupportsNSNullPListExtenion;
 + (_Bool)activePairedDeviceSupportsAttachmentFiles;

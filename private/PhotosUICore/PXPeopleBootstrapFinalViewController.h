@@ -14,14 +14,17 @@
 @interface PXPeopleBootstrapFinalViewController : UIViewController <PXPeopleFlowViewController>
 {
     id _context;
-    UILabel *_label;
+    UILabel *_promptLabel;
+    UILabel *_descriptionLabel;
 }
 
-@property(readonly, nonatomic) __weak UILabel *label; // @synthesize label=_label;
+@property(readonly, nonatomic) __weak UILabel *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
+@property(readonly, nonatomic) __weak UILabel *promptLabel; // @synthesize promptLabel=_promptLabel;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) struct CGSize preferredSize;
 - (id)_localizedTitleString;
+- (id)_localizedDescriptionString;
 - (id)_localizedPromptString;
 - (void)_updateNavigationBarForCurrentTraitCollection;
 @property(readonly, nonatomic) PXPeopleBootstrapContext *bootstrapContext;

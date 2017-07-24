@@ -192,6 +192,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) long long aggregateReadabilityForDocumentResources;
 - (void)enumerateDocumentResourcesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)documentResourceDataForDigestString:(id)arg1 locator:(id)arg2 filename:(id)arg3 canDownload:(_Bool)arg4;
+- (void)updateAdditionalResourceRequests;
 - (id)performResourceAccessUsingQueue:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)conditionallyPerformResourceAccessUsingQueue:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (_Bool)areExternalReferencesToDataAllowedAtURL:(id)arg1;
@@ -232,7 +233,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long documentDataSize;
 - (unsigned long long)documentObjectSize;
 @property(readonly, nonatomic) unsigned long long documentSize;
-- (unsigned long long)estimatedProgressTotalUnitCountForPackageType:(long long)arg1;
+- (unsigned long long)estimatedProgressTotalUnitCountForURL:(id)arg1 packageType:(long long)arg2;
+- (_Bool)copyIfAppropriateFromOriginalURL:(id)arg1 toURL:(id)arg2 apfsMode:(_Bool)arg3 originalPackage:(id)arg4 packageType:(long long)arg5;
+- (_Bool)shouldUseAPFSModeToWriteToURL:(id)arg1 originalURL:(id)arg2;
 @property(readonly, nonatomic) long long packageType;
 @property(readonly, nonatomic) TSPDocumentProperties *documentProperties;
 @property(readonly, nonatomic) NSString *passphraseHint;

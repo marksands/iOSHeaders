@@ -9,7 +9,7 @@
 #import <MapsSupport/MSPContainerObserver-Protocol.h>
 #import <MapsSupport/MSPQuerySourceObserver-Protocol.h>
 
-@class MSPContainer, NSArray, NSHashTable, NSMapTable, NSString;
+@class MSPContainer, NSHashTable, NSString, _MSPQueryState;
 
 __attribute__((visibility("hidden")))
 @interface MSPQuerySource : NSObject <MSPContainerObserver, MSPQuerySourceObserver>
@@ -19,19 +19,19 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _mappingBlock;
     CDUnknownBlockType _preprocessingBlock;
     NSHashTable *_observers;
-    NSArray *_lastContents;
-    NSArray *_lastUnmappedContents;
-    NSMapTable *_lastUnmappedContentsMap;
+    _MSPQueryState *_state;
 }
 
 - (void).cxx_destruct;
+- (id)newEditableQuery;
 - (id)newQuery;
 - (id)sourceByMappingContentsUsingPreprocessingBlock:(CDUnknownBlockType)arg1 mappingBlock:(CDUnknownBlockType)arg2;
 - (id)sourceByMappingContentsUsingBlock:(CDUnknownBlockType)arg1;
-- (void)_didChangeSourceWithContents:(id)arg1 unmappedContents:(id)arg2 map:(id)arg3 forContext:(id)arg4;
+- (void)_didChangeSourceWithNewState:(id)arg1 context:(id)arg2 inContainer:(id)arg3;
 - (void)_didReceiveContainerContents:(id)arg1 context:(id)arg2;
 - (void)container:(id)arg1 didEditWithNewContents:(id)arg2 orderedEdits:(id)arg3 cause:(long long)arg4 context:(id)arg5;
 - (void)_removeObserver:(id)arg1;
+- (id)_container;
 - (void)_addObserver:(id)arg1;
 - (id)_initWithParentSource:(id)arg1 preprocessingBlock:(CDUnknownBlockType)arg2 mappingBlock:(CDUnknownBlockType)arg3;
 - (id)_initWithOwningContainer:(id)arg1;

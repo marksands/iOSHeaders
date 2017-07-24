@@ -22,9 +22,10 @@
 @property(nonatomic) __weak id <AFUIDisambiguationAnalyticsManagerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (id)_allListItems;
-- (id)listItemMatchingText:(id)arg1;
+- (id)_listItemMatchingAceId:(id)arg1;
+- (void)_logDisambiguationSelectedEventWithListItem:(id)arg1;
 - (void)logDisambiguationDismissedEvent;
-- (void)logDisambiguationSelectedEventWithListItem:(id)arg1;
+- (void)logDisambiguationItemSelected:(id)arg1;
 
 @end
 

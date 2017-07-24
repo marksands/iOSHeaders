@@ -48,6 +48,7 @@
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)layoutSubviews;
 - (void)handleTextSizeChange:(id)arg1;
+- (void)updateLabelAdjustFontSize;
 - (void)_configureFonts;
 - (id)initWithFrame:(struct CGRect)arg1;
 

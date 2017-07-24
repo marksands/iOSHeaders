@@ -47,7 +47,6 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)categoryIdentifierForCategory:(id)arg1;
 @property(retain, nonatomic) HMDAccessoryTransaction *transaction; // @synthesize transaction=_transaction;
 @property(retain, nonatomic) HMDApplicationRegistry *appRegistry; // @synthesize appRegistry=_appRegistry;
 @property(nonatomic) unsigned long long configNumber; // @synthesize configNumber=_configNumber;

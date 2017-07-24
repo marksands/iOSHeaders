@@ -33,6 +33,7 @@
 @property(nonatomic) _Bool normalizedCoordinates; // @dynamic normalizedCoordinates;
 @property(nonatomic) unsigned long long rAddressMode; // @dynamic rAddressMode;
 @property(nonatomic) unsigned long long sAddressMode; // @dynamic sAddressMode;
+@property(nonatomic) _Bool supportArgumentBuffers; // @dynamic supportArgumentBuffers;
 @property(nonatomic) unsigned long long tAddressMode; // @dynamic tAddressMode;
 
 @end

@@ -11,7 +11,7 @@
 #import <CloudKitDaemon/CKDProtobufMessageSigningDelegate-Protocol.h>
 #import <CloudKitDaemon/CKDZoneGatekeeperWaiter-Protocol.h>
 
-@class C2RequestOptions, CKDClientContext, CKDOperation, CKDOperationMetrics, CKDProtobufStreamWriter, CKDProtocolTranslator, CKDResponseBodyParser, CKDTrafficLogger, CKTimeLogger, NSArray, NSData, NSDate, NSDictionary, NSError, NSHTTPURLResponse, NSInputStream, NSMutableArray, NSMutableData, NSMutableDictionary, NSNumber, NSString, NSURL, NSURLRequest, NSURLSession, NSURLSessionDataTask;
+@class C2RequestOptions, CKDClientContext, CKDOperation, CKDOperationMetrics, CKDProtobufStreamWriter, CKDProtocolTranslator, CKDResponseBodyParser, CKDTrafficLogger, CKTimeLogger, NSArray, NSData, NSDate, NSDictionary, NSError, NSHTTPURLResponse, NSInputStream, NSMutableArray, NSMutableDictionary, NSMutableSet, NSNumber, NSString, NSURL, NSURLRequest, NSURLSession, NSURLSessionDataTask;
 @protocol CKDAccountInfoProvider, CKDURLRequestAuthRetryDelegate, CKDURLRequestMetricsDelegate, OS_dispatch_queue, OS_os_activity, OS_voucher;
 
 __attribute__((visibility("hidden")))
@@ -29,14 +29,10 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _requestProgressBlock;
     CDUnknownBlockType _responseProgressBlock;
     CDUnknownBlockType _completionBlock;
-    NSMutableDictionary *_overriddenHeaders;
-    NSMutableArray *_redirectHistory;
     NSData *_fakeResponseData;
     _Bool _haveParsedFakeResponseData;
     CKDProtobufStreamWriter *_streamWriter;
     struct CC_SHA256state_st _mescalTxSignature;
-    struct CC_SHA256state_st _mescalRxSignature;
-    NSMutableData *_receivedMescalData;
     NSObject<OS_os_activity> *_osActivity;
     NSObject<OS_os_activity> *_transmissionActivity;
     _Bool _needsAuthRetry;
@@ -58,13 +54,13 @@ __attribute__((visibility("hidden")))
     NSArray *_requestOperations;
     NSDictionary *_fakeResponseOperationResultByItemID;
     NSError *_error;
-    NSObject<OS_dispatch_queue> *_sessionCallbackQueue;
-    NSObject<OS_dispatch_queue> *_callbackQueue;
+    NSObject<OS_dispatch_queue> *_lifecycleQueue;
     NSURLSessionDataTask *_urlSessionTask;
     C2RequestOptions *_c2RequestOptions;
     NSURLRequest *_request;
     NSHTTPURLResponse *_response;
     NSURLSession *_urlSession;
+    NSMutableSet *_responseObjectUUIDs;
     CKDTrafficLogger *_trafficLogger;
     NSString *_deviceID;
     unsigned long long _numDownloadedElements;
@@ -77,8 +73,12 @@ __attribute__((visibility("hidden")))
     NSString *_cloudKitAuthToken;
     NSString *_serverProvidedAutoBugCaptureReason;
     NSMutableDictionary *_countsByRequestOperationType;
+    NSMutableDictionary *_overriddenHeaders;
+    NSMutableArray *_redirectHistory;
 }
 
+@property(retain, nonatomic) NSMutableArray *redirectHistory; // @synthesize redirectHistory=_redirectHistory;
+@property(retain, nonatomic) NSMutableDictionary *overriddenHeaders; // @synthesize overriddenHeaders=_overriddenHeaders;
 @property(retain, nonatomic) NSMutableDictionary *countsByRequestOperationType; // @synthesize countsByRequestOperationType=_countsByRequestOperationType;
 @property(copy, nonatomic) NSString *serverProvidedAutoBugCaptureReason; // @synthesize serverProvidedAutoBugCaptureReason=_serverProvidedAutoBugCaptureReason;
 @property(nonatomic) _Bool didReceiveResponseBodyData; // @synthesize didReceiveResponseBodyData=_didReceiveResponseBodyData;
@@ -96,13 +96,13 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long numDownloadedElements; // @synthesize numDownloadedElements=_numDownloadedElements;
 @property(copy, nonatomic) NSString *deviceID; // @synthesize deviceID=_deviceID;
 @property(retain, nonatomic) CKDTrafficLogger *trafficLogger; // @synthesize trafficLogger=_trafficLogger;
+@property(retain, nonatomic) NSMutableSet *responseObjectUUIDs; // @synthesize responseObjectUUIDs=_responseObjectUUIDs;
 @property(retain) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
 @property(retain) NSHTTPURLResponse *response; // @synthesize response=_response;
 @property(retain) NSURLRequest *request; // @synthesize request=_request;
 @property(retain) C2RequestOptions *c2RequestOptions; // @synthesize c2RequestOptions=_c2RequestOptions;
 @property(retain) NSURLSessionDataTask *urlSessionTask; // @synthesize urlSessionTask=_urlSessionTask;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_callbackQueue;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *sessionCallbackQueue; // @synthesize sessionCallbackQueue=_sessionCallbackQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *lifecycleQueue; // @synthesize lifecycleQueue=_lifecycleQueue;
 @property _Bool isHandlingAuthRetry; // @synthesize isHandlingAuthRetry=_isHandlingAuthRetry;
 @property _Bool isWaitingOnAuthRenew; // @synthesize isWaitingOnAuthRenew=_isWaitingOnAuthRenew;
 @property _Bool needsAuthRetry; // @synthesize needsAuthRetry=_needsAuthRetry;
@@ -132,9 +132,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) int isolationLevel;
 @property(readonly, nonatomic) NSURL *lastRedirectURL;
 @property(readonly, nonatomic) NSDictionary *responseHeaders;
-- (void)_handleMescalSignatureResponse:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)_addResponseHeadersToReceivedSignature:(id)arg1;
-- (void)updateSignatureWithReceivedBytes:(id)arg1;
 - (void)generateSignature:(CDUnknownBlockType)arg1;
 - (void)_addRequestHeadersToTransmittedSignature:(id)arg1;
 - (void)updateSignatureWithTransmittedBytes:(id)arg1;
@@ -152,14 +149,16 @@ __attribute__((visibility("hidden")))
 - (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveResponse:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)URLSession:(id)arg1 task:(id)arg2 didReceiveChallenge:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)URLSession:(id)arg1 task:(id)arg2 willPerformHTTPRedirection:(id)arg3 newRequest:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
-- (void)performOnCallbackQueueIfNotFinished:(CDUnknownBlockType)arg1;
+- (void)performASyncOnLifecycleQueueIfNotFinished:(CDUnknownBlockType)arg1;
+- (void)performOnLifecycleQueueIfNotFinished:(CDUnknownBlockType)arg1;
 - (void)tearDownResourcesAndReleaseTheZoneLocks;
 - (void)tearDownResources;
 - (void)_tearDownStreamWriter;
 - (_Bool)markAsFinished;
 @property(readonly) _Bool isFinished;
 - (void)_triggerAutoBugCaptureWithErrorPayload:(id)arg1;
-- (void)_finishOnCallbackQueueWithError:(id)arg1;
+- (void)_finishOnLifecycleQueueWithError:(id)arg1;
+- (id)_wrapErrorIfNecessary:(id)arg1;
 - (void)finishWithError:(id)arg1;
 - (void)cancel;
 - (void)_loadRequest:(id)arg1;
@@ -250,7 +249,7 @@ __attribute__((visibility("hidden")))
 - (id)CKDescriptionPropertiesWithPublic:(_Bool)arg1 private:(_Bool)arg2 shouldExpand:(_Bool)arg3;
 - (id)ckShortDescription;
 @property(readonly, nonatomic) _Bool usesBackgroundSession;
-- (_Bool)_onCallbackQueue;
+- (_Bool)_onLifecycleQueue;
 - (void)dealloc;
 - (id)init;
 

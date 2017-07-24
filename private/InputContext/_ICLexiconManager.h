@@ -33,6 +33,7 @@
 @property int namedEntityLoadState; // @synthesize namedEntityLoadState=_namedEntityLoadState;
 @property int contactLoadState; // @synthesize contactLoadState=_contactLoadState;
 - (void).cxx_destruct;
+- (int)debugEntityLoadState;
 - (unsigned long long)getContactCount;
 - (void)printLexiconToNSLog:(struct _LXLexicon *)arg1;
 - (void)doLoadLexicon;

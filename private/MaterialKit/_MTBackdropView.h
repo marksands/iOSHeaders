@@ -11,14 +11,17 @@
 @interface _MTBackdropView : UIView
 {
     NSString *_luminanceColorMapName;
+    _Bool _preservesFiltersAtZero;
     UIColor *_colorMatrixColor;
     UIColor *_colorAddColor;
 }
 
 + (Class)layerClass;
+@property(nonatomic, getter=_preservesFiltersAtZero, setter=_setPreservesFiltersAtZero:) _Bool preservesFiltersAtZero; // @synthesize preservesFiltersAtZero=_preservesFiltersAtZero;
 @property(copy, nonatomic) UIColor *colorAddColor; // @synthesize colorAddColor=_colorAddColor;
 @property(copy, nonatomic) UIColor *colorMatrixColor; // @synthesize colorMatrixColor=_colorMatrixColor;
 - (void).cxx_destruct;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (id)_backdropLayer;
 - (void)_setFloatValue:(double)arg1 forFilterOfType:(id)arg2 valueKey:(id)arg3 configurationBlock:(CDUnknownBlockType)arg4;
 - (void)_setValue:(id)arg1 forFilterOfType:(id)arg2 valueKey:(id)arg3 configurationBlock:(CDUnknownBlockType)arg4;

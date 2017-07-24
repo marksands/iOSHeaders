@@ -9,11 +9,10 @@
 #import <GeoServices/GEOResourceManifestTileGroupObserver-Protocol.h>
 #import <GeoServices/GEOTileRequesterDelegate-Protocol.h>
 
-@class GEOVoltaireSimpleTileRequester, NSMutableArray, NSString, NSThread, NSTimer;
+@class GEOVoltaireSimpleTileRequester, NSMutableArray, NSString, NSTimer;
 
 @interface GEOVoltaireTileRequester : GEOTileRequester <GEOTileRequesterDelegate, GEOResourceManifestTileGroupObserver>
 {
-    NSThread *_startThread;
     NSTimer *_activeTileGroupTimeoutTimer;
     NSMutableArray *_errors;
     GEOVoltaireSimpleTileRequester *_simpleRequester;

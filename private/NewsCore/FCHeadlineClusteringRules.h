@@ -21,11 +21,13 @@
     unsigned long long _maxIdealClusterSizeAutoFavorite;
     unsigned long long _optimizedLayoutSizeThreshold;
     unsigned long long _optimizedLayoutIncrementUnit;
+    double _minSubscribedChannelRatioForUGroup;
     FCSolConfiguration *_solConfiguration;
 }
 
 + (id)rulesWithTreatment:(id)arg1 deviceIsiPad:(_Bool)arg2;
 @property(retain, nonatomic) FCSolConfiguration *solConfiguration; // @synthesize solConfiguration=_solConfiguration;
+@property(readonly, nonatomic) double minSubscribedChannelRatioForUGroup; // @synthesize minSubscribedChannelRatioForUGroup=_minSubscribedChannelRatioForUGroup;
 @property(readonly, nonatomic) unsigned long long optimizedLayoutIncrementUnit; // @synthesize optimizedLayoutIncrementUnit=_optimizedLayoutIncrementUnit;
 @property(readonly, nonatomic) unsigned long long optimizedLayoutSizeThreshold; // @synthesize optimizedLayoutSizeThreshold=_optimizedLayoutSizeThreshold;
 @property(readonly, nonatomic) _Bool enableOptimizedLayout; // @synthesize enableOptimizedLayout=_enableOptimizedLayout;
@@ -39,7 +41,7 @@
 @property(readonly, nonatomic) unsigned long long minClusterSize; // @synthesize minClusterSize=_minClusterSize;
 - (void).cxx_destruct;
 - (id)init;
-- (id)initWithMinClusterSize:(unsigned long long)arg1 maxClusterSize:(unsigned long long)arg2 minIdealClusterSize:(unsigned long long)arg3 maxIdealClusterSize:(unsigned long long)arg4 minClusterSizeAutoFavorite:(unsigned long long)arg5 maxClusterSizeAutoFavorite:(unsigned long long)arg6 minIdealClusterSizeAutoFavorite:(unsigned long long)arg7 maxIdealClusterSizeAutoFavorite:(unsigned long long)arg8 enableOptimizedLayout:(_Bool)arg9 optimizedLayoutSizeThreshold:(unsigned long long)arg10 optimizedLayoutIncrementUnit:(unsigned long long)arg11 solConfiguration:(id)arg12;
+- (id)initWithMinClusterSize:(unsigned long long)arg1 maxClusterSize:(unsigned long long)arg2 minIdealClusterSize:(unsigned long long)arg3 maxIdealClusterSize:(unsigned long long)arg4 minClusterSizeAutoFavorite:(unsigned long long)arg5 maxClusterSizeAutoFavorite:(unsigned long long)arg6 minIdealClusterSizeAutoFavorite:(unsigned long long)arg7 maxIdealClusterSizeAutoFavorite:(unsigned long long)arg8 enableOptimizedLayout:(_Bool)arg9 optimizedLayoutSizeThreshold:(unsigned long long)arg10 optimizedLayoutIncrementUnit:(unsigned long long)arg11 solConfiguration:(id)arg12 minSubscribedChannelRatioForUGroup:(double)arg13;
 
 @end
 

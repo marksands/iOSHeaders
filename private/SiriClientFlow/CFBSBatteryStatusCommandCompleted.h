@@ -14,7 +14,7 @@
 {
 }
 
-+ (id)newAceObjectWithDictionary:(id)arg1 context:(id)arg2;
++ (id)aceObjectWithDictionary:(id)arg1 context:(id)arg2;
 + (id)commandWithDictionary:(id)arg1 context:(id)arg2;
 + (id)command;
 - (_Bool)requiresResponse;

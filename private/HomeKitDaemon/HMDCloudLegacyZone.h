@@ -23,6 +23,7 @@
 @property(retain, nonatomic) HMDCloudGroup *rootGroup; // @synthesize rootGroup=_rootGroup;
 - (void).cxx_destruct;
 - (void)flushServerTokenToDisk;
+- (void)setSubscription:(id)arg1;
 - (id)subscriptionName;
 
 @end

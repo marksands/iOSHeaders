@@ -27,7 +27,6 @@
         _Bool respondsToDidChangeShowingPlayPauseButton;
         _Bool respondsToDidTapPlayPauseButton;
         _Bool respondsToDidTapTitle;
-        _Bool respondsToIsAccessoryAvailableForAssetReference;
         _Bool respondsToToggleDetailsVisibility;
         _Bool respondsToToggleCommentsVisibility;
         _Bool respondsToCanShowCommentsForAsset;
@@ -52,6 +51,7 @@
     _Bool __lastChromeVisibility;
     PUBrowsingSession *_browsingSession;
     double _maximumToolbarHeight;
+    double _maximumAccessoryToolbarHeight;
     NSString *__scrubbingIdentifier;
     PUAssetActionPerformer *__activeActionPerformer;
     PUScrubberView *__scrubberView;
@@ -98,6 +98,7 @@
 @property(nonatomic) _Bool shouldShowScrubber; // @synthesize shouldShowScrubber=_shouldShowScrubber;
 @property(nonatomic) _Bool shouldShowAirPlayButton; // @synthesize shouldShowAirPlayButton=_shouldShowAirPlayButton;
 @property(nonatomic) _Bool shouldShowDoneButton; // @synthesize shouldShowDoneButton=_shouldShowDoneButton;
+@property(nonatomic) double maximumAccessoryToolbarHeight; // @synthesize maximumAccessoryToolbarHeight=_maximumAccessoryToolbarHeight;
 @property(nonatomic) double maximumToolbarHeight; // @synthesize maximumToolbarHeight=_maximumToolbarHeight;
 @property(nonatomic) _Bool shouldUseCompactCommentsTitle; // @synthesize shouldUseCompactCommentsTitle=_shouldUseCompactCommentsTitle;
 @property(nonatomic) _Bool shouldUseCompactTitleView; // @synthesize shouldUseCompactTitleView=_shouldUseCompactTitleView;
@@ -143,7 +144,6 @@
 - (void)_performShareAction;
 - (void)_performEditAction;
 - (void)_performLikeAction:(_Bool)arg1;
-- (void)_performToggleDetailsAction;
 - (void)_handleAssetViewModelBeginEditingTimer:(id)arg1;
 - (void)_performToggleCommentsAction;
 - (void)_performPlayPauseAction:(long long)arg1;

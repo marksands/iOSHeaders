@@ -6,7 +6,7 @@
 
 #import <CoreImage/CIFilter.h>
 
-@class AVCameraCalibrationData, CIImage, CIVector, NSDictionary, NSNumber;
+@class AVCameraCalibrationData, CIImage, CIVector, NSNumber;
 
 __attribute__((visibility("hidden")))
 @interface CIDepthBlurEffect : CIFilter
@@ -22,11 +22,11 @@ __attribute__((visibility("hidden")))
     NSNumber *inputLumaNoiseScale;
     NSNumber *inputScaleFactor;
     AVCameraCalibrationData *inputCalibrationData;
-    NSDictionary *inputTuningParameters;
+    id inputAuxDataMetadata;
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSDictionary *inputTuningParameters; // @synthesize inputTuningParameters;
+@property(retain, nonatomic) id inputAuxDataMetadata; // @synthesize inputAuxDataMetadata;
 @property(copy, nonatomic) AVCameraCalibrationData *inputCalibrationData; // @synthesize inputCalibrationData;
 @property(retain, nonatomic) NSNumber *inputScaleFactor; // @synthesize inputScaleFactor;
 @property(retain, nonatomic) CIVector *inputFocusRect; // @synthesize inputFocusRect;
@@ -39,6 +39,8 @@ __attribute__((visibility("hidden")))
 @property(retain) CIImage *inputDisparityImage; // @synthesize inputDisparityImage;
 @property(retain) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
+- (id)_getFocusRect:(id)arg1 focusRect:(id)arg2;
+- (float)_getSimulatedAperture:(id)arg1 auxMetaData:(struct CGImageMetadata *)arg2;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 
 @end

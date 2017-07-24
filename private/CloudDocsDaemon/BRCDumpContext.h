@@ -22,8 +22,10 @@
     brc_task_tracker *_taskTracker;
 }
 
++ (id)stringFromCount:(long long)arg1 context:(id)arg2;
 + (id)stringFromByteCount:(long long)arg1 context:(id)arg2;
 + (id)stringFromByteCount:(long long)arg1 showActualByteCount:(_Bool)arg2 suffix:(id)arg3 context:(id)arg4;
++ (id)stringFromCount:(long long)arg1 showActualCount:(_Bool)arg2 suffix:(id)arg3 isByteCount:(_Bool)arg4 context:(id)arg5;
 + (id)stringFromInterval:(double)arg1 context:(id)arg2;
 + (id)stringFromDueStamp:(long long)arg1 allowsPast:(_Bool)arg2 context:(id)arg3;
 + (id)stringFromDueDate:(id)arg1 allowsPast:(_Bool)arg2 context:(id)arg3;

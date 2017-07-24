@@ -19,6 +19,11 @@ struct _populate_text_features_ctx {
     double _field4;
     double _field5;
     unsigned int _field6;
+    char *_field7;
+    char *_field8;
+    _Bool _field9;
+    unsigned long long _field10;
+    unsigned long long _field11;
 };
 
 struct _resultset_computation_ctx {
@@ -32,11 +37,16 @@ struct _resultset_computation_ctx {
     double _field8[44];
 };
 
-struct model_resource_header {
+struct prs_model_resource_header {
     unsigned int _field1;
     unsigned int _field2;
     char _field3[16];
     unsigned char _field4[0];
+};
+
+struct ranking_index_score_t {
+    unsigned long long lsb;
+    unsigned long long msb;
 };
 
 #pragma mark Typedef'd Structures

@@ -19,7 +19,6 @@
     _Bool _containsCJK;
     _Bool _tracksMaximumContentLength;
     _Bool _updatedTitleRange;
-    _Bool _shouldFilterAttachmentsOnWebViewDidChange;
     id <NoteContentLayerDelegate> _delegate;
     NoteTextView *_textView;
     NSLayoutConstraint *_bottomMarginConstraint;
@@ -33,7 +32,6 @@
     NoteDateLabel *_dateLabel;
 }
 
-@property(nonatomic) _Bool shouldFilterAttachmentsOnWebViewDidChange; // @synthesize shouldFilterAttachmentsOnWebViewDidChange=_shouldFilterAttachmentsOnWebViewDidChange;
 @property(nonatomic) _Bool updatedTitleRange; // @synthesize updatedTitleRange=_updatedTitleRange;
 @property(retain, nonatomic) NoteDateLabel *dateLabel; // @synthesize dateLabel=_dateLabel;
 @property(retain, nonatomic) UIView *horizontalLayoutGuide; // @synthesize horizontalLayoutGuide=_horizontalLayoutGuide;
@@ -49,8 +47,12 @@
 @property(nonatomic) _Bool containsCJK; // @synthesize containsCJK=_containsCJK;
 @property(nonatomic) __weak id <NoteContentLayerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (_Bool)_webView:(id)arg1 allowsSelectingContentAfterDropForSession:(id)arg2;
 - (_Bool)_webView:(id)arg1 performDropWithItemProviders:(id)arg2;
-- (id)_webView:(id)arg1 adjustedItemProviders:(id)arg2;
+- (id)_webView:(id)arg1 willUpdateDropProposalToProposal:(id)arg2 forSession:(id)arg3;
+- (void)_webView:(id)arg1 dropInteraction:(id)arg2 concludeDrop:(id)arg3;
+- (void)_webView:(id)arg1 sessionDidExit:(id)arg2;
+- (void)_webView:(id)arg1 sessionDidEnter:(id)arg2;
 - (_Bool)isNoteTextViewVisible:(id)arg1;
 - (void)noteTextView:(id)arg1 didChangeContentSize:(struct CGSize)arg2;
 - (_Bool)noteTextView:(id)arg1 acceptContentsFromPasteboard:(id)arg2;

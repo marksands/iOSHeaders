@@ -16,6 +16,7 @@
 
 - (void).cxx_destruct;
 - (id)_airPlayExtendedInfo;
+- (_Bool)isB238Route;
 - (_Bool)isCarplayRoute;
 - (id)batteryLevel;
 - (id)auxiliaryDevices;

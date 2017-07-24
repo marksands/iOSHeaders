@@ -15,15 +15,15 @@
     // Error parsing type: , name: _currentRollPitch
     union _GLKQuaternion _restingQuaternion;
     CADisplayLink *_displayLink;
+    CDUnknownBlockType _rollPitchForDeviceMotionHandler;
 }
 
-+ (id)sharedManager;
+@property(copy, nonatomic) CDUnknownBlockType rollPitchForDeviceMotionHandler; // @synthesize rollPitchForDeviceMotionHandler=_rollPitchForDeviceMotionHandler;
 - (void).cxx_destruct;
 - (_Bool)isClientRegistered:(id)arg1;
 - (void)unregisterClient:(id)arg1;
 - (void)registerClient:(id)arg1;
-- (void)updateMotion;
--     // Error parsing type: 16@0:8, name: currentRollPitch
+- (void)updateWithMotion:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

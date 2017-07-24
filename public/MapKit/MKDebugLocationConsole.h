@@ -6,7 +6,7 @@
 
 #import <UIKit/UILabel.h>
 
-@class MKMapView, NSString, NSTimer, UIColor;
+@class MKMapView, NSDateFormatter, NSString, NSTimer, UIColor;
 
 __attribute__((visibility("hidden")))
 @interface MKDebugLocationConsole : UILabel
@@ -17,11 +17,14 @@ __attribute__((visibility("hidden")))
     NSString *_customText;
     UIColor *_customTextColor;
     _Bool _customTextEnabled;
+    NSDateFormatter *_timeStampFormatter;
 }
 
 @property(nonatomic) _Bool customTextEnabled; // @synthesize customTextEnabled=_customTextEnabled;
 @property(nonatomic) unsigned long long pageIndex; // @synthesize pageIndex=_pageIndex;
 - (void).cxx_destruct;
+- (id)timeStampFormatter;
+- (void)setText:(id)arg1;
 - (void)_showNextPage;
 - (void)_consoleTapped:(id)arg1;
 - (struct CGRect)_debugViewFrameWithMapView:(id)arg1;

@@ -6,12 +6,16 @@
 
 #import <objc/NSObject.h>
 
+@class NSString;
+
 @interface WebItemProviderRegistrationInfoList : NSObject
 {
     struct RetainPtr<NSMutableArray> _items;
+    NSString *_suggestedName;
     struct CGSize _estimatedDisplayedSize;
 }
 
+@property(retain, nonatomic) NSString *suggestedName; // @synthesize suggestedName=_suggestedName;
 @property(nonatomic) struct CGSize estimatedDisplayedSize; // @synthesize estimatedDisplayedSize=_estimatedDisplayedSize;
 - (id).cxx_construct;
 - (void).cxx_destruct;

@@ -10,6 +10,7 @@
 
 @protocol FIUIChartAxisDescriptor <NSObject>
 @property(nonatomic) double axisDescriptorPadding;
+@property(retain, nonatomic) UIColor *highlightedLabelColor;
 @property(retain, nonatomic) UIColor *unhighlightedLabelColor;
 @property(retain, nonatomic) UIFont *labelFont;
 @property(retain, nonatomic) id maxValue;
@@ -18,14 +19,17 @@
 - (NSArray *)axisLabels;
 
 @optional
+@property(nonatomic) double shadowBlur;
+@property(nonatomic) struct CGSize shadowOffset;
+@property(retain, nonatomic) UIColor *shadowColor;
 @property(nonatomic) _Bool hideClippedLabels;
 @property(nonatomic) double subAxisDescriptorPadding;
 @property(retain, nonatomic) UIColor *unhighlightedSubLabelColor;
 @property(retain, nonatomic) UIColor *highlightedSubLabelColor;
 @property(retain, nonatomic) UIColor *selectedLabelColor;
-@property(retain, nonatomic) UIColor *highlightedLabelColor;
 @property(retain, nonatomic) UIFont *subLabelFont;
 @property(nonatomic) unsigned long long labelAlignment;
+@property(retain, nonatomic) id highlightedValue;
 - (void)selectLabel:(_Bool)arg1 atIndex:(unsigned long long)arg2;
 - (NSString *)textForSubLabelAtIndex:(unsigned long long)arg1;
 - (id)positionForSubLabelAtIndex:(unsigned long long)arg1;

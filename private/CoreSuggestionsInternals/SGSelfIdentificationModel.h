@@ -15,8 +15,7 @@
 + (void)enumerateNamesInArray:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 + (id)featurizeString:(id)arg1 withLocale:(id)arg2 supervision:(id)arg3;
 + (id)temporaryKeyMap;
-+ (id)featuresVersion;
-+ (id)featuresModelId;
++ (id)newTransformerInstanceForLanguage:(id)arg1;
 
 @end
 

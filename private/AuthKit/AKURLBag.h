@@ -6,33 +6,28 @@
 
 #import <objc/NSObject.h>
 
-#import <AuthKit/NSURLSessionDataDelegate-Protocol.h>
-#import <AuthKit/NSURLSessionDelegate-Protocol.h>
+@class NSString, NSURL;
+@protocol AKURLBagDictionaryProvider;
 
-@class AKURLSession, NSDate, NSDictionary, NSString, NSURL;
-@protocol OS_dispatch_queue;
-
-@interface AKURLBag : NSObject <NSURLSessionDelegate, NSURLSessionDataDelegate>
+@interface AKURLBag : NSObject
 {
-    NSDictionary *_URLsByIdentifier;
-    NSDictionary *_environments;
-    NSDictionary *_configurations;
-    NSDate *_lastFetchedDate;
-    AKURLSession *_URLSession;
-    NSObject<OS_dispatch_queue> *_bagFetchQueue;
+    id <AKURLBagDictionaryProvider> _bagProvider;
 }
 
-+ (id)_newBagURLRequest;
 + (_Bool)looksLikeiForgotURLKey:(id)arg1;
 + (id)keyForEscapeHatchURL;
 + (id)sharedBag;
+@property(retain, nonatomic) id <AKURLBagDictionaryProvider> bagProvider; // @synthesize bagProvider=_bagProvider;
 - (void).cxx_destruct;
+- (void)_fetchURLBagWithCompletion:(CDUnknownBlockType)arg1;
+- (id)_urlBag:(id *)arg1;
+- (id)_requestConfigurationsWithError:(id *)arg1;
+- (id)_requestEnvironmentsWithError:(id *)arg1;
+- (id)_requestNewURLBagIfNecessaryWithError:(id *)arg1;
 - (id)_urlAtKey:(id)arg1;
 - (id)urlAtKey:(id)arg1;
-- (void)_handleURLBagResponseWithData:(id)arg1 error:(id)arg2;
 - (_Bool)requestNewURLBagIfNecessaryWithError:(id *)arg1;
-- (void)_requestNewURLBagIfNecessary;
-- (void)refresh;
+- (void)requestNewURLBagIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (id)configurationAtKey:(id)arg1;
 @property(readonly, nonatomic) unsigned long long IDMSEnvironment;
 @property(readonly, nonatomic) NSString *APSEnvironment;
@@ -65,13 +60,6 @@
 @property(readonly, nonatomic) NSURL *endProvisioningURL;
 @property(readonly, nonatomic) NSURL *startProvisioningURL;
 @property(readonly, nonatomic) NSURL *basicAuthURL;
-- (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

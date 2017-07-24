@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOAbAssignInfo, GEOFormattedStringClientCapabilities, NSMutableArray, NSString, PBUnknownFields;
+@class GEOAbAssignInfo, GEOFormattedStringClientCapabilities, GEOLocalTime, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOClientCapabilities : PBCodable <NSCopying>
 {
@@ -25,6 +25,7 @@
     int _maxManeuverTypeSupported;
     int _maxRouteIncidentSupported;
     unsigned int _maxTrafficSpeedSupported;
+    GEOLocalTime *_requestTime;
     int _transitMarketSupport;
     NSString *_userCurrentTimezone;
     _Bool _clusteredTransitRoutesSupported;
@@ -55,6 +56,7 @@
 }
 
 + (Class)displayLanguagesType;
+@property(retain, nonatomic) GEOLocalTime *requestTime; // @synthesize requestTime=_requestTime;
 @property(retain, nonatomic) GEOAbAssignInfo *abAssignInfo; // @synthesize abAssignInfo=_abAssignInfo;
 @property(nonatomic) _Bool supportsGuidanceEventsInlineShields; // @synthesize supportsGuidanceEventsInlineShields=_supportsGuidanceEventsInlineShields;
 @property(nonatomic) _Bool supportsGuidanceEvents; // @synthesize supportsGuidanceEvents=_supportsGuidanceEvents;
@@ -84,6 +86,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasRequestTime;
 @property(readonly, nonatomic) _Bool hasAbAssignInfo;
 @property(nonatomic) _Bool hasSupportsGuidanceEventsInlineShields;
 @property(nonatomic) _Bool hasSupportsGuidanceEvents;

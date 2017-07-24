@@ -44,6 +44,7 @@
 - (void)receivedUrgentRequestForMessages:(id)arg1;
 - (void)updateCloudKitState;
 - (void)didAttemptToDisableAllDevicesResult:(_Bool)arg1;
+- (void)didPerformAdditionalStorageRequiredCheck:(unsigned long long)arg1 forAccountId:(id)arg2;
 - (void)didAttemptToSetEnabledTo:(_Bool)arg1 result:(_Bool)arg2;
 - (void)qosClassWhileServicingRequestsResponse:(unsigned int)arg1 identifier:(id)arg2;
 - (void)forwardInvocation:(id)arg1;

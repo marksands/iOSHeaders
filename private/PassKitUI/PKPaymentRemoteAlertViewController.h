@@ -8,7 +8,7 @@
 
 #import <PassKitUI/PKPaymentServiceDelegate-Protocol.h>
 
-@class CLInUseAssertion, NSArray, NSObject, NSString, PKFieldProperties, PKPassGroupsViewController, PKPaymentService;
+@class CLInUseAssertion, NSArray, NSObject, NSString, PKAssertion, PKFieldProperties, PKPassGroupsViewController, PKPaymentService;
 @protocol OS_dispatch_group;
 
 @interface PKPaymentRemoteAlertViewController : SBUIRemoteAlertServiceViewController <PKPaymentServiceDelegate>
@@ -19,6 +19,7 @@
     NSArray *_fieldPassUniqueIdentifiers;
     NSString *_passUniqueIdentifier;
     CLInUseAssertion *_passbookForegroundAssertion;
+    PKAssertion *_notificationSuppressionAssertion;
     NSObject<OS_dispatch_group> *_fieldPropertiesLookupGroup;
     long long _presentationSource;
     unsigned long long _presentationStartTime;
@@ -41,13 +42,16 @@
 - (void)_dismissIfRestricted;
 - (void)_presentHomeButtonDoubleTapAlertIfNecessary;
 - (void)_setupGroupController;
-- (void)handleLockButtonPressed;
 - (void)handleHomeButtonPressed;
 - (void)setUserInfo:(id)arg1;
+- (id)childViewControllerForStatusBarStyle;
+- (id)childViewControllerForStatusBarHidden;
 - (unsigned long long)supportedInterfaceOrientations;
 - (_Bool)shouldAutorotate;
 - (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
 - (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;

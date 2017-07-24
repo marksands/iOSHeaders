@@ -6,8 +6,10 @@
 
 #import <NewsUI/NSObject-Protocol.h>
 
+@protocol NULayoutContext;
+
 @protocol NULayout <NSObject>
 @property(readonly, nonatomic) struct CGPoint originOffset;
-- (void)layoutComponentsInBounds:(struct CGRect)arg1 originOffset:(struct CGPoint)arg2;
+- (void)layoutComponentsInBounds:(struct CGRect)arg1 originOffset:(struct CGPoint)arg2 layoutContext:(id <NULayoutContext>)arg3;
 @end
 

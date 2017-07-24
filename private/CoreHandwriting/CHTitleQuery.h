@@ -12,15 +12,14 @@
 {
     NSString *_transcribedTitle;
     NSSet *_titleStrokeIdentifiers;
-    long long __lastRequestNumber;
 }
 
-@property(nonatomic) long long _lastRequestNumber; // @synthesize _lastRequestNumber=__lastRequestNumber;
 @property(readonly, copy, nonatomic) NSSet *titleStrokeIdentifiers; // @synthesize titleStrokeIdentifiers=_titleStrokeIdentifiers;
 @property(readonly, copy, nonatomic) NSString *transcribedTitle; // @synthesize transcribedTitle=_transcribedTitle;
+- (id)debugName;
 - (_Bool)wantsHighFrequencyNotifications;
 - (void)_setTranscribedTitle:(id)arg1 strokeIdentifiers:(id)arg2;
-- (void)updateQueryResult;
+- (void)q_updateQueryResult;
 - (void)dealloc;
 
 @end

@@ -8,11 +8,13 @@
 
 #import <VisualPairing/AVCaptureVideoDataOutputSampleBufferDelegate-Protocol.h>
 
-@class AVCaptureDevice, AVCaptureSession, AVCaptureVideoPreviewLayer, CAShapeLayer, NSString;
+@class AVCaptureDevice, AVCaptureSession, AVCaptureVideoPreviewLayer, CAShapeLayer, NSObject, NSString;
+@protocol OS_dispatch_queue;
 
 @interface VPScannerView : UIView <AVCaptureVideoDataOutputSampleBufferDelegate>
 {
     AVCaptureDevice *_avCaptureDevice;
+    NSObject<OS_dispatch_queue> *_avCaptureQueue;
     AVCaptureSession *_avCaptureSession;
     AVCaptureVideoPreviewLayer *_avPreviewLayer;
     struct HCImagePerspectiveReader *_reader;

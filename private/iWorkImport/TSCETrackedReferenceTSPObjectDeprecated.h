@@ -10,12 +10,12 @@ __attribute__((visibility("hidden")))
 @interface TSCETrackedReferenceTSPObjectDeprecated : TSPObject
 {
     struct TSCEASTNodeArray *mAST;
-    CDStruct_a91f2c80 mFormulaID;
+    CDStruct_ed6d627d mFormulaID;
 }
 
 - (void)encodeToArchive:(struct TrackedReferenceArchive *)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (CDStruct_a91f2c80)formulaID;
+- (CDStruct_ed6d627d)formulaID;
 - (struct TSCEASTNodeArray *)ast;
 - (void)dealloc;
 - (_Bool)validatedLoadFromUnarchiver:(id)arg1;

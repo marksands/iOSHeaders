@@ -19,6 +19,7 @@
 @property(copy, nonatomic) INRestaurantReservationUserBooking *userBooking; // @synthesize userBooking=_userBooking;
 - (void).cxx_destruct;
 - (id)_dictionaryRepresentation;
+- (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) long long code;
 - (_Bool)isEqual:(id)arg1;

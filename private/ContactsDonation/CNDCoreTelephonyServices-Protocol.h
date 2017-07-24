@@ -6,12 +6,13 @@
 
 #import <ContactsDonation/NSObject-Protocol.h>
 
-@class NSString;
+@class NSObject;
+@protocol OS_dispatch_queue;
 
 @protocol CNDCoreTelephonyServices <NSObject>
-- (void)removeObserver:(struct __CTServerConnection *)arg1:(const void *)arg2:(const struct __CFString *)arg3:(const void *)arg4;
-- (void)addObserver:(struct __CTServerConnection *)arg1:(const void *)arg2:(CDUnknownFunctionPointerType)arg3:(const struct __CFString *)arg4:(const void *)arg5:(long long)arg6;
-- (struct __CTServerConnection *)defaultCenter;
-- (NSString *)copyMyPhoneNumber;
+- (void)_CTServerConnectionUnregisterForNotification:(struct __CTServerConnection *)arg1:(const struct __CFString *)arg2;
+- (void)_CTServerConnectionRegisterBlockForNotification:(struct __CTServerConnection *)arg1:(const struct __CFString *)arg2:(void (^)(struct __CFDictionary *))arg3;
+- (void)_CTServerConnectionCopyPhoneNumber:(struct __CTServerConnection *)arg1:(int)arg2:(id *)arg3:(id *)arg4:(id *)arg5:(id *)arg6;
+- (struct __CTServerConnection *)_CTServerConnectionCreateOnTargetQueue:(const struct __CFAllocator *)arg1:(const struct __CFString *)arg2:(NSObject<OS_dispatch_queue> *)arg3:(void (^)(struct __CFString *, struct __CFDictionary *))arg4;
 @end
 

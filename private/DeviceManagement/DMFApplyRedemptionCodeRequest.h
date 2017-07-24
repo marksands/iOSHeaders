@@ -12,19 +12,9 @@
 {
     NSString *_code;
     NSString *_bundleIdentifier;
-    NSString *_message;
-    NSString *_installationFailureMessage;
-    NSString *_dismissButtonText;
-    NSString *_installButtonText;
-    NSString *_cancelButtonText;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSString *cancelButtonText; // @synthesize cancelButtonText=_cancelButtonText;
-@property(copy, nonatomic) NSString *installButtonText; // @synthesize installButtonText=_installButtonText;
-@property(copy, nonatomic) NSString *dismissButtonText; // @synthesize dismissButtonText=_dismissButtonText;
-@property(copy, nonatomic) NSString *installationFailureMessage; // @synthesize installationFailureMessage=_installationFailureMessage;
-@property(copy, nonatomic) NSString *message; // @synthesize message=_message;
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(copy, nonatomic) NSString *code; // @synthesize code=_code;
 - (void).cxx_destruct;

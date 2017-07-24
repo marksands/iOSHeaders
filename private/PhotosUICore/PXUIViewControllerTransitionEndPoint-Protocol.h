@@ -12,6 +12,7 @@
 
 @optional
 @property(readonly, nonatomic) _Bool keepsSourceRegionOfInterestContent;
+- (void)prepareForInteractiveTransition:(PXUIViewControllerTransition *)arg1;
 - (void)restoreBackgroundColor:(UIColor *)arg1 forTransition:(PXUIViewControllerTransition *)arg2;
 - (UIColor *)removeBackgroundColorForTransition:(PXUIViewControllerTransition *)arg1;
 - (void)scrollRegionOfInterestToVisible:(PXRegionOfInterest *)arg1 forTransition:(PXUIViewControllerTransition *)arg2;

@@ -130,6 +130,7 @@
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
 + (id)insertInManagedObjectContext:(id)arg1;
++ (_Bool)hasRequiredExtendedAttributesForMainFileURL:(id)arg1;
 + (id)newLocationFromLocationData:(id)arg1 timestampIfMissing:(id)arg2;
 + (long long)_locationDataFormat:(id)arg1;
 + (id)newLocationDataFromLocation:(id)arg1;
@@ -165,6 +166,8 @@
 + (id)listOfSyncedProperties;
 + (void)fixupCloudPhotoLibraryAsset:(id)arg1 withCloudMaster:(id)arg2 inLibrary:(id)arg3;
 + (id)createCloudPhotoLibraryAssetWithAssetRecord:(id)arg1 withCloudMaster:(id)arg2 inLibrary:(id)arg3;
++ (id)cloudAdjustmentFingerprintWithAdjustmentDataBlob:(id)arg1 formatIdentifier:(id)arg2 formatVersion:(id)arg3 editorBundleID:(id)arg4 baseVersion:(long long)arg5 baseImageData:(id)arg6;
++ (id)_cloudAdjustmentFingerprintWithAdjustmentDataBlob:(id)arg1 largeAdjustmentBlobFingerpint:(id)arg2 formatIdentifier:(id)arg3 formatVersion:(id)arg4 editorBundleID:(id)arg5 baseVersion:(long long)arg6 baseImageData:(id)arg7 baseImageFingerprint:(id)arg8;
 + (unsigned long long)CPLAssetHDRTypeFromPLPhotoHDRType:(short)arg1;
 + (void)createMastersInLibrary:(id)arg1;
 + (void)scheduleUserInitiatedAnalysisJobForWorkerType:(short)arg1 assetUUID:(id)arg2 workerFlags:(int)arg3;
@@ -292,6 +295,7 @@
 - (void)synchronouslyFetchAdjustmentDataWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_cleanupPenultimateResources;
 - (void)setAdjustments:(id)arg1 renderedContentURL:(id)arg2 penultimateRenderedJPEGData:(id)arg3 isSubstandardRender:(_Bool)arg4 fullSizeRenderSize:(struct CGSize)arg5 renderedVideoComplementContentURL:(id)arg6 penultimateRenderedVideoComplementContentURL:(id)arg7 shouldUpdateAttributes:(_Bool)arg8 fileIngestionType:(long long)arg9;
+- (void)writeOutAdjustmentsToFile:(id)arg1;
 - (long long)_prepareFileSystemResourcesForPhotoAdjustmentsWithCurrentAdjustmentBaseVersion:(long long)arg1 pathForFullsizeRenderImageFile:(id)arg2 penultimateRenderedJPEGData:(id)arg3 renderedVideoComplementContentURL:(id)arg4 penultimateRenderedVideoComplementContentURL:(id)arg5 fileIngestionType:(long long)arg6;
 - (void)setAdjustments:(id)arg1 shouldUpdateAttributes:(_Bool)arg2;
 - (void)revertToOriginal;
@@ -370,9 +374,9 @@
 - (void)revealNonPrimaryAssetsInAssetGroup;
 - (void)processForGroupingIfNeededInManagedObjectContext:(id)arg1;
 - (void)setMontageFromAVAsset:(id)arg1;
-- (void)setPlaybackVariationAndLoopingStyleFromAVAsset:(id)arg1;
+- (_Bool)updatePlaybackVariationAndLoopingStyleFromAVAsset:(id)arg1;
 - (unsigned short)playbackVariationFromAVAsset:(id)arg1 isLivePhotoVideoComplement:(_Bool)arg2;
-- (void)setPlaybackVariationAndStyleFromImageProperties:(id)arg1;
+- (_Bool)updatePlaybackVariationAndStyleFromOriginalImageProperties:(id)arg1;
 - (void)updatePlaybackStyleWithLivePhotoPlayability:(_Bool)arg1;
 - (void)setColorSpaceNameFromProperties:(id)arg1;
 - (void)setGroupingUUIDFromImageProperties:(id)arg1;
@@ -492,8 +496,10 @@
 @property(readonly, nonatomic) _Bool isAutoloop;
 - (void)setPlaybackVariationAndLoopingPlaybackStyleWithPlaybackVariation:(unsigned short)arg1;
 - (unsigned short)_playbackVariationWithAdjustmentRenderTypes:(unsigned int)arg1;
-- (unsigned int)_updateAdjustmentRenderTypes:(unsigned int)arg1 withPlaybackVariation:(unsigned short)arg2;
-- (void)setPlaybackVariationAndLoopingStyleWithAdjustmentRenderTypes:(unsigned int)arg1;
+- (unsigned int)updateAdjustmentRenderTypes:(unsigned int)arg1 withPlaybackVariation:(unsigned short)arg2;
+- (unsigned int)updateAdjustmentRenderTypes:(unsigned int)arg1 withDepthStates:(unsigned short)arg2;
+- (void)setDepthStatesFromAdjustmentRenderTypes:(unsigned int)arg1;
+- (void)setPlaybackVariationAndLoopingStyleFromAdjustmentRenderTypes:(unsigned int)arg1;
 - (_Bool)becomePhotoIrisWithMediaGroupUUID:(id)arg1 videoURL:(id)arg2 videoDuration:(CDStruct_1b6d18a9)arg3 stillDisplayTime:(CDStruct_1b6d18a9)arg4 createSidecar:(_Bool)arg5;
 - (void)updatePhotoIrisMetadataWithMediaGroupUUID:(id)arg1 videoDuration:(CDStruct_1b6d18a9)arg2 stillDisplayTime:(CDStruct_1b6d18a9)arg3;
 - (void)_updatePhotoIrisTemporalMetadataFromVideoComplementAVAsset:(id)arg1;
@@ -575,6 +581,11 @@
 @property(readonly, nonatomic) id <PLPTPTransferableSidecarFile> ptpPhotoIrisSidecar;
 @property(readonly, retain, nonatomic) NSSet *ptpSidecarFiles;
 @property(readonly, retain, nonatomic) id <PLPTPTransferableAdditionalAssetAttributes> ptpAdditionalAttributes;
+- (void)markForNeedingFaceDetection;
+@property(readonly, nonatomic) _Bool faceDetectionComplete;
+- (id)syncDescription;
+@property(readonly, copy, nonatomic) NSString *syncedAdjustmentFingerprint;
+@property(readonly, nonatomic) _Bool hasAdjustmentsOrLegacyAdjustments;
 @property(readonly, retain, nonatomic) NSString *cloudIdentifier;
 @property(readonly, retain, nonatomic) id localID;
 - (id)masterFingerPrintCacheIfNecessaryAndAdjustedFingerPrint:(id *)arg1 error:(id *)arg2;
@@ -595,7 +606,6 @@
 - (void)_cleanSubstandardFile;
 - (_Bool)_isResourceType:(unsigned long long)arg1 inResources:(id)arg2;
 - (void)markCloudResourceOfType:(unsigned long long)arg1 asLocallyAvailable:(_Bool)arg2;
-- (unsigned long long)_cplAdjustmentSourceTypeFromPLAdjustmentBaseVersion:(long long)arg1;
 - (long long)_plAdjustmentBaseVersionFromCPLAdjustmentSourceType:(unsigned long long)arg1;
 - (void)applyFacesFromAssetChange:(id)arg1 inSyncContext:(id)arg2;
 - (void)applyPropertiesFromAssetChange:(id)arg1 inLibrary:(id)arg2 withKeywordManager:(id)arg3;
@@ -613,8 +623,6 @@
 - (void)_updateAssetSubtypeFromCPLAssetSubtype:(unsigned long long)arg1;
 - (int)_avalancheTypeFromCplBurstFlags:(unsigned long long)arg1;
 - (unsigned long long)cplBurstFlagsFromPLAvalancheType:(int)arg1;
-- (void)_updateGroupingStateAndUUIDFromCPLAssetChange:(id)arg1;
-- (void)_updateGroupingStateAndUUIDForCPLAssetChange:(id)arg1;
 - (void)_updateBurstFlagsForCPLAssetChange:(id)arg1;
 - (id)cplAssetChangeWithMasterID:(id)arg1 withChangeType:(unsigned long long)arg2 shouldGenerateDerivatives:(_Bool)arg3 inLibrary:(id)arg4;
 - (id)cplFullRecord;
@@ -624,8 +632,9 @@
 - (id)_createJPEGResourcesFromFullSizePath:(id)arg1 withItemIdentifier:(id)arg2 forMaster:(_Bool)arg3;
 - (void)_debugPrintAdjustmentState;
 - (void)_applyResourceChangeToCPLAsset:(id)arg1 withIdentifier:(id)arg2 forChangeType:(unsigned long long)arg3 shouldGenerateDerivatives:(_Bool)arg4 inLibrary:(id)arg5;
+- (id)_calculateCloudAdjustmentFingerprintFromAdjustmentPListAndCPLResources;
+- (void)_synchronouslyFetchAdjustmentBlobWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)createResourcesForAssetInPhotoLibrary:(id)arg1 shouldGenerateDerivatives:(_Bool)arg2;
-- (id)_adjustmentFingerprint;
 - (void)_applyFaceChangeToCPLAssetChange:(id)arg1 inLibrary:(id)arg2;
 - (void)_applyPropertiesChangeToCPLAssetChange:(id)arg1 withMasterID:(id)arg2 inLibrary:(id)arg3;
 - (id)_createVideoResourceFromVideoURL:(id)arg1 withResourceType:(unsigned long long)arg2 itemIdentifier:(id)arg3 applyVideoAdjustments:(_Bool)arg4 forMaster:(_Bool)arg5 forPhotoIris:(_Bool)arg6;
@@ -648,7 +657,6 @@
 - (void)_createPhotoResourcesForMaster:(id)arg1 intoMasterResources:(id)arg2 shouldGenerateDerivatives:(_Bool)arg3;
 - (void)createMasterIfNecessaryInLibrary:(id)arg1;
 - (id)existingCloudMaster;
-@property(readonly, nonatomic) _Bool faceProcessed;
 - (void)incrementUploadAttempts;
 - (void)setUploadAttempts:(short)arg1;
 - (short)uploadAttempts;
@@ -728,6 +736,7 @@
 @property(nonatomic) double duration; // @dynamic duration;
 @property(nonatomic) long long faceAreaPoints; // @dynamic faceAreaPoints;
 @property(retain, nonatomic) NSSet *faceCrops; // @dynamic faceCrops;
+@property(readonly, nonatomic) _Bool faceProcessed;
 @property(nonatomic) _Bool favorite; // @dynamic favorite;
 @property(retain, nonatomic) NSString *filename; // @dynamic filename;
 @property(nonatomic) unsigned long long groupingState; // @dynamic groupingState;

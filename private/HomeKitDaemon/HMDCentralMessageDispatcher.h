@@ -38,6 +38,9 @@
 - (void)deregisterForMessage:(id)arg1 receiver:(id)arg2;
 - (void)registerForMessage:(id)arg1 receiver:(id)arg2 messageHandler:(CDUnknownBlockType)arg3;
 - (void)configureHTTPTransport:(id)arg1;
+- (void)disableMessageServer;
+- (void)enableMessageServer;
+- (id)httpMessageTransport;
 - (void)configureHomeManager:(id)arg1;
 - (void)configureNotificationDispatcher:(id)arg1;
 - (void)reset;

@@ -6,17 +6,19 @@
 
 #import <HealthUI/HKAxisLabelDimensionScalar.h>
 
-@class NSDateComponentsFormatter;
+@class NSDate, NSDateFormatter;
 
 @interface HKAxisLabelDimensionMinuteSecond : HKAxisLabelDimensionScalar
 {
-    NSDateComponentsFormatter *_dateFormatter;
+    NSDateFormatter *_dateFormatter;
+    NSDate *_startDate;
 }
 
-@property(retain, nonatomic) NSDateComponentsFormatter *dateFormatter; // @synthesize dateFormatter=_dateFormatter;
+@property(retain, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
+@property(retain, nonatomic) NSDateFormatter *dateFormatter; // @synthesize dateFormatter=_dateFormatter;
 - (void).cxx_destruct;
 - (id)stringForLocation:(id)arg1;
-- (id)init;
+- (id)initWithStartDate:(id)arg1;
 
 @end
 

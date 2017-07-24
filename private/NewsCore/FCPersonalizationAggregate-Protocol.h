@@ -16,8 +16,9 @@
 @property(readonly, nonatomic) double impressions;
 @property(readonly, nonatomic) double clicks;
 @property(readonly, nonatomic) NSString *featureKey;
-- (double)relativePersonalizationValueWithBaselineAggregate:(id <FCPersonalizationAggregate>)arg1 decayFactor:(double)arg2;
+- (double)relativePersonalizationValueWithBaselineAggregate:(id <FCPersonalizationAggregate>)arg1 decayFactor:(double)arg2 baselineClicksMultiplier:(double)arg3;
 - (double)powerWithDecayFactor:(double)arg1;
+- (double)personalizationValueWithBaseline:(id <FCPersonalizationAggregate>)arg1 decayRate:(double)arg2 baselineClicksMultiplier:(double)arg3;
 - (double)personalizationValueWithBaseline:(id <FCPersonalizationAggregate>)arg1 decayRate:(double)arg2;
 @end
 

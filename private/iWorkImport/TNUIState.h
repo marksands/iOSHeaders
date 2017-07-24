@@ -70,6 +70,7 @@ __attribute__((visibility("hidden")))
 - (id)UIStateForChart:(id)arg1;
 - (void)removeUIStateForSheet:(id)arg1;
 - (id)p_uiStateForActiveSheet;
+- (id)uiStateForSheet:(id)arg1 createIfNeeded:(_Bool)arg2;
 - (id)uiStateForSheet:(id)arg1;
 - (void)setUIState:(id)arg1 forSheet:(id)arg2;
 @property(readonly, nonatomic) float previousViewScale;

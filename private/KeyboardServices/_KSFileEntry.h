@@ -22,6 +22,7 @@
 @property(readonly, retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (void)restoreToPath:(id)arg1;
+- (void)consistencyCheck;
 - (id)description;
 - (void)saveAttributesToURL:(id)arg1;
 - (void)loadAttributesFromURL:(id)arg1;

@@ -8,44 +8,57 @@
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class NSMutableDictionary, NSSet, NSString, NSUUID;
+@class HMFVersion, NSMutableDictionary, NSSet, NSString, NSUUID;
 @protocol HMDBackingStoreObjectProtocol;
 
 @interface HMDBackingStoreModelObject : HMFObject <HMFLogging>
 {
     NSMutableDictionary *_reserved;
-    unsigned long long _objectChangeType;
+    _Bool _bsoDataVersionOverride;
     NSUUID *_uuid;
     NSUUID *_parentUUID;
     id <HMDBackingStoreObjectProtocol> _bsoDelegate;
     NSString *_bsoType;
-    long long _bsoLogRowID;
-    unsigned long long _version;
+    unsigned long long _bsoLogRowID;
+    HMFVersion *_bsoDataVersion;
+    unsigned long long _objectChangeType;
 }
 
 + (_Bool)resolveInstanceMethod:(SEL)arg1;
 + (id)logCategory;
++ (id)formatValue:(id)arg1;
 + (id)objectFromCloud:(id)arg1 error:(id *)arg2;
 + (id)objectFromData:(id)arg1 encoding:(unsigned long long)arg2 error:(id *)arg3;
++ (id)objectFromData:(id)arg1 encoding:(unsigned long long)arg2 rowID:(unsigned long long)arg3 error:(id *)arg4;
 + (id)objectFromDictionaryData:(id)arg1 error:(id *)arg2;
 + (id)objectFromDictionaryData:(id)arg1 type:(id)arg2 error:(id *)arg3;
++ (Class)genericRepresentation;
++ (id)readonlyBefore;
 + (id)properties;
-@property unsigned long long version; // @synthesize version=_version;
-@property(nonatomic) long long bsoLogRowID; // @synthesize bsoLogRowID=_bsoLogRowID;
+@property _Bool bsoDataVersionOverride; // @synthesize bsoDataVersionOverride=_bsoDataVersionOverride;
+@property(nonatomic) unsigned long long objectChangeType; // @synthesize objectChangeType=_objectChangeType;
+@property(readonly) HMFVersion *bsoDataVersion; // @synthesize bsoDataVersion=_bsoDataVersion;
+@property(readonly) unsigned long long bsoLogRowID; // @synthesize bsoLogRowID=_bsoLogRowID;
 @property(retain, nonatomic) NSString *bsoType; // @synthesize bsoType=_bsoType;
 @property(nonatomic) __weak id <HMDBackingStoreObjectProtocol> bsoDelegate; // @synthesize bsoDelegate=_bsoDelegate;
 @property(retain, nonatomic) NSUUID *parentUUID; // @synthesize parentUUID=_parentUUID;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
-@property(nonatomic) unsigned long long objectChangeType; // @synthesize objectChangeType=_objectChangeType;
 - (void).cxx_destruct;
 - (id)logIdentifier;
 - (void)dumpDebug;
 - (void)dumpDebug:(id)arg1;
+- (void)clearVersionOverride;
 - (id)debugString:(_Bool)arg1;
 @property(readonly, copy) NSString *description;
+- (void)setPropertyIfNotNil:(id)arg1 named:(id)arg2;
 - (_Bool)diff:(id)arg1 differingFields:(id *)arg2;
 - (id)merge:(id)arg1;
 - (id)merge:(id)arg1 from:(unsigned long long)arg2;
+- (_Bool)validForStorage;
+- (_Bool)propertyIsAvailable:(id)arg1;
+- (_Bool)propertyIsReadOnly:(id)arg1;
+@property(readonly, nonatomic, getter=isGenericRepresentation) _Bool isGenericRepresentation; // @dynamic isGenericRepresentation;
+@property(readonly, nonatomic, getter=isReadOnly) _Bool isReadOnly; // @dynamic isReadOnly;
 - (_Bool)propertyWasSet:(id)arg1;
 - (id)setProperties;
 - (_Bool)isEqual:(id)arg1;
@@ -59,11 +72,12 @@
 - (id)prepareFor:(unsigned long long)arg1;
 - (id)validateType:(id)arg1 path:(id)arg2;
 - (_Bool)_validateType:(id)arg1 error:(id *)arg2;
+@property(readonly, nonatomic) NSSet *dependentUUIDs; // @dynamic dependentUUIDs;
+- (id)initWithUUID:(id)arg1 parentUUID:(id)arg2;
 - (id)initWithUUID:(id)arg1;
-@property(readonly, nonatomic) NSSet *dependentUUIDs;
 - (id)initWithObjectChangeType:(unsigned long long)arg1 uuid:(id)arg2 parentUUID:(id)arg3;
-- (id)initCommon;
-- (_Bool)decodeFromDictionary:(id)arg1 error:(id *)arg2;
+- (id)initWithVersion:(id)arg1 changeType:(unsigned long long)arg2 uuid:(id)arg3 parentUUID:(id)arg4;
+- (id)typeNameForDebug;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

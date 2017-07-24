@@ -21,8 +21,8 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (void)_prunePersistentCache;
-- (void)_doNetworkRequestForCoordinate:(CDStruct_c3b9c2ee)arg1 traits:(id)arg2 shouldCache:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)shiftCoordinate:(CDStruct_c3b9c2ee)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_doNetworkRequestForLatLng:(id)arg1 traits:(id)arg2 auditToken:(id)arg3 shouldCache:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)shiftLatLng:(id)arg1 auditToken:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) GEOLocationShifterPersistence *persistentCache;
 - (void)dealloc;
 - (id)init;

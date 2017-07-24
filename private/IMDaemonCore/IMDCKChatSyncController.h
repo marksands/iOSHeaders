@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <IMDaemonCore/IMDCKAbstractSyncController.h>
 
-@class CKRecord, CKServerChangeToken, IDSKVStore, IMDCKChatSyncCKOperationFactory, IMDChatRegistry, IMDRecordZoneManager;
+@class CKRecord, CKServerChangeToken, IDSKVStore, IMDCKChatSyncCKOperationFactory, IMDChatRegistry, IMDRecordZoneManager, NSObject;
 @protocol OS_dispatch_queue;
 
-@interface IMDCKChatSyncController : NSObject
+@interface IMDCKChatSyncController : IMDCKAbstractSyncController
 {
-    _Bool _isSyncing;
     CKServerChangeToken *_latestSyncToken;
     NSObject<OS_dispatch_queue> *_ckQueue;
     IMDChatRegistry *_chatRegistry;
@@ -28,7 +27,6 @@
 @property(retain, nonatomic) IMDRecordZoneManager *recordZoneManager; // @synthesize recordZoneManager=_recordZoneManager;
 @property(retain, nonatomic) IMDChatRegistry *chatRegistry; // @synthesize chatRegistry=_chatRegistry;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *ckQueue; // @synthesize ckQueue=_ckQueue;
-@property(nonatomic) _Bool isSyncing; // @synthesize isSyncing=_isSyncing;
 - (void)syncPendingDeletionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_handleChatDeletionCompletionForRecordIDs:(id)arg1 error:(id)arg2;
 - (id)_copyRecordIDsToDelete;
@@ -43,6 +41,7 @@
 - (id)_CKUtilitiesSharedInstance;
 - (void)deletChatSyncToken;
 - (void)deleteChatZone;
+- (void)anyChatExistsOnServerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_syncChatsWithCloudKitWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_resetSyncToken;
 - (void)_processFetchRecordChangesCompleted:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -52,6 +51,7 @@
 - (void)_processRecordDeletion:(id)arg1;
 - (id)_fetchChatRecordOperation;
 - (void)_writeDirtyChatsToCloudKitWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_logGreenTeaLogsForChats:(id)arg1;
 - (_Bool)_shouldResyncChatsForError:(id)arg1;
 - (unsigned long long)_numberOfChatsToWrite;
 - (void)_writeCKRecordsToChatZone:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
@@ -64,7 +64,7 @@
 - (void)_updateChatUsingCKRecord:(id)arg1;
 - (void)_scheduleOperation:(id)arg1;
 - (id)_chatZoneID;
-- (id)_ckRecordsFromChats:(id)arg1;
+- (id)_newckRecordsFromChats:(id)arg1;
 - (id)_randomSalt;
 - (id)_copyChatsToUploadWithLimit:(unsigned long long)arg1;
 @property(retain, nonatomic) CKServerChangeToken *latestSyncToken; // @synthesize latestSyncToken=_latestSyncToken;

@@ -8,7 +8,7 @@
 
 #import <Navigation/GEOETAUpdaterDelegate-Protocol.h>
 
-@class GEOETAUpdater, NSArray, NSMapTable, NSString;
+@class GEOApplicationAuditToken, GEOETATrafficUpdateResponse, GEOETAUpdater, NSArray, NSMapTable, NSString;
 @protocol MNETAManagerDelegate;
 
 @interface MNETAManager : NSObject <GEOETAUpdaterDelegate>
@@ -19,8 +19,11 @@
     NSMapTable *_etaRoutesTable;
     double _requestInterval;
     double _debugInitialRequestDelay;
+    GEOETATrafficUpdateResponse *_currentResponse;
+    GEOApplicationAuditToken *_auditToken;
 }
 
+@property(retain, nonatomic) GEOApplicationAuditToken *auditToken; // @synthesize auditToken=_auditToken;
 @property(nonatomic) double debugInitialRequestDelay; // @synthesize debugInitialRequestDelay=_debugInitialRequestDelay;
 @property(nonatomic) double requestInterval; // @synthesize requestInterval=_requestInterval;
 @property(retain, nonatomic) NSArray *routes; // @synthesize routes=_routes;

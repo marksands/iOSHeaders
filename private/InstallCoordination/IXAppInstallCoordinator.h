@@ -28,7 +28,6 @@
 + (void)removabilityForAppWithBundleID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (_Bool)uninstallAppWithBundleID:(id)arg1 error:(id *)arg2;
 + (void)uninstallAppWithBundleID:(id)arg1 requestUserConfirmation:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
-+ (void)_uninstallAppWithBundleID:(id)arg1 requestUserConfirmation:(_Bool)arg2 removability:(unsigned long long)arg3 connection:(id)arg4 completion:(CDUnknownBlockType)arg5;
 + (_Bool)demoteAppToPlaceholderWithBundleID:(id)arg1 forReason:(unsigned long long)arg2 error:(id *)arg3;
 + (void)prioritizeCoordinatorForAppWithBundleID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (_Bool)prioritizeCoordinatorForAppWithBundleID:(id)arg1 error:(id *)arg2;
@@ -48,7 +47,7 @@
 + (id)_coordinatorForAppWithBundleID:(id)arg1 withClientID:(unsigned long long)arg2 intent:(unsigned long long)arg3 createIfNotExisting:(_Bool)arg4 created:(_Bool *)arg5 error:(id *)arg6;
 + (_Bool)coordinationIsEnabled;
 + (_Bool)killDaemonForTesting;
-+ (_Bool)purgeAllCoordinatorsAndPromises;
++ (_Bool)purgeAllCoordinatorsAndPromisesForCreator:(unsigned long long)arg1;
 + (void)installApplication:(id)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)installApplication:(id)arg1 consumeSource:(_Bool)arg2 options:(id)arg3 completion:(CDUnknownBlockType)arg4;
 + (void)_beginInstallForURL:(id)arg1 consumeSource:(_Bool)arg2 options:(id)arg3 completion:(CDUnknownBlockType)arg4;
@@ -64,6 +63,7 @@
 - (oneway void)_clientDelegate_didCancelWithError:(id)arg1 client:(unsigned long long)arg2;
 - (oneway void)_clientDelegate_didComplete;
 - (oneway void)_clientDelegate_placeholderDidInstall;
+- (oneway void)_clientDelegate_shouldBeginRestoringUserData;
 - (oneway void)_clientDelegate_promiseDidBeginFulfillmentWithIdentifier:(unsigned long long)arg1;
 - (oneway void)_clientDelegate_didPause;
 - (oneway void)_clientDelegate_didResume;
@@ -79,6 +79,8 @@
 - (_Bool)isPaused:(_Bool *)arg1 withError:(id *)arg2;
 - (_Bool)resumeWithError:(id *)arg1;
 - (_Bool)pauseWithError:(id *)arg1;
+- (_Bool)setPreparationPromise:(id)arg1 withError:(id *)arg2;
+- (id)preparationPromiseWithError:(id *)arg1;
 @property(readonly, nonatomic) _Bool hasUserDataPromise;
 - (id)userDataPromiseWithError:(id *)arg1;
 - (_Bool)setUserDataPromise:(id)arg1 error:(id *)arg2;

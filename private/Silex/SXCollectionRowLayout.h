@@ -22,6 +22,7 @@
 @property(nonatomic) double leftMargin; // @synthesize leftMargin=_leftMargin;
 @property(nonatomic) unsigned long long componentsPerRow; // @synthesize componentsPerRow=_componentsPerRow;
 @property(nonatomic) unsigned long long intendedComponentsPerRow; // @synthesize intendedComponentsPerRow=_intendedComponentsPerRow;
+- (id)description;
 
 @end
 

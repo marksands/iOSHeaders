@@ -51,6 +51,7 @@
     double _navCourse;
     CDUnknownBlockType _locationCorrector;
     double _minimumLocationUpdateInterval;
+    double _expectedGpsUpdateInterval;
     _Bool _allowOldLocations;
     _Bool _continuedAfterBecomingInactive;
     _Bool _suspended;
@@ -65,6 +66,7 @@
 + (id)timeoutError;
 + (id)sharedLocationManager;
 + (void)setCanMonitorWiFiStatus:(_Bool)arg1;
+@property(readonly, nonatomic) double expectedGpsUpdateInterval; // @synthesize expectedGpsUpdateInterval=_expectedGpsUpdateInterval;
 @property(nonatomic) double minimumLocationUpdateInterval; // @synthesize minimumLocationUpdateInterval=_minimumLocationUpdateInterval;
 @property(nonatomic) _Bool logStartStopLocationUpdates; // @synthesize logStartStopLocationUpdates=_logStartStopLocationUpdates;
 @property(nonatomic) _Bool allowOldLocations; // @synthesize allowOldLocations=_allowOldLocations;
@@ -116,7 +118,6 @@
 - (void)dismissHeadingCalibrationDisplay;
 - (void)dampenGPSLocationAccuracy:(id *)arg1 oldLocationSource:(int)arg2;
 @property(readonly, nonatomic) double timeScale;
-@property(readonly, nonatomic) double expectedGpsUpdateInterval;
 @property(nonatomic) long long activityType;
 @property(nonatomic) _Bool matchInfoEnabled;
 @property(nonatomic) double distanceFilter;

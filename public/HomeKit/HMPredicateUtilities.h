@@ -10,9 +10,11 @@
 {
 }
 
++ (_Bool)containsPresenceEvents:(id)arg1;
 + (id)rewritePredicateForDaemon:(id)arg1 characteristicIsInvalid:(_Bool *)arg2;
 + (id)rewritePredicateForMerge:(id)arg1 existingHome:(id)arg2 characteristicIsInvalid:(_Bool *)arg3;
 + (id)rewritePredicateForClient:(id)arg1 home:(id)arg2;
++ (_Bool)areOnlyHourAndMinuteSet:(id)arg1;
 + (_Bool)validatePredicate:(id)arg1;
 
 @end

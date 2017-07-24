@@ -16,7 +16,6 @@
 
 @interface HMDSecureRemoteSession : HMFMessageTransport <HMDSecureRemoteStreamDelegate, HMFLogging, HMFTimerDelegate, HMFDumpState>
 {
-    _Bool _open;
     _Bool _reachable;
     HMDDevice *_device;
     NSObject<OS_dispatch_queue> *_clientQueue;
@@ -27,13 +26,14 @@
     NSMutableArray *_pendingMessages;
     NSMutableArray *_clientStreams;
     NSMutableArray *_serverStreams;
+    long long _state;
 }
 
 + (id)logCategory;
 + (_Bool)isSecureRemoteSessionMessage:(id)arg1;
 + (void)initialize;
 @property(nonatomic, getter=isReachable) _Bool reachable; // @synthesize reachable=_reachable;
-@property(nonatomic, getter=isOpen) _Bool open; // @synthesize open=_open;
+@property(nonatomic) long long state; // @synthesize state=_state;
 @property(readonly, nonatomic) NSMutableArray *serverStreams; // @synthesize serverStreams=_serverStreams;
 @property(readonly, nonatomic) NSMutableArray *clientStreams; // @synthesize clientStreams=_clientStreams;
 @property(readonly, nonatomic) NSMutableArray *pendingMessages; // @synthesize pendingMessages=_pendingMessages;

@@ -6,12 +6,12 @@
 
 #import <ContactsUI/NSObject-Protocol.h>
 
-@class CNContact, CNVCardImportController;
+@class CNVCardImportController, NSArray;
 
 @protocol CNVCardImportControllerDelegate <NSObject>
 
 @optional
 - (void)vCardImportControllerDidCompleteQueue:(CNVCardImportController *)arg1;
-- (void)vCardImportController:(CNVCardImportController *)arg1 didSaveContact:(CNContact *)arg2;
+- (void)vCardImportController:(CNVCardImportController *)arg1 didSaveContacts:(NSArray *)arg2;
 @end
 

@@ -8,7 +8,7 @@
 
 #import <MediaPlayer/MPMusicPlayerController-Protocol.h>
 
-@class BKSApplicationStateMonitor, MPMusicPlayerControllerServer, MPVideoViewController, NSMutableArray, NSMutableDictionary;
+@class BKSApplicationStateMonitor, MPMusicPlayerControllerServer, NSMutableArray, NSMutableDictionary, NSMutableSet;
 @protocol MPMusicPlayerControllerServerDelegate;
 
 @interface MPMusicPlayerControllerServerInternal : MPServerObject <MPMusicPlayerController>
@@ -21,21 +21,21 @@
     NSMutableArray *_clientPorts;
     NSMutableDictionary *_clientPortsForPIDs;
     NSMutableDictionary *_clientStateForPIDs;
-    MPVideoViewController *_videoViewController;
     unsigned int _queuePrepared:1;
     unsigned int _hasSentQueuePrepared:1;
+    _Bool _isInsidePrepareQueue;
+    NSMutableSet *_pendingPreparationClientPIDs;
 }
 
 + (_Bool)_canSeedGeniusWithItem:(id)arg1;
 - (void).cxx_destruct;
-- (void)_updateVideoView;
 - (unsigned long long)_numberOfItems;
-- (void)_tearDownVideoView;
 - (void)_endPlayback;
 - (void)_endPlaybackForClientIfNecessary:(int)arg1;
-- (void)_prepareQueueIfNecessary;
+- (void)_prepareQueueIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_setQueueWithQuery:(id)arg1;
 - (void)_setQueuePrepared:(_Bool)arg1;
+- (void)_handlePendingPreparationClientPIDs;
 - (id)_avControllerForClientPID:(int)arg1;
 - (id)_avController;
 - (_Bool)_currentClientPIDHasPermissionToPlay;
@@ -45,7 +45,6 @@
 - (void)_clientPortInvalidated:(id)arg1;
 - (void)_registerClientPort:(unsigned int)arg1 forProcessID:(int)arg2 hasAudioBackgroundMode:(_Bool)arg3;
 - (void)_queueDidInvalidateNotification:(id)arg1;
-- (void)_tvOutCapabilityDidChangeNotification:(id)arg1;
 - (void)_itemPlaybackDidEndNotification:(id)arg1;
 - (void)_itemDidChangeNotification:(id)arg1;
 - (void)_playbackStateDidChangeNotification:(id)arg1;
@@ -77,6 +76,7 @@
 - (void)playItem:(id)arg1;
 - (id)nowPlayingItemAtIndex:(id)arg1;
 - (id)queueAsRadioStation;
+- (id)queueAsQuery;
 - (void)appendQueueDescriptor:(id)arg1;
 - (void)prependQueueDescriptor:(id)arg1;
 - (void)setQueueWithDescriptor:(id)arg1;

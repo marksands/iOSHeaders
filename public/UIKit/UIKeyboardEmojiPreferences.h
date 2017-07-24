@@ -13,11 +13,12 @@
 {
     EMFEmojiPreferencesClient *_preferencesClient;
     NSObject<OS_dispatch_queue> *_clientDispatchQueue;
+    NSArray *_localRecentsWithClient;
+    NSArray *_localRecentsWithoutClient;
 }
 
 + (id)sharedInstance;
 - (void)_usageForEmoji:(id)arg1 language:(id)arg2 mode:(id)arg3 typingName:(id)arg4;
-- (void)_createPreferencesClientIfNecessary;
 - (void)updateSkinToneBaseKey:(id)arg1 variantUsed:(id)arg2;
 - (id)typingNameForEmoji:(id)arg1 language:(id)arg2;
 - (void)emojiPredicted:(id)arg1 typingName:(id)arg2 language:(id)arg3;
@@ -29,14 +30,18 @@
 @property(retain, nonatomic) NSDictionary *skinToneBaseKeyPreferences;
 - (id)emojiWithoutDuplicateRecents:(id)arg1;
 - (id)recentEmojiAtIndex:(long long)arg1 size:(unsigned long long *)arg2;
+- (void)refreshLocalRecents;
+- (void)clearLocalRecentsCache;
 @property(retain, nonatomic) NSArray *recents;
 - (long long)emojiCategoryDefaultsIndex:(id)arg1;
 - (void)setEmojiCategoryDefaultsIndex:(long long)arg1 forCategory:(id)arg2;
 @property(nonatomic) unsigned long long maximumRecentsCount;
 - (void)didDisplaySkinToneHelp;
 @property(readonly, nonatomic) _Bool hasDisplayedSkinToneHelp;
+@property(readonly, nonatomic) EMFEmojiPreferencesClient *preferencesClient;
 - (void)handleRead:(id)arg1;
 - (void)handleWrite:(id)arg1;
+- (void)handleSuspend:(id)arg1;
 - (void)dealloc;
 - (id)init;
 - (void)writeEmojiDefaults;

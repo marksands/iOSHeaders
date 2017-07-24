@@ -41,8 +41,10 @@ __attribute__((visibility("hidden")))
 - (id)_findUpdateForIdentifier:(id)arg1;
 - (void)_performAppendingInsertsFixups;
 - (_Bool)_mapIsSimpleInsertMoveSequence;
+- (_Bool)_isSectionOnlyIndexPath:(id)arg1;
+- (id)_sectionIndexPathForSection:(long long)arg1;
 - (id)description;
-- (id)intitialUpdateForFinalUpdate:(id)arg1;
+- (id)initialUpdateForFinalUpdate:(id)arg1;
 - (id)finalUpdateForInitialUpdate:(id)arg1;
 - (id)initialIndexPathForIndexPath:(id)arg1 beforeUpdateWithIdentifier:(id)arg2;
 - (id)finalIndexPathForIndexPath:(id)arg1 startingAtUpdateWithIdentifier:(id)arg2;

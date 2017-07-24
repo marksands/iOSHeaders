@@ -16,12 +16,14 @@ __attribute__((visibility("hidden")))
     VKSharedResources *_sharedResources;
     shared_ptr_479d1306 _sourceTexture;
     shared_ptr_479d1306 _targetTexture;
-    _Bool _needsTextureUpdate;
+    shared_ptr_479d1306 _sourceRoofTexture;
+    shared_ptr_479d1306 _targetRoofTexture;
+    unsigned char _lastResolvedZoom;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)updateTextures:(float)arg1;
+- (void)updateTextures:(unsigned char)arg1;
 - (void)addStrokeForSection:(const struct PolygonSection *)arg1 paddedCount:(unsigned int)arg2 key:(pair_1503616b)arg3 attributes:(id)arg4 styles:(vector_0496561e *)arg5 cullingMask:(unsigned int)arg6 accessor:(struct ResourceAccessor *)arg7;
 - (unsigned char)initialStyleIndexForSection:(const struct PolygonSection *)arg1 attributes:(id)arg2 styles:(const vector_0496561e *)arg3;
 - (unsigned char)styleIndexForAttributes:(id)arg1 edgePair:(const CDStruct_1e94be47 *)arg2;
@@ -41,6 +43,8 @@ __attribute__((visibility("hidden")))
 - (shared_ptr_479d1306)_textureForName:(const basic_string_805fe43b *)arg1;
 - (void)dealloc;
 - (id)initWithStyleQuery:(shared_ptr_c5d816ee *)arg1 tileZoom:(float)arg2 fixedAroundCentroid:(const Matrix_8746f91e *)arg3 contentScale:(float)arg4 sharedResources:(id)arg5;
+@property(readonly, nonatomic) struct Texture2D *targetRoofTexture;
+@property(readonly, nonatomic) struct Texture2D *sourceRoofTexture;
 @property(readonly, nonatomic) struct Texture2D *targetTexture;
 @property(readonly, nonatomic) struct Texture2D *sourceTexture;
 

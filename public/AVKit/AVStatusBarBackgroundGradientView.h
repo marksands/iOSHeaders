@@ -15,10 +15,6 @@
 + (Class)layerClass;
 @property(nonatomic) double gradientOpacity; // @synthesize gradientOpacity=_gradientOpacity;
 @property(nonatomic) _Bool showsGradientWhenUnderlappingStatusBar; // @synthesize showsGradientWhenUnderlappingStatusBar=_showsGradientWhenUnderlappingStatusBar;
-- (void)_updateGradientOpacityIfNeeded;
-- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
-- (void)safeAreaInsetsDidChange;
-- (void)layoutSubviews;
 - (id)init;
 
 @end

@@ -23,6 +23,8 @@ __attribute__((visibility("hidden")))
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (unsigned long long)cascadeStepCountLoaded;
+- (unsigned long long)cascadeStepCountInOriginalModel;
 - (id)processWithOptions:(id)arg1 regionOfInterest:(struct CGRect)arg2 warningRecorder:(id)arg3 error:(id *)arg4;
 - (void)dealloc;
 - (id)initWithOptions:(id)arg1 error:(id *)arg2;

@@ -14,10 +14,16 @@
     NSArray *_requiredAttributes;
     NSArray *_rankingQueries;
     unsigned long long _strongRankingQueryCount;
+    unsigned long long _dominantRankingQueryCount;
+    unsigned long long _dominatedRankingQueryCount;
+    unsigned long long _rankingBitCount;
 }
 
 + (void)updateMailVIP:(id)arg1 phoneFavorites:(id)arg2 meEmailAddresses:(id)arg3;
 @property _Bool allowAnonymousDataCollection; // @synthesize allowAnonymousDataCollection=_allowAnonymousDataCollection;
+@property unsigned long long rankingBitCount; // @synthesize rankingBitCount=_rankingBitCount;
+@property unsigned long long dominatedRankingQueryCount; // @synthesize dominatedRankingQueryCount=_dominatedRankingQueryCount;
+@property unsigned long long dominantRankingQueryCount; // @synthesize dominantRankingQueryCount=_dominantRankingQueryCount;
 @property unsigned long long strongRankingQueryCount; // @synthesize strongRankingQueryCount=_strongRankingQueryCount;
 @property(retain) NSArray *rankingQueries; // @synthesize rankingQueries=_rankingQueries;
 @property(retain) NSArray *requiredAttributes; // @synthesize requiredAttributes=_requiredAttributes;

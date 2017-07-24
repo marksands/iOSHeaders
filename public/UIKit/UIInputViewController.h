@@ -16,6 +16,7 @@
 {
     _Bool _commitInputModeOnTouchEnd;
     _Bool _inputModeListIsShown;
+    _Bool _viewConformsToRemotePlaceholder;
     double _touchBegan;
     _Bool _alignsToContentViewController;
     _Bool _autosizeToCurrentKeyboard;
@@ -59,6 +60,7 @@
 - (void)didReceiveMemoryWarning;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
+- (void)_updateConformanceCache;
 - (void)loadView;
 - (void)set_autosizeToCurrentKeyboard:(_Bool)arg1;
 - (void)_setTextDocumentProxy:(id)arg1;

@@ -13,7 +13,7 @@
 #import <PassKitUI/UITableViewDataSource-Protocol.h>
 #import <PassKitUI/UITableViewDelegate-Protocol.h>
 
-@class NSDecimalNumber, NSNumberFormatter, NSString, PKEnterCurrencyAmountView, PKEnterValueNewBalanceView, PKNumberPadSuggestionsView, PKNumericSuggestionsEnterValueAlgorithm, PKPeerPaymentAccount, PKPeerPaymentBankAccountInformation, PKPeerPaymentService, UIButton, UILabel, UITableView, UITextField;
+@class NSDecimalNumber, NSNumberFormatter, NSString, PKContinuousButton, PKEnterCurrencyAmountView, PKEnterValueNewBalanceView, PKNumberPadSuggestionsView, PKNumericSuggestionsEnterValueAlgorithm, PKPeerPaymentAccount, PKPeerPaymentBankAccountInformation, PKPeerPaymentService, UILabel, UITableView, UITextField;
 @protocol PKPerformActionViewDelegate;
 
 @interface PKPerformPeerPaymentTransferToBankActionView : UIView <PKEnterCurrencyAmountViewDelegate, PKNumberPadSuggestionsViewDelegate, PKPeerPaymentAddBankAcountInformationViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, PKPeerPaymentPerformActionView>
@@ -28,7 +28,7 @@
     PKEnterCurrencyAmountView *_enterCurrencyAmountView;
     PKEnterValueNewBalanceView *_newBalanceView;
     PKNumberPadSuggestionsView *_suggestionView;
-    UIButton *_addAccountButton;
+    PKContinuousButton *_addAccountButton;
     UILabel *_addAccountDetailLabel;
     UITableView *_tableView;
     NSDecimalNumber *_cardBalance;
@@ -51,6 +51,7 @@
 - (void)_currentAmountDidChangeTo:(id)arg1 shouldGenerateNewSuggestions:(_Bool)arg2;
 - (void)_updateCurrentAmount:(id)arg1 shouldGenerateNewSuggestions:(_Bool)arg2;
 - (_Bool)_shouldShakeCard:(id)arg1;
+- (void)_presentAddBankAccountViewController;
 - (void)_handleEditAccountInformationButtonPressed;
 - (void)_addAccountInformation:(id)arg1;
 - (void)_presentViewController:(id)arg1;

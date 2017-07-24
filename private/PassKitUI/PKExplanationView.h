@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSString, PKPaymentSetupFooterView, PKPaymentSetupPrivacyFooterView, UIImage, UIImageView, UILabel, UIScrollView, _UIBackdropView;
+@class NSString, PKPaymentSetupDockView, PKPaymentSetupPrivacyFooterView, UIActivityIndicatorView, UIImage, UIImageView, UILabel, UIScrollView, _UIBackdropView;
 @protocol PKExplanationViewDelegate;
 
 @interface PKExplanationView : UIView
@@ -16,37 +16,42 @@
     UIScrollView *_scrollView;
     UIImageView *_imageView;
     PKPaymentSetupPrivacyFooterView *_privacyFooter;
-    PKPaymentSetupFooterView *_continueFooter;
+    PKPaymentSetupDockView *_dockView;
     NSString *_titleText;
+    UIImageView *_logoImageView;
     UILabel *_titleLabel;
-    UILabel *_bodyText1Label;
-    UILabel *_bodyText2Label;
+    UILabel *_bodyTextLabel;
+    UIActivityIndicatorView *_activityIndicator;
+    UIImageView *_checkmarkView;
     _UIBackdropView *_backdropView;
     long long _backdropStyle;
     double _backdropWeight;
     _Bool _updatingBackdropSettings;
     _Bool _showPrivacyView;
     double _topMargin;
+    _Bool _forceShowSetupLaterButton;
     id <PKExplanationViewDelegate> _delegate;
     UIImage *_image;
-    NSString *_bodyText1;
-    NSString *_bodyText2;
+    NSString *_bodyText;
 }
 
-@property(readonly, nonatomic) PKPaymentSetupFooterView *continueFooter; // @synthesize continueFooter=_continueFooter;
-@property(copy, nonatomic) NSString *bodyText2; // @synthesize bodyText2=_bodyText2;
-@property(copy, nonatomic) NSString *bodyText1; // @synthesize bodyText1=_bodyText1;
+@property(readonly, nonatomic) UIImageView *checkmarkView; // @synthesize checkmarkView=_checkmarkView;
+@property(readonly, nonatomic) UIActivityIndicatorView *activityIndicator; // @synthesize activityIndicator=_activityIndicator;
+@property(readonly, nonatomic) PKPaymentSetupDockView *dockView; // @synthesize dockView=_dockView;
+@property(copy, nonatomic) NSString *bodyText; // @synthesize bodyText=_bodyText;
+@property(copy, nonatomic) NSString *titleText; // @synthesize titleText=_titleText;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(nonatomic) double topMargin; // @synthesize topMargin=_topMargin;
+@property(nonatomic) _Bool forceShowSetupLaterButton; // @synthesize forceShowSetupLaterButton=_forceShowSetupLaterButton;
 @property(nonatomic) _Bool showPrivacyView; // @synthesize showPrivacyView=_showPrivacyView;
 @property(nonatomic) __weak id <PKExplanationViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_accessibilitySettingsDidChange:(id)arg1;
 - (_Bool)_isBuddyiPad;
+- (_Bool)_showApplePayLogo;
 - (void)_createSubviews;
 - (void)_setupLater;
 - (void)_continue;
-@property(copy, nonatomic) NSString *titleText;
 @property(readonly, nonatomic) UIImageView *imageView;
 @property(readonly, nonatomic) PKPaymentSetupPrivacyFooterView *privacyView;
 - (void)layoutSubviews;

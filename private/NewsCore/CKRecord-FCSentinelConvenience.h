@@ -9,6 +9,7 @@
 @class NSData;
 
 @interface CKRecord (FCSentinelConvenience)
++ (id)secureSentinelRecordWithEncryptionKey:(id)arg1;
 @property(nonatomic) unsigned long long fc_secureSentinel_version;
 @property(retain, nonatomic) NSData *fc_secureSentinel_encryptionKey;
 @property(nonatomic) unsigned long long fc_sentinel_version;

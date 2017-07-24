@@ -22,6 +22,7 @@
     NSMutableArray *_onCommitBlocks;
     NSMutableArray *_onRollbackBlocks;
     _Bool _writer;
+    _Bool _secureDeleteEnabled;
     _Bool _checkpointRequired;
     NSURL *_fileURL;
     id <HDSQLiteDatabaseDelegate> _delegate;
@@ -34,6 +35,7 @@
 + (id)mainDatabaseURLWithProfileDirectoryPath:(id)arg1;
 @property(nonatomic) _Bool checkpointRequired; // @synthesize checkpointRequired=_checkpointRequired;
 @property(nonatomic) __weak id <HDSQLiteDatabaseDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) _Bool secureDeleteEnabled; // @synthesize secureDeleteEnabled=_secureDeleteEnabled;
 @property(nonatomic, getter=isWriter) _Bool writer; // @synthesize writer=_writer;
 @property(readonly, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 - (id).cxx_construct;
@@ -55,7 +57,7 @@
 - (id)typeOfColumn:(id)arg1 inTable:(id)arg2 error:(id *)arg3;
 - (_Bool)foreignKeyExistsFromTable:(id)arg1 column:(id)arg2 toTable:(id)arg3 column:(id)arg4 error:(id *)arg5;
 - (_Bool)table:(id)arg1 hasColumnWithName:(id)arg2 error:(id *)arg3;
-- (_Bool)validateForeignKeysForTable:(id)arg1 databaseName:(id)arg2 error:(id *)arg3;
+- (long long)validateForeignKeysForTable:(id)arg1 databaseName:(id)arg2 error:(id *)arg3;
 - (void)requireRollback;
 - (void)onCommit:(CDUnknownBlockType)arg1 orRollback:(CDUnknownBlockType)arg2;
 - (_Bool)_integerValueForPragma:(id)arg1 databaseName:(id)arg2 value:(long long *)arg3 error:(id *)arg4;

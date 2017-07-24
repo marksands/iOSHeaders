@@ -39,7 +39,8 @@
     TILRUDictionary *_rejectedAutocorrections;
     TILRUDictionary *_autocorrectionForCurrentStem;
     TILRUDictionary *_rejectedDisplayedAutocorrectionsForCurrentStem;
-    TILRUDictionary *_autocorrectionsSuggestedForCurrentInput;
+    TILRUDictionary *_autocorrectionListsSuggestedForCurrentInput;
+    TILRUDictionary *_autocorrectionListsForWordsInDocument;
     TIAutoshiftRegularExpressionLoader *_autoshiftRegexLoader;
     TITextCheckerExemptions *_textCheckerExemptions;
     long long _userInterfaceIdiom;
@@ -65,7 +66,8 @@
 @property(readonly, nonatomic) TITextCheckerExemptions *textCheckerExemptions; // @synthesize textCheckerExemptions=_textCheckerExemptions;
 @property(retain, nonatomic) TIAutoshiftRegularExpressionLoader *autoshiftRegexLoader; // @synthesize autoshiftRegexLoader=_autoshiftRegexLoader;
 @property(nonatomic) _Bool isEditingWordPrefix; // @synthesize isEditingWordPrefix=_isEditingWordPrefix;
-@property(readonly, nonatomic) TILRUDictionary *autocorrectionsSuggestedForCurrentInput; // @synthesize autocorrectionsSuggestedForCurrentInput=_autocorrectionsSuggestedForCurrentInput;
+@property(readonly, nonatomic) TILRUDictionary *autocorrectionListsForWordsInDocument; // @synthesize autocorrectionListsForWordsInDocument=_autocorrectionListsForWordsInDocument;
+@property(readonly, nonatomic) TILRUDictionary *autocorrectionListsSuggestedForCurrentInput; // @synthesize autocorrectionListsSuggestedForCurrentInput=_autocorrectionListsSuggestedForCurrentInput;
 @property(retain, nonatomic) TILRUDictionary *rejectedDisplayedAutocorrectionsForCurrentStem; // @synthesize rejectedDisplayedAutocorrectionsForCurrentStem=_rejectedDisplayedAutocorrectionsForCurrentStem;
 @property(retain, nonatomic) TILRUDictionary *autocorrectionForCurrentStem; // @synthesize autocorrectionForCurrentStem=_autocorrectionForCurrentStem;
 @property(readonly, nonatomic) TILRUDictionary *rejectedAutocorrections; // @synthesize rejectedAutocorrections=_rejectedAutocorrections;
@@ -140,7 +142,8 @@
 - (id)autocorrectionRecordForWord:(id)arg1;
 - (void)recordRejectedAutocorrectionForAcceptedText:(id)arg1;
 - (void)recordAcceptedAutocorrection:(id)arg1 fromPredictiveInputBar:(_Bool)arg2;
-- (void)recordSuggestedAutocorrection:(id)arg1;
+- (id)revisionListFromAutocorrectionList:(id)arg1 afterAcceptingCandidate:(id)arg2;
+- (void)recordSuggestedAutocorrectionList:(id)arg1;
 - (void)candidateRejected:(id)arg1;
 - (_Bool)shouldExpectSentenceBoundaryAfterContext:(const struct TITokenID *)arg1 contextLength:(unsigned long long)arg2;
 - (struct TITokenID)tokenIDForWordSeparator:(unsigned short)arg1;

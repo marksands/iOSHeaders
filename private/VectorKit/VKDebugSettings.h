@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSMutableArray, NSMutableDictionary, NSString;
 
@@ -35,7 +35,7 @@
     _Bool _paintRouteDebugMarkers;
     _Bool _dontMatchRouteLine;
     _Bool _dontMapMatchToSnappedRouteLine;
-    _Bool _highlightUnmatchedRouteLine;
+    _Bool _highlightRouteLineSnappingStatus;
     _Bool _dontVerifyRouteToTransitSnapping;
     _Bool _showManeuverPoints;
     _Bool _paintRoadSigns;
@@ -106,6 +106,7 @@
     _Bool _immediateRasterTextureLoading;
     _Bool _holdOntoStyleAttributes;
     NSMutableArray *_footprintsToSuppress;
+    _Bool _suppressFootprints;
     NSMutableDictionary *_customTiles;
     _Bool _drawDebugTransit;
     _Bool _labelTransitLineCollisionEnabled;
@@ -118,10 +119,19 @@
     float _venueBoundsPaddingForCamera;
     float _venueZoomOutFalloff;
     _Bool _enableTrafficCameraLabelDebugging;
+    _Bool _enableEtaLabelDebugging;
+    _Bool _etaLabelsAvoidScreenEdges;
+    _Bool _enableRouteIntersectionTesting;
     _Bool _trafficCameraLabelSelfCollide;
     _Bool _trafficCameraLabelCollideOutExternal;
     _Bool _trafficCameraLabelCollideWithExternal;
-    struct unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<md::ObjectGroup>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<md::ObjectGroup>>>> _customLandmarks;
+    _Bool _arOverrideDefaults;
+    float _arVirtualPlaneHeight;
+    float _arDefaultHeight;
+    unsigned long long _arSwipeGesture;
+    unsigned long long _arPinchGesture;
+    _Bool _arRenderAtNativeRate;
+    struct unordered_map<std::__1::basic_string<char>, std::__1::vector<std::__1::shared_ptr<md::ObjectGroup>, std::__1::allocator<std::__1::shared_ptr<md::ObjectGroup>>>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::vector<std::__1::shared_ptr<md::ObjectGroup>, std::__1::allocator<std::__1::shared_ptr<md::ObjectGroup>>>>>> _customLandmarks;
     _Bool _paintPoiTiles;
     _Bool _paintLandcoverTiles;
     _Bool _paintVenues;
@@ -132,14 +142,25 @@
     _Bool _showNavCameraDebugOverlay;
     _Bool _disableStylesheetAnimations;
     _Bool _trackingCameraZoomFurther;
+    _Bool _enableARDebugConsole;
     CDStruct_7a997382 _landmark2DStrokeSettings;
     shared_ptr_a3c46825 _debugStyleManager;
 }
 
 + (id)sharedSettings;
+@property(nonatomic) _Bool arRenderAtNativeRate; // @synthesize arRenderAtNativeRate=_arRenderAtNativeRate;
+@property(nonatomic) unsigned long long arPinchGesture; // @synthesize arPinchGesture=_arPinchGesture;
+@property(nonatomic) unsigned long long arSwipeGesture; // @synthesize arSwipeGesture=_arSwipeGesture;
+@property(nonatomic) float arDefaultHeight; // @synthesize arDefaultHeight=_arDefaultHeight;
+@property(nonatomic) float arVirtualPlaneHeight; // @synthesize arVirtualPlaneHeight=_arVirtualPlaneHeight;
+@property(nonatomic) _Bool arOverrideDefaults; // @synthesize arOverrideDefaults=_arOverrideDefaults;
+@property(nonatomic) _Bool enableARDebugConsole; // @synthesize enableARDebugConsole=_enableARDebugConsole;
 @property(nonatomic) _Bool trafficCameraLabelCollideWithExternal; // @synthesize trafficCameraLabelCollideWithExternal=_trafficCameraLabelCollideWithExternal;
 @property(nonatomic) _Bool trafficCameraLabelCollideOutExternal; // @synthesize trafficCameraLabelCollideOutExternal=_trafficCameraLabelCollideOutExternal;
 @property(nonatomic) _Bool trafficCameraLabelSelfCollide; // @synthesize trafficCameraLabelSelfCollide=_trafficCameraLabelSelfCollide;
+@property(nonatomic) _Bool etaLabelsAvoidScreenEdges; // @synthesize etaLabelsAvoidScreenEdges=_etaLabelsAvoidScreenEdges;
+@property(nonatomic) _Bool enableRouteIntersectionTesting; // @synthesize enableRouteIntersectionTesting=_enableRouteIntersectionTesting;
+@property(nonatomic) _Bool enableEtaLabelDebugging; // @synthesize enableEtaLabelDebugging=_enableEtaLabelDebugging;
 @property(nonatomic) _Bool enableTrafficCameraLabelDebugging; // @synthesize enableTrafficCameraLabelDebugging=_enableTrafficCameraLabelDebugging;
 @property(nonatomic) _Bool enableShieldsOnRouteLine; // @synthesize enableShieldsOnRouteLine=_enableShieldsOnRouteLine;
 @property(nonatomic) _Bool disableRoadSignLimit; // @synthesize disableRoadSignLimit=_disableRoadSignLimit;
@@ -147,6 +168,7 @@
 @property(nonatomic) _Bool shouldUseTestTileLoader; // @synthesize shouldUseTestTileLoader=_shouldUseTestTileLoader;
 @property(nonatomic) shared_ptr_a3c46825 debugStyleManager; // @synthesize debugStyleManager=_debugStyleManager;
 @property(nonatomic) CDStruct_7a997382 landmark2DStrokeSettings; // @synthesize landmark2DStrokeSettings=_landmark2DStrokeSettings;
+@property(nonatomic) _Bool suppressFootprints; // @synthesize suppressFootprints=_suppressFootprints;
 @property(retain, nonatomic) NSMutableArray *footprintsToSuppress; // @synthesize footprintsToSuppress=_footprintsToSuppress;
 @property(nonatomic) _Bool labelHighlightingVerboseLoggingEnabled; // @synthesize labelHighlightingVerboseLoggingEnabled=_labelHighlightingVerboseLoggingEnabled;
 @property(nonatomic) _Bool labelTransitLineCollisionEnabled; // @synthesize labelTransitLineCollisionEnabled=_labelTransitLineCollisionEnabled;
@@ -229,7 +251,7 @@
 @property(nonatomic) _Bool paintRoadSigns; // @synthesize paintRoadSigns=_paintRoadSigns;
 @property(nonatomic) _Bool showManeuverPoints; // @synthesize showManeuverPoints=_showManeuverPoints;
 @property(nonatomic) _Bool dontVerifyRouteToTransitSnapping; // @synthesize dontVerifyRouteToTransitSnapping=_dontVerifyRouteToTransitSnapping;
-@property(nonatomic) _Bool highlightUnmatchedRouteLine; // @synthesize highlightUnmatchedRouteLine=_highlightUnmatchedRouteLine;
+@property(nonatomic) _Bool highlightRouteLineSnappingStatus; // @synthesize highlightRouteLineSnappingStatus=_highlightRouteLineSnappingStatus;
 @property(nonatomic) _Bool dontMapMatchToSnappedRouteLine; // @synthesize dontMapMatchToSnappedRouteLine=_dontMapMatchToSnappedRouteLine;
 @property(nonatomic) _Bool dontMatchRouteLine; // @synthesize dontMatchRouteLine=_dontMatchRouteLine;
 @property(nonatomic) _Bool paintRouteDebugMarkers; // @synthesize paintRouteDebugMarkers=_paintRouteDebugMarkers;
@@ -263,8 +285,8 @@
 - (void).cxx_destruct;
 - (void)clearFootprintsToSuppress;
 - (void)addFootprintToSuppress:(id)arg1;
-- (shared_ptr_9d00bcb9 *)customLandmarkObjectGroupForKey:(const struct _GEOTileKey *)arg1;
-- (void)setCustomLandmarkFromData:(id)arg1 tileKey:(const struct _GEOTileKey *)arg2;
+- (const vector_fbcf581f *)customLandmarkObjectGroupsForKey:(const struct _GEOTileKey *)arg1;
+- (void)setCustomLandmarkFromData:(id)arg1 tileKey:(const struct _GEOTileKey *)arg2 texturePath:(id)arg3;
 - (void)setCustomLandmarkFromDisk:(id)arg1 tileKey:(const struct _GEOTileKey *)arg2 styleKey:(unsigned int)arg3 styleValue:(int)arg4;
 - (void)setCustomLandmarkFromDisk:(id)arg1 tileKey:(const struct _GEOTileKey *)arg2;
 - (_Bool)isPerformanceGroupShown:(unsigned int)arg1;

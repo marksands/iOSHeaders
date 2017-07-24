@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 - (void)configureTextCell:(id)arg1 forCaption:(id)arg2;
 - (id)emphasizedTextAttributesForCollectionViewType:(long long)arg1;
 - (id)defaultTextAttributesForCollectionViewType:(long long)arg1;
+- (double)standardSideMargins;
 - (_Bool)shouldUseFullscreenLayout;
 - (long long)promptStyle;
 - (id)popoverFeedViewControllerSpec;

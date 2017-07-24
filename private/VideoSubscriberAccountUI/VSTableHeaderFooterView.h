@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 - (void)layoutMarginsDidChange;
 - (void)_didInvalidateIntrinsicContentSize;
 - (void)setText:(id)arg1;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithCoder:(id)arg1;
 
