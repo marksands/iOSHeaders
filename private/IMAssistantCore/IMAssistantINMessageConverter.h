@@ -11,6 +11,7 @@
 }
 
 + (id)INMessageForSPIMessage:(id)arg1;
++ (id)__INSpeakableStringForMessage:(id)arg1;
 
 @end
 

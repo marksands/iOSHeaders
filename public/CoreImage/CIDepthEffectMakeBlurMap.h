@@ -37,11 +37,11 @@ __attribute__((visibility("hidden")))
 @property(retain) CIImage *inputShiftmapImage; // @synthesize inputShiftmapImage;
 @property(retain) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (id)_nativeImage:(id)arg1;
+- (id)_nativeImage:(id)arg1 aperture:(float)arg2;
 - (id)_metalImage;
 - (id)_nativeCIFaceMaskImage:(id)arg1 tuningParameters:(id)arg2;
 - (_Bool)_needToRunFaceMask;
-- (id)_nativeCILensModelImage:(id)arg1;
+- (id)_nativeCILensModelImage:(id)arg1 aperture:(float)arg2;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 
 @end

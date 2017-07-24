@@ -150,7 +150,7 @@ __attribute__((visibility("hidden")))
 + (id)notReadyError;
 + (void)raiseAbortError;
 + (id)abortError;
-+ (void)raiseValueError;
++ (void)raiseValueErrorForFunctionName:(id)arg1;
 + (void)raiseInvalidArrayContentsError;
 + (void)p_RaiseErrorForDictionary:(id)arg1;
 + (void)raiseErrorForError:(id)arg1;

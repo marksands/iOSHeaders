@@ -285,6 +285,8 @@
 - (void)pushViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)_prepareForNormalDisplayWithNavigationController:(id)arg1;
 - (void)_noteNestedNavigationControllerDidReturnToNormal:(id)arg1;
+- (void)_detachTopPaletteIfShowingSearchBarForViewController:(id)arg1;
+- (void)_detachTopPaletteIfShowingSearchBarForTopmostViewControllerInNavigationController:(id)arg1;
 - (void)_prepareForNestedDisplayWithNavigationController:(id)arg1;
 - (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)showViewController:(id)arg1 sender:(id)arg2;
@@ -341,7 +343,7 @@
 - (double)_widthForLayout;
 - (void)_calculateTopViewFramesForExpandedLayoutWithViewController:(id)arg1 contentScrollView:(id)arg2 gettingNavBarFrame:(struct CGRect *)arg3 topPaletteFrame:(struct CGRect *)arg4;
 - (void)_calculateTopViewFramesForPushPopIncomingLayoutWithViewController:(id)arg1 contentScrollView:(id)arg2 gettingNavBarFrame:(struct CGRect *)arg3 topPaletteFrame:(struct CGRect *)arg4;
-- (double)_topPalettePreferredLayoutHeightForVisibilityState;
+- (double)_topPalettePreferredLayoutHeightForVisibilityStateIfDisplayedForViewController:(id)arg1;
 - (void)_calculateTopViewFramesForLayoutWithViewController:(id)arg1 contentScrollView:(id)arg2 navBarFrame:(struct CGRect *)arg3 topPaletteFrame:(struct CGRect *)arg4 topLayoutType:(long long)arg5;
 - (CDStruct_1c6ce877)_calculateTopLayoutInfoForViewController:(id)arg1;
 - (void)_performTopViewGeometryUpdates:(CDUnknownBlockType)arg1;
@@ -435,6 +437,7 @@
 - (long long)_subclassPreferredFocusedViewPrioritizationType;
 - (id)preferredFocusedView;
 - (id)_overridingPreferredFocusEnvironment;
+- (_Bool)_canRestoreFocusAfterTransitionToRecalledItem:(id)arg1 inViewController:(id)arg2;
 - (void)_rememberPresentingFocusedItem:(id)arg1;
 - (void)_navigationBarDidEndAnimation:(id)arg1;
 - (void)_navigationBarDidChangeStyle:(id)arg1;
@@ -471,6 +474,7 @@
 - (_Bool)_reallyWantsFullScreenLayout;
 - (void)_positionNavigationBarHidden:(_Bool)arg1;
 - (void)_setNavigationBarHidden:(_Bool)arg1 edgeIfNotNavigating:(unsigned long long)arg2 duration:(double)arg3;
+- (_Bool)_isTransitioningOrPaletteIsTransitioning;
 - (void)_repositionPaletteWithNavigationBarHidden:(_Bool)arg1 duration:(double)arg2 shouldUpdateNavigationItems:(_Bool)arg3;
 - (void)_positionPaletteHidden:(_Bool)arg1 edge:(unsigned long long)arg2;
 - (void)_positionTransitioningPalette:(id)arg1 outside:(_Bool)arg2 edge:(unsigned long long)arg3 preservingYPosition:(_Bool)arg4;
@@ -491,8 +495,10 @@
 - (Class)navigationBarClass;
 - (void)_updateSearchPaletteSettingsForTopViewController:(id)arg1;
 - (void)_createAndAttachSearchPaletteForTopViewControllerIfNecessary:(id)arg1;
+- (id)_navControllerToCreateManagedSearchPaletteForNavController:(id)arg1;
 - (void)_createAndAttachSearchPaletteForTransitionToTopViewControllerIfNecesssary:(id)arg1;
 - (void)_loadTopSearchPaletteForDeferredTransitionIfNecessaryForTransitionToViewController:(id)arg1;
+- (id)_viewControllerForSearchPalette;
 - (void)_startCustomTransition:(id)arg1;
 - (id)_keyboardAnimationStyle;
 - (_Bool)_isViewControllerFullScene;
@@ -573,11 +579,14 @@
 - (void)_detachPalette:(id)arg1;
 - (void)attachPalette:(id)arg1 isPinned:(_Bool)arg2;
 - (void)_installPaletteIntoViewHierarchy:(id)arg1;
+- (id)_paletteForEdge:(unsigned long long)arg1 size:(struct CGSize)arg2 paletteClass:(Class)arg3;
+- (id)_managedSearchPaletteForEdge:(unsigned long long)arg1 size:(struct CGSize)arg2;
 - (id)paletteForEdge:(unsigned long long)arg1 size:(struct CGSize)arg2;
 - (id)_pinningBarForPalette:(id)arg1;
 - (struct CGRect)_boundsForPalette:(id)arg1 size:(struct CGSize)arg2;
 - (struct CGRect)_frameForPalette:(id)arg1;
 - (id)_topPalette;
+- (void)_updateControlledViewsToFrame:(struct CGRect)arg1;
 - (void)_prepareCollectionViewControllers:(id)arg1 forSharingInRange:(id)arg2;
 - (void)_prepareCollectionViewControllerForSharing:(id)arg1;
 - (void)_prepareCollectionViewController:(id)arg1 forSharingWithCollectionViewController:(id)arg2;

@@ -9,7 +9,7 @@
 #import <DiagnosticExtensionsDaemon/DEDPairingProtocol-Protocol.h>
 #import <DiagnosticExtensionsDaemon/DEDXPCProtocol-Protocol.h>
 
-@class DEDIDSConnection, DEDSharingConnection, DEDXPCConnector, DEDXPCInbound, NSMutableDictionary, NSString, NSXPCConnection;
+@class DEDBugSession, DEDIDSConnection, DEDSharingConnection, DEDXPCConnector, DEDXPCInbound, NSMutableDictionary, NSString, NSXPCConnection;
 @protocol DEDClientProtocol, DEDPairingProtocol, DEDWorkerProtocol, OS_dispatch_queue, OS_os_log;
 
 @interface DEDController : NSObject <DEDXPCProtocol, DEDPairingProtocol>
@@ -37,8 +37,10 @@
     NSObject<OS_dispatch_queue> *_replyQueue;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_os_log> *_log;
+    DEDBugSession *_lastCancelledSession;
 }
 
+@property(retain) DEDBugSession *lastCancelledSession; // @synthesize lastCancelledSession=_lastCancelledSession;
 @property(retain) NSObject<OS_os_log> *log; // @synthesize log=_log;
 @property(retain) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(retain) NSObject<OS_dispatch_queue> *replyQueue; // @synthesize replyQueue=_replyQueue;
@@ -67,6 +69,7 @@
 - (id)idsConnection;
 - (void)addDevice:(id)arg1;
 - (id)persistence;
+- (id)purgeStaleSessions:(id)arg1;
 - (id)deviceForIdentifier:(id)arg1;
 - (id)knownSessions;
 - (id)sessionForIdentifier:(id)arg1;
@@ -78,6 +81,7 @@
 - (void)discoverAllAvailableDevices;
 - (void)pong;
 - (void)ping;
+- (void)_didAbortSessionWithID:(id)arg1;
 - (void)abortSession:(id)arg1;
 - (void)reset;
 - (void)startBugSessionWithIdentifier:(id)arg1 configuration:(id)arg2 target:(id)arg3 completion:(CDUnknownBlockType)arg4;

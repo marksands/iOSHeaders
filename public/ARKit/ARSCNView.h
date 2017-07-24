@@ -30,6 +30,7 @@
     id _originalBackgroundContents;
     unsigned long long _arDebugOptions;
     long long _interfaceOrientation;
+    long long _lastInterfaceOrientation;
     struct CGSize _viewportSize;
     UIView *_rotationSnapshot;
     _Bool _automaticallyUpdatesLighting;
@@ -55,12 +56,12 @@
 - (void)didMoveToWindow;
 - (void)_updatePreferredFramesPerSecond;
 - (void)_updateFramesPerSecondWithTarget:(long long)arg1 shouldRestrictFrameRate:(_Bool)arg2;
-- (void)setPreferredFramesPerSecond:(long long)arg1;
 - (void)_updateDebugVisualization:(id)arg1;
 - (void)_removeAnchors;
 - (void)_updateNode:(id)arg1 forAnchor:(id)arg2;
 - (void)_updateAnchors;
 - (void)_addAnchors;
+- (id)_sphericalHarmonicsForLightEstimate:(id)arg1;
 - (void)_updateLighting:(id)arg1;
 - (void)_updateCamera:(id)arg1;
 - (void)_forceUpdateCamera;
@@ -77,6 +78,9 @@
 - (void)session:(id)arg1 didChangeState:(unsigned long long)arg2;
 - (void)session:(id)arg1 didUpdateFrame:(id)arg2;
 - (void)_renderer:(id)arg1 updateAtTime:(double)arg2;
+- (long long)preferredFramesPerSecond;
+- (void)setPreferredFramesPerSecond:(long long)arg1;
+- (unsigned long long)debugOptions;
 - (void)setDebugOptions:(unsigned long long)arg1;
 - (void)setPointOfView:(id)arg1;
 @property(retain, nonatomic) SCNScene *scene; // @dynamic scene;

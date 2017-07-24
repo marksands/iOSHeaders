@@ -18,12 +18,12 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)isValidBibliographyField:(id)arg1;
+- (void).cxx_destruct;
 - (_Bool)allowsPasteAsSmartField;
 - (id)citationSmartFields;
 - (id)copyWithContext:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (int)smartFieldKind;
-- (void)dealloc;
 - (void)loadFromUnarchiver:(id)arg1;
 @property(nonatomic) _Bool isLocalizable;
 @property(copy, nonatomic) NSArray *citationRecords;

@@ -32,6 +32,7 @@
 - (_Bool)_isValidResponse:(id)arg1 error:(id)arg2;
 - (void)_archiveContext;
 - (void)_handleRetryAfterRegisterWithRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_deviceScoreForEndpoint:(id)arg1 recipientAddress:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)_deviceScoreForEndpoint:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_deviceRegistrationDataWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_deviceIdentifier;
@@ -60,6 +61,7 @@
 - (id)logFacility;
 - (void)handleWillPerformHTTPRedirectionWithResponse:(id)arg1 redirectHandler:(CDUnknownBlockType)arg2;
 - (id)forbiddenErrorWithResponse:(id)arg1;
+- (id)badRequestErrorWithResponse:(id)arg1;
 - (void)handleResponse:(id)arg1 withError:(id)arg2 data:(id)arg3 task:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (id)initWithContext:(id)arg1 targetDevice:(id)arg2 archiver:(id)arg3;
 - (id)initWithContext:(id)arg1 targetDevice:(id)arg2;

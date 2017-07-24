@@ -8,7 +8,7 @@
 
 #import <VectorKit/VKTrackableAnnotationPresentation-Protocol.h>
 
-@class NSString, VKMapModel, VKTimedAnimation;
+@class NSString, VKTimedAnimation;
 @protocol VKAnnotation;
 
 @interface VKNavigationPuck : NSObject <VKTrackableAnnotationPresentation>
@@ -18,7 +18,7 @@
     _Bool _animatingToCoordinate;
     _Bool _stale;
     VKTimedAnimation *_puckStyleAnimation;
-    VKMapModel *_mapModel;
+    struct AnimationRunner *_animationRunner;
     struct NavigationPuck *_navigationPuck;
 }
 
@@ -34,8 +34,9 @@
 @property(nonatomic) double presentationCourse;
 @property(nonatomic) int mode;
 - (void)runAnimation:(id)arg1;
+- (void)destroyAnimationRunner;
 - (void)dealloc;
-- (id)initWithMapModel:(id)arg1;
+- (id)initWithAnimationRunner:(struct AnimationRunner *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

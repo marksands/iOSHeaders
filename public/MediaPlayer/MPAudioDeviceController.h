@@ -8,8 +8,11 @@
 
 @interface MPAudioDeviceController : NSObject
 {
+    id _delegate;
 }
 
+@property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (_Bool)wirelessRouteIsPicked;
 
 @end

@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     unsigned int drawInWebThread:1;
     unsigned int inRotation:1;
     unsigned int didRotateEnclosingScrollView:1;
+    unsigned int safeAreaShouldAffectObscuredInsets:1;
     NSURLRequest *request;
     long long clickedAlertButtonIndex;
     UIWebViewWebViewDelegate *webViewDelegate;

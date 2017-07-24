@@ -6,14 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
-#import <UIKit/UIDropInteractionDelegate-Protocol.h>
+#import <UIKit/UIDropInteractionDelegate_Private-Protocol.h>
 #import <UIKit/_UICollectionViewShadowUpdatesRebaseApplicable-Protocol.h>
 
 @class CADisplayLink, NSIndexPath, NSString, UICollectionView, UICollectionViewDropProposal, UIDropInteraction, _UIDragDestinationControllerDropProposalState, _UIDragDestinationControllerReorderingState, _UIDragDestinationControllerSessionState;
 @protocol UIDropSession, _UICollectionViewDragDestinationControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface _UICollectionViewDragDestinationController : NSObject <UIDropInteractionDelegate, _UICollectionViewShadowUpdatesRebaseApplicable>
+@interface _UICollectionViewDragDestinationController : NSObject <UIDropInteractionDelegate_Private, _UICollectionViewShadowUpdatesRebaseApplicable>
 {
     UICollectionView *_collectionView;
     UIDropInteraction *_dropInteraction;
@@ -57,6 +57,7 @@ __attribute__((visibility("hidden")))
 - (void)_pauseReorderingDisplayLink;
 - (void)_configureReorderingDisplayLink;
 - (void)_configureInteraction;
+- (id)_queryClientForPreviewParamtersForItemAtIndexPath:(id)arg1;
 - (void)_endInteractiveReorderingIfNeeded;
 - (void)_cancelInteractiveReorderingIfNeeded;
 - (_Bool)_isCompatibilityMode;
@@ -64,6 +65,7 @@ __attribute__((visibility("hidden")))
 - (id)_dropDelegateProxy;
 - (id)_dragDestinationDelegateActual;
 - (id)_dragDestinationDelegateProxy;
+- (long long)_dropInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (void)dropInteraction:(id)arg1 item:(id)arg2 willAnimateDropWithAnimator:(id)arg3;
 - (id)dropInteraction:(id)arg1 previewForDroppingItem:(id)arg2 withDefault:(id)arg3;
 - (void)dropInteraction:(id)arg1 sessionDidEnd:(id)arg2;

@@ -29,6 +29,7 @@
 - (_Bool)shouldArchiveValueForKey:(id)arg1;
 @property double inputTime;
 @property _Bool lowLatency;
+@property unsigned long long maximumDrawableCount;
 @property(getter=isAsynchronous) _Bool asynchronous;
 - (void)discardContents;
 - (_Bool)isDrawableAvailable;

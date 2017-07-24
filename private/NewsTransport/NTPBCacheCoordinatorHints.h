@@ -14,9 +14,7 @@
 {
     long long _version;
     NSMutableArray *_cacheHints;
-    struct {
-        unsigned int version:1;
-    } _has;
+    CDStruct_f20694ce _has;
 }
 
 + (Class)cacheHintsType;

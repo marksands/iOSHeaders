@@ -12,22 +12,23 @@
 @interface PKPaymentHeroImageController : NSObject
 {
     PKPaymentHeroImageManifest *_manifest;
-    NSArray *_featuredNetworks;
     NSMutableArray *_currentNetworksDownloading;
     id <PKPaymentHeroImageControllerDelegate> _delegate;
     long long _watchSize;
+    NSArray *_featuredNetworks;
 }
 
 + (_Bool)_networkImageHasDownloadedWithError:(id)arg1;
 + (void)_addNetworkImageDownloadError:(id)arg1 downloadedSha1:(id)arg2;
 + (id)defaultPaymentCredentials;
+@property(copy, nonatomic) NSArray *featuredNetworks; // @synthesize featuredNetworks=_featuredNetworks;
 @property(nonatomic) long long watchSize; // @synthesize watchSize=_watchSize;
 @property(nonatomic) id <PKPaymentHeroImageControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_debugString;
 - (void)_alertDelgateOfDownloadedImageData:(id)arg1 network:(id)arg2 error:(id)arg3;
 - (id)_builtInNetworksCardImageData;
-- (struct CGSize)imageSizeForScreenSize:(struct CGSize)arg1;
+- (struct CGSize)cardArtSizeForSize:(struct CGSize)arg1;
 - (id)primaryFeaturedNetwork;
 - (void)downloadRemoteImageForNetwork:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)containsPaymentCredentialType:(long long)arg1;

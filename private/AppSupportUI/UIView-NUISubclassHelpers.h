@@ -13,9 +13,8 @@
 - (double)effectiveFirstBaselineOffsetFromContentTop;
 - (double)effectiveBaselineOffsetFromContentBottom;
 - (struct UIEdgeInsets)effectiveAlignmentRectInsets;
+- (id)contentLayoutSizeCacheDescription;
 - (long long)_nui_isUIButtonType;
-
-// Remaining properties
 @property(nonatomic) _Bool neverCacheContentLayoutSize;
 @end
 

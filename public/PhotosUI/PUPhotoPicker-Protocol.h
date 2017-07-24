@@ -6,7 +6,7 @@
 
 #import <PhotosUI/NSObject-Protocol.h>
 
-@class NSArray, NSDictionary, NSString, PUPhotoPickerAppearance, UIViewController;
+@class NSArray, NSData, NSDictionary, NSString, PUPhotoPickerAppearance, UIViewController;
 
 @protocol PUPhotoPicker <NSObject>
 @property(nonatomic) long long secondaryActionType;
@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) _Bool allowsMultipleSelection;
 @property(readonly, nonatomic) NSArray *mediaTypes;
 @property(readonly, nonatomic) unsigned long long savingOptions;
+- (void)performTraitCollectionUpdateUsingData:(NSData *)arg1 completion:(void (^)(NSNumber *))arg2;
 - (void)performAppearanceUpdateUsing:(PUPhotoPickerAppearance *)arg1;
 - (void)performPhotosSelection;
 - (void)didSelectMultipleMediaItemsWithInfoDictionaries:(NSArray *)arg1;

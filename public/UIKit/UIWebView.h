@@ -99,6 +99,7 @@
 - (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 request:(id)arg3 frame:(id)arg4 decisionListener:(id)arg5;
 - (void)webView:(id)arg1 decidePolicyForNewWindowAction:(id)arg2 request:(id)arg3 newFrameName:(id)arg4 decisionListener:(id)arg5;
 - (void)_reportError:(id)arg1;
+- (void)scrollViewDidChangeAdjustedContentInset:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWasRemoved:(id)arg1;
 - (void)scrollViewDidScrollToTop:(id)arg1;
@@ -110,6 +111,7 @@
 - (void)scrollViewDidZoom:(id)arg1;
 - (void)scrollViewWillBeginZooming:(id)arg1 withView:(id)arg2;
 - (id)viewForZoomingInScrollView:(id)arg1;
+- (void)_webView:(id)arg1 didChangeAvoidsUnsafeArea:(_Bool)arg2;
 - (void)restoreStateFromHistoryItem:(id)arg1 forWebView:(id)arg2;
 - (void)saveStateToHistoryItem:(id)arg1 forWebView:(id)arg2;
 - (void)webViewMainFrameDidFailLoad:(id)arg1 withError:(id)arg2;
@@ -169,6 +171,7 @@
 - (id)_initWithFrame:(struct CGRect)arg1 enableReachability:(_Bool)arg2;
 - (void)_webViewCommonInitWithWebView:(id)arg1 scalesPageToFit:(_Bool)arg2;
 - (void)_updateBrowserViewExposedScrollViewRect;
+- (void)_updateScrollViewInsetAdjustmentBehavior;
 - (void)_updateViewSettings;
 - (void)_setRichTextReaderViewportSettings;
 - (void)_setScalesPageToFitViewportSettings;

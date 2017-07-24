@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) TSKSelection *selection; // @synthesize selection=_selection;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;

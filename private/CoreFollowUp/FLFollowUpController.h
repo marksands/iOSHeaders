@@ -43,6 +43,7 @@
 - (_Bool)postFollowUpItem:(id)arg1 error:(id *)arg2;
 - (id)initWithClientIdentifier:(id)arg1 machServiceName:(id)arg2 delegate:(id)arg3;
 - (id)initWithClientIdentifier:(id)arg1;
+- (id)initWithClientIdentifier:(id)arg1 xpcEndpoint:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

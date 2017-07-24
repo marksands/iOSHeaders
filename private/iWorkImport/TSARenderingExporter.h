@@ -58,6 +58,7 @@ __attribute__((visibility("hidden")))
 - (id)p_renderingExporterDelegate;
 - (id)documentRoot;
 - (double)totalProgess;
+- (void)finalizeContext:(struct CGContext *)arg1;
 - (id)currentInfos;
 
 // Remaining properties

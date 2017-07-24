@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <StoreKit/NSCopying-Protocol.h>
 
@@ -20,6 +20,7 @@
     NSData *_requestData;
     NSDictionary *_requestParameters;
     _Bool _simulatesAskToBuyInSandbox;
+    _Bool _isStoreOriginated;
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -9,7 +9,7 @@
 #import <UIKit/UIActionSheetPresentationControllerDelegate-Protocol.h>
 #import <UIKit/_UIDocumentPickerRemoteViewControllerContaining-Protocol.h>
 
-@class NSMutableArray, NSString, NSURL, _UIDocumentPickerRemoteViewController, _UIResilientRemoteViewContainerViewController;
+@class NSArray, NSMutableArray, NSString, NSURL, _UIDocumentPickerRemoteViewController, _UIResilientRemoteViewContainerViewController;
 @protocol UIDocumentMenuDelegate;
 
 @interface UIDocumentMenuViewController : UIViewController <_UIDocumentPickerRemoteViewControllerContaining, UIActionSheetPresentationControllerDelegate>
@@ -23,9 +23,11 @@
     _UIResilientRemoteViewContainerViewController *_childViewController;
     unsigned long long _documentPickerMode;
     NSURL *_uploadURL;
+    NSArray *_allowedUTIs;
 }
 
 @property(nonatomic, getter=_sourceIsManaged, setter=_setSourceIsManaged:) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
+@property(copy, nonatomic) NSArray *allowedUTIs; // @synthesize allowedUTIs=_allowedUTIs;
 @property(copy, nonatomic) NSURL *uploadURL; // @synthesize uploadURL=_uploadURL;
 @property(nonatomic) unsigned long long documentPickerMode; // @synthesize documentPickerMode=_documentPickerMode;
 @property(nonatomic) _Bool dismissDelegateCalled; // @synthesize dismissDelegateCalled=_dismissDelegateCalled;

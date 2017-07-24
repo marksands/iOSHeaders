@@ -30,6 +30,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSDictionary *updateDictionary;
 @property(readonly, nonatomic) long long storeItemIdentifier;
+- (id)releaseDate;
 @property(readonly, nonatomic) long long parentalControlsRank;
 @property(readonly, nonatomic) NSNumber *externalVersionIdentifier;
 @property(readonly, nonatomic) NSString *buyParams;

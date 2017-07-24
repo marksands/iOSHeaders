@@ -15,7 +15,6 @@ __attribute__((visibility("hidden")))
 @interface TSWPTOCInfo : TSWPShapeInfo <TSWPTextualEquivalentProvider>
 {
     TSWPTOCPartitioner *_partitioner;
-    _Bool rebuildEntriesAfterPaste;
     NSArray *_tocEntries;
     id <TSWPTOCController> _tocController;
     TSWPTOCSettings *_tocSettings;
@@ -25,7 +24,9 @@ __attribute__((visibility("hidden")))
 + (_Bool)canPartition;
 @property(retain, nonatomic) NSArray *pageNumberRanges; // @synthesize pageNumberRanges=_pageNumberRanges;
 @property(retain, nonatomic, setter=setTOCSettings:) TSWPTOCSettings *tocSettings; // @synthesize tocSettings=_tocSettings;
-@property(nonatomic) id <TSWPTOCController> tocController; // @synthesize tocController=_tocController;
+@property(nonatomic) __weak id <TSWPTOCController> tocController; // @synthesize tocController=_tocController;
+@property(retain, nonatomic, setter=setTOCEntries:) NSArray *tocEntries; // @synthesize tocEntries=_tocEntries;
+- (void).cxx_destruct;
 - (id)textualEquivalent;
 - (void)saveTOCInfoMessage:(struct TOCInfoArchive *)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
@@ -40,11 +41,10 @@ __attribute__((visibility("hidden")))
 - (id)containedStorageFormattedUsingParagraphStyle:(id)arg1;
 @property(readonly, nonatomic) NSSet *paragraphStylesShownInTOC;
 @property(readonly, nonatomic) NSArray *visibleTOCEntries;
-@property(retain, nonatomic, setter=setTOCEntries:) NSArray *tocEntries; // @synthesize tocEntries=_tocEntries;
 - (id)partitioner;
+- (int)elementKind;
 - (Class)repClass;
 - (id)copyWithContext:(id)arg1;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

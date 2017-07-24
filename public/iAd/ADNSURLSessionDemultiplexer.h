@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <iAd/NSURLSessionDataDelegate-Protocol.h>
 
@@ -31,7 +31,6 @@
 @property(retain) NSMutableDictionary *taskInfoByTaskIdentifier; // @synthesize taskInfoByTaskIdentifier=_taskInfoByTaskIdentifier;
 @property(nonatomic) long long requestCount; // @synthesize requestCount=_requestCount;
 @property NSString *identifier; // @synthesize identifier=_identifier;
-- (void)URLSession:(id)arg1 task:(id)arg2 didFinishCollectingMetrics:(id)arg3;
 - (void)URLSession:(id)arg1 task:(id)arg2 willPerformHTTPRedirection:(id)arg3 newRequest:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
 - (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;

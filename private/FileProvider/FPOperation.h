@@ -18,8 +18,10 @@
     unsigned char _uuid[16];
     id _executionTransaction;
     _Bool _finished;
+    CDUnknownBlockType _finishedBlock;
 }
 
+@property(copy) CDUnknownBlockType finishedBlock; // @synthesize finishedBlock=_finishedBlock;
 @property(retain, nonatomic) id <FPCancellable> remoteOperation; // @synthesize remoteOperation=_remoteOperation;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_queue;
 @property(readonly, getter=isFinished) _Bool finished; // @synthesize finished=_finished;

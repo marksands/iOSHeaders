@@ -6,11 +6,11 @@
 
 #import <objc/NSObject.h>
 
-#import <FuseUI/NSCopying-Protocol.h>
+#import <FuseUI/MPArtworkDataSourceVisualIdenticality-Protocol.h>
 
 @class NSBundle, NSString, UIColor;
 
-@interface MusicBundleImageArtworkRequest : NSObject <NSCopying>
+@interface MusicBundleImageArtworkRequest : NSObject <MPArtworkDataSourceVisualIdenticality>
 {
     NSBundle *_bundle;
     NSString *_imageName;
@@ -23,10 +23,16 @@
 @property(readonly, copy, nonatomic) NSString *imageName; // @synthesize imageName=_imageName;
 @property(readonly, nonatomic) NSBundle *bundle; // @synthesize bundle=_bundle;
 - (void).cxx_destruct;
+- (id)stringRepresentation;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
 - (id)initWithImageName:(id)arg1 inBundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

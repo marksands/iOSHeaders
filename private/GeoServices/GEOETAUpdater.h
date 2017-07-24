@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class GEOApplicationAuditToken, GEOCommonOptions, GEOComposedRoute, GEOComposedWaypoint, GEOETATrafficUpdateRequest, GEOLocation, GEORouteAttributes, GEORouteMatch, NSData, NSTimer;
+@class GEOApplicationAuditToken, GEOCommonOptions, GEOComposedRoute, GEOComposedWaypoint, GEOETATrafficUpdateRequest, GEOLocation, GEORouteAttributes, GEORouteMatch, NSData, NSString, NSTimer;
 @protocol GEOETAUpdaterDelegate;
 
 @interface GEOETAUpdater : NSObject
 {
     id <GEOETAUpdaterDelegate> _delegate;
+    NSString *_requestingAppIdentifier;
     GEOETATrafficUpdateRequest *_currentETARequest;
     GEOLocation *_userLocation;
     GEORouteMatch *_routeMatch;
@@ -45,6 +46,7 @@
 @property(retain, nonatomic) GEOLocation *userLocation; // @synthesize userLocation=_userLocation;
 @property(retain, nonatomic) GEORouteMatch *routeMatch; // @synthesize routeMatch=_routeMatch;
 @property(retain, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
+@property(retain, nonatomic) NSString *requestingAppIdentifier; // @synthesize requestingAppIdentifier=_requestingAppIdentifier;
 @property(nonatomic) __weak id <GEOETAUpdaterDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (_Bool)_updateRouteWithETATrafficUpdateResponse:(id)arg1;

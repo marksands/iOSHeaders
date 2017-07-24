@@ -8,7 +8,6 @@
 
 @interface NSCalendar (HKAdditions)
 - (id)hk_disambiguatedDSTDatesForComponents:(id)arg1;
-- (id)hk_startOfMonthForDate:(id)arg1;
 - (id)hk_yesterdayAtNoonForDate:(id)arg1;
 - (id)hk_startOfTomorrowForDate:(id)arg1;
 @end

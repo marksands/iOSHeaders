@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSArray, TSDRep, TSDTextureContext;
+@class NSArray, TSDRep, TSDTextureDescription;
 @protocol TSDMixingTypeContext;
 
 @protocol TSDMagicMoveMatching
 
 @optional
 + (double)magicMoveAttributeMatchPercentBetweenOutgoingObject:(TSDRep *)arg1 incomingObject:(TSDRep *)arg2 mixingTypeContext:(id <TSDMixingTypeContext>)arg3;
-+ (NSArray *)magicMoveMatchesBetweenOutgoingObjects:(NSArray *)arg1 andIncomingObjects:(NSArray *)arg2 textureContext:(TSDTextureContext *)arg3;
++ (NSArray *)magicMoveMatchesBetweenOutgoingObjects:(NSArray *)arg1 andIncomingObjects:(NSArray *)arg2 textureDescription:(TSDTextureDescription *)arg3;
 @end
 

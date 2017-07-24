@@ -6,13 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
-#import <UIKit/UIDragInteractionDelegate-Protocol.h>
+#import <UIKit/UIDragInteractionDelegate_Internal-Protocol.h>
 
 @class NSIndexPath, NSMapTable, NSMutableOrderedSet, NSString, UIDragInteraction, UITableView, UITableViewCell;
 @protocol UIDragSession, _UITableViewDragControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface _UITableViewDragController : NSObject <UIDragInteractionDelegate>
+@interface _UITableViewDragController : NSObject <UIDragInteractionDelegate_Internal>
 {
     _Bool _forceEnabledForReordering;
     long long _clientEnabledState;
@@ -42,6 +42,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool forceEnabledForReordering; // @synthesize forceEnabledForReordering=_forceEnabledForReordering;
 @property(nonatomic) long long clientEnabledState; // @synthesize clientEnabledState=_clientEnabledState;
 - (void).cxx_destruct;
+- (long long)_dragInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
+- (_Bool)_dragInteractionDynamicallyUpdatesPrefersFullSizePreviews:(id)arg1;
 - (_Bool)dragInteraction:(id)arg1 prefersFullSizePreviewsForSession:(id)arg2;
 - (_Bool)dragInteraction:(id)arg1 sessionIsRestrictedToDraggingApplication:(id)arg2;
 - (_Bool)dragInteraction:(id)arg1 sessionAllowsMoveOperation:(id)arg2;
@@ -61,6 +63,7 @@ __attribute__((visibility("hidden")))
 - (void)clearTentativeRows;
 - (void)addTentativeRowAtIndexPath:(id)arg1;
 - (_Bool)canProvideItemsForDragAtPoint:(struct CGPoint)arg1;
+- (void)immediatelyBeginDragWithTouch:(id)arg1;
 - (void)forceReset;
 @property(readonly, nonatomic) NSIndexPath *draggedIndexPath;
 @property(readonly, nonatomic) UITableViewCell *draggedCell;

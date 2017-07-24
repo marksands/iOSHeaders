@@ -45,6 +45,7 @@
 - (id)initWithPersistenceDelegate:(id)arg1 notificationListener:(id)arg2 options:(id)arg3;
 - (_Bool)buildPersonsWithCanceler:(id)arg1 keyFaceUpdateBlock:(CDUnknownBlockType)arg2 error:(id *)arg3;
 - (id)context;
+- (_Bool)clustererIsReadyToReturnSuggestions;
 - (long long)clustererState;
 - (id)differencesBetweenClustersInClusterCacheAndLibrary:(id *)arg1;
 - (_Bool)getFaceClusters:(id *)arg1 clusteringThreshold:(double *)arg2 utilizingGPU:(_Bool *)arg3 error:(id *)arg4;

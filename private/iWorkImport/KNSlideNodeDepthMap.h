@@ -17,8 +17,8 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) NSArray *depthsOfSlideNodes; // @synthesize depthsOfSlideNodes=_depthsOfSlideNodes;
 @property(readonly, nonatomic) NSArray *slideNodes; // @synthesize slideNodes=_slideNodes;
+- (void).cxx_destruct;
 - (void)enumerateSlideNodesAndDepthsUsingBlock:(CDUnknownBlockType)arg1;
-- (void)dealloc;
 - (id)initWithSlideNodes:(id)arg1 depths:(id)arg2;
 
 @end

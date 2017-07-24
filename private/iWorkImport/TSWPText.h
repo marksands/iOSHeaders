@@ -95,6 +95,7 @@ __attribute__((visibility("hidden")))
 - (void)drawText:(id)arg1 inContext:(struct CGContext *)arg2 minSize:(struct CGSize)arg3 maxSize:(struct CGSize)arg4 anchor:(struct CGPoint)arg5 flags:(int)arg6 isFlipped:(_Bool)arg7 viewScale:(double)arg8;
 - (void)drawColumn:(id)arg1 inContext:(struct CGContext *)arg2 isFlipped:(_Bool)arg3 viewScale:(double)arg4;
 - (void)drawColumn:(id)arg1 selection:(id)arg2 inContext:(struct CGContext *)arg3 isFlipped:(_Bool)arg4 viewScale:(double)arg5;
+- (void)drawColumn:(id)arg1 selection:(id)arg2 inContext:(struct CGContext *)arg3 isFlipped:(_Bool)arg4 viewScale:(double)arg5 renderMode:(int)arg6;
 - (struct CGSize)measureText:(id)arg1;
 - (id)layoutText:(id)arg1 context:(id)arg2 kind:(int)arg3 minSize:(struct CGSize)arg4 maxSize:(struct CGSize)arg5 anchor:(struct CGPoint)arg6 flags:(int)arg7;
 - (id)layoutText:(id)arg1 minSize:(struct CGSize)arg2 maxSize:(struct CGSize)arg3 anchor:(struct CGPoint)arg4 flags:(int)arg5;

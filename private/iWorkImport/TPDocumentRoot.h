@@ -150,6 +150,7 @@ __attribute__((visibility("hidden")))
 - (void)viewDidAppear;
 - (void)viewWillAppear;
 - (void)readViewState;
+- (void)readCanvasState;
 - (id)modelPathComponentForChild:(id)arg1;
 - (id)childEnumerator;
 - (id)modelEnumeratorWithFlags:(unsigned long long)arg1 forObjectsPassingTest:(CDUnknownBlockType)arg2;

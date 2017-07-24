@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOAdditionalEnabledMarkets, GEOClientCapabilities, GEOCommonOptions, GEOLocation, GEOPDABClientDatasetMetadata, GEORouteAttributes, GEOTFTrafficSnapshot, NSData, NSMutableArray;
+@class GEOAdditionalEnabledMarkets, GEOClientCapabilities, GEOCommonOptions, GEOLocation, GEOPDABClientDatasetMetadata, GEORouteAttributes, GEOTFTrafficSnapshot, NSData, NSMutableArray, NSString;
 
 @interface GEOETATrafficUpdateRequest : PBRequest <NSCopying>
 {
@@ -23,6 +23,7 @@
     NSData *_directionsResponseID;
     unsigned int _maxAlternateRouteCount;
     unsigned int _previouslyRejectedRerouteSavings;
+    NSString *_requestingAppId;
     int _rerouteStatus;
     GEORouteAttributes *_routeAttributes;
     NSMutableArray *_routes;
@@ -51,6 +52,7 @@
 + (Class)destinationWaypointTypedType;
 + (Class)routeType;
 @property(retain, nonatomic) NSMutableArray *serviceTags; // @synthesize serviceTags=_serviceTags;
+@property(retain, nonatomic) NSString *requestingAppId; // @synthesize requestingAppId=_requestingAppId;
 @property(retain, nonatomic) NSData *tripID; // @synthesize tripID=_tripID;
 @property(retain, nonatomic) GEOPDABClientDatasetMetadata *abClientMetadata; // @synthesize abClientMetadata=_abClientMetadata;
 @property(retain, nonatomic) GEOCommonOptions *commonOptions; // @synthesize commonOptions=_commonOptions;
@@ -80,6 +82,7 @@
 - (unsigned long long)serviceTagsCount;
 - (void)addServiceTag:(id)arg1;
 - (void)clearServiceTags;
+@property(readonly, nonatomic) _Bool hasRequestingAppId;
 @property(readonly, nonatomic) _Bool hasTripID;
 @property(nonatomic) _Bool hasMaxAlternateRouteCount;
 @property(nonatomic) unsigned int maxAlternateRouteCount; // @synthesize maxAlternateRouteCount=_maxAlternateRouteCount;

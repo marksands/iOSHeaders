@@ -43,6 +43,7 @@
 - (void)startUpdateRequests;
 @property(nonatomic) unsigned long long maxAlternateRoutesCount;
 @property(nonatomic) double debugBackgroundTimeWindow;
+@property(retain, nonatomic) NSString *requestingAppIdentifier;
 - (void)reset;
 - (void)dealloc;
 - (id)initWithDestination:(id)arg1 routeAttributes:(id)arg2 tracePlayer:(id)arg3;

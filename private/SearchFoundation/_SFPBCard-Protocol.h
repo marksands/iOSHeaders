@@ -10,6 +10,8 @@
 
 @protocol _SFPBCard <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasFlexibleSectionOrder;
+@property(nonatomic) _Bool flexibleSectionOrder;
 @property(readonly, nonatomic) _Bool hasFbr;
 @property(copy, nonatomic) NSString *fbr;
 @property(readonly, nonatomic) _Bool hasQueryId;

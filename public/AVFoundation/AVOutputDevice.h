@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVOutputDeviceInternal, NSString;
+@class AVOutputDeviceInternal, NSData, NSString;
 
 @interface AVOutputDevice : NSObject
 {
@@ -38,6 +38,7 @@
 - (id)modelSpecificInformation;
 - (float)batteryLevel;
 - (_Bool)hasBatteryLevel;
+@property(readonly, nonatomic) NSData *identifyingMACAddress;
 @property(readonly, nonatomic) NSString *modelID;
 @property(readonly, nonatomic) long long deviceSubType;
 @property(readonly, nonatomic) long long deviceType;

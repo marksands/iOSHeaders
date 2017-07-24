@@ -49,7 +49,7 @@
 - (id)account;
 - (id)dataPathForMimePart:(id)arg1;
 - (id)path;
-- (id)description;
+- (id)_privacySafeDescription;
 - (void)setMutableInfoFromMessage:(id)arg1;
 - (void)commit;
 - (void)setSummary:(id)arg1;

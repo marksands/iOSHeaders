@@ -28,6 +28,7 @@
 - (_Bool)supportsJunkReporting;
 - (id)sendersPhoneNumber;
 - (id)sendersEmail;
+- (_Bool)isManaged;
 - (_Bool)remove:(id *)arg1;
 - (_Bool)commit:(id *)arg1;
 - (_Bool)validate:(id *)arg1;

@@ -31,6 +31,7 @@
     NSMutableDictionary *_autocorrections;
     NSMutableDictionary *_capitalizations;
     NSString *_lastLanguage;
+    NSString *_lastCandidateLanguage;
     NSArray *_userPreferredLanguages;
     NSArray *_userPreferredLatinLanguages;
     NSArray *_userTopLanguages;
@@ -207,7 +208,6 @@
 - (id)_capitalizationResultForString:(id)arg1 range:(struct _NSRange)arg2 inString:(id)arg3 offset:(unsigned long long)arg4 language:(id)arg5 onlyAtInsertionPoint:(_Bool)arg6 keyEventArray:(id)arg7 selectedRangeValue:(id)arg8;
 - (_Bool)findMatchingRangesForRange:(struct _NSRange)arg1 inString:(id)arg2 keyEventArray:(id)arg3 selectedRangeValue:(id)arg4 matchingStringRange:(struct _NSRange *)arg5 correctableStringRange:(struct _NSRange *)arg6 matchingKeyEventRange:(struct _NSRange *)arg7 firstMisspelledKeyEventIndex:(unsigned long long *)arg8 lastMisspelledKeyEventIndex:(unsigned long long *)arg9 previousBackspaceCount:(unsigned long long *)arg10;
 - (_Bool)_findMatchingRangesForRange:(struct _NSRange)arg1 inString:(id)arg2 keyEventArray:(id)arg3 endingAtIndex:(unsigned long long)arg4 matchingStringRange:(struct _NSRange *)arg5 correctableStringRange:(struct _NSRange *)arg6 matchingKeyEventRange:(struct _NSRange *)arg7 firstMisspelledKeyEventIndex:(unsigned long long *)arg8 lastMisspelledKeyEventIndex:(unsigned long long *)arg9 previousBackspaceCount:(unsigned long long *)arg10;
-- (void)addSpaceCorrectionForString:(id)arg1 range:(struct _NSRange)arg2 inString:(id)arg3 offset:(unsigned long long)arg4 tagger:(id)arg5 language:(id)arg6 connection:(struct _PR_DB_IO *)arg7 toGuesses:(id)arg8 typologyCorrection:(id)arg9;
 - (void)_addGuessesForWordBuffer:(char *)arg1 length:(unsigned long long)arg2 language:(id)arg3 connection:(struct _PR_DB_IO *)arg4 sender:(id)arg5 minAutocorrectionLength:(unsigned long long)arg6 previousLetter:(unsigned short)arg7 nextLetter:(unsigned short)arg8 basicOnly:(_Bool)arg9 toGuesses:(id)arg10;
 - (id)spellServer:(id)arg1 finalModificationsForPinyinInputString:(id)arg2;
 - (id)spellServer:(id)arg1 modificationsForPinyinInputString:(id)arg2 geometryModelData:(id)arg3;

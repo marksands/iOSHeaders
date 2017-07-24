@@ -12,10 +12,10 @@
 @interface PKRendererController : NSObject
 {
     NSObject<OS_dispatch_queue> *_renderQueue;
-    NSObject<OS_dispatch_semaphore> *_queuedRendersSemaphore;
     NSObject<OS_dispatch_semaphore> *_completeRenderSemaphore;
     // Error parsing type: Ai, name: _cancelAllRendering
     // Error parsing type: Ai, name: _cancelLongRunningRenderingCount
+    // Error parsing type: Ai, name: _queuedRenders
     NSMutableArray *_postPresentCallbacks;
     _Bool _isTorndown;
     unsigned int _resolveFramebuffer;
@@ -23,12 +23,9 @@
     int renderbufferWidth;
     int renderbufferHeight;
     CAEAGLLayer *_presentationLayer;
-    _Bool _isRenderingCancelled;
     _Bool _drawingCommands;
     PKStrokeGenerator *_inputController;
     PKLinedPaper *_linedPaper;
-    long long _renderCount;
-    long long _missedRenderCount;
     PKRenderer *_renderer;
     double _inputScale;
     struct CGSize _pixelSize;
@@ -43,9 +40,6 @@
 @property double inputScale; // @synthesize inputScale=_inputScale;
 @property struct CGAffineTransform renderTransform; // @synthesize renderTransform=_renderTransform;
 @property(retain, nonatomic) PKRenderer *renderer; // @synthesize renderer=_renderer;
-@property(readonly, nonatomic) _Bool isRenderingCancelled; // @synthesize isRenderingCancelled=_isRenderingCancelled;
-@property(readonly, nonatomic) long long missedRenderCount; // @synthesize missedRenderCount=_missedRenderCount;
-@property(readonly, nonatomic) long long renderCount; // @synthesize renderCount=_renderCount;
 @property(retain, nonatomic) PKLinedPaper *linedPaper; // @synthesize linedPaper=_linedPaper;
 @property(nonatomic) struct CGSize actualSize; // @synthesize actualSize=_actualSize;
 @property(nonatomic) struct CGSize pixelSize; // @synthesize pixelSize=_pixelSize;
@@ -96,7 +90,6 @@
 - (void)changeRenderSize;
 - (void)setPixelSize:(struct CGSize)arg1 actualSize:(struct CGSize)arg2;
 - (void)_deleteFramebuffer;
-- (void)resetRenderCounts;
 - (_Bool)isAllRenderingCancelled;
 - (_Bool)isLongRunningRenderingCancelled;
 - (void)enableRendering;

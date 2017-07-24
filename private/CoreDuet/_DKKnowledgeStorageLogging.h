@@ -10,8 +10,9 @@
 {
 }
 
-+ (void)_knowledgeStorageDidInsertEventsIntoStream:(id)arg1 count:(unsigned long long)arg2;
++ (void)_knowledgeStorageDidInsertLocalEvents:(id)arg1;
 + (void)_knowledgeStorageDidInsertEvents:(id)arg1;
++ (void)_updateCounter:(id)arg1 notification:(id)arg2;
 + (id)portraitStreamNames;
 + (void)load;
 

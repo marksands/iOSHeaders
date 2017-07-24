@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (Class)classForUnarchiver:(id)arg1;
+- (_Bool)isEmpty;
 - (_Bool)shouldHideEmptyBullets;
 - (_Bool)autoListTermination;
 - (_Bool)autoListRecognition;

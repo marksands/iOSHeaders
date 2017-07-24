@@ -16,8 +16,8 @@ __attribute__((visibility("hidden")))
     NSDictionary *mOptions;
 }
 
+- (void).cxx_destruct;
 - (void)setOptions:(id)arg1;
-- (void)dealloc;
 - (_Bool)validatePassphrases:(id *)arg1;
 - (void)setCopyPassphrase:(id)arg1 hint:(id)arg2;
 - (void)setPrintPassphrase:(id)arg1 hint:(id)arg2;

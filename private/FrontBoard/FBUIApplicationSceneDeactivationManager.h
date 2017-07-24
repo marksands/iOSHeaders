@@ -34,7 +34,7 @@
 - (void)_setDeactivationReasons:(unsigned long long)arg1 onScene:(id)arg2 withSettings:(id)arg3;
 - (id)_bandForSceneLevel:(double)arg1 createIfNeeded:(_Bool)arg2;
 - (id)_deactivationBandsForLevel:(double)arg1;
-- (_Bool)_areEligibleSceneSettings:(id)arg1 forProcess:(id)arg2;
+- (_Bool)_areEligibleSceneSettings:(id)arg1 forScene:(id)arg2;
 - (_Bool)_shouldTrackSceneInitiallyAtInitialization:(id)arg1;
 - (_Bool)_isEligibleDisplayIdentity:(id)arg1;
 - (_Bool)_isEligibleScene:(id)arg1 withSettings:(id)arg2;

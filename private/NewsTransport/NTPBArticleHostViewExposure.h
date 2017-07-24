@@ -12,11 +12,20 @@
 
 @interface NTPBArticleHostViewExposure : PBCodable <NSCopying>
 {
+    double _agedPersonalizationScore;
+    double _agedUserFeedbackScore;
+    double _autoSubscribeCtr;
     long long _backendArticleVersionInt64;
+    double _computedGlobalScoreCoefficient;
+    double _diversifiedPersonalizationScore;
+    double _featureCtr;
+    double _globalScore;
+    double _paidNonpaidSubscriptionCtr;
     double _personalizationScore;
     long long _personalizationTreatmentId;
     long long _previousArticlePublisherArticleVersion;
     long long _publisherArticleVersionInt64;
+    double _userFeedbackScore;
     int _activeTimeSpent;
     NSString *_anfComponentId;
     int _articleDisplayRankInGroup;
@@ -110,11 +119,20 @@
     _Bool _isVideoInFeed;
     _Bool _subscriptionOnlyArticle;
     _Bool _viewFromNotificationDirectOpen;
-    CDStruct_4cbf99b6 _has;
+    CDStruct_97bd45a4 _has;
 }
 
 + (Class)fractionalCohortMembershipType;
 + (Class)namedEntitiesType;
+@property(nonatomic) double diversifiedPersonalizationScore; // @synthesize diversifiedPersonalizationScore=_diversifiedPersonalizationScore;
+@property(nonatomic) double agedPersonalizationScore; // @synthesize agedPersonalizationScore=_agedPersonalizationScore;
+@property(nonatomic) double agedUserFeedbackScore; // @synthesize agedUserFeedbackScore=_agedUserFeedbackScore;
+@property(nonatomic) double userFeedbackScore; // @synthesize userFeedbackScore=_userFeedbackScore;
+@property(nonatomic) double globalScore; // @synthesize globalScore=_globalScore;
+@property(nonatomic) double computedGlobalScoreCoefficient; // @synthesize computedGlobalScoreCoefficient=_computedGlobalScoreCoefficient;
+@property(nonatomic) double autoSubscribeCtr; // @synthesize autoSubscribeCtr=_autoSubscribeCtr;
+@property(nonatomic) double paidNonpaidSubscriptionCtr; // @synthesize paidNonpaidSubscriptionCtr=_paidNonpaidSubscriptionCtr;
+@property(nonatomic) double featureCtr; // @synthesize featureCtr=_featureCtr;
 @property(nonatomic) long long previousArticlePublisherArticleVersion; // @synthesize previousArticlePublisherArticleVersion=_previousArticlePublisherArticleVersion;
 @property(retain, nonatomic) NSString *iadNativeAd; // @synthesize iadNativeAd=_iadNativeAd;
 @property(retain, nonatomic) NSString *iadNativeLine; // @synthesize iadNativeLine=_iadNativeLine;
@@ -204,6 +222,15 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasDiversifiedPersonalizationScore;
+@property(nonatomic) _Bool hasAgedPersonalizationScore;
+@property(nonatomic) _Bool hasAgedUserFeedbackScore;
+@property(nonatomic) _Bool hasUserFeedbackScore;
+@property(nonatomic) _Bool hasGlobalScore;
+@property(nonatomic) _Bool hasComputedGlobalScoreCoefficient;
+@property(nonatomic) _Bool hasAutoSubscribeCtr;
+@property(nonatomic) _Bool hasPaidNonpaidSubscriptionCtr;
+@property(nonatomic) _Bool hasFeatureCtr;
 - (int)StringAsFeedAutoSubscribeType:(id)arg1;
 - (id)feedAutoSubscribeTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasFeedAutoSubscribeType;

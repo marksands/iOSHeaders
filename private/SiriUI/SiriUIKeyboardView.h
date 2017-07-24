@@ -60,7 +60,7 @@
 - (_Bool)resignFirstResponder;
 - (_Bool)becomeFirstResponder;
 - (void)setText:(id)arg1;
-- (struct CGRect)_orientationAdjustedFrame;
+- (struct CGRect)_frame;
 - (id)initWithFrame:(struct CGRect)arg1 inputViewStyle:(long long)arg2;
 - (id)init;
 - (id)initWithDelegate:(id)arg1;

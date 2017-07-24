@@ -9,21 +9,21 @@
 #import <NewsToday/FCFeedTransforming-Protocol.h>
 
 @class NSOrderedSet, NSString;
-@protocol FCFeedPersonalizing;
+@protocol FCFeedTransforming;
 
 @interface NTPersonalizedSectionSortTransformation : NSObject <FCFeedTransforming>
 {
     NSOrderedSet *_mandatoryArticleIDs;
     NSOrderedSet *_personalizedArticleIDs;
-    id <FCFeedPersonalizing> _feedPersonalizer;
+    id <FCFeedTransforming> _sortTransformation;
 }
 
-@property(retain, nonatomic) id <FCFeedPersonalizing> feedPersonalizer; // @synthesize feedPersonalizer=_feedPersonalizer;
+@property(retain, nonatomic) id <FCFeedTransforming> sortTransformation; // @synthesize sortTransformation=_sortTransformation;
 @property(copy, nonatomic) NSOrderedSet *personalizedArticleIDs; // @synthesize personalizedArticleIDs=_personalizedArticleIDs;
 @property(copy, nonatomic) NSOrderedSet *mandatoryArticleIDs; // @synthesize mandatoryArticleIDs=_mandatoryArticleIDs;
 - (void).cxx_destruct;
 - (id)transformFeedItems:(id)arg1;
-- (id)initWithMandatoryArticleIDs:(id)arg1 personalizedArticleIDs:(id)arg2 feedPersonalizer:(id)arg3;
+- (id)initWithMandatoryArticleIDs:(id)arg1 personalizedArticleIDs:(id)arg2 sortTransformation:(id)arg3;
 - (id)init;
 
 // Remaining properties

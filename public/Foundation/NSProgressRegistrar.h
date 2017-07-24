@@ -16,7 +16,9 @@
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_publishersByID;
+    NSMutableDictionary *_publisherTransactionsByID;
     NSMutableDictionary *_subscribersByID;
+    NSMutableDictionary *_subscriberTransactionsByID;
     NSFileAccessNode *_rootFileAccessNode;
     NSMutableSet *_pendingFileSubscriberIDs;
 }

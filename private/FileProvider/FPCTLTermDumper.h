@@ -24,6 +24,7 @@
 @property(readonly, nonatomic) _Bool supportsEscapeSequences; // @synthesize supportsEscapeSequences=_supportsEscapeSequences;
 @property(readonly, nonatomic) _Bool useColor; // @synthesize useColor=_useColor;
 @property(readonly, nonatomic) _Bool isatty; // @synthesize isatty=_isatty;
+@property(readonly, nonatomic) int fd; // @synthesize fd=_fd;
 - (void)write:(const char *)arg1;
 - (void)put:(id)arg1;
 - (void)puts:(const char *)arg1;

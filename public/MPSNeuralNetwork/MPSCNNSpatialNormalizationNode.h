@@ -15,6 +15,7 @@
 + (id)nodeWithSource:(id)arg1 kernelSize:(unsigned long long)arg2;
 @property(nonatomic) unsigned long long kernelHeight; // @synthesize kernelHeight=_kernelHeight;
 @property(nonatomic) unsigned long long kernelWidth; // @synthesize kernelWidth=_kernelWidth;
+- (struct FilterGraphNode *)newFilterNode;
 - (id)initWithSource:(id)arg1 kernelSize:(unsigned long long)arg2;
 - (id)initWithSource:(id)arg1;
 

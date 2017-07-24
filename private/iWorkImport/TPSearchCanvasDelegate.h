@@ -12,7 +12,6 @@ __attribute__((visibility("hidden")))
 }
 
 - (_Bool)isExportingFixedLayoutEPub;
-- (void)dealloc;
 - (id)initWithDocumentRoot:(id)arg1 canvas:(id)arg2;
 
 @end

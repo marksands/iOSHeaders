@@ -35,6 +35,7 @@
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (id)init;
 
 @end
 

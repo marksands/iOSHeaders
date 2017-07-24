@@ -27,9 +27,9 @@
     NSArray *_levelsOfDetail;
     unsigned long long _subdivisionLevel;
     _Bool _subdivisionIsAdaptive;
+    CDStruct_4c02ed10 _subdivisionSettings;
     SCNGeometrySource *_edgeCreasesSource;
     SCNGeometryElement *_edgeCreasesElement;
-    CDStruct_4c02ed10 _subdivisionSettings;
     SCNShadableHelper *_shadableHelper;
     struct SCNVector3 *_fixedBoundingBoxExtrema;
     NSString *_name;
@@ -134,6 +134,7 @@
 - (id)keyForNodeAttributes;
 - (id)scene;
 - (struct __C3DScene *)sceneRef;
+- (id)_renderableCopy;
 - (id)interleavedCopy;
 - (id)mutableCopy;
 - (id)copy;

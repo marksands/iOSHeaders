@@ -7,6 +7,7 @@
 #import <HealthKit/HKHealthStore.h>
 
 @interface HKHealthStore (FitnessUI)
++ (id)fiui_localizationStringSuffixForWheelchairUser:(_Bool)arg1;
 + (id)fiui_sharedHealthStoreForCarousel;
 @end
 

@@ -32,6 +32,7 @@
 @property(retain, nonatomic) EKCalendarDate *calendarDate; // @synthesize calendarDate=_calendarDate;
 - (void).cxx_destruct;
 - (id)_imageForDayNumber:(id)arg1 size:(struct CGSize)arg2 underlineThickness:(double)arg3;
+- (id)_imageForMonthDays:(long long)arg1 size:(struct CGSize)arg2 underlineThickness:(double)arg3;
 - (id)_weekDayInitialsImage;
 - (id)_imageForMonthName:(id)arg1;
 - (_Bool)isCurrentMonth;

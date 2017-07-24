@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     struct __CFBoolean *_sandboxed;
     struct os_unfair_lock_s _lock;
     unsigned long long _token;
+    BOOL _isPlatformBinary;
 }
 
 @end

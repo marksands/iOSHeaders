@@ -36,7 +36,7 @@
 - (id)description;
 - (void)contentItemsUpdatedNotification:(id)arg1;
 - (void)transactionDidEnd:(id)arg1;
-- (void)_sendTransaction:(unsigned long long)arg1 withPackets:(id)arg2;
+- (void)_onQueue_sendTransaction:(unsigned long long)arg1 withPackets:(id)arg2;
 - (void)sendTransaction:(unsigned long long)arg1 withPackets:(id)arg2;
 - (void)endSendingTransactions;
 - (void)beginSendingTransactions;

@@ -56,7 +56,7 @@ __attribute__((visibility("hidden")))
 - (void)_setVisibilityState:(long long)arg1 force:(_Bool)arg2;
 - (void)_setMaximumWidth:(double)arg1 forDisplayMode:(long long)arg2;
 - (void)delayed:(id)arg1;
-- (void)_setActiveDisplayMode:(long long)arg1 notifyingContentProvidingViewController:(_Bool)arg2;
+- (void)_setActiveDisplayMode:(long long)arg1 unconditionallyNotifyingContentProvidingViewController:(_Bool)arg2;
 - (void)_notifyContentProvidingViewControllerOfActiveDisplayModeChange;
 - (long long)_clientLargestSupportedDisplayMode;
 - (void)_encodeLayerTreeToURL:(id)arg1 withCodingImageFormat:(id)arg2 withReplyHandler:(CDUnknownBlockType)arg3;
@@ -72,7 +72,6 @@ __attribute__((visibility("hidden")))
 - (double)_clientPreferredContentHeight;
 - (double)_clientPreferredContentHeightPermittingAutolayout:(_Bool)arg1 didUseFittingSize:(_Bool *)arg2;
 - (void)_requestPreferredViewHeight:(double)arg1;
-- (void)_requestPreferredViewHeight:(double)arg1 force:(_Bool)arg2;
 - (double)_effectiveHeightForRequestedHeight:(double)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;

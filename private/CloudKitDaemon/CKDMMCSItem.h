@@ -118,6 +118,7 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (id)CKPropertiesDescription;
 - (void)clearFileSize;
+- (_Bool)canBeRegistered;
 - (id)initWithPackage:(id)arg1;
 - (id)initWithAsset:(id)arg1;
 - (id)init;

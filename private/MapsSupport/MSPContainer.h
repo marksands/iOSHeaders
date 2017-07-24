@@ -45,6 +45,7 @@
 - (void)coalesceEditsForContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)_endCoalescingEditsForContext:(id)arg1;
 - (id)beginCoalescingEditsWithContext:(id)arg1;
+- (void)_forEachObserver:(CDUnknownBlockType)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (void)editObjectsWithIdentifiers:(id)arg1 usingBarrierBlock:(CDUnknownBlockType)arg2 context:(id)arg3 completionQueue:(id)arg4 completion:(CDUnknownBlockType)arg5;

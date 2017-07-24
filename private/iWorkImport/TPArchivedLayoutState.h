@@ -22,9 +22,9 @@ __attribute__((visibility("hidden")))
     NSSet *_missingFonts;
 }
 
+- (void).cxx_destruct;
 - (void)captureLayoutStateWithProvider:(id)arg1;
 - (void)readLayoutStateWithConsumer:(id)arg1;
-- (void)dealloc;
 - (void)saveToArchiver:(id)arg1;
 - (void)p_reset;
 - (void)loadFromUnarchiver:(id)arg1;

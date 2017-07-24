@@ -90,6 +90,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isiCloudDevEnvironmentAccount;
 - (_Bool)_userCloudDBURLisInCarryPartition;
 @property(readonly, nonatomic) _Bool isCarryAccount;
+@property(readonly, nonatomic) NSString *formattedUsername;
 @property(readonly, nonatomic) NSString *username;
 @property(readonly, nonatomic) NSString *primaryEmail;
 @property(readonly, nonatomic) NSPersonNameComponents *fullName;

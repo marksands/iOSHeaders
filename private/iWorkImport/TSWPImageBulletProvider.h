@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)sharedInstance;
+- (void).cxx_destruct;
 - (id)p_predefinedImageNames;
 - (id)p_pathToPredefinedImages;
 - (id)dataForImageBullet:(id)arg1 withContext:(id)arg2;

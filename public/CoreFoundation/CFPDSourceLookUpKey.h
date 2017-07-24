@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     struct __CFString *cloudPath;
     _Bool byHost;
     _Bool managed;
+    _Bool managedUsesContainer;
     _Bool cloud;
 }
 

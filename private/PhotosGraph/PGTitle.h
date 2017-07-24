@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) NSString *stringValue; // @synthesize stringValue=_stringValue;
 - (void).cxx_destruct;
 - (id)description;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 
 @end

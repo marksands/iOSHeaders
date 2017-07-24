@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSCache, NSString, NSUserDefaults, TSDShapeSearchIndex;
+@class NSCache, NSDictionary, NSString, NSUserDefaults, TSDShapeSearchIndex;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     TSDShapeSearchIndex *_searchIndex;
     NSCache *_shapeCache;
     NSUserDefaults *_userDefaults;
+    NSDictionary *_shadowDefaults;
     NSString *_lastWriterToken;
     NSString *_localWriterToken;
 }
@@ -25,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *p_localWriterToken; // @synthesize p_localWriterToken=_localWriterToken;
 @property(copy, nonatomic) NSString *lastWriterToken; // @synthesize lastWriterToken=_lastWriterToken;
 @property(nonatomic) _Bool p_isWritingDefaultsDatabase; // @synthesize p_isWritingDefaultsDatabase=_isWritingDefaultsDatabase;
+@property(retain, nonatomic) NSDictionary *p_shadowDefaults; // @synthesize p_shadowDefaults=_shadowDefaults;
 @property(retain, nonatomic) NSUserDefaults *p_userDefaults; // @synthesize p_userDefaults=_userDefaults;
 @property(retain, nonatomic) NSCache *p_shapeCache; // @synthesize p_shapeCache=_shapeCache;
 @property(retain, nonatomic) TSDShapeSearchIndex *p_searchIndex; // @synthesize p_searchIndex=_searchIndex;
@@ -34,6 +36,8 @@ __attribute__((visibility("hidden")))
 - (id)p_identifierAtIndex:(unsigned long long)arg1;
 - (void)p_upgradeDefaultsIfNeeded;
 - (void)p_upgradeDefaultsFromVersion:(unsigned long long)arg1;
+- (void)p_updateShadowDefaults;
+- (id)p_shadowPathSourceDefaults;
 - (void)p_setPathSourceDefaults:(id)arg1;
 - (id)p_pathSourceDefaults;
 - (void)p_addUserDefinedShapeWithPathSource:(id)arg1 atIndex:(unsigned long long)arg2 pathSourceDefaults:(id)arg3 withChangedIndexSet:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;

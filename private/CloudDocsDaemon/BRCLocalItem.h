@@ -136,6 +136,7 @@
 - (void)markForceNotify;
 - (void)triggerNotificationIfNeeded;
 - (void)_sendNotificationIfNeededWithDiffs:(unsigned long long)arg1 regather:(_Bool)arg2;
+- (void)_queueParentIDUpdate:(id)arg1;
 @property(readonly, nonatomic) NSMutableSet *setOfAppLibraryIDsWithReverseAliases;
 - (id)fetchParentFileIDs;
 - (id)_setOfParentIDs;
@@ -153,7 +154,7 @@
 - (void)createSyncUpJob;
 - (unsigned long long)maskForDiffsToSyncUpForZone:(id)arg1;
 - (unsigned long long)metadataSyncUpMask;
-- (void)_updateAppLibraryPristineStatesAfterCreation;
+- (void)_updateAppLibraryPristineStatesAfterCreationOrUpdate;
 - (void)_updateAppLibraryPristineStatesAfterMarkingDead;
 - (id)parentItemOnFS;
 - (id)parentItemIDInZone;
@@ -233,7 +234,7 @@
 - (void)updateParentZoneRowID:(id)arg1;
 - (id)structureRecordBeingDeadInServerTruth:(_Bool)arg1 pcsChained:(_Bool)arg2 inZone:(id)arg3;
 - (id)structureRecordIDInZone:(id)arg1;
-- (id)aliasItemID;
+- (id)sharedAliasItemID;
 - (unsigned long long)diffAgainstServerAliasItem:(id)arg1;
 - (id)structureRecordID;
 - (void)serializeStructuralPluginHints:(id)arg1;

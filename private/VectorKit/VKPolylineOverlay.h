@@ -17,7 +17,6 @@
     struct __CFSet *_observers;
     GEOComposedRoute *_composedRoute;
     _Bool _isReadyForSnapping;
-    struct LabelExternalObjectsModerator *_labelExternalObjectsModerator;
     VKRouteLine *_routeRibbon;
     id <VKPolylineOverlayRouteRibbonObserver> _routeRibbonObserver;
     double _trafficTimeStamp;
@@ -26,7 +25,6 @@
     _Bool _showTraffic;
 }
 
-@property(nonatomic) struct LabelExternalObjectsModerator *labelExternalObjectsModerator; // @synthesize labelExternalObjectsModerator=_labelExternalObjectsModerator;
 @property(nonatomic) _Bool showTraffic; // @synthesize showTraffic=_showTraffic;
 @property(nonatomic) _Bool selected; // @synthesize selected=_selected;
 @property(nonatomic) id <VKPolylineOverlayRouteRibbonObserver> routeRibbonObserver; // @synthesize routeRibbonObserver=_routeRibbonObserver;

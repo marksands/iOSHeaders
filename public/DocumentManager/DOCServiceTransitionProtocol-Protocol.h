@@ -9,7 +9,7 @@
 @protocol DOCServiceTransitionProtocol <NSObject>
 - (void)endTransition;
 - (void)startTransition;
-- (void)getDisplayInformationWithCompletionBlock:(void (^)(UIImage *, _Bool, struct CGRect))arg1;
+- (void)getDisplayInformationWithCompletionBlock:(void (^)(UIImage *, unsigned long long, struct CGRect))arg1;
 - (void)setHasProgress:(_Bool)arg1 loadingFractionCompleted:(double)arg2 setIsIndeterminate:(_Bool)arg3;
 @end
 

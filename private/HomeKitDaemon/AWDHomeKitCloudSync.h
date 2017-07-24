@@ -15,6 +15,10 @@
     unsigned long long _timestamp;
     int _dataSyncState;
     unsigned int _fetchCount;
+    unsigned int _homeManagerFetchCount;
+    unsigned int _homeManagerUploadCount;
+    unsigned int _homeZoneFetchCount;
+    unsigned int _homeZoneUploadCount;
     unsigned int _pushCount;
     NSMutableArray *_topErrors;
     NSMutableArray *_topReasons;
@@ -27,6 +31,10 @@
         unsigned int timestamp:1;
         unsigned int dataSyncState:1;
         unsigned int fetchCount:1;
+        unsigned int homeManagerFetchCount:1;
+        unsigned int homeManagerUploadCount:1;
+        unsigned int homeZoneFetchCount:1;
+        unsigned int homeZoneUploadCount:1;
         unsigned int pushCount:1;
         unsigned int uploadCount:1;
         unsigned int uploadErrorCount:1;
@@ -38,6 +46,10 @@
 
 + (Class)topErrorsType;
 + (Class)topReasonsType;
+@property(nonatomic) unsigned int homeZoneUploadCount; // @synthesize homeZoneUploadCount=_homeZoneUploadCount;
+@property(nonatomic) unsigned int homeManagerUploadCount; // @synthesize homeManagerUploadCount=_homeManagerUploadCount;
+@property(nonatomic) unsigned int homeZoneFetchCount; // @synthesize homeZoneFetchCount=_homeZoneFetchCount;
+@property(nonatomic) unsigned int homeManagerFetchCount; // @synthesize homeManagerFetchCount=_homeManagerFetchCount;
 @property(nonatomic) _Bool lastDecryptionFailed; // @synthesize lastDecryptionFailed=_lastDecryptionFailed;
 @property(nonatomic) _Bool hasDecryptionFailed; // @synthesize hasDecryptionFailed=_hasDecryptionFailed;
 @property(nonatomic) _Bool uploadMaximumDelayReached; // @synthesize uploadMaximumDelayReached=_uploadMaximumDelayReached;
@@ -58,6 +70,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasHomeZoneUploadCount;
+@property(nonatomic) _Bool hasHomeManagerUploadCount;
+@property(nonatomic) _Bool hasHomeZoneFetchCount;
+@property(nonatomic) _Bool hasHomeManagerFetchCount;
 - (int)StringAsDataSyncState:(id)arg1;
 - (id)dataSyncStateAsString:(int)arg1;
 @property(nonatomic) _Bool hasDataSyncState;

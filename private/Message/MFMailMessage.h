@@ -9,11 +9,12 @@
 #import <Message/ECMessage-Protocol.h>
 #import <Message/MFBaseMessage-Protocol.h>
 #import <Message/MFMailboxPredictionMessage-Protocol.h>
+#import <Message/MFPubliclyDescribable-Protocol.h>
 
-@class MFMessageInfo, NSArray, NSDate, NSString, NSURL;
-@protocol ECMailbox, ECMimePart;
+@class MFMailboxUid, MFMessageInfo, NSArray, NSDate, NSString, NSURL;
+@protocol ECMimePart;
 
-@interface MFMailMessage : MFMessage <MFMailboxPredictionMessage, ECMessage, MFBaseMessage>
+@interface MFMailMessage : MFMessage <MFMailboxPredictionMessage, ECMessage, MFBaseMessage, MFPubliclyDescribable>
 {
     unsigned long long _messageFlags;
     unsigned char _subjectPrefixLength;
@@ -47,6 +48,9 @@
 - (unsigned long long)conversationFlags;
 - (id)remoteMailboxURL;
 - (id)account;
+@property(readonly, copy, nonatomic) NSString *mf_publicDescription;
+@property(readonly, copy) NSString *description;
+- (id)_privacySafeDescription;
 - (id)loadMeetingMetadata;
 - (id)loadMeetingData;
 - (id)loadMeetingExternalID;
@@ -54,7 +58,7 @@
 @property(readonly, copy, nonatomic) NSString *subject;
 - (id)subjectNotIncludingReAndFwdPrefix;
 - (id)subjectAndPrefixLength:(unsigned int *)arg1;
-@property(readonly, nonatomic) id <ECMailbox> mailbox;
+@property(readonly, nonatomic) MFMailboxUid *mailbox;
 - (void)markAsNotFlagged;
 - (void)markAsFlagged;
 - (void)markAsForwarded;
@@ -65,8 +69,7 @@
 - (int)priority;
 - (void)setPriorityFromHeaders:(id)arg1;
 - (void)setMessageFlagsWithoutCommitting:(unsigned long long)arg1;
-- (void)setMessageFlags:(unsigned long long)arg1;
-- (unsigned long long)messageFlags;
+@property(nonatomic) unsigned long long messageFlags;
 @property unsigned long long modSequenceNumber;
 - (id)mailMessageStore;
 - (id)messageStore;
@@ -74,6 +77,7 @@
 - (id)ccAddressList;
 - (id)toAddressList;
 - (id)firstSenderAddress;
+@property(readonly, nonatomic) unsigned int libraryID;
 @property(readonly, nonatomic, getter=isKnownToHaveAttachments) _Bool knownToHaveAttachments;
 @property(readonly, nonatomic) _Bool deleted;
 @property(readonly, nonatomic) long long conversationHash; // @dynamic conversationHash;
@@ -94,8 +98,8 @@
 @property(readonly, nonatomic) unsigned int dateReceivedInterval; // @dynamic dateReceivedInterval;
 @property(readonly, nonatomic) unsigned int dateSentInterval; // @dynamic dateSentInterval;
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic, getter=isLibraryMessage) _Bool libraryMessage;
 @property(readonly, nonatomic) unsigned int mailboxID; // @dynamic mailboxID;
 @property(readonly, nonatomic) id <ECMimePart> messageBody;
 @property(readonly, nonatomic) long long messageIDHash; // @dynamic messageIDHash;

@@ -9,6 +9,6 @@
 @protocol _DUIClientSessionCommon
 - (oneway void)updateDetail:(_DUIItemDetail *)arg1 forItemIndex:(unsigned long long)arg2;
 - (oneway void)requestDetailForItemIndex:(unsigned long long)arg1 reply:(void (^)(_DUIItemDetail *))arg2;
-- (oneway void)requestImageForItemIndex:(unsigned long long)arg1 reply:(void (^)(NSArray *, BKSAnimationFenceHandle *, long long))arg2;
+- (oneway void)requestImageForItemIndex:(unsigned long long)arg1 reply:(void (^)(NSArray *, _DUIPreview *, BKSAnimationFenceHandle *, long long))arg2;
 @end
 

@@ -29,14 +29,12 @@ __attribute__((visibility("hidden")))
     unsigned int _dragSessionID;
     _UIInternalDraggingSessionDestination *_sessionDestination;
     _UIInternalDraggingSessionSource *_sessionSource;
-    _UIDropSessionImpl *_dropSession;
     UIEventEnvironment *_eventEnvironment;
 }
 
 + (_Bool)_isSessionIDValid:(unsigned int)arg1;
 + (void)_invalidateSessionID:(unsigned int)arg1;
 @property(nonatomic) __weak UIEventEnvironment *eventEnvironment; // @synthesize eventEnvironment=_eventEnvironment;
-@property(readonly, nonatomic, getter=_dropSession) _UIDropSessionImpl *dropSession; // @synthesize dropSession=_dropSession;
 @property(readonly, nonatomic, getter=_sessionSource) _UIInternalDraggingSessionSource *sessionSource; // @synthesize sessionSource=_sessionSource;
 @property(readonly, nonatomic, getter=_sessionDestination) _UIInternalDraggingSessionDestination *sessionDestination; // @synthesize sessionDestination=_sessionDestination;
 @property(readonly, nonatomic) unsigned int dragSessionID; // @synthesize dragSessionID=_dragSessionID;
@@ -44,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (void)_reset;
 - (void)dealloc;
 - (void)_setNeedsHitTestReset;
+@property(readonly, nonatomic, getter=_touchRoutingPolicyContextID) unsigned int touchRoutingPolicyContextID;
 - (void)_dragFailedWithCallback:(CDUnknownBlockType)arg1;
 - (void)_ignoreDragEnd;
 - (void)_wasDeliveredToGestureRecognizers;
@@ -53,6 +52,7 @@ __attribute__((visibility("hidden")))
 - (void)_updateGesturesFromCurrentSample;
 - (void)_sendIfNeeded;
 - (void)_updateFromCurrentSample;
+@property(readonly, nonatomic, getter=_dropSession) _UIDropSessionImpl *dropSession;
 @property(readonly, nonatomic) UIWindow *eventWindow;
 @property(readonly, nonatomic, getter=_hitTestedView) UIView *hitTestedView;
 - (void)_ignoreGestureRecognizer:(id)arg1;

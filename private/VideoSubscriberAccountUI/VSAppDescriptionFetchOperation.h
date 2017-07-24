@@ -6,11 +6,12 @@
 
 #import <VideoSubscriberAccount/VSAsyncOperation.h>
 
-@class NSArray, NSOperationQueue, SSLookupRequest, VSAuditToken, VSOptional;
+@class NSOperationQueue, NSSet, SSLookupRequest, VSAuditToken, VSOptional;
 
 @interface VSAppDescriptionFetchOperation : VSAsyncOperation
 {
-    NSArray *_appAdamIDs;
+    _Bool _shouldPrecomposeIcon;
+    NSSet *_appAdamIDs;
     VSAuditToken *_auditToken;
     VSOptional *_result;
     SSLookupRequest *_lookupRequest;
@@ -22,8 +23,9 @@
 @property(retain, nonatomic) SSLookupRequest *lookupRequest; // @synthesize lookupRequest=_lookupRequest;
 @property(retain, nonatomic) VSOptional *result; // @synthesize result=_result;
 @property(retain, nonatomic) VSAuditToken *auditToken; // @synthesize auditToken=_auditToken;
+@property(nonatomic) _Bool shouldPrecomposeIcon; // @synthesize shouldPrecomposeIcon=_shouldPrecomposeIcon;
 @property(nonatomic) struct CGSize preferredArtworkSize; // @synthesize preferredArtworkSize=_preferredArtworkSize;
-@property(copy, nonatomic) NSArray *appAdamIDs; // @synthesize appAdamIDs=_appAdamIDs;
+@property(copy, nonatomic) NSSet *appAdamIDs; // @synthesize appAdamIDs=_appAdamIDs;
 - (void).cxx_destruct;
 - (void)cancel;
 - (void)executionDidBegin;

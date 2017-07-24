@@ -13,6 +13,7 @@
     HKSplashScreenItem *_splashScreenItem;
     UILabel *_fullDescriptionLabel;
     UIImageView *_itemIconView;
+    double _cellPadding;
     NSLayoutConstraint *_iconTopConstraint;
     UIImage *_icon;
     NSString *_title;
@@ -26,11 +27,11 @@
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) UIImage *icon; // @synthesize icon=_icon;
 @property(retain, nonatomic) NSLayoutConstraint *iconTopConstraint; // @synthesize iconTopConstraint=_iconTopConstraint;
+@property(readonly) double cellPadding; // @synthesize cellPadding=_cellPadding;
 @property(retain, nonatomic) UIImageView *itemIconView; // @synthesize itemIconView=_itemIconView;
 @property(retain, nonatomic) UILabel *fullDescriptionLabel; // @synthesize fullDescriptionLabel=_fullDescriptionLabel;
 @property(retain, nonatomic) HKSplashScreenItem *splashScreenItem; // @synthesize splashScreenItem=_splashScreenItem;
 - (void).cxx_destruct;
-@property(readonly) double cellPadding;
 - (id)lastBaselineAnchor;
 - (id)firstBaselineAnchor;
 - (void)createSubviews;

@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (void)reloadData;
 - (void)viewDidLoad;
 
 // Remaining properties

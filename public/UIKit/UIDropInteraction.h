@@ -43,7 +43,7 @@
 - (void)_sendSessionDidEnd:(id)arg1;
 - (void)_dropSessionEntered:(id)arg1 withSessionDestination:(id)arg2;
 - (unsigned long long)_setLastDragOperation:(unsigned long long)arg1 forbidden:(_Bool)arg2 precise:(_Bool)arg3 prefersFullSizePreview:(_Bool)arg4 onSession:(id)arg5;
-- (unsigned long long)_validateDragOperation:(unsigned long long)arg1 forSelector:(SEL)arg2 onSession:(id)arg3;
+- (unsigned long long)_validateDragOperation:(unsigned long long)arg1 forSelector:(SEL)arg2 delegate:(id)arg3 dropSession:(id)arg4 onSession:(id)arg5;
 - (_Bool)_canHandleDragEvent:(id)arg1;
 - (void)_draggingItem:(id)arg1 willAnimateSetDownWithAnimator:(id)arg2;
 - (struct CGRect)_targetFrameOfDraggingItem:(id)arg1 inCoordinateSpace:(id)arg2;
@@ -60,6 +60,7 @@
 - (void)willMoveToView:(id)arg1;
 - (_Bool)isActive;
 - (id)_dynamicGestureRecognizersForEvent:(id)arg1;
+- (void)setDelegate:(id)arg1;
 - (id)_initWithPasteConfiguration:(id)arg1;
 - (id)_initWithViewDelegate:(id)arg1;
 - (id)initWithDelegate:(id)arg1;

@@ -13,6 +13,7 @@
 - (void)_resetToDefaultValues;
 - (id)_copyAllowingGlobalCacheLookup:(_Bool)arg1;
 @property(nonatomic) _Bool wantsMonospaceNumbers; // @dynamic wantsMonospaceNumbers;
+@property(nonatomic) _Bool usesCondensedMetrics; // @dynamic usesCondensedMetrics;
 @property(nonatomic) _Bool usesItalic; // @dynamic usesItalic;
 @property(nonatomic) long long weight; // @dynamic weight;
 @property(nonatomic) long long textStyle; // @dynamic textStyle;

@@ -8,15 +8,18 @@
 
 #import <iWorkImport/TSPDecoderReadCoordinatorDelegate-Protocol.h>
 
-@class NSDictionary, NSString, TSPComponent, TSPObjectContext;
+@class NSDictionary, NSString, NSURL, TSPComponent, TSPObjectContext;
 
 __attribute__((visibility("hidden")))
 @interface TSPObjectSerializationReadAssistant : NSObject <TSPDecoderReadCoordinatorDelegate>
 {
     TSPObjectContext *_context;
+    NSURL *_resourcesFolderURL;
+    NSDictionary *_identiferToResourceNameDictionary;
     NSDictionary *_identifierToObjectUUIDDictionary;
     NSDictionary *_dataInfos;
     TSPComponent *_rootObjectComponent;
+    _Bool _deserializeAsPasteboard;
     _Bool _resetObjectUUIDs;
     _Bool _shouldDecodeMissingDataAsRemote;
 }
@@ -38,7 +41,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)processMetadataObject:(id)arg1 error:(id *)arg2;
 - (id)metadataComponent;
 - (id)cachedMetadataObject;
-- (id)decodeObjectWithData:(id)arg1 options:(id)arg2 error:(id *)arg3;
+- (id)decodeObjectWithData:(id)arg1 packageURL:(id)arg2 options:(id)arg3 error:(id *)arg4;
 - (id)initWithContext:(id)arg1;
 - (id)init;
 

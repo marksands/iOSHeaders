@@ -12,6 +12,8 @@
 {
 }
 
++ (id)dragSubtitleForCardSection:(id)arg1;
++ (id)dragTitleForCardSection:(id)arg1;
 + (double)separatorInsetForLeadingImageForSection:(id)arg1;
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
 - (void)updateWithCardSection:(id)arg1;

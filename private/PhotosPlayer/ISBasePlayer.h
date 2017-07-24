@@ -18,6 +18,7 @@
     AVPlayer *_providedAVPlayer;
     NSObject<OS_dispatch_queue> *_outputQueue;
     NSHashTable *_outputQueue_outputs;
+    NSString *_apertureMode;
     struct {
         _Bool videoPlayer;
         _Bool videoPlayerVolume;
@@ -81,6 +82,8 @@
 - (void)_updateIfNeeded;
 - (_Bool)_needsUpdate;
 - (void)didPerformChanges;
+- (id)apertureMode;
+- (void)setApertureMode:(id)arg1;
 - (void)setVideoVolume:(float)arg1;
 - (float)videoVolume;
 - (void)_setForwardPlaybackEndTime:(CDStruct_1b6d18a9)arg1;

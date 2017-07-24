@@ -6,23 +6,13 @@
 
 #import <Intents/INIntentResolutionResult.h>
 
-#import <Intents/INCurrencyAmountResolutionResultExport-Protocol.h>
-
-@class NSString;
-
-@interface INCurrencyAmountResolutionResult : INIntentResolutionResult <INCurrencyAmountResolutionResultExport>
+@interface INCurrencyAmountResolutionResult : INIntentResolutionResult
 {
 }
 
 + (id)confirmationRequiredWithCurrencyAmountToConfirm:(id)arg1;
 + (id)disambiguationWithCurrencyAmountsToDisambiguate:(id)arg1;
 + (id)successWithResolvedCurrencyAmount:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

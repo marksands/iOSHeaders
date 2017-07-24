@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _lastPositiveNonSampledEventTime;
     unsigned long long _lastNegativeEventTime;
     unsigned long long _pollingDeadline;
+    _Bool _sentPollInitialized;
     _Bool _lastAttentionState;
     AWAttentionEvent *_lastEvent;
     unsigned long long _eventMask;
@@ -46,6 +47,7 @@ __attribute__((visibility("hidden")))
 - (void)getLastEvent:(CDUnknownBlockType)arg1;
 - (void)notifyEvent:(unsigned long long)arg1 timestamp:(unsigned long long)arg2;
 - (void)updateEventTimesForMask:(unsigned long long)arg1 timestamp:(unsigned long long)arg2;
+- (void)deliverPollEventType:(unsigned long long)arg1 event:(id)arg2;
 - (void)deliverEvent:(id)arg1;
 - (void)setClientConfig:(id)arg1;
 - (void)_setClientConfig:(id)arg1;

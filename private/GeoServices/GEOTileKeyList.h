@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 #import <GeoServices/NSFastEnumeration-Protocol.h>
+#import <GeoServices/OSLogCoding-Protocol.h>
 
 @class GEOTileKeyMap;
 
-@interface GEOTileKeyList : NSObject <NSFastEnumeration, NSCopying>
+@interface GEOTileKeyList : NSObject <OSLogCoding, NSFastEnumeration, NSCopying>
 {
     void *_head;
     void *_tail;
@@ -21,6 +22,7 @@
     unsigned long long _mutationsCount;
 }
 
++ (id)formatOSLogData:(id)arg1;
 + (id)listFromXPCData:(id)arg1;
 - (void).cxx_destruct;
 - (_Bool)intersectsList:(id)arg1;
@@ -44,6 +46,7 @@
 - (id)initWithMaxCapacity:(unsigned long long)arg1;
 - (id)initWithCapacity:(unsigned long long)arg1;
 - (id)init;
+- (void)encodeWithOSLogCoder:(id)arg1 options:(unsigned long long)arg2 maxLength:(unsigned long long)arg3;
 - (id)newXPCData;
 
 @end

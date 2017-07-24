@@ -31,6 +31,8 @@ __attribute__((visibility("hidden")))
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)inspectView:(id)arg1;
 - (void)viewDidLoad;
+- (void)_forceViewLayout;
+- (void)_flush;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties

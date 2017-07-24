@@ -10,8 +10,8 @@
 #import <UIKit/_UIDataSourceBackedView-Protocol.h>
 #import <UIKit/_UIKeyboardAutoRespondingScrollView-Protocol.h>
 
-@class NSArray, NSIndexPath, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSTimer, UICollectionReusableView, UICollectionViewCell, UICollectionViewData, UICollectionViewLayout, UICollectionViewLayoutAttributes, UICollectionViewUpdate, UIFocusContainerGuide, UITouch, UIView, _UICollectionViewDragAndDropController, _UICollectionViewDragDestinationController, _UICollectionViewDragSourceController, _UICollectionViewPrefetchingContext, _UIDragSnappingFeedbackGenerator, _UIDynamicAnimationGroup, _UIVelocityIntegrator;
-@protocol UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDataSource_Private, UICollectionViewDelegate, UICollectionViewDragDelegate, UICollectionViewDragDelegate_Private, UICollectionViewDragDestination, UICollectionViewDragSource, UICollectionViewDropDelegate;
+@class NSArray, NSHashTable, NSIndexPath, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSTimer, UICollectionReusableView, UICollectionViewCell, UICollectionViewData, UICollectionViewLayout, UICollectionViewLayoutAttributes, UICollectionViewUpdate, UIFocusContainerGuide, UITouch, UIView, _UICollectionViewDragAndDropController, _UICollectionViewDragDestinationController, _UICollectionViewDragSourceController, _UICollectionViewPrefetchingContext, _UIDragSnappingFeedbackGenerator, _UIDynamicAnimationGroup, _UIVelocityIntegrator;
+@protocol UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDataSource_Private, UICollectionViewDelegate, UICollectionViewDragDelegate, UICollectionViewDragDelegate_Private, UICollectionViewDragDestination, UICollectionViewDragSource, UICollectionViewDropDelegate, UICollectionViewDropDelegate_Private;
 
 @interface UICollectionView : UIScrollView <_UIKeyboardAutoRespondingScrollView, _UIDataSourceBackedView, UIDataSourceTranslating>
 {
@@ -22,6 +22,7 @@
     NSMutableDictionary *_cellReuseQueues;
     NSMutableDictionary *_supplementaryViewReuseQueues;
     NSMutableSet *_indexPathsForHighlightedItems;
+    NSHashTable *_notifiedDisplayedCells;
     long long _reloadingSuspendedCount;
     long long _updateAnimationCount;
     UICollectionReusableView *_firstResponderView;
@@ -166,6 +167,7 @@
         unsigned int scheduledReloadPrefetchDuringNextLayoutPass:1;
         unsigned int indexTitlesLoaded:1;
         unsigned int shouldApplyShadowUpdates:1;
+        unsigned int preventNotificationOfRebaseObserversWhenApplyingUpdates:1;
         unsigned int allowsVisibleCellUpdatesDuringUpdateAnimations:1;
     } _collectionViewFlags;
     struct CGPoint _lastLayoutOffset;
@@ -179,7 +181,7 @@
     _UICollectionViewDragAndDropController *_dragAndDropController;
     long long _performUsingPresentationValuesRefCount;
     id <UICollectionViewDragDelegate_Private> _dragDelegate;
-    id <UICollectionViewDropDelegate> _dropDelegate;
+    id <UICollectionViewDropDelegate_Private> _dropDelegate;
     long long _dragInteractionEnabledState;
     id <UICollectionViewDragDestination> _dragDestinationDelegate;
     id <UICollectionViewDragSource> _dragSourceDelegate;
@@ -248,6 +250,7 @@
 - (id)presentationIndexPathForDataSourceIndexPath:(id)arg1;
 - (long long)dataSourceSectionIndexForPresentationSectionIndex:(long long)arg1;
 - (long long)presentationSectionIndexForDataSourceSectionIndex:(long long)arg1;
+- (void)_performWithoutNotifyingRebaseObserversWhenApplyingUpdates:(CDUnknownBlockType)arg1;
 - (id)_performShadowUpdates:(CDUnknownBlockType)arg1;
 - (void)setSpringLoaded:(_Bool)arg1;
 - (_Bool)isSpringLoaded;
@@ -496,6 +499,8 @@
 - (id)_createPreparedSupplementaryViewForElementOfKind:(id)arg1 atIndexPath:(id)arg2 withLayoutAttributes:(id)arg3 applyAttributes:(_Bool)arg4;
 - (id)_createPreparedCellForItemAtIndexPath:(id)arg1 withLayoutAttributes:(id)arg2 applyAttributes:(_Bool)arg3 isFocused:(_Bool)arg4 notify:(_Bool)arg5;
 - (id)_createPreparedCellForItemAtIndexPath:(id)arg1 withLayoutAttributes:(id)arg2 applyAttributes:(_Bool)arg3;
+- (void)_notifyDidEndDisplayingCell:(id)arg1 forIndexPath:(id)arg2;
+- (void)_notifyWillDisplayCell:(id)arg1 forIndexPath:(id)arg2;
 - (_Bool)_shouldPrefetchCells;
 - (_Bool)_shouldPrefetchCellsWhenPerformingReloadData;
 - (void)_setShouldPrefetchCellsWhenPerformingReloadData:(_Bool)arg1;

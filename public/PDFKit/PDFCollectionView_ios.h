@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (void)reloadDataAndRecenter;
 - (unsigned long long)maxFittingItems;
 - (void)dealloc;
+- (void)setup;
 - (id)initWithFrame:(struct CGRect)arg1 collectionViewLayout:(id)arg2;
 
 @end

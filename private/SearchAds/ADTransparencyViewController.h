@@ -42,6 +42,7 @@
 - (void)presentViewDelegate;
 - (void)loadWebView;
 - (void)_commonInit;
+- (long long)preferredInterfaceOrientationForPresentation;
 - (id)determineSearchAdsBundleToUse;
 - (void)requestViewWithTransparencyDetailsDictionary:(id)arg1;
 - (void)requestViewWithTransparencyDetails:(id)arg1;

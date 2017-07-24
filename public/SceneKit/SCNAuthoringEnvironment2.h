@@ -48,6 +48,7 @@
 }
 
 + (id)authoringEnvironmentForScene:(id)arg1;
+- (id)authoringCamera:(long long)arg1;
 - (void)setAuthoringCamera:(long long)arg1 forView:(id)arg2;
 - (_Bool)didTapAtPoint:(struct CGPoint)arg1;
 @property long long readDepthMask;

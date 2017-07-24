@@ -8,7 +8,7 @@
 
 #import <VideoSubscriberAccountUI/LSApplicationWorkspaceObserverProtocol-Protocol.h>
 
-@class LSApplicationWorkspace, NSString, UIApplication, UIImage, VSPrivacyFacade, VSRestrictionsCenter;
+@class LSApplicationWorkspace, NSString, UIImage, VSPrivacyFacade, VSRestrictionsCenter;
 
 @interface VSAppSettingsViewModel : NSObject <LSApplicationWorkspaceObserverProtocol>
 {
@@ -21,7 +21,6 @@
     long long _privacyState;
     VSPrivacyFacade *_privacyFacade;
     LSApplicationWorkspace *_workspace;
-    UIApplication *_app;
     VSRestrictionsCenter *_restrictionsCenter;
     struct __CFBundle *_bundle;
     NSString *_buyParams;
@@ -32,7 +31,6 @@
 @property(nonatomic) struct __CFBundle *bundle; // @synthesize bundle=_bundle;
 @property(retain, nonatomic) VSRestrictionsCenter *restrictionsCenter; // @synthesize restrictionsCenter=_restrictionsCenter;
 @property(nonatomic) int registrationToken; // @synthesize registrationToken=_registrationToken;
-@property(retain, nonatomic) UIApplication *app; // @synthesize app=_app;
 @property(retain, nonatomic) LSApplicationWorkspace *workspace; // @synthesize workspace=_workspace;
 @property(retain, nonatomic) VSPrivacyFacade *privacyFacade; // @synthesize privacyFacade=_privacyFacade;
 @property(nonatomic) long long privacyState; // @synthesize privacyState=_privacyState;
@@ -42,6 +40,7 @@
 @property(readonly, copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(readonly, copy, nonatomic) NSString *adamID; // @synthesize adamID=_adamID;
 - (void).cxx_destruct;
+@property(readonly, copy) NSString *description;
 - (void)applicationsDidFailToUninstall:(id)arg1;
 - (void)applicationsDidUninstall:(id)arg1;
 - (void)applicationsWillUninstall:(id)arg1;
@@ -62,11 +61,10 @@
 - (id)initWithBundle:(struct __CFBundle *)arg1 restrictionsCenter:(id)arg2 privacyFacade:(id)arg3;
 - (id)init;
 - (void)dealloc;
-- (id)initWithApplicationWorkspace:(id)arg1 application:(id)arg2;
+- (id)initWithApplicationWorkspace:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

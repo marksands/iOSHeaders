@@ -9,7 +9,7 @@
 #import <NewsCore/FCFeedElement-Protocol.h>
 #import <NewsCore/FCHeadlineProviding-Protocol.h>
 
-@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCHeadlineThumbnail, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSString, NSURL;
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCFeedPersonalizedArticleScoreProfile, FCHeadlineThumbnail, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSString, NSURL;
 @protocol FCChannelProviding, FCNativeAdProviding;
 
 @interface FCHeadline : NSObject <FCHeadlineProviding, FCFeedElement>
@@ -64,6 +64,7 @@
     NSString *_surfacedByBinID;
     NSString *_accessoryText;
     NSString *_localDraftPath;
+    FCFeedPersonalizedArticleScoreProfile *_scoreProfile;
     double _personalizedScore;
     unsigned long long _topStoryType;
     NSArray *_relatedArticleIDs;
@@ -110,6 +111,7 @@
 @property(nonatomic) unsigned long long topStoryType; // @synthesize topStoryType=_topStoryType;
 @property(nonatomic) _Bool usesImageOnTopLayout; // @synthesize usesImageOnTopLayout=_usesImageOnTopLayout;
 @property(nonatomic) double tileProminenceScore; // @synthesize tileProminenceScore=_personalizedScore;
+@property(retain, nonatomic) FCFeedPersonalizedArticleScoreProfile *scoreProfile; // @synthesize scoreProfile=_scoreProfile;
 @property(readonly, copy, nonatomic) NSString *localDraftPath; // @synthesize localDraftPath=_localDraftPath;
 @property(readonly, copy, nonatomic) NSString *accessoryText; // @synthesize accessoryText=_accessoryText;
 @property(copy, nonatomic) NSString *surfacedByBinID; // @synthesize surfacedByBinID=_surfacedByBinID;

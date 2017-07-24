@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
     _Bool _bumpedDocumentEndnotesForPageBreak;
 }
 
-@property(readonly, nonatomic) id <TSWPFootnoteMarkProvider> footnoteMarkProvider; // @synthesize footnoteMarkProvider=_documentRoot;
+- (void).cxx_destruct;
 - (id)p_footnoteReferenceStoragesInFootnoteIndexRange:(struct _NSRange)arg1;
 - (id)p_layoutForFootnoteReferenceStorage:(id)arg1;
 - (unsigned long long)p_layoutFootnotesInRange:(struct _NSRange)arg1 intoFootnoteContainer:(id)arg2 maxHeight:(double)arg3 measure:(_Bool)arg4 inflating:(_Bool)arg5;
@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (struct _NSRange)endnoteRangeForSectionCharRange:(struct _NSRange)arg1 isLastSection:(_Bool)arg2;
 - (void)inflateFootnotesInRange:(struct _NSRange)arg1 intoFootnoteContainer:(id)arg2;
 - (struct _NSRange)layoutFootnotesFromIndex:(unsigned long long)arg1 intoFootnoteContainer:(id)arg2 maxHeight:(double)arg3 pageCharRange:(struct _NSRange)arg4 sectionCharRange:(struct _NSRange)arg5 isLastSection:(_Bool)arg6;
+@property(readonly, nonatomic) __weak id <TSWPFootnoteMarkProvider> footnoteMarkProvider;
 - (id)initWithDocumentRoot:(id)arg1;
 
 @end

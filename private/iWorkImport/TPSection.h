@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)needsObjectUUID;
+- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (id)pageMasterOwningModel:(id)arg1;
 - (id)pageMasterForType:(int)arg1;
@@ -44,12 +45,11 @@ __attribute__((visibility("hidden")))
 - (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)willBeAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
-@property(nonatomic) TSWPStorage *parentStorage;
+@property(nonatomic) __weak TSWPStorage *parentStorage;
 - (id)copyWithContext:(id)arg1;
 - (_Bool)isHeaderFooterEmpty:(int)arg1;
 - (_Bool)isHeaderFooterVisible:(int)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (void)dealloc;
 - (void)loadFromUnarchiver:(id)arg1;
 - (id)objectUUIDPath;
 - (id)initWithContext:(id)arg1;
@@ -61,7 +61,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool pageMasterFirstPageHidesHeaderFooter;
 @property(nonatomic) _Bool pageMasterFirstPageDifferent;
 @property(nonatomic) _Bool inheritPreviousHeaderFooter;
-@property(retain, nonatomic) NSString *name;
+@property(copy, nonatomic) NSString *name;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

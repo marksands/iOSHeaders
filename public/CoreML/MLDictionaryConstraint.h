@@ -16,7 +16,7 @@
 
 + (id)constraintWithInt64Keys;
 + (id)constraintWithStringKeys;
-@property(readonly) long long keyType; // @synthesize keyType=_keyType;
+@property(readonly, nonatomic) long long keyType; // @synthesize keyType=_keyType;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isAllowedValue:(id)arg1 error:(id *)arg2;
 - (id)initWithKeyType:(long long)arg1;

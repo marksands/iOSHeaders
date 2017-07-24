@@ -12,7 +12,7 @@
 #import <GeoServices/NSURLSessionDataDelegate-Protocol.h>
 
 @class GEOActiveTileGroup, GEOResourceFiltersManager, GEOResourceManifestConfiguration, GEOResourceManifestDownload, NSArray, NSError, NSLock, NSMutableArray, NSMutableData, NSProgress, NSString, NSTimer, NSURLSession, NSURLSessionTask, NSURLSessionTaskMetrics, _GEOResourceManifestServerLocalProxyMigrationState;
-@protocol GEOResourceManifestServerProxyDelegate;
+@protocol GEOResourceManifestServerProxyDelegate, NSObject;
 
 __attribute__((visibility("hidden")))
 @interface GEOResourceManifestServerLocalProxy : NSObject <NSURLSessionDataDelegate, GEOResourceFiltersManagerDelegate, GEODataStateCapturing, GEOResourceManifestServerProxy>
@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
     NSTimer *_tileGroupUpdateTimer;
     GEOResourceManifestDownload *_resourceManifest;
     GEOActiveTileGroup *_activeTileGroup;
+    id <NSObject> _newActiveTileGroupTransaction;
     _Bool _started;
     unsigned long long _manifestRetryCount;
     double _lastManifestRetryTimestamp;
@@ -94,7 +95,7 @@ __attribute__((visibility("hidden")))
 - (void)_considerChangingActiveTileGroup;
 - (id)_idealTileGroupToUse;
 - (void)_changeActiveTileGroup:(id)arg1 activeScales:(id)arg2 activeScenarios:(id)arg3 migrationTasks:(id)arg4 flushTileCache:(_Bool)arg5 completionHandler:(CDUnknownBlockType)arg6;
-@property(readonly, nonatomic) GEOActiveTileGroup *activeTileGroup;
+@property(retain, nonatomic) GEOActiveTileGroup *activeTileGroup;
 - (void)_loadFromDisk;
 - (void)_startServer;
 - (id)configuration;

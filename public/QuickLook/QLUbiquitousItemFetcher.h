@@ -6,7 +6,7 @@
 
 #import <QuickLook/QLItemFetcher.h>
 
-@class NSFileCoordinator, NSMutableArray, NSURL, QLURLHandler;
+@class NSFileCoordinator, NSMutableArray, NSNumber, NSURL, QLURLHandler;
 
 __attribute__((visibility("hidden")))
 @interface QLUbiquitousItemFetcher : QLItemFetcher
@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     NSFileCoordinator *_fileCoordinator;
     NSMutableArray *_updateBlocks;
     id _progressSubscriber;
+    NSNumber *_sizeTotalUnitCount;
     QLURLHandler *_zipPackageUrlHandler;
     _Bool _shouldZipPackageIfNeeded;
 }

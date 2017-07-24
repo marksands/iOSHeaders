@@ -10,14 +10,12 @@
 #import <MobileCoreServices/NSSecureCoding-Protocol.h>
 
 @class NSMutableDictionary, NSNumber, NSString;
-@protocol OS_dispatch_queue;
 
 @interface _LSDiskUsage : NSObject <NSCopying, NSSecureCoding>
 {
     NSString *_bundleIdentifier;
     NSMutableDictionary *_usage;
     id _validationToken;
-    NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -26,6 +24,7 @@
 + (id)ODRConnection;
 + (id)usageFromMobileInstallationForBundleIdentifier:(id)arg1 error:(id *)arg2;
 + (id)mobileInstallationQueue;
++ (id)propertyQueue;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

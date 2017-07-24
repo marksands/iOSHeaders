@@ -17,6 +17,7 @@
     unsigned long long _fakeFreeDiskSpace;
 }
 
++ (_Bool)isDataProtectionError:(id)arg1;
 + (id)standardStoreOptions;
 + (id)newManagedObjectModel;
 @property(nonatomic) unsigned long long fakeFreeDiskSpace; // @synthesize fakeFreeDiskSpace=_fakeFreeDiskSpace;

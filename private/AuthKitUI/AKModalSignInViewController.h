@@ -9,7 +9,7 @@
 #import <AuthKitUI/AKAppleIDAuthenticationInAppContextAlertDelegate-Protocol.h>
 #import <AuthKitUI/UITextFieldDelegate-Protocol.h>
 
-@class NSString, UIButton, UIControl, UILabel, UITextField, UIView, UIVisualEffectView;
+@class NSString, UIButton, UIControl, UILabel, UITextField, UIView;
 
 @interface AKModalSignInViewController : AKBaseSignInViewController <AKAppleIDAuthenticationInAppContextAlertDelegate, UITextFieldDelegate>
 {
@@ -17,14 +17,12 @@
     UILabel *_titleLabel;
     UILabel *_bodyLabel;
     UITextField *_passwordField;
-    UIButton *_iForgotButton;
-    UIVisualEffectView *_visualEffectView;
+    UIButton *_passwordRecoveryButton;
     UIView *_containerView;
 }
 
 @property(retain, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
-@property(retain, nonatomic) UIVisualEffectView *visualEffectView; // @synthesize visualEffectView=_visualEffectView;
-@property(retain, nonatomic) UIButton *iForgotButton; // @synthesize iForgotButton=_iForgotButton;
+@property(retain, nonatomic) UIButton *passwordRecoveryButton; // @synthesize passwordRecoveryButton=_passwordRecoveryButton;
 @property(retain, nonatomic) UITextField *passwordField; // @synthesize passwordField=_passwordField;
 @property(retain, nonatomic) UILabel *bodyLabel; // @synthesize bodyLabel=_bodyLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
@@ -35,7 +33,7 @@
 - (_Bool)resignFirstResponder;
 - (_Bool)becomeFirstResponder;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
-- (void)iForgotButtonWasTapped:(id)arg1;
+- (void)passwordRecoveryButtonWasTapped:(id)arg1;
 - (void)updateViewConstraints;
 - (void)setupConstraints;
 - (void)createViews;

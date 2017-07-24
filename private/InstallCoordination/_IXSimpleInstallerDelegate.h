@@ -8,14 +8,17 @@
 
 #import <InstallCoordination/IXAppInstallCoordinatorObserver-Protocol.h>
 
-@class NSString;
+@class IXAppInstallCoordinator, NSString;
+@protocol IXInitiatingOrUpdatingCoordinator;
 
 @interface _IXSimpleInstallerDelegate : NSObject <IXAppInstallCoordinatorObserver>
 {
     CDUnknownBlockType _completion;
     NSString *_bundleID;
+    IXAppInstallCoordinator<IXInitiatingOrUpdatingCoordinator> *_coordinator;
 }
 
+@property(retain, nonatomic) IXAppInstallCoordinator<IXInitiatingOrUpdatingCoordinator> *coordinator; // @synthesize coordinator=_coordinator;
 @property(copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
 - (void).cxx_destruct;

@@ -10,6 +10,7 @@
 @protocol BRItemNotificationReceiving, BRNonLocalVersionReceiving, BROperationClient;
 
 @protocol BRProtocol <CKXPCShareDaemon>
+- (void)scheduleDeepScanForContainer:(NSString *)arg1 reply:(void (^)(NSError *))arg2;
 - (void)_t_removePackageExtension:(NSString *)arg1 reply:(void (^)(NSError *))arg2;
 - (void)_t_addPackageExtension:(NSString *)arg1 reply:(void (^)(NSError *))arg2;
 - (void)lookupMinFileSizeForThumbnailTransferWithReply:(void (^)(NSNumber *, NSError *))arg1;
@@ -58,6 +59,7 @@
 - (void)startOperation:(NSObject<BROperationClient> *)arg1 toUnshareShare:(CKShare *)arg2 forceDelete:(_Bool)arg3 reply:(void (^)(NSError *))arg4;
 - (void)startOperation:(NSObject<BROperationClient> *)arg1 toSaveSharingInfo:(CKShare *)arg2 reply:(void (^)(CKShare *, NSError *))arg3;
 - (void)createSharingInfoForURL:(NSURL *)arg1 reply:(void (^)(CKShare *, NSError *))arg2;
+- (void)copyCurrentUserNameAndDisplayHandleWithReply:(void (^)(NSPersonNameComponents *, NSString *, NSError *))arg1;
 - (void)copyCurrentUserNameAndEmailWithReply:(void (^)(NSPersonNameComponents *, NSString *, NSError *))arg1;
 - (void)copyCurrentUserIdentifierWithReply:(void (^)(NSString *, NSError *))arg1;
 - (void)startOperation:(NSObject<BROperationClient> *)arg1 toEvictItemAtURL:(NSURL *)arg2 reply:(void (^)(NSError *))arg3;
@@ -135,7 +137,7 @@
 - (void)computePurgableSpaceWithUrgency:(int)arg1 reply:(void (^)(long long))arg2;
 - (void)iWorkForceSyncContainerID:(NSString *)arg1 ownedByMe:(_Bool)arg2 reply:(void (^)(NSError *))arg3;
 - (void)forceSyncContainerID:(NSString *)arg1 reply:(void (^)(NSError *))arg2;
-- (void)waitUntilIdle:(NSString *)arg1 reply:(void (^)(NSError *))arg2;
+- (void)_t_waitUntilIdle:(NSString *)arg1 reply:(void (^)(NSError *))arg2;
 - (void)forceSyncZoneHealthWithBarrierWithTimeout:(unsigned long long)arg1 reply:(void (^)(NSError *))arg2;
 - (void)forceSyncWithBarrierContainerID:(NSString *)arg1 timeout:(unsigned long long)arg2 reply:(void (^)(NSError *))arg3;
 - (void)zoneNameForContainer:(NSString *)arg1 reply:(void (^)(NSString *, NSError *))arg2;

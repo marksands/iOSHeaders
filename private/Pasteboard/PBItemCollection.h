@@ -27,6 +27,7 @@
     NSUUID *_itemQueue_UUID;
     NSString *_itemQueue_originatorBundleID;
     NSString *_itemQueue_originatorTeamID;
+    long long _itemQueue_originatorDataOwner;
     long long _itemQueue_remotePasteboardState;
     id <PBItemCollectionDataTransferDelegate> _itemQueue_dataTransferDelegate;
 }
@@ -36,6 +37,7 @@
 @property(nonatomic) __weak id <PBItemCollectionDataTransferDelegate> itemQueue_dataTransferDelegate; // @synthesize itemQueue_dataTransferDelegate=_itemQueue_dataTransferDelegate;
 @property(nonatomic) long long itemQueue_remotePasteboardState; // @synthesize itemQueue_remotePasteboardState=_itemQueue_remotePasteboardState;
 @property(nonatomic, getter=itemQueue_isDeviceLockedPasteboard) _Bool itemQueue_deviceLockedPasteboard; // @synthesize itemQueue_deviceLockedPasteboard=_itemQueue_deviceLockedPasteboard;
+@property(nonatomic) long long itemQueue_originatorDataOwner; // @synthesize itemQueue_originatorDataOwner=_itemQueue_originatorDataOwner;
 @property(copy, nonatomic) NSString *itemQueue_originatorTeamID; // @synthesize itemQueue_originatorTeamID=_itemQueue_originatorTeamID;
 @property(copy, nonatomic) NSString *itemQueue_originatorBundleID; // @synthesize itemQueue_originatorBundleID=_itemQueue_originatorBundleID;
 @property(nonatomic) _Bool itemQueue_isDataProvider; // @synthesize itemQueue_isDataProvider=_itemQueue_isDataProvider;
@@ -78,6 +80,7 @@
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (id)dataConsumersListener;
 @property(nonatomic, getter=isDeviceLockedPasteboard) _Bool deviceLockedPasteboard; // @dynamic deviceLockedPasteboard;
+@property(nonatomic) long long originatorDataOwner; // @dynamic originatorDataOwner;
 - (void)setOriginatorTeamID:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *originatorTeamID; // @dynamic originatorTeamID;
 - (void)setOriginatorBundleID:(id)arg1;

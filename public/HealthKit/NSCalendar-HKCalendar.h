@@ -12,6 +12,11 @@
 + (id)hk_gregorianCalendarWithLocalTimeZone;
 + (id)hk_gregorianCalendarWithUTCTimeZone;
 + (id)hk_gregorianCalendar;
+- (id)hk_dateWithDurationSinceReferenceDate:(double)arg1 calendarUnit:(unsigned long long)arg2;
+- (double)hk_durationSinceReferenceDateForDate:(id)arg1 calendarUnit:(unsigned long long)arg2;
+- (id)hk_startOfUnitForDate:(id)arg1 calendarUnit:(unsigned long long)arg2;
+- (id)hk_timeZoneDependentReferenceDate;
+- (double)hk_lengthOfDayForDate:(id)arg1;
 - (void)hk_enumerateDateInterval:(id)arg1 byDateComponents:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (id)hk_dateFromComponentsWithYear:(long long)arg1 month:(long long)arg2 day:(long long)arg3 hour:(long long)arg4 minute:(long long)arg5 second:(long long)arg6;
 - (id)hk_dateFromComponentsWithYear:(long long)arg1 month:(long long)arg2 day:(long long)arg3 hour:(long long)arg4 minute:(long long)arg5;
@@ -30,6 +35,7 @@
 - (id)hk_nearestStartOfDayForDate:(id)arg1;
 - (id)hk_startOfYearForDate:(id)arg1 addingYears:(long long)arg2;
 - (id)hk_startOfMonthForDate:(id)arg1 addingMonths:(long long)arg2;
+- (id)hk_startOfMonthForDate:(id)arg1;
 - (id)hk_startOfHourForDate:(id)arg1 addingHours:(long long)arg2;
 - (id)hk_startOfMinuteForDate:(id)arg1 moduloMinutes:(long long)arg2 addingModuloCount:(long long)arg3;
 - (id)hk_startOfWeekWithFirstWeekday:(long long)arg1 beforeDate:(id)arg2 addingWeeks:(long long)arg3;

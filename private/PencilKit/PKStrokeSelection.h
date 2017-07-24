@@ -6,12 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import <PencilKit/UIItemProviderReading-Protocol.h>
-#import <PencilKit/UIItemProviderWriting-Protocol.h>
+#import <PencilKit/NSItemProviderReading-Protocol.h>
+#import <PencilKit/NSItemProviderWriting-Protocol.h>
 
 @class NSArray, NSMutableOrderedSet, NSString, PKDrawing, PKStroke, UIImage;
 
-@interface PKStrokeSelection : NSObject <UIItemProviderReading, UIItemProviderWriting>
+@interface PKStrokeSelection : NSObject <NSItemProviderReading, NSItemProviderWriting>
 {
     NSMutableOrderedSet *_strokes;
     PKStroke *_lassoStroke;
@@ -21,6 +21,7 @@
 
 + (id)strokeSelectionFromData:(id)arg1;
 + (id)writableTypeIdentifiersForItemProvider;
++ (id)objectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 + (id)readableTypeIdentifiersForItemProvider;
 @property(readonly, nonatomic) PKDrawing *drawing; // @synthesize drawing=_drawing;
 @property(retain, nonatomic) UIImage *strokeImage; // @synthesize strokeImage=_strokeImage;
@@ -30,7 +31,6 @@
 - (id)strokeDataForSelection;
 - (id)imageDataForSelection;
 - (id)loadDataWithTypeIdentifier:(id)arg1 forItemProviderCompletionHandler:(CDUnknownBlockType)arg2;
-- (id)initWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 - (struct CGRect)boundsWithoutLasso;
 - (struct CGRect)bounds;
 - (id)allStrokes;

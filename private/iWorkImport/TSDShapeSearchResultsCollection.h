@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long numberOfShapes;
 @property(readonly, nonatomic) NSString *name;
 - (id)displayNameForShape:(id)arg1;
+- (id)indexPathOfShape:(id)arg1;
 - (id)shapeAtIndexPath:(id)arg1;
 - (unsigned long long)numberOfShapesInSection:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long numberOfSections;

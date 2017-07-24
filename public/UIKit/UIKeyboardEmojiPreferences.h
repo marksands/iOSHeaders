@@ -42,6 +42,7 @@
 - (void)handleRead:(id)arg1;
 - (void)handleWrite:(id)arg1;
 - (void)handleSuspend:(id)arg1;
+- (void)clearEmojiKeyboardPreferenceClient;
 - (void)dealloc;
 - (id)init;
 - (void)writeEmojiDefaults;

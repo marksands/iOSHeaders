@@ -6,23 +6,24 @@
 
 #import <objc/NSObject.h>
 
-@class NSManagedObjectID, NSMutableDictionary, NSMutableSet, NSString;
+@class NSError, NSManagedObjectID, NSMutableDictionary, NSMutableSet, NSString;
 
 @interface PHChangeRequestHelper : NSObject
 {
     _Bool _isMutated;
     _Bool _isNew;
-    _Bool _didRequestUUID;
     NSMutableDictionary *_mutations;
     NSMutableSet *_nilMutations;
     id _changeRequest;
     NSString *_uuid;
     NSString *_uuidSaveToken;
     NSManagedObjectID *_objectID;
+    NSError *_placeholderRequestError;
 }
 
 + (id)changeRequestWithXPCDict:(id)arg1 clientEntitlements:(id)arg2 clientName:(id)arg3 clientBundleID:(id)arg4 clientProcessID:(int)arg5;
 + (id)changeRequestForObject:(id)arg1;
+@property(readonly, nonatomic) NSError *placeholderRequestError; // @synthesize placeholderRequestError=_placeholderRequestError;
 @property(retain, nonatomic) NSManagedObjectID *objectID; // @synthesize objectID=_objectID;
 @property(readonly, nonatomic) NSString *uuidSaveToken; // @synthesize uuidSaveToken=_uuidSaveToken;
 @property(readonly, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
@@ -40,8 +41,9 @@
 @property(nonatomic, getter=isMutated) _Bool mutated;
 - (void)didMutate;
 - (_Bool)_validateOrGenerateUUIDWithClientEntitled:(_Bool)arg1 changeRequest:(id)arg2;
-- (void)_generateUUIDIfNecessary;
+- (_Bool)_generateUUIDIfNecessary:(id *)arg1;
 - (id)placeholderForCreatedObjectWithClass:(Class)arg1 changeRequest:(id)arg2;
+- (_Bool)prepareForServicePreflightCheck:(id *)arg1;
 - (id)init;
 - (id)initWithXPCDict:(id)arg1 changeRequest:(id)arg2 clientEntitlements:(id)arg3;
 - (id)initForNewObjectWithUUID:(id)arg1 changeRequest:(id)arg2;

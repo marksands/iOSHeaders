@@ -26,10 +26,6 @@ __attribute__((visibility("hidden")))
 - (CDStruct_a6fa95e6)fontHeightInfoForFont:(struct __CTFont *)arg1;
 - (void)dealloc;
 - (id)init;
-- (id)autorelease;
-- (oneway void)release;
-- (unsigned long long)retainCount;
-- (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

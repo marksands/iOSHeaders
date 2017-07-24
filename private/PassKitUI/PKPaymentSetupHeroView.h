@@ -16,6 +16,7 @@
     long long _context;
     struct CGSize _aspectSize;
     _Bool _isAnimating;
+    UIView *_backgroundView;
     UIView<PKHeroImageView> *_heroImageView;
     NSMutableArray *_cardViews;
     UIImageView *_presentedCard;
@@ -27,16 +28,13 @@
 
 - (void).cxx_destruct;
 - (void)_promptTapToRadarWithTitle:(id)arg1 description:(id)arg2;
+- (_Bool)_isSmallPhone;
 - (double)_instructionFontSizeForContext:(long long)arg1;
-- (id)_containerImageSize;
 - (struct CGRect)_frameForCardView:(id)arg1;
 - (struct CGRect)_frameForInstructionLabel;
 - (unsigned long long)_indexOfNextObject:(id)arg1 withArray:(id)arg2;
 - (void)_finishedTransitionToCard:(id)arg1;
 - (void)_transitionFromCardToCard:(id)arg1;
-- (unsigned long long)_getInstructionLabelY;
-- (unsigned long long)_getCardViewY;
-- (void)_setFrameForCardImageView:(id)arg1;
 - (id)_resizeImage:(id)arg1;
 - (id)_imageWithData:(id)arg1;
 - (void)_setCardViews:(id)arg1 networks:(id)arg2;

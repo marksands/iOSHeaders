@@ -25,8 +25,10 @@ __attribute__((visibility("hidden")))
 - (id)downloadProgress;
 - (_Bool)needsDownload;
 - (_Bool)archiveInfoMessage:(struct DataInfo *)arg1 archiver:(id)arg2 packageWriter:(id)arg3;
+- (id)fileURL;
 - (id)fallbackColor;
 - (void)performReadWithAccessor:(CDUnknownBlockType)arg1;
+- (unsigned long long)encodedLength;
 - (unsigned long long)length;
 - (_Bool)isReadable;
 - (id)documentResourceLocator;

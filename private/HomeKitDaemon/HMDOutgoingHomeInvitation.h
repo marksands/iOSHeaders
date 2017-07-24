@@ -13,26 +13,28 @@
 @interface HMDOutgoingHomeInvitation : HMDHomeInvitation <HMDBackingStoreObjectProtocol>
 {
     _Bool _responseReceived;
+    NSArray *_operationIdentifiers;
     NSUUID *_uuid;
     HMDUser *_user;
     NSString *_inviteeDestinationAddress;
-    NSArray *_operations;
     NSUUID *_messageIdentifier;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSUUID *messageIdentifier; // @synthesize messageIdentifier=_messageIdentifier;
 @property(nonatomic) _Bool responseReceived; // @synthesize responseReceived=_responseReceived;
-@property(retain, nonatomic) NSArray *operations; // @synthesize operations=_operations;
 @property(retain, nonatomic) NSString *inviteeDestinationAddress; // @synthesize inviteeDestinationAddress=_inviteeDestinationAddress;
 @property(readonly, nonatomic) HMDUser *user; // @synthesize user=_user;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
-- (id)modelObjectWithChangeType:(unsigned long long)arg1;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1 version:(long long)arg2;
 - (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
 - (void)_transactionOutgoingInvitiationUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
+- (void)processUserManagementOperationIdentifiers:(id)arg1;
 - (void)updateUserManagementOperations:(id)arg1;
+@property(retain, nonatomic) NSArray *operationIdentifiers; // @synthesize operationIdentifiers=_operationIdentifiers;
+@property(readonly, nonatomic) NSArray *operations;
 - (void)updateInvitationState:(long long)arg1;
 - (_Bool)refreshDisplayName;
 - (void)updateUser:(id)arg1;

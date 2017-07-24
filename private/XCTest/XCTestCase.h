@@ -9,7 +9,7 @@
 #import <XCTest/XCTActivity-Protocol.h>
 #import <XCTest/XCTWaiterDelegate-Protocol.h>
 
-@class NSInvocation, NSString, XCTestCaseRun, XCUITestContext, _XCTestCaseImplementation;
+@class NSDictionary, NSInvocation, NSString, XCTestCaseRun, XCUITestContext, _XCTestCaseImplementation;
 
 @interface XCTestCase : XCTest <XCTWaiterDelegate, XCTActivity>
 {
@@ -42,6 +42,7 @@
 @property(readonly) XCUITestContext *testContext;
 - (void)_dequeueAndReportBackgroundAttachments;
 - (void)addAttachment:(id)arg1;
+@property(readonly) NSDictionary *activityAggregateStatistics;
 @property(readonly) unsigned long long activityRecordStackDepth;
 - (void)runActivityNamed:(id)arg1 inScope:(CDUnknownBlockType)arg2;
 - (void)startActivityWithTitle:(id)arg1 block:(CDUnknownBlockType)arg2;

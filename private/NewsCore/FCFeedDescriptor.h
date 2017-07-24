@@ -34,7 +34,7 @@
 @property(readonly, nonatomic) long long feedSortMethod;
 @property(readonly, nonatomic) id <FCFeedPaginating> feedPaginator;
 - (_Bool)shouldFilterFeedGroupEmitter:(id)arg1;
-- (void)prepareToFilterFeedGroupEmittersWithCallbackQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)prepareToProvideFeedGroupEmittersWithCallbackQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, copy, nonatomic) NSArray *offlineFeedGroupEmitters;
 @property(readonly, copy, nonatomic) NSArray *feedGroupEmitters;
 - (id)fetchOperationForHeadlinesWithIDs:(id)arg1 context:(id)arg2;
@@ -60,6 +60,7 @@
 @property(readonly, nonatomic) _Bool isSubscribable;
 @property(readonly, nonatomic) _Bool hideAccessoryText;
 @property(readonly, nonatomic) NSString *name;
+@property(readonly, nonatomic) _Bool derivesContentsFromExplicitSubscriptions;
 @property(readonly, nonatomic) id <FCFeedTheming> theme;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;

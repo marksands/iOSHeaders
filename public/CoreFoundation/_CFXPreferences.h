@@ -33,6 +33,7 @@
 - (void)destroyConnections;
 -     // Error parsing type: ^(?={_CFPrefsShmemEntry=AiAI}AQ)28@0:8i16r*20, name: shmemForRole:name:
 - (void)resetPreferences:(_Bool)arg1;
+- (void)ingestVolatileStateFromPreferences:(id)arg1;
 - (void)registerDefaultValues:(struct __CFDictionary *)arg1;
 - (struct __CFArray *)volatileSourceNames;
 - (struct __CFDictionary *)copyDictionaryForApp:(struct __CFString *)arg1 withContainer:(struct __CFString *)arg2;
@@ -43,6 +44,7 @@
 - (void *)copyAppValueForKey:(struct __CFString *)arg1 identifier:(struct __CFString *)arg2 container:(struct __CFString *)arg3 configurationURL:(struct __CFURL *)arg4;
 - (void *)copyValueForKey:(struct __CFString *)arg1 identifier:(struct __CFString *)arg2 user:(struct __CFString *)arg3 host:(struct __CFString *)arg4 container:(struct __CFString *)arg5;
 - (void)setValue:(void *)arg1 forKey:(struct __CFString *)arg2 identifier:(struct __CFString *)arg3 user:(struct __CFString *)arg4 host:(struct __CFString *)arg5 container:(struct __CFString *)arg6;
+- (struct __CFDictionary *)copyManagedValuesForKeys:(struct __CFArray *)arg1 identifier:(struct __CFString *)arg2 useSystemContainer:(_Bool)arg3;
 - (struct __CFDictionary *)copyValuesForKeys:(struct __CFArray *)arg1 identifier:(struct __CFString *)arg2 user:(struct __CFString *)arg3 host:(struct __CFString *)arg4 container:(struct __CFString *)arg5;
 - (void)setValue:(void *)arg1 forKey:(struct __CFString *)arg2 appIdentifier:(struct __CFString *)arg3 container:(struct __CFString *)arg4 configurationURL:(struct __CFURL *)arg5;
 - (void)setValuesForKeys:(struct __CFDictionary *)arg1 removingValuesForKeys:(struct __CFArray *)arg2 identifier:(struct __CFString *)arg3 user:(struct __CFString *)arg4 host:(struct __CFString *)arg5 container:(struct __CFString *)arg6;

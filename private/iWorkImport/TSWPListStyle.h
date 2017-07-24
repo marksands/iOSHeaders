@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 
 + (id)presetStyleDescriptor;
 + (id)defaultArrayForProperty:(int)arg1;
-+ (id)arrayValuedProperties;
++ (id)p_arrayValuedProperties;
 + (id)languageSpecificStylesForLanguages:(id)arg1 theme:(id)arg2 stylesheet:(id)arg3;
 + (id)pDefaultLabelValuesForLabelTypeProperty:(int)arg1 context:(id)arg2;
 + (id)pLabelTypeArrayForType:(int)arg1;
@@ -63,6 +63,7 @@ __attribute__((visibility("hidden")))
 - (int)intValueForProperty:(int)arg1 atIndex:(unsigned long long)arg2;
 - (id)boxedObjectForProperty:(int)arg1 atIndex:(unsigned long long)arg2;
 - (id)objectForProperty:(int)arg1 atIndex:(unsigned long long)arg2;
+- (id)parentStyleForFixingOrphanVariation;
 - (void)saveToArchive:(struct ListStyleArchive *)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromArchive:(const struct ListStyleArchive *)arg1 unarchiver:(id)arg2;

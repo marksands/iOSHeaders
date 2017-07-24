@@ -32,6 +32,10 @@
 + (void)_stopDeferredTrackingObjectsWithIdentifiers;
 + (void)_startDeferredTrackingObjectsWithIdentifiers;
 + (id)objectWithRestorationIdentifierPath:(id)arg1;
+- (void)_setDropDataOwner:(long long)arg1;
+- (long long)_dropDataOwner;
+- (void)_setDragDataOwner:(long long)arg1;
+- (long long)_dragDataOwner;
 - (_Bool)canPasteItemProviders:(id)arg1;
 - (void)pasteItemProviders:(id)arg1;
 - (void)setPasteConfiguration:(id)arg1;
@@ -151,7 +155,7 @@
 @property(readonly, nonatomic) UITextInputAssistantItem *inputAssistantItem;
 - (void)reloadInputViewsWithoutReset;
 - (void)reloadInputViews;
-- (_Bool)sholdReloadInputViews;
+- (_Bool)shouldReloadInputViews;
 @property(readonly, nonatomic) NSString *textInputContextIdentifier;
 @property(readonly, nonatomic) UITextInputMode *textInputMode;
 @property(readonly, nonatomic) UIInputViewController *inputAccessoryViewController;

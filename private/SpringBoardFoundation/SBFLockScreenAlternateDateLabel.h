@@ -27,6 +27,7 @@
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings;
 - (void).cxx_destruct;
 - (id)_alternateDateString;
+@property(readonly, nonatomic) struct UIEdgeInsets characterOverflowInsets;
 @property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;

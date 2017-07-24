@@ -48,8 +48,8 @@ __attribute__((visibility("hidden")))
 - (void)containerScopedUserIDForOperation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)publicURLForServerType:(long long)arg1 operation:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)configurationForOperation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)fetchContainerSpecificInfoForOperation:(id)arg1 needUserID:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)fetchGlobalConfigForOperation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_fetchContainerSpecificInfoForOperation:(id)arg1 needUserID:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_fetchGlobalConfigForOperation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)init;
 - (void)_watchForSwitchPrefFileChanges;

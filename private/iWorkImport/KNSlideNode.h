@@ -17,7 +17,6 @@ __attribute__((visibility("hidden")))
 @interface KNSlideNode : TSPObject <TSKDocumentObject, TSKModel, TSKSearchTarget, TSCEResolverContainer>
 {
     TSPLazyReference *_slideReference;
-    KNSlideTree *_slideTree;
     NSMutableDictionary *_thumbnails;
     _Bool _thumbnailsAreDirty;
     NSSet *_digestsForDatasThatNeedDownloadForThumbnail;
@@ -41,6 +40,7 @@ __attribute__((visibility("hidden")))
     _Bool _buildEventCountIsUpToDate;
     NSMutableSet *_remappedTableNames;
     NSString *mPreviousIdentifier;
+    KNSlideTree *_slideTree;
 }
 
 + (id)UUIDStringSetForSlideNodes:(id)arg1;
@@ -79,6 +79,7 @@ __attribute__((visibility("hidden")))
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)willBeAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
+@property(nonatomic) _Bool isSlideNumberVisible;
 @property(nonatomic, getter=isHidden) _Bool hidden;
 @property(retain, nonatomic) KNAbstractSlide *slide;
 @property(readonly, nonatomic) KNAbstractSlide *slideIfLoaded;
@@ -119,7 +120,6 @@ __attribute__((visibility("hidden")))
 - (id)initWithContext:(id)arg1;
 @property(retain, nonatomic) NSString *classicUniqueID;
 @property(nonatomic) unsigned long long depth;
-@property(nonatomic) _Bool isSlideNumberVisible;
 @property(nonatomic) _Bool hasNote;
 @property(nonatomic) _Bool hasTransition;
 @property(nonatomic) _Bool thumbnailsAreDirty;

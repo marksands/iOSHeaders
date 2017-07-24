@@ -13,6 +13,7 @@
 + (id)sharedInstance;
 + (void)__setSingleton__im:(id)arg1;
 + (id)__singleton__im;
+- (id)syncStateDictionary;
 - (id)lastSyncErrors;
 - (void)syncDeletesToCloudKit;
 - (void)printCachedRampState;
@@ -30,12 +31,16 @@
 - (void)clearTombStoneMessagesTable;
 - (void)loadDeletedMessagesWithLimit:(long long)arg1;
 - (void)_updateCloudKitState;
+- (void)_updateCloudKitStateWithDictionary:(id)arg1;
 - (_Bool)isInExitState;
 - (void)_didAttemptToDisableAllDevicesResult:(_Bool)arg1;
-- (void)_didPerformAdditionalStorageRequiredCheck:(unsigned long long)arg1 forAccountId:(id)arg2;
+- (_Bool)isDisablingDevices;
+- (void)_didPerformAdditionalStorageRequiredCheckWithSuccess:(_Bool)arg1 additionalStorageRequired:(unsigned long long)arg2 forAccountId:(id)arg3 error:(id)arg4;
+- (long long)isChangingEnabledState;
 - (void)_didAttemptToSetEnabledTo:(_Bool)arg1 result:(_Bool)arg2;
 - (id)lastSyncDate;
 - (_Bool)isSyncing;
+- (_Bool)isStartingSync;
 - (void)initiateSync;
 - (void)setShouldOptimizeAttachmentStorage:(_Bool)arg1;
 - (_Bool)shouldOptimizeAttachmentStorage;

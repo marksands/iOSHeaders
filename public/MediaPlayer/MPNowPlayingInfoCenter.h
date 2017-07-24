@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class MPArtworkResizeUtility, NSDate, NSDictionary, NSMutableDictionary, NSMutableSet, NSString;
+@class MPArtworkResizeUtility, MPNowPlayingInfoCenterArtworkContext, NSDate, NSDictionary, NSMutableDictionary, NSMutableSet, NSString;
 @protocol MPNowPlayingInfoLyricsDelegate, MPNowPlayingPlaybackQueueDataSource, MPNowPlayingPlaybackQueueDelegate, OS_dispatch_queue;
 
 @interface MPNowPlayingInfoCenter : NSObject
@@ -35,11 +35,14 @@
     void *_lyricsToken;
     void *_artworkToken;
     void *_playerPath;
+    MPNowPlayingInfoCenterArtworkContext *_publishedContext;
     NSString *_playerID;
+    NSDictionary *__mediaRemoteNowPlayingInfo;
 }
 
 + (id)infoCenterForPlayerID:(id)arg1;
 + (id)defaultCenter;
+@property(readonly, nonatomic) NSDictionary *_mediaRemoteNowPlayingInfo; // @synthesize _mediaRemoteNowPlayingInfo=__mediaRemoteNowPlayingInfo;
 @property(readonly, nonatomic) NSString *playerID; // @synthesize playerID=_playerID;
 - (void).cxx_destruct;
 - (void)_registerLyricsDelegateCallbacks:(id)arg1;
@@ -58,7 +61,6 @@
 - (void)beginPlaybackQueueContentItemUpdates;
 - (void)invalidatePlaybackQueue;
 @property unsigned long long playbackState;
-@property(readonly, nonatomic) NSDictionary *_mediaRemoteNowPlayingInfo;
 @property(copy) NSDictionary *nowPlayingInfo;
 - (void)_pushNowPlayingInfoAndRetry:(_Bool)arg1;
 @property(nonatomic) __weak id <MPNowPlayingInfoLyricsDelegate> lyricsDelegate;

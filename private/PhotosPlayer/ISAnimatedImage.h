@@ -29,10 +29,12 @@
 @property(nonatomic) long long cacheStrategy;
 - (double)frameDelayAtIndex:(unsigned long long)arg1;
 - (void)dealloc;
+- (id)initWithImageSource:(struct CGImageSource *)arg1 cachingStrategy:(long long)arg2 useGlobalDecodeQueue:(_Bool)arg3;
 - (id)initWithImageSource:(struct CGImageSource *)arg1 cachingStrategy:(long long)arg2;
 - (id)initWithImageSource:(struct CGImageSource *)arg1;
 - (id)initWithData:(id)arg1 cachingStrategy:(long long)arg2;
 - (id)initWithData:(id)arg1;
+- (id)initWithURL:(id)arg1 cachingStrategy:(long long)arg2 useGlobalDecodeQueue:(_Bool)arg3;
 - (id)initWithURL:(id)arg1 cachingStrategy:(long long)arg2;
 - (id)initWithURL:(id)arg1;
 - (id)init;

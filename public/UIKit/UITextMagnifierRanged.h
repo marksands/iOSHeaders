@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     struct CGPoint _delayedAnimationPoint;
 }
 
++ (id)activeRangedMagnifier;
 + (id)sharedRangedMagnifier;
 @property(nonatomic) _Bool isHorizontal; // @synthesize isHorizontal=_isHorizontal;
 - (struct CGPoint)snappedPoint:(struct CGPoint)arg1;

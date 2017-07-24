@@ -6,9 +6,11 @@
 
 #import <Foundation/NSObject.h>
 
-#import <MediaPlayer/NSCopying-Protocol.h>
+#import <MediaPlayer/MPArtworkDataSourceVisualIdenticality-Protocol.h>
 
-@interface MPTiledArtworkRepresentationCacheKey : NSObject <NSCopying>
+@class NSString;
+
+@interface MPTiledArtworkRepresentationCacheKey : NSObject <MPArtworkDataSourceVisualIdenticality>
 {
     id _entityIdentifier;
     id _namespaceIdentifier;
@@ -20,12 +22,17 @@
 }
 
 - (void).cxx_destruct;
+- (id)stringRepresentation;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
-- (unsigned long long)hash;
-- (id)description;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy) NSString *description;
 - (id)initWithTiledArtworkRequest:(id)arg1 scaledFittingSize:(struct CGSize)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

@@ -9,27 +9,31 @@
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDHome, HMFTimer, HMHomeInvitationData, NSDate, NSObject, NSString, NSUUID;
+@class HMDHome, HMFTimer, HMHomeInvitationData, NSArray, NSDate, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
 @interface HMDHomeInvitation : HMFObject <HMFTimerDelegate, NSSecureCoding>
 {
     long long _invitationState;
+    NSObject<OS_dispatch_queue> *_propertyQueue;
     HMDHome *_home;
     HMHomeInvitationData *_invitationData;
     NSObject<OS_dispatch_queue> *_clientQueue;
     CDUnknownBlockType _resolutionHandler;
     CDUnknownBlockType _expirationHandler;
     HMFTimer *_timer;
+    NSArray *_operations;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSArray *operations; // @synthesize operations=_operations;
 @property(retain, nonatomic) HMFTimer *timer; // @synthesize timer=_timer;
 @property(copy, nonatomic) CDUnknownBlockType expirationHandler; // @synthesize expirationHandler=_expirationHandler;
 @property(copy, nonatomic) CDUnknownBlockType resolutionHandler; // @synthesize resolutionHandler=_resolutionHandler;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(retain, nonatomic) HMHomeInvitationData *invitationData; // @synthesize invitationData=_invitationData;
 @property(nonatomic) __weak HMDHome *home; // @synthesize home=_home;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(nonatomic) long long invitationState; // @synthesize invitationState=_invitationState;
 - (void).cxx_destruct;
 - (id)describeWithFormat;

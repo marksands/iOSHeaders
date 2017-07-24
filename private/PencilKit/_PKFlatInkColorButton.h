@@ -21,6 +21,9 @@
 
 + (_Bool)isColorBlack:(id)arg1;
 + (_Bool)isColorWhite:(id)arg1;
++ (id)strokeColorForColor:(id)arg1 isUsedOnDarkBackground:(_Bool)arg2;
++ (id)pathForStrokeShapeLayerWithSwatchRect:(struct CGRect)arg1 selected:(_Bool)arg2 color:(id)arg3 isUsedOnDarkBackground:(_Bool)arg4;
++ (id)pathForFillShapeLayerWithSwatchRect:(struct CGRect)arg1 selected:(_Bool)arg2;
 + (id)buttonWithColor:(id)arg1 isCompact:(_Bool)arg2;
 @property(retain, nonatomic) CAShapeLayer *strokeShapeLayer; // @synthesize strokeShapeLayer=_strokeShapeLayer;
 @property(retain, nonatomic) CAShapeLayer *fillShapeLayer; // @synthesize fillShapeLayer=_fillShapeLayer;

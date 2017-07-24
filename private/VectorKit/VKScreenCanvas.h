@@ -8,7 +8,7 @@
 
 #import <VectorKit/VKCameraControllerDelegate-Protocol.h>
 
-@class ARSession, NSString, VKCamera, VKCameraController, VKWorld;
+@class ARSession, NSString, VKCamera, VKCameraController;
 @protocol MDMapControllerDelegate, MDRenderTarget;
 
 __attribute__((visibility("hidden")))
@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
     struct RunLoopController *_runLoopController;
     struct AnimationRunner *_animationRunner;
     shared_ptr_e963992e _taskContext;
-    VKWorld *_world;
     VKCamera *_camera;
     id <MDRenderTarget> _displayTarget;
     _Bool _userIsGesturing;
@@ -45,7 +44,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct VKEdgeInsets fullyOccludedEdgeInsets; // @synthesize fullyOccludedEdgeInsets=_fullyOccludedEdgeInsets;
 @property(readonly, nonatomic) VKCamera *camera; // @synthesize camera=_camera;
 @property(nonatomic) float debugFramesPerSecond; // @synthesize debugFramesPerSecond=_debugFramesPerSecond;
-@property(readonly, nonatomic) VKWorld *world; // @synthesize world=_world;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (long long)tileSize;

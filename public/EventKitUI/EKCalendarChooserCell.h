@@ -20,18 +20,20 @@
     UIImageView *_checkmarkView;
     UIColor *_checkMarkColor;
     NSTextAttachment *_colorDotAttachment;
+    _Bool _showingSelectionCheckmark;
     _Bool _multiSelectStyle;
     NSString *_textLabelText;
-    UIColor *_originalTintColor;
+    UIColor *_selectionCheckmarkColor;
 }
 
-@property(retain, nonatomic) UIColor *originalTintColor; // @synthesize originalTintColor=_originalTintColor;
+@property(retain, nonatomic) UIColor *selectionCheckmarkColor; // @synthesize selectionCheckmarkColor=_selectionCheckmarkColor;
 @property(retain, nonatomic) NSString *textLabelText; // @synthesize textLabelText=_textLabelText;
 @property(nonatomic) _Bool showsColorDot; // @synthesize showsColorDot=_showsColorDot;
 @property(nonatomic) _Bool shouldAnimate; // @synthesize shouldAnimate=_shouldAnimate;
 @property(nonatomic) _Bool checked; // @synthesize checked=_checked;
 @property(nonatomic) _Bool showCheckmarksOnLeft; // @synthesize showCheckmarksOnLeft=_showCheckmarksOnLeft;
 @property(nonatomic) _Bool multiSelectStyle; // @synthesize multiSelectStyle=_multiSelectStyle;
+@property(nonatomic) _Bool showingSelectionCheckmark; // @synthesize showingSelectionCheckmark=_showingSelectionCheckmark;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
 - (double)textLeadingIndent;
@@ -39,7 +41,6 @@
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setColorDotHighlightedImage:(id)arg1;
-- (void)setCheckmarkColor:(id)arg1;
 - (void)setColorDotImage:(id)arg1;
 - (void)_updateTextLabelTextWithColorDot;
 - (void)setAccessoryType:(long long)arg1;

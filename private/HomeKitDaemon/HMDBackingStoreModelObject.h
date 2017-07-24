@@ -8,7 +8,7 @@
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class HMFVersion, NSMutableDictionary, NSSet, NSString, NSUUID;
+@class CKRecord, HMFVersion, NSMutableDictionary, NSSet, NSString, NSUUID;
 @protocol HMDBackingStoreObjectProtocol;
 
 @interface HMDBackingStoreModelObject : HMFObject <HMFLogging>
@@ -22,22 +22,26 @@
     unsigned long long _bsoLogRowID;
     HMFVersion *_bsoDataVersion;
     unsigned long long _objectChangeType;
+    CKRecord *_bsoRecord;
 }
 
 + (_Bool)resolveInstanceMethod:(SEL)arg1;
 + (id)logCategory;
 + (id)formatValue:(id)arg1;
 + (id)objectFromCloud:(id)arg1 error:(id *)arg2;
-+ (id)objectFromData:(id)arg1 encoding:(unsigned long long)arg2 error:(id *)arg3;
++ (id)objectFromData:(id)arg1 encoding:(unsigned long long)arg2 record:(id)arg3 error:(id *)arg4;
 + (id)objectFromData:(id)arg1 encoding:(unsigned long long)arg2 rowID:(unsigned long long)arg3 error:(id *)arg4;
++ (id)objectFromData:(id)arg1 encoding:(unsigned long long)arg2 error:(id *)arg3;
 + (id)objectFromDictionaryData:(id)arg1 error:(id *)arg2;
 + (id)objectFromDictionaryData:(id)arg1 type:(id)arg2 error:(id *)arg3;
 + (Class)genericRepresentation;
 + (id)readonlyBefore;
++ (id)bsoSchemaHash;
 + (id)properties;
 @property _Bool bsoDataVersionOverride; // @synthesize bsoDataVersionOverride=_bsoDataVersionOverride;
+@property(readonly, nonatomic) CKRecord *bsoRecord; // @synthesize bsoRecord=_bsoRecord;
 @property(nonatomic) unsigned long long objectChangeType; // @synthesize objectChangeType=_objectChangeType;
-@property(readonly) HMFVersion *bsoDataVersion; // @synthesize bsoDataVersion=_bsoDataVersion;
+@property(readonly, nonatomic) HMFVersion *bsoDataVersion; // @synthesize bsoDataVersion=_bsoDataVersion;
 @property(readonly) unsigned long long bsoLogRowID; // @synthesize bsoLogRowID=_bsoLogRowID;
 @property(retain, nonatomic) NSString *bsoType; // @synthesize bsoType=_bsoType;
 @property(nonatomic) __weak id <HMDBackingStoreObjectProtocol> bsoDelegate; // @synthesize bsoDelegate=_bsoDelegate;
@@ -50,6 +54,7 @@
 - (void)clearVersionOverride;
 - (id)debugString:(_Bool)arg1;
 @property(readonly, copy) NSString *description;
+- (id)defaultValueForPropertyNamed:(id)arg1 isSet:(_Bool *)arg2;
 - (void)setPropertyIfNotNil:(id)arg1 named:(id)arg2;
 - (_Bool)diff:(id)arg1 differingFields:(id *)arg2;
 - (id)merge:(id)arg1;

@@ -30,6 +30,7 @@
     NSString *_groupID;
     NSString *_chatIdentifier;
     NSString *_displayName;
+    NSString *_service;
     IMSPIMessage *_referencedMessage;
     NSString *_bundleId;
     long long _messageType;
@@ -42,6 +43,7 @@
 @property(retain) IMSPIMessage *referencedMessage; // @synthesize referencedMessage=_referencedMessage;
 @property(retain) NSDate *lastReadDate; // @synthesize lastReadDate=_lastReadDate;
 @property(retain) NSDate *dateRead; // @synthesize dateRead=_dateRead;
+@property(retain) NSString *service; // @synthesize service=_service;
 @property(retain) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain) NSString *effect; // @synthesize effect=_effect;
 @property _Bool isGroupChat; // @synthesize isGroupChat=_isGroupChat;

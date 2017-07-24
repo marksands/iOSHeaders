@@ -57,6 +57,7 @@
     CDUnknownBlockType __customToViewForCurrentTransition;
     CDUnknownBlockType __computeToEndFrameForCurrentTransition;
     CDUnknownBlockType __currentTransitionDidComplete;
+    UIView *_customViewForTouchContinuation;
     struct CGSize _preferredContentSize;
     struct CGRect _sourceRect;
 }
@@ -66,6 +67,7 @@
 + (struct UIEdgeInsets)_defaultBaseContentInsetsForFrame:(struct CGRect)arg1 inView:(id)arg2;
 @property(nonatomic) _Bool isCurrentStateCancelled; // @synthesize isCurrentStateCancelled=_isCurrentStateCancelled;
 @property(nonatomic, getter=_containerIgnoresDirectTouchEvents, setter=_setContainerIgnoresDirectTouchEvents:) _Bool containerIgnoresDirectTouchEvents; // @synthesize containerIgnoresDirectTouchEvents=_containerIgnoresDirectTouchEvents;
+@property(retain, nonatomic, getter=_customViewForTouchContinuation, setter=_setCustomViewForTouchContinuation:) UIView *customViewForTouchContinuation; // @synthesize customViewForTouchContinuation=_customViewForTouchContinuation;
 @property(nonatomic, getter=_shouldContinueTouchesOnTargetViewController, setter=_setShouldContinueTouchesOnTargetViewController:) _Bool shouldContinueTouchesOnTargetViewController; // @synthesize shouldContinueTouchesOnTargetViewController=_shouldContinueTouchesOnTargetViewController;
 @property(copy, nonatomic) CDUnknownBlockType _currentTransitionDidComplete; // @synthesize _currentTransitionDidComplete=__currentTransitionDidComplete;
 @property(copy, nonatomic) CDUnknownBlockType _computeToEndFrameForCurrentTransition; // @synthesize _computeToEndFrameForCurrentTransition=__computeToEndFrameForCurrentTransition;

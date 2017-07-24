@@ -97,6 +97,8 @@
 - (_Bool)setWallpaperImage:(id)arg1 originalImage:(id)arg2 forVariants:(long long)arg3 options:(unsigned long long)arg4;
 - (_Bool)setWallpaperImage:(id)arg1 wallpaperOptions:(id)arg2 forVariants:(long long)arg3;
 - (long long)effectiveSharedVariantForVariants:(long long)arg1;
+- (id)wallpaperThumbnailImageDataForFulfillingLookupForConfiguration:(id)arg1;
+- (id)wallpaperThumbnailImageForFulfillingLookupForConfiguration:(id)arg1;
 - (id)wallpaperThumbnailImageForVariant:(long long)arg1;
 - (id)wallpaperThumbnailImageDataForVariant:(long long)arg1;
 - (id)wallpaperOriginalImageForVariant:(long long)arg1;

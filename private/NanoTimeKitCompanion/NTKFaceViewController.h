@@ -168,6 +168,7 @@
 - (void)enumerateComplicationControllersAndDisplaysWithBlock:(CDUnknownBlockType)arg1;
 - (void)getComplicationController:(id *)arg1 andDisplay:(id *)arg2 forSlot:(id)arg3;
 @property(readonly, copy) NSString *description;
+- (void)prepareForSnapshotting;
 - (id)blurSourceImage;
 - (void)viewDidLayoutSubviews;
 - (void)_faceSnapshotDidChange:(id)arg1;

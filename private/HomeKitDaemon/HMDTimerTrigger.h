@@ -74,7 +74,6 @@
 - (void)nsTimerTriggered:(id)arg1;
 - (void)timerTriggered;
 - (void)dealloc;
-- (void)invalidate;
 - (void)completeConfiguration;
 - (void)configure:(id)arg1 messageDispatcher:(id)arg2 queue:(id)arg3;
 - (unsigned long long)triggerType;

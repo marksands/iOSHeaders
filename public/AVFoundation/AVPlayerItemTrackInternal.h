@@ -24,6 +24,8 @@
     _Bool disableColorMatchingWasSet;
     long long activeHapticChannelIndex;
     _Bool activeHapticChannelIndexWasSet;
+    float hapticVolume;
+    _Bool hapticVolumeWasSet;
 }
 
 @end

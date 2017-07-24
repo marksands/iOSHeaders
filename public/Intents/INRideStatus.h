@@ -55,7 +55,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)cacheableObjects;
+- (void)_intents_updateContainerWithCache:(id)arg1;
+- (id)_intents_cacheableObjects;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

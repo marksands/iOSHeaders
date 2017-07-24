@@ -33,6 +33,7 @@
 - (void)dragInteraction:(id)arg1 sessionWillBegin:(id)arg2;
 - (id)dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
 - (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
+- (_Bool)isMailDrag;
 - (id)dragParametersForPreviewView:(id)arg1;
 - (id)initWithView:(id)arg1 dragObject:(id)arg2;
 

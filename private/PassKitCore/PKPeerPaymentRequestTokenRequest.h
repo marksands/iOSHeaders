@@ -13,8 +13,10 @@
     NSString *_recipientIdentifier;
     NSDecimalNumber *_amount;
     NSString *_currency;
+    NSString *_recipientPhoneOrEmail;
 }
 
+@property(copy, nonatomic) NSString *recipientPhoneOrEmail; // @synthesize recipientPhoneOrEmail=_recipientPhoneOrEmail;
 @property(copy, nonatomic) NSString *currency; // @synthesize currency=_currency;
 @property(copy, nonatomic) NSDecimalNumber *amount; // @synthesize amount=_amount;
 @property(copy, nonatomic) NSString *recipientIdentifier; // @synthesize recipientIdentifier=_recipientIdentifier;

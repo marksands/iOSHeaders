@@ -6,9 +6,11 @@
 
 #import <UIKit/UIView.h>
 
-@class MPVolumeSlider;
+#import <MediaControls/UIGestureRecognizerDelegate-Protocol.h>
 
-@interface MediaControlsVolumeSlider : UIView
+@class MPVolumeSlider, NSString;
+
+@interface MediaControlsVolumeSlider : UIView <UIGestureRecognizerDelegate>
 {
     _Bool _transitioning;
     _Bool _offScreen;
@@ -21,8 +23,15 @@
 @property(nonatomic, getter=isOffScreen) _Bool offScreen; // @synthesize offScreen=_offScreen;
 @property(nonatomic, getter=isTransitioning) _Bool transitioning; // @synthesize transitioning=_transitioning;
 - (void).cxx_destruct;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

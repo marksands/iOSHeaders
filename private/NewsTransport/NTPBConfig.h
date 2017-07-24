@@ -12,6 +12,7 @@
 
 @interface NTPBConfig : PBCodable <NSCopying>
 {
+    CDStruct_5df41632 _topStoriesPublishTimeIntervals;
     long long _analyticsEndpointMaxPayloadSize;
     long long _appConfigRefreshRate;
     double _articleDiversitySimilarityExpectationEnd;
@@ -230,6 +231,12 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (void)setTopStoriesPublishTimeIntervals:(long long *)arg1 count:(unsigned long long)arg2;
+- (long long)topStoriesPublishTimeIntervalsAtIndex:(unsigned long long)arg1;
+- (void)addTopStoriesPublishTimeIntervals:(long long)arg1;
+- (void)clearTopStoriesPublishTimeIntervals;
+@property(readonly, nonatomic) long long *topStoriesPublishTimeIntervals;
+@property(readonly, nonatomic) unsigned long long topStoriesPublishTimeIntervalsCount;
 @property(nonatomic) _Bool hasTerminateAppOnBackgroundAfterJoiningOrLeavingExperiment;
 @property(nonatomic) _Bool terminateAppOnBackgroundAfterJoiningOrLeavingExperiment; // @synthesize terminateAppOnBackgroundAfterJoiningOrLeavingExperiment=_terminateAppOnBackgroundAfterJoiningOrLeavingExperiment;
 @property(nonatomic) _Bool hasAutoRefreshMinimumInterval;
@@ -338,6 +345,7 @@
 - (void)addLanguageConfigs:(id)arg1;
 - (void)clearLanguageConfigs;
 @property(readonly, nonatomic) _Bool hasFallbackLanguageTag;
+- (void)dealloc;
 
 @end
 

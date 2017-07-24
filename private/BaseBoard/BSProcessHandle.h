@@ -45,8 +45,7 @@
 - (id)succinctDescriptionBuilder;
 - (id)succinctDescription;
 @property(readonly, copy) NSString *description;
-- (_Bool)_currentProcess;
-- (_Bool)_isRunning;
+- (_Bool)_isRunningWithCertainty:(out _Bool *)arg1;
 - (id)valueForEntitlement:(id)arg1;
 - (_Bool)hasEntitlement:(id)arg1;
 @property(readonly, nonatomic, getter=isValid) _Bool valid;

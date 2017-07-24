@@ -12,8 +12,6 @@ __attribute__((visibility("hidden")))
 }
 
 - (_Bool)p_hasContent;
-- (id)repForHandleSingleTap;
-- (_Bool)canBeginEditingChildRepOnDoubleTap:(id)arg1;
 - (void)didUpdateLayer:(id)arg1;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (_Bool)directlyManagesLayerContent;

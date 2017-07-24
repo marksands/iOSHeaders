@@ -65,12 +65,14 @@
     _Bool _deviceUnderGoodCondition;
     int _currentGrowthStage;
     id _duetContextRegistration;
+    _Bool _powerOptimizationsForExpensiveNetworkingDisabled;
 }
 
 + (_Bool)_isCachedKeepAliveIntervalStillValid:(double)arg1 date:(id)arg2;
 + (id)_keepAliveCachePath;
 + (id)intervalCacheDictionaries;
 + (Class)growthAlgorithmClass;
+@property(nonatomic) _Bool powerOptimizationsForExpensiveNetworkingDisabled; // @synthesize powerOptimizationsForExpensiveNetworkingDisabled=_powerOptimizationsForExpensiveNetworkingDisabled;
 @property(nonatomic) _Bool alwaysWantsInterfaceChangeCallbacks; // @synthesize alwaysWantsInterfaceChangeCallbacks=_alwaysWantsInterfaceChangeCallbacks;
 @property(readonly, nonatomic) int lastProcessedAction; // @synthesize lastProcessedAction=_lastProcessedAction;
 @property(nonatomic) long long interfaceIdentifier; // @synthesize interfaceIdentifier=_interfaceIdentifier;

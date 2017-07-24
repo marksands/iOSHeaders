@@ -94,7 +94,7 @@
 - (void)_getImages;
 - (void)_setDrawing:(id)arg1 initialDrawing:(id)arg2 withImage:(struct CGImage *)arg3 andMask:(struct CGImage *)arg4 setupComplete:(CDUnknownBlockType)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)setDrawing:(id)arg1 initialDrawing:(id)arg2 withImage:(struct CGImage *)arg3 andMask:(struct CGImage *)arg4 setupComplete:(CDUnknownBlockType)arg5 completion:(CDUnknownBlockType)arg6;
-- (void)setDrawing:(id)arg1 tiles:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (void)setDrawing:(id)arg1 tiles:(id)arg2 setupComplete:(CDUnknownBlockType)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (_Bool)_loadInitialDrawing:(id)arg1 withImage:(struct CGImage *)arg2 andMask:(struct CGImage *)arg3;
 - (void)resumeDrawing;
 - (void)suspendDrawingImmediately:(_Bool)arg1;

@@ -24,8 +24,7 @@
 - (void).cxx_destruct;
 - (void)contextView:(id)arg1 didTapOnInfoButtonAtIndex:(long long)arg2;
 - (void)contextView:(id)arg1 didSelectItemAtIndex:(long long)arg2;
-- (void)selectItemAtIndex:(long long)arg1 animated:(_Bool)arg2;
-- (id)selectedDisplayTypeContextItem;
+- (void)selectItemAtIndex:(long long)arg1 animated:(_Bool)arg2 scrollPosition:(unsigned long long)arg3;
 - (void)setupView;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 

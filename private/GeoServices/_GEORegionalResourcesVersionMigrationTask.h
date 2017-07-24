@@ -9,7 +9,7 @@
 #import <GeoServices/GEOActiveTileGroupMigrationTask-Protocol.h>
 
 @class GEOActiveTileGroup, GEORegionalResourcesVersionMigrator, GEOReportedProgress, GEOResourceLoader, GEOResourceManifestConfiguration, GEOResources, GEOTileGroup, NSArray, NSProgress, NSSet, NSString;
-@protocol OS_dispatch_queue;
+@protocol NSObject, OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface _GEORegionalResourcesVersionMigrationTask : NSObject <GEOActiveTileGroupMigrationTask>
@@ -28,10 +28,12 @@ __attribute__((visibility("hidden")))
     GEOReportedProgress *_progress;
     GEOResourceLoader *_resourceLoader;
     NSArray *_loadedResources;
+    id <NSObject> _transaction;
 }
 
 + (id)_resourcesDirectory:(id)arg1;
 + (id)_resourceLoaderFactoryWithTargetDirectory:(id)arg1 baseURLString:(id)arg2 resources:(id)arg3 maximumConcurrentLoads:(unsigned long long)arg4 additionalDirectoryToConsider:(id)arg5;
+@property(retain, nonatomic) id <NSObject> transaction; // @synthesize transaction=_transaction;
 - (void).cxx_destruct;
 - (void)removeOldData:(id)arg1;
 - (void)populateTileGroup:(id)arg1;

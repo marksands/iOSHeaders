@@ -36,7 +36,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)containsImportableTextTypes;
 - (_Bool)containsImportableRichTextTypes;
 - (_Bool)containsNativePasteboardTypes;
-- (id)importablePlainTextTypes;
 - (id)importableImageTypes;
 - (id)importableRichTextTypes;
 - (long long)clearContents;

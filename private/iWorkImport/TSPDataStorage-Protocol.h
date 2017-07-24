@@ -37,7 +37,7 @@
 - (void)performReadOnBookmarkDataSourceURLWithAccessor:(void (^)(NSURL *))arg1;
 - (void)addDownloadObserver:(id)arg1 forData:(TSPData *)arg2 options:(unsigned long long)arg3 completionHandler:(void (^)(id, TSPData *, long long, NSDictionary *))arg4;
 - (void)setIsMissingData:(_Bool)arg1;
-- (_Bool)copyToTemporaryURL:(NSURL *)arg1 encryptionInfo:(id <TSPMutableCryptoInfo>)arg2;
+- (_Bool)linkOrCopyToURL:(NSURL *)arg1 encryptionInfo:(id <TSPMutableCryptoInfo>)arg2 canLink:(_Bool)arg3;
 - (id)storageForDataCopyFromOtherContext;
 - (void)didInitializeFromDocumentURL:(NSURL *)arg1;
 @end

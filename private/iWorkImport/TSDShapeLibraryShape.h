@@ -13,6 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface TSDShapeLibraryShape : TSDShapeLibraryObject <TSDShapeCollectionShape>
 {
+    _Bool _rendersSlowly;
     NSString *_bezierPathString;
     TSUBezierPath *_bezierPath;
     NSString *_keywordDelimiter;
@@ -27,6 +28,7 @@ __attribute__((visibility("hidden")))
 + (id)baseKeywordsForShapeFromDictionary:(id)arg1 keywordDelimiter:(id)arg2;
 @property(copy, nonatomic) NSString *p_keywordDelimiter; // @synthesize p_keywordDelimiter=_keywordDelimiter;
 @property(retain, nonatomic) TSUBezierPath *p_bezierPath; // @synthesize p_bezierPath=_bezierPath;
+@property(readonly, nonatomic) _Bool rendersSlowly; // @synthesize rendersSlowly=_rendersSlowly;
 @property(readonly, nonatomic) NSString *bezierPathString; // @synthesize bezierPathString=_bezierPathString;
 - (void).cxx_destruct;
 - (id)p_categoryMetadata;

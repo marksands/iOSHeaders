@@ -50,6 +50,7 @@
 @property(nonatomic) _Bool useColorFilters; // @dynamic useColorFilters;
 @property(readonly, nonatomic) double lastBaselineOffsetFromBottom;
 @property(readonly, nonatomic) double firstBaselineOffsetFromBottom;
+@property(readonly, nonatomic) struct UIEdgeInsets characterOverflowInsets;
 - (void)setOptions:(long long)arg1;
 @property(readonly, nonatomic) double baselineOffset;
 @property(nonatomic) long long lineBreakMode; // @dynamic lineBreakMode;

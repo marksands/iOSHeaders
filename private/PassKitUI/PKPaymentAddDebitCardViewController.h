@@ -9,16 +9,19 @@
 #import <PassKitUI/PKExplanationViewDelegate-Protocol.h>
 #import <PassKitUI/PKPaymentSetupDelegate-Protocol.h>
 
-@class NSString, PKPaymentWebService;
+@class NSString, PKPaymentWebService, UIImage;
 @protocol PKPaymentSetupViewControllerDelegate;
 
 @interface PKPaymentAddDebitCardViewController : PKExplanationViewController <PKExplanationViewDelegate, PKPaymentSetupDelegate>
 {
     PKPaymentWebService *_webService;
     id <PKPaymentSetupViewControllerDelegate> _delegate;
+    UIImage *_passSnapShot;
 }
 
 - (void).cxx_destruct;
+- (void)_setNavigationBarEnabled:(_Bool)arg1;
+- (void)_setViewEnabledState:(_Bool)arg1;
 - (id)_paymentSetupNavigationControllerForProvisioningController:(id)arg1;
 - (void)_handleProvisioningError:(id)arg1;
 - (void)_presentPaymentSetupController;
@@ -28,7 +31,7 @@
 - (void)explanationViewDidSelectSetupLater:(id)arg1;
 - (void)explanationViewDidSelectContinue:(id)arg1;
 - (void)viewDidLoad;
-- (id)initWithPaymentWebService:(id)arg1 context:(long long)arg2 setupDelegate:(id)arg3;
+- (id)initWithPaymentWebService:(id)arg1 context:(long long)arg2 setupDelegate:(id)arg3 passSnapshot:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,12 +6,13 @@
 
 #import <SafariServices/NSObject-Protocol.h>
 
-@class UIItemProvider, _SFQuickLookDocumentView;
+@class NSItemProvider, _SFQuickLookDocumentView;
 
 @protocol _SFQuickLookDocumentViewDelegate <NSObject>
+- (long long)dataOwnerForQuickLookDocumentView:(_SFQuickLookDocumentView *)arg1;
 
 @optional
-- (UIItemProvider *)itemProviderForQuickLookDocumentView:(_SFQuickLookDocumentView *)arg1;
+- (NSItemProvider *)itemProviderForQuickLookDocumentView:(_SFQuickLookDocumentView *)arg1;
 - (void)quickLookDocumentView:(_SFQuickLookDocumentView *)arg1 didSelectActionAtIndex:(long long)arg2;
 @end
 

@@ -19,6 +19,7 @@
 - (void).cxx_destruct;
 - (void)_adoptContentFromViewController:(id)arg1;
 - (void)_abandonContentFromViewController:(id)arg1;
+- (id)childViewControllerForScreenEdgesDeferringSystemGestures;
 - (id)childViewControllerForWhitePointAdaptivityStyle;
 - (id)childViewControllerForStatusBarStyle;
 - (id)childViewControllerForStatusBarHidden;

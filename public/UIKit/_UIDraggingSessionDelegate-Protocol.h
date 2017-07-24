@@ -17,6 +17,7 @@
 - (void)draggingSession:(_UIDraggingSession *)arg1 willAddItems:(NSArray *)arg2;
 - (void)draggingSessionDidMove:(_UIDraggingSession *)arg1;
 - (void)draggingSessionWillBegin:(_UIDraggingSession *)arg1;
+- (_Bool)draggingSessionDynamicallyUpdatesPrefersFullSizePreviews:(_UIDraggingSession *)arg1;
 - (_Bool)draggingSessionPrefersFullSizePreviews:(_UIDraggingSession *)arg1;
 - (unsigned long long)draggingSession:(_UIDraggingSession *)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;
 @end

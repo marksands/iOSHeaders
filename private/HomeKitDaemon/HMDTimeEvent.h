@@ -20,6 +20,8 @@
     HMDBackgroundTaskAgentTimer *_btaTimer;
 }
 
++ (_Bool)isValidOffsetDateComponents:(id)arg1;
++ (_Bool)isValidAbsoluteDateComponents:(id)arg1;
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) HMDBackgroundTaskAgentTimer *btaTimer; // @synthesize btaTimer=_btaTimer;
 @property(readonly, nonatomic) _Bool repetitive; // @synthesize repetitive=_repetitive;

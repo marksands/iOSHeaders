@@ -14,11 +14,12 @@
 #import <AssistantUI/AFUISiriViewDataSource-Protocol.h>
 #import <AssistantUI/AFUISiriViewDelegate-Protocol.h>
 #import <AssistantUI/SiriUIAudioRoutePickerControllerDelegate-Protocol.h>
+#import <AssistantUI/SiriUIKeyboardViewDelegate-Protocol.h>
 
-@class AFUIDelayedActionCommandCache, AFUIRequestOptions, AFUISiriRemoteViewController, AFUISiriSession, NSNumber, NSObject, NSString, SiriUIAudioRoutePickerController, SiriUIConfiguration, UIStatusBar, UIView;
+@class AFUIDelayedActionCommandCache, AFUIRequestOptions, AFUISiriRemoteViewController, AFUISiriSession, NSNumber, NSObject, NSString, SiriUIAudioRoutePickerController, SiriUIConfiguration, SiriUIKeyboardView, UIStatusBar, UIView;
 @protocol AFUISiriRemoteViewHosting, AFUISiriViewControllerDataSource, AFUISiriViewControllerDelegate, OS_dispatch_queue;
 
-@interface AFUISiriViewController : UIViewController <AFUISiriRemoteViewControllerDataSource, AFUISiriRemoteViewControllerDelegate, AFUISiriViewDelegate, SiriUIAudioRoutePickerControllerDelegate, AFUISiriSessionLocalDataSource, AFUISiriSessionLocalDelegate, AFUIDelayedActionCommandCacheDelegate, AFUISiriViewDataSource>
+@interface AFUISiriViewController : UIViewController <AFUISiriRemoteViewControllerDataSource, AFUISiriRemoteViewControllerDelegate, AFUISiriViewDelegate, SiriUIAudioRoutePickerControllerDelegate, AFUISiriSessionLocalDataSource, AFUISiriSessionLocalDelegate, AFUIDelayedActionCommandCacheDelegate, AFUISiriViewDataSource, SiriUIKeyboardViewDelegate>
 {
     _Bool _active;
     _Bool _attemptingRemoteViewControllerPresentation;
@@ -32,6 +33,9 @@
     NSString *_uiAppearanceUUIDString;
     NSObject<OS_dispatch_queue> *_uiAppearanceCoreDuetQueue;
     _Bool _presentedConversationFromBreadcrumb;
+    SiriUIKeyboardView *_inputAccessoryView;
+    CDStruct_a82615c4 _keyboardInfo;
+    _Bool _unlockScreenVisible;
     _Bool _visible;
     _Bool _eyesFree;
     _Bool _isStark;
@@ -43,6 +47,7 @@
     _Bool _hasCalledEndAppearanceTransition;
     _Bool _inHoldToTalkMode;
     _Bool _viewDisappearing;
+    _Bool _userUtteranceTapToEditInProgress;
     id <AFUISiriViewControllerDataSource> _dataSource;
     id <AFUISiriViewControllerDelegate> _delegate;
     AFUISiriSession *_session;
@@ -55,6 +60,7 @@
     double _viewDidAppearTime;
 }
 
+@property(nonatomic, getter=_isUserUtteranceTapToEditInProgress, setter=_setUserUtteranceTapToEditInProgress:) _Bool userUtteranceTapToEditInProgress; // @synthesize userUtteranceTapToEditInProgress=_userUtteranceTapToEditInProgress;
 @property(nonatomic, getter=isViewDisappearing) _Bool viewDisappearing; // @synthesize viewDisappearing=_viewDisappearing;
 @property(nonatomic, getter=_viewDidAppearTime, setter=_setViewDidAppearTime:) double viewDidAppearTime; // @synthesize viewDidAppearTime=_viewDidAppearTime;
 @property(retain, nonatomic, getter=_recordingStartedTimeValue, setter=_setRecordingStartedTimeValue:) NSNumber *recordingStartedTimeValue; // @synthesize recordingStartedTimeValue=_recordingStartedTimeValue;
@@ -111,9 +117,11 @@
 - (void)siriView:(id)arg1 didReceiveSiriActivationMessageWithSource:(long long)arg2;
 - (_Bool)siriView:(id)arg1 attemptUnlockWithPassword:(id)arg2;
 - (void)siriViewDidReceiveHelpAction:(id)arg1;
-- (void)siriViewDidReceiveKeyboardAction:(id)arg1;
 - (void)siriViewDidReceiveBugButtonLongPress:(id)arg1;
 - (void)siriViewDidReceiveReportBugAction:(id)arg1;
+- (void)_handleHelpAction;
+- (void)_handleReportBugLongPressAction;
+- (void)_handleReportBugAction;
 - (void)siriViewDidRecieveStatusViewHoldDidEndAction:(id)arg1;
 - (void)siriViewDidRecieveStatusViewHoldDidBeginAction:(id)arg1;
 - (void)siriViewDidRecieveStatusViewTappedAction:(id)arg1;
@@ -133,7 +141,6 @@
 - (void)_transitionToAutomaticEndpointMode;
 - (void)_enterHoldToTalkMode;
 - (_Bool)_holdToTalkThresholdHasElapsed;
-- (void)_setShowKeyboardIfTextInputEnabled:(_Bool)arg1;
 - (_Bool)_isInitialSpeechRequest;
 - (_Bool)_canIgnoreHoldToTalkThreshold;
 - (_Bool)_isTextInputEnabled;
@@ -171,6 +178,19 @@
 - (void)_handleMicButtonLongPressEndedFromSource:(long long)arg1;
 - (void)_handleMicButtonLongPressBeganFromSource:(long long)arg1;
 - (void)_handleMicButtonTapFromSource:(long long)arg1;
+- (void)keyboardViewDidReceiveAudioRouteAction:(id)arg1;
+- (void)keyboardViewDidReceiveBugButtonLongPress:(id)arg1;
+- (void)keyboardViewDidReceiveHelpButtonAction:(id)arg1;
+- (void)keyboardViewDidReceiveReportBugAction:(id)arg1;
+- (void)keyboardView:(id)arg1 didReceiveText:(id)arg2;
+- (void)_setShowKeyboardIfTextInputEnabled:(_Bool)arg1 minimized:(_Bool)arg2;
+- (void)_setShowKeyboardIfTextInputEnabled:(_Bool)arg1;
+- (void)_setStatusViewHidden:(_Bool)arg1;
+- (void)siriRemoteViewControllerDidEndTapToEdit:(id)arg1;
+- (void)siriRemoteViewControllerWillBeginTapToEdit:(id)arg1;
+- (void)siriRemoteViewControllerDidResetTextInput:(id)arg1;
+- (void)siriRemoteViewController:(id)arg1 didRequestKeyboard:(_Bool)arg2 minimized:(_Bool)arg3;
+- (void)siriRemoteViewController:(id)arg1 didRequestKeyboard:(_Bool)arg2;
 - (void)siriRemoteViewControllerDidDetectAudioRoutePickerTap:(id)arg1;
 - (void)siriRemoteViewControllerDidPresentConversationFromBreadcrumb:(id)arg1;
 - (void)siriRemoteViewController:(id)arg1 didChangePresentationPeekMode:(unsigned long long)arg2;
@@ -226,12 +246,13 @@
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)_keyboardDidHideNotification:(id)arg1;
+- (void)_keyboardDidShowNotification:(id)arg1;
+- (CDStruct_a82615c4)_keyboardInfoFromNotification:(id)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)_recordUIDismissal;
 - (void)_recordUIAppearance;
 - (void)_willEnterFullScreenScreenshotMode:(id)arg1;
-- (void)_windowDidResignKey:(id)arg1;
-- (void)_windowDidBecomeKey:(id)arg1;
 - (void)_applicationDidBecomeActive:(id)arg1;
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (void)_applicationWillResignActive:(id)arg1;
@@ -243,6 +264,8 @@
 - (void)_statusBarFrameDidChange:(id)arg1;
 - (id)_siriView;
 - (void)loadView;
+@property(retain, nonatomic) UIView *inputAccessoryView;
+- (_Bool)canBecomeFirstResponder;
 - (void)proximityStatusChanged:(_Bool)arg1;
 - (void)exitUITrackingMode;
 - (void)enterUITrackingMode;

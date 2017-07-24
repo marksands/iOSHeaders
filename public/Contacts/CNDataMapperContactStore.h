@@ -63,7 +63,7 @@
 - (_Bool)setBestMeIfNeededForGivenName:(id)arg1 familyName:(id)arg2 email:(id)arg3 error:(id *)arg4;
 - (_Bool)setMeContact:(id)arg1 forContainer:(id)arg2 error:(id *)arg3;
 - (_Bool)setMeContact:(id)arg1 error:(id *)arg2;
-- (id)meContactIdentifierWithError:(id *)arg1;
+- (id)meContactIdentifiers:(id *)arg1;
 - (id)identifierWithError:(id *)arg1;
 - (id)requestAccessForEntityType:(long long)arg1;
 - (id)description;

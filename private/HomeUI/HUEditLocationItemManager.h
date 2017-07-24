@@ -11,7 +11,6 @@
 @interface HUEditLocationItemManager : HFItemManager
 {
     HFItem *_nameItem;
-    HFItem *_presenceAuthorizationItem;
     HFItem *_usersItem;
     HFItem *_inviteUsersItem;
     HFItem *_cameraItem;
@@ -40,11 +39,8 @@
 @property(retain, nonatomic) HFItem *cameraItem; // @synthesize cameraItem=_cameraItem;
 @property(retain, nonatomic) HFItem *inviteUsersItem; // @synthesize inviteUsersItem=_inviteUsersItem;
 @property(retain, nonatomic) HFItem *usersItem; // @synthesize usersItem=_usersItem;
-@property(retain, nonatomic) HFItem *presenceAuthorizationItem; // @synthesize presenceAuthorizationItem=_presenceAuthorizationItem;
 @property(retain, nonatomic) HFItem *nameItem; // @synthesize nameItem=_nameItem;
 - (void).cxx_destruct;
-- (id)updatePresenceAuthorizationStatus:(unsigned long long)arg1;
-@property(readonly, nonatomic) unsigned long long presenceAuthorizationStatus;
 - (id)_buildSectionsWithDisplayedItems:(id)arg1;
 - (id)_itemsToHideInSet:(id)arg1;
 - (id)_homeFuture;

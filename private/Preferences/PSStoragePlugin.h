@@ -17,6 +17,8 @@
 @property(retain, nonatomic) NSArray *tips; // @synthesize tips=_tips;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (long long)externDataSizeForApp:(id)arg1;
+- (id)externDataSizeAppIdentifiers;
 - (id)documentSpecifiersForApp:(id)arg1;
 - (id)documentAppIdentifiers;
 - (void)reloadTips;

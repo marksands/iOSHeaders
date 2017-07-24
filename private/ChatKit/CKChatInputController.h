@@ -88,6 +88,7 @@
 - (void)fullscreenAppViewControllerDidTransitionFromOrientation:(long long)arg1 toOrientation:(long long)arg2;
 - (void)fullscreenAppViewControllerSwitcherDidSelectAppManager:(id)arg1;
 - (void)fullscreenAppViewControllerSwitcherDidSelectAppStore:(id)arg1;
+- (void)fullscreenAppViewController:(id)arg1 hasUpdatedLastTouchDate:(id)arg2;
 - (void)fullscreenAppViewController:(id)arg1 wantsToSwitchToPlugin:(id)arg2;
 - (void)fullscreenAppViewControllerWantsToCollapse:(id)arg1;
 - (void)setLocalUserIsTyping:(_Bool)arg1;

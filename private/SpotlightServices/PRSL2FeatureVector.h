@@ -13,7 +13,7 @@
 
 @interface PRSL2FeatureVector : NSObject <NSSecureCoding, NSCopying>
 {
-    double _features[943];
+    double _features[946];
     double *_expanded_floating_point_features;
     unsigned long long _expanded_floating_point_features_count;
     double _originalL2Score;
@@ -26,7 +26,6 @@
 + (unsigned long long)featureForName:(id)arg1;
 + (id)contextWithFeatureOrder:(id)arg1 withInflation:(unsigned long long)arg2 withInflatedIndexToSize:(id)arg3;
 + (void)initialize;
-+ (_Bool)doesFeatureExist:(id)arg1;
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSDictionary *searchThroughCEPData; // @synthesize searchThroughCEPData=_searchThroughCEPData;
 @property(retain, nonatomic) NSString *device_type; // @synthesize device_type=_device_type;
@@ -45,7 +44,7 @@
 - (id)dictionaryRepresentationWithoutDefaultValues;
 - (id)_dictionaryRepresentationWithoutDefaultValues:(_Bool)arg1;
 - (id)dictionaryRepresentation;
-- (void)setValue:(id)arg1 forFeatureName:(id)arg2;
+- (void)setFeatureName:(id)arg1 value:(double)arg2;
 - (double)valueForFeatureName:(id)arg1;
 - (double)valueForFeature:(unsigned long long)arg1;
 - (void)setValue:(id)arg1 forFeature:(unsigned long long)arg2;

@@ -29,6 +29,7 @@
 @property(readonly, copy, nonatomic) NSInputStream *stream; // @synthesize stream=_stream;
 - (void).cxx_destruct;
 - (id)bufferedDataWithError:(id *)arg1;
+@property(readonly, nonatomic) unsigned long long clientBytesWritten;
 @property(readonly, nonatomic) _Bool hasBytesRemaining;
 - (void)dealloc;
 - (id)initWithStream:(id)arg1 length:(unsigned long long)arg2 bufferSize:(unsigned long long)arg3 userInfo:(id)arg4;

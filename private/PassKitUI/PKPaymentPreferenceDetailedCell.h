@@ -20,6 +20,7 @@
 - (void)layoutSubviews;
 - (void)showTextField:(_Bool)arg1;
 - (void)prepareForReuse;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithReuseIdentifier:(id)arg1;
 - (void)pk_applyAppearance:(id)arg1;
 - (id)pk_childrenForAppearance;

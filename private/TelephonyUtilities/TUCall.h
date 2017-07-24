@@ -8,7 +8,7 @@
 
 #import <TelephonyUtilities/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSData, NSDictionary, NSString, NSUUID, TUCallCenter, TUCallDisplayContext, TUCallModel, TUCallNotificationManager, TUCallProvider, TUCallServicesInterface, TUDialRequest, TUHandle, TUProxyCall, TUVideoCallAttributes;
+@class NSArray, NSData, NSDate, NSDictionary, NSString, NSUUID, TUCallCenter, TUCallDisplayContext, TUCallModel, TUCallNotificationManager, TUCallProvider, TUCallServicesInterface, TUDialRequest, TUHandle, TUProxyCall, TUVideoCallAttributes;
 @protocol OS_dispatch_queue;
 
 @interface TUCall : NSObject <NSSecureCoding>
@@ -16,9 +16,6 @@
     _Bool _endpointOnCurrentDevice;
     _Bool _shouldSuppressRingtone;
     _Bool _wantsHoldMusic;
-    _Bool _hasSentInvitation;
-    _Bool _connecting;
-    _Bool _connected;
     _Bool _wasDialAssisted;
     _Bool _hasBegunAudioInterruption;
     _Bool _hasUpdatedAudio;
@@ -29,6 +26,11 @@
     int _faceTimeIDStatus;
     int _transitionStatus;
     int _hardPauseDigitsState;
+    NSDate *_dateCreated;
+    NSDate *_dateSentInvitation;
+    NSDate *_dateStartedConnecting;
+    NSDate *_dateConnected;
+    NSDate *_dateEnded;
     NSString *_uniqueProxyIdentifier;
     NSString *_sourceIdentifier;
     TUCallModel *_model;
@@ -80,9 +82,11 @@
 @property(nonatomic) _Bool wasDialAssisted; // @synthesize wasDialAssisted=_wasDialAssisted;
 @property(copy, nonatomic) NSString *sourceIdentifier; // @synthesize sourceIdentifier=_sourceIdentifier;
 @property(copy, nonatomic) NSString *uniqueProxyIdentifier; // @synthesize uniqueProxyIdentifier=_uniqueProxyIdentifier;
-@property(nonatomic, getter=isConnected) _Bool connected; // @synthesize connected=_connected;
-@property(nonatomic, getter=isConnecting) _Bool connecting; // @synthesize connecting=_connecting;
-@property(nonatomic) _Bool hasSentInvitation; // @synthesize hasSentInvitation=_hasSentInvitation;
+@property(retain, nonatomic) NSDate *dateEnded; // @synthesize dateEnded=_dateEnded;
+@property(retain, nonatomic) NSDate *dateConnected; // @synthesize dateConnected=_dateConnected;
+@property(retain, nonatomic) NSDate *dateStartedConnecting; // @synthesize dateStartedConnecting=_dateStartedConnecting;
+@property(retain, nonatomic) NSDate *dateSentInvitation; // @synthesize dateSentInvitation=_dateSentInvitation;
+@property(readonly, nonatomic) NSDate *dateCreated; // @synthesize dateCreated=_dateCreated;
 @property(nonatomic) _Bool wantsHoldMusic; // @synthesize wantsHoldMusic=_wantsHoldMusic;
 @property(nonatomic) _Bool shouldSuppressRingtone; // @synthesize shouldSuppressRingtone=_shouldSuppressRingtone;
 @property(nonatomic, getter=isEndpointOnCurrentDevice) _Bool endpointOnCurrentDevice; // @synthesize endpointOnCurrentDevice=_endpointOnCurrentDevice;
@@ -172,6 +176,9 @@
 @property(readonly, nonatomic, getter=isIncoming) _Bool incoming;
 @property(readonly, nonatomic) _Bool isActive;
 @property(nonatomic) _Bool isSendingVideo;
+@property(readonly, nonatomic, getter=isConnected) _Bool connected;
+@property(readonly, nonatomic, getter=isConnecting) _Bool connecting;
+@property(readonly, nonatomic) _Bool hasSentInvitation;
 @property(readonly, nonatomic) double startTime;
 @property(readonly, nonatomic) _Bool wasDeclined;
 @property(readonly, nonatomic) int service;

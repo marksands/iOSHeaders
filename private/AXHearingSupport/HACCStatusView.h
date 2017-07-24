@@ -31,7 +31,6 @@
 - (id)contentValue;
 - (void)updateValue;
 - (void)updateConstraints;
-- (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

@@ -7,11 +7,15 @@
 #import <objc/NSObject.h>
 
 @class PEXDiscoverySuggester, PEXPeopleSuggester;
+@protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface PEXContactScorer : NSObject
 {
     PEXPeopleSuggester *_peopleSuggester;
     PEXDiscoverySuggester *_discoverySuggester;
+    NSObject<OS_dispatch_source> *_memoryPressureSource;
+    unsigned long long _memoryPressureStatus;
+    NSObject<OS_dispatch_queue> *_memoryPressureQueue;
 }
 
 + (id)sharedInstance;
@@ -32,6 +36,8 @@
 - (id)contactsForDetailString:(id)arg1;
 - (id)contactsForNamePrefix:(id)arg1 recipients:(id)arg2;
 - (id)_contactsFromSuggester:(id)arg1 matchingPrefix:(id)arg2;
+- (void)_setupMemoryPressureNotification;
+- (void)dealloc;
 - (id)init;
 
 @end

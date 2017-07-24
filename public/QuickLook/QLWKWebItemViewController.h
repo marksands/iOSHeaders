@@ -79,6 +79,7 @@ __attribute__((visibility("hidden")))
 - (id)scrollView;
 - (void)setAppearance:(id)arg1 animated:(_Bool)arg2;
 - (void)previewBecameFullScreen:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)previewDidAppear:(_Bool)arg1;
 - (void)previewWillAppear:(_Bool)arg1;
 - (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_registerRemoteProxy;

@@ -8,7 +8,7 @@
 
 #import <PassKitUI/PKPeerPaymentContactResolverDelegate-Protocol.h>
 
-@class NSArray, NSString, PKPaymentPass, PKPaymentTransaction, PKPaymentTransactionDetailHeaderView, PKPaymentTransactionDetailLineItemTableViewCell, PKPaymentTransactionLocationSnapshotter, PKPaymentTransactionLocationTableViewCell, PKPeerPaymentBubbleView, PKPeerPaymentContactResolver, PKPeerPaymentController, PKPeerPaymentStatusResponse, UIImage;
+@class NSArray, NSString, PKPaymentPass, PKPaymentTransaction, PKPaymentTransactionDetailHeaderView, PKPaymentTransactionLocationSnapshotter, PKPeerPaymentBubbleView, PKPeerPaymentContactResolver, PKPeerPaymentController, PKPeerPaymentStatusResponse, UIImage;
 @protocol PKPaymentDataProvider;
 
 @interface PKPaymentTransactionDetailViewController : PKSectionTableViewController <PKPeerPaymentContactResolverDelegate>
@@ -21,8 +21,6 @@
     PKPeerPaymentContactResolver *_contactResolver;
     PKPeerPaymentController *_peerPaymentController;
     PKPaymentTransactionLocationSnapshotter *_merchantLocationSnapshotter;
-    PKPaymentTransactionLocationTableViewCell *_merchantAddressPrototypeCell;
-    PKPaymentTransactionDetailLineItemTableViewCell *_amountDetailLineItemPrototypeCell;
     UIImage *_mapTilePlaceholderImage;
     NSArray *_lineItems;
     PKPeerPaymentStatusResponse *_peerPaymentStatusResponse;
@@ -33,8 +31,6 @@
 @property(retain, nonatomic) PKPeerPaymentStatusResponse *peerPaymentStatusResponse; // @synthesize peerPaymentStatusResponse=_peerPaymentStatusResponse;
 @property(retain, nonatomic) NSArray *lineItems; // @synthesize lineItems=_lineItems;
 @property(retain, nonatomic) UIImage *mapTilePlaceholderImage; // @synthesize mapTilePlaceholderImage=_mapTilePlaceholderImage;
-@property(retain, nonatomic) PKPaymentTransactionDetailLineItemTableViewCell *amountDetailLineItemPrototypeCell; // @synthesize amountDetailLineItemPrototypeCell=_amountDetailLineItemPrototypeCell;
-@property(retain, nonatomic) PKPaymentTransactionLocationTableViewCell *merchantAddressPrototypeCell; // @synthesize merchantAddressPrototypeCell=_merchantAddressPrototypeCell;
 @property(nonatomic) _Bool issuerAppDeepLinkingEnabled; // @synthesize issuerAppDeepLinkingEnabled=_issuerAppDeepLinkingEnabled;
 @property(retain, nonatomic) PKPaymentTransactionLocationSnapshotter *merchantLocationSnapshotter; // @synthesize merchantLocationSnapshotter=_merchantLocationSnapshotter;
 @property(retain, nonatomic) PKPeerPaymentController *peerPaymentController; // @synthesize peerPaymentController=_peerPaymentController;
@@ -46,14 +42,10 @@
 - (void).cxx_destruct;
 - (id)_balloonViewWithBubbleView:(id)arg1 transaction:(id)arg2;
 - (void)_tableView:(id)arg1 willDisplayAmountDetailsCell:(id)arg2 atIndexPath:(id)arg3;
-- (double)_heightForAmountDetailsLineItemCellAtRowIndex:(long long)arg1;
-- (void)_configureAmountDetailLineItemCell:(id)arg1 forLineLitem:(id)arg2;
 - (id)_tableView:(id)arg1 cellForAmountDetailLineItemAtIndex:(long long)arg2;
 - (id)_transactionIdentifierCellForTableView:(id)arg1;
 - (unsigned long long)_locationType;
 - (void)_tableView:(id)arg1 didSelectMechantAddressAtIndexPath:(id)arg2;
-- (double)_heightForMerchantAddressCell;
-- (void)_configureMerchantAddressCell:(id)arg1;
 - (id)_mapTilePlaceholderImage;
 - (id)_merchantAddressCellForTableView:(id)arg1;
 - (id)_transactionStatusString;
@@ -88,7 +80,6 @@
 - (void)_handleAction:(unsigned long long)arg1 forPeerPaymentBubbleView:(id)arg2;
 - (id)_reuseIdentifierForSection:(unsigned long long)arg1;
 - (id)_titleValueCellWithTitle:(id)arg1 value:(id)arg2;
-- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;

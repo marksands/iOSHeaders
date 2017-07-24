@@ -25,9 +25,9 @@
     CDUnknownBlockType _completion;
 }
 
++ (void)presentInternetOfflineError;
 @property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
 - (void).cxx_destruct;
-- (void)_presentInternetOfflineError;
 - (void)_presentUsernameMismatchAlert;
 - (void)_dismissAndCompleteWithIdentity:(id)arg1 error:(id)arg2 extensionCompletion:(CDUnknownBlockType)arg3;
 - (void)_extensionRequestDidCompleteWithTokens:(id)arg1 extensionCompletion:(CDUnknownBlockType)arg2;

@@ -14,6 +14,7 @@
 
 @interface VSIdentityProviderViewController : UIViewController <VSAuthenticationViewControllerDelegate, VSIdentityProviderRequestManagerDelegate>
 {
+    _Bool _canIssuePrivacyVouchers;
     _Bool _cancellationAllowed;
     VSIdentityProvider *_identityProvider;
     id <VSIdentityProviderViewControllerDelegate> _delegate;
@@ -33,12 +34,13 @@
 @property(retain, nonatomic) VSImageLoadOperation *logoLoadOperation; // @synthesize logoLoadOperation=_logoLoadOperation;
 @property(retain, nonatomic) NSOperationQueue *privateQueue; // @synthesize privateQueue=_privateQueue;
 @property(nonatomic, getter=isCancellationAllowed) _Bool cancellationAllowed; // @synthesize cancellationAllowed=_cancellationAllowed;
+@property(nonatomic) _Bool canIssuePrivacyVouchers; // @synthesize canIssuePrivacyVouchers=_canIssuePrivacyVouchers;
 @property(copy, nonatomic) VSAuditToken *auditToken; // @synthesize auditToken=_auditToken;
 @property(nonatomic) __weak id <VSIdentityProviderViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) VSIdentityProvider *identityProvider; // @synthesize identityProvider=_identityProvider;
 - (void).cxx_destruct;
 - (void)viewDidLayoutSubviews;
-- (void)identityProviderRequestManager:(id)arg1 didAuthenticateAccount:(id)arg2 forRequest:(id)arg3;
+- (void)identityProviderRequestManager:(id)arg1 didAuthenticateAccount:(id)arg2 supportingApps:(id)arg3 forRequest:(id)arg4;
 - (void)identityProviderRequestManager:(id)arg1 finishedRequest:(id)arg2 withResult:(id)arg3;
 - (void)authenticationViewControllerDidCancel:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

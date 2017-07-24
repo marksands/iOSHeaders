@@ -6,7 +6,7 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class NSIndexPath, UITableViewCell, UITableViewDropProposal, _UITableViewDropAnimationContainerView, _UITableViewDropCoordinatorImpl, _UITableViewDropPlaceholderContextImpl;
+@class NSIndexPath, UIDragPreviewParameters, UITableViewCell, UITableViewDropProposal, _UITableViewDropAnimationContainerView, _UITableViewDropCoordinatorImpl, _UITableViewDropPlaceholderContextImpl;
 @protocol UIDragSession, UIDropSession;
 
 @protocol _UITableViewDropControllerDelegate <NSObject>
@@ -14,6 +14,7 @@
 - (void)_beginAnimatingDropIntoCell:(UITableViewCell *)arg1;
 - (void)_endAnimatingDropOfCell:(UITableViewCell *)arg1;
 - (_UITableViewDropAnimationContainerView *)_beginAnimatingDropOfCell:(UITableViewCell *)arg1 isCanceling:(_Bool)arg2;
+- (UIDragPreviewParameters *)_dropPreviewParametersForIndexPath:(NSIndexPath *)arg1;
 - (_Bool)_commitPlaceholderInsertionWithContext:(_UITableViewDropPlaceholderContextImpl *)arg1 dataSourceUpdates:(void (^)(NSIndexPath *))arg2;
 - (NSIndexPath *)_deletePlaceholderForContext:(_UITableViewDropPlaceholderContextImpl *)arg1;
 - (NSIndexPath *)_insertPlaceholderAtIndexPath:(NSIndexPath *)arg1 withContext:(_UITableViewDropPlaceholderContextImpl *)arg2;
@@ -23,6 +24,7 @@
 - (void)_removeDropTargetAndResetAppearance;
 - (void)_updateDropTargetAppearanceWithTargetIndexPath:(NSIndexPath *)arg1 dropProposal:(UITableViewDropProposal *)arg2 dropSession:(id <UIDropSession>)arg3;
 - (UITableViewDropProposal *)_updatedDropProposalForIndexPath:(NSIndexPath *)arg1 dropSession:(id <UIDropSession>)arg2 withDefaultProposal:(UITableViewDropProposal *)arg3;
+- (long long)_dataOwnerForDropSession:(id <UIDropSession>)arg1 atIndexPath:(NSIndexPath *)arg2;
 - (NSIndexPath *)_targetIndexPathForDrop:(id <UIDropSession>)arg1;
 - (void)_dropEntered:(id <UIDropSession>)arg1;
 - (_Bool)_canHandleDropSession:(id <UIDropSession>)arg1;

@@ -12,8 +12,8 @@
 @interface MLImageConstraint : NSObject <MLFeatureValueConstraint, NSCopying>
 {
     unsigned long long _pixelType;
-    unsigned long long _imageWidth;
-    unsigned long long _imageHeight;
+    long long _imageWidth;
+    long long _imageHeight;
 }
 
 + (id)_stringForOSType:(unsigned int)arg1;
@@ -22,13 +22,16 @@
 + (id)constraintForGrayImageWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2;
 + (id)constraintWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2 osType:(unsigned int)arg3;
 + (_Bool)osType:(unsigned int)arg1 isAcceptedForPixelType:(unsigned long long)arg2;
-@property(readonly) unsigned long long imageHeight; // @synthesize imageHeight=_imageHeight;
-@property(readonly) unsigned long long imageWidth; // @synthesize imageWidth=_imageWidth;
+@property(readonly, nonatomic) long long pixelsHigh; // @synthesize pixelsHigh=_imageHeight;
+@property(readonly, nonatomic) long long pixelsWide; // @synthesize pixelsWide=_imageWidth;
 @property(readonly) unsigned long long pixelType; // @synthesize pixelType=_pixelType;
+@property(readonly) unsigned long long imageWidth;
+@property(readonly) unsigned long long imageHeight;
+@property(readonly) unsigned int osType;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isAllowedValue:(id)arg1 error:(id *)arg2;
 - (id)_stringForAllowedOSTypes;
-@property(readonly) unsigned int osType;
+@property(readonly, nonatomic) unsigned int pixelFormatType;
 - (id)initWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2 pixelType:(unsigned long long)arg3;
 
 @end

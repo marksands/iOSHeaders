@@ -21,7 +21,6 @@
 - (long long)httpMethod;
 - (long long)httpBodyType;
 - (id)httpBody;
-- (id)customURLString;
 - (id)bagKey;
 
 // Remaining properties

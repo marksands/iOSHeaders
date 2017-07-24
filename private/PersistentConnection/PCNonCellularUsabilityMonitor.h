@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)interfaceLinkQualityChanged:(id)arg1 previousLinkQuality:(int)arg2;
 - (void)_callDelegateOnIvarQueueWithBlock:(CDUnknownBlockType)arg1;
 @property(nonatomic) id <PCInterfaceUsabilityMonitorDelegate> delegate;
+@property(readonly, nonatomic) _Bool isNetworkingPowerExpensiveToUse;
 @property(readonly, nonatomic) _Bool isRadioHot;
 @property(readonly, nonatomic) _Bool isBadLinkQuality;
 @property(readonly, nonatomic) _Bool isPoorLinkQuality;

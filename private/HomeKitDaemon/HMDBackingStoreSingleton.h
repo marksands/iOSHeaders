@@ -8,31 +8,38 @@
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class HMDBackingStoreLocal, HMFVersion, NSMapTable, NSString;
+@class HMDBackingStoreLocal, HMDHomeManager, HMFVersion, NSMapTable, NSString;
 
 @interface HMDBackingStoreSingleton : HMFObject <HMFLogging>
 {
     NSMapTable *_objectLookup;
     NSMapTable *_classToNameTransform;
     NSMapTable *_nameToClassTransform;
+    NSMapTable *_objectPropertyHashLookup;
     HMFVersion *_dataVersion;
+    HMDHomeManager *_homeManager;
     HMDBackingStoreLocal *_local;
 }
 
 + (id)logCategory;
++ (void)resetSchemaHash;
 + (void)resetClassMappings;
 + (void)setClass:(Class)arg1 forClassName:(id)arg2;
 + (id)sharedInstance;
 + (void)start;
 @property(retain, nonatomic) HMDBackingStoreLocal *local; // @synthesize local=_local;
+@property(readonly, nonatomic) __weak HMDHomeManager *homeManager; // @synthesize homeManager=_homeManager;
 @property(retain, nonatomic) HMFVersion *dataVersion; // @synthesize dataVersion=_dataVersion;
+@property(readonly, nonatomic) NSMapTable *objectPropertyHashLookup; // @synthesize objectPropertyHashLookup=_objectPropertyHashLookup;
 @property(readonly, nonatomic) NSMapTable *nameToClassTransform; // @synthesize nameToClassTransform=_nameToClassTransform;
 @property(readonly, nonatomic) NSMapTable *classToNameTransform; // @synthesize classToNameTransform=_classToNameTransform;
 @property(readonly, nonatomic) NSMapTable *objectLookup; // @synthesize objectLookup=_objectLookup;
 - (void).cxx_destruct;
 - (id)logIdentifier;
+- (void)setHomeManager:(id)arg1;
 - (id)resetBackingStore;
 - (id)flushBackingStore;
+- (id)schemaHashForObject:(id)arg1;
 - (id)init;
 
 // Remaining properties

@@ -12,6 +12,7 @@
 
 - (void)resolveSourceWithResponse:(struct NUResponse *)arg1;
 - (id)newRenderRequestWithOriginalRequest:(id)arg1 persistentURL:(id)arg2 error:(out id *)arg3;
+- (id)outputSettings:(out id *)arg1;
 - (_Bool)tryLoadPersistentURL:(id)arg1 error:(out id *)arg2;
 - (id)persistentURL;
 - (id)nodeByReplayingAgainstCache:(id)arg1 pipelineState:(id)arg2 error:(out id *)arg3;

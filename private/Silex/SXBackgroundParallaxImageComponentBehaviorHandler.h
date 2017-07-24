@@ -15,7 +15,6 @@
     UIView *_clippingView;
     unsigned long long _viewHierarchyIndex;
     double _amplitude;
-    struct CGRect _originalFrame;
 }
 
 @property(readonly, nonatomic) double amplitude; // @synthesize amplitude=_amplitude;
@@ -23,7 +22,6 @@
 @property(retain, nonatomic) UIView *clippingView; // @synthesize clippingView=_clippingView;
 @property(nonatomic) double originalYCenter; // @synthesize originalYCenter=_originalYCenter;
 @property(retain, nonatomic) UIView *windowedScrollContentView; // @synthesize windowedScrollContentView=_windowedScrollContentView;
-@property(nonatomic) struct CGRect originalFrame; // @synthesize originalFrame=_originalFrame;
 - (void).cxx_destruct;
 - (void)destroyWithBehaviorController:(id)arg1;
 - (void)destroyWindowedScroll;

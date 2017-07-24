@@ -23,13 +23,11 @@
     NSDate *_nextValidationDate;
     NSData *_privateKeyPersistentReference;
     NSString *_serialNumber;
-    NSDate *_creationDate;
     NSData *_intermediateCertificatePersistentReference;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSData *intermediateCertificatePersistentReference; // @synthesize intermediateCertificatePersistentReference=_intermediateCertificatePersistentReference;
-@property(readonly, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(retain, nonatomic) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;
 @property(retain, nonatomic) NSData *privateKeyPersistentReference; // @synthesize privateKeyPersistentReference=_privateKeyPersistentReference;
 @property(retain, nonatomic) NSDate *nextValidationDate; // @synthesize nextValidationDate=_nextValidationDate;
@@ -37,7 +35,7 @@
 @property(retain, nonatomic) NSDate *lastValidationDate; // @synthesize lastValidationDate=_lastValidationDate;
 @property(retain, nonatomic) NSDate *lastValidationAttemptDate; // @synthesize lastValidationAttemptDate=_lastValidationAttemptDate;
 @property(nonatomic, getter=isDirty) _Bool dirty; // @synthesize dirty=_dirty;
-@property(readonly, nonatomic) long long certificateStatus; // @synthesize certificateStatus=_certificateStatus;
+@property(nonatomic) long long certificateStatus; // @synthesize certificateStatus=_certificateStatus;
 @property(retain, nonatomic) NSData *certificatePersistentReference; // @synthesize certificatePersistentReference=_certificatePersistentReference;
 @property(retain, nonatomic) NSDate *certificateExpirationDate; // @synthesize certificateExpirationDate=_certificateExpirationDate;
 @property(readonly, nonatomic) NSString *appleID; // @synthesize appleID=_appleID;

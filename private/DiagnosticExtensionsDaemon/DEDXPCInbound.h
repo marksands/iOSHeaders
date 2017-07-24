@@ -20,6 +20,7 @@
 @property __weak DEDController *delegate; // @synthesize delegate=_delegate;
 @property(retain) NSObject<OS_os_log> *log; // @synthesize log=_log;
 - (void).cxx_destruct;
+- (void)didCancelSession:(id)arg1;
 - (void)cancelSession:(id)arg1;
 - (void)didCommitSession:(id)arg1;
 - (void)commitSession:(id)arg1;

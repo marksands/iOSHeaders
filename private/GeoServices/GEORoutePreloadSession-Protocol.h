@@ -6,15 +6,15 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
-@class GEOComposedRoute, GEOMapServiceTraits, GEORouteMatch, NSString;
-@protocol GEORoutePreloadSessionDelegate;
+@class GEOComposedRoute, GEOMapServiceTraits, GEORouteMatch, NSObject;
+@protocol GEORoutePreloadSessionDelegate, OS_os_log;
 
 @protocol GEORoutePreloadSession <NSObject>
+@property(readonly, nonatomic) NSObject<OS_os_log> *preloaderLog;
 @property(nonatomic) unsigned long long networkQuality;
 @property __weak id <GEORoutePreloadSessionDelegate> delegate;
 @property(readonly, nonatomic) GEOComposedRoute *route;
 - (void)setTraits:(GEOMapServiceTraits *)arg1;
-- (void)preloaderLog:(NSString *)arg1;
 - (void)updateWithRouteMatch:(GEORouteMatch *)arg1;
 - (void)getPreloadSetCoordinates:(CDStruct_c3b9c2ee *)arg1 maxLength:(unsigned long long)arg2 actualLength:(unsigned long long *)arg3;
 - (int)preloadStateForTile:(const struct _GEOTileKey *)arg1;

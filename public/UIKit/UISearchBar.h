@@ -11,11 +11,12 @@
 #import <UIKit/UITextInputTraits-Protocol.h>
 #import <UIKit/UITextInputTraits_Private-Protocol.h>
 #import <UIKit/_UIBarPositioningInternal-Protocol.h>
+#import <UIKit/_UINavigationBarAugmentedTitleView-Protocol.h>
 
-@class NSArray, NSIndexSet, NSString, UIBarButtonItem, UIButton, UIColor, UIImage, UIImageView, UIInputContextHistory, UILabel, UISearchBarTextField, UISearchController, UITapGestureRecognizer, UITextInputAssistantItem, UITextInputTraits, _UIBackdropView, _UISearchBarNavigationItem, _UISearchBarScopeBarBackground;
-@protocol UISearchBarDelegate, UISearchBarDelegate><UISearchBarDelegate_Private;
+@class NSArray, NSIndexSet, NSString, UIBarButtonItem, UIButton, UIColor, UIImage, UIImageView, UIInputContextHistory, UILabel, UINavigationItem, UISearchBarTextField, UISearchController, UITapGestureRecognizer, UITextInputAssistantItem, UITextInputTraits, _UIBackdropView, _UINavigationBarTitleViewOverlayRects, _UISearchBarNavigationItem, _UISearchBarScopeBarBackground;
+@protocol UISearchBarDelegate, UISearchBarDelegate><UISearchBarDelegate_Private, _UINavigationBarTitleViewDataSource;
 
-@interface UISearchBar : UIView <UITextInputTraits_Private, UIStatusBarTinting, _UIBarPositioningInternal, UIBarPositioning, UITextInputTraits>
+@interface UISearchBar : UIView <UITextInputTraits_Private, UIStatusBarTinting, _UIBarPositioningInternal, _UINavigationBarAugmentedTitleView, UIBarPositioning, UITextInputTraits>
 {
     UISearchBarTextField *_searchField;
     UILabel *_promptLabel;
@@ -30,10 +31,12 @@
     UIView *_background;
     UIView *_scopeBar;
     UIView *_scopeBarContainerView;
-    struct UIEdgeInsets _contentInset;
+    struct UIEdgeInsets _contentInsetPrivate;
+    struct UIEdgeInsets _contentInsetInternal;
+    struct UIEdgeInsets _effectiveContentInset;
     UIImageView *_shadowView;
     id _appearanceStorage;
-    _UISearchBarNavigationItem *_navigationItem;
+    _UISearchBarNavigationItem *_searchDisplayControllerNavigationItem;
     _UISearchBarScopeBarBackground *_scopeBarBackgroundView;
     UIBarButtonItem *_animatedAppearanceBarButtonItem;
     _UIBackdropView *_backdrop;
@@ -43,6 +46,7 @@
     UIBarButtonItem *_cancelBarButtonItem;
     UITextInputTraits *_textInputTraits;
     UIButton *_leftButton;
+    _UINavigationBarTitleViewOverlayRects *_overlayRects;
     struct {
         unsigned int barStyle:3;
         unsigned int showsBookmarkButton:1;
@@ -71,6 +75,9 @@
     UIColor *_statusBarTintColor;
     UIView *_inputAccessoryView;
     long long _barPosition;
+    id <_UINavigationBarTitleViewDataSource> _dataSource;
+    UINavigationItem *_navigationItem;
+    long long _titleLocation;
     unsigned long long _searchBarStyle;
     UISearchController *__searchController;
     unsigned long long __scopeBarPosition;
@@ -81,6 +88,9 @@
 @property(nonatomic, setter=_setSearchController:) UISearchController *_searchController; // @synthesize _searchController=__searchController;
 @property(nonatomic) _Bool _forceCenteredPlaceholderLayout; // @synthesize _forceCenteredPlaceholderLayout=__forceCenteredPlaceholderLayout;
 @property(nonatomic) unsigned long long searchBarStyle; // @synthesize searchBarStyle=_searchBarStyle;
+@property(nonatomic) long long titleLocation; // @synthesize titleLocation=_titleLocation;
+@property(nonatomic) __weak UINavigationItem *navigationItem; // @synthesize navigationItem=_navigationItem;
+@property(nonatomic, getter=_dataSource, setter=_setDataSource:) __weak id <_UINavigationBarTitleViewDataSource> _dataSource; // @synthesize _dataSource;
 @property(readonly, nonatomic) long long barPosition; // @synthesize barPosition=_barPosition;
 @property(retain, nonatomic) UIView *inputAccessoryView; // @synthesize inputAccessoryView=_inputAccessoryView;
 @property(retain, nonatomic, setter=_setStatusBarTintColor:) UIColor *_statusBarTintColor; // @synthesize _statusBarTintColor;
@@ -117,7 +127,7 @@
 - (void)_layoutBackgroundViewConsideringTopBarStatusAndChangedHeight:(_Bool)arg1;
 - (_Bool)_isAtTop;
 - (id)_animatedAppearanceBarButtonItem;
-- (id)_navigationItem;
+- (id)_searchDisplayControllerNavigationItem;
 @property(readonly, nonatomic) UITextInputAssistantItem *inputAssistantItem;
 - (_Bool)_ownsInputAccessoryView;
 - (struct UIOffset)positionAdjustmentForSearchBarIcon:(long long)arg1;
@@ -163,6 +173,10 @@
 - (struct UIEdgeInsets)_scopeBarInsets;
 - (_Bool)_scopeBarIsVisible;
 - (_Bool)_containsScopeBar;
+- (void)_updateEffectiveContentInset;
+- (void)layoutMarginsDidChange;
+- (struct UIEdgeInsets)_internalInsets;
+- (void)_setInternalInsets:(struct UIEdgeInsets)arg1;
 - (struct UIEdgeInsets)contentInset;
 - (void)setContentInset:(struct UIEdgeInsets)arg1;
 - (id)_makeShadowView;
@@ -170,6 +184,7 @@
 - (void)_setShadowVisibleIfNecessary:(_Bool)arg1;
 - (id)_navigationBarForShadow;
 - (void)layoutSubviews;
+- (void)_updateContentInset;
 - (void)_getScopeBarHeight:(double *)arg1 containerHeight:(double *)arg2;
 - (double)_scopeBarHeight;
 - (void)sendSubviewToBack:(id)arg1;
@@ -189,6 +204,17 @@
 - (double)_defaultWidth;
 - (double)_defaultHeight;
 - (double)_barHeightForBarMetrics:(long long)arg1;
+- (void)transitionCompleted:(long long)arg1 willBeDisplayed:(_Bool)arg2;
+- (void)performTransition:(long long)arg1 willBeDisplayed:(_Bool)arg2;
+- (void)transitionWillBegin:(long long)arg1 willBeDisplayed:(_Bool)arg2;
+- (void)contentDidChange;
+- (long long)preferredContentSizeForSize:(long long)arg1;
+@property(readonly, nonatomic) _Bool hideTrailingBarButtons;
+@property(readonly, nonatomic) _Bool hideStandardTitle;
+@property(readonly, nonatomic) _Bool hideLeadingBarButtons;
+@property(readonly, nonatomic) _Bool hideBackButton;
+@property(readonly, nonatomic) double height;
+@property(readonly, nonatomic) _Bool underlayBarContent;
 @property(nonatomic) long long keyboardAppearance; // @dynamic keyboardAppearance;
 - (_Bool)respondsToSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;

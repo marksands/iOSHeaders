@@ -7,7 +7,6 @@
 #import <Foundation/NSURLRequest.h>
 
 @interface NSURLRequest (AuthKit)
-- (_Bool)ak_hasClientInfoHeader;
 - (_Bool)ak_usesHTTPSScheme;
 @end
 

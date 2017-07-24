@@ -110,6 +110,8 @@ __attribute__((visibility("hidden")))
 - (id)creationDate;
 - (void)setLastModifiedDate:(id)arg1;
 - (id)lastModifiedDate;
+- (void)setTravelStartLocation:(id)arg1;
+- (id)travelStartLocation;
 - (void)setStartLocation:(id)arg1;
 - (id)startLocation;
 - (void)setClientLocation:(id)arg1;

@@ -25,7 +25,8 @@
     } _inertia;
     // Error parsing type: , name: _up
     // Error parsing type: , name: _target
-    // Error parsing type: , name: _maximumAbsoluteAngles
+    // Error parsing type: , name: _minimumAngles
+    // Error parsing type: , name: _maximumAngles
     _Bool _handlingInteraction;
     _Bool _drivenBydefaultNavigationCameraController;
     _Bool _automaticTarget;
@@ -52,7 +53,6 @@
 -     // Error parsing type: 16@0:8, name: _targetRelativeToPointOfViewParent
 - (void)_updateInertiaAtTime:(double)arg1;
 -     // Error parsing type: 48@0:8{CGPoint=dd}16{CGSize=dd}32, name: _directionForScreenPoint:viewport:
--     // Error parsing type: 44@0:816f24{CGSize=dd}28, name: _orthographicViewSpaceTranslationForZoomAtScreenPoint:scaleDelta:viewport:
 - (void)_resetOrientationState;
 - (void)dollyBy:(float)arg1 onScreenPoint:(struct CGPoint)arg2 viewport:(struct CGSize)arg3;
 - (void)rollBy:(float)arg1 aroundScreenPoint:(struct CGPoint)arg2 viewport:(struct CGSize)arg3;
@@ -75,6 +75,8 @@
 @property(nonatomic) float verticalMaximumAngle;
 @property(nonatomic) float maximumHorizontalAngle;
 @property(nonatomic) float maximumVerticalAngle;
+@property(nonatomic) float minimumHorizontalAngle;
+@property(nonatomic) float minimumVerticalAngle;
 // Error parsing type for property simdTarget:
 // Property attributes: T,N
 
@@ -92,6 +94,7 @@
 - (id)init;
 @property(nonatomic) _Bool drivenByDefaultNavigationCameraController;
 - (void)updateInertiaAtTime:(double)arg1;
+-     // Error parsing type: 44@0:816f24{CGSize=dd}28, name: _orthographicViewSpaceTranslationForZoomAtScreenPoint:scaleDelta:viewport:
 
 @end
 

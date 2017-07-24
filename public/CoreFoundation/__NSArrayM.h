@@ -9,9 +9,8 @@
 __attribute__((visibility("hidden")))
 @interface __NSArrayM : NSMutableArray
 {
-    CDStruct_6cf6cf19 storage;
-    unsigned long long mutations;
-    struct __cow_state_t *cow;
+    // Error parsing type: A^{__cow_state_t}, name: cow
+    CDStruct_a6934631 storage;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;

@@ -35,7 +35,7 @@
 - (_Bool)deleteAllChangesWithError:(id *)arg1;
 - (_Bool)discardChangeWithIdentifier:(id)arg1 error:(id *)arg2;
 - (_Bool)hasSomeChangeWithIdentifier:(id)arg1;
-- (_Bool)reinjectChange:(id)arg1 overwrittenRecord:(_Bool *)arg2 error:(id *)arg3;
+- (_Bool)reinjectChange:(id)arg1 dequeueOrder:(long long)arg2 overwrittenRecord:(_Bool *)arg3 error:(id *)arg4;
 - (id)_completeChange:(id)arg1;
 - (id)_propertiesForChange:(id)arg1;
 - (_Bool)storeChange:(id)arg1 uploadIdentifier:(id)arg2 error:(id *)arg3;

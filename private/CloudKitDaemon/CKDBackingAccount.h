@@ -13,7 +13,7 @@
     _Bool _canAuthWithCloudKit;
 }
 
-+ (_Bool)ensureCloudKitChildAccountOnParentAccount:(id)arg1 inStore:(id)arg2;
++ (void)ensureCloudKitChildAccountOnParentAccount:(id)arg1 inStore:(id)arg2;
 + (_Bool)_lockedEnsureCloudKitChildAccountOnParentAccount:(id)arg1 inStore:(id)arg2;
 + (id)accountQueue;
 + (id)fakeAccountWithEmail:(id)arg1 password:(id)arg2;

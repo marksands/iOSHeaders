@@ -175,6 +175,7 @@
 - (_Bool)canBeSharedViaICloud;
 - (id)childCloudObjects;
 - (id)parentCloudObject;
+- (void)willAddOrRemovePassword;
 - (id)attachmentWithIdentifier:(id)arg1;
 - (void)addMediaToAttachment:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)addAttachmentWithUTI:(id)arg1 data:(id)arg2 filename:(id)arg3 updateFileBasedAttributes:(_Bool)arg4;

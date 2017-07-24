@@ -48,6 +48,7 @@
 - (struct CGPoint)locationOfTouch:(unsigned long long)arg1 inView:(id)arg2;
 - (unsigned long long)numberOfTouches;
 - (struct CGPoint)locationInView:(id)arg1;
+- (void)_ignoreTouchForTouchIdentifier:(unsigned int)arg1;
 - (void)pressesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;

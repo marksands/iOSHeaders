@@ -49,6 +49,8 @@
 - (id)init;
 - (id)captureStateWithHints:(struct os_state_hints_s *)arg1;
 - (id)newURLRequest;
+- (id)updatedRequestWithNewProtobufRequest:(id)arg1;
+- (id)updatedRequestWithNewBodyData:(id)arg1;
 - (id)initHttpOnlyRequestWithKind:(int)arg1 protobufRequest:(id)arg2 URL:(id)arg3 additionalHTTPHeaders:(id)arg4 allowCellularUse:(_Bool)arg5 compressRequest:(_Bool)arg6;
 - (id)initWithKind:(int)arg1 protobufRequest:(id)arg2 URL:(id)arg3 additionalHTTPHeaders:(id)arg4 auditToken:(id)arg5 traits:(id)arg6;
 

@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <HomeKit/HMObjectMerge-Protocol.h>
 #import <HomeKit/_HMAudioControlDelegate-Protocol.h>
 
-@class HMMediaSession, NSString, _HMAudioControl;
+@class HMMediaSession, NSString, NSUUID, _HMAudioControl;
 @protocol HMAudioControlDelegate;
 
-@interface HMAudioControl : NSObject <_HMAudioControlDelegate>
+@interface HMAudioControl : NSObject <_HMAudioControlDelegate, HMObjectMerge>
 {
     id <HMAudioControlDelegate> _delegate;
     HMMediaSession *_mediaSession;
@@ -24,12 +25,14 @@
 - (void).cxx_destruct;
 - (void)audioControl:(id)arg1 didUpdateMuted:(_Bool)arg2;
 - (void)audioControl:(id)arg1 didUpdateVolume:(float)arg2;
+- (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
 - (id)clientQueue;
 - (void)updateMuted:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateVolume:(float)arg1 completionHandler:(CDUnknownBlockType)arg2;
-@property(readonly, getter=isMuted) _Bool muted;
-@property(readonly) float volume;
+@property(getter=isMuted) _Bool muted;
+@property float volume;
 - (void)configure:(id)arg1;
+@property(readonly, nonatomic) NSUUID *uniqueIdentifier;
 - (id)initWithMediaSession:(id)arg1 propertyQueue:(id)arg2;
 
 // Remaining properties

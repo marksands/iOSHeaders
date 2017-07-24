@@ -39,7 +39,6 @@
     int _ttyType;
     int _callRelaySupport;
     NSString *_callUUID;
-    double _startTime;
     TUHandle *_handle;
     TUCallProvider *_backingProvider;
     TUCallProvider *_displayProvider;
@@ -126,7 +125,6 @@
 @property(retain, nonatomic) TUCallProvider *displayProvider; // @synthesize displayProvider=_displayProvider;
 @property(retain, nonatomic) TUCallProvider *backingProvider; // @synthesize backingProvider=_backingProvider;
 @property(retain, nonatomic) TUHandle *handle; // @synthesize handle=_handle;
-@property(nonatomic) double startTime; // @synthesize startTime=_startTime;
 @property(nonatomic, getter=isHostedOnCurrentDevice) _Bool hostedOnCurrentDevice; // @synthesize hostedOnCurrentDevice=_hostedOnCurrentDevice;
 @property(nonatomic) int callStatus; // @synthesize callStatus=_callStatus;
 @property(copy, nonatomic) NSString *callUUID; // @synthesize callUUID=_callUUID;

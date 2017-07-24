@@ -84,7 +84,11 @@
 - (void)dealloc;
 - (void)_deallocContextAndPlan;
 - (struct __CVBuffer *)_pixelBufferFromEbuf:(CDStruct_cf098810 *)arg1 description:(id)arg2 error:(id *)arg3;
+- (id)populateOutputs:(id *)arg1;
 - (id)evaluateNoAutoRelease:(id)arg1 error:(id *)arg2;
+- (_Bool)unlockCVPixelBuffers:(id)arg1 error:(id *)arg2;
+- (_Bool)bindInputsAndOutputs:(id)arg1 allocatedImageData:(vector_fd38efa8 *)arg2 error:(id *)arg3;
+- (id)verifyInputs:(id)arg1 error:(id *)arg2;
 - (id)evaluate:(id)arg1 error:(id *)arg2;
 - (_Bool)_setupContextAndPlanWithForceCPU:(_Bool)arg1 error:(id *)arg2;
 - (id)initWithSpec:(id)arg1 classScoreVectorName:(id)arg2 classLabels:(id)arg3 forceCPU:(_Bool)arg4 error:(id *)arg5;

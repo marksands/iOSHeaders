@@ -155,6 +155,7 @@
 - (void)_persistentKeyModifiersHandler:(id)arg1;
 - (void)inputContractionModeHandler:(id)arg1;
 - (void)_showEightDotHandler:(id)arg1;
+- (void)_refreshEightDotEnabledOnDisplays;
 - (void)_inputEightDotHandler:(id)arg1;
 - (void)_contractionModeHandler:(id)arg1;
 - (void)_showDotsSevenAndEightHandler:(id)arg1;

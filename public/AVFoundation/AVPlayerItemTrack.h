@@ -17,6 +17,9 @@
 - (void)_respondToFigPlaybackItemBecomingReadyForInpection;
 - (void)_attachToFigPlaybackItemOfPlayerItem:(id)arg1;
 - (void)_transferCachedValuesToFig;
+- (void)_transferHapticVolumeToFig;
+- (float)hapticVolume;
+- (void)setHapticVolume:(float)arg1;
 - (void)_transferActiveHapticChannelIndexToFig;
 - (long long)activeHapticChannelIndex;
 - (void)setActiveHapticChannelIndex:(long long)arg1;

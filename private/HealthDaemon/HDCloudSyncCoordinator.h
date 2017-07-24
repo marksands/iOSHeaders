@@ -19,6 +19,7 @@
     NSObject<OS_dispatch_queue> *_queue;
     HDPeriodicActivity *_periodicActivity;
     _Bool _queue_syncInProgress;
+    _Bool _queue_hasUpdatedCachedLastSuccessfulSyncDates;
     NSDate *_queue_lastSuccessfulPullDate;
     NSDate *_queue_lastSuccessfulPushDate;
     HDAsynchronousTaskTree *_activeTaskGroup;
@@ -34,6 +35,7 @@
 - (_Bool)periodicActivityRequiresProtectedData:(id)arg1;
 - (void)performPeriodicActivity:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)periodicActivity:(id)arg1 configureXPCActivityCriteria:(id)arg2;
+- (void)_queue_checkLastSyncDate;
 - (void)_updateCachedLastSyncDatesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_setupPeriodicActivity;
 - (void)_queue_triggerSyncForiCloudLogin;

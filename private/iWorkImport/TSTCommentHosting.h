@@ -31,7 +31,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSDate *date;
 @property(retain, nonatomic) TSKAnnotationAuthor *author;
 @property(readonly, nonatomic) struct TSUCellCoord cellID;
-- (_Bool)wantsAnnotationPopover;
+- (_Bool)isFloatingComment;
 - (Class)editorClass;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(copy, nonatomic) TSDCommentStorage *storage;

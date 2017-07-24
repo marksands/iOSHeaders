@@ -65,6 +65,7 @@
         unsigned int tracking:1;
         unsigned int pendingOffsetAnimation:1;
         unsigned int pendingHideAnimation:1;
+        unsigned int pendingPrepareForDisplay:1;
     } _flags;
     _MKAnnotationViewCustomFeatureAnnotation *_customFeatureAnnotation;
     _Bool _animatingToCoordinate;
@@ -190,6 +191,8 @@
 @property(retain, nonatomic) id <MKAnnotation> annotation;
 - (void)_removePopover;
 - (id)_getPopover:(id)arg1;
+- (void)_unhideForDisplay;
+- (void)prepareForDisplay;
 - (void)prepareForReuse;
 @property(readonly, nonatomic) NSString *reuseIdentifier;
 - (id)viewRepresentation;

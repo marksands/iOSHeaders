@@ -101,11 +101,11 @@
 - (void)_performRevealHintingAnimation;
 - (double)_revealHintingCurvePercentageForIndexPath:(id)arg1 revealPercentage:(double)arg2;
 - (double)_yOffsetForRevealPercentage:(double)arg1;
-- (void)_updateSupplementaryViewForRevealPercentage:(double)arg1 atIndexPath:(id)arg2;
+- (void)_updateSupplementaryView:(id)arg1 layoutAttributes:(id)arg2 forRevealPercentage:(double)arg3 atIndexPath:(id)arg4;
 - (void)_updateSectionHeadersRevealHintingForRevealPercentage:(double)arg1;
 - (void)_updateCellForRevealPercentage:(double)arg1 atIndexPath:(id)arg2;
 - (void)_updateNotificationCellsRevealHintingForRevealPercentage:(double)arg1;
-- (void)_updateRevealHintingForPercentage:(double)arg1;
+- (void)_updateRevealHintingForPercentage:(double)arg1 scrollView:(id)arg2;
 - (void)_performHideAnimationForSectionHeadersWithRevealPercentage:(double)arg1;
 - (void)_performHideAnimationForNotificationCellsWithRevealPercentage:(double)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_hideNotificationsHistory;

@@ -14,6 +14,7 @@
 - (void)documentBrowser:(UIDocumentBrowserViewController *)arg1 commitDocumentURLPreview:(NSURL *)arg2;
 - (void)documentBrowser:(UIDocumentBrowserViewController *)arg1 willPresentActivityViewController:(UIActivityViewController *)arg2;
 - (NSArray *)documentBrowser:(UIDocumentBrowserViewController *)arg1 applicationActivitiesForDocumentURLs:(NSArray *)arg2;
+- (void)importDocumentAtURL:(NSURL *)arg1 nextToDocumentAtURL:(NSURL *)arg2 mode:(unsigned long long)arg3 completionHandler:(void (^)(NSURL *, NSError *))arg4;
 - (void)documentBrowser:(UIDocumentBrowserViewController *)arg1 failedToImportDocumentAtURL:(NSURL *)arg2 error:(NSError *)arg3;
 - (void)documentBrowser:(UIDocumentBrowserViewController *)arg1 didImportDocumentAtURL:(NSURL *)arg2 toDestinationURL:(NSURL *)arg3;
 - (void)documentBrowser:(UIDocumentBrowserViewController *)arg1 didRequestDocumentCreationWithHandler:(void (^)(NSURL *, unsigned long long))arg2;

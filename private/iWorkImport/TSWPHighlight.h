@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)defaultHighlightWithContext:(id)arg1 includeCommentWithAuthor:(id)arg2;
++ (id)highlightTextColorForHighlights:(id)arg1;
 @property(copy, nonatomic) NSString *textAttributeUUIDString; // @synthesize textAttributeUUIDString=_textAttributeUUIDString;
 @property(nonatomic) __weak TSWPStorage *parentStorage; // @synthesize parentStorage=_parentStorage;
 @property(retain, nonatomic) TSDCommentStorage *commentStorage; // @synthesize commentStorage=_commentStorage;
@@ -40,7 +41,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSDate *date;
 @property(retain, nonatomic) TSKAnnotationAuthor *author;
 @property(readonly, nonatomic) NSString *annotationUUID;
-- (_Bool)wantsAnnotationPopover;
+- (_Bool)isFloatingComment;
 @property(copy, nonatomic) TSDCommentStorage *storage;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromUnarchiver:(id)arg1;

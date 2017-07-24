@@ -6,8 +6,6 @@
 
 #import <Metal/MTLArgumentInternal.h>
 
-@class MTLStructTypeInternal;
-
 __attribute__((visibility("hidden")))
 @interface MTLBufferArgument : MTLArgumentInternal
 {
@@ -15,9 +13,6 @@ __attribute__((visibility("hidden")))
     unsigned int _vertexDescriptorBuffer:1;
     unsigned short _alignment;
     unsigned int _dataSize;
-    unsigned long long _pixelFormat;
-    unsigned long long _aluType;
-    MTLStructTypeInternal *_structType;
 }
 
 - (id)formattedDescription:(unsigned long long)arg1;
@@ -25,8 +20,6 @@ __attribute__((visibility("hidden")))
 - (id)bufferPointerType;
 - (id)bufferStructType;
 - (unsigned long long)bufferDataSize;
-- (unsigned long long)bufferALUType;
-- (unsigned long long)bufferPixelFormat;
 - (unsigned long long)bufferDataType;
 - (unsigned long long)bufferAlignment;
 - (void)setStructType:(id)arg1;
@@ -35,7 +28,7 @@ __attribute__((visibility("hidden")))
 - (void)setAlignment:(unsigned long long)arg1;
 - (void)setDataSize:(unsigned long long)arg1;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 type:(unsigned long long)arg2 access:(unsigned long long)arg3 isActive:(_Bool)arg4 locationIndex:(unsigned long long)arg5 arraySize:(unsigned long long)arg6 dataType:(unsigned long long)arg7 pixelFormat:(unsigned long long)arg8 aluType:(unsigned long long)arg9 isConstantBuffer:(_Bool)arg10 dataSize:(unsigned long long)arg11 alignment:(unsigned long long)arg12;
+- (id)initWithName:(id)arg1 type:(unsigned long long)arg2 access:(unsigned long long)arg3 isActive:(_Bool)arg4 locationIndex:(unsigned long long)arg5 arraySize:(unsigned long long)arg6 dataType:(unsigned long long)arg7 isConstantBuffer:(_Bool)arg8 dataSize:(unsigned long long)arg9 alignment:(unsigned long long)arg10;
 
 @end
 

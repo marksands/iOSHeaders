@@ -7,6 +7,7 @@
 #import <iWorkImport/NSObject-Protocol.h>
 
 @protocol TSDAnimationSession <NSObject>
+@property(nonatomic) _Bool shouldForceTextureGeneration;
 @property(nonatomic) _Bool shouldUseSourceImage;
 @property(nonatomic) _Bool shouldDrawTexturesAsynchronously;
 - (double)showScale;

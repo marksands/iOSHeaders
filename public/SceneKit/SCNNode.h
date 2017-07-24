@@ -324,9 +324,15 @@
 - (void)simdLocalTranslateBy: /* Error: Ran out of types for this method. */;
 - (void)simdLookAt:up:localFront: /* Error: Ran out of types for this method. */;
 - (void)simdLookAt: /* Error: Ran out of types for this method. */;
--     // Error parsing type: 16@0:8, name: simdWorldFront
--     // Error parsing type: 16@0:8, name: simdWorldRight
--     // Error parsing type: 16@0:8, name: simdWorldUp
+// Error parsing type for property simdWorldFront:
+// Property attributes: T,R,N
+
+// Error parsing type for property simdWorldRight:
+// Property attributes: T,R,N
+
+// Error parsing type for property simdWorldUp:
+// Property attributes: T,R,N
+
 -     // Error parsing type: {?=[4]}88@0:8{?=[4]}16@80, name: simdConvertTransform:fromNode:
 -     // Error parsing type: {?=[4]}88@0:8{?=[4]}16@80, name: simdConvertTransform:toNode:
 -     // Error parsing type: 40@0:816@32, name: simdConvertVector:fromNode:

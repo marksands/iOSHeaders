@@ -24,6 +24,7 @@
     NSSet *mInstructorTargets;
     NSSet *mStudentTargets;
     _Bool mBrowsing;
+    _Bool mIsValid;
 }
 
 - (void).cxx_destruct;

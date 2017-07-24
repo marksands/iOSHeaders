@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class HDActivityCacheHeartRateStatisticsBuilder, HKQuantity, NSNumber, NSString;
+@class HKQuantity, NSNumber, NSString;
 @protocol HDActivityCacheStatisticsBuilderSourceOrderDelegate;
 
 @interface HDActivityCacheStatisticsBuilder : NSObject
@@ -29,10 +29,8 @@
     NSString *_loggingName;
     double _intervalDuration;
     id <HDActivityCacheStatisticsBuilderSourceOrderDelegate> _sourceOrderDelegate;
-    HDActivityCacheHeartRateStatisticsBuilder *_heartRateStatisticsBuilder;
 }
 
-@property(retain, nonatomic) HDActivityCacheHeartRateStatisticsBuilder *heartRateStatisticsBuilder; // @synthesize heartRateStatisticsBuilder=_heartRateStatisticsBuilder;
 @property(nonatomic) __weak id <HDActivityCacheStatisticsBuilderSourceOrderDelegate> sourceOrderDelegate; // @synthesize sourceOrderDelegate=_sourceOrderDelegate;
 @property(nonatomic) double intervalDuration; // @synthesize intervalDuration=_intervalDuration;
 - (id).cxx_construct;

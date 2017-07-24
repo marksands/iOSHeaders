@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) __weak UIDragInteraction *primaryInteraction; // @synthesize primaryInteraction=_primaryInteraction;
 @property(retain, nonatomic) id localContext; // @synthesize localContext=_localContext;
 - (void).cxx_destruct;
+- (_Bool)_draggingItem:(id)arg1 shouldDelaySetDownAnimationWithCompletion:(CDUnknownBlockType)arg2;
 - (void)_draggingItem:(id)arg1 willAnimateSetDownWithAnimator:(id)arg2;
 - (struct CGRect)_targetFrameOfDraggingItem:(id)arg1 inCoordinateSpace:(id)arg2;
 - (void)_prepareForSetDownAnimationInWindow:(id)arg1 withDraggingItem:(id)arg2 visibleDroppedItem:(id)arg3;
@@ -43,6 +44,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_draggingSession:(id)arg1 shouldCancelOnAppDeactivationWithDefault:(_Bool)arg2;
 - (void)_draggingSessionHandedOffDragImage:(id)arg1;
 - (void)draggingSessionWillBegin:(id)arg1;
+- (_Bool)draggingSessionDynamicallyUpdatesPrefersFullSizePreviews:(id)arg1;
 - (_Bool)draggingSessionPrefersFullSizePreviews:(id)arg1;
 - (unsigned long long)draggingSession:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;
 - (_Bool)canLoadObjectsOfClass:(Class)arg1;
@@ -52,6 +54,7 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)locationInView:(id)arg1;
 @property(readonly, nonatomic) NSArray *items;
 - (void)_cancelDrag;
+@property(readonly, nonatomic) long long _dataOwner;
 @property(readonly, nonatomic, getter=_allowsItemsToUpdate) _Bool _allowsItemsToUpdate;
 - (void)_itemsNeedUpdate:(id)arg1;
 - (void)_setDraggingSession:(id)arg1;

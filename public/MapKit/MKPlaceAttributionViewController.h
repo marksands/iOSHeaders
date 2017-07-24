@@ -37,7 +37,6 @@ __attribute__((visibility("hidden")))
 - (void)openURL;
 - (id)infoAttributionString;
 - (void)infoCardThemeChanged:(id)arg1;
-- (double)extraHeightToReserveInLayout;
 - (void)updateLogo;
 - (void)viewDidLoad;
 - (void)loadView;

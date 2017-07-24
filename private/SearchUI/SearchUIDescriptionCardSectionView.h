@@ -15,6 +15,8 @@
     _Bool _expanded;
 }
 
++ (id)dragSubtitleForCardSection:(id)arg1;
++ (id)dragTitleForCardSection:(id)arg1;
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
 @property _Bool expanded; // @synthesize expanded=_expanded;
 - (void)didPressMoreButton;

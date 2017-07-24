@@ -31,6 +31,7 @@
 - (void)avPlayerDidDeallocate;
 - (void)avPlayer:(id)arg1 itemDidPlayToEnd:(id)arg2;
 - (void)tapGestureRecognized:(id)arg1;
+- (void)didMoveToWindow;
 - (void)prepareForDisplay;
 - (void)prepareForReuse;
 - (void)layoutSubviews;

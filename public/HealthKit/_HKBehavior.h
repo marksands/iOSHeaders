@@ -16,6 +16,8 @@
     _Bool _isAppleWatch;
     _Bool _isCompanionCapable;
     _Bool _hasTelephonyCapability;
+    _Bool _isRunningStoreDemoMode;
+    _Bool _runningInStoreDemoModeF201;
     _Bool _supportsActivitySharing;
     _Bool _supportsAppSubscriptions;
     _Bool _supportsAWDMetricSubmission;
@@ -38,6 +40,9 @@
 + (_Bool)_hasCompletedBuddy;
 + (_Bool)_shouldShowBuddy;
 + (_Bool)_isForceBuddyEnabled;
++ (_Bool)_runningInStoreDemoModeF201;
++ (long long)_runningInStoreDemoModeFProgramNumber;
++ (_Bool)_isRunningStoreDemoMode;
 + (_Bool)_hasTelephonyCapability;
 + (_Bool)_isAppleInternalInstall;
 + (_Bool)_isDeviceSupported;
@@ -53,6 +58,7 @@
 + (_Bool)hasCompletedBuddy;
 + (void)disableForceBuddy;
 + (_Bool)isTestingDevice;
++ (_Bool)runningInStoreDemoModeF201;
 + (_Bool)isRunningStoreDemoMode;
 + (_Bool)isDeviceSupported;
 + (_Bool)isAppleInternalInstall;
@@ -83,6 +89,8 @@
 @property(nonatomic) _Bool supportsAWDMetricSubmission; // @synthesize supportsAWDMetricSubmission=_supportsAWDMetricSubmission;
 @property(nonatomic) _Bool supportsAppSubscriptions; // @synthesize supportsAppSubscriptions=_supportsAppSubscriptions;
 @property(nonatomic) _Bool supportsActivitySharing; // @synthesize supportsActivitySharing=_supportsActivitySharing;
+@property(readonly, nonatomic) _Bool runningInStoreDemoModeF201; // @synthesize runningInStoreDemoModeF201=_runningInStoreDemoModeF201;
+@property(readonly, nonatomic) _Bool isRunningStoreDemoMode; // @synthesize isRunningStoreDemoMode=_isRunningStoreDemoMode;
 @property(nonatomic) _Bool hasTelephonyCapability; // @synthesize hasTelephonyCapability=_hasTelephonyCapability;
 @property(nonatomic) _Bool isCompanionCapable; // @synthesize isCompanionCapable=_isCompanionCapable;
 @property(nonatomic) _Bool isAppleWatch; // @synthesize isAppleWatch=_isAppleWatch;

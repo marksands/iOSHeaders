@@ -16,6 +16,7 @@
     CDStruct_95bda58d _RequiredEntitlements;
     NSString *_LaunchId;
     NSString *_SystemExtensionBundleId;
+    NSString *_intentDescription;
     NSString *_intentId;
     int _triggerMethod;
     _INPBString *_userUtterance;
@@ -29,6 +30,7 @@
 }
 
 + (id)options;
+@property(retain, nonatomic) NSString *intentDescription; // @synthesize intentDescription=_intentDescription;
 @property(retain, nonatomic) NSString *SystemExtensionBundleId; // @synthesize SystemExtensionBundleId=_SystemExtensionBundleId;
 @property(retain, nonatomic) NSString *intentId; // @synthesize intentId=_intentId;
 @property(nonatomic) _Bool confirmed; // @synthesize confirmed=_confirmed;
@@ -53,6 +55,7 @@
 - (void)clearRequiredEntitlements;
 @property(readonly, nonatomic) int *RequiredEntitlements;
 @property(readonly, nonatomic) unsigned long long RequiredEntitlementsCount;
+@property(readonly, nonatomic) _Bool hasIntentDescription;
 @property(readonly, nonatomic) _Bool hasSystemExtensionBundleId;
 - (int)StringAsTriggerMethod:(id)arg1;
 - (id)triggerMethodAsString:(int)arg1;

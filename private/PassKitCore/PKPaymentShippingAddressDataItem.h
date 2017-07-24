@@ -6,7 +6,7 @@
 
 #import <PassKitCore/PKPaymentDataItem.h>
 
-@class CNContact, NSString;
+@class CNContact, NSAttributedString, NSString;
 
 @interface PKPaymentShippingAddressDataItem : PKPaymentDataItem
 {
@@ -18,6 +18,8 @@
 - (id)errors;
 @property(readonly, nonatomic) NSString *shippingType;
 @property(readonly, nonatomic) CNContact *shippingAddress;
+@property(readonly, nonatomic) NSAttributedString *formattedAddressString;
+- (id)_shippingName;
 
 @end
 

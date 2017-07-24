@@ -11,7 +11,7 @@
 #import <ChatKit/CKFullScreenAppNavbarManagerDelegate-Protocol.h>
 #import <ChatKit/UIGestureRecognizerDelegate-Protocol.h>
 
-@class CKAppGrabberView, CKBrowserDragManager, CKBrowserSwitcherFooterView, CKConversation, CKDismissView, CKFullScreenAppNavbarManager, CKImmediatePanGestureRecognizer, IMBalloonPlugin, IMBalloonPluginDataSource, NSArray, NSData, NSNumber, NSObject, NSString, UIView, UIViewPropertyAnimator;
+@class CKAppGrabberView, CKBrowserDragManager, CKBrowserSwitcherFooterView, CKConversation, CKDismissView, CKFullScreenAppNavbarManager, CKImmediatePanGestureRecognizer, IMBalloonPlugin, IMBalloonPluginDataSource, NSArray, NSData, NSNumber, NSObject, NSString, UILongPressGestureRecognizer, UIView, UIViewPropertyAnimator;
 @protocol CKBrowserViewControllerProtocol, CKBrowserViewControllerSendDelegate, CKFullScreenAppViewControllerDelegate, UIViewControllerTransitioningDelegate;
 
 @interface CKFullScreenAppViewController : UIViewController <CKBrowserViewControllerProtocol, CKFullScreenAppNavbarManagerDelegate, CKBrowserSwitcherFooterViewDelegate, UIGestureRecognizerDelegate>
@@ -22,6 +22,7 @@
     _Bool _shouldDoCollapseInteraction;
     _Bool _collapseInteractionDidMove;
     struct CGPoint _collapseGestureStartingLocation;
+    UILongPressGestureRecognizer *_touchTracker;
     _Bool _inTransition;
     _Bool _inDragAndDrop;
     UIViewController<CKBrowserViewControllerProtocol> *_contentViewController;
@@ -74,6 +75,7 @@
 - (void)navbarManagerDidReceiveMessage:(id)arg1;
 - (void)navbarManagerDidDismissAllMessages:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (void)touchTrackerRecognized:(id)arg1;
 - (void)collapseGestureTouchMoved:(id)arg1;
 - (void)reverseAndCleanupCollapseAnimator;
 - (void)setupPausedCollapseAnimatorIfNeeded;

@@ -139,7 +139,6 @@
 - (void)requestMemoryTreeDebugInformationWithOptions:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)requestMemoryAssetCollectionDebugInformationForIdentifier:(id)arg1 precision:(unsigned long long)arg2 context:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)requestMemoryDebugInformationForMemoryWithLocalIdentifier:(id)arg1 precision:(unsigned long long)arg2 context:(id)arg3 reply:(CDUnknownBlockType)arg4;
-- (id)memoryDebugInformationWithMoments:(id)arg1 meaningLabels:(id)arg2 precision:(unsigned long long)arg3;
 - (void)_processMoodForMemory:(id)arg1 withMoodHistory:(id)arg2;
 - (id)_infoForNotificationQualityOfMemory:(id)arg1;
 - (id)_infoForGraphCollectionBasedMemory:(id)arg1;
@@ -158,6 +157,7 @@
 - (void)pendingRequestReferenceDidDeallocateForAddress:(void *)arg1;
 - (id)pendingRequestReferenceForLabel:(id)arg1;
 @property unsigned long long state;
+- (unsigned long long)synchronousOffQueueState;
 - (id)diffComputationJobWithScenario:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)graphRebuildJobWithScenario:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)backgroundMemoryGenerationJobWithScenario:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;

@@ -168,6 +168,14 @@ struct vector<unsigned char, std::__1::allocator<unsigned char>> {
     } _field3;
 };
 
+struct vector<unsigned long long, std::__1::allocator<unsigned long long>> {
+    unsigned long long *__begin_;
+    unsigned long long *__end_;
+    struct __compressed_pair<unsigned long long *, std::__1::allocator<unsigned long long>> {
+        unsigned long long *__first_;
+    } __end_cap_;
+};
+
 #if 0
 // Names with conflicting types:
 typedef struct ?<float __attribute__((ext_vector_type(3))), std::__1::allocator<float __attribute__((ext_vector_type(3)))>> {
@@ -203,9 +211,9 @@ typedef struct {
 } CDStruct_31142d93;
 
 typedef struct {
-    int _field1;
-    int _field2;
-} CDStruct_1ef3fb1f;
+    int width;
+    int height;
+} CDStruct_79c71658;
 
 typedef struct {
     long long _field1;
@@ -241,4 +249,12 @@ typedef struct vector<ARPatch, std::__1::allocator<ARPatch>> {
         CDStruct_183601bc *__first_;
     } __end_cap_;
 } vector_b5b5dea7;
+
+typedef struct vector<unsigned long long, std::__1::allocator<unsigned long long>> {
+    unsigned long long *__begin_;
+    unsigned long long *__end_;
+    struct __compressed_pair<unsigned long long *, std::__1::allocator<unsigned long long>> {
+        unsigned long long *__first_;
+    } __end_cap_;
+} vector_7dcb3552;
 

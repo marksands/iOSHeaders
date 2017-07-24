@@ -10,8 +10,10 @@
 {
     _Bool __seenMachineReadableObjectOfAcceptableSize;
     _Bool __seenMachineReadableObjectOfUnacceptableSize;
+    _Bool __seenMachineReadableObjectInNonActiveState;
 }
 
+@property(nonatomic, setter=_setSeenMachineReadableObjectInNonActiveState:) _Bool _seenMachineReadableObjectInNonActiveState; // @synthesize _seenMachineReadableObjectInNonActiveState=__seenMachineReadableObjectInNonActiveState;
 @property(nonatomic, setter=_setSeenMachineReadableObjectOfUnacceptableSize:) _Bool _seenMachineReadableObjectOfUnacceptableSize; // @synthesize _seenMachineReadableObjectOfUnacceptableSize=__seenMachineReadableObjectOfUnacceptableSize;
 @property(nonatomic, setter=_setSeenMachineReadableObjectOfAcceptableSize:) _Bool _seenMachineReadableObjectOfAcceptableSize; // @synthesize _seenMachineReadableObjectOfAcceptableSize=__seenMachineReadableObjectOfAcceptableSize;
 - (void)resetLoggingState;

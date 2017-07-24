@@ -122,6 +122,8 @@
 @property(nonatomic) _Bool hasOriginalDuration;
 @property(readonly, nonatomic) _Bool hasDestinationName;
 - (void)dealloc;
+- (id)stepWithID:(unsigned long long)arg1;
+- (unsigned long long)stepIndexWithID:(unsigned long long)arg1;
 - (_Bool)isSyntheticRoute;
 - (id)initWithRoute:(id)arg1 destinationName:(id)arg2 stringFormatter:(id)arg3;
 - (id)initWithRoute:(id)arg1 fallbackDestinationName:(id)arg2 stringFormatter:(id)arg3;

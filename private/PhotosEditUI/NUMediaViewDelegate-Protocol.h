@@ -11,6 +11,8 @@
 @protocol NUMediaViewDelegate <NSObject>
 
 @optional
+- (void)mediaViewDidFinishPreparingVideo:(NUMediaView *)arg1;
+- (void)mediaViewDidStartPreparingVideo:(NUMediaView *)arg1;
 - (void)mediaViewIsReadyForVideoPlayback:(NUMediaView *)arg1;
 - (void)mediaView:(NUMediaView *)arg1 didZoom:(double)arg2;
 - (void)mediaViewDidUpdateLivePhoto:(NUMediaView *)arg1;

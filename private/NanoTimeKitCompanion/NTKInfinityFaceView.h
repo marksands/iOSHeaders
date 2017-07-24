@@ -6,17 +6,18 @@
 
 #import <NanoTimeKitCompanion/NTKAVListingFaceBaseView.h>
 
-@class NTKComplicationDisplayWrapperView, NTKFaceLayoutContentProvider, NTKInfinityController, NTKInfinityListing, UILabel;
+@class NTKComplicationDisplayWrapperView, NTKFaceLayoutContentProvider, NTKInfinityController, NTKInfinityListing, UILabel, UIView;
 
 @interface NTKInfinityFaceView : NTKAVListingFaceBaseView
 {
     unsigned int _tapToPlayGestureEnabled:1;
     unsigned int _isComplicationColorApplied:1;
     unsigned int _tapPromptedVideoChange:1;
+    UIView *_cornerView;
     UILabel *_reviewLabel;
-    NTKInfinityController *_controller;
-    NTKComplicationDisplayWrapperView *_touchWrapper;
     NTKFaceLayoutContentProvider *_layoutContentProvider;
+    NTKComplicationDisplayWrapperView *_touchWrapper;
+    NTKInfinityController *_controller;
     NTKInfinityListing *_currentQueueListing;
 }
 
@@ -38,16 +39,17 @@
 - (unsigned long long)_keylineLabelAlignmentForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (unsigned long long)_keylineLabelAlignmentForComplicationSlot:(id)arg1;
 - (id)_keylineViewForCustomEditMode:(long long)arg1 slot:(id)arg2;
+- (double)_topRightComplicationAlphaForEditMode:(long long)arg1;
 - (double)_timeLabelAlphaForEditMode:(long long)arg1;
-- (double)_backgroundImageAlphaForEditMode:(long long)arg1;
-- (void)_applyTransitionFraction:(double)arg1 fromOption:(id)arg2 toOption:(id)arg3 forCustomEditMode:(long long)arg4 slot:(id)arg5;
-- (void)_applyRubberBandingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (_Bool)_fadesComplicationSlot:(id)arg1 inEditMode:(long long)arg2;
+- (void)setTransitionFraction:(double)arg1 fromOption:(id)arg2 toOption:(id)arg3 customEditMode:(long long)arg4 slot:(id)arg5;
+- (void)_applyDataMode;
 - (void)_cleanupAfterEditing;
 - (void)_prepareForEditing;
 - (void)_applyOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (id)_viewForEditOption:(id)arg1;
-- (void)_applyComplicationContentSpecificAttributesWithColor:(id)arg1 animated:(_Bool)arg2;
+- (id)_editingComplicationColor;
+- (void)_updateComplicationWithColor:(id)arg1 animated:(_Bool)arg2;
 - (long long)_legacyLayoutOverrideforComplicationType:(unsigned long long)arg1 slot:(id)arg2;
 - (void)_configureComplicationView:(id)arg1 forSlot:(id)arg2;
 - (id)_newLegacyViewForComplication:(id)arg1 family:(long long)arg2 slot:(id)arg3;
@@ -67,6 +69,7 @@
 - (void)_performPreloadVideoTask;
 - (_Bool)_supportsTimeScrubbing;
 - (_Bool)_wantsTimeTravelStatusModule;
+- (void)layoutSubviews;
 - (void)_unloadSnapshotContentViews;
 - (void)_loadSnapshotContentViews;
 - (id)initWithFrame:(struct CGRect)arg1;

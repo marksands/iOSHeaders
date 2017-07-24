@@ -18,6 +18,7 @@
     _Bool _showsCloudItems;
     _Bool _showsItemsWithProtectedAssets;
     _Bool _picksSingleCollectionEntity;
+    unsigned int _watchCompatibilityVersion;
     unsigned long long _mediaTypes;
     id <MPMediaPickerControllerDelegate> _delegate;
     NSString *_prompt;
@@ -37,6 +38,8 @@
 - (void)_pickerDidCancel;
 - (_Bool)_hasAddedRemoteView;
 - (void)_addRemoteView;
+- (void)setWatchCompatibilityVersion:(unsigned int)arg1;
+- (unsigned int)watchCompatibilityVersion;
 - (void)setPicksSingleCollectionEntity:(_Bool)arg1;
 - (_Bool)picksSingleCollectionEntity;
 @property(nonatomic) _Bool showsItemsWithProtectedAssets;

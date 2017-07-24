@@ -17,8 +17,8 @@
 
 + (_Bool)isExcludingAKAnnotationRenderingForThisThread;
 + (void)setExcludingAKAnnotationRenderingForThisThread:(_Bool)arg1;
-+ (_Bool)shouldHideWidgetsAndMarkupsForThisThread;
-+ (void)setShouldHideWidgetsAndMarkupsForThisThread:(_Bool)arg1;
++ (_Bool)shouldHideAnnotationsForThisThread;
++ (void)setShouldHideAnnotationsForThisThread:(_Bool)arg1;
 + (_Bool)isNativeRotationDrawingEnabledForThisThread;
 + (void)setNativeRotationDrawingEnabledForThisThread:(_Bool)arg1;
 + (id)fontWithPDFFont:(struct CGPDFFont *)arg1 size:(float)arg2;

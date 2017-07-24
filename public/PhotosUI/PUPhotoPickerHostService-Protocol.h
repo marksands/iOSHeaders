@@ -7,9 +7,10 @@
 #import <PhotosUI/PUPhotoPickerSelectionService-Protocol.h>
 #import <PhotosUI/PUPhotoPickerTestSupportHandler-Protocol.h>
 
-@class NSArray, NSDictionary, NSNumber, NSString, NSUUID;
+@class NSArray, NSData, NSDictionary, NSNumber, NSString, NSUUID;
 
 @protocol PUPhotoPickerHostService <PUPhotoPickerSelectionService, PUPhotoPickerTestSupportHandler>
+- (void)performTraitCollectionUpdateUsingData:(NSData *)arg1 completion:(void (^)(NSNumber *))arg2;
 - (void)performAppearanceUpdateUsingPhotoPickerAppearanceDictionary:(NSDictionary *)arg1;
 - (void)displaySecondaryActionWithType:(NSNumber *)arg1;
 - (void)displayActionTypeDescription:(NSString *)arg1;

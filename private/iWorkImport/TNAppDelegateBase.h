@@ -6,23 +6,31 @@
 
 #import <iWorkImport/TSABaseApplicationDelegate.h>
 
-@class NSArray;
+@class NSArray, TSUColor;
 
 __attribute__((visibility("hidden")))
 @interface TNAppDelegateBase : TSABaseApplicationDelegate
 {
+    TSUColor *_numbersKeyColor;
 }
 
+@property(readonly, nonatomic) TSUColor *numbersKeyColor; // @synthesize numbersKeyColor=_numbersKeyColor;
 - (id)bladerunnerContainerIdentifier;
 - (id)cloudKitContainerIdentifier;
 - (void)p_inputMethodsChanged:(id)arg1;
 - (_Bool)supportsRTL;
+- (id)stringForOwnerHasCollabEnabledMessage;
+- (id)stringForOwnerHasCollabEnabledTitle;
+- (id)stringForBoxCollaborationOptInLearnMoreURL;
+- (id)stringForBoxCollaborationOptInTermsOfServiceURL;
+- (id)stringForBoxCollaborationOptInMessage;
 - (id)stringForCouldntCreatePDFTitle;
 - (id)stringForCloseDocumentConfirmationWillContinueToUpdateInformativeText;
 - (id)stringForCloseDocumentConfirmationAlertMessage;
 - (id)stringForApplicationUpdateError;
 - (id)stringForCollaborationConnecting;
 - (id)stringForCollaborationOnline;
+- (id)stringForGenericServerUnreachable;
 - (id)stringForICloudUnreachable;
 - (id)stringForCollaborationOffline;
 - (id)stringForRemoveLastPrivateParticipantAlertConfirmationMessage;
@@ -48,7 +56,6 @@ __attribute__((visibility("hidden")))
 - (id)stringForCollaboratorConflictWithKeepDetails;
 - (id)stringForCollaboratorConflictDetails;
 - (id)stringForCollaboratorConflict;
-- (id)stringForOwnerConflictWithSaveACopyAlertMessage;
 - (id)stringForUpdatingDocument;
 - (id)templateTypeDisplayName;
 - (id)documentTypeDisplayNameForSharingInvitation;

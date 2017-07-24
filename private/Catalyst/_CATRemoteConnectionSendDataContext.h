@@ -23,6 +23,8 @@
 @property(readonly, copy, nonatomic) NSData *data; // @synthesize data=_data;
 - (void).cxx_destruct;
 - (id)bufferedDataWithError:(id *)arg1;
+- (unsigned long long)headerLength;
+@property(readonly, nonatomic) unsigned long long clientBytesWritten;
 @property(readonly, nonatomic) _Bool hasBytesRemaining;
 - (id)initWithData:(id)arg1 userInfo:(id)arg2;
 

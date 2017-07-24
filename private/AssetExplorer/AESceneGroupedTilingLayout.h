@@ -42,9 +42,11 @@
 - (struct CGPoint)_boundedVisibleOrigin;
 - (struct PXTileGeometry)_geometryWithFrame:(struct CGRect)arg1 alpha:(double)arg2 zPosition:(double)arg3;
 - (void)_invalidateBadgeDecorations;
+- (struct CGSize)_safeReferenceSize;
 @property(readonly, nonatomic) struct CGPoint initialOrigin;
 @property(readonly, nonatomic) _Bool requiresCustomInitialOrigin;
 - (void)setSelectedIndexPaths:(id)arg1;
+- (void)setContentInset:(struct UIEdgeInsets)arg1;
 - (void)setVisibleOrigin:(struct CGPoint)arg1;
 - (void)setReferenceSize:(struct CGSize)arg1;
 - (long long)_thumbnailRowsForCurrentLayoutStyle;

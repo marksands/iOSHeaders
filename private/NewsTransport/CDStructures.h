@@ -13,11 +13,26 @@ typedef struct {
 } CDStruct_95bda58d;
 
 typedef struct {
+    long long *list;
+    unsigned long long count;
+    unsigned long long size;
+} CDStruct_5df41632;
+
+typedef struct {
+    unsigned int agedPersonalizationScore:1;
+    unsigned int agedUserFeedbackScore:1;
+    unsigned int autoSubscribeCtr:1;
     unsigned int backendArticleVersionInt64:1;
+    unsigned int computedGlobalScoreCoefficient:1;
+    unsigned int diversifiedPersonalizationScore:1;
+    unsigned int featureCtr:1;
+    unsigned int globalScore:1;
+    unsigned int paidNonpaidSubscriptionCtr:1;
     unsigned int personalizationScore:1;
     unsigned int personalizationTreatmentId:1;
     unsigned int previousArticlePublisherArticleVersion:1;
     unsigned int publisherArticleVersionInt64:1;
+    unsigned int userFeedbackScore:1;
     unsigned int activeTimeSpent:1;
     unsigned int articleDisplayRankInGroup:1;
     unsigned int articleHostViewType:1;
@@ -76,7 +91,7 @@ typedef struct {
     unsigned int isVideoInFeed:1;
     unsigned int subscriptionOnlyArticle:1;
     unsigned int viewFromNotificationDirectOpen:1;
-} CDStruct_4cbf99b6;
+} CDStruct_97bd45a4;
 
 // Ambiguous groups
 typedef struct {
@@ -100,6 +115,10 @@ typedef struct {
 typedef struct {
     unsigned int type:1;
 } CDStruct_f953fb60;
+
+typedef struct {
+    unsigned int version:1;
+} CDStruct_f20694ce;
 
 typedef struct {
     unsigned int viewType:1;

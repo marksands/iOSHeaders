@@ -16,16 +16,17 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_changedItems;
     NSMutableArray *_deletedItemIDs;
     NSData *_originalSyncAnchor;
-    CDUnknownBlockType _finished;
+    CDUnknownBlockType _finishedBlock;
 }
 
-@property(copy) CDUnknownBlockType finished; // @synthesize finished=_finished;
+@property(copy) CDUnknownBlockType finishedBlock; // @synthesize finishedBlock=_finishedBlock;
 - (void).cxx_destruct;
 - (void)finishEnumeratingWithError:(id)arg1;
 - (void)finishEnumeratingChangesUpToSyncAnchor:(id)arg1 moreComing:(_Bool)arg2;
 - (void)didUpdateItems:(id)arg1;
 - (void)didDeleteItemsWithIdentifiers:(id)arg1;
 - (id)initWithObservedItemID:(id)arg1 domainContext:(id)arg2 previousChangeToken:(id)arg3;
+- (id)initWithObservedItemID:(id)arg1 domainContext:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

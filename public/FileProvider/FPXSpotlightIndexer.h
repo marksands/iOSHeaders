@@ -8,47 +8,41 @@
 
 #import <FileProvider/CSSearchableIndexDelegate-Protocol.h>
 
-@class CSSearchableIndex, FPXDomainContext, NSData, NSOperationQueue, NSString;
-@protocol OS_dispatch_queue;
+@class CSSearchableIndex, FPXDomainContext, NSData, NSOperation, NSOperationQueue, NSString;
+@protocol NSFileProviderEnumerator, OS_dispatch_queue, OS_dispatch_semaphore;
 
 __attribute__((visibility("hidden")))
 @interface FPXSpotlightIndexer : NSObject <CSSearchableIndexDelegate>
 {
-    FPXDomainContext *_context;
     NSString *_indexName;
     NSString *_providerIdentifier;
     CSSearchableIndex *_index;
     NSObject<OS_dispatch_queue> *_queue;
     NSOperationQueue *_operationQueue;
+    NSOperation *_currentOperation;
     NSData *_lastIndexState;
     unsigned long long _clientState;
-    _Bool _initialIndexingDone;
-    _Bool _isIndexingExtension;
     _Bool _isCanceled;
+    id <NSFileProviderEnumerator> _vendorEnumerator;
+    NSObject<OS_dispatch_semaphore> *_clientStateSemaphore;
+    FPXDomainContext *_domainContext;
 }
 
-+ (id)_currentIndexerVersion;
 @property(readonly, nonatomic) NSData *lastIndexState; // @synthesize lastIndexState=_lastIndexState;
 @property(readonly, nonatomic) CSSearchableIndex *index; // @synthesize index=_index;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
-@property(readonly, nonatomic) __weak FPXDomainContext *context; // @synthesize context=_context;
+@property(readonly) id <NSFileProviderEnumerator> vendorEnumerator; // @synthesize vendorEnumerator=_vendorEnumerator;
+@property(readonly) __weak FPXDomainContext *domainContext; // @synthesize domainContext=_domainContext;
 - (void).cxx_destruct;
 - (void)searchableIndex:(id)arg1 reindexSearchableItemsWithIdentifiers:(id)arg2 acknowledgementHandler:(CDUnknownBlockType)arg3;
 - (void)searchableIndex:(id)arg1 reindexAllSearchableItemsWithAcknowledgementHandler:(CDUnknownBlockType)arg2;
 - (void)dumpStateTo:(id)arg1;
-- (void)_fetchClientStateIfNeeded;
-- (void)_markClientStateResetDone;
-- (_Bool)_clientStateResetNeeded;
-- (void)markInitialIndexingDoneIfNeeded;
-- (_Bool)_isInInitialIndexing;
-- (_Bool)shouldSwizzleLastUsedDate;
-- (void)_dropIndexWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)dropIndexWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)invalidate;
 - (void)deleteSearchableItemsWithDomainIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)indexExtensionWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)indexExtension;
-- (void)_readyForIndexingWithAckedIndexState:(id)arg1;
+- (void)invalidate;
+- (void)indexOneBatchWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_indexOneBatchWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_learnNewIndexState:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (id)initWithIndexName:(id)arg1 context:(id)arg2;
 

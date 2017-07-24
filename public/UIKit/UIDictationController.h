@@ -62,6 +62,7 @@ __attribute__((visibility("hidden")))
 + (void)logDictationString:(id)arg1;
 + (void)didBeginEditingInTextView:(id)arg1;
 + (id)streamingHypothesisForPhrases:(id)arg1;
++ (_Bool)dictationInfoIsOnScreen;
 + (_Bool)_applicationIsActive;
 + (id)activeConnection;
 + (int)viewMode;
@@ -182,6 +183,7 @@ __attribute__((visibility("hidden")))
 - (void)_endEnableDictationPromptAnimated:(_Bool)arg1;
 - (void)_beginEnableDictationPrompt;
 - (void)_createDictationPresenterWindowIfNecessary;
+- (void)setDictationInfoOnScreenNotifyKey:(_Bool)arg1;
 - (void)stopHelpMessageDisplay;
 - (void)startHelpMessageDisplay;
 - (void)clearTextFieldPlaceholder;

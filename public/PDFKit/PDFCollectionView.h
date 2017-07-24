@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) id <PDFCollectionViewDelegate> pdfDelegate; // @synthesize pdfDelegate=_pdfDelegate;
 - (void).cxx_destruct;
 - (void)reloadDataAndRecenter;
+- (void)setup;
 
 @end
 

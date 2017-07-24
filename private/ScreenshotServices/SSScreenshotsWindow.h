@@ -9,13 +9,15 @@
 #import <ScreenshotServices/SSActiveInterfaceOrientationObserverDelegate-Protocol.h>
 #import <ScreenshotServices/SSDittoHostViewControllerDelegate-Protocol.h>
 
-@class SSActiveInterfaceOrientationObserver, SSScreenshotsWindowRootViewController;
+@class NSObject, SSActiveInterfaceOrientationObserver, SSScreenshotsWindowRootViewController;
+@protocol OS_dispatch_queue;
 
 @interface SSScreenshotsWindow : SBFSecureWindow <SSDittoHostViewControllerDelegate, SSActiveInterfaceOrientationObserverDelegate>
 {
     SSActiveInterfaceOrientationObserver *_activeInterfaceOrientationObserver;
     SSScreenshotsWindowRootViewController *_root;
     long long _lastActiveInterfaceOrientation;
+    NSObject<OS_dispatch_queue> *_notifyQueue;
     int _lockNotificationToken;
     int _backlightNotificationToken;
     _Bool _contentsHidden;

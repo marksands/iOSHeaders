@@ -50,6 +50,7 @@
 - (void)updatePromise:(id)arg1 withAttachmentGroup:(id)arg2 status:(long long)arg3 success:(CDUnknownBlockType)arg4 error:(CDUnknownBlockType)arg5;
 - (void)getPromise:(id)arg1 withSuccess:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
 - (void)makePromiseWithUUID:(id)arg1 success:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
+- (void)cleanup;
 - (id)beginUploadWithRequest:(id)arg1 fromFileURL:(id)arg2;
 - (void)performHTTPMethod:(id)arg1 toURL:(id)arg2 parameters:(id)arg3 encoding:(unsigned long long)arg4 success:(CDUnknownBlockType)arg5 error:(CDUnknownBlockType)arg6;
 - (void)deleteResourceAtURL:(id)arg1 success:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;

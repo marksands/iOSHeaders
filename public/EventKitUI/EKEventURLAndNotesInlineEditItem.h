@@ -6,15 +6,19 @@
 
 #import <EventKitUI/EKEventEditItem.h>
 
-@class EKEventNotesInlineEditItem, EKEventURLInlineEditItem;
+#import <EventKitUI/EKCalendarItemInlineEditItem-Protocol.h>
 
-@interface EKEventURLAndNotesInlineEditItem : EKEventEditItem
+@class EKEventNotesInlineEditItem, EKEventURLInlineEditItem, NSString;
+
+@interface EKEventURLAndNotesInlineEditItem : EKEventEditItem <EKCalendarItemInlineEditItem>
 {
     EKEventURLInlineEditItem *_urlEditItem;
     EKEventNotesInlineEditItem *_notesEditItem;
 }
 
 - (void).cxx_destruct;
+- (id)searchStringForEventAutocomplete;
+- (_Bool)isSaveable;
 - (_Bool)saveAndDismissWithForce:(_Bool)arg1;
 - (_Bool)isInline;
 - (id)cellForSubitemAtIndex:(unsigned long long)arg1;
@@ -27,6 +31,12 @@
 - (void)reset;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

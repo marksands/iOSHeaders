@@ -120,6 +120,11 @@ struct GEONavigationAudioFeedback {
     } _has;
 };
 
+struct GEOOnce_s {
+    struct os_unfair_lock_s lock;
+    _Bool didRun;
+};
+
 struct GEOPBTransitTimeRange {
     unsigned int _duration;
     unsigned int _startTime;
@@ -144,19 +149,7 @@ struct GEOPDCameraPathFrame {
     float _field9;
     float _field10;
     float _field11;
-    struct {
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
-    } _field12;
+    CDStruct_49b73a17 _field12;
 };
 
 struct GEOPDLabelFrame {
@@ -352,6 +345,8 @@ struct PolylineCoordinate {
     float offset;
 };
 
+struct RequesterTileKeys;
+
 struct RoadPathElement<std::__1::shared_ptr<geo::MapEdge>> {
     CDUnknownFunctionPointerType *_field1;
     int _field2;
@@ -468,6 +463,10 @@ struct __shared_weak_count;
 
 struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
     struct __tree_node_base<void *> *__left_;
+};
+
+struct __wrap_iter<(anonymous namespace)::RequesterTileKeys *> {
+    struct RequesterTileKeys *_field1;
 };
 
 struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
@@ -607,6 +606,10 @@ struct os_state_hints_s {
     char *_field2;
     unsigned int _field3;
     unsigned int _field4;
+};
+
+struct os_unfair_lock_s {
+    unsigned int _os_unfair_lock_opaque;
 };
 
 struct shared_ptr<addr_obj::AddressObject> {
@@ -849,6 +852,14 @@ struct unordered_set<geo::TransitEdgePiece, std::__1::hash<geo::TransitEdgePiece
     } __table_;
 };
 
+struct vector<(anonymous namespace)::RequesterTileKeys, std::__1::allocator<(anonymous namespace)::RequesterTileKeys>> {
+    struct RequesterTileKeys *_field1;
+    struct RequesterTileKeys *_field2;
+    struct __compressed_pair<(anonymous namespace)::RequesterTileKeys *, std::__1::allocator<(anonymous namespace)::RequesterTileKeys>> {
+        struct RequesterTileKeys *_field1;
+    } _field3;
+};
+
 struct vector<(anonymous namespace)::Timestamp, std::__1::allocator<(anonymous namespace)::Timestamp>> {
     struct Timestamp *__begin_;
     struct Timestamp *__end_;
@@ -1053,6 +1064,20 @@ typedef struct {
     unsigned long long count;
     unsigned long long size;
 } CDStruct_5df41632;
+
+typedef struct {
+    unsigned int lineId:1;
+    unsigned int latitudeHint:1;
+    unsigned int longitudeHint:1;
+    unsigned int scale:1;
+    unsigned int size:1;
+    unsigned int style:1;
+    unsigned int version:1;
+    unsigned int x:1;
+    unsigned int y:1;
+    unsigned int z:1;
+    unsigned int preflight:1;
+} CDStruct_49b73a17;
 
 typedef struct {
     float x;
@@ -1571,6 +1596,10 @@ typedef struct __list_iterator<LoadItem, void *> {
     struct __list_node_base<LoadItem, void *> *_field1;
 } __list_iterator_aef25af4;
 
+typedef struct __wrap_iter<(anonymous namespace)::RequesterTileKeys *> {
+    struct RequesterTileKeys *_field1;
+} __wrap_iter_9a08789a;
+
 typedef struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
     struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> {
         struct __rep {
@@ -1639,6 +1668,14 @@ typedef struct unordered_set<_GEOTileKey, std::__1::hash<GEOTileKey>, std::__1::
         } __p3_;
     } __table_;
 } unordered_set_deaadd3a;
+
+typedef struct vector<(anonymous namespace)::RequesterTileKeys, std::__1::allocator<(anonymous namespace)::RequesterTileKeys>> {
+    struct RequesterTileKeys *_field1;
+    struct RequesterTileKeys *_field2;
+    struct __compressed_pair<(anonymous namespace)::RequesterTileKeys *, std::__1::allocator<(anonymous namespace)::RequesterTileKeys>> {
+        struct RequesterTileKeys *_field1;
+    } _field3;
+} vector_49336e52;
 
 #pragma mark Named Unions
 

@@ -23,8 +23,12 @@
 
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
+- (void)_queue_releaseCLInUseAssertion;
+- (void)_queue_releaseBackgroundRunningAssertion;
 - (void)_queue_releaseAssertion;
-- (_Bool)_queue_takeAssertion;
+- (void)_queue_acquireCLInUseAssertion;
+- (void)_queue_acquireBackgroundRunningAssertion;
+- (void)_queue_takeAssertion;
 - (_Bool)_queue_hasBackgroundPermission;
 - (void)processDidEnterForeground:(id)arg1;
 - (void)stop;

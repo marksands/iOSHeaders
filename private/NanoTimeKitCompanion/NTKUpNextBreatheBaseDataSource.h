@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)_createBreatheElementWithRelevanceProvider:(id)arg1;
++ (id)_createBreatheElementWithRelevanceProviders:(id)arg1;
 + (id)_elementIdentifier;
 + (id)sampleContentElements;
 + (id)bundleIdentifier;

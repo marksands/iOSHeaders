@@ -31,6 +31,7 @@
     NSArray *_customActions;
     DOCFullVC_DOCInfoViewController *_currentInfoViewController;
     _Bool _isPreparingParent;
+    _Bool _isTransitioningToNewLocation;
     _Bool _isDisplayingEmptyCollection;
     unsigned long long _numberOfItemsInCollection;
     unsigned long long _numberOfSelectedItems;
@@ -38,7 +39,7 @@
     NSArray *_additionalToolbarButtonItems;
     DOCDocumentManagerNavigationViewController *_internalNavigationController;
     UIViewController *_rootViewController;
-    DOCConcreteLocation *_shownSource;
+    DOCConcreteLocation *_shownLocation;
     id <DOCFullDocumentManagerViewControllerDelegate> _fullDocumentManagerDelegate;
     DOCBrowserViewController *_currentBrowserViewController;
     DOCBrowserViewController *_previousBrowserViewController;
@@ -49,7 +50,7 @@
 @property(retain) DOCBrowserViewController *previousBrowserViewController; // @synthesize previousBrowserViewController=_previousBrowserViewController;
 @property(retain) DOCBrowserViewController *currentBrowserViewController; // @synthesize currentBrowserViewController=_currentBrowserViewController;
 @property(nonatomic) __weak id <DOCFullDocumentManagerViewControllerDelegate> fullDocumentManagerDelegate; // @synthesize fullDocumentManagerDelegate=_fullDocumentManagerDelegate;
-@property(retain, nonatomic) DOCConcreteLocation *shownSource; // @synthesize shownSource=_shownSource;
+@property(retain, nonatomic) DOCConcreteLocation *shownLocation; // @synthesize shownLocation=_shownLocation;
 @property(retain, nonatomic) UIViewController *rootViewController; // @synthesize rootViewController=_rootViewController;
 @property(readonly) DOCDocumentManagerNavigationViewController *internalNavigationController; // @synthesize internalNavigationController=_internalNavigationController;
 - (id)additionalToolbarButtonItems;
@@ -126,6 +127,7 @@
 - (void)snapshotForParentLocationFrom:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)prepareParentHierarchyIfNeededWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)showLocation:(id)arg1 animated:(_Bool)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
+- (void)changeToLocation:(id)arg1;
 - (void)_toggleSelectionMode;
 - (void)showSources:(id)arg1 sourceRect:(struct CGRect)arg2;
 - (void)showSources:(id)arg1;
@@ -140,7 +142,6 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)popToRootViewController;
-- (_Bool)isTransitioningToNewLocation;
 - (_Bool)_shouldEnableSearchBar;
 - (_Bool)_shouldShowSearchBarInPalette;
 - (void)_updatePopoverOriginsIfNeeded;

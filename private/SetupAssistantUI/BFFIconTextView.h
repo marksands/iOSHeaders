@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UILabel *textLabel; // @synthesize textLabel=_textLabel;
 @property(retain, nonatomic) UIImageView *iconView; // @synthesize iconView=_iconView;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) double baselineFromBoundsTop;
 - (double)heightForWidth:(double)arg1;
 - (void)layoutSubviews;
 - (id)initWithIcon:(id)arg1 text:(id)arg2;

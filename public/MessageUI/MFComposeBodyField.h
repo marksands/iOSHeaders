@@ -11,7 +11,7 @@
 #import <MessageUI/UIWebDraggingDelegate-Protocol.h>
 #import <MessageUI/WebResourceLoadDelegate-Protocol.h>
 
-@class DOMHTMLDocument, DOMHTMLElement, NSArray, NSMutableDictionary, NSMutableSet, NSString, UIBarButtonItemGroup, UIView;
+@class DOMHTMLDocument, DOMHTMLElement, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSString, UIBarButtonItemGroup, UIView;
 @protocol MFMailComposeViewDelegate;
 
 @interface MFComposeBodyField : UIWebDocumentView <MFComposeBodyFieldInternal, WebResourceLoadDelegate, MFComposeBodyField, UIWebDraggingDelegate>
@@ -39,8 +39,12 @@
     NSMutableSet *_drawingAttachmentNames;
     NSMutableDictionary *_droppedAttachments;
     UIView *_imageDropSnapshot;
+    NSDictionary *_attachmentDragPreviews;
+    NSString *_localDragSessionID;
 }
 
+@property(copy, nonatomic) NSString *localDragSessionID; // @synthesize localDragSessionID=_localDragSessionID;
+@property(retain, nonatomic) NSDictionary *attachmentDragPreviews; // @synthesize attachmentDragPreviews=_attachmentDragPreviews;
 @property(retain, nonatomic) UIView *imageDropSnapshot; // @synthesize imageDropSnapshot=_imageDropSnapshot;
 @property(retain, nonatomic) NSMutableDictionary *droppedAttachments; // @synthesize droppedAttachments=_droppedAttachments;
 @property _Bool shouldShowStandardButtons; // @synthesize shouldShowStandardButtons=_shouldShowStandardButtons;
@@ -58,21 +62,29 @@
 - (id)_selectedAttachmentsByURL;
 - (void)setSelectedDOMRange:(id)arg1 affinityDownstream:(_Bool)arg2;
 - (void)_captureAttachmentsFromPasteboard:(id)arg1;
-- (void)_archiveAndAttachFolder:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (void)_insertMapItem:(id)arg1 atPoint:(struct CGPoint)arg2;
-- (void)_completeDropForData:(id)arg1 fileName:(id)arg2 dataType:(id)arg3 atPoint:(struct CGPoint)arg4;
+- (id)_previewImageForDataType:(id)arg1 attachmentName:(id)arg2;
 - (id)_attachmentNameForDataType:(id)arg1 fileName:(id)arg2;
 - (void)_webView:(id)arg1 dropWasHandled:(_Bool)arg2 forSession:(id)arg3 itemProviders:(id)arg4;
 - (void)_finishedLoadingDroppedAttachments:(id)arg1;
-- (void)_swapPlaceholder:(id)arg1 withImageNode:(id)arg2;
-- (void)_completeDropForImageData:(id)arg1 dragItem:(id)arg2 dataType:(id)arg3;
+- (void)_swapPlaceholder:(id)arg1 withImageNode:(id)arg2 forceResize:(_Bool)arg3;
+- (void)_completeDropForAttachmentData:(id)arg1 dragItem:(id)arg2 dataType:(id)arg3 fileName:(id)arg4;
 - (void)_webView:(id)arg1 dropInteraction:(id)arg2 item:(id)arg3 willAnimateDropWithAnimator:(id)arg4;
 - (id)_webView:(id)arg1 previewForDroppingItem:(id)arg2 withDefault:(id)arg3;
 - (id)_imageDropPlaceholderNodeWithId:(id)arg1 size:(struct CGSize)arg2 hasFinalSize:(_Bool)arg3;
 - (struct CGSize)_sizeScaledToFitContentArea:(struct CGSize)arg1;
-- (void)_performImageDropWithItem:(id)arg1 dataType:(id)arg2 atPoint:(struct CGPoint)arg3;
+- (void)_performAttachmentDropWithItem:(id)arg1 dataType:(id)arg2 atPoint:(struct CGPoint)arg3;
 - (void)_unhideDOMElementsForDragItems:(id)arg1;
+- (_Bool)_isPreviewableImageType:(id)arg1;
+- (id)_preferredDataTypeForItemProvider:(id)arg1;
 - (id)_webView:(id)arg1 willPerformDropWithSession:(id)arg2;
+- (_Bool)_isLocalItemProvider:(id)arg1;
+- (id)_teamDataDictionaryForItemProvider:(id)arg1;
+- (id)_webView:(id)arg1 previewItem:(id)arg2;
+- (id)_webView:(id)arg1 previewForCancellingItem:(id)arg2 withDefault:(id)arg3;
+- (id)_webView:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
+- (id)_dragPreviewInfoForAttachment:(id)arg1;
+- (void)dragInteraction:(id)arg1 session:(id)arg2 didEndWithOperation:(unsigned long long)arg3;
 - (id)_webView:(id)arg1 adjustedItemProviders:(id)arg2;
 - (id)_webView:(id)arg1 willUpdateDropProposalToProposal:(id)arg2 forSession:(id)arg3;
 - (_Bool)_webView:(id)arg1 allowsSelectingContentAfterDropForSession:(id)arg2;
@@ -158,6 +170,7 @@
 - (void)setLayoutMargins:(struct UIEdgeInsets)arg1;
 - (void)unscaleImages;
 - (void)scaleImagesToScale:(unsigned long long)arg1;
+- (void)removeDropPlaceholders;
 - (void)replaceImagesIfNecessary;
 - (void)_replaceImages;
 - (void)_ensureQuotedImagesHaveAttachmentStyleForElement:(id)arg1;

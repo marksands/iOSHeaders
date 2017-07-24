@@ -26,15 +26,16 @@
     AVCaptureSession *_captureSession;
     AVCaptureVideoDataOutput *_videoOutput;
     unsigned long long _powerUsage;
+    CDStruct_79c71658 _videoResolution;
     long long _targetFramesPerSecond;
 }
 
-+ (id)bestFormatForDevice:(id)arg1 withResolution:(CDStruct_1ef3fb1f)arg2 pixelFormatType:(unsigned int)arg3 frameRate:(double)arg4;
++ (id)bestFormatForDevice:(id)arg1 withResolution:(CDStruct_79c71658)arg2 pixelFormatType:(unsigned int)arg3 frameRate:(double)arg4;
 + (double)closestFrameRateIn:(id)arg1 target:(double)arg2 preferHigher:(_Bool)arg3;
-+ (double)preferredFrameRateForPowerUsage:(unsigned long long)arg1 devicePosition:(long long)arg2;
 @property _Bool interrupted; // @synthesize interrupted=_interrupted;
 @property _Bool running; // @synthesize running=_running;
 @property long long targetFramesPerSecond; // @synthesize targetFramesPerSecond=_targetFramesPerSecond;
+@property(nonatomic) CDStruct_79c71658 videoResolution; // @synthesize videoResolution=_videoResolution;
 @property(nonatomic) unsigned long long powerUsage; // @synthesize powerUsage=_powerUsage;
 @property(nonatomic, getter=isAutoFocusEnabled) _Bool autoFocusEnabled; // @synthesize autoFocusEnabled=_autoFocusEnabled;
 @property(readonly, nonatomic) AVCaptureVideoDataOutput *videoOutput; // @synthesize videoOutput=_videoOutput;
@@ -56,6 +57,7 @@
 - (void)dealloc;
 - (id)initWithDevicePosition:(long long)arg1 deviceType:(id)arg2;
 - (id)initWithDevicePosition:(long long)arg1 deviceType:(id)arg2 captureSession:(id)arg3;
+- (double)preferredFrameRateForPowerUsage:(unsigned long long)arg1 devicePosition:(long long)arg2;
 - (void)_adjustForPowerUsage;
 
 // Remaining properties

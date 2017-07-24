@@ -8,15 +8,16 @@
 
 #import <QuickLook/QLLocalPreviewingController-Protocol.h>
 #import <QuickLook/QLToolbarButtonAction-Protocol.h>
-#import <QuickLook/UIDragInteractionDelegate-Protocol.h>
+#import <QuickLook/UIDragInteractionDelegate_Private-Protocol.h>
 
 @class NSArray, NSMutableArray, NSString, QLAppearance, QLPreviewContext, UIDragInteraction, UIView;
 @protocol QLItemViewControllerPresentingDelegate, QLPreviewItemViewControllerDelegate;
 
-@interface QLItemViewController : UIViewController <UIDragInteractionDelegate, QLLocalPreviewingController, QLToolbarButtonAction>
+@interface QLItemViewController : UIViewController <UIDragInteractionDelegate_Private, QLLocalPreviewingController, QLToolbarButtonAction>
 {
     _Bool _isLoading;
     NSMutableArray *_completionBlocks;
+    _Bool _didAppearOnce;
     _Bool _isLoaded;
     _Bool _loadingFailed;
     UIView *_accessoryView;
@@ -41,10 +42,12 @@
 @property _Bool loadingFailed; // @synthesize loadingFailed=_loadingFailed;
 @property _Bool isLoading; // @synthesize isLoading=_isLoading;
 @property _Bool isLoaded; // @synthesize isLoaded=_isLoaded;
+@property _Bool didAppearOnce; // @synthesize didAppearOnce=_didAppearOnce;
 @property(retain, nonatomic) UIDragInteraction *dragInteraction; // @synthesize dragInteraction=_dragInteraction;
 @property(nonatomic) __weak id <QLPreviewItemViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
 - (void).cxx_destruct;
+- (long long)_dragInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
 - (void)_addDragInteractionIfNeeded;
 - (id)draggableView;

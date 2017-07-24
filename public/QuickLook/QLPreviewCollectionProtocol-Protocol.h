@@ -8,6 +8,7 @@
 @protocol QLPreviewControllerStateProtocol, QLPreviewItemProvider, QLTransitionControllerProtocol;
 
 @protocol QLPreviewCollectionProtocol
+- (void)setSourceIsManaged:(_Bool)arg1;
 - (void)prepareForActionSheetPresentationWithCompletionHandler:(void (^)(void))arg1;
 - (void)hostViewControlerTransitionToState:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (void)invalidatePreviewCollection;

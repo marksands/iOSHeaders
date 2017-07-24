@@ -15,7 +15,6 @@
 {
     void *_origin;
     NSObject<OS_dispatch_queue> *_serialQueue;
-    int _notifyRestoreClientStateForLaunch;
     NSMutableArray *_nowPlayingClients;
     NSMutableDictionary *_transactionCallbacks;
 }

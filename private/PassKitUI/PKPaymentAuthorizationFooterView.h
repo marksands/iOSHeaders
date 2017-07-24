@@ -21,14 +21,12 @@
     NSMutableArray *_hiddenConstraints;
     NSMutableArray *_regularConstraints;
     NSMutableArray *_seperatorConstraints;
-    _Bool _showSeperatorView;
     long long _state;
     UIButton *_payWithPasscodeButton;
     PKPaymentAuthorizationLayout *_layout;
     unsigned long long _confirmationStyle;
 }
 
-@property(nonatomic) _Bool showSeperatorView; // @synthesize showSeperatorView=_showSeperatorView;
 @property(nonatomic) unsigned long long confirmationStyle; // @synthesize confirmationStyle=_confirmationStyle;
 @property(retain, nonatomic) PKPaymentAuthorizationLayout *layout; // @synthesize layout=_layout;
 @property(readonly, nonatomic) UIButton *payWithPasscodeButton; // @synthesize payWithPasscodeButton=_payWithPasscodeButton;

@@ -22,6 +22,7 @@
 - (id)_performValidation;
 - (id)_updateEvents;
 - (id)_allActionSets;
+- (_Bool)requiresFMFDeviceToRun;
 - (_Bool)requiresLocationServicesAuthorization;
 - (_Bool)secureActionsRequireConfirmationToRun;
 - (_Bool)requiresConfirmationToRun;

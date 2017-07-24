@@ -28,7 +28,8 @@
 @property(readonly) unsigned long long hash;
 - (id)initWithImage:(id)arg1;
 - (id)_initWithImage:(id)arg1;
-- (id)cacheableObjects;
+- (void)_intents_updateContainerWithCache:(id)arg1;
+- (id)_intents_cacheableObjects;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

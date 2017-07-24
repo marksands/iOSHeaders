@@ -24,6 +24,8 @@
 - (_Bool)textFieldShouldEndEditing:(id)arg1;
 - (_Bool)textFieldShouldReturn:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
+- (id)finishZoneNameEditing;
+- (id)_createNewZoneWithName:(id)arg1;
 - (_Bool)_validateNewZoneName:(id)arg1;
 - (void)_configureCurrentZonesItem:(id)arg1 forCell:(id)arg2 animated:(_Bool)arg3;
 - (void)_configureZoneBuilderItem:(id)arg1 forCell:(id)arg2 animated:(_Bool)arg3;

@@ -6,10 +6,12 @@
 
 #import <SearchFoundation/NSObject-Protocol.h>
 
-@class NSArray, NSData, NSDictionary, NSString, _SFPBActionItem, _SFPBColor, _SFPBMediaDetail, _SFPBMediaItem, _SFPBMediaOffer, _SFPBPunchout;
+@class NSArray, NSData, NSDictionary, NSString, _SFPBActionItem, _SFPBColor, _SFPBMediaDetail, _SFPBMediaItem, _SFPBMediaOffer, _SFPBPunchout, _SFPBRichText;
 
 @protocol _SFPBMediaInfoCardSection <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasSpecialOfferButtonLabel;
+@property(retain, nonatomic) _SFPBRichText *specialOfferButtonLabel;
 @property(readonly, nonatomic) _Bool hasIsMediaContainer;
 @property(nonatomic) _Bool isMediaContainer;
 @property(readonly, nonatomic) _Bool hasWatchListConfirmationText;

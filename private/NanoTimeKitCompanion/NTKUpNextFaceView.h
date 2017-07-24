@@ -58,7 +58,7 @@
 - (void)_deviceOrientationInvertedDidChangeNotification:(id)arg1;
 - (void)_updateCrownInvertedSetting;
 - (unsigned long long)_keylineLabelAlignmentForComplicationSlot:(id)arg1;
-- (void)_presentTrainingSheetForElement:(id)arg1 atIndexPath:(id)arg2;
+- (void)_presentTrainingSheetForElementAtIndexPath:(id)arg1;
 - (void)upNextElementAction:(id)arg1 wantsToPerformTapActionForComplicationSlot:(id)arg2;
 - (void)cellDidLongPress:(id)arg1;
 - (void)upNextElementAction:(id)arg1 wantsViewControllerDisplayed:(id)arg2;
@@ -82,6 +82,7 @@
 - (void)setViewMode:(long long)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)_applyShowsLockedUI;
+- (_Bool)_applyShowIdealizedContent;
 - (_Bool)_applyShouldUseCanonicalContent;
 - (void)_applyShowsCanonicalContent;
 - (_Bool)_shouldUseCanonicalContent;
@@ -96,7 +97,6 @@
 - (void)_loadLayoutRules;
 - (id)_additionalPrelaunchApplicationIdentifiers;
 - (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
-- (id)_contentForElement:(id)arg1;
 - (void)collectionView:(id)arg1 didUnhighlightItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didHighlightItemAtIndexPath:(id)arg2;
 - (_Bool)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
@@ -124,7 +124,6 @@
 - (id)_newLegacyViewForComplication:(id)arg1 family:(long long)arg2 slot:(id)arg3;
 - (id)_detachedComplicationDisplays;
 - (void)layoutSubviews;
-- (id)elementAtIndex:(long long)arg1 inSection:(long long)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

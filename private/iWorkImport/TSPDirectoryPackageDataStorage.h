@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 - (void)setGilligan_isRemote:(_Bool)arg1;
 - (_Bool)gilligan_isRemote;
 - (void).cxx_destruct;
-- (_Bool)copyToTemporaryURL:(id)arg1 encryptionInfo:(id)arg2;
+- (_Bool)linkOrCopyToURL:(id)arg1 encryptionInfo:(id)arg2 canLink:(_Bool)arg3;
 - (_Bool)isInPackage:(id)arg1;
 - (id)writeData:(id)arg1 toPackageWriter:(id)arg2 infoMessage:(struct DataInfo *)arg3 preferredFilename:(id)arg4;
 - (void)performIOChannelReadWithAccessor:(CDUnknownBlockType)arg1;

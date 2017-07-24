@@ -45,12 +45,16 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool matchesObjectPlaceholderGeometry;
 - (struct CGPoint)transformableObjectAnchorPoint;
 - (id)transformedGeometryWithTransform:(struct CGAffineTransform)arg1 inBounds:(struct CGRect)arg2;
+- (double)transformGeometryRatioForTransform:(struct CGAffineTransform)arg1;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 - (id)containingGroup;
+- (id)promisedDataForType:(id)arg1;
+- (id)typesToPromiseWhenCopyingSingleDrawable;
 - (id)descriptionForPasteboardWithSource:(id)arg1;
 - (id)descriptionForPasteboard;
-- (_Bool)reverseChunkingIsSupported;
+- (_Bool)requiresStagesBuildingInReverse;
+- (_Bool)suppliesFinalTextures;
 - (id)textureDeliveryStylesLocalized:(_Bool)arg1 animationFilter:(id)arg2;
 - (unsigned long long)textureDeliveryStyleFromDeliveryString:(id)arg1;
 - (unsigned long long)chunkCountForTextureDeliveryStyle:(unsigned long long)arg1 byGlyphStyle:(int)arg2 animationFilter:(id)arg3;

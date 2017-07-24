@@ -33,6 +33,8 @@ __attribute__((visibility("hidden")))
 - (void)removeSource:(id)arg1;
 - (void)addSource:(id)arg1;
 - (void)freeze;
+- (struct __CFDictionary *)alreadylocked_copyManagedDictionary;
+- (void *)alreadylocked_copyManagedValueForKey:(struct __CFString *)arg1;
 - (void)deferredNotifyOfChangesFromDictionary:(struct __CFDictionary *)arg1 toDictionary:(struct __CFDictionary *)arg2;
 - (struct __CFDictionary *)alreadylocked_copyDictionary;
 - (long long)generationCount;

@@ -82,6 +82,7 @@
 - (void)_flushPendingUpdates;
 - (id)indexPathsFromIndexSet:(id)arg1;
 - (id)indexPathFromIndex:(long long)arg1;
+- (void)_receivedBatchWithUpdatedItems:(id)arg1 deletedItemsIdentifiers:(id)arg2 forceFlush:(_Bool)arg3;
 - (void)_receivedBatchWithUpdatedItems:(id)arg1 deletedItemsIdentifiers:(id)arg2;
 - (void)replaceContentsWithVendorItems:(id)arg1;
 - (void)receivedBatchWithUpdatedItems:(id)arg1 deletedItemsIdentifiers:(id)arg2;

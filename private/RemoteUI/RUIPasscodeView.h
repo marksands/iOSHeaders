@@ -66,6 +66,8 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (id)titleLabel;
+- (id)subElementWithID:(id)arg1;
+- (void)performAction:(int)arg1 forElement:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)populatePostbackDictionary:(id)arg1;
 - (id)passcodeView;
 - (id)view;

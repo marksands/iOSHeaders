@@ -17,10 +17,12 @@ __attribute__((visibility("hidden")))
     id <SFPasswordRemoteViewControllerDelegate> _delegate;
 }
 
++ (id)serviceViewControllerInterface;
 + (id)exportedInterface;
 + (id)requestViewControllerWithConnectionHandler:(CDUnknownBlockType)arg1;
 @property(nonatomic) __weak id <SFPasswordRemoteViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)willMoveToParentViewController:(id)arg1;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)willDismissServiceViewController;
 

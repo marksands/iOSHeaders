@@ -10,7 +10,9 @@
 @class NSMutableAttributedString;
 
 @protocol UITextDropSupporting <UITextDroppable, UITextPasteConfigurationSupporting>
-- (void)resignDropResponder;
+- (void)droppingFinished;
+- (void)droppingStarted;
+- (void)resignDropResponderWithDropPerformed:(_Bool)arg1;
 - (void)becomeDropResponder;
 - (_Bool)allowsEditingTextAttributes;
 

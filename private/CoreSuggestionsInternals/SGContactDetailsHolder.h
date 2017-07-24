@@ -17,11 +17,11 @@
     NSArray *_socialProfiles;
 }
 
-@property(retain) NSArray *socialProfiles; // @synthesize socialProfiles=_socialProfiles;
-@property(retain) NSArray *instantMessageAddresses; // @synthesize instantMessageAddresses=_instantMessageAddresses;
-@property(retain) NSArray *phoneNumbers; // @synthesize phoneNumbers=_phoneNumbers;
-@property(retain) NSArray *postalAddresses; // @synthesize postalAddresses=_postalAddresses;
-@property(retain) NSArray *emailAddresses; // @synthesize emailAddresses=_emailAddresses;
+@property(retain, nonatomic) NSArray *socialProfiles; // @synthesize socialProfiles=_socialProfiles;
+@property(retain, nonatomic) NSArray *instantMessageAddresses; // @synthesize instantMessageAddresses=_instantMessageAddresses;
+@property(retain, nonatomic) NSArray *phoneNumbers; // @synthesize phoneNumbers=_phoneNumbers;
+@property(retain, nonatomic) NSArray *postalAddresses; // @synthesize postalAddresses=_postalAddresses;
+@property(retain, nonatomic) NSArray *emailAddresses; // @synthesize emailAddresses=_emailAddresses;
 - (void).cxx_destruct;
 
 @end

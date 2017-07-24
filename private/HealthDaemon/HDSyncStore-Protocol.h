@@ -6,13 +6,14 @@
 
 #import <HealthDaemon/NSObject-Protocol.h>
 
-@class HDProfile, NSArray, NSSet, NSString, NSUUID;
+@class HDProfile, NSArray, NSError, NSSet, NSString, NSUUID;
 
 @protocol HDSyncStore <NSObject>
 @property(readonly) int protocolVersion;
 - (void)setExpectedSequenceNumber:(long long)arg1 forSyncEntityClass:(Class)arg2;
 - (long long)expectedSequenceNumberForSyncEntityClass:(Class)arg1;
 - (_Bool)shouldEnforceSequenceOrdering;
+- (_Bool)shouldContinueAfterAnchorValidationError:(NSError *)arg1;
 - (_Bool)supportsSpeculativeChangesForSyncEntityClass:(Class)arg1;
 - (_Bool)enforceSyncEntityOrdering;
 - (NSSet *)syncEntityDependenciesForSyncEntity:(Class)arg1;

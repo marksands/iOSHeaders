@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@protocol AFAnalyticsService, OS_dispatch_queue;
+@protocol AFAnalyticsService, OS_dispatch_group, OS_dispatch_queue;
 
 @interface AFAnalytics : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_group> *_group;
     id <AFAnalyticsService> _service;
 }
 
@@ -19,6 +20,7 @@
 - (id)_service:(_Bool)arg1;
 - (void)_stageEvents:(id)arg1;
 - (void)_stageEvent:(id)arg1;
+- (void)barrier:(CDUnknownBlockType)arg1;
 - (void)logEvents:(id)arg1;
 - (void)logEvent:(id)arg1;
 - (void)logEventWithType:(long long)arg1 machAbsoluteTime:(unsigned long long)arg2 contextProvider:(CDUnknownBlockType)arg3 contextProvidingQueue:(id)arg4;

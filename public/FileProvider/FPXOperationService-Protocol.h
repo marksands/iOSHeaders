@@ -19,7 +19,7 @@
 - (void)startOperation:(id <FPOperationClient>)arg1 toCreateFolderWithName:(NSString *)arg2 underParent:(FPItemID *)arg3 bounceOnCollision:(_Bool)arg4 reply:(void (^)(FPItem *, NSError *))arg5;
 - (void)startOperation:(id <FPOperationClient>)arg1 toDeleteItems:(NSArray *)arg2 reply:(void (^)(NSError *))arg3;
 - (void)startOperation:(id <FPOperationClient>)arg1 toRenameItem:(FPItemID *)arg2 toNewName:(NSString *)arg3 reply:(void (^)(FPItem *, NSError *))arg4;
-- (void)startOperation:(id <FPOperationClient>)arg1 toReparentItems:(NSArray *)arg2 underParent:(FPItemID *)arg3 reply:(void (^)(NSDictionary *, NSError *))arg4;
+- (void)startOperation:(id <FPOperationClient>)arg1 toReparentItems:(NSArray *)arg2 underParent:(FPItemID *)arg3 shouldBounce:(_Bool)arg4 reply:(void (^)(NSDictionary *, NSError *))arg5;
 - (void)startOperation:(id <FPOperationClient>)arg1 toImportDocumentsAtURLs:(NSArray *)arg2 withSandboxExtensions:(NSArray *)arg3 lastUsedDates:(NSArray *)arg4 intoFolderWithIdentifier:(FPItemID *)arg5 bounceOnCollision:(_Bool)arg6 reply:(void (^)(NSDictionary *, NSError *))arg7;
 - (void)startOperation:(id <FPOperationClient>)arg1 toFetchThumbnailsForItemIdentifiers:(NSArray *)arg2 size:(struct CGSize)arg3 completionHandler:(void (^)(NSError *))arg4;
 @end

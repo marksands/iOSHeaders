@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) int annotationType;
 @property(readonly, nonatomic) NSDate *date;
 @property(retain, nonatomic) TSKAnnotationAuthor *author;
-- (_Bool)wantsAnnotationPopover;
+- (_Bool)isFloatingComment;
 @property(readonly, nonatomic) NSString *annotationUUID;
 @property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;

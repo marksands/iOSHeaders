@@ -6,7 +6,7 @@
 
 #import <UIKit/UIButton.h>
 
-@class CAFilter, CAShapeLayer, PKShapeView, UIColor;
+@class CAFilter, CAShapeLayer, PKShapeView, UIActivityIndicatorView, UIColor;
 
 @interface PKContinuousButton : UIButton
 {
@@ -26,6 +26,7 @@
     _Bool _selected;
     _Bool _enabled;
     struct CGSize _boundsSize;
+    UIActivityIndicatorView *_activityIndicatorView;
     struct UIEdgeInsets _touchMargins;
 }
 
@@ -33,6 +34,7 @@
 + (Class)layerClass;
 @property(nonatomic) struct UIEdgeInsets touchMargins; // @synthesize touchMargins=_touchMargins;
 - (void).cxx_destruct;
+- (void)showSpinner:(_Bool)arg1;
 - (void)_updateFilter;
 - (void)setSelected:(_Bool)arg1;
 - (void)setHighlighted:(_Bool)arg1;

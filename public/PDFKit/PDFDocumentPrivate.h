@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     int documentId;
     NSMutableArray *pages;
     NSMutableDictionary *pageIndices;
+    NSMutableDictionary *pageDictionaryIndices;
     _Bool subclassOverridesPageAtIndex;
     id delegate;
     _Bool respondsToDidUnlock;

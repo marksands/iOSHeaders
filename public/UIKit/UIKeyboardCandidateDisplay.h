@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 
 + (void)setScreenTraits:(id)arg1;
 + (struct UIEdgeInsets)barEdgeInsets;
++ (struct CGRect)defaultBarFrame;
 + (double)barWidthForCurrentScreenTraits;
 + (double)barHeightForInterfaceOrientation:(long long)arg1;
 + (double)barHeight;

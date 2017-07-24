@@ -7,6 +7,7 @@
 @class CADObjectID, NSArray, NSDictionary, NSString;
 
 @protocol CADObjectInterface
+- (void)CADObjectIsManaged:(CADObjectID *)arg1 reply:(void (^)(int, _Bool))arg2;
 - (void)CADDatabaseDeleteObjectsWithObjectIDs:(NSArray *)arg1 reply:(void (^)(int))arg2;
 - (void)CADDatabaseInsertObjectsWithTempObjectIDs:(NSArray *)arg1 reply:(void (^)(int))arg2;
 - (void)CADObject:(CADObjectID *)arg1 setAttributes:(NSDictionary *)arg2 andRelations:(NSDictionary *)arg3 reply:(void (^)(int))arg4;

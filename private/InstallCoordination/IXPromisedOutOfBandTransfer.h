@@ -17,9 +17,6 @@
 + (_Bool)supportsSecureCoding;
 - (Class)seedClass;
 - (id)initWithSeed:(id)arg1;
-- (id)synchronousRemoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
-- (id)remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
-- (_Bool)_reEstablishRemoteConnection;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithName:(id)arg1 client:(unsigned long long)arg2 diskSpaceNeeded:(unsigned long long)arg3;

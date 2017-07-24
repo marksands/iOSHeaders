@@ -18,6 +18,7 @@
 @property(retain, nonatomic) HMDCloudGroupChange *rootGroupChange; // @synthesize rootGroupChange=_rootGroupChange;
 - (void).cxx_destruct;
 - (id)objectChanges;
+- (id)changeWithRecordName:(id)arg1;
 - (id)changeWithObjectID:(id)arg1;
 - (void)flushAllChangesToCache;
 - (void)setDeleteAsProcessedWithRecordID:(id)arg1;

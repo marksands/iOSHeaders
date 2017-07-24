@@ -66,6 +66,7 @@
 - (void)_updateSignInFieldStatuses;
 - (void)updateViewConstraints;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)_updatePlaceholderIfNeeded;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)setContext:(id)arg1;

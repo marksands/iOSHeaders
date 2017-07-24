@@ -6,7 +6,7 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class NSArray, NSIndexPath, NSString, UIDragItem, UIDragPreviewTarget, UITableViewDropProposal;
+@class NSArray, NSIndexPath, UIDragItem, UIDragPreviewTarget, UITableViewDropPlaceholder, UITableViewDropProposal;
 @protocol UIDragAnimating, UIDropSession, UITableViewDropPlaceholderContext;
 
 @protocol UITableViewDropCoordinator <NSObject>
@@ -17,6 +17,6 @@
 - (id <UIDragAnimating>)dropItem:(UIDragItem *)arg1 toTarget:(UIDragPreviewTarget *)arg2;
 - (id <UIDragAnimating>)dropItem:(UIDragItem *)arg1 intoRowAtIndexPath:(NSIndexPath *)arg2 rect:(struct CGRect)arg3;
 - (id <UIDragAnimating>)dropItem:(UIDragItem *)arg1 toRowAtIndexPath:(NSIndexPath *)arg2;
-- (id <UITableViewDropPlaceholderContext>)dropItem:(UIDragItem *)arg1 toPlaceholderInsertedAtIndexPath:(NSIndexPath *)arg2 withReuseIdentifier:(NSString *)arg3 rowHeight:(double)arg4 cellUpdateHandler:(void (^)(UITableViewCell *))arg5;
+- (id <UITableViewDropPlaceholderContext>)dropItem:(UIDragItem *)arg1 toPlaceholder:(UITableViewDropPlaceholder *)arg2;
 @end
 

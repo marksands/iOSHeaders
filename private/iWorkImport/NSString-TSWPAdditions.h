@@ -12,6 +12,7 @@
 + (id)tswp_stringForValue:(unsigned int)arg1 withListNumberFormat:(int)arg2;
 + (unsigned long long)tswp_numberForString:(id)arg1 withPageNumberFormat:(int)arg2;
 + (unsigned long long)tswp_numberForString:(id)arg1 withListNumberFormat:(int)arg2;
+- (_Bool)tswp_isLowerCaseFromIndex:(unsigned long long)arg1;
 - (_Bool)tswp_containsIdeographs;
 - (unsigned int)tswp_utf32CharacterAtIndex:(unsigned long long)arg1;
 - (int)tswp_contentsScriptInRange:(struct _NSRange)arg1;

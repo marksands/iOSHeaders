@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class AVAudioFormat, NSDictionary, NSString, NSXPCConnection;
 @protocol AVVoiceControllerPlaybackDelegate, AVVoiceControllerRecordDelegate, AVVoiceControllerVoiceTriggerDelegate, Endpointer;
@@ -53,7 +53,6 @@
 - (int)doStartRecordingAtTime:(unsigned long long)arg1 behavior:(id)arg2;
 - (_Bool)playRecordStartingAlertAndResetEndpointer;
 - (void)resetEndpointer;
-- (_Bool)playAlertSoundForType:(int)arg1 overrideMode:(long long)arg2;
 - (_Bool)playAlertSoundForType:(int)arg1;
 - (_Bool)setAlertSoundFromURL:(id)arg1 forType:(int)arg2;
 - (_Bool)prepareRecordWithSettings:(id)arg1 error:(id *)arg2;
@@ -92,6 +91,7 @@
 - (void)removeSessionNotifications;
 - (void)setSessionNotifications;
 - (struct ControllerImpl *)impl;
+- (_Bool)playAlertSoundForType:(int)arg1 overrideMode:(long long)arg2;
 - (void)updateVoiceTriggerConfiguration:(id)arg1;
 - (void)enableVoiceTriggerListening:(_Bool)arg1;
 @property(readonly, retain) NSXPCConnection *voiceTriggerServerConnection; // @dynamic voiceTriggerServerConnection;

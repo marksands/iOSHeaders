@@ -6,22 +6,20 @@
 
 #import <Foundation/NSObject.h>
 
-@class TSUSparseArray;
-
 __attribute__((visibility("hidden")))
 @interface TSTCellDictionary : NSObject
 {
-    struct _opaque_pthread_mutex_t _lock;
-    TSUSparseArray *_dict;
+    struct os_unfair_lock_s _lock;
+    struct map<TSUCellCoord, SFUtility::ObjcSharedPtr<TSTCell>, std::__1::less<TSUCellCoord>, std::__1::allocator<std::__1::pair<const TSUCellCoord, SFUtility::ObjcSharedPtr<TSTCell>>>> _cellsByCoord;
 }
 
+- (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)applyBlockToAllCells:(CDUnknownBlockType)arg1;
 - (id)allCells;
 - (vector_13f93596)removeAllCells;
 - (id)cellAtCellID:(struct TSUCellCoord)arg1;
 - (void)setCell:(id)arg1 atCellID:(struct TSUCellCoord)arg2;
-- (void)dealloc;
 - (id)init;
 
 @end

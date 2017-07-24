@@ -21,6 +21,7 @@
 - (void).cxx_destruct;
 - (id)commitItem;
 - (id)_performValidation;
+- (id)createNewAction;
 - (_Bool)requiresDeviceUnlock;
 - (_Bool)updateWithActionBuilder:(id)arg1;
 - (id)copyForCreatingNewAction;

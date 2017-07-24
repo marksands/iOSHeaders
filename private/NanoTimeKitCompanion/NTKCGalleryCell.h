@@ -31,6 +31,7 @@
     UIStackView *_collectionViewFooterStack;
     UILabel *_footer;
     _NTKCAddNewFace *_addNewFace;
+    struct CGSize _itemSize;
 }
 
 + (double)rowHeightForCollection:(id)arg1;
@@ -45,6 +46,7 @@
 @property(retain, nonatomic) NSLayoutConstraint *titleBaselineConstraint; // @synthesize titleBaselineConstraint=_titleBaselineConstraint;
 @property(nonatomic) _Bool hasCalloutImage; // @synthesize hasCalloutImage=_hasCalloutImage;
 @property(nonatomic) _Bool hasCalloutName; // @synthesize hasCalloutName=_hasCalloutName;
+@property(nonatomic) struct CGSize itemSize; // @synthesize itemSize=_itemSize;
 @property(retain, nonatomic) UICollectionViewFlowLayout *layout; // @synthesize layout=_layout;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(retain, nonatomic) UIButton *seeAll; // @synthesize seeAll=_seeAll;
@@ -69,6 +71,7 @@
 - (struct CGPoint)_contentInsetPoint;
 @property(nonatomic) struct CGPoint contentOffset;
 - (void)showFooterTextIfNeeded;
+- (void)calculateHeightForCollection;
 - (void)didMoveToSuperview;
 - (void)layoutSubviews;
 - (void)ensureCorrectTitleViewOrientation;

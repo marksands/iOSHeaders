@@ -12,13 +12,17 @@
 @interface ICURLBagProvider : NSObject
 {
     NSMutableDictionary *_cache;
-    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    NSObject<OS_dispatch_queue> *_persistenceQueue;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     NSMutableDictionary *_pendingOperationsForCacheKey;
 }
 
 + (id)sharedBagProvider;
 - (void).cxx_destruct;
+- (id)_cacheFilePath;
+- (void)_saveCache;
+- (void)_loadCache;
 - (void)_handleUserIdentityStoreDidChangeNotification:(id)arg1;
 - (void)_fetchBagForRequestContext:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_getCacheKeyForRequestContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

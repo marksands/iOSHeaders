@@ -8,13 +8,14 @@
 
 #import <PDFKit/UICollectionViewDelegate-Protocol.h>
 
-@class NSString;
+@class NSIndexPath, NSString;
 @protocol PDFCollectionViewDelegate;
 
 __attribute__((visibility("hidden")))
 @interface PDFCollectionViewDelegateAdaptor : NSObject <UICollectionViewDelegate>
 {
     NSObject<PDFCollectionViewDelegate> *_wrappedDelegate;
+    NSIndexPath *_proposedDropIndexPath;
 }
 
 @property(retain) NSObject<PDFCollectionViewDelegate> *wrappedDelegate; // @synthesize wrappedDelegate=_wrappedDelegate;

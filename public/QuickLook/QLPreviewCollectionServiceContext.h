@@ -19,6 +19,7 @@
 + (id)_extensionAuxiliaryHostProtocol;
 + (id)_extensionAuxiliaryVendorProtocol;
 - (void).cxx_destruct;
+- (void)setSourceIsManaged:(_Bool)arg1;
 - (void)hostViewControlerTransitionToState:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (void)setLoadingString:(id)arg1;
 - (void)setAllowInteractiveTransitions:(_Bool)arg1;

@@ -25,6 +25,7 @@
 - (void).cxx_destruct;
 - (void)_setContentViewsOpaque:(_Bool)arg1;
 @property(nonatomic) _Bool shouldRasterizeBackground;
+- (void)_prepareForSnapshotting;
 - (void)_unloadSnapshotContentViews;
 @property(readonly, nonatomic) UIView *sceneView;
 - (void)_cleanupAfterZoom;

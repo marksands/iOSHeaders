@@ -9,15 +9,15 @@
 #import <SpotlightUI/MFAtomTextViewDelegate-Protocol.h>
 #import <SpotlightUI/UITextFieldDelegate-Protocol.h>
 
-@class NSArray, NSLayoutConstraint, NSString, SPSearchEntity, SPSearchQueryContext, SPUITextField, UIButton, _UILegibilitySettings;
+@class NSArray, NSLayoutConstraint, NSString, SPSearchEntity, SPUITextField, UIButton, _UILegibilitySettings;
 @protocol SPUISearchHeaderDelegate;
 
 @interface SPUISearchHeader : UIView <UITextFieldDelegate, MFAtomTextViewDelegate>
 {
     _Bool _offersCompletions;
     _Bool _willClear;
+    _Bool _searchTextScheduledForProcessing;
     id <SPUISearchHeaderDelegate> _delegate;
-    SPSearchQueryContext *_currentQueryContext;
     unsigned long long _suggestionID;
     _UILegibilitySettings *_legibilitySettings;
     SPSearchEntity *_searchEntity;
@@ -28,7 +28,7 @@
     NSLayoutConstraint *_widthConstraint;
 }
 
-+ (_Bool)isJ99;
+@property _Bool searchTextScheduledForProcessing; // @synthesize searchTextScheduledForProcessing=_searchTextScheduledForProcessing;
 @property _Bool willClear; // @synthesize willClear=_willClear;
 @property(retain) NSLayoutConstraint *widthConstraint; // @synthesize widthConstraint=_widthConstraint;
 @property(retain) NSLayoutConstraint *cancelButtonTrailingConstraint; // @synthesize cancelButtonTrailingConstraint=_cancelButtonTrailingConstraint;
@@ -39,11 +39,10 @@
 @property(retain, nonatomic) SPSearchEntity *searchEntity; // @synthesize searchEntity=_searchEntity;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property unsigned long long suggestionID; // @synthesize suggestionID=_suggestionID;
-@property(readonly, nonatomic) SPSearchQueryContext *currentQueryContext; // @synthesize currentQueryContext=_currentQueryContext;
 @property __weak id <SPUISearchHeaderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (double)topPadding;
-- (void)performTestSearchWithQuery:(id)arg1 event:(unsigned long long)arg2 phraseSearch:(_Bool)arg3 sourcePreference:(long long)arg4;
+- (void)performTestSearchWithQuery:(id)arg1 event:(unsigned long long)arg2 sourcePreference:(long long)arg3;
 - (void)searchForQuery:(id)arg1 forSuggestions:(_Bool)arg2;
 - (void)searchForSuggestion:(id)arg1;
 - (void)showCancelButton:(_Bool)arg1 animated:(_Bool)arg2;
@@ -64,22 +63,23 @@
 - (void)setSearchEntity:(id)arg1 fromSuggestion:(_Bool)arg2;
 - (id)currentQueryContextWithString:(id)arg1;
 @property(readonly, nonatomic) NSString *currentQuery;
+- (void)triggerSearchForUnlock;
 - (_Bool)textFieldShouldReturn;
 - (void)cancelButtonClicked:(id)arg1;
 - (void)textFieldDidBeginEditing;
 - (void)textDidChange:(id)arg1 whyQuery:(unsigned long long)arg2 allowZKW:(_Bool)arg3;
-- (void)textDidChange:(id)arg1 whyQuery:(unsigned long long)arg2 phraseSearch:(_Bool)arg3 allowZKW:(_Bool)arg4 sourcePreference:(unsigned long long)arg5 engagedSuggestion:(id)arg6;
+- (void)textDidChange:(id)arg1 whyQuery:(unsigned long long)arg2 allowZKW:(_Bool)arg3 sourcePreference:(unsigned long long)arg4 engagedSuggestion:(id)arg5;
 - (void)textDidChange:(id)arg1;
 - (_Bool)textFieldShouldClear:(id)arg1;
 - (void)addInputMethodInformationToQueryContext:(id)arg1;
 - (void)setupKeyboardSupportForResultViewController:(id)arg1;
 - (void)enableDictationIfRequired;
-- (void)textInputModeChanged:(id)arg1;
 - (id)backdropVisualEffectView;
 - (void)updateBlurProgress:(double)arg1;
 - (void)_updateClearButtonVisibility;
 @property(retain) NSArray *representedObjects;
 - (void)dictationButtonPressed;
+- (void)changeOrientation:(id)arg1;
 - (id)init;
 
 // Remaining properties

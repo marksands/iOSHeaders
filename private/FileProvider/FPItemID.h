@@ -32,6 +32,7 @@
 - (_Bool)isEqualToItemID:(id)arg1;
 - (id)description;
 - (id)initWithProviderIdentifier:(id)arg1 domainIdentifier:(id)arg2 itemIdentifier:(id)arg3;
+- (id)initWithSearchableItem:(id)arg1;
 
 @end
 

@@ -334,6 +334,7 @@
         unsigned int isSelfSizingShadowCell:1;
         unsigned int clientSetDragInteractionEnabled:1;
         unsigned int dragInteractionEnabled:1;
+        unsigned int insetsContentViewsToSafeArea:1;
     } _tableFlags;
     id <UITableViewDragDelegate> _dragDelegate;
     id <UITableViewDropDelegate> _dropDelegate;
@@ -438,6 +439,8 @@
 - (_Bool)_swipeDeletionCommitted;
 - (void)_removeSwipeDeletionShadowUpdate;
 - (void)_applyPendingSwipeDeletionShadowUpdates;
+- (_Bool)_swipeDeletionPendingForSection:(_Bool)arg1;
+- (void)_addPendingSwipeDeletionShadowUpdateForIndexPath:(id)arg1;
 - (void)_addPendingSwipeDeletionShadowUpdateForSection:(_Bool)arg1;
 - (void)_swipeToDeleteCell:(id)arg1;
 - (id)_trailingSwipeConfigurationAtIndexPath:(id)arg1 fromRemoveButton:(_Bool)arg2;
@@ -492,6 +495,8 @@
 @property(nonatomic) long long separatorInsetReference;
 - (void)_setSeparatorInsetIsRelativeToCellEdges:(_Bool)arg1;
 @property(readonly, nonatomic, getter=_separatorInsetIsRelativeToCellEdges) _Bool separatorInsetIsRelativeToCellEdges;
+@property(readonly, nonatomic, getter=_effectiveSafeAreaInsets) struct UIEdgeInsets effectiveSafeAreaInsets;
+@property(nonatomic) _Bool insetsContentViewsToSafeArea;
 - (void)setLayoutMarginsFollowReadableWidth:(_Bool)arg1;
 - (_Bool)layoutMarginsFollowReadableWidth;
 @property(nonatomic) _Bool cellLayoutMarginsFollowReadableWidth;
@@ -544,6 +549,7 @@
 - (id)_tableFooterView:(_Bool)arg1;
 - (id)_tableHeaderView:(_Bool)arg1;
 - (_Bool)_isTableHeaderViewHidden;
+- (_Bool)_swipeDeletionStateHasBeenReset;
 - (_Bool)_wantsSwipes;
 - (id)_indexPathForSwipeRowAtPoint:(struct CGPoint)arg1;
 - (id)_rowData;
@@ -635,6 +641,7 @@
 - (void)_beginAnimatingDropIntoCell:(id)arg1;
 - (void)_endAnimatingDropOfCell:(id)arg1;
 - (id)_beginAnimatingDropOfCell:(id)arg1 isCanceling:(_Bool)arg2;
+- (id)_dropPreviewParametersForIndexPath:(id)arg1;
 - (void)_performDrop:(id)arg1 withDropCoordinator:(id)arg2 forceHandleAsReorder:(_Bool)arg3;
 - (void)_dropEnded:(id)arg1;
 - (void)_dropExited:(id)arg1;
@@ -644,6 +651,7 @@
 - (void)_updateDropTargetAppearanceWithTargetIndexPath:(id)arg1 dropProposal:(id)arg2 dropSession:(id)arg3;
 - (id)_resolvedDropProposalAfterAdditionalHitTestingForIndexPath:(id)arg1 dropSession:(id)arg2 dropOperation:(unsigned long long)arg3 dropIntent:(long long)arg4 dropProposal:(id)arg5;
 - (id)_updatedDropProposalForIndexPath:(id)arg1 dropSession:(id)arg2 withDefaultProposal:(id)arg3;
+- (long long)_dataOwnerForDropSession:(id)arg1 atIndexPath:(id)arg2;
 - (id)_targetIndexPathForDrop:(id)arg1;
 - (id)_dropTargetIndexPathAtPoint:(struct CGPoint)arg1 adjustedForGap:(_Bool)arg2;
 - (void)_dropEntered:(id)arg1;
@@ -659,13 +667,14 @@
 - (void)_dragSessionDidEnd:(id)arg1;
 - (void)_updateAppearanceOfVisibleRowsForDragState;
 - (void)_dragSessionWillBegin:(id)arg1;
-- (id)_itemsForAddingToDragSession:(id)arg1 atIndexPath:(id)arg2 point:(struct CGPoint)arg3;
+- (id)_itemsForAddingToDragSession:(id)arg1 atIndexPath:(id)arg2 point:(struct CGPoint)arg3 withDataOwner:(long long)arg4;
 - (id)_itemsForBeginningDragSession:(id)arg1 atIndexPath:(id)arg2;
 - (void)_animateDragCancelForCell:(id)arg1;
 - (void)_animateLiftOfRowsAtIndexPaths:(id)arg1;
 - (void)_prepareToLiftRowsAtIndexPaths:(id)arg1;
 - (id)_dragPreviewParametersForIndexPath:(id)arg1;
-- (id)_rowsToIncludeInDragAtIndexPath:(id)arg1;
+- (id)_rowsToIncludeInDragSession:(id)arg1 atIndexPath:(id)arg2 withDataOwner:(long long)arg3;
+- (long long)_dataOwnerForDragSession:(id)arg1 atIndexPath:(id)arg2;
 - (_Bool)_canBeginDragAtPoint:(struct CGPoint)arg1 indexPath:(id)arg2;
 - (id)_dragSourceDelegateProxy;
 - (id)_dragSourceDelegateActual;
@@ -838,8 +847,8 @@
 - (void)_rectChangedWithNewSize:(struct CGSize)arg1 oldSize:(struct CGSize)arg2;
 - (void)_getGradientMaskBounds:(out struct CGRect *)arg1 startInsets:(out struct UIEdgeInsets *)arg2 endInsets:(out struct UIEdgeInsets *)arg3 intensities:(out struct UIEdgeInsets *)arg4;
 - (void)accessoryInsetsDidChange:(struct UIEdgeInsets)arg1;
-- (void)safeAreaInsetsDidChange;
-- (void)layoutMarginsDidChange;
+- (void)_safeAreaInsetsDidChangeFromOldInsets:(struct UIEdgeInsets)arg1;
+- (void)_layoutMarginsDidChangeFromOldMargins:(struct UIEdgeInsets)arg1;
 - (void)setSemanticContentAttribute:(long long)arg1;
 - (void)_updatePrefetchContext;
 - (void)layoutSubviews;
@@ -1053,6 +1062,7 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_setUsesStaticScrollBar:(_Bool)arg1;
 - (void)_didChangeFromIdiom:(long long)arg1 onScreen:(id)arg2 traverseHierarchy:(_Bool)arg3;
+- (void)traitCollectionDidChange:(id)arg1;
 @property(readonly, nonatomic, getter=_wrapperView) UIScrollView *wrapperView;
 - (id)_classMapForType:(int)arg1;
 - (id)_nibExternalObjectsTablesForType:(int)arg1;

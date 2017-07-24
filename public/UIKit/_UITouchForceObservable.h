@@ -18,6 +18,7 @@
     NSObservation *_touchesObservation;
     CADisplayLink *_continuousEvaluationDisplayLink;
     NSSet *_currentTouches;
+    double _lastObservationTime;
 }
 
 - (void).cxx_destruct;

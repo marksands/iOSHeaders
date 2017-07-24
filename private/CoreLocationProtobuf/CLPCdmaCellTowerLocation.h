@@ -12,11 +12,7 @@
 
 @interface CLPCdmaCellTowerLocation : PBCodable <NSCopying>
 {
-    struct {
-        int *list;
-        unsigned long long count;
-        unsigned long long size;
-    } _derivedMccs;
+    CDStruct_95bda58d _derivedMccs;
     double _bsLatitude;
     double _bsLongitude;
     double _sectorLatitude;

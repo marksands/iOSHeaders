@@ -14,7 +14,8 @@
 
 @interface TUCallCapabilitiesState : NSObject <NSSecureCoding, NSCopying, TUPubliclyAccessibleCopying>
 {
-    _Bool _telephonyDevice;
+    _Bool _supportsPrimaryCalling;
+    _Bool _supportsBasebandCalling;
     _Bool _supportsCellularData;
     _Bool _supportsDisplayingTelephonyCalls;
     _Bool _supportsDisplayingFaceTimeAudioCalls;
@@ -89,7 +90,8 @@
 @property(nonatomic) _Bool supportsDisplayingFaceTimeAudioCalls; // @synthesize supportsDisplayingFaceTimeAudioCalls=_supportsDisplayingFaceTimeAudioCalls;
 @property(nonatomic) _Bool supportsDisplayingTelephonyCalls; // @synthesize supportsDisplayingTelephonyCalls=_supportsDisplayingTelephonyCalls;
 @property(nonatomic) _Bool supportsCellularData; // @synthesize supportsCellularData=_supportsCellularData;
-@property(nonatomic, getter=isTelephonyDevice) _Bool telephonyDevice; // @synthesize telephonyDevice=_telephonyDevice;
+@property(nonatomic) _Bool supportsBasebandCalling; // @synthesize supportsBasebandCalling=_supportsBasebandCalling;
+@property(nonatomic) _Bool supportsPrimaryCalling; // @synthesize supportsPrimaryCalling=_supportsPrimaryCalling;
 - (void).cxx_destruct;
 - (id)publiclyAccessibleCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

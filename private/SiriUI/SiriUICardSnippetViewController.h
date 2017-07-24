@@ -71,6 +71,7 @@
 - (void)_removeCardViewControllerFromParentViewController:(id)arg1;
 - (void)siriDidStopSpeakingWithIdentifier:(id)arg1 speechQueueIsEmpty:(_Bool)arg2;
 - (void)siriDidStartSpeakingWithIdentifier:(id)arg1;
+- (void)willCancel;
 - (void)wasAddedToTranscript;
 - (_Bool)logContentsIfApplicable;
 - (_Bool)isIndicatingActivity;
@@ -80,7 +81,6 @@
 - (void)setSnippet:(id)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
-- (void)viewDidLayoutSubviews;
 - (void)loadView;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

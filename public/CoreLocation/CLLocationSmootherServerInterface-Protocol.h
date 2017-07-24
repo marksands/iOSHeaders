@@ -9,6 +9,9 @@
 @class NSArray, NSNumber;
 
 @protocol CLLocationSmootherServerInterface <NSObject>
+
+@optional
+- (void)smoothLocations:(NSArray *)arg1 handler:(void (^)(NSArray *, NSError *))arg2;
 - (void)smoothLocations:(NSArray *)arg1 useType:(NSNumber *)arg2;
 @end
 

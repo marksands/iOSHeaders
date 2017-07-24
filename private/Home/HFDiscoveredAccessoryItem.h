@@ -16,7 +16,6 @@
     HFDiscoveredAccessory *_discoveredAccessory;
 }
 
-+ (id)_iconDescriptorForAccessoryCategory:(id)arg1;
 @property(readonly, nonatomic) HFDiscoveredAccessory *discoveredAccessory; // @synthesize discoveredAccessory=_discoveredAccessory;
 - (void).cxx_destruct;
 - (id)_subclass_updateWithOptions:(id)arg1;

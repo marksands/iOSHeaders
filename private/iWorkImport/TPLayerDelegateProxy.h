@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     id <TPLayerDelegateProxyDelegate> _delegate;
 }
 
+- (void).cxx_destruct;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2;
 - (void)layoutSublayersOfLayer:(id)arg1;
 - (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;

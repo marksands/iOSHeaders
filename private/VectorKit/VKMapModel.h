@@ -77,6 +77,7 @@ __attribute__((visibility("hidden")))
     VKTimedAnimation *_modeTransitionAnimation;
     _Bool _disableRoadClass[9];
     struct CartographicRenderer *_renderer;
+    struct mutex _rendererMutex;
     struct LogicManager *_logicManager;
     struct unique_ptr<md::TrafficSharedResources, std::__1::default_delete<md::TrafficSharedResources>> _trafficSharedResources;
     shared_ptr_887a193f _dataOverrideManager;
@@ -120,7 +121,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool disableTransitLines; // @synthesize disableTransitLines=_disableTransitLines;
 @property(nonatomic) _Bool limitingNavCameraHeight; // @synthesize limitingNavCameraHeight=_limitingNavCameraHeight;
 @property(readonly, nonatomic) unsigned long long purpose; // @synthesize purpose=_mapPurpose;
-@property(nonatomic) struct CartographicRenderer *renderer; // @synthesize renderer=_renderer;
 @property(readonly, nonatomic) _Bool shouldRasterize; // @synthesize shouldRasterize=_shouldRasterize;
 @property(nonatomic) float navigationPuckSize; // @synthesize navigationPuckSize=_navigationPuckSize;
 @property(readonly, nonatomic) GEOResourceManifestConfiguration *manifestConfiguration; // @synthesize manifestConfiguration=_manifestConfiguration;
@@ -202,6 +202,7 @@ __attribute__((visibility("hidden")))
 - (void)buildingsDidBecome3D:(_Bool)arg1;
 - (void)reserveStencilRangesForScene:(id)arg1 context:(struct LayoutContext *)arg2 renderQueue:(RenderQueue_70f64fd3 *)arg3;
 - (void)updateRasterOverlayProviders:(id)arg1 withContext:(struct LayoutContext *)arg2;
+- (void)destroyRenderer;
 - (void)layoutScene:(id)arg1 withContext:(struct LayoutContext *)arg2 renderQueue:(RenderQueue_70f64fd3 *)arg3;
 - (id)navigationPuck;
 - (double)northYawAtZoom:(int)arg1;
@@ -227,7 +228,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *visibleTileSets;
 - (void)didReceiveMemoryWarning:(_Bool)arg1;
 - (void)dealloc;
-- (id)initWithTarget:(id)arg1 purpose:(unsigned long long)arg2 manifestConfiguration:(id)arg3 locale:(id)arg4 taskContext:(shared_ptr_e963992e)arg5 logicManager:(struct LogicManager *)arg6;
+- (id)initWithTarget:(id)arg1 renderer:(struct CartographicRenderer *)arg2 purpose:(unsigned long long)arg3 manifestConfiguration:(id)arg4 locale:(id)arg5 taskContext:(shared_ptr_e963992e)arg6 logicManager:(struct LogicManager *)arg7;
 - (void)experimentConfigurationDidChange:(id)arg1;
 - (void)resourceManifestManager:(id)arg1 didChangeActiveTileGroup:(id)arg2 fromOldTileGroup:(id)arg3;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;

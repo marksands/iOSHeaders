@@ -28,7 +28,6 @@
     UIButton *_cancelButton;
 }
 
-+ (double)_cornerRadius;
 + (struct CGSize)iconSize;
 @property(retain, nonatomic) UIButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(retain, nonatomic) UIButton *actionButton; // @synthesize actionButton=_actionButton;

@@ -14,6 +14,7 @@
 + (unsigned long long)_digestForArgs:(id)arg1;
 + (_Bool)skipFormatChecks;
 + (_Bool)synchronizeInputs;
++ (_Bool)allowPartialOutputRegion;
 + (_Bool)outputIsOpaque;
 + (_Bool)allowSRGBTranferFuntionOnOutput;
 + (int)outputFormat;

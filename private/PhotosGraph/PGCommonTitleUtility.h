@@ -16,7 +16,7 @@
 + (id)titleWithLineBreakForTitle:(id)arg1;
 + (id)titleWithLineBreakForTitle:(id)arg1 andUsedNames:(id)arg2;
 + (id)_closestSpaceMatchFromMatches:(id)arg1 withUsedNameRange:(struct _NSRange)arg2 searchForward:(_Bool)arg3;
-+ (void)startAndEndDateFromDateNodes:(id)arg1 result:(CDUnknownBlockType)arg2;
++ (void)startAndEndDateNodeFromDateNodes:(id)arg1 startDateNode:(id *)arg2 endDateNode:(id *)arg3;
 + (id)bestAddressNodeForMomentNodes:(id)arg1;
 + (id)holidayNameForDateNodes:(id)arg1;
 + (_Bool)containsCelebrationForDateNodes:(id)arg1 holidayName:(id *)arg2;

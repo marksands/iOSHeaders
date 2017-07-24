@@ -27,6 +27,7 @@
 + (id)compiledVersionForSpecification:(struct _MLModelSpecification *)arg1 options:(id)arg2 error:(id *)arg3;
 + (id)compileSpecification:(struct _MLModelSpecification *)arg1 toArchive:(struct _MLModelOutputArchiver *)arg2 options:(id)arg3 error:(id *)arg4;
 + (id)loadModelFromSpecification:(struct _MLModelSpecification *)arg1 error:(id *)arg2;
++ (id)loadModelFromSpecificationWithCompilationOptions:(struct _MLModelSpecification *)arg1 options:(id)arg2 error:(id *)arg3;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)classify:(id)arg1 options:(id)arg2 error:(id *)arg3;

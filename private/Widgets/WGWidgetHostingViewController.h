@@ -98,9 +98,7 @@
 - (_Bool)_hasOutstandingUpdateRequestForSequence:(id)arg1;
 - (void)_noteOutstandingUpdateRequestForSequence:(id)arg1;
 - (void)_setLargestAvailableDisplayMode:(long long)arg1;
-- (double)_updatePreferredContentSizeWithHeight:(double)arg1;
-- (struct CGSize)_validatedPreferredContentSizeForHeight:(double)arg1 enforcingDisplayMode:(_Bool)arg2;
-- (double)_contentWidth;
+- (void)_updatePreferredContentSizeWithHeight:(double)arg1;
 - (struct UIEdgeInsets)_marginInsets;
 - (struct CGSize)_maxSizeForDisplayMode:(long long)arg1;
 - (void)handleReconnectionRequest:(id)arg1;

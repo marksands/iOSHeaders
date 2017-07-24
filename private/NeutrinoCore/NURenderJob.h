@@ -32,6 +32,7 @@
     NUComposition *_composition;
     NURenderPipeline *_renderPipeline;
     NUGeometrySpaceMap *_resolvedSpaceMap;
+    NUImageGeometry *_fullSizeGeometry;
     CIImage *_outputImage;
     AVComposition *_outputVideo;
     AVVideoComposition *_outputVideoComposition;
@@ -43,6 +44,7 @@
 @property(retain, nonatomic) AVVideoComposition *outputVideoComposition; // @synthesize outputVideoComposition=_outputVideoComposition;
 @property(retain, nonatomic) AVComposition *outputVideo; // @synthesize outputVideo=_outputVideo;
 @property(retain, nonatomic) CIImage *outputImage; // @synthesize outputImage=_outputImage;
+@property(retain, nonatomic) NUImageGeometry *fullSizeGeometry; // @synthesize fullSizeGeometry=_fullSizeGeometry;
 @property(retain, nonatomic) NUGeometrySpaceMap *resolvedSpaceMap; // @synthesize resolvedSpaceMap=_resolvedSpaceMap;
 @property(nonatomic) CDStruct_912cb5d2 renderScale; // @synthesize renderScale=_renderScale;
 @property(retain, nonatomic) NURenderPipeline *renderPipeline; // @synthesize renderPipeline=_renderPipeline;

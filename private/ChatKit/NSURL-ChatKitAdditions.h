@@ -18,6 +18,7 @@
 @property(readonly, nonatomic) _Bool ckAllowRetargeting;
 @property(readonly, nonatomic) NSDictionary *ckLaunchURLBalloonPluginPayload;
 @property(readonly, nonatomic) NSString *ckLaunchURLBalloonPluginBundleID;
+- (_Bool)ckIsSMSPrivateURLScheme;
 @property(readonly, nonatomic) _Bool ckShouldShowDigitalTouchCanvas;
 @property(readonly, nonatomic) _Bool ckShouldShowComposeUI;
 - (id)ckWillNotLaunchComposeUIURL;

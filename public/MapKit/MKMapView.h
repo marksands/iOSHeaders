@@ -72,6 +72,8 @@
     double _verticalYawOverride;
     int _attributionCorner;
     long long _annotationTrackingZoomStyle;
+    id _topLayoutGuide;
+    id _bottomLayoutGuide;
     struct {
         unsigned int changingRegion:1;
         unsigned int debugViewHeading:1;
@@ -139,6 +141,9 @@
         unsigned int delegateWillChangeRegion:1;
         unsigned int delegateDidChangeUserTrackingMode:1;
         unsigned int delegateDidChangeUserTrackingModeButton:1;
+        unsigned int useSafeAreaInsets:1;
+        unsigned int useLayoutGuideInsets:1;
+        unsigned int useLayoutMargins:1;
     } _flags;
     _Bool _hasSetLayoutMargins;
     UILayoutGuide *_edgeInsetsGuide;
@@ -730,7 +735,7 @@
 - (void)_setRouteContextAnnotationText:(id)arg1 tollCurrency:(unsigned char)arg2 forRoute:(id)arg3;
 - (void)_clearRouteContext;
 - (void)_setRouteContextInspectedLegIndex:(unsigned long long)arg1 inspectedStepIndex:(unsigned long long)arg2;
-- (vector_e1d6d9eb)_uniqueRangesForRoutes:(id)arg1;
+- (multimap_e5545ed7)_shareSectionsForRoutes:(id)arg1;
 - (void)_setRouteContextForRoutes:(id)arg1 selectedRouteIndex:(unsigned long long)arg2;
 - (void)_setRouteContextForRoute:(id)arg1;
 - (id)_flattenedAnnotationsForAnnotationViews:(id)arg1 maxdisplayPriority:(float *)arg2;

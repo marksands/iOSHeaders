@@ -8,7 +8,7 @@
 
 #import <TemplateKit/NUIContainerGridViewDelegate-Protocol.h>
 
-@class NSArray, NSString, NUIContainerGridView;
+@class NSArray, NSMutableArray, NSString, NUIContainerGridView;
 @protocol TLKSelectableGridViewDelegate;
 
 @interface TLKSelectableGridView : TLKView <NUIContainerGridViewDelegate>
@@ -17,17 +17,22 @@
     NSArray *_tuples;
     id <TLKSelectableGridViewDelegate> _delegate;
     NUIContainerGridView *_gridView;
+    NSMutableArray *_buttons;
 }
 
-+ (unsigned long long)numberOfColumns;
++ (unsigned long long)idealNumberOfColumnsForTitles:(id)arg1 fittingSize:(struct CGSize)arg2 containerView:(id)arg3;
++ (unsigned long long)maxColumns;
+@property(retain) NSMutableArray *buttons; // @synthesize buttons=_buttons;
 @property(retain) NUIContainerGridView *gridView; // @synthesize gridView=_gridView;
 @property __weak id <TLKSelectableGridViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain) NSArray *tuples; // @synthesize tuples=_tuples;
 - (void).cxx_destruct;
 - (id)arrangedEntrySubviews;
+- (struct CGSize)containerView:(id)arg1 systemLayoutSizeFittingSize:(struct CGSize)arg2 forArrangedSubview:(id)arg3;
 - (void)selectableGridButtonPressed:(id)arg1;
 @property long long selectedIndex; // @synthesize selectedIndex=_selectedIndex;
-- (id)_createNewRowOfButtons;
+- (id)_createButton;
+- (void)containerView:(id)arg1 willMeasureArrangedSubviewsFittingSize:(struct CGSize)arg2 forReason:(long long)arg3;
 - (void)observedPropertiesChanged;
 - (void)styleDidChange:(unsigned long long)arg1;
 - (id)observableProperties;

@@ -10,7 +10,7 @@
 #import <HomeKit/HMObjectMerge-Protocol.h>
 #import <HomeKit/NSSecureCoding-Protocol.h>
 
-@class HMDelegateCaller, HMDevice, HMFMessageDispatcher, HMHome, HMThreadSafeMutableArrayCollection, NSArray, NSDate, NSString, NSUUID;
+@class HMDelegateCaller, HMDevice, HMFMessageDispatcher, HMHome, HMThreadSafeMutableArrayCollection, HMUser, NSArray, NSDate, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
 @interface HMTrigger : NSObject <HMFMessageReceiver, NSSecureCoding, HMObjectMerge>
@@ -22,6 +22,7 @@
     NSUUID *_uuid;
     HMHome *_home;
     HMDevice *_ownerDevice;
+    HMUser *_owner;
     HMThreadSafeMutableArrayCollection *_currentActionSets;
     HMFMessageDispatcher *_msgDispatcher;
     NSObject<OS_dispatch_queue> *_clientQueue;
@@ -65,7 +66,9 @@
 - (void)_configure:(id)arg1 uuid:(id)arg2 messageDispatcher:(id)arg3 clientQueue:(id)arg4 delegateCaller:(id)arg5;
 - (void)dealloc;
 - (id)initWithName:(id)arg1;
+@property(nonatomic) __weak HMUser *owner; // @synthesize owner=_owner;
 @property(retain, nonatomic) HMDevice *ownerDevice; // @synthesize ownerDevice=_ownerDevice;
+- (id)creator;
 - (id)creatorDevice;
 @property(nonatomic) __weak HMHome *home; // @synthesize home=_home;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;

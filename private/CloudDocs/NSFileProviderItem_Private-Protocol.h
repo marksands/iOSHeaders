@@ -12,7 +12,9 @@
 
 @optional
 @property(readonly, copy, nonatomic) NSString *displayName;
+@property(readonly) _Bool fp_isContainer;
 @property(readonly, copy) NSString *fp_appContainerBundleIdentifier;
+@property(readonly, getter=fp_isUbiquitous) _Bool fp_ubiquitous;
 @property(readonly, copy) NSString *fp_domainIdentifier;
 @property(readonly, copy) NSString *fp_spotlightDomainIdentifier;
 @property(readonly, copy) NSString *sharingPermissions;

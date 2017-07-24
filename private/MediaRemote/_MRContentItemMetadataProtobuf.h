@@ -28,17 +28,18 @@
     NSData *_appMetricsData;
     int _artworkDataHeight;
     int _artworkDataWidth;
+    NSString *_artworkIdentifier;
     NSString *_artworkMIMEType;
     NSString *_artworkURL;
-    NSString *_assetURL;
+    NSString *_assetURLString;
     int _chapterCount;
     NSString *_collectionIdentifier;
     NSData *_collectionInfoData;
     NSString *_composer;
     NSString *_contentIdentifier;
-    NSData *_currentPlaybackDate;
+    NSData *_currentPlaybackDateData;
     float _defaultPlaybackRate;
-    NSData *_deviceSpecificUserInfo;
+    NSData *_deviceSpecificUserInfoData;
     NSString *_directorName;
     int _discNumber;
     float _downloadProgress;
@@ -50,7 +51,7 @@
     NSString *_lyricsURL;
     int _mediaSubType;
     int _mediaType;
-    NSData *_nowPlayingInfo;
+    NSData *_nowPlayingInfoData;
     int _numberOfSections;
     int _playCount;
     float _playbackProgress;
@@ -70,7 +71,7 @@
     int _totalTrackCount;
     NSString *_trackArtistName;
     int _trackNumber;
-    NSData *_userInfo;
+    NSData *_userInfoData;
     _Bool _artworkAvailable;
     _Bool _infoAvailable;
     _Bool _isAlwaysLive;
@@ -136,19 +137,20 @@
 }
 
 + (void)initialize;
-@property(retain, nonatomic) NSData *currentPlaybackDate; // @synthesize currentPlaybackDate=_currentPlaybackDate;
+@property(retain, nonatomic) NSString *artworkIdentifier; // @synthesize artworkIdentifier=_artworkIdentifier;
+@property(retain, nonatomic) NSData *currentPlaybackDateData; // @synthesize currentPlaybackDateData=_currentPlaybackDateData;
 @property(nonatomic) int artworkDataHeight; // @synthesize artworkDataHeight=_artworkDataHeight;
 @property(nonatomic) int artworkDataWidth; // @synthesize artworkDataWidth=_artworkDataWidth;
 @property(retain, nonatomic) NSString *serviceIdentifier; // @synthesize serviceIdentifier=_serviceIdentifier;
 @property(nonatomic) double inferredTimestamp; // @synthesize inferredTimestamp=_inferredTimestamp;
 @property(nonatomic) double elapsedTimeTimestamp; // @synthesize elapsedTimeTimestamp=_elapsedTimeTimestamp;
 @property(retain, nonatomic) NSData *collectionInfoData; // @synthesize collectionInfoData=_collectionInfoData;
-@property(retain, nonatomic) NSData *deviceSpecificUserInfo; // @synthesize deviceSpecificUserInfo=_deviceSpecificUserInfo;
+@property(retain, nonatomic) NSData *deviceSpecificUserInfoData; // @synthesize deviceSpecificUserInfoData=_deviceSpecificUserInfoData;
 @property(retain, nonatomic) NSString *lyricsURL; // @synthesize lyricsURL=_lyricsURL;
 @property(retain, nonatomic) NSString *artworkURL; // @synthesize artworkURL=_artworkURL;
 @property(nonatomic) _Bool isSteerable; // @synthesize isSteerable=_isSteerable;
-@property(retain, nonatomic) NSData *userInfo; // @synthesize userInfo=_userInfo;
-@property(retain, nonatomic) NSData *nowPlayingInfo; // @synthesize nowPlayingInfo=_nowPlayingInfo;
+@property(retain, nonatomic) NSData *userInfoData; // @synthesize userInfoData=_userInfoData;
+@property(retain, nonatomic) NSData *nowPlayingInfoData; // @synthesize nowPlayingInfoData=_nowPlayingInfoData;
 @property(nonatomic) int mediaSubType; // @synthesize mediaSubType=_mediaSubType;
 @property(nonatomic) int mediaType; // @synthesize mediaType=_mediaType;
 @property(retain, nonatomic) NSString *seriesName; // @synthesize seriesName=_seriesName;
@@ -178,7 +180,7 @@
 @property(nonatomic) double elapsedTime; // @synthesize elapsedTime=_elapsedTime;
 @property(nonatomic) int discNumber; // @synthesize discNumber=_discNumber;
 @property(retain, nonatomic) NSString *composer; // @synthesize composer=_composer;
-@property(retain, nonatomic) NSString *assetURL; // @synthesize assetURL=_assetURL;
+@property(retain, nonatomic) NSString *assetURLString; // @synthesize assetURLString=_assetURLString;
 @property(retain, nonatomic) NSString *artworkMIMEType; // @synthesize artworkMIMEType=_artworkMIMEType;
 @property(nonatomic) double startTime; // @synthesize startTime=_startTime;
 @property(retain, nonatomic) NSString *profileIdentifier; // @synthesize profileIdentifier=_profileIdentifier;
@@ -218,19 +220,20 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasCurrentPlaybackDate;
+@property(readonly, nonatomic) _Bool hasArtworkIdentifier;
+@property(readonly, nonatomic) _Bool hasCurrentPlaybackDateData;
 @property(nonatomic) _Bool hasArtworkDataHeight;
 @property(nonatomic) _Bool hasArtworkDataWidth;
 @property(readonly, nonatomic) _Bool hasServiceIdentifier;
 @property(nonatomic) _Bool hasInferredTimestamp;
 @property(nonatomic) _Bool hasElapsedTimeTimestamp;
 @property(readonly, nonatomic) _Bool hasCollectionInfoData;
-@property(readonly, nonatomic) _Bool hasDeviceSpecificUserInfo;
+@property(readonly, nonatomic) _Bool hasDeviceSpecificUserInfoData;
 @property(readonly, nonatomic) _Bool hasLyricsURL;
 @property(readonly, nonatomic) _Bool hasArtworkURL;
 @property(nonatomic) _Bool hasIsSteerable;
-@property(readonly, nonatomic) _Bool hasUserInfo;
-@property(readonly, nonatomic) _Bool hasNowPlayingInfo;
+@property(readonly, nonatomic) _Bool hasUserInfoData;
+@property(readonly, nonatomic) _Bool hasNowPlayingInfoData;
 @property(nonatomic) _Bool hasMediaSubType;
 @property(nonatomic) _Bool hasMediaType;
 @property(readonly, nonatomic) _Bool hasSeriesName;
@@ -260,7 +263,7 @@
 @property(nonatomic) _Bool hasElapsedTime;
 @property(nonatomic) _Bool hasDiscNumber;
 @property(readonly, nonatomic) _Bool hasComposer;
-@property(readonly, nonatomic) _Bool hasAssetURL;
+@property(readonly, nonatomic) _Bool hasAssetURLString;
 @property(readonly, nonatomic) _Bool hasArtworkMIMEType;
 @property(nonatomic) _Bool hasStartTime;
 @property(readonly, nonatomic) _Bool hasProfileIdentifier;
@@ -292,7 +295,8 @@
 @property(readonly, nonatomic) _Bool hasSubtitle;
 @property(readonly, nonatomic) _Bool hasTitle;
 - (void)dealloc;
-- (id)customDictionaryRepresentation;
+- (id)_initWithData:(id)arg1;
+- (id)_init;
 
 @end
 

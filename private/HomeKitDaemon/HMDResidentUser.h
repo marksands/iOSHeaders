@@ -23,6 +23,7 @@
 - (id)modelObjectWithChangeType:(unsigned long long)arg1;
 - (_Bool)mergeFromUser:(id)arg1 dataVersion:(long long)arg2;
 - (_Bool)configureWithIDSDevice:(id)arg1;
+- (_Bool)requiresMakoSupport;
 - (_Bool)refreshDisplayName;
 @property(nonatomic) unsigned long long configurationState; // @synthesize configurationState=_configurationState;
 - (void)setDeviceIdentifier:(id)arg1;

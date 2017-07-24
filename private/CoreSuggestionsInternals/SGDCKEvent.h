@@ -14,12 +14,15 @@
 {
     double _creationTimestamp;
     double _lastModifiedTimestamp;
+    unsigned long long _categoryType;
     NSString *_content;
+    NSString *_domain;
     NSString *_extraKey;
     NSString *_groupId;
     NSMutableArray *_locations;
     NSData *_schemaOrg;
     NSString *_sourceKey;
+    NSString *_templateName;
     NSString *_title;
     SGDCKTimeRange *_when;
     _Bool _allDay;
@@ -27,12 +30,16 @@
     struct {
         unsigned int creationTimestamp:1;
         unsigned int lastModifiedTimestamp:1;
+        unsigned int categoryType:1;
         unsigned int allDay:1;
         unsigned int cancelled:1;
     } _has;
 }
 
 + (Class)locationsType;
+@property(nonatomic) unsigned long long categoryType; // @synthesize categoryType=_categoryType;
+@property(retain, nonatomic) NSString *templateName; // @synthesize templateName=_templateName;
+@property(retain, nonatomic) NSString *domain; // @synthesize domain=_domain;
 @property(retain, nonatomic) NSData *schemaOrg; // @synthesize schemaOrg=_schemaOrg;
 @property(nonatomic) _Bool cancelled; // @synthesize cancelled=_cancelled;
 @property(retain, nonatomic) NSString *extraKey; // @synthesize extraKey=_extraKey;
@@ -55,6 +62,11 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (unsigned long long)StringAsCategoryType:(id)arg1;
+- (id)categoryTypeAsString:(unsigned long long)arg1;
+@property(nonatomic) _Bool hasCategoryType;
+@property(readonly, nonatomic) _Bool hasTemplateName;
+@property(readonly, nonatomic) _Bool hasDomain;
 @property(readonly, nonatomic) _Bool hasSchemaOrg;
 @property(nonatomic) _Bool hasCancelled;
 @property(readonly, nonatomic) _Bool hasExtraKey;

@@ -17,7 +17,6 @@
     long long _cameraPosition;
     unsigned long long _lightEstimation;
     AVCaptureSession *_customCaptureSession;
-    AVCaptureAudioDataOutput *_audioDataOutput;
     long long _latencyFrameCount;
 }
 
@@ -25,13 +24,13 @@
 + (id)recordingConfigurationWithConfiguration:(id)arg1 recordingTechnique:(id *)arg2;
 + (_Bool)isSupported;
 @property(nonatomic) long long latencyFrameCount; // @synthesize latencyFrameCount=_latencyFrameCount;
-@property(retain, nonatomic) AVCaptureAudioDataOutput *audioDataOutput; // @synthesize audioDataOutput=_audioDataOutput;
 @property(retain, nonatomic) AVCaptureSession *customCaptureSession; // @synthesize customCaptureSession=_customCaptureSession;
 @property(nonatomic) unsigned long long lightEstimation; // @synthesize lightEstimation=_lightEstimation;
 @property(nonatomic) long long cameraPosition; // @synthesize cameraPosition=_cameraPosition;
 @property(retain, nonatomic) NSArray *customSensors; // @synthesize customSensors=_customSensors;
 @property(nonatomic) long long worldAlignment; // @synthesize worldAlignment=_worldAlignment;
 - (void).cxx_destruct;
+@property(retain, nonatomic) AVCaptureAudioDataOutput *audioDataOutput;
 - (id)techniques;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
@@ -40,7 +39,6 @@
 - (unsigned long long)hash;
 - (long long)latencyFrameCountAdjustedForReplay;
 - (id)deviceModel;
-- (id)cameraDeviceType;
 @property(nonatomic, getter=isLightEstimationEnabled) _Bool lightEstimationEnabled;
 - (id)initWithCameraPosition:(long long)arg1;
 - (id)init;

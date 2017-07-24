@@ -63,8 +63,8 @@ __attribute__((visibility("hidden")))
 - (id)p_validatedImageProvider;
 - (id)p_imageProvider;
 - (id)p_imageData;
-- (id)textureForContext:(id)arg1;
-- (_Bool)p_shouldUseSourceImageForContext:(id)arg1 clipBounds:(struct CGRect)arg2 transform:(struct CGAffineTransform)arg3 image:(struct CGImage *)arg4;
+- (id)textureForDescription:(id)arg1;
+- (_Bool)p_shouldUseSourceImageForDescription:(id)arg1 clipBounds:(struct CGRect)arg2 transform:(struct CGAffineTransform)arg3 image:(struct CGImage *)arg4;
 - (void)setTextureAttributes:(id)arg1 textureBounds:(struct CGRect)arg2;
 - (struct CGRect)frameInUnscaledCanvas;
 - (void)p_drawInContext:(struct CGContext *)arg1 withContent:(_Bool)arg2 strokeDrawOptions:(unsigned long long)arg3 withOpacity:(double)arg4 withMask:(_Bool)arg5 withIAMask:(_Bool)arg6 forLayer:(_Bool)arg7 forShadow:(_Bool)arg8 forHitTest:(_Bool)arg9;

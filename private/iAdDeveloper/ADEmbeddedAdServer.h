@@ -68,7 +68,6 @@
 - (id)_handleLogSysEventRequest:(id)arg1 message:(id)arg2;
 - (id)_handleLogImpressionRequest:(id)arg1 message:(id)arg2;
 - (id)_handleGenericAnalyticsRequest:(id)arg1 message:(id)arg2 type:(int)arg3;
-- (id)_handleUserTargetingRequest:(id)arg1 message:(id)arg2;
 - (id)_handleConfigurationRequest:(id)arg1 message:(id)arg2;
 - (id)_handleAdSlotRequest:(id)arg1 message:(id)arg2;
 - (id)_handleBatchRequest:(id)arg1 message:(id)arg2;

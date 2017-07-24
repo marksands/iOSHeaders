@@ -82,6 +82,7 @@
     int _uuiddbfd;
     struct timezone _tz;
     _Bool _sensitive;
+    _Bool _trackActivities;
     unsigned long long _thread;
     unsigned long long _retainCount;
     NSString *_processImagePath;
@@ -137,6 +138,7 @@
 - (_Bool)respondsToSelector:(SEL)arg1;
 - (_Bool)_setLogEvent:(CDStruct_c6d697a1 *)arg1;
 - (void)_setBuffer:(const void *)arg1 size:(unsigned long long)arg2 privateBuffer:(const void *)arg3 privateSize:(unsigned long long)arg4;
+- (void)_setDoNotTrackActivites:(_Bool)arg1;
 - (void)_setFallbackTimezone;
 - (void)_setUUIDDBFileDescriptor:(int)arg1;
 - (void)_setTimesyncDatabase:(struct _os_timesync_db_s *)arg1;

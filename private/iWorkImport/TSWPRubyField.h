@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(copy, nonatomic) NSString *rubyText; // @synthesize rubyText=_rubyText;
+- (void).cxx_destruct;
 - (_Bool)supportsDeepCopyForUndo;
 - (void)loadFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct RubyFieldArchive *)arg1 unarchiver:(id)arg2;
@@ -28,7 +29,6 @@ __attribute__((visibility("hidden")))
 - (id)text;
 @property(readonly, nonatomic) int baseTextScript;
 @property(readonly, nonatomic) NSString *baseText;
-- (void)dealloc;
 - (id)copyWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1 rubyText:(id)arg2;
 

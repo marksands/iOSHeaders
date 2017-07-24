@@ -15,7 +15,7 @@
 }
 
 + (id)_billingValueInCell:(id)arg1 forItem:(id)arg2 isPlaceholder:(_Bool)arg3;
-+ (void)presentCell:(id)arg1 withDataItem:(id)arg2;
++ (void)presentCell:(id)arg1 withDataItem:(id)arg2 shouldShowSeperator:(_Bool)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

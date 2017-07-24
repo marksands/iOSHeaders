@@ -10,6 +10,8 @@
 {
 }
 
++ (id)_mobileGestaltStringForKey:(struct __CFString *)arg1;
++ (_Bool)canHandleDecodingOnRenderThread;
 + (_Bool)isFlowcaseAtTopOfStackFromElement:(id)arg1;
 + (void)disassociateIKViewElementsRecursivelyFromView:(id)arg1;
 + (id)_defaultPlaceholderImageForUserInterfaceStyle:(long long)arg1 withCornerRadii:(struct TVCornerRadii)arg2 andSize:(struct CGSize)arg3;

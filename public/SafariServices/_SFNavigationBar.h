@@ -7,7 +7,9 @@
 #import <UIKit/UIView.h>
 
 #import <SafariServices/UIDragInteractionDelegate-Protocol.h>
+#import <SafariServices/UIDragInteractionDelegate_Private-Protocol.h>
 #import <SafariServices/UIDropInteractionDelegate-Protocol.h>
+#import <SafariServices/UIDropInteractionDelegate_Private-Protocol.h>
 #import <SafariServices/UIGestureRecognizerDelegate-Protocol.h>
 #import <SafariServices/_SFFluidProgressViewDelegate-Protocol.h>
 #import <SafariServices/_SFNavigationBarURLButtonDelegate-Protocol.h>
@@ -16,7 +18,7 @@
 @class NSArray, NSAttributedString, NSString, NSTimer, SFCrossfadingImageView, SFNavigationBarReaderButton, UIButton, UIColor, UIImageView, UILabel, UILongPressGestureRecognizer, UITextField, _SFDimmingButton, _SFDismissButton, _SFFluidProgressView, _SFNavigationBarBackdrop, _SFNavigationBarItem, _SFNavigationBarLabelsContainer, _SFNavigationBarURLButton, _SFToolbar, _UIBackdropViewSettings;
 @protocol _SFNavigationBarDelegate;
 
-@interface _SFNavigationBar : UIView <_UIBasicAnimationFactory, _SFFluidProgressViewDelegate, _SFNavigationBarURLButtonDelegate, UIGestureRecognizerDelegate, UIDragInteractionDelegate, UIDropInteractionDelegate>
+@interface _SFNavigationBar : UIView <_UIBasicAnimationFactory, _SFFluidProgressViewDelegate, _SFNavigationBarURLButtonDelegate, UIGestureRecognizerDelegate, UIDragInteractionDelegate, UIDragInteractionDelegate_Private, UIDropInteractionDelegate, UIDropInteractionDelegate_Private>
 {
     UIButton *_compressedBarButton;
     UIView *_controlsContainer;
@@ -115,9 +117,12 @@
 @property(nonatomic) _Bool usesNarrowLayout; // @synthesize usesNarrowLayout=_usesNarrowLayout;
 @property(retain, nonatomic) _SFNavigationBarItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
+- (long long)_dropInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
+- (id)_dragInteraction:(id)arg1 viewToSnapshotItem:(id)arg2;
 - (void)dropInteraction:(id)arg1 performDrop:(id)arg2;
 - (id)_api_dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
 - (_Bool)dropInteraction:(id)arg1 canHandleSession:(id)arg2;
+- (long long)_dragInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (void)dragInteraction:(id)arg1 sessionWillBegin:(id)arg2;
 - (id)_api_dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
 - (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;

@@ -12,10 +12,13 @@
 {
     NSArray *_items;
     NSFileCoordinator *_fileCoordinator;
+    CDUnknownBlockType _downloadCompletionBlock;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType downloadCompletionBlock; // @synthesize downloadCompletionBlock=_downloadCompletionBlock;
 - (void).cxx_destruct;
 - (void)presendNotifications;
+- (void)finishWithResult:(id)arg1 error:(id)arg2;
 - (oneway void)cancel;
 - (void)main;
 - (id)initWithItems:(id)arg1;

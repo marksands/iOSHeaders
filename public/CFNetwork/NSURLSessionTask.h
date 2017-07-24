@@ -27,6 +27,7 @@
 @property _Bool _extractorPreparedForExtraction; // @synthesize _extractorPreparedForExtraction=__extractorPreparedForExtraction;
 @property _Bool _extractorFinishedDecoding; // @synthesize _extractorFinishedDecoding=__extractorFinishedDecoding;
 @property float priority; // @synthesize priority=_priority;
+@property(readonly, nonatomic) _Bool _isAVAssetTask; // @dynamic _isAVAssetTask;
 - (void)_consumePendingBytesReceivedEncoded;
 - (void)_appendCountOfPendingBytesReceivedEncoded:(long long)arg1;
 - (void)_finishProgressReporting;
@@ -98,6 +99,7 @@
 @property(copy) NSString *_pathToDownloadTaskFile; // @dynamic _pathToDownloadTaskFile;
 @property(retain, nonatomic) struct __PerformanceTiming *_performanceTiming; // @dynamic _performanceTiming;
 @property unsigned int _powerAssertion; // @dynamic _powerAssertion;
+@property(nonatomic) _Bool _preconnect; // @dynamic _preconnect;
 @property _Bool _preventsIdleSystemSleep; // @dynamic _preventsIdleSystemSleep;
 @property _Bool _preventsSystemHTTPProxyAuthentication; // @dynamic _preventsSystemHTTPProxyAuthentication;
 @property long long _priority; // @dynamic _priority;

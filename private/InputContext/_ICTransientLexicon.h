@@ -23,6 +23,7 @@
 - (void).cxx_destruct;
 - (struct _LXLexicon *)getLexiconImplementation;
 - (struct _LXEntry *)copyEntryForString:(id)arg1;
+- (id)getSortKeyEquivalents:(id)arg1;
 - (_Bool)contains:(id)arg1;
 - (void)removeAllEntries;
 - (void)removeEntry:(id)arg1;

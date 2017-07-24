@@ -17,6 +17,10 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) long long itemDBRowID; // @synthesize itemDBRowID=_itemDBRowID;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToItemDBRowIDIdentifier:(id)arg1;
+@property(readonly) unsigned long long hash;
 - (id)columnsValues;
 - (id)columns;
 - (id)matchingJobsWhereSQLClause;
@@ -26,7 +30,6 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

@@ -10,6 +10,7 @@
 {
 }
 
++ (id)_daysSinceSubmissionDateProperty;
 + (id)_contentTypeProperty;
 + (void)_registerContentTypes:(id)arg1 withEventName:(id)arg2;
 + (void)_registerEnvelopes:(id)arg1 withEventName:(id)arg2;

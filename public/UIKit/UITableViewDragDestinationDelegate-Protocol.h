@@ -12,7 +12,7 @@
 @protocol UITableViewDragDestinationDelegate <NSObject>
 
 @optional
-- (long long)_tableView:(UITableView *)arg1 dataOwnerForDropSession:(id <UIDropSession>)arg2 withDestinationIndexPath:(NSIndexPath *)arg3;
+- (long long)__tableView:(UITableView *)arg1 dataOwnerForDropSession:(id <UIDropSession>)arg2 withDestinationIndexPath:(NSIndexPath *)arg3;
 - (void)_tableView:(UITableView *)arg1 dropSessionDidEnd:(id <UIDropSession>)arg2;
 - (void)_tableView:(UITableView *)arg1 dropSessionDidExit:(id <UIDropSession>)arg2;
 - (UITableViewDropProposal *)_tableView:(UITableView *)arg1 dropSessionDidUpdate:(id <UIDropSession>)arg2 withDestinationIndexPath:(NSIndexPath *)arg3;

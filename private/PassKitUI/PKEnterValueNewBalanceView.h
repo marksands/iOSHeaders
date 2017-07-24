@@ -30,6 +30,7 @@
 - (void)_addSubviews;
 - (void)_createAmountFormatter;
 - (void)_updateBalanceText;
+- (id)_formattedStringForAmount:(id)arg1;
 - (void)addAmountToBalance:(id)arg1;
 - (void)showSpinner:(_Bool)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

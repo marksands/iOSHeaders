@@ -6,13 +6,14 @@
 
 #import <objc/NSObject.h>
 
-@class CARSession;
+@class CARSession, CARSessionChangedNotificationConverter;
 @protocol CARSessionObserving, OS_dispatch_queue, OS_dispatch_source;
 
 @interface CARSessionStatus : NSObject
 {
     id <CARSessionObserving> _sessionObserver;
     CARSession *_session;
+    CARSessionChangedNotificationConverter *_notificationConverter;
     NSObject<OS_dispatch_queue> *_sessionUpdatesQueue;
     NSObject<OS_dispatch_source> *_connectingTimer;
     unsigned long long _timeoutInterval;
@@ -21,6 +22,7 @@
 @property(nonatomic) unsigned long long timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *connectingTimer; // @synthesize connectingTimer=_connectingTimer;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *sessionUpdatesQueue; // @synthesize sessionUpdatesQueue=_sessionUpdatesQueue;
+@property(retain, nonatomic) CARSessionChangedNotificationConverter *notificationConverter; // @synthesize notificationConverter=_notificationConverter;
 @property(retain, nonatomic) CARSession *session; // @synthesize session=_session;
 @property(nonatomic) __weak id <CARSessionObserving> sessionObserver; // @synthesize sessionObserver=_sessionObserver;
 - (void).cxx_destruct;

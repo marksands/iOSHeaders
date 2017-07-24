@@ -69,7 +69,6 @@
 @property(readonly, retain) NSInputStream *HTTPBodyStream;
 @property(readonly, copy) NSData *HTTPBody;
 - (id)valueForHTTPHeaderField:(id)arg1;
-- (id)_allHTTPHeaderFieldsAsArrays;
 @property(readonly, copy) NSDictionary *allHTTPHeaderFields;
 @property(readonly, copy) NSString *HTTPMethod;
 

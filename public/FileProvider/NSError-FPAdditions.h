@@ -10,11 +10,15 @@
 + (id)fp_invalidArgumentError:(id)arg1;
 + (id)fp_errorWithPOSIXCode:(int)arg1 description:(id)arg2;
 + (id)fp_errorWithPOSIXCode:(int)arg1;
++ (void)load;
 - (id)fp_userInfoValueForKey:(id)arg1;
 - (id)fp_annotatedErrorWithItem:(id)arg1 variant:(id)arg2;
+- (id)fp_annotatedErrorWithURL:(id)arg1 variant:(id)arg2;
+- (id)fp_annotatedErrorWitName:(id)arg1 path:(id)arg2 variant:(id)arg3;
 - (id)fp_annotatedErrorWithItems:(id)arg1 variant:(id)arg2;
 @property(readonly, nonatomic) _Bool fp_isSyncAnchorExpiredError;
 @property(readonly, nonatomic) _Bool fp_isRemoteCrashError;
 - (id)fp_strippedError;
+- (_Bool)fp_isFileProviderError:(long long)arg1;
 @end
 

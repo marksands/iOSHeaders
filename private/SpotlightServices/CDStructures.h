@@ -10,21 +10,9 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
-struct __CFDictionary;
+struct __CFArray;
 
-struct _populate_text_features_ctx {
-    double _field1[28];
-    double _field2;
-    double _field3;
-    double _field4;
-    double _field5;
-    unsigned int _field6;
-    char *_field7;
-    char *_field8;
-    _Bool _field9;
-    unsigned long long _field10;
-    unsigned long long _field11;
-};
+struct __CFDictionary;
 
 struct _resultset_computation_ctx {
     double *_field1;
@@ -35,6 +23,23 @@ struct _resultset_computation_ctx {
     double _field6;
     double _field7;
     double _field8[44];
+};
+
+struct prs_feature_population_ctx_t {
+    struct __CFArray *_field1;
+    struct __CFArray *_field2;
+    struct __CFArray *_field3;
+    unsigned char _field4;
+    double _field5[28];
+    double _field6;
+    double _field7;
+    double _field8;
+    double _field9;
+    unsigned int _field10;
+    unsigned long long _field11;
+    unsigned long long _field12;
+    long long _field13;
+    unsigned long long _field14;
 };
 
 struct prs_model_resource_header {

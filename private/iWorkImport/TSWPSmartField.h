@@ -15,14 +15,15 @@
 __attribute__((visibility("hidden")))
 @interface TSWPSmartField : TSPObject <TSKDocumentObject, TSPCopying, TSWPTextSpanningObject>
 {
-    TSWPStorage *_parentStorage;
-    unsigned long long _lastTableIndex;
     NSString *_textAttributeUUIDString;
+    unsigned long long _lastTableIndex;
+    TSWPStorage *_parentStorage;
 }
 
 + (id)defaultFieldStyleIdentifier;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-@property(nonatomic) TSWPStorage *parentStorage; // @synthesize parentStorage=_parentStorage;
+@property(nonatomic) __weak TSWPStorage *parentStorage; // @synthesize parentStorage=_parentStorage;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *textAttributeUUIDString;
 - (_Bool)isEquivalentToObject:(id)arg1;
 - (void)resetTextAttributeUUIDString;
@@ -44,7 +45,6 @@ __attribute__((visibility("hidden")))
 - (int)smartFieldKind;
 - (id)copyWithContext:(id)arg1;
 - (void)i_setTextAttributeUUIDString:(id)arg1;
-- (void)dealloc;
 - (id)initFromSmartField:(id)arg1;
 - (id)initWithContext:(id)arg1;
 

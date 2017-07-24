@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct TSCEValue invalidSymbolErrorValue;
 @property(readonly, nonatomic) struct TSCEValue invalidAttributeErrorValue;
 @property(readonly, nonatomic) long long year; // @synthesize year=_year;
+@property(readonly, nonatomic) _Bool isCurrency;
 @property(readonly, nonatomic) _Bool isCold;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

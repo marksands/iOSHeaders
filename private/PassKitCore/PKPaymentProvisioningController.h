@@ -58,7 +58,8 @@
 - (id)displayableErrorForProvisioningError:(id)arg1;
 - (id)displayableErrorForError:(id)arg1;
 - (id)_displayableErrorOverrideForUnderlyingError:(id)arg1;
-- (_Bool)_hasPaymentPassWithPaymentMethodType:(unsigned long long)arg1;
+- (id)_paymentPassWithPaymentMethodType:(unsigned long long)arg1;
+- (id)passesWithPaymentMethodType:(unsigned long long)arg1;
 - (_Bool)hasDebitPaymentPass;
 - (_Bool)hasCreditPaymentPass;
 - (_Bool)hasPaymentPass;

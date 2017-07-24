@@ -5,8 +5,10 @@
 //
 
 @class DOMHTMLElement, NoteTextView, UIPasteboard;
+@protocol _NSReaderDelegate;
 
 @protocol NoteTextViewActionDelegate
+- (id <_NSReaderDelegate>)readerDelegateInTextView:(NoteTextView *)arg1;
 - (void)noteTextView:(NoteTextView *)arg1 handleLongPressOnElement:(DOMHTMLElement *)arg2 atPoint:(struct CGPoint)arg3;
 - (_Bool)noteTextView:(NoteTextView *)arg1 canHandleLongPressOnElement:(DOMHTMLElement *)arg2;
 - (void)insertImageInTextView:(NoteTextView *)arg1;

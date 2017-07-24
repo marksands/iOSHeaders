@@ -50,6 +50,7 @@
 - (void)performAction:(id)arg1 withPaymentIdentifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)requestTokenForAmount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_completePerformQuote;
+- (id)performQuoteOrientation;
 - (void)performQuoteWithCompletion:(CDUnknownBlockType)arg1;
 - (void)performQuote:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_defaultAlternateFundingSourceForMode:(unsigned long long)arg1;
@@ -59,6 +60,7 @@
 - (void)selectMode:(unsigned long long)arg1;
 - (void)identifyRecipientSelf;
 - (void)identifyRecipientWithRoutingNumber:(id)arg1 accountNumber:(id)arg2 accountName:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_refreshRecipientWithCompletion:(CDUnknownBlockType)arg1;
 - (void)identifyRecipientWithAddress:(id)arg1 senderAddress:(id)arg2 completion:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) PKPeerPaymentPerformResponse *performQuoteResponse;
 @property(readonly, nonatomic) PKPeerPaymentQuote *quote;

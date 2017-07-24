@@ -29,12 +29,18 @@ __attribute__((visibility("hidden")))
 - (void)registerClassTypeMappings;
 - (double)maximumAspectRatioForPreviewImage;
 - (double)mimimumAspectRatioForPreviewImage;
+- (id)stringForOwnerHasCollabEnabledMessage;
+- (id)stringForOwnerHasCollabEnabledTitle;
+- (id)stringForBoxCollaborationOptInLearnMoreURL;
+- (id)stringForBoxCollaborationOptInTermsOfServiceURL;
+- (id)stringForBoxCollaborationOptInMessage;
 - (id)stringForCouldntCreatePDFTitle;
 - (id)stringForCloseDocumentConfirmationWillContinueToUpdateInformativeText;
 - (id)stringForCloseDocumentConfirmationAlertMessage;
 - (id)stringForApplicationUpdateError;
 - (id)stringForCollaborationConnecting;
 - (id)stringForCollaborationOnline;
+- (id)stringForGenericServerUnreachable;
 - (id)stringForICloudUnreachable;
 - (id)stringForCollaborationOffline;
 - (id)stringForRemoveLastPrivateParticipantAlertConfirmationMessage;
@@ -59,7 +65,6 @@ __attribute__((visibility("hidden")))
 - (id)stringForCollaborator1_6ConflictDetails;
 - (id)stringForCollaboratorConflictWithKeepDetails;
 - (id)stringForCollaboratorConflictDetails;
-- (id)stringForOwnerConflictWithSaveACopyAlertMessage;
 - (id)stringForUpdatingDocument;
 - (id)stringForCollaboratorConflict;
 - (id)templateTypeDisplayName;

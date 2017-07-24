@@ -6,17 +6,26 @@
 
 #import <iTunesStore/ISOperation.h>
 
-@class ACAccount;
+@class NSString, SSAccount;
 
 @interface ISLogoutOperation : ISOperation
 {
-    ACAccount *_account;
+    SSAccount *_account;
+    NSString *_logKey;
 }
 
-@property(retain, nonatomic) ACAccount *account; // @synthesize account=_account;
+@property(retain, nonatomic) NSString *logKey; // @synthesize logKey=_logKey;
+@property(retain, nonatomic) SSAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
+- (void)_sendLogoutRequest;
+- (id)_sbsyncData;
+- (void)_disableBookkeeper;
+- (void)_disableAutomaticDownloadKinds;
+- (id)_createLogoutRequestProperties;
+- (id)_createDisableBookkeeperRequestPropertiesWithURL:(id)arg1;
+- (id)_copyAuthenticationContext;
 - (void)run;
-- (id)initWithAccount:(id)arg1;
+- (id)initWithAccount:(id)arg1 logKey:(id)arg2;
 
 @end
 

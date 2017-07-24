@@ -41,7 +41,8 @@
 @property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) NSString *identifier;
 - (id)initWithIdentifier:(id)arg1 title:(id)arg2 image:(id)arg3;
-- (id)cacheableObjects;
+- (void)_intents_updateContainerWithCache:(id)arg1;
+- (id)_intents_cacheableObjects;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

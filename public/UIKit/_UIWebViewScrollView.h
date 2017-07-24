@@ -13,10 +13,13 @@ __attribute__((visibility("hidden")))
 {
     _UIWebViewScrollViewDelegateForwarder *_forwarder;
     _Bool _bouncesSetExplicitly;
+    _Bool _contentInsetAdjustmentBehaviorWasExternallyOverridden;
     UIWebBrowserView *_browserView;
 }
 
-- (void)setContentInset:(struct UIEdgeInsets)arg1;
+- (void)_setContentInsetAdjustmentBehaviorInternal:(long long)arg1;
+- (void)setContentInsetAdjustmentBehavior:(long long)arg1;
+- (_Bool)_contentInsetAdjustmentBehaviorWasExternallyOverridden;
 - (void)_setWebView:(id)arg1;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;

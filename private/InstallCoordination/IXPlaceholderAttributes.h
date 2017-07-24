@@ -19,9 +19,11 @@
     NSString *_minimumOSVersion;
     NSDictionary *_requiredDeviceCapabilities;
     NSArray *_sbAppTags;
+    NSArray *_lsCounterpartIdentifiers;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSArray *lsCounterpartIdentifiers; // @synthesize lsCounterpartIdentifiers=_lsCounterpartIdentifiers;
 @property(copy, nonatomic) NSArray *sbAppTags; // @synthesize sbAppTags=_sbAppTags;
 @property(copy, nonatomic) NSDictionary *requiredDeviceCapabilities; // @synthesize requiredDeviceCapabilities=_requiredDeviceCapabilities;
 @property(copy, nonatomic) NSString *minimumOSVersion; // @synthesize minimumOSVersion=_minimumOSVersion;

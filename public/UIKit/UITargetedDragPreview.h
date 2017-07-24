@@ -19,6 +19,7 @@
     UIDragPreviewTarget *_target;
     UIView *_view;
     UIDragPreviewParameters *_parameters;
+    UIView *_viewToSnapshot;
     NSDictionary *__springboardParameters;
     struct CGPoint _liftAnchorPoint;
 }
@@ -28,6 +29,7 @@
 + (id)previewForURL:(id)arg1 target:(id)arg2;
 @property(copy, nonatomic) NSDictionary *_springboardParameters; // @synthesize _springboardParameters=__springboardParameters;
 @property(nonatomic) _Bool _springboardPlatterStyle; // @synthesize _springboardPlatterStyle=__springboardPlatterStyle;
+@property(nonatomic, getter=_viewToSnapshot, setter=_setViewToSnapshot:) __weak UIView *viewToSnapshot; // @synthesize viewToSnapshot=_viewToSnapshot;
 @property(nonatomic, getter=_isDefaultPreview, setter=_setDefaultPreview:) _Bool defaultPreview; // @synthesize defaultPreview=_defaultPreview;
 @property(nonatomic) _Bool fadesOut; // @synthesize fadesOut=_fadesOut;
 @property(nonatomic) struct CGPoint liftAnchorPoint; // @synthesize liftAnchorPoint=_liftAnchorPoint;
@@ -40,6 +42,7 @@
 @property(readonly, nonatomic) struct CGSize size;
 - (_Bool)containsPoint:(struct CGPoint)arg1 fromView:(id)arg2;
 - (void)takeLiftLocation:(struct CGPoint)arg1 fromView:(id)arg2;
+@property(readonly, nonatomic) CDUnknownBlockType _duiPreviewProvider;
 @property(readonly, nonatomic) _DUIPreview *_duiPreview;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;

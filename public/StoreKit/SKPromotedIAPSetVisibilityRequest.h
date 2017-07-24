@@ -20,6 +20,7 @@
 @property(copy, nonatomic) NSString *productId; // @synthesize productId=_productId;
 @property(nonatomic) long long visibility; // @synthesize visibility=_visibility;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
+- (void).cxx_destruct;
 - (void)_sendXPCMessage;
 - (void)_handleReply:(id)arg1;
 - (id)initWithVisibility:(long long)arg1 productId:(id)arg2 bundleId:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;

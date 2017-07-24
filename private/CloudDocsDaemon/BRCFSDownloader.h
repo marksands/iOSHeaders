@@ -8,12 +8,13 @@
 
 #import <CloudDocsDaemon/BRCModule-Protocol.h>
 
-@class BRCDeadlineScheduler, NSDate, NSMutableDictionary, NSString, brc_task_tracker;
+@class BRCDeadlineScheduler, BRCFairScheduler, NSDate, NSMutableDictionary, NSString, brc_task_tracker;
 
 __attribute__((visibility("hidden")))
 @interface BRCFSDownloader : BRCFSTransferScheduler <BRCModule>
 {
     brc_task_tracker *_tracker;
+    BRCFairScheduler *_fairScheduler;
     unsigned long long _activeDownloadsSize;
     NSDate *_lastDownloadRefresh;
     double _activeDownloadSizeRefreshInterval;

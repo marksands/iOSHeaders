@@ -35,7 +35,7 @@
 @property(readonly, copy, nonatomic) NSString *SQL;
 - (int)reset;
 @property(readonly, nonatomic, getter=isReadOnly) _Bool readOnly;
-- (int)finalize;
+- (int)finalizeStatement;
 @property(readonly, copy, nonatomic) NSDictionary *columnIndexByName;
 - (id)initWithStatement:(struct sqlite3_stmt *)arg1 connection:(id)arg2;
 

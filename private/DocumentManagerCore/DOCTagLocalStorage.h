@@ -18,6 +18,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSOrderedSet *discoveredTags;
 @property(retain, nonatomic) NSOrderedSet *userTags;
+- (id)_unarchivedTagsFromData:(id)arg1;
 @property(nonatomic) long long tagSerialNumber;
 - (id)init;
 

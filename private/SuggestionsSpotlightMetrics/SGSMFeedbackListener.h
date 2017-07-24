@@ -8,12 +8,15 @@
 
 #import <SuggestionsSpotlightMetrics/SFFeedbackListener-Protocol.h>
 
-@class NSString, SGSMutableSearchState;
+@class NSCache, NSString, SGSMutableSearchState;
+@protocol SGSuggestionsServiceEventsProtocol;
 
 @interface SGSMFeedbackListener : NSObject <SFFeedbackListener>
 {
     SGSMutableSearchState *_searchState;
     SGSMutableSearchState *_previousState;
+    id <SGSuggestionsServiceEventsProtocol> _suggestionsService;
+    NSCache *_eventLastInteractionTime;
 }
 
 - (void).cxx_destruct;
@@ -23,7 +26,7 @@
 - (void)didEngageResult:(id)arg1;
 - (void)didRankSections:(id)arg1;
 - (void)resultsDidBecomeVisible:(id)arg1;
-- (_Bool)_eventIsOnFoundInAppsCalendar:(id)arg1;
+- (id)_eventIdentifierFromSearchResult:(id)arg1;
 - (void)_resetState;
 - (void)_restoreStateIfUnset;
 - (void)_saveAndUnsetState;

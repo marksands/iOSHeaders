@@ -13,6 +13,7 @@
 
 @interface ICClientInfo : NSObject <NSCopying, NSMutableCopying>
 {
+    NSString *_processName;
     NSString *_clientIdentifier;
     NSString *_clientVersion;
     NSString *_requestingBundleIdentifier;
@@ -24,6 +25,7 @@
 @property(readonly, copy, nonatomic) NSString *requestingBundleIdentifier; // @synthesize requestingBundleIdentifier=_requestingBundleIdentifier;
 @property(readonly, copy, nonatomic) NSString *clientVersion; // @synthesize clientVersion=_clientVersion;
 @property(readonly, copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
+@property(readonly, copy, nonatomic) NSString *processName; // @synthesize processName=_processName;
 - (void).cxx_destruct;
 - (id)_clientInfoCopyWithClass:(Class)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

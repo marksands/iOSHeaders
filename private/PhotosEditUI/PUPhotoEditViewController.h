@@ -87,6 +87,7 @@
     int _inProgressSaveRequestID;
     NSObject<OS_dispatch_source> *_saveProgressTimer;
     _Bool _didLoadTools;
+    _Bool _needToReloadTools;
     PUCropToolController *_cropController;
     PUFiltersToolController *_filtersController;
     PUAdjustmentsToolController *_adjustmentsController;
@@ -94,7 +95,7 @@
     _Bool _trimControllerVisible;
     _Bool _trimControllerScrubberNeedsVisualUpdate;
     _PPTState *_pptState;
-    NSURL *_fullSizeImageURL;
+    _Bool __isCachingVideo;
     _Bool _previewViewHidden;
     _Bool __penultimateAvailable;
     _Bool __revertingToOriginal;
@@ -199,8 +200,10 @@
 @property(readonly, nonatomic) PUPhotoEditViewControllerSpec *photoEditSpec; // @synthesize photoEditSpec=_photoEditSpec;
 @property(nonatomic, setter=_setLayoutOrientation:) long long layoutOrientation; // @synthesize layoutOrientation=_layoutOrientation;
 - (void).cxx_destruct;
+- (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)dismissAccessibilityHUDForPhotoEditToolbar:(id)arg1;
 - (void)photoEditToolbar:(id)arg1 showAccessibilityHUDForItem:(id)arg2;
+- (id)photoEditToolbar:(id)arg1 accessibilityHUDItemForButton:(id)arg2;
 - (id)ppt_renderStatisticsDictionaryForTimeInterval:(double)arg1;
 - (void)ppt_playLivePhotoWithWillBeginPlaybackBlock:(CDUnknownBlockType)arg1 didEndPlaybackBlock:(CDUnknownBlockType)arg2;
 - (void)ppt_save;
@@ -246,6 +249,8 @@
 - (id)viewForZoomingInScrollView:(id)arg1;
 - (void)_removePlaceholderImageViewIfNeeded;
 - (void)_handleMediaViewReady:(id)arg1 statistics:(id)arg2;
+- (void)mediaViewDidFinishPreparingVideo:(id)arg1;
+- (void)mediaViewDidStartPreparingVideo:(id)arg1;
 - (void)mediaViewIsReadyForVideoPlayback:(id)arg1;
 - (void)mediaViewDidUpdateLivePhoto:(id)arg1;
 - (void)mediaViewDidFinishRendering:(id)arg1 withStatistics:(id)arg2;
@@ -260,6 +265,7 @@
 - (id)toolControllerPreviewView:(id)arg1;
 - (id)toolControllerMainRenderer:(id)arg1;
 - (id)toolControllerMainContainerView:(id)arg1;
+- (long long)toolControllerImageModulationOptions:(id)arg1;
 - (id)toolControllerUneditedPhotoEditModel:(id)arg1;
 - (void)toolControllerDidChangePreferredAlternateToolbarButton:(id)arg1;
 - (void)toolControllerDidChangeWantsDefaultPreviewView:(id)arg1;
@@ -272,13 +278,19 @@
 - (id)_defaultInitialEditingTool;
 - (id)_allTools;
 - (void)_setupToolsIfNeeded;
+- (void)_loadToolsIfNeeded:(_Bool)arg1;
 - (void)_loadToolsIfNeeded;
+@property(nonatomic, setter=_setIsCachingVideo:) _Bool _isCachingVideo;
 @property(readonly, nonatomic) _Bool _isEnabledLivePhoto;
 @property(readonly, nonatomic) _Bool _isVideoOn;
 - (_Bool)_hasUnsavedChanges;
 - (void)_restoreSnapshot:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_captureSnapshotOfBasePhotoWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (int)_revertToOriginalWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (int)_saveOnlyStickyEditsCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)_modelWithStickyEditsIncludingGeometry:(_Bool)arg1;
+- (id)_modelWithStickyEdits;
+- (_Bool)_hasStickyEdits;
 - (void)_updatePhotoEditIrisModel;
 - (void)_resetModelAndBaseImagesToWorkImageVersion:(long long)arg1;
 - (id)_orientedCIImageFromUIImage:(id)arg1;
@@ -337,6 +349,7 @@
 - (void)_presentErrorAndDismissEditorWithTitle:(id)arg1 message:(id)arg2;
 - (void)_presentErrorAndDismissEditorWithTitle:(id)arg1 message:(id)arg2 additionalAction:(id)arg3;
 - (void)_performDiscardAction;
+- (void)_handleRevertResult:(id)arg1 error:(id)arg2;
 - (void)_performRevertAction;
 - (void)_handleRevertButton:(id)arg1;
 - (void)_handleDoneButton:(id)arg1;
@@ -370,6 +383,8 @@
 - (void)_updateBackgroundColor;
 - (id)_newToolButtonForTool:(id)arg1;
 - (void)_updateToolbarButtonPositions;
+- (id)_depthButtonIcon;
+- (id)_depthButtonTitle;
 - (void)_reloadToolbarButtonsIfNeeded;
 - (void)_updateToolbarsContentPadding;
 - (void)_updateAlternateToolbarAnimated:(_Bool)arg1;
@@ -383,6 +398,8 @@
 - (void)_requestDismissTransitionViewContentsWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)_isReadyToRender;
 @property(readonly, nonatomic) struct CGRect previewViewFrame;
+- (id)childViewControllerForScreenEdgesDeferringSystemGestures;
+- (long long)_imageModulationOptions;
 - (double)px_imageModulationIntensity;
 - (double)px_HDRFocus;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;

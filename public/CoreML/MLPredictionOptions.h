@@ -8,15 +8,17 @@
 
 @interface MLPredictionOptions : NSObject
 {
-    _Bool _useCPUOnly;
+    _Bool _usesCPUOnly;
     unsigned long long _classifyTopK;
 }
 
 + (id)defaultOptions;
 @property unsigned long long classifyTopK; // @synthesize classifyTopK=_classifyTopK;
-@property _Bool useCPUOnly; // @synthesize useCPUOnly=_useCPUOnly;
-- (id)init;
+@property(nonatomic) _Bool usesCPUOnly; // @synthesize usesCPUOnly=_usesCPUOnly;
+@property _Bool useCPUOnly;
 - (id)initWithUseCPUOnly:(_Bool)arg1;
+- (id)init;
+- (id)initWithUsesCPUOnly:(_Bool)arg1;
 
 @end
 

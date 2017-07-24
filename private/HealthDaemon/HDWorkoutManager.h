@@ -59,6 +59,8 @@
 - (void)_queue_startBackgroundExecutionForWorkout:(id)arg1;
 - (void)_queue_didUpdateCurrentWorkoutSession;
 - (void)_queue_immediateUpdateWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_queue_stopDataCollectionForTypes:(id)arg1;
+- (void)_queue_startDataCollectionForTypes:(id)arg1;
 - (void)_queue_stopDataAndEventCollection;
 - (void)_queue_startDataAndEventCollection;
 - (void)_queue_setActivityType:(unsigned long long)arg1 forSessionUUID:(id)arg2 isIndoor:(_Bool)arg3;
@@ -86,6 +88,7 @@
 - (void)pauseActiveWorkoutsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getFirstPartyWorkoutSnapshotWithCompletion:(CDUnknownBlockType)arg1;
 - (void)createActiveWorkoutServerWithConfiguration:(id)arg1 clientProxy:(id)arg2 server:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (id)_stringRepresentationForMetrics:(id)arg1;
 - (void)receiveMetrics:(id)arg1;
 - (id)_mainQueue_locationManager;
 - (_Bool)pluginHasBackgroundRunMode:(id)arg1 errorOut:(id *)arg2;
@@ -93,6 +96,7 @@
 - (id)currentWorkoutClient;
 - (long long)currentWorkoutLocationType;
 - (unsigned long long)currentWorkoutActivityType;
+@property(readonly, nonatomic) _Bool hasAnyActiveConnectedGymWorkouts;
 - (_Bool)hasAnyActiveWorkouts;
 - (void)clientInvalidated:(id)arg1;
 - (void)_sendStartWorkoutAppResponse:(CDUnknownBlockType)arg1 error:(id)arg2;

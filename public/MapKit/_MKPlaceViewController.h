@@ -179,7 +179,7 @@
 - (_Bool)stackingViewController:(id)arg1 showsTitleForViewController:(id)arg2;
 - (double)stackingViewController:(id)arg1 minimumVisibleSurfacePercentForAnalyticsSelection:(id)arg2;
 - (id)stackingViewController:(id)arg1 scrollViewForViewController:(id)arg2;
-- (void)stackingViewController:(id)arg1 didLayoutViewControllers:(id)arg2 remaningViewControllers:(id)arg3;
+- (void)stackingViewControllerDidLayoutViewControllers:(id)arg1;
 - (void)removeAdditionalViewController:(id)arg1;
 - (void)addAdditionalViewController:(id)arg1 atPosition:(long long)arg2;
 - (long long)_sectionPositionForMapTableKey:(id)arg1;
@@ -233,6 +233,7 @@
 - (id)draggableHeaderView;
 - (id)draggableContent;
 - (_Bool)_showReportAProblem;
+- (void)viewDidLayoutSubviews;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)_performWhenViewHasAppeared:(CDUnknownBlockType)arg1;

@@ -17,7 +17,6 @@
 + (void)_reset;
 + (void)_invokeOnUpdateBlock;
 + (void)registerOnUpdateBlock:(CDUnknownBlockType)arg1;
-+ (void)initialize;
 
 @end
 

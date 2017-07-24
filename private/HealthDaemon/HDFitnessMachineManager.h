@@ -37,7 +37,6 @@
 - (void).cxx_destruct;
 - (void)_queue_simulateDisconnect;
 - (void)simulateDisconnect;
-- (void)pairingManagerRequestConnectionReset:(id)arg1;
 - (void)pairingManagerReadyToConnect:(id)arg1;
 - (void)pairingManager:(id)arg1 discoveredHealthService:(id)arg2 machineType:(unsigned long long)arg3;
 - (void)pairingManagerUpdatedDataTransferRequirements:(id)arg1;
@@ -65,7 +64,7 @@
 - (void)_queue_deliverMachineStateChangedFromState:(unsigned long long)arg1 date:(id)arg2;
 - (void)_queue_deliverMachineInformationUpdatedNotifyingPairingManager:(_Bool)arg1;
 - (void)_queue_deliverNFCDetected:(id)arg1;
-- (void)_queue_recoverFromCrashWithSessionConfiguration:(id)arg1;
+- (void)_queue_recoverFromCrashWithSessionConfiguration:(id)arg1 shouldReconnect:(_Bool)arg2;
 - (void)_queue_setConnectionState:(unsigned long long)arg1 error:(id)arg2;
 - (void)_queue_setMachineState:(unsigned long long)arg1 date:(id)arg2;
 - (void)_queue_setRequestedTypes;
@@ -79,6 +78,9 @@
 - (void)_queue_handleBeginPairing:(id)arg1;
 - (void)_queue_handleBluetoothDisconnection;
 - (void)_queue_disconnectFitnessMachineFromBluetooth;
+- (void)_queue_handleInitialStateIfNecessary;
+- (_Bool)_queue_handleInitialMachineDataIfNecessary:(id)arg1;
+- (_Bool)_queue_handleInitialMachineStatusIfNecessary:(id)arg1;
 - (void)_queue_handleReceivedMachineStatus:(id)arg1;
 - (void)_queue_handleReceivedDataCharacteristic:(id)arg1;
 - (void)_queue_handleReceivedCharacteristic:(id)arg1 device:(id)arg2 error:(id)arg3;
@@ -92,7 +94,7 @@
 - (void)endFitnessMachineConnectionForFitnessMachineSessionUUID:(id)arg1 withConnectionUUID:(id)arg2;
 - (void)endFitnessMachineConnectionWithUUID:(id)arg1;
 - (void)markClientReadyWithConnectionUUID:(id)arg1;
-- (void)ensureClientIsRegistered:(id)arg1 sessionConfiguration:(id)arg2;
+- (void)ensureClientIsRegistered:(id)arg1 sessionConfiguration:(id)arg2 shouldReconnect:(_Bool)arg3;
 - (void)registerClient:(id)arg1 withConnectionUUID:(id)arg2;
 - (void)_setQueue:(id)arg1;
 - (void)dealloc;

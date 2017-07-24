@@ -42,6 +42,7 @@
 - (void)_queue_pruneUnusedWallpapers;
 - (void)_queue_setWallpaper:(id)arg1 image:(id)arg2 forHomeKitIdentifier:(id)arg3;
 - (id)_queue_wallpaperForHomeKitObject:(id)arg1 createIfNeeded:(_Bool)arg2;
+- (id)_queue_originalImageForWallpaper:(id)arg1;
 - (void)preloadWallpaperSlicesForHomeKitObject:(id)arg1;
 - (void)preloadWallpapersForHome:(id)arg1;
 - (void)migrateIfNeeded;

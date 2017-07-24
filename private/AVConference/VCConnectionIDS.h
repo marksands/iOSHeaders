@@ -8,7 +8,7 @@
 
 #import <AVConference/VCConnectionProtocol-Protocol.h>
 
-@class IDSDataChannelLinkContext, NSString, NSUUID;
+@class IDSDataChannelLinkContext, NSData, NSString, NSUUID;
 
 __attribute__((visibility("hidden")))
 @interface VCConnectionIDS : NSObject <VCConnectionProtocol>
@@ -47,6 +47,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) _Bool isLocalOnCellular;
 @property(readonly) _Bool isRemoteOnWiFi;
 @property(readonly) _Bool isLocalOnWiFi;
+@property(readonly) NSData *sharedDigestKey;
 @property(readonly) NSString *relaySessionToken;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;

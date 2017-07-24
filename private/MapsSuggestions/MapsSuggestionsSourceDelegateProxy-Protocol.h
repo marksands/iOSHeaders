@@ -9,7 +9,6 @@
 @class NSData;
 
 @protocol MapsSuggestionsSourceDelegateProxy <NSObject>
-- (void)currentBestLocationWithCallback:(void (^)(NSData *))arg1;
 - (void)deleteEntriesData:(NSData *)arg1 sourceNameData:(NSData *)arg2 completionBlock:(void (^)(void))arg3;
 - (void)addOrUpdateSuggestionEntriesData:(NSData *)arg1 sourceNameData:(NSData *)arg2 deleteMissing:(_Bool)arg3 completionBlock:(void (^)(void))arg4;
 @end

@@ -17,9 +17,11 @@
     _Bool _usesCustomTextAlignment;
     id <RUITableFooterDelegate> _delegate;
     NSURL *_linkURL;
+    CDUnknownBlockType _linkAction;
 }
 
 @property(readonly, nonatomic) RUILinkLabel *linkLabel; // @synthesize linkLabel=_linkLabel;
+@property(copy, nonatomic) CDUnknownBlockType linkAction; // @synthesize linkAction=_linkAction;
 @property(retain, nonatomic) NSURL *linkURL; // @synthesize linkURL=_linkURL;
 @property(nonatomic) __weak id <RUITableFooterDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSInvocation, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSThread, XCTAttachmentManager, XCTWaiter, XCTestCaseRun, XCUITestContext;
+@class NSArray, NSDictionary, NSInvocation, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSThread, XCTAttachmentManager, XCTWaiter, XCTestCaseRun, XCUITestContext;
 
 @interface _XCTestCaseImplementation : NSObject
 {
@@ -38,10 +38,12 @@
     _Bool _hasDequeuedTeardownBlocks;
     _Bool _hasAttemptedToCaptureScreenshotOnFailure;
     XCTAttachmentManager *_attachmentManager;
+    NSDictionary *_activityAggregateStatistics;
     XCUITestContext *_testContext;
 }
 
 @property(readonly) XCUITestContext *testContext; // @synthesize testContext=_testContext;
+@property(copy) NSDictionary *activityAggregateStatistics; // @synthesize activityAggregateStatistics=_activityAggregateStatistics;
 @property(retain) XCTAttachmentManager *attachmentManager; // @synthesize attachmentManager=_attachmentManager;
 @property _Bool hasAttemptedToCaptureScreenshotOnFailure; // @synthesize hasAttemptedToCaptureScreenshotOnFailure=_hasAttemptedToCaptureScreenshotOnFailure;
 @property _Bool hasDequeuedTeardownBlocks; // @synthesize hasDequeuedTeardownBlocks=_hasDequeuedTeardownBlocks;

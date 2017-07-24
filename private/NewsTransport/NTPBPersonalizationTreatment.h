@@ -33,6 +33,7 @@
     double _autoFavoriteGroupableMinImpressions;
     double _autoFavoriteGroupableMinRate;
     double _autoFavoriteGroupableMinRelativeRate;
+    double _autoFavoriteMaxIdleTime;
     double _autoFavoriteMinClicks;
     double _autoFavoriteMinImpressions;
     double _autoFavoriteMinObservationsExtAppUsage;
@@ -84,6 +85,8 @@
     double _existingSubscriptionRelatedClickValueBaseline;
     double _existingSubscriptionRelatedImpressionValue;
     double _existingSubscriptionRelatedImpressionValueBaseline;
+    double _expandedAutofavoriteClusterMaxSizeMultiplier;
+    double _expandedAutofavoriteClusterMinSizeMultiplier;
     long long _extraHeadlinesToShowTheUser;
     double _featureImpressionPrior;
     long long _flowRateDampeningSliceCount;
@@ -135,6 +138,7 @@
     long long _maxArticleCombosIPad;
     long long _maxArticleCombosIPhone;
     long long _maxClusterSize;
+    double _maxExpandedAutofavoriteGroupCandidateRatio;
     long long _maxSuggestionsCount;
     double _metaGroupingHighestScoringRelativeScoreMultiplier;
     double _metaGroupingRelatednessKWeight;
@@ -304,6 +308,7 @@
     double _weakClickClickValueBaseline;
     double _weakClickImpressionValue;
     double _weakClickImpressionValueBaseline;
+    unsigned int _auditionedAutoFavoritesEmitterLimit;
     unsigned int _dynamicMaxArticleSetSizeIPad;
     unsigned int _dynamicMaxArticleSetSizeIPhone;
     unsigned int _dynamicMaxClusterSizeIPad;
@@ -342,6 +347,7 @@
     NSMutableArray *_portraitTagThresholds;
     unsigned int _publisherDiversityMaxPublisherCount;
     unsigned int _publisherDiversityMinPublisherCount;
+    NSMutableArray *_realTimeUserFeedbackTagCoefficients;
     int _tagOrder;
     _Bool _deleteOrphansFromOverflow;
     _Bool _enableOptimizedLayoutIPad;
@@ -375,6 +381,7 @@
         unsigned int autoFavoriteGroupableMinImpressions:1;
         unsigned int autoFavoriteGroupableMinRate:1;
         unsigned int autoFavoriteGroupableMinRelativeRate:1;
+        unsigned int autoFavoriteMaxIdleTime:1;
         unsigned int autoFavoriteMinClicks:1;
         unsigned int autoFavoriteMinImpressions:1;
         unsigned int autoFavoriteMinObservationsExtAppUsage:1;
@@ -426,6 +433,8 @@
         unsigned int existingSubscriptionRelatedClickValueBaseline:1;
         unsigned int existingSubscriptionRelatedImpressionValue:1;
         unsigned int existingSubscriptionRelatedImpressionValueBaseline:1;
+        unsigned int expandedAutofavoriteClusterMaxSizeMultiplier:1;
+        unsigned int expandedAutofavoriteClusterMinSizeMultiplier:1;
         unsigned int extraHeadlinesToShowTheUser:1;
         unsigned int featureImpressionPrior:1;
         unsigned int flowRateDampeningSliceCount:1;
@@ -477,6 +486,7 @@
         unsigned int maxArticleCombosIPad:1;
         unsigned int maxArticleCombosIPhone:1;
         unsigned int maxClusterSize:1;
+        unsigned int maxExpandedAutofavoriteGroupCandidateRatio:1;
         unsigned int maxSuggestionsCount:1;
         unsigned int metaGroupingHighestScoringRelativeScoreMultiplier:1;
         unsigned int metaGroupingRelatednessKWeight:1;
@@ -646,6 +656,7 @@
         unsigned int weakClickClickValueBaseline:1;
         unsigned int weakClickImpressionValue:1;
         unsigned int weakClickImpressionValueBaseline:1;
+        unsigned int auditionedAutoFavoritesEmitterLimit:1;
         unsigned int dynamicMaxArticleSetSizeIPad:1;
         unsigned int dynamicMaxArticleSetSizeIPhone:1;
         unsigned int dynamicMaxClusterSizeIPad:1;
@@ -697,7 +708,14 @@
     } _has;
 }
 
++ (Class)realTimeUserFeedbackTagCoefficientsType;
 + (Class)portraitTagThresholdsType;
+@property(nonatomic) unsigned int auditionedAutoFavoritesEmitterLimit; // @synthesize auditionedAutoFavoritesEmitterLimit=_auditionedAutoFavoritesEmitterLimit;
+@property(nonatomic) double autoFavoriteMaxIdleTime; // @synthesize autoFavoriteMaxIdleTime=_autoFavoriteMaxIdleTime;
+@property(nonatomic) double maxExpandedAutofavoriteGroupCandidateRatio; // @synthesize maxExpandedAutofavoriteGroupCandidateRatio=_maxExpandedAutofavoriteGroupCandidateRatio;
+@property(nonatomic) double expandedAutofavoriteClusterMaxSizeMultiplier; // @synthesize expandedAutofavoriteClusterMaxSizeMultiplier=_expandedAutofavoriteClusterMaxSizeMultiplier;
+@property(nonatomic) double expandedAutofavoriteClusterMinSizeMultiplier; // @synthesize expandedAutofavoriteClusterMinSizeMultiplier=_expandedAutofavoriteClusterMinSizeMultiplier;
+@property(retain, nonatomic) NSMutableArray *realTimeUserFeedbackTagCoefficients; // @synthesize realTimeUserFeedbackTagCoefficients=_realTimeUserFeedbackTagCoefficients;
 @property(nonatomic) double metaGroupingSubscribedTopicMultiplier; // @synthesize metaGroupingSubscribedTopicMultiplier=_metaGroupingSubscribedTopicMultiplier;
 @property(nonatomic) double metaGroupingHighestScoringRelativeScoreMultiplier; // @synthesize metaGroupingHighestScoringRelativeScoreMultiplier=_metaGroupingHighestScoringRelativeScoreMultiplier;
 @property(nonatomic) double metaGroupingTopicScoreWeight; // @synthesize metaGroupingTopicScoreWeight=_metaGroupingTopicScoreWeight;
@@ -1042,6 +1060,15 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasAuditionedAutoFavoritesEmitterLimit;
+@property(nonatomic) _Bool hasAutoFavoriteMaxIdleTime;
+@property(nonatomic) _Bool hasMaxExpandedAutofavoriteGroupCandidateRatio;
+@property(nonatomic) _Bool hasExpandedAutofavoriteClusterMaxSizeMultiplier;
+@property(nonatomic) _Bool hasExpandedAutofavoriteClusterMinSizeMultiplier;
+- (id)realTimeUserFeedbackTagCoefficientsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)realTimeUserFeedbackTagCoefficientsCount;
+- (void)addRealTimeUserFeedbackTagCoefficients:(id)arg1;
+- (void)clearRealTimeUserFeedbackTagCoefficients;
 @property(nonatomic) _Bool hasMetaGroupingSubscribedTopicMultiplier;
 @property(nonatomic) _Bool hasMetaGroupingHighestScoringRelativeScoreMultiplier;
 @property(nonatomic) _Bool hasMetaGroupingTopicScoreWeight;

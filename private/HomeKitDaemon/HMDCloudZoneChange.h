@@ -21,6 +21,7 @@
 @property(readonly, nonatomic, getter=isTemporaryCache) _Bool temporaryCache; // @synthesize temporaryCache=_temporaryCache;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *objectChanges;
+- (id)changeWithRecordName:(id)arg1;
 - (id)changeWithObjectID:(id)arg1;
 - (void)flushCloudRecord:(id)arg1;
 - (void)deleteCloudRecord:(id)arg1;

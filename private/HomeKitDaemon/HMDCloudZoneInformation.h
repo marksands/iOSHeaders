@@ -14,6 +14,7 @@
 @interface HMDCloudZoneInformation : HMFObject <NSSecureCoding, HMDBackingStoreObjectProtocol>
 {
     _Bool _fetchFailed;
+    _Bool _firstFetch;
     _Bool _zoneCreated;
     _Bool _handlesCloudRecord;
     NSUUID *_uuid;
@@ -29,6 +30,7 @@
 @property(nonatomic, getter=doesHandlesCloudRecord) _Bool handlesCloudRecord; // @synthesize handlesCloudRecord=_handlesCloudRecord;
 @property(nonatomic) long long schemaVersion; // @synthesize schemaVersion=_schemaVersion;
 @property(nonatomic, getter=isZoneCreated) _Bool zoneCreated; // @synthesize zoneCreated=_zoneCreated;
+@property(nonatomic, getter=isFirstFetch) _Bool firstFetch; // @synthesize firstFetch=_firstFetch;
 @property(nonatomic, getter=didFetchFailed) _Bool fetchFailed; // @synthesize fetchFailed=_fetchFailed;
 @property(retain, nonatomic) NSString *ownerName; // @synthesize ownerName=_ownerName;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
@@ -38,6 +40,7 @@
 - (id)modelObjectWithChangeType:(unsigned long long)arg1 parent:(id)arg2;
 - (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
+- (void)updateCloudZoneInformationWithModel:(id)arg1 message:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (_Bool)isEqual:(id)arg1;

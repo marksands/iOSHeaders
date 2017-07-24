@@ -4,20 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <HomeKitDaemon/HMDAirPlayAccessoryModel.h>
+#import <HomeKitDaemon/HMDAppleMediaAccessoryModel.h>
 
-@class HMFSoftwareVersion, NSData, NSString;
-
-@interface HMDWHAAccessoryModel : HMDAirPlayAccessoryModel
+@interface HMDWHAAccessoryModel : HMDAppleMediaAccessoryModel
 {
 }
-
-+ (id)properties;
-
-// Remaining properties
-@property(retain, nonatomic) NSData *device; // @dynamic device;
-@property(retain, nonatomic) NSString *deviceUUID; // @dynamic deviceUUID;
-@property(retain, nonatomic) HMFSoftwareVersion *softwareVersion; // @dynamic softwareVersion;
 
 @end
 

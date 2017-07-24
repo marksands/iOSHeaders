@@ -45,6 +45,7 @@
 @property(readonly, nonatomic) double dayNumberTrackingValue;
 @property(readonly, nonatomic) double dayNumberBaselineVerticalInset;
 @property(readonly, nonatomic) UIFont *dayNumberFont;
+- (double)resizeAttributedString:(id)arg1 withDateName:(id)arg2 font:(id)arg3 ctx:(id)arg4 maxSize:(struct CGSize)arg5;
 - (void)_drawDateName;
 - (void)_drawDayNumberForNotificationIcon;
 - (void)_drawDayNumberForHomeScreenStyledIcon;

@@ -18,12 +18,14 @@
     NSString *_serverEndpointIdentifier;
     NSString *_cardholderName;
     NSString *_phoneNumber;
+    NSString *_peerPaymentRecipientAddress;
     NSString *_primaryAppleAccountFirstName;
     NSString *_primaryAppleAccountLastName;
 }
 
 @property(copy, nonatomic) NSString *primaryAppleAccountLastName; // @synthesize primaryAppleAccountLastName=_primaryAppleAccountLastName;
 @property(copy, nonatomic) NSString *primaryAppleAccountFirstName; // @synthesize primaryAppleAccountFirstName=_primaryAppleAccountFirstName;
+@property(copy, nonatomic) NSString *peerPaymentRecipientAddress; // @synthesize peerPaymentRecipientAddress=_peerPaymentRecipientAddress;
 @property(copy, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
 @property(copy, nonatomic) NSString *cardholderName; // @synthesize cardholderName=_cardholderName;
 @property(copy, nonatomic) NSString *serverEndpointIdentifier; // @synthesize serverEndpointIdentifier=_serverEndpointIdentifier;

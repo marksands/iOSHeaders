@@ -44,6 +44,7 @@ __attribute__((visibility("hidden")))
 - (id)_preferredFocusedViewCarplay;
 - (void)setSemanticContentAttribute:(long long)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
+- (void)tabBarSizeChanged:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)_updateBackground;
 - (void)_cleanupAdaptiveBackdrop;

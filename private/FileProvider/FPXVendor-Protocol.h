@@ -8,9 +8,12 @@
 #import <FileProvider/FPXVendorMessaging-Protocol.h>
 #import <FileProvider/FPXVendorObservation-Protocol.h>
 
-@class FPFileProviderService, FPItemID, FPSandboxingURLWrapper, NSArray, NSDate, NSDictionary, NSString, NSURL;
+@class FPFileProviderService, FPItemID, FPSandboxingURLWrapper, NSArray, NSDate, NSDictionary, NSFileHandle, NSString, NSURL;
 
 @protocol FPXVendor <FPXOperationService, FPXVendorObservation, FPXVendorMessaging>
+- (void)dumpIndexStateForDomain:(NSString *)arg1 toFileHandler:(NSFileHandle *)arg2 completionHandler:(void (^)(NSError *))arg3;
+- (void)dropIndexForDomain:(NSString *)arg1 completionHandler:(void (^)(NSError *))arg2;
+- (void)indexOneBatchInDomain:(NSString *)arg1 completionHandler:(void (^)(NSError *, _Bool))arg2;
 - (void)removeTrashedItemsOlderThanDate:(NSDate *)arg1 completionHandler:(void (^)(void))arg2;
 - (void)refreshInstalledAppsWithCompletionHandler:(void (^)(NSError *))arg1;
 - (void)deleteSearchableItemsWithDomainIdentifiers:(NSArray *)arg1 completionHandler:(void (^)(NSError *))arg2;
@@ -18,8 +21,8 @@
 - (void)setAlternateContentsURL:(FPSandboxingURLWrapper *)arg1 onDocumentURL:(NSURL *)arg2 completionHandler:(void (^)(FPItemID *, NSError *))arg3;
 - (void)URLForItemID:(FPItemID *)arg1 creatingPlaceholderIfMissing:(_Bool)arg2 ignoreAlternateContentsURL:(_Bool)arg3 completionHandler:(void (^)(FPSandboxingURLWrapper *, FPSandboxingURLWrapper *, NSError *))arg4;
 - (void)didChangeItemID:(FPItemID *)arg1 completionHandler:(void (^)(NSError *))arg2;
-- (void)updateDomains:(NSDictionary *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)privilegedValuesForAttributes:(NSArray *)arg1 forItemAtURL:(NSURL *)arg2 completionHandler:(void (^)(NSDictionary *, NSError *))arg3;
+- (void)updateDomains:(NSDictionary *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)fetchRemoteFileProviderEndpointForProtocolName:(NSString *)arg1 service:(FPFileProviderService *)arg2 itemURL:(NSURL *)arg3 needsItemURL:(_Bool)arg4 completionHandler:(void (^)(NSXPCListenerEndpoint *, NSArray *, NSURL *, NSError *))arg5;
 - (void)trashItemAtURL:(NSURL *)arg1 completionHandler:(void (^)(FPItem *, NSError *))arg2;
 - (void)itemForURL:(NSURL *)arg1 completionHandler:(void (^)(FPItem *, NSError *))arg2;

@@ -9,6 +9,7 @@
 @class BKSAnimationFenceHandle, MSMessage, MSRichLink, NSURL, UIImage, _MSMessageMediaPayload;
 
 @protocol _MSMessageComposeHostProtocol <NSObject>
+- (void)_requestResize;
 - (void)_openURL:(NSURL *)arg1 completionHandler:(void (^)(_Bool))arg2;
 - (void)_remoteViewDidBecomeReadyForDisplay;
 - (void)_updateSnapshotForNextLaunch:(UIImage *)arg1;

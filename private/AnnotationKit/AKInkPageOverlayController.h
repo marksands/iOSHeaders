@@ -37,6 +37,7 @@
 - (void)_updateGestureDependencyPriority;
 - (void)_setupGestureDependencies;
 - (void)_updateAllowedTouchTypesAllEnabled:(_Bool)arg1 pencilEnabled:(_Bool)arg2;
+- (void)_controllerWillSave:(id)arg1;
 - (void)_toolStatusUpdated:(id)arg1;
 - (void)_enclosingScrollViewDidScroll:(id)arg1;
 - (void)_inkDidChangeNotification:(id)arg1;

@@ -18,6 +18,7 @@
 @property(nonatomic) long long state; // @synthesize state=_state;
 @property(nonatomic) double timeStamp; // @synthesize timeStamp=_timeStamp;
 - (id)description;
+- (_Bool)isEqual:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithTimeStamp:(double)arg1 state:(long long)arg2;
 - (void)encodeWithCoder:(id)arg1;

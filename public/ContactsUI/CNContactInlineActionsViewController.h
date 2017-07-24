@@ -18,7 +18,6 @@
 {
     _Bool _displaysUnavailableActionTypes;
     _Bool _displaysTitles;
-    _Bool _shouldCompressLabelsToFitSize;
     id <CNUIObjectViewControllerDelegate> objectViewControllerDelegate;
     CNContact *_contact;
     NSArray *_supportedActionTypes;
@@ -45,7 +44,6 @@
 @property(nonatomic) __weak CNActionsView *actionsView; // @synthesize actionsView=_actionsView;
 @property(copy, nonatomic) NSArray *actionItems; // @synthesize actionItems=_actionItems;
 @property(nonatomic) __weak id <CNContactInlineActionsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) _Bool shouldCompressLabelsToFitSize; // @synthesize shouldCompressLabelsToFitSize=_shouldCompressLabelsToFitSize;
 @property(nonatomic) long long viewStyle; // @synthesize viewStyle=_viewStyle;
 @property(nonatomic) double actionTypesInterspace; // @synthesize actionTypesInterspace=_actionTypesInterspace;
 @property(copy, nonatomic) NSArray *supportedActionTypes; // @synthesize supportedActionTypes=_supportedActionTypes;

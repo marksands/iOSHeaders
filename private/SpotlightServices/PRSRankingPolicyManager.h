@@ -20,7 +20,6 @@
 - (_Bool)doesOrderedSpanExistWithStartingIndex:(unsigned long long)arg1 nextArray:(id)arg2 arrayOfIndexArrays:(id)arg3 level:(unsigned long long)arg4 currentOrderedSpan:(long long *)arg5;
 - (void)minimumAnyOrderSpanWithStartingIndex:(long long)arg1 nextArray:(id)arg2 arrayOfIndexArrays:(id)arg3 level:(unsigned long long)arg4 currentAnyOrderSpan:(long long)arg5 minimumSpan:(long long *)arg6 minimumDistancePair:(long long *)arg7 currentMinimumIndex:(long long)arg8 currentMaximumIndex:(long long)arg9;
 - (id)cosineComponentsUsingWordMatches:(id)arg1 withField:(id)arg2 withCorpusCount:(double)arg3 prefixVersion:(_Bool)arg4;
-- (void)statisticsFromDoubleValues:(id)arg1 sum:(double *)arg2 mean:(double *)arg3 var:(double *)arg4 min:(double *)arg5 max:(double *)arg6;
 
 @end
 

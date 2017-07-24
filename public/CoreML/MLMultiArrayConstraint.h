@@ -18,8 +18,8 @@
 }
 
 + (id)constraintWithShape:(id)arg1 dataType:(long long)arg2;
-@property(readonly) long long dataType; // @synthesize dataType=_dataType;
-@property(readonly) NSArray *shape; // @synthesize shape=_shape;
+@property(readonly, nonatomic) long long dataType; // @synthesize dataType=_dataType;
+@property(readonly, nonatomic) NSArray *shape; // @synthesize shape=_shape;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isAllowedValue:(id)arg1 error:(id *)arg2;

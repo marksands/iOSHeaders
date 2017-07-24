@@ -13,8 +13,8 @@
 
 @interface CTCarrierSpacePlanGroupOptionInfo : NSObject <NSCopying, NSSecureCoding>
 {
-    _Bool _planPurchasable;
     unsigned char _planSubscriptionStatus;
+    _Bool _planPurchasable;
     NSString *_planId;
     NSString *_planLabel;
     NSString *_planValue;
@@ -23,10 +23,10 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool planPurchasable; // @synthesize planPurchasable=_planPurchasable;
 @property(nonatomic) unsigned char planSubscriptionStatus; // @synthesize planSubscriptionStatus=_planSubscriptionStatus;
 @property(retain, nonatomic) NSString *planTermsURL; // @synthesize planTermsURL=_planTermsURL;
 @property(retain, nonatomic) NSString *planDetailsURL; // @synthesize planDetailsURL=_planDetailsURL;
-@property(nonatomic) _Bool planPurchasable; // @synthesize planPurchasable=_planPurchasable;
 @property(retain, nonatomic) NSString *planValue; // @synthesize planValue=_planValue;
 @property(retain, nonatomic) NSString *planLabel; // @synthesize planLabel=_planLabel;
 @property(retain, nonatomic) NSString *planId; // @synthesize planId=_planId;

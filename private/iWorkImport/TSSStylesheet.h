@@ -118,6 +118,7 @@ __attribute__((visibility("hidden")))
 - (id)_defaultParagraphStyleWasCreated:(_Bool *)arg1;
 - (id)_hyperlinkStyleWasCreated:(_Bool *)arg1;
 - (id)_defaultCharacterStyleWasCreated:(_Bool *)arg1;
+- (id)stickyCommentStyles;
 - (id)allPresenterNotesStyles;
 - (id)p_newDefaultPresenterNotesListStyleWithContext:(id)arg1 forListLabelType:(int)arg2;
 - (id)p_defaultPresenterNotesListStylePropertyMapForListLabelType:(int)arg1;

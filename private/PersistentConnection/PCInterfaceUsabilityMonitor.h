@@ -49,6 +49,7 @@ __attribute__((visibility("hidden")))
 - (void)_callDelegateOnIvarQueueWithBlock:(CDUnknownBlockType)arg1;
 @property(nonatomic) id <PCInterfaceUsabilityMonitorDelegate> delegate;
 @property(readonly, nonatomic) long long interfaceIdentifier;
+@property(readonly, nonatomic) _Bool isNetworkingPowerExpensiveToUse;
 @property(readonly, nonatomic) _Bool isRadioHot;
 @property(readonly, nonatomic) _Bool isInternetReachable;
 @property(readonly, nonatomic) int linkQuality;

@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 {
     NSMutableArray *mHyperlinks;
     NSMutableArray *mDestinations;
+    NSMutableArray *mOutlines;
 }
 
 - (void)p_commitDestinationToPDF:(id)arg1 cgrect:(struct CGRect)arg2 context:(struct CGContext *)arg3;
@@ -21,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (id)p_chopBezierIntoRects:(id)arg1;
 - (id)p_splitIntoSubshapes:(id)arg1;
 - (id)p_hyperlinkRegionsForRep:(id)arg1 context:(struct CGContext *)arg2;
+- (void)commitOutlinesToPDF:(struct CGContext *)arg1;
 - (void)commitHyperlinksToPDF:(struct CGContext *)arg1 targetRect:(struct CGRect)arg2;
 - (void)addHyperlinksForContents:(id)arg1 context:(struct CGContext *)arg2;
 - (void)addHyperlinksForRep:(id)arg1 context:(struct CGContext *)arg2;

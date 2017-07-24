@@ -18,6 +18,7 @@
     NSTimer *_usageTimer;
     PSUITVOutManager *_tvOutManager;
     PSSpecifier *_tvOutSpecifier;
+    PSSpecifier *_airDropSpecifier;
     CRCarPlayPreferences *_carPreferences;
 }
 

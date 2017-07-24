@@ -15,14 +15,17 @@
     UIFont *_transactionCellValueLabelFont;
     UIFont *_transactionCellValueLabelPeerPaymentFont;
     NSData *_businessAvatarImageData;
+    NSData *_topUpAvatarImageData;
     PKPeerPaymentContactResolver *_contactResolver;
 }
 
++ (id)secondaryFundingSourceDescriptionForTransaction:(id)arg1 includeBankAccountSuffix:(_Bool)arg2 useGenericNameIfNoDescriptionAvailable:(_Bool)arg3;
 @property(readonly, nonatomic) PKPeerPaymentContactResolver *contactResolver; // @synthesize contactResolver=_contactResolver;
 - (void).cxx_destruct;
 - (void)_updatePrimaryLabelOnTransactionCell:(id)arg1 withPeerPaymentCounterpartHandle:(id)arg2 contact:(id)arg3;
 - (id)_businessAvatarImageData;
-- (void)_updateAvatarOnTransactionCell:(id)arg1 withPeerPaymentCounterpartHandle:(id)arg2 contact:(id)arg3;
+- (id)_topUpAvatarImageData;
+- (void)_updateAvatarOnTransactionCell:(id)arg1 withTransaction:(id)arg2 contact:(id)arg3;
 - (id)_transactionCellPrimaryLabelFontForPass:(id)arg1;
 - (id)_transactionCellValueLabelFontForPass:(id)arg1;
 - (double)paymentTransactionCellHeightForPass:(id)arg1;

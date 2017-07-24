@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (_Bool)_needsBackdrop;
+- (void)layoutSubviews;
 - (void)_handleKeyboardShowOrHide:(id)arg1;
 - (_Bool)_shouldUseFullMetrics;
 - (_Bool)_shouldShowHideKeyboard;

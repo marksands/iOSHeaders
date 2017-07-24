@@ -19,6 +19,7 @@
 + (id)videoNamed:(id)arg1;
 + (id)videoWithName:(id)arg1 url:(id)arg2;
 + (id)videoNamed:(id)arg1 bundle:(id)arg2;
++ (id)_videoNamed:(id)arg1 bundle:(id)arg2 modifier:(id)arg3;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (id)description;

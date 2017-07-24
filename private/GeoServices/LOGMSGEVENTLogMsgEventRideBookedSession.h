@@ -8,11 +8,12 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface LOGMSGEVENTLogMsgEventRideBookedSession : PBCodable <NSCopying>
 {
+    NSMutableArray *_intentResponseFailures;
     NSString *_rideAppId;
     NSString *_rideAppVersion;
     NSString *_rideBookedSessionId;
@@ -38,6 +39,8 @@ __attribute__((visibility("hidden")))
     } _has;
 }
 
++ (Class)intentResponseFailureType;
+@property(retain, nonatomic) NSMutableArray *intentResponseFailures; // @synthesize intentResponseFailures=_intentResponseFailures;
 @property(nonatomic) _Bool missingVehicleLocation; // @synthesize missingVehicleLocation=_missingVehicleLocation;
 @property(nonatomic) _Bool invalidVehicleLocation; // @synthesize invalidVehicleLocation=_invalidVehicleLocation;
 @property(retain, nonatomic) NSString *rideAppVersion; // @synthesize rideAppVersion=_rideAppVersion;
@@ -59,6 +62,10 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)intentResponseFailureAtIndex:(unsigned long long)arg1;
+- (unsigned long long)intentResponseFailuresCount;
+- (void)addIntentResponseFailure:(id)arg1;
+- (void)clearIntentResponseFailures;
 - (int)StringAsStatusIssue:(id)arg1;
 - (id)statusIssueAsString:(int)arg1;
 @property(nonatomic) _Bool hasStatusIssue;

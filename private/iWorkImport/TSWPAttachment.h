@@ -22,7 +22,8 @@ __attribute__((visibility("hidden")))
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (int)attributeArrayKind;
-@property(nonatomic) TSWPStorage *parentStorage; // @synthesize parentStorage=_parentStorage;
+@property(nonatomic) __weak TSWPStorage *parentStorage; // @synthesize parentStorage=_parentStorage;
+- (void).cxx_destruct;
 - (_Bool)preserveAttributesOverSelectionWhenInserting;
 - (_Bool)shouldInvalidateWhenTextPropertiesChange;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;

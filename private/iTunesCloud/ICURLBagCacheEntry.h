@@ -10,12 +10,12 @@
 
 @interface ICURLBagCacheEntry : NSObject
 {
-    double _expriationTime;
+    double _expirationTime;
     ICURLBag *_urlBag;
 }
 
 @property(retain) ICURLBag *urlBag; // @synthesize urlBag=_urlBag;
-@property(nonatomic) double expriationTime; // @synthesize expriationTime=_expriationTime;
+@property(nonatomic) double expirationTime; // @synthesize expirationTime=_expirationTime;
 - (void).cxx_destruct;
 - (id)initWithURLBag:(id)arg1 expirationTime:(double)arg2;
 

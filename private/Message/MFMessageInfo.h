@@ -55,6 +55,8 @@
 @property(nonatomic) _Bool deleted;
 @property(nonatomic) _Bool flagged;
 @property(nonatomic) _Bool read;
+@property(readonly, nonatomic) unsigned int libraryID;
+@property(readonly, nonatomic, getter=isLibraryMessage) _Bool libraryMessage;
 - (id)copyMessageInfo;
 @property(readonly, nonatomic) _Bool senderVIP;
 

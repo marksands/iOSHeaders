@@ -11,27 +11,38 @@
 
 @interface IMCloudKitEventNotificationManager : NSObject
 {
+    _Bool _lastProgressHidden;
     id <IMCloudKitEventHandlerAccountInfoProvider> _accountInfoProvider;
     double _progressPollingInterval;
     IMWeakReferenceCollection *_eventHandlers;
     IMEventNotificationManager *_notificationManager;
     NSTimer *_fetchStatsTimer;
+    IMCloudKitSyncState *_previousState;
+    IMCloudKitSyncState *_pendingSyncStateForProgress;
 }
 
 + (id)sharedInstance;
 + (void)__setSingleton__im:(id)arg1;
 + (id)__singleton__im;
+@property(retain) IMCloudKitSyncState *pendingSyncStateForProgress; // @synthesize pendingSyncStateForProgress=_pendingSyncStateForProgress;
+@property _Bool lastProgressHidden; // @synthesize lastProgressHidden=_lastProgressHidden;
+@property(retain) IMCloudKitSyncState *previousState; // @synthesize previousState=_previousState;
 @property __weak NSTimer *fetchStatsTimer; // @synthesize fetchStatsTimer=_fetchStatsTimer;
 @property(retain) IMEventNotificationManager *notificationManager; // @synthesize notificationManager=_notificationManager;
 @property(readonly) IMWeakReferenceCollection *eventHandlers; // @synthesize eventHandlers=_eventHandlers;
 @property double progressPollingInterval; // @synthesize progressPollingInterval=_progressPollingInterval;
 @property __weak id <IMCloudKitEventHandlerAccountInfoProvider> accountInfoProvider; // @synthesize accountInfoProvider=_accountInfoProvider;
 - (void).cxx_destruct;
+- (_Bool)canEnableCloudKitSync;
+- (void)_updateProgressWithState:(id)arg1;
+- (void)_cancelDeferredHiddenProgress;
+- (void)_sendHiddenProgress;
 - (void)startFetchingSyncProgress;
-- (id)_createSyncProgressWithStatistics:(id)arg1;
-- (void)_sendProgressToEventHandlersWithSyncStatistics:(id)arg1;
+- (void)_sendSyncProgressWithSyncState:(id)arg1 reschedule:(_Bool)arg2 finishing:(_Bool)arg3 hidden:(_Bool)arg4;
+- (void)_sendProgressToEventHandlers:(id)arg1;
 - (void)_rescheduleFetchSyncProgress;
-- (_Bool)_wantsSyncProgress;
+- (_Bool)_shouldSendProgress;
+- (_Bool)_hasProgressEventListeners;
 - (void)_timerExpiredForSyncStatsFetching:(id)arg1;
 - (void)_cancelStatsFetchingTimer;
 - (void)fetchSyncStateStatistics;
@@ -45,7 +56,8 @@
 - (void)setCloudKitSyncEnabled:(_Bool)arg1;
 - (void)pauseEventNotifications:(_Bool)arg1;
 - (void)_syncStateDidChange:(id)arg1;
-- (void)_sendSyncStateChangedEventToEventHandlers;
+- (void)_sendSyncStateChangedEventToEventHandlersWithDictionary:(id)arg1;
+- (id)syncStateWithDictionary:(id)arg1;
 @property(readonly) IMCloudKitSyncState *syncState;
 - (void)visitEventHandlers:(CDUnknownBlockType)arg1;
 - (void)removeEventHandler:(id)arg1;
@@ -53,22 +65,6 @@
 - (id)_createSyncNotEnabledError;
 - (id)cloudKitHooks;
 - (id)init;
-- (void)cancelEventNotificationsForEventHandler:(id)arg1;
-- (void)performAdditionalStorageRequiredCheck:(id)arg1;
-- (_Bool)isCloudKitSyncEnabled;
-- (id)lastSyncDate;
-- (_Bool)isSyncing;
-- (_Bool)canEnableCloudKitSync;
-- (_Bool)isCloudKitSyncAvailable;
-- (void)setCloudKitSyncEnabled:(_Bool)arg1 eventHandler:(id)arg2;
-- (void)startReceivingAllSyncStateChangedEvents:(id)arg1;
-- (void)fetchSyncStateStatistics:(id)arg1;
-- (void)disableAllSyncEnabledCloudKitDevices:(id)arg1;
-- (void)startPeriodicSync:(id)arg1;
-- (_Bool)isFetchingRepeatingSyncStatsForEventHandler:(id)arg1;
-- (void)stopPeriodicallyFetchingSyncStateForEventHandler:(id)arg1;
-- (void)fetchSyncStateStatisticsWithRepeatingTimeInterval:(double)arg1 eventHandler:(id)arg2;
-- (id)initWithCloudKitHooks:(id)arg1;
 
 @end
 

@@ -15,8 +15,8 @@
     NSObject<OS_dispatch_queue> *_queue;
     HDCloudSyncStoreRecord *_storeRecord;
     HDCloudSyncStore *_syncStore;
-    _HDCloudSyncStorePersistableState *_persistedStoreState;
     NSMutableArray *_fetchedChangeRecords;
+    CKServerChangeToken *_initialServerChangeToken;
     CKServerChangeToken *_serverChangeToken;
     NSFileHandle *_fileHandle;
     CDUnknownBlockType _completion;
@@ -41,12 +41,12 @@
 - (void)_queue_fetchAssetsForOrderedChangeRecords:(id)arg1 operation:(id)arg2;
 - (void)_queue_helpFetchAssetsForOrderedChangeRecords:(id)arg1 operation:(id)arg2 recordIndex:(long long)arg3;
 - (void)_fetchRecordZoneChangesCompletionForOperation:(id)arg1 error:(id)arg2;
-- (void)_queue_setupAndTriggerFetchChangesOperation:(id)arg1 store:(id)arg2;
-- (id)_getFetchChangesOperationForStore:(id)arg1;
-- (void)_queue_pullFromStore:(id)arg1;
+- (void)_queue_setupAndTriggerFetchChangesOperation:(id)arg1;
+- (id)_queue_getFetchChangesOperation;
 - (void)_queue_startPullOperation;
 - (void)_finishWithSuccess:(_Bool)arg1 error:(id)arg2;
 - (void)startWithCompletion:(CDUnknownBlockType)arg1;
+@property(readonly, copy, nonatomic) _HDCloudSyncStorePersistableState *persistedStoreState;
 - (id)initWithConfiguration:(id)arg1 storeRecord:(id)arg2;
 
 @end

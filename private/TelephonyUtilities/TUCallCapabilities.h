@@ -80,6 +80,7 @@
 + (int)faceTimeVideoCallSupport;
 + (int)faceTimeAudioCallSupport;
 + (int)telephonyCallSupport;
++ (_Bool)supportsBasebandCalling;
 + (_Bool)supportsPrimaryCalling;
 + (_Bool)canAttemptEmergencyCallsInAirplaneMode;
 + (_Bool)canAttemptTelephonyCallsInAirplaneMode;

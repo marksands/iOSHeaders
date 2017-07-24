@@ -55,7 +55,8 @@
 - (id)firstSampleDate;
 - (id)gregorianCalendar;
 - (_Bool)isDifferentDayFromTime:(double)arg1;
-- (double)_initialGenerationTimeWithCurrentDate:(id)arg1;
+- (double)_initialGenerationTimeWithDate:(id)arg1;
+- (double)_timeIntervalFromInitialGenerationPeriod:(long long)arg1 currentDate:(id)arg2;
 - (_Bool)_queue_unarchiveFromDirectoryPath:(id)arg1;
 - (void)_archiveToDirectoryPath:(id)arg1;
 - (id)_unarchiveDataWithClass:(Class)arg1 atDirectoryPath:(id)arg2;
@@ -76,7 +77,7 @@
 - (void)_queue_setupDemoDataSampleGenerators;
 - (_Bool)_queue_loadDemoDataSampleGeneratorState;
 - (void)_queue_initDemoDataSampleGenerators;
-- (void)_queue_runDemoDataGeneratorForDemoPerson:(id)arg1 currentDate:(id)arg2;
+- (void)_queue_runDemoDataGeneratorForDemoPerson:(id)arg1 endDate:(id)arg2;
 - (void)_queue_generateDemoDataIfNeeded;
 - (void)_triggerDemoDataGenerationAfterTimeInterval:(double)arg1;
 - (void)daemonReady:(id)arg1;

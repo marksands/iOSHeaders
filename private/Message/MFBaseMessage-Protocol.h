@@ -9,6 +9,8 @@
 @class MFMessageInfo;
 
 @protocol MFBaseMessage <NSObject>
+@property(readonly, nonatomic) unsigned int libraryID;
+@property(readonly, nonatomic, getter=isLibraryMessage) _Bool libraryMessage;
 @property(readonly, nonatomic, getter=isKnownToHaveAttachments) _Bool knownToHaveAttachments;
 @property(readonly, nonatomic) _Bool senderVIP;
 @property(readonly, nonatomic) _Bool deleted;

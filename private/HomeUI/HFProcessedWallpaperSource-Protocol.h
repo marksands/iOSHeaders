@@ -6,9 +6,11 @@
 
 #import <HomeUI/NSObject-Protocol.h>
 
-@class HFWallpaper, UIImage;
+@class HFWallpaper, NSArray, UIImage;
 
 @protocol HFProcessedWallpaperSource <NSObject>
+@property(readonly, nonatomic) unsigned long long processVersionNumber;
+@property(readonly, copy, nonatomic) NSArray *supportedVariants;
 - (UIImage *)processedImageForVariant:(long long)arg1 wallpaper:(HFWallpaper *)arg2 image:(UIImage *)arg3;
 @end
 

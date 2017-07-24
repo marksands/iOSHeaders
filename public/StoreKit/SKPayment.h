@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <StoreKit/NSCopying-Protocol.h>
 #import <StoreKit/NSMutableCopying-Protocol.h>
@@ -17,10 +17,12 @@
 }
 
 + (id)paymentWithProductIdentifier:(id)arg1;
++ (id)paymentFromPurchaseIntentWithProduct:(id)arg1;
 + (id)paymentWithProduct:(id)arg1;
 @property(readonly, copy, nonatomic) NSDictionary *requestParameters;
 @property(readonly, copy, nonatomic) NSString *partnerTransactionIdentifier;
 @property(readonly, copy, nonatomic) NSString *partnerIdentifier;
+@property(readonly, nonatomic) _Bool isStoreOriginated;
 @property(readonly, nonatomic) _Bool simulatesAskToBuyInSandbox;
 @property(readonly, copy, nonatomic) NSData *requestData;
 @property(readonly, nonatomic) long long quantity;

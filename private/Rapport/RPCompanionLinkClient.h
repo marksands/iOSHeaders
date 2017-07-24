@@ -6,32 +6,63 @@
 
 #import <Foundation/NSObject.h>
 
+#import <Rapport/NSSecureCoding-Protocol.h>
+#import <Rapport/RPCompanionLinkXPCClientInterface-Protocol.h>
+
+@class NSArray, NSXPCConnection;
 @protocol OS_dispatch_queue;
 
-@interface RPCompanionLinkClient : NSObject
+@interface RPCompanionLinkClient : NSObject <NSSecureCoding, RPCompanionLinkXPCClientInterface>
 {
     _Bool _activateCalled;
+    struct NSMutableDictionary *_deviceDictionary;
+    struct NSMutableDictionary *_eventRegistrations;
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
+    struct NSMutableDictionary *_requestRegistrations;
     struct NSMutableSet *_transactions;
+    NSXPCConnection *_xpcCnx;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
+    CDUnknownBlockType _interruptionHandler;
     CDUnknownBlockType _invalidationHandler;
+    CDUnknownBlockType _deviceFoundHandler;
+    CDUnknownBlockType _deviceLostHandler;
 }
 
++ (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) CDUnknownBlockType deviceLostHandler; // @synthesize deviceLostHandler=_deviceLostHandler;
+@property(copy, nonatomic) CDUnknownBlockType deviceFoundHandler; // @synthesize deviceFoundHandler=_deviceFoundHandler;
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
+@property(copy, nonatomic) CDUnknownBlockType interruptionHandler; // @synthesize interruptionHandler=_interruptionHandler;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
-- (void)sendRequestID:(id)arg1 options:(id)arg2 request:(id)arg3 responseHandler:(CDUnknownBlockType)arg4;
+- (void)companionLinkReceivedRequestID:(id)arg1 request:(id)arg2 responseHandler:(CDUnknownBlockType)arg3;
+- (void)sendRequestID:(id)arg1 request:(id)arg2 destinationID:(id)arg3 options:(id)arg4 responseHandler:(CDUnknownBlockType)arg5;
 - (void)deregisterRequestID:(id)arg1;
+- (void)_reregisterRequests;
+- (void)_registerRequestID:(id)arg1 options:(id)arg2 reregister:(_Bool)arg3;
 - (void)registerRequestID:(id)arg1 options:(id)arg2 handler:(CDUnknownBlockType)arg3;
+- (void)companionLinkReceivedEventID:(id)arg1 event:(id)arg2;
+- (void)sendEventID:(id)arg1 event:(id)arg2 destinationID:(id)arg3 options:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)deregisterEventID:(id)arg1;
+- (void)_reregisterEvents;
+- (void)_registerEventID:(id)arg1 options:(id)arg2 reregister:(_Bool)arg3;
+- (void)registerEventID:(id)arg1 options:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)_invalidateTransaction:(id)arg1;
 - (id)activateTransactionWithLabel:(id)arg1;
+- (void)_lostAllDevices;
+- (void)companionLinkLostDevice:(id)arg1;
+- (void)companionLinkFoundDevice:(id)arg1;
+@property(readonly, copy, nonatomic) NSArray *activeDevices;
 - (void)_invalidated;
-- (void)_invalidate;
 - (void)invalidate;
-- (void)_activateWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_interrupted;
+- (void)_ensureXPCStarted;
+- (void)_activateWithCompletion:(CDUnknownBlockType)arg1 reactivate:(_Bool)arg2;
 - (void)activateWithCompletion:(CDUnknownBlockType)arg1;
 - (id)description;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)init;
 
 @end

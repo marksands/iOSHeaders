@@ -23,10 +23,14 @@ __attribute__((visibility("hidden")))
     VKRouteInfo *_routeInfo;
     VKRouteEtaDescription *_displayEtaDescription;
     _Bool _isPicked;
+    _Bool _isRepositioning;
+    float _placedZoomLevel;
 }
 
 + (shared_ptr_c5d816ee)styleQueryForNavContext:(const struct NavContext *)arg1 selected:(_Bool)arg2 etaComparison:(unsigned char)arg3;
 + (id)artworkForEtaDescription:(id)arg1 navContext:(const struct NavContext *)arg2 styleQuery:(shared_ptr_c5d816ee)arg3 orientation:(unsigned char)arg4 artworkCache:(struct VKLabelNavArtworkCache *)arg5 selected:(_Bool)arg6;
+@property(nonatomic) float placedZoomLevel; // @synthesize placedZoomLevel=_placedZoomLevel;
+@property(nonatomic) _Bool isRepositioning; // @synthesize isRepositioning=_isRepositioning;
 @property(nonatomic) _Bool isPicked; // @synthesize isPicked=_isPicked;
 @property(readonly, nonatomic) VKRouteEtaDescription *displayEtaDescription; // @synthesize displayEtaDescription=_displayEtaDescription;
 @property(retain, nonatomic) VKRouteInfo *routeInfo; // @synthesize routeInfo=_routeInfo;
@@ -47,6 +51,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) _Bool isRamp;
 - (_retain_ptr_86da96eb)updateRoadSignWithOrientation:(unsigned char)arg1 navContext:(const struct NavContext *)arg2 artworkCache:(struct VKLabelNavArtworkCache *)arg3;
+- (Box_3fb92e00)labelRectForOrientation:(unsigned char)arg1 styleQuery:(const shared_ptr_c5d816ee *)arg2 navContext:(const struct NavContext *)arg3 anchorPosition:(Matrix_8746f91e)arg4 artworkCache:(struct VKLabelNavArtworkCache *)arg5;
 - (void)prepareStyleVarsWithContext:(struct NavContext *)arg1;
 - (void)createLabelWithNavContext:(const struct NavContext *)arg1 orientation:(unsigned char)arg2 etaDescription:(id)arg3 selected:(_Bool)arg4 artworkCache:(struct VKLabelNavArtworkCache *)arg5;
 - (void)layoutWithNavContext:(struct NavContext *)arg1;

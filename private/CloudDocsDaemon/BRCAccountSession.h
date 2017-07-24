@@ -8,7 +8,7 @@
 
 #import <CloudDocsDaemon/BRCCloudDocsAppsObserver-Protocol.h>
 
-@class BRCAccountWaitOperation, BRCApplyScheduler, BRCClientState, BRCContainerScheduler, BRCDeadlineScheduler, BRCDiskSpaceReclaimer, BRCDownloadTrackers, BRCFSDownloader, BRCFSReader, BRCFSUploader, BRCFSWriter, BRCGlobalProgress, BRCItemTransmogrifier, BRCNotificationManager, BRCPQLConnection, BRCRecentsEnumerator, BRCServerPersistedState, BRCStageRegistry, BRCSyncUpScheduler, BRCThrottle, BRCUserNotification, BRCVolume, CDSession, NSHashTable, NSMutableDictionary, NSMutableSet, NSString, NSURL, br_pacer;
+@class BRCAccountWaitOperation, BRCApplyScheduler, BRCClientState, BRCContainerScheduler, BRCDeadlineScheduler, BRCDiskSpaceReclaimer, BRCDownloadTrackers, BRCFSDownloader, BRCFSReader, BRCFSUploader, BRCFSWriter, BRCFairScheduler, BRCGlobalProgress, BRCItemTransmogrifier, BRCNotificationManager, BRCPQLConnection, BRCRecentsEnumerator, BRCServerPersistedState, BRCStageRegistry, BRCSyncUpScheduler, BRCThrottle, BRCUserNotification, BRCVolume, CDSession, NSHashTable, NSMutableDictionary, NSMutableSet, NSString, NSURL, br_pacer;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface BRCAccountSession : NSObject <BRCCloudDocsAppsObserver>
@@ -59,6 +59,7 @@
     NSString *_ubiquityTokenSalt;
     BRCContainerScheduler *_containerScheduler;
     BRCApplyScheduler *_applyScheduler;
+    BRCFairScheduler *_fairClientDBScheduler;
     BRCVolume *_volume;
     BRCFSReader *_fsReader;
     BRCFSUploader *_fsUploader;
@@ -117,6 +118,7 @@
 @property(readonly, nonatomic) BRCFSDownloader *fsDownloader; // @synthesize fsDownloader=_fsDownloader;
 @property(readonly, nonatomic) BRCFSUploader *fsUploader; // @synthesize fsUploader=_fsUploader;
 @property(readonly, nonatomic) BRCVolume *volume; // @synthesize volume=_volume;
+@property(readonly, nonatomic) BRCFairScheduler *fairClientDBScheduler; // @synthesize fairClientDBScheduler=_fairClientDBScheduler;
 @property(readonly, nonatomic) BRCDeadlineScheduler *defaultScheduler; // @synthesize defaultScheduler=_defaultScheduler;
 @property(readonly, nonatomic) NSString *ubiquityTokenSalt; // @synthesize ubiquityTokenSalt=_ubiquityTokenSalt;
 @property(readonly, nonatomic) NSString *accountID; // @synthesize accountID=_accountID;
@@ -129,7 +131,6 @@
 @property(readonly, nonatomic) BRCFSReader *fsReader; // @synthesize fsReader=_fsReader;
 @property(readonly, nonatomic) BRCContainerScheduler *containerScheduler; // @synthesize containerScheduler=_containerScheduler;
 @property(readonly, nonatomic) BRCApplyScheduler *applyScheduler; // @synthesize applyScheduler=_applyScheduler;
-- (_Bool)hasSpotlightIndexer;
 - (_Bool)shouldPathBeDesktopSymlink:(id)arg1;
 - (void)recreateDesktopSymlinksIfNecessary;
 - (void)_recreateSymlinkIfNecessaryForDocumentsPath:(id)arg1 folderName:(id)arg2 destinationPath:(id)arg3;
@@ -158,7 +159,7 @@
 - (_Bool)applySyncPolicy:(long long)arg1 forSyncedFolderType:(unsigned long long)arg2 isInitialCreation:(_Bool)arg3 error:(id *)arg4;
 @property(readonly, nonatomic) _Bool isGreedy;
 - (void)startDownloadsForGreediness;
-- (unsigned long long)totalEvictableSizeWithAccessTimeDelta:(double)arg1;
+- (unsigned long long)totalEvictableSizeWithAccessTimeDelta:(double)arg1 db:(id)arg2;
 - (void)setOptimizeStorageEnabled:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool hasOptimizeStorageEnabled;
 - (unsigned long long)accountSize;

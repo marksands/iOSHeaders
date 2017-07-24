@@ -29,17 +29,18 @@
 @property(readonly, nonatomic) NSString *packageName; // @synthesize packageName=_packageName;
 @property(nonatomic) struct CGSize unscaledSize; // @synthesize unscaledSize=_unscaledSize;
 @property(nonatomic) struct CGSize targetSize; // @synthesize targetSize=_targetSize;
-@property(copy, nonatomic) NSString *state; // @synthesize state=_state;
+@property(readonly, copy, nonatomic) NSString *state; // @synthesize state=_state;
 - (void).cxx_destruct;
 - (id)sublayerWithName:(id)arg1;
 - (id)availableStatesOnLayer:(id)arg1;
 - (id)availableStates;
 - (void)transitionToStateWithName:(id)arg1 onLayer:(id)arg2;
 - (void)transitionToStateWithName:(id)arg1;
-- (void)_recursivelySetFillColor:(id)arg1 rootLayer:(id)arg2;
+- (void)_recursivelySetFillColor:(struct CGColor *)arg1 rootLayer:(id)arg2;
 - (id)_recursivelyFindSublayerWithName:(id)arg1 rootLayer:(id)arg2;
+- (void)_setState:(id)arg1;
 - (Class)CAMLParser:(id)arg1 didFailToFindClassWithName:(id)arg2;
-- (void)setFillColor:(id)arg1;
+- (void)setState:(id)arg1 color:(struct CGColor *)arg2;
 - (id)initWithPackageName:(id)arg1 layoutDirection:(long long)arg2;
 
 // Remaining properties

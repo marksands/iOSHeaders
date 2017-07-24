@@ -44,6 +44,7 @@
 - (void)daemonExitWithCompletion:(CDUnknownBlockType)arg1;
 - (void)removeAllStoredPseudoContactsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)logEventInteractionForEventWithUniqueKey:(id)arg1 interface:(unsigned short)arg2 actionType:(unsigned short)arg3;
+- (void)logEventInteractionForEventWithExternalIdentifier:(id)arg1 interface:(unsigned short)arg2 actionType:(unsigned short)arg3;
 - (void)logMetricSearchResultsIncludedPureSuggestionWithBundleId:(id)arg1;
 - (void)logMetricContactCreated:(id)arg1 contactIdentifier:(id)arg2 bundleId:(id)arg3;
 - (void)logMetricSuggestedContactDetailShown:(id)arg1 contactIdentifier:(id)arg2 bundleId:(id)arg3;
@@ -114,6 +115,7 @@
 - (_Bool)isSGEntity:(id)arg1 duplicateOfEKEvent:(id)arg2 withStore:(id)arg3;
 - (id)curatedEventKeyForExactMatchOfPseudoEvent:(id)arg1 candidates:(id)arg2;
 - (id)shortNamesAndRealtimeEventsFromEntity:(id)arg1 enrichments:(id)arg2 store:(id)arg3;
+- (void)bumptTTLForNLEvent:(id)arg1;
 - (id)filterPastEvents:(id)arg1;
 - (void)suggestionsFromEmailContent:(id)arg1 headers:(id)arg2 source:(id)arg3 options:(unsigned long long)arg4 withCompletion:(CDUnknownBlockType)arg5;
 - (void)_suggestionsFromSearchableItem:(id)arg1 options:(unsigned long long)arg2 dissectIfNecessary:(_Bool)arg3 withCompletion:(CDUnknownBlockType)arg4;

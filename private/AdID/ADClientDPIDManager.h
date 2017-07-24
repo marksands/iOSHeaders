@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CKContainer, CKRecordID, CKRecordZoneID, CKServerChangeToken, NSDate, NSMutableArray, NSString;
+@class CKContainer, CKRecordID, CKRecordZoneID, NSDate, NSMutableArray, NSString;
 @protocol OS_dispatch_queue;
 
 @interface ADClientDPIDManager : NSObject
@@ -15,12 +15,12 @@
     _Bool _isTest;
     _Bool _updateInProgress;
     _Bool _sandboxEnvironment;
-    CKServerChangeToken *_serverChangeToken;
     unsigned long long _dpidReconcileState;
     NSDate *_dpidReconcileStartDate;
     CKRecordZoneID *_zoneID;
     CKRecordID *_recordID;
     CKContainer *_privateContainer;
+    long long _qualityOfService;
     NSString *_DPID;
     NSMutableArray *_operationsInProgress;
 }
@@ -31,13 +31,13 @@
 @property(retain, nonatomic) NSMutableArray *operationsInProgress; // @synthesize operationsInProgress=_operationsInProgress;
 @property(nonatomic) _Bool updateInProgress; // @synthesize updateInProgress=_updateInProgress;
 @property(retain, nonatomic) NSString *DPID; // @synthesize DPID=_DPID;
+@property(nonatomic) long long qualityOfService; // @synthesize qualityOfService=_qualityOfService;
 @property(retain, nonatomic) CKContainer *privateContainer; // @synthesize privateContainer=_privateContainer;
 @property(retain, nonatomic) CKRecordID *recordID; // @synthesize recordID=_recordID;
 @property(retain, nonatomic) CKRecordZoneID *zoneID; // @synthesize zoneID=_zoneID;
 @property(retain) NSDate *dpidReconcileStartDate; // @synthesize dpidReconcileStartDate=_dpidReconcileStartDate;
 @property unsigned long long dpidReconcileState; // @synthesize dpidReconcileState=_dpidReconcileState;
 @property(readonly, nonatomic) _Bool isTest; // @synthesize isTest=_isTest;
-@property(retain, nonatomic) CKServerChangeToken *serverChangeToken; // @synthesize serverChangeToken=_serverChangeToken;
 - (void).cxx_destruct;
 - (void)syncDPIDWithiCloud:(CDUnknownBlockType)arg1;
 - (void)saveDPIDtoiCloud:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -57,9 +57,11 @@
 - (_Bool)iCloudAccountSubscribed;
 - (void)writeDPIDtoKeychain;
 - (_Bool)limitAdTrackingEnabled;
+- (_Bool)isRestrictedAccount;
+- (_Bool)isLoggedIntoiTunes;
 - (void)resetDPID:(CDUnknownBlockType)arg1;
 - (void)handlePushNotification:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)handleAccountStatusReconcileFor:(long long)arg1 andError:(id)arg2 with:(CDUnknownBlockType)arg3;
+- (void)continueReconcileWithAccountStatus:(long long)arg1 andError:(id)arg2 with:(CDUnknownBlockType)arg3;
 - (void)backupFlowForCloudKitWorkAtTime:(id)arg1 with:(CDUnknownBlockType)arg2;
 - (void)reconcileDPID:(CDUnknownBlockType)arg1;
 - (_Bool)canContinueProcessing:(id)arg1;

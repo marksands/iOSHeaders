@@ -12,10 +12,10 @@
 
 + (id)_locationNodesForTimeTitleFromLocationNodes:(id)arg1;
 + (id)_significantDateNodesFromEventNodes:(id)arg1 dateFormatterType:(unsigned long long)arg2;
-+ (id)_dateNodesFromEventNodes:(id)arg1;
++ (id)_dateNodesFromEventNodes:(id)arg1 eventsStartDate:(id *)arg2 eventsEndDate:(id *)arg3;
 + (id)_commonLocationLabelForLocationNodes:(id)arg1;
-+ (unsigned long long)_numberOfVisitsPerYearInEvents:(id)arg1 withLocationNodes:(id)arg2 startDateNode:(id)arg3 endDateNode:(id)arg4;
-+ (unsigned long long)_numberOfVisitsPerMonthInEvents:(id)arg1 withLocationNodes:(id)arg2 startDateNode:(id)arg3 endDateNode:(id)arg4;
++ (_Bool)_hasReachedNumberVisitsPerYear:(unsigned long long)arg1 inEvents:(id)arg2 withLocationNodes:(id)arg3 startDateNode:(id)arg4 endDateNode:(id)arg5;
++ (_Bool)_hasReachedNumberVisitsPerMonth:(unsigned long long)arg1 inEvents:(id)arg2 withLocationNodes:(id)arg3 startDateNode:(id)arg4 endDateNode:(id)arg5;
 + (void)_enumerateNeighborNodesOfEventNodes:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 + (_Bool)_eventNodes:(id)arg1 coverCompleteTimeWithEdgeLabel:(id)arg2;
 + (_Bool)_eventNodesCoverCompleteYear:(id)arg1;

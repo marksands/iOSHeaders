@@ -38,9 +38,10 @@
 - (void)_presentationWillChangeToPresentationState:(id)arg1;
 - (void)_requestContentSizeThatFits:(id)arg1 presentationStyle:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_conversationDidChangeWithConversationState:(id)arg1;
-- (void)_canSendMessage:(id)arg1 conversationState:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_canSendMessage:(id)arg1 conversationState:(id)arg2 associatedText:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_resignActive;
 - (void)_becomeActiveWithConversationState:(id)arg1 presentationState:(id)arg2;
+- (void)requestResize;
 - (void)_remoteViewDidBecomeReadyForDisplay;
 - (void)dismiss;
 - (void)requestPresentationStyleExpanded:(_Bool)arg1;

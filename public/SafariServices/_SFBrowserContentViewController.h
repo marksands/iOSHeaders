@@ -180,6 +180,7 @@
 - (void)popoverPresentationController:(id)arg1 willRepositionPopoverToRect:(inout struct CGRect *)arg2 inView:(inout id *)arg3;
 - (void)browserToolbarOpenInSafari:(id)arg1;
 - (void)browserToolbarShowActionSheet:(id)arg1;
+- (void)_fetchSharingURLWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)browserToolbarGoForward:(id)arg1;
 - (void)browserToolbarGoBack:(id)arg1;
 - (double)browserToolbarDismissButtonPadding:(id)arg1;

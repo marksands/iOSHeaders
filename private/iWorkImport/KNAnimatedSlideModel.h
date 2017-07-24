@@ -6,23 +6,31 @@
 
 #import <Foundation/NSObject.h>
 
-@class KNAnimatedSlideView, KNPlaybackSession, NSArray, NSMutableArray, TSUNoCopyDictionary;
+@class KNAnimatedSlideView, KNPlaybackSession, KNTransitionRenderer, NSArray, NSMapTable, NSMutableArray, NSMutableSet, NSSet;
 
 __attribute__((visibility("hidden")))
 @interface KNAnimatedSlideModel : NSObject
 {
     KNAnimatedSlideView *_ASV;
     NSArray *_infos;
-    KNPlaybackSession *_session;
     NSMutableArray *_buildEvents;
     NSMutableArray *_animatedBuilds;
-    TSUNoCopyDictionary *_infoToAnimatedBuildMap;
-    TSUNoCopyDictionary *_animatedBuildToRendererMap;
+    NSMapTable *_infoToArrayOfAnimatedBuildsMap;
+    NSMapTable *_animatedBuildToRendererMap;
+    NSMutableSet *_movieRenderers;
     unsigned long long _numberOfAddedEvents;
+    KNTransitionRenderer *_transitionRenderer;
+    KNPlaybackSession *_session;
 }
 
++ (unsigned long long)countOfEventsForBuildChunks:(id)arg1;
+@property(nonatomic) __weak KNPlaybackSession *session; // @synthesize session=_session;
+@property(readonly, nonatomic) KNTransitionRenderer *transitionRenderer; // @synthesize transitionRenderer=_transitionRenderer;
 @property(nonatomic) unsigned long long numberOfAddedEvents; // @synthesize numberOfAddedEvents=_numberOfAddedEvents;
+@property(readonly, nonatomic) NSSet *movieRenderers; // @synthesize movieRenderers=_movieRenderers;
 @property(readonly, nonatomic) NSArray *animatedBuilds; // @synthesize animatedBuilds=_animatedBuilds;
+- (void).cxx_destruct;
+- (id)p_newTransition;
 - (id)p_applyThemeCurvesToBuildAttributes:(id)arg1;
 - (id)p_getCurrentDocumentRoot;
 - (void)p_insertInitialMovies;
@@ -32,7 +40,7 @@ __attribute__((visibility("hidden")))
 - (void)p_setRenderer:(id)arg1 forAnimatedBuild:(id)arg2;
 - (id)rendererForAnimatedBuild:(id)arg1;
 - (id)p_createMovieBuild:(id)arg1 stageIndex:(long long)arg2 buildChunk:(id)arg3 startTime:(double)arg4 eventStartTime:(double)arg5 event:(long long)arg6 animateAtEndOfPreviousBuild:(_Bool)arg7;
-- (id)p_convertToBuildEvents:(id)arg1;
+- (void)p_convertToBuildEvents:(id)arg1;
 - (_Bool)p_isUnplayableMovieInfo:(id)arg1;
 - (void)p_updateVisibilityOnAnimatedBuild:(id)arg1;
 - (void)p_updatePreviousAndFinalAttributes;
@@ -47,7 +55,6 @@ __attribute__((visibility("hidden")))
 - (id)animatedBuildForInfo:(id)arg1 aroundEvent:(long long)arg2 isAtEndOfBuild:(_Bool *)arg3;
 - (id)lastAnimatedBuildForInfo:(id)arg1;
 - (id)firstAnimatedBuildForInfo:(id)arg1;
-- (struct _NSRange)eventRangeForInfos:(id)arg1;
 - (double)initialDelayForEventIndex:(unsigned long long)arg1;
 - (double)durationForEventIndexes:(id)arg1;
 - (id)buildChunksForEventRange:(struct _NSRange)arg1;
@@ -58,11 +65,10 @@ __attribute__((visibility("hidden")))
 - (void)enumerateAnimatedBuildsAndTimeRangesAtIndex:(unsigned long long)arg1 ignoreInitialDelay:(_Bool)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)enumerateAnimatedBuildsAndTimeRangesAtIndex:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)eventsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)count;
-- (id)transition;
-- (id)createInfoToBuildMap:(id)arg1;
-- (void)setTransition:(id)arg1;
+- (unsigned long long)buildEventCount;
+- (id)description;
 - (void)dealloc;
+- (id)init;
 - (id)initWithBuildChunks:(id)arg1 infos:(id)arg2 session:(id)arg3 animatedSlideView:(id)arg4;
 
 @end

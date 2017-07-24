@@ -12,7 +12,7 @@
 
 - (void)setMinimized:(_Bool)arg1;
 - (_Bool)isMinimized;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)init;
 
 @end
 

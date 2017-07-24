@@ -8,38 +8,38 @@
 
 #import <NotesUI/ICProgressIndicatorTrackerDelegate-Protocol.h>
 
-@class ICProgressIndicatorTracker, NSMutableDictionary, NSMutableSet, NSOperationQueue, NSString;
+@class ICAttachmentPreviewGeneratorOperationQueue, ICProgressIndicatorTracker, NSMapTable, NSMutableDictionary, NSMutableSet, NSString;
 @protocol OS_dispatch_queue;
 
 @interface ICAttachmentPreviewGenerator : NSObject <ICProgressIndicatorTrackerDelegate>
 {
     // Error parsing type: AB, name: _shouldGenerateAttachmentsWhenReachable
-    NSOperationQueue *_asyncGeneratorQueue;
-    NSOperationQueue *_costlyGeneratorQueue;
-    NSOperationQueue *_generatorQueue;
-    NSMutableSet *_attachmentIDsInProgress;
+    ICAttachmentPreviewGeneratorOperationQueue *_asyncGeneratorQueue;
+    ICAttachmentPreviewGeneratorOperationQueue *_costlyGeneratorQueue;
+    ICAttachmentPreviewGeneratorOperationQueue *_generatorQueue;
+    NSMapTable *_lastOperationForAttachmentID;
     NSMutableSet *_attachmentIDsPending;
     NSMutableDictionary *_attachmentIDsProgress;
     ICProgressIndicatorTracker *_progressTracker;
     unsigned long long _previewGenerationState;
-    long long _suspendCount;
     NSObject<OS_dispatch_queue> *_previewQueue;
+    NSObject<OS_dispatch_queue> *_previewProgressQueue;
 }
 
 + (id)sharedGenerator;
 // Error parsing type for property shouldGenerateAttachmentsWhenReachable:
 // Property attributes: TAB,N,V_shouldGenerateAttachmentsWhenReachable
 
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *previewProgressQueue; // @synthesize previewProgressQueue=_previewProgressQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *previewQueue; // @synthesize previewQueue=_previewQueue;
-@property(nonatomic) long long suspendCount; // @synthesize suspendCount=_suspendCount;
 @property unsigned long long previewGenerationState; // @synthesize previewGenerationState=_previewGenerationState;
 @property(retain, nonatomic) ICProgressIndicatorTracker *progressTracker; // @synthesize progressTracker=_progressTracker;
 @property(retain, nonatomic) NSMutableDictionary *attachmentIDsProgress; // @synthesize attachmentIDsProgress=_attachmentIDsProgress;
 @property(retain, nonatomic) NSMutableSet *attachmentIDsPending; // @synthesize attachmentIDsPending=_attachmentIDsPending;
-@property(retain, nonatomic) NSMutableSet *attachmentIDsInProgress; // @synthesize attachmentIDsInProgress=_attachmentIDsInProgress;
-@property(retain, nonatomic) NSOperationQueue *generatorQueue; // @synthesize generatorQueue=_generatorQueue;
-@property(retain, nonatomic) NSOperationQueue *costlyGeneratorQueue; // @synthesize costlyGeneratorQueue=_costlyGeneratorQueue;
-@property(retain, nonatomic) NSOperationQueue *asyncGeneratorQueue; // @synthesize asyncGeneratorQueue=_asyncGeneratorQueue;
+@property(retain, nonatomic) NSMapTable *lastOperationForAttachmentID; // @synthesize lastOperationForAttachmentID=_lastOperationForAttachmentID;
+@property(retain, nonatomic) ICAttachmentPreviewGeneratorOperationQueue *generatorQueue; // @synthesize generatorQueue=_generatorQueue;
+@property(retain, nonatomic) ICAttachmentPreviewGeneratorOperationQueue *costlyGeneratorQueue; // @synthesize costlyGeneratorQueue=_costlyGeneratorQueue;
+@property(retain, nonatomic) ICAttachmentPreviewGeneratorOperationQueue *asyncGeneratorQueue; // @synthesize asyncGeneratorQueue=_asyncGeneratorQueue;
 - (void).cxx_destruct;
 - (void)cancelIfNeededForAttachment:(id)arg1;
 - (void)generatePendingPreviewForAttachment:(id)arg1;

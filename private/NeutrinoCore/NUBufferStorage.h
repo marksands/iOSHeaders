@@ -26,6 +26,8 @@
 @property(readonly, copy) NSString *description;
 - (id)newRenderDestination;
 @property(readonly, nonatomic) void *mutableBytes;
+- (long long)useAsCIRenderDestinationWithRenderer:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (long long)useAsCIImageWithOptions:(id)arg1 renderer:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (long long)writeBufferInRegion:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (long long)readBufferInRegion:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (_Bool)makeNonPurgeable;

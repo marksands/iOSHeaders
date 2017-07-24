@@ -45,6 +45,7 @@
 - (void)daemonExitWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)daemonExit:(id *)arg1;
 - (void)keepDirty:(_Bool)arg1;
+- (void)logEventInteractionForEventWithExternalIdentifier:(id)arg1 interface:(unsigned short)arg2 actionType:(unsigned short)arg3;
 - (void)logEventInteractionForEventWithUniqueKey:(id)arg1 interface:(unsigned short)arg2 actionType:(unsigned short)arg3;
 - (void)logMetricSearchResultsIncludedPureSuggestionWithBundleId:(id)arg1;
 - (void)logMetricContactCreated:(id)arg1 contactIdentifier:(id)arg2 bundleId:(id)arg3;

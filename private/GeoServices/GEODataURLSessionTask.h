@@ -10,7 +10,7 @@
 #import <GeoServices/GEOStateCapturing-Protocol.h>
 
 @class GEOClientMetrics, GEODataRequest, GEODataURLSessionTaskQueue, NSData, NSError, NSHTTPURLResponse, NSMutableData, NSString, NSURL, NSURLRequest, NSURLSessionDataTask, NSURLSessionTaskMetrics;
-@protocol GEODataSessionTaskDelegate, OS_dispatch_queue;
+@protocol GEODataSessionTaskDelegate, OS_dispatch_queue, OS_os_activity;
 
 __attribute__((visibility("hidden")))
 @interface GEODataURLSessionTask : NSObject <GEOStateCapturing, GEODataSessionTask>
@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
     _Bool _backingTaskNeedsResume;
     _Bool _finished;
     unsigned int _qos;
+    NSObject<OS_os_activity> *_activity;
 }
 
 @property(nonatomic) unsigned int sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
@@ -49,6 +50,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSData *cachedData; // @synthesize cachedData=_cachedData;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 @property(readonly, nonatomic) GEODataRequest *request; // @synthesize request=_request;
+@property(readonly) NSObject<OS_os_activity> *activity; // @synthesize activity=_activity;
 - (void).cxx_destruct;
 - (void)notifyDelegateWithSession:(id)arg1;
 @property(readonly, nonatomic) NSString *remoteAddressAndPort;
@@ -79,6 +81,9 @@ __attribute__((visibility("hidden")))
 - (void)dataSession:(id)arg1 taskDidCompleteWithError:(id)arg2;
 - (void)didReceiveData:(id)arg1;
 - (void)didReceiveResponse:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)updateRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)dataSession:(id)arg1 willSendRequestForEstablishedConnection:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)createURLRequest;
 - (id)createURLSessionTaskWithSession:(id)arg1 request:(id)arg2;
 @property(readonly, nonatomic) float _priority;
 - (void)startDequeuedFromQueue:(id)arg1;

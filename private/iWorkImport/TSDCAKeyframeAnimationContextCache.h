@@ -11,18 +11,18 @@
 __attribute__((visibility("hidden")))
 @interface TSDCAKeyframeAnimationContextCache : TSDCAPropertyAnimationContextCache
 {
-    _Bool _isObjectTypeCGColor;
     NSArray *_values;
     NSArray *_keyTimes;
     NSArray *_timingFunctions;
 }
 
-@property(readonly, nonatomic) _Bool isObjectTypeCGColor; // @synthesize isObjectTypeCGColor=_isObjectTypeCGColor;
 @property(readonly, nonatomic) NSArray *timingFunctions; // @synthesize timingFunctions=_timingFunctions;
 @property(readonly, nonatomic) NSArray *keyTimes; // @synthesize keyTimes=_keyTimes;
 @property(readonly, nonatomic) NSArray *values; // @synthesize values=_values;
-- (void)verifyCacheWithAnimation:(id)arg1;
+- (double)percentAtTime:(double)arg1;
+- (id)valueAtTime:(double)arg1 initialValue:(id)arg2 groupTimingFactor:(double)arg3;
 - (id)initWithAnimation:(id)arg1;
+- (void)dealloc;
 
 @end
 

@@ -20,6 +20,8 @@ __attribute__((visibility("hidden")))
         unsigned int disableTiling:1;
         unsigned int ditchAllTiles:1;
         unsigned int suspendLayout:4;
+        unsigned int delegateConstrainsTileableBounds:1;
+        unsigned int delegateSupportsMaskedRects:1;
     } _tcTiledLayerFlags;
     double _maxTileHeight;
 }
@@ -41,6 +43,7 @@ __attribute__((visibility("hidden")))
 - (void)drawInContext:(struct CGContext *)arg1;
 - (void)_drawInContext:(struct CGContext *)arg1;
 - (void)drawDirtyLayer:(id)arg1 intoContext:(struct CGContext *)arg2;
+- (void)setDelegate:(id)arg1;
 - (id)init;
 
 @end

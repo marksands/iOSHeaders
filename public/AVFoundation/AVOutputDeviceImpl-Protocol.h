@@ -6,7 +6,7 @@
 
 #import <AVFoundation/NSObject-Protocol.h>
 
-@class AVOutputDevice, NSArray, NSDictionary, NSNumber, NSString;
+@class AVOutputDevice, NSArray, NSData, NSDictionary, NSNumber, NSString;
 
 @protocol AVOutputDeviceImpl <NSObject>
 @property(readonly, nonatomic) _Bool groupContainsGroupLeader;
@@ -25,6 +25,7 @@
 @property(readonly, nonatomic) NSNumber *leftBatteryLevel;
 @property(readonly, nonatomic) NSNumber *caseBatteryLevel;
 @property(readonly, nonatomic) NSNumber *batteryLevel;
+@property(readonly, copy, nonatomic) NSData *identifyingMACAddress;
 @property(readonly, copy, nonatomic) NSString *modelID;
 @property(readonly, nonatomic) long long deviceSubType;
 @property(readonly, nonatomic) long long deviceType;

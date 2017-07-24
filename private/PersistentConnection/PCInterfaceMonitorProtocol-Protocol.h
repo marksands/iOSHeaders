@@ -9,6 +9,7 @@
 @class NSString;
 
 @protocol PCInterfaceMonitorProtocol <NSObject>
+@property(readonly, nonatomic) _Bool isNetworkingPowerExpensiveToUse;
 @property(readonly, nonatomic) _Bool isRadioHot;
 @property(readonly, nonatomic) _Bool isBadLinkQuality;
 @property(readonly, nonatomic) _Bool isPoorLinkQuality;

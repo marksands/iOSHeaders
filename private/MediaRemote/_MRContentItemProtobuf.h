@@ -73,9 +73,8 @@
 @property(readonly, nonatomic) _Bool hasMetadata;
 @property(readonly, nonatomic) _Bool hasIdentifier;
 - (void)dealloc;
-- (id)customDictionaryRepresentation;
-- (_Bool)hasAvailableLanguageOptions;
-- (_Bool)hasCurrentLanguageOptions;
+- (id)_initWithData:(id)arg1;
+- (id)_init;
 
 @end
 

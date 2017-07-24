@@ -9,12 +9,13 @@
 #import <UIKit/NSItemProviderReading-Protocol.h>
 #import <UIKit/NSItemProviderWriting-Protocol.h>
 #import <UIKit/NSSecureCoding-Protocol.h>
+#import <UIKit/UIItemProviderPresentationSizeProviding-Protocol.h>
 #import <UIKit/UIItemProviderReading-Protocol.h>
 #import <UIKit/UIItemProviderWriting-Protocol.h>
 
 @class CIImage, NSArray, NSString, UIGraphicsImageRendererFormat, UIImageAsset, UITraitCollection, _UIImageVectorImageSupport;
 
-@interface UIImage : NSObject <NSItemProviderReading, NSItemProviderWriting, UIItemProviderReading, UIItemProviderWriting, NSSecureCoding>
+@interface UIImage : NSObject <NSItemProviderReading, NSItemProviderWriting, UIItemProviderPresentationSizeProviding, UIItemProviderReading, UIItemProviderWriting, NSSecureCoding>
 {
     void *_imageRef;
     double _scale;
@@ -88,6 +89,7 @@
 + (id)_tintedImageForSize:(struct CGSize)arg1 withTint:(id)arg2 maskImage:(id)arg3 effectsImage:(id)arg4 style:(int)arg5;
 + (id)_tintedImageForSize:(struct CGSize)arg1 withTint:(id)arg2 effectsImage:(id)arg3 maskImage:(id)arg4 style:(int)arg5;
 + (id)writableTypeIdentifiersForItemProvider;
++ (id)objectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 + (id)readableTypeIdentifiersForItemProvider;
 + (id)newObjectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 options:(id)arg3 error:(id *)arg4;
 + (struct CGSize)_legibilityImageSizeForSize:(struct CGSize)arg1 style:(long long)arg2;
@@ -239,6 +241,7 @@
 - (id)_applyBackdropViewSettings:(id)arg1;
 - (id)_applyBackdropViewSettings:(id)arg1 allowImageResizing:(_Bool)arg2;
 - (id)_subimageInRect:(struct CGRect)arg1;
+@property(readonly, nonatomic) struct CGSize preferredPresentationSizeForItemProvider;
 - (id)loadDataWithTypeIdentifier:(id)arg1 forItemProviderCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 - (void)registerLoadHandlersToItemProvider:(id)arg1;

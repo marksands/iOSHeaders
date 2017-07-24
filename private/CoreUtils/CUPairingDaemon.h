@@ -38,7 +38,7 @@
 - (int)deleteIdentityWithOptions:(unsigned long long)arg1;
 - (id)_copyIdentityWithOptions:(unsigned long long)arg1 error:(int *)arg2;
 - (id)_copyOrCreateWithOptions:(unsigned long long)arg1 error:(int *)arg2;
-- (id)_copyOrCreateHomeKitWithOptions:(unsigned long long)arg1 error:(int *)arg2;
+- (id)_copyHomeKitWithOptions:(unsigned long long)arg1 error:(int *)arg2;
 - (id)copyIdentityWithOptions:(unsigned long long)arg1 error:(int *)arg2;
 @property(readonly, nonatomic) NSXPCListenerEndpoint *testListenerEndpoint;
 - (struct os_state_data_s *)_stateDump;

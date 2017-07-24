@@ -23,7 +23,6 @@
 + (id)nonLocalResourcesInManagedObjectContext:(id)arg1 forAssetUUIDs:(id)arg2 cplResourceTypes:(id)arg3;
 + (id)duplicateCloudResource:(id)arg1 forAsset:(id)arg2 withFilePath:(id)arg3 inManagedObjectContext:(id)arg4;
 + (id)insertIntoPhotoLibrary:(id)arg1 forAsset:(id)arg2 withCPLResource:(id)arg3 adjusted:(_Bool)arg4 withCreationDate:(id)arg5;
-+ (id)resourceWithFingerprint:(id)arg1 inPhotoLibrary:(id)arg2;
 - (void)prepareForDeletion;
 @property(nonatomic) _Bool isLocallyAvailable; // @dynamic isLocallyAvailable;
 - (id)cplResourceIncludeFile:(_Bool)arg1;

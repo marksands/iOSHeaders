@@ -64,7 +64,6 @@
 - (void)requestViewControllerFromPhotoPickerWithRequestIdentifier:(id)arg1;
 - (void)dismissCurrentViewControllerFromPhotoPickerAnimated:(id)arg1;
 - (void)cancelPhotoPicker;
-- (_Bool)_hasTraitCollectionUpdates;
 - (void)_testPerformPreviewOfFirstPhoto;
 - (_Bool)_isPhotoPickerExtensionEnabled;
 - (void)_invalidatePhotoPickerServices;

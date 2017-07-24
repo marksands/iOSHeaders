@@ -17,12 +17,14 @@ __attribute__((visibility("hidden")))
     struct CGRect _headerFooterBorderRects[2][3];
 }
 
+- (void).cxx_destruct;
 - (void)i_clearHeaderFooterLayouts;
 - (void)i_insertValidatedHeaderFooterLayouts;
 - (_Bool)i_updateHeaderFooterLayouts;
 - (struct CGRect)borderRectForHeaderFooter:(int)arg1 atIndex:(int)arg2;
 - (void)p_updateHeaderFooterClipAndBorderRect;
 - (void)p_updateHeaderFooterClipAndBorderRects:(int)arg1;
+- (void)parentWillChangeTo:(id)arg1;
 - (id)headerFooterLayout:(int)arg1 atIndex:(int)arg2;
 - (struct CGRect)clipRectForHeaderFooter:(int)arg1 atIndex:(int)arg2;
 - (_Bool)p_isHeaderFooter:(int)arg1 editingAtFragmentIndex:(int)arg2;

@@ -9,7 +9,7 @@
 #import <UIKit/NSCopying-Protocol.h>
 #import <UIKit/NSSecureCoding-Protocol.h>
 
-@class NSArray, _DUIPreview;
+@class NSArray;
 
 @interface _DUIItemDetail : NSObject <NSSecureCoding, NSCopying>
 {
@@ -17,14 +17,12 @@
     _Bool _rotatable;
     double _scale;
     double _rotationAngle;
-    _DUIPreview *_preview;
     NSArray *_lastKnownImageComponents;
     struct CGPoint _anchorPoint;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSArray *lastKnownImageComponents; // @synthesize lastKnownImageComponents=_lastKnownImageComponents;
-@property(retain, nonatomic) _DUIPreview *preview; // @synthesize preview=_preview;
 @property(nonatomic) double rotationAngle; // @synthesize rotationAngle=_rotationAngle;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(nonatomic) _Bool rotatable; // @synthesize rotatable=_rotatable;

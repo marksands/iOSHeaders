@@ -9,7 +9,6 @@
 @class NSString, UIImage;
 
 @interface UIAccessibilityCustomAction (Private)
-- (id)description;
 - (id)_accessibilityAXAttributedName;
 - (_Bool)_accessibilityMatchesCustomActionIdentifier:(id)arg1;
 - (id)_accessibilityCustomActionIdentifier;

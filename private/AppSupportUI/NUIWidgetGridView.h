@@ -24,6 +24,7 @@
     double _currentLabelOutset;
 }
 
++ (unsigned long long)maxNumberOfItems;
 + (double)itemWidth;
 @property(readonly, nonatomic) double currentLabelOutset; // @synthesize currentLabelOutset=_currentLabelOutset;
 @property(nonatomic) double centerAdjustmentAllowed; // @synthesize centerAdjustmentAllowed=_centerAdjustmentAllowed;

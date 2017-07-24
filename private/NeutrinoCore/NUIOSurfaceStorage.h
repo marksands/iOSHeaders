@@ -22,6 +22,8 @@
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (long long)copyFromStorage:(id)arg1 region:(id)arg2;
+- (long long)useAsCIRenderDestinationWithRenderer:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (long long)useAsCIImageWithOptions:(id)arg1 renderer:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (long long)writeTextureInRegion:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (long long)readTextureInRegion:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (long long)writeSurfaceInRegion:(id)arg1 block:(CDUnknownBlockType)arg2;

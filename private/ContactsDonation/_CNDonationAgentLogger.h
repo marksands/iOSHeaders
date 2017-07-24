@@ -37,6 +37,7 @@
 - (void)didDiscoverUnexpectedExtensionType:(id)arg1;
 - (void)didDiscoverExtension:(id)arg1;
 - (void)willDiscoverExtensions;
+- (void)contactsChangedNotificationFoundName:(_Bool)arg1 nameChanged:(_Bool)arg2;
 - (void)featureDidEnable;
 - (void)featureWillEnable;
 - (void)featureDidDisable;

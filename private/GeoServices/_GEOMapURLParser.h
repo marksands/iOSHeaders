@@ -33,6 +33,8 @@
     NSString *_contentProviderID;
     NSString *_abRecordID;
     NSString *_abAddressID;
+    NSString *_cnContactIdentifier;
+    NSString *_cnAddressIdentifier;
     GEOUserSessionEntity *_userSessionEntity;
     double _altitude;
     double _rotation;
@@ -58,6 +60,8 @@
 @property(readonly) double rotation; // @synthesize rotation=_rotation;
 @property(readonly) double altitude; // @synthesize altitude=_altitude;
 @property(readonly) GEOUserSessionEntity *userSessionEntity; // @synthesize userSessionEntity=_userSessionEntity;
+@property(readonly) NSString *cnAddressIdentifier; // @synthesize cnAddressIdentifier=_cnAddressIdentifier;
+@property(readonly) NSString *cnContactIdentifier; // @synthesize cnContactIdentifier=_cnContactIdentifier;
 @property(readonly) NSString *abAddressID; // @synthesize abAddressID=_abAddressID;
 @property(readonly) NSString *abRecordID; // @synthesize abRecordID=_abRecordID;
 @property(readonly) NSString *contentProviderID; // @synthesize contentProviderID=_contentProviderID;

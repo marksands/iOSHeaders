@@ -29,6 +29,7 @@
 + (double)dateViewSideMargin;
 + (double)dateBaselineOffsetFromTime;
 + (double)dateViewBaselineY;
++ (double)scaledFontSize:(double)arg1 withMaximumFontSizeCategory:(id)arg2;
 + (double)pinKeypadStatusSubtitleTitleExtraOffset;
 + (double)pinKeypadStatusTitleExtraOffsetIncludingSubtitle;
 + (double)pinKeypadStatusTitleBaselineOffsetFromTitle;

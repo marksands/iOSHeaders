@@ -26,6 +26,7 @@
     int _queuedDraggingState;
     _Bool _dragCompletionPending;
     _Bool _dragDestinationDetectedDrag;
+    _Bool _didSetSystemPreview;
     EKDayOccurrenceView *_draggingView;
     EKEvent *_event;
     int _currentDragType;
@@ -109,6 +110,7 @@
 - (void)_setToLocalDraggingImageForDrag:(id)arg1;
 - (void)_setLocalDraggingViewHidden:(_Bool)arg1;
 - (void)_setToSystemDraggingImageForDrag:(id)arg1;
+- (void)_enableSystemPreviewForDrag:(id)arg1;
 - (void)_disableSystemPreviewForDrag:(id)arg1;
 - (void)view:(id)arg1 draggingEnded:(id)arg2;
 - (void)view:(id)arg1 concludeDragOperation:(id)arg2;

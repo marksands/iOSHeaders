@@ -39,6 +39,8 @@ __attribute__((visibility("hidden")))
 - (void)_logAssetSelectionIfNeeded:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)performPhotoPickerPreviewOfFirstAsset;
+- (void)_handlePerformTraitCollectionUpdateUsingData:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)performTraitCollectionUpdateUsingData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performAppearanceUpdateUsing:(id)arg1;
 - (void)performPhotosSelection;
 - (void)didSelectMultipleMediaItemsWithInfoDictionaries:(id)arg1;

@@ -6,12 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import <PencilKit/UIDropInteractionDelegate-Protocol.h>
+#import <PencilKit/UIDropInteractionDelegate_Private-Protocol.h>
 
 @class NSString, NSUUID, PKSelectionView, PKStrokeSelection, UIDropInteraction;
 @protocol PKSelectionDelegate;
 
-@interface PKSelectionController : NSObject <UIDropInteractionDelegate>
+@interface PKSelectionController : NSObject <UIDropInteractionDelegate_Private>
 {
     struct CGPoint _dropPosition;
     NSUUID *_previousDrawingUUIDForSelection;
@@ -32,6 +32,7 @@
 - (void).cxx_destruct;
 - (id)dropInteraction:(id)arg1 previewForDroppingItem:(id)arg2 withDefault:(id)arg3;
 - (void)moveStrokeSelectionToLocation:(struct CGPoint)arg1;
+- (long long)_dropInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (void)dropInteraction:(id)arg1 performDrop:(id)arg2;
 - (id)dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
 - (void)dropInteraction:(id)arg1 sessionDidEnter:(id)arg2;

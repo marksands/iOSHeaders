@@ -7,6 +7,7 @@
 @class FCCoverArticlesConfiguration, FCForYouGroupsConfiguration, FCIAdConfiguration, FCNotificationsConfiguration, FCPersonalizationTreatment, FCPrefetchConfiguration, FCTopStoriesConfiguration, NSArray, NSDictionary, NSNumber, NSString, NTPBTodayConfig;
 
 @protocol FCAppConfiguration
+@property(readonly, copy, nonatomic) NSArray *topStoriesPublishDates;
 @property(readonly, nonatomic) _Bool terminateAppOnBackgroundAfterJoiningOrLeavingExperiment;
 @property(readonly, nonatomic) long long autoRefreshMinimumInterval;
 @property(readonly, nonatomic) long long stateRestorationAllowedTimeWindow;

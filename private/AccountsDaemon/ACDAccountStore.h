@@ -84,6 +84,7 @@
 - (void)verifyCredentialsForAccount:(id)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_completeSave:(id)arg1 dataclassActions:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_lockForAccountType:(id)arg1;
+- (_Bool)shouldPreventAccountCreationWithObsoleteAccountType;
 - (void)saveAccount:(id)arg1 verify:(_Bool)arg2 dataclassActions:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)saveAccount:(id)arg1 pid:(id)arg2 verify:(_Bool)arg3 dataclassActions:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)saveAccount:(id)arg1 withHandler:(CDUnknownBlockType)arg2;

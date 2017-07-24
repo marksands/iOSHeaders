@@ -87,7 +87,7 @@
 @property(retain, nonatomic) NSString *loginID;
 @property(readonly, nonatomic) NSString *displayName;
 @property(readonly, nonatomic) NSArray *handles;
-- (id)_invisibleAliases;
+- (_Bool)_isInvisibleAlias:(id)arg1;
 @property(readonly, nonatomic) NSArray *vettedAliases;
 @property(readonly, nonatomic) NSArray *aliases;
 @property(readonly, nonatomic) NSArray *aliasStrings;

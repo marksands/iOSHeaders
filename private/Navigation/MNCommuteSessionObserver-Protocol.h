@@ -12,6 +12,7 @@
 - (void)commuteSession:(MNCommuteSession *)arg1 didUpdateDestinations:(NSArray *)arg2;
 
 @optional
+- (void)commuteSessionDidArrive:(MNCommuteSession *)arg1;
 - (void)commuteSession:(MNCommuteSession *)arg1 didChangeToState:(unsigned long long)arg2;
 @end
 

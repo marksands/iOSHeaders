@@ -18,12 +18,12 @@ __attribute__((visibility("hidden")))
     NSCharacterSet *_nonWhitespaceCharacterSet;
 }
 
+- (void).cxx_destruct;
 - (void)processFragmentsForSpaceFormatting;
 - (void)p_splitStorageInThree:(int)arg1 withRanges:(struct _NSRange [2])arg2;
 - (void)p_splitStorageInTwo:(int)arg1 withRanges:(struct _NSRange [2])arg2 firstTarget:(int)arg3 secondTarget:(int)arg4;
 - (unsigned long long)countOfWhitespaceRunsInString:(id)arg1 ranges:(struct _NSRange [2])arg2;
 - (_Bool)p_storageIsEffectivelyEmpty:(id)arg1;
-- (void)dealloc;
 - (id)initWithFragments:(id *)arg1 storageContext:(id)arg2 objectsContext:(id)arg3;
 
 @end

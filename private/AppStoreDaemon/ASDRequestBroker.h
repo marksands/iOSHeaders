@@ -21,9 +21,9 @@
 - (void)submitRequest:(id)arg1 withReplyHandler:(CDUnknownBlockType)arg2;
 - (void)markRequestAsComplete:(id)arg1;
 - (void)markRequestAsActive:(id)arg1;
+- (void)cancelAllRequestsWithErrorHandler:(CDUnknownBlockType)arg1;
 @property(readonly) NSMutableDictionary *activeRequests; // @synthesize activeRequests=_activeRequests;
 - (id)description;
-- (void)enumerateRequestsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)init;
 
 @end

@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <CommonUtilities/NSCopying-Protocol.h>
 #import <CommonUtilities/NSSecureCoding-Protocol.h>
 
 @class NSString;
 
-@interface CUTCheckpoint : NSObject <NSSecureCoding>
+@interface CUTCheckpoint : NSObject <NSSecureCoding, NSCopying>
 {
     _Bool _frozen;
     _Bool _assertsUseAfterFreeze;
@@ -39,6 +40,7 @@
 - (void)_freeze;
 - (void)freeze;
 - (id)description;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

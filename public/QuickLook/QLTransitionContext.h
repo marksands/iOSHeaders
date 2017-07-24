@@ -41,7 +41,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIView *sourceView; // @synthesize sourceView=_sourceView;
 - (void).cxx_destruct;
 - (void)setUpTransitionSourceView;
-- (id)initWithQLPreviewController:(id)arg1 toViewController:(id)arg2;
+- (id)initWithQLPreviewController:(id)arg1 containerView:(id)arg2 toViewController:(id)arg3;
 - (id)sourceViewSnapshotImage;
 - (void)_snapshotSourceViewIfNeeded;
 - (id)initWithCoder:(id)arg1;

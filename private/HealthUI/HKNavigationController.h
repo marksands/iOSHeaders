@@ -7,15 +7,18 @@
 #import <UIKit/UINavigationController.h>
 
 #import <HealthUI/UINavigationControllerDelegate-Protocol.h>
+#import <HealthUI/WDTabBarTapObserver-Protocol.h>
 
 @class HKProfileBarButtonItem, NSString;
 
-@interface HKNavigationController : UINavigationController <UINavigationControllerDelegate>
+@interface HKNavigationController : UINavigationController <WDTabBarTapObserver, UINavigationControllerDelegate>
 {
     HKProfileBarButtonItem *_commonProfileBarButtonItem;
 }
 
 - (void).cxx_destruct;
+- (void)didChangeToAnotherTab;
+- (void)didTapTabBarIcon;
 - (unsigned long long)navigationControllerSupportedInterfaceOrientations:(id)arg1;
 - (id)commonProfileBarButtonItem;
 - (id)initWithRootViewController:(id)arg1;

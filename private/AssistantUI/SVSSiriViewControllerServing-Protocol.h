@@ -12,8 +12,6 @@
 @protocol AFUISiriSession, AFUISpeechSynthesis;
 
 @protocol SVSSiriViewControllerServing <NSObject, AFUISiriSessionDelegate, AFUISpeechSynthesisDelegate>
-- (void)hostSetAudioRoutePickerBluetoothOn:(_Bool)arg1;
-- (void)hostSetShowAudioRoutePicker:(_Bool)arg1;
 - (void)hostApplicationDidBecomeActive;
 - (void)hostApplicationWillEnterForeground;
 - (void)hostApplicationWillResignActive;
@@ -21,11 +19,12 @@
 - (void)didReceiveShortTapAction;
 - (void)didReceiveBugButtonLongPress;
 - (void)didReceiveReportBugAction;
-- (void)setShowKeyboardIfTextInputEnabled:(_Bool)arg1;
 - (void)didReceiveHelpAction;
 - (void)setSpeechSynthesis:(id <AFUISpeechSynthesis>)arg1;
 - (void)setSession:(id <AFUISiriSession>)arg1;
 - (void)userInteractionDidOccur;
+- (void)siriKeyboardViewDidChange:(CDStruct_a82615c4 *)arg1;
+- (void)startRequestForText:(NSString *)arg1;
 - (void)siriDidHidePasscodeUnlock;
 - (void)siriWillHidePasscodeUnlockForResult:(long long)arg1;
 - (void)siriWillShowPasscodeUnlockAndCancelRequest:(_Bool)arg1;

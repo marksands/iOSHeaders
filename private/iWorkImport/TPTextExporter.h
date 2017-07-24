@@ -18,10 +18,10 @@ __attribute__((visibility("hidden")))
     TSUProgressContext *mProgressContext;
 }
 
-@property(retain) TSUProgressContext *progressContext; // @synthesize progressContext=mProgressContext;
+@property(retain, nonatomic) TSUProgressContext *progressContext; // @synthesize progressContext=mProgressContext;
+- (void).cxx_destruct;
 - (_Bool)exportToURL:(id)arg1 delegate:(id)arg2 error:(id *)arg3;
 - (id)initWithDocumentRoot:(id)arg1;
-- (void)dealloc;
 - (void)quit;
 - (void)cancel;
 - (_Bool)isCancelled;

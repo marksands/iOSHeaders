@@ -26,6 +26,7 @@
 - (void)_enumerateScalarKeysWithBlock:(CDUnknownBlockType)arg1;
 - (void)_setProvidersPaused:(_Bool)arg1;
 - (id)_initWithJSONObjectRepresentation:(id)arg1 bundle:(id)arg2;
+- (void)_enumerateDateKeysWithBlock:(CDUnknownBlockType)arg1;
 - (void)_enumerateBOOLKeysWithBlock:(CDUnknownBlockType)arg1;
 - (void)_enumerateFloatKeysWithBlock:(CDUnknownBlockType)arg1;
 - (void)_enumerateProgressProviderKeysWithBlock:(CDUnknownBlockType)arg1;

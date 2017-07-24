@@ -43,6 +43,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *objectChanges;
 - (id)replayTransaction:(id)arg1 stagedTransaction:(id)arg2;
+- (id)changeWithRecordName:(id)arg1;
 - (id)changeWithObjectID:(id)arg1;
 @property(readonly, nonatomic, getter=isHomeTransaction) _Bool homeTransaction;
 @property(readonly, nonatomic, getter=isHomeManagerTransaction) _Bool homeManagerTransaction;

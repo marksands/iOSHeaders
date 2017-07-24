@@ -9,13 +9,14 @@
 #import <HomeKitDaemon/HMDBackingStoreObjectProtocol-Protocol.h>
 #import <HomeKitDaemon/HMDBulletinIdentifiers-Protocol.h>
 #import <HomeKitDaemon/HMFDumpState-Protocol.h>
+#import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
 @class HMAccessoryCategory, HMDAccessoryTransaction, HMDAccessoryVersion, HMDApplicationData, HMDApplicationRegistry, HMDHome, HMDRoom, HMDVendorModelEntry, HMFMessageDispatcher, NSArray, NSMutableSet, NSNumber, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDAccessory : HMFObject <HMDBulletinIdentifiers, NSSecureCoding, HMFMessageReceiver, HMDBackingStoreObjectProtocol, HMFDumpState>
+@interface HMDAccessory : HMFObject <HMDBulletinIdentifiers, NSSecureCoding, HMFMessageReceiver, HMDBackingStoreObjectProtocol, HMFDumpState, HMFLogging>
 {
     _Bool _primary;
     _Bool _reachable;
@@ -47,6 +48,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)logCategory;
 @property(retain, nonatomic) HMDAccessoryTransaction *transaction; // @synthesize transaction=_transaction;
 @property(retain, nonatomic) HMDApplicationRegistry *appRegistry; // @synthesize appRegistry=_appRegistry;
 @property(nonatomic) unsigned long long configNumber; // @synthesize configNumber=_configNumber;
@@ -64,13 +66,13 @@
 @property(retain, nonatomic) HMAccessoryCategory *category; // @synthesize category=_category;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(nonatomic, getter=isRemotelyReachable) _Bool remotelyReachable; // @synthesize remotelyReachable=_remotelyReachable;
-@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 - (id)messageDestination;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
+- (id)logIdentifier;
 - (id)dumpSimpleState;
 - (id)dumpState;
 - (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
@@ -99,6 +101,8 @@
 - (_Bool)isRemoteReachable;
 - (void)handleReachabilityChange:(_Bool)arg1;
 @property(nonatomic, getter=isReachable) _Bool reachable; // @synthesize reachable=_reachable;
+- (void)removeAdvertisement:(id)arg1;
+- (void)addAdvertisement:(id)arg1;
 - (void)updateMediaSession:(id)arg1;
 - (void)updateManufacturer:(id)arg1 model:(id)arg2 firmwareVersion:(id)arg3 serialNumber:(id)arg4;
 @property(readonly, copy, nonatomic) HMDVendorModelEntry *vendorInfo;
@@ -115,6 +119,8 @@
 - (id)_updateProvidedName:(id)arg1;
 - (void)updateName:(id)arg1;
 - (id)getConfiguredName;
+- (void)handleUpdatedName:(id)arg1;
+@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (id)_updateCategory:(id)arg1 notifyClients:(_Bool)arg2;
 - (void)updateCategory:(id)arg1;
 - (id)_updateRoom:(id)arg1 message:(id *)arg2;

@@ -19,25 +19,27 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _errorHandler;
     CDUnknownBlockType _finishedHandler;
     CDUnknownBlockType _willSendRequestHandler;
-    _Bool _cancelled;
     GEOApplicationAuditToken *_auditToken;
+    _Bool _cancelled;
+    struct GEOOnce_s _didStart;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType willSendRequestHandler; // @synthesize willSendRequestHandler=_willSendRequestHandler;
 @property(copy, nonatomic) CDUnknownBlockType finishedHandler; // @synthesize finishedHandler=_finishedHandler;
 @property(copy, nonatomic) CDUnknownBlockType errorHandler; // @synthesize errorHandler=_errorHandler;
-@property(retain, nonatomic) GEOETATrafficUpdateRequest *currentRequest; // @synthesize currentRequest=_currentRequest;
+@property(retain) GEOETATrafficUpdateRequest *currentRequest; // @synthesize currentRequest=_currentRequest;
 @property(retain, nonatomic) GEOProtobufSessionTask *task; // @synthesize task=_task;
 @property(readonly, nonatomic) GEOProtobufSession *protobufSession; // @synthesize protobufSession=_protobufSession;
 - (void).cxx_destruct;
 - (void)cancelRequest;
+- (void)_startRequest:(id)arg1 connectionProperties:(id)arg2 willSendRequest:(CDUnknownBlockType)arg3 finished:(CDUnknownBlockType)arg4 error:(CDUnknownBlockType)arg5;
 - (void)startRequest:(id)arg1 connectionProperties:(id)arg2 willSendRequest:(CDUnknownBlockType)arg3 finished:(CDUnknownBlockType)arg4 error:(CDUnknownBlockType)arg5;
 - (void)updateRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
 - (void)startRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
 - (id)initWithAuditToken:(id)arg1;
 - (id)init;
-- (id)cancelError;
 - (void)didCompleteTask;
+- (void)protobufSession:(id)arg1 willSendRequestForTask:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)protobufSession:(id)arg1 didCompleteTask:(id)arg2;
 
 // Remaining properties

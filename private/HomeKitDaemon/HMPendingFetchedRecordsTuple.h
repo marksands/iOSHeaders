@@ -10,6 +10,7 @@
 
 @interface HMPendingFetchedRecordsTuple : HMFObject
 {
+    _Bool _localDataReset;
     NSData *_encodedData1;
     NSData *_encodedData2;
     NSData *_encodedData3;
@@ -17,6 +18,8 @@
 }
 
 + (id)tupleWithEncodedData:(id)arg1 encodedDataVersion2:(id)arg2 encodedDataVersion3:(id)arg3 migrationOptions:(unsigned long long)arg4;
++ (id)tupleWithEncodedData:(id)arg1 encodedDataVersion2:(id)arg2 encodedDataVersion3:(id)arg3 migrationOptions:(unsigned long long)arg4 localDataReset:(_Bool)arg5;
+@property(nonatomic) _Bool localDataReset; // @synthesize localDataReset=_localDataReset;
 @property(nonatomic) unsigned long long migrationOptions; // @synthesize migrationOptions=_migrationOptions;
 @property(retain, nonatomic) NSData *encodedData3; // @synthesize encodedData3=_encodedData3;
 @property(retain, nonatomic) NSData *encodedData2; // @synthesize encodedData2=_encodedData2;

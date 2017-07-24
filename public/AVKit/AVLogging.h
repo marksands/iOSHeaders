@@ -7,11 +7,10 @@
 #import <objc/NSObject.h>
 
 @class NSMutableArray, NSMutableDictionary;
-@protocol OS_dispatch_queue, OS_os_log;
+@protocol OS_dispatch_queue;
 
 @interface AVLogging : NSObject
 {
-    NSObject<OS_os_log> *_log;
     long long _loggingLevel;
     NSMutableDictionary *_categories;
     NSMutableArray *_reusableLogQueue;
@@ -25,6 +24,7 @@
 - (void).cxx_destruct;
 - (void)popCategory:(id)arg1;
 - (void)pushCategory:(id)arg1;
+- (void)logTrustedString:(id)arg1 type:(unsigned char)arg2 logLevel:(long long)arg3;
 - (void)actuallyLogString:(id)arg1 type:(unsigned char)arg2 logLevel:(long long)arg3;
 - (void)logString:(id)arg1 type:(unsigned char)arg2 logLevel:(long long)arg3;
 - (id)init;

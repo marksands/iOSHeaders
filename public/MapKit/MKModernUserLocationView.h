@@ -33,7 +33,6 @@
 - (void).cxx_destruct;
 - (void)_setPresentationCourse:(double)arg1;
 - (void)_setMapRotationRadians:(double)arg1;
-- (struct CATransform3D)_innerCircleLayerDefaultTransform;
 - (void)_updateInnerCourseRotation;
 - (void)tintColorDidChange;
 - (void)_updateAccuracyColors;

@@ -34,7 +34,7 @@ __attribute__((visibility("hidden")))
 - (id)bakedValue;
 - (void)setArgumentSpec:(id)arg1;
 - (id)argumentName;
-- (id)modeNames;
+- (id)modes;
 - (void)p_invalidate;
 - (id)copyIntoContext:(id)arg1 bakeModes:(_Bool)arg2 children:(id)arg3;
 - (void)dealloc;

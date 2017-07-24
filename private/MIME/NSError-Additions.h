@@ -6,9 +6,19 @@
 
 #import <Foundation/NSError.h>
 
-@interface NSError (Additions)
+#import <MIME/MFPubliclyDescribable-Protocol.h>
+
+@class NSString;
+
+@interface NSError (Additions) <MFPubliclyDescribable>
 + (void)mf_setDecoder:(CDUnknownBlockType)arg1 forDomain:(id)arg2;
-- (id)mf_publicDescription;
+@property(readonly, copy, nonatomic) NSString *mf_publicDescription;
 - (CDUnknownBlockType)mf_match;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 @end
 

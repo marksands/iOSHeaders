@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class CUReadRequest, CUWriteRequest, NSString;
+@class CUBonjourDevice, CUReadRequest, CUWriteRequest, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface CUTCPConnection : NSObject
@@ -38,7 +38,8 @@
     int _socketFD;
     double _connectTimeoutSecs;
     double _dataTimeoutSecs;
-    NSString *_destination;
+    CUBonjourDevice *_destinationBonjour;
+    NSString *_destinationString;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     CDUnknownBlockType _errorHandler;
     CDUnknownBlockType _invalidationHandler;
@@ -54,7 +55,8 @@
 @property(copy, nonatomic) CDUnknownBlockType errorHandler; // @synthesize errorHandler=_errorHandler;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(nonatomic) int defaultPort; // @synthesize defaultPort=_defaultPort;
-@property(copy, nonatomic) NSString *destination; // @synthesize destination=_destination;
+@property(copy, nonatomic) NSString *destinationString; // @synthesize destinationString=_destinationString;
+@property(retain, nonatomic) CUBonjourDevice *destinationBonjour; // @synthesize destinationBonjour=_destinationBonjour;
 @property(nonatomic) double dataTimeoutSecs; // @synthesize dataTimeoutSecs=_dataTimeoutSecs;
 @property(nonatomic) double connectTimeoutSecs; // @synthesize connectTimeoutSecs=_connectTimeoutSecs;
 - (void).cxx_destruct;
@@ -65,13 +67,13 @@
 - (void)writeEndOfDataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)writeWithRequest:(id)arg1;
 - (void)_completeReadRequest:(id)arg1 error:(id)arg2;
-- (void)_processReadStatus;
+- (_Bool)_processReadStatus;
 - (void)_abortReadsWithError:(id)arg1;
 - (void)_prepareReadRequest:(id)arg1;
 - (void)_processReads:(_Bool)arg1;
 - (void)readWithRequest:(id)arg1;
 - (_Bool)_setupIOAndReturnError:(id *)arg1;
-- (_Bool)_startConnectingAndReturnError:(id *)arg1;
+- (_Bool)_startConnectingToDestination:(id)arg1 error:(id *)arg2;
 - (void)_invalidated;
 - (void)_invalidate;
 - (void)invalidate;

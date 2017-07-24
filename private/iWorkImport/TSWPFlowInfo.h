@@ -68,6 +68,7 @@ __attribute__((visibility("hidden")))
 - (void)willBeAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (id)displayNameOfMaxLength:(unsigned long long)arg1 usesEllipsis:(_Bool)arg2;
 - (unsigned long long)indexOfTextBox:(id)arg1;
+@property(readonly, nonatomic) _Bool isLocked;
 @property(readonly, nonatomic) TSUColor *userInterfaceStrokeColor;
 @property(readonly, nonatomic) TSUColor *userInterfaceFillColor;
 - (void)dealloc;

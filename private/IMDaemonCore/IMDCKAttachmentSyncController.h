@@ -6,8 +6,8 @@
 
 #import <IMDaemonCore/IMDCKAbstractSyncController.h>
 
-@class CKServerChangeToken, IDSKVStore, IMDCKAttachmentSyncCKOperationFactory, IMDRecordZoneManager, NSDictionary, NSObject;
-@protocol OS_dispatch_queue, OS_xpc_object;
+@class CKServerChangeToken, IMDCKAttachmentSyncCKOperationFactory, IMDRecordZoneManager, NSMutableArray, NSMutableDictionary, NSObject;
+@protocol IMDCKSyncTokenStore, OS_dispatch_queue, OS_xpc_object;
 
 @interface IMDCKAttachmentSyncController : IMDCKAbstractSyncController
 {
@@ -17,21 +17,23 @@
     NSObject<OS_dispatch_queue> *_ckQueue;
     IMDRecordZoneManager *_recordZoneManager;
     IMDCKAttachmentSyncCKOperationFactory *_CKOperationFactory;
-    IDSKVStore *_kvStore;
-    NSDictionary *_recordIDToTransferMap;
+    id <IMDCKSyncTokenStore> _syncTokenStore;
+    NSMutableDictionary *_completionBlocksForAssetFetchOperations;
+    NSMutableDictionary *_recordIDToTransferMap;
     CDUnknownBlockType _perTransferProgress;
-    CDUnknownBlockType _fetchCompletion;
+    NSMutableArray *_downloadAssetsForTransferGUIDs;
     NSObject<OS_xpc_object> *_activity;
 }
 
 + (id)sharedInstance;
 @property NSObject<OS_xpc_object> *activity; // @synthesize activity=_activity;
 @property(nonatomic) _Bool shouldCheckDeviceConditions; // @synthesize shouldCheckDeviceConditions=_shouldCheckDeviceConditions;
+@property(retain, nonatomic) NSMutableArray *downloadAssetsForTransferGUIDs; // @synthesize downloadAssetsForTransferGUIDs=_downloadAssetsForTransferGUIDs;
 @property(nonatomic) _Bool assetDownloadInProgress; // @synthesize assetDownloadInProgress=_assetDownloadInProgress;
-@property(copy, nonatomic) CDUnknownBlockType fetchCompletion; // @synthesize fetchCompletion=_fetchCompletion;
 @property(copy, nonatomic) CDUnknownBlockType perTransferProgress; // @synthesize perTransferProgress=_perTransferProgress;
-@property(retain, nonatomic) NSDictionary *recordIDToTransferMap; // @synthesize recordIDToTransferMap=_recordIDToTransferMap;
-@property(readonly, nonatomic) IDSKVStore *kvStore; // @synthesize kvStore=_kvStore;
+@property(retain, nonatomic) NSMutableDictionary *recordIDToTransferMap; // @synthesize recordIDToTransferMap=_recordIDToTransferMap;
+@property(retain, nonatomic) NSMutableDictionary *completionBlocksForAssetFetchOperations; // @synthesize completionBlocksForAssetFetchOperations=_completionBlocksForAssetFetchOperations;
+@property(retain, nonatomic) id <IMDCKSyncTokenStore> syncTokenStore; // @synthesize syncTokenStore=_syncTokenStore;
 @property(retain, nonatomic) IMDCKAttachmentSyncCKOperationFactory *CKOperationFactory; // @synthesize CKOperationFactory=_CKOperationFactory;
 @property(retain, nonatomic) IMDRecordZoneManager *recordZoneManager; // @synthesize recordZoneManager=_recordZoneManager;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *ckQueue; // @synthesize ckQueue=_ckQueue;
@@ -48,12 +50,14 @@
 - (void)clearLocalSyncState;
 - (void)deleteAttachmentZone;
 @property(retain, nonatomic) CKServerChangeToken *latestSyncToken; // @synthesize latestSyncToken=_latestSyncToken;
+- (void)_migrateSyncToken;
 - (void)_resetAttachmentSyncStateForRecord:(id)arg1 toState:(long long)arg2;
 - (void)_markTransferAsNotBeingAbleToSyncUsingCKRecord:(id)arg1;
+- (void)_kickOffAssetFetchForTransfersIfNeeded;
 - (void)_updateTransferUsingCKRecord:(id)arg1 wasFetched:(_Bool)arg2;
 - (void)_removeTransferFromiCloudBackupWithGuid:(id)arg1;
 - (id)_recordIDsToProcessWithError:(id)arg1 error:(id)arg2;
-- (void)_processAssetFetchOperationCompletionBlock:(id)arg1 error:(id)arg2;
+- (void)_processAssetFetchOperationCompletionBlock:(id)arg1 operationID:(id)arg2 error:(id)arg3;
 - (void)_processAssetFetchPerRecordCompletionBlock:(id)arg1 recordID:(id)arg2 error:(id)arg3;
 - (void)_processAssetFetchPerRecordProgressBlock:(id)arg1 progress:(double)arg2;
 - (void)_processModifyRecordCompletion:(id)arg1 deletedRecordIDs:(id)arg2 error:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
@@ -65,10 +69,11 @@
 - (void)_processModifyPerRecordCallBack:(id)arg1 error:(id)arg2;
 - (void)_processRecordZoneFetchCompletion:(id)arg1 zoneID:(id)arg2 clientChangeTokenData:(id)arg3 moreComing:(_Bool)arg4 shouldWriteBackChanges:(_Bool)arg5 desiredKeys:(long long)arg6 syncType:(long long)arg7 error:(id)arg8 completionBlock:(CDUnknownBlockType)arg9;
 - (void)_resetSyncToken;
+- (void)deleteAttachmentSyncToken;
 - (_Bool)_attachmentZoneCreated;
 - (void)_writeCKRecordsToAttachmentZone:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_fetchAttachmentZoneChangesShouldWriteBackChanges:(_Bool)arg1 desiredKeys:(long long)arg2 syncType:(long long)arg3 completionBlock:(CDUnknownBlockType)arg4;
-- (void)_fetchAttachmentZoneRecords:(id)arg1 desiredKeys:(long long)arg2;
+- (void)_fetchAttachmentZoneRecords:(id)arg1 desiredKeys:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_writeAttachmentsToCloudKit:(CDUnknownBlockType)arg1;
 - (unsigned long long)_numberOfAttachmentsToWriteUp;
 - (unsigned long long)_numberOfAttachmentsToDownload;
@@ -87,6 +92,7 @@
 - (void)_updateAllAttachmentsAsNotNeedingReUpload;
 - (_Bool)_shouldMarkAllAttachmentsAsNeedingSync;
 - (id)init;
+- (id)initWithSyncTokenStore:(id)arg1;
 - (void)dealloc;
 
 @end

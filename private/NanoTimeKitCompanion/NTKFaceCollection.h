@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <NanoTimeKitCompanion/NTKEnumeratableFaceCollection-Protocol.h>
 #import <NanoTimeKitCompanion/NTKFaceObserver-Protocol.h>
 
 @class NSHashTable, NSMapTable, NSMutableArray, NSMutableDictionary, NSString, NSUUID, NTKFace;
 
-@interface NTKFaceCollection : NSObject <NTKFaceObserver>
+@interface NTKFaceCollection : NSObject <NTKFaceObserver, NTKEnumeratableFaceCollection>
 {
     NSString *_logIdentifier;
     NSUUID *_selectedUUID;
@@ -66,6 +67,7 @@
 - (void)setSelectedFaceIndex:(unsigned long long)arg1 suppressingCallbackToObserver:(id)arg2;
 @property(readonly, nonatomic, getter=hasLoaded) _Bool hasLoaded;
 @property(readonly, nonatomic) unsigned long long selectedFaceIndex;
+- (void)enumerateFaceNamesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateFacesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)faceAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) NTKFace *selectedFace;

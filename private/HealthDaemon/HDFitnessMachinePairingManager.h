@@ -24,7 +24,7 @@
 - (void)registerConnectionInitiatorClient:(id)arg1 withConnectionUUID:(id)arg2;
 - (void)deliverError:(id)arg1;
 - (void)updatedConnectionStateWithError:(id)arg1;
-- (void)updatedFitnessMachineState;
+- (void)updatedFitnessMachineState:(unsigned long long)arg1 fitnessMachineSessionUUID:(id)arg2;
 - (void)updatedFitnessMachine;
 - (void)workoutAppIsReady;
 - (void)simulateAccept;

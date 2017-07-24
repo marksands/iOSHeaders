@@ -35,7 +35,7 @@
 - (id)searchThroughSection;
 - (_Bool)_shouldPromptUserToOpenTTR;
 - (id)getTapToRadarPunchOutForRankingWithDebugLog:(id)arg1;
-- (id)resultWithIdentifier:(id)arg1 title:(id)arg2 url:(id)arg3;
+- (id)resultWithIdentifier:(id)arg1 title:(id)arg2 url:(id)arg3 bundleIdentifier:(id)arg4;
 - (void)addSections:(id)arg1;
 - (void)handleOptionsForNewSections:(id)arg1;
 - (void)mergeSections;

@@ -15,9 +15,12 @@
 {
     NSArray *_items;
     _Bool _didFailToLoad;
+    _Bool _didTimeOut;
     id <DOCShareFPItemLoaderDelegate> _delegate;
 }
 
+@property(readonly, nonatomic) NSArray *items; // @synthesize items=_items;
+@property(readonly, nonatomic) _Bool loadDidTimeOut; // @synthesize loadDidTimeOut=_didTimeOut;
 @property(nonatomic) __weak id <DOCShareFPItemLoaderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)notifyDelegate;

@@ -9,6 +9,7 @@
 @class FCPrivateRecordSyncManager, NTPBPrivateRecordSyncState;
 
 @protocol FCPrivateRecordSyncManagerDelegate <NSObject>
+- (void)recordSyncManagerNotifyObservers:(FCPrivateRecordSyncManager *)arg1;
 - (void)recordSyncManager:(FCPrivateRecordSyncManager *)arg1 stateDidChange:(NTPBPrivateRecordSyncState *)arg2;
 @end
 

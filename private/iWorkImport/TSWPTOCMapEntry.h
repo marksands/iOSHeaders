@@ -17,8 +17,8 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) _Bool showInTOC; // @synthesize showInTOC=_showInTOC;
 @property(retain, nonatomic) TSWPTOCEntryStyle *tocEntryStyle; // @synthesize tocEntryStyle=_tocEntryStyle;
+- (void).cxx_destruct;
 - (id)copyWithContext:(id)arg1;
-- (void)dealloc;
 - (id)initWithTOCEntryStyle:(id)arg1 showInTOC:(_Bool)arg2;
 
 @end

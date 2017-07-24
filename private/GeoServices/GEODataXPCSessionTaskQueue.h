@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 @interface GEODataXPCSessionTaskQueue : NSObject
 {
     NSObject<OS_dispatch_queue> *_isolation;
+    NSObject<OS_dispatch_queue> *_localIsolation;
     id <GEODataXPCConnectionManager> _connectionManager;
     NSMutableDictionary *_pendingTasks;
     _GEODataXPCSessionTaskQueueHelper *_helper;

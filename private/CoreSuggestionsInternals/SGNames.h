@@ -41,7 +41,6 @@
 + (_Bool)isSalientName:(id)arg1;
 + (_Bool)isCommonNameWord:(id)arg1;
 + (CDStruct_a2e78aaa)namePayload:(id)arg1;
-+ (void)initialize;
 
 @end
 

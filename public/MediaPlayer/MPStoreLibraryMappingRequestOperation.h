@@ -20,7 +20,7 @@
 @property(copy, nonatomic) CDUnknownBlockType responseHandler; // @synthesize responseHandler=_responseHandler;
 @property(copy, nonatomic) NSArray *identifierSets; // @synthesize identifierSets=_identifierSets;
 @property(nonatomic) Class modelClass; // @synthesize modelClass=_modelClass;
-@property(retain, nonatomic) MPMediaLibraryView *libraryView; // @synthesize libraryView=_libraryView;
+@property(copy, nonatomic) MPMediaLibraryView *libraryView; // @synthesize libraryView=_libraryView;
 - (void).cxx_destruct;
 - (void)execute;
 

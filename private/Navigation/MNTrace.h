@@ -36,6 +36,7 @@
     NSArray *_annotatedUserEnvironments;
     NSArray *_commuteDestinations;
     NSArray *_commuteDirectionsRequests;
+    _Bool _copyToCrashReporter;
     NSString *_tracePath;
     NSArray *_significantEvents;
 }
@@ -63,12 +64,14 @@
 @property(nonatomic) _Bool isSimulation; // @synthesize isSimulation=_isSimulation;
 @property(nonatomic) unsigned long long originalVersion; // @synthesize originalVersion=_originalVersion;
 @property(nonatomic) unsigned long long version; // @synthesize version=_version;
+@property(nonatomic) _Bool copyToCrashReporter; // @synthesize copyToCrashReporter=_copyToCrashReporter;
 @property(readonly, nonatomic) NSString *tracePath; // @synthesize tracePath=_tracePath;
 @property(retain, nonatomic) NSArray *bookmarks; // @synthesize bookmarks=_bookmarks;
 @property(readonly, nonatomic) NSObject<OS_dispatch_group> *writeGroup; // @synthesize writeGroup=_writeGroup;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *writeQueue; // @synthesize writeQueue=_writeQueue;
 @property(readonly, nonatomic) struct sqlite3 *db; // @synthesize db=_db;
 - (void).cxx_destruct;
+- (void)_copyTraceToCrashReporter;
 - (id)_handleOpenErrorWithPath:(id)arg1;
 - (_Bool)closeTrace;
 - (_Bool)startWritingTraceToFile:(id)arg1;

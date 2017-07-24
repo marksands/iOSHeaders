@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)requestDidParseNodeFailure:(id)arg1;
 - (id)requestDidParseProtobufObject:(id)arg1;
-- (id)requestOperations;
+- (id)generateRequestOperations;
 - (id)requestOperationClasses;
 - (id)zoneIDsToLock;
 - (int)operationType;

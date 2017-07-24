@@ -16,13 +16,14 @@
     CLIntersiloInterface *_proxiedInterface;
 }
 
-+ (id)proxyForRecipientObject:(id)arg1 inSilo:(id)arg2 withInboundInterface:(id)arg3 andOutboundInterface:(id)arg4;
++ (id)proxyForRecipientObject:(id)arg1 inSilo:(id)arg2 recipientName:(id)arg3 withInboundInterface:(id)arg4 andOutboundInterface:(id)arg5;
 + (Class)recipientRepresentingClass;
 + (Class)initiatorRepresentingClass;
 @property(readonly, copy, nonatomic) CLIntersiloInterface *proxiedInterface; // @synthesize proxiedInterface=_proxiedInterface;
 @property(readonly, nonatomic) __weak CLSilo *delegateSilo; // @synthesize delegateSilo=_delegateSilo;
 @property(readonly, nonatomic) __weak id <CLIntersiloProxyDelegateProtocol> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (_Bool)offsiloHandleInvocation:(id)arg1 selectorInfo:(id)arg2 peer:(id)arg3;
 - (id)peer;
 - (void)setDelegateEntityName:(const char *)arg1;
 - (id)description;

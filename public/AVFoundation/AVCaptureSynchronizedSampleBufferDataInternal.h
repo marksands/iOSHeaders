@@ -11,6 +11,7 @@
     struct opaqueCMSampleBuffer *sampleBuffer;
     _Bool sampleBufferWasDropped;
     long long droppedReason;
+    _Bool hasCorrespondingDepthData;
 }
 
 @end

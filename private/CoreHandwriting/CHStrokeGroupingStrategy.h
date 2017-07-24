@@ -22,12 +22,13 @@
 @property(readonly, retain, nonatomic) CHRecognitionSessionResult *sessionLastResult; // @synthesize sessionLastResult=_sessionLastResult;
 @property(readonly, retain, nonatomic) id <CHStrokeProvider> strokeProvider; // @synthesize strokeProvider=_strokeProvider;
 - (id)strokeGroupFromGroup:(id)arg1 addingStrokes:(id)arg2;
+- (void)getFirstStrokeIdentifier:(id *)arg1 lastStrokeIdentifier:(id *)arg2 inGroup:(id)arg3 addingStrokeIdentifiers:(id)arg4 removingStrokeIdentifiers:(id)arg5;
 - (id)strokesForIdentifiers:(id)arg1;
 - (void)getAddedStrokes:(id *)arg1 removedStrokeIdentifiers:(id *)arg2;
 - (void)dealloc;
 - (id)initWithStrokeProvider:(id)arg1 sessionLastResult:(id)arg2 locales:(id)arg3;
 - (id)recognizableDrawingForStrokeGroup:(id)arg1 orderedStrokesIDs:(id *)arg2;
-- (id)updatedGroupingResult;
+- (id)updatedGroupingResultWithCancellationBlock:(CDUnknownBlockType)arg1;
 
 @end
 

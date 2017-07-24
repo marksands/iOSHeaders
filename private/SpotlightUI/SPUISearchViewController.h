@@ -21,8 +21,6 @@
     unsigned long long _queryStartTime;
     NSTimer *_queryUpdateTimer;
     _Bool _internetOverrideForPPT;
-    _Bool _isBeingPresented;
-    _Bool _wasVisibleWhenPresented;
     id <SPUISearchViewControllerDelegate> _delegate;
     _UILegibilitySettings *_legibilitySettings;
     SPUISearchHeader *_searchHeader;
@@ -42,8 +40,6 @@
 + (_Bool)_isSuggestionResult:(id)arg1;
 @property(retain) NSArray *testingSections; // @synthesize testingSections=_testingSections;
 @property(retain) UITableView *testingTableView; // @synthesize testingTableView=_testingTableView;
-@property _Bool wasVisibleWhenPresented; // @synthesize wasVisibleWhenPresented=_wasVisibleWhenPresented;
-@property _Bool isBeingPresented; // @synthesize isBeingPresented=_isBeingPresented;
 @property(retain) NSTimer *clearResultsTimer; // @synthesize clearResultsTimer=_clearResultsTimer;
 @property double statusBarDismissTime; // @synthesize statusBarDismissTime=_statusBarDismissTime;
 @property _Bool internetOverrideForPPT; // @synthesize internetOverrideForPPT=_internetOverrideForPPT;
@@ -61,12 +57,12 @@
 - (_Bool)respondsToSelector:(SEL)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (void)hideKeyboard;
+- (void)didBeginScrollingResults;
 - (void)didSwipeUpOnTableView;
 - (void)cancelButtonPressed;
 - (_Bool)queryIsPresent;
 - (void)dictationButtonPressed;
 - (void)didBeginEditing;
-- (_Bool)isVisible;
 - (_Bool)allowInternet;
 - (void)didUpdateFromResults;
 - (void)queryContextDidChange:(id)arg1 fromSearchHeader:(id)arg2 allowZKW:(_Bool)arg3;
@@ -103,7 +99,7 @@
 - (void)searchViewWillPresentFromSource:(unsigned long long)arg1;
 - (void)scrollSearchTableWithTestName:(id)arg1 iterations:(unsigned long long)arg2;
 - (void)performSearchWithSuggestion:(id)arg1;
-- (void)performTestSearchWithQuery:(id)arg1 event:(unsigned long long)arg2 phraseSearch:(_Bool)arg3 sourcePreference:(long long)arg4;
+- (void)performTestSearchWithQuery:(id)arg1 event:(unsigned long long)arg2 sourcePreference:(long long)arg3;
 - (void)performSearchWithQuery:(id)arg1 forSuggestions:(_Bool)arg2;
 - (void)performSearchWithQuery:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;

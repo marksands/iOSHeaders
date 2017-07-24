@@ -10,7 +10,7 @@
 #import <MapKit/_MKAnimationStackViewDelegate-Protocol.h>
 #import <MapKit/_MKStackViewDelegate-Protocol.h>
 
-@class NSArray, NSHashTable, NSLayoutConstraint, NSMapTable, NSSet, NSString, UIScrollView, UIView, _MKStackView, _MKStackingContentView;
+@class NSArray, NSHashTable, NSLayoutConstraint, NSMapTable, NSString, UIScrollView, UIView, _MKStackView, _MKStackingContentView;
 @protocol MKStackingViewControllerDelegate;
 
 @interface MKStackingViewController : UIViewController <_MKStackViewDelegate, _MKAnimationStackViewDelegate, UIScrollViewDelegate>
@@ -29,11 +29,7 @@
     _Bool _isSettingStackedViews;
     _Bool _contentViewConstraintsAdded;
     NSHashTable *_minimallyVisibleViews;
-    double _stopLoadingAtHeight;
-    _Bool _continueOnViewDidAppear;
     _Bool _needsToPerformLayout;
-    NSSet *_viewControllersLaidOut;
-    NSSet *_viewControllersRemaining;
     UIView *_overlayView;
     double _overlayViewOriginY;
     _Bool _mayWantSpearators;
@@ -45,8 +41,6 @@
 @property(nonatomic) __weak id <MKStackingViewControllerDelegate> stackingDelegate; // @synthesize stackingDelegate=_stackingDelegate;
 @property(copy, nonatomic) NSArray *viewControllers; // @synthesize viewControllers=_viewControllers;
 - (void).cxx_destruct;
-- (void)viewWillAppear:(_Bool)arg1;
-- (void)viewDidAppear:(_Bool)arg1;
 - (_Bool)isViewVisbile:(id)arg1 percentageTreshold:(double)arg2;
 - (void)_updateViewControllerVisibilityAfterPositionChange;
 - (void)_didScroll;
@@ -57,6 +51,8 @@
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillLayoutSubviews;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)updateViewConstraints;
 - (void)_removePreferredHeightConstraintFromViewController:(id)arg1;
 - (void)_addPreferredHeightConstraintForViewControllerIfNeeded:(id)arg1;
@@ -72,12 +68,11 @@
 - (void)_updateStackViewSubviewsAndChildVCsEntering:(id)arg1 exiting:(id)arg2;
 - (void)stackViewNeedsLayout:(id)arg1;
 - (void)_updateFixedHeightAwareControllers;
-- (double)heightForInitialLayoutWithWidth:(double)arg1 removeWidthConstraintWhenDone:(_Bool)arg2;
+- (void)setWidthConstraintConstant:(double)arg1;
+- (double)currentHeight;
 - (double)_fittingHeightForView:(id)arg1;
 @property(nonatomic, getter=isScrollEnabled) _Bool scrollEnabled;
 - (void)_setScrollEnabled:(_Bool)arg1 forcedUpdate:(_Bool)arg2;
-@property(nonatomic, getter=willContinueLoadOnViewDidAppear) _Bool continueLoadOnViewDidAppear;
-@property(nonatomic, getter=initiallyLoadedHeight) double initialLoadHeight;
 - (double)_titleHeight;
 - (_Bool)_isSafeToPerformLayout;
 - (void)viewDidLoad;

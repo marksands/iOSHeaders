@@ -23,7 +23,6 @@
 @property(nonatomic) NSArray *connectedClientPIDs;
 @property(readonly, nonatomic) _Bool useSystemAudioContextForAirPlayTransport;
 @property(readonly, nonatomic, getter=isAirPlay2Enabled) _Bool airPlay2Enabled;
-@property(readonly, nonatomic) double sleepOnStartUpDuration;
 @property(readonly, nonatomic) double transactionWaitDurationOnNetworkSend;
 @property(readonly, nonatomic) double transactionWaitDurationOnXpcSend;
 @property(readonly, nonatomic) double transactionWaitDurationOnOutOfMemory;

@@ -4,32 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <NeutrinoCore/NUExportRequest.h>
+#import <NeutrinoCore/NUVideoExportRequest.h>
 
-@class NSArray, NSDictionary, NSString, NSURL;
+@class NSString, NSURL;
 
-@interface PIAutoLoopExportRequest : NUExportRequest
+@interface PIAutoLoopExportRequest : NUVideoExportRequest
 {
-    _Bool _addAudio;
-    NSArray *_metadata;
-    NSDictionary *_recipe;
-    long long _flavor;
     NSString *_destinationUTI;
+    NSURL *_destinationLongExposureURL;
     NSURL *_destinationMaskURL;
 }
 
 @property(readonly) NSURL *destinationMaskURL; // @synthesize destinationMaskURL=_destinationMaskURL;
+@property(readonly) NSURL *destinationLongExposureURL; // @synthesize destinationLongExposureURL=_destinationLongExposureURL;
 @property(readonly) NSString *destinationUTI; // @synthesize destinationUTI=_destinationUTI;
-@property _Bool addAudio; // @synthesize addAudio=_addAudio;
-@property(readonly) long long flavor; // @synthesize flavor=_flavor;
-@property(readonly) NSDictionary *recipe; // @synthesize recipe=_recipe;
-@property(copy) NSArray *metadata; // @synthesize metadata=_metadata;
 - (void).cxx_destruct;
 - (void)submit:(CDUnknownBlockType)arg1;
 - (long long)mediaComponentType;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)newRenderJob;
-- (id)initWithComposition:(id)arg1 autoLoopRecipe:(id)arg2 flavor:(long long)arg3 destinationURL:(id)arg4 maskDestinationURL:(id)arg5 destinationUTI:(id)arg6;
+- (id)initWithComposition:(id)arg1 stabilizedVideoURL:(id)arg2 longExposureDestinationURL:(id)arg3 maskDestinationURL:(id)arg4 destinationUTI:(id)arg5;
 - (id)initWithComposition:(id)arg1 destinationURL:(id)arg2;
 - (id)initWithRequest:(id)arg1;
 

@@ -27,7 +27,7 @@
 @property(readonly, nonatomic) long long rtcReportingAssetType;
 @property(readonly, copy, nonatomic) NSString *rtcReportingServiceIdentifier;
 @property(readonly, nonatomic) id rtcReportingParentHierarchyToken;
-- (id)artworkCatalogForPlaybackTime:(double)arg1;
+- (CDUnknownBlockType)artworkCatalogBlock;
 - (_Bool)allowsExternalPlayback;
 - (_Bool)allowsAirPlayFromCloud;
 - (void)setPlaybackFinishedTime:(double)arg1;

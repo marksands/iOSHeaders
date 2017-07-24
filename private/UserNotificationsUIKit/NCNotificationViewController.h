@@ -79,6 +79,7 @@
 - (long long)ncTransitionAnimationState;
 - (void)dismissViewControllerWithTransition:(int)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)presentViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)prefersStatusBarHidden;
 - (unsigned long long)supportedInterfaceOrientations;
 - (_Bool)shouldAutorotate;
 - (void)viewDidDisappear:(_Bool)arg1;
@@ -109,7 +110,6 @@
 - (void)removeAudioAccesoryObserver:(id)arg1;
 - (void)addAudioAccessoryObserver:(id)arg1;
 - (void)expandAndPlayAudioMessage;
-- (void)presentLongLookAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)_canPan;
 - (_Bool)restoreInputViews;
 - (void)preserveInputViews;
@@ -127,7 +127,6 @@
 - (void)reloadStaticContentProvider;
 @property(readonly, nonatomic, getter=hasCommittedToPresentingCustomContentProvidingViewController) _Bool committedToPresentingCustomContentProvidingViewController;
 @property(readonly, nonatomic, getter=_isPresentingCustomContentProvidingViewController) _Bool presentingCustomContentProvidingViewController;
-- (id)_presentedLongLookViewController;
 @property(readonly, nonatomic, getter=isDragging) _Bool dragging;
 @property(readonly, nonatomic, getter=isShortLook) _Bool shortLook;
 - (_Bool)_setNotificationRequest:(id)arg1;
@@ -135,6 +134,8 @@
 - (id)initWithNotificationRequest:(id)arg1;
 - (id)initWithNotificationRequest:(id)arg1 revealingAdditionalContentOnPresentation:(_Bool)arg2;
 - (id)_initWithNotificationRequest:(id)arg1 revealingAdditionalContentOnPresentation:(_Bool)arg2;
+- (void)presentLongLookAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic, getter=_presentedLongLookViewController) NCNotificationViewController *presentedLongLookViewController;
 @property(readonly, nonatomic, getter=isLookStyleLongLook) _Bool lookStyleLongLook;
 
 // Remaining properties

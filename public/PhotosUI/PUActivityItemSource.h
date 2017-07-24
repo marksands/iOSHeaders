@@ -40,6 +40,7 @@
 }
 
 + (id)_photosInternalActivities;
++ (id)_sharingErrorWithCode:(long long)arg1 underlyingError:(id)arg2 localizedDescription:(id)arg3 additionalInfo:(id)arg4;
 + (_Bool)supportsAssetLocalIdentifierForActivityType:(id)arg1;
 + (_Bool)supportsPhotoIrisBundleForActivityType:(id)arg1;
 @property(retain, setter=_setAssetsLibraryURL:) NSURL *_assetsLibraryURL; // @synthesize _assetsLibraryURL=__assetsLibraryURL;
@@ -95,6 +96,7 @@
 - (id)_newPasteboardRepresentationForURL:(id)arg1;
 - (id)_newOperationForActivityType:(id)arg1;
 - (id)_uniformTypeIdentifierForActivityType:(id)arg1;
+- (unsigned long long)_maxFileSizeLimitForActivityType:(id)arg1 asset:(id)arg2;
 - (_Bool)_shouldExcludeAlternateVariantForActivityType:(id)arg1;
 - (_Bool)_wantsAlternateVariantForActivityType:(id)arg1;
 - (_Bool)_wantsCompatibleFormatForActivityType:(id)arg1;

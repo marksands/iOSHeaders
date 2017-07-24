@@ -5,10 +5,11 @@
 //
 
 #import <CloudDocsDaemon/BRCJobsMatching-Protocol.h>
+#import <CloudDocsDaemon/NSCopying-Protocol.h>
 
 @class PQLFormatInjection, PQLRawInjection;
 
-@protocol BRCJobIdentifying <BRCJobsMatching>
+@protocol BRCJobIdentifying <BRCJobsMatching, NSCopying>
 - (PQLFormatInjection *)columnsValues;
 - (PQLRawInjection *)columns;
 @end

@@ -28,7 +28,6 @@
     _Bool _dispatchedBytesAvailable;
     unsigned long long _bytesRead;
     unsigned long long _bytesWritten;
-    _Bool _enableThroughputMonitoring;
     NSCondition *_condition;
 }
 
@@ -36,7 +35,6 @@
 + (void)setNetworkThread:(id)arg1;
 + (id)networkThread;
 @property(readonly, nonatomic) NSError *streamError; // @synthesize streamError=_error;
-- (void)enableThroughputMonitoring:(_Bool)arg1;
 - (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;
 - (void)_readBytesFromStream;
 - (void)close;

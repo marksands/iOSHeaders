@@ -102,6 +102,8 @@
 - (id)acceptedMIMETypes;
 - (id)updateProfileWithIdentifier:(id)arg1 outError:(id *)arg2;
 - (void)removeProfileWithIdentifier:(id)arg1 installationType:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)removeProtectedProfileAsyncWithIdentifier:(id)arg1 installationType:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)removeProfileAsyncWithIdentifier:(id)arg1 installationType:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)removeProtectedProfileAsyncWithIdentifier:(id)arg1 installationType:(long long)arg2;
 - (void)removeProfileAsyncWithIdentifier:(id)arg1 installationType:(long long)arg2;
 - (void)removeProfileWithIdentifier:(id)arg1 installationType:(long long)arg2;
@@ -367,6 +369,7 @@
 - (_Bool)isEnterpriseBookBackupAllowed;
 - (void)setActivityContinuationAllowed:(_Bool)arg1;
 - (_Bool)isActivityContinuationAllowed;
+- (_Bool)isWiFiPasswordSharingAllowed;
 - (_Bool)isGeotagSharingAllowed;
 - (_Bool)isAirPlayIncomingRequestsAllowed;
 - (_Bool)isAirPlayIncomingRequestsPairingPasswordRequired;
@@ -555,6 +558,10 @@
 - (id)filteredMailSheetAccountsForBundleID:(id)arg1 sourceAccountManagement:(int)arg2;
 - (_Bool)canSendMail:(id)arg1 sourceAccountManagement:(int)arg2;
 - (_Bool)mayShowLocalAccountsForBundleID:(id)arg1 sourceAccountManagement:(int)arg2;
+- (long long)dragDropTargetManagementStateForBundleID:(id)arg1;
+- (long long)dragDropSourceManagementStateForBundleID:(id)arg1;
+- (long long)dragDropBidirectionalManagementStateForBaseBundleID:(id)arg1;
+- (_Bool)isBundleIDAccountBasedForDragDrop:(id)arg1;
 - (_Bool)isAppManaged:(id)arg1;
 - (id)allowedAppBundleIDsForBidirectionalDataMovementAfterApplyingFilterToBundleIDs:(id)arg1 localAppBundleID:(id)arg2 localAccountIsManaged:(_Bool)arg3;
 - (id)allowedImportFromAppBundleIDsAfterApplyingFilterToBundleIDs:(id)arg1 importingAppBundleID:(id)arg2 importingAccountIsManaged:(_Bool)arg3;

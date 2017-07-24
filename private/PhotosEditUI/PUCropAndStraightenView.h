@@ -10,19 +10,17 @@
 #import <PhotosEditUI/UIGestureRecognizerDelegate-Protocol.h>
 #import <PhotosEditUI/UIScrollViewDelegate-Protocol.h>
 
-@class NSString, NUComposition, NUMediaView, PHLivePhoto, PHLivePhotoView, PLImageGeometry, UIImage, UIImageView, UIScrollView;
+@class NSString, NUComposition, NUMediaView, PHLivePhoto, PHLivePhotoView, PLImageGeometry, PXImageLayerModulator, PXImageModulationManager, UIImage, UIImageView, UIScrollView;
 @protocol PUCropAndStraightenViewDelegate;
 
 @interface PUCropAndStraightenView : UIView <UIScrollViewDelegate, UIGestureRecognizerDelegate, NUMediaViewDelegate>
 {
     _Bool _tracking;
-    _Bool __updatingForFit;
-    _Bool __updatingForCrop;
-    _Bool __updatingForStraighten;
     _Bool __scrollViewTracking;
     UIImage *_image;
     PHLivePhoto *_livePhoto;
     NUComposition *_autoloopComposition;
+    long long _imageModulationOptions;
     id <PUCropAndStraightenViewDelegate> _delegate;
     double _straightenAngle;
     long long _orientation;
@@ -32,19 +30,22 @@
     UIImageView *__imageView;
     PHLivePhotoView *__livePhotoView;
     double __preferredZoomScale;
+    long long __updateReason;
     PLImageGeometry *__imageGeometry;
     NUMediaView *__mediaView;
+    PXImageModulationManager *__imageModulationManager;
+    PXImageLayerModulator *__imageLayerModulator;
     struct CGRect _cropRect;
     struct CGRect _canvasFrame;
     struct CGRect __fittingRegion;
 }
 
+@property(retain, nonatomic, setter=_setImageLayerModulator:) PXImageLayerModulator *_imageLayerModulator; // @synthesize _imageLayerModulator=__imageLayerModulator;
+@property(retain, nonatomic, setter=_setImageModulationManager:) PXImageModulationManager *_imageModulationManager; // @synthesize _imageModulationManager=__imageModulationManager;
 @property(retain, nonatomic, setter=_setMediaView:) NUMediaView *_mediaView; // @synthesize _mediaView=__mediaView;
 @property(retain, nonatomic, setter=_setImageGeometry:) PLImageGeometry *_imageGeometry; // @synthesize _imageGeometry=__imageGeometry;
 @property(nonatomic, getter=_isScrollViewTracking, setter=_setScrollViewTracking:) _Bool _scrollViewTracking; // @synthesize _scrollViewTracking=__scrollViewTracking;
-@property(nonatomic, getter=_isUpdatingForStraighten, setter=_setUpdatingForStraighten:) _Bool _updatingForStraighten; // @synthesize _updatingForStraighten=__updatingForStraighten;
-@property(nonatomic, getter=_isUpdatingForCrop, setter=_setUpdatingForCrop:) _Bool _updatingForCrop; // @synthesize _updatingForCrop=__updatingForCrop;
-@property(nonatomic, getter=_isUpdatingForFit, setter=_setUpdatingForFit:) _Bool _updatingForFit; // @synthesize _updatingForFit=__updatingForFit;
+@property(nonatomic, setter=_setUpdateReason:) long long _updateReason; // @synthesize _updateReason=__updateReason;
 @property(nonatomic, setter=_setFittingRegion:) struct CGRect _fittingRegion; // @synthesize _fittingRegion=__fittingRegion;
 @property(nonatomic, setter=_setPreferredZoomScale:) double _preferredZoomScale; // @synthesize _preferredZoomScale=__preferredZoomScale;
 @property(retain, nonatomic, setter=_setLivePhotoView:) PHLivePhotoView *_livePhotoView; // @synthesize _livePhotoView=__livePhotoView;
@@ -58,6 +59,7 @@
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(nonatomic) double straightenAngle; // @synthesize straightenAngle=_straightenAngle;
 @property(nonatomic) __weak id <PUCropAndStraightenViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) long long imageModulationOptions; // @synthesize imageModulationOptions=_imageModulationOptions;
 @property(retain, nonatomic) NUComposition *autoloopComposition; // @synthesize autoloopComposition=_autoloopComposition;
 @property(retain, nonatomic) PHLivePhoto *livePhoto; // @synthesize livePhoto=_livePhoto;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
@@ -80,6 +82,9 @@
 - (void)_updateScrollInsets;
 - (void)_updateZoomScale;
 - (void)_updateScrollView;
+- (void)_updateImageModulation;
+- (void)_invalidateImageLayerModulator;
+- (void)_invalidateImageModulationManager;
 - (struct CGSize)_sizeRotatedIfNeeded:(struct CGSize)arg1;
 - (struct CGSize)_boundingSizeOfStraightenedRectWithSize:(struct CGSize)arg1;
 - (struct CGRect)_imageBounds;
@@ -95,6 +100,7 @@
 @property(readonly, nonatomic) struct CGRect imageCropRect;
 - (struct CGRect)_fullCropRect;
 - (void)mediaViewDidFinishRendering:(id)arg1;
+- (void)didMoveToWindow;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

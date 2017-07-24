@@ -43,6 +43,8 @@
 - (void)_runGradientAnimation:(_Bool)arg1;
 - (void)_preferredTextSizeChanged:(id)arg1;
 - (void)_createGradientLayer;
+- (id)_fontWithTextStyle:(id)arg1 symbolicTraits:(unsigned int)arg2 withMaximumFontSizeCategory:(id)arg3;
+- (id)_callToActionFont;
 - (void)_createLabel;
 - (void)_updateLabelTextWithLanguage:(id)arg1;
 @property(readonly, copy) NSString *description;

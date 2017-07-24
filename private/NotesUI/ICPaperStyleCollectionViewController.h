@@ -13,6 +13,7 @@
 @interface ICPaperStyleCollectionViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout>
 {
     _Bool _forPreferences;
+    _Bool _needsUpdateItemSpacing;
     double _itemSpacing;
     double _itemSpacingVertical;
     ICPaperStyleHeaderView *_headerViewMeasuringCell;
@@ -25,6 +26,7 @@
 @property(nonatomic) struct CGSize itemSize; // @synthesize itemSize=_itemSize;
 @property(nonatomic) double itemSpacingVertical; // @synthesize itemSpacingVertical=_itemSpacingVertical;
 @property(nonatomic) double itemSpacing; // @synthesize itemSpacing=_itemSpacing;
+@property(nonatomic) _Bool needsUpdateItemSpacing; // @synthesize needsUpdateItemSpacing=_needsUpdateItemSpacing;
 @property(nonatomic) _Bool forPreferences; // @synthesize forPreferences=_forPreferences;
 - (void).cxx_destruct;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForHeaderInSection:(long long)arg3;
@@ -39,12 +41,15 @@
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (id)titleForHeaderView;
 - (void)contentSizeCategoryDidChange:(id)arg1;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (id)indexPathFromPaperStyleType:(unsigned long long)arg1;
 - (id)indexPathFromSetting:(id)arg1;
 - (unsigned long long)paperStyleTypeFromIndexPath:(id)arg1;
 - (id)settingFromIndexPath:(id)arg1;
 - (void)updateSettings;
+- (void)updateItemSpacing;
 - (void)viewDidLayoutSubviews;
+- (void)viewWillLayoutSubviews;
 - (id)indexPathForInitialSelection;
 - (void)viewDidLoad;
 - (id)initWithLargeIcons:(_Bool)arg1 forPreferences:(_Bool)arg2;

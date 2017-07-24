@@ -27,6 +27,7 @@
 - (id)initWithExtent:(struct CGRect)arg1 format:(int)arg2 options:(id)arg3;
 - (id)initWithExtent:(struct CGRect)arg1 format:(int)arg2 colorSpace:(struct CGColorSpace *)arg3;
 - (id)initWithExtent:(struct CGRect)arg1 format:(int)arg2;
+- (id)init;
 
 @end
 

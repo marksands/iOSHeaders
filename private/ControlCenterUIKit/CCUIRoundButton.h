@@ -8,11 +8,11 @@
 
 #import <ControlCenterUIKit/UIGestureRecognizerDelegate-Protocol.h>
 
-@class CAPackage, CCUICAPackageView, NSString, UIColor, UIImage, UIImageView, UIView;
+@class CCUICAPackageDescription, CCUICAPackageView, NSString, UIColor, UIImage, UIImageView, UIView;
 
 @interface CCUIRoundButton : UIControl <UIGestureRecognizerDelegate>
 {
-    CAPackage *_glyphPackage;
+    CCUICAPackageDescription *_glyphPackageDescription;
     UIImage *_glyphImage;
     NSString *_glyphState;
     UIColor *_highlightColor;
@@ -31,7 +31,7 @@
 @property(retain, nonatomic) UIColor *highlightColor; // @synthesize highlightColor=_highlightColor;
 @property(copy, nonatomic) NSString *glyphState; // @synthesize glyphState=_glyphState;
 @property(retain, nonatomic) UIImage *glyphImage; // @synthesize glyphImage=_glyphImage;
-@property(retain, nonatomic) CAPackage *glyphPackage; // @synthesize glyphPackage=_glyphPackage;
+@property(retain, nonatomic) CCUICAPackageDescription *glyphPackageDescription; // @synthesize glyphPackageDescription=_glyphPackageDescription;
 - (void).cxx_destruct;
 - (void)_updateForStateChange;
 - (void)_primaryActionPerformed:(id)arg1;
@@ -45,8 +45,8 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithGlyphPackage:(id)arg1 highlightColor:(id)arg2 useLightStyle:(_Bool)arg3;
-- (id)initWithGlyphPackage:(id)arg1 highlightColor:(id)arg2;
+- (id)initWithGlyphPackageDescription:(id)arg1 highlightColor:(id)arg2 useLightStyle:(_Bool)arg3;
+- (id)initWithGlyphPackageDescription:(id)arg1 highlightColor:(id)arg2;
 - (id)initWithGlyphImage:(id)arg1 highlightColor:(id)arg2 useLightStyle:(_Bool)arg3;
 - (id)initWithGlyphImage:(id)arg1 highlightColor:(id)arg2;
 - (id)initWithHighlightColor:(id)arg1 useLightStyle:(_Bool)arg2;

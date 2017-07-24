@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 
 + (id)p_overflowKnobImage;
 @property(retain, nonatomic) NSTimer *editingDidBeginTimer; // @synthesize editingDidBeginTimer;
+- (void).cxx_destruct;
 - (void)cleanUpTimer;
 - (void)p_updateLayoutBordersVisibility;
 - (_Bool)p_headerFooterBorderVisibleForType:(int)arg1;

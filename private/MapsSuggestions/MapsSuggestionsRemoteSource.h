@@ -16,12 +16,12 @@
 {
     NSXPCConnection *_connection;
     NSObject<OS_dispatch_queue> *_queue;
+    _Bool _started;
 }
 
 + (unsigned long long)disposition;
 + (_Bool)isEnabled;
 - (void).cxx_destruct;
-- (void)currentBestLocationWithCallback:(CDUnknownBlockType)arg1;
 - (void)deleteEntriesData:(id)arg1 sourceNameData:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)addOrUpdateSuggestionEntriesData:(id)arg1 sourceNameData:(id)arg2 deleteMissing:(_Bool)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (_Bool)canProduceEntriesOfType:(unsigned long long)arg1;

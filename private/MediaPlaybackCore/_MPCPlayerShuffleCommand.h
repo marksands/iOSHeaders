@@ -14,12 +14,14 @@
 {
     _Bool _supportsChangeShuffle;
     _Bool _supportsAdvanceShuffle;
+    long long _currentShuffleType;
     NSArray *_supportedShuffleTypes;
 }
 
 @property(nonatomic) _Bool supportsAdvanceShuffle; // @synthesize supportsAdvanceShuffle=_supportsAdvanceShuffle;
 @property(nonatomic) _Bool supportsChangeShuffle; // @synthesize supportsChangeShuffle=_supportsChangeShuffle;
 @property(retain, nonatomic) NSArray *supportedShuffleTypes; // @synthesize supportedShuffleTypes=_supportedShuffleTypes;
+@property(nonatomic) long long currentShuffleType; // @synthesize currentShuffleType=_currentShuffleType;
 - (void).cxx_destruct;
 - (id)advance;
 - (id)setShuffleType:(long long)arg1;

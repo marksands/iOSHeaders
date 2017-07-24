@@ -8,13 +8,12 @@
 
 #import <PassKitCore/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSData, NSDecimalNumber, NSString, NSURL, PKPeerPaymentRecipient;
+@class NSArray, NSData, NSDate, NSDecimalNumber, NSString, NSURL, PKPeerPaymentRecipient;
 
 @interface PKPeerPaymentQuote : NSObject <NSSecureCoding>
 {
     NSString *_identifier;
     NSArray *_items;
-    double _validityDuration;
     NSString *_disclosureText;
     NSURL *_disclosureURL;
     NSDecimalNumber *_currentBalance;
@@ -25,11 +24,13 @@
     NSString *_totalReceiveAmountCurrency;
     NSDecimalNumber *_totalFees;
     NSString *_totalFeesCurrency;
+    NSDate *_validUntil;
     PKPeerPaymentRecipient *_recipient;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) PKPeerPaymentRecipient *recipient; // @synthesize recipient=_recipient;
+@property(readonly, copy, nonatomic) NSDate *validUntil; // @synthesize validUntil=_validUntil;
 @property(readonly, copy, nonatomic) NSString *totalFeesCurrency; // @synthesize totalFeesCurrency=_totalFeesCurrency;
 @property(readonly, copy, nonatomic) NSDecimalNumber *totalFees; // @synthesize totalFees=_totalFees;
 @property(readonly, copy, nonatomic) NSString *totalReceiveAmountCurrency; // @synthesize totalReceiveAmountCurrency=_totalReceiveAmountCurrency;
@@ -40,17 +41,18 @@
 @property(readonly, copy, nonatomic) NSDecimalNumber *currentBalance; // @synthesize currentBalance=_currentBalance;
 @property(readonly, copy, nonatomic) NSURL *disclosureURL; // @synthesize disclosureURL=_disclosureURL;
 @property(readonly, copy, nonatomic) NSString *disclosureText; // @synthesize disclosureText=_disclosureText;
-@property(readonly, nonatomic) double validityDuration; // @synthesize validityDuration=_validityDuration;
 @property(readonly, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (id)firstQuoteItemOfType:(unsigned long long)arg1;
+- (_Bool)hasExpired;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
+@property(readonly, nonatomic) double validityDuration;
 
 @end
 

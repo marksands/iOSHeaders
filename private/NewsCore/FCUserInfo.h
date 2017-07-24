@@ -45,7 +45,7 @@
 - (void)syncLocalNotificationsUserID:(id)arg1 withRemoteNotificationsUserID:(id)arg2;
 - (void)handleSyncWithUserInfoRecord:(id)arg1;
 - (void)handleSyncWithChangedRecords:(id)arg1 deletedRecordIDs:(id)arg2;
-- (void)accessTokenAddedForTagID:(id)arg1;
+- (void)accessTokenRemovedForTagID:(id)arg1;
 - (void)accessTokenDidChangeForTagID:(id)arg1;
 - (void)addModifyTagSettingsCommandToCommandQueue:(id)arg1;
 - (void)syncWithCompletion:(CDUnknownBlockType)arg1;

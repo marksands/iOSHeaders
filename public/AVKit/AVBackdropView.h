@@ -11,8 +11,8 @@
 @interface AVBackdropView : AVView
 {
     NSArray *_temporaryArrangedSubviews;
-    _Bool _drawsAsCircle;
     long long _axis;
+    unsigned long long _shapeStyle;
     UIView *_targetViewForSecondaryMaterialOverlay;
     AVStackView *_contentView;
     UIVisualEffectView *_visualEffectView;
@@ -35,7 +35,7 @@
 @property(readonly, nonatomic) UIVisualEffectView *visualEffectView; // @synthesize visualEffectView=_visualEffectView;
 @property(readonly, nonatomic) AVStackView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) UIView *targetViewForSecondaryMaterialOverlay; // @synthesize targetViewForSecondaryMaterialOverlay=_targetViewForSecondaryMaterialOverlay;
-@property(nonatomic) _Bool drawsAsCircle; // @synthesize drawsAsCircle=_drawsAsCircle;
+@property(nonatomic) unsigned long long shapeStyle; // @synthesize shapeStyle=_shapeStyle;
 @property(readonly, nonatomic) long long axis; // @synthesize axis=_axis;
 - (void).cxx_destruct;
 - (void)_ensureContentView;

@@ -131,6 +131,15 @@ struct brc_mutex {
     struct _opaque_pthread_mutex_t pthread;
 };
 
+struct dirent {
+    unsigned long long d_ino;
+    unsigned long long d_seekoff;
+    unsigned short d_reclen;
+    unsigned short d_namlen;
+    unsigned char d_type;
+    char d_name[1024];
+};
+
 struct fsid {
     int val[2];
 };

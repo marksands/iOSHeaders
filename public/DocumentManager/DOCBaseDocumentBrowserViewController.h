@@ -23,10 +23,12 @@
 - (void)browserDidFinishGatheringItemsAndThumbnails:(id)arg1;
 - (void)dismissButtonWasTappedInBrowser:(id)arg1;
 - (void)locationsButtonWasTappedInBrowser:(id)arg1 sourceRect:(struct CGRect)arg2;
+- (void)clearCurrentOpenInteraction;
+- (void)dismissAllPresentedViewControllers:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)revealDocumentAtURL:(id)arg1 importIfNeeded:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)importDocumentAtURL:(id)arg1 mode:(unsigned long long)arg2 toLocation:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)importDocumentAtURL:(id)arg1 mode:(unsigned long long)arg2 toCurrentBrowserLocationWithCompletion:(CDUnknownBlockType)arg3;
-- (void)importDocumentAtURL:(id)arg1 mode:(unsigned long long)arg2 toNeighbourgURL:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)importDocumentAtURL:(id)arg1 nextToDocumentAtURL:(id)arg2 mode:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)browser:(id)arg1 didUpdateCurrentLocationCanSelect:(_Bool)arg2;
 - (void)browser:(id)arg1 didUpdateCurrentLocationIsWritable:(_Bool)arg2;
 - (void)browser:(id)arg1 didUpdateImportSupportInCurrentLocation:(_Bool)arg2;

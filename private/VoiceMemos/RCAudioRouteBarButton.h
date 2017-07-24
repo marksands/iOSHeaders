@@ -6,10 +6,13 @@
 
 #import <UIKit/UIButton.h>
 
-@class UIColor;
+@class UIColor, UIImage;
 
 @interface RCAudioRouteBarButton : UIButton
 {
+    UIImage *_imageAirPlay;
+    UIImage *_imageBT;
+    UIImage *_imageSpeaker;
     _Bool _needsUpdateDisplay;
     UIColor *_routeToSpeakerOrWirelessColor;
     UIColor *_routeToHandsetOrHeadphoneColor;
@@ -18,8 +21,9 @@
 @property(retain, nonatomic) UIColor *routeToHandsetOrHeadphoneColor; // @synthesize routeToHandsetOrHeadphoneColor=_routeToHandsetOrHeadphoneColor;
 @property(retain, nonatomic) UIColor *routeToSpeakerOrWirelessColor; // @synthesize routeToSpeakerOrWirelessColor=_routeToSpeakerOrWirelessColor;
 - (void).cxx_destruct;
-- (void)setNeedsUpdateDisplay;
+- (void)_audioRouteInfoDidChangeNotification:(id)arg1;
 - (void)updateDisplay;
+- (void)willMoveToWindow:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

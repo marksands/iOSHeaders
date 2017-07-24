@@ -12,6 +12,7 @@
 @protocol TSWPFlowInfo <NSObject, TSKDocumentObject>
 + (TSUColor *)strokeColorForUserInterfaceIdentifier:(unsigned long long)arg1;
 + (TSUColor *)fillColorForUserInterfaceIdentifier:(unsigned long long)arg1;
+@property(readonly, nonatomic) _Bool isLocked;
 @property(readonly, nonatomic) TSUColor *userInterfaceStrokeColor;
 @property(readonly, nonatomic) TSUColor *userInterfaceFillColor;
 @property(nonatomic) unsigned long long userInterfaceIdentifier;

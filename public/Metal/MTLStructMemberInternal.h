@@ -15,19 +15,15 @@ __attribute__((visibility("hidden")))
     unsigned long long _offset;
     unsigned int _dataType:16;
     id _details;
-    unsigned long long _pixelFormat;
-    unsigned long long _aluType;
     unsigned long long _argumentIndex;
     unsigned long long _render_target;
     unsigned long long _raster_order_group;
-    MTLType *_dataTypeDescription;
+    MTLType *_typeInfo;
 }
 
 @property(readonly) unsigned long long raster_order_group; // @synthesize raster_order_group=_raster_order_group;
 @property(readonly) unsigned long long render_target; // @synthesize render_target=_render_target;
 - (unsigned long long)argumentIndex;
-@property(readonly) unsigned long long aluType; // @synthesize aluType=_aluType;
-@property(readonly) unsigned long long pixelFormat; // @synthesize pixelFormat=_pixelFormat;
 - (unsigned long long)dataType;
 - (unsigned long long)offset;
 - (id)name;
@@ -41,7 +37,7 @@ __attribute__((visibility("hidden")))
 - (id)arrayType;
 - (unsigned long long)indirectArgumentIndex;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 offset:(unsigned long long)arg2 dataType:(unsigned long long)arg3 pixelFormat:(unsigned long long)arg4 aluType:(unsigned long long)arg5 indirectArgumentIndex:(unsigned long long)arg6 render_target:(unsigned long long)arg7 raster_order_group:(unsigned long long)arg8 details:(id)arg9;
+- (id)initWithName:(id)arg1 offset:(unsigned long long)arg2 dataType:(unsigned long long)arg3 indirectArgumentIndex:(unsigned long long)arg4 render_target:(unsigned long long)arg5 raster_order_group:(unsigned long long)arg6 details:(id)arg7;
 
 @end
 

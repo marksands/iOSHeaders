@@ -13,8 +13,8 @@
 @interface NTPBAppConfigurationResource : PBCodable <NSCopying>
 {
     long long _maxAge;
-    NSData *_configurationData;
     NSString *_etag;
+    NSData *_gzippedConfigurationData;
     NTPBDate *_lastFetchedDate;
     NTPBDate *_lastModifiedDate;
     NSString *_lastModifiedString;
@@ -32,7 +32,7 @@
 @property(retain, nonatomic) NTPBDate *lastFetchedDate; // @synthesize lastFetchedDate=_lastFetchedDate;
 @property(retain, nonatomic) NSString *etag; // @synthesize etag=_etag;
 @property(retain, nonatomic) NSString *sourceURL; // @synthesize sourceURL=_sourceURL;
-@property(retain, nonatomic) NSData *configurationData; // @synthesize configurationData=_configurationData;
+@property(retain, nonatomic) NSData *gzippedConfigurationData; // @synthesize gzippedConfigurationData=_gzippedConfigurationData;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -48,7 +48,7 @@
 @property(readonly, nonatomic) _Bool hasLastFetchedDate;
 @property(readonly, nonatomic) _Bool hasEtag;
 @property(readonly, nonatomic) _Bool hasSourceURL;
-@property(readonly, nonatomic) _Bool hasConfigurationData;
+@property(readonly, nonatomic) _Bool hasGzippedConfigurationData;
 - (void)dealloc;
 
 @end

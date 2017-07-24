@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
     struct CGRect _region;
     struct __IOSurface *_surface;
     _Bool _usesSRGB;
-    // Error parsing type: ^{Context=^^?{atomic<unsigned int>=AI}^{CGColorSpace}^{CGColorSpace}iBBBB^{CGContext}fB{CGRect={CGPoint=dd}{CGSize=dd}}{CGAffineTransform=dddddd}IQQiB[1024{TreeCacheElement=Q^{Kernel}}]Q^{ObjectCache<CI::Node>}^{ObjectCache<CI::Node>}dd@^{RenderTask}B@@}, name: _context
+    // Error parsing type: ^{Context=^^?{atomic<unsigned int>=AI}^{CGColorSpace}^{CGColorSpace}iBBBB^{CGContext}fB{CGRect={CGPoint=dd}{CGSize=dd}}{CGAffineTransform=dddddd}IQQiB[1024{TreeCacheElement=Q^{Kernel}}]Q^{ObjectCache<CI::Node>}^{ObjectCache<CI::Node>}dd@^{RenderTask}BQ@@}, name: _context
     id <MTLTexture> _mtlTexture;
     _Bool _surfaceLocked;
 }
@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool usesSRGBTransferFunction;
 @property(readonly, nonatomic) struct __IOSurface *surface;
 - (void)dealloc;
--     // Error parsing type: @76@0:8^{__IOSurface=}16{Texture=(?={?=II}^v)}24B32{CGRect={CGPoint=dd}{CGSize=dd}}36^{Context=^^?{atomic<unsigned int>=AI}^{CGColorSpace}^{CGColorSpace}iBBBB^{CGContext}fB{CGRect={CGPoint=dd}{CGSize=dd}}{CGAffineTransform=dddddd}IQQiB[1024{TreeCacheElement=Q^{Kernel}}]Q^{ObjectCache<CI::Node>}^{ObjectCache<CI::Node>}dd@^{RenderTask}B@@}68, name: initWithSurface:texture:allowSRGB:bounds:context:
+-     // Error parsing type: @76@0:8^{__IOSurface=}16{Texture=(?={?=II}^v)}24B32{CGRect={CGPoint=dd}{CGSize=dd}}36^{Context=^^?{atomic<unsigned int>=AI}^{CGColorSpace}^{CGColorSpace}iBBBB^{CGContext}fB{CGRect={CGPoint=dd}{CGSize=dd}}{CGAffineTransform=dddddd}IQQiB[1024{TreeCacheElement=Q^{Kernel}}]Q^{ObjectCache<CI::Node>}^{ObjectCache<CI::Node>}dd@^{RenderTask}BQ@@}68, name: initWithSurface:texture:allowSRGB:bounds:context:
 
 @end
 

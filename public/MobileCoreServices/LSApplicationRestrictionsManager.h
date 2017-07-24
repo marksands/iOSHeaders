@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 
 + (id)activeRestrictionIdentifiers;
 + (id)sharedInstance;
+@property(readonly, getter=isSystemAppDeletionEnabled) _Bool systemAppDeletionEnabled;
 - (id)identifierForRemovedAppPrompt:(id)arg1;
 @property(readonly, getter=isAdTrackingEnabled) _Bool adTrackingEnabled; // @dynamic adTrackingEnabled;
 - (void)beginListeningForChanges;

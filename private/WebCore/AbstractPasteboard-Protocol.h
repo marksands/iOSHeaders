@@ -9,6 +9,7 @@
 @class NSArray, NSIndexSet, NSString;
 
 @protocol AbstractPasteboard <NSObject>
+@property(copy, nonatomic) NSArray *itemProviders;
 @property(readonly, nonatomic) long long numberOfItems;
 - (long long)changeCount;
 - (NSArray *)valuesForPasteboardType:(NSString *)arg1 inItemSet:(NSIndexSet *)arg2;

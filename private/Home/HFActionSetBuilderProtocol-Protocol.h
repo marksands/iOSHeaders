@@ -9,6 +9,7 @@
 @class HFActionBuilder, NSArray;
 
 @protocol HFActionSetBuilderProtocol <NSObject>
+@property(readonly, nonatomic, getter=isAffectedByEndEvents) _Bool affectedByEndEvents;
 @property(readonly, nonatomic) _Bool requiresDeviceUnlock;
 @property(readonly, nonatomic) NSArray *actions;
 - (void)removeAllActions;

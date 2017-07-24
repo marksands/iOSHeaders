@@ -116,6 +116,7 @@
         unsigned int restoresFocusAfterTransition:1;
         unsigned int freezeTraitsOnCounterRotationForPresentation:1;
         unsigned int viewRespectsSystemMinimumLayoutMargins:1;
+        unsigned int ignoresWrapperViewForContentOverlayInsets:1;
     } _viewControllerFlags;
     long long _retainCount;
     _Bool _ignoreAppSupportedOrientations;
@@ -290,6 +291,7 @@
 @property(readonly, nonatomic, getter=_parentFocusEnvironment) __weak id <UIFocusEnvironment> parentFocusEnvironment;
 - (id)_overridingPreferredFocusEnvironment;
 - (void)_rememberPresentingFocusedItem:(id)arg1;
+- (_Bool)_canRestoreFocusAfterTransitionToPresentingFocusedItem:(id)arg1;
 - (_Bool)_canRestoreFocusAfterTransitionToItem:(id)arg1;
 - (_Bool)_restoresFocusAfterTransitionByDefault;
 @property(nonatomic) _Bool restoresFocusAfterTransition;
@@ -316,6 +318,8 @@
 - (void)_removeNavigationItemsFromNavigationController:(id)arg1 transition:(int)arg2;
 - (void)_appendNavigationItemsToNavigationController:(id)arg1 transition:(int)arg2;
 - (id)_lastNavigationItems;
+- (id)_navControllerToCreateManagedSearchPaletteForNavController:(id)arg1;
+- (id)_viewControllerForSearchPalette;
 @property(nonatomic) _Bool searchBarHidNavBar;
 - (void)_setSearchDisplayControllerUnretained:(id)arg1;
 @property(retain, nonatomic) UISearchDisplayController *searchDisplayController; // @dynamic searchDisplayController;
@@ -687,6 +691,7 @@
 - (void)setAutoresizesArchivedViewToFullSize:(_Bool)arg1;
 - (_Bool)autoresizesArchivedViewToFullSize;
 - (void)_updateLayoutForStatusBarAndInterfaceOrientation;
+- (void)_updateControlledViewsToFrame:(struct CGRect)arg1;
 - (_Bool)_shouldUpdateLayoutForStatusBarAndInterfaceOrientation;
 - (void)window:(id)arg1 statusBarWillChangeFromHeight:(double)arg2 toHeight:(double)arg3;
 - (void)window:(id)arg1 statusBarWillChangeFromHeight:(double)arg2 toHeight:(double)arg3 windowSizedViewController:(id)arg4;
@@ -822,6 +827,8 @@
 - (_Bool)__updateContentOverlayInsetsFromParentViewController:(id)arg1 viewRectInParentBounds:(struct CGRect)arg2;
 - (void)__updateContentOverlayInsetsToPresentationControllerBaseInsets;
 - (void)_updateContentOverlayInsetsFromParentIfNecessary;
+- (_Bool)_ignoresWrapperViewForContentOverlayInsets;
+- (void)_setIgnoresWrapperViewForContentOverlayInsets:(_Bool)arg1;
 - (void)_updateContentOverlayInsetsFromParentForNavigationTransitionWithFinalRectInParent:(struct CGRect)arg1;
 - (void)_invalidateChildContentOverlayInsetsWithOldInsets:(struct UIEdgeInsets)arg1;
 - (void)_updateContentOverlayInsetsForSelfAndChildren;

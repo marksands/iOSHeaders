@@ -285,13 +285,15 @@ struct BuildAttributesArchive {
     _Bool _field25;
     double _field26;
     int _field27;
-    unsigned int _field28;
-    basic_string_a1f69cfb *_field29;
+    _Bool _field28;
+    double _field29;
     basic_string_a1f69cfb *_field30;
-    double _field31;
+    basic_string_a1f69cfb *_field31;
     double _field32;
-    struct Color *_field33;
-    basic_string_a1f69cfb *_field34;
+    double _field33;
+    struct Color *_field34;
+    basic_string_a1f69cfb *_field35;
+    unsigned int _field36;
 };
 
 struct BuildChunkArchive {
@@ -525,12 +527,13 @@ struct CharacterStylePropertiesArchive {
     int _field36;
     struct RepeatedPtrField<TSWP::FontFeatureArchive> _field37;
     basic_string_a1f69cfb *_field38;
-    basic_string_a1f69cfb *_field39;
+    _Bool _field39;
     _Bool _field40;
     _Bool _field41;
     _Bool _field42;
     _Bool _field43;
-    int _field44;
+    basic_string_a1f69cfb *_field44;
+    int _field45;
 };
 
 struct CharacterStylePropertyChangeSetArchive;
@@ -6749,6 +6752,18 @@ struct map<TSUCellCoord, SFUtility::ObjcSharedPtr<NSObject>, std::__1::less<TSUC
     } __tree_;
 };
 
+struct map<TSUCellCoord, SFUtility::ObjcSharedPtr<TSTCell>, std::__1::less<TSUCellCoord>, std::__1::allocator<std::__1::pair<const TSUCellCoord, SFUtility::ObjcSharedPtr<TSTCell>>>> {
+    struct __tree<std::__1::__value_type<TSUCellCoord, SFUtility::ObjcSharedPtr<TSTCell>>, std::__1::__map_value_compare<TSUCellCoord, std::__1::__value_type<TSUCellCoord, SFUtility::ObjcSharedPtr<TSTCell>>, std::__1::less<TSUCellCoord>, true>, std::__1::allocator<std::__1::__value_type<TSUCellCoord, SFUtility::ObjcSharedPtr<TSTCell>>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<TSUCellCoord, SFUtility::ObjcSharedPtr<TSTCell>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<TSUCellCoord, std::__1::__value_type<TSUCellCoord, SFUtility::ObjcSharedPtr<TSTCell>>, std::__1::less<TSUCellCoord>, true>> {
+            unsigned long long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
 struct map<int, TSPUnknownFieldTreeNode *, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, TSPUnknownFieldTreeNode *>>> {
     struct __tree<std::__1::__value_type<int, TSPUnknownFieldTreeNode *>, std::__1::__map_value_compare<int, std::__1::__value_type<int, TSPUnknownFieldTreeNode *>, std::__1::less<int>, true>, std::__1::allocator<std::__1::__value_type<int, TSPUnknownFieldTreeNode *>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
@@ -7394,30 +7409,6 @@ struct set<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerTimeStampLess,
             unsigned long long _field1;
         } _field3;
     } _field1;
-};
-
-struct set<__unsafe_unretained id<TSWPStorageObserver>, std::__1::less<__unsafe_unretained id<TSWPStorageObserver>>, std::__1::allocator<__unsafe_unretained id<TSWPStorageObserver>>> {
-    struct __tree<__unsafe_unretained id<TSWPStorageObserver>, std::__1::less<__unsafe_unretained id<TSWPStorageObserver>>, std::__1::allocator<__unsafe_unretained id<TSWPStorageObserver>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<__unsafe_unretained id<TSWPStorageObserver>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
-        } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::less<__unsafe_unretained id<TSWPStorageObserver>>> {
-            unsigned long long __first_;
-        } __pair3_;
-    } __tree_;
-};
-
-struct set<__unsafe_unretained id<TSWPStorageParagraphObserver>, std::__1::less<__unsafe_unretained id<TSWPStorageParagraphObserver>>, std::__1::allocator<__unsafe_unretained id<TSWPStorageParagraphObserver>>> {
-    struct __tree<__unsafe_unretained id<TSWPStorageParagraphObserver>, std::__1::less<__unsafe_unretained id<TSWPStorageParagraphObserver>>, std::__1::allocator<__unsafe_unretained id<TSWPStorageParagraphObserver>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<__unsafe_unretained id<TSWPStorageParagraphObserver>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
-        } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::less<__unsafe_unretained id<TSWPStorageParagraphObserver>>> {
-            unsigned long long __first_;
-        } __pair3_;
-    } __tree_;
 };
 
 struct set<int, std::__1::less<int>, std::__1::allocator<int>> {

@@ -6,7 +6,7 @@
 
 #import <SetupAssistantSupport/SASProximityAction.h>
 
-@class NSError;
+@class NSDate, NSError;
 
 @interface SASProximityBackupAction : SASProximityAction
 {
@@ -15,10 +15,12 @@
     NSError *_error;
     double _percentComplete;
     unsigned long long _timeRemaining;
+    NSDate *_completionDate;
 }
 
 + (id)actionFromDictionary:(id)arg1;
 + (unsigned long long)actionID;
+@property(retain) NSDate *completionDate; // @synthesize completionDate=_completionDate;
 @property unsigned long long timeRemaining; // @synthesize timeRemaining=_timeRemaining;
 @property double percentComplete; // @synthesize percentComplete=_percentComplete;
 @property(retain) NSError *error; // @synthesize error=_error;

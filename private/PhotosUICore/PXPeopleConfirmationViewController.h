@@ -14,6 +14,7 @@
 @interface PXPeopleConfirmationViewController : UIViewController <PXPeopleSuggestionManagerDelegate, PXPeopleSummaryDelegate>
 {
     _Bool _suggestionsPresented;
+    _Bool _showTypeDebugColor;
     PXPeopleSuggestionManager *_suggestionManager;
     PXPeopleSuggestionView *_suggestionView;
     PXAnimatedHeaderView *_headerView;
@@ -26,6 +27,7 @@
     NSTimer *_loadingDelayTimer;
 }
 
+@property(nonatomic) _Bool showTypeDebugColor; // @synthesize showTypeDebugColor=_showTypeDebugColor;
 @property(nonatomic) _Bool suggestionsPresented; // @synthesize suggestionsPresented=_suggestionsPresented;
 @property(retain, nonatomic) NSTimer *loadingDelayTimer; // @synthesize loadingDelayTimer=_loadingDelayTimer;
 @property(retain, nonatomic) PXPeopleConfirmationSummaryViewController *summaryViewController; // @synthesize summaryViewController=_summaryViewController;

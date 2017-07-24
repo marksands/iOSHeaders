@@ -11,7 +11,6 @@
 @class NSString;
 @protocol NSFileProviderServiceSource;
 
-__attribute__((visibility("hidden")))
 @interface FPFileProviderService : NSObject <NSSecureCoding>
 {
     NSString *_name;

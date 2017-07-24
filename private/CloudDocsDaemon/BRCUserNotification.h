@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 - (void)close;
 - (void)moveToFront;
 - (id)_localizationKey:(id)arg1 forOSAndDocumentKindOfApplication:(id)arg2;
+- (id)_localizationKeyForOS:(id)arg1;
 - (id)_localizationKey:(id)arg1 forDocumentKindOfApplication:(id)arg2;
 - (void)_updateDialogWithType:(unsigned long long)arg1 dict:(id)arg2 userReplyBlock:(CDUnknownBlockType)arg3;
 - (void)_updateDialogWithType:(unsigned long long)arg1 dict:(id)arg2;

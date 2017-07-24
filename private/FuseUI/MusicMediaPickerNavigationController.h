@@ -24,6 +24,7 @@
     _Bool _allowsCollectionsInSelectedEntities;
     _Bool _picksSingleCollectionEntity;
     _Bool _showsOnlyStoreItems;
+    unsigned int _watchCompatibilityVersion;
     MusicClientContext *_clientContext;
     id <MusicMediaPickerDelegate> _mediaPickerDelegate;
     NSString *_prompt;
@@ -39,6 +40,7 @@
 @property(copy, nonatomic) NSString *prompt; // @synthesize prompt=_prompt;
 @property(readonly, nonatomic) NSArray *pickedEntities; // @synthesize pickedEntities=_pickedEntities;
 @property(nonatomic) __weak id <MusicMediaPickerDelegate> mediaPickerDelegate; // @synthesize mediaPickerDelegate=_mediaPickerDelegate;
+@property(nonatomic) unsigned int watchCompatibilityVersion; // @synthesize watchCompatibilityVersion=_watchCompatibilityVersion;
 @property(nonatomic) _Bool picksSingleCollectionEntity; // @synthesize picksSingleCollectionEntity=_picksSingleCollectionEntity;
 @property(nonatomic) _Bool allowsCollectionsInSelectedEntities; // @synthesize allowsCollectionsInSelectedEntities=_allowsCollectionsInSelectedEntities;
 @property(nonatomic) _Bool includeStoreItemsInSearch; // @synthesize includeStoreItemsInSearch=_includeStoreItemsInSearch;
@@ -62,6 +64,7 @@
 - (_Bool)searchBarShouldBeginEditing:(id)arg1;
 - (void)musicSearchViewController:(id)arg1 didSelectStoreItemWithID:(id)arg2;
 - (void)musicSearchViewControllerDidFinish:(id)arg1 withSearchBar:(id)arg2;
+@property(readonly, nonatomic) _Bool omitsGeniusPlaylists;
 @property(readonly, nonatomic) UIBarButtonItem *rightBarButtonItem;
 - (void)pushViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)viewDidLoad;

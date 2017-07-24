@@ -32,6 +32,8 @@
 - (id)_nextReviewListing;
 - (void)setSequentialDirection:(unsigned long long)arg1;
 - (unsigned long long)characterFromStyle:(unsigned long long)arg1;
+- (id)complicationColorForStyle:(unsigned long long)arg1;
+- (id)currentStyleComplicationColor;
 - (id)currentComplicationColor;
 - (id)posterImageForStyle:(unsigned long long)arg1;
 - (id)currentPosterImage;
@@ -43,7 +45,6 @@
 - (void)invalidateCurrentListing;
 - (void)prepareUserTapAction;
 - (id)_recentlyPlayedListings;
-- (_Bool)shouldFadeToBlackAfterPlayback;
 - (id)_listingsOfTypes:(id)arg1;
 - (id)nextQueueListing;
 - (id)_nextToyboxListing;

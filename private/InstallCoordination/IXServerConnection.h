@@ -8,29 +8,44 @@
 
 #import <InstallCoordination/IXClientDelegateProtocol-Protocol.h>
 
-@class NSString, NSXPCConnection;
-@protocol OS_dispatch_queue, OS_dispatch_source;
+@class NSMutableDictionary, NSString, NSXPCConnection;
+@protocol OS_dispatch_queue;
 
 @interface IXServerConnection : NSObject <IXClientDelegateProtocol>
 {
     NSXPCConnection *_xpcConnection;
     NSObject<OS_dispatch_queue> *_internalQueue;
-    NSObject<OS_dispatch_source> *_reEstablishTimer;
+    NSMutableDictionary *_coordinatorInstances;
+    NSMutableDictionary *_promiseInstances;
 }
 
 + (id)sharedConnection;
-@property(retain, nonatomic) NSObject<OS_dispatch_source> *reEstablishTimer; // @synthesize reEstablishTimer=_reEstablishTimer;
+@property(readonly, nonatomic) NSMutableDictionary *promiseInstances; // @synthesize promiseInstances=_promiseInstances;
+@property(readonly, nonatomic) NSMutableDictionary *coordinatorInstances; // @synthesize coordinatorInstances=_coordinatorInstances;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *internalQueue; // @synthesize internalQueue=_internalQueue;
 @property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 - (void).cxx_destruct;
-- (void)registerDataPromiseForUpdates:(id)arg1;
-- (void)registerAppInstallCoordinatorForUpdates:(id)arg1;
+- (oneway void)_client_promiseWithUUID:(id)arg1 didCancelWithReason:(id)arg2 client:(unsigned long long)arg3;
+- (oneway void)_client_promiseDidCompleteSuccessfullyWithUUID:(id)arg1;
+- (oneway void)_client_coordinatorWithUUID:(id)arg1 didCancelWithReason:(id)arg2 client:(unsigned long long)arg3;
+- (oneway void)_client_coordinatorDidCompleteSuccessfullyWithUUID:(id)arg1;
+- (oneway void)_client_coordinatorDidInstallPlaceholderWithUUID:(id)arg1;
+- (oneway void)_client_coordinatorShouldBeginRestoringUserDataWithUUID:(id)arg1;
+- (oneway void)_client_coordinatorWithUUID:(id)arg1 configuredPromiseDidBeginFulfillment:(unsigned long long)arg2;
+- (oneway void)_client_coordinatorShouldPauseWithUUID:(id)arg1;
+- (oneway void)_client_coordinatorShouldResumeWithUUID:(id)arg1;
+- (oneway void)_client_coordinatorShouldPrioritizeWithUUID:(id)arg1;
+- (void)unregisterDataPromiseForUpdates:(id)arg1;
+- (void)registerDataPromiseForUpdates:(id)arg1 notifyDaemon:(_Bool)arg2;
+- (void)unregisterAppInstallCoordinatorForUpdates:(id)arg1;
+- (void)registerAppInstallCoordinatorForUpdates:(id)arg1 notifyDaemon:(_Bool)arg2;
 - (id)synchronousRemoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
+- (id)_onQueue_synchronousRemoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
+- (id)_onQueue_remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)init;
-- (void)_invalidateXPCConnection;
-- (void)_onQueue_reEstablishConnectionIfNeeded;
 - (_Bool)_onQueue_createXPCConnectionIfNecessary;
+- (void)_onQueue_reSetupObserversAfter:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

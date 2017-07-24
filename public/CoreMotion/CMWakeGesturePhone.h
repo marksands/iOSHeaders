@@ -54,6 +54,7 @@
 - (void)startWakeGestureUpdates;
 - (void)dealloc;
 - (id)init;
+- (void)reenableDetectedStateRecognition;
 
 @end
 

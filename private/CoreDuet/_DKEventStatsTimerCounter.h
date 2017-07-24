@@ -8,7 +8,7 @@
 
 #import <CoreDuet/_DKEventStatsCounterInternalProperty-Protocol.h>
 
-@class NSString, _DKEventStatsCounterInternal;
+@class _DKEventStatsCounterInternal;
 
 @interface _DKEventStatsTimerCounter : NSObject <_DKEventStatsCounterInternalProperty>
 {
@@ -21,7 +21,7 @@
 - (unsigned long long)count;
 - (void)addTimingWithStartDate:(id)arg1 endDate:(id)arg2;
 - (void)addTimingWithTimeInterval:(double)arg1;
-@property(readonly, nonatomic) NSString *eventName;
+- (id)eventName;
 
 @end
 

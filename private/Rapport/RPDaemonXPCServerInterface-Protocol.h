@@ -8,6 +8,7 @@
 
 @protocol RPDaemonXPCServerInterface
 - (void)diagnosticShow:(NSString *)arg1 completion:(void (^)(NSString *))arg2;
+- (void)diagnosticLogControl:(NSString *)arg1 completion:(void (^)(NSString *))arg2;
 - (void)activateAssertionWithIdentifier:(NSString *)arg1;
 @end
 

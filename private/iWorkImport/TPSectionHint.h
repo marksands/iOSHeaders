@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)verifyHints:(id)arg1 withBodyStorage:(id)arg2 upToPageIndex:(unsigned long long)arg3;
 @property(nonatomic) unsigned long long documentStartPageIndex; // @synthesize documentStartPageIndex=_documentStartPageIndex;
 @property(readonly, nonatomic) NSArray *pageHints; // @synthesize pageHints=_pageHints;
+- (void).cxx_destruct;
 - (void)saveToArchive:(struct SectionHintArchive *)arg1 archiver:(id)arg2 context:(id)arg3 shouldArchiveHintBlock:(CDUnknownBlockType)arg4;
 - (id)initWithArchive:(const struct SectionHintArchive *)arg1 unarchiver:(id)arg2;
 - (void)setPageHints:(id)arg1;
@@ -31,7 +32,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long pageCountWithoutFillerPage;
 @property(readonly, nonatomic) unsigned long long pageCount;
 - (id)copyForArchiving;
-- (void)dealloc;
 - (id)init;
 
 @end

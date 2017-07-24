@@ -7,6 +7,7 @@
 #import <Foundation/NSAttributedString.h>
 
 @interface NSAttributedString (DataDetectorsSupport)
++ (_Bool)dd_isTransientAttribute:(id)arg1;
 -     // Error parsing type: ^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}24@0:8q16, name: dd_resultAtLocation:
 - (id)dd_contextAtLocation:(long long)arg1;
 @end

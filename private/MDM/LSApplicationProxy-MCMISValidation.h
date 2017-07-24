@@ -7,7 +7,6 @@
 #import <MobileCoreServices/LSApplicationProxy.h>
 
 @interface LSApplicationProxy (MCMISValidation)
-+ (_Bool)applicationProxyIsMISAuthorizedForBundleID:(id)arg1;
 - (_Bool)isMISAuthorized;
 @end
 

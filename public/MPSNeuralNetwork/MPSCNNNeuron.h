@@ -6,10 +6,14 @@
 
 #import <MPSNeuralNetwork/MPSCNNKernel.h>
 
+@protocol MTLBuffer;
+
 @interface MPSCNNNeuron : MPSCNNKernel
 {
     float _a;
     float _b;
+    id <MTLBuffer> _aBuf;
+    unsigned long long _count;
     int _type;
 }
 
@@ -17,8 +21,11 @@
 - (id)debugDescription;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1 device:(id)arg2;
+- (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;
+- (id)initWithDevice:(id)arg1 a:(const float *)arg2 count:(unsigned long long)arg3 type:(int)arg4;
 - (id)initWithDevice:(id)arg1 a:(float)arg2 b:(float)arg3 type:(int)arg4;
+- (void)initializeWithNeuronType:(int)arg1 neuronParameterA:(const float *)arg2 count:(unsigned long long)arg3;
 - (void)initializeWithNeuronType:(int)arg1 neuronParameterA:(float)arg2 neuronParameterB:(float)arg3;
 - (id)initWithDevice:(id)arg1;
 

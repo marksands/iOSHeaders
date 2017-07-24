@@ -8,7 +8,7 @@
 
 #import <MediaPlayer/MPAVRoutingThemeableCellView-Protocol.h>
 
-@class MPAVRoute, NSString, UIActivityIndicatorView, UIImageView, UILabel, UISwitch, UIView;
+@class MPAVRoute, NSString, UIActivityIndicatorView, UIImageView, UILabel;
 @protocol MPAVRoutingTableViewCellDelegate;
 
 @interface MPAVRoutingTableViewCell : UITableViewCell <MPAVRoutingThemeableCellView>
@@ -18,9 +18,6 @@
     UILabel *_subtitleTextLabel;
     UIActivityIndicatorView *_spinnerView;
     UIImageView *_smartAudioImageView;
-    UILabel *_mirroringLabel;
-    UISwitch *_mirroringSwitch;
-    UIView *_mirroringSeparatorView;
     _Bool _mirroringSwitchVisible;
     _Bool _debugCell;
     _Bool _pendingSelection;
@@ -48,11 +45,8 @@
 - (id)_iconImageForRoute:(id)arg1;
 - (id)_detailTextForRoute:(id)arg1;
 - (_Bool)_shouldShowSeparateBatteryPercentagesForBatteryLevel:(id)arg1;
-- (_Bool)_shouldShowMirroringAsEnabledForRoute:(id)arg1;
-- (void)_mirroringSwitchValueDidChange:(id)arg1;
 - (void)_configureDetailLabel:(id)arg1;
 - (void)_configureLabel:(id)arg1;
-- (void)setMirroringSwitchVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setAccessoryType:(long long)arg1;
 - (void)setTintColor:(id)arg1;
 - (void)layoutSubviews;

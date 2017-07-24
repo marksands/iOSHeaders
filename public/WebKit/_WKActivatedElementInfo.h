@@ -21,6 +21,7 @@
     struct CGRect _boundingRect;
 }
 
++ (id)activatedElementInfoWithInteractionInformationAtPosition:(const struct InteractionInformationAtPosition *)arg1;
 @property(readonly, nonatomic) struct CGRect boundingRect; // @synthesize boundingRect=_boundingRect;
 @property(readonly, nonatomic) long long type; // @synthesize type=_type;
 - (id).cxx_construct;
@@ -33,6 +34,7 @@
 @property(readonly, nonatomic) NSURL *URL;
 - (id)_initWithType:(long long)arg1 URL:(id)arg2 location:(struct CGPoint)arg3 title:(id)arg4 ID:(id)arg5 rect:(struct CGRect)arg6 image:(struct ShareableBitmap *)arg7 userInfo:(id)arg8;
 - (id)_initWithType:(long long)arg1 URL:(id)arg2 location:(struct CGPoint)arg3 title:(id)arg4 ID:(id)arg5 rect:(struct CGRect)arg6 image:(struct ShareableBitmap *)arg7;
+- (id)_initWithInteractionInformationAtPosition:(const struct InteractionInformationAtPosition *)arg1;
 
 @end
 

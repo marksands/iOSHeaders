@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)effectWithStyle:(long long)arg1;
++ (id)zoomEffect;
 - (id)effectSettings;
 
 @end

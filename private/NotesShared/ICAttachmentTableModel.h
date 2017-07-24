@@ -25,6 +25,7 @@
 - (_Bool)mergeWithMergeableData:(id)arg1;
 - (_Bool)isReadyToPresent;
 @property(readonly, nonatomic) ICTable *table;
+- (void)noteWillAddOrRemovePassword;
 - (void)willMarkAttachmentForDeletion;
 - (void)regenerateTextContentInNote;
 - (id)textContentInNote;

@@ -16,7 +16,7 @@
 }
 
 + (id)cardSectionClasses;
-- (void)_performCommands:(id)arg1;
+- (void)_performCommands:(id)arg1 applyingUserInfo:(id)arg2;
 - (void)didEngageCardSection:(id)arg1;
 - (void)eventDidOccur:(unsigned long long)arg1 withIdentifier:(id)arg2 userInfo:(id)arg3;
 

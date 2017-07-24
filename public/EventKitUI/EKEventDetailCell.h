@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (double)detailsRightInset;
 - (double)detailsLeftInset;
+- (void)layoutMarginsDidChange;
 - (_Bool)needsLayoutForWidth:(double)arg1 position:(int)arg2;
 - (void)layoutForWidth:(double)arg1 position:(int)arg2;
 - (void)sizeToFit;

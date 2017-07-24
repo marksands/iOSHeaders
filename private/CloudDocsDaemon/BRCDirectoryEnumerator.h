@@ -19,7 +19,6 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)nextObject;
 - (id)initForEnumeratingBelow:(id)arg1 recursive:(_Bool)arg2 error:(int *)arg3;
-- (id)initForEnumeratingBelow:(id)arg1 recursive:(_Bool)arg2;
 
 @end
 

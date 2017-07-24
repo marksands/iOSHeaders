@@ -25,9 +25,10 @@
 - (void)_connectionInterrupted;
 - (id)_connection;
 - (void)_cleanUpConnection;
-- (oneway void)didObserveEvents:(id)arg1;
+- (oneway void)didObserveEvents:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)invalidate;
 - (void)dealloc;
+- (void)flushWithCompletion:(CDUnknownBlockType)arg1;
 - (void)waitUntilInvalidated;
 - (id)initWithObservation:(CDUnknownBlockType)arg1;
 

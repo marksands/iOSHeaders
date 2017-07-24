@@ -9,7 +9,10 @@
 __attribute__((visibility("hidden")))
 @interface UICollectionViewTableLayoutInvalidationContext : UICollectionViewLayoutInvalidationContext
 {
+    _Bool _invalidateTableLayoutDelegateMetrics;
 }
+
+@property(nonatomic) _Bool invalidateTableLayoutDelegateMetrics; // @synthesize invalidateTableLayoutDelegateMetrics=_invalidateTableLayoutDelegateMetrics;
 
 @end
 

@@ -43,7 +43,6 @@
 - (id)succinctDescription;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)_ktxDataForImage:(id)arg1;
 - (void)_queue_reallyCheckClientCount;
 - (void)_queue_checkClientCount;
 - (void)_queue_decrementClientCount;

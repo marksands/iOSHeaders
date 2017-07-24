@@ -15,8 +15,8 @@
 
 @property(retain, nonatomic) HKLocationReadings *locationReadings; // @synthesize locationReadings=_locationReadings;
 - (void).cxx_destruct;
-- (void)_overlayPinView:(id)arg1 point:(CDStruct_c3b9c2ee)arg2 onSnapshot:(id)arg3 context:(struct CGContext *)arg4 color:(id)arg5;
-- (id)_createSnapshotOverlayPolyline:(id)arg1 pinView:(id)arg2 onSnapshot:(id)arg3 mapRect:(CDStruct_90e2a262)arg4 lineWidth:(double)arg5;
+- (void)_overlayAnnotationView:(id)arg1 point:(CDStruct_c3b9c2ee)arg2 onSnapshot:(id)arg3 context:(struct CGContext *)arg4;
+- (id)_createSnapshotOverlayPolyline:(id)arg1 startMarkerView:(id)arg2 endMarkerView:(id)arg3 onSnapshot:(id)arg4 mapRect:(CDStruct_90e2a262)arg5 lineWidth:(double)arg6;
 - (void)snapshotWithSize:(struct CGSize)arg1 lineWidth:(double)arg2 showPins:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)relativeColorForSpeed:(double)arg1;
 - (void)_drawLineFromPointA:(struct CGPoint)arg1 toPointB:(struct CGPoint)arg2 atSpeed:(double)arg3 context:(struct CGContext *)arg4 drawDashes:(_Bool)arg5 lineWidth:(double)arg6;

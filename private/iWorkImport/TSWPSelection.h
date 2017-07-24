@@ -31,16 +31,16 @@ __attribute__((visibility("hidden")))
 + (id)selectionWithRange:(struct _NSRange)arg1 type:(int)arg2 leadingEdge:(_Bool)arg3 storage:(id)arg4;
 + (id)selectionWithRange:(struct _NSRange)arg1;
 + (Class)archivedSelectionClass;
-@property(readonly, nonatomic) _Bool validVisualRanges; // @synthesize validVisualRanges=_validVisualRanges;
 @property(readonly, nonatomic) int caretAffinity; // @synthesize caretAffinity=_caretAffinity;
 @property(readonly, nonatomic) int styleInsertionBehavior; // @synthesize styleInsertionBehavior=_styleInsertionBehavior;
+@property(readonly, nonatomic) _Bool validVisualRanges; // @synthesize validVisualRanges=_validVisualRanges;
 @property(readonly, nonatomic) unsigned long long leadingCharIndex; // @synthesize leadingCharIndex=_leadingCharIndex;
 @property(readonly, nonatomic) _Bool leadingEdge; // @synthesize leadingEdge=_leadingEdge;
 @property(nonatomic) unsigned long long tailChar; // @synthesize tailChar=_tailChar;
 @property(nonatomic) unsigned long long headChar; // @synthesize headChar=_headChar;
 @property(readonly, nonatomic) struct _NSRange smartFieldRange; // @synthesize smartFieldRange=_smartFieldRange;
-@property(readonly, nonatomic) struct _NSRange rawRange; // @synthesize rawRange=_range;
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
+@property(readonly, nonatomic) struct _NSRange rawRange; // @synthesize rawRange=_range;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
@@ -79,7 +79,6 @@ __attribute__((visibility("hidden")))
 @property(readonly) unsigned long long hash;
 - (_Bool)p_isEqual:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithArchive:(const struct SelectionArchive *)arg1;
 - (id)initWithRange:(struct _NSRange)arg1;

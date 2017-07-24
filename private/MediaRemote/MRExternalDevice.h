@@ -8,7 +8,7 @@
 
 #import <MediaRemote/MRExternalClientConnectionDelegate-Protocol.h>
 
-@class MRExternalClientConnection, MRExternalDeviceTransport, MRSupportedProtocolMessages, MSVDistributedNotificationObserver, NSInputStream, NSOutputStream, NSString;
+@class MRExternalClientConnection, MRExternalDeviceTransport, MRSupportedProtocolMessages, NSInputStream, NSOutputStream, NSString;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_workerQueue;
     void *_customOrigin;
     unsigned int _cachedServerDisconnectError;
-    int _notifyRestoreClientStateForLaunch;
+    _Bool _disconnecting;
     _Bool _wantsNowPlayingNotifications;
     _Bool _wantsNowPlayingArtworkNotifications;
     _Bool _wantsVolumeNotifications;
@@ -33,7 +33,6 @@ __attribute__((visibility("hidden")))
     struct __CFDictionary *_nowPlayingInfo;
     void *_nowPlayingItem;
     void *_playerPath;
-    MSVDistributedNotificationObserver *_volumeControlNotificationObserver;
     CDUnknownBlockType _pairingCallback;
     NSObject<OS_dispatch_queue> *_pairingCallbackQueue;
     CDUnknownBlockType _connectionStateCallback;
@@ -57,7 +56,6 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) CDUnknownBlockType connectionStateCallback; // @synthesize connectionStateCallback=_connectionStateCallback;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *pairingCallbackQueue; // @synthesize pairingCallbackQueue=_pairingCallbackQueue;
 @property(copy, nonatomic) CDUnknownBlockType pairingCallback; // @synthesize pairingCallback=_pairingCallback;
-@property(retain, nonatomic) MSVDistributedNotificationObserver *volumeControlNotificationObserver; // @synthesize volumeControlNotificationObserver=_volumeControlNotificationObserver;
 @property(nonatomic) void *playerPath; // @synthesize playerPath=_playerPath;
 @property(nonatomic) void *nowPlayingItem; // @synthesize nowPlayingItem=_nowPlayingItem;
 @property(nonatomic) struct __CFDictionary *nowPlayingInfo; // @synthesize nowPlayingInfo=_nowPlayingInfo;
@@ -95,7 +93,7 @@ __attribute__((visibility("hidden")))
 - (void)_callClientAllowsPairingCallback;
 - (void)_callClientNameCallback;
 - (void)_callClientPairingCallback:(CDUnknownBlockType)arg1;
-- (void)_callClientConnectionStateCallback:(id)arg1;
+- (void)_callClientConnectionStateCallback:(unsigned int)arg1 error:(id)arg2;
 - (void)_registerOriginCallbacks;
 - (void)_cleanUp;
 - (void)_tearDownCustomOrigin;

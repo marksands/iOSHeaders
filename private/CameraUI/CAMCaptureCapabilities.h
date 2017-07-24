@@ -29,8 +29,8 @@
     _Bool _squareModeSupported;
     _Bool _videoSupported;
     _Bool _stillDuringVideoSupported;
-    _Bool _back4kVideoSupported;
-    _Bool _front4kVideoSupported;
+    _Bool _back4k30VideoSupported;
+    _Bool _front4k30VideoSupported;
     _Bool _back4k60VideoSupported;
     _Bool _front4k60VideoSupported;
     _Bool _HEVCEncodingSupported;
@@ -131,8 +131,8 @@
 @property(readonly, nonatomic, getter=isHEVCEncodingSupported) _Bool HEVCEncodingSupported; // @synthesize HEVCEncodingSupported=_HEVCEncodingSupported;
 @property(readonly, nonatomic, getter=isFront4k60VideoSupported) _Bool front4k60VideoSupported; // @synthesize front4k60VideoSupported=_front4k60VideoSupported;
 @property(readonly, nonatomic, getter=isBack4k60VideoSupported) _Bool back4k60VideoSupported; // @synthesize back4k60VideoSupported=_back4k60VideoSupported;
-@property(readonly, nonatomic, getter=isFront4kVideoSupported) _Bool front4kVideoSupported; // @synthesize front4kVideoSupported=_front4kVideoSupported;
-@property(readonly, nonatomic, getter=isBack4kVideoSupported) _Bool back4kVideoSupported; // @synthesize back4kVideoSupported=_back4kVideoSupported;
+@property(readonly, nonatomic, getter=isFront4k30VideoSupported) _Bool front4k30VideoSupported; // @synthesize front4k30VideoSupported=_front4k30VideoSupported;
+@property(readonly, nonatomic, getter=isBack4k30VideoSupported) _Bool back4k30VideoSupported; // @synthesize back4k30VideoSupported=_back4k30VideoSupported;
 @property(readonly, nonatomic) long long front1080pMaxFPS; // @synthesize front1080pMaxFPS=_front1080pMaxFPS;
 @property(readonly, nonatomic) long long back1080pMaxFPS; // @synthesize back1080pMaxFPS=_back1080pMaxFPS;
 @property(readonly, nonatomic) long long front720pMaxFPS; // @synthesize front720pMaxFPS=_front720pMaxFPS;
@@ -180,7 +180,7 @@
 - (_Bool)isSupportedVideoConfiguration:(long long)arg1 forMode:(long long)arg2 device:(long long)arg3 encodingBehavior:(long long)arg4;
 - (_Bool)isSupportedMode:(long long)arg1 withDevice:(long long)arg2;
 - (_Bool)is4k60VideoSupportedForDevice:(long long)arg1;
-- (_Bool)is4kVideoSupportedForDevice:(long long)arg1;
+- (_Bool)is4k30VideoSupportedForDevice:(long long)arg1;
 - (long long)maximumBurstLength;
 - (double)captureIntervalForDevice:(long long)arg1;
 - (_Bool)isBurstSupportedForDevice:(long long)arg1;

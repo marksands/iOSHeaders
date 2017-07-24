@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
     NSString *_currencyGroupingSeparator;
     NSString *_listSeparator;
     NSString *_percentSymbol;
-    int _dateComponentOrdering;
+    long long _dateComponentOrdering;
     NSArray *_monthSymbols;
     NSArray *_standaloneMonthSymbols;
     NSArray *_weekdaySymbols;
@@ -86,7 +86,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) NSArray *weekdaySymbols; // @synthesize weekdaySymbols=_weekdaySymbols;
 @property(readonly) NSArray *standaloneMonthSymbols; // @synthesize standaloneMonthSymbols=_standaloneMonthSymbols;
 @property(readonly) NSArray *monthSymbols; // @synthesize monthSymbols=_monthSymbols;
-@property(readonly) int dateComponentOrdering; // @synthesize dateComponentOrdering=_dateComponentOrdering;
+@property(readonly) long long dateComponentOrdering; // @synthesize dateComponentOrdering=_dateComponentOrdering;
 @property(readonly) NSLocale *gregorianCalendarLocale; // @synthesize gregorianCalendarLocale=_gregorianCalendarLocale;
 @property(readonly) NSString *percentSymbol; // @synthesize percentSymbol=_percentSymbol;
 @property(readonly) unsigned long long groupingSize; // @synthesize groupingSize=_groupingSize;

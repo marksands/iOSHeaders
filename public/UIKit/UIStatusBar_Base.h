@@ -45,12 +45,12 @@
 + (double)heightForStyle:(long long)arg1 orientation:(long long)arg2;
 + (Class)_statusBarImplementationClass;
 @property(nonatomic) __weak id <UIStatusBarManager> manager; // @synthesize manager=_manager;
+@property(nonatomic) int activeStyleOverride; // @synthesize activeStyleOverride=_activeStyleOverride;
 @property(copy, nonatomic) UIStatusBarStyleRequest *styleRequest; // @synthesize styleRequest=_styleRequest;
 @property(nonatomic) long long legibilityStyle; // @synthesize legibilityStyle=_legibilityStyle;
 @property(retain, nonatomic) UIColor *foregroundColor; // @synthesize foregroundColor=_foregroundColor;
 @property(nonatomic) _Bool homeItemsDisabled; // @synthesize homeItemsDisabled=_homeItemsDisabled;
 @property(nonatomic) _Bool suppressesHiddenSideEffects; // @synthesize suppressesHiddenSideEffects=_suppressesHiddenSideEffects;
-@property(nonatomic) int activeStyleOverride; // @synthesize activeStyleOverride=_activeStyleOverride;
 @property(nonatomic, getter=_requestStyle, setter=_setRequestedStyle:) long long requestedStyle; // @synthesize requestedStyle=_requestedStyle;
 @property(readonly, nonatomic) CDStruct_e9ade08e *localDataOverrides; // @synthesize localDataOverrides=_localDataOverrides;
 @property(nonatomic) _Bool registered; // @synthesize registered=_registered;
@@ -67,6 +67,7 @@
 @property(nonatomic) __weak id <UIStatusBarCarPlayDockDataProviding> dockDataProvider; // @synthesize dockDataProvider=_dockDataProvider;
 @property(nonatomic) __weak id <UIStatusBarStyleDelegate> styleDelegate; // @synthesize styleDelegate=_styleDelegate;
 - (void).cxx_destruct;
+- (_Bool)_usesModernBar;
 - (_Bool)_rectIntersectsTimeItem:(struct CGRect)arg1;
 - (void)setForegroundAlpha:(double)arg1 animationParameters:(id)arg2;
 - (void)_statusBarDidAnimateRotation;

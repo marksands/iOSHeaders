@@ -9,8 +9,8 @@
 __attribute__((visibility("hidden")))
 @interface __NSFrozenArrayM : NSArray
 {
-    CDStruct_6cf6cf19 storage;
-    struct __cow_state_t *cow;
+    // Error parsing type: A^{__cow_state_t}, name: cow
+    CDStruct_a6934631 storage;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;

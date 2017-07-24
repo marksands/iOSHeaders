@@ -26,7 +26,7 @@
 @property(retain, nonatomic) NSDictionary *shortcutsDict; // @synthesize shortcutsDict=_shortcutsDict;
 @property(retain, nonatomic) NSDictionary *groupedResults; // @synthesize groupedResults=_groupedResults;
 - (void).cxx_destruct;
-- (void)getRankedCategoriesForQuery:(id)arg1 meanScores:(id)arg2 maxScores:(id)arg3 standardDeviation:(id)arg4 sectionHeaderToBundleIdMapping:(id)arg5 rankingConfiguration:(id)arg6 placements:(id)arg7 topCategories:(id *)arg8 bottomCategories:(id *)arg9 blacklistedCategories:(id *)arg10 sessionIdentifier:(unsigned long long)arg11 logString:(id)arg12 cepsUsed:(id)arg13 poorTextMatchCategories:(id)arg14;
+- (void)getRankedCategoriesForQuery:(id)arg1 meanScores:(id)arg2 maxScores:(id)arg3 standardDeviation:(id)arg4 sectionHeaderToBundleIdMapping:(id)arg5 bundleIdToSectionHeaderMapping:(id)arg6 rankingConfiguration:(id)arg7 placements:(id)arg8 topCategories:(id *)arg9 bottomCategories:(id *)arg10 blacklistedCategories:(id *)arg11 sessionIdentifier:(unsigned long long)arg12 logString:(id)arg13 cepsUsed:(id)arg14 poorTextMatchCategories:(id)arg15;
 - (void)adjustScoresUsingCategoryEngagement:(id)arg1 forTopScores:(id)arg2 forBottomScores:(id)arg3 query:(id)arg4 logInfo:(id)arg5 usingRankingKnobs:(id)arg6;
 - (id)getTopHitsBasedOnCategoryOrder:(id)arg1 groupedResults:(id)arg2 CEPTopHitThreshold:(double)arg3 CEPProbabilityFactor:(double)arg4 topHitCountLimit:(long long)arg5;
 - (id)postDeDuplicationTopHitResultArray:(id)arg1;

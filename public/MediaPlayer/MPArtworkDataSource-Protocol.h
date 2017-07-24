@@ -7,10 +7,10 @@
 #import <MediaPlayer/NSObject-Protocol.h>
 
 @class MPArtworkCatalog, MPArtworkRepresentation, NSDictionary;
-@protocol NSCopying;
+@protocol MPArtworkDataSourceVisualIdenticality;
 
 @protocol MPArtworkDataSource <NSObject>
-- (id <NSCopying>)visualIdenticalityIdentifierForCatalog:(MPArtworkCatalog *)arg1;
+- (id <MPArtworkDataSourceVisualIdenticality>)visualIdenticalityIdentifierForCatalog:(MPArtworkCatalog *)arg1;
 - (void)cancelLoadingRepresentationForArtworkCatalog:(MPArtworkCatalog *)arg1;
 - (void)loadRepresentationForArtworkCatalog:(MPArtworkCatalog *)arg1 completionHandler:(void (^)(MPArtworkRepresentation *, NSError *))arg2;
 - (MPArtworkRepresentation *)existingRepresentationForArtworkCatalog:(MPArtworkCatalog *)arg1;

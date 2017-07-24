@@ -69,6 +69,7 @@ __attribute__((visibility("hidden")))
 - (void)documentDidLoad;
 - (void)p_thumbnailUpgradeForUnity20SlideNodes:(id)arg1 andMasterSlideNodess:(id)arg2;
 - (id)initWithContext:(id)arg1;
+- (double)stickyCommentScaleMultiplier;
 - (_Bool)shouldShowComments;
 @property(retain, nonatomic) KNShow *show;
 - (unsigned long long)applicationType;

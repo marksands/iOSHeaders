@@ -20,8 +20,6 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (oneway void)invalidate;
 - (unsigned long long)pasteboardItemMaxSize;
-- (_Bool)containsImportableTextTypes;
-- (id)importablePlainTextTypes;
 - (long long)clearContents;
 - (id)valuesForPasteboardType:(id)arg1 inItemSet:(id)arg2;
 - (id)stringsForPasteboardType:(id)arg1 inItemSet:(id)arg2;

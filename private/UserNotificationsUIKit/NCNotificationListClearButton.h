@@ -10,13 +10,13 @@
 #import <UserNotificationsUIKit/SBUIIconForceTouchControllerDelegate-Protocol.h>
 #import <UserNotificationsUIKit/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSMutableArray, NSString, SBUIForceTouchGestureRecognizer, SBUIIconForceTouchController, UIImageView, UIView;
+@class MTMaterialView, NSMutableArray, NSString, SBUIForceTouchGestureRecognizer, SBUIIconForceTouchController, UIImageView, UIView;
 @protocol NCNotificationListClearButtonDelegate;
 
 @interface NCNotificationListClearButton : UIControl <UIGestureRecognizerDelegate, SBUIIconForceTouchControllerDelegate, SBUIIconForceTouchControllerDataSource>
 {
     NSString *_title;
-    UIImageView *_circleImageView;
+    MTMaterialView *_circleMaterialView;
     UIImageView *_xImageView;
     UIView *_highlightView;
     NSMutableArray *_glyphImageViews;
@@ -26,6 +26,7 @@
     SBUIForceTouchGestureRecognizer *_forceTouchGestureRecognizer;
     long long _clearButtonState;
     CDUnknownBlockType _clearAllHandler;
+    NSString *_backgroundGroupName;
     id <NCNotificationListClearButtonDelegate> _delegate;
 }
 
@@ -40,6 +41,7 @@
 + (void)_clearImageCache;
 + (void)_observeContentSizeChange;
 @property(nonatomic) __weak id <NCNotificationListClearButtonDelegate> delegate; // @synthesize delegate=_delegate;
+@property(copy, nonatomic) NSString *backgroundGroupName; // @synthesize backgroundGroupName=_backgroundGroupName;
 @property(copy, nonatomic) CDUnknownBlockType clearAllHandler; // @synthesize clearAllHandler=_clearAllHandler;
 @property(readonly, nonatomic) long long clearButtonState; // @synthesize clearButtonState=_clearButtonState;
 - (void).cxx_destruct;

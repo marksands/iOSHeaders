@@ -29,6 +29,7 @@
 - (void)_stateDidChange;
 - (void)fetchChangesWithContext:(id)arg1 qualityOfService:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)isAwaitingFirstSync;
+- (void)notifyObservers;
 - (void)markAsDirty;
 - (_Bool)isDirty;
 - (id)init;

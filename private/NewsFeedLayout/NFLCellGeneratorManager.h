@@ -19,13 +19,11 @@
     NFLCellGenerator *_siriSuggestionsCellGenerator;
     NFLCellGenerator *_pickYourFavoritesCellGenerator;
     NFLCellGenerator *_gapCellGenerator;
-    NFLCellGenerator *_nativeAdCellGenerator;
     NFLFeedSettings *_feedSettings;
 }
 
 + (id)cellGeneratorWithFeedSettings:(id)arg1;
 @property(nonatomic) __weak NFLFeedSettings *feedSettings; // @synthesize feedSettings=_feedSettings;
-@property(retain, nonatomic) NFLCellGenerator *nativeAdCellGenerator; // @synthesize nativeAdCellGenerator=_nativeAdCellGenerator;
 @property(retain, nonatomic) NFLCellGenerator *gapCellGenerator; // @synthesize gapCellGenerator=_gapCellGenerator;
 @property(retain, nonatomic) NFLCellGenerator *pickYourFavoritesCellGenerator; // @synthesize pickYourFavoritesCellGenerator=_pickYourFavoritesCellGenerator;
 @property(retain, nonatomic) NFLCellGenerator *siriSuggestionsCellGenerator; // @synthesize siriSuggestionsCellGenerator=_siriSuggestionsCellGenerator;

@@ -6,13 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
-@class UIPreviewPresentationController, UIViewController;
+@class UIPreviewPresentationController, UIView, UIViewController;
 @protocol _UIPreviewInteractionViewControllerTransition;
 
 @interface _UIPreviewInteractionViewControllerPresentation : NSObject
 {
     _Bool _shouldUseCATransitions;
     _Bool _shouldFlipFromAndToViewsForDisappearanceTransition;
+    _Bool _shouldUpdateFromViewBeforePresentation;
     _Bool _shouldPresentAutomatically;
     UIViewController *_viewController;
     UIPreviewPresentationController *_presentationController;
@@ -20,9 +21,12 @@
     id <_UIPreviewInteractionViewControllerTransition> _disappearanceTransition;
     CDUnknownBlockType _privatePresentationBlock;
     CDUnknownBlockType _privatePresentationCompletionBlock;
+    UIView *_customViewForTouchContinuation;
 }
 
 @property(nonatomic) _Bool shouldPresentAutomatically; // @synthesize shouldPresentAutomatically=_shouldPresentAutomatically;
+@property(nonatomic) __weak UIView *customViewForTouchContinuation; // @synthesize customViewForTouchContinuation=_customViewForTouchContinuation;
+@property(nonatomic) _Bool shouldUpdateFromViewBeforePresentation; // @synthesize shouldUpdateFromViewBeforePresentation=_shouldUpdateFromViewBeforePresentation;
 @property(copy, nonatomic) CDUnknownBlockType privatePresentationCompletionBlock; // @synthesize privatePresentationCompletionBlock=_privatePresentationCompletionBlock;
 @property(copy, nonatomic) CDUnknownBlockType privatePresentationBlock; // @synthesize privatePresentationBlock=_privatePresentationBlock;
 @property(nonatomic) _Bool shouldFlipFromAndToViewsForDisappearanceTransition; // @synthesize shouldFlipFromAndToViewsForDisappearanceTransition=_shouldFlipFromAndToViewsForDisappearanceTransition;

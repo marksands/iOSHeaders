@@ -20,6 +20,7 @@
 }
 
 + (id)backgroundManagedObjectContext;
++ (void)saveAttachmentOnMainThread:(id)arg1;
 + (void)notifyProviderForRefreshToAttachment:(id)arg1;
 + (id)sharedProviderForAttachment:(id)arg1;
 + (id)mergeNotificationRegister;

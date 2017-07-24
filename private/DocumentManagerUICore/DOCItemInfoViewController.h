@@ -12,7 +12,7 @@
 #import <DocumentManagerUICore/DOCThumbnailListener-Protocol.h>
 #import <DocumentManagerUICore/FPItemCollectionDelegate-Protocol.h>
 
-@class DOCDownloadButton, DOCTagsCollectionView, DOCVisualEffectLabel, FPItem, FPItemCollection, NSLayoutConstraint, NSProgress, NSString, UIImageView, UILabel, UIStackView, UIView, UIVisualEffectView;
+@class DOCDownloadButton, DOCTagsCollectionView, DOCVisualEffectLabel, FPItem, FPItemCollection, NSArray, NSLayoutConstraint, NSProgress, NSString, UIImageView, UILabel, UIStackView, UIView, UIVisualEffectView;
 @protocol DOCThumbnail;
 
 @interface DOCItemInfoViewController : UIViewController <DOCTagsCollectionViewDelegate, DOCThumbnailListener, DOCThumbnailHolder, FPItemCollectionDelegate, DOCItemInfoPresenter>
@@ -24,6 +24,7 @@
     FPItem *_item;
     id <DOCThumbnail> _thumbnail;
     UIStackView *_stackView;
+    UIView *_topContainerView;
     UIImageView *_imageView;
     UIVisualEffectView *_primaryVisualEffectView;
     UILabel *_primaryLabel;
@@ -32,6 +33,7 @@
     UIView *_downloadButtonContainer;
     NSProgress *_observedProgress;
     NSLayoutConstraint *_firstSeparatorViewHeightConstraint;
+    UIView *_infoContainerView;
     DOCVisualEffectLabel *_kindLabel;
     DOCVisualEffectLabel *_kindValue;
     DOCVisualEffectLabel *_sizeLabel;
@@ -43,43 +45,62 @@
     DOCVisualEffectLabel *_modifiedLabel;
     DOCVisualEffectLabel *_modifiedValue;
     NSLayoutConstraint *_secondSeparatorViewHeightConstraint;
+    NSArray *_regularConstraints;
+    NSArray *_largeTextConstraints;
+    UIView *_tagsContainerView;
     DOCVisualEffectLabel *_tagsLabel;
     DOCTagsCollectionView *_tagsCollectionView;
     FPItem *_observedItem;
     FPItemCollection *_observedCollection;
+    UIView *_firstSeparator;
+    UIView *_secondSeparator;
+    NSArray *_labelLabels;
+    NSArray *_valueLabels;
 }
 
+@property(retain, nonatomic) NSArray *valueLabels; // @synthesize valueLabels=_valueLabels;
+@property(retain, nonatomic) NSArray *labelLabels; // @synthesize labelLabels=_labelLabels;
+@property(retain, nonatomic) UIView *secondSeparator; // @synthesize secondSeparator=_secondSeparator;
+@property(retain, nonatomic) UIView *firstSeparator; // @synthesize firstSeparator=_firstSeparator;
 @property(retain, nonatomic) FPItemCollection *observedCollection; // @synthesize observedCollection=_observedCollection;
 @property(nonatomic) _Bool viewDidAppear; // @synthesize viewDidAppear=_viewDidAppear;
 @property(nonatomic) _Bool isFirstTimeAppear; // @synthesize isFirstTimeAppear=_isFirstTimeAppear;
 @property(retain, nonatomic) FPItem *observedItem; // @synthesize observedItem=_observedItem;
-@property(nonatomic) __weak DOCTagsCollectionView *tagsCollectionView; // @synthesize tagsCollectionView=_tagsCollectionView;
-@property(nonatomic) __weak DOCVisualEffectLabel *tagsLabel; // @synthesize tagsLabel=_tagsLabel;
-@property(nonatomic) __weak NSLayoutConstraint *secondSeparatorViewHeightConstraint; // @synthesize secondSeparatorViewHeightConstraint=_secondSeparatorViewHeightConstraint;
-@property(nonatomic) __weak DOCVisualEffectLabel *modifiedValue; // @synthesize modifiedValue=_modifiedValue;
-@property(nonatomic) __weak DOCVisualEffectLabel *modifiedLabel; // @synthesize modifiedLabel=_modifiedLabel;
-@property(nonatomic) __weak DOCVisualEffectLabel *createdValue; // @synthesize createdValue=_createdValue;
-@property(nonatomic) __weak DOCVisualEffectLabel *createdLabel; // @synthesize createdLabel=_createdLabel;
-@property(nonatomic) __weak DOCVisualEffectLabel *whereValue; // @synthesize whereValue=_whereValue;
-@property(nonatomic) __weak DOCVisualEffectLabel *whereLabel; // @synthesize whereLabel=_whereLabel;
-@property(nonatomic) __weak DOCVisualEffectLabel *sizeValue; // @synthesize sizeValue=_sizeValue;
-@property(nonatomic) __weak DOCVisualEffectLabel *sizeLabel; // @synthesize sizeLabel=_sizeLabel;
-@property(nonatomic) __weak DOCVisualEffectLabel *kindValue; // @synthesize kindValue=_kindValue;
-@property(nonatomic) __weak DOCVisualEffectLabel *kindLabel; // @synthesize kindLabel=_kindLabel;
+@property(retain, nonatomic) DOCTagsCollectionView *tagsCollectionView; // @synthesize tagsCollectionView=_tagsCollectionView;
+@property(retain, nonatomic) DOCVisualEffectLabel *tagsLabel; // @synthesize tagsLabel=_tagsLabel;
+@property(retain, nonatomic) UIView *tagsContainerView; // @synthesize tagsContainerView=_tagsContainerView;
+@property(retain, nonatomic) NSArray *largeTextConstraints; // @synthesize largeTextConstraints=_largeTextConstraints;
+@property(retain, nonatomic) NSArray *regularConstraints; // @synthesize regularConstraints=_regularConstraints;
+@property(retain, nonatomic) NSLayoutConstraint *secondSeparatorViewHeightConstraint; // @synthesize secondSeparatorViewHeightConstraint=_secondSeparatorViewHeightConstraint;
+@property(retain, nonatomic) DOCVisualEffectLabel *modifiedValue; // @synthesize modifiedValue=_modifiedValue;
+@property(retain, nonatomic) DOCVisualEffectLabel *modifiedLabel; // @synthesize modifiedLabel=_modifiedLabel;
+@property(retain, nonatomic) DOCVisualEffectLabel *createdValue; // @synthesize createdValue=_createdValue;
+@property(retain, nonatomic) DOCVisualEffectLabel *createdLabel; // @synthesize createdLabel=_createdLabel;
+@property(retain, nonatomic) DOCVisualEffectLabel *whereValue; // @synthesize whereValue=_whereValue;
+@property(retain, nonatomic) DOCVisualEffectLabel *whereLabel; // @synthesize whereLabel=_whereLabel;
+@property(retain, nonatomic) DOCVisualEffectLabel *sizeValue; // @synthesize sizeValue=_sizeValue;
+@property(retain, nonatomic) DOCVisualEffectLabel *sizeLabel; // @synthesize sizeLabel=_sizeLabel;
+@property(retain, nonatomic) DOCVisualEffectLabel *kindValue; // @synthesize kindValue=_kindValue;
+@property(retain, nonatomic) DOCVisualEffectLabel *kindLabel; // @synthesize kindLabel=_kindLabel;
+@property(retain, nonatomic) UIView *infoContainerView; // @synthesize infoContainerView=_infoContainerView;
 @property(nonatomic) __weak NSLayoutConstraint *firstSeparatorViewHeightConstraint; // @synthesize firstSeparatorViewHeightConstraint=_firstSeparatorViewHeightConstraint;
 @property(retain, nonatomic) NSProgress *observedProgress; // @synthesize observedProgress=_observedProgress;
-@property(nonatomic) __weak UIView *downloadButtonContainer; // @synthesize downloadButtonContainer=_downloadButtonContainer;
-@property(nonatomic) __weak UILabel *secondaryLabel; // @synthesize secondaryLabel=_secondaryLabel;
-@property(nonatomic) __weak UIVisualEffectView *secondaryVisualEffectView; // @synthesize secondaryVisualEffectView=_secondaryVisualEffectView;
-@property(nonatomic) __weak UILabel *primaryLabel; // @synthesize primaryLabel=_primaryLabel;
-@property(nonatomic) __weak UIVisualEffectView *primaryVisualEffectView; // @synthesize primaryVisualEffectView=_primaryVisualEffectView;
-@property(nonatomic) __weak UIImageView *imageView; // @synthesize imageView=_imageView;
-@property(nonatomic) __weak UIStackView *stackView; // @synthesize stackView=_stackView;
+@property(retain, nonatomic) UIView *downloadButtonContainer; // @synthesize downloadButtonContainer=_downloadButtonContainer;
+@property(retain, nonatomic) UILabel *secondaryLabel; // @synthesize secondaryLabel=_secondaryLabel;
+@property(retain, nonatomic) UIVisualEffectView *secondaryVisualEffectView; // @synthesize secondaryVisualEffectView=_secondaryVisualEffectView;
+@property(retain, nonatomic) UILabel *primaryLabel; // @synthesize primaryLabel=_primaryLabel;
+@property(retain, nonatomic) UIVisualEffectView *primaryVisualEffectView; // @synthesize primaryVisualEffectView=_primaryVisualEffectView;
+@property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
+@property(retain, nonatomic) UIView *topContainerView; // @synthesize topContainerView=_topContainerView;
+@property(retain, nonatomic) UIStackView *stackView; // @synthesize stackView=_stackView;
 @property(nonatomic) _Bool isInfoInPopoverMode; // @synthesize isInfoInPopoverMode=_isInfoInPopoverMode;
 @property(retain, nonatomic) id <DOCThumbnail> thumbnail; // @synthesize thumbnail=_thumbnail;
 @property(retain, nonatomic) FPItem *item; // @synthesize item=_item;
-@property(nonatomic) __weak DOCDownloadButton *downloadButton; // @synthesize downloadButton=_downloadButton;
+@property(retain, nonatomic) DOCDownloadButton *downloadButton; // @synthesize downloadButton=_downloadButton;
 - (void).cxx_destruct;
+- (void)_buildLargeTextConstraints;
+- (void)_buildRegularConstraints;
+- (void)_buildConstraints;
 - (void)collection:(id)arg1 didUpdateObservedItem:(id)arg2;
 - (void)collection:(id)arg1 didPerformBatchUpdateWithReplayBlock:(CDUnknownBlockType)arg2;
 - (void)dataForCollectionShouldBeReloaded:(id)arg1;
@@ -109,9 +130,11 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)setupValue:(id)arg1;
 - (void)setupLabel:(id)arg1 text:(id)arg2;
+- (void)adjustLabel:(id)arg1 forLargeText:(_Bool)arg2;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)dealloc;
 - (void)viewDidLoad;
+- (void)loadView;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

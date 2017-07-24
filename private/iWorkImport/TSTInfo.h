@@ -373,7 +373,8 @@ __attribute__((visibility("hidden")))
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (void)p_bakeMixedCellStrokesIntoTable:(id)arg1 outgoingTable:(id)arg2 incomingTable:(id)arg3 fraction:(double)arg4;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
-- (_Bool)reverseChunkingIsSupported;
+- (_Bool)suppliesFinalTextures;
+- (_Bool)requiresStagesBuildingInReverse;
 - (unsigned long long)textureDeliveryStyleFromDeliveryString:(id)arg1;
 - (id)textureDeliveryStylesLocalized:(_Bool)arg1 animationFilter:(id)arg2;
 - (unsigned long long)chunkCountForTextureDeliveryStyle:(unsigned long long)arg1 animationFilter:(id)arg2;

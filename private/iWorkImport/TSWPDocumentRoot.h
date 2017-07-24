@@ -8,22 +8,25 @@
 
 #import <iWorkImport/TSWPObjectIndex-Protocol.h>
 
-@class EQKitEnvironment;
+@class EQKitEnvironment, NSUUID;
 
 __attribute__((visibility("hidden")))
 @interface TSWPDocumentRoot : TSKDocumentRoot <TSWPObjectIndex>
 {
     _Bool _didRemoveMissingAttachments;
+    NSUUID *_uuid;
 }
 
 @property(nonatomic) _Bool didRemoveMissingAttachments; // @synthesize didRemoveMissingAttachments=_didRemoveMissingAttachments;
 - (double)bodyWidth;
+- (id)documentId;
 @property(readonly, nonatomic) _Bool supportHeaderFooterParagraphAlignmentInInspectors;
 - (int)verticalAlignmentForTextStorage:(id)arg1;
 - (int)naturalAlignmentAtCharIndex:(unsigned long long)arg1 inTextStorage:(id)arg2;
 @property(readonly, nonatomic, getter=isChangeTrackingEnabled) _Bool changeTrackingEnabled;
 - (_Bool)isDrawableOnPageMaster:(id)arg1;
 - (id)flowInfoContainer;
+@property(readonly, nonatomic) double stickyCommentScaleMultiplier;
 - (_Bool)cellCommentsAllowedOnInfo:(id)arg1;
 @property(readonly, nonatomic) EQKitEnvironment *equationEnvironment;
 - (id)unavailableDocumentFonts;

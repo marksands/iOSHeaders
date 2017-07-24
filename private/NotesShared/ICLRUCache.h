@@ -17,6 +17,8 @@
     id <ICLRUCacheDelegate> _delegate;
 }
 
++ (void)purgeAllCaches;
++ (id)cacheCollection;
 @property(nonatomic) __weak id <ICLRUCacheDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) unsigned long long maxSize; // @synthesize maxSize=mMax;
 - (void).cxx_destruct;

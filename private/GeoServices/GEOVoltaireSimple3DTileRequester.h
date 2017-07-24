@@ -15,7 +15,7 @@
 + (unsigned char)tileProviderIdentifier;
 - (id)urlForTileKey:(const struct _GEOTileKey *)arg1;
 - (unsigned char)_authTypeForTileKey:(const struct _GEOTileKey *)arg1;
-- (unsigned int)tileEditionForKey:(struct _GEOTileKey *)arg1;
+- (unsigned int)tileEditionForKey:(const struct _GEOTileKey *)arg1;
 - (unsigned int)tileSetForKey:(const struct _GEOTileKey *)arg1;
 - (id)_baseURLStringForTileKey:(const struct _GEOTileKey *)arg1;
 

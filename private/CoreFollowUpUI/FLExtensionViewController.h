@@ -21,6 +21,7 @@
 - (void).cxx_destruct;
 - (void)followUpPerformUpdateWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)processFollowUpItem:(id)arg1 selectedAction:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)finishProcessing;
 - (id)hostInterface;
 - (void)beginRequestWithExtensionContext:(id)arg1;

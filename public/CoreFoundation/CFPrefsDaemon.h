@@ -39,7 +39,7 @@ __attribute__((visibility("hidden")))
 - (void)handleMessage:(id)arg1 fromPeer:(id)arg2 replyHandler:(CDUnknownBlockType)arg3;
 - (void)logDomainInconsistencyForProcess:(int)arg1 message:(id)arg2 source:(id)arg3;
 - (void)flushDomainInAgents:(const char *)arg1;
-- (void)withSourceForDomain:(struct __CFString *)arg1 inContainer:(struct __CFString *)arg2 user:(struct __CFString *)arg3 byHost:(_Bool)arg4 managed:(_Bool)arg5 cloudStoreEntitlement:(id)arg6 cloudConfigurationPath:(struct __CFString *)arg7 perform:(CDUnknownBlockType)arg8;
+- (void)withSourceForDomain:(struct __CFString *)arg1 inContainer:(struct __CFString *)arg2 user:(struct __CFString *)arg3 byHost:(_Bool)arg4 managed:(_Bool)arg5 managedUsesContainer:(_Bool)arg6 cloudStoreEntitlement:(id)arg7 cloudConfigurationPath:(struct __CFString *)arg8 perform:(CDUnknownBlockType)arg9;
 - (void)withSources:(CDUnknownBlockType)arg1;
 - (void)synchronousWithSourceCache:(CDUnknownBlockType)arg1;
 

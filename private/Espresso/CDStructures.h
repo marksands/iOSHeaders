@@ -34,6 +34,10 @@ struct __list_node_base<vision::DCN::boundingbox, void *> {
 
 struct __shared_weak_count;
 
+struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
+    struct __tree_node_base<void *> *__left_;
+};
+
 struct _mxnetTools_imageHeader_t_ {
     unsigned int flag;
     float label;
@@ -66,6 +70,30 @@ struct list<vision::DCN::boundingbox, std::__1::allocator<vision::DCN::boundingb
     } _field2;
 };
 
+struct map<std::__1::basic_string<char>, float, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, float>>> {
+    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, float>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, float>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, float>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, float>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, float>, std::__1::less<std::__1::basic_string<char>>, true>> {
+            unsigned long long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<std::__1::basic_string<char>, postprocessing_settings_t, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, postprocessing_settings_t>>> {
+    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, postprocessing_settings_t>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, postprocessing_settings_t>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, postprocessing_settings_t>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, postprocessing_settings_t>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, postprocessing_settings_t>, std::__1::less<std::__1::basic_string<char>>, true>> {
+            unsigned long long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
 struct net;
 
 struct net_strides_configuration {
@@ -78,6 +106,13 @@ struct net_strides_configuration {
 struct pair<unsigned long long, unsigned long long> {
     unsigned long long first;
     unsigned long long second;
+};
+
+struct postprocessing_settings_t {
+    int do_blend;
+    float blend_alpha;
+    int grayscale_i0;
+    int grayscale_i1;
 };
 
 struct shared_ptr<Espresso::abstract_context> {

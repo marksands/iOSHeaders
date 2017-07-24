@@ -76,6 +76,7 @@
 @property(readonly) float zoomFactorUpscaleThreshold;
 @property(readonly) float maxZoomFactor;
 @property(readonly, getter=isZoomSupported) _Bool zoomSupported;
+- (int)previewImageQueueSyncStrategy;
 - (int)stabilizationTypeOverrideForCinematic;
 - (int)stabilizationTypeOverrideForStandard;
 - (_Bool)isStabilizationModeSupported:(int)arg1;

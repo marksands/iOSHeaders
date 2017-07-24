@@ -8,7 +8,7 @@
 
 #import <NeutrinoKit/NUAVPlayerControllerDelegate-Protocol.h>
 
-@class NSArray, NSString, NUComposition, NUMediaViewRenderer, NURenderView, NUScrollView, _NUPlayerView;
+@class NSArray, NSString, NUAVPlayerController, NUAVPlayerView, NUComposition, NUMediaViewRenderer, NURenderView, NUScrollView;
 @protocol NUMediaViewDelegate;
 
 @interface NUMediaView : UIView <NUAVPlayerControllerDelegate>
@@ -18,7 +18,8 @@
     NUComposition *_composition;
     NUMediaViewRenderer *_renderer;
     struct UIEdgeInsets _edgeInsets;
-    _NUPlayerView *_playerView;
+    NUAVPlayerController *_nuAVPlayerController;
+    NUAVPlayerView *_playerView;
     UIView *_livePhotoView;
     struct {
         _Bool hasDidFinishRendering;
@@ -26,6 +27,8 @@
         _Bool hasDidFinishRenderingWithStatistics;
         _Bool hasDidZoom;
         _Bool hasIsReadyForVideoPlayback;
+        _Bool hasDidStartPreparingVideo;
+        _Bool hasDidFinishPreparingVideo;
     } _delegateFlags;
     _Bool _loopsVideo;
     _Bool _centerContent;
@@ -57,8 +60,11 @@
 - (id)_renderView;
 - (id)_scrollView;
 - (void)_stopLoopPlayback;
+@property(nonatomic) double videoPlayerViewAlpha;
 - (void)_startLoopPlayback;
 @property(nonatomic) _Bool loopsVideoPlayback;
+- (void)_rendererDidFinishPreparingVideo;
+- (void)_rendererDidStartPreparingVideo;
 - (void)_rendererDidUpdateLivePhoto;
 - (void)_rendererDidFinishWithStatistics:(id)arg1;
 - (void)_rendererDidCreateAVPlayerController:(id)arg1;

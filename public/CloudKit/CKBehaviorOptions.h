@@ -61,8 +61,8 @@
 - (id)productName;
 - (_Bool)_buildIsOverridden;
 - (double)maxTimeIntervalSinceLastZoneishPCSKeyRoll;
-- (void)setForceManateeZoneDecryptionFailureOnFetch:(_Bool)arg1;
-- (_Bool)forceManateeZoneDecryptionFailureOnFetch;
+- (void)setContainerIDToForceManateeZoneDecryptionFailureOnFetch:(id)arg1;
+- (id)containerIDToForceManateeZoneDecryptionFailureOnFetch;
 - (void)setUseEnhancedPCSEncryptionContext:(_Bool)arg1;
 - (_Bool)useEnhancedPCSEncryptionContext;
 - (void)setRollZonePCSIdentities:(_Bool)arg1;

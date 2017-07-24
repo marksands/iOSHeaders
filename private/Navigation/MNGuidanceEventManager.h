@@ -54,7 +54,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)_isEventValid:(id)arg1 start:(double)arg2 end:(double)arg3;
 - (_Bool)_isValidEvent:(id)arg1;
 - (double)_adjustedVehicleSpeed;
-- (id)_serverStringDictionaryForDistance:(double)arg1 validDistance:(double)arg2 destination:(id)arg3 spoken:(_Bool)arg4;
 - (id)_serverStringDictionaryForEvent:(id)arg1 spoken:(_Bool)arg2;
 - (double)_timeUntilEventTrigger:(id)arg1;
 - (void)_markEventSpoken:(id)arg1;

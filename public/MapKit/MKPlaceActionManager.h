@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 {
     MKPlaceCardActionItem *_favoriteActionItem;
     MKPlaceCardActionItem *_callActionItem;
+    MKPlaceCardActionItem *_brandStoreActionItem;
     TUCallProvider *_callProvider;
     _Bool _placeInBookmarks;
     _Bool _showContactActions;
@@ -34,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)_canMakeCalls:(CDUnknownBlockType)arg1;
 - (void)_launchMaps;
 - (id)createFooterActions;
+- (void)_enableStoreAction;
 - (id)createRowActions;
 - (id)favoriteItemForFooter:(_Bool)arg1;
 - (_Bool)_showReportAProblem;

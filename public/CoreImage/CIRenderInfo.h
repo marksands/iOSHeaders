@@ -19,6 +19,7 @@
 @property(readonly) double kernelExecutionTime;
 - (void)dealloc;
 - (id)initWithCompletedTask:(id)arg1;
+- (id)init;
 - (id)_pdfDataRepresentation;
 
 @end

@@ -15,7 +15,7 @@
 }
 
 - (void)remote_stopObservingDataCollectionForType:(id)arg1;
-- (void)remote_observeDataCollectionForType:(id)arg1 interval:(double)arg2 inBackground:(_Bool)arg3 hasWorkout:(_Bool)arg4;
+- (void)remote_observeDataCollectionForType:(id)arg1 interval:(double)arg2 inBackground:(_Bool)arg3 hasRunningWorkout:(_Bool)arg4;
 - (void)remote_resetAWDTask:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_runAWDTask:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_setShouldIgnoreUnlockedState:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;

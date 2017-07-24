@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 
 + (_Bool)isContactEmpty:(id)arg1;
 + (id)mapperIdentifier;
++ (id)log;
 @property(readonly, nonatomic) CNDonationStore *donationStore; // @synthesize donationStore=_donationStore;
 @property(readonly, nonatomic) CNContactsEnvironment *environment; // @synthesize environment=_environment;
 - (void).cxx_destruct;
@@ -31,7 +32,7 @@ __attribute__((visibility("hidden")))
 - (id)containersMatchingPredicate:(id)arg1 error:(id *)arg2;
 - (_Bool)executeSaveRequest:(id)arg1 response:(id *)arg2 error:(id *)arg3;
 - (_Bool)executeSaveRequest:(id)arg1 error:(id *)arg2;
-- (id)meContactIdentifierWithError:(id *)arg1;
+- (id)meContactIdentifiers:(id *)arg1;
 - (id)contactObservableForFetchRequest:(id)arg1;
 - (_Bool)requestAccessForEntityType:(long long)arg1 error:(id *)arg2;
 - (void)requestAccessForEntityType:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;

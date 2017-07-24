@@ -24,6 +24,7 @@
     _Bool _preferLastUsedDate;
     _Bool _shouldOpenInApp;
     _Bool _restoreLastVisitedLocation;
+    _Bool _observeCollectionControls;
     _Bool _sourceIsWritableFileProvider;
     _Bool _capNumberOfItemsDynamically;
     _Bool _skipDownload;
@@ -78,6 +79,7 @@
 @property unsigned long long maximumNumberOfRows; // @synthesize maximumNumberOfRows=_maximumNumberOfRows;
 @property unsigned long long maximumNumberOfItemsToFetch; // @synthesize maximumNumberOfItemsToFetch=_maximumNumberOfItemsToFetch;
 @property _Bool sourceIsWritableFileProvider; // @synthesize sourceIsWritableFileProvider=_sourceIsWritableFileProvider;
+@property _Bool observeCollectionControls; // @synthesize observeCollectionControls=_observeCollectionControls;
 @property _Bool restoreLastVisitedLocation; // @synthesize restoreLastVisitedLocation=_restoreLastVisitedLocation;
 @property(copy, nonatomic) NSArray *hiddenSourcesIdentifiers; // @synthesize hiddenSourcesIdentifiers=_hiddenSourcesIdentifiers;
 @property _Bool shouldOpenInApp; // @synthesize shouldOpenInApp=_shouldOpenInApp;

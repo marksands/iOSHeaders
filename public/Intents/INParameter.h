@@ -36,7 +36,8 @@
 @property(readonly, nonatomic) id parameterizedObject;
 @property(readonly, nonatomic) id parameterValue;
 - (id)_parameterValueForParameterizedObject:(id)arg1;
-- (id)_sanitizedKeyPathForKeyPath:(id)arg1;
+- (void)_setIndexesForKeyPathWithSubscripts:(id)arg1;
+- (id)_sanitizedKeyPathForKeyPath:(id)arg1 removingSubscripts:(_Bool)arg2;
 - (id)_valueOfObject:(id)arg1 forRemainingKeyPath:(id)arg2 inFullyQualifiedKeyPath:(id)arg3;
 - (unsigned long long)indexForSubKeyPath:(id)arg1;
 - (void)setIndex:(unsigned long long)arg1 forSubKeyPath:(id)arg2;

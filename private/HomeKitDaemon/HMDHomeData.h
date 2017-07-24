@@ -25,6 +25,7 @@
     NSString *_currentDevice;
     NSArray *_pendingReasonSaved;
     NSArray *_pendingUserManagementOperations;
+    NSArray *_unprocessedOperationIdentifiers;
     HMDApplicationData *_applicationData;
     long long _residentEnabledState;
     HMDAccount *_account;
@@ -34,6 +35,7 @@
 @property(readonly, nonatomic) HMDAccount *account; // @synthesize account=_account;
 @property(readonly, nonatomic) long long residentEnabledState; // @synthesize residentEnabledState=_residentEnabledState;
 @property(readonly, copy, nonatomic) HMDApplicationData *applicationData; // @synthesize applicationData=_applicationData;
+@property(readonly, copy, nonatomic) NSArray *unprocessedOperationIdentifiers; // @synthesize unprocessedOperationIdentifiers=_unprocessedOperationIdentifiers;
 @property(readonly, copy, nonatomic) NSArray *pendingUserManagementOperations; // @synthesize pendingUserManagementOperations=_pendingUserManagementOperations;
 @property(readonly, copy, nonatomic) NSArray *pendingReasonSaved; // @synthesize pendingReasonSaved=_pendingReasonSaved;
 @property(readonly, copy, nonatomic) NSString *currentDevice; // @synthesize currentDevice=_currentDevice;
@@ -49,7 +51,7 @@
 @property(readonly, copy, nonatomic) NSArray *accessories; // @synthesize accessories=_accessories;
 @property(readonly, copy, nonatomic) NSArray *homes; // @synthesize homes=_homes;
 - (void).cxx_destruct;
-- (id)initWithHomes:(id)arg1 accessories:(id)arg2 primaryHomeUUID:(id)arg3 lastCurrentHomeUUID:(id)arg4 dataVersion:(long long)arg5 schemaVersion:(long long)arg6 dataTag:(id)arg7 uuidsOfRemovedHomes:(id)arg8 cloudZones:(id)arg9 incomingInvitations:(id)arg10 assistantGenerationCounter:(unsigned long long)arg11 currentDevice:(id)arg12 pendingReasonSaved:(id)arg13 pendingUserManagementOperations:(id)arg14 applicationData:(id)arg15 residentEnabledState:(long long)arg16 account:(id)arg17 accessAllowedWhenLocked:(_Bool)arg18;
+- (id)initWithHomes:(id)arg1 accessories:(id)arg2 primaryHomeUUID:(id)arg3 lastCurrentHomeUUID:(id)arg4 dataVersion:(long long)arg5 schemaVersion:(long long)arg6 dataTag:(id)arg7 uuidsOfRemovedHomes:(id)arg8 cloudZones:(id)arg9 incomingInvitations:(id)arg10 assistantGenerationCounter:(unsigned long long)arg11 currentDevice:(id)arg12 pendingReasonSaved:(id)arg13 pendingUserManagementOperations:(id)arg14 unprocessedOperationIdentifiers:(id)arg15 applicationData:(id)arg16 residentEnabledState:(long long)arg17 account:(id)arg18 accessAllowedWhenLocked:(_Bool)arg19;
 
 @end
 

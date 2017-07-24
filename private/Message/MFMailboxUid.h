@@ -8,11 +8,12 @@
 
 #import <Message/ECMailbox-Protocol.h>
 #import <Message/MFMailboxPredictionMailbox-Protocol.h>
+#import <Message/MFPubliclyDescribable-Protocol.h>
 #import <Message/NSCopying-Protocol.h>
 
 @class MFInvocationQueue, MFMessageCriterion, MFWeakReferenceHolder, MailAccount, NSArray, NSMutableArray, NSMutableDictionary, NSNumber, NSString;
 
-@interface MFMailboxUid : NSObject <MFMailboxPredictionMailbox, ECMailbox, NSCopying>
+@interface MFMailboxUid : NSObject <MFMailboxPredictionMailbox, ECMailbox, NSCopying, MFPubliclyDescribable>
 {
     NSString *uniqueId;
     unsigned int _mailboxID;
@@ -66,6 +67,8 @@
 - (_Bool)isVisible;
 - (void)setType:(int)arg1;
 @property(readonly, nonatomic) long long type;
+@property(readonly, copy, nonatomic) NSString *mf_publicDescription;
+- (id)_privacySafeDescription;
 @property(readonly, copy) NSString *description;
 - (_Bool)isDescendantOfMailbox:(id)arg1;
 - (long long)indexToInsertChildMailboxUid:(id)arg1;

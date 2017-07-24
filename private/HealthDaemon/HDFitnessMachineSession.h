@@ -6,14 +6,16 @@
 
 #import <objc/NSObject.h>
 
-@class HDHealthServiceOOBInfo, HKHealthService, NSArray, NSData, NSDate, NSString, NSUUID, _HKFitnessMachine;
+@class HDFitnessMachineDataCharacteristicBase, HDFitnessMachineStatus, HDHealthServiceOOBInfo, HKHealthService, NSArray, NSData, NSDate, NSString, NSUUID, _HKFitnessMachine;
 
 @interface HDFitnessMachineSession : NSObject
 {
-    _Bool _notifyStateOnFirstData;
+    _Bool _waitingOnInitialMachineStatus;
+    _Bool _waitingOnInitialMachineData;
     _Bool _dataTransferPermitted;
     _Bool _waitingOnMFA;
     _Bool _waitingOnBluetoothConnection;
+    _Bool _waitingOnActivityType;
     NSUUID *_fitnessMachineSessionUUID;
     NSData *_nfcSessionIDData;
     unsigned long long _healthServiceSessionIdentifier;
@@ -21,7 +23,8 @@
     long long _serviceStatus;
     _HKFitnessMachine *_fitnessMachine;
     HDHealthServiceOOBInfo *_oobInfo;
-    unsigned long long _machineStateOnConnection;
+    HDFitnessMachineStatus *_initialMachineStatus;
+    HDFitnessMachineDataCharacteristicBase *_initialMachineData;
     unsigned long long _connectionState;
     unsigned long long _machineState;
     NSDate *_machineStartDate;
@@ -30,6 +33,7 @@
 }
 
 @property(retain, nonatomic) NSArray *oobDataArray; // @synthesize oobDataArray=_oobDataArray;
+@property(readonly, nonatomic) _Bool waitingOnActivityType; // @synthesize waitingOnActivityType=_waitingOnActivityType;
 @property(readonly, nonatomic) _Bool waitingOnBluetoothConnection; // @synthesize waitingOnBluetoothConnection=_waitingOnBluetoothConnection;
 @property(readonly, nonatomic) _Bool waitingOnMFA; // @synthesize waitingOnMFA=_waitingOnMFA;
 @property(readonly, nonatomic) _Bool dataTransferPermitted; // @synthesize dataTransferPermitted=_dataTransferPermitted;
@@ -37,8 +41,10 @@
 @property(retain, nonatomic) NSDate *machineStartDate; // @synthesize machineStartDate=_machineStartDate;
 @property(nonatomic) unsigned long long machineState; // @synthesize machineState=_machineState;
 @property(nonatomic) unsigned long long connectionState; // @synthesize connectionState=_connectionState;
-@property(nonatomic) unsigned long long machineStateOnConnection; // @synthesize machineStateOnConnection=_machineStateOnConnection;
-@property(nonatomic) _Bool notifyStateOnFirstData; // @synthesize notifyStateOnFirstData=_notifyStateOnFirstData;
+@property(retain, nonatomic) HDFitnessMachineDataCharacteristicBase *initialMachineData; // @synthesize initialMachineData=_initialMachineData;
+@property(nonatomic) _Bool waitingOnInitialMachineData; // @synthesize waitingOnInitialMachineData=_waitingOnInitialMachineData;
+@property(retain, nonatomic) HDFitnessMachineStatus *initialMachineStatus; // @synthesize initialMachineStatus=_initialMachineStatus;
+@property(nonatomic) _Bool waitingOnInitialMachineStatus; // @synthesize waitingOnInitialMachineStatus=_waitingOnInitialMachineStatus;
 @property(retain, nonatomic) HDHealthServiceOOBInfo *oobInfo; // @synthesize oobInfo=_oobInfo;
 @property(retain, nonatomic) _HKFitnessMachine *fitnessMachine; // @synthesize fitnessMachine=_fitnessMachine;
 @property(nonatomic) long long serviceStatus; // @synthesize serviceStatus=_serviceStatus;
@@ -49,6 +55,7 @@
 - (void).cxx_destruct;
 - (id)_oobDataArrayWithRandomValue:(id)arg1 confirmationValue:(id)arg2 sessionID:(id)arg3 btAddress:(id)arg4;
 @property(readonly, nonatomic) NSArray *nfcConnectionHandoverData;
+- (void)markActivityTypeProvided;
 - (void)markMFAAuthenticated;
 - (void)markDataTransferPermitted;
 - (void)markBluetoothConnectionComplete;

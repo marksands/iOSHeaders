@@ -6,39 +6,45 @@
 
 #import <objc/NSObject.h>
 
-@class IMCloudKitSyncState, NSArray, NSString;
+@class IMCloudKitSyncState, IMCloudKitSyncStatistics, NSArray, NSString;
 
 @interface IMCloudKitSyncProgress : NSObject
 {
-    IMCloudKitSyncState *_syncState;
+    _Bool _hidden;
+    _Bool _shouldShowProgressBar;
+    _Bool _finishing;
     NSString *_progressLabel;
+    double _progressBarValue;
+    double _progressBarMax;
     NSString *_userMessageLabel;
     NSString *_actionLabel;
     long long _actionType;
-    double _progressBarValue;
-    double _progressBarMax;
+    IMCloudKitSyncState *_syncState;
+    IMCloudKitSyncStatistics *_syncStatistics;
 }
 
-+ (id)percentString:(double)arg1;
-+ (id)percentFormatter;
-@property(nonatomic) double progressBarMax; // @synthesize progressBarMax=_progressBarMax;
-@property(nonatomic) double progressBarValue; // @synthesize progressBarValue=_progressBarValue;
++ (id)createSyncProgressWithSyncState:(id)arg1 syncStatistics:(id)arg2 finishing:(_Bool)arg3 hidden:(_Bool)arg4;
+@property(readonly, nonatomic, getter=isFinishing) _Bool finishing; // @synthesize finishing=_finishing;
+@property(nonatomic) _Bool shouldShowProgressBar; // @synthesize shouldShowProgressBar=_shouldShowProgressBar;
+@property(readonly, nonatomic) IMCloudKitSyncStatistics *syncStatistics; // @synthesize syncStatistics=_syncStatistics;
+@property(readonly, nonatomic) IMCloudKitSyncState *syncState; // @synthesize syncState=_syncState;
 @property(nonatomic) long long actionType; // @synthesize actionType=_actionType;
 @property(retain, nonatomic) NSString *actionLabel; // @synthesize actionLabel=_actionLabel;
 @property(retain, nonatomic) NSString *userMessageLabel; // @synthesize userMessageLabel=_userMessageLabel;
+@property(nonatomic) double progressBarMax; // @synthesize progressBarMax=_progressBarMax;
+@property(nonatomic) double progressBarValue; // @synthesize progressBarValue=_progressBarValue;
 @property(retain, nonatomic) NSString *progressLabel; // @synthesize progressLabel=_progressLabel;
-@property(readonly, nonatomic) IMCloudKitSyncState *syncState; // @synthesize syncState=_syncState;
+@property(nonatomic, getter=isHidden) _Bool hidden; // @synthesize hidden=_hidden;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool shouldShowUserMessageLabel; // @dynamic shouldShowUserMessageLabel;
 @property(readonly, nonatomic) _Bool shouldShowUserActionLabel; // @dynamic shouldShowUserActionLabel;
-@property(readonly, nonatomic) _Bool shouldShowProgressBar; // @dynamic shouldShowProgressBar;
 @property(readonly, nonatomic) NSArray *errors; // @dynamic errors;
 @property(readonly, nonatomic) double remainingItems; // @dynamic remainingItems;
 @property(readonly, nonatomic) double percentComplete; // @dynamic percentComplete;
 - (id)description;
 - (void)updateState;
 @property(readonly, nonatomic) NSString *percentCompleteString; // @dynamic percentCompleteString;
-- (id)initWithSyncState:(id)arg1 syncValue:(double)arg2 maxValue:(double)arg3;
-- (id)initWithSyncState:(id)arg1;
+- (id)initWithSyncState:(id)arg1 syncStatistics:(id)arg2 finishing:(_Bool)arg3 hidden:(_Bool)arg4;
 
 @end
 

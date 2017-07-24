@@ -125,6 +125,7 @@
 @property(nonatomic, getter=isFavorite) _Bool favorite;
 @property(retain, nonatomic) NSDate *modificationDate;
 @property(retain, nonatomic) NSDate *creationDate;
+- (_Bool)prepareForServicePreflightCheck:(id *)arg1;
 @property(readonly, nonatomic) PHObjectPlaceholder *placeholderForCreatedAsset;
 - (id)initWithXPCDict:(id)arg1 clientEntitlements:(id)arg2 clientName:(id)arg3 clientBundleID:(id)arg4 clientProcessID:(int)arg5;
 - (id)initWithUUID:(id)arg1 objectID:(id)arg2;

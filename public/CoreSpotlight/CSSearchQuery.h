@@ -60,11 +60,11 @@
 - (void).cxx_destruct;
 - (void)didFinishWithError:(id)arg1;
 - (void)didReturnResults:(long long)arg1 resultsData:(id)arg2 oidData:(id)arg3 protectionClass:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
-- (void)processLiveResultsData:(id)arg1 oidData:(id)arg2 protectionClass:(id)arg3;
-- (void)processResultsData:(id)arg1 protectionClass:(id)arg2;
-- (id)processResultFromPlist:(id)arg1 protectionClass:(id)arg2;
-- (void)processResultFromPlist:(id)arg1 atIndex:(unsigned long long)arg2 protectionClass:(id)arg3 oids:(long long *)arg4 oidCount:(unsigned int)arg5 items:(id)arg6;
-- (id)createCSSearchableItemWithOID:(long long)arg1 values:(id *)arg2 valueCount:(unsigned long long)arg3 protectionClass:(id)arg4;
+- (void)processLiveResultsData:(id)arg1 oidData:(id)arg2 protectionClass:(id)arg3 isTopHitQuery:(_Bool)arg4;
+- (void)processResultsData:(id)arg1 protectionClass:(id)arg2 isTopHitQuery:(_Bool)arg3;
+- (id)processResultFromPlist:(id)arg1 protectionClass:(id)arg2 isTopHitQuery:(_Bool)arg3;
+- (void)processResultFromPlist:(id)arg1 atIndex:(unsigned long long)arg2 protectionClass:(id)arg3 oids:(long long *)arg4 oidCount:(unsigned int)arg5 items:(id)arg6 isTopHitQuery:(_Bool)arg7;
+- (id)createCSSearchableItemWithOID:(long long)arg1 values:(id *)arg2 valueCount:(unsigned long long)arg3 protectionClass:(id)arg4 isTopHitQuery:(_Bool)arg5;
 - (void)updateLiveOID:(long long)arg1 bundleID:(id)arg2 identifier:(id)arg3;
 - (_Bool)removeLiveOID:(long long)arg1 outBundleID:(id *)arg2 outIdentifier:(id *)arg3;
 - (void)processRemoveResultsData:(id)arg1 protectionClass:(id)arg2;

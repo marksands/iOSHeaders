@@ -55,6 +55,7 @@
     PKUndoSwipeGestureRecognizer *_redoGestureRecognizer;
     PKSelectionController *_selectionController;
     struct CGPoint _drawingStartPointInScreenSpace;
+    struct CGAffineTransform _strokeTransform;
     struct CGAffineTransform _pinchStartAffineTransform;
 }
 
@@ -90,6 +91,7 @@
 @property(nonatomic) _Bool disableWideGamut; // @synthesize disableWideGamut=_disableWideGamut;
 @property(nonatomic) _Bool isDrawing; // @synthesize isDrawing=_isDrawing;
 @property(retain, nonatomic) PKInk *ink; // @synthesize ink=_ink;
+@property(nonatomic) struct CGAffineTransform strokeTransform; // @synthesize strokeTransform=_strokeTransform;
 @property(nonatomic) __weak id <PKInternalDrawingViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)setDisplayLinkPaused:(_Bool)arg1;
@@ -131,7 +133,7 @@
 @property(readonly, nonatomic) _Bool isRendering;
 @property(nonatomic) _Bool contentHidden;
 - (void)setDrawing:(id)arg1 image:(id)arg2 imageDrawing:(id)arg3 completion:(CDUnknownBlockType)arg4 fullyRenderedCompletionBlock:(CDUnknownBlockType)arg5;
-- (void)_setDrawing:(id)arg1 tiles:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (void)_setDrawing:(id)arg1 tiles:(id)arg2 setupComplete:(CDUnknownBlockType)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)setDrawing:(id)arg1;
 - (void)delayCompletionBlockUntilPresentation:(CDUnknownBlockType)arg1;
 - (void)rotate:(id)arg1;

@@ -19,6 +19,7 @@
     NSString *_libSwiftRemoteMirrorPath;
     void *_libSwiftRemoteMirrorHandle;
     NSArray *_swiftMirrorMachOSections;
+    struct _CSTypeRef _swiftCoreSymbolOwner;
     VMUClassInfoMap *_realizedIsaToClassInfo;
     VMUClassInfoMap *_unrealizedClassInfos;
     VMUClassInfoMap *_cfTypeIDToClassInfo;
@@ -41,15 +42,18 @@
 }
 
 @property(readonly, nonatomic) VMUClassInfoMap *realizedClasses; // @synthesize realizedClasses=_realizedIsaToClassInfo;
+@property(readonly, nonatomic) struct libSwiftRemoteMirrorWrapper *swiftMirror; // @synthesize swiftMirror=_swiftMirror;
 @property(readonly, nonatomic) CDUnknownBlockType memoryReader; // @synthesize memoryReader=_memoryReader;
 - (void).cxx_destruct;
 - (id)initWithTask:(unsigned int)arg1;
 - (void)loadSwiftReflectionLibrary;
+- (void)_populateSwiftDebugVariables:(struct libSwiftRemoteMirrorWrapper *)arg1;
 - (int)_populateSwiftReflectionInfo:(struct libSwiftRemoteMirrorWrapper *)arg1;
 - (void *)_dlopenLibSwiftRemoteMirrorWithSymbolicator:(struct _CSTypeRef)arg1;
 - (void *)_dlopenLibSwiftRemoteMirrorNearLibSwiftCoreWithSymbolicator:(struct _CSTypeRef)arg1 avoidSystem:(_Bool)arg2;
 - (void *)_dlopenLibSwiftRemoteMirrorFromDir:(id)arg1;
 - (unsigned short)_targetProcessSwiftReflectionVersion;
+@property(readonly, nonatomic) NSString *swiftCoreSymbolOwnerPath;
 - (id)_scanner;
 - (struct _CSTypeRef)_symbolicator;
 - (id)labelForMemory:(void *)arg1 length:(unsigned long long)arg2 remoteAddress:(unsigned long long)arg3;

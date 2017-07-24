@@ -23,7 +23,7 @@
 - (long long)httpMethod;
 - (long long)httpBodyType;
 - (id)httpBody;
-- (id)customURLString;
+- (id)fallbackBagKeys;
 - (id)bagKey;
 - (id)_actionTypeString;
 - (id)initWithAction:(long long)arg1;

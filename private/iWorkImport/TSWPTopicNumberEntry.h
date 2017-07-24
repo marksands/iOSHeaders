@@ -11,12 +11,12 @@
 __attribute__((visibility("hidden")))
 @interface TSWPTopicNumberEntry : NSObject <NSCopying>
 {
-    unsigned long long _number;
     unsigned long long _charIndex;
+    unsigned long long _number;
 }
 
-@property(readonly, nonatomic) unsigned long long charIndex; // @synthesize charIndex=_charIndex;
 @property(readonly, nonatomic) unsigned long long number; // @synthesize number=_number;
+@property(nonatomic) unsigned long long charIndex; // @synthesize charIndex=_charIndex;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -16,7 +16,8 @@ __attribute__((visibility("hidden")))
     TSWPTOCInfo *_info;
 }
 
-@property(readonly, nonatomic) TSWPTOCInfo *info; // @synthesize info=_info;
+@property(readonly, nonatomic) __weak TSWPTOCInfo *info; // @synthesize info=_info;
+- (void).cxx_destruct;
 - (id)hintForLayout:(id)arg1;
 - (_Bool)didHint:(id)arg1 syncWithNextHint:(id)arg2 horizontally:(_Bool)arg3 delta:(int)arg4;
 - (id)layoutForHint:(id)arg1 parentLayout:(id)arg2;

@@ -8,7 +8,7 @@
 
 #import <AssistantServices/NSSecureCoding-Protocol.h>
 
-@class NSData, NSDictionary, NSNumber, NSString;
+@class NSData, NSDictionary, NSNumber, NSString, SAStartLocalRequest, SAStartRequest;
 
 @interface AFRequestInfo : NSObject <NSSecureCoding>
 {
@@ -19,6 +19,9 @@
     NSString *_handoffURLString;
     NSString *_correctedSpeech;
     NSDictionary *_correctedSpeechContext;
+    SAStartRequest *_startRequest;
+    SAStartLocalRequest *_startLocalRequest;
+    long long _activationEvent;
     NSNumber *_combinedRank;
     NSNumber *_combinedScore;
     NSString *_interactionId;
@@ -40,6 +43,9 @@
 @property(copy, nonatomic) NSString *interactionId; // @synthesize interactionId=_interactionId;
 @property(copy, nonatomic) NSNumber *combinedScore; // @synthesize combinedScore=_combinedScore;
 @property(copy, nonatomic) NSNumber *combinedRank; // @synthesize combinedRank=_combinedRank;
+@property(nonatomic) long long activationEvent; // @synthesize activationEvent=_activationEvent;
+@property(copy, nonatomic) SAStartLocalRequest *startLocalRequest; // @synthesize startLocalRequest=_startLocalRequest;
+@property(copy, nonatomic) SAStartRequest *startRequest; // @synthesize startRequest=_startRequest;
 @property(copy, nonatomic) NSDictionary *correctedSpeechContext; // @synthesize correctedSpeechContext=_correctedSpeechContext;
 @property(copy, nonatomic) NSString *correctedSpeech; // @synthesize correctedSpeech=_correctedSpeech;
 @property(copy, nonatomic) NSString *handoffURLString; // @synthesize handoffURLString=_handoffURLString;

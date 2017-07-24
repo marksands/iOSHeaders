@@ -27,6 +27,7 @@
 @property(nonatomic) _Bool ignoreExtendedCertificateValidation;
 @property(copy, nonatomic) NSSet *mediaLibraryAccessApplicationIdentifiers;
 @property(copy, nonatomic) NSDictionary *pushNotificationState;
+@property(nonatomic, getter=isCachedSubscriptionStatusValid) _Bool cachedSubscriptionStatusValid;
 @property(copy, nonatomic) NSDictionary *cachedSubscriptionStatus;
 @property(copy, nonatomic) NSString *defaultStoreFront;
 @property(copy, nonatomic) NSString *cloudMediaLibraryUID;

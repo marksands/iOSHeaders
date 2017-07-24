@@ -12,11 +12,7 @@
 
 @interface NTPBWidgetSectionsArticleCountPair : PBCodable <NSCopying>
 {
-    struct {
-        long long *list;
-        unsigned long long count;
-        unsigned long long size;
-    } _countOfArticlesExposedEachSections;
+    CDStruct_5df41632 _countOfArticlesExposedEachSections;
     NSString *_widgetSectionIdsExposed;
 }
 

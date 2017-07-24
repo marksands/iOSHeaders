@@ -6,11 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-@class GEOResourceManifestConfiguration;
+@class GEOResourceManifestConfiguration, NSBundle;
 
 @interface VKResourceManager : NSObject
 {
     GEOResourceManifestConfiguration *_manifestConfiguration;
+    NSBundle *_vkBundle;
 }
 
 - (_Bool)isDevResourceWithName:(id)arg1;

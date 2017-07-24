@@ -15,6 +15,7 @@
 + (id)queryNotExecutableError;
 + (id)executableQueryForQuery:(id)arg1;
 + (_Bool)supportsSecureCoding;
++ (id)predicateForEventsWithNoSource;
 + (id)predicateForEventsWithSourceDeviceIDs:(id)arg1;
 + (id)predicateForEventsWithSourceID:(id)arg1 bundleID:(id)arg2 itemIDs:(id)arg3;
 + (id)predicateForEventsWithSourceID:(id)arg1 bundleID:(id)arg2 groupIDs:(id)arg3;

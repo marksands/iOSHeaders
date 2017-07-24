@@ -12,12 +12,12 @@ __attribute__((visibility("hidden")))
     _Bool _usesDampingRatioAndResponse;
     double _tension;
     double _friction;
-    CDStruct_43f79a60 _parameters;
+    CDStruct_6c8af1d9 _parameters;
 }
 
 + (id)descriptionWithTension:(double)arg1 friction:(double)arg2;
-+ (id)descriptionWithSpringAnimationParameters:(CDStruct_43f79a60)arg1;
-@property(nonatomic) CDStruct_43f79a60 parameters; // @synthesize parameters=_parameters;
++ (id)descriptionWithSpringAnimationParameters:(CDStruct_6c8af1d9)arg1;
+@property(nonatomic) CDStruct_6c8af1d9 parameters; // @synthesize parameters=_parameters;
 @property(nonatomic) double friction; // @synthesize friction=_friction;
 @property(nonatomic) double tension; // @synthesize tension=_tension;
 @property(nonatomic) _Bool usesDampingRatioAndResponse; // @synthesize usesDampingRatioAndResponse=_usesDampingRatioAndResponse;

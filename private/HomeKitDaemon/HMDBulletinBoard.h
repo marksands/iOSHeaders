@@ -61,10 +61,8 @@
 - (id)insertBulletinForSecureTrigger:(id)arg1;
 - (id)insertBulletinForIncomingInvitation:(id)arg1;
 - (id)_insertImageBulletinsForChangedCharacteristics:(id)arg1 snapshotData:(id)arg2;
-- (void)insertBulletinAfterConditionEvaluationForCharacteristic:(id)arg1 context:(id)arg2;
-- (void)_insertImageBulletinsForChangedCharacteristics:(id)arg1 snapshotData:(id)arg2 completion:(CDUnknownBlockType)arg3 homePresence:(id)arg4;
-- (void)insertBulletinsForChangedCharacteristics:(id)arg1 changedByThisDevice:(_Bool)arg2 completion:(CDUnknownBlockType)arg3 homePresence:(id)arg4;
-- (void)insertImageBulletinsForChangedCharacteristics:(id)arg1 snapshotData:(id)arg2 completion:(CDUnknownBlockType)arg3 homePresence:(id)arg4;
+- (void)insertBulletinsForChangedCharacteristics:(id)arg1 changedByThisDevice:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)insertImageBulletinsForChangedCharacteristics:(id)arg1 snapshotData:(id)arg2 completion:(CDUnknownBlockType)arg3;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

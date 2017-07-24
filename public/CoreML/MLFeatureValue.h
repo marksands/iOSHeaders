@@ -33,6 +33,7 @@
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (_Bool)isEqualToFeatureValue:(id)arg1;
 - (id)description;
 @property(readonly, nonatomic) MLMultiArray *multiArrayValue;

@@ -6,7 +6,7 @@
 
 #import <HMFoundation/HMFObject.h>
 
-@class NSString, NSUUID;
+@class HMFTimer, NSString, NSUUID;
 
 @interface HMDSyncOperation : HMFObject
 {
@@ -15,17 +15,20 @@
     NSString *_zoneName;
     unsigned long long _operationType;
     unsigned long long _versionFlags;
+    HMFTimer *_delayTimer;
     CDUnknownBlockType _operationBlock;
 }
 
 + (id)cloudZoneFetchSyncOperation:(id)arg1 cloudConflict:(_Bool)arg2 block:(CDUnknownBlockType)arg3;
 + (id)cloudZonePushSyncOperation:(id)arg1 block:(CDUnknownBlockType)arg2;
 + (id)idsMergeSyncOperationWithVersionFlags:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
-+ (id)cloudMergeSyncOperationWithVersionFlags:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
++ (id)cloudFetchSyncOperationWithCloudConflict:(_Bool)arg1 block:(CDUnknownBlockType)arg2;
++ (id)cloudVerifyAccountSyncOperationWithBlock:(CDUnknownBlockType)arg1;
 + (id)cloudForcePushSyncOperationWithVersionFlags:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 + (id)cloudPushSyncOperationWithVersionFlags:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 @property(nonatomic, getter=isCloudConflict) _Bool cloudConflict; // @synthesize cloudConflict=_cloudConflict;
 @property(copy, nonatomic) CDUnknownBlockType operationBlock; // @synthesize operationBlock=_operationBlock;
+@property(retain, nonatomic) HMFTimer *delayTimer; // @synthesize delayTimer=_delayTimer;
 @property(readonly, nonatomic) unsigned long long versionFlags; // @synthesize versionFlags=_versionFlags;
 @property(readonly, nonatomic) unsigned long long operationType; // @synthesize operationType=_operationType;
 @property(readonly, nonatomic) NSString *zoneName; // @synthesize zoneName=_zoneName;

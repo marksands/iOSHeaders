@@ -28,12 +28,14 @@
     NSMutableDictionary *_actionSetMappings;
     NSObject<OS_dispatch_queue> *_workQueue;
     HMFMessageDispatcher *_msgDispatcher;
+    unsigned long long _triggerType;
     NSDate *_mostRecentFireDate;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)logCategory;
 @property(copy, nonatomic) NSDate *mostRecentFireDate; // @synthesize mostRecentFireDate=_mostRecentFireDate;
+@property(nonatomic) unsigned long long triggerType; // @synthesize triggerType=_triggerType;
 @property(nonatomic) _Bool active; // @synthesize active=_active;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
@@ -67,16 +69,17 @@
 - (void)_executeActionSetsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_handleActivateTriggerRequest:(id)arg1;
 - (void)_actionSetsUpdated:(id)arg1 message:(id)arg2;
-- (void)_handleUpdateActionSetRequest:(id)arg1;
-- (void)_handleRemoveTriggerOwnedActionSetRequest:(id)arg1;
-- (void)_handleRemoveActionSetRequest:(id)arg1;
+- (void)_handleUpdateActionSetRequest:(id)arg1 postUpdate:(_Bool)arg2;
+- (void)_handleRemoveTriggerOwnedActionSetRequest:(id)arg1 postUpdate:(_Bool)arg2;
+- (void)_handleRemoveActionSetRequest:(id)arg1 postUpdate:(_Bool)arg2;
 - (void)_handleAddTriggerOwnedActionSetRequest:(id)arg1;
 - (void)_handleAddActionSetRequest:(id)arg1;
 - (void)_handleRenameRequest:(id)arg1;
 - (void)_activate:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_activateAfterResidentChangeWithCompletion:(CDUnknownBlockType)arg1;
+- (void)markChangedForMessage:(id)arg1;
 - (void)activateAfterResidentChangeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_activateWithCompletion:(CDUnknownBlockType)arg1;
+- (void)activateWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic, getter=isConfigured) _Bool configured;
 - (_Bool)shouldActivateOnLocalDevice;
 @property(readonly, nonatomic, getter=isOwnedByThisDevice) _Bool ownedByThisDevice;
@@ -91,13 +94,12 @@
 - (void)removeCharacteristic:(id)arg1;
 - (void)removeService:(id)arg1;
 - (void)removeAccessory:(id)arg1;
-- (void)removeActionSet:(id)arg1;
+- (void)removeActionSet:(id)arg1 postUpdate:(_Bool)arg2;
 - (void)checkForNoActions;
 - (void)setEnabled:(_Bool)arg1 message:(id)arg2;
 - (_Bool)compatible:(id)arg1 user:(id)arg2;
 @property(readonly, nonatomic) _Bool requiresDataVersion4;
 @property(readonly, nonatomic) NSArray *actionSets;
-- (unsigned long long)triggerType;
 - (id)dumpState;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;

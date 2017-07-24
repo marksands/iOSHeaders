@@ -19,6 +19,7 @@
 - (void)setHandwritingRecognitionDrawing:(id)arg1;
 @property(readonly, nonatomic) PKDrawing *handwritingRecognitionDrawing;
 @property(nonatomic, getter=isHandwritingRecognitionEnabled) _Bool handwritingRecognitionEnabled;
+- (id)mergeableDataForCopying;
 - (id)activityItems;
 - (id)activityItem;
 - (struct UIImage *)imageForActivityItem;

@@ -44,6 +44,7 @@
 @property(readonly) unsigned long long hash;
 - (void)_redactForMissingPrivacyEntitlementOptions:(unsigned long long)arg1 containingAppBundleId:(id)arg2;
 - (void)trimDataAgainstTCCForAuditToken:(CDStruct_6ad76789)arg1 bundle:(id)arg2;
+@property(readonly, copy, nonatomic) NSString *intentDescription;
 @property(readonly, nonatomic) long long triggerMethod;
 @property(readonly, nonatomic) NSString *extensionBundleId;
 @property(readonly, nonatomic) NSString *intentId;

@@ -39,7 +39,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *changedZoneIDs; // @synthesize changedZoneIDs=_changedZoneIDs;
 - (void).cxx_destruct;
 - (id)requestDidParseProtobufObject:(id)arg1;
-- (id)requestOperations;
+- (id)generateRequestOperations;
 - (id)requestOperationClasses;
 - (int)operationType;
 - (id)initWithPreviousServerChangeTokenData:(id)arg1;

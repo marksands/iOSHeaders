@@ -31,6 +31,7 @@
 - (void)didScrollOutOfVisibleRange;
 - (void)didChangeSize;
 - (void)contentSizeCategoryDidChange;
+- (void)didSetSelected:(_Bool)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)removeKVOObserversForAttachment:(id)arg1;
 - (void)addKVObserversForAttachment:(id)arg1;

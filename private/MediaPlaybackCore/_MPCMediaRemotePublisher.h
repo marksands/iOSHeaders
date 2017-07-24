@@ -10,10 +10,11 @@
 #import <MediaPlaybackCore/MPNowPlayingInfoLyricsDelegate-Protocol.h>
 #import <MediaPlaybackCore/MPNowPlayingPlaybackQueueDataSource_Private-Protocol.h>
 
-@class MPCPlaybackEngine, MPNowPlayingInfoCenter, MPRemoteCommandCenter, NSString;
+@class MPCPlaybackEngine, MPLibraryAddStatusObserver, MPNowPlayingInfoCenter, MPRemoteCommandCenter, NSString;
 
 @interface _MPCMediaRemotePublisher : NSObject <MPNowPlayingPlaybackQueueDataSource_Private, MPNowPlayingInfoLyricsDelegate, MPCPlaybackEngineEventObserving>
 {
+    MPLibraryAddStatusObserver *_libraryAddStatusObserver;
     _Bool _initializedSupportedCommands;
     _Bool _engineRestoringState;
     MPCPlaybackEngine *_playbackEngine;

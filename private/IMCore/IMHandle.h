@@ -8,7 +8,7 @@
 
 #import <IMCore/NSSecureCoding-Protocol.h>
 
-@class IMAccount, IMPerson, IMServiceImpl, MKMapItem, NSArray, NSAttributedString, NSData, NSDate, NSDictionary, NSMutableArray, NSSet, NSString;
+@class IMAccount, IMPerson, IMServiceImpl, MKMapItem, NSArray, NSAttributedString, NSData, NSDate, NSDictionary, NSMutableArray, NSNumber, NSSet, NSString;
 
 @interface IMHandle : NSObject <NSSecureCoding>
 {
@@ -65,6 +65,9 @@
     long long _priority;
     int _addressBookIdentifier;
     int _notificationQueueCount;
+    NSNumber *_isBusiness;
+    NSNumber *_isMako;
+    NSNumber *_isApple;
     NSString *_guid;
     MKMapItem *_mapItem;
     NSData *_mapItemImageData;
@@ -262,6 +265,9 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)isApple;
+- (_Bool)isMako;
+- (_Bool)isBusiness;
 - (void)_setOriginalID:(id)arg1;
 - (void)_setCountryCode:(id)arg1 updateSiblings:(_Bool)arg2;
 - (void)_setOriginalID:(id)arg1 updateSiblings:(_Bool)arg2;
@@ -278,9 +284,6 @@
 - (id)publicAPIPropertiesDictionary;
 - (void)_sendRemoteLogDumpRequest;
 - (void)_sendRemoteLogDumpRequest:(id)arg1;
-- (_Bool)isApple;
-- (_Bool)isMako;
-- (_Bool)isBusiness;
 - (id)fmfSiblingHandles;
 - (id)fmfHandle;
 

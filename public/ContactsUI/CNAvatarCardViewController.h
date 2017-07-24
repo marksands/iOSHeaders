@@ -73,6 +73,7 @@ __attribute__((visibility("hidden")))
 - (void)willAddActionsViewToHierarchy;
 @property(readonly, nonatomic) id <CNAvatarCardActionListController> actionListController;
 @property(readonly, nonatomic) id <CNAvatarCardActionListOrbSupport> actionListViewController;
+- (id)viewForTouchContinuation;
 - (id)actionsView;
 @property(nonatomic) _Bool bypassActionValidation;
 @property(copy, nonatomic) NSArray *actionCategories;

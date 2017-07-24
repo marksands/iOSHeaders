@@ -38,6 +38,9 @@
 - (void)encodeBidirectionalSequenceToCommandBuffer:(id)arg1 sourceSequence:(id)arg2 destinationForwardMatrices:(id)arg3 destinationBackwardMatrices:(id)arg4;
 - (void)encodeSequenceToCommandBuffer:(id)arg1 sourceMatrices:(id)arg2 destinationMatrices:(id)arg3 recurrentInputState:(id)arg4 recurrentOutputStates:(id)arg5;
 - (void)encodeToCommandBuffer:(id)arg1 sourceMatrix:(id)arg2 destinationMatrix:(id)arg3 recurrentInputState:(id)arg4 recurrentOutputState:(id *)arg5;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1 device:(id)arg2;
+- (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;
 - (void)dealloc;
 - (id)initWithDevice:(id)arg1 rnnDescriptors:(id)arg2;
 - (id)initWithDevice:(id)arg1 rnnDescriptor:(id)arg2;

@@ -6,15 +6,18 @@
 
 #import <Foundation/NSObject.h>
 
+#import <iWorkImport/TSSPropertyValueArchiving-Protocol.h>
+
 __attribute__((visibility("hidden")))
-@interface TSWPColumns : NSObject
+@interface TSWPColumns : NSObject <TSSPropertyValueArchiving>
 {
-    unsigned long long _columnCount;
-    _Bool _equalWidth;
     double _widthArray[10];
     double _gapArray[9];
+    _Bool _equalWidth;
+    unsigned long long _columnCount;
 }
 
++ (id)instanceWithArchive:(const struct Message *)arg1 unarchiver:(id)arg2;
 + (id)columns;
 @property(readonly, nonatomic) _Bool equalWidth; // @synthesize equalWidth=_equalWidth;
 @property(readonly, nonatomic) unsigned long long columnCount; // @synthesize columnCount=_columnCount;

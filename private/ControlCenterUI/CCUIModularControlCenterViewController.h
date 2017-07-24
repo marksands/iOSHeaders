@@ -33,6 +33,7 @@
 - (struct CGRect)_moduleCollectionViewFrame;
 - (id)_safeModuleCollectionViewContainerView;
 - (id)_moduleCollectionViewContainerView;
+- (struct CGRect)_statusLabelViewFrame;
 - (id)_safeStatusLabelViewContainerView;
 - (id)_statusLabelViewContainerView;
 - (long long)_interfaceOrientation;
@@ -40,6 +41,7 @@
 - (void)dismissExpandedViewForContentModuleContext:(id)arg1;
 - (void)requestExpandModuleForContentModuleContext:(id)arg1;
 - (void)contentModuleContext:(id)arg1 enqueueStatusUpdate:(id)arg2;
+- (id)obscuringBackgroundViewForModuleCollectionViewController:(id)arg1;
 - (void)moduleCollectionViewController:(id)arg1 willRemoveModuleContainerViewController:(id)arg2;
 - (void)moduleCollectionViewController:(id)arg1 didAddModuleContainerViewController:(id)arg2;
 - (void)moduleCollectionViewController:(id)arg1 didCloseExpandedModule:(id)arg2;

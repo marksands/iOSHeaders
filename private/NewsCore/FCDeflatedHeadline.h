@@ -8,7 +8,7 @@
 
 #import <NewsCore/FCHeadlineProviding-Protocol.h>
 
-@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCHeadlineThumbnail, FCSharedStringIndex, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSString, NSURL, NTPBFeedViewportHeadline;
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCFeedPersonalizedArticleScoreProfile, FCHeadlineThumbnail, FCSharedStringIndex, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSString, NSURL, NTPBFeedViewportHeadline;
 @protocol FCChannelProviding, FCNativeAdProviding;
 
 @interface FCDeflatedHeadline : NSObject <FCHeadlineProviding>
@@ -99,6 +99,7 @@
 @property(readonly, nonatomic) unsigned long long storyType;
 @property(readonly, nonatomic) _Bool usesImageOnTopLayout;
 @property(readonly, nonatomic) double tileProminenceScore;
+@property(readonly, nonatomic) FCFeedPersonalizedArticleScoreProfile *scoreProfile;
 @property(readonly, nonatomic) unsigned long long topStoryType;
 @property(readonly, nonatomic) _Bool isTopStory;
 @property(readonly, copy, nonatomic) NSString *surfacedByBinID;

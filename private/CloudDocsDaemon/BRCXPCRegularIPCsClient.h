@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (void)scheduleDeepScanForContainer:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)capabilityWhenTryingToReparentItemAtURL:(id)arg1 toNewParent:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)moveBRSecurityBookmarkAtURL:(id)arg1 toURL:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)currentSyncedRootURLsWithReply:(CDUnknownBlockType)arg1;
@@ -70,6 +71,7 @@ __attribute__((visibility("hidden")))
 - (void)startOperation:(id)arg1 toUnshareShare:(id)arg2 forceDelete:(_Bool)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)startOperation:(id)arg1 toSaveSharingInfo:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)createSharingInfoForURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)copyCurrentUserNameAndDisplayHandleWithReply:(CDUnknownBlockType)arg1;
 - (void)copyCurrentUserNameAndEmailWithReply:(CDUnknownBlockType)arg1;
 - (void)copyCurrentUserIdentifierWithReply:(CDUnknownBlockType)arg1;
 - (void)startOperation:(id)arg1 toUploadAllFilesInContainer:(id)arg2 reply:(CDUnknownBlockType)arg3;
@@ -118,7 +120,7 @@ __attribute__((visibility("hidden")))
 - (void)waitForFileSystemChangeProcessingWithReply:(CDUnknownBlockType)arg1;
 - (void)iWorkForceSyncContainerID:(id)arg1 ownedByMe:(_Bool)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)forceSyncContainerID:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)waitUntilIdle:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)_t_waitUntilIdle:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)refreshSharingStateForItemIdentifier:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)forceSyncWithBarrierContainerID:(id)arg1 timeout:(unsigned long long)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)forceSyncZoneHealthWithBarrierWithTimeout:(unsigned long long)arg1 reply:(CDUnknownBlockType)arg2;

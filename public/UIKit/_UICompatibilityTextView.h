@@ -6,8 +6,8 @@
 
 #import <UIKit/UIScrollView.h>
 
-#import <UIKit/UIDragInteractionDelegate-Protocol.h>
-#import <UIKit/UIDropInteractionDelegate-Protocol.h>
+#import <UIKit/UIDragInteractionDelegate_Private-Protocol.h>
+#import <UIKit/UIDropInteractionDelegate_Private-Protocol.h>
 #import <UIKit/UIPreviewItemDelegate-Protocol.h>
 #import <UIKit/UITextInput-Protocol.h>
 #import <UIKit/UITextLinkInteraction-Protocol.h>
@@ -18,7 +18,7 @@
 @class NSAttributedString, NSDictionary, NSString, UIColor, UIFont, UITextPosition, UITextRange, UIView;
 @protocol UITextInputDelegate, UITextInputTokenizer, UITextViewDelegate;
 
-@interface _UICompatibilityTextView : UIScrollView <UITextLinkInteraction, WebEditingDelegate, WebPolicyDelegate, UIPreviewItemDelegate, UIWebDraggingDelegate, UIDragInteractionDelegate, UIDropInteractionDelegate, UITextInput>
+@interface _UICompatibilityTextView : UIScrollView <UITextLinkInteraction, WebEditingDelegate, WebPolicyDelegate, UIPreviewItemDelegate, UIWebDraggingDelegate, UIDragInteractionDelegate_Private, UIDropInteractionDelegate_Private, UITextInput>
 {
     id _private;
     _Bool m_editing;
@@ -195,6 +195,7 @@
 - (void)beginSelectionChange;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (long long)_dropInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (void)dropInteraction:(id)arg1 concludeDrop:(id)arg2;
 - (void)dropInteraction:(id)arg1 item:(id)arg2 willAnimateDropWithAnimator:(id)arg3;
 - (void)dropInteraction:(id)arg1 sessionDidEnd:(id)arg2;
@@ -203,6 +204,7 @@
 - (void)dropInteraction:(id)arg1 sessionDidExit:(id)arg2;
 - (id)dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
 - (void)dropInteraction:(id)arg1 sessionDidEnter:(id)arg2;
+- (long long)_dragInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (void)dragInteraction:(id)arg1 session:(id)arg2 didEndWithOperation:(unsigned long long)arg3;
 - (id)dragInteraction:(id)arg1 previewForCancellingItem:(id)arg2 withDefault:(id)arg3;
 - (void)dragInteraction:(id)arg1 willAnimateLiftWithAnimator:(id)arg2 session:(id)arg3;

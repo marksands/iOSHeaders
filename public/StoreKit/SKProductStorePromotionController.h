@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <StoreKit/SKProductsRequestDelegate-Protocol.h>
 
@@ -20,6 +20,7 @@
 }
 
 + (id)defaultController;
+- (void).cxx_destruct;
 - (void)request:(id)arg1 didFailWithError:(id)arg2;
 - (void)productsRequest:(id)arg1 didReceiveResponse:(id)arg2;
 - (void)updateStorePromotionOrder:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

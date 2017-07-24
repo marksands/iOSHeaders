@@ -20,6 +20,8 @@
     NSMutableSet *_residentDevices;
     _Bool _residentAvailable;
     _Bool _residentSupported;
+    _Bool _firstLegacyFetch;
+    _Bool _firstHomeZoneFetch;
     _Bool _confirming;
     HMFTimer *_residentMonitorTimer;
     NSUUID *_primaryResidentUUID;
@@ -52,6 +54,7 @@
 - (void)updatePrimaryResidentWithUUID:(id)arg1;
 - (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
+- (void)_handleCloudManagerDidCompleteInitialFetchNotification:(id)arg1;
 - (void)_updateChargingTimer;
 - (void)_updateDischargingTimer:(long long)arg1;
 - (void)atHomeLevelChanged:(long long)arg1;
@@ -69,10 +72,18 @@
 - (void)_updateReachability:(_Bool)arg1 forResidentDevice:(id)arg2;
 - (void)handleResidentDeviceIsNotReachable:(id)arg1;
 - (void)handleResidentDeviceIsReachable:(id)arg1;
+- (void)_handleConfirmResidentDevice:(id)arg1;
 - (void)_handleResidentElectionParameters:(id)arg1;
+- (id)_electionParameters:(id)arg1;
+- (id)_electionParameters;
 - (_Bool)_isAtHome;
+- (long long)compareResidentDeviceA:(id)arg1 electionParametersA:(id)arg2 residentDeviceB:(id)arg3 electionParametersB:(id)arg4;
 - (long long)compareResidentDevice:(id)arg1 electionParameters:(id)arg2;
+- (void)conditionallyConfirmOnBoot;
+- (void)confirmOnAvailability;
 - (void)confirmAsResident;
+- (void)_confirmResidentDevice:(id)arg1 electionParameters:(id)arg2 againstDevices:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (id)_orderedDevicesForElection;
 - (void)_electResidentDevice;
 - (void)electResidentDevice;
 - (void)handleCurrentDeviceUpdated:(id)arg1;
@@ -99,6 +110,8 @@
 - (id)ourSelf;
 @property(retain) HMFTimer *residentMonitorTimer; // @synthesize residentMonitorTimer=_residentMonitorTimer;
 - (id)residentWithUUID:(id)arg1;
+@property(nonatomic, getter=hasFirstHomeZoneFetch) _Bool firstHomeZoneFetch; // @synthesize firstHomeZoneFetch=_firstHomeZoneFetch;
+@property(nonatomic, getter=hasFirstLegacyFetch) _Bool firstLegacyFetch; // @synthesize firstLegacyFetch=_firstLegacyFetch;
 @property(retain, nonatomic) NSUUID *primaryResidentUUID; // @synthesize primaryResidentUUID=_primaryResidentUUID;
 @property(readonly, nonatomic) __weak HMDResidentDevice *primaryResidentDevice;
 - (void)_teardownSessionWithPrimaryResidentDevice;

@@ -11,9 +11,6 @@
 @interface _CDEventStreams : NSObject
 {
     NSDictionary *_allKBEventStreams;
-    NSDictionary *_eventEphemeralitySchedule;
-    NSDictionary *_rateLimitPolicy;
-    NSDictionary *_privacyPolicy;
     NSDictionary *_allEventStreams;
 }
 

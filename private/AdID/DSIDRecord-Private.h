@@ -30,6 +30,7 @@
 @property(nonatomic) _Bool accountIsT13; // @dynamic accountIsT13;
 @property(nonatomic) _Bool accountIsU13; // @dynamic accountIsU13;
 @property(nonatomic) _Bool accountIsU18; // @dynamic accountIsU18;
+@property(retain, nonatomic) NSString *iAdIDBeforeReset; // @dynamic iAdIDBeforeReset;
 @property(nonatomic) double lastSegmentServedTimestamp; // @dynamic lastSegmentServedTimestamp;
 @property(nonatomic) double lastSentSegmentDataTimestamp; // @dynamic lastSentSegmentDataTimestamp;
 @property(nonatomic) double limitAdTrackingTimestamp; // @dynamic limitAdTrackingTimestamp;

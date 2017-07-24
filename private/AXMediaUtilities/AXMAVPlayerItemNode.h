@@ -14,6 +14,7 @@
 @interface AXMAVPlayerItemNode : AXMSourceNode <AVPlayerItemLegibleOutputPushDelegate>
 {
     NSObject<OS_dispatch_queue> *_avkit_queue;
+    _Bool _triggeringLegibilityEvents;
     AVPlayerItem *_targetPlayerItem;
     AXMVisionAnalysisOptions *_analysisOptions;
 }
@@ -23,6 +24,7 @@
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) AXMVisionAnalysisOptions *analysisOptions; // @synthesize analysisOptions=_analysisOptions;
 @property(nonatomic) __weak AVPlayerItem *targetPlayerItem; // @synthesize targetPlayerItem=_targetPlayerItem;
+@property(readonly, nonatomic, getter=isTriggeringLegibilityEvents) _Bool triggeringLegibilityEvents; // @synthesize triggeringLegibilityEvents=_triggeringLegibilityEvents;
 - (void).cxx_destruct;
 - (void)legibleOutput:(id)arg1 didOutputAttributedStrings:(id)arg2 nativeSampleBuffers:(id)arg3 forItemTime:(CDStruct_198678f7)arg4;
 - (void)outputSequenceWasFlushed:(id)arg1;

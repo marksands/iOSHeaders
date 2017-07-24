@@ -12,6 +12,7 @@
 
 + (void)enumeratePathsToDeleteFromLibrary:(id)arg1 persistentIDs:(id)arg2 usingConnection:(id)arg3 usingBlock:(CDUnknownBlockType)arg4;
 + (void)enumeratePathsToDeleteFromLibrary:(id)arg1 persistentIDs:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
++ (_Bool)clearPlaybackKeysFromLibrary:(id)arg1 persistentIDs:(id)arg2;
 + (_Bool)clearLocationFromLibrary:(id)arg1 persistentIDs:(id)arg2 disableKeepLocal:(_Bool)arg3 usingConnection:(id)arg4;
 + (_Bool)clearLocationFromLibrary:(id)arg1 persistentIDs:(id)arg2 usingConnection:(id)arg3;
 + (_Bool)clearLocationFromLibrary:(id)arg1 persistentIDs:(id)arg2 disableKeepLocal:(_Bool)arg3;

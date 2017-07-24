@@ -16,8 +16,8 @@
     _Bool _clientEntitled;
     NSString *_clientName;
     int _clientProcessID;
-    NSString *_originatingFaceUUID;
     PHChangeRequestHelper *_helper;
+    NSString *_originatingFaceUUID;
     PHRelationshipChangeRequestHelper *_faceHelper;
     PHRelationshipChangeRequestHelper *_personHelper;
 }
@@ -30,8 +30,8 @@
 + (id)changeRequestForFaceCrop:(id)arg1;
 @property(readonly, nonatomic) PHRelationshipChangeRequestHelper *personHelper; // @synthesize personHelper=_personHelper;
 @property(readonly, nonatomic) PHRelationshipChangeRequestHelper *faceHelper; // @synthesize faceHelper=_faceHelper;
-@property(readonly, nonatomic) PHChangeRequestHelper *helper; // @synthesize helper=_helper;
 @property(copy, nonatomic) NSString *originatingFaceUUID; // @synthesize originatingFaceUUID=_originatingFaceUUID;
+@property(readonly, nonatomic) PHChangeRequestHelper *helper; // @synthesize helper=_helper;
 @property(readonly, nonatomic) int clientProcessID; // @synthesize clientProcessID=_clientProcessID;
 @property(readonly, nonatomic) NSString *clientName; // @synthesize clientName=_clientName;
 @property(readonly, nonatomic, getter=isClientEntitled) _Bool clientEntitled; // @synthesize clientEntitled=_clientEntitled;
@@ -47,6 +47,7 @@
 @property(readonly, nonatomic) NSManagedObjectID *objectID;
 @property(readonly, nonatomic) NSString *uuid;
 @property(readonly, nonatomic) NSString *managedEntityName;
+- (_Bool)prepareForServicePreflightCheck:(id *)arg1;
 - (void)encodeToXPCDict:(id)arg1;
 - (id)initWithXPCDict:(id)arg1 clientEntitlements:(id)arg2 clientName:(id)arg3 clientBundleID:(id)arg4 clientProcessID:(int)arg5;
 @property(nonatomic) short state;

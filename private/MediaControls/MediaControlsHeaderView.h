@@ -15,7 +15,6 @@
     _Bool _showRoutingLabel;
     _Bool _showingRoutingPicker;
     _Bool _onlyShowsRoutingPicker;
-    _Bool _artworkLoaded;
     long long _style;
     NSString *_titleString;
     NSString *_primaryString;
@@ -44,7 +43,6 @@
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) UIView *shadow; // @synthesize shadow=_shadow;
 @property(retain, nonatomic) UIView *artworkBackgroundView; // @synthesize artworkBackgroundView=_artworkBackgroundView;
-@property(nonatomic, getter=isArtworkLoaded) _Bool artworkLoaded; // @synthesize artworkLoaded=_artworkLoaded;
 @property(nonatomic) struct CGSize artworkSize; // @synthesize artworkSize=_artworkSize;
 @property(retain, nonatomic) UIImageView *artworkView; // @synthesize artworkView=_artworkView;
 @property(retain, nonatomic) UIButton *launchNowPlayingAppButton; // @synthesize launchNowPlayingAppButton=_launchNowPlayingAppButton;

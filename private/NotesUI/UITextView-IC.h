@@ -8,8 +8,9 @@
 
 @interface UITextView (IC)
 - (struct _NSRange)visibleRange;
-- (id)textRangeFromRange:(struct _NSRange)arg1;
-- (struct _NSRange)rangeFromTextRange:(id)arg1;
+- (struct _NSRange)ic_characterRangeFromTextPosition:(id)arg1;
+- (id)ic_textRangeFromCharacterRange:(struct _NSRange)arg1;
+- (struct _NSRange)ic_characterRangeFromTextRange:(id)arg1;
 - (void)setSelectedRanges:(id)arg1;
 - (id)selectedRanges;
 - (void)scrollRangeToTop:(struct _NSRange)arg1;

@@ -25,6 +25,8 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (_Bool)hk_isGreaterThanQuantity:(id)arg1;
+- (_Bool)hk_isLessThanQuantity:(id)arg1;
 - (id)_foundationMeasurement;
 - (_Bool)_isZero;
 - (id)_quantityByAddingQuantity:(id)arg1;

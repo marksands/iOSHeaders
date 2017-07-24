@@ -20,6 +20,7 @@
     UIView *_expandedView;
     UIView *_materialView;
     _Bool _expanded;
+    UIView *_backgroundView;
     UITapGestureRecognizer *_tapRecognizer;
     UIPreviewInteraction *_previewInteraction;
     UIViewController<CCUIContentModuleContentViewController> *_expandedViewController;
@@ -29,6 +30,7 @@
 @property(retain, nonatomic) UIViewController<CCUIContentModuleContentViewController> *expandedViewController; // @synthesize expandedViewController=_expandedViewController;
 @property(retain, nonatomic) UIPreviewInteraction *previewInteraction; // @synthesize previewInteraction=_previewInteraction;
 @property(retain, nonatomic) UITapGestureRecognizer *tapRecognizer; // @synthesize tapRecognizer=_tapRecognizer;
+@property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(nonatomic) struct CGRect collapsedFrame; // @synthesize collapsedFrame=_collapsedFrame;
 - (void).cxx_destruct;
 - (_Bool)_previewInteractionShouldAutomaticallyTransitionToPreviewAfterDelay:(id)arg1;

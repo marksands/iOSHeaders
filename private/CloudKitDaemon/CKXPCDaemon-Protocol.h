@@ -41,7 +41,7 @@
 - (void)dumpAllClientsStatusReportToFileHandle:(NSFileHandle *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)performAggregateZonePCSOperation:(CKAggregateZonePCSOperationInfo *)arg1 withBlock:(void (^)(void))arg2;
 - (void)currentUserBoundaryKeyWithSetupInfo:(CKContainerSetupInfo *)arg1 completionHandler:(void (^)(NSData *, NSError *))arg2;
-- (void)fullNameAndPrimaryEmailOnAccountWithSetupInfo:(CKContainerSetupInfo *)arg1 completionHandler:(void (^)(NSPersonNameComponents *, NSString *, NSError *))arg2;
+- (void)displayInfoOnAccountWithSetupInfo:(CKContainerSetupInfo *)arg1 completionHandler:(void (^)(NSPersonNameComponents *, NSString *, NSString *, NSError *))arg2;
 - (void)currentDeviceIDWithSetupInfo:(CKContainerSetupInfo *)arg1 completionHandler:(void (^)(NSString *, NSError *))arg2;
 - (void)serverEnvironmentWithSetupInfo:(CKContainerSetupInfo *)arg1 completionHandler:(void (^)(long long, NSError *))arg2;
 - (void)serverPreferredPushEnvironmentWithSetupInfo:(CKContainerSetupInfo *)arg1 completionHandler:(void (^)(NSString *, NSError *))arg2;

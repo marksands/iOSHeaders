@@ -31,6 +31,7 @@
 - (void)updateCloudRecord:(id)arg1;
 - (void)addCloudRecord:(id)arg1;
 - (id)childCloudRecordsWithParentID:(id)arg1;
+- (void)_appendToChildren:(id)arg1 forParentIDs:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)cloudRecordWithObjectID:(id)arg1;
 - (id)cloudRecordWithName:(id)arg1;
 @property(readonly, nonatomic) HMDCloudObjectRecord *rootRecord;

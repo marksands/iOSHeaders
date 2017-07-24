@@ -213,7 +213,7 @@
 @property(readonly, nonatomic) _Bool isTimelapsePlaceholder;
 @property(readonly, nonatomic) _Bool isIncludedInCloudFeeds;
 @property(readonly, nonatomic) _Bool isIncludedInMoments;
-@property(readonly, nonatomic) _Bool isMogul;
+@property(readonly, nonatomic) _Bool isHighFrameRateVideo;
 @property(readonly, nonatomic) _Bool isStreamedVideo;
 @property(readonly, copy, nonatomic) NSString *cloudIdentifier;
 @property(readonly, nonatomic) _Bool isCloudPlaceholder;

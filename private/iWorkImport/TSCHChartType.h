@@ -85,7 +85,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)supportsErrorBarsScatterX;
 - (_Bool)supportsErrorBars;
 - (_Bool)supportsTrendLines;
-- (_Bool)supportsReverseChunking;
+- (_Bool)suppliesFinalTextures;
+- (_Bool)requiresStagesBuildingInReverse;
 - (_Bool)supportsBackgroundFill;
 - (_Bool)supportsEditing;
 - (_Bool)supportsValueLabels;

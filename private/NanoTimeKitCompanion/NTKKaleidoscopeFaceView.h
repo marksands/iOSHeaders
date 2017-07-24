@@ -33,13 +33,13 @@
 @property(nonatomic) unsigned long long currentStyle; // @synthesize currentStyle=_currentStyle;
 @property(nonatomic) unsigned long long currentAsset; // @synthesize currentAsset=_currentAsset;
 - (void).cxx_destruct;
-- (void)_clearUserAssetSwatches;
 - (id)_snapshotWithAsset:(unsigned long long)arg1 style:(unsigned long long)arg2;
 - (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 - (id)_swatchForAsset:(unsigned long long)arg1;
 - (id)_quadWithStyle:(unsigned long long)arg1 asset:(unsigned long long)arg2;
 - (id)_textureForAsset:(unsigned long long)arg1;
 - (id)_pathfinderForAsset:(unsigned long long)arg1;
+- (double)_idealizedOffsetPercentageForAsset:(unsigned long long)arg1;
 - (id)_imageForAsset:(unsigned long long)arg1;
 - (void)_updateComplications;
 - (void)_updatePathForTime:(double)arg1;
@@ -51,6 +51,7 @@
 - (double)_contentScaleForEditMode:(long long)arg1;
 - (double)_contentAlphaForEditMode:(long long)arg1;
 - (double)_handAlphaForEditMode:(long long)arg1;
+- (void)_updateDayDuration;
 - (void)addResourceUuidsToKeep:(id)arg1;
 - (id)provideTextureBacking:(id)arg1;
 - (_Bool)_supportsUnadornedSnapshot;
@@ -72,7 +73,7 @@
 - (id)_newLegacyViewForComplication:(id)arg1 family:(long long)arg2 slot:(id)arg3;
 - (void)_loadLayoutRules;
 - (void)_configureReusableTimeView:(id)arg1;
-- (double)_kaleidoscopeTime;
+- (double)_kaleidoscopeTimeForAsset:(unsigned long long)arg1;
 - (void)quadViewWillDisplay:(id)arg1 forTime:(double)arg2;
 - (void)_disableCrown;
 - (void)_applyFrozen;

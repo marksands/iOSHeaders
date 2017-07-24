@@ -71,12 +71,12 @@ __attribute__((visibility("hidden")))
 - (id)defaultDraftName;
 - (id)name;
 - (id)sharingStateForContext:(id)arg1;
-- (id)tskCachedDocumentInfo;
 - (void)_setPresentedItemURL:(id)arg1;
 - (void)removeFilePresenter;
 - (void)presentedItemDidMoveToURL:(id)arg1;
 - (void)relinquishPresentedItemToWriter:(CDUnknownBlockType)arg1;
 - (id)_prepareTemplate:(id)arg1;
+- (id)importErrorWithCode:(long long)arg1 description:(id)arg2 failureReason:(id)arg3 underlyingError:(id)arg4;
 @property(nonatomic) _Bool preserveDocumentAfterImport;
 @property(readonly, nonatomic) _Bool isBrowsingVersions;
 @property(readonly, nonatomic) _Bool isPasswordProtected;

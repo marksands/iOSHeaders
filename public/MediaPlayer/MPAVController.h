@@ -34,6 +34,7 @@
     AVPlayerLayer *_videoLayer;
     unsigned long long _videoLayerUsageCount;
     MPVideoView *_videoView;
+    id _periodicTimeObserverToken;
     unsigned long long _tickTimerEnabled;
     struct __CFRunLoopTimer *_tickTimer;
     double _tickInterval;

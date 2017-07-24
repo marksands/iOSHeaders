@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)wantsFocus;
 - (void)setSemanticContentAttribute:(long long)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
+- (void)tabBarSizeChanged:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)updateConstraints;
 - (struct CGSize)intrinsicContentSizeGivenSize:(struct CGSize)arg1;

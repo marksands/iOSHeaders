@@ -10,7 +10,6 @@
 
 @interface MPCModelRadioPlaybackContext : MPPlaybackContext
 {
-    MPAVItem *_prefixItem;
     MPCPlaybackRequestEnvironment *_playbackRequestEnvironment;
     MPCModelRadioContentReference *_nowPlayingContentReference;
     MPCModelRadioContentReference *_seedContentReference;
@@ -30,8 +29,8 @@
 @property(copy, nonatomic) MPCModelRadioContentReference *seedContentReference; // @synthesize seedContentReference=_seedContentReference;
 @property(copy, nonatomic) MPCModelRadioContentReference *nowPlayingContentReference; // @synthesize nowPlayingContentReference=_nowPlayingContentReference;
 @property(copy, nonatomic) MPCPlaybackRequestEnvironment *playbackRequestEnvironment; // @synthesize playbackRequestEnvironment=_playbackRequestEnvironment;
-@property(retain, nonatomic) MPAVItem *prefixItem; // @synthesize prefixItem=_prefixItem;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) MPAVItem *prefixItem;
 - (id)descriptionComponents;
 - (id)init;
 

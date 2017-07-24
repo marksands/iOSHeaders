@@ -36,7 +36,7 @@
 - (double)_scaleFactorForBoundsHeight:(double)arg1;
 - (id)recognizableDrawingForStrokeGroup:(id)arg1 orderedStrokesIDs:(id *)arg2;
 - (void)_updateGroups:(id)arg1 createdGroups:(id)arg2 deletedGroups:(id)arg3 forAddedStroke:(id)arg4;
-- (id)updatedGroupingResult;
+- (id)updatedGroupingResultWithCancellationBlock:(CDUnknownBlockType)arg1;
 - (id)initWithStrokeProvider:(id)arg1 sessionLastResult:(id)arg2 locales:(id)arg3;
 
 @end

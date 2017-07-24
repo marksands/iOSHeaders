@@ -6,9 +6,11 @@
 
 #import <HomeKitDaemon/HMDMediaAccessory.h>
 
-@class HMDDevice, HMDRemoteLoginHandler, HMDSoftwareUpdate, HMFSoftwareVersion;
+#import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@interface HMDAppleMediaAccessory : HMDMediaAccessory
+@class HMDDevice, HMDRemoteLoginHandler, HMDSoftwareUpdate, HMFSoftwareVersion, NSString;
+
+@interface HMDAppleMediaAccessory : HMDMediaAccessory <HMFLogging>
 {
     HMDDevice *_device;
     HMDRemoteLoginHandler *_remoteLoginHandler;
@@ -68,6 +70,12 @@
 - (id)_decodeHashedRouteUID:(id)arg1;
 - (id)_hashRouteID:(id)arg1;
 - (id)url;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

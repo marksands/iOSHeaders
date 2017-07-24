@@ -18,6 +18,8 @@
 }
 
 - (void).cxx_destruct;
+- (void)_removeMessagesFromAOLSupportedDataclasses;
+- (void)_addObsoleteAttributeToAccountTypes;
 - (void)_changeFacebookAccountAccountType;
 - (void)_addFacebookLegacyAccountTypes;
 - (void)_removeAIMAccounts;

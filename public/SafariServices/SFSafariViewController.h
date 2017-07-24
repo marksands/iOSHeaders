@@ -8,12 +8,12 @@
 
 #import <SafariServices/SFBrowserRemoteViewControllerDelegate-Protocol.h>
 #import <SafariServices/SFInteractiveDismissControllerDelegate-Protocol.h>
-#import <SafariServices/_SFQueueingBrowserServiceViewControllerProxyDelegate-Protocol.h>
+#import <SafariServices/SFQueueingServiceViewControllerProxyDelegate-Protocol.h>
 
-@class NSArray, NSMutableDictionary, NSString, NSURL, SFBrowserRemoteViewController, SFInteractiveDismissController, SFSafariLaunchPlaceholderView, SFSafariViewControllerConfiguration, UIColor, _SFQueueingBrowserServiceViewControllerProxy, _UIAsyncInvocation, _WKActivatedElementInfo;
-@protocol SFSafariViewControllerDelegate;
+@class NSArray, NSMutableDictionary, NSString, NSURL, SFBrowserRemoteViewController, SFInteractiveDismissController, SFQueueingServiceViewControllerProxy, SFSafariLaunchPlaceholderView, SFSafariViewControllerConfiguration, UIColor, _UIAsyncInvocation, _WKActivatedElementInfo;
+@protocol SFSafariViewControllerDelegate, SFServiceViewControllerProtocol;
 
-@interface SFSafariViewController : UIViewController <SFBrowserRemoteViewControllerDelegate, SFInteractiveDismissControllerDelegate, _SFQueueingBrowserServiceViewControllerProxyDelegate>
+@interface SFSafariViewController : UIViewController <SFBrowserRemoteViewControllerDelegate, SFInteractiveDismissControllerDelegate, SFQueueingServiceViewControllerProxyDelegate>
 {
     SFBrowserRemoteViewController *_remoteViewController;
     _UIAsyncInvocation *_cancelViewServiceRequest;
@@ -32,12 +32,12 @@
     UIColor *_preferredBarTintColor;
     UIColor *_preferredControlTintColor;
     long long _dismissButtonStyle;
-    _SFQueueingBrowserServiceViewControllerProxy *_serviceProxy;
+    SFQueueingServiceViewControllerProxy<SFServiceViewControllerProtocol> *_serviceProxy;
     NSURL *_initialURL;
 }
 
 @property(readonly, nonatomic) NSURL *initialURL; // @synthesize initialURL=_initialURL;
-@property(readonly, nonatomic) _SFQueueingBrowserServiceViewControllerProxy *serviceProxy; // @synthesize serviceProxy=_serviceProxy;
+@property(readonly, nonatomic) SFQueueingServiceViewControllerProxy<SFServiceViewControllerProtocol> *serviceProxy; // @synthesize serviceProxy=_serviceProxy;
 @property(nonatomic) long long dismissButtonStyle; // @synthesize dismissButtonStyle=_dismissButtonStyle;
 @property(retain, nonatomic) UIColor *preferredControlTintColor; // @synthesize preferredControlTintColor=_preferredControlTintColor;
 @property(retain, nonatomic) UIColor *preferredBarTintColor; // @synthesize preferredBarTintColor=_preferredBarTintColor;

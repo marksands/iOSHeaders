@@ -39,7 +39,7 @@
 + (id)identifierFromDevice:(id)arg1 error:(id *)arg2;
 + (id)namespace;
 + (id)deviceWithDestination:(id)arg1;
-+ (id)currentDeviceWithIDSAccount:(id)arg1;
++ (id)currentDeviceWithIDSService:(id)arg1;
 + (id)deviceDestinationForDestination:(id)arg1;
 + (void)initialize;
 @property(readonly, copy, nonatomic) NSString *destination; // @synthesize destination=_destination;

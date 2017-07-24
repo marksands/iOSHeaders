@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSArray, NSDictionary, NSMutableArray, NSString, TIMecabraEnvironmentContextWrapper;
 
@@ -50,6 +50,7 @@
 - (void)completelyCommitInlineCandidate:(void *)arg1;
 - (void)partiallyCommitInlineCandidate:(void *)arg1;
 - (void)acceptInlineCandidates;
+- (void)setShuangpinType:(int)arg1;
 - (void)setAppContext:(id)arg1;
 - (void)addStringCandidateToContextInternal:(id)arg1;
 - (void)setGeometryModel:(void *)arg1 modelData:(struct __CFArray *)arg2;

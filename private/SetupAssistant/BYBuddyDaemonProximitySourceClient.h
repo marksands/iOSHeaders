@@ -24,7 +24,7 @@
 - (void).cxx_destruct;
 - (void)syncCompletedWithErrors:(id)arg1;
 - (void)syncProgress:(double)arg1;
-- (void)backupCompleted;
+- (void)backupCompletedWithError:(id)arg1;
 - (void)backupProgress:(double)arg1 estimatedTimeRemaining:(long long)arg2;
 - (void)finishedWithError:(id)arg1;
 - (void)receivedData:(id)arg1;

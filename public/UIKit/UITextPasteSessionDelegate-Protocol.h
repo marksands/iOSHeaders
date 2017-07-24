@@ -11,7 +11,8 @@
 @protocol UITextPasteSessionDelegate <NSObject>
 
 @optional
-- (void)textPasteSessionDidFinishPasting:(id <UITextPasteSession>)arg1;
+- (void)textPasteSessionDidEndPasting:(id <UITextPasteSession>)arg1;
+- (void)textPasteSessionWillBeginPasting:(id <UITextPasteSession>)arg1;
 - (void)textPasteSessionWillBlockPasting:(id <UITextPasteSession>)arg1;
 @end
 

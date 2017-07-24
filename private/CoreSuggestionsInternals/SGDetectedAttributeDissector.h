@@ -25,7 +25,6 @@
 + (_Bool)isAddressContext:(id)arg1;
 + (unsigned long long)supervisionTypeIfFoundByPrevModel:(_Bool)arg1 isKnownContact:(_Bool)arg2 isKnownInternal:(_Bool)arg3;
 + (id)dissectorWithMockedMLTrainingForTests;
-+ (void)initialize;
 @property(nonatomic) unsigned long long selfIdentificationMessageCount; // @synthesize selfIdentificationMessageCount=_selfIdentificationMessageCount;
 - (void).cxx_destruct;
 - (id)detailTypeFromPrefix:(id)arg1;

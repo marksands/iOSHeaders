@@ -16,12 +16,14 @@
     NSDictionary *_imageProperties;
     NSDictionary *_auxiliaryData;
     NSString *_auxiliaryDataType;
+    CDStruct_1b6d18a9 _time;
 }
 
 @property(copy) NSString *auxiliaryDataType; // @synthesize auxiliaryDataType=_auxiliaryDataType;
 @property(copy) NSDictionary *auxiliaryData; // @synthesize auxiliaryData=_auxiliaryData;
 @property(copy) NSDictionary *imageProperties; // @synthesize imageProperties=_imageProperties;
 @property(nonatomic) _Bool renderToData; // @synthesize renderToData=_renderToData;
+@property CDStruct_1b6d18a9 time; // @synthesize time=_time;
 @property(copy, nonatomic) NUImageExportFormat *format; // @synthesize format=_format;
 @property(retain, nonatomic) NUColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 - (void).cxx_destruct;

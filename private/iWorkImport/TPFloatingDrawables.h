@@ -18,7 +18,8 @@ __attribute__((visibility("hidden")))
     TPDocumentRoot *_documentRoot;
 }
 
-@property(readonly, nonatomic) TPDocumentRoot *documentRoot; // @synthesize documentRoot=_documentRoot;
+@property(readonly, nonatomic) __weak TPDocumentRoot *documentRoot; // @synthesize documentRoot=_documentRoot;
+- (void).cxx_destruct;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
@@ -43,7 +44,6 @@ __attribute__((visibility("hidden")))
 - (id)debugDescription;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromUnarchiver:(id)arg1;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1;
 
 @end

@@ -24,6 +24,7 @@
     NSString *_fileStagingPath;
     NSObject<OS_dispatch_queue> *_queue;
     NSOperationQueue *_opQueue;
+    long long _checkoutCount;
     id <NSObject> _assetHandleExpirationNotificationObserver;
     NSMutableDictionary *_volumeUUIDByVolumeIndex;
     NSMutableDictionary *_volumeIndexByVolumeUUID;
@@ -40,6 +41,7 @@
 @property(retain, nonatomic) NSMutableDictionary *volumeIndexByVolumeUUID; // @synthesize volumeIndexByVolumeUUID=_volumeIndexByVolumeUUID;
 @property(retain, nonatomic) NSMutableDictionary *volumeUUIDByVolumeIndex; // @synthesize volumeUUIDByVolumeIndex=_volumeUUIDByVolumeIndex;
 @property(retain, nonatomic) id <NSObject> assetHandleExpirationNotificationObserver; // @synthesize assetHandleExpirationNotificationObserver=_assetHandleExpirationNotificationObserver;
+@property(nonatomic) long long checkoutCount; // @synthesize checkoutCount=_checkoutCount;
 @property(nonatomic) _Bool didDrop; // @synthesize didDrop=_didDrop;
 @property _Bool isEvictionScheduled; // @synthesize isEvictionScheduled=_isEvictionScheduled;
 @property(nonatomic) int fileDownloadPathFd; // @synthesize fileDownloadPathFd=_fileDownloadPathFd;

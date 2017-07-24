@@ -48,7 +48,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <MKPlaceParentInfoViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) _Bool resizableViewsDisabled; // @synthesize resizableViewsDisabled=_resizableViewsDisabled;
 - (void).cxx_destruct;
-- (double)extraHeightToReserveInLayout;
 - (id)infoCardChildPossibleActions;
 - (void)_contentSizeDidChange;
 - (void)infoCardThemeChanged:(id)arg1;

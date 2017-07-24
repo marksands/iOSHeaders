@@ -12,6 +12,7 @@
 {
     _Bool _accessiblityConstraintsEnabled;
     _Bool _constraintsLoaded;
+    _Bool _foregroundViewLoaded;
     UIView *_foregroundView;
     NSLayoutConstraint *_foregroundViewLeadingAnchorLayoutConstraint;
     NSLayoutConstraint *_foregroundViewTrailingAnchorLayoutConstraint;
@@ -24,13 +25,14 @@
 @property(readonly, nonatomic) NSLayoutConstraint *foregroundViewTopAnchorLayoutConstraint; // @synthesize foregroundViewTopAnchorLayoutConstraint=_foregroundViewTopAnchorLayoutConstraint;
 @property(readonly, nonatomic) NSLayoutConstraint *foregroundViewTrailingAnchorLayoutConstraint; // @synthesize foregroundViewTrailingAnchorLayoutConstraint=_foregroundViewTrailingAnchorLayoutConstraint;
 @property(readonly, nonatomic) NSLayoutConstraint *foregroundViewLeadingAnchorLayoutConstraint; // @synthesize foregroundViewLeadingAnchorLayoutConstraint=_foregroundViewLeadingAnchorLayoutConstraint;
+@property(nonatomic, getter=isForegroundViewLoaded) _Bool foregroundViewLoaded; // @synthesize foregroundViewLoaded=_foregroundViewLoaded;
 @property(nonatomic, getter=isConstraintsLoaded) _Bool constraintsLoaded; // @synthesize constraintsLoaded=_constraintsLoaded;
 @property(nonatomic, getter=isAccessiblityConstraintsEnabled) _Bool accessiblityConstraintsEnabled; // @synthesize accessiblityConstraintsEnabled=_accessiblityConstraintsEnabled;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) double foregroundViewBottomAnchorLayoutConstraintConstant;
+- (void)setForegroundView:(id)arg1;
 @property(readonly, nonatomic) UIView *foregroundView; // @synthesize foregroundView=_foregroundView;
 - (void)traitCollectionDidChange:(id)arg1;
-- (void)setSeparatorStyle:(long long)arg1;
+- (void)layoutSubviews;
 @property(retain, nonatomic) UIColor *foregroundColor;
 - (void)updateFonts;
 - (void)updateConstraintsConstants;

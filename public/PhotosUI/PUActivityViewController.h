@@ -50,7 +50,7 @@
 - (void)setAggregateKey:(struct __CFString *)arg1;
 - (void)_presentConfidentialityWarningWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_prepareAssetProgressForActivity:(id)arg1;
-- (void)_showSharingWasInterruptedWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_showSharingWasInterruptedForError:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_removePreparationProgressView;
 - (void)_showPreparationProgressView:(id)arg1 withCancelationHandler:(CDUnknownBlockType)arg2;
 - (void)_removeRemakerProgressView;

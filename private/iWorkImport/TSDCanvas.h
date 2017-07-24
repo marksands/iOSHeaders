@@ -40,13 +40,16 @@ __attribute__((visibility("hidden")))
     struct UIEdgeInsets mContentInset;
     _Bool mAllowsFontSubpixelQuantization;
     _Bool mSuppressesShadowsAndReflections;
+    _Bool mSuppressesColorAlphaComponent;
     _Bool mSuppressesShapeText;
+    _Bool mSuppressesColorAlphaComponen;
 }
 
 + (void)p_recursivelyAddOrderedChildrenOfRep:(id)arg1 toArray:(id)arg2;
 @property(readonly, nonatomic) _Bool isTemporaryForLayout; // @synthesize isTemporaryForLayout=mIsTemporaryForLayout;
 @property(nonatomic) double viewScale; // @synthesize viewScale=mViewScale;
 @property(nonatomic) struct CGSize unscaledSize; // @synthesize unscaledSize=mUnscaledSize;
+@property(nonatomic) _Bool suppressesColorAlphaComponent; // @synthesize suppressesColorAlphaComponent=mSuppressesColorAlphaComponen;
 @property(nonatomic) _Bool suppressesShapeText; // @synthesize suppressesShapeText=mSuppressesShapeText;
 @property(nonatomic) _Bool suppressesShadowsAndReflections; // @synthesize suppressesShadowsAndReflections=mSuppressesShadowsAndReflections;
 @property(nonatomic) _Bool allowsFontSubpixelQuantization; // @synthesize allowsFontSubpixelQuantization=mAllowsFontSubpixelQuantization;

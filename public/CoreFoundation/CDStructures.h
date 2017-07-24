@@ -55,13 +55,6 @@ struct _NSRange {
     unsigned long long _field2;
 };
 
-struct __cow_state_t {
-    struct os_unfair_lock_s _field1;
-    unsigned long long _field2;
-    unsigned long long _field3;
-    CDStruct_183601bc *_field4;
-};
-
 struct __va_list_tag {
     unsigned int _field1;
     unsigned int _field2;
@@ -98,13 +91,6 @@ struct vertex {
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned long long used;
-    unsigned long long offset;
-    unsigned long long size;
-    id *list;
-} CDStruct_6cf6cf19;
-
-typedef struct {
     unsigned long long state;
     id *itemsPtr;
     unsigned long long *mutationsPtr;
@@ -117,19 +103,6 @@ typedef struct {
     unsigned long long _field3;
     _Bool _field4;
 } CDStruct_78c06135;
-
-typedef struct {
-    unsigned int used:58;
-    unsigned long long size;
-    id *objs;
-} CDStruct_80e5fc3d;
-
-typedef struct {
-    unsigned int used:58;
-    unsigned int kvo:1;
-    unsigned long long size;
-    id *buffer;
-} CDStruct_3efa2a53;
 
 typedef struct {
     long long _field1;
@@ -153,8 +126,6 @@ typedef struct {
     long long _field2;
 } CDStruct_912cb5d2;
 
-typedef struct CDStruct_183601bc;
-
 typedef struct {
     struct NSMethodFrameArgInfo *_field1;
     struct NSMethodFrameArgInfo *_field2;
@@ -174,6 +145,46 @@ typedef struct {
         struct __CFDictionary *children;
     } elements;
     void *singleChildKey;
-    CDStruct_183601bc *callbacks;
+    struct *callbacks;
 } CDStruct_a86bd46d;
+
+typedef struct {
+    id *objs;
+    union {
+        unsigned long long mutations;
+        struct {
+            unsigned int muts;
+            unsigned int used:26;
+            unsigned int szidx:6;
+        } ;
+    } state;
+} CDStruct_af6d7307;
+
+typedef struct {
+    id *buffer;
+    union {
+        struct {
+            unsigned long long mutations;
+        } ;
+        struct {
+            unsigned int muts;
+            unsigned int used:25;
+            unsigned int kvo:1;
+            unsigned int szidx:6;
+        } ;
+    } state;
+} CDStruct_2af495fa;
+
+typedef struct {
+    id *list;
+    unsigned int offset;
+    unsigned int size;
+    union {
+        unsigned long long mutations;
+        struct {
+            unsigned int muts;
+            unsigned int used;
+        } ;
+    } state;
+} CDStruct_a6934631;
 

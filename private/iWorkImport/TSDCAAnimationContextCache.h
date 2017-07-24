@@ -25,7 +25,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double timeOffset; // @synthesize timeOffset=_timeOffset;
 @property(readonly, nonatomic) double beginTime; // @synthesize beginTime=_beginTime;
 @property(readonly, nonatomic) CAMediaTimingFunction *timingFunction; // @synthesize timingFunction=_timingFunction;
-- (void)verifyCacheWithAnimation:(id)arg1;
+- (double)percentAtTime:(double)arg1;
+- (id)valueAtTime:(double)arg1 initialValue:(id)arg2;
+- (id)valueAtTime:(double)arg1 initialValue:(id)arg2 groupTimingFactor:(double)arg3;
+- (id)valueForKeyPath:(id)arg1 atTime:(double)arg2 animationCache:(id)arg3;
+- (double)animationPercentFromAnimationTime:(double)arg1;
 - (id)initWithAnimation:(id)arg1;
 
 // Remaining properties

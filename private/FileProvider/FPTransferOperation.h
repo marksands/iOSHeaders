@@ -18,6 +18,7 @@
     FPAggregateProgress *_progress;
     NSOperationQueue *_operationQueue;
     NSMutableDictionary *_placeholderIDsByURLOrItemID;
+    NSMutableDictionary *_errorsByItem;
     NSMutableDictionary *_transferResults;
     unsigned long long _lastUsageUpdatePolicy;
     _Bool _isCopyOperation;
@@ -27,9 +28,11 @@
 @property(nonatomic) _Bool shouldBounceOnCollision; // @synthesize shouldBounceOnCollision=_shouldBounceOnCollision;
 @property(nonatomic) unsigned long long lastUsageUpdatePolicy; // @synthesize lastUsageUpdatePolicy=_lastUsageUpdatePolicy;
 @property(readonly, nonatomic) NSDictionary *transferResults; // @synthesize transferResults=_transferResults;
+@property(readonly, nonatomic) NSDictionary *errorsByItem; // @synthesize errorsByItem=_errorsByItem;
 @property(readonly) NSProgress *progress; // @synthesize progress=_progress;
 - (void).cxx_destruct;
 - (void)presendNotifications;
+- (void)finishWithResult:(id)arg1 error:(id)arg2;
 - (void)mainWithExtensionProxy:(id)arg1;
 - (id)operationDescription;
 - (id)initWithItems:(id)arg1 destinationFolder:(id)arg2 copyItems:(_Bool)arg3;

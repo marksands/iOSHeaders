@@ -12,6 +12,8 @@
 }
 
 @property(readonly, nonatomic) void *outputDevice; // @synthesize outputDevice=_outputDevice;
+- (_Bool)requiresPassword;
+- (_Bool)supportsWirelessDisplay;
 - (long long)pickableRouteType;
 - (long long)routeSubtype;
 - (long long)routeType;

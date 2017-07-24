@@ -10,6 +10,7 @@
 {
 }
 
+- (_Bool)defaultSupportsLiveVideoRendering;
 - (id)displays;
 - (id)mainDevice;
 - (id)init;

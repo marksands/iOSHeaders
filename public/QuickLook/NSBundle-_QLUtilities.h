@@ -7,6 +7,7 @@
 #import <Foundation/NSBundle.h>
 
 @interface NSBundle (_QLUtilities)
++ (_Bool)mainBundleRequiresStatusBarHidden;
 + (_Bool)mainBundleSupportsBackgroundAudio;
 @end
 

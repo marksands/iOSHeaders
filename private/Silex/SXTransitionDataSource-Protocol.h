@@ -9,6 +9,7 @@
 @class UIView;
 
 @protocol SXTransitionDataSource <NSObject>
+@property(readonly, nonatomic) _Bool isTransitionable;
 @property(readonly, nonatomic) struct CGRect transitionContentFrame;
 @property(readonly, nonatomic) struct CGRect transitionContainerFrame;
 @property(readonly, nonatomic) struct CGRect transitionVisibleFrame;
@@ -17,5 +18,6 @@
 @property(readonly, nonatomic) _Bool transitionViewUsesThumbnail;
 @property(readonly, nonatomic) UIView *transitionContentView;
 @property(readonly, nonatomic) UIView *transitionContainerView;
+- (void)prepareForTransition;
 @end
 

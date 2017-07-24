@@ -26,6 +26,7 @@
     long long _demoteSize;
     PSUsageBundleApp *_usageBundleApp;
     NSArray *_mediaTypes;
+    long long _externalDataSize;
 }
 
 @property(nonatomic) _Bool isUsageApp; // @synthesize isUsageApp=_isUsageApp;
@@ -33,6 +34,7 @@
 @property _Bool specialCalculated; // @synthesize specialCalculated=_specialCalculated;
 @property _Bool purgeableCalculated; // @synthesize purgeableCalculated=_purgeableCalculated;
 @property _Bool isPseudoApp; // @synthesize isPseudoApp=_isPseudoApp;
+@property long long externalDataSize; // @synthesize externalDataSize=_externalDataSize;
 @property(retain, nonatomic) NSArray *mediaTypes; // @synthesize mediaTypes=_mediaTypes;
 @property(retain) PSUsageBundleApp *usageBundleApp; // @synthesize usageBundleApp=_usageBundleApp;
 @property(readonly, nonatomic) long long demoteSize; // @synthesize demoteSize=_demoteSize;

@@ -14,12 +14,14 @@
 {
     _Bool _supportsChangeRepeat;
     _Bool _supportsAdvanceRepeat;
+    long long _currentRepeatType;
     NSArray *_supportedRepeatTypes;
 }
 
 @property(nonatomic) _Bool supportsAdvanceRepeat; // @synthesize supportsAdvanceRepeat=_supportsAdvanceRepeat;
 @property(nonatomic) _Bool supportsChangeRepeat; // @synthesize supportsChangeRepeat=_supportsChangeRepeat;
 @property(retain, nonatomic) NSArray *supportedRepeatTypes; // @synthesize supportedRepeatTypes=_supportedRepeatTypes;
+@property(nonatomic) long long currentRepeatType; // @synthesize currentRepeatType=_currentRepeatType;
 - (void).cxx_destruct;
 - (id)advance;
 - (id)setRepeatType:(long long)arg1;

@@ -9,7 +9,7 @@
 @interface NSMutableDictionary (TSPDeepCopy)
 - (void)tsp_skipArchivingObjectDuringDeepCopy:(id)arg1;
 - (void)tsp_delayArchivingObjectDuringDeepCopy:(id)arg1;
-- (void)tsp_addObject:(id)arg1 toArrayWithKey:(id)arg2;
+- (void)tsp_addObject:(id)arg1 toArrayWithDeepCopyOptionKey:(id)arg2;
 - (void)tsp_setDeepCopyObjectProxy:(id)arg1 forReferencedObject:(id)arg2;
 @end
 

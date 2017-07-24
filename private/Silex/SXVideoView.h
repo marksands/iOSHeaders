@@ -31,7 +31,6 @@
 - (void)updateVideoGravityWithDimensions:(struct CGSize)arg1;
 - (void)removeVideoDimensionObserver;
 - (void)addVideoDimensionObserverIfNeeded;
-- (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

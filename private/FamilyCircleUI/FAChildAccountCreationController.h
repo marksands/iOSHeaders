@@ -19,6 +19,7 @@
     NSURL *_launchingURL;
     NSMutableArray *_objectModels;
     RUILoader *_loader;
+    CDUnknownBlockType _loaderCompletion;
     NSHTTPURLResponse *_currentResponse;
     UIActivityIndicatorView *_spinnerView;
     UIBarButtonItem *_originalRightBarButtonItem;
@@ -43,7 +44,7 @@
 - (void)objectModel:(id)arg1 pressedButton:(id)arg2 attributes:(id)arg3;
 - (void)objectModelPressedBack:(id)arg1;
 - (void)objectModelDidChange:(id)arg1;
-- (void)objectModel:(id)arg1 pressedLink:(id)arg2 httpMethod:(id)arg3;
+- (void)objectModel:(id)arg1 pressedLink:(id)arg2 httpMethod:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)loader:(id)arg1 receivedObjectModel:(id)arg2 actionSignal:(unsigned long long)arg3;
 - (void)_popObjectModelAnimated:(_Bool)arg1;
 - (_Bool)_pressedLink:(id)arg1 comesFromBarButtonItem:(id)arg2 objectModel:(id)arg3;
@@ -61,6 +62,7 @@
 - (id)_spinnerView;
 - (void)_cleanupRemoteUILoader;
 - (void)_startRemoteUILoaderWithRequest:(id)arg1;
+- (void)prepareForDismiss;
 - (void)loadRemoteUI;
 - (id)initWithAppleAccount:(id)arg1 grandSlamSigner:(id)arg2;
 

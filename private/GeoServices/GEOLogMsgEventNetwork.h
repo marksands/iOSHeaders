@@ -17,6 +17,7 @@
     double _requestStart;
     int _decodeTime;
     int _httpResponseCode;
+    NSString *_manifestEnv;
     int _networkService;
     int _queuedTime;
     int _redirectCount;
@@ -27,6 +28,7 @@
     int _responseDataSize;
     NSString *_serviceIpAddress;
     GEONetworkSessionTaskTransactionMetrics *_taskMetrics;
+    unsigned int _tilesetId;
     int _totalTime;
     struct {
         unsigned int requestEnd:1;
@@ -39,12 +41,15 @@
         unsigned int redirectCount:1;
         unsigned int requestDataSize:1;
         unsigned int responseDataSize:1;
+        unsigned int tilesetId:1;
         unsigned int totalTime:1;
     } _has;
 }
 
 @property(retain, nonatomic) GEONetworkSessionTaskTransactionMetrics *taskMetrics; // @synthesize taskMetrics=_taskMetrics;
 @property(retain, nonatomic) NSString *serviceIpAddress; // @synthesize serviceIpAddress=_serviceIpAddress;
+@property(nonatomic) unsigned int tilesetId; // @synthesize tilesetId=_tilesetId;
+@property(retain, nonatomic) NSString *manifestEnv; // @synthesize manifestEnv=_manifestEnv;
 @property(nonatomic) int redirectCount; // @synthesize redirectCount=_redirectCount;
 @property(nonatomic) double requestEnd; // @synthesize requestEnd=_requestEnd;
 @property(nonatomic) double requestStart; // @synthesize requestStart=_requestStart;
@@ -70,6 +75,8 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasTaskMetrics;
 @property(readonly, nonatomic) _Bool hasServiceIpAddress;
+@property(nonatomic) _Bool hasTilesetId;
+@property(readonly, nonatomic) _Bool hasManifestEnv;
 @property(nonatomic) _Bool hasRedirectCount;
 @property(nonatomic) _Bool hasRequestEnd;
 @property(nonatomic) _Bool hasRequestStart;

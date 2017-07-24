@@ -16,6 +16,7 @@
     AVAssetInternal *_asset;
 }
 
++ (_Bool)supportsPlayerItems;
 + (_Bool)expectsPropertyRevisedNotifications;
 + (id)assetWithData:(id)arg1 contentType:(id)arg2 options:(id)arg3;
 + (id)assetWithURL:(id)arg1 figPlaybackItem:(struct OpaqueFigPlaybackItem *)arg2 trackIDs:(id)arg3 dynamicBehavior:(_Bool)arg4;
@@ -69,6 +70,7 @@
 - (_Bool)providesPreciseDurationAndTiming;
 - (int)naturalTimeScale;
 @property(readonly, nonatomic) struct CGSize naturalSize;
+- (id)availableVideoDynamicRanges;
 - (struct CGSize)maximumVideoResolution;
 @property(readonly, nonatomic) struct CGAffineTransform preferredTransform;
 - (float)preferredSoundCheckVolumeNormalization;

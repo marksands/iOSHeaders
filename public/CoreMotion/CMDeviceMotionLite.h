@@ -13,33 +13,33 @@
 
 @interface CMDeviceMotionLite : NSObject <NSCopying, NSSecureCoding>
 {
-    CMAttitude *fAttitude;
-    CDStruct_31142d93 fGravity;
-    CDStruct_31142d93 fUserAcceleration;
-    CDStruct_31142d93 fRotationRate;
-    CDStruct_31142d93 fRawAcceleration;
-    CDStruct_31142d93 fRawRotationRate;
-    unsigned long long fMachTimestamp;
-    _Bool fUsingCompass;
-    float fGyroTemperature;
-    float fCompassTemperature;
-    CDStruct_31142d93 fRawMagneticField;
-    NSString *fPhysicalDeviceUniqueID;
+    _Bool _usingCompass;
+    float _gyroTemperature;
+    float _compassTemperature;
+    CMAttitude *_attitude;
+    NSString *_physicalDeviceUniqueID;
+    unsigned long long _machTimestamp;
+    CDStruct_31142d93 _gravity;
+    CDStruct_31142d93 _userAcceleration;
+    CDStruct_31142d93 _rotationRate;
+    CDStruct_31142d93 _rawAcceleration;
+    CDStruct_31142d93 _rawRotationRate;
+    CDStruct_31142d93 _rawMagneticField;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, nonatomic) CDStruct_31142d93 rawMagneticField; // @synthesize rawMagneticField=fRawMagneticField;
-@property(readonly, nonatomic) float compassTemperature; // @synthesize compassTemperature=fCompassTemperature;
-@property(readonly, nonatomic) float gyroTemperature; // @synthesize gyroTemperature=fGyroTemperature;
-@property(readonly, retain, nonatomic) NSString *physicalDeviceUniqueID; // @synthesize physicalDeviceUniqueID=fPhysicalDeviceUniqueID;
-@property(readonly, nonatomic, getter=isUsingCompass) _Bool usingCompass; // @synthesize usingCompass=fUsingCompass;
-@property(readonly, nonatomic) unsigned long long machTimestamp; // @synthesize machTimestamp=fMachTimestamp;
-@property(readonly, nonatomic) CDStruct_31142d93 rawRotationRate; // @synthesize rawRotationRate=fRawRotationRate;
-@property(readonly, nonatomic) CDStruct_31142d93 rawAcceleration; // @synthesize rawAcceleration=fRawAcceleration;
-@property(readonly, nonatomic) CDStruct_31142d93 rotationRate; // @synthesize rotationRate=fRotationRate;
-@property(readonly, nonatomic) CDStruct_31142d93 userAcceleration; // @synthesize userAcceleration=fUserAcceleration;
-@property(readonly, nonatomic) CDStruct_31142d93 gravity; // @synthesize gravity=fGravity;
-@property(readonly, nonatomic) CMAttitude *attitude; // @synthesize attitude=fAttitude;
+@property(readonly, nonatomic) CDStruct_31142d93 rawMagneticField; // @synthesize rawMagneticField=_rawMagneticField;
+@property(readonly, nonatomic) float compassTemperature; // @synthesize compassTemperature=_compassTemperature;
+@property(readonly, nonatomic) float gyroTemperature; // @synthesize gyroTemperature=_gyroTemperature;
+@property(readonly, nonatomic) unsigned long long machTimestamp; // @synthesize machTimestamp=_machTimestamp;
+@property(readonly, nonatomic) CDStruct_31142d93 rawRotationRate; // @synthesize rawRotationRate=_rawRotationRate;
+@property(readonly, nonatomic) CDStruct_31142d93 rawAcceleration; // @synthesize rawAcceleration=_rawAcceleration;
+@property(readonly, copy, nonatomic) NSString *physicalDeviceUniqueID; // @synthesize physicalDeviceUniqueID=_physicalDeviceUniqueID;
+@property(readonly, nonatomic, getter=isUsingCompass) _Bool usingCompass; // @synthesize usingCompass=_usingCompass;
+@property(readonly, nonatomic) CDStruct_31142d93 rotationRate; // @synthesize rotationRate=_rotationRate;
+@property(readonly, nonatomic) CMAttitude *attitude; // @synthesize attitude=_attitude;
+@property(readonly, nonatomic) CDStruct_31142d93 userAcceleration; // @synthesize userAcceleration=_userAcceleration;
+@property(readonly, nonatomic) CDStruct_31142d93 gravity; // @synthesize gravity=_gravity;
 @property(readonly, nonatomic) float tilt;
 @property(readonly, nonatomic) float tip;
 - (id)debugDescription;

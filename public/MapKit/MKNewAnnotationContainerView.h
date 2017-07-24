@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (void)_updateAddedAnnotationRotation:(id)arg1;
 - (void)updateAnnotationViewsForReason:(long long)arg1;
 - (void)updateAnnotationViewsWithDelay;
+- (void)_performStateUpdatesIfNeeded;
 - (void)_updateCollidableAnnotationViews;
 - (void)_updateClusterableAnnotationViews:(id)arg1 withID:(id)arg2;
 - (id)_existingClusterViewsForClusterID:(id)arg1;
@@ -35,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (void)_updateAnnotationView:(id)arg1;
 - (void)removeAnnotationView:(id)arg1;
 - (void)addAnnotationView:(id)arg1 allowAnimation:(_Bool)arg2;
+- (void)dealloc;
 
 @end
 

@@ -168,6 +168,7 @@
         unsigned int ignoresTemplateLayoutView:2;
         unsigned int needsContentsFormatUpdate:1;
         unsigned int accessibilityIgnoresInvertColors:1;
+        unsigned int ignoresLayerTransformForSafeAreaInsets:1;
         unsigned int allowsSimultaneousDragsToBegin:1;
     } _viewFlags;
     long long _layoutSubviewsCount;
@@ -340,8 +341,9 @@
 + (void)_performWithoutRetargetingAnimations:(CDUnknownBlockType)arg1;
 + (void)_animateByRetargetingAnimations:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 + (void)_animateUsingSpringWithDampingRatio:(double)arg1 response:(double)arg2 tracking:(_Bool)arg3 initialDampingRatio:(double)arg4 initialResponse:(double)arg5 dampingRatioSmoothing:(double)arg6 responseSmoothing:(double)arg7 targetSmoothing:(double)arg8 projectionDeceleration:(double)arg9 animations:(CDUnknownBlockType)arg10 completion:(CDUnknownBlockType)arg11;
++ (void)_animateUsingSpringWithDampingRatio:(double)arg1 response:(double)arg2 tracking:(_Bool)arg3 dampingRatioSmoothing:(double)arg4 responseSmoothing:(double)arg5 targetSmoothing:(double)arg6 projectionDeceleration:(double)arg7 retargetImpulse:(double)arg8 animations:(CDUnknownBlockType)arg9 completion:(CDUnknownBlockType)arg10;
 + (void)_animateUsingSpringWithDampingRatio:(double)arg1 response:(double)arg2 tracking:(_Bool)arg3 dampingRatioSmoothing:(double)arg4 responseSmoothing:(double)arg5 targetSmoothing:(double)arg6 projectionDeceleration:(double)arg7 animations:(CDUnknownBlockType)arg8 completion:(CDUnknownBlockType)arg9;
-+ (void)__animateUsingSpringWithDampingRatio:(double)arg1 response:(double)arg2 interactive:(_Bool)arg3 initialDampingRatio:(id)arg4 initialResponse:(id)arg5 dampingRatioSmoothing:(double)arg6 responseSmoothing:(double)arg7 targetSmoothing:(double)arg8 projectionDeceleration:(double)arg9 animations:(CDUnknownBlockType)arg10 completion:(CDUnknownBlockType)arg11;
++ (void)__animateUsingSpringWithDampingRatio:(double)arg1 response:(double)arg2 interactive:(_Bool)arg3 initialDampingRatio:(id)arg4 initialResponse:(id)arg5 dampingRatioSmoothing:(double)arg6 responseSmoothing:(double)arg7 targetSmoothing:(double)arg8 projectionDeceleration:(double)arg9 retargetImpulse:(double)arg10 animations:(CDUnknownBlockType)arg11 completion:(CDUnknownBlockType)arg12;
 + (void)_animateUsingSpringBehavior:(id)arg1 tracking:(_Bool)arg2 animations:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
 + (void)_animateUsingSpringWithTension:(double)arg1 friction:(double)arg2 interactive:(_Bool)arg3 animations:(CDUnknownBlockType)arg4 completion:(CDUnknownBlockType)arg5;
 + (void)_animateUsingSpringInteractive:(_Bool)arg1 animations:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
@@ -504,6 +506,7 @@
 - (void)_setTransform3D:(struct CATransform3D)arg1;
 @property(nonatomic) struct CGAffineTransform transform;
 - (void)_didChangeTransformProperty;
+- (struct CGRect)_frameIgnoringLayerTransform;
 - (void)_reestablishConstraintsForTransformChange;
 @property(nonatomic) struct CGPoint center;
 - (void)_updateCombinedInsetsIfNecessary;
@@ -620,6 +623,7 @@
 - (void)_invalidateAppearanceForSubviewsOfClass:(Class)arg1;
 - (void)_invalidateAppearance;
 - (_Bool)_fakeShouldAnimatePropertyWithKey:(id)arg1;
+- (_Bool)_shouldAnimatePropertyAdditivelyWithKey:(id)arg1;
 - (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 @property(readonly, nonatomic, getter=_safeAreaWidthExceedsReadableWidth) _Bool safeAreaWidthExceedsReadableWidth;
 - (void)_updateReadableContentGuideConstraintsIfNecessary;
@@ -630,13 +634,15 @@
 @property(nonatomic, setter=_setViewDelegateContentOverlayInsetsAreClean:) _Bool _viewDelegateContentOverlayInsetsAreClean;
 @property(nonatomic, getter=_safeAreaInsetsFrozen, setter=_setSafeAreaInsetsFrozen:) _Bool safeAreaInsetsFrozen;
 - (void)safeAreaInsetsDidChange;
-- (void)_noteSafeAreaInsetsDidChange;
+- (void)_safeAreaInsetsDidChangeFromOldInsets:(struct UIEdgeInsets)arg1;
 @property(readonly, nonatomic) UILayoutGuide *safeAreaLayoutGuide; // @synthesize safeAreaLayoutGuide=_safeAreaLayoutGuide;
 - (id)_safeAreaLayoutGuideIfExists;
 - (void)_updateSafeAreaLayoutGuideConstraintsIfNecessary;
 - (void)_updateSafeAreaInsets;
 - (struct UIEdgeInsets)_safeAreaInsetsForFrame:(struct CGRect)arg1 inSuperview:(id)arg2;
 - (struct UIEdgeInsets)_safeAreaInsetsInSuperview:(id)arg1;
+- (_Bool)_ignoresLayerTransformForSafeAreaInsets;
+- (void)_setIgnoresLayerTransformForSafeAreaInsets:(_Bool)arg1;
 - (unsigned long long)_edgesPropagatingSafeAreaInsetsToDescendants;
 - (_Bool)insetsLayoutMarginsFromSafeArea;
 - (void)setInsetsLayoutMarginsFromSafeArea:(_Bool)arg1;
@@ -889,6 +895,8 @@
 - (struct CGRect)visibleBounds;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)_setShouldRasterize:(_Bool)arg1;
+- (_Bool)_prefersDrawingWithForcedScaleFactorInClassicMode;
+- (double)_preferredContentScaleFactorForScreenScale:(double)arg1;
 - (void)setContentScaleFactor:(double)arg1;
 - (double)contentScaleFactor;
 - (void)_resetContentRect;

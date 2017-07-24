@@ -39,6 +39,7 @@
 @property(retain, nonatomic) NSMutableAttributedString *pendingBraille; // @synthesize pendingBraille=_pendingBraille;
 @property(nonatomic) struct _NSRange brailleFocus; // @synthesize brailleFocus=_brailleFocus;
 @property(readonly, nonatomic) struct _NSRange brailleSelection; // @synthesize brailleSelection=_brailleSelection;
+@property(nonatomic) _Bool isPadding; // @synthesize isPadding=_isPadding;
 @property(retain, nonatomic) NSMutableAttributedString *brailleString; // @synthesize brailleString=_brailleString;
 @property(retain, nonatomic) NSString *text; // @synthesize text=_text;
 @property(nonatomic) _Bool isEditableText; // @synthesize isEditableText=_isEditableText;

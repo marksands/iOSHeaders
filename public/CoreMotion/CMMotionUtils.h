@@ -13,6 +13,7 @@
 + (unsigned long long)copyDataFrom:(id)arg1 to:(id)arg2;
 + (id)fileHandleForWritingToURL:(id)arg1;
 + (id)getExecutablePathFromPid:(int)arg1;
++ (long long)isAuthorizedForEntitlement:(id)arg1;
 + (long long)authorizationStatus;
 + (_Bool)featureAvailability:(const char *)arg1;
 + (void)tccServiceMotionAccessWithBlock:(CDUnknownBlockType)arg1;

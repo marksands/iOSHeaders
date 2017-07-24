@@ -6,18 +6,10 @@
 
 #import <NotesUI/ICTableTextStorage.h>
 
-@class NSObject;
-@protocol TTMergeableStringDelegate;
-
 @interface ICTableCellTextStorage : ICTableTextStorage
 {
-    NSObject<TTMergeableStringDelegate> *_existingMergeableStringDelegate;
 }
 
-@property(readonly, nonatomic) __weak NSObject<TTMergeableStringDelegate> *existingMergeableStringDelegate; // @synthesize existingMergeableStringDelegate=_existingMergeableStringDelegate;
-- (void).cxx_destruct;
-- (void)edited:(unsigned long long)arg1 range:(struct _NSRange)arg2 changeInLength:(long long)arg3;
-- (void)resetDelegate;
 - (id)initWithDocument:(id)arg1;
 
 @end

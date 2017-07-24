@@ -6,21 +6,20 @@
 
 #import <objc/NSObject.h>
 
-@class NCNotificationAction, NSString;
+@class NSString;
 
 @interface _NCActionButtonDescription : NSObject
 {
     NSString *_selectorString;
-    NCNotificationAction *_notificationAction;
+    _Bool _defaultActionButton;
     NSString *_title;
 }
 
+@property(readonly, nonatomic, getter=isDefaultActionButton) _Bool defaultActionButton; // @synthesize defaultActionButton=_defaultActionButton;
 @property(readonly, copy, nonatomic) NSString *title; // @synthesize title=_title;
-@property(readonly, nonatomic) NCNotificationAction *notificationAction; // @synthesize notificationAction=_notificationAction;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) SEL selector;
-- (id)initWithTitle:(id)arg1 selector:(SEL)arg2;
-- (id)initWithNotificationAction:(id)arg1;
+- (id)initWithTitle:(id)arg1 selector:(SEL)arg2 defaultActionButton:(_Bool)arg3;
 
 @end
 

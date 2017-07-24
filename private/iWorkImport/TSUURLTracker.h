@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
 - (void)resume;
 - (void)pause;
 @property(readonly) NSData *bookmarkData;
-- (id)URLWithError:(id *)arg1;
+- (id)URLAndReturnError:(id *)arg1;
 @property(readonly) NSURL *URL;
 - (void)dealloc;
 - (id)initWithBookmarkData:(id)arg1 delegate:(id)arg2;

@@ -28,7 +28,6 @@
 - (id)imageRequestOptionsForAsset:(id)arg1 pixelSize:(inout struct CGSize *)arg2;
 - (void)configureGlobalFooterView:(id)arg1;
 - (void)configureSupplementaryView:(id)arg1 ofKind:(id)arg2 forIndexPath:(id)arg3 animated:(_Bool)arg4;
-- (_Bool)_hasScrollableContent;
 - (_Bool)wantsGlobalFooter;
 - (void)_configureCollectionViewGridLayout:(id)arg1;
 - (void)updateLayoutMetrics;

@@ -47,6 +47,7 @@
     NSDate *_startupDate;
 }
 
++ (id)UTIForExtension:(id)arg1;
 + (_Bool)isDaemonRunning;
 + (id)daemon;
 @property(nonatomic) _Bool doesNotHaveEnoughDiskSpaceToBeFunctional; // @synthesize doesNotHaveEnoughDiskSpaceToBeFunctional=_hasNotEnoughDiskSpaceToBeFunctional;

@@ -61,9 +61,11 @@
 @property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(copy, nonatomic) MPCPlayerPath *playerPath; // @synthesize playerPath=_playerPath;
 - (void).cxx_destruct;
+- (void)_updateTimeControlOnScreen;
 - (void)setRoutingView:(id)arg1;
 - (void)routingViewController:(id)arg1 willDisplayCell:(id)arg2;
 - (struct UIEdgeInsets)contentInsetsForRoutingViewController:(id)arg1;
+- (void)_mediaControlsPanelViewControllerReceivedInteraction:(id)arg1;
 - (void)willTransitionToSize:(struct CGSize)arg1 withCoordinator:(id)arg2;
 - (void)presentRatingActionSheet:(id)arg1;
 - (void)headerViewLaunchNowPlayingAppButtonPressed:(id)arg1;

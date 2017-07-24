@@ -6,18 +6,15 @@
 
 #import <ARKit/ARSessionConfiguration.h>
 
-@class NSArray, NSString;
+@class NSArray;
 
 @interface ARCustomTechniquesSessionConfiguration : ARSessionConfiguration
 {
-    NSString *_captureDeviceType;
     NSArray *_techniques;
 }
 
 @property(copy, nonatomic) NSArray *techniques; // @synthesize techniques=_techniques;
-@property(retain, nonatomic) NSString *captureDeviceType; // @synthesize captureDeviceType=_captureDeviceType;
 - (void).cxx_destruct;
-- (id)cameraDeviceType;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (void)ensureTechniqueAndCustomSensorCompatibility;

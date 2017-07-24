@@ -6,7 +6,7 @@
 
 #import <UIKit/UIDragInteractionDelegate-Protocol.h>
 
-@class UIDragInteraction, UIGestureRecognizer;
+@class UIDragInteraction, UIDragItem, UIGestureRecognizer, UIView;
 @protocol UIDragSession;
 
 @protocol UIDragInteractionDelegate_Private <UIDragInteractionDelegate>
@@ -19,5 +19,6 @@
 - (void)_dragInteraction:(UIDragInteraction *)arg1 liftAnimationDidChangeDirection:(long long)arg2;
 - (_Bool)_dragInteraction:(UIDragInteraction *)arg1 shouldCancelOnAppDeactivationWithDefault:(_Bool)arg2;
 - (_Bool)_dragInteractionAllowsDragOverridingMasterSwitch:(UIDragInteraction *)arg1;
+- (UIView *)_dragInteraction:(UIDragInteraction *)arg1 viewToSnapshotItem:(UIDragItem *)arg2;
 @end
 

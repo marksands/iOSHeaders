@@ -41,6 +41,8 @@
 @property(nonatomic, getter=_isCookieStoragePartitioningEnabled, setter=_setCookieStoragePartitioningEnabled:) _Bool _cookieStoragePartitioningEnabled;
 - (unsigned long long)_webProcessCount;
 - (void)_syncNetworkProcessCookies;
+- (int)_networkProcessIdentifier;
+- (void)_terminateNetworkProcess;
 - (void)_terminateDatabaseProcess;
 - (void)_setAutomationSession:(id)arg1;
 - (void)_automationCapabilitiesDidChange;

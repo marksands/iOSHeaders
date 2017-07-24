@@ -6,10 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class GEOAutomobileOptions, GEOComposedWaypoint, GEOLocation, GEOTransitOptions, GEOWalkingOptions, NSArray, NSDate;
+@class GEOAutomobileOptions, GEOComposedWaypoint, GEOLocation, GEOTransitOptions, GEOWalkingOptions, NSArray, NSDate, NSString;
 
 @interface GEOQuickETARequest : NSObject
 {
+    NSString *_requestingAppIdentifier;
     GEOComposedWaypoint *_sourceWaypoint;
     GEOComposedWaypoint *_destinationWaypoint;
     NSDate *_departureDate;
@@ -34,7 +35,9 @@
 @property(readonly, nonatomic) NSDate *departureDate; // @synthesize departureDate=_departureDate;
 @property(readonly, nonatomic) GEOComposedWaypoint *destinationWaypoint; // @synthesize destinationWaypoint=_destinationWaypoint;
 @property(readonly, nonatomic) GEOComposedWaypoint *sourceWaypoint; // @synthesize sourceWaypoint=_sourceWaypoint;
+@property(retain, nonatomic) NSString *requestingAppIdentifier; // @synthesize requestingAppIdentifier=_requestingAppIdentifier;
 - (void).cxx_destruct;
+- (id)_defaultRequestingAppIdentifier;
 - (id)description;
 - (id)initWithSource:(id)arg1 toDestination:(id)arg2 arrivalDate:(id)arg3 transportType:(int)arg4 currentLocation:(id)arg5 includeDistance:(_Bool)arg6 additionalTransportTypesRequested:(id)arg7 automobileOptions:(id)arg8 transitOptions:(id)arg9 walkingOptions:(id)arg10;
 - (id)initWithSource:(id)arg1 toDestination:(id)arg2 departureDate:(id)arg3 transportType:(int)arg4 currentLocation:(id)arg5 includeDistance:(_Bool)arg6 additionalTransportTypesRequested:(id)arg7 automobileOptions:(id)arg8 transitOptions:(id)arg9 walkingOptions:(id)arg10;

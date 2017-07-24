@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class FBSDisplayConfiguration, NSOrderedSet, UIImage;
+#import <SplashBoard/BSInvalidatable-Protocol.h>
 
-@interface XBDisplaySnapshot : NSObject
+@class FBSDisplayConfiguration, NSOrderedSet, NSString, UIImage;
+
+@interface XBDisplaySnapshot : NSObject <BSInvalidatable>
 {
     FBSDisplayConfiguration *_displayConfiguration;
     NSOrderedSet *_layers;
@@ -26,6 +28,7 @@
 @property(readonly, copy, nonatomic) NSOrderedSet *layers; // @synthesize layers=_layers;
 @property(readonly, nonatomic) FBSDisplayConfiguration *displayConfiguration; // @synthesize displayConfiguration=_displayConfiguration;
 - (void).cxx_destruct;
+- (void)invalidate;
 - (struct CGSize)_scaledSnapshotSize;
 - (double)_scale;
 - (void)_synchronizedCaptureWithCompletion:(CDUnknownBlockType)arg1;
@@ -37,6 +40,12 @@
 - (void)dealloc;
 - (id)initWithDisplayConfiguration:(id)arg1 layers:(id)arg2;
 - (id)initWithDisplayConfiguration:(id)arg1 layer:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

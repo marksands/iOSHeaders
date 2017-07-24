@@ -18,6 +18,7 @@
     UIImageView *_cloudIconView;
     UIImage *_icon;
     _Bool _isDemoted;
+    _Bool _infoLabelEnabled;
 }
 
 + (id)specifierForAppBundleURL:(id)arg1;

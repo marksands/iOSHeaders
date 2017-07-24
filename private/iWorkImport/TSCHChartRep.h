@@ -21,11 +21,13 @@ __attribute__((visibility("hidden")))
     long long mCurrentChunk;
     _Bool mBuildingFinalBackground;
     _Bool mBuildingFinalElements;
-    _Bool mChunkTexturesValid;
     _Bool mInZoom;
     unsigned long long mInDynamicStandinOperation;
     unsigned long long mInDynamicStandinLayoutOperation;
     _Bool mIsKPFExportForMultiData;
+    unsigned long long mTextureStage;
+    unsigned long long mTextureDeliveryStyle;
+    int mTextureByGlyphStyle;
     TSCHSelectionPath *mActiveTextEditingPath;
     TSCHRendererLayer *mLegendLayer;
     _Bool mForceSeparateLegendLayer;
@@ -55,11 +57,13 @@ __attribute__((visibility("hidden")))
 
 + (double)magicMoveAttributeMatchPercentBetweenOutgoingObject:(id)arg1 incomingObject:(id)arg2 mixingTypeContext:(id)arg3;
 @property(readonly, nonatomic) TSCHSearchSelection *selection; // @synthesize selection=_selection;
+@property(nonatomic) int textureByGlyphStyle; // @synthesize textureByGlyphStyle=mTextureByGlyphStyle;
+@property(nonatomic) unsigned long long textureDeliveryStyle; // @synthesize textureDeliveryStyle=mTextureDeliveryStyle;
+@property(nonatomic) unsigned long long textureStage; // @synthesize textureStage=mTextureStage;
 @property(readonly, nonatomic) _Bool is2DRepFor3DChartRep; // @synthesize is2DRepFor3DChartRep=mIs2DRepFor3DChartRep;
 @property(readonly, nonatomic) long long currentChunk; // @synthesize currentChunk=mCurrentChunk;
 @property(readonly, nonatomic) _Bool chartRepGoingAway; // @synthesize chartRepGoingAway=mChartRepGoingAway;
 @property(readonly, retain, nonatomic) TSCHSelectionPath *activeTextEditingPath; // @synthesize activeTextEditingPath=mActiveTextEditingPath;
-@property(nonatomic) _Bool chunkTexturesValid; // @synthesize chunkTexturesValid=mChunkTexturesValid;
 @property(readonly, nonatomic) _Bool drawingSearchReference; // @synthesize drawingSearchReference=mDrawingSearchReference;
 @property(retain, nonatomic) TSCHLegendMoveKnob *dynamicLegendKnob; // @synthesize dynamicLegendKnob=mDynamicLegendKnob;
 @property(nonatomic) _Bool forceSeparateLegendLayer; // @synthesize forceSeparateLegendLayer=mForceSeparateLegendLayer;
@@ -88,9 +92,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)renderReferenceLines;
 - (_Bool)renderGrid;
 - (_Bool)renderElements;
-- (id)textureForContext:(id)arg1;
-- (_Bool)shouldSetTextureStage:(unsigned long long)arg1;
-- (void)setTextureStage:(unsigned long long)arg1;
+- (id)p_textureForDescription:(id)arg1;
+- (id)textureForDescription:(id)arg1;
 - (void)protected_renderChunkInBounds:(struct CGRect)arg1 textureSet:(id)arg2;
 @property(readonly, nonatomic) unsigned long long chartDeliveryStyle;
 @property(readonly, nonatomic) NSString *animationFilter;
@@ -115,7 +118,6 @@ __attribute__((visibility("hidden")))
 - (void)p_checkFillPropertiesForDataListeningWithChangedProperties:(id)arg1;
 - (void)renderIntoContext:(struct CGContext *)arg1 visible:(struct CGRect)arg2;
 - (void)drawInContext:(struct CGContext *)arg1;
-- (_Bool)inPrintPreviewMode;
 - (struct CGPoint)scaledSubpixelOffsetFromLayerFrameInScaledCanvas;
 - (struct CGRect)frameInUnscaledCanvas;
 - (_Bool)frameInUnscaledCanvasNeedsPaddingForShadows;

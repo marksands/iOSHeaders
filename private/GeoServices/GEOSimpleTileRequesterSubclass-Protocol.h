@@ -12,11 +12,11 @@
 
 @optional
 - (_Bool)allowsCookies;
-- (_Bool)tileDataIsCacheableForTileKey:(struct _GEOTileKey *)arg1;
+- (_Bool)tileDataIsCacheableForTileKey:(const struct _GEOTileKey *)arg1;
 - (NSData *)mergeBaseTile:(NSData *)arg1 withLocalizationTile:(NSData *)arg2;
-- (unsigned int)tileEditionForKey:(struct _GEOTileKey *)arg1;
+- (unsigned int)tileEditionForKey:(const struct _GEOTileKey *)arg1;
 - (NSString *)editionHeader;
-- (NSObject<OS_xpc_object> *)newXPCDataRequestForTileKey:(struct _GEOTileKey *)arg1;
+- (NSObject<OS_xpc_object> *)newXPCDataRequestForTileKey:(const struct _GEOTileKey *)arg1;
 - (int)checksumMethodForIncomingTileDataWithKey:(const struct _GEOTileKey *)arg1;
 - (GEOURLWithHeaders *)localizationURLForTileKey:(const struct _GEOTileKey *)arg1;
 @end

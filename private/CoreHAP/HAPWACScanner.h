@@ -25,6 +25,8 @@
 - (void).cxx_destruct;
 - (void)__runRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)__nextRequest;
+- (void)__stopScanRequests;
+- (void)stopScanRequests;
 - (void)cancelRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)__pendingRequestWithUUID:(id)arg1;
 - (void)addRequest:(id)arg1;

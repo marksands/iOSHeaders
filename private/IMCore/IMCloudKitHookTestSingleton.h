@@ -6,28 +6,36 @@
 
 #import <IMSharedUtilities/IMSingletonOverride.h>
 
-@class NSArray, NSDate, NSDictionary;
+@class IMCloudKitMockSyncState, NSArray, NSDate, NSDictionary;
 
 @interface IMCloudKitHookTestSingleton : IMSingletonOverride
 {
-    _Bool _enabled;
-    _Bool _syncing;
-    _Bool _eligibleForTruthZone;
-    _Bool _rampedIntoTruthZone;
-    NSDate *_lastSyncDate;
-    NSDictionary *_syncStats;
+    IMCloudKitMockSyncState *_testState;
+    _Bool _isStartingSync;
+    _Bool _isDisablingDevices;
     NSArray *_lastSyncErrors;
+    long long _isChangingEnabledState;
+    NSDictionary *_syncStats;
 }
 
-@property(retain, nonatomic) NSArray *lastSyncErrors; // @synthesize lastSyncErrors=_lastSyncErrors;
-@property(nonatomic) _Bool rampedIntoTruthZone; // @synthesize rampedIntoTruthZone=_rampedIntoTruthZone;
-@property(nonatomic) _Bool eligibleForTruthZone; // @synthesize eligibleForTruthZone=_eligibleForTruthZone;
 @property(retain, nonatomic) NSDictionary *syncStats; // @synthesize syncStats=_syncStats;
-@property(retain, nonatomic) NSDate *lastSyncDate; // @synthesize lastSyncDate=_lastSyncDate;
-@property(nonatomic, getter=isSyncing) _Bool syncing; // @synthesize syncing=_syncing;
-@property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
+@property(nonatomic) _Bool isDisablingDevices; // @synthesize isDisablingDevices=_isDisablingDevices;
+@property(nonatomic) _Bool isStartingSync; // @synthesize isStartingSync=_isStartingSync;
+@property(nonatomic) long long isChangingEnabledState; // @synthesize isChangingEnabledState=_isChangingEnabledState;
+@property(retain, nonatomic) NSArray *lastSyncErrors; // @synthesize lastSyncErrors=_lastSyncErrors;
+@property(retain, nonatomic) IMCloudKitMockSyncState *testState; // @synthesize testState=_testState;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned long long controllerSyncType;
+@property(nonatomic) unsigned long long controllerSyncState;
+- (void)setIsInExitState:(_Bool)arg1;
+- (_Bool)isInExitState;
+- (id)syncStateDictionary;
+@property(retain, nonatomic) NSDate *lastSyncDate;
 - (void)initiatePeriodicSync;
+@property(nonatomic, getter=isSyncing) _Bool syncing;
+@property(nonatomic) _Bool eligibleForTruthZone;
+@property(nonatomic) _Bool rampedIntoTruthZone;
+@property(nonatomic, getter=isEnabled) _Bool enabled;
 - (void)sendSyncChangedEvent;
 - (void)fetchSyncStateStatistics;
 - (id)init;

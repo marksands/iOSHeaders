@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (struct CGPoint)p_baseWrappablePoint;
+- (void).cxx_destruct;
 - (unsigned int)p_splitLine:(struct CGRect)arg1 lineSegmentRects:(struct CGRect [128])arg2 wrappable:(id)arg3 cookie:(id)arg4 skipHint:(double *)arg5;
 - (void)stopAnimation;
 - (void)toggleWrapAnimation;

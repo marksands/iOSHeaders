@@ -31,7 +31,6 @@
 + (id)geometryElementWithData:(id)arg1 primitiveType:(long long)arg2 primitiveCount:(long long)arg3 indicesChannelCount:(long long)arg4 interleavedIndicesChannels:(_Bool)arg5 bytesPerIndex:(long long)arg6;
 +     // Error parsing type: @24@0:8^{__C3DMeshElement={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}II^{__C3DMeshElement}CCC{?=c^{__CFData}I^I{?=qq}CB}fff^v^{__C3DMeshSource}[2]^{?}I}16, name: geometryElementWithMeshElementRef:
 + (id)geometryElementWithMDLSubmesh:(id)arg1;
-- (id)_renderableElementCopy;
 - (double)_computeACMR;
 - (void)_optimizeTriangleIndices;
 - (id)initWithCoder:(id)arg1;

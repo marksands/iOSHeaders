@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSMutableArray, PXPeoplePagingSuggestionProvider, PXSuggestionToken;
+@class NSArray, NSMutableSet, PXPeoplePagingSuggestionProvider, PXSuggestionToken;
 @protocol PXPeopleSuggestionManagerDataSource, PXPeopleSuggestionManagerDelegate, PXPerson;
 
 @interface PXPeopleSuggestionManager : NSObject
@@ -20,20 +20,20 @@
     id <PXPerson> _person;
     unsigned long long _userConfirmationsCount;
     unsigned long long _autoConfirmationsCount;
-    NSMutableArray *_skippedSuggestions;
+    NSMutableSet *_skippedSuggestions;
     PXSuggestionToken *_suggestionToken;
     PXPeoplePagingSuggestionProvider *_suggestionProvider;
-    NSMutableArray *_confirmedSuggestions;
-    NSMutableArray *_rejectedSuggestions;
+    NSMutableSet *_confirmedSuggestions;
+    NSMutableSet *_rejectedSuggestions;
 }
 
-@property(retain, nonatomic) NSMutableArray *rejectedSuggestions; // @synthesize rejectedSuggestions=_rejectedSuggestions;
-@property(retain, nonatomic) NSMutableArray *confirmedSuggestions; // @synthesize confirmedSuggestions=_confirmedSuggestions;
+@property(retain, nonatomic) NSMutableSet *rejectedSuggestions; // @synthesize rejectedSuggestions=_rejectedSuggestions;
+@property(retain, nonatomic) NSMutableSet *confirmedSuggestions; // @synthesize confirmedSuggestions=_confirmedSuggestions;
 @property(retain, nonatomic) PXPeoplePagingSuggestionProvider *suggestionProvider; // @synthesize suggestionProvider=_suggestionProvider;
 @property(nonatomic) unsigned int confirmNoSoundID; // @synthesize confirmNoSoundID=_confirmNoSoundID;
 @property(nonatomic) unsigned int confirmYesSoundID; // @synthesize confirmYesSoundID=_confirmYesSoundID;
 @property(retain, nonatomic) PXSuggestionToken *suggestionToken; // @synthesize suggestionToken=_suggestionToken;
-@property(retain, nonatomic) NSMutableArray *skippedSuggestions; // @synthesize skippedSuggestions=_skippedSuggestions;
+@property(retain, nonatomic) NSMutableSet *skippedSuggestions; // @synthesize skippedSuggestions=_skippedSuggestions;
 @property(nonatomic) _Bool didReachEnd; // @synthesize didReachEnd=_didReachEnd;
 @property(nonatomic) unsigned long long autoConfirmationsCount; // @synthesize autoConfirmationsCount=_autoConfirmationsCount;
 @property(nonatomic) unsigned long long userConfirmationsCount; // @synthesize userConfirmationsCount=_userConfirmationsCount;

@@ -22,6 +22,7 @@
 @property __weak DEDController *delegate; // @synthesize delegate=_delegate;
 @property __weak DEDIDSConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;
+- (void)did_cancel_session:(id)arg1 service:(id)arg2 account:(id)arg3 fromID:(id)arg4 context:(id)arg5;
 - (void)cancel_session:(id)arg1 service:(id)arg2 account:(id)arg3 fromID:(id)arg4 context:(id)arg5;
 - (void)did_commit_session:(id)arg1 service:(id)arg2 account:(id)arg3 fromID:(id)arg4 context:(id)arg5;
 - (void)commit_session:(id)arg1 service:(id)arg2 account:(id)arg3 fromID:(id)arg4 context:(id)arg5;

@@ -19,6 +19,7 @@
 @property(copy, nonatomic) NSData *requestData; // @dynamic requestData;
 @property(nonatomic) long long quantity; // @dynamic quantity;
 @property(copy, nonatomic) NSString *productIdentifier; // @dynamic productIdentifier;
+@property(nonatomic) _Bool isStoreOriginated; // @dynamic isStoreOriginated;
 @property(copy, nonatomic) NSString *applicationUsername; // @dynamic applicationUsername;
 
 @end

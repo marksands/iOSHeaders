@@ -9,10 +9,12 @@
 __attribute__((visibility("hidden")))
 @interface TSCETableTransposedInfo : NSObject
 {
+    struct TSCERangeCoordinate _transposedBodyRange;
     unsigned short _numberOfFooterRows;
 }
 
 @property(nonatomic) unsigned short numberOfFooterRows; // @synthesize numberOfFooterRows=_numberOfFooterRows;
+@property(nonatomic) struct TSCERangeCoordinate transposedBodyRange; // @synthesize transposedBodyRange=_transposedBodyRange;
 
 @end
 

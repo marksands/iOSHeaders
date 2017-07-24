@@ -25,7 +25,8 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
-- (id)cacheableObjects;
+- (void)_intents_updateContainerWithCache:(id)arg1;
+- (id)_intents_cacheableObjects;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

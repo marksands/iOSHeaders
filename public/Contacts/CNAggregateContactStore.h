@@ -40,7 +40,7 @@ __attribute__((visibility("hidden")))
 - (id)groupsMatchingPredicate:(id)arg1 error:(id *)arg2;
 - (_Bool)enumerateNonUnifiedContactsWithFetchRequest:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (_Bool)enumerateContactsAndMatchInfoWithFetchRequest:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
-- (id)meContactIdentifierWithError:(id *)arg1;
+- (id)meContactIdentifiers:(id *)arg1;
 - (id)_unifiedMeContactWithKeysToFetch:(id)arg1 error:(id *)arg2;
 - (id)unifiedContactsMatchingPredicate:(id)arg1 keysToFetch:(id)arg2 error:(id *)arg3;
 - (id)unifiedContactCountWithError:(id *)arg1;

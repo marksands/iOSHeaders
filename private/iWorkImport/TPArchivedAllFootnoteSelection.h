@@ -17,8 +17,8 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) TPAllFootnoteSelection *selection; // @synthesize selection=_selection;
+- (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1;
-- (void)dealloc;
 - (void)loadFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;
 

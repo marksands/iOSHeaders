@@ -9,6 +9,8 @@
 @class NSMutableDictionary, NSString;
 
 @protocol CLIntersiloServiceMockProtocol <CLIntersiloServiceProtocol>
+- (NSMutableDictionary *)syncgetPayloadForKey:(NSString *)arg1;
+- (NSMutableDictionary *)syncgetPayloadForSelector:(SEL)arg1;
 - (void)removePayloadForKey:(NSString *)arg1;
 - (void)removePayloadForSelector:(SEL)arg1;
 - (void)setPayload:(NSMutableDictionary *)arg1 forKey:(NSString *)arg2;

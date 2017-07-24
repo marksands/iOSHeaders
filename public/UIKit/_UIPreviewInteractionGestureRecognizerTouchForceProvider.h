@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)locationInCoordinateSpace:(id)arg1;
 @property(readonly, nonatomic) double touchForce;
 - (void)dealloc;
-- (id)initWithView:(id)arg1;
+- (id)initWithView:(id)arg1 configuration:(CDUnknownBlockType)arg2;
 - (id)initWithGestureRecognizer:(id)arg1;
 
 // Remaining properties

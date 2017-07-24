@@ -19,6 +19,7 @@
 + (id)_remoteViewControllerInterface;
 @property(readonly, nonatomic, getter=_browserUserInterfaceStyle) unsigned long long browserUserInterfaceStyle; // @synthesize browserUserInterfaceStyle=_browserUserInterfaceStyle;
 - (void)_browserUserInterfaceStyleDidChange;
+- (void)prepareForAuthentication;
 - (void)prepareForError:(id)arg1;
 - (void)prepareAuthenticationUsingURL:(id)arg1;
 - (void)prepareForServerCreation;
@@ -29,6 +30,7 @@
 - (void)_prepareAuthenticationUsingURL:(id)arg1;
 - (void)_prepareForServerCreation;
 - (void)_prepareForActionWithIdentifier:(id)arg1 items:(id)arg2;
+- (_Bool)_extensionImplementsSelector:(SEL)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) FPUIActionExtensionContext *extensionContext; // @dynamic extensionContext;

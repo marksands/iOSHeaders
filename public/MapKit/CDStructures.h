@@ -12,25 +12,6 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
-struct CATransform3D {
-    double _field1;
-    double _field2;
-    double _field3;
-    double _field4;
-    double _field5;
-    double _field6;
-    double _field7;
-    double _field8;
-    double _field9;
-    double _field10;
-    double _field11;
-    double _field12;
-    double _field13;
-    double _field14;
-    double _field15;
-    double _field16;
-};
-
 struct CGAffineTransform {
     double a;
     double b;
@@ -133,6 +114,10 @@ struct __list_node_base<geo::detail::_CacheItem<geo::_retain_ptr<_MKPinAnnotatio
     struct __list_node_base<geo::detail::_CacheItem<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, NSDictionary *, _value_ptr>, void *> *__next_;
 };
 
+struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
+    struct __tree_node_base<void *> *_field1;
+};
+
 struct __va_list_tag {
     unsigned int _field1;
     unsigned int _field2;
@@ -160,6 +145,18 @@ struct list<geo::detail::_CacheItem<geo::_retain_ptr<_MKPinAnnotationViewImageCa
     struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<geo::detail::_CacheItem<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, NSDictionary *, _value_ptr>, void *>>> {
         unsigned long long __first_;
     } __size_alloc_;
+};
+
+struct multimap<unsigned int, std::__1::vector<URS::RouteShare, std::__1::allocator<URS::RouteShare>>, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, std::__1::vector<URS::RouteShare, std::__1::allocator<URS::RouteShare>>>>> {
+    struct __tree<std::__1::__value_type<unsigned int, std::__1::vector<URS::RouteShare, std::__1::allocator<URS::RouteShare>>>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, std::__1::vector<URS::RouteShare, std::__1::allocator<URS::RouteShare>>>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, std::__1::vector<URS::RouteShare, std::__1::allocator<URS::RouteShare>>>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, std::__1::vector<URS::RouteShare, std::__1::allocator<URS::RouteShare>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, std::__1::vector<URS::RouteShare, std::__1::allocator<URS::RouteShare>>>, std::__1::less<unsigned int>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
 };
 
 struct mutex {
@@ -227,16 +224,6 @@ struct vector<MKAnnotationView *, std::__1::allocator<MKAnnotationView *>> {
     struct __compressed_pair<MKAnnotationView **, std::__1::allocator<MKAnnotationView *>> {
         id *__first_;
     } __end_cap_;
-};
-
-struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>;
-
-struct vector<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>, std::__1::allocator<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>>> {
-    struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> *_field1;
-    struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> *_field2;
-    struct __compressed_pair<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>*, std::__1::allocator<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>>> {
-        struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> *_field1;
-    } _field3;
 };
 
 #pragma mark Typedef'd Structures
@@ -354,11 +341,15 @@ typedef struct {
     double height;
 } CDStruct_8caa76fc;
 
-typedef struct vector<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>, std::__1::allocator<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>>> {
-    struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> *_field1;
-    struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> *_field2;
-    struct __compressed_pair<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>*, std::__1::allocator<std::__1::vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>>>> {
-        struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> *_field1;
-    } _field3;
-} vector_e1d6d9eb;
+typedef struct multimap<unsigned int, std::__1::vector<URS::RouteShare, std::__1::allocator<URS::RouteShare>>, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, std::__1::vector<URS::RouteShare, std::__1::allocator<URS::RouteShare>>>>> {
+    struct __tree<std::__1::__value_type<unsigned int, std::__1::vector<URS::RouteShare, std::__1::allocator<URS::RouteShare>>>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, std::__1::vector<URS::RouteShare, std::__1::allocator<URS::RouteShare>>>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, std::__1::vector<URS::RouteShare, std::__1::allocator<URS::RouteShare>>>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, std::__1::vector<URS::RouteShare, std::__1::allocator<URS::RouteShare>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, std::__1::vector<URS::RouteShare, std::__1::allocator<URS::RouteShare>>>, std::__1::less<unsigned int>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+} multimap_e5545ed7;
 

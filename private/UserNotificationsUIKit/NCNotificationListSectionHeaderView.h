@@ -15,6 +15,7 @@
 {
     _Bool _shouldOverrideForReveal;
     id <NCNotificationListSectionHeaderViewDelegate> _delegate;
+    NSString *_backgroundGroupName;
     double _overrideAlpha;
     SBUILegibilityLabel *_titleLabel;
     NCNotificationListClearButton *_clearButton;
@@ -31,6 +32,7 @@
 @property(nonatomic) struct CGPoint overrideCenter; // @synthesize overrideCenter=_overrideCenter;
 @property(nonatomic) double overrideAlpha; // @synthesize overrideAlpha=_overrideAlpha;
 @property(nonatomic) _Bool shouldOverrideForReveal; // @synthesize shouldOverrideForReveal=_shouldOverrideForReveal;
+@property(copy, nonatomic) NSString *backgroundGroupName; // @synthesize backgroundGroupName=_backgroundGroupName;
 @property(nonatomic) __weak id <NCNotificationListSectionHeaderViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_resetRevealOverrides;

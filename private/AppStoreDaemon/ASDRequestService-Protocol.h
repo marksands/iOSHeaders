@@ -9,5 +9,6 @@
 
 @protocol ASDRequestService
 - (void)submitRequest:(ASDRequest *)arg1 delegate:(id <ASDRequestDelegate>)arg2 withReplyHandler:(void (^)(id <ASDRequestProxy>, NSError *))arg3;
+- (void)cancelAllRequestsWithErrorHandler:(void (^)(NSError *))arg1;
 @end
 

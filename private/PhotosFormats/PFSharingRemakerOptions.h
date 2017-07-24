@@ -17,8 +17,12 @@
     _Bool _shouldConvertToSRGB;
     NSString *_customAccessibilityLabel;
     NSURL *_outputDirectoryURL;
+    NSString *_outputFilename;
+    NSString *_exportPreset;
 }
 
+@property(copy, nonatomic) NSString *exportPreset; // @synthesize exportPreset=_exportPreset;
+@property(copy, nonatomic) NSString *outputFilename; // @synthesize outputFilename=_outputFilename;
 @property(copy, nonatomic) NSURL *outputDirectoryURL; // @synthesize outputDirectoryURL=_outputDirectoryURL;
 @property(copy, nonatomic) NSString *customAccessibilityLabel; // @synthesize customAccessibilityLabel=_customAccessibilityLabel;
 @property(nonatomic) _Bool shouldConvertToSRGB; // @synthesize shouldConvertToSRGB=_shouldConvertToSRGB;

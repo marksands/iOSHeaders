@@ -12,6 +12,7 @@
 }
 
 + (id)colorSpaceFromColorPrimaries:(id)arg1 transferFunction:(id)arg2 yccMatrix:(id)arg3;
++ (id)colorSpaceFromVideoColorProperties:(id)arg1;
 + (id)workingColorSpace;
 + (id)displayP3LinearColorSpace;
 + (id)displayP3ColorSpace;

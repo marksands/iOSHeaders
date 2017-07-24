@@ -17,6 +17,7 @@
     CDUnknownBlockType _responseHandler;
 }
 
++ (id)_urlStringForKey:(id)arg1 inBag:(id)arg2;
 + (id)_stringRepresentationForHTTPMethod:(long long)arg1;
 + (id)_stringRepresentationForHTTPBodyType:(long long)arg1;
 @property(copy, nonatomic) CDUnknownBlockType responseHandler; // @synthesize responseHandler=_responseHandler;

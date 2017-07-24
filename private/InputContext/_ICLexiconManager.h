@@ -8,7 +8,7 @@
 
 #import <InputContext/_ICLexiconManaging-Protocol.h>
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSMutableOrderedSet, _ICTransientLexicon;
+@class NSMutableArray, NSMutableDictionary, _ICNamedEntityStore;
 @protocol OS_dispatch_queue, _ICLexiconSourcing;
 
 @interface _ICLexiconManager : NSObject <_ICLexiconManaging>
@@ -17,19 +17,13 @@
     id <_ICLexiconSourcing> _lexiconSource;
     NSMutableDictionary *_contacts;
     NSMutableArray *_contactObservers;
-    NSMutableOrderedSet *_recentNamedEntityQueue;
-    NSMutableOrderedSet *_recentTokenizedNamedEntityQueue;
-    _ICTransientLexicon *_namedEntityLexicon;
-    _ICTransientLexicon *_untokenizedNamedEntityLexicon;
-    NSArray *_lexicons;
-    CDUnknownBlockType _filteringBlock;
+    _ICNamedEntityStore *_namedEntityStore;
+    int _contactChangeCount;
     int _contactLoadState;
     int _namedEntityLoadState;
 }
 
 + (unsigned long long)countWords:(id)arg1;
-+ (int)tokenizeAndAddToLexicon:(id)arg1 namedEntity:(id)arg2 withQueue:(id)arg3 withQueueSize:(unsigned long long)arg4 withFilteringBlock:(CDUnknownBlockType)arg5;
-+ (void)addToLexicon:(id)arg1 namedEntity:(id)arg2 withQueue:(id)arg3 withQueueSize:(unsigned long long)arg4 withFilteringBlock:(CDUnknownBlockType)arg5;
 @property int namedEntityLoadState; // @synthesize namedEntityLoadState=_namedEntityLoadState;
 @property int contactLoadState; // @synthesize contactLoadState=_contactLoadState;
 - (void).cxx_destruct;

@@ -9,7 +9,7 @@
 #import <NewsCore/NSCopying-Protocol.h>
 #import <NewsCore/NSSecureCoding-Protocol.h>
 
-@class NTPBPersonalizationTreatment;
+@class NSDictionary, NTPBPersonalizationTreatment;
 
 @interface FCPersonalizationTreatment : NSObject <NSSecureCoding, NSCopying>
 {
@@ -65,6 +65,7 @@
     double _globalScoreCoefficientHalfLife;
     double _globalScoreCoefficientInitialMultiplier;
     double _realTimeUserFeedbackCoefficient;
+    NSDictionary *_realTimeUserFeedbackTagCoefficients;
     double _globalScoreToCtrSlope;
     double _globalScoreToCtrIntercept;
     double _baselineArticleScore;
@@ -243,6 +244,9 @@
     double _tagAutoFavoritedCoeffIPad;
     double _tagGroupableCoeffIPad;
     double _tagSpecificityCoeffIPad;
+    double _maxExpandedAutofavoriteGroupCandidateRatio;
+    double _expandedAutofavoriteClusterMinSizeMultiplier;
+    double _expandedAutofavoriteClusterMaxSizeMultiplier;
     double _optionalTagSpecificityScore;
     double _searchTimeLimit;
     unsigned long long _publisherDiversityMinPublisherCount;
@@ -257,6 +261,7 @@
     double _autoGroupableFactor;
     double _autoFavoriteTagFavorabilityExponent;
     double _autoFavoritePriorFactorExponent;
+    double _autoFavoriteMaxIdleTime;
     double _safariSignalWeight;
     double _safariTimeDecayMultiplier;
     double _safariOccurrenceDecayMultiplier;
@@ -286,9 +291,11 @@
     double _metaGroupingTopicScoreWeight;
     double _metaGroupingHighestScoringRelativeScoreMultiplier;
     double _metaGroupingSubscribedTopicMultiplier;
+    long long _auditionedAutoFavoritesEmitterLimit;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) long long auditionedAutoFavoritesEmitterLimit; // @synthesize auditionedAutoFavoritesEmitterLimit=_auditionedAutoFavoritesEmitterLimit;
 @property(readonly, nonatomic) double metaGroupingSubscribedTopicMultiplier; // @synthesize metaGroupingSubscribedTopicMultiplier=_metaGroupingSubscribedTopicMultiplier;
 @property(readonly, nonatomic) double metaGroupingHighestScoringRelativeScoreMultiplier; // @synthesize metaGroupingHighestScoringRelativeScoreMultiplier=_metaGroupingHighestScoringRelativeScoreMultiplier;
 @property(readonly, nonatomic) double metaGroupingTopicScoreWeight; // @synthesize metaGroupingTopicScoreWeight=_metaGroupingTopicScoreWeight;
@@ -320,6 +327,7 @@
 @property(readonly, nonatomic) double safariOccurrenceDecayMultiplier; // @synthesize safariOccurrenceDecayMultiplier=_safariOccurrenceDecayMultiplier;
 @property(readonly, nonatomic) double safariTimeDecayMultiplier; // @synthesize safariTimeDecayMultiplier=_safariTimeDecayMultiplier;
 @property(readonly, nonatomic) double safariSignalWeight; // @synthesize safariSignalWeight=_safariSignalWeight;
+@property(readonly, nonatomic) double autoFavoriteMaxIdleTime; // @synthesize autoFavoriteMaxIdleTime=_autoFavoriteMaxIdleTime;
 @property(readonly, nonatomic) double autoFavoritePriorFactorExponent; // @synthesize autoFavoritePriorFactorExponent=_autoFavoritePriorFactorExponent;
 @property(readonly, nonatomic) double autoFavoriteTagFavorabilityExponent; // @synthesize autoFavoriteTagFavorabilityExponent=_autoFavoriteTagFavorabilityExponent;
 @property(readonly, nonatomic) double autoGroupableFactor; // @synthesize autoGroupableFactor=_autoGroupableFactor;
@@ -334,6 +342,9 @@
 @property(readonly, nonatomic) unsigned long long publisherDiversityMinPublisherCount; // @synthesize publisherDiversityMinPublisherCount=_publisherDiversityMinPublisherCount;
 @property(readonly, nonatomic) double searchTimeLimit; // @synthesize searchTimeLimit=_searchTimeLimit;
 @property(readonly, nonatomic) double optionalTagSpecificityScore; // @synthesize optionalTagSpecificityScore=_optionalTagSpecificityScore;
+@property(readonly, nonatomic) double expandedAutofavoriteClusterMaxSizeMultiplier; // @synthesize expandedAutofavoriteClusterMaxSizeMultiplier=_expandedAutofavoriteClusterMaxSizeMultiplier;
+@property(readonly, nonatomic) double expandedAutofavoriteClusterMinSizeMultiplier; // @synthesize expandedAutofavoriteClusterMinSizeMultiplier=_expandedAutofavoriteClusterMinSizeMultiplier;
+@property(readonly, nonatomic) double maxExpandedAutofavoriteGroupCandidateRatio; // @synthesize maxExpandedAutofavoriteGroupCandidateRatio=_maxExpandedAutofavoriteGroupCandidateRatio;
 @property(readonly, nonatomic) double tagSpecificityCoeffIPad; // @synthesize tagSpecificityCoeffIPad=_tagSpecificityCoeffIPad;
 @property(readonly, nonatomic) double tagGroupableCoeffIPad; // @synthesize tagGroupableCoeffIPad=_tagGroupableCoeffIPad;
 @property(readonly, nonatomic) double tagAutoFavoritedCoeffIPad; // @synthesize tagAutoFavoritedCoeffIPad=_tagAutoFavoritedCoeffIPad;
@@ -515,6 +526,7 @@
 @property(readonly, nonatomic) double baselineArticleScore; // @synthesize baselineArticleScore=_baselineArticleScore;
 @property(readonly, nonatomic) double globalScoreToCtrIntercept; // @synthesize globalScoreToCtrIntercept=_globalScoreToCtrIntercept;
 @property(readonly, nonatomic) double globalScoreToCtrSlope; // @synthesize globalScoreToCtrSlope=_globalScoreToCtrSlope;
+@property(readonly, nonatomic) NSDictionary *realTimeUserFeedbackTagCoefficients; // @synthesize realTimeUserFeedbackTagCoefficients=_realTimeUserFeedbackTagCoefficients;
 @property(readonly, nonatomic) double realTimeUserFeedbackCoefficient; // @synthesize realTimeUserFeedbackCoefficient=_realTimeUserFeedbackCoefficient;
 @property(readonly, nonatomic) double globalScoreCoefficientInitialMultiplier; // @synthesize globalScoreCoefficientInitialMultiplier=_globalScoreCoefficientInitialMultiplier;
 @property(readonly, nonatomic) double globalScoreCoefficientHalfLife; // @synthesize globalScoreCoefficientHalfLife=_globalScoreCoefficientHalfLife;

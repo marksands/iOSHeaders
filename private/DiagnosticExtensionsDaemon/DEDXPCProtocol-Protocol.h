@@ -23,6 +23,7 @@
 - (void)ping;
 
 @optional
+- (void)didCancelSession:(NSString *)arg1;
 - (void)cancelSession:(NSString *)arg1;
 - (void)didCommitSession:(NSString *)arg1;
 - (void)commitSession:(NSString *)arg1;

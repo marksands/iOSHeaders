@@ -18,6 +18,7 @@
 
 + (void)EnableAnnotationKit;
 - (void).cxx_destruct;
+- (struct CGRect)extendedRootViewBounds;
 - (_Bool)flipsTileContents;
 - (struct CGRect)convertRootViewRect:(struct CGRect)arg1 toPageLayer:(id)arg2;
 - (struct CGRect)convertRectToRootView:(struct CGRect)arg1 fromPageLayer:(id)arg2;
@@ -49,6 +50,7 @@
 - (double)defaultGutterWidth;
 - (double)gutterWidth;
 - (void)setGutterWidth:(double)arg1;
+- (_Bool)isOverWidgetAnnotation:(struct CGPoint)arg1;
 - (_Bool)isOverLinkAnnotation:(struct CGPoint)arg1;
 - (_Bool)PDFKitHandleBackTabInTextWidget:(id)arg1;
 - (_Bool)PDFKitHandleTabInTextWidget:(id)arg1;
@@ -61,6 +63,7 @@
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
 - (void)setNeedsDisplay;
 - (void)_forceTileRefresh;
+- (void)setEnableTileUpdates:(_Bool)arg1;
 - (void)enableTextSelectionHandles;
 - (void)clearTextSelectionHandles;
 - (void)setLollipopMagnifierPage:(id)arg1 forPagePoint:(struct CGPoint)arg2;
@@ -119,6 +122,7 @@
 - (void)documentDidBeginWrite:(id)arg1;
 - (void)scrollViewSaysPageMayHaveChanged:(id)arg1;
 - (id)determineCurrentPage;
+- (void)_syncPageIndexToScrollView;
 - (void)syncPageIndexToScrollView;
 - (void)reflectNewPageOn;
 - (void)selfDidResize:(id)arg1;
@@ -128,12 +132,14 @@
 - (unsigned long long)lastPageIndex;
 - (_Bool)doPeriodicFlush;
 - (void)setDoPeriodicFlush:(_Bool)arg1;
+- (double)_unboundAutoScaleFactorForPageWithSize:(struct CGSize)arg1;
 - (double)_unboundAutoScaleFactorForPage:(id)arg1;
+- (double)autoScaleFactorForPageWithSize:(struct CGSize)arg1;
 - (double)autoScaleFactorForPage:(id)arg1;
 - (double)pageViewHeight:(id)arg1;
 - (struct CGRect)normalizedPageBounds:(id)arg1;
 - (id)PDFLayout;
-- (id)_api_dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
+- (id)dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
 - (id)dragInteraction:(id)arg1 itemsForAddingToSession:(id)arg2 withTouchAtPoint:(struct CGPoint)arg3;
 - (void)showTextSelectionMenuIfPossible;
 - (void)dragInteraction:(id)arg1 session:(id)arg2 didEndWithOperation:(unsigned long long)arg3;
@@ -142,6 +148,7 @@
 - (id)_dragItemsAtLocationInView:(struct CGPoint)arg1;
 - (_Bool)_hasDraggableSelectionAtLocation:(struct CGPoint)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
+- (_Bool)shouldAcceptTouch:(id)arg1 ofGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)gestureInit;
 - (_Bool)canBecomeFirstResponder;
@@ -240,6 +247,7 @@
 @property(readonly, nonatomic) _Bool canGoToFirstPage;
 - (void)_releaseDocument;
 - (void)setDocument:(id)arg1 waitDuration:(double)arg2;
+- (void)setDocument:(id)arg1 withInitialPageIndex:(unsigned long long)arg2;
 @property(retain, nonatomic) PDFDocument *document;
 
 // Remaining properties

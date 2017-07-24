@@ -11,8 +11,8 @@
 @protocol SearchUIFeedbackDelegate <SFFeedbackListener>
 
 @optional
+- (void)cardSectionViewDidSelectPreferredPunchoutIndex:(long long)arg1;
 - (void)cardSectionViewDidInvalidateSize:(UIView *)arg1;
-- (_Bool)didHandleCardSectionEngagement:(SFCardSectionEngagementFeedback *)arg1;
 - (void)updateViewControllerTitle:(NSString *)arg1;
 - (void)presentViewController:(UIViewController *)arg1;
 - (void)cardSectionViewDidInvalidateSize:(UIView *)arg1 animate:(_Bool)arg2;

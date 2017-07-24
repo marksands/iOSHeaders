@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy, nonatomic) NSString *numberFormat; // @synthesize numberFormat=_numberFormat;
 @property(readonly, nonatomic) unsigned long long pageNumber; // @synthesize pageNumber=_pageNumber;
 @property(readonly, nonatomic) unsigned long long paragraphIndex; // @synthesize paragraphIndex=_paragraphIndex;
+- (void).cxx_destruct;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct TOCEntryInstanceArchive *)arg1 archiver:(id)arg2;
@@ -41,7 +42,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)copyWithContext:(id)arg1;
-- (void)dealloc;
 - (id)initWithParagraphIndex:(unsigned long long)arg1 pageNumber:(unsigned long long)arg2 numberFormat:(id)arg3 heading:(id)arg4 indexedStyle:(id)arg5 indexedListStyle:(id)arg6 indexedListStart:(unsigned long long)arg7 indexedParagraphLevel:(unsigned long long)arg8;
 
 @end

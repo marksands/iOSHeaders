@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long progressIndicatorStyle; // @synthesize progressIndicatorStyle=_progressIndicatorStyle;
 @property(readonly, nonatomic) id <UIDragSession> localDragSession; // @synthesize localDragSession=_localDragSession;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) long long _dataOwner;
 @property(readonly, nonatomic, getter=_allowsItemsToUpdate) _Bool _allowsItemsToUpdate;
 - (void)_itemsNeedUpdate:(id)arg1;
 - (id)_createItemsOfClass:(Class)arg1 synchronouslyIfPossible:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;

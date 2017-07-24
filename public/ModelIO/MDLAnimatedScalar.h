@@ -10,8 +10,8 @@
 {
 }
 
-- (unsigned long long)copyDoubleArrayInto:(double *)arg1 maxCount:(unsigned long long)arg2;
-- (unsigned long long)copyFloatArrayInto:(float *)arg1 maxCount:(unsigned long long)arg2;
+- (unsigned long long)getDoubleArray:(double *)arg1 maxCount:(unsigned long long)arg2;
+- (unsigned long long)getFloatArray:(float *)arg1 maxCount:(unsigned long long)arg2;
 - (void)resetWithDoubleArray:(const double *)arg1 atTimes:(const double *)arg2 count:(unsigned long long)arg3;
 - (void)resetWithFloatArray:(const float *)arg1 atTimes:(const double *)arg2 count:(unsigned long long)arg3;
 - (double)doubleAtTime:(double)arg1;
@@ -22,7 +22,6 @@
 - (struct VtValue)defaultVtValue;
 - (unsigned long long)precision;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithName:(id)arg1;
 
 @end
 

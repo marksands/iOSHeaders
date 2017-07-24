@@ -80,6 +80,7 @@
 - (void)setExpectedSequenceNumber:(long long)arg1 forSyncEntityClass:(Class)arg2;
 - (long long)expectedSequenceNumberForSyncEntityClass:(Class)arg1;
 - (_Bool)shouldEnforceSequenceOrdering;
+- (_Bool)shouldContinueAfterAnchorValidationError:(id)arg1;
 - (_Bool)_savePairingEntity;
 @property(retain, nonatomic) NSUUID *persistentUUID;
 @property(retain, nonatomic) NSUUID *healthUUID;

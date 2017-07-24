@@ -24,7 +24,6 @@
     EKCalendarDate *_originalOccurrenceStartDate;
     EKCalendarDate *_originalOccurrenceEndDate;
     NSNumber *_originalOccurrenceIsAllDay;
-    EKStructuredLocation *_travelStartLocation;
 }
 
 + (id)generateUniqueIDWithEvent:(id)arg1 originalEvent:(id)arg2 calendar:(id)arg3;
@@ -34,7 +33,6 @@
 + (id)knownRelationshipSingleValueKeys;
 + (Class)frozenClass;
 + (id)_locationStringForLocations:(id)arg1;
-@property(retain, nonatomic) EKStructuredLocation *travelStartLocation; // @synthesize travelStartLocation=_travelStartLocation;
 @property(nonatomic) _Bool requiresDetachDueToSnoozedAlarm; // @synthesize requiresDetachDueToSnoozedAlarm=_requiresDetachDueToSnoozedAlarm;
 @property(copy, nonatomic) NSNumber *originalOccurrenceIsAllDay; // @synthesize originalOccurrenceIsAllDay=_originalOccurrenceIsAllDay;
 @property(copy, nonatomic) EKCalendarDate *originalOccurrenceEndDate; // @synthesize originalOccurrenceEndDate=_originalOccurrenceEndDate;
@@ -167,7 +165,7 @@
 - (_Bool)allowsAttendeesModifications;
 @property(readonly, nonatomic) long long travelRoutingMode;
 @property(retain, nonatomic) NSDate *proposedStartDate;
-- (id)actualProposedStartDate;
+- (_Bool)isProposedTimeEvent;
 @property(nonatomic) double travelTime;
 @property(readonly, nonatomic) NSDate *startDateIncludingTravel;
 - (id)_travelTimeInternalDescription;
@@ -253,6 +251,7 @@
 @property(readonly, nonatomic) EKEventStore *eventStore;
 @property(readonly, nonatomic) EKParticipant *organizer; // @dynamic organizer;
 @property(readonly) Class superclass;
+@property(retain, nonatomic) EKStructuredLocation *travelStartLocation; // @dynamic travelStartLocation;
 
 @end
 

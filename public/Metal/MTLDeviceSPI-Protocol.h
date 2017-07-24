@@ -7,7 +7,7 @@
 #import <Metal/MTLDevice-Protocol.h>
 
 @class MTLCommandQueueDescriptor, MTLComputePipelineDescriptor, MTLStructType, MTLTextureDescriptor, NSArray, NSData, NSObject, NSString, _MTLIndirectArgumentBufferLayout;
-@protocol MTLArgumentEncoder, MTLCommandQueue, MTLComputePipelineState, MTLDeviceSPI, MTLFunction, MTLIndirectArgumentEncoder, MTLPipelineLibrarySPI, MTLTexture, MTLTextureLayout, OS_dispatch_data;
+@protocol MTLArgumentEncoder, MTLCommandQueue, MTLComputePipelineState, MTLDeviceSPI, MTLFunction, MTLIndirectArgumentEncoder, MTLLibrary, MTLPipelineLibrarySPI, MTLTexture, MTLTextureLayout, OS_dispatch_data;
 
 @protocol MTLDeviceSPI <MTLDevice>
 + (void)registerDevices;
@@ -92,6 +92,8 @@
 - (NSData *)endCollectingPipelineDescriptors;
 - (void)startCollectingPipelineDescriptors;
 - (id <MTLPipelineLibrarySPI>)newPipelineLibraryWithFilePath:(NSString *)arg1 error:(id *)arg2;
+- (id <MTLLibrary>)newLibraryWithCIFiltersForComputePipeline:(NSArray *)arg1 imageFilterFunctionInfo:(const CDStruct_dbc1e4aa *)arg2 error:(id *)arg3;
+- (id <MTLLibrary>)newLibraryWithCIFilters:(NSArray *)arg1 imageFilterFunctionInfo:(const CDStruct_dbc1e4aa *)arg2 error:(id *)arg3;
 - (id <MTLComputePipelineState>)newComputePipelineStateWithImageFilterFunctionsSPI:(NSArray *)arg1 imageFilterFunctionInfo:(const CDStruct_dbc1e4aa *)arg2 error:(id *)arg3;
 - (id <MTLIndirectArgumentEncoder>)newIndirectArgumentEncoderWithArguments:(NSArray *)arg1;
 - (void *)getShaderCacheKeys;

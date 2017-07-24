@@ -9,6 +9,7 @@
 @class NSError, NSString, NSURL, QLItemViewController;
 
 @protocol QLPreviewItemViewControllerDelegate <NSObject>
+- (long long)dragDataOwnerForPreviewItemViewController:(QLItemViewController *)arg1;
 - (void)previewItemViewController:(QLItemViewController *)arg1 hasUnsavedEdits:(_Bool)arg2;
 - (void)previewItemViewControllerDidEditPreview:(QLItemViewController *)arg1 completionHandler:(void (^)(void))arg2;
 - (void)previewItemViewController:(QLItemViewController *)arg1 didEnableEditMode:(_Bool)arg2;

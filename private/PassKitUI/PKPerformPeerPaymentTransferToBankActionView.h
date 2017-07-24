@@ -7,16 +7,15 @@
 #import <UIKit/UIView.h>
 
 #import <PassKitUI/PKEnterCurrencyAmountViewDelegate-Protocol.h>
-#import <PassKitUI/PKNumberPadSuggestionsViewDelegate-Protocol.h>
 #import <PassKitUI/PKPeerPaymentAddBankAcountInformationViewControllerDelegate-Protocol.h>
 #import <PassKitUI/PKPeerPaymentPerformActionView-Protocol.h>
 #import <PassKitUI/UITableViewDataSource-Protocol.h>
 #import <PassKitUI/UITableViewDelegate-Protocol.h>
 
-@class NSDecimalNumber, NSNumberFormatter, NSString, PKContinuousButton, PKEnterCurrencyAmountView, PKEnterValueNewBalanceView, PKNumberPadSuggestionsView, PKNumericSuggestionsEnterValueAlgorithm, PKPeerPaymentAccount, PKPeerPaymentBankAccountInformation, PKPeerPaymentService, UILabel, UITableView, UITextField;
+@class NSDecimalNumber, NSNumberFormatter, NSString, PKContinuousButton, PKEnterCurrencyAmountView, PKEnterValueNewBalanceView, PKPeerPaymentAccount, PKPeerPaymentBankAccountInformation, PKPeerPaymentService, UILabel, UITableView, UITextField;
 @protocol PKPerformActionViewDelegate;
 
-@interface PKPerformPeerPaymentTransferToBankActionView : UIView <PKEnterCurrencyAmountViewDelegate, PKNumberPadSuggestionsViewDelegate, PKPeerPaymentAddBankAcountInformationViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, PKPeerPaymentPerformActionView>
+@interface PKPerformPeerPaymentTransferToBankActionView : UIView <PKEnterCurrencyAmountViewDelegate, PKPeerPaymentAddBankAcountInformationViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, PKPeerPaymentPerformActionView>
 {
     PKPeerPaymentBankAccountInformation *_bankInformation;
     PKPeerPaymentService *_peerPaymentService;
@@ -24,10 +23,8 @@
     id <PKPerformActionViewDelegate> _delegate;
     NSDecimalNumber *_currentAmount;
     NSNumberFormatter *_currentAmountFormatter;
-    PKNumericSuggestionsEnterValueAlgorithm *_suggestionGenerator;
     PKEnterCurrencyAmountView *_enterCurrencyAmountView;
     PKEnterValueNewBalanceView *_newBalanceView;
-    PKNumberPadSuggestionsView *_suggestionView;
     PKContinuousButton *_addAccountButton;
     UILabel *_addAccountDetailLabel;
     UITableView *_tableView;
@@ -56,7 +53,6 @@
 - (void)_addAccountInformation:(id)arg1;
 - (void)_presentViewController:(id)arg1;
 - (void)_setRightBarButtonEnabledState;
-- (void)numberPadSuggestionsView:(id)arg1 didSelectSuggestion:(id)arg2;
 - (void)enterCurrencyAmountViewDidChangeAmount:(id)arg1;
 - (_Bool)enterCurrencyAmountView:(id)arg1 shouldChangeAmountFrom:(id)arg2 to:(id)arg3;
 - (void)amountTextFieldShouldAcceptTouches:(_Bool)arg1;

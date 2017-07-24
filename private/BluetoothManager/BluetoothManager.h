@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
-@class BluetoothDevice, NSMutableDictionary;
+@class NSMutableDictionary;
 
 @interface BluetoothManager : NSObject
 {
@@ -19,7 +19,6 @@
     _Bool _scanningEnabled;
     _Bool _scanningInProgress;
     unsigned int _scanningServiceMask;
-    BluetoothDevice *_mruAudioDevice;
     struct BTDiscoveryAgentImpl *_discoveryAgent;
     struct BTPairingAgentImpl *_pairingAgent;
     struct BTAccessoryManagerImpl *_accessoryManager;
@@ -31,20 +30,19 @@
 + (int)lastInitError;
 + (id)sharedInstance;
 + (void)setSharedInstanceQueue:(id)arg1;
-@property(nonatomic) _Bool blacklistEnabled; // @synthesize blacklistEnabled=_blacklistEnabled;
 - (void)enableTestMode;
 - (struct BTDeviceImpl *)deviceFromIdentifier:(id)arg1;
 - (_Bool)isServiceSupported:(unsigned int)arg1;
+- (id)alwaysConnectedDeviceNames;
 - (void)_updateBluetoothState;
 - (void)bluetoothStateActionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)bluetoothStateAction;
 - (int)bluetoothState;
 - (void)endVoiceCommand:(id)arg1;
 - (void)startVoiceCommand:(id)arg1;
-- (void)setMruAudioDevice:(id)arg1;
-- (_Bool)mruAudioDevice;
 - (void)setAudioConnected:(_Bool)arg1;
 - (_Bool)audioConnected;
+@property(nonatomic) _Bool blacklistEnabled; // @synthesize blacklistEnabled=_blacklistEnabled;
 - (void)_connectabilityChanged;
 - (void)_connectedStatusChanged;
 - (_Bool)connected;
@@ -52,6 +50,7 @@
 - (id)connectingDevices;
 - (void)setConnectable:(_Bool)arg1;
 - (_Bool)connectable;
+- (void)disconnectDevicePhysicalLink:(id)arg1;
 - (void)disconnectDevice:(id)arg1;
 - (void)connectDevice:(id)arg1;
 - (void)connectDevice:(id)arg1 withServices:(unsigned int)arg2;

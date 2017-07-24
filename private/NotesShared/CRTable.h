@@ -46,8 +46,8 @@
 - (void)undoablyInsertContents:(id)arg1 atRow:(id)arg2;
 - (void)undoablyRemoveContentsOfRow:(id)arg1;
 - (void)removeRowAtIndex:(unsigned long long)arg1;
-- (void)insertColumns:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;
-- (void)insertRows:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;
+- (id)insertColumns:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;
+- (id)insertRows:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;
 - (id)insertColumnAtIndex:(unsigned long long)arg1;
 - (id)insertRowAtIndex:(unsigned long long)arg1;
 - (_Bool)containsColumn:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import <HomeKitDaemon/NSObject-Protocol.h>
 
-@class HAPAccessoryServer, HMDAccessoryBrowser, HMDMediaEndpoint, HMFOSTransaction, NSArray, NSError, NSNumber, NSString;
+@class HAPAccessoryServer, HMDAccessoryAdvertisement, HMDAccessoryBrowser, HMDMediaEndpoint, HMFOSTransaction, NSArray, NSError, NSNumber, NSString;
 
 @protocol HMDAccessoryBrowserDelegate <NSObject>
 
@@ -29,5 +29,7 @@
 - (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 didRemoveAccessoryServer:(HAPAccessoryServer *)arg2 error:(NSError *)arg3;
 - (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 didTombstoneAccessoryServer:(HAPAccessoryServer *)arg2;
 - (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 didFindAccessoryServer:(HAPAccessoryServer *)arg2 stateChanged:(_Bool)arg3 stateNumber:(NSNumber *)arg4 completion:(void (^)(_Bool))arg5;
+- (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 didRemoveAccessoryAdvertisement:(HMDAccessoryAdvertisement *)arg2;
+- (void)accessoryBrowser:(HMDAccessoryBrowser *)arg1 didAddAccessoryAdvertisement:(HMDAccessoryAdvertisement *)arg2;
 @end
 

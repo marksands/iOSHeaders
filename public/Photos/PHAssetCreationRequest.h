@@ -8,7 +8,7 @@
 
 #import <Photos/PHInsertChangeRequest-Protocol.h>
 
-@class NSDictionary, NSManagedObjectID, NSMutableArray, NSMutableDictionary, NSString, PHAssetCreationPhotoStreamPublishingRequest, PHAssetResourceBag;
+@class NSDictionary, NSManagedObjectID, NSMutableArray, NSMutableDictionary, NSString, PHAssetCreationPhotoStreamPublishingRequest, PHAssetResourceBag, PHChangeRequestHelper;
 
 @interface PHAssetCreationRequest : PHAssetChangeRequest <PHInsertChangeRequest>
 {
@@ -83,6 +83,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) PHChangeRequestHelper *helper;
 @property(readonly, nonatomic) NSString *managedEntityName;
 @property(readonly, nonatomic) NSManagedObjectID *objectID;
 @property(readonly) Class superclass;

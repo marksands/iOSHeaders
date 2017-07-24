@@ -92,6 +92,8 @@
 - (void)setProperty:(id)arg1 forKey:(id)arg2;
 - (id)propertyForKey:(id)arg1;
 - (id)init;
+- (_Bool)versionLabelEnabled;
+- (void)setVersionLabelEnabled:(_Bool)arg1;
 
 @end
 

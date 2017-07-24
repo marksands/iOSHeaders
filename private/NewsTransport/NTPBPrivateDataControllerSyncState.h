@@ -12,12 +12,15 @@
 
 @interface NTPBPrivateDataControllerSyncState : PBCodable <NSCopying>
 {
+    unsigned long long _version;
     NSMutableArray *_recordStates;
     NSMutableArray *_zoneStates;
+    CDStruct_f20694ce _has;
 }
 
 + (Class)recordStatesType;
 + (Class)zoneStatesType;
+@property(nonatomic) unsigned long long version; // @synthesize version=_version;
 @property(retain, nonatomic) NSMutableArray *recordStates; // @synthesize recordStates=_recordStates;
 @property(retain, nonatomic) NSMutableArray *zoneStates; // @synthesize zoneStates=_zoneStates;
 - (void)mergeFrom:(id)arg1;
@@ -28,6 +31,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasVersion;
 - (id)recordStatesAtIndex:(unsigned long long)arg1;
 - (unsigned long long)recordStatesCount;
 - (void)addRecordStates:(id)arg1;

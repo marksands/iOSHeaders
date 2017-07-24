@@ -18,6 +18,7 @@
 - (void)pongSession:(NSString *)arg1;
 
 @optional
+- (void)didCancelSession:(NSString *)arg1;
 - (long long)transportType;
 @end
 

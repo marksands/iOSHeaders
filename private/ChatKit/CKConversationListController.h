@@ -32,6 +32,7 @@
     _Bool _isShowingSwipeDeleteConfirmation;
     CKConversationList *_conversationList;
     CKMessagesController *_messagesController;
+    CKCloudKitSyncProgressViewController *_syncProgressViewController;
     UIBarButtonItem *_currentEditButtonItem;
     CKScheduledUpdater *_updater;
     UIView *_noMessagesDialogView;
@@ -46,10 +47,8 @@
     UISearchController *_searchController;
     CKConversationSearchResultsController *_searchResultsController;
     CDUnknownBlockType _searchCompletion;
-    CKCloudKitSyncProgressViewController *_syncProgressViewController;
 }
 
-@property(retain, nonatomic) CKCloudKitSyncProgressViewController *syncProgressViewController; // @synthesize syncProgressViewController=_syncProgressViewController;
 @property(copy, nonatomic) CDUnknownBlockType searchCompletion; // @synthesize searchCompletion=_searchCompletion;
 @property(retain, nonatomic) CKConversationSearchResultsController *searchResultsController; // @synthesize searchResultsController=_searchResultsController;
 @property(retain, nonatomic) UISearchController *searchController; // @synthesize searchController=_searchController;
@@ -72,7 +71,6 @@
 - (void)cloudKitSyncProgressViewController:(id)arg1 actionButtonWasPressed:(long long)arg2 errors:(id)arg3;
 - (void)cloudKitSyncProgressViewControllerDidChangeVisibility:(id)arg1;
 - (void)_updateSyncProgressIfNeeded;
-- (_Bool)_toolbarContainsCustomView:(id)arg1;
 @property(readonly, nonatomic) _Bool shouldShowPendingCell;
 - (void)selectConversationClosestToDeletedIndex:(unsigned long long)arg1;
 - (void)selectNextSequentialConversation:(_Bool)arg1;
@@ -144,6 +142,7 @@
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
+@property(readonly, nonatomic) CKCloudKitSyncProgressViewController *syncProgressViewController; // @synthesize syncProgressViewController=_syncProgressViewController;
 - (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)loadView;

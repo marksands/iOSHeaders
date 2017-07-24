@@ -8,7 +8,7 @@
 
 #import <UIKit/UIDocumentBrowserViewControllerPrivateDelegate-Protocol.h>
 
-@class NSString, NSURL;
+@class NSArray, NSString;
 @protocol UIDocumentPickerDelegate;
 
 @interface UIDocumentPickerViewController : UIViewController <UIDocumentBrowserViewControllerPrivateDelegate>
@@ -20,11 +20,11 @@
     id <UIDocumentPickerDelegate> _delegate;
     unsigned long long _documentPickerMode;
     UIViewController *_childViewController;
-    NSURL *_uploadURL;
+    NSArray *_uploadURLs;
 }
 
 @property(nonatomic, getter=_sourceIsManaged, setter=_setSourceIsManaged:) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
-@property(copy, nonatomic) NSURL *uploadURL; // @synthesize uploadURL=_uploadURL;
+@property(copy, nonatomic) NSArray *uploadURLs; // @synthesize uploadURLs=_uploadURLs;
 @property(retain, nonatomic, getter=_childViewController, setter=_setChildViewController:) UIViewController *childViewController; // @synthesize childViewController=_childViewController;
 @property(nonatomic) _Bool allowsMultipleSelection; // @synthesize allowsMultipleSelection=_allowsMultipleSelection;
 @property(nonatomic) unsigned long long documentPickerMode; // @synthesize documentPickerMode=_documentPickerMode;
@@ -37,9 +37,11 @@
 - (void)dealloc;
 - (void)_commonInitWithDocumentTypes:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)documentManagerWasCancelled:(id)arg1;
 - (void)documentBrowser:(id)arg1 didPickDocumentURLs:(id)arg2;
 - (id)_initWithViewController:(id)arg1 inMode:(unsigned long long)arg2 uploadURLOrNil:(id)arg3;
 - (id)_initIgnoringApplicationEntitlementForImportOfTypes:(id)arg1;
+- (id)initWithURLs:(id)arg1 inMode:(unsigned long long)arg2;
 - (id)initWithURL:(id)arg1 inMode:(unsigned long long)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDocumentTypes:(id)arg1 inMode:(unsigned long long)arg2;

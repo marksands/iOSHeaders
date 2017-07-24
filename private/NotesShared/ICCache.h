@@ -14,6 +14,8 @@
     NSObject<OS_dispatch_source> *_memoryWarningEventSource;
 }
 
++ (void)purgeAllCaches;
++ (id)cacheCollection;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *memoryWarningEventSource; // @synthesize memoryWarningEventSource=_memoryWarningEventSource;
 - (void).cxx_destruct;
 - (void)receivedMemoryWarning;

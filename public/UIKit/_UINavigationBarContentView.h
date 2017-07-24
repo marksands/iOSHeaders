@@ -68,7 +68,8 @@ __attribute__((visibility("hidden")))
 - (void)titleViewChangedStandardDisplayItems:(id)arg1;
 - (void)titleViewChangedHeight:(id)arg1;
 - (void)titleViewChangedUnderlayContent:(id)arg1;
-- (id)contentOverlayRectsForTitleView:(id)arg1;
+- (void)titleView:(id)arg1 needsUpdatedContentOverlayRects:(id)arg2;
+- (struct CGRect)_overlayRectForView:(id)arg1 inTargetView:(id)arg2;
 - (void)_appearanceChanged;
 @property(nonatomic) double backButtonMargin;
 - (void)setBackIndicatorImage:(id)arg1;

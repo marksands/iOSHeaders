@@ -8,25 +8,21 @@
 
 #import <Search/NSSecureCoding-Protocol.h>
 
-@class CNContact, NSString;
+@class NSString;
 
 @interface SPSearchEntity : NSObject <NSSecureCoding>
 {
-    CNContact *_contact;
-    NSString *_contactIdentifier;
 }
 
-+ (id)contactStore;
++ (id)allocWithZone:(struct _NSZone *)arg1;
 + (_Bool)supportsSecureCoding;
-@property(retain) NSString *contactIdentifier; // @synthesize contactIdentifier=_contactIdentifier;
-- (void).cxx_destruct;
-- (id)contact;
-@property(readonly) NSString *queryString;
-- (void)appendToQuery:(id)arg1 key:(id)arg2 value:(id)arg3 additions:(id)arg4;
+- (id)initWithContactIdentifier:(id)arg1;
+- (id)initWithQueryString:(id)arg1 tokenText:(id)arg2;
 @property(readonly) NSString *tokenText;
+@property(readonly) NSString *queryString;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithContactIdentifier:(id)arg1;
+@property(readonly) _Bool isPeopleSearch;
 
 @end
 

@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _index;
     _Bool _active;
     unsigned long long _arrayLength;
-    MTLType *_dataTypeDescription;
+    MTLType *_typeInfo;
 }
 
 - (unsigned long long)arrayLength;
@@ -45,10 +45,6 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithName:(id)arg1 type:(unsigned long long)arg2 access:(unsigned long long)arg3 index:(unsigned long long)arg4 active:(_Bool)arg5 arrayLength:(unsigned long long)arg6 typeDescription:(id)arg7;
 - (id)initWithName:(id)arg1 type:(unsigned long long)arg2 access:(unsigned long long)arg3 index:(unsigned long long)arg4 active:(_Bool)arg5 arrayLength:(unsigned long long)arg6;
-
-// Remaining properties
-@property(readonly) unsigned long long bufferALUType; // @dynamic bufferALUType;
-@property(readonly) unsigned long long bufferPixelFormat; // @dynamic bufferPixelFormat;
 
 @end
 

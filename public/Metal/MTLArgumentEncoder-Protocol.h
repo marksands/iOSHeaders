@@ -10,6 +10,7 @@
 @protocol MTLBuffer, MTLDevice, MTLSamplerState, MTLTexture;
 
 @protocol MTLArgumentEncoder <NSObject>
+@property(readonly) unsigned long long alignment;
 @property(readonly) unsigned long long encodedLength;
 @property(copy) NSString *label;
 @property(readonly) id <MTLDevice> device;
@@ -22,8 +23,5 @@
 - (void)setBuffer:(id <MTLBuffer>)arg1 offset:(unsigned long long)arg2 atIndex:(unsigned long long)arg3;
 - (void)setArgumentBuffer:(id <MTLBuffer>)arg1 startOffset:(unsigned long long)arg2 arrayElement:(unsigned long long)arg3;
 - (void)setArgumentBuffer:(id <MTLBuffer>)arg1 offset:(unsigned long long)arg2;
-
-@optional
-@property(readonly) unsigned long long alignment;
 @end
 

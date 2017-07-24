@@ -10,6 +10,7 @@
 @protocol TPMasterDrawableProvider, TSWPHeaderFooterProvider;
 
 @protocol TPPageLayoutInfoProvider <NSObject>
+- (NSString *)displayPageNumberForPageIndex:(unsigned long long)arg1;
 - (NSString *)displayPageNumberForCharIndex:(unsigned long long)arg1;
 - (_Bool)shouldHeaderFooterBeVisibleForPageIndex:(unsigned long long)arg1;
 - (int)contentFlagsForPageIndex:(unsigned long long)arg1;

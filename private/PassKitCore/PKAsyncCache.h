@@ -19,7 +19,6 @@
 
 - (void).cxx_destruct;
 - (void)_executeRetrievalBlock:(CDUnknownBlockType)arg1 forKey:(id)arg2;
-- (void)_queue_executeDeliveryBlocksForKey:(id)arg1 withItem:(id)arg2;
 - (void)retrieveItemForKey:(id)arg1 retrievalBlock:(CDUnknownBlockType)arg2 deliveryBlock:(CDUnknownBlockType)arg3;
 - (id)initWithCache:(id)arg1;
 - (id)init;

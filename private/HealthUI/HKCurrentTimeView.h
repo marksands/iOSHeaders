@@ -25,6 +25,7 @@
 @property(nonatomic) __weak id <HKCurrentTimeViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSString *currentTimeString; // @synthesize currentTimeString=_currentTimeString;
 - (void).cxx_destruct;
+- (void)_handleContentSizeCategoryDidChange;
 - (double)_backgroundAlpha:(_Bool)arg1;
 - (double)_foregroundAlpha:(_Bool)arg1;
 - (id)_backgroundColor:(_Bool)arg1;

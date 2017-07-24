@@ -55,6 +55,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)textViewShouldBeginEditing:(id)arg1;
 - (id)_scaleFont:(id)arg1 forString:(id)arg2 withBounds:(struct CGRect)arg3;
 - (void)_addPDFAnnotationTextWidget:(id)arg1;
+- (void)setupGestureRecognizersForPDFPageViewController:(id)arg1;
 - (struct CGPoint)convertPointToPageView:(struct CGPoint)arg1;
 - (struct CGRect)convertRectToPageView:(struct CGRect)arg1;
 - (void)_setuppageAnnotationEffects;

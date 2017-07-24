@@ -24,10 +24,12 @@
 - (void).cxx_destruct;
 - (struct CGSize)_constrainedSizeForDesiredSize:(struct CGSize)arg1;
 - (void)queryRepresentedPropertiesWithCompletion:(CDUnknownBlockType)arg1;
+- (void)viewWasCancelled;
 - (void)configureForParameters:(id)arg1 ofInteraction:(id)arg2 interactiveBehavior:(unsigned long long)arg3 context:(unsigned long long)arg4 completion:(CDUnknownBlockType)arg5;
 - (id)_errorHandlingRemoteViewControllerProxy;
 - (void)viewWillLayoutSubviews;
 - (void)addChildViewController:(id)arg1;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

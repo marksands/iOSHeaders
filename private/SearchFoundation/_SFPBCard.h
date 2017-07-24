@@ -13,7 +13,8 @@
 
 @interface _SFPBCard : PBCodable <_SFPBCard, NSSecureCoding>
 {
-    CDStruct_79b01e37 _has;
+    CDStruct_db075487 _has;
+    _Bool _flexibleSectionOrder;
     int _type;
     int _source;
     NSString *_title;
@@ -32,6 +33,7 @@
     NSString *_fbr;
 }
 
+@property(nonatomic) _Bool flexibleSectionOrder; // @synthesize flexibleSectionOrder=_flexibleSectionOrder;
 @property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
 @property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
 @property(copy, nonatomic) NSString *resultIdentifier; // @synthesize resultIdentifier=_resultIdentifier;
@@ -57,6 +59,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasFlexibleSectionOrder;
 @property(readonly, nonatomic) _Bool hasFbr;
 @property(readonly, nonatomic) _Bool hasQueryId;
 @property(readonly, nonatomic) _Bool hasResultIdentifier;

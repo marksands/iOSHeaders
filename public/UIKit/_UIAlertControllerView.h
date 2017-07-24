@@ -200,6 +200,7 @@ __attribute__((visibility("hidden")))
 - (void)_updateActionViewVisualStyle:(id)arg1;
 - (void)_updateContentView;
 - (void)_updateInsets;
+- (void)safeAreaInsetsDidChange;
 - (void)_updateLabelProperties;
 - (void)_updateLabelTextColor;
 - (void)_updateLabelFontSizes;

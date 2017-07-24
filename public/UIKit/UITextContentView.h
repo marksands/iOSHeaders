@@ -6,8 +6,8 @@
 
 #import <UIKit/UIView.h>
 
-#import <UIKit/UIDragInteractionDelegate-Protocol.h>
-#import <UIKit/UIDropInteractionDelegate-Protocol.h>
+#import <UIKit/UIDragInteractionDelegate_Private-Protocol.h>
+#import <UIKit/UIDropInteractionDelegate_Private-Protocol.h>
 #import <UIKit/UITextInput-Protocol.h>
 #import <UIKit/UITextInputTraits-Protocol.h>
 #import <UIKit/UITextLinkInteraction-Protocol.h>
@@ -18,7 +18,7 @@
 @class DOMHTMLElement, NSAttributedString, NSDictionary, NSString, UIColor, UIDragInteraction, UIDropInteraction, UIFont, UITextInteractionAssistant, UITextPosition, UITextRange, UIWebDocumentView, WebFrame;
 @protocol UITextContentViewDelegate, UITextInputDelegate, UITextInputTokenizer;
 
-@interface UITextContentView : UIView <WebPolicyDelegate, WebEditingDelegate, UIWebDraggingDelegate, UIDragInteractionDelegate, UIDropInteractionDelegate, UITextInput, UITextLinkInteraction, UITextInputTraits>
+@interface UITextContentView : UIView <WebPolicyDelegate, WebEditingDelegate, UIWebDraggingDelegate, UIDragInteractionDelegate_Private, UIDropInteractionDelegate_Private, UITextInput, UITextLinkInteraction, UITextInputTraits>
 {
     id m_delegate;
     WebFrame *m_frame;
@@ -203,6 +203,7 @@
 - (void)_scrollViewWillBeginDragging;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (long long)_dropInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (void)dropInteraction:(id)arg1 concludeDrop:(id)arg2;
 - (void)dropInteraction:(id)arg1 item:(id)arg2 willAnimateDropWithAnimator:(id)arg3;
 - (id)dropInteraction:(id)arg1 previewForDroppingItem:(id)arg2 withDefault:(id)arg3;
@@ -211,6 +212,7 @@
 - (void)dropInteraction:(id)arg1 sessionDidExit:(id)arg2;
 - (id)dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
 - (void)dropInteraction:(id)arg1 sessionDidEnter:(id)arg2;
+- (long long)_dragInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (void)dragInteraction:(id)arg1 session:(id)arg2 didEndWithOperation:(unsigned long long)arg3;
 - (id)dragInteraction:(id)arg1 previewForCancellingItem:(id)arg2 withDefault:(id)arg3;
 - (void)dragInteraction:(id)arg1 willAnimateLiftWithAnimator:(id)arg2 session:(id)arg3;

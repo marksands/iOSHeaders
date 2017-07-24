@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     TSTMasterLayout *mMasterLayout;
     TSTLayoutHint *mLayoutHint;
     struct CGRect mCanvasVisibleRect;
+    struct CGRect mCanvasSafeRect;
     struct CGRect mPreviousVisibleStrokeFrame;
     _Bool mProcessChangesFiltering;
     _Bool mTabsVisible;

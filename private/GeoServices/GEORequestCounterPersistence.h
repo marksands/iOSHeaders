@@ -24,8 +24,8 @@ __attribute__((visibility("hidden")))
 - (void)purgeAllCounts;
 - (void)_purgeOlderThan:(id)arg1;
 - (void)countsStartingFrom:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)incrementAtTime:(id)arg1 app:(id)arg2 requestType:(unsigned char)arg3 result:(unsigned char)arg4 withCompletion:(CDUnknownBlockType)arg5;
-- (void)incrementForApp:(id)arg1 requestType:(unsigned char)arg2 result:(unsigned char)arg3 withCompletion:(CDUnknownBlockType)arg4;
+- (void)incrementAtTime:(id)arg1 app:(id)arg2 requestType:(unsigned char)arg3 result:(unsigned char)arg4 xmitBytes:(unsigned int)arg5 recvBytes:(unsigned int)arg6 withCompletion:(CDUnknownBlockType)arg7;
+- (void)incrementForApp:(id)arg1 requestType:(unsigned char)arg2 result:(unsigned char)arg3 xmitBytes:(unsigned int)arg4 recvBytes:(unsigned int)arg5 withCompletion:(CDUnknownBlockType)arg6;
 - (void)dealloc;
 - (id)initWithDBFilePath:(id)arg1 maxCountAge:(double)arg2;
 - (id)init;

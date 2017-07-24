@@ -6,29 +6,35 @@
 
 #import <HomeKitDaemon/HMDBackingStoreOperation.h>
 
-@class CKRecord, HMDBackingStoreCacheGroup, HMDBackingStoreCacheShareGroup, NSData;
+@class CKRecord, HMDBackingStoreCacheGroup, HMDBackingStoreCacheShareGroup, HMDBackingStoreModelObject, NSData, NSString;
 
 @interface HMDBackingStoreCacheUpdateRecordOperation : HMDBackingStoreOperation
 {
     HMDBackingStoreCacheGroup *_group;
     HMDBackingStoreCacheShareGroup *_share;
+    NSString *_recordName;
     CKRecord *_record;
     NSData *_data;
+    HMDBackingStoreModelObject *_model;
     unsigned long long _encoding;
 }
 
 @property(readonly) unsigned long long encoding; // @synthesize encoding=_encoding;
+@property(readonly) HMDBackingStoreModelObject *model; // @synthesize model=_model;
 @property(readonly) NSData *data; // @synthesize data=_data;
 @property(readonly) CKRecord *record; // @synthesize record=_record;
+@property(readonly) NSString *recordName; // @synthesize recordName=_recordName;
 @property(readonly) HMDBackingStoreCacheShareGroup *share; // @synthesize share=_share;
 @property(readonly) HMDBackingStoreCacheGroup *group; // @synthesize group=_group;
 - (void).cxx_destruct;
 - (id)mainReturningError;
+- (id)initWithShareGroup:(id)arg1 name:(id)arg2 model:(id)arg3 resultBlock:(CDUnknownBlockType)arg4;
+- (id)initWithGroup:(id)arg1 name:(id)arg2 model:(id)arg3 resultBlock:(CDUnknownBlockType)arg4;
 - (id)initWithShareGroup:(id)arg1 record:(id)arg2 resultBlock:(CDUnknownBlockType)arg3;
 - (id)initWithGroup:(id)arg1 record:(id)arg2 resultBlock:(CDUnknownBlockType)arg3;
 - (id)initWithShareGroup:(id)arg1 record:(id)arg2 data:(id)arg3 encoding:(unsigned long long)arg4 resultBlock:(CDUnknownBlockType)arg5;
 - (id)initWithGroup:(id)arg1 record:(id)arg2 data:(id)arg3 encoding:(unsigned long long)arg4 resultBlock:(CDUnknownBlockType)arg5;
-- (id)initWithGroup:(id)arg1 share:(id)arg2 record:(id)arg3 data:(id)arg4 encoding:(unsigned long long)arg5 resultBlock:(CDUnknownBlockType)arg6;
+- (id)initWithGroup:(id)arg1 share:(id)arg2 name:(id)arg3 record:(id)arg4 data:(id)arg5 encoding:(unsigned long long)arg6 model:(id)arg7 resultBlock:(CDUnknownBlockType)arg8;
 
 @end
 

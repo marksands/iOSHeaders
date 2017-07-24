@@ -11,7 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface TSWPRangeArray : NSObject <NSCopying>
 {
-    void *_rangeVectorOpaque;
+    struct TSWPRangeVector *_rangeVectorOpaque;
 }
 
 - (id)description;

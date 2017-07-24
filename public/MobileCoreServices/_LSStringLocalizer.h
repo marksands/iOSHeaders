@@ -36,7 +36,7 @@
 - (id)localizedStringWithString:(id)arg1 inBundle:(struct __CFBundle *)arg2 localeCode:(id)arg3 keep:(_Bool)arg4;
 - (id)localizedStringWithString:(id)arg1 inBundle:(struct __CFBundle *)arg2 preferredLocalizations:(id)arg3 keep:(_Bool)arg4;
 - (id)stringsFileContentInBundle:(struct __CFBundle *)arg1 withLocaleCode:(id)arg2 keep:(_Bool)arg3;
-- (struct __CFBundle *)copyBundle;
+- (struct __CFBundle *)bundle;
 - (id)_initWithBundleURL:(id)arg1 stringsFile:(id)arg2 keepBundle:(_Bool)arg3;
 
 @end

@@ -72,7 +72,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)makeStateTransition;
 - (id)CKStatusReportLogGroups;
 - (id)activityCreate;
-- (id)initWithOperationInfo:(id)arg1 clientContext:(id)arg2 assetsToDownload:(id)arg3 packageIndexSets:(id)arg4;
+- (id)initWithOperationInfo:(id)arg1 clientContext:(id)arg2;
 
 @end
 

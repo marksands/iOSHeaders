@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSData, NSMutableArray, NSMutableDictionary, NSNumber;
+@class NSArray, NSData, NSMutableArray, NSMutableDictionary, NSNumber;
 
 @interface BFFSettingsManager : NSObject
 {
@@ -15,8 +15,10 @@
     NSMutableDictionary *_stashedManagedConfigurationSettings;
     NSMutableDictionary *_stashedButtonHaptics;
     NSNumber *_stashedAssistantEnabled;
+    NSNumber *_stashedAssistantVoiceTriggerEnabled;
     NSNumber *_stashedLocationServicesEnabled;
     NSData *_stashedWatchData;
+    NSArray *_stashedFlowSkipIdentifiers;
 }
 
 + (id)sharedManager;
@@ -26,6 +28,7 @@
 - (id)_preferencesForDomain:(id)arg1;
 - (void)_restoreWatchData;
 - (void)_restoreStashedFiles;
+- (void)_applyStashedFlowSkipIdentifiers;
 - (void)_applyLocationServices;
 - (void)_applyAssistantPreferences;
 - (void)_applyStashedButtonHaptics;
@@ -37,8 +40,10 @@
 - (_Bool)_stashPaths;
 - (_Bool)_stashConfiguration;
 - (void)hideStashInSafeHaven;
+- (void)stashFlowSkipIdentifiers:(id)arg1;
 - (void)removeObjectForBuddyKey:(id)arg1;
 - (void)setBool:(_Bool)arg1 forBuddyKey:(id)arg2;
+- (void)setAssistantVoiceTriggerEnabled:(_Bool)arg1;
 - (void)setAssistantEnabled:(_Bool)arg1;
 - (void)stashWatchData:(id)arg1;
 - (void)stashLocationServicesChoice:(_Bool)arg1;

@@ -24,6 +24,8 @@
     NSObject<OS_dispatch_queue> *_clientQueue;
     double _sessionStartTime;
     NSArray *_supportedServices;
+    NSString *_modelL2Version;
+    NSString *_modelL3Version;
     PARSession *_session;
     double _retryAfter;
 }
@@ -31,6 +33,8 @@
 @property double retryAfter; // @synthesize retryAfter=_retryAfter;
 @property(retain) NSString *userAgent; // @synthesize userAgent=_userAgent;
 @property(retain) PARSession *session; // @synthesize session=_session;
+@property(readonly, nonatomic) NSString *modelL3Version; // @synthesize modelL3Version=_modelL3Version;
+@property(readonly, nonatomic) NSString *modelL2Version; // @synthesize modelL2Version=_modelL2Version;
 @property(readonly, nonatomic) NSArray *supportedServices; // @synthesize supportedServices=_supportedServices;
 @property(nonatomic) double sessionStartTime; // @synthesize sessionStartTime=_sessionStartTime;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;

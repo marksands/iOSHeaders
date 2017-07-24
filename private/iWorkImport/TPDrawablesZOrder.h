@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_drawables;
 }
 
+- (void).cxx_destruct;
 - (id)orderedDrawables:(id)arg1;
 - (void)swapDrawableAtZOrder:(unsigned long long)arg1 withDrawableAtZOrder:(unsigned long long)arg2;
 - (void)moveDrawables:(id)arg1 toZOrder:(unsigned long long)arg2;
@@ -29,7 +30,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long drawableCount;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromUnarchiver:(id)arg1;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1;
 - (id)drawableEnumerator;
 

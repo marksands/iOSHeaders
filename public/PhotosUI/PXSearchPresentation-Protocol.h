@@ -6,10 +6,9 @@
 
 #import <PhotosUI/NSObject-Protocol.h>
 
-@class CATransition, UIViewController;
+@class UIViewController;
 
 @protocol PXSearchPresentation <NSObject>
-- (CATransition *)searchPresentationTransition;
 - (UIViewController *)createSearchViewController;
 @end
 

@@ -23,7 +23,8 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_masterDrawables;
 }
 
-@property(nonatomic) TPSection *section; // @synthesize section=_section;
+@property(nonatomic) __weak TPSection *section; // @synthesize section=_section;
+- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (void)p_makeMasterDrawablesPerformSelector:(SEL)arg1 withStylesheet:(id)arg2 withMapper:(id)arg3;
 - (void)p_makeMasterDrawablesPerformSelector:(SEL)arg1 documentRoot:(id)arg2;

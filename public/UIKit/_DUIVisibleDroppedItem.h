@@ -8,7 +8,7 @@
 
 #import <UIKit/NSSecureCoding-Protocol.h>
 
-@class NSArray;
+@class NSArray, _DUIPreview;
 
 @interface _DUIVisibleDroppedItem : NSObject <NSSecureCoding>
 {
@@ -17,6 +17,7 @@
     _Bool _precisionMode;
     unsigned long long _itemIndex;
     NSArray *_imageComponents;
+    _DUIPreview *_preview;
     double _rotation;
     struct CGPoint _center;
     struct CGVector _velocity;
@@ -31,6 +32,7 @@
 @property(nonatomic) struct CGVector targetVelocity; // @synthesize targetVelocity=_targetVelocity;
 @property(nonatomic) struct CGVector velocity; // @synthesize velocity=_velocity;
 @property(nonatomic) struct CGPoint center; // @synthesize center=_center;
+@property(copy, nonatomic) _DUIPreview *preview; // @synthesize preview=_preview;
 @property(retain, nonatomic) NSArray *imageComponents; // @synthesize imageComponents=_imageComponents;
 @property(nonatomic) unsigned long long itemIndex; // @synthesize itemIndex=_itemIndex;
 - (void).cxx_destruct;

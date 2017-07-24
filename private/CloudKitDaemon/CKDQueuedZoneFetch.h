@@ -11,9 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (id)fetchOperationForItemIDs:(id)arg1;
+- (void)createFetchOperationForItemIDs:(id)arg1 operationQueue:(id)arg2 operationConfigurationBlock:(CDUnknownBlockType)arg3;
 - (void)addRequestForZoneID:(id)arg1 forOperation:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
-- (Class)operationInfoClass;
 
 @end
 

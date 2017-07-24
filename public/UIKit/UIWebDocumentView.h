@@ -167,7 +167,7 @@
     id <UIWebDraggingDelegate> _webDraggingDelegate;
     NSString *_draggedLinkTitle;
     NSURL *_draggedLinkURL;
-    long long _currentDragContentType;
+    unsigned long long _currentDragSourceAction;
     UIView *_initialDropSnapshotView;
     unsigned long long _renderTreeSize;
     unsigned long long _renderTreeSizeThresholdForReset;
@@ -187,7 +187,7 @@
 @property(readonly, nonatomic) _Bool wantsMinimalUI; // @synthesize wantsMinimalUI=_wantsMinimalUI;
 @property(nonatomic) struct CGRect exposedScrollViewRect; // @synthesize exposedScrollViewRect=_exposedScrollViewRect;
 @property(retain, nonatomic) UIView *initialDropSnapshotView; // @synthesize initialDropSnapshotView=_initialDropSnapshotView;
-@property(nonatomic) long long currentDragContentType; // @synthesize currentDragContentType=_currentDragContentType;
+@property(nonatomic) unsigned long long currentDragSourceAction; // @synthesize currentDragSourceAction=_currentDragSourceAction;
 @property(retain, nonatomic) NSURL *draggedLinkURL; // @synthesize draggedLinkURL=_draggedLinkURL;
 @property(retain, nonatomic) NSString *draggedLinkTitle; // @synthesize draggedLinkTitle=_draggedLinkTitle;
 @property(nonatomic) struct CGPoint lastGlobalPosition; // @synthesize lastGlobalPosition=_lastGlobalPosition;
@@ -502,6 +502,7 @@
 - (_Bool)updatesScrollView;
 - (void)setUpdatesScrollView:(_Bool)arg1;
 - (void)fileUploadPanelDidDismiss:(id)arg1;
+- (void)setAvoidsUnsafeArea:(_Bool)arg1 forDocumentTypes:(int)arg2;
 - (void)setAllowsShrinkToFit:(_Bool)arg1 forDocumentTypes:(int)arg2;
 - (void)setAllowsUserScaling:(_Bool)arg1 forDocumentTypes:(int)arg2;
 - (void)setMaximumScale:(float)arg1 forDocumentTypes:(int)arg2;
@@ -545,6 +546,7 @@
 - (struct CGRect)convertRect:(struct CGRect)arg1 toFrame:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromFrame:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toFrame:(id)arg2;
+- (void)viewportHandler:(id)arg1 didChangeAvoidsUnsafeArea:(_Bool)arg2;
 - (void)viewportHandler:(id)arg1 didChangeViewportSize:(struct CGSize)arg2;
 - (void)viewportHandlerDidChangeScales:(id)arg1;
 - (void)_updateScrollViewBoundaryZoomScales;
@@ -597,6 +599,7 @@
 - (id)initSimpleHTMLDocumentWithStyle:(id)arg1 frame:(struct CGRect)arg2 preferences:(id)arg3 groupName:(id)arg4;
 - (struct CGRect)webViewFrameForUIFrame:(struct CGRect)arg1;
 - (void)_restoreViewportSettingsWithSize:(struct CGSize)arg1;
+- (long long)_dragInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (void)dragInteraction:(id)arg1 session:(id)arg2 didEndWithOperation:(unsigned long long)arg3;
 - (id)dragInteraction:(id)arg1 previewForCancellingItem:(id)arg2 withDefault:(id)arg3;
 - (void)dragInteraction:(id)arg1 willAnimateLiftWithAnimator:(id)arg2 session:(id)arg3;
@@ -678,6 +681,7 @@
 - (_Bool)isPreviewing;
 - (void)_unregisterPreview;
 - (void)_registerPreview;
+- (long long)_dropInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (id)dropInteraction:(id)arg1 previewForDroppingItem:(id)arg2 withDefault:(id)arg3;
 - (id)editDragPreviewForTextIndicator:(id)arg1;
 - (id)fallbackDropPreviewForUninsertedContent:(id)arg1;
@@ -693,8 +697,6 @@
 - (void)computeClientAndGlobalPointsForSession:(id)arg1 outClientPoint:(struct CGPoint *)arg2 outGlobalPoint:(struct CGPoint *)arg3;
 - (void)updateDragCaretIfPossible;
 - (void)resetCurrentDragInformation;
-- (struct UIWebDraggableContentInfo)draggableContentInfoAtPosition:(struct CGPoint)arg1;
-- (struct CGRect)selectionBoundingRectIfSelectionContainsPosition:(struct CGPoint)arg1;
 - (struct CGRect)presentationRectInHostViewForSheet:(id)arg1;
 - (struct CGRect)initialPresentationRectInHostViewForSheet:(id)arg1;
 - (id)hostViewForSheet:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class HMDHomeManager, HMFExponentialBackoffTimer, NSMutableArray, NSObject, NSString;
+@class HMDHomeManager, HMDSyncOperationQueue, HMFExponentialBackoffTimer, NSMutableArray, NSMutableDictionary, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
 @interface HMDSyncOperationManager : HMFObject <HMFTimerDelegate>
@@ -19,11 +19,14 @@
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     NSObject<OS_dispatch_queue> *_clientQueue;
-    NSMutableArray *_cloudPushOperations;
-    NSMutableArray *_cloudMergeOperations;
+    HMDSyncOperationQueue *_cloudPushOperations;
+    NSMutableArray *_cloudVerifyAccountOperations;
+    HMDSyncOperationQueue *_cloudFetchOperations;
     NSMutableArray *_idsMergeOperations;
     NSMutableArray *_cloudZonePushOperations;
+    NSMutableDictionary *_cloudZonePushOperationsMap;
     NSMutableArray *_cloudZoneFetchOperations;
+    NSMutableDictionary *_cloudZoneFetchOperationsMap;
     NSMutableArray *_cloudCancelPauseOperations;
     long long _pauseCloudPushLevel;
     HMFExponentialBackoffTimer *_cloudPushDelayTimer;
@@ -34,30 +37,37 @@
 @property(nonatomic) long long pauseCloudPushLevel; // @synthesize pauseCloudPushLevel=_pauseCloudPushLevel;
 @property(nonatomic) _Bool pauseQueue; // @synthesize pauseQueue=_pauseQueue;
 @property(retain, nonatomic) NSMutableArray *cloudCancelPauseOperations; // @synthesize cloudCancelPauseOperations=_cloudCancelPauseOperations;
+@property(retain, nonatomic) NSMutableDictionary *cloudZoneFetchOperationsMap; // @synthesize cloudZoneFetchOperationsMap=_cloudZoneFetchOperationsMap;
 @property(retain, nonatomic) NSMutableArray *cloudZoneFetchOperations; // @synthesize cloudZoneFetchOperations=_cloudZoneFetchOperations;
+@property(retain, nonatomic) NSMutableDictionary *cloudZonePushOperationsMap; // @synthesize cloudZonePushOperationsMap=_cloudZonePushOperationsMap;
 @property(retain, nonatomic) NSMutableArray *cloudZonePushOperations; // @synthesize cloudZonePushOperations=_cloudZonePushOperations;
 @property(retain, nonatomic) NSMutableArray *idsMergeOperations; // @synthesize idsMergeOperations=_idsMergeOperations;
-@property(retain, nonatomic) NSMutableArray *cloudMergeOperations; // @synthesize cloudMergeOperations=_cloudMergeOperations;
-@property(retain, nonatomic) NSMutableArray *cloudPushOperations; // @synthesize cloudPushOperations=_cloudPushOperations;
+@property(retain, nonatomic) HMDSyncOperationQueue *cloudFetchOperations; // @synthesize cloudFetchOperations=_cloudFetchOperations;
+@property(retain, nonatomic) NSMutableArray *cloudVerifyAccountOperations; // @synthesize cloudVerifyAccountOperations=_cloudVerifyAccountOperations;
+@property(retain, nonatomic) HMDSyncOperationQueue *cloudPushOperations; // @synthesize cloudPushOperations=_cloudPushOperations;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(nonatomic) __weak HMDHomeManager *homeManager; // @synthesize homeManager=_homeManager;
 - (void).cxx_destruct;
 - (void)timerDidFire:(id)arg1;
-- (void)resetCloudPushTimer;
+- (void)resetCloudPushTimer:(id)arg1;
 - (void)killCloudPushAndResume;
 - (void)resumeCloudPush;
 - (void)pauseCloudPush;
+- (void)kick;
 - (void)resume;
 - (void)pause;
 - (void)_handleCancelledOperations:(id)arg1;
 - (void)_handleNextOperation;
 - (id)dequeueNextOperation;
 - (void)cancelOperations;
+- (long long)_cloudZoneFetchOperationsCountTotal;
+- (long long)_cloudZonePushOperationsCountTotal;
 - (void)pauseAndWaitForCurrentOperationCompletion:(CDUnknownBlockType)arg1;
+- (void)addOperation:(id)arg1 withDelay:(double)arg2;
 - (void)addOperation:(id)arg1;
-- (void)_createCloudPushDelayTimer;
+- (void)_reportPossibleSyncLoop;
 - (id)dumpState;
 @property(readonly, copy) NSString *description;
 - (id)initWithClientQueue:(id)arg1 homeManager:(id)arg2;

@@ -18,6 +18,7 @@
     struct OpaqueFigSimpleMutex *dataOutputsStorageMutex;
     NSArray *dataOutputsStorage;
     int masterSynchronizedDataQueueMaxDepth;
+    _Bool synchronizingVideoAndDepth;
 }
 
 @end

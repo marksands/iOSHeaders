@@ -23,7 +23,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSArray *searchReferences; // @synthesize searchReferences=_searchReferences;
 @property(readonly, nonatomic) _Bool useFindOverlayers; // @synthesize useFindOverlayers=_useFindOverlayers;
 @property(retain, nonatomic) NSObject<TSKSearchReference> *activeSearchReference; // @synthesize activeSearchReference=_activeSearchReference;
+- (void).cxx_destruct;
 - (void)drawTextBackground:(struct CGContext *)arg1 insetRect:(struct CGRect)arg2 pulsating:(_Bool)arg3;
+- (void)drawTextBackground:(struct CGContext *)arg1 insetRect:(struct CGRect)arg2 pulsating:(_Bool)arg3 shouldTint:(_Bool)arg4;
 - (void)setPulseControllerActive:(_Bool)arg1 autohide:(_Bool)arg2;
 - (void)selectChildRep:(id)arg1 extendingSelection:(_Bool)arg2;
 - (_Bool)canSelectChildRep:(id)arg1;

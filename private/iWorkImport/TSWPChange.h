@@ -25,7 +25,8 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) _Bool changeWasAddedToDocumentRoot; // @synthesize changeWasAddedToDocumentRoot=_changeWasAddedToDocumentRoot;
 @property(readonly, nonatomic) int kind; // @synthesize kind=_kind;
-@property(nonatomic) TSWPStorage *parentStorage; // @synthesize parentStorage=_parentStorage;
+@property(nonatomic) __weak TSWPStorage *parentStorage; // @synthesize parentStorage=_parentStorage;
+- (void).cxx_destruct;
 - (_Bool)isFromChangeSession:(id)arg1;
 - (_Bool)canMergeWithKind:(int)arg1 session:(id)arg2;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
@@ -49,10 +50,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isHidden) _Bool hidden;
 @property(readonly, nonatomic) _Bool isDeletion;
 @property(readonly, nonatomic) _Bool isInsertion;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1 kind:(int)arg2 session:(id)arg3;
 - (id)initWithContext:(id)arg1;
-@property(retain, nonatomic) NSDate *date;
+@property(copy, nonatomic) NSDate *date;
 @property(retain, nonatomic) TSWPChangeSession *session;
 
 // Remaining properties

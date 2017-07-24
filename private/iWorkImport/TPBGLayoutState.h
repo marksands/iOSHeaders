@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) _Bool active; // @synthesize active=_active;
 @property(nonatomic) long long suspendCount; // @synthesize suspendCount=_suspendCount;
-@property(retain, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
+@property(copy, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 - (void).cxx_destruct;
 
 @end

@@ -11,6 +11,9 @@
 
 @interface SFChargingCenterClient : NSObject
 {
+    _Bool _activateCalled;
+    _Bool _invalidateCalled;
+    _Bool _invalidateDone;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     CDUnknownBlockType _requestHandler;
     SBUISound *_chimeSound;
@@ -31,7 +34,9 @@
 - (void)removeNoLongerChargingPowerSource:(id)arg1 withChargingDate:(id)arg2 notify:(_Bool)arg3;
 - (void)addNewChargingPowerSource:(id)arg1;
 - (void)evaluatePowerSource:(id)arg1 found:(_Bool)arg2 lost:(_Bool)arg3;
+- (void)onqueue_invalidate;
 - (void)invalidate;
+- (void)onqueue_activate;
 - (void)activate;
 - (void)dealloc;
 - (void)setUpMonitor;

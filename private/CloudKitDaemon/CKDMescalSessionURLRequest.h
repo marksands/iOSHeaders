@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)allowsAnonymousAccount;
 - (_Bool)requiresDeviceID;
 - (_Bool)requiresSignature;
-- (id)requestOperations;
+- (id)generateRequestOperations;
 - (id)requestOperationClasses;
 - (int)operationType;
 - (id)initWithSessionData:(id)arg1;

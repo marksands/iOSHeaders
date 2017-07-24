@@ -6,8 +6,8 @@
 
 #import <IMDaemonCore/IMDCKAbstractSyncController.h>
 
-@class CKRecord, CKServerChangeToken, IDSKVStore, IMDCKChatSyncCKOperationFactory, IMDChatRegistry, IMDRecordZoneManager, NSObject;
-@protocol OS_dispatch_queue;
+@class CKRecord, CKServerChangeToken, IMDCKChatSyncCKOperationFactory, IMDChatRegistry, IMDRecordZoneManager, NSObject;
+@protocol IMDCKSyncTokenStore, OS_dispatch_queue;
 
 @interface IMDCKChatSyncController : IMDCKAbstractSyncController
 {
@@ -15,7 +15,7 @@
     NSObject<OS_dispatch_queue> *_ckQueue;
     IMDChatRegistry *_chatRegistry;
     IMDRecordZoneManager *_recordZoneManager;
-    IDSKVStore *_kvStore;
+    id <IMDCKSyncTokenStore> _syncTokenStore;
     IMDCKChatSyncCKOperationFactory *_CKOperationFactory;
     CKRecord *_lockRecord;
 }
@@ -23,7 +23,7 @@
 + (id)sharedInstance;
 @property(retain, nonatomic) CKRecord *lockRecord; // @synthesize lockRecord=_lockRecord;
 @property(retain, nonatomic) IMDCKChatSyncCKOperationFactory *CKOperationFactory; // @synthesize CKOperationFactory=_CKOperationFactory;
-@property(readonly, nonatomic) IDSKVStore *kvStore; // @synthesize kvStore=_kvStore;
+@property(retain, nonatomic) id <IMDCKSyncTokenStore> syncTokenStore; // @synthesize syncTokenStore=_syncTokenStore;
 @property(retain, nonatomic) IMDRecordZoneManager *recordZoneManager; // @synthesize recordZoneManager=_recordZoneManager;
 @property(retain, nonatomic) IMDChatRegistry *chatRegistry; // @synthesize chatRegistry=_chatRegistry;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *ckQueue; // @synthesize ckQueue=_ckQueue;
@@ -68,9 +68,11 @@
 - (id)_randomSalt;
 - (id)_copyChatsToUploadWithLimit:(unsigned long long)arg1;
 @property(retain, nonatomic) CKServerChangeToken *latestSyncToken; // @synthesize latestSyncToken=_latestSyncToken;
+- (void)_migrateServerChangeToken;
 - (id)_generateLockRecord;
 - (void)dealloc;
 - (id)init;
+- (id)initWithSyncTokenStore:(id)arg1;
 
 @end
 

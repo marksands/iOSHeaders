@@ -104,6 +104,7 @@ __attribute__((visibility("hidden")))
 - (void)loadFromArchive:(const struct ShapeInfoArchive *)arg1 unarchiver:(id)arg2;
 - (void)loadFromUnarchiver:(id)arg1;
 - (void)upgradeOwnedStorageWithFileFormatVersion:(unsigned long long)arg1;
+- (void)fixupAutosizingTextboxes;
 - (void)upgradeWithNewOwnedStorage;
 - (_Bool)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;

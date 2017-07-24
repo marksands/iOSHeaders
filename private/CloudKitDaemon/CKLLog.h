@@ -16,6 +16,7 @@
     _Bool _colorOutput;
     double _startTimeOffset;
     NSDate *_absoluteStartDate;
+    NSString *_processName;
     unsigned long long _source;
     OSLogPersistence *_archiveSource;
     OSActivityStream *_streamSource;
@@ -29,6 +30,7 @@
 @property(retain, nonatomic) OSLogPersistence *archiveSource; // @synthesize archiveSource=_archiveSource;
 @property(nonatomic) unsigned long long source; // @synthesize source=_source;
 @property(nonatomic) _Bool colorOutput; // @synthesize colorOutput=_colorOutput;
+@property(retain, nonatomic) NSString *processName; // @synthesize processName=_processName;
 @property(retain, nonatomic) NSDate *absoluteStartDate; // @synthesize absoluteStartDate=_absoluteStartDate;
 @property(nonatomic) double startTimeOffset; // @synthesize startTimeOffset=_startTimeOffset;
 - (void).cxx_destruct;

@@ -10,7 +10,7 @@
 #import <HealthUI/UICollectionViewDataSource-Protocol.h>
 #import <HealthUI/UICollectionViewDelegate-Protocol.h>
 
-@class HKDisplayTypeContextItem, HKHorizontalFlowLayout, NSArray, NSLayoutConstraint, NSString, UICollectionView;
+@class HKHorizontalFlowLayout, NSArray, NSLayoutConstraint, NSString, UICollectionView;
 @protocol HKDisplayTypeContextViewDelegate;
 
 @interface HKDisplayTypeContextView : UIView <UICollectionViewDataSource, UICollectionViewDelegate, HKDisplayTypeContextCollectionViewCellDelegate>
@@ -18,7 +18,6 @@
     UICollectionView *_collectionView;
     HKHorizontalFlowLayout *_collectionViewLayout;
     NSLayoutConstraint *_collectionHeightConstraint;
-    HKDisplayTypeContextItem *_selectedDisplayTypeContextItem;
     NSArray *_displayTypeContextItems;
     id <HKDisplayTypeContextViewDelegate> _delegate;
 }
@@ -33,8 +32,8 @@
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
-- (void)selectItemAtIndex:(long long)arg1 animated:(_Bool)arg2;
-- (id)selectedDisplayTypeContextItem;
+- (double)preferredHeight;
+- (void)selectItemAtIndex:(long long)arg1 animated:(_Bool)arg2 scrollPosition:(unsigned long long)arg3;
 - (struct CGSize)intrinsicContentSize;
 - (id)init;
 

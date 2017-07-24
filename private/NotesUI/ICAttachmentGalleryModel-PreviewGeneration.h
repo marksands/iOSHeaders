@@ -8,5 +8,6 @@
 
 @interface ICAttachmentGalleryModel (PreviewGeneration)
 - (void)generatePreviewsInOperation:(id)arg1;
+- (_Bool)needToGeneratePreviews;
 @end
 

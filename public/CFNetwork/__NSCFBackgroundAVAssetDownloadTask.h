@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 @property(copy) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
 @property(copy) NSURL *URL; // @synthesize URL=_URL;
 @property unsigned long long AVAssetDownloadToken; // @synthesize AVAssetDownloadToken=_AVAssetDownloadToken;
+- (_Bool)_isAVAssetTask;
 - (id)response;
 - (id)currentRequest;
 - (id)originalRequest;

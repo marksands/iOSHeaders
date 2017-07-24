@@ -28,6 +28,7 @@
 - (id)_getNDEFMessageFromMessageData:(id)arg1;
 - (_Bool)_validateRecords:(id)arg1 fromOriginal:(id)arg2;
 - (void)didDetectNDEFMessages:(id)arg1 fromTags:(id)arg2;
+- (void)didTerminate:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

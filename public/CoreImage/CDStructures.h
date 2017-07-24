@@ -63,6 +63,10 @@ struct CIRenderDestinationInternal {
     id _field12;
 };
 
+struct CPUColorCube {
+    unsigned char data[32768];
+};
+
 struct FastRegistration_Signatures {
     float *piRow;
     unsigned long long nPiRow;
@@ -93,6 +97,15 @@ struct ISize {
     unsigned long long _field1;
     unsigned long long _field2;
 };
+
+struct MetalFaceMaskEyeQuads_t {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned char _field3;
+    struct MetalFaceMaskQuad_t _field4[16];
+};
+
+struct MetalFaceMaskQuad_t;
 
 struct Projections_meanStdTable {
     float *sumTable;

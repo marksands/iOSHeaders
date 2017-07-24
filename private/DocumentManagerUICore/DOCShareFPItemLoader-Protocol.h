@@ -6,9 +6,12 @@
 
 #import <DocumentManagerUICore/NSObject-Protocol.h>
 
+@class NSArray;
 @protocol DOCShareFPItemLoaderDelegate;
 
 @protocol DOCShareFPItemLoader <NSObject>
+@property(readonly, nonatomic) NSArray *items;
+@property(readonly, nonatomic) _Bool loadDidTimeOut;
 @property(nonatomic) __weak id <DOCShareFPItemLoaderDelegate> delegate;
 @end
 

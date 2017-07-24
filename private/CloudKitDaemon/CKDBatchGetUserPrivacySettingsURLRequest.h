@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSArray *containerPrivacySettings; // @synthesize containerPrivacySettings=_containerPrivacySettings;
 - (void).cxx_destruct;
 - (id)requestDidParseProtobufObject:(id)arg1;
-- (id)requestOperations;
+- (id)generateRequestOperations;
 - (_Bool)requiresTokenRegistration;
 - (id)requestOperationClasses;
 - (int)operationType;

@@ -90,6 +90,9 @@
     NSString *_userInput;
     NSArray *_itemProviderDataTypes;
     NSArray *_itemProviderFileTypes;
+    NSString *_contentType;
+    NSArray *_contentTypeTree;
+    long long _dataOwnerType;
     NSString *_fbr;
     NSString *_srf;
 }
@@ -97,6 +100,9 @@
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *srf; // @synthesize srf=_srf;
 @property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
+@property(nonatomic) long long dataOwnerType; // @synthesize dataOwnerType=_dataOwnerType;
+@property(copy, nonatomic) NSArray *contentTypeTree; // @synthesize contentTypeTree=_contentTypeTree;
+@property(copy, nonatomic) NSString *contentType; // @synthesize contentType=_contentType;
 @property(copy, nonatomic) NSArray *itemProviderFileTypes; // @synthesize itemProviderFileTypes=_itemProviderFileTypes;
 @property(copy, nonatomic) NSArray *itemProviderDataTypes; // @synthesize itemProviderDataTypes=_itemProviderDataTypes;
 @property(copy, nonatomic) NSString *userInput; // @synthesize userInput=_userInput;

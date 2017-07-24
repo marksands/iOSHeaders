@@ -21,7 +21,6 @@
     UIInterpolatingMotionEffect *_xMotionEffect;
     UIInterpolatingMotionEffect *_yMotionEffect;
     double _amplitude;
-    struct CGRect _originalFrame;
 }
 
 @property(nonatomic) _Bool vertical; // @synthesize vertical=_vertical;
@@ -33,7 +32,6 @@
 @property(nonatomic) unsigned long long viewHierarchyIndex; // @synthesize viewHierarchyIndex=_viewHierarchyIndex;
 @property(retain, nonatomic) UIView *motionContentView; // @synthesize motionContentView=_motionContentView;
 @property(retain, nonatomic) UIView *clippingView; // @synthesize clippingView=_clippingView;
-@property(nonatomic) struct CGRect originalFrame; // @synthesize originalFrame=_originalFrame;
 - (void).cxx_destruct;
 - (void)updateEdgeAntialiasingForViewport:(id)arg1;
 - (void)viewport:(id)arg1 appearStateChangedFromState:(unsigned long long)arg2;

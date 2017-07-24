@@ -137,7 +137,6 @@
 - (void)presentViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_cancel;
 - (void)_didResignContentViewControllerOfPopover:(id)arg1;
-- (void)_setDarkStyleOnLegacyApp;
 - (void)_setPopoverController:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_changeActionSheetAvoidsKeyboardDisabledUntilNextUpdatePreferredContentSize:(_Bool)arg1;
@@ -177,13 +176,13 @@
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (double)_displayHeight;
-- (_Bool)_waitForShareExtensionServiceWithTimeout:(double)arg1 requireValidShareServicePreferredContentSize:(_Bool)arg2 offendingMethod:(SEL)arg3 warningMessage:(id)arg4;
+- (_Bool)_waitForShareExtensionServiceWithTimeout:(double)arg1 requireValidShareServicePreferredContentSize:(_Bool)arg2;
 - (id)_containedAlertController;
 - (void)_updateRootViewGeometry;
 - (void)_updatePreferredContentSizeByAddingSafeAreaInsetsIfNecessary;
 - (void)viewSafeAreaInsetsDidChange;
 - (void)_installViewController:(id)arg1;
-- (void)_embedRemoteContentViewControllerIfNeeded;
+- (void)_embedRemoteContentViewController;
 - (void)viewDidLoad;
 - (void)_updateActivityItems:(id)arg1;
 - (id)_orderedAvailableActivitiesByPerformingMatching;
@@ -194,6 +193,7 @@
 - (id)_placeholderActivityItemValues;
 - (void)dealloc;
 - (void)_setupLegacyAlertPresentationControllers;
+- (void)_loadInitialShareServiceConfigurationAndPreferredContentSize;
 - (void)_connectToRemoteViewService;
 - (id)initWithActivityItems:(id)arg1 applicationActivities:(id)arg2;
 - (id)initWithCoder:(id)arg1;

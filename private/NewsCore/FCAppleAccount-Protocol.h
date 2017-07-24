@@ -22,6 +22,7 @@
 - (NSString *)currentStoreFrontID;
 - (void)checkAlliOSDevicesRunningMajorOSVersionOrLater:(long long)arg1 orInactiveForTimeInterval:(double)arg2 completionHandler:(void (^)(_Bool, NSError *))arg3;
 - (void)loadStoreFrontIfNeededWithCompletion:(void (^)(void))arg1;
+- (NSString *)iTunesAccountDSID;
 - (NSString *)iTunesAccountName;
 - (_Bool)isUserSignedIntoiTunes;
 @end

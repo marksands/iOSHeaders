@@ -29,6 +29,7 @@
 @property(readonly, nonatomic) NSString *managedEntityName;
 - (void)deleteManagedObject:(id)arg1 photoLibrary:(id)arg2;
 - (_Bool)validateForDeleteManagedObject:(id)arg1 error:(id *)arg2;
+- (_Bool)prepareForServicePreflightCheck:(id *)arg1;
 - (void)encodeToXPCDict:(id)arg1;
 - (id)init;
 - (id)initWithXPCDict:(id)arg1 clientEntitlements:(id)arg2 clientName:(id)arg3 clientBundleID:(id)arg4 clientProcessID:(int)arg5;

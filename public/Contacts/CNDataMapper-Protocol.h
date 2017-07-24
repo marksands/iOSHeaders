@@ -19,7 +19,7 @@
 - (NSArray *)containersMatchingPredicate:(NSPredicate *)arg1 error:(id *)arg2;
 - (_Bool)executeSaveRequest:(CNSaveRequest *)arg1 response:(id *)arg2 error:(id *)arg3;
 - (_Bool)executeSaveRequest:(CNSaveRequest *)arg1 error:(id *)arg2;
-- (NSString *)meContactIdentifierWithError:(id *)arg1;
+- (NSArray *)meContactIdentifiers:(id *)arg1;
 - (CNObservable *)contactObservableForFetchRequest:(CNContactFetchRequest *)arg1;
 - (_Bool)requestAccessForEntityType:(long long)arg1 error:(id *)arg2;
 - (void)requestAccessForEntityType:(long long)arg1 completionHandler:(void (^)(_Bool, NSError *))arg2;

@@ -25,9 +25,11 @@
     double _allowableMovement;
     double _automaticTouchForce;
     double _automaticTouchForceDuration;
+    CDUnknownBlockType _configurationBlock;
 }
 
 + (_Bool)_supportsTouchContinuation;
+@property(copy, nonatomic) CDUnknownBlockType configurationBlock; // @synthesize configurationBlock=_configurationBlock;
 @property(nonatomic) double automaticTouchForceDuration; // @synthesize automaticTouchForceDuration=_automaticTouchForceDuration;
 @property(nonatomic) double automaticTouchForce; // @synthesize automaticTouchForce=_automaticTouchForce;
 @property(nonatomic) double allowableMovement; // @synthesize allowableMovement=_allowableMovement;

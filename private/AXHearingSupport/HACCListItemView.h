@@ -14,6 +14,7 @@
     UIImage *_glyphImage;
     UIImageView *_glyphImageView;
     UIView *_highlightedBackgroundView;
+    UIView *_separatorView;
     CDUnknownBlockType _handler;
     NSString *_title;
 }
@@ -24,6 +25,7 @@
 - (unsigned long long)accessibilityTraits;
 - (id)accessibilityLabel;
 - (_Bool)isAccessibilityElement;
+- (void)setSeparatorVisible:(_Bool)arg1;
 - (void)setSelected:(_Bool)arg1;
 - (void)setHighlighted:(_Bool)arg1;
 - (void)layoutSubviews;

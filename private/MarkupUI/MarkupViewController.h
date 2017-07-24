@@ -63,6 +63,7 @@
     NSUndoManager *_akUndoManager;
     id <MarkupViewControllerDelegate> _delegate;
     UIImageView *_placeholderImageView;
+    unsigned long long _inkStyle;
 }
 
 + (double)_maxImageDimensionInView;
@@ -70,6 +71,7 @@
 + (id)markupBarButtonItemWithTarget:(id)arg1 action:(SEL)arg2;
 + (id)cleanImageMetadataFromData:(id)arg1;
 + (_Bool)hasPrivateImageMetadata:(id)arg1;
+@property unsigned long long inkStyle; // @synthesize inkStyle=_inkStyle;
 @property(retain) UIImageView *placeholderImageView; // @synthesize placeholderImageView=_placeholderImageView;
 @property(nonatomic) _Bool showShareButtonInToolbar; // @synthesize showShareButtonInToolbar=_showShareButtonInToolbar;
 @property(nonatomic) _Bool centersIgnoringContentInsets; // @synthesize centersIgnoringContentInsets=_centersIgnoringContentInsets;

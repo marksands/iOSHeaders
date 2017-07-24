@@ -13,8 +13,6 @@
 - (id)valueForCoordinate:(double)arg1;
 - (double)coordinateForValue:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
-- (double)coordinateForDate:(id)arg1;
-- (id)dateForCoordinate:(double)arg1;
 
 @end
 

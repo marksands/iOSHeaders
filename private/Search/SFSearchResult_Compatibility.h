@@ -51,7 +51,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (Class)classForCoder;
 - (Class)classForKeyedArchiver;
-- (id)description;
+- (id)debugDescription;
 
 @end
 

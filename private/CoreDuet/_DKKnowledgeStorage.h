@@ -23,14 +23,13 @@
     NSURL *_modelURL;
     unsigned long long _insertsAndDeletesObserverCount;
     _Bool _localOnly;
-    _DKCoreDataStorage *_storage;
     _DKCoreDataStorage *_syncStorage;
+    _DKCoreDataStorage *_storage;
 }
 
 + (id)storageWithDirectory:(id)arg1 readOnly:(_Bool)arg2 localOnly:(_Bool)arg3;
 + (id)storageWithDirectory:(id)arg1 readOnly:(_Bool)arg2;
 + (id)storeWithDirectory:(id)arg1 readOnly:(_Bool)arg2;
-@property(readonly, nonatomic) _DKCoreDataStorage *syncStorage; // @synthesize syncStorage=_syncStorage;
 @property(readonly, nonatomic) _DKCoreDataStorage *storage; // @synthesize storage=_storage;
 @property(readonly, nonatomic) _Bool localOnly; // @synthesize localOnly=_localOnly;
 - (void).cxx_destruct;
@@ -71,14 +70,17 @@
 - (_Bool)saveObjects:(id)arg1 error:(id *)arg2;
 - (void)saveObjects:(id)arg1 responseQueue:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)_sendEventsNotificationName:(id)arg1 withObjects:(id)arg2;
+- (void)_sendInsertEventsNotificationWithObjects:(id)arg1;
 - (id)errorForException:(id)arg1;
 - (void)handleNilArrayError:(CDUnknownBlockType)arg1 queue:(id)arg2;
 - (id)removeBadObjects:(id)arg1;
+- (_Bool)deleteSyncStorage;
 - (_Bool)deleteStorage;
+@property(readonly, nonatomic) _DKCoreDataStorage *syncStorage; // @synthesize syncStorage=_syncStorage;
 - (id)syncStorageIfAvailable;
 - (id)initWithDirectory:(id)arg1 readOnly:(_Bool)arg2 localOnly:(_Bool)arg3;
 - (_Bool)copyValueToManagedObject:(id)arg1;
-- (_Bool)updateDataAfterAutoMigrationToVersion13InPersistentStore:(id)arg1 error:(id *)arg2;
+- (_Bool)updateDataAfterAutoMigrationToFinalVersionInPersistentStore:(id)arg1 error:(id *)arg2;
 @property(readonly, nonatomic) unsigned long long finalMigrationVersion;
 - (void)updateToFinalMetadata:(id)arg1;
 

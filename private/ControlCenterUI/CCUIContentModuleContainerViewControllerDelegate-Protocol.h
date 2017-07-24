@@ -6,16 +6,18 @@
 
 #import <ControlCenterUI/NSObject-Protocol.h>
 
-@class CCUIContentModuleContainerViewController;
+@class CCUIContentModuleContainerViewController, UIView;
 @protocol CCUIContentModule;
 
 @protocol CCUIContentModuleContainerViewControllerDelegate <NSObject>
+- (UIView *)obscuringBackgroundViewForContentModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg1;
 - (void)contentModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg1 didCloseExpandedModule:(id <CCUIContentModule>)arg2;
 - (void)contentModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg1 willCloseExpandedModule:(id <CCUIContentModule>)arg2;
 - (void)contentModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg1 didOpenExpandedModule:(id <CCUIContentModule>)arg2;
 - (void)contentModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg1 willOpenExpandedModule:(id <CCUIContentModule>)arg2;
 - (void)contentModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg1 didFinishInteractionWithModule:(id <CCUIContentModule>)arg2;
 - (void)contentModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg1 didBeginInteractionWithModule:(id <CCUIContentModule>)arg2;
+- (_Bool)contentModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg1 canBeginInteractionWithModule:(id <CCUIContentModule>)arg2;
 - (struct CGRect)compactModeFrameForContentModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg1;
 - (_Bool)contentModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg1 shouldForwardAppearanceCall:(_Bool)arg2 animated:(_Bool)arg3;
 @end

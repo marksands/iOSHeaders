@@ -19,6 +19,7 @@
     double _experimentalWeight1;
     double _experimentalWeight2;
     NSString *_meContactIdentifier;
+    double _lastIsSpaceFeature;
 }
 
 + (id)importantAttributesForBundle:(id)arg1;
@@ -33,6 +34,7 @@
 + (id)sortedUniqueBundleFeatureValuesFromBundleFeatures:(id)arg1;
 + (id)requiredAttributes;
 + (void)initialize;
+@property(nonatomic) double lastIsSpaceFeature; // @synthesize lastIsSpaceFeature=_lastIsSpaceFeature;
 @property(nonatomic) _Bool policyDisabled; // @synthesize policyDisabled=_policyDisabled;
 @property(retain, nonatomic) NSString *meContactIdentifier; // @synthesize meContactIdentifier=_meContactIdentifier;
 @property(nonatomic) double experimentalWeight2; // @synthesize experimentalWeight2=_experimentalWeight2;

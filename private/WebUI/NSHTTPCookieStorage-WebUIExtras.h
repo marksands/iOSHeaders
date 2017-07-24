@@ -10,5 +10,7 @@
 @property(readonly) _Bool webui_trackerProtectionEnabled;
 - (void)webui_applySafariCookieAcceptPolicy;
 - (id)webui_safariCookieAcceptPolicy;
+@property(readonly) unsigned long long webui_safariCookieAcceptPolicyEnumValue;
+- (float)_safariCookieAcceptPolicyFloatValue;
 @end
 

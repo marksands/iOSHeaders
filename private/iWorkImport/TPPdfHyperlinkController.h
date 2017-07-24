@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 + (id)URLWithDestinationName:(id)arg1;
 + (id)footnoteMarkNameForIndex:(unsigned long long)arg1;
 + (id)footnoteRefNameForIndex:(unsigned long long)arg1;
+- (void).cxx_destruct;
 - (id)p_paragraphIndicesInTOCs;
 - (void)addHyperlinksForRep:(id)arg1 context:(struct CGContext *)arg2;
 - (id)destinationFromUrl:(id)arg1;
@@ -26,7 +27,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)ignoreUrl:(id)arg1;
 - (void)setCanvasRect:(struct CGRect)arg1;
 - (struct CGRect)canvasRect;
-- (void)dealloc;
 - (id)initWithDocumentRoot:(id)arg1;
 
 @end

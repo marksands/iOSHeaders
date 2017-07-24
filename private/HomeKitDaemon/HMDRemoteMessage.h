@@ -30,10 +30,14 @@
 - (void)setInternalResponseHandler:(CDUnknownBlockType)arg1;
 - (void)setResponseHandler:(CDUnknownBlockType)arg1;
 - (_Bool)isRemote;
+- (id)description;
+- (id)debugDescription;
+- (id)descriptionWithPointer:(_Bool)arg1;
 - (id)initWithName:(id)arg1 qualityOfService:(long long)arg2 destination:(id)arg3 payload:(id)arg4 type:(long long)arg5 timeout:(double)arg6 secure:(_Bool)arg7 restriction:(unsigned long long)arg8;
 - (id)initWithName:(id)arg1 qualityOfService:(long long)arg2 destination:(id)arg3 payload:(id)arg4 type:(long long)arg5 timeout:(double)arg6 secure:(_Bool)arg7;
 - (id)initWithName:(id)arg1 destination:(id)arg2 payload:(id)arg3 type:(long long)arg4 timeout:(double)arg5 secure:(_Bool)arg6 restriction:(unsigned long long)arg7;
 - (id)initWithName:(id)arg1 destination:(id)arg2 payload:(id)arg3 type:(long long)arg4 timeout:(double)arg5 secure:(_Bool)arg6;
+- (id)initWithName:(id)arg1 qualityOfService:(long long)arg2 destination:(id)arg3 userInfo:(id)arg4 headers:(id)arg5 payload:(id)arg6;
 - (id)initWithName:(id)arg1 qualityOfService:(long long)arg2 destination:(id)arg3 payload:(id)arg4;
 - (id)initWithName:(id)arg1 destination:(id)arg2 payload:(id)arg3;
 

@@ -52,6 +52,7 @@
 - (void)_didDestroyScene:(id)arg1;
 - (void)_didCreateScene:(id)arg1;
 - (void)_enumerateObserversWithBlock:(CDUnknownBlockType)arg1;
+- (void)_commonInit;
 @property(readonly, copy) NSString *description;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;

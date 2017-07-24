@@ -16,6 +16,8 @@ __attribute__((visibility("hidden")))
     NSString *_formatString;
 }
 
++ (id)nowFormatForLocale:(id)arg1;
++ (id)todayFormatForLocale:(id)arg1;
 @property(readonly, nonatomic) NSString *formatString; // @synthesize formatString=_formatString;
 - (void).cxx_destruct;
 - (id)asDateTimeFormat;
@@ -25,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithFormatString:(id)arg1;
 - (id)initWithLocale:(id)arg1;
 - (id)initWithFormatType:(int)arg1;
+@property(readonly, nonatomic) _Bool formatStringContainsOnlyDate;
 
 @end
 

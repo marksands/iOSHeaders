@@ -9,6 +9,7 @@
 @protocol TUConversationManagerXPCClient;
 
 @protocol TUConversationManagerXPCServer <NSObject>
+- (void)unregisterClient:(id <TUConversationManagerXPCClient>)arg1;
 - (void)registerClient:(id <TUConversationManagerXPCClient>)arg1;
 - (oneway void)conversationsByGroupUUID:(void (^)(NSDictionary *))arg1;
 @end

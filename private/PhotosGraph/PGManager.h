@@ -18,7 +18,6 @@
     NSMutableSet *_updateInserts;
     NSMutableSet *_updateDeletes;
     NSMutableSet *_updateDeleteIDs;
-    NSObject<OS_dispatch_queue> *_updateQueue;
     NSMutableArray *_prefetchCuratedKeyAssetsBlocks;
     NSMutableArray *_prefetchCuratedAssetsBlocks;
     NSObject<OS_dispatch_queue> *_curationPrefetchQueue;
@@ -28,14 +27,13 @@
     unsigned long long _numberOfCallsToProgressSinceLastRecordedCall;
     _Bool _wasStopped;
     NSObject<OS_dispatch_queue> *_graphAccessQueue;
-    unsigned long long _graphAccessRead;
-    unsigned long long _graphAccessWrite;
-    NSRecursiveLock *_graphAccessLock;
+    // Error parsing type: AQ, name: _numberOfCurrentGraphAccesses
     NSObject<OS_dispatch_queue> *_notificationQueue;
     PGGraph *_graph;
     NSString *_graphName;
     PIPipeline *_pipeline;
     NSObject<OS_os_log> *_loggingConnection;
+    _Bool _photoLibraryIsReadonly;
     PHPhotoLibrary *_photoLibrary;
     unsigned long long _libraryAnalysisState;
     PGMemoryController *_memoryController;
@@ -66,6 +64,7 @@
 @property(readonly, nonatomic) NSObject<OS_os_log> *relatedLoggingConnection; // @synthesize relatedLoggingConnection=_relatedLoggingConnection;
 @property(readonly, nonatomic) NSObject<OS_os_log> *curationLoggingConnection; // @synthesize curationLoggingConnection=_curationLoggingConnection;
 @property(readonly, nonatomic) NSObject<OS_os_log> *memoriesLoggingConnection; // @synthesize memoriesLoggingConnection=_memoriesLoggingConnection;
+@property(readonly) _Bool photoLibraryIsReadonly; // @synthesize photoLibraryIsReadonly=_photoLibraryIsReadonly;
 @property(retain, nonatomic) NSURL *metadataSnapshotOutputPathURL; // @synthesize metadataSnapshotOutputPathURL=_metadataSnapshotOutputPathURL;
 @property(readonly) PGMemoryController *memoryController; // @synthesize memoryController=_memoryController;
 @property unsigned long long libraryAnalysisState; // @synthesize libraryAnalysisState=_libraryAnalysisState;
@@ -103,6 +102,7 @@
 - (_Bool)invalidatePersistentGraph;
 - (_Bool)shouldInvalidatePersistentGraph;
 - (id)init;
+- (id)initWithReadonlyPhotoLibrary:(id)arg1;
 - (id)initWithPhotoLibrary:(id)arg1;
 - (_Bool)_isMemoryCategoryTriggered:(long long)arg1;
 - (_Bool)isPGMemoryTriggered:(id)arg1;
@@ -291,7 +291,7 @@
 - (id)_filteredAssetCollection:(id)arg1 withContextualAssets:(id)arg2 approximateTimeDistance:(double)arg3;
 - (void)completeCuratedAssets:(id)arg1 fromAssets:(id)arg2 forPeople:(id)arg3 duration:(unsigned long long)arg4 precision:(unsigned long long)arg5 nonRemovableAssets:(id)arg6 progressBlock:(CDUnknownBlockType)arg7;
 - (id)_bestAssetInSummarizedAssets:(id)arg1 forReferencePeople:(id)arg2;
-- (id)_bestAssetsInAssets:(id)arg1 forReferencePeople:(id)arg2 progressBlock:(CDUnknownBlockType)arg3;
+- (id)_bestAssetsInAssets:(id)arg1 forReferencePersons:(id)arg2 minimumRatioOfReferencePersonsPerAsset:(double)arg3 progressBlock:(CDUnknownBlockType)arg4;
 - (id)_bestAssetInAssets:(id)arg1 forReferencePeople:(id)arg2 minimumNumberOfCommonPeople:(unsigned long long)arg3 avoidVideoIfPossible:(_Bool)arg4;
 - (id)_bestAssetInAssets:(id)arg1 forReferencePeople:(id)arg2;
 - (id)bestAssetForItems:(id)arg1 options:(id)arg2;
@@ -306,9 +306,12 @@
 - (void)deleteMoments:(id)arg1;
 - (void)insertMoments:(id)arg1;
 - (void)_performUpdates;
-- (void)startGraphUpdate:(id)arg1;
+- (void)_startGraphUpdate:(id)arg1;
 - (void)_endUpdates;
 - (void)_beginUpdates;
+- (void)clearPendingUpdates;
+- (void)stopCoalescingUpdates;
+- (void)startCoalescingUpdates;
 - (void)_generateTitleForRelatedResults:(id)arg1 withReferenceEvent:(id)arg2 referenceAsset:(id)arg3;
 - (id)_referenceAssetWithLocalIdentifier:(id)arg1;
 - (_Bool)exportMatchingResultsForAsset:(id)arg1 relatedType:(unsigned long long)arg2 toURL:(id)arg3 error:(id *)arg4;

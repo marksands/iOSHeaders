@@ -17,6 +17,7 @@
     // Error parsing type: Ai, name: _fadeInRequestID
     struct {
         _Bool scale;
+        _Bool apertureMode;
     } _isValid;
     double _lastAppliedScale;
     _Bool _playingVitality;
@@ -69,6 +70,8 @@
 - (void)_configurePlaybackFilters;
 - (void)_updateScaleIfNeeded;
 - (void)_invalidateScale;
+- (void)_updateApertureModeIfNeeded;
+- (void)_invalidateApertureMode;
 - (void)_handlePlaybackFilterDidChange;
 - (void)_handleVitalityFilterDidChange:(id)arg1;
 - (double)_photoTransitionDuration;

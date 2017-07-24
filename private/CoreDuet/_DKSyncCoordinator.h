@@ -6,29 +6,36 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, _DKKnowledgeStorage;
+@class NSArray, _DKKnowledgeStorage, _DKSyncState;
 @protocol OS_dispatch_queue;
 
 @interface _DKSyncCoordinator : NSObject
 {
     NSObject<OS_dispatch_queue> *_executionQueue;
+    _DKSyncState *_syncState;
     _Bool _periodJobIsRegistered;
     _Bool _databaseObserversRegistered;
     _Bool _cloudSyncAvailablityObserverRegistered;
+    _Bool _siriSyncEnabledObserverRegistered;
     _Bool _syncPolicyChangedObserverRegistered;
     _Bool _triggeredSyncObserverRegistered;
     NSArray *_streamNamesObservedForAdditions;
     NSArray *_streamNamesObservedForDeletions;
-    _Bool _previousIsCloudSyncAvailable;
     _DKKnowledgeStorage *_storage;
 }
 
 @property(readonly, nonatomic) _DKKnowledgeStorage *storage; // @synthesize storage=_storage;
 - (void).cxx_destruct;
 - (void)deleteRemoteStateWithReply:(CDUnknownBlockType)arg1;
+- (void)_deleteRemoteCloudEventsAndStorage;
+- (void)_deleteRemoteCloudEvents;
 - (void)_unregisterSyncPolicyChangedObserver;
 - (void)_registerSyncPolicyChangedObserver;
 - (void)_syncPolicyDidChange:(id)arg1;
+- (void)_unregisterSiriSyncEnabledObserver;
+- (void)_registerSiriSyncEnabledObserver;
+- (void)_deleteSiriSyncData;
+- (void)_siriSyncEnabledDidChange;
 - (void)_unregisterCloudSyncAvailablityObserver;
 - (void)_registerCloudSyncAvailablityObserver;
 - (void)_cloudSyncAvailabilityDidChange:(id)arg1;
@@ -73,9 +80,9 @@
 - (void)_addLastSyncDate:(id)arg1;
 - (id)_lastDaySyncDates;
 - (id)_lastSyncDate;
-- (_Bool)_shouldDeleteZones;
+- (void)_deleteAllRemoteSyncDataIfSiriCloudSyncHasBeenDisabled;
 - (void)_possiblyPerformInitialSync;
-- (void)_performSyncAvailabilityChangedActions;
+- (void)_performSyncTogglesChangedActions;
 - (void)dealloc;
 - (id)initWithStorage:(id)arg1;
 

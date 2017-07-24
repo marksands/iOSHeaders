@@ -9,7 +9,7 @@
 #import <ModelIO/NSCopying-Protocol.h>
 #import <ModelIO/NSFastEnumeration-Protocol.h>
 
-@class MDLVertexDescriptor, NSArray, NSMapTable, NSMutableArray, NSURL;
+@class MDLVertexDescriptor, NSMapTable, NSMutableArray, NSURL;
 @protocol MDLAssetResolver, MDLMeshBufferAllocator, MDLObjectContainerComponent;
 
 @interface MDLAsset : NSObject <NSCopying, NSFastEnumeration>
@@ -17,6 +17,7 @@
     NSURL *_URL;
     NSMutableArray *_objects;
     id <MDLObjectContainerComponent> _masters;
+    id <MDLObjectContainerComponent> _animations;
     double _startTime;
     double _endTime;
     // Error parsing type: , name: _upAxis
@@ -39,6 +40,7 @@
 // Property attributes: T,N,V_upAxis
 
 @property(nonatomic) double frameInterval; // @synthesize frameInterval=_frameInterval;
+@property(retain, nonatomic) id <MDLObjectContainerComponent> animations; // @synthesize animations=_animations;
 @property(retain, nonatomic) id <MDLObjectContainerComponent> masters; // @synthesize masters=_masters;
 - (void).cxx_destruct;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
@@ -68,7 +70,7 @@
 - (void)resolveTextures;
 - (void)enumerateChildObjectsOfClass:(Class)arg1 usingBlock:(CDUnknownBlockType)arg2 stopPointer:(_Bool *)arg3;
 - (id)childObjectsOfClass:(Class)arg1;
-@property(readonly, copy, nonatomic) NSArray *components;
+- (id)components;
 - (id)objectForKeyedSubscript:(id)arg1;
 - (id)componentConformingToProtocol:(id)arg1;
 - (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;

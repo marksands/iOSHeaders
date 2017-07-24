@@ -15,8 +15,9 @@ __attribute__((visibility("hidden")))
     NSString *_customMarkString;
 }
 
+@property(copy, nonatomic) NSString *customMarkString; // @synthesize customMarkString=_customMarkString;
 @property(retain, nonatomic) TSWPStorage *containedStorage; // @synthesize containedStorage=_containedStorage;
-@property(retain, nonatomic) NSString *customMarkString; // @synthesize customMarkString=_customMarkString;
+- (void).cxx_destruct;
 - (void)checkDebug;
 - (id)childEnumerator;
 - (id)objectsForStyleMigrating;

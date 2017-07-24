@@ -136,7 +136,7 @@
 - (id)shortDescription;
 - (void)accessDataRepresentationInBlock:(CDUnknownBlockType)arg1;
 - (id)copyDataRepresentation;
-- (id)bestFittingImageDataForSize:(struct CGSize)arg1;
+- (id)bestFittingImageDataForSize:(struct CGSize)arg1 shouldTransformToAppIcon:(_Bool *)arg2;
 - (id)iconURLs;
 - (_Bool)hasIconWithName:(id)arg1;
 - (id)versionNumberForBundleIdentifier:(id)arg1;

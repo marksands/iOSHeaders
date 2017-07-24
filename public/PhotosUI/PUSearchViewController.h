@@ -46,7 +46,6 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)newSearchViewControllerWithLastYearPhotos;
-+ (id)pushTransition;
 + (id)newSearchBar;
 + (id)gridViewControllerSpec;
 @property(nonatomic) _Bool noResultsFound; // @synthesize noResultsFound=_noResultsFound;
@@ -57,6 +56,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *searchText; // @synthesize searchText=_searchText;
 - (void).cxx_destruct;
 - (void)ppt_prepareForScrollingTestWithSearchText:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (_Bool)px_canPerformCrossfadeTransitionWithMasterViewController:(id)arg1;
 - (void)viewWillLayoutSubviews;
 - (struct UIEdgeInsets)_separatorInsetsForTableView:(id)arg1;
 - (void)_preferredContentSizeChanged:(id)arg1;
@@ -100,7 +100,6 @@ __attribute__((visibility("hidden")))
 - (void)_selectSearchResultAtIndexPath:(id)arg1;
 - (void)_configureCell:(id)arg1 inTableView:(id)arg2 atIndexAPath:(id)arg3;
 - (void)_getInfoForCellInTableView:(id)arg1 atIndexPath:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)_pushViewForMemoryWithUUID:(id)arg1;
 - (void)_pushGridForPhotosWithUUIDs:(id)arg1 additionalUUIDs:(id)arg2 title:(id)arg3 searchCategories:(unsigned long long)arg4 animated:(_Bool)arg5;
 - (void)_pushGridForAlbumWithUUID:(id)arg1;

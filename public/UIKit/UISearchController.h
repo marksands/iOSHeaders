@@ -12,7 +12,7 @@
 #import <UIKit/UIViewControllerTransitioningDelegate-Protocol.h>
 #import <UIKit/_UIScrollViewScrollObserver_Internal-Protocol.h>
 
-@class NSString, UISearchBar, UISystemInputViewController, UITapGestureRecognizer, UIView, _UINavigationControllerPalette, _UISearchControllerDidScrollDelegate;
+@class NSString, UISearchBar, UISystemInputViewController, UITapGestureRecognizer, UIView, _UINavigationControllerManagedSearchPalette, _UISearchControllerDidScrollDelegate;
 @protocol UISearchControllerDelegate, UISearchResultsUpdating, UIViewControllerAnimatedTransitioning;
 
 @interface UISearchController : UIViewController <UIViewControllerPresenting, _UIScrollViewScrollObserver_Internal, NSCoding, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
@@ -34,7 +34,7 @@
     _Bool _hidesNavigationBarDuringPresentation;
     _Bool __showResultsForEmptySearch;
     UIView *_resultsControllerViewContainer;
-    _UINavigationControllerPalette *_managedPalette;
+    _UINavigationControllerManagedSearchPalette *_managedPalette;
     id <UISearchResultsUpdating> _searchResultsUpdater;
     id <UISearchControllerDelegate> _delegate;
     UIViewController *_searchResultsController;
@@ -51,11 +51,13 @@
 @property(nonatomic) _Bool obscuresBackgroundDuringPresentation; // @synthesize obscuresBackgroundDuringPresentation=_obscuresBackgroundDuringPresentation;
 @property(nonatomic) __weak id <UISearchControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <UISearchResultsUpdating> searchResultsUpdater; // @synthesize searchResultsUpdater=_searchResultsUpdater;
-@property(retain, nonatomic, setter=_setManagedPalette:) _UINavigationControllerPalette *_managedPalette; // @synthesize _managedPalette;
+@property(readonly, retain, nonatomic) _UINavigationControllerManagedSearchPalette *_managedPalette; // @synthesize _managedPalette;
 @property(retain, nonatomic) UIView *_resultsControllerViewContainer; // @synthesize _resultsControllerViewContainer;
 @property(readonly, nonatomic) int _barPresentationStyle; // @synthesize _barPresentationStyle;
 @property(readonly, nonatomic) UISearchBar *searchBar; // @synthesize searchBar=_searchBar;
 - (void).cxx_destruct;
+- (void)_stopManagingPalette;
+- (void)_startManagingPalette:(id)arg1;
 - (void)_navigationControllerWillShowViewController:(id)arg1;
 - (void)_endWatchingPresentingController;
 - (void)_beginWatchingPresentingController;

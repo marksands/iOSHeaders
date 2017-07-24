@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <PhotoLibraryServices/NSCoding-Protocol.h>
 #import <PhotoLibraryServices/PLFaceRebuildDescription-Protocol.h>
@@ -46,6 +46,10 @@
 @property(copy, nonatomic) NSString *assetCloudGUID; // @synthesize assetCloudGUID=_assetCloudGUID;
 @property(copy, nonatomic) NSString *assetUUID; // @synthesize assetUUID=_assetUUID;
 - (void).cxx_destruct;
+- (id)jsonDictionary;
+- (_Bool)matchesEntityInLibraryBackedByManagedObjectContext:(id)arg1 forRejectedPersonUUID:(id)arg2 diff:(id *)arg3;
+- (_Bool)matchesEntityInLibraryBackedByManagedObjectContext:(id)arg1 forConfirmedPersonUUID:(id)arg2 diff:(id *)arg3;
+- (id)matchingFaceInManagedObejctContext:(id)arg1;
 - (id)_identifier;
 - (id)_insertDeferredRebuildFaceFromDataInManagedObjectContext:(id)arg1 personUUID:(id)arg2 isRejected:(_Bool)arg3;
 @property(readonly, copy) NSString *description;

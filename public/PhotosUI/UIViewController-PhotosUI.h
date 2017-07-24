@@ -12,8 +12,6 @@
 + (id)pu_currentViewControllerStack;
 - (void)pu_ensureLocalAssetsForCloudPhotoSharing:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)pu_copyAssets:(id)arg1;
-- (void)_pu_animateBottomBarTransition:(id)arg1 withContext:(id)arg2;
-- (void)pu_performBottomBarsMorphAnimations;
 - (void)_pu_setPreferredStatusBarUpdateAnimation:(long long)arg1;
 - (void)_pu_setTabBarVisible:(_Bool)arg1 withAnimationSettings:(struct PUBarAnimationSettings)arg2;
 - (void)_pu_setToolbarVisible:(_Bool)arg1 withAnimationSettings:(struct PUBarAnimationSettings)arg2;

@@ -21,6 +21,7 @@
 @property(retain, nonatomic) NSMutableArray *timestampAdjustmentsDataQueue; // @synthesize timestampAdjustmentsDataQueue=_timestampAdjustmentsDataQueue;
 @property(readonly, nonatomic) NSMutableArray *synchronizedDataQueue; // @synthesize synchronizedDataQueue=_synchronizedDataQueue;
 @property(readonly, nonatomic) AVCaptureOutput<AVCaptureDataOutputDelegateOverride> *dataOutput; // @synthesize dataOutput=_dataOutput;
+@property(readonly, nonatomic, getter=isLive) _Bool live;
 - (void)dealloc;
 - (id)initWithDataOutput:(id)arg1;
 

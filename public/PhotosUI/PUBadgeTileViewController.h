@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
     struct PXAssetBadgeInfo __badgeInfo;
 }
 
-+ (void)_configureBadgeView:(id)arg1 withBadgeInfo:(struct PXAssetBadgeInfo)arg2 isOverContent:(_Bool)arg3 editableContent:(_Bool)arg4 animated:(_Bool)arg5;
++ (void)_configureBadgeView:(id)arg1 withBadgeInfo:(struct PXAssetBadgeInfo)arg2 isOverContent:(_Bool)arg3 animated:(_Bool)arg4;
 + (struct CGSize)_badgeTileSizeForBadgeInfo:(struct PXAssetBadgeInfo)arg1;
 + (struct CGSize)badgeTileSizeForAssetViewModel:(id)arg1;
 @property(nonatomic, setter=_setShouldAnimateNextBadgeViewUpdate:) _Bool _shouldAnimateNextBadgeViewUpdate; // @synthesize _shouldAnimateNextBadgeViewUpdate=__shouldAnimateNextBadgeViewUpdate;

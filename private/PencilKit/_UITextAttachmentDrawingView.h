@@ -99,6 +99,8 @@
 - (_Bool)becomeFirstResponder;
 - (_Bool)canBecomeFirstResponder;
 - (void)showDrawingMenu:(id)arg1;
+- (void)menuDidHide:(id)arg1;
+@property(readonly, nonatomic) _Bool drawingMenuVisible;
 - (void)drawingScrollViewDidScroll:(id)arg1;
 - (void)resizeDrawing:(id)arg1;
 - (void)higlightResize:(id)arg1;
@@ -107,12 +109,12 @@
 - (_Bool)hitTestResizeHandles:(struct CGPoint)arg1 threshold:(double)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)_setHeight:(double)arg1 originalHeight:(double)arg2 growFromTop:(_Bool)arg3;
+- (void)updateDrawingHeight:(double)arg1 notifyDrawingDidChange:(_Bool)arg2;
 - (void)updateDrawingHeight:(double)arg1;
 - (void)_adjustResizeIndicatorVisiblity:(_Bool)arg1;
 - (void)_adjustResizeIndicatorVisiblity;
 - (void)updateFrameForTextContainer;
 - (void)setFrame:(struct CGRect)arg1;
-- (double)_maximumHeight;
 - (void)fingerDrawingEnabledDidChange;
 - (void)drawingDidChange;
 - (void)drawingWillBegin;

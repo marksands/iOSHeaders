@@ -19,6 +19,7 @@
     NSArray *_topLanguages;
     NSArray *_keyEventArray;
     NSMutableArray *_typologyCorrections;
+    NSMutableArray *_typologyCandidates;
     NSArray *_results;
     double _openTime;
     double _closeTime;
@@ -35,6 +36,7 @@
 + (id)openTypologyRecordWithString:(id)arg1 range:(struct _NSRange)arg2 language:(id)arg3 languages:(id)arg4 topLanguages:(id)arg5 autocorrect:(_Bool)arg6 initialCapitalize:(_Bool)arg7 autocapitalize:(_Bool)arg8 keyEventArray:(id)arg9 appIdentifier:(id)arg10 selectedRangeValue:(id)arg11;
 - (void)closeTypologyRecordWithResults:(id)arg1;
 - (id)dictionaryRepresentation;
+- (void)addCandidate:(id)arg1;
 - (void)addCorrection:(id)arg1;
 - (void)dealloc;
 - (id)initWithString:(id)arg1 range:(struct _NSRange)arg2 language:(id)arg3 languages:(id)arg4 topLanguages:(id)arg5 autocorrect:(_Bool)arg6 initialCapitalize:(_Bool)arg7 autocapitalize:(_Bool)arg8 keyEventArray:(id)arg9 appIdentifier:(id)arg10 selectedRangeValue:(id)arg11;

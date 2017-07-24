@@ -8,7 +8,7 @@
 
 #import <HomeUI/HUUserItemManager-Protocol.h>
 
-@class HFItem, HMUser, NSString;
+@class HFItem, HFUserItem, HMHome, HMUser, NSString;
 
 @interface HUEditUserItemManager : HFItemManager <HUUserItemManager>
 {
@@ -18,10 +18,12 @@
     HFItem *_allowEditingItem;
     HFItem *_allowEditingFooterItem;
     HFItem *_pendingAccessoriesItem;
+    HMHome *_homeForUser;
     HFItem *_removeItem;
 }
 
 @property(retain, nonatomic) HFItem *removeItem; // @synthesize removeItem=_removeItem;
+@property(retain, nonatomic) HMHome *homeForUser; // @synthesize homeForUser=_homeForUser;
 @property(retain, nonatomic) HFItem *pendingAccessoriesItem; // @synthesize pendingAccessoriesItem=_pendingAccessoriesItem;
 @property(retain, nonatomic) HFItem *allowEditingFooterItem; // @synthesize allowEditingFooterItem=_allowEditingFooterItem;
 @property(retain, nonatomic) HFItem *allowEditingItem; // @synthesize allowEditingItem=_allowEditingItem;
@@ -36,13 +38,17 @@
 - (_Bool)_isRemoteAccessAllowedForUser:(id)arg1;
 - (id)_buildSectionsWithDisplayedItems:(id)arg1;
 - (id)_buildItemProvidersForHome:(id)arg1;
+- (id)_homeFuture;
 - (id)reuseIdentifierForFooterViewInSection:(unsigned long long)arg1;
 @property(readonly, nonatomic) HMUser *user;
+- (id)initWithDelegate:(id)arg1 sourceItem:(id)arg2;
+- (id)initWithHome:(id)arg1 userItem:(id)arg2 delegate:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(retain, nonatomic) HFUserItem *sourceItem; // @dynamic sourceItem;
 @property(readonly) Class superclass;
 
 @end

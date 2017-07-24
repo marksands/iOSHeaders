@@ -6,9 +6,11 @@
 
 #import <ContactsUICore/NSObject-Protocol.h>
 
-@class CNContact;
+@class CNContact, CNContactStore, NSArray;
 
 @protocol CNMeContactComparisonStrategy <NSObject>
-- (_Bool)isContact:(CNContact *)arg1 equivalentToMeContact:(CNContact *)arg2;
+- (_Bool)isMeContact:(CNContact *)arg1;
+- (NSArray *)meContactIdentifiers;
+- (void)meContactChangedInStore:(CNContactStore *)arg1;
 @end
 

@@ -33,6 +33,7 @@
 - (void)tableCellWasEditedAtColumnID:(id)arg1 rowID:(id)arg2 edited:(unsigned long long)arg3 range:(struct _NSRange)arg4 changeInLength:(long long)arg5;
 - (void)restoreSelection:(id)arg1;
 - (id)savedSelectionWithSelectionAffinity:(unsigned long long)arg1;
+- (_Bool)wantsUndoCommands;
 - (void)resetUndoManager;
 - (void)breakUndoCoalescing;
 - (void)closeUndoGroups;

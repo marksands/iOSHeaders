@@ -125,6 +125,13 @@ typedef struct {
 } CDStruct_d6cfdf4e;
 
 typedef struct {
+    unsigned int type:1;
+    unsigned int source:1;
+    unsigned int queryId:1;
+    unsigned int flexibleSectionOrder:1;
+} CDStruct_db075487;
+
+typedef struct {
     unsigned int columnAlignment:1;
     unsigned int dataAlignment:1;
     unsigned int isEqualWidth:1;
@@ -135,12 +142,6 @@ typedef struct {
     unsigned int isBold:1;
     unsigned int textColor:1;
 } CDStruct_87e10b33;
-
-typedef struct {
-    unsigned int type:1;
-    unsigned int source:1;
-    unsigned int queryId:1;
-} CDStruct_79b01e37;
 
 typedef struct {
     unsigned int lat:1;

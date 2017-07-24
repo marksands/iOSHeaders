@@ -21,12 +21,12 @@ __attribute__((visibility("hidden")))
     NSString *_tableField;
 }
 
+- (void).cxx_destruct;
 - (id)scriptTag;
 - (int)smartFieldKind;
 - (_Bool)allowsPasteAsSmartField;
 - (id)copyWithContext:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (void)dealloc;
 - (void)loadFromUnarchiver:(id)arg1;
 @property(copy, nonatomic) NSString *tableField;
 @property(copy, nonatomic) NSString *guid;

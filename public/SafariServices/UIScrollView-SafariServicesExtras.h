@@ -8,6 +8,7 @@
 
 @interface UIScrollView (SafariServicesExtras)
 - (void)_sf_setContentInsetAdjustments:(struct UIEdgeInsets)arg1;
-- (_Bool)_sf_isScrolledToOrPastBottom;
+@property(readonly, nonatomic) _Bool _sf_isScrolledPastTop;
+@property(readonly, nonatomic) _Bool _sf_isScrolledToOrPastBottom;
 @end
 

@@ -6,29 +6,39 @@
 
 #import <objc/NSObject.h>
 
-#import <IMCore/NSCoding-Protocol.h>
-
 @class NSArray, NSDate;
 
-@interface IMCloudKitSyncState : NSObject <NSCoding>
+@interface IMCloudKitSyncState : NSObject
 {
+    _Bool _isDisablingDevices;
+    _Bool _accountIsEnabled;
+    unsigned long long _controllerSyncState;
+    unsigned long long _controllerSyncType;
+    long long _changingEnabledState;
     long long _syncState;
     NSDate *_lastSyncDate;
     NSArray *_errors;
 }
 
+@property(readonly, nonatomic) _Bool accountIsEnabled; // @synthesize accountIsEnabled=_accountIsEnabled;
 @property(readonly, nonatomic) NSArray *errors; // @synthesize errors=_errors;
 @property(readonly, nonatomic) NSDate *lastSyncDate; // @synthesize lastSyncDate=_lastSyncDate;
 @property(readonly, nonatomic) long long syncState; // @synthesize syncState=_syncState;
+@property(readonly, nonatomic) _Bool isDisablingDevices; // @synthesize isDisablingDevices=_isDisablingDevices;
+@property(readonly, nonatomic) long long changingEnabledState; // @synthesize changingEnabledState=_changingEnabledState;
+@property(readonly, nonatomic) unsigned long long controllerSyncType; // @synthesize controllerSyncType=_controllerSyncType;
+@property(readonly, nonatomic) unsigned long long controllerSyncState; // @synthesize controllerSyncState=_controllerSyncState;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool isSyncEnabledForDisplayOnly;
+@property(readonly, nonatomic) _Bool canChangeEnabledSetting;
+@property(readonly, nonatomic) _Bool canStartSyncing;
+- (_Bool)_isChangingEnabledState;
 @property(readonly, nonatomic) _Bool canEnableSyncing;
 - (id)description;
 @property(readonly, nonatomic) _Bool isSyncingAvailable;
 @property(readonly, nonatomic) _Bool isSyncingEnabled;
 @property(readonly, nonatomic) _Bool isSyncing;
-- (id)initWithSyncState:(long long)arg1 lastSyncDate:(id)arg2 errors:(id)arg3;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
+- (id)initWithAccountEnabled:(_Bool)arg1 stateDictionary:(id)arg2;
 
 @end
 

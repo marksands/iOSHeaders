@@ -6,7 +6,7 @@
 
 #import <CoreData/NSManagedObject.h>
 
-@class _DKAttributeMO, _DKAttributeValueMO, _DKEventMO;
+@class NSData, NSDate, NSNumber, NSSet, NSString;
 
 @interface _DKCustomMetadataMO : NSManagedObject
 {
@@ -15,9 +15,14 @@
 + (id)fetchRequest;
 
 // Remaining properties
-@property(retain, nonatomic) _DKAttributeMO *attribute; // @dynamic attribute;
-@property(retain, nonatomic) _DKAttributeValueMO *attributeValue; // @dynamic attributeValue;
-@property(retain, nonatomic) _DKEventMO *event; // @dynamic event;
+@property(copy, nonatomic) NSData *binaryValue; // @dynamic binaryValue;
+@property(copy, nonatomic) NSDate *dateValue; // @dynamic dateValue;
+@property(copy, nonatomic) NSNumber *doubleValue; // @dynamic doubleValue;
+@property(retain, nonatomic) NSSet *event; // @dynamic event;
+@property(copy, nonatomic) NSNumber *integerValue; // @dynamic integerValue;
+@property(copy, nonatomic) NSString *name; // @dynamic name;
+@property(copy, nonatomic) NSString *stringValue; // @dynamic stringValue;
+@property(copy, nonatomic) NSString *valueHash; // @dynamic valueHash;
 
 @end
 

@@ -49,8 +49,6 @@
 @property(readonly, nonatomic) NSString *UUID;
 @property(readonly, nonatomic) EKCalendar *owner;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithName:(id)arg1 url:(id)arg2 externalID:(id)arg3;
 - (id)initWithName:(id)arg1 url:(id)arg2;
@@ -58,6 +56,7 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

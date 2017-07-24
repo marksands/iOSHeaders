@@ -12,11 +12,13 @@
 
 @interface _DUIImageComponentWithoutSlot : NSObject <NSSecureCoding>
 {
+    _Bool _ignoresAccessibilityFilters;
     NSString *_key;
     struct CGRect _frame;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool ignoresAccessibilityFilters; // @synthesize ignoresAccessibilityFilters=_ignoresAccessibilityFilters;
 @property(nonatomic) struct CGRect frame; // @synthesize frame=_frame;
 @property(retain, nonatomic) NSString *key; // @synthesize key=_key;
 - (void).cxx_destruct;

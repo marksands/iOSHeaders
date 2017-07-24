@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     WebAVMediaSelectionOption *_currentAudioMediaSelectionOption;
     WebAVMediaSelectionOption *_currentLegibleMediaSelectionOption;
     _Bool _pictureInPictureInterrupted;
+    _Bool _muted;
     _Bool _liveStreamEventModePossible;
     _Bool _canScanBackward;
     _Bool _canPlay;
@@ -23,7 +24,6 @@ __attribute__((visibility("hidden")))
     _Bool _hasEnabledAudio;
     _Bool _hasEnabledVideo;
     _Bool _hasVideo;
-    _Bool _muted;
     _Bool _playingOnSecondScreen;
     _Bool _externalPlaybackActive;
     _Bool _allowsExternalPlayback;
@@ -74,7 +74,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, getter=isPlayingOnSecondScreen) _Bool playingOnSecondScreen; // @synthesize playingOnSecondScreen=_playingOnSecondScreen;
 @property(retain) NSArray *legibleMediaSelectionOptions; // @synthesize legibleMediaSelectionOptions=_legibleMediaSelectionOptions;
 @property(retain) NSArray *audioMediaSelectionOptions; // @synthesize audioMediaSelectionOptions=_audioMediaSelectionOptions;
-@property(getter=isMuted) _Bool muted; // @synthesize muted=_muted;
 @property(retain) NSArray *seekableTimeRanges; // @synthesize seekableTimeRanges=_seekableTimeRanges;
 @property(retain) AVValueTiming *timing; // @synthesize timing=_timing;
 @property long long status; // @synthesize status=_status;
@@ -99,6 +98,7 @@ __attribute__((visibility("hidden")))
 - (void)updateMinMaxTiming;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)toggleMuted:(id)arg1;
+@property(getter=isMuted) _Bool muted;
 @property(getter=isPictureInPictureInterrupted) _Bool pictureInPictureInterrupted;
 @property(readonly, getter=isPlayingOnExternalScreen) _Bool playingOnExternalScreen;
 @property(retain) WebAVMediaSelectionOption *currentLegibleMediaSelectionOption;

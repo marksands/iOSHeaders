@@ -64,7 +64,7 @@ __attribute__((visibility("hidden")))
 - (void)actionSheetAssistant:(id)arg1 shareElementWithURL:(id)arg2 rect:(struct CGRect)arg3;
 - (void)actionSheetAssistant:(id)arg1 openElementAtLocation:(struct CGPoint)arg2;
 - (void)actionSheetAssistant:(id)arg1 performAction:(int)arg2;
-- (optional_4e0547bb)positionInformationForActionSheetAssistant:(id)arg1;
+- (optional_b0042d51)positionInformationForActionSheetAssistant:(id)arg1;
 - (void)annotation:(id)arg1 isBeingPressedAtPoint:(struct CGPoint)arg2 controller:(id)arg3;
 - (void)annotation:(id)arg1 wasTouchedAtPoint:(struct CGPoint)arg2 controller:(id)arg3;
 - (void)resetZoom:(id)arg1;

@@ -23,7 +23,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int vOffsetType; // @synthesize vOffsetType=_vOffsetType;
 @property(nonatomic) double hOffset; // @synthesize hOffset=_hOffset;
 @property(nonatomic) int hOffsetType; // @synthesize hOffsetType=_hOffsetType;
-@property(readonly, retain, nonatomic) TSDDrawableInfo *drawable; // @synthesize drawable=_drawableInfo;
+@property(readonly, nonatomic) TSDDrawableInfo *drawable; // @synthesize drawable=_drawableInfo;
+- (void).cxx_destruct;
 - (_Bool)supportsUUID;
 - (_Bool)preserveAttributesOverSelectionWhenInserting;
 - (void)updateForStyleChangeToStorage:(id)arg1 charIndex:(unsigned long long)arg2;

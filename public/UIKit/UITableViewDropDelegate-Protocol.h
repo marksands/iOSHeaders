@@ -6,13 +6,14 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class NSIndexPath, UITableView, UITableViewDropProposal;
+@class NSIndexPath, UIDragPreviewParameters, UITableView, UITableViewDropProposal;
 @protocol UIDropSession, UITableViewDropCoordinator;
 
 @protocol UITableViewDropDelegate <NSObject>
 - (void)tableView:(UITableView *)arg1 performDropWithCoordinator:(id <UITableViewDropCoordinator>)arg2;
 
 @optional
+- (UIDragPreviewParameters *)tableView:(UITableView *)arg1 dropPreviewParametersForRowAtIndexPath:(NSIndexPath *)arg2;
 - (void)tableView:(UITableView *)arg1 dropSessionDidEnd:(id <UIDropSession>)arg2;
 - (void)tableView:(UITableView *)arg1 dropSessionDidExit:(id <UIDropSession>)arg2;
 - (UITableViewDropProposal *)tableView:(UITableView *)arg1 dropSessionDidUpdate:(id <UIDropSession>)arg2 withDestinationIndexPath:(NSIndexPath *)arg3;

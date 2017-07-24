@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSDate, NSDictionary, NSMutableArray, PDFAKOverlayAdaptor, PDFAnnotation, PDFCoachMarkManager, PDFDocument, PDFDocumentViewController, PDFPage, PDFPanGestureRecognizer, PDFPasswordViewController, PDFRenderingProperties, PDFScrollView, PDFSelection, PDFViewController, PDFViewLayout, UIDragInteraction, UILongPressGestureRecognizer, UISwipeGestureRecognizer, UITapGestureRecognizer;
+@class NSArray, NSDictionary, NSMutableArray, PDFAKOverlayAdaptor, PDFAnnotation, PDFCoachMarkManager, PDFDocument, PDFDocumentViewController, PDFPage, PDFPanGestureRecognizer, PDFPasswordViewController, PDFRenderingProperties, PDFScrollView, PDFSelection, PDFTimer, PDFViewController, PDFViewLayout, UIDragInteraction, UILongPressGestureRecognizer, UISwipeGestureRecognizer, UITapGestureRecognizer;
 @protocol PDFViewDelegate, PDFViewPopupManager;
 
 __attribute__((visibility("hidden")))
@@ -41,8 +41,7 @@ __attribute__((visibility("hidden")))
     unsigned long long lastVisiblePage;
     _Bool inhibitAutoScroll;
     PDFPage *fromPage;
-    _Bool scheduledPageSync;
-    NSDate *pageSyncDate;
+    PDFTimer *pageSyncTimer;
     NSMutableArray *destinationHistory;
     long long historyIndex;
     NSArray *highlights;
@@ -54,6 +53,7 @@ __attribute__((visibility("hidden")))
     _Bool enableSelectionDrawing;
     _Bool showsScrollIndicators;
     _Bool debugDrawCGPDFNodeLayer[11];
+    _Bool wantsForceUpdate;
     double blockingWaitDuration;
     UILongPressGestureRecognizer *longPressGestureRecognizer;
     PDFPanGestureRecognizer *panGestureRecognizer;

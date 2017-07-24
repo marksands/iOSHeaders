@@ -18,6 +18,7 @@
 }
 
 + (id)writableTypeIdentifiersForItemProvider;
++ (id)objectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 + (id)draggingContactsForContacts:(id)arg1 contactStore:(id)arg2;
 + (id)draggingContactsWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 contactStore:(id)arg3 error:(id *)arg4;
 + (id)readableTypeIdentifiersForItemProvider;
@@ -30,7 +31,6 @@
 @property(retain, nonatomic) NSArray *draggingContacts; // @synthesize draggingContacts=_draggingContacts;
 - (void).cxx_destruct;
 - (id)loadDataWithTypeIdentifier:(id)arg1 forItemProviderCompletionHandler:(CDUnknownBlockType)arg2;
-- (id)initWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 - (id)initWithDraggingContacts:(id)arg1 contactStore:(id)arg2;
 
 // Remaining properties

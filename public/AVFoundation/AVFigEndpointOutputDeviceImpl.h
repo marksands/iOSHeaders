@@ -8,7 +8,7 @@
 
 #import <AVFoundation/AVOutputDeviceImpl-Protocol.h>
 
-@class AVOutputDevice, AVWeakReference, NSArray, NSNumber, NSString;
+@class AVOutputDevice, AVWeakReference, NSArray, NSData, NSNumber, NSString;
 
 @interface AVFigEndpointOutputDeviceImpl : NSObject <AVOutputDeviceImpl>
 {
@@ -42,6 +42,7 @@
 @property(readonly, nonatomic) NSNumber *leftBatteryLevel;
 @property(readonly, nonatomic) NSNumber *caseBatteryLevel;
 @property(readonly, nonatomic) NSNumber *batteryLevel;
+@property(readonly, copy, nonatomic) NSData *identifyingMACAddress;
 @property(readonly, copy, nonatomic) NSString *modelID;
 @property(readonly, nonatomic) long long deviceSubType;
 @property(readonly, nonatomic) long long deviceType;

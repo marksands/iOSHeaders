@@ -6,7 +6,7 @@
 
 #import <FileProvider/FPOperation.h>
 
-@class FPItemManager, FPOperationStitcher, NSDictionary, NSString;
+@class FPItemManager, FPStitchingSession, NSDictionary, NSString;
 
 @interface FPActionOperation : FPOperation
 {
@@ -17,10 +17,10 @@
     unsigned long long *_logSection;
     CDUnknownBlockType _actionCompletionBlock;
     FPItemManager *_itemManager;
-    FPOperationStitcher *_stitcher;
+    FPStitchingSession *_stitcher;
 }
 
-@property(copy, nonatomic) FPOperationStitcher *stitcher; // @synthesize stitcher=_stitcher;
+@property(copy, nonatomic) FPStitchingSession *stitcher; // @synthesize stitcher=_stitcher;
 @property(copy, nonatomic) FPItemManager *itemManager; // @synthesize itemManager=_itemManager;
 @property(copy, nonatomic) CDUnknownBlockType actionCompletionBlock; // @synthesize actionCompletionBlock=_actionCompletionBlock;
 - (void).cxx_destruct;

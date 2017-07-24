@@ -32,8 +32,6 @@
 - (void)setExtractionProgress:(double)arg1;
 - (void)addArchiveBytesConsumed:(unsigned long long)arg1;
 @property(nonatomic) unsigned long long archiveBytesConsumed; // @dynamic archiveBytesConsumed;
-- (id)synchronousRemoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
-- (id)remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (_Bool)consumeExtractedDataIfNeeded;
 @property(readonly, nonatomic) _Bool doesConsumeExtractedData; // @dynamic doesConsumeExtractedData;
 - (void)resetWithCompletion:(CDUnknownBlockType)arg1;
@@ -44,7 +42,6 @@
 - (void)_prepareForExtractionToPath:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)prepareForExtractionToPath:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)prepareForExtraction:(CDUnknownBlockType)arg1;
-- (_Bool)_reEstablishRemoteConnection;
 - (id)initWithName:(id)arg1 client:(unsigned long long)arg2 streamingZipOptions:(id)arg3 archiveSize:(unsigned long long)arg4 diskSpaceNeeded:(unsigned long long)arg5;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

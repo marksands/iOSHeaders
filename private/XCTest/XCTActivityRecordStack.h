@@ -6,13 +6,15 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableArray;
+@class NSDictionary, NSMutableArray, NSMutableDictionary;
 
 @interface XCTActivityRecordStack : NSObject
 {
     NSMutableArray *_storage;
+    NSMutableDictionary *_aggregationRecords;
 }
 
+@property(readonly) NSDictionary *aggregationRecords; // @synthesize aggregationRecords=_aggregationRecords;
 - (id)topActivity;
 - (long long)depth;
 - (void)unwindRemainingActivitiesWithTestCase:(id)arg1 observationCenter:(id)arg2;

@@ -25,6 +25,7 @@
 - (void)deallocSVMNodeVector:(struct svm_node *)arg1;
 - (void)fillSVMNodeVector:(struct svm_node *)arg1 values:(double *)arg2 count:(unsigned long long)arg3;
 - (struct svm_node *)allocSVMNodeVector:(unsigned long long)arg1;
+- (void)dealloc;
 - (id)initWithSVMModel:(struct svm_model *)arg1 freeOnDealloc:(_Bool)arg2 isInputSizeLowerBoundOnly:(_Bool)arg3 inputSize:(unsigned long long)arg4;
 - (id)initWithLibSVMFile:(id)arg1;
 

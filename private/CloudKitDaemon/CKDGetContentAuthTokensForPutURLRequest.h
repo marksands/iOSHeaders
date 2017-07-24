@@ -6,7 +6,7 @@
 
 #import <CloudKitDaemon/CKDURLRequest.h>
 
-@class CKDAssetTokenRequest, NSArray, NSDictionary, NSMapTable;
+@class CKDAssetTokenRequest, NSDictionary, NSMapTable;
 
 __attribute__((visibility("hidden")))
 @interface CKDGetContentAuthTokensForPutURLRequest : CKDURLRequest
@@ -15,10 +15,8 @@ __attribute__((visibility("hidden")))
     CKDAssetTokenRequest *_assetTokenRequest;
     NSMapTable *_transactionStateByRequestIDs;
     NSDictionary *_headers;
-    NSArray *_lazyRequestOperations;
 }
 
-@property(retain, nonatomic) NSArray *lazyRequestOperations; // @synthesize lazyRequestOperations=_lazyRequestOperations;
 @property(retain, nonatomic) NSDictionary *headers; // @synthesize headers=_headers;
 @property(retain, nonatomic) NSMapTable *transactionStateByRequestIDs; // @synthesize transactionStateByRequestIDs=_transactionStateByRequestIDs;
 @property(retain, nonatomic) CKDAssetTokenRequest *assetTokenRequest; // @synthesize assetTokenRequest=_assetTokenRequest;
@@ -26,7 +24,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)requestDidParseNodeFailure:(id)arg1;
 - (id)requestDidParseProtobufObject:(id)arg1;
-- (id)requestOperations;
+- (id)generateRequestOperations;
 - (id)requestOperationClasses;
 - (int)operationType;
 - (id)initWithAssetTokenRequest:(id)arg1 headers:(id)arg2;

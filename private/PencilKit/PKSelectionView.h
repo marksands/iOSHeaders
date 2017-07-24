@@ -6,30 +6,32 @@
 
 #import <UIKit/UIView.h>
 
-#import <PencilKit/UIDragInteractionDelegate-Protocol.h>
+#import <PencilKit/UIDragInteractionDelegate_Private-Protocol.h>
 #import <PencilKit/UIGestureRecognizerDelegate-Protocol.h>
 
-@class CAShapeLayer, NSString, PKSelectionController, PKStrokeSelection, UIDragInteraction, UIDragPreview, UIImage, UIImageView, UIPanGestureRecognizer, UITapGestureRecognizer;
+@class CAShapeLayer, NSString, PKSelectionController, PKStrokeSelection, UIDragInteraction, UIDragPreview, UIImage, UIImageView, UILongPressGestureRecognizer, UITapGestureRecognizer;
 
-@interface PKSelectionView : UIView <UIDragInteractionDelegate, UIGestureRecognizerDelegate>
+@interface PKSelectionView : UIView <UIDragInteractionDelegate_Private, UIGestureRecognizerDelegate>
 {
     UIImageView *_strokeSelectionImageView;
     UIDragInteraction *_dragInteraction;
     struct CGPoint _originalStrokePosition;
+    struct CGPoint _initialDragPosition;
     PKSelectionController *_selectionController;
     _Bool _isClearingSelection;
-    UITapGestureRecognizer *editMenuGR;
+    UITapGestureRecognizer *_editMenuGR;
     CAShapeLayer *_lassoLayer;
     CAShapeLayer *_whiteLassoLayer;
-    UIPanGestureRecognizer *dragGR;
     UIDragPreview *_previewProvider;
     _Bool _isDragging;
     _Bool _wantsDragPlatter;
     PKStrokeSelection *_strokeSelection;
     UIImage *_strokeSelectionImage;
+    UILongPressGestureRecognizer *_dragGR;
     struct CGPoint _offsetInTouchView;
 }
 
+@property(readonly, nonatomic) UILongPressGestureRecognizer *dragGR; // @synthesize dragGR=_dragGR;
 @property(nonatomic) _Bool wantsDragPlatter; // @synthesize wantsDragPlatter=_wantsDragPlatter;
 @property(retain, nonatomic) UIImage *strokeSelectionImage; // @synthesize strokeSelectionImage=_strokeSelectionImage;
 @property(readonly, nonatomic) struct CGPoint offsetInTouchView; // @synthesize offsetInTouchView=_offsetInTouchView;
@@ -37,12 +39,15 @@
 @property(readonly, nonatomic) _Bool isDragging; // @synthesize isDragging=_isDragging;
 - (void).cxx_destruct;
 - (void)updateLocation:(struct CGPoint)arg1;
+- (long long)_dragInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (void)dragInteraction:(id)arg1 session:(id)arg2 willEndWithOperation:(unsigned long long)arg3;
 - (void)animateViewToOriginalPosition;
 - (void)makeViewAliveAtLocation:(struct CGPoint)arg1;
 - (void)dragInteraction:(id)arg1 sessionDidMove:(id)arg2;
 - (void)_dragWillBegin;
 - (void)dragInteraction:(id)arg1 sessionWillBegin:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRequireFailureOfGestureRecognizer:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)dragSelection:(id)arg1;
 - (void)_addShadowToStroke;
 - (id)dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
@@ -53,6 +58,7 @@
 - (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)toggleEditMenu;
 - (_Bool)canBecomeFirstResponder;
+- (_Bool)lassoContainsPoint:(struct CGPoint)arg1;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)setupAnimatedLasso;
 - (void)willMoveToWindow:(id)arg1;

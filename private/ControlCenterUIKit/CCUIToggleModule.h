@@ -8,22 +8,24 @@
 
 #import <ControlCenterUIKit/CCUIContentModule-Protocol.h>
 
-@class CAPackage, CCUIContentModuleContext, CCUIToggleViewController, NSString, UIColor, UIImage, UIViewController;
+@class CCUICAPackageDescription, CCUIContentModuleContext, CCUIToggleViewController, NSString, UIColor, UIImage, UIViewController;
 @protocol CCUIContentModuleContentViewController;
 
 @interface CCUIToggleModule : NSObject <CCUIContentModule>
 {
     CCUIToggleViewController *_viewController;
     CCUIContentModuleContext *_contentModuleContext;
+    CCUICAPackageDescription *_glyphPackageDescription;
 }
 
+@property(readonly, copy, nonatomic) CCUICAPackageDescription *glyphPackageDescription; // @synthesize glyphPackageDescription=_glyphPackageDescription;
 @property(retain, nonatomic) CCUIContentModuleContext *contentModuleContext; // @synthesize contentModuleContext=_contentModuleContext;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) UIViewController<CCUIContentModuleContentViewController> *contentViewController;
 - (void)reconfigureView;
 - (void)refreshState;
 @property(readonly, copy, nonatomic) NSString *glyphState;
-@property(readonly, copy, nonatomic) CAPackage *glyphPackage;
+- (id)glyphPackage;
 @property(readonly, copy, nonatomic) UIColor *selectedColor; // @dynamic selectedColor;
 @property(readonly, copy, nonatomic) UIImage *selectedIconGlyph; // @dynamic selectedIconGlyph;
 @property(readonly, copy, nonatomic) UIImage *iconGlyph; // @dynamic iconGlyph;

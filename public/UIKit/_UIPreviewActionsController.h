@@ -57,6 +57,7 @@
 - (void)_deactivateFeedbackIfNeeded;
 - (void)_activateFeedbackIfNeeded;
 - (void)_configureFeedbackGenerator;
+- (struct CGPoint)_applyLayoutAdjustmentsForManagedViewWithPosition:(struct CGPoint)arg1;
 - (void)translationDidUpdateForPlatterMenuDynamicsController:(id)arg1;
 - (void)platterMenuDynamicsController:(id)arg1 didMoveSwipeView:(id)arg2 toPosition:(struct CGPoint)arg3;
 - (void)platterMenuDynamicsControllerDidDismissWithController:(id)arg1;
@@ -73,6 +74,7 @@
 - (struct CGPoint)_centerForPlatterWithMenuViewPresentedForActionSheet:(id)arg1;
 - (struct CGPoint)centerForPlatterWithMenuViewPresented;
 - (void)_updateAffordanceIfNecessary;
+- (void)_setAffordanceAlpha:(double)arg1 withDuration:(double)arg2 hideOnCompletion:(_Bool)arg3;
 - (void)_presentSubactionsForActionGroup:(id)arg1;
 - (_Bool)_platterIsInInitialPositionMostly;
 - (void)_memoizePreviewActionViews;
@@ -90,7 +92,8 @@
 - (struct CGRect)_initialPlatterFrame;
 - (id)_makeAndAddToViewHierarchyPreviewActionSheetForMenuItems:(id)arg1;
 - (double)_platterOffsetDistance;
-- (void)_hideChrome;
+- (void)flashScrollAffordance;
+- (void)_hideChromeAndSetAffordanceHidden:(_Bool)arg1;
 @property(readonly, nonatomic) struct CGRect frameForActionView;
 - (void)dismissPreviewActionsWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)platterPanned;

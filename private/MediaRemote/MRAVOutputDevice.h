@@ -23,6 +23,8 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) _Bool forceRemoteControllability; // @synthesize forceRemoteControllability=_forceRemoteControllability;
 @property(readonly, nonatomic) AVOutputDevice *avOutputDevice; // @synthesize avOutputDevice=_avOutputDevice;
+@property(readonly, nonatomic) _Bool requiresAuthorization;
+@property(readonly, nonatomic) _Bool supportsExternalScreen;
 @property(readonly, nonatomic, getter=isLocalDevice) _Bool localDevice;
 @property(readonly, nonatomic) float batteryLevel;
 @property(readonly, nonatomic) NSDictionary *modelSpecificInfo;

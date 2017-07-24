@@ -6,7 +6,7 @@
 
 #import <XCTest/XCTest.h>
 
-@class NSArray, NSString;
+@class NSArray, NSDictionary, NSString;
 
 @interface XCTestSuite : XCTest
 {
@@ -27,6 +27,8 @@
 + (id)testCaseNamesForScopeNames:(id)arg1;
 - (id)_initWithTestConfiguration:(id)arg1;
 - (void)_sortTestsUsingComparator:(CDUnknownBlockType)arg1;
+@property(readonly) NSDictionary *activityAggregateStatistics;
+- (void)_mergeActivityStatistics:(id)arg1;
 - (void)performTest:(id)arg1;
 - (void)_performProtectedSectionForTest:(id)arg1 testSection:(CDUnknownBlockType)arg2;
 - (void)_recordUnexpectedFailureForTestRun:(id)arg1 description:(id)arg2 exception:(id)arg3;

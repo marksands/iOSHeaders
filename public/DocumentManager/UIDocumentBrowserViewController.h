@@ -92,11 +92,11 @@
 - (void)_showDocumentBrowserViewController:(_Bool)arg1;
 - (void)_showErrorViewController;
 - (void)_clearShownViewControllers;
+- (void)clearCurrentOpenInteraction;
 @property(nonatomic) unsigned long long browserUserInterfaceStyle; // @dynamic browserUserInterfaceStyle;
 @property(copy, nonatomic) NSString *createButtonTitle;
 @property(nonatomic) double createButtonAspectRatio;
 @property(retain, nonatomic) NSArray *additionalToolbarButtonItems; // @dynamic additionalToolbarButtonItems;
-@property(readonly) _Bool isCreateEnabled;
 @property(readonly, copy, nonatomic) NSArray *allowedContentTypes;
 - (long long)preferredStatusBarStyle;
 - (void)didTapTryAgainInErrorViewController:(id)arg1;
@@ -107,6 +107,8 @@
 - (void)importDocumentAtURL:(id)arg1 mode:(unsigned long long)arg2 toCurrentBrowserLocationWithCompletion:(CDUnknownBlockType)arg3;
 - (void)importDocumentAtURL:(id)arg1 nextToDocumentAtURL:(id)arg2 mode:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)transitionControllerForDocumentURL:(id)arg1;
+- (void)dismissAllPresentedViewControllers:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)presentViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)revealDocumentAtURL:(id)arg1 importIfNeeded:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)revealDocumentAtURL:(id)arg1 shouldImport:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;

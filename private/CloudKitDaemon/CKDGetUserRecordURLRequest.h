@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) CDUnknownBlockType recordFetchedBlock; // @synthesize recordFetchedBlock=_recordFetchedBlock;
 - (void).cxx_destruct;
 - (id)requestDidParseProtobufObject:(id)arg1;
-- (id)requestOperations;
+- (id)generateRequestOperations;
 - (id)requestOperationClasses;
 - (int)operationType;
 

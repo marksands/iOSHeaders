@@ -24,13 +24,13 @@
 + (id)livePhotoBadgeShadowedImage;
 + (id)livePhotoOffBadgeTemplateImage;
 + (id)livePhotoBadgeTemplateImage;
++ (id)depthEffectBadgeImage;
 + (id)burstBadgeImage;
 + (id)stackBadgeImage;
 + (id)_flyingBadgeForBadges:(unsigned long long)arg1;
 + (id)_flyingBadgesForBadgeInfo:(struct PXAssetBadgeInfo)arg1;
-+ (id)imageForBadges:(unsigned long long)arg1;
 + (id)themeForType:(long long)arg1;
-+ (long long)badgeTypeForBadgeInfo:(struct PXAssetBadgeInfo)arg1 style:(long long)arg2 editableContent:(_Bool)arg3;
++ (long long)badgeTypeForBadgeInfo:(struct PXAssetBadgeInfo)arg1 style:(long long)arg2;
 + (id)badgeViewForType:(long long)arg1 withBadgeInfo:(struct PXAssetBadgeInfo)arg2;
 
 @end

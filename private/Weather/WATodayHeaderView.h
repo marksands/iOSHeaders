@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, NSString, UIImage, UIImageView, UILabel;
+@class NSArray, NSString, UIImage, UIImageView, UILabel, UIVisualEffectView;
 
 @interface WATodayHeaderView : UIView
 {
@@ -17,6 +17,11 @@
     NSString *_temperatureHigh;
     NSString *_temperatureLow;
     NSString *_locationName;
+    UIVisualEffectView *_locationLabelVisualEffectView;
+    UIVisualEffectView *_conditionsLabel1VisualEffectView;
+    UIVisualEffectView *_conditionsLabel2VisualEffectView;
+    UIVisualEffectView *_temperatureLabelVisualEffectView;
+    UIVisualEffectView *_temperatureHighLowLabelVisualEffectView;
     UILabel *_locationLabel;
     UILabel *_conditionsLabel1;
     UILabel *_conditionsLabel2;
@@ -42,6 +47,11 @@
 @property(retain, nonatomic) UILabel *conditionsLabel2; // @synthesize conditionsLabel2=_conditionsLabel2;
 @property(retain, nonatomic) UILabel *conditionsLabel1; // @synthesize conditionsLabel1=_conditionsLabel1;
 @property(retain, nonatomic) UILabel *locationLabel; // @synthesize locationLabel=_locationLabel;
+@property(retain, nonatomic) UIVisualEffectView *temperatureHighLowLabelVisualEffectView; // @synthesize temperatureHighLowLabelVisualEffectView=_temperatureHighLowLabelVisualEffectView;
+@property(retain, nonatomic) UIVisualEffectView *temperatureLabelVisualEffectView; // @synthesize temperatureLabelVisualEffectView=_temperatureLabelVisualEffectView;
+@property(retain, nonatomic) UIVisualEffectView *conditionsLabel2VisualEffectView; // @synthesize conditionsLabel2VisualEffectView=_conditionsLabel2VisualEffectView;
+@property(retain, nonatomic) UIVisualEffectView *conditionsLabel1VisualEffectView; // @synthesize conditionsLabel1VisualEffectView=_conditionsLabel1VisualEffectView;
+@property(retain, nonatomic) UIVisualEffectView *locationLabelVisualEffectView; // @synthesize locationLabelVisualEffectView=_locationLabelVisualEffectView;
 @property(copy, nonatomic) NSString *locationName; // @synthesize locationName=_locationName;
 @property(copy, nonatomic) NSString *temperatureLow; // @synthesize temperatureLow=_temperatureLow;
 @property(copy, nonatomic) NSString *temperatureHigh; // @synthesize temperatureHigh=_temperatureHigh;

@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     _Bool _shouldPresentAirDropSection;
     _Bool _canExcludeExtensionActivities;
     _Bool _canShowShareSheetPlugIns;
+    _Bool __unitTest_disableExcludingSourceApplicationFromOpenActivities;
     NSArray *_hostActivityConfigurations;
     NSArray *_activityItemValueClassNames;
     NSArray *_activityTypesToCreateInShareService;
@@ -32,7 +33,9 @@ __attribute__((visibility("hidden")))
     long long _excludedActivityCategories;
 }
 
++ (void)_unitTest_SetDisableExcludingSourceApplicationFromOpenActivities:(_Bool)arg1;
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) _Bool _unitTest_disableExcludingSourceApplicationFromOpenActivities; // @synthesize _unitTest_disableExcludingSourceApplicationFromOpenActivities=__unitTest_disableExcludingSourceApplicationFromOpenActivities;
 @property(nonatomic) long long excludedActivityCategories; // @synthesize excludedActivityCategories=_excludedActivityCategories;
 @property(retain, nonatomic) NSArray *activityTypeOrder; // @synthesize activityTypeOrder=_activityTypeOrder;
 @property(retain, nonatomic) NSArray *excludedActivityTypes; // @synthesize excludedActivityTypes=_excludedActivityTypes;

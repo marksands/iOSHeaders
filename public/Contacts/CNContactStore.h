@@ -68,7 +68,7 @@
 - (id)_unifiedMeContactWithKeysToFetch:(id)arg1 error:(id *)arg2;
 - (id)unifiedMeContactWithKeysToFetch:(id)arg1 error:(id *)arg2;
 - (id)_ios_meContactIdentifierWithError:(id *)arg1;
-- (id)meContactIdentifierWithError:(id *)arg1;
+- (id)meContactIdentifiers:(id *)arg1;
 - (id)unifiedContactWithIdentifier:(id)arg1 keysToFetch:(id)arg2 error:(id *)arg3;
 - (id)requestAccessForEntityType:(long long)arg1;
 - (void)requestAccessForEntityType:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;

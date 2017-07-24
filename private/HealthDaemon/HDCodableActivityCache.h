@@ -9,7 +9,7 @@
 #import <HealthDaemon/HDDecoding-Protocol.h>
 #import <HealthDaemon/NSCopying-Protocol.h>
 
-@class HDCodableSample, NSData, NSString;
+@class HDCodableSample, NSMutableArray, NSString;
 
 @interface HDCodableActivityCache : PBCodable <HDDecoding, NSCopying>
 {
@@ -25,8 +25,8 @@
     long long _stepCount;
     double _walkingAndRunningDistance;
     long long _wheelchairUse;
-    NSData *_dailyBriskMinutesStatistics;
-    NSData *_dailyEnergyBurnedStatistics;
+    NSMutableArray *_dailyBriskMinutesStatistics;
+    NSMutableArray *_dailyEnergyBurnedStatistics;
     HDCodableSample *_sample;
     struct {
         unsigned int activeHours:1;
@@ -44,8 +44,10 @@
     } _has;
 }
 
-@property(retain, nonatomic) NSData *dailyBriskMinutesStatistics; // @synthesize dailyBriskMinutesStatistics=_dailyBriskMinutesStatistics;
-@property(retain, nonatomic) NSData *dailyEnergyBurnedStatistics; // @synthesize dailyEnergyBurnedStatistics=_dailyEnergyBurnedStatistics;
++ (Class)dailyBriskMinutesStatisticsType;
++ (Class)dailyEnergyBurnedStatisticsType;
+@property(retain, nonatomic) NSMutableArray *dailyBriskMinutesStatistics; // @synthesize dailyBriskMinutesStatistics=_dailyBriskMinutesStatistics;
+@property(retain, nonatomic) NSMutableArray *dailyEnergyBurnedStatistics; // @synthesize dailyEnergyBurnedStatistics=_dailyEnergyBurnedStatistics;
 @property(nonatomic) long long wheelchairUse; // @synthesize wheelchairUse=_wheelchairUse;
 @property(nonatomic) long long flightsClimbed; // @synthesize flightsClimbed=_flightsClimbed;
 @property(nonatomic) long long pushCount; // @synthesize pushCount=_pushCount;
@@ -69,8 +71,14 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) _Bool hasDailyBriskMinutesStatistics;
-@property(readonly, nonatomic) _Bool hasDailyEnergyBurnedStatistics;
+- (id)dailyBriskMinutesStatisticsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)dailyBriskMinutesStatisticsCount;
+- (void)addDailyBriskMinutesStatistics:(id)arg1;
+- (void)clearDailyBriskMinutesStatistics;
+- (id)dailyEnergyBurnedStatisticsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)dailyEnergyBurnedStatisticsCount;
+- (void)addDailyEnergyBurnedStatistics:(id)arg1;
+- (void)clearDailyEnergyBurnedStatistics;
 @property(nonatomic) _Bool hasWheelchairUse;
 @property(nonatomic) _Bool hasFlightsClimbed;
 @property(nonatomic) _Bool hasPushCount;

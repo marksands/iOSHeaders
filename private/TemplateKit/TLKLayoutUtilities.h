@@ -10,6 +10,7 @@
 {
 }
 
++ (void)setDynamicBaslineAlignmentsForLabel:(id)arg1 top:(double)arg2 bottom:(double)arg3;
 + (double)scaledValueForValue:(double)arg1 withFont:(id)arg2;
 + (double)deviceScaledRoundedValue:(double)arg1;
 + (void)requireIntrinsicSizeForView:(id)arg1 withPriority:(float)arg2;

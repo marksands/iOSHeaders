@@ -19,13 +19,16 @@
         unsigned int viewAppearEvent:1;
         unsigned int isOnLockScreen:1;
         unsigned int isOverApp:1;
+        unsigned int readerTextAvailable:1;
     } _has;
     _Bool _isOnLockScreen;
     _Bool _isOverApp;
+    _Bool _readerTextAvailable;
     int _viewAppearEvent;
     unsigned long long _timestamp;
 }
 
+@property(nonatomic) _Bool readerTextAvailable; // @synthesize readerTextAvailable=_readerTextAvailable;
 @property(nonatomic) _Bool isOverApp; // @synthesize isOverApp=_isOverApp;
 @property(nonatomic) _Bool isOnLockScreen; // @synthesize isOnLockScreen=_isOnLockScreen;
 @property(nonatomic) int viewAppearEvent; // @synthesize viewAppearEvent=_viewAppearEvent;
@@ -38,6 +41,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasReaderTextAvailable;
 @property(readonly, nonatomic) _Bool hasIsOverApp;
 @property(readonly, nonatomic) _Bool hasIsOnLockScreen;
 @property(readonly, nonatomic) _Bool hasViewAppearEvent;

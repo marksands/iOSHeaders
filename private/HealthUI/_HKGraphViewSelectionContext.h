@@ -25,6 +25,7 @@
 @property(nonatomic) struct CGRect seriesSelectionRect; // @synthesize seriesSelectionRect=_seriesSelectionRect;
 @property(nonatomic) long long selectionState; // @synthesize selectionState=_selectionState;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) double minimumSelectionDistance;
 
 @end
 

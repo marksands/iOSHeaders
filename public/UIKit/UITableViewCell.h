@@ -146,6 +146,7 @@
         unsigned int highlightingInteractively:1;
         unsigned int shouldHighlightAfterInteraction:1;
         unsigned int userInteractionEnabledBeforeDragging:2;
+        unsigned int insetsContentViewsToSafeArea:1;
     } _tableCellFlags;
     _Bool _isLayoutEngineSuspended;
     _Bool _userInteractionEnabledWhileDragging;
@@ -238,7 +239,7 @@
 - (void)_setIsCarPlayCell:(_Bool)arg1 forceUpdateDefaults:(_Bool)arg2;
 - (void)_setIsCarPlayCell:(_Bool)arg1;
 - (_Bool)_isCarPlayCell;
-- (void)safeAreaInsetsDidChange;
+- (void)_safeAreaInsetsDidChangeFromOldInsets:(struct UIEdgeInsets)arg1;
 - (double)_defaultTrailingCellMarginWidth;
 - (void)_setDefaultTrailingCellMarginWidth:(double)arg1;
 - (double)_defaultLeadingMarginWidth;
@@ -249,6 +250,9 @@
 - (double)_marginWidth;
 - (double)_imageViewTrailingX;
 - (_Bool)_shouldApplyReadableWidthInsets;
+- (struct UIEdgeInsets)_effectiveSafeAreaInsets;
+- (_Bool)_insetsContentViewsToSafeArea;
+- (void)_setInsetsContentViewsToSafeArea:(_Bool)arg1;
 - (_Bool)_separatorInsetIsRelativeToCellEdges;
 - (void)_setSeparatorInsetIsRelativeToCellEdges:(_Bool)arg1;
 - (void)_setIndexPath:(id)arg1;

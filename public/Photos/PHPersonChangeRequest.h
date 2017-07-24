@@ -21,9 +21,9 @@
     NSMutableSet *_faceUUIDsRequiringFaceCropGeneration;
     NSMutableSet *_rejectedMergeCandidatePersonUUIDs;
     NSMutableSet *_graphDedupePersonUUIDs;
+    PHChangeRequestHelper *_helper;
     PHPerson *_targetPerson;
     NSString *_identifier;
-    PHChangeRequestHelper *_helper;
     PHRelationshipChangeRequestHelper *_facesHelper;
     PHRelationshipChangeRequestHelper *_keyFaceHelper;
     PHRelationshipChangeRequestHelper *_rejectedFacesHelper;
@@ -44,9 +44,9 @@
 @property(readonly, nonatomic) PHRelationshipChangeRequestHelper *rejectedFacesHelper; // @synthesize rejectedFacesHelper=_rejectedFacesHelper;
 @property(readonly, nonatomic) PHRelationshipChangeRequestHelper *keyFaceHelper; // @synthesize keyFaceHelper=_keyFaceHelper;
 @property(readonly, nonatomic) PHRelationshipChangeRequestHelper *facesHelper; // @synthesize facesHelper=_facesHelper;
-@property(readonly, nonatomic) PHChangeRequestHelper *helper; // @synthesize helper=_helper;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) PHPerson *targetPerson; // @synthesize targetPerson=_targetPerson;
+@property(readonly, nonatomic) PHChangeRequestHelper *helper; // @synthesize helper=_helper;
 @property(readonly, nonatomic) int clientProcessID; // @synthesize clientProcessID=_clientProcessID;
 @property(readonly, nonatomic) NSString *clientName; // @synthesize clientName=_clientName;
 @property(readonly, nonatomic, getter=isClientEntitled) _Bool clientEntitled; // @synthesize clientEntitled=_clientEntitled;
@@ -108,6 +108,7 @@
 @property(nonatomic) unsigned long long manualOrder;
 @property(nonatomic) long long type;
 @property(readonly, nonatomic) PHObjectPlaceholder *placeholderForCreatedPerson;
+- (_Bool)prepareForServicePreflightCheck:(id *)arg1;
 - (void)encodeToXPCDict:(id)arg1;
 - (id)initWithXPCDict:(id)arg1 clientEntitlements:(id)arg2 clientName:(id)arg3 clientBundleID:(id)arg4 clientProcessID:(int)arg5;
 - (id)initWithUUID:(id)arg1 objectID:(id)arg2;

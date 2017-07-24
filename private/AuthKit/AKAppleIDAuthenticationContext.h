@@ -28,6 +28,7 @@
     AKDevice *_companionDevice;
     NSString *_interpolatedReason;
     AKNativeAccountRecoveryController *_nativeRecoveryController;
+    unsigned long long _attemptIndex;
     _Bool _isProxyingForApp;
     _Bool _shouldSendIdentityTokenForRemoteUI;
     _Bool _isPasswordEditable;
@@ -124,6 +125,7 @@
 @property(nonatomic) _Bool isUsernameEditable; // @synthesize isUsernameEditable=_isUsernameEditable;
 @property(copy, nonatomic) NSString *username; // @synthesize username=_username;
 @property(retain, nonatomic) id <CDPStateUIProvider> cdpUiProvider; // @synthesize cdpUiProvider=_cdpUiProvider;
+@property(nonatomic) unsigned long long _attemptIndex; // @synthesize _attemptIndex;
 @property(readonly, nonatomic) _Bool _shouldSkipInitialReachabilityCheck; // @synthesize _shouldSkipInitialReachabilityCheck;
 @property(copy, nonatomic, setter=_setMessage:) NSString *_message; // @synthesize _message;
 @property(copy, nonatomic, setter=_setShortLivedToken:) NSString *_shortLivedToken; // @synthesize _shortLivedToken;

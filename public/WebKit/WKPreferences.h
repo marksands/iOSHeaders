@@ -26,6 +26,7 @@
 - (void)dealloc;
 - (id)init;
 @property(nonatomic, setter=_setMediaDocumentEntersFullscreenAutomatically:) _Bool _mediaDocumentEntersFullscreenAutomatically;
+@property(nonatomic, setter=_setDOMPasteAllowed:) _Bool _domPasteAllowed;
 @property(nonatomic, setter=_setJavaScriptCanAccessClipboard:) _Bool _javaScriptCanAccessClipboard;
 @property(nonatomic, setter=_setWebRTCLegacyAPIEnabled:) _Bool _webRTCLegacyAPIEnabled;
 @property(nonatomic, setter=_setICECandidateFilteringEnabled:) _Bool _iceCandidateFiltertingEnabled;

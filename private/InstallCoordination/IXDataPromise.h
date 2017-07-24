@@ -9,26 +9,23 @@
 #import <InstallCoordination/NSSecureCoding-Protocol.h>
 
 @class IXDataPromiseSeed, NSError, NSString, NSUUID;
-@protocol IXSDataPromiseProxy;
 
 @interface IXDataPromise : NSObject <NSSecureCoding>
 {
+    _Bool _complete;
     NSError *_error;
     unsigned long long _errorSourceIdentifier;
     IXDataPromiseSeed *_seed;
-    id <IXSDataPromiseProxy> _remote;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)outstandingPromisesForCreator:(unsigned long long)arg1;
-@property(retain, nonatomic) id <IXSDataPromiseProxy> remote; // @synthesize remote=_remote;
 @property(retain, nonatomic) IXDataPromiseSeed *seed; // @synthesize seed=_seed;
 @property(nonatomic) unsigned long long errorSourceIdentifier; // @synthesize errorSourceIdentifier=_errorSourceIdentifier;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 - (void).cxx_destruct;
-- (id)synchronousRemoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
-- (id)remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
-- (_Bool)_reEstablishRemoteConnection;
+- (oneway void)_clientDelegate_didCancelWithError:(id)arg1 client:(unsigned long long)arg2;
+- (oneway void)_clientDelegate_didComplete;
 - (void)preflightWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)resetWithError:(id *)arg1;
 - (void)resetWithCompletion:(CDUnknownBlockType)arg1;
@@ -42,13 +39,15 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(nonatomic) double percentComplete; // @dynamic percentComplete;
-@property(nonatomic, getter=isComplete) _Bool complete; // @dynamic complete;
+@property(nonatomic, getter=isComplete) _Bool complete; // @synthesize complete=_complete;
 @property(readonly, nonatomic) NSError *errorOccurred;
 @property(readonly, nonatomic) unsigned long long totalBytesNeededOnDisk; // @dynamic totalBytesNeededOnDisk;
 @property(readonly, nonatomic) NSUUID *uniqueIdentifier; // @dynamic uniqueIdentifier;
 @property(readonly, nonatomic) unsigned long long creatorIdentifier; // @dynamic creatorIdentifier;
 @property(readonly, copy, nonatomic) NSString *name; // @dynamic name;
 @property(readonly, nonatomic) Class seedClass;
+- (void)dealloc;
+- (void)_updateInitWithSeed:(id)arg1 notifyDaemon:(_Bool)arg2;
 - (id)initWithSeed:(id)arg1;
 
 @end

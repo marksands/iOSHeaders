@@ -15,6 +15,10 @@
     NSMutableDictionary *_settings;
 }
 
++ (void)setPlatformHasWideColor:(_Bool)arg1;
++ (_Bool)platformHasWideColor;
++ (void)setRenderVideoLive:(_Bool)arg1;
++ (_Bool)renderVideoLive;
 + (void)setCacheNodeDirectoryURL:(id)arg1;
 + (id)cacheNodeDirectoryURL;
 + (void)setViewDebugEnabled:(_Bool)arg1;

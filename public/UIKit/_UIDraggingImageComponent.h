@@ -12,12 +12,16 @@
 
 @interface _UIDraggingImageComponent : NSObject <NSCopying>
 {
+    _Bool _ignoresAccessibilityFilters;
+    _Bool _hidesImage;
     UIView *_view;
     UIImage *_image;
     NSString *_key;
     struct CGRect _frame;
 }
 
+@property(readonly, nonatomic) _Bool hidesImage; // @synthesize hidesImage=_hidesImage;
+@property(readonly, nonatomic) _Bool ignoresAccessibilityFilters; // @synthesize ignoresAccessibilityFilters=_ignoresAccessibilityFilters;
 @property(readonly, nonatomic) struct CGRect frame; // @synthesize frame=_frame;
 @property(readonly, copy, nonatomic) NSString *key; // @synthesize key=_key;
 @property(readonly, nonatomic) UIImage *image; // @synthesize image=_image;
@@ -26,8 +30,10 @@
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_initWithNoImageAndFrame:(struct CGRect)arg1 key:(id)arg2;
+- (id)initHidingDragImage;
 - (id)initWithView:(id)arg1;
 - (id)initWithImage:(id)arg1 frame:(struct CGRect)arg2 key:(id)arg3;
+- (id)initWithImage:(id)arg1 frame:(struct CGRect)arg2 ignoreAccessibilityFilters:(_Bool)arg3 key:(id)arg4;
 
 @end
 

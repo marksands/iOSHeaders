@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSString, VCHistogram;
+@class NSString, VCHistogram, VCVideoFECStatsHolder;
 @protocol VCAdaptiveLearningDelegate;
 
 @interface CallSegment : NSObject
@@ -46,6 +46,10 @@
     double _averageSendBitrate;
     double _averageReceiveBitrate;
     double _averageAudioErasuresRate;
+    double _averageBWE;
+    unsigned int _minBWE;
+    unsigned int _maxBWE;
+    double _averageRTT;
     unsigned int _poorConnectionFrequency;
     unsigned int _BBQueueTooLargeCount;
     unsigned int _BBRateTooLowCount;
@@ -62,6 +66,9 @@
     NSString *_relayServer;
     int _relayType;
     NSString *_accessToken;
+    VCVideoFECStatsHolder *_videoFECStatsLevel1;
+    VCVideoFECStatsHolder *_videoFECStatsLevel2;
+    VCVideoFECStatsHolder *_videoFECStatsLevel3;
     int _interval;
     int _frequency;
     NSString *_segmentName;
@@ -69,6 +76,9 @@
     id <VCAdaptiveLearningDelegate> _delegate;
 }
 
+@property(retain) VCVideoFECStatsHolder *videoFECStatsLevel3; // @synthesize videoFECStatsLevel3=_videoFECStatsLevel3;
+@property(retain) VCVideoFECStatsHolder *videoFECStatsLevel2; // @synthesize videoFECStatsLevel2=_videoFECStatsLevel2;
+@property(retain) VCVideoFECStatsHolder *videoFECStatsLevel1; // @synthesize videoFECStatsLevel1=_videoFECStatsLevel1;
 @property(readonly) unsigned int callTransportType; // @synthesize callTransportType=_callTransportType;
 @property(readonly) unsigned int callDeviceRole; // @synthesize callDeviceRole=_callDeviceRole;
 @property(readonly) unsigned int callMode; // @synthesize callMode=_callMode;
@@ -82,6 +92,10 @@
 @property unsigned int BBRateTooLowCount; // @synthesize BBRateTooLowCount=_BBRateTooLowCount;
 @property unsigned int BBQueueTooLargeCount; // @synthesize BBQueueTooLargeCount=_BBQueueTooLargeCount;
 @property unsigned int poorConnectionFrequency; // @synthesize poorConnectionFrequency=_poorConnectionFrequency;
+@property double averageRTT; // @synthesize averageRTT=_averageRTT;
+@property unsigned int maxBWE; // @synthesize maxBWE=_maxBWE;
+@property unsigned int minBWE; // @synthesize minBWE=_minBWE;
+@property double averageBWE; // @synthesize averageBWE=_averageBWE;
 @property double averageAudioErasuresRate; // @synthesize averageAudioErasuresRate=_averageAudioErasuresRate;
 @property double averageReceiveBitrate; // @synthesize averageReceiveBitrate=_averageReceiveBitrate;
 @property double averageSendBitrate; // @synthesize averageSendBitrate=_averageSendBitrate;

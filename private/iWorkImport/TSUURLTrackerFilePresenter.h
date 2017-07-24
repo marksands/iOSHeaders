@@ -8,13 +8,13 @@
 
 #import <iWorkImport/NSFilePresenter-Protocol.h>
 
-@class NSData, NSError, NSOperationQueue, NSRecursiveLock, NSSet, NSString, NSURL;
-@protocol TSUURLTrackerDelegate;
+@class NSData, NSError, NSOperationQueue, NSSet, NSString, NSURL;
+@protocol OS_dispatch_queue, TSUURLTrackerDelegate;
 
 __attribute__((visibility("hidden")))
 @interface TSUURLTrackerFilePresenter : NSObject <NSFilePresenter>
 {
-    NSRecursiveLock *_lock;
+    NSObject<OS_dispatch_queue> *_accessQueue;
     _Bool _hasStarted;
     NSURL *_URLIfAvailable;
     NSData *_bookmarkDataIfAvailable;
@@ -26,18 +26,21 @@ __attribute__((visibility("hidden")))
 @property(readonly, retain) NSOperationQueue *presentedItemOperationQueue; // @synthesize presentedItemOperationQueue=_presentedItemOperationQueue;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
-- (void)presentedItemSharingDidChange;
+- (id)_description;
+- (void)presentedItemDidChangeUbiquityAttributes:(id)arg1;
 - (void)presentedItemDidMoveToURL:(id)arg1;
 - (void)accommodatePresentedItemDeletionWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)relinquishPresentedItemToWriter:(CDUnknownBlockType)arg1;
 @property(readonly, copy) NSURL *presentedItemURL;
-- (id)URLAndReturnError:(id *)arg1;
+- (id)_bookmarkDataAndReturnError:(id *)arg1;
 - (id)bookmarkDataAndReturnError:(id *)arg1;
 - (void)stop;
 - (void)pause;
 - (void)startOrResume;
+- (id)_bookmarkData;
 @property(readonly) NSData *bookmarkData;
-- (id)URLWithError:(id *)arg1;
+- (id)_URLAndReturnError:(id *)arg1;
+- (id)URLAndReturnError:(id *)arg1;
 - (id)initWithURL:(id)arg1 bookmarkData:(id)arg2 delegate:(id)arg3;
 - (id)init;
 

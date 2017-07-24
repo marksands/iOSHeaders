@@ -31,7 +31,9 @@ __attribute__((visibility("hidden")))
         unsigned int freezeTextContainerSize:1;
     } _tcvFlags;
     NSMutableSet *_ghostedRanges;
-    NSArray *_ghostedRectangles;
+    NSMutableSet *_hiddenAreaRects;
+    struct CGRect _constrainedTiledRenderingRect;
+    NSArray *_maskedRectangles;
     id <_UITextContainerViewDelegate> _delegate;
 }
 
@@ -41,7 +43,14 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <_UITextContainerViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak NSTextContainer *textContainer; // @synthesize textContainer=_textContainer;
 - (void).cxx_destruct;
-- (id)boundingRectanglesForGhostedTextInRect:(struct CGRect)arg1;
+- (struct CGRect)_textTiledLayer:(id)arg1 constrainTileableBounds:(struct CGRect)arg2;
+- (id)_textTiledLayer:(id)arg1 maskedRectsInVisibleRect:(struct CGRect)arg2;
+- (void)_resetMaskedRectangles;
+- (struct CGRect)_intersectRectWithConstrainedTiledRenderingRect:(struct CGRect)arg1;
+- (void)_unconstrainTiledRendering;
+- (void)_constrainTiledRenderingToRect:(struct CGRect)arg1;
+- (void)_removeHiddenAreas;
+- (void)_addHiddenArea:(struct CGRect)arg1;
 - (void)removeAllGhostedRanges;
 - (void)addGhostedRange:(struct _NSRange)arg1;
 @property(nonatomic) double maxTileHeight;

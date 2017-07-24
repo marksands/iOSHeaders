@@ -8,7 +8,7 @@
 
 #import <iWorkImport/TSDMatchingAlgorithmMatch-Protocol.h>
 
-@class NSString, TSDMagicMoveMatchObject, TSDTextureContext;
+@class NSString, TSDMagicMoveMatchObject, TSDTextureDescription;
 
 __attribute__((visibility("hidden")))
 @interface TSDMagicMoveMatch : NSObject <TSDMatchingAlgorithmMatch>
@@ -19,15 +19,15 @@ __attribute__((visibility("hidden")))
     double _distance;
     double _zOrderDistance;
     double _attributeMatchPercent;
-    TSDTextureContext *_textureContext;
+    TSDTextureDescription *_textureDescription;
     long long _matchCost;
     NSString *_name;
 }
 
-+ (id)matchWithOutgoingObject:(id)arg1 incomingObject:(id)arg2 matchType:(long long)arg3 attributeMatchPercent:(double)arg4 textureContext:(id)arg5;
++ (id)matchWithOutgoingObject:(id)arg1 incomingObject:(id)arg2 matchType:(long long)arg3 attributeMatchPercent:(double)arg4 textureDescription:(id)arg5;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) long long matchCost; // @synthesize matchCost=_matchCost;
-@property(retain, nonatomic) TSDTextureContext *textureContext; // @synthesize textureContext=_textureContext;
+@property(retain, nonatomic) TSDTextureDescription *textureDescription; // @synthesize textureDescription=_textureDescription;
 @property(nonatomic) double attributeMatchPercent; // @synthesize attributeMatchPercent=_attributeMatchPercent;
 @property(nonatomic) double zOrderDistance; // @synthesize zOrderDistance=_zOrderDistance;
 @property(nonatomic) double distance; // @synthesize distance=_distance;
@@ -37,7 +37,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)conflictsWithMatch:(id)arg1;
 - (id)description;
 - (void)p_updateMagicMoveCost;
-- (long long)compareToMatch:(id)arg1;
 - (void)dealloc;
 @property(readonly, nonatomic) _Bool isTextMatch;
 @property(readonly, nonatomic) id incomingMatchObject;

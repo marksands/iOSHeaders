@@ -14,12 +14,12 @@ __attribute__((visibility("hidden")))
 @interface FPXItemsObserver : FPXObserver <NSFileProviderEnumerationObserver>
 {
     NSMutableArray *_items;
-    CDUnknownBlockType _finished;
+    CDUnknownBlockType _finishedBlock;
     NSData *_syncAnchor;
 }
 
 @property(retain) NSData *syncAnchor; // @synthesize syncAnchor=_syncAnchor;
-@property(copy) CDUnknownBlockType finished; // @synthesize finished=_finished;
+@property(copy) CDUnknownBlockType finishedBlock; // @synthesize finishedBlock=_finishedBlock;
 - (void).cxx_destruct;
 - (void)finishEnumeratingWithError:(id)arg1;
 - (void)finishEnumeratingUpToPage:(id)arg1;

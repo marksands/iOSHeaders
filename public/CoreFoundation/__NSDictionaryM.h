@@ -9,9 +9,8 @@
 __attribute__((visibility("hidden")))
 @interface __NSDictionaryM : NSMutableDictionary
 {
-    CDStruct_3efa2a53 storage;
-    unsigned long long mutations;
-    struct __cow_state_t *cow;
+    CDStruct_2af495fa storage;
+    // Error parsing type: A^{__cow_state_t}, name: cow
 }
 
 + (void)initialize;

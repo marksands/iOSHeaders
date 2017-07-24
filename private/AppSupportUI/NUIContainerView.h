@@ -20,7 +20,7 @@
         unsigned int hiddenArrangedSubviewCount:16;
         unsigned int inBatch:1;
         unsigned int delayState:2;
-        unsigned int inLayoutPass:1;
+        unsigned int inLayoutPass:2;
         unsigned int determiningPreferredMaxLayoutWidth:1;
         unsigned int inSecondConstraintsPass:1;
         unsigned int delegateDidInvalidateIntrinsicContentSize:1;

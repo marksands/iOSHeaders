@@ -11,8 +11,6 @@
 @protocol PXUIViewControllerZoomTransitionEndPoint <PXUIViewControllerTransitionEndPoint>
 
 @optional
-- (void)restoreContentEdgeInsetsForZoomTransition:(PXUIViewControllerZoomTransition *)arg1;
-- (void)ensureFinalContentEdgeInsetsForZoomTransition:(PXUIViewControllerZoomTransition *)arg1;
 - (PXZoomAnimationCoordinator *)zoomAnimationCoordinatorForZoomTransition:(PXUIViewControllerZoomTransition *)arg1;
 @end
 

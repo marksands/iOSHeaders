@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class PLCloudPhotoLibraryManager, PLPhotoLibrary;
 @protocol OS_dispatch_queue;
@@ -17,15 +17,12 @@
     NSObject<OS_dispatch_queue> *_workQueue;
 }
 
-+ (id)_orderedPruneConditionStringsOnAssets;
 + (id)_nonOriginalResourceTypes;
 + (id)_originalResourceTypes;
 - (long long)pruneResources:(id)arg1 inPhotoLibrary:(id)arg2;
 - (id)_identifierForResource:(id)arg1;
-- (id)_predicatesForPrune;
-- (id)_onDemandDownloadPredicate;
-- (id)_notOnDemandDownloadPredicate;
-- (id)_predicateForCPLResourceTypes:(id)arg1 additionalAssetCondition:(id)arg2 additionalResourcePredicate:(id)arg3;
+- (id)_predicateForPrune;
+- (id)_predicateForCPLResourceTypes:(id)arg1;
 - (long long)diskSpaceToPrune;
 - (long long)_localResourcesSize;
 - (id)_colorAwareResourceTypes;

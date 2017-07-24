@@ -8,13 +8,14 @@
 
 #import <MediaRemote/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSData, NSString;
 
 @interface _MRDeviceInfoMessageProtobuf : PBCodable <NSCopying>
 {
     unsigned long long _protocolVersion;
     NSString *_applicationBundleIdentifier;
     NSString *_applicationBundleVersion;
+    NSData *_bluetoothAddress;
     unsigned int _lastSupportedMessageType;
     NSString *_localizedModelName;
     NSString *_name;
@@ -39,6 +40,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSData *bluetoothAddress; // @synthesize bluetoothAddress=_bluetoothAddress;
 @property(nonatomic) _Bool supportsExtendedMotion; // @synthesize supportsExtendedMotion=_supportsExtendedMotion;
 @property(nonatomic) _Bool supportsSharedQueue; // @synthesize supportsSharedQueue=_supportsSharedQueue;
 @property(nonatomic) _Bool supportsACL; // @synthesize supportsACL=_supportsACL;
@@ -63,6 +65,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasBluetoothAddress;
 @property(nonatomic) _Bool hasSupportsExtendedMotion;
 @property(nonatomic) _Bool hasSupportsSharedQueue;
 @property(nonatomic) _Bool hasSupportsACL;

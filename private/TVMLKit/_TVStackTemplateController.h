@@ -11,6 +11,7 @@
 @interface _TVStackTemplateController : _TVStackCommonTemplateController
 {
     NSArray *_viewControllers;
+    double _lastLayoutWidth;
     NSArray *_stackSections;
     NSArray *_stackRows;
     NSIndexPath *_lastFocusedIndexPath;
@@ -42,7 +43,6 @@
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (struct UIEdgeInsets)collectionListMargin;
 - (long long)updateCollectionViewControllersAndForceReload:(_Bool)arg1;
-- (void)traitCollectionDidChange:(id)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;

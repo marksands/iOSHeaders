@@ -43,6 +43,8 @@
 - (unsigned long long)currentPeerPaymentAccountResolution;
 - (void)presentFlowForAccountResolution:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)presentResolutionForCurrentAccountStateWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)peerPaymentPassIsProvisionedOnDevice;
+- (void)dealloc;
 - (id)initWithAccount:(id)arg1 webService:(id)arg2 context:(long long)arg3 delegate:(id)arg4 passLibraryDataProvider:(id)arg5;
 
 // Remaining properties

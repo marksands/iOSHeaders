@@ -25,6 +25,7 @@
     NSMutableDictionary *_momentNodesByMomentIDs;
     NSMapTable *_dateIntervalsBySupersetCityNodes;
     NSMutableDictionary *_isCelebratingInGeneralCache;
+    _Bool _keepsExistingAssetCurationScores;
     _Bool _canWrite;
     PGManager *_manager;
     NSArray *_requiredMeaningfulEventTraits;
@@ -77,6 +78,7 @@
 + (id)aggregateKeyForMeaningLabel:(id)arg1;
 @property _Bool canWrite; // @synthesize canWrite=_canWrite;
 @property(nonatomic) __weak NSObject<OS_dispatch_queue> *graphQueue; // @synthesize graphQueue=_graphQueue;
+@property(nonatomic) _Bool keepsExistingAssetCurationScores; // @synthesize keepsExistingAssetCurationScores=_keepsExistingAssetCurationScores;
 @property(nonatomic) unsigned long long numberOfBetterAssets; // @synthesize numberOfBetterAssets=_numberOfBetterAssets;
 @property(nonatomic) unsigned long long numberOfImprovedAssets; // @synthesize numberOfImprovedAssets=_numberOfImprovedAssets;
 @property(nonatomic) unsigned long long numberOfDefaultAssets; // @synthesize numberOfDefaultAssets=_numberOfDefaultAssets;
@@ -103,6 +105,7 @@
 - (id)init;
 - (id)initWithURL:(id)arg1;
 - (id)initWithName:(id)arg1 parentDirectoryURL:(id)arg2;
+@property(readonly) _Bool isOnGraphQueue;
 - (void)_checkCanRead;
 - (void)_checkCanWrite;
 - (id)_neighborsFromMomentNode:(id)arg1 count:(unsigned long long)arg2 locationRequired:(_Bool)arg3 minDayDuration:(unsigned long long)arg4 maxDayDuration:(unsigned long long)arg5;
@@ -162,7 +165,6 @@
 - (double)libraryDuration;
 - (id)allMomentNodes;
 - (id)allTimeYearsNodes;
-- (id)neighborsFromEvent:(id)arg1 count:(unsigned long long)arg2;
 - (id)dateNodeNameWithLocalDate:(id)arg1;
 - (id)meNode;
 - (id)searchNodesForAsset:(id)arg1 inMoment:(id)arg2;
@@ -231,8 +233,10 @@
 - (id)inferredMeNodeInPhotoLibrary:(id)arg1;
 - (id)staticGraphSchema;
 - (_Bool)exportMatchMomentEventResults:(id)arg1 relatedType:(unsigned long long)arg2 focusOnNodes:(id)arg3 toFileURL:(id)arg4 error:(id *)arg5;
-- (id)_commonAreasBetweenAddress:(id)arg1 andAddress:(id)arg2;
-- (id)_closestNodeFromAddress:(id)arg1 toAddress:(id)arg2;
+- (id)_commonAreaNodesBetweenAddressAreaNodes:(id)arg1 andAddressNode:(id)arg2;
+- (id)_commonAreaNodesBetweenAddressNode:(id)arg1 andAddressNode:(id)arg2;
+- (id)_closestLocationNodeFromAddressNode:(id)arg1 toAddressNode:(id)arg2;
+- (id)_firstLocationNodeFromAddressNode:(id)arg1 inLocationNodes:(id)arg2;
 - (double)_distanceForLocationLabel:(id)arg1;
 - (double)_relationshipScoreForPerson:(id)arg1;
 - (double)_scoreForPlaceSubDomain:(unsigned short)arg1;

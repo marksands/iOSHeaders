@@ -52,6 +52,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long customScale;
 @property(readonly, nonatomic) _Bool customDecay;
 @property(readonly, nonatomic) unsigned long long customRepeatCount;
+@property(readonly, nonatomic) double customScaleAmount;
+@property(readonly, nonatomic) _Bool customShine;
 @property(readonly, nonatomic) _Bool customIncludeEndpoints;
 @property(readonly, nonatomic) _Bool customMotionBlur;
 @property(readonly, nonatomic) _Bool customBounce;
@@ -77,6 +79,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool supportsCustomEffectTimingCurve2;
 @property(readonly, nonatomic) _Bool supportsCustomEffectTimingCurve1;
 @property(readonly, nonatomic) _Bool supportsRandomNumberSeedInspection;
+@property(readonly, nonatomic) _Bool supportsScaleAmount;
+@property(readonly, nonatomic) _Bool supportsShine;
 @property(readonly, nonatomic) _Bool supportsIncludeEndpoints;
 - (_Bool)supportsAcceleration;
 @property(readonly, nonatomic) _Bool supportsBounce;

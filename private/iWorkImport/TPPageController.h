@@ -131,8 +131,10 @@ __attribute__((visibility("hidden")))
 - (id)textWrapper;
 - (void)layoutManagerNeedsLayout:(id)arg1;
 - (_Bool)caresAboutStorageChanges;
+- (id)p_pageIndicesForInfo:(id)arg1 withSelectionPath:(id)arg2 pageInfos:(inout id)arg3;
 - (id)pageInfosForInfo:(id)arg1 withSelectionPath:(id)arg2;
 - (id)p_pageInfosForFlow:(id)arg1 withSelection:(id)arg2;
+- (id)p_pageIndicesForFlow:(id)arg1 withSelection:(id)arg2 forceLayout:(_Bool)arg3;
 - (id)p_pageInfosForBodySelection:(id)arg1;
 - (void)removeLayoutObserver:(id)arg1;
 - (void)addLayoutObserver:(id)arg1;
@@ -144,6 +146,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isLayoutInProgress;
 - (_Bool)isLayoutComplete;
 - (_Bool)isLayoutCompleteThroughPageIndex:(unsigned long long)arg1;
+- (_Bool)isLayoutCompleteForSelection:(id)arg1 inFlow:(id)arg2;
 - (double)footerHeight;
 - (double)headerHeight;
 - (void)withPageLayoutAtIndex:(unsigned long long)arg1 preferredLayoutController:(id)arg2 executeBlock:(CDUnknownBlockType)arg3;
@@ -169,6 +172,7 @@ __attribute__((visibility("hidden")))
 - (struct _NSRange)anchoredRangeForPageIndex:(unsigned long long)arg1 forceLayout:(_Bool)arg2;
 - (struct _NSRange)bodyRangeForPageIndex:(unsigned long long)arg1 forceLayout:(_Bool)arg2;
 - (struct _NSRange)validPageRangeForSelection:(id)arg1;
+- (struct _NSRange)p_pageRangeForSelection:(id)arg1 outEndIsValid:(_Bool *)arg2 forceLayout:(_Bool)arg3;
 - (struct _NSRange)pageRangeForSelection:(id)arg1 outEndIsValid:(_Bool *)arg2;
 - (void)canvasDidValidateLayouts:(id)arg1;
 - (void)layoutThroughPageIndex:(unsigned long long)arg1 forLayoutController:(id)arg2;
@@ -182,6 +186,7 @@ __attribute__((visibility("hidden")))
 - (id)p_sectionAtSectionIndex:(unsigned long long)arg1;
 - (_Bool)isSectionInfo:(id)arg1 onPage:(unsigned long long)arg2;
 - (int)contentFlagsForPageIndex:(unsigned long long)arg1;
+- (id)displayPageNumberForPageIndex:(unsigned long long)arg1;
 - (id)displayPageNumberForCharIndex:(unsigned long long)arg1;
 - (id)pageNumberFormatForSectionOnPageIndex:(unsigned long long)arg1;
 - (unsigned long long)pageCountForPageIndex:(unsigned long long)arg1;

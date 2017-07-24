@@ -35,11 +35,13 @@
 - (id)reconnect;
 - (_Bool)cancelPollForAttentionWithError:(id *)arg1;
 - (_Bool)pollForAttentionWithTimeout:(double)arg1 event:(id *)arg2 error:(id *)arg3;
+- (_Bool)pollForAttentionWithTimeout:(double)arg1 queue:(id)arg2 block:(CDUnknownBlockType)arg3 error:(id *)arg4;
 - (void)setEventHandlerWithQueue:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (_Bool)resetAttentionLostTimeoutWithError:(id *)arg1;
 @property(readonly, retain, nonatomic) AWAttentionEvent *lastEvent;
 - (_Bool)invokeRequiringClient:(_Bool)arg1 error:(id *)arg2 block:(CDUnknownBlockType)arg3;
 - (id)init;
+- (void)notifyPollEventType:(unsigned long long)arg1 event:(id)arg2;
 - (void)notifyEvent:(id)arg1;
 
 // Remaining properties

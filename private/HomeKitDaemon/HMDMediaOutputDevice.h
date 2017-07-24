@@ -6,11 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class NSString;
+@class AVOutputDevice, NSString;
 
 @interface HMDMediaOutputDevice : NSObject
 {
-    _Bool _groupLeader;
+    _Bool _groupable;
     unsigned int _type;
     void *_outputDevice;
     NSString *_uniqueIdentifier;
@@ -20,19 +20,21 @@
 }
 
 @property(readonly, nonatomic) NSString *modelID; // @synthesize modelID=_modelID;
+@property(readonly, nonatomic, getter=isGroupable) _Bool groupable; // @synthesize groupable=_groupable;
 @property(readonly, nonatomic) unsigned int type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(nonatomic) void *outputDevice; // @synthesize outputDevice=_outputDevice;
 - (void).cxx_destruct;
-- (_Bool)isEqual:(id)arg1;
+- (_Bool)shouldCreateAppleMediaAccessory;
 - (_Bool)shouldCreateWHAAccessory;
-- (unsigned long long)hash;
-@property(readonly, nonatomic, getter=isGroupLeader) _Bool groupLeader; // @synthesize groupLeader=_groupLeader;
 @property(readonly, nonatomic) NSString *groupIdentifier; // @synthesize groupIdentifier=_groupIdentifier;
 - (id)description;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)dealloc;
 - (id)initWithOutputDevice:(void *)arg1;
+@property(readonly) AVOutputDevice *av_OutputDevice;
 
 @end
 

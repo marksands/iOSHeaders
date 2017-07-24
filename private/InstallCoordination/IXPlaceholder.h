@@ -46,9 +46,6 @@
 @property(readonly, nonatomic) _Bool hasIconPromise;
 - (id)iconPromiseWithError:(id *)arg1;
 - (_Bool)setIconPromise:(id)arg1 error:(id *)arg2;
-- (id)synchronousRemoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
-- (id)remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
-- (_Bool)_reEstablishRemoteConnection;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (_Bool)_doInitWithBundleName:(id)arg1 bundleID:(id)arg2 installType:(unsigned long long)arg3 isPlugin:(_Bool)arg4;

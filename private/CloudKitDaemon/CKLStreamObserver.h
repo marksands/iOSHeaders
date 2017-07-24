@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CKLEventFilter, NSDateFormatter, NSMutableDictionary;
+@class CKLEventFilter, NSDateFormatter, NSMutableDictionary, NSString;
 
 @interface CKLStreamObserver : NSObject
 {
@@ -25,6 +25,7 @@
 - (void)eventMatched:(id)arg1;
 - (void)_handleEvent:(id)arg1;
 - (id)_processNameForPath:(id)arg1;
+@property(retain, nonatomic) NSString *processName;
 @property(nonatomic) _Bool simulatorOnly;
 - (id)initWithLogTypes:(unsigned long long)arg1;
 

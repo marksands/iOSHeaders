@@ -60,7 +60,7 @@ __attribute__((visibility("hidden")))
 - (void)pdfDocument:(id)arg1 didReplacePagePlaceholder:(id)arg2 atIndex:(unsigned long long)arg3 withPage:(id)arg4;
 - (void)pdfDocument:(id)arg1 didInsertPagePlaceholder:(id)arg2 atIndex:(unsigned long long)arg3;
 - (void)pdfDocument:(id)arg1 didExchangePage:(id)arg2 atIndex:(unsigned long long)arg3 withPage:(id)arg4 atIndex:(unsigned long long)arg5;
-- (void)pdfDocument:(id)arg1 willRemovePage:(id)arg2 atIndex:(unsigned long long)arg3;
+- (void)pdfDocument:(id)arg1 didRemovePage:(id)arg2 atIndex:(unsigned long long)arg3;
 - (void)pdfDocument:(id)arg1 didInsertPage:(id)arg2 atIndex:(unsigned long long)arg3;
 @property(nonatomic) __weak id <PDFAKControllerDelegateProtocol> PDFAKControllerDelegate;
 @property(readonly, nonatomic) UIView *akToolbarView;

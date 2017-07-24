@@ -19,8 +19,8 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSWPDrawableAttachment *drawableAttachment; // @synthesize drawableAttachment=_drawableAttachment;
 @property(nonatomic) int placementIndex; // @synthesize placementIndex=_placementIndex;
 @property(nonatomic) unsigned long long charIndex; // @synthesize charIndex=_charIndex;
+- (void).cxx_destruct;
 - (long long)compare:(id)arg1;
-- (void)dealloc;
 - (id)initWithCharIndex:(unsigned long long)arg1 placmentIndex:(int)arg2 drawableAttachment:(id)arg3;
 
 @end

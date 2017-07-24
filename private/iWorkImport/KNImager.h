@@ -31,7 +31,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak KNAbstractSlide *slide; // @synthesize slide=_slide;
 @property(nonatomic) unsigned long long slideNumber; // @synthesize slideNumber=_slideNumber;
 - (void).cxx_destruct;
-- (double)p_strokeWidthForScaleFactor:(double)arg1;
+- (double)p_sizeMultiplierForDrawable:(id)arg1;
+- (double)p_strokeWidthForScaleFactor:(double)arg1 drawable:(id)arg2;
 - (id)p_strokeForShapeInfo:(id)arg1;
 - (_Bool)p_requiresModifiedStrokeForDrawable:(id)arg1 atScaleFactor:(double)arg2;
 @property(readonly, nonatomic) TSUImage *elementListThumbnailImage;

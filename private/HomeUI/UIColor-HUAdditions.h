@@ -7,6 +7,7 @@
 #import <UIKit/UIColor.h>
 
 @interface UIColor (HUAdditions)
++ (id)hu_tableViewGroupedBackgroundColor;
 + (id)hu_vibrantGreenTextColor;
 + (id)hu_vibrantRedTextColor;
 + (id)hu_keyColor;

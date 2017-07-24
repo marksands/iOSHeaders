@@ -29,6 +29,8 @@
 @property(readonly, nonatomic) NSString *protectionClass; // @synthesize protectionClass=_protectionClass;
 @property(retain, nonatomic) NSMutableDictionary *queryTasks; // @synthesize queryTasks=_queryTasks;
 - (void).cxx_destruct;
+- (void)dealloc;
+- (void)cancelQueryTasks;
 - (void)setQueryTask:(id)arg1 forQueryID:(long long)arg2;
 - (id)queryTask:(long long)arg1;
 - (void)cancelQueryTask:(long long)arg1;

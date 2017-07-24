@@ -23,6 +23,7 @@
 - (void)updateInputAssistantItem;
 - (void)endPreventingLayout;
 - (void)beginPreventingLayout;
+- (void)removeDropPlaceholders;
 - (void)replaceImagesIfNecessary;
 - (void)setCaretPosition:(unsigned long long)arg1;
 - (struct _NSRange)selectedRange;

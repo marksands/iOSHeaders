@@ -10,12 +10,14 @@
 
 @interface MPCReportingIdentityProperties : NSObject
 {
+    _Bool _hasSubscriptionPlaybackCapability;
     unsigned long long _storeAccountID;
     NSString *_storeFrontID;
     SSVPlayActivityEnqueuerProperties *_enqueuerProperties;
 }
 
 @property(copy, nonatomic) SSVPlayActivityEnqueuerProperties *enqueuerProperties; // @synthesize enqueuerProperties=_enqueuerProperties;
+@property(nonatomic) _Bool hasSubscriptionPlaybackCapability; // @synthesize hasSubscriptionPlaybackCapability=_hasSubscriptionPlaybackCapability;
 @property(copy, nonatomic) NSString *storeFrontID; // @synthesize storeFrontID=_storeFrontID;
 @property(nonatomic) unsigned long long storeAccountID; // @synthesize storeAccountID=_storeAccountID;
 - (void).cxx_destruct;

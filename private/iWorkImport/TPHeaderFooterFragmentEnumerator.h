@@ -19,9 +19,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int headerFooterType; // @synthesize headerFooterType=_headerFooterType;
 @property(nonatomic) int fragmentIndex; // @synthesize fragmentIndex=_fragmentIndex;
 @property(retain, nonatomic) TPPageMaster *pageMaster; // @synthesize pageMaster=_pageMaster;
+- (void).cxx_destruct;
 - (void)p_incrementHeaderFooterType;
 - (void)p_incrementFragmentIndex;
-- (void)dealloc;
 - (id)nextObject;
 - (id)initWithPageMaster:(id)arg1;
 

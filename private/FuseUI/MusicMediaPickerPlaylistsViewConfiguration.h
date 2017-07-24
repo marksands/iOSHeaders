@@ -12,6 +12,7 @@
 }
 
 - (void)_picksSingleCollectionDidChange:(id)arg1;
+- (void)_watchCompatibilityVersionDidChange:(id)arg1;
 - (void)_multipleSelectionAllowanceDidChange:(id)arg1;
 - (id)previewViewControllerForEntityValueContext:(id)arg1 fromViewController:(id)arg2;
 - (_Bool)canPreviewEntityValueContext:(id)arg1;

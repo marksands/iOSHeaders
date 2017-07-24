@@ -21,6 +21,7 @@
 - (void)_attemptLikelyToKeepUpReportingEventWithPlayer:(id)arg1;
 - (void)_itemDidChangeNotification:(id)arg1;
 - (void)_bufferingStateDidChangeNotification:(id)arg1;
+- (void)logAssistantEvent:(id)arg1 withTimestamp:(id)arg2;
 - (void)logAssistantEvent:(id)arg1;
 - (void)unregisterPlayer:(id)arg1;
 - (void)registerPlayer:(id)arg1;

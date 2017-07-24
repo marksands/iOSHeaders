@@ -6,7 +6,7 @@
 
 #import <SAObjects/SABaseClientBoundCommand.h>
 
-@class NSArray;
+@class NSArray, NSDictionary;
 
 @interface SAPreSynthesizeTTS : SABaseClientBoundCommand
 {
@@ -15,6 +15,7 @@
 + (id)preSynthesizeTTSWithDictionary:(id)arg1 context:(id)arg2;
 + (id)preSynthesizeTTS;
 - (_Bool)requiresResponse;
+@property(copy, nonatomic) NSDictionary *speakableContextInfo;
 @property(copy, nonatomic) NSArray *dialogStrings;
 - (id)encodedClassName;
 - (id)groupIdentifier;

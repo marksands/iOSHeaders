@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <_MKStackViewDelegate> stackDelegate; // @synthesize stackDelegate=_stackDelegate;
 - (void).cxx_destruct;
 - (void)addSubview:(id)arg1;
-- (void)updateConstraints;
+- (void)_createConstraints;
 - (void)setStackedSubviews:(id)arg1 animated:(_Bool)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 

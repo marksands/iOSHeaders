@@ -39,6 +39,7 @@
 - (void)swipeOccurrence:(id)arg1 willFinishWithDeletion:(_Bool)arg2;
 - (_Bool)touchAtLocationShouldDismissSwipedItem:(struct CGPoint)arg1 isTouchUp:(_Bool)arg2;
 - (CDStruct_324b76a9)configureForSwipeDirection:(unsigned long long)arg1 configuration:(id)arg2 startingAtTouchLocation:(struct CGPoint)arg3;
+- (id)_currentSwipeOccurrence;
 @property(readonly, nonatomic) UIView *swipedItemView;
 - (void)updateLayout;
 - (void)_resetSwipedItemAnimated:(_Bool)arg1 swipeInfo:(CDStruct_b06b0113)arg2 completion:(CDUnknownBlockType)arg3;

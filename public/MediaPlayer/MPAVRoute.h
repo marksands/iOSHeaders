@@ -50,6 +50,7 @@
 - (id)description;
 - (id)debugDescription;
 - (unsigned long long)hash;
+@property(readonly, nonatomic) _Bool supportsWirelessDisplay;
 @property(readonly, nonatomic, getter=isBeatsXRoute) _Bool beatsXRoute;
 @property(readonly, nonatomic, getter=isBeatsSoloRoute) _Bool beatsSoloRoute;
 @property(readonly, nonatomic, getter=isPowerbeatsRoute) _Bool powerbeatsRoute;

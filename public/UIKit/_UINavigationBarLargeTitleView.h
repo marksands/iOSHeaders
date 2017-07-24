@@ -46,7 +46,7 @@ __attribute__((visibility("hidden")))
 - (void)titleViewChangedStandardDisplayItems:(id)arg1;
 - (void)titleViewChangedHeight:(id)arg1;
 - (void)titleViewChangedUnderlayContent:(id)arg1;
-- (id)contentOverlayRectsForTitleView:(id)arg1;
+- (void)titleView:(id)arg1 needsUpdatedContentOverlayRects:(id)arg2;
 @property(nonatomic) double restingHeightOfRefreshControl; // @dynamic restingHeightOfRefreshControl;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)updateContent;

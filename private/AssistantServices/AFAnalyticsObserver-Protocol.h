@@ -9,6 +9,6 @@
 @class NSArray;
 
 @protocol AFAnalyticsObserver <NSObject>
-- (oneway void)didObserveEvents:(NSArray *)arg1;
+- (oneway void)didObserveEvents:(NSArray *)arg1 completion:(void (^)(void))arg2;
 @end
 

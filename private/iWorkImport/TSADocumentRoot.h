@@ -9,14 +9,13 @@
 #import <iWorkImport/TSDImportExportDelegate-Protocol.h>
 #import <iWorkImport/TSDScrollingAwareChangeSource-Protocol.h>
 
-@class NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSObject, NSSet, NSString, SFUCryptoKey, TSACachedDocumentInfo, TSAFunctionBrowserState, TSAShortcutController, TSCECalculationEngine, TSKCustomFormatList, TSKViewState, TSPLazyReference, TSTCustomFormatList;
+@class NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSObject, NSSet, NSString, SFUCryptoKey, TSACachedDocumentInfo, TSAFunctionBrowserState, TSAShortcutController, TSCECalculationEngine, TSKCustomFormatList, TSKViewState, TSPDocumentRevision, TSPLazyReference, TSTCustomFormatList;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface TSADocumentRoot : TSWPDocumentRoot <TSDImportExportDelegate, TSDScrollingAwareChangeSource>
 {
     // Error parsing type: Ai, name: _needsToCaptureViewState
-    // Error parsing type: Ai, name: _observingCloudResolvedNotification
     NSMutableDictionary *_upgradeState;
     TSPLazyReference *_viewStateReference;
     NSMutableSet *_warnings;
@@ -32,6 +31,7 @@ __attribute__((visibility("hidden")))
     _Bool _collaborativeMediaCompatibilityUpgradeDidFail;
     _Bool _isClosed;
     _Bool _documentLocaleWasUpdated;
+    TSPDocumentRevision *_lastSyncRevision;
     NSString *_templateIdentifier;
     NSObject<OS_dispatch_queue> *_accessQueue;
     SFUCryptoKey *_accessQueue_documentCacheDecryptionKey;

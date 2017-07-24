@@ -24,16 +24,15 @@
     int _qType;
     struct NeuronInfo _neuronInfo;
     unsigned long long _scaleFactor;
-    unsigned long long _dilationRate;
     unsigned long long _channelMultiplier;
     unsigned int _weightsDataType;
     NSData *_biasOriginal;
+    id <MTLBuffer> _neuronABuffer;
     unsigned long long _featureChannelsLayout;
 }
 
 + (const struct MPSLibraryInfo *)libraryInfo;
 @property(readonly, nonatomic) unsigned long long channelMultiplier; // @synthesize channelMultiplier=_channelMultiplier;
-@property(readonly, nonatomic) unsigned long long dilationRate; // @synthesize dilationRate=_dilationRate;
 @property(readonly, nonatomic) unsigned long long subPixelScaleFactor; // @synthesize subPixelScaleFactor=_scaleFactor;
 @property(readonly, nonatomic) unsigned long long groups; // @synthesize groups=_groups;
 @property(readonly, nonatomic) MPSCNNNeuron *neuron; // @synthesize neuron=_neuron_deprecated;
@@ -52,7 +51,7 @@
 - (id)initializeWithDevice:(id)arg1 weights:(id)arg2 fullyConnected:(_Bool)arg3;
 - (id)initWithDevice:(id)arg1 convolutionDescriptor:(id)arg2 kernelWeights:(const float *)arg3 biasTerms:(const float *)arg4 flags:(unsigned long long)arg5;
 - (id)initWithDevice:(id)arg1 convolutionDescriptor:(id)arg2 kernelWeights:(const float *)arg3 biasTerms:(const float *)arg4 flags:(unsigned long long)arg5 fullyConnected:(_Bool)arg6;
--     // Error parsing type: @84@0:8@16@24r^v32I40r^44r^f52i60r^f64Q72B80, name: initialize:convolutionDescriptor:kernelWeights:dataType:range:lookUpTable:qType:biasTerms:flags:fullyConnected:
+-     // Error parsing type: B84@0:8@16@24r^v32I40r^44r^f52i60r^f64Q72B80, name: initialize:convolutionDescriptor:kernelWeights:dataType:range:lookUpTable:qType:biasTerms:flags:fullyConnected:
 - (id)initWithDevice:(id)arg1;
 @property(readonly, nonatomic) float neuronParameterB;
 @property(readonly, nonatomic) float neuronParameterA;

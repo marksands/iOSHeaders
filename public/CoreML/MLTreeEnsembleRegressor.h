@@ -24,8 +24,10 @@
 + (id)compiledVersionForSpecification:(struct _MLModelSpecification *)arg1 options:(id)arg2 error:(id *)arg3;
 + (id)compileSpecification:(struct _MLModelSpecification *)arg1 toArchive:(struct _MLModelOutputArchiver *)arg2 options:(id)arg3 error:(id *)arg4;
 + (id)loadModelFromSpecification:(struct _MLModelSpecification *)arg1 error:(id *)arg2;
++ (id)loadModelFromSpecificationWithCompilationOptions:(struct _MLModelSpecification *)arg1 options:(id)arg2 error:(id *)arg3;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)vectorRegress:(double *)arg1 dest:(double *)arg2;
 - (double)scalarRegress:(double *)arg1;
 - (double)scalarRegress:(id)arg1 error:(id *)arg2;
 - (id)regress:(id)arg1 options:(id)arg2 error:(id *)arg3;

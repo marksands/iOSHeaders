@@ -36,13 +36,13 @@
 - (void)buildPersonsWithFaceClusterer:(id)arg1 keyFaceUpdateBlock:(CDUnknownBlockType)arg2 canceler:(id)arg3 context:(id)arg4;
 - (void)collectPersonBuilderMetrics;
 - (void)_buildPersonsFromUpdatedFaceGroups:(id)arg1 faceClusterer:(id)arg2 keyFaceUpdateBlock:(CDUnknownBlockType)arg3 canceler:(id)arg4 context:(id)arg5;
-- (void)_updateFaceCSNsToAddByPerson:(id)arg1 faceCSNsToRemoveByPerson:(id)arg2 faceByCSN:(id)arg3 faceCSNsByPersonLocalIdentifier:(id)arg4 faceCSNsByMigratedPersonLocalIdentifier:(id)arg5 personsToUpdate:(id)arg6;
+- (void)_updateFaceCSNsToAddByPerson:(id)arg1 faceCSNsToRemoveByPerson:(id)arg2 faceInFaceGroupByCSN:(id)arg3 faceCSNsByPersonLocalIdentifier:(id)arg4 faceCSNsByMigratedPersonLocalIdentifier:(id)arg5 personsToUpdate:(id)arg6;
 - (id)_duplicateFaceCSNsOnAssetForPerson:(id)arg1 faceCSNsOnPerson:(id)arg2 faceByCSNCache:(id)arg3;
-- (_Bool)_completePersonBuildingWithPersonsToUpdate:(id)arg1 facesToRemoveByPerson:(id)arg2 facesToAddByPerson:(id)arg3 updateFaceGroup:(id)arg4 newMergeCandidatePairs:(id)arg5 newInvalidMergeCandidatePairs:(id)arg6 faceByCSN:(id)arg7 personCache:(id)arg8 keyFaceUpdateBlock:(CDUnknownBlockType)arg9 canceler:(id)arg10 context:(id)arg11 error:(id *)arg12;
+- (_Bool)_completePersonBuildingWithPersonsToUpdate:(id)arg1 facesToRemoveByPerson:(id)arg2 facesToAddByPerson:(id)arg3 updateFaceGroup:(id)arg4 newMergeCandidatePairs:(id)arg5 newInvalidMergeCandidatePairs:(id)arg6 faceInFaceGroupByCSN:(id)arg7 personCache:(id)arg8 keyFaceUpdateBlock:(CDUnknownBlockType)arg9 canceler:(id)arg10 context:(id)arg11 error:(id *)arg12;
 - (void)_enumeratePersonsWithLocalIdentifiers:(id)arg1 fetchOptions:(id)arg2 personCache:(id)arg3 usingBlock:(CDUnknownBlockType)arg4;
-- (void)_getRejectedTrainingFaceCSNs:(id *)arg1 rejectedFaceCSNs:(id *)arg2 forPerson:(id)arg3 faceByCSN:(id)arg4;
+- (void)_getRejectedTrainingFaceCSNs:(id *)arg1 rejectedFaceCSNs:(id *)arg2 rejectedPersonLocalIdentifiers:(id *)arg3 forPerson:(id)arg4 faceInFaceGroupByCSN:(id)arg5;
 - (unsigned long long)_level0ClusterIdForFaceCSN:(unsigned long long)arg1 level0Clusters:(id)arg2;
-- (void)_getTrainingFacesByPerson:(id *)arg1 confirmedFaceCSNs:(id *)arg2 faceCSNsByPerson:(id *)arg3 faceCSNsByMigratedPerson:(id *)arg4 mergeCandidates:(id *)arg5 invalidMergeCandidates:(id *)arg6 rejectedPersonsByPerson:(id *)arg7 faceByCSN:(id *)arg8 inFaces:(id)arg9 personCache:(id)arg10 canceler:(id)arg11;
+- (void)_getTrainingFacesByPerson:(id *)arg1 confirmedFaceCSNs:(id *)arg2 faceCSNsByPerson:(id *)arg3 faceCSNsByMigratedPerson:(id *)arg4 mergeCandidates:(id *)arg5 invalidMergeCandidates:(id *)arg6 rejectedPersonsByPerson:(id *)arg7 faceInFaceGroupByCSN:(id *)arg8 inFaces:(id)arg9 personCache:(id)arg10 canceler:(id)arg11;
 - (void)dedupeGraphVerifiedPersonsInFaceGroup:(id)arg1 personCache:(id)arg2;
 - (void)_getMergeCandidates:(id)arg1 invalidMergeCandidates:(id)arg2 forPersonsWithLocalIdentifiers:(id)arg3;
 - (id)_updatedFaceGroupByFGLocalIdentifierFromClusterCSNsWithCanceler:(id)arg1 fetchLimit:(unsigned long long)arg2;

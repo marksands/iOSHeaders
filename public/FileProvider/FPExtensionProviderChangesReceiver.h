@@ -6,15 +6,16 @@
 
 #import <objc/NSObject.h>
 
+#import <FileProvider/FPItemCollectionDelegate-Protocol.h>
 #import <FileProvider/FPProviderChangesReceiver-Protocol.h>
 
-@class FPProvider, NSObservation, NSString;
+@class FPItemCollection, NSDictionary, NSString;
 
 __attribute__((visibility("hidden")))
-@interface FPExtensionProviderChangesReceiver : NSObject <FPProviderChangesReceiver>
+@interface FPExtensionProviderChangesReceiver : NSObject <FPProviderChangesReceiver, FPItemCollectionDelegate>
 {
-    NSObservation *_localStorageObservation;
-    FPProvider *_localStorageProvider;
+    NSDictionary *_providersByID;
+    FPItemCollection *_localStorageCollection;
     CDUnknownBlockType _changesHandler;
     NSString *_identifier;
 }
@@ -22,9 +23,22 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(copy, nonatomic) CDUnknownBlockType changesHandler; // @synthesize changesHandler=_changesHandler;
 - (void).cxx_destruct;
+- (void)_signalLocalStorageUpdate;
+- (void)invalidate;
 - (void)providersInfoHasChanged:(id)arg1 error:(id)arg2;
-- (void)dealloc;
+- (void)collection:(id)arg1 didPerformBatchUpdateWithReplayBlock:(CDUnknownBlockType)arg2;
+- (void)dataForCollectionShouldBeReloaded:(id)arg1;
+- (void)collection:(id)arg1 didUpdateItemsAtIndexPaths:(id)arg2 changes:(id)arg3;
+- (void)collection:(id)arg1 didDeleteItemsAtIndexPaths:(id)arg2;
+- (void)collection:(id)arg1 didMoveItemsFromIndexPaths:(id)arg2 toIndexPaths:(id)arg3;
+- (void)collection:(id)arg1 didInsertItemsAtIndexPaths:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

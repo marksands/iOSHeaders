@@ -6,16 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class SGStorageContact, SGStorageEvent;
+@class NSArray, SGStorageContact, SGStorageEvent;
 
 @interface SGJournalEntry : NSObject
 {
     unsigned long long _operation;
     SGStorageEvent *_event;
+    NSArray *_eventBatch;
     SGStorageContact *_contact;
 }
 
 @property(readonly, nonatomic) SGStorageContact *contact; // @synthesize contact=_contact;
+@property(readonly, nonatomic) NSArray *eventBatch; // @synthesize eventBatch=_eventBatch;
 @property(readonly, nonatomic) SGStorageEvent *event; // @synthesize event=_event;
 @property(readonly, nonatomic) unsigned long long operation; // @synthesize operation=_operation;
 - (void).cxx_destruct;
@@ -26,6 +28,7 @@
 - (id)init;
 - (id)initWithOperation:(unsigned long long)arg1;
 - (id)initWithOperation:(unsigned long long)arg1 contact:(id)arg2;
+- (id)initWithOperation:(unsigned long long)arg1 eventBatch:(id)arg2;
 - (id)initWithOperation:(unsigned long long)arg1 event:(id)arg2;
 
 @end

@@ -24,11 +24,13 @@ __attribute__((visibility("hidden")))
         struct _telldir *_field10;
     } *_dir;
     BRCRelativePath *_parentPath;
+    struct dirent _prevDirEntry;
+    struct dirent *_child;
 }
 
 - (void).cxx_destruct;
 - (void)dealloc;
-- (id)nextObjectWithIsDir:(_Bool *)arg1;
+- (id)nextObjectWithIsDir:(_Bool *)arg1 error:(int *)arg2;
 - (id)initWithParentPath:(id)arg1 error:(int *)arg2;
 
 @end

@@ -8,25 +8,26 @@
 
 #import <ContactsUI/CNActionViewDelegate-Protocol.h>
 
-@class CNUIContainerStackView, NSArray, NSMutableDictionary, NSObject, NSString;
+@class NSArray, NSMutableDictionary, NSObject, NSString, NUIContainerStackView;
 @protocol CNActionsViewProtocol;
 
 @interface CNActionsView : UIView <CNActionViewDelegate>
 {
-    _Bool _shouldCompressLabelsToFitSize;
     NSObject<CNActionsViewProtocol> *_actionsDelegate;
     NSArray *_sortedActionTypes;
     double _spacing;
     long long _style;
-    CNUIContainerStackView *_stackView;
+    NUIContainerStackView *_stackView;
     NSMutableDictionary *_actionItemsByType;
     NSMutableDictionary *_actionViewsByType;
 }
 
++ (struct CGSize)intrinsicContentSizeForHorizontalLayoutForActionsViews:(id)arg1 spacing:(double)arg2;
++ (struct CGSize)intrinsicContentSizeForVerticalLayoutForActionsViews:(id)arg1 spacing:(double)arg2;
++ (long long)axisWithTitlesPresent:(_Bool)arg1;
 @property(retain, nonatomic) NSMutableDictionary *actionViewsByType; // @synthesize actionViewsByType=_actionViewsByType;
 @property(retain, nonatomic) NSMutableDictionary *actionItemsByType; // @synthesize actionItemsByType=_actionItemsByType;
-@property(retain, nonatomic) CNUIContainerStackView *stackView; // @synthesize stackView=_stackView;
-@property(nonatomic) _Bool shouldCompressLabelsToFitSize; // @synthesize shouldCompressLabelsToFitSize=_shouldCompressLabelsToFitSize;
+@property(retain, nonatomic) NUIContainerStackView *stackView; // @synthesize stackView=_stackView;
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic) double spacing; // @synthesize spacing=_spacing;
 @property(copy, nonatomic) NSArray *sortedActionTypes; // @synthesize sortedActionTypes=_sortedActionTypes;
@@ -34,10 +35,10 @@
 - (void).cxx_destruct;
 - (void)didPressActionView:(id)arg1 longPress:(_Bool)arg2;
 - (struct CGSize)intrinsicContentSize;
-- (_Bool)shouldCalculateUpdatedTitleWidth;
 - (void)layoutSubviews;
 - (void)didMoveToWindow;
 - (void)resetActions;
+- (void)updateAxis;
 - (void)updateActionItem:(id)arg1;
 - (void)removeActionItem:(id)arg1;
 - (void)addActionItem:(id)arg1;

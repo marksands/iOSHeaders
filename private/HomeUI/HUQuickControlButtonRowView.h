@@ -12,25 +12,32 @@
 
 @interface HUQuickControlButtonRowView : UIView <HUQuickControlAuxiliaryView>
 {
+    _Bool _isUsingStackedLayout;
     long long _preferredContentAlignment;
     NSMutableArray *_mutableButtonViews;
     NSArray *_buttonConstraints;
 }
 
 + (_Bool)requiresConstraintBasedLayout;
+@property(nonatomic) _Bool isUsingStackedLayout; // @synthesize isUsingStackedLayout=_isUsingStackedLayout;
 @property(retain, nonatomic) NSArray *buttonConstraints; // @synthesize buttonConstraints=_buttonConstraints;
 @property(retain, nonatomic) NSMutableArray *mutableButtonViews; // @synthesize mutableButtonViews=_mutableButtonViews;
 @property(nonatomic) long long preferredContentAlignment; // @synthesize preferredContentAlignment=_preferredContentAlignment;
 - (void).cxx_destruct;
+- (void)_updateLayoutIfNecessary;
+- (_Bool)_shouldUseStackedLayout;
+- (void)_clearButtonConstraints;
+- (void)_contentSizeCategoryDidChange;
 @property(readonly, nonatomic) _Bool hasCenteredContent;
+- (void)setBounds:(struct CGRect)arg1;
+- (void)setFrame:(struct CGRect)arg1;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)updateConstraints;
-- (void)_clearButtonConstraints;
+- (void)contentDidChange;
 - (void)removeButtonView:(id)arg1;
 - (void)insertButtonView:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addButtonView:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *buttonViews;
-- (void)contentSizeCategoryDidChange;
 - (id)initWithButtonViews:(id)arg1;
 
 // Remaining properties

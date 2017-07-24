@@ -12,10 +12,13 @@
 {
     NSArray *_items;
     FPItem *_restoreDirectory;
+    CDUnknownBlockType _untrashCompletionBlock;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType untrashCompletionBlock; // @synthesize untrashCompletionBlock=_untrashCompletionBlock;
 - (void).cxx_destruct;
 - (void)presendNotifications;
+- (void)finishWithResult:(id)arg1 error:(id)arg2;
 - (void)mainWithExtensionProxy:(id)arg1;
 - (id)initWithItems:(id)arg1 restoreDirectory:(id)arg2;
 

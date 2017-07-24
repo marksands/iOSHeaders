@@ -19,8 +19,10 @@
     _Bool _isStopped;
     _Bool _isSubarbiter;
     NSMutableDictionary *_accessClaimsByID;
+    NSMutableDictionary *_accessClaimTransactionsByID;
     NSMutableDictionary *_subarbitrationClaimsByID;
     NSMutableDictionary *_reactorsByID;
+    NSMutableDictionary *_reactorTransactionsByID;
     NSFileAccessNode *_rootNode;
     NSXPCConnection *_superarbitrationServer;
     NSObject<OS_dispatch_source> *_debugSignalSource;

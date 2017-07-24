@@ -21,6 +21,7 @@
 + (_Bool)serializeInterfaceAndMetadata:(struct _MLModelSpecification *)arg1 toArchive:(struct _MLModelOutputArchiver *)arg2 error:(id *)arg3;
 + (id)predictionFromFeatures:(id)arg1 model:(id)arg2 error:(id *)arg3;
 + (id)batchPredict:(id)arg1 model:(id)arg2 error:(id *)arg3;
++ (id)compileModelAtURL:(id)arg1 error:(id *)arg2;
 @property(retain, nonatomic) MLModelDescription *modelDescription; // @synthesize modelDescription=_modelDescription;
 @property(readonly) MLModelMetadata *metadata; // @synthesize metadata=_metadata;
 @property(readonly) MLModelInterface *interface; // @synthesize interface=_interface;

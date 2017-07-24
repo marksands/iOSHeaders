@@ -12,37 +12,23 @@
 
 @interface PKPeerPaymentControllerInternalState : NSObject <NSSecureCoding>
 {
-    unsigned long long _state;
-    unsigned long long _mode;
-    NSString *_senderPhoneOrEmail;
-    NSString *_recipientPhoneOrEmail;
-    PKPeerPaymentRecipient *_recipient;
-    NSString *_recipientDisplayName;
-    NSString *_requestToken;
-    PKPeerPaymentQuote *_quote;
-    PKPeerPaymentPerformResponse *_performQuoteResponse;
-    PKPeerPaymentQuoteCertificatesResponse *_quoteCertificatesResponse;
-    NSString *_accountName;
-    NSString *_accountNumber;
-    NSString *_routingNumber;
-    PKPeerPaymentQuoteRequest *_quoteRequest;
+    unsigned long long state;
+    unsigned long long mode;
+    NSString *senderPhoneOrEmail;
+    NSString *recipientPhoneOrEmail;
+    PKPeerPaymentRecipient *recipient;
+    NSString *recipientDisplayName;
+    NSString *requestToken;
+    PKPeerPaymentQuote *quote;
+    PKPeerPaymentPerformResponse *performQuoteResponse;
+    PKPeerPaymentQuoteCertificatesResponse *quoteCertificatesResponse;
+    NSString *accountName;
+    NSString *accountNumber;
+    NSString *routingNumber;
+    PKPeerPaymentQuoteRequest *quoteRequest;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) PKPeerPaymentQuoteRequest *quoteRequest; // @synthesize quoteRequest=_quoteRequest;
-@property(copy, nonatomic) NSString *routingNumber; // @synthesize routingNumber=_routingNumber;
-@property(copy, nonatomic) NSString *accountNumber; // @synthesize accountNumber=_accountNumber;
-@property(copy, nonatomic) NSString *accountName; // @synthesize accountName=_accountName;
-@property(retain, nonatomic) PKPeerPaymentQuoteCertificatesResponse *quoteCertificatesResponse; // @synthesize quoteCertificatesResponse=_quoteCertificatesResponse;
-@property(retain, nonatomic) PKPeerPaymentPerformResponse *performQuoteResponse; // @synthesize performQuoteResponse=_performQuoteResponse;
-@property(retain, nonatomic) PKPeerPaymentQuote *quote; // @synthesize quote=_quote;
-@property(copy, nonatomic) NSString *requestToken; // @synthesize requestToken=_requestToken;
-@property(copy, nonatomic) NSString *recipientDisplayName; // @synthesize recipientDisplayName=_recipientDisplayName;
-@property(retain, nonatomic) PKPeerPaymentRecipient *recipient; // @synthesize recipient=_recipient;
-@property(copy, nonatomic) NSString *recipientPhoneOrEmail; // @synthesize recipientPhoneOrEmail=_recipientPhoneOrEmail;
-@property(copy, nonatomic) NSString *senderPhoneOrEmail; // @synthesize senderPhoneOrEmail=_senderPhoneOrEmail;
-@property(nonatomic) unsigned long long mode; // @synthesize mode=_mode;
-@property(nonatomic) unsigned long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
 - (_Bool)isEqualToPeerPaymentControllerInternalState:(id)arg1;
 - (_Bool)isEqual:(id)arg1;

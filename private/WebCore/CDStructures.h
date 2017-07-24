@@ -132,7 +132,9 @@ struct AccessibilityObject {
     int _field6;
     int _field7;
     struct AccessibilityIsIgnoredFromParentData _field8;
-    struct RetainPtr<WebAccessibilityObjectWrapper> _field9;
+    _Bool _field9;
+    _Bool _field10;
+    struct RetainPtr<WebAccessibilityObjectWrapper> _field11;
 };
 
 struct AccessibilityTable {
@@ -144,10 +146,10 @@ struct AccessibilityTable {
     int _field6;
     int _field7;
     struct AccessibilityIsIgnoredFromParentData _field8;
-    struct RetainPtr<WebAccessibilityObjectWrapper> _field9;
-    int _field10;
-    _Bool _field11;
-    _Bool _field12;
+    _Bool _field9;
+    _Bool _field10;
+    struct RetainPtr<WebAccessibilityObjectWrapper> _field11;
+    int _field12;
     int _field13;
     struct Node *_field14;
     struct RenderObject *_field15;
@@ -166,10 +168,10 @@ struct AccessibilityTableCell {
     int _field6;
     int _field7;
     struct AccessibilityIsIgnoredFromParentData _field8;
-    struct RetainPtr<WebAccessibilityObjectWrapper> _field9;
-    int _field10;
-    _Bool _field11;
-    _Bool _field12;
+    _Bool _field9;
+    _Bool _field10;
+    struct RetainPtr<WebAccessibilityObjectWrapper> _field11;
+    int _field12;
     int _field13;
     struct Node *_field14;
     struct RenderObject *_field15;
@@ -708,20 +710,21 @@ struct HTMLVideoElement {
     struct WeakPtr<const WebCore::MediaResourceLoader> _field102;
     struct RefPtr<WebCore::Blob> _field103;
     struct optional<WTF::Variant<WTF::RefPtr<WebCore::MediaStream>, WTF::RefPtr<WebCore::Blob>>> _field104;
-    struct unique_ptr<WebCore::MediaElementSession, std::__1::default_delete<WebCore::MediaElementSession>> _field105;
-    unsigned long long _field106;
-    struct RefPtr<WebCore::MediaControlsHost> _field107;
-    struct RefPtr<WebCore::DOMWrapperWorld> _field108;
-    struct RefPtr<WebCore::MediaStream> _field109;
-    _Bool _field110;
-    unsigned int _field111;
-    _Bool _field112;
+    struct RefPtr<WebCore::WebKitMediaKeys> _field105;
+    struct unique_ptr<WebCore::MediaElementSession, std::__1::default_delete<WebCore::MediaElementSession>> _field106;
+    unsigned long long _field107;
+    struct RefPtr<WebCore::MediaControlsHost> _field108;
+    struct RefPtr<WebCore::DOMWrapperWorld> _field109;
+    struct RefPtr<WebCore::MediaStream> _field110;
+    _Bool _field111;
+    unsigned int _field112;
     _Bool _field113;
     _Bool _field114;
-    struct unique_ptr<WebCore::HTMLImageLoader, std::__1::default_delete<WebCore::HTMLImageLoader>> _field115;
-    struct AtomicString _field116;
-    unsigned int _field117;
+    _Bool _field115;
+    struct unique_ptr<WebCore::HTMLImageLoader, std::__1::default_delete<WebCore::HTMLImageLoader>> _field116;
+    struct AtomicString _field117;
     unsigned int _field118;
+    unsigned int _field119;
 };
 
 struct HTTPHeaderMap {
@@ -1608,6 +1611,10 @@ struct RefPtr<WebCore::VideoTrackList> {
     struct VideoTrackList *_field1;
 };
 
+struct RefPtr<WebCore::WebKitMediaKeys> {
+    struct WebKitMediaKeys *_field1;
+};
+
 struct RefPtr<WebCore::WebVideoFullscreenInterfaceAVKit> {
     struct WebVideoFullscreenInterfaceAVKit *m_ptr;
 };
@@ -2091,7 +2098,6 @@ struct URL {
     unsigned int m_pathAfterLastSlash;
     unsigned int m_pathEnd;
     unsigned int m_queryEnd;
-    unsigned int m_fragmentEnd;
 };
 
 struct Variant<WTF::RefPtr<WebCore::MediaStream>, WTF::RefPtr<WebCore::Blob>> {
@@ -2311,6 +2317,8 @@ struct WebAccessibilityObjectWrapper {
 };
 
 struct WebGLRenderingContextBase;
+
+struct WebKitMediaKeys;
 
 struct WebPlaybackSessionInterfaceAVKit {
     CDUnknownFunctionPointerType *_field1;

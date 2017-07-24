@@ -213,6 +213,7 @@
 - (void)_updateCropActionButtonConstraintsIfNeeded;
 - (_Bool)_hasConstraintsForKey:(id)arg1;
 - (void)_invalidateConstraintsForKey:(id)arg1;
+- (unsigned long long)preferredScreenEdgesDeferringSystemGestures;
 - (void)updateViewConstraints;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillAppear:(_Bool)arg1;

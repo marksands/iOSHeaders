@@ -6,12 +6,13 @@
 
 #import <MapsSupport/MSPQuery.h>
 
-@class MSPContainer, _MSPQueryState;
+@class MSPContainer, NSString, _MSPQueryState;
 
 @interface MSPEditableQuery : MSPQuery
 {
     _MSPQueryState *_editedState;
     MSPContainer *_container;
+    NSString *_context;
 }
 
 - (void).cxx_destruct;
@@ -20,6 +21,7 @@
 - (void)_performEditWithStateTransformation:(CDUnknownBlockType)arg1 containerEdit:(CDUnknownBlockType)arg2;
 - (void)_didChangeSourceWithNewState:(id)arg1 context:(id)arg2 inContainer:(id)arg3;
 - (id)_visibleState;
+- (id)_initWithSource:(id)arg1;
 
 @end
 

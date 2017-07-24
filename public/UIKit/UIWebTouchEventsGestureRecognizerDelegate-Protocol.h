@@ -4,10 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSSet;
+#import <UIKit/NSObject-Protocol.h>
 
-@protocol UIWebTouchEventsGestureRecognizerDelegate
+@class NSSet, UIEvent, UIWebTouchEventsGestureRecognizer;
+
+@protocol UIWebTouchEventsGestureRecognizerDelegate <NSObject>
 - (_Bool)isAnyTouchOverActiveArea:(NSSet *)arg1;
+
+@optional
+- (_Bool)gestureRecognizer:(UIWebTouchEventsGestureRecognizer *)arg1 shouldIgnoreWebTouchWithEvent:(UIEvent *)arg2;
 - (_Bool)shouldIgnoreWebTouch;
 @end
 

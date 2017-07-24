@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSDictionary, NSString;
+@class NSArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface VSApplicationControllerRequest : NSObject
@@ -16,10 +16,8 @@ __attribute__((visibility("hidden")))
     NSString *_SAMLRequest;
     NSArray *_attributeNames;
     NSString *_requestorVerificationToken;
-    NSDictionary *_userInfo;
 }
 
-@property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(copy, nonatomic) NSString *requestorVerificationToken; // @synthesize requestorVerificationToken=_requestorVerificationToken;
 @property(copy, nonatomic) NSArray *attributeNames; // @synthesize attributeNames=_attributeNames;
 @property(copy, nonatomic) NSString *SAMLRequest; // @synthesize SAMLRequest=_SAMLRequest;

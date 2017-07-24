@@ -18,10 +18,15 @@
 + (_Bool)supportsSecureCoding;
 + (id)counterInfoWithDictionary:(id)arg1;
 - (void).cxx_destruct;
+- (id)description;
 - (id)_formattedString;
 - (void)encodeWithCoder:(id)arg1;
 - (unsigned long long)numberOfRequestsForType:(unsigned char)arg1 result:(unsigned char)arg2;
 @property(readonly, nonatomic) NSArray *requestTypes;
+- (unsigned long long)recvBytesForType:(unsigned char)arg1;
+- (unsigned long long)recvBytes;
+- (unsigned long long)xmitBytesForType:(unsigned char)arg1;
+- (unsigned long long)xmitBytes;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1;

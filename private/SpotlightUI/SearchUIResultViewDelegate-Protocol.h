@@ -13,6 +13,7 @@
 @optional
 @property(readonly) NSString *currentQuery;
 - (void)didUpdateContentScrolledOffScreenStatus:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)didBeginScrollingResults;
 - (void)didChangeExpansionStateForSection:(SFResultSection *)arg1 expanded:(_Bool)arg2;
 - (_Bool)sectionShouldBeExpanded:(SFResultSection *)arg1;
 - (void)clearResultsFromSection:(SFResultSection *)arg1;

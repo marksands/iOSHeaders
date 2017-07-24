@@ -27,12 +27,12 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
 - (void)diagnosticShow:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)diagnosticLogControl:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)activateAssertionWithIdentifier:(id)arg1;
 - (void)_invalidated;
 - (void)invalidate;
 - (void)_interrupted;
 - (void)_ensureXPCStarted;
-- (void)dealloc;
 - (id)init;
 
 @end

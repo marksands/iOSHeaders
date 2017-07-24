@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <NanoTimeKitCompanion/NTKEnumeratableFaceCollection-Protocol.h>
+
 @class NSString, NTKCompanionApp;
 @protocol NTKCGalleryCollectionDelegate;
 
-@interface NTKCGalleryCollection : NSObject
+@interface NTKCGalleryCollection : NSObject <NTKEnumeratableFaceCollection>
 {
     NSString *_title;
     CDUnknownBlockType _calloutName;
@@ -48,11 +50,18 @@
 @property(copy, nonatomic) CDUnknownBlockType calloutName; // @synthesize calloutName=_calloutName;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+- (void)enumerateFaceNamesUsingBlock:(CDUnknownBlockType)arg1;
 - (unsigned long long)indexOfFace:(id)arg1;
 - (id)faceAtIndex:(unsigned long long)arg1;
 - (unsigned long long)numberOfFaces;
 - (id)newFace;
 @property(readonly, nonatomic) _Bool canAddNewFaces;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

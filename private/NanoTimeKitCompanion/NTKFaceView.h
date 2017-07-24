@@ -173,6 +173,7 @@
 - (double)verticalPaddingForStatusBar;
 - (_Bool)wantsStatusBarHidden;
 - (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
+- (void)_prepareForSnapshotting;
 - (double)_minimumBreathingScaleForComplicationSlot:(id)arg1;
 - (_Bool)_fadesComplicationSlot:(id)arg1 inEditMode:(long long)arg2;
 - (double)_editSpeedForComplications;

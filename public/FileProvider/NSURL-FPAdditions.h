@@ -11,7 +11,7 @@
 + (id)fp_containerPrefixURL;
 + (id)fp_homeDirectory;
 + (id)fp_supportDirectory;
-- (_Bool)fp_addDocumentTrackingWithError:(id *)arg1;
+- (id)fp_addDocumentTrackingWithError:(id *)arg1;
 - (_Bool)fp_makeWritableWithError:(id *)arg1;
 - (id)fp_moveToTempFolderWithFilename:(id)arg1 error:(id *)arg2;
 - (id)fp_copyToTempFolderWithFilename:(id)arg1 error:(id *)arg2;

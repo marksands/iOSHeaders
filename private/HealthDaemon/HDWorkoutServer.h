@@ -39,7 +39,7 @@
 - (void)remote_activeWorkoutApplicationIdentifier:(CDUnknownBlockType)arg1;
 - (void)remote_associateSamplesWithUUIDs:(id)arg1 withWorkout:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)remote_pauseAllActiveWorkoutsWithCompletion:(CDUnknownBlockType)arg1;
-- (void)remote_attachWorkoutServerWithClient:(id)arg1 serverConfiguration:(id)arg2 fitnessMachineConnectionClient:(id)arg3 fitnessMachineSessionConfiguration:(id)arg4 handler:(CDUnknownBlockType)arg5;
+- (void)remote_attachWorkoutServerWithClient:(id)arg1 serverConfiguration:(id)arg2 fitnessMachineConnectionClient:(id)arg3 fitnessMachineSessionConfiguration:(id)arg4 willReactivate:(_Bool)arg5 handler:(CDUnknownBlockType)arg6;
 - (CDUnknownBlockType)_completionHandlerForReplaceWithOriginalWorkout:(id)arg1 newWorkout:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)remote_replaceWorkout:(id)arg1 withWorkout:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)remote_addSamples:(id)arg1 toWorkout:(id)arg2 completion:(CDUnknownBlockType)arg3;

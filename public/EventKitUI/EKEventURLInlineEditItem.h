@@ -6,18 +6,22 @@
 
 #import <EventKitUI/EKEventEditItem.h>
 
+#import <EventKitUI/EKCalendarItemInlineEditItem-Protocol.h>
 #import <EventKitUI/UITextFieldDelegate-Protocol.h>
 
 @class NSString, UITableViewCell;
 
 __attribute__((visibility("hidden")))
-@interface EKEventURLInlineEditItem : EKEventEditItem <UITextFieldDelegate>
+@interface EKEventURLInlineEditItem : EKEventEditItem <UITextFieldDelegate, EKCalendarItemInlineEditItem>
 {
     UITableViewCell *_cell;
     _Bool _tokenized;
+    _Bool _hasChanges;
 }
 
 - (void).cxx_destruct;
+- (id)searchStringForEventAutocomplete;
+- (_Bool)isSaveable;
 - (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;

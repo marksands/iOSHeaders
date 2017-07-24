@@ -17,7 +17,7 @@
 #import <ChatKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <ChatKit/_UIBackdropViewGraphicsQualityChangeDelegate-Protocol.h>
 
-@class CAMShutterButton, CKActionMenuController, CKActionMenuGestureRecognizerButton, CKAudioRecorder, CKBrowserSwitcherFooterView, CKBrowserSwitcherFooterViewDataSource, CKComposition, CKConversation, CKEntryViewButton, CKInlineAudioReplyButtonController, CKMessageEntryAudioHintView, CKMessageEntryContentView, CKMessageEntryRecordedAudioView, CKMessageEntryWaveformView, CKScheduledUpdater, NSArray, NSString, UIInputContextHistory, UILabel, UILongPressGestureRecognizer, UIPreviewInteraction, _UIBackdropView;
+@class CAMShutterButton, CKActionMenuController, CKActionMenuGestureRecognizerButton, CKAudioRecorder, CKBrowserSwitcherFooterView, CKComposition, CKConversation, CKEntryViewButton, CKInlineAudioReplyButtonController, CKMessageEntryAudioHintView, CKMessageEntryContentView, CKMessageEntryRecordedAudioView, CKMessageEntryWaveformView, CKScheduledUpdater, NSArray, NSString, UIInputContextHistory, UILabel, UILongPressGestureRecognizer, UIPreviewInteraction, _UIBackdropView;
 @protocol CKMessageEntryViewDelegate><UIPreviewInteractionDelegate, CKMessageEntryViewInputDelegate, UIPreviewInteractionDelegate;
 
 @interface CKMessageEntryView : UIView <CKMessageEntryContentViewDelegate, CKAudioRecorderDelegate, CKActionMenuControllerDelegate, CKMessageEntryRecordedAudioViewDelegate, CKActionMenuGestureRecognizerButtonDelegate, CKInlineAudioReplyButtonDelegate, UIGestureRecognizerDelegate, _UIBackdropViewGraphicsQualityChangeDelegate, CKBrowserSwitcherFooterViewDelegate, CKMessageEntryViewStyleProtocol>
@@ -74,7 +74,6 @@
     UIInputContextHistory *_inputContextHistory;
     UILabel *_collpasedPlaceholderLabel;
     CKBrowserSwitcherFooterView *_appStrip;
-    CKBrowserSwitcherFooterViewDataSource *_appStripDataSource;
     CAMShutterButton *_shutterButton;
     CKScheduledUpdater *_entryFieldCollapsedUpdater;
     struct CGSize _inputButtonSize;
@@ -90,12 +89,12 @@
 + (struct UIEdgeInsets)contentViewInsetsForMarginInsets:(struct UIEdgeInsets)arg1 shouldShowPluginButtons:(_Bool)arg2 shouldShowCharacterCount:(_Bool)arg3 shouldCoverSendButton:(_Bool)arg4;
 + (struct UIEdgeInsets)coverViewInsetsForMarginInsets:(struct UIEdgeInsets)arg1 shouldShowPluginButtons:(_Bool)arg2 shouldShowCharacterCount:(_Bool)arg3;
 + (struct UIEdgeInsets)coverViewInsetsForMarginInsets:(struct UIEdgeInsets)arg1 shouldShowPluginButtons:(_Bool)arg2 shouldShowCharacterCount:(_Bool)arg3 shouldCenterCharacterCount:(_Bool *)arg4;
++ (id)sharedAppStripDatasource;
 + (id)_imageNamesForPrecaching;
 @property(nonatomic) _Bool entryFieldUpdaterAnimatedValue; // @synthesize entryFieldUpdaterAnimatedValue=_entryFieldUpdaterAnimatedValue;
 @property(nonatomic) _Bool entryFieldUpdaterCollapsedValue; // @synthesize entryFieldUpdaterCollapsedValue=_entryFieldUpdaterCollapsedValue;
 @property(retain, nonatomic) CKScheduledUpdater *entryFieldCollapsedUpdater; // @synthesize entryFieldCollapsedUpdater=_entryFieldCollapsedUpdater;
 @property(retain, nonatomic) CAMShutterButton *shutterButton; // @synthesize shutterButton=_shutterButton;
-@property(retain, nonatomic) CKBrowserSwitcherFooterViewDataSource *appStripDataSource; // @synthesize appStripDataSource=_appStripDataSource;
 @property(retain, nonatomic) CKBrowserSwitcherFooterView *appStrip; // @synthesize appStrip=_appStrip;
 @property(retain, nonatomic) UILabel *collpasedPlaceholderLabel; // @synthesize collpasedPlaceholderLabel=_collpasedPlaceholderLabel;
 @property(nonatomic) _Bool animatingLayoutChange; // @synthesize animatingLayoutChange=_animatingLayoutChange;
@@ -259,6 +258,7 @@
 - (double)bottomInsetForAppStrip;
 - (void)updateAppStripFrame;
 - (void)layoutSubviews;
+- (void)safeAreaInsetsDidChange;
 - (void)dealloc;
 
 // Remaining properties

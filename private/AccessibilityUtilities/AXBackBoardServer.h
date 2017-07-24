@@ -28,6 +28,7 @@
 - (void)disableBrightnessFilters;
 - (_Bool)supportsBlueLightReduction;
 - (void)jetsamThirdPartyApps;
+- (unsigned long long)currentGuidedAccessModeAndSessionApp:(id *)arg1;
 - (id)guidedAccessIgnoredRegions;
 - (void)toggleGuidedAccess;
 - (_Bool)isGuidedAccessUnmanagedSelfLocked;

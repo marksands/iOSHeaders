@@ -464,7 +464,6 @@ __attribute__((visibility("hidden")))
 - (struct _NSRange)rangeOfAnnotationWithOptions:(unsigned long long)arg1 range:(struct _NSRange)arg2;
 - (struct _NSRange)rangeForAnnotation:(id)arg1;
 - (id)highlightSelectionForSelection:(id)arg1;
-- (id)highlightTextColorForHighlights:(id)arg1;
 - (id)p_highlightsForSelectionRange:(struct _NSRange)arg1 outRange:(struct _NSRange *)arg2 requireComment:(_Bool)arg3 stopOnFirst:(_Bool)arg4;
 - (void)removeHighlight:(id)arg1 atRange:(struct _NSRange)arg2 dolcContext:(id)arg3 undoTransaction:(struct TSWPStorageTransaction *)arg4;
 - (void)removeHighlight:(id)arg1 dolcContext:(id)arg2 undoTransaction:(struct TSWPStorageTransaction *)arg3;

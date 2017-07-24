@@ -8,10 +8,13 @@
 
 #import <NewsTransport/NSCopying-Protocol.h>
 
+@class NSData;
+
 @interface NTPBTodayWidgetConfig : PBCodable <NSCopying>
 {
     long long _minimumArticleExposureDurationToBePreseen;
     double _prerollLoadingTimeout;
+    NSData *_externalAnalyticsConfigurationsData;
     unsigned int _minimumNumberOfTimesPreseenToBeSeen;
     struct {
         unsigned int minimumArticleExposureDurationToBePreseen:1;
@@ -20,9 +23,11 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSData *externalAnalyticsConfigurationsData; // @synthesize externalAnalyticsConfigurationsData=_externalAnalyticsConfigurationsData;
 @property(nonatomic) double prerollLoadingTimeout; // @synthesize prerollLoadingTimeout=_prerollLoadingTimeout;
 @property(nonatomic) unsigned int minimumNumberOfTimesPreseenToBeSeen; // @synthesize minimumNumberOfTimesPreseenToBeSeen=_minimumNumberOfTimesPreseenToBeSeen;
 @property(nonatomic) long long minimumArticleExposureDurationToBePreseen; // @synthesize minimumArticleExposureDurationToBePreseen=_minimumArticleExposureDurationToBePreseen;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -31,6 +36,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasExternalAnalyticsConfigurationsData;
 @property(nonatomic) _Bool hasPrerollLoadingTimeout;
 @property(nonatomic) _Bool hasMinimumNumberOfTimesPreseenToBeSeen;
 @property(nonatomic) _Bool hasMinimumArticleExposureDurationToBePreseen;

@@ -8,12 +8,12 @@
 
 #import <iWorkImport/TSWPTopicNumberHints-Protocol.h>
 
-@class NSString, TSUNoCopyDictionary;
+@class NSString, TSUPointerKeyDictionary;
 
 __attribute__((visibility("hidden")))
 @interface TSWPMutableTopicNumberHints : NSObject <TSWPTopicNumberHints>
 {
-    TSUNoCopyDictionary *_numbersForListStyle;
+    TSUPointerKeyDictionary *_numbersForListStyle;
     unsigned long long _charIndex;
     unsigned long long _validThroughCharIndex;
 }

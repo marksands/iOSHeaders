@@ -7,15 +7,16 @@
 #import <UIKit/UIColor.h>
 
 @interface UIColor (TSUDarkSidebar)
++ (id)tsu_darkToolbarBackgroundColor;
++ (id)tsu_lightToolbarBackgroundColor;
++ (id)tsu_darkToolbarTitleColor;
++ (id)tsu_darkToolbarTintColor;
 + (id)tsu_navigatorSelectionFocusedHighlightColor;
 + (id)tsu_navigatorSelectionHighlightColor;
 + (id)tsu_keynoteNavigatorDividerColor;
-+ (id)tsu_keynoteNavigationBarBackgroundColor;
 + (id)tsu_keynoteNavigatorBackgroundColor;
 + (id)tsu_keynoteCanvasDarkBackgroundColor;
 + (id)tsu_keynoteCanvasBackgroundColor;
-+ (id)tsu_keynoteToolbarTintColor;
-+ (id)tsu_keynoteDefaultApplicationToolbarTitleColor;
 + (id)tsu_progressViewTrackTintColor;
 + (id)tsu_progressViewTintColor;
 + (id)tsu_sidebarTopTabTextColor;

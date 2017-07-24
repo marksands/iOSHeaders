@@ -7,6 +7,7 @@
 #import <NotesShared/ICAttachmentTableModel.h>
 
 @interface ICAttachmentTableModel (UI)
+- (id)activityItems;
 - (id)attributesForSharingHTMLWithTagName:(id *)arg1 textContent:(id *)arg2;
 - (_Bool)canConvertToHTMLForSharing;
 - (id)htmlString;

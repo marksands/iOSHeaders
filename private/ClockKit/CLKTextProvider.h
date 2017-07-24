@@ -76,6 +76,7 @@
 - (void)finalize;
 - (void)validate;
 - (id)sessionAttributedTextForIndex:(unsigned long long)arg1 withStyle:(id)arg2;
+- (struct CGSize)minimumSizeWithStyle:(id)arg1 now:(id)arg2;
 - (id)attributedTextAndSize:(struct CGSize *)arg1 forMaxWidth:(double)arg2 withStyle:(id)arg3 now:(id)arg4;
 - (id)localizedTextProviderWithBundle:(id)arg1 forLocalization:(id)arg2;
 - (id)attributedString;

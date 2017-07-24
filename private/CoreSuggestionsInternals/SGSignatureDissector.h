@@ -10,7 +10,6 @@
 {
 }
 
-+ (void)initialize;
 + (id)singleLineSignatureLeadingCharacterSet;
 - (_Bool)shouldIgnoreSignature:(id)arg1;
 - (_Bool)_paragraphWithContent:(id)arg1 range:(struct _NSRange)arg2 exceedsLineLimit:(unsigned long long)arg3 orCharacterLimit:(unsigned long long)arg4;

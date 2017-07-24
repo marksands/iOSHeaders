@@ -30,6 +30,7 @@
     struct CGPoint _translationOffset;
     double _maximumParallaxDepth;
     _Bool _nonOpaqueShadow;
+    _Bool _singleLayerNoMask;
     id _flatImage;
     NSArray *_parallaxImages;
     NSArray *_parallaxLayerDepths;
@@ -153,6 +154,7 @@
 - (void)_updateRadiosityFromLayerStack;
 - (void)_updateNonOpaqueShadowStateFromLayerStack;
 - (_Bool)_configuredForNonOpaqueShadow;
+- (void)_updateSingleLayerNoMaskFromLayerStack;
 - (_Bool)_aspectMatchesLayerStack;
 - (void)_updateCornerRadiusFromConfig;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

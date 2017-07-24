@@ -50,6 +50,7 @@ __attribute__((visibility("hidden")))
 - (void)dismissCurrentViewControllerFromPhotoPickerAnimated:(id)arg1;
 - (void)invalidatePhotoPickerHostServices;
 - (void)cancelPhotoPicker;
+- (void)performTraitCollectionUpdateUsingData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)invalidatePhotoPickerRemoteServices;
 - (id)_host;
 @property(readonly, nonatomic) NSOperationQueue *multipleMediaConversionConcurrentQueue;

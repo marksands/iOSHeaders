@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 + (id)animationFilter;
 + (id)animationName;
 + (long long)animationCategory;
-- (id)animationsWithContext:(id)arg1;
+- (void)addAnimationsTo:(id)arg1 context:(id)arg2;
 
 @end
 

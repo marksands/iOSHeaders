@@ -6,23 +6,32 @@
 
 #import <iWorkImport/TSDImageProvider.h>
 
+@class NSObject;
+@protocol OS_dispatch_queue, OS_dispatch_semaphore;
+
 __attribute__((visibility("hidden")))
 @interface TSDPDFImageProvider : TSDImageProvider
 {
-    struct CGPDFDocument *mPDFDocument;
-    struct CGSize mNaturalSize;
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    struct CGPDFDocument *_PDFDocument;
+    struct CGSize _naturalSize;
+    NSObject<OS_dispatch_semaphore> *_flushableContentLock;
+    _Bool _hasFlushableContent;
 }
 
+- (void).cxx_destruct;
 - (struct CGPDFDocument *)p_load;
 - (void)p_loadIfNecessary;
 - (void)flush;
 - (void)drawImageInContext:(struct CGContext *)arg1 rect:(struct CGRect)arg2;
 - (_Bool)isValid;
 - (unsigned long long)i_flushableMemoryEstimate;
+- (_Bool)i_hasFlushableContent;
 - (struct CGSize)naturalSize;
 @property(readonly, nonatomic) long long pageAngle;
 @property(readonly, nonatomic) struct CGPDFDocument *CGPDFDocument;
 - (void)dealloc;
+- (void)i_commonInit;
 
 @end
 

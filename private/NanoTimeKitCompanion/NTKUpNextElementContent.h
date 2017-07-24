@@ -23,6 +23,7 @@
     CLKImageProvider *_bodyImageProvider;
     CLKTextProvider *_description1TextProvider;
     CLKTextProvider *_description2TextProvider;
+    CLKTextProvider *_description3TextProvider;
     UIColor *_tintColor;
     unsigned long long _style;
     unsigned long long _description1FontStyle;
@@ -41,6 +42,7 @@
 @property(nonatomic) _Bool useMonospaceFont; // @synthesize useMonospaceFont=_useMonospaceFont;
 @property(nonatomic) unsigned long long style; // @synthesize style=_style;
 @property(copy, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
+@property(copy, nonatomic) CLKTextProvider *description3TextProvider; // @synthesize description3TextProvider=_description3TextProvider;
 @property(copy, nonatomic) CLKTextProvider *description2TextProvider; // @synthesize description2TextProvider=_description2TextProvider;
 @property(copy, nonatomic) CLKTextProvider *description1TextProvider; // @synthesize description1TextProvider=_description1TextProvider;
 @property(copy, nonatomic) CLKImageProvider *bodyImageProvider; // @synthesize bodyImageProvider=_bodyImageProvider;

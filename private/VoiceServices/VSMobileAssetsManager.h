@@ -29,6 +29,7 @@
 + (void)amendVoiceWithDefaultSettings:(id)arg1;
 + (id)queryForVoiceResourceAsset:(id)arg1 localOnly:(_Bool)arg2;
 + (id)queryForType:(long long)arg1 voicename:(id)arg2 language:(id)arg3 gender:(long long)arg4 footprint:(long long)arg5 localOnly:(_Bool)arg6;
++ (id)preinstallAssetsDirectory;
 + (id)sharedManager;
 @property(retain, nonatomic) NSMutableDictionary *voiceResourceCache; // @synthesize voiceResourceCache=_voiceResourceCache;
 @property(retain, nonatomic) NSMutableDictionary *voiceSelectionCache; // @synthesize voiceSelectionCache=_voiceSelectionCache;
@@ -45,6 +46,7 @@
 - (void)removeVoiceResource:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)downloadVoiceResource:(id)arg1 useBattery:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)removeVoiceAsset:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)cancelDownload:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)downloadVoiceAsset:(id)arg1 useBattery:(_Bool)arg2 progressUpdateHandler:(CDUnknownBlockType)arg3;
 - (void)downloadVoiceAsset:(id)arg1 useBattery:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)selectVoiceResourceAssetForLanguage:(id)arg1;
@@ -57,6 +59,8 @@
 - (void)reinstallVoiceData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)amendVoiceWithDefaultSettings:(id)arg1;
 - (id)_nonCacheVoiceResourcesAssetsForLanguage:(id)arg1;
+- (id)_preinstalledVoiceForLanguage:(id)arg1 gender:(long long)arg2;
+- (id)preinstallAssetsMetadata;
 - (id)_nonCacheVoiceSelectionForLanguage:(id)arg1 type:(long long)arg2 gender:(long long)arg3 footprint:(long long)arg4;
 - (id)init;
 

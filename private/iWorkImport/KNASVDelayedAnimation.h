@@ -17,14 +17,15 @@ __attribute__((visibility("hidden")))
     id _object;
 }
 
-@property(retain, nonatomic) id object; // @synthesize object=_object;
+@property(nonatomic) __weak id object; // @synthesize object=_object;
 @property(nonatomic) double delay; // @synthesize delay=_delay;
 @property(nonatomic) SEL selector; // @synthesize selector=_selector;
-@property(retain, nonatomic) id target; // @synthesize target=_target;
+@property(nonatomic) __weak id target; // @synthesize target=_target;
+- (void).cxx_destruct;
 - (void)resume;
 - (void)pause;
 - (void)run;
-- (void)dealloc;
+- (id)init;
 - (id)initWithTarget:(id)arg1 selector:(SEL)arg2 object:(id)arg3 delay:(double)arg4;
 
 @end

@@ -52,11 +52,13 @@
 - (void)setDragState:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (void)_configureAnimated:(_Bool)arg1 fromState:(long long)arg2 toState:(long long)arg3;
 - (void)_setupSelectedViewsIfNeededUsesCallout:(_Bool)arg1;
+- (void)_setupNormalViewsIfNeeded;
 - (void)_didDragWithVelocity:(struct CGPoint)arg1;
 - (long long)_stateForIsSelected:(_Bool)arg1;
 - (void)_configureViewsForState:(long long)arg1 usesCallout:(_Bool)arg2;
 - (void)prepareForSnapshotting;
-- (void)didMoveToWindow;
+- (void)_unhideForDisplay;
+- (void)prepareForDisplay;
 - (long long)_currentMarkerState;
 - (void)_updateContentForState:(long long)arg1 forceUpdate:(_Bool)arg2;
 - (void)_updateContentForState:(long long)arg1;

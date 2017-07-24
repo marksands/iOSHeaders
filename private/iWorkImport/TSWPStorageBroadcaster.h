@@ -6,14 +6,15 @@
 
 #import <Foundation/NSObject.h>
 
+@class NSHashTable;
+
 __attribute__((visibility("hidden")))
 @interface TSWPStorageBroadcaster : NSObject
 {
-    struct set<__unsafe_unretained id<TSWPStorageObserver>, std::__1::less<__unsafe_unretained id<TSWPStorageObserver>>, std::__1::allocator<__unsafe_unretained id<TSWPStorageObserver>>> _observers;
-    struct set<__unsafe_unretained id<TSWPStorageParagraphObserver>, std::__1::less<__unsafe_unretained id<TSWPStorageParagraphObserver>>, std::__1::allocator<__unsafe_unretained id<TSWPStorageParagraphObserver>>> _paragraphObservers;
+    NSHashTable *_observers;
+    NSHashTable *_paragraphObservers;
 }
 
-- (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)broadcastStorage:(id)arg1 didChangeParagraphsInIndexRange:(struct _NSRange)arg2;
 - (void)broadcastStorage:(id)arg1 didDeleteParagraphsInIndexRange:(struct _NSRange)arg2;
@@ -25,7 +26,10 @@ __attribute__((visibility("hidden")))
 - (void)addParagraphObserver:(id)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
+@property(readonly, nonatomic) unsigned long long paragraphObserverCount;
+@property(readonly, nonatomic) unsigned long long observerCount;
 - (void)dealloc;
+- (id)init;
 
 @end
 

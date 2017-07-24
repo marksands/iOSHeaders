@@ -6,14 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class CKDClientContext, CKDClientProxy, CKDOperation, CKOperationInfo, NSDate, NSMutableDictionary, NSMutableSet, NSOperationQueue, NSString;
+@class CKDClientContext, CKDOperation, NSDate, NSMutableDictionary, NSMutableSet, NSOperationQueue, NSString;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface CKDQueuedFetch : NSObject
 {
     _Bool _isFinished;
-    _Bool _useEncryption;
     NSDate *_queuedDate;
     CDUnknownBlockType _completionHandler;
     CKDQueuedFetch *_equivalentRunningFetch;
@@ -22,31 +21,24 @@ __attribute__((visibility("hidden")))
     NSDate *_startDate;
     NSDate *_lastRequestDate;
     CKDClientContext *_context;
-    CKDClientProxy *_proxy;
     NSOperationQueue *_operationQueue;
     long long _scope;
-    CKOperationInfo *_initialOperationInfo;
-    long long _usesBackgroundSession;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     long long _highestQOS;
     NSString *_runningOperationID;
     NSMutableSet *_dependentOperationIDs;
     NSMutableDictionary *_dependentOperationIDsByItemID;
-    CKDOperation *_metricsAccountingOperation;
+    CKDOperation *_initialOperation;
 }
 
-@property(nonatomic) __weak CKDOperation *metricsAccountingOperation; // @synthesize metricsAccountingOperation=_metricsAccountingOperation;
+@property(retain, nonatomic) CKDOperation *initialOperation; // @synthesize initialOperation=_initialOperation;
 @property(retain, nonatomic) NSMutableDictionary *dependentOperationIDsByItemID; // @synthesize dependentOperationIDsByItemID=_dependentOperationIDsByItemID;
 @property(retain, nonatomic) NSMutableSet *dependentOperationIDs; // @synthesize dependentOperationIDs=_dependentOperationIDs;
 @property(retain, nonatomic) NSString *runningOperationID; // @synthesize runningOperationID=_runningOperationID;
 @property(nonatomic) long long highestQOS; // @synthesize highestQOS=_highestQOS;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_callbackQueue;
-@property(nonatomic) _Bool useEncryption; // @synthesize useEncryption=_useEncryption;
-@property(nonatomic) long long usesBackgroundSession; // @synthesize usesBackgroundSession=_usesBackgroundSession;
-@property(readonly, nonatomic) CKOperationInfo *initialOperationInfo; // @synthesize initialOperationInfo=_initialOperationInfo;
 @property(nonatomic) long long scope; // @synthesize scope=_scope;
 @property(nonatomic) __weak NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
-@property(nonatomic) __weak CKDClientProxy *proxy; // @synthesize proxy=_proxy;
 @property(nonatomic) __weak CKDClientContext *context; // @synthesize context=_context;
 @property(retain, nonatomic) NSDate *lastRequestDate; // @synthesize lastRequestDate=_lastRequestDate;
 @property(retain, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
@@ -58,9 +50,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool isFinished; // @synthesize isFinished=_isFinished;
 - (void).cxx_destruct;
 - (void)start;
-- (id)operationInfo;
-- (id)fetchOperationForItemIDs:(id)arg1;
-- (Class)operationInfoClass;
+- (void)createFetchOperationForItemIDs:(id)arg1 operationQueue:(id)arg2 operationConfigurationBlock:(CDUnknownBlockType)arg3;
 - (_Bool)dependentOperationListContainsOperationID:(id)arg1;
 - (_Bool)dependentOperationListContainsRunningFetch:(id)arg1;
 - (_Bool)canBeUsedForPendingFetch:(id)arg1;

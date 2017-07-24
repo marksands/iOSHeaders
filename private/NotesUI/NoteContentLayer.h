@@ -30,8 +30,10 @@
     NotesScrollView *_scrollView;
     UIView *_horizontalLayoutGuide;
     NoteDateLabel *_dateLabel;
+    NSString *_noteIdentifierForCurrentlyDraggedItems;
 }
 
+@property(retain, nonatomic) NSString *noteIdentifierForCurrentlyDraggedItems; // @synthesize noteIdentifierForCurrentlyDraggedItems=_noteIdentifierForCurrentlyDraggedItems;
 @property(nonatomic) _Bool updatedTitleRange; // @synthesize updatedTitleRange=_updatedTitleRange;
 @property(retain, nonatomic) NoteDateLabel *dateLabel; // @synthesize dateLabel=_dateLabel;
 @property(retain, nonatomic) UIView *horizontalLayoutGuide; // @synthesize horizontalLayoutGuide=_horizontalLayoutGuide;
@@ -53,8 +55,12 @@
 - (void)_webView:(id)arg1 dropInteraction:(id)arg2 concludeDrop:(id)arg3;
 - (void)_webView:(id)arg1 sessionDidExit:(id)arg2;
 - (void)_webView:(id)arg1 sessionDidEnter:(id)arg2;
+- (id)_webView:(id)arg1 adjustedItemProviders:(id)arg2;
+- (long long)_webView:(id)arg1 dataOwnerForDropSession:(id)arg2;
+- (long long)_webView:(id)arg1 dataOwnerForDragSession:(id)arg2;
 - (_Bool)isNoteTextViewVisible:(id)arg1;
 - (void)noteTextView:(id)arg1 didChangeContentSize:(struct CGSize)arg2;
+- (id)readerDelegateInTextView:(id)arg1;
 - (_Bool)noteTextView:(id)arg1 acceptContentsFromPasteboard:(id)arg2;
 - (void)noteTextView:(id)arg1 handleLongPressOnElement:(id)arg2 atPoint:(struct CGPoint)arg3;
 - (_Bool)noteTextView:(id)arg1 canHandleLongPressOnElement:(id)arg2;
@@ -89,6 +95,7 @@
 - (_Bool)becomeFirstResponder;
 - (_Bool)canResignFirstResponder;
 - (_Bool)canBecomeFirstResponder;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (void)didChangeFullSizeClass;
 - (void)setBounds:(struct CGRect)arg1;

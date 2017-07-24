@@ -28,11 +28,12 @@
 - (long long)feedSortMethod;
 - (id)feedPaginator;
 - (_Bool)shouldFilterFeedGroupEmitter:(id)arg1;
-- (void)prepareToFilterFeedGroupEmittersWithCallbackQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)prepareToProvideFeedGroupEmittersWithCallbackQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)feedGroupEmitters;
 - (id)offlineFeedGroupEmitters;
 - (id)iAdFeedID;
 - (id)name;
+- (_Bool)derivesContentsFromExplicitSubscriptions;
 - (id)initWithIdentifier:(id)arg1 trendingAndSavedStoriesCount:(long long)arg2 appConfigurationManager:(id)arg3 subscriptionList:(id)arg4;
 
 // Remaining properties

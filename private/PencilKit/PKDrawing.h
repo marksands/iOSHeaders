@@ -58,6 +58,7 @@
 - (void)queryDidUpdateResult:(id)arg1;
 - (void)performSearchQuery:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)indexableContent;
+- (void)cancelOngoingRecognitionRequests;
 - (void)setNeedsRecognitionUpdate;
 - (id)strokeForIdentifier:(id)arg1;
 - (void)_updateRecognitionSession;

@@ -279,6 +279,8 @@
 - (void)accessoryBrowser:(id)arg1 didTombstoneAccessoryServer:(id)arg2;
 - (void)accessoryBrowser:(id)arg1 didRemoveAccessoryServer:(id)arg2 error:(id)arg3;
 - (void)accessoryBrowser:(id)arg1 didFindAccessoryServer:(id)arg2 stateChanged:(_Bool)arg3 stateNumber:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)accessoryBrowser:(id)arg1 didRemoveAccessoryAdvertisement:(id)arg2;
+- (void)accessoryBrowser:(id)arg1 didAddAccessoryAdvertisement:(id)arg2;
 - (_Bool)isCurrentDeviceAvaliableResident;
 - (_Bool)_isEventTriggerOnLocalDeviceForAccessory:(id)arg1;
 - (_Bool)_isEventTriggerOnRemoteGatewayForAccessory:(id)arg1;
@@ -297,7 +299,9 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)fixupHomeAfterDecoding;
+- (void)updateAppData:(id)arg1 identifierKey:(id)arg2 lookup:(id)arg3;
 - (void)_handleUpdateMediaPassword:(id)arg1;
+- (void)handleUpdatedMediaPassword:(id)arg1;
 - (void)setMediaPassword:(id)arg1;
 - (id)mediaPassword;
 - (void)_handleUpdateMediaPeerToPeerEnabled:(id)arg1;
@@ -309,6 +313,7 @@
 - (void)_handleUpdateAutomaticSoftwareUpdate:(id)arg1;
 - (void)setAutomaticSoftwareUpdateEnabled:(_Bool)arg1;
 - (_Bool)isAutomaticSoftwareUpdateEnabled;
+- (void)_handleHomeLocationUpdateFromSharedAdmin:(id)arg1;
 - (void)_updateHomeLocation;
 - (void)updateHomeLocation;
 - (void)setHomeLocation:(long long)arg1;
@@ -358,7 +363,6 @@
 - (void)_notifyChangedCharacteristics:(id)arg1 identifier:(id)arg2 multiPartResponse:(_Bool)arg3 moreMessagesInMultipart:(_Bool)arg4 requestMessage:(id)arg5 withCompletionHandler:(CDUnknownBlockType)arg6;
 - (void)_sendClientCharacteristicsChangedNotification:(id)arg1 identifier:(id)arg2 isSecure:(_Bool)arg3 multiPartResponse:(_Bool)arg4 moreMessagesInMultipart:(_Bool)arg5 withCompletionHandler:(CDUnknownBlockType)arg6;
 - (void)_updateBulletinBoardOfChangedCharacteristics:(id)arg1 changedByThisDevice:(_Bool)arg2 homePresence:(id)arg3;
-- (void)_postInternalNotificationForChangedCharacterisitics:(id)arg1 modifiedCharacteristics:(id)arg2 modifiedAccessories:(id)arg3;
 - (void)notifyOfChangedCharacteristic:(id)arg1 changedByThisDevice:(_Bool)arg2 residentShouldNotifyPeers:(_Bool)arg3 message:(id)arg4;
 - (void)_postInternalNotificationForChangedCharacterisitics:(id)arg1 modifiedCharacteristics:(id)arg2 modifiedAccessories:(id)arg3 changedByThisDevice:(_Bool)arg4 residentShouldNotifyPeers:(_Bool)arg5 message:(id)arg6;
 - (void)_handleCharacterisiticsChangedNotification:(id)arg1;
@@ -481,7 +485,8 @@
 - (void)_handleUnblock:(id)arg1;
 - (_Bool)evaluatePredicate:(id)arg1;
 - (void)handleEvaluatePredicateMessage:(id)arg1;
-- (void)evaluateCondition:(id)arg1 forCharacteristic:(id)arg2 context:(id)arg3;
+- (void)dispatchRequestToEvaluateCondition:(id)arg1 forCharacteristics:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)evaluateNotificationConditionForCharacteristics:(id)arg1 homePresence:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)reevaluateAccessoryInfo;
 - (void)_reevaluateAccessoryInfoWithBadgeRefresh:(_Bool)arg1;
 - (void)_notifyClientsOfAccessoryInfoUpdatedForAccessories:(id)arg1 shouldRefreshBadge:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
@@ -507,6 +512,7 @@
 - (id)hapAccessoryUniqueIdentifiers;
 - (id)hapAccessoryServerIdentifiers;
 - (unsigned long long)accessoryCountForRoom:(id)arg1;
+- (id)hapAccessoryWithIdentifier:(id)arg1;
 - (id)accessoryWithIdentifier:(id)arg1;
 - (void)_removeWithMergeSecondaryAccessory:(id)arg1 removedFromBridgeAccessory:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)removeWithMergeSecondaryAccessory:(id)arg1 removedFromBridgeAccessory:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -551,6 +557,8 @@
 - (id)_primaryAccessoryForServer:(id)arg1;
 - (id)hapAccessoriesForServer:(id)arg1;
 - (id)hapAccessoriesForServer:(id)arg1 linkType:(long long)arg2;
+- (void)_sendCacheMissUpdatesToSPIClients;
+- (void)sendCacheMissUpdatesToSPIClients;
 - (void)auditNotifications;
 - (void)_auditNotifications;
 - (void)handleBackgroundTaskAgentJob:(id)arg1;
@@ -625,7 +633,6 @@
 - (_Bool)_doesResidentExistInMyCircleWithAddress:(id)arg1 homeManager:(id)arg2;
 - (void)_removeMediaSessionWithIdentifier:(id)arg1;
 - (id)_createMediaSessionWithEndpoint:(id)arg1;
-- (void)_notifyClientOfMediaSessionUpdate:(id)arg1 add:(_Bool)arg2;
 - (id)_createBuiltinActionSets;
 - (id)createActionSetWithName:(id)arg1 uuid:(id)arg2 type:(id)arg3;
 - (void)updateActionSetExecutionDates:(id)arg1;
@@ -636,7 +643,6 @@
 - (void)takeOwnershipOfAppData:(id)arg1;
 - (void)takeOwnershipOfAccessories:(id)arg1;
 - (void)takeOwnershipOfNotificationRegistry:(id)arg1;
-- (void)fixupReplacementAccessories:(id)arg1 commonAccessories:(id)arg2 idsDataSync:(_Bool)arg3 dataVersion:(long long)arg4 locallyAdded:(id)arg5;
 - (void)handleForegroundAppsNotification:(id)arg1;
 - (void)handleAppTermination:(id)arg1;
 - (void)_startHomeNotificationDeregistrationTimer;

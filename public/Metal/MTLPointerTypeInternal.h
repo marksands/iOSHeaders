@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 {
     unsigned long long _dataType;
     unsigned long long _elementType;
-    MTLType *_elementTypeDescription;
+    MTLType *_elementTypeInfo;
     unsigned long long _access;
     unsigned long long _alignment;
     unsigned long long _dataSize;

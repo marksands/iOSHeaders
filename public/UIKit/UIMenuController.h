@@ -8,16 +8,18 @@
 
 #import <UIKit/UICalloutBarDelegate-Protocol.h>
 
-@class NSArray, NSString;
+@class NSArray, NSString, UIView;
 
 @interface UIMenuController : NSObject <UICalloutBarDelegate>
 {
     struct CGRect _targetRect;
+    UIView *_targetView;
     long long _arrowDirection;
 }
 
 + (id)sharedMenuController;
 @property(nonatomic) long long arrowDirection; // @synthesize arrowDirection=_arrowDirection;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) struct CGRect menuFrame;
 - (void)update;
 @property(copy, nonatomic) NSArray *menuItems;

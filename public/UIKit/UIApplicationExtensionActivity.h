@@ -38,7 +38,7 @@
 @property(copy, nonatomic) NSString *localizedExtensionBundleName; // @synthesize localizedExtensionBundleName=_localizedExtensionBundleName;
 @property(retain, nonatomic) _UIActivityBundleHelper *activityBundleHelper; // @synthesize activityBundleHelper=_activityBundleHelper;
 @property(copy, nonatomic) CDUnknownBlockType presenterCompletion; // @synthesize presenterCompletion=_presenterCompletion;
-@property(nonatomic) UIViewController *presenterViewController; // @synthesize presenterViewController=_presenterViewController;
+@property(nonatomic) __weak UIViewController *presenterViewController; // @synthesize presenterViewController=_presenterViewController;
 @property(copy, nonatomic) id extensionContextIdentifier; // @synthesize extensionContextIdentifier=_extensionContextIdentifier;
 @property(retain, nonatomic) UIViewController *extensionViewController; // @synthesize extensionViewController=_extensionViewController;
 @property(retain, nonatomic) NSExtensionItem *_injectedExtensionItem; // @synthesize _injectedExtensionItem=__injectedExtensionItem;

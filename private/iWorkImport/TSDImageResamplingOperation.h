@@ -21,8 +21,8 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=mDisplayName;
 @property(nonatomic) struct CGSize desiredSize; // @synthesize desiredSize=mDesiredSize;
 @property(retain, nonatomic) TSDImageProvider *imageProvider; // @synthesize imageProvider=mImageProvider;
+- (void).cxx_destruct;
 - (id)performResampleOperationWithResampleOptions:(unsigned long long)arg1 bitmapContextOptions:(unsigned long long)arg2;
-- (void)dealloc;
 - (id)init;
 - (id)initWithImageProvider:(id)arg1 desiredSize:(struct CGSize)arg2;
 

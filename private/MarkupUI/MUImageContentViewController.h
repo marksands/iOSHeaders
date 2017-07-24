@@ -22,6 +22,7 @@
     _Bool _didSetup;
     UIImage *_tentativePlaceholderImage;
     double _maxImageDimension;
+    unsigned long long _inkStyle;
     id _sourceContent;
     UIScrollView *_scrollView;
     UIView *_combinedContentView;
@@ -48,6 +49,7 @@
 @property(retain, nonatomic) UIView *combinedContentView; // @synthesize combinedContentView=_combinedContentView;
 @property(retain, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain) id sourceContent; // @synthesize sourceContent=_sourceContent;
+@property(nonatomic) unsigned long long inkStyle; // @synthesize inkStyle=_inkStyle;
 @property double maxImageDimension; // @synthesize maxImageDimension=_maxImageDimension;
 @property(retain, nonatomic) UIImage *tentativePlaceholderImage; // @synthesize tentativePlaceholderImage=_tentativePlaceholderImage;
 @property(nonatomic) _Bool centersIgnoringContentInsets; // @synthesize centersIgnoringContentInsets=_centersIgnoringContentInsets;

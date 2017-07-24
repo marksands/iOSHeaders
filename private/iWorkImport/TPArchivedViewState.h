@@ -43,12 +43,15 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) TSKSelectionPath *selectionPath; // @synthesize selectionPath=_selectionPath;
 @property(retain, nonatomic) TSKSelectionPath *compatibilitySelectionPath; // @synthesize compatibilitySelectionPath=_compatibilitySelectionPath;
+- (void).cxx_destruct;
 - (void)captureViewStateWithProvider:(id)arg1;
 - (void)readViewStateWithConsumer:(id)arg1;
+- (void)readCanvasStateWithConsumer:(id)arg1;
 - (_Bool)showsComments;
-- (void)dealloc;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromUnarchiver:(id)arg1;
+- (id)initWithContext:(id)arg1;
+- (void)p_setArchivedViewStateDefaults;
 
 @end
 

@@ -10,7 +10,6 @@
 
 @interface SearchUICardViewController : SearchUITableViewController
 {
-    _Bool _viewHasAppeared;
     unsigned long long _level;
     SFCard *_card;
     UIView *_loadingView;
@@ -18,7 +17,6 @@
     UILabel *_loadingLabel;
 }
 
-@property _Bool viewHasAppeared; // @synthesize viewHasAppeared=_viewHasAppeared;
 @property(retain) UILabel *loadingLabel; // @synthesize loadingLabel=_loadingLabel;
 @property(retain) UIActivityIndicatorView *loadingSpinner; // @synthesize loadingSpinner=_loadingSpinner;
 @property(retain) UIView *loadingView; // @synthesize loadingView=_loadingView;

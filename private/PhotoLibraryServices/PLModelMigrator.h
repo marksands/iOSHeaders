@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSDictionary, NSFileManager, PLPhotoLibrary, PLXPCTransaction;
 
@@ -26,6 +26,7 @@
 + (_Bool)_markMigrationVerifiedTypePersonsInStore:(id)arg1;
 + (_Bool)_storeContainsFaceCrops:(id)arg1 success:(_Bool *)arg2;
 + (_Bool)_removeAutoloopCacheIfExists;
++ (_Bool)_fixUTIforSlowMoInStore:(id)arg1;
 + (_Bool)_unquarantineClass:(Class)arg1 inManagedObject:(id)arg2;
 + (_Bool)_unquarantinedQuarantinedItems:(id)arg1;
 + (_Bool)retryQuarantinedAssetsAndFixResourceRelation:(id)arg1;
@@ -87,6 +88,7 @@
 + (_Bool)_fixMovieAttributesInStore:(id)arg1;
 + (_Bool)_setPlaybackStyleForAnimatedGIFsInStore:(id)arg1;
 + (_Bool)_removeAutoloopWorkerStatesInStore:(id)arg1;
++ (_Bool)_fixInitialSyncMarker;
 + (_Bool)_removingDuplicatedCloudAssetGuid:(id)arg1;
 + (_Bool)_convertNameSourceFromBoolToIntForDeferredRebuildFaceInStore:(id)arg1;
 + (_Bool)_populateUserKeyFacePickSourceForPersonInStore:(id)arg1;

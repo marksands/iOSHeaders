@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (id)notificationIconBundleIdentifier;
 - (id)notificationTitle;
 - (int)interactionType;
+- (_Bool)prefersOpenToCreate;
 - (id)localizedName;
 
 // Remaining properties

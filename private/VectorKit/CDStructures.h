@@ -120,8 +120,6 @@ struct Box<unsigned int, 2> {
 
 struct BufferData;
 
-struct BufferLoadItem;
-
 struct BufferMemory {
     struct ResourceAccessor *_accessor;
     struct BufferData *_user;
@@ -195,9 +193,17 @@ struct COverlayLayer {
     CDUnknownFunctionPointerType *_field6;
     struct CartographicRenderer *_field7;
     unsigned char _field8;
-    id _field9;
-    unsigned char _field10;
+    struct set<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::less<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::allocator<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> _field9;
+    struct ZRange _field10;
+    int _field11;
+    struct CartographicTilesCache *_field12;
+    struct COverlayRenderResources *_field13;
+    unsigned char _field14;
+    struct vector<VKTile *, std::__1::allocator<VKTile *>> _field15;
+    int _field16;
 };
+
+struct COverlayRenderResources;
 
 struct CPolylineGroupChangeObserver {
     CDUnknownFunctionPointerType *_field1;
@@ -288,6 +294,8 @@ struct CartographicRenderer {
     struct AnimationRunner *_field14;
 };
 
+struct CartographicTilesCache;
+
 struct CasedTrafficBatch;
 
 struct CasedTrafficLayer {
@@ -333,19 +341,7 @@ struct ClusterTreeFeatureNode;
 
 struct ClusterTreeNode;
 
-struct CommandBuffer {
-    CDUnknownFunctionPointerType *_field1;
-    char *_field2;
-    unsigned char _field3;
-    struct RenderQueue *_field4;
-    struct ClearItem *_field5;
-    struct vector<ggl::RenderItem *, std::__1::allocator<ggl::RenderItem *>> _field6;
-    struct vector<ggl::Texture2DLoadItem, std::__1::allocator<ggl::Texture2DLoadItem>> _field7;
-    struct vector<ggl::BufferLoadItem, std::__1::allocator<ggl::BufferLoadItem>> _field8;
-    struct deque<std::__1::shared_ptr<ggl::QueryItem>, std::__1::allocator<std::__1::shared_ptr<ggl::QueryItem>>> _field9;
-    struct deque<ggl::PendingQuery, std::__1::allocator<ggl::PendingQuery>> _field10;
-    id _field11;
-};
+struct CommandBuffer;
 
 struct CommandBufferIdSet {
     struct vector<md::CommandBufferId, std::__1::allocator<md::CommandBufferId>> _field1;
@@ -360,8 +356,6 @@ struct ComputeShaderEntry;
 struct ConstantDataElement;
 
 struct ConstantDataTyped<ggl::Fog::Skyfog>;
-
-struct ConstantDataTyped<ggl::Sky::Style>;
 
 struct ConstantDataTyped<ggl::Tile::View>;
 
@@ -543,20 +537,7 @@ struct FogInfo {
     struct shared_ptr<ggl::ConstantDataTyped<ggl::Fog::Skyfog>> _fogConstantData;
 };
 
-struct FogPipelineSetup;
-
-struct FogPipelineState;
-
-struct FontManager {
-    struct read_write_lock _field1;
-    struct map<std::__1::basic_string<char>, md::FontManager::SystemFontData, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, md::FontManager::SystemFontData>>> _field2;
-};
-
-struct FragmentedPool<ggl::Debug::BasePipelineSetup>;
-
-struct FragmentedPool<ggl::DebugPoints::BasePipelineSetup>;
-
-struct FragmentedPool<ggl::RenderItem>;
+struct FontManager;
 
 struct FunctionEntry;
 
@@ -923,8 +904,6 @@ struct MeshCReflection;
 
 struct MeshMesh;
 
-struct MeshPipelineState;
-
 struct MeshSet<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh, ggl::BuildingFlatStroke::DefaultVbo> {
     struct vector<std::__1::pair<unsigned short, unsigned int>, std::__1::allocator<std::__1::pair<unsigned short, unsigned int>>> _vertexAndIndexCounts;
     vector_4558960f _meshes;
@@ -1103,8 +1082,6 @@ struct PatternedLineSetup {
 
 struct PatternedSharedResources;
 
-struct PendingQuery;
-
 struct PerspectiveView<double> {
     RigidTransform_271c3a39 _transform;
     Matrix_08d701e4 _projectionMatrix;
@@ -1162,17 +1139,6 @@ struct PolylineCoordinate {
     float offset;
 };
 
-struct Pos2DUVMesh {
-    CDUnknownFunctionPointerType *_field1;
-    char *_field2;
-    CDUnknownFunctionPointerType *_field3;
-    struct ResourceManager *_field4;
-    struct RenderResource *_field5;
-    struct MeshCReflection *_field6;
-    struct vector<std::__1::shared_ptr<ggl::VertexData>, std::__1::allocator<std::__1::shared_ptr<ggl::VertexData>>> _field7;
-    struct shared_ptr<ggl::IndexData> _field8;
-};
-
 struct Pos2DUVPipelineSetup;
 
 struct Pos2DUVPipelineState;
@@ -1205,8 +1171,6 @@ struct Range<float> {
     float _field1;
     float _field2;
 };
-
-struct Range<geo::PolylineCoordinate>;
 
 struct Range<unsigned int>;
 
@@ -1446,12 +1410,6 @@ struct ShaderLibraryDescriptor;
 
 struct SharedDeviceResources;
 
-struct SkyMesh;
-
-struct SkyPipelineSetup;
-
-struct SkyPipelineState;
-
 struct SolidTrafficBatch;
 
 struct SolidTrafficLayer {
@@ -1562,7 +1520,16 @@ struct StylesheetQuery<gss::PropertyID>;
 
 struct StylesheetVendor;
 
-struct TaskContext;
+struct TaskContext {
+    id _field1;
+    id _field2;
+    id _field3;
+    id _field4;
+    struct unique_ptr<geo::TaskQueue, std::__1::default_delete<geo::TaskQueue>> _field5;
+    struct unique_ptr<geo::TaskQueue, std::__1::default_delete<geo::TaskQueue>> _field6;
+};
+
+struct TaskQueue;
 
 struct TexelRun {
     float _field1;
@@ -1603,8 +1570,6 @@ struct Texture2D {
     _Bool _field16;
     shared_ptr_cedd5232 _field17;
 };
-
-struct Texture2DLoadItem;
 
 struct TextureData2D;
 
@@ -1846,11 +1811,12 @@ struct VehicleState {
 
 struct Venue {
     unsigned long long _field1;
-    struct vector<md::VenueBuilding, std::__1::allocator<md::VenueBuilding>> _field2;
-    struct Polygon2<double> _field3;
-    struct ConvexHull2<double> _field4;
-    basic_string_805fe43b _field5;
+    unsigned long long _field2;
+    struct vector<md::VenueBuilding, std::__1::allocator<md::VenueBuilding>> _field3;
+    struct Polygon2<double> _field4;
+    struct ConvexHull2<double> _field5;
     basic_string_805fe43b _field6;
+    basic_string_805fe43b _field7;
 };
 
 struct VenueBuilding {
@@ -1923,6 +1889,11 @@ struct ViewSize {
 struct ViewTransform;
 
 struct Viewport;
+
+struct ZRange {
+    unsigned char _field1;
+    unsigned char _field2;
+};
 
 struct ZoomRange {
     float min;
@@ -2201,6 +2172,10 @@ struct array<double, 4> {
     double __elems_[4];
 };
 
+struct array<gm::Matrix<double, 2, 1>, 2> {
+    Matrix_2bdd42a3 _field1[2];
+};
+
 struct array<std::__1::unique_ptr<md::LogicContext, std::__1::default_delete<md::LogicContext>>, 4> {
     struct unique_ptr<md::LogicContext, std::__1::default_delete<md::LogicContext>> _field1[4];
 };
@@ -2211,21 +2186,6 @@ struct array<std::__1::unordered_set<geo::_retain_ptr<VKAnimation *, geo::_retai
 
 struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
     struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> __r_;
-};
-
-struct deque<ggl::PendingQuery, std::__1::allocator<ggl::PendingQuery>> {
-    struct __split_buffer<ggl::PendingQuery *, std::__1::allocator<ggl::PendingQuery *>> {
-        struct PendingQuery **_field1;
-        struct PendingQuery **_field2;
-        struct PendingQuery **_field3;
-        struct __compressed_pair<ggl::PendingQuery **, std::__1::allocator<ggl::PendingQuery *>> {
-            struct PendingQuery **_field1;
-        } _field4;
-    } _field1;
-    unsigned long long _field2;
-    struct __compressed_pair<unsigned long, std::__1::allocator<ggl::PendingQuery>> {
-        unsigned long long _field1;
-    } _field3;
 };
 
 struct deque<std::__1::function<void ()>, std::__1::allocator<std::__1::function<void ()>>> {
@@ -2241,21 +2201,6 @@ struct deque<std::__1::function<void ()>, std::__1::allocator<std::__1::function
     struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::function<void ()>>> {
         unsigned long long __first_;
     } __size_;
-};
-
-struct deque<std::__1::shared_ptr<ggl::QueryItem>, std::__1::allocator<std::__1::shared_ptr<ggl::QueryItem>>> {
-    struct __split_buffer<std::__1::shared_ptr<ggl::QueryItem>*, std::__1::allocator<std::__1::shared_ptr<ggl::QueryItem>*>> {
-        struct shared_ptr<ggl::QueryItem> **_field1;
-        struct shared_ptr<ggl::QueryItem> **_field2;
-        struct shared_ptr<ggl::QueryItem> **_field3;
-        struct __compressed_pair<std::__1::shared_ptr<ggl::QueryItem>**, std::__1::allocator<std::__1::shared_ptr<ggl::QueryItem>*>> {
-            struct shared_ptr<ggl::QueryItem> **_field1;
-        } _field4;
-    } _field1;
-    unsigned long long _field2;
-    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::shared_ptr<ggl::QueryItem>>> {
-        unsigned long long _field1;
-    } _field3;
 };
 
 struct fast_shared_ptr<md::RouteLineSection> {
@@ -2419,18 +2364,6 @@ struct map<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__
     } _field1;
 };
 
-struct map<std::__1::basic_string<char>, md::FontManager::SystemFontData, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, md::FontManager::SystemFontData>>> {
-    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, md::FontManager::SystemFontData>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, md::FontManager::SystemFontData>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, md::FontManager::SystemFontData>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, md::FontManager::SystemFontData>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, md::FontManager::SystemFontData>, std::__1::less<std::__1::basic_string<char>>, true>> {
-            unsigned long long _field1;
-        } _field3;
-    } _field1;
-};
-
 struct map<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>>>> {
     struct __tree<std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
@@ -2462,6 +2395,18 @@ struct map<unsigned int, md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDesc
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
         struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>*>, std::__1::less<unsigned int>, true>> {
+            unsigned long long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct multimap<unsigned int, std::__1::vector<RouteSection, std::__1::allocator<RouteSection>>, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, std::__1::vector<RouteSection, std::__1::allocator<RouteSection>>>>> {
+    struct __tree<std::__1::__value_type<unsigned int, std::__1::vector<RouteSection, std::__1::allocator<RouteSection>>>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, std::__1::vector<RouteSection, std::__1::allocator<RouteSection>>>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, std::__1::vector<RouteSection, std::__1::allocator<RouteSection>>>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, std::__1::vector<RouteSection, std::__1::allocator<RouteSection>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, std::__1::vector<RouteSection, std::__1::allocator<RouteSection>>>, std::__1::less<unsigned int>, true>> {
             unsigned long long __first_;
         } __pair3_;
     } __tree_;
@@ -2544,8 +2489,6 @@ struct pair<VKBuildingHeightMap, unsigned long long>;
 
 struct pair<bool, GEOFeatureStylePair>;
 
-struct pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>>;
-
 struct pair<unsigned short, unsigned int>;
 
 struct pair<void *, unsigned long> {
@@ -2582,6 +2525,18 @@ struct set<geo::_retain_ptr<VKOverlay *, geo::_retain_objc, geo::_release_objc, 
             unsigned long long __first_;
         } __pair3_;
     } __tree_;
+};
+
+struct set<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::less<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::allocator<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+    struct __tree<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::less<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::allocator<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::less<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
 };
 
 struct set<unsigned long long, std::__1::less<unsigned long long>, std::__1::allocator<unsigned long long>> {
@@ -2639,8 +2594,8 @@ struct shared_ptr<ggl::BitmapDataBase> {
 struct shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>;
 
 struct shared_ptr<ggl::Clut::Pos2DUVPipelineState> {
-    struct Pos2DUVPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
+    struct Pos2DUVPipelineState *_field1;
+    struct __shared_weak_count *_field2;
 };
 
 struct shared_ptr<ggl::CommonLibrary> {
@@ -2653,11 +2608,6 @@ struct shared_ptr<ggl::ConstantDataTyped<ggl::Fog::Skyfog>> {
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<ggl::ConstantDataTyped<ggl::Sky::Style>> {
-    struct ConstantDataTyped<ggl::Sky::Style> *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
 struct shared_ptr<ggl::ConstantDataTyped<ggl::Tile::View>> {
     struct ConstantDataTyped<ggl::Tile::View> *__ptr_;
     struct __shared_weak_count *__cntrl_;
@@ -2666,21 +2616,6 @@ struct shared_ptr<ggl::ConstantDataTyped<ggl::Tile::View>> {
 struct shared_ptr<ggl::ConstantDataTyped<ggl::TransitNode::Settings>> {
     struct ConstantDataTyped<ggl::TransitNode::Settings> *_field1;
     struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<ggl::Debug::BaseMesh> {
-    struct BaseMesh *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::Debug::BasePipelineState> {
-    struct BasePipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::DebugPoints::BasePipelineState> {
-    struct BasePipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
 };
 
 struct shared_ptr<ggl::DebugRenderer>;
@@ -2695,19 +2630,14 @@ struct shared_ptr<ggl::FlyoverLibrary> {
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<ggl::Fog::FogPipelineState> {
-    struct FogPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
 struct shared_ptr<ggl::IndexData> {
     struct IndexData *_field1;
     struct __shared_weak_count *_field2;
 };
 
 struct shared_ptr<ggl::IndexDataTyped<unsigned short>> {
-    struct IndexDataTyped<unsigned short> *__ptr_;
-    struct __shared_weak_count *__cntrl_;
+    struct IndexDataTyped<unsigned short> *_field1;
+    struct __shared_weak_count *_field2;
 };
 
 struct shared_ptr<ggl::OESDevice> {
@@ -2728,27 +2658,15 @@ struct shared_ptr<ggl::PipelineState> {
 struct shared_ptr<ggl::PolygonBase::CompressedMeshMesh>;
 
 struct shared_ptr<ggl::PolygonBase::MeshMesh> {
-    struct MeshMesh *__ptr_;
-    struct __shared_weak_count *__cntrl_;
+    struct MeshMesh *_field1;
+    struct __shared_weak_count *_field2;
 };
 
 struct shared_ptr<ggl::PolygonCommonStroke::MeshMesh>;
 
-struct shared_ptr<ggl::PolygonSolidFill::MeshPipelineState> {
-    struct MeshPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::QueryItem>;
-
 struct shared_ptr<ggl::RenderQueue> {
     struct RenderQueue *_field1;
     struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<ggl::RenderState> {
-    struct RenderState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
 };
 
 struct shared_ptr<ggl::RenderTransaction> {
@@ -2766,21 +2684,6 @@ struct shared_ptr<ggl::Shader>;
 struct shared_ptr<ggl::ShaderLibraryData> {
     struct ShaderLibraryData *_field1;
     struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<ggl::Sky::SkyMesh> {
-    struct SkyMesh *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::Sky::SkyPipelineSetup> {
-    struct SkyPipelineSetup *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::Sky::SkyPipelineState> {
-    struct SkyPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
 };
 
 struct shared_ptr<ggl::SolidRibbon::PipelineState> {
@@ -2814,13 +2717,13 @@ struct shared_ptr<ggl::TextureMesh::MeshMesh> {
 };
 
 struct shared_ptr<ggl::TextureWithReverseAlpha::Pos2DUVPipelineState> {
-    struct Pos2DUVPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
+    struct Pos2DUVPipelineState *_field1;
+    struct __shared_weak_count *_field2;
 };
 
 struct shared_ptr<ggl::Textured::Pos2DUVPipelineState> {
-    struct Pos2DUVPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
+    struct Pos2DUVPipelineState *_field1;
+    struct __shared_weak_count *_field2;
 };
 
 struct shared_ptr<ggl::TrafficGlow::BasePipelineState> {
@@ -3087,15 +2990,15 @@ struct unique_ptr<LRUCache<unsigned long, VKRoadSignArtwork *, std::__1::hash<un
     } _field1;
 };
 
+struct unique_ptr<geo::TaskQueue, std::__1::default_delete<geo::TaskQueue>> {
+    struct __compressed_pair<geo::TaskQueue *, std::__1::default_delete<geo::TaskQueue>> {
+        struct TaskQueue *_field1;
+    } _field1;
+};
+
 struct unique_ptr<ggl::AlphaAtlas, std::__1::default_delete<ggl::AlphaAtlas>> {
     struct __compressed_pair<ggl::AlphaAtlas *, std::__1::default_delete<ggl::AlphaAtlas>> {
         struct AlphaAtlas *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::ClearItem, std::__1::default_delete<ggl::ClearItem>> {
-    struct __compressed_pair<ggl::ClearItem *, std::__1::default_delete<ggl::ClearItem>> {
-        struct ClearItem *__first_;
     } __ptr_;
 };
 
@@ -3135,30 +3038,6 @@ struct unique_ptr<ggl::DistanceAtlas, std::__1::default_delete<ggl::DistanceAtla
     } __ptr_;
 };
 
-struct unique_ptr<ggl::Fog::FogPipelineSetup, std::__1::default_delete<ggl::Fog::FogPipelineSetup>> {
-    struct __compressed_pair<ggl::Fog::FogPipelineSetup *, std::__1::default_delete<ggl::Fog::FogPipelineSetup>> {
-        struct FogPipelineSetup *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::Debug::BasePipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::Debug::BasePipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::Debug::BasePipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::Debug::BasePipelineSetup>>> {
-        struct FragmentedPool<ggl::Debug::BasePipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::DebugPoints::BasePipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::DebugPoints::BasePipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::DebugPoints::BasePipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::DebugPoints::BasePipelineSetup>>> {
-        struct FragmentedPool<ggl::DebugPoints::BasePipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::RenderItem>*, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> {
-        struct FragmentedPool<ggl::RenderItem> *__first_;
-    } __ptr_;
-};
-
 struct unique_ptr<ggl::IsoAlphaAtlas, std::__1::default_delete<ggl::IsoAlphaAtlas>> {
     struct __compressed_pair<ggl::IsoAlphaAtlas *, std::__1::default_delete<ggl::IsoAlphaAtlas>> {
         struct IsoAlphaAtlas *__first_;
@@ -3169,12 +3048,6 @@ struct unique_ptr<ggl::LoaderImpl, std::__1::default_delete<ggl::LoaderImpl>> {
     struct __compressed_pair<ggl::LoaderImpl *, std::__1::default_delete<ggl::LoaderImpl>> {
         struct LoaderImpl *_field1;
     } _field1;
-};
-
-struct unique_ptr<ggl::Mesh, std::__1::default_delete<ggl::Mesh>> {
-    struct __compressed_pair<ggl::Mesh *, std::__1::default_delete<ggl::Mesh>> {
-        struct Mesh *__first_;
-    } __ptr_;
 };
 
 struct unique_ptr<ggl::MeshVendor<ggl::BuildingFacade::BuildingMesh>, std::__1::default_delete<ggl::MeshVendor<ggl::BuildingFacade::BuildingMesh>>> {
@@ -3227,8 +3100,8 @@ struct unique_ptr<ggl::RenderResourceFences, std::__1::default_delete<ggl::Rende
 
 struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> {
     struct __compressed_pair<ggl::RenderState *, std::__1::default_delete<ggl::RenderState>> {
-        struct RenderState *__first_;
-    } __ptr_;
+        struct RenderState *_field1;
+    } _field1;
 };
 
 struct unique_ptr<ggl::RenderTarget, std::__1::default_delete<ggl::RenderTarget>> {
@@ -4175,6 +4048,14 @@ struct vector<VKMapTile *, std::__1::allocator<VKMapTile *>> {
     } __end_cap_;
 };
 
+struct vector<VKTile *, std::__1::allocator<VKTile *>> {
+    id *_field1;
+    id *_field2;
+    struct __compressed_pair<VKTile **, std::__1::allocator<VKTile *>> {
+        id *_field1;
+    } _field3;
+};
+
 struct vector<VKTileKey, std::__1::allocator<VKTileKey>> {
     struct VKTileKey *__begin_;
     struct VKTileKey *__end_;
@@ -4247,14 +4128,6 @@ struct vector<ggl::Batcher, std::__1::allocator<ggl::Batcher>> {
     } __end_cap_;
 };
 
-struct vector<ggl::BufferLoadItem, std::__1::allocator<ggl::BufferLoadItem>> {
-    struct BufferLoadItem *_field1;
-    struct BufferLoadItem *_field2;
-    struct __compressed_pair<ggl::BufferLoadItem *, std::__1::allocator<ggl::BufferLoadItem>> {
-        struct BufferLoadItem *_field1;
-    } _field3;
-};
-
 struct vector<ggl::BuildingFacade::BuildingMesh *, std::__1::allocator<ggl::BuildingFacade::BuildingMesh *>> {
     struct BuildingMesh **_field1;
     struct BuildingMesh **_field2;
@@ -4319,14 +4192,6 @@ struct vector<ggl::PrefilteredLine::PrefilteredLineMesh *, std::__1::allocator<g
     } _field3;
 };
 
-struct vector<ggl::RenderItem *, std::__1::allocator<ggl::RenderItem *>> {
-    struct RenderItem **_field1;
-    struct RenderItem **_field2;
-    struct __compressed_pair<ggl::RenderItem **, std::__1::allocator<ggl::RenderItem *>> {
-        struct RenderItem **_field1;
-    } _field3;
-};
-
 struct vector<ggl::RenderQueue::Pass, std::__1::allocator<ggl::RenderQueue::Pass>> {
     struct Pass *_field1;
     struct Pass *_field2;
@@ -4372,14 +4237,6 @@ struct vector<ggl::Texture *, std::__1::allocator<ggl::Texture *>> {
     struct Texture **_field2;
     struct __compressed_pair<ggl::Texture **, std::__1::allocator<ggl::Texture *>> {
         struct Texture **_field1;
-    } _field3;
-};
-
-struct vector<ggl::Texture2DLoadItem, std::__1::allocator<ggl::Texture2DLoadItem>> {
-    struct Texture2DLoadItem *_field1;
-    struct Texture2DLoadItem *_field2;
-    struct __compressed_pair<ggl::Texture2DLoadItem *, std::__1::allocator<ggl::Texture2DLoadItem>> {
-        struct Texture2DLoadItem *_field1;
     } _field3;
 };
 
@@ -4429,14 +4286,6 @@ struct vector<gm::MultiRange<unsigned long>, std::__1::allocator<gm::MultiRange<
     struct __compressed_pair<gm::MultiRange<unsigned long>*, std::__1::allocator<gm::MultiRange<unsigned long>>> {
         MultiRange_4bdc93a8 *_field1;
     } _field3;
-};
-
-struct vector<gm::Range<geo::PolylineCoordinate>, std::__1::allocator<gm::Range<geo::PolylineCoordinate>>> {
-    struct Range<geo::PolylineCoordinate> *__begin_;
-    struct Range<geo::PolylineCoordinate> *__end_;
-    struct __compressed_pair<gm::Range<geo::PolylineCoordinate>*, std::__1::allocator<gm::Range<geo::PolylineCoordinate>>> {
-        struct Range<geo::PolylineCoordinate> *__first_;
-    } __end_cap_;
 };
 
 struct vector<gm::Range<unsigned int>, std::__1::allocator<gm::Range<unsigned int>>> {
@@ -4621,14 +4470,6 @@ struct vector<std::__1::pair<bool, GEOFeatureStylePair>, std::__1::allocator<std
     struct __compressed_pair<std::__1::pair<bool, GEOFeatureStylePair>*, std::__1::allocator<std::__1::pair<bool, GEOFeatureStylePair>>> {
         struct pair<bool, GEOFeatureStylePair> *_field1;
     } _field3;
-};
-
-struct vector<std::__1::pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>>, std::__1::allocator<std::__1::pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>>>> {
-    struct pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>> *__begin_;
-    struct pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>> *__end_;
-    struct __compressed_pair<std::__1::pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>>*, std::__1::allocator<std::__1::pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>>>> {
-        struct pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>> *__first_;
-    } __end_cap_;
 };
 
 struct vector<std::__1::pair<unsigned short, unsigned int>, std::__1::allocator<std::__1::pair<unsigned short, unsigned int>>> {
@@ -5086,6 +4927,12 @@ typedef struct {
 } CDStruct_cb3d236a;
 
 typedef struct {
+    id _field1;
+    struct PolylineCoordinate _field2;
+    struct PolylineCoordinate _field3;
+} CDStruct_2c837fe9;
+
+typedef struct {
     unsigned int _field1;
     unsigned int _field2;
     CDStruct_183601bc *_field3;
@@ -5399,6 +5246,10 @@ typedef struct _retain_ptr<VKLabelNavRoadLabel *, geo::_retain_objc, geo::_relea
     struct _release_objc _field4;
 } _retain_ptr_86da96eb;
 
+typedef struct array<gm::Matrix<double, 2, 1>, 2> {
+    Matrix_2bdd42a3 _field1[2];
+} array_39cc276d;
+
 typedef struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
     struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> __r_;
 } basic_string_805fe43b;
@@ -5446,19 +5297,14 @@ typedef struct shared_ptr<ggl::BitmapDataBase> {
 } shared_ptr_fa6aa836;
 
 typedef struct shared_ptr<ggl::Clut::Pos2DUVPipelineState> {
-    struct Pos2DUVPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_ec7954e2;
+    struct Pos2DUVPipelineState *_field1;
+    struct __shared_weak_count *_field2;
+} shared_ptr_caa7afd8;
 
 typedef struct shared_ptr<ggl::ConstantDataTyped<ggl::Tile::View>> {
     struct ConstantDataTyped<ggl::Tile::View> *__ptr_;
     struct __shared_weak_count *__cntrl_;
 } shared_ptr_696716c4;
-
-typedef struct shared_ptr<ggl::Debug::BaseMesh> {
-    struct BaseMesh *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_a5e35864;
 
 typedef struct shared_ptr<ggl::Device> {
     struct Device *__ptr_;
@@ -5491,14 +5337,14 @@ typedef struct shared_ptr<ggl::TextureData2D> {
 } shared_ptr_8bee8aae;
 
 typedef struct shared_ptr<ggl::TextureWithReverseAlpha::Pos2DUVPipelineState> {
-    struct Pos2DUVPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_0854a852;
+    struct Pos2DUVPipelineState *_field1;
+    struct __shared_weak_count *_field2;
+} shared_ptr_726d1291;
 
 typedef struct shared_ptr<ggl::Textured::Pos2DUVPipelineState> {
-    struct Pos2DUVPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_8d835d6a;
+    struct Pos2DUVPipelineState *_field1;
+    struct __shared_weak_count *_field2;
+} shared_ptr_74b38e53;
 
 typedef struct shared_ptr<gss::CartoStyle<gss::PropertyID>> {
     struct CartoStyle<gss::PropertyID> *_field1;
@@ -5887,14 +5733,6 @@ typedef struct vector<std::__1::pair<bool, GEOFeatureStylePair>, std::__1::alloc
         struct pair<bool, GEOFeatureStylePair> *_field1;
     } _field3;
 } vector_0496561e;
-
-typedef struct vector<std::__1::pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>>, std::__1::allocator<std::__1::pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>>>> {
-    struct pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>> *__begin_;
-    struct pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>> *__end_;
-    struct __compressed_pair<std::__1::pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>>*, std::__1::allocator<std::__1::pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>>>> {
-        struct pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>> *__first_;
-    } __end_cap_;
-} vector_87190c80;
 
 typedef struct vector<std::__1::shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>, std::__1::allocator<std::__1::shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>>> {
     struct shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh> *__begin_;

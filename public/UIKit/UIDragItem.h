@@ -37,13 +37,10 @@
 @property(nonatomic, getter=_dragSession, setter=_setDragSession:) __weak _UIDragSessionImpl *_dragSession; // @synthesize _dragSession;
 @property(retain, nonatomic, getter=_draggingItem, setter=_setDraggingItem:) _UIDraggingItem *_draggingItem; // @synthesize _draggingItem;
 - (void).cxx_destruct;
+@property(readonly, nonatomic, getter=_duiPreviewProvider) CDUnknownBlockType duiPreviewProvider;
 @property(readonly, nonatomic) struct CGSize _visibleDropItemSize;
 - (struct CGSize)_previewImageSize;
 - (void)_didSetPreferredPreviewProvider;
-- (CDUnknownBlockType)_imageComponentsProviderForTargetedPreview:(id)arg1;
-- (id)_imageComponentForTargetedPreview:(id)arg1;
-- (CDUnknownBlockType)_imageComponentsProviderForPreviewProvider:(id)arg1;
-- (id)_imageComponentForPreview:(id)arg1;
 - (id)initWithItemProvider:(id)arg1;
 @property(retain, nonatomic, setter=_setDraggedTextRange:) UITextRange *_draggedTextRange;
 

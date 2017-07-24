@@ -58,6 +58,7 @@
 - (void)volumeController:(id)arg1 EUVolumeLimitEnforcedDidChange:(_Bool)arg2;
 - (void)volumeController:(id)arg1 EUVolumeLimitDidChange:(float)arg2;
 - (void)volumeController:(id)arg1 volumeValueDidChange:(float)arg2;
+- (void)routingController:(id)arg1 pickedRouteDidChange:(id)arg2;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
 @property(copy, nonatomic) NSString *volumeAudioCategory;
 @property(retain, nonatomic) MPAVController *player;

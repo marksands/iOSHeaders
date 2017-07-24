@@ -21,8 +21,6 @@
 @property(nonatomic, getter=isChevronPointingDown) _Bool chevronPointingDown;
 @property(nonatomic) double chevronAlpha;
 - (void)layoutSubviews;
-- (struct CGSize)intrinsicContentSize;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

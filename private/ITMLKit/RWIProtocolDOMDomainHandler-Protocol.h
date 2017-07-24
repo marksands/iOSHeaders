@@ -21,6 +21,7 @@
 - (void)pushNodeByPathToFrontendWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(int))arg2 path:(NSString *)arg3;
 - (void)highlightFrameWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(void))arg2 frameId:(NSString *)arg3 contentColor:(id *)arg4 contentOutlineColor:(id *)arg5;
 - (void)hideHighlightWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(void))arg2;
+- (void)highlightNodeListWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(void))arg2 nodeIds:(NSArray *)arg3 highlightConfig:(RWIProtocolDOMHighlightConfig *)arg4;
 - (void)highlightNodeWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(void))arg2 highlightConfig:(RWIProtocolDOMHighlightConfig *)arg3 nodeId:(int *)arg4 objectId:(id *)arg5;
 - (void)highlightSelectorWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(void))arg2 highlightConfig:(RWIProtocolDOMHighlightConfig *)arg3 selectorString:(NSString *)arg4 frameId:(id *)arg5;
 - (void)highlightQuadWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(void))arg2 quad:(NSArray *)arg3 color:(id *)arg4 outlineColor:(id *)arg5 usePageCoordinates:(_Bool *)arg6;

@@ -27,6 +27,7 @@
 - (_Bool)requiresAudioMix;
 - (_Bool)requiresVideoComposition;
 - (id)_evaluateVideoProperties:(out id *)arg1;
+- (id)_evaluateImageProperties:(out id *)arg1;
 - (id)_evaluateImagePropertiesWithSourceOptions:(id)arg1 error:(out id *)arg2;
 - (id)_evaluateImageWithSourceOptions:(id)arg1 subsampleFactor:(long long *)arg2 error:(out id *)arg3;
 - (id)_settingsForPipelineState:(id)arg1 ownedFrame:(_Bool)arg2;

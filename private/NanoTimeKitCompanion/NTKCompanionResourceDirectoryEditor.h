@@ -16,6 +16,8 @@
     NSString *_galleryPreviewResourceDirectory;
 }
 
++ (id)_subsampledImageWithData:(id)arg1 orientation:(long long)arg2 subsampleFactor:(unsigned long long)arg3;
++ (unsigned long long)_subsampleFactorForScale:(double)arg1;
 + (struct CGSize)_watchPhotoVideoSize;
 + (struct CGSize)_watchPhotoImageSize;
 + (void)_imageDataForAsset:(id)arg1 completion:(CDUnknownBlockType)arg2;

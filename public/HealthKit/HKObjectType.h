@@ -44,6 +44,7 @@
 + (id)_allQuantityTypes;
 + (id)_allCorrelationTypes;
 + (id)_allCategoryTypes;
++ (id)_typesIncludingParentTypes:(id)arg1;
 + (id)_allTypesOfClass:(Class)arg1;
 + (id)_allDataTypeIdentifiers;
 + (id)objectTypeForWorkoutMetric:(unsigned long long)arg1;

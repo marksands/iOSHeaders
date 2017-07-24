@@ -11,8 +11,8 @@
 
 @interface ARExposureLightEstimationTechnique : ARTechnique
 {
-    float _sphericalHarmonics[27];
     NSObject<OS_dispatch_semaphore> *_resultSemaphore;
+    float _lastTemperature;
     float _lastLightIntensity;
 }
 

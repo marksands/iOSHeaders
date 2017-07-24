@@ -14,6 +14,7 @@
 {
 }
 
+@property(readonly, nonatomic) NSArray *availableVideoDynamicRanges;
 @property(readonly, nonatomic) struct CGSize maximumVideoResolution;
 - (id)makePropertyListForProxyWithOptions:(id)arg1;
 @property(readonly, nonatomic) id propertyListForProxy;

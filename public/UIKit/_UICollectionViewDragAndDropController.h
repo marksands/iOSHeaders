@@ -25,7 +25,8 @@ __attribute__((visibility("hidden")))
     _UICollectionViewPlaceholderContext *_currentlyInsertingPlaceholderContext;
     NSMutableDictionary *_placeholderContextsByIndexPath;
     NSMutableSet *_placeholderContexts;
-    NSMutableDictionary *_cellAppearanceStates;
+    NSMutableDictionary *_cellAppearanceStatesByIndexPaths;
+    NSMapTable *_cellAppearanceStatesByCellPointers;
     NSMutableArray *_dropCoordinatorItems;
     NSMapTable *_dropCoordinatorItemsMap;
     NSMutableArray *_cellsDeferredForReuse;
@@ -41,7 +42,8 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableArray *cellsDeferredForReuse; // @synthesize cellsDeferredForReuse=_cellsDeferredForReuse;
 @property(retain, nonatomic) NSMapTable *dropCoordinatorItemsMap; // @synthesize dropCoordinatorItemsMap=_dropCoordinatorItemsMap;
 @property(retain, nonatomic) NSMutableArray *dropCoordinatorItems; // @synthesize dropCoordinatorItems=_dropCoordinatorItems;
-@property(retain, nonatomic) NSMutableDictionary *cellAppearanceStates; // @synthesize cellAppearanceStates=_cellAppearanceStates;
+@property(retain, nonatomic) NSMapTable *cellAppearanceStatesByCellPointers; // @synthesize cellAppearanceStatesByCellPointers=_cellAppearanceStatesByCellPointers;
+@property(retain, nonatomic) NSMutableDictionary *cellAppearanceStatesByIndexPaths; // @synthesize cellAppearanceStatesByIndexPaths=_cellAppearanceStatesByIndexPaths;
 @property(retain, nonatomic) NSMutableSet *placeholderContexts; // @synthesize placeholderContexts=_placeholderContexts;
 @property(retain, nonatomic) NSMutableDictionary *placeholderContextsByIndexPath; // @synthesize placeholderContextsByIndexPath=_placeholderContextsByIndexPath;
 @property(retain, nonatomic) _UICollectionViewPlaceholderContext *currentlyInsertingPlaceholderContext; // @synthesize currentlyInsertingPlaceholderContext=_currentlyInsertingPlaceholderContext;
@@ -61,6 +63,7 @@ __attribute__((visibility("hidden")))
 - (id)dropItem:(id)arg1 toTarget:(id)arg2;
 - (id)dropItem:(id)arg1 intoItemAtIndexPath:(id)arg2 rect:(struct CGRect)arg3;
 - (id)dropItem:(id)arg1 toItemAtIndexPath:(id)arg2;
+- (id)dropItem:(id)arg1 toPlaceholder:(id)arg2;
 - (id)dropItem:(id)arg1 toPlaceholderInsertedAtIndexPath:(id)arg2 withReuseIdentifier:(id)arg3 cellUpdateHandler:(CDUnknownBlockType)arg4;
 @property(readonly, nonatomic) NSArray *items;
 - (void)_performCancelDropToIndexPath:(id)arg1 forDragItem:(id)arg2;
@@ -98,6 +101,7 @@ __attribute__((visibility("hidden")))
 - (id)_presentationIndexPathForIndexPath:(id)arg1 allowingAppendingInserts:(_Bool)arg2;
 - (void)_addDropCoordinatorItem:(id)arg1;
 - (id)_indexPathForCellAppearanceState:(id)arg1;
+- (id)_cellAppearanceStateForCell:(id)arg1 addIfNotFound:(_Bool)arg2;
 - (id)_cellAppearanceStateForIndexPath:(id)arg1;
 - (_Bool)_deleteShadowUpdateWithIdentifier:(id)arg1;
 - (void)_updateCellIfNeeded:(id)arg1 atIndexPath:(id)arg2;
@@ -121,6 +125,7 @@ __attribute__((visibility("hidden")))
 - (void)_cleanupAfterOutstandingSessionCompletion;
 - (void)_decrementSessionRefCount;
 - (void)_incrementSessionRefCount;
+- (id)_cellForDropCoordinatorItem:(id)arg1;
 - (id)_dropCoordinatorItemForIndexPath:(id)arg1;
 - (id)_dropCoordinatorItemForDragItem:(id)arg1;
 - (_Bool)updateWillCauseInternalInconsistency:(id)arg1;

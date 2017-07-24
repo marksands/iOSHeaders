@@ -43,6 +43,7 @@
 
 + (id)_createSubjectView;
 + (id)_createTextView;
++ (void)prewarmTextView;
 @property(nonatomic) _Bool pendingShelfPayloadWillAnimateIn; // @synthesize pendingShelfPayloadWillAnimateIn=_pendingShelfPayloadWillAnimateIn;
 @property(retain, nonatomic) NSString *overridePlaceholderText; // @synthesize overridePlaceholderText=_overridePlaceholderText;
 @property(retain, nonatomic) NSString *requestedPlaceholderText; // @synthesize requestedPlaceholderText=_requestedPlaceholderText;

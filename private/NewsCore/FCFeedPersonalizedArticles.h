@@ -12,14 +12,10 @@
 {
     NSArray *_articlesToShow;
     NSArray *_articlesToHide;
-    NSMapTable *_personalizedScores;
-    NSMapTable *_agedPersonalizedScores;
-    NSMapTable *_diversifiedPersonalizedScores;
+    NSMapTable *_scoreProfiles;
 }
 
-@property(retain, nonatomic) NSMapTable *diversifiedPersonalizedScores; // @synthesize diversifiedPersonalizedScores=_diversifiedPersonalizedScores;
-@property(retain, nonatomic) NSMapTable *agedPersonalizedScores; // @synthesize agedPersonalizedScores=_agedPersonalizedScores;
-@property(retain, nonatomic) NSMapTable *personalizedScores; // @synthesize personalizedScores=_personalizedScores;
+@property(retain, nonatomic) NSMapTable *scoreProfiles; // @synthesize scoreProfiles=_scoreProfiles;
 @property(retain, nonatomic) NSArray *articlesToHide; // @synthesize articlesToHide=_articlesToHide;
 @property(retain, nonatomic) NSArray *articlesToShow; // @synthesize articlesToShow=_articlesToShow;
 - (void).cxx_destruct;

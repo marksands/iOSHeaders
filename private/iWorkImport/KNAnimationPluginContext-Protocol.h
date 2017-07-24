@@ -26,6 +26,7 @@
 @property(readonly, nonatomic) double percent;
 @property(readonly, nonatomic) double duration;
 @property(readonly, nonatomic) unsigned long long direction;
+@property(readonly, nonatomic) NSArray *tags;
 @property(readonly, nonatomic) NSArray *textures;
 @end
 

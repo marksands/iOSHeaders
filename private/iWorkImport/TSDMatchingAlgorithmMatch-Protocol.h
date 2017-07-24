@@ -11,6 +11,5 @@
 @property(readonly, nonatomic) id incomingMatchObject;
 @property(readonly, nonatomic) long long matchCost;
 - (_Bool)conflictsWithMatch:(id <TSDMatchingAlgorithmMatch>)arg1;
-- (long long)compareToMatch:(id <TSDMatchingAlgorithmMatch>)arg1;
 @end
 

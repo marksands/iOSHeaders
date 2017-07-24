@@ -39,7 +39,7 @@
     NSMutableSet *_identifiersOfBTLEPairedAccessories;
     NSObject<OS_dispatch_source> *_reachabilityTimerForBTLE;
     NSMutableSet *_identifiersOfPairedAccessories;
-    NSMutableSet *_identifiersOfMediaPairedAccessories;
+    NSMutableSet *_identifiersOfAssociatedMediaAccessories;
     NSMutableArray *_currentlyPairingAccessories;
     NSHashTable *_tombstonedHAPAccessoryServers;
     NSHashTable *_discoveringBLEAccessoryServerIdentifiers;
@@ -50,7 +50,7 @@
 @property(readonly, nonatomic) NSHashTable *discoveringBLEAccessoryServerIdentifiers; // @synthesize discoveringBLEAccessoryServerIdentifiers=_discoveringBLEAccessoryServerIdentifiers;
 @property(readonly, nonatomic) NSHashTable *tombstonedHAPAccessoryServers; // @synthesize tombstonedHAPAccessoryServers=_tombstonedHAPAccessoryServers;
 @property(retain, nonatomic) NSMutableArray *currentlyPairingAccessories; // @synthesize currentlyPairingAccessories=_currentlyPairingAccessories;
-@property(retain, nonatomic) NSMutableSet *identifiersOfMediaPairedAccessories; // @synthesize identifiersOfMediaPairedAccessories=_identifiersOfMediaPairedAccessories;
+@property(retain, nonatomic) NSMutableSet *identifiersOfAssociatedMediaAccessories; // @synthesize identifiersOfAssociatedMediaAccessories=_identifiersOfAssociatedMediaAccessories;
 @property(retain, nonatomic) NSMutableSet *identifiersOfPairedAccessories; // @synthesize identifiersOfPairedAccessories=_identifiersOfPairedAccessories;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *reachabilityTimerForBTLE; // @synthesize reachabilityTimerForBTLE=_reachabilityTimerForBTLE;
 @property(retain, nonatomic) NSMutableSet *identifiersOfBTLEPairedAccessories; // @synthesize identifiersOfBTLEPairedAccessories=_identifiersOfBTLEPairedAccessories;
@@ -72,9 +72,9 @@
 - (void).cxx_destruct;
 - (id)dumpRegisteredPairedAccessories;
 - (id)dumpUnassociatedAccessories;
-- (void)browser:(id)arg1 didUpdateEndpoint:(id)arg2;
-- (void)browser:(id)arg1 didRemoveAdvertisement:(id)arg2;
-- (void)browser:(id)arg1 didAddAdvertisement:(id)arg2;
+- (void)browser:(id)arg1 didUpdateEndpoints:(id)arg2;
+- (void)browser:(id)arg1 didRemoveAdvertisements:(id)arg2;
+- (void)browser:(id)arg1 didAddAdvertisements:(id)arg2;
 - (void)accessoryServer:(id)arg1 didUpdateName:(id)arg2;
 - (void)_notifyDelegatesOfAccessoryServer:(id)arg1 didUpdateName:(id)arg2;
 - (void)accessoryServer:(id)arg1 didUpdateCategory:(id)arg2;
@@ -195,8 +195,8 @@
 - (void)startDiscoveringAccessories;
 - (void)startDiscoveringPairedAccessories;
 - (void)resetConfiguration;
-- (void)handleRemovedAccessoryAdvertisement:(id)arg1;
-- (void)handleAddedAccessoryAdvertisement:(id)arg1;
+- (void)handleRemovedAccessoryAdvertisements:(id)arg1;
+- (void)handleAddedAccessoryAdvertisements:(id)arg1;
 - (void)_notifyDelegatesOfReachability:(_Bool)arg1 forAccessoryWithIdentifier:(id)arg2;
 - (void)notifyDelegatesOfReachability:(_Bool)arg1 forAccessoryWithIdentifier:(id)arg2;
 - (void)_sendNewAccessoryData:(id)arg1 added:(_Bool)arg2 requiresSPIEntitlement:(_Bool)arg3;
@@ -210,6 +210,7 @@
 @property(readonly, copy) NSArray *unassociatedAccessories;
 - (void)removeUnassociatedAccessory:(id)arg1;
 - (void)addUnassociatedAccessory:(id)arg1 forDeviceSetup:(_Bool)arg2;
+- (id)logIdentifier;
 - (void)dealloc;
 - (void)updateBroadcastKeyForIdentifer:(id)arg1 key:(id)arg2 keyUpdatedStateNumber:(id)arg3 keyUpdatedTime:(double)arg4;
 - (void)updateStateForIdentifier:(id)arg1 stateNumber:(id)arg2;

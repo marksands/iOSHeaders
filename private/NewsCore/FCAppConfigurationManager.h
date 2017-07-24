@@ -104,6 +104,7 @@
     NSArray *_mediaSharingBlacklistedChannelIDs;
     long long _stateRestorationAllowedTimeWindow;
     long long _autoRefreshMinimumInterval;
+    NSArray *_topStoriesPublishDates;
     NSURL *_contentDirectoryFileURL;
     FCCKContentDatabase *_contentDatabase;
     NSNumber *_currentUserBucket;
@@ -154,6 +155,7 @@
 @property(nonatomic) _Bool attemptedAppConfigFetch; // @synthesize attemptedAppConfigFetch=_attemptedAppConfigFetch;
 @property(retain, nonatomic) FCCKContentDatabase *contentDatabase; // @synthesize contentDatabase=_contentDatabase;
 @property(copy, nonatomic) NSURL *contentDirectoryFileURL; // @synthesize contentDirectoryFileURL=_contentDirectoryFileURL;
+@property(copy, nonatomic) NSArray *topStoriesPublishDates; // @synthesize topStoriesPublishDates=_topStoriesPublishDates;
 @property(nonatomic) _Bool terminateAppOnBackgroundAfterJoiningOrLeavingExperiment; // @synthesize terminateAppOnBackgroundAfterJoiningOrLeavingExperiment=_terminateAppOnBackgroundAfterJoiningOrLeavingExperiment;
 @property(nonatomic) long long autoRefreshMinimumInterval; // @synthesize autoRefreshMinimumInterval=_autoRefreshMinimumInterval;
 @property(nonatomic) long long stateRestorationAllowedTimeWindow; // @synthesize stateRestorationAllowedTimeWindow=_stateRestorationAllowedTimeWindow;
@@ -260,6 +262,7 @@
 - (void)_extractTopLevelCategoryFromTreatmentConfig:(id)arg1 controlConfig:(id)arg2 defaultConfig:(id)arg3 didChange:(_Bool *)arg4;
 - (void)_extractFeedIDsFromLanguageConfigurations:(id)arg1 didChange:(_Bool *)arg2;
 - (id)_languageConfigurationsFromTreatmentConfig:(id)arg1 controlConfig:(id)arg2 defaultConfig:(id)arg3;
+- (void)_extractTopStoriesIntervals:(id)arg1 controlConfig:(id)arg2 defaultConfig:(id)arg3;
 - (void)_extractWidgetValuesFromTreatmentConfig:(id)arg1 controlConfig:(id)arg2 defaultConfig:(id)arg3 didChange:(_Bool *)arg4;
 - (void)_extractPrefetchValuesFromTreatmentConfig:(id)arg1 controlConfig:(id)arg2 defaultConfig:(id)arg3 didChange:(_Bool *)arg4;
 - (void)_extractPersonalizationValuesFromTreatmentConfig:(id)arg1 controlConfig:(id)arg2 defaultConfig:(id)arg3 didChange:(_Bool *)arg4;

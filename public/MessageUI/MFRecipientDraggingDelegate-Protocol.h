@@ -6,13 +6,12 @@
 
 #import <MessageUI/NSObject-Protocol.h>
 
-@class MFComposeRecipient, NSArray;
+@class NSArray;
 
 @protocol MFRecipientDraggingDelegate <NSObject>
 - (void)dropItems:(NSArray *)arg1;
 - (void)dragExited;
 - (void)dragMovedToPoint:(struct CGPoint)arg1;
 - (void)dragEnteredAtPoint:(struct CGPoint)arg1;
-- (struct CGRect)frameForDroppedItem:(MFComposeRecipient *)arg1;
 @end
 

@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
 - (void)drawCachedImage:(id)arg1 alpha:(double)arg2 inContext:(struct CGContext *)arg3;
 - (struct CGImage *)cachedCompositeImageForCacheKeys:(id)arg1 fromLayout:(id)arg2 opacities:(id)arg3;
 - (struct CGImage *)cachedImageForKey:(id)arg1 fromLayout:(id)arg2;
+- (void)purge;
 - (void)clearNonPersistentCache;
 - (void)commitTransaction;
 - (void)dealloc;

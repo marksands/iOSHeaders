@@ -8,25 +8,23 @@
 
 #import <iWorkImport/CAAnimationDelegate-Protocol.h>
 
-@class CALayer, NSDictionary, NSMutableArray, NSString, TSDFPSCounter;
+@class CALayer, NSDictionary, NSMapTable, NSMutableArray, NSString, TSDFPSCounter;
 
 __attribute__((visibility("hidden")))
 @interface KNTransitionRenderer : KNAnimationRenderer <CAAnimationDelegate>
 {
+    CALayer *mBackgroundLayer;
     NSMutableArray *mTextures;
+    NSDictionary *mAttributes;
     long long mNumberOfAnimationsStarted;
-    NSDictionary *mAnimatedLayers;
-    _Bool mOutgoingSlideRendered;
+    NSMapTable *_animatedLayers;
     _Bool mShouldAnimateTransition;
     _Bool mAnimationsRanToCompletion;
-    NSDictionary *mAttributes;
     id mTransitionEndCallbackTarget;
     SEL mTransitionEndCallbackSelector;
     id mTransitionImmediateEndCallbackTarget;
     SEL mTransitionImmediateEndCallbackSelector;
-    CALayer *mBackgroundLayer;
     TSDFPSCounter *mFPSCounter;
-    NSString *mRenderWaitIdentifier;
 }
 
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
@@ -36,24 +34,22 @@ __attribute__((visibility("hidden")))
 - (void)stopAnimations;
 - (void)forceRemoveAnimations;
 - (void)removeAnimationsAndFinish:(_Bool)arg1;
-- (void)p_reset;
-- (void)p_removeAnimationsOnAnimatedLayers;
+- (void)p_removeAnimationsShouldForceRemove:(_Bool)arg1;
 - (void)updateAnimationsForLayerTime:(double)arg1;
 - (_Bool)p_addAnimations:(id)arg1 atTime:(double)arg2 relativeToCurrentMediaTime:(_Bool)arg3;
 - (_Bool)addAnimationsAtTime:(double)arg1 relativeToCurrentMediaTime:(_Bool)arg2;
 - (void)animateWithDelay:(double)arg1;
-- (void)renderOutgoingSlideAndPrecacheIncomingSlide;
 - (void)renderSlideIndex:(unsigned long long)arg1;
-- (void)waitUntilAsyncRenderingIsComplete;
+- (void)waitUntilAsyncRenderingIsCompleteShouldCancel:(_Bool)arg1;
+- (void)renderTextures;
+- (void)generateTextures;
 - (void)setupLayerTreeForTransition;
-- (void)p_generateLayers;
 @property(readonly, copy) NSString *description;
 - (void)p_checkForNullTransitions:(Class)arg1;
 - (void)registerForTransitionImmediateEndCallback:(SEL)arg1 target:(id)arg2;
 - (void)registerForTransitionEndCallback:(SEL)arg1 target:(id)arg2;
 - (void)setupPluginContext;
 - (id)plugin;
-- (void)teardownTransitionIsExitingShow:(_Bool)arg1;
 - (void)teardown;
 - (void)dealloc;
 - (id)initWithEffectClass:(Class)arg1 direction:(unsigned long long)arg2 duration:(double)arg3 session:(id)arg4 attributes:(id)arg5 animatedSlideView:(id)arg6;

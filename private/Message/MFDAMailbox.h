@@ -13,7 +13,7 @@
     NSString *_folderID;
 }
 
-- (id)description;
+- (id)_privacySafeDescription;
 - (id)dictionaryRepresentation;
 - (id)URLStringWithAccount:(id)arg1;
 - (id)_folderID;

@@ -85,7 +85,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, getter=isMountTrigger) _Bool mountTrigger;
 @property(readonly, getter=isVolume) _Bool volume;
 - (_Bool)getFileIdentifier:(unsigned long long *)arg1 error:(id *)arg2;
-- (_Bool)getDevice:(int *)arg1 inode:(unsigned long long *)arg2 error:(id *)arg3;
+- (_Bool)getInodeNumber:(unsigned long long *)arg1 error:(id *)arg2;
+- (_Bool)getDeviceNumber:(int *)arg1 error:(id *)arg2;
 - (id)bundleInfoDictionaryWithError:(id *)arg1;
 - (struct __CFBundle *)CFBundleWithError:(id *)arg1;
 - (_Bool)getFinderInfo:(CDUnion_739f5cf2 *)arg1 error:(id *)arg2;

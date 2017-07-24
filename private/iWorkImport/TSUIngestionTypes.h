@@ -11,8 +11,11 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)supportedPlainTextTypes;
++ (id)p_unsupportedPlainTextTypes;
++ (id)p_supportedPlainTextTypes;
++ (_Bool)isValidPlainTextUTI:(id)arg1;
 + (id)supportedRichTextTypes;
++ (id)supportedMovieTypes;
 + (id)supportedImageTypes;
 
 @end

@@ -165,6 +165,7 @@
 - (void)contactlessInterfaceSessionDidEnterField:(id)arg1 withProperties:(id)arg2;
 - (void)contactlessInterfaceSessionDidFail:(id)arg1 forPaymentApplication:(id)arg2 paymentPass:(id)arg3 valueAddedServicePasses:(id)arg4;
 - (void)contactlessInterfaceSessionDidFailTransaction:(id)arg1 forPaymentApplication:(id)arg2 paymentPass:(id)arg3;
+- (void)contactlessInterfaceSessionDidFailDeferredAuthorization:(id)arg1;
 - (void)contactlessInterfaceSession:(id)arg1 didEndPersistentCardEmulationWithContext:(id)arg2;
 - (void)contactlessInterfaceSession:(id)arg1 didFinishTransactionWithContext:(id)arg2;
 - (void)contactlessInterfaceSessionDidReceiveActivityTimeout:(id)arg1;
@@ -186,6 +187,7 @@
 - (void)authenticatorDidEncounterFingerOff:(id)arg1;
 - (void)authenticatorDidEncounterFingerOn:(id)arg1;
 - (void)authenticatorWillRestartEvaluation:(id)arg1;
+- (_Bool)_recognizingBiometrics;
 - (void)paymentApplicationView:(id)arg1 didSelectApplication:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)didBecomeHiddenAnimated:(_Bool)arg1;
 - (void)willBecomeHiddenAnimated:(_Bool)arg1;

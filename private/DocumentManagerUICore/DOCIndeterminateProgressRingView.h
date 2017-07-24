@@ -6,14 +6,19 @@
 
 #import <UIKit/UIView.h>
 
+@class CABasicAnimation;
+
 @interface DOCIndeterminateProgressRingView : UIView
 {
+    CABasicAnimation *_spinnerAnimation;
 }
 
 + (Class)layerClass;
+- (void).cxx_destruct;
 - (void)_updateShapePath;
 - (void)layoutSubviews;
 - (void)setTintColor:(id)arg1;
+- (void)_removeAllAnimations:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

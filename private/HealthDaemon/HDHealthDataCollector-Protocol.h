@@ -11,6 +11,7 @@
 @protocol HDHealthDataCollector <NSObject>
 @property _Bool disabled;
 - (NSString *)dataCollectorDiagnosticDescription;
+- (void)updateHistoricalDataForcedUpdate:(_Bool)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)updateHistoricalDataWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)updateHistoricalData;
 - (void)collectionStoppedForType:(HKObjectType *)arg1;

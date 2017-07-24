@@ -6,11 +6,12 @@
 
 #import <SearchFoundation/SFCardSection-Protocol.h>
 
-@class NSArray, NSData, NSDictionary, NSString, SFActionItem, SFColor, SFMediaItem;
+@class NSArray, NSData, NSDictionary, NSString, SFActionItem, SFColor, SFMediaItem, SFRichText;
 
 @protocol SFMediaInfoCardSection <SFCardSection>
 @property(readonly, nonatomic) NSData *jsonData;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+@property(retain, nonatomic) SFRichText *specialOfferButtonLabel;
 @property(nonatomic) _Bool isMediaContainer;
 @property(copy, nonatomic) NSString *watchListConfirmationText;
 @property(copy, nonatomic) NSString *watchListContinuationText;

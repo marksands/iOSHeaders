@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 + (id)animationFilter;
 + (long long)animationCategory;
 + (id)animationName;
-- (id)animationsWithContext:(id)arg1;
+- (void)addAnimationsTo:(id)arg1 context:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

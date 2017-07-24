@@ -22,6 +22,7 @@
 - (void)placeDialRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)openURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)openURL:(id)arg1;
+- (_Bool)_isRunningInLockScreen;
 - (_Bool)_shouldUseLaunchServices;
 - (_Bool)_openURLsOnBackgroundThread;
 - (id)_defaultOpenURLOptions;

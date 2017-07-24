@@ -23,6 +23,7 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (_Bool)isAllZero;
 - (unsigned long long)anchorCount;

@@ -15,6 +15,6 @@
 - (void)endRequestWithTransactionID:(NSString *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)startRequestWithMediaType:(int)arg1 forStreamToken:(long long)arg2 completion:(void (^)(NSString *, NSError *))arg3;
 - (void)unregisterStreamToken:(long long)arg1 completion:(void (^)(NSError *))arg2;
-- (void)registerStreamToken:(long long)arg1 remoteIDSDestination:(NSString *)arg2 completion:(void (^)(NSSet *, NSError *))arg3;
+- (void)registerStreamToken:(long long)arg1 remoteIDSDestination:(NSString *)arg2 remoteMomentsAvailable:(_Bool)arg3 completion:(void (^)(TUMomentsCapabilities *, NSError *))arg4;
 @end
 

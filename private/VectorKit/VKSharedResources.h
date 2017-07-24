@@ -64,7 +64,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct AlphaAtlas *alphaAtlas;
 @property(readonly, nonatomic) struct Device *gglDevice;
 @property(readonly, nonatomic) struct Device *device;
-@property(readonly, nonatomic) struct FontManager *fontManager;
 @property(readonly, nonatomic) VKResourceManager *resourceManager;
 @property(readonly, nonatomic) VKGGLTextureManager *gglTextureManager;
 @property(readonly, nonatomic) VKShieldManager *shieldManager;

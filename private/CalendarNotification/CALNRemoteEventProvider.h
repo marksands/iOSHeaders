@@ -33,6 +33,7 @@
 + (id)_launchOptionsDirectionsModeForLocationRoutingMode:(long long)arg1;
 + (id)_launchOptionsDirectionsModeForTransportType:(int)arg1;
 + (id)_directionsModeForAlertInfo:(id)arg1;
++ (id)logHandle;
 @property(copy, nonatomic) CDUnknownBlockType sendTravelAdviceFeedback; // @synthesize sendTravelAdviceFeedback=_sendTravelAdviceFeedback;
 @property(copy, nonatomic) CDUnknownBlockType ceaseTravelMonitoringEvent; // @synthesize ceaseTravelMonitoringEvent=_ceaseTravelMonitoringEvent;
 @property(copy, nonatomic) CDUnknownBlockType cancelHypothesisRefreshRequest; // @synthesize cancelHypothesisRefreshRequest=_cancelHypothesisRefreshRequest;

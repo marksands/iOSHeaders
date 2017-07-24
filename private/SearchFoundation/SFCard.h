@@ -14,7 +14,8 @@
 
 @interface SFCard : NSObject <SFCard, NSSecureCoding, NSCopying>
 {
-    CDStruct_79b01e37 _has;
+    CDStruct_db075487 _has;
+    _Bool _flexibleSectionOrder;
     int _type;
     int _source;
     NSString *_title;
@@ -36,6 +37,7 @@
 
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic, getter=_originalCardData, setter=_setOriginalCardData:) NSData *originalCardData; // @synthesize originalCardData=_originalCardData;
+@property(nonatomic) _Bool flexibleSectionOrder; // @synthesize flexibleSectionOrder=_flexibleSectionOrder;
 @property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
 @property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
 @property(copy, nonatomic) NSString *resultIdentifier; // @synthesize resultIdentifier=_resultIdentifier;
@@ -58,6 +60,7 @@
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)hasFlexibleSectionOrder;
 - (_Bool)hasQueryId;
 - (_Bool)hasSource;
 - (_Bool)hasType;

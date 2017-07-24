@@ -13,9 +13,13 @@
 + (id)tswp_allQuotesCharacterSetExcludingRight;
 + (id)tswp_allQuotesCharacterSetExcludingLeft;
 + (id)tswp_variationSelectorCharacterSet;
++ (id)tswp_curlyQuotesCharacterSet;
++ (id)tswp_singleRightQuoteCharacterSet;
++ (id)tswp_singleLeftQuoteCharacterSet;
 + (id)tswp_smartSingleQuotesCharacterSet;
 + (id)tswp_spaceCharacterSet;
 + (id)tswp_invisibleCharacterSet;
 + (id)tswp_breakingSpaceCharacterSet;
++ (id)tswp_characterSetWithCharactersInArray:(const unsigned short *)arg1 length:(unsigned long long)arg2;
 @end
 

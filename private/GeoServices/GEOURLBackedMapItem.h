@@ -123,6 +123,7 @@
 @property(readonly, nonatomic, getter=_place) GEOPlace *place;
 @property(readonly, nonatomic, getter=_placeData) GEOPDPlace *placeData;
 @property(readonly, nonatomic, getter=_placeDataAsData) NSData *placeDataAsData;
+@property(readonly, nonatomic, getter=_placeDisplayStyle) int placeDisplayStyle;
 @property(readonly, nonatomic, getter=_placeType) int placeType;
 @property(readonly, nonatomic, getter=_poiPinpointURLString) NSString *poiPinpointURLString;
 @property(readonly, nonatomic, getter=_poiSurveyURLString) NSString *poiSurveyURLString;

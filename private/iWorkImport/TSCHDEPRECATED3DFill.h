@@ -6,10 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
+#import <iWorkImport/TSSPropertyValueArchiving-Protocol.h>
+
 @class TSCH3DFillSetIdentifier, TSCH3DLightingModel, TSDFill;
 
 __attribute__((visibility("hidden")))
-@interface TSCHDEPRECATED3DFill : NSObject
+@interface TSCHDEPRECATED3DFill : NSObject <TSSPropertyValueArchiving>
 {
     TSDFill *mFill;
     TSCH3DLightingModel *mLightingModel;

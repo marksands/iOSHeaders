@@ -6,13 +6,25 @@
 
 #import <UIKit/UIButton.h>
 
+@class TLKStackView, TLKVibrantLabel;
+
 @interface TLKSelectableGridButton : UIButton
 {
     unsigned long long _style;
+    TLKVibrantLabel *_topLabel;
+    TLKVibrantLabel *_bottomLabel;
+    TLKStackView *_stackView;
 }
 
 + (id)selectableGridButton;
+@property(retain) TLKStackView *stackView; // @synthesize stackView=_stackView;
+@property(retain) TLKVibrantLabel *bottomLabel; // @synthesize bottomLabel=_bottomLabel;
+@property(retain) TLKVibrantLabel *topLabel; // @synthesize topLabel=_topLabel;
 @property(nonatomic) unsigned long long style; // @synthesize style=_style;
+- (void).cxx_destruct;
+- (void)layoutSubviews;
+- (struct CGSize)intrinsicContentSize;
+- (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setTitle:(id)arg1 subtitle:(id)arg2;
 - (void)setSelected:(_Bool)arg1;

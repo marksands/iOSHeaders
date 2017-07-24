@@ -69,6 +69,7 @@
 + (id)allDay;
 + (id)extractedEventCancellation;
 + (id)fromExtractedDomain;
++ (id)categoryTagWithCategoryType:(unsigned long long)arg1;
 + (id)extractedSocial;
 + (id)extractedFood;
 + (id)extractedMovie;

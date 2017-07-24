@@ -10,9 +10,11 @@
 {
 }
 
++ (id)pipelineFiltersForShowingOriginal;
 + (id)pipelineFiltersForCropping;
 + (id)filterNameForEffectName:(id)arg1;
 + (id)effectNameForFilterName:(id)arg1;
++ (_Bool)isSupportedAutoLoopRecipe:(id)arg1;
 + (_Bool)is3DEffect:(id)arg1;
 + (void)removeAssetIdentifierFromMetadataArray:(id)arg1;
 + (void)addAssetIdentifier:(id)arg1 toMetadataArray:(id)arg2;

@@ -27,9 +27,9 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) CALayer *reflectionLayer; // @synthesize reflectionLayer=mReflectionLayer;
 @property(readonly, nonatomic) CALayer *shadowLayer; // @synthesize shadowLayer=mShadowLayer;
-- (id)textureForContext:(id)arg1;
+- (id)textureForDescription:(id)arg1;
 - (struct CGImage *)newFrameMaskForViewScale:(double)arg1 frameRect:(struct CGRect *)arg2;
-- (void)calculateTextureClipBounds:(struct CGRect *)arg1 andOffset:(struct CGPoint *)arg2 withTransform:(struct CGAffineTransform *)arg3 andRectOnCanvas:(struct CGRect *)arg4 textureContext:(id)arg5 isUsingImageTexture:(_Bool)arg6;
+- (void)calculateTextureClipBounds:(struct CGRect *)arg1 andOffset:(struct CGPoint *)arg2 withTransform:(struct CGAffineTransform *)arg3 andRectOnCanvas:(struct CGRect *)arg4 textureDescription:(id)arg5 isUsingImageTexture:(_Bool)arg6;
 - (void)setTextureAttributes:(id)arg1 textureBounds:(struct CGRect)arg2;
 - (struct CGRect)strokeBoundsWithOptions:(unsigned long long)arg1 fallbackBounds:(struct CGRect)arg2;
 - (void)drawInContextWithoutEffectsOrChildrenForAlphaOnly:(struct CGContext *)arg1;

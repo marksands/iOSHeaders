@@ -14,6 +14,8 @@ __attribute__((visibility("hidden")))
     long long _maxLineCount;
     double _lineSpacing;
     double _interitemSpacing;
+    UIView *_headerView;
+    UIView *_footerView;
     NSArray *_infos;
     NSArray *_groupedInfos;
 }
@@ -21,6 +23,8 @@ __attribute__((visibility("hidden")))
 + (id)infoListViewWithElement:(id)arg1 existingView:(id)arg2;
 @property(copy, nonatomic) NSArray *groupedInfos; // @synthesize groupedInfos=_groupedInfos;
 @property(copy, nonatomic) NSArray *infos; // @synthesize infos=_infos;
+@property(retain, nonatomic) UIView *footerView; // @synthesize footerView=_footerView;
+@property(retain, nonatomic) UIView *headerView; // @synthesize headerView=_headerView;
 @property(nonatomic) double interitemSpacing; // @synthesize interitemSpacing=_interitemSpacing;
 @property(nonatomic) double lineSpacing; // @synthesize lineSpacing=_lineSpacing;
 @property(nonatomic) long long maxLineCount; // @synthesize maxLineCount=_maxLineCount;

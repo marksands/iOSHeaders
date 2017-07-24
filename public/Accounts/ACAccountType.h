@@ -22,6 +22,7 @@
     ACAccountStore *_accountStore;
     int _supportsAuthentication;
     _Bool _supportsMultipleAccounts;
+    _Bool _obsolete;
     NSSet *_supportedDataclasses;
     NSSet *_syncableDataclasses;
     NSSet *_accessKeys;
@@ -32,6 +33,7 @@
 + (id)allIdentifiers;
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSString *owningBundleID; // @synthesize owningBundleID=_owningBundleID;
+@property(nonatomic, getter=isObsolete) _Bool obsolete; // @synthesize obsolete=_obsolete;
 @property(nonatomic) _Bool supportsMultipleAccounts; // @synthesize supportsMultipleAccounts=_supportsMultipleAccounts;
 @property(nonatomic) __weak ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
 - (void).cxx_destruct;

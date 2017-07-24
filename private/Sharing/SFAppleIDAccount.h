@@ -18,7 +18,6 @@
     NSString *_appleID;
     NSString *_certificateToken;
     SFAppleIDContactInfo *_contactInfo;
-    NSDate *_creationDate;
     SFAppleIDIdentity *_identity;
     NSDate *_lastConnectAttemptDate;
     NSDate *_lastValidationDate;
@@ -40,7 +39,6 @@
 @property(retain, nonatomic) SFAppleIDIdentity *identity; // @synthesize identity=_identity;
 @property(nonatomic) _Bool forceValidation; // @synthesize forceValidation=_forceValidation;
 @property(nonatomic, getter=isDirty) _Bool dirty; // @synthesize dirty=_dirty;
-@property(readonly, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(retain, nonatomic) SFAppleIDContactInfo *contactInfo; // @synthesize contactInfo=_contactInfo;
 @property(retain, nonatomic) NSString *certificateToken; // @synthesize certificateToken=_certificateToken;
 @property(readonly, nonatomic) NSString *appleID; // @synthesize appleID=_appleID;

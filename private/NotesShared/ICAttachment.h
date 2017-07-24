@@ -178,6 +178,7 @@
 - (id)addMediaWithData:(id)arg1 filename:(id)arg2 updateFileBasedAttributes:(_Bool)arg3;
 - (id)addMediaWithData:(id)arg1 filename:(id)arg2;
 - (void)updateAfterMediaChange;
+- (id)tableModel;
 - (id)inlineDrawingModel;
 - (id)galleryModel;
 - (id)drawingModel;

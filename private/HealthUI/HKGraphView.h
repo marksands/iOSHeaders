@@ -12,14 +12,13 @@
 #import <HealthUI/HKSeriesDelegate-Protocol.h>
 #import <HealthUI/UIScrollViewDelegate-Protocol.h>
 
-@class HKAxis, HKBorderLineView, HKGraphViewSelectionStyle, HKMultiTouchPressGestureRecognizer, HKPropertyAnimationApplier, HKValueRange, NSArray, NSMutableArray, NSString, UIColor, UIImage, UIScrollView;
+@class HKAxis, HKBorderLineView, HKGraphViewSelectionStyle, HKMultiTouchPressGestureRecognizer, HKPropertyAnimationApplier, HKValueRange, NSArray, NSMutableArray, NSSet, NSString, UIColor, UIImage, UIScrollView;
 @protocol HKGraphRenderer, HKGraphViewDelegate;
 
 @interface HKGraphView : UIView <UIScrollViewDelegate, HKSeriesDelegate, HKGraphRenderDelegate, HKMultiTouchPressGestureRecognizerDelegate, HKScrollPerformanceTestable>
 {
     NSMutableArray *_seriesGroupRows;
     _Bool _needsUpdateGraphViewConfiguration;
-    HKMultiTouchPressGestureRecognizer *_multiTouchGestureRecognizer;
     HKPropertyAnimationApplier *_animationApplier;
     _Bool _shouldInformDelegateOfUpdates;
     _Bool _shouldListenToScrollViewDelegate;
@@ -62,16 +61,24 @@
     HKValueRange *_effectiveVisibleRangeActive;
     long long _minimumDateZoom;
     long long _maximumDateZoom;
+    HKMultiTouchPressGestureRecognizer *_multiTouchGestureRecognizer;
     double _zoomScale;
     UIView *_detailView;
+    HKValueRange *_destinationEffectiveVisibleRangeActive;
+    NSSet *_yAxisAccessoryViews;
     struct CGPoint _contentOffset;
     struct UIEdgeInsets _axisInset;
 }
 
++ (id)_rangeFromModelCoordinateMin:(double)arg1 max:(double)arg2 axis:(id)arg3;
++ (double)_modelCoordinateSpanForRange:(id)arg1 axis:(id)arg2;
+@property(retain, nonatomic) NSSet *yAxisAccessoryViews; // @synthesize yAxisAccessoryViews=_yAxisAccessoryViews;
+@property(retain, nonatomic) HKValueRange *destinationEffectiveVisibleRangeActive; // @synthesize destinationEffectiveVisibleRangeActive=_destinationEffectiveVisibleRangeActive;
 @property(retain, nonatomic) UIView *detailView; // @synthesize detailView=_detailView;
 @property(nonatomic) struct CGPoint contentOffset; // @synthesize contentOffset=_contentOffset;
 @property(nonatomic) double zoomScale; // @synthesize zoomScale=_zoomScale;
 @property(nonatomic) _Bool enableZoomInGesture; // @synthesize enableZoomInGesture=_enableZoomInGesture;
+@property(readonly, nonatomic) HKMultiTouchPressGestureRecognizer *multiTouchGestureRecognizer; // @synthesize multiTouchGestureRecognizer=_multiTouchGestureRecognizer;
 @property(nonatomic) _Bool enableStickySelection; // @synthesize enableStickySelection=_enableStickySelection;
 @property(nonatomic) _Bool contentWidthFromTimeScope; // @synthesize contentWidthFromTimeScope=_contentWidthFromTimeScope;
 @property(nonatomic) long long maximumDateZoom; // @synthesize maximumDateZoom=_maximumDateZoom;
@@ -121,15 +128,17 @@
 - (_Bool)_stickySelectionActive;
 - (void)_moveSeriesToFront:(id)arg1;
 - (void)_selectionRecognizerDidFinish:(id)arg1;
-- (void)_finishSelection;
+- (void)finishSelection;
 - (void)_deselectAllSeriesWithAlpha:(double)arg1 offScreenIndicatorAlpha:(double)arg2 seriesGroup:(id)arg3;
 - (id)_pointSelectionContextWithTouchPoints:(id)arg1 seriesGroupRow:(long long)arg2 updateViewStates:(_Bool)arg3;
+- (void)_selectionRecognizerDidMoveWithTouchPoints:(id)arg1;
 - (void)_selectionRecognizerDidMove:(id)arg1;
-- (CDStruct_767cbfa4)_closestDataPointPathToPoint:(struct CGPoint)arg1 seriesGroupRow:(long long)arg2;
+- (CDStruct_767cbfa4)_closestDataPointPathToPoint:(struct CGPoint)arg1 seriesGroupRow:(long long)arg2 minimumXDistance:(double)arg3;
 - (void)_updateSelectionContextStateWithTouchPoint:(struct CGPoint)arg1 seriesGroup:(id)arg2;
 - (id)_valueForXAxisLocation:(double)arg1;
 - (struct CGAffineTransform)_xAxisCoordinateTransform;
 - (void)_handleStartTouchPoint:(struct CGPoint)arg1 seriesGroupRow:(long long)arg2;
+- (void)_selectionRecognizerDidBeginWithTouchPoint:(struct CGPoint)arg1;
 - (void)_selectionRecognizerDidBegin:(id)arg1;
 - (struct CGPoint)_touchPointForSeriesGroupIndex:(long long)arg1 originalTouchPoint:(struct CGPoint)arg2;
 - (void)gestureWillBeginWithRecognizer:(id)arg1;
@@ -141,15 +150,17 @@
 - (id)_selectedRegionForTouchPoint:(struct CGPoint)arg1 seriesGroup:(id)arg2;
 - (void)_enumerateSeriesSelectionRegionsForSeriesGroup:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (long long)_currentSelectionStateForSeriesGroup:(id)arg1;
+- (void)_toggleStickySelectionAction:(id)arg1;
+- (void)_addTapGestureRecognizerForTogglingStickyToView:(id)arg1;
 - (void)_tapOnViewAction:(id)arg1;
-- (void)_endStickySelectionAction:(id)arg1;
 - (void)_addTapGestureRecognizerForTapOnView:(id)arg1;
-- (void)_addTapGestureRecognizerForDisablingStickyToView:(id)arg1;
 - (_Bool)_renderXAxisLabelAndGridsNeedsNewRenderer;
 - (void)_updateScrollViewPropertiesIgnoringScrollViewCallbacks:(CDUnknownBlockType)arg1;
 - (void)_updateGraphViewConfigurationIfNecessary;
 - (void)_setNeedsUpdateGraphViewConfiguration;
-- (void)_scrollToActualVisibleRange:(id)arg1 animated:(_Bool)arg2;
+- (void)_scrollToCurrentVisibleRangeAnimated:(_Bool)arg1;
+- (void)_restoreDestinationActiveRange;
+- (void)_preserveDestinationActiveRange:(id)arg1;
 - (void)_updateZoomForParameters;
 - (double)_contentWidth;
 - (double)_maximumZoomScale;
@@ -161,6 +172,7 @@
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
+- (void)_snapXAxisRangeToPreservedRange;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
@@ -200,12 +212,12 @@
 - (void)seriesDidInvalidatePaths:(id)arg1 newDataArrived:(_Bool)arg2;
 - (id)_findActualAxisRangeFromVisibleRanges;
 - (id)_effectiveVisibleRangeFromActualVisibleRange:(id)arg1;
-- (id)_actualVisibleRangeFromEffectiveVisibleRange:(id)arg1;
+- (id)_actualVisibleRangeFromEffectiveVisibleRange:(id)arg1 dataAreaRect:(struct CGRect)arg2;
 - (void)setEffectiveAxisRange:(id)arg1 effectiveVisibleRangeCadence:(id)arg2 effectiveVisibleRangeActive:(id)arg3;
 - (void)_updateEffectiveAxisRange:(id)arg1 effectiveVisibleRangeCadence:(id)arg2 effectiveVisibleRangeActive:(id)arg3 virtualLeftMarginWidth:(double)arg4 virtualRightMarginWidth:(double)arg5;
 - (void)setEffectiveVisibleRangeActive:(id)arg1 animated:(_Bool)arg2;
+- (void)_setRangesForActiveVisibleRange:(id)arg1;
 - (id)_rangeFromRange:(id)arg1 withStartOfRange:(id)arg2;
-- (double)coordinateForRangeId:(id)arg1;
 - (void)setVirtualRightMargin:(double)arg1;
 - (void)setVirtualLeftMargin:(double)arg1;
 - (void)_updateGraphViewConfiguration;
@@ -215,6 +227,7 @@
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_resumeChartInteraction;
 - (void)_pauseChartInteraction;
+- (void)_setYAxisAccessoryViews:(id)arg1;
 @property(retain, nonatomic) HKValueRange *chartableValueRange;
 - (void)setBackgroundColor:(id)arg1;
 - (void)setRenderView:(id)arg1;
@@ -224,6 +237,8 @@
 - (void)setNeedsReloadSeries;
 - (void)_loadSeriesForZoom:(long long)arg1;
 - (id)_graphSeriesForZoom:(long long)arg1 seriesGroupRow:(long long)arg2;
+- (void)_layoutYAxisAccessoryViews;
+- (void)_installAccessoryViews;
 - (void)_layoutDetailView;
 - (void)_layoutLegends;
 - (void)_createLegendForSeriesGroup:(id)arg1;
@@ -245,7 +260,6 @@
 @property(readonly, nonatomic) struct CGRect leftMarginViewRect;
 @property(readonly, nonatomic) double yAxisWidth;
 - (_Bool)_configureYAxisViewIfNeeded;
-- (_Bool)_anySeriesHasYAxisLabels;
 - (id)_firstSelectionContext;
 - (id)_firstSeries;
 - (long long)_countOfAllSeries;

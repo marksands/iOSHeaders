@@ -67,6 +67,7 @@
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
 - (long long)_kindForString:(id)arg1;
+- (id)buyParams;
 @property(readonly) _Bool allowsBioAuthorization;
 - (id)valueForUserInfoKey:(id)arg1;
 - (void)setValue:(void *)arg1 forCFUserNotificationKey:(struct __CFString *)arg2;

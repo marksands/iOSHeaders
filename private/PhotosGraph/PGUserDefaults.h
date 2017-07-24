@@ -10,6 +10,8 @@
 {
 }
 
++ (double)minimumRatioOfFocusedPersonFacesPerAssetForMultipleFocusedPersonsFacedAssetsWithDefaultValue:(double)arg1;
++ (unsigned long long)maximumNumberOfFacesPerAssetForSingleFocusedPersonFacedAssetsWithDefaultValue:(unsigned long long)arg1;
 + (_Bool)isMemoriesLivingOnFeedbackEnabled;
 + (_Bool)isMemoriesNotificationDisabled;
 + (unsigned long long)minimumNumberOfCuratedAssetsForInterestingMoments;

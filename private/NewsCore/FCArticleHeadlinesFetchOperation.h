@@ -7,7 +7,7 @@
 #import <NewsCore/FCMultiStepFetchOperation.h>
 
 @class FCHeldRecords, NSArray;
-@protocol FCContentContext;
+@protocol FCAppConfiguration, FCContentContext;
 
 @interface FCArticleHeadlinesFetchOperation : FCMultiStepFetchOperation
 {
@@ -21,12 +21,14 @@
     id <FCContentContext> _context;
     NSArray *_articleIDs;
     NSArray *_ignoreCacheForArticleIDs;
+    id <FCAppConfiguration> _appConfiguration;
     FCHeldRecords *_heldArticleRecords;
     NSArray *_headlines;
 }
 
 @property(retain, nonatomic) NSArray *headlines; // @synthesize headlines=_headlines;
 @property(retain, nonatomic) FCHeldRecords *heldArticleRecords; // @synthesize heldArticleRecords=_heldArticleRecords;
+@property(retain, nonatomic) id <FCAppConfiguration> appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 @property(retain, nonatomic) NSArray *ignoreCacheForArticleIDs; // @synthesize ignoreCacheForArticleIDs=_ignoreCacheForArticleIDs;
 @property(retain, nonatomic) NSArray *articleIDs; // @synthesize articleIDs=_articleIDs;
 @property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
@@ -42,6 +44,7 @@
 - (id)fetchArticleAndTagRecordsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)fetchTagRecordsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)fetchArticleRecordsWithCompletion:(CDUnknownBlockType)arg1;
+- (id)fetchAppConfigWithCompletion:(CDUnknownBlockType)arg1;
 - (id)determineAppropriateFetchStepsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)customizeChildOperation:(id)arg1 forFetchStep:(SEL)arg2;
 - (id)initWithContext:(id)arg1 articleIDs:(id)arg2 ignoreCacheForArticleIDs:(id)arg3;

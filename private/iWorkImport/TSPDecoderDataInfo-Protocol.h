@@ -9,6 +9,7 @@
 @class NSString, TSPDataMetadata, TSPDigest;
 
 @protocol TSPDecoderDataInfo <NSObject>
+@property(readonly, nonatomic) long long identifier;
 @property(readonly, nonatomic) TSPDataMetadata *dataMetadata;
 @property(readonly, nonatomic) NSString *externalFilePath;
 @property(readonly, nonatomic) NSString *documentResourceLocator;

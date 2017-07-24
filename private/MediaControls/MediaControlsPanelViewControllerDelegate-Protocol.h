@@ -11,6 +11,7 @@
 @protocol MediaControlsPanelViewControllerDelegate <NSObject>
 
 @optional
+- (void)mediaControlsPanelViewController:(MediaControlsPanelViewController *)arg1 didReceiveInteractionEvent:(id)arg2;
 - (void)didDismissMediaControlsPanelViewController:(MediaControlsPanelViewController *)arg1;
 @end
 

@@ -22,12 +22,12 @@
     UIFont *_labelFont;
 }
 
+@property(copy, nonatomic) NSArray *apps; // @synthesize apps=_apps;
 - (void).cxx_destruct;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (void)viewDidAppear:(_Bool)arg1;
 - (Class)_collectionViewClass;
-- (void)setApps:(id)arg1;
 - (id)init;
 
 // Remaining properties

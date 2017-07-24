@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSURetainedPointerKeyDictionary *map; // @synthesize map=_map;
 @property(nonatomic) int scope; // @synthesize scope=_scope;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
+- (void).cxx_destruct;
 - (void)upgradeWithStylesheet:(id)arg1;
 - (void)replaceReferencedStylesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)referencedStyles;
@@ -43,7 +44,6 @@ __attribute__((visibility("hidden")))
 - (id)copyUsingDeepCopy;
 - (id)copyWithContext:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1;
 
 // Remaining properties

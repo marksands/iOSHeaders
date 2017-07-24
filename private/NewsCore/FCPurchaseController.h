@@ -49,10 +49,10 @@
 - (void)performHTTPRequestForVerifyAccessTokenWithURL:(id)arg1 accessToken:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)verifyAccessTokenWithTagID:(id)arg1 accessToken:(id)arg2 serialCompletion:(CDUnknownBlockType)arg3 callbackQueue:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)handleAccessTokenVerificationFailureWithTagID:(id)arg1;
-- (void)handleAccessTokenVerificationSuccessWithTagID:(id)arg1 subscribed:(_Bool)arg2;
-- (void)handleAccessTokenChangeWithTagID:(id)arg1 addToPurchasedDiscoverdList:(_Bool)arg2;
+- (void)handleAccessTokenVerificationSuccessWithTagID:(id)arg1 subscribed:(_Bool)arg2 accessToken:(id)arg3;
+- (void)handleAccessTokenChangeWithTagID:(id)arg1;
 - (void)userInfo:(id)arg1 didChangeAccessTokenForTagID:(id)arg2;
-- (void)userInfo:(id)arg1 didAddAccessTokenForTagID:(id)arg2;
+- (void)userInfo:(id)arg1 didRemoveAccessTokenForTagID:(id)arg2;
 - (void)activityObservingApplicationDidEnterBackground;
 - (void)removeOngoingPurchaseEntryForProductID:(id)arg1;
 - (void)cleanupExpiredPurchaseLookupEntriesIfNeeded;
@@ -66,7 +66,7 @@
 - (void)updatePurchaseEntryToSubcsriptionNotSupported:(id)arg1;
 - (void)updatePurchaseEntryToExpired:(id)arg1;
 - (void)updatePurchaseEntryToExpiredForTagIDs:(id)arg1;
-- (void)hasShownRenewalNoticeForPurchasedChannelsListWithTagIDs:(id)arg1;
+- (void)renewalNoticeShownForPurchasedChannelsListWithTagIDs:(id)arg1;
 - (void)addToPurchasedChannelsListWithEntry:(id)arg1;
 - (_Bool)atleastOneValidAppStorePurchase;
 - (_Bool)isTagPurchased:(id)arg1;
@@ -105,6 +105,8 @@
 - (void)addAppStorePurchaseWithTagID:(id)arg1 purchaseID:(id)arg2;
 - (void)setLastSignedInItunesAccountNameWithName:(id)arg1;
 @property(readonly, nonatomic) NSString *lastSignedInItunesAccountName;
+- (void)setLastSignedInItunesAccountDSIDWithDSID:(id)arg1;
+- (id)lastSignedInItunesAccountDSID;
 - (void)clearAllAppStorePurchases;
 - (void)shouldShowiTunesSignedOutAlertWithAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)shouldShowSignedInWithDifferentiTunesAccountAlertWithAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;

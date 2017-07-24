@@ -11,7 +11,6 @@
 }
 
 + (id)IOErrorWithString:(id)arg1;
-+ (id)descriptionMismatchErrorWithString:(id)arg1;
 + (id)featureTypeErrorWithString:(id)arg1;
 + (id)genericErrorWithString:(id)arg1;
 + (id)errorWithCode:(long long)arg1 string:(id)arg2;

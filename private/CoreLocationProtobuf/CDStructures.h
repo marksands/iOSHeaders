@@ -6,6 +6,12 @@
 
 #pragma mark Typedef'd Structures
 
+typedef struct {
+    int *list;
+    unsigned long long count;
+    unsigned long long size;
+} CDStruct_95bda58d;
+
 // Ambiguous groups
 typedef struct {
     unsigned int arfcn:1;

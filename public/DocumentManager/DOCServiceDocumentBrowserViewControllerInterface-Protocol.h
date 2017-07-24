@@ -9,6 +9,8 @@
 @class FPSandboxingURLWrapper, NSArray, NSString, NSURL;
 
 @protocol DOCServiceDocumentBrowserViewControllerInterface <DOCKeyCommandRegistryServiceProxyProtocol>
+- (void)_clearCurrentOpenInteraction;
+- (void)_dismissAllPresentedViewControllers:(_Bool)arg1 completion:(void (^)(void))arg2;
 - (void)_setCreateButtonTitle:(NSString *)arg1;
 - (void)_setCreateButtonAspectRatio:(double)arg1;
 - (void)_setAllowsPickingMultipleItems:(_Bool)arg1;

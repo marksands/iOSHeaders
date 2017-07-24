@@ -47,6 +47,7 @@ __attribute__((visibility("hidden")))
 - (void)_onqueue_cancel;
 - (void)_onqueue_suspend;
 - (void)_onqueue_resume;
+- (_Bool)_isAVAssetTask;
 - (id)response;
 - (id)currentRequest;
 - (id)originalRequest;

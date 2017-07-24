@@ -170,10 +170,8 @@
 - (id)_dragItemsFromChatItem:(id)arg1 balloonView:(id)arg2;
 - (id)_itemProvidersFromDragItems:(id)arg1;
 - (id)_dragItemsForInteraction:(id)arg1;
-- (void)restoreOpaqueMaskOfVisibleCells;
 - (void)dragInteraction:(id)arg1 session:(id)arg2 didEndWithOperation:(unsigned long long)arg3;
 - (void)dragInteraction:(id)arg1 sessionWillBegin:(id)arg2;
-- (void)dragInteraction:(id)arg1 willAnimateLiftWithAnimator:(id)arg2 session:(id)arg3;
 - (id)_api_dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
 - (id)dragInteraction:(id)arg1 itemsForAddingToSession:(id)arg2 withTouchAtPoint:(struct CGPoint)arg3;
 - (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
@@ -387,7 +385,7 @@
 - (void)makeEntryViewActiveAfterSend;
 - (void)hideAppStripAfterSend;
 @property(retain, nonatomic) CKComposition *composition;
-- (void)setupStateForLaunchPluginWithBundleID:(id)arg1;
+- (void)setupStateForLaunchPluginWithBundleID:(id)arg1 pluginPayload:(id)arg2;
 - (void)setupStateForLaunchURL:(id)arg1;
 - (void)sendComposition:(id)arg1;
 - (void)endHoldingAutorotationForKey:(id)arg1;

@@ -10,7 +10,7 @@
 #import <Preferences/UIKeyInput-Protocol.h>
 #import <Preferences/UITextInputTraits-Protocol.h>
 
-@class NSString, UIKeyboard, UITransitionView, UIView;
+@class DevicePINKeypadContainerView, NSString, UIKeyboard, UITransitionView, UIView;
 @protocol PINEntryView;
 
 @interface DevicePINPane : PSEditingPane <UIKeyInput, UITextInputTraits, PSPINEntryViewDelegate>
@@ -28,6 +28,7 @@
     _Bool _isBlocked;
     _Bool _simplePIN;
     _Bool _numericKeyboard;
+    DevicePINKeypadContainerView *_keypadContainerView;
     unsigned int _PINLength;
     CDUnknownBlockType _passcodeOptionsHandler;
 }

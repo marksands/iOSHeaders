@@ -34,6 +34,7 @@
 - (id)_predictMeCardDetailForCriteria:(id)arg1 limit:(unsigned long long)arg2 fromSemanticTextField:(_Bool)arg3;
 - (id)_predictMeCardDetailForCriteria:(id)arg1 limit:(unsigned long long)arg2;
 - (id)_mePredictionCacheKeyForCriteria:(id)arg1;
+- (_Bool)_isMeCardQuery:(id)arg1;
 - (id)_predictionForPeopleCriteria:(id)arg1 fromEligibleSemanticTextField:(_Bool)arg2 limit:(unsigned long long)arg3;
 - (id)_applySmartLimitingToCandidates:(id)arg1 clientLimit:(unsigned long long)arg2;
 - (id)_predictionForNamesWithLimit:(unsigned long long)arg1;

@@ -46,6 +46,7 @@
     PSSpecifier *_peerPaymentSwitchSpecifier;
     PKPeerPaymentAccountResolutionController *_peerPaymentAccountResolutionController;
     PKPeerPaymentAccount *_peerPaymentAccount;
+    _Bool _registeringForPeerPayment;
     NSArray *_expressFelicaTransitPasses;
     NSString *_defaultExpressFelicaTransitPassIdentifier;
     PSSpecifier *_defaultExpressFelicaTransitSpecifier;
@@ -72,12 +73,14 @@
 - (id)_peerPaymentSwitchSpecifier;
 - (id)_peerPaymentGroupSpecifiers;
 - (void)_unregisterForPeerPaymentWithSpecifier:(id)arg1;
+- (void)_presentPeerPaymentSetupFlowForSpecifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_presentPeerPaymentSetupFlowForSpecifier:(id)arg1;
 - (void)_registerForPeerPaymentWithSpecifier:(id)arg1;
 - (_Bool)_isPeerPaymentRegistered;
 - (void)_displayAlertForError:(id)arg1;
 - (void)peerPaymentAccountResolutionController:(id)arg1 requestsDismissCurrentViewControllerAnimated:(_Bool)arg2;
 - (void)peerPaymentAccountResolutionController:(id)arg1 requestsPresentViewController:(id)arg2 animated:(_Bool)arg3;
+- (void)_peerPaymentAccountDidChangeNotification:(id)arg1;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithFelicaPassProperties:(id)arg2;
 - (id)_displayableStringForLabeledValue:(id)arg1;
 - (id)_getDefaultContactPhone;

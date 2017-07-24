@@ -23,6 +23,8 @@
 @property(copy, nonatomic, getter=_notificationTapBlock, setter=_setNotificationTapBlock:) CDUnknownBlockType notificationTapBlock; // @synthesize notificationTapBlock=_notificationTapBlock;
 @property(nonatomic) __weak NCNotificationShortLookViewController *presentingNotificationViewController; // @synthesize presentingNotificationViewController=_presentingNotificationViewController;
 - (void).cxx_destruct;
+- (void)presentLongLookAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)_presentedLongLookViewController;
 - (_Bool)isLookStyleLongLook;
 - (void)customContentDidLoadExtension:(id)arg1;
 - (void)notificationLongLookView:(id)arg1 willInteractWithURL:(id)arg2;

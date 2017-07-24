@@ -12,6 +12,7 @@
 
 - (id)result;
 - (id)generateVideoComposition:(out id *)arg1;
+- (_Bool)prepare:(out id *)arg1;
 - (id)videoRenderRequest;
 - (id)scalePolicy;
 - (_Bool)wantsOutputGeometry;

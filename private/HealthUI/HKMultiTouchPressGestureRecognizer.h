@@ -6,7 +6,7 @@
 
 #import <UIKit/UIGestureRecognizer.h>
 
-@class NSMutableSet, NSSet, NSTimer;
+@class NSArray, NSMutableSet, NSSet, NSTimer;
 @protocol HKMultiTouchPressGestureRecognizerDelegate;
 
 @interface HKMultiTouchPressGestureRecognizer : UIGestureRecognizer
@@ -27,6 +27,7 @@
 @property(readonly, nonatomic) NSSet *touches; // @synthesize touches=_touches;
 - (void).cxx_destruct;
 - (id)touchAtIndex:(unsigned long long)arg1;
+@property(readonly, nonatomic) NSArray *orderedTouches;
 - (struct CGPoint)locationInView:(id)arg1;
 - (void)reset;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;

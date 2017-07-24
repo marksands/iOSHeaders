@@ -47,7 +47,6 @@ __attribute__((visibility("hidden")))
 - (void)fetchTileForKey:(const struct VKTileKey *)arg1;
 - (id)tileForSourceKey:(const struct VKTileKey *)arg1 renderKey:(const struct VKTileKey *)arg2;
 - (id)tileForKey:(const struct VKTileKey *)arg1;
-- (_Bool)canFetchTileForKey:(const struct VKTileKey *)arg1;
 - (void)setContentScale:(double)arg1;
 - (void)setStyleManager:(shared_ptr_a3c46825)arg1;
 - (_Bool)canFetchTrafficTileForKey:(const struct VKTileKey *)arg1;

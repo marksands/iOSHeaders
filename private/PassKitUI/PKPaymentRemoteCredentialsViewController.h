@@ -23,6 +23,7 @@
     UIImage *_placeHolder;
     PKPaymentRemoteCredentialTableViewCell *_sizingCell;
     unsigned long long _maximumNumberOfSelectableCredentials;
+    double _cachedHeaderViewWidth;
     _Bool _hideSetupLaterButton;
     PKPaymentSetupProduct *_product;
 }
@@ -41,6 +42,7 @@
 - (unsigned long long)_numberOfSelectedCredentials;
 - (void)_updateMaximumSelectableCredentials;
 - (void)_updateRemoteCredentialCache;
+- (void)_updateTableHeaderViewSubtitle;
 - (void)tableView:(id)arg1 didDeselectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
@@ -49,6 +51,7 @@
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)viewWillLayoutSubviews;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;

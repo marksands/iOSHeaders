@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, UIControl, UIView, _UIInteractiveHighlightEffect;
+@class NSArray, NSUUID, UIControl, UIView, _UIInteractiveHighlightEffect;
 @protocol UIInteraction, _UIInteractiveHighlighting;
 
 @interface _UIPreviewInteractionHighlighter : NSObject
@@ -19,6 +19,7 @@
     _UIInteractiveHighlightEffect *_presentationControllerHighlightEffect;
     id <UIInteraction> _interaction;
     _Bool _animatesContentEffects;
+    NSUUID *_contentAnimationIdentifier;
     _Bool _animatesBackgroundEffects;
     long long _preferredAnimationStyle;
     double _preferredMinimumScale;
@@ -32,10 +33,14 @@
     CDUnknownBlockType _completionBlock;
     CDUnknownBlockType _privateCompletionBlock;
     UIView *_customContainerView;
+    UIView *_customBackgroundEffectView;
+    CDUnknownBlockType _backgroundEffectApplyBlock;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType backgroundEffectApplyBlock; // @synthesize backgroundEffectApplyBlock=_backgroundEffectApplyBlock;
 @property(nonatomic) _Bool cancelsInteractionWhenScrolling; // @synthesize cancelsInteractionWhenScrolling=_cancelsInteractionWhenScrolling;
 @property(nonatomic) _Bool shouldTransferViewOwnership; // @synthesize shouldTransferViewOwnership=_shouldTransferViewOwnership;
+@property(retain, nonatomic) UIView *customBackgroundEffectView; // @synthesize customBackgroundEffectView=_customBackgroundEffectView;
 @property(nonatomic) __weak UIView *customContainerView; // @synthesize customContainerView=_customContainerView;
 @property(copy, nonatomic) CDUnknownBlockType privateCompletionBlock; // @synthesize privateCompletionBlock=_privateCompletionBlock;
 @property(nonatomic) _Bool shouldEndWithCancelAnimation; // @synthesize shouldEndWithCancelAnimation=_shouldEndWithCancelAnimation;
@@ -53,7 +58,7 @@
 - (void)_delayedViewControllerPresentationDidCancel;
 - (void)_animateForDelayedViewControllerPresentation;
 - (void)_animateAlongsideViewControllerPresentationDismiss;
-- (void)_prepareForViewControllerPresentation;
+- (void)_prepareForViewControllerPresentation:(id)arg1;
 - (void)_finalizeAfterInteraction;
 - (void)_finalizeAfterInteractionIfNeeded;
 - (void)_updateFromInteraction:(id)arg1 fractionComplete:(double)arg2 ended:(_Bool)arg3;

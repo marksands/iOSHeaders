@@ -40,6 +40,7 @@
 - (_Bool)view:(id)arg1 isVisibleInBounds:(struct CGRect)arg2;
 - (void)sendVisibleFeedbackIfNecessary;
 - (void)scrollViewDidScroll:(id)arg1;
+- (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)tableView:(id)arg1 didEndDisplayingHeaderView:(id)arg2 forSection:(long long)arg3;
 - (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(long long)arg3;
 - (void)tableView:(id)arg1 didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(id)arg3;
@@ -62,6 +63,7 @@
 - (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
 - (void)openUserActivityForResult:(id)arg1;
 - (_Bool)defaultApplicationExistsAndSupportsOpenInPlaceForResult:(id)arg1 open:(_Bool)arg2;
+- (_Bool)downloadDemotedAppIfNecessaryForBundleIdentifier:(id)arg1;
 - (unsigned long long)handleSelectionOfResult:(id)arg1;
 - (unsigned long long)handleSelectionAtIndexPath:(id)arg1 wasPop:(_Bool)arg2;
 - (void)didEngageResult:(id)arg1;

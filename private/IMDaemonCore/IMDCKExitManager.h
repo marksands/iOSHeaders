@@ -6,20 +6,26 @@
 
 #import <IMDaemonCore/IMDCKAbstractSyncController.h>
 
-@class CKOperationConfiguration, CKRecordID, IMDCKDatabaseManager, IMDRecordZoneManager, NSNumber, NSObject;
+@class CKOperationConfiguration, CKRecordID, IMDCKDatabaseManager, IMDRecordZoneManager, NSDate, NSError, NSNumber, NSObject;
 @protocol OS_dispatch_queue;
 
 @interface IMDCKExitManager : IMDCKAbstractSyncController
 {
+    _Bool _fetchedExitDateOnLaunch;
     CKRecordID *_exitRecordID;
     CKOperationConfiguration *_exitConfigurtation;
     NSNumber *_saltZoneCreatedOverride;
     NSObject<OS_dispatch_queue> *_ckQueue;
     IMDRecordZoneManager *_recordZoneManager;
     IMDCKDatabaseManager *_databaseManager;
+    NSDate *_exitRecordDate;
+    NSError *_errorFetchingExitDate;
 }
 
 + (id)sharedInstance;
+@property(nonatomic) _Bool fetchedExitDateOnLaunch; // @synthesize fetchedExitDateOnLaunch=_fetchedExitDateOnLaunch;
+@property(retain, nonatomic) NSError *errorFetchingExitDate; // @synthesize errorFetchingExitDate=_errorFetchingExitDate;
+@property(retain, nonatomic) NSDate *exitRecordDate; // @synthesize exitRecordDate=_exitRecordDate;
 @property(retain, nonatomic) IMDCKDatabaseManager *databaseManager; // @synthesize databaseManager=_databaseManager;
 @property(retain, nonatomic) IMDRecordZoneManager *recordZoneManager; // @synthesize recordZoneManager=_recordZoneManager;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *ckQueue; // @synthesize ckQueue=_ckQueue;
@@ -28,6 +34,7 @@
 @property(retain, nonatomic) CKRecordID *exitRecordID; // @synthesize exitRecordID=_exitRecordID;
 - (void)sendCloudKitZoneFetchRequestToNoteFeatureIsOn;
 - (void)submitCloudKitMetricWithData:(id)arg1 operationGroupName:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)_serverAllowsMetricSubmission;
 - (void)submitCloudKitMetricWithOperationGroupName:(id)arg1;
 - (void)writeSyncCompletedRecordWithDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)writeInitialSyncCompletedRecordIfNeeded;
@@ -35,8 +42,11 @@
 - (void)_scheduleOperation:(id)arg1;
 - (id)syncCompleteRecordID;
 - (void)deleteExitRecordWithCompletion:(CDUnknownBlockType)arg1;
-- (void)fetchExitRecordDateWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_fetchExitRecordDateWithCompletion:(CDUnknownBlockType)arg1;
+- (void)exitRecordDateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)writeExitRecordWithDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)handleNotificationForSubscriptionID:(id)arg1;
+- (void)_setUpSubscription;
 - (void)dealloc;
 - (id)init;
 - (id)initRecordZoneManager:(id)arg1 databaseManager:(id)arg2;

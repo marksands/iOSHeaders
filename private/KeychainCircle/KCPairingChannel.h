@@ -7,7 +7,6 @@
 #import <objc/NSObject.h>
 
 @class KCPairingChannelContext, NSXPCConnection;
-@protocol SOSControlProtocol;
 
 @interface KCPairingChannel : NSObject
 {
@@ -17,14 +16,13 @@
     unsigned int _counter;
     KCPairingChannelContext *_peerVersionContext;
     NSXPCConnection *_connection;
-    id <SOSControlProtocol> _control;
     CDUnknownBlockType _nextState;
 }
 
++ (_Bool)isSupportedPlatform;
 + (id)pairingChannelAcceptor:(id)arg1;
 + (id)pairingChannelInitiator:(id)arg1;
 @property(copy) CDUnknownBlockType nextState; // @synthesize nextState=_nextState;
-@property(retain) id <SOSControlProtocol> control; // @synthesize control=_control;
 @property(retain) NSXPCConnection *connection; // @synthesize connection=_connection;
 @property _Bool acceptorWillSendInitialSyncCredentials; // @synthesize acceptorWillSendInitialSyncCredentials=_acceptorWillSendInitialSyncCredentials;
 @property unsigned int counter; // @synthesize counter=_counter;
@@ -32,7 +30,7 @@
 @property KCPairingChannelContext *peerVersionContext; // @synthesize peerVersionContext=_peerVersionContext;
 @property(readonly) _Bool needInitialSync; // @synthesize needInitialSync=_needInitialSync;
 - (void).cxx_destruct;
-- (void)setSOSControlObject:(id)arg1;
+- (void)setXPCConnectionObject:(id)arg1;
 - (id)exchangePacket:(id)arg1 complete:(_Bool *)arg2 error:(id *)arg3;
 - (void)exchangePacket:(id)arg1 complete:(CDUnknownBlockType)arg2;
 - (void)validateStart:(CDUnknownBlockType)arg1;

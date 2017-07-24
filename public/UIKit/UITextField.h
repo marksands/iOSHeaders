@@ -160,8 +160,10 @@
 - (void)_initPrewarmedTextStorage;
 - (void)_pasteSessionDidFinish;
 - (void)_performPasteOfAttributedString:(id)arg1 toRange:(id)arg2 animator:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)droppingFinished;
+- (void)droppingStarted;
 @property(nonatomic) struct CGPoint contentOffsetForSameViewDrops;
-- (void)resignDropResponder;
+- (void)resignDropResponderWithDropPerformed:(_Bool)arg1;
 - (void)becomeDropResponder;
 - (_Bool)allowsDraggingAttachments;
 - (void)performCancelAnimations;
@@ -534,6 +536,7 @@
 - (struct CGRect)_atomBackgroundViewFrame;
 - (void)_updateAutosizeStyleIfNeeded;
 - (void)_updateButtons;
+- (void)_ensureClearButtonImageForControlState:(unsigned long long)arg1;
 - (id)_clearButton;
 - (id)clearButton;
 - (id)_clearButtonImageForState:(unsigned long long)arg1;
@@ -555,6 +558,8 @@
 - (void)_resignFirstResponder;
 - (void)_windowResignedKey;
 - (void)_windowBecameKey;
+- (void)_notifyDidEndEditing;
+- (void)_notifyDidBeginEditing;
 - (_Bool)_finishResignFirstResponder;
 - (_Bool)resignFirstResponder;
 - (void)_nonDestructivelyResignFirstResponder;

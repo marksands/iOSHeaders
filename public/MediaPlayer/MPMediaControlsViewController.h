@@ -10,22 +10,29 @@
 #import <MediaPlayer/UIViewControllerAnimatedTransitioning-Protocol.h>
 #import <MediaPlayer/UIViewControllerTransitioningDelegate-Protocol.h>
 
-@class MPMediaControlsConfiguration, MPMediaControlsRemoteViewController, NSString, UIVisualEffectView, _UIAsyncInvocation;
+@class MPMediaControlsConfiguration, MPMediaControlsRemoteViewController, MTMaterialView, NSString, UIVisualEffectView, _UIAsyncInvocation;
 
 @interface MPMediaControlsViewController : UIViewController <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, MPMediaControlsClientController>
 {
     _UIAsyncInvocation *_cancelRequest;
     _Bool _hasPresented;
+    CDUnknownBlockType _didDismissHandler;
     MPMediaControlsRemoteViewController *_remoteViewController;
-    UIVisualEffectView *_backgroundView;
+    MTMaterialView *_backgroundView;
+    UIVisualEffectView *_zoomBackgroundView;
     MPMediaControlsConfiguration *_configuration;
 }
 
 @property(readonly, nonatomic) MPMediaControlsConfiguration *configuration; // @synthesize configuration=_configuration;
-@property(retain, nonatomic) UIVisualEffectView *backgroundView; // @synthesize backgroundView=_backgroundView;
+@property(retain, nonatomic) UIVisualEffectView *zoomBackgroundView; // @synthesize zoomBackgroundView=_zoomBackgroundView;
+@property(retain, nonatomic) MTMaterialView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) MPMediaControlsRemoteViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
+@property(copy, nonatomic) CDUnknownBlockType didDismissHandler; // @synthesize didDismissHandler=_didDismissHandler;
 - (void).cxx_destruct;
 - (void)_requestRemoteViewController;
+- (void)_removeBackgroundNotifications;
+- (void)_applicationDidEnterBackground:(id)arg1;
+- (void)_applicationWillAddDeactivationReason:(id)arg1;
 - (void)_addRemoteView;
 - (void)animateTransition:(id)arg1;
 - (double)transitionDuration:(id)arg1;
@@ -35,6 +42,7 @@
 - (void)tapGestureRecognized:(id)arg1;
 - (void)dismiss;
 - (_Bool)prefersStatusBarHidden;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;

@@ -9,7 +9,7 @@
 #import <HomeUI/HUCellProtocol-Protocol.h>
 #import <HomeUI/HUDisableableCellProtocol-Protocol.h>
 
-@class HFItem, HUIconView, NSArray, NSString, UIColor, UILabel, UIView;
+@class HFItem, HUIconView, NSArray, NSString, UIColor, UILabel, UILayoutGuide, UIView;
 @protocol HUResizableCellDelegate;
 
 @interface HUIconCell : UITableViewCell <HUCellProtocol, HUDisableableCellProtocol>
@@ -23,14 +23,18 @@
     unsigned long long _iconDisplayStyle;
     NSArray *_staticConstraints;
     NSArray *_dynamicConstraints;
+    NSArray *_iconSpacingConstraints;
     UIView *_containerView;
     HUIconView *_iconView;
+    UILayoutGuide *_iconSpacingLayoutGuide;
     struct CGSize _iconSize;
 }
 
 + (_Bool)requiresConstraintBasedLayout;
+@property(retain, nonatomic) UILayoutGuide *iconSpacingLayoutGuide; // @synthesize iconSpacingLayoutGuide=_iconSpacingLayoutGuide;
 @property(retain, nonatomic) HUIconView *iconView; // @synthesize iconView=_iconView;
 @property(retain, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
+@property(retain, nonatomic) NSArray *iconSpacingConstraints; // @synthesize iconSpacingConstraints=_iconSpacingConstraints;
 @property(retain, nonatomic) NSArray *dynamicConstraints; // @synthesize dynamicConstraints=_dynamicConstraints;
 @property(retain, nonatomic) NSArray *staticConstraints; // @synthesize staticConstraints=_staticConstraints;
 @property(nonatomic) unsigned long long iconDisplayStyle; // @synthesize iconDisplayStyle=_iconDisplayStyle;

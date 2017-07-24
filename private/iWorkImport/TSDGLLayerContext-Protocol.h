@@ -6,7 +6,7 @@
 
 #import <iWorkImport/NSObject-Protocol.h>
 
-@class TSDGLLayer;
+@class EAGLContext, TSDGLLayer;
 
 @protocol TSDGLLayerContext <NSObject>
 - (void)presentRenderbuffer;
@@ -16,6 +16,7 @@
 - (_Bool)isValid;
 
 @optional
+- (EAGLContext *)glContext;
 - (void)unlock;
 - (void)lock;
 @end

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSError, NSMutableOrderedSet, NSOrderedSet, PUActivityViewController;
+@class NSArray, NSError, NSMutableOrderedSet, NSOrderedSet, NSString, PUActivityViewController;
 
 @interface PUActivityItemSourceController : NSObject
 {
@@ -17,8 +17,10 @@
     CDUnknownBlockType _progressHandler;
     NSArray *__activeItemSources;
     NSError *__error;
+    NSString *_activeActivityType;
 }
 
+@property(retain) NSString *activeActivityType; // @synthesize activeActivityType=_activeActivityType;
 @property(retain, setter=_setError:) NSError *_error; // @synthesize _error=__error;
 @property(retain, setter=_setActiveItemSources:) NSArray *_activeItemSources; // @synthesize _activeItemSources=__activeItemSources;
 @property(copy, nonatomic) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;

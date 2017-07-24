@@ -91,6 +91,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned int QOSClass;
 @property(readonly, nonatomic) NSString *flowControlKey;
 @property(readonly, nonatomic) _Bool shouldCheckAppVersion;
+- (void)_setIsExecuting:(_Bool)arg1;
+- (void)_setIsFinished:(_Bool)arg1;
 - (void)_acquirePowerAssertionsForSelfAndParent;
 - (void)_acquirePowerAssertion;
 - (void)_dropPowerAssertionsForSelfAndParent;
@@ -113,9 +115,10 @@ __attribute__((visibility("hidden")))
 - (void)_registerAttemptForOperation;
 - (void)_continueOperationStart;
 @property(readonly, nonatomic) __weak CKDOperation *topmostParentOperation;
-- (void)addAndRunChildOperation:(id)arg1;
+- (void)spawnAndRunOperationOfClass:(Class)arg1 operationInfo:(id)arg2 operationConfigurationBlock:(CDUnknownBlockType)arg3;
+- (void)spawnAndRunOperationOfClass:(Class)arg1 operationInfo:(id)arg2 spawnQueue:(id)arg3 operationConfigurationBlock:(CDUnknownBlockType)arg4;
+- (void)spawnAndRunOperationOfClass:(Class)arg1 operationInfo:(id)arg2 spawnQueue:(id)arg3 clientContext:(id)arg4 operationConfigurationBlock:(CDUnknownBlockType)arg5;
 - (void)combineMetricsWithOperation:(id)arg1;
-- (id)newChildOperationInfoOfClass:(Class)arg1;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
 @property(readonly, copy) NSString *description;

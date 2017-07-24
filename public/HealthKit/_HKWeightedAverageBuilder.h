@@ -12,7 +12,6 @@
 }
 
 - (id)_weightedAverageStatisticsWithValuesAndTimes:(vector_b70ce118 *)arg1 unit:(id)arg2 sorted:(_Bool)arg3 error:(id *)arg4;
-- (id)weightedAverageStatisticsWithSortedHeartRateReadings:(id)arg1 error:(id *)arg2;
 - (id)weightedAverageWithSamples:(id)arg1 sorted:(_Bool)arg2 error:(id *)arg3;
 - (id)initWithStartDate:(id)arg1;
 

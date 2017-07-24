@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (id)_JPEGDataFromImageData:(id)arg1;
 - (_Bool)_isHEIFImageFormatFromData:(id)arg1 url:(id)arg2;
 - (id)_UIImagePickerControllerInfoDictionaryFromPhotoPickerInfoDictionary:(id)arg1;
+- (void)performTraitCollectionUpdateUsingData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performAppearanceUpdateUsingPhotoPickerAppearanceDictionary:(id)arg1;
 - (void)performPhotoPickerPreviewOfFirstAsset;
 - (void)initiatePhotoPickerSelection;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class _XCTContextImplementation;
+@class NSDictionary, _XCTContextImplementation;
 
 @interface XCTContext : NSObject
 {
@@ -25,6 +25,7 @@
 + (void)runActivityNamed:(id)arg1 block:(CDUnknownBlockType)arg2;
 + (id)currentContext;
 @property(retain) _XCTContextImplementation *internalImplementation; // @synthesize internalImplementation=_internalImplementation;
+@property(readonly) NSDictionary *aggregationRecords;
 - (id)topActivity;
 - (long long)activityRecordStackDepth;
 - (void)unwindRemainingActivities;

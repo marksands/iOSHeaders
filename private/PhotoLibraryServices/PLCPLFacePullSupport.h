@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @protocol PLSyncContext, PLSyncableAsset;
 
@@ -21,7 +21,7 @@
 - (void)_unlinkPersonIfVerifiedFromFace:(id)arg1;
 - (void)_applyDimensionAndStateFromFaceReference:(id)arg1 toDetectedFace:(id)arg2;
 - (void)_finalizeFace:(id)arg1 withFaceRef:(id)arg2 applyDimensionAndState:(_Bool)arg3;
-- (id)_createFaceFromFaceRef:(id)arg1;
+- (id)_createFaceFromFaceRef:(id)arg1 algorithmVersion:(int)arg2;
 - (id)_applyAssetChange:(id)arg1 toExistingFaces:(id)arg2 withPolicy:(long long)arg3;
 - (long long)_policyForApplyingFaceChangesFromAssetChange:(id)arg1;
 - (void)applyFacesChangesFromAssetChange:(id)arg1;

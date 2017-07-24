@@ -12,6 +12,7 @@
 
 @interface CSSearchableItem (FPItem) <NSFileProviderItem_Private>
 + (id)fp_queryFetchAttributes;
+@property(readonly) _Bool fp_isContainer;
 @property(readonly, copy) NSString *fp_appContainerBundleIdentifier;
 @property(readonly, nonatomic, getter=isSharedByCurrentUser) _Bool sharedByCurrentUser;
 - (id)sharingCurrentUserPermissions;
@@ -53,6 +54,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly, copy, getter=isDownloadRequested) NSNumber *downloadRequested;
 @property(readonly, copy) NSURL *fileURL;
+@property(readonly, getter=fp_isUbiquitous) _Bool fp_ubiquitous;
 @property(readonly, copy) NSNumber *hasUnresolvedConflicts;
 @property(readonly) unsigned long long hash;
 @property(readonly, getter=isHidden) _Bool hidden;

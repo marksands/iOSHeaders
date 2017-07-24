@@ -60,13 +60,11 @@
     GEOComposedRouteLeg *_currentLeg;
     CDUnknownBlockType _timeSinceRecordingBeganHandler;
     CDUnknownBlockType _errorHandler;
-    _Bool _copyToCrashReporterDirectory;
     _Bool _lastPauseSpokenAudio;
     long long _lastVolumeSetting;
     id <MNTraceRecorderBackgroundGuard> _backgroundGuardDelegate;
 }
 
-@property(nonatomic) _Bool copyToCrashReporterDirectory; // @synthesize copyToCrashReporterDirectory=_copyToCrashReporterDirectory;
 @property(nonatomic) __weak id <MNTraceRecorderBackgroundGuard> backgroundGuardDelegate; // @synthesize backgroundGuardDelegate=_backgroundGuardDelegate;
 @property(copy, nonatomic) CDUnknownBlockType timeSinceRecordingBeganHandler; // @synthesize timeSinceRecordingBeganHandler=_timeSinceRecordingBeganHandler;
 @property(readonly, nonatomic) NSDate *recordingStartTime; // @synthesize recordingStartTime=_recordingStartTime;
@@ -79,7 +77,6 @@
 - (void)recordSignificantEvent:(long long)arg1 withData:(id)arg2;
 - (void)updateActualArrivalTime:(double)arg1 arrivalTimeDelta:(double)arg2 forStepIndex:(unsigned long long)arg3;
 - (void)recordProjectedArrivalTime:(double)arg1 actualArrivalTime:(double)arg2 arrivalTimeDelta:(double)arg3 matchType:(long long)arg4 vehicleType:(long long)arg5 lastKnownLocation:(id)arg6 forStepIndex:(unsigned long long)arg7 withDuration:(double)arg8 andManeuverType:(int)arg9;
-- (void)_copyTraceToCrashReporter;
 - (void)_logError:(id)arg1 resultCode:(int)arg2;
 - (void)recordCompassHeading:(double)arg1 magneticHeading:(double)arg2 accuracy:(double)arg3 timestamp:(id)arg4;
 - (void)recordMotionUpdate:(unsigned long long)arg1 exitType:(unsigned long long)arg2 confidence:(unsigned long long)arg3;
@@ -142,6 +139,7 @@
 - (void)_serializationError:(id)arg1;
 - (void)_logSqliteErrorWithResult:(int)arg1 file:(const char *)arg2 line:(int)arg3;
 - (void)_dispatchWrite:(CDUnknownBlockType)arg1;
+@property(nonatomic) _Bool copyToCrashReporterDirectory;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1 clMapMatching:(_Bool)arg2 errorHandler:(CDUnknownBlockType)arg3;
 

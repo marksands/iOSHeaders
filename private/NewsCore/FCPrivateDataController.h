@@ -60,12 +60,16 @@
 @property(retain, nonatomic) FCPushNotificationCenter *pushNotificationCenter; // @synthesize pushNotificationCenter=_pushNotificationCenter;
 @property(getter=isWaitingForFirstSync) _Bool waitingForFirstSync; // @synthesize waitingForFirstSync=_waitingForFirstSync;
 - (void).cxx_destruct;
+- (id)_newSyncState;
 - (void)_serialSyncWithCompletion:(CDUnknownBlockType)arg1;
 - (long long)_qualityOfServiceForNextSync;
 - (long long)_qualityOfServiceForFirstSync:(_Bool)arg1;
+- (void)_notifyObservers;
 - (void)_markAsDirtyAndNotifyObservers:(_Bool)arg1;
 - (long long)commandQueue:(id)arg1 qualityOfServiceForCommand:(id)arg2;
+- (void)recordSyncManagerNotifyObservers:(id)arg1;
 - (void)recordSyncManager:(id)arg1 stateDidChange:(id)arg2;
+- (void)zoneSyncManagerNotifyObservers:(id)arg1;
 - (void)zoneSyncManager:(id)arg1 stateDidChange:(id)arg2;
 - (id)pruneRecords:(id)arg1 forZoneName:(id)arg2;
 - (_Bool)canHelpPruneZoneName:(id)arg1;
@@ -79,7 +83,7 @@
 - (void)addCommandToCommandQueue:(id)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
-- (_Bool)isBackedByAnyRecordZonesInSet:(id)arg1;
+- (_Bool)isBackedByAnyRecordZoneIDsInSet:(id)arg1;
 - (void)removeStateObserver:(id)arg1;
 - (void)addStateObserver:(id)arg1;
 - (void)saveWithCompletion:(CDUnknownBlockType)arg1;

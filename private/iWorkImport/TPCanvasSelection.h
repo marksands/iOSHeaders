@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 + (id)canvasSelectionFromSelection:(id)arg1 withInfos:(id)arg2;
 + (id)canvasSelectionFromSelection:(id)arg1;
 + (Class)archivedSelectionClass;
+- (void).cxx_destruct;
 - (void)p_commonCopyTo:(id)arg1;
 - (void)saveToArchive:(struct CanvasSelectionArchive *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct CanvasSelectionArchive *)arg1 unarchiver:(id)arg2;
@@ -57,7 +58,6 @@ __attribute__((visibility("hidden")))
 - (id)UUIDDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) _Bool isEmpty;
-- (void)dealloc;
 @property(readonly, nonatomic) int canvasSelectionKind;
 - (id)initWithType:(int)arg1 range:(struct _NSRange)arg2 styleInsertionBehavior:(int)arg3 caretAffinity:(int)arg4 smartFieldRange:(struct _NSRange)arg5 leadingEdge:(_Bool)arg6 leadingCharIndex:(unsigned long long)arg7 infos:(id)arg8 excludedInfos:(id)arg9 additionalInfos:(id)arg10;
 

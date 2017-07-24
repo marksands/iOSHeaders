@@ -6,8 +6,8 @@
 
 #import <IMDaemonCore/IMDCKAbstractSyncController.h>
 
-@class CKServerChangeToken, IDSKVStore, IMDCKMessageSyncCKOperationFactory, IMDRecordZoneManager, NSObject;
-@protocol OS_dispatch_queue, OS_xpc_object;
+@class CKServerChangeToken, IMDCKMessageSyncCKOperationFactory, IMDRecordZoneManager, NSObject;
+@protocol IMDCKSyncTokenStore, OS_dispatch_queue, OS_xpc_object;
 
 @interface IMDCKMessageSyncController : IMDCKAbstractSyncController
 {
@@ -16,18 +16,16 @@
     CKServerChangeToken *_archivedRecordSyncToken;
     NSObject<OS_dispatch_queue> *_ckQueue;
     IMDRecordZoneManager *_recordZoneManager;
-    IDSKVStore *_kvStore;
+    id <IMDCKSyncTokenStore> _syncTokenStore;
     IMDCKMessageSyncCKOperationFactory *_CKOperationFactory;
-    IDSKVStore *_archivedRecordKVStore;
     NSObject<OS_xpc_object> *_activity;
 }
 
 + (id)sharedInstance;
 @property(nonatomic) _Bool shouldCheckDeviceConditions; // @synthesize shouldCheckDeviceConditions=_shouldCheckDeviceConditions;
 @property NSObject<OS_xpc_object> *activity; // @synthesize activity=_activity;
-@property(retain, nonatomic) IDSKVStore *archivedRecordKVStore; // @synthesize archivedRecordKVStore=_archivedRecordKVStore;
 @property(retain, nonatomic) IMDCKMessageSyncCKOperationFactory *CKOperationFactory; // @synthesize CKOperationFactory=_CKOperationFactory;
-@property(readonly, nonatomic) IDSKVStore *kvStore; // @synthesize kvStore=_kvStore;
+@property(retain, nonatomic) id <IMDCKSyncTokenStore> syncTokenStore; // @synthesize syncTokenStore=_syncTokenStore;
 @property(retain, nonatomic) IMDRecordZoneManager *recordZoneManager; // @synthesize recordZoneManager=_recordZoneManager;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *ckQueue; // @synthesize ckQueue=_ckQueue;
 - (void)syncDeletedMessagesToCloudKitWithCompletion:(CDUnknownBlockType)arg1;
@@ -49,13 +47,14 @@
 - (_Bool)_shouldFetchArchivedRecords:(id)arg1;
 - (void)_processFetchRecordZoneChangesCompletionWithError:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)_processRecordZoneFetchCompletionZoneID:(id)arg1 serverChangeToken:(id)arg2 clientChangeTokenData:(id)arg3 moreComing:(_Bool)arg4 NSError:(id)arg5 syncType:(long long)arg6 currentBatchCount:(long long)arg7 maxNumberOfBatches:(long long)arg8 shouldFetchArchivedRecords:(_Bool)arg9 completionBlock:(CDUnknownBlockType)arg10;
-- (void)_resetSyncToken;
-@property(retain, nonatomic) CKServerChangeToken *latestSyncToken; // @synthesize latestSyncToken=_latestSyncToken;
 - (void)_processFetchArchivedRecordCompletionWithError:(id)arg1 WithCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)_fetchArchivedRecordsIfNeeded:(_Bool)arg1 currentBatchCount:(long long)arg2 maxNumberOfBatches:(long long)arg3 WithCompletionBlock:(CDUnknownBlockType)arg4;
 - (void)_processArchivedRecordsFetchCompletionZoneID:(id)arg1 serverChangeToken:(id)arg2 moreComing:(_Bool)arg3 currentBatchCount:(long long)arg4 maxNumberOfBatches:(long long)arg5 NSError:(id)arg6 completionBlock:(CDUnknownBlockType)arg7;
+- (void)_resetSyncToken;
+@property(retain, nonatomic) CKServerChangeToken *latestSyncToken; // @synthesize latestSyncToken=_latestSyncToken;
 - (void)_resetArvchivedRecordSyncToken;
 @property(retain, nonatomic) CKServerChangeToken *archivedRecordSyncToken; // @synthesize archivedRecordSyncToken=_archivedRecordSyncToken;
+- (void)_migrateSyncTokens;
 - (_Bool)_deviceConditionsAllowsMessageSync;
 - (void)_processRecordChange:(id)arg1;
 - (void)_writeDirtyMessagesToCloudKitWithCompletion:(CDUnknownBlockType)arg1;
@@ -79,6 +78,7 @@
 - (id)_chatRegistry;
 - (void)dealloc;
 - (id)init;
+- (id)initWithSyncTokenStore:(id)arg1;
 
 @end
 

@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) CALayer *equationLayer; // @synthesize equationLayer=_equationLayer;
 - (void).cxx_destruct;
+- (id)dragItemsForBeginningDragAtPoint:(struct CGPoint)arg1;
 - (_Bool)shouldIgnoreEditMenuTapAtPoint:(struct CGPoint)arg1 withRecognizer:(id)arg2;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2;
 - (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;

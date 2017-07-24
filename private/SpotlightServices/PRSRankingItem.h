@@ -10,7 +10,6 @@
 
 @interface PRSRankingItem : NSObject
 {
-    _Bool _isFromLocalResult;
     _Bool _eligibleForDemotion;
     _Bool _isPrepared;
     NSString *_identifier;
@@ -29,8 +28,8 @@
     NSMutableArray *_matchedRecipients;
     NSArray *_emailAddresses;
     unsigned long long _playCount;
-    char *_importantPropertiesPrefixMatched;
-    char *_importantPropertiesWordMatched;
+    unsigned long long _importantPropertiesPrefixMatched;
+    unsigned long long _importantPropertiesWordMatched;
     struct ranking_index_score_t _indexScore;
     // Error parsing type: T, name: _inputToModelScore
 }
@@ -47,8 +46,8 @@
 + (id)requiredAttributes;
 + (void)initialize;
 @property(nonatomic) _Bool isPrepared; // @synthesize isPrepared=_isPrepared;
-@property(nonatomic) char *importantPropertiesWordMatched; // @synthesize importantPropertiesWordMatched=_importantPropertiesWordMatched;
-@property(nonatomic) char *importantPropertiesPrefixMatched; // @synthesize importantPropertiesPrefixMatched=_importantPropertiesPrefixMatched;
+@property(nonatomic) unsigned long long importantPropertiesWordMatched; // @synthesize importantPropertiesWordMatched=_importantPropertiesWordMatched;
+@property(nonatomic) unsigned long long importantPropertiesPrefixMatched; // @synthesize importantPropertiesPrefixMatched=_importantPropertiesPrefixMatched;
 @property(nonatomic) unsigned long long playCount; // @synthesize playCount=_playCount;
 @property(retain, nonatomic) NSArray *emailAddresses; // @synthesize emailAddresses=_emailAddresses;
 @property(retain, nonatomic) NSMutableArray *matchedRecipients; // @synthesize matchedRecipients=_matchedRecipients;
@@ -65,7 +64,6 @@
 @property(retain, nonatomic) PRSL3FeatureVector *L3FeatureVector; // @synthesize L3FeatureVector=_L3FeatureVector;
 @property(retain, nonatomic) PRSL2FeatureVector *L2FeatureVector; // @synthesize L2FeatureVector=_L2FeatureVector;
 @property(retain, nonatomic) NSString *sectionBundleIdentifier; // @synthesize sectionBundleIdentifier=_sectionBundleIdentifier;
-@property(nonatomic) _Bool isFromLocalResult; // @synthesize isFromLocalResult=_isFromLocalResult;
 @property(nonatomic) double quality_score; // @synthesize quality_score=_quality_score;
 @property(nonatomic) double score; // @synthesize score=_score;
 @property(nonatomic) double feedbackScore; // @synthesize feedbackScore=_feedbackScore;
@@ -81,13 +79,13 @@
 - (id)interestingDate;
 - (id)dedupeIdentifier;
 - (void)populateFeature:(unsigned long long)arg1 value:(double)arg2;
-- (void)populateTextFeatureValuesForProperty:(id)arg1 updatingBundleFeatureValues:(id)arg2 withEvaluator:(id)arg3 withContext:(struct _populate_text_features_ctx *)arg4 importantPropertyIdx:(unsigned long long)arg5;
+- (void)populateTextFeatureValuesForProperty:(id)arg1 updatingBundleFeatureValues:(id)arg2 withEvaluator:(id)arg3 withContext:(struct prs_feature_population_ctx_t *)arg4;
 - (void)hackPlayCounts;
-- (void)populateFeaturesWithEvaluator:(id)arg1 updatingBundleFeatures:(double *)arg2 importantAttributes:(id)arg3;
+- (void)populateFeaturesWithEvaluator:(id)arg1 updatingBundleFeatures:(double *)arg2 withContext:(struct prs_feature_population_ctx_t *)arg3;
 - (void)populateOtherFeatures;
 - (void)populateMailFeatures;
 - (void)populateBundleSpecificFeatures;
-- (void)populateCrossAttributeDerivedFeaturesWithContext:(struct _populate_text_features_ctx *)arg1;
+- (void)populateCrossAttributeDerivedFeaturesWithContext:(struct prs_feature_population_ctx_t *)arg1;
 - (void)updateBundleFeatures:(double *)arg1 withArrValues:(id)arg2;
 - (void)updateAccumulatedBundleFeatures:(double *)arg1 values:(id)arg2 feature:(unsigned long long)arg3;
 - (void)updateScoreDescriptorBundleFeatures:(double *)arg1 values:(id)arg2 feature:(unsigned long long)arg3;

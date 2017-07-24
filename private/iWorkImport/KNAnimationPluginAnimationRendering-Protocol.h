@@ -6,10 +6,10 @@
 
 #import <iWorkImport/KNAnimationPlugin-Protocol.h>
 
-@class NSDictionary;
+@class NSMapTable;
 @protocol KNAnimationPluginContext;
 
 @protocol KNAnimationPluginAnimationRendering <KNAnimationPlugin>
-- (NSDictionary *)animationsWithContext:(id <KNAnimationPluginContext>)arg1;
+- (void)addAnimationsTo:(NSMapTable *)arg1 context:(id <KNAnimationPluginContext>)arg2;
 @end
 

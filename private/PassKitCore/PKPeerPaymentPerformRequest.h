@@ -13,9 +13,11 @@
     NSString *_quoteIdentifier;
     NSData *_paymentData;
     NSDictionary *_certificates;
+    NSString *_recipientPhoneOrEmail;
 }
 
 + (id)requestWithAuthorizedPeerPaymentQuote:(id)arg1;
+@property(copy, nonatomic) NSString *recipientPhoneOrEmail; // @synthesize recipientPhoneOrEmail=_recipientPhoneOrEmail;
 @property(copy, nonatomic) NSDictionary *certificates; // @synthesize certificates=_certificates;
 @property(copy, nonatomic) NSData *paymentData; // @synthesize paymentData=_paymentData;
 @property(copy, nonatomic) NSString *quoteIdentifier; // @synthesize quoteIdentifier=_quoteIdentifier;

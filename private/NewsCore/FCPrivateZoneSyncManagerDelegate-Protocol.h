@@ -9,6 +9,7 @@
 @class FCPrivateZoneSyncManager, NTPBPrivateZoneSyncState;
 
 @protocol FCPrivateZoneSyncManagerDelegate <NSObject>
+- (void)zoneSyncManagerNotifyObservers:(FCPrivateZoneSyncManager *)arg1;
 - (void)zoneSyncManager:(FCPrivateZoneSyncManager *)arg1 stateDidChange:(NTPBPrivateZoneSyncState *)arg2;
 @end
 

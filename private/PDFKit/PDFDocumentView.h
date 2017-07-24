@@ -22,10 +22,15 @@ __attribute__((visibility("hidden")))
 - (id)backgroundImageForPage:(id)arg1 withQuality:(int *)arg2;
 - (void)changedBoundsForBoxNotification:(id)arg1;
 - (void)_updateVisibilityDelegateForVisiblePageView:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)_reAddPageOverlaysStartingAtIndex:(unsigned long long)arg1;
+- (void)_removePageOverlaysStartingAtIndex:(unsigned long long)arg1;
 - (void)_shiftPagesAtIndex:(unsigned long long)arg1 downwards:(_Bool)arg2;
 - (void)didSwapPage:(id)arg1 atIndex:(unsigned long long)arg2 forPage:(id)arg3 atIndex:(unsigned long long)arg4;
+- (void)willSwapPage:(id)arg1 atIndex:(unsigned long long)arg2 forPage:(id)arg3 atIndex:(unsigned long long)arg4;
 - (void)didRemovePage:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)willRemovePage:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)didInsertPage:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)willInsertPage:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)_createPageView:(id)arg1;
 - (void)enableTextSelectionHandles;
 - (void)clearTextSelectionHandles;

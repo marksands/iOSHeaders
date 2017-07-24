@@ -36,7 +36,7 @@
 - (void)resetViewportConfiguration:(const struct _UIWebViewportConfiguration *)arg1;
 - (void)overrideViewportConfiguration:(const struct _UIWebViewportConfiguration *)arg1;
 - (void)clearWebKitViewportConfigurationFlags;
-- (void)applyWebKitViewportArgumentsSize:(struct CGSize)arg1 initialScale:(float)arg2 minimumScale:(float)arg3 maximumScale:(float)arg4 allowsUserScaling:(float)arg5 allowsShrinkToFit:(float)arg6;
+- (void)applyWebKitViewportArgumentsSize:(struct CGSize)arg1 initialScale:(float)arg2 minimumScale:(float)arg3 maximumScale:(float)arg4 allowsUserScaling:(float)arg5 allowsShrinkToFit:(float)arg6 viewportFit:(id)arg7;
 - (void)_resolveViewSizeRelativeLengths;
 - (void)setAvailableViewSize:(struct CGSize)arg1 updateConfigurationSize:(_Bool)arg2;
 - (void)setDocumentBounds:(struct CGRect)arg1;
@@ -45,6 +45,7 @@
 - (_Bool)shouldIgnoreScalingConstraints;
 - (_Bool)shouldIgnoreVerticalScalingConstraints;
 - (_Bool)shouldIgnoreHorizontalScalingConstraints;
+@property(readonly, nonatomic) _Bool avoidsUnsafeArea;
 @property(readonly, nonatomic) _Bool allowsUserScaling;
 @property(readonly, nonatomic) float maximumScale;
 @property(readonly, nonatomic) float minimumScale;

@@ -10,7 +10,7 @@
 #import <GeoServices/GEORoutePreloadSession-Protocol.h>
 
 @class GEOApplicationAuditToken, GEOComposedRoute, NSMutableDictionary, NSString;
-@protocol GEORoutePreloadSessionDelegate;
+@protocol GEORoutePreloadSessionDelegate, OS_os_log;
 
 @interface GEORoutePreloader : NSObject <GEOResourceManifestTileGroupObserver, GEORoutePreloadSession>
 {
@@ -26,11 +26,13 @@
     CDUnknownBlockType _batteryHandler;
     unsigned long long _networkQuality;
     id <GEORoutePreloadSessionDelegate> _delegate;
+    CDUnknownBlockType _tileKeyIsDownloadedPredicate;
     double _stepSizeInMeters;
     GEOApplicationAuditToken *_token;
 }
 
 + (id)preloaderForRoute:(id)arg1;
+@property(readonly, copy, nonatomic) CDUnknownBlockType tileKeyIsDownloadedPredicate; // @synthesize tileKeyIsDownloadedPredicate=_tileKeyIsDownloadedPredicate;
 @property(copy, nonatomic) CDUnknownBlockType batteryHandler; // @synthesize batteryHandler=_batteryHandler;
 @property(nonatomic) unsigned long long networkQuality; // @synthesize networkQuality=_networkQuality;
 @property(readonly, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
@@ -43,11 +45,12 @@
 - (void)_cancelPreloadTasks;
 - (void)_retryFailuresWithErrorsReset:(_Bool)arg1;
 - (void)setTraits:(id)arg1;
-- (void)preloaderLog:(id)arg1;
+@property(readonly, nonatomic) NSObject<OS_os_log> *preloaderLog;
 - (void)updateWithRouteMatch:(id)arg1;
 - (void)getPreloadSetCoordinates:(CDStruct_c3b9c2ee *)arg1 maxLength:(unsigned long long)arg2 actualLength:(unsigned long long *)arg3;
 - (int)preloadStateForTile:(const struct _GEOTileKey *)arg1;
 - (void)addTileSetStyle:(int)arg1 betweenZoom:(unsigned int)arg2 andZoom:(unsigned int)arg3;
+- (void)_start;
 - (void)start;
 - (void)stop;
 - (void)stopLoading;
@@ -56,8 +59,10 @@
 - (_Bool)fullDebuggingEnabled;
 - (_Bool)minimalDebuggingEnabled;
 - (_Bool)isSufficientlyLoaded;
+- (void)_withDownloadedRegionsOnQueue:(id)arg1 perform:(CDUnknownBlockType)arg2;
 - (void)dealloc;
-- (id)initSuperWithRoute:(id)arg1 loggingEnabled:(_Bool)arg2 minimalDebugging:(_Bool)arg3 fullDebugging:(_Bool)arg4 batteryHandler:(CDUnknownBlockType)arg5;
+- (id)initWithRoute:(id)arg1 loggingEnabled:(_Bool)arg2 minimalDebugging:(_Bool)arg3 fullDebugging:(_Bool)arg4 batteryHandler:(CDUnknownBlockType)arg5;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

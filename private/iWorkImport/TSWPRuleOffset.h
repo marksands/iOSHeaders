@@ -7,14 +7,16 @@
 #import <Foundation/NSObject.h>
 
 #import <iWorkImport/NSCopying-Protocol.h>
+#import <iWorkImport/TSSPropertyValueArchiving-Protocol.h>
 
 __attribute__((visibility("hidden")))
-@interface TSWPRuleOffset : NSObject <NSCopying>
+@interface TSWPRuleOffset : NSObject <TSSPropertyValueArchiving, NSCopying>
 {
     double _dX;
     double _dY;
 }
 
++ (id)instanceWithArchive:(const struct Message *)arg1 unarchiver:(id)arg2;
 + (id)ruleOffsetWithDX:(double)arg1 dY:(double)arg2;
 + (id)ruleOffset;
 @property(readonly, nonatomic) double dY; // @synthesize dY=_dY;

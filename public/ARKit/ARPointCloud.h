@@ -11,19 +11,22 @@
 @interface ARPointCloud : NSObject <NSCopying>
 {
     vector_fff08e2a _pointsVector;
+    vector_7dcb3552 _identifiersVector;
 }
 
++ (id)concatPointClouds:(id)arg1;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 -     // Error parsing type: @80@0:8{?=[4]}16, name: pointCloudByApplyingTransform:
 - (id)_hitTestFromOrigin:withDirection: /* Error: Ran out of types for this method. */;
+- (const unsigned long long *)identifiers;
 // Error parsing type for property points:
 // Property attributes: Tr^,R,N
 
 @property(readonly, nonatomic) unsigned long long count;
-- (id)initWithPointsVector:(struct vector<float __attribute__((ext_vector_type(3))), std::__1::allocator<float __attribute__((ext_vector_type(3)))>>)arg1;
+- (id)initWithPointsVector:(const struct vector<float __attribute__((ext_vector_type(3))), std::__1::allocator<float __attribute__((ext_vector_type(3)))>> *)arg1 identifiersVector:(const vector_7dcb3552 *)arg2;
 
 @end
 

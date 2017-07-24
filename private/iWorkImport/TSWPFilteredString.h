@@ -17,9 +17,10 @@ __attribute__((visibility("hidden")))
     TSWPRangeArray *_sourceRanges;
 }
 
-@property(readonly, retain, nonatomic) TSWPRangeArray *sourceRanges; // @synthesize sourceRanges=_sourceRanges;
+@property(readonly, nonatomic) TSWPRangeArray *sourceRanges; // @synthesize sourceRanges=_sourceRanges;
 @property(retain, nonatomic) TSWPDeletionRangeMap *rangeMap; // @synthesize rangeMap=_rangeMap;
 @property(retain, nonatomic) NSString *sourceString; // @synthesize sourceString=_sourceString;
+- (void).cxx_destruct;
 - (unsigned long long)length;
 - (struct _NSRange)charRangeMappedFromStorage:(struct _NSRange)arg1;
 - (struct _NSRange)charRangeMappedToStorage:(struct _NSRange)arg1;
@@ -27,7 +28,6 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)charIndexMappedToStorage:(unsigned long long)arg1;
 - (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;
 - (unsigned short)characterAtIndex:(unsigned long long)arg1;
-- (void)dealloc;
 - (id)initWithString:(id)arg1 subrange:(struct _NSRange)arg2 removeRanges:(id)arg3;
 
 @end

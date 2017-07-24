@@ -11,6 +11,7 @@
 @interface CCUIMenuModuleItemView : UIControl
 {
     UILabel *_titleLabel;
+    UILabel *_subtitleLabel;
     UIImage *_glyphImage;
     UIView *_separatorView;
     UIImageView *_glyphImageView;
@@ -27,15 +28,11 @@
 @property(readonly, copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler=_handler;
 - (void).cxx_destruct;
 - (void)_updateForStateChange;
-- (void)_dragExit:(id)arg1;
-- (void)_dragEnter:(id)arg1;
-- (void)_touchUpOutside:(id)arg1;
-- (void)_touchUpInside:(id)arg1;
-- (void)_touchDown:(id)arg1;
 - (struct UIEdgeInsets)_labelInsets;
 - (double)_glyphMargin;
 - (double)_titleBaselineToBottom;
 - (double)_titleBaselineToTop;
+- (_Bool)_shouldCenterText;
 - (void)_setContinuousCornerRadius:(double)arg1;
 - (void)setEnabled:(_Bool)arg1;
 - (void)setSelected:(_Bool)arg1;
@@ -43,6 +40,7 @@
 - (void)layoutSubviews;
 - (struct CGSize)intrinsicContentSize;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (id)initWithTitle:(id)arg1 subtitle:(id)arg2 glyphImage:(id)arg3 handler:(CDUnknownBlockType)arg4;
 - (id)initWithTitle:(id)arg1 glyphImage:(id)arg2 handler:(CDUnknownBlockType)arg3;
 
 @end

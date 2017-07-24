@@ -16,6 +16,7 @@
 @property(readonly, nonatomic) __weak UIViewController *viewController;
 @property(nonatomic) unsigned long long presentationStyle;
 @property(readonly, nonatomic) MSConversation *activeConversation;
+- (void)requestResize;
 - (void)_remoteViewDidBecomeReadyForDisplay;
 - (void)dismiss;
 - (void)requestPresentationStyleExpanded:(_Bool)arg1;

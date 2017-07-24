@@ -15,11 +15,13 @@ __attribute__((visibility("hidden")))
 @interface UIKeyboardCandidateView_iPhone : UIKeyboardCandidateView <UICollectionViewDelegate, UIGestureRecognizerDelegate>
 {
     UIKeyboardCandidateGridHeader *_header;
+    _Bool _keyboardIsHidden;
 }
 
 + (double)defaultExtendedControlHeight;
 - (void).cxx_destruct;
 - (void)_handleKeyboardShowOrHide:(id)arg1;
+- (struct UIEdgeInsets)sortControlInsets;
 - (void)handleTap;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (_Bool)_shouldUseFullMetrics;

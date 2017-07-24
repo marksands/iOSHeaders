@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <iAd/ADCreativeControllerDelegate-Protocol.h>
 #import <iAd/ADPrivacyViewControllerInternalDelegate-Protocol.h>
@@ -22,6 +22,7 @@
     _Bool _didInstallCreativeView;
     _Bool _hasImpressed;
     _Bool _visibilityCheckScheduled;
+    _Bool _adRequestMade;
     _Bool _shouldMonitorVisibility;
     _Bool _serviceAdSpaceRequestInProgress;
     _Bool _shouldPresentActionViewControllerWhenReady;
@@ -60,6 +61,7 @@
 @property(retain, nonatomic) ADCreativeController *creativeController; // @synthesize creativeController=_creativeController;
 @property(nonatomic) double lastSlowCheck; // @synthesize lastSlowCheck=_lastSlowCheck;
 @property(nonatomic) _Bool shouldMonitorVisibility; // @synthesize shouldMonitorVisibility=_shouldMonitorVisibility;
+@property(nonatomic) _Bool adRequestMade; // @synthesize adRequestMade=_adRequestMade;
 @property(nonatomic) _Bool visibilityCheckScheduled; // @synthesize visibilityCheckScheduled=_visibilityCheckScheduled;
 @property(nonatomic) long long visibility; // @synthesize visibility=_visibility;
 @property(nonatomic) _Bool hasImpressed; // @synthesize hasImpressed=_hasImpressed;

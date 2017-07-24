@@ -23,13 +23,13 @@
     _Bool _allAssetViewModelsAreInvalid;
     PUCachedMapTable *_assetSharedViewModelByAsset;
     // Error parsing type: Ai, name: _ongoingEnumerations
+    _Bool _videoContentAllowed;
     _Bool _isScrubbing;
     _Bool _isScrolling;
     _Bool _isAnimatingAnyTransition;
     _Bool _accessoryViewsDefaultVisibility;
     _Bool _isChromeVisible;
     _Bool _presentingOverOneUp;
-    _Bool _videoContentAllowed;
     PUAssetsDataSource *_assetsDataSource;
     double _currentAssetTransitionProgress;
     NSString *_transitionDriverIdentifier;
@@ -41,15 +41,16 @@
     long long __userNavigationDistance;
     long long __scrubbingSessionDistance;
     NSMutableSet *__animatingTransitionIdentifiers;
+    NSMutableSet *__videoDisallowedReasons;
     PUMediaProvider *_mediaProvider;
     PXAutoloopScheduler *_autoloopScheduler;
     struct CGSize _secondScreenSize;
 }
 
 + (void)initialize;
-@property(nonatomic) _Bool videoContentAllowed; // @synthesize videoContentAllowed=_videoContentAllowed;
 @property(retain, nonatomic) PXAutoloopScheduler *autoloopScheduler; // @synthesize autoloopScheduler=_autoloopScheduler;
 @property(retain, nonatomic) PUMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
+@property(retain, nonatomic, setter=_setVideoDisallowedReasons:) NSMutableSet *_videoDisallowedReasons; // @synthesize _videoDisallowedReasons=__videoDisallowedReasons;
 @property(retain, nonatomic, setter=_setAnimatingTransitionIdentifiers:) NSMutableSet *_animatingTransitionIdentifiers; // @synthesize _animatingTransitionIdentifiers=__animatingTransitionIdentifiers;
 @property(nonatomic, setter=_setScrubbingSessionDistance:) long long _scrubbingSessionDistance; // @synthesize _scrubbingSessionDistance=__scrubbingSessionDistance;
 @property(nonatomic, setter=_setUserNavigationDistance:) long long _userNavigationDistance; // @synthesize _userNavigationDistance=__userNavigationDistance;
@@ -91,6 +92,8 @@
 - (id)assetSharedViewModelForAsset:(id)arg1;
 - (id)assetViewModelForAssetReference:(id)arg1;
 - (id)activeAssetReferences;
+- (void)_setVideoContentAllowed:(_Bool)arg1;
+- (void)setVideoContentAllowed:(_Bool)arg1 forReason:(id)arg2;
 - (void)setChromeVisible:(_Bool)arg1 changeReason:(long long)arg2 context:(id)arg3;
 - (void)setChromeVisible:(_Bool)arg1 changeReason:(long long)arg2;
 - (void)_resetAccessoryViewsVisibilityToDefaultWithChangeReason:(long long)arg1;

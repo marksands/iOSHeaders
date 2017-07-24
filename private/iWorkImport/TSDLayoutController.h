@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 
 + (void)temporaryLayoutControllerForInfos:(id)arg1 useInBlock:(CDUnknownBlockType)arg2;
 + (id)allInteractiveLayoutControllers;
+- (void)p_recreateLayoutsIfNeededToValidateLayouts:(id)arg1;
 - (void)i_removeAllLayouts;
 - (void)i_unregisterLayout:(id)arg1;
 - (void)i_registerLayout:(id)arg1;

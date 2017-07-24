@@ -61,6 +61,7 @@
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)touchTrackerTrackedTouches:(id)arg1;
 - (void)appsLongPressed:(id)arg1;
+- (void)resetScrollPosition;
 - (void)selectPluginAtIndexPath:(id)arg1;
 - (void)setInitiallySelectedPluginIfNeeded;
 @property(readonly, nonatomic) _Bool isMagnified;

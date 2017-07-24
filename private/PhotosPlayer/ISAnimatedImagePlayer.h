@@ -23,9 +23,11 @@
     _Bool _infiniteLoop;
     unsigned long long _remainingLoopCount;
     _Bool _playing;
+    _Bool _allowFrameDrops;
     unsigned long long _displayedFrameIndex;
 }
 
+@property(nonatomic) _Bool allowFrameDrops; // @synthesize allowFrameDrops=_allowFrameDrops;
 @property(nonatomic) unsigned long long displayedFrameIndex; // @synthesize displayedFrameIndex=_displayedFrameIndex;
 @property(nonatomic, getter=isPlaying) _Bool playing; // @synthesize playing=_playing;
 - (void).cxx_destruct;

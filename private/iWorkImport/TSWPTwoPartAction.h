@@ -16,11 +16,11 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)actionWithStartAction:(CDUnknownBlockType)arg1 cancelAction:(CDUnknownBlockType)arg2 finishAction:(CDUnknownBlockType)arg3;
-@property _Bool performImmediately; // @synthesize performImmediately=_performImmediately;
+@property(nonatomic) _Bool performImmediately; // @synthesize performImmediately=_performImmediately;
+- (void).cxx_destruct;
 - (void)cancel;
 - (void)performFinishAction;
 - (void)performStartAction;
-- (void)dealloc;
 - (id)initWithStartAction:(CDUnknownBlockType)arg1 cancelAction:(CDUnknownBlockType)arg2 finishAction:(CDUnknownBlockType)arg3;
 
 @end

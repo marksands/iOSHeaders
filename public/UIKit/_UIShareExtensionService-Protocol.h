@@ -10,7 +10,6 @@
 
 @protocol _UIShareExtensionService <NSObject>
 - (void)_viewControllerWasDismissed;
-- (void)setDarkStyleOnLegacyApp:(_Bool)arg1;
 - (void)setPresentedContextUsesDiscreteDismissButton:(_Bool)arg1;
 - (void)cleanupWithSelectedActivityType:(NSString *)arg1;
 - (void)setOtherActivityViewPresented:(_Bool)arg1;

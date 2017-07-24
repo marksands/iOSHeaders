@@ -15,6 +15,7 @@
 
 + (id)sharedInstance;
 - (void).cxx_destruct;
+- (double)portraitAnalyticsSamplingRate;
 - (double)getTopicsMultiplierForSource:(id)arg1 andAlgorithm:(id)arg2;
 - (double)nonReaderTextWeight;
 - (double)halfValuePosition;

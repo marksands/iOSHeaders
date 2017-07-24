@@ -71,6 +71,7 @@
 + (id)_itemWithGeoMapItem:(id)arg1;
 + (id)_mapItemWithWithLocation:(id)arg1 addressDictionary:(id)arg2 name:(id)arg3 businessURL:(id)arg4 phoneNumber:(id)arg5 sessionID:(id)arg6 muid:(unsigned long long)arg7 attributionID:(id)arg8 sampleSizeForUserRatingScore:(unsigned int)arg9 normalizedUserRatingScore:(float)arg10;
 + (_Bool)supportsSecureCoding;
++ (id)objectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 + (id)readableTypeIdentifiersForItemProvider;
 + (id)writableTypeIdentifiersForItemProvider;
 + (id)ticketForMapsDataString:(id)arg1 name:(id)arg2;
@@ -118,7 +119,7 @@
 @property(readonly, nonatomic, getter=_alternativeAppAdamIds) NSArray *alternativeAppAdamIds;
 @property(readonly, nonatomic, getter=_preferedAppAdamID) NSNumber *preferedAppAdamID;
 - (id)venueLabelWithContext:(unsigned long long)arg1;
-- (id)_addressFormattedAsAddressDictionary;
+- (id)_cnPostalAddress;
 - (id)_addressFormattedAsTitlesForMapRect:(CDStruct_02837cd9)arg1;
 - (id)_addressFormattedAsWeatherDisplayName;
 - (id)_addressFormattedAsSinglelineAddress;
@@ -247,7 +248,6 @@
 - (id)_localizedBusinessHoursWithCurrentOpeningHoursOptions;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 - (id)loadDataWithTypeIdentifier:(id)arg1 forItemProviderCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)_restaurantLink_overridenBundleIDsForVendorIDs;
 - (id)_restaurantLink_firstProviderDisplayName;

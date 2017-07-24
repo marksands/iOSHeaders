@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)validateItemsLoggingToFile:(struct __sFILE *)arg1 db:(id)arg2;
 - (_Bool)validateStructureLoggingToFile:(struct __sFILE *)arg1 db:(id)arg2;
 - (void)_checkResultSetIsEmpty:(id)arg1 logToFile:(struct __sFILE *)arg2 reason:(id)arg3 result:(_Bool *)arg4;
-- (_Bool)dumpActivityToContext:(id)arg1 error:(id *)arg2;
+- (_Bool)dumpActivityToContext:(id)arg1 includeExpensiveActivity:(_Bool)arg2 error:(id *)arg3;
 @property(readonly, nonatomic) _Bool isDocumentScopePublic;
 - (id)resolveClashOfAlias:(id)arg1 atPath:(id)arg2 withAlias:(id)arg3 atPath:(id)arg4;
 - (_Bool)removeSyncDownForAliasData:(id)arg1;

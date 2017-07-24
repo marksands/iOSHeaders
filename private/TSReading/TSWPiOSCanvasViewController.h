@@ -9,13 +9,14 @@
 #import <TSReading/UIDragInteractionDelegate-Protocol.h>
 #import <TSReading/_UINonEditableTextSelectionForceGestureDelegate-Protocol.h>
 
-@class NSMutableArray, NSString, TSUColor, TSWPHardPressGestureRecognizer, TSWPInteractiveCanvasController, TSWPSwipeGestureRecognizer, TSWPTwoPartAction, UIGestureRecognizer, UITapGestureRecognizer;
+@class NSMutableArray, NSString, TSUColor, TSWPHardPressGestureRecognizer, TSWPInteractiveCanvasController, TSWPLongPressGestureRecognizer, TSWPSwipeGestureRecognizer, TSWPTwoPartAction, UIGestureRecognizer, UITapGestureRecognizer;
 
 @interface TSWPiOSCanvasViewController : TSDiOSCanvasViewController <_UINonEditableTextSelectionForceGestureDelegate, UIDragInteractionDelegate>
 {
     UIGestureRecognizer *_hyperlinkGestureRecognizer;
     TSWPSwipeGestureRecognizer *_rightSwipeGestureRecognizer;
     TSWPSwipeGestureRecognizer *_leftSwipeGestureRecognizer;
+    TSWPLongPressGestureRecognizer *_longPressGestureRecognizer;
     TSWPTwoPartAction *_delayedTapAction;
     NSMutableArray *_gestureRecognizers;
     UITapGestureRecognizer *_secondarySingleTapGestureRecognizer;
@@ -23,6 +24,7 @@
 }
 
 @property(retain, nonatomic) TSWPHardPressGestureRecognizer *hardPressGesture; // @synthesize hardPressGesture=_hardPressGesture;
+@property(readonly, nonatomic) TSWPLongPressGestureRecognizer *longPressGestureRecognizer; // @synthesize longPressGestureRecognizer=_longPressGestureRecognizer;
 @property(readonly, nonatomic) UIGestureRecognizer *hyperlinkGestureRecognizer; // @synthesize hyperlinkGestureRecognizer=_hyperlinkGestureRecognizer;
 @property(readonly, nonatomic) UITapGestureRecognizer *secondarySingleTapGestureRecognizer; // @synthesize secondarySingleTapGestureRecognizer=_secondarySingleTapGestureRecognizer;
 @property(readonly, nonatomic) TSWPSwipeGestureRecognizer *textRightSwipeGestureRecognizer; // @synthesize textRightSwipeGestureRecognizer=_rightSwipeGestureRecognizer;
@@ -31,6 +33,7 @@
 - (void)p_addSwipeGestureRecognizer:(id)arg1 failRequiredFor:(id)arg2;
 @property(readonly) TSWPInteractiveCanvasController *interactiveCanvasController;
 - (id)dragInteraction:(id)arg1 previewForCancellingItem:(id)arg2 withDefault:(id)arg3;
+- (void)dragInteraction:(id)arg1 willAnimateLiftWithAnimator:(id)arg2 session:(id)arg3;
 - (id)dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
 - (id)dragInteraction:(id)arg1 itemsForAddingToSession:(id)arg2 withTouchAtPoint:(struct CGPoint)arg3;
 - (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;

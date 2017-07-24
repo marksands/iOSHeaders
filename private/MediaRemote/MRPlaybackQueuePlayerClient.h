@@ -12,7 +12,7 @@
 @interface MRPlaybackQueuePlayerClient : NSObject
 {
     NSMutableDictionary *_cache;
-    NSMutableDictionary *_lookup;
+    NSMutableDictionary *_offsets;
     NSMutableSet *_requests;
     void *_context;
     void *_playerPath;
@@ -43,7 +43,7 @@
 - (void)_OnQueue_setContext:(void *)arg1;
 @property(readonly, nonatomic) NSDictionary *lookup;
 @property(readonly, nonatomic) void *playerPath;
-- (id)writeData;
+- (id)_onQueue_writeData;
 - (void)readData:(id)arg1;
 - (void)dealloc;
 - (id)initWithPlayerPath:(void *)arg1 queue:(id)arg2;

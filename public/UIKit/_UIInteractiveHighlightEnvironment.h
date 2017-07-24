@@ -24,10 +24,14 @@ __attribute__((visibility("hidden")))
     _UIInteractiveHighlightEnvironment *_parentEnvironment;
     _UIInteractiveHighlightEnvironment *_childEnvironment;
     NSUUID *_backgroundAnimationIdentifier;
+    UIView *_customBackgroundEffectView;
+    CDUnknownBlockType _backgroundEffectApplyBlock;
 }
 
 + (id)interactiveHighlightEnvironmentForContainerView:(id)arg1;
 + (id)requestInteractiveHighlightEnvironmentForView:(id)arg1;
+@property(copy, nonatomic) CDUnknownBlockType backgroundEffectApplyBlock; // @synthesize backgroundEffectApplyBlock=_backgroundEffectApplyBlock;
+@property(retain, nonatomic) UIView *customBackgroundEffectView; // @synthesize customBackgroundEffectView=_customBackgroundEffectView;
 @property(readonly, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
 - (void).cxx_destruct;
 - (void)finalizeContainerWindowIfNeeded;

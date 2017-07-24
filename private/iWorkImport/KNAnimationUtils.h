@@ -23,6 +23,8 @@ __attribute__((visibility("hidden")))
 + (_Bool)isAnimationTestingEnabled;
 + (_Bool)isRandomNumberSeedInspectionEnabled;
 + (_Bool)isDisplayLoggingEnabled;
++ (_Bool)isResponsivenessLoggingEnabled;
++ (_Bool)isTexturePrecachingDisabled;
 + (_Bool)isGLStateValidationEnabled;
 + (_Bool)isFPSGraphEnabled;
 + (_Bool)isFPSLoggingTimerDisabled;

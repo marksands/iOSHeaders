@@ -105,7 +105,7 @@
 @property(retain) NSArray *additionalLeftBarButtonItems; // @synthesize additionalLeftBarButtonItems=_additionalLeftBarButtonItems;
 @property(nonatomic) _Bool showActionAsDefaultButton; // @synthesize showActionAsDefaultButton=_showActionAsDefaultButton;
 @property(nonatomic) _Bool useCustomActionButton; // @synthesize useCustomActionButton=_useCustomActionButton;
-@property _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
+@property(nonatomic) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
 @property(nonatomic) unsigned long long appearanceActions; // @synthesize appearanceActions=_appearanceActions;
 @property(nonatomic) _Bool currentPreviewHasUnsavedEdits; // @synthesize currentPreviewHasUnsavedEdits=_currentPreviewHasUnsavedEdits;
 @property _Bool canShowToolbar; // @synthesize canShowToolbar=_canShowToolbar;

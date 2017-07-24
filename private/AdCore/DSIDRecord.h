@@ -22,6 +22,7 @@
     NSString *_DSID;
     NSString *_segmentData;
     NSString *_IDFA;
+    NSString *_iAdIDBeforeReset;
     double _limitAdTrackingTimestamp;
     double _segmentDataTimestamp;
     double _lastSentSegmentDataTimestamp;
@@ -43,6 +44,7 @@
 @property(nonatomic) double lastSentSegmentDataTimestamp; // @synthesize lastSentSegmentDataTimestamp=_lastSentSegmentDataTimestamp;
 @property(nonatomic) double segmentDataTimestamp; // @synthesize segmentDataTimestamp=_segmentDataTimestamp;
 @property(nonatomic) double limitAdTrackingTimestamp; // @synthesize limitAdTrackingTimestamp=_limitAdTrackingTimestamp;
+@property(retain, nonatomic) NSString *iAdIDBeforeReset; // @synthesize iAdIDBeforeReset=_iAdIDBeforeReset;
 @property(retain, nonatomic) NSString *IDFA; // @synthesize IDFA=_IDFA;
 @property(retain, nonatomic) NSString *segmentData; // @synthesize segmentData=_segmentData;
 @property(readonly, nonatomic) _Bool isActiveRecord; // @synthesize isActiveRecord=_isActiveRecord;

@@ -26,6 +26,7 @@
 - (void)_endObserving;
 - (void)endObserving;
 - (void)beginObserving;
+@property(readonly, nonatomic) unsigned long long state;
 @property(readonly, nonatomic, getter=isObserving) _Bool observing;
 @property(copy, nonatomic) CDUnknownBlockType callback; // @synthesize callback=_callback;
 - (void)dealloc;

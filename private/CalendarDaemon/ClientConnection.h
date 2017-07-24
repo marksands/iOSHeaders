@@ -15,6 +15,7 @@
     long long _eventAccess;
     long long _reminderAccess;
     NSLock *_restrictionsLock;
+    NSSet *_managedStoreRowIDs;
     NSSet *_restrictedStoreRowIDs;
     NSSet *_restrictedCalendarRowIDs;
     // Error parsing type: ^{CalDatabase={__CFRuntimeBase=QAQ}i^{CPRecordStore}^{CalEventOccurrenceCache}^{CalScheduledTaskCache}^{__CFDictionary}^{__CFDictionary}{_opaque_pthread_mutex_t=q[56c]}II^{__CFArray}^{__CFString}^{__CFArray}ii^{__CFString}^{__CFString}^{__CFString}i@?{_opaque_pthread_mutex_t=q[56c]}B^{__CFArray}^{__CFArray}^{__CFArray}^{__CFArray}B@B}, name: _database
@@ -41,6 +42,9 @@
 @property(nonatomic) __weak id <ClientConnectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) CADOperationProxy *cadOperationProxy; // @synthesize cadOperationProxy=_cadOperationProxy;
 - (void).cxx_destruct;
+- (_Bool)isCalendarItemManaged:(void *)arg1;
+- (_Bool)isCalendarManaged:(void *)arg1;
+- (_Bool)isStoreManaged:(void *)arg1;
 - (_Bool)isCalendarItemRestricted:(void *)arg1;
 - (_Bool)isCalendarRestricted:(void *)arg1;
 - (_Bool)isStoreRestricted:(void *)arg1;
@@ -48,6 +52,7 @@
 - (id)restrictedCalendarRowIDs;
 - (id)_restrictedStoreRowIDs;
 - (_Bool)_shouldUseMCToBlacklist;
+- (id)managedStoreRowIDs;
 - (id)restrictedStoreRowIDs;
 - (_Bool)isObjectWithObjectIDAJunkEvent:(id)arg1;
 - (_Bool)_hasTCCAccessToEntityWithObjectIDUsingDeepInspection:(id)arg1;

@@ -11,10 +11,8 @@
 @interface MPMediaControlsStandaloneViewController : MPMediaControlsViewController
 {
     MPModalPresentationWindow *_presentationWindow;
-    CDUnknownBlockType _didDismissHandler;
 }
 
-@property(copy, nonatomic) CDUnknownBlockType didDismissHandler; // @synthesize didDismissHandler=_didDismissHandler;
 - (void).cxx_destruct;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)dismissAfter:(double)arg1;

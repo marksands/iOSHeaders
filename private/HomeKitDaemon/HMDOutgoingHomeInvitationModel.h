@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NSNumber *invitationState; // @dynamic invitationState;
 @property(retain, nonatomic) NSString *inviteeDestinationAddress; // @dynamic inviteeDestinationAddress;
 @property(retain, nonatomic) NSString *messageIdentifier; // @dynamic messageIdentifier;
+@property(retain, nonatomic) NSArray *operationIdentifiers; // @dynamic operationIdentifiers;
 @property(retain, nonatomic) NSArray *operations; // @dynamic operations;
 @property(retain, nonatomic) NSNumber *responseReceived; // @dynamic responseReceived;
 @property(retain, nonatomic) NSDictionary *user; // @dynamic user;

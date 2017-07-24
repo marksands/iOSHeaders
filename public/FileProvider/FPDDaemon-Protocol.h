@@ -16,6 +16,8 @@
 - (void)removeAllDomainsForProviderIdentifier:(NSString *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)removeDomain:(NSFileProviderDomain *)arg1 forProviderIdentifier:(NSString *)arg2 completionHandler:(void (^)(NSError *))arg3;
 - (void)addDomain:(NSFileProviderDomain *)arg1 forProviderIdentifier:(NSString *)arg2 completionHandler:(void (^)(NSError *))arg3;
+- (void)reindexAllSearchableItemsForBundleIDs:(NSArray *)arg1 acknowledgementHandler:(void (^)(void))arg2;
+- (void)reindexAllSearchableItemsWithAcknowledgementHandler:(void (^)(void))arg1;
 - (void)dumpStateTo:(NSFileHandle *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)fetchSupportedServicesForDocumentAtURL:(NSURL *)arg1 completionHandler:(void (^)(NSArray *, NSError *))arg2;
 - (void)updateLastUsedDate:(NSURL *)arg1 completionHandler:(void (^)(NSError *))arg2;

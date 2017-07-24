@@ -8,12 +8,12 @@
 
 #import <UIKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <UIKit/UIInteraction-Protocol.h>
-#import <UIKit/_UIViewDraggingSourceDelegate-Protocol.h>
+#import <UIKit/_UIViewDraggingSourceDelegatePrivate-Protocol.h>
 
 @class NSArray, NSString, UIDragInteractionContextImpl, UIView, _UIDragAcceleratorGestureRecognizer, _UIDragAddItemsGesture, _UIDragLiftGestureRecognizer, _UIDragSessionImpl, _UIRelationshipGestureRecognizer;
 @protocol UIDragInteractionDelegate, UIDragInteractionEffect;
 
-@interface UIDragInteraction : NSObject <UIGestureRecognizerDelegate, _UIViewDraggingSourceDelegate, UIInteraction>
+@interface UIDragInteraction : NSObject <UIGestureRecognizerDelegate, _UIViewDraggingSourceDelegatePrivate, UIInteraction>
 {
     _Bool _didSetEnabled;
     _Bool _enabled;
@@ -65,6 +65,7 @@
 - (void)willMoveToView:(id)arg1;
 - (_Bool)_session:(id)arg1 shouldCancelOnAppDeactivationWithDefault:(_Bool)arg2;
 - (void)_sessionDidTransferItems:(id)arg1;
+- (_Bool)_session:(id)arg1 item:(id)arg2 shouldDelaySetDownAnimationWithCompletion:(CDUnknownBlockType)arg3;
 - (void)_session:(id)arg1 item:(id)arg2 willCancelWithAnimator:(id)arg3;
 - (id)_session:(id)arg1 targetedPreviewForCancellingItem:(id)arg2 duiPreview:(id)arg3 snapshotView:(id)arg4 window:(id)arg5;
 - (void)_sessionDidEnd:(id)arg1 withOperation:(unsigned long long)arg2;
@@ -73,8 +74,10 @@
 - (void)_sessionDidMove:(id)arg1;
 - (void)_sessionHandedOffDragImage:(id)arg1;
 - (void)_sessionWillBegin:(id)arg1;
+- (_Bool)_sessionDynamicallyUpdatesPrefersFullSizePreviews:(id)arg1;
 - (_Bool)_sessionPrefersFullSizePreviews:(id)arg1;
 - (unsigned long long)_session:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;
+- (long long)_view:(id)arg1 dataOwnerOfDragSourceWithIndex:(unsigned long long)arg2;
 - (_Bool)_shouldPerformHitTestingForDragSessionInView:(id)arg1;
 - (id)_requiredContextIDsForDragSessionInView:(id)arg1;
 - (void)view:(id)arg1 failedToDragSourceWithIndex:(unsigned long long)arg2;
@@ -122,6 +125,7 @@
 - (void)setDragCancellationDelay:(double)arg1;
 - (void)_cancelDrag;
 @property(copy, nonatomic, getter=_allowedTouchTypes, setter=_setAllowedTouchTypes:) NSArray *allowedTouchTypes;
+- (void)setDelegate:(id)arg1;
 - (id)initWithDelegate:(id)arg1;
 
 // Remaining properties

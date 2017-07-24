@@ -7,6 +7,8 @@
 #import <UIKit/UIImage.h>
 
 @interface UIImage (SFWebClipImageUtilities)
+- (id)_sf_imageByResizingWithAccessibilityScale:(double)arg1;
+- (id)_sf_resizeImageToSize:(struct CGSize)arg1;
 - (_Bool)_sf_isLaunchImageSizedForOrientation:(long long)arg1 includesStatusBar:(_Bool *)arg2;
 @end
 

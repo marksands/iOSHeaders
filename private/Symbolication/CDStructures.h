@@ -173,6 +173,15 @@ struct libSwiftRemoteMirrorWrapper {
     CDUnknownFunctionPointerType _field14;
     CDUnknownFunctionPointerType _field15;
     CDUnknownFunctionPointerType _field16;
+    unsigned long long _field17;
+    unsigned long long _field18;
+    unsigned long long _field19;
+    _Bool _field20;
+    unsigned long long _field21;
+    unsigned long long _field22;
+    unsigned long long _field23;
+    unsigned char _field24;
+    unsigned char _field25;
 };
 
 struct malloc_introspection_t;

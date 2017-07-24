@@ -18,8 +18,8 @@
 @property(readonly, nonatomic) id <NSFilePresenter> cloudFilePresenter;
 - (void)documentRootDidRollbackOfflineCommands:(TSKDocumentRoot *)arg1;
 - (void)sharingStateRefreshed:(TSKSharingState *)arg1 isUserInitiated:(_Bool)arg2 isContinuingActivity:(_Bool)arg3 completionBlock:(void (^)(void))arg4;
-- (void)refreshSharingStateWithReason:(NSString *)arg1 isUserInitiated:(_Bool)arg2 migrateIfNecessary:(_Bool)arg3 queue:(NSObject<OS_dispatch_queue> *)arg4 completionBlock:(void (^)(TSKSharingState *, NSError *))arg5;
 - (void)refreshSharingStateWithReason:(NSString *)arg1 queue:(NSObject<OS_dispatch_queue> *)arg2 completionBlock:(void (^)(TSKSharingState *, NSError *))arg3;
+- (void)refreshSharingStateWithReason:(NSString *)arg1 isUserInitiated:(_Bool)arg2 refreshPrivacy:(_Bool)arg3 migrateIfNecessary:(_Bool)arg4 queue:(NSObject<OS_dispatch_queue> *)arg5 completionBlock:(void (^)(TSKSharingState *, NSError *))arg6;
 - (void)documentRoot:(TSKDocumentRoot *)arg1 didUpdateDocumentRevision:(TSPDocumentRevision *)arg2;
 - (TSKSharingState *)sharingStateForContext:(TSPObjectContext *)arg1;
 @end

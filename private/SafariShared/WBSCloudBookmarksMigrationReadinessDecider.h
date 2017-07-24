@@ -40,6 +40,8 @@
 - (void)_logDevicesExcludedFromUpdateWithDevices:(id)arg1;
 - (void)_logKeyActionForUpdateWithDevice:(id)arg1;
 - (void)_logKeyAction:(id)arg1;
+- (void)_logErrorAsKeyAction:(id)arg1;
+- (void)_synchronizeCloudTabDevicesWithCloudTabDeviceProvider:(id)arg1 deviceEligibilityFetcher:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_fetchDeviceEligibilityInformationWithCloudTabDeviceProvider:(id)arg1 deviceEligibilityFetcher:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)updateWithCloudTabDeviceProvider:(id)arg1 deviceEligibilityFetcher:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) NSDate *earliestPossibleDateOfMigration;

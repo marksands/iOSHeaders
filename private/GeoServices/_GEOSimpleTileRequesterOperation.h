@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     id <GEOSimpleTileRequesterOperationDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_delegateQueue;
     NSObject<OS_os_activity> *_activity;
+    NSObject<OS_os_activity> *_parentTileActivity;
     double _timeout;
     double _startTime;
     GEOClientMetrics *_clientMetrics;
@@ -51,6 +52,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property struct _GEOTileKey key; // @synthesize key=_key;
 @property(nonatomic) unsigned char eTagType; // @synthesize eTagType=_eTagType;
+@property(retain, nonatomic) NSObject<OS_os_activity> *parentTileActivity; // @synthesize parentTileActivity=_parentTileActivity;
 @property(retain, nonatomic) NSObject<OS_os_activity> *activity; // @synthesize activity=_activity;
 @property(readonly, nonatomic) GEODataRequest *request; // @synthesize request=_request;
 @property(retain, nonatomic) GEODataSession *dataSession; // @synthesize dataSession=_dataSession;
@@ -64,6 +66,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) int httpResponseStatusCode;
 - (double)startTime;
 - (double)elapsed;
+- (void)clearAllRelatedOperations;
 - (void)cancel;
 - (void)start;
 @property(readonly, copy) NSString *description;

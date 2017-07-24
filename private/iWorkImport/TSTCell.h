@@ -161,6 +161,7 @@ __attribute__((visibility("hidden")))
 - (void)setCellStyle:(id)arg1 clearingID:(_Bool)arg2;
 - (_Bool)hasEqualValueToCell:(id)arg1;
 @property(readonly, nonatomic) _Bool dataIsReplaceable;
+@property(readonly, nonatomic) _Bool valueRepresentsDateWithoutTime;
 @property(readonly, nonatomic) _Bool hasValueOrError;
 @property(readonly, nonatomic) _Bool valueIsNumberOrTime;
 @property(readonly, nonatomic) _Bool valueIsStringOrNumber;

@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(nonatomic) __weak id <_UITableViewDropCoordinatorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_dropItem:(id)arg1 toCell:(id)arg2;
+- (void)_dropItem:(id)arg1 toCell:(id)arg2 withPreviewParameters:(id)arg3;
 - (void)_dropItem:(id)arg1 toTarget:(id)arg2;
 - (id)dropItem:(id)arg1 toTarget:(id)arg2;
 - (void)_dropItem:(id)arg1 toRowAtIndexPath:(id)arg2;
@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 - (id)dropItem:(id)arg1 intoRowAtIndexPath:(id)arg2 rect:(struct CGRect)arg3;
 - (id)_dropItem:(id)arg1 toPlaceholderInsertedAtIndexPath:(id)arg2 withReuseIdentifier:(id)arg3 rowHeight:(double)arg4 cellUpdateHandler:(CDUnknownBlockType)arg5;
 - (id)dropItem:(id)arg1 toPlaceholderInsertedAtIndexPath:(id)arg2 withReuseIdentifier:(id)arg3 rowHeight:(double)arg4 cellUpdateHandler:(CDUnknownBlockType)arg5;
+- (id)dropItem:(id)arg1 toPlaceholder:(id)arg2;
 @property(readonly, nonatomic) id <UIDropSession> _dropSession;
 @property(readonly, nonatomic) UITableViewDropProposal *_dropProposal;
 @property(readonly, nonatomic) NSIndexPath *_destinationIndexPath;

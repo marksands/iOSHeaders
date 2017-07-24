@@ -8,13 +8,14 @@
 
 #import <AXHearingSupport/CCUIContentModuleContentViewController-Protocol.h>
 
-@class NSMutableArray, NSString, UILabel, UIStackView, UIView;
+@class NSMutableArray, NSString, UILabel, UIScrollView, UIStackView, UIView;
 
 @interface HACCListViewController : CCUIButtonModuleViewController <CCUIContentModuleContentViewController>
 {
     UILabel *_titleLabel;
     UIView *_headerSeparatorView;
     struct CGSize _previousSize;
+    UIScrollView *_scrollView;
     UIStackView *_menuItemsContainer;
     NSMutableArray *_menuItemsViews;
 }

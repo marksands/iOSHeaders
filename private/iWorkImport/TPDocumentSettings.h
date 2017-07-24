@@ -45,12 +45,12 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) int ctBubblesVisibility; // @synthesize ctBubblesVisibility=_ctBubblesVisibility;
+- (void).cxx_destruct;
 - (id)stringWithCurrentDate;
 - (void)resetForNewDocumentFromTemplate:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;
-- (void)dealloc;
 @property(nonatomic) _Bool hasBody;
 @property(readonly, nonatomic) int basicFootnoteFormat;
 @property(copy, nonatomic) NSString *bibliographyFormat;

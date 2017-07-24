@@ -22,8 +22,6 @@
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)_handleMediaSessionUpdated:(id)arg1;
-- (id)_mediaSessionWithUUID:(id)arg1;
 - (void)_notifyDelegateOfUpdatedMediaSession:(id)arg1;
 @property(retain) HMMediaSession *mediaSession; // @synthesize mediaSession=_mediaSession;
 - (void)_handleRootSettingsUpdated:(id)arg1;

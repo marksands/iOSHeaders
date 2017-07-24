@@ -4,11 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
-@class CKRecordZone, CKRecordZoneID, IMDCKDatabaseManager;
+#import <IMDaemonCore/APSConnectionDelegate-Protocol.h>
 
-@interface IMDRecordZoneManager : NSObject
+@class APSConnection, CKRecordZone, CKRecordZoneID, IMDCKDatabaseManager, NSString;
+
+@interface IMDRecordZoneManager : NSObject <APSConnectionDelegate>
 {
     CKRecordZoneID *_chatRecordZoneID;
     CKRecordZone *_chatRecordZone;
@@ -19,9 +21,11 @@
     CKRecordZoneID *_deDupeSaltZoneID;
     CKRecordZone *_deDupeSaltRecordZone;
     IMDCKDatabaseManager *_dataBaseManager;
+    APSConnection *_pushConnection;
 }
 
 + (id)sharedInstance;
+@property(retain, nonatomic) APSConnection *pushConnection; // @synthesize pushConnection=_pushConnection;
 @property(retain, nonatomic) IMDCKDatabaseManager *dataBaseManager; // @synthesize dataBaseManager=_dataBaseManager;
 @property(readonly, nonatomic) CKRecordZone *deDupeSaltRecordZone; // @synthesize deDupeSaltRecordZone=_deDupeSaltRecordZone;
 @property(readonly, nonatomic) CKRecordZoneID *deDupeSaltZoneID; // @synthesize deDupeSaltZoneID=_deDupeSaltZoneID;
@@ -32,6 +36,7 @@
 @property(readonly, nonatomic) CKRecordZone *chatRecordZone; // @synthesize chatRecordZone=_chatRecordZone;
 @property(readonly, nonatomic) CKRecordZoneID *chatRecordZoneID; // @synthesize chatRecordZoneID=_chatRecordZoneID;
 - (void)deleteAllZones;
+- (void)createSubscriptionIfNeededOnDeDupeZoneForSubscription:(id)arg1 recordType:(id)arg2;
 - (void)deleteDeDupeSaltZone;
 - (void)createDeDupeSaltZoneIfNeededWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)deleteMessageZone;
@@ -44,8 +49,20 @@
 - (void)_createRecordZoneIfNeeded:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)_createRecordZone:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)_checkRecordZoneExists:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)_createSubscriptionIfNeededForZoneID:(id)arg1 subscriptionID:(id)arg2 recordType:(id)arg3;
+- (void)_createSubscriptionForZoneID:(id)arg1 subscriptionID:(id)arg2 recordType:(id)arg3;
+- (void)_handleNotificationForZoneID:(id)arg1 subscriptionID:(id)arg2;
+- (void)connection:(id)arg1 didReceiveIncomingMessage:(id)arg2;
+- (void)connection:(id)arg1 didReceivePublicToken:(id)arg2;
+- (void)_setUpPushConnection;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -20,6 +20,7 @@
     CMElevation *_elevation;
     int _lastStatus;
     HKLocationSeriesSample *_seriesSample;
+    _Bool _didSaveLocationData;
     double _lastPausedTime;
     unsigned long long _elevationGain;
     unsigned long long _activityType;
@@ -43,6 +44,7 @@
 - (void)_queue_start;
 - (void)startWorkout;
 - (void)endWorkout;
+- (void)_queue_deleteCurrentRoute;
 - (void)_queue_freezeCurrentLocationSeriesSample;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (id)initWithProfile:(id)arg1 server:(id)arg2 activityType:(unsigned long long)arg3 workoutUUID:(id)arg4;

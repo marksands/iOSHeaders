@@ -29,6 +29,7 @@
 + (void)resetCloudStateInPhotoLibrary:(id)arg1 hardReset:(_Bool)arg2;
 + (long long)resetAssetForAllSyncableFacesInManagedObjectContext:(id)arg1 error:(id *)arg2;
 + (id)syncableFacesToUploadInitiallyInLibrary:(id)arg1 limit:(unsigned long long)arg2;
++ (id)_syncableFacesToUploadInitiallyPredicate;
 + (id)syncableFacesPredicate;
 + (id)_facesMatchingPredicate:(id)arg1 limit:(unsigned long long)arg2 inPhotoLibrary:(id)arg3;
 + (id)findExistingFaceMatchingDimension:(id)arg1 inFaces:(id)arg2 ignoreSourceAssetDimensions:(_Bool)arg3;

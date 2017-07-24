@@ -196,8 +196,6 @@ struct mutex {
     } _field1;
 };
 
-struct pair<long, long>;
-
 struct shared_ptr<mlcore::DeviceLibrary> {
     struct DeviceLibrary *__ptr_;
     struct __shared_weak_count *__cntrl_;
@@ -368,14 +366,6 @@ struct vector<mlcore::SortDescriptor, std::__1::allocator<mlcore::SortDescriptor
     struct __compressed_pair<mlcore::SortDescriptor *, std::__1::allocator<mlcore::SortDescriptor>> {
         struct SortDescriptor *_field1;
     } _field3;
-};
-
-struct vector<std::__1::pair<long, long>, std::__1::allocator<std::__1::pair<long, long>>> {
-    struct pair<long, long> *__begin_;
-    struct pair<long, long> *__end_;
-    struct __compressed_pair<std::__1::pair<long, long>*, std::__1::allocator<std::__1::pair<long, long>>> {
-        struct pair<long, long> *__first_;
-    } __end_cap_;
 };
 
 struct vector<std::__1::shared_ptr<mlcore::Entity>, std::__1::allocator<std::__1::shared_ptr<mlcore::Entity>>>;

@@ -15,6 +15,9 @@ __attribute__((visibility("hidden")))
     _Bool _pageCountsValid;
     _Bool _computingPageCounts;
     _Bool _maxPageCoordinateValid;
+    _Bool _processingChanges;
+    _Bool _updateViewScaleForDrawablesChangeAfterProcessingChanges;
+    _Bool _postAutoFitContentScaleDidChangeNotificationAfterProcessingChanges;
     _Bool _inDynamicContentScaleChange;
     struct TSUCellCoord _maxPageCoordinate;
     NSObject<TNPageControllerDelegate> *_delegate;
@@ -38,6 +41,9 @@ __attribute__((visibility("hidden")))
 + (double)p_unclampedAutoFitContentScaleForSheet:(id)arg1;
 + (id)cachedAutoFitContentScaleDictionary;
 @property(readonly, nonatomic) _Bool inDynamicContentScaleChange; // @synthesize inDynamicContentScaleChange=_inDynamicContentScaleChange;
+@property(nonatomic) _Bool postAutoFitContentScaleDidChangeNotificationAfterProcessingChanges; // @synthesize postAutoFitContentScaleDidChangeNotificationAfterProcessingChanges=_postAutoFitContentScaleDidChangeNotificationAfterProcessingChanges;
+@property(nonatomic) _Bool updateViewScaleForDrawablesChangeAfterProcessingChanges; // @synthesize updateViewScaleForDrawablesChangeAfterProcessingChanges=_updateViewScaleForDrawablesChangeAfterProcessingChanges;
+@property(nonatomic, getter=isProcessingChanges) _Bool processingChanges; // @synthesize processingChanges=_processingChanges;
 @property(retain, nonatomic) TNPrintProperties *printProperties; // @synthesize printProperties=_printProperties;
 @property(nonatomic) _Bool maxPageCoordinateValid; // @synthesize maxPageCoordinateValid=_maxPageCoordinateValid;
 @property(nonatomic) struct TSUCellCoord maxPageCoordinate; // @synthesize maxPageCoordinate=_maxPageCoordinate;
@@ -76,7 +82,9 @@ __attribute__((visibility("hidden")))
 - (void)i_setLayer:(id)arg1 forHeaderType:(int)arg2 fragment:(int)arg3 atPageCoordinate:(struct TSUCellCoord)arg4;
 - (id)i_layerForHeaderType:(int)arg1 fragment:(int)arg2 atPageCoordinate:(struct TSUCellCoord)arg3;
 - (void)invalidatePageLayout;
+- (void)p_invalidateCachedAutoFitContentScaleForSheet:(id)arg1 notify:(_Bool)arg2;
 - (void)invalidateCachedAutoFitContentScaleForSheet:(id)arg1;
+- (void)p_postAutoFitContentScaleDidChangeNotification;
 - (void)i_invalidateHintCache;
 - (void)invalidateDrawableLayouts;
 - (void)invalidatePageLayoutGeometries;

@@ -7,6 +7,7 @@
 #import <Foundation/NSAttributedString.h>
 
 @interface NSAttributedString (IC_UI)
+- (long long)ic_writingDirectionAtIndex:(unsigned long long)arg1;
 - (id)ic_stringWithoutAttachments;
 - (id)ic_stringByTrimmingLeadingTrailingWhitespace;
 - (struct _NSRange)ic_rangeForAttachment:(id)arg1 withTextAttachment:(id *)arg2;

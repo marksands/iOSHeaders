@@ -51,7 +51,7 @@
 @property(readonly, nonatomic) __weak IKDOMDocument *jsDocument; // @synthesize jsDocument=_jsDocument;
 @property(readonly) __weak IKAppContext *appContext; // @synthesize appContext=_appContext;
 - (void).cxx_destruct;
-- (void)_setViewElementStylesDirtyAndDispatch:(_Bool)arg1;
+- (void)_setViewElementStylesDirtyForced:(_Bool)arg1;
 - (_Bool)_clearUpdatesForElement:(id)arg1;
 - (void)_updateWithXML:(id)arg1;
 - (id)_viewElementForNodeID:(unsigned long long)arg1;

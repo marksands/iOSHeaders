@@ -30,6 +30,7 @@
     UILayoutGuide *_backgroundViewLayoutGuide;
 }
 
++ (_Bool)_axLargerTextSizesEnabled;
 + (id)sharedImageNameCache;
 + (id)imageNamed:(id)arg1;
 + (double)spacingForToolIndex:(unsigned long long)arg1 sizeState:(unsigned long long)arg2;
@@ -49,6 +50,8 @@
 @property(nonatomic) unsigned long long selectedInkIndex; // @synthesize selectedInkIndex=_selectedInkIndex;
 @property(retain, nonatomic) NSArray *inkIdentifiers; // @synthesize inkIdentifiers=_inkIdentifiers;
 - (void).cxx_destruct;
+- (id)_axLabelForToolButton:(id)arg1;
+- (void)_axHandleLongPressForLargeTextHUD:(id)arg1;
 - (void)colorPickerColorTappedInCompactChooseToolState:(id)arg1;
 - (void)colorPickerDidSelectColor:(id)arg1 colorChanged:(_Bool)arg2;
 - (id)minimizedImageForInk:(id)arg1 small:(_Bool)arg2;

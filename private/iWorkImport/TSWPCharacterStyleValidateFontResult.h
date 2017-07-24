@@ -11,9 +11,9 @@
 __attribute__((visibility("hidden")))
 @interface TSWPCharacterStyleValidateFontResult : NSObject
 {
-    NSString *_mappedName;
     int _bold;
     int _italic;
+    NSString *_mappedName;
     TSUWarning *_warning;
 }
 
@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int bold; // @synthesize bold=_bold;
 @property(retain, nonatomic) TSUWarning *warning; // @synthesize warning=_warning;
 @property(retain, nonatomic) NSString *mappedName; // @synthesize mappedName=_mappedName;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

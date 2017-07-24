@@ -6,9 +6,12 @@
 
 #import <GeoServices/GEORoutePreloader.h>
 
-@class GEOMapServiceTraits, GEOTransitDecoderData, GEOTransitSuggestedRoute, NSTimer, _GEOTransitRoutePreloaderData;
+#import <GeoServices/GEORoutePreloaderSubclass-Protocol.h>
 
-@interface GEOTransitRoutePreloader : GEORoutePreloader
+@class GEOMapServiceTraits, GEOTransitDecoderData, GEOTransitSuggestedRoute, NSObject, NSTimer, _GEOTransitRoutePreloaderData;
+@protocol OS_os_log;
+
+@interface GEOTransitRoutePreloader : GEORoutePreloader <GEORoutePreloaderSubclass>
 {
     GEOTransitDecoderData *_decoderData;
     GEOTransitSuggestedRoute *_suggestedRoute;
@@ -46,10 +49,9 @@
 - (void)getPreloadSetCoordinates:(CDStruct_c3b9c2ee *)arg1 maxLength:(unsigned long long)arg2 actualLength:(unsigned long long *)arg3;
 - (int)preloadStateForTile:(const struct _GEOTileKey *)arg1;
 - (_Bool)isSufficientlyLoaded;
-- (void)preloaderLog:(id)arg1;
+@property(readonly, nonatomic) NSObject<OS_os_log> *preloaderLog;
 - (_Bool)fullDebuggingEnabled;
 - (_Bool)minimalDebuggingEnabled;
-- (_Bool)loggingEnabled;
 - (void)setShouldPreloadEntireRoute:(_Bool)arg1;
 - (long long)tilesRequested;
 - (void)setTraits:(id)arg1;

@@ -8,17 +8,18 @@
 
 #import <iWorkImport/CAAnimationDelegate-Protocol.h>
 
-@class CALayer, KNAnimatedBuild, KNAnimationInfo, KNBuildChunk, NSArray, NSDictionary, NSMutableArray, NSString, TSDDrawableInfo, TSDFPSCounter, TSDRep, TSDTextureContext, TSDTextureSet;
+@class CALayer, KNAnimatedBuild, KNAnimationInfo, KNBuildChunk, NSArray, NSMapTable, NSMutableArray, NSString, TSDDrawableInfo, TSDFPSCounter, TSDRep, TSDTextureDescription, TSDTextureSet;
 
 __attribute__((visibility("hidden")))
 @interface KNBuildRenderer : KNAnimationRenderer <CAAnimationDelegate>
 {
     long long mNumberOfAnimationsStarted;
-    NSDictionary *mAnimatedLayers;
+    NSMapTable *_animatedLayers;
     CALayer *mParentLayer;
     id mBuildEndCallbackTarget;
     SEL mBuildEndCallbackSelector;
     NSMutableArray *mAnimatedBuildsToStartAtEnd;
+    TSDTextureSet *mEndOfBuildTextureSet;
     TSDTextureSet *mTextureSet;
     TSDTextureSet *mFinalAttributesTextureSet;
     KNAnimationInfo *mAnimationInfo;
@@ -34,25 +35,22 @@ __attribute__((visibility("hidden")))
     _Bool mShouldUseMagicMoveTextures;
     _Bool mIsNonCachedTextureValid;
     TSDFPSCounter *mFPSCounter;
-    TSDTextureContext *mTextureContext;
+    TSDTextureDescription *mTextureDescription;
 }
 
-@property(retain, nonatomic) TSDTextureContext *textureContext; // @synthesize textureContext=mTextureContext;
+@property(retain, nonatomic) TSDTextureDescription *textureDescription; // @synthesize textureDescription=mTextureDescription;
 @property(retain, nonatomic) CALayer *parentLayer; // @synthesize parentLayer=mParentLayer;
 @property(readonly, nonatomic) TSDDrawableInfo *info; // @synthesize info=mInfo;
 @property(readonly, nonatomic) KNBuildChunk *buildStage; // @synthesize buildStage=mBuildStage;
 @property(readonly, nonatomic) NSArray *animatedBuildsToStartAtEnd; // @synthesize animatedBuildsToStartAtEnd=mAnimatedBuildsToStartAtEnd;
 @property(readonly, nonatomic) KNAnimatedBuild *animatedBuild; // @synthesize animatedBuild=mAnimatedBuild;
-- (_Bool)p_isPDFOutput;
 - (void)p_resetAnimations;
-- (void)resetTexture;
 - (void)p_removeAnimations;
-- (void)resetPreviousStageUnhighlightOnTextureSet:(id)arg1;
+- (void)resetPreviousStageToUnhighlightOnTextureSet:(id)arg1;
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)updateAnimationTestingLog;
 - (id)p_keyForAnimation;
-- (id)setupFinalTextureGivenCurrentTextureSet:(id)arg1;
-- (void)setVisibilityAndGeometryOn:(id)arg1 withFinalTextureSet:(id)arg2;
+- (id)setupFinalTextureGivenCurrentTextureSet:(id)arg1 isRenderingToContext:(_Bool)arg2;
 - (_Bool)p_isDriftAnimation;
 - (void)fadeOutPreviousStageOn:(id)arg1 atLayerTime:(double)arg2;
 - (void)addBuildToStartAtEnd:(id)arg1;
@@ -67,25 +65,27 @@ __attribute__((visibility("hidden")))
 - (void)updateAnimationsForLayerTime:(double)arg1;
 - (_Bool)addAnimationsAtLayerTime:(double)arg1;
 - (void)resetHighlightsBeforeAnimationOnTextureSet:(id)arg1;
-- (void)prepareAnimations;
-- (id)initializeTextureSetForEndOfBuild:(_Bool)arg1 endOfSlide:(_Bool)arg2 context:(id)arg3 isRenderingToContext:(_Bool)arg4;
-- (id)initializeTextureSetForEndOfBuild:(_Bool)arg1 endOfSlide:(_Bool)arg2 isRenderingToContext:(_Bool)arg3;
+- (id)prepareAnimations;
+- (id)p_initializeTextureSetForEndOfBuild:(_Bool)arg1 endOfSlide:(_Bool)arg2 description:(id)arg3 isRenderingToContext:(_Bool)arg4;
+- (id)initializeTextureSetForEndOfBuild:(_Bool)arg1 endOfSlide:(_Bool)arg2 description:(id)arg3 isRenderingToContext:(_Bool)arg4;
+- (void)setGeometryAndActionAttributesOnTextureSet:(id)arg1 isAtEndOfBuild:(_Bool)arg2 isAtEndOfSlide:(_Bool)arg3 isRenderingToContext:(_Bool)arg4;
 - (void)animateAfterDelay:(double)arg1;
 - (void)setLayerVisibility:(id)arg1 isAtEndOfBuild:(_Bool)arg2;
-@property(readonly, nonatomic) _Bool isTextDrawable;
-- (id)p_textureSetForStage:(long long)arg1 context:(id)arg2 isAtEndOfBuild:(_Bool)arg3 shouldForceRebuild:(_Bool)arg4 shouldRender:(_Bool)arg5;
-- (id)p_textureSetForStage:(long long)arg1 context:(id)arg2 isAtEndOfBuild:(_Bool)arg3 shouldForceRebuild:(_Bool)arg4;
-- (id)textureSetForStage:(long long)arg1 context:(id)arg2 shouldForceRebuild:(_Bool)arg3;
-- (id)textureSetForStage:(long long)arg1 context:(id)arg2;
-@property(readonly, nonatomic) TSDTextureSet *nonCachedTextureSet;
+- (_Bool)p_isTextDrawable;
+- (id)p_textureSetForStage:(long long)arg1 description:(id)arg2 isAtEndOfBuild:(_Bool)arg3 shouldForceRebuild:(_Bool)arg4 shouldRender:(_Bool)arg5;
+- (id)textureSetForStage:(long long)arg1 description:(id)arg2 isAtEndOfBuild:(_Bool)arg3 shouldForceRebuild:(_Bool)arg4 shouldRender:(_Bool)arg5;
 - (id)textureSetWithoutRenderedContents;
 @property(readonly, nonatomic) TSDTextureSet *textureSet;
+- (void)waitUntilAsyncRenderingIsCompleteShouldCancel:(_Bool)arg1;
+- (void)renderTextures;
+- (void)generateTextures;
 - (id)p_filterForTextDelivery:(long long)arg1;
 - (_Bool)p_isMovieInfo;
 @property(readonly, nonatomic) TSDRep *rep;
 - (void)setupPluginContext;
 - (id)loadPluginIfNeeded;
 @property(readonly, copy) NSString *description;
+- (void)teardown;
 - (void)dealloc;
 - (id)initWithAnimatedBuild:(id)arg1 info:(id)arg2 buildStage:(id)arg3 session:(id)arg4 animatedSlideView:(id)arg5;
 

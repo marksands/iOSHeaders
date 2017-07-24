@@ -6,16 +6,16 @@
 
 #import <objc/NSObject.h>
 
-@class MFMessageLibrary, NSString;
+#import <Message/MFBaseMessage-Protocol.h>
 
-@interface MFMessageDetails : NSObject
+@class MFMailboxUid, MFMessageLibrary, NSString;
+
+@interface MFMessageDetails : NSObject <MFBaseMessage>
 {
     MFMessageLibrary *library;
     unsigned int libraryID;
     unsigned long long messageFlags;
     unsigned int uid;
-    unsigned int encoding;
-    _Bool isInvalid;
     unsigned int mailboxID;
     long long conversationHash;
     long long messageIDHash;
@@ -24,23 +24,33 @@
     NSString *externalID;
 }
 
-- (id)externalID;
+@property(readonly, nonatomic) NSString *externalID; // @synthesize externalID;
+@property(readonly, nonatomic) long long conversationHash; // @synthesize conversationHash;
+@property(readonly, nonatomic) unsigned int dateSentInterval; // @synthesize dateSentInterval=dateSent;
+@property(readonly, nonatomic) unsigned int dateReceivedInterval; // @synthesize dateReceivedInterval=dateReceived;
+@property(readonly, nonatomic) unsigned long long messageFlags; // @synthesize messageFlags;
+@property(readonly, nonatomic) long long messageIDHash; // @synthesize messageIDHash;
+@property(readonly, nonatomic) unsigned int mailboxID; // @synthesize mailboxID;
+@property(readonly, nonatomic) unsigned int libraryID; // @synthesize libraryID;
+@property(readonly, nonatomic) unsigned int uid; // @synthesize uid;
 - (id)copyMessageInfo;
-- (double)dateSentAsTimeIntervalSince1970;
-- (double)dateReceivedAsTimeIntervalSince1970;
-- (id)mailbox;
+@property(readonly, nonatomic) _Bool senderVIP;
+@property(readonly, nonatomic) _Bool flagged;
+@property(readonly, nonatomic, getter=isKnownToHaveAttachments) _Bool knownToHaveAttachments;
+@property(readonly, nonatomic) _Bool read;
+@property(readonly, nonatomic) _Bool deleted;
+@property(readonly, nonatomic) __weak MFMailboxUid *mailbox;
 - (id)messageID;
-- (unsigned long long)messageFlags;
-- (long long)messageIDHash;
-- (unsigned int)mailboxID;
-- (unsigned int)libraryID;
 - (id)remoteID;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic, getter=isLibraryMessage) _Bool libraryMessage;
 - (_Bool)isEqual:(id)arg1;
-- (id)init;
-- (unsigned int)uid;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

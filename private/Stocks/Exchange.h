@@ -11,6 +11,7 @@
 @interface Exchange : NSObject
 {
     NSString *_name;
+    NSDate *_lastCloseDate;
     NSDate *_nextOpenDate;
     long long _status;
     double _streamInterval;
@@ -22,6 +23,7 @@
 @property(nonatomic) double streamInterval; // @synthesize streamInterval=_streamInterval;
 @property(nonatomic) long long status; // @synthesize status=_status;
 @property(retain, nonatomic) NSDate *nextOpenDate; // @synthesize nextOpenDate=_nextOpenDate;
+@property(retain, nonatomic) NSDate *lastCloseDate; // @synthesize lastCloseDate=_lastCloseDate;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (id)description;

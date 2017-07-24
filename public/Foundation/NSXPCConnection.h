@@ -100,7 +100,6 @@
 - (void)resume;
 - (void)suspend;
 - (void)dealloc;
-- (void)_forceFuturisticEncoding;
 - (id)initWithListenerEndpoint:(id)arg1;
 - (id)initWithEndpoint:(id)arg1;
 - (id)initWithMachServiceName:(id)arg1;

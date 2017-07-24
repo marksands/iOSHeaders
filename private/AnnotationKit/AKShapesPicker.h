@@ -16,6 +16,7 @@
 @property(copy, nonatomic) NSArray *shapes; // @synthesize shapes=_shapes;
 - (void).cxx_destruct;
 - (void)_shapeButtonPressed:(id)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 shapeTags:(id)arg2;
 
 @end

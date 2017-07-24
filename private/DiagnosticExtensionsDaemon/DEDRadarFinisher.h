@@ -10,16 +10,24 @@
 #import <DiagnosticExtensionsDaemon/NSSecureCoding-Protocol.h>
 #import <DiagnosticExtensionsDaemon/NSURLSessionDataDelegate-Protocol.h>
 
-@class NSString;
+@class DEDBugSession, NSArray, NSMutableArray, NSString;
 @protocol OS_os_log;
 
 @interface DEDRadarFinisher : NSObject <NSURLSessionDataDelegate, DEDFinisher, NSSecureCoding>
 {
+    float _percentComplete;
+    DEDBugSession *_session;
     NSObject<OS_os_log> *_log;
+    NSArray *_attachments;
+    NSMutableArray *_finishedAttachments;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain) NSMutableArray *finishedAttachments; // @synthesize finishedAttachments=_finishedAttachments;
+@property(retain) NSArray *attachments; // @synthesize attachments=_attachments;
+@property float percentComplete; // @synthesize percentComplete=_percentComplete;
 @property(retain) NSObject<OS_os_log> *log; // @synthesize log=_log;
+@property __weak DEDBugSession *session; // @synthesize session=_session;
 - (void).cxx_destruct;
 - (void)URLSession:(id)arg1 task:(id)arg2 didSendBodyData:(long long)arg3 totalBytesSent:(long long)arg4 totalBytesExpectedToSend:(long long)arg5;
 - (void)finishSession:(id)arg1 withConfiguration:(id)arg2;

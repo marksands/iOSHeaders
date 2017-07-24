@@ -4,13 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSArray, NSMutableArray, NSString;
 
 @interface TIMecabraEnvironmentContextWrapper : NSObject
 {
     int _textContentType;
+    int _shuangpinType;
     NSString *_appContext;
     unsigned long long _candidateIndex;
     unsigned long long _candidateInternalIndex;
@@ -22,6 +23,7 @@
 }
 
 @property(retain, nonatomic) NSMutableArray *environmentCandidates; // @synthesize environmentCandidates=_environmentCandidates;
+@property(nonatomic) int shuangpinType; // @synthesize shuangpinType=_shuangpinType;
 @property(nonatomic) int textContentType; // @synthesize textContentType=_textContentType;
 @property(retain, nonatomic) NSMutableArray *temporaryCandidates; // @synthesize temporaryCandidates=_temporaryCandidates;
 @property(nonatomic) struct __MecabraContext *mecabraContext; // @synthesize mecabraContext=_mecabraContext;

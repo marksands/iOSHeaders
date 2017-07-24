@@ -22,6 +22,7 @@
     NSString *_parentApplication;
     unsigned int _visibility;
     union _MRColor _tintColor;
+    unsigned int _inputMode;
     _Bool _queueContentNotifications;
     struct NSMutableDictionary *_pendingNotifications;
     NSObject<OS_dispatch_queue> *_pendingNotificationQueue;
@@ -48,6 +49,7 @@
 - (void)removeClient:(void *)arg1;
 - (id)nowPlayingClientForPlayerPath:(void *)arg1;
 @property(nonatomic) void *activeNowPlayingClient;
+@property(nonatomic) unsigned int inputMode;
 @property(nonatomic) union _MRColor tintColor;
 @property(nonatomic) unsigned int visibility;
 @property(nonatomic) unsigned int routeDiscoveryMode;

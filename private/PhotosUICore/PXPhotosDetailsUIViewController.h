@@ -103,8 +103,6 @@
 - (id)_widgetAtLocation:(struct CGPoint)arg1 inCoordinateSpace:(id)arg2;
 - (id)px_diagnosticsItemProvidersForPoint:(struct CGPoint)arg1 inCoordinateSpace:(id)arg2;
 - (void)playMiroMovieWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)restoreContentEdgeInsetsForZoomTransition:(id)arg1;
-- (void)ensureFinalContentEdgeInsetsForZoomTransition:(id)arg1;
 - (id)zoomAnimationCoordinatorForZoomTransition:(id)arg1;
 - (void)prepareForInteractiveTransition:(id)arg1;
 - (void)scrollRegionOfInterestToVisible:(id)arg1 forTransition:(id)arg2;

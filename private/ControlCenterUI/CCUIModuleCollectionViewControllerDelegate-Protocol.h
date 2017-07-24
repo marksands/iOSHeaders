@@ -6,10 +6,11 @@
 
 #import <ControlCenterUI/NSObject-Protocol.h>
 
-@class CCUIContentModuleContainerViewController, CCUIModuleCollectionViewController;
+@class CCUIContentModuleContainerViewController, CCUIModuleCollectionViewController, UIView;
 @protocol CCUIContentModule;
 
 @protocol CCUIModuleCollectionViewControllerDelegate <NSObject>
+- (UIView *)obscuringBackgroundViewForModuleCollectionViewController:(CCUIModuleCollectionViewController *)arg1;
 - (void)moduleCollectionViewController:(CCUIModuleCollectionViewController *)arg1 willRemoveModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg2;
 - (void)moduleCollectionViewController:(CCUIModuleCollectionViewController *)arg1 didAddModuleContainerViewController:(CCUIContentModuleContainerViewController *)arg2;
 - (void)moduleCollectionViewController:(CCUIModuleCollectionViewController *)arg1 didCloseExpandedModule:(id <CCUIContentModule>)arg2;

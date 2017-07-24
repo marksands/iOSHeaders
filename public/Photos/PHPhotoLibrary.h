@@ -99,6 +99,7 @@
 - (void)performChanges:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)performCancellableChangesAndWait:(CDUnknownBlockType)arg1 error:(id *)arg2;
 - (void)performCancellableChanges:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)_preflightRequestedPhotoKitInserts:(id)arg1 updates:(id)arg2 deletes:(id)arg3 error:(id *)arg4;
 - (void)_unauthorized:(CDUnknownBlockType)arg1 error:(id *)arg2;
 - (void)_cancelTransaction:(CDUnknownBlockType)arg1;
 - (void)_commitTransaction:(CDUnknownBlockType)arg1;

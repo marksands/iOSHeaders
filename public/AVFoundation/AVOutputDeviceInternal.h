@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSString;
+@class NSData, NSString;
 @protocol AVOutputDeviceImpl;
 
 @interface AVOutputDeviceInternal : NSObject
@@ -17,6 +17,7 @@
     long long deviceType;
     long long deviceSubType;
     NSString *modelID;
+    NSData *MACAddress;
     unsigned long long deviceFeatures;
 }
 

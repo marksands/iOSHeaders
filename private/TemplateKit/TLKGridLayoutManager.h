@@ -28,6 +28,7 @@
     struct CGSize _cachedGridSize;
 }
 
++ (id)font;
 + (id)computeTruncationForAlignments:(id)arg1 indexForFirstTrailingColumn:(unsigned long long)arg2 totalEqualColumns:(unsigned long long)arg3;
 + (double)leadingSectionSpacingForView:(id)arg1 view2:(id)arg2 index:(unsigned long long)arg3 alignmentSchema:(id)arg4 allEqual:(_Bool)arg5;
 + (id)arrayOfItemsForSection:(id)arg1;

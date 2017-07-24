@@ -19,6 +19,7 @@
     _Bool hasSaveRestriction;
 }
 
+- (id)availableVideoDynamicRanges;
 - (struct CGSize)maximumVideoResolution;
 - (id)propertyListForProxy;
 - (id)_nameForProxy;

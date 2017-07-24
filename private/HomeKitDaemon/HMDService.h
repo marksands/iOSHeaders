@@ -20,6 +20,8 @@
     _Bool _hidden;
     _Bool _primary;
     HMDApplicationData *_appData;
+    NSUUID *_uuid;
+    NSNumber *_instanceID;
     HMDHAPAccessory *_accessory;
     NSString *_name;
     NSString *_associatedServiceType;
@@ -28,8 +30,8 @@
     HMDBulletinBoardNotification *_bulletinBoardNotification;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     HMFMessageDispatcher *_messageDispatcher;
-    NSNumber *_instanceID;
     NSArray *_linkedServices;
+    NSUUID *_cachedAccessoryUUID;
     NSMutableDictionary *_deviceLastRequestPresenceDateMap;
     NSString *_providedName;
 }
@@ -38,9 +40,9 @@
 + (id)generateUUIDWithAccessoryUUID:(id)arg1 serviceID:(id)arg2;
 @property(retain, nonatomic) NSString *providedName; // @synthesize providedName=_providedName;
 @property(retain, nonatomic) NSMutableDictionary *deviceLastRequestPresenceDateMap; // @synthesize deviceLastRequestPresenceDateMap=_deviceLastRequestPresenceDateMap;
+@property(retain, nonatomic) NSUUID *cachedAccessoryUUID; // @synthesize cachedAccessoryUUID=_cachedAccessoryUUID;
 @property(retain, nonatomic) NSArray *linkedServices; // @synthesize linkedServices=_linkedServices;
 @property(getter=isPrimary) _Bool primary; // @synthesize primary=_primary;
-@property(copy, nonatomic) NSNumber *instanceID; // @synthesize instanceID=_instanceID;
 @property(readonly, nonatomic) HMFMessageDispatcher *messageDispatcher; // @synthesize messageDispatcher=_messageDispatcher;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(retain, nonatomic) HMDBulletinBoardNotification *bulletinBoardNotification; // @synthesize bulletinBoardNotification=_bulletinBoardNotification;
@@ -50,6 +52,7 @@
 @property(nonatomic, getter=isHidden) _Bool hidden; // @synthesize hidden=_hidden;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) __weak HMDHAPAccessory *accessory; // @synthesize accessory=_accessory;
+@property(copy, nonatomic) NSNumber *instanceID; // @synthesize instanceID=_instanceID;
 - (void).cxx_destruct;
 - (id)backingStoreObjects:(long long)arg1;
 - (id)modelObjectWithChangeType:(unsigned long long)arg1;
@@ -69,7 +72,6 @@
 - (_Bool)shouldIncludePresenceForDeviceWithDestination:(id)arg1;
 - (_Bool)shouldEnableDaemonRelaunch;
 - (void)configureBulletinNotification:(CDUnknownBlockType)arg1;
-- (void)updateAccessory:(id)arg1;
 - (void)configureMsgDispatcher:(id)arg1;
 - (void)updateLastKnownValues;
 - (id)getConfiguredName;
@@ -93,11 +95,11 @@
 @property(readonly, copy, nonatomic) NSString *type;
 - (id)dumpState;
 @property(readonly, copy) NSString *description;
-- (id)initWithAccessory:(id)arg1;
+@property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
+- (void)_recalculateUUID;
+- (id)initWithAccessory:(id)arg1 instance:(id)arg2 uuid:(id)arg3;
 - (id)initWithTransaction:(id)arg1 accessory:(id)arg2;
-- (id)initWithService:(id)arg1 accessory:(id)arg2;
 - (id)init;
-@property(readonly, nonatomic) NSUUID *uuid; // @dynamic uuid;
 @property(readonly, copy, nonatomic) NSUUID *contextSPIUniqueIdentifier;
 @property(readonly, copy, nonatomic) NSString *contextID;
 - (id)assistantObject;

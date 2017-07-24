@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PDFKit/UICollectionViewDelegate-Protocol.h>
+#import <PDFKit/UICollectionViewDelegateFlowLayout-Protocol.h>
 
 @class NSDictionary, UICollectionView, UICollectionViewLayout;
 
-@protocol UICollectionViewDelegateFlowLayoutPrivate <UICollectionViewDelegate>
+@protocol UICollectionViewDelegateFlowLayoutPrivate <UICollectionViewDelegateFlowLayout>
 
 @optional
 - (NSDictionary *)_collectionView:(UICollectionView *)arg1 layout:(UICollectionViewLayout *)arg2 sizesForItemsInSection:(long long)arg3;

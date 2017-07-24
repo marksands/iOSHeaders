@@ -15,6 +15,7 @@
     NSXPCConnection *_connection;
 }
 
++ (id)sharedInstance;
 + (id)batterySaver;
 - (void).cxx_destruct;
 - (long long)getPowerMode;

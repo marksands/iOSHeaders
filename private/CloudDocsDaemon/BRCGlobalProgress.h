@@ -32,7 +32,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) __weak BRCAccountSession *session; // @synthesize session=_session;
 - (void).cxx_destruct;
 - (void)_deleteDocument:(id)arg1 reason:(BOOL)arg2;
-- (void)_updateDocument:(id)arg1 inline:(_Bool)arg2;
 - (void)_updateDocument:(id)arg1;
 - (void)_updateAppLibraryID:(id)arg1;
 - (void)_resumeProgressForAnotherOperationIfNeeded;

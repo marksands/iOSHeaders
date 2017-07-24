@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) _Bool recordXMLApplied; // @synthesize recordXMLApplied=_recordXMLApplied;
 @property(nonatomic) _Bool shouldRemove; // @synthesize shouldRemove=_shouldRemove;
+- (void).cxx_destruct;
 - (id)p_endNoteXMLForComparison;
 - (void)p_copyPropertiesToObject:(id)arg1;
 - (id)description;
@@ -37,7 +38,6 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)loadFromUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (void)dealloc;
 @property(copy, nonatomic) NSString *type;
 @property(copy, nonatomic) NSString *year;
 @property(copy, nonatomic) NSString *title;

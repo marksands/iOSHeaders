@@ -16,6 +16,7 @@
     unsigned long long _backgroundTaskIdentifier;
     unsigned long long _backgroundTasks;
     MPAVItem *_currentItem;
+    _Bool _hasLoadedAdditionalItemsForCurrentItem;
     id <MPAVItemQueueIdentifier> _lastCleanPlayedIdentifier;
     id <MPAVItemQueueIdentifier> _lastPlayedIdentifier;
     MPCModelRadioPersonalizationResponse *_lastResponse;

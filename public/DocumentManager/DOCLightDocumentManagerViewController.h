@@ -15,9 +15,10 @@
     NSString *_sourceIdentifier;
 }
 
-@property(copy, nonatomic) NSString *sourceIdentifier; // @synthesize sourceIdentifier=_sourceIdentifier;
+@property(retain, nonatomic) NSString *sourceIdentifier; // @synthesize sourceIdentifier=_sourceIdentifier;
 - (void).cxx_destruct;
 - (void)updateAppearance:(id)arg1;
+- (void)setSourceIdentifier:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)effectiveBrowserViewController;
 - (void)viewDidLoad;
 - (id)initForBrowsingFilesFromSourceIdentifier:(id)arg1 applicationBundleIdentifier:(id)arg2 inProcess:(_Bool)arg3;

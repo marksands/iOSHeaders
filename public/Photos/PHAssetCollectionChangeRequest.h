@@ -29,8 +29,8 @@
 + (id)changeRequestForAssetCollection:(id)arg1;
 + (id)_changeRequestForAssetCollection:(id)arg1 optionalAssets:(id)arg2;
 @property(readonly, nonatomic) PHRelationshipChangeRequestHelper *assetsHelper; // @synthesize assetsHelper=_assetsHelper;
-@property(readonly, nonatomic) PHChangeRequestHelper *helper; // @synthesize helper=_helper;
 @property(retain, nonatomic) PHAssetCollection *originalAssetCollection; // @synthesize originalAssetCollection=_originalAssetCollection;
+@property(readonly, nonatomic) PHChangeRequestHelper *helper; // @synthesize helper=_helper;
 @property(readonly, nonatomic) int clientProcessID; // @synthesize clientProcessID=_clientProcessID;
 @property(readonly, nonatomic) NSString *clientName; // @synthesize clientName=_clientName;
 @property(readonly, nonatomic, getter=isClientEntitled) _Bool clientEntitled; // @synthesize clientEntitled=_clientEntitled;
@@ -65,6 +65,7 @@
 @property(retain, nonatomic) NSString *title;
 @property(readonly, nonatomic) PHObjectPlaceholder *placeholderForCreatedAssetCollection;
 @property(readonly, nonatomic) NSString *managedEntityName;
+- (_Bool)prepareForServicePreflightCheck:(id *)arg1;
 - (void)encodeToXPCDict:(id)arg1;
 - (id)initWithXPCDict:(id)arg1 clientEntitlements:(id)arg2 clientName:(id)arg3 clientBundleID:(id)arg4 clientProcessID:(int)arg5;
 - (id)initWithUUID:(id)arg1 objectID:(id)arg2;

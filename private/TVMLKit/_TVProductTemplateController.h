@@ -44,7 +44,7 @@ __attribute__((visibility("hidden")))
     _Bool _fadedIn;
     double _impressionThreshold;
     _Bool _preloadOnLayout;
-    struct CGSize _contentSizeEnsured;
+    struct CGSize _preloadContentSize;
     UIImageView *_topHeroImageView;
     UIView *_topHeroSeparatorView;
     UIImageView *_topHeroGradientView;

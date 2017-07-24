@@ -15,7 +15,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (void)barAppearance:(id)arg1 performBottomBarsMorphAnimationWithType:(long long)arg2;
 - (_Bool)barAppearanceIsStatusBarVisible:(id)arg1;
 
 // Remaining properties

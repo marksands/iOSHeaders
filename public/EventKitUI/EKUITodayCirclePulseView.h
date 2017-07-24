@@ -18,6 +18,7 @@
     UILabel *_overlayLabel;
     NSDictionary *_attributes;
     NSDictionary *_overlayAttributes;
+    _Bool _usesTextYOffsetWithoutAdjustmentForOverlay;
     _Bool _circleShouldFillFrame;
     _Bool _dontApplyCenteringOffset;
     double _circleDiameter;
@@ -29,6 +30,7 @@
 @property(nonatomic) double textFrameWidthAdjustment; // @synthesize textFrameWidthAdjustment=_textFrameWidthAdjustment;
 @property(nonatomic) _Bool dontApplyCenteringOffset; // @synthesize dontApplyCenteringOffset=_dontApplyCenteringOffset;
 @property(nonatomic) _Bool circleShouldFillFrame; // @synthesize circleShouldFillFrame=_circleShouldFillFrame;
+@property(nonatomic) _Bool usesTextYOffsetWithoutAdjustmentForOverlay; // @synthesize usesTextYOffsetWithoutAdjustmentForOverlay=_usesTextYOffsetWithoutAdjustmentForOverlay;
 @property(nonatomic) struct CGPoint textOffsetFromCircle; // @synthesize textOffsetFromCircle=_textOffsetFromCircle;
 @property(nonatomic) double textYOffset; // @synthesize textYOffset=_textYOffset;
 @property(nonatomic) double circleDiameter; // @synthesize circleDiameter=_circleDiameter;

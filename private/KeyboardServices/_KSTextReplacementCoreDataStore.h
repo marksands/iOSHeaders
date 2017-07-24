@@ -33,13 +33,14 @@
 - (id)queryEntriesWithPredicate:(id)arg1 limit:(unsigned long long)arg2;
 - (unsigned long long)countEntriesWithPredicate:(id)arg1;
 - (id)textReplacementEntriesWithLimit:(unsigned long long)arg1;
-- (void)deleteTextReplacementsWithPredicate:(id)arg1;
-- (void)deleteTextReplacementsFromLocalStoreWithNames:(id)arg1 excludeSavesToCloud:(_Bool)arg2;
-- (void)markDeletesForTextReplacementEntries:(id)arg1;
+- (_Bool)deleteTextReplacementsWithPredicate:(id)arg1;
+- (_Bool)deleteTextReplacementsFromLocalStoreWithNames:(id)arg1 excludeSavesToCloud:(_Bool)arg2;
+- (_Bool)markDeletesForTextReplacementEntries:(id)arg1;
 - (id)fetchTextReplacementWithUniqueName:(id)arg1 context:(id)arg2;
 - (id)fetchTextReplacementEntry:(id)arg1 context:(id)arg2;
 - (void)fetchAndMergeTextReplacementEntry:(id)arg1 context:(id)arg2;
-- (void)recordTextReplacementEntries:(id)arg1;
+- (_Bool)recordTextReplacementEntries:(id)arg1;
+- (id)persistentStore;
 - (void)dealloc;
 - (void)cleanup;
 - (id)initWithDirectoryPath:(id)arg1;

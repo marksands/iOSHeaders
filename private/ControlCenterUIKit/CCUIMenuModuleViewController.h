@@ -7,10 +7,11 @@
 #import <ControlCenterUIKit/CCUIButtonModuleViewController.h>
 
 #import <ControlCenterUIKit/CCUIContentModuleContentViewController-Protocol.h>
+#import <ControlCenterUIKit/UIGestureRecognizerDelegate-Protocol.h>
 
-@class CCUIContentModuleContext, MTMaterialView, NSMutableArray, NSString, UILabel, UIScrollView, UIStackView, UIView;
+@class CCUIContentModuleContext, CCUIMenuModuleItemView, MTMaterialView, NSMutableArray, NSString, UILabel, UILongPressGestureRecognizer, UIScrollView, UISelectionFeedbackGenerator, UIStackView, UIView;
 
-@interface CCUIMenuModuleViewController : CCUIButtonModuleViewController <CCUIContentModuleContentViewController>
+@interface CCUIMenuModuleViewController : CCUIButtonModuleViewController <UIGestureRecognizerDelegate, CCUIContentModuleContentViewController>
 {
     UILabel *_titleLabel;
     UIView *_headerSeparatorView;
@@ -19,6 +20,10 @@
     NSMutableArray *_menuItemsViews;
     UIScrollView *_contentScrollView;
     UIView *_darkeningBackgroundView;
+    UILongPressGestureRecognizer *_pressGestureRecognizer;
+    UISelectionFeedbackGenerator *_feedbackGenerator;
+    _Bool _ignoreMenuItemAtTouchLocationAfterExpanded;
+    CCUIMenuModuleItemView *_menuItemToIgnore;
     _Bool _shouldProvideOwnPlatter;
     _Bool _useTallLayout;
     UIView *_contentView;
@@ -33,6 +38,7 @@
 - (double)_menuItemsHeightForWidth:(double)arg1;
 - (id)_titleFont;
 - (double)_separatorHeight;
+- (void)_handlePressGesture:(id)arg1;
 - (void)_setupMenuItems;
 - (void)_setupTitleLabel;
 - (void)_setupContentViewBounds;
@@ -50,6 +56,8 @@
 - (double)preferredExpandedContentHeightWithWidth:(double)arg1;
 @property(readonly, nonatomic) double preferredExpandedContentHeight;
 @property(readonly, nonatomic) double preferredExpandedContentWidth;
+- (void)contentModuleWillTransitionToExpandedContentMode:(_Bool)arg1;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (double)_desiredExpandedHeight;
 - (double)_maximumHeight;
 @property(copy, nonatomic) NSString *title; // @dynamic title;
@@ -62,6 +70,7 @@
 @property(readonly, nonatomic) double headerHeight;
 - (void)removeAllActions;
 @property(readonly, nonatomic) unsigned long long actionsCount;
+- (void)addActionWithTitle:(id)arg1 subtitle:(id)arg2 glyph:(id)arg3 handler:(CDUnknownBlockType)arg4;
 - (void)addActionWithTitle:(id)arg1 glyph:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

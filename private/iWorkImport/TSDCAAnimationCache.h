@@ -14,28 +14,6 @@ __attribute__((visibility("hidden")))
 {
     NSDictionary *_overrideInitialValuesDict;
     double _animationDuration;
-    long long _cacheValuesCount;
-    struct CGPoint *_anchorPointCache;
-    double *_anchorPointZCache;
-    double *_borderWidthCache;
-    struct CGRect *_boundsCache;
-    _Bool *_doubleSidedCache;
-    _Bool *_hiddenCache;
-    double *_opacityCache;
-    struct CGPoint *_positionCache;
-    struct CATransform3D *_transformCache;
-    double *_transformRotationCache;
-    double *_transformRotationXCache;
-    double *_transformRotationYCache;
-    double *_transformRotationZCache;
-    double *_transformScaleXCache;
-    double *_transformScaleYCache;
-    double *_transformScaleXYCache;
-    struct CGPoint *_transformTranslationCache;
-    double *_transformTranslationXCache;
-    double *_transformTranslationYCache;
-    double *_transformTranslationZCache;
-    double *_zPositionCache;
     _Bool _anchorPointAnimationExists;
     _Bool _anchorPointZAnimationExists;
     _Bool _borderColorAnimationExists;
@@ -88,6 +66,7 @@ __attribute__((visibility("hidden")))
     struct CATransform3D _transformInitialValue;
 }
 
++ (id)supportedKeyPaths;
 @property(readonly, nonatomic) id <TSDCAAnimationContextCacheProtocol> animationContextCache; // @synthesize animationContextCache=_animationContextCache;
 @property(readonly, nonatomic) NSDictionary *initialValues; // @synthesize initialValues=_initialValues;
 @property(readonly, nonatomic) double zPositionInitialValue; // @synthesize zPositionInitialValue=_zPositionInitialValue;
@@ -138,6 +117,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool anchorPointAnimationExists; // @synthesize anchorPointAnimationExists=_anchorPointAnimationExists;
 @property(readonly, nonatomic) CAAnimation *animation; // @synthesize animation=_animation;
 @property(readonly, nonatomic) CALayer *layer; // @synthesize layer=_layer;
+- (id)p_valueForKeyPath:(id)arg1 atTime:(double)arg2;
 - (double)zPositionCachedValueAtTime:(double)arg1 layer:(id)arg2 animation:(id)arg3;
 - (double)transformTranslationZCachedValueAtTime:(double)arg1 layer:(id)arg2 animation:(id)arg3;
 - (double)transformTranslationYCachedValueAtTime:(double)arg1 layer:(id)arg2 animation:(id)arg3;
@@ -161,8 +141,9 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)anchorPointCachedValueAtTime:(double)arg1 layer:(id)arg2 animation:(id)arg3;
 - (void)dealloc;
 - (id)initWithLayer:(id)arg1 animation:(id)arg2 overrideInitialValues:(id)arg3 cacheAnimationValues:(_Bool)arg4;
-- (_Bool)verifyCache;
-- (_Bool)p_setupAndCacheAnimationValues:(_Bool)arg1 verifyOnly:(_Bool)arg2;
+- (void)p_setupAndCacheAnimationValues:(_Bool)arg1;
+- (id)getKeyPathsFromAnimation:(id)arg1;
+- (double)animationPercentByApplyingTimingFunctionForKeyPath:(id)arg1 atTime:(double)arg2;
 
 @end
 

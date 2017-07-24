@@ -23,6 +23,7 @@
     NSCharacterSet *_bookTitleMarkCharacterSet;
     NSCharacterSet *_dashCharacterSet;
     NSCharacterSet *_enDashCharacterSet;
+    NSCharacterSet *_emDashCharacterSet;
     _Bool _smartQuotesEnabled;
     _Bool _smartDashesEnabled;
     unsigned long long _autoQuoteType;

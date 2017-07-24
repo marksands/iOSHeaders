@@ -21,8 +21,8 @@ __attribute__((visibility("hidden")))
     _Bool mIsInDocument;
 }
 
-+ (id)p_drawablesToInsertForGroup:(id)arg1 filteredWithTarget:(id)arg2 action:(SEL)arg3 didUngroup:(_Bool *)arg4;
-+ (id)drawablesToInsertForGroup:(id)arg1 filteredWithTarget:(id)arg2 action:(SEL)arg3;
++ (id)p_drawablesToInsertForGroup:(id)arg1 outDidUngroup:(_Bool *)arg2 filteredWithBlock:(CDUnknownBlockType)arg3;
++ (id)drawablesToInsertForGroup:(id)arg1 filteredWithBlock:(CDUnknownBlockType)arg2;
 + (id)groupGeometryFromChildrenInfos:(id)arg1;
 - (void).cxx_destruct;
 - (void)processSelectedStoragesWithStatisticsController:(id)arg1;

@@ -15,6 +15,7 @@
     int _transactionDepth;
     _Bool _transactionRolledback;
     // Error parsing type: {atomic_flag="_Value"AB}, name: _isClosed
+    unsigned long long _lastBusyWaitEnded;
     NSString *_filename;
     NSCache *_queryCache;
     NSMutableDictionary *_sqlarrays;

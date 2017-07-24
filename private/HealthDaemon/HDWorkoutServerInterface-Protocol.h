@@ -29,7 +29,7 @@
 - (void)remote_generatePauseOrResumeRequestWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)remote_associateSamplesWithUUIDs:(NSData *)arg1 withWorkout:(HKWorkout *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)remote_pauseAllActiveWorkoutsWithCompletion:(void (^)(_Bool, NSError *))arg1;
-- (void)remote_attachWorkoutServerWithClient:(id)arg1 serverConfiguration:(_HKActiveWorkoutServerConfiguration *)arg2 fitnessMachineConnectionClient:(id <HKFitnessMachineConnectionClientInterface>)arg3 fitnessMachineSessionConfiguration:(_HKFitnessMachineSessionConfiguration *)arg4 handler:(void (^)(HDActiveWorkoutServer *, _Bool, NSError *))arg5;
+- (void)remote_attachWorkoutServerWithClient:(id)arg1 serverConfiguration:(_HKActiveWorkoutServerConfiguration *)arg2 fitnessMachineConnectionClient:(id <HKFitnessMachineConnectionClientInterface>)arg3 fitnessMachineSessionConfiguration:(_HKFitnessMachineSessionConfiguration *)arg4 willReactivate:(_Bool)arg5 handler:(void (^)(HDActiveWorkoutServer *, _Bool, NSError *))arg6;
 - (void)remote_replaceWorkout:(HKWorkout *)arg1 withWorkout:(HKWorkout *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)remote_addSamples:(NSArray *)arg1 toWorkout:(HKWorkout *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)remote_getFirstPartyWorkoutSnapshotWithCompletion:(void (^)(_HKFirstPartyWorkoutSnapshot *, NSError *))arg1;

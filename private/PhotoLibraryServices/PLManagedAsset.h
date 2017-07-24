@@ -294,6 +294,7 @@
 - (_Bool)setDefaultAdjustmentsIfNecessary;
 - (void)synchronouslyFetchAdjustmentDataWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_cleanupPenultimateResources;
+- (void)setAdjustments:(id)arg1 renderedContentURL:(id)arg2 penultimateRenderedJPEGData:(id)arg3 isSubstandardRender:(_Bool)arg4 fullSizeRenderSize:(struct CGSize)arg5 renderedVideoComplementContentURL:(id)arg6 penultimateRenderedVideoComplementContentURL:(id)arg7 shouldUpdateAttributes:(_Bool)arg8 fileIngestionType:(long long)arg9 shouldGenerateThumbnails:(_Bool)arg10;
 - (void)setAdjustments:(id)arg1 renderedContentURL:(id)arg2 penultimateRenderedJPEGData:(id)arg3 isSubstandardRender:(_Bool)arg4 fullSizeRenderSize:(struct CGSize)arg5 renderedVideoComplementContentURL:(id)arg6 penultimateRenderedVideoComplementContentURL:(id)arg7 shouldUpdateAttributes:(_Bool)arg8 fileIngestionType:(long long)arg9;
 - (void)writeOutAdjustmentsToFile:(id)arg1;
 - (long long)_prepareFileSystemResourcesForPhotoAdjustmentsWithCurrentAdjustmentBaseVersion:(long long)arg1 pathForFullsizeRenderImageFile:(id)arg2 penultimateRenderedJPEGData:(id)arg3 renderedVideoComplementContentURL:(id)arg4 penultimateRenderedVideoComplementContentURL:(id)arg5 fileIngestionType:(long long)arg6;

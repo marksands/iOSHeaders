@@ -13,6 +13,8 @@
 - (NSProgress *)loadDataWithTypeIdentifier:(NSString *)arg1 forItemProviderCompletionHandler:(void (^)(NSData *, NSError *))arg2;
 
 @optional
++ (long long)itemProviderVisibilityForRepresentationWithTypeIdentifier:(NSString *)arg1;
 @property(readonly, copy, nonatomic) NSArray *writableTypeIdentifiersForItemProvider;
+- (long long)itemProviderVisibilityForRepresentationWithTypeIdentifier:(NSString *)arg1;
 @end
 

@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
-- (_Bool)copyToTemporaryURL:(id)arg1 encryptionInfo:(id)arg2;
+- (_Bool)linkOrCopyToURL:(id)arg1 encryptionInfo:(id)arg2 canLink:(_Bool)arg3;
 - (_Bool)isInPackage:(id)arg1;
 - (unsigned int)CRC;
 - (unsigned long long)encodedLength;

@@ -9,7 +9,7 @@
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
 #import <SearchFoundation/_SFPBMediaInfoCardSection-Protocol.h>
 
-@class NSArray, NSData, NSString, _SFPBActionItem, _SFPBColor, _SFPBMediaItem;
+@class NSArray, NSData, NSString, _SFPBActionItem, _SFPBColor, _SFPBMediaItem, _SFPBRichText;
 
 @interface _SFPBMediaInfoCardSection : PBCodable <_SFPBMediaInfoCardSection, NSSecureCoding>
 {
@@ -32,8 +32,10 @@
     NSString *_watchListButtonLabel;
     NSString *_watchListContinuationText;
     NSString *_watchListConfirmationText;
+    _SFPBRichText *_specialOfferButtonLabel;
 }
 
+@property(retain, nonatomic) _SFPBRichText *specialOfferButtonLabel; // @synthesize specialOfferButtonLabel=_specialOfferButtonLabel;
 @property(nonatomic) _Bool isMediaContainer; // @synthesize isMediaContainer=_isMediaContainer;
 @property(copy, nonatomic) NSString *watchListConfirmationText; // @synthesize watchListConfirmationText=_watchListConfirmationText;
 @property(copy, nonatomic) NSString *watchListContinuationText; // @synthesize watchListContinuationText=_watchListContinuationText;
@@ -61,6 +63,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasSpecialOfferButtonLabel;
 @property(readonly, nonatomic) _Bool hasIsMediaContainer;
 @property(readonly, nonatomic) _Bool hasWatchListConfirmationText;
 @property(readonly, nonatomic) _Bool hasWatchListContinuationText;

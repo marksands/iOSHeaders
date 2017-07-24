@@ -9,27 +9,34 @@
 #import <PreferencesUI/PSSpecifierGroupController-Protocol.h>
 #import <PreferencesUI/PSUIWirelessDataOptionsDelegate-Protocol.h>
 
-@class ACAccountStore, AppWirelessDataUsageManager, NSArray, NSNumber, NSString, PSExpandableAppListGroupController, WirelessDataUsageWorkspace;
+@class ACAccountStore, AppWirelessDataUsageManager, NSArray, NSMutableArray, NSNumber, NSString, PSExpandableAppListGroupController, WirelessDataUsageWorkspace;
 
 @interface PSUIAppCellularUsageGroupController : NSObject <PSSpecifierGroupController, PSUIWirelessDataOptionsDelegate>
 {
     NSArray *_cellularDataSwitches;
     _Bool _cancelled;
     _Bool _enabled;
+    int _selectedBillingCycle;
     WirelessDataUsageWorkspace *_workspace;
     NSNumber *_totalBytesUsed;
     NSNumber *_totalRoamingBytesUsed;
     NSArray *_headerSpecifiers;
     PSExpandableAppListGroupController *_appGroupController;
+    NSMutableArray *_specifiersUpdatedWithBillingCycle;
+    NSMutableArray *_specifiersRefreshedWithBillingCycle;
     NSArray *_managedBundleIDs;
     AppWirelessDataUsageManager *_wirelessManager;
     ACAccountStore *_accountStore;
 }
 
 + (id)nameForSpecialCategory:(id)arg1;
++ (void)setSpecifierData:(id)arg1 withApp:(id)arg2;
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
 @property(retain, nonatomic) AppWirelessDataUsageManager *wirelessManager; // @synthesize wirelessManager=_wirelessManager;
 @property(retain, nonatomic) NSArray *managedBundleIDs; // @synthesize managedBundleIDs=_managedBundleIDs;
+@property(retain, nonatomic) NSMutableArray *specifiersRefreshedWithBillingCycle; // @synthesize specifiersRefreshedWithBillingCycle=_specifiersRefreshedWithBillingCycle;
+@property(retain, nonatomic) NSMutableArray *specifiersUpdatedWithBillingCycle; // @synthesize specifiersUpdatedWithBillingCycle=_specifiersUpdatedWithBillingCycle;
+@property(nonatomic) int selectedBillingCycle; // @synthesize selectedBillingCycle=_selectedBillingCycle;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(getter=isCancelled) _Bool cancelled; // @synthesize cancelled=_cancelled;
 @property(retain, nonatomic) PSExpandableAppListGroupController *appGroupController; // @synthesize appGroupController=_appGroupController;
@@ -40,9 +47,12 @@
 - (void).cxx_destruct;
 - (void)setReliableNetworkFallbackIsEnabled:(id)arg1 specifier:(id)arg2;
 - (id)isReliableNetworkFallbackEnabled:(id)arg1;
+- (id)getBillingCycle:(id)arg1;
+- (void)setBillingCycle:(id)arg1 specifier:(id)arg2;
 - (void)_createAppSpecifiersForVisibleApps:(id)arg1 hiddenApps:(id)arg2 unknownApps:(id)arg3 internalProcesses:(id)arg4 wifiAssist:(id)arg5;
 - (void)_updateTotalBytesUsed:(double)arg1 roamingBytesUsed:(double)arg2;
-- (id)specifierForSpecialCategory:(id)arg1 bytesUsed:(id)arg2;
+- (id)specifierForAppInNestedList:(id)arg1 app:(id)arg2;
+- (id)specifierForSpecialCategory:(id)arg1 app:(id)arg2;
 - (id)specifierForApp:(id)arg1 enabled:(_Bool)arg2;
 - (id)dataUsageForApplicationSpecifier:(id)arg1;
 - (void)_setUseCellularForCloudDrive:(id)arg1 forSpecifier:(id)arg2;

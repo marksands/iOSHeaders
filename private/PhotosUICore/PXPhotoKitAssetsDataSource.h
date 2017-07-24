@@ -15,6 +15,7 @@
     PXPhotosDataSourceChange *_change;
 }
 
++ (id)dataSourceWithAsset:(id)arg1;
 @property(readonly, nonatomic) PXPhotosDataSourceChange *change; // @synthesize change=_change;
 @property(readonly, nonatomic) PXPhotosDataSource *photosDataSource; // @synthesize photosDataSource=_photosDataSource;
 - (void).cxx_destruct;

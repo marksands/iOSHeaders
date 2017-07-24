@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class CAPackage, CCUIRoundButton, NSString, UIColor, UIImage, UILabel;
+@class CCUICAPackageDescription, CCUIRoundButton, NSString, UIColor, UIImage, UILabel;
 
 @interface CCUILabeledRoundButton : UIView
 {
@@ -14,7 +14,7 @@
     NSString *_title;
     NSString *_subtitle;
     UIImage *_glyphImage;
-    CAPackage *_glyphPackage;
+    CCUICAPackageDescription *_glyphPackageDescription;
     NSString *_glyphState;
     CCUIRoundButton *_buttonView;
     UIColor *_highlightColor;
@@ -28,13 +28,12 @@
 @property(retain, nonatomic) CCUIRoundButton *buttonView; // @synthesize buttonView=_buttonView;
 @property(nonatomic) _Bool labelsVisible; // @synthesize labelsVisible=_labelsVisible;
 @property(copy, nonatomic) NSString *glyphState; // @synthesize glyphState=_glyphState;
-@property(retain, nonatomic) CAPackage *glyphPackage; // @synthesize glyphPackage=_glyphPackage;
+@property(retain, nonatomic) CCUICAPackageDescription *glyphPackageDescription; // @synthesize glyphPackageDescription=_glyphPackageDescription;
 @property(retain, nonatomic) UIImage *glyphImage; // @synthesize glyphImage=_glyphImage;
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
 - (_Bool)_shouldUseLargeTextLayout;
-- (unsigned long long)_titleLabelNumberOfLines;
 - (void)_contentSizeCategoryDidChange;
 - (void)_layoutLabels;
 - (void)_setupLabelsBounds;
@@ -42,8 +41,8 @@
 - (struct CGSize)intrinsicContentSize;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (id)initWithGlyphPackage:(id)arg1 highlightColor:(id)arg2 useLightStyle:(_Bool)arg3;
-- (id)initWithGlyphPackage:(id)arg1 highlightColor:(id)arg2;
+- (id)initWithGlyphPackageDescription:(id)arg1 highlightColor:(id)arg2 useLightStyle:(_Bool)arg3;
+- (id)initWithGlyphPackageDescription:(id)arg1 highlightColor:(id)arg2;
 - (id)initWithGlyphImage:(id)arg1 highlightColor:(id)arg2 useLightStyle:(_Bool)arg3;
 - (id)initWithGlyphImage:(id)arg1 highlightColor:(id)arg2;
 - (void)dealloc;

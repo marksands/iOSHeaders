@@ -68,6 +68,7 @@
 - (void)select:(id)arg1 from:(id)arg2 where:(id)arg3 bindings:(id)arg4 orderBy:(id)arg5 limit:(id)arg6 block:(CDUnknownBlockType)arg7;
 - (id)select:(id)arg1 from:(id)arg2 where:(id)arg3 bindings:(id)arg4;
 - (id)select:(id)arg1 from:(id)arg2;
+- (id)columnNamesForTable:(id)arg1;
 - (id)creationDate;
 - (void)removePropertyForKey:(id)arg1;
 - (void)setDateProperty:(id)arg1 forKey:(id)arg2;

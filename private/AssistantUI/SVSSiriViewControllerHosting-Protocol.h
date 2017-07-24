@@ -9,6 +9,11 @@
 @class AFUIRequestOptions, NSString, NSURL;
 
 @protocol SVSSiriViewControllerHosting <NSObject>
+- (void)serviceDidEndTaptoEdit;
+- (void)serviceWillBeginTapToEdit;
+- (void)serviceDidResetTextInput;
+- (void)serviceDidRequestKeyboard:(_Bool)arg1;
+- (void)serviceDidRequestKeyboard:(_Bool)arg1 minimized:(_Bool)arg2;
 - (void)serviceDidDetectAudioRoutePickerTap;
 - (void)serviceDidExitUITrackingMode;
 - (void)serviceDidEnterUITrackingMode;

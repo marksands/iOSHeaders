@@ -34,6 +34,7 @@
 @property __weak HMDHomeManager *homeManager; // @synthesize homeManager=_homeManager;
 @property __weak id <HMDMediaBrowserDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)updateAccessory:(id)arg1;
 - (id)unassociatedAccessoryFromAdvertisementData:(id)arg1;
 - (void)_handleAvailableEndpoints:(struct __CFArray *)arg1;
 - (void)handleAvailableEndpoints:(struct __CFArray *)arg1;
@@ -44,11 +45,11 @@
 - (void)startDiscoveringAssociatedAccessories;
 - (void)_stopDiscoveringAccessories;
 - (void)_startDiscoveringAccessories;
-- (void)notifyDelegateOfUpdatedEndpoint:(id)arg1;
-- (void)notifyDelegateOfRemovedAdvertisement:(id)arg1;
-- (void)removeAdvertisement:(id)arg1;
-- (void)notifyDelegateOfAddedAdvertisement:(id)arg1;
-- (void)addAdvertisement:(id)arg1;
+- (void)_notifyDelegateOfUpdatedEndpoints:(id)arg1;
+- (void)notifyDelegateOfRemovedAdvertisements:(id)arg1;
+- (void)removeAdvertisements:(id)arg1;
+- (void)notifyDelegateOfAddedAdvertisements:(id)arg1;
+- (void)addAdvertisements:(id)arg1;
 @property(readonly, copy) NSArray *accessoryAdvertisements;
 @property(readonly, copy) HMDUnassociatedMediaAccessory *currentAccessory;
 - (id)currentAccessoryAdvertisement;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @interface IMDCKUtilities : NSObject
 {
@@ -15,6 +15,7 @@
 + (id)im_AKSecurityLevelKey;
 @property(nonatomic) _Bool useDeprecatedApi; // @synthesize useDeprecatedApi=_useDeprecatedApi;
 - (id)lastDeviceBackUpDate;
+- (id)newfilteredArrayRemovingCKRecordIDDupes:(id)arg1;
 - (id)newfilteredArrayRemovingCKRecordDupes:(id)arg1;
 - (_Bool)deviceConditionsAllowPeriodicSync;
 - (void)primaryAccountHasiCloudBackupEnabledWithCompletion:(CDUnknownBlockType)arg1;
@@ -42,8 +43,10 @@
 - (_Bool)_accountInfoWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (_Bool)_checkEligibilityWithAccountInfo:(id)arg1;
 - (id)_authenticationController;
-- (_Bool)cacheDeletePurgingEnabled;
+- (_Bool)accountIsVerifiedForMOCAndSafeForCacheDelete;
 - (_Bool)cacheDeleteEnabled;
+- (_Bool)_serverAllowsCacheDelete;
+- (void)_resetKeepMessagesSettingandBroadcastToAllDevices;
 - (void)setCloudKitSyncingEnabled:(_Bool)arg1;
 - (_Bool)cloudKitSyncingEnabled;
 - (long long)_mininimumServerBagClientValue;

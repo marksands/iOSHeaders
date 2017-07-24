@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class TSgPTPClock;
 @protocol OS_dispatch_queue;
@@ -19,6 +19,7 @@
 
 + (id)diagnosticDescriptionForService:(unsigned int)arg1 withIndent:(id)arg2;
 + (id)gPTPManager;
++ (id)sharedgPTPManagerSyncWithTimeout:(unsigned long long)arg1;
 + (id)sharedgPTPManager;
 @property(readonly, nonatomic) unsigned long long systemDomainClockIdentifier; // @synthesize systemDomainClockIdentifier=_systemDomainClockIdentifier;
 - (void)dealloc;

@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
     _Bool _dirty;
     _Bool _byHost;
     _Bool _managed;
+    _Bool _managedUsesContainer;
     _Bool _neverCache;
     _Bool _checkedForNonPrefsPlist;
     _Bool _hasDrainedPendingChangesSinceLastReplyToOwner;
@@ -91,6 +92,7 @@ __attribute__((visibility("hidden")))
 - (struct __CFString *)container;
 - (struct __CFString *)user;
 - (struct __CFString *)domain;
+- (void)setManagedPreferencesUseContainer:(_Bool)arg1;
 - (_Bool)managed;
 - (id)initWithDomain:(struct __CFString *)arg1 userName:(struct __CFString *)arg2 byHost:(_Bool)arg3 managed:(_Bool)arg4 shmemIndex:(short)arg5 daemon:(id)arg6;
 - (_Bool)getUncanonicalizedPath:(char *)arg1;

@@ -190,6 +190,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
 - (struct CGSize)_intrinsicSizeForTitle:(id)arg1 attributedTitle:(id)arg2 image:(id)arg3 backgroundImage:(id)arg4 titlePaddingInsets:(struct UIEdgeInsets *)arg5;
+- (struct CGSize)_roundSize:(struct CGSize)arg1;
 - (id)viewForLastBaselineLayout;
 - (void)updateConstraints;
 - (id)_titleOrImageViewForBaselineLayout;
@@ -312,6 +313,7 @@
 - (struct UIEdgeInsets)_combinedContentPaddingInsets;
 - (id)_layoutDebuggingTitle;
 @property(retain, nonatomic) UIColor *tintColor; // @dynamic tintColor;
+- (void)_uikit_applyValueFromTraitStorage:(id)arg1 forKeyPath:(id)arg2;
 - (_Bool)_accessibilityShouldActivateOnHUDLift;
 @property(nonatomic) _Bool adjustsImageSizeForAccessibilityContentSizeCategory;
 - (double)_scaleFactorForImage;

@@ -7,7 +7,6 @@
 #import <iWorkImport/NSObject-Protocol.h>
 
 @class KNAnimatedBuild, KNAnimationContext, KNAnimationPluginMenu, NSArray, NSDictionary, NSString, TSDCapabilities;
-@protocol KNAnimationPluginContext;
 
 @protocol KNAnimationPlugin <NSObject>
 + (NSString *)thumbnailImageNameForType:(long long)arg1;
@@ -26,7 +25,5 @@
 + (NSDictionary *)customEffectTimingCurveDisplayParametersForAttributes:(NSDictionary *)arg1 layoutStyleOnly:(_Bool)arg2;
 + (NSArray *)customAttributes;
 - (NSDictionary *)animationInfoForAnimatedBuild:(KNAnimatedBuild *)arg1;
-- (void)animationDidEndWithContext:(id <KNAnimationPluginContext>)arg1;
-- (void)animationWillBeginWithContext:(id <KNAnimationPluginContext>)arg1;
 @end
 

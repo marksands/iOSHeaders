@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (void)_gestureRecognizerChanged:(id)arg1;
+- (id)_bestViewControllerForView;
 - (void)_contentSizeCategoryChanged:(id)arg1;
 - (void)_concurrentGestureRecognizerFired:(id)arg1;
 - (_Bool)_gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;

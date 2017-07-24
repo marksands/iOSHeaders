@@ -18,11 +18,17 @@ __attribute__((visibility("hidden")))
     UIBarButtonItem *_imagePickerCancelButton;
     UIBarButtonItem *_imagePickerMultipleSelectionDoneButton;
     PUUIImagePickerControllerHelper *__imagePickerControllerHelper;
+    _Bool _didDisappear;
     int __albumFilter;
     id <PUPhotoPicker> _photoPicker;
     NSArray *__imagePickerMediaTypes;
+    double _lastKnownWidth;
+    struct UIEdgeInsets _lastKnownSafeAreaInsets;
 }
 
+@property(nonatomic) struct UIEdgeInsets lastKnownSafeAreaInsets; // @synthesize lastKnownSafeAreaInsets=_lastKnownSafeAreaInsets;
+@property(nonatomic) double lastKnownWidth; // @synthesize lastKnownWidth=_lastKnownWidth;
+@property(nonatomic) _Bool didDisappear; // @synthesize didDisappear=_didDisappear;
 @property(nonatomic, setter=_setAlbumFilter:) int _albumFilter; // @synthesize _albumFilter=__albumFilter;
 @property(copy, nonatomic, setter=_setImagePickerMediaTypes:) NSArray *_imagePickerMediaTypes; // @synthesize _imagePickerMediaTypes=__imagePickerMediaTypes;
 @property(nonatomic) __weak id <PUPhotoPicker> photoPicker; // @synthesize photoPicker=_photoPicker;
@@ -32,6 +38,10 @@ __attribute__((visibility("hidden")))
 - (void)setPhotoPickerMediaTypes:(id)arg1;
 - (void)performPhotoPickerSelection;
 - (_Bool)pu_wantsNavigationBarVisible;
+@property(readonly, nonatomic) _Bool referenceValuesDidChange;
+- (void)_scrollToBottomIfNeeded;
+- (void)viewWillLayoutSubviews;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;

@@ -71,7 +71,8 @@
 @property(readonly, copy, nonatomic) NSString *userName;
 @property(readonly, copy, nonatomic) NSString *lastName;
 @property(readonly, copy, nonatomic) NSString *firstName;
-- (id)cacheableObjects;
+- (void)_intents_updateContainerWithCache:(id)arg1;
+- (id)_intents_cacheableObjects;
 - (id)descriptionAtIndent:(unsigned long long)arg1;
 @property(readonly, copy) NSString *description;
 - (id)initWithPersonHandle:(id)arg1 nameComponents:(id)arg2 displayName:(id)arg3 image:(id)arg4 contactIdentifier:(id)arg5 customIdentifier:(id)arg6 aliases:(id)arg7 suggestionType:(long long)arg8;

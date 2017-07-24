@@ -15,9 +15,9 @@
     _Bool _active;
     _Bool _shouldReenableUserInteractions;
     NSIndexPath *_indexPath;
+    UIContextualAction *_currentAction;
     unsigned long long _currentDirection;
     UIView *_swipedView;
-    UIContextualAction *_currentAction;
     UISwipeActionController *_controller;
     UISwipeActionPullView *_leadingPullView;
     UISwipeActionPullView *_trailingPullView;
@@ -32,11 +32,11 @@
 @property(nonatomic) __weak UISwipeActionController *controller; // @synthesize controller=_controller;
 @property(nonatomic) _Bool shouldReenableUserInteractions; // @synthesize shouldReenableUserInteractions=_shouldReenableUserInteractions;
 @property(nonatomic) _Bool active; // @synthesize active=_active;
-@property(retain, nonatomic) UIContextualAction *currentAction; // @synthesize currentAction=_currentAction;
 @property(nonatomic) struct CGPoint swipedViewInitialPosition; // @synthesize swipedViewInitialPosition=_swipedViewInitialPosition;
 @property(retain, nonatomic) UIView *swipedView; // @synthesize swipedView=_swipedView;
 @property(nonatomic) struct UIEdgeInsets extraInsets; // @synthesize extraInsets=_extraInsets;
 @property(nonatomic) unsigned long long currentDirection; // @synthesize currentDirection=_currentDirection;
+@property(retain, nonatomic) UIContextualAction *currentAction; // @synthesize currentAction=_currentAction;
 @property(copy, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
 - (void).cxx_destruct;
 - (double)confirmationDistanceForPrimaryActionInSwipeActionPullView:(id)arg1;

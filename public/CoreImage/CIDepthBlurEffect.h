@@ -40,7 +40,6 @@ __attribute__((visibility("hidden")))
 @property(retain) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (id)_getFocusRect:(id)arg1 focusRect:(id)arg2;
-- (float)_getSimulatedAperture:(id)arg1 auxMetaData:(struct CGImageMetadata *)arg2;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 
 @end

@@ -25,7 +25,7 @@
 @property(retain, nonatomic) NSString *ownerName; // @dynamic ownerName;
 @property(retain, nonatomic) NSData *ownerPublicKey; // @dynamic ownerPublicKey;
 @property(retain, nonatomic) NSString *ownerUserID; // @dynamic ownerUserID;
-@property(retain, nonatomic) NSNumber *presenceAuthStatus; // @dynamic presenceAuthStatus;
+@property(retain, nonatomic) NSNumber *presenceAuthorizationStatus; // @dynamic presenceAuthorizationStatus;
 @property(retain, nonatomic) NSNumber *presenceComputeStatus; // @dynamic presenceComputeStatus;
 @property(retain, nonatomic) NSString *primaryResidentUUID; // @dynamic primaryResidentUUID;
 

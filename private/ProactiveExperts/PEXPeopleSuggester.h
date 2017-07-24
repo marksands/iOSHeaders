@@ -21,6 +21,7 @@
 - (void)_processPeopleSuggestions:(id)arg1 favorites:(id)arg2 doRetry:(_Bool)arg3;
 - (id)_makeDuetPeopleSuggester;
 - (void)clearCaches;
+- (void)clearCachesWithoutRefreshing;
 - (id)init;
 - (void)refreshMockPeopleSuggestions;
 - (id)initWithMock:(CDUnknownBlockType)arg1;

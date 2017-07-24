@@ -18,11 +18,11 @@ __attribute__((visibility("hidden")))
     TSWPChangeSession *_changeSession;
 }
 
+- (void).cxx_destruct;
 - (struct _NSRange)insertedRange;
 - (long long)delta;
 - (unsigned long long)targetCharIndex;
 - (void)performWithStorage:(id)arg1 delta:(long long)arg2 actionBuilder:(struct TSWPStorageActionBuilder *)arg3 withFlags:(unsigned int)arg4 replaceBlock:(CDUnknownBlockType)arg5;
-- (void)dealloc;
 - (id)initWithSelection:(id)arg1 string:(id)arg2 changeSession:(id)arg3;
 
 // Remaining properties

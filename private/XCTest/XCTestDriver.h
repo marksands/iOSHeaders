@@ -30,7 +30,7 @@
 - (void)reportStallOnMainThreadInTestCase:(id)arg1 method:(id)arg2 file:(id)arg3 line:(unsigned long long)arg4;
 - (_Bool)runTestsAndReturnError:(id *)arg1;
 - (id)_readyIDESession:(id *)arg1;
-- (int)_connectedSocketForIDESession:(id *)arg1;
+- (id)_transportForIDESession:(id *)arg1;
 - (void)logDebugMessage:(id)arg1;
 - (void)logStartupInfo;
 - (id)initWithTestConfiguration:(id)arg1;

@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) _UIPreviewInteractionViewControllerPresentation *viewControllerPresentation; // @synthesize viewControllerPresentation=_viewControllerPresentation;
 - (void).cxx_destruct;
+- (void)_performDismissalCompletionIfNeeded;
 - (void)_finalizeAfterViewControllerPresentation;
 - (id)customPresentationControllerForPresentedViewController:(id)arg1 presentingViewController:(id)arg2 sourceViewController:(id)arg3;
 - (id)defaultPresentationControllerForPresentedViewController:(id)arg1 presentingViewController:(id)arg2 sourceViewController:(id)arg3;

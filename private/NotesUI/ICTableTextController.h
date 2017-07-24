@@ -10,6 +10,7 @@
 {
 }
 
+- (id)defaultTypingAttributesForEmptyDocument;
 - (void)styleText:(id)arg1 inRange:(struct _NSRange)arg2 fixModelAttributes:(_Bool)arg3;
 - (id)init;
 

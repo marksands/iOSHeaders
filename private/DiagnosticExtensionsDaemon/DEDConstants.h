@@ -10,6 +10,7 @@
 {
 }
 
++ (id)DEDAddEmptyFile;
 + (id)DEDExtensionCompressOnAttach;
 + (id)DEDExtensionAttachmentsParamBundleIDKey;
 + (id)DEDExtensionHostAppKey;

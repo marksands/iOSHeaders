@@ -7,11 +7,12 @@
 #import <Foundation/NSObject.h>
 
 #import <iWorkImport/NSCopying-Protocol.h>
+#import <iWorkImport/TSSPropertyValueArchiving-Protocol.h>
 
 @class NSArray, NSString;
 
 __attribute__((visibility("hidden")))
-@interface TSCH3DLightingPackage : NSObject <NSCopying>
+@interface TSCH3DLightingPackage : NSObject <TSSPropertyValueArchiving, NSCopying>
 {
     NSString *_name;
     NSArray *_lights;

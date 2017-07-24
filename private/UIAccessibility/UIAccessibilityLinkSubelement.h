@@ -14,7 +14,6 @@
 }
 
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
-- (float)_accessibilityActivationDelay;
 - (struct CGRect)accessibilityFrame;
 @property(readonly) UITextRange *textRange;
 - (unsigned long long)accessibilityTraits;

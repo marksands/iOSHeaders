@@ -6,21 +6,26 @@
 
 #import <VideoSubscriberAccount/VSAsyncOperation.h>
 
-@class NSOperationQueue, VSAuditToken, VSOptional;
+@class NSOperationQueue, NSSet, NSString, VSAuditToken, VSOptional;
 
 @interface VSIdentityProviderFetchAppsOperation : VSAsyncOperation
 {
     VSOptional *_identityProviderID;
     VSAuditToken *_auditToken;
+    NSString *_bagKey;
+    NSSet *_channelIDs;
     VSOptional *_result;
     NSOperationQueue *_privateQueue;
 }
 
 @property(retain, nonatomic) NSOperationQueue *privateQueue; // @synthesize privateQueue=_privateQueue;
 @property(retain, nonatomic) VSOptional *result; // @synthesize result=_result;
+@property(copy, nonatomic) NSSet *channelIDs; // @synthesize channelIDs=_channelIDs;
+@property(copy, nonatomic) NSString *bagKey; // @synthesize bagKey=_bagKey;
 @property(copy, nonatomic) VSAuditToken *auditToken; // @synthesize auditToken=_auditToken;
 @property(retain, nonatomic) VSOptional *identityProviderID; // @synthesize identityProviderID=_identityProviderID;
 - (void).cxx_destruct;
+- (void)cancel;
 - (void)executionDidBegin;
 - (id)init;
 

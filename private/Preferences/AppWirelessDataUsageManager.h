@@ -15,6 +15,8 @@
     NSArray *_managedBundleIDs;
 }
 
++ (_Bool)shouldUseCalendarMonthBillingCycle;
++ (_Bool)shouldUseBillingCycleData;
 + (id)dataUsageWorkspace;
 + (id)appWirelessDataOptionForBundleIdentifier:(id)arg1;
 + (void)setAppWirelessDataOption:(id)arg1 forBundleIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

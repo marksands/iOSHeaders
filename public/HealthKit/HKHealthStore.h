@@ -122,9 +122,8 @@
 - (void)_saveRelatedSamplesForActiveWorkout:(id)arg1 workout:(id)arg2 server:(id)arg3 clientCompletion:(CDUnknownBlockType)arg4;
 - (void)_saveActiveWorkout:(id)arg1 isMachineWorkout:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_pauseAllActiveWorkoutsWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_reattachWorkout:(id)arg1 fitnessMachineConnection:(id)arg2 fitnessMachineSessionConfiguration:(id)arg3 willReactivate:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)_reattachWorkout:(id)arg1 fitnessMachineConnection:(id)arg2 fitnessMachineSessionConfiguration:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)_reattachWorkout:(id)arg1 fitnessMachineSessionConfiguration:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_reattachWorkout:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_beginWorkoutWithActivityType:(unsigned long long)arg1 startDate:(id)arg2 goalType:(unsigned long long)arg3 goal:(id)arg4 metadata:(id)arg5 lapLength:(id)arg6 shouldUseDeviceData:(_Bool)arg7 fitnessMachineSessionConfiguration:(id)arg8 completion:(CDUnknownBlockType)arg9;
 - (void)_beginWorkoutWithActivityType:(unsigned long long)arg1 startDate:(id)arg2 goalType:(unsigned long long)arg3 goal:(id)arg4 metadata:(id)arg5 lapLength:(id)arg6 shouldUseDeviceData:(_Bool)arg7 completion:(CDUnknownBlockType)arg8;
 - (void)_firstPartyWorkoutSnapshotWithCompletion:(CDUnknownBlockType)arg1;
@@ -250,7 +249,7 @@
 - (void)forceNanoSyncWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchNanoSyncPairedDevicesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)stopObservingDataCollectionForType:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)observeDataCollectionForType:(id)arg1 interval:(double)arg2 inBackground:(_Bool)arg3 hasWorkout:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)observeDataCollectionForType:(id)arg1 interval:(double)arg2 inBackground:(_Bool)arg3 hasRunningWorkout:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)resetAWDTask:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)runAWDTask:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setShouldIgnoreUnlockedState:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;

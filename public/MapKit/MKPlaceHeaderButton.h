@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)_contentSizeDidChange;
 - (id)initWithPrimaryType:(unsigned long long)arg1;
 - (id)init;
+- (struct CGRect)titleRectForContentRect:(struct CGRect)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

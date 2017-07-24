@@ -21,10 +21,10 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) NSError *error; // @synthesize error=mError;
 @property(readonly, nonatomic) long long compatibilityLevel; // @synthesize compatibilityLevel=mCompatibilityLevel;
+- (void).cxx_destruct;
 @property(readonly, nonatomic, getter=isCancelled) _Bool cancelled;
 - (void)cancel;
 - (void)checkCompatibilityUpToLevel:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)dealloc;
 - (id)initWithImageData:(id)arg1;
 
 // Remaining properties

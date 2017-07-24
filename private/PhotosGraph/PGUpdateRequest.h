@@ -24,8 +24,6 @@
 @property(readonly, nonatomic) NSSet *momentsToDelete; // @synthesize momentsToDelete=_momentsToDelete;
 @property(readonly, nonatomic) NSSet *momentsToInsert; // @synthesize momentsToInsert=_momentsToInsert;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) _Bool hasAnyChanges;
-- (_Bool)isValid;
 
 @end
 

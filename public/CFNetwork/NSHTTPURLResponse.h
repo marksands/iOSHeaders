@@ -23,7 +23,6 @@
 - (id)_peerCertificateChain;
 - (void)dealloc;
 @property(readonly) long long statusCode;
-- (id)_allHTTPHeaderFieldsAsArrays;
 @property(readonly, copy) NSDictionary *allHeaderFields;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

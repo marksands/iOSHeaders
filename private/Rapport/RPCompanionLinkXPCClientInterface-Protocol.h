@@ -4,6 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+@class NSDictionary, NSString, RPCompanionLinkDevice;
+
 @protocol RPCompanionLinkXPCClientInterface
+- (void)companionLinkReceivedRequestID:(NSString *)arg1 request:(NSDictionary *)arg2 responseHandler:(void (^)(NSDictionary *, NSDictionary *, NSError *))arg3;
+- (void)companionLinkReceivedEventID:(NSString *)arg1 event:(NSDictionary *)arg2;
+- (void)companionLinkLostDevice:(RPCompanionLinkDevice *)arg1;
+- (void)companionLinkFoundDevice:(RPCompanionLinkDevice *)arg1;
 @end
 

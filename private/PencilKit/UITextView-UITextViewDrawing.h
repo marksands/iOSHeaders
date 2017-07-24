@@ -20,7 +20,7 @@
 - (void)_willBeginNewStrokeForTouch:(id)arg1;
 - (void)_undoDrawingBounds:(struct CGRect)arg1 viewBounds:(struct CGRect)arg2 ofAttachmentUUID:(id)arg3;
 - (void)_growView:(id)arg1 textAttachment:(id)arg2 atCharacterIndex:(long long)arg3 step:(double)arg4 stop:(CDUnknownBlockType)arg5;
-- (void)_removeDrawingAttachment:(id)arg1 withView:(id)arg2;
+- (void)_removeDrawingAttachment:(id)arg1 withView:(id)arg2 forDeletion:(_Bool)arg3;
 - (id)_insertEmptyDrawingAttachmentAtLocation:(long long)arg1;
 - (id)_textRangeFromRange:(struct _NSRange)arg1;
 @property(nonatomic, getter=isFingerDrawingEnabled) _Bool fingerDrawingEnabled;

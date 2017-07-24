@@ -23,12 +23,18 @@ __attribute__((visibility("hidden")))
 - (id)cloudKitContainerIdentifier;
 - (_Bool)supportsRTL;
 - (_Bool)supportsAutosizingTextboxes;
+- (id)stringForOwnerHasCollabEnabledMessage;
+- (id)stringForOwnerHasCollabEnabledTitle;
+- (id)stringForBoxCollaborationOptInLearnMoreURL;
+- (id)stringForBoxCollaborationOptInTermsOfServiceURL;
+- (id)stringForBoxCollaborationOptInMessage;
 - (id)stringForCouldntCreatePDFTitle;
 - (id)stringForCloseDocumentConfirmationWillContinueToUpdateInformativeText;
 - (id)stringForCloseDocumentConfirmationAlertMessage;
 - (id)stringForApplicationUpdateError;
 - (id)stringForCollaborationConnecting;
 - (id)stringForCollaborationOnline;
+- (id)stringForGenericServerUnreachable;
 - (id)stringForICloudUnreachable;
 - (id)stringForCollaborationOffline;
 - (id)stringForRemoveLastPrivateParticipantAlertConfirmationMessage;
@@ -54,7 +60,6 @@ __attribute__((visibility("hidden")))
 - (id)stringForCollaboratorConflictWithKeepDetails;
 - (id)stringForCollaboratorConflictDetails;
 - (id)stringForCollaboratorConflict;
-- (id)stringForOwnerConflictWithSaveACopyAlertMessage;
 - (id)stringForUpdatingDocument;
 - (id)templateTypeDisplayName;
 - (id)documentTypeDisplayNameForSharingInvitation;

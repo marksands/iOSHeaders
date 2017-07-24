@@ -36,7 +36,6 @@
     _Bool _hostApplicationEnteredBackground;
     _Bool _treatingHostAsBackgrounded;
     _Bool _requestingInAppPIN;
-    _Bool _showTotalView;
     long long _preferencesStyle;
     struct __IOHIDEventSystemClient *_hidSystemClient;
     unsigned long long _biometryAttempts;

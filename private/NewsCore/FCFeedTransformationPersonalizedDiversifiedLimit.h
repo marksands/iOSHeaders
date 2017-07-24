@@ -6,21 +6,23 @@
 
 #import <objc/NSObject.h>
 
-#import <NewsCore/FCFeedTransforming-Protocol.h>
+#import <NewsCore/FCLimitAwareFeedTransforming-Protocol.h>
 
 @class NSString;
 @protocol FCFeedPersonalizing;
 
-@interface FCFeedTransformationPersonalizedDiversifiedLimit : NSObject <FCFeedTransforming>
+@interface FCFeedTransformationPersonalizedDiversifiedLimit : NSObject <FCLimitAwareFeedTransforming>
 {
     unsigned long long _limit;
     id <FCFeedPersonalizing> _feedPersonalizer;
 }
 
 + (id)transformationWithPersonalizer:(id)arg1 limit:(unsigned long long)arg2;
++ (id)transformationWithPersonalizer:(id)arg1;
 @property(retain, nonatomic) id <FCFeedPersonalizing> feedPersonalizer; // @synthesize feedPersonalizer=_feedPersonalizer;
 @property(nonatomic) unsigned long long limit; // @synthesize limit=_limit;
 - (void).cxx_destruct;
+- (id)transformFeedItems:(id)arg1 withRespectToLimit:(unsigned long long)arg2;
 - (id)transformFeedItems:(id)arg1;
 
 // Remaining properties

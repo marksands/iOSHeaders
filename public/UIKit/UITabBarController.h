@@ -167,6 +167,7 @@
 - (void)_updateOffscreenStatus:(_Bool)arg1;
 - (void)_didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (id)_overridingPreferredFocusEnvironment;
+- (_Bool)_canRestoreFocusAfterTransitionToRecalledItem:(id)arg1 inViewController:(id)arg2;
 - (void)_rememberPresentingFocusedItem:(id)arg1;
 - (id)preferredFocusEnvironments;
 - (long long)_subclassPreferredFocusedViewPrioritizationType;

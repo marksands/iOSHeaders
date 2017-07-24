@@ -23,6 +23,7 @@
 - (void).cxx_destruct;
 - (id)_lazilyUpdateActions;
 - (id)commitItem;
+@property(readonly, nonatomic, getter=isAffectedByEndEvents) _Bool affectedByEndEvents;
 @property(readonly, nonatomic) _Bool requiresDeviceUnlock;
 - (void)removeAllActions;
 - (void)removeAction:(id)arg1;

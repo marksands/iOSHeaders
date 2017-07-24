@@ -6,7 +6,7 @@
 
 #import <Home/HFItemBuilder.h>
 
-@class HFConditionCollection, HFMutableSetDiff, HFTriggerAnonymousActionSetBuilder, HMTrigger, NSArray, NSString;
+@class HFConditionCollection, HFDurationEventBuilder, HFMutableSetDiff, HFTriggerAnonymousActionSetBuilder, HMTrigger, NSArray, NSString;
 @protocol HFTriggerBuilderContextProviding;
 
 @interface HFTriggerBuilder : HFItemBuilder
@@ -49,6 +49,9 @@
 - (id)deleteTrigger;
 - (_Bool)markTriggerAsHomeAppCreated;
 - (void)setMarkTriggerAsHomeAppCreated:(_Bool)arg1;
+@property(readonly, nonatomic) HFDurationEventBuilder *designatedDurationEventBuilder;
+@property(readonly, nonatomic, getter=areActionsAffectedByEndEvents) _Bool actionsAffectedByEndEvents;
+@property(readonly, nonatomic) _Bool requiresFMFDeviceToRun;
 @property(readonly, nonatomic) _Bool requiresUpdatedHomeHub;
 @property(readonly, nonatomic) _Bool requiresHomeHub;
 @property(readonly, nonatomic) _Bool requiresLocationServicesAuthorization;

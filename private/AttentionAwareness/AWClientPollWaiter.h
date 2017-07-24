@@ -6,22 +6,24 @@
 
 #import <objc/NSObject.h>
 
-@class AWAttentionEvent;
-@protocol OS_dispatch_semaphore;
+@class AWAttentionAwarenessClient;
+@protocol OS_dispatch_queue, OS_dispatch_source;
 
 __attribute__((visibility("hidden")))
 @interface AWClientPollWaiter : NSObject
 {
-    NSObject<OS_dispatch_semaphore> *_sema;
-    AWAttentionEvent *_event;
-    _Bool _cancelled;
+    AWAttentionAwarenessClient *_client;
+    NSObject<OS_dispatch_queue> *_queue;
+    CDUnknownBlockType _block;
+    NSObject<OS_dispatch_source> *_timer;
+    int _pollState;
 }
 
 - (void).cxx_destruct;
-- (id)waitForTimeout:(unsigned long long)arg1 cancelled:(_Bool *)arg2;
+- (void)invalidate;
 - (void)cancel;
-- (void)signalWithEvent:(id)arg1;
-- (id)init;
+- (void)notifyPollEventType:(unsigned long long)arg1 event:(id)arg2;
+- (id)initWithClient:(id)arg1 timeout:(unsigned long long)arg2 queue:(id)arg3 block:(CDUnknownBlockType)arg4;
 
 @end
 

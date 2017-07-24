@@ -43,6 +43,7 @@
 - (_Bool)_queue_canPerformAction:(unsigned long long)arg1;
 - (unsigned long long)_queue_supportedActions;
 - (_Bool)_queue_isCloudDemoted;
+- (void)_reloadFromProxy:(id)arg1;
 - (void)_sendToObserversPlaceholderDidChangeSignificantly;
 - (void)_sendToObserversPlaceholderProgressDidUpdate;
 - (void)_dispatchToObserversWithBlock:(CDUnknownBlockType)arg1;

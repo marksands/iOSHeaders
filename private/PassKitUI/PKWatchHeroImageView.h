@@ -17,8 +17,13 @@
 }
 
 - (void).cxx_destruct;
+- (id)_watchDeviceImage;
 - (id)_bridgeWallpaperImage;
 - (id)_bridgeHeroImage;
+- (struct CGSize)_heroBackgroundImageSize;
+- (struct CGSize)_heroWatchImageSize;
+- (id)_resizeImage:(id)arg1 toSize:(struct CGSize)arg2;
+@property(readonly, nonatomic) _Bool isCompactWatch;
 - (struct CGSize)imageSize;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;

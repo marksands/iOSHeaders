@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)requiresEventOrReminderAccess;
 + (_Bool)requiresReminderAccess;
 + (_Bool)requiresEventAccess;
+- (void)CADObjectIsManaged:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)CADDatabaseDeleteObjectsWithObjectIDs:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)CADDatabaseInsertObjectsWithTempObjectIDs:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)CADObject:(id)arg1 setAttributes:(id)arg2 andRelations:(id)arg3 reply:(CDUnknownBlockType)arg4;

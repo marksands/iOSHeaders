@@ -17,7 +17,8 @@
 
 - (void).cxx_destruct;
 - (id)_replyContextWithPakeData:(id)arg1;
-- (_Bool)hasExistingBackupRecords;
+- (_Bool)approveriCloudKeychainEnabled;
+- (_Bool)approverBackupRecordsExist;
 - (void)sendPayload:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithContext:(id)arg1;
 

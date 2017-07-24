@@ -50,6 +50,8 @@
 - (void)performUndo:(id)arg1;
 - (struct CGAffineTransform)imageTransform;
 - (id)keyCommands;
+- (void)didBeginDraggingSelection;
+- (void)scrollContent:(struct CGPoint)arg1;
 @property(readonly, nonatomic) _Bool hasCurrentSelection;
 - (id)drawingForLiveAttachment;
 - (_Bool)liveDrawingIsAtEndOfDocument;
@@ -72,7 +74,7 @@
 - (void)simulateHIDPoints:(id)arg1;
 - (_Bool)canBeginDrawingWithTouch:(id)arg1;
 - (void)willBeginDrawingWithTouch:(id)arg1;
-- (void)didFinishRenderingStroke:(id)arg1;
+- (void)didFinishRenderingStroke:(id)arg1 inDrawing:(id)arg2;
 - (void)setIsDrawing:(_Bool)arg1;
 - (void)renderingDidFinish;
 - (void)drawingDidChange:(id)arg1;
@@ -88,7 +90,6 @@
 - (struct CGImage *)image;
 - (void)eraseAll;
 - (void)drawStrokeWithPath:(struct CGPath *)arg1;
-- (void)_setDrawing:(id)arg1 tiles:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_setDrawing:(id)arg1 alreadyRenderedDrawing:(id)arg2 imageForAlreadyRenderedDrawing:(id)arg3 fullyRenderedCompletionBlock:(CDUnknownBlockType)arg4;
 @property(copy, nonatomic) PKDrawing *drawing;
 - (void)setHidden:(_Bool)arg1;
@@ -110,6 +111,7 @@
 @property(readonly, nonatomic, getter=_drawingGestureRecognizer) UIGestureRecognizer *drawingGestureRecognizer;
 - (void)pickInk;
 - (void)layoutSubviews;
+- (void)commitSelectionIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)canBecomeFirstResponder;
 - (void)dealloc;
 - (void)initDrawingView;

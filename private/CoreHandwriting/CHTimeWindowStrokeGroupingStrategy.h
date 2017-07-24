@@ -12,7 +12,7 @@
 
 - (id)_timeSortedStrokesForIdentifiers:(id)arg1;
 - (id)recognizableDrawingForStrokeGroup:(id)arg1 orderedStrokesIDs:(id *)arg2;
-- (id)updatedGroupingResult;
+- (id)updatedGroupingResultWithCancellationBlock:(CDUnknownBlockType)arg1;
 
 @end
 

@@ -207,6 +207,7 @@
 + (void)applicationDidBecomeActive:(id)arg1;
 + (void)applicationWillResignActive:(id)arg1;
 + (void)applicationWillSuspend:(id)arg1;
++ (void)purgeImageCache;
 + (void)releaseSharedInstance;
 + (id)activeInstance;
 + (id)sharedInstance;
@@ -818,6 +819,7 @@
 - (void)clearLanguageIndicator;
 - (_Bool)keyboardDrawsOpaque;
 - (void)clearExcessKeyboardMemory;
+- (void)_tagTouchForTypingMenu:(unsigned int)arg1;
 - (void)_requestInputManagerSync;
 - (void)_performInputViewControllerOutput:(id)arg1;
 - (_Bool)_needsCandidates;

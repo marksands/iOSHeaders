@@ -10,15 +10,15 @@
 #import <UIKit/UITableViewDataSourcePrefetching-Protocol.h>
 #import <UIKit/UITableViewDataSourcePrivate-Protocol.h>
 #import <UIKit/UITableViewDelegatePrivate-Protocol.h>
-#import <UIKit/UITableViewDragDelegate-Protocol.h>
+#import <UIKit/UITableViewDragDelegate_Private-Protocol.h>
 #import <UIKit/UITableViewDragDestinationDelegate_Internal-Protocol.h>
 #import <UIKit/UITableViewDragSourceDelegate-Protocol.h>
-#import <UIKit/UITableViewDropDelegate-Protocol.h>
+#import <UIKit/UITableViewDropDelegate_Private-Protocol.h>
 
 @class NSMutableArray, NSString, UITableView, _UIDataSourceSnapshotter, _UIDataSourceUpdateMap;
 
 __attribute__((visibility("hidden")))
-@interface _UITableViewShadowUpdatesController : NSObject <UITableViewDataSourcePrivate, UIDataSourceModelAssociation, UITableViewDelegatePrivate, UITableViewDataSourcePrefetching, UITableViewDragDelegate, UITableViewDropDelegate, UITableViewDragSourceDelegate, UITableViewDragDestinationDelegate_Internal>
+@interface _UITableViewShadowUpdatesController : NSObject <UITableViewDataSourcePrivate, UIDataSourceModelAssociation, UITableViewDelegatePrivate, UITableViewDataSourcePrefetching, UITableViewDragDelegate_Private, UITableViewDropDelegate_Private, UITableViewDragSourceDelegate, UITableViewDragDestinationDelegate_Internal>
 {
     UITableView *_tableView;
     NSMutableArray *_shadowUpdates;
@@ -150,6 +150,7 @@ __attribute__((visibility("hidden")))
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 cancelPrefetchingForRowsAtIndexPaths:(id)arg2;
 - (void)tableView:(id)arg1 prefetchRowsAtIndexPaths:(id)arg2;
+- (long long)_tableView:(id)arg1 dataOwnerForDragSession:(id)arg2 atIndexPath:(id)arg3;
 - (_Bool)tableView:(id)arg1 dragSessionIsRestrictedToDraggingApplication:(id)arg2;
 - (_Bool)tableView:(id)arg1 dragSessionAllowsMoveOperation:(id)arg2;
 - (void)tableView:(id)arg1 dragSessionDidEnd:(id)arg2;
@@ -157,16 +158,20 @@ __attribute__((visibility("hidden")))
 - (id)tableView:(id)arg1 dragPreviewParametersForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 itemsForAddingToDragSession:(id)arg2 atIndexPath:(id)arg3 point:(struct CGPoint)arg4;
 - (id)tableView:(id)arg1 itemsForBeginningDragSession:(id)arg2 atIndexPath:(id)arg3;
+- (long long)_tableView:(id)arg1 dataOwnerForDropSession:(id)arg2 withDestinationIndexPath:(id)arg3;
+- (id)tableView:(id)arg1 dropPreviewParametersForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 dropSessionDidEnd:(id)arg2;
 - (void)tableView:(id)arg1 dropSessionDidExit:(id)arg2;
 - (id)tableView:(id)arg1 dropSessionDidUpdate:(id)arg2 withDestinationIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 dropSessionDidEnter:(id)arg2;
 - (_Bool)tableView:(id)arg1 canHandleDropSession:(id)arg2;
 - (void)tableView:(id)arg1 performDropWithCoordinator:(id)arg2;
+- (long long)__tableView:(id)arg1 dataOwnerForDragSession:(id)arg2 atIndexPath:(id)arg3;
 - (void)_tableView:(id)arg1 dragSessionDidEnd:(id)arg2;
 - (void)_tableView:(id)arg1 dragSessionWillBegin:(id)arg2;
 - (id)_tableView:(id)arg1 itemsForAddingToDragSession:(id)arg2 atIndexPath:(id)arg3 point:(struct CGPoint)arg4;
 - (id)_tableView:(id)arg1 itemsForBeginningDragSession:(id)arg2 atIndexPath:(id)arg3;
+- (long long)__tableView:(id)arg1 dataOwnerForDropSession:(id)arg2 withDestinationIndexPath:(id)arg3;
 - (id)_tableView:(id)arg1 targetIndexPathForProposedIndexPath:(id)arg2 currentIndexPath:(id)arg3 dropSession:(id)arg4;
 - (void)_tableView:(id)arg1 dropSessionDidEnd:(id)arg2;
 - (void)_tableView:(id)arg1 dropSessionDidExit:(id)arg2;

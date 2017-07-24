@@ -9,7 +9,6 @@
 @class CADisplayLink, NSArray, UIViewPropertyAnimator, _UIDragSetDownAnimationWindow;
 @protocol _UIDraggingItemVisualTarget;
 
-__attribute__((visibility("hidden")))
 @interface _UIDragSetDownAnimation : NSObject
 {
     long long _state;
@@ -23,6 +22,10 @@ __attribute__((visibility("hidden")))
     UIViewPropertyAnimator *_remainingItemsPropertyAnimator;
 }
 
++ (CDUnknownBlockType)defaultDropAnimationForPlatterView:(id)arg1;
++ (CDUnknownBlockType)defaultMultiItemAnimationForPlatterView:(id)arg1;
++ (CDUnknownBlockType)defaultSingleItemAnimationForPlatterView:(id)arg1;
++ (id)defaultSetDownPropertyAnimator;
 - (void).cxx_destruct;
 - (void)_beginFadeOutForAnimationItem:(id)arg1;
 - (id)_viewForImageComponents:(id)arg1 crossfadingToLocalImageComponents:(id)arg2 totalComponentFrame:(struct CGRect)arg3 preview:(id)arg4 inView:(id)arg5;
@@ -32,9 +35,8 @@ __attribute__((visibility("hidden")))
 - (void)_animationItemDone:(id)arg1;
 - (void)_animationItemReachedTarget:(id)arg1;
 - (void)displayLinkFired:(id)arg1;
-- (void)_configureAnimationItem:(id)arg1 forDroppedItem:(id)arg2 duiPreview:(id)arg3 crossfadingToTargetedPreview:(id)arg4;
-- (id)_newSystemDefaultPropertyAnimator;
-- (void)_configureSystemDefaultAnimationForItem:(id)arg1 droppedItem:(id)arg2 duiPreview:(id)arg3 isCancel:(_Bool)arg4;
+- (void)_configureAnimationItem:(id)arg1 forDroppedItem:(id)arg2 crossfadingToTargetedPreview:(id)arg3;
+- (void)_configureSystemDefaultAnimationForItem:(id)arg1 droppedItem:(id)arg2 isCancel:(_Bool)arg3;
 - (void)begin;
 - (void)_setCenterAndVelocityOfAnimationItem:(id)arg1 fromDroppedItem:(id)arg2;
 - (void)takeUpdatedVisibleDroppedItems:(id)arg1;

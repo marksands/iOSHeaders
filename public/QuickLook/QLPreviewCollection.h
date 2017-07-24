@@ -69,6 +69,7 @@ __attribute__((visibility("hidden")))
 @property(retain) QLPageViewController *pageViewController; // @synthesize pageViewController=_pageViewController;
 - (void).cxx_destruct;
 - (void)_updateCanChangeCurrentPage;
+- (long long)dragDataOwnerForPreviewItemViewController:(id)arg1;
 - (void)previewItemViewController:(id)arg1 didEnableEditMode:(_Bool)arg2;
 - (void)previewItemViewController:(id)arg1 hasUnsavedEdits:(_Bool)arg2;
 - (void)previewItemViewControllerDidEditPreview:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -104,6 +105,7 @@ __attribute__((visibility("hidden")))
 - (void)_updateTitleFromController;
 - (void)_updatePreferredContentSize;
 - (_Bool)_isVisible;
+- (void)setSourceIsManaged:(_Bool)arg1;
 - (void)setLoadingString:(id)arg1;
 - (void)tearDownTransition:(_Bool)arg1;
 - (void)startTransitionWithSourceViewProvider:(id)arg1 transitionController:(id)arg2 presenting:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;

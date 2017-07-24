@@ -35,6 +35,7 @@
 - (int)_compressWithArchive:(struct archive *)arg1 error:(id *)arg2;
 - (int)_compressContents:(id)arg1 withArchive:(struct archive *)arg2 error:(id *)arg3;
 - (struct archive *)_compressionArchive;
+- (id)compressFolder:(id)arg1 error:(id *)arg2;
 - (void)compressContents:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_compressContents:(id)arg1 error:(id *)arg2;
 - (void)unregisterBlocks;

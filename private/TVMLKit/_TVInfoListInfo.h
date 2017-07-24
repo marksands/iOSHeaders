@@ -16,10 +16,12 @@
     UIView *_headerContentView;
     NSArray *_dataViews;
     struct UIEdgeInsets _headerMargin;
+    struct UIEdgeInsets _headerPadding;
 }
 
 @property(copy, nonatomic) NSArray *dataViews; // @synthesize dataViews=_dataViews;
 @property(retain, nonatomic) UIView *headerContentView; // @synthesize headerContentView=_headerContentView;
+@property(nonatomic) struct UIEdgeInsets headerPadding; // @synthesize headerPadding=_headerPadding;
 @property(nonatomic) struct UIEdgeInsets headerMargin; // @synthesize headerMargin=_headerMargin;
 @property(nonatomic) double lineSpacing; // @synthesize lineSpacing=_lineSpacing;
 @property(nonatomic) double width; // @synthesize width=_width;

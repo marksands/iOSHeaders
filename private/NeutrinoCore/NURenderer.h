@@ -27,6 +27,8 @@
 + (id)rendererWithGLContext:(id)arg1 options:(id)arg2;
 @property(readonly, nonatomic) CIContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (id)renderDestinationForSurface:(id)arg1 owner:(id)arg2;
+- (id)imageForSurface:(id)arg1 options:(id)arg2 owner:(id)arg3;
 - (id)_renderImage:(id)arg1 toDestination:(id)arg2 bounds:(CDStruct_996ac03c)arg3 error:(out id *)arg4;
 - (id)renderImage:(id)arg1 toDestination:(id)arg2 bounds:(CDStruct_996ac03c)arg3 error:(out id *)arg4;
 @property(readonly, nonatomic) NSString *name;

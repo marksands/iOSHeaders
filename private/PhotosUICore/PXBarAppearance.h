@@ -17,7 +17,6 @@
     struct {
         _Bool respondsToWillUpdateBarAppearanceOnViewWillAppear;
         _Bool respondsToIsStatusBarVisible;
-        _Bool respondsToPerformBottomBarsMorphAnimationWithType;
     } _implementationDelegateFlags;
     _Bool _prefersStatusBarVisible;
     _Bool _prefersNavigationBarVisible;

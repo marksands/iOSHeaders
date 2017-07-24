@@ -8,12 +8,13 @@
 
 #import <UIKit/_UINavigationBarAugmentedTitleView-Protocol.h>
 
-@class NSArray, NSLayoutConstraint, NSString, UINavigationItem;
+@class NSArray, NSLayoutConstraint, NSString, UINavigationItem, _UINavigationBarTitleViewOverlayRects;
 @protocol _UINavigationBarTitleViewDataSource;
 
 @interface _UINavigationBarTitleView : UIView <_UINavigationBarAugmentedTitleView>
 {
     NSLayoutConstraint *_heightConstraint;
+    _UINavigationBarTitleViewOverlayRects *_overlayRects;
     _Bool _underlayBarContent;
     _Bool _hideBackButton;
     _Bool _hideLeadingBarButtons;
@@ -38,6 +39,7 @@
 - (void)transitionCompleted:(long long)arg1 willBeDisplayed:(_Bool)arg2;
 - (void)performTransition:(long long)arg1 willBeDisplayed:(_Bool)arg2;
 - (void)transitionWillBegin:(long long)arg1 willBeDisplayed:(_Bool)arg2;
+- (void)contentDidChange;
 - (void)preferredContentSizeDidChange;
 - (long long)preferredContentSizeForSize:(long long)arg1;
 @property(readonly, copy, nonatomic) NSArray *contentOverlayRects;

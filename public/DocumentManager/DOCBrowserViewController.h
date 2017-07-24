@@ -10,12 +10,11 @@
 #import <DocumentManager/DOCHostBrowserViewControllerProxy-Protocol.h>
 #import <DocumentManager/DOCNavigationBarOverwriteProtocol-Protocol.h>
 #import <DocumentManager/DOCRemoteSourceManagementInterface-Protocol.h>
-#import <DocumentManager/FPUIActionViewControllerDelegate-Protocol.h>
 
 @class DOCAppearance, DOCConcreteLocation, DOCConfiguration, DOCSearchContext, NSArray, NSMutableArray, NSOperationQueue, NSString, _UIResilientRemoteViewContainerViewController;
 @protocol DOCDocumentBrowserDelegate, DOCRemoteAppearanceInterface><DOCRemoteSourceManagementInterface, DOCServiceBrowserViewControllerProxy;
 
-@interface DOCBrowserViewController : UIViewController <FPUIActionViewControllerDelegate, DOCHostBrowserViewControllerProxy, DOCNavigationBarOverwriteProtocol, DOCRemoteSourceManagementInterface, DOCAppearanceProtocol>
+@interface DOCBrowserViewController : UIViewController <DOCHostBrowserViewControllerProxy, DOCNavigationBarOverwriteProtocol, DOCRemoteSourceManagementInterface, DOCAppearanceProtocol>
 {
     UIViewController<DOCRemoteAppearanceInterface><DOCRemoteSourceManagementInterface> *_localViewController;
     _UIResilientRemoteViewContainerViewController *_remoteViewController;
@@ -54,7 +53,6 @@
 - (void).cxx_destruct;
 - (void)updateAppearance:(id)arg1;
 - (void)_updateAppearance;
-- (void)actionControllerDidFinishAction:(id)arg1 error:(id)arg2;
 - (void)revealItemAtURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)lastVisitedLocation;
 - (void)saveLastVisitedLocationIfNeeded;
@@ -69,7 +67,6 @@
 - (void)didPickLocation:(id)arg1;
 - (void)builtinActionsDidChange:(id)arg1;
 - (void)didTriggerFPUIActionWithIdentifier:(id)arg1 providerIdentifier:(id)arg2 domainIdentifier:(id)arg3 title:(id)arg4 onItems:(id)arg5;
-- (void)presentVendorAuthenticationUIForProviderIdentifier:(id)arg1 error:(id)arg2;
 - (void)didTriggerActionWithIdentifier:(id)arg1 onItems:(id)arg2;
 - (void)didSelectItems:(id)arg1;
 - (void)callViewControllerCompletionHandlersWithError:(id)arg1;
@@ -81,6 +78,8 @@
 - (void)createNewFile;
 - (void)_updateHostProvidedActions;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)viewDidAppear:(_Bool)arg1;
+- (_Bool)isRevelevantBrowser;
 - (void)tagsDidChange:(id)arg1;
 - (void)_setResolvedSelectedLocation:(id)arg1;
 - (void)_updateSelectedBrowserLocation;

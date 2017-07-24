@@ -10,29 +10,33 @@
 #import <UIKit/QLPreviewControllerDelegate-Protocol.h>
 #import <UIKit/UIDocumentPickerDelegate-Protocol.h>
 
-@class NSString, UICreatePDFActivityItem, UINavigationController;
+@class NSString, QLPreviewController, UICreatePDFActivityItem;
 
 @interface UICreatePDFActivity : UIPrintActivity <QLPreviewControllerDelegate, QLPreviewControllerDataSource, UIDocumentPickerDelegate>
 {
-    UINavigationController *_createPDFViewController;
+    QLPreviewController *_previewController;
     UICreatePDFActivityItem *_previewURLItem;
 }
 
 @property(retain, nonatomic) UICreatePDFActivityItem *previewURLItem; // @synthesize previewURLItem=_previewURLItem;
-@property(retain, nonatomic) UINavigationController *createPDFViewController; // @synthesize createPDFViewController=_createPDFViewController;
+@property(retain, nonatomic) QLPreviewController *previewController; // @synthesize previewController=_previewController;
 - (void).cxx_destruct;
 - (void)documentPicker:(id)arg1 didPickDocumentsAtURLs:(id)arg2;
+- (void)previewControllerDidDismiss:(id)arg1;
+- (id)dismissActionsForPreviewController:(id)arg1;
+- (_Bool)shouldPresentDismissActionsWithoutEditedItemsForPreviewController:(id)arg1;
+- (_Bool)shouldAppendDefaultDismissActionsForPreviewController:(id)arg1;
 - (id)previewController:(id)arg1 previewItemAtIndex:(long long)arg2;
 - (long long)numberOfPreviewItemsInPreviewController:(id)arg1;
 - (id)excludedActivityTypesForPreviewController:(id)arg1;
 - (_Bool)previewController:(id)arg1 shouldSaveEditedItem:(id)arg2;
 - (_Bool)previewController:(id)arg1 canEditItem:(id)arg2;
 - (void)_cleanup;
-- (void)done:(id)arg1;
 - (void)performActivity;
 - (id)activityViewController;
 - (id)_embeddedActivityViewController;
 - (void)prepareWithActivityItems:(id)arg1;
+- (_Bool)canPerformWithActivityItems:(id)arg1;
 - (void)_setupQuickLookWithURL:(id)arg1 activityItems:(id)arg2;
 - (id)activityTitle;
 - (id)_activityImage;

@@ -8,7 +8,7 @@
 
 #import <PDFKit/PDFKitPlatformThumbnailItem-Protocol.h>
 
-@class UIImageView, UILabel;
+@class CALayer, PDFPage, UIImageView, UILabel;
 
 __attribute__((visibility("hidden")))
 @interface PDFThumbnailItem_ios : UICollectionReusableView <PDFKitPlatformThumbnailItem>
@@ -16,13 +16,16 @@ __attribute__((visibility("hidden")))
     UIImageView *_imageView;
     UILabel *_textField;
     _Bool _horizontalModeStyle;
+    PDFPage *_page;
+    CALayer *_borderEffect;
 }
 
 @property(retain) UILabel *textField; // @synthesize textField=_textField;
 @property(retain) UIImageView *imageView; // @synthesize imageView=_imageView;
 - (void).cxx_destruct;
+@property(nonatomic) __weak CALayer *borderEffect; // @synthesize borderEffect=_borderEffect;
+@property(nonatomic) __weak PDFPage *page; // @synthesize page=_page;
 @property(nonatomic) _Bool horizontalModeStyle;
-- (void)awakeFromNib;
 - (void)_commonInit;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

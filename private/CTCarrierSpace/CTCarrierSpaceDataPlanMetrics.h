@@ -8,17 +8,21 @@
 
 #import <CTCarrierSpace/NSSecureCoding-Protocol.h>
 
-@class CTCarrierSpaceDataPlanMetricsItem, NSDate;
+@class CTCarrierSpaceDataPlanMetricsItem, NSDate, NSNumber;
 
 @interface CTCarrierSpaceDataPlanMetrics : NSObject <NSSecureCoding>
 {
-    CTCarrierSpaceDataPlanMetricsItem *_domestic;
     NSDate *_billingCycleEndDate;
+    CTCarrierSpaceDataPlanMetricsItem *_domestic;
+    long long _regStatus;
+    NSNumber *_domesticCapacity;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) NSDate *billingCycleEndDate; // @synthesize billingCycleEndDate=_billingCycleEndDate;
+@property(retain, nonatomic) NSNumber *domesticCapacity; // @synthesize domesticCapacity=_domesticCapacity;
+@property(nonatomic) long long regStatus; // @synthesize regStatus=_regStatus;
 @property(retain, nonatomic) CTCarrierSpaceDataPlanMetricsItem *domestic; // @synthesize domestic=_domestic;
+@property(retain, nonatomic) NSDate *billingCycleEndDate; // @synthesize billingCycleEndDate=_billingCycleEndDate;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

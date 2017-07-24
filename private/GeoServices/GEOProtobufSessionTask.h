@@ -55,6 +55,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)parsePreambleWithReader:(id)arg1;
 - (id)parseResponseFromResponseData:(id)arg1;
 - (id)parseInnerProtobufFromData:(id)arg1;
+- (void)updateDataRequest:(id)arg1 withNewProtobufRequest:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)dataSession:(id)arg1 willSendRequest:(id)arg2 forTask:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)dataSession:(id)arg1 didCompleteTask:(id)arg2;
 
 // Remaining properties

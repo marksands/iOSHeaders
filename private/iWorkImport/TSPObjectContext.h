@@ -12,7 +12,7 @@
 #import <iWorkImport/TSPPassphraseConsumer-Protocol.h>
 #import <iWorkImport/TSPSupportDirectoryDelegate-Protocol.h>
 
-@class NSData, NSHashTable, NSMapTable, NSProgress, NSRecursiveLock, NSSet, NSString, NSURL, NSUUID, SFUCryptoKey, TSPComponentManager, TSPDataDownloadManager, TSPDataManager, TSPDocumentMetadata, TSPDocumentProperties, TSPDocumentRevision, TSPDocumentSaveOperationState, TSPObject, TSPObjectContainer, TSPObjectUUIDMap, TSPPackage, TSPPackageWriteCoordinator, TSPRegistry, TSPResourceContext, TSPSupportManager, TSPSupportMetadata, TSUTemporaryDirectory;
+@class NSData, NSHashTable, NSMapTable, NSMutableArray, NSProgress, NSRecursiveLock, NSSet, NSString, NSURL, NSUUID, SFUCryptoKey, TSPComponentManager, TSPDataDownloadManager, TSPDataManager, TSPDocumentMetadata, TSPDocumentProperties, TSPDocumentRevision, TSPDocumentSaveOperationState, TSPObject, TSPObjectContainer, TSPObjectUUIDMap, TSPPackage, TSPPackageWriteCoordinator, TSPRegistry, TSPResourceContext, TSPSupportManager, TSPSupportMetadata, TSUTemporaryDirectory;
 @protocol NSFilePresenter, OS_dispatch_group, OS_dispatch_queue, TSPObjectContextDelegate;
 
 __attribute__((visibility("hidden")))
@@ -54,11 +54,12 @@ __attribute__((visibility("hidden")))
     TSUTemporaryDirectory *_temporaryDirectory;
     struct unordered_map<const long long, NSMutableArray *, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, NSMutableArray *>>> _loadObservers;
     NSObject<OS_dispatch_queue> *_asynchronousObjectModifierQueue;
-    long long _suspendAsynchronousObjectModifiersCount;
     NSHashTable *_asynchronousObjectModifiers;
-    NSHashTable *_suspendedAsynchronousObjectModifiers;
+    NSMutableArray *_suspendedAsynchronousObjectModifierStack;
     TSPObject *_supportObject;
     TSPPackageWriteCoordinator *_supportWriteCoordinator;
+    NSHashTable *_objectProviders;
+    NSObject<OS_dispatch_queue> *_objectProvidersQueue;
     struct {
         unsigned int delegateRespondsToAdditionalDocumentPropertiesForWrite:1;
         unsigned int delegateRespondsToAdditionalDocumentSupportPropertiesForWrite:1;
@@ -114,7 +115,6 @@ __attribute__((visibility("hidden")))
 + (_Bool)isNativeOrTangierEditingFormatURL:(id)arg1 hasNativeUTI:(_Bool)arg2;
 + (_Bool)isNativeOrTangierEditingFormatURL:(id)arg1;
 + (id)releaseQueue;
-+ (_Bool)forceAPFSMode;
 @property(readonly, nonatomic) NSData *passwordVerifier; // @synthesize passwordVerifier=_passwordVerifier;
 @property(readonly, nonatomic) unsigned long long saveToken; // @synthesize saveToken=_saveToken;
 @property(readonly, nonatomic) TSPSupportMetadata *supportMetadata; // @synthesize supportMetadata=_supportMetadata;
@@ -161,6 +161,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool ignoreUnknownContentWhileReading;
 @property(readonly, nonatomic) _Bool isDocumentSupportTemporary;
 @property(readonly, nonatomic) _Bool ignoreDocumentSupport;
+- (void)enumerateObjectProvidersUsingBlock:(CDUnknownBlockType)arg1;
+- (void)registerObjectProvider:(id)arg1;
 - (id)supportDirectoryURLReturningIsBundleURL:(_Bool *)arg1;
 - (void)willModifyObject:(id)arg1 duringReadOperation:(_Bool)arg2;
 - (void)endIgnoringModificationsForObject:(id)arg1;

@@ -15,6 +15,7 @@
     SBSApplicationShortcutService *_sbApplicationShortcutService;
 }
 
++ (id)logHandle;
 @property(retain) SBSApplicationShortcutService *sbApplicationShortcutService; // @synthesize sbApplicationShortcutService=_sbApplicationShortcutService;
 - (void).cxx_destruct;
 - (id)_phoneNumberTypeStringFromPhoneNumber:(id)arg1;

@@ -10,14 +10,14 @@
 
 @interface MFFakeMailMessage : MFMailMessage
 {
+    MFMailboxUid *_mailbox;
     MFMessageHeaders *_headers;
     MailAccount *_account;
-    MFMailboxUid *_mailbox;
 }
 
-@property(retain, nonatomic) MFMailboxUid *mailbox; // @synthesize mailbox=_mailbox;
 @property(retain, nonatomic) MailAccount *account; // @synthesize account=_account;
 @property(retain, nonatomic) MFMessageHeaders *headers; // @synthesize headers=_headers;
+@property(retain, nonatomic) MFMailboxUid *mailbox; // @synthesize mailbox=_mailbox;
 - (void).cxx_destruct;
 
 @end

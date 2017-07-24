@@ -102,7 +102,7 @@ __attribute__((visibility("hidden")))
 - (void)set_expectedWorkload:(long long)arg1;
 - (void)_task_onqueue_didReceiveDispatchData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_task_onqueue_didFinish;
-- (void)_reportTimingDataToAWD;
+- (void)_reportTimingDataToAWD:(id)arg1;
 - (void)_onSessionQueue_cleanupAndBreakCycles;
 - (void)_onSessionQueue_disavow;
 - (void)_onqueue_addBlockOpAtHead:(CDUnknownBlockType)arg1 description:(const char *)arg2;

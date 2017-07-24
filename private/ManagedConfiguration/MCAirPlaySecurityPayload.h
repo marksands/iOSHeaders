@@ -10,6 +10,7 @@
 
 @interface MCAirPlaySecurityPayload : MCPayload
 {
+    NSString *_accessType;
     NSString *_securityType;
     NSString *_password;
 }
@@ -19,8 +20,11 @@
 + (id)typeStrings;
 @property(retain, nonatomic) NSString *password; // @synthesize password=_password;
 @property(retain, nonatomic) NSString *securityType; // @synthesize securityType=_securityType;
+@property(retain, nonatomic) NSString *accessType; // @synthesize accessType=_accessType;
 - (void).cxx_destruct;
 - (id)description;
+- (id)subtitle2Description;
+- (id)subtitle2Label;
 - (id)subtitle1Description;
 - (id)subtitle1Label;
 - (id)stubDictionary;

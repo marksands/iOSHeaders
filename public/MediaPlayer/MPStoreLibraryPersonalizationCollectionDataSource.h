@@ -37,7 +37,7 @@
 @property(copy, nonatomic) NSMutableDictionary *sectionToLibraryAddedOverride; // @synthesize sectionToLibraryAddedOverride=_sectionToLibraryAddedOverride;
 @property(copy, nonatomic) NSMapTable *relativeModelClassToMappingResponse; // @synthesize relativeModelClassToMappingResponse=_relativeModelClassToMappingResponse;
 @property(retain, nonatomic) MPMediaLibraryEntityTranslationContext *translatingContext; // @synthesize translatingContext=_translatingContext;
-@property(retain, nonatomic) MPMediaLibraryView *libraryView; // @synthesize libraryView=_libraryView;
+@property(copy, nonatomic) MPMediaLibraryView *libraryView; // @synthesize libraryView=_libraryView;
 @property(copy, nonatomic) MPModelRequest *unpersonalizedRequest; // @synthesize unpersonalizedRequest=_unpersonalizedRequest;
 @property(retain, nonatomic) MPSectionedCollection *unpersonalizedContentDescriptors; // @synthesize unpersonalizedContentDescriptors=_unpersonalizedContentDescriptors;
 - (id).cxx_construct;

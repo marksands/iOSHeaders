@@ -11,12 +11,13 @@
 #import <PreferencesUI/PSSpotlightSearchResultsControllerDelegate-Protocol.h>
 #import <PreferencesUI/RadiosPreferencesDelegate-Protocol.h>
 #import <PreferencesUI/UISearchBarDelegate-Protocol.h>
+#import <PreferencesUI/UISearchControllerDelegate-Protocol.h>
 #import <PreferencesUI/UISearchResultsUpdating-Protocol.h>
 
 @class AAUIProfilePictureStore, ACAccountStore, AIDAServiceOwnersManager, CSSearchQuery, EAAccessory, HFHomeSettingsVisibilityArbitrator, NSArray, NSDictionary, NSObject, NSSet, NSString, PSKeyboardNavigationSearchController, PSSpecifier, PSSpotlightSearchResultsController, PSUIClassroomVisibilityArbitrator, PSUIHealthKitVisibilityArbitrator, UIViewController, VSAccountStore;
 @protocol OS_dispatch_queue, PSController;
 
-@interface PSUIPrefsListController : PSListController <AAUISignInControllerDelegate, UISearchResultsUpdating, PSSpotlightSearchResultsControllerDelegate, UISearchBarDelegate, RadiosPreferencesDelegate, DevicePINControllerDelegate>
+@interface PSUIPrefsListController : PSListController <AAUISignInControllerDelegate, UISearchResultsUpdating, PSSpotlightSearchResultsControllerDelegate, UISearchBarDelegate, UISearchControllerDelegate, RadiosPreferencesDelegate, DevicePINControllerDelegate>
 {
     _Bool _didFirstLoad;
     EAAccessory *_speakerAccessory;
@@ -54,6 +55,7 @@
     VSAccountStore *_videoSubscriberAccountStore;
     AIDAServiceOwnersManager *_serviceOwnersManager;
     AAUIProfilePictureStore *_profilePictureStore;
+    PSSpecifier *_specifierToSelect;
     _Bool _skipSelectingGeneralOnLaunch;
     NSString *_wifiString;
     NSString *_bluetoothString;
@@ -72,6 +74,7 @@
 @property(copy, nonatomic) NSString *wifiString; // @synthesize wifiString=_wifiString;
 @property(nonatomic) _Bool skipSelectingGeneralOnLaunch; // @synthesize skipSelectingGeneralOnLaunch=_skipSelectingGeneralOnLaunch;
 - (void).cxx_destruct;
+- (void)didDismissSearchController:(id)arg1;
 - (_Bool)searchBarShouldEndEditing:(id)arg1;
 - (void)searchBarTextDidEndEditing:(id)arg1;
 - (void)dismissPopover;

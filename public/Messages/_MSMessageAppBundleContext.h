@@ -8,12 +8,11 @@
 
 #import <Messages/_MSMessageComposeExtensionImplProtocol-Protocol.h>
 
-@class MSConversation, NSData, NSString, UIViewController;
+@class MSConversation, NSString, UIViewController;
 @protocol _MSMessageComposeExtensionImplProtocol, _MSMessageComposeHostImplProtocol;
 
 @interface _MSMessageAppBundleContext : NSObject <_MSMessageComposeExtensionImplProtocol>
 {
-    NSData *_conversationStateData;
     _Bool _wantsLiveView;
     id <_MSMessageComposeExtensionImplProtocol> _containingContext;
     UIViewController *_viewController;
@@ -28,6 +27,7 @@
 @property(readonly, nonatomic) __weak UIViewController *viewController; // @synthesize viewController=_viewController;
 @property(retain, nonatomic) id <_MSMessageComposeExtensionImplProtocol> containingContext; // @synthesize containingContext=_containingContext;
 - (void).cxx_destruct;
+- (void)requestResize;
 - (void)dismiss;
 - (void)requestPresentationStyle:(unsigned long long)arg1;
 - (void)requestPresentationStyleExpanded:(_Bool)arg1;
@@ -44,7 +44,7 @@
 - (void)_didStartSendingMessage:(id)arg1 conversationState:(id)arg2;
 - (void)_didReceiveMessage:(id)arg1 conversationState:(id)arg2;
 - (void)_requestContentSizeThatFits:(id)arg1 presentationStyle:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)_canSendMessage:(id)arg1 conversationState:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_canSendMessage:(id)arg1 conversationState:(id)arg2 associatedText:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_resignActive;
 - (void)_becomeActiveWithConversationState:(id)arg1 presentationState:(id)arg2;
 - (void)endDisablingUserInteraction;
@@ -54,7 +54,7 @@
 - (struct CGRect)initialFrameOfHostView;
 - (void)_sendWillBecomeActiveMessage;
 @property(readonly, nonatomic) __weak UIViewController *stickerViewController;
-- (id)initWithViewController:(id)arg1 conversationStateData:(id)arg2 wantsLiveView:(_Bool)arg3;
+- (id)initWithViewController:(id)arg1 wantsLiveView:(_Bool)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

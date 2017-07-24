@@ -11,9 +11,10 @@
 
 @interface MCSession : NSObject
 {
-    id <MCSessionDelegate> _delegate;
-    id <MCSessionPrivateDelegate> _privateDelegate;
     _Bool _AWDLDisabled;
+    id <MCSessionDelegate> _delegate;
+    _Bool _preferNCMOverEthernet;
+    id <MCSessionPrivateDelegate> _privateDelegate;
     unsigned int _gckPID;
     MCPeerID *_myPeerID;
     NSArray *_securityIdentity;
@@ -34,7 +35,6 @@
 + (id)stringForSessionState:(long long)arg1;
 @property(nonatomic) unsigned long long maxPeers; // @synthesize maxPeers=_maxPeers;
 @property(retain, nonatomic) NSString *sessionID; // @synthesize sessionID=_sessionID;
-@property(nonatomic, getter=isAWDLDisabled) _Bool AWDLDisabled; // @synthesize AWDLDisabled=_AWDLDisabled;
 @property(nonatomic) unsigned long long stateHandle; // @synthesize stateHandle=_stateHandle;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_callbackQueue;
 @property(retain, nonatomic) NSMutableDictionary *connectionPendingPeerEvents; // @synthesize connectionPendingPeerEvents=_connectionPendingPeerEvents;
@@ -90,6 +90,8 @@
 - (id)description;
 @property(nonatomic) id <MCSessionPrivateDelegate> privateDelegate;
 @property(nonatomic) __weak id <MCSessionDelegate> delegate;
+@property(nonatomic) _Bool preferNCMOverEthernet;
+@property(nonatomic, getter=isAWDLDisabled) _Bool AWDLDisabled;
 - (void)setHeartbeatTimeout:(unsigned long long)arg1;
 - (long long)connectedInterfacesForPeer:(id)arg1;
 - (void)peerDidDeclineInvitation:(id)arg1;

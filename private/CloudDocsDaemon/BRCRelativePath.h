@@ -52,6 +52,7 @@
         char __opaque[192];
     } _mutex;
     BRCDirectoryEnumerator *_descendantsEnumerator;
+    int _descendantsError;
     BRCAccountSession *_session;
     NSData *_quarantineInfo;
     NSData *_xattrs;
@@ -77,7 +78,8 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)closeDirectoryScan;
 - (id)nextChild;
-- (_Bool)openDirectoryForScanWithError:(int *)arg1;
+- (int)directoryScanError;
+- (_Bool)openDirectoryForScan;
 - (_Bool)performOnOpenParentFileDescriptor:(CDUnknownBlockType)arg1 error:(int *)arg2;
 - (_Bool)performOnOpenFileDescriptor:(CDUnknownBlockType)arg1 error:(int *)arg2;
 - (_Bool)flock:(int)arg1;

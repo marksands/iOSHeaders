@@ -14,7 +14,7 @@
 }
 
 + (Class)modelClass;
-@property(retain, nonatomic) HMDAccessoryAdvertisement *advertisement; // @synthesize advertisement=_advertisement;
+@property(retain) HMDAccessoryAdvertisement *advertisement; // @synthesize advertisement=_advertisement;
 - (void).cxx_destruct;
 - (id)addTransactionForHome:(id)arg1 configurationAppIdentifier:(id)arg2;
 - (_Bool)isEqual:(id)arg1;

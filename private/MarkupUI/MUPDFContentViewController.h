@@ -25,6 +25,7 @@
     NSArray *_sourceContentReplacedAnnotationMaps;
     PDFView *_pdfView;
     PDFThumbnailView *_thumbnailView;
+    unsigned long long _inkStyle;
     UIView *_thumbnailViewHolder;
     NSArray *_thumbnailViewHolderConstraints;
     NSLayoutConstraint *_thumbnailViewHolderRevealConstraint;
@@ -46,6 +47,7 @@
 @property(retain) NSArray *thumbnailViewHolderConstraints; // @synthesize thumbnailViewHolderConstraints=_thumbnailViewHolderConstraints;
 @property _Bool constraintsAreHorizontal; // @synthesize constraintsAreHorizontal=_constraintsAreHorizontal;
 @property(retain) UIView *thumbnailViewHolder; // @synthesize thumbnailViewHolder=_thumbnailViewHolder;
+@property(nonatomic) unsigned long long inkStyle; // @synthesize inkStyle=_inkStyle;
 @property(nonatomic) _Bool forcesPDFViewTopAlignment; // @synthesize forcesPDFViewTopAlignment=_forcesPDFViewTopAlignment;
 @property(retain) PDFThumbnailView *thumbnailView; // @synthesize thumbnailView=_thumbnailView;
 @property(retain) PDFView *pdfView; // @synthesize pdfView=_pdfView;

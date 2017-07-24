@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (void)setupPlayerWithMediaAsset:(id)arg1;
 - (void)pause;
 - (void)play;
+- (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)previewDidAppear:(_Bool)arg1;
 - (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

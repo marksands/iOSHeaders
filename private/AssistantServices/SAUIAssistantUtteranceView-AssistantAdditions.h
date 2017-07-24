@@ -7,6 +7,7 @@
 #import <SAObjects/SAUIAssistantUtteranceView.h>
 
 @interface SAUIAssistantUtteranceView (AssistantAdditions)
+- (id)af_speakableText;
 - (id)af_text;
 - (id)af_dialogIdentifier;
 - (_Bool)af_isUtterance;

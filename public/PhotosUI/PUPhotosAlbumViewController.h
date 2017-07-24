@@ -46,7 +46,6 @@
 - (id)editableNavigationTitleView:(id)arg1 validateNewText:(id)arg2;
 - (void)photosDataSource:(id)arg1 didReceivePhotoLibraryChange:(id)arg2;
 - (void)didTapHeaderView:(id)arg1;
-- (struct UIEdgeInsets)sectionedGridLayout:(id)arg1 finalContentInsetForCurrentContentInset:(struct UIEdgeInsets)arg2;
 - (double)sectionedGridLayout:(id)arg1 aspectRatioForItemAtIndexPath:(id)arg2;
 - (double)sectionedGridLayout:(id)arg1 accessibilitySectionHeaderHeightForVisualSection:(long long)arg2;
 - (double)sectionedGridLayout:(id)arg1 sectionHeaderHeightForVisualSection:(long long)arg2;

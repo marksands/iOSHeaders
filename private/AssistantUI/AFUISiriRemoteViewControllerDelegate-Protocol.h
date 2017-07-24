@@ -9,6 +9,11 @@
 @class AFUIRequestOptions, AFUISiriRemoteViewController, NSError, NSString, NSURL;
 
 @protocol AFUISiriRemoteViewControllerDelegate <NSObject>
+- (void)siriRemoteViewControllerDidEndTapToEdit:(AFUISiriRemoteViewController *)arg1;
+- (void)siriRemoteViewControllerWillBeginTapToEdit:(AFUISiriRemoteViewController *)arg1;
+- (void)siriRemoteViewControllerDidResetTextInput:(AFUISiriRemoteViewController *)arg1;
+- (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 didRequestKeyboard:(_Bool)arg2 minimized:(_Bool)arg3;
+- (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 didRequestKeyboard:(_Bool)arg2;
 - (void)siriRemoteViewControllerDidDetectAudioRoutePickerTap:(AFUISiriRemoteViewController *)arg1;
 - (void)siriRemoteViewControllerDidExitUITrackingMode:(AFUISiriRemoteViewController *)arg1;
 - (void)siriRemoteViewControllerDidEnterUITrackingMode:(AFUISiriRemoteViewController *)arg1;

@@ -9,7 +9,7 @@
 #import <AXHearingSupport/HACCContentModuleDelegate-Protocol.h>
 #import <AXHearingSupport/UIGestureRecognizerDelegate-Protocol.h>
 
-@class AXRemoteHearingAidDevice, HACCChevronView, NSMutableArray, NSMutableDictionary, NSString, UIPanGestureRecognizer, UIScrollView, UITapGestureRecognizer, UIView;
+@class AXRemoteHearingAidDevice, CCUIContentModuleContext, HACCChevronView, HACCContentViewController, NSMutableArray, NSMutableDictionary, NSString, UIPanGestureRecognizer, UIScrollView, UITapGestureRecognizer, UIView;
 @protocol AXHAShortcutUpdateProtocol;
 
 @interface HACCShortcutViewController : UIViewController <UIGestureRecognizerDelegate, HACCContentModuleDelegate>
@@ -19,6 +19,8 @@
     _Bool _expanded;
     _Bool _bluetoothAvailable;
     id <AXHAShortcutUpdateProtocol> _delegate;
+    HACCContentViewController *_expandedController;
+    CCUIContentModuleContext *_contentModuleContext;
     NSMutableDictionary *_moduleToViewControllerMap;
     NSMutableDictionary *_gridToModuleMap;
     NSMutableDictionary *_moduleToPointMap;
@@ -45,6 +47,8 @@
 @property(retain, nonatomic) NSMutableDictionary *moduleToPointMap; // @synthesize moduleToPointMap=_moduleToPointMap;
 @property(retain, nonatomic) NSMutableDictionary *gridToModuleMap; // @synthesize gridToModuleMap=_gridToModuleMap;
 @property(retain, nonatomic) NSMutableDictionary *moduleToViewControllerMap; // @synthesize moduleToViewControllerMap=_moduleToViewControllerMap;
+@property(retain, nonatomic) CCUIContentModuleContext *contentModuleContext; // @synthesize contentModuleContext=_contentModuleContext;
+@property(nonatomic) __weak HACCContentViewController *expandedController; // @synthesize expandedController=_expandedController;
 @property(nonatomic) __weak id <AXHAShortcutUpdateProtocol> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)content:(id)arg1 shouldPreview:(_Bool)arg2 withController:(id)arg3;

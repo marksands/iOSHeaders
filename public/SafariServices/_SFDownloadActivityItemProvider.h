@@ -6,19 +6,28 @@
 
 #import <SafariServices/_SFActivityItemProvider.h>
 
-@class _SFQuickLookDocument;
+#import <SafariServices/UIActivityItemApplicationExtensionSource-Protocol.h>
 
-@interface _SFDownloadActivityItemProvider : _SFActivityItemProvider
+@class NSString, _SFQuickLookDocument;
+
+@interface _SFDownloadActivityItemProvider : _SFActivityItemProvider <UIActivityItemApplicationExtensionSource>
 {
     _SFQuickLookDocument *_quickLookDocument;
 }
 
 @property(retain, nonatomic) _SFQuickLookDocument *quickLookDocument; // @synthesize quickLookDocument=_quickLookDocument;
 - (void).cxx_destruct;
+- (id)activityViewControllerApplicationExtensionItem:(id)arg1;
 - (id)activityViewController:(id)arg1 dataTypeIdentifierForActivityType:(id)arg2;
 - (id)item;
 - (id)pageTitle;
 - (id)initWithQuickLookDocument:(id)arg1 URL:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

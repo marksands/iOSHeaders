@@ -6,7 +6,7 @@
 
 #import <MessageUI/NSObject-Protocol.h>
 
-@class MFDragSource, NSArray, NSData, NSString, UIView;
+@class MFDragSource, NSArray, NSData, NSString, UITargetedDragPreview, UIView;
 @protocol UIDragSession, UIItemProviderWriting;
 
 @protocol MFDragSourceDelegate <NSObject>
@@ -19,6 +19,7 @@
 - (id)dragSource:(MFDragSource *)arg1 localObjectForDraggableItem:(id <UIItemProviderWriting>)arg2;
 - (NSString *)dragSource:(MFDragSource *)arg1 suggestedNameForDraggableItem:(id <UIItemProviderWriting>)arg2;
 - (UIView *)dragSource:(MFDragSource *)arg1 previewForDraggableItem:(id <UIItemProviderWriting>)arg2;
+- (UITargetedDragPreview *)dragSource:(MFDragSource *)arg1 targetedPreviewForDraggableItem:(id <UIItemProviderWriting>)arg2;
 - (NSData *)dragSource:(MFDragSource *)arg1 teamDataForDraggableItem:(id <UIItemProviderWriting>)arg2;
 @end
 

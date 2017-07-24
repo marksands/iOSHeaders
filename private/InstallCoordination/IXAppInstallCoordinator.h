@@ -6,13 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import <InstallCoordination/IXAppInstallCoordinatorProxy-Protocol.h>
 #import <InstallCoordination/IXCoordinatorWithPlaceholderPromise-Protocol.h>
 
 @class IXAppInstallCoordinatorSeed, NSArray, NSError, NSString, NSUUID;
-@protocol IXAppInstallCoordinatorObserver, IXSCoordinatedAppInstallProxy, OS_dispatch_queue;
+@protocol IXAppInstallCoordinatorObserver, OS_dispatch_queue;
 
-@interface IXAppInstallCoordinator : NSObject <IXAppInstallCoordinatorProxy, IXCoordinatorWithPlaceholderPromise>
+@interface IXAppInstallCoordinator : NSObject <IXCoordinatorWithPlaceholderPromise>
 {
     _Bool _complete;
     id <IXAppInstallCoordinatorObserver> _observer;
@@ -21,7 +20,6 @@
     unsigned long long _observersCalled;
     NSError *_error;
     unsigned long long _errorSourceIdentifier;
-    id <IXSCoordinatedAppInstallProxy> _remote;
 }
 
 + (void)setRemovability:(unsigned long long)arg1 forAppWithBundleID:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -35,6 +33,8 @@
 + (_Bool)resumeCoordinatorForAppWithBundleID:(id)arg1 error:(id *)arg2;
 + (void)pauseCoordinatorForAppWithBundleID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (_Bool)pauseCoordinatorForAppWithBundleID:(id)arg1 error:(id *)arg2;
++ (void)cancelCoordinatorsForAppsWithBundleIDs:(id)arg1 withReason:(id)arg2 client:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
++ (_Bool)cancelCoordinatorsForAppsWithBundleIDs:(id)arg1 withReason:(id)arg2 client:(unsigned long long)arg3 error:(id *)arg4;
 + (void)cancelCoordinatorForAppWithBundleID:(id)arg1 withReason:(id)arg2 client:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
 + (_Bool)cancelCoordinatorForAppWithBundleID:(id)arg1 withReason:(id)arg2 client:(unsigned long long)arg3 error:(id *)arg4;
 + (_Bool)_synchronouslyEnumerateCoordinatorsForIntent:(unsigned long long)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
@@ -51,7 +51,6 @@
 + (void)installApplication:(id)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)installApplication:(id)arg1 consumeSource:(_Bool)arg2 options:(id)arg3 completion:(CDUnknownBlockType)arg4;
 + (void)_beginInstallForURL:(id)arg1 consumeSource:(_Bool)arg2 options:(id)arg3 completion:(CDUnknownBlockType)arg4;
-@property(retain, nonatomic) id <IXSCoordinatedAppInstallProxy> remote; // @synthesize remote=_remote;
 @property(nonatomic) unsigned long long errorSourceIdentifier; // @synthesize errorSourceIdentifier=_errorSourceIdentifier;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic, getter=isComplete) _Bool complete; // @synthesize complete=_complete;
@@ -65,15 +64,16 @@
 - (oneway void)_clientDelegate_placeholderDidInstall;
 - (oneway void)_clientDelegate_shouldBeginRestoringUserData;
 - (oneway void)_clientDelegate_promiseDidBeginFulfillmentWithIdentifier:(unsigned long long)arg1;
-- (oneway void)_clientDelegate_didPause;
-- (oneway void)_clientDelegate_didResume;
-- (oneway void)_clientDelegate_didPrioritize;
+- (oneway void)_clientDelegate_shouldPause;
+- (oneway void)_clientDelegate_shouldResume;
+- (oneway void)_clientDelegate_shouldPrioritize;
 @property(readonly, nonatomic) unsigned long long creatorIdentifier; // @dynamic creatorIdentifier;
 @property(readonly, nonatomic) NSUUID *uniqueIdentifier; // @dynamic uniqueIdentifier;
 @property(readonly, copy, nonatomic) NSString *bundleID; // @dynamic bundleID;
 @property(readonly, nonatomic) unsigned long long coordinationState;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSString *localDescription;
 @property(readonly, copy) NSString *description;
 - (_Bool)prioritizeWithError:(id *)arg1;
 - (_Bool)isPaused:(_Bool *)arg1 withError:(id *)arg2;
@@ -81,6 +81,7 @@
 - (_Bool)pauseWithError:(id *)arg1;
 - (_Bool)setPreparationPromise:(id)arg1 withError:(id *)arg2;
 - (id)preparationPromiseWithError:(id *)arg1;
+- (id)userDataRestoreShouldBegin:(_Bool *)arg1;
 @property(readonly, nonatomic) _Bool hasUserDataPromise;
 - (id)userDataPromiseWithError:(id *)arg1;
 - (_Bool)setUserDataPromise:(id)arg1 error:(id *)arg2;
@@ -103,11 +104,8 @@
 - (_Bool)setPlaceholderPromise:(id)arg1 error:(id *)arg2;
 - (_Bool)cancelForReason:(id)arg1 client:(unsigned long long)arg2 error:(id *)arg3;
 - (void)cancelForReason:(id)arg1;
-- (id)synchronousRemoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
-- (id)remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
-- (_Bool)_reEstablishRemoteConnection;
-- (void)_updateInitWithRemoteObject:(id)arg1 seed:(id)arg2;
-- (id)initWithRemoteObject:(id)arg1 seed:(id)arg2;
+- (void)dealloc;
+- (void)_updateInitWithSeed:(id)arg1 notifyDaemon:(_Bool)arg2;
 - (id)initWithBundleID:(id)arg1 creator:(unsigned long long)arg2 intent:(unsigned long long)arg3;
 - (id)initWithSeed:(id)arg1;
 - (id)init;

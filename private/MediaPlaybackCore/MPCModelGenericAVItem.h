@@ -86,6 +86,7 @@
 - (id)_radioStation;
 - (void)_postInvalidationNotifications;
 - (id)_modelPlaybackPosition;
+- (void)_invalidateContentItem;
 - (id)_householdID;
 - (void)_updateHasBeenPlayedWithElapsedTime:(double)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handlePlaybackFinishedTime:(double)arg1 didFinishByHittingEnd:(_Bool)arg2;
@@ -112,7 +113,7 @@
 - (id)mpcReporting_identityPropertiesLoader;
 - (id)mpcReporting_householdID;
 - (long long)mpcReporting_equivalencySourceAdamID;
-- (id)artworkCatalogForPlaybackTime:(double)arg1;
+- (CDUnknownBlockType)artworkCatalogBlock;
 - (void)_willResignActivePlayerItem;
 - (void)_willBecomeActivePlayerItem;
 - (long long)_persistedLikedState;

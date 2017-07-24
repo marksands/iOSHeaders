@@ -28,6 +28,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)writeStorage:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
++ (id)normalizedExtensionForFilename:(id)arg1;
++ (id)typeForFilename:(id)arg1;
 + (id)requiredAVAssetOptions;
 + (id)cullingListeners;
 + (void)removeCullingListener:(id)arg1;
@@ -45,6 +47,7 @@ __attribute__((visibility("hidden")))
 + (id)dataFromURL:(id)arg1 context:(id)arg2;
 + (_Bool)isSupportedURL:(id)arg1;
 + (id)pasteboardTypeForIdentifier:(long long)arg1;
++ (id)resourceNameForFilename:(id)arg1 identifier:(long long)arg2;
 + (id)nsDataWithPattern4:(const char *)arg1;
 + (id)digestStringForDataWithPattern4:(const char *)arg1;
 + (id)digestForDataWithPattern4:(const char *)arg1;
@@ -95,6 +98,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isExternalData;
 @property(readonly, nonatomic) _Bool isApplicationData;
 @property(readonly, nonatomic) _Bool isReadable;
+@property(readonly, nonatomic) NSString *normalizedExtension;
 @property(readonly, nonatomic) NSString *type;
 @property(readonly, nonatomic) NSString *filename;
 - (id)AVAssetWithOptions:(id)arg1;

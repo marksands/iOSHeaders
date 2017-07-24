@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) TSWPShapeLayout *editingShapeLayout; // @synthesize editingShapeLayout=_editingShapeLayout;
+- (void).cxx_destruct;
 - (void)updateChildrenFromInfo;
 - (void)dealloc;
 

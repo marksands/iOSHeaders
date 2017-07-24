@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 - (void).cxx_destruct;
 - (id)requestDidParseProtobufObject:(id)arg1;
-- (id)requestOperations;
+- (id)generateRequestOperations;
 - (_Bool)requiresTokenRegistration;
 - (id)requestOperationClasses;
 - (int)operationType;

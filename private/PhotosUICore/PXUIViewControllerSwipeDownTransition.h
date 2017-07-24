@@ -11,6 +11,9 @@
 
 @interface PXUIViewControllerSwipeDownTransition : PXUIViewControllerZoomTransition
 {
+    _Bool _didAnimate;
+    _Bool _shouldHandleGestureEnd;
+    _Bool _didHandleGestureEnd;
     id <UIViewControllerContextTransitioning> _transitionContext;
     UIView *_swipedView;
     UIView *_dimmingView;
@@ -30,6 +33,7 @@
 - (void)animateTransition:(id)arg1;
 - (_Bool)isInteractive;
 - (void)_updateDimmingViewOrder;
+- (void)_handleGestureEndIfNeeded;
 - (void)panGestureRecognizerDidChange;
 
 @end

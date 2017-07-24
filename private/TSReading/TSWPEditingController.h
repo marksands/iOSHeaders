@@ -78,6 +78,7 @@
     _Bool _canCoalesceBreakingCharacters;
 }
 
++ (id)_targetedDragPreviewForSelection:(id)arg1 interactiveCanvasController:(id)arg2 reps:(id)arg3 applyScale:(_Bool)arg4 imageFrameUnion:(struct CGRect *)arg5;
 + (id)dropProposalForSession:(id)arg1;
 + (id)retargetedDragItem:(id)arg1 withDefault:(id)arg2 canvasView:(id)arg3 icc:(id)arg4;
 + (id)previewForDragItem:(id)arg1;

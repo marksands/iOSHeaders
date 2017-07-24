@@ -113,6 +113,7 @@
 @property(readonly, nonatomic) long long captureMode;
 - (id)childViewControllerForStatusBarHidden;
 - (long long)preferredStatusBarUpdateAnimation;
+- (id)childViewControllerForScreenEdgesDeferringSystemGestures;
 - (void)didReceiveMemoryWarning;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

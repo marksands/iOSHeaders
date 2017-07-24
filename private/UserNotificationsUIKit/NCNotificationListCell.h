@@ -9,7 +9,7 @@
 #import <UserNotificationsUIKit/MTContentSizeCategoryAdjusting-Protocol.h>
 #import <UserNotificationsUIKit/UIScrollViewDelegate-Protocol.h>
 
-@class NCNotificationViewController, NSString;
+@class NCNotificationListCellActionButtonsView, NCNotificationViewController, NSString, UIScrollView, UIView;
 @protocol NCNotificationListCellDelegate;
 
 @interface NCNotificationListCell : UICollectionViewCell <UIScrollViewDelegate, MTContentSizeCategoryAdjusting>
@@ -18,32 +18,80 @@
     _Bool _configured;
     _Bool _shouldOverrideForReveal;
     _Bool _executingDefaultAction;
+    _Bool _performingSwipeHinting;
     NCNotificationViewController *_contentViewController;
     id <NCNotificationListCellDelegate> _delegate;
     double _overrideAlpha;
+    NSString *_backgroundGroupName;
+    UIScrollView *_cellScrollView;
+    NCNotificationListCellActionButtonsView *_leftActionButtonsView;
+    NCNotificationListCellActionButtonsView *_rightActionButtonsView;
+    UIView *_leftActionButtonsClippingRevealView;
+    UIView *_rightActionButtonsClippingRevealView;
+    unsigned long long _actionsRevealState;
+    CDUnknownBlockType _sideSwipeHintingHideAnimationBlock;
     struct CGPoint _overrideCenter;
-    struct CGPoint _initialContentOffset;
-    struct CGPoint _fullActionsRevealContentOffset;
+    struct UIEdgeInsets _insetMargins;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType sideSwipeHintingHideAnimationBlock; // @synthesize sideSwipeHintingHideAnimationBlock=_sideSwipeHintingHideAnimationBlock;
+@property(nonatomic, getter=isPerformingSwipeHinting) _Bool performingSwipeHinting; // @synthesize performingSwipeHinting=_performingSwipeHinting;
+@property(nonatomic) unsigned long long actionsRevealState; // @synthesize actionsRevealState=_actionsRevealState;
 @property(nonatomic, getter=isExecutingDefaultAction) _Bool executingDefaultAction; // @synthesize executingDefaultAction=_executingDefaultAction;
-@property(nonatomic) struct CGPoint fullActionsRevealContentOffset; // @synthesize fullActionsRevealContentOffset=_fullActionsRevealContentOffset;
-@property(nonatomic) struct CGPoint initialContentOffset; // @synthesize initialContentOffset=_initialContentOffset;
+@property(retain, nonatomic) UIView *rightActionButtonsClippingRevealView; // @synthesize rightActionButtonsClippingRevealView=_rightActionButtonsClippingRevealView;
+@property(retain, nonatomic) UIView *leftActionButtonsClippingRevealView; // @synthesize leftActionButtonsClippingRevealView=_leftActionButtonsClippingRevealView;
+@property(retain, nonatomic) NCNotificationListCellActionButtonsView *rightActionButtonsView; // @synthesize rightActionButtonsView=_rightActionButtonsView;
+@property(retain, nonatomic) NCNotificationListCellActionButtonsView *leftActionButtonsView; // @synthesize leftActionButtonsView=_leftActionButtonsView;
+@property(retain, nonatomic) UIScrollView *cellScrollView; // @synthesize cellScrollView=_cellScrollView;
+@property(copy, nonatomic) NSString *backgroundGroupName; // @synthesize backgroundGroupName=_backgroundGroupName;
 @property(nonatomic) struct CGPoint overrideCenter; // @synthesize overrideCenter=_overrideCenter;
 @property(nonatomic) double overrideAlpha; // @synthesize overrideAlpha=_overrideAlpha;
 @property(nonatomic) _Bool shouldOverrideForReveal; // @synthesize shouldOverrideForReveal=_shouldOverrideForReveal;
 @property(nonatomic, getter=isConfigured) _Bool configured; // @synthesize configured=_configured;
+@property(nonatomic) struct UIEdgeInsets insetMargins; // @synthesize insetMargins=_insetMargins;
 @property(nonatomic) __weak id <NCNotificationListCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NCNotificationViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
 @property(nonatomic) _Bool adjustsFontForContentSizeCategory; // @synthesize adjustsFontForContentSizeCategory=_adjustsFontForContentSizeCategory;
 - (void).cxx_destruct;
 - (void)traitCollectionDidChange:(id)arg1;
 - (_Bool)adjustForContentSizeCategoryChange;
+- (void)_performSideSwipeHintingHideAnimation;
+- (void)_performSideSwipeHintingRevealAnimation;
+- (void)_performSideSwipeHinting;
+- (void)_updateRevealForActionButtonsClippingRevealView:(id)arg1 actionButtonsView:(id)arg2 forRevealPercentage:(double)arg3 actionButtonsViewNeedsClipping:(_Bool)arg4;
+- (void)_updateRevealForRightActionButtonsClippingRevealViewForRevealPercentage:(double)arg1;
+- (void)_updateRevealForLeftActionButtonsClippingRevealViewForRevealPercentage:(double)arg1;
+- (double)_alphaForActionButtonsView:(id)arg1 revealPercentage:(double)arg2;
+- (void)_executeClearAction;
+- (void)_executeDefaultActionIfCompleted;
 - (void)_layoutContentView;
+- (void)_layoutScrollView;
+- (void)_resetActionButtonViews;
+- (void)_configureActionButtonsView:(id)arg1;
+- (id)_cellActionButtonsView;
+- (id)_openActionButtonsView;
+- (void)_configureActionButtonViewsIfNecessary;
+- (void)_configureClippingRevealView:(id)arg1;
+- (void)_configureClippingRevealViewsIfNecessary;
+- (void)_configureCellScrollViewContentSize;
+- (void)_configureCellScrollViewIfNecessary;
+- (struct CGPoint)_restingContentOffset;
+- (void)_performDefaultActionForRight;
+- (void)_performDefaultActionForLeft;
+- (struct CGPoint)_absoluteRevealContentOffsetForLogicalOffset:(struct CGPoint)arg1;
+- (struct CGPoint)_logicalRevealContentOffsetForAbsoluteOffset:(struct CGPoint)arg1;
 - (void)_resetRevealOverrides;
-- (void)prepareForReuse;
+- (void)scrollViewDidScroll:(id)arg1;
+- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
+- (void)scrollViewWillBeginDragging:(id)arg1;
+- (void)hintSideSwipeForDefaultAction;
 - (void)applyLayoutAttributes:(id)arg1;
 - (_Bool)_disableRasterizeInAnimations;
+- (void)resetCellScrollPositionAnimated:(_Bool)arg1;
+- (void)prepareForReuse;
+- (void)cellOpenButtonPressed:(id)arg1;
+- (void)cellClearButtonPressed:(id)arg1;
+- (void)cellViewButtonPressed:(id)arg1;
 - (void)layoutSubviews;
 - (void)updateCellForContentViewController:(id)arg1;
 - (void)dealloc;

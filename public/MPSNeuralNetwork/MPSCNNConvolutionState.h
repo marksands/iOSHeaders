@@ -12,8 +12,6 @@
 
 @interface MPSCNNConvolutionState : MPSState <MPSImageSizeEncodingState>
 {
-    unsigned long long _sourceWidth;
-    unsigned long long _sourceHeight;
     unsigned long long _originalConvolutionSourceWidth;
     unsigned long long _originalConvolutionSourceHeight;
     unsigned long long _kernelWidth;

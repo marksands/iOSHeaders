@@ -6,17 +6,19 @@
 
 #import <objc/NSObject.h>
 
-@class NSDictionary;
+@class NSDictionary, NSString;
 
 @interface CKLEventFilter : NSObject
 {
     _Bool _simulatorMessagesOnly;
     unsigned long long _logTypes;
+    NSString *_processName;
     NSDictionary *_categoriesBySubsystem;
 }
 
 @property(retain, nonatomic) NSDictionary *categoriesBySubsystem; // @synthesize categoriesBySubsystem=_categoriesBySubsystem;
 @property(nonatomic) _Bool simulatorMessagesOnly; // @synthesize simulatorMessagesOnly=_simulatorMessagesOnly;
+@property(retain, nonatomic) NSString *processName; // @synthesize processName=_processName;
 @property(nonatomic) unsigned long long logTypes; // @synthesize logTypes=_logTypes;
 - (void).cxx_destruct;
 - (_Bool)matchesEvent:(id)arg1;

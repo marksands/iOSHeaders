@@ -32,6 +32,7 @@
     _Bool _mustHideProminentPlayButton;
     _Bool _multipleRoutesDetected;
     _Bool _playerViewControllerContentViewIsContainedInWindow;
+    _Bool _resumingUpdates;
     _Bool _playbackSuspendedForScrubbing;
     _Bool _hasSeekableLiveStreamingContent;
     _Bool _scrubbingOrSeeking;
@@ -74,6 +75,7 @@
 @property(nonatomic) _Bool hasSeekableLiveStreamingContent; // @synthesize hasSeekableLiveStreamingContent=_hasSeekableLiveStreamingContent;
 @property(nonatomic) long long timeControlStatus; // @synthesize timeControlStatus=_timeControlStatus;
 @property(nonatomic, getter=isPlaybackSuspendedForScrubbing) _Bool playbackSuspendedForScrubbing; // @synthesize playbackSuspendedForScrubbing=_playbackSuspendedForScrubbing;
+@property(nonatomic, getter=isResumingUpdates) _Bool resumingUpdates; // @synthesize resumingUpdates=_resumingUpdates;
 @property(nonatomic) _Bool playerViewControllerContentViewIsContainedInWindow; // @synthesize playerViewControllerContentViewIsContainedInWindow=_playerViewControllerContentViewIsContainedInWindow;
 @property(nonatomic) double loadingIndicatorTimerDelay; // @synthesize loadingIndicatorTimerDelay=_loadingIndicatorTimerDelay;
 @property(nonatomic) _Bool multipleRoutesDetected; // @synthesize multipleRoutesDetected=_multipleRoutesDetected;

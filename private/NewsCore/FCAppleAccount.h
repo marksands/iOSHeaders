@@ -38,11 +38,14 @@
 @property(readonly, nonatomic) NSString *supportedContentStoreFrontID;
 @property(readonly, nonatomic) _Bool isContentStoreFrontSupported;
 - (_Bool)isUserSignedIntoiTunes;
+- (id)iTunesAccountDSID;
 - (id)iTunesAccountName;
 @property(readonly, nonatomic) NSString *endpointConnectionClientID;
 - (_Bool)isPrimaryAccountEmailAddress;
 @property(readonly, nonatomic, getter=isUserSignedInToiCloud) _Bool userSignedInToiCloud;
 @property(readonly, nonatomic, getter=isPrivateDataSyncingEnabled) _Bool privateDataSyncingEnabled;
+- (void)_loadStoreFrontIfNeededWithCallbackAndAccessQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)loadStoreFrontIfNeeded;
 - (void)loadStoreFrontIfNeededWithCompletion:(CDUnknownBlockType)arg1;
 - (id)init;
 

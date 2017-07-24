@@ -13,6 +13,7 @@
 
 @interface NSAttributedString (UINSItemProvider) <NSItemProviderReading, NSItemProviderWriting>
 + (id)writableTypeIdentifiersForItemProvider;
++ (id)objectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 + (id)readableTypeIdentifiersForItemProvider;
 - (id)loadDataWithTypeIdentifier:(id)arg1 forItemProviderCompletionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, copy, nonatomic) NSArray *writableTypeIdentifiersForItemProvider;

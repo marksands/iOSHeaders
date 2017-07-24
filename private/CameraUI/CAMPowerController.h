@@ -13,14 +13,16 @@
 {
     _Bool __isBackgrounded;
     int __assertionIdentifierGenerator;
+    int __powerPressureNotificationToken;
     NSMutableDictionary *__assertionsByIdentifier;
-    NSObject<OS_dispatch_queue> *__assertionsQueue;
+    NSObject<OS_dispatch_queue> *__powerControllerQueue;
     unsigned long long __backgroundTaskIdentifier;
 }
 
+@property(readonly, nonatomic) int _powerPressureNotificationToken; // @synthesize _powerPressureNotificationToken=__powerPressureNotificationToken;
 @property(nonatomic, getter=_isBackgrounded, setter=_setBackgrounded:) _Bool _isBackgrounded; // @synthesize _isBackgrounded=__isBackgrounded;
 @property(readonly, nonatomic) unsigned long long _backgroundTaskIdentifier; // @synthesize _backgroundTaskIdentifier=__backgroundTaskIdentifier;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *_assertionsQueue; // @synthesize _assertionsQueue=__assertionsQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *_powerControllerQueue; // @synthesize _powerControllerQueue=__powerControllerQueue;
 @property(readonly, nonatomic) NSMutableDictionary *_assertionsByIdentifier; // @synthesize _assertionsByIdentifier=__assertionsByIdentifier;
 @property(readonly, nonatomic) int _assertionIdentifierGenerator; // @synthesize _assertionIdentifierGenerator=__assertionIdentifierGenerator;
 - (void).cxx_destruct;

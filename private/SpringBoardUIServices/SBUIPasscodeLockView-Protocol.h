@@ -11,9 +11,11 @@
 
 @protocol SBUIPasscodeLockView <NSObject>
 @property(nonatomic) double backgroundAlpha;
+@property(copy, nonatomic) NSString *unlockDestination;
 @property(nonatomic, getter=isScreenOn) _Bool screenOn;
 @property(retain, nonatomic) id <SBFLegibilitySettingsProvider> backgroundLegibilitySettingsProvider;
 @property(retain, nonatomic) UIColor *customBackgroundColor;
+@property(nonatomic) _Bool usesBiometricPresentation;
 @property(nonatomic) _Bool showsCancelButton;
 @property(nonatomic) _Bool showsEmergencyCallButton;
 @property(nonatomic) _Bool showsStatusField;

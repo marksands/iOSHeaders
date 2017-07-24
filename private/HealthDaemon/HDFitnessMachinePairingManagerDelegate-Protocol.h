@@ -7,7 +7,6 @@
 @class HDFitnessMachinePairingManager, HDFitnessMachineSession, HDHealthServiceOOBInfo, HKHealthService, NSError;
 
 @protocol HDFitnessMachinePairingManagerDelegate
-- (void)pairingManagerRequestConnectionReset:(HDFitnessMachinePairingManager *)arg1;
 - (void)pairingManagerReadyToConnect:(HDFitnessMachinePairingManager *)arg1;
 - (void)pairingManager:(HDFitnessMachinePairingManager *)arg1 discoveredHealthService:(HKHealthService *)arg2 machineType:(unsigned long long)arg3;
 - (void)pairingManagerUpdatedDataTransferRequirements:(HDFitnessMachinePairingManager *)arg1;

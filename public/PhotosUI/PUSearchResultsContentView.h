@@ -20,11 +20,9 @@ __attribute__((visibility("hidden")))
     NSString *_subtitle;
     NSString *_auxSubtitle;
     UIImageView *_imageView;
-    struct UIEdgeInsets _contentInsets;
 }
 
 @property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
-@property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
 @property(copy, nonatomic) NSString *auxSubtitle; // @synthesize auxSubtitle=_auxSubtitle;
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(copy, nonatomic) NSAttributedString *title; // @synthesize title=_title;
@@ -35,6 +33,7 @@ __attribute__((visibility("hidden")))
 - (void)_updateAuxSubtitleLabel;
 - (void)_updateSubtitleLabel;
 - (void)_updateTitleLabel;
+- (void)layoutMarginsDidChange;
 - (void)setBackgroundColor:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

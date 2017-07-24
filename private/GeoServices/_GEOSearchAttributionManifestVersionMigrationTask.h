@@ -9,7 +9,7 @@
 #import <GeoServices/GEOActiveTileGroupMigrationTask-Protocol.h>
 
 @class GEOActiveTileGroup, GEOReportedProgress, GEOResources, GEOSearchAttributionManifest, GEOSearchAttributionManifestVersionMigrator, GEOTileGroup, NSProgress, NSString, NSURLSession, NSURLSessionDataTask;
-@protocol OS_dispatch_queue;
+@protocol NSObject, OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface _GEOSearchAttributionManifestVersionMigrationTask : NSObject <GEOActiveTileGroupMigrationTask>
@@ -26,8 +26,10 @@ __attribute__((visibility("hidden")))
     NSURLSession *_urlSession;
     NSURLSessionDataTask *_downloadTask;
     GEOSearchAttributionManifest *_attributionManifest;
+    id <NSObject> _transaction;
 }
 
+@property(retain, nonatomic) id <NSObject> transaction; // @synthesize transaction=_transaction;
 - (void).cxx_destruct;
 - (void)removeOldData:(id)arg1;
 - (void)_completeWithError:(id)arg1;

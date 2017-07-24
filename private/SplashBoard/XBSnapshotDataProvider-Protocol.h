@@ -12,6 +12,7 @@
 @property(readonly, retain, nonatomic) XBSnapshotDataProviderContext *context;
 
 @optional
+- (void)invalidateImage;
 - (UIImage *)fetchImage;
 - (NSData *)fetchImageData:(out struct CGAffineTransform *)arg1;
 @end

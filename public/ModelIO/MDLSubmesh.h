@@ -19,12 +19,12 @@
     unsigned long long _indexType;
     long long _geometryType;
     MDLSubmeshTopology *_topology;
-    NSArray *_faceIndexing;
     NSString *_name;
+    NSArray *_faceIndexing;
 }
 
-@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSArray *faceIndexing; // @synthesize faceIndexing=_faceIndexing;
+@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) MDLSubmeshTopology *topology; // @synthesize topology=_topology;
 @property(readonly, nonatomic) long long geometryType; // @synthesize geometryType=_geometryType;
 @property(readonly, nonatomic) unsigned long long indexType; // @synthesize indexType=_indexType;

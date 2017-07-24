@@ -11,13 +11,13 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 #pragma mark Named Structures
 
 struct CGPoint {
-    double _field1;
-    double _field2;
+    double x;
+    double y;
 };
 
 struct CGRect {
-    struct CGPoint _field1;
-    struct CGSize _field2;
+    struct CGPoint origin;
+    struct CGSize size;
 };
 
 struct CGSize {
@@ -29,4 +29,14 @@ struct _NSRange {
     unsigned long long _field1;
     unsigned long long _field2;
 };
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    _Bool enabled;
+    _Bool minimized;
+    _Bool hasBeenShown;
+    struct CGRect keyboardFrame;
+    double keyboardHeight;
+} CDStruct_a82615c4;
 

@@ -26,11 +26,13 @@
 - (void)applyPushNotificationToken:(id)arg1;
 - (void)handlePushNotificationForTopic:(id)arg1 userInfo:(id)arg2;
 - (id)pushNotificationTopics;
-- (_Bool)canSyncTransactionToCloudKitWithBackingData:(_Bool)arg1 passUniqueIdentifier:(id)arg2;
+- (_Bool)canSyncTransactionFromCloudKitForPassUniqueIdentifier:(id)arg1;
+- (_Bool)canSyncTransactionToCloudKitWithBackingData:(_Bool)arg1 passUniqueIdentifier:(id)arg2 serviceIdentifier:(id)arg3;
 - (void)simulateCloudStorePushWithCompletion:(CDUnknownBlockType)arg1;
 - (void)resetContainerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)allItemsOfClassType:(Class)arg1 storeLocally:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)cloudStoreSpecificKeysForItem:(id)arg1;
+- (void)fetchAndStoreRecordsForPaymentPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAndStoreChangesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)removeItemsWithRecordNames:(id)arg1 itemClass:(Class)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)updateCloudStoreWithLocalItems:(id)arg1 recordSpecificKeys:(id)arg2 completion:(CDUnknownBlockType)arg3;

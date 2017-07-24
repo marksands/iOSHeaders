@@ -18,6 +18,7 @@
     SBFLockScreenDateSubtitleDateView *_dateSubtitleView;
     SBFLockScreenDateSubtitleView *_customSubtitleView;
     NSHashTable *_replicatedViews;
+    _Bool _useCompactDateFormat;
     NSDate *_date;
     UIColor *_overrideTextColor;
     _UILegibilitySettings *_legibilitySettings;
@@ -27,10 +28,12 @@
     double _subtitleLegibilityStrength;
 }
 
++ (id)timeFont;
 + (double)defaultHeight;
 @property(retain, nonatomic) SBFLockScreenDateSubtitleView *customSubtitleView; // @synthesize customSubtitleView=_customSubtitleView;
 @property(nonatomic) double subtitleLegibilityStrength; // @synthesize subtitleLegibilityStrength=_subtitleLegibilityStrength;
 @property(nonatomic) double timeLegibilityStrength; // @synthesize timeLegibilityStrength=_timeLegibilityStrength;
+@property(nonatomic) _Bool useCompactDateFormat; // @synthesize useCompactDateFormat=_useCompactDateFormat;
 @property(nonatomic) double dateToTimeStretch; // @synthesize dateToTimeStretch=_dateToTimeStretch;
 @property(nonatomic) double alignmentPercent; // @synthesize alignmentPercent=_alignmentPercent;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
@@ -40,10 +43,12 @@
 - (void)traitCollectionDidChange:(id)arg1;
 @property(readonly, nonatomic) double subtitleBaselineOffsetFromOrigin;
 @property(readonly, nonatomic) double timeBaselineOffsetFromOrigin;
-- (id)_timeFont;
 - (struct CGRect)_subtitleViewFrameForView:(id)arg1 alignmentPercent:(double)arg2;
+- (struct UIEdgeInsets)_cachedGlyphInsetsTimeFontForString:(id)arg1;
+- (struct UIEdgeInsets)_timeLabelInsetsForTimeString:(id)arg1;
 - (struct CGRect)_timeLabelFrameForAlignmentPercent:(double)arg1;
 - (void)layoutSubviews;
+- (void)_updateUsesCompactDateFormat;
 - (void)_updateLabelAlpha;
 - (void)_setSubtitleAlpha:(double)arg1;
 - (void)_updateLabels;

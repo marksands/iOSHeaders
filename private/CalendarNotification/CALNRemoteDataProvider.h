@@ -29,6 +29,7 @@
 }
 
 + (id)requestedDarwinNotifications;
++ (id)logHandle;
 @property(retain, nonatomic) EKTimedEventStorePurger *timedEventStorePurger; // @synthesize timedEventStorePurger=_timedEventStorePurger;
 @property(retain) BBDataProviderProxy *proxy; // @synthesize proxy=_proxy;
 @property(readonly) CALNPersistedNotificationsContext *context; // @synthesize context=_context;

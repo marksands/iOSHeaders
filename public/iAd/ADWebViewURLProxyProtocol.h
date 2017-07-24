@@ -28,7 +28,6 @@
 @property double startTime; // @synthesize startTime=_startTime;
 @property(copy) NSArray *modes; // @synthesize modes=_modes;
 @property(retain) NSThread *clientThread; // @synthesize clientThread=_clientThread;
-- (void)URLSession:(id)arg1 task:(id)arg2 didFinishCollectingMetrics:(id)arg3;
 - (void)URLSession:(id)arg1 task:(id)arg2 willPerformHTTPRedirection:(id)arg3 newRequest:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
 - (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;

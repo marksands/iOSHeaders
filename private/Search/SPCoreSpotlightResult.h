@@ -31,7 +31,7 @@
 @property struct ranking_index_score_t buddyScore; // @synthesize buddyScore=_buddyScore;
 @property(retain) NSString *relatedUniqueIdentifier; // @synthesize relatedUniqueIdentifier=_relatedUniqueIdentifier;
 - (void).cxx_destruct;
-- (id)description;
+- (id)debugDescription;
 - (Class)classForCoder;
 - (_Bool)hasDetail;
 @property(retain) NSArray *compatibilityDescriptions;

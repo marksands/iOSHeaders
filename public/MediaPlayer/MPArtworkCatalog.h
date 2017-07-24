@@ -7,7 +7,7 @@
 #import <Foundation/NSObject.h>
 
 @class NSCache, NSString;
-@protocol MPArtworkDataSource, NSCopying;
+@protocol MPArtworkDataSource, MPArtworkDataSourceVisualIdenticality;
 
 @interface MPArtworkCatalog : NSObject
 {
@@ -50,7 +50,7 @@
 - (void)requestFocusRegionsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)requestColorAnalysisWithAlgorithm:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)existingColorAnalysisWithAlgorithm:(long long)arg1;
-@property(readonly, nonatomic) id <NSCopying> visualIdenticalityIdentifier;
+@property(readonly, nonatomic) id <MPArtworkDataSourceVisualIdenticality> visualIdenticalityIdentifier;
 - (_Bool)isArtworkVisuallyIdenticalToCatalog:(id)arg1;
 - (void)setDestination:(id)arg1 progressiveConfigurationBlock:(CDUnknownBlockType)arg2;
 - (void)setDestination:(id)arg1 configurationBlock:(CDUnknownBlockType)arg2;

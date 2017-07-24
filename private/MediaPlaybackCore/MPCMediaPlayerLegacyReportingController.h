@@ -22,8 +22,6 @@
 @property(retain, nonatomic) MPCReportingPlaybackObserver *reportingPlaybackObserver; // @synthesize reportingPlaybackObserver=_reportingPlaybackObserver;
 @property(nonatomic) __weak MPCMediaPlayerLegacyPlayer *player; // @synthesize player=_player;
 - (void).cxx_destruct;
-- (void)_cloudServiceControllerSubscriptionStatusDidChangeNotification:(id)arg1;
-- (void)_cloudServiceControllerCloudLibraryEnabledDidChangeNotification:(id)arg1;
 - (void)environmentMonitorDidChangeNetworkType:(id)arg1;
 - (void)dealloc;
 - (id)initWithController:(id)arg1;

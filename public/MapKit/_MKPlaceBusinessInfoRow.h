@@ -17,14 +17,14 @@ __attribute__((visibility("hidden")))
     NSArray *_constraints;
     UILayoutGuide *_leftColumnGuide;
     UILayoutGuide *_rightColumnGuide;
+    double _width;
     NSArray *_items;
 }
 
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 - (void).cxx_destruct;
-- (void)updateConstraints;
-- (void)setBounds:(struct CGRect)arg1;
-- (void)setFrame:(struct CGRect)arg1;
+- (void)layoutSubviews;
+- (void)_createConstraints;
 - (void)_updateFontAndTextColor:(id)arg1;
 - (void)infoCardThemeChanged:(id)arg1;
 - (void)_contentSizeDidChange;

@@ -38,6 +38,7 @@
 - (void)_refreshSubscriptionStatus;
 - (_Bool)_processFailureTypeFromDictionary:(id)arg1 error:(id *)arg2;
 - (void)_performActionsForResponse:(id)arg1;
+- (id)_metricsDictionaryForResponse:(id)arg1;
 - (void)_checkInAppPurchaseQueueForAction:(id)arg1;
 - (void)_checkDownloadQueues;
 - (void)_presentDialog:(id)arg1;

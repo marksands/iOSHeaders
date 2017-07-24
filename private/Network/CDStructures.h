@@ -238,7 +238,8 @@ struct tcp_connection_info {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
-    unsigned int :18;
+    unsigned int :1;
+    unsigned int :17;
     unsigned long long _field17;
     unsigned long long _field18;
     unsigned long long _field19;

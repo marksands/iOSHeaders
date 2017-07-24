@@ -934,6 +934,7 @@
 - (void)_runSubTestForKeyboardBringupWithName:(id)arg1 withShowKeyboardBlock:(CDUnknownBlockType)arg2 withHideKeyboardBlock:(CDUnknownBlockType)arg3 withExtraResultsBlock:(CDUnknownBlockType)arg4 withCleanupBlock:(CDUnknownBlockType)arg5;
 - (void)showKeyboardUsingBlock:(CDUnknownBlockType)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)installNotificationObserverForNotificationName:(id)arg1 forOneNotification:(_Bool)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (_Bool)_canAnimateDragCancelInApp;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

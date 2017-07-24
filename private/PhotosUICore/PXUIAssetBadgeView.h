@@ -32,7 +32,6 @@
     UILabel *_bottomLabel;
     struct CGSize _contentSize;
     _Bool _overContent;
-    _Bool _editableContent;
     id <PXUIAssetBadgeViewDelegate> _delegate;
     long long _style;
     PXUIExtensionBadgeView *__topLeftExtensionBadgeView;
@@ -42,7 +41,6 @@
 + (double)preferredHeightForStyle:(long long)arg1;
 + (void)preloadResourcesForStyle:(long long)arg1;
 @property(retain, nonatomic, setter=_setTopLeftExtensionBadgeView:) PXUIExtensionBadgeView *_topLeftExtensionBadgeView; // @synthesize _topLeftExtensionBadgeView=__topLeftExtensionBadgeView;
-@property(nonatomic, getter=isEditableContent) _Bool editableContent; // @synthesize editableContent=_editableContent;
 @property(nonatomic, getter=isOverContent) _Bool overContent; // @synthesize overContent=_overContent;
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic) struct PXAssetBadgeInfo badgeInfo; // @synthesize badgeInfo=_badgeInfo;

@@ -24,6 +24,7 @@
     unsigned long long _workQueue_synchronizationActionCount;
     NSMutableArray *_workQueue_pendingSynchronizationExecutionBlocks;
     NSObject<OS_dispatch_queue> *_callOutQueue;
+    NSObject<OS_dispatch_queue> *_completionQueue;
     _Bool _initializing;
 }
 

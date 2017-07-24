@@ -34,9 +34,9 @@
     _Bool _isResettingBaseWritingDirection;
     _Bool _isReadingSelectionFromPasteboard;
     _Bool _isChangingSelectionByGestures;
+    _Bool _isApplyingUndoCommand;
     _Bool _isEndingEditing;
     _Bool _isFixing;
-    _Bool _isApplyingUndoCommand;
     _Bool _pendingFixupAfterEditing;
     _Bool _delayedFixupAfterEditingWantsUndoCommand;
     NSUndoManager *_undoManager;
@@ -67,13 +67,13 @@
 @property(nonatomic) unsigned long long ttEditedMask; // @synthesize ttEditedMask=_ttEditedMask;
 @property(nonatomic) struct _NSRange ttEditedRange; // @synthesize ttEditedRange=_ttEditedRange;
 @property(nonatomic) _Bool pendingFixupAfterEditing; // @synthesize pendingFixupAfterEditing=_pendingFixupAfterEditing;
-@property(nonatomic) _Bool isApplyingUndoCommand; // @synthesize isApplyingUndoCommand=_isApplyingUndoCommand;
 @property(nonatomic) _Bool isFixing; // @synthesize isFixing=_isFixing;
 @property(nonatomic) unsigned long long editingCount; // @synthesize editingCount=_editingCount;
 @property(nonatomic) struct _NSRange lastUndoEditRange; // @synthesize lastUndoEditRange=_lastUndoEditRange;
 @property(retain, nonatomic) TTMergeableStringUndoGroup *coalescingUndoGroup; // @synthesize coalescingUndoGroup=_coalescingUndoGroup;
 @property(retain, nonatomic) NSMutableArray *undoCommands; // @synthesize undoCommands=_undoCommands;
 @property(nonatomic) _Bool isEndingEditing; // @synthesize isEndingEditing=_isEndingEditing;
+@property(nonatomic) _Bool isApplyingUndoCommand; // @synthesize isApplyingUndoCommand=_isApplyingUndoCommand;
 @property(nonatomic) _Bool isChangingSelectionByGestures; // @synthesize isChangingSelectionByGestures=_isChangingSelectionByGestures;
 @property(nonatomic) _Bool isReadingSelectionFromPasteboard; // @synthesize isReadingSelectionFromPasteboard=_isReadingSelectionFromPasteboard;
 @property(nonatomic) _Bool isResettingBaseWritingDirection; // @synthesize isResettingBaseWritingDirection=_isResettingBaseWritingDirection;
@@ -100,6 +100,7 @@
 @property(retain, nonatomic) NSUndoManager *undoManager; // @synthesize undoManager=_undoManager;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSAttributedString *_icaxUnfilteredAttributedString;
+- (struct _NSRange)safeCharacterRangeForRange:(struct _NSRange)arg1;
 - (id)attributedSubstringFromRange:(struct _NSRange)arg1;
 - (id)filteredAttributedSubstringFromRange:(struct _NSRange)arg1;
 - (id)dataFromRange:(struct _NSRange)arg1 documentAttributes:(id)arg2 error:(id *)arg3;
@@ -160,6 +161,7 @@
 - (void)editedRange:(struct _NSRange)arg1 changeInLength:(long long)arg2;
 - (_Bool)_usesSimpleTextEffects;
 - (void)resetTTEdits;
+- (void)restoreAttributedString:(id)arg1;
 - (id)initWithAttributedString:(id)arg1 replicaID:(id)arg2 sourceZoomController:(id)arg3 keepSourceZoomController:(_Bool)arg4;
 - (id)initWithAttributedString:(id)arg1 replicaID:(id)arg2;
 - (id)initWithDocument:(id)arg1;

@@ -11,7 +11,7 @@
 #import <UIKit/UIViewControllerTransitioningDelegate-Protocol.h>
 #import <UIKit/_UIPreviewActionsControllerDelegate-Protocol.h>
 
-@class NSArray, NSString, UIGestureRecognizer, UIPreviewInteraction, UIView, UIViewController, _UIInteractionEffect_deprecated, _UIPreviewActionsController, _UIPreviewInteractionCommitTransition, _UIPreviewInteractionDismissTransition, _UIPreviewInteractionGestureRecognizer, _UIPreviewInteractionPresentationTransition, _UIPreviewPresentationController2, _UISteadyTouchForceGestureRecognizer, _UITouchesObservingGestureRecognizer;
+@class NSString, UIGestureRecognizer, UIPreviewInteraction, UIView, UIViewController, _UIInteractionEffect_deprecated, _UIPreviewActionsController, _UIPreviewInteractionCommitTransition, _UIPreviewInteractionDismissTransition, _UIPreviewInteractionGestureRecognizer, _UIPreviewInteractionPresentationTransition, _UIPreviewPresentationController2, _UISteadyTouchForceGestureRecognizer, _UITouchesObservingGestureRecognizer;
 @protocol UIViewControllerPreviewing_Internal, _UIPreviewInteractionControllerDelegate, _UIPreviewInteractionHighlighting, _UIPreviewInteractionTouchForceProviding;
 
 __attribute__((visibility("hidden")))
@@ -30,7 +30,6 @@ __attribute__((visibility("hidden")))
     _UIPreviewInteractionGestureRecognizer *_revealGestureRecognizer;
     _UIPreviewInteractionGestureRecognizer *_previewGestureRecognizer;
     _UISteadyTouchForceGestureRecognizer *_steadyTouchForceGestureRecognizer;
-    NSArray *_gestureRecognizersForDelayingActions;
     UIViewController *_currentPreviewViewController;
     _UIPreviewPresentationController2 *_currentPresentationController;
     id <_UIPreviewInteractionHighlighting> _currentHighlighter;
@@ -60,7 +59,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) id <_UIPreviewInteractionHighlighting> currentHighlighter; // @synthesize currentHighlighter=_currentHighlighter;
 @property(retain, nonatomic) _UIPreviewPresentationController2 *currentPresentationController; // @synthesize currentPresentationController=_currentPresentationController;
 @property(retain, nonatomic) UIViewController *currentPreviewViewController; // @synthesize currentPreviewViewController=_currentPreviewViewController;
-@property(copy, nonatomic) NSArray *gestureRecognizersForDelayingActions; // @synthesize gestureRecognizersForDelayingActions=_gestureRecognizersForDelayingActions;
 @property(retain, nonatomic) _UISteadyTouchForceGestureRecognizer *steadyTouchForceGestureRecognizer; // @synthesize steadyTouchForceGestureRecognizer=_steadyTouchForceGestureRecognizer;
 @property(retain, nonatomic) _UIPreviewInteractionGestureRecognizer *previewGestureRecognizer; // @synthesize previewGestureRecognizer=_previewGestureRecognizer;
 @property(retain, nonatomic) _UIPreviewInteractionGestureRecognizer *revealGestureRecognizer; // @synthesize revealGestureRecognizer=_revealGestureRecognizer;
@@ -91,7 +89,6 @@ __attribute__((visibility("hidden")))
 - (void)_handlePreviewGesture:(id)arg1;
 - (void)_handleRevealGesture:(id)arg1;
 - (void)_handleSteadyTouchForceGesture:(id)arg1;
-- (void)_registerGestureRecognizerForDelayingActions:(id)arg1;
 - (_Bool)_isLongPressGestureRecognizerUsedForDelayingActions:(id)arg1;
 @property(readonly, nonatomic) UIGestureRecognizer *beginPreviewGestureRecognizer;
 @property(readonly, nonatomic) UIGestureRecognizer *presentationGestureRecognizer;
@@ -105,7 +102,6 @@ __attribute__((visibility("hidden")))
 - (void)_gestureRecognizerFailed:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
-- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (id)presentationControllerForPresentedViewController:(id)arg1 presentingViewController:(id)arg2 sourceViewController:(id)arg3;
 - (id)animationControllerForDismissedController:(id)arg1;
 - (id)interactionControllerForPresentation:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@protocol MTLCommandQueue, OS_dispatch_queue;
+@protocol MTLCommandQueue, MTLDevice, MTLTexture, OS_dispatch_queue;
 
 @interface EspressoImage2Image : NSObject
 {
@@ -34,19 +34,34 @@
         int storage_type;
     } output_blob;
     id <MTLCommandQueue> queue;
+    id <MTLDevice> device;
     NSObject<OS_dispatch_queue> *dispatch_queue;
     _Bool is_temporal_model;
     unsigned long long dim[5];
+    id <MTLTexture> smallOldResultTexture;
+    id <MTLTexture> noiseTexture;
+    id <MTLTexture> inputPlusNoiseTexture;
+    struct map<std::__1::basic_string<char>, float, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, float>>> tweaks;
+    struct map<std::__1::basic_string<char>, postprocessing_settings_t, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, postprocessing_settings_t>>> postprocessing_settings;
+    struct postprocessing_settings_t current_postprocessing_settings;
     int _rotation_degrees;
+    int _flip_y;
 }
 
+@property(nonatomic) int flip_y; // @synthesize flip_y=_flip_y;
 @property(nonatomic) int rotation_degrees; // @synthesize rotation_degrees=_rotation_degrees;
+- (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)postProcess:(id)arg1 destinationTexture:(id)arg2;
+- (void)postProcess:(id)arg1 cameraSourceTexture:(id)arg2 inputTexture:(id)arg3 destinationTexture:(id)arg4;
+- (void)simpleLinearResize:(id)arg1 sourceTexture:(id)arg2 destinationTexture:(id)arg3;
+- (int)encodeToCommandBuffer:(id)arg1 sourceTexture:(id)arg2 destinationTexture:(id)arg3 cropRect:(CDStruct_4c83c94d)arg4;
 - (int)submitToQueueWithSourceTexture:(id)arg1 destinationTexture:(id)arg2 cropRect:(CDStruct_4c83c94d)arg3;
+- (void)tweak:(id)arg1 value:(float)arg2;
 - (int)submitToQueueWithSourceTexture:(id)arg1 destinationTexture:(id)arg2;
 - (int)reshapeToWidth:(int)arg1 andHeight:(int)arg2;
 - (int)load:(id)arg1;
+- (int)wasReshaped;
+- (void)addNoiseLayer;
 - (int)height;
 - (int)width;
 - (void)dealloc;

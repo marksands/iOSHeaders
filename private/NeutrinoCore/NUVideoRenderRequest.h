@@ -7,12 +7,15 @@
 #import <NeutrinoCore/NURenderRequest.h>
 
 @class NUColorSpace;
+@protocol NUScalePolicy;
 
 @interface NUVideoRenderRequest : NURenderRequest
 {
     NUColorSpace *_colorSpace;
+    id <NUScalePolicy> _scalePolicy;
 }
 
+@property(retain) id <NUScalePolicy> scalePolicy; // @synthesize scalePolicy=_scalePolicy;
 @property(retain, nonatomic) NUColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 - (void).cxx_destruct;
 - (void)submit:(CDUnknownBlockType)arg1;

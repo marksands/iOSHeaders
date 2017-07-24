@@ -19,6 +19,7 @@
 
 @property(readonly, retain, nonatomic) XBSnapshotDataProviderContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (void)invalidateImage;
 - (id)fetchImage;
 - (id)initWithRequest:(id)arg1 contextID:(unsigned int)arg2;
 

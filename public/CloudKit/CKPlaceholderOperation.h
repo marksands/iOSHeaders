@@ -31,6 +31,8 @@
 - (void).cxx_destruct;
 - (id)description;
 - (id)CKDescriptionPropertiesWithPublic:(_Bool)arg1 private:(_Bool)arg2 shouldExpand:(_Bool)arg3;
+- (void)_setIsExecuting:(_Bool)arg1;
+- (void)_setIsFinished:(_Bool)arg1;
 - (_Bool)isConcurrent;
 - (void)main;
 - (void)start;

@@ -71,7 +71,6 @@
 - (void)_eventTriggerRecurrencesUpdated:(id)arg1 message:(id)arg2;
 - (void)_updateEventTriggerRecurrences:(id)arg1;
 - (void)_handleUpdateEventTriggerRecurrences:(id)arg1;
-- (void)_saveWithReason:(id)arg1 objectChange:(id)arg2;
 - (id)_updateEventsOnEventTrigger:(id)arg1;
 - (void)_handleUpdateEventsOnEventTrigger:(id)arg1;
 - (_Bool)checkSharedEventTriggerActivationResidentRequirement:(id)arg1;

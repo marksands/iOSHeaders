@@ -8,7 +8,7 @@
 
 #import <CoreDuet/_DKEventStatsCounterInternalProperty-Protocol.h>
 
-@class NSString, _DKEventStatsCounterInternal;
+@class _DKEventStatsCounterInternal;
 
 @interface _DKEventResultStatsCounter : NSObject <_DKEventStatsCounterInternalProperty>
 {
@@ -21,7 +21,7 @@
 - (unsigned long long)countWithSuccess:(_Bool)arg1;
 - (void)incrementCountByNumber:(unsigned long long)arg1 success:(_Bool)arg2;
 - (void)incrementCountWithSuccess:(_Bool)arg1;
-@property(readonly, nonatomic) NSString *eventName;
+- (id)eventName;
 
 @end
 

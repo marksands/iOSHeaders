@@ -4,15 +4,40 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
-@interface TILaunchServicesLookup : NSObject
+#import <TextInputCore/TIKeyboardActivityObserving-Protocol.h>
+
+@class NSArray, NSDate, NSString;
+
+@interface TILaunchServicesLookup : NSObject <TIKeyboardActivityObserving>
 {
+    NSArray *_cache;
+    NSDate *_lastCacheUpdate;
 }
 
 + (id)genreIDsForApplicationIdentifier:(id)arg1;
++ (id)lookupAppNames;
 + (void)enumerateInstalledApplicationNames:(CDUnknownBlockType)arg1;
++ (id)sharedInstance;
 + (void)disableForTesting:(_Bool)arg1;
+@property(retain, nonatomic) NSDate *lastCacheUpdate; // @synthesize lastCacheUpdate=_lastCacheUpdate;
+@property(retain, nonatomic) NSArray *cache; // @synthesize cache=_cache;
+- (void)handleMemoryPressureLevel:(unsigned long long)arg1 excessMemoryInBytes:(unsigned long long)arg2;
+- (void)keyboardActivityDidTransition:(id)arg1;
+- (void)enumerateAppNames:(CDUnknownBlockType)arg1;
+- (id)appNames;
+- (void)resetCache;
+- (void)cacheNames:(id)arg1;
+- (id)tryCache;
+- (void)dealloc;
+- (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,21 +8,23 @@
 
 #import <iWorkImport/TSDContainerInfo-Protocol.h>
 
-@class NSString, TPBodyInfo, TPDocumentRoot, TSDInfoGeometry, TSPObject, TSUWeakReference;
+@class NSString, TPBodyInfo, TPDocumentRoot, TSDInfoGeometry, TSPObject;
 @protocol TPPageLayoutInfoProvider, TSDContainerInfo, TSDOwningAttachment;
 
 __attribute__((visibility("hidden")))
 @interface TPPageInfo : NSObject <TSDContainerInfo>
 {
-    TSUWeakReference *_documentRootWeakReference;
     unsigned long long _pageIndex;
     TPBodyInfo *_bodyInfo;
+    TPDocumentRoot *_documentRoot;
     id <TPPageLayoutInfoProvider> _layoutInfoProvider;
 }
 
-@property(readonly, nonatomic) id <TPPageLayoutInfoProvider> layoutInfoProvider; // @synthesize layoutInfoProvider=_layoutInfoProvider;
-@property(readonly, retain, nonatomic) TPBodyInfo *bodyInfo; // @synthesize bodyInfo=_bodyInfo;
+@property(readonly, nonatomic) __weak id <TPPageLayoutInfoProvider> layoutInfoProvider; // @synthesize layoutInfoProvider=_layoutInfoProvider;
+@property(readonly, nonatomic) __weak TPDocumentRoot *documentRoot; // @synthesize documentRoot=_documentRoot;
+@property(readonly, nonatomic) TPBodyInfo *bodyInfo; // @synthesize bodyInfo=_bodyInfo;
 @property(readonly, nonatomic) unsigned long long pageIndex; // @synthesize pageIndex=_pageIndex;
+- (void).cxx_destruct;
 - (id)infoForSelectionPath:(id)arg1;
 - (id)childInfos;
 - (Class)layoutClass;
@@ -39,9 +41,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
 - (void)clearBackPointerToParentInfoIfNeeded:(id)arg1;
 @property(nonatomic) NSObject<TSDContainerInfo> *parentInfo;
-- (void)invalidateLayoutInfoProvider;
 - (id)copyWithContext:(id)arg1;
-@property(readonly, nonatomic) TPDocumentRoot *documentRoot;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)dealloc;

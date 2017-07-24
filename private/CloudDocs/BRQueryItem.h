@@ -61,6 +61,7 @@
 }
 
 + (id)containerItemForContainer:(id)arg1 forceScan:(_Bool)arg2;
++ (id)containerItemForContainer:(id)arg1 withDocumentsItem:(id)arg2 zoneRowID:(id)arg3;
 + (id)containerItemForContainer:(id)arg1 withDocumentsItem:(id)arg2;
 + (id)askDaemonQueryItemForURL:(id)arg1 andFakeFSEvent:(_Bool)arg2 error:(id *)arg3;
 + (id)askDaemonQueryItemForURL:(id)arg1 error:(id *)arg2;
@@ -162,11 +163,15 @@
 @property(readonly, copy, nonatomic) NSString *filename;
 @property(readonly, copy, nonatomic) NSString *parentItemIdentifier;
 @property(readonly, copy, nonatomic) NSString *itemIdentifier;
+@property(readonly) _Bool fp_isContainer;
+@property(readonly, copy) NSString *fp_appContainerBundleIdentifier;
+- (id)localizedFileNameIfDesktopOrDocuments;
+- (id)containerIDIfDesktopOrDocuments;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *fp_appContainerBundleIdentifier;
 @property(readonly, copy) NSString *fp_domainIdentifier;
+@property(readonly, getter=fp_isUbiquitous) _Bool fp_ubiquitous;
 @property(readonly, nonatomic) NSNumber *isDownloadRequested;
 @property(readonly, nonatomic) _Bool isTrashed;
 @property(readonly, copy) NSString *providerIdentifier;

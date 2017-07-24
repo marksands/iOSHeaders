@@ -11,7 +11,7 @@
 #import <PassKitUI/UIScrollViewDelegate-Protocol.h>
 #import <PassKitUI/WLCardViewDelegate-Protocol.h>
 
-@class NSMutableDictionary, NSString, PKGroup, PKPassView, PKReusablePassViewQueue, UILongPressGestureRecognizer, UIMotionEffectGroup, UIPageControl, UIPanGestureRecognizer, UIScrollView;
+@class NSMutableDictionary, NSString, PKBarcodePassDetailViewController, PKGroup, PKPassView, PKReusablePassViewQueue, UILongPressGestureRecognizer, UIMotionEffectGroup, UIPageControl, UIPanGestureRecognizer, UIScrollView;
 @protocol PKPassGroupViewDelegate;
 
 @interface PKPassGroupView : UIView <WLCardViewDelegate, PKGroupDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate>
@@ -45,6 +45,10 @@
     UIMotionEffectGroup *_motionEffectGroup;
     _Bool _isAuthenticating;
     id <PKPassGroupViewDelegate> _delegate;
+    PKBarcodePassDetailViewController *_detailsVC;
+    NSString *_passBeingPresented;
+    _Bool _groupWasMarkedDeleted;
+    _Bool _passBeingPresentedWasDeleted;
     _Bool _modallyPresented;
     _Bool _pageControlHidden;
     PKPassView *_frontmostPassView;
@@ -65,12 +69,16 @@
 - (void).cxx_destruct;
 - (void)passViewDidEndAuthenticating:(id)arg1;
 - (void)passViewDidBeginAuthenticating:(id)arg1;
+- (void)passView:(id)arg1 didPresentPassDetailsViewController:(id)arg2;
+- (void)passView:(id)arg1 willPresentPassDetailsViewController:(id)arg2;
 - (void)passView:(id)arg1 resizeButtonPressedForPass:(id)arg2 withBarcode:(_Bool)arg3;
 - (_Bool)passView:(id)arg1 deleteButtonEnabledForPass:(id)arg2;
 - (void)passView:(id)arg1 deleteButtonPressedForPass:(id)arg2;
 - (void)passViewDidResize:(id)arg1 animated:(_Bool)arg2;
 - (_Bool)passViewShouldResize:(id)arg1;
 - (void)passViewTapped:(id)arg1;
+- (void)dismissBackOfPassIfNecessaryForUniqueID:(id)arg1;
+- (void)markGroupDeleted;
 - (void)group:(id)arg1 didMovePassFromIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3;
 - (void)group:(id)arg1 didRemovePass:(id)arg2 atIndex:(unsigned long long)arg3;
 - (void)group:(id)arg1 didUpdatePass:(id)arg2 atIndex:(unsigned long long)arg3;

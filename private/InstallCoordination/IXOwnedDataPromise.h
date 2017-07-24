@@ -18,8 +18,6 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSURL *stagingBaseDir; // @dynamic stagingBaseDir;
 - (Class)seedClass;
-- (id)synchronousRemoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
-- (id)remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 @property(retain, nonatomic) NSURL *stagedPath; // @synthesize stagedPath=_stagedPath;
 
 // Remaining properties

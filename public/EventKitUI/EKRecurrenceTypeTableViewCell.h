@@ -6,18 +6,12 @@
 
 #import <EventKitUI/EKUITableViewCell.h>
 
-@class UIView;
-
 @interface EKRecurrenceTypeTableViewCell : EKUITableViewCell
 {
-    UIView *_checkmarkView;
     _Bool _checked;
 }
 
 @property(nonatomic, getter=isChecked) _Bool checked; // @synthesize checked=_checked;
-- (void).cxx_destruct;
-- (void)layoutSubviews;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

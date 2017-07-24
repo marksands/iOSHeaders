@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 - (id).cxx_construct;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) struct Texture2D *gglTexture;
-- (struct RenderItem *)setupRenderItemWithRenderState:(struct RenderState *)arg1 pipelineState:(const shared_ptr_8d835d6a *)arg2 mesh:(struct Mesh *)arg3;
+- (struct RenderItem *)setupRenderItemWithRenderState:(struct RenderState *)arg1 pipelineState:(const shared_ptr_74b38e53 *)arg2 mesh:(struct Mesh *)arg3;
 - (struct CGContext *)drawContext;
 - (_Bool)isEmpty;
 @property(readonly, nonatomic) struct RenderItem *renderItem;

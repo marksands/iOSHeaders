@@ -11,6 +11,7 @@
 @interface _UIBatteryView : UIView
 {
     _Bool _saverModeActive;
+    _Bool _compact;
     long long _sizeCategory;
     double _chargePercent;
     long long _chargingState;
@@ -20,8 +21,11 @@
     CAShapeLayer *_bodyLayer;
     CAShapeLayer *_pinLayer;
     CALayer *_fillLayer;
+    double _baselineOffset;
 }
 
+@property(nonatomic) double baselineOffset; // @synthesize baselineOffset=_baselineOffset;
+@property(nonatomic) _Bool compact; // @synthesize compact=_compact;
 @property(retain, nonatomic) CALayer *fillLayer; // @synthesize fillLayer=_fillLayer;
 @property(retain, nonatomic) CAShapeLayer *pinLayer; // @synthesize pinLayer=_pinLayer;
 @property(retain, nonatomic) CAShapeLayer *bodyLayer; // @synthesize bodyLayer=_bodyLayer;

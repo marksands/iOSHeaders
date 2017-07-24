@@ -8,7 +8,7 @@
 
 #import <iWorkImport/TSDMagicMoveMatching-Protocol.h>
 
-@class CALayer, NSArray, NSDictionary, TSDCanvas, TSDKnobTracker, TSDLayout, TSDLayoutGeometry, TSDTextureContext, TSDTextureSet, TSDTilingBackgroundQueue, TSUOnce;
+@class CALayer, NSArray, NSDictionary, TSDCanvas, TSDKnobTracker, TSDLayout, TSDLayoutGeometry, TSDTilingBackgroundQueue, TSUOnce;
 @protocol OS_dispatch_queue, TSDContainerRep;
 
 __attribute__((visibility("hidden")))
@@ -21,10 +21,6 @@ __attribute__((visibility("hidden")))
     CALayer *mSelectionHighlightLayer;
     _Bool mCollaboratorCursorLayerValid;
     CALayer *mCollaboratorCursorLayer;
-    unsigned long long mTextureDeliveryStyle;
-    int mTextureByGlyphStyle;
-    TSDTextureContext *mTextureContext;
-    NSDictionary *mTextureActionAttributes;
     NSDictionary *mTextureAnimationInfo;
     _Bool mShowTemporaryHighlight;
     CALayer *mTemporaryHighlightLayer;
@@ -33,8 +29,6 @@ __attribute__((visibility("hidden")))
     TSDLayout *mTemporaryMixingLayout;
     _Bool mWantsToRedrawWithOpenGL;
     TSDLayout *mLayout;
-    TSDTextureSet *mTexture;
-    NSObject<OS_dispatch_queue> *mTextureAccessQueue;
     struct CGColor *mDefaultSelectionHighlightColor;
     TSDLayoutGeometry *mLastGeometryInRoot;
     struct CGRect mOriginalLayerFrameInScaledCanvas;
@@ -46,15 +40,9 @@ __attribute__((visibility("hidden")))
     _Bool mShowKnobsWhenManipulated;
     _Bool mKnobsAreShowing;
     _Bool mHasBeenRemoved;
-    unsigned long long mTextureStage;
 }
 
 @property(copy, nonatomic) NSDictionary *textureAnimationInfo; // @synthesize textureAnimationInfo=mTextureAnimationInfo;
-@property(copy, nonatomic) NSDictionary *textureActionAttributes; // @synthesize textureActionAttributes=mTextureActionAttributes;
-@property(nonatomic) unsigned long long textureStage; // @synthesize textureStage=mTextureStage;
-@property(copy) TSDTextureContext *textureContext; // @synthesize textureContext=mTextureContext;
-@property(nonatomic) int textureByGlyphStyle; // @synthesize textureByGlyphStyle=mTextureByGlyphStyle;
-@property(nonatomic) unsigned long long textureDeliveryStyle; // @synthesize textureDeliveryStyle=mTextureDeliveryStyle;
 @property(nonatomic) __weak TSDRep<TSDContainerRep> *parentRep; // @synthesize parentRep=mParentRep;
 @property(retain, nonatomic) TSDLayout *temporaryMixingLayout; // @synthesize temporaryMixingLayout=mTemporaryMixingLayout;
 @property(readonly, nonatomic) __weak TSDCanvas *canvas; // @synthesize canvas=mCanvas;
@@ -77,13 +65,9 @@ __attribute__((visibility("hidden")))
 - (void)drawInContext:(struct CGContext *)arg1;
 - (_Bool)repDirectlyManagesContentsScaleOfLayer:(id)arg1;
 @property(readonly, nonatomic) struct CGRect frameForMagicMove;
-- (id)textureForContext:(id)arg1;
+- (id)textureForDescription:(id)arg1;
 - (void)setTextureAttributes:(id)arg1 textureBounds:(struct CGRect)arg2;
 - (struct CGAffineTransform)unRotatedTransform:(struct CGAffineTransform)arg1;
-- (_Bool)shouldSetTextureStage:(unsigned long long)arg1;
-- (void)markTextureDirty;
-@property(readonly, nonatomic) double textureAngle;
-@property(retain) TSDTextureSet *texture; // @synthesize texture=mTexture;
 - (_Bool)wantsToHandleTapsWhenLocked;
 - (_Bool)wantsToHandleTapsOnContainingGroup;
 - (_Bool)canClipThemeContentToCanvas;

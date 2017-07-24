@@ -50,6 +50,7 @@ __attribute__((visibility("hidden")))
 - (id)getPageLayerEffectByUUID:(id)arg1;
 - (id)addPageLayerEffect:(id)arg1;
 - (_Bool)isVisible;
+- (void)_tileUpdateComplete;
 - (void)setNeedsTilesUpdate;
 - (id)page;
 - (void)dealloc;

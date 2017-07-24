@@ -13,11 +13,12 @@
 + (id)firstQueryItemInURL:(id)arg1 withURLScheme:(id)arg2 andHost:(id)arg3 andQueryItemName:(id)arg4;
 + (id)contentOffsetFromQuickNoteURL:(id)arg1;
 + (id)noteIdentifierFromQuickNoteURL:(id)arg1;
++ (_Bool)quickNoteURLShouldShowiCloudShareSheet:(id)arg1;
++ (_Bool)quickNoteURLShouldShowShareSheet:(id)arg1;
 + (_Bool)quickNoteURLShouldShowList:(id)arg1;
 + (_Bool)isLaunchingQuickNoteViaPencil:(id)arg1;
 + (_Bool)isQuickNoteModeURL:(id)arg1;
-+ (id)urlForQuickNoteLaunchedByPencil:(_Bool)arg1 showList:(_Bool)arg2 noteIdentifier:(id)arg3 contentOffsetValue:(id)arg4;
-+ (id)urlForQuickNoteLaunchedByPencil:(_Bool)arg1 showList:(_Bool)arg2 noteIdentifier:(id)arg3;
++ (id)urlForQuickNoteWithOptions:(id)arg1;
 + (_Bool)isShowHTMLNoteURL:(id)arg1;
 + (_Bool)isShowNoteURL:(id)arg1;
 + (_Bool)isShowFolderListURL:(id)arg1;

@@ -280,6 +280,7 @@
 - (id)messageAcknowledgmentSummaryForConversationListWithMessage:(id)arg1;
 - (void)sendMessageAcknowledgment:(long long)arg1 forChatItem:(id)arg2 withAssociatedMessageInfo:(id)arg3;
 - (void)sendMessageAcknowledgment:(long long)arg1 forChatItem:(id)arg2 withMessageSummaryInfo:(id)arg3;
+- (void)deleteExtensionPayloadData;
 - (void)closeSession;
 - (_Bool)isAppleChat;
 - (_Bool)isMakoChat;

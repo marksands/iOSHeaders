@@ -33,6 +33,8 @@ __attribute__((visibility("hidden")))
 - (id)CKDescriptionPropertiesWithPublic:(_Bool)arg1 private:(_Bool)arg2 shouldExpand:(_Bool)arg3;
 - (id)ckShortDescription;
 - (void)cancel;
+- (void)_setIsExecuting:(_Bool)arg1;
+- (void)_setIsFinished:(_Bool)arg1;
 - (_Bool)isConcurrent;
 - (void)main;
 - (void)start;

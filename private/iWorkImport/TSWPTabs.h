@@ -9,15 +9,17 @@
 #import <iWorkImport/NSCopying-Protocol.h>
 #import <iWorkImport/NSFastEnumeration-Protocol.h>
 #import <iWorkImport/TSDMixing-Protocol.h>
+#import <iWorkImport/TSSPropertyValueArchiving-Protocol.h>
 
 @class NSMutableArray;
 
 __attribute__((visibility("hidden")))
-@interface TSWPTabs : NSObject <NSCopying, NSFastEnumeration, TSDMixing>
+@interface TSWPTabs : NSObject <TSSPropertyValueArchiving, NSCopying, NSFastEnumeration, TSDMixing>
 {
     NSMutableArray *_tabs;
 }
 
++ (id)instanceWithArchive:(const struct Message *)arg1 unarchiver:(id)arg2;
 + (id)tabs;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;

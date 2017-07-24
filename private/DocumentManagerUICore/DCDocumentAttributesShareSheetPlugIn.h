@@ -24,7 +24,7 @@
 @property(readonly, nonatomic) __weak id <UIShareUIAccessoryHosting> host; // @synthesize host=_host;
 - (void).cxx_destruct;
 - (void)commitPendingChanges;
-- (id)initWithPresentingHost:(id)arg1 URLs:(id)arg2;
+- (id)initWithPresentingHost:(id)arg1 URLs:(id)arg2 itemLoader:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

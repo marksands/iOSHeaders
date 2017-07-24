@@ -18,6 +18,7 @@
     double _systemFontSize;
     long long _textStyle;
     _Bool _usesItalic;
+    _Bool _usesCondensedMetrics;
     _Bool _wantsMonospaceNumbers;
     long long _weight;
     UIFont *_preferredFont;
@@ -29,7 +30,7 @@
 
 + (double)_layoutInterpolatorReferenceMetricForContentSizeCategory:(id)arg1;
 + (id)_fontPointSizeLayoutInterpolatorForTextStyle:(long long)arg1;
-+ (unsigned int)_nativeFontDescriptorSymbolicTraitsForUsingItalic:(_Bool)arg1;
++ (unsigned int)_nativeFontDescriptorSymbolicTraitsForUsingItalic:(_Bool)arg1 isCondensedMetrics:(_Bool)arg2;
 + (unsigned int)_nativeFontDescriptorSymbolicTraitsForLeadingAdjustment:(long long)arg1;
 + (void)_getNativeFontDescriptorSymbolicTraits:(unsigned int *)arg1 nativeTextStyleAttribute:(id *)arg2 forWeight:(long long)arg3;
 + (id)_baseNativeTextStyleForTextStyle:(long long)arg1;
@@ -46,6 +47,7 @@
 + (id)fontDescriptorWithTextStyle:(long long)arg1 weight:(long long)arg2;
 + (id)fontDescriptorWithTextStyle:(long long)arg1;
 @property(readonly, nonatomic) _Bool wantsMonospaceNumbers; // @synthesize wantsMonospaceNumbers=_wantsMonospaceNumbers;
+@property(readonly, nonatomic) _Bool usesCondensedMetrics; // @synthesize usesCondensedMetrics=_usesCondensedMetrics;
 @property(readonly, nonatomic) _Bool usesItalic; // @synthesize usesItalic=_usesItalic;
 @property(readonly, nonatomic) long long leadingAdjustment; // @synthesize leadingAdjustment=_leadingAdjustment;
 @property(readonly, nonatomic) double defaultPointSizeAdjustment; // @synthesize defaultPointSizeAdjustment=_defaultPointSizeAdjustment;

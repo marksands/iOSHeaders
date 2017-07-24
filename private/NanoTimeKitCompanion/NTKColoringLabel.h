@@ -59,6 +59,9 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)invalidateCachedSize;
 @property(readonly, nonatomic) struct UIEdgeInsets opticalInsets;
+- (double)minimumWithFont:(id)arg1 smallCapsBaseFont:(id)arg2;
+- (double)minimumWithFont:(id)arg1;
+- (double)minimumWidth;
 - (double)widthForMaxWidth:(double)arg1 withFont:(id)arg2 smallCapsBaseFont:(id)arg3;
 - (double)widthForMaxWidth:(double)arg1 withFont:(id)arg2;
 - (double)widthForMaxWidth:(double)arg1;

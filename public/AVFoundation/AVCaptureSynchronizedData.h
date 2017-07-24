@@ -13,6 +13,7 @@
     AVCaptureSynchronizedDataInternal *_synchronizedDataInternal;
 }
 
+- (_Bool)hasCorrespondingDepthData;
 - (void)setAdjustedTimestamp:(CDStruct_1b6d18a9)arg1;
 - (CDStruct_1b6d18a9)adjustedTimestamp;
 @property(readonly) CDStruct_1b6d18a9 timestamp;

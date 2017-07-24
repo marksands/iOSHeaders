@@ -6,7 +6,7 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class NSArray, UIView;
+@class UIView, _UINavigationBarTitleViewOverlayRects;
 @protocol _UINavigationBarAugmentedTitleView;
 
 @protocol _UINavigationBarTitleViewDataSource <NSObject>
@@ -14,6 +14,6 @@
 - (void)titleViewChangedStandardDisplayItems:(UIView<_UINavigationBarAugmentedTitleView> *)arg1;
 - (void)titleViewChangedHeight:(UIView<_UINavigationBarAugmentedTitleView> *)arg1;
 - (void)titleViewChangedUnderlayContent:(UIView<_UINavigationBarAugmentedTitleView> *)arg1;
-- (NSArray *)contentOverlayRectsForTitleView:(UIView<_UINavigationBarAugmentedTitleView> *)arg1;
+- (void)titleView:(UIView<_UINavigationBarAugmentedTitleView> *)arg1 needsUpdatedContentOverlayRects:(_UINavigationBarTitleViewOverlayRects *)arg2;
 @end
 

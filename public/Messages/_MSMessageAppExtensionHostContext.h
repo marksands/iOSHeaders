@@ -21,6 +21,7 @@
 + (id)_extensionAuxiliaryVendorProtocol;
 @property(nonatomic) __weak id <_MSMessageComposeHostProtocol> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_requestResize;
 - (void)_openURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_remoteViewDidBecomeReadyForDisplay;
 - (void)_updateSnapshotForNextLaunch:(id)arg1;

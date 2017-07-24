@@ -7,11 +7,12 @@
 #import <objc/NSObject.h>
 
 #import <AssistantServices/AFAnalyticsService-Protocol.h>
+#import <AssistantServices/AFAnalyticsServiceDelegate-Protocol.h>
 
 @class NSString, NSXPCConnection;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
-@interface AFAnalyticsConnection : NSObject <AFAnalyticsService>
+@interface AFAnalyticsConnection : NSObject <AFAnalyticsServiceDelegate, AFAnalyticsService>
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSXPCConnection *_connection;
@@ -35,6 +36,7 @@
 - (void)_handleSuccessCallbackForEvents:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handleFailureCallbackForEvents:(id)arg1 error:(id)arg2 numberOfRetries:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_sendEvents:(id)arg1 numberOfRetries:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (oneway void)flushStagedEventsWithReply:(CDUnknownBlockType)arg1;
 - (oneway void)stageEvents:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (oneway void)stageEvents:(id)arg1;
 - (oneway void)stageEvent:(id)arg1;

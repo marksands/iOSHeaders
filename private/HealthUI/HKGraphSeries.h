@@ -8,8 +8,8 @@
 
 #import <HealthUI/HKGraphSeriesDataSourceDelegate-Protocol.h>
 
-@class HKAxis, HKGraphSeriesDataSource, HKPropertyAnimationApplier, HKValueRange, NSArray, NSMutableDictionary, NSString, NSUUID, UIColor;
-@protocol HKGraphSeriesAxisAnnotation, HKGraphSeriesAxisScalingRule, HKSeriesDelegate;
+@class HKAxis, HKGraphSeriesDataSource, HKPropertyAnimationApplier, HKValueRange, NSArray, NSMutableDictionary, NSString, NSUUID, UIColor, UIView;
+@protocol HKAxisAccessoryViewDelegate, HKGraphSeriesAxisAnnotation, HKGraphSeriesAxisScalingRule, HKSeriesDelegate;
 
 @interface HKGraphSeries : NSObject <HKGraphSeriesDataSourceDelegate>
 {
@@ -27,16 +27,19 @@
     NSArray *_detailLegendEntries;
     id <HKSeriesDelegate> _delegate;
     id <HKGraphSeriesAxisAnnotation> _axisAnnotationDelegate;
+    id <HKAxisAccessoryViewDelegate> _yAxisAccessoryViewDelegate;
     double _alpha;
     double _offscreenIndicatorAlpha;
     NSUUID *_UUID;
     id _context;
     HKAxis *_yAxis;
     id <HKGraphSeriesAxisScalingRule> _axisScalingRule;
+    UIView *_cachedYAxisAccessoryView;
     UIColor *_offScreenIndicatorColor;
 }
 
 @property(retain, nonatomic) UIColor *offScreenIndicatorColor; // @synthesize offScreenIndicatorColor=_offScreenIndicatorColor;
+@property(retain, nonatomic) UIView *cachedYAxisAccessoryView; // @synthesize cachedYAxisAccessoryView=_cachedYAxisAccessoryView;
 @property(retain, nonatomic) id <HKGraphSeriesAxisScalingRule> axisScalingRule; // @synthesize axisScalingRule=_axisScalingRule;
 @property(copy, nonatomic) HKAxis *yAxis; // @synthesize yAxis=_yAxis;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
@@ -45,6 +48,7 @@
 @property(readonly, nonatomic) NSUUID *UUID; // @synthesize UUID=_UUID;
 @property(nonatomic) double offscreenIndicatorAlpha; // @synthesize offscreenIndicatorAlpha=_offscreenIndicatorAlpha;
 @property(nonatomic) double alpha; // @synthesize alpha=_alpha;
+@property(nonatomic) __weak id <HKAxisAccessoryViewDelegate> yAxisAccessoryViewDelegate; // @synthesize yAxisAccessoryViewDelegate=_yAxisAccessoryViewDelegate;
 @property(nonatomic) __weak id <HKGraphSeriesAxisAnnotation> axisAnnotationDelegate; // @synthesize axisAnnotationDelegate=_axisAnnotationDelegate;
 @property(nonatomic) __weak id <HKSeriesDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *detailLegendEntries; // @synthesize detailLegendEntries=_detailLegendEntries;
@@ -72,6 +76,9 @@
 - (id)_visibleXValueRangeWithAxis:(id)arg1 chartRect:(struct CGRect)arg2 contentOffset:(struct CGPoint)arg3 zoomScale:(double)arg4;
 - (void)_setDirtyWithNewData:(_Bool)arg1;
 - (void)dataSourceDidUpdateCache:(id)arg1;
+- (_Bool)configureYAxisAccessoryViewForDateRange:(id)arg1 timeScope:(long long)arg2;
+- (struct UIEdgeInsets)yAxisAccessoryViewEdgeInsets;
+- (struct CGSize)yAxisAccessoryViewSize;
 - (void)enumerateCoordinatesInChartRect:(struct CGRect)arg1 xAxis:(id)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 xAxisTransform:(struct CGAffineTransform)arg5 roundToViewScale:(_Bool)arg6 rejectPointsOutOfChartRect:(_Bool)arg7 block:(CDUnknownBlockType)arg8;
 - (void)enumerateCoordinatesInChartRect:(struct CGRect)arg1 xAxis:(id)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 xAxisTransform:(struct CGAffineTransform)arg5 roundToViewScale:(_Bool)arg6 block:(CDUnknownBlockType)arg7;
 - (_Bool)containsCoordinatesInChartRect:(struct CGRect)arg1 xAxis:(id)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 xAxisTransform:(struct CGAffineTransform)arg5;

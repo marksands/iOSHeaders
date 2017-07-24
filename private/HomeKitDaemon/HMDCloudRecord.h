@@ -12,6 +12,7 @@
 {
     _Bool _decryptionFailed;
     _Bool _encryptionFailed;
+    _Bool _recordCreated;
     NSUUID *_objectID;
     NSString *_recordName;
     HMDCloudZone *_cloudZone;
@@ -23,6 +24,7 @@
 
 + (id)shortDescription;
 @property(retain, nonatomic) NSString *lastRecordChangeTag; // @synthesize lastRecordChangeTag=_lastRecordChangeTag;
+@property(readonly, nonatomic, getter=isRecordCreated) _Bool recordCreated; // @synthesize recordCreated=_recordCreated;
 @property(retain, nonatomic) CKRecord *record; // @synthesize record=_record;
 @property(retain, nonatomic) NSData *cachedData; // @synthesize cachedData=_cachedData;
 @property(retain, nonatomic) CKRecordID *recordID; // @synthesize recordID=_recordID;

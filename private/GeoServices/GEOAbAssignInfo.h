@@ -13,9 +13,11 @@
 @interface GEOAbAssignInfo : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    unsigned long long _createdAtTimestamp;
     unsigned long long _relativeTimestamp;
     NSString *_abAssignId;
     struct {
+        unsigned int createdAtTimestamp:1;
         unsigned int relativeTimestamp:1;
     } _has;
 }
@@ -35,7 +37,10 @@
 - (id)description;
 @property(nonatomic) _Bool hasRelativeTimestamp;
 @property(readonly, nonatomic) _Bool hasAbAssignId;
+- (void)refreshRelativeTimeStamp;
 - (id)initWithAbAssignId:(id)arg1 createdAtDate:(id)arg2;
+@property(nonatomic) _Bool hasCreatedAtTimestamp;
+@property(nonatomic) unsigned long long createdAtTimestamp;
 
 @end
 

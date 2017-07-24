@@ -11,7 +11,7 @@
 }
 
 - (id)initWithDevice:(id)arg1 a:(float)arg2;
-@property(readonly) float a;
+@property(readonly, nonatomic) float a;
 
 @end
 

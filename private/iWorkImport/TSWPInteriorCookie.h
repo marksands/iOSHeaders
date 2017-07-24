@@ -12,11 +12,12 @@ __attribute__((visibility("hidden")))
 @interface TSWPInteriorCookie : NSObject
 {
     TSWPColumn *_column;
-    TSWPShapeLayout *_shapeLayout;
+    TSWPShapeLayout *_layout;
 }
 
-@property(nonatomic) TSWPShapeLayout *layout; // @synthesize layout=_shapeLayout;
-@property(nonatomic) TSWPColumn *column; // @synthesize column=_column;
+@property(nonatomic) __weak TSWPShapeLayout *layout; // @synthesize layout=_layout;
+@property(nonatomic) __weak TSWPColumn *column; // @synthesize column=_column;
+- (void).cxx_destruct;
 
 @end
 

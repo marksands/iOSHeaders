@@ -119,6 +119,8 @@
 - (_Bool)shouldBakeIndirectLighting;
 - (void)setShouldBakeDirectLighting:(_Bool)arg1;
 - (_Bool)shouldBakeDirectLighting;
+- (void)setSphericalHarmonicsCoefficients:(id)arg1;
+@property(readonly, copy, nonatomic) NSData *sphericalHarmonicsCoefficients;
 - (void)set_sphericalHarmonics:(id)arg1;
 - (id)_sphericalHarmonics;
 - (void)set_probeTexture:(id)arg1;

@@ -7,9 +7,6 @@
 #import <UIKit/UIView.h>
 
 @interface UIView (NUIContainerView)
-- (void)setNeverCacheContentLayoutSize:(_Bool)arg1;
-- (_Bool)neverCacheContentLayoutSize;
-- (id)contentLayoutSizeCacheDescription;
 @property(nonatomic) _Bool invalidatingIntrinsicContentSizeAlsoInvalidatesSuperview;
 @property(nonatomic) double customFirstBaselineOffsetFromContentTop;
 @property(nonatomic) double customBaselineOffsetFromBottom;

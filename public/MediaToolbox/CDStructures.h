@@ -56,7 +56,8 @@ struct OpaqueFigSubtitleBackdropCALayerContentLayerInternal {
 
 struct OpaqueFigSubtitleBackdropCALayerInternal {
     id _field1;
-    _Bool _field2;
+    id _field2;
+    _Bool _field3;
 };
 
 struct OpaqueFigSubtitleCALayerInternal {

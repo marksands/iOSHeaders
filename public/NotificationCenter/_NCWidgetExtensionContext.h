@@ -13,11 +13,12 @@ __attribute__((visibility("hidden")))
 {
     struct CGSize _maxCompactSize;
     struct CGSize _maxExpandedSize;
-    long long _widgetLargestAvailableDisplayMode;
     _NCWidgetViewController *_hostViewController;
     long long _activeDisplayMode;
+    long long _largestAvailableDisplayMode;
 }
 
+@property(nonatomic, getter=_largestAvailableDisplayMode, setter=_setLargestAvailableDisplayMode:) long long largestAvailableDisplayMode; // @synthesize largestAvailableDisplayMode=_largestAvailableDisplayMode;
 @property(nonatomic, getter=_activeDisplayMode, setter=_setActiveDisplayMode:) long long activeDisplayMode; // @synthesize activeDisplayMode=_activeDisplayMode;
 @property(nonatomic, getter=_hostViewController, setter=_setHostViewController:) __weak _NCWidgetViewController *hostViewController; // @synthesize hostViewController=_hostViewController;
 - (void).cxx_destruct;

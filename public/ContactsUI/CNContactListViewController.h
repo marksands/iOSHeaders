@@ -131,6 +131,7 @@
 - (void)contactDataSourceDidChangeDisplayName:(id)arg1;
 - (void)contactDataSourceDidChange:(id)arg1;
 - (_Bool)updateFrameAndDisplayNoContactsViewIfNeeded;
+- (_Bool)hasNoContacts;
 @property(readonly, nonatomic) _UIContentUnavailableView *noContactsView; // @synthesize noContactsView=_noContactsView;
 - (long long)avatarCardController:(id)arg1 presentationResultForLocation:(struct CGPoint)arg2;
 - (id)presentingViewControllerForAvatarCardController:(id)arg1;

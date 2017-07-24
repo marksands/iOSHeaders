@@ -66,8 +66,8 @@
 @property(nonatomic, getter=_queue_supportsSuspendOnLock, setter=_queue_setSupportsSuspendOnLock:) _Bool supportsSuspendOnLock; // @synthesize supportsSuspendOnLock=_supportsSuspendOnLock;
 - (void)_queue_sceneLifecycleStateChanged:(id)arg1;
 @property(nonatomic, getter=_queue_visibility, setter=_queue_setVisibility:) int queue_visibility;
-- (int)_effectiveVisibilityForSceneSettings:(id)arg1;
-- (_Bool)_isEffectivelyForegroundForSceneSettings:(id)arg1;
+- (int)_effectiveVisibilityForSceneSettings:(id)arg1 underLock:(_Bool)arg2;
+- (_Bool)_isEffectivelyForegroundForSceneSettings:(id)arg1 underLock:(_Bool)arg2;
 - (_Bool)_queue_consideredUnderLock;
 - (int)_effectiveVisibilityForVisibility:(int)arg1 underLock:(_Bool)arg2;
 - (int)_queue_effectiveVisibilityForVisibility:(int)arg1;

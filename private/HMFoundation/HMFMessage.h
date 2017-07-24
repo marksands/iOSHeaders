@@ -24,8 +24,6 @@
 + (id)messageWithName:(id)arg1 identifier:(id)arg2 messagePayload:(id)arg3;
 + (id)messageWithName:(id)arg1 messagePayload:(id)arg2 responseHandler:(CDUnknownBlockType)arg3;
 + (id)messageWithName:(id)arg1 messagePayload:(id)arg2;
-+ (id)entitledMessageWithName:(id)arg1 identifier:(id)arg2 messagePayload:(id)arg3;
-+ (id)entitledMessageWithName:(id)arg1 messagePayload:(id)arg2;
 @property(readonly, nonatomic) HMFMessageInternal *internal; // @synthesize internal=_internal;
 - (void).cxx_destruct;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
@@ -45,6 +43,7 @@
 - (id)shortDescription;
 - (void)__initWithInternalMessage:(id)arg1;
 - (id)initWithInternalMessage:(id)arg1;
+- (id)initWithName:(id)arg1 qualityOfService:(long long)arg2 destination:(id)arg3 userInfo:(id)arg4 headers:(id)arg5 payload:(id)arg6;
 - (id)initWithName:(id)arg1 qualityOfService:(long long)arg2 destination:(id)arg3 payload:(id)arg4;
 - (id)initWithName:(id)arg1 destination:(id)arg2 payload:(id)arg3;
 - (id)init;

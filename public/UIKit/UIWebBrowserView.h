@@ -69,6 +69,7 @@
 @property(retain, nonatomic) DOMNode *_currentAssistedNode; // @synthesize _currentAssistedNode;
 @property(retain, nonatomic) NSObject<UIFormPeripheral> *_input; // @synthesize _input;
 @property(retain, nonatomic) UIWebFormAccessory *_accessory; // @synthesize _accessory;
+- (void)_setUnobscuredSafeAreaInsets:(struct UIEdgeInsets)arg1;
 - (id)_collectAdditionalSubviews;
 - (void)webViewDidCommitCompositingLayerChanges:(id)arg1;
 - (void)_removeAdditionalSubview:(id)arg1;
@@ -207,6 +208,12 @@
 - (id)initWithWebView:(id)arg1 frame:(struct CGRect)arg2;
 - (_Bool)isAnyTouchOverActiveArea:(id)arg1;
 - (_Bool)shouldIgnoreWebTouch;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

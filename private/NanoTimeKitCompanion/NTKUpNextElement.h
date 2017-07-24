@@ -18,12 +18,14 @@
     unsigned long long _privacyBehavior;
     NTKUpNextElementContent *_content;
     NTKUpNextElementContent *_idealizedContent;
+    NTKUpNextElementContent *_lockedContent;
     NSArray *_relevanceProviders;
     NTKUpNextElementAction *_defaultAction;
 }
 
 @property(readonly, nonatomic) NTKUpNextElementAction *defaultAction; // @synthesize defaultAction=_defaultAction;
 @property(readonly, nonatomic) NSArray *relevanceProviders; // @synthesize relevanceProviders=_relevanceProviders;
+@property(readonly, nonatomic) NTKUpNextElementContent *lockedContent; // @synthesize lockedContent=_lockedContent;
 @property(readonly, nonatomic) NTKUpNextElementContent *idealizedContent; // @synthesize idealizedContent=_idealizedContent;
 @property(readonly, nonatomic) NTKUpNextElementContent *content; // @synthesize content=_content;
 @property(readonly, nonatomic) unsigned long long privacyBehavior; // @synthesize privacyBehavior=_privacyBehavior;
@@ -38,6 +40,8 @@
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copyElementWithUpdatedRelevanceProviders:(id)arg1;
+- (id)initWithIdentifier:(id)arg1 content:(id)arg2 action:(id)arg3 relevanceProviders:(id)arg4 lockedContent:(id)arg5;
+- (id)initWithIdentifier:(id)arg1 content:(id)arg2 action:(id)arg3 relevanceProviders:(id)arg4 privacyBehavior:(unsigned long long)arg5 idealizedContent:(id)arg6 interaction:(unsigned long long)arg7 lockedContent:(id)arg8;
 - (id)initWithIdentifier:(id)arg1 content:(id)arg2 action:(id)arg3 relevanceProviders:(id)arg4 privacyBehavior:(unsigned long long)arg5 idealizedContent:(id)arg6 interaction:(unsigned long long)arg7;
 - (id)initWithIdentifier:(id)arg1 content:(id)arg2 action:(id)arg3 relevanceProviders:(id)arg4 privacyBehavior:(unsigned long long)arg5 idealizedContent:(id)arg6;
 - (id)initWithIdentifier:(id)arg1 content:(id)arg2 action:(id)arg3 relevanceProviders:(id)arg4 privacyBehavior:(unsigned long long)arg5;

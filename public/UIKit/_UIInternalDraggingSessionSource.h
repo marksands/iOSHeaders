@@ -20,7 +20,6 @@ __attribute__((visibility("hidden")))
     _Bool _sentWillEnd;
     _Bool _hostIsActive;
     _Bool _originatedInHostedWindow;
-    _Bool _prefersFullSizePreview;
     unsigned int _sessionIdentifier;
     _UIDraggingSession *_publicSession;
     UIDragEvent *_dragEvent;
@@ -28,6 +27,7 @@ __attribute__((visibility("hidden")))
     long long _state;
     unsigned long long _resultOperation;
     NSArray *_internalItems;
+    long long _dataOwner;
     NSSet *_touches;
     NSXPCListenerEndpoint *_accessibilityEndpoint;
     UIWindow *_centroidWindow;
@@ -38,7 +38,6 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) _UIDruidSourceConnection *druidConnection; // @synthesize druidConnection=_druidConnection;
-@property(readonly, nonatomic) _Bool prefersFullSizePreview; // @synthesize prefersFullSizePreview=_prefersFullSizePreview;
 @property(readonly, nonatomic) unsigned long long outsideAppSourceOperationMask; // @synthesize outsideAppSourceOperationMask=_outsideAppSourceOperationMask;
 @property(readonly, nonatomic) unsigned long long withinAppSourceOperationMask; // @synthesize withinAppSourceOperationMask=_withinAppSourceOperationMask;
 @property(readonly, nonatomic) unsigned int sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
@@ -46,6 +45,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct CGPoint centroid; // @synthesize centroid=_centroid;
 @property(retain, nonatomic) NSXPCListenerEndpoint *accessibilityEndpoint; // @synthesize accessibilityEndpoint=_accessibilityEndpoint;
 @property(copy, nonatomic) NSSet *touches; // @synthesize touches=_touches;
+@property(nonatomic) long long dataOwner; // @synthesize dataOwner=_dataOwner;
 @property(copy, nonatomic) NSArray *internalItems; // @synthesize internalItems=_internalItems;
 @property(nonatomic) unsigned long long resultOperation; // @synthesize resultOperation=_resultOperation;
 @property(nonatomic) long long state; // @synthesize state=_state;
@@ -67,11 +67,13 @@ __attribute__((visibility("hidden")))
 - (void)_getOperationMaskFromDelegate;
 - (void)_didBeginDrag;
 - (void)beginDrag:(CDUnknownBlockType)arg1;
+- (_Bool)dynamicallyUpdatesPrefersFullSizePreviews;
+@property(readonly, nonatomic) _Bool prefersFullSizePreview;
 - (_Bool)preventsSimultaneousDragFromView:(id)arg1;
 - (void)setCentroid:(struct CGPoint)arg1 inWindow:(id)arg2;
 - (void)_unregisterContextIDsForAdditionalDragEvents;
 - (void)_registerContextIDsForAdditionalDragEvents;
-- (id)initWithDragManager:(id)arg1 items:(id)arg2 sourceView:(id)arg3;
+- (id)initWithDragManager:(id)arg1 items:(id)arg2 dataOwner:(long long)arg3 sourceView:(id)arg4;
 - (_Bool)touchRoutingPolicyContainsContextIDToAlwaysSend:(unsigned int)arg1;
 @property(copy, nonatomic) _DUITouchRoutingPolicy *touchRoutingPolicy;
 

@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
 - (void)addObserver:(id)arg1;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)restoreInactiveInstalls;
+- (id)_LSFindPlaceholderApplications;
 - (id)init;
 
 // Remaining properties

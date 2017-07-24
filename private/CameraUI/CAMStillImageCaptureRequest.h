@@ -27,7 +27,8 @@
     long long _hdrMode;
     long long _irisMode;
     _Bool _wantsPortraitEffect;
-    NSArray *_filters;
+    NSArray *_adjustmentFilters;
+    NSArray *_originalFilters;
     _Bool _usesStillImageStabilization;
     _Bool _wantsAutoDualCameraFusion;
     _Bool _wantsAudioForCapture;
@@ -66,7 +67,8 @@
 @property(readonly, nonatomic) _Bool wantsAudioForCapture; // @synthesize wantsAudioForCapture=_wantsAudioForCapture;
 @property(readonly, nonatomic) _Bool wantsAutoDualCameraFusion; // @synthesize wantsAutoDualCameraFusion=_wantsAutoDualCameraFusion;
 @property(readonly, nonatomic) _Bool usesStillImageStabilization; // @synthesize usesStillImageStabilization=_usesStillImageStabilization;
-@property(readonly, nonatomic) NSArray *filters; // @synthesize filters=_filters;
+@property(readonly, nonatomic) NSArray *originalFilters; // @synthesize originalFilters=_originalFilters;
+@property(readonly, nonatomic) NSArray *adjustmentFilters; // @synthesize adjustmentFilters=_adjustmentFilters;
 @property(readonly, nonatomic) _Bool wantsPortraitEffect; // @synthesize wantsPortraitEffect=_wantsPortraitEffect;
 @property(readonly, nonatomic) long long irisMode; // @synthesize irisMode=_irisMode;
 @property(readonly, nonatomic) long long hdrMode; // @synthesize hdrMode=_hdrMode;

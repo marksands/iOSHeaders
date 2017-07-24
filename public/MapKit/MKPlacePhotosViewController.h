@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
     _Bool _canUseFullscreenViewer;
     _Bool _canUseGallery;
     _Bool _photoLoaded;
+    _Bool _loadAppImageCanceledOrFailed;
     _Bool _isRTL;
     unsigned long long _photosCount;
     MKMapItem *_mapItem;
@@ -67,6 +68,8 @@ __attribute__((visibility("hidden")))
 - (id)attributionString;
 - (void)addAttributionCell;
 - (void)dealloc;
+- (void)_willResignActive:(id)arg1;
+- (void)_didBecomeActive:(id)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;

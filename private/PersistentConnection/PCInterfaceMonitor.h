@@ -21,11 +21,13 @@
 + (_Bool)isBadLinkQuality:(int)arg1;
 + (_Bool)isPoorLinkQuality:(int)arg1;
 + (id)stringForLinkQuality:(int)arg1;
++ (_Bool)isNetworkingPowerExpensiveToUse;
 + (id)sharedInstanceForIdentifier:(long long)arg1;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool isLTEWithCDRX;
 @property(readonly, nonatomic) struct __CFString *wwanInterfaceName;
 @property(readonly, nonatomic) struct __CFString *currentRAT;
+@property(readonly, nonatomic) _Bool isNetworkingPowerExpensiveToUse;
 @property(readonly, nonatomic) _Bool isRadioHot;
 @property(readonly, nonatomic) _Bool isBadLinkQuality;
 @property(readonly, nonatomic) _Bool isPoorLinkQuality;

@@ -6,7 +6,7 @@
 
 #import <MediaPlayer/MPAVRoutingDataSource.h>
 
-@class NSLock, NSMapTable, NSObject, NSString;
+@class NSMapTable, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
 @interface MPAVOutputDeviceRoutingDataSource : MPAVRoutingDataSource
@@ -14,11 +14,12 @@
     NSMapTable *_cachedOutputDevices;
     NSObject<OS_dispatch_queue> *_serialQueue;
     void *_applicationOutputContext;
-    NSLock *_applicationOutputContextLock;
+    _Bool _attemptedToInitializeAppOutputContext;
     void *_discoverySession;
     void *_callbackToken;
 }
 
++ (id)_globalAudioSessionLock;
 - (void).cxx_destruct;
 - (void)_outputDevicesDidChange:(id)arg1;
 - (void)_unregisterNotifications;

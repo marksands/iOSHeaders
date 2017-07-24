@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     NSNumber *_serviceTypeNumber;
     GEODataRequest *_dataRequest;
     int _experimentDispatcherRequestType;
+    unsigned char _requestCounterInfoType;
     NSString *_appIdentifier;
 }
 
@@ -31,7 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)cancel;
 - (void)_cleanup;
 - (void)dealloc;
-- (id)initWithRequest:(id)arg1 auditToken:(id)arg2 urlType:(unsigned long long)arg3 additionalURLQueryItems:(id)arg4 additionalHTTPHeaders:(id)arg5 debugRequestName:(id)arg6 serviceType:(id)arg7 experimentType:(long long)arg8 experimentDispatcherRequestType:(int)arg9 timeout:(double)arg10 shouldThrottleRequests:(_Bool)arg11 throttleKey:(id)arg12 dataRequestKind:(int)arg13 traits:(id)arg14;
+- (id)initWithRequest:(id)arg1 auditToken:(id)arg2 urlType:(unsigned long long)arg3 additionalURLQueryItems:(id)arg4 additionalHTTPHeaders:(id)arg5 debugRequestName:(id)arg6 serviceType:(id)arg7 experimentType:(long long)arg8 experimentDispatcherRequestType:(int)arg9 requestCounterInfoType:(unsigned char)arg10 timeout:(double)arg11 shouldThrottleRequests:(_Bool)arg12 throttleKey:(id)arg13 dataRequestKind:(int)arg14 traits:(id)arg15;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

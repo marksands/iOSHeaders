@@ -9,7 +9,7 @@
 #import <TemplateKit/NUIContainerBoxViewDelegate-Protocol.h>
 #import <TemplateKit/NUIContainerStackViewDelegate-Protocol.h>
 
-@class NSString, NUIContainerView, TLKImage, TLKImageView, TLKMultilineText, UIBezierPath, UIButton, UILabel, UITextView, UIView;
+@class NSString, TLKImage, TLKImageView, TLKMultilineText, UIBezierPath, UIButton, UILabel, UITextView, UIView;
 @protocol TLKDescriptionViewDelegate;
 
 @interface TLKDescriptionView : TLKView <NUIContainerBoxViewDelegate, NUIContainerStackViewDelegate>
@@ -26,10 +26,8 @@
     TLKImageView *_imageView;
     UIBezierPath *_imageViewExclusionPath;
     UIBezierPath *_moreButtonExclusionPath;
-    NUIContainerView *_containerView;
 }
 
-@property(retain) NUIContainerView *containerView; // @synthesize containerView=_containerView;
 @property(retain) UIBezierPath *moreButtonExclusionPath; // @synthesize moreButtonExclusionPath=_moreButtonExclusionPath;
 @property(retain) UIBezierPath *imageViewExclusionPath; // @synthesize imageViewExclusionPath=_imageViewExclusionPath;
 @property(retain) TLKImageView *imageView; // @synthesize imageView=_imageView;

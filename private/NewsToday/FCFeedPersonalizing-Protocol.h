@@ -9,7 +9,7 @@
 @class FCFeedPersonalizedArticles, NSArray, NSString;
 
 @protocol FCFeedPersonalizing <FCTagRanking>
-- (unsigned long long)whitelistLevelForTag:(NSString *)arg1;
+- (unsigned long long)whitelistLevelForTagID:(NSString *)arg1;
 - (void)prepareAutoFavoritesWithCompletionHandler:(void (^)(void))arg1;
 - (void)prepareForUseWithCompletionHandler:(void (^)(void))arg1;
 - (NSArray *)limitArticlesByFlowRate:(NSArray *)arg1 timeInterval:(double)arg2 publisherCount:(unsigned long long)arg3;

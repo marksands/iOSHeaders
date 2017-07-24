@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (id)updateForProviderItem:(id)arg1;
 - (void)_fixupFavoriteRank:(id)arg1;
 - (id)initWithObservedItemID:(id)arg1 domainContext:(id)arg2;
+- (id)init;
 
 @end
 

@@ -20,6 +20,8 @@
     NSMutableDictionary *_callByVideoStreamToken;
 }
 
++ (_Bool)isFaceTimePhotosRestricted;
++ (_Bool)isFaceTimePhotosEnabled;
 @property(readonly, nonatomic) NSMutableDictionary *callByVideoStreamToken; // @synthesize callByVideoStreamToken=_callByVideoStreamToken;
 @property(readonly, nonatomic) NSMutableDictionary *capabilitiesByVideoStreamToken; // @synthesize capabilitiesByVideoStreamToken=_capabilitiesByVideoStreamToken;
 @property(readonly, nonatomic) __weak id <TUMomentsControllerDelegate> delegate; // @synthesize delegate=_delegate;

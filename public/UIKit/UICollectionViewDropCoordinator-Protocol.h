@@ -6,7 +6,7 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class NSArray, NSIndexPath, NSString, UICollectionViewDropProposal, UIDragItem, UIDragPreviewTarget;
+@class NSArray, NSIndexPath, UICollectionViewDropPlaceholder, UICollectionViewDropProposal, UIDragItem, UIDragPreviewTarget;
 @protocol UICollectionViewDropPlaceholderContext, UIDragAnimating, UIDropSession;
 
 @protocol UICollectionViewDropCoordinator <NSObject>
@@ -17,6 +17,6 @@
 - (id <UIDragAnimating>)dropItem:(UIDragItem *)arg1 toTarget:(UIDragPreviewTarget *)arg2;
 - (id <UIDragAnimating>)dropItem:(UIDragItem *)arg1 intoItemAtIndexPath:(NSIndexPath *)arg2 rect:(struct CGRect)arg3;
 - (id <UIDragAnimating>)dropItem:(UIDragItem *)arg1 toItemAtIndexPath:(NSIndexPath *)arg2;
-- (id <UICollectionViewDropPlaceholderContext>)dropItem:(UIDragItem *)arg1 toPlaceholderInsertedAtIndexPath:(NSIndexPath *)arg2 withReuseIdentifier:(NSString *)arg3 cellUpdateHandler:(void (^)(UICollectionViewCell *))arg4;
+- (id <UICollectionViewDropPlaceholderContext>)dropItem:(UIDragItem *)arg1 toPlaceholder:(UICollectionViewDropPlaceholder *)arg2;
 @end
 

@@ -18,7 +18,8 @@
     CDUnknownBlockType _progressHandler;
     CUMessageSession *_messageSession;
     BYBuddyDaemonProximitySourceClient *_client;
-    double _overallProgress;
+    double _backupProgress;
+    double _syncProgress;
     double _timeRemaining;
     unsigned long long _currentPhase;
 }
@@ -27,7 +28,8 @@
 @property double timeRemaining; // @synthesize timeRemaining=_timeRemaining;
 @property _Bool hasSyncCompleted; // @synthesize hasSyncCompleted=_hasSyncCompleted;
 @property _Bool hasBackupCompleted; // @synthesize hasBackupCompleted=_hasBackupCompleted;
-@property double overallProgress; // @synthesize overallProgress=_overallProgress;
+@property double syncProgress; // @synthesize syncProgress=_syncProgress;
+@property double backupProgress; // @synthesize backupProgress=_backupProgress;
 @property(retain) BYBuddyDaemonProximitySourceClient *client; // @synthesize client=_client;
 @property(retain, nonatomic) CUMessageSession *messageSession; // @synthesize messageSession=_messageSession;
 @property(copy, nonatomic) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;
@@ -35,7 +37,7 @@
 - (void).cxx_destruct;
 - (void)syncCompletedWithErrors:(id)arg1;
 - (void)syncProgress:(double)arg1;
-- (void)backupCompleted;
+- (void)backupCompletedWithError:(id)arg1;
 - (void)backupProgress:(double)arg1 estimatedTimeRemaining:(long long)arg2;
 - (void)finishedWithError:(id)arg1;
 - (void)updateProgress;

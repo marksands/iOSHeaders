@@ -26,6 +26,7 @@
 @property(retain) NSString *deviceAddress; // @synthesize deviceAddress=_deviceAddress;
 @property __weak DEDIDSConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;
+- (void)didCancelSession:(id)arg1;
 - (void)cancelSession:(id)arg1;
 - (void)didCommitSession:(id)arg1;
 - (void)commitSession:(id)arg1;

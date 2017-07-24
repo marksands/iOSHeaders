@@ -102,7 +102,7 @@ __attribute__((visibility("hidden")))
 - (void)_t_removeAllSyncUpBlocking;
 - (void)_t_removeItemIDSyncUpBlocking:(id)arg1;
 - (void)_t_addItemID:(id)arg1 blockedForSyncUpUntilOSName:(id)arg2;
-- (_Bool)dumpActivityToContext:(id)arg1 error:(id *)arg2;
+- (_Bool)dumpActivityToContext:(id)arg1 includeExpensiveActivity:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)_dumpItemsToContext:(id)arg1 includeAllItems:(_Bool)arg2 error:(id *)arg3;
 - (void)_dumpRecursivePropertiesOfItemByRowID:(unsigned long long)arg1 context:(id)arg2 depth:(int)arg3;
 - (void)_appendToString:(id)arg1 descriptionOfFieldNamed:(id)arg2 inResultSet:(id)arg3 pos:(int *)arg4 containsSize:(_Bool)arg5 context:(id)arg6;
@@ -113,6 +113,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)removeItemOnDiskBlock:(id)arg1;
 @property(readonly, nonatomic) _Bool hasHighPriorityWatchers;
 - (void)performBlock:(CDUnknownBlockType)arg1 whenSyncDownCompletesLookingForItemID:(id)arg2;
+- (void)_cancelSyncDownFromDBCorruption;
 - (void)_prepareForForegroundSyncDown;
 - (void)performBlock:(CDUnknownBlockType)arg1 whenItemWithIDIsDownloaded:(id)arg2;
 - (void)performBlock:(CDUnknownBlockType)arg1 whenItemWithIDIsOnDisk:(id)arg2;
@@ -159,7 +160,7 @@ __attribute__((visibility("hidden")))
 - (void)didSyncDownRequestID:(unsigned long long)arg1 maxApplyRank:(long long)arg2 caughtUpWithServer:(_Bool)arg3 syncDownDate:(id)arg4;
 - (void)_fixupMissingCrossMovedItems;
 - (void)syncDownOperation:(id)arg1 didFinishWithError:(id)arg2 status:(long long)arg3;
-- (void)notifyClient:(id)arg1 whenIdle:(CDUnknownBlockType)arg2;
+- (void)_t_notifyClient:(id)arg1 whenIdle:(CDUnknownBlockType)arg2;
 - (void)notifyClient:(id)arg1 afterNextSyncDown:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) NSArray *syncThrottles; // @synthesize syncThrottles=_syncThrottles;
 - (void)_syncUpOfRecords:(id)arg1 createdAppLibraryNames:(id)arg2 didFinishWithError:(id)arg3;
@@ -187,7 +188,7 @@ __attribute__((visibility("hidden")))
 - (struct PQLResultSet *)_faultsEnumeratorFromRow:(unsigned long long)arg1 batchSize:(unsigned long long)arg2;
 - (void)_enumerateFaultsWithBlock:(CDUnknownBlockType)arg1 rowID:(unsigned long long)arg2 batchSize:(unsigned long long)arg3;
 - (void)enumerateFaultsAsyncWithBlock:(CDUnknownBlockType)arg1 batchSize:(unsigned long long)arg2;
-- (struct PQLResultSet *)documentsNotIdleEnumerator;
+- (struct PQLResultSet *)documentsNotIdleEnumeratorWithDB:(id)arg1;
 - (struct PQLResultSet *)itemsWithInFlightDiffsEnumerator;
 - (struct PQLResultSet *)itemsEnumeratorWithDB:(id)arg1;
 - (_Bool)existsByParentID:(id)arg1 andLogicalName:(id)arg2 db:(id)arg3;

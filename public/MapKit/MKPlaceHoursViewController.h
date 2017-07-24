@@ -33,7 +33,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)infoCardChildPossibleActions;
 - (void)_updateHoursAnimated:(_Bool)arg1;
-- (void)formatData;
+- (id)formattedData;
 - (void)calculateWidthsForData:(id)arg1;
 - (void)_contentSizeDidChange;
 - (void)_toggleShowAllHours;
@@ -42,7 +42,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *currentOpeningString;
 @property(readonly, nonatomic) NSArray *completeHours;
 @property(readonly, nonatomic) NSTimeZone *timeZone;
-- (double)extraHeightToReserveInLayout;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)titleString;

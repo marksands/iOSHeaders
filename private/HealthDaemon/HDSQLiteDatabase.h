@@ -71,6 +71,7 @@
 - (_Bool)executeSQL:(id)arg1 error:(id *)arg2 bindingHandler:(CDUnknownBlockType)arg3 enumerationHandler:(CDUnknownBlockType)arg4;
 - (_Bool)_prepareStatementForSQL:(id)arg1 cache:(_Bool)arg2 error:(id *)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (_Bool)performTransactionWithType:(long long)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (int)getChangesCount;
 - (id)getLastErrorWithResultCode:(int)arg1;
 - (_Bool)_executeSQL:(id)arg1 error:(id *)arg2 retryIfBusy:(_Bool)arg3;
 - (_Bool)_executeSQL:(id)arg1 error:(id *)arg2;

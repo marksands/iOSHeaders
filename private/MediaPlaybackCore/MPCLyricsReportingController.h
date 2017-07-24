@@ -20,7 +20,6 @@
 @property(retain, nonatomic) MPCJinglePlayActivityReportingController *jinglePlayActivityReportingController; // @synthesize jinglePlayActivityReportingController=_jinglePlayActivityReportingController;
 - (void).cxx_destruct;
 - (void)recordLyricsViewEvent:(id)arg1;
-- (void)_cloudServiceControllerSubscriptionStatusDidChangeNotification:(id)arg1;
 - (void)environmentMonitorDidChangeNetworkType:(id)arg1;
 - (void)dealloc;
 - (id)init;

@@ -6,15 +6,14 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class NSArray, UINavigationItem;
+@class UINavigationItem;
 @protocol _UINavigationBarTitleViewDataSource;
 
 @protocol _UINavigationBarAugmentedTitleView <NSObject>
-@property(readonly, copy, nonatomic) NSArray *contentOverlayRects;
-@property(nonatomic) _Bool hideTrailingBarButtons;
-@property(nonatomic) _Bool hideStandardTitle;
-@property(nonatomic) _Bool hideLeadingBarButtons;
-@property(nonatomic) _Bool hideBackButton;
+@property(readonly, nonatomic) _Bool hideTrailingBarButtons;
+@property(readonly, nonatomic) _Bool hideStandardTitle;
+@property(readonly, nonatomic) _Bool hideLeadingBarButtons;
+@property(readonly, nonatomic) _Bool hideBackButton;
 @property(readonly, nonatomic) double height;
 @property(readonly, nonatomic) _Bool underlayBarContent;
 @property(nonatomic) long long titleLocation;
@@ -23,6 +22,7 @@
 - (void)transitionCompleted:(long long)arg1 willBeDisplayed:(_Bool)arg2;
 - (void)performTransition:(long long)arg1 willBeDisplayed:(_Bool)arg2;
 - (void)transitionWillBegin:(long long)arg1 willBeDisplayed:(_Bool)arg2;
+- (void)contentDidChange;
 - (long long)preferredContentSizeForSize:(long long)arg1;
 @end
 

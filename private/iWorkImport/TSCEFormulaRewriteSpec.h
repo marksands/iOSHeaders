@@ -63,7 +63,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) UUIDData_5fbc143e insertAtUid;
 - (id)initForInsertingRowsOrColumnsIntoTable:(const UUIDData_5fbc143e *)arg1 rowColumnUuids:(const vector_dadc1b26 *)arg2 areRows:(_Bool)arg3;
 - (id)initForRemoveRowsOrColumnsFromTable:(const UUIDData_5fbc143e *)arg1 rowColumnUuids:(const vector_dadc1b26 *)arg2 areRows:(_Bool)arg3;
-- (id)initWithTransposeTable:(const UUIDData_5fbc143e *)arg1 withNumberOfFooterRows:(unsigned short)arg2;
+- (id)initWithTransposeTable:(const UUIDData_5fbc143e *)arg1 transposedBodyRange:(struct TSCERangeCoordinate)arg2 numberOfFooterRows:(unsigned short)arg3;
 - (id)initWithOwnerInsertion:(const UUIDData_5fbc143e *)arg1;
 - (id)initWithOwnerDeletion:(const UUIDData_5fbc143e *)arg1;
 

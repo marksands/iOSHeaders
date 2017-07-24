@@ -10,11 +10,10 @@
 {
 }
 
-+ (id)defaultOrderedSourceEntitiesWithProfile:(id)arg1 error:(id *)arg2;
 + (id)_firstSourceWithPredicate:(id)arg1 database:(id)arg2 error:(id *)arg3;
-+ (id)_sourcesWithPredicate:(id)arg1 database:(id)arg2 error:(id *)arg3;
 + (id)_firstSourceWithPredicate:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (id)_sourcesWithPredicate:(id)arg1 profile:(id)arg2 error:(id *)arg3;
++ (id)sourcesWithPredicate:(id)arg1 orderingProperties:(id)arg2 orderingDirections:(id)arg3 database:(id)arg4 error:(id *)arg5;
 + (id)sourcesWithPredicate:(id)arg1 database:(id)arg2 error:(id *)arg3;
 + (id)sourcesWithPredicate:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (id)firstSourceWithPredicate:(id)arg1 database:(id)arg2 error:(id *)arg3;
@@ -31,8 +30,10 @@
 + (id)columnsDefinition;
 + (id)databaseTable;
 - (_Bool)deleteSourceWithDatabase:(id)arg1 error:(id *)arg2;
-- (_Bool)setBundleIdentifier:(id)arg1 UUID:(id)arg2 healthDatabase:(id)arg3 error:(id *)arg4;
-- (_Bool)setName:(id)arg1 healthDatabase:(id)arg2 error:(id *)arg3;
+- (_Bool)_updateValues:(id)arg1 forProperties:(id)arg2 profile:(id)arg3 didUpdate:(_Bool *)arg4 error:(id *)arg5;
+- (_Bool)setBundleIdentifier:(id)arg1 UUID:(id)arg2 profile:(id)arg3 error:(id *)arg4;
+- (_Bool)setOptions:(unsigned long long)arg1 profile:(id)arg2 didUpdate:(_Bool *)arg3 error:(id *)arg4;
+- (_Bool)setName:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 - (id)sourceUUIDWithProfile:(id)arg1 error:(id *)arg2;
 - (id)sourceUUIDWithHealthDatabase:(id)arg1 error:(id *)arg2;
 - (id)sourceBundleIdentifierInHealthDatabase:(id)arg1 error:(id *)arg2;

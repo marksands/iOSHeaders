@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 - (void)_restoreContentOffsetWithRubberbandAmount:(struct CGSize)arg1;
 - (struct CGSize)_currentTopLeftRubberbandAmount;
 - (void)_setContentInsetAdjustmentBehaviorInternal:(long long)arg1;
-- (void)_setContentInsetAdjustmentBehavior:(long long)arg1;
+- (void)setContentInsetAdjustmentBehavior:(long long)arg1;
 @property(readonly, nonatomic) _Bool _contentInsetAdjustmentBehaviorWasExternallyOverridden;
 - (void)setContentInset:(struct UIEdgeInsets)arg1;
 - (double)_rubberBandOffsetForOffset:(double)arg1 maxOffset:(double)arg2 minOffset:(double)arg3 range:(double)arg4 outside:(_Bool *)arg5;

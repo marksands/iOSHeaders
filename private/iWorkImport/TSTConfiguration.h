@@ -61,9 +61,11 @@ __attribute__((visibility("hidden")))
     _Bool _tokenizeFormulaStringLiterals;
     _Bool _exportsCellComments;
     _Bool _exportsCellAnnotations;
+    _Bool _supportsCellCommentsActivityLines;
     _Bool _cellEditorsCanScrollToNonLocalTableSelection;
     _Bool _supportsRepeatHeaderRowsOnEachPage;
     _Bool _supportsTableTranspose;
+    _Bool _supportsRowMovesInPaginatedTables;
     _Bool _disableImplicitNaming;
     _Bool _supportsComplexReorganizeUI;
     _Bool _supportsQuickFilterUI;
@@ -97,9 +99,11 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool supportsQuickFilterUI; // @synthesize supportsQuickFilterUI=_supportsQuickFilterUI;
 @property(nonatomic) _Bool supportsComplexReorganizeUI; // @synthesize supportsComplexReorganizeUI=_supportsComplexReorganizeUI;
 @property(nonatomic) _Bool disableImplicitNaming; // @synthesize disableImplicitNaming=_disableImplicitNaming;
+@property(nonatomic) _Bool supportsRowMovesInPaginatedTables; // @synthesize supportsRowMovesInPaginatedTables=_supportsRowMovesInPaginatedTables;
 @property(nonatomic) _Bool supportsTableTranspose; // @synthesize supportsTableTranspose=_supportsTableTranspose;
 @property(nonatomic) _Bool supportsRepeatHeaderRowsOnEachPage; // @synthesize supportsRepeatHeaderRowsOnEachPage=_supportsRepeatHeaderRowsOnEachPage;
 @property(nonatomic) _Bool cellEditorsCanScrollToNonLocalTableSelection; // @synthesize cellEditorsCanScrollToNonLocalTableSelection=_cellEditorsCanScrollToNonLocalTableSelection;
+@property(nonatomic) _Bool supportsCellCommentsActivityLines; // @synthesize supportsCellCommentsActivityLines=_supportsCellCommentsActivityLines;
 @property(nonatomic) _Bool exportsCellAnnotations; // @synthesize exportsCellAnnotations=_exportsCellAnnotations;
 @property(nonatomic) _Bool exportsCellComments; // @synthesize exportsCellComments=_exportsCellComments;
 @property(nonatomic) _Bool tokenizeFormulaStringLiterals; // @synthesize tokenizeFormulaStringLiterals=_tokenizeFormulaStringLiterals;

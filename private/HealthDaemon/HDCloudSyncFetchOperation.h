@@ -29,7 +29,6 @@
     NSMutableDictionary *_inactiveRecordZonesByStoreIdentifierMap;
     NSMutableSet *_emptyZonesForGarbageCollection;
     _Bool _rebaseRequired;
-    _Bool _sequenceCheckRequired;
     CDUnknownBlockType _completion;
 }
 

@@ -201,6 +201,7 @@
 - (void)_reloadAccount:(_Bool)arg1;
 - (void)_cancelAllLongLivedOperations;
 - (void)dealloc;
+- (void)dropMMCS;
 - (id)initWithAppContainerTuple:(id)arg1 accountInfoOverride:(id)arg2 proxy:(id)arg3;
 
 @end

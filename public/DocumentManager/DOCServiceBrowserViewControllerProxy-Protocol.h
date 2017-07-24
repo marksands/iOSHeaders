@@ -18,7 +18,7 @@
 - (void)getTransitionControllerForItem:(FPItem *)arg1 completionBlock:(void (^)(id <DOCServiceTransitionProtocol>))arg2;
 - (void)getTransitionControllerForURL:(NSURL *)arg1 completionBlock:(void (^)(id <DOCServiceTransitionProtocol>))arg2;
 - (void)updateSearchContext:(DOCSearchContext *)arg1;
-- (void)highlightItem:(FPItem *)arg1;
+- (void)revealItem:(FPItem *)arg1;
 - (void)deselectAllItems;
 - (void)selectAllItems;
 - (void)clearCurrentOpenInteraction;

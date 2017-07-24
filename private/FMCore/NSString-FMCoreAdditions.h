@@ -14,6 +14,7 @@
 - (id)encodeToPercentEscape;
 - (id)legacyAllowedCharacterSet;
 - (id)fm_wifiToWLAN;
+- (id)fm_stringByReplacingNonBreakingSpaces;
 - (id)fm_decodeHexString;
 - (_Bool)fm_isNumeric;
 - (id)fm_decodeFromPercentEscape;

@@ -6,49 +6,29 @@
 
 #import <Foundation/NSObject.h>
 
-@class CALayer, KNAnimatedSlideView, KNPlaybackSession, KNShow, KNSlide, KNSlideNode;
+@class KNAnimatedSlideView, KNPlaybackSession;
 
 __attribute__((visibility("hidden")))
 @interface KNOffscreenController : NSObject
 {
-    KNShow *mShow;
-    KNPlaybackSession *mSession;
-    KNAnimatedSlideView *mAnimator;
-    struct CGSize mOutputSize;
-    unsigned long long mSlideIndex;
-    _Bool mFirstEvent;
-    _Bool mIsImageGenerationCancelled;
-    CALayer *_baseLayer;
+    _Bool _isImageGenerationCancelled;
+    KNAnimatedSlideView *_animatedSlideView;
+    KNPlaybackSession *_session;
+    struct CGSize _outputSize;
 }
 
-@property(readonly, nonatomic) CALayer *baseLayer; // @synthesize baseLayer=_baseLayer;
-@property(readonly, nonatomic) KNAnimatedSlideView *animatedSlideView; // @synthesize animatedSlideView=mAnimator;
-@property(readonly, nonatomic) KNSlideNode *currentSlideNode;
-@property(readonly, nonatomic) KNSlide *currentSlide;
-@property(readonly, nonatomic) long long playMode;
-- (id)transitionRendererAtCurrentEvent;
-@property(readonly, nonatomic) KNPlaybackSession *playbackSession;
-@property(readonly, nonatomic) KNShow *show;
-@property(readonly, nonatomic) unsigned long long slideCount;
-@property(readonly, nonatomic) unsigned long long slideIndex;
-@property(readonly, nonatomic) unsigned long long eventCount;
-@property(readonly, nonatomic) unsigned long long eventIndex;
-@property(readonly, nonatomic) struct CGSize outputSize;
+@property(readonly, nonatomic) struct CGSize outputSize; // @synthesize outputSize=_outputSize;
+@property(readonly, nonatomic) KNPlaybackSession *session; // @synthesize session=_session;
+@property(readonly, nonatomic) __weak KNAnimatedSlideView *animatedSlideView; // @synthesize animatedSlideView=_animatedSlideView;
+- (void).cxx_destruct;
 - (void)cancelImageGeneration;
 - (void)drawCurrentEventIntoContext:(struct CGContext *)arg1 intoRect:(struct CGRect)arg2 ignoreBuildVisibility:(_Bool)arg3;
 - (void)generateImageOfCurrentEventWithCompletonHandler:(CDUnknownBlockType)arg1;
 - (struct CGImage *)copyImageOfCurrentEventIgnoringBuildVisilibity:(_Bool)arg1;
-- (_Bool)gotoLastSlide;
-- (_Bool)gotoPreviousSlide;
-- (_Bool)gotoFirstSlide;
 - (_Bool)gotoSlideNode:(id)arg1 andEvent:(unsigned long long)arg2;
-- (_Bool)gotoEventIndex:(unsigned long long)arg1;
-- (_Bool)gotoNextEvent;
-- (_Bool)gotoNextSlide;
-- (void)p_setAnimator:(id)arg1;
+- (void)dealloc;
 - (id)initWithShow:(id)arg1 canvasDelegate:(id)arg2 outputSize:(struct CGSize)arg3;
 - (id)initWithShow:(id)arg1 canvasDelegate:(id)arg2;
-- (void)dealloc;
 
 @end
 

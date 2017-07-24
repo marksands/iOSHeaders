@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 @property(retain) QLRemotePreviewCollection *accessoryViewController; // @synthesize accessoryViewController=_accessoryViewController;
 @property(retain) id request; // @synthesize request=_request;
 - (void).cxx_destruct;
+- (void)setSourceIsManaged:(_Bool)arg1;
 - (void)hostViewControlerTransitionToState:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (void)setLoadingString:(id)arg1;
 - (void)notifyFirstTimeAppearanceWithActions:(unsigned long long)arg1;

@@ -24,7 +24,6 @@
 @property(readonly, nonatomic) HMIncomingHomeInvitation *invitation; // @synthesize invitation=_invitation;
 @property(readonly, nonatomic) __weak id <HUIncomingInvitationResponseControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)_promptForPresenceAuthorization;
 - (id)_acceptInvitation;
 - (id)_declineInvitation;
 - (void)respondToInvitationWithResponse:(unsigned long long)arg1;

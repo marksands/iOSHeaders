@@ -18,6 +18,8 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_iconWidthConstraint;
     NSLayoutConstraint *_seeMoreBaselineConstraint;
     NSLayoutConstraint *_seeMoreCenterYConstraint;
+    _Bool _contentChanged;
+    double _width;
     _Bool _showSeeMoreButton;
     NSString *_seeMoreButtonText;
     NSString *_providerName;
@@ -45,6 +47,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIImage *icon;
 @property(retain, nonatomic) NSString *seeMoreButtonText; // @synthesize seeMoreButtonText=_seeMoreButtonText;
 - (void)updateConstraints;
+- (void)updateContent;
 - (void)createConstraints;
 - (_Bool)shouldStack;
 - (void)contentSizeDidChange;

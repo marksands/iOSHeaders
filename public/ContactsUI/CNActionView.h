@@ -27,7 +27,6 @@
     UITapGestureRecognizer *_tapGestureRecognizer;
     UILongPressGestureRecognizer *_longPressGestureRecognizer;
     UILongPressGestureRecognizer *_highlightGestureRecognizer;
-    double _titleWidth;
     id <CNActionViewTemplateImage> _templateImage;
 }
 
@@ -36,7 +35,6 @@
 + (id)contentColorForDisabledBoldState;
 + (id)borderColorForDisabledBoldState;
 @property(retain, nonatomic) id <CNActionViewTemplateImage> templateImage; // @synthesize templateImage=_templateImage;
-@property(nonatomic) double titleWidth; // @synthesize titleWidth=_titleWidth;
 @property(retain, nonatomic) UILongPressGestureRecognizer *highlightGestureRecognizer; // @synthesize highlightGestureRecognizer=_highlightGestureRecognizer;
 @property(retain, nonatomic) UILongPressGestureRecognizer *longPressGestureRecognizer; // @synthesize longPressGestureRecognizer=_longPressGestureRecognizer;
 @property(retain, nonatomic) UITapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;
@@ -59,7 +57,7 @@
 - (void)updateLabelStateAnimated:(_Bool)arg1;
 - (void)updateImageViewStateAnimated:(_Bool)arg1;
 - (void)updatePlatterViewStateAnimated:(_Bool)arg1;
-- (struct CGRect)rectForTitleLabelForFont:(id)arg1;
+- (struct CGRect)rectForTitleLabelForFont:(id)arg1 fittingSize:(struct CGSize)arg2;
 - (struct CGRect)rectForPlatterView;
 - (void)layoutSubviews;
 - (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;

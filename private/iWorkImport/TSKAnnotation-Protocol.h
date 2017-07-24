@@ -14,7 +14,7 @@
 @property(retain, nonatomic) TSKAnnotationAuthor *author;
 @property(readonly, nonatomic) int annotationType;
 @property(readonly, nonatomic) NSString *annotationUUID;
-- (_Bool)wantsAnnotationPopover;
+- (_Bool)isFloatingComment;
 - (_Bool)isInDocument;
 @end
 

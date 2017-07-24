@@ -21,7 +21,6 @@
 @interface CKBrowserSwitcherViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, CKBrowserSwitcherScrollPreventerDelegate, CKBrowserTransitionCoordinatorDelegate, CKBrowserSwitcherFooterViewDelegate, _UIBackdropViewGraphicsQualityChangeDelegate>
 {
     _UIBackdropView *_extraTopSpacingBackdropView;
-    CKAppGrabberView *_grabberView;
     CKImmediatePanGestureRecognizer *_expandGestureTracker;
     UIViewPropertyAnimator *_expandPropertyAnimator;
     _Bool _isDoingExpandInteraction;
@@ -42,7 +41,6 @@
     id <CKBrowserSwitcherViewControllerDelegate><CKBrowserTransitionCoordinatorDelegate> _delegate;
     UIViewController<CKBrowserViewControllerProtocol> *_currentViewController;
     CKBrowserTransitionCoordinator *_transitionCoordinator;
-    CKBrowserSwitcherFooterView *_footerView;
     UIView *_contentView;
     UICollectionView *_collectionView;
     UICollectionViewFlowLayout *_flowLayout;
@@ -51,6 +49,8 @@
     CKBrowserSwitcherScrollPreventer *_scrollPreventer;
     IMScheduledUpdater *_scrollUpdater;
     IMBalloonPlugin *_currentVisiblePlugin;
+    CKAppGrabberView *_grabberView;
+    CKBrowserSwitcherFooterView *_footerView;
     CKBrowserSwitcherFooterViewDataSource *_footerViewDataSource;
     id _cancelTouchesToken;
     IMBalloonPlugin *_balloonPlugin;
@@ -74,6 +74,8 @@
 @property(nonatomic) _Bool inManualContentOffsetChange; // @synthesize inManualContentOffsetChange=_inManualContentOffsetChange;
 @property(nonatomic) _Bool insertedViaCollapse; // @synthesize insertedViaCollapse=_insertedViaCollapse;
 @property(retain, nonatomic) CKBrowserSwitcherFooterViewDataSource *footerViewDataSource; // @synthesize footerViewDataSource=_footerViewDataSource;
+@property(retain, nonatomic) CKBrowserSwitcherFooterView *footerView; // @synthesize footerView=_footerView;
+@property(retain, nonatomic) CKAppGrabberView *grabberView; // @synthesize grabberView=_grabberView;
 @property(retain, nonatomic) IMBalloonPlugin *currentVisiblePlugin; // @synthesize currentVisiblePlugin=_currentVisiblePlugin;
 @property(retain, nonatomic) IMScheduledUpdater *scrollUpdater; // @synthesize scrollUpdater=_scrollUpdater;
 @property(retain, nonatomic) CKBrowserSwitcherScrollPreventer *scrollPreventer; // @synthesize scrollPreventer=_scrollPreventer;
@@ -82,7 +84,6 @@
 @property(retain, nonatomic) UICollectionViewFlowLayout *flowLayout; // @synthesize flowLayout=_flowLayout;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
-@property(retain, nonatomic) CKBrowserSwitcherFooterView *footerView; // @synthesize footerView=_footerView;
 @property(nonatomic, getter=isBrowserReadyForUserInteraction) _Bool browserViewReadyForUserInteraction; // @synthesize browserViewReadyForUserInteraction=_browserViewReadyForUserInteraction;
 @property(nonatomic, getter=isDragging) _Bool dragging; // @synthesize dragging=_dragging;
 @property(retain, nonatomic) CKBrowserTransitionCoordinator *transitionCoordinator; // @synthesize transitionCoordinator=_transitionCoordinator;
@@ -150,6 +151,7 @@
 - (void)scrollPreventer:(id)arg1 scrolledToOffset:(struct CGPoint)arg2;
 - (void)scrollPreventerWillBeginDragging:(id)arg1;
 - (void)scrollPreventerDidLayoutSubviews:(id)arg1;
+- (void)browserTransitionCoordinator:(id)arg1 hasUpdatedLastTouchDate:(id)arg2;
 - (void)browserTransitionCoordinator:(id)arg1 wantsToSwitchToPlugin:(id)arg2;
 - (void)browserTransitionCoordinatorWantsPresentationOfAppManager:(id)arg1;
 - (void)browserTransitionCoordinatorWantsPresentationOfAppStore:(id)arg1;

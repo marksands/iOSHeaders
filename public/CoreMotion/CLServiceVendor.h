@@ -14,12 +14,17 @@
     NSDictionary *_serviceReplacementMap;
     NSMutableSet *_unavailableServiceNames;
     int _missBehavior;
+    NSMutableDictionary *_recordingFromTriggersByTo;
+    NSMutableDictionary *_recordingToTriggersByFrom;
+    shared_ptr_06cc74dc _recordingWriter;
 }
 
 + (id)sharedInstance;
 + (void)rereadConfiguration;
 + (void)initialize;
+- (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)dealloc;
 - (id)getSiloForService:(id)arg1;
 - (id)proxyForService:(id)arg1 forClient:(id)arg2;
 - (id)proxyForService:(id)arg1;
@@ -28,6 +33,7 @@
 - (_Bool)isServiceEnabled:(id)arg1;
 - (void)retireServiceWithName:(id)arg1;
 - (id)getServiceWithName:(id)arg1;
+- (id)setRecordingTriggerMap:(id)arg1 outputPathBase:(id)arg2;
 - (void)setServiceReplacementMap:(id)arg1 missBehavior:(int)arg2;
 - (id)init;
 

@@ -60,9 +60,7 @@
 - (id)_tableHeaderView;
 - (unsigned long long)_tableViewNumberOfRows;
 - (void)_showAirPlayDebug;
-- (_Bool)_shouldShowAirPlayMirroringCompactDescriptionHeader;
 - (_Bool)_shouldShowAirPlayDebugButton;
-- (_Bool)_shouldShowMirroringCellForRoute:(id)arg1;
 - (void)_pickRoute:(id)arg1;
 - (void)_updateDisplayedRoutes;
 - (void)_reloadEmptyStateVisibility;
@@ -71,7 +69,6 @@
 - (void)_setNeedsRouteDiscoveryModeUpdate;
 - (void)_setRouteDiscoveryMode:(long long)arg1;
 - (void)_setupUpdateTimerIfNecessary;
-- (id)_routesWhereMirroringIsPreferred;
 - (id)_displayedRoutes;
 - (void)_endRouteDiscovery;
 - (void)_beginRouteDiscovery;
@@ -91,10 +88,7 @@
 - (void)routingCell:(id)arg1 mirroringSwitchValueDidChange:(_Bool)arg2;
 - (void)routingController:(id)arg1 pickedRouteDidChange:(id)arg2;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
-- (id)tableView:(id)arg1 titleForFooterInSection:(long long)arg2;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;

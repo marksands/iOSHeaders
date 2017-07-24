@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSMapTable, NSOperationQueue, UIImage;
+@class NSMapTable, NSMutableDictionary, NSOperationQueue, UIImage;
 
 __attribute__((visibility("hidden")))
 @interface PDFThumbnailRenderingController : NSObject
@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     NSMapTable *_contextObjectToOperationMap;
     NSOperationQueue *_sharedOperationQueue;
     UIImage *_genericThumbnailImage;
+    NSMutableDictionary *_cachedThumbnails;
 }
 
 + (id)sharedController;
@@ -25,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)unregisterThumbnailBlockForContext:(id)arg1;
 - (void)updatePreferredSize:(unsigned long long)arg1 forContext:(id)arg2;
 - (void)registerThumbnailBlock:(CDUnknownBlockType)arg1 withPreferredSize:(unsigned long long)arg2 forPage:(id)arg3 context:(id)arg4 withPlaceholder:(_Bool)arg5 orClearFirst:(_Bool)arg6;
+- (id)cachedThumbnailForPage:(id)arg1;
 - (id)thumbnailOfSize:(unsigned long long)arg1 forPage:(id)arg2;
 - (id)_initInternal;
 - (id)init;

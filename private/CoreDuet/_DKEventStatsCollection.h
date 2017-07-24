@@ -14,7 +14,7 @@
     NSString *_name;
 }
 
-+ (id)counterWithClass:(Class)arg1 collectionName:(id)arg2 eventName:(id)arg3 eventType:(id)arg4 eventTypePossibleValues:(id)arg5 hasResult:(_Bool)arg6;
++ (id)counterWithClass:(Class)arg1 collectionName:(id)arg2 eventName:(id)arg3 eventType:(id)arg4 eventTypePossibleValues:(id)arg5 hasResult:(_Bool)arg6 scalar:(_Bool)arg7;
 + (id)allEventStatsCollections;
 + (id)collectionWithName:(id)arg1;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;

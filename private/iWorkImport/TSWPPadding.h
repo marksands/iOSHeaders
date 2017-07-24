@@ -8,11 +8,12 @@
 
 #import <iWorkImport/TSDMixing-Protocol.h>
 #import <iWorkImport/TSSPropertyCommandSerializing-Protocol.h>
+#import <iWorkImport/TSSPropertyValueArchiving-Protocol.h>
 
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface TSWPPadding : NSObject <TSSPropertyCommandSerializing, TSDMixing>
+@interface TSWPPadding : NSObject <TSSPropertyValueArchiving, TSSPropertyCommandSerializing, TSDMixing>
 {
     double _topInset;
     double _leftInset;
@@ -20,6 +21,7 @@ __attribute__((visibility("hidden")))
     double _rightInset;
 }
 
++ (id)instanceWithArchive:(const struct Message *)arg1 unarchiver:(id)arg2;
 + (id)paddingWithTopInset:(double)arg1 leftInset:(double)arg2 bottomInset:(double)arg3 rightInset:(double)arg4;
 + (id)padding;
 @property(nonatomic) double rightInset; // @synthesize rightInset=_rightInset;

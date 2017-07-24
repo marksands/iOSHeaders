@@ -18,8 +18,8 @@
     unsigned int _ro_flags;
     unsigned int _rw_flags;
     unsigned int _defaultScanType;
-    id *_localIvarList;
     unsigned int _remoteType;
+    id *_localIvarList;
     NSString *_remoteClassName;
     NSString *_displayName;
     NSString *_remoteBinaryPath;
@@ -32,6 +32,7 @@
     const char *_strongLayout;
     BOOL _hasSpecificLayout;
     BOOL _hasVariantLayout;
+    _Bool _usesSwiftRefcounting;
 }
 
 + (unsigned long long)sizeofClassStructure:(_Bool)arg1;
@@ -39,6 +40,7 @@
 + (id)classInfoWithClassName:(id)arg1 binaryPath:(id)arg2 type:(int)arg3;
 + (id)_genericBlockByrefInfo;
 + (void)initialize;
+@property(readonly, nonatomic) _Bool usesSwiftRefcounting; // @synthesize usesSwiftRefcounting=_usesSwiftRefcounting;
 @property(readonly, nonatomic) unsigned int pointerSize; // @synthesize pointerSize=_remotePointerSize;
 @property(readonly, nonatomic) VMUClassInfo *superclassInfo; // @synthesize superclassInfo=_superclassLayout;
 @property(readonly, nonatomic) NSString *className; // @synthesize className=_remoteClassName;

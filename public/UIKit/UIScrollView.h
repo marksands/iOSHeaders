@@ -579,6 +579,8 @@
 - (_Bool)_pagingUp;
 - (_Bool)_pagingRight;
 - (_Bool)_pagingLeft;
+- (_Bool)__canScrollWithoutBouncingYIncludingAdditionalContentInsetAmount:(double)arg1;
+- (_Bool)_canScrollWithoutBouncingIncludingRevealableContentPaddingTopY;
 - (_Bool)_canScrollWithoutBouncingY;
 - (_Bool)_canScrollWithoutBouncingX;
 @property(readonly, nonatomic, getter=_canScrollY) _Bool canScrollY; // @dynamic canScrollY;

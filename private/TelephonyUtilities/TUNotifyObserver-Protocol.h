@@ -8,6 +8,7 @@
 
 @protocol TUNotifyObserver <NSObject>
 @property(readonly, nonatomic, getter=isObserving) _Bool observing;
+@property(readonly, nonatomic) unsigned long long state;
 @property(copy, nonatomic) CDUnknownBlockType callback;
 - (void)endObserving;
 - (void)beginObserving;

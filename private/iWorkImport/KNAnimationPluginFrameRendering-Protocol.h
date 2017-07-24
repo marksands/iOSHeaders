@@ -11,6 +11,8 @@
 
 @protocol KNAnimationPluginFrameRendering <KNAnimationPlugin>
 - (void)renderFrameWithContext:(id <KNAnimationPluginContext>)arg1;
+- (void)animationDidEndWithContext:(id <KNAnimationPluginContext>)arg1;
+- (void)animationWillBeginWithContext:(id <KNAnimationPluginContext>)arg1;
 
 @optional
 + (_Bool)wantsParameterizedStrokeDrawingReversedWithAnimatedBuild:(KNAnimatedBuild *)arg1;

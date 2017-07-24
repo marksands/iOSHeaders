@@ -5,6 +5,6 @@
 //
 
 @protocol UIViewSpringAnimationBehaviorDescribing
-- (CDStruct_43f79a60)parametersForTransitionFromState:(int)arg1 toState:(int)arg2;
+- (CDStruct_6c8af1d9)parametersForTransitionFromState:(int)arg1 toState:(int)arg2;
 @end
 

@@ -16,9 +16,9 @@
     NSString *_name;
     NSString *_bundleIdentifier;
     _Bool _localDevice;
+    NSNumber *_sourceID;
     NSString *_productType;
     unsigned long long _options;
-    NSNumber *_sourceID;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -32,14 +32,15 @@
 + (id)_connectedGymSource;
 + (id)_localDeviceSource;
 + (id)defaultSource;
-@property(retain, nonatomic, getter=_sourceID, setter=_setSourceID:) NSNumber *sourceID; // @synthesize sourceID=_sourceID;
 @property(nonatomic, getter=_options, setter=_setOptions:) unsigned long long options; // @synthesize options=_options;
 @property(retain, nonatomic, getter=_productType, setter=_setProductType:) NSString *productType; // @synthesize productType=_productType;
 @property(nonatomic, getter=_isLocalDevice, setter=_setLocalDevice:) _Bool localDevice; // @synthesize localDevice=_localDevice;
+@property(retain, nonatomic, getter=_sourceID, setter=_setSourceID:) NSNumber *sourceID; // @synthesize sourceID=_sourceID;
 - (void).cxx_destruct;
 - (_Bool)_isConnectedGymSource;
 - (_Bool)_isConnectedGymBundleID;
 - (_Bool)_hasFirstPartyBundleID;
+- (_Bool)_isAppleDevice;
 - (_Bool)_isAppleWatch;
 - (void)_setBundleIdentifier:(id)arg1;
 @property(readonly) NSString *bundleIdentifier;

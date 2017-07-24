@@ -37,3 +37,7 @@ struct _NSRange {
     unsigned long long _field2;
 };
 
+struct _UIResilientRemoteViewContainerViewController {
+    Class _field1;
+};
+

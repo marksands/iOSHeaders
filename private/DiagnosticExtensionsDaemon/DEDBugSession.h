@@ -65,6 +65,8 @@
 - (CDUnknownBlockType)nextCompletionBlockForIdentifier:(id)arg1;
 - (id)hashExtensions:(id)arg1;
 - (void)_terminateExtensionWithIdentifier:(id)arg1 info:(id)arg2;
+- (_Bool)hasStaleDirectory;
+- (_Bool)hasDirectory;
 - (void)didAdoptGroup:(id)arg1;
 - (id)ongoingExtensionCollectionOperations;
 - (id)ongoingCollectOperationsWithOperations:(id)arg1;
@@ -74,8 +76,13 @@
 - (_Bool)isRunningDE:(id)arg1;
 - (void)beginSessionSubmission;
 - (_Bool)readyToFinish;
+- (_Bool)readyToCancel;
 - (void)didFinishAllUploads;
+- (long long)state;
+- (void)cleanup;
+- (void)_cancel;
 - (void)cancel;
+- (void)didCancel;
 - (void)terminateExtension:(id)arg1 withInfo:(id)arg2;
 - (void)hasCollected:(id)arg1 isCollecting:(id)arg2;
 - (void)finishedDiagnosticWithIdentifier:(id)arg1 result:(id)arg2;

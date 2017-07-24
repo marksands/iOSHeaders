@@ -16,14 +16,15 @@
 - (_UITableViewDropAnimationContainerView *)_beginAnimatingDropOfCell:(UITableViewCell *)arg1 isCanceling:(_Bool)arg2;
 - (void)_dragSessionDidEnd:(id <UIDragSession>)arg1;
 - (void)_dragSessionWillBegin:(id <UIDragSession>)arg1;
-- (NSArray *)_itemsForAddingToDragSession:(id <UIDragSession>)arg1 atIndexPath:(NSIndexPath *)arg2 point:(struct CGPoint)arg3;
+- (NSArray *)_itemsForAddingToDragSession:(id <UIDragSession>)arg1 atIndexPath:(NSIndexPath *)arg2 point:(struct CGPoint)arg3 withDataOwner:(long long)arg4;
 - (NSArray *)_itemsForBeginningDragSession:(id <UIDragSession>)arg1 atIndexPath:(NSIndexPath *)arg2;
 - (void)_updateAppearanceOfVisibleRowsForDragState;
 - (void)_animateDragCancelForCell:(UITableViewCell *)arg1;
 - (void)_animateLiftOfRowsAtIndexPaths:(NSOrderedSet *)arg1;
 - (void)_prepareToLiftRowsAtIndexPaths:(NSOrderedSet *)arg1;
 - (UIDragPreviewParameters *)_dragPreviewParametersForIndexPath:(NSIndexPath *)arg1;
-- (NSOrderedSet *)_rowsToIncludeInDragAtIndexPath:(NSIndexPath *)arg1;
+- (NSOrderedSet *)_rowsToIncludeInDragSession:(id <UIDragSession>)arg1 atIndexPath:(NSIndexPath *)arg2 withDataOwner:(long long)arg3;
+- (long long)_dataOwnerForDragSession:(id <UIDragSession>)arg1 atIndexPath:(NSIndexPath *)arg2;
 - (_Bool)_canBeginDragAtPoint:(struct CGPoint)arg1 indexPath:(NSIndexPath *)arg2;
 @end
 

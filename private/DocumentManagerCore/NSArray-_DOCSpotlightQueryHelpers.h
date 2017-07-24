@@ -7,6 +7,7 @@
 #import <Foundation/NSArray.h>
 
 @interface NSArray (_DOCSpotlightQueryHelpers)
+- (id)_doc_componentsWrappedInQuotes;
 - (id)_doc_componentsJoinedByAnd;
 - (id)_doc_componentsJoinedByOr;
 - (id)_doc_map:(CDUnknownBlockType)arg1;

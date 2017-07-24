@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 + (Class)classForUnarchiver:(id)arg1;
 @property(copy, nonatomic) NSString *stringValue; // @synthesize stringValue=_stringValue;
 @property(copy, nonatomic) NSString *numberFormat; // @synthesize numberFormat=_numberFormat;
+- (void).cxx_destruct;
 - (void)performTemplateLocalization:(id)arg1;
 - (id)stringWithNumber:(unsigned long long)arg1;
 - (id)stringEquivalentWithLayoutParent:(id)arg1;
@@ -25,7 +26,6 @@ __attribute__((visibility("hidden")))
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromUnarchiver:(id)arg1;
 - (id)copyWithContext:(id)arg1;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1;
 
 @end

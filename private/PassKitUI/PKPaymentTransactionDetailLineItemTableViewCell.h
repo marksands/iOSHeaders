@@ -31,7 +31,7 @@
 @property(retain, nonatomic) UIFont *titleFont; // @synthesize titleFont=_titleFont;
 @property(retain, nonatomic) NSString *titleText; // @synthesize titleText=_titleText;
 - (void).cxx_destruct;
-- (double)cellHeightForTableViewWidth:(double)arg1 withLeftLayoutMargin:(double)arg2 rightLayoutMargin:(double)arg3;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 

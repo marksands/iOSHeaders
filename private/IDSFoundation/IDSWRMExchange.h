@@ -24,6 +24,8 @@
     unsigned short _connectCount;
     unsigned long long _nearbyOverWiFi;
     _Bool _isPaired;
+    _Bool _isNearby;
+    _Bool _isConnected;
     int _isPairedNotifyToken;
     NSObject<OS_dispatch_queue> *_delegateQueue;
     CDUnknownBlockType _delegateBlock;
@@ -54,6 +56,7 @@
 - (void)_registerWithWRM;
 - (id)_newUnsubscribeMessage;
 - (id)_newPrefSubscribeMessage:(_Bool)arg1;
+- (id)_newSubscribeStatusUpdateMessage:(_Bool)arg1 nearby:(_Bool)arg2;
 - (id)_newSubscribeStatusUpdateMessage;
 - (id)_newSubscribeMessage;
 - (id)_newRegisterMessage;

@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     int _endState;
     int _endView;
     NSMutableArray *_errorMessages;
+    NSMutableArray *_intentResponseFailures;
     unsigned int _numberOfAvailableExtensions;
     GEOLatLng *_originBlurred;
     NSString *_rideAppId;
@@ -54,7 +55,9 @@ __attribute__((visibility("hidden")))
     } _has;
 }
 
++ (Class)intentResponseFailureType;
 + (Class)errorMessageType;
+@property(retain, nonatomic) NSMutableArray *intentResponseFailures; // @synthesize intentResponseFailures=_intentResponseFailures;
 @property(nonatomic) _Bool comparedRideOptions; // @synthesize comparedRideOptions=_comparedRideOptions;
 @property(retain, nonatomic) NSString *rideAppVersion; // @synthesize rideAppVersion=_rideAppVersion;
 @property(retain, nonatomic) NSMutableArray *errorMessages; // @synthesize errorMessages=_errorMessages;
@@ -84,6 +87,10 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)intentResponseFailureAtIndex:(unsigned long long)arg1;
+- (unsigned long long)intentResponseFailuresCount;
+- (void)addIntentResponseFailure:(id)arg1;
+- (void)clearIntentResponseFailures;
 - (int)StringAsStatusIssue:(id)arg1;
 - (id)statusIssueAsString:(int)arg1;
 @property(nonatomic) _Bool hasStatusIssue;

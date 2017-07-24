@@ -15,6 +15,7 @@
 + (id)uniquedColumns;
 + (id)columnsDefinition;
 + (id)databaseTable;
++ (id)_modDateForKey:(id)arg1 domain:(id)arg2 category:(long long)arg3 profile:(id)arg4 entity:(id *)arg5 error:(id *)arg6;
 + (id)_safeDomainWithDomain:(id)arg1;
 + (_Bool)_validateEntityClassForCategory:(long long)arg1;
 + (Class)_entityClassForKeyValueCategory:(long long)arg1;
@@ -63,6 +64,7 @@
 + (_Bool)setOkemoZursObjectAnchor:(long long)arg1 database:(id)arg2 error:(id *)arg3;
 + (id)retrieveDatabaseIdentifierFromDatabase:(id)arg1 error:(id *)arg2;
 + (_Bool)persistDatabaseIdentifier:(id)arg1 database:(id)arg2 error:(id *)arg3;
++ (id)retrieveDatabaseIdentifierCreationDateFromProfile:(id)arg1 error:(id *)arg2;
 + (id)retrieveDatabaseIdentifierFromProfile:(id)arg1 error:(id *)arg2;
 + (_Bool)persistDatabaseIdentifier:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (id)generateNewDatabaseIdentifier;

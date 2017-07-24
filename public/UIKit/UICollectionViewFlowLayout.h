@@ -49,9 +49,11 @@
     NSMutableArray *_indexPathsToValidate;
     NSMutableDictionary *_cachedItemAttributes;
     NSMutableDictionary *_cachedItemFrames;
+    long long _sectionInsetReference;
 }
 
 + (Class)invalidationContextClass;
+@property(nonatomic) long long sectionInsetReference; // @synthesize sectionInsetReference=_sectionInsetReference;
 @property(nonatomic) struct CGSize estimatedItemSize; // @synthesize estimatedItemSize=_estimatedItemSize;
 @property(nonatomic) struct UIEdgeInsets sectionInset; // @synthesize sectionInset=_sectionInset;
 @property(nonatomic) struct CGSize footerReferenceSize; // @synthesize footerReferenceSize=_footerReferenceSize;
@@ -60,6 +62,7 @@
 @property(nonatomic) double minimumInteritemSpacing; // @synthesize minimumInteritemSpacing=_interitemSpacing;
 @property(nonatomic) double minimumLineSpacing; // @synthesize minimumLineSpacing=_lineSpacing;
 - (void).cxx_destruct;
+- (struct UIEdgeInsets)_adjustedSectionInsetForSectionInset:(struct UIEdgeInsets)arg1 forAxis:(int)arg2;
 - (long long)developmentLayoutDirection;
 - (struct CGPoint)_contentOffsetForScrollingToSection:(long long)arg1;
 - (struct UIEdgeInsets)_focusFastScrollingIndexBarInsets;

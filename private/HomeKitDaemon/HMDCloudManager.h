@@ -18,13 +18,13 @@
     _Bool _cloudHomeDataRecordExists;
     _Bool _keychainSyncEnabled;
     _Bool _cloudMetadataRecordExists;
+    _Bool _firstV3Fetch;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     CKContainer *_container;
     CKDatabase *_database;
     HMDCloudCache *_cloudCache;
     HMFMessageDispatcher *_configSyncDispatcher;
     NSObject<OS_dispatch_queue> *_workQueue;
-    NSMutableArray *_pendingFetchedRecords;
     CDUnknownBlockType _fetchCompletionHandler;
     NSObject<OS_dispatch_queue> *_clientCallbackQueue;
     HMFOSTransaction *_homeDataFetchedTransaction;
@@ -44,6 +44,7 @@
     CDUnknownBlockType _accountActiveUpdateHandler;
 }
 
+@property(nonatomic, getter=isFirstV3Fetch) _Bool firstV3Fetch; // @synthesize firstV3Fetch=_firstV3Fetch;
 @property(nonatomic) _Bool cloudMetadataRecordExists; // @synthesize cloudMetadataRecordExists=_cloudMetadataRecordExists;
 @property(copy, nonatomic) CDUnknownBlockType accountActiveUpdateHandler; // @synthesize accountActiveUpdateHandler=_accountActiveUpdateHandler;
 @property(copy, nonatomic) CDUnknownBlockType dataDecryptionFailedHandler; // @synthesize dataDecryptionFailedHandler=_dataDecryptionFailedHandler;
@@ -65,7 +66,6 @@
 @property(nonatomic) _Bool needConflictResolution; // @synthesize needConflictResolution=_needConflictResolution;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientCallbackQueue; // @synthesize clientCallbackQueue=_clientCallbackQueue;
 @property(copy, nonatomic) CDUnknownBlockType fetchCompletionHandler; // @synthesize fetchCompletionHandler=_fetchCompletionHandler;
-@property(retain, nonatomic) NSMutableArray *pendingFetchedRecords; // @synthesize pendingFetchedRecords=_pendingFetchedRecords;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(retain, nonatomic) HMFMessageDispatcher *configSyncDispatcher; // @synthesize configSyncDispatcher=_configSyncDispatcher;
 @property(retain, nonatomic) HMDCloudCache *cloudCache; // @synthesize cloudCache=_cloudCache;
@@ -92,21 +92,10 @@
 - (void)_stopFetchRetryTimer;
 - (void)_startFetchRetryTimer;
 - (void)_uploadHomeData:(id)arg1 metadata:(id)arg2 forcePush:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)_handleFetchCompletedWithError:(id)arg1 serverToken:(id)arg2 completionHandler:(CDUnknownBlockType)arg3 moreRecordsComing:(_Bool)arg4 emptyRecord:(_Bool)arg5;
 - (void)_updateServerTokenStatusOnCloudFilter;
 - (void)updateServerTokenStatusOnCloudFilter;
 - (void)initializeServerTokenStatusOnCloudFilter;
 - (_Bool)_validFetchRetryCKErrorCode:(long long)arg1;
-- (void)_handleModifiedHomeData:(_Bool)arg1;
-- (void)_handleChangedRecordWithEncodedData:(id)arg1 encodeDataVersion2:(id)arg2 encodeDataVersion3:(id)arg3 migrationOptions:(unsigned long long)arg4;
-- (void)_fetchNewChangesForceFetch:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_fetchNewChangesWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)_fetchCompleted;
-- (void)_fetchStarted;
-- (void)forceFetchExistingRecords;
-- (void)fetchExistingRecordsWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (_Bool)_handleFetchedHomeDataRecord:(unsigned long long)arg1;
-- (void)_fetchExistingRecord:(CDUnknownBlockType)arg1;
 - (void)_forceCleanCloud:(_Bool)arg1;
 - (void)_updateCloudDataSyncFilterState:(_Bool)arg1;
 - (void)_accountIsActive;
@@ -117,6 +106,10 @@
 - (id)_changeTokenFromData:(id)arg1;
 - (void)_handleAccountStatus:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2 error:(id)arg3;
 - (void)updateAccountStatusChanged:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_processFetchCompletedWithError:(id)arg1 serverToken:(id)arg2 pendingFetchData:(id)arg3 completionHandler:(CDUnknownBlockType)arg4 moreRecordsComing:(_Bool)arg5 emptyRecord:(_Bool)arg6;
+- (id)_processFetchedHomeDataRecord:(unsigned long long)arg1;
+- (void)_fetchHomeDataForce:(_Bool)arg1 accountCompletionHandler:(CDUnknownBlockType)arg2 dataCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)fetchHomeDataForce:(_Bool)arg1 accountCompletionHandler:(CDUnknownBlockType)arg2 dataCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)uploadHomeData:(id)arg1 metadata:(id)arg2 forcePush:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)setAccountActiveUpdateCallback:(CDUnknownBlockType)arg1;
 - (void)setDataDecryptionFailedCompletionBlock:(CDUnknownBlockType)arg1;

@@ -92,6 +92,8 @@
 - (_Bool)gestureShouldBegin:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)provideInfosLayoutTo:(id)arg1;
+@property(readonly, nonatomic) _Bool isTransitionable;
+- (void)prepareForTransition;
 @property(readonly, nonatomic) _Bool transitionViewShouldFadeInContent;
 @property(readonly, nonatomic) UIView *transitionContentView;
 @property(readonly, nonatomic) UIView *transitionContainerView;
@@ -111,6 +113,7 @@
 - (void)updateAllowHierarchyRemovalWithComponent:(id)arg1 componentStyle:(id)arg2;
 - (_Bool)allowHierarchyRemoval;
 - (void)restoreBehavior;
+- (struct CGRect)originalFrameForContentView:(id)arg1 behavior:(id)arg2;
 - (id)contentViewForBehavior:(id)arg1;
 - (void)visibilityStateDidChangeFromState:(long long)arg1;
 - (void)presentComponent;

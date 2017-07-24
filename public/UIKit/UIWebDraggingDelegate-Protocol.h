@@ -12,6 +12,8 @@
 @protocol UIWebDraggingDelegate <NSObject>
 
 @optional
+- (long long)_webView:(UIWebDocumentView *)arg1 dataOwnerForDropSession:(id <UIDropSession>)arg2;
+- (long long)_webView:(UIWebDocumentView *)arg1 dataOwnerForDragSession:(id <UIDragSession>)arg2;
 - (_Bool)_webView:(UIWebDocumentView *)arg1 allowsSelectingContentAfterDropForSession:(id <UIDropSession>)arg2;
 - (void)_webView:(UIWebDocumentView *)arg1 dropInteraction:(UIDropInteraction *)arg2 concludeDrop:(id <UIDropSession>)arg3;
 - (void)_webView:(UIWebDocumentView *)arg1 dropInteraction:(UIDropInteraction *)arg2 item:(UIDragItem *)arg3 willAnimateDropWithAnimator:(id <UIDragAnimating>)arg4;

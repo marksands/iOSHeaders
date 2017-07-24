@@ -10,7 +10,7 @@
 
 @interface _MPCModelStorePlaybackItemsRequestOperationObjectAccumulator : NSObject
 {
-    _Bool _allowsExplicitMusic;
+    _Bool _allowsExplicitContent;
     long long _defaultPersonalizationStyle;
     NSMutableDictionary *_equivalencyMapping;
     MPStoreModelGenericObjectBuilder *_genericObjectBuilder;
@@ -22,7 +22,7 @@
 
 @property(readonly, nonatomic) MPSectionedCollection *unpersonalizedContentDescriptors; // @synthesize unpersonalizedContentDescriptors=_unpersonalizedContentDescriptors;
 @property(readonly, nonatomic) NSDictionary *equivalencyMapping; // @synthesize equivalencyMapping=_equivalencyMapping;
-@property(readonly, nonatomic) _Bool allowsExplicitMusic; // @synthesize allowsExplicitMusic=_allowsExplicitMusic;
+@property(readonly, nonatomic) _Bool allowsExplicitContent; // @synthesize allowsExplicitContent=_allowsExplicitContent;
 - (void).cxx_destruct;
 - (id)_modelObjectWithStoreItemMetadata:(id)arg1;
 - (struct MPModelStorePlaybackItemEligibility)_eligibilityForItem:(id)arg1;
@@ -33,7 +33,7 @@
 - (void)appendMetadataResponse:(id)arg1 forRequestStoreIdentifiers:(id)arg2;
 - (void)appendMetadata:(id)arg1 requestStoreIdentifier:(id)arg2;
 - (void)appendEmptySectionForMetadata:(id)arg1 requestStoreIdentifier:(id)arg2;
-- (id)initWithRequest:(id)arg1 shouldLibraryPersonalize:(_Bool)arg2;
+- (id)initWithRequest:(id)arg1 shouldLibraryPersonalize:(_Bool)arg2 allowsExplicitContent:(_Bool)arg3;
 
 @end
 

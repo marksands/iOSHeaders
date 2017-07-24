@@ -12,7 +12,6 @@
 
 + (id)notificationQueue;
 + (id)asset;
-+ (void)initialize;
 
 @end
 

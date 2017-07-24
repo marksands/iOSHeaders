@@ -20,8 +20,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (void)enumerateAnnotationsInDocument:(id)arg1 withAuthor:(id)arg2 usingHitBlock:(CDUnknownBlockType)arg3;
-+ (id)p_authorNameStringWithLocalizedFormatString:(id)arg1 ubiquityUserName:(id)arg2;
-+ (id)authorNameExplanatoryStringWithUseExplanation:(_Bool)arg1 withSettingsExplanation:(_Bool)arg2 ubiquityUserName:(id)arg3;
++ (id)authorNameExplanatoryStringWithUseExplanation:(_Bool)arg1 withSettingsExplanation:(_Bool)arg2;
 + (id)normalizedAuthorNameForAuthorName:(id)arg1;
 + (id)defaultAuthorName;
 + (id)indicatorDarkColorByLightColor:(id)arg1;

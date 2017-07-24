@@ -55,11 +55,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double defaultEdgeSpacing;
 - (unsigned long long)edgesPaddingBarButtonItem:(id)arg1;
 @property(readonly, nonatomic) _Bool isRTL;
+@property(readonly, nonatomic) long long barMetrics; // @dynamic barMetrics;
 @property(readonly, nonatomic) long long barType;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) long long barMetrics; // @dynamic barMetrics;
 @property(readonly, nonatomic) UIColor *tintColor; // @dynamic tintColor;
 
 @end

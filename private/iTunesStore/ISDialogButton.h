@@ -18,15 +18,18 @@
     long long _urlType;
     NSString *_subtarget;
     NSDictionary *_dictionary;
+    _Bool _tidContinue;
 }
 
 + (id)buttonWithTitle:(id)arg1;
 @property long long urlType; // @synthesize urlType=_urlType;
 @property(retain) NSString *title; // @synthesize title=_title;
 @property(copy) NSString *subtarget; // @synthesize subtarget=_subtarget;
+@property(readonly) _Bool shouldContinueTouchIDSession; // @synthesize shouldContinueTouchIDSession=_tidContinue;
 @property(retain) id parameter; // @synthesize parameter=_parameter;
 @property(retain) NSDictionary *dictionary; // @synthesize dictionary=_dictionary;
 @property int actionType; // @synthesize actionType=_actionType;
+- (void).cxx_destruct;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
 - (long long)_urlTypeForString:(id)arg1;
@@ -36,7 +39,6 @@
 - (void)performDefaultActionForDialog:(id)arg1;
 - (void)loadFromDictionary:(id)arg1;
 - (_Bool)isEqual:(id)arg1 superficial:(_Bool)arg2;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

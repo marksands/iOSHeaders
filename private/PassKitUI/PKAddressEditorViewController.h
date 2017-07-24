@@ -7,6 +7,7 @@
 #import <UIKit/UITableViewController.h>
 
 #import <PassKitUI/MKLocalSearchCompleterDelegate-Protocol.h>
+#import <PassKitUI/PKAddressTextFieldDelegate-Protocol.h>
 #import <PassKitUI/PKCountryPickerViewControllerDelegate-Protocol.h>
 #import <PassKitUI/UITableViewDataSource-Protocol.h>
 #import <PassKitUI/UITableViewDelegate-Protocol.h>
@@ -15,7 +16,7 @@
 @class CNMutablePostalAddress, CNPostalAddressFormattingSpecification, MKLocalSearchCompleter, NSArray, NSString, PKAddressTextField;
 @protocol PKAddressEditorViewControllerDelegate;
 
-@interface PKAddressEditorViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, MKLocalSearchCompleterDelegate, PKCountryPickerViewControllerDelegate>
+@interface PKAddressEditorViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, MKLocalSearchCompleterDelegate, PKCountryPickerViewControllerDelegate, PKAddressTextFieldDelegate>
 {
     _Bool _preselectedNameField;
     _Bool _readOnly;
@@ -63,6 +64,7 @@
 - (void)completer:(id)arg1 didFailWithError:(id)arg2;
 - (void)completerDidUpdateResults:(id)arg1;
 - (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
+- (void)addressTextField:(id)arg1 textDidChange:(id)arg2;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
 - (_Bool)textFieldShouldBeginEditing:(id)arg1;

@@ -41,12 +41,14 @@
 - (id)_moduleInstances;
 - (void)_updateModuleControllers;
 - (void)_updateEnabledModuleIdentifiers;
+- (id)obscuringBackgroundViewForContentModuleContainerViewController:(id)arg1;
 - (void)contentModuleContainerViewController:(id)arg1 didCloseExpandedModule:(id)arg2;
 - (void)contentModuleContainerViewController:(id)arg1 willCloseExpandedModule:(id)arg2;
 - (void)contentModuleContainerViewController:(id)arg1 didOpenExpandedModule:(id)arg2;
 - (void)contentModuleContainerViewController:(id)arg1 willOpenExpandedModule:(id)arg2;
 - (void)contentModuleContainerViewController:(id)arg1 didFinishInteractionWithModule:(id)arg2;
 - (void)contentModuleContainerViewController:(id)arg1 didBeginInteractionWithModule:(id)arg2;
+- (_Bool)contentModuleContainerViewController:(id)arg1 canBeginInteractionWithModule:(id)arg2;
 - (struct CGRect)compactModeFrameForContentModuleContainerViewController:(id)arg1;
 - (_Bool)contentModuleContainerViewController:(id)arg1 shouldForwardAppearanceCall:(_Bool)arg2 animated:(_Bool)arg3;
 - (_Bool)layoutView:(id)arg1 shouldIgnoreSubview:(id)arg2;

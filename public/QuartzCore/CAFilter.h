@@ -41,7 +41,6 @@
 - (id)valueForKey:(id)arg1;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
 @property(getter=isAccessibility) _Bool accessibility;
-@property _Bool obscuresProtectedContent;
 @property _Bool cachesInputImage;
 @property(getter=isEnabled) _Bool enabled;
 - (_Bool)enabled;

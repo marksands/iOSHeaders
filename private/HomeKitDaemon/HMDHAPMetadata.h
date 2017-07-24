@@ -34,6 +34,8 @@
 }
 
 + (_Bool)isHomedVersionSupported:(id)arg1;
++ (void)resetShouldUploadToCloudAfterHomedReady;
++ (_Bool)shouldUploadToCloudAfterHomedReady;
 + (void)prepareMetadata;
 + (id)dataFromMetadataDictionaryWithKey:(id)arg1;
 + (id)legacyV3DataForCloud;

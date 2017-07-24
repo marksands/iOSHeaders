@@ -6,21 +6,20 @@
 
 #import <SearchUI/SearchUICardSectionView.h>
 
-@class NUIContainerStackView, SearchUIVibrantLabel, UIImageView;
+@class NUIContainerStackView, SearchUIImageView, TLKEmojiableVibrantLabel;
 
 @interface SearchUISuggestionCardSectionView : SearchUICardSectionView
 {
-    UIImageView *_iconView;
-    SearchUIVibrantLabel *_suggestionLabel;
+    SearchUIImageView *_iconView;
+    TLKEmojiableVibrantLabel *_suggestionLabel;
 }
 
 + (id)suggestedContactIconWithStyle:(unsigned long long)arg1;
 + (id)suggestedQueryIconWithStyle:(unsigned long long)arg1;
 + (id)_imageForSuggestion:(id)arg1 withStyle:(unsigned long long)arg2;
-+ (id)_imageColorForStyle:(unsigned long long)arg1;
 + (_Bool)supportsRecyclingForCardSection:(id)arg1;
-@property(retain) SearchUIVibrantLabel *suggestionLabel; // @synthesize suggestionLabel=_suggestionLabel;
-@property(retain) UIImageView *iconView; // @synthesize iconView=_iconView;
+@property(retain) TLKEmojiableVibrantLabel *suggestionLabel; // @synthesize suggestionLabel=_suggestionLabel;
+@property(retain) SearchUIImageView *iconView; // @synthesize iconView=_iconView;
 - (void).cxx_destruct;
 - (void)updateWithCardSection:(id)arg1;
 - (id)setupContentView;

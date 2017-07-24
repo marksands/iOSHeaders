@@ -23,18 +23,20 @@
     _Bool _shouldStripMetadata;
     _Bool _shouldStripLocation;
     NSURL *_outputDirectoryURL;
-    NSString *_generatedFileName;
+    NSString *_outputFilename;
     NSString *_customAccessibilityLabel;
+    NSString *_exportPreset;
     NSURL *_videoURL;
     PFAssetAdjustments *__adjustments;
 }
 
 @property(retain, nonatomic, setter=_setAdjustments:) PFAssetAdjustments *_adjustments; // @synthesize _adjustments=__adjustments;
 @property(copy, nonatomic, setter=_setVideoURL:) NSURL *videoURL; // @synthesize videoURL=_videoURL;
+@property(copy, nonatomic) NSString *exportPreset; // @synthesize exportPreset=_exportPreset;
 @property(copy, nonatomic) NSString *customAccessibilityLabel; // @synthesize customAccessibilityLabel=_customAccessibilityLabel;
 @property(nonatomic) _Bool shouldStripLocation; // @synthesize shouldStripLocation=_shouldStripLocation;
 @property(nonatomic) _Bool shouldStripMetadata; // @synthesize shouldStripMetadata=_shouldStripMetadata;
-@property(copy, nonatomic) NSString *generatedFileName; // @synthesize generatedFileName=_generatedFileName;
+@property(copy, nonatomic) NSString *outputFilename; // @synthesize outputFilename=_outputFilename;
 @property(copy, nonatomic) NSURL *outputDirectoryURL; // @synthesize outputDirectoryURL=_outputDirectoryURL;
 - (void).cxx_destruct;
 @property(retain, nonatomic, setter=_setOperationError:) NSError *operationError;

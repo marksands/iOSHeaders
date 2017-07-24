@@ -53,7 +53,6 @@
     HMThreadSafeMutableArrayCollection *_currentUsers;
     HMThreadSafeMutableArrayCollection *_currentResidentDevices;
     HMThreadSafeMutableArrayCollection *_currentOutgoingInvitations;
-    HMThreadSafeMutableArrayCollection *_currentMediaSessions;
     _HMContext *_context;
     NSUUID *_uuid;
     HMRoom *_homeAsRoom;
@@ -73,7 +72,6 @@
 @property(getter=isMediaPeerToPeerEnabled) _Bool mediaPeerToPeerEnabled; // @synthesize mediaPeerToPeerEnabled=_mediaPeerToPeerEnabled;
 @property long long minimumMediaUserPrivilege; // @synthesize minimumMediaUserPrivilege=_minimumMediaUserPrivilege;
 @property(getter=isAutomaticSoftwareUpdateEnabled) _Bool automaticSoftwareUpdateEnabled; // @synthesize automaticSoftwareUpdateEnabled=_automaticSoftwareUpdateEnabled;
-@property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentMediaSessions; // @synthesize currentMediaSessions=_currentMediaSessions;
 @property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentOutgoingInvitations; // @synthesize currentOutgoingInvitations=_currentOutgoingInvitations;
 @property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentResidentDevices; // @synthesize currentResidentDevices=_currentResidentDevices;
 @property(retain, nonatomic) HMThreadSafeMutableArrayCollection *currentUsers; // @synthesize currentUsers=_currentUsers;
@@ -130,6 +128,7 @@
 - (void)_launchSetupViewController:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)handleUIApplicationWillResignActiveNotification:(id)arg1;
 - (void)handleDaemonInterruptedNotification:(id)arg1;
+- (void)_handleCacheMissUpdatesNotification:(id)arg1;
 - (void)_handleAccessoryInfoUpdatedNotification:(id)arg1;
 - (void)_handleNotificationsEnabled:(id)arg1;
 - (void)_handleUpdatedResidentDevice:(id)arg1;
@@ -157,9 +156,6 @@
 - (void)_handleUserAddedNotification:(id)arg1;
 - (void)_handleUserInvitationsUpdatedNotification:(id)arg1;
 - (id)outgoingInvitations;
-- (void)_handleUpdateMediaSession:(id)arg1;
-- (void)_handleAddedMediaSession:(id)arg1;
-- (void)_handleRemovedMediaSession:(id)arg1;
 - (void)_removeIdentifier:(id)arg1 bridgeUUID:(id)arg2;
 - (void)_addIdentifier:(id)arg1 bridgeUUID:(id)arg2;
 - (void)_removeServices:(id)arg1;
@@ -170,6 +166,7 @@
 - (void)_handleTriggerRemovedNotification:(id)arg1;
 - (void)_addTrigger:(id)arg1 triggerUUID:(id)arg2 message:(id)arg3;
 - (void)_handleTimerTriggerAddedNotification:(id)arg1;
+- (void)_handleEventTriggerOwnerUserNotification:(id)arg1;
 - (void)_handleEventTriggerOwnerDeviceNotification:(id)arg1;
 - (void)_handleEventTriggerAddedNotification:(id)arg1;
 - (void)notifyDelegatesOfExecution:(id)arg1 actionSet:(id)arg2;
@@ -183,7 +180,6 @@
 - (void)_handleRoomAddedNotification:(id)arg1;
 - (void)_handleHomeLocationUpdateNotificaton:(id)arg1;
 - (void)_handleHomeRenamedNotification:(id)arg1;
-- (id)mediaSessionWithUUID:(id)arg1;
 - (id)accessoryWithUUID:(id)arg1;
 - (id)triggerWithName:(id)arg1;
 - (id)triggerWithUUID:(id)arg1;
@@ -203,7 +199,6 @@
 - (void)_updateName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, copy) NSString *description;
-- (unsigned long long)_mergeCurrentHomeMediaSessionsWithNewHomeMediaSessions:(id)arg1 operations:(id)arg2;
 - (unsigned long long)_mergeCurrentHomeInvitationsWithNewHomeInvitations:(id)arg1 operations:(id)arg2;
 - (void)_configureOutgoingInvitiation:(id)arg1;
 - (unsigned long long)_mergeCurrentHomeResidentDevicesWithNewHomeResidentDevices:(id)arg1 operations:(id)arg2;
@@ -330,7 +325,6 @@
 - (void)enableRemoteAccess:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_queryRemoteAccessWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)queryRemoteAccessWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (id)mediaSessions;
 - (void)updateAutomaticSoftwareUpdateEnabled:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateMediaPassword:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateMediaPeerToPeerEnabled:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;

@@ -19,6 +19,7 @@
 @property(readonly, nonatomic, getter=_wifiFingerprintLabelType) int wifiFingerprintLabelType;
 @property(readonly, nonatomic, getter=_hasWifiFingerprintLabelType) _Bool hasWifiFingerprintLabelType;
 @property(readonly, nonatomic) NSData *externalTransitStationCode;
+@property(readonly, nonatomic, getter=_placeDisplayStyle) int placeDisplayStyle;
 @property(readonly, nonatomic, getter=_browseCategories) NSArray *browseCategories;
 @property(readonly, nonatomic, getter=_venueInfo) id <GEOMapItemVenueInfo> venueInfo;
 @property(readonly, nonatomic, getter=_venueCategoryBrowseType) int venueCategoryBrowseType;

@@ -7,12 +7,14 @@
 #import <UIKit/UITextField.h>
 
 @class PKUniqueAddressField, UIColor;
+@protocol PKAddressTextFieldDelegate;
 
 @interface PKAddressTextField : UITextField
 {
     _Bool _isInvalid;
     PKUniqueAddressField *_addressField;
     long long _style;
+    id <PKAddressTextFieldDelegate> _addressDelegate;
     UIColor *_defaultColor;
     UIColor *_invalidColor;
 }
@@ -20,6 +22,7 @@
 @property(retain, nonatomic) UIColor *invalidColor; // @synthesize invalidColor=_invalidColor;
 @property(retain, nonatomic) UIColor *defaultColor; // @synthesize defaultColor=_defaultColor;
 @property(readonly, nonatomic) _Bool isInvalid; // @synthesize isInvalid=_isInvalid;
+@property(nonatomic) __weak id <PKAddressTextFieldDelegate> addressDelegate; // @synthesize addressDelegate=_addressDelegate;
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(retain, nonatomic) PKUniqueAddressField *addressField; // @synthesize addressField=_addressField;
 - (void).cxx_destruct;

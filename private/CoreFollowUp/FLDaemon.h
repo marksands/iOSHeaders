@@ -6,16 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class NSLock, NSXPCConnection;
+@class NSLock, NSXPCConnection, NSXPCListenerEndpoint;
 
 @interface FLDaemon : NSObject
 {
     NSXPCConnection *_conn;
     NSLock *_connLock;
+    NSXPCListenerEndpoint *_daemonXPCEndpoint;
 }
 
 + (id)sharedInstance;
 + (id)daemonWithErrorHandler:(CDUnknownBlockType)arg1;
+@property(retain, nonatomic) NSXPCListenerEndpoint *daemonXPCEndpoint; // @synthesize daemonXPCEndpoint=_daemonXPCEndpoint;
 - (void).cxx_destruct;
 - (id)synchronousDaemonWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)daemonWithErrorHandler:(CDUnknownBlockType)arg1;

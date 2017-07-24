@@ -18,6 +18,7 @@
     NSURL *_redirectURL;
     ISDialogButton *_selectedButton;
     NSDictionary *_buyParams;
+    NSDictionary *_metricsDictionary;
     NSString *_userAgent;
     ISDialog *_fallbackDialog;
     ISTouchIDDialog *_touchIDDialog;
@@ -26,6 +27,7 @@
 @property(retain) ISTouchIDDialog *touchIDDialog; // @synthesize touchIDDialog=_touchIDDialog;
 @property(retain) ISDialog *fallbackDialog; // @synthesize fallbackDialog=_fallbackDialog;
 @property(copy) NSString *userAgent; // @synthesize userAgent=_userAgent;
+@property(copy) NSDictionary *metricsDictionary; // @synthesize metricsDictionary=_metricsDictionary;
 @property(copy) NSDictionary *buyParams; // @synthesize buyParams=_buyParams;
 @property(readonly) ISDialogButton *selectedButton; // @synthesize selectedButton=_selectedButton;
 @property(readonly) NSURL *redirectURL; // @synthesize redirectURL=_redirectURL;
@@ -37,6 +39,7 @@
 - (void)_performMetricsWithBiometricMatch:(unsigned long long)arg1 didBiometricsFail:(_Bool)arg2;
 - (void)_loadURLBag;
 - (void)_findSelectedButtonForButtons:(id)arg1;
+- (id)_dialogIDForMetrics;
 - (id)_clientIDForUserID:(id)arg1;
 - (id)_clientIDForMetrics;
 - (void)run;

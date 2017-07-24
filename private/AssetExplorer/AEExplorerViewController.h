@@ -159,6 +159,7 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillLayoutSubviews;
+- (void)viewSafeAreaInsetsDidChange;
 - (void)viewDidLoad;
 - (void)loadView;
 - (_Bool)_shouldEnable3DTouchPreview;

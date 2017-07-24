@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <PhotosUICore/PXObservable.h>
 
-@class PLEditSource, PLPhotoEditModel, PUPhotoEditImageValues;
+@class NSObject, PLEditSource, PLPhotoEditModel, PUPhotoEditImageValues;
 @protocol OS_dispatch_group, OS_dispatch_queue;
 
-@interface PUPhotoEditValuesCalculator : NSObject
+@interface PUPhotoEditValuesCalculator : PXObservable
 {
     PUPhotoEditImageValues *_currentImageValues;
     PUPhotoEditImageValues *_initialImageValues;
@@ -27,7 +27,7 @@
 - (void)_ensureCurrentImageValuesAreComputed;
 - (void)computeAutoEnhanceWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)invalidate;
-- (_Bool)hasImageValues;
+@property(readonly, nonatomic) _Bool hasImageValues;
 - (void)precomputeImageValuesWithOptionalCompletion:(CDUnknownBlockType)arg1;
 - (void)precomputeImageValuesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)precomputeImageValues;
@@ -38,6 +38,7 @@
 - (id)smartColorStatisticsWithAccuracy:(long long)arg1;
 - (id)smartToneStatisticsWithAccuracy:(long long)arg1;
 - (id)portraitValuesWithAccuracy:(long long)arg1;
+- (id)mutableChangeObject;
 - (id)init;
 
 @end

@@ -16,8 +16,10 @@
     id <NUScalePolicy> _scalePolicy;
     id <NUExtentPolicy> _extentPolicy;
     NUPixelFormat *_pixelFormat;
+    CDStruct_1b6d18a9 _time;
 }
 
+@property CDStruct_1b6d18a9 time; // @synthesize time=_time;
 @property(retain) NUPixelFormat *pixelFormat; // @synthesize pixelFormat=_pixelFormat;
 @property(retain) id <NUExtentPolicy> extentPolicy; // @synthesize extentPolicy=_extentPolicy;
 @property(retain) id <NUScalePolicy> scalePolicy; // @synthesize scalePolicy=_scalePolicy;

@@ -8,7 +8,7 @@
 
 #import <ControlCenterUIKit/CCUIContentModuleContentViewController-Protocol.h>
 
-@class CAPackage, CCUIToggleModule, NSString, UIColor, UIImage, UIImageView;
+@class CCUICAPackageDescription, CCUIToggleModule, NSString, UIColor, UIImage, UIImageView;
 
 @interface CCUIToggleViewController : CCUIButtonModuleViewController <CCUIContentModuleContentViewController>
 {
@@ -16,7 +16,7 @@
     UIImage *_glyphImage;
     UIImage *_selectedGlyphImage;
     UIColor *_selectedColor;
-    CAPackage *_glyphPackage;
+    CCUICAPackageDescription *_glyphPackageDescription;
     NSString *_glyphState;
     CCUIToggleModule *_module;
 }

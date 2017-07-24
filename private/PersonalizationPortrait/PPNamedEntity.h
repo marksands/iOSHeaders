@@ -19,14 +19,15 @@
 }
 
 + (id)describeCategory:(unsigned long long)arg1;
++ (id)allocWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) PPNamedEntityRecord *mostRelevantRecord; // @synthesize mostRelevantRecord=_mostRelevantRecord;
 @property(readonly, nonatomic) NSString *bestLanguage; // @synthesize bestLanguage=_bestLanguage;
 @property(readonly, nonatomic) unsigned long long category; // @synthesize category=_category;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isEqualToNamedEntity:(id)arg1;
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (id)initWithName:(id)arg1 category:(unsigned long long)arg2 language:(id)arg3;
 - (id)initWithName:(id)arg1 category:(unsigned long long)arg2 language:(id)arg3 mostRelevantRecord:(id)arg4;
 - (void)dealloc;

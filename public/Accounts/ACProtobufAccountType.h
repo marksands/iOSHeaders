@@ -22,15 +22,18 @@ __attribute__((visibility("hidden")))
     int _supportsAuthentication;
     int _visibility;
     _Bool _encryptAccountProperties;
+    _Bool _obsolete;
     _Bool _supportsMultipleAccounts;
     struct {
         unsigned int supportsAuthentication:1;
         unsigned int visibility:1;
         unsigned int encryptAccountProperties:1;
+        unsigned int obsolete:1;
         unsigned int supportsMultipleAccounts:1;
     } _has;
 }
 
+@property(nonatomic) _Bool obsolete; // @synthesize obsolete=_obsolete;
 @property(retain, nonatomic) NSString *owningBundleID; // @synthesize owningBundleID=_owningBundleID;
 @property(nonatomic) _Bool encryptAccountProperties; // @synthesize encryptAccountProperties=_encryptAccountProperties;
 @property(nonatomic) _Bool supportsMultipleAccounts; // @synthesize supportsMultipleAccounts=_supportsMultipleAccounts;
@@ -51,6 +54,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasObsolete;
 @property(readonly, nonatomic) _Bool hasOwningBundleID;
 @property(nonatomic) _Bool hasEncryptAccountProperties;
 @property(nonatomic) _Bool hasSupportsMultipleAccounts;

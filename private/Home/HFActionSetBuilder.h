@@ -31,6 +31,7 @@
 - (id)_lazilyUpdateFavorite;
 - (id)commitItem;
 - (id)_performValidation;
+@property(readonly, nonatomic, getter=isAffectedByEndEvents) _Bool affectedByEndEvents;
 @property(readonly, nonatomic) _Bool requiresDeviceUnlock;
 - (void)removeAllActions;
 - (void)removeAction:(id)arg1;

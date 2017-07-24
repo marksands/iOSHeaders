@@ -17,6 +17,7 @@
     double _seriesBlockSize;
     double _zoomLevelThreshold;
     double _canonicalSize;
+    unsigned long long _majorTickCalendarUnit;
     double _approximateSeriesPointInterval;
     double _todayOffsetSize;
     double _approximateAxisLabelInterval;
@@ -24,6 +25,7 @@
 
 + (id)_axisSpanDateComponentsWithTimeScope:(long long)arg1;
 + (id)_snappingStartDateWithStartDate:(id)arg1 velocity:(struct CGPoint)arg2 calendar:(id)arg3 timeScope:(long long)arg4;
++ (id)activeRangeFromCadenceRange:(id)arg1 timeScope:(long long)arg2 axisRange:(id)arg3 calendar:(id)arg4;
 + (id)snappingRangeForRange:(id)arg1 timeScope:(long long)arg2 velocity:(struct CGPoint)arg3 calendar:(id)arg4;
 + (id)chartVisibleRangeForTimeScope:(long long)arg1 anchorDate:(id)arg2 alignment:(long long)arg3 dataRange:(id)arg4 calendar:(id)arg5 firstWeekday:(long long)arg6 cadence:(long long)arg7;
 + (id)_fitRange:(id)arg1 toDateRange:(id)arg2 timeScope:(long long)arg3 alignment:(long long)arg4 calendar:(id)arg5 firstWeekday:(long long)arg6 cadence:(long long)arg7;
@@ -36,6 +38,7 @@
 @property(readonly, nonatomic) double approximateAxisLabelInterval; // @synthesize approximateAxisLabelInterval=_approximateAxisLabelInterval;
 @property(readonly, nonatomic) double todayOffsetSize; // @synthesize todayOffsetSize=_todayOffsetSize;
 @property(readonly, nonatomic) double approximateSeriesPointInterval; // @synthesize approximateSeriesPointInterval=_approximateSeriesPointInterval;
+@property(readonly, nonatomic) unsigned long long majorTickCalendarUnit; // @synthesize majorTickCalendarUnit=_majorTickCalendarUnit;
 @property(readonly, nonatomic) double canonicalSize; // @synthesize canonicalSize=_canonicalSize;
 @property(readonly, nonatomic) double zoomLevelThreshold; // @synthesize zoomLevelThreshold=_zoomLevelThreshold;
 @property(readonly, nonatomic) double seriesBlockSize; // @synthesize seriesBlockSize=_seriesBlockSize;

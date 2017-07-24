@@ -39,6 +39,7 @@
 - (void)extendBookmarkForItem:(id)arg1 receivingBundleID:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)fetchItemForURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_fetchURLForItemID:(id)arg1 creatingPlaceholderIfMissing:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)fetchURLForItemID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchURLForItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchURLForItem:(id)arg1 creatingPlaceholderIfMissing:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)_thumbnailsFetchOperationForProviderIdentifier:(id)arg1 itemIDs:(id)arg2 withSize:(struct CGSize)arg3 scale:(double)arg4;

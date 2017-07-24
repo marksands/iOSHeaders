@@ -13,13 +13,13 @@
     NSUUID *_objectID;
     HMDCloudRecord *_cloudRecord;
     unsigned long long _changeType;
-    unsigned long long _replayType;
+    unsigned long long _applyType;
     NSMutableSet *_rowIDsSet;
 }
 
 + (id)shortDescription;
 @property(readonly, nonatomic) NSMutableSet *rowIDsSet; // @synthesize rowIDsSet=_rowIDsSet;
-@property(nonatomic) unsigned long long replayType; // @synthesize replayType=_replayType;
+@property(nonatomic) unsigned long long applyType; // @synthesize applyType=_applyType;
 @property(nonatomic) unsigned long long changeType; // @synthesize changeType=_changeType;
 @property(readonly, nonatomic) HMDCloudRecord *cloudRecord; // @synthesize cloudRecord=_cloudRecord;
 @property(readonly, nonatomic) NSUUID *objectID; // @synthesize objectID=_objectID;
@@ -32,8 +32,9 @@
 - (void)forceChangeToInvalid;
 - (void)forceChangeToDelete;
 @property(readonly, nonatomic) NSArray *rowIDs;
-@property(readonly, nonatomic, getter=isUpdateAfterReplay) _Bool updateAfterReplay;
-@property(readonly, nonatomic, getter=isDropAfterRelay) _Bool dropAfterRelay;
+@property(readonly, nonatomic, getter=isPushAfterApply) _Bool pushAfterApply;
+@property(readonly, nonatomic, getter=isDropStagedAfterApply) _Bool dropStagedAfterApply;
+@property(readonly, nonatomic, getter=isDropAfterApply) _Bool dropAfterApply;
 @property(readonly, nonatomic, getter=isInvalid) _Bool invalidChange;
 @property(readonly, nonatomic, getter=isDeleted) _Bool deleteChange;
 @property(readonly, nonatomic, getter=isUpdated) _Bool updateChange;

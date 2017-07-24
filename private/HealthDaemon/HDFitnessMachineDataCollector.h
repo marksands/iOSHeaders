@@ -22,6 +22,8 @@
     NSMutableArray *_bufferedCharacteristics;
     NSSet *_localDevicePreferredObjectTypes;
     HDWorkoutManager *_workoutManager;
+    _Bool _workoutManagerReady;
+    NSMutableDictionary *_bufferedMetrics;
     NSString *_machineBrand;
     HKDevice *_device;
     HKSource *_source;
@@ -33,6 +35,7 @@
 @property(retain, nonatomic) NSDate *machinePreferredUntilDate; // @synthesize machinePreferredUntilDate=_machinePreferredUntilDate;
 - (void).cxx_destruct;
 - (void)_queue_handleConfigurationChanged:(id)arg1;
+- (void)workoutManagerStateDidChange:(id)arg1;
 - (long long)_getLongFromDatum:(id)arg1 unitString:(id)arg2 defaultValue:(long long)arg3;
 - (double)_getDoubleFromDatum:(id)arg1 unitString:(id)arg2 defaultValue:(double)arg3;
 - (id)_cmFitnessMachineDataFromDatums:(id)arg1 timestamp:(id)arg2;

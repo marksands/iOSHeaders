@@ -9,13 +9,14 @@
 #import <UIKit/NSProgressReporting-Protocol.h>
 #import <UIKit/PBDataTransferMonitorDelegate-Protocol.h>
 
-@class NSArray, NSMutableSet, NSProgress, NSString, PBDataTransferMonitor, PBItemCollection, UIDragEvent, UIView, UIWindow, _DUIPotentialDrop, _UIApplicationModalProgressController, _UIDragSetDownAnimation, _UIDruidDestinationConnection, _UIInternalDraggingSessionSource;
+@class NSArray, NSMutableSet, NSProgress, NSString, PBDataTransferMonitor, PBItemCollection, UIDragEvent, UIView, UIWindow, _DUIPotentialDrop, _UIApplicationModalProgressController, _UIDragSetDownAnimation, _UIDropSessionImpl, _UIDruidDestinationConnection, _UIInternalDraggingSessionSource;
 @protocol _UIDraggingInfo;
 
 __attribute__((visibility("hidden")))
 @interface _UIInternalDraggingSessionDestination : _UIDraggingImageSlotOwner <PBDataTransferMonitorDelegate, NSProgressReporting>
 {
     unsigned int _sessionIdentifier;
+    unsigned int _touchRoutingPolicyContextID;
     _UIInternalDraggingSessionSource *_sessionSource;
     _Bool _connectedToDruid;
     _Bool _dragInteractionDidEnd;
@@ -32,8 +33,10 @@ __attribute__((visibility("hidden")))
     _DUIPotentialDrop *_lastPotentialDrop;
     id <_UIDraggingInfo> _publicSession;
     UIDragEvent *_dragEvent;
+    _UIDropSessionImpl *_dropSession;
     UIWindow *_centroidWindow;
     NSArray *_dropItemProviders;
+    long long _sourceDataOwner;
     NSArray *_internalItems;
     unsigned long long _outsideAppSourceOperationMask;
     unsigned long long _progressIndicatorStyle;
@@ -47,12 +50,16 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long progressIndicatorStyle; // @synthesize progressIndicatorStyle=_progressIndicatorStyle;
 @property(readonly, nonatomic) unsigned long long outsideAppSourceOperationMask; // @synthesize outsideAppSourceOperationMask=_outsideAppSourceOperationMask;
 @property(copy, nonatomic) NSArray *internalItems; // @synthesize internalItems=_internalItems;
+@property(readonly, nonatomic) long long sourceDataOwner; // @synthesize sourceDataOwner=_sourceDataOwner;
 @property(readonly, nonatomic) NSArray *dropItemProviders; // @synthesize dropItemProviders=_dropItemProviders;
 @property(readonly, nonatomic) UIWindow *centroidWindow; // @synthesize centroidWindow=_centroidWindow;
 @property(readonly, nonatomic) struct CGPoint centroid; // @synthesize centroid=_centroid;
-@property(readonly, nonatomic) __weak UIDragEvent *dragEvent; // @synthesize dragEvent=_dragEvent;
+@property(readonly, nonatomic) _UIDropSessionImpl *dropSession; // @synthesize dropSession=_dropSession;
+@property(nonatomic) __weak UIDragEvent *dragEvent; // @synthesize dragEvent=_dragEvent;
 @property(readonly, nonatomic) id <_UIDraggingInfo> publicSession; // @synthesize publicSession=_publicSession;
+@property(readonly, nonatomic) unsigned int sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 - (void).cxx_destruct;
+- (unsigned long long)actualDragOperationForProposedDragOperation:(unsigned long long)arg1 destinationDataOwner:(long long)arg2;
 - (void)handOffDroppedItems:(id)arg1;
 - (void)setUpDropAnimation:(id)arg1;
 - (void)takeVisibleDroppedItems:(id)arg1;
@@ -62,6 +69,7 @@ __attribute__((visibility("hidden")))
 - (void)takePotentialDrop:(id)arg1;
 - (void)itemsBecameDirty:(id)arg1;
 - (void)enteredDestination:(id)arg1;
+- (void)dragDidExitApp;
 - (void)updateCentroidFromDragEvent;
 - (void)sawDragEndEvent;
 - (void)dragInteractionEnding;
@@ -70,8 +78,10 @@ __attribute__((visibility("hidden")))
 - (void)dataTransferMonitorFinishedTransfers:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dataTransferMonitorBeganTransfers:(id)arg1;
+- (void)_removeFromDragManager;
 - (void)_sessionDidEndNormally:(_Bool)arg1;
 - (void)connect;
+- (_Bool)canBeDrivenByDragEvent:(id)arg1;
 @property(readonly, nonatomic) _UIInternalDraggingSessionSource *inAppSessionSource;
 - (id)initWithDragManager:(id)arg1 dragEvent:(id)arg2;
 

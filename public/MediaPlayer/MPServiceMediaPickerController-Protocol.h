@@ -9,6 +9,7 @@
 @class NSString;
 
 @protocol MPServiceMediaPickerController <NSObject>
+- (void)serviceMediaPickerSetWatchCompatibilityVersion:(unsigned int)arg1;
 - (void)serviceMediaPickerSetPicksSingleCollectionEntity:(_Bool)arg1;
 - (void)serviceMediaPickerSetShouldPreventShowingTextServices:(_Bool)arg1;
 - (void)serviceMediaPickerSetMediaTypes:(unsigned long long)arg1;

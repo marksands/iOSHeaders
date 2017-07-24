@@ -31,12 +31,14 @@ __attribute__((visibility("hidden")))
     int _captureHeight;
     int _captureWidth;
     _Bool _resize;
+    _Bool _isFirstFrame;
 }
 
 @property(retain, nonatomic) VideoAttributes *remoteScreenAttributes; // @synthesize remoteScreenAttributes=_remoteScreenAttributes;
 - (void)cleanupTransferSession;
 - (void)setCompeletionHandler:(CDUnknownBlockType)arg1 forTransactionID:(id)arg2;
 - (void)registerDirectoryWithFilePath:(id)arg1;
+- (void)updateCaptureSizesWithFirstFrame:(struct opaqueCMSampleBuffer *)arg1;
 - (void)appendSampleWithWriter:(id)arg1 buffer:(id)arg2 sample:(struct opaqueCMSampleBuffer *)arg3;
 - (void)finishWritingWithWriter:(id)arg1 transactionID:(id)arg2;
 - (void)flushHistoryBuffers;

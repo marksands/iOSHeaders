@@ -33,6 +33,7 @@
 - (id)_platterViewIfLoaded;
 - (id)_platterViewLoadingIfNecessary:(_Bool)arg1;
 - (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
+- (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;

@@ -6,12 +6,35 @@
 
 #import <HomeKitDaemon/HMDMediaAccessory.h>
 
-@interface HMDAirPlayAccessory : HMDMediaAccessory
+#import <HomeKitDaemon/HMFLogging-Protocol.h>
+
+@class NSString;
+
+@interface HMDAirPlayAccessory : HMDMediaAccessory <HMFLogging>
 {
+    NSString *_password;
+    NSString *_administrationPassword;
 }
 
++ (_Bool)supportsSecureCoding;
+@property(copy) NSString *administrationPassword; // @synthesize administrationPassword=_administrationPassword;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (id)transactionWithObjectChangeType:(unsigned long long)arg1;
+- (void)setPassword:(id)arg1;
+@property(readonly, copy) NSString *password; // @synthesize password=_password;
+- (void)handleUpdatedPassword:(id)arg1;
+- (void)handleUpdatedName:(id)arg1;
+- (void)handleUpdatedAdvertisement:(id)arg1;
 - (id)initWithTransaction:(id)arg1 home:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

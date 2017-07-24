@@ -8,8 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class GEORPAddress;
+
 @interface GEORPPersonalizedMaps : PBCodable <NSCopying>
 {
+    GEORPAddress *_address;
     int _addressType;
     int _placeType;
     struct {
@@ -18,6 +21,8 @@
     } _has;
 }
 
+@property(retain, nonatomic) GEORPAddress *address; // @synthesize address=_address;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -27,6 +32,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasAddress;
 - (int)StringAsPlaceType:(id)arg1;
 - (id)placeTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasPlaceType;

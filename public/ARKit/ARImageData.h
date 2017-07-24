@@ -7,15 +7,18 @@
 #import <objc/NSObject.h>
 
 #import <ARKit/ARSensorData-Protocol.h>
+#import <ARKit/NSCopying-Protocol.h>
 #import <ARKit/NSSecureCoding-Protocol.h>
 
 @class NSDate, NSString;
 
-@interface ARImageData : NSObject <ARSensorData, NSSecureCoding>
+@interface ARImageData : NSObject <ARSensorData, NSCopying, NSSecureCoding>
 {
     _Bool _pixelBufferIsMirrored;
     _Bool _shouldRestrictFrameRate;
     float _exposureTargetOffset;
+    float _temperature;
+    float _tint;
     float _ISO;
     double _timestamp;
     NSDate *_captureDate;
@@ -34,6 +37,8 @@
 @property(nonatomic) long long cameraPosition; // @synthesize cameraPosition=_cameraPosition;
 @property(nonatomic) float ISO; // @synthesize ISO=_ISO;
 @property(nonatomic) double exposureDuration; // @synthesize exposureDuration=_exposureDuration;
+@property(nonatomic) float tint; // @synthesize tint=_tint;
+@property(nonatomic) float temperature; // @synthesize temperature=_temperature;
 @property(nonatomic) float exposureTargetOffset; // @synthesize exposureTargetOffset=_exposureTargetOffset;
 @property(nonatomic) _Bool pixelBufferIsMirrored; // @synthesize pixelBufferIsMirrored=_pixelBufferIsMirrored;
 @property(nonatomic) struct __CVBuffer *pixelBuffer; // @synthesize pixelBuffer=_pixelBuffer;
@@ -43,6 +48,7 @@
 @property(retain, nonatomic) NSDate *captureDate; // @synthesize captureDate=_captureDate;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(readonly, nonatomic) struct CGSize imageResolution;

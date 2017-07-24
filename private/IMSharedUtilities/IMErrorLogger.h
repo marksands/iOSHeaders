@@ -13,7 +13,7 @@
 + (id)sharedInstance;
 + (void)__setSingleton__im:(id)arg1;
 + (id)__singleton__im;
-- (id)init;
+- (long long)loggingLevel;
 
 @end
 

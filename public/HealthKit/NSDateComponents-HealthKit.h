@@ -7,6 +7,7 @@
 #import <Foundation/NSDateComponents.h>
 
 @interface NSDateComponents (HealthKit)
++ (id)hk_dateComponentsForCalendarUnit:(unsigned long long)arg1;
 + (id)hk_componentsWithDays:(long long)arg1;
 + (id)hk_oneWeek;
 + (id)hk_oneDay;

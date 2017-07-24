@@ -19,6 +19,10 @@
     unsigned int _fetchCount;
     unsigned int _uploadCount;
     unsigned int _uploadErrorCount;
+    unsigned int _homeManagerFetchCount;
+    unsigned int _homeZoneFetchCount;
+    unsigned int _homeManagerUploadCount;
+    unsigned int _homeZoneUploadCount;
     unsigned long long _dataSyncState;
     NSMutableDictionary *_reasonToCountMap;
     NSMutableDictionary *_errorToCountMap;
@@ -30,6 +34,10 @@
 + (void)initialize;
 @property(retain, nonatomic) NSMutableDictionary *errorToCountMap; // @synthesize errorToCountMap=_errorToCountMap;
 @property(retain, nonatomic) NSMutableDictionary *reasonToCountMap; // @synthesize reasonToCountMap=_reasonToCountMap;
+@property(nonatomic) unsigned int homeZoneUploadCount; // @synthesize homeZoneUploadCount=_homeZoneUploadCount;
+@property(nonatomic) unsigned int homeManagerUploadCount; // @synthesize homeManagerUploadCount=_homeManagerUploadCount;
+@property(nonatomic) unsigned int homeZoneFetchCount; // @synthesize homeZoneFetchCount=_homeZoneFetchCount;
+@property(nonatomic) unsigned int homeManagerFetchCount; // @synthesize homeManagerFetchCount=_homeManagerFetchCount;
 @property(nonatomic) unsigned long long dataSyncState; // @synthesize dataSyncState=_dataSyncState;
 @property(nonatomic) _Bool lastDecryptionFailed; // @synthesize lastDecryptionFailed=_lastDecryptionFailed;
 @property(nonatomic) _Bool hasDecryptionFailed; // @synthesize hasDecryptionFailed=_hasDecryptionFailed;

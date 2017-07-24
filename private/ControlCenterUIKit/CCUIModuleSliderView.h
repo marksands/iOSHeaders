@@ -7,16 +7,18 @@
 #import <UIKit/UIControl.h>
 
 #import <ControlCenterUIKit/CCUIContentClipping-Protocol.h>
+#import <ControlCenterUIKit/CCUIContentModuleExpandedStateListener-Protocol.h>
 #import <ControlCenterUIKit/CCUIGroupRendering-Protocol.h>
 #import <ControlCenterUIKit/CCUIValueChangingGestureProvider-Protocol.h>
 #import <ControlCenterUIKit/UIGestureRecognizerDelegate-Protocol.h>
 
-@class CALayer, CAPackage, CCUICAPackageView, NSArray, NSString, NSTimer, UIGestureRecognizer, UIImage, UIImageView, UILongPressGestureRecognizer, UISelectionFeedbackGenerator;
+@class CALayer, CCUICAPackageDescription, CCUICAPackageView, NSArray, NSString, NSTimer, UIGestureRecognizer, UIImage, UIImageView, UILongPressGestureRecognizer, UISelectionFeedbackGenerator;
 
-@interface CCUIModuleSliderView : UIControl <UIGestureRecognizerDelegate, CCUIValueChangingGestureProvider, CCUIContentClipping, CCUIGroupRendering>
+@interface CCUIModuleSliderView : UIControl <UIGestureRecognizerDelegate, CCUIValueChangingGestureProvider, CCUIContentModuleExpandedStateListener, CCUIContentClipping, CCUIGroupRendering>
 {
     UIImageView *_glyphImageView;
     CCUICAPackageView *_glyphPackageView;
+    CCUICAPackageView *_compensatingGlyphPackageView;
     NSArray *_stepBackgroundViews;
     NSArray *_separatorViews;
     double _startingHeight;
@@ -32,7 +34,7 @@
     _Bool _firstStepIsOff;
     float _value;
     UIImage *_glyphImage;
-    CAPackage *_glyphPackage;
+    CCUICAPackageDescription *_glyphPackageDescription;
     NSString *_glyphState;
     unsigned long long _numberOfSteps;
     unsigned long long _step;
@@ -46,7 +48,7 @@
 @property(nonatomic) _Bool throttleUpdates; // @synthesize throttleUpdates=_throttleUpdates;
 @property(nonatomic, getter=isGlyphVisible) _Bool glyphVisible; // @synthesize glyphVisible=_glyphVisible;
 @property(retain, nonatomic) NSString *glyphState; // @synthesize glyphState=_glyphState;
-@property(retain, nonatomic) CAPackage *glyphPackage; // @synthesize glyphPackage=_glyphPackage;
+@property(retain, nonatomic) CCUICAPackageDescription *glyphPackageDescription; // @synthesize glyphPackageDescription=_glyphPackageDescription;
 @property(retain, nonatomic) UIImage *glyphImage; // @synthesize glyphImage=_glyphImage;
 @property(readonly, nonatomic) UIGestureRecognizer *valueChangeGestureRecognizer; // @synthesize valueChangeGestureRecognizer=_valueChangeGestureRecognizer;
 - (void).cxx_destruct;
@@ -65,12 +67,17 @@
 - (id)_createBackgroundViewForStep:(unsigned long long)arg1;
 - (void)_createSeparatorViewsForNumberOfSteps:(unsigned long long)arg1;
 - (void)_createStepViewsForNumberOfSteps:(unsigned long long)arg1;
+- (void)_layoutValueViewsForStepChange:(_Bool)arg1;
+- (void)_layoutValueViewsForStepChange;
 - (void)_layoutValueViews;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 @property(readonly, nonatomic) CALayer *punchOutRootLayer;
 @property(readonly, nonatomic, getter=isGroupRenderingRequired) _Bool groupRenderingRequired;
 @property(readonly, nonatomic, getter=isContentClippingRequired) _Bool contentClippingRequired;
+- (void)contentModuleWillTransitionToExpandedContentMode:(_Bool)arg1;
 - (void)layoutSubviews;
+- (void)_configureCompensatingGlyphPackageView:(id)arg1;
+- (id)_newGlyphPackageView;
 @property(readonly, nonatomic, getter=isStepped) _Bool stepped;
 - (id)initWithFrame:(struct CGRect)arg1;
 

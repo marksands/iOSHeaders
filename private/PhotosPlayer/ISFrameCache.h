@@ -27,6 +27,7 @@
     long long _cacheStrategy;
 }
 
++ (id)sharedFrameGenerationQueue;
 - (void).cxx_destruct;
 - (struct CGImage *)_createPredrawnImage:(struct CGImage *)arg1;
 - (void)_frameGenerationQueue_updateFrameCache;
@@ -41,6 +42,7 @@
 - (struct CGImage *)_frameAtIndex:(unsigned long long)arg1 allowLazy:(_Bool)arg2;
 - (struct CGImage *)frameAtIndexIfReady:(unsigned long long)arg1;
 - (struct CGImage *)frameAtIndex:(unsigned long long)arg1;
+- (id)initWithImageSource:(struct CGImageSource *)arg1 cachingStrategy:(long long)arg2 useGlobalDecodeQueue:(_Bool)arg3;
 - (id)initWithImageSource:(struct CGImageSource *)arg1 cachingStrategy:(long long)arg2;
 - (id)initWithImageSource:(struct CGImageSource *)arg1;
 

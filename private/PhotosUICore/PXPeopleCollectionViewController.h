@@ -19,7 +19,7 @@
 #import <PhotosUICore/UIViewControllerPreviewingDelegate-Protocol.h>
 #import <PhotosUICore/UIViewControllerTransitioningDelegate-Protocol.h>
 
-@class NSArray, NSIndexPath, NSMutableDictionary, NSString, PXPeopleDragAndDropCollectionViewLayout, PXPeopleMeViewController, PXPeopleProgressFooterView, PXPeopleProgressManager, PXPeopleSectionedDataSource, PXPeopleSwipeSelectionManager, UIBarButtonItem, UILongPressGestureRecognizer;
+@class NSArray, NSDictionary, NSIndexPath, NSMutableDictionary, NSString, PXPeopleDragAndDropCollectionViewLayout, PXPeopleMeViewController, PXPeopleProgressFooterView, PXPeopleProgressManager, PXPeopleSectionedDataSource, PXPeopleSwipeSelectionManager, UIBarButtonItem, UILongPressGestureRecognizer;
 @protocol UIViewControllerAnimatedTransitioning;
 
 @interface PXPeopleCollectionViewController : UICollectionViewController <UIViewControllerTransitioningDelegate, PXPeopleZoomOverlayTransitionEndPoint, PXPeopleDragAndDropCollectionViewDelegate, UIGestureRecognizerDelegate, UICollectionViewDelegateFlowLayout, UIPopoverPresentationControllerDelegate, UIViewControllerPreviewingDelegate, PXPeopleSectionedDataSourceChangeObserver, PXPeoplePreviewActionViewControllerDelegate, PXPeopleDragAndDropCollectionViewDelegateLayout, PXPeopleCollectionViewCellDelegate, PXPeopleSwipeSelectionManagerDelegate>
@@ -50,9 +50,15 @@
     long long _ppt_numCellsLeft;
     NSMutableDictionary *_ppt_seenPeople;
     CDUnknownBlockType _ppt_cellsLoadedCompletionBlock;
+    unsigned long long _ppt_sampledCountOfEmptyCells;
+    unsigned long long _ppt_sampledCountOfFrames;
     struct CGPoint _lastDragPoint;
+    struct CGRect _ppt_visibleCollectionViewRect;
 }
 
+@property(nonatomic) struct CGRect ppt_visibleCollectionViewRect; // @synthesize ppt_visibleCollectionViewRect=_ppt_visibleCollectionViewRect;
+@property(nonatomic) unsigned long long ppt_sampledCountOfFrames; // @synthesize ppt_sampledCountOfFrames=_ppt_sampledCountOfFrames;
+@property(nonatomic) unsigned long long ppt_sampledCountOfEmptyCells; // @synthesize ppt_sampledCountOfEmptyCells=_ppt_sampledCountOfEmptyCells;
 @property(copy, nonatomic) CDUnknownBlockType ppt_cellsLoadedCompletionBlock; // @synthesize ppt_cellsLoadedCompletionBlock=_ppt_cellsLoadedCompletionBlock;
 @property(nonatomic) _Bool ppt_shouldRunPPTCode; // @synthesize ppt_shouldRunPPTCode=_ppt_shouldRunPPTCode;
 @property(retain, nonatomic) NSMutableDictionary *ppt_seenPeople; // @synthesize ppt_seenPeople=_ppt_seenPeople;
@@ -100,6 +106,7 @@
 - (void)_resetHomeIfNeeded;
 - (void)peopleSectionedDataSource:(id)arg1 didApplyIncrementalChanges:(id)arg2;
 - (void)peopleSectionedDataSourceMembersChanged:(id)arg1;
+- (void)scrollViewDidScroll:(id)arg1;
 - (void)collectionViewDidLayout:(id)arg1;
 - (void)collectionView:(id)arg1 didDeselectItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
@@ -183,6 +190,8 @@
 - (id)ppt_bestPersonForBootstrap;
 - (long long)ppt_numCells;
 - (id)ppt_indexPathOfPersonWithMostAssets;
+@property(readonly, nonatomic) unsigned long long ppt_countOfEmptyCells;
+@property(readonly, nonatomic) NSDictionary *ppt_scrollingInformation;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

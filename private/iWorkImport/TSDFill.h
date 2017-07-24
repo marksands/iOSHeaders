@@ -9,11 +9,12 @@
 #import <iWorkImport/TSDPathPainter-Protocol.h>
 #import <iWorkImport/TSSPreset-Protocol.h>
 #import <iWorkImport/TSSPropertyCommandSerializing-Protocol.h>
+#import <iWorkImport/TSSPropertyValueArchiving-Protocol.h>
 
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface TSDFill : NSObject <TSSPropertyCommandSerializing, TSDPathPainter, TSSPreset>
+@interface TSDFill : NSObject <TSSPropertyCommandSerializing, TSSPropertyValueArchiving, TSDPathPainter, TSSPreset>
 {
 }
 

@@ -18,7 +18,6 @@
 @property(nonatomic) float backlightLevel; // @dynamic backlightLevel;
 @property(nonatomic) long long dataPlanActivationPromptCount; // @dynamic dataPlanActivationPromptCount;
 @property(readonly, nonatomic) NSArray *fakeDuetTriggers; // @dynamic fakeDuetTriggers;
-@property(readonly, nonatomic) _Bool showStackshotUIFeedback; // @dynamic showStackshotUIFeedback;
 @property(readonly, nonatomic) _Bool suppressNoSimAlert; // @dynamic suppressNoSimAlert;
 @property(readonly, nonatomic) _Bool walletPreArmForceLockButton; // @dynamic walletPreArmForceLockButton;
 

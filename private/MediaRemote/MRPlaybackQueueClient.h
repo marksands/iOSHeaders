@@ -15,6 +15,7 @@
     NSObject<OS_dispatch_queue> *_queue;
 }
 
+- (id)description;
 - (id)playbackQueueClientForPlayerPath:(void *)arg1;
 @property(readonly, nonatomic) NSArray *playbackQueueClients;
 - (void)dealloc;

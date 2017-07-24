@@ -15,6 +15,7 @@
     XBApplicationSnapshotManifestImpl *_manifestImpl;
 }
 
++ (unsigned long long)maximumInFlightDataSize;
 + (void)deleteAllSystemSnapshots;
 + (id)debugDescription;
 + (void)initialize;

@@ -4,32 +4,33 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIViewController.h>
+#import <PassKitUI/PKExplanationViewController.h>
 
+#import <PassKitUI/PKExplanationViewDelegate-Protocol.h>
 #import <PassKitUI/PKPaymentSetupBrowseProductsViewControllerDelegate-Protocol.h>
-#import <PassKitUI/PKPaymentSetupPrivacyFooterViewDelegate-Protocol.h>
 
-@class ACAccountStore, NSString, PKPaymentProvisioningController, PKPaymentSetupIntroView, PKPaymentWebService;
+@class ACAccountStore, NSString, PKPaymentHeroImageController, PKPaymentProvisioningController, PKPaymentSetupHeroView, PKPaymentWebService;
 @protocol PKPaymentSetupViewControllerDelegate;
 
-@interface PKPaymentSetupViewController : UIViewController <PKPaymentSetupPrivacyFooterViewDelegate, PKPaymentSetupBrowseProductsViewControllerDelegate>
+@interface PKPaymentSetupViewController : PKExplanationViewController <PKPaymentSetupBrowseProductsViewControllerDelegate, PKExplanationViewDelegate>
 {
     ACAccountStore *_accountStore;
     _Bool _nextButtonPushed;
-    PKPaymentSetupIntroView *_splashView;
+    PKPaymentSetupHeroView *_splashView;
     _Bool _hideSetupLater;
+    _Bool _hasFelicaSecureElement;
     _Bool _allowsManualEntry;
     PKPaymentProvisioningController *_provisioningController;
-    long long _context;
     id <PKPaymentSetupViewControllerDelegate> _delegate;
+    PKPaymentHeroImageController *_heroImageController;
     long long _paymentSetupMode;
 }
 
 + (id)configuredManualProvisioningViewControllerForProduct:(id)arg1 provisioningController:(id)arg2 context:(long long)arg3 delegate:(id)arg4;
 @property(nonatomic) long long paymentSetupMode; // @synthesize paymentSetupMode=_paymentSetupMode;
 @property(nonatomic) _Bool allowsManualEntry; // @synthesize allowsManualEntry=_allowsManualEntry;
+@property(readonly, nonatomic) PKPaymentHeroImageController *heroImageController; // @synthesize heroImageController=_heroImageController;
 @property(nonatomic) id <PKPaymentSetupViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) long long context; // @synthesize context=_context;
 @property(readonly, nonatomic) PKPaymentProvisioningController *provisioningController; // @synthesize provisioningController=_provisioningController;
 - (void).cxx_destruct;
 - (void)privacyFooterLinkTapped:(id)arg1;
@@ -41,6 +42,10 @@
 - (id)_flowPicker;
 - (id)_actionViewControllerForAssociatedCredentials:(id)arg1 product:(id)arg2;
 - (id)configuredNextActionViewController;
+- (void)explanationViewDidSelectSetupLater:(id)arg1;
+- (void)explanationViewDidSelectContinue:(id)arg1;
+- (_Bool)_isJapaneseRegion;
+- (id)_bodyText;
 - (id)_associatedCredentialsForDefaultBehaviour;
 - (void)_pushNextActionViewController:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_next:(id)arg1;
@@ -49,7 +54,6 @@
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (unsigned long long)edgesForExtendedLayout;
-- (void)_addNextBarButtonItem;
 - (void)_credentialRenewalRequired:(id)arg1;
 - (void)_preflightValidation;
 - (void)viewDidLoad;

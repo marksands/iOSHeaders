@@ -14,6 +14,7 @@
 @property(readonly) MTLType *returnType;
 @property(readonly) long long lineNumber;
 @property(readonly, copy) NSString *filePath;
+- (const CDStruct_41a22ec7 *)bitCodeHash;
 - (id <MTLIndirectArgumentEncoder>)newIndirectArgumentEncoderWithBufferIndex:(unsigned long long)arg1 reflection:(id *)arg2;
 - (id <MTLIndirectArgumentEncoder>)newIndirectArgumentEncoderWithBufferIndex:(unsigned long long)arg1;
 - (void)reflectionWithOptions:(unsigned long long)arg1 completionHandler:(void (^)(MTLFunctionReflection *))arg2;

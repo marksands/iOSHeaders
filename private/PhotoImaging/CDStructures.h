@@ -16,21 +16,13 @@ struct CGPoint {
 };
 
 struct CGRect {
-    struct CGPoint origin;
-    struct CGSize size;
+    struct CGPoint _field1;
+    struct CGSize _field2;
 };
 
 struct CGSize {
-    double width;
-    double height;
-};
-
-struct NSDictionary {
-    Class _field1;
-};
-
-struct NUResponse {
-    Class _field1;
+    double _field1;
+    double _field2;
 };
 
 #pragma mark Typedef'd Structures
@@ -55,9 +47,17 @@ typedef struct {
         long long x;
         long long y;
     } origin;
-    struct {
-        long long width;
-        long long height;
-    } size;
+    CDStruct_d58201db size;
 } CDStruct_996ac03c;
+
+// Ambiguous groups
+typedef struct {
+    long long _field1;
+    long long _field2;
+} CDStruct_912cb5d2;
+
+typedef struct {
+    long long width;
+    long long height;
+} CDStruct_d58201db;
 

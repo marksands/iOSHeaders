@@ -42,6 +42,7 @@
 - (void)vibrationRecorderTouchSurfaceDidFinishReplayingVibration:(id)arg1;
 - (void)vibrationComponentDidEndForVibrationRecorderTouchSurface:(id)arg1;
 - (void)vibrationComponentDidStartForVibrationRecorderTouchSurface:(id)arg1;
+- (void)safeAreaInsetsDidChange;
 - (void)didMoveToWindow;
 - (void)_updateProgress:(id)arg1;
 - (void)stopAnimatingProgress;

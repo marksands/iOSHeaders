@@ -69,6 +69,7 @@
 @property(nonatomic) _Bool constrainSize; // @synthesize constrainSize=_constrainSize;
 @property(readonly, copy, nonatomic) _DUIPreview *preview; // @synthesize preview=_preview;
 - (void).cxx_destruct;
+- (void)_unmaskPlatterView;
 - (void)updateTransform;
 - (void)didMoveToSuperview;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;

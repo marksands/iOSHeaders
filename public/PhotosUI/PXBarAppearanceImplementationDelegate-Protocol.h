@@ -11,7 +11,6 @@
 @protocol PXBarAppearanceImplementationDelegate <NSObject>
 
 @optional
-- (void)barAppearance:(PXBarAppearance *)arg1 performBottomBarsMorphAnimationWithType:(long long)arg2;
 - (_Bool)barAppearanceIsStatusBarVisible:(PXBarAppearance *)arg1;
 - (void)barAppearance:(PXBarAppearance *)arg1 willUpdateBarAppearanceOnViewWillAppear:(_Bool)arg2;
 @end

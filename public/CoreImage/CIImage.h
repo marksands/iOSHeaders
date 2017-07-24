@@ -19,6 +19,8 @@
 + (id)imageWithInternalRepresentation:(void *)arg1;
 + (_Bool)supportsSecureCoding;
 + (id)imageWithArrayOfImages:(id)arg1 selector:(CDUnknownBlockType)arg2;
++ (id)imageForRenderingWithMetalContext:(id)arg1 orOpenGLContextUsingMetal:(id)arg2 orNonMetalContext:(id)arg3;
++ (id)imageForRenderingWithMPS:(id)arg1 orNonMPS:(id)arg2;
 + (id)imageForRenderingWithMetal:(id)arg1 orNonMetal:(id)arg2;
 + (id)imageWithContentsOfFile:(id)arg1 options:(id)arg2;
 + (id)imageWithContentsOfFile:(id)arg1;
@@ -86,6 +88,8 @@
 @property(readonly) CIFilterShape *definition;
 @property(readonly, nonatomic) struct CGRect extent;
 - (id)initWithArrayOfImages:(id)arg1 selector:(CDUnknownBlockType)arg2;
+- (id)initForRenderingWithMetalContext:(id)arg1 orOpenGLContextUsingMetal:(id)arg2 orNonMetalContext:(id)arg3;
+- (id)initForRenderingWithMPS:(id)arg1 orNonMPS:(id)arg2;
 - (id)initForRenderingWithMetal:(id)arg1 orNonMetal:(id)arg2;
 - (id)_imageBySamplingLinear;
 - (id)_imageBySamplingNearest;

@@ -54,7 +54,8 @@
 - (id)initWithBackingStore:(id)arg1;
 - (id)initWithCode:(long long)arg1 userActivity:(id)arg2;
 - (id)init;
-- (id)cacheableObjects;
+- (void)_intents_updateContainerWithCache:(id)arg1;
+- (id)_intents_cacheableObjects;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

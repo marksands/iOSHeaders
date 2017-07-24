@@ -9,7 +9,7 @@
 #import <CloudDocsDaemon/BRCLifeCycle-Protocol.h>
 #import <CloudDocsDaemon/BRCSuspendable-Protocol.h>
 
-@class BRCMinHeap, NSString;
+@class BRCFairScheduler, BRCFairSource, BRCMinHeap, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 __attribute__((visibility("hidden")))
@@ -18,19 +18,20 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_queue;
     BRCMinHeap *_minHeap;
     NSString *_name;
-    NSObject<OS_dispatch_source> *_source;
+    BRCFairSource *_source;
     NSObject<OS_dispatch_source> *_delay;
     long long _leeway;
     long long _lastSchedule;
     _Bool _isResumed;
+    BRCFairScheduler *_fairScheduler;
     _Bool _isCancelled;
     CDUnknownBlockType _computeNextAdmissibleDateForScheduling;
 }
 
+@property(readonly, nonatomic) BRCFairScheduler *fairScheduler; // @synthesize fairScheduler=_fairScheduler;
 @property(readonly, nonatomic) _Bool isCancelled; // @synthesize isCancelled=_isCancelled;
 @property(copy, nonatomic) CDUnknownBlockType computeNextAdmissibleDateForScheduling; // @synthesize computeNextAdmissibleDateForScheduling=_computeNextAdmissibleDateForScheduling;
 @property(nonatomic) long long coalescingLeeway; // @synthesize coalescingLeeway=_leeway;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)close;
@@ -38,12 +39,13 @@ __attribute__((visibility("hidden")))
 - (void)cancel;
 - (void)resume;
 - (void)suspend;
-- (void)_addSource:(id)arg1 deadline:(long long)arg2;
+- (void)addSource:(id)arg1 deadline:(long long)arg2;
 - (void)_schedule;
+- (void)runDeadlineSource:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)signal;
-- (_Bool)_isSleepingRequiredForDeadline:(long long)arg1 now:(long long)arg2;
-- (id)initWithName:(id)arg1;
-- (id)initWithName:(id)arg1 targetQueue:(id)arg2;
+- (_Bool)_setupTimerRequiredForDeadline:(long long)arg1 now:(long long)arg2;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
+- (id)initWithName:(id)arg1 fairScheduler:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

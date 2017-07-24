@@ -6,17 +6,19 @@
 
 #import <IMDaemonCore/IMDCKAbstractSyncController.h>
 
-@class CKFetchRecordZonesOperation, NSDate, NSTimer;
+@class CKFetchRecordZonesOperation, IMTimer, NSDate, NSTimer;
 
 @interface IMDCKSyncController : IMDCKAbstractSyncController
 {
     NSDate *_syncStartDate;
     NSTimer *_longRunningSyncTimer;
+    IMTimer *_nightlySyncTimer;
     CKFetchRecordZonesOperation *_cloudKitMetricsFetchOp;
 }
 
 + (id)sharedInstance;
 @property(retain, nonatomic) CKFetchRecordZonesOperation *cloudKitMetricsFetchOp; // @synthesize cloudKitMetricsFetchOp=_cloudKitMetricsFetchOp;
+@property(retain, nonatomic) IMTimer *nightlySyncTimer; // @synthesize nightlySyncTimer=_nightlySyncTimer;
 @property(retain, nonatomic) NSTimer *longRunningSyncTimer; // @synthesize longRunningSyncTimer=_longRunningSyncTimer;
 @property(retain, nonatomic) NSDate *syncStartDate; // @synthesize syncStartDate=_syncStartDate;
 - (void).cxx_destruct;
@@ -24,8 +26,6 @@
 - (void)updateAllCachedSyncStateFlags;
 - (void)_setSyncStateFlagsWithAccountStatus:(long long)arg1;
 - (void)updateSyncStateFlags;
-- (void)updateCloudKitSyncingState;
-- (void)setCloudKitSyncState:(_Bool)arg1;
 - (void)_noteMeticsForSyncEndedWithSuccces:(_Bool)arg1;
 - (void)syncChatsWithMessageContext:(id)arg1;
 - (void)_writeDownSyncDate;
@@ -44,6 +44,8 @@
 - (void)beginInitialSyncAttemptCount:(unsigned long long)arg1;
 - (void)recordMetricIsCloudKitEnabled;
 - (void)performMetricForSuccessfulSync;
+- (void)clearLocalCloudKitSyncState;
+- (void)clearCKRelatedDefaults;
 - (void)kickOffCloudKitSyncIfNeededOnImagentLaunch;
 - (void)beginComingBackOnlineSync;
 - (_Bool)_chatSyncedRecently;
@@ -55,17 +57,27 @@
 - (void)_postSyncStateChanged;
 - (void)dealloc;
 - (id)init;
+- (void)_nightlySyncTimerFired;
 - (void)_kickOffNightlyPeriodicSyncIfApplicable;
 - (void)_logIMAutomaticHistorySyncDidNotOccurMetricsUnderFirstUnlock:(_Bool)arg1 isSyncing:(_Bool)arg2 deviceConditionsAllowSync:(_Bool)arg3 syncNotCompletedRecently:(_Bool)arg4;
 - (_Bool)_syncNotCompletedRecently;
 - (double)_IMAHDAgentFallbackIntervalInSeconds;
 - (void)_dispatchNotification:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (void)registerForAccountNotifications;
+- (void)_accountDidChange:(id)arg1;
 - (void)registerForSyncStateChanges;
 - (void)_didUpdatePersistentValueNotification:(id)arg1;
 - (void)_didRecieveSyncStateChangeNotification:(id)arg1;
 - (void)_instantStateChange:(id)arg1;
 - (void)_postMetricsToCloudKitOnAutomaticHistoryDeletionAgentLaunch;
 - (unsigned long long)_maxTimeToDeferInSeconds;
+- (void)updateCloudKitSyncingState;
+- (void)setCloudKitSyncState:(_Bool)arg1;
+- (void)updateStartingFlags;
+- (_Bool)_anyStartingFlagIsEnabled;
+- (void)setStartingInitialSync:(_Bool)arg1;
+- (void)setStartingPeriodicSync:(_Bool)arg1;
+- (void)resetAllSyncStates;
 - (id)rampManager;
 - (id)attachmentSyncController;
 - (id)exitManager;

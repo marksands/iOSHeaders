@@ -230,6 +230,7 @@ __attribute__((visibility("hidden")))
 - (double)_primaryColumnWidthForSize:(struct CGSize)arg1 isCompact:(_Bool)arg2;
 - (double)_primaryColumnWidthForSize:(struct CGSize)arg1;
 - (double)_defaultMaximumPrimaryColumnWidthForSize:(struct CGSize)arg1;
+- (struct CGSize)_screenSizeInMainScene:(_Bool)arg1;
 - (double)primaryColumnWidth;
 - (void)_viewControllerHiding:(id)arg1;
 - (void)_setupHiddenPopoverControllerWithViewController:(id)arg1;

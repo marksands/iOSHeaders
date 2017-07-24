@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)reset;
 - (unsigned long long)anchorRangeCount;

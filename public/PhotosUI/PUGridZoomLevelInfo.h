@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (double)cellAspectRatioHint;
 - (long long)imageDeliveryMode;
+@property(readonly, nonatomic) _Bool supportsCollectionViewDragSource;
 - (_Bool)supportsEditMode;
 - (_Bool)wantsAutomaticContentOffsetAdjustment;
 - (_Bool)wantsCloudStatusVisible;

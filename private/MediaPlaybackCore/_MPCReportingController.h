@@ -29,7 +29,6 @@
 @property(retain, nonatomic) MPAssistantAnalyticsReportingController *assistantAnalyticsController; // @synthesize assistantAnalyticsController=_assistantAnalyticsController;
 @property(readonly, nonatomic) __weak MPCPlaybackEngine *playbackEngine; // @synthesize playbackEngine=_playbackEngine;
 - (void).cxx_destruct;
-- (void)_cloudServiceControllerSubscriptionStatusDidChangeNotification:(id)arg1;
 - (void)environmentMonitorDidChangeNetworkType:(id)arg1;
 - (void)recordLyricsViewEvent:(id)arg1;
 - (void)dealloc;

@@ -27,7 +27,8 @@
     UIViewController *_lastPresentingViewController;
     HFCameraAudioManager *_cameraAudioManager;
     MPVolumeSlider *_volumeSlider;
-    NSArray *_toolbarItemConstraints;
+    NSArray *_volumeSliderConstraints;
+    NSArray *_microphoneButtonConstraints;
     UIBarButtonItem *_volumeBarButtonItem;
     HUCameraMicrophoneButton *_microphoneButton;
     UIBarButtonItem *_microphoneBarButtonItem;
@@ -37,7 +38,8 @@
 @property(retain, nonatomic) UIBarButtonItem *microphoneBarButtonItem; // @synthesize microphoneBarButtonItem=_microphoneBarButtonItem;
 @property(retain, nonatomic) HUCameraMicrophoneButton *microphoneButton; // @synthesize microphoneButton=_microphoneButton;
 @property(retain, nonatomic) UIBarButtonItem *volumeBarButtonItem; // @synthesize volumeBarButtonItem=_volumeBarButtonItem;
-@property(retain, nonatomic) NSArray *toolbarItemConstraints; // @synthesize toolbarItemConstraints=_toolbarItemConstraints;
+@property(retain, nonatomic) NSArray *microphoneButtonConstraints; // @synthesize microphoneButtonConstraints=_microphoneButtonConstraints;
+@property(retain, nonatomic) NSArray *volumeSliderConstraints; // @synthesize volumeSliderConstraints=_volumeSliderConstraints;
 @property(retain, nonatomic) MPVolumeSlider *volumeSlider; // @synthesize volumeSlider=_volumeSlider;
 @property(retain, nonatomic) HFCameraAudioManager *cameraAudioManager; // @synthesize cameraAudioManager=_cameraAudioManager;
 @property(nonatomic) __weak UIViewController *lastPresentingViewController; // @synthesize lastPresentingViewController=_lastPresentingViewController;

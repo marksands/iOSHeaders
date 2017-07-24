@@ -31,6 +31,7 @@
 }
 
 + (void)timeZoneForCLLocationAsync:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
++ (_Bool)isValidLocation:(id)arg1;
 + (id)nextSunsetTimeForLocation:(id)arg1 date:(id)arg2;
 + (id)sunsetTimeForLocation:(id)arg1;
 + (id)nextSunriseTimeForLocation:(id)arg1 date:(id)arg2;

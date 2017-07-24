@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) TPMarginAdjustRep *marginAdjustRep; // @synthesize marginAdjustRep=_marginAdjustRep;
+- (void).cxx_destruct;
 - (id)bodyReps;
 - (_Bool)masksToBounds;
 - (void)drawInLayerContext:(struct CGContext *)arg1;

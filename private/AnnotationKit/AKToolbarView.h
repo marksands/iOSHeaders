@@ -44,6 +44,8 @@
     AKAttributePickerViewController *_attributePickerViewController;
     _Bool _showAttributePicker;
     _Bool _expandCompactColorPicker;
+    _Bool _shouldUseCachedSafeAreaInsets;
+    struct UIEdgeInsets _cachedSafeAreaInsets;
     _Bool _undoRedoButtonsHidden;
     _Bool _alwaysShowUndoButton;
     _Bool _shareButtonHidden;
@@ -110,10 +112,14 @@
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)setOpaque:(_Bool)arg1;
 - (void)setBackgroundColor:(id)arg1;
+- (struct UIEdgeInsets)_safeAreaInsetsWithCachingIfNeeded;
+- (void)_shouldUseCachedSafeAreaInsets:(_Bool)arg1;
+- (void)_saveCachedSafeAreaInsets;
 - (void)layoutSubviews;
 - (unsigned long long)layoutForSize:(struct CGSize)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

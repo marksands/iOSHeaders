@@ -22,15 +22,15 @@
 - (id)domain;
 - (void)_redactForMissingPrivacyEntitlementOptions:(unsigned long long)arg1 containingAppBundleId:(id)arg2;
 - (id)_dictionaryRepresentation;
-@property(readonly, nonatomic) long long peopleInPhotoOperator;
 - (void)setPeopleInPhoto:(id)arg1;
+@property(readonly, nonatomic) long long peopleInPhotoOperator;
 @property(readonly, copy, nonatomic) NSArray *peopleInPhoto;
 - (void)setExcludedAttributes:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long excludedAttributes;
 - (void)setIncludedAttributes:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long includedAttributes;
-@property(readonly, nonatomic) long long searchTermsOperator;
 - (void)setSearchTerms:(id)arg1;
+@property(readonly, nonatomic) long long searchTermsOperator;
 @property(readonly, copy, nonatomic) NSArray *searchTerms;
 - (void)setAlbumName:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *albumName;

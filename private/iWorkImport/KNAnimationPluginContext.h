@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     NSArray *_magicMoveMatches;
     double _percent;
     NSArray *_textures;
+    NSArray *_tags;
     NSDictionary *_transitionAttributes;
     KNAnimationRandomGenerator *_randomGenerator;
     unsigned long long _direction;
@@ -42,6 +43,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(nonatomic) unsigned long long direction; // @synthesize direction=_direction;
 @property(nonatomic) NSDictionary *transitionAttributes; // @synthesize transitionAttributes=_transitionAttributes;
+@property(retain, nonatomic) NSArray *tags; // @synthesize tags=_tags;
 @property(retain, nonatomic) NSArray *textures; // @synthesize textures=_textures;
 @property(nonatomic) double percent; // @synthesize percent=_percent;
 @property(nonatomic) NSArray *magicMoveMatches; // @synthesize magicMoveMatches=_magicMoveMatches;

@@ -67,6 +67,7 @@
 - (_Bool)resignFirstResponder;
 - (_Bool)becomeFirstResponder;
 - (void)layoutSubviews;
+- (void)transitioningToPasscodeView;
 - (void)setShowsStatusField:(_Bool)arg1;
 - (void)setShowsEmergencyCallButton:(_Bool)arg1;
 - (id)passcode;

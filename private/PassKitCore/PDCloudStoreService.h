@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) PDCloudStoreNotificationCoordinator *cloudStoreNotificationCoordinator; // @synthesize cloudStoreNotificationCoordinator=_cloudStoreNotificationCoordinator;
 - (void).cxx_destruct;
+- (void)fetchAndStoreRecordsForPaymentPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)simulateCloudStorePushWithCompletion:(CDUnknownBlockType)arg1;
 - (void)resetContainerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)allItemsOfClassType:(Class)arg1 storeLocally:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;

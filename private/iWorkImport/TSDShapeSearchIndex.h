@@ -6,15 +6,17 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSDictionary, TSULocale;
+@class NSCharacterSet, NSDictionary, TSULocale;
 
 __attribute__((visibility("hidden")))
 @interface TSDShapeSearchIndex : NSObject
 {
     TSULocale *_locale;
     NSDictionary *_searchIndex;
+    NSCharacterSet *_whitespaceCharacterSet;
 }
 
+@property(retain, nonatomic) NSCharacterSet *p_whitespaceCharacterSet; // @synthesize p_whitespaceCharacterSet=_whitespaceCharacterSet;
 @property(copy, nonatomic) NSDictionary *p_searchIndex; // @synthesize p_searchIndex=_searchIndex;
 @property(retain, nonatomic) TSULocale *p_locale; // @synthesize p_locale=_locale;
 - (void).cxx_destruct;

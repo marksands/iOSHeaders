@@ -24,6 +24,7 @@
     _Bool _isInfoInPopoverMode;
     _Bool _inTagListMode;
     _Bool _addingTag;
+    _Bool _userChangedTags;
     id <DOCTagEditorDelegate> _delegate;
     NSArray *_items;
     NSOrderedSet *_userTags;
@@ -48,6 +49,7 @@
 @property(retain, nonatomic) NSString *addNewTagTitle; // @synthesize addNewTagTitle=_addNewTagTitle;
 @property(retain, nonatomic) NSString *addTagTitle; // @synthesize addTagTitle=_addTagTitle;
 @property(retain, nonatomic) NSString *tagsTitle; // @synthesize tagsTitle=_tagsTitle;
+@property(nonatomic) _Bool userChangedTags; // @synthesize userChangedTags=_userChangedTags;
 @property(retain, nonatomic) NSMutableSet *unionSelectedTags; // @synthesize unionSelectedTags=_unionSelectedTags;
 @property(retain, nonatomic) NSMutableSet *intersectionSelectedTags; // @synthesize intersectionSelectedTags=_intersectionSelectedTags;
 @property(readonly, nonatomic) NSMutableOrderedSet *discoveredTags; // @synthesize discoveredTags=_discoveredTags;
@@ -103,6 +105,7 @@
 - (void)dealloc;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;

@@ -23,6 +23,7 @@
     NTKUpNextScheduler *_updateScheduler;
     NTKUpNextScheduler *_reloadScheduler;
     _Bool _hasUnlockedSinceFirstBoot;
+    _Bool _wantsReloadWhilePaused;
     _Bool _isPerformingReload;
     NSMutableArray *_enqueuedBlocks;
     _Bool _willUnload;

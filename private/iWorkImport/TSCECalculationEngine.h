@@ -32,6 +32,9 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_legacyGlobalIDStringToOwnerUIDMap;
     unsigned long long _batchingGroupCellDirtyingLevel;
     _Bool _dirtyRandomVolatileFunctionsAtEndOfDirtyBatching;
+    unsigned long long _documentRandomSeed;
+    NSDate *_currentDate;
+    NSTimeZone *_currentTimeZone;
     NSMutableArray *_calculationStateObservers;
     unsigned long long _suppressWillModifyCallsLevel;
     unsigned long long _numberOfFormulas;
@@ -44,14 +47,11 @@ __attribute__((visibility("hidden")))
     TSKAccessController *_accessController;
     TSKChangeNotifier *_changeNotifier;
     TSCERemoteDataStore *_remoteDataStore;
-    NSDate *_currentDate;
-    NSTimeZone *_currentTimeZone;
     NSString *_previousLocaleIdentifier;
     unsigned long long _loadFromFileVersion;
     TSCETableInfosByName *_tableInfosByName;
     TSCETransaction *_currentTransaction;
     TSCENamedReferenceManager *_namedReferenceManager;
-    unsigned long long _documentRandomSeed;
     TSCEUUidReferenceMap *_uuidReferenceMap;
     TSCERewriteTableIDInfo *_tableIDHistory;
     id <TSKMultiTableRemapping> _currentTableIdRemapper;
@@ -68,7 +68,6 @@ __attribute__((visibility("hidden")))
 @property(retain) id <TSKMultiTableRemapping> currentTableIdRemapper; // @synthesize currentTableIdRemapper=_currentTableIdRemapper;
 @property(readonly) TSCERewriteTableIDInfo *tableIDHistory; // @synthesize tableIDHistory=_tableIDHistory;
 @property(readonly) TSCEUUidReferenceMap *uuidReferenceMap; // @synthesize uuidReferenceMap=_uuidReferenceMap;
-@property unsigned long long documentRandomSeed; // @synthesize documentRandomSeed=_documentRandomSeed;
 @property(readonly, nonatomic) TSCENamedReferenceManager *namedReferenceManager; // @synthesize namedReferenceManager=_namedReferenceManager;
 @property UUIDData_5fbc143e transposingTableUID; // @synthesize transposingTableUID=_transposingTableUID;
 @property(readonly) TSCETransaction *currentTransaction; // @synthesize currentTransaction=_currentTransaction;
@@ -76,8 +75,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long loadFromFileVersion; // @synthesize loadFromFileVersion=_loadFromFileVersion;
 @property(readonly) NSString *previousLocaleIdentifier; // @synthesize previousLocaleIdentifier=_previousLocaleIdentifier;
 @property int XLImportDateMode; // @synthesize XLImportDateMode=_XLImportDateMode;
-@property(retain) NSTimeZone *currentTimeZone; // @synthesize currentTimeZone=_currentTimeZone;
-@property(retain) NSDate *currentDate; // @synthesize currentDate=_currentDate;
 @property(readonly) TSCERemoteDataStore *remoteDataStore; // @synthesize remoteDataStore=_remoteDataStore;
 @property(nonatomic) __weak TSKChangeNotifier *changeNotifier; // @synthesize changeNotifier=_changeNotifier;
 @property(nonatomic) __weak TSKAccessController *accessController; // @synthesize accessController=_accessController;
@@ -227,6 +224,9 @@ __attribute__((visibility("hidden")))
 - (id)init;
 - (void)initializeDispatchObjects;
 @property(readonly) _Bool shouldAbortRecalculation;
+@property(retain) NSTimeZone *currentTimeZone;
+@property(retain) NSDate *currentDate;
+@property unsigned long long documentRandomSeed;
 - (id)legacyGlobalIDStringToOwnerUIDMap;
 
 @end

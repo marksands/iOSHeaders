@@ -25,6 +25,7 @@
 + (id)insertIntoPhotoLibrary:(id)arg1 withCloudMasterGUID:(id)arg2;
 - (id)cplFullRecord;
 @property(readonly, retain, nonatomic) id localID;
+- (_Bool)allOriginalsAreLocallyAvailableForAssetUuid:(id)arg1;
 - (_Bool)allOriginalsAreUploaded;
 - (unsigned long long)sizeOfOriginal;
 @property(readonly, copy) NSString *description;

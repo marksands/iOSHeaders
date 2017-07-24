@@ -110,6 +110,8 @@
 - (id)CKDescriptionPropertiesWithPublic:(_Bool)arg1 private:(_Bool)arg2 shouldExpand:(_Bool)arg3;
 - (void)processOperationResult:(id)arg1;
 @property(nonatomic) _Bool isExecuting;
+- (void)_setIsExecuting:(_Bool)arg1;
+- (void)_setIsFinished:(_Bool)arg1;
 - (id)_findBestThrottleError:(id)arg1;
 - (void)_installTimeoutSource;
 - (void)_uninstallTimeoutSource;

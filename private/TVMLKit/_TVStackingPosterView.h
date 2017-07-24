@@ -53,6 +53,7 @@ __attribute__((visibility("hidden")))
 - (void)_updateShadowForLabel:(id)arg1 inFocus:(_Bool)arg2;
 - (double)_labelWidthForWidth:(double)arg1 component:(id)arg2 expansionAmount:(double)arg3;
 - (struct TVCellMetrics)_cellMetricsForMaxSize:(struct CGSize)arg1;
+- (void)_updateComponentConstraints;
 - (void)_configureSubviews;
 - (void)_resetSubviews;
 - (struct UIEdgeInsets)selectionMarginsForSize:(struct CGSize)arg1;
@@ -66,7 +67,7 @@ __attribute__((visibility("hidden")))
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)_preferredConfigurationForFocusAnimation:(long long)arg1 inContext:(id)arg2;
-- (void)updateComponentLayout;
+- (void)setNeedsUpdateComponentLayout;
 - (void)_commonInit;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

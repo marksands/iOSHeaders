@@ -8,14 +8,15 @@
 
 #import <PencilKit/PKCanvasViewDelegate-Protocol.h>
 #import <PencilKit/PKSelectionDelegate-Protocol.h>
-#import <PencilKit/UIDropInteractionDelegate-Protocol.h>
+#import <PencilKit/UIDropInteractionDelegate_Private-Protocol.h>
+#import <PencilKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <PencilKit/UIScrollViewDelegate-Protocol.h>
 #import <PencilKit/_UIScrollViewLayoutObserver-Protocol.h>
 #import <PencilKit/_UIScrollViewScrollObserver-Protocol.h>
 
 @class NSArray, NSString, PKCanvasView, PKDrawing, PKInk, PKInlineInkPicker, PKLinedPaper, PKSelectionController, UIButton, UIDropInteraction, UIScrollView, UITouch, _UITextAttachmentDrawingView;
 
-@interface PKTiledView : UIView <UIScrollViewDelegate, PKCanvasViewDelegate, _UIScrollViewScrollObserver, _UIScrollViewLayoutObserver, PKSelectionDelegate, UIDropInteractionDelegate>
+@interface PKTiledView : UIView <UIScrollViewDelegate, PKCanvasViewDelegate, _UIScrollViewScrollObserver, _UIScrollViewLayoutObserver, PKSelectionDelegate, UIDropInteractionDelegate_Private, UIGestureRecognizerDelegate>
 {
     UIDropInteraction *_dropInteraction;
     PKDrawing *_dirtyDrawing;
@@ -68,6 +69,7 @@
 - (void)appendPath:(id)arg1 attachmentString:(id)arg2;
 - (void)_tapToRadarButtonTapped:(id)arg1;
 - (void)_setupTapToRadarButton;
+- (long long)_dropInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (void)dropInteraction:(id)arg1 performDrop:(id)arg2;
 - (id)dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
 - (_Bool)dropInteraction:(id)arg1 canHandleSession:(id)arg2;
@@ -75,6 +77,8 @@
 - (void)resetSelectedStrokeStateForRenderer;
 - (void)toggleSelectedStrokes:(id)arg1 hide:(_Bool)arg2 inDrawing:(id)arg3;
 - (void)applyCommand:(id)arg1 toDrawing:(id)arg2;
+- (void)didBeginDraggingSelection;
+- (void)scrollContent:(struct CGPoint)arg1;
 - (id)drawingView;
 - (id)drawingForLiveAttachment;
 - (_Bool)liveDrawingIsAtEndOfDocument;
@@ -109,7 +113,7 @@
 - (_Bool)hasEndAttachment;
 - (id)hitAttachment:(struct CGPoint)arg1 includeEndAttachment:(_Bool)arg2;
 - (id)hitAttachment:(struct CGPoint)arg1;
-- (void)updateCanvasTransforms;
+- (void)getDrawingTransform:(struct CGAffineTransform *)arg1 strokeTransform:(struct CGAffineTransform *)arg2 paperTransform:(struct CGAffineTransform *)arg3;
 - (void)updateEndAttachment;
 - (void)_layoutSubviews;
 - (void)_didAddDrawingAttachmentView;
@@ -121,7 +125,7 @@
 - (void)performUndoModifyStrokesCommand:(id)arg1;
 - (void)performUndo:(id)arg1;
 - (void)canvasView:(id)arg1 drawingDidChange:(id)arg2;
-- (void)_canvasView:(id)arg1 didFinishRenderingStrokeOnRenderQueue:(id)arg2;
+- (void)_canvasView:(id)arg1 didFinishRenderingStrokeOnRenderQueue:(id)arg2 inDrawing:(id)arg3;
 - (void)canvasViewDidEndStroke:(id)arg1;
 - (void)canvasViewWillBeginNewStroke:(id)arg1 withTouch:(id)arg2;
 - (id)attachmentForUUID:(id)arg1;

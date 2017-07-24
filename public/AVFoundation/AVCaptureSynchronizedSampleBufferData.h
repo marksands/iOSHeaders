@@ -13,6 +13,7 @@
     AVCaptureSynchronizedSampleBufferDataInternal *_internal;
 }
 
+- (_Bool)hasCorrespondingDepthData;
 @property(readonly) long long droppedReason;
 @property(readonly) _Bool sampleBufferWasDropped;
 @property(readonly) struct opaqueCMSampleBuffer *sampleBuffer;

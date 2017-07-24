@@ -21,7 +21,6 @@
 }
 
 + (id)newEllipticalConeWithHeight:(float)arg1 radii:(unsigned long long)arg2 radialSegments:(unsigned long long)arg3 verticalSegments:(long long)arg4 geometryType:(_Bool)arg5 inwardNormals:(id)arg6 allocator: /* Error: Ran out of types for this method. */;
-+ (id)newMeshWithPrimitive:(id)arg1 segments:(_Bool)arg2 inwardNormals:(long long)arg3 geometryType:(id)arg4 allocator: /* Error: Ran out of types for this method. */;
 + (id)newSubdividedMesh:(id)arg1 submeshIndex:(unsigned long long)arg2 subdivisionLevels:(unsigned long long)arg3;
 + (id)newEllipsoidWithRadii:(unsigned long long)arg1 radialSegments:(unsigned long long)arg2 verticalSegments:(long long)arg3 geometryType:(_Bool)arg4 inwardNormals:(_Bool)arg5 hemisphere:(id)arg6 allocator: /* Error: Ran out of types for this method. */;
 + (id)newIcosahedronWithRadius:(float)arg1 inwardNormals:(_Bool)arg2 allocator:(id)arg3;
@@ -48,7 +47,6 @@
 - (void)debugPrintToFile:(struct __sFILE *)arg1;
 @property(retain, nonatomic) NSArray *vertexBuffers;
 - (id)initConeWithExtent:(_Bool)arg1 segments:(_Bool)arg2 inwardNormals:(long long)arg3 cap:(id)arg4 geometryType:allocator: /* Error: Ran out of types for this method. */;
-- (id)initMeshWithPrimitive:(id)arg1 segments:(_Bool)arg2 inwardNormals:(long long)arg3 geometryType:(id)arg4 allocator: /* Error: Ran out of types for this method. */;
 - (id)initMeshBySubdividingMesh:(id)arg1 submeshIndex:(int)arg2 subdivisionLevels:(unsigned int)arg3 allocator:(id)arg4;
 - (id)initHemisphereWithExtent:(_Bool)arg1 segments:(_Bool)arg2 inwardNormals:(long long)arg3 cap:(id)arg4 geometryType:allocator: /* Error: Ran out of types for this method. */;
 - (id)initSphereWithExtent:(_Bool)arg1 segments:(long long)arg2 inwardNormals:(id)arg3 geometryType:allocator: /* Error: Ran out of types for this method. */;

@@ -9,7 +9,7 @@
 #import <AssistantServices/AFAudioPowerUpdaterDelegate-Protocol.h>
 #import <AssistantServices/NSXPCListenerDelegate-Protocol.h>
 
-@class AFAudioPowerUpdater, AFClientConfiguration, NSArray, NSError, NSMutableDictionary, NSString, NSUUID, NSXPCConnection;
+@class AFAudioPowerUpdater, AFClientConfiguration, AFConnectionUserInteractionAssertion, AFOneArgumentSafetyBlock, NSArray, NSError, NSMutableDictionary, NSString, NSUUID, NSXPCConnection;
 @protocol AFAssistantUIService, AFSpeechDelegate, OS_dispatch_group, OS_dispatch_queue;
 
 @interface AFConnection : NSObject <NSXPCListenerDelegate, AFAudioPowerUpdaterDelegate>
@@ -22,6 +22,7 @@
     long long _activeRequestType;
     long long _activeRequestUsefulUserResultType;
     _Bool _hasActiveTimeout;
+    AFOneArgumentSafetyBlock *_requestCompletion;
     NSMutableDictionary *_replyHandlerForAceId;
     unsigned int _stateInSync:1;
     unsigned int _shouldSpeak:1;
@@ -35,6 +36,8 @@
     NSError *_lastRetryError;
     unsigned long long _pendingSpeechRequestCounter;
     NSObject<OS_dispatch_group> *_speechCallbackGroup;
+    NSObject<OS_dispatch_group> *_pendingAceCommandGroup;
+    AFConnectionUserInteractionAssertion *_userInteractionAssertion;
     id <AFAssistantUIService> _delegate;
     id <AFSpeechDelegate> _speechDelegate;
 }
@@ -54,6 +57,7 @@
 @property(nonatomic) __weak id <AFSpeechDelegate> speechDelegate; // @synthesize speechDelegate=_speechDelegate;
 @property(nonatomic) __weak id <AFAssistantUIService> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (id)acquireUserInteractionAssertion;
 - (void)_speechRecordingDidFailWithError:(id)arg1;
 - (void)adviseSessionArbiterToContinueWithPreviousWinner:(_Bool)arg1;
 - (void)updateSpeechSynthesisRecord:(id)arg1;
@@ -101,10 +105,11 @@
 - (CDUnknownBlockType)startRecordingAndGetContinueBlockForPendingSpeechRequestWithOptions:(id)arg1;
 - (void)startRecordingForPendingSpeechRequestWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)startSpeechRequestWithOptions:(id)arg1;
-- (void)_startRequestWithInfo:(id)arg1 activationEvent:(long long)arg2 analyticsEventProvider:(CDUnknownBlockType)arg3;
+- (void)_startRequestWithInfo:(id)arg1;
 - (void)startRequestWithInfo:(id)arg1 activationEvent:(long long)arg2;
 - (void)startRequestWithInfo:(id)arg1;
 - (void)startRequestWithCorrectedText:(id)arg1 forSpeechIdentifier:(id)arg2 userSelectionResults:(id)arg3;
+- (void)startRequestWithAceCommand:(id)arg1;
 - (void)startContinuationRequestWithUserInfo:(id)arg1;
 - (void)startDirectActionRequestWithString:(id)arg1;
 - (void)startRequestWithText:(id)arg1;
@@ -182,6 +187,8 @@
 - (void)_aceConnectionWillRetryOnError:(id)arg1;
 - (void)_setShouldSpeak:(_Bool)arg1;
 - (void)_doCommand:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (_Bool)_isCurrentPendingAceCommandGroup:(id)arg1;
+- (void)_cancelPendingAceCommandGroup;
 - (void)_startUIRequestWithText:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_requestDidEnd;
 - (void)_requestWillBeginWithRequestClass:(id)arg1 isSpeechRequest:(_Bool)arg2 isBackgroundRequest:(_Bool)arg3 analyticsEventProvider:(CDUnknownBlockType)arg4;

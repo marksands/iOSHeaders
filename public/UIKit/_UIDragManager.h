@@ -25,13 +25,13 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSArray *dragSessionSources; // @synthesize dragSessionSources=_dragSessionSources;
 - (void).cxx_destruct;
 - (void)sessionDestinationDidEnd:(id)arg1;
-- (id)beginDragDestinationWithEvent:(id)arg1;
+- (id)dragDestinationWithEvent:(id)arg1;
 - (id)sessionSourceWithIdentifier:(unsigned int)arg1;
 - (void)sessionSourceDidEnd:(id)arg1;
 - (void)performPendingSessionCompletionBlocksIfPossible;
 - (void)performAfterCompletingPendingSessionRequests:(CDUnknownBlockType)arg1;
 - (_Bool)hasPendingSessionRequests;
-- (id)beginDragWithItems:(id)arg1 touches:(id)arg2 orInitialCentroid:(struct CGPoint)arg3 requiredContextIds:(id)arg4 shouldPerformHitTesting:(_Bool)arg5 sourceView:(id)arg6 accessibilityEndpoint:(id)arg7;
+- (id)beginDragWithItems:(id)arg1 dataOwner:(long long)arg2 touches:(id)arg3 orInitialCentroid:(struct CGPoint)arg4 requiredContextIds:(id)arg5 shouldPerformHitTesting:(_Bool)arg6 sourceView:(id)arg7 accessibilityEndpoint:(id)arg8;
 - (void)warmUpDruid;
 - (void)deleteSlots:(id)arg1;
 - (unsigned int)uploadImage:(struct CGImage *)arg1;

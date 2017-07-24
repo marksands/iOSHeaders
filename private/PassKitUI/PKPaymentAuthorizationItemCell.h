@@ -19,12 +19,14 @@
     UIImageView *_labelImageView;
     NSMutableArray *_constraints;
     _Bool _showsDisclosure;
+    _Bool _showsSeperator;
     NSAttributedString *_label;
     UIImage *_labelImage;
     NSString *_accessibilityLabel;
     NSAttributedString *_value;
 }
 
+@property(nonatomic) _Bool showsSeperator; // @synthesize showsSeperator=_showsSeperator;
 @property(nonatomic) _Bool showsDisclosure; // @synthesize showsDisclosure=_showsDisclosure;
 @property(copy, nonatomic) NSAttributedString *value; // @synthesize value=_value;
 @property(copy, nonatomic) NSString *accessibilityLabel; // @synthesize accessibilityLabel=_accessibilityLabel;

@@ -9,7 +9,7 @@
 #import <PassKitCore/NSSecureCoding-Protocol.h>
 #import <PassKitCore/PKCloudStoreCoding-Protocol.h>
 
-@class CLLocation, NSData, NSDate, NSDecimalNumber, NSDictionary, NSString, PKMerchant, PKPaymentTransactionFees, PKPaymentTransactionForeignExchangeInformation;
+@class CLLocation, NSData, NSDate, NSDecimalNumber, NSDictionary, NSString, PKCurrencyAmount, PKMerchant, PKPaymentTransactionFees, PKPaymentTransactionForeignExchangeInformation;
 
 @interface PKPaymentTransaction : NSObject <NSSecureCoding, PKCloudStoreCoding>
 {
@@ -119,6 +119,11 @@
 @property(copy, nonatomic) NSString *serviceIdentifier; // @synthesize serviceIdentifier=_serviceIdentifier;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *formattedBalanceAdjustmentAmount;
+@property(readonly, nonatomic) PKCurrencyAmount *secondaryFundingSourceCurrencyAmount;
+@property(readonly, nonatomic) PKCurrencyAmount *primaryFundingSourceCurrencyAmount;
+@property(readonly, nonatomic) PKCurrencyAmount *subtotalCurrencyAmount;
+@property(readonly, nonatomic) PKCurrencyAmount *currencyAmount;
 - (id)_transactionTypeString;
 - (id)_transactionSourceString;
 - (id)description;

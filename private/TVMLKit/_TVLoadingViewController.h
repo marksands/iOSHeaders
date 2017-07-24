@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     UIImage *_loadingImage;
     struct CGSize _spinnerSize;
     UIVisualEffectView *_visualEffectView;
+    UIView *_containerView;
     IKImageElement *_bgImageElement;
     IKImageElement *_heroImgElement;
     IKViewElement *_loadingTemplateElement;

@@ -6,13 +6,13 @@
 
 #import <VideoSubscriberAccountUI/NSObject-Protocol.h>
 
-@class VSAccount, VSFailable, VSIdentityProviderRequest, VSIdentityProviderViewController;
+@class NSArray, VSAccount, VSFailable, VSIdentityProviderRequest, VSIdentityProviderViewController;
 
 @protocol VSIdentityProviderViewControllerDelegate <NSObject>
 - (void)identityProviderViewController:(VSIdentityProviderViewController *)arg1 didFinishRequest:(VSIdentityProviderRequest *)arg2 withResult:(VSFailable *)arg3;
 
 @optional
-- (void)identityProviderViewController:(VSIdentityProviderViewController *)arg1 didAuthenticateAccount:(VSAccount *)arg2 forRequest:(VSIdentityProviderRequest *)arg3;
+- (void)identityProviderViewController:(VSIdentityProviderViewController *)arg1 didAuthenticateAccount:(VSAccount *)arg2 supportingApps:(NSArray *)arg3 forRequest:(VSIdentityProviderRequest *)arg4;
 - (void)identityProviderViewControllerDidFinishLoading:(VSIdentityProviderViewController *)arg1;
 @end
 

@@ -23,6 +23,7 @@
 @property(readonly, nonatomic) unsigned int downloadQueueItemCount;
 @property(readonly, copy, nonatomic) ICStoreDialogResponse *dialog;
 @property(readonly, nonatomic) long long status;
+@property(readonly, nonatomic) _Bool shouldCancelPurchaseBatch;
 @property(readonly, nonatomic) _Bool authorized;
 - (id)initWithResponseDictionary:(id)arg1 requestDate:(id)arg2 urlBag:(id)arg3;
 

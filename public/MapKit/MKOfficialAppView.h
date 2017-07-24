@@ -6,7 +6,7 @@
 
 #import <MapKit/MKPlaceSectionRowView.h>
 
-@class NSLayoutConstraint, NSMutableArray, SSLookupItem, UIButton, UIImage, UIImageView, UIView, _MKUILabel;
+@class NSMutableArray, SSLookupItem, UIButton, UIImage, UIImageView, UIView, _MKUILabel;
 @protocol MKOfficialAppViewDelegate;
 
 __attribute__((visibility("hidden")))
@@ -16,17 +16,8 @@ __attribute__((visibility("hidden")))
     UIView *_labelContainerView;
     _MKUILabel *_appNameLabel;
     _MKUILabel *_developerLabel;
-    UIView *_categoryContainerView;
-    _MKUILabel *_categoryLabel;
-    _MKUILabel *_ratingLabel;
     UIButton *_punchOutButton;
     NSMutableArray *_constraintArray;
-    NSLayoutConstraint *_nameBaselineToTopConstraint;
-    NSLayoutConstraint *_developerBaselineToNameBaselineConstraint;
-    NSLayoutConstraint *_categoryBaselineToDeveloperBaselineConstraint;
-    NSLayoutConstraint *_ratingBaselineToCategoryBaslineConstraint;
-    NSLayoutConstraint *_categoryLeadingToCategoryContainerLeadingConstraint;
-    NSLayoutConstraint *_categoryTrailingToCategoryContainerTrailingConstraint;
     SSLookupItem *_storeItem;
     UIImage *_storeItemImage;
     id <MKOfficialAppViewDelegate> _delegate;
@@ -36,7 +27,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIImage *storeItemImage; // @synthesize storeItemImage=_storeItemImage;
 @property(retain, nonatomic) SSLookupItem *storeItem; // @synthesize storeItem=_storeItem;
 - (void).cxx_destruct;
-- (void)setConstraintConstants;
 - (void)_createConstraints;
 - (void)_updateLabelText;
 - (_Bool)_appIsInstalled;

@@ -6,25 +6,16 @@
 
 #import <objc/NSObject.h>
 
-#import <ARKit/NSCopying-Protocol.h>
-
-@class NSData;
-
-@interface ARLightEstimate : NSObject <NSCopying>
+@interface ARLightEstimate : NSObject
 {
     double _ambientIntensity;
-    double _confidenceRating;
-    NSData *_sphericalHarmonicsCoefficients;
+    double _ambientColorTemperature;
 }
 
-@property(readonly, copy, nonatomic) NSData *sphericalHarmonicsCoefficients; // @synthesize sphericalHarmonicsCoefficients=_sphericalHarmonicsCoefficients;
-@property(nonatomic) double confidenceRating; // @synthesize confidenceRating=_confidenceRating;
+@property(readonly, nonatomic) double ambientColorTemperature; // @synthesize ambientColorTemperature=_ambientColorTemperature;
 @property(readonly, nonatomic) double ambientIntensity; // @synthesize ambientIntensity=_ambientIntensity;
-- (void).cxx_destruct;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
-- (_Bool)isEqual:(id)arg1;
-- (id)initWithCoefficients:(id)arg1;
+- (id)initWithAmbientIntensity:(double)arg1 temperature:(double)arg2;
 
 @end
 

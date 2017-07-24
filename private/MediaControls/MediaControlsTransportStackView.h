@@ -15,8 +15,8 @@
     long long _mediaControlsPlayerState;
     long long _style;
     MPCPlayerResponse *_response;
-    id <MediaControlsRatingActionSheet> _ratingActionSheetDelegate;
     MediaControlsTransportButton *_leftButton;
+    id <MediaControlsRatingActionSheet> _ratingActionSheetDelegate;
     MediaControlsTransportButton *_middleButton;
     MediaControlsTransportButton *_rightButton;
     NSBundle *_mediaControlsBundle;
@@ -27,8 +27,8 @@
 @property(retain, nonatomic) NSBundle *mediaControlsBundle; // @synthesize mediaControlsBundle=_mediaControlsBundle;
 @property(retain, nonatomic) MediaControlsTransportButton *rightButton; // @synthesize rightButton=_rightButton;
 @property(retain, nonatomic) MediaControlsTransportButton *middleButton; // @synthesize middleButton=_middleButton;
-@property(retain, nonatomic) MediaControlsTransportButton *leftButton; // @synthesize leftButton=_leftButton;
 @property(nonatomic) __weak id <MediaControlsRatingActionSheet> ratingActionSheetDelegate; // @synthesize ratingActionSheetDelegate=_ratingActionSheetDelegate;
+@property(retain, nonatomic) MediaControlsTransportButton *leftButton; // @synthesize leftButton=_leftButton;
 @property(nonatomic, getter=isEmpty) _Bool empty; // @synthesize empty=_empty;
 @property(retain, nonatomic) MPCPlayerResponse *response; // @synthesize response=_response;
 @property(nonatomic) long long style; // @synthesize style=_style;

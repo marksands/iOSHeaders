@@ -27,7 +27,7 @@
     _TVPagePerformanceController *_performanceController;
 }
 
-@property(retain, nonatomic) _TVPagePerformanceController *performanceController; // @synthesize performanceController=_performanceController;
+@property(nonatomic) __weak _TVPagePerformanceController *performanceController; // @synthesize performanceController=_performanceController;
 @property(nonatomic) unsigned long long templateDidLoadLastImageProxy; // @synthesize templateDidLoadLastImageProxy=_templateDidLoadLastImageProxy;
 @property(nonatomic) unsigned long long templateWillLoadFirstImageProxy; // @synthesize templateWillLoadFirstImageProxy=_templateWillLoadFirstImageProxy;
 @property(nonatomic) unsigned long long templateDidLoadResources; // @synthesize templateDidLoadResources=_templateDidLoadResources;

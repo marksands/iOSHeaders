@@ -11,20 +11,20 @@
 __attribute__((visibility("hidden")))
 @interface _UICollectionViewDragSourceControllerDragState : NSObject
 {
-    NSMutableOrderedSet *_indexPathsOfDraggingItems;
+    NSMutableOrderedSet *_dataSourceIndexPathsOfDraggingItems;
     NSPointerArray *_dragItemsWithRebasableIndexPaths;
 }
 
 @property(retain, nonatomic) NSPointerArray *dragItemsWithRebasableIndexPaths; // @synthesize dragItemsWithRebasableIndexPaths=_dragItemsWithRebasableIndexPaths;
-@property(retain, nonatomic) NSMutableOrderedSet *indexPathsOfDraggingItems; // @synthesize indexPathsOfDraggingItems=_indexPathsOfDraggingItems;
+@property(retain, nonatomic) NSMutableOrderedSet *dataSourceIndexPathsOfDraggingItems; // @synthesize dataSourceIndexPathsOfDraggingItems=_dataSourceIndexPathsOfDraggingItems;
 - (void).cxx_destruct;
-- (void)rebaseIndexPathsWithUpdateMap:(id)arg1;
-@property(readonly, nonatomic) NSArray *draggingIndexPaths;
-- (_Bool)isDraggingFromIndexPath:(id)arg1;
-- (id)indexPathForDragItem:(id)arg1 forCollectionView:(id)arg2;
-- (void)setIndexPath:(id)arg1 forDragItem:(id)arg2 collectionView:(id)arg3;
-- (void)addDraggingIndexPath:(id)arg1;
-@property(readonly, nonatomic) NSIndexPath *dragFromIndexPath;
+- (void)rebaseDataSourceIndexPathsWithUpdateMap:(id)arg1;
+@property(readonly, nonatomic) NSArray *draggingDataSourceIndexPaths;
+- (_Bool)isDraggingFromDataSourceIndexPath:(id)arg1;
+- (id)dataSourceIndexPathForDragItem:(id)arg1 forCollectionView:(id)arg2;
+- (void)setDataSourceIndexPath:(id)arg1 forDragItem:(id)arg2 collectionView:(id)arg3;
+- (void)addDraggingDataSourceIndexPath:(id)arg1;
+@property(readonly, nonatomic) NSIndexPath *dragFromDataSourceIndexPath;
 - (id)description;
 - (id)init;
 

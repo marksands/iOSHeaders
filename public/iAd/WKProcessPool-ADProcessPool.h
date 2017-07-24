@@ -7,8 +7,6 @@
 #import <WebKit/WKProcessPool.h>
 
 @interface WKProcessPool (ADProcessPool)
-+ (id)processPoolWithBackgoundPriority:(_Bool)arg1;
-+ (id)advertisingProcessPoolWithBackgoundPriority;
-+ (id)advertisingProcessPool;
++ (id)advertisingProcessPool:(_Bool)arg1;
 @end
 

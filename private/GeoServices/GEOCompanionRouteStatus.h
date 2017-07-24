@@ -98,6 +98,7 @@
 @property(readonly, nonatomic) NSArray *selectedRideIndices;
 @property(readonly, nonatomic) unsigned int effectiveDistanceToManeuver;
 @property(readonly, nonatomic) _Bool hasEffectiveDistanceToManeuver;
+- (unsigned int)effectiveStepIDInRoute:(id)arg1;
 @property(readonly, nonatomic) unsigned int effectiveStepID;
 @property(readonly, nonatomic) _Bool hasEffectiveStepID;
 @property(readonly, nonatomic) _Bool isRecalculating;

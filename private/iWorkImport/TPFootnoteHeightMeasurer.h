@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     TSULRUCache *_footnoteLayoutCache;
 }
 
+- (void).cxx_destruct;
 - (void)p_clearFootnoteLayoutCache;
 - (void)setFootnoteSpacing:(long long)arg1;
 - (void)setContainerWidth:(double)arg1;
@@ -25,7 +26,6 @@ __attribute__((visibility("hidden")))
 - (void)removeAllFootnoteReferenceStorages;
 - (void)removeFootnoteReferenceStorage:(id)arg1;
 - (void)addFootnoteReferenceStorage:(id)arg1;
-- (void)dealloc;
 - (id)initWithFootnoteMarkProvider:(id)arg1 maxFootnoteWidth:(double)arg2 maxFootnoteHeight:(double)arg3 footnoteSpacing:(double)arg4;
 
 // Remaining properties

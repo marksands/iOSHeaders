@@ -14,11 +14,11 @@
     _CLLocationSmootherProxy *_locationManagerSmootherProxy;
 }
 
-@property(retain, nonatomic) _CLLocationSmootherProxy *locationManagerSmootherProxy; // @synthesize locationManagerSmootherProxy=_locationManagerSmootherProxy;
 @property(nonatomic) id <CLLocationManagerDelegateInternal> delegate;
+- (void)smoothLocations:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)smoothLocations:(id)arg1;
+@property(readonly, retain, nonatomic) _CLLocationSmootherProxy *locationManagerSmootherProxy;
 - (void)dealloc;
-- (id)init;
 
 @end
 

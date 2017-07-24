@@ -103,6 +103,7 @@
 + (id)passthroughViews;
 + (double)gridViewRubberBandValueForValue:(double)arg1 target:(double)arg2 timeInterval:(double)arg3 velocity:(double *)arg4;
 + (struct CGPoint)defaultUndockedOffset;
++ (_Bool)pointIsWithinKeyboardContent:(struct CGPoint)arg1;
 + (struct CGRect)visiblePeripheralFrame;
 + (struct CGRect)visibleInputViewFrame;
 + (_Bool)inputViewSetContainsView:(id)arg1;
@@ -293,6 +294,7 @@
 - (_Bool)maximizeWithAnimation:(_Bool)arg1;
 - (_Bool)maximize;
 - (_Bool)minimize;
+- (void)prepareToMoveKeyboardForInputViewSet:(id)arg1;
 - (void)performMultipleOperations:(CDUnknownBlockType)arg1 withAnimationStyle:(id)arg2;
 - (void)postDidShowNotificationForGeometry:(struct UIPeripheralAnimationGeometry)arg1;
 - (void)postWillShowNotificationForGeometry:(struct UIPeripheralAnimationGeometry)arg1 duration:(double)arg2;

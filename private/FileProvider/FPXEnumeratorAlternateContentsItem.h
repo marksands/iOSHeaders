@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSDate *contentModificationDate;
 @property(readonly, copy, nonatomic) NSNumber *documentSize;
+@property(readonly) _Bool fp_isContainer;
 @property(readonly, copy) NSString *fp_appContainerBundleIdentifier;
 @property(readonly, copy) NSString *fp_domainIdentifier;
 @property(readonly, copy) NSString *fp_spotlightDomainIdentifier;
@@ -30,6 +31,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *containerDisplayName;
 @property(readonly, copy) NSNumber *hasUnresolvedConflicts;
 @property(readonly, nonatomic) NSDictionary *userInfo;
+@property(readonly, nonatomic) NSPersonNameComponents *ownerNameComponents;
 @property(readonly, nonatomic) NSPersonNameComponents *mostRecentEditorNameComponents;
 @property(readonly, nonatomic, getter=isSharedByCurrentUser) _Bool sharedByCurrentUser;
 @property(readonly, nonatomic, getter=isShared) _Bool shared;
@@ -58,8 +60,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, copy) NSURL *fileURL;
+@property(readonly, getter=fp_isUbiquitous) _Bool fp_ubiquitous;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) NSPersonNameComponents *ownerNameComponents;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) NSData *versionIdentifier;
 

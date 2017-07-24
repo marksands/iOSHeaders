@@ -11,6 +11,8 @@
 }
 
 + (id)sharedInstance;
+@property(readonly, nonatomic) unsigned long long maxRandomJitterForHypothesisWakeup;
+@property(readonly, nonatomic) unsigned long long minRandomJitterForHypothesisWakeup;
 @property(readonly, nonatomic) double fastWalkingSpeed;
 @property(readonly, nonatomic) double slowWalkingSpeed;
 @property(readonly, nonatomic) double averageWalkingSpeed;

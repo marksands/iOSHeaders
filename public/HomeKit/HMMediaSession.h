@@ -10,18 +10,21 @@
 #import <HomeKit/NSSecureCoding-Protocol.h>
 #import <HomeKit/_HMMediaSessionDelegate-Protocol.h>
 
-@class HMAudioControl, NSString, NSUUID, _HMMediaSession;
+@class HMAudioControl, HMMediaProfile, NSString, NSUUID, _HMMediaSession;
 @protocol HMMediaSessionDelegate;
 
 @interface HMMediaSession : NSObject <_HMMediaSessionDelegate, HMObjectMerge, NSSecureCoding>
 {
+    NSUUID *_uuid;
     long long _playbackState;
     HMAudioControl *_audioControl;
     id <HMMediaSessionDelegate> _delegate;
     _HMMediaSession *_mediaSession;
+    HMMediaProfile *_mediaProfile;
 }
 
 + (_Bool)supportsSecureCoding;
+@property __weak HMMediaProfile *mediaProfile; // @synthesize mediaProfile=_mediaProfile;
 @property(retain, nonatomic) _HMMediaSession *mediaSession; // @synthesize mediaSession=_mediaSession;
 @property __weak id <HMMediaSessionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly) HMAudioControl *audioControl; // @synthesize audioControl=_audioControl;
@@ -37,11 +40,11 @@
 - (id)playbackStateDescription;
 @property(readonly) long long playbackState; // @synthesize playbackState=_playbackState;
 @property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier;
-@property(readonly, nonatomic) NSUUID *uuid;
+@property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (id)messageTargetUUID;
-- (void)configure:(id)arg1;
-- (id)init;
-- (id)initWithUUID:(id)arg1;
+- (void)updatePlaybackState:(id)arg1;
+- (void)configure:(id)arg1 messageTargetUUID:(id)arg2;
+- (id)initWithUUID:(id)arg1 playbackState:(long long)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

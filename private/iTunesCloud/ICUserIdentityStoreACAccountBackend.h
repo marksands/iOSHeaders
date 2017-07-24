@@ -39,6 +39,7 @@
 - (id)_activeAccountDSID;
 - (void)_applyIdentityProperties:(id)arg1 toAccount:(id)arg2;
 - (void)_accountStoreDidChangeNotification:(id)arg1;
+- (void)_handleITunesStoreAccountsChanged;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -6,10 +6,11 @@
 
 #import <InstallCoordination/NSObject-Protocol.h>
 
-@class IXPromisedOutOfBandTransfer;
+@class IXPromisedOutOfBandTransfer, NSError;
 
 @protocol IXCoordinatorWithUserDataPromise <NSObject>
 @property(readonly, nonatomic) _Bool hasUserDataPromise;
+- (NSError *)userDataRestoreShouldBegin:(_Bool *)arg1;
 - (IXPromisedOutOfBandTransfer *)userDataPromiseWithError:(id *)arg1;
 - (_Bool)setUserDataPromise:(IXPromisedOutOfBandTransfer *)arg1 error:(id *)arg2;
 @end

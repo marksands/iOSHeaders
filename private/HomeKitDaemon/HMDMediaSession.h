@@ -19,11 +19,12 @@
     HMFMessageDispatcher *_msgDispatcher;
     NSMutableSet *_mediaProfiles;
     _Bool _connecting;
-    NSUUID *_uuid;
     NSString *_sessionIdentifier;
     HMDMediaEndpoint *_endpoint;
     long long _playbackState;
+    NSString *_logID;
     NSObject<OS_dispatch_queue> *_workQueue;
+    NSUUID *_uuid;
     NSMutableArray *_pendingBlocks;
 }
 
@@ -31,13 +32,14 @@
 + (long long)_mapToHMMediaPlaybackState:(unsigned int)arg1;
 + (id)logCategory;
 @property(retain, nonatomic) NSMutableArray *pendingBlocks; // @synthesize pendingBlocks=_pendingBlocks;
+@property(readonly, copy, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(readonly, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(readonly, nonatomic) NSString *logID; // @synthesize logID=_logID;
 @property(nonatomic, getter=isConnecting) _Bool connecting; // @synthesize connecting=_connecting;
 @property(nonatomic) long long playbackState; // @synthesize playbackState=_playbackState;
 @property(retain, nonatomic) HMDMediaEndpoint *endpoint; // @synthesize endpoint=_endpoint;
 @property(readonly, copy, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
-@property(readonly, copy, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -45,10 +47,9 @@
 - (void)addMediaProfile:(id)arg1;
 @property(readonly, nonatomic) NSSet *mediaProfiles;
 - (void)registerForSessionUpdates:(_Bool)arg1;
-- (void)configureWithMessageDispatcher:(id)arg1 enableUpdates:(_Bool)arg2;
 - (void)_handleMediaUpdateMuted:(id)arg1;
 - (void)_handleMediaUpdateVolume:(id)arg1;
-- (void)_handleMediaSetAudioControl:(id)arg1;
+- (void)_handleMediaSessionSetAudioControl:(id)arg1;
 - (void)_notifyClientsOfUpdatedVolume:(id)arg1 muted:(id)arg2 inResponseToMessage:(id)arg3;
 - (void)_handleMediaSessionSetPlayback:(id)arg1;
 - (void)_notifyPendingBlocksOfError:(id)arg1;
@@ -58,12 +59,12 @@
 - (void)mediaPlaybackStateChanged:(id)arg1;
 - (void)_handleGetPlaybackState:(id)arg1;
 - (void *)_getExternalDevice;
-- (void)_registerForMessages;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (id)dumpState;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
+- (id)logIdentifier;
 - (id)initWithEndpoint:(id)arg1 mediaProfiles:(id)arg2;
 
 // Remaining properties

@@ -68,6 +68,7 @@
 - (id)defaultBadgeForCell:(id)arg1;
 - (id)defaultEditableTextFieldForCell:(id)arg1;
 - (id)defaultLabelForCell:(id)arg1;
+- (void)applyCarPlayDefaultValuesToDetailTextLabel:(id)arg1 inCell:(id)arg2;
 - (void)applyCarPlayDefaultValuesToTextLabel:(id)arg1 inCell:(id)arg2;
 - (id)defaultLabelForCell:(id)arg1 ofClass:(Class)arg2;
 - (id)defaultDetailTextLabelFontForCell:(id)arg1;

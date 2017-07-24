@@ -20,6 +20,7 @@
     FPItem *_fileProviderItem;
 }
 
++ (_Bool)isAnyItemAFault:(id)arg1;
 + (_Bool)supportsSecureCoding;
 + (id)documentsURLsForItems:(id)arg1;
 @property(retain) FPItem *fileProviderItem; // @synthesize fileProviderItem=_fileProviderItem;

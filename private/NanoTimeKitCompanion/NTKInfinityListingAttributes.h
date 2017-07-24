@@ -20,7 +20,6 @@
 - (id)description;
 - (_Bool)containsAttributes:(id)arg1 ignoreKeys:(id)arg2;
 - (void)addAttribute:(id)arg1 forKey:(id)arg2;
-- (id)numberForKey:(id)arg1;
 - (id)colorForKey:(id)arg1;
 
 @end

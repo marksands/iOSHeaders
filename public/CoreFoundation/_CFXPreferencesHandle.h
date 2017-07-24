@@ -12,9 +12,11 @@
 {
     _CFXPreferences *prefs;
     struct os_unfair_lock_s lock;
+    unsigned int overrideEUID;
 }
 
 - (id)copyPrefs;
+- (void)setEUIDOverride:(unsigned int)arg1;
 - (void)dealloc;
 - (id)init;
 

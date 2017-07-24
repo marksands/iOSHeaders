@@ -8,10 +8,11 @@
 
 #import <MediaPlayer/NSCoding-Protocol.h>
 
-@class NSData, NSString;
+@class MPAVItem, NSData, NSString;
 
 @interface MPPlaybackContext : NSObject <NSCoding>
 {
+    MPAVItem *_playerCurrentItem;
     _Bool _shouldStartPlayback;
     _Bool _requireFinalTracklist;
     _Bool _shouldRestartPlayback;
@@ -39,6 +40,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
+@property(retain, nonatomic) MPAVItem *playerCurrentItem;
 
 @end
 

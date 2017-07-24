@@ -17,9 +17,10 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _completionHandler;
 }
 
++ (_Bool)_usePrivateCookieStore;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
-@property(retain, nonatomic) id <TVImageDecrypter> decrypter; // @synthesize decrypter=_decrypter;
-@property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
+@property(readonly, retain, nonatomic) id <TVImageDecrypter> decrypter; // @synthesize decrypter=_decrypter;
+@property(readonly, retain, nonatomic) NSURL *url; // @synthesize url=_url;
 - (void).cxx_destruct;
 - (id)initWithURL:(id)arg1 headers:(id)arg2 decrypter:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 

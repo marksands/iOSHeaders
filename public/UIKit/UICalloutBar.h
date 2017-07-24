@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, NSDictionary, NSMutableArray, NSString, UICalloutBarBackground, UICalloutBarButton, UIResponder, UIScrollView, UIStackView;
+@class NSArray, NSDictionary, NSMutableArray, NSString, UICalloutBarBackground, UICalloutBarButton, UIResponder, UIScrollView, UIStackView, UIWindow;
 
 @interface UICalloutBar : UIView
 {
@@ -25,6 +25,7 @@
     _Bool m_supressesHorizontalMovement;
     struct CGRect m_controlFrame;
     struct CGRect m_targetRect;
+    UIWindow *m_targetWindow;
     struct CGRect m_supressesHorizontalMovementFrame;
     double m_supressedHorizontalMovementX;
     int m_arrowDirection;
@@ -72,6 +73,7 @@
 @property(copy, nonatomic) NSArray *replacements; // @synthesize replacements=m_replacements;
 @property(nonatomic) __weak UIResponder *responderTarget; // @synthesize responderTarget=m_responderTarget;
 @property(nonatomic) int arrowDirection; // @synthesize arrowDirection=m_arrowDirection;
+@property(nonatomic) __weak UIWindow *targetWindow; // @synthesize targetWindow=m_targetWindow;
 @property(nonatomic) struct CGRect targetRect; // @synthesize targetRect=m_targetRect;
 @property(readonly, nonatomic) NSArray *rectsToEvade; // @synthesize rectsToEvade=m_rectsToEvade;
 @property(nonatomic) __weak id delegate; // @synthesize delegate=m_delegate;
@@ -101,9 +103,9 @@
 - (void)appear;
 - (void)show;
 - (void)buttonHighlighted:(id)arg1 highlighted:(_Bool)arg2;
-- (void)setTargetRect:(struct CGRect)arg1 arrowDirection:(int)arg2;
-- (void)setTargetRect:(struct CGRect)arg1 pointLeftOfControls:(struct CGPoint)arg2 pointRightOfControls:(struct CGPoint)arg3;
-- (void)setTargetRect:(struct CGRect)arg1 pointBelowControls:(struct CGPoint)arg2 pointAboveControls:(struct CGPoint)arg3;
+- (void)setTargetRect:(struct CGRect)arg1 view:(id)arg2 arrowDirection:(int)arg3;
+- (void)setTargetRect:(struct CGRect)arg1 view:(id)arg2 pointLeftOfControls:(struct CGPoint)arg3 pointRightOfControls:(struct CGPoint)arg4;
+- (void)setTargetRect:(struct CGRect)arg1 view:(id)arg2 pointBelowControls:(struct CGPoint)arg3 pointAboveControls:(struct CGPoint)arg4;
 - (_Bool)_updateVisibleItemsAnimated:(_Bool)arg1;
 - (void)adjustFrameToAvoidDividerOnArrow;
 - (void)addVerticalSeparatorAfterButton:(id)arg1;

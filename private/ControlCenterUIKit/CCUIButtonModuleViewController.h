@@ -8,7 +8,7 @@
 
 #import <ControlCenterUIKit/CCUIContentModuleContentViewController-Protocol.h>
 
-@class CAPackage, CCUIButtonModuleView, NSString, UIColor, UIImage;
+@class CCUIButtonModuleView, CCUICAPackageDescription, NSString, UIColor, UIImage;
 
 @interface CCUIButtonModuleViewController : UIViewController <CCUIContentModuleContentViewController>
 {
@@ -25,7 +25,7 @@
 @property(readonly, nonatomic) CCUIButtonModuleView *buttonView;
 @property(nonatomic, getter=isSelected) _Bool selected;
 @property(copy, nonatomic) NSString *glyphState;
-@property(retain, nonatomic) CAPackage *glyphPackage;
+@property(retain, nonatomic) CCUICAPackageDescription *glyphPackageDescription;
 @property(retain, nonatomic) UIColor *selectedGlyphColor;
 @property(retain, nonatomic) UIImage *selectedGlyphImage;
 @property(retain, nonatomic) UIColor *glyphColor;

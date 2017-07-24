@@ -22,6 +22,7 @@
     ARLightEstimate *_lightEstimate;
     ARPointCloud *_featurePoints;
     ARPointCloud *_referenceFeaturePoints;
+    NSArray *_cachedPointClouds;
     ARAnchor *_worldOrigin;
     ARTrackingErrorData *_trackingErrorData;
     long long _targetFramesPerSecond;
@@ -33,9 +34,10 @@
 @property(nonatomic) long long targetFramesPerSecond; // @synthesize targetFramesPerSecond=_targetFramesPerSecond;
 @property(retain, nonatomic) ARTrackingErrorData *trackingErrorData; // @synthesize trackingErrorData=_trackingErrorData;
 @property(retain, nonatomic) ARAnchor *worldOrigin; // @synthesize worldOrigin=_worldOrigin;
+@property(retain, nonatomic) NSArray *cachedPointClouds; // @synthesize cachedPointClouds=_cachedPointClouds;
 @property(retain, nonatomic) ARPointCloud *referenceFeaturePoints; // @synthesize referenceFeaturePoints=_referenceFeaturePoints;
 @property(retain, nonatomic) ARPointCloud *featurePoints; // @synthesize featurePoints=_featurePoints;
-@property(copy, nonatomic) ARLightEstimate *lightEstimate; // @synthesize lightEstimate=_lightEstimate;
+@property(retain, nonatomic) ARLightEstimate *lightEstimate; // @synthesize lightEstimate=_lightEstimate;
 @property(copy, nonatomic) NSArray *anchors; // @synthesize anchors=_anchors;
 @property(readonly, copy, nonatomic) ARCamera *camera; // @synthesize camera=_camera;
 @property(nonatomic) struct __CVBuffer *capturedImage; // @synthesize capturedImage=_capturedImage;

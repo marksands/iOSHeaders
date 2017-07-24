@@ -12,16 +12,17 @@
 #import <AppleAccountUI/UITextFieldDelegate-Protocol.h>
 #import <AppleAccountUI/UITextViewDelegate-Protocol.h>
 
-@class AAUIBuddyView, AAUIHeaderView, NSArray, NSString, UILabel, UITableView, UITableViewCell;
+@class AAUIBuddyView, AAUIHeaderView, NSArray, NSString, UILabel, UITableView, UITableViewCell, UITableViewHeaderFooterView;
 @protocol AAUISignInViewControllerDelegate;
 
 @interface AAUISignInViewController : UIViewController <RemoteUIControllerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 {
-    AAUIHeaderView *_tableHeaderView;
     UITableView *_tableView;
     UITableViewCell *_usernameCell;
     UITableViewCell *_passwordCell;
-    AAUIBuddyView *_tableFooterView;
+    UITableViewHeaderFooterView *_tableHeaderView;
+    AAUIHeaderView *_accountsHeaderView;
+    UITableViewHeaderFooterView *_tableFooterView;
     NSArray *_compactConstraints;
     NSArray *_expandedConstraints;
     _Bool _shouldAnticipatePiggybacking;
@@ -43,18 +44,19 @@
 - (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3 interaction:(long long)arg4;
 - (_Bool)textFieldShouldReturn:(id)arg1;
 - (_Bool)tableView:(id)arg1 shouldDrawTopSeparatorForSection:(long long)arg2;
-- (double)_compressedHeightForView:(id)arg1 containedInView:(id)arg2;
-- (double)heightForFooterInTableView:(id)arg1;
-- (double)heightForHeaderInTableView:(id)arg1;
-- (id)viewForFooterInTableView:(id)arg1;
-- (id)viewForHeaderInTableView:(id)arg1;
+- (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (_Bool)remoteUIController:(id)arg1 shouldLoadRequest:(id)arg2 redirectResponse:(id)arg3;
 - (void)_delegate_signInViewControllerDidCancel;
 - (void)_delegate_signInViewControllerDidCompleteWithAuthenticationResults:(id)arg1;
+- (void)sizeCategoryDidChange:(id)arg1;
+- (void)_endObservingSizeCategoryNotification;
+- (void)_beginObservingSizeCategoryNotification;
 - (void)_updateContentInsetWithHeight:(double)arg1;
 - (void)_keyboardWillHide:(id)arg1;
 - (void)_keyboardWillShow:(id)arg1;
@@ -74,14 +76,15 @@
 - (void)_nextButtonSelected:(id)arg1;
 - (void)_cancelButtonSelected:(id)arg1;
 - (void)_setEnabled:(_Bool)arg1;
-- (id)_fontForFooter;
 - (id)_attributedStringForFooter;
 - (_Bool)_isGreenTeaCapable;
 - (_Bool)_hasValidCredentials;
+- (void)constrainView:(id)arg1 toFillHeaderFooterView:(id)arg2;
 - (id)_tableFooterView;
 - (id)_passwordCell;
 - (id)_usernameCell;
 - (id)_tableView;
+- (id)_accountsHeaderView;
 - (id)_tableHeaderView;
 - (id)_nextBarButtonItem;
 - (id)_cancelBarButtonItem;

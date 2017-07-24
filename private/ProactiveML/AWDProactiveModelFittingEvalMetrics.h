@@ -18,6 +18,7 @@
     unsigned long long _truePositives;
     float _f1;
     float _rmse;
+    float _secsToExecute;
     struct {
         unsigned int falseNegatives:1;
         unsigned int falsePositives:1;
@@ -25,11 +26,13 @@
         unsigned int truePositives:1;
         unsigned int f1:1;
         unsigned int rmse:1;
+        unsigned int secsToExecute:1;
     } _has;
 }
 
 + (id)evalMetricsWithRmse:(float)arg1 f1:(float)arg2 truePositives:(unsigned long long)arg3 trueNegatives:(unsigned long long)arg4 falsePositives:(unsigned long long)arg5 falseNegatives:(unsigned long long)arg6;
 + (id)evalMetricsWithRmse:(float)arg1 f1:(float)arg2;
+@property(nonatomic) float secsToExecute; // @synthesize secsToExecute=_secsToExecute;
 @property(nonatomic) unsigned long long falseNegatives; // @synthesize falseNegatives=_falseNegatives;
 @property(nonatomic) unsigned long long falsePositives; // @synthesize falsePositives=_falsePositives;
 @property(nonatomic) unsigned long long trueNegatives; // @synthesize trueNegatives=_trueNegatives;
@@ -45,6 +48,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSecsToExecute;
 - (void)setNegativeScores:(float *)arg1 count:(unsigned long long)arg2;
 - (float)negativeScoresAtIndex:(unsigned long long)arg1;
 - (void)addNegativeScores:(float)arg1;

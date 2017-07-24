@@ -128,8 +128,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool allowsFootnotes;
 @property(readonly, nonatomic) _Bool allowsBody;
 @property(readonly, nonatomic) struct CGRect bodyRect;
-@property(readonly, nonatomic) TPBodyLayout *bodyLayout;
-@property(readonly, nonatomic) id <TPMasterDrawableProvider> masterDrawableProvider;
+@property(readonly, nonatomic) __weak TPBodyLayout *bodyLayout;
+@property(readonly, nonatomic) __weak id <TPMasterDrawableProvider> masterDrawableProvider;
 - (_Bool)headerFooterProviderValid;
 - (id)headerFooterProvider;
 - (_Bool)shouldHeaderFooterBeVisibleForPageIndex:(unsigned long long)arg1;

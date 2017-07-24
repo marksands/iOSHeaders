@@ -21,6 +21,8 @@
 @property(readonly, nonatomic, getter=_internalSessionSource) __weak _UIInternalDraggingSessionSource *internalSessionSource; // @synthesize internalSessionSource=_internalSessionSource;
 @property(nonatomic) __weak id <_UIDraggingSessionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (_Bool)_dynamicallyUpdatesPrefersFullSizePreviewss;
+- (_Bool)prefersFullSizePreview;
 - (void)_sendDataTransferFinished;
 - (void)_sendDidMove;
 - (void)_sendDidEndWithOperation:(unsigned long long)arg1;
@@ -30,7 +32,7 @@
 - (void)_sendWillBegin;
 - (void)_cancelDrag;
 - (_Bool)_shouldCancelOnAppDeactivation;
-- (void)_getOperationMaskFromDelegateInApp:(unsigned long long *)arg1 outsideApp:(unsigned long long *)arg2 prefersFullSizePreview:(_Bool *)arg3;
+- (void)_getOperationMaskFromDelegateInApp:(unsigned long long *)arg1 outsideApp:(unsigned long long *)arg2;
 @property(readonly, nonatomic) _UIDraggingSession *localDraggingSession;
 @property(nonatomic) long long numberOfValidItemsForDrop;
 @property(readonly, nonatomic) unsigned long long draggingSourceOperationMask;

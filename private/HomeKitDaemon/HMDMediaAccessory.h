@@ -6,10 +6,13 @@
 
 #import <HomeKitDaemon/HMDAccessory.h>
 
-@class HMDMediaProfile;
+#import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@interface HMDMediaAccessory : HMDAccessory
+@class HMDMediaAccessoryAdvertisement, HMDMediaProfile, NSString;
+
+@interface HMDMediaAccessory : HMDAccessory <HMFLogging>
 {
+    HMDMediaAccessoryAdvertisement *_advertisement;
     HMDMediaProfile *_mediaProfile;
 }
 
@@ -21,8 +24,21 @@
 - (id)dumpState;
 - (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (id)transactionWithObjectChangeType:(unsigned long long)arg1;
+- (void)handleUpdatedPassword:(id)arg1;
+- (void)handleUpdatedAdvertisement:(id)arg1;
+- (void)setAdvertisement:(id)arg1;
+@property(readonly, copy) HMDMediaAccessoryAdvertisement *advertisement; // @synthesize advertisement=_advertisement;
+- (void)removeAdvertisement:(id)arg1;
+- (void)addAdvertisement:(id)arg1;
+- (void)configure:(id)arg1 msgDispatcher:(id)arg2 accessoryConfigureGroup:(id)arg3;
 - (id)init;
 - (id)initWithTransaction:(id)arg1 home:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

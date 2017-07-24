@@ -34,6 +34,8 @@
 + (id)tarGzForDirectoryUrl:(id)arg1 validatesUrl:(_Bool)arg2;
 + (id)tarGzForDirectoryUrl:(id)arg1;
 + (void)excludeFromBackup:(id)arg1;
++ (unsigned long long)getDirectorySize:(id)arg1;
++ (unsigned long long)getFileSystemItemSize:(id)arg1;
 
 @end
 

@@ -44,6 +44,8 @@
 - (void)triggerUpdate;
 - (void)deactivate;
 - (void)activate;
+- (id)getL3ModelVersion;
+- (id)getL2ModelVersion;
 - (id)init;
 
 @end

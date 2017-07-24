@@ -6,18 +6,20 @@
 
 #import <QuartzCore/CAEAGLLayer.h>
 
-@class CADisplayLink, NSObject;
+@class CADisplayLink, EAGLContext, NSObject;
 @protocol TSDGLLayerContext, TSDGLLayerDelegate;
 
 __attribute__((visibility("hidden")))
 @interface TSDGLLayer : CAEAGLLayer
 {
-    NSObject<TSDGLLayerDelegate> *mDelegate;
-    id <TSDGLLayerContext> mContext;
+    id <TSDGLLayerContext> _layerContext;
+    NSObject<TSDGLLayerDelegate> *_delegate;
+    EAGLContext *_sharedContext;
     CADisplayLink *mDisplayLink;
 }
 
-@property NSObject<TSDGLLayerDelegate> *delegate; // @synthesize delegate=mDelegate;
+@property(nonatomic) EAGLContext *sharedContext; // @synthesize sharedContext=_sharedContext;
+@property NSObject<TSDGLLayerDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void)displayAtCurrentLayerTime;
 - (void)unlock;
 - (void)lock;
@@ -30,7 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)p_drawFrameAtLayerTime:(double)arg1;
 - (void)teardown;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 isOpaque:(_Bool)arg2 delegate:(id)arg3 isWideGamut:(_Bool)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 isOpaque:(_Bool)arg2 delegate:(id)arg3 sharedContext:(id)arg4 isWideGamut:(_Bool)arg5;
 
 @end
 

@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 
 + (id)mixableObjectClasses;
 - (_Bool)isPlaceholder;
-- (id)textureForContext:(id)arg1;
+- (id)textureForDescription:(id)arg1;
 
 @end
 

@@ -43,6 +43,7 @@ __attribute__((visibility("hidden")))
 - (void)tapBack:(id)arg1;
 - (void)tapDone:(id)arg1;
 - (void)tapCancel:(id)arg1;
+- (void)performTraitCollectionUpdateWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)prefersStatusBarHidden;
 - (long long)preferredStatusBarStyle;
 - (long long)preferredStatusBarUpdateAnimation;

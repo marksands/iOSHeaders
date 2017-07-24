@@ -7,27 +7,32 @@
 #import <Foundation/NSObject.h>
 
 @class NSSet;
+@protocol CHStrokeIdentifier;
 
 @interface CHStrokeGroup : NSObject
 {
     long long _uniqueIdentifier;
     long long _ancestorIdentifier;
     NSSet *_strokeIdentifiers;
+    id <CHStrokeIdentifier> _firstStrokeIdentifier;
+    id <CHStrokeIdentifier> _lastStrokeIdentifier;
     struct CGRect _bounds;
 }
 
 + (long long)_newStrokeGroupUniqueIdentifier;
+@property(readonly, nonatomic) id <CHStrokeIdentifier> lastStrokeIdentifier; // @synthesize lastStrokeIdentifier=_lastStrokeIdentifier;
+@property(readonly, nonatomic) id <CHStrokeIdentifier> firstStrokeIdentifier; // @synthesize firstStrokeIdentifier=_firstStrokeIdentifier;
 @property(readonly, nonatomic) NSSet *strokeIdentifiers; // @synthesize strokeIdentifiers=_strokeIdentifiers;
 @property(readonly, nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 @property(readonly, nonatomic) long long ancestorIdentifier; // @synthesize ancestorIdentifier=_ancestorIdentifier;
 @property(readonly, nonatomic) long long uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
-- (id)groupByAddingStrokeIdentifiers:(id)arg1 removingStrokeIdentifiers:(id)arg2 bounds:(struct CGRect)arg3;
+- (id)groupByAddingStrokeIdentifiers:(id)arg1 removingStrokeIdentifiers:(id)arg2 firstStrokeIdentifier:(id)arg3 lastStrokeIdentifier:(id)arg4 bounds:(struct CGRect)arg5;
 @property(readonly, nonatomic) struct CGVector averageWritingOrientation;
 - (id)description;
 - (_Bool)isEquivalentToStrokeGroup:(id)arg1;
 - (void)dealloc;
-- (id)initWithAncestorIdentifier:(long long)arg1 strokeIdentifiers:(id)arg2 bounds:(struct CGRect)arg3;
-- (id)initWithStrokeIdentifiers:(id)arg1 bounds:(struct CGRect)arg2;
+- (id)initWithAncestorIdentifier:(long long)arg1 strokeIdentifiers:(id)arg2 firstStrokeIdentifier:(id)arg3 lastStrokeIdentifier:(id)arg4 bounds:(struct CGRect)arg5;
+- (id)initWithStrokeIdentifiers:(id)arg1 firstStrokeIdentifier:(id)arg2 lastStrokeIdentifier:(id)arg3 bounds:(struct CGRect)arg4;
 - (id)init;
 
 @end

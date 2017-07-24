@@ -93,6 +93,7 @@
 - (void)_customViewChangedForButtonItem:(id)arg1;
 - (void)setItems:(id)arg1 animated:(_Bool)arg2;
 - (void)_sendAction:(id)arg1 withEvent:(id)arg2;
+@property(readonly, nonatomic) _Bool _shouldStretchDuringCrossfadeTransition;
 - (void)backdropView:(id)arg1 didChangeToGraphicsQuality:(long long)arg2;
 @property(retain, nonatomic, getter=_backdropViewLayerGroupName, setter=_setBackdropViewLayerGroupName:) NSString *_backdropViewLayerGroupName;
 @property(nonatomic, getter=isTranslucent) _Bool translucent;

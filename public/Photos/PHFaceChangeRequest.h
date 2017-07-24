@@ -79,6 +79,7 @@
 @property(nonatomic) double centerX;
 @property(nonatomic) double size;
 @property(readonly, nonatomic) PHObjectPlaceholder *placeholderForCreatedFace;
+- (_Bool)prepareForServicePreflightCheck:(id *)arg1;
 - (void)encodeToXPCDict:(id)arg1;
 - (id)initWithXPCDict:(id)arg1 clientEntitlements:(id)arg2 clientName:(id)arg3 clientBundleID:(id)arg4 clientProcessID:(int)arg5;
 - (id)initWithUUID:(id)arg1 objectID:(id)arg2;

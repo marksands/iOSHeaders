@@ -11,7 +11,7 @@
 }
 
 - (id)_feedTransformation;
-- (id)_candidateChannelIDs;
+- (id)_candidateIDs;
 - (void)performOperation;
 
 @end

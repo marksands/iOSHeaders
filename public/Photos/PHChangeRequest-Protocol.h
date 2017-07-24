@@ -16,6 +16,7 @@
 @property(readonly, nonatomic) NSManagedObjectID *objectID;
 @property(readonly, nonatomic) NSString *uuid;
 @property(readonly, nonatomic) NSString *managedEntityName;
+- (_Bool)prepareForServicePreflightCheck:(id *)arg1;
 - (void)encodeToXPCDict:(NSObject<OS_xpc_object> *)arg1;
 - (id)initWithXPCDict:(NSObject<OS_xpc_object> *)arg1 clientEntitlements:(NSSet *)arg2 clientName:(NSString *)arg3 clientBundleID:(NSString *)arg4 clientProcessID:(int)arg5;
 - (id)initWithUUID:(NSString *)arg1 objectID:(NSManagedObjectID *)arg2;

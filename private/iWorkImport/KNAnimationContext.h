@@ -11,34 +11,34 @@
 __attribute__((visibility("hidden")))
 @interface KNAnimationContext : NSObject
 {
-    struct CGRect mSlideRect;
-    struct CGRect mUnscaledSlideRect;
-    double mViewScale;
-    CALayer *mBaseLayer;
-    double mFOVInRadians;
-    struct CATransform3D mSlideProjectionMatrix;
-    double mPixelAspectRatio;
-    KNAnimationRegistryWithFallbacks *mRegistry;
-    TSDCapabilities *mCapabilities;
-    _Bool mBaseLayerVisible;
-    struct CGColorSpace *mColorSpace;
+    TSDCapabilities *_capabilities;
+    struct CGColorSpace *_colorSpace;
+    double _fieldOfViewInRadians;
+    double _pixelAspectRatio;
+    KNAnimationRegistryWithFallbacks *_registry;
+    CALayer *_showLayer;
+    double _viewScale;
+    struct CGRect _slideRect;
+    struct CGRect _unscaledSlideRect;
+    struct CATransform3D _slideProjectionMatrix;
 }
 
-@property(readonly, nonatomic) double viewScale; // @synthesize viewScale=mViewScale;
-@property(readonly, nonatomic) struct CGRect unscaledSlideRect; // @synthesize unscaledSlideRect=mUnscaledSlideRect;
-@property(readonly, nonatomic) struct CGRect slideRect; // @synthesize slideRect=mSlideRect;
-@property(readonly, nonatomic) struct CATransform3D slideProjectionMatrix; // @synthesize slideProjectionMatrix=mSlideProjectionMatrix;
-@property(readonly, nonatomic) KNAnimationRegistryWithFallbacks *registry; // @synthesize registry=mRegistry;
-@property(nonatomic) double pixelAspectRatio; // @synthesize pixelAspectRatio=mPixelAspectRatio;
-@property(readonly, nonatomic) double fieldOfViewInRadians; // @synthesize fieldOfViewInRadians=mFOVInRadians;
-@property(nonatomic) struct CGColorSpace *colorSpace; // @synthesize colorSpace=mColorSpace;
-@property(readonly, nonatomic) TSDCapabilities *capabilities; // @synthesize capabilities=mCapabilities;
-@property(nonatomic, getter=isBaseLayerVisible) _Bool baseLayerVisible; // @synthesize baseLayerVisible=mBaseLayerVisible;
-@property(readonly, nonatomic) CALayer *baseLayer; // @synthesize baseLayer=mBaseLayer;
-- (void)updateGeometryToFitBaseLayerAtViewScale:(double)arg1;
+@property(readonly, nonatomic) double viewScale; // @synthesize viewScale=_viewScale;
+@property(readonly, nonatomic) struct CGRect unscaledSlideRect; // @synthesize unscaledSlideRect=_unscaledSlideRect;
+@property(readonly, nonatomic) struct CGRect slideRect; // @synthesize slideRect=_slideRect;
+@property(readonly, nonatomic) struct CATransform3D slideProjectionMatrix; // @synthesize slideProjectionMatrix=_slideProjectionMatrix;
+@property(readonly, nonatomic) CALayer *showLayer; // @synthesize showLayer=_showLayer;
+@property(readonly, nonatomic) KNAnimationRegistryWithFallbacks *registry; // @synthesize registry=_registry;
+@property(nonatomic) double pixelAspectRatio; // @synthesize pixelAspectRatio=_pixelAspectRatio;
+@property(readonly, nonatomic) double fieldOfViewInRadians; // @synthesize fieldOfViewInRadians=_fieldOfViewInRadians;
+@property(nonatomic) struct CGColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
+@property(readonly, nonatomic) TSDCapabilities *capabilities; // @synthesize capabilities=_capabilities;
+- (void).cxx_destruct;
+- (void)updateGeometryToFitShowLayerAtViewScale:(double)arg1;
 @property(readonly, nonatomic) double showScale;
 - (void)dealloc;
-- (id)initWithShowSize:(struct CGSize)arg1 viewScale:(double)arg2 baseLayer:(id)arg3 isBaseLayerVisible:(_Bool)arg4;
+- (id)init;
+- (id)initWithShowSize:(struct CGSize)arg1 viewScale:(double)arg2 showLayer:(id)arg3;
 
 @end
 

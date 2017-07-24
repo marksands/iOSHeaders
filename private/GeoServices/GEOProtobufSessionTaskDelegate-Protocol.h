@@ -10,5 +10,8 @@
 
 @protocol GEOProtobufSessionTaskDelegate <NSObject>
 - (void)protobufSession:(GEOProtobufSession *)arg1 didCompleteTask:(GEOProtobufSessionTask *)arg2;
+
+@optional
+- (void)protobufSession:(GEOProtobufSession *)arg1 willSendRequestForTask:(GEOProtobufSessionTask *)arg2 completionHandler:(void (^)(PBRequest *))arg3;
 @end
 

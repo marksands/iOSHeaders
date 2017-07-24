@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)needsObjectUUID;
 + (Class)classForUnarchiver:(id)arg1;
 + (void)performUpgradeUsingBlock:(CDUnknownBlockType)arg1;
++ (id)tsp_deserializeFromURL:(id)arg1 options:(id)arg2 context:(id)arg3 completion:(CDUnknownBlockType)arg4;
 + (id)tsp_deserializeFromData:(id)arg1 options:(id)arg2 context:(id)arg3 error:(id *)arg4;
 @property(nonatomic) __weak id <TSPObjectDelegate> tsp_delegate; // @synthesize tsp_delegate=_delegate;
 @property(nonatomic) __weak TSPComponent *tsp_component; // @synthesize tsp_component=_component;
@@ -67,8 +68,10 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 @property(readonly, nonatomic) TSPObjectContext *context;
 - (id)init;
+- (id)tsp_serializeToURL:(id)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)tsp_writeObjectNSDataRepresentation:(id)arg1 andData:(id)arg2 toURL:(id)arg3 options:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (id)tsp_serializeToDataWithOptions:(id)arg1 dataReferences:(id *)arg2 error:(id *)arg3;
-- (id)tsp_serializeToDataWithOptions:(id)arg1 error:(id *)arg2;
+- (id)tsp_serializeToDataWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)tsp_deepCopyWithOptions:(id)arg1;
 - (void)tsp_deepCopyWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)tsp_deepCopyWithContext:(id)arg1 options:(id)arg2 error:(id *)arg3;

@@ -11,7 +11,7 @@
 @protocol BYBuddyDaemonProximitySourceProtocol <NSObject>
 - (void)syncCompletedWithErrors:(NSArray *)arg1;
 - (void)syncProgress:(double)arg1;
-- (void)backupCompleted;
+- (void)backupCompletedWithError:(NSError *)arg1;
 - (void)backupProgress:(double)arg1 estimatedTimeRemaining:(long long)arg2;
 - (void)finishedWithError:(NSError *)arg1;
 @end

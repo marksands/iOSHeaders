@@ -17,14 +17,17 @@
     CLKVideo *_video;
     UIImage *_image;
     unsigned long long _type;
+    unsigned long long _playback;
     NTKInfinityListingAttributes *_attributes;
 }
 
 + (id)listingWithFilename:(id)arg1 type:(unsigned long long)arg2 attributes:(id)arg3;
 + (id)listingWithFilename:(id)arg1;
 @property(retain, nonatomic) NTKInfinityListingAttributes *attributes; // @synthesize attributes=_attributes;
+@property(nonatomic) unsigned long long playback; // @synthesize playback=_playback;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
+- (id)complicationColor;
 - (void)discardAssets;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

@@ -7,11 +7,12 @@
 #import <UIKit/UIScrollView.h>
 
 #import <SafariServices/UIDragInteractionDelegate-Protocol.h>
+#import <SafariServices/UIDragInteractionDelegate_Private-Protocol.h>
 
 @class NSArray, NSLayoutConstraint, NSString, UIStackView, UIView, _SFQuickLookDocumentInfoView;
 @protocol _SFQuickLookDocumentViewDelegate;
 
-@interface _SFQuickLookDocumentView : UIScrollView <UIDragInteractionDelegate>
+@interface _SFQuickLookDocumentView : UIScrollView <UIDragInteractionDelegate, UIDragInteractionDelegate_Private>
 {
     UIView *_wrapperView;
     UIView *_contentView;
@@ -25,6 +26,7 @@
 
 @property(nonatomic) __weak id <_SFQuickLookDocumentViewDelegate> quickLookDocumentViewDelegate; // @synthesize quickLookDocumentViewDelegate=_quickLookDocumentViewDelegate;
 - (void).cxx_destruct;
+- (long long)_dragInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (id)_api_dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
 - (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
 - (void)_actionButtonTapped:(id)arg1;

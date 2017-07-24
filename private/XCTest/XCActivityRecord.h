@@ -21,16 +21,21 @@
     NSMutableArray *_attachments;
     _Bool _valid;
     _Bool _useLegacySerializationFormat;
+    NSString *_aggregationIdentifier;
+    double _subactivitiesDuration;
 }
 
 + (_Bool)_shouldSaveAttachmentWithName:(id)arg1 lifetime:(long long)arg2;
 + (_Bool)supportsSecureCoding;
+@property(readonly) double subactivitiesDuration; // @synthesize subactivitiesDuration=_subactivitiesDuration;
+@property(copy) NSString *aggregationIdentifier; // @synthesize aggregationIdentifier=_aggregationIdentifier;
 @property _Bool useLegacySerializationFormat; // @synthesize useLegacySerializationFormat=_useLegacySerializationFormat;
 @property(copy) NSDate *start; // @synthesize start=_start;
 @property(copy) NSDate *finish; // @synthesize finish=_finish;
 @property(copy) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(copy) NSString *activityType; // @synthesize activityType=_activityType;
 @property(copy) NSString *title; // @synthesize title=_title;
+- (void)subactivityCompletedWithDuration:(double)arg1;
 - (void)_synchronized_ensureValid;
 - (void)invalidate;
 @property(readonly) double duration;

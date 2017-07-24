@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSNumber, NSSet, NSString, VSAccountAuthentication;
+@class NSArray, NSNumber, NSSet, NSString, VSAccountAuthentication;
 
 __attribute__((visibility("hidden")))
 @interface VSApplicationControllerResponse : NSObject
@@ -17,8 +17,10 @@ __attribute__((visibility("hidden")))
     NSNumber *_expectedAction;
     VSAccountAuthentication *_accountAuthentication;
     NSSet *_accountChannelIDs;
+    NSArray *_supportedAppAdamIDs;
 }
 
+@property(copy, nonatomic) NSArray *supportedAppAdamIDs; // @synthesize supportedAppAdamIDs=_supportedAppAdamIDs;
 @property(copy, nonatomic) NSSet *accountChannelIDs; // @synthesize accountChannelIDs=_accountChannelIDs;
 @property(retain, nonatomic) VSAccountAuthentication *accountAuthentication; // @synthesize accountAuthentication=_accountAuthentication;
 @property(copy, nonatomic) NSNumber *expectedAction; // @synthesize expectedAction=_expectedAction;
@@ -27,6 +29,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *authenticationScheme; // @synthesize authenticationScheme=_authenticationScheme;
 - (void).cxx_destruct;
 - (id)description;
+- (id)init;
 
 @end
 

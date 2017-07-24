@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <Message/MFPubliclyDescribable-Protocol.h>
+
 @class ACAccount, NSDictionary, NSMutableDictionary, NSString;
 
-@interface MFAccount : NSObject
+@interface MFAccount : NSObject <MFPubliclyDescribable>
 {
     ACAccount *_persistentAccount;
     struct os_unfair_lock_s _persistentAccountLock;
@@ -133,6 +135,9 @@
 - (void)setAccountProperty:(id)arg1 forKey:(id)arg2;
 - (id)accountPropertyForKey:(id)arg1;
 @property(readonly) NSDictionary *properties;
+@property(readonly, copy, nonatomic) NSString *mf_publicDescription;
+@property(readonly, copy) NSString *description;
+- (id)_privacySafeDescription;
 - (id)accountClass;
 @property(readonly) NSString *type;
 @property(readonly) NSString *parentAccountIdentifier;
@@ -143,7 +148,7 @@
 @property(readonly) ACAccount *persistentAccount;
 - (void)persistentAccountDidChange:(id)arg1 previousAccount:(id)arg2;
 - (void)setPersistentAccount:(id)arg1;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithPersistentAccount:(id)arg1;
@@ -151,6 +156,10 @@
 - (id)initWithProperties:(id)arg1;
 - (id)init;
 - (_Bool)shouldFetchACEDBInfoForError:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

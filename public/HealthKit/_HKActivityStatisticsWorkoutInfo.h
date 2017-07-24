@@ -23,6 +23,7 @@
 @property(retain, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 - (void).cxx_destruct;
 - (id)description;
+- (_Bool)isEqual:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithStartDate:(id)arg1 endDate:(id)arg2 source:(id)arg3;
 - (void)encodeWithCoder:(id)arg1;

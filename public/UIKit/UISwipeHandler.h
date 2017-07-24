@@ -42,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (void)_dismissalRecognizerDidRecognize:(id)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+@property(readonly, nonatomic, getter=isInteracting) _Bool interacting;
 - (void)_setUp;
 - (id)initWithSwipeController:(id)arg1;
 

@@ -17,6 +17,7 @@
     NSLayoutConstraint *_nameBaselineConstraint;
     NSLayoutConstraint *_leadingImageConstraint;
     NSLayoutConstraint *_trailingImageConstraint;
+    NSLayoutConstraint *_centerConstraint;
     _Bool _active;
     NSString *_calloutName;
     UIImage *_calloutImage;
@@ -35,6 +36,7 @@
 - (void)setSelected:(_Bool)arg1;
 - (void)setHighlighted:(_Bool)arg1;
 - (void)updateConstraints;
+- (void)setFontAdjustingAttributes;
 @property(retain, nonatomic) UIView *faceView;
 - (void)layoutSubviews;
 - (void)prepareForReuse;

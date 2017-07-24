@@ -17,6 +17,7 @@
 - (void).cxx_destruct;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidLoad;
 - (_Bool)_transitionsChildViewControllers;
 - (void)_prepareForContainerTransition:(id)arg1;
 - (void)_updateSearchControllerIfNecessary;

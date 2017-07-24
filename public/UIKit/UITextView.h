@@ -114,9 +114,11 @@
 @property(nonatomic) __weak id <UITextPasteDelegate> pasteDelegate; // @synthesize pasteDelegate=_pasteDelegate;
 @property(nonatomic) _Bool adjustsFontForContentSizeCategory; // @synthesize adjustsFontForContentSizeCategory=_adjustsFontForContentSizeCategory;
 - (void).cxx_destruct;
+- (void)droppingFinished;
+- (void)droppingStarted;
 @property(nonatomic) struct CGPoint contentOffsetForSameViewDrops;
 - (_Bool)allowsDraggingAttachments;
-- (void)resignDropResponder;
+- (void)resignDropResponderWithDropPerformed:(_Bool)arg1;
 - (void)becomeDropResponder;
 - (void)draggingFinished;
 - (void)draggingStarted;
@@ -127,6 +129,7 @@
 - (void)_updateSelectionGestures;
 - (void)_resetDataDetectorsResults;
 - (void)_startDataDetectors;
+- (void)_startDataDetectorsIfNeeded;
 - (void)_cancelDataDetectors;
 - (_Bool)_shouldStartDataDetectors;
 - (unsigned long long)_effectiveDataDetectorTypes;
@@ -191,6 +194,8 @@
 - (id)textContainerView:(id)arg1 linkTextAttributesForLink:(id)arg2 forCharacterAtIndex:(unsigned long long)arg3;
 - (id)linkTextAttributesForTextContainerView:(id)arg1;
 - (_Bool)_allowAnimatedUpdateSelectionRectViews;
+- (void)_unconstrainTiledRendering;
+- (void)_constrainTiledRenderingToRect:(struct CGRect)arg1;
 - (void)_setFreezeTextContainerSize:(_Bool)arg1;
 - (_Bool)_freezeTextContainerSize;
 - (id)_cuiStyleEffectConfiguration;
@@ -233,6 +238,7 @@
 - (void)textInputDidChange:(id)arg1;
 - (void)setContinuousSpellCheckingEnabled:(_Bool)arg1;
 @property(copy, nonatomic) NSDictionary *typingAttributes;
+- (void)_syncTypingAttributesToTextContainerAttributesForExtraLineFragment;
 - (id)rangeWithTextAlternatives:(id *)arg1 atPosition:(id)arg2;
 - (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(_Bool)arg2;
 - (struct CGRect)frameForDictationResultPlaceholder:(id)arg1;
@@ -336,6 +342,8 @@
 - (void)setUsesTiledViews:(_Bool)arg1;
 - (_Bool)usesTiledViews;
 @property(nonatomic) _Bool allowsEditingTextAttributes;
+- (void)_notifyDidEndEditing;
+- (void)_notifyDidBeginEditing;
 - (_Bool)resignFirstResponder;
 - (_Bool)canResignFirstResponder;
 - (void)tintColorDidChange;
@@ -402,7 +410,7 @@
 - (id)initReadonlyAndUnselectableWithFrame:(struct CGRect)arg1 textContainer:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1 textContainer:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)_commonInitWithTextContainer:(id)arg1 isDecoding:(_Bool)arg2 isEditable:(_Bool)arg3 isSelectable:(_Bool)arg4;
+- (void)_commonInitWithTextContainer:(id)arg1 isDecoding:(_Bool)arg2 isEditable:(_Bool)arg3 isSelectable:(_Bool)arg4 isDraggable:(_Bool)arg5;
 - (_Bool)isElementAccessibilityExposedToInterfaceBuilder;
 - (_Bool)isAccessibilityElementByDefault;
 - (void)endSnapshotSeparation;

@@ -57,6 +57,7 @@
 - (void)pruneExpiredDevicesFromCloudKit;
 @property(readonly, copy, nonatomic) NSDictionary *dictionaryRepresentationOfCurrentDeviceInCloudKit;
 @property(readonly, nonatomic) _Bool currentDeviceIsRegisteredInCloudKit;
+@property(readonly, nonatomic) _Bool atLeastOneOtherActiveDeviceIsRegisteredInCloudKit;
 - (void)saveCurrentCloudTabDeviceDictionaryToCloudKit:(id)arg1;
 - (void)resetSyncedCloudTabDevicesAndCloseRequestsFromCloudKit;
 - (void)handleCloseTabRequestsFromKVS;

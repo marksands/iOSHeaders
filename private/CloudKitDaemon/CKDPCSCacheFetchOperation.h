@@ -58,7 +58,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)makeStateTransition;
 - (_Bool)canBeUsedForOperation:(id)arg1 withOptions:(unsigned long long)arg2;
 - (_Bool)_errorShouldImpactFlowControl:(id)arg1;
-- (id)initWithItemID:(id)arg1 parentOperation:(id)arg2 cache:(id)arg3 options:(unsigned long long)arg4;
+- (id)initWithOperationInfo:(id)arg1 clientContext:(id)arg2;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class BRCAccountSession, BRCPQLConnection, CKServerChangeToken, NSError, NSURL;
+@class BRCClientZone, BRCPQLConnection, CKServerChangeToken, NSError, NSURL;
 
 __attribute__((visibility("hidden")))
 @interface BRCPendingChangesStream : NSObject
@@ -15,10 +15,11 @@ __attribute__((visibility("hidden")))
     NSError *_error;
     BRCPQLConnection *_db;
     CKServerChangeToken *_startingChangeToken;
-    BRCAccountSession *_session;
+    BRCClientZone *_clientZone;
 }
 
 - (void).cxx_destruct;
+- (id)saveError;
 - (void)destroyDatabase;
 - (_Bool)saveEditedRecords:(id)arg1 deletedRecordIDs:(id)arg2 deletedShareIDs:(id)arg3 serverChangeToken:(id)arg4 clientChangeToken:(long long)arg5 syncStatus:(long long)arg6;
 - (long long)_recordTypeFromRecordID:(id)arg1 isShare:(_Bool)arg2 isDelete:(_Bool)arg3;
@@ -26,7 +27,8 @@ __attribute__((visibility("hidden")))
 - (void)fetchTokenState:(CDUnknownBlockType)arg1;
 - (void)_openDB;
 - (void)_createSchemaIfNecessary;
-- (id)initWithStartingChangeToken:(id)arg1 recordZoneID:(id)arg2 session:(id)arg3;
+- (id)initWithServerZone:(id)arg1;
+- (void)_dbBecameCorrupted;
 
 @end
 

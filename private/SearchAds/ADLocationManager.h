@@ -14,6 +14,7 @@
 {
     _Bool _updatingPlacemark;
     _Bool _isLocationUpdating;
+    _Bool _isLocationInitialized;
     CLPlacemark *_currentPlacemark;
     CLLocation *_lastPlacemarkLocation;
     NSMutableArray *_listeners;
@@ -25,6 +26,7 @@
 + (id)sharedInstance;
 @property(retain, nonatomic) NSThread *myThread; // @synthesize myThread=_myThread;
 @property(retain, nonatomic) CLLocation *actualLocation; // @synthesize actualLocation=_actualLocation;
+@property(nonatomic) _Bool isLocationInitialized; // @synthesize isLocationInitialized=_isLocationInitialized;
 @property(nonatomic) _Bool isLocationUpdating; // @synthesize isLocationUpdating=_isLocationUpdating;
 @property(nonatomic) _Bool updatingPlacemark; // @synthesize updatingPlacemark=_updatingPlacemark;
 @property(retain, nonatomic) CLLocationManager *locationManager; // @synthesize locationManager=_locationManager;

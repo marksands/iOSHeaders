@@ -51,6 +51,7 @@
 - (id)residentCopy;
 - (id)userCopy;
 - (void)removeRelayAccessTokenForAccessory:(id)arg1;
+- (void)addRelayAccessToken:(id)arg1 accessory:(id)arg2;
 - (void)removeRelayAccessToken:(id)arg1;
 - (void)addRelayAccessToken:(id)arg1;
 - (id)relayAccessTokenForAccessory:(id)arg1;
@@ -68,6 +69,7 @@
 @property(readonly, nonatomic, getter=isCurrentUser) _Bool currentUser;
 - (id)publicKey;
 - (id)pairingUsername;
+@property(readonly) _Bool requiresMakoSupport;
 @property(retain, nonatomic) HAPPairingIdentity *pairingIdentity; // @synthesize pairingIdentity=_pairingIdentity;
 - (_Bool)refreshDisplayName;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;

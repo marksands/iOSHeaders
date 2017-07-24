@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)canSwipeToDismiss;
 - (void)_updatePeekSize;
 - (void)viewDidLayoutSubviews;
+- (_Bool)shouldAcceptTouch:(id)arg1 ofGestureRecognizer:(id)arg2;
 - (void)transitionDidFinish:(_Bool)arg1 didComplete:(_Bool)arg2;
 - (void)transitionWillFinish:(_Bool)arg1 didComplete:(_Bool)arg2;
 - (void)transitionDidStart:(_Bool)arg1;

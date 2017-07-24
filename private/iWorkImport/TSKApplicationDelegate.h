@@ -8,19 +8,23 @@
 
 #import <iWorkImport/TSKApplicationDelegate-Protocol.h>
 
-@class NSDate, NSString;
+@class NSArray, NSDate, NSString;
 @protocol TSKCompatibilityDelegate;
 
 __attribute__((visibility("hidden")))
 @interface TSKApplicationDelegate : NSObject <TSKApplicationDelegate>
 {
     id <TSKCompatibilityDelegate> _compatibilityDelegate;
+    NSArray *_availableLanguages;
+    NSString *_initialInputLanguage;
 }
 
 + (id)documentDirectoryPath;
 + (id)sharedDelegate;
 + (void)setDelegate:(id)arg1;
 + (id)platform_sharedDelegate;
+@property(readonly, nonatomic) NSString *initialInputLanguage; // @synthesize initialInputLanguage=_initialInputLanguage;
+@property(readonly, nonatomic) NSArray *availableLanguages; // @synthesize availableLanguages=_availableLanguages;
 @property(retain, nonatomic) id <TSKCompatibilityDelegate> compatibilityDelegate; // @synthesize compatibilityDelegate=_compatibilityDelegate;
 - (void).cxx_destruct;
 - (void)collectDocumentCreationAnalyticsWithLogger:(id)arg1;
@@ -31,7 +35,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *bladerunnerContainerIdentifier;
 @property(readonly, nonatomic) NSString *cloudKitContainerIdentifier;
 @property(copy, nonatomic) id appTextDefaults;
-@property(readonly, nonatomic) NSString *iWorkAuthorPrivateID;
+@property(copy, nonatomic) NSString *iWorkAuthorPrivateID; // @dynamic iWorkAuthorPrivateID;
 @property(nonatomic) unsigned long long iWorkAuthorColorIndex;
 @property(copy, nonatomic) NSString *iWorkAuthorName;
 @property(readonly, getter=isInBackground) _Bool inBackground;

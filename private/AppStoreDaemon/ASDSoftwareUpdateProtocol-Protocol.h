@@ -6,11 +6,14 @@
 
 #import <AppStoreDaemon/NSObject-Protocol.h>
 
+@class NSArray;
+
 @protocol ASDSoftwareUpdateProtocol <NSObject>
 - (void)showApplicationUpdatesBulletin;
 - (void)showApplicationBadgeForPendingUpdates;
 - (void)removeUpdateBulletins;
 - (void)hideApplicationBadgeForPendingUpdates;
+- (void)updateAllWithOrder:(NSArray *)arg1 completionBlock:(void (^)(_Bool, NSArray *, NSError *))arg2;
 - (void)updateAllWithJobResults:(void (^)(_Bool, NSArray *, NSError *))arg1;
 - (void)reloadFromServerInBackgroundWithCompletionBlock:(void (^)(NSArray *, NSError *))arg1;
 - (void)reloadFromServerWithCompletionBlock:(void (^)(NSArray *, NSError *))arg1;

@@ -8,7 +8,6 @@
 
 #import <HomeUI/HFHomeManagerObserver-Protocol.h>
 #import <HomeUI/HUAddPeopleViewControllerDelegate-Protocol.h>
-#import <HomeUI/HUSwitchCellDelegate-Protocol.h>
 #import <HomeUI/HUWallpaperEditingViewControllerDelegate-Protocol.h>
 #import <HomeUI/HUWallpaperPickerViewControllerDelegate-Protocol.h>
 #import <HomeUI/UIImagePickerControllerDelegate-Protocol.h>
@@ -19,7 +18,7 @@
 @class HFHomeBuilder, HUEditLocationItemManager, HUEditableTextCell, HUEditableTextViewCell, HUHomeUsersCollectionViewController, NSString, UIBarButtonItem;
 @protocol HUEditLocationViewControllerAddLocationDelegate, HUEditLocationViewControllerPresentationDelegate;
 
-@interface HUEditLocationViewController : HUItemTableViewController <UITextFieldDelegate, UITextViewDelegate, HUWallpaperPickerViewControllerDelegate, HUWallpaperEditingViewControllerDelegate, HUAddPeopleViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HFHomeManagerObserver, HUSwitchCellDelegate>
+@interface HUEditLocationViewController : HUItemTableViewController <UITextFieldDelegate, UITextViewDelegate, HUWallpaperPickerViewControllerDelegate, HUWallpaperEditingViewControllerDelegate, HUAddPeopleViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HFHomeManagerObserver>
 {
     HUHomeUsersCollectionViewController *_usersViewController;
     HFHomeBuilder *_homeBuilder;
@@ -52,7 +51,6 @@
 - (void)wallpaperEditing:(id)arg1 didFinishWithWallpaper:(id)arg2 image:(id)arg3;
 - (void)wallpaperPickerDidFinish:(id)arg1 wallpaper:(id)arg2 image:(id)arg3;
 - (void)imagePickerController:(id)arg1 didFinishPickingMediaWithInfo:(id)arg2;
-- (void)switchCell:(id)arg1 didTurnOn:(_Bool)arg2;
 - (void)textViewDidChange:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;

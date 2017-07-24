@@ -31,7 +31,6 @@
 - (_Bool)_queue_hasActiveQueries;
 - (void)remote_startQueryWithUUID:(id)arg1 serverDataObject:(id)arg2 queryClass:(Class)arg3 client:(id)arg4 handler:(CDUnknownBlockType)arg5;
 - (void)remote_startHeartRateSummaryQueryWithUUID:(id)arg1 configuration:(id)arg2 clientProxy:(id)arg3 handler:(CDUnknownBlockType)arg4;
-- (void)remote_startCurrentActivityCacheHeartRateQueryWithUUID:(id)arg1 configuration:(id)arg2 clientProxy:(id)arg3 handler:(CDUnknownBlockType)arg4;
 - (void)remote_startStatisticsQueryWithUUID:(id)arg1 configuration:(id)arg2 clientProxy:(id)arg3 handler:(CDUnknownBlockType)arg4;
 - (void)remote_startStatisticsCollectionQueryWithUUID:(id)arg1 configuration:(id)arg2 clientProxy:(id)arg3 handler:(CDUnknownBlockType)arg4;
 - (void)remote_startSourceQueryWithUUID:(id)arg1 configuration:(id)arg2 clientProxy:(id)arg3 handler:(CDUnknownBlockType)arg4;

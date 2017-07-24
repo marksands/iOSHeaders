@@ -189,6 +189,7 @@
 @property _Bool allowsDisplayCompositing;
 @property _Bool preloadsCache;
 @property double motionBlurAmount;
+@property _Bool inheritsTiming;
 @property _Bool contentsOpaque;
 @property _Bool contentsDither;
 @property struct CGAffineTransform contentsTransform;

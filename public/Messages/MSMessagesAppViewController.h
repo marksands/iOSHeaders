@@ -24,7 +24,9 @@
 @property(retain, nonatomic) MSConversation *activeConversation; // @synthesize activeConversation=_activeConversation;
 - (void).cxx_destruct;
 - (_Bool)_handleTextInputPayload:(id)arg1 withPayloadID:(id)arg2;
+- (void)_validateMessageForSending:(id)arg1 conversation:(id)arg2 associatedText:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_validateMessageForSending:(id)arg1 conversation:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)requestResize;
 - (void)setReadyForDisplay;
 - (_Bool)displaysAfterAppearance;
 - (void)viewDidAppear:(_Bool)arg1;

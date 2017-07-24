@@ -22,7 +22,7 @@
 
 @property(nonatomic) double inertialProjectionDeceleration; // @synthesize inertialProjectionDeceleration=_inertialProjectionDeceleration;
 @property(nonatomic) double inertialTargetSmoothing; // @synthesize inertialTargetSmoothing=_inertialTargetSmoothing;
-- (CDStruct_43f79a60)parametersForTransitionFromState:(int)arg1 toState:(int)arg2;
+- (CDStruct_6c8af1d9)parametersForTransitionFromState:(int)arg1 toState:(int)arg2;
 - (void)setTrackingDampingRatio:(double)arg1 response:(double)arg2 dampingRatioSmoothing:(double)arg3 responseSmoothing:(double)arg4;
 - (void)setDampingRatio:(double)arg1 response:(double)arg2;
 - (id)init;

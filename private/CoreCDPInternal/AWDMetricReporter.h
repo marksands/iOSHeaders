@@ -14,7 +14,7 @@
 + (void)reportStateMachineRepairCircleAuth;
 + (void)reportStateMachineRepairHSA2AuthWithError:(id)arg1;
 + (void)reportStateMachineCircleJoinWithResult:(id)arg1 error:(id)arg2;
-+ (void)reportStateMachineEnableCDPShouldCompleteSignIn:(_Bool)arg1 cloudDataProtectionEnabled:(_Bool)arg2 error:(id)arg3;
++ (void)reportStateMachineEnableCDPResult:(id)arg1;
 + (void)reportStateMachineLockAssertionWithError:(id)arg1;
 + (void)reportStateMachineCompletionShouldCompleteSignIn:(_Bool)arg1 cloudDataProtectionEnabled:(_Bool)arg2 error:(id)arg3;
 + (void)reportPiggyBackWithSuccess:(_Bool)arg1 error:(id)arg2;

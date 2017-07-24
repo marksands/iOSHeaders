@@ -21,11 +21,12 @@ __attribute__((visibility("hidden")))
 
 + (id)propertyMapForApplyingFont:(id)arg1 toStyle:(id)arg2;
 + (_Bool)isKeyValueProxyLeafType;
-+ (id)fontForStyles:(id *)arg1 count:(unsigned long long)arg2;
++ (id)fontForStyles:(id)arg1;
 + (id)fontWithName:(id)arg1 compatibilityName:(id)arg2;
 + (id)fontWithName:(id)arg1;
 + (id)helveticaFont;
 @property(readonly, copy, nonatomic) NSString *fontName; // @synthesize fontName=_fontName;
+- (void).cxx_destruct;
 - (void)p_getFamilyNameAndAvailability;
 @property(readonly, nonatomic) NSString *familyName;
 @property(readonly, nonatomic) int availability;
@@ -34,7 +35,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)init;
 - (id)initWithFontName:(id)arg1 compatibilityName:(id)arg2;
 - (id)initWithFontName:(id)arg1;

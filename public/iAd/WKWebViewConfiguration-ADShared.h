@@ -7,8 +7,6 @@
 #import <WebKit/WKWebViewConfiguration.h>
 
 @interface WKWebViewConfiguration (ADShared)
-+ (id)configurationWithBackgroundPriority:(_Bool)arg1;
-+ (id)sharedAdvertisingConfigurationWithBackgroundPriority;
-+ (id)advertisingConfiguration;
++ (id)sharedAdvertisingConfiguration:(_Bool)arg1;
 @end
 

@@ -12,9 +12,14 @@
 
 @interface CNUIMeContactComparisonStrategyIdentifier : NSObject <CNMeContactComparisonStrategy>
 {
+    NSString *_meContactIdentifierFound;
 }
 
-- (_Bool)isContact:(id)arg1 equivalentToMeContact:(id)arg2;
+@property(retain, nonatomic) NSString *meContactIdentifierFound; // @synthesize meContactIdentifierFound=_meContactIdentifierFound;
+- (void).cxx_destruct;
+- (id)meContactIdentifiers;
+- (_Bool)isMeContact:(id)arg1;
+- (void)meContactChangedInStore:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

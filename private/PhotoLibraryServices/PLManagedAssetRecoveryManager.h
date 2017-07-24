@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class PLPhotoLibrary;
 @protocol OS_dispatch_queue;
@@ -31,7 +31,7 @@
 - (_Bool)_fixRawUTIForAsset:(id)arg1 error:(id *)arg2;
 - (void)_fixOriginalAssetDimensionsForAsset:(id)arg1 cloudPhotoLibraryManager:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_fixDimensionsForAsset:(id)arg1 cloudPhotoLibraryManager:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (id)_assetTypesAllowedForDownload;
+- (id)_assetKindsAllowedForDownloading;
 - (void)_downloadResources:(id)arg1 forAsset:(id)arg2 usingCloudPhotoLibraryManager:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_performAssetRecoveryTaskForInconsistentState:(id)arg1 state:(long long)arg2 usingCloudPhotoLibraryManager:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)_recoverAsset:(id)arg1 usingCloudPhotoLibraryManager:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;

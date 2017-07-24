@@ -14,14 +14,17 @@
 @interface CDPTTSUChannel : NSObject <CDPSecureChannelProxy, CDPSecureChannelApprovingProxy>
 {
     CUMessageSession *_sharingSession;
-    _Bool _hasExistingBackupRecords;
+    _Bool _approverBackupRecordsExist;
+    _Bool _approveriCloudKeychainEnabled;
     _Bool _sentInitialResponse;
 }
 
 - (void).cxx_destruct;
-- (void)setApproverHasBackupRecords:(_Bool)arg1;
+- (void)setApproveriCloudKeychainEnabled:(_Bool)arg1;
+- (void)setApproverBackupRecordsExist:(_Bool)arg1;
 - (void)listenForPayloadsWithHandler:(CDUnknownBlockType)arg1;
-- (_Bool)hasExistingBackupRecords;
+- (_Bool)approveriCloudKeychainEnabled;
+- (_Bool)approverBackupRecordsExist;
 - (void)sendPayload:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithContext:(id)arg1;
 

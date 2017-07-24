@@ -21,6 +21,8 @@
     double _stalenessTolerance;
 }
 
++ (void)cancelNotification:(struct AWNotification_s *)arg1;
++ (struct AWNotification_s *)notifySupportedEventsChangedWithQueue:(id)arg1 block:(CDUnknownBlockType)arg2;
 + (id)supportedEventsString;
 + (unsigned long long)supportedEvents;
 + (_Bool)supportsSecureCoding;

@@ -40,7 +40,7 @@
 @property double age; // @synthesize age=_age;
 @property unsigned long long fragments; // @synthesize fragments=_fragments;
 @property unsigned long long len; // @synthesize len=_len;
-- (_Bool)phraseSearch;
+- (id)searchEntities;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

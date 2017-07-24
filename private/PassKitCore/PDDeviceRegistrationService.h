@@ -8,21 +8,18 @@
 
 #import <PassKitCore/PDDeviceRegistrationServiceExportedInterface-Protocol.h>
 
-@class NSString, PDPaymentWebServiceCoordinator, PDPeerPaymentWebServiceCoordinator, PKEntitlementWhitelist;
+@class NSString, PDDeviceRegistrationServiceCoordinator, PKEntitlementWhitelist;
 
 @interface PDDeviceRegistrationService : PDXPCService <PDDeviceRegistrationServiceExportedInterface>
 {
     PKEntitlementWhitelist *_whitelist;
-    PDPeerPaymentWebServiceCoordinator *_peerPaymentWebServiceCoordinator;
-    PDPaymentWebServiceCoordinator *_paymentWebServiceCoordinator;
+    PDDeviceRegistrationServiceCoordinator *_deviceRegistrationServiceCoordinator;
 }
 
-@property(retain, nonatomic) PDPaymentWebServiceCoordinator *paymentWebServiceCoordinator; // @synthesize paymentWebServiceCoordinator=_paymentWebServiceCoordinator;
-@property(retain, nonatomic) PDPeerPaymentWebServiceCoordinator *peerPaymentWebServiceCoordinator; // @synthesize peerPaymentWebServiceCoordinator=_peerPaymentWebServiceCoordinator;
+@property(readonly, nonatomic) PDDeviceRegistrationServiceCoordinator *deviceRegistrationServiceCoordinator; // @synthesize deviceRegistrationServiceCoordinator=_deviceRegistrationServiceCoordinator;
 - (void).cxx_destruct;
-- (void)_canAutomaticallyRegisterWithWebService:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performDeviceRegistrationWithCompletion:(CDUnknownBlockType)arg1;
-- (id)initWithConnection:(id)arg1;
+- (id)initWithCoordinator:(id)arg1 connection:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

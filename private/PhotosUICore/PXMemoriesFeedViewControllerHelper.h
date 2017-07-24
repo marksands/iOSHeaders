@@ -28,6 +28,7 @@
     } _delegateRespondsTo;
     id _refreshResetNotification;
     _Bool _hasAppeared;
+    _Bool _hasKickedOffBatchGeneration;
     _Bool __requestingNewMemories;
     PXTilingController *_tilingController;
     PXMemoriesFeedDataSourceManager *_dataSourceManager;

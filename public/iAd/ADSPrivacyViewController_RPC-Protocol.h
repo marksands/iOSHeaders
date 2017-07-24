@@ -7,6 +7,7 @@
 @class NSDictionary, NSString;
 
 @protocol ADSPrivacyViewController_RPC
+- (void)_remote_setClientIsExtension:(_Bool)arg1;
 - (void)_remote_requestPrivacyViewControllerWithTransparencyDetailsDictionary:(NSDictionary *)arg1;
 - (void)_remote_requestPrivacyViewControllerWithTransparencyDetails:(NSString *)arg1;
 - (void)_remote_requestPrivacyViewController;

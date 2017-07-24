@@ -25,6 +25,8 @@
     _Bool _sharedByCurrentUser;
     _Bool _supportsMostRecentVersionDownloaded;
     _Bool _offline;
+    _Bool _isUbiquitous;
+    _Bool _isContainer;
     _Bool _hidden;
     _Bool _downloaded;
     _Bool _pending;
@@ -70,6 +72,7 @@
 + (id)generatePlaceholderIdentifier;
 @property(readonly, nonatomic) NSString *providerIdentifier; // @synthesize providerIdentifier=_providerIdentifier;
 @property(nonatomic, getter=isPending) _Bool pending; // @synthesize pending=_pending;
+@property(retain, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 @property(nonatomic, getter=isDownloaded) _Bool downloaded; // @synthesize downloaded=_downloaded;
 @property(copy, nonatomic) NSData *tagData; // @synthesize tagData=_tagData;
 @property(copy, nonatomic) NSDate *lastUsedDate; // @synthesize lastUsedDate=_lastUsedDate;
@@ -85,6 +88,8 @@
 @property(retain, nonatomic) NSString *formerIdentifier; // @synthesize formerIdentifier=_formerIdentifier;
 @property(copy, nonatomic) NSString *appContainerBundleIdentifier; // @synthesize appContainerBundleIdentifier=_appContainerBundleIdentifier;
 @property(copy, nonatomic) NSString *filename; // @synthesize filename=_filename;
+@property(readonly, nonatomic) _Bool isContainer; // @synthesize isContainer=_isContainer;
+@property(readonly, nonatomic, getter=isUbiquitous) _Bool ubiquitous; // @synthesize ubiquitous=_isUbiquitous;
 @property(nonatomic, getter=isOffline) _Bool offline; // @synthesize offline=_offline;
 @property(nonatomic) _Bool supportsMostRecentVersionDownloaded; // @synthesize supportsMostRecentVersionDownloaded=_supportsMostRecentVersionDownloaded;
 @property(readonly, nonatomic) NSString *containerDisplayName; // @synthesize containerDisplayName=_containerDisplayName;
@@ -115,13 +120,12 @@
 - (void).cxx_destruct;
 - (id)_downloadingStatus;
 - (id)ubiquitousResourceKeysDiffAgainstItem:(id)arg1;
-- (void)setPlaceholdOperationProgress:(id)arg1;
 @property(readonly, nonatomic) NSString *hierarchyPathKey;
 @property(readonly, nonatomic) unsigned long long depthInHierarchy;
 @property(readonly, nonatomic, getter=isCloudItem) _Bool cloudItem;
+@property(readonly, nonatomic) NSProgress *copyingProgress;
 @property(readonly, nonatomic) NSProgress *uploadingProgress;
 @property(readonly, nonatomic) NSProgress *downloadingProgress;
-@property(readonly, nonatomic) NSProgress *progress;
 - (void)setFp_SpotlightDomainIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSString *fp_spotlightDomainIdentifier;
 @property(copy, nonatomic) NSArray *tags;
@@ -140,6 +144,8 @@
 @property(readonly, nonatomic, getter=isPlaceholder) _Bool placeholder;
 @property(readonly, nonatomic, getter=isWritable) _Bool writable;
 @property(readonly, nonatomic, getter=isReadable) _Bool readable;
+@property(readonly, nonatomic, getter=fp_isContainer) _Bool fp_isContainer;
+@property(readonly, nonatomic, getter=fp_isUbiquitous) _Bool fp_ubiquitous;
 @property(readonly, nonatomic) NSString *fp_appContainerBundleIdentifier;
 @property(readonly, nonatomic) NSString *fp_domainIdentifier;
 - (id)copyAsPending;
@@ -149,6 +155,7 @@
 - (id)initWithVendorItem:(id)arg1 provider:(id)arg2 domain:(id)arg3;
 - (id)initWithProvider:(id)arg1 itemIdentifier:(id)arg2 parentItemIdentifier:(id)arg3 filename:(id)arg4 isDirectory:(_Bool)arg5;
 - (id)initWithProvider:(id)arg1 domainIdentifier:(id)arg2 itemIdentifier:(id)arg3 parentItemIdentifier:(id)arg4 filename:(id)arg5 typeIdentifier:(id)arg6;
+- (id)initWithSearchableItem:(id)arg1;
 - (id)toSearchableItem;
 
 // Remaining properties

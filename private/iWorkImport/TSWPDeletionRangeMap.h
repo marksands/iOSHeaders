@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     TSWPRangeArray *_removedRanges;
 }
 
+- (void).cxx_destruct;
 - (_Bool)containsCharIndex:(unsigned long long)arg1;
 - (id)inverseRangesInStorageRange:(struct _NSRange)arg1;
 - (void)adjustByDelta:(long long)arg1 startingAt:(unsigned long long)arg2;
@@ -22,7 +23,6 @@ __attribute__((visibility("hidden")))
 - (struct _NSRange)mappedCharRange:(struct _NSRange)arg1;
 - (unsigned long long)unmappedCharIndex:(unsigned long long)arg1;
 - (unsigned long long)mappedCharIndex:(unsigned long long)arg1;
-- (void)dealloc;
 - (id)initWithSubRange:(struct _NSRange)arg1 removeRanges:(id)arg2;
 
 @end

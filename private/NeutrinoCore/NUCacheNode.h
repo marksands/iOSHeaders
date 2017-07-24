@@ -42,6 +42,8 @@
 - (id)evaluateRenderDependenciesWithRequest:(id)arg1 error:(out id *)arg2;
 - (_Bool)tryLoadPersistentURL:(id)arg1 error:(out id *)arg2;
 - (id)persistentURL;
+- (long long)sampleMode;
+- (long long)subsampleFactorForScale:(CDStruct_912cb5d2)arg1;
 - (id)nodeByReplayingAgainstCache:(id)arg1 pipelineState:(id)arg2 error:(out id *)arg3;
 - (_Bool)isEqualToRenderNode:(id)arg1;
 - (void)nu_updateDigest:(id)arg1;

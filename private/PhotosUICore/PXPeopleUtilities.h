@@ -10,7 +10,8 @@
 {
 }
 
-+ (id)alertControllerForRemovingNumberOfPeople:(long long)arg1 removalBlock:(CDUnknownBlockType)arg2 cancelBlock:(CDUnknownBlockType)arg3;
++ (id)alertControllerForResettingPeopleWithCompletion:(CDUnknownBlockType)arg1;
++ (id)alertControllerForRemovingNumberOfPeople:(long long)arg1 completionBlock:(CDUnknownBlockType)arg2;
 + (void)_setDaysDictionary:(id)arg1;
 + (id)_daysDictionary;
 + (_Bool)_hasRecentlyHandledBootstrapForPerson:(id)arg1;

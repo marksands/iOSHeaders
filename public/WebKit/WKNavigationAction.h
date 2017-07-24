@@ -16,6 +16,7 @@
 }
 
 @property(readonly) struct Object *_apiObject;
+@property(readonly, nonatomic) struct CGPoint _clickLocationInRootViewCoordinates;
 @property(readonly, nonatomic) long long _syntheticClickType;
 @property(readonly, copy, nonatomic) NSURLRequest *request;
 @property(readonly, nonatomic) long long navigationType;

@@ -17,15 +17,21 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)logCategory;
++ (id)sessionNamespace;
 + (id)namespace;
 @property(readonly) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)notifyClientsOfUpdatedMediaSession:(id)arg1;
+- (void)sessionAudioControlUpdated:(id)arg1;
+- (void)sessionPlaybackStateUpdated:(id)arg1;
+- (void)_handleMediaSessionSetAudioControl:(id)arg1;
+- (void)_handleMediaSessionSetPlayback:(id)arg1;
 @property(retain) HMDMediaSession *mediaSession; // @synthesize mediaSession=_mediaSession;
 - (void)notifyClientsOfUpdatedRootSettings:(id)arg1;
 @property(retain) HMDAccessorySettingGroup *rootSettings; // @synthesize rootSettings=_rootSettings;
+- (void)registerForMessages;
 - (void)configureWithMessageDispatcher:(id)arg1;
 - (id)initWithAccessory:(id)arg1;
 - (id)initWithAccessory:(id)arg1 uniqueIdentifier:(id)arg2 services:(id)arg3;

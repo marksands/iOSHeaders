@@ -25,6 +25,8 @@ __attribute__((visibility("hidden")))
         unsigned int draggingOngoing:1;
         unsigned int handledCancelAnimation:1;
         unsigned int restoreNonEditableAfterDrop:1;
+        unsigned int restoreSelectableAfterDrop:1;
+        unsigned int wasSelectableBeforeDrop:1;
         unsigned int forceEditable:1;
         unsigned int delegateSupportsProposalForDrop:1;
         unsigned int delegateSupportsSessionDidUpdate:1;
@@ -68,6 +70,8 @@ __attribute__((visibility("hidden")))
 - (void)_applyOptionsToGeometry;
 @property(readonly, nonatomic) id <UITextDraggableGeometry> geometry;
 - (id)_closestPositionToPoint:(struct CGPoint)arg1;
+- (void)textPasteSessionDidEndPasting:(id)arg1;
+- (void)textPasteSessionWillBeginPasting:(id)arg1;
 - (id)_textPasteSelectableRangeForResult:(id)arg1 fromRange:(id)arg2;
 - (long long)_textPasteRangeBehavior;
 - (_Bool)_textPasteShouldBlockPasting;
@@ -108,6 +112,7 @@ __attribute__((visibility("hidden")))
 - (id)_accessibilityDraggableRanges;
 - (void)notifyTextInteraction;
 - (_Bool)accessibilityCanDrag;
+- (long long)_dragInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (_Bool)_dragInteraction:(id)arg1 competingGestureRecognizerShouldDelayLift:(id)arg2;
 - (_Bool)dragInteraction:(id)arg1 prefersFullSizePreviewsForSession:(id)arg2;
 - (void)_liftOrDragDidEndWithOperation:(unsigned long long)arg1;

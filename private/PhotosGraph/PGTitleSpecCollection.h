@@ -19,6 +19,7 @@
 @property(readonly) NSArray *specs; // @synthesize specs=_specs;
 - (void).cxx_destruct;
 - (id)description;
+- (id)allPossibleTitlesWithMomentNodes:(id)arg1;
 - (id)initWithSpecs:(id)arg1 fallbackSpecs:(id)arg2;
 
 @end

@@ -6,13 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-@class GEOMapRegion, VKScreenCameraController, VKWorld;
+@class GEOMapRegion, VKScreenCameraController;
 @protocol MDRenderTarget, VKImageCanvasDelegate;
 
 __attribute__((visibility("hidden")))
 @interface VKImageCanvas : NSObject
 {
-    VKWorld *_world;
     VKScreenCameraController *_cameraController;
     shared_ptr_e963992e _taskContext;
     long long _mapType;
@@ -27,7 +26,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct DisplayStyle mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
 @property(nonatomic) long long mapType; // @synthesize mapType=_mapType;
 @property(nonatomic) id <VKImageCanvasDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) VKWorld *world; // @synthesize world=_world;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)didReceiveMemoryWarning:(_Bool)arg1;

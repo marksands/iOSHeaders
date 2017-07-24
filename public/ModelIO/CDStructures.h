@@ -38,14 +38,6 @@ struct CGColor;
 
 struct Detail;
 
-struct GfMatrix4d {
-    struct GfMatrixData<double, 4, 4> _field1;
-};
-
-struct GfMatrixData<double, 4, 4> {
-    double _field1[16];
-};
-
 struct IESData {
     int _field1;
     int _field2;
@@ -72,20 +64,6 @@ struct MortonCode {
 };
 
 struct Octree;
-
-struct ParsedUsdMesh {
-    _Bool _field1;
-    _Bool _field2;
-    struct VtArray<GfVec3f> _field3;
-    struct vector<mdlio_usd::UsdAttr, std::__1::allocator<mdlio_usd::UsdAttr>> _field4;
-    struct mesh_topology _field5;
-    struct UsdPrim _field6;
-    id _field7;
-    struct VtArray<unsigned int> _field8;
-    struct VtArray<float> _field9;
-    struct VtArray<GfMatrix4d> _field10;
-    struct GfMatrix4d _field11;
-};
 
 struct PhysicallyPlausibleDistribution {
     CDUnknownFunctionPointerType *_field1;
@@ -159,7 +137,7 @@ struct TfPointerAndBits<const TfToken::_Rep> {
 };
 
 struct TfPointerAndBits<const VtValue::_TypeInfo> {
-    struct _TypeInfo *_field1;
+    struct _TypeInfo *_ptrAndBits;
 };
 
 struct TfToken {
@@ -168,24 +146,11 @@ struct TfToken {
 
 struct TimeSampledVtValue;
 
-struct UsdAttr;
-
 struct UsdAttribute {
     int _field1;
     struct Usd_PrimDataHandle _field2;
     struct SdfPath _field3;
     struct TfToken _field4;
-};
-
-struct UsdPrim {
-    int _field1;
-    struct Usd_PrimDataHandle _field2;
-    struct SdfPath _field3;
-    struct TfToken _field4;
-};
-
-struct UsdTimeCode {
-    double _field1;
 };
 
 struct Usd_PrimData;
@@ -194,32 +159,10 @@ struct Usd_PrimDataHandle {
     struct intrusive_ptr<const Usd_PrimData> _field1;
 };
 
-struct VtArray<GfMatrix4d> {
-    struct intrusive_ptr<VtArray<GfMatrix4d>::_Data> _field1;
-};
-
-struct VtArray<GfVec3f> {
-    struct intrusive_ptr<VtArray<GfVec3f>::_Data> _field1;
-};
-
-struct VtArray<float> {
-    struct intrusive_ptr<VtArray<float>::_Data> _field1;
-};
-
-struct VtArray<int> {
-    struct intrusive_ptr<VtArray<int>::_Data> _field1;
-};
-
-struct VtArray<unsigned int> {
-    struct intrusive_ptr<VtArray<unsigned int>::_Data> _field1;
-};
-
 struct VtValue {
-    struct aligned_storage_imp<8, 8> _field1;
-    struct TfPointerAndBits<const VtValue::_TypeInfo> _field2;
+    struct aligned_storage_imp<8, 8> _storage;
+    struct TfPointerAndBits<const VtValue::_TypeInfo> _info;
 };
-
-struct _Data;
 
 struct _Rep;
 
@@ -260,27 +203,7 @@ struct __sbuf {
 struct a8;
 
 struct aligned_storage_imp<8, 8> {
-    union data_t _field1;
-};
-
-struct intrusive_ptr<VtArray<GfMatrix4d>::_Data> {
-    struct _Data *_field1;
-};
-
-struct intrusive_ptr<VtArray<GfVec3f>::_Data> {
-    struct _Data *_field1;
-};
-
-struct intrusive_ptr<VtArray<float>::_Data> {
-    struct _Data *_field1;
-};
-
-struct intrusive_ptr<VtArray<int>::_Data> {
-    struct _Data *_field1;
-};
-
-struct intrusive_ptr<VtArray<unsigned int>::_Data> {
-    struct _Data *_field1;
+    union data_t data_;
 };
 
 struct intrusive_ptr<const Sdf_PathNode> {
@@ -289,16 +212,6 @@ struct intrusive_ptr<const Sdf_PathNode> {
 
 struct intrusive_ptr<const Usd_PrimData> {
     struct Usd_PrimData *_field1;
-};
-
-struct mesh_topology {
-    struct VtArray<int> _field1;
-    struct VtArray<int> _field2;
-    struct VtArray<int> _field3;
-    struct VtArray<float> _field4;
-    struct VtArray<int> _field5;
-    struct VtArray<int> _field6;
-    struct VtArray<float> _field7;
 };
 
 struct mutex {
@@ -392,14 +305,6 @@ struct vector<int, std::__1::allocator<int>> {
     } _field3;
 };
 
-struct vector<mdlio_usd::UsdAttr, std::__1::allocator<mdlio_usd::UsdAttr>> {
-    struct UsdAttr *_field1;
-    struct UsdAttr *_field2;
-    struct __compressed_pair<mdlio_usd::UsdAttr *, std::__1::allocator<mdlio_usd::UsdAttr>> {
-        struct UsdAttr *_field1;
-    } _field3;
-};
-
 struct vector<unsigned long long, std::__1::allocator<unsigned long long>> {
     unsigned long long *__begin_;
     unsigned long long *__end_;
@@ -437,7 +342,7 @@ typedef struct vector<int, std::__1::allocator<int>> {
 #pragma mark Named Unions
 
 union data_t {
-    char _field1[8];
-    struct a8 _field2;
+    char buf[8];
+    struct a8 align_;
 };
 

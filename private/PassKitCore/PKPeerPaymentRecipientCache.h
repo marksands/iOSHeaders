@@ -27,6 +27,7 @@
 - (_Bool)_canReadMap;
 - (id)_keyForRecipientAddress:(id)arg1;
 - (_Bool)purgeCache;
+- (void)purgeRecipientWithRecipientAddress:(id)arg1;
 - (void)cacheRecipient:(id)arg1 forRecipientAddress:(id)arg2;
 - (id)recipientForRecipientAddress:(id)arg1;
 - (void)dealloc;

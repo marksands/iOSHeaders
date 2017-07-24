@@ -122,6 +122,7 @@
     _Bool _enableEtaLabelDebugging;
     _Bool _etaLabelsAvoidScreenEdges;
     _Bool _enableRouteIntersectionTesting;
+    _Bool _forceEtaLabelPlacement;
     _Bool _trafficCameraLabelSelfCollide;
     _Bool _trafficCameraLabelCollideOutExternal;
     _Bool _trafficCameraLabelCollideWithExternal;
@@ -143,6 +144,7 @@
     _Bool _disableStylesheetAnimations;
     _Bool _trackingCameraZoomFurther;
     _Bool _enableARDebugConsole;
+    _Bool _enableAROmniTileLoader;
     CDStruct_7a997382 _landmark2DStrokeSettings;
     shared_ptr_a3c46825 _debugStyleManager;
 }
@@ -154,10 +156,12 @@
 @property(nonatomic) float arDefaultHeight; // @synthesize arDefaultHeight=_arDefaultHeight;
 @property(nonatomic) float arVirtualPlaneHeight; // @synthesize arVirtualPlaneHeight=_arVirtualPlaneHeight;
 @property(nonatomic) _Bool arOverrideDefaults; // @synthesize arOverrideDefaults=_arOverrideDefaults;
+@property(nonatomic) _Bool enableAROmniTileLoader; // @synthesize enableAROmniTileLoader=_enableAROmniTileLoader;
 @property(nonatomic) _Bool enableARDebugConsole; // @synthesize enableARDebugConsole=_enableARDebugConsole;
 @property(nonatomic) _Bool trafficCameraLabelCollideWithExternal; // @synthesize trafficCameraLabelCollideWithExternal=_trafficCameraLabelCollideWithExternal;
 @property(nonatomic) _Bool trafficCameraLabelCollideOutExternal; // @synthesize trafficCameraLabelCollideOutExternal=_trafficCameraLabelCollideOutExternal;
 @property(nonatomic) _Bool trafficCameraLabelSelfCollide; // @synthesize trafficCameraLabelSelfCollide=_trafficCameraLabelSelfCollide;
+@property(nonatomic) _Bool forceEtaLabelPlacement; // @synthesize forceEtaLabelPlacement=_forceEtaLabelPlacement;
 @property(nonatomic) _Bool etaLabelsAvoidScreenEdges; // @synthesize etaLabelsAvoidScreenEdges=_etaLabelsAvoidScreenEdges;
 @property(nonatomic) _Bool enableRouteIntersectionTesting; // @synthesize enableRouteIntersectionTesting=_enableRouteIntersectionTesting;
 @property(nonatomic) _Bool enableEtaLabelDebugging; // @synthesize enableEtaLabelDebugging=_enableEtaLabelDebugging;

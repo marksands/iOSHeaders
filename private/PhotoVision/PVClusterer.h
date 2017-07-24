@@ -63,6 +63,7 @@
 - (id)differencesBetweenClustersInClusterCacheAndLibrary:(id *)arg1;
 - (_Bool)_processingQueueGetCVMLClusters:(id)arg1 minimumClusterSize:(unsigned long long)arg2 returnClusterAsMutableSet:(_Bool)arg3 error:(id *)arg4;
 - (void)_appendToClusterLog:(id)arg1;
+- (_Bool)isReadyToReturnSuggestions;
 - (_Bool)cancelAllSuggestionRequests;
 - (_Bool)cancelSuggestionRequest:(id)arg1;
 - (id)requestSuggestionsForFaceClusterSequenceNumbers:(id)arg1 withClusteringFlags:(id)arg2 updateHandler:(CDUnknownBlockType)arg3 error:(id *)arg4;

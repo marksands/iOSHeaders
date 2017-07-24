@@ -6,25 +6,22 @@
 
 #import <objc/NSObject.h>
 
-#import <ModelIO/MDLNamed-Protocol.h>
 #import <ModelIO/NSCopying-Protocol.h>
 
-@class NSArray, NSString;
+@class NSArray;
 
-@interface MDLAnimatedValue : NSObject <MDLNamed, NSCopying>
+@interface MDLAnimatedValue : NSObject <NSCopying>
 {
     struct vector<(anonymous namespace)::TimeSampledVtValue, std::__1::allocator<(anonymous namespace)::TimeSampledVtValue>> _timeSampledData;
     unsigned long long _interpolation;
-    NSString *_name;
 }
 
-@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) unsigned long long interpolation; // @synthesize interpolation=_interpolation;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (_Bool)isAnimated;
 - (void)resetWithUsdAttribute:(const struct UsdAttribute *)arg1 timeScale:(double)arg2;
-- (unsigned long long)copyTimesInto:(double *)arg1 maxCount:(unsigned long long)arg2;
+- (unsigned long long)getTimes:(double *)arg1 maxCount:(unsigned long long)arg2;
 @property(readonly, nonatomic) NSArray *keyTimes;
 - (void)clear;
 @property(readonly, nonatomic) double maximumTime;
@@ -33,7 +30,7 @@
 - (struct VtValue)defaultVtValue;
 @property(readonly, nonatomic) unsigned long long precision;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithName:(id)arg1;
+- (id)init;
 
 @end
 

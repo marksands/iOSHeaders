@@ -31,6 +31,8 @@
 - (void)acceptFollowRequestFromPerson:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)acceptAllFollowRequestsWithCompletion:(CDUnknownBlockType)arg1;
 - (long long)transientFollowStateForPerson:(id)arg1;
+- (void)unblockPerson:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)blockPerson:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)cancelFollowRequestOnPerson:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)requestFollowPerson:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)unfollowPerson:(id)arg1 completion:(CDUnknownBlockType)arg2;

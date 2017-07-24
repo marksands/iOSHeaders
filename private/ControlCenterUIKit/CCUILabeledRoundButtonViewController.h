@@ -6,7 +6,7 @@
 
 #import <UIKit/UIViewController.h>
 
-@class CAPackage, CCUILabeledRoundButton, NSString, UIColor, UIControl, UIImage;
+@class CCUICAPackageDescription, CCUILabeledRoundButton, NSString, UIColor, UIControl, UIImage;
 
 @interface CCUILabeledRoundButtonViewController : UIViewController
 {
@@ -16,7 +16,7 @@
     _Bool _inoperative;
     _Bool _useLightStyle;
     NSString *_subtitle;
-    CAPackage *_glyphPackage;
+    CCUICAPackageDescription *_glyphPackageDescription;
     NSString *_glyphState;
     UIImage *_glyphImage;
     UIColor *_highlightColor;
@@ -34,14 +34,14 @@
 @property(nonatomic) _Bool labelsVisible; // @synthesize labelsVisible=_labelsVisible;
 @property(retain, nonatomic) UIImage *glyphImage; // @synthesize glyphImage=_glyphImage;
 @property(copy, nonatomic) NSString *glyphState; // @synthesize glyphState=_glyphState;
-@property(retain, nonatomic) CAPackage *glyphPackage; // @synthesize glyphPackage=_glyphPackage;
+@property(retain, nonatomic) CCUICAPackageDescription *glyphPackageDescription; // @synthesize glyphPackageDescription=_glyphPackageDescription;
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 - (void).cxx_destruct;
 - (void)loadView;
 @property(copy, nonatomic) NSString *title; // @dynamic title;
 - (void)buttonTapped:(id)arg1;
-- (id)initWithGlyphPackage:(id)arg1 highlightColor:(id)arg2 useLightStyle:(_Bool)arg3;
-- (id)initWithGlyphPackage:(id)arg1 highlightColor:(id)arg2;
+- (id)initWithGlyphPackageDescription:(id)arg1 highlightColor:(id)arg2 useLightStyle:(_Bool)arg3;
+- (id)initWithGlyphPackageDescription:(id)arg1 highlightColor:(id)arg2;
 - (id)initWithGlyphImage:(id)arg1 highlightColor:(id)arg2 useLightStyle:(_Bool)arg3;
 - (id)initWithGlyphImage:(id)arg1 highlightColor:(id)arg2;
 

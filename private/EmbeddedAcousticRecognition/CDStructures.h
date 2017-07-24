@@ -45,6 +45,8 @@ struct HybridClientConfigs {
 
 struct HybridEndpointer;
 
+struct KeywordFinder;
+
 struct LmeData;
 
 struct LmeDataFactory;
@@ -64,6 +66,8 @@ struct Path {
 };
 
 struct PronCache<std::__1::basic_string<char>, std::__1::vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>>>;
+
+struct PronChoice;
 
 struct RecogAudioBufferBase;
 
@@ -132,6 +136,11 @@ struct Token {
     _Bool hasSpaceAfter;
     _Bool hasSpaceBefore;
     basic_string_805fe43b phoneSeq;
+};
+
+struct TokenProns {
+    basic_string_805fe43b _field1;
+    struct vector<quasar::PronChoice, std::__1::allocator<quasar::PronChoice>> _field2;
 };
 
 struct TranslationModelInfo {
@@ -474,6 +483,12 @@ struct unique_ptr<quasar::HybridEndpointer, std::__1::default_delete<quasar::Hyb
     } __ptr_;
 };
 
+struct unique_ptr<quasar::KeywordFinder, std::__1::default_delete<quasar::KeywordFinder>> {
+    struct __compressed_pair<quasar::KeywordFinder *, std::__1::default_delete<quasar::KeywordFinder>> {
+        struct KeywordFinder *__first_;
+    } __ptr_;
+};
+
 struct unique_ptr<quasar::LmeData, std::__1::default_delete<quasar::LmeData>> {
     struct __compressed_pair<quasar::LmeData *, std::__1::default_delete<quasar::LmeData>> {
         struct LmeData *__first_;
@@ -548,6 +563,14 @@ struct unordered_map<std::__1::basic_string<char>, std::__1::basic_string<char>,
             float __first_;
         } __p3_;
     } __table_;
+};
+
+struct vector<quasar::PronChoice, std::__1::allocator<quasar::PronChoice>> {
+    struct PronChoice *_field1;
+    struct PronChoice *_field2;
+    struct __compressed_pair<quasar::PronChoice *, std::__1::allocator<quasar::PronChoice>> {
+        struct PronChoice *_field1;
+    } _field3;
 };
 
 struct vector<quasar::Token, std::__1::allocator<quasar::Token>> {

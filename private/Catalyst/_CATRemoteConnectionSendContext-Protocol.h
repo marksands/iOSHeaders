@@ -9,6 +9,7 @@
 @class NSData;
 
 @protocol _CATRemoteConnectionSendContext <NSObject>
+@property(readonly, nonatomic) unsigned long long clientBytesWritten;
 @property(nonatomic) unsigned long long bytesWritten;
 @property(readonly, nonatomic) _Bool hasBytesRemaining;
 @property(readonly, nonatomic) id userInfo;

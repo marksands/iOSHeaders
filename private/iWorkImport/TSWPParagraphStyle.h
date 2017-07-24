@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (id)boxedValueForProperty:(int)arg1 oldBoxedValue:(id)arg2 transformedByTransform:(struct CGAffineTransform)arg3;
 - (_Bool)transformsFontSizes;
 - (id)archivableRepresentationOfChangeSet:(id)arg1;
+- (id)parentStyleForFixingOrphanVariation;
 - (void)addMissingClassProperties;
 - (void)localizeForBidi:(_Bool)arg1;
 - (void)saveToArchiver:(id)arg1;
@@ -65,6 +66,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (double)ascent;
 - (id)objectByRemovingPropertiesInMap:(id)arg1 addingPropertiesInMap:(id)arg2 updateInverseResetPropertyMap:(id)arg3 updateInverseSetPropertyMap:(id)arg4;
+- (_Bool)p_contentTagIsBody;
 @property(readonly, nonatomic) _Bool allowAsBookmarkSuggestionStyle;
 @property(readonly, nonatomic) _Bool showInSuggestedBookmarksList;
 

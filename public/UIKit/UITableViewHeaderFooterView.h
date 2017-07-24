@@ -36,6 +36,7 @@
         unsigned int isTopHeader:1;
         unsigned int didSetSectionHeader:1;
         unsigned int didSetupDefaults:1;
+        unsigned int insetsContentViewsToSafeArea:1;
     } _headerFooterFlags;
     id <UITable> _table;
 }
@@ -72,6 +73,9 @@
 - (struct UIEdgeInsets)_insetsToBounds;
 @property(nonatomic, getter=_rightMarginWidth, setter=_setRightMarginWidth:) double rightMarginWidth;
 @property(nonatomic, getter=_marginWidth, setter=_setMarginWidth:) double marginWidth;
+- (void)_safeAreaInsetsDidChangeFromOldInsets:(struct UIEdgeInsets)arg1;
+@property(readonly, nonatomic, getter=_effectiveSafeAreaInsets) struct UIEdgeInsets effectiveSafeAreaInsets;
+@property(nonatomic, getter=_insetsContentViewsToSafeArea, setter=_setInsetsContentViewsToSafeArea:) _Bool insetsContentViewsToSafeArea;
 - (void)_updateContentAndBackgroundView;
 - (struct CGRect)_contentRect;
 - (struct CGRect)_contentRectForWidth:(double)arg1;

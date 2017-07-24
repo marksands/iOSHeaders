@@ -35,7 +35,6 @@
 - (float)_relativePositionForXPlaneValue:(id)arg1;
 - (void)_reloadMinMaxValues;
 - (id)labelsFromDataSet;
-- (void)refreshView;
 - (void)layoutSubviews;
 - (id)init;
 

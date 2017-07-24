@@ -57,7 +57,6 @@
 - (void)_queue_alertObserversTodayActivityCacheChanged:(id)arg1;
 - (void)removeActivityCacheObserver:(id)arg1;
 - (void)addActivityCacheObserver:(id)arg1;
-- (void)accessHeartRateStatisticsBuilderWithCacheIndex:(long long)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)accessStatisticsBuilderWithCacheIndex:(long long)arg1 handler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) HKActivityCache *yesterdayActivityCache;
 @property(readonly, nonatomic) HKActivityCache *currentActivityCache;

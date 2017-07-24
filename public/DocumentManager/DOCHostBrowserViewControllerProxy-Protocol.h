@@ -4,10 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class DOCConcreteLocation, DOCItem, NSArray, NSError, NSString;
+@class DOCConcreteLocation, DOCItem, NSArray, NSString;
 
 @protocol DOCHostBrowserViewControllerProxy
-- (void)presentVendorAuthenticationUIForProviderIdentifier:(NSString *)arg1 error:(NSError *)arg2;
 - (void)didTriggerFPUIActionWithIdentifier:(NSString *)arg1 providerIdentifier:(NSString *)arg2 domainIdentifier:(NSString *)arg3 title:(NSString *)arg4 onItems:(NSArray *)arg5;
 - (void)didTriggerActionWithIdentifier:(NSString *)arg1 onItems:(NSArray *)arg2;
 - (void)builtinActionsDidChange:(NSArray *)arg1;

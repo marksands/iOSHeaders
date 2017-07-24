@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     _Bool _inputWasEnabled;
     _Bool _outputWasEnabled;
     _Bool _inputBusEnabled;
+    int _renderObserverToken;
     struct unordered_map<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long), std::__1::hash<long>, std::__1::equal_to<long>, std::__1::allocator<std::__1::pair<const long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>>> _renderObservers;
 }
 
@@ -35,7 +36,9 @@ __attribute__((visibility("hidden")))
 - (void)addRenderObserver:(CDUnknownFunctionPointerType)arg1 userData:(void *)arg2;
 - (void)removeRenderObserver:(long long)arg1;
 - (long long)tokenByAddingRenderObserver:(CDUnknownBlockType)arg1;
+- (void)initAUHALOutputUnit;
 - (void)dealloc;
+- (id)initWithAudioUnit:(struct OpaqueAudioComponentInstance *)arg1 description:(struct AudioComponentDescription)arg2;
 - (id)initWithComponentDescription:(struct AudioComponentDescription)arg1 options:(unsigned int)arg2 error:(id *)arg3;
 
 @end

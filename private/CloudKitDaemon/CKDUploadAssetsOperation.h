@@ -75,7 +75,7 @@ __attribute__((visibility("hidden")))
 - (id)nameForState:(unsigned long long)arg1;
 - (_Bool)makeStateTransition;
 - (id)CKStatusReportLogGroups;
-- (id)initWithOperationInfo:(id)arg1 clientContext:(id)arg2 assetsToUpload:(id)arg3;
+- (id)initWithOperationInfo:(id)arg1 clientContext:(id)arg2;
 
 @end
 

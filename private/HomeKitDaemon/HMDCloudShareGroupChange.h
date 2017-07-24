@@ -44,6 +44,7 @@
 - (void)addChangeWithRecord:(id)arg1;
 - (void)addChangeWithObjectChange:(id)arg1;
 - (void)addChange:(id)arg1 setAsProcessing:(_Bool)arg2;
+- (id)changeWithRecordName:(id)arg1;
 - (id)changeWithObjectID:(id)arg1;
 @property(readonly, nonatomic) NSArray *processedTransactionStoreRowIDs;
 @property(readonly, nonatomic) NSArray *allTransactionStoreRowIDs;

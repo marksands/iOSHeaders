@@ -73,6 +73,7 @@
 - (void)_presentPaymentAuthorization;
 - (void)_presentPaymentSetup;
 - (void)_handlePaymentRequestPresentationResultType:(long long)arg1 relevantUniqueID:(id)arg2 firstAttempt:(_Bool)arg3;
+- (void)_canPresentPaymentRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setUserInfo:(id)arg1;
 - (void)paymentSetupDidFinish:(id)arg1;
 - (id)_configuredPaymentSetupNavigationController;

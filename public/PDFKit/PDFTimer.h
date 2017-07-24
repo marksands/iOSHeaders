@@ -16,8 +16,10 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (void)_execute;
+- (void)cancel;
 - (_Bool)isUpdateQueued;
 - (void)update;
+- (void)dealloc;
 - (id)initWithThrottleDelay:(double)arg1 forSelector:(SEL)arg2 forTarget:(id)arg3;
 - (id)initWithSelector:(SEL)arg1 forTarget:(id)arg2;
 

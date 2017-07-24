@@ -27,7 +27,6 @@
 #import <PhotosUI/UICollectionViewDataSource-Protocol.h>
 #import <PhotosUI/UICollectionViewDelegate-Protocol.h>
 #import <PhotosUI/UICollectionViewDragDestination-Protocol.h>
-#import <PhotosUI/UIDropInteractionDelegate-Protocol.h>
 #import <PhotosUI/UIGestureRecognizerDelegate-Protocol.h>
 #import <PhotosUI/UIPopoverPresentationControllerDelegate-Protocol.h>
 #import <PhotosUI/UITableViewDataSource-Protocol.h>
@@ -35,7 +34,7 @@
 
 @class NSArray, NSMutableSet, NSString, PHCachingImageManager, PHCollection, PHImageRequestOptions, PUAlbumListSectionHeaderView, PUAlbumListTransitionContext, PUAlbumListViewControllerSpec, PUAlbumStreamActivity, PUCollageView, PUCollectionView, PUFeedRecentsManager, PUFeedViewController, PUFontManager, PUPhotoPinchGestureRecognizer, PUPhotoStreamComposeServiceViewController, PUPhotosGlobalFooterView, PUSearchButtonItem, PUSectionedGridLayout, PUSessionInfo, PUVideoTrimQueueController, PXAssetBadgeManager, PXCollectionTileLayoutTemplate, PXEditableNavigationTitleView, PXFeatureSpec, PXFeatureSpecManager, PXPeopleAlbumProvider, PXPhotoKitCollectionsDataSource, PXPhotoKitCollectionsDataSourceManager, PXPhotoKitCollectionsDataSourceManagerConfiguration, PXPlacesAlbumCoverProvider, UIAlertAction, UIAlertController, UIBarButtonItem, UICollectionViewLayout, UITableView, UIView, _UIContentUnavailableView;
 
-@interface PUAlbumListViewController : UIViewController <UIGestureRecognizerDelegate, PUStackedAlbumTransitionDelegate, PUAlbumStreamActivityDelegate, PUFeedRecentsManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PUCollectionViewReorderDelegate, PUSectionedGridLayoutDelegate, UITableViewDataSource, UITableViewDelegate, PUAlbumListTableViewCellDelegate, UIPopoverPresentationControllerDelegate, PXPhotoLibraryUIChangeObserver, PXSettingsKeyObserver, PXCollectionsDataSourceManagerObserver, PXPlacesSnapshotFactoryDelegate, UICollectionViewDragDestination, UIDropInteractionDelegate, PUPhotoStreamComposeServiceDelegate, PUVideoTrimQueueControllerDelegate, PXPlacesMapControllerLoadingStateDelegate, PXEditableNavigationTitleViewDelegate, PLNavigableAssetContainerListViewController, PLCloudFeedNavigating, PLNavigablePhotoStreamViewController, PUStackedAlbumControllerTransition>
+@interface PUAlbumListViewController : UIViewController <UIGestureRecognizerDelegate, PUStackedAlbumTransitionDelegate, PUAlbumStreamActivityDelegate, PUFeedRecentsManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PUCollectionViewReorderDelegate, PUSectionedGridLayoutDelegate, UITableViewDataSource, UITableViewDelegate, PUAlbumListTableViewCellDelegate, UIPopoverPresentationControllerDelegate, PXPhotoLibraryUIChangeObserver, PXSettingsKeyObserver, PXCollectionsDataSourceManagerObserver, PXPlacesSnapshotFactoryDelegate, UICollectionViewDragDestination, PUPhotoStreamComposeServiceDelegate, PUVideoTrimQueueControllerDelegate, PXPlacesMapControllerLoadingStateDelegate, PXEditableNavigationTitleViewDelegate, PLNavigableAssetContainerListViewController, PLCloudFeedNavigating, PLNavigablePhotoStreamViewController, PUStackedAlbumControllerTransition>
 {
     PUAlbumListViewControllerSpec *_spec;
     UIBarButtonItem *_doneButtonItem;
@@ -157,9 +156,6 @@
 - (void)mapController:(id)arg1 didFinishExecutingPipelines:(id)arg2;
 - (void)mapController:(id)arg1 didStartExecutingPipelines:(id)arg2;
 - (void)mapViewDidFinishRendering:(id)arg1;
-- (void)dropInteraction:(id)arg1 performDrop:(id)arg2;
-- (id)_api_dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
-- (_Bool)dropInteraction:(id)arg1 canHandleSession:(id)arg2;
 - (void)_collectionView:(id)arg1 performDropWithCoordinator:(id)arg2;
 - (id)_collectionView:(id)arg1 dropSessionDidUpdate:(id)arg2 withDestinationIndexPath:(id)arg3;
 - (_Bool)_collectionView:(id)arg1 canHandleDropSesson:(id)arg2;

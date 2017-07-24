@@ -15,9 +15,12 @@
 
 @property(nonatomic) double iconTextPadding; // @synthesize iconTextPadding=_iconTextPadding;
 @property(readonly, nonatomic) unsigned long long numberOfEntries; // @synthesize numberOfEntries=_numberOfEntries;
+- (void)setSpacingToMakeOffsetOverlapListItem:(double)arg1;
 - (void)addSubview:(id)arg1;
 - (double)heightForWidth:(double)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
+- (void)_layoutForWidth:(double)arg1;
 - (void)addEntryWithIcon:(id)arg1 attributedText:(id)arg2;
 - (void)addEntryWithIcon:(id)arg1 text:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;

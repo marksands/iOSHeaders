@@ -10,6 +10,8 @@
 
 @interface NSItemProvider (UIKitAdditions)
 - (Class)_highestFidelityClassForLoading:(id)arg1;
+@property(nonatomic) long long preferredPresentationStyle;
+- (void)_NSItemProviderDidRegisterObject:(id)arg1;
 @property(nonatomic) struct CGSize preferredPresentationSize;
 @property(copy, nonatomic) NSData *teamData;
 @end

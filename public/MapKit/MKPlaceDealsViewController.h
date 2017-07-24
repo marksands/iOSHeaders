@@ -30,7 +30,6 @@ __attribute__((visibility("hidden")))
 - (id)infoCardChildPossibleActions;
 - (void)_dealSelected:(id)arg1;
 - (void)updateViewConstraints;
-- (double)extraHeightToReserveInLayout;
 - (void)viewDidLoad;
 - (void)loadView;
 

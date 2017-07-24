@@ -6,14 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
-#import <UIKit/UIDragInteractionDelegate-Protocol.h>
+#import <UIKit/UIDragInteractionDelegate_Private-Protocol.h>
 #import <UIKit/_UICollectionViewShadowUpdatesRebaseApplicable-Protocol.h>
 
 @class NSArray, NSIndexPath, NSString, UICollectionView, UIDragInteraction, _UICollectionViewDragSourceControllerDragState, _UICollectionViewDragSourceControllerSessionState;
 @protocol UIDragSession, _UICollectionViewDragSourceControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface _UICollectionViewDragSourceController : NSObject <UIDragInteractionDelegate, _UICollectionViewShadowUpdatesRebaseApplicable>
+@interface _UICollectionViewDragSourceController : NSObject <UIDragInteractionDelegate_Private, _UICollectionViewShadowUpdatesRebaseApplicable>
 {
     UICollectionView *_collectionView;
     UIDragInteraction *_dragInteraction;
@@ -30,15 +30,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 - (void).cxx_destruct;
 - (void)applyingRebasingUpdatesWithUpdateMap:(id)arg1;
+- (id)_filterCandidateIndexPaths:(id)arg1 forUserSelectedIndexPath:(id)arg2 session:(id)arg3;
+- (void)_sessionWillBegin:(id)arg1 forDragInteraction:(id)arg2;
 - (id)_previewParametersForItemAtIndexPath:(id)arg1;
-- (id)_queryForItemsFromClientForSession:(id)arg1 indexPath:(id)arg2 location:(struct CGPoint)arg3 isInitialQuery:(_Bool)arg4;
+- (id)_queryForItemsFromClientForSession:(id)arg1 dataSourceIndexPath:(id)arg2 location:(struct CGPoint)arg3 isInitialQuery:(_Bool)arg4;
 - (_Bool)_isCompatibilityMode;
-- (void)_addDragItemsToExistingSession:(id)arg1 forIndexPath:(id)arg2;
-- (_Bool)_isItemAtIndexPathCurrentlyDragging:(id)arg1;
-- (id)_initialIndexPathForDragSessionIndexPath:(id)arg1;
-- (id)_layoutIndexPathsForItems:(id)arg1;
-- (id)_layoutIndexPathsForDraggingItems;
-- (void)_addIndexPathForDraggingItem:(id)arg1;
+- (void)_addDragItemsToExistingSession:(id)arg1 forDataSourceIndexPath:(id)arg2;
 - (_Bool)_delegateImplementsSelector:(SEL)arg1;
 - (_Bool)_delegateImplementsDragSourceDidAddItem;
 - (_Bool)_delegateImplementsDragItemsForItemAtIndexPathWithDefaultPreview;

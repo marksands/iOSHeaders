@@ -20,6 +20,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) BRCZoneRowID *zoneRowID; // @synthesize zoneRowID=_zoneRowID;
 @property(readonly, nonatomic) long long intID; // @synthesize intID=_intID;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToIntAndZoneJobIdentifier:(id)arg1;
+@property(readonly) unsigned long long hash;
 - (id)columnsValues;
 - (id)columns;
 - (id)matchingJobsWhereSQLClause;
@@ -29,7 +33,6 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

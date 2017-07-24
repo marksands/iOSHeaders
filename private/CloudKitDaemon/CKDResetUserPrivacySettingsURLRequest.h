@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)requestDidParseProtobufObject:(id)arg1;
-- (id)requestOperations;
+- (id)generateRequestOperations;
 - (id)requestOperationClasses;
 - (_Bool)requiresTokenRegistration;
 - (int)operationType;

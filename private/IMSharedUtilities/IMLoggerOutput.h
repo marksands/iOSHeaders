@@ -4,17 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @interface IMLoggerOutput : NSObject
 {
-    long long _logLevel;
 }
 
-@property long long logLevel; // @synthesize logLevel=_logLevel;
++ (id)loggerOutputFromLoggingLevel:(long long)arg1;
++ (id)loggerOutputFromString:(id)arg1;
++ (long long)loggingLevelFromString:(id)arg1;
+- (id)description;
+@property(readonly) long long loggingLevel;
 - (void)logForCategory:(const char *)arg1 string:(id)arg2;
-- (id)init;
-- (id)initWithLogLevel:(long long)arg1;
 
 @end
 

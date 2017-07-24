@@ -39,6 +39,7 @@
 - (void)setExpectedSequenceNumber:(long long)arg1 forSyncEntityClass:(Class)arg2;
 - (long long)expectedSequenceNumberForSyncEntityClass:(Class)arg1;
 - (_Bool)shouldEnforceSequenceOrdering;
+- (_Bool)shouldContinueAfterAnchorValidationError:(id)arg1;
 - (_Bool)supportsSpeculativeChangesForSyncEntityClass:(Class)arg1;
 - (_Bool)enforceSyncEntityOrdering;
 - (id)orderedSyncEntities;
@@ -51,6 +52,7 @@
 - (_Bool)persistState:(id)arg1 error:(id *)arg2;
 - (id)getPersistedAnchorMapWithError:(id *)arg1;
 - (_Bool)updatePersistedAnchorMap:(id)arg1 error:(id *)arg2;
+- (_Bool)resetReceivedSyncAnchorMapWithError:(id *)arg1;
 - (id)receivedSyncAnchorMapWithError:(id *)arg1;
 @property(readonly) int protocolVersion;
 - (id)initWithProfile:(id)arg1 storeIdentifier:(id)arg2 syncCircleName:(id)arg3 ownerIdentifier:(id)arg4 containerIdentifier:(id)arg5 sharingIdentifier:(id)arg6 predicate:(id)arg7 error:(id *)arg8;

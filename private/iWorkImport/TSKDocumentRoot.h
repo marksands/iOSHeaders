@@ -88,6 +88,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *documentLanguage;
 @property(readonly, nonatomic) unsigned long long writingDirectionForStorage;
 @property(readonly, nonatomic) unsigned long long writingDirection;
+@property(readonly, nonatomic) _Bool hasFloatingLocale;
 - (void)willClose;
 - (void)documentDidLoad;
 - (void)didSaveWithEncryptionChange;

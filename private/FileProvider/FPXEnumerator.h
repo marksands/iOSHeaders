@@ -31,11 +31,11 @@ __attribute__((visibility("hidden")))
 - (void)invalidateVendorEnumeration;
 - (void)invalidate;
 - (void)dealloc;
+@property(readonly, copy) NSString *description;
 - (id)initWithObservedItemID:(id)arg1 domainContext:(id)arg2 vendorEnumerator:(id)arg3 observer:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

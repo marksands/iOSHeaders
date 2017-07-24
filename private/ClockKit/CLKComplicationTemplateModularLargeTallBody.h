@@ -6,7 +6,7 @@
 
 #import <ClockKit/CLKComplicationTemplate.h>
 
-@class CLKTextProvider;
+@class CLKTextProvider, NSDate;
 
 @interface CLKComplicationTemplateModularLargeTallBody : CLKComplicationTemplate
 {
@@ -14,13 +14,16 @@
     CLKTextProvider *_headerTextProvider;
     CLKTextProvider *_bodyTextProvider;
     CLKTextProvider *_headerTrailingTextProvider;
+    NSDate *_contentDate;
 }
 
 @property(nonatomic) _Bool shouldTruncateHeaderLeadingLabelFirst; // @synthesize shouldTruncateHeaderLeadingLabelFirst=_shouldTruncateHeaderLeadingLabelFirst;
+@property(copy, nonatomic) NSDate *contentDate; // @synthesize contentDate=_contentDate;
 @property(copy, nonatomic) CLKTextProvider *headerTrailingTextProvider; // @synthesize headerTrailingTextProvider=_headerTrailingTextProvider;
 @property(copy, nonatomic) CLKTextProvider *bodyTextProvider; // @synthesize bodyTextProvider=_bodyTextProvider;
 @property(copy, nonatomic) CLKTextProvider *headerTextProvider; // @synthesize headerTextProvider=_headerTextProvider;
 - (void).cxx_destruct;
+- (void)_enumerateDateKeysWithBlock:(CDUnknownBlockType)arg1;
 - (void)_enumerateBOOLKeysWithBlock:(CDUnknownBlockType)arg1;
 - (void)_enumerateTextProviderKeysWithBlock:(CDUnknownBlockType)arg1;
 - (_Bool)isCompatibleWithFamily:(long long)arg1;

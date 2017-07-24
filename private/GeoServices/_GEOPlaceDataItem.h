@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=_wifiFingerprintConfidence) unsigned int wifiFingerprintConfidence;
 @property(readonly, nonatomic, getter=_hasWifiFingerprintConfidence) _Bool hasWifiFingerprintConfidence;
 - (id)_wifiFingerprintComponent;
+@property(readonly, nonatomic, getter=_placeDisplayStyle) int placeDisplayStyle;
 @property(readonly, nonatomic, getter=_browseCategories) NSArray *browseCategories;
 @property(readonly, nonatomic, getter=_venueInfo) id <GEOMapItemVenueInfo> venueInfo;
 @property(readonly, nonatomic, getter=_venueCategoryBrowseType) int venueCategoryBrowseType;

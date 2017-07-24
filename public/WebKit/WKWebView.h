@@ -78,6 +78,7 @@
     _Bool _hasScheduledVisibleRectUpdate;
     _Bool _visibleContentRectUpdateScheduledFromScrollViewInStableState;
     struct Vector<WTF::BlockPtr<void ()>, 0, WTF::CrashOnOverflow, 16> _visibleContentRectUpdateCallbacks;
+    unsigned long long _dragInteractionPolicy;
 }
 
 + (_Bool)handlesURLScheme:(id)arg1;
@@ -202,11 +203,13 @@
 - (void)setFrame:(struct CGRect)arg1;
 @property(readonly, nonatomic) _Bool _isBackground;
 - (void)_populateArchivedSubviews:(id)arg1;
+@property(nonatomic, setter=_setDragInteractionPolicy:) unsigned long long _dragInteractionPolicy;
 @property(nonatomic, setter=_setViewportSizeForCSSViewportUnits:) struct CGSize _viewportSizeForCSSViewportUnits;
 @property(nonatomic) _Bool allowsLinkPreview;
 - (struct OpaqueWKPage *)_pageForTesting;
 @property(copy, nonatomic) NSString *customUserAgent;
 - (void)takeSnapshotWithConfiguration:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_evaluateJavaScript:(id)arg1 forceUserGesture:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)evaluateJavaScript:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)stopLoading;
 - (id)reloadFromOrigin;
@@ -310,6 +313,7 @@
 @property(copy, nonatomic, setter=_setRemoteInspectionNameOverride:) NSString *_remoteInspectionNameOverride;
 @property(nonatomic, setter=_setAllowsRemoteInspection:) _Bool _allowsRemoteInspection;
 - (void)_updateWebsitePolicies:(id)arg1;
+- (void)_evaluateJavaScriptWithoutUserGesture:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_close;
 - (id)_restoreSessionState:(id)arg1 andNavigate:(_Bool)arg2;
 - (void)_restoreFromSessionStateData:(id)arg1;
@@ -344,13 +348,14 @@
 @property(readonly, nonatomic) id _remoteObjectRegistry;
 @property(nonatomic, getter=_isEditable, setter=_setEditable:) _Bool _editable;
 - (void)_simulateLongPressActionAtLocation:(struct CGPoint)arg1;
+@property(readonly, nonatomic) struct CGRect _dragCaretRect;
 - (void)_simulatePrepareForDataInteractionSession:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_simulatedItemsForSession:(id)arg1;
 - (void)_simulateWillBeginDataInteractionWithSession:(id)arg1;
 - (void)_simulateDataInteractionSessionDidEnd:(id)arg1;
 - (void)_simulateDataInteractionEnded:(id)arg1;
 - (void)_simulateDataInteractionPerformOperation:(id)arg1;
-- (_Bool)_simulateDataInteractionUpdated:(id)arg1;
+- (unsigned long long)_simulateDataInteractionUpdated:(id)arg1;
 - (void)_simulateDataInteractionEntered:(id)arg1;
 - (void)_disableBackForwardSnapshotVolatilityForTesting;
 - (void)_doAfterNextVisibleContentRectUpdate:(CDUnknownBlockType)arg1;
@@ -380,6 +385,7 @@
 - (struct CGPoint)_convertPointFromViewToContents:(struct CGPoint)arg1;
 - (struct CGPoint)_convertPointFromContentsToView:(struct CGPoint)arg1;
 @property(readonly, nonatomic) struct CGRect _contentVisibleRect;
+- (void)_requestActivatedElementAtPosition:(struct CGPoint)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)_requestDraggableElementAtPosition:(struct CGPoint)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)_draggableElementAtPosition:(struct CGPoint)arg1;
 - (id)_contentsOfUserInterfaceItem:(id)arg1;

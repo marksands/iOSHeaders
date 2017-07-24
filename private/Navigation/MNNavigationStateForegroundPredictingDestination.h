@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (void)commuteSessionDidArrive:(id)arg1;
 - (void)commuteSession:(id)arg1 didUpdateDestinations:(id)arg2;
 - (void)enterState;
 - (void)stopPredictingDestinations;

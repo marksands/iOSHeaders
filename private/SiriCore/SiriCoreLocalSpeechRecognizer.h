@@ -8,7 +8,7 @@
 
 #import <SiriCore/AFSpeechServiceDelegate-Protocol.h>
 
-@class NSError, NSString, NSXPCConnection, SiriCoreLocalSpeechDESRecord;
+@class NSData, NSError, NSString, NSXPCConnection, SiriCoreLocalSpeechDESRecord;
 @protocol OS_dispatch_queue, SiriCoreLocalSpeechRecognizerDelegate;
 
 @interface SiriCoreLocalSpeechRecognizer : NSObject <AFSpeechServiceDelegate>
@@ -23,6 +23,8 @@
     unsigned char _instanceUUID[16];
     NSString *_currentLanguage;
     NSError *_recognitionError;
+    NSString *_preheatedProfileAssetPath;
+    NSData *_preheatedProfile;
     id <SiriCoreLocalSpeechRecognizerDelegate> _delegate;
 }
 
@@ -45,9 +47,9 @@
 - (void)runAdaptationRecipeEvaluation:(id)arg1 localSpeechDESRecord:(id)arg2 attachments:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)getOfflineDictationStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateSpeechProfileWithLanguage:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)updateSpeechProfileWithLanguage:(id)arg1 userData:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)createSpeechProfileWithLanguage:(id)arg1 JSONData:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)startSpeechRecognitionWithLanguage:(id)arg1 task:(id)arg2 context:(id)arg3 narrowband:(_Bool)arg4 detectUtterances:(_Bool)arg5 maximumRecognitionDuration:(double)arg6 farField:(_Bool)arg7 secureOfflineOnly:(_Bool)arg8 censorSpeech:(_Bool)arg9 originalAudioFileURL:(id)arg10 overrides:(id)arg11 modelOverrideURL:(id)arg12 didStartHandler:(CDUnknownBlockType)arg13;
+- (void)preheatSpeechRecognitionWithLanguage:(id)arg1;
 - (id)_serviceWithFunctionName:(id)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (id)_service;
 - (id)_connection;

@@ -455,6 +455,7 @@
 - (void)_updateFilterButtonOnState;
 - (void)_updateFilterScrubberAfterCapture;
 - (void)_updateFilterScrubberForGraphConfiguration:(id)arg1;
+- (id)_originalCaptureFiltersForMode:(long long)arg1;
 - (id)_captureFiltersForMode:(long long)arg1;
 - (id)_previewFiltersForMode:(long long)arg1;
 - (unsigned long long)_previewConfigurationForMode:(long long)arg1 videoDataOutputEnabled:(_Bool)arg2;
@@ -485,6 +486,7 @@
 - (void)_updatePausingOfCameraRollAudioHandlingForCapture;
 - (_Bool)_shouldSuspendCameraRollAudioHandlingForCapture;
 - (void)_presentCameraRollViewControllerAnimated:(_Bool)arg1 interactive:(_Bool)arg2;
+- (_Bool)_shouldDeferMediaLoadingForGraphConfiguration:(id)arg1;
 - (void)_handleImageWellReleased:(id)arg1;
 - (void)_handleImageWellPressed:(id)arg1;
 - (_Bool)_isShowingCameraRoll;
@@ -576,6 +578,7 @@
 - (_Bool)_isHDRSupportedForGraphConfiguration:(id)arg1;
 - (void)_dismissFlashOrTorchUnavailableAlertViewAnimated:(_Bool)arg1;
 - (void)_showFlashOrTorchUnavailableAlertView;
+- (id)_flashOrTorchDisabledMessageForCurrentPowerPressure;
 - (void)_updateTorchModeOnControllerIfNecessaryForMode:(long long)arg1;
 - (void)_updateTorchMode;
 - (void)_flashButtonDidChangeTorchAvailability:(id)arg1;
@@ -824,9 +827,11 @@
 - (id)_stillImageCaptureRequestWithCurrentSettingsAsBurst:(_Bool)arg1 maximumLength:(long long)arg2;
 - (_Bool)_captureStillImageWithRequest:(id)arg1 error:(id *)arg2;
 - (void)_updateUserInitiationTimeForRequest:(id)arg1;
+- (_Bool)_shouldReportUserInitiationTimeForCurrentSettings;
 - (void)_updateOriginForRequest:(id)arg1;
 - (long long)_currentCaptureRequestOrigin;
 - (long long)preferredWhitePointAdaptivityStyle;
+- (unsigned long long)preferredScreenEdgesDeferringSystemGestures;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewWillLayoutSubviews;
 - (_Bool)prefersStatusBarHidden;

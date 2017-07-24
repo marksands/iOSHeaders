@@ -20,9 +20,11 @@
     _Bool _invokedForPlaylistEditing;
     _Bool _showsOnlyStoreItems;
     _Bool _picksSingleCollection;
+    _Bool _omitsGeniusPlaylists;
     MusicClientContext *_clientContext;
 }
 
+@property(nonatomic) _Bool omitsGeniusPlaylists; // @synthesize omitsGeniusPlaylists=_omitsGeniusPlaylists;
 @property(nonatomic) _Bool picksSingleCollection; // @synthesize picksSingleCollection=_picksSingleCollection;
 @property(nonatomic) _Bool showsOnlyStoreItems; // @synthesize showsOnlyStoreItems=_showsOnlyStoreItems;
 @property(nonatomic, getter=isInvokedForPlaylistEditing) _Bool invokedForPlaylistEditing; // @synthesize invokedForPlaylistEditing=_invokedForPlaylistEditing;

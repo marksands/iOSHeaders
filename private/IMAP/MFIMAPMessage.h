@@ -34,7 +34,7 @@
 - (long long)compareByNumberWithMessage:(id)arg1;
 - (id)messageID;
 - (unsigned long long)messageSize;
-- (id)description;
+- (id)_privacySafeDescription;
 - (void)dealloc;
 - (id)initWithFlags:(unsigned long long)arg1 customFlags:(id)arg2 size:(unsigned long long)arg3 uid:(unsigned int)arg4;
 

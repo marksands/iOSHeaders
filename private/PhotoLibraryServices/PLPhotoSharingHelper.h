@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface PLPhotoSharingHelper : NSObject
 {
@@ -109,7 +109,7 @@
 + (void)retryOutstandingActivities;
 + (void)pollForAlbumListUpdates;
 + (_Bool)accountMatchesEmail:(id)arg1;
-+ (id)sharingEmail;
++ (id)sharingUsername;
 + (id)sharingPersonID;
 + (_Bool)sharedStreamsExplictlyDisabled;
 + (_Bool)sharedStreamsEnabled;

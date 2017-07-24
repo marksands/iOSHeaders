@@ -208,6 +208,8 @@
 - (_Bool)probabilityPassWithThreshold:(double)arg1;
 - (unsigned int)randomNumberLessThan:(unsigned long long)arg1;
 - (unsigned int)randomNumber;
+@property(readonly) double minimumRatioOfFocusedPersonFacesPerAssetForMultipleFocusedPersonsFacedAssets;
+@property(readonly) unsigned long long maximumNumberOfFacesPerAssetForSingleFocusedPersonFacedAssets;
 - (id)initWithManager:(id)arg1;
 - (_Bool)anyBlacklistedFeatureIsHitByMomentNode:(id)arg1;
 - (id)anyBlacklistedFeatureHitByCompletePotentialMemory:(id)arg1;

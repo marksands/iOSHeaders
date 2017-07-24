@@ -13,9 +13,6 @@
 }
 
 + (id)sharedInstance;
-@property(readonly, nonatomic) double mainScreenOrientation; // @dynamic mainScreenOrientation;
-@property(readonly, nonatomic) int mainScreenPitch; // @dynamic mainScreenPitch;
-@property(readonly, nonatomic) double mainScreenScale; // @dynamic mainScreenScale;
 @property(readonly, nonatomic) _Bool hasOrbCapability; // @dynamic hasOrbCapability;
 @property(readonly, nonatomic) _Bool hasGasGauge; // @dynamic hasGasGauge;
 @property(readonly, nonatomic, getter=isMultiCore) _Bool multiCore; // @dynamic multiCore;
@@ -33,7 +30,6 @@
 @property(readonly, copy, nonatomic) NSString *productType; // @dynamic productType;
 @property(readonly, copy, nonatomic) NSString *productBuildVersion; // @dynamic productBuildVersion;
 @property(readonly, copy, nonatomic) NSString *productVersion; // @dynamic productVersion;
-- (id)init;
 
 @end
 

@@ -12,7 +12,7 @@
 #import <AssistantUI/AFUISpeechSynthesisLocalDelegate-Protocol.h>
 #import <AssistantUI/AFUIStateMachineDelegate-Protocol.h>
 
-@class AFConnection, AFSettingsConnection, AFUIAppIntentDeliverer, AFUISiriSessionInfo, AFUISpeechSynthesis, AFUIStateMachine, NSMutableSet, NSString;
+@class AFConnection, AFConnectionUserInteractionAssertion, AFSettingsConnection, AFUIAppIntentDeliverer, AFUISiriSessionInfo, AFUISpeechSynthesis, AFUIStateMachine, NSMutableSet, NSString;
 @protocol AFUISiriSessionDelegate, AFUISiriSessionLocalDataSource, AFUISiriSessionLocalDelegate, OS_dispatch_group, OS_dispatch_queue;
 
 @interface AFUISiriSession : NSObject <AFAssistantUIService, AFSpeechDelegate, AFUIStateMachineDelegate, AFUISpeechSynthesisLocalDelegate, AFUISiriSession>
@@ -26,6 +26,7 @@
     _Bool _sendContextBeforeContinuingSpeechRequest;
     AFUIAppIntentDeliverer *_currentAppIntentDeliverer;
     AFSettingsConnection *_settingsConnection;
+    AFConnectionUserInteractionAssertion *_userInteractionAssertion;
     _Bool _eyesFree;
     _Bool _isProcessingAcousticIdRequest;
     id <AFUISiriSessionDelegate> _delegate;
@@ -50,6 +51,7 @@
 - (void).cxx_destruct;
 - (void)_updateActiveAccount:(id)arg1;
 - (void)settingsConnectionDidChangeActiveAccount:(id)arg1;
+- (void)_authenticationUIDismissed;
 - (void)_authenticationUIPresented;
 - (id)underlyingConnection;
 - (float)recordingPowerLevel;

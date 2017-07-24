@@ -23,21 +23,27 @@ __attribute__((visibility("hidden")))
     double _safariSquishHeightQuantizationOffset;
     double _safariViewControllerSquishHeightQuantizationOffset;
     _Bool _usesLargerBarMetrics;
+    double _accessibilityImageScale;
     double _urlOutlineCornerRadius;
     double _defaultBarHeight;
     double _urlContainerTop;
     double _urlOutlineHeight;
     double _urlLabelVerticalOffset;
+    double _urlLabelAccessoryItemSquishedVerticalOffset;
+    double _urlLabelAccessoryLockItemVerticalOffset;
     double _distanceFromLabelBaselineToURLOutlineBottom;
 }
 
 @property(readonly, nonatomic) double distanceFromLabelBaselineToURLOutlineBottom; // @synthesize distanceFromLabelBaselineToURLOutlineBottom=_distanceFromLabelBaselineToURLOutlineBottom;
+@property(readonly, nonatomic) double urlLabelAccessoryLockItemVerticalOffset; // @synthesize urlLabelAccessoryLockItemVerticalOffset=_urlLabelAccessoryLockItemVerticalOffset;
+@property(readonly, nonatomic) double urlLabelAccessoryItemSquishedVerticalOffset; // @synthesize urlLabelAccessoryItemSquishedVerticalOffset=_urlLabelAccessoryItemSquishedVerticalOffset;
 @property(readonly, nonatomic) double urlLabelVerticalOffset; // @synthesize urlLabelVerticalOffset=_urlLabelVerticalOffset;
 @property(readonly, nonatomic) double urlOutlineHeight; // @synthesize urlOutlineHeight=_urlOutlineHeight;
 @property(readonly, nonatomic) double urlContainerTop; // @synthesize urlContainerTop=_urlContainerTop;
 @property(readonly, nonatomic) double minimumBarHeight; // @synthesize minimumBarHeight=_minimumBarHeight;
 @property(readonly, nonatomic) double defaultBarHeight; // @synthesize defaultBarHeight=_defaultBarHeight;
 @property(readonly, nonatomic) double urlOutlineCornerRadius; // @synthesize urlOutlineCornerRadius=_urlOutlineCornerRadius;
+@property(readonly, nonatomic) double accessibilityImageScale; // @synthesize accessibilityImageScale=_accessibilityImageScale;
 @property(readonly, nonatomic) _Bool usesLargerBarMetrics; // @synthesize usesLargerBarMetrics=_usesLargerBarMetrics;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) double narrowEditingScaleFactor;

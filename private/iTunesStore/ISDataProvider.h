@@ -41,6 +41,7 @@
 - (void).cxx_destruct;
 - (_Bool)_runServerAuthenticationOperation:(id)arg1 error:(id *)arg2;
 - (void)_performActionsForButton:(id)arg1 withDialog:(id)arg2;
+- (_Bool)runTouchIDAuthorizationDialog:(id)arg1 fallbackDialog:(id)arg2 metricsDictionary:(id)arg3 error:(id *)arg4;
 - (_Bool)runTouchIDAuthorizationDialog:(id)arg1 fallbackDialog:(id)arg2 error:(id *)arg3;
 - (_Bool)runSubOperation:(id)arg1 error:(id *)arg2;
 - (_Bool)runAuthorizationDialog:(id)arg1 error:(id *)arg2;

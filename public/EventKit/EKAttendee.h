@@ -41,8 +41,6 @@
 - (void)setStatusRaw:(int)arg1;
 - (int)statusRaw;
 - (id)owner;
-- (unsigned long long)hash;
-- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

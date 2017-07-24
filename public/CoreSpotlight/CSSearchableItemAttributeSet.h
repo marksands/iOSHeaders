@@ -36,8 +36,6 @@
 @property(readonly, nonatomic) CSDecoder *contentDecoder; // @synthesize contentDecoder=_contentDecoder;
 @property(readonly, nonatomic) CSDecoder *decoder; // @synthesize decoder=_decoder;
 @property long long searchableItemFlags; // @synthesize searchableItemFlags=_searchableItemFlags;
-@property(readonly) NSMutableDictionary *customAttributes; // @synthesize customAttributes=_customAttributes;
-@property(readonly) NSMutableDictionary *mutableAttributes; // @synthesize mutableAttributes=_mutableAttributes;
 - (void).cxx_destruct;
 - (id)debugDescription;
 - (id)description;
@@ -77,6 +75,8 @@
 - (void)setUserOwned:(id)arg1;
 - (id)isUserCreated;
 - (void)setUserCreated:(id)arg1;
+@property(readonly) NSMutableDictionary *customAttributes; // @synthesize customAttributes=_customAttributes;
+@property(readonly) NSMutableDictionary *mutableAttributes; // @synthesize mutableAttributes=_mutableAttributes;
 - (id)initWithAttributes:(id)arg1;
 - (id)initWithItemContentType:(id)arg1;
 - (id)initWithAttributeSet:(id)arg1;
@@ -475,6 +475,7 @@
 - (void)setQueryResultMatchedFields:(id)arg1;
 @property(retain, getter=isPartiallyDownloaded) NSNumber *partiallyDownloaded;
 @property(retain, getter=isExistingThread) NSNumber *existingThread;
+@property(retain) NSNumber *dataOwnerType;
 @property(retain) NSNumber *documentIdentifier;
 @property(copy) NSString *filename;
 @property(retain) NSNumber *parentFileIdentifier;
@@ -552,6 +553,7 @@
 @property(retain, nonatomic, getter=isUploaded) NSNumber *uploaded;
 @property(retain, nonatomic, getter=isShared) NSNumber *shared;
 @property(retain, nonatomic, getter=isTrashed) NSNumber *trashed;
+@property(copy) NSString *fileProviderDomaindentifier;
 @property(copy) NSString *lastEditorIdentifier;
 @property(copy) NSString *lastEditorName;
 @property(copy) NSString *ownerIdentifier;

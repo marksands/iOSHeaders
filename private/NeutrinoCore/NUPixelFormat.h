@@ -16,12 +16,15 @@
     unsigned int _CVPixelFormat;
 }
 
++ (id)XRSRGB10_A8;
++ (id)XRSRGB10;
 + (id)A16;
 + (id)I8;
 + (id)RGBAh;
 + (id)RGBAf;
 + (id)RG16;
 + (id)RGBA16;
++ (id)sRGBA8;
 + (id)RGBA8;
 + (id)BGRA8;
 + (id)ARGB8;

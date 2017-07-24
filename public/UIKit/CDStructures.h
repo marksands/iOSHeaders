@@ -163,13 +163,6 @@ struct UIStringIDTableBucket {
     struct UIStringIDTableBucket *_field3;
 };
 
-struct UIWebDraggableContentInfo {
-    long long _field1;
-    struct CGRect _field2;
-    id _field3;
-    id _field4;
-};
-
 struct _NSRange {
     unsigned long long location;
     unsigned long long length;
@@ -225,6 +218,7 @@ struct _UIWebViewportConfiguration {
     float maximumScale;
     _Bool allowsUserScaling;
     _Bool allowsShrinkToFit;
+    _Bool avoidsUnsafeArea;
 };
 
 struct os_unfair_lock_s {
@@ -366,7 +360,8 @@ typedef struct {
     double responseSmoothing;
     double targetSmoothing;
     double projectionDeceleration;
-} CDStruct_43f79a60;
+    double impulse;
+} CDStruct_6c8af1d9;
 
 typedef struct {
     double _field1;

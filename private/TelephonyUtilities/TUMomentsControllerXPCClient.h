@@ -7,11 +7,12 @@
 #import <objc/NSObject.h>
 
 #import <TelephonyUtilities/TUMomentsControllerDataSource-Protocol.h>
+#import <TelephonyUtilities/TUMomentsControllerXPCClient-Protocol.h>
 
 @class NSString, NSXPCConnection;
 @protocol OS_dispatch_queue, TUMomentsControllerDataSourceDelegate;
 
-@interface TUMomentsControllerXPCClient : NSObject <TUMomentsControllerDataSource>
+@interface TUMomentsControllerXPCClient : NSObject <TUMomentsControllerXPCClient, TUMomentsControllerDataSource>
 {
     int _token;
     id <TUMomentsControllerDataSourceDelegate> _delegate;
@@ -40,7 +41,7 @@
 - (void)endRequestWithTransactionID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)startRequestWithMediaType:(int)arg1 forStreamToken:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)unregisterStreamToken:(long long)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)registerStreamToken:(long long)arg1 remoteIDSDestination:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)registerStreamToken:(long long)arg1 remoteIDSDestination:(id)arg2 remoteMomentsAvailable:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)dealloc;
 - (id)init;
 

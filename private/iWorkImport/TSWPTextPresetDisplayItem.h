@@ -17,10 +17,10 @@ __attribute__((visibility("hidden")))
 
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) TSWPTextStylePreset *preset; // @synthesize preset=_preset;
+- (void).cxx_destruct;
 - (id)description;
 - (void)saveToArchive:(struct TextPresetDisplayItemArchive *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct TextPresetDisplayItemArchive *)arg1 unarchiver:(id)arg2;
-- (void)dealloc;
 - (id)initWithPreset:(id)arg1 displayName:(id)arg2;
 
 @end

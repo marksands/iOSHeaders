@@ -42,6 +42,9 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)init;
+- (void)_uninstallNotificationHandlers;
+- (int)_installNotificationHandlers;
+- (void)_wasFlushedAutomaticallyAtTime:(CDStruct_1b6d18a9)arg1;
 - (void)_triggerMediaRequestCallback;
 - (int)_initializeTimebase;
 

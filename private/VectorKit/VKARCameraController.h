@@ -72,7 +72,7 @@ __attribute__((visibility("hidden")))
 - (double)distanceFromCenterCoordinate;
 - (CDStruct_c3b9c2ee)centerCoordinate;
 - (id)mapRegion;
-- (Matrix_6e1d3589)_intersectAndResolveWorldCollision:(RigidTransform_271c3a39 *)arg1;
+- (Matrix_6e1d3589)_intersectAndResolveWorldCollision:(const RigidTransform_271c3a39 *)arg1;
 - (void)setYaw:(double)arg1 animated:(_Bool)arg2;
 - (double)presentationYaw;
 - (_Bool)isFullyPitched;

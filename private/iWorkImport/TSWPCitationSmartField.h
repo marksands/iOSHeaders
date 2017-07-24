@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 
 + (_Bool)isValidCitationField:(id)arg1;
 @property(nonatomic) id <TSWPCitationSmartFieldEditing> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
+- (void).cxx_destruct;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (id)bibliographySmartField;
 - (id)copyWithContext:(id)arg1;
@@ -28,7 +29,6 @@ __attribute__((visibility("hidden")))
 - (void)loadFromUnarchiver:(id)arg1;
 - (_Bool)supportsDeepCopyForUndo;
 - (int)smartFieldKind;
-- (void)dealloc;
 @property(nonatomic) _Bool isLocalizable;
 @property(copy, nonatomic) NSArray *citationRecords;
 

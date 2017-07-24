@@ -61,6 +61,7 @@
     _Bool _allowsAirPlayFromCloud;
     _Bool _allowsExternalPlayback;
     _Bool _hasFinishedDownloading;
+    _Bool _hasPerformedErrorResolution;
     float _currentPlaybackRate;
     float _loudnessInfoVolumeNormalization;
     NSError *_itemError;
@@ -78,13 +79,16 @@
     MPModelGenericObject *_modelGenericObject;
     NSString *_aggregateDictionaryItemIdentifier;
     NSString *_contentItemID;
+    NSNumber *_queuedTimestamp;
 }
 
 + (void)applyVolumeNormalizationForQueuedItems:(id)arg1;
 + (id)URLFromPath:(id)arg1;
 + (void)setDefaultScaleMode:(long long)arg1;
 + (long long)defaultScaleMode;
+@property(copy, nonatomic) NSNumber *queuedTimestamp; // @synthesize queuedTimestamp=_queuedTimestamp;
 @property(copy, nonatomic) NSString *contentItemID; // @synthesize contentItemID=_contentItemID;
+@property(nonatomic) _Bool hasPerformedErrorResolution; // @synthesize hasPerformedErrorResolution=_hasPerformedErrorResolution;
 @property(readonly, nonatomic) _Bool hasFinishedDownloading; // @synthesize hasFinishedDownloading=_hasFinishedDownloading;
 @property(readonly, copy, nonatomic) NSString *aggregateDictionaryItemIdentifier; // @synthesize aggregateDictionaryItemIdentifier=_aggregateDictionaryItemIdentifier;
 @property(readonly, nonatomic) _Bool allowsExternalPlayback; // @synthesize allowsExternalPlayback=_allowsExternalPlayback;
@@ -121,6 +125,7 @@
 @property(readonly, nonatomic) MPAlternateTracks *alternateTracks; // @synthesize alternateTracks=_alternateTracks;
 - (void).cxx_destruct;
 - (void)nowPlayingInfoCenter:(id)arg1 lyricsForContentItem:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)recordQueuedTimestamp;
 - (void)_willResignActivePlayerItem;
 - (void)_willBecomeActivePlayerItem;
 - (void)_updateHasFinishedDownloading;
@@ -130,6 +135,7 @@
 - (void)reevaluatePlaybackMode;
 @property(readonly, nonatomic) MPModelPlayEvent *modelPlayEvent;
 - (id)localeForAssetTrack:(id)arg1;
+- (void)invalidateContentItemDeviceSpecificUserInfo;
 - (void)_setListeningForCaptionsAppearanceSettingsChanged:(_Bool)arg1;
 - (void)_setNeedsPersistedLikedStateUpdate;
 - (long long)_persistedLikedState;
@@ -139,7 +145,7 @@
 - (double)_expectedStartTimeWithPlaybackInfo:(id)arg1;
 - (long long)_expectedPlaybackMode;
 - (void)_currentPlaybackRateDidChange:(float)arg1;
-- (void)_updateDurationSnapshot;
+- (void)_updateDurationSnapshotWithElapsedTime:(double)arg1 playbackRate:(float)arg2;
 - (void)_checkAllowsBlockingDurationCall;
 - (_Bool)_isBackgroundPlaybackRestricted;
 - (void)setupPlaybackInfo;
@@ -154,6 +160,7 @@
 - (id)_seekableTimeRanges;
 - (id)_initialPlaybackStartTimeForPlaybackInfo:(id)arg1;
 - (void)_likedStateDidChange;
+- (id)_currentContentItemDeviceSpecificUserInfo;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_playerItemNewAccessLogEntryNotification:(id)arg1;
 - (void)_applicationDidBecomeActive:(id)arg1;
@@ -290,6 +297,7 @@
 - (id)initWithURL:(id)arg1;
 - (id)init;
 - (_Bool)isSupportedDefaultPlaybackSpeed:(long long)arg1;
+- (CDUnknownBlockType)artworkCatalogBlock;
 - (id)artworkCatalogForPlaybackTime:(double)arg1;
 @property(readonly, nonatomic) _Bool usesSubscriptionLease;
 @property(readonly, nonatomic) long long storePlaybackEndpointType;

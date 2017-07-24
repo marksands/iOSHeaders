@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *resultChangedNotifications; // @synthesize resultChangedNotifications=_resultChangedNotifications;
 - (void).cxx_destruct;
 - (id)requestDidParseProtobufObject:(id)arg1;
-- (id)requestOperations;
+- (id)generateRequestOperations;
 - (id)requestOperationClasses;
 - (int)operationType;
 - (id)initWithServerChangeTokenData:(id)arg1;

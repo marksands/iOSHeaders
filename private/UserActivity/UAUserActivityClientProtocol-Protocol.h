@@ -20,7 +20,6 @@
 - (void)doUpdateUserActivityWithUUID:(NSUUID *)arg1 setActive:(_Bool)arg2;
 - (void)doUpdateUserActivityInfo:(UAUserActivityInfo *)arg1 makeCurrent:(_Bool)arg2 completionHandler:(void (^)(NSError *))arg3;
 - (void)doFetchUserActivityInfoWithUUID:(NSUUID *)arg1 completionHandler:(void (^)(UAUserActivityInfo *, NSError *))arg2;
-- (void)doRegisterUserActivityInfo:(UAUserActivityInfo *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)doInitializeWithClientVersion:(long long)arg1 clientInfo:(NSDictionary *)arg2 completionHandler:(void (^)(long long, NSDictionary *, NSError *))arg3;
 @end
 

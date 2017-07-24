@@ -6,9 +6,11 @@
 
 #import <UIKit/UIControl.h>
 
+#import <MediaControls/UIGestureRecognizerDelegate-Protocol.h>
+
 @class AVTimeFormatter, CADisplayLink, MPCPlayerResponse, NSArray, NSLayoutConstraint, NSString, UIImageView, UILabel, UILayoutGuide, UIView;
 
-@interface MediaControlsTimeControl : UIControl
+@interface MediaControlsTimeControl : UIControl <UIGestureRecognizerDelegate>
 {
     NSArray *_defaultConstraints;
     NSArray *_trackingConstraints;
@@ -59,7 +61,9 @@
 @property(nonatomic, getter=isTransitioning) _Bool transitioning; // @synthesize transitioning=_transitioning;
 - (void).cxx_destruct;
 - (void)dealloc;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)_updateDisplayLinkPause;
+- (void)_updateTimeControl;
 - (void)_displayLinkTick:(id)arg1;
 - (void)_updateStyle;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
@@ -73,7 +77,14 @@
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
+- (void)viewDidMoveToSuperview;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

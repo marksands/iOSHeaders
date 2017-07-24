@@ -35,7 +35,7 @@
 @property(nonatomic) __weak id <CKCloudKitSyncProgressViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)cloudKitEventNotificationManager:(id)arg1 syncProgressDidUpdate:(id)arg2;
-- (void)cloudKitEventNotificationManager:(id)arg1 syncStateDidChange:(id)arg2;
+- (void)addToToolbar:(id)arg1;
 - (void)updateWithCloudKitProgress:(id)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)loadView;

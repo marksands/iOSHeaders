@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 - (void)triggerMemoryNotification:(_Bool)arg1;
 - (void)_receivedMemoryNotification;
 - (void)dealloc;
-- (id)initWithTarget:(id)arg1 selector:(SEL)arg2;
+- (id)initWithTarget:(id)arg1 selector:(SEL)arg2 taskContext:(const struct TaskContext *)arg3;
 
 @end
 

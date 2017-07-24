@@ -8,12 +8,14 @@
 
 @interface _DUIImageComponent : _DUIImageComponentWithoutSlot
 {
+    _Bool _hidesImage;
     unsigned int _slotID;
     unsigned int _contextID;
     unsigned long long _renderID;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool hidesImage; // @synthesize hidesImage=_hidesImage;
 @property(nonatomic) unsigned int contextID; // @synthesize contextID=_contextID;
 @property(nonatomic) unsigned long long renderID; // @synthesize renderID=_renderID;
 @property(nonatomic) unsigned int slotID; // @synthesize slotID=_slotID;

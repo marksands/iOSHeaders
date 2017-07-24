@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     _Bool enableTileEdgeColoring;
     _Bool enableAccessibilityDrawing;
     double screenScaleFactor;
+    _Bool enableTileUpdates;
 }
 
 - (void).cxx_destruct;

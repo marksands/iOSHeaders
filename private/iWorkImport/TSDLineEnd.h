@@ -8,11 +8,12 @@
 
 #import <iWorkImport/NSCopying-Protocol.h>
 #import <iWorkImport/TSDMixing-Protocol.h>
+#import <iWorkImport/TSSPropertyValueArchiving-Protocol.h>
 
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface TSDLineEnd : NSObject <NSCopying, TSDMixing>
+@interface TSDLineEnd : NSObject <TSSPropertyValueArchiving, NSCopying, TSDMixing>
 {
     struct CGPath *mPath;
     struct CGPath *mWrapPath;

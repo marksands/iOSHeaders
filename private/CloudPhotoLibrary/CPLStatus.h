@@ -41,6 +41,7 @@
 @property(copy, nonatomic) NSDate *lastCompletePrefetchDate;
 @property(copy, nonatomic) NSDate *lastSuccessfulSyncDate;
 - (void)refetchFromDisk;
+- (_Bool)writeInitialSyncMarker:(id *)arg1;
 - (void)_save;
 - (void)_loadIfNecessary;
 - (id)initWithClientLibraryBaseURL:(id)arg1;

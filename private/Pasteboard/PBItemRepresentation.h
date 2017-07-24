@@ -14,10 +14,12 @@
     CDUnknownBlockType _loader;
     NSString *_typeIdentifier;
     unsigned long long _preferredRepresentation;
+    long long _visibility;
     id <PBItemRepresentationDataTransferDelegate> _dataTransferDelegate;
 }
 
 @property(nonatomic) __weak id <PBItemRepresentationDataTransferDelegate> dataTransferDelegate; // @synthesize dataTransferDelegate=_dataTransferDelegate;
+@property(nonatomic) long long visibility; // @synthesize visibility=_visibility;
 @property(nonatomic) unsigned long long preferredRepresentation; // @synthesize preferredRepresentation=_preferredRepresentation;
 @property(readonly, copy, nonatomic) NSString *typeIdentifier; // @synthesize typeIdentifier=_typeIdentifier;
 - (void).cxx_destruct;

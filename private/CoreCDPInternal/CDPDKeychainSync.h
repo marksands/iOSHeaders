@@ -18,6 +18,7 @@
 + (id)keyChainSync;
 - (void).cxx_destruct;
 - (_Bool)synchronizeKeychainViewSetWithOtherPeers:(id *)arg1;
+- (_Bool)matchKeychainViewState:(_Bool)arg1;
 - (void)removeNonViewAwarePeersFromCircleWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)_setKeychainSyncState:(_Bool)arg1;
 - (void)_preflightCircleStatusWithCompletion:(CDUnknownBlockType)arg1;

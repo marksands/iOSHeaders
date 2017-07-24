@@ -18,6 +18,7 @@
     NSObject<OS_dispatch_source> *_listenerSourceV6;
     struct LogCategory *_ucat;
     unsigned int _flags;
+    unsigned int _maxConnectionCount;
     int _tcpListenPort;
     int _tcpListeningPort;
     CDUnknownBlockType _connectionStartedHandler;
@@ -29,6 +30,7 @@
 
 @property(nonatomic) int tcpListeningPort; // @synthesize tcpListeningPort=_tcpListeningPort;
 @property(nonatomic) int tcpListenPort; // @synthesize tcpListenPort=_tcpListenPort;
+@property(nonatomic) unsigned int maxConnectionCount; // @synthesize maxConnectionCount=_maxConnectionCount;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
 @property(nonatomic) unsigned int flags; // @synthesize flags=_flags;

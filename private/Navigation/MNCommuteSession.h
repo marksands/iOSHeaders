@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak MNSuggestionsManager *suggestionsManager; // @synthesize suggestionsManager=_suggestionsManager;
 - (void).cxx_destruct;
 - (void)commuteDestination:(id)arg1 didChangeInvalid:(_Bool)arg2;
+- (void)destinationUpdaterDidArrive:(id)arg1;
 - (void)destinationUpdater:(id)arg1 didUpdateDestination:(id)arg2;
 @property(readonly, nonatomic) _Bool isMapsActive;
 - (void)updateMapsActive:(_Bool)arg1;

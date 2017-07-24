@@ -14,8 +14,10 @@
     NSString *_widgetIdentifier;
     id <WGWidgetHostingViewControllerDelegate><WGWidgetListItemViewControllerDelegate> _delegate;
     WGWidgetHostingViewController *_widgetHost;
+    struct CGSize _pendingSize;
 }
 
+@property(nonatomic, getter=_pendingSize, setter=_setPendingSize:) struct CGSize pendingSize; // @synthesize pendingSize=_pendingSize;
 @property(readonly, nonatomic) WGWidgetHostingViewController *widgetHost; // @synthesize widgetHost=_widgetHost;
 @property(nonatomic) __weak id <WGWidgetHostingViewControllerDelegate><WGWidgetListItemViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, copy, nonatomic) NSString *widgetIdentifier; // @synthesize widgetIdentifier=_widgetIdentifier;
@@ -24,6 +26,7 @@
 - (void)_addWidgetHostIfNecessary;
 - (id)_platterViewIfLoaded;
 - (id)_platterViewLoadingIfNecessary:(_Bool)arg1;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
 - (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
 - (void)removeChildViewController:(id)arg1;

@@ -33,6 +33,7 @@
 - (void).cxx_destruct;
 - (void)endDisablingUserInteraction;
 - (void)beginDisablingUserInteraction;
+- (void)requestResize;
 - (void)_remoteViewDidBecomeReadyForDisplay;
 - (void)_hostDidBeginDeferredTeardown;
 - (void)dismissToKeyboard:(_Bool)arg1;
@@ -52,7 +53,7 @@
 - (void)_didCancelSendingMessage:(id)arg1 conversationState:(id)arg2;
 - (void)_didStartSendingMessage:(id)arg1 conversationState:(id)arg2;
 - (void)_didReceiveMessage:(id)arg1 conversationState:(id)arg2;
-- (void)_canSendMessage:(id)arg1 conversationState:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_canSendMessage:(id)arg1 conversationState:(id)arg2 associatedText:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_requestContentSizeThatFits:(id)arg1 presentationStyle:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_resignActive;
 - (void)_becomeActiveWithConversationState:(id)arg1 presentationState:(id)arg2;

@@ -23,6 +23,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak TSDCommentStorage *parent; // @synthesize parent=_parent;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
+- (_Bool)p_matchesCommentStorage:(id)arg1;
+- (id)matchingReply:(id)arg1;
 - (_Bool)canDeleteWithAuthor:(id)arg1 docIsReadOnly:(_Bool)arg2;
 - (_Bool)canEditWithAuthor:(id)arg1 docIsReadOnly:(_Bool)arg2;
 - (_Bool)p_canModifyCommentStorageWithAuthor:(id)arg1 isDelete:(_Bool)arg2 docIsReadOnly:(_Bool)arg3;
@@ -37,7 +39,7 @@ __attribute__((visibility("hidden")))
 - (id)copyWithAuthor:(id)arg1;
 - (id)copyByAppendingText:(id)arg1;
 - (id)copyWithDeletedReply:(id)arg1;
-- (id)copyWithEditedReply:(id)arg1 changedReplyText:(id)arg2;
+- (id)copyWithEditedReply:(id)arg1;
 - (id)copyWithInsertedReply:(id)arg1;
 - (id)copyWithText:(id)arg1;
 - (id)copyWithReplies:(id)arg1;

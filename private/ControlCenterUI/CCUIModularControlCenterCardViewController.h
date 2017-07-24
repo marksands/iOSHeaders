@@ -14,9 +14,11 @@
 
 - (struct CGRect)_accessoryFrame;
 - (long long)_interfaceOrientation;
+- (id)obscuringBackgroundViewForModuleCollectionViewController:(id)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)loadView;
 - (void)willResignActive;
 - (void)willBecomeActive;
 - (id)relevantSnapHeightsForOrientation:(long long)arg1;

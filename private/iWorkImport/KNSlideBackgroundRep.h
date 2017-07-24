@@ -18,8 +18,8 @@ __attribute__((visibility("hidden")))
     _Bool mFillCanApplyToCALayer;
 }
 
-+ (id)magicMoveMatchesBetweenOutgoingObjects:(id)arg1 andIncomingObjects:(id)arg2 textureContext:(id)arg3;
-- (id)textureForContext:(id)arg1;
++ (id)magicMoveMatchesBetweenOutgoingObjects:(id)arg1 andIncomingObjects:(id)arg2 textureDescription:(id)arg3;
+- (id)textureForDescription:(id)arg1;
 - (_Bool)wantsToDistortWithImagerContext;
 - (id)additionalLayersUnderLayer;
 - (void)didUpdateLayer:(id)arg1;

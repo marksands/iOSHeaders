@@ -10,8 +10,8 @@
 #import <CloudDocsDaemon/BRCAppLibraryDelegate-Protocol.h>
 #import <CloudDocsDaemon/BRCClientZoneDelegate-Protocol.h>
 
-@class APSConnection, BRCAccountSession, BRCContainerMetadataSyncPersistedState, BRCDeadlineScheduler, BRCDeadlineSource, BRCMigrateZonePCSOperation, BRCSyncBudgetThrottle, BRCZoneHealthSyncPersistedState, NSData, NSDate, NSMutableArray, NSString;
-@protocol OS_dispatch_group, OS_dispatch_queue, OS_dispatch_source;
+@class APSConnection, BRCAccountSession, BRCContainerMetadataSyncPersistedState, BRCDeadlineScheduler, BRCDeadlineSource, BRCFairSource, BRCMigrateZonePCSOperation, BRCSyncBudgetThrottle, BRCZoneHealthSyncPersistedState, NSData, NSDate, NSMutableArray, NSString;
+@protocol OS_dispatch_group, OS_dispatch_queue;
 
 @interface BRCContainerScheduler : NSObject <APSConnectionDelegate, BRCClientZoneDelegate, BRCAppLibraryDelegate>
 {
@@ -19,7 +19,7 @@
     BRCDeadlineSource *_containerMetadataSyncSource;
     BRCDeadlineSource *_sharedDatabaseSyncSource;
     BRCDeadlineSource *_zoneHealthSyncSource;
-    NSObject<OS_dispatch_source> *_pushSource;
+    BRCFairSource *_pushSource;
     NSString *_environmentName;
     NSData *_pushToken;
     APSConnection *_pushConnection;
@@ -62,7 +62,7 @@
 - (void)_scheduleCrossZoneMovePCSPrep;
 - (void)finishedZoneHealthSyncDownWithRequestID:(unsigned long long)arg1 error:(id)arg2;
 - (void)receivedUpdatedZoneHealthServerChangeToken:(id)arg1 requestID:(unsigned long long)arg2;
-- (void)dumpToContext:(id)arg1 db:(id)arg2;
+- (void)dumpToContext:(id)arg1 includeAllItems:(_Bool)arg2 db:(id)arg3;
 - (void)_syncScheduleForZoneHealth;
 - (void)_syncScheduleForSharedDatabase;
 - (void)_syncScheduleForContainersMetadata;
@@ -80,7 +80,7 @@
 - (void)close;
 - (void)closeContainers;
 - (void)_unscheduleClientZone:(id)arg1;
-- (id)_newSyncDeadlineSource;
+- (id)_newSyncDeadlineSourceWithName:(id)arg1;
 - (id)initWithAccountSession:(id)arg1;
 
 // Remaining properties

@@ -31,6 +31,8 @@
 - (id)unsupportedWebPaymentConfigurations;
 - (id)supportedRegionsForOSVersion:(id)arg1 deviceClass:(id)arg2 platform:(id)arg3;
 - (id)supportedRegionsForOSVersion:(id)arg1 deviceClass:(id)arg2;
+- (id)maxRefreshIntervalForRegion:(id)arg1;
+- (id)maxRefreshIntervalForUnsupportedRegion;
 - (double)provisioningEnablementPercentageForRegion:(id)arg1;
 - (_Bool)regionHasProvisioningEnablementPercentage:(id)arg1;
 - (id)paymentSetupBrowsableProductTypesForRegion:(id)arg1;

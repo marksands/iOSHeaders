@@ -13,6 +13,7 @@
 {
     _Bool _supportsAutomaticGraphicsSwitching;
     _Bool _hasHeadlessGPU;
+    _Bool _hasExtendedColorDisplay;
     NSString *_name;
     NSArray *_devices;
     id <NUDevice> _mainDevice;
@@ -23,6 +24,7 @@
 }
 
 + (id)currentPlatform;
+@property(nonatomic) _Bool hasExtendedColorDisplay; // @synthesize hasExtendedColorDisplay=_hasExtendedColorDisplay;
 @property(retain, nonatomic) id <NUDevice> cpuDevice; // @synthesize cpuDevice=_cpuDevice;
 @property(retain, nonatomic) id <NUDevice> headlessDevice; // @synthesize headlessDevice=_headlessDevice;
 @property(nonatomic) _Bool hasHeadlessGPU; // @synthesize hasHeadlessGPU=_hasHeadlessGPU;
@@ -33,6 +35,8 @@
 @property(copy, nonatomic) NSArray *devices; // @synthesize devices=_devices;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool supportsLiveVideoRendering;
+@property(readonly, nonatomic) _Bool defaultSupportsLiveVideoRendering;
 @property(readonly, nonatomic) NSArray *displays;
 - (void)clearCaches;
 - (id)defaultDevice;

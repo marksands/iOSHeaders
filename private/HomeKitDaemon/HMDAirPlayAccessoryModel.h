@@ -6,11 +6,17 @@
 
 #import <HomeKitDaemon/HMDMediaAccessoryModel.h>
 
+@class NSString;
+
 @interface HMDAirPlayAccessoryModel : HMDMediaAccessoryModel
 {
 }
 
 + (id)properties;
+
+// Remaining properties
+@property(retain, nonatomic) NSString *administrationPassword; // @dynamic administrationPassword;
+@property(retain, nonatomic) NSString *password; // @dynamic password;
 
 @end
 

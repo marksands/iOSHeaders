@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 
 + (id)controllerWithDismissHandler:(CDUnknownBlockType)arg1;
 @property(copy) CDUnknownBlockType dismissHandler; // @synthesize dismissHandler=_dismissHandler;
+- (void)dismissAnimated:(_Bool)arg1;
 - (void)dismiss;
 - (void)dealloc;
 - (id)initWithHandler:(CDUnknownBlockType)arg1;

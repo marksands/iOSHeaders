@@ -7,22 +7,24 @@
 #import <Foundation/NSObject.h>
 
 #import <iWorkImport/NSCopying-Protocol.h>
+#import <iWorkImport/TSSPropertyValueArchiving-Protocol.h>
 
 __attribute__((visibility("hidden")))
-@interface TSWPLineSpacing : NSObject <NSCopying>
+@interface TSWPLineSpacing : NSObject <TSSPropertyValueArchiving, NSCopying>
 {
     int _mode;
     double _amount;
     double _baselineRule;
 }
 
++ (id)instanceWithArchive:(const struct Message *)arg1 unarchiver:(id)arg2;
 + (id)lineSpacing;
+@property(readonly, nonatomic) double baselineRule; // @synthesize baselineRule=_baselineRule;
+@property(readonly, nonatomic) double amount; // @synthesize amount=_amount;
+@property(readonly, nonatomic) int mode; // @synthesize mode=_mode;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (double)baselineRule;
-- (double)amount;
-- (int)mode;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)saveToArchive:(struct LineSpacingArchive *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct LineSpacingArchive *)arg1 unarchiver:(id)arg2;

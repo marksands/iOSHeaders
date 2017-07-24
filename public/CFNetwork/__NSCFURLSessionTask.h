@@ -105,6 +105,7 @@ __attribute__((visibility("hidden")))
     NSURL *_publishingURL;
     NSURL *_backgroundPublishingURL;
     struct os_unfair_lock_s _unfair_lock;
+    _Bool _preconnect;
     _Bool _extractorPreparedForExtraction;
 }
 
@@ -248,6 +249,8 @@ __attribute__((visibility("hidden")))
 - (id)taskDescription;
 - (void)setTaskIdentifier:(unsigned long long)arg1;
 - (unsigned long long)taskIdentifier;
+- (_Bool)_preconnect;
+- (void)set_preconnect:(_Bool)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_finishProgressReporting;
 - (void)_completeUploadProgress;
@@ -283,7 +286,7 @@ __attribute__((visibility("hidden")))
 - (void)_releasePreventIdleSleepAssertionIfAppropriate;
 - (void)_takePreventIdleSleepAssertionIfAppropriate;
 - (int)_createAssertionWithType:(struct __CFString *)arg1 name:(struct __CFString *)arg2 assertion:(unsigned int *)arg3;
-- (void)_reportTimingDataToAWD;
+- (void)_reportTimingDataToAWD:(id)arg1;
 - (id)_timingData;
 - (void)_initializeTimingDataWithSessionConfiguration:(id)arg1;
 - (struct __CFDictionary *)_copySocketStreamProperties;

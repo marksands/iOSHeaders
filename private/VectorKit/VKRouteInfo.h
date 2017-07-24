@@ -12,17 +12,10 @@
 {
     GEOComposedRoute *_route;
     VKRouteEtaDescription *_etaDescription;
-    struct vector<gm::Range<geo::PolylineCoordinate>, std::__1::allocator<gm::Range<geo::PolylineCoordinate>>> _uniqueSections;
 }
 
 @property(retain, nonatomic) VKRouteEtaDescription *etaDescription; // @synthesize etaDescription=_etaDescription;
 @property(readonly, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
-- (id).cxx_construct;
-- (void).cxx_destruct;
-- (unsigned long long)uniqueSectionCount;
-- (struct PolylineCoordinate)uniqueSectionEnd:(unsigned long long)arg1;
-- (struct PolylineCoordinate)uniqueSectionStart:(unsigned long long)arg1;
-- (void)addUniqueSectionStart:(struct PolylineCoordinate)arg1 end:(struct PolylineCoordinate)arg2;
 @property(readonly, nonatomic) _Bool hasRouteEta;
 - (void)dealloc;
 - (id)initWithComposedRoute:(id)arg1 etaDescription:(id)arg2;

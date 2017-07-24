@@ -6,15 +6,15 @@
 
 #import <iWorkImport/KNAnimationPlugin-Protocol.h>
 
-@class KNAnimationPluginContext, NSDictionary, NSSet, TSDTextureSet;
+@class KNAnimationPluginContext, NSDictionary, NSMapTable, NSSet, TSDTextureSet;
 
 @protocol KNActionEffectBuildAnimator <KNAnimationPlugin>
 + (NSDictionary *)applyActionEffect:(NSDictionary *)arg1 toAttributes:(NSDictionary *)arg2;
 + (NSSet *)actionEffectStyle;
-- (NSDictionary *)animationsForTextureSet:(TSDTextureSet *)arg1 finalTextureSet:(TSDTextureSet *)arg2 duration:(double)arg3 attributes:(NSDictionary *)arg4 previousAttributes:(NSDictionary *)arg5;
+- (void)addAnimationsTo:(NSMapTable *)arg1 forTextureSet:(TSDTextureSet *)arg2 finalTextureSet:(TSDTextureSet *)arg3 duration:(double)arg4 attributes:(NSDictionary *)arg5 previousAttributes:(NSDictionary *)arg6;
 
 @optional
 + (_Bool)isEmphasisBuildAnimation;
-- (NSDictionary *)animationsForTextureSet:(TSDTextureSet *)arg1 context:(KNAnimationPluginContext *)arg2;
+- (void)addAnimationsTo:(NSMapTable *)arg1 forTextureSet:(TSDTextureSet *)arg2 context:(KNAnimationPluginContext *)arg3;
 @end
 

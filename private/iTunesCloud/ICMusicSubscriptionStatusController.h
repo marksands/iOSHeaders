@@ -18,12 +18,13 @@
 
 + (id)sharedStatusController;
 - (void).cxx_destruct;
-- (void)_handleUserIdentityStoreDidChangeNotification:(id)arg1;
 - (void)_handleSubscriptionStatusChangedDistributedNotification:(id)arg1;
 - (void)_loadCachedStatus;
 - (void)_getSubscriptionStatusForUserIdentity:(id)arg1 bypassingCache:(_Bool)arg2 reauthenticateOnInvalidTokenResponse:(_Bool)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
+- (void)enablePeriodicSubscriptionRefresh;
 - (void)clearCachedSubscriptionStatusForUserIdentiy:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)clearCachedSubscriptionStatusWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)invalidateCachedSubscriptionStatus;
 - (void)refreshSubscriptionForUserIdentity:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)refreshSubscriptionWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)disableSubscriptionForUserIdentity:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;

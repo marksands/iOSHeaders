@@ -44,6 +44,7 @@ __attribute__((visibility("hidden")))
     _Bool _haveCachedPartitionType;
     _Bool _didReceiveResponseBodyData;
     NSDictionary *_requestProperties;
+    NSArray *_requestOperations;
     CKTimeLogger *_timeLogger;
     id <CKDURLRequestMetricsDelegate> _metricsDelegate;
     id <CKDURLRequestAuthRetryDelegate> _authRetryDelegate;
@@ -51,7 +52,6 @@ __attribute__((visibility("hidden")))
     CKDProtocolTranslator *_translator;
     NSString *_automatedDeviceGroup;
     NSDictionary *_clientProvidedAdditionalHeaderValues;
-    NSArray *_requestOperations;
     NSDictionary *_fakeResponseOperationResultByItemID;
     NSError *_error;
     NSObject<OS_dispatch_queue> *_lifecycleQueue;
@@ -71,6 +71,7 @@ __attribute__((visibility("hidden")))
     NSDictionary *_timingData;
     NSObject<OS_voucher> *_voucher;
     NSString *_cloudKitAuthToken;
+    NSString *_iCloudAuthToken;
     NSString *_serverProvidedAutoBugCaptureReason;
     NSMutableDictionary *_countsByRequestOperationType;
     NSMutableDictionary *_overriddenHeaders;
@@ -82,6 +83,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableDictionary *countsByRequestOperationType; // @synthesize countsByRequestOperationType=_countsByRequestOperationType;
 @property(copy, nonatomic) NSString *serverProvidedAutoBugCaptureReason; // @synthesize serverProvidedAutoBugCaptureReason=_serverProvidedAutoBugCaptureReason;
 @property(nonatomic) _Bool didReceiveResponseBodyData; // @synthesize didReceiveResponseBodyData=_didReceiveResponseBodyData;
+@property(retain, nonatomic) NSString *iCloudAuthToken; // @synthesize iCloudAuthToken=_iCloudAuthToken;
 @property(retain, nonatomic) NSString *cloudKitAuthToken; // @synthesize cloudKitAuthToken=_cloudKitAuthToken;
 @property(retain, nonatomic) NSObject<OS_voucher> *voucher; // @synthesize voucher=_voucher;
 @property(retain, nonatomic) NSDictionary *timingData; // @synthesize timingData=_timingData;
@@ -108,7 +110,6 @@ __attribute__((visibility("hidden")))
 @property _Bool needsAuthRetry; // @synthesize needsAuthRetry=_needsAuthRetry;
 @property(retain) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) NSDictionary *fakeResponseOperationResultByItemID; // @synthesize fakeResponseOperationResultByItemID=_fakeResponseOperationResultByItemID;
-@property(readonly, nonatomic) NSArray *requestOperations; // @synthesize requestOperations=_requestOperations;
 @property(retain, nonatomic) NSDictionary *clientProvidedAdditionalHeaderValues; // @synthesize clientProvidedAdditionalHeaderValues=_clientProvidedAdditionalHeaderValues;
 @property(retain, nonatomic) NSString *automatedDeviceGroup; // @synthesize automatedDeviceGroup=_automatedDeviceGroup;
 @property(retain, nonatomic) CKDProtocolTranslator *translator; // @synthesize translator=_translator;
@@ -179,6 +180,8 @@ __attribute__((visibility("hidden")))
 - (id)zoneIDsToLock;
 - (_Bool)sendRequestAnonymously;
 - (_Bool)allowsAnonymousAccount;
+- (_Bool)usesiCloudAuthToken;
+- (_Bool)usesCloudKitAuthToken;
 - (_Bool)allowsAuthedAccount;
 - (_Bool)includeContainerInfo;
 - (_Bool)requiresTokenRegistration;
@@ -244,6 +247,8 @@ __attribute__((visibility("hidden")))
 - (void)_registerRequestOperationTypesForOperations:(id)arg1;
 - (id)requestOperationCountsByOperationType;
 @property(readonly, nonatomic) NSInputStream *requestBodyStream;
+@property(readonly, nonatomic) NSArray *requestOperations; // @synthesize requestOperations=_requestOperations;
+- (id)generateRequestOperations;
 @property(readonly, nonatomic) NSString *httpMethod;
 @property(readonly, copy) NSString *description;
 - (id)CKDescriptionPropertiesWithPublic:(_Bool)arg1 private:(_Bool)arg2 shouldExpand:(_Bool)arg3;

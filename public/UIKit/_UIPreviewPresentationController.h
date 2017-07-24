@@ -174,6 +174,7 @@
 - (void)_revealTransitionDidComplete:(_Bool)arg1;
 - (void)_layoutForRevealUnhighlightTransition:(double)arg1;
 - (void)_layoutForRevealTransition;
+- (struct CGPoint)_applyLayoutAdjustmentsForManagedViewWithPosition:(struct CGPoint)arg1;
 - (void)_configureInitialActionSheetViewIfNeeded;
 - (void)_updateBreathingTransformWithProgress:(double)arg1 animated:(_Bool)arg2;
 - (void)_endBreathing;

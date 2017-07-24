@@ -75,7 +75,6 @@
 @property(readonly, nonatomic) _Bool wantsZoomAndPanEnabled;
 @property(readonly, copy, nonatomic) UIColor *preferredPreviewBackgroundColor;
 @property(readonly, nonatomic) _Bool wantsDefaultPreviewView;
-- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 @property(readonly, nonatomic) struct UIEdgeInsets preferredPreviewViewInsets;
 @property(readonly, nonatomic) NSString *localizedResetToolActionTitle;
 @property(readonly, nonatomic) _Bool canResetToDefaultValue;

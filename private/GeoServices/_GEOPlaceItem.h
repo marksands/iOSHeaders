@@ -157,6 +157,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic, getter=_isInLinkedPlaceRelationship) _Bool inLinkedPlaceRelationship;
 @property(readonly, nonatomic, getter=_isStandaloneBrand) _Bool isStandAloneBrand;
+@property(readonly, nonatomic, getter=_placeDisplayStyle) int placeDisplayStyle;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic, getter=_venueCategoryBrowseType) int venueCategoryBrowseType;
 @property(readonly, nonatomic, getter=_venueFeatureType) int venueFeatureType;

@@ -16,6 +16,7 @@
 + (id)siriui_dynamicTitle0Font;
 + (id)siriui_dynamicBodyFont;
 + (id)siriui_dynamicHeaderFont;
++ (id)siriui_typedTextInputFont;
 + (id)siriui_userUtteranceFont;
 + (id)siriui_ratingFont;
 + (id)siriui_serverTipPrefixFont;

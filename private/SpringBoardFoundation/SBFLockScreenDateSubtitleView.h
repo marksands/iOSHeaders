@@ -20,6 +20,7 @@
     double _strength;
 }
 
++ (double)scaledFontSize:(double)arg1 withMaximumFontSizeCategory:(id)arg2;
 + (id)labelFont;
 @property(nonatomic) double strength; // @synthesize strength=_strength;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;

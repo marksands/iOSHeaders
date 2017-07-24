@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 @interface TSWPHyperlinkField : TSWPSmartField
 {
     NSURL *_url;
+    NSString *_displayTextForChangeTracking;
 }
 
 + (id)newURLFromURLReference:(id)arg1;
@@ -24,6 +25,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)schemeIsValidForURL:(id)arg1;
 + (int)schemeFromURL:(id)arg1;
 + (id)defaultFieldStyleIdentifier;
+@property(readonly, nonatomic) NSString *displayTextForChangeTracking; // @synthesize displayTextForChangeTracking=_displayTextForChangeTracking;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1 storage:(id)arg2;
 - (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)p_performHyperlinkSelector:(SEL)arg1 onStorage:(id)arg2;

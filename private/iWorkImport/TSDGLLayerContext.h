@@ -13,9 +13,9 @@
 __attribute__((visibility("hidden")))
 @interface TSDGLLayerContext : NSObject <TSDGLLayerContext>
 {
-    EAGLContext *mContext;
-    unsigned int mRenderbuffer;
-    unsigned int mFramebuffer;
+    EAGLContext *_context;
+    unsigned int _renderbuffer;
+    unsigned int _framebuffer;
 }
 
 - (void)unlock;
@@ -23,7 +23,9 @@ __attribute__((visibility("hidden")))
 - (void)presentRenderbuffer;
 - (void)teardown;
 - (_Bool)createFramebufferFromLayer:(id)arg1;
+- (id)initWithSharedContext:(id)arg1;
 - (id)init;
+- (id)glContext;
 - (_Bool)makeCurrentContext;
 - (_Bool)isValid;
 - (void)dealloc;

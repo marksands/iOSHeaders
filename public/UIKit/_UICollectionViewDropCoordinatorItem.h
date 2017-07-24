@@ -8,7 +8,7 @@
 
 #import <UIKit/UIDragAnimating-Protocol.h>
 
-@class NSIndexPath, NSString, UIDragItem, UIView, _UIDropAnimationHandlers;
+@class NSIndexPath, NSString, UIDragItem, UIDragPreviewTarget, _UIDropAnimationHandlers;
 
 __attribute__((visibility("hidden")))
 @interface _UICollectionViewDropCoordinatorItem : NSObject <UIDragAnimating>
@@ -17,25 +17,24 @@ __attribute__((visibility("hidden")))
     int _kind;
     NSIndexPath *_destinationIndexPath;
     UIDragItem *_dragItem;
-    UIView *_containerView;
+    UIDragPreviewTarget *_target;
     _UIDropAnimationHandlers *_animationHandlers;
-    struct CGPoint _location;
-    struct CGAffineTransform _transform;
+    CDUnknownBlockType _previewParametersProvider;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType previewParametersProvider; // @synthesize previewParametersProvider=_previewParametersProvider;
 @property(retain, nonatomic) _UIDropAnimationHandlers *animationHandlers; // @synthesize animationHandlers=_animationHandlers;
-@property(nonatomic) _Bool shouldRemainInHierarchy; // @synthesize shouldRemainInHierarchy=_shouldRemainInHierarchy;
-@property(nonatomic) struct CGAffineTransform transform; // @synthesize transform=_transform;
+@property(copy, nonatomic) UIDragPreviewTarget *target; // @synthesize target=_target;
 @property(nonatomic) int kind; // @synthesize kind=_kind;
-@property(nonatomic) __weak UIView *containerView; // @synthesize containerView=_containerView;
-@property(nonatomic) struct CGPoint location; // @synthesize location=_location;
 @property(nonatomic) __weak UIDragItem *dragItem; // @synthesize dragItem=_dragItem;
+@property(nonatomic) _Bool shouldRemainInHierarchy; // @synthesize shouldRemainInHierarchy=_shouldRemainInHierarchy;
 @property(retain, nonatomic) NSIndexPath *destinationIndexPath; // @synthesize destinationIndexPath=_destinationIndexPath;
 - (void).cxx_destruct;
 - (void)addCompletion:(CDUnknownBlockType)arg1;
 - (void)addAnimations:(CDUnknownBlockType)arg1;
 @property(readonly, copy) NSString *description;
-- (id)initWithLocation:(struct CGPoint)arg1 inContainerView:(id)arg2 withTransform:(struct CGAffineTransform)arg3 dragItem:(id)arg4;
+- (id)initWithDestinationIndexPath:(id)arg1 dragItem:(id)arg2 placeholderConfiguration:(id)arg3;
+- (id)initWithDragItem:(id)arg1 target:(id)arg2;
 - (id)initWithDestinationIndexPath:(id)arg1 dragItem:(id)arg2;
 
 // Remaining properties

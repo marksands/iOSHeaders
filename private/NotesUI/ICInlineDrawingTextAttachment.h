@@ -23,7 +23,7 @@
 - (void)resetZoom;
 - (void)detachView:(id)arg1 fromParentView:(id)arg2;
 - (void)placeView:(id)arg1 withFrame:(struct CGRect)arg2 inParentView:(id)arg3 characterIndex:(unsigned long long)arg4 layoutManager:(id)arg5;
-- (id)printableTextAttachment;
+- (id)printableTextContent;
 - (id)attachmentAsNSTextAttachment;
 - (id)contents;
 - (void)saveIfNeeded;

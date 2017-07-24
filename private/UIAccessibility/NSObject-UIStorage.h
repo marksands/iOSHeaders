@@ -49,6 +49,7 @@
 - (_Bool)_accessibilitySpeakThisShouldScrollTextRects;
 - (id)_accessibilityTextRectsForRange:(id)arg1 singleTextRect:(struct CGRect *)arg2;
 - (id)_accessibilityTextRectsForSpeakThisStringRange:(struct _NSRange)arg1;
+- (id)_accessibilityTextRectsForSpeakThisStringRange:(struct _NSRange)arg1 string:(id)arg2;
 - (id)_accessibilitySpeakThisElementsAndStrings;
 - (unsigned long long)_accessibilitySpeakThisMaximumNumberOfElements;
 - (void)_accessibilitySetIgnoreDelegate:(_Bool)arg1;

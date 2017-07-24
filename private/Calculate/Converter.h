@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSArray, NSNumber, NSString;
 
@@ -27,13 +27,15 @@
 
 + (_Bool)refreshCurrencyCache;
 + (id)currencyCacheLastRefreshDate;
-@property(retain, nonatomic) NSString *localizedOutputValueAndUnit; // @synthesize localizedOutputValueAndUnit=_localizedOutputValueAndUnit;
++ (id)dispatchQueue;
++ (void)initialize;
 @property(retain, nonatomic) NSString *conversionType; // @synthesize conversionType=_conversionType;
 @property(retain, nonatomic) NSArray *additionalResults; // @synthesize additionalResults=_additionalResults;
 @property float currencyUpdateTimeOut; // @synthesize currencyUpdateTimeOut=_currencyUpdateTimeOut;
 @property(readonly) _Bool isCurrency; // @synthesize isCurrency=_isCurrency;
 @property(retain, nonatomic) NSString *localizedOutputUnit; // @synthesize localizedOutputUnit=_localizedOutputUnit;
 @property(retain, nonatomic) NSString *localizedOutputValue; // @synthesize localizedOutputValue=_localizedOutputValue;
+@property(retain, nonatomic) NSString *localizedOutputValueAndUnit; // @synthesize localizedOutputValueAndUnit=_localizedOutputValueAndUnit;
 @property(retain, nonatomic) NSString *localizedInputValueAndUnit; // @synthesize localizedInputValueAndUnit=_localizedInputValueAndUnit;
 @property(retain, nonatomic) NSNumber *outputValue; // @synthesize outputValue=_outputValue;
 @property(retain, nonatomic) NSString *outputUnit; // @synthesize outputUnit=_outputUnit;
@@ -48,7 +50,6 @@
 - (id)_unitInfoForNormalizedName:(id)arg1;
 - (void)_standardizeInputAndOutputUnits;
 - (id)_normalizedUnitNamesForName:(id)arg1;
-- (id)_unitsInfo;
 - (void)_updateInputValueFromMatch:(id)arg1;
 - (_Bool)_parseInputQuery;
 - (void)processConversionWithCompletion:(CDUnknownBlockType)arg1;

@@ -265,6 +265,7 @@ struct Data {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
+    unsigned int :1;
     struct Vec2<double> _field6;
     struct Rect _field7;
 };
@@ -631,6 +632,7 @@ struct _CAEAGLNativeWindow {
     struct CAEAGLBuffer *_field18;
     id _field19;
     struct Atomic _field20;
+    unsigned long long _field21;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;

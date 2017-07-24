@@ -9,15 +9,14 @@
 __attribute__((visibility("hidden")))
 @interface TSDCABasicAnimationContextCache : TSDCAPropertyAnimationContextCache
 {
-    _Bool _isObjectTypeCGColor;
     id _fromValue;
     id _toValue;
 }
 
-@property(readonly, nonatomic) _Bool isObjectTypeCGColor; // @synthesize isObjectTypeCGColor=_isObjectTypeCGColor;
 @property(readonly, nonatomic) id toValue; // @synthesize toValue=_toValue;
 @property(readonly, nonatomic) id fromValue; // @synthesize fromValue=_fromValue;
-- (void)verifyCacheWithAnimation:(id)arg1;
+- (double)percentAtTime:(double)arg1;
+- (id)valueAtTime:(double)arg1 initialValue:(id)arg2 groupTimingFactor:(double)arg3;
 - (id)initWithAnimation:(id)arg1;
 
 @end

@@ -10,8 +10,12 @@
 {
 }
 
++ (void)_syncCoordinatorDidCreateChangeSet:(id)arg1;
++ (void)_syncCoordinatorDidDeleteRemoteEvents:(id)arg1;
 + (void)_syncCoordinatorDidAddRemoteEvents:(id)arg1;
 + (void)_syncCoordinatorDidInsertLocalAdditionEvents:(id)arg1;
++ (void)_updateSyncCounter:(id)arg1 notification:(id)arg2;
++ (id)typeValueWithStreamName:(id)arg1;
 + (id)portraitStreamNames;
 + (void)load;
 

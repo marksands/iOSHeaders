@@ -14,15 +14,16 @@ __attribute__((visibility("hidden")))
     int _candidatesVisualStyle;
     _Bool _legacyAlertAppearance;
     UISegmentedControl *_segmentedControl;
-    double _additionalPadding;
     UIKBThemedView *_themedView;
+    struct UIEdgeInsets _additionalInsets;
 }
 
 + (_Bool)_preventsAppearanceProxyCustomization;
 @property(retain, nonatomic) UIKBThemedView *themedView; // @synthesize themedView=_themedView;
-@property(nonatomic) double additionalPadding; // @synthesize additionalPadding=_additionalPadding;
+@property(nonatomic) struct UIEdgeInsets additionalInsets; // @synthesize additionalInsets=_additionalInsets;
 @property(readonly) UISegmentedControl *segmentedControl; // @synthesize segmentedControl=_segmentedControl;
 - (void).cxx_destruct;
+- (void)setAdditionalPadding:(struct UIEdgeInsets)arg1;
 - (void)setSortControlTitles:(id)arg1;
 @property(readonly) _Bool shouldShowTitles;
 - (_Bool)needsToUpdateSortControlForTitles:(id)arg1;

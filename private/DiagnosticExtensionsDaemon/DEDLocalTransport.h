@@ -24,6 +24,7 @@
 @property __weak id <DEDClientProtocol> clientDelegate; // @synthesize clientDelegate=_clientDelegate;
 - (void).cxx_destruct;
 - (void)hasCollected:(id)arg1 isCollecting:(id)arg2 inSession:(id)arg3;
+- (void)didCancelSession:(id)arg1;
 - (void)didCommitSession:(id)arg1;
 - (void)finishedDiagnosticWithIdentifier:(id)arg1 result:(id)arg2 session:(id)arg3;
 - (void)deviceSupportsDiagnosticExtensions:(id)arg1 session:(id)arg2;

@@ -11,7 +11,7 @@
 #import <iWorkImport/TSWPLayoutParent-Protocol.h>
 #import <iWorkImport/TSWPStorageObserver-Protocol.h>
 
-@class NSString, TSDWrapSegments, TSWPLayout, TSWPPadding;
+@class NSString, TSDWrapSegments, TSWPLayout, TSWPPadding, TSWPStorage;
 @protocol TSWPShapeLayoutDelegate;
 
 __attribute__((visibility("hidden")))
@@ -19,12 +19,14 @@ __attribute__((visibility("hidden")))
 {
     TSDWrapSegments *_cachedInteriorWrapSegments;
     _Bool _observingStorage;
+    TSWPStorage *_observedStorage;
     TSWPLayout *_containedLayout;
     id <TSWPShapeLayoutDelegate> _delegate;
 }
 
-@property id <TSWPShapeLayoutDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <TSWPShapeLayoutDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) TSWPLayout *containedLayout; // @synthesize containedLayout=_containedLayout;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool columnsAreLeftToRight;
 @property(readonly, nonatomic) _Bool shrinkTextToFit;
 @property(readonly, nonatomic) _Bool alwaysStartsNewTarget;

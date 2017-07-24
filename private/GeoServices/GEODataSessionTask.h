@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
     id <GEODataSessionTaskRules> _rules;
     NSObject<OS_dispatch_queue> *_sessionIsolation;
     NSObject<OS_dispatch_queue> *_delegateQueue;
-    NSObject<OS_os_activity> *_completionActivity;
+    NSObject<OS_os_activity> *_activity;
     id <GEODataSessionTask> _completedSubtask;
     GEODataURLSessionTask *_urlTask;
     GEODataXPCSessionTask *_xpcTask;
@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
     _Bool _didStart;
 }
 
+@property(readonly, nonatomic) NSObject<OS_os_activity> *activity; // @synthesize activity=_activity;
 @property(readonly, nonatomic) unsigned int taskIdentifier; // @synthesize taskIdentifier=_taskIdentifier;
 @property(nonatomic) __weak id <GEODataSessionTaskDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak GEODataSession *session; // @synthesize session=_session;
@@ -60,6 +61,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithSession:(id)arg1 rules:(id)arg2 delegate:(id)arg3 delegateQueue:(id)arg4 requestKind:(int)arg5;
 - (_Bool)validateTileResponseWithError:(id *)arg1;
 - (void)rulesDidChooseCompletedSubtask:(id)arg1;
+- (void)dataSession:(id)arg1 willSendRequest:(id)arg2 forTask:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)dataSession:(id)arg1 didCompleteTask:(id)arg2;
 @property(readonly, nonatomic) NSURL *originalRequestURL;
 @property(readonly, nonatomic) long long responseSource;

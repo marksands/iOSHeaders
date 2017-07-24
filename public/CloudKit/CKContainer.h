@@ -89,6 +89,7 @@
 - (void)dumpDaemonStatusReportToFileHandle:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dumpAllClientsStatusReportToFileHandle:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)CKStatusReportArray;
+- (void)fetchFullNameAndFormattedUsernameOfAccountWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)fetchFullNameAndPrimaryEmailOnAccountWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)fetchCurrentDeviceIDWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)fetchServerEnvironment:(CDUnknownBlockType)arg1;

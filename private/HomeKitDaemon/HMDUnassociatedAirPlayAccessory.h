@@ -6,11 +6,29 @@
 
 #import <HomeKitDaemon/HMDUnassociatedMediaAccessory.h>
 
-@interface HMDUnassociatedAirPlayAccessory : HMDUnassociatedMediaAccessory
+#import <HomeKitDaemon/HMDMediaAccessoryAssociation-Protocol.h>
+
+@class NSString;
+
+@interface HMDUnassociatedAirPlayAccessory : HMDUnassociatedMediaAccessory <HMDMediaAccessoryAssociation>
 {
+    NSString *_administrationPassword;
 }
 
 + (Class)modelClass;
++ (id)randomAdministrationPassword:(id *)arg1;
+@property(copy) NSString *administrationPassword; // @synthesize administrationPassword=_administrationPassword;
+- (void).cxx_destruct;
+- (void)associateWithCompletionHandler:(CDUnknownBlockType)arg1;
+@property(readonly) _Bool supportsAssociation;
+- (id)addTransactionForHome:(id)arg1 configurationAppIdentifier:(id)arg2;
+- (id)initWithIdentifier:(id)arg1 name:(id)arg2 category:(id)arg3 messageDispatcher:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -293,6 +293,14 @@ struct vector<std::__1::pair<unsigned long, unsigned long>, std::__1::allocator<
     } __end_cap_;
 };
 
+struct vector<std::__1::shared_ptr<unsigned char>, std::__1::allocator<std::__1::shared_ptr<unsigned char>>> {
+    struct shared_ptr<unsigned char> *_field1;
+    struct shared_ptr<unsigned char> *_field2;
+    struct __compressed_pair<std::__1::shared_ptr<unsigned char>*, std::__1::allocator<std::__1::shared_ptr<unsigned char>>> {
+        struct shared_ptr<unsigned char> *_field1;
+    } _field3;
+};
+
 struct vector<std::__1::vector<double, std::__1::allocator<double>>, std::__1::allocator<std::__1::vector<double, std::__1::allocator<double>>>> {
     struct vector<double, std::__1::allocator<double>> *__begin_;
     struct vector<double, std::__1::allocator<double>> *__end_;
@@ -399,6 +407,14 @@ typedef struct vector<int, std::__1::allocator<int>> {
         int *__first_;
     } __end_cap_;
 } vector_e0f2bd7e;
+
+typedef struct vector<std::__1::shared_ptr<unsigned char>, std::__1::allocator<std::__1::shared_ptr<unsigned char>>> {
+    struct shared_ptr<unsigned char> *_field1;
+    struct shared_ptr<unsigned char> *_field2;
+    struct __compressed_pair<std::__1::shared_ptr<unsigned char>*, std::__1::allocator<std::__1::shared_ptr<unsigned char>>> {
+        struct shared_ptr<unsigned char> *_field1;
+    } _field3;
+} vector_fd38efa8;
 
 typedef struct vector<unsigned long, std::__1::allocator<unsigned long>> {
     unsigned long long *_field1;

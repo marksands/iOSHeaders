@@ -23,7 +23,7 @@
 @property(readonly, retain, nonatomic) FBSSerialQueue *queue; // @synthesize queue=_queue;
 - (unsigned long long)_mapShutdownOptionsToOptions:(id)arg1;
 - (_Bool)_isWhitelistedLaunchSuspendedApp:(id)arg1;
-- (_Bool)_requireEntitlementToOpenURL:(id)arg1;
+- (_Bool)_requireEntitlementToOpenURL:(id)arg1 options:(id)arg2;
 - (_Bool)_isTrustedRequestToOpenApplication:(id)arg1 options:(id)arg2 source:(id)arg3 originalSource:(id)arg4;
 - (void)_performExitTasksForRelaunch:(_Bool)arg1;
 - (void)handleActions:(id)arg1 source:(id)arg2 withResult:(CDUnknownBlockType)arg3;

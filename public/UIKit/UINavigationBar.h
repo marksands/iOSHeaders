@@ -331,6 +331,7 @@
 @property(retain, nonatomic, setter=_setBackgroundView:) UIView *_backgroundView;
 - (void)_performUpdatesIgnoringLock:(CDUnknownBlockType)arg1;
 - (id)backButtonViewAtPoint:(struct CGPoint)arg1;
+- (void)_uikit_applyValueFromTraitStorage:(id)arg1 forKeyPath:(id)arg2;
 - (_Bool)isElementAccessibilityExposedToInterfaceBuilder;
 - (double)_defaultAutolayoutSpacing;
 - (double)_autolayoutSpacingAtEdge:(int)arg1 forAttribute:(long long)arg2 inContainer:(id)arg3 isGuide:(_Bool)arg4;

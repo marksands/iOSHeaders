@@ -17,6 +17,7 @@
     NSMutableArray *_displayWrappers;
     NSMapTable *_displayWrappersToDataMode;
     _Bool _showsLockedUI;
+    _Bool _faceZooming;
     NTKComplication *_complication;
     long long _complicationFamily;
     CDUnknownBlockType _invalidationHandler;
@@ -37,6 +38,7 @@
 @property(readonly, nonatomic) long long animationMode; // @synthesize animationMode=_animationMode;
 @property(readonly, nonatomic) long long updatingMode; // @synthesize updatingMode=_updatingMode;
 @property(readonly, nonatomic) long long cachingMode; // @synthesize cachingMode=_cachingMode;
+@property(nonatomic, getter=isFaceZooming) _Bool faceZooming; // @synthesize faceZooming=_faceZooming;
 @property(nonatomic) _Bool showsLockedUI; // @synthesize showsLockedUI=_showsLockedUI;
 @property(retain, nonatomic) NSDate *pauseDate; // @synthesize pauseDate=_pauseDate;
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
@@ -66,7 +68,7 @@
 - (void)_applyAnimationMode;
 - (void)_applyCachingMode;
 - (void)_applyUpdatingMode;
-- (void)_updateInternalModes;
+- (void)_updateInternalModes:(_Bool)arg1;
 - (void)_updateEffectiveFaceDataMode;
 - (void)_updateEffectiveAnimationMode;
 - (void)_updateEffectiveUpdatingMode;

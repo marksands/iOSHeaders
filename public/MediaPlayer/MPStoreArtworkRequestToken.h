@@ -6,12 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-#import <MediaPlayer/NSCopying-Protocol.h>
+#import <MediaPlayer/MPArtworkDataSourceVisualIdenticality-Protocol.h>
 #import <MediaPlayer/NSSecureCoding-Protocol.h>
 
 @class NSArray, NSString, NSURL;
 
-@interface MPStoreArtworkRequestToken : NSObject <NSCopying, NSSecureCoding>
+@interface MPStoreArtworkRequestToken : NSObject <NSSecureCoding, MPArtworkDataSourceVisualIdenticality>
 {
     _Bool _shouldIgnoreImage;
     NSURL *_artworkURL;
@@ -27,10 +27,18 @@
 @property(copy, nonatomic) NSArray *lookupItemArtworks; // @synthesize lookupItemArtworks=_lookupItemArtworks;
 @property(copy, nonatomic) NSURL *artworkURL; // @synthesize artworkURL=_artworkURL;
 - (void).cxx_destruct;
+- (id)stringRepresentation;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

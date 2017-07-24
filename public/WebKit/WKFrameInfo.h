@@ -9,7 +9,7 @@
 #import <WebKit/NSCopying-Protocol.h>
 #import <WebKit/WKObject-Protocol.h>
 
-@class NSString, NSURLRequest, WKSecurityOrigin, _WKFrameHandle;
+@class NSString, NSURLRequest, WKSecurityOrigin, WKWebView, _WKFrameHandle;
 
 @interface WKFrameInfo : NSObject <WKObject, NSCopying>
 {
@@ -18,6 +18,7 @@
 
 @property(readonly) struct Object *_apiObject;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic) __weak WKWebView *webView;
 @property(readonly, nonatomic) WKSecurityOrigin *securityOrigin;
 @property(readonly, copy, nonatomic) NSURLRequest *request;
 @property(readonly, nonatomic, getter=isMainFrame) _Bool mainFrame;

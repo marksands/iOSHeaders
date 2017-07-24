@@ -26,6 +26,8 @@
 - (void)setHighlighted:(_Bool)arg1;
 - (void)_setupBackdropView;
 - (void)dealloc;
+- (void)_updateContentEdgeInsets;
+- (void)safeAreaInsetsDidChange;
 - (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 

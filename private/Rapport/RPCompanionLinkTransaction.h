@@ -11,10 +11,12 @@
 @interface RPCompanionLinkTransaction : NSObject
 {
     RPCompanionLinkClient *_client;
+    NSString *_identifier;
     NSString *_label;
 }
 
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
+@property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) RPCompanionLinkClient *client; // @synthesize client=_client;
 - (void).cxx_destruct;
 - (void)invalidate;

@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     _Bool _started;
     UIScrollView *_scrollView;
     double _repeatInterval;
+    unsigned long long _allowedDirections;
     CADisplayLink *_displayLink;
     double _lastTimestamp;
     id <_UIAutoScrollBehavior> _behavior;
@@ -27,6 +28,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double lastTimestamp; // @synthesize lastTimestamp=_lastTimestamp;
 @property(nonatomic) struct CGPoint point; // @synthesize point=_point;
 @property(retain, nonatomic) CADisplayLink *displayLink; // @synthesize displayLink=_displayLink;
+@property(nonatomic) unsigned long long allowedDirections; // @synthesize allowedDirections=_allowedDirections;
 @property(nonatomic) struct UIEdgeInsets touchInsets; // @synthesize touchInsets=_touchInsets;
 @property(nonatomic) double repeatInterval; // @synthesize repeatInterval=_repeatInterval;
 @property(readonly, nonatomic) __weak UIScrollView *scrollView; // @synthesize scrollView=_scrollView;

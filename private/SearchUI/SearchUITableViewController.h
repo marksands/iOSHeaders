@@ -13,17 +13,22 @@
 
 @interface SearchUITableViewController : SearchUIKeyboardableTableViewController <SearchUIFeedbackDelegate>
 {
+    _Bool _shouldUseInsetRoundedSections;
     id <SFFeedbackListener> _feedbackListener;
     id <SearchUIResultViewDelegate> _resultViewDelegate;
     SearchUITableModel *_tableModel;
     SearchUIPeekDelegate *_peekDelegate;
     id <UIViewControllerPreviewing> _previewingContext;
+    long long _preferredPunchoutIndex;
 }
 
 + (void)applySeparatorStyleToCell:(id)arg1 forCurrentRowModel:(id)arg2 nextRowModel:(id)arg3;
++ (double)layoutMarginWidthForOrientation:(long long)arg1;
+@property long long preferredPunchoutIndex; // @synthesize preferredPunchoutIndex=_preferredPunchoutIndex;
 @property(retain) id <UIViewControllerPreviewing> previewingContext; // @synthesize previewingContext=_previewingContext;
 @property(retain) SearchUIPeekDelegate *peekDelegate; // @synthesize peekDelegate=_peekDelegate;
 @property(retain) SearchUITableModel *tableModel; // @synthesize tableModel=_tableModel;
+@property(nonatomic) _Bool shouldUseInsetRoundedSections; // @synthesize shouldUseInsetRoundedSections=_shouldUseInsetRoundedSections;
 @property __weak id <SearchUIResultViewDelegate> resultViewDelegate; // @synthesize resultViewDelegate=_resultViewDelegate;
 @property(nonatomic) __weak id <SFFeedbackListener> feedbackListener; // @synthesize feedbackListener=_feedbackListener;
 - (void).cxx_destruct;
@@ -43,6 +48,7 @@
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)presentViewController:(id)arg1;
 - (void)updateViewControllerTitle:(id)arg1;
+- (void)cardSectionViewDidSelectPreferredPunchoutIndex:(long long)arg1;
 - (void)cardSectionViewDidInvalidateSize:(id)arg1 animate:(_Bool)arg2;
 - (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateTableForNewCellHeightAnimated:(_Bool)arg1;
@@ -67,8 +73,9 @@
 - (id)viewControllerForIndexPath:(id)arg1 isPeek:(_Bool)arg2;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)updateWithTableModel:(id)arg1;
-@property(nonatomic) _Bool shouldUseInsetRoundedSections;
 @property(nonatomic) unsigned long long style;
+- (void)updateLayoutMarginsForOrientation:(long long)arg1;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (id)init;
 
 // Remaining properties

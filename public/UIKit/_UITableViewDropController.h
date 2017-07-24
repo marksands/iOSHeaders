@@ -6,14 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
-#import <UIKit/UIDropInteractionDelegate-Protocol.h>
+#import <UIKit/UIDropInteractionDelegate_Private-Protocol.h>
 #import <UIKit/_UITableViewDropCoordinatorDelegate-Protocol.h>
 
 @class NSIndexPath, NSMapTable, NSString, UIDropInteraction, UITableView, UITableViewDropProposal;
 @protocol UIDropSession, _UITableViewDropControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface _UITableViewDropController : NSObject <UIDropInteractionDelegate, _UITableViewDropCoordinatorDelegate>
+@interface _UITableViewDropController : NSObject <UIDropInteractionDelegate_Private, _UITableViewDropCoordinatorDelegate>
 {
     _Bool _canOnlyHandleReordering;
     UIDropInteraction *_dropInteraction;
@@ -38,12 +38,13 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (_Bool)commitPlaceholderInsertionWithContext:(id)arg1 dataSourceUpdates:(CDUnknownBlockType)arg2;
 - (_Bool)deletePlaceholder:(id)arg1;
-- (void)insertPlaceholderAtIndexPath:(id)arg1 withContext:(id)arg2 previewParameters:(id)arg3;
+- (void)insertPlaceholderAtIndexPath:(id)arg1 withContext:(id)arg2 previewParametersProvider:(CDUnknownBlockType)arg3;
 - (id)animateDragItem:(id)arg1 toTarget:(id)arg2;
 - (id)animateDragItem:(id)arg1 toCell:(id)arg2 withPreviewParameters:(id)arg3;
-- (id)animateDragItem:(id)arg1 toRowAtIndexPath:(id)arg2 withPreviewParameters:(id)arg3;
+- (id)animateDragItem:(id)arg1 toRowAtIndexPath:(id)arg2;
 - (id)animateDragItem:(id)arg1 intoRowAtIndexPath:(id)arg2 rect:(struct CGRect)arg3;
 - (id)defaultAnimatorForDragItem:(id)arg1;
+- (long long)_dropInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (void)dropInteraction:(id)arg1 concludeDrop:(id)arg2;
 - (void)dropInteraction:(id)arg1 item:(id)arg2 willAnimateDropWithAnimator:(id)arg3;
 - (id)dropInteraction:(id)arg1 previewForDroppingItem:(id)arg2 withDefault:(id)arg3;

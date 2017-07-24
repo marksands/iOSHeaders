@@ -6,16 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableSet, SGMContactOpportunityInSpotlight, SGMContactResultInSpotlight, SGMContactResultSelectedInSpotlight, SGMEventOpportunityInSpotlight, SGMEventResultInSpotlight, SGMEventResultSelectedInSpotlight, SGMNoResultSelectedInSpotlight, SGMOtherResultSelectedInSpotlight;
+@class NSMutableSet, SGMContactOpportunityInSpotlight, SGMContactResultInSpotlight, SGMContactResultSelectedInSpotlight, SGMNoResultSelectedInSpotlight, SGMOtherResultSelectedInSpotlight;
 
 @interface SGSMutableSearchState : NSObject
 {
     SGMContactOpportunityInSpotlight *_contactOpportunity;
-    SGMEventOpportunityInSpotlight *_eventOpportunity;
     SGMContactResultInSpotlight *_contactResult;
-    SGMEventResultInSpotlight *_eventResult;
     SGMContactResultSelectedInSpotlight *_contactSelected;
-    SGMEventResultSelectedInSpotlight *_eventSelected;
     SGMNoResultSelectedInSpotlight *_noneSelected;
     SGMOtherResultSelectedInSpotlight *_otherSelected;
     unsigned short _contactResultCount;
@@ -23,10 +20,6 @@
     unsigned char _contactConversionCount;
     unsigned char _contactLossCount;
     unsigned short _curatedOrPseudoContactOpportunityCount;
-    unsigned short _eventResultCount;
-    unsigned short _eventOpportunityCount;
-    unsigned char _eventConversionCount;
-    unsigned char _eventLossCount;
     unsigned char _otherSelectedCount;
     unsigned char _nonOpportunityCount;
     _Bool _justEngaged;
@@ -39,10 +32,6 @@
 - (_Bool)justEngaged;
 - (void)resetJustEngaged;
 - (void)setJustEngaged;
-- (void)scoreAsEventLoss;
-- (void)scoreAsEventConversion;
-- (void)scoreAsEventOpportunity;
-- (void)scoreAsEventResult;
 - (void)scoreAsContactLoss;
 - (void)scoreAsContactConversion;
 - (void)scoreAsCuratedOrPseudoContactOpportunity;

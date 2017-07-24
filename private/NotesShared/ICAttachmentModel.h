@@ -24,6 +24,7 @@
 @property(readonly, nonatomic) __weak ICAttachment *attachment; // @synthesize attachment=_attachment;
 @property _Bool previewGenerationOperationCancelled; // @synthesize previewGenerationOperationCancelled=_previewGenerationOperationCancelled;
 - (void).cxx_destruct;
+- (id)mergeableDataForCopying;
 - (id)dataForTypeIdentifier:(id)arg1;
 - (id)fileURLForTypeIdentifier:(id)arg1;
 - (id)providerFileTypes;
@@ -39,6 +40,7 @@
 - (id)hardLinkFolderPath;
 - (_Bool)canConvertToHTMLForSharing;
 - (id)attributesForSharingHTMLWithTagName:(id *)arg1 textContent:(id *)arg2;
+- (void)noteWillAddOrRemovePassword;
 - (id)localizedFallbackSubtitleMac;
 - (id)localizedFallbackSubtitleIOS;
 - (id)localizedFallbackTitle;
@@ -78,6 +80,7 @@
 @property(readonly, nonatomic) _Bool canMarkup;
 @property(readonly, nonatomic) _Bool showThumbnailInNoteList;
 @property(readonly, nonatomic) _Bool hasThumbnailImage;
+@property(readonly, nonatomic) NSString *hardLinkVersion;
 @property(readonly, nonatomic) NSString *previewImageTypeUTI;
 @property(readonly, nonatomic) _Bool needsFullSizePreview;
 @property(readonly, nonatomic) _Bool hasPreviews;

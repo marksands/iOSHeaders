@@ -8,9 +8,10 @@
 
 #import <iWorkImport/NSCopying-Protocol.h>
 #import <iWorkImport/NSMutableCopying-Protocol.h>
+#import <iWorkImport/TSSPropertyValueArchiving-Protocol.h>
 
 __attribute__((visibility("hidden")))
-@interface TSCH3DVector : NSObject <NSCopying, NSMutableCopying>
+@interface TSCH3DVector : NSObject <TSSPropertyValueArchiving, NSCopying, NSMutableCopying>
 {
     float _x;
     float _y;

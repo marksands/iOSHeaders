@@ -6,7 +6,7 @@
 
 #import <UIKit/UIResponder.h>
 
-@class AVPlayer, AVValueTiming, NSArray, NSDictionary, NSError, NSNumber, NSObject;
+@class AVPlayer, AVValueTiming, NSArray, NSDate, NSDictionary, NSError, NSNumber, NSObject;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface AVPlayerController : UIResponder
@@ -228,6 +228,7 @@
 - (_Bool)hasEnabledAudio;
 - (id)loadedTimeRanges;
 - (double)currentTimeWithinEndTimes;
+@property(readonly, nonatomic) NSDate *currentDate;
 - (double)contentDurationWithinEndTimes;
 - (void)setMaxTime:(double)arg1;
 - (double)maxTime;
@@ -261,7 +262,8 @@
 - (void)setPlaying:(_Bool)arg1;
 - (_Bool)isPlaying;
 - (_Bool)canPlay;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *seekTimer;
+- (void)_handleSeekTimerEvent;
+@property(readonly, nonatomic) NSObject<OS_dispatch_source> *seekTimer;
 - (_Bool)canPlayImmediately;
 - (void)_retryPlayImmediatelyIfNeeded;
 - (void)setRate:(double)arg1;

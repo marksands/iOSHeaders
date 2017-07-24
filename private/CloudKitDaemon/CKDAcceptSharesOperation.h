@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <CloudKitDaemon/CKDOperation.h>
+#import <CloudKitDaemon/CKDDatabaseOperation.h>
 
 @class NSMutableArray, NSMutableDictionary;
 
 __attribute__((visibility("hidden")))
-@interface CKDAcceptSharesOperation : CKDOperation
+@interface CKDAcceptSharesOperation : CKDDatabaseOperation
 {
     CDUnknownBlockType _acceptCompletionBlock;
     NSMutableDictionary *_clientProvidedMetadatasByURL;

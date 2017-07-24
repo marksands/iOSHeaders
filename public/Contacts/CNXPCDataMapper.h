@@ -44,7 +44,7 @@
 - (id)executeFetchRequest:(id)arg1 progressiveResults:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)executeSaveRequest:(id)arg1 response:(id *)arg2 error:(id *)arg3;
 - (_Bool)executeSaveRequest:(id)arg1 error:(id *)arg2;
-- (id)meContactIdentifierWithError:(id *)arg1;
+- (id)meContactIdentifiers:(id *)arg1;
 - (id)identifierWithError:(id *)arg1;
 - (_Bool)fetchEncodedContactsForFetchRequest:(id)arg1 error:(id *)arg2 cancelationToken:(id)arg3 batchHandler:(CDUnknownBlockType)arg4;
 - (_Bool)fetchAndDecodeEncodedContactsForFetchRequest:(id)arg1 error:(id *)arg2 cancelationToken:(id)arg3 batchHandler:(CDUnknownBlockType)arg4;

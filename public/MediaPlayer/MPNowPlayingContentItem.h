@@ -36,6 +36,7 @@
 - (void)invalidateLanguageOptions;
 @property(copy, nonatomic) NSArray *currentLanguageOptions;
 @property(copy, nonatomic) NSArray *availableLanguageOptions;
+- (void)setElapsedTime:(double)arg1 playbackRate:(double)arg2;
 @property(copy, nonatomic) NSDictionary *nowPlayingInfo;
 @property(readonly, nonatomic) NSDictionary *auxiliaryNowPlayingInfo;
 @property(nonatomic) unsigned long long mediaType;
@@ -68,6 +69,7 @@
 @property(nonatomic) float defaultPlaybackRate;
 @property(nonatomic) double startTime;
 @property(nonatomic) double duration;
+@property(copy, nonatomic) NSString *artworkIdentifier;
 @property(copy, nonatomic) NSString *trackArtistName;
 @property(copy, nonatomic) NSString *seriesName;
 @property(copy, nonatomic) NSString *radioStationName;

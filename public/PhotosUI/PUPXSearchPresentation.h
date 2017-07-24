@@ -15,7 +15,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (id)searchPresentationTransition;
 - (id)createSearchViewController;
 
 // Remaining properties

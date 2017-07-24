@@ -27,7 +27,6 @@
     NSOperationQueue *_networkingQueue;
     PSSpecifier *_familyMembersGroup;
     PSSpecifier *_addFamilyMemberCell;
-    PSSpecifier *_addChildAccountGroup;
     AAUIProfilePictureStore *_profilePictureStore;
     CNMonogrammer *_monogrammer;
     RemoteUIController *_iCloudRemoteUIController;
@@ -72,9 +71,9 @@
 - (void)_handleFamilyStatusChange:(id)arg1;
 - (void)remoteUIController:(id)arg1 didReceiveHTTPResponse:(id)arg2;
 - (void)remoteUIController:(id)arg1 willLoadRequest:(id)arg2;
+- (_Bool)_hasActiveCell;
 - (void)_stopSpinnerInCellLoadingRemoteUI;
 - (void)_startSpinnerInCellLoadingRemoteUI:(id)arg1;
-- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (void)_fetchFamilyPaymentInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_fetchUpdatedFamilyDetailsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)childAccountCreationController:(id)arg1 didCompleteWithSuccess:(_Bool)arg2 error:(id)arg3;
@@ -94,7 +93,6 @@
 - (void)_pendingFamilyMemberCellWasTapped:(id)arg1;
 - (void)_familyMemberCellWasTapped:(id)arg1;
 - (id)_createSpecifiersForPaymentInfo;
-- (id)_createSpecifierForChildAccountCreation;
 - (id)_createSpecifierForPendingMember:(id)arg1;
 - (id)_createSpecifierForFamilyMemberCell:(id)arg1;
 - (void)_learnMoreLinkButtonWasTapped:(id)arg1;

@@ -7,6 +7,8 @@
 #import <Foundation/NSError.h>
 
 @interface NSError (CKErrorGoo)
+- (_Bool)CKHasCKErrorInChildChain;
+- (_Bool)CKIsCKError;
 - (_Bool)CKIsNotFoundError;
 - (id)CKClientSuitableUnderlyingError;
 - (id)CKClientSuitableError;

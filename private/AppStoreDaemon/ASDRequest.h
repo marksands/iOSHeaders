@@ -21,7 +21,7 @@
 
 + (id)_sharedBroker;
 + (_Bool)supportsSecureCoding;
-+ (void)enumerateRequestsUsingBlock:(CDUnknownBlockType)arg1;
++ (void)cancelAllRequestsWithErrorHandler:(CDUnknownBlockType)arg1;
 @property(retain) id <ASDRequestProxy> proxy; // @synthesize proxy=_proxy;
 @property(readonly, nonatomic) NSUUID *requestID; // @synthesize requestID=_requestID;
 @property __weak id <ASDRequestObserver> observer; // @synthesize observer=_observer;

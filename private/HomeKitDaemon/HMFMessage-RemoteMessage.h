@@ -6,9 +6,10 @@
 
 #import <HMFoundation/HMFMessage.h>
 
-@class HMDDevice, NSString;
+@class HAPPairingIdentity, HMDDevice, NSString;
 
 @interface HMFMessage (RemoteMessage)
+@property(readonly, nonatomic) HAPPairingIdentity *remoteUserPairingIdentity;
 @property(readonly, nonatomic) HMDDevice *remoteSourceDevice;
 @property(readonly, nonatomic) NSString *remoteSourceID;
 @property(readonly, nonatomic, getter=isRemote) _Bool remote;

@@ -85,7 +85,7 @@
 - (void).cxx_destruct;
 - (void)_swipeToDeleteCell:(id)arg1;
 - (void)_cellAccessoryButtonTappedAtIndexPath:(id)arg1;
-- (void)_setHeight:(double)arg1 forRowAtIndexPath:(id)arg2;
+- (void)_setHeight:(double)arg1 forRowAtIndexPath:(id)arg2 usingPresentationValues:(_Bool)arg3;
 - (double)_swipeToDeleteOffsetForRow:(long long)arg1 inSection:(long long)arg2;
 @property(readonly, nonatomic, getter=_shouldUseNewHeaderFooterBehavior) _Bool shouldUseNewHeaderFooterBehavior;
 @property(readonly, nonatomic, getter=_shouldUseSearchBarHeaderBehavior) _Bool shouldUseSearchBarHeaderBehavior;
@@ -165,6 +165,7 @@
 @property(readonly, nonatomic) UITraitCollection *traitCollection;
 - (_Bool)_wantsSwipes;
 - (_Bool)_usesModernSwipeActions;
+- (double)_defaultCellHeight;
 - (struct _NSRange)_sectionRangeForBounds:(struct CGRect)arg1;
 - (struct CGRect)_frameForSectionElementKind:(id)arg1 atSection:(long long)arg2 visibleRect:(struct CGRect)arg3 floating:(_Bool *)arg4;
 - (_Bool)_hasHeaderFooterBelowRowAtIndexPath:(id)arg1;
@@ -174,8 +175,9 @@
 - (_Bool)_shouldIndentWhileEditingForRowAtIndexPath:(id)arg1;
 - (_Bool)_canReorderRowAtIndexPath:(id)arg1;
 - (long long)_accessoryTypeForCell:(id)arg1 forRowAtIndexPath:(id)arg2;
-@property(readonly, nonatomic, getter=_dataSource) id <UICollectionViewDataSourceTableLayout> dataSource;
-@property(readonly, nonatomic, getter=_delegate) id <UICollectionViewDelegateTableLayout> delegate;
+@property(readonly, nonatomic, getter=_dataSourceActual) id <UICollectionViewDataSourceTableLayout> dataSourceActual;
+@property(readonly, nonatomic, getter=_delegateProxy) id <UICollectionViewDelegateTableLayout> delegateProxy;
+@property(readonly, nonatomic, getter=_delegateActual) id <UICollectionViewDelegateTableLayout> delegateActual;
 @property(copy, nonatomic) UIColor *separatorColor;
 - (void)_separatorColorChanged;
 - (void)_darkenedColorsChanged:(id)arg1;

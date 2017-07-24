@@ -81,6 +81,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *previousTargetTopicNumbers;
 @property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
 - (id)columnMetricsForCharIndex:(unsigned long long)arg1 outRange:(struct _NSRange *)arg2;
+@property(readonly, nonatomic) _Bool isOverflowing;
 - (struct CGRect)p_protectedRectWithinLayoutForSelectionRect:(struct CGRect)arg1;
 - (void)endResizeWrapInvalidationCluster;
 - (void)beginResizeWrapInvalidationCluster;

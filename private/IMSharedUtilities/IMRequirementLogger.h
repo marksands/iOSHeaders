@@ -4,21 +4,28 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
-@class IMLoggerOutput;
+@class IMLoggerOutput, NSString;
 
 @interface IMRequirementLogger : NSObject
 {
+    _Bool _throwFailures;
     IMLoggerOutput *_logger;
+    NSString *_categoryOverride;
 }
 
 + (id)sharedInstance;
 + (void)__setSingleton__im:(id)arg1;
 + (id)__singleton__im;
+@property _Bool throwFailures; // @synthesize throwFailures=_throwFailures;
+@property(retain) NSString *categoryOverride; // @synthesize categoryOverride=_categoryOverride;
 @property(retain) IMLoggerOutput *logger; // @synthesize logger=_logger;
 - (void).cxx_destruct;
-- (void)requirementFailedForCategory:(const char *)arg1 description:(id)arg2;
+- (id)description;
+- (void)requirementFailedForCategory:(const char *)arg1 description:(id)arg2 location:(struct IMFileLocation_t *)arg3;
+@property long long loggingLevel;
+- (void)updateSettingsFromUserDefaults;
 - (id)init;
 
 @end

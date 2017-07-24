@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NUAVPlayerController, NUCoalescer, NUColorSpace, NULivePhotoRenderClient, NUMediaView, NUPriority, NURenderClient, NUResponse, NUSurfaceRenderClient, NUVideoRenderClient, UIView;
+@class NSArray, NUAVPlayerController, NUCoalescer, NUColorSpace, NULivePhotoRenderClient, NUMediaView, NUPixelFormat, NUPriority, NURenderClient, NUResponse, NUSurfaceRenderClient, NUVideoRenderClient, UIView;
 @protocol NURegionPolicy, NUScalePolicy, OS_dispatch_group, OS_dispatch_queue;
 
 @interface NUMediaViewRenderer : NSObject
@@ -18,6 +18,9 @@
     UIView *_videoPlayerView;
     UIView *_livePhotoView;
     NUCoalescer *_livePhotoUpdateCoalescer;
+    NUCoalescer *_videoUpdateCoalescer;
+    _Bool _canRenderVideoLive;
+    int _videoRenderInFlightCount;
     NSObject<OS_dispatch_group> *_renderGroup;
     NSObject<OS_dispatch_queue> *_renderQueue;
     NUResponse *_zoomRenderResponse;
@@ -26,6 +29,7 @@
     id <NUScalePolicy> _scalePolicy;
     id <NURegionPolicy> _regionPolicy;
     NUColorSpace *_colorSpace;
+    NUPixelFormat *_pixelFormat;
     NUPriority *_renderPriority;
     NUMediaView *_mediaView;
     double _backingScale;
@@ -46,6 +50,7 @@
 @property(nonatomic) double backingScale; // @synthesize backingScale=_backingScale;
 @property(readonly, nonatomic) __weak NUMediaView *mediaView; // @synthesize mediaView=_mediaView;
 @property(readonly, nonatomic) NUPriority *renderPriority; // @synthesize renderPriority=_renderPriority;
+@property(retain, nonatomic) NUPixelFormat *pixelFormat; // @synthesize pixelFormat=_pixelFormat;
 @property(retain, nonatomic) NUColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(retain, nonatomic) id <NURegionPolicy> regionPolicy; // @synthesize regionPolicy=_regionPolicy;
 @property(retain, nonatomic) id <NUScalePolicy> scalePolicy; // @synthesize scalePolicy=_scalePolicy;
@@ -62,8 +67,11 @@
 - (id)_livePhotoFromResponse:(id)arg1;
 - (void)_updateLivePhotoComposition:(id)arg1;
 - (void)_coalesceUpdateLivePhotoComposition:(id)arg1;
+- (void)_coalesceUpdateVideoComposition:(id)arg1;
 - (void)_updateVideoViewLayoutWithGeometry:(id)arg1;
 - (void)_updateVideoComposition:(id)arg1;
+- (void)_updateVideoWithResult:(id)arg1;
+- (id)cacheVideoRenderFilter;
 - (void)_setDisplayType:(unsigned long long)arg1;
 - (void)_updateDisplayForMediaType:(long long)arg1;
 @property(readonly, nonatomic) NURenderClient *renderClient;
@@ -72,6 +80,7 @@
 - (void)_updateROILayerWithRenderResponse:(id)arg1;
 - (void)_updateBackfillLayerWithLatestRenderResponse;
 - (void)_updateROILayerWithLatestRenderResponse;
+- (CDUnknownBlockType)_videoFrameImageRenderResponseHandler;
 - (CDUnknownBlockType)_backfillRenderResponseHandler;
 - (CDUnknownBlockType)_zoomRenderResponseHandler;
 - (void)_updateImageRenderForComposition:(id)arg1;

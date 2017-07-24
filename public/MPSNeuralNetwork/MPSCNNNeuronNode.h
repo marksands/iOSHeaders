@@ -13,12 +13,10 @@
     float _b;
 }
 
-+ (id)nodeWithSource:(id)arg1 type:(int)arg2 a:(float)arg3 b:(float)arg4;
+@property(readonly, nonatomic) float b; // @synthesize b=_b;
+@property(readonly, nonatomic) float a; // @synthesize a=_a;
 - (_Bool)isEqual:(id)arg1;
 - (id)debugDescription;
-- (id)initWithSource:(id)arg1 a:(float)arg2 b:(float)arg3;
-- (id)initWithSource:(id)arg1 a:(float)arg2;
-- (id)initWithSource:(id)arg1;
 - (id)initWithSource:(id)arg1 type:(int)arg2 a:(float)arg3 b:(float)arg4;
 
 @end

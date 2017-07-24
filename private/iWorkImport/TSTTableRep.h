@@ -114,6 +114,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (id)p_textImageForPath:(struct CGPath *)arg1 shouldPulsate:(_Bool)arg2 cellID:(struct TSUCellCoord)arg3;
+- (_Bool)shouldHighlightGray:(struct TSUCellCoord)arg1;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (void)recursivelyDrawInContext:(struct CGContext *)arg1;
 - (_Bool)canDrawInParallel;
@@ -131,9 +132,7 @@ __attribute__((visibility("hidden")))
 - (id)overlayLayers;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2;
 - (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
-- (id)textureForContext:(id)arg1;
-- (_Bool)shouldSetTextureStage:(unsigned long long)arg1;
-- (void)setTextureStage:(unsigned long long)arg1;
+- (id)textureForDescription:(id)arg1;
 - (void)popAnimation;
 - (void)pushAnimation:(id)arg1;
 @property(readonly, nonatomic) TSTAnimation *currentAnimation;
@@ -162,6 +161,12 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)canvasBoundsForCellRange:(struct TSUCellRect)arg1;
 - (struct CGRect)deviceBoundsForCellRange:(struct TSUCellRect)arg1;
 - (_Bool)isDraggable;
+- (_Bool)p_shouldPerformOnChildTextReps:(SEL)arg1;
+- (void)recursivelyPerformSelector:(SEL)arg1 withObject:(id)arg2;
+- (void)recursivelyPerformSelector:(SEL)arg1;
+- (void)recursivelyPerformSelectorIfImplemented:(SEL)arg1 withObject:(id)arg2;
+- (void)recursivelyPerformSelectorIfImplemented:(SEL)arg1;
+- (id)childReps;
 - (void)updateChildrenFromLayout;
 - (void)willBeRemoved;
 - (void)invalidateEditingCell;

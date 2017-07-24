@@ -54,6 +54,7 @@ __attribute__((visibility("hidden")))
 + (id)pReplacementForMissingFontName:(id)arg1 outBold:(int *)arg2 outItalic:(int *)arg3 outQuiet:(_Bool *)arg4;
 @property(readonly, nonatomic) TSSStylesheet *stylesheet; // @synthesize stylesheet=mStylesheet;
 @property(readonly, nonatomic) TSSStyle *parent; // @synthesize parent=mParent;
+- (id)parentStyleForFixingOrphanVariation;
 - (void)setObjectUUID:(id)arg1;
 - (void)replaceReferencedStylesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)referencedStyles;

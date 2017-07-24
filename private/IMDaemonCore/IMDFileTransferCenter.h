@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <IMDaemonCore/IMFileCopierDelegate-Protocol.h>
 
@@ -26,7 +26,8 @@
 - (_Bool)populateLocalURLsForTransfer:(id)arg1 fromCKRecord:(id)arg2;
 - (void)resetSyncStateForRecord:(id)arg1 toState:(long long)arg2;
 - (void)markTransferAsNotSyncSuccessFullyUsingCKRecord:(id)arg1;
-- (id)updateTransfersWithCKRecord:(id)arg1 recordWasFetched:(_Bool)arg2;
+- (id)updateTransfersWithCKRecord:(id)arg1 recordWasFetched:(_Bool)arg2 downloadAsset:(_Bool *)arg3;
+- (_Bool)_shouldDownloadAssetForTransfer:(id)arg1 forMessageItem:(id)arg2;
 - (id)_attachmentStoreSharedInstance;
 - (id)_messageStoreSharedInstance;
 - (_Bool)initiateHighQualityDownload:(id)arg1;

@@ -20,8 +20,8 @@
     _Bool _incrementShareCount;
     _Bool _incrementViewCount;
     int _clientProcessID;
-    NSDictionary *_movieAssetState;
     PHChangeRequestHelper *_helper;
+    NSDictionary *_movieAssetState;
     PHRelationshipChangeRequestHelper *_keyAssetHelper;
     PHRelationshipChangeRequestHelper *_representativeAssetsHelper;
     PHRelationshipChangeRequestHelper *_curatedAssetsHelper;
@@ -49,8 +49,8 @@
 @property(readonly, nonatomic) PHRelationshipChangeRequestHelper *curatedAssetsHelper; // @synthesize curatedAssetsHelper=_curatedAssetsHelper;
 @property(readonly, nonatomic) PHRelationshipChangeRequestHelper *representativeAssetsHelper; // @synthesize representativeAssetsHelper=_representativeAssetsHelper;
 @property(readonly, nonatomic) PHRelationshipChangeRequestHelper *keyAssetHelper; // @synthesize keyAssetHelper=_keyAssetHelper;
-@property(readonly, nonatomic) PHChangeRequestHelper *helper; // @synthesize helper=_helper;
 @property(readonly, nonatomic) NSDictionary *movieAssetState; // @synthesize movieAssetState=_movieAssetState;
+@property(readonly, nonatomic) PHChangeRequestHelper *helper; // @synthesize helper=_helper;
 @property(readonly, nonatomic) _Bool clientEntitledToMemoryMutation; // @synthesize clientEntitledToMemoryMutation=_clientEntitledToMemoryMutation;
 @property(readonly, nonatomic) int clientProcessID; // @synthesize clientProcessID=_clientProcessID;
 @property(readonly, nonatomic) NSString *clientName; // @synthesize clientName=_clientName;
@@ -102,6 +102,7 @@
 @property(nonatomic, getter=isFavorite) _Bool favorite;
 @property(nonatomic, getter=isRejected) _Bool rejected;
 @property(readonly, nonatomic) NSString *managedEntityName;
+- (_Bool)prepareForServicePreflightCheck:(id *)arg1;
 - (void)encodeToXPCDict:(id)arg1;
 - (id)initWithXPCDict:(id)arg1 clientEntitlements:(id)arg2 clientName:(id)arg3 clientBundleID:(id)arg4 clientProcessID:(int)arg5;
 - (id)initWithUUID:(id)arg1 objectID:(id)arg2;

@@ -32,6 +32,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
+- (id)_bundleIDGeneratingIfNeeded:(_Bool)arg1;
 - (id)_valueFromData:(id)arg1 ofType:(const char *)arg2;
 - (id)_dataWithValue:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

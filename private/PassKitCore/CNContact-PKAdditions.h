@@ -35,6 +35,7 @@
 @property(nonatomic) unsigned long long contactSource;
 @property(retain, nonatomic) CRRecentContact *recentContact;
 - (id)pkSingleLineFormattedContactAddress;
+- (id)pkFormattedContactAddressIncludingPhoneticName:(_Bool)arg1;
 - (id)pkFormattedContactAddress;
 - (void)pkAddLabeledValues:(id)arg1 withProperty:(id)arg2;
 - (id)pkDictionaryForProperty:(id)arg1;

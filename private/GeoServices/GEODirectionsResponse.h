@@ -19,6 +19,7 @@
     unsigned long long _problemDetailsCount;
     unsigned long long _problemDetailsSpace;
     GEOClientMetrics *_clientMetrics;
+    NSString *_dataVersion;
     GEOPDDatasetABStatus *_datasetAbStatus;
     GEOTransitDecoderData *_decoderData;
     NSData *_directionsResponseID;
@@ -35,6 +36,7 @@
     NSMutableArray *_routes;
     unsigned int _selectedRouteIndex;
     NSMutableArray *_serviceGaps;
+    NSString *_serviceVersion;
     NSData *_sessionState;
     int _status;
     GEOStyleAttributes *_styleAttributes;
@@ -67,6 +69,8 @@
 @property(retain, nonatomic) GEOTransitDecoderData *decoderData; // @synthesize decoderData=_decoderData;
 @property(nonatomic) struct GEOTimepoint timepointUsed; // @synthesize timepointUsed=_timepointUsed;
 @property(retain, nonatomic) NSMutableArray *suggestedRoutes; // @synthesize suggestedRoutes=_suggestedRoutes;
+@property(retain, nonatomic) NSString *dataVersion; // @synthesize dataVersion=_dataVersion;
+@property(retain, nonatomic) NSString *serviceVersion; // @synthesize serviceVersion=_serviceVersion;
 @property(retain, nonatomic) NSData *nonRecommendedRoutesCache; // @synthesize nonRecommendedRoutesCache=_nonRecommendedRoutesCache;
 @property(retain, nonatomic) NSMutableArray *trafficCameras; // @synthesize trafficCameras=_trafficCameras;
 @property(retain, nonatomic) GEOPDDatasetABStatus *datasetAbStatus; // @synthesize datasetAbStatus=_datasetAbStatus;
@@ -101,6 +105,8 @@
 - (unsigned long long)suggestedRoutesCount;
 - (void)addSuggestedRoute:(id)arg1;
 - (void)clearSuggestedRoutes;
+@property(readonly, nonatomic) _Bool hasDataVersion;
+@property(readonly, nonatomic) _Bool hasServiceVersion;
 @property(readonly, nonatomic) _Bool hasNonRecommendedRoutesCache;
 - (id)trafficCameraAtIndex:(unsigned long long)arg1;
 - (unsigned long long)trafficCamerasCount;

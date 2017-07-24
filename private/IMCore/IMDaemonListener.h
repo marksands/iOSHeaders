@@ -42,9 +42,10 @@
 @property(readonly, nonatomic) NSMutableDictionary *_contexts; // @synthesize _contexts;
 - (void).cxx_destruct;
 - (void)receivedUrgentRequestForMessages:(id)arg1;
+- (void)updateCloudKitStateWithDictionary:(id)arg1;
 - (void)updateCloudKitState;
 - (void)didAttemptToDisableAllDevicesResult:(_Bool)arg1;
-- (void)didPerformAdditionalStorageRequiredCheck:(unsigned long long)arg1 forAccountId:(id)arg2;
+- (void)didPerformAdditionalStorageRequiredCheckWithSuccess:(_Bool)arg1 additionalStorageRequired:(unsigned long long)arg2 forAccountId:(id)arg3 error:(id)arg4;
 - (void)didAttemptToSetEnabledTo:(_Bool)arg1 result:(_Bool)arg2;
 - (void)qosClassWhileServicingRequestsResponse:(unsigned int)arg1 identifier:(id)arg2;
 - (void)forwardInvocation:(id)arg1;

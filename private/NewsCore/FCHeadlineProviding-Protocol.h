@@ -10,7 +10,7 @@
 #import <NewsCore/NSCopying-Protocol.h>
 #import <NewsCore/NSObject-Protocol.h>
 
-@class FCArticleContentManifest, FCCoverArt, FCHeadlineThumbnail, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSObject, NSString, NSURL;
+@class FCArticleContentManifest, FCCoverArt, FCFeedPersonalizedArticleScoreProfile, FCHeadlineThumbnail, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSObject, NSString, NSURL;
 @protocol FCChannelProviding, FCContentContext, FCNativeAdProviding;
 
 @protocol FCHeadlineProviding <NSObject, NSCopying, FCFeedElement, FCClassifiable, FCFeedTransformationItem>
@@ -25,6 +25,7 @@
 @property(readonly, nonatomic) _Bool usesImageOnTopLayout;
 @property(readonly, nonatomic) unsigned long long topStoryType;
 @property(readonly, nonatomic) _Bool isTopStory;
+@property(readonly, nonatomic) FCFeedPersonalizedArticleScoreProfile *scoreProfile;
 @property(readonly, nonatomic) double tileProminenceScore;
 @property(readonly, copy, nonatomic) NSString *surfacedByBinID;
 @property(readonly, copy, nonatomic) NSString *surfacedByTopicID;

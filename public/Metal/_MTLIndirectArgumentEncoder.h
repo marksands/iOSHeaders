@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Metal/MTLArgumentEncoder-Protocol.h>
 
@@ -36,7 +36,7 @@
 @property(readonly, nonatomic) id <MTLDevice> device;
 
 // Remaining properties
-@property(readonly) unsigned long long alignment;
+@property(readonly) unsigned long long alignment; // @dynamic alignment;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long encodedLength; // @dynamic encodedLength;

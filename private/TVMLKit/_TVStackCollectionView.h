@@ -18,6 +18,7 @@
 - (void).cxx_destruct;
 - (_Bool)_shouldFadeCellsForBoundChangeWhileRotating;
 - (struct CGRect)_visibleBounds;
+- (void)setContentInset:(struct UIEdgeInsets)arg1;
 - (void)reloadData;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (void)setBottomPaddingForVisibleBounds:(double)arg1;

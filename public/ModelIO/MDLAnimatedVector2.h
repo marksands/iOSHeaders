@@ -10,8 +10,8 @@
 {
 }
 
--     // Error parsing type: Q32@0:8^16Q24, name: copyDouble2ArrayInto:maxCount:
--     // Error parsing type: Q32@0:8^16Q24, name: copyFloat2ArrayInto:maxCount:
+-     // Error parsing type: Q32@0:8^16Q24, name: getDouble2Array:maxCount:
+-     // Error parsing type: Q32@0:8^16Q24, name: getFloat2Array:maxCount:
 -     // Error parsing type: v40@0:8r^16r^d24Q32, name: resetWithDouble2Array:atTimes:count:
 -     // Error parsing type: v40@0:8r^16r^d24Q32, name: resetWithFloat2Array:atTimes:count:
 -     // Error parsing type: 24@0:8d16, name: double2AtTime:
@@ -22,7 +22,6 @@
 - (struct VtValue)defaultVtValue;
 - (unsigned long long)precision;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithName:(id)arg1;
 
 @end
 

@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 + (id)newDateFormatWithLocaleIdentifier:(id)arg1 dateStyle:(long long)arg2 timeStyle:(long long)arg3;
 - (_Bool)supportsDeepCopyForUndo;
 - (int)smartFieldKind;
+- (void)setFormat:(id)arg1 localeIdentifier:(id)arg2 dateStyle:(long long)arg3 timeStyle:(long long)arg4 autoLocale:(_Bool)arg5;
 - (void)setFormat:(id)arg1 localeIdentifier:(id)arg2 dateStyle:(long long)arg3 timeStyle:(long long)arg4;
 - (void)resetLocaleTo:(id)arg1;
 - (id)generateInlineText;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray, NSDictionary, NSString, NSURL, PLPerson;
 
@@ -36,6 +36,7 @@
 + (id)_rejectedFacesToArchiveWithPerson:(id)arg1;
 + (id)_detectedFacesToArchiveWithPerson:(id)arg1;
 + (id)_fetchFacesWithPredicate:(id)arg1 resultType:(unsigned long long)arg2 managedObjectContext:(id)arg3 error:(id *)arg4;
++ (id)urlsForPersistedPersonsInLibraryMetadataDirectory;
 + (_Bool)deleteMetadataFileForPersonUUID:(id)arg1;
 + (id)metadataFileURLForPersonUUID:(id)arg1;
 + (_Bool)isValidPath:(id)arg1 outPersonUUID:(id *)arg2;
@@ -58,6 +59,8 @@
 @property(retain, nonatomic) NSString *mergeTargetPersonUUID; // @synthesize mergeTargetPersonUUID=_mergeTargetPersonUUID;
 @property(retain, nonatomic) NSString *personUUID; // @synthesize personUUID=_personUUID;
 - (void).cxx_destruct;
+- (id)jsonDictionary;
+- (_Bool)matchesEntityInLibraryBackedByManagedObjectContext:(id)arg1 diff:(id *)arg2;
 - (void)_saveMetadata;
 - (id)_metadataData;
 - (_Bool)readMetadata;

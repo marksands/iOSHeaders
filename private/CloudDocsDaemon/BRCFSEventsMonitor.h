@@ -9,7 +9,7 @@
 #import <CloudDocsDaemon/BRCModule-Protocol.h>
 #import <CloudDocsDaemon/BRCSuspendable-Protocol.h>
 
-@class BRCAccountSession, BRCFSEventsPersistedState, BRCRelativePath, BRCVolume, NSMutableArray, NSString, PQLConnection;
+@class BRCAccountSession, BRCFSEventsPersistedState, BRCFairSource, BRCRelativePath, BRCVolume, NSMutableArray, NSString, PQLConnection;
 @protocol BRCFSEventsDelegate, OS_dispatch_queue, OS_dispatch_semaphore, OS_dispatch_source;
 
 @interface BRCFSEventsMonitor : NSObject <BRCModule, BRCSuspendable>
@@ -26,7 +26,7 @@
     NSObject<OS_dispatch_queue> *_streamQueue;
     NSObject<OS_dispatch_source> *_historicalEventSource;
     NSObject<OS_dispatch_queue> *_processQueue;
-    NSObject<OS_dispatch_source> *_fseventsProcessSource;
+    BRCFairSource *_fseventsProcessSource;
     NSMutableArray *_fseventsToProcess;
     unsigned long long _maxFSEventQueueSize;
     unsigned long long _fseventProcessBatchSize;

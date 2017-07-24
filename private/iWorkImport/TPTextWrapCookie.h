@@ -12,10 +12,10 @@
 __attribute__((visibility("hidden")))
 @interface TPTextWrapCookie : NSObject
 {
-    TSDLayout<TSWPLayoutTarget> *_target;
     NSMutableArray *_floatingWrappables;
     TSUPointerKeyDictionary *_wrapSegmentsInverseTransformInRootDictionary;
     TSWPColumn *_column;
+    TSDLayout<TSWPLayoutTarget> *_target;
     TSDWrapSegments *_interiorWrapSegments;
     struct CGAffineTransform _targetInverseTransformInRoot;
 }
@@ -23,12 +23,12 @@ __attribute__((visibility("hidden")))
 + (id)textWrapCookieForColumn:(id)arg1 targetLayout:(id)arg2;
 @property(readonly, nonatomic) struct CGAffineTransform targetInverseTransformInRoot; // @synthesize targetInverseTransformInRoot=_targetInverseTransformInRoot;
 @property(retain, nonatomic) TSDWrapSegments *interiorWrapSegments; // @synthesize interiorWrapSegments=_interiorWrapSegments;
-@property(readonly, retain, nonatomic) NSArray *floatingWrappables; // @synthesize floatingWrappables=_floatingWrappables;
+@property(readonly, nonatomic) NSArray *floatingWrappables; // @synthesize floatingWrappables=_floatingWrappables;
+@property(nonatomic) __weak TSDLayout<TSWPLayoutTarget> *target; // @synthesize target=_target;
 @property(retain, nonatomic) TSWPColumn *column; // @synthesize column=_column;
+- (void).cxx_destruct;
 - (id)transformedWrapSegmentsForWrappable:(id)arg1 canvasSpaceToWrapSpaceTransform:(struct CGAffineTransform)arg2;
 - (void)addFloatingWrappable:(id)arg1;
-@property(nonatomic) TSDLayout<TSWPLayoutTarget> *target; // @dynamic target;
-- (void)dealloc;
 - (id)initWithColumn:(id)arg1 targetLayout:(id)arg2;
 
 @end

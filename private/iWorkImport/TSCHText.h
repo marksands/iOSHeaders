@@ -12,9 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (void)clearCachesForDocumentRoot:(id)arg1;
-+ (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)sharedText;
-+ (id)_singletonAlloc;
 - (const struct __CTFont *)retainedCTFontForParagraphStyle:(id)arg1;
 - (void)drawText:(id)arg1 paragraphStyle:(id)arg2 intoContext:(struct CGContext *)arg3 viewScale:(double)arg4;
 - (void)drawText:(id)arg1 paragraphStyle:(id)arg2 intoContext:(struct CGContext *)arg3 range:(struct _NSRange)arg4 viewScale:(double)arg5;
@@ -39,7 +37,6 @@ __attribute__((visibility("hidden")))
 - (id)p_wpColumnForText:(id)arg1 paragraphStyle:(id)arg2 textBlack:(_Bool)arg3 wrapWidth:(double)arg4 textCache:(id)arg5;
 - (id)p_newWPColumnForText:(id)arg1 wpTextObject:(id)arg2 wrapWidth:(double)arg3;
 - (id)p_wpTextForParagraphStyle:(id)arg1 textBlack:(_Bool)arg2 textCache:(id)arg3;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

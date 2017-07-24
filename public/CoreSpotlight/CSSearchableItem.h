@@ -15,10 +15,14 @@
 @interface CSSearchableItem : NSObject <CSIndexQueuableItem, NSSecureCoding, NSCopying>
 {
     CSSearchableItemAttributeSet *_attributeSet;
+    // Error parsing type: T, name: _score
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)searchableItemFromUserActivity:(id)arg1 bundleID:(id)arg2;
+// Error parsing type for property score:
+// Property attributes: TT,V_score
+
 - (void).cxx_destruct;
 - (void)setAttributes:(id)arg1;
 - (id)attributes;

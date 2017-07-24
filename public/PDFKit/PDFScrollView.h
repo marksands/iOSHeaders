@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setForcesTopAlignment:(_Bool)arg1;
+- (void)updateLayout;
 - (id)pdfDocumentView;
 - (void)dealloc;
 - (void)setDocument:(id)arg1;

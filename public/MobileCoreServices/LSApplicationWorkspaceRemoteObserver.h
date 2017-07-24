@@ -42,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (void)applicationsDidInstall:(id)arg1;
 - (void)applicationsWillInstall:(id)arg1;
 - (void)applicationInstallsDidChange:(id)arg1;
+- (void)applicationInstallsDidChangeWithBundleIdentifiers:(id)arg1 placeholders:(_Bool)arg2;
 - (void)applicationInstallsDidUpdateIcon:(id)arg1;
 - (void)applicationInstallsDidStart:(id)arg1;
 - (_Bool)messageObserversWithSelector:(SEL)arg1 andApps:(id)arg2;

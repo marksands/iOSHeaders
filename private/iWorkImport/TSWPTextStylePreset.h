@@ -22,13 +22,13 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSWPListStyle *listStyle; // @synthesize listStyle=_listStyle;
 @property(retain, nonatomic) TSWPParagraphStyle *paragraphStyle; // @synthesize paragraphStyle=_paragraphStyle;
 @property(copy, nonatomic) NSString *presetIdentifier; // @synthesize presetIdentifier=_presetIdentifier;
+- (void).cxx_destruct;
 - (id)referencedStyles;
 @property(readonly, nonatomic) NSString *presetKind;
 - (void)loadFromUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct TextStylePresetArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct TextStylePresetArchive *)arg1 unarchiver:(id)arg2;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1 presetIdentifier:(id)arg2 paragraphStyle:(id)arg3 listStyle:(id)arg4;
 
 // Remaining properties

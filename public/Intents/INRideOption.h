@@ -51,7 +51,8 @@
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (id)initWithName:(id)arg1 estimatedPickupDate:(id)arg2;
-- (id)cacheableObjects;
+- (void)_intents_updateContainerWithCache:(id)arg1;
+- (id)_intents_cacheableObjects;
 @property(copy, nonatomic) NSString *identifier;
 
 // Remaining properties

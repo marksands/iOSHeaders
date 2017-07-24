@@ -24,13 +24,13 @@
     NSData *_batchNormalizationData;
     MPSCNNNeuron *_deprecated_neuron;
     unsigned long long _subPixelScaleFactor;
-    unsigned long long _dilationRate;
     unsigned long long _dilationRateX;
     unsigned long long _dilationRateY;
     int _neuronType;
     float _neuronA;
     float _neuronB;
     _Bool _depthWiseConvolution;
+    NSData *_perChannelNeuronA;
     MPSCNNNeuron *_neuron_deprecated;
 }
 
@@ -38,12 +38,8 @@
 + (id)cnnConvolutionDescriptorWithKernelWidth:(unsigned long long)arg1 kernelHeight:(unsigned long long)arg2 inputFeatureChannels:(unsigned long long)arg3 outputFeatureChannels:(unsigned long long)arg4 postFilters:(id)arg5;
 + (id)cnnConvolutionDescriptorWithKernelWidth:(unsigned long long)arg1 kernelHeight:(unsigned long long)arg2 inputFeatureChannels:(unsigned long long)arg3 outputFeatureChannels:(unsigned long long)arg4 neuronFilter:(id)arg5;
 + (id)cnnConvolutionDescriptorWithKernelWidth:(unsigned long long)arg1 kernelHeight:(unsigned long long)arg2 inputFeatureChannels:(unsigned long long)arg3 outputFeatureChannels:(unsigned long long)arg4;
-@property(nonatomic) float neuronParameterB; // @synthesize neuronParameterB=_neuronB;
-@property(nonatomic) float neuronParameterA; // @synthesize neuronParameterA=_neuronA;
-@property(nonatomic) int neuronType; // @synthesize neuronType=_neuronType;
 @property(nonatomic) unsigned long long dilationRateY; // @synthesize dilationRateY=_dilationRateY;
 @property(nonatomic) unsigned long long dilationRateX; // @synthesize dilationRateX=_dilationRateX;
-@property(nonatomic) unsigned long long dilationRate; // @synthesize dilationRate=_dilationRate;
 @property(nonatomic) unsigned long long strideInPixelsY; // @synthesize strideInPixelsY=_strideInPixelsY;
 @property(nonatomic) unsigned long long strideInPixelsX; // @synthesize strideInPixelsX=_strideInPixelsX;
 @property(nonatomic) unsigned long long kernelHeight; // @synthesize kernelHeight=_kernelHeight;
@@ -60,10 +56,18 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (struct NeuronInfo)neuronInfo;
+- (void)setNeuronToPReLUWithParametersA:(id)arg1;
 - (void)setBatchNormalizationParametersForInferenceWithMean:(const float *)arg1 variance:(const float *)arg2 gamma:(const float *)arg3 beta:(const float *)arg4 epsilon:(float)arg5;
 - (id)initWithKernelWidth:(unsigned long long)arg1 kernelHeight:(unsigned long long)arg2 inputFeatureChannels:(unsigned long long)arg3 outputFeatureChannels:(unsigned long long)arg4;
 - (id)init;
 - (id)initWithKernelWidth:(unsigned long long)arg1 kernelHeight:(unsigned long long)arg2 inputFeatureChannels:(unsigned long long)arg3 outputFeatureChannels:(unsigned long long)arg4 neuronFilter:(id)arg5;
+- (void)setNeuronType:(int)arg1 parameterA:(float)arg2 parameterB:(float)arg3;
+- (float)neuronParameterB;
+- (float)neuronParameterA;
+- (int)neuronType;
+- (void)setNeuronParameterB:(float)arg1;
+- (void)setNeuronParameterA:(float)arg1;
+- (void)setNeuronType:(int)arg1;
 
 @end
 

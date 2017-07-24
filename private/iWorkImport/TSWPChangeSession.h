@@ -17,12 +17,12 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)needsObjectUUID;
+- (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isEqualToSession:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromUnarchiver:(id)arg1;
-- (void)dealloc;
 @property(retain, nonatomic) NSDate *date;
 @property(retain, nonatomic) TSKAnnotationAuthor *author;
 @property(nonatomic) unsigned int sessionUID;

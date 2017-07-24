@@ -79,6 +79,7 @@
 - (void)_removeObserver:(id)arg1;
 - (void)_addObserver:(id)arg1;
 @property(readonly, copy) NSString *description;
+-     // Error parsing type: {?=[4]}24@0:8d16, name: cameraTransformAtTimestamp:
 - (id)_stateQueue;
 - (void)_updatePowerUsage;
 - (void)_updateThermalState:(id)arg1;

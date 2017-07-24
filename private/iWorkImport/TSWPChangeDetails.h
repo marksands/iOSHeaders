@@ -37,7 +37,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *changeTrackingContentFormatString;
 @property(readonly, nonatomic) NSDate *date;
 @property(retain, nonatomic) TSKAnnotationAuthor *author;
-- (_Bool)wantsAnnotationPopover;
+- (_Bool)isFloatingComment;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEquivalentToObject:(id)arg1;

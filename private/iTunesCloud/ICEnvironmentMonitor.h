@@ -23,9 +23,11 @@
     NSString *_telephonyRegistrationStatus;
     NSString *_telephonyStatusIndicator;
     long long _networkType;
+    long long _lastKnownNetworkType;
 }
 
 + (id)sharedMonitor;
+@property(readonly, nonatomic) long long lastKnownNetworkType; // @synthesize lastKnownNetworkType=_lastKnownNetworkType;
 @property(readonly, nonatomic) long long networkType; // @synthesize networkType=_networkType;
 @property(readonly, nonatomic, getter=isWiFiActive) _Bool wiFiActive; // @synthesize wiFiActive=_isWiFiActive;
 @property(readonly, copy, nonatomic) NSString *telephonyStatusIndicator; // @synthesize telephonyStatusIndicator=_telephonyStatusIndicator;

@@ -17,10 +17,11 @@
     NSString *_reviewRequestToken;
 }
 
-@property(nonatomic) NSString *reviewRequestToken; // @synthesize reviewRequestToken=_reviewRequestToken;
+@property(retain, nonatomic) NSString *reviewRequestToken; // @synthesize reviewRequestToken=_reviewRequestToken;
 @property(retain, nonatomic) SKRemoteReviewViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
 @property(retain, nonatomic) _UIAsyncInvocation *cancelRequest; // @synthesize cancelRequest=_cancelRequest;
 @property(retain, nonatomic) SKInvocationQueueProxy<SKUIServiceReviewViewController> *serviceProxy; // @synthesize serviceProxy=_serviceProxy;
+- (void).cxx_destruct;
 - (void)_viewTapped:(id)arg1;
 - (void)_addRemoteView;
 - (void)_requestRemoteViewController;

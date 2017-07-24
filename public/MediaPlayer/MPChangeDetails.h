@@ -6,12 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSIndexSet, NSMutableDictionary;
+@class NSArray, NSIndexSet, NSMutableDictionary, NSMutableIndexSet, NSMutableSet;
 
 @interface MPChangeDetails : NSObject
 {
-    struct vector<std::__1::pair<long, long>, std::__1::allocator<std::__1::pair<long, long>>> _sectionMoves;
+    NSMutableDictionary *_sectionMoves;
+    NSMutableIndexSet *_updatedSectionMoveFromIndexes;
     NSMutableDictionary *_itemMoves;
+    NSMutableSet *_updatedItemMoveFromIndexPaths;
     NSIndexSet *_insertedSections;
     NSIndexSet *_deletedSections;
     NSIndexSet *_updatedSections;
@@ -26,12 +28,15 @@
 @property(copy, nonatomic) NSIndexSet *updatedSections; // @synthesize updatedSections=_updatedSections;
 @property(copy, nonatomic) NSIndexSet *deletedSections; // @synthesize deletedSections=_deletedSections;
 @property(copy, nonatomic) NSIndexSet *insertedSections; // @synthesize insertedSections=_insertedSections;
-- (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)_finalize;
 - (void)enumerateItemMovesWithBlock:(CDUnknownBlockType)arg1;
-- (void)appendItemMoveFromIndexPath:(id)arg1 toIndexPath:(id)arg2;
+- (void)removeItemMoveFromIndexPath:(id)arg1;
+- (void)appendItemMoveFromIndexPath:(id)arg1 toIndexPath:(id)arg2 updated:(_Bool)arg3;
 - (void)enumerateSectionMovesWithBlock:(CDUnknownBlockType)arg1;
-- (void)appendSectionMoveFromIndex:(long long)arg1 toIndex:(long long)arg2;
+- (void)removeSectionMoveFromIndex:(long long)arg1;
+- (void)appendSectionMoveFromIndex:(long long)arg1 toIndex:(long long)arg2 updated:(_Bool)arg3;
+@property(readonly, nonatomic) _Bool hasChanges;
 - (id)description;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;
 

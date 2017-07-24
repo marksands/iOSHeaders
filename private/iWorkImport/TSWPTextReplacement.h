@@ -17,11 +17,11 @@ __attribute__((visibility("hidden")))
     NSString *_string;
 }
 
+- (void).cxx_destruct;
 - (struct _NSRange)insertedRange;
 - (long long)delta;
 - (unsigned long long)targetCharIndex;
 - (void)performWithStorage:(id)arg1 delta:(long long)arg2 actionBuilder:(struct TSWPStorageActionBuilder *)arg3 withFlags:(unsigned int)arg4 replaceBlock:(CDUnknownBlockType)arg5;
-- (void)dealloc;
 - (id)initWithSelection:(id)arg1 string:(id)arg2;
 
 // Remaining properties

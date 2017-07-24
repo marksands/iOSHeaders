@@ -35,6 +35,9 @@ __attribute__((visibility("hidden")))
 - (id)stringForKey:(id)arg1;
 - (id)objectForKey:(id)arg1;
 - (void)updateIfNeededWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)processDidResume:(id)arg1;
+- (void)processWillSuspend:(id)arg1;
+- (void)startUpdateTimer;
 - (void)dealloc;
 - (id)initWithRemoteURL:(id)arg1 localURL:(id)arg2;
 - (id)init;

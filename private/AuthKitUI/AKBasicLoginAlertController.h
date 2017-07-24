@@ -59,6 +59,7 @@
 @property(copy, nonatomic) NSString *password; // @synthesize password=_ak_password;
 @property(copy, nonatomic) NSString *username; // @synthesize username=_ak_username;
 @property(nonatomic) long long alertStyle;
+- (void)dismissAndShowiForgot;
 - (void)_setupViewControllerForSecondFactorEntryStyle;
 - (void)_setupViewControllerForIForgotStyle;
 - (void)_setupViewControllerForUserOrCreateAppleIDStyle;

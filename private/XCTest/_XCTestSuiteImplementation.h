@@ -6,15 +6,17 @@
 
 #import <XCTest/XCTest.h>
 
-@class NSMutableArray, NSString, XCTestConfiguration;
+@class NSMutableArray, NSMutableDictionary, NSString, XCTestConfiguration;
 
 @interface _XCTestSuiteImplementation : XCTest
 {
     NSString *_name;
     NSMutableArray *_tests;
     XCTestConfiguration *_testConfiguration;
+    NSMutableDictionary *_activityAggregateStatistics;
 }
 
+@property(readonly) NSMutableDictionary *activityAggregateStatistics; // @synthesize activityAggregateStatistics=_activityAggregateStatistics;
 @property(retain) XCTestConfiguration *testConfiguration; // @synthesize testConfiguration=_testConfiguration;
 @property(retain) NSMutableArray *tests; // @synthesize tests=_tests;
 @property(copy) NSString *name; // @synthesize name=_name;

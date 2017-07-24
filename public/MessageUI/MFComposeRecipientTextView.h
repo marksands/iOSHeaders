@@ -67,9 +67,7 @@
 - (void)dragExited;
 - (void)dragMovedToPoint:(struct CGPoint)arg1;
 - (void)dragEnteredAtPoint:(struct CGPoint)arg1;
-- (struct CGRect)frameForDroppedItem:(id)arg1;
-- (id)viewForDraggedItem:(id)arg1 atScale:(double)arg2;
-- (struct CGRect)frameForDraggedItem:(id)arg1;
+- (id)dragPreviewForDraggedItem:(id)arg1;
 - (struct _NSRange)_placeholderAttachmentRange;
 - (id)_placeholderAttachmentWithStaticWidth;
 - (void)_notifyDelegateOfSizeChange;
@@ -82,7 +80,6 @@
 - (void)textViewDidChange:(id)arg1;
 - (void)textViewDidChangeSelection:(id)arg1;
 - (_Bool)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
-- (void)setCursorForInsertionAtPoint:(struct CGPoint)arg1;
 - (unsigned long long)indexOfRecipientForInsertionAtPoint:(struct CGPoint)arg1;
 - (id)selectedAtoms;
 - (id)atomViewsInRange:(struct _NSRange)arg1;

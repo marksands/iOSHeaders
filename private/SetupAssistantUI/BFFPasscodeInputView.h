@@ -20,6 +20,7 @@
 @property(retain, nonatomic) UILabel *instructions; // @synthesize instructions=_instructions;
 @property(nonatomic) __weak id <BFFPasscodeInputViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)shakePasscode;
 - (void)disable;
 - (_Bool)resignFirstResponder;
 - (_Bool)becomeFirstResponder;

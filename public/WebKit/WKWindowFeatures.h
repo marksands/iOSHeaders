@@ -25,6 +25,10 @@
 @property(readonly, nonatomic) NSNumber *statusBarVisibility;
 @property(readonly, nonatomic) NSNumber *menuBarVisibility;
 - (void)dealloc;
+@property(readonly, nonatomic) NSNumber *_dialogDisplay;
+@property(readonly, nonatomic) NSNumber *_fullscreenDisplay;
+@property(readonly, nonatomic) NSNumber *_scrollbarsVisibility;
+@property(readonly, nonatomic) NSNumber *_locationBarVisibility;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -9,6 +9,12 @@
 @class NCNotificationListCell;
 
 @protocol NCNotificationListCellDelegate <NSObject>
+- (void)notificationListCellDidHideCellActions:(NCNotificationListCell *)arg1 resetCellScrollPosition:(_Bool)arg2 animated:(_Bool)arg3;
+- (void)notificationListCellDidRevealCellActions:(NCNotificationListCell *)arg1;
+- (void)notificationListCellDidSignificantUserInteraction:(NCNotificationListCell *)arg1;
+- (void)notificationListCellRequestsPresentingLongLook:(NCNotificationListCell *)arg1 completion:(void (^)(_Bool))arg2;
+- (void)notificationListCellRequestsDismissAction:(NCNotificationListCell *)arg1 completion:(void (^)(_Bool))arg2;
+- (void)notificationListCellRequestsDefaultAction:(NCNotificationListCell *)arg1 completion:(void (^)(_Bool))arg2;
 - (void)willTearDownNotificationListCell:(NCNotificationListCell *)arg1;
 @end
 

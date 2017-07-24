@@ -26,6 +26,8 @@
 + (_Bool)validateMangledIDString:(id)arg1;
 + (_Bool)validateOwnerName:(id)arg1;
 + (_Bool)validateContainerID:(id)arg1;
++ (id)documentsMangledID;
++ (id)desktopMangledID;
 + (_Bool)supportsSecureCoding;
 + (id)cloudDocsMangledID;
 @property(readonly, nonatomic) NSString *mangledIDString; // @synthesize mangledIDString=_mangledIDString;
@@ -33,6 +35,8 @@
 @property(readonly, nonatomic) NSString *aliasTargetContainerString;
 @property(readonly, nonatomic) NSString *ownerName;
 @property(readonly, nonatomic) NSString *appLibraryOrZoneName;
+@property(readonly, nonatomic) _Bool isDocumentsMangledID;
+@property(readonly, nonatomic) _Bool isDesktopMangledID;
 @property(readonly, nonatomic) _Bool isBRTestMangledID;
 @property(readonly, nonatomic) _Bool isPassbookMangledID;
 @property(readonly, nonatomic) _Bool isCloudDocsMangledID;

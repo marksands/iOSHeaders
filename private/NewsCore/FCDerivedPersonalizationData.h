@@ -10,13 +10,15 @@
 #import <NewsCore/NSCoding-Protocol.h>
 #import <NewsCore/NSCopying-Protocol.h>
 
-@class NSString, NTPBPersonalizationProfile;
+@class NSDictionary, NSString, NTPBPersonalizationProfile;
 
 @interface FCDerivedPersonalizationData : NSObject <FCDerivedPersonalizationData, NSCoding, NSCopying>
 {
     NTPBPersonalizationProfile *_profile;
+    NSDictionary *_aggregatesByFeatureKey;
 }
 
+@property(retain, nonatomic) NSDictionary *aggregatesByFeatureKey; // @synthesize aggregatesByFeatureKey=_aggregatesByFeatureKey;
 @property(copy, nonatomic) NTPBPersonalizationProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

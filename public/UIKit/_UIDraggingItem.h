@@ -14,6 +14,7 @@
     NSArray *_imageComponents;
     NSItemProvider *_provider;
     _DUIPreview *_preview;
+    CDUnknownBlockType _previewProvider;
     id _privateLocalContext;
     id _localObject;
     CDUnknownBlockType _imageComponentsProvider;
@@ -46,12 +47,13 @@
 - (void).cxx_destruct;
 - (void)_setPrivateLocalContext:(id)arg1;
 - (id)_privateLocalContext;
-- (void)_setPreview:(id)arg1;
 - (id)_preview;
 - (id)_imageComponents;
 - (void)_clearDirty;
 - (void)_setDirtyForReason:(unsigned long long)arg1;
 @property(readonly, nonatomic, getter=_isDirty) _Bool dirty;
+- (void)_setPreviewProvider:(CDUnknownBlockType)arg1;
+- (CDUnknownBlockType)_previewProvider;
 @property(readonly, nonatomic) struct CGRect imageFrame;
 @property(readonly, copy, nonatomic) NSArray *imageComponents;
 - (void)setImageContents:(id)arg1;

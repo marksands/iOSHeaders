@@ -7,14 +7,16 @@
 #import <objc/NSObject.h>
 
 #import <HomeKit/HMFMessageReceiver-Protocol.h>
+#import <HomeKit/HMObjectMerge-Protocol.h>
 
 @class HMMediaSession, NSString, NSUUID, _HMContext;
 @protocol OS_dispatch_queue, _HMAudioControlDelegate;
 
-@interface _HMAudioControl : NSObject <HMFMessageReceiver>
+@interface _HMAudioControl : NSObject <HMFMessageReceiver, HMObjectMerge>
 {
     _Bool _muted;
     float _volume;
+    NSUUID *_uniqueIdentifier;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     HMMediaSession *_mediaSession;
     id <_HMAudioControlDelegate> _delegate;
@@ -29,12 +31,14 @@
 - (void)_handleAudioControlUpdated:(id)arg1;
 - (void)updateMuted:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateVolume:(float)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
 - (id)delegateCaller;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 - (id)messageDestination;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 @property(getter=isMuted) _Bool muted; // @synthesize muted=_muted;
 @property float volume; // @synthesize volume=_volume;
+@property(readonly, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue;
 - (void)configure:(id)arg1;
 - (void)_registerNotificationHandlers;

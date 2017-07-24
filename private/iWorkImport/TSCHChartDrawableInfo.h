@@ -62,11 +62,12 @@ __attribute__((visibility("hidden")))
 - (void)acceptVisitor:(id)arg1;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
-- (_Bool)isVisibleAtBeginningOfMagicChartBuildForDeliveryStyle:(unsigned long long)arg1 animationFilter:(id)arg2;
+- (_Bool)isVisibleAtBeginningOfMagicChartBuildForDeliveryStyle:(unsigned long long)arg1;
 - (_Bool)hasBackgroundLayerForPieChart;
 - (_Bool)hasReferenceLines;
 - (_Bool)shouldAddMultiDataBuildWhenAddingToDocument;
-- (_Bool)reverseChunkingIsSupported;
+- (_Bool)suppliesFinalTextures;
+- (_Bool)requiresStagesBuildingInReverse;
 - (id)animationFilters;
 - (unsigned long long)chunkCountForTextureDeliveryStyle:(unsigned long long)arg1 animationFilter:(id)arg2;
 - (id)textureDeliveryStylesLocalized:(_Bool)arg1 animationFilter:(id)arg2;

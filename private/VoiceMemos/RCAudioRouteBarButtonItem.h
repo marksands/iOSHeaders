@@ -21,8 +21,6 @@
 - (void)_showAvailableRoutesAction;
 - (void)_routeButtonAction;
 - (void)_routeBarButtonDidChangeNotification:(id)arg1;
-- (void)_audioRouteControllerPickedRouteDidChangeNotification:(id)arg1;
-- (void)_audioRouteControllerAvailableRoutesMaskDidChangeNotification:(id)arg1;
 - (void)dealloc;
 - (id)initAudioRouteItem;
 

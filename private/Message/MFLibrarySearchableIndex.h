@@ -10,7 +10,7 @@
 #import <Message/MFDiagnosticsGenerator-Protocol.h>
 #import <Message/MFLibrarySearchableIndexVerifierDataSource-Protocol.h>
 
-@class CSSearchableIndex, MFCancelationToken, MFCoalescer, MFLazyCache, MFWeakSet, NSMutableArray, NSMutableSet, NSString, _MFLibrarySearchableIndexPendingRemovals;
+@class CSSearchableIndex, MFCancelationToken, MFCoalescer, MFLazyCache, MFWeakSet, NSMutableArray, NSMutableSet, NSString, _MFLibrarySearchableIndexBudgetConfiguration, _MFLibrarySearchableIndexPendingRemovals;
 @protocol MFLibrarySearchableIndexDataSource, MFScheduler, OS_dispatch_queue, OS_dispatch_source, OS_os_activity;
 
 @interface MFLibrarySearchableIndex : NSObject <MFDiagnosticsGenerator, CSSearchableIndexDelegate, MFLibrarySearchableIndexVerifierDataSource>
@@ -46,6 +46,7 @@
     _Bool _scheduledRefresh;
     _Bool _scheduledVerification;
     id <MFLibrarySearchableIndexDataSource> _dataSource;
+    _MFLibrarySearchableIndexBudgetConfiguration *_budgetConfiguration;
     CSSearchableIndex *_csIndex;
 }
 
@@ -53,6 +54,7 @@
 + (id)_localClientState;
 + (id)_localClientStateURL;
 @property(retain, nonatomic) CSSearchableIndex *csIndex; // @synthesize csIndex=_csIndex;
+@property(readonly, nonatomic) _MFLibrarySearchableIndexBudgetConfiguration *budgetConfiguration; // @synthesize budgetConfiguration=_budgetConfiguration;
 @property(nonatomic) id <MFLibrarySearchableIndexDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (id)identifiersMatchingCriterion:(id)arg1;
 - (void)removeAllItems;
@@ -74,6 +76,7 @@
 - (void)_processIndexingBatch:(id)arg1 clientState:(id)arg2;
 - (void)_getDomainRemovals:(id *)arg1 identifierRemovals:(id *)arg2;
 - (id)_consumeBatchOfSize:(unsigned long long)arg1;
+- (void)_logIndexingPowerEventWithIdentifier:(id)arg1 additionalEventData:(id)arg2 usePersistentLog:(_Bool)arg3;
 - (void)_scheduleDataSourceRefresh;
 - (void)_scheduleProcessPendingItems;
 - (void)_queueTransitionActive:(_Bool)arg1;

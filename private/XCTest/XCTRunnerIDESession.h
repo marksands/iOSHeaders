@@ -24,7 +24,7 @@
     CDUnknownBlockType _readinessReply;
 }
 
-+ (int)connectedSocketForLocalPath:(id)arg1 error:(id *)arg2;
++ (id)transportForLocalPath:(id)arg1 error:(id *)arg2;
 + (void)setSharedSession:(id)arg1;
 + (id)sharedSession;
 + (id)sharedSessionQueue;
@@ -60,7 +60,7 @@
 - (void)requestReadinessForTesting:(CDUnknownBlockType)arg1;
 @property(readonly) _Bool reportsCrashes;
 @property long long IDEProtocolVersion; // @synthesize IDEProtocolVersion=_IDEProtocolVersion;
-- (id)initWithConnectedSocket:(int)arg1;
+- (id)initWithTransport:(id)arg1;
 - (void)dealloc;
 
 // Remaining properties

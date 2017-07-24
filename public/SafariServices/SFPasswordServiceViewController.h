@@ -6,19 +6,35 @@
 
 #import <UIKit/UIViewController.h>
 
-@class WBUPasswordPickerViewController;
+#import <SafariServices/SFPasswordServiceViewControllerProtocol-Protocol.h>
+
+@class NSString, WBUPasswordPickerViewController;
 
 __attribute__((visibility("hidden")))
-@interface SFPasswordServiceViewController : UIViewController
+@interface SFPasswordServiceViewController : UIViewController <SFPasswordServiceViewControllerProtocol>
 {
     WBUPasswordPickerViewController *_passwordPickerViewController;
+    _Bool _presentInPopover;
+    _Bool _hasAuthenticationForOtherPasswords;
+    NSString *_applicationIdentifier;
 }
 
 + (id)_remoteViewControllerInterface;
++ (id)_exportedInterface;
 - (void).cxx_destruct;
+- (void)authenticateToPresentInPopover:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_authenticateToViewOtherPasswordsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_hintStringsForAppID:(id)arg1 appName:(id)arg2 credentials:(id)arg3;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)gatherAndShowPasswords;
 - (void)_willAppearInRemoteViewController;
 - (void)_dismiss;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -48,6 +48,7 @@
     NSString *_localizedConfirmationTitle;
     NSString *_shippingEditableMessage;
     PKPaymentMerchantSession *_merchantSession;
+    double _clientCallbackTimeout;
 }
 
 + (id)paymentShippingAddressUnserviceableErrorWithLocalizedDescription:(id)arg1;
@@ -58,6 +59,7 @@
 + (long long)version;
 + (id)availableNetworks;
 + (id)requestWithProtobuf:(id)arg1;
+@property(nonatomic) double clientCallbackTimeout; // @synthesize clientCallbackTimeout=_clientCallbackTimeout;
 @property(retain, nonatomic) PKPaymentMerchantSession *merchantSession; // @synthesize merchantSession=_merchantSession;
 @property(nonatomic) _Bool requiresAddressPrecision; // @synthesize requiresAddressPrecision=_requiresAddressPrecision;
 @property(copy, nonatomic) NSString *shippingEditableMessage; // @synthesize shippingEditableMessage=_shippingEditableMessage;

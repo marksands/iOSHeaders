@@ -11,7 +11,8 @@
 @interface FIUIChartFloatingBarSeries : FIUIChartSeries
 {
     NSArray *_barRects;
-    NSMutableArray *_barLabelPoints;
+    NSMutableArray *_barLabelTopPoints;
+    NSMutableArray *_barLabelBottomPoints;
     NSMutableArray *_barLabels;
     UIColor *_barColor;
     double _cornerRadius;

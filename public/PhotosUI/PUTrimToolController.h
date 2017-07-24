@@ -11,7 +11,7 @@
 #import <PhotosUI/PULivePhotoTrimScrubberDelegate-Protocol.h>
 #import <PhotosUI/UIPopoverPresentationControllerDelegate-Protocol.h>
 
-@class ISWrappedAVPlayer, NSString, PHLivePhotoView, PLPhotoEditMutableModel, PULivePhotoKeyFrameSelectionViewController, PULivePhotoTrimScrubber, PUPhotoEditSnapStripView, PUPhotoEditValuesCalculator, UIImage, UIView;
+@class ISWrappedAVPlayer, NSString, PHLivePhotoView, PLEditSource, PLPhotoEditMutableModel, PULivePhotoKeyFrameSelectionViewController, PULivePhotoTrimScrubber, PUPhotoEditSnapStripView, UIImage, UIView;
 
 @interface PUTrimToolController : UIViewController <ISChangeObserver, PULivePhotoTrimScrubberDelegate, UIPopoverPresentationControllerDelegate, PULivePhotoKeyFrameSelectionViewControllerDelegate>
 {
@@ -24,7 +24,7 @@
     _Bool _canEditStillFrameTime;
     PHLivePhotoView *_livePhotoView;
     PLPhotoEditMutableModel *_photoEditModel;
-    PUPhotoEditValuesCalculator *_photoEditValuesCalculator;
+    PLEditSource *_editSource;
     id _playerTimeObservationToken;
     double _previouslyOpenedWidth;
     double _minimumTrimDuration;
@@ -43,7 +43,7 @@
 @property(nonatomic) CDStruct_1b6d18a9 currentStillFrameTime; // @synthesize currentStillFrameTime=_currentStillFrameTime;
 @property(nonatomic) _Bool disabled; // @synthesize disabled=_disabled;
 @property(nonatomic) CDStruct_1b6d18a9 unadjustedStillImageTime; // @synthesize unadjustedStillImageTime=_unadjustedStillImageTime;
-@property(retain, nonatomic) PUPhotoEditValuesCalculator *photoEditValuesCalculator; // @synthesize photoEditValuesCalculator=_photoEditValuesCalculator;
+@property(retain, nonatomic) PLEditSource *editSource; // @synthesize editSource=_editSource;
 @property(retain, nonatomic) PLPhotoEditMutableModel *photoEditModel; // @synthesize photoEditModel=_photoEditModel;
 @property(readonly, nonatomic) PHLivePhotoView *livePhotoView; // @synthesize livePhotoView=_livePhotoView;
 - (void).cxx_destruct;

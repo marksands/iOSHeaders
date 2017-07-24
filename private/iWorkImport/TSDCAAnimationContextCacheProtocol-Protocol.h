@@ -6,6 +6,12 @@
 
 #import <iWorkImport/NSObject-Protocol.h>
 
+@class NSString, TSDCAAnimationCache;
+
 @protocol TSDCAAnimationContextCacheProtocol <NSObject>
+- (double)percentAtTime:(double)arg1;
+- (id)valueForKeyPath:(NSString *)arg1 atTime:(double)arg2 animationCache:(TSDCAAnimationCache *)arg3;
+- (id)valueAtTime:(double)arg1 initialValue:(id)arg2 groupTimingFactor:(double)arg3;
+- (id)valueAtTime:(double)arg1 initialValue:(id)arg2;
 @end
 

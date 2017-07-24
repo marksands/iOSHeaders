@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)_elementWithStockNameTextProvider:(id)arg1 percentTextProvider:(id)arg2 descriptionTextProvider:(id)arg3 tintColor:(id)arg4 relevanceProvider:(id)arg5;
++ (id)_elementWithStockNameTextProvider:(id)arg1 percentTextProvider:(id)arg2 descriptionTextProvider:(id)arg3 tintColor:(id)arg4 relevanceProviders:(id)arg5;
 + (id)sampleContentElements;
 + (id)_stocksComplicationIdentifier;
 + (id)_stocksElementIdentifier;

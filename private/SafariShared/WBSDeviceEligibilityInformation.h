@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) unsigned long long numberOfPotentiallyEligibleDevices; // @synthesize numberOfPotentiallyEligibleDevices=_numberOfPotentiallyEligibleDevices;
 @property(readonly, nonatomic) NSDate *dateOfLatestDAVAccessByIneligibleWindowsDevice; // @synthesize dateOfLatestDAVAccessByIneligibleWindowsDevice=_dateOfLatestDAVAccessByIneligibleWindowsDevice;
 - (void).cxx_destruct;
+- (id)description;
 - (id)initWithDeviceListResponseDictionary:(id)arg1;
 - (id)initWithDateOfLatestDAVAccessByIneligibleWindowsDevice:(id)arg1 numberOfPotentiallyEligibleDevices:(unsigned long long)arg2 numberOfDevicesPotentiallyEligibleAfterUpdate:(unsigned long long)arg3;
 

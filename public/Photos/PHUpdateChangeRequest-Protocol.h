@@ -6,9 +6,10 @@
 
 #import <Photos/PHChangeRequest-Protocol.h>
 
-@class NSManagedObject, NSString;
+@class NSManagedObject, NSString, PHChangeRequestHelper;
 
 @protocol PHUpdateChangeRequest <PHChangeRequest>
+@property(readonly, nonatomic) PHChangeRequestHelper *helper;
 @property(readonly, getter=isMutated) _Bool mutated;
 - (_Bool)applyMutationsToManagedObject:(NSManagedObject *)arg1 error:(id *)arg2;
 - (_Bool)validateMutationsToManagedObject:(NSManagedObject *)arg1 error:(id *)arg2;

@@ -8,7 +8,7 @@
 
 #import <CloudDocsDaemon/BRCModule-Protocol.h>
 
-@class BRCDeadlineScheduler, BRCDeadlineSource, NSDictionary, NSMutableDictionary, NSMutableSet, NSObject, NSString, br_pacer;
+@class BRCDeadlineScheduler, BRCDeadlineSource, BRCFairScheduler, NSDictionary, NSMutableDictionary, NSMutableSet, NSObject, NSString, br_pacer;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_thumbnailsOperations;
     NSMutableSet *_boostedDocIDs;
     NSMutableDictionary *_stampForDocID;
+    BRCFairScheduler *_fairScheduler;
     BRCDeadlineSource *_retryQueueSource;
     NSObject<OS_dispatch_queue> *_thumbnailQueue;
     br_pacer *_quotaPacer;

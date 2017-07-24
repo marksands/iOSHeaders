@@ -34,6 +34,7 @@
     NSNumber *_maxYValue;
     NSNumber *_highlightedYValue;
     struct UIEdgeInsets _seriesEdgeInsets;
+    struct UIEdgeInsets _contentBufferEdgeInsets;
 }
 
 @property(retain, nonatomic) NSNumber *highlightedYValue; // @synthesize highlightedYValue=_highlightedYValue;
@@ -41,6 +42,7 @@
 @property(retain, nonatomic) NSNumber *minYValue; // @synthesize minYValue=_minYValue;
 @property(retain, nonatomic) NSDateInterval *dateInterval; // @synthesize dateInterval=_dateInterval;
 @property(nonatomic) double animationDuration; // @synthesize animationDuration=_animationDuration;
+@property(nonatomic) struct UIEdgeInsets contentBufferEdgeInsets; // @synthesize contentBufferEdgeInsets=_contentBufferEdgeInsets;
 @property(nonatomic) struct UIEdgeInsets seriesEdgeInsets; // @synthesize seriesEdgeInsets=_seriesEdgeInsets;
 @property(nonatomic) _Bool xAxisLabelsShouldBaselineAlign; // @synthesize xAxisLabelsShouldBaselineAlign=_xAxisLabelsShouldBaselineAlign;
 @property(nonatomic) _Bool labelsInsetChartBackground; // @synthesize labelsInsetChartBackground=_labelsInsetChartBackground;
@@ -84,7 +86,6 @@
 - (void)_reloadDataSeries;
 - (void)_updateBackgroundView;
 - (void)selectAxisPoint:(long long)arg1 selected:(_Bool)arg2;
-- (void)refreshView;
 - (void)reloadData;
 - (id)initWithDateInterval:(id)arg1;
 - (id)init;

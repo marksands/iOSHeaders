@@ -30,8 +30,10 @@ __attribute__((visibility("hidden")))
     unsigned long long _primaryButtonType;
     _MKPlaceActionButtonController *_secondaryButtonController;
     _MKPlaceActionButtonController *_tertiaryButtonController;
+    double _currentMinimalModeInterpolationFactor;
 }
 
+@property(nonatomic) double currentMinimalModeInterpolationFactor; // @synthesize currentMinimalModeInterpolationFactor=_currentMinimalModeInterpolationFactor;
 @property(retain, nonatomic) _MKPlaceActionButtonController *tertiaryButtonController; // @synthesize tertiaryButtonController=_tertiaryButtonController;
 @property(retain, nonatomic) _MKPlaceActionButtonController *secondaryButtonController; // @synthesize secondaryButtonController=_secondaryButtonController;
 @property(nonatomic) unsigned long long primaryButtonType; // @synthesize primaryButtonType=_primaryButtonType;
@@ -53,7 +55,6 @@ __attribute__((visibility("hidden")))
 - (id)rerouteAttributedString;
 - (id)directionAttributedStringWithETAString;
 - (id)etaStringFor:(unsigned long long)arg1 travelTime:(double)arg2;
-- (double)extraHeightToReserveInLayout;
 - (void)viewDidLoad;
 - (void)commonInit;
 - (id)initWithLineItem:(id)arg1;

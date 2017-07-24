@@ -14,9 +14,9 @@
     MusicLibrarySearchResultsEntityProvider *_entityValueProvider;
 }
 
-+ (id)_mediaPickerConfigurationsIncludingPlaylists:(_Bool)arg1 allowingMultipleSelection:(_Bool)arg2 pickingSingleCollection:(_Bool)arg3;
++ (id)_mediaPickerConfigurationsIncludingPlaylists:(_Bool)arg1 allowingMultipleSelection:(_Bool)arg2 pickingSingleCollection:(_Bool)arg3 omittingGeniusPlaylists:(_Bool)arg4;
 + (id)_defaultLibraryViewConfigurations;
-+ (id)mediaPickerConfigurationIncludingPlaylists:(_Bool)arg1 allowingMultipleSelection:(_Bool)arg2 picksSingleCollection:(_Bool)arg3;
++ (id)mediaPickerConfigurationIncludingPlaylists:(_Bool)arg1 allowingMultipleSelection:(_Bool)arg2 pickingSingleCollection:(_Bool)arg3 omittingGeniusPlaylists:(_Bool)arg4;
 + (id)defaultConfiguration;
 - (void).cxx_destruct;
 - (void)_applyTableViewMetricsToContentDescriptor:(id)arg1;

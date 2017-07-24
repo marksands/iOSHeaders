@@ -117,7 +117,7 @@
 - (void)clientRemote_updateLocationSeriesSample:(id)arg1;
 - (id)_propertyQueue_serverConfiguration;
 - (void)_connectionDidEncounterError:(id)arg1;
-- (void)_attachServerWithClientQueue:(id)arg1 lifecycleDelegate:(id)arg2 healthStore:(id)arg3 fitnessMachineConnectionClient:(id)arg4 fitnessMachineSessionConfiguration:(id)arg5 completion:(CDUnknownBlockType)arg6;
+- (void)_attachServerWithClientQueue:(id)arg1 lifecycleDelegate:(id)arg2 healthStore:(id)arg3 fitnessMachineConnectionClient:(id)arg4 fitnessMachineSessionConfiguration:(id)arg5 willReactivate:(_Bool)arg6 completion:(CDUnknownBlockType)arg7;
 - (void)_addSegmentMarkerAtDate:(id)arg1;
 - (void)_handleWorkoutPausedWithDate:(id)arg1 userInitiated:(_Bool)arg2;
 - (void)_propertyQueue_transitionToServerState:(long long)arg1;

@@ -20,13 +20,17 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)pathfinderFromPath:(id)arg1;
++ (id)pathfinderFromFile:(id)arg1;
++ (id)pathfinderFromDirectory:(id)arg1;
++ (id)pathfinderWithImage:(id)arg1 divisor:(float)arg2;
++ (id)pathfinderWithImage:(id)arg1;
+- (_Bool)writeToFile:(id)arg1;
+- (_Bool)writeToDirectory:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (struct NTKKaleidoscopePathfinderPoint)pointForTime:(float)arg1;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithImage:(id)arg1 divisor:(float)arg2;
-- (id)initWithImage:(id)arg1;
 
 @end
 

@@ -8,11 +8,12 @@
 
 #import <VideoSubscriberAccountUI/VSApplicationControllerDelegate-Protocol.h>
 
-@class NSMutableArray, NSOperationQueue, NSString, VSApplicationController, VSAuditToken, VSIdentityProvider, VSOptional, VSPreferences, VSViewModel;
+@class NSMutableArray, NSOperationQueue, NSString, VSApplicationController, VSApplicationControllerRequestFactory, VSAuditToken, VSIdentityProvider, VSOptional, VSPreferences, VSViewModel;
 @protocol OS_dispatch_source, VSIdentityProviderRequestManagerDelegate;
 
 @interface VSIdentityProviderRequestManager : NSObject <VSApplicationControllerDelegate>
 {
+    _Bool _canIssuePrivacyVouchers;
     _Bool _didCreateAccount;
     _Bool _allowsApplicationControllerTimer;
     VSIdentityProvider *_identityProvider;
@@ -25,6 +26,7 @@
     VSOptional *_currentApplicationControllerRequest;
     VSOptional *_account;
     VSOptional *_storage;
+    VSApplicationControllerRequestFactory *_requestFactory;
     VSPreferences *_preferences;
     NSObject<OS_dispatch_source> *_applicationControllerTimerSource;
     double _applicationControllerTimerLeeway;
@@ -39,6 +41,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *applicationControllerTimerSource; // @synthesize applicationControllerTimerSource=_applicationControllerTimerSource;
 @property(retain, nonatomic) VSPreferences *preferences; // @synthesize preferences=_preferences;
 @property(nonatomic) _Bool didCreateAccount; // @synthesize didCreateAccount=_didCreateAccount;
+@property(retain, nonatomic) VSApplicationControllerRequestFactory *requestFactory; // @synthesize requestFactory=_requestFactory;
 @property(retain, nonatomic) VSOptional *storage; // @synthesize storage=_storage;
 @property(retain, nonatomic) VSOptional *account; // @synthesize account=_account;
 @property(retain, nonatomic) VSOptional *currentApplicationControllerRequest; // @synthesize currentApplicationControllerRequest=_currentApplicationControllerRequest;
@@ -46,6 +49,7 @@
 @property(retain, nonatomic) NSMutableArray *requestContexts; // @synthesize requestContexts=_requestContexts;
 @property(retain, nonatomic) NSOperationQueue *privateQueue; // @synthesize privateQueue=_privateQueue;
 @property(retain, nonatomic) VSViewModel *viewModel; // @synthesize viewModel=_viewModel;
+@property(nonatomic) _Bool canIssuePrivacyVouchers; // @synthesize canIssuePrivacyVouchers=_canIssuePrivacyVouchers;
 @property(copy, nonatomic) VSAuditToken *auditToken; // @synthesize auditToken=_auditToken;
 @property(nonatomic) __weak id <VSIdentityProviderRequestManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) VSIdentityProvider *identityProvider; // @synthesize identityProvider=_identityProvider;
@@ -64,7 +68,7 @@
 - (double)_requestCompletionDelay;
 - (_Bool)_requestRequiresApplicationController:(id)arg1;
 - (_Bool)_requestRequiresApplicationControllerIgnoringAuthentication:(id)arg1;
-- (void)_notifyDidAuthenticateAccount:(id)arg1;
+- (void)_notifyDidAuthenticateAccount:(id)arg1 supportingApps:(id)arg2;
 - (void)_stopObservingViewModel:(id)arg1;
 - (void)_startObservingViewModel:(id)arg1;
 - (void)_showAuthenticationUI;

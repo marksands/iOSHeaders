@@ -55,7 +55,8 @@
 @property(nonatomic) _Bool wantsAudioForCapture; // @dynamic wantsAudioForCapture;
 @property(nonatomic) _Bool wantsAutoDualCameraFusion; // @dynamic wantsAutoDualCameraFusion;
 @property(nonatomic) _Bool usesStillImageStabilization; // @dynamic usesStillImageStabilization;
-@property(retain, nonatomic) NSArray *filters; // @dynamic filters;
+@property(retain, nonatomic) NSArray *originalFilters; // @dynamic originalFilters;
+@property(retain, nonatomic) NSArray *adjustmentFilters; // @dynamic adjustmentFilters;
 @property(nonatomic) _Bool wantsPortraitEffect; // @dynamic wantsPortraitEffect;
 @property(nonatomic) long long irisMode; // @dynamic irisMode;
 @property(nonatomic) long long hdrMode; // @dynamic hdrMode;

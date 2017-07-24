@@ -13,6 +13,7 @@
 
 @interface PKEnterCurrencyAmountView : UIView <UITextFieldDelegate>
 {
+    UIView *_internalInputAccessoryView;
     _Bool _showsDecimalPointButton;
     _Bool _enabled;
     UITextField *_amountTextField;

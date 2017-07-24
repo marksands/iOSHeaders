@@ -40,6 +40,8 @@
 @property(nonatomic) unsigned long long selectionState; // @synthesize selectionState=_selectionState;
 @property(nonatomic) unsigned long long sizeState; // @synthesize sizeState=_sizeState;
 - (void).cxx_destruct;
+- (id)_axLabelForColorButton:(id)arg1;
+- (void)_axHandleLongPressOnColorButtonForLargeTextHUD:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
 - (id)colorsForColorSet:(unsigned long long)arg1;
 - (void)showOverflowViewsIfNeeded;

@@ -56,7 +56,7 @@
 - (oneway void)startAcousticIDRequestWithOptions:(AFSpeechRequestOptions *)arg1 context:(NSString *)arg2 completion:(void (^)(NSError *))arg3;
 - (oneway void)startSpeechPronunciationRequestWithOptions:(AFSpeechRequestOptions *)arg1 context:(SASPronunciationContext *)arg2 completion:(void (^)(NSError *))arg3;
 - (oneway void)startRecordingForPendingSpeechRequestWithOptions:(AFSpeechRequestOptions *)arg1 requestId:(unsigned long long)arg2 completion:(void (^)(NSError *))arg3;
-- (oneway void)startRequestWithInfo:(AFRequestInfo *)arg1 activationEvent:(long long)arg2 completion:(void (^)(NSError *))arg3;
+- (oneway void)startRequestWithInfo:(AFRequestInfo *)arg1 completion:(void (^)(NSError *))arg2;
 - (oneway void)endSession;
 - (oneway void)didDismissUI;
 - (oneway void)willPresentUIWithReply:(void (^)(void))arg1;

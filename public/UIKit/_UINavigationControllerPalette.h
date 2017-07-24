@@ -11,6 +11,7 @@
 @interface _UINavigationControllerPalette : UIView
 {
     _UIBarBackground *_backgroundView;
+    double _backgroundUnderlapHeight;
     struct {
         unsigned int isAttached:1;
         unsigned int attachmentIsChanging:1;
@@ -79,6 +80,7 @@
 - (void)_setAttachmentIsChanging:(_Bool)arg1;
 - (void)dealloc;
 - (id)_initWithNavigationController:(id)arg1 forEdge:(unsigned long long)arg2;
+- (_Bool)_supportsSpecialSearchBarTransitions;
 
 @end
 

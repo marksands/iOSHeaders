@@ -20,6 +20,7 @@
 - (CDStruct_d2b197d1)attachmentBoundsMargins;
 - (struct CGRect)attachmentBoundsForTextContainer:(id)arg1 proposedLineFragment:(struct CGRect)arg2 glyphPosition:(struct CGPoint)arg3 characterIndex:(unsigned long long)arg4;
 - (double)availableWidthForTextContainer:(id)arg1;
+- (struct CGSize)attachmentSizeForTextContainer:(id)arg1 proposedLineFragment:(struct CGRect)arg2;
 - (struct CGSize)attachmentSizeForTextContainer:(id)arg1;
 @property(readonly, nonatomic) NSString *viewIdentifier;
 - (Class)attachmentViewControllerClass;

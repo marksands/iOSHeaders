@@ -8,13 +8,19 @@
 
 #import <ContactsUICore/CNMeContactComparisonStrategy-Protocol.h>
 
-@class NSString;
+@class NSSet, NSString;
 
 @interface CNUIMeContactComparisonStrategyUnified : NSObject <CNMeContactComparisonStrategy>
 {
+    NSSet *_meContactIdentifiersFound;
 }
 
-- (_Bool)isContact:(id)arg1 equivalentToMeContact:(id)arg2;
+@property(retain, nonatomic) NSSet *meContactIdentifiersFound; // @synthesize meContactIdentifiersFound=_meContactIdentifiersFound;
+- (void).cxx_destruct;
+- (id)identifierAndLinkIdentifierAndLinkedContactIdentifiersFromContact:(id)arg1;
+- (_Bool)isMeContact:(id)arg1;
+- (id)meContactIdentifiers;
+- (void)meContactChangedInStore:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

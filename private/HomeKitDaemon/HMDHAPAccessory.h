@@ -188,7 +188,6 @@
 - (void)unconfigure;
 - (void)configureWithAccessory:(id)arg1 homeNotificationsEnabled:(_Bool)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)configureService:(id)arg1;
-- (id)_populateServices:(id *)arg1 hapAccessory:(id)arg2 reAddServices:(_Bool)arg3;
 - (id)tunneledHAPAccessories;
 - (id)getPrimaryHAPAccessories;
 - (id)preferredHAPAccessoryForOperation:(long long)arg1 linkType:(long long *)arg2;
@@ -220,7 +219,6 @@
 - (void)addBridgedAccessory:(id)arg1;
 - (void)_handleServiceRemovedTransaction:(id)arg1 message:(id)arg2;
 - (void)_handleAddServiceTransaction:(id)arg1 message:(id)arg2;
-- (void)fixupServices:(id)arg1 idsDataSync:(_Bool)arg2 dataVersion:(long long)arg3;
 - (id)serviceWithUUID:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *services;
 - (void)_handleListPairings:(id)arg1;

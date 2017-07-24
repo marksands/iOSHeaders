@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 - (id)zoneIDsToLock;
 - (void)requestDidParseNodeFailure:(id)arg1;
 - (id)requestDidParseProtobufObject:(id)arg1;
-- (id)requestOperations;
+- (id)generateRequestOperations;
 - (id)requestOperationClasses;
 - (int)operationType;
 - (id)initWithNotificationIDsToMarkRead:(id)arg1;

@@ -29,10 +29,10 @@ __attribute__((visibility("hidden")))
 - (void)adjustRangeForRep:(id)arg1 chunkIndex:(unsigned long long)arg2 finalTexture:(_Bool)arg3 seriesStart:(long long *)arg4 seriesCount:(long long *)arg5;
 - (unsigned long long)p_chunkCountForChart:(id)arg1 chunkStyle:(unsigned long long)arg2 chunkMap:(id)arg3;
 - (unsigned long long)chunkCountForChartDeliveryStyle:(unsigned long long)arg1;
-- (_Bool)isVisibleAtBeginningOfMagicChartBuildForDeliveryStyle:(unsigned long long)arg1 animationFilter:(id)arg2;
+- (_Bool)isVisibleAtBeginningOfMagicChartBuildForDeliveryStyle:(unsigned long long)arg1;
 - (id)textureDeliveryStylesLocalized:(_Bool)arg1 animationFilter:(id)arg2;
 - (unsigned long long)textureDeliveryStyleFromDeliveryString:(id)arg1;
-- (unsigned long long)chartDeliveryStyleFromTSDDeliveryStyle:(unsigned long long)arg1 animationFilter:(id)arg2;
+- (unsigned long long)chartDeliveryStyleFromTSDDeliveryStyle:(unsigned long long)arg1;
 - (_Bool)hasBackgroundLayerForPieChart;
 - (_Bool)p_hasBackgroundLayerForPieChartForChart:(id)arg1;
 - (_Bool)p_hasBackgroundFillForChart:(id)arg1;

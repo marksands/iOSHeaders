@@ -6,13 +6,20 @@
 
 #import <CloudKit/CKDatabaseOperationInfo.h>
 
+@class NSArray;
+
 __attribute__((visibility("hidden")))
 @interface CKDDownloadAssetsOperationInfo : CKDatabaseOperationInfo
 {
     _Bool _shouldFetchAssetContentInMemory;
+    NSArray *_assetsToDownload;
+    NSArray *_packageIndexSets;
 }
 
+@property(retain, nonatomic) NSArray *packageIndexSets; // @synthesize packageIndexSets=_packageIndexSets;
+@property(retain, nonatomic) NSArray *assetsToDownload; // @synthesize assetsToDownload=_assetsToDownload;
 @property(nonatomic) _Bool shouldFetchAssetContentInMemory; // @synthesize shouldFetchAssetContentInMemory=_shouldFetchAssetContentInMemory;
+- (void).cxx_destruct;
 
 @end
 

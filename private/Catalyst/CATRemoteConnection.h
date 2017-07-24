@@ -55,6 +55,8 @@
 - (void)delegateDidReceiveStreamData:(id)arg1 moreComing:(_Bool)arg2;
 - (void)delegateDidFailToSendDataWithStream:(id)arg1 userInfo:(id)arg2 error:(id)arg3;
 - (void)delegateDidSendDataWithStream:(id)arg1 userInfo:(id)arg2;
+- (void)delegateDidWriteDataFromStream:(id)arg1 totalBytesWritten:(unsigned long long)arg2 totalBytesExpectedToWrite:(unsigned long long)arg3 userInfo:(id)arg4;
+- (void)delegateDidWriteDataForContextIfNeeded:(id)arg1;
 - (void)delegateDidReceiveDataRequestWithURL:(id)arg1;
 - (void)delegateDidReceiveData:(id)arg1;
 - (void)delegateDidFailToSendData:(id)arg1 userInfo:(id)arg2 error:(id)arg3;

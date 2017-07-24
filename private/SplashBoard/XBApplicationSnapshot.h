@@ -51,9 +51,11 @@
     unsigned long long _imageAccessCount;
     _Bool _keepImageAccessUntilExpiration;
     NSDictionary *_extendedData;
+    CDUnknownBlockType _imageGenerator;
     struct CGAffineTransform _imageTransform;
 }
 
++ (id)dataForImage:(id)arg1 withFormat:(long long)arg2;
 + (id)normalizeSnapshotName:(id)arg1;
 @property(nonatomic) struct CGAffineTransform imageTransform; // @synthesize imageTransform=_imageTransform;
 @property(copy, nonatomic) NSDictionary *extendedData; // @synthesize extendedData=_extendedData;
@@ -105,6 +107,7 @@
 - (_Bool)_path:(id)arg1 isRelativeToPath:(id)arg2 outRelativePath:(id *)arg3;
 - (struct CGRect)_referenceBounds;
 - (_Bool)_hasGenerationContext;
+@property(copy, nonatomic) CDUnknownBlockType imageGenerator; // @synthesize imageGenerator=_imageGenerator;
 - (void)_manifestQueueDecode_setStore:(id)arg1;
 - (id)descriptionWithoutVariants;
 - (_Bool)isValid;
@@ -134,7 +137,7 @@
 - (void)dealloc;
 - (id)_initWithContainerIdentity:(id)arg1 store:(id)arg2 groupID:(id)arg3 generationContext:(id)arg4;
 - (id)init;
-- (void)_commonInit;
+- (void)_commonInitWithIdentifier:(id)arg1;
 @property(readonly, nonatomic) unsigned long long _contentTypeMask;
 @property(readonly, nonatomic) unsigned long long _interfaceOrientationMask;
 @property(readonly, retain, nonatomic) XBStatusBarSettings *_sortableStatusBarSettings;

@@ -19,6 +19,7 @@
 + (double)cornerRadiusForSmallSpotlightIcons;
 + (double)cornerRadiusForHomeScreenIcons;
 + (double)iconCornerRadiusForFormat:(int)arg1;
++ (struct CGRect)visibleFrameForTinyIcons;
 + (struct CGRect)visibleFrameForSmallSpotlightIcons;
 + (struct CGRect)visibleFrameForHomeScreenIcons;
 + (struct CGSize)homeScreenIconSize;

@@ -14,6 +14,7 @@
     EKEventStore *_store;
     EKEvent *_event;
     NSString *_eventId;
+    _Bool _completedWithAction;
     int _transitionForModalViewPresentation;
     id <EKEventEditViewDelegate> _editViewDelegate;
     EKEventEditor *_editor;
@@ -52,6 +53,7 @@
 @property(retain, nonatomic) EKEventStore *eventStore;
 - (void)dealloc;
 - (_Bool)shouldAutorotate;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

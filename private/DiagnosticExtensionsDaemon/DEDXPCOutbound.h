@@ -19,6 +19,7 @@
 
 @property(retain) id <DEDXPCProtocol> remoteObject; // @synthesize remoteObject=_remoteObject;
 - (void).cxx_destruct;
+- (void)didCancelSession:(id)arg1;
 - (void)cancelSession:(id)arg1;
 - (void)didCommitSession:(id)arg1;
 - (void)commitSession:(id)arg1;

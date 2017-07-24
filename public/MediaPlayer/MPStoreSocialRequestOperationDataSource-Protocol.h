@@ -14,7 +14,10 @@
 - (long long)httpMethod;
 - (long long)httpBodyType;
 - (NSData *)httpBody;
-- (NSString *)customURLString;
 - (NSString *)bagKey;
+
+@optional
+- (NSString *)fallbackURLString;
+- (NSArray *)fallbackBagKeys;
 @end
 

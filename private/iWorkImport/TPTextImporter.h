@@ -17,7 +17,8 @@ __attribute__((visibility("hidden")))
     TSUProgressContext *mProgressContext;
 }
 
-@property(retain) TSUProgressContext *progressContext; // @synthesize progressContext=mProgressContext;
+@property(retain, nonatomic) TSUProgressContext *progressContext; // @synthesize progressContext=mProgressContext;
+- (void).cxx_destruct;
 - (_Bool)stylesheetUpdatesRequired;
 - (void)quit;
 - (void)cancel;
@@ -25,7 +26,6 @@ __attribute__((visibility("hidden")))
 - (id)initialTemplateName;
 - (_Bool)importToDocumentRoot:(id)arg1 delegate:(id)arg2 error:(id *)arg3;
 - (void)setURL:(id)arg1;
-- (void)dealloc;
 - (id)initWithURL:(id)arg1;
 
 // Remaining properties

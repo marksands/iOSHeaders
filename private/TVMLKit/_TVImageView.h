@@ -18,7 +18,9 @@
     UIImage *_flatImage;
     UIImage *_flatHighlightImage;
     _Bool _selected;
+    double _cornerRadius;
     CAFilter *_highlightFilter;
+    _Bool _imageContainsCornerRadius;
     _Bool _imageLoaded;
     _Bool __enableEdgeAntialiasingOnSelected;
     UIImage *_placeholderImage;
@@ -33,8 +35,10 @@
 @property(nonatomic, getter=isImageLoaded) _Bool imageLoaded; // @synthesize imageLoaded=_imageLoaded;
 @property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
 @property(retain, nonatomic) TVImageProxy *imageProxy; // @synthesize imageProxy=_imageProxy;
+@property(nonatomic) _Bool imageContainsCornerRadius; // @synthesize imageContainsCornerRadius=_imageContainsCornerRadius;
 @property(retain, nonatomic) UIImage *placeholderImage; // @synthesize placeholderImage=_placeholderImage;
 - (void).cxx_destruct;
+- (void)_updateCornerRadius;
 - (void)_updateImageView;
 - (void)_setImage:(id)arg1;
 - (id)_imageView;

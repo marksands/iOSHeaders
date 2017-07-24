@@ -32,7 +32,6 @@ __attribute__((visibility("hidden")))
 - (id)itemTypeName;
 @property(retain, nonatomic) CKDZonePCSData *zonePCSData;
 @property(readonly, nonatomic) CKRecordZoneID *zoneID;
-- (id)initWithZoneID:(id)arg1 parentOperation:(id)arg2 cache:(id)arg3 options:(unsigned long long)arg4;
 
 @end
 

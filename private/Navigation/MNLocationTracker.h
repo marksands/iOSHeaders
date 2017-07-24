@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_defaultsDidChange;
 - (void)_updateShouldLocalizeRoadNames;
+- (_Bool)_checkArrivalForLocation:(id)arg1 route:(id)arg2 destination:(id)arg3;
 - (_Bool)_checkArrivalForLocation:(id)arg1;
 - (void)_roadFeaturesForFeature:(CDStruct_c707fdd0 *)arg1 outRoadName:(id *)arg2 outShieldText:(id *)arg3 outShieldType:(long long *)arg4;
 - (void)_updateMatchedLocation:(id)arg1;

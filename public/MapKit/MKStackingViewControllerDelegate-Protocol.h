@@ -6,12 +6,12 @@
 
 #import <MapKit/NSObject-Protocol.h>
 
-@class MKStackingViewController, NSSet, UIViewController;
+@class MKStackingViewController, UIViewController;
 
 @protocol MKStackingViewControllerDelegate <NSObject>
 
 @optional
-- (void)stackingViewController:(MKStackingViewController *)arg1 didLayoutViewControllers:(NSSet *)arg2 remaningViewControllers:(NSSet *)arg3;
+- (void)stackingViewControllerDidLayoutViewControllers:(MKStackingViewController *)arg1;
 - (void)stackingViewControllerDidEndScroll:(MKStackingViewController *)arg1;
 - (void)stackingViewControllerWillBeginScroll:(MKStackingViewController *)arg1;
 - (void)stackingViewController:(MKStackingViewController *)arg1 didShowMinimumVisibleSurfacePercentForAnalyticsSelection:(UIViewController *)arg2;

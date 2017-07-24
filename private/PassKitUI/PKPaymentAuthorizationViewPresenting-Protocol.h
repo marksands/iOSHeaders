@@ -9,7 +9,7 @@
 @class PKPaymentDataItem, UITableViewCell, UIView;
 
 @protocol PKPaymentAuthorizationViewPresenting <NSObject>
-+ (void)presentCell:(UITableViewCell *)arg1 withDataItem:(PKPaymentDataItem *)arg2;
++ (void)presentCell:(UITableViewCell *)arg1 withDataItem:(PKPaymentDataItem *)arg2 shouldShowSeperator:(_Bool)arg3;
 
 @optional
 + (void)presentView:(UIView *)arg1 withDataItem:(PKPaymentDataItem *)arg2;

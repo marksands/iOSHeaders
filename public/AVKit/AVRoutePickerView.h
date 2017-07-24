@@ -25,6 +25,7 @@
 @property(nonatomic) __weak id <AVRoutePickerViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_defaultActiveTintColor;
+- (void)_updateAirPlayActive;
 - (void)_outputContextDevicesDidChange:(id)arg1;
 - (void)_unregisterNotifications;
 - (void)_registerNotifications;

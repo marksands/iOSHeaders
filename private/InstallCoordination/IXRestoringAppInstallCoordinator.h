@@ -21,6 +21,7 @@
 + (_Bool)enumerateCoordinatorsWithError:(id *)arg1 usingBlock:(CDUnknownBlockType)arg2;
 + (id)coordinatorForAppWithBundleID:(id)arg1 withClientID:(unsigned long long)arg2 createIfNotExisting:(_Bool)arg3 created:(_Bool *)arg4 error:(id *)arg5;
 - (id)validInstallTypes;
+- (id)userDataRestoreShouldBegin:(_Bool *)arg1;
 @property(readonly, nonatomic) _Bool hasUserDataPromise;
 - (id)userDataPromiseWithError:(id *)arg1;
 - (_Bool)setUserDataPromise:(id)arg1 error:(id *)arg2;

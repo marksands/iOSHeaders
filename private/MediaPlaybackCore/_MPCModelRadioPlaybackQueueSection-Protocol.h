@@ -6,14 +6,15 @@
 
 #import <MediaPlaybackCore/NSObject-Protocol.h>
 
-@class ICRadioStationTrack, MPAVItem, NSString;
+@class ICRadioStationTrack, MPAVItem;
+@protocol MPAVItemQueueIdentifier;
 
 @protocol _MPCModelRadioPlaybackQueueSection <NSObject>
 @property(readonly, nonatomic) long long numberOfItems;
 - (ICRadioStationTrack *)trackForItemAtIndex:(long long)arg1;
 - (long long)removeExplicitItems;
 - (_Bool)isExplicitItemAtIndex:(long long)arg1;
-- (NSString *)AVItemQueueIdentifierAtIndex:(long long)arg1;
+- (id <MPAVItemQueueIdentifier>)AVItemQueueIdentifierAtIndex:(long long)arg1;
 - (MPAVItem *)AVItemAtIndex:(long long)arg1;
 @end
 

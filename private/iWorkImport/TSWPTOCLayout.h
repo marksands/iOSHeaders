@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) struct CGSize maxSize; // @synthesize maxSize=_maxSize;
+- (void).cxx_destruct;
 - (_Bool)shrinkTextToFit;
 - (_Bool)alwaysStartsNewTarget;
 - (double)positionForColumnIndex:(unsigned long long)arg1 bodyWidth:(double)arg2 target:(id)arg3 outWidth:(double *)arg4 outGap:(double *)arg5;
@@ -42,8 +43,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)boundsForStandardKnobs;
 - (id)computeLayoutGeometry;
 @property(readonly, nonatomic, getter=isLastLayoutInTOC) _Bool lastLayoutInTOC;
-- (void)dealloc;
-@property(readonly, nonatomic) unsigned long long initialCharIndex; // @synthesize initialCharIndex=_initialCharIndex;
+@property(readonly, nonatomic) unsigned long long initialCharIndex;
 @property(readonly, nonatomic) TSWPTOCLayoutHint *hint;
 - (id)initWithInfo:(id)arg1 initialCharIndex:(unsigned long long)arg2 maxSize:(struct CGSize)arg3;
 - (id)initWithInfo:(id)arg1;

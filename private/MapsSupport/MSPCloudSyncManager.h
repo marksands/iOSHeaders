@@ -26,6 +26,7 @@
     GEONetworkObserver *_networkObserver;
     NSUbiquitousKeyValueStore *_correspondingKeyValueStore;
     _Bool _migratingFromKVS;
+    _Bool _hasWrittenKVSEntriesToDiskAndMustMarkAsDone;
     MSPJournal *_journal;
 }
 

@@ -7,28 +7,30 @@
 #import <PassKitUI/PKExplanationViewController.h>
 
 #import <PassKitUI/PKExplanationViewDelegate-Protocol.h>
+#import <PassKitUI/PKPaymentSelectPassesViewControllerDelegate-Protocol.h>
 #import <PassKitUI/RemoteUIControllerDelegate-Protocol.h>
 
-@class NSString, PKPassSnapshotter, PKPaymentProvisioningController, PKPeerPaymentCredential, PKPeerPaymentWebService, RemoteUIController, UIImage;
+@class NSString, PKPaymentProvisioningController, PKPeerPaymentCredential, PKPeerPaymentWebService, RemoteUIController, UIImage;
 @protocol PKPaymentSetupViewControllerDelegate;
 
-@interface PKPeerPaymentExplanationViewController : PKExplanationViewController <RemoteUIControllerDelegate, PKExplanationViewDelegate>
+@interface PKPeerPaymentExplanationViewController : PKExplanationViewController <RemoteUIControllerDelegate, PKExplanationViewDelegate, PKPaymentSelectPassesViewControllerDelegate>
 {
     PKPaymentProvisioningController *_provisioningController;
     PKPeerPaymentCredential *_credential;
-    id <PKPaymentSetupViewControllerDelegate> _delegate;
+    id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
     RemoteUIController *_termsController;
     PKPeerPaymentWebService *_peerPaymentWebService;
-    PKPassSnapshotter *_snapshotter;
     UIImage *_passSnapShot;
 }
 
 - (void).cxx_destruct;
+- (void)_terminateFlow;
 - (struct CGSize)_snapshotSize;
 - (_Bool)_isBuddyiPad;
-- (void)_presentPassActivationViewController;
+- (void)_presentNextViewController;
 - (void)_displayTermsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_continuePressed;
+- (void)selectPassesViewController:(id)arg1 didSelectPasses:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)remoteUIController:(id)arg1 didReceiveObjectModel:(id)arg2 actionSignal:(unsigned long long *)arg3;
 - (void)explanationViewDidSelectContinue:(id)arg1;
 - (void)viewDidLoad;

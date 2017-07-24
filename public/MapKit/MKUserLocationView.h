@@ -13,6 +13,8 @@
 
 @interface MKUserLocationView : MKAnnotationView <VKPuckAnimatorTarget>
 {
+    CALayer *_puckLayer;
+    CALayer *_accuracyContainerLayer;
     VKNavigationPuck *_navigationPuckMarker;
     long long _zoomDirection;
     CALayer *_pulseLayer;
@@ -75,6 +77,9 @@
 - (void)_resetLayerToMatchAccuracyRing;
 - (id)_layerToMatchAccuracyRing;
 - (id)_accuracyAnimation:(double)arg1;
+@property(nonatomic) double accuracyRingAlpha;
+- (void)setPuckScale:(double)arg1;
+@property(nonatomic) double puckAlpha;
 @property(nonatomic) float opacity;
 - (void)_updateShowHeadingLayer:(_Bool)arg1 animatedIfPossible:(_Bool)arg2;
 - (void)_updateShowHeadingLayerAnimatedIfPossible:(_Bool)arg1;

@@ -13,12 +13,10 @@
 @interface FCHandlePushNotificationResult : NSObject <NSCopying>
 {
     _Bool _handled;
-    NSSet *_recordZones;
     NSSet *_recordZoneIDs;
 }
 
 @property(retain, nonatomic) NSSet *recordZoneIDs; // @synthesize recordZoneIDs=_recordZoneIDs;
-@property(readonly, nonatomic) NSSet *recordZones; // @synthesize recordZones=_recordZones;
 @property(nonatomic, getter=wasHandled) _Bool handled; // @synthesize handled=_handled;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;

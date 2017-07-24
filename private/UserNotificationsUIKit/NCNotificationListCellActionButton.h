@@ -6,30 +6,28 @@
 
 #import <UIKit/UIControl.h>
 
-#import <UserNotificationsUIKit/NCContentSizeCategoryAdjusting-Protocol.h>
+#import <UserNotificationsUIKit/MTContentSizeCategoryAdjusting-Protocol.h>
 
-@class NCLookViewFontProvider, NCNotificationAction, NSString, UILabel, UIView;
+@class MTFontProvider, MTMaterialView, NCNotificationAction, NSString, UILabel;
 
-@interface NCNotificationListCellActionButton : UIControl <NCContentSizeCategoryAdjusting>
+@interface NCNotificationListCellActionButton : UIControl <MTContentSizeCategoryAdjusting>
 {
     _Bool _adjustsFontForContentSizeCategory;
-    _Bool _backgroundBlurred;
     NSString *_preferredContentSizeCategory;
     NCNotificationAction *_notificationAction;
     NSString *_title;
-    UIView *_customBackgroundView;
-    NCLookViewFontProvider *_fontProvider;
+    NSString *_backgroundGroupName;
+    MTFontProvider *_fontProvider;
     UILabel *_titleLabel;
-    UIView *_backgroundView;
-    UIView *_backgroundOverlayView;
+    MTMaterialView *_backgroundView;
+    MTMaterialView *_backgroundOverlayView;
 }
 
-@property(retain, nonatomic) UIView *backgroundOverlayView; // @synthesize backgroundOverlayView=_backgroundOverlayView;
-@property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
+@property(retain, nonatomic) MTMaterialView *backgroundOverlayView; // @synthesize backgroundOverlayView=_backgroundOverlayView;
+@property(retain, nonatomic) MTMaterialView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
-@property(retain, nonatomic, getter=_fontProvider, setter=_setFontProvider:) NCLookViewFontProvider *fontProvider; // @synthesize fontProvider=_fontProvider;
-@property(retain, nonatomic) UIView *customBackgroundView; // @synthesize customBackgroundView=_customBackgroundView;
-@property(nonatomic, getter=isBackgroundBlurred) _Bool backgroundBlurred; // @synthesize backgroundBlurred=_backgroundBlurred;
+@property(retain, nonatomic, getter=_fontProvider, setter=_setFontProvider:) MTFontProvider *fontProvider; // @synthesize fontProvider=_fontProvider;
+@property(copy, nonatomic) NSString *backgroundGroupName; // @synthesize backgroundGroupName=_backgroundGroupName;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) NCNotificationAction *notificationAction; // @synthesize notificationAction=_notificationAction;
 @property(copy, nonatomic) NSString *preferredContentSizeCategory; // @synthesize preferredContentSizeCategory=_preferredContentSizeCategory;

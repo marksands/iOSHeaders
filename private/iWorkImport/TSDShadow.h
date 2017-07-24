@@ -11,11 +11,12 @@
 #import <iWorkImport/TSDMixing-Protocol.h>
 #import <iWorkImport/TSSPreset-Protocol.h>
 #import <iWorkImport/TSSPresetSource-Protocol.h>
+#import <iWorkImport/TSSPropertyValueArchiving-Protocol.h>
 
 @class NSString, TSUColor;
 
 __attribute__((visibility("hidden")))
-@interface TSDShadow : NSObject <TSDMixing, TSSPreset, TSSPresetSource, NSCopying, NSMutableCopying>
+@interface TSDShadow : NSObject <TSSPropertyValueArchiving, TSDMixing, TSSPreset, TSSPresetSource, NSCopying, NSMutableCopying>
 {
     double mAngle;
     double mOffset;

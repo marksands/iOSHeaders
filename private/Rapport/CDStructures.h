@@ -18,3 +18,10 @@ struct NSMutableSet {
     Class _field1;
 };
 
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    unsigned char frameType;
+    unsigned char frameLen[3];
+} CDStruct_798ebea5;
+

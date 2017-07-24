@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSDTextureSet *outgoingTexture; // @synthesize outgoingTexture=_outgoingTexture;
 - (void)unlockCurrentMorphTexture;
 - (id)lockCurrentMorphTexture;
+- (void)clearMorphTexture;
 - (void)addMorphTexture:(id)arg1;
 @property(readonly, nonatomic) _Bool isMatched;
 - (id)description;

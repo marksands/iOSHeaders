@@ -20,7 +20,6 @@
 + (_Bool)isInhumanEmailAddress:(id)arg1;
 + (_Bool)_isInhumanEmailAddressPatternMatch:(id)arg1;
 + (_Bool)isInhumanName:(id)arg1;
-+ (void)initialize;
 
 @end
 

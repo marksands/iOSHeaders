@@ -11,7 +11,6 @@
 @interface _MFSocket : NSObject
 {
     NSCondition *_condition;
-    MFStream *_stream;
     NSString *_protocol;
     NSString *_host;
     NSString *_service;
@@ -27,8 +26,10 @@
     _Bool _disableEphemeralDiffieHellmanCiphers;
     NSString *_sourceApplicationBundleIdentifier;
     NSString *_accountIdentifier;
+    MFStream *_stream;
 }
 
+@property(retain) MFStream *stream; // @synthesize stream=_stream;
 @property(copy, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
 @property(copy, nonatomic) NSString *sourceApplicationBundleIdentifier; // @synthesize sourceApplicationBundleIdentifier=_sourceApplicationBundleIdentifier;
 @property(retain, nonatomic) NSArray *clientCertificates; // @synthesize clientCertificates=_clientCertificates;

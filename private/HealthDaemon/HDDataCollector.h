@@ -43,6 +43,7 @@
 - (id)deviceEntity;
 - (void)stopPerformingUpdatesWithErrorEncountered:(_Bool)arg1;
 - (id)dataCollectorDiagnosticDescription;
+- (void)updateHistoricalDataForcedUpdate:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateHistoricalDataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateHistoricalData;
 - (void)collectionStoppedForType:(id)arg1;

@@ -35,7 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)requestDidParseNodeFailure:(id)arg1;
 - (id)requestDidParseProtobufObject:(id)arg1;
 - (id)_handleRecords:(id)arg1;
-- (id)requestOperations;
+- (id)generateRequestOperations;
 - (id)requestOperationClasses;
 - (id)zoneIDsToLock;
 - (int)operationType;

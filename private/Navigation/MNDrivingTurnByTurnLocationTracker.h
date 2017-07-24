@@ -32,6 +32,7 @@
 - (double)trafficIncidentAlertUpdaterTimeUntilNextAnnouncement:(id)arg1;
 - (double)trafficIncidentAlertUpdaterTimeSinceLastAnnouncement:(id)arg1;
 - (double)trafficIncidentAlertUpdaterRemainingTimeOnRoute:(id)arg1;
+- (void)trafficIncidentAlertUpdater:(id)arg1 didReturnToOriginalRoute:(id)arg2 etaRoute:(id)arg3 forAlert:(id)arg4;
 - (void)trafficIncidentAlertUpdater:(id)arg1 didSwitchToNewRoute:(id)arg2 forAlert:(id)arg3;
 - (void)trafficIncidentAlertUpdater:(id)arg1 updatedAlert:(id)arg2;
 - (void)trafficIncidentAlertUpdater:(id)arg1 didDismissAlert:(id)arg2 withReroute:(_Bool)arg3;

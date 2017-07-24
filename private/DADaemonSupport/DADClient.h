@@ -16,6 +16,7 @@
     int _numOutstandingBlockingClientCalls;
     int _numOutstandingRefreshPriorityClientCalls;
     NSString *_clientBundleID;
+    NSString *_clientUniqueID;
     NSObject<OS_xpc_object> *_conn;
     NSMutableDictionary *_watchedIDs;
     NSMutableDictionary *_busyIDs;
@@ -36,6 +37,7 @@
 @property(retain, nonatomic) NSMutableDictionary *busyIDs; // @synthesize busyIDs=_busyIDs;
 @property(retain, nonatomic) NSMutableDictionary *watchedIDs; // @synthesize watchedIDs=_watchedIDs;
 @property(retain, nonatomic) NSObject<OS_xpc_object> *conn; // @synthesize conn=_conn;
+@property(retain, nonatomic) NSString *clientUniqueID; // @synthesize clientUniqueID=_clientUniqueID;
 @property(retain, nonatomic) NSString *clientBundleID; // @synthesize clientBundleID=_clientBundleID;
 @property(readonly, nonatomic) _Bool persistent; // @synthesize persistent=_persistent;
 - (void).cxx_destruct;
@@ -95,6 +97,7 @@
 - (void)registerForInterrogation;
 - (void)noteRefreshClientCallChange:(int)arg1;
 - (void)noteBlockedClientCallChange:(int)arg1;
+- (_Bool)isMonitoringAccountID:(id)arg1 folderID:(id)arg2;
 - (void)persistentClientCleanup;
 - (unsigned long long)watchedFolderCount;
 - (void)disable;

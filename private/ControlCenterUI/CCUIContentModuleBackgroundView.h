@@ -8,9 +8,14 @@
 
 @interface CCUIContentModuleBackgroundView : UIView
 {
+    UIView *_fadeOutEffectView;
+    UIView *_obscuringBackgroundView;
 }
 
+@property(nonatomic) __weak UIView *obscuringBackgroundView; // @synthesize obscuringBackgroundView=_obscuringBackgroundView;
+- (void).cxx_destruct;
 - (void)setUserInteractionEnabled:(_Bool)arg1;
+- (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

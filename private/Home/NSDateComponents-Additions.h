@@ -7,6 +7,8 @@
 #import <Foundation/NSDateComponents.h>
 
 @interface NSDateComponents (Additions)
++ (unsigned long long)_hf_allPossibleComponents;
++ (id)hf_zeroDateComponentsWithComponents:(unsigned long long)arg1 calendar:(id)arg2;
 + (id)hf_componentsWithHour:(long long)arg1 minute:(long long)arg2;
 + (id)hf_yearlyIntervalComponents;
 + (id)hf_monthlyIntervalComponents;

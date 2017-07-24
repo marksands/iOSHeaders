@@ -4,10 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <PhotoLibraryServices/CPLLibraryManagerDelegate-Protocol.h>
 #import <PhotoLibraryServices/CPLResourceProgressDelegate-Protocol.h>
+#import <PhotoLibraryServices/CPLStatusDelegate-Protocol.h>
 #import <PhotoLibraryServices/PLBatterySaverWatcherDelegate-Protocol.h>
 #import <PhotoLibraryServices/PLCloudUserSessionHandling-Protocol.h>
 #import <PhotoLibraryServices/PLForegroundObserver-Protocol.h>
@@ -15,7 +16,7 @@
 @class CPLLibraryManager, NSDate, NSNumber, NSString, PFCoalescer, PLBatterySaverWatcher, PLCloudBatchDownloader, PLCloudBatchUploader, PLCloudInMemoryTaskManager, PLCloudPhotoLibraryUploadTracker, PLCloudResourceManager, PLCloudTaskManager, PLPhotoLibrary;
 @protocol OS_dispatch_queue, OS_dispatch_source, OS_xpc_object;
 
-@interface PLCloudPhotoLibraryManager : NSObject <CPLResourceProgressDelegate, CPLLibraryManagerDelegate, PLForegroundObserver, PLBatterySaverWatcherDelegate, PLCloudUserSessionHandling>
+@interface PLCloudPhotoLibraryManager : NSObject <CPLResourceProgressDelegate, CPLLibraryManagerDelegate, PLForegroundObserver, PLBatterySaverWatcherDelegate, PLCloudUserSessionHandling, CPLStatusDelegate>
 {
     PLCloudBatchUploader *_uploader;
     PLCloudBatchDownloader *_downloader;
@@ -95,6 +96,7 @@
 @property(readonly, nonatomic) unsigned long long numberOfPhotosToDownload; // @synthesize numberOfPhotosToDownload=_numberOfPhotosToDownload;
 @property(readonly, nonatomic) unsigned long long numberOfVideosToUpload; // @synthesize numberOfVideosToUpload=_numberOfVideosToUpload;
 @property(readonly, nonatomic) unsigned long long numberOfPhotosToUpload; // @synthesize numberOfPhotosToUpload=_numberOfPhotosToUpload;
+- (void)statusDidChange:(id)arg1;
 - (_Bool)_hasIncomingWorkFileMarker;
 - (_Bool)_hasAvalancheIncomingWork;
 - (void)_checkForWorkInProgress;

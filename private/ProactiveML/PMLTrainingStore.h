@@ -17,6 +17,7 @@
 
 + (id)inMemoryStoreForTesting;
 - (void).cxx_destruct;
+- (void)closeDbForTesting;
 - (unsigned long long)numberOfRowsInTable:(id)arg1;
 - (id)allStoredPlanIds;
 - (void)loadSessionsForModel:(id)arg1 withSkew:(double)arg2 block:(CDUnknownBlockType)arg3;
@@ -24,6 +25,7 @@
 - (void)storeSession:(id)arg1 source:(id)arg2 label:(long long)arg3 model:(id)arg4;
 - (_Bool)createSnapshot:(id)arg1;
 - (id)dbForTesting;
+- (_Bool)isDbOpen;
 - (void)updateSessionsAndLabelForModel:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (_Bool)_runQueries:(id)arg1 andUpdateVersionTo:(unsigned long long)arg2 inTransactionOnDb:(id)arg3;
 - (long long)_migrateTo:(id)arg1;

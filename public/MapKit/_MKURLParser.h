@@ -25,6 +25,8 @@
 @property(readonly) double rotation;
 @property(readonly) double altitude;
 @property(readonly) GEOUserSessionEntity *userSessionEntity;
+@property(readonly) NSString *cnAddressIdentifier;
+@property(readonly) NSString *cnContactIdentifier;
 @property(readonly) NSString *abAddressID;
 @property(readonly) NSString *abRecordID;
 @property(readonly) NSString *contentProviderID;

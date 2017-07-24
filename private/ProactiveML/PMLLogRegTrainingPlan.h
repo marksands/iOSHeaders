@@ -62,7 +62,7 @@
 @property(readonly, copy) NSString *description;
 - (id)normalizeRegressor:(id)arg1;
 - (void)loadSessionsSince:(double)arg1 block:(CDUnknownBlockType)arg2;
-- (id)evaluationMetricsForPredictions:(id)arg1 objectives:(id)arg2 predicate:(CDUnknownBlockType)arg3;
+- (id)evaluationMetricsForPredictions:(id)arg1 objectives:(id)arg2 predicate:(CDUnknownBlockType)arg3 start:(id)arg4;
 - (id)train;
 - (float)scaleFactorFor:(id)arg1;
 - (id)initWithStore:(id)arg1 tracker:(id)arg2 noiseStrategy:(id)arg3 planId:(struct NSString *)arg4 isSynchronous:(_Bool)arg5 sessionDescriptor:(id)arg6 maxSessionsLimit:(unsigned long long)arg7 sessionsInBatch:(unsigned long long)arg8 currentServerIteration:(unsigned long long)arg9 currentModelWeights:(id)arg10 localLearningRate:(float)arg11 localGradientIterations:(unsigned long long)arg12 useOnlyAppleInternalSessions:(_Bool)arg13 skew:(double)arg14 threshold:(double)arg15 isMultiLabel:(_Bool)arg16 intercept:(_Bool)arg17 positiveLabel:(unsigned long long)arg18 beforeNoiseScaling:(long long)arg19 constantScaleFactor:(float)arg20 evaluationLevel:(unsigned long long)arg21;

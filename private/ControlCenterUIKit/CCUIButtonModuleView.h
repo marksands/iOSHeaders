@@ -8,7 +8,7 @@
 
 #import <ControlCenterUIKit/UIGestureRecognizerDelegate-Protocol.h>
 
-@class CAPackage, CCUICAPackageView, NSString, UIColor, UIImage, UIImageView, UIView;
+@class CCUICAPackageDescription, CCUICAPackageView, NSString, UIColor, UIImage, UIImageView, UIView;
 
 @interface CCUIButtonModuleView : UIControl <UIGestureRecognizerDelegate>
 {
@@ -19,21 +19,21 @@
     UIColor *_glyphColor;
     UIImage *_selectedGlyphImage;
     UIColor *_selectedGlyphColor;
-    CAPackage *_glyphPackage;
+    CCUICAPackageDescription *_glyphPackageDescription;
     NSString *_glyphState;
     struct NSDirectionalEdgeInsets _contentEdgeInsets;
 }
 
 @property(nonatomic) struct NSDirectionalEdgeInsets contentEdgeInsets; // @synthesize contentEdgeInsets=_contentEdgeInsets;
 @property(copy, nonatomic) NSString *glyphState; // @synthesize glyphState=_glyphState;
-@property(retain, nonatomic) CAPackage *glyphPackage; // @synthesize glyphPackage=_glyphPackage;
+@property(retain, nonatomic) CCUICAPackageDescription *glyphPackageDescription; // @synthesize glyphPackageDescription=_glyphPackageDescription;
 @property(retain, nonatomic) UIColor *selectedGlyphColor; // @synthesize selectedGlyphColor=_selectedGlyphColor;
 @property(retain, nonatomic) UIImage *selectedGlyphImage; // @synthesize selectedGlyphImage=_selectedGlyphImage;
 @property(retain, nonatomic) UIColor *glyphColor; // @synthesize glyphColor=_glyphColor;
 @property(retain, nonatomic) UIImage *glyphImage; // @synthesize glyphImage=_glyphImage;
 - (void).cxx_destruct;
 - (void)_setGlyphState:(id)arg1;
-- (void)_setGlyphPackage:(id)arg1;
+- (void)_setGlyphPackageDescription:(id)arg1;
 - (void)_setGlyphImage:(id)arg1;
 - (void)_updateForStateChange;
 - (void)_handlePressGesture:(id)arg1;

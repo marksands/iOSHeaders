@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     TPDocumentRoot *_documentRoot;
 }
 
+- (void).cxx_destruct;
 - (void)createOrUpdatePageHintInSectionHint:(id)arg1 withState:(id)arg2;
 - (_Bool)wantsPageInSectionHint:(id)arg1 withState:(id)arg2;
 - (id)init;

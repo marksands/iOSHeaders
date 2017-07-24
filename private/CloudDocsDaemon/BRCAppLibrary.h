@@ -109,10 +109,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isForeground;
 - (void)removeForegroundClient:(id)arg1;
 - (void)addForegroundClient:(id)arg1;
-- (unsigned long long)documentCount;
-- (unsigned long long)documentEvictableSizeUsageWithAccessTimeDelta:(double)arg1;
-- (unsigned long long)documentEvictableSizeUsage;
-- (unsigned long long)documentSizeUsage;
+- (unsigned long long)documentCountWithDB:(id)arg1;
+- (unsigned long long)documentEvictableSizeUsageWithAccessTimeDelta:(double)arg1 db:(id)arg2;
+- (unsigned long long)documentEvictableSizeUsageWithDB:(id)arg1;
+- (unsigned long long)documentSizeUsageWithDB:(id)arg1;
 - (_Bool)hasLocalChanges;
 - (_Bool)hasUbiquitousDocuments;
 - (_Bool)hasDocumentsOrDirectory;

@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     struct CGPoint _offset;
 }
 
++ (id)activeCaretMagnifier;
 + (id)sharedCaretMagnifier;
 @property(nonatomic) double yOffset; // @synthesize yOffset=_yOffset;
 @property(nonatomic) struct CGPoint offset; // @synthesize offset=_offset;

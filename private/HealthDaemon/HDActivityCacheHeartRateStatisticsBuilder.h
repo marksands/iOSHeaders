@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class HKHeartRateSummary, HKHeartRateSummaryStatistics, NSArray, NSDateInterval;
+@class HKHeartRateSummary, HKHeartRateSummaryStatistics, NSDateInterval;
 
 @interface HDActivityCacheHeartRateStatisticsBuilder : NSObject
 {
@@ -21,7 +21,6 @@
 - (void)_addHeartRateSamples:(const vector_4f6645df *)arg1 toStatistics:(id)arg2;
 - (void)_addHeartRateSamplesToAllStatistics:(const vector_4f6645df *)arg1;
 - (void)addHeartRateSamples:(const vector_4f6645df *)arg1;
-@property(readonly, nonatomic) NSArray *heartRateReadings;
 @property(readonly, nonatomic) HKHeartRateSummary *heartRateSummary;
 - (id)initWithDateInterval:(id)arg1 activityCacheIndex:(long long)arg2;
 

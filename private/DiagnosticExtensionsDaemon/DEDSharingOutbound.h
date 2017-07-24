@@ -25,6 +25,7 @@
 @property(retain) SFSession *session; // @synthesize session=_session;
 @property(retain) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (void)didCancelSession:(id)arg1;
 - (void)cancelSession:(id)arg1;
 - (void)didCommitSession:(id)arg1;
 - (void)commitSession:(id)arg1;

@@ -18,6 +18,9 @@
 }
 
 - (void).cxx_destruct;
+- (void)deleteSpotlightReferencesWithBundleIdentifier:(id)arg1;
+- (void)deleteSpotlightReferencesWithBundleIdentifier:(id)arg1 domainIdentifiers:(id)arg2;
+- (void)deleteSpotlightReferencesWithBundleIdentifier:(id)arg1 uniqueIdentifiers:(id)arg2;
 - (id)processSearchableItem:(id)arg1;
 - (id)languageForText:(id)arg1;
 - (_Bool)isSentMessage:(id)arg1;

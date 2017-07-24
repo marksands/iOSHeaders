@@ -47,6 +47,7 @@
     } _carPlayHumanPresenceStatus;
     _Bool _performingSystemSnapshot;
     _Bool _wantsSoftwareDimming;
+    _Bool _captured;
     _Bool __UIIBAlwaysProvidePeripheryInsets;
     float _lastNotifiedBacklightLevel;
     UITraitCollection *_defaultTraitCollection;
@@ -92,6 +93,7 @@
 + (void)initialize;
 @property(nonatomic, setter=_setFocusedWindow:) UIWindow<UIFocusEnvironment> *_focusedWindow; // @synthesize _focusedWindow=__focusedWindow;
 @property(nonatomic, setter=_setUIIBAlwaysProvidePeripheryInsets:) _Bool _UIIBAlwaysProvidePeripheryInsets; // @synthesize _UIIBAlwaysProvidePeripheryInsets=__UIIBAlwaysProvidePeripheryInsets;
+@property(nonatomic, getter=isCaptured, setter=_setCaptured:) _Bool captured; // @synthesize captured=_captured;
 @property(nonatomic, setter=_setLastNotifiedBacklightLevel:) float _lastNotifiedBacklightLevel; // @synthesize _lastNotifiedBacklightLevel;
 @property(retain, nonatomic, setter=_setSoftwareDimmingWindow:) UISoftwareDimmingWindow *_softwareDimmingWindow; // @synthesize _softwareDimmingWindow;
 @property(nonatomic) _Bool wantsSoftwareDimming; // @synthesize wantsSoftwareDimming=_wantsSoftwareDimming;
@@ -247,6 +249,7 @@
 - (id)displayIdentity;
 @property(retain, nonatomic) FBSDisplayConfiguration *displayConfiguration;
 - (void)_updateAvailableDisplayModes;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)initWithDisplayConfiguration:(id)arg1;
 - (void)_enumerateWindowsWithBlock:(CDUnknownBlockType)arg1;

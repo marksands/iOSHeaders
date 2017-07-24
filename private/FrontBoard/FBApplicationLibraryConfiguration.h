@@ -11,6 +11,7 @@
 @interface FBApplicationLibraryConfiguration : NSObject <NSCopying>
 {
     Class _applicationInfoClass;
+    Class _applicationPlaceholderClass;
     _Bool _allowConcurrentLoading;
     CDUnknownBlockType _installedApplicationFilter;
     CDUnknownBlockType _placeholderFilter;
@@ -19,6 +20,7 @@
 @property(copy, nonatomic) CDUnknownBlockType placeholderFilter; // @synthesize placeholderFilter=_placeholderFilter;
 @property(copy, nonatomic) CDUnknownBlockType installedApplicationFilter; // @synthesize installedApplicationFilter=_installedApplicationFilter;
 @property(nonatomic) _Bool allowConcurrentLoading; // @synthesize allowConcurrentLoading=_allowConcurrentLoading;
+@property(retain, nonatomic) Class applicationPlaceholderClass; // @synthesize applicationPlaceholderClass=_applicationPlaceholderClass;
 @property(retain, nonatomic) Class applicationInfoClass; // @synthesize applicationInfoClass=_applicationInfoClass;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

@@ -16,7 +16,6 @@
     UIScrollView *_scrollView;
     _UIBackdropView *_lightTrayBackdrop;
     _UIBackdropView *_ultraLightTrayBackdrop;
-    UIView *_buttonTray;
     NSMutableArray *_buttons;
     UIColor *_tint;
     _Bool _disableIconTint;
@@ -27,6 +26,7 @@
     NSString *_detailText;
     UIView *_contentView;
     long long _contentViewPosition;
+    UIView *_buttonTray;
 }
 
 @property(nonatomic) _Bool usesTwoButtonLayout; // @synthesize usesTwoButtonLayout=_usesTwoButtonLayout;
@@ -34,6 +34,7 @@
 @property(nonatomic, getter=isScrollingDisabled) _Bool scrollingDisabled; // @synthesize scrollingDisabled=_scrollingDisabled;
 @property(nonatomic) _Bool disableIconTint; // @synthesize disableIconTint=_disableIconTint;
 @property(retain, nonatomic) UIColor *tint; // @synthesize tint=_tint;
+@property(readonly, nonatomic) UIView *buttonTray; // @synthesize buttonTray=_buttonTray;
 @property(nonatomic) long long contentViewPosition; // @synthesize contentViewPosition=_contentViewPosition;
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property(copy, nonatomic) NSString *detailText; // @synthesize detailText=_detailText;

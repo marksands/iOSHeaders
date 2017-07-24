@@ -46,11 +46,12 @@
 @property(readonly, nonatomic) MSSession *session; // @synthesize session=_session;
 - (void).cxx_destruct;
 - (void)_mergeSanitizedDataFromMessage:(id)arg1;
-- (void)sanitize;
-- (id)sanitizedCopy;
+- (void)_sanitize;
+- (id)_sanitizedCopy;
 - (id)init;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
+- (id)_shallowCopy;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

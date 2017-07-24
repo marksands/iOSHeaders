@@ -6,8 +6,8 @@
 
 #import <objc/NSObject.h>
 
-@class IKViewElement, UIWindow, _TVWindowSizeAdaptor;
-@protocol TVMediaQueryEvaluatorDelegate;
+@class IKViewElement, _TVWindowSizeAdaptor;
+@protocol TVMediaQueryEvaluatorDelegate, UITraitEnvironment;
 
 __attribute__((visibility("hidden")))
 @interface TVMediaQueryEvaluator : NSObject
@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
         unsigned int respondsToEvaluate:1;
     } _implFlags;
     IKViewElement *_templateElement;
-    UIWindow *_window;
+    id <UITraitEnvironment> _traitEnvironment;
     id <TVMediaQueryEvaluatorDelegate> _delegate;
 }
 
@@ -26,13 +26,14 @@ __attribute__((visibility("hidden")))
 + (id)evaluatorForTemplateElement:(id)arg1 inWindow:(id)arg2;
 @property(nonatomic) __weak id <TVMediaQueryEvaluatorDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, retain, nonatomic) _TVWindowSizeAdaptor *windowSizeAdaptor; // @synthesize windowSizeAdaptor=_windowSizeAdaptor;
-@property(readonly, retain, nonatomic) UIWindow *window; // @synthesize window=_window;
+@property(readonly, retain, nonatomic) id <UITraitEnvironment> traitEnvironment; // @synthesize traitEnvironment=_traitEnvironment;
 @property(readonly, retain, nonatomic) IKViewElement *templateElement; // @synthesize templateElement=_templateElement;
 - (void).cxx_destruct;
 - (_Bool)_evaluateAllMediaFeatureType:(id)arg1 withValue:(id)arg2;
 - (_Bool)_evaluateTemplateFeatureType:(id)arg1 withValue:(id)arg2;
 - (_Bool)_evaluateDeviceFeatureType:(id)arg1 withValue:(id)arg2;
 - (_Bool)evaluateMediaQuery:(id)arg1;
+- (id)initWithTemplateElement:(id)arg1 inTraitEnvironment:(id)arg2;
 - (id)initWithTemplateElement:(id)arg1 inWindow:(id)arg2;
 - (id)initWithTemplateElement:(id)arg1;
 

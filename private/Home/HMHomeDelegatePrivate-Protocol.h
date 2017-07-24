@@ -6,7 +6,7 @@
 
 #import <Home/HMHomeDelegate-Protocol.h>
 
-@class CLLocation, HMActionSet, HMHome, HMMediaSession, HMResidentDevice, HMRoom, HMServiceGroup, HMUser, NSArray, NSString;
+@class CLLocation, HMActionSet, HMHome, HMResidentDevice, HMRoom, HMServiceGroup, HMUser, NSArray, NSString;
 
 @protocol HMHomeDelegatePrivate <HMHomeDelegate>
 
@@ -15,8 +15,6 @@
 - (void)home:(HMHome *)arg1 didUpdateMediaPeerToPeerEnabled:(_Bool)arg2;
 - (void)home:(HMHome *)arg1 didUpdateMinimumMediaUserPrivilege:(long long)arg2;
 - (void)home:(HMHome *)arg1 didUpdateAutomaticSoftwareUpdateEnabled:(_Bool)arg2;
-- (void)home:(HMHome *)arg1 didRemoveMediaSession:(HMMediaSession *)arg2;
-- (void)home:(HMHome *)arg1 didAddMediaSession:(HMMediaSession *)arg2;
 - (void)home:(HMHome *)arg1 didEnableNotifications:(_Bool)arg2;
 - (void)home:(HMHome *)arg1 didUpdateAccessControlForUser:(HMUser *)arg2;
 - (void)home:(HMHome *)arg1 didUpdateLastExecutionDateForActionSet:(HMActionSet *)arg2;

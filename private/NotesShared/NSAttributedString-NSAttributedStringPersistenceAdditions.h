@@ -7,8 +7,9 @@
 #import <Foundation/NSAttributedString.h>
 
 @interface NSAttributedString (NSAttributedStringPersistenceAdditions)
++ (id)TT_attributedStringWithData:(id)arg1 dataPersister:(id)arg2 note:(id)arg3 shouldCreateAttachments:(_Bool)arg4 error:(id *)arg5;
 + (id)TT_attributedStringWithData:(id)arg1 dataPersister:(id)arg2 createNewAttachmentsInNote:(id)arg3 error:(id *)arg4;
-+ (id)TT_attributedStringWithArchive:(const struct String *)arg1 dataPersister:(id)arg2 createNewAttachmentsInNote:(id)arg3 error:(id *)arg4;
++ (id)TT_attributedStringWithArchive:(const struct String *)arg1 dataPersister:(id)arg2 note:(id)arg3 shouldCreateNewAttachments:(_Bool)arg4 error:(id *)arg5;
 - (_Bool)TT_isCopyableSize;
 - (unsigned long long)TT_approximateAttachmentsSizeIncludingPreviews:(_Bool)arg1;
 - (id)TT_serializeWithFlags:(unsigned long long)arg1 dataPersister:(id)arg2 managedObjectContext:(id)arg3;

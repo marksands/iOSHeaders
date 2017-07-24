@@ -13,12 +13,12 @@
 
 @interface FCAppConfigurationResource : NSObject <NSCopying, FCKeyValueStoreCoding>
 {
-    NSData *_configurationData;
     NSURL *_sourceURL;
     NSString *_etag;
     NSDate *_lastFetchedDate;
     NSDate *_lastModifiedDate;
     NSString *_resourceID;
+    NSData *_gzippedConfigurationData;
     NSString *_lastModifiedString;
     NSNumber *_maxAge;
 }
@@ -27,15 +27,16 @@
 + (int)keyValuePairType;
 @property(retain, nonatomic) NSNumber *maxAge; // @synthesize maxAge=_maxAge;
 @property(retain, nonatomic) NSString *lastModifiedString; // @synthesize lastModifiedString=_lastModifiedString;
+@property(retain, nonatomic) NSData *gzippedConfigurationData; // @synthesize gzippedConfigurationData=_gzippedConfigurationData;
 @property(retain, nonatomic) NSString *resourceID; // @synthesize resourceID=_resourceID;
 @property(retain, nonatomic) NSDate *lastModifiedDate; // @synthesize lastModifiedDate=_lastModifiedDate;
 @property(retain, nonatomic) NSDate *lastFetchedDate; // @synthesize lastFetchedDate=_lastFetchedDate;
 @property(retain, nonatomic) NSString *etag; // @synthesize etag=_etag;
 @property(retain, nonatomic) NSURL *sourceURL; // @synthesize sourceURL=_sourceURL;
-@property(retain, nonatomic) NSData *configurationData; // @synthesize configurationData=_configurationData;
 - (void).cxx_destruct;
 - (void)writeToKeyValuePair:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic) NSData *configurationData;
 - (_Bool)isExpiredWithFallbackMaxAge:(double)arg1;
 
 // Remaining properties

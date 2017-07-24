@@ -44,6 +44,7 @@
 + (id)eventWithInteraction:(id)arg1 bundleIdentifier:(id)arg2;
 + (id)metadataForInteraction:(id)arg1;
 + (_Bool)copyMetadata:(id)arg1 toManagedObject:(id)arg2;
++ (id)fetchCustomMetadataWithName:(id)arg1 valueHash:(id)arg2 context:(id)arg3;
 + (id)eventValueFromManagedObject:(id)arg1 streamName:(id)arg2 readMetadata:(_Bool)arg3 cache:(id)arg4;
 + (id)uncachedEventValueFromManagedObject:(id)arg1 readMetadata:(_Bool)arg2 cache:(id)arg3;
 + (id)eventStreamFromManagedObject:(id)arg1 forValue:(id)arg2 cache:(id)arg3;

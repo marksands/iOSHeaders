@@ -8,7 +8,7 @@
 
 #import <ViceroyTrace/VCAdaptiveLearningDelegate-Protocol.h>
 
-@class CallSegment, NSString, VCAdaptiveLearning;
+@class CallSegment, NSString, VCAdaptiveLearning, VCHistogram;
 @protocol OS_dispatch_queue, VCAggregatorDelegate;
 
 __attribute__((visibility("hidden")))
@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
     double _callAverageTargetBitrate;
     double _callAverageSendBitrate;
     double _callAverageReceiveBitrate;
+    double _callAverageRTT;
     double _callPoorConnectionTotalLength;
     double _callPoorConnectionMaxLength;
     unsigned int _callPoorConnectionFrequency;
@@ -46,6 +47,7 @@ __attribute__((visibility("hidden")))
     double _callMaxAudioStallInterval;
     double _lastReportedAudioStallTime;
     double _lastReportedVideoStallTime;
+    double _callLastVideoResolutionChangeTime;
     unsigned int _noRemoteAtCallEnd;
     unsigned int _remoteNoRemoteAtCallEnd;
     unsigned int _totalConnectionTime;
@@ -62,6 +64,9 @@ __attribute__((visibility("hidden")))
     unsigned int _REDState;
     unsigned long long _lastReportedAudioPacketSent;
     unsigned long long _lastReportedVideoPacketSent;
+    unsigned int _initialRampUpTime;
+    int _initialBitrateDelta;
+    VCHistogram *_callVideoSwitchPeriodHistogram;
     VCAdaptiveLearning *_adaptiveLearning;
     NSObject<OS_dispatch_queue> *_stateQueue;
     id <VCAggregatorDelegate> _delegate;
@@ -71,6 +76,8 @@ __attribute__((visibility("hidden")))
 - (void)updateTargetBitrateForSegment:(id)arg1 newValue:(int)arg2;
 - (int)adaptiveLearningState;
 - (void)processEventWithCategory:(unsigned short)arg1 type:(unsigned short)arg2 payload:(id)arg3;
+- (void)updateAdaptiveLearningStats:(unsigned int)arg1 payload:(id)arg2;
+- (void)updateVideoSwitchTimes;
 - (void)updateConnectionTimes:(id)arg1;
 - (void)updateRelayInfo:(id)arg1;
 - (void)updateNoRemoteState:(_Bool)arg1;
@@ -79,6 +86,7 @@ __attribute__((visibility("hidden")))
 - (void)updateRoleModeTransport:(unsigned short)arg1 deviceRole:(unsigned short)arg2 transportType:(unsigned short)arg3;
 - (void)updatePauseVideo:(_Bool)arg1;
 - (void)updateVideoResolution:(id)arg1;
+- (void)updateVideoFECStats:(id)arg1;
 - (void)updateRTStats:(id)arg1;
 - (void)startNewSegment;
 - (id)duplicationIndicator;

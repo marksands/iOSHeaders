@@ -16,7 +16,7 @@
 
 - (void).cxx_destruct;
 - (void)setGlyphState:(id)arg1;
-- (void)setGlyphPackage:(id)arg1;
+- (void)setGlyphPackageDescription:(id)arg1;
 - (void)setGlyphImage:(id)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;

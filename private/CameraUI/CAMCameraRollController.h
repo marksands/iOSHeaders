@@ -40,6 +40,7 @@
     _Bool __oneUpFullyPresented;
     _Bool __didSetupMechanismsForStoppingCaptureSession;
     _Bool __didStopCaptureSession;
+    _Bool __deferringStagedMediaLoading;
     unsigned short _sessionIdentifier;
     id <CAMCameraRollControllerSessionDelegate> _sessionDelegate;
     id <CAMCameraRollControllerImageWellDelegate> _imageWellDelegate;
@@ -50,12 +51,14 @@
     CAMTransientImageManager *__transientImageManager;
     PUPhotoKitDataSourceManager *__photoKitDataSourceManager;
     NSMutableSet *__sessionAssetUUIDs;
+    NSMutableSet *__ignoredAssetUUIDs;
     PXPhotosDataSource *__photosDataSource;
     PXPhotosDataSource *__stagedDataSource;
     NSObject<OS_dispatch_source> *__memoryWarningSource;
 }
 
 @property(readonly, nonatomic) NSObject<OS_dispatch_source> *_memoryWarningSource; // @synthesize _memoryWarningSource=__memoryWarningSource;
+@property(nonatomic, getter=_isDeferringStagedMediaLoading, setter=_setDeferringStagedMediaLoading:) _Bool _deferringStagedMediaLoading; // @synthesize _deferringStagedMediaLoading=__deferringStagedMediaLoading;
 @property(nonatomic, setter=_setDidStopCaptureSession:) _Bool _didStopCaptureSession; // @synthesize _didStopCaptureSession=__didStopCaptureSession;
 @property(nonatomic, setter=_setDidSetupMechanismsForStoppingCaptureSession:) _Bool _didSetupMechanismsForStoppingCaptureSession; // @synthesize _didSetupMechanismsForStoppingCaptureSession=__didSetupMechanismsForStoppingCaptureSession;
 @property(nonatomic, getter=_isOneUpFullyPresented, setter=_setOneUpFullyPresented:) _Bool _oneUpFullyPresented; // @synthesize _oneUpFullyPresented=__oneUpFullyPresented;
@@ -65,6 +68,7 @@
 @property(nonatomic, setter=_setAllowUpdating:) _Bool _allowUpdating; // @synthesize _allowUpdating=__allowUpdating;
 @property(retain, nonatomic, setter=_setStagedDataSource:) PXPhotosDataSource *_stagedDataSource; // @synthesize _stagedDataSource=__stagedDataSource;
 @property(retain, nonatomic, setter=_setPhotosDataSource:) PXPhotosDataSource *_photosDataSource; // @synthesize _photosDataSource=__photosDataSource;
+@property(readonly, nonatomic) NSMutableSet *_ignoredAssetUUIDs; // @synthesize _ignoredAssetUUIDs=__ignoredAssetUUIDs;
 @property(readonly, nonatomic) NSMutableSet *_sessionAssetUUIDs; // @synthesize _sessionAssetUUIDs=__sessionAssetUUIDs;
 @property(readonly, nonatomic) PUPhotoKitDataSourceManager *_photoKitDataSourceManager; // @synthesize _photoKitDataSourceManager=__photoKitDataSourceManager;
 @property(readonly, nonatomic) CAMTransientImageManager *_transientImageManager; // @synthesize _transientImageManager=__transientImageManager;
@@ -119,9 +123,10 @@
 - (void)presentingViewControllerViewDidAppear:(_Bool)arg1;
 - (void)presentingViewControllerViewWillAppear:(_Bool)arg1;
 - (void)handlePresentingPanGestureRecognizer:(id)arg1;
+- (void)beginAllowingStagedMediaLoading;
 - (_Bool)isCameraRollViewControllerPresented;
 - (_Bool)dismissCameraRollViewControllerForced:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)presentCameraRollViewControllerAnimated:(_Bool)arg1 interactive:(_Bool)arg2;
+- (void)presentCameraRollViewControllerAnimated:(_Bool)arg1 interactive:(_Bool)arg2 deferringStagedMediaLoading:(_Bool)arg3;
 @property(readonly, nonatomic) _Bool canPresentCameraRollViewController;
 - (void)photosDataSource:(id)arg1 didChange:(id)arg2;
 - (_Bool)isCaptureSessionCurrent:(unsigned short)arg1;
@@ -131,6 +136,7 @@
 - (void)applicationDidEnterBackground:(id)arg1;
 - (void)applicationResumed:(id)arg1;
 - (void)applicationWillEnterForeground:(id)arg1;
+- (void)ignoreFutureImageWellUpdatesForAssetWithUUID:(id)arg1;
 - (void)cameraPreviewWellImageDidChange:(id)arg1;
 - (id)persistedThumbnailImage;
 - (void)_performPreload;
@@ -138,6 +144,7 @@
 - (void)preload;
 - (void)_scheduleUpdateIfOneUpIsActive;
 - (void)didPersistAssetWithUUID:(id)arg1 captureSession:(unsigned short)arg2;
+- (void)willPersistAssetWithUUID:(id)arg1 captureSession:(unsigned short)arg2;
 - (void)resetNavigation;
 - (void)dealloc;
 - (id)init;
