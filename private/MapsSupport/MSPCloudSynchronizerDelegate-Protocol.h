@@ -14,6 +14,8 @@
 - (MSPCloudRepeatableTask *)taskToDownloadCloudStoreByErasingLocalStoreForSynchronizer:(MSPCloudSynchronizer *)arg1;
 - (MSPCloudRepeatableTask *)taskToMergeLocalAndCloudStoresForSynchronizer:(MSPCloudSynchronizer *)arg1;
 - (void)synchronizer:(MSPCloudSynchronizer *)arg1 userIdentityDidLogOutWithFollowUp:(long long)arg2;
+- (void)synchronizer:(MSPCloudSynchronizer *)arg1 storeNewBoostDate:(NSDate *)arg2;
+- (NSDate *)storedBoostDateForSynchronizer:(MSPCloudSynchronizer *)arg1;
 - (void)synchronizer:(MSPCloudSynchronizer *)arg1 storeNewClientRegistrationIdentifier:(NSUUID *)arg2;
 - (NSUUID *)storedClientRegistrationIdentifierForSynchronizer:(MSPCloudSynchronizer *)arg1;
 - (void)synchronizer:(MSPCloudSynchronizer *)arg1 storeNewUserIdentity:(id <NSObject><NSCopying><NSCoding>)arg2;

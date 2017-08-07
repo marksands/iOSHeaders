@@ -6,35 +6,27 @@
 
 #import <HomeKitDaemon/HMDCloudZone.h>
 
-@class HMDCloudGroup, HMDCloudShareGroup, NSMutableDictionary;
+@class HMDCloudShareGroup, NSMutableDictionary;
 
 @interface HMDCloudHomeZone : HMDCloudZone
 {
     _Bool _sharedHome;
-    HMDCloudGroup *_rootGroup;
     HMDCloudShareGroup *_shareGroup;
     NSMutableDictionary *_perUserShareGroups;
 }
 
 + (void)createHomeZoneWithName:(id)arg1 owner:(id)arg2 cacheZone:(id)arg3 cloudCache:(id)arg4 completion:(CDUnknownBlockType)arg5;
++ (id)zoneSubscriptionName:(id)arg1;
++ (id)zoneSharedRootRecordName;
++ (id)zoneRootRecordName;
 @property(readonly, nonatomic) NSMutableDictionary *perUserShareGroups; // @synthesize perUserShareGroups=_perUserShareGroups;
 @property(retain, nonatomic) HMDCloudShareGroup *shareGroup; // @synthesize shareGroup=_shareGroup;
-@property(retain, nonatomic) HMDCloudGroup *rootGroup; // @synthesize rootGroup=_rootGroup;
 @property(readonly, nonatomic, getter=isSharedHome) _Bool sharedHome; // @synthesize sharedHome=_sharedHome;
 - (void).cxx_destruct;
 - (void)setServerChangeToken:(id)arg1;
-- (void)setSubscription:(id)arg1;
-- (id)subscriptionName;
-- (id)owner;
 - (id)createCloudZoneChangeTemporaryCache:(_Bool)arg1;
-- (void)deleteCloudRecord:(id)arg1;
-- (void)updateCloudRecord:(id)arg1;
-- (_Bool)isRootCloudRecord:(id)arg1;
 - (_Bool)isRootRecord:(id)arg1;
-- (id)privateZoneRootRecordID;
 - (void)addCloudRecord:(id)arg1 ownerID:(id)arg2;
-- (id)cloudRecordWithObjectID:(id)arg1;
-- (id)cloudRecordWithName:(id)arg1;
 - (id)description;
 
 @end

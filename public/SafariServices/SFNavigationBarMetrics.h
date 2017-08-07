@@ -54,6 +54,7 @@ __attribute__((visibility("hidden")))
 - (double)barHeightWithBarMetricsCategory:(long long)arg1;
 - (void)_updateMetrics;
 - (_Bool)updateForContentSizeCategory:(id)arg1;
+- (void)forceUpdate;
 - (id)init;
 - (id)_contentSizeCategoryWithPreferredCategory:(id)arg1;
 

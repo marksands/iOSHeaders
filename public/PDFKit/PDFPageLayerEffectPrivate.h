@@ -14,7 +14,6 @@ __attribute__((visibility("hidden")))
 {
     id <PDFPageLayerInterface> pageLayer;
     PDFAnnotation *annotation;
-    long long displayBox;
 }
 
 - (void).cxx_destruct;

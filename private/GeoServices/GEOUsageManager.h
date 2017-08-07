@@ -72,6 +72,7 @@
 - (void)captureStaleResourcesEventForResources:(id)arg1;
 - (void)captureCacheHitEventForLocationShiftWithHitCount:(unsigned int)arg1 cacheMissCount:(unsigned int)arg2;
 - (void)captureCacheHitEventForTileCacheType:(int)arg1 cacheHitCount:(unsigned int)arg2 cacheMissCount:(unsigned int)arg3;
+- (void)captureGenericAppErrorDomain:(id)arg1 appErrorCode:(long long)arg2;
 - (void)captureNetworkEventForLoadingTileWithUsageInfo:(id)arg1 traits:(id)arg2;
 - (void)captureNetworkEventForService:(int)arg1 requestType:(int)arg2 httpResponseStatusCode:(int)arg3 requestErrorDomain:(id)arg4 requestErrorCode:(long long)arg5 requestDataSize:(int)arg6 responseDataSize:(int)arg7 responseTime:(int)arg8 requestAppId:(id)arg9 remoteAddressAndPort:(id)arg10 fromLogFrameworkAdaptor:(_Bool)arg11;
 - (void)captureNetworkEventForProtobufSessionTask:(id)arg1 networkService:(int)arg2 requestType:(int)arg3 requestAppId:(id)arg4 fromLogFrameworkAdaptor:(_Bool)arg5;

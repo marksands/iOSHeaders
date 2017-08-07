@@ -62,7 +62,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)frameOfPresentedViewInContainerView;
 - (void)_transitionToPresentationController:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
-- (struct UIEdgeInsets)_baseContentInsets;
+- (struct UIEdgeInsets)_baseContentInsetsWithLeftMargin:(double *)arg1 rightMargin:(double *)arg2;
 - (_Bool)_shouldOccludeDuringPresentation;
 - (_Bool)_shouldPresentedViewControllerControlStatusBarAppearance;
 - (_Bool)shouldPresentInFullscreen;

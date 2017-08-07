@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 
 + (id)sharedInstance;
 - (void).cxx_destruct;
-- (void)removeHighMemoryThresholdRequest:(id)arg1;
+- (void)removeHighMemoryThresholdRequest:(id)arg1 afterDelay:(double)arg2;
 - (void)addHighMemoryThresholdRequest:(id)arg1;
 
 @end

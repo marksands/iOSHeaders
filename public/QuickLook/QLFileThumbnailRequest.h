@@ -13,13 +13,15 @@
     double _scale;
     NSURL *_fileURL;
     struct CGSize _maximumSize;
+    struct CGSize _minimumSize;
 }
 
 @property(copy, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
+@property(nonatomic) struct CGSize minimumSize; // @synthesize minimumSize=_minimumSize;
 @property(nonatomic) struct CGSize maximumSize; // @synthesize maximumSize=_maximumSize;
 - (void).cxx_destruct;
-- (id)initWithMaximumSize:(struct CGSize)arg1 scale:(double)arg2 fileURL:(id)arg3;
+- (id)initWithMaximumSize:(struct CGSize)arg1 minimumSize:(double)arg2 scale:(double)arg3 fileURL:(id)arg4;
 
 @end
 

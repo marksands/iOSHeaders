@@ -78,6 +78,7 @@
 - (unsigned long long)hash;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (Class)classForCoder;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithBundleIdentifier:(id)arg1 name:(id)arg2 iconData:(id)arg3 applicationType:(id)arg4 adamID:(id)arg5 externalVersionNumber:(id)arg6 betaExternalVersionIdentifier:(id)arg7 isInstalled:(_Bool)arg8 isPlaceholder:(_Bool)arg9 isAppUpdate:(_Bool)arg10 isBetaApp:(_Bool)arg11 isRemoveable:(_Bool)arg12 fileSharingEnabled:(_Bool)arg13 progress:(id)arg14;
 - (id)initWithApplicationIdentifier:(id)arg1 bundleIdentifier:(id)arg2 name:(id)arg3 iconData:(id)arg4 bundleVersion:(id)arg5 shortVersionString:(id)arg6 applicationType:(id)arg7 adamID:(id)arg8 externalVersionIdentifier:(id)arg9 betaExternalVersionIdentifier:(id)arg10 staticUsage:(id)arg11 dynamicUsage:(id)arg12 onDemandResourcesUsage:(id)arg13 unusedRedemptionCode:(id)arg14 attributes:(id)arg15 configuration:(id)arg16 feedback:(id)arg17 state:(unsigned long long)arg18 managementFlags:(unsigned long long)arg19 isManaged:(_Bool)arg20 isValidated:(_Bool)arg21 isInstalled:(_Bool)arg22 isPlaceholder:(_Bool)arg23 isAppUpdate:(_Bool)arg24 isBetaApp:(_Bool)arg25 isRemoveable:(_Bool)arg26 fileSharingEnabled:(_Bool)arg27 progress:(id)arg28;

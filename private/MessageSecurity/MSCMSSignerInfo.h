@@ -6,37 +6,33 @@
 
 #import <objc/NSObject.h>
 
-@class MSAlgorithmIdentifier, MSCMSSignedData, NSData, NSMutableArray, NSNumber;
+@class MSAlgorithmIdentifier, MSCMSMutableAttributeArray, MSCMSSignedData, NSData, NSNumber;
 
 @interface MSCMSSignerInfo : NSObject
 {
     MSAlgorithmIdentifier *_signatureAlgorithm;
     struct __SecCertificate *_signerCertificate;
-    NSMutableArray *_protectedAttributes;
+    MSCMSMutableAttributeArray *_protectedAttributes;
     NSData *_signature;
-    NSMutableArray *_unprotectedAttributes;
+    MSCMSMutableAttributeArray *_unprotectedAttributes;
     NSData *_LAContext;
     // Error parsing type: ^{__SecKey={__CFRuntimeBase=QAQ}^{__SecKeyDescriptor}^v}, name: _signerPrivKey
     struct SignerInfo *_encodedSignerInfo;
     NSData *_signerSerialNumber;
     NSData *_signerIssuerSequence;
-    struct Attribute *_encodedSignedAttributes;
-    struct Attribute *_encodedUnsignedAttributes;
-    NSMutableArray *_genericSignedAttributes;
-    NSMutableArray *_genericUnsignedAttributes;
     NSNumber *_version;
     MSCMSSignedData *_containingSignedData;
     MSAlgorithmIdentifier *_digestAlgorithm;
+    struct SignerInfo_signedAttrs _signedAttrsStruct;
+    struct SignerInfo_unsignedAttrs _unsignedAttrsStruct;
 }
 
 + (id)decodeSignerInfo:(struct SignerInfo *)arg1 certificates:(id)arg2 LAContext:(id)arg3 error:(id *)arg4;
 @property(retain) MSAlgorithmIdentifier *digestAlgorithm; // @synthesize digestAlgorithm=_digestAlgorithm;
 @property __weak MSCMSSignedData *containingSignedData; // @synthesize containingSignedData=_containingSignedData;
 @property(retain) NSNumber *version; // @synthesize version=_version;
-@property(retain) NSMutableArray *genericUnsignedAttributes; // @synthesize genericUnsignedAttributes=_genericUnsignedAttributes;
-@property(retain) NSMutableArray *genericSignedAttributes; // @synthesize genericSignedAttributes=_genericSignedAttributes;
-@property struct Attribute *encodedUnsignedAttributes; // @synthesize encodedUnsignedAttributes=_encodedUnsignedAttributes;
-@property struct Attribute *encodedSignedAttributes; // @synthesize encodedSignedAttributes=_encodedSignedAttributes;
+@property struct SignerInfo_unsignedAttrs unsignedAttrsStruct; // @synthesize unsignedAttrsStruct=_unsignedAttrsStruct;
+@property struct SignerInfo_signedAttrs signedAttrsStruct; // @synthesize signedAttrsStruct=_signedAttrsStruct;
 @property(retain) NSData *signerIssuerSequence; // @synthesize signerIssuerSequence=_signerIssuerSequence;
 @property(retain) NSData *signerSerialNumber; // @synthesize signerSerialNumber=_signerSerialNumber;
 @property struct SignerInfo *encodedSignerInfo; // @synthesize encodedSignerInfo=_encodedSignerInfo;
@@ -44,14 +40,13 @@
 // Property attributes: T^{__SecKey={__CFRuntimeBase=QAQ}^{__SecKeyDescriptor}^v},V_signerPrivKey
 
 @property(retain) NSData *LAContext; // @synthesize LAContext=_LAContext;
-@property(retain) NSMutableArray *unprotectedAttributes; // @synthesize unprotectedAttributes=_unprotectedAttributes;
+@property(retain) MSCMSMutableAttributeArray *unprotectedAttributes; // @synthesize unprotectedAttributes=_unprotectedAttributes;
 @property(retain) NSData *signature; // @synthesize signature=_signature;
-@property(retain) NSMutableArray *protectedAttributes; // @synthesize protectedAttributes=_protectedAttributes;
+@property(retain) MSCMSMutableAttributeArray *protectedAttributes; // @synthesize protectedAttributes=_protectedAttributes;
 @property struct __SecCertificate *signerCertificate; // @synthesize signerCertificate=_signerCertificate;
 @property(retain) MSAlgorithmIdentifier *signatureAlgorithm; // @synthesize signatureAlgorithm=_signatureAlgorithm;
 - (void).cxx_destruct;
 - (_Bool)encodeSignerInfo:(struct SignerInfo *)arg1 error:(id *)arg2;
-- (struct Attribute *)encodeAttributes:(id)arg1 isSigned:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)sign:(id *)arg1;
 - (struct __SecTrust *)createTrustObjectWithPolicies:(id)arg1 error:(id *)arg2;
 - (id)getAttributesWithType:(id)arg1;
@@ -62,9 +57,9 @@
 - (id)verifyTime:(id)arg1;
 - (_Bool)verifySignature:(id *)arg1;
 - (id)calculateSignerInfoDigest:(id *)arg1;
+- (_Bool)verifyMessageDigestAttribute:(id)arg1 error:(id *)arg2;
+- (_Bool)verifyContentTypeAttribute:(id *)arg1;
 - (id)calculateSignedAttributesDigest:(id *)arg1;
-- (void)removeUnsignedAttributes:(id)arg1;
-- (void)removeSignedAttributes:(id)arg1;
 - (void)dealloc;
 - (id)initWithEmail:(id)arg1 recipientsAlgorithmCapabilities:(id)arg2 LAContext:(id)arg3 error:(id *)arg4;
 - (id)initWithIdentity:(struct __SecIdentity *)arg1 recipientsAlgorithmCapabilities:(id)arg2 error:(id *)arg3;

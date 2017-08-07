@@ -25,14 +25,17 @@
 - (unsigned long long)supportedInterfaceOrientations;
 - (void)dataclassPickerViewController:(id)arg1 didCompleteWithDataclassActions:(struct NSDictionary *)arg2;
 - (void)dataclassPickerViewControllerDidCancel:(id)arg1;
+- (id)footerTextForDataclassPickerViewController:(id)arg1;
 - (void)_delegate_signOutControllerDidCompleteWithSuccess:(_Bool)arg1 error:(id)arg2;
 - (void)_delegate_signOutControllerDidCancel;
 - (void)_mainQueue_presentSpinnerPageWithDataclassActions:(struct NSDictionary *)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_mainQueue_continueSignOutWithDataclassActions:(struct NSDictionary *)arg1;
 - (void)_mainQueue_promptForConfirmationInViewController:(id)arg1 simplified:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)prepareInViewController:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (struct NSDictionary *)_actionableDataclassOptions;
 - (_Bool)_hasPaymentPasses;
-- (id)_signOutConfirmationMessage:(_Bool)arg1;
+- (_Bool)_hasHealthData;
+- (id)_signOutMessageSimplified:(_Bool)arg1 withConfirmation:(_Bool)arg2;
 - (id)_spinnerViewControllerForActions:(struct NSDictionary *)arg1;
 - (id)_dataclassViewController;
 - (void)viewWillAppear:(_Bool)arg1;

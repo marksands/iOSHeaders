@@ -51,6 +51,7 @@
 - (double)_preferredCoalescingInterval;
 - (_Bool)_isReadyToProcessChanges;
 - (void)rebuildRecognitionResults;
+- (void)_cancelOngoingRequests;
 - (void)cancelOngoingRequests;
 - (void)setNeedsRecognitionUpdate;
 - (id)indexableContent;

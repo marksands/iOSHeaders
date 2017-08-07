@@ -10,7 +10,7 @@
 #import <Foundation/NSSecureCoding-Protocol.h>
 
 @class NSArray, NSDictionary, NSMutableDictionary, NSMutableOrderedSet, NSString, NSUUID;
-@protocol _NSItemProviderLoading;
+@protocol NSItemProviderDataTransferDelegate, _NSItemProviderLoading;
 
 @interface NSItemProvider : NSObject <NSSecureCoding, NSCopying>
 {
@@ -24,9 +24,11 @@
     NSUUID *_UUID;
     NSString *_suggestedName;
     NSDictionary *_userInfo;
+    id <NSItemProviderDataTransferDelegate> _dataTransferDelegate;
 }
 
 + (_Bool)supportsSecureCoding;
+@property __weak id <NSItemProviderDataTransferDelegate> dataTransferDelegate; // @synthesize dataTransferDelegate=_dataTransferDelegate;
 @property(copy) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(copy) NSString *suggestedName; // @synthesize suggestedName=_suggestedName;
 @property(readonly) NSUUID *_UUID; // @synthesize _UUID;
@@ -35,6 +37,7 @@
 @property(retain, nonatomic) NSMutableOrderedSet *_typeOrder; // @synthesize _typeOrder;
 @property(retain, nonatomic) NSMutableDictionary *_representationByType; // @synthesize _representationByType;
 @property(retain) id <_NSItemProviderLoading> _loadOperator; // @synthesize _loadOperator;
+- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -47,6 +50,7 @@
 - (id)initWithItem:(id)arg1 typeIdentifier:(id)arg2;
 - (_Bool)hasItemConformingToTypeIdentifier:(id)arg1;
 - (id)description;
+- (id)_loadObjectOfClass:(Class)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)loadObjectOfClass:(Class)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)canLoadObjectOfClass:(Class)arg1;
 - (void)registerObjectOfClass:(Class)arg1 visibility:(long long)arg2 loadHandler:(CDUnknownBlockType)arg3;

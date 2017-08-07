@@ -14,10 +14,11 @@
 
 @interface SFTitleCardSection : SFCardSection <SFTitleCardSection, NSSecureCoding, NSCopying>
 {
-    CDStruct_5ff9a38c _has;
+    CDStruct_da38e31c _has;
     _Bool _canBeHidden;
     _Bool _hasTopPadding;
     _Bool _hasBottomPadding;
+    _Bool _isCentered;
     int _separatorStyle;
     NSArray *_punchoutOptions;
     NSString *_punchoutPickerTitle;
@@ -29,6 +30,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool isCentered; // @synthesize isCentered=_isCentered;
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) SFColor *backgroundColor;
@@ -46,6 +48,7 @@
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)hasIsCentered;
 - (_Bool)hasSeparatorStyle;
 - (_Bool)hasHasBottomPadding;
 - (_Bool)hasHasTopPadding;

@@ -60,10 +60,10 @@
 - (id)uvIndexForDemoPerson:(id)arg1 atTime:(double)arg2;
 - (id)stepsForDemoPerson:(id)arg1 atTime:(double)arg2;
 - (id)flightsClimbedForDemoPerson:(id)arg1 atTime:(double)arg2;
-- (id)appleStandHourForDemoPerson:(id)arg1 atTime:(double)arg2;
+- (id)appleStandHourForDemoPerson:(id)arg1 atTime:(double)arg2 activeCalories:(id)arg3 exerciseMinutes:(id)arg4;
 - (id)fallsForDemoPerson:(id)arg1 atTime:(double)arg2;
 - (id)restingCaloriesForDemoPerson:(id)arg1 atTime:(double)arg2;
-- (id)_exerciseMinuteSampleForDemoPerson:(id)arg1 atTime:(double)arg2 date:(id)arg3;
+- (id)exerciseMinutesForDemoPerson:(id)arg1 atTime:(double)arg2;
 - (id)activeCaloriesForDemoPerson:(id)arg1 atTime:(double)arg2;
 - (void)_generateWorkoutDataWithHeartRates:(id)arg1 objectCollection:(id)arg2 demoPerson:(id)arg3;
 - (void)_generateYogaWorkoutDataWithObjectCollection:(id)arg1 demoPerson:(id)arg2;

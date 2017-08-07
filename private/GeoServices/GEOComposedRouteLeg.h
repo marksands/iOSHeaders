@@ -22,6 +22,8 @@
 @property(readonly, nonatomic) long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
 - (id)description;
+- (_Bool)isEqualToGEOComposedRouteLeg:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) NSArray *exitTransitAccessPoints;
 @property(readonly, nonatomic) NSArray *enterTransitAccessPoints;
 @property(readonly, nonatomic) GEOPBTransitStop *endingTransitStop;

@@ -13,6 +13,7 @@
 + (id)sharedInstance;
 + (void)__setSingleton__im:(id)arg1;
 + (id)__singleton__im;
+- (void)fetchCloudKitSyncStateDebuggingInfo:(id)arg1;
 - (id)syncStateDictionary;
 - (id)lastSyncErrors;
 - (void)syncDeletesToCloudKit;

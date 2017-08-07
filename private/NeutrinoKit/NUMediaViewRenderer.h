@@ -15,7 +15,6 @@
     NUSurfaceRenderClient *_backfillClient;
     NULivePhotoRenderClient *_livePhotoClient;
     NUVideoRenderClient *_videoClient;
-    UIView *_videoPlayerView;
     UIView *_livePhotoView;
     NUCoalescer *_livePhotoUpdateCoalescer;
     NUCoalescer *_videoUpdateCoalescer;

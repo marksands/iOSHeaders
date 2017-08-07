@@ -22,6 +22,7 @@
 @property(nonatomic) __weak id <CKTranscriptBalloonPluginController> balloonController; // @synthesize balloonController=_balloonController;
 @property(nonatomic) _Bool isAppearing; // @synthesize isAppearing=_isAppearing;
 - (void).cxx_destruct;
+- (void)performHostAppResume;
 - (void)releaseBalloonControllerIfNeeded;
 - (void)relinquishBalloonController;
 @property(readonly, nonatomic) _Bool isSaved;
@@ -39,6 +40,7 @@
 - (void)pluginContentViewWillAppear;
 - (_Bool)wantsDrawerLayout;
 - (BOOL)transcriptOrientation;
+- (id)snapshotGUIDForPluginPayload:(id)arg1;
 - (struct UIEdgeInsets)textAlignmentInsets;
 - (_Bool)shouldSnapshot;
 - (Class)balloonViewClass;

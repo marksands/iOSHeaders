@@ -33,11 +33,13 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)indexPathAfterShadowUpdates:(id)arg1 startingAtUpdate:(id)arg2;
 - (id)indexPathBeforeShadowUpdates:(id)arg1 startingBeforeUpdate:(id)arg2;
+- (id)indexPathsAfterShadowUpdates:(id)arg1 allowAppendingInsert:(_Bool)arg2;
 - (id)indexPathsAfterShadowUpdates:(id)arg1;
 - (id)indexPathsBeforeShadowUpdates:(id)arg1;
 - (id)indexPathAfterShadowUpdates:(id)arg1 allowAppendingInsert:(_Bool)arg2;
 - (id)indexPathAfterShadowUpdates:(id)arg1;
 - (id)indexPathBeforeShadowUpdates:(id)arg1;
+- (id)sectionsAfterShadowUpdates:(id)arg1 allowAppendingInsert:(_Bool)arg2;
 - (id)sectionsAfterShadowUpdates:(id)arg1;
 - (id)sectionsBeforeShadowUpdates:(id)arg1;
 - (long long)sectionAfterShadowUpdates:(long long)arg1;

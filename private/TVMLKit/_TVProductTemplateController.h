@@ -54,8 +54,6 @@ __attribute__((visibility("hidden")))
     double _largeTitleHeight;
 }
 
-+ (id)_backgroundImageProxyForProductTemplateElement:(id)arg1;
-+ (id)_imageDecoratorForLoadingTemplateElement:(id)arg1;
 - (void).cxx_destruct;
 - (struct CGSize)_maxContentSize;
 - (void)_updateBackgroundTintViewEffects;
@@ -65,9 +63,11 @@ __attribute__((visibility("hidden")))
 - (struct UIEdgeInsets)_cellMarginForIndex:(long long)arg1 partialMargins:(struct UIEdgeInsets *)arg2;
 - (id)_spacingMetricsForViewControllers:(id)arg1 contentSize:(struct CGSize *)arg2;
 - (void)_configureWithBgImage:(id)arg1 backdropImage:(id)arg2;
+- (_Bool)_isBackdropNeeded;
+- (_Bool)_backgroundImageRequiresBlur;
 - (id)_backgroundImageProxy;
 - (struct CGSize)_backgroundImageProxySize;
-- (long long)_backdropStyle;
+- (long long)_blurEffectStyle;
 - (void)_configureWithBannerElement:(id)arg1;
 - (void)_configureWithBgElement:(id)arg1;
 - (void)_configureTopHeroImage:(id)arg1;

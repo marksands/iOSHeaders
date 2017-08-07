@@ -40,10 +40,12 @@
 @property(readonly, nonatomic) _Bool hasValidChanges;
 - (id)cloudRecordWithObjectID:(id)arg1;
 - (id)cloudRecordWithName:(id)arg1;
+- (void)removeChangeWithObjectID:(id)arg1;
 - (void)addChangeWithDeletedRecordID:(id)arg1;
 - (void)addChangeWithRecord:(id)arg1;
 - (void)addChangeWithObjectChange:(id)arg1;
 - (void)addChange:(id)arg1 setAsProcessing:(_Bool)arg2;
+- (void)_addChange:(id)arg1;
 - (id)changeWithRecordName:(id)arg1;
 - (id)changeWithObjectID:(id)arg1;
 @property(readonly, nonatomic) NSArray *processedTransactionStoreRowIDs;

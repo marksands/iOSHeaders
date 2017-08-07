@@ -8,11 +8,13 @@
 
 #import <AXHearingSupport/HACCContentModule-Protocol.h>
 
-@class HACCLiveListenLevelGroup, NSString, UILabel;
+@class HACCLiveListenLevelGroup, NSString, UILabel, UIVisualEffectView;
 @protocol HACCContentModuleDelegate;
 
 @interface HACCLiveListenButton : UIControl <HACCContentModule>
 {
+    UIVisualEffectView *_titleContainer;
+    UIVisualEffectView *_subtitleContainer;
     _Bool _isListening;
     unsigned long long module;
     id <HACCContentModuleDelegate> delegate;

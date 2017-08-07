@@ -17,6 +17,7 @@
     _Bool _disabled;
     _Bool _hideIcon;
     _Bool _iconForegroundColorFollowsTintColor;
+    _Bool _iconTintColorFollowsDisabledState;
     HFItem *_item;
     UIColor *_iconForegroundColor;
     double _iconAlpha;
@@ -37,6 +38,7 @@
 @property(retain, nonatomic) NSArray *iconSpacingConstraints; // @synthesize iconSpacingConstraints=_iconSpacingConstraints;
 @property(retain, nonatomic) NSArray *dynamicConstraints; // @synthesize dynamicConstraints=_dynamicConstraints;
 @property(retain, nonatomic) NSArray *staticConstraints; // @synthesize staticConstraints=_staticConstraints;
+@property(nonatomic) _Bool iconTintColorFollowsDisabledState; // @synthesize iconTintColorFollowsDisabledState=_iconTintColorFollowsDisabledState;
 @property(nonatomic) unsigned long long iconDisplayStyle; // @synthesize iconDisplayStyle=_iconDisplayStyle;
 @property(nonatomic) struct CGSize iconSize; // @synthesize iconSize=_iconSize;
 @property(nonatomic) double iconAlpha; // @synthesize iconAlpha=_iconAlpha;

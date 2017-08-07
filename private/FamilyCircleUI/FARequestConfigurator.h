@@ -16,9 +16,11 @@
     AAGrandSlamSigner *_grandSlamSigner;
     AAGrandSlamSigner *_familyGrandSlamSigner;
     AIDAServiceOwnersManager *_serviceOwnersManager;
+    _Bool _attachSetupHeader;
 }
 
 + (unsigned char)_isUsingV2Flows;
+@property(nonatomic) _Bool attachSetupHeader; // @synthesize attachSetupHeader=_attachSetupHeader;
 - (void).cxx_destruct;
 - (id)_serviceOwnersManager;
 - (id)_familyTokenForGrandSlamAccount:(id)arg1 andTokenID:(id)arg2;

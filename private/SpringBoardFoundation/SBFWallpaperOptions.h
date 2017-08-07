@@ -49,6 +49,7 @@
 - (_Bool)writeToURL:(id)arg1 error:(id *)arg2;
 - (id)persistentPropertyList;
 @property(readonly) unsigned long long hash;
+- (_Bool)isLooselyEqualToWallpaperOptions:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (struct CGSize)bestWallpaperSizeForWallpaperSize:(struct CGSize)arg1 wallpaperScale:(double)arg2 deviceType:(long long)arg3 imageScale:(double)arg4;

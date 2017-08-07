@@ -21,12 +21,16 @@
 - (void)synchronize;
 @property(readonly, nonatomic) _Bool hasPrivateBrowsingWindow;
 - (void)removeWindowWithUUID:(id)arg1;
+- (void)setBlankSnapshotGroupIdentifier:(id)arg1 forPrivateBrowsing:(_Bool)arg2 forWindowWithUUID:(id)arg3;
+- (id)blankSnapshotGroupIdentifierForPrivateBrowsing:(_Bool)arg1 forWindowWithUUID:(id)arg2;
 - (void)setIsShowingTabView:(_Bool)arg1 forWindowWithUUID:(id)arg2;
 - (_Bool)isShowingTabViewForWindowWithUUID:(id)arg1;
 - (void)setActiveDocumentIsValid:(_Bool)arg1 forWindowWithUUID:(id)arg2;
 - (_Bool)activeDocumentIsValidForWindowWithUUID:(id)arg1;
 - (void)setPrivateBrowsingEnabled:(_Bool)arg1 forWindowWithUUID:(id)arg2;
 - (_Bool)privateBrowsingEnabledForWindowWithUUID:(id)arg1;
+- (void)_setString:(id)arg1 forKey:(id)arg2 windowUUID:(id)arg3;
+- (id)_stringForKey:(id)arg1 windowUUID:(id)arg2;
 - (_Bool)_boolValueForKey:(id)arg1 windowUUID:(id)arg2;
 - (id)_numberForKey:(id)arg1 windowUUID:(id)arg2;
 - (void)_setBool:(_Bool)arg1 forKey:(id)arg2 windowUUID:(id)arg3;

@@ -17,6 +17,7 @@
 @property(readonly) TKSmartCard *smartCard; // @synthesize smartCard=_smartCard;
 @property(readonly) NSData *AID; // @synthesize AID=_AID;
 - (void).cxx_destruct;
+- (_Bool)valid;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)initWithSmartCard:(id)arg1 AID:(id)arg2 instanceID:(id)arg3 tokenDriver:(id)arg4;

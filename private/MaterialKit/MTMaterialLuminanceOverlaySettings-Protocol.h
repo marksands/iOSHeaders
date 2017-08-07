@@ -4,17 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <MaterialKit/NSObject-Protocol.h>
+#import <MaterialKit/MTMaterialOverlaySettings-Protocol.h>
 
-@protocol MTMaterialLuminanceOverlaySettings <NSObject>
+@class UIColor;
+
+@protocol MTMaterialLuminanceOverlaySettings <MTMaterialOverlaySettings>
 @property(nonatomic) double auxiliaryOverlayBlurRadius;
 @property(nonatomic) double secondaryOverlayBrightness;
 @property(nonatomic) double secondaryOverlaySaturation;
-@property(nonatomic) double primaryOverlayTintAlpha;
 @property(nonatomic) double primaryOverlayBrightness;
 @property(nonatomic) double primaryOverlaySaturation;
-@property(nonatomic) double baseTintAlpha;
-@property(nonatomic) double baseBrightness;
-@property(nonatomic) double baseSaturation;
+@property(nonatomic) double baseOverlayBrightness;
+@property(nonatomic) double baseOverlaySaturation;
+@property(nonatomic) double baseOverlayTintAlpha;
+@property(readonly, copy, nonatomic) UIColor *baseOverlayColor;
 @end
 

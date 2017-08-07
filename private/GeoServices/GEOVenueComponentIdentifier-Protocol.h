@@ -10,8 +10,6 @@
 @protocol GEOVenueFloorInfo;
 
 @protocol GEOVenueComponentIdentifier <NSObject>
-@property(readonly, nonatomic) unsigned long long directoryGroupingID;
-@property(readonly, nonatomic, getter=_hasDirectoryGroupingID) _Bool hasDirectoryGroupingID;
 @property(readonly, nonatomic) unsigned long long fixtureID;
 @property(readonly, nonatomic, getter=_hasFixtureID) _Bool hasFixtureID;
 @property(readonly, nonatomic) unsigned long long unitID;

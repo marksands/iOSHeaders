@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (void)_updateTiles;
+- (void)_pageDidRotate:(id)arg1;
 - (void)_renderingPropertyUpdate:(id)arg1;
 - (void)_printRectsArray:(id)arg1;
 - (_Bool)_hasTileWithFrameInLayer:(struct CGRect)arg1;
@@ -27,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_isTile:(id)arg1 occludedByTiles:(id)arg2;
 - (void)tileDrawingComplete:(id)arg1;
 - (struct CGAffineTransform)_layerEffectTransform;
+- (void)_updateLayerEffectTransformForLayer:(id)arg1;
 - (void)_updateLayerEffectTransform;
 - (void)_setEnablePageShadows:(_Bool)arg1;
 - (void)_hideTileLayer:(_Bool)arg1;
@@ -44,6 +46,7 @@ __attribute__((visibility("hidden")))
 - (void)_forceTileUpdate;
 - (void)forceTileUpdate;
 - (void)setEnableTileUpdates:(_Bool)arg1;
+- (void)updatePageLayerEffect:(id)arg1;
 - (id)pageLayerEffects;
 - (void)removePageLayerEffectByUUID:(id)arg1;
 - (void)removePageLayerEffect:(id)arg1;
@@ -51,6 +54,7 @@ __attribute__((visibility("hidden")))
 - (id)addPageLayerEffect:(id)arg1;
 - (_Bool)isVisible;
 - (void)_tileUpdateComplete;
+- (long long)displayBox;
 - (void)setNeedsTilesUpdate;
 - (id)page;
 - (void)dealloc;

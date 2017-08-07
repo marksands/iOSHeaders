@@ -11,7 +11,9 @@
 }
 
 + (id)confirmationRequiredWithValueToConfirm:(long long)arg1;
++ (id)confirmationRequiredWithLocationSearchTypeToConfirm:(long long)arg1;
 + (id)successWithResolvedValue:(long long)arg1;
++ (id)successWithResolvedLocationSearchType:(long long)arg1;
 
 @end
 

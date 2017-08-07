@@ -31,6 +31,7 @@
 + (id)_modifierStringFromModifiers:(unsigned long long)arg1;
 + (id)_operandStringForOperand:(long long)arg1;
 + (id)queryWithString:(id)arg1 context:(id)arg2;
++ (double)intervalForSpotlightFailureSimulation;
 @property(retain, nonatomic) CSSearchQuery *query; // @synthesize query=_query;
 @property(retain, nonatomic) NSString *queryStatusString; // @synthesize queryStatusString=_queryStatusString;
 @property(retain, nonatomic) NSString *logPrefixString; // @synthesize logPrefixString=_logPrefixString;

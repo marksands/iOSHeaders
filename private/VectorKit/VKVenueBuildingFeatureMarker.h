@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSDictionary *floorNames;
 @property(readonly, nonatomic) NSDictionary *shortFloorNames;
 @property(readonly, nonatomic) NSArray *floorOrdinals;
+@property(readonly, nonatomic) unsigned long long businessId;
 @property(readonly, nonatomic) unsigned long long buildingId;
 - (const shared_ptr_ec62a932 *)venueBuildingFeatureMarker;
 - (id)initWithVenueBuilding:(const struct VenueBuilding *)arg1;

@@ -6,24 +6,26 @@
 
 #import <iTunesStore/ISOperation.h>
 
-@class ISBiometricStore, ISTouchIDDialog, SSBiometricAuthenticationContext;
+@class ISBiometricStore, ISDialog, ISTouchIDDialog, SSBiometricAuthenticationContext;
 
 @interface ISBiometricSignatureOperation : ISOperation
 {
     CDUnknownBlockType _outputBlock;
     ISBiometricStore *_biometricStore;
     SSBiometricAuthenticationContext *_context;
-    ISTouchIDDialog *_dialog;
+    ISDialog *_fallbackDialog;
+    ISTouchIDDialog *_touchIDDialog;
 }
 
-@property(retain, nonatomic) ISTouchIDDialog *dialog; // @synthesize dialog=_dialog;
+@property(retain, nonatomic) ISTouchIDDialog *touchIDDialog; // @synthesize touchIDDialog=_touchIDDialog;
+@property(retain, nonatomic) ISDialog *fallbackDialog; // @synthesize fallbackDialog=_fallbackDialog;
 @property(retain) SSBiometricAuthenticationContext *context; // @synthesize context=_context;
 @property(retain, nonatomic) ISBiometricStore *biometricStore; // @synthesize biometricStore=_biometricStore;
 @property(copy) CDUnknownBlockType outputBlock; // @synthesize outputBlock=_outputBlock;
 - (void).cxx_destruct;
-- (id)_reasonForDialogBody:(id)arg1;
+- (_Bool)_promptUserToAuthenticateForIdentityMapChangeWithAccountIdentifier:(id)arg1 accountName:(id)arg2;
 - (void)run;
-- (id)initWithBiometricAuthenticationContext:(id)arg1 dialog:(id)arg2;
+- (id)initWithBiometricAuthenticationContext:(id)arg1 touchIDDialog:(id)arg2 fallbackDialog:(id)arg3;
 
 @end
 

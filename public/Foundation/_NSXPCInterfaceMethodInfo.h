@@ -17,8 +17,12 @@ __attribute__((visibility("hidden")))
     NSArray *_arguments;
     unsigned long long _version;
     Class _returnClass;
+    _Bool _sendsProxyInArgument;
+    _Bool _receivesProxyInReply;
 }
 
+@property _Bool receivesProxyInReply; // @synthesize receivesProxyInReply=_receivesProxyInReply;
+@property _Bool sendsProxyInArgument; // @synthesize sendsProxyInArgument=_sendsProxyInArgument;
 @property Class returnClass; // @synthesize returnClass=_returnClass;
 @property unsigned long long version; // @synthesize version=_version;
 @property int replyPosition; // @synthesize replyPosition=_replyPosition;

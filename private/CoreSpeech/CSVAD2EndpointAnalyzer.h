@@ -37,6 +37,7 @@
     double _delay;
     double _sampleRate;
     double _samplesSeen;
+    double _numSamplesProcessed;
     double _lastOneShotStartpoint;
     double _lastOneShotEndpoint;
     double _lastRecurrentStartpoint;
@@ -61,6 +62,7 @@
 @property(nonatomic) double lastRecurrentStartpoint; // @synthesize lastRecurrentStartpoint=_lastRecurrentStartpoint;
 @property(nonatomic) double lastOneShotEndpoint; // @synthesize lastOneShotEndpoint=_lastOneShotEndpoint;
 @property(nonatomic) double lastOneShotStartpoint; // @synthesize lastOneShotStartpoint=_lastOneShotStartpoint;
+@property(nonatomic) double numSamplesProcessed; // @synthesize numSamplesProcessed=_numSamplesProcessed;
 @property(nonatomic) double samplesSeen; // @synthesize samplesSeen=_samplesSeen;
 @property(nonatomic) _Bool communicatedEndpointDetection; // @synthesize communicatedEndpointDetection=_communicatedEndpointDetection;
 @property(nonatomic) _Bool detectedRecurrentEndpoint; // @synthesize detectedRecurrentEndpoint=_detectedRecurrentEndpoint;

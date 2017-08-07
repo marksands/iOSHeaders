@@ -6,7 +6,7 @@
 
 #import <CFNetwork/NSURLSessionTask.h>
 
-@class NSArray, NSData, NSDate, NSDictionary, NSError, NSMutableArray, NSObject, NSProgress, NSString, NSURL, NSURLRequest, NSURLResponse, NSURLSession, NSURLSessionConfiguration, NSURLSessionTaskDependency, NSURLSessionTaskDependencyTree, NSURLSessionTaskHTTPAuthenticator;
+@class NSArray, NSData, NSDate, NSDictionary, NSError, NSMutableArray, NSObject, NSProgress, NSString, NSURL, NSURLRequest, NSURLResponse, NSURLSession, NSURLSessionConfiguration, NSURLSessionTaskDependency, NSURLSessionTaskDependencyTree, NSURLSessionTaskHTTPAuthenticator, NSURLSessionTaskMetrics;
 @protocol NSURLSessionAppleIDContext, OS_dispatch_queue, SZExtractor;
 
 __attribute__((visibility("hidden")))
@@ -89,6 +89,7 @@ __attribute__((visibility("hidden")))
     NSURLSessionTaskDependency *_taskDependency;
     NSString *_pathToDownloadTaskFile;
     NSMutableArray *_transactionMetrics;
+    NSURLSessionTaskMetrics *_incompleteTaskMetrics;
     NSDictionary *_trailers;
     _Bool _allowsQUIC;
     id <SZExtractor> _extractor;
@@ -110,6 +111,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)supportsSecureCoding;
+- (void)set_incompleteTaskMetrics:(id)arg1;
+- (id)_incompleteTaskMetrics;
 - (void)set_backgroundPublishingURL:(id)arg1;
 - (id)_backgroundPublishingURL;
 - (void)set_publishingURL:(id)arg1;

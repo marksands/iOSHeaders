@@ -22,6 +22,7 @@
     float _displayOrientation;
     _Bool _sideways;
     _Bool _renderWithIOSurface;
+    id _framebufferListenerToken;
     float _currentProgress;
     struct CGImage *_appleLogo;
     double _progressXDelta;
@@ -50,6 +51,7 @@
 - (void)setProgressValue:(float)arg1;
 - (void)setVisible:(_Bool)arg1;
 - (void)_updateIOSurface;
+- (void)_updateLayerForFramebufferSize:(struct CGSize)arg1;
 - (void)_createLayer;
 - (void)_createContext;
 - (void)_collectDisplayInfo;

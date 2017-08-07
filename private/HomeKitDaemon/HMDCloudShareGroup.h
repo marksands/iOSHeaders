@@ -6,7 +6,7 @@
 
 #import <HMFoundation/HMFObject.h>
 
-@class CKShare, HMDBackingStoreCacheShareGroup, HMDCloudCache, HMDCloudGroup, HMDCloudObjectRecord, HMDCloudZone, NSMutableArray, NSString, NSUUID;
+@class CKShare, HMDBackingStoreCacheShareGroup, HMDCloudCache, HMDCloudGroup, HMDCloudRecord, HMDCloudZone, NSMutableArray, NSString, NSUUID;
 
 @interface HMDCloudShareGroup : HMFObject
 {
@@ -42,7 +42,7 @@
 - (id)cloudRecordWithName:(id)arg1;
 - (_Bool)isRootRecord:(id)arg1;
 - (_Bool)isRootRecordName:(id)arg1;
-@property(readonly, nonatomic) HMDCloudObjectRecord *rootRecord;
+@property(readonly, nonatomic) HMDCloudRecord *rootRecord;
 - (id)rootRecordModelObject;
 - (id)rootRecordObjectID;
 @property(readonly, nonatomic) NSUUID *parentIdentifier;

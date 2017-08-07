@@ -70,6 +70,7 @@
 @property(readonly, nonatomic) NSString *customJinglePayload;
 @property(readonly, nonatomic) NSString *iTunesAccountIdentifier;
 @property(readonly, nonatomic) SSAccount *iTunesStoreAccount;
+@property(readonly, nonatomic) NSString *iCloudDSID;
 @property(readonly, nonatomic) NSString *iCloudAccountIdentifier;
 @property(readonly, nonatomic) ACAccount *iCloudAccount;
 - (void)expire;

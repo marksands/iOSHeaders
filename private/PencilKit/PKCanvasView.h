@@ -57,14 +57,14 @@
 - (_Bool)liveDrawingIsAtEndOfDocument;
 - (struct CGPoint)closestPointForPastedSelectionRect:(struct CGRect)arg1 withDrawing:(id *)arg2;
 - (id)drawingForSelectionRect:(struct CGRect)arg1;
+- (id)drawingForUUID:(id)arg1;
 - (_Bool)containsDrawingUUID:(id)arg1;
 - (_Bool)isValidDropPointForStrokes:(struct CGPoint)arg1;
 - (struct CGPoint)pointInStrokeSpace:(struct CGPoint)arg1 inDrawing:(id)arg2;
-- (void)selectionRefreshWithChangeToDrawing:(id)arg1;
+- (void)selectionRefreshWithChangeToDrawings:(id)arg1;
 - (id)selectionTopView;
 - (struct CGAffineTransform)selectionDrawingTransform;
 - (struct CGPoint)selectionOffsetForDrawing:(id)arg1;
-- (struct CGPoint)selectionOffsetForLiveDrawing;
 @property(readonly, nonatomic) CHVisualizationManager *_recognitionVisualizationManager;
 - (void)duplicate:(id)arg1;
 - (void)delete:(id)arg1;

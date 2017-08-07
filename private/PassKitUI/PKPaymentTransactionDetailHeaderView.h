@@ -14,10 +14,14 @@
     UIView *_contentViewSizingView;
     NSString *_subtitleText;
     double _topPadding;
+    double _contentToLabelPadding;
+    double _bottomPadding;
     UILabel *_subtitleLabel;
 }
 
 @property(retain, nonatomic) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
+@property(nonatomic) double bottomPadding; // @synthesize bottomPadding=_bottomPadding;
+@property(nonatomic) double contentToLabelPadding; // @synthesize contentToLabelPadding=_contentToLabelPadding;
 @property(nonatomic) double topPadding; // @synthesize topPadding=_topPadding;
 @property(copy, nonatomic) NSString *subtitleText; // @synthesize subtitleText=_subtitleText;
 @property(readonly, nonatomic) UIView *contentViewSizingView; // @synthesize contentViewSizingView=_contentViewSizingView;

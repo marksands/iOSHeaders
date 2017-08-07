@@ -28,6 +28,7 @@
 @property(retain, nonatomic) UIColor *highlightedSubLabelColor;
 @property(retain, nonatomic) UIColor *selectedLabelColor;
 @property(retain, nonatomic) UIFont *subLabelFont;
+@property(nonatomic) unsigned long long subLabelAlignment;
 @property(nonatomic) unsigned long long labelAlignment;
 @property(retain, nonatomic) id highlightedValue;
 - (void)selectLabel:(_Bool)arg1 atIndex:(unsigned long long)arg2;

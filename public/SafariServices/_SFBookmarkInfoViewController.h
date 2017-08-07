@@ -53,6 +53,7 @@
 - (void)_didChangeEditingTextField:(id)arg1;
 - (void)_didBeginEditingTextField:(id)arg1;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (id)_iconForViewCellGivenBookmark:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;

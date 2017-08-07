@@ -15,7 +15,6 @@
 
 @property(nonatomic) __weak RUIPage *page; // @synthesize page=_page;
 - (void).cxx_destruct;
-- (id)style;
 @property(nonatomic, getter=isLoading) _Bool loading;
 @property(copy, nonatomic) NSString *title;
 - (id)staticValues;

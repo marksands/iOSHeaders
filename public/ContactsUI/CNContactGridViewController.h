@@ -53,7 +53,7 @@
 - (void)actionsView:(id)arg1 didPerformAction:(id)arg2;
 - (void)actionsView:(id)arg1 willShowActions:(id)arg2;
 - (id)viewControllerForActionsView:(id)arg1;
-- (void)avatarView:(id)arg1 willShowActions:(id)arg2;
+- (void)willBeginPreviewInteractionForAvatarView:(id)arg1;
 - (id)presentingViewControllerForAvatarView:(id)arg1;
 @property(readonly, nonatomic) id <CNKeyDescriptor> descriptorForRequiredKeys;
 - (void)preloadInlineActionsForContactsAtIndexes:(id)arg1;

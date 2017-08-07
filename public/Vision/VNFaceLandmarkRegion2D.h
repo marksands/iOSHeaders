@@ -6,18 +6,24 @@
 
 #import <Vision/VNFaceLandmarkRegion.h>
 
+@class NSMutableDictionary;
+
 @interface VNFaceLandmarkRegion2D : VNFaceLandmarkRegion
 {
+    NSMutableDictionary *_sizedPointsCache;
     // Error parsing type: r^, name: _points
 }
 
 // Error parsing type for property points:
 // Property attributes: Tr^,V_points
 
+- (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (void)dealloc;
--     // Error parsing type: @32@0:8^16Q24, name: initWithPoints:pointCount:
+-     // Error parsing type: @64@0:8{CGRect={CGPoint=dd}{CGSize=dd}}16^48Q56, name: initWithFaceBoundingBox:points:pointCount:
+- (const struct CGPoint *)pointsInImageOfSize:(struct CGSize)arg1;
+@property(readonly) const struct CGPoint *normalizedPoints;
 -     // Error parsing type: 24@0:8Q16, name: pointAtIndex:
 
 @end

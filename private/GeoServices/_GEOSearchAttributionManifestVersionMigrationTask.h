@@ -8,7 +8,7 @@
 
 #import <GeoServices/GEOActiveTileGroupMigrationTask-Protocol.h>
 
-@class GEOActiveTileGroup, GEOReportedProgress, GEOResources, GEOSearchAttributionManifest, GEOSearchAttributionManifestVersionMigrator, GEOTileGroup, NSProgress, NSString, NSURLSession, NSURLSessionDataTask;
+@class GEOActiveTileGroup, GEOReportedProgress, GEOSearchAttributionManifest, GEOSearchAttributionManifestVersionMigrator, NSProgress, NSString, NSURLSession, NSURLSessionDataTask;
 @protocol NSObject, OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -17,8 +17,7 @@ __attribute__((visibility("hidden")))
     GEOSearchAttributionManifestVersionMigrator *_migrator;
     NSObject<OS_dispatch_queue> *_workQueue;
     _Bool _running;
-    GEOTileGroup *_newTileGroup;
-    GEOResources *_resourceManifest;
+    NSString *_newSearchAttributionManifestURL;
     GEOActiveTileGroup *_oldTileGroup;
     CDUnknownBlockType _completionHandler;
     NSObject<OS_dispatch_queue> *_callbackQueue;
@@ -39,7 +38,8 @@ __attribute__((visibility("hidden")))
 - (void)startWithCompletionHandler:(CDUnknownBlockType)arg1 callbackQueue:(id)arg2;
 @property(readonly) NSProgress *progress;
 @property(readonly) long long estimatedWeight;
-- (id)initWithMigrator:(id)arg1 newTileGroup:(id)arg2 inResourceManifest:(id)arg3 oldTileGroup:(id)arg4;
+- (void)dealloc;
+- (id)initWithMigrator:(id)arg1 newSearchAttributionManifestURL:(id)arg2 oldTileGroup:(id)arg3;
 - (id)init;
 
 // Remaining properties

@@ -34,6 +34,7 @@
     unsigned long long _whichTrigger;
 }
 
++ (id)startSearchFeedbackWithUUID;
 @property(readonly, nonatomic) unsigned long long whichTrigger; // @synthesize whichTrigger=_whichTrigger;
 @property(nonatomic) int tuscanyStatus; // @synthesize tuscanyStatus=_tuscanyStatus;
 @property(nonatomic) int endpoint; // @synthesize endpoint=_endpoint;

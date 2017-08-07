@@ -22,6 +22,7 @@
 - (void).cxx_destruct;
 - (int)_paperOrientation;
 - (void)_setPaperOrientation:(int)arg1;
+- (id)_keywordForPDFMetadata;
 - (id)_localizedMediaTypeName;
 - (id)_localizedName;
 - (id)description;

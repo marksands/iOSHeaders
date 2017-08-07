@@ -11,7 +11,9 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (unsigned long long)_zIndex;
 + (_Bool)_followsTerrain;
+- (void)setPreferredZIndex:(unsigned long long)arg1;
 
 @end
 

@@ -172,6 +172,7 @@
     double _newsTodayWidgetVideoPlaybackClickValue;
     double _newsTodayWidgetVideoPlaybackImpressionValue;
     long long _numEventsToDisableDefaultTopics;
+    long long _numSubscriptionsToDisableDefaultTopics;
     double _optionalTagSpecificityScore;
     double _overflownOrphansFilterCoeff;
     double _personalizationCoefficient;
@@ -520,6 +521,7 @@
         unsigned int newsTodayWidgetVideoPlaybackClickValue:1;
         unsigned int newsTodayWidgetVideoPlaybackImpressionValue:1;
         unsigned int numEventsToDisableDefaultTopics:1;
+        unsigned int numSubscriptionsToDisableDefaultTopics:1;
         unsigned int optionalTagSpecificityScore:1;
         unsigned int overflownOrphansFilterCoeff:1;
         unsigned int personalizationCoefficient:1;
@@ -710,6 +712,7 @@
 
 + (Class)realTimeUserFeedbackTagCoefficientsType;
 + (Class)portraitTagThresholdsType;
+@property(nonatomic) long long numSubscriptionsToDisableDefaultTopics; // @synthesize numSubscriptionsToDisableDefaultTopics=_numSubscriptionsToDisableDefaultTopics;
 @property(nonatomic) unsigned int auditionedAutoFavoritesEmitterLimit; // @synthesize auditionedAutoFavoritesEmitterLimit=_auditionedAutoFavoritesEmitterLimit;
 @property(nonatomic) double autoFavoriteMaxIdleTime; // @synthesize autoFavoriteMaxIdleTime=_autoFavoriteMaxIdleTime;
 @property(nonatomic) double maxExpandedAutofavoriteGroupCandidateRatio; // @synthesize maxExpandedAutofavoriteGroupCandidateRatio=_maxExpandedAutofavoriteGroupCandidateRatio;
@@ -1060,6 +1063,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasNumSubscriptionsToDisableDefaultTopics;
 @property(nonatomic) _Bool hasAuditionedAutoFavoritesEmitterLimit;
 @property(nonatomic) _Bool hasAutoFavoriteMaxIdleTime;
 @property(nonatomic) _Bool hasMaxExpandedAutofavoriteGroupCandidateRatio;

@@ -25,6 +25,7 @@
 @property(readonly, nonatomic) NSSet *senderIdentifiers; // @synthesize senderIdentifiers=_senderIdentifiers;
 @property(readonly, nonatomic) NSSet *recipientIdentifiers; // @synthesize recipientIdentifiers=_recipientIdentifiers;
 @property(readonly, nonatomic) NSString *senderIdentifier; // @dynamic senderIdentifier;
+@property(readonly, nonatomic) _Bool mostRecentTextEntryIsByMe;
 @property(readonly, nonatomic) NSString *mostRecentNonSenderTextEntry;
 @property(readonly, nonatomic) NSString *aggregateText;
 - (_Bool)hasPendingEntries;

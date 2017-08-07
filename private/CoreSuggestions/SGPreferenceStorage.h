@@ -52,6 +52,7 @@
 + (void)removeDeprecatedDefaults;
 + (void)registerBlockOnSuggestionsSettingsChange:(CDUnknownBlockType)arg1;
 + (_Bool)showSuggestionsCalendar;
++ (void)setHashedSessionsLogging:(int)arg1;
 + (long long)hashedSessionsLogging;
 + (_Bool)showEventsFoundInMail;
 + (_Bool)showContactsFoundInMail;
@@ -61,6 +62,7 @@
 + (_Bool)onlyShowSignificantNLEvents;
 + (void)setOnlyShowSignificantPseudoContacts:(_Bool)arg1;
 + (_Bool)onlyShowSignificantPseudoContacts;
++ (void)updateIntSettingKey:(id)arg1 withValue:(int)arg2;
 + (void)updateBoolSettingKey:(id)arg1 withValue:(_Bool)arg2;
 + (void)setAlwaysShowCancelledEvents:(_Bool)arg1;
 + (_Bool)alwaysShowCancelledEvents;

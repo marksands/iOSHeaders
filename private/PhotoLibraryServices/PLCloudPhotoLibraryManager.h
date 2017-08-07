@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PhotoLibraryServices/CPLLibraryManagerDelegate-Protocol.h>
 #import <PhotoLibraryServices/CPLResourceProgressDelegate-Protocol.h>
@@ -60,7 +60,6 @@
     _Bool _significantWork;
     PLCloudInMemoryTaskManager *_inMemoryTaskManager;
     PLCloudPhotoLibraryUploadTracker *_uploadTracker;
-    _Bool _inResetSync;
     unsigned long long _numberOfPhotosToUpload;
     unsigned long long _numberOfVideosToUpload;
     unsigned long long _numberOfPhotosToDownload;
@@ -77,7 +76,7 @@
 
 + (void)getDownloadPhotoCount:(unsigned long long *)arg1 downloadVideoCount:(unsigned long long *)arg2;
 + (_Bool)_hasItemToDownload;
-+ (void)_setDownloadCountsForImages:(unsigned long long)arg1 videos:(unsigned long long)arg2;
++ (void)_setToDownloadCountsForImages:(unsigned long long)arg1 videos:(unsigned long long)arg2;
 + (id)_serialQueue;
 + (void)_writeDict:(id)arg1 withFilename:(id)arg2;
 + (id)_readPListWithFilename:(id)arg1;
@@ -90,7 +89,6 @@
 @property(retain, nonatomic, setter=_setNumberOfOtherItemsToPush:) NSNumber *_numberOfOtherItemsToPush; // @synthesize _numberOfOtherItemsToPush=__numberOfOtherItemsToPush;
 @property(retain, nonatomic, setter=_setNumberOfVideosToPush:) NSNumber *_numberOfVideosToPush; // @synthesize _numberOfVideosToPush=__numberOfVideosToPush;
 @property(retain, nonatomic, setter=_setNumberOfPhotosToPush:) NSNumber *_numberOfPhotosToPush; // @synthesize _numberOfPhotosToPush=__numberOfPhotosToPush;
-@property(readonly, nonatomic) _Bool inResetSync; // @synthesize inResetSync=_inResetSync;
 @property(readonly, nonatomic) unsigned long long numberOfOtherItemsToDownload; // @synthesize numberOfOtherItemsToDownload=_numberOfOtherItemsToDownload;
 @property(readonly, nonatomic) unsigned long long numberOfVideosToDownload; // @synthesize numberOfVideosToDownload=_numberOfVideosToDownload;
 @property(readonly, nonatomic) unsigned long long numberOfPhotosToDownload; // @synthesize numberOfPhotosToDownload=_numberOfPhotosToDownload;
@@ -103,6 +101,7 @@
 - (void)_stopWorkInProgressTimer;
 - (void)_startWorkInProgressTimer;
 - (void)endUserSessionWithCompletionHandler:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) _Bool inResetSync;
 @property(readonly, nonatomic) unsigned long long totalUploadedOriginalSize;
 @property(readonly, nonatomic) unsigned long long totalSizeOfUnpushedOriginals;
 @property(readonly, nonatomic) unsigned long long totalNumberOfUploadedMasters;
@@ -210,6 +209,8 @@
 - (void)beginsSignificantWorkWithResourcesSize:(unsigned long long)arg1 initialOrResetSync:(_Bool)arg2;
 - (void)_runOneTimeMigrationStepsIfNecessary;
 - (void)_initializeMasterAndSizeCalculation;
+- (void)_promptForCameraCaptureSettingChange;
+- (void)_handleAccountFlagsChangeIfNecessary;
 - (void)_openCPLLibrary;
 - (id)init;
 - (void)updateLastKnownIndexFromChangeHub;

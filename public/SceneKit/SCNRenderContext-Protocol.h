@@ -50,7 +50,7 @@
 - (void)popDebugGroup;
 - (void)pushDebugGroup:(NSString *)arg1;
 - (id)newRenderTargetWithDescription:(CDStruct_fd8065c6 *)arg1 size:(unsigned long long)arg2 arrayLength: /* Error: Ran out of types for this method. */;
-- (void)setBackgroundColor:(struct C3DColor4)arg1;
+- (void)setRendererPremultipliedBackgroundColor:(struct C3DColor4)arg1;
 - (void)endRenderPass;
 -     // Error parsing type: B27@0:8^{__C3DFXPass={__CFRuntimeBase=QAQ}^{__CFString}iiB^{__C3DFXTechnique}^{__CFString}^{__CFString}^{__CFString}^{__CFString}B^{__C3DFXProgram}^{__C3DMaterial}^{__C3DBlendStates}^{__C3DRasterizerStates}{C3DColor4=(?=[4f]{?=ffff})}CIb1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1^{__C3DRendererElement}QQ{?=^?^?^?^?^?^?^?^?^v}{?=[4{?=CCCb1b1b1b1b1[4C]}]{?=CCCb1b1b1b1b1[4C]}b3b1b1}{CGPoint=dd}^{?}I^{__C3DNode}^{__C3DNode}^{__CFArray}^{__C3DNode}^{__CFString}^{__CFString}^{__CFString}^^{__C3DFXPassInput}qq^{__CFDictionary}^{__CFDictionary}}16{?=CCB}24, name: beginRenderPass:parameters:
 - (void)endFrameWaitingUntilCompleted:(_Bool)arg1;

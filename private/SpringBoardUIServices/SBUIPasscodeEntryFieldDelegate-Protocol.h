@@ -11,6 +11,8 @@
 @protocol SBUIPasscodeEntryFieldDelegate <NSObject>
 
 @optional
+- (void)passcodeEntryFieldDidResignFirstResponder:(SBUIPasscodeEntryField *)arg1;
+- (_Bool)passcodeEntryFieldShouldShowSystemKeyboard:(SBUIPasscodeEntryField *)arg1;
 - (void)passcodeEntryFieldTextDidChange:(SBUIPasscodeEntryField *)arg1;
 - (_Bool)passcodeEntryField:(SBUIPasscodeEntryField *)arg1 shouldInsertText:(NSString *)arg2;
 - (void)passcodeEntryFieldDidCancelEntry:(SBUIPasscodeEntryField *)arg1;

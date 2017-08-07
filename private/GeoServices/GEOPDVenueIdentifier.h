@@ -13,18 +13,21 @@
 @interface GEOPDVenueIdentifier : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    CDStruct_62a50c50 _containedBys;
     CDStruct_62a50c50 _sectionIds;
     unsigned long long _buildingId;
-    unsigned long long _directoryGroupingId;
+    unsigned long long _featureId;
     unsigned long long _fixtureId;
+    unsigned long long _geminiId;
     unsigned long long _levelId;
     unsigned long long _unitId;
     unsigned long long _venueId;
     int _levelOrdinal;
     struct {
         unsigned int buildingId:1;
-        unsigned int directoryGroupingId:1;
+        unsigned int featureId:1;
         unsigned int fixtureId:1;
+        unsigned int geminiId:1;
         unsigned int levelId:1;
         unsigned int unitId:1;
         unsigned int venueId:1;
@@ -32,8 +35,8 @@
     } _has;
 }
 
-+ (id)venueIdentifiersForIdentifier:(id)arg1;
-@property(nonatomic) unsigned long long directoryGroupingId; // @synthesize directoryGroupingId=_directoryGroupingId;
+@property(nonatomic) unsigned long long geminiId; // @synthesize geminiId=_geminiId;
+@property(nonatomic) unsigned long long featureId; // @synthesize featureId=_featureId;
 @property(nonatomic) int levelOrdinal; // @synthesize levelOrdinal=_levelOrdinal;
 @property(nonatomic) unsigned long long fixtureId; // @synthesize fixtureId=_fixtureId;
 @property(nonatomic) unsigned long long unitId; // @synthesize unitId=_unitId;
@@ -51,7 +54,14 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasDirectoryGroupingId;
+@property(nonatomic) _Bool hasGeminiId;
+- (void)setContainedBys:(unsigned long long *)arg1 count:(unsigned long long)arg2;
+- (unsigned long long)containedByAtIndex:(unsigned long long)arg1;
+- (void)addContainedBy:(unsigned long long)arg1;
+- (void)clearContainedBys;
+@property(readonly, nonatomic) unsigned long long *containedBys;
+@property(readonly, nonatomic) unsigned long long containedBysCount;
+@property(nonatomic) _Bool hasFeatureId;
 @property(nonatomic) _Bool hasLevelOrdinal;
 @property(nonatomic) _Bool hasFixtureId;
 @property(nonatomic) _Bool hasUnitId;
@@ -66,8 +76,8 @@
 @property(nonatomic) _Bool hasVenueId;
 - (void)dealloc;
 - (id)initWithIdentifier:(id)arg1;
-- (id)initWithVenueID:(unsigned long long)arg1 componentIdentifier:(id)arg2;
-- (id)initWithVenueID:(unsigned long long)arg1;
+- (id)initWithVenueID:(unsigned long long)arg1 businessID:(unsigned long long)arg2 componentIdentifier:(id)arg3;
+- (id)initWithVenueID:(unsigned long long)arg1 businessID:(unsigned long long)arg2;
 
 @end
 

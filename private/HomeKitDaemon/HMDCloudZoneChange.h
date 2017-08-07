@@ -6,16 +6,18 @@
 
 #import <HMFoundation/HMFObject.h>
 
-@class CKRecordID, HMDCloudZone, NSArray, NSUUID;
+@class CKRecordID, HMDCloudGroupChange, HMDCloudZone, NSArray, NSUUID;
 
 @interface HMDCloudZoneChange : HMFObject
 {
     _Bool _temporaryCache;
     NSUUID *_identifier;
     HMDCloudZone *_cloudZone;
+    HMDCloudGroupChange *_rootGroupChange;
 }
 
 + (id)shortDescription;
+@property(retain, nonatomic) HMDCloudGroupChange *rootGroupChange; // @synthesize rootGroupChange=_rootGroupChange;
 @property(nonatomic) __weak HMDCloudZone *cloudZone; // @synthesize cloudZone=_cloudZone;
 @property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic, getter=isTemporaryCache) _Bool temporaryCache; // @synthesize temporaryCache=_temporaryCache;
@@ -23,11 +25,6 @@
 @property(readonly, nonatomic) NSArray *objectChanges;
 - (id)changeWithRecordName:(id)arg1;
 - (id)changeWithObjectID:(id)arg1;
-- (void)flushCloudRecord:(id)arg1;
-- (void)deleteCloudRecord:(id)arg1;
-- (void)addCloudRecord:(id)arg1 ownerID:(id)arg2;
-- (id)cloudRecordWithObjectID:(id)arg1;
-- (id)cloudRecordWithName:(id)arg1;
 - (void)flushAllChangesToCache;
 - (void)setDeleteAsProcessedWithRecordID:(id)arg1;
 - (void)setSaveAsProcessedWithRecord:(id)arg1;
@@ -35,7 +32,11 @@
 - (_Bool)moreChangesToProcess;
 - (void)setAllChangedAsProcessed;
 - (void)loadCloudRecordsAndDetermineDeletesFromCache:(CDUnknownBlockType)arg1;
+- (id)cachedCloudRecordWithObjectID:(id)arg1;
+- (_Bool)doesRecordExistInCacheWithObjectID:(id)arg1;
+- (_Bool)doesRecordExistWithObjectID:(id)arg1;
 @property(readonly, nonatomic) _Bool hasValidChanges;
+- (void)removeChangeWithObjectID:(id)arg1;
 - (void)addChangeWithDeletedRecordID:(id)arg1;
 - (void)addChangeWithRecord:(id)arg1;
 - (void)addChangeWithObjectChange:(id)arg1;
@@ -43,6 +44,7 @@
 @property(readonly, nonatomic) NSArray *processedTransactionStoreRowIDs;
 @property(readonly, nonatomic) NSArray *allTransactionStoreRowIDs;
 @property(readonly, nonatomic) CKRecordID *privateZoneRootRecordID;
+@property(readonly, nonatomic) _Bool controllerIdentifierChanged;
 @property(readonly, nonatomic) _Bool encryptionFailed;
 @property(readonly, nonatomic) _Bool decryptionFailed;
 - (id)description;

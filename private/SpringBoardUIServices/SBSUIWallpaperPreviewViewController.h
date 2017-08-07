@@ -10,7 +10,7 @@
 #import <SpringBoardUIServices/SBFLegibilitySettingsProviderDelegate-Protocol.h>
 #import <SpringBoardUIServices/SBFWallpaperViewSettingsProvider-Protocol.h>
 
-@class AVURLAsset, NSDictionary, NSString, NSTimer, SBFHomeScreenWallpaperParallaxSettings, SBFLockScreenWallpaperParallaxSettings, SBFWallpaperConfigurationManager, SBFWallpaperSettings, UIImage, _UILegibilitySettings;
+@class AVURLAsset, NSDictionary, NSString, NSTimer, SBFHomeScreenWallpaperParallaxSettings, SBFLockScreenWallpaperParallaxSettings, SBFWallpaperConfiguration, SBFWallpaperConfigurationManager, SBFWallpaperSettings, UIImage, _UILegibilitySettings;
 @protocol SBFLegibilitySettingsProviderDelegate;
 
 @interface SBSUIWallpaperPreviewViewController : UIViewController <SBFLegibilitySettingsProviderDelegate, SBFWallpaperViewSettingsProvider, SBFLegibilitySettingsProvider>
@@ -29,12 +29,14 @@
     _Bool _motionEnabled;
     id <SBFLegibilitySettingsProviderDelegate> _delegate;
     SBFWallpaperSettings *_wallpaperSettings;
+    SBFWallpaperConfiguration *_wallpaperConfiguration;
     SBFLockScreenWallpaperParallaxSettings *_lockScreenParallaxSettings;
     SBFHomeScreenWallpaperParallaxSettings *_homeScreenParallaxSettings;
 }
 
 @property(retain, nonatomic) SBFHomeScreenWallpaperParallaxSettings *homeScreenParallaxSettings; // @synthesize homeScreenParallaxSettings=_homeScreenParallaxSettings;
 @property(retain, nonatomic) SBFLockScreenWallpaperParallaxSettings *lockScreenParallaxSettings; // @synthesize lockScreenParallaxSettings=_lockScreenParallaxSettings;
+@property(copy, nonatomic) SBFWallpaperConfiguration *wallpaperConfiguration; // @synthesize wallpaperConfiguration=_wallpaperConfiguration;
 @property(nonatomic) _Bool motionEnabled; // @synthesize motionEnabled=_motionEnabled;
 @property(readonly) UIImage *wallpaperImage; // @synthesize wallpaperImage=_wallpaperImage;
 @property(retain, nonatomic) SBFWallpaperSettings *wallpaperSettings; // @synthesize wallpaperSettings=_wallpaperSettings;
@@ -49,6 +51,7 @@
 - (id)_dateView;
 - (id)_wallpaperView;
 - (id)_previewView;
+- (id)_colorWallpaperViewWithFrame:(struct CGRect)arg1 variant:(long long)arg2 configuration:(id)arg3;
 - (id)_proceduralWallpaperViewWithFrame:(struct CGRect)arg1 variant:(long long)arg2;
 - (id)_wallpaperViewWithFrame:(struct CGRect)arg1 variant:(long long)arg2 options:(id)arg3;
 - (id)_wallpaperViewWithFrame:(struct CGRect)arg1 image:(id)arg2 video:(id)arg3 videoURL:(id)arg4 stillTimeInVideo:(double)arg5 supportsCropping:(_Bool)arg6 variant:(long long)arg7;
@@ -57,6 +60,8 @@
 - (void)providerLegibilitySettingsChanged:(id)arg1;
 @property(readonly, nonatomic) _UILegibilitySettings *legibilitySettings;
 - (void)setMotionEnabled:(_Bool)arg1 updateParallaxOnWallpaperView:(_Bool)arg2;
+- (void)setProceduralWallpaperForLocations:(long long)arg1;
+- (void)setImageWallpaperForLocations:(long long)arg1;
 - (void)setWallpaperForLocations:(long long)arg1;
 - (double)_parallaxFactor;
 - (id)wallpaperConfigurationManager;

@@ -16,7 +16,6 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+ (void)load;
 @property(readonly, nonatomic) IDSMPFullAccountIdentityCluster *identityCluster; // @synthesize identityCluster=_identityCluster;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;

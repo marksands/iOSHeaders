@@ -12,6 +12,7 @@
 - (void)removeWallpaperColorForVariants:(long long)arg1;
 - (_Bool)setWallpaperColorName:(NSString *)arg1 forVariants:(long long)arg2;
 - (_Bool)setWallpaperColor:(UIColor *)arg1 forVariants:(long long)arg2;
+- (NSString *)wallpaperColorNameForVariant:(long long)arg1;
 - (UIColor *)wallpaperColorForVariant:(long long)arg1;
 - (void)removeWallpaperOptionsForVariants:(long long)arg1;
 - (_Bool)setWallpaperOptions:(SBFWallpaperOptions *)arg1 forVariants:(long long)arg2;

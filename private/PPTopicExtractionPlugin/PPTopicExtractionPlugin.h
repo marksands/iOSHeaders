@@ -22,6 +22,7 @@
     NSString *_identifier;
 }
 
++ (void)prewarmContextService;
 + (id)quantizeAndFilterEntities:(id)arg1 withLimit:(int)arg2;
 + (id)quantizeTopics:(id)arg1;
 + (_Bool)yesWithProbability:(double)arg1;

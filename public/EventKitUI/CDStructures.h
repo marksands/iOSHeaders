@@ -49,13 +49,12 @@ typedef struct {
     unsigned int showColors:1;
     unsigned int allSelected:1;
     unsigned int allowsRotation:1;
-    unsigned int allowsEdit:1;
     unsigned int showsDoneButton:1;
     unsigned int showsCancelButton:1;
     unsigned int showsWritableCalendarsOnly:1;
     unsigned int showsRefreshButton:1;
     unsigned int allowsPullToRefresh:1;
-} CDStruct_a7a51b3b;
+} CDStruct_424d6339;
 
 typedef struct {
     int _field1;

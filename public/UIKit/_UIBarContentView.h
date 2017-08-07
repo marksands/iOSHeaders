@@ -49,6 +49,7 @@ __attribute__((visibility("hidden")))
 - (void)_setBackgroundImage:(id)arg1 forState:(unsigned long long)arg2 barMetrics:(long long)arg3;
 - (void)_UIAppearance_setBackgroundImage:(id)arg1 forState:(unsigned long long)arg2 barMetrics:(long long)arg3;
 - (void)_appearanceChanged;
+@property(readonly, nonatomic) double backButtonMaximumWidth;
 @property(readonly, nonatomic) double backButtonMargin; // @dynamic backButtonMargin;
 - (double)absorptionForItem:(id)arg1;
 @property(readonly, nonatomic) double defaultTextPadding;

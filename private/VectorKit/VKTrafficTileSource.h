@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) VKTrafficDynamicTileSource *dynamicTileSource; // @synthesize dynamicTileSource=_dynamicTileSource;
 @property(nonatomic) VKRoadTileSource *roadTileSource; // @synthesize roadTileSource=_roadTileSource;
+- (long long)tileSource:(id)arg1 overrideForMaximumZoomLevel:(long long)arg2;
 - (_Bool)minimumZoomLevelBoundsCamera;
 - (void)setSharedResources:(id)arg1;
 - (void)didStopLoadingTilesWithError:(id)arg1;
@@ -45,8 +46,6 @@ __attribute__((visibility("hidden")))
 - (void)didFailToLoadTileKey:(const struct _GEOTileKey *)arg1 error:(id)arg2;
 - (void)fetchTileForKey:(const struct VKTileKey *)arg1 sourceKey:(const struct VKTileKey *)arg2;
 - (void)fetchTileForKey:(const struct VKTileKey *)arg1;
-- (id)tileForSourceKey:(const struct VKTileKey *)arg1 renderKey:(const struct VKTileKey *)arg2;
-- (id)tileForKey:(const struct VKTileKey *)arg1;
 - (void)setContentScale:(double)arg1;
 - (void)setStyleManager:(shared_ptr_a3c46825)arg1;
 - (_Bool)canFetchTrafficTileForKey:(const struct VKTileKey *)arg1;

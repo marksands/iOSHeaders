@@ -11,7 +11,6 @@
 }
 
 + (id)disabledImageForCharacter:(unsigned int)arg1;
-+ (double)verticalPadding;
 - (void)setGreyedOut:(_Bool)arg1;
 
 @end

@@ -27,7 +27,7 @@
 - (void)setWebAccessOptInForTagID:(id)arg1 webAccessOptIn:(_Bool)arg2;
 - (id)authenticatedAccessTokensByTagID;
 - (id)accessTokenForTagID:(id)arg1;
-- (void)setAccessTokenForTagID:(id)arg1 accessToken:(id)arg2;
+- (void)setAccessTokenForTagID:(id)arg1 accessToken:(id)arg2 userInitiated:(_Bool)arg3;
 - (id)fontSizeForTagID:(id)arg1;
 - (void)setFontSizeForTagID:(id)arg1 fontSize:(id)arg2;
 - (void)syncFontSizeForTagID:(id)arg1;

@@ -12,12 +12,15 @@
 {
 }
 
++ (id)legacyModelWithHomeDataV0:(id)arg1 homeDataV2:(id)arg2;
 - (unsigned long long)objectEncoding;
 - (void)clearData;
 @property(retain, nonatomic) NSData *dataVersion2;
 - (void)setData:(id)arg1;
 - (id)data;
 - (id)recordType;
+- (_Bool)encodeObjectChange:(id)arg1;
+- (id)extractObjectChange;
 
 @end
 

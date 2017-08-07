@@ -38,6 +38,8 @@
 - (void)_handleInvalidation;
 - (void)_handleActivationWithError:(id)arg1;
 - (void)stopAdvertising;
+- (void)resumeAdvertising;
+- (void)pauseAdvertising;
 - (void)startAdvertisingWithService:(unsigned long long)arg1;
 - (id)init;
 

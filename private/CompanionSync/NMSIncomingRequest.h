@@ -9,7 +9,7 @@
 #import <CompanionSync/NMSDeviceSourced-Protocol.h>
 #import <CompanionSync/NMSObfuscatableDescriptionProviding-Protocol.h>
 
-@class NMSMessageCenter, NMSOutgoingResponse, NSData, NSString;
+@class IDSMessageContext, NMSMessageCenter, NMSOutgoingResponse, NSData, NSString;
 
 @interface NMSIncomingRequest : NSObject <NMSDeviceSourced, NMSObfuscatableDescriptionProviding>
 {
@@ -22,10 +22,12 @@
     unsigned long long _priority;
     NMSOutgoingResponse *_response;
     id _pbRequest;
+    IDSMessageContext *_idsContext;
 }
 
 + (void)setAllowsUnrepliedRequestsForUnitTesting:(_Bool)arg1;
 + (_Bool)allowsUnrepliedRequestsForUnitTesting;
+@property(retain, nonatomic) IDSMessageContext *idsContext; // @synthesize idsContext=_idsContext;
 @property(retain, nonatomic) id pbRequest; // @synthesize pbRequest=_pbRequest;
 @property(retain, nonatomic) NMSOutgoingResponse *response; // @synthesize response=_response;
 @property(nonatomic) _Bool expectsResponse; // @synthesize expectsResponse=_expectsResponse;

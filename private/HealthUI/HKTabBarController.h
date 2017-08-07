@@ -8,14 +8,19 @@
 
 #import <HealthUI/UITabBarControllerDelegate-Protocol.h>
 
-@class NSString;
+@class NSString, UIViewController;
 
 @interface HKTabBarController : UITabBarController <UITabBarControllerDelegate>
 {
+    UIViewController *_previousViewController;
 }
 
+@property(nonatomic) __weak UIViewController *previousViewController; // @synthesize previousViewController=_previousViewController;
+- (void).cxx_destruct;
+- (void)tabBarController:(id)arg1 didSelectViewController:(id)arg2;
 - (unsigned long long)tabBarControllerSupportedInterfaceOrientations:(id)arg1;
 - (void)setTabBarControlsHidden:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)viewDidAppear:(_Bool)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)init;
 

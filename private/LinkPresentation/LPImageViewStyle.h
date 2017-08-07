@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
     UIColor *_maskColor;
 }
 
-@property(nonatomic) UIColor *maskColor; // @synthesize maskColor=_maskColor;
+@property(retain, nonatomic) UIColor *maskColor; // @synthesize maskColor=_maskColor;
 @property(nonatomic) double darkeningAmount; // @synthesize darkeningAmount=_darkeningAmount;
 @property(retain, nonatomic) LPPointUnit *cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(nonatomic) double foregroundOpacity; // @synthesize foregroundOpacity=_foregroundOpacity;

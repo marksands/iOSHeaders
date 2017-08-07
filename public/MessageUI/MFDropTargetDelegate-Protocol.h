@@ -7,10 +7,12 @@
 #import <MessageUI/NSObject-Protocol.h>
 
 @class MFDropTarget, NSArray;
+@protocol UIDropSession;
 
 @protocol MFDropTargetDelegate <NSObject>
 
 @optional
+- (long long)dropTarget:(MFDropTarget *)arg1 dataOwnerForSession:(id <UIDropSession>)arg2;
 - (void)dropTargetDragExited:(MFDropTarget *)arg1;
 - (void)dropTarget:(MFDropTarget *)arg1 dragEnteredAtPoint:(struct CGPoint)arg2;
 - (void)dropTarget:(MFDropTarget *)arg1 dragDidMoveToPoint:(struct CGPoint)arg2;

@@ -10,7 +10,8 @@
 
 @interface MTLumaDodgePillSettings : _UISettings
 {
-    double _width;
+    double _minWidth;
+    double _maxWidth;
     double _height;
     double _edgeSpacing;
     double _cornerRadius;
@@ -39,7 +40,8 @@
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(nonatomic) double edgeSpacing; // @synthesize edgeSpacing=_edgeSpacing;
 @property(nonatomic) double height; // @synthesize height=_height;
-@property(nonatomic) double width; // @synthesize width=_width;
+@property(nonatomic) double maxWidth; // @synthesize maxWidth=_maxWidth;
+@property(nonatomic) double minWidth; // @synthesize minWidth=_minWidth;
 - (void).cxx_destruct;
 - (void)setDefaultValues;
 - (void)updateWithSettingsFromArchive:(id)arg1;

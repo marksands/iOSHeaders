@@ -59,6 +59,7 @@
 + (id)predicateForObjectsFromSourceRevisions:(id)arg1;
 + (id)predicateForObjectsFromSources:(id)arg1;
 + (id)predicateForObjectsFromSource:(id)arg1;
++ (id)predicateForSamplesWithStartDate:(id)arg1 endDate:(id)arg2 inclusiveEndDates:(_Bool)arg3 options:(unsigned long long)arg4;
 + (id)predicateForSamplesWithStartDate:(id)arg1 endDate:(id)arg2 options:(unsigned long long)arg3;
 + (id)predicateForObjectsWithMetadataKey:(id)arg1 operatorType:(unsigned long long)arg2 value:(id)arg3;
 + (id)predicateForObjectsWithMetadataKey:(id)arg1 allowedValues:(id)arg2;

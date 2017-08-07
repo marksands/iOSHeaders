@@ -28,7 +28,7 @@
 @property(nonatomic) __weak id <_SFDialogViewPresenting> dialogPresenter; // @synthesize dialogPresenter=_dialogPresenter;
 @property(nonatomic) __weak id <_SFDialogControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)dialogView:(id)arg1 didSelectPrimaryAction:(_Bool)arg2 withInputText:(id)arg3 passwordText:(id)arg4;
+- (void)dialogView:(id)arg1 didSelectActionAtIndex:(unsigned long long)arg2 withInputText:(id)arg3 passwordText:(id)arg4;
 - (void)_dismissCurrentDialogWithResponse:(id)arg1;
 - (void)_dismissDialogWithAdditionalAnimations:(CDUnknownBlockType)arg1;
 - (long long)_presentDialog:(id)arg1 forWebProcessID:(int)arg2 withAdditionalAnimations:(CDUnknownBlockType)arg3;
@@ -36,7 +36,7 @@
 - (CDStruct_fca5f1f5)_currentSlot;
 - (unsigned long long)_tabID;
 - (int)_currentWebProcessID;
-- (void)owningWebViewDidCommitNavigation;
+- (void)owningWebViewDidCommitNavigationWithURL:(id)arg1;
 - (void)owningWebViewWillNavigate;
 - (void)owningWebViewWillBecomeActive;
 - (void)owningWebViewDidChangeProcessID;

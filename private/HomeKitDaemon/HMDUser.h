@@ -29,11 +29,11 @@
     NSObject<OS_dispatch_queue> *_propertyQueue;
 }
 
-+ (id)userWithDictionary:(id)arg1;
++ (id)userWithDictionary:(id)arg1 forHomeIdentifier:(id)arg2;
 + (_Bool)supportsSecureCoding;
 + (id)destinationWithUserID:(id)arg1;
-+ (id)userWithName:(id)arg1 userID:(id)arg2 publicKey:(id)arg3 homeManager:(id)arg4;
-+ (id)currentUserWithPrivilege:(unsigned long long)arg1;
++ (id)userWithName:(id)arg1 userID:(id)arg2 forHomeIdentifier:(id)arg3 publicKey:(id)arg4 homeManager:(id)arg5;
++ (id)currentUserWithPrivilege:(unsigned long long)arg1 forHomeIdentifier:(id)arg2;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(copy, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
@@ -84,8 +84,8 @@
 - (id)dumpState;
 @property(readonly, copy) NSString *description;
 @property(readonly, copy) NSString *debugDescription;
-- (id)initWithUserID:(id)arg1 displayName:(id)arg2 uuid:(id)arg3 pairingIdentity:(id)arg4 privilege:(unsigned long long)arg5;
-- (id)initWithUserID:(id)arg1 pairingIdentity:(id)arg2 privilege:(unsigned long long)arg3;
+- (id)initWithUserID:(id)arg1 displayName:(id)arg2 forHomeIdentifier:(id)arg3 uuid:(id)arg4 pairingIdentity:(id)arg5 privilege:(unsigned long long)arg6;
+- (id)initWithUserID:(id)arg1 forHomeIdentifier:(id)arg2 pairingIdentity:(id)arg3 privilege:(unsigned long long)arg4;
 - (id)initWithModelObject:(id)arg1;
 
 // Remaining properties

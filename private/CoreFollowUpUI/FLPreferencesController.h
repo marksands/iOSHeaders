@@ -14,6 +14,7 @@
     id <FLViewModel> _topViewModel;
     FLPreferencesFollowUpItemListViewController *_controller;
     NSSet *_spyglassWhitelist;
+    _Bool _activityIndicatorActive;
     PSListController *_listViewController;
     CDUnknownBlockType _itemChangeObserver;
 }
@@ -24,7 +25,8 @@
 - (void)stopSpinnerForSpecifier:(id)arg1;
 - (void)startSpinnerForSpecifier:(id)arg1;
 - (void)_presentSpecifier:(id)arg1;
-- (void)_showRadarPrompt;
+- (void)_handleEmptyRefreshResult:(id)arg1;
+- (void)_refreshItemsAndPresentDetailForSpecifier:(id)arg1;
 - (void)loadSpecifier:(id)arg1;
 - (id)spyglassSpecifiers;
 - (void)_updateSpecifier:(id)arg1 withCommonPropertiesForGroup:(id)arg2;

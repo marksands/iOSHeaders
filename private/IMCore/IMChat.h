@@ -58,6 +58,7 @@
     unsigned int _forceMMS:1;
     _Bool _hasRefreshedServiceForSending;
     _Bool _hasHadSuccessfulQuery;
+    long long _lastMessageTimeStampOnLoad;
     NSString *_currentUnreadHistoryQuery;
     _Bool _hasEarlierMessagesToLoad;
     _Bool _hasMoreRecentMessagesToLoad;
@@ -77,6 +78,7 @@
 + (id)__im_adjustMessageSummaryInfoForSending:(id)arg1;
 @property(nonatomic) double latestTypingIndicatorTimeInterval; // @synthesize latestTypingIndicatorTimeInterval=_latestTypingIndicatorTimeInterval;
 @property(copy, nonatomic) NSDictionary *bizIntent; // @synthesize bizIntent=_bizIntent;
+@property(readonly, nonatomic) long long lastMessageTimeStampOnLoad; // @synthesize lastMessageTimeStampOnLoad=_lastMessageTimeStampOnLoad;
 @property(readonly, nonatomic) NSData *engramID; // @synthesize engramID=_engramID;
 @property(retain, nonatomic) NSString *personCentricID; // @synthesize personCentricID=_personCentricID;
 @property(retain, nonatomic) IMMessage *invitationForPendingParticipants; // @synthesize invitationForPendingParticipants=_invitationForPendingParticipants;
@@ -159,6 +161,7 @@
 - (void)_sendCurrentLocationMessageUsingLocationManager:(id)arg1;
 - (void)sendCurrentLocationMessage;
 - (void)sendMessage:(id)arg1;
+- (void)_fixItemForSendingMessageTime:(id)arg1;
 - (void)_sendMessage:(id)arg1 adjustingSender:(_Bool)arg2 shouldQueue:(_Bool)arg3;
 - (void)cancelMessage:(id)arg1;
 - (void)declineInvitation;
@@ -316,6 +319,7 @@
 - (void)_updateChatItems;
 - (void)updateChatItemsIfNeeded;
 - (void)endHoldingUpdatesForAllKeys;
+- (_Bool)isHoldingUpdatesForKey:(id)arg1;
 - (void)endHoldingUpdatesForKey:(id)arg1;
 - (void)beginHoldingUpdatesForKey:(id)arg1;
 - (id)chatItems;

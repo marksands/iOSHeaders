@@ -39,6 +39,7 @@
     _Bool _pendingENGroupParticipantUpdate;
     NSData *_CKRecordSystemPropertiesBlob;
     NSDate *_lastSentMessageDate;
+    long long _lastMessageTimeStampOnLoad;
 }
 
 + (id)_recordType;
@@ -79,6 +80,8 @@
 @property(readonly, retain) NSDictionary *chatProperties;
 - (id)description;
 - (long long)compareBySequenceNumberAndDateDescending:(id)arg1;
+- (_Bool)isNewerThan:(id)arg1;
+- (_Bool)isOlderThan:(id)arg1;
 - (long long)engroupCreationDate;
 @property(readonly, retain) IMDServiceSession *serviceSession;
 @property(readonly, retain) IMDService *service;
@@ -89,6 +92,8 @@
 - (void)addParticipant:(id)arg1;
 - (void)addParticipants:(id)arg1;
 - (void)_updateCachedParticipants;
+- (void)setLastMessageTimeStampOnLoad:(long long)arg1;
+@property(readonly) long long lastMessageTimeStampOnLoad;
 - (void)setLastSentMessageDate:(id)arg1;
 @property(readonly, retain) NSDate *lastSentMessageDate;
 @property _Bool hasHadSuccessfulQuery;
@@ -116,7 +121,7 @@
 @property(copy) NSString *chatIdentifier;
 @property(copy) NSString *guid;
 - (void)dealloc;
-- (id)initWithAccountID:(id)arg1 service:(id)arg2 guid:(id)arg3 groupID:(id)arg4 chatIdentifier:(id)arg5 participants:(id)arg6 roomName:(id)arg7 displayName:(id)arg8 lastAddressedLocalHandle:(id)arg9 properties:(id)arg10 state:(long long)arg11 style:(unsigned char)arg12 isFiltered:(_Bool)arg13 hasHadSuccessfulQuery:(_Bool)arg14 engramID:(id)arg15 serverChangeToken:(id)arg16 cloudKitSyncState:(long long)arg17 originalGroupID:(id)arg18 lastReadMessageTimeStamp:(long long)arg19 CKRecordSystemPropertiesBlob:(id)arg20;
+- (id)initWithAccountID:(id)arg1 service:(id)arg2 guid:(id)arg3 groupID:(id)arg4 chatIdentifier:(id)arg5 participants:(id)arg6 roomName:(id)arg7 displayName:(id)arg8 lastAddressedLocalHandle:(id)arg9 properties:(id)arg10 state:(long long)arg11 style:(unsigned char)arg12 isFiltered:(_Bool)arg13 hasHadSuccessfulQuery:(_Bool)arg14 engramID:(id)arg15 serverChangeToken:(id)arg16 cloudKitSyncState:(long long)arg17 originalGroupID:(id)arg18 lastReadMessageTimeStamp:(long long)arg19 CKRecordSystemPropertiesBlob:(id)arg20 lastMessageTimeStampOnLoad:(long long)arg21;
 - (_Bool)applyChangesUsingCKRecord:(id)arg1;
 - (id)initWithCKRecord:(id)arg1;
 - (id)copyCKRecordRepresentationWithZoneID:(id)arg1 salt:(id)arg2;

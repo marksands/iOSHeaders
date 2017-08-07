@@ -6,12 +6,17 @@
 
 #import <GeoServices/GEOServiceRequestDefaultConfig.h>
 
+@class NSNumber;
+
 __attribute__((visibility("hidden")))
 @interface GEOPlaceDataRequestConfig : GEOServiceRequestDefaultConfig
 {
     double _timeout;
+    unsigned long long _urlType;
+    NSNumber *_requestPriority;
 }
 
+- (void).cxx_destruct;
 - (double)timeout;
 - (unsigned char)requestCounterInfoTypeForRequest:(id)arg1;
 - (int)dataRequestKindForRequest:(id)arg1;
@@ -20,7 +25,8 @@ __attribute__((visibility("hidden")))
 - (id)serviceTypeNumber;
 - (_Bool)shouldThrottleRequests;
 - (unsigned long long)urlType;
-- (id)initWithTimeout:(double)arg1;
+- (id)additionalHTTPHeaders;
+- (id)initWithTimeout:(double)arg1 request:(id)arg2 traits:(id)arg3;
 
 @end
 

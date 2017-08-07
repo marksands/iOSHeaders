@@ -18,7 +18,7 @@
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDAccessoryBrowser, HMDApplicationData, HMDBackingStore, HMDCharacteristicNotificationRegistry, HMDHomeLocationHandler, HMDHomeManager, HMDHomeObjectChangeHandler, HMDHomeObjectLookup, HMDHomePresenceMonitor, HMDHomeRemoteNotificationHandler, HMDPredicateUtilities, HMDRelayManager, HMDRemoteAdminEnforcementMessageFilter, HMDRemoteMessageFilter, HMDResidentDevice, HMDResidentDeviceManager, HMDRoom, HMDUser, HMDUserPresenceFeeder, HMFMessageDispatcher, HMFTimer, HMUserPresenceAuthorization, HMUserPresenceCompute, NSArray, NSDate, NSHashTable, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject, NSString, NSUUID;
+@class HMDAccessoryBrowser, HMDApplicationData, HMDBackingStore, HMDCharacteristicNotificationRegistry, HMDHomeKitVersion, HMDHomeLocationHandler, HMDHomeManager, HMDHomeObjectChangeHandler, HMDHomeObjectLookup, HMDHomePresenceMonitor, HMDHomeRemoteNotificationHandler, HMDPredicateUtilities, HMDRelayManager, HMDRemoteAdminEnforcementMessageFilter, HMDRemoteMessageFilter, HMDResidentDevice, HMDResidentDeviceManager, HMDRoom, HMDSharedHomeUpdateHandler, HMDUser, HMDUserPresenceFeeder, HMFMessageDispatcher, HMFTimer, HMUserPresenceAuthorization, HMUserPresenceCompute, NSArray, NSDate, NSHashTable, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
 @interface HMDHome : HMFObject <HMDBulletinIdentifiers, HMDResidentDeviceManagerDelegate, HMFLogging, HMDAccessoryBrowserDelegate, HMFMessageReceiver, HMDRelayManagerDelegate, HMFTimerDelegate, HMFDumpState, HMDUserManagementOperationDelegate, NSSecureCoding, HMDBackingStoreObjectProtocol>
@@ -100,6 +100,7 @@
     HMFTimer *_modifyNotificationsCoalesceTimer;
     NSHashTable *_unpairedSecondaryHAPAccessories;
     HMDResidentDeviceManager *_residentDeviceManager;
+    HMDSharedHomeUpdateHandler *_sharedHomeUpdateHandler;
     HMDResidentDevice *_resident;
     HMFTimer *_reachabilityDeregistrationTimer;
     NSMutableArray *_reachabilityRegisteredDevices;
@@ -114,6 +115,7 @@
     NSMapTable *_uuidToHAPAccessoryConfigTable;
     NSMutableArray *_newlyConfiguredAccessories;
     HMDPredicateUtilities *_predicateUtility;
+    HMDHomeKitVersion *_sharedHomeSourceVersion;
 }
 
 + (id)logCategory;
@@ -127,6 +129,7 @@
 + (_Bool)isObjectContainedInHome:(id)arg1;
 + (id)getBuiltinActionSets;
 + (void)_initialize;
+@property(retain, nonatomic) HMDHomeKitVersion *sharedHomeSourceVersion; // @synthesize sharedHomeSourceVersion=_sharedHomeSourceVersion;
 @property(readonly, nonatomic) HMDPredicateUtilities *predicateUtility; // @synthesize predicateUtility=_predicateUtility;
 @property(retain, nonatomic) NSMutableArray *newlyConfiguredAccessories; // @synthesize newlyConfiguredAccessories=_newlyConfiguredAccessories;
 @property(retain, nonatomic) NSMapTable *uuidToHAPAccessoryConfigTable; // @synthesize uuidToHAPAccessoryConfigTable=_uuidToHAPAccessoryConfigTable;
@@ -142,6 +145,7 @@
 @property(retain, nonatomic) HMFTimer *reachabilityDeregistrationTimer; // @synthesize reachabilityDeregistrationTimer=_reachabilityDeregistrationTimer;
 @property(nonatomic) _Bool currentRemoteReachabilityRegistration; // @synthesize currentRemoteReachabilityRegistration=_currentRemoteReachabilityRegistration;
 @property(retain, nonatomic) HMDResidentDevice *resident; // @synthesize resident=_resident;
+@property(readonly, nonatomic) HMDSharedHomeUpdateHandler *sharedHomeUpdateHandler; // @synthesize sharedHomeUpdateHandler=_sharedHomeUpdateHandler;
 @property(readonly, nonatomic) HMDResidentDeviceManager *residentDeviceManager; // @synthesize residentDeviceManager=_residentDeviceManager;
 @property(readonly, nonatomic) NSHashTable *unpairedSecondaryHAPAccessories; // @synthesize unpairedSecondaryHAPAccessories=_unpairedSecondaryHAPAccessories;
 @property(retain, nonatomic) HMFTimer *modifyNotificationsCoalesceTimer; // @synthesize modifyNotificationsCoalesceTimer=_modifyNotificationsCoalesceTimer;
@@ -337,6 +341,7 @@
 - (void)migrateAfterResidentChange;
 - (void)removeResidentCapableDevice:(id)arg1;
 - (void)addResidentCapableDevice:(id)arg1;
+@property(readonly, copy, nonatomic) NSArray *enabledResidents;
 @property(readonly, copy, nonatomic) NSArray *residentEnabledDevices;
 @property(readonly, copy, nonatomic) NSArray *residentCapableDevices;
 @property(readonly, nonatomic, getter=isResidentSupported) _Bool residentSupported;
@@ -639,7 +644,6 @@
 - (_Bool)takeOwnershipOfBuiltinActionSets:(id)arg1;
 - (id)filterBuiltinActionSets:(id)arg1;
 - (void)computeBridgedAccessoriesForAllBridges;
-- (void)fixupBridgeForBridgedAccessories:(id)arg1 potentialBridgeAccessories:(id)arg2;
 - (void)takeOwnershipOfAppData:(id)arg1;
 - (void)takeOwnershipOfAccessories:(id)arg1;
 - (void)takeOwnershipOfNotificationRegistry:(id)arg1;

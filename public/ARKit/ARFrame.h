@@ -49,7 +49,7 @@
 - (unsigned long long)hash;
 - (id)_hitTestFromOrigin:(unsigned long long)arg1 withDirection:types: /* Error: Ran out of types for this method. */;
 @property(readonly, nonatomic) ARPointCloud *rawFeaturePoints;
-- (struct CGAffineTransform)displayTransformWithViewportSize:(struct CGSize)arg1 orientation:(long long)arg2;
+- (struct CGAffineTransform)displayTransformForOrientation:(long long)arg1 viewportSize:(struct CGSize)arg2;
 - (id)hitTest:(struct CGPoint)arg1 types:(unsigned long long)arg2;
 - (void)dealloc;
 - (id)initWithCamera:(id)arg1 timestamp:(double)arg2;

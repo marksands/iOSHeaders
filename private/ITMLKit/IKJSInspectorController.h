@@ -28,6 +28,8 @@
 }
 
 + (id)_templateNameForDocument:(id)arg1;
++ (id)_nodesByIds:(id)arg1 fromNode:(id)arg2;
++ (id)_nodeById:(long long)arg1 fromNode:(id)arg2;
 @property(readonly, copy, nonatomic) NSString *activeDocumentIdentifier; // @synthesize activeDocumentIdentifier=_activeDocumentIdentifier;
 @property(readonly, nonatomic) __weak IKDOMDocument *activeDocument; // @synthesize activeDocument=_activeDocument;
 @property(readonly, nonatomic) NSDate *inspectorConnectDate; // @synthesize inspectorConnectDate=_inspectorConnectDate;
@@ -35,7 +37,6 @@
 @property(nonatomic) __weak id <IKJSInspectorControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly) __weak IKAppContext *appContext; // @synthesize appContext=_appContext;
 - (void).cxx_destruct;
-- (id)_nodeById:(long long)arg1 fromNode:(id)arg2;
 - (id)registerNetworkRequestLoader:(id)arg1;
 - (void)appDocumentDidUpdate:(id)arg1;
 - (void)appDocumentDidUnload:(id)arg1;
@@ -47,6 +48,7 @@
 - (void)updateStylesheets;
 - (void)evaluateMediaQuery:(CDUnknownBlockType)arg1;
 - (id)styleFromComposer:(id)arg1;
+- (id)nodesByIds:(id)arg1;
 - (id)nodeById:(long long)arg1;
 - (void)dealloc;
 - (id)initWithAppContext:(id)arg1;

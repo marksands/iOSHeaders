@@ -29,6 +29,9 @@
 - (void)_attemptResetToDAVModeWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_attemptInitialClearWithTarget:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)_formattedStringForBookmark:(id)arg1 indentationLevel:(unsigned long long)arg2;
+- (id)_expandedDescriptionForBookmark:(id)arg1;
+- (id)_attributeStringForBookmark:(id)arg1 multiline:(_Bool)arg2;
+- (id)_descriptionForBookmark:(id)arg1;
 - (void)resetOperation:(long long)arg1;
 - (void)performOperation:(long long)arg1 withTarget:(id)arg2 options:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)performOperation:(long long)arg1 withTarget:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

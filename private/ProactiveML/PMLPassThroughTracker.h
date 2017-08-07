@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <ProactiveML/PMLEvaluationTrackerProtocol-Protocol.h>
 #import <ProactiveML/PMLLogRegTrackerProtocol-Protocol.h>
 
 @class NSString;
 
-@interface PMLPassThroughTracker : NSObject <PMLLogRegTrackerProtocol>
+@interface PMLPassThroughTracker : NSObject <PMLLogRegTrackerProtocol, PMLEvaluationTrackerProtocol>
 {
     struct NSString *_planId;
     unsigned long long _quantizationNumberOfBuckets;
@@ -19,6 +20,7 @@
 - (void).cxx_destruct;
 - (id)initWithPlist:(id)arg1 chunks:(id)arg2 context:(id)arg3;
 - (id)toPlistWithChunks:(id)arg1;
+- (id)trackEvaluationMetrics:(id)arg1 minibatchStats:(id)arg2;
 - (id)trackGradient:(id)arg1 scaleFactor:(float)arg2 l2norm:(float)arg3 minibatchStats:(id)arg4 evaluationMetrics:(id)arg5 serverIteration:(unsigned long long)arg6;
 - (id)trackWeights:(id)arg1 scaleFactor:(float)arg2 l2norm:(float)arg3 minibatchStats:(id)arg4 evaluationMetrics:(id)arg5;
 - (id)initWithPlanId:(struct NSString *)arg1 numberOfBuckets:(unsigned long long)arg2;

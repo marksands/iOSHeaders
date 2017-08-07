@@ -6,13 +6,14 @@
 
 #import <objc/NSObject.h>
 
+#import <GeoServices/GEOResourceManifestTileGroupObserver-Protocol.h>
 #import <GeoServices/GEOSearchAttributionServerProxy-Protocol.h>
 
 @class GEOSearchAttributionManifest, NSLock, NSMapTable, NSMutableArray, NSString;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
-@interface GEOSearchAttributionServerLocalProxy : NSObject <GEOSearchAttributionServerProxy>
+@interface GEOSearchAttributionServerLocalProxy : NSObject <GEOResourceManifestTileGroupObserver, GEOSearchAttributionServerProxy>
 {
     NSMapTable *_listeners;
     NSLock *_listenersLock;
@@ -25,6 +26,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)loadAttributionInfoForIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_loadAttributionInfoForListener:(id)arg1;
 - (void)_sendError:(id)arg1 toListener:(id)arg2;

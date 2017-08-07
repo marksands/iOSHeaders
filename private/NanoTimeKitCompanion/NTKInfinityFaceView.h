@@ -6,12 +6,11 @@
 
 #import <NanoTimeKitCompanion/NTKAVListingFaceBaseView.h>
 
-@class NTKComplicationDisplayWrapperView, NTKFaceLayoutContentProvider, NTKInfinityController, NTKInfinityListing, UILabel, UIView;
+@class NTKComplicationDisplayWrapperView, NTKFaceLayoutContentProvider, NTKInfinityController, NTKInfinityListing, UIColor, UILabel, UIView;
 
 @interface NTKInfinityFaceView : NTKAVListingFaceBaseView
 {
     unsigned int _tapToPlayGestureEnabled:1;
-    unsigned int _isComplicationColorApplied:1;
     unsigned int _tapPromptedVideoChange:1;
     UIView *_cornerView;
     UILabel *_reviewLabel;
@@ -19,6 +18,7 @@
     NTKComplicationDisplayWrapperView *_touchWrapper;
     NTKInfinityController *_controller;
     NTKInfinityListing *_currentQueueListing;
+    UIColor *_currentComplicationColor;
 }
 
 - (void).cxx_destruct;
@@ -36,10 +36,9 @@
 - (id)_posterImageViewForStyle:(unsigned long long)arg1;
 - (id)_currentPosterImageView;
 - (_Bool)_keylineLabelShouldShowIndividualOptionNamesForCustomEditMode:(long long)arg1;
-- (unsigned long long)_keylineLabelAlignmentForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (unsigned long long)_keylineLabelAlignmentForComplicationSlot:(id)arg1;
 - (id)_keylineViewForCustomEditMode:(long long)arg1 slot:(id)arg2;
-- (double)_topRightComplicationAlphaForEditMode:(long long)arg1;
+- (_Bool)_shouldFadeToTransitionView;
 - (double)_timeLabelAlphaForEditMode:(long long)arg1;
 - (_Bool)_fadesComplicationSlot:(id)arg1 inEditMode:(long long)arg2;
 - (void)setTransitionFraction:(double)arg1 fromOption:(id)arg2 toOption:(id)arg3 customEditMode:(long long)arg4 slot:(id)arg5;

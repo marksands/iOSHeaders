@@ -9,7 +9,7 @@
 #import <UserNotificationsUIKit/MTContentSizeCategoryAdjusting-Protocol.h>
 #import <UserNotificationsUIKit/UIScrollViewDelegate-Protocol.h>
 
-@class NCNotificationListCellActionButtonsView, NCNotificationViewController, NSString, UIScrollView, UIView;
+@class NCNotificationListCellActionButtonsView, NCNotificationViewController, NSString, UIPanGestureRecognizer, UIView, UIViewFloatAnimatableProperty;
 @protocol NCNotificationListCellDelegate;
 
 @interface NCNotificationListCell : UICollectionViewCell <UIScrollViewDelegate, MTContentSizeCategoryAdjusting>
@@ -23,17 +23,22 @@
     id <NCNotificationListCellDelegate> _delegate;
     double _overrideAlpha;
     NSString *_backgroundGroupName;
-    UIScrollView *_cellScrollView;
     NCNotificationListCellActionButtonsView *_leftActionButtonsView;
     NCNotificationListCellActionButtonsView *_rightActionButtonsView;
     UIView *_leftActionButtonsClippingRevealView;
     UIView *_rightActionButtonsClippingRevealView;
     unsigned long long _actionsRevealState;
     CDUnknownBlockType _sideSwipeHintingHideAnimationBlock;
+    UIViewFloatAnimatableProperty *_targetPositionAnimatableProperty;
+    UIPanGestureRecognizer *_panGestureRecognizer;
+    double _panGestureStartingPosition;
     struct CGPoint _overrideCenter;
     struct UIEdgeInsets _insetMargins;
 }
 
+@property(nonatomic) double panGestureStartingPosition; // @synthesize panGestureStartingPosition=_panGestureStartingPosition;
+@property(retain, nonatomic) UIPanGestureRecognizer *panGestureRecognizer; // @synthesize panGestureRecognizer=_panGestureRecognizer;
+@property(retain, nonatomic) UIViewFloatAnimatableProperty *targetPositionAnimatableProperty; // @synthesize targetPositionAnimatableProperty=_targetPositionAnimatableProperty;
 @property(copy, nonatomic) CDUnknownBlockType sideSwipeHintingHideAnimationBlock; // @synthesize sideSwipeHintingHideAnimationBlock=_sideSwipeHintingHideAnimationBlock;
 @property(nonatomic, getter=isPerformingSwipeHinting) _Bool performingSwipeHinting; // @synthesize performingSwipeHinting=_performingSwipeHinting;
 @property(nonatomic) unsigned long long actionsRevealState; // @synthesize actionsRevealState=_actionsRevealState;
@@ -42,7 +47,6 @@
 @property(retain, nonatomic) UIView *leftActionButtonsClippingRevealView; // @synthesize leftActionButtonsClippingRevealView=_leftActionButtonsClippingRevealView;
 @property(retain, nonatomic) NCNotificationListCellActionButtonsView *rightActionButtonsView; // @synthesize rightActionButtonsView=_rightActionButtonsView;
 @property(retain, nonatomic) NCNotificationListCellActionButtonsView *leftActionButtonsView; // @synthesize leftActionButtonsView=_leftActionButtonsView;
-@property(retain, nonatomic) UIScrollView *cellScrollView; // @synthesize cellScrollView=_cellScrollView;
 @property(copy, nonatomic) NSString *backgroundGroupName; // @synthesize backgroundGroupName=_backgroundGroupName;
 @property(nonatomic) struct CGPoint overrideCenter; // @synthesize overrideCenter=_overrideCenter;
 @property(nonatomic) double overrideAlpha; // @synthesize overrideAlpha=_overrideAlpha;
@@ -63,9 +67,8 @@
 - (void)_updateRevealForLeftActionButtonsClippingRevealViewForRevealPercentage:(double)arg1;
 - (double)_alphaForActionButtonsView:(id)arg1 revealPercentage:(double)arg2;
 - (void)_executeClearAction;
-- (void)_executeDefaultActionIfCompleted;
+- (void)_executeDefaultAction;
 - (void)_layoutContentView;
-- (void)_layoutScrollView;
 - (void)_resetActionButtonViews;
 - (void)_configureActionButtonsView:(id)arg1;
 - (id)_cellActionButtonsView;
@@ -73,17 +76,21 @@
 - (void)_configureActionButtonViewsIfNecessary;
 - (void)_configureClippingRevealView:(id)arg1;
 - (void)_configureClippingRevealViewsIfNecessary;
-- (void)_configureCellScrollViewContentSize;
-- (void)_configureCellScrollViewIfNecessary;
-- (struct CGPoint)_restingContentOffset;
 - (void)_performDefaultActionForRight;
 - (void)_performDefaultActionForLeft;
-- (struct CGPoint)_absoluteRevealContentOffsetForLogicalOffset:(struct CGPoint)arg1;
-- (struct CGPoint)_logicalRevealContentOffsetForAbsoluteOffset:(struct CGPoint)arg1;
 - (void)_resetRevealOverrides;
-- (void)scrollViewDidScroll:(id)arg1;
-- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
-- (void)scrollViewWillBeginDragging:(id)arg1;
+- (void)_updateTargetPosition:(double)arg1;
+- (void)_setupContentOffsetFloatAnimatableProperty;
+- (double)_actionButtonTriggerDistanceForView:(id)arg1;
+- (id)_notificationCellView;
+- (void)_resetNotificationCellPositionAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_setNotificationCellPosition:(double)arg1 withVelocity:(double)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_updateNotificationCellPosition:(double)arg1;
+- (void)_updateActionButtonRevealPercentageForTargetPosition:(double)arg1;
+- (double)_updateActionRevealStateForTargetPosition:(double)arg1 currentPosition:(double)arg2 velocity:(double)arg3;
+- (void)_handlePanGesture:(id)arg1;
+- (void)_removePanGestureRecognizer;
+- (void)_setupPanGestureRecognizer;
 - (void)hintSideSwipeForDefaultAction;
 - (void)applyLayoutAttributes:(id)arg1;
 - (_Bool)_disableRasterizeInAnimations;

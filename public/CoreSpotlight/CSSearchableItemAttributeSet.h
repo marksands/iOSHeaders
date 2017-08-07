@@ -553,6 +553,8 @@
 @property(retain, nonatomic, getter=isUploaded) NSNumber *uploaded;
 @property(retain, nonatomic, getter=isShared) NSNumber *shared;
 @property(retain, nonatomic, getter=isTrashed) NSNumber *trashed;
+@property(copy) NSArray *fileProviderUserInfoValues;
+@property(copy) NSArray *fileProviderUserInfoKeys;
 @property(copy) NSString *fileProviderDomaindentifier;
 @property(copy) NSString *lastEditorIdentifier;
 @property(copy) NSString *lastEditorName;

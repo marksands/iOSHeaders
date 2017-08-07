@@ -14,15 +14,15 @@
 
 @interface VNPersonsModelPrediction : NSObject <NSCopying, NSSecureCoding>
 {
-    VNFaceObservation *_face;
+    VNFaceObservation *_faceObservation;
     id <NSObject><NSCopying><NSSecureCoding> _predictedPersonUniqueIdentifier;
     float _confidence;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly) float confidence; // @synthesize confidence=_confidence;
-@property(readonly, retain) id <NSObject><NSCopying><NSSecureCoding> predictedPersonUniqueIdentifier; // @synthesize predictedPersonUniqueIdentifier=_predictedPersonUniqueIdentifier;
-@property(readonly) VNFaceObservation *face; // @synthesize face=_face;
+@property(readonly, nonatomic) float confidence; // @synthesize confidence=_confidence;
+@property(readonly, nonatomic) id <NSObject><NSCopying><NSSecureCoding> predictedPersonUniqueIdentifier; // @synthesize predictedPersonUniqueIdentifier=_predictedPersonUniqueIdentifier;
+@property(readonly, nonatomic) VNFaceObservation *faceObservation; // @synthesize faceObservation=_faceObservation;
 - (void).cxx_destruct;
 - (id)description;
 - (unsigned long long)hash;
@@ -30,7 +30,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithFace:(id)arg1 predictedPersonUniqueIdentifier:(id)arg2 confidence:(float)arg3;
+- (id)initWithFaceObservation:(id)arg1 predictedPersonUniqueIdentifier:(id)arg2 confidence:(float)arg3;
 
 @end
 

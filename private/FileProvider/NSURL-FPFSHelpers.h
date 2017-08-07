@@ -9,12 +9,15 @@
 @interface NSURL (FPFSHelpers)
 - (id)fp_withReadWriteAccess:(CDUnknownBlockType)arg1;
 - (_Bool)fp_deleteWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)fp_coordinatedDeleteWithHandler:(CDUnknownBlockType)arg1;
 - (_Bool)fp_createSubFolder:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)fp_renameWithNewName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)fp_trashUnderFolder:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)fp_reparentUnderFolder:(id)arg1 allowBouncing:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)fp_reparentUnderFolder:(id)arg1 withNewName:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)fp_reparentUnderFolder:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)fp_importUnderFolder:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)fp_moveUnderFolder:(id)arg1 withNewName:(id)arg2 coordinationOptions:(unsigned long long)arg3 allowBounce:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (_Bool)fp_moveUnderFolder:(id)arg1 withNewName:(id)arg2 allowBounce:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)fp_existingURLOfChildWithName:(id)arg1;
 @end

@@ -88,7 +88,7 @@
 - (void)_recordUnexpectedFailureWithDescription:(id)arg1 error:(id)arg2;
 - (void)_recordUnexpectedFailureWithDescription:(id)arg1 exception:(id)arg2;
 - (void)_recordUnexpectedFailureWithDescription:(id)arg1;
-- (void)_enqueueFailureWithDescription:(id)arg1 inFile:(id)arg2 atLine:(unsigned long long)arg3 expected:(_Bool)arg4;
+- (void)_enqueueFailureWithDescription:(id)arg1 inFile:(id)arg2 atLine:(unsigned long long)arg3 expected:(_Bool)arg4 breakWhenDequeued:(_Bool)arg5;
 - (void)_dequeueFailures;
 - (void)_recordFailureActivityWithDescription:(id)arg1 inFile:(id)arg2 atLine:(unsigned long long)arg3;
 - (void)recordFailureWithDescription:(id)arg1 inFile:(id)arg2 atLine:(unsigned long long)arg3 expected:(_Bool)arg4;

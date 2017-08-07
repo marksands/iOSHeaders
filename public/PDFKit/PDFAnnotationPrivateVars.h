@@ -41,6 +41,7 @@ __attribute__((visibility("hidden")))
     _Bool shouldBurnIn;
     NSString *widgetOnStateString;
     id control;
+    _Bool editingTextWidget;
     PDFAccessibilityNode *accessibilityNode;
     double scaleFactor;
     _Bool isFullyConstructed;

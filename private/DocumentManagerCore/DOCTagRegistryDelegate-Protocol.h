@@ -9,6 +9,7 @@
 @class DOCTag, NSArray, NSString;
 
 @protocol DOCTagRegistryDelegate <NSObject>
+@property(nonatomic) long long tagSerialNumber;
 @property(nonatomic) _Bool inBatchUpdate;
 - (DOCTag *)tagForName:(NSString *)arg1;
 - (_Bool)moveTag:(DOCTag *)arg1 toIndex:(unsigned long long)arg2;

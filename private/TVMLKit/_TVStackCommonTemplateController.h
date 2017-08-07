@@ -50,6 +50,8 @@
 @property(retain, nonatomic) IKViewElement *viewElement; // @synthesize viewElement=_viewElement;
 - (void).cxx_destruct;
 - (void)_configureWithBgImage:(id)arg1 backdropImage:(id)arg2;
+- (long long)_blurEffectStyle;
+- (_Bool)_backgroundImageRequiresBlur;
 - (id)_backgroundImageProxy;
 - (struct CGSize)_backgroundImageProxySize;
 - (void)_dispatchEventOfType:(unsigned long long)arg1 forItemAtIndexPath:(id)arg2;
@@ -85,6 +87,7 @@
 - (void)scrollToTop;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (id)preferredFocusEnvironments;
+- (void)_disableScrollingIfNecessary:(id)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;

@@ -71,6 +71,7 @@
 - (void)familyInvitationsViewControllerDidFinish:(id)arg1;
 - (void)familyInvitationsViewController:(id)arg1 didProcessInvite:(id)arg2;
 - (void)_pushInvitationsViewControllerWithSpecifier:(id)arg1 invites:(id)arg2 viewingInviteAtIndex:(long long)arg3;
+- (void)_presentPendingInvitesRemoteUI;
 - (void)_pendingInvitationsSpecifierWasTapped:(id)arg1;
 - (id)_valueForInvitiationsSpecifier:(id)arg1;
 - (void)familySetupViewController:(id)arg1 didCompleteWithSuccess:(_Bool)arg2;
@@ -78,6 +79,7 @@
 - (id)_configureContextWithType:(id)arg1 ResourceDictionary:(id)arg2;
 - (void)_v2InitiateFamily:(id)arg1;
 - (void)_v2InitiateFamily;
+- (void)_reloadFamily;
 - (void)_setUpFamilySpecifierWasTapped:(id)arg1;
 - (void)_handleFamilyDetailsResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_loadFamilyDetailsWithCompletion:(CDUnknownBlockType)arg1;

@@ -14,7 +14,6 @@ __attribute__((visibility("hidden")))
     PDFPageLayerEffectPrivate *_private;
 }
 
-+ (struct CGRect)convertRectToPageView:(struct CGRect)arg1 withLayer:(id)arg2 displayBox:(long long)arg3;
 + (id)createPDFAnnotationLayerEffectForAnnotation:(id)arg1 withLayer:(id)arg2;
 + (id)createPDFWidgetLayerEffectForAnnotation:(id)arg1 withLayer:(id)arg2;
 + (struct CGColor *)_createLigtherColor:(struct CGColor *)arg1 withIntensity:(double)arg2;
@@ -28,9 +27,6 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (id)annotation;
-- (void)updateRotation;
-- (void)setDisplayBox:(long long)arg1;
-- (long long)displayBox;
 - (id)initWithPDFPageLayer:(id)arg1;
 
 @end

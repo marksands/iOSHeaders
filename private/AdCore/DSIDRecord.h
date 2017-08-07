@@ -20,6 +20,7 @@
     _Bool _accountLimitAdTrackingEnabled;
     _Bool _lastSentLimitAdTrackingStatus;
     NSString *_DSID;
+    NSString *_iCloudDSID;
     NSString *_segmentData;
     NSString *_IDFA;
     NSString *_iAdIDBeforeReset;
@@ -51,6 +52,7 @@
 @property(nonatomic) _Bool accountIsU18; // @synthesize accountIsU18=_accountIsU18;
 @property(nonatomic) _Bool accountIsU13; // @synthesize accountIsU13=_accountIsU13;
 @property(nonatomic) _Bool accountIsT13; // @synthesize accountIsT13=_accountIsT13;
+@property(retain, nonatomic) NSString *iCloudDSID; // @synthesize iCloudDSID=_iCloudDSID;
 @property(retain, nonatomic) NSString *DSID; // @synthesize DSID=_DSID;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool isRestrictedAccount;

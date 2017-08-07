@@ -6,11 +6,12 @@
 
 #import <StoreKitUI/NSCopying-Protocol.h>
 #import <StoreKitUI/NSObject-Protocol.h>
+#import <StoreKitUI/NSSecureCoding-Protocol.h>
 #import <StoreKitUI/SKUICacheCoding-Protocol.h>
 
 @class NSURL, SKUIArtwork;
 
-@protocol SKUIArtworkProviding <NSObject, SKUICacheCoding, NSCopying>
+@protocol SKUIArtworkProviding <NSObject, NSSecureCoding, SKUICacheCoding, NSCopying>
 + (_Bool)canHandleArtworkFormat:(id)arg1;
 @property(readonly, nonatomic) SKUIArtwork *smallestArtwork;
 @property(readonly, nonatomic) SKUIArtwork *largestArtwork;

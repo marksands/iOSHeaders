@@ -27,6 +27,8 @@
 - (void)_contentsChanged;
 - (void)_connectAVPlayer;
 - (void)_playbackErrorNotification:(id)arg1;
+- (void)addPlaybackContext:(id)arg1 toQueueWithInsertionType:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) long long upNextItemCount;
 - (void)setShuffleType:(long long)arg1;
 - (void)setRepeatType:(long long)arg1;
 - (void)reloadWithPlaybackContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

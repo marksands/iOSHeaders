@@ -7,10 +7,7 @@
 #import <ITMLKit/IKJSApplication-Protocol.h>
 #import <ITMLKit/JSExport-Protocol.h>
 
-@class NSDictionary;
-
 @protocol _IKJSApplication <IKJSApplication, JSExport>
-@property(readonly, nonatomic) NSDictionary *traitCollection;
 - (void)update;
 @end
 

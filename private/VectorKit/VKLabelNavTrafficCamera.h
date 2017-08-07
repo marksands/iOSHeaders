@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <VectorKit/VKLabelNavFeature-Protocol.h>
 
@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     Mercator2_57ec32b6 _previousMercatorPoint;
     Mercator2_57ec32b6 _nextMercatorPoint;
     VKTrafficCameraFeature *_trafficCamera;
+    unsigned char _labelNavMode;
     struct shared_ptr<md::LabelStyle> _labelStyle;
     _Bool _isPicked;
     _Bool _shouldRestyleFeature;
@@ -28,6 +29,7 @@ __attribute__((visibility("hidden")))
     unsigned char _iconState;
 }
 
+@property(readonly, nonatomic) unsigned char labelNavMode; // @synthesize labelNavMode=_labelNavMode;
 @property(readonly, nonatomic) unsigned char currentIconState; // @synthesize currentIconState=_iconState;
 @property(nonatomic) unsigned char tailDirection; // @synthesize tailDirection=_tailDirection;
 @property(nonatomic) _Bool shouldRestyleFeature; // @synthesize shouldRestyleFeature=_shouldRestyleFeature;

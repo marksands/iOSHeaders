@@ -17,6 +17,8 @@
 - (void)announceAccessibilitySelectionChangedByMergeWithSavedSelections:(id)arg1 beforeMergeTimestamp:(id)arg2;
 - (void)notifyTextViewsNoteDidMerge;
 - (void)notifyTextViewsNoteWillMerge;
+- (void)textStorageDidChange:(id)arg1;
+- (void)textStorageWillChange:(id)arg1;
 - (void)textStorageDidPerformUndo:(id)arg1;
 - (void)textStorage:(id)arg1 didProcessEditing:(unsigned long long)arg2 range:(struct _NSRange)arg3 changeInLength:(long long)arg4;
 - (void)textStorage:(id)arg1 willProcessEditing:(unsigned long long)arg2 range:(struct _NSRange)arg3 changeInLength:(long long)arg4;

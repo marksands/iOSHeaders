@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     NSString *_uid;
     NSString *_modelID;
     NSString *_groupID;
+    NSString *_MACAddress;
     NSDictionary *_modelSpecificInfo;
     _Bool _forceRemoteControllability;
     AVOutputDevice *_avOutputDevice;
@@ -26,6 +27,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool requiresAuthorization;
 @property(readonly, nonatomic) _Bool supportsExternalScreen;
 @property(readonly, nonatomic, getter=isLocalDevice) _Bool localDevice;
+@property(readonly, nonatomic) _Bool hasBatteryLevel;
 @property(readonly, nonatomic) float batteryLevel;
 @property(readonly, nonatomic) NSDictionary *modelSpecificInfo;
 @property(readonly, nonatomic) unsigned int deviceSubtype;
@@ -33,6 +35,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isGroupable) _Bool groupable;
 @property(readonly, nonatomic, getter=isGroupLeader) _Bool groupLeader;
 @property(readonly, nonatomic, getter=isRemoteControllable) _Bool remoteControllable;
+@property(readonly, nonatomic) _Bool canAccessRemoteAssets;
+@property(readonly, nonatomic) NSString *MACAddress;
 @property(readonly, nonatomic) NSString *groupID;
 @property(readonly, nonatomic) NSString *modelID;
 @property(readonly, nonatomic) NSString *uid;

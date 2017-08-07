@@ -43,7 +43,7 @@
 @property(readonly, nonatomic) PXPeopleBootstrapContext *bootstrapContext;
 @property(readonly, nonatomic) PHPerson *person;
 - (void)traitCollectionDidChange:(id)arg1;
-- (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithContext:(id)arg1;
 

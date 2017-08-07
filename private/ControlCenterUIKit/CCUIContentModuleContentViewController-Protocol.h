@@ -14,10 +14,12 @@
 @property(readonly, nonatomic) double preferredExpandedContentWidth;
 - (void)controlCenterDidDismiss;
 - (void)controlCenterWillPresent;
+- (void)dismissPresentedContentAnimated:(_Bool)arg1 completion:(void (^)(void))arg2;
 - (void)dismissPresentedContent;
 - (_Bool)canDismissPresentedContent;
 - (void)didTransitionToExpandedContentMode:(_Bool)arg1;
 - (void)willTransitionToExpandedContentMode:(_Bool)arg1;
+- (_Bool)shouldFinishTransitionToExpandedContentModule;
 - (_Bool)shouldBeginTransitionToExpandedContentModule;
 - (void)willResignActive;
 - (void)willBecomeActive;

@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <SpotlightServices/SSDataCollectible-Protocol.h>
+
 @class NSArray, NSDictionary, NSMapTable, NSMutableArray, NSString, PRSL2FeatureVector, PRSL3FeatureVector, PRSRankingSpanCalculator;
 
-@interface PRSRankingItem : NSObject
+@interface PRSRankingItem : NSObject <SSDataCollectible>
 {
     _Bool _eligibleForDemotion;
     _Bool _isPrepared;
@@ -70,9 +72,10 @@
 @property(nonatomic) double rawScore; // @synthesize rawScore=_rawScore;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
-- (_Bool)passesRecencyTest;
+- (long long)passesRecencyTest;
+- (id)dataCollectionBundle;
 - (id)dataCollectionRepresentation;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)likelyDisplayTitle;
 - (long long)compare:(id)arg1;
 - (long long)compareWithDates:(id)arg1;
@@ -94,6 +97,11 @@
 - (_Bool)didMatchRankingDescriptor:(id)arg1;
 - (void)dealloc;
 - (id)initWithAttributes:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

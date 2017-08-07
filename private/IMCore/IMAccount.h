@@ -170,7 +170,7 @@
 @property(readonly, nonatomic) NSArray *aliases;
 - (id)_statuses;
 - (id)_aliasInfoForAlias:(id)arg1;
-- (id)_invisibleAliases;
+- (_Bool)_aliasIsVisible:(id)arg1;
 - (id)_aliases;
 @property(readonly, nonatomic) NSArray *aliasesToRegister;
 @property(readonly, nonatomic) NSArray *vettedAliases;

@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
 - (void)updateBindableOrderWithTest:(CDUnknownBlockType)arg1;
 - (void)createContextsWithTest:(CDUnknownBlockType)arg1 creationAction:(CDUnknownBlockType)arg2;
 - (void)purgeContextsWithPurgeAction:(CDUnknownBlockType)arg1;
+- (_Bool)bindableIsTopmostAttached:(id)arg1;
 - (_Bool)bindbleEnrolled:(id)arg1;
 - (id)_enrolledBindablePointersAsCopy:(_Bool)arg1;
 - (id)_attachedBindablePointersAsCopy:(_Bool)arg1;

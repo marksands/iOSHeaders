@@ -76,6 +76,7 @@ __attribute__((visibility("hidden")))
 - (void)_webViewDidEndNavigationGesture:(id)arg1 withNavigationToBackForwardListItem:(id)arg2;
 - (void)_webView:(id)arg1 navigation:(id)arg2 didSameDocumentNavigation:(long long)arg3;
 - (void)webView:(id)arg1 didCommitNavigation:(id)arg2;
+- (void)_webView:(id)arg1 didPerformClientRedirectForNavigation:(id)arg2;
 - (void)webView:(id)arg1 didReceiveServerRedirectForProvisionalNavigation:(id)arg2;
 - (void)webView:(id)arg1 didStartProvisionalNavigation:(id)arg2;
 - (void)willBeginUserInitiatedNavigation;

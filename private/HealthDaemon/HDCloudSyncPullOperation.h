@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class CKServerChangeToken, HDCloudSyncOperationConfiguration, HDCloudSyncStore, HDCloudSyncStoreRecord, NSFileHandle, NSMutableArray, _HDCloudSyncStorePersistableState;
+#import <HealthDaemon/NSProgressReporting-Protocol.h>
+
+@class CKServerChangeToken, HDCloudSyncOperationConfiguration, HDCloudSyncStore, HDCloudSyncStoreRecord, NSFileHandle, NSMutableArray, NSProgress, NSString, _HDCloudSyncStorePersistableState;
 @protocol OS_dispatch_queue;
 
-@interface HDCloudSyncPullOperation : NSObject
+@interface HDCloudSyncPullOperation : NSObject <NSProgressReporting>
 {
     HDCloudSyncOperationConfiguration *_configuration;
     NSObject<OS_dispatch_queue> *_queue;
@@ -19,12 +21,19 @@
     CKServerChangeToken *_initialServerChangeToken;
     CKServerChangeToken *_serverChangeToken;
     NSFileHandle *_fileHandle;
+    NSProgress *_allAssetProgress;
+    NSProgress *_perAssetRecordProgress;
+    _Bool _hasAppliedChange;
+    _Bool _queue_hasStarted;
     CDUnknownBlockType _completion;
+    NSProgress *_progress;
 }
 
 + (id)_assetFileHandleWithName:(id)arg1 error:(id *)arg2;
+@property(readonly, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 - (void).cxx_destruct;
 - (void)_queue_endFetchChangesOperation:(id)arg1 success:(_Bool)arg2 error:(id)arg3;
+- (void)_queue_recordChangeApplied;
 - (_Bool)_applySyncChanges:(id)arg1 store:(id)arg2 error:(id *)arg3;
 - (id)_zipArchiveExtractorForChangeRecord:(id)arg1 assetContentInMemory:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)_queue_persistFetchedArchiveAsset:(id)arg1 error:(id *)arg2;
@@ -48,6 +57,12 @@
 - (void)startWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) _HDCloudSyncStorePersistableState *persistedStoreState;
 - (id)initWithConfiguration:(id)arg1 storeRecord:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

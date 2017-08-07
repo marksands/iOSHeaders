@@ -32,7 +32,6 @@
 - (void).cxx_destruct;
 - (void)configureWithContent:(id)arg1;
 - (void)updateConstraints;
-- (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

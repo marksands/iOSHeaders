@@ -36,7 +36,7 @@
 - (void)_initializeDefaultStates;
 - (id)currentExperimentsState;
 - (id)logMsgStateOfType:(int)arg1;
-- (void)registerUserSessionStateOfType:(unsigned long long)arg1 isNavSessionAllowed:(_Bool)arg2 eventTime:(double)arg3;
+- (void)registerUserSessionStateOfType:(unsigned long long)arg1 isNavSessionAllowed:(_Bool)arg2 userSessionSnapshot:(id)arg3;
 - (void)unregisterLogMsgStateOfType:(int)arg1 stateOrigin:(id)arg2;
 - (void)unregisterLogMsgStateOfType:(int)arg1;
 - (void)registerLogMsgState:(id)arg1;

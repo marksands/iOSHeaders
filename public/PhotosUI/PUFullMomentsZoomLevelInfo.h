@@ -44,7 +44,7 @@ __attribute__((visibility("hidden")))
 - (id)sectionHeaderElementKind;
 - (long long)cellFillMode;
 - (struct CGSize)imageRequestItemSize;
-- (void)updateLayoutMetricsForWidth:(double)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2;
+- (void)updateLayoutMetricsForWidth:(double)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2 layoutMargins:(struct UIEdgeInsets)arg3;
 - (id)newCollectionViewLayout;
 - (struct __CFString *)aggregateLevelKey;
 - (id)displayTitle;

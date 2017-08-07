@@ -78,6 +78,7 @@
 - (void)setupOutputFileSourceWithOutputAvailableHandler:(CDUnknownBlockType)arg1;
 - (void)processCompressedSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 presentationTimeStamp:(CDStruct_1b6d18a9)arg2;
 - (void)startReadingInputAssetWithOutputAvailableHandler:(CDUnknownBlockType)arg1;
+- (long long)estimatedOutputBitRate;
 - (_Bool)setupConversionWithError:(id *)arg1;
 - (id)outputDataInRange:(struct _NSRange)arg1 waitUntilAvailableWithTimeout:(unsigned long long)arg2 error:(id *)arg3;
 - (_Bool)startConversionWithError:(id *)arg1 outputAvailableHandler:(CDUnknownBlockType)arg2;

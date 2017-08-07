@@ -29,6 +29,7 @@
 + (id)_imageRenderRequestWithComposition:(id)arg1 wideGamut:(_Bool)arg2;
 + (id)imageRenderRequestWithComposition:(id)arg1 fillInSize:(struct CGSize)arg2 wideGamut:(_Bool)arg3;
 + (id)imageRenderRequestWithComposition:(id)arg1 fitInSize:(struct CGSize)arg2 wideGamut:(_Bool)arg3;
++ (id)geometryRequestWithComposition:(id)arg1;
 + (id)newVideoExportClientWithName:(id)arg1;
 + (id)newVideoPropertiesClientWithName:(id)arg1;
 + (id)newImageExportClientWithName:(id)arg1;

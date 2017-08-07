@@ -4,7 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#pragma mark Blocks
+#pragma mark Function Pointers and Blocks
+
+typedef void (*CDUnknownFunctionPointerType)(void); // return type and parameters are unknown
 
 typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
 
@@ -13,6 +15,17 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 struct BurstSupportVector {
     double _field1;
     double _field2[7];
+};
+
+struct CC_MD5state_st {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    unsigned int _field6;
+    unsigned int _field7[16];
+    int _field8;
 };
 
 struct CGAffineTransform {
@@ -483,8 +496,8 @@ struct shared_ptr<vision::mod::ImageDescriptorBufferAbstract> {
 };
 
 struct shared_ptr<vision::mod::ImageDescriptorBufferFloat32> {
-    struct ImageDescriptorBufferFloat32 *__ptr_;
-    struct __shared_weak_count *__cntrl_;
+    struct ImageDescriptorBufferFloat32 *_field1;
+    struct __shared_weak_count *_field2;
 };
 
 struct shared_ptr<vision::mod::ImageDescriptorProcessorAbstract> {
@@ -552,11 +565,11 @@ struct vector<float, std::__1::allocator<float>> {
 };
 
 struct vector<int, std::__1::allocator<int>> {
-    int *__begin_;
-    int *__end_;
+    int *_field1;
+    int *_field2;
     struct __compressed_pair<int *, std::__1::allocator<int>> {
-        int *__first_;
-    } __end_cap_;
+        int *_field1;
+    } _field3;
 };
 
 struct vector<long long, std::__1::allocator<long long>> {
@@ -671,10 +684,20 @@ typedef struct shared_ptr<const vision::mod::GreedyClustererFaces> {
     struct __shared_weak_count *__cntrl_;
 } shared_ptr_605f6fd7;
 
+typedef struct shared_ptr<vision::mod::FaceIDModel> {
+    struct FaceIDModel *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_8c39738b;
+
 typedef struct shared_ptr<vision::mod::ImageDescriptorBufferAbstract> {
     struct ImageDescriptorBufferAbstract *_field1;
     struct __shared_weak_count *_field2;
 } shared_ptr_0a6daad2;
+
+typedef struct shared_ptr<vision::mod::ImageDescriptorBufferFloat32> {
+    struct ImageDescriptorBufferFloat32 *_field1;
+    struct __shared_weak_count *_field2;
+} shared_ptr_099ccdd3;
 
 typedef struct vector<MPClusteringTreeNode *, std::__1::allocator<MPClusteringTreeNode *>> {
     struct MPClusteringTreeNode **_field1;
@@ -683,6 +706,14 @@ typedef struct vector<MPClusteringTreeNode *, std::__1::allocator<MPClusteringTr
         struct MPClusteringTreeNode **_field1;
     } _field3;
 } vector_e14a6833;
+
+typedef struct vector<int, std::__1::allocator<int>> {
+    int *_field1;
+    int *_field2;
+    struct __compressed_pair<int *, std::__1::allocator<int>> {
+        int *_field1;
+    } _field3;
+} vector_3203cf93;
 
 typedef struct vector<std::__1::map<std::__1::basic_string<char>, float, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, float>>>, std::__1::allocator<std::__1::map<std::__1::basic_string<char>, float, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, float>>>>> {
     map_fdb8d0b1 *_field1;

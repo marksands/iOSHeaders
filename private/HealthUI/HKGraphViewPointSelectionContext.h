@@ -25,6 +25,7 @@
 @property(retain, nonatomic) HKValueRange *selectedRangeXValues; // @synthesize selectedRangeXValues=_selectedRangeXValues;
 @property(retain, nonatomic) HKGraphSeries *selectedSeries; // @synthesize selectedSeries=_selectedSeries;
 - (void).cxx_destruct;
+- (id)debugDescription;
 
 @end
 

@@ -76,6 +76,7 @@
 @property(copy, nonatomic) UIColor *color;
 @property(readonly, nonatomic) NSArray *pages;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithPage:(id)arg1;
 - (id)initWithDocument:(id)arg1;
 
 @end

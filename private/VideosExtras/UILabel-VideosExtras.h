@@ -7,6 +7,7 @@
 #import <UIKit/UILabel.h>
 
 @interface UILabel (VideosExtras)
+- (void)configureForIKTextElement:(id)arg1 fontDescriptor:(id)arg2 textStyle:(id)arg3 capitalize:(_Bool)arg4 overrideWithTraitCollection:(id)arg5;
 - (void)configureForIKTextElement:(id)arg1 fontDescriptor:(id)arg2 textStyle:(id)arg3 capitalize:(_Bool)arg4;
 - (void)configureForIKTextElement:(id)arg1 fontDescriptor:(id)arg2 textStyle:(id)arg3;
 - (long long)_textAlignmentFromElementAlignment:(unsigned long long)arg1;

@@ -49,6 +49,7 @@
     id <PXUIWidget> __previewWidget;
     UIView *__headerTileView;
     CDUnknownBlockType __ppt_allWidgetLoadingCompleteHandler;
+    CDUnknownBlockType __ppt_variationsWidgetLoadingCompleteHandler;
     id <UIViewControllerPreviewing> __previewingContext;
     PXBarsController *_barsController;
     id <PXActionPerformerDelegate> _actionPerformerDelegate;
@@ -63,6 +64,7 @@
 @property(nonatomic) struct UIEdgeInsets contentEdgeInsets; // @synthesize contentEdgeInsets=_contentEdgeInsets;
 @property(readonly, nonatomic) PXBarsController *barsController; // @synthesize barsController=_barsController;
 @property(retain, nonatomic, setter=_setPreviewingContext:) id <UIViewControllerPreviewing> _previewingContext; // @synthesize _previewingContext=__previewingContext;
+@property(copy, nonatomic, setter=_ppt_setVariationsWidgetLoadingCompleteHandler:) CDUnknownBlockType _ppt_variationsWidgetLoadingCompleteHandler; // @synthesize _ppt_variationsWidgetLoadingCompleteHandler=__ppt_variationsWidgetLoadingCompleteHandler;
 @property(copy, nonatomic, setter=_ppt_setAllWidgetLoadingCompleteHandler:) CDUnknownBlockType _ppt_allWidgetLoadingCompleteHandler; // @synthesize _ppt_allWidgetLoadingCompleteHandler=__ppt_allWidgetLoadingCompleteHandler;
 @property(retain, nonatomic, setter=_setHeaderTileView:) UIView *_headerTileView; // @synthesize _headerTileView=__headerTileView;
 @property(nonatomic, setter=_setShouldFocusHeader:) _Bool _shouldFocusHeader; // @synthesize _shouldFocusHeader=__shouldFocusHeader;
@@ -88,8 +90,9 @@
 @property(readonly, nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(readonly, nonatomic) PXPhotosDetailsContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
-- (void)_ppt_informAllWidgetsLoadedHandlerIfNeeded;
+- (void)_ppt_informWidgetsLoadedHandlerIfNeeded;
 - (void)ppt_navigateToMovieWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)ppt_performBlockAfterVariationsWidgetLoadingCompletes:(CDUnknownBlockType)arg1;
 - (void)ppt_performBlockAfterAllWidgetLoadingCompletes:(CDUnknownBlockType)arg1;
 - (void)ppt_toggleDiscloseWidgets;
 @property(readonly, nonatomic) UIScrollView *ppt_scrollView;

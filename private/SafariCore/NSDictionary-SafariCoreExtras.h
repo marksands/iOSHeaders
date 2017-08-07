@@ -7,7 +7,6 @@
 #import <Foundation/NSDictionary.h>
 
 @interface NSDictionary (SafariCoreExtras)
-+ (id)safari_dictionaryWithContentsOfData:(id)arg1 options:(unsigned long long)arg2;
 + (id)safari_dictionaryWithPropertyListData:(id)arg1 options:(unsigned long long)arg2;
 + (id)safari_dictionaryWithPropertyListData:(id)arg1;
 - (id)safari_diffWithDictionary:(id)arg1;

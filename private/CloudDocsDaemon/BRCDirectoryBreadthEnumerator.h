@@ -24,8 +24,6 @@ __attribute__((visibility("hidden")))
         struct _telldir *_field10;
     } *_dir;
     BRCRelativePath *_parentPath;
-    struct dirent _prevDirEntry;
-    struct dirent *_child;
 }
 
 - (void).cxx_destruct;

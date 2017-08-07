@@ -56,11 +56,13 @@
 - (void)device:(id)arg1 propertyDidChange:(id)arg2 fromValue:(id)arg3;
 - (_Bool)supportsSpeculativeChangesForSyncEntityClass:(Class)arg1;
 - (id)syncEntityDependenciesForSyncEntity:(Class)arg1;
+- (_Bool)canRecieveSyncObjectsForEntityClass:(Class)arg1;
 - (_Bool)enforceSyncEntityOrdering;
 - (id)orderedSyncEntities;
 - (id)syncStoreDefaultSourceBundleIdentifier;
 - (id)syncStoreIdentifier;
 - (id)syncStoreTypeIdentifier;
+- (long long)syncEpoch;
 - (long long)syncProvenance;
 - (_Bool)validatePairingUUIDsWithIncomingMessage:(id)arg1;
 - (_Bool)validateVersionWithIncomingMessage:(id)arg1;

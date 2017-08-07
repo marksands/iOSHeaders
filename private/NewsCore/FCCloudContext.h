@@ -13,7 +13,7 @@
 #import <NewsCore/FCTestingContext-Protocol.h>
 
 @class FCAppConfigurationManager, FCArticleController, FCAssetManager, FCClientEndpointConnection, FCCommandQueue, FCFeedManager, FCFlintResourceManager, FCNetworkBehaviorMonitor, FCNotificationController, FCNotificationsEndpointConnection, FCPersonalizationData, FCPrivateChannelMembershipController, FCPurchaseController, FCReadingHistory, FCReadingList, FCSubscriptionController, FCSubscriptionList, FCTagController, FCTagSettings, FCUserInfo, NSString, NSURL;
-@protocol FCAppActivityMonitor, FCBackgroundTaskable, FCContentContext, FCContentContextInternal, FCFlintHelper, FCPPTContext, FCPrivateDataContext, FCPrivateDataContextInternal, FCPushNotificationHandling;
+@protocol FCAppActivityMonitor, FCBackgroundTaskable, FCContentContext, FCContentContextInternal, FCFeedPersonalizing, FCFlintHelper, FCPPTContext, FCPrivateDataContext, FCPrivateDataContextInternal, FCPushNotificationHandling;
 
 @interface FCCloudContext : NSObject <FCTestingContext, FCCKDatabaseEncryptionDelegate, FCContentContext, FCPrivateDataContext, FCCacheFlushing>
 {
@@ -80,6 +80,7 @@
 @property(readonly, nonatomic) FCAssetManager *assetManager;
 - (id)fetchEndOfArticleDataForHeadline:(id)arg1 initialRelatedHeadlineCount:(unsigned long long)arg2 initialPublisherHeadlineCount:(unsigned long long)arg3 totalRelatedHeadlineCount:(unsigned long long)arg4 totalPublisherHeadlineCount:(unsigned long long)arg5 fetchRelatedHeadline:(_Bool)arg6 fetchPublisherHeadlines:(_Bool)arg7 fetchAllTopics:(_Bool)arg8 screenScale:(double)arg9 completion:(CDUnknownBlockType)arg10;
 - (void)enableFlushingWithFlushingThreshold:(unsigned long long)arg1;
+@property(readonly, copy, nonatomic) NSString *contentEnvironmentToken;
 - (void)ppt_overrideFeedEndpoint:(long long)arg1;
 @property(readonly, nonatomic) _Bool isPrivateDatabaseTemporarilySuspended;
 @property(readonly, nonatomic) _Bool isPrivateDatabaseOnline;
@@ -90,6 +91,7 @@
 @property(readonly, nonatomic) FCCommandQueue *endpointCommandQueue; // @synthesize endpointCommandQueue=_endpointCommandQueue;
 @property(readonly, nonatomic) FCClientEndpointConnection *endpointConnection; // @synthesize endpointConnection=_endpointConnection;
 @property(readonly, nonatomic) FCNetworkBehaviorMonitor *networkBehaviorMonitor; // @synthesize networkBehaviorMonitor=_networkBehaviorMonitor;
+@property(readonly, nonatomic) id <FCFeedPersonalizing> feedPersonalizer;
 @property(readonly, nonatomic) FCFeedManager *feedManager; // @synthesize feedManager=_feedManager;
 - (id)notificationsController;
 @property(readonly, nonatomic) FCSubscriptionController *subscriptionController; // @synthesize subscriptionController=_subscriptionController;

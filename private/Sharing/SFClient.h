@@ -35,6 +35,7 @@
 - (void)retriggerProximitySetup:(CDUnknownBlockType)arg1;
 - (void)retriggerProximityPairing:(CDUnknownBlockType)arg1;
 - (void)requestWithInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)reenableProxCardType:(unsigned char)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)preventExitForLocaleReason:(id)arg1;
 - (void)openSetupURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)displayStringForContactIdentifier:(id)arg1 deviceIdentifier:(id)arg2 completion:(CDUnknownBlockType)arg3;

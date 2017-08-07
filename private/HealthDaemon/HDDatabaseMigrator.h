@@ -164,6 +164,8 @@
 - (long long)_createExternalSyncIdentifierEntityTable:(out id *)arg1;
 - (long long)_recreateDataProvenanceTableIncludingOriginVersionsWithError:(id *)arg1;
 - (id)tigrisProtectedMigrationSteps;
+- (long long)_tigris_addSourcesBundleIdentifierUUIDIndexWithError:(id *)arg1;
+- (long long)_tigris_addEpochColumnToSyncAnchorTable:(id *)arg1;
 - (long long)_tigris_addGapColumnToCloudSyncStores:(id *)arg1;
 - (long long)_tigris_addPreferredSourceOptionToConnectedGymSources:(out id *)arg1;
 - (long long)_tigris_addContainerColumnToCloudSyncStores:(id *)arg1;

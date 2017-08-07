@@ -46,8 +46,8 @@
 - (void)_enqueueText:(id)arg1 audioData:(id)arg2 identifier:(id)arg3 language:(id)arg4 gender:(id)arg5 isPhonetic:(_Bool)arg6 provisionally:(_Bool)arg7 eligibleAfterDuration:(double)arg8 preparationIdentifier:(id)arg9 completion:(CDUnknownBlockType)arg10 animationIdentifier:(id)arg11 analyticsContext:(id)arg12 speakableContextInfo:(id)arg13;
 - (void)enqueueAudioData:(id)arg1 identifier:(id)arg2 provisionally:(_Bool)arg3 eligibleAfterDuration:(double)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)enqueueText:(id)arg1 identifier:(id)arg2 language:(id)arg3 gender:(id)arg4 isPhonetic:(_Bool)arg5 provisionally:(_Bool)arg6 eligibleAfterDuration:(double)arg7 preparationIdentifier:(id)arg8 completion:(CDUnknownBlockType)arg9 animationIdentifier:(id)arg10 analyticsContext:(id)arg11 speakableContextInfo:(id)arg12;
-- (_Bool)_startSpeechPreSynthesisOfText:(id)arg1 error:(id *)arg2;
-- (void)presynthesizeDialogStrings:(id)arg1;
+- (_Bool)_startSpeechPreSynthesisOfText:(id)arg1 speakableContext:(id)arg2 error:(id *)arg3;
+- (void)presynthesizeDialogStrings:(id)arg1 speakableContext:(id)arg2;
 - (void)setAudioSessionID:(unsigned int)arg1;
 - (void)setOutputVoice:(id)arg1;
 - (void)speechSynthesizer:(id)arg1 didFinishSpeakingRequest:(id)arg2 withInstrumentMetrics:(id)arg3;

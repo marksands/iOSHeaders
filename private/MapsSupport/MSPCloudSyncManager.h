@@ -38,6 +38,7 @@
 + (Class)replicaRecordClass;
 + (Class)replicaClass;
 + (id)journalName;
++ (id)boostDateDefaultsKey;
 + (id)identityDefaultsKey;
 + (_Bool)usesZoneWidePCS;
 + (id)zoneName;
@@ -61,6 +62,8 @@
 - (void)synchronizer:(id)arg1 userIdentityDidLogOutWithFollowUp:(long long)arg2;
 - (void)synchronizer:(id)arg1 storeNewClientRegistrationIdentifier:(id)arg2;
 - (id)storedClientRegistrationIdentifierForSynchronizer:(id)arg1;
+- (void)synchronizer:(id)arg1 storeNewBoostDate:(id)arg2;
+- (id)storedBoostDateForSynchronizer:(id)arg1;
 - (void)synchronizer:(id)arg1 storeNewUserIdentity:(id)arg2;
 - (id)storedUserIdentityForSynchronizer:(id)arg1;
 - (void)networkReachabilityChanged;

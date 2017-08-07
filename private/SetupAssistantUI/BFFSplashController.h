@@ -22,7 +22,6 @@
     _Bool _scrollingDisabled;
     _Bool _fullWidthContent;
     _Bool _usesTwoButtonLayout;
-    UIImage *_icon;
     NSString *_detailText;
     UIView *_contentView;
     long long _contentViewPosition;
@@ -38,7 +37,6 @@
 @property(nonatomic) long long contentViewPosition; // @synthesize contentViewPosition=_contentViewPosition;
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property(copy, nonatomic) NSString *detailText; // @synthesize detailText=_detailText;
-@property(retain, nonatomic) UIImage *icon; // @synthesize icon=_icon;
 - (void).cxx_destruct;
 - (void)_buttonPressed:(id)arg1;
 - (void)_updateTrayVisibility;
@@ -58,6 +56,7 @@
 - (void)removeAllButtons;
 - (void)addButtonWithTitle:(id)arg1 style:(long long)arg2 action:(CDUnknownBlockType)arg3;
 - (void)setTitle:(id)arg1;
+@property(retain, nonatomic) UIImage *icon;
 - (id)init;
 
 // Remaining properties

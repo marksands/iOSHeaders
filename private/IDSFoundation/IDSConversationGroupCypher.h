@@ -18,7 +18,6 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+ (void)load;
 @property(readonly, nonatomic) IDSDeviceIdentity *deviceIdentity; // @synthesize deviceIdentity=_deviceIdentity;
 @property(retain, nonatomic) NSArray *participants; // @synthesize participants=_participants;
 @property(retain, nonatomic) IDSMPConversationGroup *conversationGroup; // @synthesize conversationGroup=_conversationGroup;

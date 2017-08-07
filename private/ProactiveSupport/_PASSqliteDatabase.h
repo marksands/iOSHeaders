@@ -38,13 +38,19 @@
 + (id)inMemoryPath;
 + (_Bool)isInMemoryPath:(id)arg1;
 + (id)protectedDatabaseWithFilename:(id)arg1 error:(id *)arg2;
++ (id)protectedDatabaseWithFilename:(id)arg1 error:(id *)arg2 errorHandler:(id)arg3;
 + (id)sqliteDatabaseInMemoryWithError:(id *)arg1;
++ (id)sqliteDatabaseInMemoryWithError:(id *)arg1 errorHandler:(id)arg2;
 + (id)sqliteDatabaseWithFilename:(id)arg1 contentProtection:(long long)arg2 error:(id *)arg3;
++ (id)sqliteDatabaseWithFilename:(id)arg1 contentProtection:(long long)arg2 error:(id *)arg3 errorHandler:(id)arg4;
 + (id)sqliteDatabaseWithFilename:(id)arg1 error:(id *)arg2;
++ (id)sqliteDatabaseWithFilename:(id)arg1 error:(id *)arg2 errorHandler:(id)arg3;
 + (id)sqliteDatabaseWithFilename:(id)arg1 flags:(int)arg2 error:(id *)arg3;
++ (id)sqliteDatabaseWithFilename:(id)arg1 flags:(int)arg2 error:(id *)arg3 errorHandler:(id)arg4;
 + (id)recreateCorruptDatabase:(id)arg1 withContentProtection:(long long)arg2;
 + (id)initializeDatabase:(id)arg1 withProtection:(_Bool)arg2 newDatabaseCreated:(_Bool *)arg3;
 + (id)initializeDatabase:(id)arg1 withContentProtection:(long long)arg2 newDatabaseCreated:(_Bool *)arg3;
++ (id)initializeDatabase:(id)arg1 withContentProtection:(long long)arg2 newDatabaseCreated:(_Bool *)arg3 errorHandler:(id)arg4;
 @property(readonly, nonatomic) _Bool isInMemory; // @synthesize isInMemory=_isInMemory;
 @property(readonly, nonatomic) NSString *filename; // @synthesize filename=_filename;
 - (void).cxx_destruct;
@@ -87,6 +93,7 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithFilename:(id)arg1 flags:(int)arg2 error:(id *)arg3;
+- (id)initWithFilename:(id)arg1 flags:(int)arg2 error:(id *)arg3 errorHandler:(id)arg4;
 - (void)placeCorruptionMarker;
 - (_Bool)handleError:(long long)arg1 sqliteError:(int)arg2 forQuery:(id)arg3 onError:(CDUnknownBlockType)arg4;
 - (id)dbErrorWithCode:(unsigned long long)arg1 sqliteReturnValue:(int)arg2 lastErrno:(int)arg3 query:(id)arg4;

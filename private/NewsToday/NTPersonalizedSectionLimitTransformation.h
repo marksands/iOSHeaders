@@ -9,23 +9,20 @@
 #import <NewsToday/FCFeedTransforming-Protocol.h>
 
 @class NSOrderedSet, NSString;
-@protocol FCLimitAwareFeedTransforming;
 
 @interface NTPersonalizedSectionLimitTransformation : NSObject <FCFeedTransforming>
 {
     NSOrderedSet *_mandatoryArticleIDs;
     NSOrderedSet *_personalizedArticleIDs;
-    id <FCLimitAwareFeedTransforming> _limitTransformation;
     unsigned long long _limit;
 }
 
 @property(nonatomic) unsigned long long limit; // @synthesize limit=_limit;
-@property(retain, nonatomic) id <FCLimitAwareFeedTransforming> limitTransformation; // @synthesize limitTransformation=_limitTransformation;
 @property(copy, nonatomic) NSOrderedSet *personalizedArticleIDs; // @synthesize personalizedArticleIDs=_personalizedArticleIDs;
 @property(copy, nonatomic) NSOrderedSet *mandatoryArticleIDs; // @synthesize mandatoryArticleIDs=_mandatoryArticleIDs;
 - (void).cxx_destruct;
 - (id)transformFeedItems:(id)arg1;
-- (id)initWithMandatoryArticleIDs:(id)arg1 personalizedArticleIDs:(id)arg2 limitTransformation:(id)arg3 limit:(unsigned long long)arg4;
+- (id)initWithMandatoryArticleIDs:(id)arg1 personalizedArticleIDs:(id)arg2 limit:(unsigned long long)arg3;
 - (id)init;
 
 // Remaining properties

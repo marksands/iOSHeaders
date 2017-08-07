@@ -12,16 +12,16 @@
     _Bool _needsBackupRecovery;
     _Bool _hasPeersForRemoteApproval;
     _Bool _hasPeersWithBackupRecords;
-    _Bool _hasPeersWithiCloudKeychainEnabled;
     _Bool _requiresEscrowRecordsFetch;
     _Bool _requiresInitialSync;
     int _circleStatus;
+    unsigned long long _remotePeeriCKState;
 }
 
 @property int circleStatus; // @synthesize circleStatus=_circleStatus;
+@property unsigned long long remotePeeriCKState; // @synthesize remotePeeriCKState=_remotePeeriCKState;
 @property _Bool requiresInitialSync; // @synthesize requiresInitialSync=_requiresInitialSync;
 @property _Bool requiresEscrowRecordsFetch; // @synthesize requiresEscrowRecordsFetch=_requiresEscrowRecordsFetch;
-@property _Bool hasPeersWithiCloudKeychainEnabled; // @synthesize hasPeersWithiCloudKeychainEnabled=_hasPeersWithiCloudKeychainEnabled;
 @property _Bool hasPeersWithBackupRecords; // @synthesize hasPeersWithBackupRecords=_hasPeersWithBackupRecords;
 @property _Bool hasPeersForRemoteApproval; // @synthesize hasPeersForRemoteApproval=_hasPeersForRemoteApproval;
 @property _Bool needsBackupRecovery; // @synthesize needsBackupRecovery=_needsBackupRecovery;

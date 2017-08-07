@@ -83,6 +83,7 @@
 - (void)messagesWereAdded:(id)arg1 earliestReceivedDate:(id)arg2;
 - (void)handleMessagesAdded:(id)arg1 earliestReceivedDate:(id)arg2;
 - (id)filterMessagesByMembership:(id)arg1;
+- (unsigned long long)fetchWindowCap;
 - (unsigned long long)fetchWindow;
 - (unsigned long long)growFetchWindow;
 - (_Bool)shouldGrowFetchWindow;

@@ -13,11 +13,7 @@
 @interface GEOPDMapsIdentifier : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
-    int _placeType;
     GEOPDShardedId *_shardedId;
-    struct {
-        unsigned int placeType:1;
-    } _has;
 }
 
 @property(retain, nonatomic) GEOPDShardedId *shardedId; // @synthesize shardedId=_shardedId;
@@ -32,10 +28,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (int)StringAsPlaceType:(id)arg1;
-- (id)placeTypeAsString:(int)arg1;
-@property(nonatomic) _Bool hasPlaceType;
-@property(nonatomic) int placeType; // @synthesize placeType=_placeType;
 @property(readonly, nonatomic) _Bool hasShardedId;
 
 @end

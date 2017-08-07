@@ -4,16 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class AVConferenceXPCClient;
-@protocol AVCCaptionsClientDelegate;
+@protocol AVCCaptionsClientDelegate, OS_dispatch_queue;
 
 @interface AVCCaptionsClient : NSObject
 {
     long long _streamToken;
     id _delegate;
     AVConferenceXPCClient *_connection;
+    NSObject<OS_dispatch_queue> *_callbackQueue;
 }
 
 @property(readonly) long long streamToken; // @synthesize streamToken=_streamToken;

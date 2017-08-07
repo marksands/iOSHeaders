@@ -22,9 +22,11 @@
     NSURL *_videoURL;
     AVAsset *_videoAsset;
     AVVideoComposition *_videoComposition;
+    long long _baseVersion;
 }
 
 @property(nonatomic, getter=isFullsizeRender) _Bool fullsizeRender; // @synthesize fullsizeRender=_fullsizeRender;
+@property(readonly, nonatomic) long long baseVersion; // @synthesize baseVersion=_baseVersion;
 @property(retain, nonatomic) AVVideoComposition *videoComposition; // @synthesize videoComposition=_videoComposition;
 @property(retain, nonatomic) AVAsset *videoAsset; // @synthesize videoAsset=_videoAsset;
 @property(readonly, nonatomic) NSURL *videoURL; // @synthesize videoURL=_videoURL;
@@ -38,7 +40,7 @@
 @property(readonly, nonatomic) PHAsset *asset; // @synthesize asset=_asset;
 - (void).cxx_destruct;
 - (id)description;
-- (id)initWithAsset:(id)arg1 variationType:(long long)arg2 imageURL:(id)arg3 videoURL:(id)arg4 analysisResult:(id)arg5 editModel:(id)arg6 success:(_Bool)arg7 error:(id)arg8;
+- (id)initWithAsset:(id)arg1 variationType:(long long)arg2 imageURL:(id)arg3 videoURL:(id)arg4 analysisResult:(id)arg5 editModel:(id)arg6 baseVersion:(long long)arg7 success:(_Bool)arg8 error:(id)arg9;
 - (id)init;
 
 @end

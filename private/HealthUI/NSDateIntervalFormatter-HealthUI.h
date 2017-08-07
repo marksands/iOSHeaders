@@ -12,6 +12,7 @@
 + (id)hk_yearIntervalFormatter;
 + (id)hk_monthIntervalFormatter;
 + (id)hk_dayIntervalFormatter;
++ (id)hk_dateTimeDateIntervalFormatter;
 + (id)hk_hourDateIntervalFormatter;
 @end
 

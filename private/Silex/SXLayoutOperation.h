@@ -9,6 +9,7 @@
 #import <Silex/SXLayouterDelegate-Protocol.h>
 
 @class NSString, SXLayoutAttributes, SXLayoutBlueprint, SXLayoutDataProvider;
+@protocol SXDynamicAdController;
 
 @interface SXLayoutOperation : NSOperation <SXLayouterDelegate>
 {
@@ -19,9 +20,11 @@
     SXLayoutAttributes *_layoutAttributes;
     SXLayoutBlueprint *_layoutBlueprint;
     NSString *_targetComponentIdentifier;
+    id <SXDynamicAdController> _dynamicAdController;
     struct CGSize _viewportSize;
 }
 
+@property(readonly, nonatomic) id <SXDynamicAdController> dynamicAdController; // @synthesize dynamicAdController=_dynamicAdController;
 @property(retain, nonatomic) NSString *targetComponentIdentifier; // @synthesize targetComponentIdentifier=_targetComponentIdentifier;
 @property(retain, nonatomic) SXLayoutBlueprint *layoutBlueprint; // @synthesize layoutBlueprint=_layoutBlueprint;
 @property(retain, nonatomic) SXLayoutAttributes *layoutAttributes; // @synthesize layoutAttributes=_layoutAttributes;
@@ -47,7 +50,7 @@
 - (_Bool)isExecuting;
 - (_Bool)isAsynchronous;
 - (void)start;
-- (id)initWithViewportSize:(struct CGSize)arg1 constrainedToWidth:(double)arg2 andLayoutDataProvider:(id)arg3;
+- (id)initWithViewportSize:(struct CGSize)arg1 constrainedToWidth:(double)arg2 layoutDataProvider:(id)arg3 dynamicAdController:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -47,6 +47,7 @@
 - (void)serviceCancelPurge:(CDUnknownBlockType)arg1;
 - (void)servicePurge:(int)arg1 info:(id)arg2 replyBlock:(CDUnknownBlockType)arg3;
 - (void)servicePurgeable:(int)arg1 info:(id)arg2 replyBlock:(CDUnknownBlockType)arg3;
+- (void)setPurgeable:(CDUnknownBlockType)arg1 purge:(CDUnknownBlockType)arg2 cancel:(CDUnknownBlockType)arg3 periodic:(CDUnknownBlockType)arg4 notify:(CDUnknownBlockType)arg5 callback:(CDUnknownBlockType)arg6 entitlements:(id)arg7;
 - (id)initWithName:(id)arg1 options:(id)arg2;
 
 @end

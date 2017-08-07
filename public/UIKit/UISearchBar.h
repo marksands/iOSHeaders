@@ -13,7 +13,7 @@
 #import <UIKit/_UIBarPositioningInternal-Protocol.h>
 #import <UIKit/_UINavigationBarAugmentedTitleView-Protocol.h>
 
-@class NSArray, NSIndexSet, NSString, UIBarButtonItem, UIButton, UIColor, UIImage, UIImageView, UIInputContextHistory, UILabel, UINavigationItem, UISearchBarTextField, UISearchController, UITapGestureRecognizer, UITextInputAssistantItem, UITextInputTraits, _UIBackdropView, _UINavigationBarTitleViewOverlayRects, _UISearchBarNavigationItem, _UISearchBarScopeBarBackground;
+@class NSArray, NSIndexSet, NSString, UIBarButtonItem, UIButton, UIColor, UIImage, UIImageView, UIInputContextHistory, UILabel, UISearchBarTextField, UISearchController, UITapGestureRecognizer, UITextInputAssistantItem, UITextInputTraits, _UIBackdropView, _UINavigationBarTitleViewOverlayRects, _UISearchBarNavigationItem, _UISearchBarScopeBarBackground;
 @protocol UISearchBarDelegate, UISearchBarDelegate><UISearchBarDelegate_Private, _UINavigationBarTitleViewDataSource;
 
 @interface UISearchBar : UIView <UITextInputTraits_Private, UIStatusBarTinting, _UIBarPositioningInternal, _UINavigationBarAugmentedTitleView, UIBarPositioning, UITextInputTraits>
@@ -46,6 +46,8 @@
     UIBarButtonItem *_cancelBarButtonItem;
     UITextInputTraits *_textInputTraits;
     UIButton *_leftButton;
+    id <_UINavigationBarTitleViewDataSource> _dataSource;
+    long long _titleLocation;
     _UINavigationBarTitleViewOverlayRects *_overlayRects;
     struct {
         unsigned int barStyle:3;
@@ -75,9 +77,6 @@
     UIColor *_statusBarTintColor;
     UIView *_inputAccessoryView;
     long long _barPosition;
-    id <_UINavigationBarTitleViewDataSource> _dataSource;
-    UINavigationItem *_navigationItem;
-    long long _titleLocation;
     unsigned long long _searchBarStyle;
     UISearchController *__searchController;
     unsigned long long __scopeBarPosition;
@@ -88,9 +87,6 @@
 @property(nonatomic, setter=_setSearchController:) UISearchController *_searchController; // @synthesize _searchController=__searchController;
 @property(nonatomic) _Bool _forceCenteredPlaceholderLayout; // @synthesize _forceCenteredPlaceholderLayout=__forceCenteredPlaceholderLayout;
 @property(nonatomic) unsigned long long searchBarStyle; // @synthesize searchBarStyle=_searchBarStyle;
-@property(nonatomic) long long titleLocation; // @synthesize titleLocation=_titleLocation;
-@property(nonatomic) __weak UINavigationItem *navigationItem; // @synthesize navigationItem=_navigationItem;
-@property(nonatomic, getter=_dataSource, setter=_setDataSource:) __weak id <_UINavigationBarTitleViewDataSource> _dataSource; // @synthesize _dataSource;
 @property(readonly, nonatomic) long long barPosition; // @synthesize barPosition=_barPosition;
 @property(retain, nonatomic) UIView *inputAccessoryView; // @synthesize inputAccessoryView=_inputAccessoryView;
 @property(retain, nonatomic, setter=_setStatusBarTintColor:) UIColor *_statusBarTintColor; // @synthesize _statusBarTintColor;
@@ -105,6 +101,7 @@
 - (void)setSearchFieldLeftViewMode:(long long)arg1;
 - (long long)searchFieldLeftViewMode;
 - (void)_updateInsetsForCurrentContainerViewAndBarPosition;
+- (struct UIEdgeInsets)_internalInsetsForBarMetrics:(long long)arg1 barPosition:(long long)arg2;
 - (void)_updateInsetsForTableView:(id)arg1;
 - (void)tappedSearchBar:(id)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
@@ -204,17 +201,21 @@
 - (double)_defaultWidth;
 - (double)_defaultHeight;
 - (double)_barHeightForBarMetrics:(long long)arg1;
-- (void)transitionCompleted:(long long)arg1 willBeDisplayed:(_Bool)arg2;
-- (void)performTransition:(long long)arg1 willBeDisplayed:(_Bool)arg2;
-- (void)transitionWillBegin:(long long)arg1 willBeDisplayed:(_Bool)arg2;
-- (void)contentDidChange;
-- (long long)preferredContentSizeForSize:(long long)arg1;
-@property(readonly, nonatomic) _Bool hideTrailingBarButtons;
-@property(readonly, nonatomic) _Bool hideStandardTitle;
-@property(readonly, nonatomic) _Bool hideLeadingBarButtons;
-@property(readonly, nonatomic) _Bool hideBackButton;
-@property(readonly, nonatomic) double height;
-@property(readonly, nonatomic) _Bool underlayBarContent;
+- (double)_barHeightForBarMetrics:(long long)arg1 barPosition:(long long)arg2;
+- (double)_barHeightForBarMetrics:(long long)arg1 withInternalInsets:(struct UIEdgeInsets)arg2;
+- (void)_transitionCompleted:(long long)arg1 willBeDisplayed:(_Bool)arg2;
+- (void)_performTransition:(long long)arg1 willBeDisplayed:(_Bool)arg2;
+- (void)_transitionWillBegin:(long long)arg1 willBeDisplayed:(_Bool)arg2;
+- (void)_contentDidChange;
+- (long long)_preferredContentSizeForSize:(long long)arg1;
+@property(readonly, nonatomic) _Bool _hideNavigationBarTrailingBarButtons;
+@property(readonly, nonatomic) _Bool _hideNavigationBarStandardTitle;
+@property(readonly, nonatomic) _Bool _hideNavigationBarLeadingBarButtons;
+@property(readonly, nonatomic) _Bool _hideNavigationBarBackButton;
+@property(readonly, nonatomic) double _navigationBarBackButtonMaximumWidth;
+@property(readonly, nonatomic) double _navigationBarContentHeight;
+@property(readonly, nonatomic) _Bool _underlayNavigationBarContent;
+- (void)_setDataSource:(id)arg1 navigationItem:(id)arg2 titleLocation:(long long)arg3;
 @property(nonatomic) long long keyboardAppearance; // @dynamic keyboardAppearance;
 - (_Bool)respondsToSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;

@@ -37,9 +37,17 @@ struct BatchBeepCanceller;
 
 struct CSAudioCircularBufferImpl<unsigned short>;
 
+struct CSAudioZeroFilterImpl<unsigned short>;
+
 struct unique_ptr<BatchBeepCanceller, std::__1::default_delete<BatchBeepCanceller>> {
     struct __compressed_pair<BatchBeepCanceller *, std::__1::default_delete<BatchBeepCanceller>> {
         struct BatchBeepCanceller *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<CSAudioZeroFilterImpl<unsigned short>, std::__1::default_delete<CSAudioZeroFilterImpl<unsigned short>>> {
+    struct __compressed_pair<CSAudioZeroFilterImpl<unsigned short>*, std::__1::default_delete<CSAudioZeroFilterImpl<unsigned short>>> {
+        struct CSAudioZeroFilterImpl<unsigned short> *__first_;
     } __ptr_;
 };
 

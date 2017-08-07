@@ -77,7 +77,7 @@ __attribute__((visibility("hidden")))
 - (void)_syncBorderStyle:(id)arg1;
 - (void)_syncBorder:(id)arg1;
 - (void)_syncAppearanceState:(id)arg1;
-- (void)_syncAppearanceDictionary:(id)arg1;
+- (void)_syncAppearanceDictionaryUpdatingEditsDisableAppearanceOverride:(_Bool)arg1;
 - (void)_syncEverythingToAKAnnotation;
 - (void)_syncWidgetFieldType:(id)arg1;
 - (void)_syncSubtype:(id)arg1;

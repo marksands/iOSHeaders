@@ -6,18 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class IMCloudKitSyncState, IMEventNotificationManager, IMWeakReferenceCollection, NSTimer;
+@class IMCloudKitSyncProgress, IMCloudKitSyncState, IMEventNotificationManager, IMWeakReferenceCollection, NSTimer;
 @protocol IMCloudKitEventHandlerAccountInfoProvider;
 
 @interface IMCloudKitEventNotificationManager : NSObject
 {
-    _Bool _lastProgressHidden;
     id <IMCloudKitEventHandlerAccountInfoProvider> _accountInfoProvider;
     double _progressPollingInterval;
     IMWeakReferenceCollection *_eventHandlers;
     IMEventNotificationManager *_notificationManager;
     NSTimer *_fetchStatsTimer;
     IMCloudKitSyncState *_previousState;
+    IMCloudKitSyncProgress *_lastSentProgress;
     IMCloudKitSyncState *_pendingSyncStateForProgress;
 }
 
@@ -25,7 +25,7 @@
 + (void)__setSingleton__im:(id)arg1;
 + (id)__singleton__im;
 @property(retain) IMCloudKitSyncState *pendingSyncStateForProgress; // @synthesize pendingSyncStateForProgress=_pendingSyncStateForProgress;
-@property _Bool lastProgressHidden; // @synthesize lastProgressHidden=_lastProgressHidden;
+@property(retain) IMCloudKitSyncProgress *lastSentProgress; // @synthesize lastSentProgress=_lastSentProgress;
 @property(retain) IMCloudKitSyncState *previousState; // @synthesize previousState=_previousState;
 @property __weak NSTimer *fetchStatsTimer; // @synthesize fetchStatsTimer=_fetchStatsTimer;
 @property(retain) IMEventNotificationManager *notificationManager; // @synthesize notificationManager=_notificationManager;
@@ -33,6 +33,7 @@
 @property double progressPollingInterval; // @synthesize progressPollingInterval=_progressPollingInterval;
 @property __weak id <IMCloudKitEventHandlerAccountInfoProvider> accountInfoProvider; // @synthesize accountInfoProvider=_accountInfoProvider;
 - (void).cxx_destruct;
+- (void)fetchSyncDebuggingInfo:(id)arg1;
 - (_Bool)canEnableCloudKitSync;
 - (void)_updateProgressWithState:(id)arg1;
 - (void)_cancelDeferredHiddenProgress;

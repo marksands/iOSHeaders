@@ -8,7 +8,7 @@
 
 #import <HealthDaemon/HDDatumRendering-Protocol.h>
 
-@class NSArray;
+@class NSArray, NSDate;
 
 @interface HDHeartRateMeasurement : HDHealthServiceCharacteristic <HDDatumRendering>
 {
@@ -32,6 +32,9 @@
 @property(readonly, nonatomic) unsigned long long derivedContactStatus;
 - (id)description;
 - (id)generateDatums:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) NSDate *updateTime;
 
 @end
 

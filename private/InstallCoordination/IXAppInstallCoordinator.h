@@ -46,6 +46,7 @@
 + (id)coordinatorForAppWithBundleID:(id)arg1 withClientID:(unsigned long long)arg2 createIfNotExisting:(_Bool)arg3 created:(_Bool *)arg4 error:(id *)arg5;
 + (id)_coordinatorForAppWithBundleID:(id)arg1 withClientID:(unsigned long long)arg2 intent:(unsigned long long)arg3 createIfNotExisting:(_Bool)arg4 created:(_Bool *)arg5 error:(id *)arg6;
 + (_Bool)coordinationIsEnabled;
++ (_Bool)setTestingEnabled:(_Bool)arg1;
 + (_Bool)killDaemonForTesting;
 + (_Bool)purgeAllCoordinatorsAndPromisesForCreator:(unsigned long long)arg1;
 + (void)installApplication:(id)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;

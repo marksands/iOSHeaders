@@ -6,39 +6,48 @@
 
 #import <objc/NSObject.h>
 
-@class HDSyncAnchorRangeMap, NSError, _HKArchiveCreator;
+#import <HealthDaemon/NSProgressReporting-Protocol.h>
 
-@interface _HDCloudSyncSessionContext : NSObject
+@class HDSyncAnchorRangeMap, NSError, NSMutableSet, NSProgress, NSString, _HKArchiveCreator;
+
+@interface _HDCloudSyncSessionContext : NSObject <NSProgressReporting>
 {
+    NSMutableSet *_syncEntityClassesWithProcessedChanges;
     _Bool _isComplete;
     _Bool _success;
     _Bool _hasOpenSequence;
     _HKArchiveCreator *_archiveCreator;
-    HDSyncAnchorRangeMap *_anchorRangeMap;
-    HDSyncAnchorRangeMap *_fullUploadAnchorRangeMap;
+    HDSyncAnchorRangeMap *_pendingAnchorRangeMap;
     unsigned long long _changesetCount;
     unsigned long long _archiveCount;
     CDUnknownBlockType _completion;
     NSError *_error;
+    NSProgress *_progress;
 }
 
 + (_Bool)_updateAnchorRangeMap:(id)arg1 withChange:(id)arg2 outError:(id *)arg3;
 + (id)_assetFileHandleForArchiveURL:(id)arg1 fileManager:(id)arg2 error:(id *)arg3;
 @property(readonly, nonatomic) _Bool hasOpenSequence; // @synthesize hasOpenSequence=_hasOpenSequence;
+@property(readonly, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) _Bool success; // @synthesize success=_success;
 @property(nonatomic) _Bool isComplete; // @synthesize isComplete=_isComplete;
 @property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
 @property(nonatomic) unsigned long long archiveCount; // @synthesize archiveCount=_archiveCount;
 @property(nonatomic) unsigned long long changesetCount; // @synthesize changesetCount=_changesetCount;
-@property(readonly, nonatomic) HDSyncAnchorRangeMap *fullUploadAnchorRangeMap; // @synthesize fullUploadAnchorRangeMap=_fullUploadAnchorRangeMap;
-@property(readonly, nonatomic) HDSyncAnchorRangeMap *anchorRangeMap; // @synthesize anchorRangeMap=_anchorRangeMap;
+@property(readonly, nonatomic) HDSyncAnchorRangeMap *pendingAnchorRangeMap; // @synthesize pendingAnchorRangeMap=_pendingAnchorRangeMap;
 @property(readonly, nonatomic) _HKArchiveCreator *archiveCreator; // @synthesize archiveCreator=_archiveCreator;
 - (void).cxx_destruct;
 - (_Bool)addChangeData:(id)arg1 changes:(id)arg2 sessionIdentifier:(id)arg3 outError:(id *)arg4;
 - (_Bool)resetInvalidArchiveCreatorWithSessionUUID:(id)arg1 error:(id *)arg2;
 @property(readonly, nonatomic) unsigned long long archiveSize;
-- (id)init;
+- (id)initWithChangedSyncEntityCount:(unsigned long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, NSMutableArray;
+@class NSArray, NSMutableArray, UIFont;
 
 __attribute__((visibility("hidden")))
 @interface _UIFocusFastScrollingIndexBarView : UIView
@@ -20,6 +20,8 @@ __attribute__((visibility("hidden")))
     UIView *_foregroundMaskView;
     long long _deflectedIndex;
     double _deflectionAmount;
+    UIFont *_backgroundFont;
+    UIFont *_foregroundFont;
     NSArray *_entries;
     long long _focusProminence;
     long long _style;

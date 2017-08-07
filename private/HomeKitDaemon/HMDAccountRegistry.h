@@ -10,7 +10,7 @@
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 #import <HomeKitDaemon/IDSServiceDelegate-Protocol.h>
 
-@class HMDAccount, HMDDevice, HMFExponentialBackoffTimer, HMFTimer, IDSService, NSArray, NSMutableSet, NSObject, NSString;
+@class HMDAccount, HMDDevice, HMDLocalAccountContext, HMFExponentialBackoffTimer, HMFTimer, IDSService, NSArray, NSMutableSet, NSObject, NSString;
 @protocol HMDAccountRegistryDelegate, OS_dispatch_queue;
 
 @interface HMDAccountRegistry : HMFObject <HMFTimerDelegate, IDSServiceDelegate, HMFLogging>
@@ -19,6 +19,7 @@
     _Bool _monitoring;
     _Bool _resolved;
     HMDAccount *_currentAccount;
+    HMDLocalAccountContext *_localAccountContext;
     HMDDevice *_currentDevice;
     id <HMDAccountRegistryDelegate> _delegate;
     IDSService *_service;
@@ -43,6 +44,8 @@
 - (void)service:(id)arg1 devicesChanged:(id)arg2;
 - (void)service:(id)arg1 activeAccountsChanged:(id)arg2;
 - (void)timerDidFire:(id)arg1;
+- (void)updateLocalAccountContext;
+@property(retain) HMDLocalAccountContext *localAccountContext; // @synthesize localAccountContext=_localAccountContext;
 - (void)_cleanupDevices;
 - (void)_updateLocalDevices;
 - (void)_updateLocalAccount;

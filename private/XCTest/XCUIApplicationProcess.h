@@ -44,7 +44,6 @@
 - (void)terminate;
 - (void)waitForViewControllerViewDidDisappearWithTimeout:(double)arg1;
 - (void)waitForAutomationSession;
-- (_Bool)currentOSSupportsAutomationSessions;
 - (void)waitForQuiescenceIncludingAnimationsIdle:(_Bool)arg1;
 @property _Bool hasReceivedAnimationsHaveFinished;
 @property _Bool animationsHaveFinished;

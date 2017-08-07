@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     UIButton *_keyboardButton;
     UILabel *_languageLabel;
     NSString *_currentDictationLanguage;
+    UIButton *_waveTapEndpointButton;
     _Bool _selectionGestureDetected;
 }
 

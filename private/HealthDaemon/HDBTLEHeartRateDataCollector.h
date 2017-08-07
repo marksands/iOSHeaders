@@ -8,7 +8,7 @@
 
 #import <HealthDaemon/HDDataCollector-Protocol.h>
 
-@class HDDataCollectorConfiguration, HDProfile, HKHealthService, NSMutableDictionary, NSString;
+@class HDDataCollectorConfiguration, HDProfile, HKHealthService, NSArray, NSMutableDictionary, NSString;
 @protocol OS_dispatch_queue;
 
 @interface HDBTLEHeartRateDataCollector : NSObject <HDDataCollector>
@@ -17,6 +17,7 @@
     NSObject<OS_dispatch_queue> *_queue;
     long long _state;
     HDDataCollectorConfiguration *_configuration;
+    NSArray *_oneShotServices;
     NSMutableDictionary *_pendingSessions;
     HKHealthService *_connectedService;
     unsigned long long _connectedSessionIdentifier;
@@ -36,7 +37,7 @@
 - (void)_queue_stopHeartRateCollection;
 - (void)_queue_startHeartRateCollection;
 - (void)_queue_startHeartRateServices:(id)arg1;
-- (void)startHeartRateServices:(id)arg1;
+- (void)startOneShotCollectionForService:(id)arg1;
 - (void)_queue_service:(id)arg1 sessionDidDisconnect:(unsigned long long)arg2;
 - (void)_queue_service:(id)arg1 sessionDidConnect:(unsigned long long)arg2;
 - (void)_queue_service:(id)arg1 session:(unsigned long long)arg2 statusDidChange:(long long)arg3 finished:(_Bool)arg4 error:(id)arg5;

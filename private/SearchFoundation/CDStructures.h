@@ -67,6 +67,14 @@ typedef struct {
     unsigned int hasTopPadding:1;
     unsigned int hasBottomPadding:1;
     unsigned int separatorStyle:1;
+    unsigned int isCentered:1;
+} CDStruct_da38e31c;
+
+typedef struct {
+    unsigned int canBeHidden:1;
+    unsigned int hasTopPadding:1;
+    unsigned int hasBottomPadding:1;
+    unsigned int separatorStyle:1;
     unsigned int isContact:1;
 } CDStruct_5c63c26d;
 

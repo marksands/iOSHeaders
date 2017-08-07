@@ -59,6 +59,7 @@
 @property(retain, nonatomic) NSArray *fetchAttributes; // @synthesize fetchAttributes=_fetchAttributes;
 @property(retain, nonatomic) NSString *clientBundleID; // @synthesize clientBundleID=_clientBundleID;
 - (void).cxx_destruct;
+- (id)debugDescription;
 - (id)description;
 @property(copy, nonatomic) NSDictionary *options;
 - (id)copyWithZone:(struct _NSZone *)arg1;

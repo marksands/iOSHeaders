@@ -50,6 +50,7 @@
 - (void)qosClassWhileServicingRequestsResponse:(unsigned int)arg1 identifier:(id)arg2;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
+- (void)didFetchCloudKitSyncDebuggingInfo:(id)arg1;
 - (void)didAttemptToDisableiCloudBackups:(long long)arg1 error:(id)arg2;
 - (void)didFetchSyncStateStats:(id)arg1;
 - (void)databaseChatSpamUpdated:(id)arg1;

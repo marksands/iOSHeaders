@@ -17,7 +17,6 @@
     HKQuantity *_totalBasalEnergy;
     HKQuantity *_latestHeartRate;
     HKQuantity *_averageHeartRate;
-    _HDFTMProducerMetricTracker *_caloriesTracker;
     _HDFTMProducerMetricTracker *_heartRateTracker;
     _Bool _heartRateEnabled;
     HDProfile *_profile;

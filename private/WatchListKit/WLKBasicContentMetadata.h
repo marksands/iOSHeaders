@@ -10,6 +10,7 @@
 
 @interface WLKBasicContentMetadata : NSObject
 {
+    _Bool _isEvod;
     unsigned long long _contentType;
     NSString *_canonicalID;
     NSString *_title;
@@ -26,6 +27,7 @@
 @property(readonly, nonatomic) WLKArtworkVariantListing *images; // @synthesize images=_images;
 @property(readonly, copy, nonatomic) NSString *descriptiveText; // @synthesize descriptiveText=_descriptiveText;
 @property(readonly, copy, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, nonatomic) _Bool isEvod; // @synthesize isEvod=_isEvod;
 @property(readonly, copy, nonatomic) NSString *canonicalID; // @synthesize canonicalID=_canonicalID;
 @property(readonly, nonatomic) unsigned long long contentType; // @synthesize contentType=_contentType;
 - (void).cxx_destruct;

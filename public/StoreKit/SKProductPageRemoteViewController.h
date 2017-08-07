@@ -40,6 +40,7 @@
 - (void)setRightBarButtonTitle:(id)arg1;
 - (void)setCancelButtonTitle:(id)arg1;
 - (void)setShowsStoreButton:(_Bool)arg1;
+- (void)loadDidFinish;
 - (void)finishWithResult:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 

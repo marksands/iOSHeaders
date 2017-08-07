@@ -12,6 +12,7 @@
 {
     NSString *_logMessageCacheFilePath;
     GEOLogMsgCacheDBInfo *_logMsgCacheDBInfo;
+    long long _numberOfLogMessagesInCache;
     NSString *_policyIdentifier;
     NSString *_adaptorId;
     int _supportedLogMessageType;
@@ -65,6 +66,7 @@
 - (_Bool)shouldFlushLogMessageCache;
 - (_Bool)isLogMessageCacheEmpty;
 - (void)updateCurrentlyRetrievedLogMessagesRetryCount;
+- (void)purgeAllLogMessagesFromCache;
 - (void)purgeCurrentlyRetrievedLogMessagesFromCache;
 - (void)purgeExpiredLogMessagesFromCache:(double)arg1;
 - (void)closeLogMessageCache;

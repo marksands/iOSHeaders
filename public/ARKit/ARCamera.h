@@ -28,9 +28,11 @@
 // Error parsing type for property transform:
 // Property attributes: T{?=[4]},N,V_transform
 
+-     // Error parsing type: {?=[4]}56@0:8{CGSize=dd}16q32d40d48, name: projectionMatrixWithViewportSize:orientation:zNear:zFar:
 - (id)copyWithZone:(struct _NSZone *)arg1;
 -     // Error parsing type: {?=[4]}24@0:8q16, name: viewMatrixForOrientation:
--     // Error parsing type: {?=[4]}56@0:8{CGSize=dd}16q32d40d48, name: projectionMatrixWithViewportSize:orientation:zNear:zFar:
+-     // Error parsing type: {?=[4]}56@0:8q16{CGSize=dd}24d40d48, name: projectionMatrixForOrientation:viewportSize:zNear:zFar:
+- (struct CGPoint)projectPoint:(long long)arg1 orientation:(struct CGSize)arg2 viewportSize: /* Error: Ran out of types for this method. */;
 - (_Bool)isEqual:(id)arg1;
 - (id)debugQuickLookObject;
 - (id)description;

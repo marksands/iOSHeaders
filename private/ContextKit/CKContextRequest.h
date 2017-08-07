@@ -25,9 +25,9 @@
     long long _type;
 }
 
-+ (void)logTransactionSuccessfulForResponseId:(id)arg1 requestType:(long long)arg2 logType:(unsigned long long)arg3;
-+ (void)logResultsShownForResponseId:(id)arg1 shown:(unsigned long long)arg2 couldHaveShown:(unsigned long long)arg3 serverOverride:(_Bool)arg4 requestType:(long long)arg5 logType:(unsigned long long)arg6;
-+ (void)logEngagementForResponseId:(id)arg1 result:(id)arg2 rank:(unsigned long long)arg3 input:(id)arg4 requestType:(long long)arg5 logType:(unsigned long long)arg6;
++ (void)logTransactionSuccessfulForResponseId:(id)arg1 inputLength:(unsigned long long)arg2 completionLength:(unsigned long long)arg3 requestType:(long long)arg4 logType:(unsigned long long)arg5;
++ (void)logEngagementForResponseId:(id)arg1 result:(id)arg2 rank:(unsigned long long)arg3 inputLength:(unsigned long long)arg4 completionLength:(unsigned long long)arg5 requestType:(long long)arg6 logType:(unsigned long long)arg7;
++ (void)logResultsShownForResponseId:(id)arg1 shown:(unsigned long long)arg2 couldHaveShown:(unsigned long long)arg3 serverOverride:(_Bool)arg4 inputLength:(unsigned long long)arg5 requestType:(long long)arg6 logType:(unsigned long long)arg7;
 + (_Bool)shutdownService;
 + (_Bool)pingService;
 + (id)requestWithText:(id)arg1;
@@ -40,6 +40,7 @@
 + (void)findResponseByID:(id)arg1 withReply:(CDUnknownBlockType)arg2;
 + (void)prepareRequestForText:(id)arg1 withReply:(CDUnknownBlockType)arg2;
 + (void)warmUpForRequestType:(long long)arg1 withReply:(CDUnknownBlockType)arg2;
++ (void)runOffMainThread:(CDUnknownBlockType)arg1;
 + (void)findResultsForText:(id)arg1 languageTag:(id)arg2 requestType:(long long)arg3 withReply:(CDUnknownBlockType)arg4;
 + (void)findResultsForText:(id)arg1 languageTag:(id)arg2 withReply:(CDUnknownBlockType)arg3;
 + (void)findResultsForText:(id)arg1 withReply:(CDUnknownBlockType)arg2;

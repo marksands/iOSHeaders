@@ -30,12 +30,14 @@
     UIView<FBSceneHostView> *_hostView;
     UIView *_crossfadeView;
     UIView *_backgroundView;
+    _Bool _placeholderContentEnabled;
     id <SBScenePlaceholderContentViewProvider> _placeholderContentProvider;
 }
 
 + (id)defaultDisplayModeAnimationFactory;
 @property(readonly, nonatomic) long long hostingPriority; // @synthesize hostingPriority=_hostingPriority;
 @property(readonly, copy, nonatomic) NSString *hostingRequester; // @synthesize hostingRequester=_hostingRequester;
+@property(nonatomic) _Bool placeholderContentEnabled; // @synthesize placeholderContentEnabled=_placeholderContentEnabled;
 @property(retain, nonatomic) id <SBScenePlaceholderContentContext> placeholderContentContext; // @synthesize placeholderContentContext=_placeholderContentContext;
 @property(retain, nonatomic) id <SBScenePlaceholderContentViewProvider> placeholderContentProvider; // @synthesize placeholderContentProvider=_placeholderContentProvider;
 @property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;

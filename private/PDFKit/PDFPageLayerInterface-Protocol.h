@@ -19,12 +19,14 @@
 - (void)forceTileUpdate;
 - (_Bool)enablesTileUpdates;
 - (void)setEnableTileUpdates:(_Bool)arg1;
+- (void)updatePageLayerEffect:(PDFPageLayerEffect *)arg1;
 - (NSArray *)pageLayerEffects;
 - (void)removePageLayerEffectByUUID:(NSString *)arg1;
 - (void)removePageLayerEffect:(PDFPageLayerEffect *)arg1;
 - (PDFPageLayerEffect *)getPageLayerEffectByUUID:(NSString *)arg1;
 - (NSString *)addPageLayerEffect:(PDFPageLayerEffect *)arg1;
 - (_Bool)isVisible;
+- (long long)displayBox;
 - (void)setNeedsTilesUpdate;
 - (PDFPage *)page;
 - (id)initWithPage:(PDFPage *)arg1 geometryInterface:(NSObject<PDFPageLayerGeometryInterface> *)arg2 andRenderingProperties:(PDFRenderingProperties *)arg3;

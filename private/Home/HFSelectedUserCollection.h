@@ -24,7 +24,7 @@
 @property(readonly, copy, nonatomic) NSSet *specificUsers; // @synthesize specificUsers=_specificUsers;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
-- (id)resolveSelectedUsersWithHome:(id)arg1 onlySupportedUsers:(_Bool)arg2;
+- (id)resolveSelectedUsersWithHome:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithType:(unsigned long long)arg1 specificUsers:(id)arg2;

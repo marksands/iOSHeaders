@@ -8,10 +8,12 @@
 
 #import <AXHearingSupport/AXHARemoteControllerProtocol-Protocol.h>
 
-@class AXHADispatchTimer, NSString;
+@class AXHADispatchTimer, NSObject, NSString;
+@protocol OS_dispatch_queue;
 
 @interface AXHARemoteController : AXIDCRemoteController <AXHARemoteControllerProtocol>
 {
+    NSObject<OS_dispatch_queue> *_receivedPacketQueue;
     _Bool didValidateHIID;
     AXHADispatchTimer *_communicationTimer;
 }

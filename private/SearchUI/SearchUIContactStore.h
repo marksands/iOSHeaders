@@ -20,6 +20,7 @@
 @property(retain) NSCache *contactCache; // @synthesize contactCache=_contactCache;
 @property(retain) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;
 - (void).cxx_destruct;
+- (id)contactForIdentifier:(id)arg1;
 - (void)fetchContactForIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)cachedContactForIdentifier:(id)arg1;
 - (id)init;

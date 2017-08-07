@@ -6,7 +6,11 @@
 
 #import <UIKit/UIButton.h>
 
-@interface CAMFilterButton : UIButton
+#import <CameraUI/CAMAccessibilityHUDImageProvider-Protocol.h>
+
+@class NSString;
+
+@interface CAMFilterButton : UIButton <CAMAccessibilityHUDImageProvider>
 {
     long long _layoutStyle;
     long long _orientation;
@@ -17,6 +21,7 @@
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(nonatomic) struct UIEdgeInsets tappableEdgeInsets; // @synthesize tappableEdgeInsets=_tappableEdgeInsets;
 @property(nonatomic) long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
+- (id)imageForAccessibilityHUD;
 - (void)setOrientation:(long long)arg1 animated:(_Bool)arg2;
 - (id)_filterOnImage;
 - (id)_filterImage;
@@ -28,6 +33,12 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_commonCAMFilterButtonInitializationWithStyle:(long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

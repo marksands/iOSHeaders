@@ -55,6 +55,7 @@
     struct UIEdgeInsets _contentSafeInsets;
 }
 
++ (struct CGRect)untransformedRectForItemWithAspectRatio:(double)arg1 pageRect:(struct CGRect)arg2 safeInsets:(struct UIEdgeInsets)arg3;
 + (id)centerTileKinds;
 + (void)initialize;
 @property(retain, nonatomic) PUParallaxComputer *parallaxComputer; // @synthesize parallaxComputer=_parallaxComputer;

@@ -6,9 +6,12 @@
 
 #import <StoreKit/NSObject-Protocol.h>
 
-@class NSURL;
+@class NSString, NSURL;
 
 @protocol SKUIServiceAccountPageViewController <NSObject>
+- (void)performRedeemOperationWithCode:(NSString *)arg1 cameraRecognized:(_Bool)arg2 completion:(void (^)(SKUIRedeem *, NSError *))arg3;
+- (void)applicationDidEnterBackground;
+- (void)applicationWillEnterForeground;
 - (void)loadWithURL:(NSURL *)arg1;
 @end
 

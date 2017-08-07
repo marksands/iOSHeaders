@@ -22,8 +22,8 @@ __attribute__((visibility("hidden")))
 + (id)instanceForPlatform;
 + (Class)classForPlatform;
 @property(copy, nonatomic) UIColor *pdfBackgroundColor; // @synthesize pdfBackgroundColor=_pdfBackgroundColor;
-@property(retain, nonatomic) id <PDFCollectionViewDataSource> pdfDataSource; // @synthesize pdfDataSource=_pdfDataSource;
-@property(retain, nonatomic) id <PDFCollectionViewDelegate> pdfDelegate; // @synthesize pdfDelegate=_pdfDelegate;
+@property(nonatomic) __weak id <PDFCollectionViewDataSource> pdfDataSource; // @synthesize pdfDataSource=_pdfDataSource;
+@property(nonatomic) __weak id <PDFCollectionViewDelegate> pdfDelegate; // @synthesize pdfDelegate=_pdfDelegate;
 - (void).cxx_destruct;
 - (void)reloadDataAndRecenter;
 - (void)setup;

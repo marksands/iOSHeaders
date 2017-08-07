@@ -48,6 +48,8 @@
 @property(nonatomic) long long mode; // @synthesize mode=_mode;
 - (void).cxx_destruct;
 - (float)audioLevelForFlamesView:(id)arg1;
+- (void)_handleKeyboardWillHideNotification:(id)arg1;
+- (void)_handleKeyboardDidShowNotification:(id)arg1;
 - (struct CGRect)_siriGlyphTappableRect;
 - (struct CGRect)_flamesFrame;
 - (void)_animateSiriGlyphHidden:(_Bool)arg1;

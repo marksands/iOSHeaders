@@ -10,12 +10,12 @@
 #import <NewsCore/FCUserInfoObserving-Protocol.h>
 #import <NewsCore/NSURLSessionDelegate-Protocol.h>
 
-@class FCCloudContext, FCKeyValueStore, NSArray, NSDate, NSDictionary, NSMutableDictionary, NSSet, NSString, NSURLSession;
+@class FCCloudContext, FCKeyValueStore, NSDate, NSDictionary, NSMutableDictionary, NSSet, NSString, NSURLSession;
 @protocol OS_dispatch_queue;
 
 @interface FCPurchaseController : NSObject <FCUserInfoObserving, NSURLSessionDelegate, FCAppActivityObserving>
 {
-    NSArray *_purchasesDiscoveredTagIDs;
+    NSSet *_purchasesDiscoveredTagIDs;
     NSMutableDictionary *_purchaseLookUpEntriesByTagID;
     NSMutableDictionary *_webAccessEntriesByTagID;
     NSMutableDictionary *_ongoingPurchaseEntriesByProductID;
@@ -38,7 +38,7 @@
 @property(retain, nonatomic) NSMutableDictionary *ongoingPurchaseEntriesByProductID; // @synthesize ongoingPurchaseEntriesByProductID=_ongoingPurchaseEntriesByProductID;
 @property(retain, nonatomic) NSMutableDictionary *webAccessEntriesByTagID; // @synthesize webAccessEntriesByTagID=_webAccessEntriesByTagID;
 @property(retain, nonatomic) NSMutableDictionary *purchaseLookUpEntriesByTagID; // @synthesize purchaseLookUpEntriesByTagID=_purchaseLookUpEntriesByTagID;
-@property(retain, nonatomic) NSArray *purchasesDiscoveredTagIDs; // @synthesize purchasesDiscoveredTagIDs=_purchasesDiscoveredTagIDs;
+@property(retain, nonatomic) NSSet *purchasesDiscoveredTagIDs; // @synthesize purchasesDiscoveredTagIDs=_purchasesDiscoveredTagIDs;
 - (void).cxx_destruct;
 - (void)submitWebAccessWithTagID:(id)arg1 purchaseID:(id)arg2 emailAddress:(id)arg3 purchaseReceipt:(id)arg4 serialCompletion:(CDUnknownBlockType)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)handleWebAcccessFailureWithTagID:(id)arg1 purchaseID:(id)arg2 email:(id)arg3 purchaseReceipt:(id)arg4;
@@ -50,20 +50,21 @@
 - (void)verifyAccessTokenWithTagID:(id)arg1 accessToken:(id)arg2 serialCompletion:(CDUnknownBlockType)arg3 callbackQueue:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)handleAccessTokenVerificationFailureWithTagID:(id)arg1;
 - (void)handleAccessTokenVerificationSuccessWithTagID:(id)arg1 subscribed:(_Bool)arg2 accessToken:(id)arg3;
-- (void)handleAccessTokenChangeWithTagID:(id)arg1;
+- (void)handleAccessTokenChangeWithTagID:(id)arg1 userInitiated:(_Bool)arg2;
 - (void)userInfo:(id)arg1 didChangeAccessTokenForTagID:(id)arg2;
-- (void)userInfo:(id)arg1 didRemoveAccessTokenForTagID:(id)arg2;
+- (void)userInfo:(id)arg1 didRemoveAccessTokenForTagID:(id)arg2 userInitiated:(_Bool)arg3;
 - (void)activityObservingApplicationDidEnterBackground;
 - (void)removeOngoingPurchaseEntryForProductID:(id)arg1;
 - (void)cleanupExpiredPurchaseLookupEntriesIfNeeded;
 - (void)cleanupStaleOngoingPurchaseEntries;
-- (void)removeWebPurchaseForTagID:(id)arg1;
-- (void)removeFromAppStorePurchasesDiscoveredList:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)removeWebPurchaseForTagID:(id)arg1 userInitiated:(_Bool)arg2;
+- (void)removeFromPurchasesDiscoveredList:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_removeFromPurchasedChannelsListWithTagIDs:(id)arg1;
 - (void)silentRemoveFromPurchasedChannelsListWithTagIDs:(id)arg1;
 - (void)removeFromPurchasedChannelsListWithTagIDs:(id)arg1;
 - (void)updatePurchaseEntryToValid:(id)arg1 purchaseType:(unsigned long long)arg2;
 - (void)updatePurchaseEntryToSubcsriptionNotSupported:(id)arg1;
+- (void)updatePurchaseEntryToExpired:(id)arg1 hasShownRenewalNotice:(_Bool)arg2;
 - (void)updatePurchaseEntryToExpired:(id)arg1;
 - (void)updatePurchaseEntryToExpiredForTagIDs:(id)arg1;
 - (void)renewalNoticeShownForPurchasedChannelsListWithTagIDs:(id)arg1;

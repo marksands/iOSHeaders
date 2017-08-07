@@ -22,12 +22,14 @@
 {
     id _private;
     _Bool m_editing;
+    _Bool _dragInteractionEnabled;
     UIView *m_inputView;
 }
 
 + (id)excludedElementsForHTML;
 + (_Bool)_isCompatibilityTextView;
 + (void)initialize;
+@property(nonatomic, getter=isDragInteractionEnabled) _Bool dragInteractionEnabled; // @synthesize dragInteractionEnabled=_dragInteractionEnabled;
 @property(retain) UIView *inputView; // @synthesize inputView=m_inputView;
 - (void).cxx_destruct;
 - (id)selectionRectsForRange:(id)arg1;
@@ -204,12 +206,14 @@
 - (void)dropInteraction:(id)arg1 sessionDidExit:(id)arg2;
 - (id)dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
 - (void)dropInteraction:(id)arg1 sessionDidEnter:(id)arg2;
+- (long long)_dragInteraction:(id)arg1 dataOwnerForAddingToSession:(id)arg2 withTouchAtPoint:(struct CGPoint)arg3;
 - (long long)_dragInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (void)dragInteraction:(id)arg1 session:(id)arg2 didEndWithOperation:(unsigned long long)arg3;
 - (id)dragInteraction:(id)arg1 previewForCancellingItem:(id)arg2 withDefault:(id)arg3;
 - (void)dragInteraction:(id)arg1 willAnimateLiftWithAnimator:(id)arg2 session:(id)arg3;
 - (id)dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
 - (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
+- (_Bool)dragInteractionEnabled;
 - (struct CGImage *)newSnapshotWithRect:(struct CGRect)arg1;
 - (struct CGImage *)createSnapshotWithRect:(struct CGRect)arg1;
 @property(copy, nonatomic) NSDictionary *typingAttributes;

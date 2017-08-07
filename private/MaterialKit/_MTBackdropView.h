@@ -12,6 +12,7 @@
 {
     NSString *_luminanceColorMapName;
     _Bool _preservesFiltersAtZero;
+    double _zoom;
     UIColor *_colorMatrixColor;
     UIColor *_colorAddColor;
 }
@@ -20,6 +21,7 @@
 @property(nonatomic, getter=_preservesFiltersAtZero, setter=_setPreservesFiltersAtZero:) _Bool preservesFiltersAtZero; // @synthesize preservesFiltersAtZero=_preservesFiltersAtZero;
 @property(copy, nonatomic) UIColor *colorAddColor; // @synthesize colorAddColor=_colorAddColor;
 @property(copy, nonatomic) UIColor *colorMatrixColor; // @synthesize colorMatrixColor=_colorMatrixColor;
+@property(nonatomic) double zoom; // @synthesize zoom=_zoom;
 - (void).cxx_destruct;
 - (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (id)_backdropLayer;

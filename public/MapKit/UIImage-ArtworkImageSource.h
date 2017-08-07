@@ -11,8 +11,8 @@
 @class NSString;
 
 @interface UIImage (ArtworkImageSource) <MKArtworkImageSource>
-- (id)badgeImageToDisplayInView:(id)arg1;
-- (id)imageToDisplayInView:(id)arg1;
+- (id)badgeImageToDisplayWithScreenScale:(double)arg1;
+- (id)imageToDisplayWithScreenScale:(double)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

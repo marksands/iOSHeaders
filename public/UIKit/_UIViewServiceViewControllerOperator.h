@@ -97,6 +97,8 @@ __attribute__((visibility("hidden")))
 - (void)__hostDidSetPresentationControllerClassName:(id)arg1;
 - (void)_marginInfoForChild:(id)arg1 leftMargin:(double *)arg2 rightMargin:(double *)arg3;
 - (struct UIEdgeInsets)_edgeInsetsForChildViewController:(id)arg1 insetsAreAbsolute:(_Bool *)arg2;
+- (struct UIEdgeInsets)_customBasePresentationInsets;
+- (_Bool)_providesCustomBasePresentationInsets;
 - (void)__hostDidSetContentOverlayInsets:(struct UIEdgeInsets)arg1 andLeftMargin:(double)arg2 rightMargin:(double)arg3;
 - (void)__hostDisablesAutomaticKeyboardBehavior:(_Bool)arg1;
 - (void)__hostDidPromoteFirstResponder;

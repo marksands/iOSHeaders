@@ -8,20 +8,16 @@
 
 #import <SetupAssistantUI/PSPasscodeFieldDelegate-Protocol.h>
 
-@class NSString, PSPasscodeField, UIGestureRecognizer;
+@class NSString, PSPasscodeField;
 
 @interface BFFSimplePasscodeInputView : BFFPasscodeInputView <PSPasscodeFieldDelegate>
 {
     PSPasscodeField *_passcodeField;
-    UIGestureRecognizer *_tapRecognizer;
 }
 
-@property(retain, nonatomic) UIGestureRecognizer *tapRecognizer; // @synthesize tapRecognizer=_tapRecognizer;
 @property(retain, nonatomic) PSPasscodeField *passcodeField; // @synthesize passcodeField=_passcodeField;
 - (void).cxx_destruct;
 - (void)passcodeField:(id)arg1 enteredPasscode:(id)arg2;
-- (void)disable;
-- (void)passcodeFieldTapped;
 - (id)passcode;
 - (void)setPasscode:(id)arg1;
 - (void)layoutSubviews;

@@ -8,12 +8,13 @@
 
 #import <PhotosUI/PUAssetViewModelChangeObserver-Protocol.h>
 #import <PhotosUI/PUBrowsingVideoPlayerChangeObserver-Protocol.h>
+#import <PhotosUI/PUBrowsingViewModelChangeObserver-Protocol.h>
 
-@class NSString, PUAssetViewModel, PUBrowsingVideoPlayer, UIView;
+@class NSString, PUAssetViewModel, PUBrowsingVideoPlayer, PUBrowsingViewModel, UIView;
 @protocol PUPlayButtonTileViewControllerDelegate, PXVideoOverlayButton;
 
 __attribute__((visibility("hidden")))
-@interface PUPlayButtonTileViewController : PUTileViewController <PUBrowsingVideoPlayerChangeObserver, PUAssetViewModelChangeObserver>
+@interface PUPlayButtonTileViewController : PUTileViewController <PUBrowsingViewModelChangeObserver, PUBrowsingVideoPlayerChangeObserver, PUAssetViewModelChangeObserver>
 {
     struct {
         _Bool respondsToDidTapButton;
@@ -21,6 +22,7 @@ __attribute__((visibility("hidden")))
     } _delegateFlags;
     _Bool __shouldShowPlayButton;
     id <PUPlayButtonTileViewControllerDelegate> _delegate;
+    PUBrowsingViewModel *_browsingViewModel;
     PUAssetViewModel *_assetViewModel;
     PUBrowsingVideoPlayer *__browsingVideoPlayer;
     UIView<PXVideoOverlayButton> *__playButton;
@@ -31,6 +33,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic, setter=_setPlayButton:) UIView<PXVideoOverlayButton> *_playButton; // @synthesize _playButton=__playButton;
 @property(retain, nonatomic, setter=_setBrowsingVideoPlayer:) PUBrowsingVideoPlayer *_browsingVideoPlayer; // @synthesize _browsingVideoPlayer=__browsingVideoPlayer;
 @property(retain, nonatomic) PUAssetViewModel *assetViewModel; // @synthesize assetViewModel=_assetViewModel;
+@property(retain, nonatomic) PUBrowsingViewModel *browsingViewModel; // @synthesize browsingViewModel=_browsingViewModel;
 @property(nonatomic) __weak id <PUPlayButtonTileViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)viewModel:(id)arg1 didChange:(id)arg2;

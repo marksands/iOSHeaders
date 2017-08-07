@@ -24,6 +24,7 @@
 - (void).cxx_destruct;
 - (id)_sortedResponseArray;
 - (struct CGColor *)copyColorWithKind:(id)arg1;
+- (id)artworkURLWithSize:(struct CGSize)arg1 cropStyle:(id)arg2 format:(id)arg3 preferP3ColorSpace:(_Bool)arg4;
 - (id)artworkURLWithSize:(struct CGSize)arg1 cropStyle:(id)arg2 format:(id)arg3;
 @property(readonly, nonatomic) struct CGSize originalSize;
 @property(readonly, nonatomic) _Bool hasOriginalSize;

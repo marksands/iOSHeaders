@@ -6,11 +6,12 @@
 
 #import <HMFoundation/HMFObject.h>
 
+#import <CoreHAP/NSCopying-Protocol.h>
 #import <CoreHAP/NSSecureCoding-Protocol.h>
 
 @class HAPPairingKey, NSString;
 
-@interface HAPPairingIdentity : HMFObject <NSSecureCoding>
+@interface HAPPairingIdentity : HMFObject <NSSecureCoding, NSCopying>
 {
     NSString *_identifier;
     HAPPairingKey *_publicKey;
@@ -25,6 +26,7 @@
 @property(readonly, nonatomic) HAPPairingKey *publicKey; // @synthesize publicKey=_publicKey;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)dictionaryEncoding;
 - (void)updateWithDictionary:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

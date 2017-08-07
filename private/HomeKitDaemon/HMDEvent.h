@@ -43,7 +43,7 @@
 @property(nonatomic) __weak HMDEventTrigger *eventTrigger; // @synthesize eventTrigger=_eventTrigger;
 - (void).cxx_destruct;
 - (id)metricData;
-- (void)_activate:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)_activate:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_transactionObjectRemoved:(id)arg1 message:(id)arg2;
 - (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
 - (void)_transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;

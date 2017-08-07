@@ -8,16 +8,14 @@
 
 #import <HomeKitDaemon/APSConnectionDelegate-Protocol.h>
 
-@class APSConnection, CKContainer, CKDatabase, HMDCloudCache, HMDCloudDataSyncStateFilter, HMDCloudHomeManagerZone, HMDCloudLegacyZone, HMDCloudMetadataZone, HMDHomeManager, HMFMessageDispatcher, HMFOSTransaction, NSData, NSMutableArray, NSObject, NSString, NSUUID;
+@class APSConnection, CKContainer, CKDatabase, HMDCloudCache, HMDCloudDataSyncStateFilter, HMDCloudHomeManagerZone, HMDCloudLegacyZone, HMDCloudMetadataZone, HMDHomeManager, HMFMessageDispatcher, NSData, NSMutableArray, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface HMDCloudManager : HMFObject <APSConnectionDelegate>
 {
     _Bool _accountActive;
-    _Bool _needConflictResolution;
     _Bool _cloudHomeDataRecordExists;
     _Bool _keychainSyncEnabled;
-    _Bool _cloudMetadataRecordExists;
     _Bool _firstV3Fetch;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     CKContainer *_container;
@@ -27,7 +25,6 @@
     NSObject<OS_dispatch_queue> *_workQueue;
     CDUnknownBlockType _fetchCompletionHandler;
     NSObject<OS_dispatch_queue> *_clientCallbackQueue;
-    HMFOSTransaction *_homeDataFetchedTransaction;
     NSObject<OS_dispatch_source> *_retryTimer;
     NSObject<OS_dispatch_source> *_pollTimer;
     NSObject<OS_dispatch_source> *_controllerKeyPollTimer;
@@ -45,7 +42,6 @@
 }
 
 @property(nonatomic, getter=isFirstV3Fetch) _Bool firstV3Fetch; // @synthesize firstV3Fetch=_firstV3Fetch;
-@property(nonatomic) _Bool cloudMetadataRecordExists; // @synthesize cloudMetadataRecordExists=_cloudMetadataRecordExists;
 @property(copy, nonatomic) CDUnknownBlockType accountActiveUpdateHandler; // @synthesize accountActiveUpdateHandler=_accountActiveUpdateHandler;
 @property(copy, nonatomic) CDUnknownBlockType dataDecryptionFailedHandler; // @synthesize dataDecryptionFailedHandler=_dataDecryptionFailedHandler;
 @property(retain, nonatomic) NSMutableArray *currentBackoffTimerValuesInMinutes; // @synthesize currentBackoffTimerValuesInMinutes=_currentBackoffTimerValuesInMinutes;
@@ -60,10 +56,8 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *controllerKeyPollTimer; // @synthesize controllerKeyPollTimer=_controllerKeyPollTimer;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *pollTimer; // @synthesize pollTimer=_pollTimer;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *retryTimer; // @synthesize retryTimer=_retryTimer;
-@property(retain, nonatomic) HMFOSTransaction *homeDataFetchedTransaction; // @synthesize homeDataFetchedTransaction=_homeDataFetchedTransaction;
 @property(nonatomic) _Bool keychainSyncEnabled; // @synthesize keychainSyncEnabled=_keychainSyncEnabled;
 @property(nonatomic) _Bool cloudHomeDataRecordExists; // @synthesize cloudHomeDataRecordExists=_cloudHomeDataRecordExists;
-@property(nonatomic) _Bool needConflictResolution; // @synthesize needConflictResolution=_needConflictResolution;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientCallbackQueue; // @synthesize clientCallbackQueue=_clientCallbackQueue;
 @property(copy, nonatomic) CDUnknownBlockType fetchCompletionHandler; // @synthesize fetchCompletionHandler=_fetchCompletionHandler;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
@@ -91,26 +85,23 @@
 - (void)_startFetchPollTimer;
 - (void)_stopFetchRetryTimer;
 - (void)_startFetchRetryTimer;
-- (void)_uploadHomeData:(id)arg1 metadata:(id)arg2 forcePush:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_updateServerTokenStatusOnCloudFilter;
 - (void)updateServerTokenStatusOnCloudFilter;
 - (void)initializeServerTokenStatusOnCloudFilter;
 - (_Bool)_validFetchRetryCKErrorCode:(long long)arg1;
-- (void)_forceCleanCloud:(_Bool)arg1;
+- (void)_forceCleanCloud:(_Bool)arg1 fetchTransaction:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_updateCloudDataSyncFilterState:(_Bool)arg1;
 - (void)_accountIsActive;
 - (void)_createZoneAndFetchChanges:(CDUnknownBlockType)arg1;
 - (void)_verifyZonesExist:(id)arg1 zoneIndex:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_resetMetadataRecordState;
 - (void)_resetHomeDataRecordState;
 - (id)_changeTokenFromData:(id)arg1;
 - (void)_handleAccountStatus:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2 error:(id)arg3;
 - (void)updateAccountStatusChanged:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_processFetchCompletedWithError:(id)arg1 serverToken:(id)arg2 pendingFetchData:(id)arg3 completionHandler:(CDUnknownBlockType)arg4 moreRecordsComing:(_Bool)arg5 emptyRecord:(_Bool)arg6;
-- (id)_processFetchedHomeDataRecord:(unsigned long long)arg1;
-- (void)_fetchHomeDataForce:(_Bool)arg1 accountCompletionHandler:(CDUnknownBlockType)arg2 dataCompletionHandler:(CDUnknownBlockType)arg3;
-- (void)fetchHomeDataForce:(_Bool)arg1 accountCompletionHandler:(CDUnknownBlockType)arg2 dataCompletionHandler:(CDUnknownBlockType)arg3;
-- (void)uploadHomeData:(id)arg1 metadata:(id)arg2 forcePush:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_processFetchCompletedWithError:(id)arg1 serverToken:(id)arg2 fetchTransaction:(id)arg3 migrationOptions:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5 moreRecordsComing:(_Bool)arg6 emptyRecord:(_Bool)arg7;
+- (_Bool)_processFetchedTransaction:(id)arg1;
+- (void)_fetchLegacyTransaction:(id)arg1 forceFetch:(_Bool)arg2 accountCompletionHandler:(CDUnknownBlockType)arg3 dataCompletionHandler:(CDUnknownBlockType)arg4;
+- (void)fetchLegacyTransaction:(id)arg1 forceFetch:(_Bool)arg2 accountCompletionHandler:(CDUnknownBlockType)arg3 dataCompletionHandler:(CDUnknownBlockType)arg4;
 - (void)setAccountActiveUpdateCallback:(CDUnknownBlockType)arg1;
 - (void)setDataDecryptionFailedCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)setControllerKeyAvailableNotificationBlock:(CDUnknownBlockType)arg1;
@@ -131,6 +122,8 @@
 - (void)_removeAllHomeZonesCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)resetCloudDataAndDeleteMetadataForCurrentAccount:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_fetchAndVerifyZoneRootRecord:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_uploadLegacyTransaction:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)uploadLegacyTransaction:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_removeZonesTransactions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removeZonesTransactions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_uploadTransaction:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

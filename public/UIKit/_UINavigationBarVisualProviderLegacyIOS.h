@@ -115,6 +115,7 @@ __attribute__((visibility("hidden")))
 - (void)_layoutSubviewsFromContentView;
 - (void)intrinsicContentSizeInvalidatedForChildView:(id)arg1;
 - (void)barSizeChanged;
+- (_Bool)shouldUseHeightRangeFittingWidth;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)invalidateIntrinsicContentSize;
 - (struct CGSize)_preferredContentSizeForItem:(id)arg1;

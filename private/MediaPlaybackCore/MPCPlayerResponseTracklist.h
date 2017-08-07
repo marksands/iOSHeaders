@@ -11,6 +11,7 @@
 @interface MPCPlayerResponseTracklist : NSObject
 {
     long long _lastChangeDirection;
+    long long _upNextItemCount;
     long long _repeatType;
     long long _shuffleType;
     MPCPlayerResponse *_response;
@@ -27,6 +28,7 @@
 @property(readonly, nonatomic) __weak MPCPlayerResponse *response; // @synthesize response=_response;
 @property(readonly, nonatomic) long long shuffleType; // @synthesize shuffleType=_shuffleType;
 @property(readonly, nonatomic) long long repeatType; // @synthesize repeatType=_repeatType;
+@property(readonly, nonatomic) long long upNextItemCount; // @synthesize upNextItemCount=_upNextItemCount;
 @property(readonly, nonatomic) long long lastChangeDirection; // @synthesize lastChangeDirection=_lastChangeDirection;
 - (void).cxx_destruct;
 - (id)changeItemCommand;

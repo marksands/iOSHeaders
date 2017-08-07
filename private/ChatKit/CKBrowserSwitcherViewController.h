@@ -152,7 +152,7 @@
 - (void)scrollPreventerWillBeginDragging:(id)arg1;
 - (void)scrollPreventerDidLayoutSubviews:(id)arg1;
 - (void)browserTransitionCoordinator:(id)arg1 hasUpdatedLastTouchDate:(id)arg2;
-- (void)browserTransitionCoordinator:(id)arg1 wantsToSwitchToPlugin:(id)arg2;
+- (void)browserTransitionCoordinator:(id)arg1 didSwitchToPlugin:(id)arg2;
 - (void)browserTransitionCoordinatorWantsPresentationOfAppManager:(id)arg1;
 - (void)browserTransitionCoordinatorWantsPresentationOfAppStore:(id)arg1;
 - (void)browserTransitionCoordinatorDidCollapseOrDismiss:(id)arg1 withReason:(long long)arg2;
@@ -167,6 +167,8 @@
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (void)expandGestureTouchMoved:(id)arg1;
 - (void)reverseAndCleanupExpandAnimator;
+- (void)cleanupExpandAnimatorState;
+- (void)stopExpandAnimatorAndCleanupState;
 - (void)setupPausedExpandAnimatorIfNeeded;
 - (double)_rubberBandOffsetWithoutDecorationForOffset:(double)arg1 maxOffset:(double)arg2 minOffset:(double)arg3 range:(double)arg4 outside:(_Bool *)arg5;
 - (double)restingCollectionViewOriginY;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @protocol PLSyncContext;
 
@@ -13,7 +13,7 @@
     id <PLSyncContext> _syncContext;
 }
 
-+ (void)markPushedFaceMatchingRef:(id)arg1 inAsset:(id)arg2;
++ (void)markSyncableFacesAsPushedInAsset:(id)arg1;
 + (_Bool)_shouldPushBeingKeyFace:(id)arg1;
 + (_Bool)isFaceSyncable:(id)arg1;
 + (void)applyFaceChangesFromAsset:(id)arg1 toAssetChange:(id)arg2 inPhotoLibrary:(id)arg3;

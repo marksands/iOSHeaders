@@ -6,7 +6,7 @@
 
 #import <iTunesStoreUI/SUStorePageViewController.h>
 
-@class NSString, SUMescalSession;
+@class NSString, NSURL, SUMescalSession;
 
 @interface SUAccountViewController : SUStorePageViewController
 {
@@ -15,11 +15,13 @@
     SUMescalSession *_mescalSession;
     long long _mescalState;
     NSString *_primingSignature;
+    NSURL *_accountURL;
 }
 
 + (id)_latestAccountViewController;
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(readonly, nonatomic, getter=_mescalSession) SUMescalSession *_mescalSession; // @synthesize _mescalSession;
+- (void).cxx_destruct;
 - (_Bool)_shouldUseWebViewFastPath;
 - (void)_mescalDidOpenWithSession:(id)arg1 error:(id)arg2;
 - (void)_forceOrientationBackToSupportedOrientation;
@@ -29,12 +31,12 @@
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
+- (_Bool)shouldSignRequests;
 - (id)newViewControllerForPage:(id)arg1 ofType:(long long)arg2 returningError:(id *)arg3;
 - (id)newFetchOperation;
 - (void)handleFailureWithError:(id)arg1;
 - (void)enqueueFetchOperation;
 - (id)copyArchivableContext;
-- (void)dealloc;
 - (id)initWithExternalAccountURL:(id)arg1;
 - (id)init;
 

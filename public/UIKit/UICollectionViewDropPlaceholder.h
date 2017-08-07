@@ -6,7 +6,6 @@
 
 #import <UIKit/UICollectionViewPlaceholder.h>
 
-__attribute__((visibility("hidden")))
 @interface UICollectionViewDropPlaceholder : UICollectionViewPlaceholder
 {
     CDUnknownBlockType _previewParametersProvider;

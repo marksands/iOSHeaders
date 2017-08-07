@@ -19,6 +19,7 @@
     PKPaymentSetupHeroView *_splashView;
     _Bool _hideSetupLater;
     _Bool _hasFelicaSecureElement;
+    _Bool _preflightComplete;
     _Bool _allowsManualEntry;
     PKPaymentProvisioningController *_provisioningController;
     id <PKPaymentSetupViewControllerDelegate> _delegate;
@@ -52,10 +53,10 @@
 @property(readonly, nonatomic) PKPaymentWebService *webService;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
-- (void)viewDidLayoutSubviews;
+- (void)viewWillLayoutSubviews;
 - (unsigned long long)edgesForExtendedLayout;
 - (void)_credentialRenewalRequired:(id)arg1;
-- (void)_preflightValidation;
+- (void)_preflightWithCompletion:(CDUnknownBlockType)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;

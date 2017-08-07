@@ -15,6 +15,8 @@
 - (id)init;
 
 // Remaining properties
+@property(nonatomic) _Bool hasForceTouchedToExpandModule; // @dynamic hasForceTouchedToExpandModule;
+@property(nonatomic) _Bool hasLongPressedToExpandModule; // @dynamic hasLongPressedToExpandModule;
 @property(readonly, nonatomic) _Bool shouldAlwaysBeEnabled; // @dynamic shouldAlwaysBeEnabled;
 @property(readonly, nonatomic) _Bool shouldExcludeControlCenterFromStatusBarOverrides; // @dynamic shouldExcludeControlCenterFromStatusBarOverrides;
 

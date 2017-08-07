@@ -112,6 +112,7 @@
 - (id)imageOfSize:(struct CGSize)arg1 forBox:(long long)arg2 withRotation:(_Bool)arg3 withAntialiasing:(_Bool)arg4;
 - (id)noFillthumbnailOfSize:(struct CGSize)arg1 forBox:(long long)arg2 withBookmark:(_Bool)arg3;
 - (id)noFillthumbnailOfSize:(struct CGSize)arg1 forBox:(long long)arg2;
+- (id)thumbnailOfSize:(struct CGSize)arg1 forBox:(long long)arg2 withBookmark:(_Bool)arg3 withAnnotations:(_Bool)arg4;
 - (id)thumbnailOfSize:(struct CGSize)arg1 forBox:(long long)arg2 withBookmark:(_Bool)arg3;
 - (id)thumbnailOfSize:(struct CGSize)arg1 forBox:(long long)arg2;
 - (void)_drawWithBox:(long long)arg1 inContext:(struct CGContext *)arg2 withRotation:(_Bool)arg3 withAntialiasing:(_Bool)arg4 isThumbnail:(_Bool)arg5 withAnnotations:(_Bool)arg6 withBookmark:(_Bool)arg7 withDelegate:(id)arg8;

@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 - (void)_handleTapOnMap;
 - (void)_updateSnapshotImage:(id)arg1;
 - (void)_updateInlineMapWithRefinedMapItems;
+- (struct CGSize)_mapSize;
 - (CDStruct_02837cd9)mapRectContainingMapItems;
 - (void)updateInlineMapWithRefinedMapItems;
 - (void)_updateMap;

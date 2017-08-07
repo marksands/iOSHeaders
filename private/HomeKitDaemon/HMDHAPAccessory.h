@@ -210,7 +210,6 @@
 - (void)_setRelayIdentifier:(id)arg1;
 - (void)_setSupportsRelay:(_Bool)arg1;
 - (_Bool)containsCameraService;
-- (void)removeAllTransportInformationInstances;
 - (void)removeTransportInformationInstance:(id)arg1;
 - (void)addTransportInformationInstances:(id)arg1;
 - (void)addTransportInformationInstance:(id)arg1;

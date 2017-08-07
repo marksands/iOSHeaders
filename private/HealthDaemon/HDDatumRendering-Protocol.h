@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSDateInterval, NSDictionary;
+@class NSDate, NSDateInterval, NSDictionary;
 
 @protocol HDDatumRendering
+@property(readonly, nonatomic) NSDate *updateTime;
 - (NSDictionary *)generateDatums:(NSDateInterval *)arg1;
 @end
 

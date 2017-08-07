@@ -18,15 +18,17 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_sessionReportingQueue;
     NSMutableArray *_aggregatedPayloadData;
     NSMutableDictionary *_sessionInfo;
+    NSMutableDictionary *_defaults;
     NSString *_serviceName;
     RTCReporting *_reportingSession;
     NSObject *_reportingAgentToken;
 }
 
-+ (void)sendSingleMessage:(id)arg1 category:(unsigned short)arg2 type:(unsigned short)arg3 serviceType:(unsigned short)arg4 reply:(CDUnknownBlockType)arg5;
++ (void)sendSingleMessage:(id)arg1 category:(unsigned short)arg2 type:(unsigned short)arg3 serviceType:(unsigned short)arg4 defaults:(id)arg5 reply:(CDUnknownBlockType)arg6;
 @property(retain) NSObject *reportingAgentToken; // @synthesize reportingAgentToken=_reportingAgentToken;
 @property(retain) RTCReporting *reportingSession; // @synthesize reportingSession=_reportingSession;
 @property(retain, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
+@property(retain) NSMutableDictionary *defaults; // @synthesize defaults=_defaults;
 @property(retain) NSMutableDictionary *sessionInfo; // @synthesize sessionInfo=_sessionInfo;
 @property(retain) NSMutableArray *aggregatedPayloadData; // @synthesize aggregatedPayloadData=_aggregatedPayloadData;
 @property(retain) NSObject<OS_dispatch_queue> *sessionReportingQueue; // @synthesize sessionReportingQueue=_sessionReportingQueue;
@@ -40,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (void)sendMessage:(id)arg1 category:(unsigned short)arg2 type:(unsigned short)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)startSync:(_Bool)arg1;
 - (void)start;
+- (void)updateDefaults:(id)arg1;
 - (id)initWithID:(long long)arg1;
 
 @end

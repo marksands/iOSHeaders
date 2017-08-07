@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct PolylineCoordinate routeCoordinate; // @synthesize routeCoordinate=_routeCoordinate;
 @property(nonatomic) unsigned long long significanceType; // @synthesize significanceType=_significanceType;
 - (id).cxx_construct;
+- (id)description;
 
 @end
 

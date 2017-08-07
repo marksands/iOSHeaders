@@ -121,6 +121,7 @@
 - (_Bool)isFirstResponder;
 - (_Bool)canResignFirstResponder;
 - (_Bool)resignFirstResponder;
+- (void)becomeActiveWithAnimationSettings:(id)arg1;
 - (_Bool)becomeFirstResponder;
 - (_Bool)canBecomeFirstResponder;
 - (void)_overrideBiometricMatchingEnabled:(_Bool)arg1 forReason:(id)arg2;
@@ -140,10 +141,9 @@
 - (void)_emergencyCallButtonHit;
 - (void)_cancelButtonHit;
 - (void)_usePasscodeButtonHit;
-- (void)transitioningToPasscodeView;
+- (void)updateForTransitionToPasscodeView:(_Bool)arg1;
 - (void)willTransitionToPasscodeView;
 - (void)_setPasscodeLockViewState:(long long)arg1 animated:(_Bool)arg2;
-- (void)setUsesBiometricPresentation:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

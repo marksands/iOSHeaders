@@ -14,7 +14,7 @@
 #import <PhotosUI/UITableViewDataSource-Protocol.h>
 #import <PhotosUI/UITableViewDelegate-Protocol.h>
 
-@class CNContactPickerViewController, IDSBatchIDQueryController, MFComposeRecipientView, MFContactsSearchManager, MFContactsSearchResultsModel, NSArray, NSMutableSet, NSNumber, NSString, UIScrollView, UITableView;
+@class CNContactPickerViewController, CNContactStore, IDSBatchIDQueryController, MFComposeRecipientView, MFContactsSearchManager, MFContactsSearchResultsModel, NSArray, NSMutableSet, NSNumber, NSString, UIScrollView, UITableView;
 
 @interface PUPhotoStreamRecipientViewController : UIViewController <MFContactsSearchConsumer, UITableViewDataSource, UITableViewDelegate, CNContactPickerDelegate, UIPopoverPresentationControllerDelegate, MFComposeRecipientViewDelegate, IDSBatchIDQueryControllerDelegate>
 {
@@ -33,6 +33,7 @@
     CNContactPickerViewController *_contactPickerPresentedController;
     struct CGSize _recipientViewSize;
     double _lastHeight;
+    CNContactStore *_contactStore;
     id _delegate;
     double _bottomTableOffset;
 }
@@ -78,6 +79,7 @@
 - (void)composeRecipientView:(id)arg1 didFinishEnteringAddress:(id)arg2;
 - (void)composeRecipientView:(id)arg1 requestDeleteRecipientAtIndex:(int)arg2;
 - (void)composeRecipientView:(id)arg1 textDidChange:(id)arg2;
+@property(readonly, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;
 @property(readonly, nonatomic) NSArray *recipients;
 - (void)viewWillLayoutSubviews;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;

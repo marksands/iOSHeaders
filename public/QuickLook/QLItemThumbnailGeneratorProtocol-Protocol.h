@@ -9,6 +9,6 @@
 @class QLItem;
 
 @protocol QLItemThumbnailGeneratorProtocol <NSObject>
-- (void)generateThumbnailForItem:(QLItem *)arg1 ofSize:(struct CGSize)arg2 scale:(double)arg3 completionBlock:(void (^)(UIImage *))arg4;
+- (void)generateThumbnailForItem:(QLItem *)arg1 ofSize:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 completionBlock:(void (^)(UIImage *))arg5;
 @end
 

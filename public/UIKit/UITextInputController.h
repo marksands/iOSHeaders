@@ -73,6 +73,7 @@
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (_Bool)respondsToSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
+- (id)_textInputTraits;
 - (void)_resetShowingTextStyle:(id)arg1;
 - (void)_showTextStyleOptions:(id)arg1;
 - (void)toggleUnderline:(id)arg1;

@@ -41,6 +41,7 @@ struct _CLLocationManagerStateTrackerState {
     int pausesLocationUpdatesAutomatically;
     _Bool paused;
     _Bool allowsBackgroundLocationUpdates;
+    _Bool showsBackgroundLocationIndicator;
     _Bool allowsMapCorrection;
     _Bool batchingLocation;
     _Bool updatingVehicleSpeed;

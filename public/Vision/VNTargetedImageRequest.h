@@ -15,23 +15,43 @@
 
 + (id)optionNameForTargetedImageSpecifyingObject;
 - (void).cxx_destruct;
+- (id)newDefaultRequestInstance;
+- (id)sequencedRequestPreviousObservationsKey;
+- (id)observationsCacheKey;
 - (id)requiredTargetedImageSpecifierReturningError:(id *)arg1;
 - (id)targetedImageSpecifier;
-- (id)newDefaultRequestInstance;
+- (id)initWithTargetedImageData:(id)arg1 orientation:(unsigned int)arg2 options:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)initWithTargetedImageData:(id)arg1 orientation:(unsigned int)arg2 options:(id)arg3;
+- (id)initWithTargetedImageData:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)initWithTargetedImageData:(id)arg1 options:(id)arg2;
 - (id)initWithTargetedImageData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithTargetedImageData:(id)arg1;
+- (id)initWithTargetedImageURL:(id)arg1 orientation:(unsigned int)arg2 options:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)initWithTargetedImageURL:(id)arg1 orientation:(unsigned int)arg2 options:(id)arg3;
+- (id)initWithTargetedImageURL:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)initWithTargetedImageURL:(id)arg1 options:(id)arg2;
 - (id)initWithTargetedImageURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithTargetedImageURL:(id)arg1;
+- (id)initWithTargetedCIImage:(id)arg1 orientation:(unsigned int)arg2 options:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)initWithTargetedCIImage:(id)arg1 orientation:(unsigned int)arg2 options:(id)arg3;
+- (id)initWithTargetedCIImage:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)initWithTargetedCIImage:(id)arg1 options:(id)arg2;
 - (id)initWithTargetedCIImage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithTargetedCIImage:(id)arg1;
+- (id)initWithTargetedCGImage:(struct CGImage *)arg1 orientation:(unsigned int)arg2 options:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)initWithTargetedCGImage:(struct CGImage *)arg1 orientation:(unsigned int)arg2 options:(id)arg3;
+- (id)initWithTargetedCGImage:(struct CGImage *)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)initWithTargetedCGImage:(struct CGImage *)arg1 options:(id)arg2;
 - (id)initWithTargetedCGImage:(struct CGImage *)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithTargetedCGImage:(struct CGImage *)arg1;
+- (id)initWithTargetedCVPixelBuffer:(struct __CVBuffer *)arg1 orientation:(unsigned int)arg2 options:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)initWithTargetedCVPixelBuffer:(struct __CVBuffer *)arg1 orientation:(unsigned int)arg2 options:(id)arg3;
+- (id)initWithTargetedCVPixelBuffer:(struct __CVBuffer *)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)initWithTargetedCVPixelBuffer:(struct __CVBuffer *)arg1 options:(id)arg2;
 - (id)initWithTargetedCVPixelBuffer:(struct __CVBuffer *)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithTargetedCVPixelBuffer:(struct __CVBuffer *)arg1;
 - (id)initWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)initWithTargetedImageSpecifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (id)sequencedRequestPreviousObservationsKey;
-- (id)observationsCacheKey;
 
 @end
 

@@ -131,7 +131,7 @@
 - (id)_popoverHostingWindow;
 - (_Bool)_shouldOccludeDuringPresentation;
 - (id)_presentationView;
-- (struct UIEdgeInsets)_baseContentInsets;
+- (struct UIEdgeInsets)_baseContentInsetsWithLeftMargin:(double *)arg1 rightMargin:(double *)arg2;
 - (id)_initialPresentationViewControllerForViewController:(id)arg1;
 - (_Bool)_shouldPresentedViewControllerControlStatusBarAppearance;
 - (_Bool)shouldRemovePresentersView;

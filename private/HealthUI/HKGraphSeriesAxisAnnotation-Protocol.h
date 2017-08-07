@@ -9,6 +9,7 @@
 @class HKGraphSeries, NSString, UIColor;
 
 @protocol HKGraphSeriesAxisAnnotation <NSObject>
+- (void)clearAxisAnnotations;
 - (void)addAxisAnnotation:(NSString *)arg1 forSeries:(HKGraphSeries *)arg2 textColor:(UIColor *)arg3 modelCoordinate:(id)arg4;
 @end
 

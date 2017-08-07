@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class NSLock, NSNumber;
+@class NSCache, NSLock, NSNumber;
 @protocol OS_dispatch_queue;
 
 @interface ISBiometricStore : NSObject
 {
+    NSCache *_contextCache;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSLock *_lock;
     _Bool _shouldUseTouchID2;
@@ -35,10 +36,12 @@
 - (_Bool)isIdentityMapValidForAccountIdentifier:(id)arg1;
 @property(readonly, getter=isBiometricStateEnabled) _Bool biometricStateEnabled;
 - (unsigned long long)identityMapCount;
+- (id)fetchContextFromCacheWithToken:(id)arg1 evict:(_Bool)arg2;
 - (void)clearLastRegisteredAccountIdentifier;
 - (_Bool)canPerformExtendedTouchIDActionsForAccountIdentifier:(id)arg1;
 - (_Bool)canPerformBiometricOptIn;
 - (long long)biometricAvailabilityForAccountIdentifier:(id)arg1;
+- (void)addContextToCache:(id)arg1 withToken:(id)arg2;
 - (id)initWithBagListener;
 
 @end

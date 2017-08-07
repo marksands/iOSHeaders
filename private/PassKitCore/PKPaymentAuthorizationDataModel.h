@@ -115,6 +115,7 @@
 - (void)setPass:(id)arg1 paymentApplication:(id)arg2;
 @property(retain, nonatomic) PKPaymentPass *pass; // @synthesize pass=_pass;
 - (_Bool)isValidWithError:(id *)arg1;
+- (id)paymentErrorsFromLegacyStatus:(long long)arg1;
 - (id)_filterAndProcessPaymentPassesUsingConfiguration:(id)arg1;
 - (id)_filterAndProcessPaymentApplicationsUsingConfigurationForPass:(id)arg1;
 - (id)_inAppPrivateLabelPaymentPasses;

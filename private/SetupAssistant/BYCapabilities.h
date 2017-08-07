@@ -17,6 +17,9 @@
 - (_Bool)canShowAppleIDScreen;
 - (_Bool)canShowPasscodeScreen;
 - (_Bool)canShowTouchIDScreen;
+- (_Bool)_paymentScreenRequirementsIncludeiCloud:(id)arg1;
+- (_Bool)_paymentScreenRequirementsIncludePasscode:(id)arg1;
+- (id)_paymentScreenRequirements;
 - (_Bool)canShowPaymentScreen;
 - (_Bool)canShowSiriScreen;
 

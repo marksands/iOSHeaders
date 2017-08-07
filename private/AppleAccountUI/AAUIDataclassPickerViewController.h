@@ -51,7 +51,6 @@
 - (void)_additionalInformationSelected:(id)arg1;
 - (void)_nextButtonSelected:(id)arg1;
 - (void)_cancelButtonSelected:(id)arg1;
-- (_Bool)_hasPaymentPasses;
 - (id)_signOutFooterText;
 - (id)_tableFooterView;
 - (id)_tableView;

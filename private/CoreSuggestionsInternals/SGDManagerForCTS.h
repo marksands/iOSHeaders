@@ -47,8 +47,10 @@
 - (_Bool)drainHarvestQueue:(id)arg1 runningOptionalDissectors:(_Bool)arg2 highPriorityOnly:(_Bool)arg3 continuingWhile:(CDUnknownBlockType)arg4;
 - (void)_doAdjustCriteriaForCTS;
 - (void)adjustCriteriaForCTS;
+- (void)_performContactDetailCacheRebuildActivity:(id)arg1;
+- (void)_registerForContactDetailCacheRebuildActivity;
 - (void)_performPMLTrainingActivity:(id)arg1;
-- (void)_registerFroPMLTrainingActivity;
+- (void)_registerForPMLTrainingActivity;
 - (void)_performSendRTCActivity;
 - (void)_registerForCTSSendRTCActivity;
 - (void)_performIdentityAnalysisActivity:(id)arg1;

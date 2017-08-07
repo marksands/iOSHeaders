@@ -104,6 +104,7 @@
 - (void)queueCoordinator:(id)arg1 willInsertItem:(id)arg2 afterItem:(id)arg3;
 - (void)queueCoordinator:(id)arg1 failedToLoadItem:(id)arg2;
 - (void)_mediaLibraryDisplayValuesDidChangeNotification:(id)arg1;
+@property(readonly, nonatomic) long long upNextItemCount;
 - (_Bool)hasQueueContents;
 @property(readonly, nonatomic) _Bool isTransitioningSource;
 - (_Bool)canSeekItem:(id)arg1;

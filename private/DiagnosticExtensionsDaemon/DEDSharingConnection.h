@@ -31,6 +31,7 @@
     CDUnknownBlockType _deviceStatusCallback;
 }
 
++ (void)checkIn;
 @property(copy) CDUnknownBlockType deviceStatusCallback; // @synthesize deviceStatusCallback=_deviceStatusCallback;
 @property(retain, nonatomic) SFDeviceDiscovery *pongDiscovery; // @synthesize pongDiscovery=_pongDiscovery;
 @property(retain, nonatomic) SFService *workerService; // @synthesize workerService=_workerService;

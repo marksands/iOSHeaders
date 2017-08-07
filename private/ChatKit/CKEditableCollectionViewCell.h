@@ -26,6 +26,7 @@
 @property(nonatomic) struct CGRect contentAlignmentRect; // @synthesize contentAlignmentRect=_contentAlignmentRect;
 - (void).cxx_destruct;
 - (void)updateCheckmarkImage;
+- (struct UIEdgeInsets)_horizontalSafeAreaInsets;
 @property(readonly, nonatomic) struct UIEdgeInsets contentAlignmentInsets;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setHighlighted:(_Bool)arg1;

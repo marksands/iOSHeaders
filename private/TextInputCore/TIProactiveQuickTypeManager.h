@@ -31,12 +31,12 @@
 - (_Bool)isEnabled;
 - (void)reset;
 - (unsigned long long)matchProactiveCandidateToUserInput:(id)arg1 userInput:(id)arg2;
-- (void)loggingProactiveEngagementMetric:(unsigned long long)arg1 withLocale:(id)arg2;
-- (id)generateAndRenderProactiveSuggestionsWithInput:(id)arg1 withSecureCandidateRenderer:(id)arg2 withRenderTraits:(id)arg3;
+- (void)loggingProactiveEngagementMetric:(unsigned long long)arg1 withLocale:(id)arg2 fieldType:(id)arg3;
+- (id)generateAndRenderProactiveSuggestionsWithInput:(id)arg1 withSecureCandidateRenderer:(id)arg2 withRenderTraits:(id)arg3 textContentType:(id)arg4;
 - (id)getMeCardEmailAddresses;
 - (void)suggestionNotAccepted:(id)arg1;
-- (void)suggestionAccepted:(id)arg1;
-- (void)userActionWithNoNewTriggers:(id)arg1;
+- (void)suggestionAccepted:(id)arg1 fieldType:(id)arg2;
+- (void)userActionWithNoNewTriggers:(id)arg1 fieldType:(id)arg2;
 - (id)generateAndRenderProactiveSuggestionsWithTriggers:(id)arg1 withAdditionalPredictions:(id)arg2 withSecureCandidateRenderer:(id)arg3 withRenderTraits:(id)arg4 withInput:(id)arg5 withRecipient:(id)arg6 withApplication:(id)arg7 withLocale:(id)arg8 withTextContentType:(id)arg9 withAvailableApps:(id)arg10 logBlock:(CDUnknownBlockType)arg11;
 - (void)addToTypologyTrace:(CDUnknownBlockType)arg1 withTriggerSource:(id)arg2 withTriggerType:(id)arg3 withTriggerSubType:(id)arg4 withPredictionResults:(id)arg5 withFirstTrigger:(id)arg6;
 - (id)renderItems:(id)arg1 withAdditionalPredictions:(id)arg2 withSecureCandidateRenderer:(id)arg3 withRenderTraits:(id)arg4 withInput:(id)arg5;

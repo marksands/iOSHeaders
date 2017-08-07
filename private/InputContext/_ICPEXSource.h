@@ -9,24 +9,26 @@
 #import <InputContext/_ICLexiconSourcing-Protocol.h>
 #import <InputContext/_ICPredictionSourcing-Protocol.h>
 
-@class NSMutableArray, PEXQuickTypeBroker;
+@class NSCondition, NSMutableArray, PEXQuickTypeBroker;
 @protocol OS_dispatch_semaphore;
 
 @interface _ICPEXSource : NSObject <_ICPredictionSourcing, _ICLexiconSourcing>
 {
-    PEXQuickTypeBroker *_pexBroker;
     NSMutableArray *_contacts;
     NSObject<OS_dispatch_semaphore> *_pexContactsLoadedSemaphore;
+    NSCondition *_pexBrokerLoadedCondition;
+    PEXQuickTypeBroker *_pexBroker;
 }
 
+@property(retain) PEXQuickTypeBroker *pexBroker; // @synthesize pexBroker=_pexBroker;
 - (void).cxx_destruct;
 - (void)unregisterNameDelegate:(id)arg1;
 - (void)registerNameDelegate:(id)arg1;
-- (void)getNamedEntities:(CDUnknownBlockType)arg1 recentNamedEntities:(CDUnknownBlockType)arg2;
 - (void)searchForMeCardEmailAddressesWithTimeout:(int)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)searchForMeCardRegionsWithTimeout:(int)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)predictedItemsWithProactiveTrigger:(id)arg1 searchContext:(id)arg2 limit:(unsigned long long)arg3 timeoutInMilliseconds:(float)arg4 handler:(CDUnknownBlockType)arg5;
 - (_Bool)generateNoresultExplanation:(id *)arg1;
+- (id)getPEXBroker;
 - (id)init;
 
 @end

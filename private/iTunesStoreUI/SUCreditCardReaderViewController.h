@@ -15,7 +15,6 @@
     CDUnknownBlockType _completionBlock;
 }
 
-+ (_Bool)cameraSupported;
 @property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
 - (void).cxx_destruct;
 

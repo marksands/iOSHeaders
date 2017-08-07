@@ -19,8 +19,10 @@
 + (id)_hf_naturalLanguageNameWithHome:(id)arg1 alarmCharacteristics:(id)arg2 triggerValue:(id)arg3 type:(unsigned long long)arg4;
 + (id)hf_naturalLanguageNameWithHome:(id)arg1 characteristics:(id)arg2 triggerValue:(id)arg3 type:(unsigned long long)arg4;
 + (id)hf_naturalLanguageNameWithHome:(id)arg1 presenceEvent:(id)arg2 type:(unsigned long long)arg3;
-+ (id)hf_naturalLanguageNameWithHome:(id)arg1 region:(id)arg2 type:(unsigned long long)arg3;
++ (id)hf_naturalLanguageNameWithHome:(id)arg1 region:(id)arg2 type:(unsigned long long)arg3 forUser:(id)arg4;
++ (id)hf_naturalLanguageNameWithHome:(id)arg1 events:(id)arg2 recurrences:(id)arg3 type:(unsigned long long)arg4 forUser:(id)arg5;
 + (id)hf_naturalLanguageNameWithHome:(id)arg1 events:(id)arg2 recurrences:(id)arg3 type:(unsigned long long)arg4;
++ (id)hf_naturalLanguageNameWithHome:(id)arg1 events:(id)arg2 type:(unsigned long long)arg3 forUser:(id)arg4;
 + (id)hf_naturalLanguageNameWithHome:(id)arg1 events:(id)arg2 type:(unsigned long long)arg3;
 - (id)hf_designateTrigger:(_Bool)arg1;
 - (id)hf_unmarkTriggerAsHomeAppCreated;

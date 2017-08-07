@@ -12,6 +12,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (void)logInternalError:(id)arg1;
++ (id)errorForInvalidModelWithLocalizedDescription:(id)arg1 underlyingError:(id)arg2;
++ (id)errorForInvalidModelWithLocalizedDescription:(id)arg1;
 + (id)errorForInvalidArgument:(id)arg1 named:(id)arg2;
 + (id)errorForInvalidOption:(id)arg1 named:(id)arg2;
 + (id)errorForMissingOptionNamed:(id)arg1;

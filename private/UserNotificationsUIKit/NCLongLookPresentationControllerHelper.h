@@ -40,6 +40,9 @@
 - (_Bool)_shouldDisableInteractionDuringTransitions;
 - (_Bool)_shouldMakePresentedViewControllerFirstResponder;
 - (void)containerViewWillLayoutSubviews;
+- (void)dismissalTransitionDidEnd:(_Bool)arg1;
+- (void)dismissalTransitionWillBegin;
+- (void)presentationTransitionDidEnd:(_Bool)arg1;
 - (void)presentationTransitionWillBegin;
 @property(readonly, nonatomic) struct CGRect frameOfPresentedViewInContainerView;
 - (id)presentedNotificationViewController;

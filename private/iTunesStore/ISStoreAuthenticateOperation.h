@@ -14,8 +14,10 @@
 {
     SSMutableAuthenticationContext *_authenticationContext;
     SSAuthenticateResponse *_authenticateResponse;
+    id parentViewController;
 }
 
+@property(retain) id parentViewController; // @synthesize parentViewController;
 - (void)_handleAuthenticateResponse:(id)arg1;
 - (id)uniqueKey;
 - (void)run;

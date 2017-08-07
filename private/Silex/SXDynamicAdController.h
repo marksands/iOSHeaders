@@ -6,17 +6,21 @@
 
 #import <objc/NSObject.h>
 
-@class NSIndexSet, SXContext;
+#import <Silex/SXDynamicAdController-Protocol.h>
+
+@class NSHashTable, NSIndexSet, NSString, SXContext;
 @protocol SXAdvertisingSettings;
 
-@interface SXDynamicAdController : NSObject
+@interface SXDynamicAdController : NSObject <SXDynamicAdController>
 {
     SXContext *_context;
     NSIndexSet *_excludedPlacementAreas;
     id <SXAdvertisingSettings> _advertismentSettings;
+    NSHashTable *_processedLayoutDataProviders;
 }
 
-@property(retain, nonatomic) id <SXAdvertisingSettings> advertismentSettings; // @synthesize advertismentSettings=_advertismentSettings;
+@property(readonly, nonatomic) NSHashTable *processedLayoutDataProviders; // @synthesize processedLayoutDataProviders=_processedLayoutDataProviders;
+@property(readonly, nonatomic) id <SXAdvertisingSettings> advertismentSettings; // @synthesize advertismentSettings=_advertismentSettings;
 @property(retain, nonatomic) NSIndexSet *excludedPlacementAreas; // @synthesize excludedPlacementAreas=_excludedPlacementAreas;
 @property(retain, nonatomic) SXContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
@@ -30,8 +34,15 @@
 - (_Bool)isValidStartPosition:(double)arg1 forBlueprint:(id)arg2;
 - (id)excludedAreasInLayoutBlueprint:(id)arg1;
 - (id)adPlacementsForLayoutBlueprint:(id)arg1;
-- (void)placeAdsForBlueprint:(id)arg1 andLayoutDataProvider:(id)arg2;
+- (void)placeAdsForBlueprint:(id)arg1 layoutDataProvider:(id)arg2;
+- (_Bool)canPlaceAdsForBlueprint:(id)arg1 layoutDataProvider:(id)arg2;
 - (id)initWithContext:(id)arg1 andAdvertismentSettings:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

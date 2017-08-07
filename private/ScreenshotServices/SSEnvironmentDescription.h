@@ -8,7 +8,7 @@
 
 #import <ScreenshotServices/BSXPCCoding-Protocol.h>
 
-@class BSSettings, NSArray, NSString;
+@class BSSettings, NSArray, NSDate, NSString;
 
 @interface SSEnvironmentDescription : NSObject <BSXPCCoding>
 {
@@ -19,11 +19,13 @@
     _Bool _isFromMainScreen;
     struct CGImage *_imageSurface;
     double _imageScale;
+    NSDate *_date;
     struct CGSize _imagePixelSize;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
+@property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(nonatomic) _Bool isFromMainScreen; // @synthesize isFromMainScreen=_isFromMainScreen;
 @property(nonatomic) unsigned long long presentationMode; // @synthesize presentationMode=_presentationMode;
 @property(nonatomic) double imageScale; // @synthesize imageScale=_imageScale;

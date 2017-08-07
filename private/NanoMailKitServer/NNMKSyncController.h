@@ -22,6 +22,7 @@
 - (id)deviceRegistry;
 - (id)mailboxesToSync;
 - (_Bool)isMessage:(id)arg1 fromMailbox:(id)arg2;
+- (id)watchAttachmentContentIdFromContentId:(id)arg1;
 - (id)messageIdFromWatchMessageId:(id)arg1;
 - (id)watchMessageIdFromMessageId:(id)arg1;
 - (_Bool)shouldAddsDeletesMessagesByStatusUpdatesForMailbox:(id)arg1;

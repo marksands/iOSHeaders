@@ -8,7 +8,6 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-__attribute__((visibility("hidden")))
 @interface LOGMSGEVENTRideBookingIntentResponseFailure : PBCodable <NSCopying>
 {
     int _failure;

@@ -7,6 +7,7 @@
 #import <Foundation/NSArray.h>
 
 @interface NSArray (PKError)
++ (id)pk_FilteredCardErrors:(id)arg1;
 + (id)pk_FilteredShippingErrorsForContactFields:(id)arg1 errors:(id)arg2;
 + (id)pk_FilteredBillingErrorsForContactFields:(id)arg1 errors:(id)arg2;
 + (id)paymentShippingAddressUnserviceableErrorWithLocalizedDescription:(id)arg1;

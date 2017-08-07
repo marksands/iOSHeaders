@@ -17,8 +17,8 @@
 
 + (id)defaultAppInstaller;
 - (void).cxx_destruct;
-- (void)installAppForChannel:(id)arg1 offer:(id)arg2 progressHandler:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)installAppForChannel:(id)arg1 progressHandler:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)installAppForInstallable:(id)arg1 offer:(id)arg2 progressHandler:(CDUnknownBlockType)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)installAppForInstallable:(id)arg1 progressHandler:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)init;
 
 @end

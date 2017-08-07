@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (void)clearTapTimer;
 - (void)_resetGestureRecognizer;
 - (void)dealloc;
+- (_Bool)shouldBeRequiredToFailByGestureRecognizer:(id)arg1;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;
 
 @end

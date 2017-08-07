@@ -19,6 +19,7 @@
     unsigned char _encryptionReadNonce[12];
     struct CryptoAEADPrivate *_encryptionWriteAEAD;
     unsigned char _encryptionWriteNonce[12];
+    NSString *_fixedPIN;
     NSMutableData *_fragmentData;
     unsigned short _fragmentLastIndex;
     unsigned long long _heartbeatLastTicks;
@@ -133,6 +134,7 @@
 @property(readonly, nonatomic) CUMessageSession *messageSessionTemplate; // @synthesize messageSessionTemplate=_messageSessionTemplate;
 @property(retain, nonatomic) NSString *label; // @synthesize label=_label;
 @property(copy, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
+@property(copy, nonatomic) NSString *fixedPIN; // @synthesize fixedPIN=_fixedPIN;
 @property(copy, nonatomic) CDUnknownBlockType errorHandler; // @synthesize errorHandler=_errorHandler;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(nonatomic) long long bluetoothState; // @synthesize bluetoothState=_bluetoothState;
@@ -191,6 +193,7 @@
 - (void)_pairSetup:(id)arg1 start:(_Bool)arg2;
 - (void)_pairSetupWithFlags:(unsigned int)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)pairSetupWithFlags:(unsigned int)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)pairingDeriveKeyForIdentifier:(id)arg1 keyLength:(unsigned long long)arg2;
 - (_Bool)pairingContainsACL:(id)arg1;
 - (void)_timeoutTimerFired;
 - (void)_startTimeoutIfNeeded;

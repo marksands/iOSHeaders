@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)extensionMatchingDictionariesForExtensionItems:(id)arg1;
-+ (id)extensionBasedActivityForExtensionIdentifier:(id)arg1;
++ (id)extensionBasedActivityForExtension:(id)arg1;
 @property _Bool performsInitialMatching; // @synthesize performsInitialMatching=_performsInitialMatching;
 @property(retain) id extensionMatchingContext; // @synthesize extensionMatchingContext=_extensionMatchingContext;
 @property(copy, nonatomic) NSArray *extensionPointIdentifiers; // @synthesize extensionPointIdentifiers=_extensionPointIdentifiers;

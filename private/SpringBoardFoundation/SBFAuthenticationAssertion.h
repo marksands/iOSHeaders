@@ -12,19 +12,21 @@
 
 @interface SBFAuthenticationAssertion : NSObject <BSDescriptionProviding>
 {
-    NSString *_identifier;
-    long long _type;
-    SBFUserAuthenticationController *_controller;
+    _Bool _activated;
     _Bool _invalidated;
-    _Bool _valid;
+    long long _type;
+    NSString *_identifier;
+    SBFUserAuthenticationController *_controller;
 }
 
-@property(nonatomic, getter=_controller, setter=_setController:) __weak SBFUserAuthenticationController *controller; // @synthesize controller=_controller;
-@property(retain, nonatomic, getter=_identifier, setter=_setIdentifier:) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic) __weak SBFUserAuthenticationController *controller; // @synthesize controller=_controller;
+@property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic) long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
 - (void)invalidate;
-@property(readonly, nonatomic) long long type; // @synthesize type=_type;
-@property(readonly, nonatomic, getter=isValid) _Bool valid; // @synthesize valid=_valid;
+- (void)deactivate;
+- (void)activate;
+@property(readonly, nonatomic, getter=isValid) _Bool valid; // @dynamic valid;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;

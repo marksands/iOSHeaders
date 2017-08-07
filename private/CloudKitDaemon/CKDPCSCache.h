@@ -54,6 +54,7 @@ __attribute__((visibility("hidden")))
 - (void)_lockedRemoveOutstandingFetch:(id)arg1 forItemIDString:(id)arg2 databaseScope:(long long)arg3;
 - (void)_lockedHandleMemoryFetchOfItem:(id)arg1 pcsData:(id)arg2 forOperation:(id)arg3 options:(unsigned long long)arg4 fetchCreator:(CDUnknownBlockType)arg5 withCompletionHandler:(CDUnknownBlockType)arg6;
 @property(readonly, nonatomic) CKDPCSSQLCache *sqlCache; // @synthesize sqlCache=_sqlCache;
+- (id)_lockedGetSQLCache;
 - (void)dealloc;
 - (id)initWithClientContext:(id)arg1;
 - (void)clearPCSMemoryCaches;

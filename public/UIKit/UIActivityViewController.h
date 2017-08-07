@@ -18,6 +18,7 @@
 
 @interface UIActivityViewController : UIViewController <UIAlertControllerContaining, UIAlertControllerVisualStyleProviding, UIViewControllerRestoration, UIActionSheetPresentationControllerDelegate, _UIActivityHelperDelegate, _UIShareExtensionHost>
 {
+    _Bool _waitingForInitialShareServicePreferredContentSize;
     _Bool _shareServicePreferredContentSizeIsValid;
     _Bool _dismissalDetectionOfViewControllerForSelectedActivityShouldAutoCancel;
     _Bool _willDismissActivityViewController;
@@ -99,6 +100,7 @@
 @property(copy, nonatomic) NSArray *activityItems; // @synthesize activityItems=_activityItems;
 @property(nonatomic) struct CGSize preferredContentSizeWithoutSafeInsets; // @synthesize preferredContentSizeWithoutSafeInsets=_preferredContentSizeWithoutSafeInsets;
 @property(nonatomic) _Bool shareServicePreferredContentSizeIsValid; // @synthesize shareServicePreferredContentSizeIsValid=_shareServicePreferredContentSizeIsValid;
+@property(nonatomic) _Bool waitingForInitialShareServicePreferredContentSize; // @synthesize waitingForInitialShareServicePreferredContentSize=_waitingForInitialShareServicePreferredContentSize;
 @property(retain, nonatomic) UISUIActivityViewControllerConfiguration *activityViewControllerConfiguration; // @synthesize activityViewControllerConfiguration=_activityViewControllerConfiguration;
 @property(retain, nonatomic) id <_UIShareExtensionService> shareExtensionService; // @synthesize shareExtensionService=_shareExtensionService;
 @property(copy, nonatomic) id <NSCopying> extensionRequestIdentifier; // @synthesize extensionRequestIdentifier=_extensionRequestIdentifier;
@@ -124,7 +126,6 @@
 - (void)activityHelper:(id)arg1 didUpdateActivityMatchingResults:(id)arg2;
 - (id)_configurationForActivity:(id)arg1;
 - (id)_activityConfigurationsForActivities:(id)arg1;
-- (void)_updateShareExtensionServiceWithCurrentConfiguration;
 - (id)newShareUIConfigurationWithMatchingResults:(id)arg1;
 - (id)_reloadActivityViewControllerConfiguration;
 - (void)_insertIntoActivitiesByUUID:(id)arg1;
@@ -193,8 +194,10 @@
 - (id)_placeholderActivityItemValues;
 - (void)dealloc;
 - (void)_setupLegacyAlertPresentationControllers;
-- (void)_loadInitialShareServiceConfigurationAndPreferredContentSize;
+- (void)_shareServiceFinishedInitialPreferredContentSizeUpdate;
+- (void)_sendInitialShareServiceConfigurationAndUpdatePreferredContentSize;
 - (void)_connectToRemoteViewService;
+- (void)_preloadInitialConfigurationLocallyIfNeeded;
 - (id)initWithActivityItems:(id)arg1 applicationActivities:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

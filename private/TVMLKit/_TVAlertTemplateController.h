@@ -27,6 +27,8 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_scrollToPreferredFocusView;
 - (void)_configureWithBgImage:(id)arg1 backdropImage:(id)arg2;
+- (long long)_blurEffectStyle;
+- (_Bool)_backgroundImageRequiresBlur;
 - (id)_backgroundImageProxy;
 - (struct CGSize)_backgroundImageProxySize;
 - (void)collectionView:(id)arg1 didUpdateFocusInContext:(id)arg2 withAnimationCoordinator:(id)arg3;

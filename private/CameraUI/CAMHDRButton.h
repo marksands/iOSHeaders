@@ -6,9 +6,11 @@
 
 #import <CameraUI/CAMExpandableMenuButton.h>
 
-@class NSArray, UIImageView;
+#import <CameraUI/CAMAccessibilityHUDImageProvider-Protocol.h>
 
-@interface CAMHDRButton : CAMExpandableMenuButton
+@class NSArray, NSString, UIImageView;
+
+@interface CAMHDRButton : CAMExpandableMenuButton <CAMAccessibilityHUDImageProvider>
 {
     _Bool _allowsAutomaticHDR;
     _Bool _allowsHDROn;
@@ -21,12 +23,13 @@
 @property(nonatomic) _Bool allowsHDROn; // @synthesize allowsHDROn=_allowsHDROn;
 @property(nonatomic) _Bool allowsAutomaticHDR; // @synthesize allowsAutomaticHDR=_allowsAutomaticHDR;
 - (void).cxx_destruct;
+- (id)imageForAccessibilityHUD;
 - (void)reloadData;
 - (_Bool)shouldAllowExpansion;
 - (double)padHeaderViewContentInsetLeft;
 - (void)prepareHeaderViewForExpanding:(_Bool)arg1;
 - (void)_updateCurrentGlyphImage;
-- (id)_currentGlyphImage;
+- (id)_currentGlyphImageForAccessibilityHUD:(_Bool)arg1;
 - (id)headerView;
 - (id)titleForMenuItemAtIndex:(long long)arg1;
 - (long long)numberOfMenuItems;
@@ -38,6 +41,12 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithLayoutStyle:(long long)arg1;
 - (void)_commonCAMHDRButtonInitialization;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

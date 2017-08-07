@@ -43,7 +43,7 @@
 - (id)awdSubmissionManager;
 - (id)appSubscriptionManager;
 - (void)terminationCleanup;
-- (id)initWithDirectoryPath:(id)arg1 daemon:(id)arg2;
+- (id)initWithDirectoryPath:(id)arg1 medicalIDDirectoryPath:(id)arg2 daemon:(id)arg3;
 
 @end
 

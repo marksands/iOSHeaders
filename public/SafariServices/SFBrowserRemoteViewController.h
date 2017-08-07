@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 + (id)requestViewControllerWithConnectionHandler:(CDUnknownBlockType)arg1;
 @property(nonatomic) __weak id <SFBrowserRemoteViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)initialLoadDidRedirectToURL:(id)arg1;
 - (void)didDecideCookieSharingForURL:(id)arg1 shouldCancel:(_Bool)arg2;
 - (void)willOpenURLInHostApplication:(id)arg1;
 - (void)executeCustomActivityProxyID:(id)arg1;

@@ -11,8 +11,11 @@
 }
 
 + (id)defaultPermission;
-- (void)fetchProvidersForItems:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (void)filterItems:(id)arg1 byCanPerformAction:(unsigned long long)arg2 targetItem:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
+@property(readonly, nonatomic) _Bool hasRestrictions;
+- (id)queueFileDataForAcceptance:(id)arg1 originalFileName:(id)arg2 forBundleID:(id)arg3 outError:(id *)arg4;
+- (unsigned long long)dataOwnerStateForBundleIdentifier:(id)arg1;
+- (unsigned long long)dataOwnerStateForItem:(id)arg1;
+- (id)filterItems:(id)arg1 byCanPerformAction:(unsigned long long)arg2 targetItem:(id)arg3;
 - (id)filterProviders:(id)arg1 byCanPerformAction:(unsigned long long)arg2 targetBundleIdentifier:(id)arg3 targetBundleIsManaged:(_Bool)arg4;
 - (id)filterBundleIdentifiers:(id)arg1 byCanPerformAction:(unsigned long long)arg2 targetBundleIdentifier:(id)arg3 targetBundleIsManaged:(_Bool)arg4;
 

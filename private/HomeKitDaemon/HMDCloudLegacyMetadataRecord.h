@@ -10,11 +10,14 @@
 {
 }
 
++ (id)legacyModelWithMetadata:(id)arg1;
 - (unsigned long long)objectEncoding;
 - (void)clearData;
 - (void)setData:(id)arg1;
 - (id)data;
 - (id)recordType;
+- (_Bool)encodeObjectChange:(id)arg1;
+- (id)extractObjectChange;
 
 @end
 

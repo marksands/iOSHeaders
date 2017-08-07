@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <WatchListKit/WLKInstallable-Protocol.h>
+
 @class NSArray, NSDictionary, NSString, NSURL, WLKArtworkVariantListing;
 
-@interface WLKChannelDetails : NSObject
+@interface WLKChannelDetails : NSObject <WLKInstallable>
 {
     _Bool _subscribed;
     _Bool _itunes;
@@ -17,6 +19,7 @@
     _Bool _requiresSubscriptionForConsent;
     _Bool _requiresAccountLevelConsent;
     _Bool _shouldPromptForConsentOnSubscriptionChange;
+    _Bool _shouldIncludeInConsent;
     _Bool _appInstalled;
     NSString *_channelID;
     NSString *_name;
@@ -29,6 +32,7 @@
 }
 
 @property(readonly, nonatomic, getter=isAppInstalled) _Bool appInstalled; // @synthesize appInstalled=_appInstalled;
+@property(readonly, nonatomic) _Bool shouldIncludeInConsent; // @synthesize shouldIncludeInConsent=_shouldIncludeInConsent;
 @property(readonly, nonatomic) NSDictionary *rateLimit; // @synthesize rateLimit=_rateLimit;
 @property(readonly, nonatomic) _Bool shouldPromptForConsentOnSubscriptionChange; // @synthesize shouldPromptForConsentOnSubscriptionChange=_shouldPromptForConsentOnSubscriptionChange;
 @property(readonly, nonatomic) _Bool requiresAccountLevelConsent; // @synthesize requiresAccountLevelConsent=_requiresAccountLevelConsent;
@@ -45,9 +49,15 @@
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, copy, nonatomic) NSString *channelID; // @synthesize channelID=_channelID;
 - (void).cxx_destruct;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)init;
 - (id)initWithDictionary:(id)arg1;
+- (id)appIconURLForSize:(struct CGSize)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

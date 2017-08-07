@@ -8,7 +8,7 @@
 
 #import <CoreSuggestionsInternals/CSSearchableIndexDelegate-Protocol.h>
 
-@class NSCache, NSDictionary, NSMutableArray, NSMutableOrderedSet, NSMutableSet, NSSet, NSString, SGBloomFilter, SGDatabaseJournal, SGJournal, SGSpotlightContactsAdapter, SGSqliteDatabase, SGSuggestHistory;
+@class NSCache, NSDictionary, NSMutableArray, NSMutableOrderedSet, NSMutableSet, NSSet, NSString, SGBloomFilter, SGDatabaseJournal, SGJournal, SGKeyValueCacheManager, SGSpotlightContactsAdapter, SGSqliteDatabase, SGSuggestHistory;
 @protocol OS_dispatch_queue;
 
 @interface SGSqlEntityStore : NSObject <CSSearchableIndexDelegate>
@@ -45,6 +45,7 @@
     NSMutableOrderedSet *_otherDetailsWithNoContact;
     _Bool _isEphemeral;
     _Bool _waitForMigrations;
+    SGKeyValueCacheManager *_kvCacheManager;
 }
 
 + (id)_fieldValuesClassWhitelist;
@@ -69,6 +70,7 @@
 + (id)defaultPathCreatingSuggestionsDirectoryIfNeeded:(_Bool)arg1;
 + (void)clearMigrationCompletedForPaths;
 + (id)journalNameForDbPath:(id)arg1;
+@property(readonly) SGKeyValueCacheManager *kvCacheManager; // @synthesize kvCacheManager=_kvCacheManager;
 @property(readonly) SGSpotlightContactsAdapter *spotlightContactsAdapter; // @synthesize spotlightContactsAdapter=_spotlightContactsAdapter;
 @property(readonly, nonatomic) _Bool waitForMigrations; // @synthesize waitForMigrations=_waitForMigrations;
 @property(readonly, nonatomic) _Bool isEphemeral; // @synthesize isEphemeral=_isEphemeral;

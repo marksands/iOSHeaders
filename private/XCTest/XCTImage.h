@@ -18,7 +18,7 @@
 + (id)_dataForImage:(id)arg1 quality:(long long)arg2;
 + (double)_scaleForImage:(id)arg1;
 + (id)UTIForQuality:(long long)arg1;
-+ (double)_compressionQualityForQuality:(long long)arg1;
++ (double)compressionQualityForQuality:(long long)arg1;
 @property(retain) _XCTImageImplementation *internalImplementation; // @synthesize internalImplementation=_internalImplementation;
 - (id)debugQuickLookObject;
 - (void)_ensureImage;

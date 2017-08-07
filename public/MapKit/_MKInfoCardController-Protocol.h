@@ -11,7 +11,7 @@
 
 @protocol _MKInfoCardController <NSObject>
 + (double)headerHeightInMinimalMode;
-@property(nonatomic) double currentHeaderMinimalModeInterpolationFactor;
+@property(nonatomic) double contentAlpha;
 @property(nonatomic) __weak id <UIScrollViewDelegate> scrollViewDelegate;
 @property(retain, nonatomic) GEOTransitOptions *transitOptions;
 @property(retain, nonatomic) GEOAutomobileOptions *automobileOptions;

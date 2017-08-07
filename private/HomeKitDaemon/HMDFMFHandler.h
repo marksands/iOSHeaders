@@ -7,23 +7,26 @@
 #import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
+#import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class FMFSession, HMDFMF, NSObject, NSString;
+@class HMDFMFRequest, NSMutableArray, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HMDFMFHandler : HMFObject <HMFLogging>
+@interface HMDFMFHandler : HMFObject <HMFLogging, HMFTimerDelegate>
 {
-    FMFSession *_fmfSession;
     NSObject<OS_dispatch_queue> *_workQueue;
-    HMDFMF *_fmfStatus;
+    HMDFMFRequest *_currentFMFRequest;
+    NSMutableArray *_queries;
 }
 
 + (id)logCategory;
 + (id)sharedHandler;
-@property(retain, nonatomic) HMDFMF *fmfStatus; // @synthesize fmfStatus=_fmfStatus;
+@property(retain, nonatomic) NSMutableArray *queries; // @synthesize queries=_queries;
+@property(retain, nonatomic) HMDFMFRequest *currentFMFRequest; // @synthesize currentFMFRequest=_currentFMFRequest;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
-@property(retain, nonatomic) FMFSession *fmfSession; // @synthesize fmfSession=_fmfSession;
 - (void).cxx_destruct;
+- (void)timerDidFire:(id)arg1;
+- (void)queryFMFStatusWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

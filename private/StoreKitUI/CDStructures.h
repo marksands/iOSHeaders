@@ -145,6 +145,14 @@ typedef struct {
 } CDStruct_00a825b0;
 
 typedef struct {
+    unsigned int dataSourceRespondsToCombinedEntry:1;
+    unsigned int dataSourceRespondsToNumberOfSections:1;
+    unsigned int delegateRespondsToDidSelectEntryAtIndexPath:1;
+    unsigned int delegateRespondsToDidSelectBeyondBottom:1;
+    unsigned int delegateRespondsToDidSelectBeyondTop:1;
+} CDStruct_2ba00048;
+
+typedef struct {
     double progress;
     _Bool isBouncingOffTheEdge;
 } CDStruct_19149c72;
@@ -190,13 +198,4 @@ typedef struct {
     struct UIEdgeInsets contentInset;
     double bottomInsetValueAddedForScrollingTabBar;
 } CDStruct_17994511;
-
-// Ambiguous groups
-typedef struct {
-    unsigned int dataSourceRespondsToCombinedEntry:1;
-    unsigned int dataSourceRespondsToNumberOfSections:1;
-    unsigned int delegateRespondsToDidSelectEntryAtIndexPath:1;
-    unsigned int delegateRespondsToDidSelectBeyondBottom:1;
-    unsigned int delegateRespondsToDidSelectBeyondTop:1;
-} CDStruct_2ba00048;
 

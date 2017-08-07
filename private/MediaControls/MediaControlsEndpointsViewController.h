@@ -17,11 +17,13 @@
     _Bool _dismissing;
     MPMediaControlsConfiguration *_configuration;
     CDUnknownBlockType _launchNowPlayingAppBlock;
+    CDUnknownBlockType _routingCornerViewTappedBlock;
     _MediaControlsEndpointsDataSource *_pickerDataSource;
 }
 
 @property(nonatomic, getter=isDismissing) _Bool dismissing; // @synthesize dismissing=_dismissing;
 @property(retain, nonatomic) _MediaControlsEndpointsDataSource *pickerDataSource; // @synthesize pickerDataSource=_pickerDataSource;
+@property(copy, nonatomic) CDUnknownBlockType routingCornerViewTappedBlock; // @synthesize routingCornerViewTappedBlock=_routingCornerViewTappedBlock;
 @property(copy, nonatomic) CDUnknownBlockType launchNowPlayingAppBlock; // @synthesize launchNowPlayingAppBlock=_launchNowPlayingAppBlock;
 @property(retain, nonatomic) MPMediaControlsConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;

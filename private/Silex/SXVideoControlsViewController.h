@@ -10,7 +10,7 @@
 #import <Silex/SXVideoControlManagerDelegate-Protocol.h>
 #import <Silex/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSString, SXAdPrivacyButton, SXLearnMoreButton, SXMediaSelectionButton, SXTopVideoControlsView, SXUpNextViewController, SXVideoCloseButton, SXVideoControlManager, SXVideoControlsLayout, SXVideoPlayButton, SXVideoProgressView, SXVolumeButton, UIButton;
+@class NSString, SXAdPrivacyButton, SXLearnMoreButton, SXMaterialVideoPlayButton, SXMediaSelectionButton, SXTopVideoControlsView, SXUpNextViewController, SXVideoCloseButton, SXVideoControlManager, SXVideoControlsLayout, SXVideoProgressView, SXVolumeButton, UIButton;
 @protocol SXVideoControlsViewControllerDelegate;
 
 @interface SXVideoControlsViewController : UIViewController <UIGestureRecognizerDelegate, SXUpNextViewControllerDelegate, SXVideoControlManagerDelegate>
@@ -26,7 +26,7 @@
     SXMediaSelectionButton *_captionsButton;
     SXLearnMoreButton *_adLearnMoreButton;
     SXAdPrivacyButton *_adMarker;
-    SXVideoPlayButton *_playButton;
+    SXMaterialVideoPlayButton *_playButton;
     UIButton *_skipToPreviousButton;
     UIButton *_skipToNextButton;
     SXUpNextViewController *_upNextViewController;
@@ -39,7 +39,7 @@
 @property(retain, nonatomic) SXUpNextViewController *upNextViewController; // @synthesize upNextViewController=_upNextViewController;
 @property(retain, nonatomic) UIButton *skipToNextButton; // @synthesize skipToNextButton=_skipToNextButton;
 @property(retain, nonatomic) UIButton *skipToPreviousButton; // @synthesize skipToPreviousButton=_skipToPreviousButton;
-@property(retain, nonatomic) SXVideoPlayButton *playButton; // @synthesize playButton=_playButton;
+@property(retain, nonatomic) SXMaterialVideoPlayButton *playButton; // @synthesize playButton=_playButton;
 @property(retain, nonatomic) SXAdPrivacyButton *adMarker; // @synthesize adMarker=_adMarker;
 @property(retain, nonatomic) SXLearnMoreButton *adLearnMoreButton; // @synthesize adLearnMoreButton=_adLearnMoreButton;
 @property(retain, nonatomic) SXMediaSelectionButton *captionsButton; // @synthesize captionsButton=_captionsButton;

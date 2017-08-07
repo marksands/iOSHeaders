@@ -60,7 +60,6 @@
 - (void)_prepareForEditing;
 - (void)_performWristRaiseAnimation;
 - (void)_prepareWristRaiseAnimation;
-- (id)_viewsToSuppressLayoutOnBoundsChange;
 - (struct CGPoint)_timeTravelStatusModuleCenter;
 - (struct CGRect)_keylineFrameForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (double)_keylineCornerRadiusForComplicationSlot:(id)arg1;

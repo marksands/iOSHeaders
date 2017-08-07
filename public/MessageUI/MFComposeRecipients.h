@@ -15,10 +15,10 @@
     NSArray *_recipients;
 }
 
++ (id)objectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 + (id)readableTypeIdentifiersForItemProvider;
 @property(readonly, copy, nonatomic) NSArray *recipients; // @synthesize recipients=_recipients;
 - (void).cxx_destruct;
-- (id)initWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 - (id)initWithRecipients:(id)arg1;
 
 // Remaining properties

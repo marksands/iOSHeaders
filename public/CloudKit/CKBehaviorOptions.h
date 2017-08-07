@@ -29,6 +29,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *cachedPrefsQueue; // @synthesize cachedPrefsQueue=_cachedPrefsQueue;
 @property(retain, nonatomic) NSMutableDictionary *cachedPrefs; // @synthesize cachedPrefs=_cachedPrefs;
 - (void).cxx_destruct;
+- (_Bool)sendKeyIDsOnAllRequests;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (double)shareAcceptorRetrievingDialogMinPeriod;
 - (double)shareAcceptorRetrievingDialogDelay;
@@ -61,8 +62,8 @@
 - (id)productName;
 - (_Bool)_buildIsOverridden;
 - (double)maxTimeIntervalSinceLastZoneishPCSKeyRoll;
-- (void)setContainerIDToForceManateeZoneDecryptionFailureOnFetch:(id)arg1;
-- (id)containerIDToForceManateeZoneDecryptionFailureOnFetch;
+- (void)setContainerIDToForceFatalManateeZoneDecryptionFailure:(id)arg1;
+- (id)containerIDToForceFatalManateeZoneDecryptionFailure;
 - (void)setUseEnhancedPCSEncryptionContext:(_Bool)arg1;
 - (_Bool)useEnhancedPCSEncryptionContext;
 - (void)setRollZonePCSIdentities:(_Bool)arg1;

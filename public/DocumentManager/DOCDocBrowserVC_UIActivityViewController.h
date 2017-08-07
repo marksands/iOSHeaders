@@ -6,13 +6,16 @@
 
 #import <UIKit/UIActivityViewController.h>
 
+@class UIBarButtonItem;
 @protocol DOCServicePopoverTrackerProtocol;
 
 @interface DOCDocBrowserVC_UIActivityViewController : UIActivityViewController
 {
     id <DOCServicePopoverTrackerProtocol> _popoverTracker;
+    UIBarButtonItem *_barButtonItem;
 }
 
+@property __weak UIBarButtonItem *barButtonItem; // @synthesize barButtonItem=_barButtonItem;
 @property(retain) id <DOCServicePopoverTrackerProtocol> popoverTracker; // @synthesize popoverTracker=_popoverTracker;
 - (void).cxx_destruct;
 

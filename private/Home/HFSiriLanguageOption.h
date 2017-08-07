@@ -24,6 +24,7 @@
 @property(readonly, copy, nonatomic) NSString *outputLanguage; // @synthesize outputLanguage=_outputLanguage;
 @property(readonly, copy, nonatomic) NSString *recognitionLanguage; // @synthesize recognitionLanguage=_recognitionLanguage;
 - (void).cxx_destruct;
+- (id)outputVoice;
 @property(readonly, copy, nonatomic) NSString *localizedOutputVoiceGender;
 @property(readonly, copy, nonatomic) NSString *localizedOutputVoiceAccent;
 @property(readonly, copy, nonatomic) NSString *localizedOutputVoice;

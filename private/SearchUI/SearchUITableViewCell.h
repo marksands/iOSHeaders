@@ -6,15 +6,17 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class NSArray, SearchUIDragSource, SearchUIDropTarget, UIView;
-@protocol SearchUIFeedbackDelegate, SearchUIRowModel;
+#import <SearchUI/SearchUIKeyboardableNavigationProtocol-Protocol.h>
 
-@interface SearchUITableViewCell : UITableViewCell
+@class NSArray, NSString, SearchUIDragSource, SearchUIDropTarget, UIView;
+@protocol SearchUIFeedbackDelegateInternal, SearchUIRowModel;
+
+@interface SearchUITableViewCell : UITableViewCell <SearchUIKeyboardableNavigationProtocol>
 {
     _Bool _isExpanded;
     id <SearchUIRowModel> _rowModel;
     unsigned long long _style;
-    id <SearchUIFeedbackDelegate> _delegate;
+    id <SearchUIFeedbackDelegateInternal> _delegate;
     UIView *_sizingContainer;
     SearchUIDragSource *_dragSource;
     SearchUIDropTarget *_dropTarget;
@@ -28,11 +30,17 @@
 @property(retain) SearchUIDropTarget *dropTarget; // @synthesize dropTarget=_dropTarget;
 @property(retain) SearchUIDragSource *dragSource; // @synthesize dragSource=_dragSource;
 @property(retain) UIView *sizingContainer; // @synthesize sizingContainer=_sizingContainer;
-@property __weak id <SearchUIFeedbackDelegate> delegate; // @synthesize delegate=_delegate;
+@property __weak id <SearchUIFeedbackDelegateInternal> delegate; // @synthesize delegate=_delegate;
 @property _Bool isExpanded; // @synthesize isExpanded=_isExpanded;
 @property unsigned long long style; // @synthesize style=_style;
 @property(retain) id <SearchUIRowModel> rowModel; // @synthesize rowModel=_rowModel;
 - (void).cxx_destruct;
+- (void)removeKeyboardHandler;
+- (_Bool)navigateKeyboardRight;
+- (void)returnKeyPressed;
+- (_Bool)navigateKeyboardLeft;
+- (void)setupKeyboardHandler;
+- (_Bool)canSetupKeyboardHandler;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1;
@@ -50,6 +58,12 @@
 - (void)updateWithRowModel:(id)arg1;
 - (id)initWithStyle:(unsigned long long)arg1;
 - (void)updateWithResult:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

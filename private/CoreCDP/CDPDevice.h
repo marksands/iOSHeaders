@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <CoreCDP/CDPDeviceProtocol-Protocol.h>
 #import <CoreCDP/NSCopying-Protocol.h>
 #import <CoreCDP/NSSecureCoding-Protocol.h>
 
 @class NSDate, NSNumber, NSString;
 
-@interface CDPDevice : NSObject <NSCopying, NSSecureCoding>
+@interface CDPDevice : NSObject <NSCopying, NSSecureCoding, CDPDeviceProtocol>
 {
     NSString *_localizedName;
     NSString *_model;
@@ -60,8 +61,13 @@
 @property(readonly, nonatomic) unsigned long long localSecretType;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import <WatchListKitUI/SBIconProgressViewDelegate-Protocol.h>
 
-@class NSString, SBIconProgressView, UIImage, UIImageView, UILabel;
+@class NSString, SBIconProgressView, UIImage, UIImageView;
 
 @interface _WLKUIAppInstallView : UIView <SBIconProgressViewDelegate>
 {
@@ -16,8 +16,6 @@
     UIView *_backgroundKnockoutView;
     CDUnknownBlockType _completion;
     SBIconProgressView *_progressView;
-    UILabel *_subtitleLabel;
-    UILabel *_titleLabel;
     UIImage *_appIcon;
     double _installProgress;
 }

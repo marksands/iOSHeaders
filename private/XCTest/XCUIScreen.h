@@ -20,13 +20,13 @@
 + (id)mainScreen;
 @property(readonly) _Bool isMainScreen; // @synthesize isMainScreen=_isMainScreen;
 @property(readonly) int displayID; // @synthesize displayID=_displayID;
-- (id)clippedScreenshotData:(id)arg1 rect:(struct CGRect)arg2 scale:(double)arg3;
-- (id)_screenshotDataForRect:(struct CGRect)arg1;
-- (id)screenshotDataForRect:(struct CGRect)arg1;
-- (id)modernScreenshotDataForRect:(struct CGRect)arg1;
+- (id)_clippedScreenshotData:(id)arg1 quality:(long long)arg2 rect:(struct CGRect)arg3 scale:(double)arg4;
+- (id)_screenshotDataForQuality:(long long)arg1 rect:(struct CGRect)arg2 error:(id *)arg3;
+- (id)screenshotDataForQuality:(long long)arg1 rect:(struct CGRect)arg2 error:(id *)arg3;
+- (id)screenshotDataForQuality:(long long)arg1 rect:(struct CGRect)arg2;
+- (id)_modernScreenshotDataForQuality:(long long)arg1 rect:(struct CGRect)arg2 error:(id *)arg3;
 - (id)screenshot;
 - (id)_imageFromData:(id)arg1;
-- (id)screenshotData;
 - (double)scale;
 @property(readonly, copy) NSString *description;
 - (id)initWithDisplayID:(int)arg1 isMainScreen:(_Bool)arg2;

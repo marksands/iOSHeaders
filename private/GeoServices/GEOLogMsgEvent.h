@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOLogMsgEventBatchTrafficProbe, GEOLogMsgEventCacheHit, GEOLogMsgEventClientACSuggestions, GEOLogMsgEventCommuteWindow, GEOLogMsgEventDirections, GEOLogMsgEventFullNavTrace, GEOLogMsgEventListInteractionSession, GEOLogMsgEventLogFramework, GEOLogMsgEventMapLaunch, GEOLogMsgEventMapsWidgetsInteractionSession, GEOLogMsgEventNetwork, GEOLogMsgEventPlaceDataCache, GEOLogMsgEventProactiveSuggestionInteractionSession, GEOLogMsgEventRealtimeTrafficProbe, GEOLogMsgEventRefineSearchSession, GEOLogMsgEventStaleResource, GEOLogMsgEventStateTiming, GEOLogMsgEventTelemetric, GEOLogMsgEventTileSetState, GEOLogMsgEventTimeToLeaveHypothesis, GEOLogMsgEventTimeToLeaveInitialTravelTime, GEOLogMsgEventTransitAppLaunch, GEOLogMsgEventUserAction, LOGMSGEVENTLogMsgEventRideBookedSession, LOGMSGEVENTLogMsgEventRideBookingSession, LOGMSGEVENTLogMsgEventTableBookedSession, LOGMSGEVENTLogMsgEventTableBookingSession, NSMutableArray;
+@class GEOLogMsgEventBatchTrafficProbe, GEOLogMsgEventCacheHit, GEOLogMsgEventClientACSuggestions, GEOLogMsgEventCommuteWindow, GEOLogMsgEventDirections, GEOLogMsgEventFullNavTrace, GEOLogMsgEventGenericAppError, GEOLogMsgEventListInteractionSession, GEOLogMsgEventLogFramework, GEOLogMsgEventMapLaunch, GEOLogMsgEventMapsWidgetsInteractionSession, GEOLogMsgEventNetwork, GEOLogMsgEventPlaceDataCache, GEOLogMsgEventProactiveSuggestionInteractionSession, GEOLogMsgEventRealtimeTrafficProbe, GEOLogMsgEventRefineSearchSession, GEOLogMsgEventStaleResource, GEOLogMsgEventStateTiming, GEOLogMsgEventTelemetric, GEOLogMsgEventTileSetState, GEOLogMsgEventTimeToLeaveHypothesis, GEOLogMsgEventTimeToLeaveInitialTravelTime, GEOLogMsgEventTransitAppLaunch, GEOLogMsgEventUserAction, LOGMSGEVENTLogMsgEventRideBookedSession, LOGMSGEVENTLogMsgEventRideBookingSession, LOGMSGEVENTLogMsgEventTableBookedSession, LOGMSGEVENTLogMsgEventTableBookingSession, NSMutableArray;
 
 @interface GEOLogMsgEvent : PBCodable <NSCopying>
 {
@@ -19,6 +19,7 @@
     GEOLogMsgEventDirections *_directionsEvent;
     int _eventType;
     GEOLogMsgEventFullNavTrace *_fullNavTrace;
+    GEOLogMsgEventGenericAppError *_genericAppErrorEvent;
     GEOLogMsgEventListInteractionSession *_listInteractionSession;
     GEOLogMsgEventLogFramework *_logFrameworkEvent;
     NSMutableArray *_logMsgStates;
@@ -51,6 +52,7 @@
 + (id)acceptedLogMsgStatesForLogMsgEventType:(int)arg1;
 + (id)acceptedLogMsgStates;
 + (void)_initializeAcceptedLogMsgStateTypes;
+@property(retain, nonatomic) GEOLogMsgEventGenericAppError *genericAppErrorEvent; // @synthesize genericAppErrorEvent=_genericAppErrorEvent;
 @property(retain, nonatomic) GEOLogMsgEventCommuteWindow *commuteWindow; // @synthesize commuteWindow=_commuteWindow;
 @property(retain, nonatomic) GEOLogMsgEventBatchTrafficProbe *batchTrafficProbeCollection; // @synthesize batchTrafficProbeCollection=_batchTrafficProbeCollection;
 @property(retain, nonatomic) GEOLogMsgEventRealtimeTrafficProbe *realtimeTrafficProbeCollection; // @synthesize realtimeTrafficProbeCollection=_realtimeTrafficProbeCollection;
@@ -89,6 +91,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasGenericAppErrorEvent;
 @property(readonly, nonatomic) _Bool hasCommuteWindow;
 @property(readonly, nonatomic) _Bool hasBatchTrafficProbeCollection;
 @property(readonly, nonatomic) _Bool hasRealtimeTrafficProbeCollection;
@@ -124,6 +127,8 @@
 - (unsigned long long)logMsgStatesCount;
 - (void)addLogMsgState:(id)arg1;
 - (void)clearLogMsgStates;
+- (void)unregisterLogMsgStateOfType:(int)arg1;
+- (void)unregisterLogMsgStatesOfTypes:(id)arg1;
 - (id)logMsgStateOfType:(int)arg1 stateOrigin:(id)arg2;
 - (id)logMsgStateOfType:(int)arg1;
 - (unsigned long long)numberOfLogMsgStatesOfType:(int)arg1 stateOrigin:(id)arg2;

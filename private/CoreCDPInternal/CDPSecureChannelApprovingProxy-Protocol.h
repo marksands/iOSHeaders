@@ -7,7 +7,7 @@
 #import <CoreCDPInternal/NSObject-Protocol.h>
 
 @protocol CDPSecureChannelApprovingProxy <NSObject>
-- (void)setApproveriCloudKeychainEnabled:(_Bool)arg1;
+- (void)setApproveriCloudKeychainState:(unsigned long long)arg1;
 - (void)setApproverBackupRecordsExist:(_Bool)arg1;
 - (void)listenForPayloadsWithHandler:(void (^)(NSData *, id *, id *))arg1;
 @end

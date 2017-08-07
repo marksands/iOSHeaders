@@ -15,10 +15,11 @@
     CDUnknownBlockType _completionHandler;
 }
 
++ (void)resolveBundleIDs:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (id)eligibleBundleIDs;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 - (void).cxx_destruct;
 - (id)initWithBundleIDs:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (id)initWithBundleIDs:(id)arg1 accountName:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

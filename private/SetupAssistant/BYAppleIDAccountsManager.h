@@ -22,7 +22,7 @@
 - (id)storedLoginContext;
 - (void)runPostRestoreRenewCredentialsIfNeeded;
 - (void)enableDataClassesForAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)loginDelegateAccountsWithUsername:(id)arg1 password:(id)arg2 rawPassword:(id)arg3 skipiTunes:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)loginDelegateAccountsWithUsername:(id)arg1 password:(id)arg2 rawPassword:(id)arg3 skipiTunes:(_Bool)arg4 onlyAppleIDPlugin:(_Bool)arg5 completion:(CDUnknownBlockType)arg6;
 - (id)init;
 - (id)initForDelegateBundleIDs:(id)arg1;
 

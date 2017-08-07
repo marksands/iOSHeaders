@@ -14,8 +14,10 @@
 
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (_Bool)cumulative;
 - (_Bool)isCumulative;
 - (void)setCumulative:(_Bool)arg1;
+- (_Bool)additive;
 - (_Bool)isAdditive;
 - (void)setAdditive:(_Bool)arg1;
 - (id)timingFunction;

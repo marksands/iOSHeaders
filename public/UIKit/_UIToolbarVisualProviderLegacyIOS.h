@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (void)_createBarBackground;
 - (void)updateBarForStyle:(long long)arg1;
 - (void)updateBarBackgroundSize;
+- (struct CGRect)backgroundFrame;
 - (id)currentBackgroundView;
 - (void)setCustomBackgroundView:(id)arg1;
 @property(retain, nonatomic) _UIBarBackground *_barBackground;

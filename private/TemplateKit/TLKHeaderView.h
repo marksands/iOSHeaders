@@ -52,6 +52,7 @@
 - (id)subtitleLabelText;
 - (id)titleLabelText;
 - (id)titleLabelFont;
+- (struct CGSize)containerView:(id)arg1 systemLayoutSizeFittingSize:(struct CGSize)arg2 forArrangedSubview:(id)arg3;
 - (struct CGRect)containerView:(id)arg1 layoutFrameForArrangedSubview:(id)arg2 withProposedFrame:(struct CGRect)arg3;
 - (void)observedPropertiesChanged;
 - (void)styleDidChange:(unsigned long long)arg1;

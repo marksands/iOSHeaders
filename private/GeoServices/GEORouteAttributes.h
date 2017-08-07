@@ -25,6 +25,7 @@
     GEOTransitOptions *_transitOptions;
     unsigned int _walkingLimitMeters;
     GEOWalkingOptions *_walkingOptions;
+    _Bool _enableExperimentalMode;
     _Bool _includeContingencyRoutes;
     _Bool _includeCrossLanguagePhonetics;
     _Bool _includeHistoricTravelTime;
@@ -42,6 +43,7 @@
         unsigned int mainTransportType:1;
         unsigned int trafficType:1;
         unsigned int walkingLimitMeters:1;
+        unsigned int enableExperimentalMode:1;
         unsigned int includeContingencyRoutes:1;
         unsigned int includeCrossLanguagePhonetics:1;
         unsigned int includeHistoricTravelTime:1;
@@ -80,6 +82,8 @@
 @property(nonatomic) _Bool hasDestinationType;
 @property(nonatomic) int destinationType; // @synthesize destinationType=_destinationType;
 @property(readonly, nonatomic) _Bool hasDestinationInfo;
+@property(nonatomic) _Bool hasEnableExperimentalMode;
+@property(nonatomic) _Bool enableExperimentalMode; // @synthesize enableExperimentalMode=_enableExperimentalMode;
 @property(nonatomic) _Bool hasUseMetricThreshold;
 - (int)StringAsUiContexts:(id)arg1;
 - (id)uiContextsAsString:(int)arg1;

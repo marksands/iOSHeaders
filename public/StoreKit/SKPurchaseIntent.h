@@ -6,23 +6,20 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSString, SKProduct, SKXPCConnection;
+@class NSString, SKXPCConnection;
 
 @interface SKPurchaseIntent : NSObject
 {
     NSString *_bundleId;
     NSString *_productIdentifer;
-    SKProduct *_product;
     SKXPCConnection *_connection;
     CDUnknownBlockType __completion;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType _completion; // @synthesize _completion=__completion;
 - (void).cxx_destruct;
-- (void)_sendLight;
 - (void)_send;
 - (void)send:(CDUnknownBlockType)arg1;
-- (id)initWithBundleId:(id)arg1 product:(id)arg2;
 - (id)initWithBundleId:(id)arg1 productIdentifier:(id)arg2;
 
 @end

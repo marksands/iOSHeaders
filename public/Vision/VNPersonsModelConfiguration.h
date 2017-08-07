@@ -11,19 +11,22 @@
 
 @interface VNPersonsModelConfiguration : NSObject <NSCopying, NSSecureCoding>
 {
-    unsigned long long _maximumFaceprintsPerPerson;
+    unsigned long long _maximumIdentities;
+    unsigned long long _maximumFaceprintsPerIdentity;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) unsigned long long maximumFaceprintsPerPerson; // @synthesize maximumFaceprintsPerPerson=_maximumFaceprintsPerPerson;
-- (int)faceIDModelMaximumElementsPerID;
++ (unsigned long long)maximumAllowableFaceprintsPerIdentity;
++ (unsigned long long)maximumAllowableIdentities;
+@property(nonatomic) unsigned long long maximumIdentities; // @synthesize maximumIdentities=_maximumIdentities;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(nonatomic) unsigned long long maximumFaceprintsPerIdentity; // @synthesize maximumFaceprintsPerIdentity=_maximumFaceprintsPerIdentity;
 - (id)init;
+- (int)faceIDModelMaximumElementsPerID;
 
 @end
 

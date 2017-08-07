@@ -47,6 +47,7 @@
 - (void)interactiveDismissControllerDidCancel:(id)arg1;
 - (void)interactiveDismissControllerDidEnd:(id)arg1;
 - (void)interactiveDismissControllerDidBegin:(id)arg1;
+- (void)remoteViewController:(id)arg1 initialLoadDidRedirectToURL:(id)arg2;
 - (void)remoteViewController:(id)arg1 hostApplicationOpenURL:(id)arg2;
 - (void)remoteViewController:(id)arg1 setSwipeGestureEnabled:(_Bool)arg2;
 - (void)remoteViewController:(id)arg1 executeCustomActivityProxyID:(id)arg2;

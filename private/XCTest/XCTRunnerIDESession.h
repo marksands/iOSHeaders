@@ -58,6 +58,7 @@
 - (void)testRunSessionDidBeginExecutingTestPlan:(id)arg1;
 - (id)_IDE_startExecutingTestPlanWithProtocolVersion:(id)arg1;
 - (void)requestReadinessForTesting:(CDUnknownBlockType)arg1;
+@property(readonly) _Bool supportsVariableScreenshotFormats;
 @property(readonly) _Bool reportsCrashes;
 @property long long IDEProtocolVersion; // @synthesize IDEProtocolVersion=_IDEProtocolVersion;
 - (id)initWithTransport:(id)arg1;

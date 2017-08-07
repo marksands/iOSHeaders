@@ -7,6 +7,7 @@
 #import <UIKit/UIScreen.h>
 
 @interface UIScreen (TelephonyUI)
+@property(readonly, nonatomic, getter=isUserInterfaceIdiomPad) _Bool userInterfaceIdiomPad;
 @property(readonly) unsigned long long screenSizeCategory;
 @end
 

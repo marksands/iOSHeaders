@@ -14,16 +14,16 @@
 
 @interface INParameter : NSObject <INParameter, NSObject, NSSecureCoding>
 {
+    NSMutableDictionary *_indexesForSubKeyPaths;
     Class _parameterClass;
     NSString *_parameterKeyPath;
-    NSMutableDictionary *_indexesForSubKeyPaths;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)parameterForClass:(Class)arg1 keyPath:(id)arg2;
-@property(retain, nonatomic) NSMutableDictionary *indexesForSubKeyPaths; // @synthesize indexesForSubKeyPaths=_indexesForSubKeyPaths;
 @property(copy, nonatomic) NSString *parameterKeyPath; // @synthesize parameterKeyPath=_parameterKeyPath;
 @property(retain, nonatomic) Class parameterClass; // @synthesize parameterClass=_parameterClass;
+@property(retain, nonatomic) NSMutableDictionary *_indexesForSubKeyPaths; // @synthesize _indexesForSubKeyPaths;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -37,6 +37,7 @@
 @property(readonly, nonatomic) id parameterValue;
 - (id)_parameterValueForParameterizedObject:(id)arg1;
 - (void)_setIndexesForKeyPathWithSubscripts:(id)arg1;
+@property(readonly, copy, nonatomic) NSString *_subscriptedKeyPath;
 - (id)_sanitizedKeyPathForKeyPath:(id)arg1 removingSubscripts:(_Bool)arg2;
 - (id)_valueOfObject:(id)arg1 forRemainingKeyPath:(id)arg2 inFullyQualifiedKeyPath:(id)arg3;
 - (unsigned long long)indexForSubKeyPath:(id)arg1;

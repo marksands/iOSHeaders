@@ -66,6 +66,8 @@
 - (void)_enableConstraints;
 - (void)_disableConstraints;
 - (void)_configurePaletteConstraintsForBoundary;
+- (void)_updateBackgroundConstraintsIfNecessary;
+- (void)_updateLayoutForCurrentConfiguration;
 - (void)_configureConstraintsForBackground:(id)arg1;
 - (_Bool)paletteIsHidden;
 - (_Bool)isAttached;
@@ -73,6 +75,7 @@
 - (void)_setAttached:(_Bool)arg1 didComplete:(_Bool)arg2;
 @property(nonatomic) _Bool paletteShadowIsHidden;
 - (void)_updateBackgroundView;
+- (id)_attachedPinningTopBar;
 @property(nonatomic) _Bool pinningBarShadowWasHidden;
 @property(nonatomic) _Bool pinningBarShadowIsHidden;
 @property(nonatomic, setter=_setRestartPaletteTransitionIfNecessary:) _Bool _restartPaletteTransitionIfNecessary;

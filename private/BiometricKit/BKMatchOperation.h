@@ -28,6 +28,8 @@
 @property(retain, nonatomic) NSNumber *userID; // @synthesize userID=_userID;
 @property(nonatomic) long long purpose; // @synthesize purpose=_purpose;
 - (void).cxx_destruct;
+- (void)simulateMatching:(_Bool)arg1;
+- (id)init;
 
 // Remaining properties
 @property(nonatomic) __weak id <BKMatchOperationDelegate> delegate; // @dynamic delegate;

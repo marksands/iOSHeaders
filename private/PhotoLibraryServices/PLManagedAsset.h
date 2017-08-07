@@ -501,6 +501,9 @@
 - (unsigned int)updateAdjustmentRenderTypes:(unsigned int)arg1 withDepthStates:(unsigned short)arg2;
 - (void)setDepthStatesFromAdjustmentRenderTypes:(unsigned int)arg1;
 - (void)setPlaybackVariationAndLoopingStyleFromAdjustmentRenderTypes:(unsigned int)arg1;
+- (_Bool)addSidecarFileAtIndex:(unsigned long long)arg1 sidecarURL:(id)arg2 withFilename:(id)arg3 originalFilename:(id)arg4 compressedSize:(id)arg5 captureDate:(id)arg6 modificationDate:(id)arg7 uniformTypeIdentifier:(id)arg8;
+- (_Bool)addSidecarFileInfo:(id)arg1 atIndex:(unsigned long long)arg2;
+- (_Bool)addSideCarForVideoComplementFileIfNecessary:(id)arg1;
 - (_Bool)becomePhotoIrisWithMediaGroupUUID:(id)arg1 videoURL:(id)arg2 videoDuration:(CDStruct_1b6d18a9)arg3 stillDisplayTime:(CDStruct_1b6d18a9)arg4 createSidecar:(_Bool)arg5;
 - (void)updatePhotoIrisMetadataWithMediaGroupUUID:(id)arg1 videoDuration:(CDStruct_1b6d18a9)arg2 stillDisplayTime:(CDStruct_1b6d18a9)arg3;
 - (void)_updatePhotoIrisTemporalMetadataFromVideoComplementAVAsset:(id)arg1;

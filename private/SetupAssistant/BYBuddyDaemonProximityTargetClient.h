@@ -24,6 +24,7 @@
 - (void).cxx_destruct;
 - (void)receivedLanguage:(id)arg1 locale:(id)arg2 model:(id)arg3 deviceClass:(id)arg4;
 - (void)proximityConnectionTerminated;
+- (void)proximityConnectionInitiated;
 - (void)proximityConnectionPreparing:(id)arg1;
 - (void)dismissProximityPinCode;
 - (void)displayProximityPinCode:(id)arg1 visual:(_Bool)arg2;

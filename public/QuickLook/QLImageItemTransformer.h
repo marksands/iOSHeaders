@@ -16,11 +16,11 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)animatableContentTypes;
-+ (id)scaledImageFromImageSource:(struct CGImageSource *)arg1 toFitInSize:(double)arg2;
-+ (id)scaledImageFromImageURL:(id)arg1 toFitInSize:(struct CGSize)arg2;
++ (id)scaledImageFromImageSource:(struct CGImageSource *)arg1 toFitInSize:(double)arg2 scale:(double)arg3;
++ (id)scaledImageFromImageURL:(id)arg1 toFitInSize:(struct CGSize)arg2 scale:(double)arg3;
 + (id)allowedOutputClasses;
 - (double)_maximumDimension;
-- (id)_contentsFromCGImageSource:(struct CGImageSource *)arg1 context:(id)arg2;
+- (id)_contentsFromCGImageSource:(struct CGImageSource *)arg1 context:(id)arg2 scale:(double)arg3;
 - (id)transformedContentsFromData:(id)arg1 context:(id)arg2 error:(id *)arg3;
 - (id)transformedContentsFromURL:(id)arg1 context:(id)arg2 error:(id *)arg3;
 

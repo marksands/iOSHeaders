@@ -18,6 +18,7 @@
 @interface MLNeuralNetworkEngine : MLModel <MLNeuralNetwork, MLModelSpecificationLoader, MLCompiledModelLoader, MLSpecificationCompiler, MLClassifier, MLRegressor>
 {
     _Bool _usingCPU;
+    _Bool _isEspresoBiasPreprocessingShared;
     int _precision;
     int _engine;
     int _qos;
@@ -34,9 +35,9 @@
     NSMutableDictionary *_probDict;
     NSString *_modelFilePath;
     CDStruct_2bc666a5 _network;
-    CDStruct_b527887c _params;
     map_bb82c936 _inputBuffers;
     map_bb82c936 _outputBuffers;
+    map_6a415e36 _params;
     vector_1a1a2930 _names;
     vector_e0f2bd7e _widths;
     vector_e0f2bd7e _heights;
@@ -61,10 +62,11 @@
 @property(nonatomic) vector_1a1a2930 names; // @synthesize names=_names;
 @property(nonatomic) unsigned int seqSize; // @synthesize seqSize=_seqSize;
 @property(nonatomic) unsigned int batchSize; // @synthesize batchSize=_batchSize;
+@property(nonatomic) _Bool isEspresoBiasPreprocessingShared; // @synthesize isEspresoBiasPreprocessingShared=_isEspresoBiasPreprocessingShared;
 @property(nonatomic) int qos; // @synthesize qos=_qos;
 @property(nonatomic) int engine; // @synthesize engine=_engine;
 @property(nonatomic) int precision; // @synthesize precision=_precision;
-@property(nonatomic) CDStruct_b527887c params; // @synthesize params=_params;
+@property(nonatomic) map_6a415e36 params; // @synthesize params=_params;
 @property(nonatomic) CDStruct_2bc666a5 network; // @synthesize network=_network;
 @property(nonatomic) void *plan; // @synthesize plan=_plan;
 @property(nonatomic) void *context; // @synthesize context=_context;

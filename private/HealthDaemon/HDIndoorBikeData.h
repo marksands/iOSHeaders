@@ -8,7 +8,7 @@
 
 #import <HealthDaemon/HDDatumRendering-Protocol.h>
 
-@class HDFitnessMachineCharacteristicDoubleField, HDFitnessMachineCharacteristicInt16Field, HDFitnessMachineCharacteristicUInt16Field, HDFitnessMachineCharacteristicUInt24Field, HDFitnessMachineCharacteristicUInt8Field;
+@class HDFitnessMachineCharacteristicDoubleField, HDFitnessMachineCharacteristicInt16Field, HDFitnessMachineCharacteristicUInt16Field, HDFitnessMachineCharacteristicUInt24Field, HDFitnessMachineCharacteristicUInt8Field, NSDate;
 
 @interface HDIndoorBikeData : HDFitnessMachineDataCharacteristicBase <HDDatumRendering>
 {
@@ -66,6 +66,9 @@
 - (id)init;
 - (id)allFields;
 - (id)generateDatums:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) NSDate *updateTime;
 
 @end
 

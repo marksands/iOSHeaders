@@ -40,6 +40,7 @@ __attribute__((visibility("hidden")))
     UIDragInteraction *_currentDragInteraction;
     NSArray *_draggedTextRanges;
     UITextRange *_initialDragSelectedRange;
+    struct CGPoint _initialDragLocation;
     NSArray *_movedItemsInView;
     NSMapTable *_targetedPreviewProviders;
     NSMapTable *_previewProviders;
@@ -78,7 +79,7 @@ __attribute__((visibility("hidden")))
 - (double)_textPasteBlockingTimeout;
 - (void)_performDropToPosition:(id)arg1 inSession:(id)arg2;
 - (void)_performSameViewOperation:(id)arg1;
-- (void)_prepareSameViewOperation:(unsigned long long)arg1 forItems:(id)arg2 toRange:(id)arg3;
+- (void)_prepareSameViewOperation:(unsigned long long)arg1 forItems:(id)arg2 fromRanges:(id)arg3 toRange:(id)arg4;
 - (id)_dropRangeForPosition:(id)arg1;
 - (void)_cleanupDrop;
 - (id)_suggestedProposalForPosition:(id)arg1 inSession:(id)arg2 allowCancel:(_Bool)arg3;
@@ -112,10 +113,12 @@ __attribute__((visibility("hidden")))
 - (id)_accessibilityDraggableRanges;
 - (void)notifyTextInteraction;
 - (_Bool)accessibilityCanDrag;
+- (long long)_dataOwnerForSession:(id)arg1 atPoint:(struct CGPoint)arg2;
+- (long long)_dragInteraction:(id)arg1 dataOwnerForAddingToSession:(id)arg2 withTouchAtPoint:(struct CGPoint)arg3;
 - (long long)_dragInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (_Bool)_dragInteraction:(id)arg1 competingGestureRecognizerShouldDelayLift:(id)arg2;
 - (_Bool)dragInteraction:(id)arg1 prefersFullSizePreviewsForSession:(id)arg2;
-- (void)_liftOrDragDidEndWithOperation:(unsigned long long)arg1;
+- (void)_liftOrDrag:(long long)arg1 didEndWithOperation:(unsigned long long)arg2;
 - (void)dragInteraction:(id)arg1 session:(id)arg2 didEndWithOperation:(unsigned long long)arg3;
 - (void)dragInteraction:(id)arg1 session:(id)arg2 willEndWithOperation:(unsigned long long)arg3;
 - (void)dragInteraction:(id)arg1 sessionDidMove:(id)arg2;

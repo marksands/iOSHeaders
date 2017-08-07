@@ -25,6 +25,12 @@
 - (void).cxx_destruct;
 - (void)_handleMemoryWarning:(id)arg1;
 - (id)pendingConversationCreatingIfNecessary;
+- (void)_chatPropertiesChanged:(id)arg1;
+- (void)_handleEngroupFinishedUpdating:(id)arg1;
+- (void)_chatItemsDidChange:(id)arg1;
+- (void)_handlePreferredServiceChangedNotification:(id)arg1;
+- (void)_handleChatJoinStateDidChange:(id)arg1;
+- (void)_handleChatParticipantsDidChange:(id)arg1;
 - (void)_abChanged:(id)arg1;
 - (void)deleteConversations:(id)arg1;
 - (void)deleteConversation:(id)arg1;

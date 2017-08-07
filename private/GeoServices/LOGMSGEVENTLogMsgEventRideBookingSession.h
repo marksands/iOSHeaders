@@ -10,7 +10,6 @@
 
 @class GEOLatLng, NSMutableArray, NSString;
 
-__attribute__((visibility("hidden")))
 @interface LOGMSGEVENTLogMsgEventRideBookingSession : PBCodable <NSCopying>
 {
     double _distanceToPickupInMeters;

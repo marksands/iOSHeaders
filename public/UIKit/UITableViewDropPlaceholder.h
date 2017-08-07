@@ -6,7 +6,6 @@
 
 #import <UIKit/UITableViewPlaceholder.h>
 
-__attribute__((visibility("hidden")))
 @interface UITableViewDropPlaceholder : UITableViewPlaceholder
 {
     CDUnknownBlockType _previewParametersProvider;

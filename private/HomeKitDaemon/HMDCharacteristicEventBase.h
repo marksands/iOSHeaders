@@ -27,7 +27,7 @@
 @property(readonly, nonatomic) NSUUID *accessoryUUID; // @synthesize accessoryUUID=_accessoryUUID;
 @property(retain, nonatomic) HMDCharacteristic *characteristic; // @synthesize characteristic=_characteristic;
 - (void).cxx_destruct;
-- (void)_activate:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)_activate:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)fixCharacteristicInHome:(id)arg1;

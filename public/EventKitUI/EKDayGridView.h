@@ -33,6 +33,7 @@ __attribute__((visibility("hidden")))
     UIImageView *_timeDot;
     UIView *_highlightedDayBackground;
     UIView *_fadingHighlightedDayBackground;
+    UIView *_gridContainerView;
     NSMutableDictionary *_gridParentViews;
     _Bool _rightBorderInsetsOccurrences;
     _Bool _showsTimeLine;
@@ -46,12 +47,14 @@ __attribute__((visibility("hidden")))
     double _hoursToPadBottom;
     long long _highlightedDayIndex;
     UIVisualEffect *_gridVisualEffect;
+    UIView *_occurrenceContainerView;
     double _gridHeightScale;
 }
 
 + (void)cacheBackgroundImage:(id)arg1 forKey:(id)arg2;
 + (id)cachedBackgroundImageForKey:(id)arg1;
 @property(nonatomic) double gridHeightScale; // @synthesize gridHeightScale=_gridHeightScale;
+@property(retain, nonatomic) UIView *occurrenceContainerView; // @synthesize occurrenceContainerView=_occurrenceContainerView;
 @property(retain, nonatomic) UIVisualEffect *gridVisualEffect; // @synthesize gridVisualEffect=_gridVisualEffect;
 @property(readonly, nonatomic) EKCurrentTimeMarkerView *timeMarker; // @synthesize timeMarker=_timeMarker;
 @property(nonatomic) long long highlightedDayIndex; // @synthesize highlightedDayIndex=_highlightedDayIndex;
@@ -91,7 +94,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double topPadding;
 - (void)setOrientation:(long long)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)addSubview:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 backgroundColor:(id)arg2 opaque:(_Bool)arg3 numberOfDaysToDisplay:(unsigned long long)arg4;
 
 // Remaining properties

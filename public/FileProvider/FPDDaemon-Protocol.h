@@ -5,7 +5,6 @@
 //
 
 @class FPItemID, FPSandboxingURLWrapper, NSArray, NSFileHandle, NSFileProviderDomain, NSString, NSURL;
-@protocol FPProviderChangesReceiver;
 
 @protocol FPDDaemon
 - (void)didUpdateAlternateContentsDocumentForDocumentAtURL:(NSURL *)arg1 completionHandler:(void (^)(NSError *))arg2;
@@ -31,10 +30,8 @@
 - (void)documentURLFromBookmarkableString:(NSString *)arg1 creatingPlaceholderIfMissing:(_Bool)arg2 ignoreAlternateContentsURL:(_Bool)arg3 completionHandler:(void (^)(FPSandboxingURLWrapper *, FPSandboxingURLWrapper *, NSError *))arg4;
 - (void)bookmarkableStringFromDocumentURL:(NSURL *)arg1 completionHandler:(void (^)(NSString *, NSError *))arg2;
 - (void)extendBookmarkForFileURL:(NSURL *)arg1 toConsumerID:(NSString *)arg2 completionHandler:(void (^)(NSString *, NSError *))arg3;
-- (oneway void)endMonitoringProviderChangesWithIdentifier:(NSString *)arg1;
-- (void)beginMonitoringProviderChangesWithReceiver:(id <FPProviderChangesReceiver>)arg1 receiverIdentifier:(NSString *)arg2 completionHandler:(void (^)(NSError *))arg3;
 - (void)providersCompletionHandler:(void (^)(NSError *, NSDictionary *))arg1;
-- (void)evictItemAtURL:(NSURL *)arg1 andClearACLForConsumer:(NSString *)arg2 completionHandler:(void (^)(NSError *))arg3;
+- (void)evictItemAtURL:(NSURL *)arg1 evenIfEnumeratingFP:(_Bool)arg2 andClearACLForConsumer:(NSString *)arg3 completionHandler:(void (^)(NSError *))arg4;
 - (void)startProvidingItemAtURL:(NSURL *)arg1 fromProviderID:(NSString *)arg2 forConsumerID:(NSString *)arg3 completionHandler:(void (^)(NSError *))arg4;
 - (void)extendSandboxForFileURL:(NSURL *)arg1 fromProviderID:(NSString *)arg2 toConsumerID:(NSString *)arg3 completionHandler:(void (^)(FPSandboxingURLWrapper *, NSError *))arg4;
 - (void)wakeUpCompletionHandler:(void (^)(NSError *))arg1;

@@ -18,6 +18,7 @@
 @interface _NUImage : NSObject <NUImage, NUMutableImage, NUImageCopying, NUPurgeableImage, NUMutablePurgeableImage>
 {
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_writeQueue;
     NUImageLayout *_layout;
     NUPixelFormat *_format;
     NUColorSpace *_colorSpace;

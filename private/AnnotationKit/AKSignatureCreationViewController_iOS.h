@@ -36,7 +36,7 @@
 - (void)_cancel:(id)arg1;
 - (void)_validateButtons;
 - (_Bool)prefersStatusBarHidden;
-- (unsigned long long)supportedInterfaceOrientations;
+- (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)didReceiveMemoryWarning;
 - (void)viewDidLoad;
 - (void)loadView;

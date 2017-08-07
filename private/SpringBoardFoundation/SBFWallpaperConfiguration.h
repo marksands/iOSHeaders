@@ -26,11 +26,13 @@
     NSURL *_videoURL;
     NSURL *_originalVideoURL;
     UIColor *_wallpaperColor;
+    NSString *_wallpaperColorName;
     long long _variant;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) long long variant; // @synthesize variant=_variant;
+@property(copy, nonatomic) NSString *wallpaperColorName; // @synthesize wallpaperColorName=_wallpaperColorName;
 @property(copy, nonatomic) UIColor *wallpaperColor; // @synthesize wallpaperColor=_wallpaperColor;
 @property(copy, nonatomic) NSURL *originalVideoURL; // @synthesize originalVideoURL=_originalVideoURL;
 @property(copy, nonatomic) NSURL *videoURL; // @synthesize videoURL=_videoURL;

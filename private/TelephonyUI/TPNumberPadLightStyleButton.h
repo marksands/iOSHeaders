@@ -13,8 +13,6 @@
 + (double)highlightedCircleViewAlpha;
 + (double)unhighlightedCircleViewAlpha;
 + (_Bool)usesTelephonyGlyphsWhereAvailable;
-+ (double)horizontalPadding;
-+ (double)verticalPadding;
 + (id)imageForCharacter:(unsigned int)arg1 highlighted:(_Bool)arg2;
 + (id)imageForCharacter:(unsigned int)arg1;
 - (id)buttonColor;

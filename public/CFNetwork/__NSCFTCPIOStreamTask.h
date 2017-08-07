@@ -80,9 +80,11 @@ __attribute__((visibility("hidden")))
 - (void)_onqueue_closeRead;
 - (void)_onqueue_startSecureConnection;
 - (void)_onqueue_stopSecureConnection;
+- (void)_reportTimingDataToAWD:(id)arg1;
 - (void)stopSecureConnection;
 - (void)startSecureConnection;
 - (void)copyStreamProperty:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (struct __PerformanceTiming *)_performanceTimingRef;
 - (void)closeRead;
 - (void)closeWrite;
 - (void)captureStreams;

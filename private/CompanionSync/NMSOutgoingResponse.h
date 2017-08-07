@@ -9,7 +9,7 @@
 #import <CompanionSync/NMSDeviceTargetable-Protocol.h>
 #import <CompanionSync/NMSObfuscatableDescriptionProviding-Protocol.h>
 
-@class NMSIncomingRequest, NSData, NSDictionary, NSSet, NSString;
+@class IDSMessageContext, NMSIncomingRequest, NSData, NSDictionary, NSSet, NSString;
 
 @interface NMSOutgoingResponse : NSObject <NMSDeviceTargetable, NMSObfuscatableDescriptionProviding>
 {
@@ -23,8 +23,10 @@
     NSDictionary *_extraIDSOptions;
     NSString *_idsIdentifier;
     id _pbResponse;
+    IDSMessageContext *_idsContext;
 }
 
+@property(retain, nonatomic) IDSMessageContext *idsContext; // @synthesize idsContext=_idsContext;
 @property(retain, nonatomic) id pbResponse; // @synthesize pbResponse=_pbResponse;
 @property(copy, nonatomic) NSString *idsIdentifier; // @synthesize idsIdentifier=_idsIdentifier;
 @property(getter=isSent) _Bool sent; // @synthesize sent=_sent;

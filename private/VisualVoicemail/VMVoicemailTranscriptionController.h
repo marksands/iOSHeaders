@@ -19,13 +19,13 @@
 @property(readonly, nonatomic) NSOperationQueue *transcriptionQueue; // @synthesize transcriptionQueue=_transcriptionQueue;
 @property(readonly, nonatomic) SFSpeechRecognizer *recognizer; // @synthesize recognizer=_recognizer;
 - (void).cxx_destruct;
-- (void)handleAFPreferencesDidChangeNotification:(id)arg1;
 - (void)_setupRecognizer;
 - (void)enqueueTranscriptionOperationWithURL:(id)arg1 andHandler:(CDUnknownBlockType)arg2 priority:(long long)arg3 timeout:(double)arg4;
 - (void)retrieveDictationResultForFileAtURL:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2 priority:(long long)arg3 timeout:(double)arg4;
 - (void)reportDictationProblemForFileAtURL:(id)arg1;
 - (void)cancelQueuedTranscriptions;
 - (void)startDatabaseSanitizationTask;
+- (void)dealloc;
 - (id)init;
 
 @end

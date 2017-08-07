@@ -16,15 +16,18 @@
     id <MTMaterialSettings><MTMaterialSettingsObservable> _settings;
     unsigned long long _options;
     UIView *_backdropView;
-    UIView *_lightOverlayView;
-    UIView *_whiteOverlayView;
+    UIView *_primaryOverlayView;
+    UIView *_secondaryOverlayView;
     _Bool _cornerRadiusIsContinuous;
+    _Bool _isConfiguredAsOverlay;
     _Bool _highlighted;
     NSString *_groupName;
     double _weighting;
+    CDUnknownBlockType _backdropScaleAdjustment;
 }
 
 + (id)materialViewWithRecipe:(long long)arg1 options:(unsigned long long)arg2;
+@property(copy, nonatomic) CDUnknownBlockType backdropScaleAdjustment; // @synthesize backdropScaleAdjustment=_backdropScaleAdjustment;
 @property(nonatomic, getter=isHighlighted) _Bool highlighted; // @synthesize highlighted=_highlighted;
 @property(nonatomic) double weighting; // @synthesize weighting=_weighting;
 @property(copy, nonatomic) NSString *groupName; // @synthesize groupName=_groupName;
@@ -34,12 +37,12 @@
 - (id)_mtBackdropView;
 - (_Bool)_supportsVariableWeighting;
 - (void)_reduceTransparencyStatusDidChange;
-- (void)_configureWhiteOverlayViewIfNecessary;
-- (void)_configureLightOverlayViewIfNecessary;
-- (id)_lightOverlayColor;
-- (id)_lightOverlaySettings;
-- (id)_configureOverlayView:(id *)arg1 withOptions:(unsigned long long)arg2 withBackgroundColor:(id)arg3;
-- (id)_configureOverlayView:(id *)arg1 ofClass:(Class)arg2 withOptions:(unsigned long long)arg3 withBackgroundColor:(id)arg4;
+- (void)_configureSecondaryOverlayViewIfNecessary;
+- (void)_configurePrimaryOverlayViewIfNecessary;
+- (id)_basicOverlaySettings;
+- (id)_configureOverlayView:(id *)arg1 withOptions:(unsigned long long)arg2 color:(id)arg3 alpha:(double)arg4;
+- (id)_configureOverlayView:(id *)arg1 ofClass:(Class)arg2 withOptions:(unsigned long long)arg3 color:(id)arg4 alpha:(double)arg5;
+- (void)_configureOverlayView:(id)arg1 withColor:(id)arg2 alpha:(double)arg3 weighting:(double)arg4;
 - (void)_configureMTBackdropView:(id)arg1 withWeighting:(double)arg2;
 - (void)_configureBackdropViewIfNecessary;
 - (id)_luminanceOverlaySettings;

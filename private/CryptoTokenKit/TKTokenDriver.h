@@ -11,6 +11,7 @@
 
 @interface TKTokenDriver : NSObject
 {
+    NSMutableDictionary *_contexts;
     id <TKTokenDriverDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_tokens;
@@ -26,6 +27,7 @@
 - (void)releaseTokenWithTokenID:(id)arg1;
 - (void)getTokenEndpointWithAttributes:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)invalidateToken:(id)arg1;
+- (void)addTokenDriverContext:(id)arg1;
 - (void)removeTokenEndpoint:(id)arg1;
 - (id)tokenIDForInstanceID:(id)arg1;
 - (void)getTokenWithAttributes:(id)arg1 reply:(CDUnknownBlockType)arg2;

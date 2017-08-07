@@ -11,7 +11,9 @@
 }
 
 + (id)confirmationRequiredWithValueToConfirm:(unsigned long long)arg1;
++ (id)confirmationRequiredWithCallCapabilityOptionsToConfirm:(unsigned long long)arg1;
 + (id)successWithResolvedValue:(unsigned long long)arg1;
++ (id)successWithResolvedCallCapabilityOptions:(unsigned long long)arg1;
 
 @end
 

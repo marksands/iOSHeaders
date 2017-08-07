@@ -7,12 +7,14 @@
 #import <objc/NSObject.h>
 
 #import <HealthDaemon/HDSyncStore-Protocol.h>
+#import <HealthDaemon/NSCopying-Protocol.h>
 
 @class CKRecordZoneID, HDProfile, HDSharingPredicate, NSString, NSUUID;
 
-@interface HDCloudSyncStore : NSObject <HDSyncStore>
+@interface HDCloudSyncStore : NSObject <NSCopying, HDSyncStore>
 {
     long long _syncProvenance;
+    long long _syncEpoch;
     _Bool _canPush;
     NSUUID *_storeIdentifier;
     NSString *_ownerIdentifier;
@@ -42,19 +44,25 @@
 - (_Bool)shouldContinueAfterAnchorValidationError:(id)arg1;
 - (_Bool)supportsSpeculativeChangesForSyncEntityClass:(Class)arg1;
 - (_Bool)enforceSyncEntityOrdering;
+- (id)_excludedSyncEntities;
 - (id)orderedSyncEntities;
+- (_Bool)canRecieveSyncObjectsForEntityClass:(Class)arg1;
 - (id)syncEntityDependenciesForSyncEntity:(Class)arg1;
 - (id)syncStoreDefaultSourceBundleIdentifier;
 - (id)syncStoreIdentifier;
 - (id)syncStoreTypeIdentifier;
+- (long long)syncEpoch;
 - (long long)syncProvenance;
 - (id)persistedStateWithError:(id *)arg1;
 - (_Bool)persistState:(id)arg1 error:(id *)arg2;
 - (id)getPersistedAnchorMapWithError:(id *)arg1;
-- (_Bool)updatePersistedAnchorMap:(id)arg1 error:(id *)arg2;
+- (_Bool)clearAllSyncAnchorsWithError:(id *)arg1;
+- (_Bool)replacePersistedAnchorMap:(id)arg1 error:(id *)arg2;
 - (_Bool)resetReceivedSyncAnchorMapWithError:(id *)arg1;
 - (id)receivedSyncAnchorMapWithError:(id *)arg1;
 @property(readonly) int protocolVersion;
+- (id)syncStoreForEpoch:(long long)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithProfile:(id)arg1 storeIdentifier:(id)arg2 syncCircleName:(id)arg3 ownerIdentifier:(id)arg4 containerIdentifier:(id)arg5 sharingIdentifier:(id)arg6 predicate:(id)arg7 error:(id *)arg8;
 
 // Remaining properties

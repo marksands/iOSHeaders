@@ -10,15 +10,16 @@
 
 @interface BFFOnBoardingSplashController : BFFSplashController
 {
-    NSString *_preferencesKey;
     long long _feature;
     CDUnknownBlockType _completion;
+    NSString *_preferenceKey;
 }
 
-+ (_Bool)needsToRunForFeature:(long long)arg1 useBuddyPreference:(_Bool)arg2;
++ (_Bool)needsToRunForFeature:(long long)arg1;
 + (id)cloudConfigSkipKey;
+@property(retain) NSString *preferenceKey; // @synthesize preferenceKey=_preferenceKey;
 @property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
-@property(readonly, nonatomic) long long feature; // @synthesize feature=_feature;
+@property(nonatomic) long long feature; // @synthesize feature=_feature;
 - (void).cxx_destruct;
 - (id)movieView;
 - (void)movieReady:(id)arg1 error:(id)arg2;
@@ -27,7 +28,7 @@
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
-- (id)initWithFeature:(long long)arg1 useBuddyPreference:(_Bool)arg2;
+- (id)initWithFeature:(long long)arg1;
 
 @end
 

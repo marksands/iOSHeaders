@@ -10,13 +10,14 @@
 
 @interface HKQuantityTypeDataSource : HKHealthQueryChartCacheDataSource
 {
-    HKUnitPreferenceController *_unitController;
     CDUnknownBlockType _mappingFunction;
     unsigned long long _statisticsOptions;
+    HKUnitPreferenceController *_unitController;
     CDUnknownBlockType _userInfoCreationBlock;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType userInfoCreationBlock; // @synthesize userInfoCreationBlock=_userInfoCreationBlock;
+@property(readonly, nonatomic) HKUnitPreferenceController *unitController; // @synthesize unitController=_unitController;
 @property(readonly, nonatomic) unsigned long long statisticsOptions; // @synthesize statisticsOptions=_statisticsOptions;
 - (void).cxx_destruct;
 - (id)_defaultQueriesForStartDate:(id)arg1 endDate:(id)arg2 statisticsInterval:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;

@@ -15,11 +15,13 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _serviceErrorHandler;
     CDUnknownBlockType _completionHandler;
     QLItem *_item;
+    double _minimumSize;
     double _scale;
     struct CGSize _size;
 }
 
 @property(nonatomic) double scale; // @synthesize scale=_scale;
+@property(nonatomic) double minimumSize; // @synthesize minimumSize=_minimumSize;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(nonatomic) QLItem *item; // @synthesize item=_item;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
@@ -28,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)finish;
 - (void)main;
-- (id)initWithThumbnailHostContext:(id)arg1 item:(id)arg2 size:(struct CGSize)arg3 scale:(double)arg4 completionHandler:(CDUnknownBlockType)arg5 serviceErrorHandler:(CDUnknownBlockType)arg6;
+- (id)initWithThumbnailHostContext:(id)arg1 item:(id)arg2 size:(struct CGSize)arg3 minimumSize:(double)arg4 scale:(double)arg5 completionHandler:(CDUnknownBlockType)arg6 serviceErrorHandler:(CDUnknownBlockType)arg7;
 
 @end
 

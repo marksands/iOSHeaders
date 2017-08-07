@@ -7,6 +7,6 @@
 #import <UIKit/UITableView.h>
 
 @interface UITableView (CNUI)
-- (void)_cnui_adjustContentInset:(struct UIEdgeInsets)arg1;
+- (void)_cnui_adjustCollectiveContentInset:(struct UIEdgeInsets)arg1;
 @end
 

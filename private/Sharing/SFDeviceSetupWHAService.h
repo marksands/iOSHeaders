@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class SFService;
+@class SFService, SFSession;
 @protocol OS_dispatch_queue;
 
 @interface SFDeviceSetupWHAService : NSObject
@@ -14,6 +14,7 @@
     _Bool _activateCalled;
     _Bool _invalidateCalled;
     SFService *_sfService;
+    SFSession *_sfSession;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     CDUnknownBlockType _progressHandler;
 }
@@ -22,6 +23,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
 - (void)_handleRequest:(id)arg1 flags:(unsigned int)arg2 session:(id)arg3 responseHandler:(CDUnknownBlockType)arg4;
+- (void)_handleInfoExchange:(id)arg1 responseHandler:(CDUnknownBlockType)arg2;
 - (void)_handleSessionEnded:(id)arg1;
 - (void)_handleSessionStarted:(id)arg1;
 - (void)_sfServiceStart;

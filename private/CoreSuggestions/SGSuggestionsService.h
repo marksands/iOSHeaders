@@ -13,7 +13,7 @@
 #import <CoreSuggestions/SGSuggestionsServiceMailProtocol-Protocol.h>
 #import <CoreSuggestions/SGSuggestionsServiceSearchToShareProtocol-Protocol.h>
 
-@class NSString, SGDaemonConnection;
+@class NSString, SGDaemonConnection, SGKeyValueCacheFile;
 @protocol SGDSuggestManagerAllProtocol;
 
 @interface SGSuggestionsService : NSObject <SGSuggestionsServiceContactsProtocol, SGSuggestionsServiceEventsProtocol, SGSuggestionsServiceInternalProtocol, SGSuggestionsServiceMailProtocol, SGSuggestionsServiceSearchToShareProtocol, SGSuggestionsServiceFidesProtocol>
@@ -23,6 +23,9 @@
     _Bool _keepDirty;
     NSString *_machServiceName;
     _Bool _queuesRequestsIfBusy;
+    SGKeyValueCacheFile *_phoneCache;
+    SGKeyValueCacheFile *_emailCache;
+    NSString *_maybeFormat;
 }
 
 + (id)wantedSearchableItemsFromItems:(id)arg1;
@@ -149,6 +152,7 @@
 - (id)contactMatchesOrLookupIdByEmailAddress:(id)arg1 error:(id *)arg2;
 - (void)contactMatchesOrLookupIdByPhoneNumber:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (id)contactMatchesOrLookupIdByPhoneNumber:(id)arg1 error:(id *)arg2;
+- (void)namesForUnknownDetail:(id)arg1 limitTo:(unsigned long long)arg2 prependMaybe:(_Bool)arg3 withCompletion:(CDUnknownBlockType)arg4;
 - (void)namesForDetail:(id)arg1 limitTo:(unsigned long long)arg2 prependMaybe:(_Bool)arg3 withCompletion:(CDUnknownBlockType)arg4;
 - (id)namesForDetail:(id)arg1 limitTo:(unsigned long long)arg2 prependMaybe:(_Bool)arg3 error:(id *)arg4;
 - (void)contactMatchesByEmailAddress:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

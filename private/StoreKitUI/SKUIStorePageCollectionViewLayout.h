@@ -31,6 +31,7 @@
         unsigned int respondsToIndexPathsForPinningItems:1;
         unsigned int respondsToPinningContentInsetForItemAtIndexPath:1;
         unsigned int respondsToPinningStyleForItemAtIndexPath:1;
+        unsigned int respondsToPinningGroupForItemAtIndexPath:1;
         unsigned int respondsToPinningTransitionStyleForItemAtIndexPath:1;
         unsigned int respondsToWillApplyLayoutAttributes:1;
     } _collectionViewDelegateFlags;
@@ -51,6 +52,7 @@
 - (void).cxx_destruct;
 - (struct CGRect)_targetFrameForStartingFrame:(struct CGRect)arg1 itemPinningConfiguration:(id)arg2 layoutInformation:(id)arg3 atIndexPath:(id)arg4 returningIsPinning:(out _Bool *)arg5;
 - (long long)_pinningTransitionStyleForItemPinningConfiguration:(id)arg1 atIndexPath:(id)arg2;
+- (long long)_pinningGroupForItemPinningConfiguration:(id)arg1 atIndexPath:(id)arg2;
 - (long long)_pinningStyleForItemPinningConfiguration:(id)arg1 atIndexPath:(id)arg2;
 - (struct CGRect)_pinningFrameForStartingFrame:(struct CGRect)arg1 itemPinningConfiguration:(id)arg2 atIndexPath:(id)arg3;
 - (struct UIEdgeInsets)_pinningContentInsetForItemPinningConfiguration:(id)arg1 atIndexPath:(id)arg2;

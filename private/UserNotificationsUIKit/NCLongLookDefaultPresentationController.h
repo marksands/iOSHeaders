@@ -37,6 +37,8 @@
 - (void)containerViewWillLayoutSubviews;
 - (struct CGRect)frameOfPresentedViewInContainerView;
 - (void)dismissalTransitionDidEnd:(_Bool)arg1;
+- (void)dismissalTransitionWillBegin;
+- (void)presentationTransitionDidEnd:(_Bool)arg1;
 - (void)presentationTransitionWillBegin;
 - (_Bool)_shouldMakePresentedViewControllerFirstResponder;
 - (struct CGRect)_frameForTransitionViewInPresentationSuperview:(id)arg1;

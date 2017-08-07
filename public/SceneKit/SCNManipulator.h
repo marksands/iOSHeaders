@@ -29,9 +29,9 @@
     // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]"simd"{?="columns"[4]}), name: _worldInitialMatrix
     // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]"simd"{?="columns"[4]}), name: _worldMatrix
     long long _snapToAlignCount;
-    CDStruct_62d14fc2 *_snapToAlignOnX;
-    CDStruct_62d14fc2 *_snapToAlignOnY;
-    CDStruct_62d14fc2 *_snapToAlignOnZ;
+    CDStruct_962da47d *_snapToAlignOnX;
+    CDStruct_962da47d *_snapToAlignOnY;
+    CDStruct_962da47d *_snapToAlignOnZ;
     NSMutableIndexSet *_snapXIndexes;
     NSMutableIndexSet *_snapYIndexes;
     NSMutableIndexSet *_snapZIndexes;
@@ -50,7 +50,7 @@
 - (void)prepareSnapToAlignDataIfNeeded;
 - (void)prepareSnapToAlignData;
 - (void)_prepareSnapToAlignData:(unsigned short)arg1 minOffset:maxOffset: /* Error: Ran out of types for this method. */;
-- (const CDStruct_62d14fc2 *)snapInfoAtIndex:(unsigned long long)arg1 axis:(unsigned long long)arg2;
+- (const CDStruct_962da47d *)snapInfoAtIndex:(unsigned long long)arg1 axis:(unsigned long long)arg2;
 - (id)snapGuideIndexesOnAxis:(unsigned long long)arg1;
 - (void)_updateCloneStateWithEvent:(CDStruct_edec59f9)arg1;
 - (id)setupClones;

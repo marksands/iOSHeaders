@@ -14,6 +14,7 @@
 - (void)didStopLoadingTilesWithError:(NSError *)arg1;
 - (void)willStartLoadingTiles;
 - (_Bool)tileSource:(VKTileSource *)arg1 keyIsNeeded:(const struct VKTileKey *)arg2;
+- (long long)tileSource:(VKTileSource *)arg1 overrideForMaximumZoomLevel:(long long)arg2;
 - (void)invalidateTilesFromTileSource:(VKTileSource *)arg1;
 - (void)tileSource:(VKTileSource *)arg1 invalidateTilesWithState:(unsigned long long)arg2;
 - (void)tileSource:(VKTileSource *)arg1 invalidateKeys:(VKTileKeyList *)arg2;

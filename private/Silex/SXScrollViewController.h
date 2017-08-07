@@ -20,7 +20,7 @@
 #import <Silex/UIViewControllerPreviewingDelegate-Protocol.h>
 
 @class NSMutableArray, NSOrderedSet, NSString, SXComponentAnimationController, SXComponentBehaviorController, SXComponentController, SXComponentView, SXConfiguration, SXContext, SXFullScreenCanvasController, SXFullScreenCanvasViewController, SXFullscreenVideoPlaybackManager, SXLayoutController, SXLayoutDataProvider, SXMediaPlaybackController, SXPresentationAttributes, SXScrollPosition, SXTangierController, SXViewport, SXViewportDebugger, UIScrollView, UIView;
-@protocol SXAdDocumentStateManager, SXAnalyticsReporting, SXAppStateMonitor, SXDocumentSectionBlueprint, SXDocumentSectionManager, SXDocumentStyleRenderer, SXScrollViewControllerDelegate, SXTextSelectionManager, SXTransitionDataSource, SXVideoPlayerViewControllerProvider, UIViewControllerPreviewing;
+@protocol SXAdDocumentStateManager, SXAnalyticsReporting, SXAppStateMonitor, SXDocumentSectionBlueprint, SXDocumentSectionManager, SXDocumentStyleRenderer, SXScrollViewControllerDelegate, SXTextSelectionManager, SXTransitionDataSourceProvider, SXVideoPlayerViewControllerProvider, UIViewControllerPreviewing;
 
 @interface SXScrollViewController : UIViewController <SXDocumentSectionHosting, SXLayoutControllerDelegate, SXComponentControllerDelegate, SXPresentationDelegate, STScrollViewDelegate, SXComponentHosting, UIGestureRecognizerDelegate, SXTangierControllerDelegate, UIViewControllerPreviewingDelegate, SXActionResponder, SXViewportChangeListener, SXKeyboardSupport>
 {
@@ -39,6 +39,7 @@
     UIScrollView *_scrollView;
     id <SXScrollViewControllerDelegate> _delegate;
     SXPresentationAttributes *_presentationAttributes;
+    id <SXTransitionDataSourceProvider> _transitionDataSourceProvider;
     SXConfiguration *_configuration;
     id <SXAnalyticsReporting> _analyticsReporting;
     id <SXAppStateMonitor> _appStateMonitor;
@@ -61,10 +62,8 @@
     SXTangierController *_tangierController;
     NSMutableArray *_articleScrollEvents;
     id <UIViewControllerPreviewing> _previewingContext;
-    SXComponentView<SXTransitionDataSource> *_componentViewUsedInTransition;
 }
 
-@property(nonatomic) __weak SXComponentView<SXTransitionDataSource> *componentViewUsedInTransition; // @synthesize componentViewUsedInTransition=_componentViewUsedInTransition;
 @property(nonatomic) _Bool isPreviewing; // @synthesize isPreviewing=_isPreviewing;
 @property(retain, nonatomic) id <UIViewControllerPreviewing> previewingContext; // @synthesize previewingContext=_previewingContext;
 @property(retain, nonatomic) NSMutableArray *articleScrollEvents; // @synthesize articleScrollEvents=_articleScrollEvents;
@@ -90,6 +89,7 @@
 @property(readonly, nonatomic) id <SXAppStateMonitor> appStateMonitor; // @synthesize appStateMonitor=_appStateMonitor;
 @property(readonly, nonatomic) __weak id <SXAnalyticsReporting> analyticsReporting; // @synthesize analyticsReporting=_analyticsReporting;
 @property(readonly, copy, nonatomic) SXConfiguration *configuration; // @synthesize configuration=_configuration;
+@property(readonly, nonatomic) id <SXTransitionDataSourceProvider> transitionDataSourceProvider; // @synthesize transitionDataSourceProvider=_transitionDataSourceProvider;
 @property(readonly, nonatomic) SXPresentationAttributes *presentationAttributes; // @synthesize presentationAttributes=_presentationAttributes;
 @property(nonatomic) __weak id <SXScrollViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
@@ -109,7 +109,6 @@
 - (double)snaplineForContentOffset:(double)arg1 velocity:(double)arg2;
 - (_Bool)handleAction:(id)arg1;
 - (void)finishArticleScrollEvents;
-- (id)transitionDataSource;
 - (void)willEndPreviewing;
 - (void)willStartPreviewing;
 - (_Bool)shouldStartPreviewing;

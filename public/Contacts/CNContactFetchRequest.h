@@ -15,6 +15,7 @@
     _Bool _rankSort;
     _Bool _mutableObjects;
     _Bool _unifyResults;
+    _Bool _disallowsEncodedFetch;
     _Bool _onlyMainStore;
     _Bool _allowsBatching;
     NSPredicate *_predicate;
@@ -27,6 +28,7 @@
 @property(nonatomic) _Bool allowsBatching; // @synthesize allowsBatching=_allowsBatching;
 @property(nonatomic) _Bool onlyMainStore; // @synthesize onlyMainStore=_onlyMainStore;
 @property(nonatomic) unsigned long long batchSize; // @synthesize batchSize=_batchSize;
+@property(nonatomic) _Bool disallowsEncodedFetch; // @synthesize disallowsEncodedFetch=_disallowsEncodedFetch;
 @property(nonatomic) long long sortOrder; // @synthesize sortOrder=_sortOrder;
 @property(nonatomic) _Bool unifyResults; // @synthesize unifyResults=_unifyResults;
 @property(nonatomic) _Bool mutableObjects; // @synthesize mutableObjects=_mutableObjects;

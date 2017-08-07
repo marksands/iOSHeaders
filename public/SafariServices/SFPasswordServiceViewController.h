@@ -25,7 +25,6 @@ __attribute__((visibility("hidden")))
 - (void)authenticateToPresentInPopover:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_authenticateToViewOtherPasswordsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_hintStringsForAppID:(id)arg1 appName:(id)arg2 credentials:(id)arg3;
-- (void)viewWillDisappear:(_Bool)arg1;
 - (void)gatherAndShowPasswords;
 - (void)_willAppearInRemoteViewController;
 - (void)_dismiss;

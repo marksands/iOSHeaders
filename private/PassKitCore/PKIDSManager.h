@@ -35,7 +35,6 @@
 @property(nonatomic) id <PKIDSManagerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (void)_logCloudPairingState;
-- (_Bool)_deviceIsApplePayCapable:(id)arg1;
 - (_Bool)_deviceIsRegistered:(id)arg1;
 - (_Bool)_hasRegisteredAccounts;
 - (void)_populateDevicesIfNeeded;
@@ -58,7 +57,7 @@
 - (void)_paymentResultReceived:(id)arg1 service:(id)arg2 account:(id)arg3 fromID:(id)arg4 context:(id)arg5;
 - (void)_paymentResponseReceived:(id)arg1 service:(id)arg2 account:(id)arg3 fromID:(id)arg4 context:(id)arg5;
 - (void)_paymentRequestReceived:(id)arg1 service:(id)arg2 account:(id)arg3 fromID:(id)arg4 context:(id)arg5;
-- (void)_sendDiscoveryResponse:(id)arg1 toDevice:(id)arg2;
+- (void)_sendDiscoveryResponse:(id)arg1 toDeviceWithFromID:(id)arg2;
 - (void)_paymentDiscoveryRequestReceived:(id)arg1 service:(id)arg2 account:(id)arg3 fromID:(id)arg4 context:(id)arg5;
 - (void)_paymentSetupRequestReceived:(id)arg1 service:(id)arg2 account:(id)arg3 fromID:(id)arg4 context:(id)arg5;
 - (_Bool)hasRemoteDevices;

@@ -55,6 +55,30 @@ struct _mxnetTools_recordHeader_t_ {
 
 struct abstract_context;
 
+struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
+    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> {
+        struct __rep {
+            union {
+                struct __long {
+                    unsigned long long __cap_;
+                    unsigned long long __size_;
+                    char *__data_;
+                } __l;
+                struct __short {
+                    union {
+                        unsigned char __size_;
+                        char __lx;
+                    } ;
+                    char __data_[23];
+                } __s;
+                struct __raw {
+                    unsigned long long __words[3];
+                } __r;
+            } ;
+        } __first_;
+    } __r_;
+};
+
 struct blob<float, 3>;
 
 struct blob<float, 4>;
@@ -62,6 +86,8 @@ struct blob<float, 4>;
 struct blob<unsigned char __attribute__((ext_vector_type(4))), 2>;
 
 struct fast_pyramid_resizer;
+
+struct generic_load_constant_kernel;
 
 struct list<vision::DCN::boundingbox, std::__1::allocator<vision::DCN::boundingbox>> {
     struct __list_node_base<vision::DCN::boundingbox, void *> _field1;
@@ -82,18 +108,6 @@ struct map<std::__1::basic_string<char>, float, std::__1::less<std::__1::basic_s
     } __tree_;
 };
 
-struct map<std::__1::basic_string<char>, postprocessing_settings_t, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, postprocessing_settings_t>>> {
-    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, postprocessing_settings_t>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, postprocessing_settings_t>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, postprocessing_settings_t>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, postprocessing_settings_t>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
-        } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, postprocessing_settings_t>, std::__1::less<std::__1::basic_string<char>>, true>> {
-            unsigned long long __first_;
-        } __pair3_;
-    } __tree_;
-};
-
 struct net;
 
 struct net_strides_configuration {
@@ -109,10 +123,24 @@ struct pair<unsigned long long, unsigned long long> {
 };
 
 struct postprocessing_settings_t {
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> name;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> network;
     int do_blend;
     float blend_alpha;
     int grayscale_i0;
     int grayscale_i1;
+    float gamma;
+    float saturation;
+    int color_transfer_mode;
+    int width;
+    int height;
+    int width_fast;
+    int height_fast;
+    int width_capture;
+    int height_capture;
+    int width_miniature;
+    int height_miniature;
+    float old_frame_scale;
 };
 
 struct shared_ptr<Espresso::abstract_context> {
@@ -138,6 +166,11 @@ struct shared_ptr<Espresso::blob<unsigned char __attribute__((ext_vector_type(4)
 struct shared_ptr<Espresso::fast_pyramid_resizer> {
     struct fast_pyramid_resizer *_field1;
     struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<Espresso::generic_load_constant_kernel> {
+    struct generic_load_constant_kernel *__ptr_;
+    struct __shared_weak_count *__cntrl_;
 };
 
 struct shared_ptr<Espresso::net> {

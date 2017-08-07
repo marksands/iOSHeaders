@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class AVCaptureDevice, AVCaptureDeviceFormat, AVCaptureDeviceInput, AVCaptureMetadataOutput, AVCaptureMovieFileOutput, AVCapturePhotoOutput, AVCaptureSession, AVCaptureVideoDataOutput, AVCaptureVideoPreviewLayer, CAMCaptureEngine, CAMPanoramaConfiguration, CAMPanoramaOutput, NSString;
+@class AVCaptureDevice, AVCaptureDeviceFormat, AVCaptureDeviceInput, AVCaptureMetadataOutput, AVCaptureMovieFileOutput, AVCapturePhotoOutput, AVCaptureSession, AVCaptureVideoDataOutput, AVCaptureVideoPreviewLayer, AVCaptureVideoThumbnailOutput, CAMCaptureEngine, CAMPanoramaConfiguration, CAMPanoramaOutput, NSString;
 @protocol AVCaptureFileOutputRecordingDelegate, AVCapturePhotoCaptureDelegate;
 
 @interface CAMCaptureCommandContext : NSObject
@@ -24,12 +24,14 @@
     CAMPanoramaOutput *_currentPanoramaOutput;
     AVCaptureMetadataOutput *_currentMetadataOutput;
     AVCaptureVideoDataOutput *_currentEffectsPreviewOutput;
+    AVCaptureVideoThumbnailOutput *_currentVideoThumbnailOutput;
     AVCaptureVideoPreviewLayer *_currentVideoPreviewLayer;
     CAMCaptureEngine *__captureEngine;
 }
 
 @property(readonly, nonatomic) __weak CAMCaptureEngine *_captureEngine; // @synthesize _captureEngine=__captureEngine;
 @property(retain, nonatomic) AVCaptureVideoPreviewLayer *currentVideoPreviewLayer; // @synthesize currentVideoPreviewLayer=_currentVideoPreviewLayer;
+@property(retain, nonatomic) AVCaptureVideoThumbnailOutput *currentVideoThumbnailOutput; // @synthesize currentVideoThumbnailOutput=_currentVideoThumbnailOutput;
 @property(retain, nonatomic) AVCaptureVideoDataOutput *currentEffectsPreviewOutput; // @synthesize currentEffectsPreviewOutput=_currentEffectsPreviewOutput;
 @property(retain, nonatomic) AVCaptureMetadataOutput *currentMetadataOutput; // @synthesize currentMetadataOutput=_currentMetadataOutput;
 @property(retain, nonatomic) CAMPanoramaOutput *currentPanoramaOutput; // @synthesize currentPanoramaOutput=_currentPanoramaOutput;
@@ -45,7 +47,7 @@
 @property(retain, nonatomic) AVCaptureSession *currentCaptureSession; // @synthesize currentCaptureSession=_currentCaptureSession;
 - (void).cxx_destruct;
 - (id)metadataOutputForMode:(long long)arg1;
-- (id)outputsForMode:(long long)arg1;
+- (id)outputsForMode:(long long)arg1 shouldUseThumbnailOutputForFilters:(_Bool)arg2;
 - (id)primaryOutputForMode:(long long)arg1;
 - (id)audioDeviceInput;
 - (id)videoDeviceForMode:(long long)arg1 desiredDevice:(long long)arg2 videoConfiguration:(long long)arg3 resolvedDevice:(long long *)arg4;

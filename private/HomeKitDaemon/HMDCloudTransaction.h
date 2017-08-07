@@ -10,6 +10,7 @@
 
 @interface HMDCloudTransaction : HMFObject
 {
+    _Bool _needConflictResolution;
     _Bool _temporaryCache;
     _Bool _createZone;
     _Bool _zoneWasCreated;
@@ -38,6 +39,7 @@
 @property(nonatomic, getter=shouldCreateZone) _Bool createZone; // @synthesize createZone=_createZone;
 @property(readonly, nonatomic, getter=isTemporaryCache) _Bool temporaryCache; // @synthesize temporaryCache=_temporaryCache;
 @property(retain, nonatomic) CKServerChangeToken *updatedServerChangeToken; // @synthesize updatedServerChangeToken=_updatedServerChangeToken;
+@property(nonatomic) _Bool needConflictResolution; // @synthesize needConflictResolution=_needConflictResolution;
 @property(nonatomic) __weak HMDCloudZone *cloudZone; // @synthesize cloudZone=_cloudZone;
 @property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
@@ -56,7 +58,11 @@
 - (_Bool)moreChangesToProcess;
 - (void)setAllChangedAsProcessed;
 - (void)loadCloudRecordsAndDetermineDeletesFromCache:(CDUnknownBlockType)arg1;
+- (id)cachedCloudRecordWithObjectID:(id)arg1;
+- (_Bool)doesRecordExistInCacheWithObjectID:(id)arg1;
+- (_Bool)doesRecordExistWithObjectID:(id)arg1;
 @property(readonly, nonatomic) _Bool hasValidChanges;
+- (void)removeChangeWithObjectID:(id)arg1;
 - (void)addChangeWithDeletedRecordID:(id)arg1;
 - (void)addChangeWithRecord:(id)arg1;
 - (void)addChangeWithObjectChange:(id)arg1;
@@ -64,6 +70,7 @@
 @property(readonly, nonatomic) NSArray *processedTransactionStoreRowIDs;
 @property(readonly, nonatomic) NSArray *allTransactionStoreRowIDs;
 @property(readonly, nonatomic) CKRecordID *privateZoneRootRecordID;
+@property(readonly, nonatomic) _Bool controllerIdentifierChanged;
 @property(readonly, nonatomic) _Bool encryptionFailed;
 @property(readonly, nonatomic) _Bool decryptionFailed;
 @property(retain, nonatomic) HMFOSTransaction *osTransaction; // @synthesize osTransaction=_osTransaction;

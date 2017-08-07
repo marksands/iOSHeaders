@@ -48,6 +48,7 @@
 @property(nonatomic) unsigned long long labelAlignment;
 @property(retain, nonatomic) UIColor *selectedLabelColor;
 @property(nonatomic) double subAxisDescriptorPadding;
+@property(nonatomic) unsigned long long subLabelAlignment;
 @property(retain, nonatomic) UIFont *subLabelFont;
 @property(readonly) Class superclass;
 @property(retain, nonatomic) UIColor *unhighlightedSubLabelColor;

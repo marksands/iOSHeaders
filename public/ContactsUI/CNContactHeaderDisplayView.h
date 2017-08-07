@@ -20,13 +20,10 @@
     double _maxHeight;
     UIView *_personHeaderView;
     UILabel *_taglineLabel;
-    double _lastViewHeight;
     double _lastViewWidth;
     NSLayoutConstraint *_photoTopConstraint;
     NSLayoutConstraint *_photoHeightConstraint;
     NSLayoutConstraint *_avatarNameSpacingConstraint;
-    NSLayoutConstraint *_nameHeightConstraint;
-    NSLayoutConstraint *_taglineHeightConstraint;
     struct CGSize _maxNameSize;
 }
 
@@ -34,13 +31,10 @@
 + (id)contactHeaderViewWithContact:(id)arg1 delegate:(id)arg2;
 + (id)makePhotoViewWithMonogrammerStyle:(long long)arg1 shouldAllowTakePhotoAction:(_Bool)arg2 shouldAllowImageDrops:(_Bool)arg3;
 + (id)descriptorForRequiredKeysForContactFormatter:(id)arg1 includingAvatarViewDescriptors:(_Bool)arg2;
-@property(retain) NSLayoutConstraint *taglineHeightConstraint; // @synthesize taglineHeightConstraint=_taglineHeightConstraint;
-@property(retain) NSLayoutConstraint *nameHeightConstraint; // @synthesize nameHeightConstraint=_nameHeightConstraint;
 @property(retain) NSLayoutConstraint *avatarNameSpacingConstraint; // @synthesize avatarNameSpacingConstraint=_avatarNameSpacingConstraint;
 @property(retain) NSLayoutConstraint *photoHeightConstraint; // @synthesize photoHeightConstraint=_photoHeightConstraint;
 @property(retain) NSLayoutConstraint *photoTopConstraint; // @synthesize photoTopConstraint=_photoTopConstraint;
 @property(nonatomic) double lastViewWidth; // @synthesize lastViewWidth=_lastViewWidth;
-@property(nonatomic) double lastViewHeight; // @synthesize lastViewHeight=_lastViewHeight;
 @property(nonatomic) struct CGSize maxNameSize; // @synthesize maxNameSize=_maxNameSize;
 @property(retain) UILabel *taglineLabel; // @synthesize taglineLabel=_taglineLabel;
 @property(retain, nonatomic) UIView *personHeaderView; // @synthesize personHeaderView=_personHeaderView;

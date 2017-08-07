@@ -9,7 +9,7 @@
 @class FCModifyTagSettingsCommand, NSString;
 
 @protocol FCTagSettingsDelegate <NSObject>
-- (void)accessTokenRemovedForTagID:(NSString *)arg1;
+- (void)accessTokenRemovedForTagID:(NSString *)arg1 userInitiated:(_Bool)arg2;
 - (void)accessTokenDidChangeForTagID:(NSString *)arg1;
 - (void)addModifyTagSettingsCommandToCommandQueue:(FCModifyTagSettingsCommand *)arg1;
 @end

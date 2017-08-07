@@ -28,9 +28,11 @@
 - (id)_geoMapItemForData:(id)arg1;
 - (void)_geoMapItemsForResponseData:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)resolveMapItemLocallyFromHandle:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)resolveMapItemFromHandle:(id)arg1 traits:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)resolveMapItemFromHandle:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)resolveMapItemFromHandle:(id)arg1 withTraits:(id)arg2 useCache:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_resolveMapItemFromHandle:(id)arg1 withTraits:(id)arg2 cachePolicy:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)handleForMapItem:(id)arg1 withSizeLimit:(long long)arg2;
 - (id)handleForMapItem:(id)arg1;
 - (void)trackMapItem:(id)arg1;
 - (void)trackSerializedPlaceData:(id)arg1;
@@ -104,6 +106,7 @@
 - (id)ticketForIdentifiers:(id)arg1 traits:(id)arg2;
 - (id)ticketForMUIDs:(id)arg1 includeETA:(_Bool)arg2 traits:(id)arg3;
 - (id)ticketForMUIDs:(id)arg1 traits:(id)arg2;
+- (id)defaultBackgroundTraits;
 - (id)defaultTraits;
 - (id)_preferredLanguages;
 - (void)_countryCodeChanged:(id)arg1;

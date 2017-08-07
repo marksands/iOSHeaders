@@ -151,7 +151,7 @@
 - (_Bool)isValidLocation:(struct CLLocationCoordinate2D)arg1;
 - (CDStruct_02837cd9)mapRectMakeWithRadialDistanceForCoordinate:(struct CLLocationCoordinate2D)arg1 andRadius:(double)arg2;
 - (CDStruct_02837cd9)normalizeMapRect:(CDStruct_02837cd9)arg1 toZoomScale:(double)arg2;
-- (CDStruct_02837cd9)mapRectForAnnotations:(id)arg1;
+- (CDStruct_02837cd9)mapRectForAnnotations:(id)arg1 shouldIncludeRadius:(_Bool)arg2;
 - (void)moveCenterByOffset:(struct CGPoint)arg1 from:(struct CLLocationCoordinate2D)arg2;
 - (void)slideAnnotationIntoViewIfNeeded:(id)arg1;
 - (void)recenterVisibleAnnotations;

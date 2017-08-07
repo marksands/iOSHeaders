@@ -18,9 +18,8 @@ __attribute__((visibility("hidden")))
     UIWheelEvent *_wheelEvent;
     _UIGameControllerEvent *_gameControllerEvent;
     UIPhysicalKeyboardEvent *_physicalKeyboardEvent;
-    NSMutableDictionary *_dragEventsBySessionID;
-    NSCountedSet *_contextIDsForAdditionalDragEvents;
-    NSMutableDictionary *_dragEventsByContextID;
+    NSMutableDictionary *_dragEventsByContextAndSessionIDPair;
+    NSCountedSet *_contextAndSessionIDPairsForAdditionalDragEvents;
     _Bool _isSystemApplication;
     UITouch *_currentTouch;
     long long _currentNudgePressType;
@@ -49,8 +48,8 @@ __attribute__((visibility("hidden")))
 - (void)_enqueueHIDEvent:(struct __IOHIDEvent *)arg1;
 - (id)_dragEvents;
 - (void)_removeDragEvent:(id)arg1;
-- (void)_unregisterContextIDsForAdditionalDragEvents:(id)arg1;
-- (void)_registerContextIDsForAdditionalDragEvents:(id)arg1;
+- (void)_unregisterContextIDsForAdditionalDragEvents:(id)arg1 forSession:(unsigned int)arg2;
+- (void)_registerContextIDsForAdditionalDragEvents:(id)arg1 forSession:(unsigned int)arg2;
 - (id)_dragEventForHIDEvent:(struct __IOHIDEvent *)arg1;
 - (void)_performAfterNewTouchDownActions;
 - (void)_addAfterNewTouchDownAction:(CDUnknownBlockType)arg1;

@@ -7,6 +7,7 @@
 #import <objc/NSObject.h>
 
 @class NSMutableArray, NSMutableDictionary, WBSKeychainCredentialNotificationMonitor, WBSPair, WBSURLCredentialCache;
+@protocol OS_dispatch_queue;
 
 @interface WBSFormDataController : NSObject
 {
@@ -21,6 +22,7 @@
     NSMutableArray *_recentlyUsedAutoFillSets;
     NSMutableDictionary *_preferredLabelForUniqueIDOfPersonMap;
     WBSPair *_cachedBirthdayAndLocalizedStrings;
+    NSObject<OS_dispatch_queue> *_internalQueue;
 }
 
 + (id)contactKeyForString:(id)arg1;
@@ -86,9 +88,9 @@
 - (id)activeElementMetadataInForm:(id)arg1;
 - (unsigned long long)_addMatchesForControl:(id)arg1 startingAtIndex:(unsigned long long)arg2 formMetadata:(id)arg3 fromExistingMatches:(id)arg4 fromAllMatchesIfNecessary:(id)arg5 addToFoundMatches:(id)arg6 addToAutoFillValues:(id)arg7 multiRoundAutoFillManager:(id)arg8 propertyToIdentifierMapForFoundMatches:(id)arg9 shouldUseExistingMatchesToFillFocusedField:(_Bool)arg10;
 - (_Bool)_matchHasPreferredIdentifierOrShouldBeFilledInMultiRoundAutoFill:(id)arg1 specifier:(id)arg2 multiRoundAutoFillManager:(id)arg3 contact:(id)arg4;
-- (id)_valuesForStandardForm:(id)arg1 inDomain:(id)arg2 usingOnlyAddressBookData:(_Bool)arg3 matches:(id *)arg4 preferredLabel:(id)arg5 multiRoundAutoFillManager:(id)arg6 wantAllMatches:(_Bool)arg7 contact:(id)arg8 existingMatches:(id)arg9 shouldUseExistingMatchesToFillFocusedField:(_Bool)arg10 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg11;
-- (id)valuesForStandardForm:(id)arg1 inDomain:(id)arg2 usingOnlyAddressBookData:(_Bool)arg3 matches:(id *)arg4 preferredLabel:(id)arg5 multiRoundAutoFillManager:(id)arg6;
-- (id)valuesForStandardForm:(id)arg1 inDomain:(id)arg2 usingOnlyAddressBookData:(_Bool)arg3 matches:(id *)arg4 preferredLabel:(id)arg5 multiRoundAutoFillManager:(id)arg6 contact:(id)arg7 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg8;
+- (id)_valuesForStandardForm:(id)arg1 inDomain:(id)arg2 autoFillDataType:(long long)arg3 matches:(id *)arg4 preferredLabel:(id)arg5 multiRoundAutoFillManager:(id)arg6 wantAllMatches:(_Bool)arg7 contact:(id)arg8 existingMatches:(id)arg9 shouldUseExistingMatchesToFillFocusedField:(_Bool)arg10 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg11;
+- (id)valuesForStandardForm:(id)arg1 inDomain:(id)arg2 autoFillDataType:(long long)arg3 matches:(id *)arg4 preferredLabel:(id)arg5 multiRoundAutoFillManager:(id)arg6;
+- (id)valuesForStandardForm:(id)arg1 inDomain:(id)arg2 autoFillDataType:(long long)arg3 matches:(id *)arg4 preferredLabel:(id)arg5 multiRoundAutoFillManager:(id)arg6 contact:(id)arg7 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg8;
 - (id)contactAutoFillSetForRecentlyUsedAutoFillSet:(id)arg1 contact:(id)arg2 form:(id)arg3;
 - (id)orderedHomeAndWorkSetsForContact:(id)arg1 form:(id)arg2;
 - (id)_autoFillSetFromMatches:(id)arg1 label:(id)arg2 contact:(id)arg3 form:(id)arg4;
@@ -101,13 +103,13 @@
 - (id)_singleFieldPhoneNumberCandidates:(id)arg1;
 - (void)addAllAddressDataIfNecessary:(id)arg1 contactLabel:(id)arg2 contact:(id)arg3;
 - (void)addAllAddressDataIfNecessary:(id)arg1 contactLabel:(id)arg2;
-- (id)bestMatchForControl:(id)arg1 inDomain:(id)arg2 matchingPartialString:(id)arg3 usingOnlyAddressBookData:(_Bool)arg4 preferredLabel:(id)arg5 contact:(id)arg6 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg7;
-- (id)bestMatchForControl:(id)arg1 inDomain:(id)arg2 matchingPartialString:(id)arg3 usingOnlyAddressBookData:(_Bool)arg4 preferredLabel:(id)arg5 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg6;
+- (id)bestMatchForControl:(id)arg1 inDomain:(id)arg2 matchingPartialString:(id)arg3 autoFillDataType:(long long)arg4 preferredLabel:(id)arg5 contact:(id)arg6 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg7;
+- (id)bestMatchForControl:(id)arg1 inDomain:(id)arg2 matchingPartialString:(id)arg3 autoFillDataType:(long long)arg4 preferredLabel:(id)arg5 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg6;
 - (id)cascadingAddressMatchesForMatch:(id)arg1 contact:(id)arg2;
-- (id)matchesForControl:(id)arg1 inDomain:(id)arg2 matchingPartialString:(id)arg3 usingOnlyAddressBookData:(_Bool)arg4 preferredLabel:(id)arg5 contact:(id)arg6 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg7;
-- (id)matchesForControl:(id)arg1 inDomain:(id)arg2 matchingPartialString:(id)arg3 usingOnlyAddressBookData:(_Bool)arg4 preferredLabel:(id)arg5 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg6;
-- (id)matchesForControl:(id)arg1 atURL:(id)arg2 matchingPartialString:(id)arg3 usingOnlyAddressBookData:(_Bool)arg4 contact:(id)arg5 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg6;
-- (id)matchesForControl:(id)arg1 atURL:(id)arg2 matchingPartialString:(id)arg3 usingOnlyAddressBookData:(_Bool)arg4 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg5;
+- (id)_matchesForControl:(id)arg1 inDomain:(id)arg2 matchingPartialString:(id)arg3 autoFillDataType:(long long)arg4 preferredLabel:(id)arg5 contact:(id)arg6 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg7;
+- (id)_matchesForControl:(id)arg1 inDomain:(id)arg2 matchingPartialString:(id)arg3 autoFillDataType:(long long)arg4 preferredLabel:(id)arg5 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg6;
+- (id)matchesForControl:(id)arg1 atURL:(id)arg2 matchingPartialString:(id)arg3 autoFillDataType:(long long)arg4 contact:(id)arg5 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg6;
+- (id)matchesForControl:(id)arg1 atURL:(id)arg2 matchingPartialString:(id)arg3 autoFillDataType:(long long)arg4 allowingIdentifiedAddressBookLabelToOverridePreferredIdentifier:(_Bool)arg5;
 - (_Bool)addressBookHasDataForLabel:(id)arg1;
 - (id)bestAddressBookLabelForFormMetadata:(id)arg1 formControlValue:(id)arg2;
 - (id)_cachedLocalizedStringsForBirthdate:(id)arg1;
@@ -134,10 +136,13 @@
 - (void)clearPreviousDataDatabaseItemsAddedAfterDate:(id)arg1;
 - (void)clearPreviousDataForDomain:(id)arg1;
 - (id)domainsWithPreviousData;
+- (id)_domainsWithPreviousDataOnInternalQueue;
 - (void)saveCompletionDBSoon;
 - (id)allFormDataForSaving;
+- (id)_completionDB;
 - (void)pruneCompletionDB;
 - (void)loadCompletionDBIfNeeded;
+- (void)_loadCompletionDBIfNeededOnInternalQueue;
 - (void)dealloc;
 - (id)initWithAggressiveKeychainCaching:(_Bool)arg1;
 - (id)init;

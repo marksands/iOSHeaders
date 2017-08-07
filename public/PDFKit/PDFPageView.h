@@ -103,12 +103,14 @@ __attribute__((visibility("hidden")))
 - (void)forceTileUpdate;
 - (_Bool)enablesTileUpdates;
 - (void)setEnableTileUpdates:(_Bool)arg1;
+- (void)updatePageLayerEffect:(id)arg1;
 - (id)pageLayerEffects;
 - (void)removePageLayerEffectByUUID:(id)arg1;
 - (void)removePageLayerEffect:(id)arg1;
 - (id)getPageLayerEffectByUUID:(id)arg1;
 - (id)addPageLayerEffect:(id)arg1;
 - (_Bool)isVisible;
+- (long long)displayBox;
 - (void)setNeedsTilesUpdate;
 - (void)dealloc;
 - (id)initWithPage:(id)arg1 geometryInterface:(id)arg2 andRenderingProperties:(id)arg3;

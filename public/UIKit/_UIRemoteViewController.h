@@ -48,6 +48,7 @@
     NSString *_deferredDisplayUUID;
     unsigned int _deferredContextID;
     _Bool _focusWasDeferredBeforeDeactivation;
+    _Bool _focusWasDeferredBeforeResignKey;
     NSArray *_allowedNotifications;
     NSArray *_sizeTrackingConstraints;
     _Bool _sizeTrackingViewShouldTranslateAutoResizeMaskIntoConstraints;
@@ -174,6 +175,8 @@
 - (id)_terminateWithError:(id)arg1;
 - (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1 andLeftMargin:(double)arg2 rightMargin:(double)arg3;
 - (void)_updateTouchGrabbingView;
+- (void)_uirvc_windowBecameKey:(id)arg1;
+- (void)_uirvc_windowResignedKey:(id)arg1;
 - (void)_applicationDidAddDeactivationReason:(id)arg1;
 - (void)_applicationWillDeactivate:(id)arg1;
 - (void)_applicationDidBecomeActive:(id)arg1;

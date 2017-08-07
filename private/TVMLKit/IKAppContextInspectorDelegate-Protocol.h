@@ -6,12 +6,13 @@
 
 #import <TVMLKit/IKAppContextDelegate-Protocol.h>
 
-@class IKAppContext, IKViewElement, UIColor;
+@class IKAppContext, IKViewElement, NSArray, UIColor;
 
 @protocol IKAppContextInspectorDelegate <IKAppContextDelegate>
 
 @optional
 - (_Bool)cancelHighlightViewForAppContext:(IKAppContext *)arg1;
 - (_Bool)appContext:(IKAppContext *)arg1 highlightViewForElement:(IKViewElement *)arg2 contentColor:(UIColor *)arg3 paddingColor:(UIColor *)arg4 borderColor:(UIColor *)arg5 marginColor:(UIColor *)arg6;
+- (_Bool)appContext:(IKAppContext *)arg1 highlightViewsForElements:(NSArray *)arg2 contentColor:(UIColor *)arg3 paddingColor:(UIColor *)arg4 borderColor:(UIColor *)arg5 marginColor:(UIColor *)arg6;
 @end
 

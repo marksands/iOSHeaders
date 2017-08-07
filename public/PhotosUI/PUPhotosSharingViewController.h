@@ -33,6 +33,7 @@
     NSMapTable *_indexPathsByOptionView;
     UITapGestureRecognizer *_tapGestureRecognizer;
     NSIndexPath *_inFlightReferenceIndexPath;
+    CDUnknownBlockType _postRotationHandler;
     double _cachedEmbeddedActivityViewHeight;
     UIBarButtonItem *_nextButton;
     UIBarButtonItem *_cancelButton;
@@ -147,7 +148,6 @@
 - (void)_updateMainViewAnimated:(_Bool)arg1;
 - (void)_updateNavigationBarAnimated:(_Bool)arg1;
 - (void)_updatePeripheralInterfaceAnimated:(_Bool)arg1;
-- (void)_updateEmbeddedActivityViewAppearance;
 - (void)_statusBarFrameDidChange:(id)arg1;
 - (void)_statusBarFrameWillChange:(id)arg1;
 - (void)_processCollectionListChangeNotifications:(id)arg1 singleCollectionNotifications:(id)arg2 needsReloadData:(_Bool)arg3;
@@ -172,6 +172,8 @@
 - (void)_updateLastKnownReferenceIndexPath;
 - (id)_validIndexPathFromIndexPath:(id)arg1;
 - (void)_getMainCollectionViewFrame:(struct CGRect *)arg1 collectionViewLayoutInsets:(struct UIEdgeInsets *)arg2 embeddedActivityViewFrame:(struct CGRect *)arg3;
+- (double)_embeddedActivityViewHeight;
+- (void)_invalidateEmbeddedActivityViewHeight;
 - (struct CGRect)_collectionViewContentFrame;
 - (void)_endZoomingForCell;
 - (void)_beginZoomingForCellAtIndexPath:(id)arg1;
@@ -197,6 +199,7 @@
 - (id)_currentSelectedAssets;
 - (id)assetsInAssetCollection:(id)arg1;
 @property(readonly, nonatomic) PHFetchResult *assetCollectionsFetchResult;
+- (void)_performBlockWhenNotRotating:(CDUnknownBlockType)arg1;
 - (void)_updateVisibleCells;
 - (id)_indexPathOfAsset:(id)arg1 sectionHint:(long long)arg2;
 - (id)_assetAtIndexPath:(id)arg1;

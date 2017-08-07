@@ -12,6 +12,8 @@
 @protocol CRKCardSectionViewControllerDelegate <CRFeedbackListener>
 
 @optional
+- (long long)preferredPunchoutIndexForCardSectionViewController:(CRKCardSectionViewController *)arg1;
+- (void)cardSectionViewController:(CRKCardSectionViewController *)arg1 didSelectPreferredPunchoutIndex:(long long)arg2;
 - (void)presentViewController:(UIViewController *)arg1 forCardSectionViewController:(CRKCardSectionViewController *)arg2;
 - (void)cardSectionViewController:(CRKCardSectionViewController *)arg1 didHandleParameters:(NSSet *)arg2 forInteraction:(INInteraction *)arg3;
 - (struct CGSize)boundingSizeForCardSectionViewController:(CRKCardSectionViewController *)arg1;

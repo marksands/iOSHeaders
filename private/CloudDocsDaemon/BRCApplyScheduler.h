@@ -9,14 +9,13 @@
 #import <CloudDocsDaemon/BRCModule-Protocol.h>
 #import <CloudDocsDaemon/BRCSuspendable-Protocol.h>
 
-@class BRCCountedSet, NSMutableDictionary, NSMutableSet, NSString;
+@class BRCCountedSet, NSMutableSet, NSString;
 
 __attribute__((visibility("hidden")))
 @interface BRCApplyScheduler : BRCFSSchedulerBase <BRCModule, BRCSuspendable>
 {
     BRCCountedSet *_coordinatedWriters;
     NSMutableSet *_clientZonesWatchingFaults;
-    NSMutableDictionary *_waitingOnApplyJobs;
     _Bool _applyCountReachedMax;
 }
 
@@ -36,7 +35,6 @@ __attribute__((visibility("hidden")))
 - (void)repopulateJobsForZone:(id)arg1;
 - (void)rescheduleMissingTargetAliasesWithTarget:(id)arg1;
 - (void)_fixupCZMAliasTargetWithAlias:(id)arg1 target:(id)arg2;
-- (void)waitForSyncIdleForServerRank:(long long)arg1 zone:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)didMarkSyncIdleForServerRank:(long long)arg1 zone:(id)arg2;
 - (void)_rescheduleRank:(long long)arg1 inState:(int)arg2 forZone:(id)arg3;
 - (void)didCompleteCrossZoneMigrationForAppLibrary:(id)arg1;

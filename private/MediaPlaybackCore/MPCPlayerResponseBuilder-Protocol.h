@@ -22,6 +22,7 @@
 - (CDStruct_98c298d5)playerItemDuration:(CDStruct_98c298d5)arg1 atIndexPath:(NSIndexPath *)arg2 chain:(MPMiddlewareChain *)arg3;
 - (unsigned long long)playerNumberOfItems:(unsigned long long)arg1 inSection:(unsigned long long)arg2 chain:(MPMiddlewareChain *)arg3;
 - (unsigned long long)playerNumberOfSections:(unsigned long long)arg1 chain:(MPMiddlewareChain *)arg2;
+- (long long)playerUpNextItemCount:(long long)arg1 chain:(MPMiddlewareChain *)arg2;
 - (long long)playerLastChangeDirection:(long long)arg1 chain:(MPMiddlewareChain *)arg2;
 - (long long)playerShuffleType:(long long)arg1 chain:(MPMiddlewareChain *)arg2;
 - (long long)playerRepeatType:(long long)arg1 chain:(MPMiddlewareChain *)arg2;

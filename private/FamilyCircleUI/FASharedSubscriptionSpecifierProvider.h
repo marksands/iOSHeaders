@@ -25,6 +25,7 @@
 @property(nonatomic) __weak id <FASharedSubscriptionSpecifierProviderDelegeate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSArray *specifiers; // @synthesize specifiers=_specifiers;
 - (void).cxx_destruct;
+- (void)reloadSpecifiers;
 - (void)_handleSubscriptionListResponse:(id)arg1;
 - (void)_loadSubscriptionServices;
 - (id)_valueForServiceSpecifier:(id)arg1;

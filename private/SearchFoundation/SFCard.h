@@ -32,11 +32,13 @@
     NSString *_resultIdentifier;
     unsigned long long _queryId;
     NSString *_fbr;
+    NSArray *_entityProtobufMessages;
     NSData *_originalCardData;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic, getter=_originalCardData, setter=_setOriginalCardData:) NSData *originalCardData; // @synthesize originalCardData=_originalCardData;
+@property(copy, nonatomic) NSArray *entityProtobufMessages; // @synthesize entityProtobufMessages=_entityProtobufMessages;
 @property(nonatomic) _Bool flexibleSectionOrder; // @synthesize flexibleSectionOrder=_flexibleSectionOrder;
 @property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
 @property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;

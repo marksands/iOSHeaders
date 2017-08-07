@@ -22,6 +22,7 @@
 - (void).cxx_destruct;
 - (void)_completeRequest;
 - (void)_cancelRequestWithError:(id)arg1;
+- (void)_openExtensionURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

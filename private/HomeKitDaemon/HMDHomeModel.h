@@ -6,7 +6,7 @@
 
 #import <HomeKitDaemon/HMDBackingStoreModelObject.h>
 
-@class NSData, NSNumber, NSString;
+@class HMDHomeKitVersion, NSData, NSNumber, NSString;
 
 @interface HMDHomeModel : HMDBackingStoreModelObject
 {
@@ -28,6 +28,7 @@
 @property(retain, nonatomic) NSNumber *presenceAuthorizationStatus; // @dynamic presenceAuthorizationStatus;
 @property(retain, nonatomic) NSNumber *presenceComputeStatus; // @dynamic presenceComputeStatus;
 @property(retain, nonatomic) NSString *primaryResidentUUID; // @dynamic primaryResidentUUID;
+@property(retain, nonatomic) HMDHomeKitVersion *sharedHomeSourceVersion; // @dynamic sharedHomeSourceVersion;
 
 @end
 

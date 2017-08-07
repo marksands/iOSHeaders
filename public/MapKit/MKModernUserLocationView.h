@@ -6,7 +6,7 @@
 
 #import <MapKit/MKUserLocationView.h>
 
-@class CALayer, UIImage, _MKBalloonCalloutView;
+@class CALayer, UIImage;
 
 @interface MKModernUserLocationView : MKUserLocationView
 {
@@ -18,14 +18,11 @@
     _Bool _rotateInnerImageToMatchCourse;
     CALayer *_baseLayer;
     CALayer *_baseDimmingLayer;
-    _MKBalloonCalloutView *_balloonCalloutView;
-    _Bool _hideCallout;
 }
 
 + (double)outerRingWidth;
 + (double)innerDiameter;
 + (double)baseDiameter;
-@property(nonatomic) _Bool hideCallout; // @synthesize hideCallout=_hideCallout;
 @property(nonatomic) _Bool rotateInnerImageToMatchCourse; // @synthesize rotateInnerImageToMatchCourse=_rotateInnerImageToMatchCourse;
 @property(retain, nonatomic) UIImage *innerImageMask; // @synthesize innerImageMask=_innerImageMask;
 @property(nonatomic) _Bool shouldShowOuterRing; // @synthesize shouldShowOuterRing=_shouldShowOuterRing;
@@ -37,8 +34,6 @@
 - (void)tintColorDidChange;
 - (void)_updateAccuracyColors;
 - (void)_updateLayers;
-- (void)_didHideBalloonCalloutView:(id)arg1;
-- (void)_addBalloonCalloutView:(id)arg1;
 - (void)setEffectsEnabled:(_Bool)arg1;
 - (void)_setupLayers;
 - (void)_updateInnerImage;

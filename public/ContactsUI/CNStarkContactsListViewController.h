@@ -31,6 +31,7 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)limitedUINotification:(id)arg1;
 - (void)updateLimitedUI;
+- (id)createTableView;
 - (void)dealloc;
 - (id)initWithDataSource:(id)arg1 searchable:(_Bool)arg2 environment:(id)arg3 shouldUseLargeTitle:(_Bool)arg4;
 - (id)initWithStyle:(long long)arg1;

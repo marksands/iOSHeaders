@@ -6,18 +6,18 @@
 
 #import <objc/NSObject.h>
 
-__attribute__((visibility("hidden")))
 @interface TVGraphicsImageRenderer : NSObject
 {
 }
 
++ (id)decodedImage:(id)arg1 opaque:(_Bool)arg2;
 + (id)imageWithSize:(struct CGSize)arg1 alpha:(_Bool)arg2 cgContextActions:(CDUnknownBlockType)arg3;
 + (id)imageWithSize:(struct CGSize)arg1 alpha:(_Bool)arg2 actions:(CDUnknownBlockType)arg3;
 + (id)imageWithSize:(struct CGSize)arg1 format:(id)arg2 cgContextActions:(CDUnknownBlockType)arg3;
 + (id)imageWithSize:(struct CGSize)arg1 format:(id)arg2 actions:(CDUnknownBlockType)arg3;
 + (id)formatWithUIImage:(id)arg1;
 + (id)formatWithCGImage:(struct CGImage *)arg1;
-+ (id)currentFormat;
++ (id)preferredFormat;
 
 @end
 

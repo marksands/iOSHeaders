@@ -6,7 +6,7 @@
 
 #import <SafariServices/_SFDialog.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface SFBasicDialog : _SFDialog
@@ -14,7 +14,9 @@ __attribute__((visibility("hidden")))
     _Bool _canceledOnProvisionalNavigation;
     _Bool _canceledOnCommittedNavigation;
     _Bool _completionHandlerBlocksWebProcess;
+    _Bool _alertControllerPresentsAsActionSheet;
     _Bool _shouldHideWebContent;
+    NSArray *_additionalCancellationExemptions;
     long long _presentationStyle;
     NSString *_title;
     NSString *_message;
@@ -22,15 +24,14 @@ __attribute__((visibility("hidden")))
     NSString *_textPlaceholder;
     NSString *_defaultPassword;
     NSString *_passwordPlaceholder;
-    NSString *_primaryActionTitle;
-    NSString *_secondaryActionTitle;
+    NSArray *_actions;
     CDUnknownBlockType _completionHandler;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(nonatomic) _Bool shouldHideWebContent; // @synthesize shouldHideWebContent=_shouldHideWebContent;
-@property(copy, nonatomic) NSString *secondaryActionTitle; // @synthesize secondaryActionTitle=_secondaryActionTitle;
-@property(copy, nonatomic) NSString *primaryActionTitle; // @synthesize primaryActionTitle=_primaryActionTitle;
+@property(nonatomic) _Bool alertControllerPresentsAsActionSheet; // @synthesize alertControllerPresentsAsActionSheet=_alertControllerPresentsAsActionSheet;
+@property(copy, nonatomic) NSArray *actions; // @synthesize actions=_actions;
 @property(copy, nonatomic) NSString *passwordPlaceholder; // @synthesize passwordPlaceholder=_passwordPlaceholder;
 @property(copy, nonatomic) NSString *defaultPassword; // @synthesize defaultPassword=_defaultPassword;
 @property(copy, nonatomic) NSString *textPlaceholder; // @synthesize textPlaceholder=_textPlaceholder;
@@ -39,6 +40,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) long long presentationStyle; // @synthesize presentationStyle=_presentationStyle;
 @property(nonatomic) _Bool completionHandlerBlocksWebProcess; // @synthesize completionHandlerBlocksWebProcess=_completionHandlerBlocksWebProcess;
+@property(copy, nonatomic) NSArray *additionalCancellationExemptions; // @synthesize additionalCancellationExemptions=_additionalCancellationExemptions;
 @property(nonatomic) _Bool canceledOnCommittedNavigation; // @synthesize canceledOnCommittedNavigation=_canceledOnCommittedNavigation;
 @property(nonatomic) _Bool canceledOnProvisionalNavigation; // @synthesize canceledOnProvisionalNavigation=_canceledOnProvisionalNavigation;
 - (void).cxx_destruct;

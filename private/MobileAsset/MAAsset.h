@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSDictionary, NSString;
 
@@ -32,6 +32,7 @@
 - (void)logAsset;
 - (id)assetProperty:(id)arg1;
 - (id)getLocalUrl;
+- (id)getLocalFileUrl;
 - (void)attachProgressCallBack:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initWithAttributes:(id)arg1;

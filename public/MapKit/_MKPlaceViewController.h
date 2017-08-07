@@ -150,7 +150,7 @@
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)hideTitle:(_Bool)arg1;
-@property(nonatomic) double currentHeaderMinimalModeInterpolationFactor;
+@property(nonatomic) double contentAlpha;
 - (void)contactPicker:(id)arg1 didSelectContact:(id)arg2;
 - (void)contactPickerDidCancel:(id)arg1;
 - (void)contactViewController:(id)arg1 didDeleteContact:(id)arg2;
@@ -218,12 +218,13 @@
 - (id)createRowActions;
 - (id)createFooterActions;
 - (struct UIViewController *)_createViewControllerForModule:(id)arg1;
+- (void)_createViewControllersForShortPlacecard:(id)arg1;
 - (void)_createViewControllers:(id)arg1;
 - (void)_createViewControllersForBrand:(id)arg1;
 - (void)_updateViewControllers;
 - (_Bool)_shouldShowContactActions;
 - (_Bool)_contactStoredMatchingMapItem:(id)arg1;
-- (_Bool)_removeMapsDataFromContact:(id)arg1;
+- (id)_removeMapsDataFromContact:(id)arg1;
 - (id)_refetchedContactForCCTV:(id)arg1 error:(id *)arg2;
 @property(readonly, nonatomic) CNContact *contact; // @synthesize contact=_contact;
 - (id)_contactForEditOperations;

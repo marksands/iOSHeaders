@@ -18,6 +18,7 @@
     NSMutableSet *_servedArtworks;
 }
 
++ (_Bool)supportsSecureCoding;
 + (_Bool)canHandleArtworkFormat:(id)arg1;
 @property(readonly, nonatomic) NSMutableSet *servedArtworks; // @synthesize servedArtworks=_servedArtworks;
 @property(readonly, nonatomic) NSString *urlTemplateString; // @synthesize urlTemplateString=_urlTemplateString;
@@ -26,6 +27,8 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSMutableDictionary *cacheRepresentation;
 - (id)initWithCacheRepresentation:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly) unsigned long long hash;

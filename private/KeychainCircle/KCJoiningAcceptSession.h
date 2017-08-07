@@ -6,21 +6,25 @@
 
 #import <objc/NSObject.h>
 
-@class KCAESGCMDuplexSession, KCSRPServerContext, NSData;
+@class KCAESGCMDuplexSession, KCSRPServerContext, NSData, NSString;
 @protocol KCJoiningAcceptCircleDelegate, KCJoiningAcceptSecretDelegate;
 
 @interface KCJoiningAcceptSession : NSObject
 {
     int _state;
+    int _piggy_version;
     unsigned long long _dsid;
     NSObject<KCJoiningAcceptSecretDelegate> *_secretDelegate;
     NSObject<KCJoiningAcceptCircleDelegate> *_circleDelegate;
     KCSRPServerContext *_context;
     KCAESGCMDuplexSession *_session;
     NSData *_startMessage;
+    NSString *_piggy_uuid;
 }
 
 + (id)sessionWithInitialMessage:(id)arg1 secretDelegate:(id)arg2 circleDelegate:(id)arg3 dsid:(unsigned long long)arg4 error:(id *)arg5;
+@property int piggy_version; // @synthesize piggy_version=_piggy_version;
+@property(retain) NSString *piggy_uuid; // @synthesize piggy_uuid=_piggy_uuid;
 @property(retain) NSData *startMessage; // @synthesize startMessage=_startMessage;
 @property(readonly) int state; // @synthesize state=_state;
 @property(readonly) KCAESGCMDuplexSession *session; // @synthesize session=_session;

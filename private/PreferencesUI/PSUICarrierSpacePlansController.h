@@ -30,8 +30,8 @@
 - (void)moreDetailsButtonTapped:(id)arg1;
 - (id)specifiers;
 - (void)viewDidAppear:(_Bool)arg1;
-- (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)carrierSpaceChanged;
 - (void)simStatusChanged;
 
 // Remaining properties

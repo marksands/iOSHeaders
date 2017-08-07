@@ -6,20 +6,14 @@
 
 #import <objc/NSObject.h>
 
-@protocol OS_dispatch_group;
-
 __attribute__((visibility("hidden")))
 @interface _NSXPCConnectionExpectedReplies : NSObject
 {
     struct __CFDictionary *_replyTable;
     struct _opaque_pthread_mutex_t _lock;
     unsigned long long _sequence;
-    NSObject<OS_dispatch_group> *_replyGroup;
 }
 
-- (void)addReplyCompletionBlockOnQueue:(id)arg1 block:(CDUnknownBlockType)arg2;
-- (void)decrementOutstandingReplyCount;
-- (void)incrementOutstandingReplyCount;
 - (id)progressForSequence:(unsigned long long)arg1;
 - (void)removeProgressSequence:(unsigned long long)arg1;
 - (unsigned long long)sequenceForProgress:(id)arg1;

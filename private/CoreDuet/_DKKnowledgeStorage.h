@@ -34,13 +34,15 @@
 @property(readonly, nonatomic) _Bool localOnly; // @synthesize localOnly=_localOnly;
 - (void).cxx_destruct;
 - (id)syncStorageAssertion;
-- (void)cd_fetchChangesAndUpdateObservedStore;
 - (void)decrementInsertsAndDeletesObserverCount;
 - (void)incrementInsertsAndDeletesObserverCount;
 - (void)_sendInsertsAndDeletesNotificationWithNotification:(id)arg1;
 - (void)_databaseChangedWithNotification:(id)arg1;
-- (unsigned long long)lastSequenceNumberForChangeSetEntityName:(id)arg1;
-- (void)saveChangeForSync:(id)arg1 responseQueue:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (id)lastChangeSetWithEntityName:(id)arg1 error:(id *)arg2;
+- (void)startSyncUpToCloudWithResponseQueue:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)startSyncDownFromCloudWithResponseQueue:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (unsigned long long)lastSequenceNumberForChangeSetWithEntityName:(id)arg1 error:(id *)arg2;
+- (_Bool)saveChangeSetsForSync:(id)arg1 error:(id *)arg2;
 - (id)fetchSyncChangesSinceDate:(id)arg1 error:(id *)arg2;
 - (id)fetchLocalChangesSinceDate:(id)arg1 error:(id *)arg2;
 - (id)_requestForChangeSinceDate:(id)arg1;

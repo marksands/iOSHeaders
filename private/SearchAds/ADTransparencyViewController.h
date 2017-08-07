@@ -21,8 +21,10 @@
     NSString *_transparencyDetails;
     NSDictionary *_transparencyDetailsData;
     UILabel *_errorLabel;
+    double _statusBarOffset;
 }
 
+@property(nonatomic) double statusBarOffset; // @synthesize statusBarOffset=_statusBarOffset;
 @property(retain, nonatomic) UILabel *errorLabel; // @synthesize errorLabel=_errorLabel;
 @property(retain, nonatomic) NSDictionary *transparencyDetailsData; // @synthesize transparencyDetailsData=_transparencyDetailsData;
 @property(copy, nonatomic) NSString *transparencyDetails; // @synthesize transparencyDetails=_transparencyDetails;

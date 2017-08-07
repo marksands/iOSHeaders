@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
     BRCThrottleBase *_downloadThrottle;
     BRCThrottleBase *_uploadThrottle;
     BRCThrottleBase *_uploadFileModifiedThrottle;
+    BRCThrottleBase *_perItemSyncUpThrottle;
     BRCTransferStream *_uploadStream;
     BRCTransferStream *_downloadStream;
 }
@@ -42,6 +43,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isShared; // @synthesize isShared=_isShared;
 @property(readonly, nonatomic) BRCTransferStream *downloadStream; // @synthesize downloadStream=_downloadStream;
 @property(readonly, nonatomic) BRCTransferStream *uploadStream; // @synthesize uploadStream=_uploadStream;
+@property(readonly, nonatomic) BRCThrottleBase *perItemSyncUpThrottle; // @synthesize perItemSyncUpThrottle=_perItemSyncUpThrottle;
 @property(readonly, nonatomic) BRCThrottleBase *uploadFileModifiedThrottle; // @synthesize uploadFileModifiedThrottle=_uploadFileModifiedThrottle;
 @property(readonly, nonatomic) BRCThrottleBase *uploadThrottle; // @synthesize uploadThrottle=_uploadThrottle;
 @property(readonly, nonatomic) BRCThrottleBase *downloadThrottle; // @synthesize downloadThrottle=_downloadThrottle;

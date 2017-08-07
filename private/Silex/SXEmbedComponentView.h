@@ -13,7 +13,7 @@
 #import <Silex/WKScriptMessageHandler-Protocol.h>
 #import <Silex/WKUIDelegate-Protocol.h>
 
-@class NSMutableSet, NSString, SXEmbedResource, UIActivityIndicatorView, UILabel, WKNavigation, WKWebView;
+@class NSMutableSet, NSString, SXEmbedResource, SXWebCrashRetryThrottler, UIActivityIndicatorView, UILabel, WKNavigation, WKWebView;
 @protocol SXEmbedType;
 
 @interface SXEmbedComponentView : SXComponentView <WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler, UIGestureRecognizerDelegate, UIScrollViewDelegate, SXViewportChangeListener>
@@ -23,6 +23,7 @@
     id <SXEmbedType> _embedDataSource;
     SXEmbedResource *_embedResource;
     WKWebView *_webView;
+    SXWebCrashRetryThrottler *_webCrashRetryThrottler;
     WKWebView *_webViewPresentingInFullscreen;
     UILabel *_errorLabel;
     NSString *_HTML;
@@ -49,6 +50,7 @@
 @property(retain, nonatomic) NSString *HTML; // @synthesize HTML=_HTML;
 @property(retain, nonatomic) UILabel *errorLabel; // @synthesize errorLabel=_errorLabel;
 @property(retain, nonatomic) WKWebView *webViewPresentingInFullscreen; // @synthesize webViewPresentingInFullscreen=_webViewPresentingInFullscreen;
+@property(retain, nonatomic) SXWebCrashRetryThrottler *webCrashRetryThrottler; // @synthesize webCrashRetryThrottler=_webCrashRetryThrottler;
 @property(retain, nonatomic) WKWebView *webView; // @synthesize webView=_webView;
 @property(retain, nonatomic) SXEmbedResource *embedResource; // @synthesize embedResource=_embedResource;
 @property(retain, nonatomic) id <SXEmbedType> embedDataSource; // @synthesize embedDataSource=_embedDataSource;

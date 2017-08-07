@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class AVConferenceXPCClient, CALayer, NSDictionary, NSMutableDictionary, NSTimer;
 @protocol AVConferenceDelegate, OS_dispatch_queue;
@@ -20,6 +20,7 @@
     _Bool _microphoneMuted;
     NSMutableDictionary *_stateCacheForCallID;
     NSObject<OS_dispatch_queue> *_stateQueue;
+    NSObject<OS_dispatch_queue> *_callbackQueue;
     _Bool shouldDisplayNetworkQualityGraph_;
     NSTimer *networkQualityUpdateTimer_;
     CALayer *networkQualityGraphLayer_;

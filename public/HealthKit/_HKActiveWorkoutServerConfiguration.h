@@ -23,9 +23,13 @@
     HKQuantity *_lapLength;
     long long _swimmingLocation;
     NSUUID *_fitnessMachineSessionID;
+    HKQuantity *_initialActiveEnergyBurned;
+    HKQuantity *_initialBasalEnergyBurned;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) HKQuantity *initialBasalEnergyBurned; // @synthesize initialBasalEnergyBurned=_initialBasalEnergyBurned;
+@property(retain, nonatomic) HKQuantity *initialActiveEnergyBurned; // @synthesize initialActiveEnergyBurned=_initialActiveEnergyBurned;
 @property(retain, nonatomic) NSUUID *fitnessMachineSessionID; // @synthesize fitnessMachineSessionID=_fitnessMachineSessionID;
 @property(nonatomic) long long swimmingLocation; // @synthesize swimmingLocation=_swimmingLocation;
 @property(retain, nonatomic) HKQuantity *lapLength; // @synthesize lapLength=_lapLength;

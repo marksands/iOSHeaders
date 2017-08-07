@@ -67,7 +67,7 @@
 @property(readonly, nonatomic) long long selectedRouteType;
 @property(readonly, nonatomic) unsigned long long availableRoutesMask;
 - (void)toggleSpeaker;
-- (void)showAvailableRoutes;
+- (void)showAvailableRoutesInWindow:(id)arg1;
 - (void)removeRouteAssertion:(id)arg1;
 - (void)addRouteAssertion:(id)arg1;
 - (void)dealloc;

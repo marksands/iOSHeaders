@@ -26,6 +26,7 @@
 @property(nonatomic, getter=_automaticallyPreferOwningView, setter=_setAutomaticallyPreferOwningView:) _Bool automaticallyPreferOwningView; // @synthesize automaticallyPreferOwningView=_automaticallyPreferOwningView;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 - (void).cxx_destruct;
+- (_Bool)_uili_isFocusGuide;
 - (void)focusGuideRegion:(id)arg1 willParticipateAsDestinationRegionInFocusUpdate:(id)arg2;
 - (id)focusGuideRegion:(id)arg1 preferredFocusEnvironmentsForMovementRequest:(id)arg2;
 - (id)_regionForFocusedItem:(id)arg1 inCoordinateSpace:(id)arg2;

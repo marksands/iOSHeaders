@@ -60,6 +60,7 @@
 - (struct CGRect)_referenceBoundsForOrientation:(long long)arg1;
 - (struct CGRect)_referenceBounds;
 - (void)_computeMetrics:(_Bool)arg1;
+- (_Bool)_windowIsFront:(id)arg1;
 - (void)_windowUpdatedProperties:(id)arg1;
 - (void)_windowUpdatedVisibility:(id)arg1;
 - (void)_updateVisibleWindowOrderWithTest:(CDUnknownBlockType)arg1;

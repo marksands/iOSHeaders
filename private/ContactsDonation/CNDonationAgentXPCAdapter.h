@@ -14,6 +14,7 @@
 {
 }
 
++ (id)newXPCConnection;
 + (void)removeAllRejectionsWithScope:(id)arg1;
 + (void)rejectValuesWithClusterIdentifier:(id)arg1 scope:(id)arg2;
 + (void)rejectValueWithDonationIdentifier:(id)arg1 scope:(id)arg2;
@@ -22,6 +23,7 @@
 + (void)fetchDonatedMeCardWithScope:(id)arg1;
 + (void)removeDonatedMeCardValuesForIdentifiers:(id)arg1 scope:(id)arg2;
 + (void)donateMeCardValues:(id)arg1 scope:(id)arg2;
+- (id)donatedMeCardEither;
 - (id)removeAllRejections;
 - (id)rejectValuesWithClusterIdentifier:(id)arg1;
 - (id)changeFromAccount:(id)arg1 toAccount:(id)arg2;

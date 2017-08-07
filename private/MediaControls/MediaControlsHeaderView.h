@@ -12,7 +12,6 @@
 {
     _Bool _transitioning;
     _Bool _empty;
-    _Bool _showRoutingLabel;
     _Bool _showingRoutingPicker;
     _Bool _onlyShowsRoutingPicker;
     long long _style;
@@ -22,30 +21,34 @@
     MPArtworkCatalog *_artworkCatalog;
     MPButton *_routingButton;
     MPButton *_doneButton;
+    MPButton *_playPauseButton;
     UIButton *_launchNowPlayingAppButton;
     UIImageView *_artworkView;
     UIView *_artworkBackgroundView;
     UIView *_shadow;
+    MPUMarqueeView *_titleMarqueeView;
     UILabel *_titleLabel;
     MPUMarqueeView *_primaryMarqueeView;
     UILabel *_primaryLabel;
     MPUMarqueeView *_secondaryMarqueeView;
     UILabel *_secondaryLabel;
-    UIView *_doneButtonBackground;
+    UIView *_buttonBackground;
     struct CGSize _artworkSize;
 }
 
-@property(retain, nonatomic) UIView *doneButtonBackground; // @synthesize doneButtonBackground=_doneButtonBackground;
+@property(retain, nonatomic) UIView *buttonBackground; // @synthesize buttonBackground=_buttonBackground;
 @property(retain, nonatomic) UILabel *secondaryLabel; // @synthesize secondaryLabel=_secondaryLabel;
 @property(retain, nonatomic) MPUMarqueeView *secondaryMarqueeView; // @synthesize secondaryMarqueeView=_secondaryMarqueeView;
 @property(retain, nonatomic) UILabel *primaryLabel; // @synthesize primaryLabel=_primaryLabel;
 @property(retain, nonatomic) MPUMarqueeView *primaryMarqueeView; // @synthesize primaryMarqueeView=_primaryMarqueeView;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(retain, nonatomic) MPUMarqueeView *titleMarqueeView; // @synthesize titleMarqueeView=_titleMarqueeView;
 @property(retain, nonatomic) UIView *shadow; // @synthesize shadow=_shadow;
 @property(retain, nonatomic) UIView *artworkBackgroundView; // @synthesize artworkBackgroundView=_artworkBackgroundView;
 @property(nonatomic) struct CGSize artworkSize; // @synthesize artworkSize=_artworkSize;
 @property(retain, nonatomic) UIImageView *artworkView; // @synthesize artworkView=_artworkView;
 @property(retain, nonatomic) UIButton *launchNowPlayingAppButton; // @synthesize launchNowPlayingAppButton=_launchNowPlayingAppButton;
+@property(retain, nonatomic) MPButton *playPauseButton; // @synthesize playPauseButton=_playPauseButton;
 @property(retain, nonatomic) MPButton *doneButton; // @synthesize doneButton=_doneButton;
 @property(retain, nonatomic) MPButton *routingButton; // @synthesize routingButton=_routingButton;
 @property(retain, nonatomic) MPArtworkCatalog *artworkCatalog; // @synthesize artworkCatalog=_artworkCatalog;
@@ -55,16 +58,14 @@
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic) _Bool onlyShowsRoutingPicker; // @synthesize onlyShowsRoutingPicker=_onlyShowsRoutingPicker;
 @property(nonatomic, getter=isShowingRoutingPicker) _Bool showingRoutingPicker; // @synthesize showingRoutingPicker=_showingRoutingPicker;
-@property(nonatomic) _Bool showRoutingLabel; // @synthesize showRoutingLabel=_showRoutingLabel;
 @property(nonatomic, getter=isEmpty) _Bool empty; // @synthesize empty=_empty;
 @property(nonatomic, getter=isTransitioning) _Bool transitioning; // @synthesize transitioning=_transitioning;
 - (void).cxx_destruct;
 - (void)_handleContentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_updateRTL;
-- (void)_updateTitleString;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_updateStyle;
-- (double)layoutTextInAvailableBounds:(struct CGRect)arg1 setFrames:(_Bool)arg2;
+- (struct CGSize)layoutTextInAvailableBounds:(struct CGRect)arg1 setFrames:(_Bool)arg2;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -8,12 +8,15 @@
 
 @interface VNFaceLandmarkRegion : NSObject
 {
+    struct CGRect _faceBoundingBox;
     unsigned long long _pointCount;
 }
 
 @property unsigned long long pointCount; // @synthesize pointCount=_pointCount;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (struct CGRect)faceBoundingBox;
+- (id)initWithFaceBoundingBox:(struct CGRect)arg1;
 
 @end
 

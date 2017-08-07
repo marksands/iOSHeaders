@@ -6,28 +6,29 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSString, NSURL, PSUIAppDescription;
-@protocol OS_dispatch_semaphore;
+@class NSString, NSURL, NSURLSession, PSUIAppDescription;
 
 @interface PSUIAppInstallController : NSObject
 {
-    PSUIAppDescription *_appDescription;
-    NSObject<OS_dispatch_semaphore> *_storeLookupSem;
+    NSURLSession *_session;
     int _installState;
     NSString *_appID;
     NSString *_bundleID;
-    NSString *_teamID;
+    PSUIAppDescription *_appDescription;
     NSURL *_installURL;
-    NSURL *_carrierURL;
+    NSURL *_moreAppsURL;
 }
 
 + (id)tryLoadAppDescriptionFromCache;
 + (void)saveAppDescriptionToCache:(id)arg1;
-+ (id)iconURLForKey:(id)arg1;
-@property(retain, nonatomic) NSURL *carrierURL; // @synthesize carrierURL=_carrierURL;
-@property(retain, nonatomic) NSURL *installURL; // @synthesize installURL=_installURL;
-@property(retain, nonatomic) NSString *teamID; // @synthesize teamID=_teamID;
-@property(readonly, nonatomic) int installState; // @synthesize installState=_installState;
++ (id)iconLocalCacheURLFromKey:(id)arg1;
++ (id)loadIconFromURL:(id)arg1 session:(id)arg2;
++ (void)lookupAppFromStore:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (id)lookupAppDescriptionForInstalledApp:(id)arg1;
+@property(retain, nonatomic) NSURL *moreAppsURL; // @synthesize moreAppsURL=_moreAppsURL;
+@property(retain) NSURL *installURL; // @synthesize installURL=_installURL;
+@property(retain) PSUIAppDescription *appDescription; // @synthesize appDescription=_appDescription;
+@property(readonly) int installState; // @synthesize installState=_installState;
 @property(readonly, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(readonly, nonatomic) NSString *appID; // @synthesize appID=_appID;
 - (void).cxx_destruct;
@@ -36,8 +37,6 @@
 - (_Bool)moreAppsAvailable;
 - (void)installButtonTapped:(id)arg1;
 - (void)load;
-- (id)appDescriptionFromAppProxyForBundleID:(id)arg1;
-- (id)imageFromURL:(id)arg1;
 - (id)initWithBundleID:(id)arg1;
 - (id)initWithAppID:(id)arg1 carrierMoreAppsURL:(id)arg2;
 

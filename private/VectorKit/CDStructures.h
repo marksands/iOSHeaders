@@ -454,7 +454,7 @@ struct DebugConsoleManager;
 struct DebugTree {
     VKMapView *_mapView;
     struct vector<std::__1::shared_ptr<md::DebugTreeNode>, std::__1::allocator<std::__1::shared_ptr<md::DebugTreeNode>>> _nodes;
-    _Bool _options[3];
+    _Bool _options[4];
 };
 
 struct DebugTreeNode;
@@ -649,7 +649,7 @@ struct LabelCustomFeatureSupport;
 struct LabelExternalIconRenderer;
 
 struct LabelExternalObjectsModerator {
-    struct fast_shared_ptr<md::unsynchronized_weak_interface_ptr<md::LabelExternalObjectsModerator>> _field1;
+    struct shared_ptr<md::weak_interface_ptr<md::LabelExternalObjectsModerator>> _field1;
     struct LabelExternalIconRenderer *_field2;
     struct vector<std::__1::shared_ptr<md::LabelCreateExternalIconRequest>, std::__1::allocator<std::__1::shared_ptr<md::LabelCreateExternalIconRequest>>> _field3;
     struct unordered_set<std::__1::shared_ptr<md::LabelExternalIcon>, std::__1::hash<std::__1::shared_ptr<md::LabelExternalIcon>>, std::__1::equal_to<std::__1::shared_ptr<md::LabelExternalIcon>>, std::__1::allocator<std::__1::shared_ptr<md::LabelExternalIcon>>> _field4;
@@ -1489,6 +1489,7 @@ struct StrokeBufferSizing {
 
 struct Style {
     struct optional<gss::IconStyle> _iconStyle;
+    struct vector<md::IconImage::IconLayer, std::__1::allocator<md::IconImage::IconLayer>> _iconLayers;
     float _scale;
     float _contentScale;
     float _fillWeight;
@@ -1824,9 +1825,10 @@ struct VenueBuilding {
     unsigned long long _field2;
     unsigned long long _field3;
     unsigned long long _field4;
-    short _field5;
-    Matrix_2bdd42a3 _field6;
-    struct ConvexHull2<double> _field7;
+    unsigned long long _field5;
+    short _field6;
+    Matrix_2bdd42a3 _field7;
+    struct ConvexHull2<double> _field8;
 };
 
 struct VenueBuildingFeatureMarker;
@@ -2207,10 +2209,6 @@ struct fast_shared_ptr<md::RouteLineSection> {
     struct _fast_shared_ptr_control *_control;
 };
 
-struct fast_shared_ptr<md::unsynchronized_weak_interface_ptr<md::LabelExternalObjectsModerator>> {
-    struct _fast_shared_ptr_control *_field1;
-};
-
 struct fast_shared_ptr<md::unsynchronized_weak_interface_ptr<md::TransitNodeFeaturePool>> {
     struct _fast_shared_ptr_control *_field1;
 };
@@ -2275,6 +2273,21 @@ struct map<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>, std
             unsigned long long __first_;
         } __pair3_;
     } __tree_;
+};
+
+struct map<VKTileKey, VKTile *, bool (*)(const VKTileKey &, const VKTileKey &), std::__1::allocator<std::__1::pair<const VKTileKey, VKTile *>>> {
+    struct __tree<std::__1::__value_type<VKTileKey, VKTile *>, std::__1::__map_value_compare<VKTileKey, std::__1::__value_type<VKTileKey, VKTile *>, bool (*)(const VKTileKey &, const VKTileKey &), false>, std::__1::allocator<std::__1::__value_type<VKTileKey, VKTile *>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<VKTileKey, VKTile *>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<VKTileKey, std::__1::__value_type<VKTileKey, VKTile *>, bool (*)(const VKTileKey &, const VKTileKey &), false>> {
+            unsigned long long _field1;
+            struct __map_value_compare<VKTileKey, std::__1::__value_type<VKTileKey, VKTile *>, bool (*)(const VKTileKey &, const VKTileKey &), false> {
+                CDUnknownFunctionPointerType _field1;
+            } _field2;
+        } _field3;
+    } _field1;
 };
 
 struct map<VKTileKey, geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, bool (*)(const VKTileKey &, const VKTileKey &), std::__1::allocator<std::__1::pair<const VKTileKey, geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>> {
@@ -2966,6 +2979,11 @@ struct shared_ptr<md::VenueFeatureMarker> {
 
 struct shared_ptr<md::ViewTransform> {
     struct ViewTransform *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<md::weak_interface_ptr<md::LabelExternalObjectsModerator>> {
+    struct weak_interface_ptr<md::LabelExternalObjectsModerator> *_field1;
     struct __shared_weak_count *_field2;
 };
 
@@ -4328,6 +4346,14 @@ struct vector<md::CommandBufferId, std::__1::allocator<md::CommandBufferId>> {
     } _field3;
 };
 
+struct vector<md::IconImage::IconLayer, std::__1::allocator<md::IconImage::IconLayer>> {
+    unsigned char *__begin_;
+    unsigned char *__end_;
+    struct __compressed_pair<md::IconImage::IconLayer *, std::__1::allocator<md::IconImage::IconLayer>> {
+        unsigned char *__first_;
+    } __end_cap_;
+};
+
 struct vector<md::ManeuverArrowInfo, std::__1::allocator<md::ManeuverArrowInfo>> {
     struct ManeuverArrowInfo *__begin_;
     struct ManeuverArrowInfo *__end_;
@@ -4713,6 +4739,8 @@ struct vector<unsigned long long, std::__1::allocator<unsigned long long>> {
         unsigned long long *_field1;
     } _field3;
 };
+
+struct weak_interface_ptr<md::LabelExternalObjectsModerator>;
 
 struct weak_ptr<ggl::RunLoop::_RunLoopCallbacker> {
     struct _RunLoopCallbacker *__ptr_;

@@ -6,29 +6,15 @@
 
 #import <HomeKitDaemon/HMDCloudZone.h>
 
-@class HMDCloudGroup;
-
 @interface HMDCloudHomeManagerZone : HMDCloudZone
 {
-    HMDCloudGroup *_rootGroup;
 }
 
 + (void)createHomeManagerZoneWithName:(id)arg1 owner:(id)arg2 cacheZone:(id)arg3 cloudCache:(id)arg4 completion:(CDUnknownBlockType)arg5;
-@property(retain, nonatomic) HMDCloudGroup *rootGroup; // @synthesize rootGroup=_rootGroup;
-- (void).cxx_destruct;
++ (id)zoneSubscriptionName:(id)arg1;
++ (id)zoneRootRecordName;
 - (void)setServerChangeToken:(id)arg1;
-- (void)setSubscription:(id)arg1;
-- (id)subscriptionName;
-- (id)owner;
 - (id)createCloudZoneChangeTemporaryCache:(_Bool)arg1;
-- (void)deleteCloudRecord:(id)arg1;
-- (void)updateCloudRecord:(id)arg1;
-- (_Bool)isRootCloudRecord:(id)arg1;
-- (_Bool)isRootRecord:(id)arg1;
-- (id)privateZoneRootRecordID;
-- (void)addCloudRecord:(id)arg1 ownerID:(id)arg2;
-- (id)cloudRecordWithObjectID:(id)arg1;
-- (id)cloudRecordWithName:(id)arg1;
 
 @end
 

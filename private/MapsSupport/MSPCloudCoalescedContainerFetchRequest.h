@@ -28,7 +28,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *correspondingContainersToFetchFrom; // @synthesize correspondingContainersToFetchFrom=_correspondingContainersToFetchFrom;
 @property(readonly, nonatomic) NSArray *zoneNamesToFetch; // @synthesize zoneNamesToFetch=_zoneNamesToFetch;
 - (void).cxx_destruct;
-- (void)invokeSuccessHandlerBySourcingFromResults:(id)arg1;
+- (void)invokeSuccessHandlerBySourcingFromResults:(id)arg1 zonesRequiringCopy:(id)arg2;
 - (id)initWithZoneNamesToFetch:(id)arg1 inSeparateContainers:(id)arg2 accountIdentity:(id)arg3 qualityOfService:(long long)arg4 expectedTransferSize:(long long)arg5 successHandler:(CDUnknownBlockType)arg6 completion:(CDUnknownBlockType)arg7;
 
 @end

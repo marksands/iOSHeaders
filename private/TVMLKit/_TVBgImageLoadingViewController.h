@@ -13,11 +13,13 @@
 @interface _TVBgImageLoadingViewController : UIViewController <TVAppTemplateController>
 {
     TVImageProxy *_bgImageProxy;
+    _Bool _loaded;
     UIView *_rightLargeTitleButton;
     _Bool _appliedNavigationItem;
     IKViewElement *_navigationItemElement;
 }
 
++ (id)_decorateImage:(id)arg1 decorator:(id)arg2;
 @property(nonatomic) _Bool appliedNavigationItem; // @synthesize appliedNavigationItem=_appliedNavigationItem;
 @property(retain, nonatomic) IKViewElement *navigationItemElement; // @synthesize navigationItemElement=_navigationItemElement;
 - (void).cxx_destruct;
@@ -27,15 +29,20 @@
 - (void)viewDidLayoutSubviews;
 - (void)updateNavigationItem:(id)arg1;
 - (void)loadFromViewController:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)dealloc;
 - (void)configureAppearanceTransition;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)updateWithViewElement:(id)arg1;
+- (void)_purgeBgImages;
 - (long long)preferredStatusBarStyle;
 - (void)_configureWithBgImage:(id)arg1 backdropImage:(id)arg2;
-- (long long)_backdropStyle;
+- (long long)_blurEffectStyle;
 - (struct CGSize)_backgroundImageProxySize;
+- (_Bool)_isBackdropNeeded;
+- (_Bool)_backgroundImageRequiresBlur;
 - (id)_backgroundImageProxy;
+- (void)dealloc;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

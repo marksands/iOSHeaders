@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     _Bool _pmEntitledDeleteIdentity;
     _Bool _pmEntitledHomeKit;
     _Bool _pmEntitledRead;
+    _Bool _pmEntitledRemoveAdmin;
     _Bool _pmEntitledRemovePeer;
     _Bool _pmEntitledWrite;
     NSObject<OS_dispatch_queue> *_dispatchQueue;

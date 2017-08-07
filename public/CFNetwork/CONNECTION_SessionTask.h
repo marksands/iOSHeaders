@@ -27,6 +27,8 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_transactionMetrics;
 }
 
+- (id)_incompleteTaskMetrics;
+- (void)set_incompleteTaskMetrics:(id)arg1;
 - (_Bool)_preconnect;
 - (void)set_preconnect:(_Bool)arg1;
 - (void)_consumePendingBytesReceivedEncoded;

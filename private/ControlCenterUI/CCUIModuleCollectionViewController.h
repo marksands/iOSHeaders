@@ -57,6 +57,7 @@
 - (void)orderedEnabledModuleIdentifiersChangedForSettingsManager:(id)arg1;
 - (void)moduleInstancesChangedForModuleInstanceManager:(id)arg1;
 - (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
+- (id)queryAllTopLevelBlockingGestureRecognizers;
 - (id)relevantSnapHeightsForOrientation:(long long)arg1;
 - (_Bool)isAtMaxHeight;
 - (struct CGSize)preferredContentSize;
@@ -64,6 +65,7 @@
 - (void)viewDidLoad;
 - (void)loadView;
 - (_Bool)isModuleExpandedForIdentifier:(id)arg1;
+- (void)dismissPresentedContentWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)closeCurrentModuleWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)expandModuleWithIdentifier:(id)arg1;
 - (void)willResignActive;

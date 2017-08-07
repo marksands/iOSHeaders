@@ -7,6 +7,9 @@
 @class NSString;
 
 @protocol CKKSControlProtocol
+- (void)rpcForceUploadAnalyticsWithReply:(void (^)(_Bool, NSError *))arg1;
+- (void)rpcGetAnalyticsJSONWithReply:(void (^)(NSData *, NSError *))arg1;
+- (void)rpcGetAnalyticsSysdiagnoseWithReply:(void (^)(NSString *, NSError *))arg1;
 - (void)rpcPushOutgoingChanges:(NSString *)arg1 reply:(void (^)(NSError *))arg2;
 - (void)rpcFetchAndProcessClassAChanges:(NSString *)arg1 reply:(void (^)(NSError *))arg2;
 - (void)rpcFetchAndProcessChanges:(NSString *)arg1 reply:(void (^)(NSError *))arg2;

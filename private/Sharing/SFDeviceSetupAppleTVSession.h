@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableArray, NSSet, NSString, SFDevice, SFSession, TROperationQueue, TRSession, UIViewController;
+@class NSMutableArray, NSSet, NSString, SFDevice, SFDeviceOperationHomeKitSetup, SFSession, TROperationQueue, TRSession, UIViewController;
 @protocol OS_dispatch_queue;
 
 @interface SFDeviceSetupAppleTVSession : NSObject
@@ -16,16 +16,22 @@
     _Bool _invalidateCalled;
     _Bool _useSFSession;
     int _preflightWiFiState;
-    int _preflightiCloudState;
-    NSString *_iCloudUserID;
     int _preflightiTunesState;
     NSString *_iTunesUserID;
     SFSession *_sfSession;
     int _sfSessionState;
     int _preAuthState;
     int _basicConfigState;
+    _Bool _iCloudAccountMatches;
     int _pairSetupState;
     double _pairSetupSecs;
+    _Bool _homeKitDoKeyExchange;
+    _Bool _homeKitDoFullSetup;
+    SFDeviceOperationHomeKitSetup *_homeKitSetupOperation;
+    int _homeKitUserInputState;
+    int _homeKitSetupState;
+    double _homeKitSetupSecs;
+    NSString *_homeKitSelectedRoomName;
     int _trSessionState;
     TRSession *_trSession;
     NSMutableArray *_trOperations;
@@ -64,8 +70,10 @@
 @property(retain, nonatomic) SFDevice *peerDevice; // @synthesize peerDevice=_peerDevice;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
+- (_Bool)_verifyiCloudMatch:(unsigned long long)arg1 error:(id *)arg2;
 - (int)_runFinish:(_Bool)arg1;
 - (int)_runTRCompletion;
+- (int)_runHomeKitSetup;
 - (int)_runTRAuthentication;
 - (int)_runTRActivation;
 - (int)_runTRNetwork;
@@ -74,13 +82,13 @@
 - (void)_runBasicConfigResponse:(id)arg1 error:(id)arg2;
 - (void)_runBasicConfigRequest;
 - (int)_runBasicConfig;
+- (int)_runHomeKitUserInput;
 - (int)_runPairSetup;
 - (void)_runPreAuthResponse:(id)arg1 error:(id)arg2;
 - (void)_runPreAuthRequest;
 - (int)_runPreAuth;
 - (int)_runSFSessionStart;
 - (int)_runPreflightiTunes;
-- (int)_runPreflightiCloud;
 - (int)_runPreflightWiFi;
 - (void)_run;
 - (void)_reportError:(id)arg1 label:(id)arg2;

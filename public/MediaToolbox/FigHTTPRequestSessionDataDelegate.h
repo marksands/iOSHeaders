@@ -14,6 +14,7 @@
 {
     NSMutableDictionary *_taskToFigHTTPRequest;
     struct OpaqueFigReentrantMutex *_taskToFigHTTPRequestMutex;
+    unsigned char _doesIgnoreDidReceiveResponseDisposition;
 }
 
 - (void)URLSession:(id)arg1 dataTask:(id)arg2 willCacheResponse:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -27,6 +28,7 @@
 - (void)_registerFigHTTPRequest:(struct OpaqueFigHTTPRequest *)arg1 forDataTask:(id)arg2;
 - (void)dealloc;
 - (id)init;
+- (id)initWithResponseDispositionOption:(_Bool)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

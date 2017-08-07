@@ -10,6 +10,7 @@
 - (id)_doc_componentsWrappedInQuotes;
 - (id)_doc_componentsJoinedByAnd;
 - (id)_doc_componentsJoinedByOr;
+- (id)_doc_filter:(CDUnknownBlockType)arg1;
 - (id)_doc_map:(CDUnknownBlockType)arg1;
 @end
 

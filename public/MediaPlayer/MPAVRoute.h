@@ -15,6 +15,8 @@
     NSDictionary *_avRouteDescription;
     MPAVRoute *_wirelessDisplayRoute;
     long long _displayRouteType;
+    MPAVBatteryLevel *_batteryLevel;
+    _Bool _canAccessRemoteAssets;
     _Bool _pickedOnPairedDevice;
     _Bool _playingOnPairedDevice;
     _Bool _requiresPassword;
@@ -25,7 +27,6 @@
     long long _routeType;
     long long _pickableRouteType;
     long long _routeSubtype;
-    MPAVBatteryLevel *_batteryLevel;
     NSArray *_auxiliaryDevices;
     void *_externalDevice;
     MPAVRouteConnection *_connection;
@@ -40,6 +41,7 @@
 @property(readonly, nonatomic, getter=isPickedOnPairedDevice) _Bool pickedOnPairedDevice; // @synthesize pickedOnPairedDevice=_pickedOnPairedDevice;
 @property(readonly, nonatomic) NSArray *auxiliaryDevices; // @synthesize auxiliaryDevices=_auxiliaryDevices;
 @property(readonly, nonatomic) MPAVBatteryLevel *batteryLevel; // @synthesize batteryLevel=_batteryLevel;
+@property(readonly, nonatomic) _Bool canAccessRemoteAssets; // @synthesize canAccessRemoteAssets=_canAccessRemoteAssets;
 @property(readonly, nonatomic) long long routeSubtype; // @synthesize routeSubtype=_routeSubtype;
 @property(readonly, nonatomic) long long pickableRouteType; // @synthesize pickableRouteType=_pickableRouteType;
 @property(readonly, nonatomic) long long routeType; // @synthesize routeType=_routeType;
@@ -52,6 +54,7 @@
 - (unsigned long long)hash;
 @property(readonly, nonatomic) _Bool supportsWirelessDisplay;
 @property(readonly, nonatomic, getter=isBeatsXRoute) _Bool beatsXRoute;
+@property(readonly, nonatomic, getter=isBeatsStudioRoute) _Bool beatsStudioRoute;
 @property(readonly, nonatomic, getter=isBeatsSoloRoute) _Bool beatsSoloRoute;
 @property(readonly, nonatomic, getter=isPowerbeatsRoute) _Bool powerbeatsRoute;
 @property(readonly, nonatomic, getter=isAirpodsRoute) _Bool airpodsRoute;

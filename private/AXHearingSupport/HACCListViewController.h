@@ -31,6 +31,7 @@
 - (void)selectItemWithTitle:(id)arg1;
 - (void)removeAllActions;
 - (void)addActionWithTitle:(id)arg1 glyph:(id)arg2 handler:(CDUnknownBlockType)arg3;
+- (void)_handleTapGestureRecognizer:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties

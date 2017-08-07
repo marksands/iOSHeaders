@@ -4,12 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <DocumentManager/DOCKeyCommandRegistryHostProxyProtocol-Protocol.h>
-
 @class DOCItem, NSArray, NSError, NSString, NSURL, NSUUID;
 @protocol DOCServicePopoverTrackerProtocol;
 
-@protocol DOCHostDocumentBrowserViewControllerInterface <DOCKeyCommandRegistryHostProxyProtocol>
+@protocol DOCHostDocumentBrowserViewControllerInterface
 - (void)_presentActivityViewControllerForItems:(NSArray *)arg1 withPopoverTracker:(id <DOCServicePopoverTrackerProtocol>)arg2;
 - (void)_updateRemoteBarButtonFrames:(NSArray *)arg1 forUUID:(NSArray *)arg2;
 - (void)_failedToImportDocumentAtURL:(NSURL *)arg1 error:(NSError *)arg2;

@@ -7,7 +7,6 @@
 #import <objc/NSObject.h>
 
 @class NSString;
-@protocol NSItemRepresentationDataTransferDelegate;
 
 @interface NSItemProviderRepresentation : NSObject
 {
@@ -15,14 +14,11 @@
     NSString *_typeIdentifier;
     long long _visibility;
     long long _preferredRepresentation;
-    id <NSItemRepresentationDataTransferDelegate> _dataTransferDelegate;
 }
 
-@property(nonatomic) __weak id <NSItemRepresentationDataTransferDelegate> dataTransferDelegate; // @synthesize dataTransferDelegate=_dataTransferDelegate;
 @property(nonatomic) long long preferredRepresentation; // @synthesize preferredRepresentation=_preferredRepresentation;
 @property(nonatomic) long long visibility; // @synthesize visibility=_visibility;
 @property(readonly, copy, nonatomic) NSString *typeIdentifier; // @synthesize typeIdentifier=_typeIdentifier;
-- (void).cxx_destruct;
 - (id)loadOpenInPlaceWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)loadOpenInPlaceWithOptions_v2:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)loadFileCopyWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

@@ -25,6 +25,7 @@
 - (void)dealloc;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (id)signatureAlgorithmWithDigestAlgorithm:(id)arg1 error:(id *)arg2;
 - (id)initWithAsn1AlgId:(struct AlgorithmIdentifier *)arg1 error:(id *)arg2;
 - (id)initDigestAlgorithmWithSignatureAlgorithm:(id)arg1 error:(id *)arg2;
 - (id)initWithOID:(id)arg1 parameters:(id)arg2;

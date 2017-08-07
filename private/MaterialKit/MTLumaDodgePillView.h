@@ -17,6 +17,7 @@
     long long _backgroundLuminance;
 }
 
++ (struct CGSize)suggestedSizeForContentWidth:(double)arg1;
 + (double)suggestedEdgeSpacing;
 + (_Bool)supportsBackgroundLuminanceObserving;
 + (Class)layerClass;
@@ -26,6 +27,7 @@
 - (void).cxx_destruct;
 - (id)description;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (_Bool)_shouldAnimatePropertyAdditivelyWithKey:(id)arg1;
 - (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)_updateStyle;
 - (id)_styleSettings;

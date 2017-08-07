@@ -29,6 +29,10 @@
 + (void)initialize;
 @property(copy, nonatomic) AWAttentionAwarenessConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
+- (id)unitTestSampler;
+- (void)useUnitTestSampling:(_Bool)arg1;
+- (void)notifyPollEventType:(unsigned long long)arg1 event:(id)arg2;
+- (void)notifyEvent:(id)arg1;
 - (_Bool)invalidateWithError:(id *)arg1;
 - (_Bool)suspendWithError:(id *)arg1;
 - (_Bool)resumeWithError:(id *)arg1;
@@ -40,9 +44,8 @@
 - (_Bool)resetAttentionLostTimeoutWithError:(id *)arg1;
 @property(readonly, retain, nonatomic) AWAttentionEvent *lastEvent;
 - (_Bool)invokeRequiringClient:(_Bool)arg1 error:(id *)arg2 block:(CDUnknownBlockType)arg3;
+- (void)setConfiguration:(id)arg1 shouldReset:(_Bool)arg2;
 - (id)init;
-- (void)notifyPollEventType:(unsigned long long)arg1 event:(id)arg2;
-- (void)notifyEvent:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

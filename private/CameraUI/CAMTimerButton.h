@@ -6,10 +6,12 @@
 
 #import <CameraUI/CAMExpandableMenuButton.h>
 
-@class UIImageView;
+#import <CameraUI/CAMAccessibilityHUDImageProvider-Protocol.h>
+
+@class NSString, UIImageView;
 @protocol CAMTimerButtonDelegate;
 
-@interface CAMTimerButton : CAMExpandableMenuButton
+@interface CAMTimerButton : CAMExpandableMenuButton <CAMAccessibilityHUDImageProvider>
 {
     _Bool _hideOffWhenCollapsed;
     id <CAMTimerButtonDelegate> _delegate;
@@ -20,6 +22,7 @@
 @property(nonatomic) _Bool hideOffWhenCollapsed; // @synthesize hideOffWhenCollapsed=_hideOffWhenCollapsed;
 @property(nonatomic) __weak id <CAMTimerButtonDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (id)imageForAccessibilityHUD;
 - (id)shownIndexesWhileCollapsed;
 - (double)padHeaderViewContentInsetLeft;
 - (id)headerView;
@@ -27,12 +30,18 @@
 - (id)titleForMenuItemAtIndex:(long long)arg1;
 - (long long)numberOfMenuItems;
 - (void)_updateCurrentGlyphImage;
-- (id)_currentGlyphImage;
+- (id)_currentGlyphImageForAccessibiliyHUD:(_Bool)arg1;
 - (void)setDuration:(long long)arg1 animated:(_Bool)arg2;
 @property(nonatomic) long long duration;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithLayoutStyle:(long long)arg1;
 - (void)_commonCAMTimerButtonInitialization;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

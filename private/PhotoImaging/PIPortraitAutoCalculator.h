@@ -12,13 +12,14 @@
 {
     NUFaceDetectionClient *_faceClient;
     NUImagePropertiesClient *_imagePropertiesClient;
+    float _simulatedAperture;
 }
 
 + (id)portraitInfoDictionaryFromCameraMetadata:(id)arg1;
 + (id)portraitEffectInfoDictionaryFromFaceObservations:(id)arg1 orientation:(long long)arg2;
 + (id)depthEffectInfoDictionaryFromFaceObservations:(id)arg1 focus:(id)arg2 aperture:(float)arg3 lumaNoiseScale:(float)arg4 orientation:(long long)arg5;
-+ (id)depthEffectInfoDictionaryFromFaceObservations:(id)arg1 metadata:(id)arg2 orientation:(long long)arg3;
-+ (id)portraitInfoDictionaryFromFaceObservations:(id)arg1 metadata:(id)arg2 orientation:(long long)arg3;
++ (id)depthEffectInfoDictionaryFromFaceObservations:(id)arg1 metadata:(id)arg2 orientation:(long long)arg3 simulatedAperture:(float)arg4;
++ (id)portraitInfoDictionaryFromFaceObservations:(id)arg1 metadata:(id)arg2 orientation:(long long)arg3 simulatedAperture:(float)arg4;
 + (_Bool)canApplyPortraitEffectsWithMetadata:(id)arg1;
 + (id)focusRectDictionaryFromRect:(struct CGRect)arg1;
 + (id)focusRectDictionaryFromMetadata:(id)arg1;
@@ -27,7 +28,7 @@
 - (void).cxx_destruct;
 - (void)_calculateWithImageProperties:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)calculate:(CDUnknownBlockType)arg1;
-- (_Bool)canApplyDepthWithProperties:(id)arg1 error:(out id *)arg2;
+- (_Bool)canApplyDepthWithImageProperties:(id)arg1 error:(out id *)arg2;
 - (void)cancel;
 
 @end

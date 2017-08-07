@@ -60,6 +60,7 @@
 - (_Bool)_shouldAdjustLayoutForTimeTravel;
 - (double)_timeTravelYAdjustment;
 - (_Bool)_supportsTimeScrubbing;
+- (_Bool)_shouldFadeToTransitionView;
 - (void)_applyRubberBandingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (void)_applyBreathingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (unsigned long long)_keylineLabelAlignmentForCustomEditMode:(long long)arg1 slot:(id)arg2;

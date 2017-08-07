@@ -10,5 +10,6 @@
 
 @protocol PKServiceAddPaymentPassViewControllerProtocol <NSObject>
 - (void)setConfiguration:(PKAddPaymentPassRequestConfiguration *)arg1 completionHandler:(void (^)(void))arg2;
+- (void)setDisplayPropertiesWithScreenSize:(struct CGSize)arg1 scale:(double)arg2;
 @end
 

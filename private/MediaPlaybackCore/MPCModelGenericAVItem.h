@@ -11,7 +11,7 @@
 #import <MediaPlaybackCore/MPMusicSubscriptionLeasePlaybackParticipating-Protocol.h>
 #import <MediaPlaybackCore/MPRTCReportingItemSessionCreating-Protocol.h>
 
-@class ICMusicSubscriptionLeaseSession, ICStoreRequestContext, MPCAVItemNetworkPolicyHandler, MPCModelGenericAVItemTimedMetadataRequest, MPCModelGenericAVItemTimedMetadataResponse, MPCPlaybackRequestEnvironment, MPCSuzeLeaseSession, MPMediaLibrary, MPModelGenericObject, MPPropertySet, NSArray, NSData, NSNumber, NSObject, NSOperationQueue, NSString, NSURL;
+@class ICMusicSubscriptionLeaseSession, ICStoreRequestContext, MPCAVItemNetworkPolicyHandler, MPCModelGenericAVItemTimedMetadataRequest, MPCModelGenericAVItemTimedMetadataResponse, MPCPlaybackRequestEnvironment, MPCSuzeLeaseSession, MPMediaLibrary, MPModelGenericObject, MPPropertySet, MPSubscriptionStatusPlaybackInformation, NSArray, NSData, NSNumber, NSObject, NSOperationQueue, NSString, NSURL;
 @protocol MPCModelPlaybackAssetCacheProviding, MPCReportingIdentityPropertiesLoading, OS_dispatch_queue;
 
 @interface MPCModelGenericAVItem : MPAVItem <AVAssetResourceLoaderDelegate, AVPlayerItemMetadataOutputPushDelegate, MPMusicSubscriptionLeasePlaybackParticipating, MPRTCReportingItemSessionCreating>
@@ -20,10 +20,16 @@
     _Bool _allowsAirPlayFromCloud;
     NSNumber *_bookmarkTime;
     NSOperationQueue *_utilitySerialQueue;
+    _Bool _hasLoadedSubscriptionLeaseSession;
+    NSObject<OS_dispatch_queue> *_subscriptionLeaseSessionLoadQueue;
     ICMusicSubscriptionLeaseSession *_subscriptionLeaseSession;
+    _Bool _hasLoadedSubscriptionPlaybackInformation;
+    MPSubscriptionStatusPlaybackInformation *_subscriptionPlaybackInformation;
+    NSObject<OS_dispatch_queue> *_subscriptionPlaybackInformationLoadQueue;
     _Bool _shouldAutomaticallyRefreshSubscriptionLease;
-    _Bool _requiresSubscriptionLeaseForPlayback;
-    _Bool _shouldUseSubscriptionLease;
+    _Bool _isAssetSubscriptionProtectionType;
+    _Bool _isSubscriptionPolicyContent;
+    _Bool _lastPreparedForNonZeroRate;
     MPCSuzeLeaseSession *_suzeLeaseSession;
     _Bool _isAutomaticallyRefreshingSuzeLeaseSession;
     CDUnknownBlockType _firstBecomeActivePlayerItemBlock;
@@ -45,6 +51,7 @@
     MPCAVItemNetworkPolicyHandler *_networkPolicyHandler;
     _Bool supportsRadioTrackActions;
     _Bool _radioPlayback;
+    _Bool _radioStreamPlayback;
     long long _leasePlaybackPreventionState;
     id <MPCModelPlaybackAssetCacheProviding> _assetCacheProvider;
     NSString *_assetSourceStoreFrontID;
@@ -60,6 +67,7 @@
 
 @property(nonatomic) long long stationItemLikedState; // @synthesize stationItemLikedState=_stationItemLikedState;
 @property(readonly, copy, nonatomic) MPCPlaybackRequestEnvironment *playbackRequestEnvironment; // @synthesize playbackRequestEnvironment=_playbackRequestEnvironment;
+@property(nonatomic, getter=isRadioStreamPlayback) _Bool radioStreamPlayback; // @synthesize radioStreamPlayback=_radioStreamPlayback;
 @property(nonatomic, getter=isRadioPlayback) _Bool radioPlayback; // @synthesize radioPlayback=_radioPlayback;
 @property(copy, nonatomic, getter=isSiriInitiated) NSNumber *siriInitiated; // @synthesize siriInitiated=_siriInitiated;
 @property(copy, nonatomic, getter=isPrivateListeningEnabled) NSNumber *privateListeningEnabled; // @synthesize privateListeningEnabled=_privateListeningEnabled;
@@ -90,8 +98,11 @@
 - (id)_householdID;
 - (void)_updateHasBeenPlayedWithElapsedTime:(double)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handlePlaybackFinishedTime:(double)arg1 didFinishByHittingEnd:(_Bool)arg2;
+- (void)_getUnverifiedSubscriptionLeaseSessionWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_getSubscriptionLeasePropertiesWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_bookmarkTime;
 - (void)_applyLoudnessInfo;
+- (_Bool)_allowsStreamingPlayback;
 - (void)_timedMetadataResponseDidInvalidateNotification:(id)arg1;
 - (void)_suzeLeaseSessionRenewDidFailNotification:(id)arg1;
 - (void)_subscriptionLeaseStatusDidChangeNotification:(id)arg1;
@@ -111,6 +122,7 @@
 - (id)mpcReporting_requestingBundleIdentifier;
 - (id)mpcReporting_jingleTimedMetadata;
 - (id)mpcReporting_identityPropertiesLoader;
+- (unsigned long long)mpcReporting_itemType;
 - (id)mpcReporting_householdID;
 - (long long)mpcReporting_equivalencySourceAdamID;
 - (CDUnknownBlockType)artworkCatalogBlock;

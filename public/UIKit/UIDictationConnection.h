@@ -50,7 +50,9 @@ __attribute__((visibility("hidden")))
 - (void)setSuppressStopAlert:(_Bool)arg1;
 - (void)_startWithOptions:(id)arg1;
 - (id)_initializeWithOptions:(id)arg1;
+- (void)startForFileAtURL:(id)arg1 forLanguage:(id)arg2;
 - (void)start;
+- (id)_createConnectionOptions;
 - (id)_speechOptions:(id)arg1;
 - (id)_dictationOptions:(id)arg1;
 - (void)endSession;

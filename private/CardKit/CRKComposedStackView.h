@@ -19,6 +19,7 @@
 - (struct UIEdgeInsets)templatedContentMargins;
 - (void)cardSectionSubviewWantsToBeRemovedFromHierarchy:(id)arg1;
 - (void)addCardSectionSubview:(id)arg1 withKeyline:(long long)arg2;
+- (void)setCardSectionSubviews:(id)arg1;
 - (void)triggerLayoutAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_updateLayout;
 - (void)setDirection:(unsigned long long)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;

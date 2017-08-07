@@ -30,6 +30,7 @@
 - (void).cxx_destruct;
 - (void)_updateLogIdentifier;
 - (void)_throwIfNotLoaded:(SEL)arg1;
+- (void)_systemAppStateDidChange;
 - (id)logIdentifier;
 - (id)observers;
 - (id)UUIDsByFace;

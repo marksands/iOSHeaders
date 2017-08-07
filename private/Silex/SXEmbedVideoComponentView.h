@@ -10,18 +10,20 @@
 #import <Silex/WKNavigationDelegate-Protocol.h>
 #import <Silex/WKNavigationDelegatePrivate-Protocol.h>
 
-@class NSString, WKWebView;
+@class NSString, SXWebCrashRetryThrottler, WKWebView;
 
 @interface SXEmbedVideoComponentView : SXMediaComponentView <WKNavigationDelegate, WKNavigationDelegatePrivate, SXViewportChangeListener>
 {
     _Bool _webViewIsLoaded;
     _Bool _isPresentingFullscreen;
     WKWebView *_webView;
+    SXWebCrashRetryThrottler *_webCrashRetryThrottler;
 }
 
 + (id)sharedConfiguration;
 @property(nonatomic) _Bool isPresentingFullscreen; // @synthesize isPresentingFullscreen=_isPresentingFullscreen;
 @property(nonatomic) _Bool webViewIsLoaded; // @synthesize webViewIsLoaded=_webViewIsLoaded;
+@property(retain, nonatomic) SXWebCrashRetryThrottler *webCrashRetryThrottler; // @synthesize webCrashRetryThrottler=_webCrashRetryThrottler;
 @property(retain, nonatomic) WKWebView *webView; // @synthesize webView=_webView;
 - (void).cxx_destruct;
 - (_Bool)allowHierarchyRemoval;

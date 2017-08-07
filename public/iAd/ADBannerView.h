@@ -28,6 +28,7 @@
     _Bool _imageUpdateEnabled;
     _Bool _debugHighlightEnabled;
     _Bool _internalAdTypeCanChange;
+    _Bool _requestCalledbackError;
     int _screenfuls;
     int _slotPosition;
     int _internalAdType;
@@ -70,6 +71,7 @@
 @property(copy, nonatomic) NSDate *loadEndTime; // @synthesize loadEndTime=_loadEndTime;
 @property(copy, nonatomic) NSDate *webLoadStartTime; // @synthesize webLoadStartTime=_webLoadStartTime;
 @property(copy, nonatomic) NSDate *loadStartTime; // @synthesize loadStartTime=_loadStartTime;
+@property(nonatomic) _Bool requestCalledbackError; // @synthesize requestCalledbackError=_requestCalledbackError;
 @property(copy, nonatomic) NSDate *adDisplayDate; // @synthesize adDisplayDate=_adDisplayDate;
 @property(copy, nonatomic) NSString *originID; // @synthesize originID=_originID;
 @property(nonatomic) _Bool internalAdTypeCanChange; // @synthesize internalAdTypeCanChange=_internalAdTypeCanChange;

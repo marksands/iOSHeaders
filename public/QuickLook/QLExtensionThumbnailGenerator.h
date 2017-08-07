@@ -23,8 +23,8 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) QLThumbnailHostContext *hostContext; // @synthesize hostContext=_hostContext;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (void)generateThumbnailWithItem:(id)arg1 ofSize:(struct CGSize)arg2 scale:(double)arg3 completionBlock:(CDUnknownBlockType)arg4;
-- (void)_failedToGenerateThumbnailWithItem:(id)arg1 ofSize:(struct CGSize)arg2 scale:(double)arg3 completionBlock:(CDUnknownBlockType)arg4 error:(id)arg5;
+- (void)generateThumbnailWithItem:(id)arg1 ofSize:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 completionBlock:(CDUnknownBlockType)arg5;
+- (void)_failedToGenerateThumbnailWithItem:(id)arg1 ofSize:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 completionBlock:(CDUnknownBlockType)arg5 error:(id)arg6;
 - (id)_generateImageFromURL:(id)arg1 withSize:(struct CGSize)arg2 scale:(double)arg3;
 - (id)_generateImageFromRawData:(id)arg1 withContextSize:(struct CGSize)arg2 scale:(double)arg3;
 - (void)_didFinishExtensionRequestWithExtension:(id)arg1 request:(id)arg2 context:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;

@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
     struct CGRect _paddedFrame;
     struct CGRect _displayFrame;
     struct CGRect _symbolFrame;
+    struct UIEdgeInsets _layoutMargins;
 }
 
 + (id)sortedGeometries:(id)arg1 leftToRight:(_Bool)arg2;
@@ -38,6 +39,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool tallPopup; // @synthesize tallPopup=_tallPopup;
 @property(nonatomic) _Bool detachedVariants; // @synthesize detachedVariants=_detachedVariants;
 @property(nonatomic) long long flickDirection; // @synthesize flickDirection=_flickDirection;
+@property(nonatomic) struct UIEdgeInsets layoutMargins; // @synthesize layoutMargins=_layoutMargins;
 @property(nonatomic) int popupBias; // @synthesize popupBias=_popupBias;
 @property(nonatomic) double roundRectRadius; // @synthesize roundRectRadius=_roundRectRadius;
 @property(nonatomic) int roundRectCorners; // @synthesize roundRectCorners=_roundRectCorners;

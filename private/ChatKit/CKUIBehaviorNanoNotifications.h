@@ -12,7 +12,6 @@
 
 - (double)nanoNoteSenderContentSpace;
 - (_Bool)showsBalloonBadges;
-- (_Bool)modifiesSingleLineBalloonLayout;
 - (_Bool)showsBalloonChevron;
 - (double)previewBalloonMaxWidthForBalloonMaxWidth:(double)arg1;
 - (double)balloonMaxWidthForTranscriptWidth:(double)arg1 marginInsets:(struct UIEdgeInsets)arg2 shouldShowPluginButtons:(_Bool)arg3 shouldShowCharacterCount:(_Bool)arg4 shouldCoverSendButton:(_Bool)arg5;

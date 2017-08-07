@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (id)accessibilitySortDirection;
 - (id)accessibilityARIACurrentStatus;
 - (id)accessibilityInvalidStatus;
+- (_Bool)accessibilityIsShowingValidationMessage;
 - (_Bool)accessibilityIsExpanded;
 - (_Bool)accessibilitySupportsARIAExpanded;
 - (_Bool)accessibilityIsPressed;
@@ -55,6 +56,10 @@ __attribute__((visibility("hidden")))
 - (id)previousMarkerForCharacterOffset:(struct CharacterOffset *)arg1;
 - (id)nextMarkerForCharacterOffset:(struct CharacterOffset *)arg1;
 - (id)textMarkerForPoint:(struct CGPoint)arg1;
+- (id)rectsForSelectionRects:(const Vector_2a2f4e8a *)arg1;
+- (id)textRectsFromMarkers:(id)arg1 withText:(id)arg2;
+- (id)textMarkerRangeFromMarkers:(id)arg1 withText:(id)arg2;
+- (RefPtr_59db400e)rangeFromMarkers:(id)arg1 withText:(id)arg2;
 - (struct CGRect)frameForTextMarkers:(id)arg1;
 - (id)previousMarkerForMarker:(id)arg1;
 - (id)nextMarkerForMarker:(id)arg1;

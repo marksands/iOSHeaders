@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     RPCompanionLinkDaemon *_daemon;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     _Bool _entitled;
+    _Bool _localDeviceUpdated;
     NSMutableSet *_registeredEventIDs;
     NSMutableSet *_registeredRequestIDs;
     NSXPCConnection *_xpcCnx;

@@ -42,6 +42,8 @@
 - (id)tv_fontWeight;
 - (id)tv_textTransform;
 - (id)tv_textShadow;
+- (double)tv_columnPadding;
+- (id)tv_columnColor;
 - (id)tv_tintColor;
 - (id)tv_tintColor2;
 - (id)tv_highlightColor;

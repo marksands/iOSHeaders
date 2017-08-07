@@ -6,6 +6,8 @@
 
 #import <objc/NSObject.h>
 
+@class NSArray;
+
 @interface _SFDialog : NSObject
 {
     _Bool _completed;
@@ -13,7 +15,7 @@
 
 + (id)blockedPopupWindowDialogWithCompletionHandler:(CDUnknownBlockType)arg1;
 + (id)userMediaPermissionDialogWithHost:(id)arg1 devices:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-+ (id)downloadBlockedDialogWithFileType:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (id)downloadBlockedDialogWithFileType:(long long)arg1 initiatingURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (id)pageLoadErrorWithMessage:(id)arg1;
 + (id)genericErrorDialogWithTitle:(id)arg1 message:(id)arg2 applicationModal:(_Bool)arg3;
 + (id)printBlockedDialogWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -28,11 +30,13 @@
 + (id)javaScriptPromptDialogWithMessage:(id)arg1 defaultText:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (id)javaScriptConfirmDialogWithMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)javaScriptAlertDialogWithMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (id)saveBasicAuthenticationPasswordDialog:(_Bool)arg1 presentsAsActionSheet:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (id)authenticationDialogWithAuthenticationChallenge:(id)arg1 committedURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)didCompleteWithResponse:(id)arg1;
 - (id)newViewControllerRepresentationWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)newDialogViewRepresentation;
 @property(readonly, nonatomic) long long presentationStyle;
+@property(readonly, copy, nonatomic) NSArray *additionalCancellationExemptions;
 - (void)completeWithResponse:(id)arg1;
 @property(readonly, nonatomic) _Bool completionHandlerBlocksWebProcess;
 @property(readonly, nonatomic) _Bool canceledOnCommittedNavigation;

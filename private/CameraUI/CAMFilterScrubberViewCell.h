@@ -6,23 +6,26 @@
 
 #import <UIKit/UICollectionViewCell.h>
 
-@class CAMEffectsFullsizeView, UIView;
+@class UIView;
 
 @interface CAMFilterScrubberViewCell : UICollectionViewCell
 {
-    CAMEffectsFullsizeView *_filteredView;
+    long long _filterType;
+    UIView *_filteredView;
     double _selectionDotCenterTopSpacing;
     UIView *__selectionDotView;
     UIView *__clippingView;
 }
 
++ (struct CGSize)screenScaleContentSize;
 + (struct CGSize)defaultSize;
 + (struct CGSize)_defaultContentSize;
 + (double)borderInsetWidth;
 @property(readonly, nonatomic) UIView *_clippingView; // @synthesize _clippingView=__clippingView;
 @property(readonly, nonatomic) UIView *_selectionDotView; // @synthesize _selectionDotView=__selectionDotView;
 @property(nonatomic) double selectionDotCenterTopSpacing; // @synthesize selectionDotCenterTopSpacing=_selectionDotCenterTopSpacing;
-@property(readonly, nonatomic) CAMEffectsFullsizeView *filteredView; // @synthesize filteredView=_filteredView;
+@property(readonly, nonatomic) UIView *filteredView; // @synthesize filteredView=_filteredView;
+@property(nonatomic) long long filterType; // @synthesize filterType=_filterType;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
 - (void)setSelected:(_Bool)arg1;

@@ -51,6 +51,7 @@
 @property(readonly) _Bool isReadyForMoreData;
 - (_Bool)_initializeStorage:(id)arg1 image:(id)arg2 error:(out id *)arg3;
 - (_Bool)start:(out id *)arg1;
+- (void)cancel;
 - (id)outputColorSpace;
 - (id)workingColorSpace;
 - (void)dealloc;

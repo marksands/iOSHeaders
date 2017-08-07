@@ -9,7 +9,7 @@
 #import <SafariServices/SFServiceViewControllerProtocol-Protocol.h>
 #import <SafariServices/_SFActivityDelegate-Protocol.h>
 
-@class NSDate, NSString, SFUserNotification, WKProcessPool, _SFWebViewUsageMonitor;
+@class NSDate, NSString, SFUserNotification, WKNavigation, WKProcessPool, _SFWebViewUsageMonitor;
 
 __attribute__((visibility("hidden")))
 @interface SFBrowserServiceViewController : _SFBrowserContentViewController <_SFActivityDelegate, SFServiceViewControllerProtocol>
@@ -18,6 +18,8 @@ __attribute__((visibility("hidden")))
     _SFWebViewUsageMonitor *_usageMonitor;
     NSDate *_lastHostApplicationSuspendDate;
     WKProcessPool *_processPool;
+    _Bool _canNotifyHostApplicationOfRedirects;
+    WKNavigation *_firstNavigation;
     _Bool _isBeingUsedForLinkPreview;
     SFUserNotification *_userNotification;
     NSString *_hostApplicationCallbackURLScheme;
@@ -30,6 +32,10 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool isBeingUsedForLinkPreview; // @synthesize isBeingUsedForLinkPreview=_isBeingUsedForLinkPreview;
 - (void).cxx_destruct;
 - (void)safariActivity:(id)arg1 didFinish:(_Bool)arg2;
+- (void)webViewController:(id)arg1 didFinishDocumentLoadForNavigation:(id)arg2;
+- (void)webViewController:(id)arg1 didStartProvisionalNavigation:(id)arg2;
+- (void)webViewController:(id)arg1 didPerformClientRedirectForNavigation:(id)arg2;
+- (void)webViewController:(id)arg1 didReceiveServerRedirectForProvisionalNavigation:(id)arg2;
 - (id)_applicationPayloadForOpeningInSafari;
 - (void)_closeDatabasesOnBackgroundingOrDismissal;
 - (void)_recordHostAppIdAndURLForTapToRadar:(id)arg1;
@@ -37,6 +43,7 @@ __attribute__((visibility("hidden")))
 - (void)_hostApplicationWillEnterForeground;
 - (void)_didLoadWebView;
 - (_Bool)_redirectToHostAppWithNavigationResult:(id)arg1 options:(id)arg2;
+- (_Bool)_redirectToHostAppWithExpectedCallbackSchemeIfPossible:(id)arg1;
 - (void)_notifyInitialLoadDidFinish:(_Bool)arg1;
 - (void)_updateRemoteSwipeGestureState;
 - (void)_dismiss;

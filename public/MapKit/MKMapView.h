@@ -18,7 +18,7 @@
 #import <MapKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <MapKit/VKMapViewDelegate-Protocol.h>
 
-@class CLLocation, GEOMapRegion, GEOResourceManifestConfiguration, MKAnnotationContainerView, MKAnnotationView, MKAttributionLabel, MKBasicMapView, MKCompassView, MKDebugLocationConsole, MKMapAnnotationManager, MKMapCamera, MKMapGestureController, MKMapViewInternal, MKOverlayContainerView, MKScaleView, MKUserLocation, NSArray, NSDictionary, NSLayoutConstraint, NSString, NSTimer, UIGestureRecognizer, UIImageView, UILayoutGuide, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIPopoverController, UIRotationGestureRecognizer, UITapGestureRecognizer, UITextView, VKLabelMarker, VKMapView, VKNavContext, VKRouteContext, VKVenueBuildingFeatureMarker, VKVenueFeatureMarker, _MKCustomFeatureStore, _MKEnvironmentLabel;
+@class CLLocation, GEOMapRegion, GEOResourceManifestConfiguration, MKAnnotationContainerView, MKAnnotationView, MKAttributionLabel, MKBasicMapView, MKCompassView, MKDebugLocationConsole, MKMapAnnotationManager, MKMapCamera, MKMapGestureController, MKMapViewInternal, MKMapViewLabelMarkerState, MKOverlayContainerView, MKScaleView, MKUserLocation, NSArray, NSDictionary, NSLayoutConstraint, NSString, NSTimer, UIGestureRecognizer, UIImageView, UILayoutGuide, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIPopoverController, UIRotationGestureRecognizer, UITapGestureRecognizer, UITextView, VKLabelMarker, VKMapView, VKNavContext, VKRouteContext, VKVenueBuildingFeatureMarker, VKVenueFeatureMarker, _MKCustomFeatureStore, _MKEnvironmentLabel;
 @protocol MKMapViewDelegate, MKMapViewDelegate><MKMapViewDelegatePrivate;
 
 @interface MKMapView : UIView <MKOverlayContainerViewDelegate, MKAnnotationContainerViewDelegate, VKMapViewDelegate, MKMapGestureControllerDelegate, MKAnnotationMarkerContainer, MKAnnotationManagerDelegate, GEOLogContextDelegate, UIGestureRecognizerDelegate, MKVariableDelayTapRecognizerDelegate, GEOResourceManifestTileGroupObserver, NSCoding>
@@ -170,6 +170,7 @@
     double _oldHeading;
     double _oldPitch;
     double _oldAltitude;
+    MKMapViewLabelMarkerState *_selectedLabelMarkerState;
     _Bool _compassSuppressedForFloorPicker;
     double _compassVisibleRotationThreshold;
     long long _interactionMode;
@@ -233,6 +234,8 @@
 - (void)removeAnnotationRepresentation:(id)arg1;
 - (void)addAnnotationRepresentation:(id)arg1 allowAnimation:(_Bool)arg2;
 - (void)_addAnnotationsCustomFeatureStoreIfNeeded;
+- (void)mapLayerARSessionInterruptionEnded:(id)arg1;
+- (void)mapLayer:(id)arg1 arSessionWasInterrupted:(unsigned long long)arg2;
 - (void)mapLayer:(id)arg1 arTrackingStateDidChange:(unsigned long long)arg2 reason:(unsigned long long)arg3;
 - (void)mapLayer:(id)arg1 didEncounterARError:(id)arg2;
 - (void)mapLayerDidExitAR:(id)arg1;

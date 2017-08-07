@@ -60,8 +60,8 @@
 @property(nonatomic) __weak id <UIViewControllerTransitionCoordinator> _transitionCoordinator; // @synthesize _transitionCoordinator=__transitionCoordinator;
 @property(nonatomic) _Bool serverUpdatesDisabled; // @synthesize serverUpdatesDisabled=_serverUpdatesDisabled;
 @property(nonatomic) _Bool simulatesLegacyAppearance; // @synthesize simulatesLegacyAppearance=_simulatesLegacyAppearance;
-@property(nonatomic) _Bool persistentAnimationsEnabled; // @synthesize persistentAnimationsEnabled=_persistentAnimationsEnabled;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
+@property(nonatomic) _Bool persistentAnimationsEnabled; // @synthesize persistentAnimationsEnabled=_persistentAnimationsEnabled;
 @property(readonly, nonatomic) int styleOverrides; // @synthesize styleOverrides=_styleOverrides;
 @property(nonatomic) __weak UIStatusBarWindow *statusBarWindow; // @synthesize statusBarWindow=_statusBarWindow;
 @property(nonatomic) __weak id <UIStatusBarCarPlayDockDataProviding> dockDataProvider; // @synthesize dockDataProvider=_dockDataProvider;

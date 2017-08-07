@@ -13,21 +13,20 @@ __attribute__((visibility("hidden")))
 {
     NSObject<OS_dispatch_queue> *_queue;
     unsigned long long _nextDeadline;
-    _Bool _sampledStateValid;
+    int _currentState;
     CDUnknownBlockType _stateChangedCallback;
     unsigned long long _lastTriggerTime;
     unsigned long long _lastPositiveDetectTime;
-    unsigned long long _lastNegativeDetectTime;
+    unsigned long long _lastPollTimeoutTime;
 }
 
-@property(nonatomic) unsigned long long lastNegativeDetectTime; // @synthesize lastNegativeDetectTime=_lastNegativeDetectTime;
+@property(nonatomic) unsigned long long lastPollTimeoutTime; // @synthesize lastPollTimeoutTime=_lastPollTimeoutTime;
 @property(nonatomic) unsigned long long lastPositiveDetectTime; // @synthesize lastPositiveDetectTime=_lastPositiveDetectTime;
 @property(nonatomic) unsigned long long lastTriggerTime; // @synthesize lastTriggerTime=_lastTriggerTime;
-@property(nonatomic) _Bool sampledStateValid; // @synthesize sampledStateValid=_sampledStateValid;
+@property(nonatomic) int currentState; // @synthesize currentState=_currentState;
 @property(copy) CDUnknownBlockType stateChangedCallback; // @synthesize stateChangedCallback=_stateChangedCallback;
 - (void).cxx_destruct;
 - (id)initWithMask:(unsigned long long)arg1;
-@property(readonly, nonatomic) _Bool sampledState;
 - (void)shouldSample:(_Bool)arg1 withDeadline:(unsigned long long)arg2;
 - (void)finishDeadlineComputation;
 - (void)updateSamplingDeadline:(unsigned long long)arg1 forClient:(id)arg2;

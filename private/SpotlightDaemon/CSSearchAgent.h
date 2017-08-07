@@ -11,7 +11,6 @@
 
 @interface CSSearchAgent : CSXPCConnection
 {
-    // Error parsing type: AI, name: _outBatchCount
     id <MDIndexer> _indexer;
     NSMutableDictionary *_searchConnections;
 }
@@ -19,9 +18,6 @@
 + (id)searchAgent;
 + (void)initialize;
 @property(retain, nonatomic) NSMutableDictionary *searchConnections; // @synthesize searchConnections=_searchConnections;
-// Error parsing type for property outBatchCount:
-// Property attributes: TAI,N,V_outBatchCount
-
 @property(retain, nonatomic) id <MDIndexer> indexer; // @synthesize indexer=_indexer;
 - (void).cxx_destruct;
 - (_Bool)handleCommand:(const char *)arg1 info:(id)arg2 connection:(id)arg3;
@@ -33,8 +29,6 @@
 - (id)searchConnection:(id)arg1;
 - (_Bool)lostClientConnection:(id)arg1 error:(id)arg2;
 - (_Bool)allowClientConnection:(id)arg1;
-- (void)_didReceiveResultsBatchCompletion:(id)arg1 qid:(long long)arg2;
-- (void)_willSendResultsBatch:(id)arg1 qid:(long long)arg2;
 
 @end
 

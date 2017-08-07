@@ -33,7 +33,7 @@
 - (void)enableTestMode;
 - (struct BTDeviceImpl *)deviceFromIdentifier:(id)arg1;
 - (_Bool)isServiceSupported:(unsigned int)arg1;
-- (id)alwaysConnectedDeviceNames;
+- (id)connectedDeviceNamesThatMayBeBlacklisted;
 - (void)_updateBluetoothState;
 - (void)bluetoothStateActionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)bluetoothStateAction;

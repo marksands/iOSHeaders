@@ -131,6 +131,8 @@
 - (void)_setupCircularBuffer;
 - (void)_setupVoiceTrigger;
 - (id)_getVoiceTriggerAsset;
+- (void)_reset;
+- (void)reset;
 - (void)dealloc;
 - (id)initWithVoiceTriggerFirstPass:(id)arg1 voicetriggerSecondPass:(id)arg2 voicetriggerEventNotifier:(id)arg3 audioRecorder:(id)arg4;
 - (id)init;

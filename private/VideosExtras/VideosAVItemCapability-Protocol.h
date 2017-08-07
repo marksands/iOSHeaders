@@ -12,6 +12,7 @@
 @property(readonly, nonatomic) _Bool supportsNotification;
 @property(readonly, nonatomic) _Bool supportsScrubbing;
 @property(readonly, nonatomic) _Bool supportsPictureInPicture;
+@property(readonly, nonatomic) _Bool overrideCurrentItemIsReady;
 @property(readonly, nonatomic) unsigned long long overrideType;
 @end
 

@@ -11,11 +11,15 @@
 @interface HFListFormatter : NSFormatter
 {
     NSLocale *_locale;
+    unsigned long long _listStyle;
     struct UListFormatter *_formatter;
 }
 
 @property(nonatomic) struct UListFormatter *formatter; // @synthesize formatter=_formatter;
+@property(nonatomic) unsigned long long listStyle; // @synthesize listStyle=_listStyle;
 - (void).cxx_destruct;
+- (id)_formatAndListWithElements:(id)arg1;
+- (id)_formatOrListWithElements:(id)arg1;
 - (id)stringForObjectValue:(id)arg1;
 @property(copy, nonatomic) NSLocale *locale; // @synthesize locale=_locale;
 - (void)_invaildateFormatter;

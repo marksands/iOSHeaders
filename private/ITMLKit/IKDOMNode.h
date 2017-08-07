@@ -43,6 +43,7 @@
 @property(retain, nonatomic) JSManagedValue *managedParent; // @synthesize managedParent=_managedParent;
 @property(retain, nonatomic) JSManagedValue *managedOwnerDocument; // @synthesize managedOwnerDocument=_managedOwnerDocument;
 - (void).cxx_destruct;
+- (_Bool)_enumerateNodesWithBlock:(CDUnknownBlockType)arg1;
 - (void)_markSubtreeUpdatesForAncestorsOfNode:(id)arg1;
 - (void)_childrenUpdatedWithUpdatedChildNodes:(id)arg1 withDocument:(id)arg2;
 - (void)_updatedAndMark:(_Bool)arg1 withDocument:(id)arg2;

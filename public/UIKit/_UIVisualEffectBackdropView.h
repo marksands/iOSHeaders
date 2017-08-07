@@ -8,7 +8,6 @@
 
 @class CABackdropLayer, _UIVisualEffectViewBackdropCaptureGroup;
 
-__attribute__((visibility("hidden")))
 @interface _UIVisualEffectBackdropView : _UIVisualEffectSubview
 {
     _UIVisualEffectViewBackdropCaptureGroup *_captureGroup;

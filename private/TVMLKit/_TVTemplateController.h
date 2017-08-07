@@ -23,7 +23,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIImageView *backgroundImageView; // @synthesize backgroundImageView=_backgroundImageView;
 - (void).cxx_destruct;
 - (void)_configureWithBgImage:(id)arg1 backdropImage:(id)arg2;
-- (long long)_backdropStyle;
 - (id)_backgroundImageProxy;
 - (struct CGSize)_backgroundImageProxySize;
 - (id)_imageProxyFromTemplateViewElement:(id)arg1;

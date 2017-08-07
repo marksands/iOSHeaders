@@ -55,6 +55,7 @@
 - (void)setupDevice:(SFDevice *)arg1 homeIdentifier:(NSUUID *)arg2 completion:(void (^)(NSError *))arg3;
 - (void)retriggerProximitySetup:(void (^)(NSError *))arg1;
 - (void)retriggerProximityPairing:(void (^)(NSError *))arg1;
+- (void)reenableProxCardType:(unsigned char)arg1 completion:(void (^)(NSError *))arg2;
 - (void)preventExitForLocaleReason:(NSString *)arg1;
 - (void)openSetupURL:(NSURL *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)appleIDInfoWithCompletion:(void (^)(NSString *, NSData *, NSError *))arg1;

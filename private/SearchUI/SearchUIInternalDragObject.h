@@ -21,7 +21,7 @@
 - (void).cxx_destruct;
 - (id)loadDataWithTypeIdentifier:(id)arg1 forItemProviderCompletionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, copy, nonatomic) NSArray *writableTypeIdentifiersForItemProvider;
-- (_Bool)containsText;
+- (_Bool)shouldShareDragURL;
 - (id)initWithDragObject:(id)arg1;
 
 // Remaining properties

@@ -58,7 +58,6 @@
     id <GEOServerFormattedString> _transitDescriptionFormatString;
     NSArray *_transitAdvisories;
     id <GEOServerFormattedString> _transitRouteBadge;
-    _Bool _hasCheckedIsWalkingOnlyTransitRoute;
     _Bool _isWalkingOnlyTransitRoute;
     GEOComposedWaypoint *_origin;
     GEOComposedWaypoint *_destination;
@@ -213,6 +212,8 @@
 @property(readonly, nonatomic) GEORouteInitializerData *routeInitializerData;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
+- (_Bool)isEqualToGEOComposedRoute:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (void)_populateArtworkForSuggestedRoute:(id)arg1 decoderData:(id)arg2;

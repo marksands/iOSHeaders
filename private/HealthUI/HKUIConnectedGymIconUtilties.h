@@ -11,7 +11,6 @@
 }
 
 + (id)iconForConnectedGymDevice:(id)arg1 preferredIconWidth:(double)arg2;
-+ (id)iconForConnectedGymSource;
 + (void)initialize;
 
 @end

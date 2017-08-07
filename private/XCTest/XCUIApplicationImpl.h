@@ -27,7 +27,8 @@
 - (void)waitForViewControllerViewDidDisappearWithTimeout:(double)arg1;
 - (void)handleCrashUnderSymbol:(id)arg1;
 - (void)terminate;
-- (void)waitForRunningForegroundStateAndRequireAXLoaded:(_Bool)arg1;
+- (void)waitForRunningForegroundStateAndRequireAccessibility:(_Bool)arg1;
+- (void)waitForAccessibilityActive;
 - (void)_launchUsingPlatformWithArguments:(id)arg1 environment:(id)arg2;
 - (void)_launchUsingXcodeWithArguments:(id)arg1 environment:(id)arg2;
 - (void)_waitForLaunchProgress;
@@ -40,6 +41,7 @@
 @property(readonly) _Bool suspended;
 @property(readonly) _Bool running;
 - (void)_awaitValidCurrentProcess;
+- (void)waitForState:(unsigned long long)arg1 timeout:(double)arg2;
 @property(nonatomic) unsigned long long state;
 @property(nonatomic) int processID;
 @property(readonly) XCAccessibilityElement *accessibilityElement;

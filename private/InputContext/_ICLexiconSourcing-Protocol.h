@@ -9,6 +9,5 @@
 @protocol _ICLexiconSourcing
 - (void)unregisterNameDelegate:(PEXNameDelegate *)arg1;
 - (void)registerNameDelegate:(PEXNameDelegate *)arg1;
-- (void)getNamedEntities:(_Bool (^)(NSString *))arg1 recentNamedEntities:(_Bool (^)(NSString *))arg2;
 @end
 

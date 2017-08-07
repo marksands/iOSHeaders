@@ -64,6 +64,7 @@ __attribute__((visibility("hidden")))
 - (id)itemForDraggingItem:(id)arg1;
 - (void)associateItem:(id)arg1 withDraggingItem:(id)arg2;
 @property(readonly, nonatomic) NSSet *trackedInteractions;
+- (_Bool)_isActive;
 - (_Bool)_canAddItems;
 - (id)initWithInteraction:(id)arg1;
 

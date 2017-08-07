@@ -6,23 +6,35 @@
 
 #import <CoreHAP/HAPAccessoryServerBrowser.h>
 
-@class NSArray, NSMutableSet, NSObject;
+#import <CoreHAP/HMFTimerDelegate-Protocol.h>
+
+@class HMFTimer, NSArray, NSMutableSet, NSObject, NSString;
 @protocol HAPAccessoryServerBrowserDelegate, OS_dispatch_queue;
 
-@interface HAPAccessoryServerBrowserIP : HAPAccessoryServerBrowser
+@interface HAPAccessoryServerBrowserIP : HAPAccessoryServerBrowser <HMFTimerDelegate>
 {
     struct BonjourBrowser *_bonjourBrowser;
     NSArray *_scanResults;
     NSMutableSet *_discoveredAccessoryServers;
     id <HAPAccessoryServerBrowserDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_delegateQueue;
+    NSMutableSet *_pendingBonjourEvents;
+    HMFTimer *_bonjourEventTimer;
 }
 
+@property(retain, nonatomic) HMFTimer *bonjourEventTimer; // @synthesize bonjourEventTimer=_bonjourEventTimer;
+@property(retain, nonatomic) NSMutableSet *pendingBonjourEvents; // @synthesize pendingBonjourEvents=_pendingBonjourEvents;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 @property(nonatomic) __weak id <HAPAccessoryServerBrowserDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSMutableSet *discoveredAccessoryServers; // @synthesize discoveredAccessoryServers=_discoveredAccessoryServers;
 @property(copy, nonatomic) NSArray *scanResults; // @synthesize scanResults=_scanResults;
 - (void).cxx_destruct;
+- (void)_timerDidExpire:(id)arg1;
+- (void)timerDidFire:(id)arg1;
+- (int)_purgePendingBonjourEvents:(id)arg1 withProcessing:(_Bool)arg2;
+- (void)_processPendingBonjourEvent:(id)arg1;
+- (void)_pendBonjourEvent:(id)arg1;
+- (void)_pendBonjourRemoveEvent:(id)arg1;
 - (_Bool)_delegateRespondsToSelector:(SEL)arg1;
 - (void)_setReachability:(_Bool)arg1 forServer:(id)arg2;
 - (void)_invalidateAccessoryServers:(_Bool)arg1;
@@ -33,6 +45,7 @@
 - (void)_handleBonjourBrowserEvent:(unsigned int)arg1 eventInfo:(id)arg2;
 - (void)_matchAccessoryServerWithSetupID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)matchAccessoryServerWithSetupID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)processPendingBonjourRemoveEvents:(id)arg1;
 - (void)discoverAccessoryServerWithIdentifier:(id)arg1;
 - (void)stopWACScan;
 - (void)startWACScan;
@@ -46,6 +59,12 @@
 - (int)_initializeAndStartBonjourBrowser;
 - (long long)linkType;
 - (id)initWithQueue:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

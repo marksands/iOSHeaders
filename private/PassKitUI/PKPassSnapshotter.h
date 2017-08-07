@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class PKPassLibrary, UIWindow;
+@class NSMutableArray, PKPassLibrary, UIWindow;
 @protocol OS_dispatch_semaphore;
 
 @interface PKPassSnapshotter : NSObject
@@ -15,6 +15,7 @@
     NSObject<OS_dispatch_semaphore> *_snapshotSem;
     UIWindow *_snapshotWindow;
     double _scale;
+    NSMutableArray *_currentSnapshotKeys;
 }
 
 + (void)purgeCacheOfPassSnapshotsWithUinqueID:(id)arg1;

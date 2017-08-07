@@ -36,10 +36,12 @@
     _Bool _didPushToNowPlayingAtLaunch;
     _Bool _hasTabbedBrowsing;
     _Bool _visible;
+    _Bool _currentlyPlayingApp;
     NSIndexPath *_selectedIndexPath;
     UIView *_placeholderView;
 }
 
+@property(nonatomic) _Bool currentlyPlayingApp; // @synthesize currentlyPlayingApp=_currentlyPlayingApp;
 @property(retain, nonatomic) UIView *placeholderView; // @synthesize placeholderView=_placeholderView;
 @property(retain, nonatomic) NSIndexPath *selectedIndexPath; // @synthesize selectedIndexPath=_selectedIndexPath;
 @property(nonatomic, getter=isVisible) _Bool visible; // @synthesize visible=_visible;

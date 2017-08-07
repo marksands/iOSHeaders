@@ -25,6 +25,7 @@
 - (id)_sbPreviousEntity;
 - (void)launchFloatingApplication:(id)arg1;
 - (void)launchPinnedApplication:(id)arg1 onLeft:(_Bool)arg2;
+- (void)launchApplicationWithFullConfiguration:(id)arg1;
 - (void)launchApplication:(id)arg1;
 - (void)_requestTransactionWithPrimaryEntity:(id)arg1 sideEntity:(id)arg2 floatingEntity:(id)arg3 spaceConfiguration:(long long)arg4 floatingConfiguration:(long long)arg5;
 - (void)_performMedusaGesture:(unsigned long long)arg1;
@@ -34,7 +35,9 @@
 - (_Bool)_hasFloatingApp;
 - (_Bool)hasMultipleApps;
 - (_Bool)performMedusaGesture:(unsigned long long)arg1;
+- (id)medusaAppBundleIdsToLayoutRoles;
 - (id)medusaApps;
+- (void)_enumerateAppsAndLayoutRoles:(CDUnknownBlockType)arg1;
 - (id)allowedMedusaGestures;
 
 @end

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NPKPMUButtonListener, NSDictionary, PKPass;
+@class NPKPMUButtonListener, NPKQuickPaymentSessionLocalAuthenticationCoordinator, NSDictionary, PKPass;
 @protocol NPKQuickPaymentSessionSourceDelegate, OS_dispatch_queue;
 
 @interface NPKQuickPaymentSessionSource : NSObject
@@ -20,11 +20,13 @@
     unsigned long long _preconditionState;
     PKPass *_initialPass;
     NSDictionary *_vasPasses;
+    NPKQuickPaymentSessionLocalAuthenticationCoordinator *_localAuthenticationCoordinator;
 }
 
 - (void).cxx_destruct;
 - (void)_performDelegateCallback:(CDUnknownBlockType)arg1;
 - (void)_handlePMUButtonEvent;
+- (void)setLocalAuthenticationCoordinator:(id)arg1;
 - (void)setVasPasses:(id)arg1;
 - (void)setInitialPass:(id)arg1;
 - (void)setPreconditionState:(unsigned long long)arg1;

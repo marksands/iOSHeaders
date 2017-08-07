@@ -8,11 +8,13 @@
 
 #import <AXHearingSupport/HACCContentModule-Protocol.h>
 
-@class NSString, UILabel;
+@class NSString, UILabel, UIVisualEffectView;
 @protocol HACCContentModuleDelegate;
 
 @interface HACCProgramsButton : UIControl <HACCContentModule>
 {
+    UIVisualEffectView *_titleContainer;
+    UIVisualEffectView *_subtitleContainer;
     unsigned long long module;
     id <HACCContentModuleDelegate> delegate;
     UILabel *_titleLabel;

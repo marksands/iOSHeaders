@@ -52,6 +52,7 @@
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 + (id)_kvoKeysForwardedToRenderer;
++ (_Bool)lowLatency;
 + (_Bool)_isMetalSupported;
 + (unsigned long long)renderingAPIForOptions:(id)arg1;
 - (long long)_preferredFocusMovementStyle;

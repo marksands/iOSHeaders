@@ -12,7 +12,7 @@
 @interface MFIMAPConnection : MFConnection
 {
     id <MFIMAPMailboxListFilter> _mailboxListFilter;
-    unsigned int _capabilityFlags:23;
+    unsigned int _capabilityFlags:24;
     _Bool _verifiedESearchResponse;
     _Bool _gotBadResponse;
     int _tag;

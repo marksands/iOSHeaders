@@ -30,6 +30,8 @@
 - (void)cancelRangingRequest;
 - (void)cancelLocationRequest;
 - (void)stopUpdatingLocationAutoPaused;
+- (_Bool)showsBackgroundLocationIndicator;
+- (void)setShowsBackgroundLocationIndicator:(_Bool)arg1;
 - (_Bool)allowsBackgroundLocationUpdates;
 - (void)setAllowsBackgroundLocationUpdates:(_Bool)arg1;
 - (int)PausesLocationUpdatesAutomatically;

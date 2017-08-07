@@ -83,13 +83,14 @@
 - (_Bool)insertBrailleStringAtCursor:(id)arg1 modifiers:(id)arg2;
 - (id)_chunkAtLineBufferIndex:(unsigned long long)arg1;
 - (unsigned long long)_chunkIndexForLineBufferIndex:(unsigned long long)arg1;
-- (_Bool)moveCursorToRouterIndex:(unsigned long long)arg1 didLeaveEditingContext:(out _Bool *)arg2;
+- (_Bool)moveCursorToRouterIndex:(unsigned long long)arg1 didLeaveEditingContext:(out _Bool *)arg2 forwardToScreenReader:(out _Bool *)arg3;
 - (_Bool)moveCursorRight;
 - (_Bool)moveCursorLeft;
 - (_Bool)forwardDeleteAtCursorShouldTranslate:(out _Bool *)arg1;
 - (_Bool)deleteAtCursorShouldTranslate:(out _Bool *)arg1 deletedText:(id *)arg2;
 - (void)discardEdits;
 - (unsigned long long)_cursorOffset;
+- (unsigned long long)textCursorIndex;
 - (unsigned long long)_lengthPrecedingChunkPendingTranslation;
 - (id)translatedTextForBraille:(out id *)arg1 replacingTextInRange:(out struct _NSRange *)arg2 cursor:(out unsigned long long *)arg3;
 @property(readonly, nonatomic) _Bool shouldTranslateNow;

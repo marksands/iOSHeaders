@@ -22,6 +22,7 @@
 @property(retain) SearchUIReplicatorView *replicatorView; // @synthesize replicatorView=_replicatorView;
 @property(retain) SearchUIResultTableViewController *resultTableViewController; // @synthesize resultTableViewController=_resultTableViewController;
 - (void).cxx_destruct;
+- (void)viewWillAppear:(_Bool)arg1;
 - (id)contentScrollView;
 @property(readonly, nonatomic) double distanceToTopOfAppIcons;
 - (void)updateWithResultSections:(id)arg1;

@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <StoreKitUI/NSSecureCoding-Protocol.h>
 #import <StoreKitUI/SKUICacheCoding-Protocol.h>
 
 @class NSMutableDictionary, NSString, NSURL;
 
-@interface SKUIArtwork : NSObject <SKUICacheCoding>
+@interface SKUIArtwork : NSObject <SKUICacheCoding, NSSecureCoding>
 {
     long long _height;
     NSURL *_url;
@@ -18,9 +19,12 @@
     long long _width;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) long long width; // @synthesize width=_width;
 @property(readonly, nonatomic) long long height; // @synthesize height=_height;
 - (void).cxx_destruct;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 @property(readonly, nonatomic) NSMutableDictionary *cacheRepresentation;
 - (id)initWithCacheRepresentation:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

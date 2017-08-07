@@ -10,6 +10,8 @@
 
 @protocol _SFPBTitleCardSection <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) _Bool hasIsCentered;
+@property(nonatomic) _Bool isCentered;
 @property(readonly, nonatomic) _Bool hasSubtitle;
 @property(copy, nonatomic) NSString *subtitle;
 @property(readonly, nonatomic) _Bool hasTitle;

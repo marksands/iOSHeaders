@@ -495,6 +495,7 @@
 - (_Bool)_wantsSceneAssociation;
 - (id)_debugName;
 - (_Bool)_allowsLinkPreviewInteractionInViewServices;
+- (void)_performTouchContinuationWithOverrideHitTestedView:(id)arg1;
 - (id)_aboveWindowScrollView;
 - (void)_updateInterfaceOrientationFromActiveInterfaceOrientation:(_Bool)arg1;
 - (void)_updateInterfaceOrientationFromActiveInterfaceOrientationIfRotationEnabled:(_Bool)arg1;

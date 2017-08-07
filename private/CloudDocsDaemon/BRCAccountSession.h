@@ -131,6 +131,7 @@
 @property(readonly, nonatomic) BRCFSReader *fsReader; // @synthesize fsReader=_fsReader;
 @property(readonly, nonatomic) BRCContainerScheduler *containerScheduler; // @synthesize containerScheduler=_containerScheduler;
 @property(readonly, nonatomic) BRCApplyScheduler *applyScheduler; // @synthesize applyScheduler=_applyScheduler;
+- (void)openForDumping;
 - (_Bool)shouldPathBeDesktopSymlink:(id)arg1;
 - (void)recreateDesktopSymlinksIfNecessary;
 - (void)_recreateSymlinkIfNecessaryForDocumentsPath:(id)arg1 folderName:(id)arg2 destinationPath:(id)arg3;
@@ -199,6 +200,7 @@
 - (id)cloudDocsClientZone;
 - (void)enumeratePrivateServerZones:(CDUnknownBlockType)arg1;
 - (id)privateServerZoneByID:(id)arg1;
+- (id)fallbackAppLibraryForClientZone:(id)arg1 extension:(id)arg2;
 - (id)appLibraries;
 - (void)enumerateAppLibraries:(CDUnknownBlockType)arg1;
 - (void)enumerateServerZones:(CDUnknownBlockType)arg1;

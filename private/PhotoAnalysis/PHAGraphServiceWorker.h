@@ -100,6 +100,7 @@
 - (id)_collectionListForLocalIdentifier:(id)arg1;
 - (id)_assetCollectionForLocalIdentifier:(id)arg1;
 - (id)informationDictionaryForAsset:(id)arg1;
+- (void)stopProcessingGraphUpdateJob:(id)arg1;
 - (void)startProcessingGraphUpdateJob:(id)arg1;
 - (_Bool)stopAnalysisJob:(id)arg1 error:(id *)arg2;
 - (_Bool)startAnalysisJob:(id)arg1 error:(id *)arg2;

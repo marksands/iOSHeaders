@@ -39,11 +39,13 @@
     NSString *_mailAuthor;
     NSArray *_contactAlternateNames;
     NSString *_mailConversationIdentifier;
+    NSData *_suggestionsFeedbackData;
     struct ranking_index_score_t _score;
 }
 
 + (void)initialize;
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSData *suggestionsFeedbackData; // @synthesize suggestionsFeedbackData=_suggestionsFeedbackData;
 @property(retain) NSString *mailConversationIdentifier; // @synthesize mailConversationIdentifier=_mailConversationIdentifier;
 @property(retain) NSArray *contactAlternateNames; // @synthesize contactAlternateNames=_contactAlternateNames;
 @property(retain) NSString *mailAuthor; // @synthesize mailAuthor=_mailAuthor;

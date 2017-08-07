@@ -51,6 +51,7 @@ __attribute__((visibility("hidden")))
 - (void)viewDidLoad;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)didInvalidateIntrinsicContentSizeForTableHeaderFooterView:(id)arg1;
+- (void)deselectSelectedProviderAnimated:(_Bool)arg1;
 - (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;

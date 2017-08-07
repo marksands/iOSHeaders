@@ -8,7 +8,7 @@
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class HMDBackingStoreLocal, HMDHomeManager, HMFVersion, NSMapTable, NSString;
+@class HMDBackingStoreLocal, HMDHomeManager, HMFVersion, NSMapTable, NSOperationQueue, NSString;
 
 @interface HMDBackingStoreSingleton : HMFObject <HMFLogging>
 {
@@ -19,6 +19,7 @@
     HMFVersion *_dataVersion;
     HMDHomeManager *_homeManager;
     HMDBackingStoreLocal *_local;
+    NSOperationQueue *_queue;
 }
 
 + (id)logCategory;
@@ -27,6 +28,7 @@
 + (void)setClass:(Class)arg1 forClassName:(id)arg2;
 + (id)sharedInstance;
 + (void)start;
+@property(readonly, nonatomic) NSOperationQueue *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) HMDBackingStoreLocal *local; // @synthesize local=_local;
 @property(readonly, nonatomic) __weak HMDHomeManager *homeManager; // @synthesize homeManager=_homeManager;
 @property(retain, nonatomic) HMFVersion *dataVersion; // @synthesize dataVersion=_dataVersion;

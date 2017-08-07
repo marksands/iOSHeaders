@@ -6,13 +6,14 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableArray;
+@class NSMutableArray, NSString;
 @protocol OS_dispatch_queue;
 
 @interface NPKWorkQueue : NSObject
 {
     _Bool _performingWork;
     _Bool _takeOutTransactions;
+    NSString *_workQueueName;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableArray *_remainingWork;
     NSObject<OS_dispatch_queue> *_callbackQueue;
@@ -23,6 +24,7 @@
 @property(nonatomic) _Bool performingWork; // @synthesize performingWork=_performingWork;
 @property(retain, nonatomic) NSMutableArray *remainingWork; // @synthesize remainingWork=_remainingWork;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(retain, nonatomic) NSString *workQueueName; // @synthesize workQueueName=_workQueueName;
 - (void).cxx_destruct;
 - (void)performWork:(CDUnknownBlockType)arg1;
 - (void)_onQueue_doWorkIfNecessary;

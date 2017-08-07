@@ -4,18 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <DocumentManager/DOCKeyCommandRegistryServiceProxyProtocol-Protocol.h>
+@class FPSandboxingURLWrapper, NSArray, NSString;
 
-@class FPSandboxingURLWrapper, NSArray, NSString, NSURL;
-
-@protocol DOCServiceDocumentBrowserViewControllerInterface <DOCKeyCommandRegistryServiceProxyProtocol>
+@protocol DOCServiceDocumentBrowserViewControllerInterface
 - (void)_clearCurrentOpenInteraction;
 - (void)_dismissAllPresentedViewControllers:(_Bool)arg1 completion:(void (^)(void))arg2;
 - (void)_setCreateButtonTitle:(NSString *)arg1;
 - (void)_setCreateButtonAspectRatio:(double)arg1;
 - (void)_setAllowsPickingMultipleItems:(_Bool)arg1;
 - (void)_setAllowsDocumentCreation:(_Bool)arg1;
-- (void)_importDocumentAtURLWrapper:(FPSandboxingURLWrapper *)arg1 nextToDocumentAtURL:(NSURL *)arg2 mode:(unsigned long long)arg3 completionHandler:(void (^)(DOCItem *, NSError *))arg4;
+- (void)_importDocumentAtURLWrapper:(FPSandboxingURLWrapper *)arg1 nextToDocumentAtURLWrapper:(FPSandboxingURLWrapper *)arg2 mode:(unsigned long long)arg3 completionHandler:(void (^)(DOCItem *, NSError *))arg4;
 - (void)_importDocumentAtURLWrapper:(FPSandboxingURLWrapper *)arg1 mode:(unsigned long long)arg2 toCurrentBrowserLocationWithCompletion:(void (^)(DOCItem *, NSError *))arg3;
 - (void)_setCustomActions:(NSArray *)arg1;
 - (void)_setAdditionalTrailingNavigationBarButtonItems:(NSArray *)arg1;

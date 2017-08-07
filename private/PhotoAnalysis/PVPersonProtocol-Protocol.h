@@ -15,6 +15,7 @@
 @property(nonatomic) _Bool isVerified;
 @property(readonly, nonatomic) long long verifiedType;
 @property(readonly, nonatomic) NSString *name;
+@property(readonly, nonatomic) _Bool hidden;
 @property(readonly, nonatomic) _Bool favorite;
 @property(readonly, nonatomic) unsigned long long faceCount;
 @property(readonly, nonatomic) NSString *localIdentifier;

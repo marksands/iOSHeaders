@@ -42,7 +42,6 @@ __attribute__((visibility("hidden")))
 - (void)_feedbackPlayerDidFail:(id)arg1;
 - (_Bool)_isSuspended;
 - (void)_subscribeToFeedbackServerFailureNotifications;
-- (id)_performHapticPlayerAsyncSelector:(SEL)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (double)currentTime;
 - (void)_resetHapticPlayer;
 - (id)init;

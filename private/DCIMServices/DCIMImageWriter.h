@@ -10,10 +10,6 @@
 {
 }
 
-+ (id)avalanchePathExtension;
-+ (id)diagnosticPathExtension;
-+ (id)largeThumbnailInflightPathExtension;
-+ (id)incomingAssetFilenameDelimiter;
 + (id)defaultFileExtensionForAssetType:(short)arg1;
 + (id)preferredFileExtensionForType:(id)arg1;
 + (_Bool)isLivePhotoFilteredVideoPath:(id)arg1;

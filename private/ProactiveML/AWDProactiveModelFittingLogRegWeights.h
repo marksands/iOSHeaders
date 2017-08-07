@@ -8,11 +8,12 @@
 
 #import <ProactiveML/NSCopying-Protocol.h>
 
-@class AWDProactiveModelFittingEvalMetrics, AWDProactiveModelFittingMinibatchStats, AWDProactiveModelFittingModelInfo, AWDProactiveModelFittingQuantizedSparseVector, AWDProactiveModelFittingSparseFloatVector;
+@class AWDProactiveModelFittingEvalMetrics, AWDProactiveModelFittingMinibatchStats, AWDProactiveModelFittingModelInfo, AWDProactiveModelFittingQuantizedDenseVector, AWDProactiveModelFittingQuantizedSparseVector, AWDProactiveModelFittingSparseFloatVector;
 
 @interface AWDProactiveModelFittingLogRegWeights : PBCodable <NSCopying>
 {
     unsigned long long _timestamp;
+    AWDProactiveModelFittingQuantizedDenseVector *_denseQuantizedWeights;
     AWDProactiveModelFittingEvalMetrics *_evaluationMetrics;
     AWDProactiveModelFittingMinibatchStats *_minibatchStats;
     AWDProactiveModelFittingModelInfo *_modelInfo;
@@ -27,6 +28,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) AWDProactiveModelFittingQuantizedDenseVector *denseQuantizedWeights; // @synthesize denseQuantizedWeights=_denseQuantizedWeights;
 @property(nonatomic) float weightsL2norm; // @synthesize weightsL2norm=_weightsL2norm;
 @property(nonatomic) float weightsScaleFactor; // @synthesize weightsScaleFactor=_weightsScaleFactor;
 @property(retain, nonatomic) AWDProactiveModelFittingQuantizedSparseVector *sparseQuantizedWeights; // @synthesize sparseQuantizedWeights=_sparseQuantizedWeights;
@@ -45,6 +47,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasDenseQuantizedWeights;
 @property(nonatomic) _Bool hasWeightsL2norm;
 @property(nonatomic) _Bool hasWeightsScaleFactor;
 @property(readonly, nonatomic) _Bool hasSparseQuantizedWeights;

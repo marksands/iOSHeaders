@@ -24,6 +24,7 @@
     _Bool _allowsMultiPassEncoding;
     _Bool _allowsOptimalRowbytesPacking;
     _Bool _optOutOfThinning;
+    _Bool _preservedVectorRepresentation;
     _Bool _isFlippable;
     _Bool _isTintable;
     short _colorSpaceID;
@@ -70,6 +71,7 @@
 @property(nonatomic) _Bool cubemap; // @synthesize cubemap=_isCubeMap;
 @property(nonatomic) _Bool isTintable; // @synthesize isTintable=_isTintable;
 @property(nonatomic) _Bool isFlippable; // @synthesize isFlippable=_isFlippable;
+@property(nonatomic) _Bool preservedVectorRepresentation; // @synthesize preservedVectorRepresentation=_preservedVectorRepresentation;
 @property(nonatomic) _Bool optOutOfThinning; // @synthesize optOutOfThinning=_optOutOfThinning;
 @property(nonatomic) _Bool allowsOptimalRowbytesPacking; // @synthesize allowsOptimalRowbytesPacking=_allowsOptimalRowbytesPacking;
 @property(nonatomic) _Bool allowsMultiPassEncoding; // @synthesize allowsMultiPassEncoding=_allowsMultiPassEncoding;

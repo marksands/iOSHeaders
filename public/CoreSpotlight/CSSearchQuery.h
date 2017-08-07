@@ -76,6 +76,7 @@
 @property(readonly, getter=isCancelled) _Bool cancelled;
 - (void)start;
 - (void)_finishWithError:(id)arg1;
+- (id)debugDescription;
 - (id)description;
 - (_Bool)attribute;
 - (_Bool)counting;

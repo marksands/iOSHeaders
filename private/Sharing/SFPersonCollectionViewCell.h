@@ -38,14 +38,10 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_largeTextNameCenterYConstraint;
     NSArray *_regularConstraints;
     NSArray *_largeTextConstraints;
-    NSLayoutConstraint *_progressHeightConstraint;
-    NSLayoutConstraint *_progressWidthConstraint;
     UILabel *_nameLabel;
 }
 
 @property(retain, nonatomic) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
-@property(retain, nonatomic) NSLayoutConstraint *progressWidthConstraint; // @synthesize progressWidthConstraint=_progressWidthConstraint;
-@property(retain, nonatomic) NSLayoutConstraint *progressHeightConstraint; // @synthesize progressHeightConstraint=_progressHeightConstraint;
 @property(retain, nonatomic) NSArray *largeTextConstraints; // @synthesize largeTextConstraints=_largeTextConstraints;
 @property(retain, nonatomic) NSArray *regularConstraints; // @synthesize regularConstraints=_regularConstraints;
 @property(retain, nonatomic) NSLayoutConstraint *largeTextNameCenterYConstraint; // @synthesize largeTextNameCenterYConstraint=_largeTextNameCenterYConstraint;

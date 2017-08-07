@@ -13,6 +13,7 @@
     NSDictionary *_migrations;
 }
 
++ (id)skipFromZeroSchema:(unsigned long long *)arg1;
 + (id)mockMigrationsByAddingQueries:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *migrations; // @synthesize migrations=_migrations;
 - (void).cxx_destruct;

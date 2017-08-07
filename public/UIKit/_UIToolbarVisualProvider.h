@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 - (void)updateBarBackground;
 - (void)updateBarForStyle:(long long)arg1;
 - (void)drawBackgroundViewInRect:(struct CGRect)arg1;
+@property(readonly, nonatomic) struct CGRect backgroundFrame;
 - (id)initWithToolbar:(id)arg1;
 
 @end

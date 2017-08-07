@@ -26,7 +26,8 @@
 + (id)_extractEventDataFromEventICSData:(id)arg1;
 + (id)_extractEventDataFromSpotlightIdentifier:(id)arg1;
 + (id)eventImportDataFromData:(id)arg1 forType:(id)arg2;
-+ (void)extractEventImportDataFromDraggingInfo:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
++ (_Bool)itemContainsCalendarICSData:(id)arg1;
++ (void)extractEventImportDataFromDropSession:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 + (id)acceptedTypeIdentifiers;
 @property(nonatomic) int requestedAction; // @synthesize requestedAction=_requestedAction;
 @property(retain, nonatomic) NSString *uniqueId; // @synthesize uniqueId=_uniqueId;

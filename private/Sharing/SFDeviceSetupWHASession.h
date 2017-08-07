@@ -18,6 +18,7 @@
     _Bool _sessionSecured;
     int _pairVerifyState;
     int _pairSetupState;
+    int _infoExchangeState;
     int _trSessionState;
     TRSession *_trSession;
     NSMutableArray *_trOperations;
@@ -47,11 +48,15 @@
 @property(retain, nonatomic) SFDevice *peerDevice; // @synthesize peerDevice=_peerDevice;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
+- (_Bool)_verifyiCloudMatch:(unsigned long long)arg1 error:(id *)arg2;
 - (int)_runFinish;
 - (int)_runHomeKitSetup;
 - (int)_runTRAuthentication;
 - (int)_runTRSetupConfiguration;
 - (int)_runTRSessionStart;
+- (void)_runInfoExchangeResponse:(id)arg1 error:(id)arg2;
+- (void)_runInfoExchangeRequest;
+- (int)_runInfoExchange;
 - (int)_runPairSetup;
 - (int)_runPairVerify;
 - (int)_runSFSessionStart;

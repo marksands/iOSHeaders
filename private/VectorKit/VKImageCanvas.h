@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOMapRegion, VKScreenCameraController;
 @protocol MDRenderTarget, VKImageCanvasDelegate;
@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     shared_ptr_e963992e _taskContext;
     long long _mapType;
     struct DisplayStyle _mapDisplayStyle;
+    unsigned char _emphasis;
     id <MDRenderTarget> _displayTarget;
     Renderer_e10ca448 *_mapRenderer;
     struct LayoutContext *_layoutContext;
@@ -23,6 +24,7 @@ __attribute__((visibility("hidden")))
     struct RunLoopController *_runLoopController;
 }
 
+@property(nonatomic) unsigned char emphasis; // @synthesize emphasis=_emphasis;
 @property(nonatomic) struct DisplayStyle mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
 @property(nonatomic) long long mapType; // @synthesize mapType=_mapType;
 @property(nonatomic) id <VKImageCanvasDelegate> delegate; // @synthesize delegate=_delegate;

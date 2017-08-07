@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
     NSObject<PDFCollectionViewDataSource> *_wrappedDataSource;
 }
 
-@property(retain) NSObject<PDFCollectionViewDataSource> *wrappedDataSource; // @synthesize wrappedDataSource=_wrappedDataSource;
+@property __weak NSObject<PDFCollectionViewDataSource> *wrappedDataSource; // @synthesize wrappedDataSource=_wrappedDataSource;
 - (void).cxx_destruct;
 - (_Bool)collectionView:(id)arg1 canMoveItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;

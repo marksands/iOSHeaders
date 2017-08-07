@@ -11,6 +11,7 @@
 @protocol FCBackgroundTaskable, FCContentContextInternal, FCPPTContext;
 
 @protocol FCContentContext <NSObject, FCCacheFlushing>
+@property(readonly, copy, nonatomic) NSString *contentEnvironmentToken;
 @property(readonly, nonatomic) __weak id <FCBackgroundTaskable> backgroundTaskable;
 @property(readonly, nonatomic) id <FCPPTContext> pptContext;
 @property(readonly, nonatomic) id <FCContentContextInternal> internalContentContext;

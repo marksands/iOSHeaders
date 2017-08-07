@@ -50,6 +50,8 @@
 - (id)initWithCoder:(id)arg1;
 - (id)debugDescription;
 - (id)description;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)_fetchEventKitWithKeepGoing:(CDUnknownBlockType)arg1;
 - (void)_fetchCorrectionsWithKeepGoing:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_fetchDynamicKeyboardLanguageModelWithKeepGoing:(CDUnknownBlockType)arg1;
@@ -59,7 +61,6 @@
 - (void)_fetchAppsWithKeepGoing:(CDUnknownBlockType)arg1;
 - (void)_fetchPEXWithKeepGoing:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_fetchContactsWithKeepGoing:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic) _Bool hasData;
 - (id)_initWithLanguage:(id)arg1;
 
 @end

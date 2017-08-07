@@ -6,17 +6,16 @@
 
 #import <UIKit/UIView.h>
 
-@class UIImageView, UILabel;
+@class UILabel, _UIBatteryView;
 
 @interface HACCBatteryView : UIView
 {
     UILabel *_sideLabel;
     UILabel *_valueLabel;
-    UIImageView *_batteryImageView;
+    _UIBatteryView *_batteryView;
 }
 
 - (void).cxx_destruct;
-- (id)imageForBatteryLevel:(double)arg1;
 - (void)setValue:(double)arg1 forEar:(int)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 

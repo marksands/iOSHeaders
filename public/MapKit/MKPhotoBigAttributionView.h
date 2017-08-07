@@ -12,7 +12,9 @@ __attribute__((visibility("hidden")))
 @interface MKPhotoBigAttributionView : UIView
 {
     UIImageView *_imageView;
-    _MKUILabel *_moreLabel;
+    _MKUILabel *_firstLineLabel;
+    _MKUILabel *_secondLineLabel;
+    UIView *_labelsView;
     UIView *_backgroundView;
     long long _type;
     MKMapItem *_mapItem;
@@ -23,7 +25,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)updateBackground;
 - (void)setMapItem:(id)arg1 andType:(long long)arg2;
-- (id)infoAttributionString;
+- (void)updateInfoAttributionString;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

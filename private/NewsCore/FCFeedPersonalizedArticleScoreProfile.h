@@ -6,6 +6,8 @@
 
 #import <objc/NSObject.h>
 
+@class NSDictionary;
+
 @interface FCFeedPersonalizedArticleScoreProfile : NSObject
 {
     double _featureCtr;
@@ -18,8 +20,10 @@
     double _personalizationScore;
     double _agedPersonalizationScore;
     double _diversifiedPersonalizationScore;
+    NSDictionary *_cohortMemberships;
 }
 
+@property(retain, nonatomic) NSDictionary *cohortMemberships; // @synthesize cohortMemberships=_cohortMemberships;
 @property(nonatomic) double diversifiedPersonalizationScore; // @synthesize diversifiedPersonalizationScore=_diversifiedPersonalizationScore;
 @property(nonatomic) double agedPersonalizationScore; // @synthesize agedPersonalizationScore=_agedPersonalizationScore;
 @property(nonatomic) double personalizationScore; // @synthesize personalizationScore=_personalizationScore;
@@ -30,6 +34,7 @@
 @property(nonatomic) double autoSubscribeCtr; // @synthesize autoSubscribeCtr=_autoSubscribeCtr;
 @property(nonatomic) double paidNonpaidSubscriptionCtr; // @synthesize paidNonpaidSubscriptionCtr=_paidNonpaidSubscriptionCtr;
 @property(nonatomic) double featureCtr; // @synthesize featureCtr=_featureCtr;
+- (void).cxx_destruct;
 - (id)description;
 
 @end

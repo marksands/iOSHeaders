@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IMSharedUtilities/IMRemoteObjectCoding-Protocol.h>
 #import <IMSharedUtilities/NSCopying-Protocol.h>
@@ -29,6 +29,7 @@
     long long _type;
     NSString *_balloonBundleID;
     NSString *_destinationCallerID;
+    NSDate *_clientSendTime;
     long long _cloudKitSyncState;
     NSString *_cloudKitRecordID;
     NSData *_cloudKitServerChangeTokenBlob;
@@ -44,6 +45,7 @@
 @property(copy, nonatomic) NSData *cloudKitServerChangeTokenBlob; // @synthesize cloudKitServerChangeTokenBlob=_cloudKitServerChangeTokenBlob;
 @property(copy, nonatomic) NSString *cloudKitRecordID; // @synthesize cloudKitRecordID=_cloudKitRecordID;
 @property(nonatomic) long long cloudKitSyncState; // @synthesize cloudKitSyncState=_cloudKitSyncState;
+@property(retain, nonatomic) NSDate *clientSendTime; // @synthesize clientSendTime=_clientSendTime;
 @property(retain, nonatomic) NSString *destinationCallerID; // @synthesize destinationCallerID=_destinationCallerID;
 @property(retain, nonatomic) NSString *balloonBundleID; // @synthesize balloonBundleID=_balloonBundleID;
 @property(nonatomic) long long type; // @synthesize type=_type;

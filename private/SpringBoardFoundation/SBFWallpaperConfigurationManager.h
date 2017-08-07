@@ -53,6 +53,7 @@
 - (void)notifyDelegateOfChangesToVariants:(long long)arg1;
 - (void)wallpaperDidChangeForVariants:(long long)arg1 shouldNotify:(_Bool)arg2;
 - (void)wallpaperWillChangeForVariants:(long long)arg1;
+- (id)wallpaperColorForVariant:(long long)arg1 fromDataStore:(id)arg2 colorName:(id *)arg3;
 - (void)removeWallpaperColorForVariants:(long long)arg1;
 - (_Bool)setWallpaperColorName:(id)arg1 forVariants:(long long)arg2;
 - (_Bool)setWallpaperColor:(id)arg1 forVariants:(long long)arg2;

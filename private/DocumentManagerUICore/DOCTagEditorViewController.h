@@ -21,6 +21,7 @@
     _Bool _useCompactColorPicker;
     _Bool _pinTextFieldToTopBound;
     _Bool _delayResizingUntilAppeared;
+    _Bool _isExtremelyVerticallyCompact;
     _Bool _isInfoInPopoverMode;
     _Bool _inTagListMode;
     _Bool _addingTag;
@@ -62,6 +63,7 @@
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(nonatomic) _Bool inTagListMode; // @synthesize inTagListMode=_inTagListMode;
 @property(nonatomic) _Bool isInfoInPopoverMode; // @synthesize isInfoInPopoverMode=_isInfoInPopoverMode;
+@property(nonatomic) _Bool isExtremelyVerticallyCompact; // @synthesize isExtremelyVerticallyCompact=_isExtremelyVerticallyCompact;
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(nonatomic) __weak id <DOCTagEditorDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) _Bool delayResizingUntilAppeared; // @synthesize delayResizingUntilAppeared=_delayResizingUntilAppeared;

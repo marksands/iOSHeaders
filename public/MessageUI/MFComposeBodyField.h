@@ -88,6 +88,9 @@
 - (id)_webView:(id)arg1 adjustedItemProviders:(id)arg2;
 - (id)_webView:(id)arg1 willUpdateDropProposalToProposal:(id)arg2 forSession:(id)arg3;
 - (_Bool)_webView:(id)arg1 allowsSelectingContentAfterDropForSession:(id)arg2;
+- (long long)_webView:(id)arg1 dataOwnerForDropSession:(id)arg2;
+- (long long)_webView:(id)arg1 dataOwnerForDragSession:(id)arg2;
+- (_Bool)_sourceIsManaged;
 - (struct CGRect)rectOfElementWithID:(id)arg1;
 - (id)htmlString;
 - (void)getHTMLStringsAttachmentsCharsetsAndPlainTextAlternative:(CDUnknownBlockType)arg1;

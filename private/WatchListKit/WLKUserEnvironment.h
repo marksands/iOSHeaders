@@ -17,10 +17,12 @@
     NSDictionary *_entitlements;
     NSString *_restrictions;
     NSArray *_consentedBrands;
+    unsigned long long _protocolVersion;
 }
 
 + (void)setCurrentEnvironmentForTesting:(id)arg1;
 + (id)currentEnvironment;
+@property(nonatomic) unsigned long long protocolVersion; // @synthesize protocolVersion=_protocolVersion;
 @property(nonatomic) _Bool consented; // @synthesize consented=_consented;
 @property(retain, nonatomic) NSArray *consentedBrands; // @synthesize consentedBrands=_consentedBrands;
 @property(retain, nonatomic) NSString *restrictions; // @synthesize restrictions=_restrictions;

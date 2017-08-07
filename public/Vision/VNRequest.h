@@ -25,9 +25,9 @@
     unsigned long long _detectionLevel;
     id <MTLDevice> _preferredMetalContext;
     unsigned long long _metalContextPriority;
-    _Bool _disallowsGPUUse;
     _Bool _preferBackgroundProcessing;
     _Bool _dumpIntermediateImages;
+    _Bool _usesCPUOnly;
     _Bool _cancellationTriggered;
     NSArray *_results;
     unsigned long long _modelFileBackingStore;
@@ -58,7 +58,8 @@
 - (_Bool)validateImageBuffer:(id)arg1 ofNonZeroWidth:(unsigned long long *)arg2 andHeight:(unsigned long long *)arg3 error:(id *)arg4;
 @property(nonatomic) unsigned long long detectionLevel;
 @property(nonatomic) unsigned long long metalContextPriority; // @synthesize metalContextPriority=_metalContextPriority;
-@property(nonatomic) _Bool disallowsGPUUse; // @synthesize disallowsGPUUse=_disallowsGPUUse;
+@property(nonatomic) _Bool usesCPUOnly;
+@property(nonatomic) _Bool disallowsGPUUse; // @synthesize disallowsGPUUse=_usesCPUOnly;
 @property(retain, nonatomic) id <MTLDevice> preferredMetalContext; // @synthesize preferredMetalContext=_preferredMetalContext;
 @property(nonatomic) _Bool dumpIntermediateImages;
 - (void)_updateVNRequestOptionPreferredMetalContext;

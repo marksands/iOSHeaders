@@ -12,8 +12,6 @@
 __attribute__((visibility("hidden")))
 @interface NSConcreteFileHandle : NSFileHandle
 {
-    int _fd;
-    unsigned short _flags;
     struct __CFRunLoopSource *_source;
     struct __CFRunLoop *_rl;
     unsigned short _activity;
@@ -28,6 +26,8 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_source> *_readMonitoringSource;
     NSObject<OS_dispatch_source> *_writeMonitoringSource;
     NSObject<OS_dispatch_queue> *_monitoringQueue;
+    int _fd;
+    // Error parsing type: AS, name: _flags
 }
 
 - (void)_closeOnDealloc;

@@ -26,7 +26,7 @@
 - (void).cxx_destruct;
 - (void)_keyboardDismissGesture:(id)arg1;
 - (void)didAppear;
-- (void)setPrimaryActionTitle:(id)arg1 secondaryActionTitle:(id)arg2;
+- (void)setDialogActions:(id)arg1;
 - (void)setPasswordText:(id)arg1 placeholder:(id)arg2;
 - (void)setInputText:(id)arg1 placeholder:(id)arg2;
 - (void)setUsesOpaqueAppearance:(_Bool)arg1;

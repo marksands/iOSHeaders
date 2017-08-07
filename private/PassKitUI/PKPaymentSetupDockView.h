@@ -14,10 +14,12 @@
     PKContinuousButton *_continousButton;
     PKPaymentSetupFooterView *_footerView;
     _Bool _isBuddyiPad;
+    _Bool _requiresAdditionalContinousButtonPadding;
     long long _context;
 }
 
 @property(readonly, nonatomic) long long context; // @synthesize context=_context;
+@property(nonatomic) _Bool requiresAdditionalContinousButtonPadding; // @synthesize requiresAdditionalContinousButtonPadding=_requiresAdditionalContinousButtonPadding;
 - (void).cxx_destruct;
 - (struct CGSize)_sizeForButton:(id)arg1 constrainedToSize:(struct CGSize)arg2;
 - (void)setButtonsEnabled:(_Bool)arg1;

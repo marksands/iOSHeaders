@@ -36,6 +36,7 @@
 - (void)dealloc;
 - (id)initTransientForClients:(id)arg1 delegate:(id)arg2;
 - (id)initWithMachServiceName:(id)arg1 forClients:(id)arg2 delegate:(id)arg3;
+- (id)_oncePerBootUniqueIdentifierForServiceName:(id)arg1;
 - (void)_internalInit;
 
 // Remaining properties

@@ -165,8 +165,6 @@
 - (double)_alphaForComplicationSlot:(id)arg1 inEditMode:(long long)arg2;
 - (void)_setTransitionFraction:(double)arg1 fromEditMode:(long long)arg2 toEditMode:(long long)arg3;
 - (void)_updateTimeOffset;
-- (void)_performSuppressingLayoutOnGeometryChange:(CDUnknownBlockType)arg1;
-- (id)_viewsToSuppressLayoutOnBoundsChange;
 @property(readonly, nonatomic) double alphaForDimmedState;
 - (void)_updateStatusIconVisibility;
 - (void)prepareForStatusChange:(_Bool)arg1;
@@ -179,6 +177,7 @@
 - (double)_editSpeedForComplications;
 - (unsigned long long)_keylineLabelAlignmentForComplicationSlot:(id)arg1;
 - (double)_keylineCornerRadiusForComplicationSlot:(id)arg1;
+- (void)_cleanupAfterTransitionComplicationSlot:(id)arg1;
 - (void)_applyRubberBandingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (void)_applyBreathingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (double)_editSpeedForCustomEditMode:(long long)arg1 slot:(id)arg2;
@@ -260,6 +259,7 @@
 - (id)complicationPickerViewForSlot:(id)arg1;
 - (void)setComplicationPickerView:(id)arg1 forSlot:(id)arg2;
 - (id)customEditingViewController;
+- (void)cleanupAfterTransitionComplicationSlot:(id)arg1;
 - (void)applyRubberBandingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (void)applyBreathingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (double)editSpeedForCustomEditMode:(long long)arg1 slot:(id)arg2;
@@ -276,6 +276,7 @@
 - (void)cleanupAfterOrb:(_Bool)arg1;
 - (void)prepareForOrb;
 - (void)performWristRaiseAnimation;
+- (void)prepareWristRaiseAnimation;
 - (void)handleOrdinaryScreenWake;
 - (void)handleWristRaiseScreenWake;
 - (_Bool)needsImageQueueDiscardOnRender;

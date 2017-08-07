@@ -40,7 +40,7 @@
 - (unsigned long long)hash;
 @property(readonly, nonatomic) id objectIfLoaded;
 @property(readonly, nonatomic) id object;
-- (id)initWithObject:(id)arg1;
+- (id)initWithTSPObject:(id)arg1;
 - (id)initWithDelegate:(id)arg1 identifier:(long long)arg2 isWeak:(_Bool)arg3 allowUnknownObject:(_Bool)arg4;
 - (id)init;
 

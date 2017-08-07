@@ -41,7 +41,7 @@
 - (id)_latestValidNPSDateWithCurrentDate:(id)arg1;
 - (_Bool)_isNPSDateLaterThanAllowed:(id)arg1 currentDate:(id)arg2;
 - (void)_loadDNDEnabledStateFromNPS:(CDUnknownBlockType)arg1;
-- (void)_resolveDNDStateWithBBState:(unsigned long long)arg1 bbDate:(id)arg2 npsState:(unsigned long long)arg3 npsDate:(id)arg4 currentDate:(id)arg5 deviceIsCompanion:(_Bool)arg6 triggeredBySource:(unsigned long long)arg7 behaviorOverrides:(id)arg8 completion:(CDUnknownBlockType)arg9;
+- (unsigned long long)_resolveDNDStateWithBBState:(unsigned long long)arg1 bbDate:(id)arg2 npsState:(unsigned long long)arg3 npsDate:(id)arg4 currentDate:(id)arg5 deviceIsCompanion:(_Bool)arg6 triggeredBySource:(unsigned long long)arg7 behaviorOverrides:(id)arg8 resolvedDate:(id *)arg9;
 - (void)_updatePrivilegedSenderTypes;
 - (void)_updateEffectiveOverrides;
 - (void)_updateDNDAssertState;

@@ -36,6 +36,7 @@
     NSMutableArray *_daemonLaunchObservers;
     _Bool _daemonReady;
     int _didStart;
+    NSString *_medicalIDDirectoryPath;
     HDAchievementDoctorManager *_achievementDoctorManager;
     HDAchievementAssetManager *_achievementAssetManager;
     HDCompanionAchievementManager *_companionAchievementManager;
@@ -67,6 +68,7 @@
 @property(retain, nonatomic) HDAchievementDefinitionAlertManager *achievementDefinitionAlertManager; // @synthesize achievementDefinitionAlertManager=_achievementDefinitionAlertManager;
 @property(retain, nonatomic) HDAchievementAssetManager *achievementAssetManager; // @synthesize achievementAssetManager=_achievementAssetManager;
 @property(retain, nonatomic) HDAchievementDoctorManager *achievementDoctorManager; // @synthesize achievementDoctorManager=_achievementDoctorManager;
+@property(readonly, copy) NSString *medicalIDDirectoryPath; // @synthesize medicalIDDirectoryPath=_medicalIDDirectoryPath;
 - (void).cxx_destruct;
 - (void)unitTest_queryServerDidInit:(id)arg1;
 - (void)unitTest_didCreateProfile:(id)arg1;
@@ -124,7 +126,8 @@
 - (void)invalidateAndWait;
 - (void)dealloc;
 - (void)start;
-- (id)initWithHealthDirectoryPath:(id)arg1;
+- (id)initWithHealthDirectoryPath:(id)arg1 medicalIDDirectoryPath:(id)arg2;
+- (id)initWithContainerDirectoryPath:(id)arg1;
 - (id)init;
 - (id)healthDomainAccessorWithPairedDevice:(id)arg1;
 - (id)IDSServiceWithIdentifier:(id)arg1;

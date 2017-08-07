@@ -38,6 +38,7 @@
 - (void)addOperation:(id)arg1;
 - (void)dealloc;
 - (id)init;
+- (void)_fc_addUncancellableOperationForReactorID:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)_fc_addUncancellableOperationWithBlock:(CDUnknownBlockType)arg1;
 
 @end

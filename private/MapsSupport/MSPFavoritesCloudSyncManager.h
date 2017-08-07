@@ -17,6 +17,7 @@
 + (id)cloudRecordType;
 + (Class)replicaRecordClass;
 + (Class)replicaClass;
++ (id)boostDateDefaultsKey;
 + (id)identityDefaultsKey;
 + (_Bool)usesZoneWidePCS;
 + (id)zoneName;

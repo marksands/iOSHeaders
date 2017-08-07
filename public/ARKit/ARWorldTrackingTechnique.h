@@ -31,6 +31,7 @@
 @property(readonly, nonatomic) long long latencyFrameCount; // @synthesize latencyFrameCount=_latencyFrameCount;
 @property(readonly, nonatomic) NSString *deviceModel; // @synthesize deviceModel=_deviceModel;
 - (void).cxx_destruct;
+-     // Error parsing type: {?=[4]}24@0:8d16, name: cameraTransformAtTimestamp:
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithDeviceModel:(id)arg1 latencyFrameCount:(long long)arg2;
 - (id)init;

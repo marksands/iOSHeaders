@@ -6,18 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class NSData;
+@class NSString;
 
 @interface SBFAuthenticationRequest : NSObject
 {
     unsigned long long _type;
     long long _source;
     CDUnknownBlockType _handler;
-    NSData *_payload;
+    NSString *_passcode;
 }
 
 @property(readonly, copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler=_handler;
-@property(readonly, nonatomic) NSData *payload; // @synthesize payload=_payload;
+@property(readonly, copy, nonatomic) NSString *passcode; // @synthesize passcode=_passcode;
 @property(readonly, nonatomic) long long source; // @synthesize source=_source;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
@@ -27,12 +27,11 @@
 - (id)succinctDescription;
 - (id)description;
 - (id)publicDescription;
-- (id)initForBiometricAuthenticationWithSource:(long long)arg1 successful:(_Bool)arg2;
-- (id)initForBiometricAuthenticationWithSource:(long long)arg1 successful:(_Bool)arg2 handler:(CDUnknownBlockType)arg3;
+- (id)initForBiometricAuthenticationWithSource:(long long)arg1;
+- (id)initForBiometricAuthenticationWithSource:(long long)arg1 handler:(CDUnknownBlockType)arg2;
 - (id)initForPasscode:(id)arg1 source:(long long)arg2;
 - (id)initForPasscode:(id)arg1 source:(long long)arg2 handler:(CDUnknownBlockType)arg3;
-- (id)initWithType:(unsigned long long)arg1 source:(long long)arg2 payload:(id)arg3;
-- (id)initWithType:(unsigned long long)arg1 source:(long long)arg2 payload:(id)arg3 handler:(CDUnknownBlockType)arg4;
+- (id)_initWithType:(unsigned long long)arg1 source:(long long)arg2 passcode:(id)arg3 handler:(CDUnknownBlockType)arg4;
 
 @end
 

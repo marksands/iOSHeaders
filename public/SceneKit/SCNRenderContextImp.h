@@ -13,7 +13,7 @@
 
 @interface SCNRenderContextImp : NSObject <SCNRenderContext>
 {
-    struct C3DColor4 _backgroundColor;
+    struct C3DColor4 _rendererPremultipliedBackgroundColor;
     long long _currentFrameIndex;
     struct __C3DEngineStats *__engineStats;
     SCNRenderTargetRegistry *_renderTargetRegistry;
@@ -67,7 +67,7 @@
 @property(readonly, nonatomic) id <SCNResourceManager> resourceManager;
 - (struct __C3DEngineStats *)stats;
 @property(readonly, nonatomic) long long currentFrameIndex;
-- (void)setBackgroundColor:(struct C3DColor4)arg1;
+- (void)setRendererPremultipliedBackgroundColor:(struct C3DColor4)arg1;
 - (void)endRenderPass;
 -     // Error parsing type: B27@0:8^{__C3DFXPass={__CFRuntimeBase=QAQ}^{__CFString}iiB^{__C3DFXTechnique}^{__CFString}^{__CFString}^{__CFString}^{__CFString}B^{__C3DFXProgram}^{__C3DMaterial}^{__C3DBlendStates}^{__C3DRasterizerStates}{C3DColor4=(?=[4f]{?=ffff})}CIb1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1^{__C3DRendererElement}QQ{?=^?^?^?^?^?^?^?^?^v}{?=[4{?=CCCb1b1b1b1b1[4C]}]{?=CCCb1b1b1b1b1[4C]}b3b1b1}{CGPoint=dd}^{?}I^{__C3DNode}^{__C3DNode}^{__CFArray}^{__C3DNode}^{__CFString}^{__CFString}^{__CFString}^^{__C3DFXPassInput}qq^{__CFDictionary}^{__CFDictionary}}16{?=CCB}24, name: beginRenderPass:parameters:
 - (void)endFrameWaitingUntilCompleted:(_Bool)arg1;

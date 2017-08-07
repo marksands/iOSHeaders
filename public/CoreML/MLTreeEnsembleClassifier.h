@@ -19,6 +19,7 @@
     unsigned long long num_dimensions;
     struct vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>> _classes_by_string;
     struct vector<long long, std::__1::allocator<long long>> _classes_by_int64_t;
+    long long _class_type;
     NSArray *_class_values;
     NSString *_single_array_key;
 }

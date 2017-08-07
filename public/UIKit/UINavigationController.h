@@ -328,18 +328,17 @@
 - (void)_observeScrollViewDidEndDecelerating:(id)arg1;
 - (void)_observeScrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)_observeScrollViewWillBeginDragging:(id)arg1;
-- (double)_topCollapsableContentAmountForObservedScrollView:(id)arg1;
-- (struct UIEdgeInsets)_revealableContentPaddingForObservedScrollView:(id)arg1;
+- (struct UIEdgeInsets)_collapsableContentPaddingForObservedScrollView:(id)arg1;
+- (struct UIEdgeInsets)_revealableContentPaddingForObservedScrollView:(id)arg1 includeContentWithCollapsedAffinity:(_Bool)arg2;
 - (void)_observeScrollView:(id)arg1 willEndDraggingWithVelocity:(struct CGPoint)arg2 targetContentOffset:(struct CGPoint *)arg3 unclampedOriginalTarget:(struct CGPoint)arg4;
 - (double)_scrollOffsetRetargettedToDetentOffsetIfNecessary:(double)arg1 unclampedOriginalTargetOffset:(double)arg2 scrollView:(id)arg3;
 - (id)_scrollDetentOffsetsForScrollView:(id)arg1;
 - (double)_topBarHeight;
-- (double)_heightOfTopPartsPreferringPaletteHidden;
 - (double)_heightOfTopPartsWhenHiddenAndCollapsed;
 - (double)_heightOfTopPartsWhenVisibleAndExpanded;
 - (struct CGSize)_navigationBarSizeForViewController:(id)arg1 proposedHeight:(double)arg2 verticalFittingPriority:(float)arg3 allowRubberBandStretch:(_Bool)arg4;
 - (CDStruct_c3b9c2ee)_intrinsicNavigationBarHeightRangeForViewController:(id)arg1;
-- (double)_preferredNavigationBarHeightForViewController:(id)arg1;
+- (double)_preferredHeightForHidingNavigationBarForViewController:(id)arg1;
 - (double)_widthForLayout;
 - (void)_calculateTopViewFramesForExpandedLayoutWithViewController:(id)arg1 contentScrollView:(id)arg2 gettingNavBarFrame:(struct CGRect *)arg3 topPaletteFrame:(struct CGRect *)arg4;
 - (void)_calculateTopViewFramesForPushPopIncomingLayoutWithViewController:(id)arg1 contentScrollView:(id)arg2 gettingNavBarFrame:(struct CGRect *)arg3 topPaletteFrame:(struct CGRect *)arg4;
@@ -485,6 +484,7 @@
 - (_Bool)_animationParametersForHidingNavigationBar:(_Bool)arg1 lastOperation:(long long)arg2 edge:(unsigned long long *)arg3 duration:(double *)arg4;
 - (_Bool)_clipUnderlapWhileTransitioning;
 - (void)_setClipUnderlapWhileTransitioning:(_Bool)arg1;
+- (_Bool)_navigationBarShouldUpdateProgress;
 @property(nonatomic, getter=isNavigationBarHidden) _Bool navigationBarHidden;
 - (void)setNavigationBar:(id)arg1;
 - (id)_backdropBarGroupName;
@@ -494,6 +494,7 @@
 - (void)setNavigationBarClass:(Class)arg1;
 - (Class)navigationBarClass;
 - (void)_updateSearchPaletteSettingsForTopViewController:(id)arg1;
+- (_Bool)_shouldHideSearchBarWhenScrollingForNavigationItem:(id)arg1;
 - (void)_createAndAttachSearchPaletteForTopViewControllerIfNecessary:(id)arg1;
 - (id)_navControllerToCreateManagedSearchPaletteForNavController:(id)arg1;
 - (void)_createAndAttachSearchPaletteForTransitionToTopViewControllerIfNecesssary:(id)arg1;

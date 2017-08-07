@@ -24,6 +24,7 @@
 @property(readonly, nonatomic, getter=isInBackground) _Bool inBackground; // @synthesize inBackground=_inBackground;
 - (void).cxx_destruct;
 - (void)stopObserving;
+- (void)_handleApplicationStateChange:(id)arg1 interestedPID:(int)arg2;
 - (void)startObserving;
 - (void)_sceneOcclusionChanged:(id)arg1;
 - (void)_resignActive;

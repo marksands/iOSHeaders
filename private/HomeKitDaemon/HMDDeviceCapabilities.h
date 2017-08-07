@@ -27,7 +27,6 @@
 + (_Bool)supportsSecureCoding;
 + (id)shortDescription;
 + (id)deviceCapabilities;
-@property(readonly, nonatomic) _Bool supportsSharedEventTriggerActivation; // @synthesize supportsSharedEventTriggerActivation=_supportsSharedEventTriggerActivation;
 @property(readonly, nonatomic, getter=isRemoteGatewayCapable) _Bool remoteGatewayCapable; // @synthesize remoteGatewayCapable=_remoteGatewayCapable;
 @property(readonly, nonatomic, getter=isResidentCapable) _Bool residentCapable; // @synthesize residentCapable=_residentCapable;
 @property(readonly, nonatomic) _Bool supportsWholeHouseAudio; // @synthesize supportsWholeHouseAudio=_supportsWholeHouseAudio;

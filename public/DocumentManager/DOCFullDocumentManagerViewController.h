@@ -11,7 +11,7 @@
 #import <DocumentManager/UINavigationControllerDelegate-Protocol.h>
 #import <DocumentManager/UISearchBarDelegate-Protocol.h>
 
-@class DOCBrowserViewController, DOCConcreteLocation, DOCDocumentManagerNavigationViewController, DOCFullVC_DOCInfoViewController, DOCPromptView, DOCSearchBar, DOCSourceViewController, NSArray, NSString, UIAlertAction, UIBarButtonItem, UISearchBar, UIView, UIViewController;
+@class DOCBrowserViewController, DOCConcreteLocation, DOCDocumentManagerNavigationViewController, DOCFlexibleBarButtonItem, DOCFullVC_DOCInfoViewController, DOCPromptView, DOCSearchBar, DOCSourceViewController, NSArray, NSString, UIAlertAction, UIBarButtonItem, UISearchBar, UIView, UIViewController;
 @protocol DOCFullDocumentManagerViewControllerDelegate;
 
 @interface DOCFullDocumentManagerViewController : DOCBaseDocumentBrowserViewController <DOCSourceViewControllerDelegate, DOCDocumentBrowserDelegate, UISearchBarDelegate, UINavigationControllerDelegate>
@@ -19,10 +19,10 @@
     DOCSourceViewController *_sourceViewController;
     UIView *_dimmingView;
     UIAlertAction *_createNewFolderAction;
-    UIBarButtonItem *_duplicateActionBarButton;
-    UIBarButtonItem *_moveActionBarButton;
-    UIBarButtonItem *_shareActionBarButton;
-    UIBarButtonItem *_deleteActionBarButton;
+    DOCFlexibleBarButtonItem *_duplicateActionBarButton;
+    DOCFlexibleBarButtonItem *_moveActionBarButton;
+    DOCFlexibleBarButtonItem *_shareActionBarButton;
+    DOCFlexibleBarButtonItem *_deleteActionBarButton;
     UIBarButtonItem *_deleteFromTrashActionBarButton;
     UIBarButtonItem *_deleteAllFromTrashActionBarButton;
     UIBarButtonItem *_recoverFromTrashActionBarButton;
@@ -67,7 +67,7 @@
 - (void)createNewFolder:(id)arg1;
 - (void)showLocationOnTopOfCurrentBrowser:(id)arg1 animated:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)browser:(id)arg1 didResolveShownLocation:(id)arg2;
-- (void)browser:(id)arg1 wantsToShowLocation:(id)arg2;
+- (void)browser:(id)arg1 wantsToShowLocation:(id)arg2 forceReplaceLocation:(_Bool)arg3;
 - (void)_clearSearch:(_Bool)arg1 updatePalette:(_Bool)arg2;
 - (void)_clearSearch:(_Bool)arg1;
 - (void)updateSearchContextWithSearchBar:(id)arg1;
@@ -87,6 +87,7 @@
 - (void)browser:(id)arg1 didUpdateImportSupportInCurrentLocation:(_Bool)arg2;
 - (void)browser:(id)arg1 didSelectItems:(id)arg2;
 - (void)sourceViewController:(id)arg1 didSelectLocation:(id)arg2;
+- (void)_installKeyCommands;
 - (void)_displayInfoControllerWithItem:(id)arg1 inTagMode:(_Bool)arg2;
 - (void)_displayInfoControllerForCurrentFolder:(id)arg1;
 - (void)browser:(id)arg1 wantsToShowInfoForItem:(id)arg2;
@@ -114,6 +115,8 @@
 - (id)selectAllButton;
 - (id)_trailingNavigationButtonsForViewController:(id)arg1;
 - (id)_leadingNavigationButtonsForViewController:(id)arg1;
+- (_Bool)_canPopViewController;
+- (_Bool)_canNavigateBack;
 - (void)_updatePalette:(_Bool)arg1;
 - (void)hideSearchViewControllerIfNeeded;
 - (void)showSearchViewControllerIfNeededWithCompletionBlock:(CDUnknownBlockType)arg1;
@@ -137,6 +140,8 @@
 - (id)_createFlexibleSpace;
 - (void)_updateToolbarActionsForViewcontroller:(id)arg1;
 - (_Bool)canPerformAction:(id)arg1;
+- (_Bool)_canCreateDocumentsFromViewController:(id)arg1;
+- (_Bool)_shouldShowCreateDocuments;
 - (void)clearCurrentOpenInteraction;
 - (void)clearCurrentInteraction;
 - (void)viewWillAppear:(_Bool)arg1;
@@ -153,9 +158,11 @@
 - (void)_updateOverlayOnViewController:(id)arg1;
 - (void)setAllowsPickingMultipleItems:(_Bool)arg1;
 - (void)setAdditionalToolbarButtonItems:(id)arg1;
+- (void)_navigateBack;
 - (void)setDelegate:(id)arg1;
 - (void)viewDidLoad;
 - (id)createSearchBar;
+- (void)dealloc;
 - (void)_commonInit;
 - (id)initWithConfiguration:(id)arg1;
 

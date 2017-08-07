@@ -8,11 +8,12 @@
 
 #import <iTunesCloud/NSCopying-Protocol.h>
 
-@class ICClientInfo, ICDeviceInfo, ICURLResponseAuthenticationProvider, NSString;
+@class ICClientInfo, ICDeviceInfo, ICNetworkConstraints, ICURLResponseAuthenticationProvider, NSString;
 
 @interface ICRequestContext : NSObject <NSCopying>
 {
     unsigned int _allowsMutation:1;
+    ICNetworkConstraints *_networkConstraints;
     ICClientInfo *_clientInfo;
     ICDeviceInfo *_deviceInfo;
     ICURLResponseAuthenticationProvider *_authenticationProvider;
@@ -21,9 +22,11 @@
 @property(readonly, copy, nonatomic) ICURLResponseAuthenticationProvider *authenticationProvider; // @synthesize authenticationProvider=_authenticationProvider;
 @property(readonly, nonatomic) ICDeviceInfo *deviceInfo; // @synthesize deviceInfo=_deviceInfo;
 @property(readonly, copy, nonatomic) ICClientInfo *clientInfo; // @synthesize clientInfo=_clientInfo;
+@property(readonly, copy, nonatomic) ICNetworkConstraints *networkConstraints; // @synthesize networkConstraints=_networkConstraints;
 - (void).cxx_destruct;
 - (_Bool)_allowsMutation;
 @property(readonly, copy, nonatomic) NSString *userAgent;
+- (void)setNetworkConstraints:(id)arg1;
 - (void)setDeviceInfo:(id)arg1;
 - (void)setClientInfo:(id)arg1;
 - (void)setAuthenticationProvider:(id)arg1;

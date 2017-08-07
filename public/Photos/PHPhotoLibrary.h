@@ -53,6 +53,7 @@
 + (long long)authorizationStatus;
 + (id)sharedPhotoLibrary;
 + (id)_descriptionOfEntitiesInChangeRequests:(id)arg1;
++ (void)setNeedsToRepairKeyCuratedAssetForMemories:(id)arg1;
 + (_Bool)shouldDisplayMergeCandidates:(id)arg1 forPerson:(id)arg2;
 @property(nonatomic) _Bool clearsOIDCacheAfterFetchResultDealloc; // @synthesize clearsOIDCacheAfterFetchResultDealloc=_clearsOIDCacheAfterFetchResultDealloc;
 @property(nonatomic) double lastChangeProcessingStarted; // @synthesize lastChangeProcessingStarted=_lastChangeProcessingStarted;

@@ -14,8 +14,10 @@
     id <BFFPasscodeInputViewDelegate> _delegate;
     UILabel *_instructions;
     UIButton *_footerButton;
+    UIButton *_instructionsLinkButton;
 }
 
+@property(retain, nonatomic) UIButton *instructionsLinkButton; // @synthesize instructionsLinkButton=_instructionsLinkButton;
 @property(retain, nonatomic) UIButton *footerButton; // @synthesize footerButton=_footerButton;
 @property(retain, nonatomic) UILabel *instructions; // @synthesize instructions=_instructions;
 @property(nonatomic) __weak id <BFFPasscodeInputViewDelegate> delegate; // @synthesize delegate=_delegate;
@@ -29,6 +31,8 @@
 - (void)layoutSubviews;
 - (void)_layoutForBounds:(struct CGRect)arg1;
 - (id)passcodeField;
+- (void)_instructionsLinkButtonPressed;
+- (void)setInstructionsLinkText:(id)arg1;
 - (void)footerButtonPressed;
 - (void)setFooterButtonText:(id)arg1;
 - (id)passcodeDisplayView;

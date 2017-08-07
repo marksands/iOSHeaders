@@ -46,6 +46,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (long long)compare:(id)arg1;
 - (Class)classForKeyedArchiver;
+- (id)suggestionsFeedbackData;
 
 @end
 

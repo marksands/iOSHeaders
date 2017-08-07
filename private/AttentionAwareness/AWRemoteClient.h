@@ -8,7 +8,7 @@
 
 #import <AttentionAwareness/AWRemoteClient-Protocol.h>
 
-@class AWAttentionEvent, AWScheduler, NSArray, NSString, NSXPCConnection;
+@class AWAttentionEvent, AWScheduler, NSArray, NSData, NSString, NSXPCConnection;
 @protocol AWFrameworkClient, OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -18,39 +18,45 @@ __attribute__((visibility("hidden")))
     AWScheduler *_scheduler;
     id <AWFrameworkClient> _proxy;
     NSXPCConnection *_connection;
-    unsigned long long _lastPositiveEventMask;
     unsigned long long _lastPositiveEventTime;
     unsigned long long _lastPositiveNonSampledEventTime;
-    unsigned long long _lastNegativeEventTime;
     unsigned long long _pollingDeadline;
     _Bool _sentPollInitialized;
     _Bool _lastAttentionState;
     AWAttentionEvent *_lastEvent;
+    NSData *_archivedTag;
     unsigned long long _eventMask;
-    unsigned long long _stalenessTolerance;
+    _Bool _samplingClient;
     double _lastNegativeEventTimeoutValueSec;
     NSArray *_attentionLostTimeoutsSec;
     _Bool _invalid;
+    _Bool _unitTestSampling;
     NSString *_identifier;
     unsigned long long _samplingInterval;
+    unsigned long long _samplingDelay;
 }
 
+@property(nonatomic) _Bool unitTestSampling; // @synthesize unitTestSampling=_unitTestSampling;
 @property(nonatomic) _Bool invalid; // @synthesize invalid=_invalid;
+@property(readonly, nonatomic) unsigned long long samplingDelay; // @synthesize samplingDelay=_samplingDelay;
 @property(readonly, nonatomic) unsigned long long samplingInterval; // @synthesize samplingInterval=_samplingInterval;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
-- (unsigned long long)updateWithTime:(unsigned long long)arg1 attentionSampler:(id)arg2;
-- (_Bool)checkTimeStaleness:(unsigned long long)arg1 now:(unsigned long long)arg2;
-- (unsigned long long)nextAttentionLostTime;
+- (void)useUnitTestSampling:(_Bool)arg1;
+- (unsigned long long)nextTimerForTime:(unsigned long long)arg1 attentionSampler:(id)arg2;
+- (void)updateDeadlinesForTime:(unsigned long long)arg1 attentionSampler:(id)arg2;
+- (unsigned long long)nextSampleTimeForSampler:(id)arg1;
+- (unsigned long long)nextAttentionLostTime:(_Bool *)arg1;
 - (void)pollWithTimeout:(unsigned long long)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)resetAttentionLostTimer;
+- (void)_resetAttentionLostTimer;
 - (void)getLastEvent:(CDUnknownBlockType)arg1;
 - (void)notifyEvent:(unsigned long long)arg1 timestamp:(unsigned long long)arg2;
 - (void)updateEventTimesForMask:(unsigned long long)arg1 timestamp:(unsigned long long)arg2;
 - (void)deliverPollEventType:(unsigned long long)arg1 event:(id)arg2;
 - (void)deliverEvent:(id)arg1;
-- (void)setClientConfig:(id)arg1;
-- (void)_setClientConfig:(id)arg1;
+- (void)setClientConfig:(id)arg1 shouldReset:(_Bool)arg2;
+- (void)_setClientConfig:(id)arg1 shouldReset:(_Bool)arg2;
 - (void)invalidate;
 - (id)connection;
 - (id)description;

@@ -34,7 +34,6 @@
 - (void)setDelegate:(id)arg1;
 - (long long)outputRouteTypeForNavigationIcon;
 - (_Bool)makeAudioSessionCategoryActive:(_Bool)arg1;
-- (void)showAvailableRoutes;
 @property(readonly, nonatomic) _Bool isRoutingToPhoneCall;
 @property(readonly, nonatomic) _Bool isRoutingToAirPlayMirrorDestination;
 @property(readonly, nonatomic) _Bool isAudioSessionAppropriateForQueryingRoutes;

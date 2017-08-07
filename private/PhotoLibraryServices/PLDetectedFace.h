@@ -43,6 +43,7 @@
 - (void)_verifyAssetRelationship;
 @property(readonly, nonatomic) _Bool isTrainingFace;
 - (void)_updateFaceGroupIfNeeded;
+- (void)_touchPersonForPersistenceIfNeeded;
 - (void)willSave;
 - (void)delete;
 - (void)awakeFromInsert;

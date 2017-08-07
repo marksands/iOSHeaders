@@ -87,6 +87,7 @@
     NTPBWidgetConfig *_widgetConfig;
     NTPBWidgetConfig *_widgetConfig2;
     _Bool _alternativeButlerWidgetConfigEnabled;
+    _Bool _articleSearchEnabled;
     _Bool _corryBarHideDiscoverMoreInterstitialForNonOnboardedUsers;
     _Bool _newsletterSubscriptionChecked;
     _Bool _orderFeedEndpointEnabled;
@@ -146,6 +147,7 @@
         unsigned int orderFeedEnabledLevel:1;
         unsigned int orderFeedEnabledLevelDeprecated:1;
         unsigned int alternativeButlerWidgetConfigEnabled:1;
+        unsigned int articleSearchEnabled:1;
         unsigned int corryBarHideDiscoverMoreInterstitialForNonOnboardedUsers:1;
         unsigned int newsletterSubscriptionChecked:1;
         unsigned int orderFeedEndpointEnabled:1;
@@ -231,6 +233,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasArticleSearchEnabled;
+@property(nonatomic) _Bool articleSearchEnabled; // @synthesize articleSearchEnabled=_articleSearchEnabled;
 - (void)setTopStoriesPublishTimeIntervals:(long long *)arg1 count:(unsigned long long)arg2;
 - (long long)topStoriesPublishTimeIntervalsAtIndex:(unsigned long long)arg1;
 - (void)addTopStoriesPublishTimeIntervals:(long long)arg1;

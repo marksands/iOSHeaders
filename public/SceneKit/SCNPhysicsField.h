@@ -57,6 +57,7 @@
 @property(nonatomic) struct SCNVector3 direction;
 @property(nonatomic) struct SCNVector3 offset;
 @property(nonatomic, getter=isExclusive) _Bool exclusive;
+- (_Bool)exclusive;
 @property(nonatomic) _Bool usesEllipsoidalExtent;
 @property(nonatomic) struct SCNVector3 halfExtent;
 @property(nonatomic) long long scope;

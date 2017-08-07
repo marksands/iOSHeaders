@@ -23,6 +23,8 @@
 
 + (Class)logMsgEventType;
 + (id)allowedSessionTypes;
++ (id)disallowedStatesForLogMsgEvent:(id)arg1 logMessage:(id)arg2;
++ (_Bool)disallowedStateWithStateType:(int)arg1 logMsgEvent:(id)arg2 logMessage:(id)arg3;
 + (_Bool)supportsCohortSessionForLogMsgEvent:(id)arg1;
 + (id)logMessagesForEvent:(id)arg1;
 + (_Bool)logMessageType:(int)arg1 acceptsLogMsgEventType:(int)arg2;

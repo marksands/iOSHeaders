@@ -6,8 +6,10 @@
 
 #import <UIKit/UITextDraggable-Protocol.h>
 
+@protocol UITextDragFinishState;
+
 @protocol UITextDragSupporting <UITextDraggable>
-- (void)draggingFinished;
+- (void)draggingFinished:(id <UITextDragFinishState>)arg1;
 - (void)draggingStarted;
 - (_Bool)allowsDraggingAttachments;
 - (_Bool)allowsEditingTextAttributes;

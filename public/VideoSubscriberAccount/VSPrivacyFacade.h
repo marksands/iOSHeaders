@@ -12,14 +12,14 @@
 
 @interface VSPrivacyFacade : NSObject <VSPrivacyServiceProtocol>
 {
+    VSPrivacyVoucherLockbox *_voucherLockbox;
     NSString *_service;
     NSOperationQueue *_privateQueue;
-    VSPrivacyVoucherLockbox *_voucherLockbox;
 }
 
-@property(retain, nonatomic) VSPrivacyVoucherLockbox *voucherLockbox; // @synthesize voucherLockbox=_voucherLockbox;
 @property(retain, nonatomic) NSOperationQueue *privateQueue; // @synthesize privateQueue=_privateQueue;
 @property(copy, nonatomic) NSString *service; // @synthesize service=_service;
+@property(retain, nonatomic) VSPrivacyVoucherLockbox *voucherLockbox; // @synthesize voucherLockbox=_voucherLockbox;
 - (void).cxx_destruct;
 - (_Bool)reset;
 @property(readonly, copy, nonatomic) NSArray *knownAppBundles;

@@ -33,6 +33,7 @@
 - (void)handleSafariScriptURL:(id)arg1;
 - (void)reloadWithContext:(id)arg1;
 - (void)loadWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)overrideCreditCardPresentationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)cloudServiceSetupRemoteViewController:(id)arg1 requestsDismissingSafariViewControllerAnimated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)cloudServiceSetupRemoteViewController:(id)arg1 requestsPresentingSafariViewControllerWithURL:(id)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)cloudServiceSetupRemoteViewController:(id)arg1 requestsDismissalWithAnimation:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;

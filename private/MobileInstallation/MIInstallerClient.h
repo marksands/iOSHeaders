@@ -8,7 +8,7 @@
 
 #import <MobileInstallation/MobileInstallerDelegateProtocol-Protocol.h>
 
-@class NSXPCConnection;
+@class NSError, NSXPCConnection;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -27,10 +27,12 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_queue;
     CDUnknownBlockType _progressBlock;
     CDUnknownBlockType _appDictionaryEnumBlock;
+    NSError *_delegatesCompleteError;
 }
 
 + (id)installerWithAppDictionaryEnumerator:(CDUnknownBlockType)arg1;
 + (id)installerWithProgressBlock:(CDUnknownBlockType)arg1;
+@property(retain, nonatomic) NSError *delegatesCompleteError; // @synthesize delegatesCompleteError=_delegatesCompleteError;
 @property(nonatomic) _Bool delegatesComplete; // @synthesize delegatesComplete=_delegatesComplete;
 @property(copy, nonatomic) CDUnknownBlockType appDictionaryEnumBlock; // @synthesize appDictionaryEnumBlock=_appDictionaryEnumBlock;
 @property(copy, nonatomic) CDUnknownBlockType progressBlock; // @synthesize progressBlock=_progressBlock;
@@ -59,8 +61,8 @@ __attribute__((visibility("hidden")))
 - (void)lookupUninstalledWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)uninstallIdentifiers:(id)arg1 withOptions:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)installURL:(id)arg1 withOptions:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_waitForPendingDelegateMessages;
-- (void)delegateMessageDeliveryComplete;
+- (id)_waitForPendingDelegateMessages;
+- (void)delegateMessageDeliveryCompleteWithError:(id)arg1;
 - (void)enumerateAppDictionary:(id)arg1 error:(id)arg2;
 - (void)reportProgress:(id)arg1;
 - (void)dealloc;

@@ -131,6 +131,8 @@
 - (void)startRampToVideoZoomFactor:(double)arg1 withDuration:(double)arg2;
 - (void)startRampToVideoZoomFactor:(double)arg1 withRate:(float)arg2;
 - (void)changeToVideoZoomFactor:(double)arg1;
+- (void)unregisterVideoThumbnailContentsDelegate:(id)arg1;
+- (void)registerVideoThumbnailContentsDelegate:(id)arg1;
 - (void)unregisterEffectsPreviewSampleBufferDelegate:(id)arg1;
 - (void)registerEffectsPreviewSampleBufferDelegate:(id)arg1;
 - (void)unregisterCaptureService:(id)arg1;

@@ -23,6 +23,7 @@
 @property __weak id <TKTokenDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly) TKTokenDriver *tokenDriver; // @synthesize tokenDriver=_tokenDriver;
 - (void).cxx_destruct;
+@property(readonly) _Bool valid;
 - (void)terminate;
 - (id)decodedObjectID:(id)arg1 error:(id *)arg2;
 - (id)initWithTokenDriver:(id)arg1 instanceID:(id)arg2;

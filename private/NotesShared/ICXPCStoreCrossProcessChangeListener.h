@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSDate, NSManagedObjectContext, NSPersistentHistoryToken, NSPersistentStore;
+@class ICSelectorDelayer, NSDate, NSManagedObjectContext, NSPersistentHistoryToken, NSPersistentStore;
 @protocol OS_dispatch_queue;
 
 @interface ICXPCStoreCrossProcessChangeListener : NSObject
@@ -17,9 +17,13 @@
     NSPersistentHistoryToken *_previousHistoryToken;
     NSDate *_previousHistoryDate;
     NSObject<OS_dispatch_queue> *_queue;
+    unsigned long long _numberOfCoalescedNotifications;
+    ICSelectorDelayer *_delayer;
 }
 
-+ (id)contextSaveNotificationFromPersistentHistoryResult:(id)arg1 latestToken:(id *)arg2 latestTimestamp:(id *)arg3;
++ (id)contextSaveNotificationFromPersistentHistoryResult:(id)arg1 ignoringContextName:(id)arg2 fromTransactionAuthor:(id)arg3 latestToken:(id *)arg4 latestTimestamp:(id *)arg5;
+@property(retain, nonatomic) ICSelectorDelayer *delayer; // @synthesize delayer=_delayer;
+@property(nonatomic) unsigned long long numberOfCoalescedNotifications; // @synthesize numberOfCoalescedNotifications=_numberOfCoalescedNotifications;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic, getter=isListening) _Bool listening; // @synthesize listening=_listening;
 @property(retain, nonatomic) NSDate *previousHistoryDate; // @synthesize previousHistoryDate=_previousHistoryDate;
@@ -27,6 +31,7 @@
 @property(nonatomic) __weak NSManagedObjectContext *context; // @synthesize context=_context;
 @property(nonatomic) __weak NSPersistentStore *store; // @synthesize store=_store;
 - (void).cxx_destruct;
+- (void)fetchChangeHistory;
 - (void)handleNotification:(id)arg1;
 - (void)stopListening;
 - (void)startListening;

@@ -32,7 +32,10 @@ __attribute__((visibility("hidden")))
     long long _interfaceOrientation;
     Quaternion_febf9140 _interfaceOrientationRotation;
     struct Coordinate2D<Radians, double> _currentCoordinate;
+    unsigned long long _trackingState;
+    unsigned long long _trackingStateReason;
     _Bool _overrideARFieldOfView;
+    _Bool _alwaysUseCurrentFrame;
     Unit_57582783 _fieldOfView;
 }
 
@@ -47,6 +50,7 @@ __attribute__((visibility("hidden")))
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)arSessionWasInterrupted:(unsigned long long)arg1;
 - (void)updateCameraFrameFromARTransform;
 @property(readonly, nonatomic) float heightScale;
 - (RigidTransform_271c3a39)arCameraTransform;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSDate, NSDictionary, NSMutableDictionary, NSURL;
+@class CPLAccountFlags, NSData, NSDate, NSDictionary, NSMutableDictionary, NSURL;
 @protocol CPLStatusDelegate, OS_dispatch_queue;
 
 @interface CPLStatus : NSObject
@@ -20,6 +20,8 @@
 + (id)statusForSharedLibrary;
 @property(nonatomic) __weak id <CPLStatusDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSData *accountFlagsData;
+@property(readonly, nonatomic) CPLAccountFlags *accountFlags;
 @property(nonatomic, getter=isConnectedToNetwork) _Bool connectedToNetwork;
 @property(readonly, nonatomic) _Bool hasBatteryBudget;
 @property(readonly, nonatomic) _Bool hasCellularBudget;

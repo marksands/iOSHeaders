@@ -65,6 +65,7 @@
 - (void)backupFlowForCloudKitWorkAtTime:(id)arg1 with:(CDUnknownBlockType)arg2;
 - (void)reconcileDPID:(CDUnknownBlockType)arg1;
 - (_Bool)canContinueProcessing:(id)arg1;
+- (void)updateActiveRecordICloudDSID;
 - (id)init;
 
 @end

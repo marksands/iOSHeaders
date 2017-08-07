@@ -12,12 +12,14 @@
 
 @interface TKTokenDriverContext : NSExtensionContext <TKTokenDriverProtocol>
 {
+    _Bool _invalidated;
     TKTokenDriver *_driver;
     NSString *_tokenID;
 }
 
 + (id)_extensionAuxiliaryHostProtocol;
 + (id)_extensionAuxiliaryVendorProtocol;
+@property _Bool invalidated; // @synthesize invalidated=_invalidated;
 @property(retain) NSString *tokenID; // @synthesize tokenID=_tokenID;
 @property(retain) TKTokenDriver *driver; // @synthesize driver=_driver;
 - (void).cxx_destruct;

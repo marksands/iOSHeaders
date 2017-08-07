@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@protocol EARCaesuraSilencePosteriorGeneratorDelegate;
+@protocol EARCaesuraSilencePosteriorGeneratorDelegate, OS_dispatch_queue;
 
 @interface EARCaesuraSilencePosteriorGenerator : NSObject
 {
     struct shared_ptr<quasar::SilencePosteriorGenerator> _silenceGenerator;
+    NSObject<OS_dispatch_queue> *_spgQueue;
     id <EARCaesuraSilencePosteriorGeneratorDelegate> _delegate;
 }
 
@@ -22,6 +23,7 @@
 - (void)_startComputeTask;
 - (long long)getFrameDurationMs;
 - (void)addAudio:(id)arg1 numSamples:(unsigned long long)arg2;
+- (id)initWithConfigFile:(id)arg1 samplingRate:(unsigned long long)arg2 queue:(id)arg3;
 - (id)initWithConfigFile:(id)arg1 samplingRate:(unsigned long long)arg2;
 - (id)initWithConfigFile:(id)arg1;
 

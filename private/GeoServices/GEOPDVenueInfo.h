@@ -8,26 +8,27 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDVenueFeatureValue, GEOPDVenueItemList, NSMutableArray, PBUnknownFields;
+@class GEOPDLocatedInsideInfo, GEOPDVenueItemList, NSMutableArray, PBUnknownFields;
 
 @interface GEOPDVenueInfo : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
     int _featureType;
-    GEOPDVenueFeatureValue *_featureValue;
+    NSMutableArray *_filterElements;
     GEOPDVenueItemList *_itemList;
-    int _locationTag;
+    GEOPDLocatedInsideInfo *_locatedInside;
     NSMutableArray *_venueFeatureIds;
     struct {
         unsigned int featureType:1;
-        unsigned int locationTag:1;
     } _has;
 }
 
++ (Class)filterElementType;
 + (Class)venueFeatureIdType;
 + (id)venueInfoForPlaceData:(id)arg1;
+@property(retain, nonatomic) NSMutableArray *filterElements; // @synthesize filterElements=_filterElements;
+@property(retain, nonatomic) GEOPDLocatedInsideInfo *locatedInside; // @synthesize locatedInside=_locatedInside;
 @property(retain, nonatomic) GEOPDVenueItemList *itemList; // @synthesize itemList=_itemList;
-@property(retain, nonatomic) GEOPDVenueFeatureValue *featureValue; // @synthesize featureValue=_featureValue;
 @property(retain, nonatomic) NSMutableArray *venueFeatureIds; // @synthesize venueFeatureIds=_venueFeatureIds;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
@@ -40,12 +41,12 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (int)StringAsLocationTag:(id)arg1;
-- (id)locationTagAsString:(int)arg1;
-@property(nonatomic) _Bool hasLocationTag;
-@property(nonatomic) int locationTag; // @synthesize locationTag=_locationTag;
+- (id)filterElementAtIndex:(unsigned long long)arg1;
+- (unsigned long long)filterElementsCount;
+- (void)addFilterElement:(id)arg1;
+- (void)clearFilterElements;
+@property(readonly, nonatomic) _Bool hasLocatedInside;
 @property(readonly, nonatomic) _Bool hasItemList;
-@property(readonly, nonatomic) _Bool hasFeatureValue;
 - (int)StringAsFeatureType:(id)arg1;
 - (id)featureTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasFeatureType;

@@ -15,6 +15,7 @@
     _Bool _QRBannersEnabledInSettings;
     _Bool _forceEnableQRBanners;
     _Bool _shouldCaptureHDREV0;
+    _Bool _didAcknowledgePortraitModeDescription;
     _Bool _preserveEffectFilter;
     _Bool _preserveCaptureMode;
     _Bool _preserveLivePhoto;
@@ -65,6 +66,7 @@
 @property(nonatomic) long long previewViewAspectMode; // @synthesize previewViewAspectMode=_previewViewAspectMode;
 @property(readonly, nonatomic) long long slomoConfiguration; // @synthesize slomoConfiguration=_slomoConfiguration;
 @property(readonly, nonatomic) long long videoConfiguration; // @synthesize videoConfiguration=_videoConfiguration;
+@property(nonatomic) _Bool didAcknowledgePortraitModeDescription; // @synthesize didAcknowledgePortraitModeDescription=_didAcknowledgePortraitModeDescription;
 @property(readonly, nonatomic) _Bool shouldCaptureHDREV0; // @synthesize shouldCaptureHDREV0=_shouldCaptureHDREV0;
 @property(nonatomic) _Bool forceEnableQRBanners; // @synthesize forceEnableQRBanners=_forceEnableQRBanners;
 @property(readonly, nonatomic) _Bool QRBannersEnabledInSettings; // @synthesize QRBannersEnabledInSettings=_QRBannersEnabledInSettings;

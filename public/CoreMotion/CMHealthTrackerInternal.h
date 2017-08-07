@@ -16,6 +16,7 @@
     NSObject<OS_dispatch_source> *fWatchdogTimer;
 }
 
+- (void)_queryVO2MaxInputsFromRecord:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)_queryMetMinutesFromDate:(id)arg1 toDate:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)_stopWatchdogCheckins;
 - (void)_startWatchdogCheckins;

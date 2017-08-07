@@ -19,7 +19,7 @@
     NSMutableDictionary *_nonMigratableDeviceIdentifiersToLastModifiedDates;
     WBSDeviceEligibilityInformation *_deviceEligibilityInformation;
     _Bool _readyToMigrate;
-    _Bool _hasInFlightCloudTabDevicesSyncRequest;
+    _Bool _lastCloudTabDevicesSyncRequestWasSuccessful;
     id <WBSLogger> _keyActionsLogger;
 }
 
@@ -27,6 +27,7 @@
 - (void).cxx_destruct;
 - (_Bool)_shouldWaitForCloudTabDevicesUpdate;
 - (_Bool)_shouldRequestCloudTabDevicesSync;
+- (_Bool)_isPastMinimumWaitAfterCloudTabDeviceSyncRequest;
 - (_Bool)_isCloudTabDeviceDataPastExpiration;
 - (_Bool)_isInternalInstall;
 - (_Bool)_isDateInGracePeriod:(id)arg1;
@@ -34,6 +35,7 @@
 - (double)_minimumWaitForCloudTabDevicesUpdateAfterSync;
 - (double)_maximumAgeForCloudTabDevicesUpdate;
 - (double)_nonMigratableDeviceGracePeriod;
+- (long long)_timescale;
 - (void)_pruneOldNonMigratableDevicesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_reevaluateReadinessWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_logPrunedDeviceIdentifiers:(id)arg1;

@@ -29,6 +29,7 @@
 @property(nonatomic) _Bool usePrioritizedURLSession; // @synthesize usePrioritizedURLSession=_usePrioritizedURLSession;
 @property(nonatomic, getter=isPlaybackRequest) _Bool playbackRequest; // @synthesize playbackRequest=_playbackRequest;
 - (void).cxx_destruct;
+- (void)_executeWithActiveICloudAccountProperties:(id)arg1;
 - (void)cancel;
 - (void)execute;
 - (void)performRequestWithResponseHandler:(CDUnknownBlockType)arg1;

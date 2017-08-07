@@ -35,6 +35,8 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)impressionableElementsContainedInDocument:(id)arg1;
 - (void)_configureWithBgImage:(id)arg1 backdropImage:(id)arg2;
+- (long long)_blurEffectStyle;
+- (_Bool)_backgroundImageRequiresBlur;
 - (id)_backgroundImageProxy;
 - (struct CGSize)_backgroundImageProxySize;
 - (void)_configureWithListElement:(id)arg1;

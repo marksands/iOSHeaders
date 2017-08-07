@@ -21,7 +21,8 @@
 - (_Bool)shouldShowPlanSection:(id)arg1;
 - (id)usageGraphSpecifierForSection:(id)arg1;
 - (id)specifiers;
-- (_Bool)hasMultiplePlansOfTheSameTypeInTheSameSection;
+- (_Bool)hasMultiplePlansOfSameTypeForNetworkUsageLabel:(id)arg1;
+- (_Bool)hasMultiplePlansOfTheSameTypeInTheSameSectionCategory;
 - (_Bool)hasMultipleDevicesOfTheSameType;
 - (id)planCategorySectionLabelForPlanMetrics:(id)arg1;
 - (id)deviceTypeSectionLabelForAccountMetrics:(id)arg1;
@@ -30,8 +31,8 @@
 - (id)barGraphColors;
 - (_Bool)shouldReloadSpecifiersOnResume;
 - (void)viewDidAppear:(_Bool)arg1;
-- (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)carrierSpaceChanged;
 - (void)simStatusChanged;
 
 @end

@@ -18,6 +18,7 @@
 @property(retain, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;
 - (id)daemonWithErrorHandler:(CDUnknownBlockType)arg1;
+- (void)dealloc;
 - (id)init;
 
 @end

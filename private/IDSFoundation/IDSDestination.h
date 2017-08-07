@@ -24,6 +24,9 @@
 + (id)destinationWithString:(id)arg1;
 + (id)destinationWithDestinations:(id)arg1;
 + (id)destinationWithAlias:(id)arg1 pushToken:(id)arg2;
+@property(readonly) unsigned long long hash;
+- (_Bool)isEqualToDestination:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -33,7 +36,6 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

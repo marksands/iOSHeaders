@@ -6,17 +6,20 @@
 
 #import <objc/NSObject.h>
 
+#import <CoreSpeech/AVVoiceControllerPlaybackDelegate-Protocol.h>
 #import <CoreSpeech/AVVoiceControllerRecordDelegate-Protocol.h>
 #import <CoreSpeech/CSBeepCancellerDelegate-Protocol.h>
 
-@class AVVoiceController, CSAudioSampleRateConverter, CSBeepCanceller, NSString;
-@protocol CSAudioRecorderDelegate, OS_dispatch_queue;
+@class AVVoiceController, CSAudioSampleRateConverter, CSAudioZeroFilter, CSBeepCanceller, NSString;
+@protocol CSAudioRecorderDelegate;
 
-@interface CSAudioRecorder : NSObject <AVVoiceControllerRecordDelegate, CSBeepCancellerDelegate>
+@interface CSAudioRecorder : NSObject <AVVoiceControllerRecordDelegate, AVVoiceControllerPlaybackDelegate, CSBeepCancellerDelegate>
 {
-    NSObject<OS_dispatch_queue> *_queue;
     AVVoiceController *_voiceController;
+    CSAudioZeroFilter *_zeroFilter;
     CSBeepCanceller *_beepCanceller;
+    unsigned long long _vtEndInSampleCount;
+    unsigned long long _numSamplesProcessed;
     struct OpaqueAudioConverter *_deinterleaver;
     struct AudioBufferList _interleavedABL;
     struct AudioBufferList *_pNonInterleavedABL;
@@ -31,6 +34,8 @@
 - (void)_createDeInterleaverIfNeeded;
 - (id)_deinterleaveBufferIfNeeded:(id)arg1;
 - (id)_samplingRateConvertIfNeeded:(id)arg1;
+- (void)voiceControllerMediaServicesWereReset:(id)arg1;
+- (void)voiceControllerMediaServicesWereLost:(id)arg1;
 - (void)voiceTriggerOccuredNotification:(id)arg1;
 - (void)updateVoiceTriggerAOPModel:(id)arg1;
 - (void)enableVoiceTriggerOnAOP:(_Bool)arg1;
@@ -52,15 +57,20 @@
 - (void)voiceControllerRecordBufferAvailable:(id)arg1 buffer:(id)arg2;
 - (void)beepCancellerDidCancelSamples:(id)arg1 buffer:(id)arg2 timestamp:(unsigned long long)arg3;
 - (void)voiceControllerLPCMRecordBufferAvailable:(id)arg1 buffer:(id)arg2;
+- (void)_processAudioChainWithZeroFiltering:(id)arg1 atTime:(unsigned long long)arg2;
 - (void)_processAudioChain:(id)arg1 atTime:(unsigned long long)arg2;
+- (_Bool)_shouldRunZeroFilter;
 - (id)voiceTriggerInfo;
+- (id)playbackRoute;
 - (id)recordRoute;
 - (_Bool)isNarrowBand;
+- (float)_recordingSampleRate;
 - (_Bool)isRecording;
 - (void)stopRecording;
 - (_Bool)startRecording;
 - (_Bool)startRecording:(id *)arg1;
 - (_Bool)startRecordingWithSettings:(id)arg1 error:(id *)arg2;
+- (void)_resetZeroFilter;
 - (double)getRecordBufferDuration;
 - (_Bool)setRecordBufferDuration:(double)arg1;
 - (void)setSynchronousCallbackEnabled:(_Bool)arg1;

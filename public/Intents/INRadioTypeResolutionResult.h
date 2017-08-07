@@ -11,7 +11,9 @@
 }
 
 + (id)confirmationRequiredWithValueToConfirm:(long long)arg1;
++ (id)confirmationRequiredWithRadioTypeToConfirm:(long long)arg1;
 + (id)successWithResolvedValue:(long long)arg1;
++ (id)successWithResolvedRadioType:(long long)arg1;
 
 @end
 

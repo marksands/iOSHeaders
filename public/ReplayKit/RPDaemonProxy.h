@@ -35,6 +35,7 @@
 - (oneway void)updateBroadcastServiceInfo:(id)arg1;
 - (oneway void)stopRecordingWithError:(id)arg1 movieURL:(id)arg2;
 - (oneway void)updateScreenRecordingState:(_Bool)arg1;
+- (oneway void)reportCameraUsage:(int)arg1;
 - (oneway void)updateProcessIDForAudioCaptureWithPID:(int)arg1;
 - (oneway void)setMicrophoneEnabled:(_Bool)arg1;
 - (oneway void)discardRecordingWithHandler:(CDUnknownBlockType)arg1;

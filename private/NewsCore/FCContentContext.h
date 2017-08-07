@@ -43,6 +43,7 @@
 - (void)appConfigurationDidChange:(id)arg1;
 - (void)enableFlushingWithFlushingThreshold:(unsigned long long)arg1;
 - (void)ppt_overrideFeedEndpoint:(long long)arg1;
+@property(readonly, copy, nonatomic) NSString *contentEnvironmentToken;
 @property(readonly, nonatomic) FCFlintResourceManager *flintResourceManager; // @synthesize flintResourceManager=_flintResourceManager;
 @property(readonly, nonatomic) FCTagController *tagController; // @synthesize tagController=_tagController;
 @property(readonly, nonatomic) FCArticleController *articleController; // @synthesize articleController=_articleController;

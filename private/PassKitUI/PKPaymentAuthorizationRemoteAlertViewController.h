@@ -29,6 +29,7 @@
     PKPaymentAuthorizationServiceNavigationController *_navigationController;
     PKPaymentProvisioningController *_paymentProvisioningController;
     PKPaymentSetupNavigationController *_paymentSetupNavigationController;
+    _Bool _paymentSetupWasRequired;
     _Bool _shouldAcquireLockButtonObserver;
     id <BSInvalidatable> _lockButtonObserver;
     _Bool _dismissAfterPaymentSetup;
@@ -47,7 +48,7 @@
 @property(retain, nonatomic) PKPaymentAuthorizationRemoteAlertViewControllerExportedObject *exportedObject; // @synthesize exportedObject=_exportedObject;
 - (void).cxx_destruct;
 - (void)_invalidateLockButtonObserver;
-- (void)dismissWithRemoteOriginiation:(_Bool)arg1;
+- (void)dismissWithRemoteOrigination:(_Bool)arg1;
 - (void)_dismiss;
 - (id)_remoteObjectProxy;
 - (void)authorizationDidSelectPaymentMethod:(id)arg1;

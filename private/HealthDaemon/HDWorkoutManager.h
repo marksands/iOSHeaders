@@ -33,20 +33,22 @@
     _Bool _isFirstLaunchAndNotYetSmoothed;
     CMWorkoutManager *_cmWorkoutManager;
     CLLocationManager *_locationManager;
-    HDWorkoutLocationSmoother *_locationSmoother;
     CSLSSession *_carouselSession;
     _Bool _enableDNDDuringWorkout;
     BBQuietModeOverrideAssertion *_quietModeOverrideAssertion;
     HDWatchAppStateMonitor *_appStateMonitor;
     NSObject<OS_dispatch_queue> *_queue;
     HDProfile *_profile;
+    HDWorkoutLocationSmoother *_locationSmoother;
 }
 
 + (id)observedTypesForActivityType:(unsigned long long)arg1 isIndoor:(_Bool)arg2 connectedToFitnessMachine:(_Bool)arg3;
 + (id)_distanceTypeForActivityType:(unsigned long long)arg1 isIndoor:(_Bool)arg2;
+@property(retain, nonatomic) HDWorkoutLocationSmoother *locationSmoother; // @synthesize locationSmoother=_locationSmoother;
 @property(readonly, nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
+- (_Bool)_queue_isPowerSavingEnabledForCurrentActivity;
 - (_Bool)isPowerSavingEnabledForCurrentActivity;
 - (id)_coreMotionWorkoutManager;
 - (void)_queue_logWorkoutStateToPowerLog;
@@ -75,6 +77,7 @@
 @property(nonatomic) _Bool enableDNDDuringWorkout;
 @property(retain, nonatomic) BBQuietModeOverrideAssertion *quietModeOverrideAssertion;
 @property(retain, nonatomic) CSLSSession *carouselSession;
+- (void)unitTest_smoothRoute:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)hk_fakeStopEventWithDate:(id)arg1;
 - (void)hk_fakeLapEventWithDate:(id)arg1 strokeStyle:(long long)arg2;
 - (void)removeWorkoutEventObserver:(id)arg1;
@@ -88,13 +91,14 @@
 - (void)pauseActiveWorkoutsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getFirstPartyWorkoutSnapshotWithCompletion:(CDUnknownBlockType)arg1;
 - (void)createActiveWorkoutServerWithConfiguration:(id)arg1 clientProxy:(id)arg2 server:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (id)_stringRepresentationForMetrics:(id)arg1;
 - (void)receiveMetrics:(id)arg1;
 - (id)_mainQueue_locationManager;
 - (_Bool)pluginHasBackgroundRunMode:(id)arg1 errorOut:(id *)arg2;
 - (void)generatePauseOrResumeRequestWithCompletion:(CDUnknownBlockType)arg1;
 - (id)currentWorkoutClient;
+- (long long)_queue_currentWorkoutLocationType;
 - (long long)currentWorkoutLocationType;
+- (unsigned long long)_queue_currentWorkoutActivityType;
 - (unsigned long long)currentWorkoutActivityType;
 @property(readonly, nonatomic) _Bool hasAnyActiveConnectedGymWorkouts;
 - (_Bool)hasAnyActiveWorkouts;

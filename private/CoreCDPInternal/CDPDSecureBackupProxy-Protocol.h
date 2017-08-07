@@ -6,10 +6,11 @@
 
 #import <CoreCDPInternal/NSObject-Protocol.h>
 
-@class NSDictionary;
+@class NSDictionary, NSString;
 
 @protocol CDPDSecureBackupProxy <NSObject>
-- (void)uncachePassphraseWithInfo:(NSDictionary *)arg1 completionBlock:(void (^)(NSError *))arg2;
+- (void)uncacheAllSecrets;
+- (void)cacheRecoveryKey:(NSString *)arg1 completionBlock:(void (^)(NSError *))arg2;
 - (void)enableWithInfo:(NSDictionary *)arg1 completionBlock:(void (^)(NSError *))arg2;
 - (void)disableWithInfo:(NSDictionary *)arg1 completionBlock:(void (^)(NSError *))arg2;
 - (NSDictionary *)recoverWithInfo:(NSDictionary *)arg1 error:(id *)arg2;

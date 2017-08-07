@@ -16,6 +16,7 @@
 - (id)hf_colorPalette;
 - (_Bool)hf_hasMediaAccessories;
 - (_Bool)hf_supportsSharedEventAutomation;
+- (_Bool)hf_isPresenceAuthorizedForUser:(id)arg1;
 - (id)hf_allUsersIncludingCurrentUser;
 - (_Bool)hf_supportsRemoteAccessRestrictions;
 - (_Bool)hf_supportsPerUserRemoteAccess;

@@ -8,7 +8,7 @@
 
 #import <Message/MFDiagnosticsGenerator-Protocol.h>
 
-@class NSCountedSet, NSString;
+@class MFObservable, NSCountedSet, NSString;
 @protocol MFCancelable, OS_dispatch_queue;
 
 @interface MFPowerController : NSObject <MFDiagnosticsGenerator>
@@ -29,6 +29,8 @@
 - (void)_deleteDuetAttributesForAccountWithUniqueId:(id)arg1;
 - (id)duetIdentifier;
 - (void)_initDuet;
+@property(readonly, nonatomic) MFObservable *lowPowerModeObservable;
+@property(readonly, nonatomic) MFObservable *pluggedInObservable;
 - (id)powerObservable;
 - (void)_applicationForegroundStateChanged:(_Bool)arg1;
 - (void)releaseAssertionWithIdentifier:(id)arg1;

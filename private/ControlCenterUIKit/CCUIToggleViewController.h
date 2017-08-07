@@ -23,7 +23,7 @@
 
 @property(nonatomic) __weak CCUIToggleModule *module; // @synthesize module=_module;
 - (void).cxx_destruct;
-- (_Bool)shouldBeginTransitionToExpandedContentModule;
+- (_Bool)shouldFinishTransitionToExpandedContentModule;
 @property(readonly, nonatomic) double preferredExpandedContentHeight;
 - (void)reconfigureView;
 - (void)viewWillAppear:(_Bool)arg1;

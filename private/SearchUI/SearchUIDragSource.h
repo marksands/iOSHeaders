@@ -7,11 +7,12 @@
 #import <objc/NSObject.h>
 
 #import <SearchUI/UIDragInteractionDelegate-Protocol.h>
+#import <SearchUI/UIDragInteractionDelegate_Private-Protocol.h>
 
 @class NSString, SearchUIDropTarget, UIView;
 @protocol SearchUIDragObject;
 
-@interface SearchUIDragSource : NSObject <UIDragInteractionDelegate>
+@interface SearchUIDragSource : NSObject <UIDragInteractionDelegate, UIDragInteractionDelegate_Private>
 {
     id <SearchUIDragObject> _dragObject;
     UIView *_overrideDragPreviewView;
@@ -28,6 +29,7 @@
 - (void).cxx_destruct;
 - (_Bool)_shouldPerformHitTestingForDragSessionInView:(id)arg1;
 - (id)_requiredContextIDsForDragSessionInView:(id)arg1;
+- (long long)_dragInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (_Bool)dragInteraction:(id)arg1 sessionIsRestrictedToDraggingApplication:(id)arg2;
 - (_Bool)dragInteraction:(id)arg1 sessionAllowsMoveOperation:(id)arg2;
 - (void)dragInteraction:(id)arg1 sessionWillBegin:(id)arg2;

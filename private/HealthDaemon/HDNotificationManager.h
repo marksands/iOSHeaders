@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <HealthDaemon/BBRemoteDataProvider-Protocol.h>
 #import <HealthDaemon/HDDiagnosticObject-Protocol.h>
 
-@class BBDataProviderConnection, HDProfile, NSDate, NSHashTable, NSString, UNUserNotificationCenter;
+@class BBDataProviderConnection, BBDataProviderProxy, HDProfile, NSDate, NSHashTable, NSString, UNUserNotificationCenter;
 @protocol OS_dispatch_queue;
 
-@interface HDNotificationManager : NSObject <HDDiagnosticObject>
+@interface HDNotificationManager : NSObject <BBRemoteDataProvider, HDDiagnosticObject>
 {
     HDProfile *_profile;
     NSHashTable *_observers;
@@ -21,10 +22,15 @@
     BBDataProviderConnection *_dataProviderConnection;
     UNUserNotificationCenter *_userNotificationCenter;
     NSDate *_lastNotificationDate;
+    BBDataProviderProxy *_providerProxy;
 }
 
+@property(retain, nonatomic) BBDataProviderProxy *providerProxy; // @synthesize providerProxy=_providerProxy;
 - (void).cxx_destruct;
 - (id)diagnosticDescription;
+- (id)defaultSectionInfo;
+- (id)sectionIdentifier;
+- (id)sortDescriptors;
 - (CDUnknownBlockType)_completionOnClientQueue:(CDUnknownBlockType)arg1;
 - (long long)_queue_coaleseDomainBadgeCounts;
 - (long long)_totalBadgeCount;

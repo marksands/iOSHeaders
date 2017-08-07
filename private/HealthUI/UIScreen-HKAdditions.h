@@ -7,6 +7,7 @@
 #import <UIKit/UIScreen.h>
 
 @interface UIScreen (HKAdditions)
-+ (_Bool)currentDeviceHas4InchScreen;
++ (_Bool)hk_currentDeviceHas4Point7InchScreen;
++ (_Bool)hk_currentDeviceHas4InchScreen;
 @end
 

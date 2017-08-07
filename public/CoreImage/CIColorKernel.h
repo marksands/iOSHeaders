@@ -15,6 +15,8 @@
 - (id)applyWithExtent:(struct CGRect)arg1 arguments:(id)arg2 options:(id)arg3;
 - (id)applyWithExtent:(struct CGRect)arg1 roiCallback:(CDUnknownBlockType)arg2 arguments:(id)arg3;
 - (id)applyWithExtent:(struct CGRect)arg1 roiCallback:(CDUnknownBlockType)arg2 arguments:(id)arg3 options:(id)arg4;
+- (void)setCanReduceOutputChannels:(_Bool)arg1;
+- (_Bool)canReduceOutputChannels;
 @property(nonatomic) _Bool perservesAlpha;
 - (id)_initWithDict:(id)arg1;
 

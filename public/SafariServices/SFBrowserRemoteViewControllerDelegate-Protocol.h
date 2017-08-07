@@ -9,6 +9,7 @@
 @class NSError, NSNumber, NSString, NSURL, SFBrowserRemoteViewController;
 
 @protocol SFBrowserRemoteViewControllerDelegate <NSObject>
+- (void)remoteViewController:(SFBrowserRemoteViewController *)arg1 initialLoadDidRedirectToURL:(NSURL *)arg2;
 - (void)remoteViewController:(SFBrowserRemoteViewController *)arg1 hostApplicationOpenURL:(NSURL *)arg2;
 - (void)remoteViewController:(SFBrowserRemoteViewController *)arg1 setSwipeGestureEnabled:(_Bool)arg2;
 - (void)remoteViewController:(SFBrowserRemoteViewController *)arg1 executeCustomActivityProxyID:(NSNumber *)arg2;

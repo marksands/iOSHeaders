@@ -8,7 +8,7 @@
 
 #import <MediaRemote/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString, _MRPlaybackQueueContextProtobuf;
+@class NSMutableArray, NSString, _MRNowPlayingPlayerPathProtobuf, _MRPlaybackQueueContextProtobuf;
 
 @interface _MRPlaybackQueueProtobuf : PBCodable <NSCopying>
 {
@@ -16,12 +16,17 @@
     _MRPlaybackQueueContextProtobuf *_context;
     int _location;
     NSString *_requestID;
+    _MRNowPlayingPlayerPathProtobuf *_resolvedPlayerPath;
+    _Bool _notSendingTransaction;
     struct {
         unsigned int location:1;
+        unsigned int notSendingTransaction:1;
     } _has;
 }
 
 + (Class)contentItemType;
+@property(nonatomic) _Bool notSendingTransaction; // @synthesize notSendingTransaction=_notSendingTransaction;
+@property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *resolvedPlayerPath; // @synthesize resolvedPlayerPath=_resolvedPlayerPath;
 @property(retain, nonatomic) NSString *requestID; // @synthesize requestID=_requestID;
 @property(retain, nonatomic) _MRPlaybackQueueContextProtobuf *context; // @synthesize context=_context;
 @property(retain, nonatomic) NSMutableArray *contentItems; // @synthesize contentItems=_contentItems;
@@ -35,6 +40,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasNotSendingTransaction;
+@property(readonly, nonatomic) _Bool hasResolvedPlayerPath;
 @property(readonly, nonatomic) _Bool hasRequestID;
 @property(readonly, nonatomic) _Bool hasContext;
 - (id)contentItemAtIndex:(unsigned long long)arg1;

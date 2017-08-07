@@ -19,6 +19,7 @@
     struct CGRect _bounds;
 }
 
++ (_Bool)isStrokeGroupSet:(id)arg1 equivalentToStrokeGroupSet:(id)arg2;
 + (long long)_newStrokeGroupUniqueIdentifier;
 @property(readonly, nonatomic) id <CHStrokeIdentifier> lastStrokeIdentifier; // @synthesize lastStrokeIdentifier=_lastStrokeIdentifier;
 @property(readonly, nonatomic) id <CHStrokeIdentifier> firstStrokeIdentifier; // @synthesize firstStrokeIdentifier=_firstStrokeIdentifier;

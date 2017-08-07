@@ -22,10 +22,10 @@
     HMDDeviceCapabilities *_capabilities;
     NSUUID *_idsIdentifierHash;
     NSUUID *_idsIdentifier;
+    NSString *_destination;
     NSUUID *_identifier;
     HMDAccount *_account;
     NSObject<OS_dispatch_queue> *_propertyQueue;
-    NSString *_destination;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -33,16 +33,15 @@
 + (id)idsIdentifierHashFromDevice:(id)arg1 error:(id *)arg2;
 + (id)idsIdentifierHashFromDeviceUniqueIdentifier:(id)arg1 error:(id *)arg2;
 + (id)identifierFromDeviceDestination:(id)arg1 error:(id *)arg2;
-+ (id)destinationForDevice:(id)arg1;
-+ (id)deviceDestinationForDevice:(id)arg1;
++ (id)destinationForDevice:(id)arg1 service:(id)arg2;
++ (id)deviceDestinationForDevice:(id)arg1 service:(id)arg2;
 + (_Bool)isValidDestination:(id)arg1;
-+ (id)identifierFromDevice:(id)arg1 error:(id *)arg2;
++ (id)identifierFromDevice:(id)arg1 service:(id)arg2 error:(id *)arg3;
 + (id)namespace;
 + (id)deviceWithDestination:(id)arg1;
 + (id)currentDeviceWithIDSService:(id)arg1;
 + (id)deviceDestinationForDestination:(id)arg1;
 + (void)initialize;
-@property(readonly, copy, nonatomic) NSString *destination; // @synthesize destination=_destination;
 @property(readonly) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(nonatomic) __weak HMDAccount *account; // @synthesize account=_account;
 @property(readonly, copy) NSUUID *identifier; // @synthesize identifier=_identifier;
@@ -51,6 +50,8 @@
 - (id)initWithCoder:(id)arg1;
 - (_Bool)mergeObject:(id)arg1;
 - (id)logIdentifier;
+- (void)setDestination:(id)arg1;
+@property(readonly, copy, nonatomic) NSString *destination; // @synthesize destination=_destination;
 @property(copy, setter=setIDSIdentifier:) NSUUID *idsIdentifier; // @synthesize idsIdentifier=_idsIdentifier;
 @property(copy, setter=setIDSIdentifierHash:) NSUUID *idsIdentifierHash; // @synthesize idsIdentifierHash=_idsIdentifierHash;
 @property(readonly, getter=isCurrentDevice) _Bool currentDevice;
@@ -64,7 +65,7 @@
 @property(readonly, copy) NSString *propertyDescription;
 - (id)shortDescription;
 - (id)initWithIdentifier:(id)arg1 idsIdentifier:(id)arg2 idsIdentifierHash:(id)arg3 name:(id)arg4 productInfo:(id)arg5 destination:(id)arg6 version:(id)arg7 capabilities:(id)arg8;
-- (id)initWithIDSDevice:(id)arg1;
+- (id)initWithService:(id)arg1 device:(id)arg2;
 - (id)init;
 
 // Remaining properties

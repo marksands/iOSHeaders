@@ -11,7 +11,7 @@
 #import <PhotosUI/PULivePhotoTrimScrubberDelegate-Protocol.h>
 #import <PhotosUI/UIPopoverPresentationControllerDelegate-Protocol.h>
 
-@class ISWrappedAVPlayer, NSString, PHLivePhotoView, PLEditSource, PLPhotoEditMutableModel, PULivePhotoKeyFrameSelectionViewController, PULivePhotoTrimScrubber, PUPhotoEditSnapStripView, UIImage, UIView;
+@class ISWrappedAVPlayer, NSString, PHLivePhotoView, PLEditSource, PLPhotoEditMutableModel, PLPhotoEditRenderer, PULivePhotoKeyFrameSelectionViewController, PULivePhotoTrimScrubber, PUPhotoEditSnapStripView, UIImage, UIView;
 
 @interface PUTrimToolController : UIViewController <ISChangeObserver, PULivePhotoTrimScrubberDelegate, UIPopoverPresentationControllerDelegate, PULivePhotoKeyFrameSelectionViewControllerDelegate>
 {
@@ -20,20 +20,22 @@
     UIView *_disabledOverlayView;
     _Bool _lastLivePhotoRenderIncludesVisualChanges;
     _Bool _didPerformInitialVideoCompositionUpdate;
+    PLEditSource *_editSource;
     _Bool _disabled;
     _Bool _canEditStillFrameTime;
     PHLivePhotoView *_livePhotoView;
     PLPhotoEditMutableModel *_photoEditModel;
-    PLEditSource *_editSource;
     id _playerTimeObservationToken;
     double _previouslyOpenedWidth;
     double _minimumTrimDuration;
     ISWrappedAVPlayer *__avPlayer;
     PULivePhotoKeyFrameSelectionViewController *_livePhotoKeyFramePicker;
+    PLPhotoEditRenderer *__renderer;
     CDStruct_1b6d18a9 _unadjustedStillImageTime;
     CDStruct_1b6d18a9 _currentStillFrameTime;
 }
 
+@property(retain, nonatomic, setter=_setRenderer:) PLPhotoEditRenderer *_renderer; // @synthesize _renderer=__renderer;
 @property(nonatomic) __weak PULivePhotoKeyFrameSelectionViewController *livePhotoKeyFramePicker; // @synthesize livePhotoKeyFramePicker=_livePhotoKeyFramePicker;
 @property(retain, nonatomic, setter=_setAVPlayer:) ISWrappedAVPlayer *_avPlayer; // @synthesize _avPlayer=__avPlayer;
 @property(nonatomic) double minimumTrimDuration; // @synthesize minimumTrimDuration=_minimumTrimDuration;
@@ -71,6 +73,7 @@
 - (void)trimScrubber:(id)arg1 didEndInteractivelyEditingElement:(long long)arg2 successful:(_Bool)arg3;
 - (void)trimScrubber:(id)arg1 didBeginInteractivelyEditingElement:(long long)arg2;
 - (_Bool)trimScrubber:(id)arg1 canBeginInteractivelyEditingElement:(long long)arg2;
+- (void)_createRendererIfNeeded;
 @property(retain, nonatomic) UIImage *placeholderImage;
 - (void)livePhotoRenderDidChange:(_Bool)arg1;
 - (id)initWithLivePhotoView:(id)arg1;

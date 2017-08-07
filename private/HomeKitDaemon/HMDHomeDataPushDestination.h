@@ -10,11 +10,13 @@
 
 @interface HMDHomeDataPushDestination : NSObject
 {
+    _Bool _ignoreConfigCompare;
     NSString *_username;
     HMDUser *_user;
     NSString *_destination;
 }
 
+@property(nonatomic) _Bool ignoreConfigCompare; // @synthesize ignoreConfigCompare=_ignoreConfigCompare;
 @property(readonly, nonatomic) NSString *destination; // @synthesize destination=_destination;
 @property(readonly, nonatomic) HMDUser *user; // @synthesize user=_user;
 @property(readonly, nonatomic) NSString *username; // @synthesize username=_username;

@@ -36,7 +36,8 @@
 - (id)_performerForEditOperationWithType:(id)arg1 onAsset:(id)arg2;
 - (long long)editOperationStatusForAsset:(id)arg1;
 - (void)registerPerformerClass:(Class)arg1 withPredicate:(CDUnknownBlockType)arg2;
-- (id)performEditOperationWithType:(id)arg1 onAsset:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (id)performEditOperationWithType:(id)arg1 asset:(id)arg2 delay:(double)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)performEditOperationWithType:(id)arg1 asset:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)canPerformEditOperationWithType:(id)arg1 onAsset:(id)arg2;
 - (id)init;
 

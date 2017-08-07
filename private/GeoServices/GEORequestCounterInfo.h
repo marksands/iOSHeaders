@@ -21,6 +21,7 @@
 - (id)description;
 - (id)_formattedString;
 - (void)encodeWithCoder:(id)arg1;
+- (id)nonZeroResultTypesForType:(unsigned char)arg1;
 - (unsigned long long)numberOfRequestsForType:(unsigned char)arg1 result:(unsigned char)arg2;
 @property(readonly, nonatomic) NSArray *requestTypes;
 - (unsigned long long)recvBytesForType:(unsigned char)arg1;

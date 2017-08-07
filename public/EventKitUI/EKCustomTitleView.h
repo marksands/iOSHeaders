@@ -10,6 +10,7 @@
 
 @interface EKCustomTitleView : UIView
 {
+    _Bool _animating;
     UILabel *_originalTitle;
     UILabel *_title;
     UIImageView *_originalImage;
@@ -18,6 +19,7 @@
     NSArray *_changingConstraints;
 }
 
+@property _Bool animating; // @synthesize animating=_animating;
 @property(retain) NSArray *changingConstraints; // @synthesize changingConstraints=_changingConstraints;
 @property(retain) UILabel *subTitle; // @synthesize subTitle=_subTitle;
 @property(retain) UIImageView *titleImage; // @synthesize titleImage=_titleImage;
@@ -27,6 +29,8 @@
 - (void).cxx_destruct;
 - (void)animateOutWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)animateInWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)display;
+- (void)layoutSubviews;
 - (id)initWithTitle:(id)arg1 subTitle:(id)arg2 eventViewController:(id)arg3;
 
 @end

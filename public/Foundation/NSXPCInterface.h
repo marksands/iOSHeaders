@@ -21,6 +21,8 @@
 - (Class)_returnClassForSelector:(SEL)arg1;
 - (id)_interfaceForArgument:(unsigned long long)arg1 ofSelector:(SEL)arg2 reply:(_Bool)arg3;
 - (id)_allowedClassesForSelector:(SEL)arg1 reply:(_Bool)arg2;
+- (_Bool)_hasProxiesInReplyBlockArgumentsOfSelector:(SEL)arg1;
+- (_Bool)_hasProxiesInArgumentsOfSelector:(SEL)arg1;
 - (id)_methodSignatureForReplyBlockOfSelector:(SEL)arg1;
 - (id)_methodSignatureForRemoteSelector:(SEL)arg1;
 - (id)_generateAndCacheMethodSignatureForRemoteSelector:(SEL)arg1;

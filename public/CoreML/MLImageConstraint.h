@@ -17,10 +17,10 @@
 }
 
 + (id)_stringForOSType:(unsigned int)arg1;
-+ (id)constraintForBGRImageWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2;
-+ (id)constraintForRGBImageWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2;
-+ (id)constraintForGrayImageWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2;
-+ (id)constraintWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2 osType:(unsigned int)arg3;
++ (id)constraintForBGRImageWithWidth:(long long)arg1 height:(long long)arg2;
++ (id)constraintForRGBImageWithWidth:(long long)arg1 height:(long long)arg2;
++ (id)constraintForGrayImageWithWidth:(long long)arg1 height:(long long)arg2;
++ (id)constraintWithWidth:(long long)arg1 height:(long long)arg2 osType:(unsigned int)arg3;
 + (_Bool)osType:(unsigned int)arg1 isAcceptedForPixelType:(unsigned long long)arg2;
 @property(readonly, nonatomic) long long pixelsHigh; // @synthesize pixelsHigh=_imageHeight;
 @property(readonly, nonatomic) long long pixelsWide; // @synthesize pixelsWide=_imageWidth;
@@ -28,11 +28,12 @@
 @property(readonly) unsigned long long imageWidth;
 @property(readonly) unsigned long long imageHeight;
 @property(readonly) unsigned int osType;
+- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isAllowedValue:(id)arg1 error:(id *)arg2;
 - (id)_stringForAllowedOSTypes;
 @property(readonly, nonatomic) unsigned int pixelFormatType;
-- (id)initWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2 pixelType:(unsigned long long)arg3;
+- (id)initWithWidth:(long long)arg1 height:(long long)arg2 pixelType:(unsigned long long)arg3;
 
 @end
 

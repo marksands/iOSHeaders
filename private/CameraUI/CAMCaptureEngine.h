@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <CameraUI/AVCaptureVideoThumbnailContentsDelegate-Protocol.h>
 #import <CameraUI/CAMPanoramaProcessorDelegate-Protocol.h>
 
-@class AVCaptureDevice, AVCaptureDeviceInput, AVCaptureMetadataOutput, AVCapturePhotoOutput, AVCaptureSession, AVCaptureVideoDataOutput, AVCaptureVideoPreviewLayer, CAMCaptureMovieFileOutput, CAMMemoizationCache, CAMPanoramaConfiguration, CAMPanoramaOutput, CAMPanoramaProcessor, CAMPowerController, CIContext, NSHashTable, NSMutableArray, NSMutableDictionary, NSString;
+@class AVCaptureDevice, AVCaptureDeviceInput, AVCaptureMetadataOutput, AVCapturePhotoOutput, AVCaptureSession, AVCaptureVideoDataOutput, AVCaptureVideoPreviewLayer, AVCaptureVideoThumbnailOutput, CAMCaptureMovieFileOutput, CAMMemoizationCache, CAMPanoramaConfiguration, CAMPanoramaOutput, CAMPanoramaProcessor, CAMPowerController, CIContext, NSHashTable, NSMutableArray, NSMutableDictionary, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_semaphore;
 
-@interface CAMCaptureEngine : NSObject <CAMPanoramaProcessorDelegate>
+@interface CAMCaptureEngine : NSObject <CAMPanoramaProcessorDelegate, AVCaptureVideoThumbnailContentsDelegate>
 {
     AVCaptureDevice *_audioCameraDevice;
     AVCaptureDeviceInput *_audioCaptureDeviceInput;
@@ -21,6 +22,7 @@
     CAMPanoramaOutput *_panoramaVideoDataOutput;
     AVCaptureMetadataOutput *_metadataOutput;
     AVCaptureVideoDataOutput *_effectsPreviewVideoDataOutput;
+    AVCaptureVideoThumbnailOutput *_videoThumbnailOutput;
     _Bool _interrupted;
     _Bool _managedDevicesLockedForConfiguration;
     _Bool __performingRecovery;
@@ -47,6 +49,7 @@
     CIContext *__effectsPreviewSurfaceFilteringContext;
     NSObject<OS_dispatch_queue> *__effectsPreviewSampleBufferQueue;
     NSHashTable *__effectsPreviewSampleBufferDelegates;
+    NSHashTable *__videoThumbnailContentsDelegates;
     NSObject<OS_dispatch_queue> *__recoveryMutexQueue;
     unsigned long long __numberOfRecoveryAttempts;
 }
@@ -55,6 +58,7 @@
 @property(nonatomic, setter=_setNumberOfRecoveryAttempts:) unsigned long long _numberOfRecoveryAttempts; // @synthesize _numberOfRecoveryAttempts=__numberOfRecoveryAttempts;
 @property(nonatomic, getter=_isPerformingRecovery, setter=_setPerformingRecovery:) _Bool _performingRecovery; // @synthesize _performingRecovery=__performingRecovery;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *_recoveryMutexQueue; // @synthesize _recoveryMutexQueue=__recoveryMutexQueue;
+@property(readonly, nonatomic) NSHashTable *_videoThumbnailContentsDelegates; // @synthesize _videoThumbnailContentsDelegates=__videoThumbnailContentsDelegates;
 @property(readonly, nonatomic) NSHashTable *_effectsPreviewSampleBufferDelegates; // @synthesize _effectsPreviewSampleBufferDelegates=__effectsPreviewSampleBufferDelegates;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *_effectsPreviewSampleBufferQueue; // @synthesize _effectsPreviewSampleBufferQueue=__effectsPreviewSampleBufferQueue;
 @property(readonly, nonatomic) CIContext *_effectsPreviewSurfaceFilteringContext; // @synthesize _effectsPreviewSurfaceFilteringContext=__effectsPreviewSurfaceFilteringContext;
@@ -81,6 +85,7 @@
 @property(readonly, nonatomic) CAMMemoizationCache *_captureEngineDeviceCache; // @synthesize _captureEngineDeviceCache=__captureEngineDeviceCache;
 @property(nonatomic, getter=isInterrupted, setter=_setInterrupted:) _Bool interrupted; // @synthesize interrupted=_interrupted;
 - (void).cxx_destruct;
+- (id)videoThumbnailOutput;
 - (id)effectsPreviewVideoDataOutput;
 - (id)metadataOutput;
 - (id)panoramaVideoDataOutput;
@@ -98,6 +103,11 @@
 - (void)captureOutput:(id)arg1 didOutputMetadataObjects:(id)arg2 fromConnection:(id)arg3;
 - (void)captureOutput:(id)arg1 didDropSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
 - (void)captureOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
+- (void)videoThumbnailOutputWillEndRenderingThumbnails:(id)arg1;
+- (void)videoThumbnailOutput:(id)arg1 willBeginRenderingThumbnailsWithContents:(id)arg2;
+- (void)unregisterVideoThumbnailContentsDelegate:(id)arg1;
+- (void)registerVideoThumbnailContentsDelegate:(id)arg1;
+- (void)_updateVideoThumbnailSubgraph;
 - (void)unregisterEffectsPreviewSampleBufferDelegate:(id)arg1;
 - (void)registerEffectsPreviewSampleBufferDelegate:(id)arg1;
 - (void)_updateEffectsSubgraph;

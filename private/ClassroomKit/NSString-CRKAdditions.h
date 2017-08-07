@@ -7,6 +7,7 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (CRKAdditions)
+- (id)crk_stringByRemovingSuffix:(id)arg1;
 - (id)crk_sha1Hash;
 @end
 

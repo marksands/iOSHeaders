@@ -12,6 +12,7 @@
 }
 
 @property(nonatomic) unsigned long long verticalAlignment; // @synthesize verticalAlignment=_verticalAlignment;
+- (void)_contentSizeCategoryDidChange;
 - (void)drawTextInRect:(struct CGRect)arg1;
 - (void)willMoveToSuperview:(id)arg1;
 - (id)init;

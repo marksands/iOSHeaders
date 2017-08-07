@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     NSUUID *_extensionServicePresentedActivityUUID;
 }
 
++ (_Bool)shouldPropagateAppearanceCustomizations;
 + (id)exportedInterface;
 + (id)serviceViewControllerInterface;
 + (id)instantiateViewControllerWithInputItems:(id)arg1 connectionHandler:(CDUnknownBlockType)arg2;

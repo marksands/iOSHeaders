@@ -50,7 +50,7 @@
 @property(nonatomic) CDStruct_1e3be3a8 clipRect; // @synthesize clipRect=_clipRect;
 @property(nonatomic) CDStruct_d6af7fc0 secondaryOffset; // @synthesize secondaryOffset=_secondaryOffset;
 @property(nonatomic) CDStruct_d6af7fc0 primaryOffset; // @synthesize primaryOffset=_primaryOffset;
-- (id)destinationImageDescriptorForSourceImages:(id)arg1 sourceStates:(id)arg2 paddingMethod:(unsigned long long)arg3 sourceOffset:(CDStruct_d6af7fc0 *)arg4;
+- (id)destinationImageDescriptorForSourceImages:(id)arg1 sourceStates:(id)arg2 paddingMethod:(unsigned long long)arg3 primaryOffset:(CDStruct_d6af7fc0 *)arg4 secondaryOffset:(CDStruct_d6af7fc0 *)arg5;
 - (id)destinationImageDescriptorForSourceImages:(id)arg1 sourceStates:(id)arg2 updateOffset:(_Bool)arg3;
 - (void)dealloc;
 - (void)encodeToCommandBuffer:(id)arg1 primaryImage:(id)arg2 secondaryImage:(id)arg3 destinationImage:(id)arg4 consumedState:(id)arg5;

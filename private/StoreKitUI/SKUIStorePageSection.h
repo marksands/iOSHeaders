@@ -34,6 +34,7 @@
 - (void).cxx_destruct;
 - (void)_sendXEventWithDictionary:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)_recursivelyAddRelevantEntityProvidersForViewElement:(id)arg1 toSet:(id)arg2;
+- (long long)_itemPinningGroup;
 - (long long)_itemPinningStyle;
 - (id)_clickEventWithElementName:(id)arg1 index:(long long)arg2 fieldData:(id)arg3;
 - (void)_setContext:(id)arg1;
@@ -60,6 +61,7 @@
 - (void)playVideoWithURL:(id)arg1;
 - (void)playVideoForElement:(id)arg1;
 - (long long)pinningTransitionStyleForItemAtIndexPath:(id)arg1;
+- (long long)pinningGroupForItemAtIndexPath:(id)arg1;
 - (long long)pinningStyleForItemAtIndexPath:(id)arg1;
 - (struct UIEdgeInsets)pinningContentInsetForItemAtIndexPath:(id)arg1;
 - (id)performItemOfferActionForItem:(id)arg1;

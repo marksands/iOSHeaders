@@ -15,6 +15,7 @@
 + (struct CGSize)sizeThatFitsCardSection:(id)arg1 boundingSize:(struct CGSize)arg2;
 - (void)removeFromComposedSuperview;
 @property(nonatomic) __weak UIView<CRKComposableView> *composedSuperview; // @dynamic composedSuperview;
+@property(copy, nonatomic) NSString *cardSectionViewIdentifier;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

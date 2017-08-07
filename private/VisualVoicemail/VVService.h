@@ -174,7 +174,7 @@
 - (_Bool)doTrashCompaction;
 - (_Bool)shouldTrashCompactRecord:(void *)arg1;
 - (double)trashCompactionAge;
-- (void)handleAFPreferencesDidChangeNotification:(id)arg1;
+- (void)handleAFLanguageCodeDidChangeNotification:(id)arg1;
 - (_Bool)isSupportedTranscriptionLanguageCode:(id)arg1;
 - (void)reportTranscriptionRatedAccurate:(_Bool)arg1 forRecord:(const void *)arg2;
 - (void)reportTranscriptionProblemForRecord:(const void *)arg1;

@@ -13,6 +13,7 @@
     HKStatisticsCollection *_collection;
     long long _currentPeriodIndex;
     _Bool _bucketSetup;
+    _Bool _shouldComputeEndDate;
     _Bool _detailBySource;
     _Bool _firstValueAdded;
     double _currentStartDate;

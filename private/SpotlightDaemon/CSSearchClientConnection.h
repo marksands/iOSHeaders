@@ -6,16 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary, NSString;
+@class NSMutableDictionary, NSMutableOrderedSet, NSString;
 
 @interface CSSearchClientConnection : NSObject
 {
     _Bool _searchInternal;
     _Bool _isExtension;
+    unsigned int _outBatchCount;
     int _pid;
     unsigned int _euid;
     unsigned int _egid;
     NSMutableDictionary *_queryTasks;
+    NSMutableOrderedSet *_pausedTasks;
     NSString *_protectionClass;
     NSString *_bundleID;
 }
@@ -27,8 +29,12 @@
 @property(readonly, nonatomic) int pid; // @synthesize pid=_pid;
 @property(readonly, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(readonly, nonatomic) NSString *protectionClass; // @synthesize protectionClass=_protectionClass;
+@property(retain, nonatomic) NSMutableOrderedSet *pausedTasks; // @synthesize pausedTasks=_pausedTasks;
 @property(retain, nonatomic) NSMutableDictionary *queryTasks; // @synthesize queryTasks=_queryTasks;
+@property(readonly, nonatomic) unsigned int outBatchCount; // @synthesize outBatchCount=_outBatchCount;
 - (void).cxx_destruct;
+- (void)_didReceiveResultsBatchCompletion;
+- (void)_willSendResultsBatch:(id)arg1 qid:(long long)arg2;
 - (void)dealloc;
 - (void)cancelQueryTasks;
 - (void)setQueryTask:(id)arg1 forQueryID:(long long)arg2;

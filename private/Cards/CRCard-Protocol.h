@@ -16,6 +16,7 @@
 
 @optional
 @property(readonly, nonatomic) SFCard *backingCard;
+@property(readonly, nonatomic) _Bool flexibleSectionOrder;
 @property(readonly, nonatomic) _Bool asynchronous;
 - (void)loadCardWithCompletion:(void (^)(id <CRCard>))arg1;
 @end

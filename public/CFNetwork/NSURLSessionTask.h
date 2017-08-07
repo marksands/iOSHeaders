@@ -9,7 +9,7 @@
 #import <CFNetwork/NSCopying-Protocol.h>
 #import <CFNetwork/NSProgressReporting-Protocol.h>
 
-@class NSArray, NSData, NSDate, NSDictionary, NSError, NSProgress, NSString, NSURL, NSURLRequest, NSURLResponse, NSURLSession, NSURLSessionTaskDependency, NSURLSessionTaskDependencyTree, NSURLSessionTaskHTTPAuthenticator;
+@class NSArray, NSData, NSDate, NSDictionary, NSError, NSProgress, NSString, NSURL, NSURLRequest, NSURLResponse, NSURLSession, NSURLSessionTaskDependency, NSURLSessionTaskDependencyTree, NSURLSessionTaskHTTPAuthenticator, NSURLSessionTaskMetrics;
 @protocol NSURLSessionAppleIDContext, OS_dispatch_queue, SZExtractor;
 
 @interface NSURLSessionTask : NSObject <NSCopying, NSProgressReporting>
@@ -91,6 +91,7 @@
 @property _Bool _disallowCellular; // @dynamic _disallowCellular;
 @property long long _expectedWorkload; // @dynamic _expectedWorkload;
 @property(retain, nonatomic) id <SZExtractor> _extractor; // @dynamic _extractor;
+@property(retain, nonatomic) NSURLSessionTaskMetrics *_incompleteTaskMetrics; // @dynamic _incompleteTaskMetrics;
 @property(copy) NSURL *_ledBellyFallbackURL; // @dynamic _ledBellyFallbackURL;
 @property(copy) NSString *_ledBellyServiceIdentifier; // @dynamic _ledBellyServiceIdentifier;
 @property(copy) NSDictionary *_legacySocketStreamProperties; // @dynamic _legacySocketStreamProperties;

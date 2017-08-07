@@ -46,6 +46,7 @@
 @property(readonly, nonatomic) unsigned long long previewRenderedContentURLCount;
 - (void)setPreviewRenderedContentURLs:(id)arg1;
 - (void)rampingRequestForResourceType:(unsigned long long)arg1 numRequested:(unsigned long long)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)repairMemoriesWithUUIDs:(id)arg1;
 - (void)prefetchResourcesForMemories:(id)arg1;
 - (void)pruneAssets:(id)arg1 resourceTypes:(id)arg2;
 - (void)privateDownloadCloudPhotoLibraryAsset:(id)arg1 resourceType:(unsigned long long)arg2 highPriority:(_Bool)arg3;

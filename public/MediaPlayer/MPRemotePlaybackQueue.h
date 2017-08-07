@@ -18,6 +18,7 @@
 - (struct _MRSystemAppPlaybackQueue *)_mediaRemotePlaybackQueue;
 - (_Bool)verifyWithError:(id *)arg1;
 @property(copy, nonatomic) NSDictionary *userInfo;
+@property(nonatomic) long long replaceIntent;
 @property(nonatomic) _Bool shouldOverrideManuallyCuratedQueue;
 @property(copy, nonatomic) NSString *siriRecommendationIdentifier;
 @property(nonatomic, getter=isRequestingImmediatePlayback) _Bool requestingImmediatePlayback;

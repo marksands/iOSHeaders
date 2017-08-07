@@ -8,11 +8,12 @@
 
 #import <ARKit/ARSensorDelegate-Protocol.h>
 #import <ARKit/ARTechniqueDelegate-Protocol.h>
+#import <ARKit/AVCaptureAudioDataOutputSampleBufferDelegate-Protocol.h>
 
-@class ARFrame, ARSessionConfiguration, ARSessionMetrics, ARTechnique, ARWorldTrackingTechnique, CMMotionManager, NSArray, NSHashTable, NSMutableSet, NSString;
+@class ARConfiguration, ARFrame, ARSessionMetrics, ARTechnique, ARWorldTrackingTechnique, CMMotionManager, NSArray, NSHashTable, NSMutableSet, NSString;
 @protocol ARSessionDelegate, OS_dispatch_queue, OS_dispatch_semaphore;
 
-@interface ARSession : NSObject <ARSensorDelegate, ARTechniqueDelegate>
+@interface ARSession : NSObject <ARSensorDelegate, ARTechniqueDelegate, AVCaptureAudioDataOutputSampleBufferDelegate>
 {
     ARTechnique *_technique;
     ARWorldTrackingTechnique *_worldTrackingTechnique;
@@ -29,10 +30,12 @@
     long long _thermalState;
     CMMotionManager *_motionManger;
     ARSessionMetrics *_metrics;
+    NSObject<OS_dispatch_queue> *_audioOutputQueue;
+    _Bool _trackingWasReset;
     id <ARSessionDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_delegateQueue;
     unsigned long long _state;
-    ARSessionConfiguration *_configuration;
+    ARConfiguration *_configuration;
     NSArray *_availableSensors;
     unsigned long long _runningSensors;
     unsigned long long _pausedSensors;
@@ -47,7 +50,7 @@
 @property(nonatomic) unsigned long long pausedSensors; // @synthesize pausedSensors=_pausedSensors;
 @property(nonatomic) unsigned long long runningSensors; // @synthesize runningSensors=_runningSensors;
 @property(retain, nonatomic) NSArray *availableSensors; // @synthesize availableSensors=_availableSensors;
-@property(copy, nonatomic) ARSessionConfiguration *configuration; // @synthesize configuration=_configuration;
+@property(copy, nonatomic) ARConfiguration *configuration; // @synthesize configuration=_configuration;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 @property(nonatomic) __weak id <ARSessionDelegate> delegate; // @synthesize delegate=_delegate;
@@ -58,6 +61,7 @@
 - (void)_sessionDidFailWithError:(id)arg1;
 - (void)_sessionCameraDidChangeTrackingState:(id)arg1;
 - (void)_sessionDidUpdateFrame:(id)arg1;
+- (void)captureOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
 - (void)sensorDidRestart:(id)arg1;
 - (void)sensorDidPause:(id)arg1;
 - (void)sensor:(id)arg1 didFailWithError:(id)arg2;

@@ -19,8 +19,11 @@
 
 + (id)sharedDeviceLibraryController;
 - (void).cxx_destruct;
+- (void)performKeepLocalChangeRequest:(id)arg1 withRelatedModelObjects:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)performKeepLocalChangeRequest:(id)arg1 withRelatedModelObjects:(id)arg2;
+- (void)performLibraryImportChangeRequest:(id)arg1 withRelatedModelObjects:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)performLibraryImportChangeRequest:(id)arg1 withRelatedModelObjects:(id)arg2;
+- (void)performDeleteEntityChangeRequest:(id)arg1 withRelatedModelObjects:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)performDeleteEntityChangeRequest:(id)arg1 withRelatedModelObjects:(id)arg2;
 - (long long)transientKeepLocalStateForModelObject:(id)arg1;
 - (long long)transientAddStateForModelObject:(id)arg1;

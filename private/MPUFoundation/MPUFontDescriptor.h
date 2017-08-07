@@ -32,7 +32,7 @@
 + (id)_fontPointSizeLayoutInterpolatorForTextStyle:(long long)arg1;
 + (unsigned int)_nativeFontDescriptorSymbolicTraitsForUsingItalic:(_Bool)arg1 isCondensedMetrics:(_Bool)arg2;
 + (unsigned int)_nativeFontDescriptorSymbolicTraitsForLeadingAdjustment:(long long)arg1;
-+ (void)_getNativeFontDescriptorSymbolicTraits:(unsigned int *)arg1 nativeTextStyleAttribute:(id *)arg2 forWeight:(long long)arg3;
++ (void)_getNativeFontDescriptorSymbolicTraits:(unsigned int *)arg1 nativeTextStyleAttribute:(id *)arg2 forWeight:(long long)arg3 textStyle:(long long)arg4;
 + (id)_baseNativeTextStyleForTextStyle:(long long)arg1;
 + (id)_adjustedNativeFontDescriptorWithBaseNativeFontDescriptor:(id)arg1 forCustomTextStyle:(long long)arg2;
 + (id)invalidationHandler;

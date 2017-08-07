@@ -89,7 +89,6 @@
 - (void)_updateRevealHintViewTitleDate;
 - (void)_updateRevealHintViewTitlePersistence;
 - (void)_updateRevealHintViewForListOperation;
-- (double)_notificationsHistoryTopSectionHeaderYPosition;
 - (_Bool)_isNotificationHistoryTopSectionHeaderVisible;
 - (id)_notificationHistorySectionTopSectionHeader;
 - (double)_revealHintViewPosition;
@@ -106,6 +105,8 @@
 - (void)_updateCellForRevealPercentage:(double)arg1 atIndexPath:(id)arg2;
 - (void)_updateNotificationCellsRevealHintingForRevealPercentage:(double)arg1;
 - (void)_updateRevealHintingForPercentage:(double)arg1 scrollView:(id)arg2;
+- (double)_adjustedFrictionForRevealAnimation;
+- (double)_adjustedTensionForRevealAnimation;
 - (void)_performHideAnimationForSectionHeadersWithRevealPercentage:(double)arg1;
 - (void)_performHideAnimationForNotificationCellsWithRevealPercentage:(double)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_hideNotificationsHistory;

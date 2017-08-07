@@ -28,7 +28,7 @@
     CDUnknownBlockType _devicesCompletion;
     CDUnknownBlockType _pongBlock;
     NSMutableDictionary *_sessionStartBlocks;
-    CDUnknownBlockType _newSessionCallback;
+    NSMutableDictionary *_sessionDidStartBlocks;
     NSMutableDictionary *_devices;
     NSMutableDictionary *_sessions;
     DEDIDSConnection *__idsConnection;
@@ -49,7 +49,7 @@
 @property(retain) DEDIDSConnection *_idsConnection; // @synthesize _idsConnection=__idsConnection;
 @property(retain) NSMutableDictionary *sessions; // @synthesize sessions=_sessions;
 @property(retain) NSMutableDictionary *devices; // @synthesize devices=_devices;
-@property(copy) CDUnknownBlockType newSessionCallback; // @synthesize newSessionCallback=_newSessionCallback;
+@property(retain) NSMutableDictionary *sessionDidStartBlocks; // @synthesize sessionDidStartBlocks=_sessionDidStartBlocks;
 @property(retain) NSMutableDictionary *sessionStartBlocks; // @synthesize sessionStartBlocks=_sessionStartBlocks;
 @property(copy) CDUnknownBlockType pongBlock; // @synthesize pongBlock=_pongBlock;
 @property(copy) CDUnknownBlockType devicesCompletion; // @synthesize devicesCompletion=_devicesCompletion;
@@ -107,6 +107,8 @@
 - (_Bool)hasCompletionBlockWithIdentifier:(id)arg1;
 - (CDUnknownBlockType)popSessionStartCompletionWithIdentifier:(id)arg1;
 - (void)addSessionStartCompletion:(CDUnknownBlockType)arg1 withIdentifier:(id)arg2;
+- (CDUnknownBlockType)popDidStartSessionCompletionWithIdentifier:(id)arg1;
+- (void)addDidStartSessionCompletion:(CDUnknownBlockType)arg1 withIdentifier:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -11,7 +11,6 @@
 @class GEOResourceManifestConfiguration, NSMutableArray, NSString;
 @protocol OS_dispatch_queue;
 
-__attribute__((visibility("hidden")))
 @interface GEOSearchAttributionManifestVersionMigrator : NSObject <GEOActiveTileGroupMigrator>
 {
     GEOResourceManifestConfiguration *_manifestConfiguration;

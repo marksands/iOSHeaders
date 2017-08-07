@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOMapItemParentVenue, GEOPDFeatureBuilding, GEOPDFeaturePOI, GEOPDFeatureVenue, NSArray, PBUnknownFields;
+@class GEOPDFeatureBuilding, GEOPDFeaturePOI, GEOPDFeatureVenue, PBUnknownFields;
 
 @interface GEOPDVenueFeatureValue : PBCodable <NSCopying>
 {
@@ -35,9 +35,6 @@
 @property(readonly, nonatomic) _Bool hasFeaturePoi;
 @property(readonly, nonatomic) _Bool hasFeatureBuilding;
 @property(readonly, nonatomic) _Bool hasFeatureVenue;
-@property(readonly, nonatomic) int browseType;
-@property(readonly, nonatomic) NSArray *buildings;
-@property(readonly, nonatomic) GEOMapItemParentVenue *parent;
 
 @end
 

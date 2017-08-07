@@ -151,6 +151,7 @@
 - (id)_dragItemsForIndexPath:(id)arg1;
 - (void)_presentConfidentialityWarning;
 - (_Bool)_confidentialityWarningRequiredForAsset:(id)arg1;
+- (_Bool)canDragOut;
 - (_Bool)oneUpPresentationHelperShouldLeaveContentOnSecondScreen:(id)arg1;
 - (id)oneUpPresentationHelperScrollView:(id)arg1;
 - (void)oneUpPresentationHelper:(id)arg1 didDismissOneUpViewController:(id)arg2;

@@ -19,10 +19,12 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_source> *_timer;
     NSMutableArray *_clients;
     AWAttentionSampler *_attentionSampler;
+    AWAttentionSampler *_unitTestSampler;
 }
 
 + (id)sharedScheduler;
 - (void).cxx_destruct;
+- (void)getUnitTestSamplerWithReply:(CDUnknownBlockType)arg1;
 - (void)outputPowerLogWithReply:(CDUnknownBlockType)arg1;
 - (void)setDebugPreference:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)getDebugPreferences:(CDUnknownBlockType)arg1;

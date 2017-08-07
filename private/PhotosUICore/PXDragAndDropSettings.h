@@ -10,6 +10,8 @@
 {
     _Bool _useData;
     _Bool _dragOutEnabled;
+    _Bool _alwaysAllowDragsWithinUserAlbums;
+    _Bool _springLoadingEnabled;
     _Bool _useFileProvider;
     _Bool _oneUpDragOutEnabled;
     long long _oneUpStyle;
@@ -26,6 +28,8 @@
 @property(nonatomic) long long oneUpStyle; // @synthesize oneUpStyle=_oneUpStyle;
 @property(nonatomic) _Bool oneUpDragOutEnabled; // @synthesize oneUpDragOutEnabled=_oneUpDragOutEnabled;
 @property(nonatomic) _Bool useFileProvider; // @synthesize useFileProvider=_useFileProvider;
+@property(nonatomic) _Bool springLoadingEnabled; // @synthesize springLoadingEnabled=_springLoadingEnabled;
+@property(nonatomic) _Bool alwaysAllowDragsWithinUserAlbums; // @synthesize alwaysAllowDragsWithinUserAlbums=_alwaysAllowDragsWithinUserAlbums;
 @property(nonatomic) _Bool dragOutEnabled; // @synthesize dragOutEnabled=_dragOutEnabled;
 @property(nonatomic) _Bool useData; // @synthesize useData=_useData;
 - (void)setDefaultValues;

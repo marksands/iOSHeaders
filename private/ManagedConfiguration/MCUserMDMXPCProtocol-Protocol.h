@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <ManagedConfiguration/MCMDMClientProtocol-Protocol.h>
 #import <ManagedConfiguration/NSObject-Protocol.h>
 
 @class NSDictionary;
 
-@protocol MCUserMDMXPCProtocol <NSObject>
+@protocol MCUserMDMXPCProtocol <NSObject, MCMDMClientProtocol>
 - (void)processUserRequest:(NSDictionary *)arg1 completion:(void (^)(NSError *, NSDictionary *))arg2;
 - (void)userPushTokenWithCompletion:(void (^)(NSData *, NSError *))arg1;
 - (void)simulatePushWithCompletion:(void (^)(NSError *))arg1;

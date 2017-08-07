@@ -46,6 +46,7 @@
 - (struct CGRect)zoomInitialFocusRectWithQueryingContext:(unsigned int)arg1;
 - (void)setZoomInitialFocusRect:(struct CGRect)arg1 fromContext:(unsigned int)arg2;
 - (void)setAccessibilityPreferenceAsMobile:(id)arg1 value:(id)arg2 notification:(id)arg3;
+- (void)setSwitchControlHasScreenSwitch:(_Bool)arg1;
 - (void)setSwitchControlRendersDeviceUnusable:(_Bool)arg1;
 - (void)setHearingAidControlIsVisible:(_Bool)arg1;
 - (void)setCapsLockLightOn:(_Bool)arg1;

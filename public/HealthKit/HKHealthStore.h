@@ -73,6 +73,7 @@
 - (void)removeDefaultForKey:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)getDefaultValueForKey:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)setDefaultValue:(id)arg1 forKey:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (CDUnknownBlockType)_objectHandlerOnClientQueue:(CDUnknownBlockType)arg1;
 - (CDUnknownBlockType)_selectCompletionOnClientQueue:(CDUnknownBlockType)arg1;
 - (CDUnknownBlockType)_objectCompletionOnClientQueue:(CDUnknownBlockType)arg1;
 - (CDUnknownBlockType)_actionCompletionOnClientQueue:(CDUnknownBlockType)arg1;
@@ -226,11 +227,15 @@
 - (void)endHealthServiceDiscovery:(id)arg1;
 - (void)startHealthServiceDiscovery:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)setBadgeCount:(long long)arg1 forDomain:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)waitOnHealthCloudSyncWithProgress:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)disableCloudSyncAndDeleteAllCloudDataWithProgress:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)fetchCloudDescriptionWithProgress:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)forceCloudResetWithProgress:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)forceCloudSyncWithOptions:(unsigned long long)arg1 progress:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)fetchCloudSyncProgress:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)disableCloudSyncAndDeleteAllCloudDataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchCloudSyncStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchCloudSyncRequiredWithCompletion:(CDUnknownBlockType)arg1;
-- (void)fetchCloudDescriptionWithCompletion:(CDUnknownBlockType)arg1;
-- (void)forceCloudResetWithCompletion:(CDUnknownBlockType)arg1;
 - (void)forceCloudSyncWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)createCloudShareWithRecipient:(id)arg1 sampleTypes:(id)arg2 maxSampleAge:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)getAllProfilesWithCompletion:(CDUnknownBlockType)arg1;

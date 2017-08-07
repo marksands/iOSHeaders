@@ -7,29 +7,33 @@
 #import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFHTTPClientDelegate-Protocol.h>
+#import <HomeKitDaemon/HMFNetServiceDelegate-Protocol.h>
 
-@class HMDHTTPDevice, HMFHTTPClient, HMFNetService, NSString, NSUUID;
-@protocol HMDHTTPClientMessageTransportDelegate;
+@class HMDHTTPDevice, HMFHTTPClient, HMFNetService, NSObject, NSString, NSUUID;
+@protocol HMDHTTPClientMessageTransportDelegate, OS_dispatch_queue;
 
-@interface HMDHTTPClientMessageTransport : HMFObject <HMFHTTPClientDelegate>
+@interface HMDHTTPClientMessageTransport : HMFObject <HMFHTTPClientDelegate, HMFNetServiceDelegate>
 {
     _Bool _running;
+    NSUUID *_sessionIdentifier;
     id <HMDHTTPClientMessageTransportDelegate> _delegate;
     NSUUID *_identifier;
     HMFNetService *_netService;
     HMDHTTPDevice *_remoteDevice;
+    NSObject<OS_dispatch_queue> *_propertyQueue;
     HMFHTTPClient *_client;
 }
 
 + (id)logCategory;
 + (id)shortDescription;
 @property(readonly, nonatomic) HMFHTTPClient *client; // @synthesize client=_client;
-@property(nonatomic, getter=isRunning) _Bool running; // @synthesize running=_running;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) HMDHTTPDevice *remoteDevice; // @synthesize remoteDevice=_remoteDevice;
 @property(readonly, nonatomic) HMFNetService *netService; // @synthesize netService=_netService;
 @property(readonly, copy, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property __weak id <HMDHTTPClientMessageTransportDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)netService:(id)arg1 didUpdateTXTRecord:(id)arg2;
 - (id)logIdentifier;
 - (void)clientDidBecomeUnreachable:(id)arg1;
 - (void)client:(id)arg1 didRequestPingWithCompletionHandler:(CDUnknownBlockType)arg2;
@@ -41,6 +45,9 @@
 - (void)stop;
 - (void)startWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic, getter=isReachable) _Bool reachable;
+@property(nonatomic, getter=isRunning) _Bool running; // @synthesize running=_running;
+- (void)setSessionIdentifier:(id)arg1;
+@property(readonly, copy) NSUUID *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 @property(readonly, copy) NSString *description;
 @property(readonly, copy) NSString *debugDescription;
 - (id)descriptionWithPointer:(_Bool)arg1;

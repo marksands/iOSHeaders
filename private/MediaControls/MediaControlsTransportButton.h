@@ -11,11 +11,13 @@
 @interface MediaControlsTransportButton : MPButton
 {
     _Bool _shouldPresentActionSheet;
+    _Bool _performingHighlightAnimation;
     MPCPlayerCommandRequest *_touchUpInsideCommandRequest;
     MPCPlayerCommandRequest *_holdBeginCommandRequest;
     MPCPlayerCommandRequest *_holdEndCommandRequest;
 }
 
+@property(readonly, nonatomic, getter=isPerformingHighlightAnimation) _Bool performingHighlightAnimation; // @synthesize performingHighlightAnimation=_performingHighlightAnimation;
 @property(nonatomic) _Bool shouldPresentActionSheet; // @synthesize shouldPresentActionSheet=_shouldPresentActionSheet;
 @property(retain, nonatomic) MPCPlayerCommandRequest *holdEndCommandRequest; // @synthesize holdEndCommandRequest=_holdEndCommandRequest;
 @property(retain, nonatomic) MPCPlayerCommandRequest *holdBeginCommandRequest; // @synthesize holdBeginCommandRequest=_holdBeginCommandRequest;

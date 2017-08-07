@@ -83,6 +83,7 @@
 - (void)objectModel:(id)arg1 elementDidChange:(id)arg2;
 - (void)objectModelPressedBack:(id)arg1;
 - (id)parentViewControllerForObjectModel:(id)arg1;
+- (id)viewControllerForAlertPresentation;
 - (void)loader:(id)arg1 receivedObjectModel:(id)arg2 actionSignal:(unsigned long long)arg3;
 - (void)performAction:(unsigned long long)arg1 withObjectModel:(id)arg2;
 - (void)loader:(id)arg1 didFailWithError:(id)arg2;

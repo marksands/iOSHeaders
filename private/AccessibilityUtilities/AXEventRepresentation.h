@@ -20,6 +20,7 @@
     _Bool _useOriginalHIDTime;
     _Bool _redirectEvent;
     unsigned int _type;
+    unsigned int _originalType;
     int _subtype;
     int _flags;
     unsigned int _taskPort;
@@ -97,6 +98,7 @@
 @property(nonatomic) struct CGPoint windowLocation; // @synthesize windowLocation=_windowLocation;
 @property(nonatomic) struct CGPoint location; // @synthesize location=_location;
 @property(nonatomic) int subtype; // @synthesize subtype=_subtype;
+@property(nonatomic) unsigned int originalType; // @synthesize originalType=_originalType;
 @property(nonatomic) unsigned int type; // @synthesize type=_type;
 - (void).cxx_destruct;
 - (id)_accessibilityDataFromRealEvent:(struct __IOHIDEvent *)arg1;
@@ -128,7 +130,7 @@
 - (void)modifyPoints:(CDUnknownBlockType)arg1;
 - (id)fakeTouchScaleEventRepresentation:(_Bool)arg1;
 - (id)normalizedEventRepresentation:(_Bool)arg1 scale:(_Bool)arg2;
-- (struct __IOHIDEvent *)_newButtonHIDEventRef;
+- (struct __IOHIDEvent *)_newButtonHIDEventRefWithType:(unsigned int)arg1;
 - (struct __IOHIDEvent *)_newKeyboardHIDEventRef;
 - (struct __IOHIDEvent *)_newAccelerometerHIDEventRef;
 - (_Bool)isDownEvent;

@@ -14,6 +14,7 @@
 + (_Bool)wantsReloadForSignificantTimeChange;
 + (id)sampleContentElements;
 + (id)bundleIdentifier;
++ (Class)nanoNewsDataSourceClass;
 @property(retain, nonatomic) NTKUpNextElementDataSource *newsDataSourceProxy; // @synthesize newsDataSourceProxy=_newsDataSourceProxy;
 - (void).cxx_destruct;
 - (void)resume;

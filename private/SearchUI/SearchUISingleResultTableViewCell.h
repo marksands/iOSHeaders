@@ -34,6 +34,7 @@
 @property(retain) NUIContainerStackView *innerContainer; // @synthesize innerContainer=_innerContainer;
 @property(retain) SFSearchResult *result; // @synthesize result=_result;
 - (void).cxx_destruct;
+- (void)willBeginPreviewInteractionForAvatarView:(id)arg1;
 - (id)presentingViewControllerForAvatarView:(id)arg1;
 - (struct CGRect)containerView:(id)arg1 layoutFrameForArrangedSubview:(id)arg2 withProposedFrame:(struct CGRect)arg3;
 - (long long)containerStackView:(id)arg1 alignmentForArrangedSubview:(id)arg2;

@@ -52,6 +52,7 @@
 - (void)_updatePrompt;
 - (void)_stylizeSearchBar:(id)arg1;
 - (void)_selectItem:(id)arg1;
+- (id)_searchBarInViewController:(id)arg1;
 - (void)_reloadDataInViewController:(id)arg1;
 - (_Bool)_isMetadataAddable:(id)arg1;
 - (void)_insertSearchBarIntoTableView:(id)arg1;
@@ -67,6 +68,7 @@
 @property(readonly, nonatomic) _Bool omitsGeniusPlaylists;
 @property(readonly, nonatomic) UIBarButtonItem *rightBarButtonItem;
 - (void)pushViewController:(id)arg1 animated:(_Bool)arg2;
+- (void)viewSafeAreaInsetsDidChange;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

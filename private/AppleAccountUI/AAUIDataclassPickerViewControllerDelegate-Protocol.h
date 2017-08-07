@@ -6,10 +6,13 @@
 
 #import <AppleAccountUI/NSObject-Protocol.h>
 
-@class AAUIDataclassPickerViewController;
+@class AAUIDataclassPickerViewController, NSString;
 
 @protocol AAUIDataclassPickerViewControllerDelegate <NSObject>
 - (void)dataclassPickerViewController:(AAUIDataclassPickerViewController *)arg1 didCompleteWithDataclassActions:(struct NSDictionary *)arg2;
 - (void)dataclassPickerViewControllerDidCancel:(AAUIDataclassPickerViewController *)arg1;
+
+@optional
+- (NSString *)footerTextForDataclassPickerViewController:(AAUIDataclassPickerViewController *)arg1;
 @end
 

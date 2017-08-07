@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class HDFitnessMachineDataCharacteristicBase, HDFitnessMachineStatus, HDHealthServiceOOBInfo, HKHealthService, NSArray, NSData, NSDate, NSString, NSUUID, _HKFitnessMachine;
+@class HDEnhancedFTMSData, HDFitnessMachineDataCharacteristicBase, HDFitnessMachineStatus, HDHealthServiceOOBInfo, HKHealthService, NSArray, NSData, NSDate, NSString, NSUUID, _HKFitnessMachine;
 
 @interface HDFitnessMachineSession : NSObject
 {
@@ -25,6 +25,7 @@
     HDHealthServiceOOBInfo *_oobInfo;
     HDFitnessMachineStatus *_initialMachineStatus;
     HDFitnessMachineDataCharacteristicBase *_initialMachineData;
+    HDEnhancedFTMSData *_initialEnhancedFTMSData;
     unsigned long long _connectionState;
     unsigned long long _machineState;
     NSDate *_machineStartDate;
@@ -41,6 +42,7 @@
 @property(retain, nonatomic) NSDate *machineStartDate; // @synthesize machineStartDate=_machineStartDate;
 @property(nonatomic) unsigned long long machineState; // @synthesize machineState=_machineState;
 @property(nonatomic) unsigned long long connectionState; // @synthesize connectionState=_connectionState;
+@property(retain, nonatomic) HDEnhancedFTMSData *initialEnhancedFTMSData; // @synthesize initialEnhancedFTMSData=_initialEnhancedFTMSData;
 @property(retain, nonatomic) HDFitnessMachineDataCharacteristicBase *initialMachineData; // @synthesize initialMachineData=_initialMachineData;
 @property(nonatomic) _Bool waitingOnInitialMachineData; // @synthesize waitingOnInitialMachineData=_waitingOnInitialMachineData;
 @property(retain, nonatomic) HDFitnessMachineStatus *initialMachineStatus; // @synthesize initialMachineStatus=_initialMachineStatus;

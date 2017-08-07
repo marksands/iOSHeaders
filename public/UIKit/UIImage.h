@@ -119,6 +119,7 @@
 - (void)_setSuppressesAccessibilityHairlineThickening:(_Bool)arg1;
 - (struct CGSize)_sizeWithHairlineThickening:(_Bool)arg1 renderingEffects:(unsigned long long)arg2 forTraitCollection:(id)arg3;
 - (id)_imageWithStylePresets:(id)arg1 withTintColor:(id)arg2;
+- (void)_cacheStyledImage:(id)arg1 forPresets:(id)arg2 tintColor:(id)arg3;
 - (id)_cachedImageStyledWithPresets:(id)arg1 forTintColor:(id)arg2;
 @property(readonly, nonatomic) UIGraphicsImageRendererFormat *imageRendererFormat;
 @property(readonly, nonatomic) long long renderingMode;

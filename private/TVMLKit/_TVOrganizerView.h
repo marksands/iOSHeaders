@@ -8,13 +8,20 @@
 
 #import <TVMLKit/TVAppTemplateImpressionable-Protocol.h>
 
-@class NSArray, NSDictionary, NSString, UIView;
+@class NSArray, NSDictionary, NSString, UIColor, UIFocusGuide, UIView;
 
 __attribute__((visibility("hidden")))
 @interface _TVOrganizerView : _TVFocusRedirectView <TVAppTemplateImpressionable>
 {
     UIView *_lastFocusedView;
+    UIView *_rightColumnDivider;
+    UIView *_leftColumnDivider;
+    UIFocusGuide *_focusGuide;
+    _Bool _columnDividersEnabled;
+    _Bool _remembersLastFocusedItem;
     UIView *_backgroundImageView;
+    double _columnDividerPadding;
+    UIColor *_columnDividerColor;
     NSArray *_components;
     NSDictionary *_divsByPosition;
     NSDictionary *_divSizesByPosition;
@@ -23,6 +30,10 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSDictionary *divSizesByPosition; // @synthesize divSizesByPosition=_divSizesByPosition;
 @property(copy, nonatomic) NSDictionary *divsByPosition; // @synthesize divsByPosition=_divsByPosition;
 @property(copy, nonatomic) NSArray *components; // @synthesize components=_components;
+@property(nonatomic) _Bool remembersLastFocusedItem; // @synthesize remembersLastFocusedItem=_remembersLastFocusedItem;
+@property(retain, nonatomic) UIColor *columnDividerColor; // @synthesize columnDividerColor=_columnDividerColor;
+@property(nonatomic) _Bool columnDividersEnabled; // @synthesize columnDividersEnabled=_columnDividersEnabled;
+@property(nonatomic) double columnDividerPadding; // @synthesize columnDividerPadding=_columnDividerPadding;
 @property(retain, nonatomic) UIView *backgroundImageView; // @synthesize backgroundImageView=_backgroundImageView;
 - (void).cxx_destruct;
 - (id)impressionableElementsContainedInDocument:(id)arg1;

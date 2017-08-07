@@ -85,6 +85,7 @@
 - (void)navigationServiceProxy:(id)arg1 didFailWithError:(id)arg2;
 - (void)navigationServiceProxyWillResumeFromPauseNavigation:(id)arg1;
 - (void)navigationServiceProxyWillPauseNavigation:(id)arg1;
+- (void)navigationServiceProxy:(id)arg1 didUpdateNavigationDetails:(id)arg2;
 - (void)navigationServiceProxy:(id)arg1 didUpdateActiveRouteDetails:(id)arg2;
 - (void)navigationServiceProxy:(id)arg1 didChangeFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3;
 - (void)navigationServiceProxy:(id)arg1 willChangeFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3;

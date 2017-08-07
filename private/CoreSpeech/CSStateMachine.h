@@ -13,15 +13,18 @@
 {
     id <CSStateMachineDelegate> _delegate;
     long long _currentState;
+    long long _initialState;
     NSMutableDictionary *_transitions;
 }
 
 @property(retain, nonatomic) NSMutableDictionary *transitions; // @synthesize transitions=_transitions;
+@property(nonatomic) long long initialState; // @synthesize initialState=_initialState;
 @property(readonly, nonatomic) long long currentState; // @synthesize currentState=_currentState;
 @property(nonatomic) __weak id <CSStateMachineDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)performTransitionForEvent:(long long)arg1;
 - (void)addTransitionFrom:(long long)arg1 to:(long long)arg2 for:(long long)arg3;
+- (void)reset;
 - (id)initWithInitialState:(long long)arg1;
 
 @end

@@ -6,18 +6,20 @@
 
 #import <UIKit/UIViewController.h>
 
+#import <ControlCenterUI/UIGestureRecognizerDelegate-Protocol.h>
 #import <ControlCenterUI/UIPreviewInteractionDelegatePrivate-Protocol.h>
 
-@class CCUIContentModuleBackgroundView, CCUIContentModuleContainerView, CCUIContentModuleContentContainerView, NSString, UIPreviewInteraction, UITapGestureRecognizer, UIView;
+@class CCUIContentModuleBackgroundView, CCUIContentModuleContainerView, CCUIContentModuleContentContainerView, NSArray, NSString, UIPreviewInteraction, UITapGestureRecognizer, UIView;
 @protocol CCUIContentModule, CCUIContentModuleContainerViewControllerDelegate, CCUIContentModuleContentViewController;
 
-@interface CCUIContentModuleContainerViewController : UIViewController <UIPreviewInteractionDelegatePrivate>
+@interface CCUIContentModuleContainerViewController : UIViewController <UIPreviewInteractionDelegatePrivate, UIGestureRecognizerDelegate>
 {
     _Bool _expanded;
     _Bool _contentModuleProvidesOwnPlatter;
     _Bool _forwardAppearState;
     NSString *_moduleIdentifier;
     id <CCUIContentModuleContainerViewControllerDelegate> _delegate;
+    NSArray *_topLevelBlockingGestureRecognizers;
     id <CCUIContentModule> _contentModule;
     UIViewController<CCUIContentModuleContentViewController> *_contentViewController;
     UIViewController *_backgroundViewController;
@@ -43,6 +45,7 @@
 @property(retain, nonatomic) UIViewController *backgroundViewController; // @synthesize backgroundViewController=_backgroundViewController;
 @property(retain, nonatomic) UIViewController<CCUIContentModuleContentViewController> *contentViewController; // @synthesize contentViewController=_contentViewController;
 @property(retain, nonatomic) id <CCUIContentModule> contentModule; // @synthesize contentModule=_contentModule;
+@property(readonly, nonatomic) NSArray *topLevelBlockingGestureRecognizers; // @synthesize topLevelBlockingGestureRecognizers=_topLevelBlockingGestureRecognizers;
 @property(nonatomic, getter=isExpanded) _Bool expanded; // @synthesize expanded=_expanded;
 @property(nonatomic) __weak id <CCUIContentModuleContainerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) struct UIEdgeInsets expandedContentEdgeInsets; // @synthesize expandedContentEdgeInsets=_expandedContentEdgeInsets;
@@ -57,6 +60,7 @@
 - (struct CGRect)_contentFrameForExpandedState;
 - (struct CGRect)_contentBoundsForExpandedState;
 - (struct CGRect)_contentFrameForRestState;
+- (void)_setDidExpandModulePreference;
 - (void)_handleTapGestureRecognizer:(id)arg1;
 - (_Bool)_isForceTouchAvailable;
 - (_Bool)_previewInteractionShouldAutomaticallyTransitionToPreviewAfterDelay:(id)arg1;
@@ -67,8 +71,8 @@
 - (_Bool)_previewInteractionShouldFinishTransitionToPreview:(id)arg1;
 - (_Bool)previewInteractionShouldBegin:(id)arg1;
 - (void)viewWillLayoutSubviews;
-- (void)_moveValueChangeGestureRecognizerFromSubviewsOfView:(id)arg1 toView:(id)arg2;
-- (void)_moveValueChangeGestureRecognizerToRootOfView:(id)arg1;
+- (void)_addTopLevelGestureRecognizersFromViewAndSubviews:(id)arg1 toGestureRecognizers:(id)arg2 blockingGestureRecognizers:(id)arg3;
+- (void)_findTopLevelGestureRecognizersForView:(id)arg1 installOnView:(id)arg2;
 - (void)loadView;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
@@ -79,6 +83,9 @@
 - (void)willBecomeActive;
 @property(readonly, nonatomic) CCUIContentModuleContentContainerView *moduleContentView;
 @property(readonly, nonatomic) CCUIContentModuleContainerView *moduleContainerView;
+- (void)_closeExpandedModule;
+- (void)_dismissModulePresentedContentAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)dismissPresentedContent;
 - (void)closeModule;
 - (void)expandModule;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

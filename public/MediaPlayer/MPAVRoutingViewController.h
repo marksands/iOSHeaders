@@ -36,6 +36,7 @@
     _Bool _suspendedDiscoveryModeDueToApplicationState;
     _Bool _shouldAutomaticallyUpdateRoutesList;
     _Bool _shouldPickRouteOnSelection;
+    _Bool _onScreen;
     unsigned long long _updatesSincePresentation;
     long long _discoveryModeBeforeEnteringBackground;
     unsigned long long _style;
@@ -86,6 +87,7 @@
 @property(readonly, nonatomic) UITableView *_tableView;
 @property(readonly, nonatomic) MPAVRoutingController *_routingController;
 - (void)routingCell:(id)arg1 mirroringSwitchValueDidChange:(_Bool)arg2;
+- (void)routingController:(id)arg1 didFailToPickRouteWithError:(id)arg2;
 - (void)routingController:(id)arg1 pickedRouteDidChange:(id)arg2;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
@@ -98,6 +100,7 @@
 - (void)viewWillLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 @property(nonatomic) _Bool allowMirroring;
 - (void)dealloc;

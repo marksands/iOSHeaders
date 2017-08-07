@@ -50,7 +50,10 @@
 - (void)_setContactHandlersForPreference:(id)arg1;
 - (void)_showContactsPickerForPreference:(id)arg1;
 - (void)_showAddressPickerForPreference:(id)arg1;
-- (void)_updateMeCardWithNewContact:(id)arg1 oldContact:(id)arg2 forKey:(id)arg3 usingPreference:(id)arg4;
+- (_Bool)_updateMeCardWithNewContact:(id)arg1 oldContact:(id)arg2 forKey:(id)arg3 usingPreference:(id)arg4;
+- (void)_presentMeCardAlertControllerWithContact:(id)arg1 contactKey:(id)arg2 handler:(CDUnknownBlockType)arg3;
+- (void)_savePickedContact:(id)arg1 inPreference:(id)arg2;
+- (_Bool)_saveUpdatedContact:(id)arg1 contactKey:(id)arg2 preference:(id)arg3 atIndex:(long long)arg4;
 - (void)_updateContactAndForceSelection:(_Bool)arg1;
 - (void)hideTextField:(id)arg1;
 - (void)textFieldDidEndEditing:(id)arg1;

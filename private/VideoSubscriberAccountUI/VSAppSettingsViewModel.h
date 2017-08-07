@@ -8,7 +8,7 @@
 
 #import <VideoSubscriberAccountUI/LSApplicationWorkspaceObserverProtocol-Protocol.h>
 
-@class LSApplicationWorkspace, NSString, UIImage, VSPrivacyFacade, VSRestrictionsCenter;
+@class LSApplicationWorkspace, NSString, NSURL, UIImage, VSAppDescription, VSOptional, VSPrivacyFacade, VSRestrictionsCenter;
 
 @interface VSAppSettingsViewModel : NSObject <LSApplicationWorkspaceObserverProtocol>
 {
@@ -17,17 +17,22 @@
     NSString *_bundleID;
     UIImage *_icon;
     NSString *_displayName;
+    NSString *_storeName;
     long long _installState;
     long long _privacyState;
     VSPrivacyFacade *_privacyFacade;
     LSApplicationWorkspace *_workspace;
     VSRestrictionsCenter *_restrictionsCenter;
     struct __CFBundle *_bundle;
+    VSAppDescription *_appDescription;
     NSString *_buyParams;
+    VSOptional *_voucher;
 }
 
 + (id)keyPathsForValuesAffectingAccessGranted;
+@property(retain, nonatomic) VSOptional *voucher; // @synthesize voucher=_voucher;
 @property(copy, nonatomic) NSString *buyParams; // @synthesize buyParams=_buyParams;
+@property(retain, nonatomic) VSAppDescription *appDescription; // @synthesize appDescription=_appDescription;
 @property(nonatomic) struct __CFBundle *bundle; // @synthesize bundle=_bundle;
 @property(retain, nonatomic) VSRestrictionsCenter *restrictionsCenter; // @synthesize restrictionsCenter=_restrictionsCenter;
 @property(nonatomic) int registrationToken; // @synthesize registrationToken=_registrationToken;
@@ -35,6 +40,7 @@
 @property(retain, nonatomic) VSPrivacyFacade *privacyFacade; // @synthesize privacyFacade=_privacyFacade;
 @property(nonatomic) long long privacyState; // @synthesize privacyState=_privacyState;
 @property(nonatomic) long long installState; // @synthesize installState=_installState;
+@property(readonly, copy, nonatomic) NSString *storeName; // @synthesize storeName=_storeName;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) UIImage *icon; // @synthesize icon=_icon;
 @property(readonly, copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
@@ -53,11 +59,15 @@
 @property(readonly, nonatomic) _Bool canChangePrivacyAccess;
 - (void)launchApp;
 - (void)installApp;
+- (void)revokeVoucher;
+@property(readonly, nonatomic) _Bool canRevokeVoucher;
 @property(readonly, copy, nonatomic) NSString *launchAppTitle;
 @property(readonly, copy, nonatomic) NSString *unavailableTitle;
 @property(readonly, copy, nonatomic) NSString *installationTitle;
+- (id)iconURLForSize:(struct CGSize)arg1;
+@property(readonly, copy, nonatomic) NSURL *appStoreURL;
 - (void)_updatePrivacyState;
-- (id)initWithAppDescription:(id)arg1 restrictionsCenter:(id)arg2 privacyFacade:(id)arg3;
+- (id)initWithAppDescription:(id)arg1 privacyVoucher:(id)arg2 restrictionsCenter:(id)arg3 privacyFacade:(id)arg4;
 - (id)initWithBundle:(struct __CFBundle *)arg1 restrictionsCenter:(id)arg2 privacyFacade:(id)arg3;
 - (id)init;
 - (void)dealloc;

@@ -44,6 +44,7 @@
 - (void)sendOutgoingEAData:(id)arg1 forSessionUUID:(id)arg2;
 - (void)saveEASession:(id)arg1 forEASessionUUID:(id)arg2;
 - (void)resumeEASessionData:(id)arg1;
+- (void)closeInputStreamForEASessionUUID:(id)arg1;
 - (void)handleIncomingExternalAccessoryData:(id)arg1 forEASessionIdentifier:(id)arg2 withReply:(CDUnknownBlockType)arg3;
 - (void)accessoryClosedEASession:(id)arg1;
 - (void)closeEASessionForEASessionUUID:(id)arg1;

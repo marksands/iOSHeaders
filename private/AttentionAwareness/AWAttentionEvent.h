@@ -8,18 +8,25 @@
 
 #import <AttentionAwareness/NSSecureCoding-Protocol.h>
 
+@class NSData;
+
 @interface AWAttentionEvent : NSObject <NSSecureCoding>
 {
+    NSData *_archivedTag;
     unsigned long long _eventMask;
     double _timestamp;
+    id _tag;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) id tag; // @synthesize tag=_tag;
 @property(readonly, nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(readonly, nonatomic) unsigned long long eventMask; // @synthesize eventMask=_eventMask;
+- (void).cxx_destruct;
 - (void)updateWithConfig:(id)arg1;
+- (id)archivedTag;
 - (id)description;
-- (id)initWithTimestamp:(double)arg1 eventMask:(unsigned long long)arg2;
+- (id)initWithTimestamp:(double)arg1 archivedTag:(id)arg2 eventMask:(unsigned long long)arg3;
 - (void)validateMask;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

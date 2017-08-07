@@ -69,7 +69,6 @@
 - (void)presentAnimated:(_Bool)arg1;
 - (void)cardViewControllerDidDismiss:(id)arg1;
 - (void)cardViewControllerWillDismiss:(id)arg1;
-- (void)cardViewController:(id)arg1 willShowActions:(id)arg2;
 - (id)cardViewController:(id)arg1 orderedPropertiesForProperties:(id)arg2 category:(id)arg3;
 - (void)_updateHeaderViewFrame;
 - (void)_setupForCardControllerPresentation;

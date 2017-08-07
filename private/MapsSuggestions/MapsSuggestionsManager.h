@@ -85,6 +85,9 @@
 - (void)_sendInvalidateToAllSinks;
 - (struct NSArray *)_pruneExpiredFromEntries:(struct NSArray *)arg1;
 - (void)_pruneExpiredSourceEntries;
+- (void)_restartLocationUpdaterIfNeeded;
+- (void)_stopLocationUpdater;
+- (void)_startLocationUpdater;
 - (void)_stopAllSources;
 - (void)_startAllSources;
 - (void)scheduleUpdateAllSourcesOnce;

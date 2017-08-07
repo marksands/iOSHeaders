@@ -7,12 +7,14 @@
 #import <Foundation/NSObject.h>
 
 @class ML3Artwork, MPMediaLibraryArtworkRequest, NSArray, NSDictionary, NSURL;
+@protocol OS_dispatch_queue;
 
 @interface MPMediaLibraryArtwork : NSObject
 {
     NSArray *_validSizes;
     MPMediaLibraryArtworkRequest *_artworkRequest;
     ML3Artwork *_artwork;
+    NSObject<OS_dispatch_queue> *_accessQueue;
 }
 
 + (void)cancelFetchingArtworkForRequest:(id)arg1;
@@ -20,6 +22,7 @@
 + (id)availableArtworkWithRequest:(id)arg1;
 + (_Bool)needsToFetchArtworkForRequest:(id)arg1;
 + (_Bool)artworkExistsForRequest:(id)arg1;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *accessQueue; // @synthesize accessQueue=_accessQueue;
 @property(retain, nonatomic) ML3Artwork *artwork; // @synthesize artwork=_artwork;
 @property(nonatomic) __weak MPMediaLibraryArtworkRequest *artworkRequest; // @synthesize artworkRequest=_artworkRequest;
 - (void).cxx_destruct;
@@ -30,6 +33,7 @@
 @property(readonly, copy, nonatomic) NSURL *originalFileURL;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (id)init;
 
 @end
 

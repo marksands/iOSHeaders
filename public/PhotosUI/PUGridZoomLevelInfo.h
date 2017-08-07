@@ -78,7 +78,7 @@ __attribute__((visibility("hidden")))
 - (void)willAnimateSizeTransition;
 @property(readonly, nonatomic) long long cellFillMode;
 @property(readonly, nonatomic) struct CGSize imageRequestItemSize;
-- (void)updateLayoutMetricsForWidth:(double)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2;
+- (void)updateLayoutMetricsForWidth:(double)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2 layoutMargins:(struct UIEdgeInsets)arg3;
 @property(readonly, nonatomic) unsigned long long dateRangeFormatterPreset;
 @property(readonly, nonatomic) struct __CFString *aggregateLevelKey;
 @property(readonly, nonatomic) double zoomOutDuration;

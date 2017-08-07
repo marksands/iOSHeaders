@@ -15,7 +15,7 @@
     NSMutableArray *_cardSectionSubviews;
 }
 
-@property(readonly, nonatomic) NSArray *cardSectionSubviews; // @synthesize cardSectionSubviews=_cardSectionSubviews;
+@property(retain, nonatomic) NSArray *cardSectionSubviews; // @synthesize cardSectionSubviews=_cardSectionSubviews;
 - (void).cxx_destruct;
 - (void)cardSectionSubviewWantsToBeRemovedFromHierarchy:(id)arg1;
 - (void)addCardSectionSubview:(id)arg1 withKeyline:(long long)arg2;

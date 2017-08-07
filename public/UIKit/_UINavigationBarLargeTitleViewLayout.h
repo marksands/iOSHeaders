@@ -6,11 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
-@class UILabel, UIView, _UINavigationBarLargeTitleView, _UINavigationControllerRefreshControlHost;
+@class NSMutableDictionary, UILabel, UIView, _UINavigationBarLargeTitleView, _UINavigationControllerRefreshControlHost;
 
 __attribute__((visibility("hidden")))
 @interface _UINavigationBarLargeTitleViewLayout : NSObject
 {
+    NSMutableDictionary *_titleHeightCache;
+    double _cachedRestingHeight;
     _Bool _supportsTwoLines;
     _Bool _alignAccessoryViewToTitleBaseline;
     _UINavigationBarLargeTitleView *_contentView;
@@ -38,6 +40,8 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)invalidate;
 - (struct CGSize)sizeFittingSize:(struct CGSize)arg1 titleType:(long long)arg2;
+- (struct CGSize)_cachedTitleHeightSizeAndUpdateRestingSizeForWidth:(double)arg1;
+- (void)_invalidateTitleHeightCache;
 - (double)_textHeightForSize:(struct CGSize)arg1 titleType:(long long)arg2;
 - (void)setContentHidden:(_Bool)arg1;
 - (void)setContentAlpha:(double)arg1;

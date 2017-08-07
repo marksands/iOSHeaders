@@ -9,16 +9,17 @@
 #import <QuickLook/QLPreviewControllerStateProtocolHostOnly-Protocol.h>
 #import <QuickLook/QLPreviewItemProvider-Protocol.h>
 #import <QuickLook/QLPreviewItemStoreDelegate-Protocol.h>
+#import <QuickLook/UIDocumentInteractionControllerDelegate-Protocol.h>
 #import <QuickLook/UIGestureRecognizerDelegate-Protocol.h>
 #import <QuickLook/UINavigationControllerDelegate-Protocol.h>
 #import <QuickLook/UIPageViewControllerDelegate-Protocol.h>
 #import <QuickLook/UIScrollViewDelegate-Protocol.h>
 #import <QuickLook/UIViewControllerTransitioningDelegate-Protocol.h>
 
-@class NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSString, QLActivityItemProvider, QLBarButtonItem, QLErrorView, QLItem, QLNavigationState, QLPinchRotationTracker, QLPreviewItemStore, QLStateManager, QLSwipeDownTracker, QLToolbarController, QLTransitionController, UIAlertController, UIColor, UIDocumentInteractionController, UINavigationController, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer;
+@class NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSString, NSURL, QLActivityItemProvider, QLBarButtonItem, QLErrorView, QLItem, QLNavigationState, QLPinchRotationTracker, QLPreviewItemStore, QLStateManager, QLSwipeDownTracker, QLToolbarController, QLTransitionController, UIAlertController, UIColor, UIDocumentInteractionController, UINavigationController, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer;
 @protocol QLPreviewCollectionProtocol, QLPreviewControllerDataSource, QLPreviewControllerDelegate, QLPreviewItem, QLPrintingProtocol;
 
-@interface QLPreviewController : UIViewController <UIGestureRecognizerDelegate, QLPreviewItemStoreDelegate, QLPreviewItemProvider, QLPreviewControllerStateProtocolHostOnly, UIPageViewControllerDelegate, UIViewControllerTransitioningDelegate, UINavigationControllerDelegate, UIScrollViewDelegate>
+@interface QLPreviewController : UIViewController <UIDocumentInteractionControllerDelegate, UIGestureRecognizerDelegate, QLPreviewItemStoreDelegate, QLPreviewItemProvider, QLPreviewControllerStateProtocolHostOnly, UIPageViewControllerDelegate, UIViewControllerTransitioningDelegate, UINavigationControllerDelegate, UIScrollViewDelegate>
 {
     QLBarButtonItem *_doneButton;
     QLBarButtonItem *_actionButton;
@@ -70,6 +71,7 @@
     QLPreviewItemStore *_previewItemStore;
     QLActivityItemProvider *_currentItemProvider;
     UIDocumentInteractionController *_sharingInteractionController;
+    NSURL *_accessedUrlForDocumentInteractionController;
     NSArray *_originalLeftBarButtonItems;
     NSArray *_originalRightBarButtonItems;
     NSString *_currentTitleFromItemViewController;
@@ -120,6 +122,7 @@
 @property(retain) NSString *currentTitleFromItemViewController; // @synthesize currentTitleFromItemViewController=_currentTitleFromItemViewController;
 @property(retain) NSArray *originalRightBarButtonItems; // @synthesize originalRightBarButtonItems=_originalRightBarButtonItems;
 @property(retain) NSArray *originalLeftBarButtonItems; // @synthesize originalLeftBarButtonItems=_originalLeftBarButtonItems;
+@property(retain, nonatomic) NSURL *accessedUrlForDocumentInteractionController; // @synthesize accessedUrlForDocumentInteractionController=_accessedUrlForDocumentInteractionController;
 @property(retain) UIDocumentInteractionController *sharingInteractionController; // @synthesize sharingInteractionController=_sharingInteractionController;
 @property(retain) QLActivityItemProvider *currentItemProvider; // @synthesize currentItemProvider=_currentItemProvider;
 @property(readonly) QLPreviewItemStore *previewItemStore; // @synthesize previewItemStore=_previewItemStore;
@@ -241,8 +244,11 @@
 - (id)_listDescriptionStringWithTitle:(id)arg1;
 - (id)_editedItemsForDoneActionControllerWithItems:(id)arg1;
 - (void)didSelectPreviewItem:(id)arg1;
+- (void)documentInteractionControllerDidDismissOptionsMenu:(id)arg1;
+- (_Bool)_canPerformBarButtonAction;
 - (void)_doneButtonTapped:(id)arg1;
 - (void)_listButtonTapped:(id)arg1;
+- (void)_stopAccessingUrlForDocumentInteractionController;
 - (void)showShareSheetFromBarButton:(id)arg1;
 - (void)_actionButtonTapped:(id)arg1;
 - (void)_toolbarButtonPressed:(id)arg1;

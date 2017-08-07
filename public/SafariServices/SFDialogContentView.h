@@ -8,34 +8,38 @@
 
 #import <SafariServices/UITextFieldDelegate-Protocol.h>
 
-@class NSArray, NSString, SFDialogTextField, SFDialogTextView, UIButton, UIStackView, _SFDialogView;
+@class NSArray, NSString, SFDialogTextField, SFDialogTextView, UIStackView, _SFDialogView;
 
 __attribute__((visibility("hidden")))
 @interface SFDialogContentView : UIView <UITextFieldDelegate>
 {
-    SFDialogTextView *_messageTextView;
+    NSArray *_actionButtons;
+    UIStackView *_actionButtonsView;
+    unsigned long long _actionIndexTriggeredByEscapeKey;
+    unsigned long long _actionIndexTriggeredByReturnKey;
+    _Bool _hasAttemptedHardwareKeyboardFocus;
     SFDialogTextField *_inputTextField;
-    SFDialogTextField *_passwordTextField;
     NSArray *_layoutConstraintsWhenInputIsVisible;
     NSArray *_layoutConstraintsWhenPasswordIsVisible;
     NSArray *_layoutConstraintsWhenInputAndPasswordAreVisible;
-    UIStackView *_actionButtonsView;
-    UIButton *_primaryActionButton;
-    UIButton *_secondaryActionButton;
-    _Bool _hasSecondaryAction;
+    SFDialogTextView *_messageTextView;
+    SFDialogTextField *_passwordTextField;
     _SFDialogView *_dialogView;
+    NSArray *_actions;
 }
 
+@property(copy, nonatomic) NSArray *actions; // @synthesize actions=_actions;
 @property(nonatomic) __weak _SFDialogView *dialogView; // @synthesize dialogView=_dialogView;
 - (void).cxx_destruct;
-- (void)_invokeDelegateWithPrimaryAction:(_Bool)arg1;
+- (void)_invokeDelegateWithSelectedIndex:(unsigned long long)arg1;
+- (void)_escapeAction:(id)arg1;
+- (void)_returnAction:(id)arg1;
 - (void)_focusInputTextField:(id)arg1;
-- (void)_secondaryAction:(id)arg1;
-- (void)_primaryAction:(id)arg1;
+- (void)_actionTriggered:(id)arg1;
 - (_Bool)_usesLoginFormAppearance;
 - (_Bool)textFieldShouldReturn:(id)arg1;
 - (void)didAppear;
-- (void)setPrimaryActionTitle:(id)arg1 secondaryActionTitle:(id)arg2;
+- (void)_updateActionButtons;
 - (void)endEditing;
 - (void)_setText:(id)arg1 placeholder:(id)arg2 forTextField:(id)arg3;
 - (void)setPasswordText:(id)arg1 placeholder:(id)arg2;
@@ -47,6 +51,7 @@ __attribute__((visibility("hidden")))
 - (void)updateConstraints;
 - (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (id)keyCommands;
+- (_Bool)becomeFirstResponder;
 - (_Bool)canBecomeFirstResponder;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

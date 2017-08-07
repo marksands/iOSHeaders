@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray, NSDate, NSMutableArray, NSString;
 
@@ -27,7 +27,7 @@
 - (long long)queryMetaDataSync;
 - (void)queryMetaData:(CDUnknownBlockType)arg1;
 - (void)getResultsFromMessage:(id)arg1;
-- (void)addKeyValuePair:(id)arg1 with:(id)arg2;
+- (long long)addKeyValuePair:(id)arg1 with:(id)arg2;
 - (void)returnTypes:(long long)arg1;
 - (void)augmentResultsWithState:(_Bool)arg1;
 - (void)dealloc;

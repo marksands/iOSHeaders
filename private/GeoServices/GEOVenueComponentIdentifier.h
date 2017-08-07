@@ -21,12 +21,8 @@
     unsigned long long _unitID;
     _Bool _hasFixtureID;
     unsigned long long _fixtureID;
-    _Bool _hasDirectoryGroupingID;
-    unsigned long long _directoryGroupingID;
 }
 
-@property(readonly, nonatomic) unsigned long long directoryGroupingID; // @synthesize directoryGroupingID=_directoryGroupingID;
-@property(readonly, nonatomic, getter=_hasDirectoryGroupingID) _Bool hasDirectoryGroupingID; // @synthesize hasDirectoryGroupingID=_hasDirectoryGroupingID;
 @property(readonly, nonatomic) unsigned long long fixtureID; // @synthesize fixtureID=_fixtureID;
 @property(readonly, nonatomic, getter=_hasFixtureID) _Bool hasFixtureID; // @synthesize hasFixtureID=_hasFixtureID;
 @property(readonly, nonatomic) unsigned long long unitID; // @synthesize unitID=_unitID;
@@ -40,7 +36,6 @@
 - (id)initWithBuildingID:(unsigned long long)arg1 floorInfo:(id)arg2 fixtureID:(unsigned long long)arg3;
 - (id)initWithBuildingID:(unsigned long long)arg1 floorInfo:(id)arg2 unitID:(unsigned long long)arg3;
 - (id)initWithBuildingID:(unsigned long long)arg1 floorInfo:(id)arg2;
-- (id)initWithBuildingID:(unsigned long long)arg1 directoryGroupingID:(unsigned long long)arg2;
 - (id)initWithBuildingID:(unsigned long long)arg1;
 - (id)init;
 

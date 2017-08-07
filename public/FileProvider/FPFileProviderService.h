@@ -9,12 +9,10 @@
 #import <FileProvider/NSSecureCoding-Protocol.h>
 
 @class NSString;
-@protocol NSFileProviderServiceSource;
 
 @interface FPFileProviderService : NSObject <NSSecureCoding>
 {
     NSString *_name;
-    id <NSFileProviderServiceSource> _serviceSource;
     NSString *_itemIdentifier;
     NSString *_providerIdentifier;
     NSString *_domainIdentifier;

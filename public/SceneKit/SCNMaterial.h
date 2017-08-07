@@ -116,6 +116,7 @@
 @property(readonly, copy) NSString *description;
 @property(nonatomic) unsigned long long fillMode;
 @property(nonatomic) long long cullMode;
+- (_Bool)doubleSided;
 @property(nonatomic, getter=isDoubleSided) _Bool doubleSided;
 - (void)setContent:(id)arg1;
 - (id)content;
@@ -127,6 +128,7 @@
 - (_Bool)avoidsOverLighting;
 - (void)setAvoidsOverLighting:(_Bool)arg1;
 @property(nonatomic) _Bool locksAmbientWithDiffuse;
+- (_Bool)litPerPixel;
 @property(nonatomic, getter=isLitPerPixel) _Bool litPerPixel;
 @property(copy, nonatomic) NSString *lightingModelName;
 @property(nonatomic) long long blendMode;

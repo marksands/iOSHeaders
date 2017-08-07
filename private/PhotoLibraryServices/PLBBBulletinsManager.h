@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PhotoLibraryServices/PLBBPendingBulletinsBatchDelegate-Protocol.h>
 
@@ -63,7 +63,7 @@
 - (void)_addBulletinForDelayedScheduling:(id)arg1;
 - (void)removeNotificationForInterestingMemoryWithUUID:(id)arg1;
 - (void)postNotificationForInterestingMemoryWithUUID:(id)arg1 keyAssetUUID:(id)arg2 notificationTitle:(id)arg3 notificationSubtitle:(id)arg4 notificationDeliveryDate:(id)arg5;
-- (id)_generatMemoryBulletinRepresentationWithMemoryUUID:(id)arg1 keyAssetUUID:(id)arg2 notificationTitle:(id)arg3 notificationSubtitle:(id)arg4 notificationDeliveryDate:(id)arg5;
+- (id)_generateMemoryBulletinRepresentationWithMemoryUUID:(id)arg1 keyAssetUUID:(id)arg2 notificationTitle:(id)arg3 notificationSubtitle:(id)arg4 notificationDeliveryDate:(id)arg5;
 - (id)_memoryBulletinFromDictionaryRepresentation:(id)arg1;
 - (void)userViewedBulletinWithRecordID:(unsigned long long)arg1;
 - (id)_albumCloudGUIDForRecordID:(unsigned long long)arg1;

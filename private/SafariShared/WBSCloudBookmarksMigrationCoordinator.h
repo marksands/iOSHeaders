@@ -45,6 +45,7 @@
 - (void)_determineCourseOfActionFromRemoteMigrationState;
 - (void)_determineCourseOfActionFromSyncAgentMigrationState;
 - (void)_evaluateMigrationRampInclusionForced:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)_logErrorAsKeyAction:(id)arg1;
 - (void)_logKeyAction:(id)arg1;
 @property(nonatomic, getter=isMigrationEnabled) _Bool migrationEnabled; // @synthesize migrationEnabled=_migrationEnabled;
 @property(nonatomic, getter=isRampEnabled) _Bool rampEnabled; // @synthesize rampEnabled=_rampEnabled;

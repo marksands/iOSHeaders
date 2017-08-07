@@ -21,6 +21,7 @@
     PSUIAppInstallController *_carrierAppInstallController;
     NSNumber *_hasUserConsent;
     CTCarrierSpaceUserConsentFlowInfo *_userConsentFlowInfo;
+    struct __CTServerConnection *_serverConnection;
     CTCarrierSpaceClient *_carrierSpaceClient;
 }
 
@@ -34,8 +35,7 @@
 - (void)plansDidChange;
 - (void)usageDidChange;
 - (void)capabilitiesDidChange:(id)arg1;
-- (id)stringFromCarrierSpaceDataUnits:(long long)arg1;
-- (id)dataStringFromString:(id)arg1 units:(long long)arg2;
+- (id)dataStringFromBytes:(unsigned long long)arg1;
 - (_Bool)shouldShowPlanMetrics:(id)arg1;
 - (id)descriptionForPlanMetrics:(id)arg1;
 - (_Bool)planChangeIsRestricted;
@@ -50,9 +50,11 @@
 - (_Bool)supportsSweetgum;
 - (void)refresh;
 - (void)refreshAndReload;
+- (void)reset;
 - (void)setUserConsent:(_Bool)arg1;
 - (id)userConsentFlowInfo;
 - (_Bool)hasUserConsent;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

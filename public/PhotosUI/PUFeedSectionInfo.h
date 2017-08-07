@@ -8,7 +8,7 @@
 
 #import <PhotosUI/PLAssetContainer-Protocol.h>
 
-@class NSArray, NSDate, NSIndexSet, NSOrderedSet, NSString, PLCloudFeedEntry, PLCloudSharedAlbumInvitationRecord, PLManagedAsset;
+@class NSArray, NSCountedSet, NSDate, NSIndexSet, NSOrderedSet, NSString, PLCloudFeedEntry, PLCloudSharedAlbumInvitationRecord, PLManagedAsset;
 @protocol PLCloudSharedAlbumProtocol;
 
 __attribute__((visibility("hidden")))
@@ -66,6 +66,7 @@ __attribute__((visibility("hidden")))
 - (long long)indexOfItemWithAsset:(id)arg1;
 - (_Bool)containsAsset:(id)arg1;
 - (_Bool)areAllAssetsLiked;
+@property(readonly, nonatomic) NSCountedSet *countsByAssetDisplayType;
 - (void)getCommentCount:(out unsigned long long *)arg1 likeCount:(out unsigned long long *)arg2;
 - (void)getPhotoCount:(out unsigned long long *)arg1 videoCount:(out unsigned long long *)arg2;
 - (id)likesForItemAtIndex:(long long)arg1;

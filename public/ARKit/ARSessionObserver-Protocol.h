@@ -11,6 +11,7 @@
 @protocol ARSessionObserver <NSObject>
 
 @optional
+- (void)session:(ARSession *)arg1 didOutputAudioSampleBuffer:(struct opaqueCMSampleBuffer *)arg2;
 - (void)sessionInterruptionEnded:(ARSession *)arg1;
 - (void)sessionWasInterrupted:(ARSession *)arg1;
 - (void)session:(ARSession *)arg1 cameraDidChangeTrackingState:(ARCamera *)arg2;

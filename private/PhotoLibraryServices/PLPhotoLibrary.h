@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSArray, NSCalendar, NSMutableArray, NSMutableDictionary, NSSet, NSString, PLFetchingAlbum, PLGenericAlbum, PLManagedAlbum, PLManagedAlbumList, PLManagedFolder, PLManagedObjectContext;
 @protocol PLAlbumProtocol;
@@ -57,6 +57,13 @@
 + (id)syncInfoPath;
 + (_Bool)canSaveVideoToCameraRoll:(id)arg1;
 + (void)resetSyncedAssetsDCIMDirectory;
++ (int)priorityForFileExtension:(id)arg1;
++ (_Bool)isAudioFileExtension:(id)arg1;
++ (_Bool)isVideoFileExtension:(id)arg1;
++ (_Bool)isNonRawImageFileExtension:(id)arg1;
++ (_Bool)isRawImageFileExtension:(id)arg1;
++ (_Bool)isImageFileExtension:(id)arg1;
++ (void)_loadFileExtensionInformation;
 + (void)initializeGraphicsServices;
 + (void)setSqliteErrorAndExitIfNecessaryForSimulatedCorruption:(_Bool)arg1;
 + (_Bool)createSqliteErrorIndicatorFile;
@@ -216,17 +223,8 @@
 - (void)processSyncSaveJob:(id)arg1 albumMap:(id)arg2;
 - (_Bool)_isHeifUTI:(struct __CFString *)arg1;
 - (_Bool)hasPhotoWithFileCreationDate:(id)arg1 fileName:(id)arg2 fileSize:(long long)arg3;
-- (int)priorityForFileExtension:(id)arg1;
-- (_Bool)isAudioFileExtension:(id)arg1;
-- (_Bool)isVideoFileExtension:(id)arg1;
-- (_Bool)isNonRawImageFileExtension:(id)arg1;
-- (_Bool)isRawImageFileExtension:(id)arg1;
-- (_Bool)isImageFileExtension:(id)arg1;
-- (void)_loadFileExtensionInformation;
 - (id)masterURLFromSidecarURLs:(id)arg1;
 - (void)_processPhotoIrisSidecarIfNecessary:(id)arg1 forAsset:(id)arg2;
-- (_Bool)addSidecarFileToAsset:(id)arg1 atIndex:(unsigned long long)arg2 sidecarURL:(id)arg3 withFilename:(id)arg4 originalFilename:(id)arg5 compressedSize:(id)arg6 captureDate:(id)arg7 modificationDate:(id)arg8 uniformTypeIdentifier:(id)arg9;
-- (void)addSidecarFileInfo:(id)arg1 toAsset:(id)arg2 atIndex:(unsigned long long)arg3;
 - (void)_applyAdjustmentFileInfo:(id)arg1 renderedContentFileInfo:(id)arg2 renderedVideoComplementFileInfo:(id)arg3 toAsset:(id)arg4 withMainFileURL:(id)arg5;
 - (void)_applySideCarFiles:(id)arg1 toAsset:(id)arg2 withMainFileURL:(id)arg3;
 - (id)addDCIMEntryAtFileURL:(id)arg1 toEvent:(struct NSObject *)arg2 sidecarFileInfo:(id)arg3 progress:(id)arg4 importSessionIdentifier:(id)arg5 isImported:(_Bool)arg6 previewImage:(id)arg7 thumbnailImage:(id)arg8 savedAssetType:(short)arg9 replacementUUID:(id)arg10 publicGlobalUUID:(id)arg11 extendedInfo:(id)arg12 withUUID:(id)arg13 ignoreEmbeddedMetadata:(_Bool)arg14 isPlaceholder:(_Bool)arg15;

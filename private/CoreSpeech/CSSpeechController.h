@@ -74,7 +74,7 @@
 - (_Bool)playAlertSoundForType:(long long)arg1;
 - (_Bool)setAlertSoundFromURL:(id)arg1 forType:(long long)arg2;
 - (void)audioConverterDidConvertPackets:(id)arg1 packets:(id)arg2 timestamp:(unsigned long long)arg3;
-- (void)_setupAudioConverter:(_Bool)arg1;
+- (_Bool)_setupAudioConverter:(_Bool)arg1;
 - (void)_setupDownsamplerIfNeeded;
 - (void)speechManagerEndRecordInterruption:(id)arg1;
 - (void)speechManagerBeginRecordInterruption:(id)arg1 withContext:(id)arg2;
@@ -100,6 +100,7 @@
 - (id)recordSettings;
 - (void)releaseAudioSession:(unsigned long long)arg1;
 - (void)releaseAudioSession;
+- (void)reset;
 - (void)resetAudioSession;
 - (void)prewarmAudioSession;
 - (void)preheat;

@@ -9,6 +9,8 @@
 @class NSError, NSNumber;
 
 @protocol SKUIClientAccountPageViewController <NSObject>
+- (void)overrideRedeemCameraWithCompletion:(void (^)(SKUIRedeem *, NSError *))arg1;
+- (void)overrideCreditCardPresentationWithCompletion:(void (^)(SUCreditCardReaderOutput *))arg1;
 - (void)dismissViewControllerWithResult:(NSNumber *)arg1 error:(NSError *)arg2;
 - (void)didPrepareWithResult:(NSNumber *)arg1 error:(NSError *)arg2;
 @end

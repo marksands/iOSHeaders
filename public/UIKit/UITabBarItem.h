@@ -115,11 +115,11 @@
 - (void)_updateViewBadge;
 - (void)_showSelectedIndicator:(_Bool)arg1 changeSelection:(_Bool)arg2;
 @property(nonatomic, getter=_isSelected, setter=_setSelected:) _Bool _selected;
+@property(readonly, copy) NSString *description;
 @property(nonatomic, getter=isSpringLoaded) _Bool springLoaded;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

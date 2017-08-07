@@ -40,6 +40,7 @@
     _Bool _contentWidthFromTimeScope;
     _Bool _enableStickySelection;
     _Bool _enableZoomInGesture;
+    _Bool _enableInteractiveSelectionLine;
     id <HKGraphViewDelegate> _delegate;
     HKAxis *_xAxis;
     double _xAxisSpace;
@@ -77,6 +78,7 @@
 @property(retain, nonatomic) UIView *detailView; // @synthesize detailView=_detailView;
 @property(nonatomic) struct CGPoint contentOffset; // @synthesize contentOffset=_contentOffset;
 @property(nonatomic) double zoomScale; // @synthesize zoomScale=_zoomScale;
+@property(nonatomic) _Bool enableInteractiveSelectionLine; // @synthesize enableInteractiveSelectionLine=_enableInteractiveSelectionLine;
 @property(nonatomic) _Bool enableZoomInGesture; // @synthesize enableZoomInGesture=_enableZoomInGesture;
 @property(readonly, nonatomic) HKMultiTouchPressGestureRecognizer *multiTouchGestureRecognizer; // @synthesize multiTouchGestureRecognizer=_multiTouchGestureRecognizer;
 @property(nonatomic) _Bool enableStickySelection; // @synthesize enableStickySelection=_enableStickySelection;
@@ -208,6 +210,7 @@
 - (id)_yAxisRangeForSynchronizedAxesForDateZoom:(long long)arg1 chartRect:(struct CGRect)arg2 seriesGroup:(id)arg3;
 - (void)_autoScaleXAxis;
 - (id)_defaultXAxisValueRange;
+- (_Bool)seriesDrawingDuringScrolling;
 - (struct UIEdgeInsets)virtualMarginInsets;
 - (void)seriesDidInvalidatePaths:(id)arg1 newDataArrived:(_Bool)arg2;
 - (id)_findActualAxisRangeFromVisibleRanges;
@@ -260,6 +263,8 @@
 @property(readonly, nonatomic) struct CGRect leftMarginViewRect;
 @property(readonly, nonatomic) double yAxisWidth;
 - (_Bool)_configureYAxisViewIfNeeded;
+- (_Bool)_needsYAxisUpdateDuringRender;
+- (_Bool)_anySeriesAnimatingDuringAutoscale;
 - (id)_firstSelectionContext;
 - (id)_firstSeries;
 - (long long)_countOfAllSeries;

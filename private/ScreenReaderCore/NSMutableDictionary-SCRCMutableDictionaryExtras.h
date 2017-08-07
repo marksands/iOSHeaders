@@ -7,7 +7,7 @@
 #import <Foundation/NSMutableDictionary.h>
 
 @interface NSMutableDictionary (SCRCMutableDictionaryExtras)
-- (void)mergeEntriesFromDictionary:(id)arg1;
-- (void)mergeEntriesFromDictionary:(id)arg1 factory:(id)arg2;
+- (void)scrc_mergeEntriesFromDictionary:(id)arg1;
+- (void)scrc_mergeEntriesFromDictionary:(id)arg1 factory:(id)arg2;
 @end
 

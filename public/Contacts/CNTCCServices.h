@@ -11,6 +11,7 @@
 }
 
 + (id)defaultServices;
+- (int)TCCAccessPreflight:(struct __CFString *)arg1:(const struct __CFDictionary *)arg2;
 - (_Bool)TCCAccessCheckAuditToken:(CDStruct_6ad76789)arg1:(struct __CFString *)arg2:(const struct __CFDictionary *)arg3;
 
 @end

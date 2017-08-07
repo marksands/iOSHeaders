@@ -10,6 +10,7 @@
 #import <StoreKitUI/SKUIRedeemStepDelegate-Protocol.h>
 
 @class NSOperationQueue, NSString, SKUIClientContext, SKUIRedeemConfiguration, SKUIRedeemPreflightOperation, SKUIRedeemStepViewController, UIBarButtonItem;
+@protocol SKUIRedeemViewCameraOverrideDelegate;
 
 @interface SKUIRedeemViewController : UINavigationController <SKUIRedeemIdDelegate, SKUIRedeemStepDelegate>
 {
@@ -24,6 +25,7 @@
     SKUIRedeemStepViewController *_inputViewController;
     long long _initialBarStyle;
     _Bool _shouldPerformInitialOperationOnAppear;
+    id <SKUIRedeemViewCameraOverrideDelegate> _cameraDelegate;
     UIBarButtonItem *_cancelButtonItem;
 }
 
@@ -31,6 +33,7 @@
 @property(nonatomic) _Bool shouldPerformInitialOperationOnAppear; // @synthesize shouldPerformInitialOperationOnAppear=_shouldPerformInitialOperationOnAppear;
 @property(retain, nonatomic) UIBarButtonItem *cancelButtonItem; // @synthesize cancelButtonItem=_cancelButtonItem;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
+@property(nonatomic) __weak id <SKUIRedeemViewCameraOverrideDelegate> cameraDelegate; // @synthesize cameraDelegate=_cameraDelegate;
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(copy, nonatomic) NSString *initialCode; // @synthesize initialCode=_initialCode;
 @property(readonly, nonatomic) long long category; // @synthesize category=_category;

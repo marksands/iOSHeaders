@@ -8,22 +8,30 @@
 
 #import <MessageSecurity/MSMessage-Protocol.h>
 
-@class MSOID, NSData;
-@protocol MSMessage;
+@class MSOID, NSData, NSString;
+@protocol MSCMSMessage;
 
 @interface MSCMSContentInfo : NSObject <MSMessage>
 {
     NSData *_content;
-    id <MSMessage> _embeddedContent;
+    id <MSCMSMessage> _embeddedContent;
     MSOID *_contentType;
 }
 
 + (id)decodeMessageSecurityObject:(id)arg1 options:(id)arg2 error:(id *)arg3;
 @property(retain) MSOID *contentType; // @synthesize contentType=_contentType;
-@property(retain) id <MSMessage> embeddedContent; // @synthesize embeddedContent=_embeddedContent;
+@property(retain) id <MSCMSMessage> embeddedContent; // @synthesize embeddedContent=_embeddedContent;
 @property(retain) NSData *content; // @synthesize content=_content;
 - (void).cxx_destruct;
+- (id)initWithDataContent:(id)arg1;
+- (id)initWithEmbeddedContent:(id)arg1;
 - (id)encodeMessageSecurityObject:(id *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

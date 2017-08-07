@@ -22,7 +22,7 @@
 @property _Bool isRemovingAccount; // @synthesize isRemovingAccount=_isRemovingAccount;
 @property(nonatomic) __weak id <ACUIAccountOperationsDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)_desiredDataclassActionsFromPossibleActions:(id)arg1 forAccount:(id)arg2;
+- (id)_desiredDataclassActionsFromPossibleActions:(id)arg1 forAccount:(id)arg2 withError:(id *)arg3;
 - (void)removeAccount:(id)arg1;
 - (void)saveAccount:(id)arg1 withDataclassActions:(id)arg2 requireVerification:(_Bool)arg3;
 - (void)saveAccount:(id)arg1 withDataclassActions:(id)arg2;

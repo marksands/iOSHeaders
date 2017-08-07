@@ -12,7 +12,7 @@
 #import <PassKitUI/PKPeerPaymentAccountResolutionControllerDelegate-Protocol.h>
 #import <PassKitUI/PKSwitchSpinnerTableCellDelegate-Protocol.h>
 
-@class NSArray, NSString, PKPaymentPreference, PKPaymentPreferenceCard, PKPaymentPreferencesViewController, PKPaymentSetupAboutViewController, PKPeerPaymentAccount, PKPeerPaymentAccountResolutionController, PKPeerPaymentWebService, PSSpecifier;
+@class NSArray, NSMutableDictionary, NSString, PKPaymentPreference, PKPaymentPreferenceCard, PKPaymentPreferencesViewController, PKPaymentSetupAboutViewController, PKPeerPaymentAccount, PKPeerPaymentAccountResolutionController, PKPeerPaymentWebService, PSSpecifier;
 @protocol PKPassLibraryDataProvider, PKPassbookPeerPaymentSettingsDelegate, PKPassbookSettingsDataSource, PKPassbookSettingsDelegate, PKPaymentDataProvider, PKPaymentOptionsProtocol;
 
 @interface PKPassbookSettingsController : NSObject <PKPaymentServiceDelegate, PKPeerPaymentAccountResolutionControllerDelegate, PKPaymentDataProviderDelegate, PKSwitchSpinnerTableCellDelegate, PKPaymentPassTableCellDelegate>
@@ -50,6 +50,7 @@
     NSArray *_expressFelicaTransitPasses;
     NSString *_defaultExpressFelicaTransitPassIdentifier;
     PSSpecifier *_defaultExpressFelicaTransitSpecifier;
+    NSMutableDictionary *_latestFelicaPassProperties;
     id <PKPassbookSettingsDelegate> _delegate;
 }
 
@@ -132,6 +133,8 @@
 - (void)_updateAddButtonSpecifier;
 - (void)_updateCompanionPassesAddButton;
 - (void)_regionConfigurationDidChangeNotification;
+- (void)_saveLatestFelicaProperties:(id)arg1 forPass:(id)arg2;
+- (id)_latestFelicaProperties:(id)arg1;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1 dataSource:(id)arg2 context:(long long)arg3;
 

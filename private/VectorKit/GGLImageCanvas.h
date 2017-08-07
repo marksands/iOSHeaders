@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <VectorKit/MDRenderTarget-Protocol.h>
 
@@ -58,6 +58,7 @@ __attribute__((visibility("hidden")))
 - (void)didDrawView;
 - (void)willDrawView;
 - (void)renderWithTimestamp:(double)arg1 completion:(function_30b369b8)arg2;
+- (_Bool)hasRenderTarget;
 - (void)destroyRenderTarget;
 - (void)createRenderTarget;
 @property(readonly, nonatomic) struct Renderer *renderer;

@@ -29,9 +29,12 @@
     id <MSPCloudSynchronizerDelegate> _delegate;
 }
 
++ (double)_timeIntervalToWaitBetweenBoosts;
 + (double)_minimumReattemptInterval;
 + (double)_timeIntervalToWaitAfterTooManyResolutionAttempts;
 + (long long)_maximumResolutionAttemptsCount;
++ (long long)_boostedQualityOfServiceForOpportunisticTask;
++ (long long)_boostedQualityOfServiceForUserObservableTask;
 + (long long)_qualityOfServiceForOpportunisticTask;
 + (long long)_qualityOfServiceForUserObservableTask;
 + (long long)_qualityOfServiceForInitialDownload;
@@ -49,6 +52,7 @@
 - (void)_completeOperation:(id)arg1 isMerge:(_Bool)arg2 withError:(id)arg3 canReattempt:(_Bool)arg4 maxAttempts:(unsigned long long)arg5 minimumReattemptDate:(id)arg6 completion:(CDUnknownBlockType)arg7;
 - (id)_scheduleTaskIfAny:(id)arg1 isMerge:(_Bool)arg2 qualityOfService:(long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_enqueueOperation:(id)arg1 requireBeingLoggedIn:(_Bool)arg2;
+- (void)_scheduleMergeForUserObservableChange:(_Bool)arg1 isInitialMerge:(_Bool)arg2;
 - (void)_scheduleMergeForUserObservableChange:(_Bool)arg1;
 - (id)scheduleTask:(id)arg1;
 - (void)setNeedsMergeWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
@@ -59,6 +63,7 @@
 @property(getter=_loginStatus, setter=_setLoginStatus:) long long loginStatus; // @synthesize loginStatus=_loginStatus;
 - (void)_availabilityDidChange;
 - (void)start;
+- (long long)_boostIfNeededQualityOfServiceForTask:(id)arg1 thatIsUserObservable:(_Bool)arg2;
 - (id)initWithAccess:(id)arg1;
 - (id)init;
 

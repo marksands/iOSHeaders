@@ -29,6 +29,7 @@
     long long _externalDataSize;
 }
 
++ (void)setLaunchDatesNeedUpdating;
 @property(nonatomic) _Bool isUsageApp; // @synthesize isUsageApp=_isUsageApp;
 @property(nonatomic) _Bool isUserApp; // @synthesize isUserApp=_isUserApp;
 @property _Bool specialCalculated; // @synthesize specialCalculated=_specialCalculated;

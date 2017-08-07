@@ -13,7 +13,6 @@
 - (NSString *)adSheetMachServiceName;
 
 @optional
-- (void)adSheetConnectionInterrupted;
 - (void)adSheetConnectionLost;
 - (void)adSheetConnectionEstablished;
 - (_Bool)shouldConnectToAdSheet;

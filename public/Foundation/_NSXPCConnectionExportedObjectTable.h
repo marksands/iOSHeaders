@@ -7,6 +7,7 @@
 #import <objc/NSObject.h>
 
 @class _NSXPCConnectionExportInfo;
+@protocol OS_dispatch_group;
 
 __attribute__((visibility("hidden")))
 @interface _NSXPCConnectionExportedObjectTable : NSObject
@@ -17,10 +18,14 @@ __attribute__((visibility("hidden")))
     struct __CFDictionary *_objectToProxyNumber;
     unsigned long long _next;
     _Bool _valid;
+    NSObject<OS_dispatch_group> *_replyGroup;
 }
 
 - (id)description;
 - (void)invalidate;
+- (void)receivedReleaseForProxyNumber:(unsigned long long)arg1 userQueue:(id)arg2;
+- (void)decrementOutstandingReplyCount;
+- (void)incrementOutstandingReplyCount;
 - (void)releaseExportedObject:(unsigned long long)arg1;
 - (unsigned long long)proxyNumberForExportedObject:(id)arg1 interface:(id)arg2;
 - (id)interfaceForProxyNumber:(unsigned long long)arg1;

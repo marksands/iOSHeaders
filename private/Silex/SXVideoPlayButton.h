@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Silex/SXMaterialButton.h>
+#import <Silex/SXButton.h>
 
 #import <Silex/SXVideoControlItem-Protocol.h>
 
 @class NSString;
 
-@interface SXVideoPlayButton : SXMaterialButton <SXVideoControlItem>
+@interface SXVideoPlayButton : SXButton <SXVideoControlItem>
 {
     _Bool hideable;
     _Bool _paused;
@@ -28,6 +28,7 @@
 - (void)displayAsPlaying;
 - (void)displayAsPaused;
 - (void)layoutSubviews;
+- (void)updateBackgroundColor;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

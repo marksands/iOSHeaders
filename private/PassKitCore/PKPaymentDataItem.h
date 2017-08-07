@@ -23,8 +23,8 @@
 @property(nonatomic) long long status; // @synthesize status=_status;
 @property(nonatomic) long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
-@property(readonly, nonatomic, getter=isRejected) _Bool rejected;
 - (_Bool)isValidWithError:(id *)arg1;
+@property(readonly, nonatomic, getter=isRejected) _Bool rejected;
 @property(readonly, nonatomic) NSArray *errors;
 - (id)initWithModel:(id)arg1;
 

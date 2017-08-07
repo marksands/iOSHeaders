@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class HDAWDSubmissionManager, HDAppSubscriptionManager, HDAuthorizationManager, HDCloudSyncManager, HDCurrentActivitySummaryHelper, HDDaemon, HDDaemonSyncEngine, HDDataCollectionManager, HDDataManager, HDDataProvenanceManager, HDDatabase, HDDatabasePruningManager, HDDeviceManager, HDFitnessMachineManager, HDHealthServiceManager, HDMedicalIDDataManager, HDMetadataManager, HDMigrationManager, HDNanoSyncManager, HDNotificationManager, HDServiceConnectionManager, HDSourceManager, HDSourceOrderManager, HDUnitPreferencesManager, HDUserCharacteristicsManager, HDWorkoutManager, NSString;
+@class HDAWDSubmissionManager, HDAppSubscriptionManager, HDAuthorizationManager, HDCloudSyncManager, HDCurrentActivitySummaryHelper, HDDaemon, HDDaemonSyncEngine, HDDataCollectionManager, HDDataManager, HDDataProvenanceManager, HDDatabase, HDDatabasePruningManager, HDDeviceManager, HDFitnessMachineManager, HDHealthServiceManager, HDMedicalIDDataManager, HDMetadataManager, HDMigrationManager, HDNanoSyncManager, HDNotificationManager, HDServiceConnectionManager, HDSourceManager, HDSourceOrderManager, HDUnitPreferencesManager, HDUserCharacteristicsManager, HDWorkoutManager, NSString, NSURL;
 @protocol HDHealthDaemon, HDHealthDatabase, HDSyncEngine;
 
 @interface HDProfile : NSObject
@@ -23,6 +23,7 @@
     HDSourceOrderManager *_sourceOrderManager;
     HDUserCharacteristicsManager *_userCharacteristicsManager;
     long long _profileType;
+    NSString *_medicalIDDirectoryPath;
     HDAWDSubmissionManager *_awdSubmissionManager;
     HDDatabasePruningManager *_databasePruningManager;
     HDMedicalIDDataManager *_medicalIDDataManager;
@@ -37,6 +38,7 @@
 @property(readonly, nonatomic) HDMedicalIDDataManager *medicalIDDataManager; // @synthesize medicalIDDataManager=_medicalIDDataManager;
 @property(readonly, nonatomic) HDDatabasePruningManager *databasePruningManager; // @synthesize databasePruningManager=_databasePruningManager;
 @property(readonly, nonatomic) HDAWDSubmissionManager *awdSubmissionManager; // @synthesize awdSubmissionManager=_awdSubmissionManager;
+@property(readonly, copy, nonatomic) NSString *medicalIDDirectoryPath; // @synthesize medicalIDDirectoryPath=_medicalIDDirectoryPath;
 @property(readonly, nonatomic) long long profileType; // @synthesize profileType=_profileType;
 @property(readonly, nonatomic) HDUserCharacteristicsManager *userCharacteristicsManager; // @synthesize userCharacteristicsManager=_userCharacteristicsManager;
 @property(readonly, nonatomic) HDSourceOrderManager *sourceOrderManager; // @synthesize sourceOrderManager=_sourceOrderManager;
@@ -55,8 +57,8 @@
 - (void)obliterateWithOptions:(unsigned long long)arg1 reason:(id)arg2;
 - (void)obliterateAndTerminateWithOptions:(unsigned long long)arg1 reason:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)invalidateAndWait;
-- (id)directoryURL;
-- (id)directoryPath;
+@property(readonly, copy, nonatomic) NSURL *directoryURL;
+@property(readonly, copy, nonatomic) NSString *directoryPath;
 @property(readonly, nonatomic) HDFitnessMachineManager *fitnessMachineManager;
 @property(readonly, nonatomic) HDWorkoutManager *workoutManager;
 @property(readonly, nonatomic) HDHealthServiceManager *serviceManager;
@@ -74,7 +76,7 @@
 @property(readonly, nonatomic) id <HDHealthDatabase> healthDatabase;
 @property(readonly, nonatomic) HDDatabase *database;
 @property(readonly, nonatomic) __weak id <HDHealthDaemon> healthDaemon;
-- (id)initWithDirectoryPath:(id)arg1 daemon:(id)arg2 profileType:(long long)arg3;
+- (id)initWithDirectoryPath:(id)arg1 medicalIDDirectoryPath:(id)arg2 daemon:(id)arg3 profileType:(long long)arg4;
 
 @end
 

@@ -18,6 +18,7 @@
 + (Class)replicaRecordClass;
 + (Class)replicaClass;
 + (id)journalName;
++ (id)boostDateDefaultsKey;
 + (id)identityDefaultsKey;
 + (_Bool)usesZoneWidePCS;
 + (id)zoneName;

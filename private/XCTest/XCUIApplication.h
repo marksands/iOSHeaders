@@ -53,6 +53,7 @@
 - (void)launch;
 - (id)_combinedLaunchEnvironment;
 - (id)_combinedLaunchArguments;
+- (void)waitForState:(unsigned long long)arg1 timeout:(double)arg2;
 @property(readonly) _Bool foreground;
 @property(readonly) _Bool background;
 @property(readonly) _Bool suspended;

@@ -12,6 +12,7 @@
 
 + (id)serviceUUID;
 + (long long)serviceType;
+- (void)peripheral:(id)arg1 didUpdateValueForCharacteristic:(id)arg2 updateTime:(id)arg3 error:(id)arg4;
 - (void)peripheral:(id)arg1 didDiscoverCharacteristic:(id)arg2;
 - (id)servicesInProfile;
 

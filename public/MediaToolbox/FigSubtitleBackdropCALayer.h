@@ -14,7 +14,10 @@
 - (void)addAnimation:(id)arg1 forKey:(id)arg2;
 - (void)_addPositionAnimationToLayer:(id)arg1 usingAnimation:(id)arg2 forKey:(id)arg3;
 - (void)_addBoundsAnimationToLayer:(id)arg1 usingAnimation:(id)arg2 forKey:(id)arg3;
+- (void)updateHDRContentState:(_Bool)arg1;
 - (void)updateWindowOpacity:(double)arg1;
+- (void)updateBackdropLayer;
+- (_Bool)shouldEnableBackdropLayer;
 - (void)setNeedsLayout;
 - (void)setNeedsDisplay;
 - (void)setContents:(id)arg1;

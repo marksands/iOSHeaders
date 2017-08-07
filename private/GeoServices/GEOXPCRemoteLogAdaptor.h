@@ -50,6 +50,7 @@
 @property(retain, nonatomic) NSString *debugRequestName; // @synthesize debugRequestName=_debugRequestName;
 @property(retain, nonatomic) NSURL *remoteURL; // @synthesize remoteURL=_remoteURL;
 - (void).cxx_destruct;
+- (void)_purgeLogMessageCache;
 - (void)_networkReachabilityChanged;
 - (void)_removeNetworkObserver;
 - (void)_addNetworkObserver;

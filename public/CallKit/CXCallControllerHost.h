@@ -33,6 +33,7 @@
 - (void)callControllerHostConnection:(id)arg1 requestCalls:(CDUnknownBlockType)arg2;
 - (void)callControllerHostConnectionInvalidated:(id)arg1;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (id)_callsForCallControllerHostConnection:(id)arg1;
 - (void)_performDelegateCallback:(CDUnknownBlockType)arg1;
 - (void)removeCall:(id)arg1;
 - (void)addOrUpdateCall:(id)arg1;

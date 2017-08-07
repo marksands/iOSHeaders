@@ -11,7 +11,9 @@
 }
 
 + (id)confirmationRequiredWithValueToConfirm:(long long)arg1;
++ (id)confirmationRequiredWithTaskStatusToConfirm:(long long)arg1;
 + (id)successWithResolvedValue:(long long)arg1;
++ (id)successWithResolvedTaskStatus:(long long)arg1;
 
 @end
 

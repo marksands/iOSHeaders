@@ -8,7 +8,7 @@
 
 #import <Sharing/NSSecureCoding-Protocol.h>
 
-@class NSData, NSDictionary, NSString, NSUUID;
+@class NSData, NSDictionary, NSString, NSUUID, SFProximityEstimator;
 
 @interface SFBLEDevice : NSObject <NSSecureCoding>
 {
@@ -30,10 +30,12 @@
     long long _smoothedRSSI;
     double _lastSeen;
     double _pairCheckTime;
+    SFProximityEstimator *_setupProximityEstimator;
 }
 
 + (_Bool)supportsSecureCoding;
 + (void)setRSSIEstimatorInfo:(id)arg1;
+@property(retain, nonatomic) SFProximityEstimator *setupProximityEstimator; // @synthesize setupProximityEstimator=_setupProximityEstimator;
 @property(nonatomic) _Bool paired; // @synthesize paired=_paired;
 @property(nonatomic) double pairCheckTime; // @synthesize pairCheckTime=_pairCheckTime;
 @property(nonatomic) double lastSeen; // @synthesize lastSeen=_lastSeen;

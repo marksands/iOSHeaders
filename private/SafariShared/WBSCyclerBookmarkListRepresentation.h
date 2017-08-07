@@ -20,6 +20,7 @@
 - (_Bool)_tryToDeleteDescendant:(id)arg1;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (id)randomListDescendant;
+- (id)randomDescendant;
 - (id)allDescendantsPassingTest:(CDUnknownBlockType)arg1;
 - (id)randomDescendantPassingTest:(CDUnknownBlockType)arg1;
 - (id)descendantWithUniqueIdentifier:(id)arg1;
@@ -32,6 +33,7 @@
 - (void)insertChild:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addChild:(id)arg1;
 @property(readonly, nonatomic) unsigned long long numberOfChildren;
+- (id)pairsOfBookmarksWithDifferingExtraAttributesComparedTo:(id)arg1;
 - (_Bool)isEquivalent:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

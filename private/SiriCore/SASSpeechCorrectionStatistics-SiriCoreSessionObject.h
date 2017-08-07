@@ -7,6 +7,8 @@
 #import <SAObjects/SASSpeechCorrectionStatistics.h>
 
 @interface SASSpeechCorrectionStatistics (SiriCoreSessionObject)
+- (void)siriCore_setSessionRequestId:(id)arg1;
+- (id)siriCore_requestId;
 - (_Bool)siriCore_supportedByLocalSession;
 @end
 

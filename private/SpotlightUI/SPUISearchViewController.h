@@ -37,6 +37,7 @@
 }
 
 + (_Bool)isFeedbackSelector:(SEL)arg1;
++ (_Bool)shouldShowAsTypedSuggestion;
 + (_Bool)_isSuggestionResult:(id)arg1;
 @property(retain) NSArray *testingSections; // @synthesize testingSections=_testingSections;
 @property(retain) UITableView *testingTableView; // @synthesize testingTableView=_testingTableView;

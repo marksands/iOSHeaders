@@ -6,10 +6,11 @@
 
 #import <SearchFoundation/NSObject-Protocol.h>
 
-@class NSArray, NSData, NSDictionary, NSString, _SFPBAbstractCommand, _SFPBCardSection, _SFPBURL;
+@class NSArray, NSData, NSDictionary, NSString, _SFPBAbstractCommand, _SFPBCardSection, _SFPBNamedProtobufMessage, _SFPBURL;
 
 @protocol _SFPBCard <NSObject>
 @property(readonly, nonatomic) NSData *jsonData;
+@property(copy, nonatomic) NSArray *entityProtobufMessages;
 @property(readonly, nonatomic) _Bool hasFlexibleSectionOrder;
 @property(nonatomic) _Bool flexibleSectionOrder;
 @property(readonly, nonatomic) _Bool hasFbr;
@@ -44,6 +45,10 @@
 @property(copy, nonatomic) NSString *title;
 - (id)initWithDictionary:(NSDictionary *)arg1;
 - (id)initWithJSON:(NSData *)arg1;
+- (_SFPBNamedProtobufMessage *)entityProtobufMessagesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)entityProtobufMessagesCount;
+- (void)addEntityProtobufMessages:(_SFPBNamedProtobufMessage *)arg1;
+- (void)clearEntityProtobufMessages;
 - (_SFPBAbstractCommand *)dismissalCommandsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)dismissalCommandsCount;
 - (void)addDismissalCommands:(_SFPBAbstractCommand *)arg1;

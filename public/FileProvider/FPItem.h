@@ -89,7 +89,7 @@
 @property(copy, nonatomic) NSString *appContainerBundleIdentifier; // @synthesize appContainerBundleIdentifier=_appContainerBundleIdentifier;
 @property(copy, nonatomic) NSString *filename; // @synthesize filename=_filename;
 @property(readonly, nonatomic) _Bool isContainer; // @synthesize isContainer=_isContainer;
-@property(readonly, nonatomic, getter=isUbiquitous) _Bool ubiquitous; // @synthesize ubiquitous=_isUbiquitous;
+@property(nonatomic, getter=isUbiquitous) _Bool ubiquitous; // @synthesize ubiquitous=_isUbiquitous;
 @property(nonatomic, getter=isOffline) _Bool offline; // @synthesize offline=_offline;
 @property(nonatomic) _Bool supportsMostRecentVersionDownloaded; // @synthesize supportsMostRecentVersionDownloaded=_supportsMostRecentVersionDownloaded;
 @property(readonly, nonatomic) NSString *containerDisplayName; // @synthesize containerDisplayName=_containerDisplayName;

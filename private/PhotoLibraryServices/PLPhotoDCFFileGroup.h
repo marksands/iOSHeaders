@@ -64,7 +64,6 @@
 - (void)setDate:(id)arg1;
 - (id)date;
 - (void)addExtension:(id)arg1;
-- (_Bool)isValidImage;
 - (_Bool)hasObsoleteFiles;
 - (void)deleteObsoleteFiles;
 - (_Bool)isValid;

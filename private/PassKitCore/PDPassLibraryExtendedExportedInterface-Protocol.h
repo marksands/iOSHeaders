@@ -26,7 +26,6 @@
 - (void)removeAllScheduledActivities;
 - (void)noteAccountDeletedWithHandler:(void (^)(void))arg1;
 - (void)noteAccountChangedWithHandler:(void (^)(void))arg1;
-- (void)migrateDataWithHandler:(void (^)(_Bool))arg1;
 - (void)notifyPassUsed:(PKPass *)arg1 fromSource:(long long)arg2;
 - (void)noteObjectSharedWithUniqueID:(NSString *)arg1;
 - (void)getDataForBundleResourceNamed:(NSString *)arg1 withExtension:(NSString *)arg2 objectUniqueIdentifier:(NSString *)arg3 handler:(void (^)(NSData *))arg4;

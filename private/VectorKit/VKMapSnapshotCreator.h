@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <VectorKit/MapEngineDelegate-Protocol.h>
 #import <VectorKit/VKImageCanvasDelegate-Protocol.h>
@@ -24,10 +24,13 @@
     NSLocale *_locale;
     struct unique_ptr<md::MapEngine, std::__1::default_delete<md::MapEngine>> _mapEngine;
     shared_ptr_e963992e _taskContext;
+    unsigned char _emphasis;
+    _Bool _didSoftDealloc;
     VKMemoryObserver *_memoryObserver;
 }
 
 + (_Bool)supportsSharingThumbnails;
+@property(nonatomic) unsigned char emphasis; // @synthesize emphasis=_emphasis;
 @property(nonatomic) CDStruct_80aa614a mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
 - (id).cxx_construct;
 - (void).cxx_destruct;
@@ -57,6 +60,7 @@
 @property(nonatomic) long long mapType;
 @property(readonly) struct CGSize size;
 - (id)activeCanvas;
+- (void)softDealloc;
 - (void)dealloc;
 - (id)initWithSize:(struct CGSize)arg1 scale:(double)arg2 homeQueue:(id)arg3 manifestConfiguration:(id)arg4 locale:(id)arg5;
 - (id)initWithSize:(struct CGSize)arg1 scale:(double)arg2 homeQueue:(id)arg3;

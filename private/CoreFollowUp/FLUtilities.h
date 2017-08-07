@@ -12,6 +12,7 @@
 
 + (_Bool)launchPasswordChangeForAppleID:(id)arg1;
 + (_Bool)launchPasswordResetForAppleID:(id)arg1;
++ (void)tapToRadarWithTitle:(id)arg1 initialMessage:(id)arg2;
 
 @end
 

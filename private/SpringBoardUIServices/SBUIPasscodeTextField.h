@@ -8,8 +8,10 @@
 
 @interface SBUIPasscodeTextField : UITextField
 {
+    _Bool _showsSystemKeyboard;
 }
 
+@property(nonatomic) _Bool showsSystemKeyboard; // @synthesize showsSystemKeyboard=_showsSystemKeyboard;
 - (void)_handleKeyUIEvent:(id)arg1;
 - (_Bool)resignFirstResponder;
 - (_Bool)becomeFirstResponder;

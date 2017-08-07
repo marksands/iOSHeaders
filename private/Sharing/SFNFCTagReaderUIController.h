@@ -16,6 +16,7 @@
     _Bool _invalidateCalled;
     _Bool _invalidateDone;
     long long _nfcTagScanCount;
+    _Bool _nfcTagScanPending;
     CUXPCAgent *_xpcAgent;
     NSXPCConnection *_xpcCnx;
     CUXPCAgentConnection *_xpcUICnx;

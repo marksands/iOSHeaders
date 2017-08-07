@@ -7,13 +7,13 @@
 #import <UIKit/_UIDraggingImageSlotOwner.h>
 
 #import <UIKit/NSProgressReporting-Protocol.h>
-#import <UIKit/PBDataTransferMonitorDelegate-Protocol.h>
+#import <UIKit/_UIDataTransferMonitorDelegate-Protocol.h>
 
-@class NSArray, NSMutableSet, NSProgress, NSString, PBDataTransferMonitor, PBItemCollection, UIDragEvent, UIView, UIWindow, _DUIPotentialDrop, _UIApplicationModalProgressController, _UIDragSetDownAnimation, _UIDropSessionImpl, _UIDruidDestinationConnection, _UIInternalDraggingSessionSource;
+@class NSArray, NSMutableSet, NSProgress, NSString, PBItemCollection, UIDragEvent, UIView, UIWindow, _DUIPotentialDrop, _UIApplicationModalProgressController, _UIDataTransferMonitor, _UIDragSetDownAnimation, _UIDropSessionImpl, _UIDruidDestinationConnection, _UIInternalDraggingSessionSource;
 @protocol _UIDraggingInfo;
 
 __attribute__((visibility("hidden")))
-@interface _UIInternalDraggingSessionDestination : _UIDraggingImageSlotOwner <PBDataTransferMonitorDelegate, NSProgressReporting>
+@interface _UIInternalDraggingSessionDestination : _UIDraggingImageSlotOwner <_UIDataTransferMonitorDelegate, NSProgressReporting>
 {
     unsigned int _sessionIdentifier;
     unsigned int _touchRoutingPolicyContextID;
@@ -27,10 +27,11 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _postDropAnimationCompletionBlock;
     _UIDragSetDownAnimation *_setDownAnimation;
     PBItemCollection *_droppedItemCollection;
-    PBDataTransferMonitor *_dataTransferMonitor;
+    _UIDataTransferMonitor *_dataTransferMonitor;
     _UIApplicationModalProgressController *_modalProgressAlertController;
     _Bool _dropWasPerformed;
     _DUIPotentialDrop *_lastPotentialDrop;
+    _Bool _isAccessibilitySession;
     id <_UIDraggingInfo> _publicSession;
     UIDragEvent *_dragEvent;
     _UIDropSessionImpl *_dropSession;
@@ -48,6 +49,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 @property(retain, nonatomic) _UIDruidDestinationConnection *druidConnection; // @synthesize druidConnection=_druidConnection;
 @property(nonatomic) unsigned long long progressIndicatorStyle; // @synthesize progressIndicatorStyle=_progressIndicatorStyle;
+@property(readonly, nonatomic) _Bool isAccessibilitySession; // @synthesize isAccessibilitySession=_isAccessibilitySession;
 @property(readonly, nonatomic) unsigned long long outsideAppSourceOperationMask; // @synthesize outsideAppSourceOperationMask=_outsideAppSourceOperationMask;
 @property(copy, nonatomic) NSArray *internalItems; // @synthesize internalItems=_internalItems;
 @property(readonly, nonatomic) long long sourceDataOwner; // @synthesize sourceDataOwner=_sourceDataOwner;
@@ -59,7 +61,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <_UIDraggingInfo> publicSession; // @synthesize publicSession=_publicSession;
 @property(readonly, nonatomic) unsigned int sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 - (void).cxx_destruct;
-- (unsigned long long)actualDragOperationForProposedDragOperation:(unsigned long long)arg1 destinationDataOwner:(long long)arg2;
+- (unsigned long long)actualDragOperationForProposedDragOperation:(unsigned long long)arg1 destinationDataOwner:(long long)arg2 forbidden:(_Bool *)arg3;
 - (void)handOffDroppedItems:(id)arg1;
 - (void)setUpDropAnimation:(id)arg1;
 - (void)takeVisibleDroppedItems:(id)arg1;

@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 - (void)_draggingExitedWithEvent:(id)arg1;
 - (void)_draggingUpdatedWithEvent:(id)arg1;
 - (void)_draggingEnteredWithEvent:(id)arg1;
+- (_Bool)_shouldReceiveDragEvent:(id)arg1;
 
 @end
 

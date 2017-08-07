@@ -6,9 +6,9 @@
 
 #import <Contacts/NSObject-Protocol.h>
 
-@class CNDonationStore, CNFuture;
+@class CNDonationStore, CNEither;
 
 @protocol CNDonatedContactsPredicate <NSObject>
-- (CNFuture *)contactsFromDonationStore:(CNDonationStore *)arg1;
+- (CNEither *)contactsFromDonationStore:(CNDonationStore *)arg1;
 @end
 

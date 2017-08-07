@@ -9,16 +9,20 @@
 #import <AttentionAwareness/NSCopying-Protocol.h>
 #import <AttentionAwareness/NSSecureCoding-Protocol.h>
 
-@class NSDictionary, NSSet, NSString;
+@class NSData, NSDictionary, NSSet, NSString;
+@protocol NSCopying><NSSecureCoding;
 
 @interface AWAttentionAwarenessConfiguration : NSObject <NSCopying, NSSecureCoding>
 {
     NSSet *_attentionLostTimeouts;
     NSDictionary *_attentionLostTimeoutDictionary;
+    _Bool _samplingDelayExplicitlySet;
+    NSData *_archivedTag;
     NSString *_identifier;
+    id <NSCopying><NSSecureCoding> _tag;
     unsigned long long _eventMask;
     double _samplingInterval;
-    double _stalenessTolerance;
+    double _samplingDelay;
 }
 
 + (void)cancelNotification:(struct AWNotification_s *)arg1;
@@ -27,14 +31,16 @@
 + (unsigned long long)supportedEvents;
 + (_Bool)supportsSecureCoding;
 + (void)initialize;
-@property(nonatomic) double stalenessTolerance; // @synthesize stalenessTolerance=_stalenessTolerance;
+@property(nonatomic) double samplingDelay; // @synthesize samplingDelay=_samplingDelay;
 @property(nonatomic) double samplingInterval; // @synthesize samplingInterval=_samplingInterval;
 @property(nonatomic) unsigned long long eventMask; // @synthesize eventMask=_eventMask;
+@property(retain, nonatomic) id <NSCopying><NSSecureCoding> tag; // @synthesize tag=_tag;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSDictionary *attentionLostTimeoutDictionary;
 @property(copy, nonatomic) NSSet *attentionLostTimeouts; // @dynamic attentionLostTimeouts;
 - (void)setAttentionLostTimeout:(double)arg1;
+- (id)archivedTag;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;

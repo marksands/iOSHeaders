@@ -14,6 +14,7 @@
     struct HDCumulativeStatisticsBucket _lastFinishedBucket;
     vector_c1c297d2 _orderedSourceIDs;
     struct map<long long, std::__1::basic_string<char>, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, std::__1::basic_string<char>>>> _sourceBundleIdentifierMapping;
+    _Bool _openEndedCalculator;
     unsigned long long _dataCount;
     unsigned long long _mergeStrategy;
 }

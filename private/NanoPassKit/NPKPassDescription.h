@@ -19,9 +19,12 @@
     _Bool _deletePending;
     _Bool _hasUserSelectableContactlessPaymentApplications;
     _Bool _hasAssociatedPeerPaymentAccount;
+    _Bool _lazyLoadEncodedImages;
     PKImage *_logoImage;
     PKImage *_backgroundImage;
     unsigned long long _expressPassTypesMask;
+    NSData *_backgroundImageEncoded;
+    NSData *_logoImageEncoded;
     NSString *_uniqueID;
     NSNumber *_groupID;
     NSString *_passTypeIdentifier;
@@ -51,15 +54,12 @@
     NSArray *_backFieldBuckets;
     NSDecimalNumber *_lastAddValueAmount;
     NSDate *_pendingAddValueDate;
-    NSData *_logoImageEncoded;
-    NSData *_backgroundImageEncoded;
 }
 
 + (void)setCachingEnabled:(_Bool)arg1;
 + (_Bool)isCachingEnabled;
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) NSData *backgroundImageEncoded; // @synthesize backgroundImageEncoded=_backgroundImageEncoded;
-@property(retain, nonatomic) NSData *logoImageEncoded; // @synthesize logoImageEncoded=_logoImageEncoded;
+@property(nonatomic) _Bool lazyLoadEncodedImages; // @synthesize lazyLoadEncodedImages=_lazyLoadEncodedImages;
 @property(nonatomic) _Bool hasAssociatedPeerPaymentAccount; // @synthesize hasAssociatedPeerPaymentAccount=_hasAssociatedPeerPaymentAccount;
 @property(retain, nonatomic) NSDate *pendingAddValueDate; // @synthesize pendingAddValueDate=_pendingAddValueDate;
 @property(retain, nonatomic) NSDecimalNumber *lastAddValueAmount; // @synthesize lastAddValueAmount=_lastAddValueAmount;
@@ -108,6 +108,8 @@
 - (_Bool)supportsInAppPaymentOnNetworks:(id)arg1 issuerCountryCodes:(id)arg2;
 @property(retain, nonatomic) PKImage *backgroundImage; // @synthesize backgroundImage=_backgroundImage;
 @property(retain, nonatomic) PKImage *logoImage; // @synthesize logoImage=_logoImage;
+@property(retain, nonatomic) NSData *backgroundImageEncoded; // @synthesize backgroundImageEncoded=_backgroundImageEncoded;
+@property(retain, nonatomic) NSData *logoImageEncoded; // @synthesize logoImageEncoded=_logoImageEncoded;
 - (void)encodeObject:(id)arg1 asDataInCoder:(id)arg2 withKey:(id)arg3;
 - (id)encodeAsData:(id)arg1;
 - (id)description;
@@ -116,6 +118,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithPass:(id)arg1 lazyLoadEncodedImages:(_Bool)arg2;
 - (id)initWithPass:(id)arg1;
 
 @end

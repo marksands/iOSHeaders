@@ -38,7 +38,8 @@
 - (void)setupWithClientBundleID:(id)arg1 bagType:(long long)arg2;
 - (void)storeButtonPressed:(id)arg1;
 - (void)setupWithCustomNavigationItem:(id)arg1 promptString:(id)arg2 askToBuy:(_Bool)arg3;
-- (void)productPageItemDidLoad:(id)arg1 parameters:(id)arg2;
+- (_Bool)productPageItemDidLoad:(id)arg1 parameters:(id)arg2;
+- (void)loadDidFinish;
 - (void)finishWithResult:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 
 // Remaining properties

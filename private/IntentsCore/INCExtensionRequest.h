@@ -6,26 +6,31 @@
 
 #import <objc/NSObject.h>
 
-@class INCWatchdogTimer, NSArray, NSExtension, NSString, NSUUID;
+@class INCWatchdogTimer, NSArray, NSError, NSExtension, NSOperationQueue, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
 @interface INCExtensionRequest : NSObject
 {
-    NSExtension *_extension;
     NSUUID *_requestIdentifier;
     INCWatchdogTimer *_contextTimer;
     NSObject<OS_dispatch_queue> *_queue;
+    NSOperationQueue *_requestOperationQueue;
+    NSExtension *_extension;
+    NSError *_error;
     NSString *_identifier;
     NSArray *_extensionInputItems;
 }
 
 @property(retain, nonatomic) NSArray *extensionInputItems; // @synthesize extensionInputItems=_extensionInputItems;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(retain, nonatomic) NSError *_error; // @synthesize _error;
+@property(retain, nonatomic) NSExtension *_extension; // @synthesize _extension;
 - (void).cxx_destruct;
 - (void)_scheduleContextTimer;
 - (void)_resetContextTimer;
 - (void)_resetExtensionContextHostWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_extensionContextHost;
+- (id)_requestOperationQueue;
 - (void)reset;
 - (void)startRequestForIntent:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithIdentifier:(id)arg1;

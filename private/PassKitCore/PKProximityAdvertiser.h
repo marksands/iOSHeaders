@@ -11,17 +11,18 @@
 
 @interface PKProximityAdvertiser : NSObject
 {
-    SFService *_sharingService;
+    SFService *_nearbyInfoSharingService;
     NSObject<OS_dispatch_source> *_timer;
     NSObject<OS_dispatch_queue> *_timerQueue;
     NSObject<OS_dispatch_queue> *_advertiserQueue;
-    double _timeoutDuration;
     _Bool _isAdvertising;
 }
 
 @property(readonly, nonatomic) _Bool isAdvertising; // @synthesize isAdvertising=_isAdvertising;
 - (void).cxx_destruct;
 - (void)endAdvertising;
+- (void)_queue_endAdvertising;
+- (CDUnknownBlockType)_createAdvertisingActivationBlockWithName:(id)arg1 duration:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)startAdvertisingForDuration:(double)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)init;

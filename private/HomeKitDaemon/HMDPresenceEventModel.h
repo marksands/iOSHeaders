@@ -6,7 +6,7 @@
 
 #import <HomeKitDaemon/HMDEventModel.h>
 
-@class NSArray, NSString;
+@class NSArray, NSNumber, NSString;
 
 @interface HMDPresenceEventModel : HMDEventModel
 {
@@ -16,6 +16,7 @@
 + (id)properties;
 
 // Remaining properties
+@property(retain, nonatomic) NSNumber *activation; // @dynamic activation;
 @property(retain, nonatomic) NSString *presenceType; // @dynamic presenceType;
 @property(retain, nonatomic) NSArray *users; // @dynamic users;
 

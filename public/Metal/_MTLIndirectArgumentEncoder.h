@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <Metal/MTLArgumentEncoder-Protocol.h>
 
@@ -20,6 +20,8 @@
 
 @property(readonly, nonatomic) _MTLIndirectArgumentBufferLayout *layout; // @synthesize layout=_layout;
 @property(copy) NSString *label; // @synthesize label=_label;
+- (id)newIndirectArgumentEncoderForBufferAtIndex:(unsigned long long)arg1;
+- (id)newArgumentEncoderForBufferAtIndex:(unsigned long long)arg1;
 - (void)setArgumentBuffer:(id)arg1 offset:(unsigned long long)arg2;
 - (void)setArgumentBuffer:(id)arg1 startOffset:(unsigned long long)arg2 arrayElement:(unsigned long long)arg3;
 - (void)setIndirectArgumentBuffer:(id)arg1 offset:(unsigned long long)arg2;

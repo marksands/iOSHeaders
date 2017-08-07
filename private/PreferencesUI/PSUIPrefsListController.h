@@ -130,6 +130,7 @@
 - (_Bool)shouldShowEthernetSpecifier;
 - (id)wifiNetwork:(id)arg1;
 - (void)wifiNetworkFetch:(id)arg1;
+- (void)wifiGetCurrentWiFiNetwork:(id)arg1;
 - (void)updateWifi;
 - (void)willBecomeActive;
 - (void)willEnterForeground;

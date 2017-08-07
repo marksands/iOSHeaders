@@ -86,15 +86,15 @@
 - (id)drawingForSelectionRect:(struct CGRect)arg1;
 - (struct CGPoint)closestPointForPastedSelectionRect:(struct CGRect)arg1 withDrawing:(id *)arg2;
 - (id)_attachmentForSelectionRect:(struct CGRect)arg1;
+- (id)drawingForUUID:(id)arg1;
 - (_Bool)containsDrawingUUID:(id)arg1;
 - (_Bool)isValidDropPointForStrokes:(struct CGPoint)arg1;
 - (struct CGPoint)pointInStrokeSpace:(struct CGPoint)arg1 inDrawing:(id)arg2;
 - (void)_updateAttachmentHeightIfNecessaryForDrawing:(id)arg1;
-- (void)selectionRefreshWithChangeToDrawing:(id)arg1;
+- (void)selectionRefreshWithChangeToDrawings:(id)arg1;
 - (id)selectionTopView;
 - (struct CGAffineTransform)selectionDrawingTransform;
 - (struct CGPoint)selectionOffsetForDrawing:(id)arg1;
-- (struct CGPoint)selectionOffsetForLiveDrawing;
 @property(readonly, nonatomic) _Bool hasSelection;
 - (void)_updateHeightOfAttachmentIfNecessary:(id)arg1;
 - (void)generateTile:(long long)arg1 inAttachment:(id)arg2 rendering:(_Bool)arg3;

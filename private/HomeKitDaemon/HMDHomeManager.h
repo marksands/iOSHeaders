@@ -48,7 +48,6 @@
     HMDKeyTransferAgent *_keyTransferAgent;
     HMDSoftwareUpdateManager *_softwareUpdateManager;
     HMDHomeManagerObjectLookup *_lookup;
-    HMDWatchManager *_watchManager;
     HMDCompanionManager *_companionManager;
     long long _residentEnabledState;
     NSMutableDictionary *_userPushCacheMap;
@@ -82,6 +81,7 @@
     HMDPendingCloudSyncTransactions *_pendingTransactions;
     HMDPowerManager *_powerManager;
     HMDCloudManager *_cloudDataSyncManager;
+    HMDWatchManager *_watchManager;
     HMDBackingStore *_backingStore;
     NSUUID *_dataTag;
     struct __SCNetworkReachability *_reachability;
@@ -186,6 +186,7 @@
 @property(nonatomic) struct __SCNetworkReachability *reachability; // @synthesize reachability=_reachability;
 @property(retain, nonatomic) NSUUID *dataTag; // @synthesize dataTag=_dataTag;
 @property(retain, nonatomic) HMDBackingStore *backingStore; // @synthesize backingStore=_backingStore;
+@property(readonly, nonatomic) HMDWatchManager *watchManager; // @synthesize watchManager=_watchManager;
 @property(retain, nonatomic) HMDCloudManager *cloudDataSyncManager; // @synthesize cloudDataSyncManager=_cloudDataSyncManager;
 @property(retain, nonatomic) HMDPowerManager *powerManager; // @synthesize powerManager=_powerManager;
 @property(retain, nonatomic) HMDPendingCloudSyncTransactions *pendingTransactions; // @synthesize pendingTransactions=_pendingTransactions;
@@ -220,7 +221,6 @@
 @property(nonatomic, getter=isCacheUseAllowed) _Bool cacheUseAllowed; // @synthesize cacheUseAllowed=_cacheUseAllowed;
 @property(nonatomic) long long residentEnabledState; // @synthesize residentEnabledState=_residentEnabledState;
 @property(readonly, nonatomic) HMDCompanionManager *companionManager; // @synthesize companionManager=_companionManager;
-@property(readonly, nonatomic) HMDWatchManager *watchManager; // @synthesize watchManager=_watchManager;
 @property(nonatomic, getter=isAccessAllowedWhenLocked) _Bool accessAllowedWhenLocked; // @synthesize accessAllowedWhenLocked=_accessAllowedWhenLocked;
 @property(nonatomic, getter=isDeviceLost) _Bool deviceLost; // @synthesize deviceLost=_deviceLost;
 @property(readonly, nonatomic) HMDHomeManagerObjectLookup *lookup; // @synthesize lookup=_lookup;
@@ -273,6 +273,7 @@
 - (void)teardownRemoteAccessForHome:(id)arg1;
 - (void)_sendUpdateRequestToAdminForInvitation:(id)arg1 homeUUID:(id)arg2 invitationState:(long long)arg3 authStatus:(id)arg4;
 - (_Bool)getControllerKey:(id *)arg1 controllerUsername:(id *)arg2 error:(id *)arg3;
+- (id)getOrCreateLocalPairingIdentity:(id *)arg1;
 - (void)_handleRequestToUpdateHomeInvitationFromLocalUser:(id)arg1;
 - (void)_handleRequestToUpdateHomeInvitationFromInviter:(id)arg1;
 - (long long)numberOfPendingIncomingInvitation;
@@ -365,7 +366,7 @@
 - (void)processTransactionsFromHomeDataSync:(id)arg1 accessories:(id)arg2 version:(long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_processSharedHomeModel:(id)arg1 message:(id)arg2;
 - (void)processSharedHomeModelUpdate:(id)arg1 message:(id)arg2;
-- (id)_loadCloudTransactionForRemoteHome:(id)arg1 localHome:(id)arg2 version:(long long)arg3 cloudTransaction:(id)arg4 stagedTransaction:(id)arg5;
+- (id)_loadCloudTransactionForRemoteHome:(id)arg1 localHome:(id)arg2 cachedHome:(id)arg3 version:(long long)arg4 cloudTransaction:(id)arg5 stagedTransaction:(id)arg6 mustReplayTransaction:(id)arg7;
 - (void)_handleHomeDataSync:(id)arg1;
 - (_Bool)_shouldHandleHomeDataSync:(id)arg1 remoteHome:(id)arg2 sourceDeviceVersion:(id)arg3;
 - (void)fragmentationStream:(id)arg1 didReceiveData:(id)arg2 transactionIdentifier:(unsigned short)arg3 error:(id)arg4;
@@ -395,6 +396,7 @@
 - (void)_startAccessoryFinderTimer;
 - (void)_sendInviteRequestToUser:(id)arg1 inviteIdentifier:(id)arg2 forHome:(id)arg3 confirm:(_Bool)arg4 expiryDate:(id)arg5 queue:(id)arg6 completionHandler:(CDUnknownBlockType)arg7;
 - (void)userManagementOperationDidFinish:(id)arg1;
+- (void)cleanupOperationsForAccessory:(id)arg1 user:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)operationsWithIdentifiers:(id)arg1 outOperations:(id *)arg2;
 - (void)_processRemoveUserManagementOperationModel:(id)arg1 message:(id)arg2;
 - (void)_processUserManagementOperationModel:(id)arg1 message:(id)arg2;
@@ -442,8 +444,8 @@
 - (void)_updateTransportInformationInstances:(id)arg1 remoteAccessories:(id)arg2;
 - (_Bool)_associateAccessories:(id)arg1 withHomes:(id)arg2;
 - (_Bool)_preferLocalHomesOverCloudHomes:(id)arg1 migrationOptions:(unsigned long long)arg2;
-- (void)_transactionalizeAndApplyHomeData:(id)arg1 syncCompletion:(CDUnknownBlockType)arg2;
-- (void)_transactionalizeAndApplyCloudHomeData:(id)arg1 version:(long long)arg2 migrationOptions:(unsigned long long)arg3 needConflictResolution:(_Bool)arg4 homeDataFetechedTransaction:(id)arg5 syncCompletion:(CDUnknownBlockType)arg6;
+- (void)_transactionalizeAndApplyHomeData:(id)arg1 cachedHomeData:(id)arg2 syncCompletion:(CDUnknownBlockType)arg3;
+- (void)_transactionalizeAndApplyCloudHomeData:(id)arg1 cachedHomeData:(id)arg2 version:(long long)arg3 migrationOptions:(unsigned long long)arg4 syncCompletion:(CDUnknownBlockType)arg5;
 - (id)_deviceForIdentifier:(id)arg1;
 - (void)_resumeXPCWithCompletionHanlder:(CDUnknownBlockType)arg1;
 - (void)_suspendXPCWithCompletionHanlder:(CDUnknownBlockType)arg1;

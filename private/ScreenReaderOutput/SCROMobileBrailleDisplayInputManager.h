@@ -37,6 +37,7 @@
 - (id)buttonNamesForInputIdentifier:(id)arg1 forDisplayWithToken:(int)arg2;
 - (void)setCommand:(id)arg1 forBrailleKey:(id)arg2;
 - (id)commandForBrailleKey:(id)arg1;
+- (id)_commandForHidUsage:(id)arg1;
 - (id)modelIdentifierForDisplayWithToken:(int)arg1;
 - (id)driverIdentifierForDisplayWithToken:(int)arg1;
 - (id)commandDictionaryForDisplayWithToken:(int)arg1;

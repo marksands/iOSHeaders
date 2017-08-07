@@ -8,16 +8,14 @@
 
 #import <EventKitUI/EKICSPreviewControllerDelegate-Protocol.h>
 #import <EventKitUI/UIAlertViewDelegate-Protocol.h>
+#import <EventKitUI/UIDragInteractionDelegate-Protocol.h>
+#import <EventKitUI/UIDropInteractionDelegate-Protocol.h>
 #import <EventKitUI/UIGestureRecognizerDelegate-Protocol.h>
-#import <EventKitUI/_UIDraggingItemVisualTarget-Protocol.h>
-#import <EventKitUI/_UIDraggingSessionDelegate-Protocol.h>
-#import <EventKitUI/_UIViewDraggingDestinationDelegate-Protocol.h>
-#import <EventKitUI/_UIViewDraggingSourceDelegate-Protocol.h>
 
-@class EKCalendarDate, EKDayOccurrenceView, EKEvent, EKICSPreviewController, EKUIRecurrenceAlertController, NSString, NSTimer, UILongPressGestureRecognizer, UITapGestureRecognizer, _UIFeedbackDragSnappingBehavior;
+@class EKCalendarDate, EKDayOccurrenceView, EKEvent, EKICSPreviewController, EKUIRecurrenceAlertController, NSString, NSTimer, UIDragInteraction, UIDropInteraction, UILongPressGestureRecognizer, UITapGestureRecognizer, _UIFeedbackDragSnappingBehavior;
 @protocol EKEventGestureControllerDelegate, EKEventGestureControllerUntimedDelegate;
 
-@interface EKEventGestureController : NSObject <_UIViewDraggingDestinationDelegate, _UIViewDraggingSourceDelegate, _UIDraggingSessionDelegate, _UIDraggingItemVisualTarget, EKICSPreviewControllerDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate>
+@interface EKEventGestureController : NSObject <UIDropInteractionDelegate, UIDragInteractionDelegate, EKICSPreviewControllerDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate>
 {
     UILongPressGestureRecognizer *_draggingGestureRecognizer;
     UITapGestureRecognizer *_tapGestureRecognizer;
@@ -25,8 +23,10 @@
     int _pendingDraggingState;
     int _queuedDraggingState;
     _Bool _dragCompletionPending;
-    _Bool _dragDestinationDetectedDrag;
-    _Bool _didSetSystemPreview;
+    _Bool _dropAnimationInProgress;
+    _Bool _waitingForDragToInitialize;
+    _Bool _needToSetSystemDragPreview;
+    _Bool _dragInitiationLocked;
     EKDayOccurrenceView *_draggingView;
     EKEvent *_event;
     int _currentDragType;
@@ -57,6 +57,8 @@
     EKICSPreviewController *_currentICSPreviewController;
     EKUIRecurrenceAlertController *_recurrenceAlertController;
     _UIFeedbackDragSnappingBehavior *_dragSnappingFeedback;
+    UIDropInteraction *_dropInteraction;
+    UIDragInteraction *_dragInteraction;
     _Bool _usesXDragOffsetInCancelRegion;
     _Bool _usesHorizontalDragLocking;
     _Bool _commitBlocked;
@@ -66,6 +68,7 @@
     EKDayOccurrenceView *_draggingViewSource;
 }
 
++ (id)_captureImageOfOccurrenceView:(id)arg1 withFrameOfOpaqueContent:(struct CGRect)arg2;
 @property(retain, nonatomic) EKDayOccurrenceView *draggingViewSource; // @synthesize draggingViewSource=_draggingViewSource;
 @property(retain, nonatomic) NSString *sessionIdentifierForDebug; // @synthesize sessionIdentifierForDebug=_sessionIdentifierForDebug;
 @property(readonly, nonatomic) EKDayOccurrenceView *draggingView; // @synthesize draggingView=_draggingView;
@@ -95,31 +98,38 @@
 - (void)_setUpAfterForcedStartFromPoint:(struct CGPoint)arg1;
 - (void)_setTouchOffsetsFromPoint:(struct CGPoint)arg1 fixedToCenter:(_Bool)arg2;
 - (void)_animateInNewEvent;
-- (void)_createTemporaryView:(id)arg1 animated:(_Bool)arg2;
+- (id)_createTemporaryView:(id)arg1 animated:(_Bool)arg2;
 - (id)originalStartDateForEvent:(id)arg1 includingTravel:(_Bool)arg2;
-- (struct CGRect)_targetFrameOfDraggingItem:(id)arg1 inCoordinateSpace:(id)arg2;
-- (void)draggingSessionDidEnd:(id)arg1 withOperation:(unsigned long long)arg2;
-- (unsigned long long)draggingSession:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;
-- (void)view:(id)arg1 failedToDragSourceWithIndex:(unsigned long long)arg2;
-- (void)view:(id)arg1 willBeginDraggingSourceWithIndex:(unsigned long long)arg2 withSession:(id)arg3;
-- (id)view:(id)arg1 itemsForDragSourceWithIndex:(unsigned long long)arg2;
+- (void)dragInteraction:(id)arg1 session:(id)arg2 didEndWithOperation:(unsigned long long)arg3;
+- (void)dragInteraction:(id)arg1 session:(id)arg2 willEndWithOperation:(unsigned long long)arg3;
+- (_Bool)dragInteraction:(id)arg1 prefersFullSizePreviewsForSession:(id)arg2;
+- (_Bool)dragInteraction:(id)arg1 sessionIsRestrictedToDraggingApplication:(id)arg2;
+- (_Bool)dragInteraction:(id)arg1 sessionAllowsMoveOperation:(id)arg2;
+- (void)dragInteraction:(id)arg1 sessionWillBegin:(id)arg2;
+- (void)_dragInteractionDidCancelLiftWithoutDragging:(id)arg1;
+- (id)dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
+- (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
+- (id)_eventToUseAtInteractionStart:(struct CGPoint)arg1;
+- (_Bool)_isTouchFromDragSessionInResizeHandles:(id)arg1;
 - (unsigned long long)numberOfDragSourcesForView:(id)arg1;
-- (void)_findDraggingItemWithExtractableTextInDraggingInfo:(id)arg1 andExecuteBlock:(CDUnknownBlockType)arg2;
-- (void)_findLocalDraggingItemInDraggingInfo:(id)arg1 andExecuteBlock:(CDUnknownBlockType)arg2;
+- (id)_findLocalDragItemInSession:(id)arg1;
+- (id)_clippingPathForDraggingView;
 - (id)_captureImageOfDraggingView;
 - (void)_setToLocalDraggingImageForDrag:(id)arg1;
 - (void)_setLocalDraggingViewHidden:(_Bool)arg1;
 - (void)_setToSystemDraggingImageForDrag:(id)arg1;
 - (void)_enableSystemPreviewForDrag:(id)arg1;
 - (void)_disableSystemPreviewForDrag:(id)arg1;
-- (void)view:(id)arg1 draggingEnded:(id)arg2;
-- (void)view:(id)arg1 concludeDragOperation:(id)arg2;
-- (void)view:(id)arg1 performDragOperation:(id)arg2;
-- (_Bool)view:(id)arg1 prepareForDragOperation:(id)arg2;
-- (_Bool)view:(id)arg1 allowsSimultaneousDragToEnter:(id)arg2;
-- (void)view:(id)arg1 draggingExited:(id)arg2;
-- (unsigned long long)view:(id)arg1 draggingUpdated:(id)arg2;
-- (unsigned long long)view:(id)arg1 draggingEntered:(id)arg2;
+- (void)dropInteraction:(id)arg1 sessionDidEnd:(id)arg2;
+- (struct CGPoint)_estimateFinalDropOriginForTimedDelegate;
+- (id)dropInteraction:(id)arg1 previewForDroppingItem:(id)arg2 withDefault:(id)arg3;
+- (void)dropInteraction:(id)arg1 item:(id)arg2 willAnimateDropWithAnimator:(id)arg3;
+- (void)dropInteraction:(id)arg1 concludeDrop:(id)arg2;
+- (void)dropInteraction:(id)arg1 performDrop:(id)arg2;
+- (void)dropInteraction:(id)arg1 sessionDidExit:(id)arg2;
+- (id)dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
+- (void)dropInteraction:(id)arg1 sessionDidEnter:(id)arg2;
+- (_Bool)dropInteraction:(id)arg1 canHandleSession:(id)arg2;
 - (void)_dismissCurrentICSPreviewControllerAnimated:(_Bool)arg1;
 - (void)_icsPreviewControllerCancelButtonPressed;
 - (void)icsPreviewController:(id)arg1 importDidImportEvents:(id)arg2;
@@ -129,9 +139,10 @@
 - (void)_handleImportingICSData:(id)arg1 intoEventStore:(id)arg2;
 - (void)_handleShowingEventWithUniqueId:(id)arg1 date:(id)arg2 eventStore:(id)arg3;
 - (void)_setupEvent:(id)arg1 withImportData:(id)arg2;
-- (_Bool)_draggingInfoRequiresExternalDataExtraction:(id)arg1;
-- (unsigned long long)_dragOperationGivenDraggingInfo:(id)arg1;
-- (id)_getEventUsingDraggingInfo:(id)arg1;
+- (_Bool)_dropSessionRequiresExternalDataExtraction:(id)arg1;
+- (unsigned long long)_dropOperationGivenDropSession:(id)arg1;
+- (id)_getEventUsingDropSession:(id)arg1;
+- (id)_acceptedExternalTypes;
 - (id)_acceptedTypes;
 - (void)_updateFlingToCancelParameters;
 - (id)_viewForTracking;
@@ -140,13 +151,14 @@
 - (void)_writeDraggingChangesToOccurrenceWithTouchPoint:(struct CGPoint)arg1;
 - (void)_resumePreviousDrag;
 - (void)_suspendCurrentDrag;
-- (_Bool)_setUpNewDragGestureHandling;
 - (_Bool)__timedDelegateBeginEditingSessionAtPoint:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (_Bool)canProposeNewTime:(id)arg1;
 - (_Bool)_beginEditingSessionAtPoint:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)_createAndSetUpDraggingViewWithTouchPoint:(struct CGPoint)arg1 event:(id)arg2 ignoreOffsets:(_Bool)arg3;
+- (void)_adjustNewEventDates:(id)arg1 withPoint:(struct CGPoint)arg2;
 - (id)_createNewEventIfNeededAtPoint:(struct CGPoint)arg1;
 - (void)_cleanUpAllStateWithTouchPoint:(struct CGPoint)arg1 commit:(_Bool)arg2;
+- (void)_setUpInitialTouchPointsWithPoint:(struct CGPoint)arg1;
 - (_Bool)_beginNewDragFromOffStateWithPoint:(struct CGPoint)arg1;
 - (void)_manageDraggingViewInteractivityForStateChangeFrom:(int)arg1 to:(int)arg2;
 - (void)didCrossDragBoundary:(int)arg1;
@@ -159,16 +171,17 @@
 - (void)_installScrollTimer;
 - (void)_commitUntimed;
 - (void)_handleLongPressResponseForOldAPI:(id)arg1;
+- (_Bool)_shouldUseSystemAPIForDrag;
 - (_Bool)_useNewDragAndDropAPI;
 - (void)_longPress:(id)arg1;
 - (void)_tapGesture:(id)arg1;
+- (void)_cleanUpForcedStart;
 - (void)endForcedStart;
 - (void)forceStartWithOccurrence:(id)arg1 shouldUpdateViewSource:(_Bool)arg2 shouldUpdateOrigin:(_Bool)arg3;
 - (void)updateDraggingOccurrenceFrameFromSource;
 - (void)updateDraggingOccurrenceOrigin;
 @property(readonly, nonatomic) _Bool dragGestureInProgress;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
-- (_Bool)isDraggingOccurrence;
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)promptUserForProposeNewTime:(id)arg1 forEvent:(id)arg2 whenFinished:(CDUnknownBlockType)arg3;
 - (void)promptUserForRecurrenceActionOnOccurrence:(id)arg1 whenFinished:(CDUnknownBlockType)arg2;

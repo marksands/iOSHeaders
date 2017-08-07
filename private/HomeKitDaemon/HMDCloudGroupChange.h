@@ -13,6 +13,7 @@
     _Bool _temporaryCache;
     _Bool _decryptionFailed;
     _Bool _encryptionFailed;
+    _Bool _controllerIdentifierChanged;
     HMDCloudGroup *_cloudGroup;
     NSMutableArray *_cloudChanges;
     NSMapTable *_objectChangeMap;
@@ -28,6 +29,7 @@
 @property(retain, nonatomic) NSMapTable *objectChangeMap; // @synthesize objectChangeMap=_objectChangeMap;
 @property(retain, nonatomic) NSMutableArray *cloudChanges; // @synthesize cloudChanges=_cloudChanges;
 @property(readonly, nonatomic) __weak HMDCloudGroup *cloudGroup; // @synthesize cloudGroup=_cloudGroup;
+@property(nonatomic) _Bool controllerIdentifierChanged; // @synthesize controllerIdentifierChanged=_controllerIdentifierChanged;
 @property(nonatomic) _Bool encryptionFailed; // @synthesize encryptionFailed=_encryptionFailed;
 @property(nonatomic) _Bool decryptionFailed; // @synthesize decryptionFailed=_decryptionFailed;
 @property(readonly, nonatomic, getter=isTemporaryCache) _Bool temporaryCache; // @synthesize temporaryCache=_temporaryCache;
@@ -49,7 +51,9 @@
 - (void)loadCloudRecordsFromCache:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) _Bool hasValidChanges;
 - (id)cloudRecordWithObjectID:(id)arg1;
+- (id)cachedCloudRecordWithObjectID:(id)arg1;
 - (id)cloudRecordWithName:(id)arg1;
+- (void)removeChangeWithObjectID:(id)arg1;
 - (void)addChangeWithDeletedRecordID:(id)arg1;
 - (void)_addChangeWithDeletedCloudRecord:(id)arg1;
 - (void)addChangeWithRecord:(id)arg1;

@@ -11,13 +11,12 @@
 #import <VectorKit/VKPolylineGroupOverlayObserver-Protocol.h>
 #import <VectorKit/VKPolylineOverlayRouteRibbonObserver-Protocol.h>
 #import <VectorKit/VKTileProviderClient-Protocol.h>
-#import <VectorKit/VKTileSourceZoomDelegate-Protocol.h>
 
 @class GEOResourceManifestConfiguration, NSArray, NSLocale, NSMapTable, NSMutableArray, NSMutableSet, NSSet, NSString, VKNavigationPuck, VKPolylineOverlay, VKRasterOverlayTileSource, VKSceneConfiguration, VKTileProvider, VKTimedAnimation, VKTrafficTileSource;
 @protocol GEORoutePreloadSession, VKMapModelDelegate, VKRouteMatchedAnnotationPresentation;
 
 __attribute__((visibility("hidden")))
-@interface VKMapModel : VKModelObject <GEOResourceManifestTileGroupObserver, VKPolylineOverlayRouteRibbonObserver, GEOExperimentConfigurationObserver, VKTileSourceZoomDelegate, VKTileProviderClient, VKPolylineGroupOverlayObserver>
+@interface VKMapModel : VKModelObject <GEOResourceManifestTileGroupObserver, VKPolylineOverlayRouteRibbonObserver, GEOExperimentConfigurationObserver, VKTileProviderClient, VKPolylineGroupOverlayObserver>
 {
     unsigned long long _mapPurpose;
     GEOResourceManifestConfiguration *_manifestConfiguration;
@@ -144,7 +143,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool disableRoads; // @synthesize disableRoads=_disableRoads;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (long long)maximumZoomLevelOverride:(id)arg1 maximumZoomLevel:(long long)arg2;
+- (long long)tileSource:(id)arg1 overrideForMaximumZoomLevel:(long long)arg2;
 - (void)populateDebugNode:(shared_ptr_eafb90f9)arg1 debugTileProvider:(_Bool)arg2;
 @property(readonly, nonatomic) float currentRoadSignOffset;
 @property(readonly, nonatomic) VKSceneConfiguration *sceneConfiguration;

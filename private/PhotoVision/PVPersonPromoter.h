@@ -47,6 +47,7 @@
 - (id)_interestingPersonsFromVerifiedPersons:(id)arg1 unverifiedPersons:(id)arg2 updateBlock:(CDUnknownBlockType)arg3;
 - (_Bool)_personClusterShouldBeVerified:(id)arg1;
 - (id)_sortedUnverifiedPersonsToDedupForVerifiedPersons:(id)arg1 updateBlock:(CDUnknownBlockType)arg2;
+- (id)_verifiedPersonsToProcess;
 - (id)_newPersonDeduperWithVerifiedPersons:(id)arg1;
 - (id)interestingPersonsFromPersons:(id)arg1 updateBlock:(CDUnknownBlockType)arg2;
 - (double)_personTimespan:(id)arg1;

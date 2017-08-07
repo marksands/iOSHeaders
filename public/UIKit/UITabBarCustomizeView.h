@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     double _gridOffset;
     struct CGRect _firstItemRect;
     UITabBarItem *_selectedBeforeItem;
+    _Bool _isBeingDismissed;
     NSArray *_availableItems;
 }
 
@@ -43,6 +44,7 @@ __attribute__((visibility("hidden")))
 - (void)layoutSubviews;
 - (void)setTabBar:(id)arg1 currentItems:(id)arg2 availableItems:(id)arg3;
 - (long long)_barMetrics;
+- (void)setIsBeingDismissed;
 - (void)updateProxiesSelection;
 - (void)tintTabBarItemsForEdit:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

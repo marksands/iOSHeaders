@@ -6,12 +6,13 @@
 
 #import <SiriUI/NSObject-Protocol.h>
 
-@class UIView;
+@class NSString, UIView;
 @protocol CRCardSection, CRKComposableView;
 
 @protocol CRKCardSectionView <NSObject>
 + (struct CGSize)sizeThatFitsCardSection:(id <CRCardSection>)arg1 boundingSize:(struct CGSize)arg2;
 @property(nonatomic) __weak UIView<CRKComposableView> *composedSuperview;
+@property(copy, nonatomic) NSString *cardSectionViewIdentifier;
 - (void)removeFromComposedSuperview;
 @end
 

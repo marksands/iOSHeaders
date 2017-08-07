@@ -12,6 +12,7 @@
 {
     _Bool _inGallery;
     _Bool _hasSpacerRow;
+    long long _section;
     NSString *_titleForHeader;
     NTKFace *_face;
     UITableView *_tableView;
@@ -29,6 +30,7 @@
 @property(nonatomic) __weak UITableView *tableView; // @synthesize tableView=_tableView;
 @property(nonatomic) __weak NTKFace *face; // @synthesize face=_face;
 @property(readonly, nonatomic) NSString *titleForHeader; // @synthesize titleForHeader=_titleForHeader;
+@property(nonatomic) long long section; // @synthesize section=_section;
 - (void).cxx_destruct;
 - (id)_newSectionHeader;
 - (void)faceDidChangeResourceDirectory;

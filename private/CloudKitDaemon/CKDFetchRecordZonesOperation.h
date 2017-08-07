@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
 - (void)main;
+- (void)checkPCSIdentity;
 - (void)fetchZonesFromServer;
 - (void)_cachePCSOnRecordZone:(id)arg1;
 - (void)_continueHandlingFetchedRecordZone:(id)arg1 zoneID:(id)arg2;

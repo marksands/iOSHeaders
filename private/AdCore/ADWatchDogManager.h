@@ -22,7 +22,7 @@
 - (void).cxx_destruct;
 - (id)getNextToken;
 - (void)incrementToken;
-- (void)simulateCrash:(id)arg1 becauseOf:(unsigned long long)arg2;
+- (void)simulateCrash:(id)arg1 becauseOf:(unsigned long long)arg2 actuallyTook:(double)arg3;
 - (_Bool)updateReason:(id)arg1 forToken:(id)arg2;
 - (_Bool)removeWatchdogWithToken:(id)arg1;
 - (id)createNewWatchdog:(id)arg1 withTimer:(unsigned long long)arg2;

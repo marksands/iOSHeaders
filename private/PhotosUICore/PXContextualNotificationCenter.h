@@ -31,8 +31,9 @@
 @property(readonly, nonatomic) NSMutableSet *contextualNotifications; // @synthesize contextualNotifications=_contextualNotifications;
 - (void).cxx_destruct;
 - (_Bool)gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
-- (id)_contextualNotificationAtLocationOfGestureRecognizer:(id)arg1 isInsideDismissArea:(_Bool *)arg2 isInsidePassthroughArea:(_Bool *)arg3;
+- (id)_contextualNotificationAtLocation:(struct CGPoint)arg1 inCoordinateSpace:(id)arg2 isInsideDismissArea:(_Bool *)arg3 isInsidePassthroughArea:(_Bool *)arg4;
 - (void)_handlePanGestureRecognizer:(id)arg1;
 - (void)_handleTapGestureRecognizer:(id)arg1;
 - (void)_updateAppearanceStateForContextualNotification:(id)arg1;

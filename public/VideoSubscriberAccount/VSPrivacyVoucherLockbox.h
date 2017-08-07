@@ -6,19 +6,32 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray;
+#import <VideoSubscriberAccount/VSRemoteNotifierDelegate-Protocol.h>
+
+@class NSArray, NSString, VSRemoteNotifier;
 
 __attribute__((visibility("hidden")))
-@interface VSPrivacyVoucherLockbox : NSObject
+@interface VSPrivacyVoucherLockbox : NSObject <VSRemoteNotifierDelegate>
 {
+    VSRemoteNotifier *_remoteNotifier;
 }
 
+@property(retain, nonatomic) VSRemoteNotifier *remoteNotifier; // @synthesize remoteNotifier=_remoteNotifier;
+- (void).cxx_destruct;
 - (void)removeAllVouchers;
 @property(readonly, copy, nonatomic) NSArray *unredeemedVouchers;
 - (void)setUnredeemedVouchers:(id)arg1;
 - (id)_voucherArchiveURL;
 - (void)redeemVoucher:(id)arg1;
 - (void)issueVouchersForAppsWithAdamIDs:(id)arg1 providerID:(id)arg2;
+- (void)remoteNotifier:(id)arg1 didReceiveRemoteNotificationWithUserInfo:(id)arg2;
+- (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

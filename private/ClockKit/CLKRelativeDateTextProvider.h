@@ -18,9 +18,11 @@
     double _elapsedTime;
     _Bool _sessionInProgress;
     _Bool _disableSmallCapUnits;
+    _Bool _shrinkUnitsInCJK;
     _Bool _disableOffsetPrefix;
     _Bool _twoDigitMinuteZeroPadding;
     _Bool _wantsSubseconds;
+    _Bool _pauseTimerAtZero;
     NSDate *_date;
     long long _relativeDateStyle;
     unsigned long long _calendarUnits;
@@ -29,9 +31,11 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)textProviderWithDate:(id)arg1 style:(long long)arg2 units:(unsigned long long)arg3;
+@property(nonatomic) _Bool pauseTimerAtZero; // @synthesize pauseTimerAtZero=_pauseTimerAtZero;
 @property(nonatomic) _Bool wantsSubseconds; // @synthesize wantsSubseconds=_wantsSubseconds;
 @property(nonatomic) _Bool twoDigitMinuteZeroPadding; // @synthesize twoDigitMinuteZeroPadding=_twoDigitMinuteZeroPadding;
 @property(nonatomic) _Bool disableOffsetPrefix; // @synthesize disableOffsetPrefix=_disableOffsetPrefix;
+@property(nonatomic) _Bool shrinkUnitsInCJK; // @synthesize shrinkUnitsInCJK=_shrinkUnitsInCJK;
 @property(nonatomic) _Bool disableSmallCapUnits; // @synthesize disableSmallCapUnits=_disableSmallCapUnits;
 @property(retain, nonatomic) NSDate *overrideDate; // @synthesize overrideDate=_overrideDate;
 @property(nonatomic) unsigned long long calendarUnits; // @synthesize calendarUnits=_calendarUnits;
@@ -46,6 +50,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
+- (_Bool)_timerIsPausedAtZero;
 - (void)_configureFormatterForTimerStyle;
 - (_Bool)_configureFormatterForFallbackIndex:(unsigned long long)arg1;
 - (id)_componentsForDate:(id)arg1 visibleUnits:(unsigned long long *)arg2;

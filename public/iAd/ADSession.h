@@ -11,25 +11,30 @@
 #import <iAd/ADSession_RPC-Protocol.h>
 
 @class ADAdSheetConnection, NSMutableArray, NSString;
-@protocol ADSSession_RPC;
+@protocol ADSSession_RPC, OS_dispatch_queue;
 
 @interface ADSession : NSObject <ADSession_RPC, ADAdSheetProxyDelegate, ADAdSheetConnectionDelegate>
 {
     _Bool _applicationCanReceiveBackgroundAds;
     _Bool _appExtensionCanReceiveAds;
+    _Bool _applicationCanRecieveAds;
     int _classicUnavailableToken;
     NSMutableArray *_adSpaces;
     ADAdSheetConnection *_connection;
     NSString *_bundleIdentifier;
+    NSObject<OS_dispatch_queue> *_adSpaceQueue;
 }
 
 + (id)sharedInstance;
+@property(nonatomic) _Bool applicationCanRecieveAds; // @synthesize applicationCanRecieveAds=_applicationCanRecieveAds;
+@property(nonatomic) NSObject<OS_dispatch_queue> *adSpaceQueue; // @synthesize adSpaceQueue=_adSpaceQueue;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(retain, nonatomic) ADAdSheetConnection *connection; // @synthesize connection=_connection;
 @property(nonatomic) int classicUnavailableToken; // @synthesize classicUnavailableToken=_classicUnavailableToken;
 @property(retain, nonatomic) NSMutableArray *adSpaces; // @synthesize adSpaces=_adSpaces;
 @property(nonatomic) _Bool appExtensionCanReceiveAds; // @synthesize appExtensionCanReceiveAds=_appExtensionCanReceiveAds;
 @property(nonatomic) _Bool applicationCanReceiveBackgroundAds; // @synthesize applicationCanReceiveBackgroundAds=_applicationCanReceiveBackgroundAds;
+- (void)_appDidEnterBackground;
 - (void)_appDidBecomeActive;
 - (void)prepareForAdRequests;
 - (void)segmentDataForSignedInUserWithBlock:(CDUnknownBlockType)arg1;
@@ -56,7 +61,7 @@
 - (id)_adSpaceForIdentifier:(id)arg1;
 - (void)unregisterAdSpace:(id)arg1;
 - (void)registerAdSpace:(id)arg1;
-- (void)adSheetConnectionInterrupted;
+- (void)_currentClientAdSpaces;
 - (void)adSheetConnectionLost;
 - (void)adSheetConnectionEstablished;
 - (void)configureConnection:(id)arg1;

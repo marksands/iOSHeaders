@@ -18,7 +18,6 @@
     HUTitleDescriptionContentView *_titleDescriptionView;
 }
 
-+ (id)_emptyCheckmarkPlaceholderImage;
 @property(retain, nonatomic) HUTitleDescriptionContentView *titleDescriptionView; // @synthesize titleDescriptionView=_titleDescriptionView;
 @property(nonatomic) _Bool checked; // @synthesize checked=_checked;
 @property(nonatomic, getter=isDisabled) _Bool disabled; // @synthesize disabled=_disabled;

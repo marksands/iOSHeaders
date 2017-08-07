@@ -39,6 +39,8 @@
 
 + (void)endMatchingExtensions:(id)arg1;
 + (id)beginMatchingExtensionsWithAttributes:(id)arg1 completion:(CDUnknownBlockType)arg2;
++ (void)extensionWithURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
++ (void)extensionWithUUID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (id)extensionWithIdentifier:(id)arg1 excludingDisabledExtensions:(_Bool)arg2 error:(id *)arg3;
 + (id)extensionWithIdentifier:(id)arg1 error:(id *)arg2;
 + (void)extensionsWithMatchingAttributes:(id)arg1 completion:(CDUnknownBlockType)arg2;

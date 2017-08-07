@@ -6,14 +6,14 @@
 
 #import <UIKit/UIView.h>
 
-@class NSString, UIButton;
+@class HKCurrentTimeChevronButton, NSString, UIButton;
 @protocol HKCurrentTimeViewDelegate;
 
 @interface HKCurrentTimeView : UIView
 {
     UIButton *_currentTimeButton;
-    UIButton *_previousTimeIndexButton;
-    UIButton *_nextTimeIndexButton;
+    HKCurrentTimeChevronButton *_previousTimeIndexButton;
+    HKCurrentTimeChevronButton *_nextTimeIndexButton;
     _Bool _disableControls;
     _Bool _currentTimeButtonEnabled;
     NSString *_currentTimeString;

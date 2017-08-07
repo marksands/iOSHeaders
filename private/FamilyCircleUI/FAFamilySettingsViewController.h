@@ -65,6 +65,7 @@
 - (void)remoteUIController:(id)arg1 willPresentObjectModel:(id)arg2 modally:(_Bool)arg3;
 - (void)remoteUIController:(id)arg1 didReceiveObjectModel:(id)arg2 actionSignal:(unsigned long long *)arg3;
 - (id)remoteUIController:(id)arg1 createPageWithName:(id)arg2 attributes:(id)arg3;
+- (void)_handleFamilySubscriptionChanged;
 - (void)_handleMemberUpdate:(id)arg1;
 - (void)_handleMemberDeletion:(id)arg1;
 - (void)_handleFamilyDeletion;
@@ -103,6 +104,7 @@
 - (id)_sharedSubscriptionSpecifiers;
 - (void)traitCollectionDidChange:(id)arg1;
 - (id)specifiers;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)_requestConfigurator;
 - (id)_appleIDGrandSlamSigner;

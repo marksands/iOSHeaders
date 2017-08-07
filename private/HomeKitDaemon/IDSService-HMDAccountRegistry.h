@@ -7,6 +7,6 @@
 #import <IDS/IDSService.h>
 
 @interface IDSService (HMDAccountRegistry)
-@property(readonly, nonatomic, getter=isActive) _Bool isActive;
+@property(readonly, nonatomic, getter=hmd_isActive) _Bool hmd_active;
 @end
 

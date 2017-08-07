@@ -6,18 +6,21 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary, NSString;
+@class NSMutableDictionary, NSNumber, NSString;
 
 @interface PRSModelManager : NSObject
 {
+    _Bool _disablePolicy;
     NSString *_modelVersion;
-    NSString *_shadowVersion;
+    NSNumber *_shadowVersion;
+    NSString *_modelVersionNumber;
+    NSNumber *_shadowVersionNumber;
     NSMutableDictionary *_shadowModels;
     NSMutableDictionary *_models;
     unsigned long long _activeCount;
 }
 
-+ (id)loadIfNecessaryModelOfResourceType:(unsigned long long)arg1 nowTime:(double)arg2 intoModelDict:(id)arg3 currentVersion:(id)arg4;
++ (id)loadIfNecessaryModelOfResourceType:(unsigned long long)arg1 nowTime:(double)arg2 intoModelDict:(id)arg3 currentVersion:(id)arg4 currentVersionNumber:(id)arg5;
 + (void)loadModelWithURL:(id)arg1 type:(unsigned long long)arg2 directivesPath:(id)arg3 intoModelDict:(id)arg4 error:(id *)arg5;
 + (id)directivesFromFilePath:(id)arg1;
 + (_Bool)loadModelsWithDirectory:(id)arg1 intoModelDict:(id)arg2;
@@ -28,7 +31,10 @@
 @property(nonatomic) unsigned long long activeCount; // @synthesize activeCount=_activeCount;
 @property(retain, nonatomic) NSMutableDictionary *models; // @synthesize models=_models;
 @property(retain, nonatomic) NSMutableDictionary *shadowModels; // @synthesize shadowModels=_shadowModels;
-@property(retain, nonatomic) NSString *shadowVersion; // @synthesize shadowVersion=_shadowVersion;
+@property(nonatomic) _Bool disablePolicy; // @synthesize disablePolicy=_disablePolicy;
+@property(retain, nonatomic) NSNumber *shadowVersionNumber; // @synthesize shadowVersionNumber=_shadowVersionNumber;
+@property(retain, nonatomic) NSString *modelVersionNumber; // @synthesize modelVersionNumber=_modelVersionNumber;
+@property(retain, nonatomic) NSNumber *shadowVersion; // @synthesize shadowVersion=_shadowVersion;
 @property(retain, nonatomic) NSString *modelVersion; // @synthesize modelVersion=_modelVersion;
 - (void).cxx_destruct;
 - (double)testL2WithData:(id)arg1 experimental:(_Bool)arg2;
@@ -46,6 +52,7 @@
 - (void)activate;
 - (id)getL3ModelVersion;
 - (id)getL2ModelVersion;
+- (void)dealloc;
 - (id)init;
 
 @end

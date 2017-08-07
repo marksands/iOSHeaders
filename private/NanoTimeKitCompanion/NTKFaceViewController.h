@@ -102,6 +102,7 @@
 - (void)handleOrdinaryScreenWake;
 - (void)handleWristRaiseScreenWake;
 - (void)performWristRaiseAnimation;
+- (void)prepareWristRaiseAnimation;
 - (_Bool)_handlePhysicalButton:(unsigned long long)arg1 event:(unsigned long long)arg2;
 - (_Bool)_wheelChangedWithEvent:(id)arg1;
 - (void)_defaultCleanupAfterZoom;

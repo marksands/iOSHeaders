@@ -25,7 +25,6 @@
     _Bool _enableMapsSuggestionsEntryTypeCarPlayLowEnergy;
     _Bool _enableMapsSuggestionsEntryTypeResumeRoute;
     _Bool _enableMapsSuggestionsEntryTypeAppConnection;
-    _Bool _enableMapsSuggestionsEntryTypeExploreVenue;
     _Bool _enableMapsSuggestionsEntryTypeHotel;
     _Bool _enableMapsSuggestionsEntryTypeCarRental;
     _Bool _enableMapsSuggestionsEntryTypeTravelFlight;

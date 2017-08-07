@@ -4,16 +4,28 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <ARKit/ARTrackedAnchor.h>
+#import <ARKit/ARAnchor.h>
 
-@interface ARMarkerAnchor : ARTrackedAnchor
+#import <ARKit/ARTrackable-Protocol.h>
+
+@class NSString;
+
+@interface ARMarkerAnchor : ARAnchor <ARTrackable>
 {
+    _Bool _isTracked;
     unsigned long long _markerID;
 }
 
+@property(nonatomic) _Bool isTracked; // @synthesize isTracked=_isTracked;
 @property(readonly, nonatomic) unsigned long long markerID; // @synthesize markerID=_markerID;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 -     // Error parsing type: @92@0:8Q16{?=[4]}24B88, name: initWithMarkerID:transform:isTracked:
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

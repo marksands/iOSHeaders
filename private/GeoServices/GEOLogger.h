@@ -29,9 +29,9 @@
 - (void)cachedStateOfType:(int)arg1 getCachedStateOfTypeBlock:(CDUnknownBlockType)arg2;
 - (id)_cachedStateOfType:(int)arg1;
 - (void)registerLogMsgState:(id)arg1;
-- (void)_captureLogMsgEvent:(id)arg1 eventTime:(double)arg2 withMergedContext:(id)arg3;
-- (void)captureLogMsgEvent:(id)arg1 eventTime:(double)arg2 withLogContext:(id)arg3;
-- (void)captureLogMsgEvent:(id)arg1 eventTime:(double)arg2;
+- (void)_captureLogMsgEvent:(id)arg1 userSessionSnapshot:(id)arg2 withMergedContext:(id)arg3;
+- (void)captureLogMsgEvent:(id)arg1 userSessionSnapshot:(id)arg2 withLogContext:(id)arg3;
+- (void)captureLogMsgEvent:(id)arg1 userSessionSnapshot:(id)arg2;
 - (id)sharedLogManagerInstance;
 - (void)dealloc;
 - (id)init;

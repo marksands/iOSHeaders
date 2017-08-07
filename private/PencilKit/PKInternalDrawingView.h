@@ -173,6 +173,7 @@
 - (void)setupOpenGLWithPixelSize:(struct CGSize)arg1 drawingSize:(struct CGSize)arg2;
 - (void)_gestureRecognizerFailed:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)updateZoomScaleCaps;
 - (void)setupGestures;

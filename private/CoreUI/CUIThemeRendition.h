@@ -16,6 +16,8 @@ __attribute__((visibility("hidden")))
     long long _type;
     unsigned int _subtype;
     unsigned int _scale;
+    int _exifOrientation;
+    int _blendMode;
     struct {
         unsigned int isHeaderFlaggedFPO:1;
         unsigned int isExcludedFromContrastFilter:1;
@@ -25,7 +27,8 @@ __attribute__((visibility("hidden")))
         unsigned int optOutOfThinning:1;
         unsigned int isFlippable:1;
         unsigned int isTintable:1;
-        unsigned int reserved:21;
+        unsigned int preservedVectorRepresentation:1;
+        unsigned int reserved:20;
     } _renditionFlags;
     long long _templateRenderingMode;
     long long _artworkStatus;
@@ -34,9 +37,7 @@ __attribute__((visibility("hidden")))
     NSData *_srcData;
     long long _validLookGradation;
     double _opacity;
-    int _blendMode;
     NSString *_utiType;
-    int _exifOrientation;
     struct CGImage *_uncroppedImage;
 }
 
@@ -81,6 +82,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)colorSpaceID;
 - (long long)artworkStatus;
 - (_Bool)isTintable;
+- (_Bool)preservedVectorRepresentation;
 - (_Bool)isFlippable;
 - (_Bool)optOutOfThinning;
 - (long long)templateRenderingMode;

@@ -9,6 +9,7 @@
 @class IMItem, IMMessageItem, NSArray, NSData, NSDictionary, NSError, NSNumber, NSString;
 
 @protocol IMDaemonListenerProtocol <NSObject>
+- (void)didFetchCloudKitSyncDebuggingInfo:(NSDictionary *)arg1;
 - (void)receivedUrgentRequestForMessages:(NSArray *)arg1;
 - (void)didAttemptToDisableiCloudBackups:(long long)arg1 error:(NSError *)arg2;
 - (void)didFetchSyncStateStats:(NSDictionary *)arg1;

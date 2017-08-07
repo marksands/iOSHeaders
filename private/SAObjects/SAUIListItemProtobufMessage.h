@@ -14,6 +14,7 @@
 
 + (id)listItemProtobufMessageWithDictionary:(id)arg1 context:(id)arg2;
 + (id)listItemProtobufMessage;
+@property(copy, nonatomic) NSData *dynamicURLImageResourceDataEvodBumper;
 @property(copy, nonatomic) NSData *dynamicURLImageResourceData;
 - (id)encodedClassName;
 - (id)groupIdentifier;

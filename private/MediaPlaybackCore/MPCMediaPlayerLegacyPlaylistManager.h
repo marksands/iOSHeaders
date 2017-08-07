@@ -102,6 +102,7 @@
 - (_Bool)isPlaceholderItemForContentItemID:(id)arg1;
 - (id)itemForContentItemID:(id)arg1;
 - (id)itemForPlaylistIndex:(long long)arg1;
+- (long long)upNextItemCount;
 - (void)handlePlaybackFailureForItem:(id)arg1;
 - (unsigned long long)displayCountForItem:(id)arg1;
 - (unsigned long long)displayIndexForItem:(id)arg1;

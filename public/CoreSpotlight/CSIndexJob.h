@@ -20,9 +20,11 @@
     NSArray *_excludedBundleIDs;
     NSString *_providerIdentifier;
     NSString *_providerType;
+    NSString *_extensionBundleID;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSString *extensionBundleID; // @synthesize extensionBundleID=_extensionBundleID;
 @property(retain, nonatomic) NSString *providerType; // @synthesize providerType=_providerType;
 @property(retain, nonatomic) NSString *providerIdentifier; // @synthesize providerIdentifier=_providerIdentifier;
 @property(retain, nonatomic) NSArray *excludedBundleIDs; // @synthesize excludedBundleIDs=_excludedBundleIDs;

@@ -44,6 +44,7 @@
 + (id)composeRecipientWithAutocompleteResult:(id)arg1;
 + (id)mf_recipientWithGALResult:(id)arg1;
 + (id)writableTypeIdentifiersForItemProvider;
++ (id)objectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 + (id)readableTypeIdentifiersForItemProvider;
 @property(readonly, nonatomic) unsigned long long kind; // @synthesize kind=_kind;
 @property(retain, nonatomic) CNAutocompleteResult *autocompleteResult; // @synthesize autocompleteResult=_autocompleteResult;
@@ -94,7 +95,6 @@
 - (id)init;
 - (void)dealloc;
 - (id)loadDataWithTypeIdentifier:(id)arg1 forItemProviderCompletionHandler:(CDUnknownBlockType)arg2;
-- (id)initWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

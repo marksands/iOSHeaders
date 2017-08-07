@@ -33,6 +33,11 @@
 @property(copy, nonatomic) id <HFStringGenerator> primaryStatusText; // @synthesize primaryStatusText=_primaryStatusText;
 @property(readonly, nonatomic) HUIconView *iconView; // @synthesize iconView=_iconView;
 - (void).cxx_destruct;
+- (id)_secondaryFont;
+- (id)_secondaryFontMetrics;
+- (id)_primaryFont;
+- (id)_primaryFontMetrics;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)updateConstraints;
 - (id)viewForLastBaselineLayout;
 - (id)viewForFirstBaselineLayout;

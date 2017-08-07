@@ -8,21 +8,21 @@
 
 #import <UIKit/NSSecureCoding-Protocol.h>
 
-@class NSData, NSURL;
+@class FPSandboxingURLWrapper, NSURL;
 
 @interface UISUISecurityScopedResource : NSObject <NSSecureCoding>
 {
     _Bool _hasActiveAccessAssertion;
     NSURL *_url;
     long long _allowedAccess;
-    NSData *_sandboxExtensionData;
+    FPSandboxingURLWrapper *_sandboxExtensionWrapper;
     long long _underlyingSandboxAssertionHandle;
 }
 
-+ (id)_sandboxExtensionDataForURL:(id)arg1 allowedAccess:(long long)arg2;
 + (id)_scopedResourcesForAncestorsOfItemWithAbsolutePath:(id)arg1 traversalStopPaths:(id)arg2 allowedAccess:(long long)arg3;
 + (id)uniquedSecurityScopedResources:(id)arg1;
 + (id)_sandboxExtensionClassForAllowedAccess:(long long)arg1;
++ (_Bool)_isValidURLForIssuingSandboxExtension:(id)arg1;
 + (id)readwriteSandboxExtensionClassString;
 + (id)readonlySandboxExtensionClassString;
 + (_Bool)supportsSecureCoding;
@@ -32,7 +32,7 @@
 + (id)scopedResourceWithAbsolutePath:(id)arg1 allowedAccess:(long long)arg2;
 @property(nonatomic) long long underlyingSandboxAssertionHandle; // @synthesize underlyingSandboxAssertionHandle=_underlyingSandboxAssertionHandle;
 @property(nonatomic) _Bool hasActiveAccessAssertion; // @synthesize hasActiveAccessAssertion=_hasActiveAccessAssertion;
-@property(retain, nonatomic) NSData *sandboxExtensionData; // @synthesize sandboxExtensionData=_sandboxExtensionData;
+@property(retain, nonatomic) FPSandboxingURLWrapper *sandboxExtensionWrapper; // @synthesize sandboxExtensionWrapper=_sandboxExtensionWrapper;
 @property(nonatomic) long long allowedAccess; // @synthesize allowedAccess=_allowedAccess;
 @property(readonly, nonatomic) NSURL *url; // @synthesize url=_url;
 - (void).cxx_destruct;
@@ -43,7 +43,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(readonly, nonatomic) _Bool sourceIsManaged;
-- (id)initWithAbsoluteURL:(id)arg1 sandboxExtensionData:(id)arg2 allowedAccess:(long long)arg3;
+- (id)initWithAbsoluteURL:(id)arg1 sandboxExtensionWrapper:(id)arg2 allowedAccess:(long long)arg3;
 
 @end
 

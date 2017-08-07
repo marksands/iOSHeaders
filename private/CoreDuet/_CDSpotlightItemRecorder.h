@@ -10,7 +10,7 @@
 #import <CoreDuet/SpotlightReceiver-Protocol.h>
 
 @class NSMutableArray, NSMutableDictionary, NSString;
-@protocol OS_dispatch_queue, OS_dispatch_source, _CDInteractionRecording><_CDInteractionDeleting, _DKKnowledgeSaving><_DKKnowledgeDeleting><_DKKnowledgeQuerying><_DKKnowledgeEventStreamDeleting;
+@protocol OS_dispatch_queue, OS_dispatch_source, OS_os_transaction, _CDInteractionRecording><_CDInteractionDeleting, _DKKnowledgeSaving><_DKKnowledgeDeleting><_DKKnowledgeQuerying><_DKKnowledgeEventStreamDeleting;
 
 @interface _CDSpotlightItemRecorder : NSObject <SpotlightReceiver, CSSearchableIndexObserver>
 {
@@ -18,6 +18,7 @@
     NSObject<OS_dispatch_queue> *_batchExecutionSourceQueue;
     NSObject<OS_dispatch_queue> *_pendingOperationsQueue;
     NSMutableArray *_pendingOperations;
+    NSObject<OS_os_transaction> *_pendingOperationsTransaction;
     NSObject<OS_dispatch_queue> *_activityRateLimiterQueue;
     NSMutableDictionary *_activityPerBundleRateLimit;
     id <_DKKnowledgeSaving><_DKKnowledgeDeleting><_DKKnowledgeQuerying><_DKKnowledgeEventStreamDeleting> _knowledgeStore;
@@ -41,6 +42,7 @@
 - (void)deleteKnowledgeEventsWithBundleID:(id)arg1;
 - (void)addUserAction:(id)arg1 withItem:(id)arg2;
 - (void)addOrUpdateCoreDuetInteractions:(id)arg1 bundleID:(id)arg2;
+- (void)enqueueOperation:(id)arg1;
 - (void)addOrUpdateSearchableItems:(id)arg1 bundleID:(id)arg2;
 - (id)supportedINIntentClassNames;
 - (void)addInteractions:(id)arg1 bundleID:(id)arg2 protectionClass:(id)arg3;

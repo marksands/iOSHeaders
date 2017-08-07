@@ -36,6 +36,7 @@
 - (void)setHighlighted:(_Bool)arg1;
 - (struct UIEdgeInsets)alignmentRectInsets;
 - (void)animateFlipClockwise:(_Bool)arg1;
+- (id)mainImageNameForAccessibilityHUD:(_Bool)arg1;
 - (void)_updateImages;
 - (void)_commonCAMFlipButtonInitializationWithStyle:(long long)arg1;
 

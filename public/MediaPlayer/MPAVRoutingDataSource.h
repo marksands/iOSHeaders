@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 - (void)_unregisterNotifications;
 - (void)_registerNotifications;
+- (void)_activeAudioRouteDidChangeNotification:(id)arg1;
 - (void)_externalScreenTypeDidChangeNotification:(id)arg1;
 - (void)_volumeControlAvailabilityDidChangeNotification:(id)arg1;
 - (void)setPickedRoute:(id)arg1 withPassword:(id)arg2 completion:(CDUnknownBlockType)arg3;

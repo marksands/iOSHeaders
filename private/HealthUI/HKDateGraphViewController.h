@@ -27,6 +27,7 @@
 - (void)graphView:(id)arg1 didUpdateYAxisWidth:(double)arg2 toWidth:(double)arg3;
 - (void)graphView:(id)arg1 didFinishUserScrollingToValueRange:(id)arg2;
 - (void)graphView:(id)arg1 didUpdateVisibleValueRange:(id)arg2 changeContext:(long long)arg3;
+- (void)_updateDateSliderWithRange:(id)arg1 graphView:(id)arg2;
 - (void)_marginStyleChangeForContext:(long long)arg1 graphView:(id)arg2;
 - (id)_dateAxisStyle;
 - (id)_xAxisLabelFont;

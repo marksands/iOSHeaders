@@ -8,7 +8,6 @@
 
 @class VKLabelMarker;
 
-__attribute__((visibility("hidden")))
 @interface _MKLabelMarkerItem : GEOBaseMapItem
 {
     VKLabelMarker *_labelMarker;
@@ -21,9 +20,11 @@ __attribute__((visibility("hidden")))
 - (_Bool)_hasVenueFeatureType;
 - (id)_venueInfo;
 - (id)_styleAttributes;
+- (_Bool)_isTransitDisplayFeature;
 - (id)_identifier;
 - (unsigned long long)_muid;
 - (_Bool)_hasMUID;
+- (id)_labelMarker;
 - (_Bool)_hasResolvablePartialInformation;
 - (CDStruct_c3b9c2ee)coordinate;
 - (int)referenceFrame;

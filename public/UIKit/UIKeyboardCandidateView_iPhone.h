@@ -16,10 +16,13 @@ __attribute__((visibility("hidden")))
 {
     UIKeyboardCandidateGridHeader *_header;
     _Bool _keyboardIsHidden;
+    _Bool _showingSortControl;
 }
 
 + (double)defaultExtendedControlHeight;
 - (void).cxx_destruct;
+- (void)showSortControl:(_Bool)arg1 animated:(_Bool)arg2;
+- (_Bool)shouldAutomaticallyHideAndShowSortControl;
 - (void)_handleKeyboardShowOrHide:(id)arg1;
 - (struct UIEdgeInsets)sortControlInsets;
 - (void)handleTap;

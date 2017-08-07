@@ -13,9 +13,11 @@
     NSString *_dbPath;
     _PASSqliteDatabase *_db;
     id _lockStateNotificationToken;
+    _Bool _allowSkipSchema;
 }
 
 + (id)inMemoryStoreForTesting;
++ (id)getSchema:(unsigned long long *)arg1;
 - (void).cxx_destruct;
 - (void)closeDbForTesting;
 - (unsigned long long)numberOfRowsInTable:(id)arg1;
@@ -25,16 +27,19 @@
 - (void)storeSession:(id)arg1 source:(id)arg2 label:(long long)arg3 model:(id)arg4;
 - (_Bool)createSnapshot:(id)arg1;
 - (id)dbForTesting;
+- (id)getSchema:(unsigned long long *)arg1;
 - (_Bool)isDbOpen;
 - (void)updateSessionsAndLabelForModel:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (_Bool)_runQueries:(id)arg1 andUpdateVersionTo:(unsigned long long)arg2 inTransactionOnDb:(id)arg3;
 - (long long)_migrateTo:(id)arg1;
+- (long long)_migrate;
 - (void)dealloc;
 - (_Bool)_truncateDbIfCorrupted;
 - (long long)_openDbIfUnlocked;
 - (void)_unregisterUnlockHandler;
 - (void)_registerUnlockHandler;
 - (unsigned long long)_sessionDescriptorIdFor:(id)arg1;
+- (void)enumerateSessionDescriptorsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)deleteReceivedPlan:(struct NSString *)arg1;
 - (void)storeReceivedPlan:(id)arg1 planId:(id)arg2;
 - (void)enumerateReceivedPlansUsingBlock:(CDUnknownBlockType)arg1;
@@ -56,6 +61,7 @@
 - (void)storeSession:(id)arg1 source:(id)arg2 label:(long long)arg3 model:(id)arg4 bundleId:(id)arg5 domainId:(id)arg6 itemIds:(id)arg7 isAppleInternal:(_Bool)arg8;
 - (void)storeSession:(id)arg1 label:(long long)arg2 model:(id)arg3 bundleId:(id)arg4 domainId:(id)arg5 itemIds:(id)arg6 isAppleInternal:(_Bool)arg7;
 - (id)initWithPath:(id)arg1;
+- (id)initWithPath:(id)arg1 allowSkipSchema:(_Bool)arg2;
 - (id)init;
 
 @end

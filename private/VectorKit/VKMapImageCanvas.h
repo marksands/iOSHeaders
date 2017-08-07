@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (struct LabelSettings *)labelSettings;
 - (void)cancelTileRequests;
 - (void)clearScene;
+- (void)setEmphasis:(unsigned char)arg1;
 - (void)setMapDisplayStyle:(struct DisplayStyle)arg1;
 - (void)setMapType:(long long)arg1;
 - (void)update;

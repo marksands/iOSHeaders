@@ -29,10 +29,6 @@
 @property(nonatomic) long long numberOfTotalMagicMoments; // @synthesize numberOfTotalMagicMoments=_numberOfTotalMagicMoments;
 @property(nonatomic) long long numberOfTotalActions; // @synthesize numberOfTotalActions=_numberOfTotalActions;
 - (void).cxx_destruct;
-- (id)_listingsForSupportingCast;
-- (id)_listingsForJessie;
-- (id)_listingsForWoody;
-- (id)_listingsForBuzz;
 - (void)_countListings;
 - (void)_loadCharacters;
 - (id)listingsOfTypes:(id)arg1 withAttributes:(id)arg2 recentlyUsed:(id)arg3;

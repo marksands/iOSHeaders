@@ -43,7 +43,6 @@ __attribute__((visibility("hidden")))
 - (id)_newButtonBarWithItems:(id)arg1;
 - (void)_updateButtonBarConstraintConstantsForItems:(id)arg1 inView:(id)arg2;
 - (void)tintColorDidChange;
-- (void)safeAreaInsetsDidChange;
 - (void)layoutMarginsDidChange;
 
 @end

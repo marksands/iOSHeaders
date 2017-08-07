@@ -25,10 +25,8 @@
     MSPCloudRepeatableTask *_originalErrorTriggeringTask;
     MSPCloudRepeatableTask *_errorResolvingTask;
     MSPCloudRepeatableTask *_parentTask;
-    long long _desiredQualityOfService;
 }
 
-@property(readonly, nonatomic, getter=_desiredQualityOfService) long long desiredQualityOfService; // @synthesize desiredQualityOfService=_desiredQualityOfService;
 @property(nonatomic) __weak MSPCloudRepeatableTask *parentTask; // @synthesize parentTask=_parentTask;
 @property(retain, nonatomic) MSPCloudRepeatableTask *errorResolvingTask; // @synthesize errorResolvingTask=_errorResolvingTask;
 @property(retain, nonatomic) MSPCloudRepeatableTask *originalErrorTriggeringTask; // @synthesize originalErrorTriggeringTask=_originalErrorTriggeringTask;
@@ -42,7 +40,7 @@
 - (void)failWithError:(id)arg1 canReattempt:(_Bool)arg2 maxAttempts:(unsigned long long)arg3 minimumReattemptDate:(id)arg4;
 - (void)setFailureHandler:(CDUnknownBlockType)arg1;
 - (void)performRequest:(id)arg1 continuation:(CDUnknownBlockType)arg2;
-- (long long)desiredQualityOfService;
+@property(readonly, nonatomic, getter=_desiredQualityOfService) long long desiredQualityOfService;
 - (void)performCancel;
 - (void)attemptWithAccess:(id)arg1;
 - (id)description;

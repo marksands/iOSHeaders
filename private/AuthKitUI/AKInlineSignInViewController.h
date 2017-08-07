@@ -8,7 +8,7 @@
 
 #import <AuthKitUI/UITextFieldDelegate-Protocol.h>
 
-@class AKAppleIDAuthenticationInAppContext, AKTextField, NSLayoutConstraint, NSString, UIActivityIndicatorView, UIButton, UIView, _AKInlineSignInScrollView;
+@class AKAppleIDAuthenticationInAppContext, AKTextField, NSString, UIActivityIndicatorView, UIButton, UIView;
 
 @interface AKInlineSignInViewController : AKBaseSignInViewController <UITextFieldDelegate>
 {
@@ -18,15 +18,8 @@
     NSString *_secondaryButtonTitle;
     NSString *_tertiaryButtonTitle;
     AKAppleIDAuthenticationInAppContext *_context;
-    NSLayoutConstraint *_loginContainerToSignInBaselineConstraint;
-    NSLayoutConstraint *_signInLastBaselineToIforgotFirstBaselineConstraint;
-    NSLayoutConstraint *_iforgotLastBaselineToCreateIDFirstBaselineConstraint;
-    NSLayoutConstraint *_iforgotButtonHeightConstraint;
-    NSLayoutConstraint *_createAppleIDButtonHeightConstraint;
     _Bool _wantsAuthenticationProgress;
     NSString *_primaryButtonTitle;
-    _AKInlineSignInScrollView *_viewScrollView;
-    UIView *_containerView;
     UIView *_loginFieldsContainer;
     AKTextField *_appleIDField;
     AKTextField *_passwordField;
@@ -43,8 +36,6 @@
 @property(retain) AKTextField *passwordField; // @synthesize passwordField=_passwordField;
 @property(retain) AKTextField *appleIDField; // @synthesize appleIDField=_appleIDField;
 @property(retain) UIView *loginFieldsContainer; // @synthesize loginFieldsContainer=_loginFieldsContainer;
-@property(retain) UIView *containerView; // @synthesize containerView=_containerView;
-@property(retain) _AKInlineSignInScrollView *viewScrollView; // @synthesize viewScrollView=_viewScrollView;
 @property(readonly) NSString *primaryButtonTitle; // @synthesize primaryButtonTitle=_primaryButtonTitle;
 @property _Bool wantsAuthenticationProgress; // @synthesize wantsAuthenticationProgress=_wantsAuthenticationProgress;
 - (void).cxx_destruct;
@@ -64,19 +55,16 @@
 - (void)_updateVibrancyAndBlurInTextFields;
 - (void)_prefillAuthFields;
 - (void)_updateSignInFieldStatuses;
-- (void)updateViewConstraints;
-- (void)viewDidAppear:(_Bool)arg1;
 - (void)_updatePlaceholderIfNeeded;
 - (void)viewDidLoad;
-- (void)loadView;
 - (void)setContext:(id)arg1;
 - (id)context;
 - (void)setTertiaryButtonTarget:(id)arg1 action:(SEL)arg2;
 - (void)setSecondaryButtonTarget:(id)arg1 action:(SEL)arg2;
 @property(copy) NSString *tertiaryButtonTitle;
 @property(copy) NSString *secondaryButtonTitle;
-- (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)dealloc;
 - (id)init;
 - (_Bool)usesDarkMode;
 - (void)setUsesDarkMode:(_Bool)arg1;

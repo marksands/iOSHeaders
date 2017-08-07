@@ -25,6 +25,8 @@
     unsigned long long _currentQueryID;
 }
 
++ (void)_updateAutoFillCorrectionSetsIfNeededForSession:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (void)_updateAutoFillTLDsIfNeededForSession:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (_Bool)shouldUseSearchFoundation;
 + (id)sharedCorrectionsProcessor;
 + (id)sharedDomainPolicyProvider;
@@ -36,9 +38,7 @@
 @property(retain, nonatomic) WBSCompletionQuery *currentQuery; // @synthesize currentQuery=_currentQuery;
 @property(nonatomic) __weak id <WBSParsecSearchSessionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_updateAutoFillCorrectionSetsIfNeededFromNewBag:(id)arg1;
-- (void)_updateAutoFillTLDsIfNeededFromNewBag:(id)arg1;
-- (void)_startUpdatingAutoFillDataInBackgroundFromBag:(id)arg1;
+- (void)_startUpdatingAutoFillDataInBackgroundIfPossibleForSession:(id)arg1;
 - (void)session:(id)arg1 bag:(id)arg2 didLoadWithError:(id)arg3;
 @property(readonly, nonatomic) id <WBSParsecFeedbackDispatcher> feedbackDispatcher;
 - (void)fetchCardDetailsForResult:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;

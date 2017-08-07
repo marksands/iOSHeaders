@@ -6,12 +6,15 @@
 
 #import <HMFoundation/HMFObject.h>
 
-@class CKRecord, CKRecordID, HMDCloudRecord, NSArray, NSMutableSet, NSUUID;
+#import <HomeKitDaemon/HMDBackingStoreChangeObject-Protocol.h>
 
-@interface HMDCloudChange : HMFObject
+@class CKRecord, CKRecordID, HMDBackingStoreModelObject, HMDCloudRecord, NSArray, NSMutableSet, NSSet, NSString, NSUUID;
+
+@interface HMDCloudChange : HMFObject <HMDBackingStoreChangeObject>
 {
-    NSUUID *_objectID;
+    HMDBackingStoreModelObject *_objectChange;
     HMDCloudRecord *_cloudRecord;
+    HMDCloudRecord *_deletedCloudRecord;
     unsigned long long _changeType;
     unsigned long long _applyType;
     NSMutableSet *_rowIDsSet;
@@ -21,13 +24,16 @@
 @property(readonly, nonatomic) NSMutableSet *rowIDsSet; // @synthesize rowIDsSet=_rowIDsSet;
 @property(nonatomic) unsigned long long applyType; // @synthesize applyType=_applyType;
 @property(nonatomic) unsigned long long changeType; // @synthesize changeType=_changeType;
+@property(readonly, nonatomic) HMDCloudRecord *deletedCloudRecord; // @synthesize deletedCloudRecord=_deletedCloudRecord;
 @property(readonly, nonatomic) HMDCloudRecord *cloudRecord; // @synthesize cloudRecord=_cloudRecord;
-@property(readonly, nonatomic) NSUUID *objectID; // @synthesize objectID=_objectID;
+@property(retain, nonatomic) HMDBackingStoreModelObject *objectChange; // @synthesize objectChange=_objectChange;
 - (void).cxx_destruct;
 - (void)replayChange:(id)arg1 stagedChange:(id)arg2;
 - (void)updateChangeWithRecord:(id)arg1;
 @property(readonly, nonatomic) CKRecordID *recordID;
 @property(readonly, nonatomic) CKRecord *record;
+- (void)updateWithObjectChange:(id)arg1;
+- (void)updateDeletedCloudRecord:(id)arg1;
 - (void)updateCloudRecord:(id)arg1;
 - (void)forceChangeToInvalid;
 - (void)forceChangeToDelete;
@@ -39,11 +45,20 @@
 @property(readonly, nonatomic, getter=isDeleted) _Bool deleteChange;
 @property(readonly, nonatomic, getter=isUpdated) _Bool updateChange;
 @property(readonly, nonatomic, getter=isAdded) _Bool addChange;
-- (id)change;
-- (id)description;
+@property(readonly, nonatomic) NSUUID *objectID;
+@property(readonly, nonatomic) NSSet *dependentUUIDs;
+@property(readonly, nonatomic) HMDBackingStoreModelObject *change;
+@property(readonly, copy) NSString *description;
 - (id)shortDescription;
-- (id)_initWithChangeType:(unsigned long long)arg1 cloudRecord:(id)arg2;
+- (id)initWithCloudObjectRecord:(id)arg1;
+- (id)initWithObjectChange:(id)arg1;
+- (id)_initWithObjectChange:(id)arg1 cloudObjectRecord:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -59,7 +59,6 @@ __attribute__((visibility("hidden")))
 - (void)dismissViewControllerForCardActionsView:(id)arg1 animated:(_Bool)arg2;
 - (id)viewControllerForCardActionsView:(id)arg1;
 - (void)cardActionsView:(id)arg1 didShowActions:(id)arg2;
-- (void)cardActionsView:(id)arg1 willShowActions:(id)arg2;
 - (id)cardActionsView:(id)arg1 orderedPropertiesForProperties:(id)arg2 category:(id)arg3;
 - (void)refreshActions;
 - (void)_updatePreferredSize;

@@ -102,11 +102,12 @@
 - (void)_accessibilitySetAllowShowNotificationGestureOverride:(_Bool)arg1;
 - (id)_accessibilityCoverSheetPresentationManagerSharedInstance;
 - (_Bool)_accessibilityShowNotificationCenter:(_Bool)arg1 serverInstance:(id)arg2;
-- (_Bool)_accessibilityShowCoverSheet:(_Bool)arg1 completion:(CDUnknownBlockType)arg2 serverInstance:(id)arg3;
+- (_Bool)_accessibilityShowCoverSheet:(_Bool)arg1 serverInstance:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)accessibilityIsNotificationVisible;
 - (_Bool)_accessibilityIsUILocked;
 - (void)launchFloatingApplication:(id)arg1;
 - (void)launchPinnedApplication:(id)arg1 onLeft:(_Bool)arg2;
+- (void)launchApplicationWithFullConfiguration:(id)arg1;
 - (void)launchApplication:(id)arg1;
 - (void)rebootDeviceWithServerInstance:(id)arg1;
 - (void)activateSOSModeWithServerInstance:(id)arg1;
@@ -118,6 +119,7 @@
 - (void)launchMagnifierAppWithServerInstance:(id)arg1;
 - (void)forceLoadGAXBundleWithServerInstance:(id)arg1;
 - (void)revealSpotlightWithServerInstance:(id)arg1;
+- (id)medusaBundleIDsToLayoutRoles;
 - (id)medusaAppsWithServerInstance:(id)arg1;
 - (_Bool)serverInstance:(id)arg1 performMedusaGesture:(unsigned long long)arg2;
 - (id)allowedMedusaGesturesWithServerInstance:(id)arg1;

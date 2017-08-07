@@ -49,6 +49,7 @@
 @property(readonly) NSDictionary *settings; // @synthesize settings=_settings;
 @property(readonly) NSDictionary *inputs; // @synthesize inputs=_inputs;
 @property(nonatomic) long long evaluatedForMode; // @synthesize evaluatedForMode=_evaluatedForMode;
+@property(readonly, nonatomic) _Bool isCached; // @synthesize isCached=_cached;
 - (void).cxx_destruct;
 - (void)nu_updateDigest:(id)arg1;
 - (unsigned long long)hash;

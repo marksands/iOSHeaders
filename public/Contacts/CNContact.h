@@ -10,13 +10,15 @@
 #import <Contacts/CNObjectValidation-Protocol.h>
 #import <Contacts/CNSuggested-Protocol.h>
 #import <Contacts/NSCopying-Protocol.h>
+#import <Contacts/NSItemProviderReading-Protocol.h>
+#import <Contacts/NSItemProviderWriting-Protocol.h>
 #import <Contacts/NSMutableCopying-Protocol.h>
 #import <Contacts/NSSecureCoding-Protocol.h>
 
 @class CNActivityAlert, CNContactKeyVector, NSArray, NSData, NSDate, NSDateComponents, NSDictionary, NSSet, NSString, SGRecordId;
 @protocol CNKeyDescriptor;
 
-@interface CNContact : NSObject <CNSuggested, CNContactAugmentation, CNObjectValidation, NSCopying, NSMutableCopying, NSSecureCoding>
+@interface CNContact : NSObject <NSItemProviderReading, NSItemProviderWriting, CNSuggested, CNContactAugmentation, CNObjectValidation, NSCopying, NSMutableCopying, NSSecureCoding>
 {
     NSString *_internalIdentifier;
     int _iOSLegacyIdentifier;
@@ -137,6 +139,11 @@
 + (id)contactPropertyKeyFromPublicABPropertyID:(int)arg1;
 + (id)contactFromPublicABPerson:(void *)arg1 keysToFetch:(id)arg2 mutable:(_Bool)arg3;
 + (id)contactFromPublicABPerson:(void *)arg1 keysToFetch:(id)arg2;
++ (id)writableTypeIdentifiersForItemProvider;
++ (id)contactWithArchivedData:(id)arg1 error:(id *)arg2;
++ (id)contactWithVCardData:(id)arg1 error:(id *)arg2;
++ (id)objectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
++ (id)readableTypeIdentifiersForItemProvider;
 + (id)suggestionIDFromContactIdentifier:(id)arg1;
 + (id)contactIdentifierFromSuggestionID:(id)arg1;
 + (id)contactFromSuggestion:(id)arg1;
@@ -262,6 +269,8 @@
 @property(readonly, copy) NSString *lastName;
 @property(readonly, copy) NSString *firstName;
 @property(readonly, copy) NSString *nameTitle;
+- (id)loadDataWithTypeIdentifier:(id)arg1 forItemProviderCompletionHandler:(CDUnknownBlockType)arg2;
+@property(readonly, copy, nonatomic) NSArray *writableTypeIdentifiersForItemProvider;
 @property(readonly, nonatomic) _Bool hasSuggestedProperties;
 - (id)copyWithNoSuggestion;
 @property(readonly, nonatomic) NSString *suggestionFoundInBundleId;

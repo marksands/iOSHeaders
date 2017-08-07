@@ -59,8 +59,8 @@
 - (_Bool)uninstallApplication:(id)arg1 withOptions:(id)arg2;
 - (_Bool)downgradeApplicationToPlaceholder:(id)arg1 withOptions:(id)arg2 error:(id *)arg3;
 - (_Bool)installApplication:(id)arg1 withOptions:(id)arg2 error:(id *)arg3 usingBlock:(CDUnknownBlockType)arg4;
-- (void)placeholderInstalledForIdentifier:(id)arg1 operationType:(unsigned long long)arg2;
 - (_Bool)registerBundleWithInfo:(id)arg1 options:(id)arg2 type:(unsigned long long)arg3 progress:(id)arg4;
+- (void)placeholderInstalledForIdentifier:(id)arg1 filterDowngrades:(_Bool)arg2;
 - (_Bool)installApplication:(id)arg1 withOptions:(id)arg2 error:(id *)arg3;
 - (_Bool)installApplication:(id)arg1 withOptions:(id)arg2;
 - (_Bool)getClaimedActivityTypes:(id *)arg1 domains:(id *)arg2;
@@ -84,11 +84,11 @@
 - (id)operationToOpenResource:(id)arg1 usingApplication:(id)arg2 uniqueDocumentIdentifier:(id)arg3 sourceIsManaged:(_Bool)arg4 userInfo:(id)arg5 options:(id)arg6 delegate:(id)arg7;
 - (void)openUserActivity:(id)arg1 withApplicationProxy:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)openUserActivity:(id)arg1 withApplicationProxy:(id)arg2 options:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (_Bool)openSensitiveURL:(id)arg1 withOptions:(id)arg2;
-- (_Bool)openURL:(id)arg1;
 - (_Bool)openSensitiveURL:(id)arg1 withOptions:(id)arg2 error:(id *)arg3;
+- (_Bool)openSensitiveURL:(id)arg1 withOptions:(id)arg2;
 - (_Bool)openURL:(id)arg1 withOptions:(id)arg2 error:(id *)arg3;
 - (_Bool)openURL:(id)arg1 withOptions:(id)arg2;
+- (_Bool)openURL:(id)arg1;
 - (_Bool)openApplicationWithBundleID:(id)arg1;
 - (id)applicationForUserActivityDomainName:(id)arg1;
 - (id)applicationForUserActivityType:(id)arg1;

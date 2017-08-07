@@ -96,7 +96,6 @@
     UIColor *_indexTrackingBackgroundColor;
     NSArray *_defaultSectionIndexTitles;
     UISwipeActionController *_swipeActionController;
-    NSArray *_swipeDeletionPendingShadowUpdateItems;
     NSArray *_swipeDeletionShadowUpdateIdentifiers;
     UISwipeGestureRecognizer *_swipeGestureRecognizer;
     UIGobblerGestureRecognizer *_swipeToDeleteGobblerGestureRecognizer;
@@ -300,6 +299,8 @@
         unsigned int didDisableNavigationGesture:1;
         unsigned int separatorsDrawAsOverlay:1;
         unsigned int swipeToDeleteRowIsBeingDeleted:1;
+        unsigned int swipeToDeleteRowHasBeenDeleted:1;
+        unsigned int swipeToDeleteSectionHasBeenDeleted:1;
         unsigned int drawsSeparatorAtTopOfSections:1;
         unsigned int separatorBackdropOverlayBlendMode:3;
         unsigned int separatorsDrawInVibrantLightMode:1;
@@ -435,13 +436,9 @@
 @property(readonly, nonatomic, getter=_scrollView) UIScrollView *scrollView;
 - (id)constants;
 - (_Bool)_isSwipeDeletionIndexPath:(id)arg1;
-- (_Bool)_swipeDeletionCommittedForSection:(_Bool)arg1;
 - (_Bool)_swipeDeletionCommitted;
-- (void)_removeSwipeDeletionShadowUpdate;
-- (void)_applyPendingSwipeDeletionShadowUpdates;
-- (_Bool)_swipeDeletionPendingForSection:(_Bool)arg1;
-- (void)_addPendingSwipeDeletionShadowUpdateForIndexPath:(id)arg1;
-- (void)_addPendingSwipeDeletionShadowUpdateForSection:(_Bool)arg1;
+- (void)_removeSwipeDeletionShadowUpdates;
+- (void)_addSwipeDeletionShadowUpdatesIfNecessaryWithOldRowData:(id)arg1 oldSwipedIndexPath:(id)arg2;
 - (void)_swipeToDeleteCell:(id)arg1;
 - (id)_trailingSwipeConfigurationAtIndexPath:(id)arg1 fromRemoveButton:(_Bool)arg2;
 - (id)_contextualActionForDeletingRowAtIndexPath:(id)arg1 performsFirstActionWithFullSwipe:(_Bool *)arg2;
@@ -621,7 +618,7 @@
 - (_Bool)_dragAndDropUsedForReordering;
 - (id)_addToShadowUpdatesControllerIfNeeded:(id)arg1;
 - (void)_resetAllShadowUpdates;
-- (id)_revertExistingShadowInsertUpdate:(id)arg1;
+- (id)_revertExistingShadowInsertUpdate:(id)arg1 withAlongsideUpdates:(CDUnknownBlockType)arg2;
 - (id)_currentIndexPathForExistingShadowInsertUpdate:(id)arg1;
 - (void)_performRevertingShadowUpdates:(CDUnknownBlockType)arg1;
 - (_Bool)_isPerformingRevertingShadowUpdates;
@@ -1155,12 +1152,12 @@
 - (void)_rebaseExistingShadowUpdatesIfNecessaryWithItems:(id)arg1 insertItems:(id)arg2 deleteItems:(id)arg3 sortedInsertItems:(id)arg4 sortedDeleteItems:(id)arg5 sortedMoveItems:(id)arg6;
 - (void)_endCellAnimationsWithContext:(id)arg1;
 - (void)_setupCellAnimations;
-- (struct UIEdgeInsets)_focusFastScrollingIndexBarInsets;
 - (id)_focusFastScrollingDestinationItemForIndexEntry:(id)arg1;
 - (id)_focusFastScrollingDestinationItemAtContentEnd;
 - (id)_focusFastScrollingDestinationItemAtContentStart;
 - (struct CGPoint)indexBarAccessoryView:(id)arg1 contentOffsetForEntry:(id)arg2 atIndex:(long long)arg3;
 - (id)_focusFastScrollingIndexBarEntries;
+- (struct UIEdgeInsets)_focusFastScrollingIndexBarInsets;
 - (void)_updateIndex;
 - (id)_sectionIndex;
 - (void)_addIndexToAppropriateContainer;

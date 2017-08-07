@@ -9,6 +9,11 @@
 @protocol SFSearchResult
 @property(copy, nonatomic) NSString *srf;
 @property(copy, nonatomic) NSString *fbr;
+@property(copy, nonatomic) NSString *fileProviderDomainIdentifier;
+@property(copy, nonatomic) NSString *fileProviderIdentifier;
+@property(nonatomic) long long dataOwnerType;
+@property(copy, nonatomic) NSArray *contentTypeTree;
+@property(copy, nonatomic) NSString *contentType;
 @property(copy, nonatomic) NSArray *itemProviderFileTypes;
 @property(copy, nonatomic) NSArray *itemProviderDataTypes;
 @property(copy, nonatomic) NSString *userInput;

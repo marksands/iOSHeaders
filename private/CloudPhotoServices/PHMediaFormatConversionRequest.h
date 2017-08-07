@@ -12,6 +12,7 @@
 
 @interface PHMediaFormatConversionRequest : NSObject <NSProgressReporting>
 {
+    double _formatConversionExpansionFactor;
     _Bool _forceFormatConversion;
     _Bool _shouldPadOutputFileToEstimatedLength;
     _Bool _useTransferBehaviorUserPreference;
@@ -32,7 +33,6 @@
     NSURL *_directoryForTemporaryFiles;
     long long _transferBehaviorUserPreference;
     CDUnknownBlockType _singlePassVideoConversionUpdateHandler;
-    double _formatConversionExpansionFactor;
     long long _passthroughConversionAdditionalByteCount;
 }
 
@@ -43,7 +43,6 @@
 + (id)stringForRequestStatus:(long long)arg1;
 @property _Bool preflighted; // @synthesize preflighted=_preflighted;
 @property(nonatomic) long long passthroughConversionAdditionalByteCount; // @synthesize passthroughConversionAdditionalByteCount=_passthroughConversionAdditionalByteCount;
-@property(nonatomic) double formatConversionExpansionFactor; // @synthesize formatConversionExpansionFactor=_formatConversionExpansionFactor;
 @property _Bool requiresSinglePassVideoConversion; // @synthesize requiresSinglePassVideoConversion=_requiresSinglePassVideoConversion;
 @property(copy) CDUnknownBlockType singlePassVideoConversionUpdateHandler; // @synthesize singlePassVideoConversionUpdateHandler=_singlePassVideoConversionUpdateHandler;
 @property long long transferBehaviorUserPreference; // @synthesize transferBehaviorUserPreference=_transferBehaviorUserPreference;
@@ -68,6 +67,7 @@
 - (void)enableSinglePassVideoEncodingWithUpdateHandler:(CDUnknownBlockType)arg1;
 - (void)didFinishProcessing;
 - (void)padOutputFileToEstimatedLength;
+@property(nonatomic) double formatConversionExpansionFactor;
 @property(readonly) unsigned long long estimatedOutputFileLength;
 - (_Bool)userPreferenceProhibitsFormatConversion;
 @property(readonly) NSString *outputFileType;

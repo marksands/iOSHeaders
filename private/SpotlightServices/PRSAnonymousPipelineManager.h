@@ -54,10 +54,11 @@
 - (_Bool)dateIsExpired:(id)arg1;
 - (void)_extractTrainingSamplesForQuery:(id)arg1 withIndexOfEngagedItem:(unsigned long long)arg2 withItems:(id)arg3 withCEPData:(id)arg4 forClientBundle:(id)arg5;
 - (void)extractTrainingDataWithItemAtIndex:(unsigned long long)arg1 withItems:(id)arg2 forQuery:(id)arg3 dataCollectAllowed:(_Bool)arg4 queryID:(id)arg5 withCEPData:(id)arg6 forClientBundle:(id)arg7;
+- (void)extractTrainingDataWithItemAtIndex:(unsigned long long)arg1 withItems:(id)arg2 forQuery:(id)arg3 dataCollectAllowed:(_Bool)arg4 forClientBundle:(id)arg5;
 - (_Bool)_shouldDataCollectWithEngagedBundle:(id)arg1 withQueryId:(id)arg2 forClientBundle:(id)arg3;
 - (void)_updateUserDefaultsWithEngagedBundle:(id)arg1 andQueryID:(id)arg2 forClientBundle:(id)arg3;
 - (void)_increaseUserDefaultsEngagementCountForBundle:(id)arg1;
-- (void)_addQueryInfoToFeatureMetadata:(id)arg1 withQuery:(id)arg2 cepData:(id)arg3;
+- (void)_addQueryInfoToFeatureMetadata:(id)arg1 withQuery:(id)arg2 cepData:(id)arg3 forClient:(id)arg4;
 - (void)_addRelativePositionToFeatureDict:(id)arg1 relativePosition:(id)arg2 forItem:(id)arg3;
 - (id)_relativePositionForItem:(id)arg1 inItems:(id)arg2 withIndexOfEngagedItem:(long long)arg3;
 - (id)_abandonedItemsFromItems:(id)arg1 withIndexOfEngagedItem:(unsigned long long)arg2;

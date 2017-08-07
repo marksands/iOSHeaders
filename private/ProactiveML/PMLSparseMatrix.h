@@ -19,6 +19,7 @@
 - (float)maxValue;
 - (float)minValue;
 - (id)matrixWithConstantColumn;
+- (void)enumerateNonZeroValuesForRow:(unsigned long long)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateNonZeroValuesWithBlock:(CDUnknownBlockType)arg1;
 - (void)_enumerateSparseRowsWithBlock:(CDUnknownBlockType)arg1;
 - (float)valueAtRow:(unsigned long long)arg1 column:(unsigned long long)arg2;

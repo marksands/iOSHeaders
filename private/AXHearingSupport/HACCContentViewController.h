@@ -10,7 +10,7 @@
 #import <AXHearingSupport/UIGestureRecognizerDelegate-Protocol.h>
 #import <AXHearingSupport/UIPreviewInteractionDelegate-Protocol.h>
 
-@class NSString, UIPreviewInteraction, UITapGestureRecognizer, UIView;
+@class MTMaterialView, NSString, UIPreviewInteraction, UITapGestureRecognizer, UIView;
 @protocol CCUIContentModuleContentViewController, HACCContentModule;
 
 @interface HACCContentViewController : UIViewController <UIGestureRecognizerDelegate, UIPreviewInteractionDelegate, CCUIContentModuleContentViewController>
@@ -20,7 +20,7 @@
     UIView *_expandedView;
     UIView *_materialView;
     _Bool _expanded;
-    UIView *_backgroundView;
+    MTMaterialView *_backgroundView;
     UITapGestureRecognizer *_tapRecognizer;
     UIPreviewInteraction *_previewInteraction;
     UIViewController<CCUIContentModuleContentViewController> *_expandedViewController;
@@ -30,7 +30,7 @@
 @property(retain, nonatomic) UIViewController<CCUIContentModuleContentViewController> *expandedViewController; // @synthesize expandedViewController=_expandedViewController;
 @property(retain, nonatomic) UIPreviewInteraction *previewInteraction; // @synthesize previewInteraction=_previewInteraction;
 @property(retain, nonatomic) UITapGestureRecognizer *tapRecognizer; // @synthesize tapRecognizer=_tapRecognizer;
-@property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
+@property(retain, nonatomic) MTMaterialView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(nonatomic) struct CGRect collapsedFrame; // @synthesize collapsedFrame=_collapsedFrame;
 - (void).cxx_destruct;
 - (_Bool)_previewInteractionShouldAutomaticallyTransitionToPreviewAfterDelay:(id)arg1;

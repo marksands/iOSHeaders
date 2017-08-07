@@ -62,7 +62,7 @@
 - (id)_unarchiveDataWithClass:(Class)arg1 atDirectoryPath:(id)arg2;
 - (_Bool)_archiveObject:(id)arg1 toDirectoryPath:(id)arg2;
 - (id)_stateDirectory;
-- (void)_updateWorkoutConfigurationInGeneratorState;
+- (void)_updateWorkoutConfigurationInGeneratorStateWithSampleDate:(id)arg1;
 - (id)_watchProvenanceWithPerson:(id)arg1;
 - (id)_phoneProveance;
 - (id)_appProvenanceWithBundleIdentifier:(id)arg1;

@@ -12,9 +12,14 @@
 
 + (unsigned long long)assetVersion;
 + (id)getClientBundleId;
++ (void)registerCloudKitDisabledBundleIdRewriteHandler;
++ (void)_rewriteSyncStateToDisableBundleId:(id)arg1;
++ (void)_rewriteSyncStateForDisabledBundleIds;
++ (void)_triggerDelayedCloudSyncRewrite;
 + (void)registerDisabledBundleIdPurgeHandler;
 + (void)_purgeRecordsForDisabledBundleIds;
 + (void)_triggerDelayedBundleIdPurge;
++ (void)_triggerDelayedOperationWithCoalescingToken:(unsigned long long *)arg1 operation:(CDUnknownBlockType)arg2;
 + (_Bool)logDailyMetricsWithError:(id *)arg1;
 + (_Bool)deleteAllExtractionsFromSourcesWithBundleId:(id)arg1 groupId:(id)arg2 olderThan:(id)arg3 error:(id *)arg4;
 + (_Bool)donateLocationNamedEntities:(id)arg1 bundleId:(id)arg2 error:(id *)arg3;
@@ -72,7 +77,8 @@
 + (id)_findLocalTopicsWithSource:(id)arg1 stream:(id)arg2;
 + (id)_findLocalEntitiesWithSource:(id)arg1 stream:(id)arg2;
 + (_Bool)donateNamedEntities:(id)arg1 source:(id)arg2 algorithm:(unsigned long long)arg3 cloudSync:(_Bool)arg4 error:(id *)arg5;
-+ (id)_disabledBundleIds;
++ (id)_cloudKitDisabledBundleIds;
++ (id)_donationDisabledBundleIds;
 + (id)_namedEntitiesOverride;
 + (double)_weightMultiplier;
 + (id)_readOnlyKnowledgeStore;
@@ -81,7 +87,8 @@
 + (id)_entityStream;
 + (void)_loadNamedEntitiesOverrideFromDefaults:(id)arg1;
 + (id)_defaults;
-+ (void)_refreshDisabledBundleIds;
++ (void)_refreshCloudKitDisabledBundleIds;
++ (void)_refreshDonationDisabledBundleIds;
 + (void)registerXPCListenerForDeletionTracking;
 + (void)registerXPCListenerWithStringDonationHandler:(id)arg1;
 + (void)registerMaintenanceTasks;

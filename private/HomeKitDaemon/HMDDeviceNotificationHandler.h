@@ -12,6 +12,7 @@
 
 @interface HMDDeviceNotificationHandler : HMFObject <HMFTimerDelegate>
 {
+    _Bool _delaySupported;
     NSString *_destination;
     NSString *_requestIdentifier;
     HMDHome *_home;
@@ -22,6 +23,7 @@
 }
 
 @property(retain, nonatomic) NSUUID *notificationUpdateIdentifier; // @synthesize notificationUpdateIdentifier=_notificationUpdateIdentifier;
+@property(nonatomic) _Bool delaySupported; // @synthesize delaySupported=_delaySupported;
 @property(retain, nonatomic) HMFTimer *delayTimer; // @synthesize delayTimer=_delayTimer;
 @property(retain, nonatomic) HMFTimer *coalesceTimer; // @synthesize coalesceTimer=_coalesceTimer;
 @property(retain, nonatomic) NSMutableSet *updatedCharacteristics; // @synthesize updatedCharacteristics=_updatedCharacteristics;
@@ -33,7 +35,7 @@
 - (id)_dispatchNotification;
 - (id)_beginCoalesce:(_Bool)arg1;
 - (id)sendNotificationForCharacteristicChanges:(id)arg1 withRequestIdentifier:(id)arg2;
-- (id)initWithDestination:(id)arg1 withRequestIdentifier:(id)arg2 home:(id)arg3;
+- (id)initWithDestination:(id)arg1 watchDevice:(_Bool)arg2 withRequestIdentifier:(id)arg3 home:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

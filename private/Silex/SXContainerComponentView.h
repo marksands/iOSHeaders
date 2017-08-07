@@ -27,6 +27,7 @@
 - (void)didApplyBehavior:(id)arg1;
 - (void)animationDidFinish:(id)arg1;
 - (void)animationDidStart:(id)arg1;
+- (void)prepareForTransitionType:(unsigned long long)arg1;
 - (_Bool)isTransitionable;
 - (_Bool)transitionViewShouldFadeInContent;
 - (id)transitionContentView;

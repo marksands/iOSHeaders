@@ -64,6 +64,7 @@
 - (void)_configureForTransitionFraction:(double)arg1 fromEditMode:(long long)arg2 toEditMode:(long long)arg3;
 - (void)_applyTransitionFraction:(double)arg1 fromOption:(id)arg2 toOption:(id)arg3 forCustomEditMode:(long long)arg4 slot:(id)arg5;
 - (void)_applyOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
+- (void)_cleanupAfterTransitionComplicationSlot:(id)arg1;
 - (void)_cleanupAfterEditing;
 - (void)_prepareForEditing;
 - (double)_verticalPaddingForStatusBar;
@@ -76,6 +77,7 @@
 - (double)_kaleidoscopeTimeForAsset:(unsigned long long)arg1;
 - (void)quadViewWillDisplay:(id)arg1 forTime:(double)arg2;
 - (void)_disableCrown;
+- (void)_applyDataMode;
 - (void)_applyFrozen;
 - (void)_renderSynchronouslyWithImageQueueDiscard:(_Bool)arg1;
 - (void)_unloadSnapshotContentViews;

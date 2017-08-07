@@ -33,8 +33,10 @@ __attribute__((visibility("hidden")))
 - (id)_shadowUpdateReuseIdentifierForItemItemAtIndexPath:(id)arg1;
 - (id)_supplementaryIndexPathBeforeShadowUpdates:(id)arg1;
 - (id)_indexPathsBeforeShadowUpdates:(id)arg1;
+- (long long)sectionIndexAfterShadowUpdates:(long long)arg1 allowingAppendingInserts:(_Bool)arg2;
 - (long long)sectionIndexAfterShadowUpdates:(long long)arg1;
 - (long long)sectionIndexBeforeShadowUpdates:(long long)arg1;
+- (id)indexPathAfterShadowUpdates:(id)arg1 allowingAppendingInserts:(_Bool)arg2;
 - (id)indexPathAfterShadowUpdates:(id)arg1;
 - (id)indexPathBeforeShadowUpdates:(id)arg1;
 - (id)_coalesceUpdatesIfPossible:(id)arg1;

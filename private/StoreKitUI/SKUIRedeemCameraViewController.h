@@ -7,15 +7,17 @@
 #import <StoreKitUI/SKUIRedeemStepViewController.h>
 
 @class NSString;
-@protocol SKUIRedeemCameraViewControllerDelegate;
+@protocol SKUIRedeemCameraViewControllerDelegate, SKUIRedeemViewCameraOverrideDelegate;
 
 @interface SKUIRedeemCameraViewController : SKUIRedeemStepViewController
 {
     long long category;
     NSString *_initialCode;
     id <SKUIRedeemCameraViewControllerDelegate> _delegate;
+    id <SKUIRedeemViewCameraOverrideDelegate> _cameraOverrideDelegate;
 }
 
+@property(nonatomic) __weak id <SKUIRedeemViewCameraOverrideDelegate> cameraOverrideDelegate; // @synthesize cameraOverrideDelegate=_cameraOverrideDelegate;
 @property(nonatomic) __weak id <SKUIRedeemCameraViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSString *initialCode; // @synthesize initialCode=_initialCode;
 @property(readonly, nonatomic) long long category; // @synthesize category;

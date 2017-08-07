@@ -29,6 +29,7 @@
 @property(readonly, nonatomic) CDStruct_79c5c966 fromNodeID; // @synthesize fromNodeID=_fromNodeID;
 - (id).cxx_construct;
 @property(readonly, copy) NSString *description;
+- (_Bool)isEqualToGEOComposedRouteSection:(id)arg1;
 - (id)initWithRoute:(id)arg1 startPoint:(unsigned int)arg2 pointCount:(unsigned int)arg3 step:(id)arg4 stepIndex:(unsigned long long)arg5 toNodeSignificance:(int)arg6 currentTransitLineColor:(id)arg7 startDistance:(double)arg8 lengthScaleFactor:(double)arg9;
 @property(readonly, nonatomic) _Bool isTransfer;
 

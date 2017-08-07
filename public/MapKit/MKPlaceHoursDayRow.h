@@ -13,12 +13,10 @@ __attribute__((visibility("hidden")))
 {
     NSArray *_labels;
     NSLayoutConstraint *_baselineToTop;
-    NSArray *_baselineToBaseline;
-    NSLayoutConstraint *_baselineToBottom;
-    double _baselineToBottomConstant;
+    NSArray *_baselineToBaselineConstraints;
+    NSArray *_baselineToBottomConstraints;
 }
 
-@property(nonatomic) double baselineToBottomConstant; // @synthesize baselineToBottomConstant=_baselineToBottomConstant;
 - (void).cxx_destruct;
 - (void)_contentSizeDidChange;
 - (void)setDays:(id)arg1 hours:(id)arg2 shouldStack:(_Bool)arg3;

@@ -15,15 +15,15 @@
 {
     CUMessageSession *_sharingSession;
     _Bool _approverBackupRecordsExist;
-    _Bool _approveriCloudKeychainEnabled;
+    unsigned long long _approveriCloudKeychainState;
     _Bool _sentInitialResponse;
 }
 
 - (void).cxx_destruct;
-- (void)setApproveriCloudKeychainEnabled:(_Bool)arg1;
+- (void)setApproveriCloudKeychainState:(unsigned long long)arg1;
 - (void)setApproverBackupRecordsExist:(_Bool)arg1;
 - (void)listenForPayloadsWithHandler:(CDUnknownBlockType)arg1;
-- (_Bool)approveriCloudKeychainEnabled;
+- (unsigned long long)approveriCloudKeychainState;
 - (_Bool)approverBackupRecordsExist;
 - (void)sendPayload:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithContext:(id)arg1;

@@ -41,6 +41,7 @@
 - (void)dismissExpandedViewForContentModuleContext:(id)arg1;
 - (void)requestExpandModuleForContentModuleContext:(id)arg1;
 - (void)contentModuleContext:(id)arg1 enqueueStatusUpdate:(id)arg2;
+- (id)interactionHighlightContainerViewForModuleCollectionViewController:(id)arg1;
 - (id)obscuringBackgroundViewForModuleCollectionViewController:(id)arg1;
 - (void)moduleCollectionViewController:(id)arg1 willRemoveModuleContainerViewController:(id)arg2;
 - (void)moduleCollectionViewController:(id)arg1 didAddModuleContainerViewController:(id)arg2;
@@ -55,15 +56,15 @@
 - (void)viewWillLayoutSubviews;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (struct CGSize)preferredContentSize;
-- (void)viewWillDisappear:(_Bool)arg1;
-- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)_resignActive;
 - (void)_reparentAndBecomeActive;
+- (void)_reparent;
 - (void)dismissPresentedContentWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)dismissPresentedContent;
 - (void)expandModuleWithIdentifier:(id)arg1;
 - (_Bool)canDismissPresentedContent;
+- (void)closeCurrentModuleWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) CCUIModuleCollectionViewController *moduleCollectionViewController; // @dynamic moduleCollectionViewController;
 @property(readonly, nonatomic) struct UIEdgeInsets edgeInsets; // @dynamic edgeInsets;
 - (id)initWithSystemAgent:(id)arg1;

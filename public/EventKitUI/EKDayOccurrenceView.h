@@ -76,6 +76,7 @@
 + (void)_cacheLocation:(id)arg1 forEventID:(id)arg2;
 + (id)_recentlyDisplayedLocations;
 + (id)imageForExternalDragOperationFromEvent:(id)arg1;
++ (id)framePathForExternalDragOperationWithSize:(struct CGSize)arg1;
 + (struct CGRect)contentStretchRectForFrame:(struct CGRect)arg1;
 + (double)bottomShadowMargin;
 + (double)minimumHeightForOrientation:(long long)arg1 isAllDay:(_Bool)arg2 usesSmallText:(_Bool)arg3;
@@ -140,6 +141,7 @@
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
+- (struct CGRect)frameOfOpaqueContent;
 - (struct CGRect)_frameMutatedForProximityToHourLine:(struct CGRect)arg1;
 - (id)_backgroundColor;
 - (struct CGRect)contentRectForPreview;

@@ -17,7 +17,7 @@
 
 - (void).cxx_destruct;
 - (id)_replyContextWithPakeData:(id)arg1;
-- (_Bool)approveriCloudKeychainEnabled;
+- (unsigned long long)approveriCloudKeychainState;
 - (_Bool)approverBackupRecordsExist;
 - (void)sendPayload:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithContext:(id)arg1;

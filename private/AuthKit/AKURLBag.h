@@ -14,6 +14,9 @@
     id <AKURLBagDictionaryProvider> _bagProvider;
 }
 
++ (id)_requestEnvironmentsWithBag:(id)arg1;
++ (unsigned long long)_IDMSEnvironmentFromString:(id)arg1;
++ (unsigned long long)IDMSEnvironmentFromBag:(id)arg1;
 + (_Bool)looksLikeiForgotURLKey:(id)arg1;
 + (id)keyForEscapeHatchURL;
 + (id)sharedBag;
@@ -29,6 +32,7 @@
 - (_Bool)requestNewURLBagIfNecessaryWithError:(id *)arg1;
 - (void)requestNewURLBagIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (id)configurationAtKey:(id)arg1;
+@property(readonly, nonatomic) unsigned long long lastKnownIDMSEnvironment;
 @property(readonly, nonatomic) unsigned long long IDMSEnvironment;
 @property(readonly, nonatomic) NSString *APSEnvironment;
 @property(readonly, nonatomic, getter=isPhoneNumberSupportedConfig) _Bool phoneNumberSupportedConfig;

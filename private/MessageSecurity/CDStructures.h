@@ -44,9 +44,15 @@ struct SignerInfo {
     struct SignerInfo_unsignedAttrs *_field7;
 };
 
-struct SignerInfo_signedAttrs;
+struct SignerInfo_signedAttrs {
+    unsigned int len;
+    struct Attribute *val;
+};
 
-struct SignerInfo_unsignedAttrs;
+struct SignerInfo_unsignedAttrs {
+    unsigned int len;
+    struct Attribute *val;
+};
 
 struct __va_list_tag {
     unsigned int _field1;

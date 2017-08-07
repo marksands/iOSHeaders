@@ -36,6 +36,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 
 // Remaining properties
+@property(copy, nonatomic) NSString *cardSectionViewIdentifier;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

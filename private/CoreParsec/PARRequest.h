@@ -23,7 +23,6 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)flightRequestForId:(id)arg1 appBundleId:(id)arg2;
 + (id)flightRequestForQuery:(id)arg1 date:(id)arg2 appBundleId:(id)arg3;
 + (id)lookupRequestWithString:(id)arg1 queryContext:(id)arg2 domain:(id)arg3 lookupSelectionType:(long long)arg4 appBundleId:(id)arg5 queryId:(unsigned long long)arg6;
 + (id)lookupRequestWithString:(id)arg1 queryContext:(id)arg2 domain:(id)arg3 lookupSelectionType:(long long)arg4 appBundleId:(id)arg5;

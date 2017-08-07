@@ -28,6 +28,7 @@
 
 - (void).cxx_destruct;
 - (void)_willFinishJobs:(id)arg1;
+- (void)_updateActiveIDs:(id)arg1;
 - (_Bool)_trackProgressForBundleID:(id)arg1;
 - (_Bool)_shouldAutomaticallyReconnect;
 - (void)_setupConnection;
@@ -36,6 +37,7 @@
 - (void)_sendJobsCompleted:(id)arg1;
 - (void)_sendJobsChanged:(id)arg1;
 - (void)_registerManagerWithOptions:(id)arg1;
+- (id)_mapAllJobsToIDs;
 - (void)_invalidate;
 - (void)_handleInvalidatedConnection:(id)arg1;
 - (void)_handleInterruptedConnection:(id)arg1;

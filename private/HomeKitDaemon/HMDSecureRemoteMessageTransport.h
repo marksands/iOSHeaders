@@ -45,7 +45,7 @@
 - (void)secureRemoteSession:(id)arg1 receivedRequestToSendMessage:(id)arg2;
 - (void)secureRemoteSession:(id)arg1 didCloseWithError:(id)arg2;
 - (void)_handleSecureMessage:(id)arg1 fromDevice:(id)arg2 transport:(id)arg3;
-- (void)_openSecureSessionToDevice:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)_openSecureSessionToDevice:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)openSecureSessionToDevice:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_sendSecureMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)_secureRemoteSessionForDevice:(id)arg1;

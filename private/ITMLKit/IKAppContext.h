@@ -79,6 +79,7 @@
 - (void)appCache:(id)arg1 didUpdateWithChecksum:(id)arg2;
 - (_Bool)cancelHighlightView;
 - (_Bool)highlightViewForElementWithID:(long long)arg1 contentColor:(id)arg2 paddingColor:(id)arg3 borderColor:(id)arg4 marginColor:(id)arg5;
+- (_Bool)highlightViewsForElementsWithIDs:(id)arg1 contentColor:(id)arg2 paddingColor:(id)arg3 borderColor:(id)arg4 marginColor:(id)arg5;
 - (id)_appTraitCollection;
 - (void)contextDidStartWithJS:(id)arg1 options:(id)arg2;
 - (void)contextDidFailWithError:(id)arg1;

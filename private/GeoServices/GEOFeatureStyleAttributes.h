@@ -20,6 +20,21 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)styleAttributesForPlace:(id)arg1;
++ (id)inviteStyleAttributes;
++ (id)ticketedEventStyleAttributes;
++ (id)carRentalStyleAttributes;
++ (id)hotelStyleAttributes;
++ (id)evChargerStyleAttributes;
++ (id)gasStationStyleAttributes;
++ (id)frequentLocationStyleAttributes;
++ (id)calendarEventStyleAttributes;
++ (id)restaurantStyleAttributes;
++ (id)parkedCarStyleAttributes;
++ (id)workStyleAttributes;
++ (id)homeStyleAttributes;
++ (id)searchResultStyleAttributes;
++ (id)airportStyleAttributes;
 - (void).cxx_destruct;
 - (void)sort;
 - (id)description;
@@ -41,6 +56,12 @@
 - (id)initWithStyleAttributes:(id)arg1;
 - (id)initWithAttributes:(unsigned int)arg1;
 - (id)init;
+- (id)dictionaryRepresentation;
+- (_Bool)isTransit;
+- (_Bool)isSearchResult;
+- (_Bool)isLandmarkPOI;
+- (_Bool)isLabelPOI;
+- (id)copyWithAirportStyleAttributes;
 - (id)initWithPlaceDataStyleAttributes:(id)arg1;
 - (unsigned int)lineType;
 - (_Bool)shouldSuppress3DBuildingStrokes;

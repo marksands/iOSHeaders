@@ -31,6 +31,7 @@
 @property(readonly, nonatomic) _Bool primaryTableSupportsEightDotBraille; // @synthesize primaryTableSupportsEightDotBraille=_tableSupportsEightDotBraille;
 @property(readonly, nonatomic) _Bool primaryTableSupportsContractedBraille; // @synthesize primaryTableSupportsContractedBraille=_tableSupportsContractedBraille;
 - (void).cxx_destruct;
+- (_Bool)primaryTableSupportsRoundTripping;
 - (_Bool)primaryAndAuxiliaryTranslatorsAreIdentical;
 - (id)textForPrintBraille:(id)arg1 primaryTable:(_Bool)arg2 contracted:(_Bool)arg3 eightDot:(_Bool)arg4 locations:(id *)arg5;
 - (id)textForPrintBraille:(id)arg1 contracted:(_Bool)arg2 eightDot:(_Bool)arg3 locations:(id *)arg4;

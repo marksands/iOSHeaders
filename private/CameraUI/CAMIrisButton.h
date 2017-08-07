@@ -6,9 +6,11 @@
 
 #import <UIKit/UIButton.h>
 
-@class NSArray, UIImageView;
+#import <CameraUI/CAMAccessibilityHUDImageProvider-Protocol.h>
 
-@interface CAMIrisButton : UIButton
+@class NSArray, NSString, UIImageView;
+
+@interface CAMIrisButton : UIButton <CAMAccessibilityHUDImageProvider>
 {
     long long _layoutStyle;
     long long _irisMode;
@@ -25,6 +27,7 @@
 @property(nonatomic) long long irisMode; // @synthesize irisMode=_irisMode;
 @property(nonatomic) long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 - (void).cxx_destruct;
+- (id)imageForAccessibilityHUD;
 - (void)_updateForLayoutStyle;
 - (void)interruptEnablingAnimation;
 - (void)performEnablingAnimation;
@@ -42,6 +45,12 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_commonCAMIrisButtonConfiguration;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

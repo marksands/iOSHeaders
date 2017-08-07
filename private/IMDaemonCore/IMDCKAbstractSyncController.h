@@ -12,6 +12,8 @@
 }
 
 @property(nonatomic) _Bool isSyncing; // @synthesize isSyncing=_isSyncing;
+- (void)addSyncDebuggingInfoToDictionary:(id)arg1;
+- (id)syncStateDebuggingInfo:(id)arg1;
 - (id)readPersistentValueForKey:(id)arg1;
 - (_Bool)readPersistentBoolForKey:(id)arg1;
 - (void)writePersistentValue:(id)arg1 forKey:(id)arg2;

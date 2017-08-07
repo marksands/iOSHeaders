@@ -6,33 +6,49 @@
 
 #import <iTunesStoreUI/SUScriptObject.h>
 
-@class NSNumber, NSString;
+#import <iTunesStoreUI/NSSecureCoding-Protocol.h>
+#import <iTunesStoreUI/SSXPCCoding-Protocol.h>
 
-@interface SUCreditCardReaderOutput : SUScriptObject
+@class NSError, NSNumber, NSString;
+
+@interface SUCreditCardReaderOutput : SUScriptObject <SSXPCCoding, NSSecureCoding>
 {
     _Bool _cancelled;
     _Bool _manualEntrySelected;
-    NSString *_cardNumber;
     NSString *_cardCardholderName;
     NSNumber *_cardExpirationDay;
     NSNumber *_cardExpirationMonth;
     NSNumber *_cardExpirationYear;
     NSString *_cardExpirationStringValue;
+    NSString *_cardNumber;
+    NSError *_error;
 }
 
 + (void)initialize;
++ (_Bool)supportsSecureCoding;
 + (id)webScriptNameForKeyName:(id)arg1;
+@property(copy, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) _Bool manualEntrySelected; // @synthesize manualEntrySelected=_manualEntrySelected;
+@property(copy, nonatomic) NSString *cardNumber; // @synthesize cardNumber=_cardNumber;
+@property(copy, nonatomic) NSString *cardExpirationStringValue; // @synthesize cardExpirationStringValue=_cardExpirationStringValue;
+@property(copy, nonatomic) NSNumber *cardExpirationYear; // @synthesize cardExpirationYear=_cardExpirationYear;
+@property(copy, nonatomic) NSNumber *cardExpirationMonth; // @synthesize cardExpirationMonth=_cardExpirationMonth;
+@property(copy, nonatomic) NSNumber *cardExpirationDay; // @synthesize cardExpirationDay=_cardExpirationDay;
+@property(copy, nonatomic) NSString *cardCardholderName; // @synthesize cardCardholderName=_cardCardholderName;
 @property(nonatomic) _Bool cancelled; // @synthesize cancelled=_cancelled;
-@property(retain, nonatomic) NSString *cardExpirationStringValue; // @synthesize cardExpirationStringValue=_cardExpirationStringValue;
-@property(retain, nonatomic) NSNumber *cardExpirationYear; // @synthesize cardExpirationYear=_cardExpirationYear;
-@property(retain, nonatomic) NSNumber *cardExpirationMonth; // @synthesize cardExpirationMonth=_cardExpirationMonth;
-@property(retain, nonatomic) NSNumber *cardExpirationDay; // @synthesize cardExpirationDay=_cardExpirationDay;
-@property(retain, nonatomic) NSString *cardCardholderName; // @synthesize cardCardholderName=_cardCardholderName;
-@property(retain, nonatomic) NSString *cardNumber; // @synthesize cardNumber=_cardNumber;
 - (void).cxx_destruct;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

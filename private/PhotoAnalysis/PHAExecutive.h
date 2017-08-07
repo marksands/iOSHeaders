@@ -44,7 +44,7 @@
 - (void)_stopAllBackgroundAnalysisWithCompletion:(CDUnknownBlockType)arg1 queue:(id)arg2;
 - (void)photoLibraryDidBecomeUnavailable:(id)arg1;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
-- (void)stopBackgroundActivity;
+- (void)stopBackgroundActivityForManager:(id)arg1;
 - (void)triggerBackgroundActivity;
 - (void)checkQuiescenceForManager:(id)arg1;
 - (void)dumpAnalysisStatusWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;

@@ -17,10 +17,10 @@
 - (void).cxx_destruct;
 - (id)_dataclassOwnersManagerConnection;
 - (_Bool)performDataclassActions:(id)arg1 forAccount:(id)arg2 withChildren:(id)arg3 withError:(id *)arg4;
-- (id)actionsForDisablingDataclass:(id)arg1 onAccount:(id)arg2;
-- (id)actionsForEnablingDataclass:(id)arg1 onAccount:(id)arg2;
-- (id)actionsForDeletingAccount:(id)arg1 affectingDataclass:(id)arg2;
-- (id)actionsForAddingAccount:(id)arg1 affectingDataclass:(id)arg2;
+- (id)actionsForDisablingDataclass:(id)arg1 onAccount:(id)arg2 withError:(id *)arg3;
+- (id)actionsForEnablingDataclass:(id)arg1 onAccount:(id)arg2 withError:(id *)arg3;
+- (id)actionsForDeletingAccount:(id)arg1 affectingDataclass:(id)arg2 withError:(id *)arg3;
+- (id)actionsForAddingAccount:(id)arg1 affectingDataclass:(id)arg2 withError:(id *)arg3;
 - (_Bool)isPerformingDataclassActionsForAccount:(id)arg1;
 - (id)init;
 

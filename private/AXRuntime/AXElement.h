@@ -188,6 +188,7 @@
 - (struct CGRect)convertRect:(struct CGRect)arg1 fromContextId:(unsigned int)arg2;
 - (_Bool)systemPressTVSiriButton;
 - (_Bool)systemPressTVHomeButton;
+- (_Bool)systemLongPressTVMenuButton;
 - (_Bool)systemPressTVMenuButton;
 - (_Bool)systemPressTVRightButton;
 - (_Bool)systemPressTVLeftButton;

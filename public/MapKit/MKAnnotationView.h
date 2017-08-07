@@ -148,6 +148,7 @@
 - (void)_setHiddenForOffscreen:(_Bool)arg1;
 - (_Bool)isHidden;
 - (void)setHidden:(_Bool)arg1;
+- (id)snapshotViewAfterScreenUpdates:(_Bool)arg1;
 - (void)didMoveToSuperview;
 - (void)_resetZIndexNotify:(_Bool)arg1;
 - (void)_resetZIndex;

@@ -31,7 +31,6 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)captureDateFromPresentationTimestamp:(CDStruct_198678f7)arg1 session:(id)arg2;
-+     // Error parsing type: {?=[3]}56@0:8^{opaqueCMSampleBuffer=}16d24{CGPoint=dd}32^B48, name: _intrinsicsFromSampleBuffer:focalLengthFallback:principalPointFallback:didUseFallbackIntrinsics:
 @property(nonatomic) _Bool shouldRestrictFrameRate; // @synthesize shouldRestrictFrameRate=_shouldRestrictFrameRate;
 @property(nonatomic) long long targetFramesPerSecond; // @synthesize targetFramesPerSecond=_targetFramesPerSecond;
 @property(nonatomic) long long cameraPosition; // @synthesize cameraPosition=_cameraPosition;

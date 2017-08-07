@@ -12,8 +12,8 @@
 #import <PassKitUI/PKPassGroupViewDelegate-Protocol.h>
 #import <PassKitUI/PKPaymentServiceDelegate-Protocol.h>
 
-@class NSMutableArray, NSMutableDictionary, NSObject, NSString, NSTimer, PKGroup, PKPGSVSectionHeaderContext, PKPass, PKPassDeleteAnimationController, PKPassFooterView, PKPassGroupView, PKPassthroughView, PKPaymentService, PKReusablePassViewQueue, PKSecureElement, UIColor, UIImageView, UIView;
-@protocol OS_dispatch_source, PKPassGroupStackViewDatasource, PKPassGroupStackViewDelegate><UIScrollViewDelegate;
+@class NSMutableArray, NSMutableDictionary, NSString, NSTimer, PKBacklightController, PKGroup, PKPGSVSectionHeaderContext, PKPass, PKPassDeleteAnimationController, PKPassFooterView, PKPassGroupView, PKPassthroughView, PKPaymentService, PKReusablePassViewQueue, PKSecureElement, UIColor, UIImageView, UIView;
+@protocol PKPassGroupStackViewDatasource, PKPassGroupStackViewDelegate><UIScrollViewDelegate;
 
 @interface PKPassGroupStackView : UIScrollView <PKPassGroupViewDelegate, PKPassDeleteAnimationControllerDelegate, PKPaymentServiceDelegate, PKPassFooterViewDelegate, PKPassDeleteHandler>
 {
@@ -90,12 +90,9 @@
     PKPassthroughView *_passContainerView;
     NSMutableArray *_passthroughViews;
     PKSecureElement *_secureElement;
-    double _userBrightness;
-    _Bool _isTransitioningBrightness;
-    NSObject<OS_dispatch_source> *_brightnessTimer;
-    NSObject<OS_dispatch_source> *_brightnessNotificationTimer;
     _Bool _delegateWantsTopContentSeparation;
     _Bool _delegateWantsBottomContentSeparation;
+    PKBacklightController *_backlightController;
     _Bool _footerSuppressed;
     _Bool _hasOutstandingPeerPaymentAccountActions;
     id <PKPassGroupStackViewDatasource> _datasource;
@@ -252,9 +249,9 @@
 - (void)_presentPassIngestionWithAnimation:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_presentGroupStackViewWithAnimation:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_presentModalGroupViewPostAnimationActions;
+- (void)_refreshBacklightForFrontmostPassGroup;
 - (void)_refreshBrightness;
-- (void)_brightnessDidChange:(id)arg1;
-- (void)_animateToBrightnessValue:(double)arg1 duration:(double)arg2;
+- (void)_resetBrightness;
 - (void)_presentModalGroupView:(id)arg1 animated:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_presentOffscreenAnimated:(_Bool)arg1 split:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_generateModalGroupPileWithVisibleIndexes:(struct _NSRange)arg1 reservePlaceForModalGroup:(_Bool)arg2;
@@ -301,6 +298,7 @@
 - (void)layoutHeaderFootersAnimated:(_Bool)arg1;
 - (void)layoutSubviews;
 - (void)safeAreaInsetsDidChange;
+- (id)backlightController;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)gotoBaseTestState;

@@ -30,6 +30,7 @@
 - (void)saveAccount:(id)arg1 toPairedDeviceWithOptions:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)notifyRemoteDevicesOfNewAccount:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)notifyRemoteDevicesOfNewAccount:(id)arg1;
+- (void)notifyRemoteDevicesOfUpdatedCredentials:(id)arg1;
 - (void)notifyRemoteDevicesOfModifiedAccount:(id)arg1;
 - (void)accountsWithAccountTypeIdentifiers:(id)arg1 preloadedProperties:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)accountsWithAccountTypeIdentifiers:(id)arg1 completion:(CDUnknownBlockType)arg2;

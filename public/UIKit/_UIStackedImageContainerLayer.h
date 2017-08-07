@@ -31,6 +31,9 @@
     double _maximumParallaxDepth;
     _Bool _nonOpaqueShadow;
     _Bool _singleLayerNoMask;
+    _Bool _layerStackSupportsInflation;
+    _Bool _layerStackInflated;
+    unsigned long long _layerStackInflationSeed;
     id _flatImage;
     NSArray *_parallaxImages;
     NSArray *_parallaxLayerDepths;
@@ -121,6 +124,8 @@
 - (double)_focusedScaleFactorForCurrentBounds;
 - (void)_updateSpecularLayerContents;
 - (id)_contentLayers;
+- (void)_setLayerStackInflated:(_Bool)arg1 seed:(unsigned long long)arg2;
+- (struct CGImage *)_cgImageForLayeredImage:(id)arg1;
 - (void)_setDefaultParallaxLayerDepths;
 - (void)_setParallaxLayerDepths:(id)arg1;
 - (id)_parallaxLayerDepths;

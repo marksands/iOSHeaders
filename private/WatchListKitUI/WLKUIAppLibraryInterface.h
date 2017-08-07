@@ -23,6 +23,7 @@
 - (_Bool)isAppInstalled:(id)arg1;
 - (void)presentPurchase:(id)arg1;
 - (void)installAppForChannel:(id)arg1:(id)arg2:(id)arg3:(id)arg4;
+- (void)_configureAppInstallerViewController:(id)arg1 withOptions:(id)arg2;
 - (_Bool)isShowingInstaller;
 @property(readonly, nonatomic) NSArray *test;
 @property(readonly, nonatomic) NSArray *installed;

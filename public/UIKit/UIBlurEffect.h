@@ -13,7 +13,7 @@
     _UIBlurEffectImpl *_impl;
 }
 
-+ (void)_addBlurToEffectNode:(id)arg1 blurRadius:(double)arg2 options:(id)arg3;
++ (void)_addBlurToEffectNode:(id)arg1 blurRadius:(double)arg2 scale:(double)arg3 options:(id)arg4;
 + (_Bool)supportsSecureCoding;
 + (id)effectWithBlurRadius:(double)arg1;
 + (id)_effectWithStyle:(long long)arg1 tintColor:(id)arg2 invertAutomaticStyle:(_Bool)arg3;

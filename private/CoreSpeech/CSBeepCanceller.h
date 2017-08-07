@@ -6,6 +6,7 @@
 
 #import <objc/NSObject.h>
 
+@class NSDictionary;
 @protocol CSBeepCancellerDelegate, OS_dispatch_queue;
 
 @interface CSBeepCanceller : NSObject
@@ -21,6 +22,7 @@
 @property(nonatomic) __weak id <CSBeepCancellerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSDictionary *metrics;
 - (void)reset;
 - (void)willBeep;
 - (void)cancelBeepFromSamples:(id)arg1 timestamp:(unsigned long long)arg2;

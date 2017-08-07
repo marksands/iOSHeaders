@@ -12,8 +12,9 @@
 
 @interface HMPresenceEvent (HFAdditions) <HFLocationBasedEvent>
 + (unsigned long long)hf_presenceDisableReasonsForHome:(id)arg1;
-+ (unsigned long long)hf_locationEventTypeForPresenceType:(id)arg1;
++ (unsigned long long)hf_locationEventTypeForPresenceEventType:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long hf_eventType;
+@property(readonly, nonatomic) unsigned long long hf_activationGranularity;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

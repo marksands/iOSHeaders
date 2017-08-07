@@ -8,17 +8,19 @@
 
 #import <CallKit/CXCallDirectoryProviderHostProtocol-Protocol.h>
 
-@class NSString;
-@protocol CXCallDirectoryProviderHostProtocol;
+@class NSObject, NSString;
+@protocol CXCallDirectoryProviderHostProtocol, OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface CXCallDirectoryExtensionHostContext : NSExtensionContext <CXCallDirectoryProviderHostProtocol>
 {
     id <CXCallDirectoryProviderHostProtocol> _delegate;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (id)_extensionAuxiliaryHostProtocol;
 + (id)_extensionAuxiliaryVendorProtocol;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic) __weak id <CXCallDirectoryProviderHostProtocol> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (oneway void)completeRequestWithReply:(CDUnknownBlockType)arg1;
@@ -31,6 +33,9 @@ __attribute__((visibility("hidden")))
 - (oneway void)isIncrementalLoadingAllowed:(CDUnknownBlockType)arg1;
 - (void)requestFailedWithError:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
+- (void)dealloc;
+- (void)activate;
+- (id)initWithInputItems:(id)arg1 listenerEndpoint:(id)arg2 contextUUID:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

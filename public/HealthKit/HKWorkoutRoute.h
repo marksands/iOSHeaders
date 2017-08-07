@@ -16,6 +16,8 @@
 + (id)_workoutRouteWithDevice:(id)arg1 metadata:(id)arg2;
 @property(retain, nonatomic, setter=_setCodableWorkoutRoute:) HDCodableLocationSeries *_codableWorkoutRoute; // @synthesize _codableWorkoutRoute=__codableWorkoutRoute;
 - (void).cxx_destruct;
+- (_Bool)_isSmoothed;
+- (_Bool)_requiresPrivateEntitlementForQueries;
 - (id)_valueDescription;
 - (id)_validateSample;
 - (id)_validateConfiguration;

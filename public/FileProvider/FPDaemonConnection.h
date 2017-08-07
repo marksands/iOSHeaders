@@ -37,10 +37,8 @@
 - (void)fetchSupportedServicesForDocumentAtURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchRemoteServiceEndpointCreatingProviderWithIdentifier:(id)arg1 itemURL:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)fetchRemoteFileProviderWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
-- (oneway void)endMonitoringProviderChangesWithIdentifier:(id)arg1;
-- (void)beginMonitoringProviderChangesWithReceiver:(id)arg1 receiverIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)providersCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)evictItemAtURL:(id)arg1 andClearACLForConsumer:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)evictItemAtURL:(id)arg1 evenIfEnumeratingFP:(_Bool)arg2 andClearACLForConsumer:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)startProvidingItemAtURL:(id)arg1 fromProviderID:(id)arg2 forConsumerID:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)extendSandboxAndCreatePlaceholderForFileURL:(id)arg1 fromProviderID:(id)arg2 toConsumerID:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)extendSandboxForFileURL:(id)arg1 fromProviderID:(id)arg2 toConsumerID:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;

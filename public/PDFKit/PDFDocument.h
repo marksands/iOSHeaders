@@ -16,6 +16,8 @@
     PDFDocumentPrivate *_private;
 }
 
++ (_Bool)pdfDocumentAppendModeActiveForThisThread;
++ (void)setPDFDocumentAppendModeActiveForThisThread:(_Bool)arg1;
 - (void).cxx_destruct;
 - (void)setPageChangeDelegate:(id)arg1;
 - (int)documentId;
@@ -61,6 +63,8 @@
 - (void)cancelFindString;
 @property(readonly, nonatomic) _Bool isFinding;
 - (void)didMatchString:(id)arg1;
+- (id)_findString:(id)arg1 fromSelection:(id)arg2 withOptions:(unsigned long long)arg3;
+- (id)findStringPerPage:(id)arg1 fromSelection:(id)arg2 withOptions:(unsigned long long)arg3;
 - (id)findString:(id)arg1 fromSelection:(id)arg2 withOptions:(unsigned long long)arg3;
 - (void)beginFindStrings:(id)arg1 withOptions:(unsigned long long)arg2;
 - (void)beginFindString:(id)arg1 withOptions:(unsigned long long)arg2;
@@ -110,6 +114,7 @@
 - (id)initWithData:(id)arg1;
 - (id)initWithURL:(id)arg1;
 - (id)init;
+- (void)enableDocumentMRUMode:(_Bool)arg1;
 - (id)akDocumentAdaptor;
 - (struct __CFData *)newXMPFromData:(id)arg1 preserveExistingXMPMetadata:(_Bool)arg2;
 - (void)setDocumentCatalogMetadata:(id)arg1 withNSpace:(id)arg2 prefix:(id)arg3 rootPath:(id)arg4;

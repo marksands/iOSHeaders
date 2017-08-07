@@ -29,6 +29,7 @@
 - (void)_webView:(WKWebView *)arg1 renderingProgressDidChange:(unsigned long long)arg2;
 - (void)_webView:(WKWebView *)arg1 navigation:(WKNavigation *)arg2 didSameDocumentNavigation:(long long)arg3;
 - (void)_webView:(WKWebView *)arg1 navigationDidFinishDocumentLoad:(WKNavigation *)arg2;
+- (void)_webView:(WKWebView *)arg1 didPerformClientRedirectForNavigation:(WKNavigation *)arg2;
 - (void)_webView:(WKWebView *)arg1 navigation:(WKNavigation *)arg2 didFailProvisionalLoadInSubframe:(WKFrameInfo *)arg3 withError:(NSError *)arg4;
 @end
 

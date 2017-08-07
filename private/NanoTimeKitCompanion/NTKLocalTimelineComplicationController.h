@@ -69,6 +69,7 @@
 - (void)addDisplayWrapper:(id)arg1;
 - (void)setShowsLockedUI:(_Bool)arg1;
 - (void)setDataMode:(long long)arg1 forDisplayWrapper:(id)arg2;
+- (void)_updateIsComplicationActive:(_Bool)arg1;
 - (void)_applyAnimationMode;
 - (void)_applyUpdatingMode;
 - (void)_applyCachingMode;

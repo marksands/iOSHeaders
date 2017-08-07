@@ -170,8 +170,6 @@ struct CertificateInfo {
     struct RetainPtr<const __CFArray *> _field2;
 };
 
-struct ChildProcessProxy;
-
 struct Color {
     union {
         unsigned long long rgbaAndFlags;
@@ -1007,7 +1005,7 @@ struct HysteresisActivity {
     struct Function<void (WebCore::HysteresisState)> _field1;
     struct Seconds _field2;
     _Bool _field3;
-    struct Timer _field4;
+    struct Timer<WebCore::HysteresisActivity> _field4;
 };
 
 struct IconLoadingClient;
@@ -1225,9 +1223,8 @@ struct LegacyContextHistoryClient;
 
 struct LegacyCustomProtocolManagerProxy {
     CDUnknownFunctionPointerType *_field1;
-    struct ChildProcessProxy *_field2;
-    struct WebProcessPool *_field3;
-    struct HashMap<unsigned long long, WTF::RetainPtr<WKCustomProtocolLoader>, WTF::IntHash<unsigned long long>, WTF::HashTraits<unsigned long long>, WTF::HashTraits<WTF::RetainPtr<WKCustomProtocolLoader>>> _field4;
+    struct NetworkProcessProxy *_field2;
+    struct HashMap<unsigned long long, WTF::RetainPtr<WKCustomProtocolLoader>, WTF::IntHash<unsigned long long>, WTF::HashTraits<unsigned long long>, WTF::HashTraits<WTF::RetainPtr<WKCustomProtocolLoader>>> _field3;
 };
 
 struct LinkIcon {
@@ -2831,6 +2828,13 @@ struct Timer {
     struct Function<void ()> _field8;
 };
 
+struct Timer<WebCore::HysteresisActivity> {
+    CDUnknownFunctionPointerType *_field1;
+    struct Ref<WTF::RunLoop> _field2;
+    struct RetainPtr<__CFRunLoopTimer *> _field3;
+    struct HysteresisActivity *_field4;
+};
+
 struct Timer<WebKit::ViewGestureController::SnapshotRemovalTracker> {
     CDUnknownFunctionPointerType *_field1;
     struct Ref<WTF::RunLoop> _field2;
@@ -2897,7 +2901,7 @@ struct UserActivity {
     struct Function<void (WebCore::HysteresisState)> _field1;
     struct Seconds _field2;
     _Bool _field3;
-    struct Timer _field4;
+    struct Timer<WebCore::HysteresisActivity> _field4;
     struct Impl _field5;
 };
 

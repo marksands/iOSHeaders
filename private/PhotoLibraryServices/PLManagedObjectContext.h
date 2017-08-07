@@ -23,8 +23,6 @@
     PLDelayedFiledSystemDeletions *_delayedDeletions;
     NSMutableSet *_avalancheUUIDsForUpdate;
     NSMutableDictionary *_uuidsForCloudDeletion;
-    NSMutableSet *_personObjectIDsNeedingPersistence;
-    NSMutableSet *_personUUIDsNeedingPersistenceDelete;
     _Bool _syncChangeMarker;
     NSMutableDictionary *_updatedObjectsAttributes;
     NSMutableDictionary *_updatedObjectsRelationships;
@@ -104,10 +102,6 @@
 - (id)pl_fetchObjectsWithIDs:(id)arg1;
 - (id)pl_fetchObjectsWithIDs:(id)arg1 rootEntity:(id)arg2;
 - (_Bool)_tooManyAssetChangesToHandle:(unsigned long long)arg1;
-- (void)removePersonForMetadataPersistence:(id)arg1;
-- (void)recordPersonForMetadataPersistence:(id)arg1;
-- (void)recordDetectedFaceForMetadataPersistence:(id)arg1;
-- (void)_refreshPersonPersistenceIfNeeded;
 - (_Bool)getAndClearSyncChangeMarker;
 - (void)recordSyncChangeMarker;
 - (id)getAndClearRecordedObjectsForCloudDeletion;

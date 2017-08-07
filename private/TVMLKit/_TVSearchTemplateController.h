@@ -61,6 +61,8 @@ __attribute__((visibility("hidden")))
 - (struct TVRowMetrics)_collapsedRowMetricsForViewController:(id)arg1;
 - (void)_configureWithBgImage:(id)arg1 backdropImage:(id)arg2;
 - (struct CGSize)_backgroundImageProxySize;
+- (long long)_blurEffectStyle;
+- (_Bool)_backgroundImageRequiresBlur;
 - (id)_backgroundImageProxy;
 - (id)impressionableElementsContainedInDocument:(id)arg1;
 - (void)_recordImpressionsForVisibleView;

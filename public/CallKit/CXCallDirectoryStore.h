@@ -87,6 +87,7 @@
 - (_Bool)_removeUnreferencedPhoneNumbersWithError:(id *)arg1;
 - (_Bool)removeUnreferencedRecordsWithError:(id *)arg1;
 - (_Bool)setStateForAllExtensions:(long long)arg1 error:(id *)arg2;
+- (_Bool)setStateLastModifiedDate:(id)arg1 forExtensionWithID:(long long)arg2 error:(id *)arg3;
 - (_Bool)setState:(long long)arg1 forExtensionWithID:(long long)arg2 error:(id *)arg3;
 - (_Bool)setState:(long long)arg1 forExtensionWithIdentifier:(id)arg2 error:(id *)arg3;
 - (_Bool)removeExtensionWithIdentifier:(id)arg1 error:(id *)arg2;

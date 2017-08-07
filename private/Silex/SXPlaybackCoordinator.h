@@ -17,6 +17,7 @@
 @interface SXPlaybackCoordinator : NSObject <SXVideoMetadataProviding, SXMediaSelectionControllerDelegate, SXMediaSelectionControllerDataSource, SXVolumeObserver>
 {
     _Bool _hasMediaSelectionOptions;
+    _Bool _requiresReadyToDisplay;
     _Bool _muted;
     _Bool _playbackRequested;
     _Bool _initiatedPlayback;
@@ -39,6 +40,7 @@
 @property(readonly, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(nonatomic) _Bool playbackRequested; // @synthesize playbackRequested=_playbackRequested;
 @property(nonatomic) _Bool muted; // @synthesize muted=_muted;
+@property(nonatomic) _Bool requiresReadyToDisplay; // @synthesize requiresReadyToDisplay=_requiresReadyToDisplay;
 @property(nonatomic) __weak NSObject<SXVideoPlaybackHost> *host; // @synthesize host=_host;
 @property(nonatomic) struct CGSize dimensions; // @synthesize dimensions=_dimensions;
 @property(nonatomic) _Bool hasMediaSelectionOptions; // @synthesize hasMediaSelectionOptions=_hasMediaSelectionOptions;

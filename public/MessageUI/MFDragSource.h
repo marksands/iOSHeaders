@@ -6,12 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-#import <MessageUI/UIDragInteractionDelegate-Protocol.h>
+#import <MessageUI/UIDragInteractionDelegate_Private-Protocol.h>
 
 @class NSString, UIDragInteraction, UIView;
 @protocol MFDragSourceDelegate;
 
-@interface MFDragSource : NSObject <UIDragInteractionDelegate>
+@interface MFDragSource : NSObject <UIDragInteractionDelegate_Private>
 {
     struct {
         _Bool respondsToTeamDataForItem;
@@ -22,6 +22,7 @@
         _Bool respondsToDragWillEnd;
         _Bool respondsToAllowsMoveOperation;
         _Bool respondsToIsRestrictedToMail;
+        _Bool respondsToDataOwner;
     } _delegateFlags;
     _Bool _allowsDragOverridingMasterSwitch;
     UIView *_sourceView;
@@ -34,6 +35,7 @@
 @property(nonatomic) _Bool allowsDragOverridingMasterSwitch; // @synthesize allowsDragOverridingMasterSwitch=_allowsDragOverridingMasterSwitch;
 @property(readonly, nonatomic) UIView *sourceView; // @synthesize sourceView=_sourceView;
 - (void).cxx_destruct;
+- (long long)_dragInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (_Bool)dragInteraction:(id)arg1 sessionIsRestrictedToDraggingApplication:(id)arg2;
 - (_Bool)dragInteraction:(id)arg1 sessionAllowsMoveOperation:(id)arg2;
 - (_Bool)_dragInteractionAllowsDragOverridingMasterSwitch:(id)arg1;

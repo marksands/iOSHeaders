@@ -10,15 +10,17 @@
 #import <PreferencesUI/DevicePINControllerDelegate-Protocol.h>
 #import <PreferencesUI/PSListControllerTestableSpecifiers-Protocol.h>
 #import <PreferencesUI/PSUIHomeButtonCustomizeControllerDelegate-Protocol.h>
+#import <PreferencesUI/SFAirDropDiscoveryControllerDelegate-Protocol.h>
 
-@class CRCarPlayPreferences, NSString, NSTimer, PSSpecifier, PSUITVOutManager;
+@class CRCarPlayPreferences, NSString, NSTimer, PSSpecifier, PSUITVOutManager, SFAirDropDiscoveryController;
 
-@interface PSUIGeneralController : PSListController <CRCarPlayPreferencesDelegate, PSUIHomeButtonCustomizeControllerDelegate, DevicePINControllerDelegate, PSListControllerTestableSpecifiers>
+@interface PSUIGeneralController : PSListController <CRCarPlayPreferencesDelegate, PSUIHomeButtonCustomizeControllerDelegate, SFAirDropDiscoveryControllerDelegate, DevicePINControllerDelegate, PSListControllerTestableSpecifiers>
 {
     NSTimer *_usageTimer;
     PSUITVOutManager *_tvOutManager;
     PSSpecifier *_tvOutSpecifier;
     PSSpecifier *_airDropSpecifier;
+    SFAirDropDiscoveryController *_airDropDiscoveryController;
     CRCarPlayPreferences *_carPreferences;
 }
 
@@ -42,6 +44,8 @@
 - (void)dealloc;
 - (void)handleCarPlayAllowedDidChange;
 - (_Bool)_hasCarPlayContent;
+- (void)discoveryControllerVisibilityDidChange:(id)arg1;
+- (void)discoveryControllerSettingsDidChange:(id)arg1;
 - (void)homeButtonCustomizeControllerDidFinish:(id)arg1;
 - (void)loadHomeButtonSettings:(id)arg1;
 - (id)specifiers;

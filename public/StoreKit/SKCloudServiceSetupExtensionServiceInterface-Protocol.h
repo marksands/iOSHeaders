@@ -9,8 +9,8 @@
 @class NSURL, SKCloudServiceSetupConfiguration, SKCloudServiceSetupReloadContext;
 
 @protocol SKCloudServiceSetupExtensionServiceInterface <NSObject>
-- (void)handleSafariScriptURL:(NSURL *)arg1;
 - (void)reloadWithContext:(SKCloudServiceSetupReloadContext *)arg1;
+- (void)handleSafariScriptURL:(NSURL *)arg1;
 - (void)applyConfiguration:(SKCloudServiceSetupConfiguration *)arg1;
 @end
 

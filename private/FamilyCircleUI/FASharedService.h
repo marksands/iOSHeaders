@@ -29,6 +29,8 @@
 @property(readonly, nonatomic) NSString *displayLabel; // @synthesize displayLabel=_displayLabel;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (_Bool)isEqualToSharedService:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
 
 @end

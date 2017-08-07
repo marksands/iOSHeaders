@@ -15,6 +15,8 @@
 - (id)hk_dateWithDurationSinceReferenceDate:(double)arg1 calendarUnit:(unsigned long long)arg2;
 - (double)hk_durationSinceReferenceDateForDate:(id)arg1 calendarUnit:(unsigned long long)arg2;
 - (id)hk_startOfUnitForDate:(id)arg1 calendarUnit:(unsigned long long)arg2;
+- (double)_hk_cachedLengthOfUnitForUnitStartDate:(id)arg1 calendarUnit:(unsigned long long)arg2;
+- (long long)_hk_cachedValueSinceTimeZoneDependentReferenceDateForUnitStartDate:(id)arg1 calendarUnit:(unsigned long long)arg2;
 - (id)hk_timeZoneDependentReferenceDate;
 - (double)hk_lengthOfDayForDate:(id)arg1;
 - (void)hk_enumerateDateInterval:(id)arg1 byDateComponents:(id)arg2 block:(CDUnknownBlockType)arg3;

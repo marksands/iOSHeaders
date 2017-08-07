@@ -6,12 +6,13 @@
 
 #import <UIKit/UIDocumentBrowserViewControllerDelegate-Protocol.h>
 
-@class DOCConcreteLocation, NSArray, UIBarButtonItem, UIDocumentBrowserViewController;
+@class DOCConcreteLocation, NSArray, NSURL, UIBarButtonItem, UIDocumentBrowserViewController;
 @protocol DOCServicePopoverTrackerProtocol;
 
 @protocol UIDocumentBrowserViewControllerPrivateDelegate <UIDocumentBrowserViewControllerDelegate>
 
 @optional
+- (void)documentBrowser:(UIDocumentBrowserViewController *)arg1 commitDocumentURLPreview:(NSURL *)arg2;
 - (void)documentBrowser:(UIDocumentBrowserViewController *)arg1 didPickImportedURLs:(NSArray *)arg2;
 - (void)documentManagerWasCancelled:(UIDocumentBrowserViewController *)arg1;
 - (void)didDismissDocumentManager:(UIDocumentBrowserViewController *)arg1;

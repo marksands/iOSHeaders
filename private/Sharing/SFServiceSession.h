@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (void)pairVerify:(id)arg1 start:(_Bool)arg2;
 - (int)_pairSetupCompleted:(int)arg1;
 - (void)pairSetup:(id)arg1 start:(_Bool)arg2;
+- (id)pairingDeriveKeyForIdentifier:(id)arg1 keyLength:(unsigned long long)arg2;
 - (_Bool)pairingContainsACL:(id)arg1;
 - (void)sessionReceivedFrameType:(unsigned char)arg1 data:(id)arg2;
 - (void)_sendWithFlags:(unsigned int)arg1 object:(id)arg2;

@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     UIPanGestureRecognizer *_swipeActionPanRecognizer;
     CDStruct_324b76a9 _currentSwipeConfig;
     unsigned long long _currentSwipeState;
+    _Bool _resetSwipeWhileInitiating;
     double _initialTranslation;
     double _confirmationTranslationAdjustment;
     _Bool _active;

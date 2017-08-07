@@ -17,8 +17,6 @@
     id <CNSchedulerProvider> _schedulerProvider;
 }
 
-+ (id)conflatedDomains;
-+ (id)queryHandlesForHandle:(id)arg1;
 @property(readonly, nonatomic) id <CNSchedulerProvider> schedulerProvider; // @synthesize schedulerProvider=_schedulerProvider;
 @property(readonly, nonatomic) CNReputationLogger *logger; // @synthesize logger=_logger;
 @property(readonly, nonatomic) CNReputationContactsAdapter *contactsAdapter; // @synthesize contactsAdapter=_contactsAdapter;

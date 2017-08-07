@@ -12,6 +12,7 @@
 @interface UIPrintInteractionController : NSObject
 {
     _Bool _hidesNumberOfCopies;
+    _Bool _isManagedContent;
     CDUnknownBlockType _completionHandler;
     unsigned long long _backgroundTaskIdentifier;
     NSObject<OS_dispatch_queue> *_previewQueue;
@@ -34,6 +35,7 @@
 + (_Bool)canPrintURL:(id)arg1;
 + (id)printableUTIs;
 + (_Bool)isPrintingAvailable;
+@property(nonatomic) _Bool isManagedContent; // @synthesize isManagedContent=_isManagedContent;
 @property(nonatomic) __weak id <UIPrintInteractionControllerActivityDelegate> printActivityDelegate; // @synthesize printActivityDelegate=_printActivityDelegate;
 @property(copy, nonatomic) NSArray *printingItems; // @synthesize printingItems=_printingItems;
 @property(copy, nonatomic) id printingItem; // @synthesize printingItem=_printingItem;
@@ -50,6 +52,7 @@
 - (struct CGContext *)_newSaveContext:(id)arg1 withMediaRect:(struct CGRect)arg2;
 - (id)_printItem:(id)arg1;
 - (void)_printPage;
+- (_Bool)_printingItemIsReallyTallPDF;
 - (void)_ensurePDFIsUnlockedFirstAttempt:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (struct CGSize)_printablePDFURLSize:(id)arg1;
 - (_Bool)_canPrintPDFURL:(id)arg1;
@@ -69,6 +72,7 @@
 - (void)_printPanelDidPresent;
 - (void)_cancelAllPreviewGeneration;
 - (void)_generatePrintPreview:(CDUnknownBlockType)arg1;
+- (id)_newPDFPreviewURLWithPath:(id)arg1 isManagedContent:(_Bool)arg2;
 - (_Bool)_setupPrintPanel:(CDUnknownBlockType)arg1;
 - (void)_updatePageCount;
 @property(retain, nonatomic) UIPrintPaper *paper;

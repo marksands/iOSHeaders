@@ -38,6 +38,7 @@
 @property(nonatomic) __weak id <CRKCardSectionViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) INUIRemoteViewController *_remoteViewController; // @synthesize _remoteViewController;
 - (void).cxx_destruct;
+- (void)cardSectionViewDidSelectPreferredPunchoutIndex:(long long)arg1;
 - (void)presentViewController:(id)arg1;
 - (void)cardSectionViewDidInvalidateSize:(id)arg1;
 - (void)didEngageCardSection:(id)arg1;
@@ -69,6 +70,7 @@
 - (void)_buttonOverlayWasTouchedDown:(id)arg1;
 - (void)_buttonOverlayWasTouchedUpOutside:(id)arg1;
 - (void)_buttonOverlayWasTouchedUpInside:(id)arg1;
+- (id)_preferredPunchoutCommand;
 - (id)_destinationPunchout;
 - (id)_commands;
 - (_Bool)_shouldRenderButtonOverlay;
@@ -76,6 +78,7 @@
 - (void)_cancelTouchesIfNecessary;
 - (void)_finishLoadingViewIfNecessary;
 - (void)_loadCardSectionView;
+- (_Bool)_isLoadedWithIntentsUIView;
 - (id)_unhandledParameters;
 - (_Bool)_expectsSearchUIView;
 - (_Bool)_hasCorrespondingSearchUIView;

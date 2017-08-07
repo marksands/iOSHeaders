@@ -9,6 +9,7 @@
 #import <UIKit/UISpringLoadedInteractionContext_Internal-Protocol.h>
 
 @class NSString, UISpringLoadedGestureRecognizer, UIView;
+@protocol UIDropSession;
 
 __attribute__((visibility("hidden")))
 @interface UISpringLoadedInteractionContextImpl : NSObject <UISpringLoadedInteractionContext_Internal>
@@ -28,6 +29,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIView *targetView; // @synthesize targetView;
 @property(retain, nonatomic) id targetItem; // @synthesize targetItem;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) id <UIDropSession> dropSession;
 - (struct CGPoint)locationInView:(id)arg1;
 
 // Remaining properties

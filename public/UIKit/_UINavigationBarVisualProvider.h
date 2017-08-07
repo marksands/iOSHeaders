@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)recordBarSize:(struct CGSize)arg1;
 - (void)updateTopNavigationItemTitleView;
 - (void)updateTopNavigationItemAnimated:(_Bool)arg1;
+- (void)animateForSearchPresentation:(_Bool)arg1;
 - (void)popAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)pushAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)prepareForPop;
@@ -43,6 +44,7 @@ __attribute__((visibility("hidden")))
 - (void)updateConstraints;
 - (void)intrinsicContentSizeInvalidatedForChildView:(id)arg1;
 - (void)barSizeChanged;
+- (_Bool)shouldUseHeightRangeFittingWidth;
 - (CDStruct_c3b9c2ee)heightRangeFittingWidth:(double)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)invalidateIntrinsicContentSize;

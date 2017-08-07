@@ -17,7 +17,6 @@
 - (void)searchForMeCardRegionsWithTimeout:(int)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)unregisterNameDelegate:(id)arg1;
 - (void)registerNameDelegate:(id)arg1;
-- (void)getNamedEntities:(CDUnknownBlockType)arg1 recentNamedEntities:(CDUnknownBlockType)arg2;
 - (void)predictedItemsWithProactiveTrigger:(id)arg1 searchContext:(id)arg2 limit:(unsigned long long)arg3 timeoutInMilliseconds:(float)arg4 handler:(CDUnknownBlockType)arg5;
 
 @end

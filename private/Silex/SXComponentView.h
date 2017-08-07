@@ -93,7 +93,7 @@
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)provideInfosLayoutTo:(id)arg1;
 @property(readonly, nonatomic) _Bool isTransitionable;
-- (void)prepareForTransition;
+- (void)prepareForTransitionType:(unsigned long long)arg1;
 @property(readonly, nonatomic) _Bool transitionViewShouldFadeInContent;
 @property(readonly, nonatomic) UIView *transitionContentView;
 @property(readonly, nonatomic) UIView *transitionContainerView;

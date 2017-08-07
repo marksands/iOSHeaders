@@ -90,6 +90,7 @@
 - (void)replacePlaceholders:(id)arg1 withActualItems:(id)arg2;
 - (void)_didEncounterError:(id)arg1 forObservationID:(unsigned long long)arg2;
 - (void)_didEncounterError:(id)arg1;
+- (_Bool)isRegatheringAfterSignal;
 - (_Bool)__isObservingID:(unsigned long long)arg1;
 - (_Bool)_isObservingID:(unsigned long long)arg1;
 - (id)_itemsMutableCopy;

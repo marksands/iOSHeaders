@@ -7,6 +7,6 @@
 #import <Foundation/NSArray.h>
 
 @interface NSArray (SCRCArrayExtras)
-- (id)deepMutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)scrc_deepMutableCopyWithZone:(struct _NSZone *)arg1;
 @end
 

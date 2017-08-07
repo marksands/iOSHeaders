@@ -22,7 +22,7 @@
     _Bool _isFinished;
     long long _currentStage;
     NURenderRequest *_request;
-    long long _number;
+    unsigned long long _number;
     NSArray *_dependentJobs;
     NURenderNode *_prepareNode;
     NURenderNode *_renderNode;
@@ -56,7 +56,7 @@
 @property(retain, nonatomic) NURenderNode *prepareNode; // @synthesize prepareNode=_prepareNode;
 @property(readonly) _Bool isAborted; // @synthesize isAborted=_isAborted;
 @property(retain) NSArray *dependentJobs; // @synthesize dependentJobs=_dependentJobs;
-@property(readonly) long long number; // @synthesize number=_number;
+@property(readonly) unsigned long long number; // @synthesize number=_number;
 @property(readonly) NURenderRequest *request; // @synthesize request=_request;
 @property(readonly, nonatomic) id <NURenderStatistics> statistics; // @synthesize statistics=_stats;
 @property(readonly) _Bool isExecuting; // @synthesize isExecuting=_isExecuting;

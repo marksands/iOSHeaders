@@ -28,6 +28,7 @@
 }
 
 + (id)_userDefaultsKeyForName:(id)arg1 key:(id)arg2;
++ (void)registerDisabledPeriodicActivityWithName:(id)arg1 loggingCategory:(id)arg2;
 @property(readonly, nonatomic) __weak id <HDPeriodicActivityDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) double interval; // @synthesize interval=_interval;
 @property(readonly, nonatomic) NSObject<OS_os_log> *loggingCategory; // @synthesize loggingCategory=_loggingCategory;

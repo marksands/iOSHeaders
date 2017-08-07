@@ -17,12 +17,15 @@
     _Bool _dataRead;
     NSData *_data;
     NSError *_lastError;
+    _Bool _hasCalculatedNumberOfEntries;
+    unsigned long long _numberOfEntries;
 }
 
 - (void).cxx_destruct;
 - (void)_logError:(id)arg1;
 - (void)_clearState;
 - (id)lastError;
+- (unsigned long long)numberOfEntries;
 - (void)enumerateEntriesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)getDataForCurrentEntryWithMaxSizeBytes:(unsigned long long)arg1;
 - (id)getDataForCurrentEntry;

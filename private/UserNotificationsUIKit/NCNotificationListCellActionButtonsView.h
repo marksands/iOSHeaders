@@ -8,32 +8,44 @@
 
 #import <UserNotificationsUIKit/MTContentSizeCategoryAdjusting-Protocol.h>
 
-@class NCNotificationListCellActionButton, NSString, UIStackView;
+@class NCNotificationListCellActionButton, NSString, UIStackView, _UIStatesFeedbackGenerator;
 
 @interface NCNotificationListCellActionButtonsView : UIView <MTContentSizeCategoryAdjusting>
 {
     _Bool _adjustsFontForContentSizeCategory;
+    _Bool _highlightDefaultActionButton;
+    _Bool _didPlayHaptic;
     double _stretchedWidth;
     double _defaultWidth;
     NSString *_backgroundGroupName;
     UIView *_clippingView;
     UIStackView *_buttonsStackView;
     NCNotificationListCellActionButton *_defaultActionButton;
+    _UIStatesFeedbackGenerator *_defaultActionFeedbackGenerator;
 }
 
 + (unsigned long long)numberOfActionButtonsForNotificationRequest:(id)arg1 cell:(id)arg2;
 + (id)_openButtonDescriptionForNotificationRequest:(id)arg1 cell:(id)arg2;
 + (id)_actionButtonDescriptionsForNotificationRequest:(id)arg1 cell:(id)arg2;
+@property(nonatomic) _Bool didPlayHaptic; // @synthesize didPlayHaptic=_didPlayHaptic;
+@property(retain, nonatomic) _UIStatesFeedbackGenerator *defaultActionFeedbackGenerator; // @synthesize defaultActionFeedbackGenerator=_defaultActionFeedbackGenerator;
 @property(retain, nonatomic) NCNotificationListCellActionButton *defaultActionButton; // @synthesize defaultActionButton=_defaultActionButton;
 @property(retain, nonatomic) UIStackView *buttonsStackView; // @synthesize buttonsStackView=_buttonsStackView;
 @property(retain, nonatomic) UIView *clippingView; // @synthesize clippingView=_clippingView;
 @property(copy, nonatomic) NSString *backgroundGroupName; // @synthesize backgroundGroupName=_backgroundGroupName;
 @property(readonly, nonatomic) double defaultWidth; // @synthesize defaultWidth=_defaultWidth;
 @property(nonatomic) double stretchedWidth; // @synthesize stretchedWidth=_stretchedWidth;
+@property(nonatomic) _Bool highlightDefaultActionButton; // @synthesize highlightDefaultActionButton=_highlightDefaultActionButton;
 @property(nonatomic) _Bool adjustsFontForContentSizeCategory; // @synthesize adjustsFontForContentSizeCategory=_adjustsFontForContentSizeCategory;
 - (void).cxx_destruct;
 - (void)traitCollectionDidChange:(id)arg1;
 - (_Bool)adjustForContentSizeCategoryChange;
+- (void)_actuateFeedbackForDefaultActionUnlockedIfNecessary;
+- (void)_actuateFeedbackForDefaultActionLockedIfNecessary;
+- (void)_configureDefaultActionFeedbackIfNecessary;
+- (void)_performNonDefaultActionButtonsHideRevealAnimation:(CDUnknownBlockType)arg1;
+- (void)_revealNonDefaultActionButtons;
+- (void)_hideNonDefaultActionButtons;
 - (void)_layoutButtonsStackView;
 - (void)_layoutClippingView;
 - (void)_configureButtonsStackViewIfNecessary;
@@ -41,7 +53,7 @@
 - (void)_configureDefaultWidth;
 - (double)_maxAllowedButtonWidth;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)highlightDefaultActionButton:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool shouldPerformDefaultAction;
 - (void)_configureActionButtonsForActionButtonDescriptions:(id)arg1 cell:(id)arg2;
 - (void)configureOpenActionButtonForNotificationRequest:(id)arg1 cell:(id)arg2;
 - (void)configureCellActionButtonsForNotificationRequest:(id)arg1 cell:(id)arg2;

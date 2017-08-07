@@ -25,8 +25,11 @@
     NSMutableArray *_announcementsSupportedLanguages;
     NSString *_announcementsURL;
     NSMutableArray *_attributions;
+    NSString *_backgroundDispatcherURL;
+    NSString *_backgroundRevGeoURL;
     NSString *_batchReverseGeocoderURL;
     NSString *_batchTrafficProbeURL;
+    NSString *_bluePOIURL;
     NSString *_businessPortalBaseURL;
     GEODataSetDescription *_dataSet;
     NSString *_directionsURL;
@@ -102,6 +105,9 @@
 + (Class)attributionType;
 + (Class)resourceType;
 + (Class)tileSetType;
+@property(retain, nonatomic) NSString *backgroundRevGeoURL; // @synthesize backgroundRevGeoURL=_backgroundRevGeoURL;
+@property(retain, nonatomic) NSString *bluePOIURL; // @synthesize bluePOIURL=_bluePOIURL;
+@property(retain, nonatomic) NSString *backgroundDispatcherURL; // @synthesize backgroundDispatcherURL=_backgroundDispatcherURL;
 @property(nonatomic) struct GEOMapLayersMetadata mapLayersMetadata; // @synthesize mapLayersMetadata=_mapLayersMetadata;
 @property(retain, nonatomic) NSString *proactiveRoutingURL; // @synthesize proactiveRoutingURL=_proactiveRoutingURL;
 @property(retain, nonatomic) NSString *logMessageUsageV3URL; // @synthesize logMessageUsageV3URL=_logMessageUsageV3URL;
@@ -167,6 +173,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasBackgroundRevGeoURL;
+@property(readonly, nonatomic) _Bool hasBluePOIURL;
+@property(readonly, nonatomic) _Bool hasBackgroundDispatcherURL;
 @property(nonatomic) _Bool hasMapLayersMetadata;
 @property(readonly, nonatomic) _Bool hasProactiveRoutingURL;
 @property(readonly, nonatomic) _Bool hasLogMessageUsageV3URL;

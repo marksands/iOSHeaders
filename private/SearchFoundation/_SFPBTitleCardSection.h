@@ -13,10 +13,11 @@
 
 @interface _SFPBTitleCardSection : PBCodable <_SFPBTitleCardSection, NSSecureCoding>
 {
-    CDStruct_5ff9a38c _has;
+    CDStruct_da38e31c _has;
     _Bool _canBeHidden;
     _Bool _hasTopPadding;
     _Bool _hasBottomPadding;
+    _Bool _isCentered;
     int _separatorStyle;
     NSArray *_punchoutOptions;
     NSString *_punchoutPickerTitle;
@@ -27,6 +28,7 @@
     NSString *_subtitle;
 }
 
+@property(nonatomic) _Bool isCentered; // @synthesize isCentered=_isCentered;
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) _SFPBColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
@@ -47,6 +49,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+@property(readonly, nonatomic) _Bool hasIsCentered;
 @property(readonly, nonatomic) _Bool hasSubtitle;
 @property(readonly, nonatomic) _Bool hasTitle;
 @property(readonly, nonatomic) _Bool hasBackgroundColor;

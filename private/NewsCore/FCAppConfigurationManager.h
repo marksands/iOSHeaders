@@ -21,6 +21,7 @@
     _Bool _useSecureConnectionForAssets;
     _Bool _usAndUKUseAUWhatsNewFeatures;
     _Bool _terminateAppOnBackgroundAfterJoiningOrLeavingExperiment;
+    _Bool _articleSearchEnabled;
     _Bool _attemptedAppConfigFetch;
     _Bool _privateDataEncryptionMigrationDesired;
     unsigned int _widgetMinimumNumberOfTimesPreseenToBeSeen;
@@ -155,6 +156,7 @@
 @property(nonatomic) _Bool attemptedAppConfigFetch; // @synthesize attemptedAppConfigFetch=_attemptedAppConfigFetch;
 @property(retain, nonatomic) FCCKContentDatabase *contentDatabase; // @synthesize contentDatabase=_contentDatabase;
 @property(copy, nonatomic) NSURL *contentDirectoryFileURL; // @synthesize contentDirectoryFileURL=_contentDirectoryFileURL;
+@property(nonatomic, getter=isArticleSearchEnabled) _Bool articleSearchEnabled; // @synthesize articleSearchEnabled=_articleSearchEnabled;
 @property(copy, nonatomic) NSArray *topStoriesPublishDates; // @synthesize topStoriesPublishDates=_topStoriesPublishDates;
 @property(nonatomic) _Bool terminateAppOnBackgroundAfterJoiningOrLeavingExperiment; // @synthesize terminateAppOnBackgroundAfterJoiningOrLeavingExperiment=_terminateAppOnBackgroundAfterJoiningOrLeavingExperiment;
 @property(nonatomic) long long autoRefreshMinimumInterval; // @synthesize autoRefreshMinimumInterval=_autoRefreshMinimumInterval;

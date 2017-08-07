@@ -6,14 +6,16 @@
 
 #import <HealthDaemon/NSObject-Protocol.h>
 
-@class NSArray, NSNumber, NSString;
+@class NSArray, NSNumber, NSProgress, NSString;
 
 @protocol HDCloudSyncServerInterface <NSObject>
-- (void)remote_disableCloudSyncAndDeleteAllCloudDataWithCompletion:(void (^)(_Bool, NSError *))arg1;
+- (NSProgress *)remote_waitOnHealthCloudSyncWithCompletion:(void (^)(long long, NSError *))arg1;
+- (NSProgress *)retmote_fetchCloudSyncProgressWithCompletion:(void (^)(_Bool, NSError *))arg1;
+- (NSProgress *)remote_disableCloudSyncAndDeleteAllCloudDataWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)remote_fetchCloudSyncStatusWithCompletion:(void (^)(_Bool, NSDate *, NSDate *, _Bool, NSError *))arg1;
-- (void)remote_fetchCloudDescriptionWithCompletion:(void (^)(NSString *, NSError *))arg1;
-- (void)remote_forceCloudResetWithCompletion:(void (^)(_Bool, NSError *))arg1;
-- (void)remote_forceCloudSyncWithOptions:(unsigned long long)arg1 completion:(void (^)(_Bool, NSError *))arg2;
+- (NSProgress *)remote_fetchCloudDescriptionWithCompletion:(void (^)(NSString *, NSError *))arg1;
+- (NSProgress *)remote_forceCloudResetWithCompletion:(void (^)(_Bool, NSError *))arg1;
+- (NSProgress *)remote_forceCloudSyncWithOptions:(unsigned long long)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)remote_createCloudShareWithRecipient:(NSString *)arg1 sampleTypes:(NSArray *)arg2 maxSampleAge:(NSNumber *)arg3 completion:(void (^)(_Bool, NSError *))arg4;
 @end
 

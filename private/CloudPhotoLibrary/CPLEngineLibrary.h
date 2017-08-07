@@ -68,9 +68,12 @@
 - (void)detachObject:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)attachObject:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, copy) NSString *description;
+- (void)forceFetchAccountFlags;
 - (void)startSyncSession;
 @property(nonatomic) _Bool iCloudLibraryExists;
 @property(nonatomic) _Bool iCloudLibraryHasBeenWiped;
+- (_Bool)hasAccountFlagsData;
+- (void)updateAccountFlagsData:(id)arg1;
 - (_Bool)hasAssetCountOnServer;
 - (unsigned long long)totalAssetCountOnServer;
 - (void)updateAssetCountsFromServer:(id)arg1;

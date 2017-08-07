@@ -23,6 +23,7 @@
 @property(nonatomic) __weak id <SSScreenCapturerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_sendEnvironmentDescriptionsWithPresentationOptions:(id)arg1;
+- (void)_saveSnapshotToPhotoLibrary:(id)arg1 environmentDescription:(id)arg2;
 - (void)_actuallyPerformCaptureAndSendEnvironmentDescriptionsWithPresentationOptions:(id)arg1;
 - (void)takeScreenshot;
 - (void)takeScreenshotWithPresentationOptions:(id)arg1;

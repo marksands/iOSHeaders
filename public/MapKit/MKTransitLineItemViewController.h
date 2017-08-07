@@ -72,7 +72,7 @@
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
-@property(nonatomic) double currentHeaderMinimalModeInterpolationFactor;
+@property(nonatomic) double contentAlpha;
 - (void)hideTitle:(_Bool)arg1;
 - (void)transitLineIncidentsViewController:(id)arg1 didSelectDetailsForIncidents:(id)arg2;
 - (void)nearestStationViewControllerDidSelectStation:(id)arg1;

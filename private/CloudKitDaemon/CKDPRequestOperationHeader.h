@@ -8,7 +8,7 @@
 
 #import <CloudKitDaemon/NSCopying-Protocol.h>
 
-@class CKDPIdentifier, CKDPLocale, NSData, NSString;
+@class CKDPIdentifier, CKDPLocale, NSData, NSMutableArray, NSString;
 
 @interface CKDPRequestOperationHeader : PBCodable <NSCopying>
 {
@@ -36,6 +36,7 @@
     CKDPLocale *_locale;
     NSString *_mmcsProtocolVersion;
     NSString *_operationGroupName;
+    NSMutableArray *_serviceIdentityKeyIDs;
     int _targetDatabase;
     NSString *_userIDContainerID;
     NSString *_userToken;
@@ -53,6 +54,8 @@
     } _has;
 }
 
++ (Class)serviceIdentityKeyIDsType;
+@property(retain, nonatomic) NSMutableArray *serviceIdentityKeyIDs; // @synthesize serviceIdentityKeyIDs=_serviceIdentityKeyIDs;
 @property(nonatomic) unsigned long long operationGroupQuantity; // @synthesize operationGroupQuantity=_operationGroupQuantity;
 @property(retain, nonatomic) NSString *operationGroupName; // @synthesize operationGroupName=_operationGroupName;
 @property(retain, nonatomic) NSString *userIDContainerID; // @synthesize userIDContainerID=_userIDContainerID;
@@ -87,6 +90,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)serviceIdentityKeyIDsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)serviceIdentityKeyIDsCount;
+- (void)addServiceIdentityKeyIDs:(id)arg1;
+- (void)clearServiceIdentityKeyIDs;
 @property(nonatomic) _Bool hasOperationGroupQuantity;
 @property(readonly, nonatomic) _Bool hasOperationGroupName;
 - (int)StringAsIsolationLevel:(id)arg1;

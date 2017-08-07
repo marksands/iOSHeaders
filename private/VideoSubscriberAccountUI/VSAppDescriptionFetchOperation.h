@@ -15,11 +15,11 @@
     VSAuditToken *_auditToken;
     VSOptional *_result;
     SSLookupRequest *_lookupRequest;
-    NSOperationQueue *_privateQueue;
+    NSOperationQueue *_imageLoadingQueue;
     struct CGSize _preferredArtworkSize;
 }
 
-@property(retain, nonatomic) NSOperationQueue *privateQueue; // @synthesize privateQueue=_privateQueue;
+@property(retain, nonatomic) NSOperationQueue *imageLoadingQueue; // @synthesize imageLoadingQueue=_imageLoadingQueue;
 @property(retain, nonatomic) SSLookupRequest *lookupRequest; // @synthesize lookupRequest=_lookupRequest;
 @property(retain, nonatomic) VSOptional *result; // @synthesize result=_result;
 @property(retain, nonatomic) VSAuditToken *auditToken; // @synthesize auditToken=_auditToken;
@@ -29,7 +29,7 @@
 - (void).cxx_destruct;
 - (void)cancel;
 - (void)executionDidBegin;
-- (id)_appDescriptionFromLookupResponse:(id)arg1 artworkImage:(id)arg2 appAdamID:(id)arg3;
+- (id)_appDescriptionFromLookupResponse:(id)arg1 appAdamID:(id)arg2;
 - (void)_handleLookupResponse:(id)arg1;
 - (id)initWithAppAdamIDs:(id)arg1;
 - (id)initWithAppAdamIDs:(id)arg1 preferredArtworkSize:(struct CGSize)arg2;

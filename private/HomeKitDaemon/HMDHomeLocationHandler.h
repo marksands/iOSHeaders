@@ -15,6 +15,7 @@
 
 @interface HMDHomeLocationHandler : HMFObject <HMDLocationDelegate, HMFMessageReceiver, NSSecureCoding>
 {
+    _Bool _isExtractingCurrentLocation;
     int _locationAuthorization;
     CLLocation *_location;
     NSTimeZone *_timeZone;
@@ -27,6 +28,7 @@
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)mergeLocationDataForLocalHome:(id)arg1 withCloudHome:(id)arg2;
+@property(nonatomic) _Bool isExtractingCurrentLocation; // @synthesize isExtractingCurrentLocation=_isExtractingCurrentLocation;
 @property(retain, nonatomic) CLRegion *region; // @synthesize region=_region;
 @property(nonatomic) int locationAuthorization; // @synthesize locationAuthorization=_locationAuthorization;
 @property(retain, nonatomic) NSDate *locationUpdateTimestamp; // @synthesize locationUpdateTimestamp=_locationUpdateTimestamp;

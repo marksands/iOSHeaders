@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (void)registerThumbnailBlock:(CDUnknownBlockType)arg1 withPreferredSize:(unsigned long long)arg2 forPage:(id)arg3 context:(id)arg4 withPlaceholder:(_Bool)arg5 orClearFirst:(_Bool)arg6;
 - (id)cachedThumbnailForPage:(id)arg1;
 - (id)thumbnailOfSize:(unsigned long long)arg1 forPage:(id)arg2;
+- (void)clearCache;
 - (id)_initInternal;
 - (id)init;
 

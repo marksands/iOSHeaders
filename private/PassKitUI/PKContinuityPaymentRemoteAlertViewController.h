@@ -18,6 +18,7 @@
     PKRemotePaymentRequest *_remoteRequest;
     PKContinuityPaymentService *_continuityService;
     _Bool _hasAuthorizedPayment;
+    _Bool _hasSentCancelPaymentRequest;
 }
 
 + (_Bool)_isSecureForRemoteViewService;

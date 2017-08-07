@@ -15,6 +15,8 @@
     struct heim_oid _Asn1OID;
 }
 
++ (id)ECSignatureOIDWithDigestAlgorithm:(id)arg1 error:(id *)arg2;
++ (id)RSASignatureOIDWithDigestAlgorithm:(id)arg1 error:(id *)arg2;
 + (id)OIDWithAsn1OID:(struct heim_oid *)arg1 error:(id *)arg2;
 + (id)signatureAlgorithmOIDWithSecKeyAlgorithm:(struct __CFString *)arg1 error:(id *)arg2;
 + (id)digestOIDWithSignatureAlgorithm:(id)arg1 error:(id *)arg2;
@@ -34,6 +36,8 @@
 @property(readonly) const struct ccdigest_info *ccdigest;
 @property(readonly) const struct __CFString *secKeyAlgorithm;
 - (id)initSignatureOIDWithSecKeyAlgorithm:(struct __CFString *)arg1 error:(id *)arg2;
+- (id)initECSignatureOIDWithDigestAlgorithm:(id)arg1 error:(id *)arg2;
+- (id)initRSASignatureOIDWithDigestAlgorithm:(id)arg1 error:(id *)arg2;
 - (id)initDigestOIDWithSignatureAlgorithm:(id)arg1 error:(id *)arg2;
 - (id)initWithData:(id)arg1 error:(id *)arg2;
 - (id)initWithString:(id)arg1 error:(id *)arg2;

@@ -19,11 +19,12 @@
 @property(retain, nonatomic) HKMapRouteTableViewCell *mapRouteTableViewCell; // @synthesize mapRouteTableViewCell=_mapRouteTableViewCell;
 @property(retain, nonatomic) HKHealthStore *healthStore; // @synthesize healthStore=_healthStore;
 - (void).cxx_destruct;
-- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
+- (id)_convertIndexPathToSuper:(id)arg1;
 - (void)parseAndDisplayRouteData;
 - (void)addRouteData:(id)arg1 hasFinishedQuery:(_Bool)arg2;
 - (void)loadRoute;

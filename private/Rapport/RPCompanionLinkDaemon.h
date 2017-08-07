@@ -8,7 +8,7 @@
 
 #import <Rapport/NSXPCListenerDelegate-Protocol.h>
 
-@class CUBluetoothClient, CUBonjourAdvertiser, CUBonjourBrowser, CUPairingManager, CUTCPServer, NSData, NSMutableDictionary, NSString, NSXPCListener;
+@class CUBluetoothClient, CUBonjourAdvertiser, CUBonjourBrowser, CUPairingManager, CUTCPServer, NSData, NSMutableDictionary, NSString, NSXPCListener, RPCompanionLinkDevice;
 @protocol OS_dispatch_queue;
 
 @interface RPCompanionLinkDaemon : NSObject <NSXPCListenerDelegate>
@@ -26,6 +26,7 @@
     NSData *_homeKitRotatingID;
     NSData *_homeKitUniqueIDData;
     NSString *_homeKitUniqueIDStr;
+    RPCompanionLinkDevice *_localDevice;
     NSData *_pairingAltIRK;
     NSData *_pairingAuthTag;
     struct NSMutableDictionary *_pairingPeers;
@@ -68,6 +69,7 @@
 - (void)_pairingMonitorHomeKitIdentityUpdated:(id)arg1 error:(id)arg2;
 - (void)_pairingMonitorEnsureStopped;
 - (void)_pairingMonitorEnsureStarted;
+- (void)_localDeviceUpdate;
 - (void)_connectionStateChanged:(unsigned int)arg1 connection:(id)arg2;
 - (void)_serverTCPHandleConnectionEnded:(id)arg1;
 - (void)_serverTCPHandleConnectionStarted:(id)arg1;

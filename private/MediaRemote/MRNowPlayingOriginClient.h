@@ -27,6 +27,7 @@
     struct NSMutableDictionary *_pendingNotifications;
     NSObject<OS_dispatch_queue> *_pendingNotificationQueue;
     CDUnknownBlockType _playbackQueueCallback;
+    CDUnknownBlockType _playbackQueueTransactionCallback;
     CDUnknownBlockType _capabilitiesCallback;
     CDUnknownBlockType _commandCallback;
     CDUnknownBlockType _beginLyricsEventCallback;
@@ -60,6 +61,7 @@
 @property(copy, nonatomic) CDUnknownBlockType endLyricsEventCallback;
 @property(copy, nonatomic) CDUnknownBlockType beginLyricsEventCallback;
 @property(copy, nonatomic) CDUnknownBlockType commandCallback;
+@property(copy, nonatomic) CDUnknownBlockType playbackQueueTransactionCallback;
 @property(copy, nonatomic) CDUnknownBlockType playbackQueueCallback;
 @property(readonly, nonatomic) NSArray *nowPlayingClients;
 - (void)dealloc;

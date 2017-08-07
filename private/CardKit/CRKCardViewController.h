@@ -25,10 +25,12 @@
     _Bool _indicatingActivity;
     id <CRCard> _card;
     id <CRKCardViewControllerDelegate> _delegate;
+    long long _preferredPunchoutIndex;
 }
 
 + (void)_registerCardSectionViewControllers;
 + (void)initialize;
+@property long long preferredPunchoutIndex; // @synthesize preferredPunchoutIndex=_preferredPunchoutIndex;
 @property(readonly, nonatomic, getter=isIndicatingActivity) _Bool indicatingActivity; // @synthesize indicatingActivity=_indicatingActivity;
 @property(nonatomic) __weak id <CRKCardViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) id <CRCard> card; // @synthesize card=_card;
@@ -41,6 +43,8 @@
 - (id)cardSectionViewController:(id)arg1 interfaceSectionsForInteraction:(id)arg2;
 - (id)cardSectionViewController:(id)arg1 handledParametersForInteraction:(id)arg2;
 - (id)cardSectionViewController:(id)arg1 interactionWithIdentifier:(id)arg2;
+- (long long)preferredPunchoutIndexForCardSectionViewController:(id)arg1;
+- (void)cardSectionViewController:(id)arg1 didSelectPreferredPunchoutIndex:(long long)arg2;
 - (void)presentViewController:(id)arg1 forCardSectionViewController:(id)arg2;
 - (void)cardSectionViewControllerShouldBeRemoved:(id)arg1;
 - (void)cardSectionViewController:(id)arg1 didHandleParameters:(id)arg2 forInteraction:(id)arg3;

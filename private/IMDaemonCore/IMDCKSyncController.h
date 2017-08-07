@@ -13,15 +13,18 @@
     NSDate *_syncStartDate;
     NSTimer *_longRunningSyncTimer;
     IMTimer *_nightlySyncTimer;
+    long long _initialSyncAttempts;
     CKFetchRecordZonesOperation *_cloudKitMetricsFetchOp;
 }
 
 + (id)sharedInstance;
 @property(retain, nonatomic) CKFetchRecordZonesOperation *cloudKitMetricsFetchOp; // @synthesize cloudKitMetricsFetchOp=_cloudKitMetricsFetchOp;
+@property(nonatomic) long long initialSyncAttempts; // @synthesize initialSyncAttempts=_initialSyncAttempts;
 @property(retain, nonatomic) IMTimer *nightlySyncTimer; // @synthesize nightlySyncTimer=_nightlySyncTimer;
 @property(retain, nonatomic) NSTimer *longRunningSyncTimer; // @synthesize longRunningSyncTimer=_longRunningSyncTimer;
 @property(retain, nonatomic) NSDate *syncStartDate; // @synthesize syncStartDate=_syncStartDate;
 - (void).cxx_destruct;
+- (id)syncStateDebuggingInfo:(id)arg1;
 - (_Bool)isSyncing;
 - (void)updateAllCachedSyncStateFlags;
 - (void)_setSyncStateFlagsWithAccountStatus:(long long)arg1;
@@ -40,6 +43,8 @@
 - (void)_syncChatsWithActivity:(id)arg1;
 - (void)syncDeletesToCloudKit;
 - (void)_beginPeriodicSyncWithActivity:(id)arg1 shouldCheckDeviceConditions:(_Bool)arg2 attemptCount:(unsigned long long)arg3;
+- (void)_nukeCKData;
+- (void)_dealWithEncryptionKeyLostErrorIfApplicable:(id)arg1;
 - (_Bool)_errorIndicatesDeviceNotGoodForSync:(id)arg1;
 - (void)beginInitialSyncAttemptCount:(unsigned long long)arg1;
 - (void)recordMetricIsCloudKitEnabled;
@@ -48,6 +53,8 @@
 - (void)clearCKRelatedDefaults;
 - (void)kickOffCloudKitSyncIfNeededOnImagentLaunch;
 - (void)beginComingBackOnlineSync;
+- (_Bool)_accountHasMultipleDevices;
+- (_Bool)_serverDoesNotSingleDeviceLimitation;
 - (_Bool)_chatSyncedRecently;
 - (double)_minimumChatComingOnlineSyncInterval;
 - (_Bool)_serverDoesNotAllowComingBackOnlineChatSync;

@@ -35,6 +35,7 @@
 - (void)forbidConnectionForFitnessMachineSessionUUID:(id)arg1;
 - (void)permitConnectionForFitnessMachineSessionUUID:(id)arg1;
 - (void)registerClient;
+- (void)_connectionInterruptedWithError:(id)arg1;
 - (id)_initWithHealthStore:(id)arg1;
 
 // Remaining properties

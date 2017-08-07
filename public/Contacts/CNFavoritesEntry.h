@@ -32,6 +32,7 @@
 
 + (void)_runLookupWithStore:(id)arg1;
 + (id)rematchEntrySnapshot:(id)arg1 withStore:(id)arg2 noMatchFound:(_Bool *)arg3;
++ (_Bool)favoritesEntryValueForLabeledValueValue:(id)arg1 propertyKey:(id)arg2 isEqualToValue:(id)arg3;
 + (id)createLabeledValueForFavoritesEntryValue:(id)arg1 label:(id)arg2 iOSLegacyIdentifier:(int)arg3 propertyKey:(id)arg4;
 + (id)labeledValueValueForFavoritesEntryValue:(id)arg1 propertyKey:(id)arg2;
 + (id)instantMessageAddressForFavoritesEntryValue:(id)arg1;

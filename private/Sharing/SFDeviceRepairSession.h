@@ -13,6 +13,7 @@
 {
     _Bool _activateCalled;
     _Bool _invalidateCalled;
+    int _preflightWiFiState;
     SFSession *_sfSession;
     int _sfSessionState;
     int _pairVerifyState;
@@ -40,6 +41,7 @@
 - (int)_runGetProblems;
 - (int)_runPairVerify;
 - (int)_runSFSessionStart;
+- (int)_runPreflightWiFi;
 - (void)_run;
 - (void)_reportError:(id)arg1;
 - (void)invalidate;

@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSString, NSUserDefaults;
+@class NSUserDefaults;
 
 @interface VSSpeechInternalSettings : NSObject
 {
@@ -22,7 +22,6 @@
 - (void).cxx_destruct;
 @property(nonatomic) _Bool enableLocalVoices;
 @property(nonatomic) _Bool disableAssetCleaning;
-@property(retain, nonatomic) NSString *forcedVoiceName;
 @property(nonatomic) _Bool disableCache;
 - (id)init;
 

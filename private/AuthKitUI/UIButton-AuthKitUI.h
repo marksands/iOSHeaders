@@ -8,5 +8,6 @@
 
 @interface UIButton (AuthKitUI)
 + (id)ak_passwordRecoveryButton;
+- (void)_ak_passwordRecoveryButtonTapped:(id)arg1;
 @end
 

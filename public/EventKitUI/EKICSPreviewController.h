@@ -43,6 +43,8 @@
 - (void)eventViewController:(id)arg1 didCompleteWithAction:(long long)arg2;
 - (_Bool)eventViewControllerShouldAlwaysShowNavBar:(id)arg1;
 - (_Bool)eventViewControllerShouldDismissSelf:(id)arg1;
+- (void)handleImportEventError;
+- (void)handleDidImportEvent:(id)arg1 fromController:(id)arg2 intoCalendar:(id)arg3;
 - (void)importEventFromController:(id)arg1 intoCalendar:(id)arg2;
 - (void)importAllIntoCalendar:(id)arg1;
 - (void)calendarChooserDidCancel:(id)arg1;

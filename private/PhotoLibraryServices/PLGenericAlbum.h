@@ -44,9 +44,11 @@
 + (id)insertNewAlbumWithKind:(int)arg1 title:(id)arg2 intoLibrary:(id)arg3;
 + (id)_insertNewAlbumWithKind:(int)arg1 title:(id)arg2 lastInterestingDate:(id)arg3 intoLibrary:(id)arg4;
 + (id)albumsMatchingPredicate:(id)arg1 inLibrary:(id)arg2;
-+ (void)removeTrashedAlbumsAndFoldersForCloudResetInLibrary:(id)arg1;
-+ (void)removeEmptyAlbumsForCloudResetInLibrary:(id)arg1;
++ (void)removeInvalidAlbumsAndFoldersInManagedObjectContext:(id)arg1;
++ (void)removeTrashedAlbumsAndFoldersForCloudResetInManagedObjectContext:(id)arg1;
++ (void)removeEmptyAlbumsAndFoldersForCloudResetInManagedObjectContext:(id)arg1;
 + (void)removeAllUserAlbumsAndFoldersInLibrary:(id)arg1;
++ (void)_removeAlbumsAndFolders:(id)arg1 inManagedObjectContext:(id)arg2;
 + (void)resetAlbumStateForCloudInLibrary:(id)arg1 hardReset:(_Bool)arg2;
 + (id)albumsToUploadInitiallyInLibrary:(id)arg1 limit:(unsigned long long)arg2;
 + (id)includeUnpushedParentsForAlbums:(id)arg1 limit:(unsigned long long)arg2;

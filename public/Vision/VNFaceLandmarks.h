@@ -11,8 +11,8 @@
 @interface VNFaceLandmarks : NSObject
 {
     float _confidence;
-    NSData *_pointsData;
     unsigned long long _pointCount;
+    NSData *_pointsData;
     struct _Geometry2D_rect2D_ _alignedBBox;
     struct CGRect _userFacingBBox;
 }
@@ -25,7 +25,7 @@
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)initWithData:(id)arg1 pointCount:(unsigned long long)arg2 userFacingBBox:(struct CGRect)arg3 alignedBBox:(struct _Geometry2D_rect2D_)arg4 landmarkScore:(float)arg5;
+- (id)initWithPointsData:(id)arg1 pointCount:(unsigned long long)arg2 userFacingBBox:(struct CGRect)arg3 alignedBBox:(struct _Geometry2D_rect2D_)arg4 landmarkScore:(float)arg5;
 - (_Bool)isUserFacingBBoxEquivalentToAlignedBBox;
 - (void *)createPointArray:(const int *)arg1 count:(unsigned long long)arg2;
 

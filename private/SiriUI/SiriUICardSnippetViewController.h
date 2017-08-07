@@ -10,13 +10,13 @@
 #import <SiriUI/SiriUICardLoadingObserver-Protocol.h>
 #import <SiriUI/SiriUICardSnippetViewDataSource-Protocol.h>
 #import <SiriUI/SiriUICardSnippetViewDelegate-Protocol.h>
+#import <SiriUI/SiriUIModalContainerViewControllerDelegate-Protocol.h>
 #import <SiriUI/_SiriUICardLoaderDelegate-Protocol.h>
-#import <SiriUI/_SiriUIModelContainerViewControllerDelegate-Protocol.h>
 
-@class CRKCardViewController, NSMutableDictionary, NSObject, NSString, SACardSnippet, SiriUICardSnippetView, _SiriUICardLoader, _SiriUIModalContainerViewController;
+@class CRKCardViewController, NSMutableDictionary, NSObject, NSString, SACardSnippet, SiriUICardSnippetView, SiriUIModalContainerViewController, _SiriUICardLoader;
 @protocol OS_dispatch_group;
 
-@interface SiriUICardSnippetViewController : SiriUISnippetViewController <_SiriUICardLoaderDelegate, SiriUICardLoadingObserver, _SiriUIModelContainerViewControllerDelegate, SiriUICardSnippetViewDataSource, SiriUICardSnippetViewDelegate, CRKCardViewControllerDelegate>
+@interface SiriUICardSnippetViewController : SiriUISnippetViewController <_SiriUICardLoaderDelegate, SiriUICardLoadingObserver, SiriUIModalContainerViewControllerDelegate, SiriUICardSnippetViewDataSource, SiriUICardSnippetViewDelegate, CRKCardViewControllerDelegate>
 {
     SACardSnippet *_snippet;
     struct CGSize _contentSize;
@@ -25,7 +25,7 @@
     NSObject<OS_dispatch_group> *_cardLoadingGroup;
     SACardSnippet *_newlyLoadedCardSnippet;
     _SiriUICardLoader *_cardLoader;
-    _SiriUIModalContainerViewController *_presentedModalContainerViewController;
+    SiriUIModalContainerViewController *_presentedModalContainerViewController;
     CRKCardViewController *_cardViewController;
 }
 
@@ -73,6 +73,7 @@
 - (void)siriDidStartSpeakingWithIdentifier:(id)arg1;
 - (void)willCancel;
 - (void)wasAddedToTranscript;
+- (id)requestContext;
 - (_Bool)logContentsIfApplicable;
 - (_Bool)isIndicatingActivity;
 - (double)desiredHeight;

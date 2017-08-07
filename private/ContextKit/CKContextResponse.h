@@ -29,9 +29,6 @@
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
-- (void)logTransactionSuccessfulWithLogType:(unsigned long long)arg1;
-- (void)logEngagement:(id)arg1 rank:(unsigned long long)arg2 input:(id)arg3 logType:(unsigned long long)arg4;
-- (void)logResultsShown:(unsigned long long)arg1 couldHaveShown:(unsigned long long)arg2 serverOverride:(_Bool)arg3 logType:(unsigned long long)arg4;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)dealloc;

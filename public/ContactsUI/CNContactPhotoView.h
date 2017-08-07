@@ -73,7 +73,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)previewController:(id)arg1 frameForPreviewItem:(id)arg2 inSourceView:(id *)arg3;
 - (id)previewController:(id)arg1 transitionViewForPreviewItem:(id)arg2;
 - (id)previewController:(id)arg1 transitionImageForPreviewItem:(id)arg2 contentRect:(struct CGRect *)arg3;
-- (void)avatarView:(id)arg1 willShowActions:(id)arg2;
+- (void)willBeginPreviewInteractionForAvatarView:(id)arg1;
 - (id)presentingViewControllerForAvatarView:(id)arg1;
 - (void)_bounceSmallPhoto;
 - (void)_presentFullScreenPhoto:(id)arg1;

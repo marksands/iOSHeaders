@@ -158,6 +158,7 @@
 @property(readonly, nonatomic) _UINavigationItemButtonView *currentBackButton;
 - (_Bool)_shouldShowBackButtonForNavigationItem:(id)arg1;
 - (_Bool)_hasBackButton;
+- (void)_animateForSearchPresentation:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool _wantsLargeTitleDisplayed;
 @property(retain, nonatomic) _UINavigationControllerRefreshControlHost *refreshControlHost;
 - (_Bool)supportsRefreshControlHosting;
@@ -277,6 +278,7 @@
 - (void)_updateOpacity;
 - (struct CGSize)defaultSizeForOrientation:(long long)arg1;
 - (double)defaultHeight;
+- (double)defaultHeightForMetrics:(long long)arg1;
 - (double)defaultBackButtonAlignmentHeight;
 - (id)_currentVisualStyle;
 - (id)_appearanceStorage;

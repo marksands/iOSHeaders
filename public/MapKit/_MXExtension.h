@@ -14,6 +14,8 @@
     _MXExtensionProvider *_provider;
 }
 
++ (void)setShouldDeserializeCacheItems:(_Bool)arg1;
++ (_Bool)shouldDeserializeCacheItems;
 @property(nonatomic) __weak _MXExtensionProvider *provider; // @synthesize provider=_provider;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
@@ -41,7 +43,6 @@
 - (void)startExtensionServiceWithInputItems:(id)arg1 begin:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)canSupportIntentClass:(Class)arg1;
 - (_Bool)canSupportIntent:(id)arg1;
-- (id)_loadImage:(id)arg1;
 - (void)_loadCacheItems:(id)arg1;
 - (id)startSendingUpdatesForIntent:(id)arg1 toObserver:(id)arg2;
 - (id)handleIntent:(id)arg1 expectResponseClass:(Class)arg2 withCompletion:(CDUnknownBlockType)arg3;

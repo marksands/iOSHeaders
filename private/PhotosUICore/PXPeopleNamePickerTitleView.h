@@ -8,7 +8,7 @@
 
 #import <PhotosUICore/PXPhotoLibraryUIChangeObserver-Protocol.h>
 
-@class NSArray, NSMutableArray, NSString, PHPerson, UIFont, UIImageView, UITextField;
+@class NSMutableArray, NSString, PHPerson, UIFont, UIImageView, UITextField;
 
 @interface PXPeopleNamePickerTitleView : UIView <PXPhotoLibraryUIChangeObserver>
 {
@@ -19,12 +19,10 @@
     UIFont *_placeholderFont;
     NSMutableArray *_fetchResults;
     UIImageView *_avatarView;
-    NSArray *_labelConstraints;
     PHPerson *_person;
 }
 
 @property(retain, nonatomic) PHPerson *person; // @synthesize person=_person;
-@property(retain, nonatomic) NSArray *labelConstraints; // @synthesize labelConstraints=_labelConstraints;
 @property(retain, nonatomic) UIImageView *avatarView; // @synthesize avatarView=_avatarView;
 @property(retain, nonatomic) NSMutableArray *fetchResults; // @synthesize fetchResults=_fetchResults;
 @property(retain, nonatomic) UIFont *placeholderFont; // @synthesize placeholderFont=_placeholderFont;
@@ -40,7 +38,6 @@
 - (void)finishEditing;
 - (void)dealloc;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)updateConstraints;
 - (id)initWithFrame:(struct CGRect)arg1 person:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

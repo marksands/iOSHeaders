@@ -11,7 +11,6 @@
 @protocol UIDocumentBrowserViewControllerDelegate <NSObject>
 
 @optional
-- (void)documentBrowser:(UIDocumentBrowserViewController *)arg1 commitDocumentURLPreview:(NSURL *)arg2;
 - (void)documentBrowser:(UIDocumentBrowserViewController *)arg1 willPresentActivityViewController:(UIActivityViewController *)arg2;
 - (NSArray *)documentBrowser:(UIDocumentBrowserViewController *)arg1 applicationActivitiesForDocumentURLs:(NSArray *)arg2;
 - (void)importDocumentAtURL:(NSURL *)arg1 nextToDocumentAtURL:(NSURL *)arg2 mode:(unsigned long long)arg3 completionHandler:(void (^)(NSURL *, NSError *))arg4;

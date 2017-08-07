@@ -9,7 +9,7 @@
 #import <Message/MFDiagnosticsGenerator-Protocol.h>
 #import <Message/RadiosPreferencesDelegate-Protocol.h>
 
-@class AWDMailNetworkDiagnosticsReport, NSLock, NSMutableArray, NSMutableSet, NSString, NSThread, RadiosPreferences;
+@class AWDMailNetworkDiagnosticsReport, MFObservable, NSLock, NSMutableArray, NSMutableSet, NSString, NSThread, RadiosPreferences;
 @protocol OS_dispatch_queue;
 
 @interface MFNetworkController : NSObject <MFDiagnosticsGenerator, RadiosPreferencesDelegate>
@@ -47,7 +47,8 @@
 - (void)removeBackgroundWifiClient:(id)arg1;
 - (void)addBackgroundWifiClient:(id)arg1;
 - (void)_updateWifiClientType;
-- (id)networkObservable;
+@property(readonly, nonatomic) MFObservable *wifiObservable;
+@property(readonly, nonatomic) MFObservable *networkObservable;
 - (void)removeNetworkObserver:(id)arg1;
 - (id)addNetworkObserverBlock:(CDUnknownBlockType)arg1 queue:(id)arg2;
 - (id)_networkAssertionWithIdentifier:(id)arg1;

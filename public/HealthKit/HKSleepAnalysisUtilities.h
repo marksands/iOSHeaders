@@ -10,10 +10,13 @@
 {
 }
 
++ (id)_aggregatedPeriodsForPeriodsBySource:(id)arg1 orderedSources:(id)arg2;
++ (id)_periodsBySourceForSamples:(id)arg1 calendar:(id)arg2;
++ (id)_samplesBySourceForSamples:(id)arg1;
 + (id)sleepAnalysisIntervalForStartDate:(id)arg1 endDate:(id)arg2 calendar:(id)arg3 stratOfDayTransform:(CDUnknownBlockType)arg4;
 + (id)sleepAnalysisForSleepDays:(id)arg1;
-+ (id)sleepDaysFromQueryResult:(id)arg1 calendar:(id)arg2 startOfDayTransform:(CDUnknownBlockType)arg3;
-+ (id)sleepPeriodsFromQueryResult:(id)arg1 calendar:(id)arg2;
++ (id)sleepDaysFromQueryResult:(id)arg1 calendar:(id)arg2 startOfDayTransform:(CDUnknownBlockType)arg3 orderedSources:(id)arg4;
++ (id)sleepPeriodsFromSamples:(id)arg1 calendar:(id)arg2;
 + (void)categorizeSleepPeriods:(id)arg1 dateInterval:(id)arg2 calendar:(id)arg3;
 + (id)sortedSleepPeriodSegmentsFromSleepSamples:(id)arg1;
 + (id)dateIntervalBoundingSleepPeriods:(id)arg1;

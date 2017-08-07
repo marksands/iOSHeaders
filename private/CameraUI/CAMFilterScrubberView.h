@@ -12,24 +12,21 @@
 #import <CameraUI/UIGestureRecognizerDelegate-Protocol.h>
 #import <CameraUI/UIPreviewInteractionDelegate-Protocol.h>
 
-@class CAMAnimationGenerator, CAMDialGradientView, CAMFilterScrubberCollectionView, CAMFilterScrubberCollectionViewLayout, CIContext, EAGLContext, NSArray, NSString, UILongPressGestureRecognizer, UIPreviewInteraction, UITapGestureRecognizer;
+@class CAMAnimationGenerator, CAMDialGradientView, CAMFilterScrubberCollectionViewLayout, NSArray, NSString, UICollectionView, UILongPressGestureRecognizer, UIPreviewInteraction, UITapGestureRecognizer;
 @protocol CAMFilterScrubberViewDelegate;
 
 @interface CAMFilterScrubberView : UIView <UICollectionViewDelegate, UICollectionViewDataSource, CAMFilterScrubberCollectionViewLayoutDelegate, UIPreviewInteractionDelegate, UIGestureRecognizerDelegate>
 {
-    EAGLContext *_eaglContext;
-    CIContext *_ciContext;
     _Bool _suspended;
-    _Bool _mirrorFilterRendering;
-    _Bool __inBackground;
     id <CAMFilterScrubberViewDelegate> _delegate;
+    id _layerContents;
     NSArray *_filterTypes;
     long long _defaultFilterType;
     long long _selectedFilterType;
     long long _lastCapturedFilterType;
     double _selectionDotCenterTopSpacing;
     CAMFilterScrubberCollectionViewLayout *__collectionViewLayout;
-    CAMFilterScrubberCollectionView *__collectionView;
+    UICollectionView *__collectionView;
     UIView *__selectedFilterOverlayView;
     CAMDialGradientView *__dialGradientView;
     UILongPressGestureRecognizer *__pressGestureRecognizer;
@@ -47,14 +44,12 @@
 @property(nonatomic, setter=_setPreviewTransitionProgress:) double _previewTransitionProgress; // @synthesize _previewTransitionProgress=__previewTransitionProgress;
 @property(retain, nonatomic) UIPreviewInteraction *_previewInteraction; // @synthesize _previewInteraction=__previewInteraction;
 @property(retain, nonatomic, setter=_setReducedFilterIndicesToShow:) NSArray *_reducedFilterIndicesToShow; // @synthesize _reducedFilterIndicesToShow=__reducedFilterIndicesToShow;
-@property(getter=_isInBackground, setter=_setInBackground:) _Bool _inBackground; // @synthesize _inBackground=__inBackground;
 @property(readonly, nonatomic) UITapGestureRecognizer *_tapGestureRecognizer; // @synthesize _tapGestureRecognizer=__tapGestureRecognizer;
 @property(readonly, nonatomic) UILongPressGestureRecognizer *_pressGestureRecognizer; // @synthesize _pressGestureRecognizer=__pressGestureRecognizer;
 @property(readonly, nonatomic) CAMDialGradientView *_dialGradientView; // @synthesize _dialGradientView=__dialGradientView;
 @property(readonly, nonatomic) UIView *_selectedFilterOverlayView; // @synthesize _selectedFilterOverlayView=__selectedFilterOverlayView;
-@property(readonly, nonatomic) CAMFilterScrubberCollectionView *_collectionView; // @synthesize _collectionView=__collectionView;
+@property(readonly, nonatomic) UICollectionView *_collectionView; // @synthesize _collectionView=__collectionView;
 @property(readonly, nonatomic) CAMFilterScrubberCollectionViewLayout *_collectionViewLayout; // @synthesize _collectionViewLayout=__collectionViewLayout;
-@property _Bool mirrorFilterRendering; // @synthesize mirrorFilterRendering=_mirrorFilterRendering;
 @property(nonatomic) double selectionDotCenterTopSpacing; // @synthesize selectionDotCenterTopSpacing=_selectionDotCenterTopSpacing;
 @property(nonatomic) struct UIEdgeInsets thumbnailEdgeInsets; // @synthesize thumbnailEdgeInsets=_thumbnailEdgeInsets;
 @property(nonatomic, getter=isSuspended) _Bool suspended; // @synthesize suspended=_suspended;
@@ -62,6 +57,7 @@
 @property(nonatomic) long long selectedFilterType; // @synthesize selectedFilterType=_selectedFilterType;
 @property(nonatomic) long long defaultFilterType; // @synthesize defaultFilterType=_defaultFilterType;
 @property(retain, nonatomic) NSArray *filterTypes; // @synthesize filterTypes=_filterTypes;
+@property(retain, nonatomic) id layerContents; // @synthesize layerContents=_layerContents;
 @property(nonatomic) __weak id <CAMFilterScrubberViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_newReducedFilterIndicesToShow;
@@ -72,10 +68,6 @@
 - (void)_switchToFilterAtIndexOffset:(long long)arg1 shouldOvershoot:(_Bool)arg2;
 - (void)switchToPreviousFilter;
 - (void)switchToNextFilter;
-- (void)_applicationWillEnterForeground:(id)arg1;
-- (void)_applicationDidBecomeActive:(id)arg1;
-- (void)_applicationWillResignActive:(id)arg1;
-- (void)renderWithSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
 - (void)_scrollToFilterType:(long long)arg1 animated:(_Bool)arg2 shouldOvershoot:(_Bool)arg3;
 - (void)_switchToFilterType:(long long)arg1 shouldOvershoot:(_Bool)arg2;
 - (void)_handleTapGestureRecognizer:(id)arg1;
@@ -100,6 +92,7 @@
 - (struct CGSize)filterScrubberCollectionViewLayout:(id)arg1 sizeForItemAtIndexPath:(id)arg2;
 - (_Bool)collectionView:(id)arg1 shouldDeselectItemAtIndexPath:(id)arg2;
 - (_Bool)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;
+- (void)_updateFilteredLayerContentsForCell:(id)arg1;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;

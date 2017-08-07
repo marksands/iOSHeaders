@@ -45,6 +45,8 @@
 @property(readonly) NSString *manufacturer;
 - (void)_setName:(id)arg1;
 @property(readonly) NSString *name;
+@property(readonly, nonatomic) NSString *_connectedGymDeviceFullName;
+@property(readonly, nonatomic) NSString *_connectedGymDeviceTypeName;
 - (_Bool)_isConnectedGymDevice;
 - (unsigned long long)_fitnessMachineType;
 - (void)_setFitnessMachineType:(unsigned long long)arg1;

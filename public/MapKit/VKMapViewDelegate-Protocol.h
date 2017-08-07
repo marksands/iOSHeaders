@@ -29,6 +29,8 @@
 - (void)mapLayer:(VKMapView *)arg1 didStopFlyoverTourCompleted:(_Bool)arg2;
 - (void)mapLayerWillStartFlyoverTour:(VKMapView *)arg1;
 - (void)mapLayer:(VKMapView *)arg1 arTrackingStateDidChange:(unsigned long long)arg2 reason:(unsigned long long)arg3;
+- (void)mapLayerARSessionInterruptionEnded:(VKMapView *)arg1;
+- (void)mapLayer:(VKMapView *)arg1 arSessionWasInterrupted:(unsigned long long)arg2;
 - (void)mapLayer:(VKMapView *)arg1 didEncounterARError:(NSError *)arg2;
 - (void)mapLayerDidExitAR:(VKMapView *)arg1;
 - (void)mapLayerWillExitAR:(VKMapView *)arg1;

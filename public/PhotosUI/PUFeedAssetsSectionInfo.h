@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)containsAsset:(id)arg1;
 - (_Bool)areAllAssetsLiked;
 - (void)getPhotoCount:(out unsigned long long *)arg1 videoCount:(out unsigned long long *)arg2;
+- (id)countsByAssetDisplayType;
 - (id)batchIDForItemAtIndex:(long long)arg1;
 - (id)captionForItemAtIndex:(long long)arg1;
 - (id)assetForItemAtIndex:(long long)arg1;

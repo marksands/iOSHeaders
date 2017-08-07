@@ -13,7 +13,6 @@
 
 @interface ICURLRequest : NSObject <NSProgressReporting>
 {
-    NSURLRequest *_urlRequest;
     NSMutableArray *_observers;
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSObject<OS_dispatch_queue> *_observerQueue;
@@ -28,6 +27,7 @@
     unsigned long long _redirectCount;
     double _retryDelay;
     long long _requestState;
+    NSURLRequest *_urlRequest;
     NSURLSessionTask *_task;
     long long _type;
     NSObject<OS_dispatch_semaphore> *_waitSemaphore;
@@ -38,10 +38,12 @@
     NSError *_error;
     NSDictionary *_avDownloadOptions;
     double _lastUpdateTime;
+    double _lastProgressUpdateTime;
     CDUnknownBlockType _completionHandler;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
+@property(nonatomic) double lastProgressUpdateTime; // @synthesize lastProgressUpdateTime=_lastProgressUpdateTime;
 @property(nonatomic) double lastUpdateTime; // @synthesize lastUpdateTime=_lastUpdateTime;
 @property(nonatomic) _Bool shouldRetry; // @synthesize shouldRetry=_shouldRetry;
 @property(retain, nonatomic) NSDictionary *avDownloadOptions; // @synthesize avDownloadOptions=_avDownloadOptions;
@@ -53,6 +55,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *waitSemaphore; // @synthesize waitSemaphore=_waitSemaphore;
 @property(nonatomic) long long type; // @synthesize type=_type;
 @property(retain, nonatomic) NSURLSessionTask *task; // @synthesize task=_task;
+@property(readonly, nonatomic) NSURLRequest *urlRequest; // @synthesize urlRequest=_urlRequest;
 @property(nonatomic, getter=isExtendedCertificateValidationRequired) _Bool extendedCertificateValidationRequired; // @synthesize extendedCertificateValidationRequired=_extendedCertificateValidationRequired;
 @property(nonatomic) long long requestState; // @synthesize requestState=_requestState;
 @property(nonatomic) double retryDelay; // @synthesize retryDelay=_retryDelay;

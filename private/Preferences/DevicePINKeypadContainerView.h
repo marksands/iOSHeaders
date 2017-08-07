@@ -12,6 +12,7 @@
 {
     DevicePINKeypad *_keypad;
     UIVisualEffectView *_backdropView;
+    double _iPadKeypadHeight;
 }
 
 - (void).cxx_destruct;

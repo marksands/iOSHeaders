@@ -6,41 +6,14 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSOperationQueue;
-@protocol DOCKeyCommandRegistryHostProxyProtocol, DOCKeyCommandRegistryServiceProxyProtocol;
-
 @interface DOCKeyCommandRegistry : NSObject
 {
-    _Bool _isServiceSide;
-    id <DOCKeyCommandRegistryServiceProxyProtocol> _serviceProxy;
-    id <DOCKeyCommandRegistryHostProxyProtocol> _hostProxy;
-    NSMutableArray *_registeredkeyCommands;
-    NSMutableDictionary *_serviceKeyCommands;
-    NSArray *_filteredRegisteredkeyCommands;
-    NSOperationQueue *_hostProxyQueue;
 }
 
-+ (id)_clonedKeyCommand:(id)arg1;
++ (id)_defaultIdentifiersAndKeyCommands;
 + (id)sharedInstance;
-@property(retain) NSOperationQueue *hostProxyQueue; // @synthesize hostProxyQueue=_hostProxyQueue;
-@property(retain) NSArray *filteredRegisteredkeyCommands; // @synthesize filteredRegisteredkeyCommands=_filteredRegisteredkeyCommands;
-@property(retain) NSMutableDictionary *serviceKeyCommands; // @synthesize serviceKeyCommands=_serviceKeyCommands;
-@property(retain) NSMutableArray *registeredkeyCommands; // @synthesize registeredkeyCommands=_registeredkeyCommands;
-@property(nonatomic) __weak id <DOCKeyCommandRegistryHostProxyProtocol> hostProxy; // @synthesize hostProxy=_hostProxy;
-@property(nonatomic) __weak id <DOCKeyCommandRegistryServiceProxyProtocol> serviceProxy; // @synthesize serviceProxy=_serviceProxy;
-@property(nonatomic) _Bool isServiceSide; // @synthesize isServiceSide=_isServiceSide;
-- (void).cxx_destruct;
-- (void)_addOperationToHostProxyQueue:(CDUnknownBlockType)arg1;
-- (void)_invokeHostKeyCommand:(id)arg1;
-- (void)_invokeServiceKeyCommand:(id)arg1;
-- (void)_registerKeyCommand:(id)arg1 target:(id)arg2 availability:(CDUnknownBlockType)arg3 needsUpdate:(_Bool)arg4;
-- (void)registerKeyCommand:(id)arg1 target:(id)arg2 availability:(CDUnknownBlockType)arg3;
-- (void)registerKeyCommandWithInput:(id)arg1 modifierFlags:(long long)arg2 target:(id)arg3 action:(SEL)arg4 discoverabilityTitle:(id)arg5 availability:(CDUnknownBlockType)arg6;
-- (void)didPerformKeyCommand:(id)arg1;
-- (void)setNeedsUpdate;
-@property(readonly, copy, nonatomic) NSArray *keyCommands;
-- (void)setServiceCommands:(id)arg1;
-- (id)init;
+- (id)defaultKeyCommandsExcluding:(id)arg1;
+- (void)keyCommandWasPerformed:(id)arg1;
 
 @end
 

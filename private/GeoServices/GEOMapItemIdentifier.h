@@ -22,7 +22,6 @@
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)debugDescription;
-@property(readonly, nonatomic) int placeType;
 - (CDStruct_c3b9c2ee)coordinate;
 @property(readonly, nonatomic, getter=hasCoordinate) _Bool hasCoordinate;
 @property(readonly, nonatomic) int resultProviderID;

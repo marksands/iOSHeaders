@@ -16,8 +16,8 @@
 - (void)_observeScrollViewDidEndDecelerating:(UIScrollView *)arg1;
 - (void)_observeScrollViewDidEndDragging:(UIScrollView *)arg1 willDecelerate:(_Bool)arg2;
 - (void)_observeScrollViewWillBeginDragging:(UIScrollView *)arg1;
-- (double)_topCollapsableContentAmountForObservedScrollView:(UIScrollView *)arg1;
-- (struct UIEdgeInsets)_revealableContentPaddingForObservedScrollView:(UIScrollView *)arg1;
+- (struct UIEdgeInsets)_collapsableContentPaddingForObservedScrollView:(UIScrollView *)arg1;
+- (struct UIEdgeInsets)_revealableContentPaddingForObservedScrollView:(UIScrollView *)arg1 includeContentWithCollapsedAffinity:(_Bool)arg2;
 - (void)_observeScrollView:(UIScrollView *)arg1 willEndDraggingWithVelocity:(struct CGPoint)arg2 targetContentOffset:(struct CGPoint *)arg3 unclampedOriginalTarget:(struct CGPoint)arg4;
 @end
 

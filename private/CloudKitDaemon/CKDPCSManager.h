@@ -8,7 +8,7 @@
 
 #import <CloudKitDaemon/CKDProtocolTranslatorIdentityDelegate-Protocol.h>
 
-@class CKDClientContext, NSArray, NSData, NSMutableDictionary, NSOperationQueue, NSString;
+@class CKDClientContext, NSArray, NSData, NSDate, NSMutableDictionary, NSOperationQueue, NSString;
 @protocol NSObject, OS_dispatch_queue, OS_dispatch_source;
 
 __attribute__((visibility("hidden")))
@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     NSOperationQueue *_notificationQueue;
     NSString *_currentAccountIdentifier;
     NSMutableDictionary *_PCSIdentityWrappersByServiceName;
+    NSDate *_lastMissingManateeIdentityErrorDateForCurrentService;
     struct _PCSIdentityData *_debugIdentity;
     NSString *_serviceName;
     NSData *_boundaryKeyData;
@@ -58,12 +59,13 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSArray *sharingIdentityFingerprints; // @synthesize sharingIdentityFingerprints=_sharingIdentityFingerprints;
 @property(retain, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
 @property(nonatomic) struct _PCSIdentityData *debugIdentity; // @synthesize debugIdentity=_debugIdentity;
+@property(retain, nonatomic) NSDate *lastMissingManateeIdentityErrorDateForCurrentService; // @synthesize lastMissingManateeIdentityErrorDateForCurrentService=_lastMissingManateeIdentityErrorDateForCurrentService;
 @property(retain, nonatomic) NSMutableDictionary *PCSIdentityWrappersByServiceName; // @synthesize PCSIdentityWrappersByServiceName=_PCSIdentityWrappersByServiceName;
 @property(retain) NSString *currentAccountIdentifier; // @synthesize currentAccountIdentifier=_currentAccountIdentifier;
 @property(retain, nonatomic) NSOperationQueue *notificationQueue; // @synthesize notificationQueue=_notificationQueue;
 @property(readonly, nonatomic) __weak CKDClientContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
-- (_Bool)_isValidIdentitySet:(struct _PCSIdentitySetData *)arg1;
+- (_Bool)_isValidIdentitySet:(struct _PCSIdentitySetData *)arg1 forServiceName:(id)arg2;
 - (id)etagFromPCSData:(id)arg1;
 - (struct _OpaquePCSShareProtection *)_copyShareProtectionFromExportedData:(id)arg1 identities:(struct _PCSIdentitySetData *)arg2 error:(struct __CFError **)arg3;
 - (void)_onSynchronizeQueue:(CDUnknownBlockType)arg1;
@@ -125,6 +127,9 @@ __attribute__((visibility("hidden")))
 - (id)repairZonePCSData:(id)arg1 error:(id *)arg2;
 - (id)etagFromZonePCS:(struct _OpaquePCSShareProtection *)arg1 error:(id *)arg2;
 - (struct _OpaquePCSShareProtection *)createZonePCSFromData:(id)arg1 usingServiceIdentityWithType:(unsigned long long)arg2 error:(id *)arg3;
+- (void)preflightIdentitiesForService:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_preflightIdentitiesForService:(unsigned long long)arg1 withSyncKeyRegistryRetry:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_locked_preflightIdentitiesForService:(unsigned long long)arg1 withSyncKeyRegistryRetry:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)createZonePCSFromData:(id)arg1 usingServiceIdentityWithType:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_createZonePCSFromData:(id)arg1 usingServiceIdentityWithType:(unsigned long long)arg2 withSyncKeyRegistryRetry:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_locked_createZonePCSFromData:(id)arg1 usingServiceIdentityWithType:(unsigned long long)arg2 withSyncKeyRegistryRetry:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -146,6 +151,8 @@ __attribute__((visibility("hidden")))
 - (struct _PCSIdentityData *)createRandomSharingIdentityWithError:(id *)arg1;
 - (id)copyDiversifiedPublicKeyForService:(unsigned long long)arg1 withError:(id *)arg2;
 - (struct _PCSPublicIdentityData *)copyDiversifiedIdentityForService:(unsigned long long)arg1 withError:(id *)arg2;
+- (id)copyAllPublicKeysForService:(unsigned long long)arg1 withError:(id *)arg2;
+- (id)_copyAllPublicKeyDatasForIdentitySet:(struct _PCSIdentitySetData *)arg1 withError:(id *)arg2;
 - (id)copyPublicKeyForService:(unsigned long long)arg1 withError:(id *)arg2;
 - (id)_copyPublicKeyDataForIdentitySet:(struct _PCSIdentitySetData *)arg1 withService:(unsigned long long)arg2 withError:(id *)arg3;
 - (struct _PCSIdentitySetData *)_copyServiceIdentityWithType:(unsigned long long)arg1 withError:(id *)arg2;

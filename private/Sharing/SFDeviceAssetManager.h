@@ -24,6 +24,7 @@
 - (void).cxx_destruct;
 - (id)localFileURLForAsset:(id)arg1;
 - (id)additionalMappedProducts;
+- (void)addKeyValuePair:(id)arg1 with:(id)arg2 toQuery:(id)arg3;
 - (id)onqueue_mappedProductTypeForProductType:(id)arg1;
 - (void)onqueue_validateProductTypeInQuery:(id)arg1;
 - (void)onqueue_findAssetBundleForDeviceQuery:(id)arg1 installedOnly:(_Bool)arg2 preciseMatch:(_Bool)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
@@ -37,7 +38,6 @@
 - (void)onqueue_updateMetaData;
 - (void)onqueue_activate;
 - (void)activate;
-- (void)dealloc;
 - (id)init;
 
 @end

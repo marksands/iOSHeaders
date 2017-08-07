@@ -14,6 +14,8 @@
 @interface ICNetworkConstraints : NSObject <NSCopying, NSMutableCopying>
 {
     _Bool _dataAllowedFallbackValue;
+    _Bool _cellularDataAllowedFallbackValue;
+    _Bool _wiFiDataAllowedFallbackValue;
     NSMutableDictionary *_networkTypeToDataAllowed;
     NSMutableDictionary *_networkTypeToSizeLimit;
 }
@@ -22,9 +24,12 @@
 - (void).cxx_destruct;
 - (id)_copyWithClass:(Class)arg1 zone:(struct _NSZone *)arg2;
 - (id)sizeLimitForNetworkType:(long long)arg1;
+- (_Bool)shouldAllowDataForWiFiNetworkTypes;
+- (_Bool)shouldAllowDataForCellularNetworkTypes;
 - (_Bool)shouldAllowDataForNetworkType:(long long)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithBundleIdentifier:(id)arg1;
 - (id)init;
 
 @end

@@ -49,7 +49,7 @@
 @property(nonatomic) _Bool inTimeTravel; // @synthesize inTimeTravel=_inTimeTravel;
 - (void).cxx_destruct;
 - (id)_fontWithMonospaceNumbers:(id)arg1;
-- (_Bool)_wantsDynamicTracking;
+- (void)_updateDynamicTracking;
 - (void)setShadowOffset:(struct CGSize)arg1;
 @property(copy, nonatomic) NSAttributedString *attributedText;
 @property(copy, nonatomic) NSString *text;
@@ -66,8 +66,10 @@
 - (double)widthForMaxWidth:(double)arg1 withFont:(id)arg2;
 - (double)widthForMaxWidth:(double)arg1;
 - (void)_requeryTextProviderAndNotify:(_Bool)arg1;
+- (void)setNumberOfLines:(long long)arg1;
 @property(nonatomic) _Bool usesLegibility; // @dynamic usesLegibility;
 - (_Bool)usesLegibility:(_Bool)arg1;
+- (void)setBounds:(struct CGRect)arg1;
 - (void)sizeToFit;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;

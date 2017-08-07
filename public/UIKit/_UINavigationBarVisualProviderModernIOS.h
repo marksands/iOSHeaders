@@ -27,7 +27,6 @@ __attribute__((visibility("hidden")))
     struct CGSize _previousBarSize;
     _Bool _hasIdiom;
     _Bool _backgroundTransparentWhenNotCollapsed;
-    _Bool _didReceiveBarSizeChangeResultingInProgressChange;
     _UINavigationControllerRefreshControlHost *_refreshControlHost;
 }
 
@@ -71,6 +70,7 @@ __attribute__((visibility("hidden")))
 - (long long)statusBarStyle;
 - (long long)currentContentSize;
 - (void)traitCollectionDidChange:(id)arg1;
+- (void)animateForSearchPresentation:(_Bool)arg1;
 - (void)popAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)pushAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_performAnimationWithTransitionCompletion:(CDUnknownBlockType)arg1 transition:(int)arg2;
@@ -106,7 +106,6 @@ __attribute__((visibility("hidden")))
 - (void)provideViewsForContents:(id)arg1 topItem:(id)arg2 backItem:(id)arg3;
 - (void)_invalidateIntrinsicContentSizeAndNotifySizeChanged;
 - (void)recordBarSize:(struct CGSize)arg1;
-- (void)barSizeChanged;
 - (void)changeLayout;
 - (void)changeAppearance;
 - (double)_contentBackgroundExtension;

@@ -8,7 +8,6 @@
 
 @class NSPointerArray, NSString;
 
-__attribute__((visibility("hidden")))
 @interface _UIVisualEffectViewBackdropCaptureGroup : NSObject
 {
     NSPointerArray *_backdrops;

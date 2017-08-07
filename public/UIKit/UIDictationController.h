@@ -213,6 +213,9 @@ __attribute__((visibility("hidden")))
 - (void)_runFinalizeOperation;
 - (void)_setupHypothesisAsFinalResults;
 - (void)_setFinalResultHandler:(CDUnknownBlockType)arg1;
+- (void)_completeStartDictationWithContinuation:(CDUnknownBlockType)arg1;
+- (void)completeStartConnectionForFileAtURL:(id)arg1 forInputModeIdentifier:(id)arg2;
+- (void)startDictationForFileAtURL:(id)arg1 forInputModeIdentifier:(id)arg2;
 - (void)startConnection;
 - (void)completeStartConnection;
 - (void)dictationConnection:(id)arg1 updateOptions:(id)arg2;

@@ -18,14 +18,22 @@
     // Error parsing type: AB, name: _shown
     // Error parsing type: AB, name: _engaged
     // Error parsing type: AB, name: _transactionSuccessful
+    NSString *_input;
+    // Error parsing type: AI, name: _loggingShownMax
+    // Error parsing type: AB, name: _loggingServerOverride
+    // Error parsing type: AI, name: _loggingCouldHaveShownMax
+    // Error parsing type: AI, name: _loggingInputLengthMax
 }
 
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)discard;
+- (void)logTransactionSuccessfulForInput:(id)arg1 completion:(id)arg2;
 - (void)logTransactionSuccessfulForInput:(id)arg1;
 - (void)logResultsSuppressed;
+- (void)logEngagement:(id)arg1 forInput:(id)arg2 completion:(id)arg3;
 - (void)logEngagement:(id)arg1 forInput:(id)arg2;
+- (void)logResultsShown:(unsigned long long)arg1 serverOverride:(_Bool)arg2 forInput:(id)arg3;
 - (void)logResultsShown:(unsigned long long)arg1 serverOverride:(_Bool)arg2;
 - (id)queriesMatching:(id)arg1;
 - (id)_resultsMatching:(id)arg1;

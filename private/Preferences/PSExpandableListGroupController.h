@@ -26,6 +26,7 @@
 - (id)spinnerSpecifier;
 - (void)showAll;
 - (id)showAllSpecifier;
+- (void)reloadSpecifiers;
 - (void)reloadSpecifier:(id)arg1;
 - (void)removeAllSpecifiers;
 - (void)addSpecifiers:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import <HMFoundation/HMFObject.h>
 
-@class CKRecordID, HMDBackingStoreCacheGroup, HMDCloudCache, HMDCloudObjectRecord, HMDCloudZone, NSMutableDictionary, NSString, NSUUID;
+@class CKRecordID, HMDBackingStoreCacheGroup, HMDCloudCache, HMDCloudRecord, HMDCloudZone, NSMutableDictionary, NSString, NSUUID;
 
 @interface HMDCloudGroup : HMFObject
 {
@@ -32,9 +32,10 @@
 - (void)addCloudRecord:(id)arg1;
 - (id)childCloudRecordsWithParentID:(id)arg1;
 - (void)_appendToChildren:(id)arg1 forParentIDs:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)__cloudRecordWithObjectID:(id)arg1;
 - (id)cloudRecordWithObjectID:(id)arg1;
 - (id)cloudRecordWithName:(id)arg1;
-@property(readonly, nonatomic) HMDCloudObjectRecord *rootRecord;
+@property(readonly, nonatomic) HMDCloudRecord *rootRecord;
 - (void)rootRecordCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)cloudRecordWithName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)cloudRecordWithNames:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

@@ -41,6 +41,7 @@
 + (void)__itemAtURL:(id)arg1 didReconnectWithPurposeID:(id)arg2;
 + (void)__itemAtURL:(id)arg1 didDisconnectWithPurposeID:(id)arg2;
 + (void)__itemAtURL:(id)arg1 didMoveToURL:(id)arg2 purposeID:(id)arg3;
++ (void)_setNextClaimIdentifier:(id)arg1;
 + (id)_nextClaimIdentifier;
 + (_Bool)_skipCoordinationWork;
 + (void)_performBarrierAsync:(CDUnknownBlockType)arg1;

@@ -10,6 +10,8 @@
 {
     struct CGSize _scaledImageSize;
     struct CGRect _facesRect;
+    double _aspectRatio;
+    _Bool _wantsFullCellPhoto;
 }
 
 - (id)transitionContext;

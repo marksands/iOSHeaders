@@ -9,6 +9,7 @@
 @interface ACAccount (AppleID)
 - (_Bool)canRemoveAccount;
 - (id)_registeredBundles;
+- (id)normalizedDSID;
 - (id)dsid;
 - (void)setDSID:(id)arg1;
 - (id)appleID;

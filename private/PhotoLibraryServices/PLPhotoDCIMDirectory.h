@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSMutableArray, NSMutableDictionary, NSString;
 
@@ -27,8 +27,6 @@
 - (_Bool)hasChangedExternally;
 - (void)unlockDirectory;
 - (void)lockDirectory;
-- (id)countOfAllPhotosAndVideos;
-- (void)countOfAllPhotos:(int *)arg1 andVideos:(int *)arg2 stopAfterFirst:(_Bool)arg3;
 - (id)nextAvailableDirectory;
 - (void)clearDCFDirectories;
 - (id)dcfDirectories;
@@ -44,8 +42,6 @@
 - (void)dealloc;
 - (id)initWithDCIMPath:(id)arg1;
 - (id)_userInfoPath;
-- (_Bool)isValidVideoExtension:(id)arg1;
-- (_Bool)isValidImageExtension:(id)arg1;
 
 @end
 

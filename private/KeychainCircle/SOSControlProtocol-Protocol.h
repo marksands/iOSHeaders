@@ -10,7 +10,7 @@
 - (void)triggerSync:(NSArray *)arg1 complete:(void (^)(_Bool, NSError *))arg2;
 - (void)importInitialSyncCredentials:(NSArray *)arg1 complete:(void (^)(_Bool, NSError *))arg2;
 - (void)initialSyncCredentials:(unsigned int)arg1 complete:(void (^)(NSArray *, NSError *))arg2;
-- (void)joinCircleWithBlob:(NSData *)arg1 complete:(void (^)(_Bool, NSError *))arg2;
+- (void)joinCircleWithBlob:(NSData *)arg1 version:(int)arg2 complete:(void (^)(_Bool, NSError *))arg3;
 - (void)circleJoiningBlob:(NSData *)arg1 complete:(void (^)(NSData *, NSError *))arg2;
 - (void)myPeerInfo:(void (^)(NSData *, NSError *))arg1;
 - (void)stashAccountCredential:(NSData *)arg1 complete:(void (^)(_Bool, NSError *))arg2;

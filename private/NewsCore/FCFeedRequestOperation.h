@@ -28,6 +28,7 @@
 }
 
 + (_Bool)_orderFeedTopKEnabled;
++ (id)feedRequestContentEnvironmentTokenWithContext:(id)arg1;
 + (void)initialize;
 @property(retain, nonatomic) NSMutableArray *resultHeldArticleAndTagRecords; // @synthesize resultHeldArticleAndTagRecords=_resultHeldArticleAndTagRecords;
 @property(retain, nonatomic) NSMutableDictionary *resultFeedResponses; // @synthesize resultFeedResponses=_resultFeedResponses;

@@ -20,6 +20,7 @@
     _Bool _isSummaryMode;
     _Bool _showFooter;
     _Bool _startedLoadingDataSource;
+    _Bool _hasLoadedContentData;
     id <PXWidgetDelegate> _widgetDelegate;
     PXPhotosDetailsContext *_context;
     PXWidgetSpec *_spec;
@@ -35,6 +36,7 @@
     struct CGSize _cellSize;
 }
 
+@property(nonatomic, setter=_setHasLoadedContentData:) _Bool hasLoadedContentData; // @synthesize hasLoadedContentData=_hasLoadedContentData;
 @property(nonatomic) double targetPrefetchWidth; // @synthesize targetPrefetchWidth=_targetPrefetchWidth;
 @property(retain, nonatomic) PXUITapGestureRecognizer *_tapRecognizer; // @synthesize _tapRecognizer=__tapRecognizer;
 @property(nonatomic) unsigned long long viewType; // @synthesize viewType=_viewType;
@@ -89,7 +91,6 @@
 @property(readonly, copy) NSString *description;
 @property(nonatomic, getter=isFaceModeEnabled) _Bool faceModeEnabled;
 @property(readonly, nonatomic) _Bool hasContentForCurrentInput;
-@property(readonly, nonatomic) _Bool hasLoadedContentData;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSString *localizedCaption;
 @property(readonly, nonatomic) NSString *localizedDisclosureTitle;

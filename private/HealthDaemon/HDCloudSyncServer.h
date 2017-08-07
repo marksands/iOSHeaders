@@ -14,11 +14,13 @@
 {
 }
 
-- (void)remote_disableCloudSyncAndDeleteAllCloudDataWithCompletion:(CDUnknownBlockType)arg1;
+- (id)remote_waitOnHealthCloudSyncWithCompletion:(CDUnknownBlockType)arg1;
+- (id)retmote_fetchCloudSyncProgressWithCompletion:(CDUnknownBlockType)arg1;
+- (id)remote_disableCloudSyncAndDeleteAllCloudDataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_fetchCloudSyncStatusWithCompletion:(CDUnknownBlockType)arg1;
-- (void)remote_fetchCloudDescriptionWithCompletion:(CDUnknownBlockType)arg1;
-- (void)remote_forceCloudResetWithCompletion:(CDUnknownBlockType)arg1;
-- (void)remote_forceCloudSyncWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)remote_fetchCloudDescriptionWithCompletion:(CDUnknownBlockType)arg1;
+- (id)remote_forceCloudResetWithCompletion:(CDUnknownBlockType)arg1;
+- (id)remote_forceCloudSyncWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_createCloudShareWithRecipient:(id)arg1 sampleTypes:(id)arg2 maxSampleAge:(id)arg3 completion:(CDUnknownBlockType)arg4;
 
 // Remaining properties

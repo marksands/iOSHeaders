@@ -36,6 +36,7 @@
 + (_Bool)_shouldVibrateForAlert:(id)arg1;
 + (_Bool)_shouldHandleAudioSessionActivationForAlert:(id)arg1;
 + (_Bool)_shouldBypassRingerSwitchPolicyForAlert:(id)arg1;
++ (id)_celestialAudioCategoryForAudioSessionCategory:(id)arg1;
 + (id)_audioCategoryForAlert:(id)arg1;
 + (long long)_clientPriorityForAlert:(id)arg1;
 + (id)_clientNameForAlert:(id)arg1;

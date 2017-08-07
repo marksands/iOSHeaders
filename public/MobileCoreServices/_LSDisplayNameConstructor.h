@@ -17,7 +17,7 @@
     unsigned int _wantsHiddenExtension:1;
     unsigned int _isFolder:1;
     unsigned int _hadNonASCIICharacter:1;
-    unsigned int _hadColon:1;
+    unsigned int _hadColonInFSName:1;
     unsigned int _hadBiDiControlCharacter:1;
     unsigned int _hadForbiddenCharacter:1;
 }
@@ -48,9 +48,9 @@
 - (id)replaceForbiddenCharacters:(id)arg1;
 - (id)cleanSecondaryExtension:(id)arg1;
 - (void)initNamePartsWithDisplayName:(id)arg1;
-- (void)initContentBitsWithDisplayName:(id)arg1;
+- (void)initContentBitsWithDisplayName:(id)arg1 treatAsFSName:(_Bool)arg2;
 - (void)initNodeBitsWithContext:(struct LSContext *)arg1 node:(id)arg2 bundleClass:(const unsigned int *)arg3;
-- (id)initWithContext:(struct LSContext *)arg1 node:(id)arg2 bundleClass:(const unsigned int *)arg3 desiredDisplayName:(id)arg4;
+- (id)initWithContext:(struct LSContext *)arg1 node:(id)arg2 bundleClass:(const unsigned int *)arg3 desiredDisplayName:(id)arg4 treatAsFSName:(_Bool)arg5;
 - (_Bool)isStringNaturallyRTL:(id)arg1;
 - (id)balanceBiDiControlCharacter:(unsigned short)arg1 inString:(id)arg2 imbalanceAmount:(long long)arg3;
 - (id)balanceBiDiControlCharacters:(id)arg1;

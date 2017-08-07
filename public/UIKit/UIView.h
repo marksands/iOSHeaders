@@ -638,6 +638,7 @@
 @property(readonly, nonatomic) UILayoutGuide *safeAreaLayoutGuide; // @synthesize safeAreaLayoutGuide=_safeAreaLayoutGuide;
 - (id)_safeAreaLayoutGuideIfExists;
 - (void)_updateSafeAreaLayoutGuideConstraintsIfNecessary;
+- (void)_eagerlyUpdateSafeAreaInsetsToDescendant:(id)arg1;
 - (void)_updateSafeAreaInsets;
 - (struct UIEdgeInsets)_safeAreaInsetsForFrame:(struct CGRect)arg1 inSuperview:(id)arg2;
 - (struct UIEdgeInsets)_safeAreaInsetsInSuperview:(id)arg1;
@@ -1295,6 +1296,7 @@
 - (struct CGSize)nsli_engineToUserScalingCoefficients;
 - (struct CGSize)nsli_engineToUserScalingCoefficientsInEngine:(id)arg1;
 - (id)_uili_observableLayoutEngineForBaseFrameVariables:(_Bool)arg1;
+- (_Bool)_uili_isFocusGuide;
 - (_Bool)_uili_requiresObservationForVariable:(id)arg1;
 - (void)_uili_removeLayoutVariableObservationsOnlyToSupportTAMICChange:(_Bool)arg1;
 - (void)_uili_stashLayoutVariableObservation:(id)arg1 forVariable:(id)arg2;

@@ -17,6 +17,8 @@
 - (struct __CVBuffer *)_embeddedThumbnailSourcePixelBuffer;
 - (id)portraitMetadata;
 - (id)livePhotoMovieFileURL;
+- (unsigned int)actualPhotoProcessingFlags;
+- (unsigned int)expectedPhotoProcessingFlags;
 - (unsigned int)photoProcessingFlags;
 - (long long)lensStabilizationStatus;
 - (long long)sequenceCount;
@@ -39,7 +41,7 @@
 - (id)description;
 - (id)debugDescription;
 - (void)dealloc;
-- (id)initWithTimestamp:(CDStruct_1b6d18a9)arg1 photoSurface:(void *)arg2 photoSurfaceSize:(unsigned long long)arg3 previewPhotoSurface:(void *)arg4 metadata:(id)arg5 depthDataSurface:(void *)arg6 depthMetadataDictionary:(id)arg7 captureRequest:(id)arg8 bracketSettings:(id)arg9 sequenceCount:(unsigned long long)arg10 photoCount:(unsigned long long)arg11 sourceDeviceType:(id)arg12;
+- (id)initWithTimestamp:(CDStruct_1b6d18a9)arg1 photoSurface:(void *)arg2 photoSurfaceSize:(unsigned long long)arg3 previewPhotoSurface:(void *)arg4 metadata:(id)arg5 depthDataSurface:(void *)arg6 depthMetadataDictionary:(id)arg7 captureRequest:(id)arg8 bracketSettings:(id)arg9 sequenceCount:(unsigned long long)arg10 photoCount:(unsigned long long)arg11 expectedPhotoProcessingFlags:(unsigned int)arg12 sourceDeviceType:(id)arg13;
 
 @end
 

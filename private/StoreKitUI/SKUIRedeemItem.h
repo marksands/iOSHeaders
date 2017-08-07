@@ -6,16 +6,21 @@
 
 #import <StoreKitUI/SKUIItem.h>
 
+#import <StoreKitUI/NSSecureCoding-Protocol.h>
+
 @class NSString;
 @protocol SKUIArtworkProviding;
 
-@interface SKUIRedeemItem : SKUIItem
+@interface SKUIRedeemItem : SKUIItem <NSSecureCoding>
 {
     id <SKUIArtworkProviding> _artworks;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) id <SKUIArtworkProviding> artworks; // @synthesize artworks=_artworks;
 - (void).cxx_destruct;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)largestArtworkURL;
 - (id)artworkURLForSize:(long long)arg1;
 - (struct _NSRange)ageBandRange;

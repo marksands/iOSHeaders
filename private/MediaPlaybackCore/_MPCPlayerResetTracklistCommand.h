@@ -23,6 +23,7 @@
 @property(nonatomic) _Bool supportsSetQueueCommand; // @synthesize supportsSetQueueCommand=_supportsSetQueueCommand;
 @property(retain, nonatomic) NSDictionary *supportedSpecializedQueues; // @synthesize supportedSpecializedQueues=_supportedSpecializedQueues;
 - (void).cxx_destruct;
+- (id)replaceWithPlaybackIntent:(id)arg1 replaceIntent:(long long)arg2;
 - (id)replaceWithPlaybackIntent:(id)arg1;
 - (id)clear;
 @property(readonly, nonatomic) NSArray *specializedIntents;

@@ -4,45 +4,50 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <Foundation/NSProxy.h>
+
 #import <WebKit/WKObject-Protocol.h>
 
 @class NSObject, NSString;
 
 __attribute__((visibility("hidden")))
-@interface WKObject <WKObject>
+@interface WKObject : NSProxy <WKObject>
 {
-    Class _isa;
     _Bool _hasInitializedTarget;
     NSObject *_target;
 }
 
-+ (_Bool)conformsToProtocol:(id)arg1;
-+ (Class)class;
 @property(readonly) struct Object *_apiObject;
+- (_Bool)isNSValue__;
+- (_Bool)isNSTimeZone__;
+- (_Bool)isNSString__;
+- (_Bool)isNSSet__;
+- (_Bool)isNSOrderedSet__;
+- (_Bool)isNSNumber__;
+- (_Bool)isNSDictionary__;
+- (_Bool)isNSDate__;
+- (_Bool)isNSData__;
+- (_Bool)isNSCFConstantString__;
+- (_Bool)isNSArray__;
+- (_Bool)isNSObject__;
+- (id)methodSignatureForSelector:(SEL)arg1;
+- (void)forwardInvocation:(id)arg1;
 - (id)_web_createTarget;
-- (struct _NSZone *)zone;
-- (unsigned long long)retainCount;
-- (id)autorelease;
-- (oneway void)release;
-- (id)retain;
+- (Class)classForKeyedArchiver;
+- (Class)classForCoder;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+- (id)forwardingTargetForSelector:(SEL)arg1;
 - (_Bool)conformsToProtocol:(id)arg1;
 - (_Bool)respondsToSelector:(SEL)arg1;
 - (_Bool)isMemberOfClass:(Class)arg1;
 - (_Bool)isKindOfClass:(Class)arg1;
-- (_Bool)isProxy;
-- (id)performSelector:(SEL)arg1 withObject:(id)arg2 withObject:(id)arg3;
-- (id)performSelector:(SEL)arg1 withObject:(id)arg2;
-- (id)performSelector:(SEL)arg1;
-- (id)self;
-- (Class)class;
-@property(readonly) Class superclass;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (_Bool)retainWeakReference;
-- (_Bool)allowsWeakReference;
-- (id)forwardingTargetForSelector:(SEL)arg1;
+- (void)dealloc;
+
+// Remaining properties
+@property(readonly) Class superclass;
 
 @end
 

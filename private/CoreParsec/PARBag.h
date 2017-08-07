@@ -37,6 +37,8 @@
 - (id)_bag_objectOfClass:(Class)arg1 forKey:(id)arg2 override:(_Bool)arg3;
 - (id)_bag_objectOfClass:(Class)arg1 forKey:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *tuscanyConfiguration;
+@property(readonly, nonatomic) _Bool disableAsTypedSuggestion;
+@property(readonly, nonatomic) NSArray *suggestionRankerModel;
 @property(readonly, nonatomic) _Bool use2LayerRanking;
 @property(readonly, nonatomic) NSArray *anonymousMetadataPreference;
 @property(readonly, nonatomic) _Bool collectAnonymousMetadata;

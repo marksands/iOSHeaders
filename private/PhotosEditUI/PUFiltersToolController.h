@@ -16,7 +16,6 @@
     _Bool _didPerformInitialScrollToReveal;
     NSArray *_collectionViewConstraints;
     _Bool __needsThumbnails;
-    _Bool _showDepthEffectFilters;
     UICollectionView *__collectionView;
     UICollectionViewFlowLayout *__collectionViewLayout;
     NSMutableDictionary *__thumbnailImages;
@@ -27,7 +26,6 @@
 @property(retain, nonatomic, setter=_setThumbnailImages:) NSMutableDictionary *_thumbnailImages; // @synthesize _thumbnailImages=__thumbnailImages;
 @property(retain, nonatomic, setter=_setCollectionViewLayout:) UICollectionViewFlowLayout *_collectionViewLayout; // @synthesize _collectionViewLayout=__collectionViewLayout;
 @property(retain, nonatomic, setter=_setCollectionView:) UICollectionView *_collectionView; // @synthesize _collectionView=__collectionView;
-@property(nonatomic) _Bool showDepthEffectFilters; // @synthesize showDepthEffectFilters=_showDepthEffectFilters;
 @property(readonly, nonatomic) _Bool _needsThumbnails; // @synthesize _needsThumbnails=__needsThumbnails;
 - (void).cxx_destruct;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;

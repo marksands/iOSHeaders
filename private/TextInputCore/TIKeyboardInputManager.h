@@ -51,6 +51,7 @@
 }
 
 + (id)offlineLearningHandleForInputMode:(id)arg1;
++ (int)shiftContextForShiftState:(int)arg1 autocapitalizationType:(unsigned long long)arg2;
 + (void)clearRecentsFileForIdentifier:(id)arg1;
 + (id)recentsFilePathForIdentifier:(id)arg1;
 + (void)removeAllDynamicDictionaries;
@@ -98,6 +99,7 @@
 @property(readonly, nonatomic) NSCharacterSet *allowPredictionCharacterSet;
 - (id)extendedAutocorrection:(id)arg1 spanningInputsForCandidates:(id)arg2 emojis:(id)arg3;
 - (id)completionCandidates:(unsigned long long)arg1;
+- (int)shiftContext;
 - (id)autocorrectionListForEmptyInputWithDesiredCandidateCount:(unsigned long long)arg1;
 - (id)indexesOfDuplicatesInCandidates:(id)arg1;
 - (id)predictionCandidates:(unsigned long long)arg1;

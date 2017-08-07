@@ -80,6 +80,7 @@
 - (id)initWithIdentifier:(id)arg1 sendChangeNotification:(_Bool)arg2;
 - (id)initWithIdentifier:(id)arg1;
 - (id)init;
+@property(nonatomic) _Bool allowMediaContentTypesRequiringHardwareSupportAsFallback;
 @property(nonatomic) _Bool constantPropertiesEnabled;
 @property(nonatomic) _Bool viewportFitEnabled;
 @property(nonatomic) _Bool legacyEncryptedMediaAPIEnabled;

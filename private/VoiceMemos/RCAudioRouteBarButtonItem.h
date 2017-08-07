@@ -18,7 +18,6 @@
 + (id)newAudioRouteItem;
 - (void).cxx_destruct;
 - (void)_toggleSpeakerAction;
-- (void)_showAvailableRoutesAction;
 - (void)_routeButtonAction;
 - (void)_routeBarButtonDidChangeNotification:(id)arg1;
 - (void)dealloc;

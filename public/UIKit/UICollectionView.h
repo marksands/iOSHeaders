@@ -169,6 +169,7 @@
         unsigned int shouldApplyShadowUpdates:1;
         unsigned int preventNotificationOfRebaseObserversWhenApplyingUpdates:1;
         unsigned int allowsVisibleCellUpdatesDuringUpdateAnimations:1;
+        unsigned int isCompletingInteractiveMovement:1;
     } _collectionViewFlags;
     struct CGPoint _lastLayoutOffset;
     NSIndexPath *_cancellingToIndexPath;
@@ -270,8 +271,10 @@
 - (_Bool)_isDragDestinationInteractivelyReordering;
 - (id)_indexPathBeforeShadowUpdatesForIndexPath:(id)arg1;
 - (id)_indexPathAfterShadowUpdatesForIndexPath:(id)arg1;
+- (id)_indexPathsAfterShadowUpdatesForIndexPaths:(id)arg1 allowingAppendingInserts:(_Bool)arg2;
 - (id)_indexPathsAfterShadowUpdatesForIndexPaths:(id)arg1;
 - (id)_indexPathsBeforeShadowUpdatesForIndexPaths:(id)arg1;
+- (id)_sectionIndexesAfterShadowUpdatesForSectionIndexes:(id)arg1 allowingAppendingInserts:(_Bool)arg2;
 - (id)_sectionIndexesAfterShadowUpdatesForSectionIndexes:(id)arg1;
 - (id)_indexPathOfItemNearestToPoint:(struct CGPoint)arg1 intersectingRect:(struct CGRect)arg2;
 @property(readonly, nonatomic, getter=_dataSourceSupportsReordering) _Bool dataSourceSupportsReordering;

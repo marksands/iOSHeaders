@@ -10,13 +10,15 @@
 #import <MediaPlayer/NSCoding-Protocol.h>
 #import <MediaPlayer/NSCopying-Protocol.h>
 
-@class MPConcreteMediaEntityPropertiesCache, MPMediaLibrary;
+@class MPConcreteMediaEntityPropertiesCache, MPMediaLibrary, NSObject;
+@protocol OS_dispatch_queue;
 
 @interface MPConcreteMediaItem : MPMediaItem <NSCoding, NSCopying, MPCacheableConcreteMediaEntity>
 {
     MPMediaLibrary *_library;
     unsigned long long _persistentID;
     MPConcreteMediaEntityPropertiesCache *_propertiesCache;
+    NSObject<OS_dispatch_queue> *_utilitySerialQueue;
 }
 
 + (_Bool)supportsSecureCoding;

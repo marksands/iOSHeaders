@@ -8,13 +8,13 @@
 
 #import <SpringBoardUIServices/UITextFieldDelegate-Protocol.h>
 
-@class NSMutableCharacterSet, NSString, UIColor, UITextField;
+@class NSMutableCharacterSet, NSString, SBUIPasscodeTextField, UIColor, UITextField;
 @protocol SBUIPasscodeEntryFieldDelegate;
 
 @interface SBUIPasscodeEntryField : UIView <UITextFieldDelegate>
 {
     id <SBUIPasscodeEntryFieldDelegate> _delegate;
-    UITextField *_textField;
+    SBUIPasscodeTextField *_textField;
     NSMutableCharacterSet *_numericTrimmingSet;
     _Bool _ignoreCallbacks;
     _Bool _resigningFirstResponder;
@@ -25,6 +25,7 @@
 @property(retain, nonatomic) UIColor *customBackgroundColor; // @synthesize customBackgroundColor=_customBackgroundColor;
 @property(nonatomic) __weak id <SBUIPasscodeEntryFieldDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)textFieldDidResignFirstResponder:(id)arg1;
 - (_Bool)textFieldShouldReturn:(id)arg1;
 - (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (_Bool)textFieldShouldBeginEditing:(id)arg1;

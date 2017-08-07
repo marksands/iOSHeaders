@@ -9,7 +9,7 @@
 #import <HealthDaemon/HDDatumRendering-Protocol.h>
 #import <HealthDaemon/HDHealthServiceCharacteristic-Protocol.h>
 
-@class NSString;
+@class NSDate, NSString;
 
 @interface HDFitnessMachineDataCharacteristicBase : HDHealthServiceCharacteristic <HDDatumRendering, HDHealthServiceCharacteristic>
 {
@@ -29,6 +29,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
+@property(readonly, nonatomic) NSDate *updateTime;
 
 @end
 

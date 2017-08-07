@@ -108,7 +108,7 @@
 - (void)_updateKeychainSyncEnabled:(_Bool)arg1;
 - (void)dealloc;
 - (void)_registerForMessages;
-- (id)initWithName:(id)arg1 homeManager:(id)arg2 messageDispatcher:(id)arg3 serverTokenAvailable:(_Bool)arg4 localDataDecryptionFailed:(_Bool)arg5 totalHomes:(long long)arg6 currentAccount:(id)arg7;
+- (id)initWithName:(id)arg1 homeManager:(id)arg2 messageDispatcher:(id)arg3 serverTokenAvailable:(_Bool)arg4 homeDataHasBeenDecrypted:(_Bool)arg5 localDataDecryptionFailed:(_Bool)arg6 totalHomes:(long long)arg7 currentAccount:(id)arg8;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

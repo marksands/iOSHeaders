@@ -9,7 +9,7 @@
 @class NSData;
 
 @protocol CDPSecureChannelProxy <NSObject>
-- (_Bool)approveriCloudKeychainEnabled;
+- (unsigned long long)approveriCloudKeychainState;
 - (_Bool)approverBackupRecordsExist;
 - (void)sendPayload:(NSData *)arg1 completion:(void (^)(NSData *, NSError *))arg2;
 @end

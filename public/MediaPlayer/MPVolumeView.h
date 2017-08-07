@@ -37,6 +37,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)_routingControllerDidUpdateVolumeControlState:(id)arg1;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
 - (void)_updateWirelessRouteStatus;

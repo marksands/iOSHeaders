@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <GeoServices/NSCopying-Protocol.h>
+
 @class NSNumber, NSString;
 
-@interface GEOUserSessionEntity : NSObject
+@interface GEOUserSessionEntity : NSObject <NSCopying>
 {
     struct GEOSessionID _sessionID;
     unsigned int _sequenceNumber;
@@ -18,6 +20,7 @@
 @property(nonatomic) unsigned int sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 @property double sessionCreationTime; // @synthesize sessionCreationTime=_sessionCreationTime;
 @property struct GEOSessionID sessionID; // @synthesize sessionID=_sessionID;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)updateSessionIDFromUUIDString:(id)arg1;
 - (void)updateWithSessionEntityString:(id)arg1;
 - (_Bool)_isValidSessionIDHighOrLowString:(id)arg1;

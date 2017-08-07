@@ -10,7 +10,7 @@
 - (void)didTriggerFPUIActionWithIdentifier:(NSString *)arg1 providerIdentifier:(NSString *)arg2 domainIdentifier:(NSString *)arg3 title:(NSString *)arg4 onItems:(NSArray *)arg5;
 - (void)didTriggerActionWithIdentifier:(NSString *)arg1 onItems:(NSArray *)arg2;
 - (void)builtinActionsDidChange:(NSArray *)arg1;
-- (void)didPickLocation:(DOCConcreteLocation *)arg1;
+- (void)didPickLocation:(DOCConcreteLocation *)arg1 forceReplaceLocation:(_Bool)arg2;
 - (void)browserDidFinishGatheringItemsAndThumbnails;
 - (void)browserDidUpdateNumberOfItems:(unsigned long long)arg1;
 - (void)browserIsDisplayingEmptyCollection:(_Bool)arg1;

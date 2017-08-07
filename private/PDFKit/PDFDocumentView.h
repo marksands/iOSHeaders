@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)recieveBackgroundImage:(id)arg1 atBackgroundQuality:(int)arg2 forPage:(id)arg3;
 - (id)backgroundImageForPage:(id)arg1 withQuality:(int *)arg2;
+- (void)didRotatePageNotification:(id)arg1;
 - (void)changedBoundsForBoxNotification:(id)arg1;
 - (void)_updateVisibilityDelegateForVisiblePageView:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)_reAddPageOverlaysStartingAtIndex:(unsigned long long)arg1;

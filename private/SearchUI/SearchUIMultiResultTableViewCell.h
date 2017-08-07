@@ -15,15 +15,25 @@
     NSLayoutConstraint *_singleRowConstraint;
     NSLayoutConstraint *_doubleRowConstraint;
     NSArray *_results;
+    long long _indexOfSelectedKeyboardIcon;
 }
 
++ (void)removeDropShadowIconStateForView:(id)arg1;
 + (unsigned long long)numberOfColumnsForCurrentOrientation;
+@property(nonatomic) long long indexOfSelectedKeyboardIcon; // @synthesize indexOfSelectedKeyboardIcon=_indexOfSelectedKeyboardIcon;
 @property(retain) NSArray *results; // @synthesize results=_results;
 @property(retain) NSLayoutConstraint *doubleRowConstraint; // @synthesize doubleRowConstraint=_doubleRowConstraint;
 @property(retain) NSLayoutConstraint *singleRowConstraint; // @synthesize singleRowConstraint=_singleRowConstraint;
 @property(retain) SearchUIIconViewContainer *bottomContainer; // @synthesize bottomContainer=_bottomContainer;
 @property(retain) SearchUIIconViewContainer *topContainer; // @synthesize topContainer=_topContainer;
 - (void).cxx_destruct;
+- (void)removeKeyboardHandler;
+- (_Bool)navigateKeyboardLeft;
+- (void)returnKeyPressed;
+- (_Bool)navigateKeyboardRight;
+- (void)setupKeyboardHandler;
+- (_Bool)canSetupKeyboardHandler;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)updateExpanded:(_Bool)arg1;
 - (_Bool)isExpandable;
 - (void)layoutSubviews;

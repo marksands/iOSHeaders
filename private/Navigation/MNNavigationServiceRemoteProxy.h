@@ -9,7 +9,7 @@
 #import <Navigation/MNNavigationServiceProxy-Protocol.h>
 #import <Navigation/MNNavigationServiceReconnectorDelegate-Protocol.h>
 
-@class MNNavigationServiceReconnector, MNSettings, NSDate, NSHashTable, NSString, NSXPCConnection;
+@class MNNavigationServiceReconnector, MNSettings, NSDate, NSHashTable, NSMutableArray, NSString, NSXPCConnection;
 @protocol MNNavigationServiceRemoteProxyDelegate;
 
 __attribute__((visibility("hidden")))
@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     NSXPCConnection *_connection;
     MNNavigationServiceReconnector *_reconnector;
     NSDate *_lastReconnectionDate;
+    NSMutableArray *_recentConnectionInterruptions;
     MNSettings *_settings;
     NSHashTable *_clients;
     id <MNNavigationServiceRemoteProxyDelegate> _delegate;
@@ -64,7 +65,8 @@ __attribute__((visibility("hidden")))
 - (void)_initializeReconnectorWithDetails:(id)arg1 shouldPrepare:(_Bool)arg2;
 - (id)_remoteObjectProxy;
 - (void)_closeConnection;
-- (void)_reconnectIfAllowed:(id)arg1;
+- (void)_abandonConnection;
+- (void)_reconnectIfAllowed;
 - (void)_openConnection;
 - (void)_updateConnection;
 - (void)closeForClient:(id)arg1;

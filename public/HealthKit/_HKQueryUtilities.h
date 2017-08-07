@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)coalesceTotalDurations:(id)arg1 startDate:(id)arg2 intervalComponents:(id)arg3;
++ (id)coalesceTotalDurations:(id)arg1 startDate:(id)arg2 intervalComponents:(id)arg3 intervalRecordCountsOut:(id *)arg4;
 + (_Bool)shouldUseDailyAverageWithDateComponents:(id)arg1 sampleType:(id)arg2;
 + (id)maximumFromQuantities:(id)arg1 unit:(id)arg2;
 + (id)minimumFromQuantities:(id)arg1 unit:(id)arg2;

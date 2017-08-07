@@ -547,7 +547,7 @@ struct HTMLVideoElement {
     struct MediaTime _field61;
     int _field62;
     struct RefPtr<WebCore::HTMLSourceElement> _field63;
-    struct RefPtr<WebCore::Node> _field64;
+    struct RefPtr<WebCore::HTMLSourceElement> _field64;
     unsigned int _field65;
     _Bool _field66;
     struct Function<void ()> _field67;

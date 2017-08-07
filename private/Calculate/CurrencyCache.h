@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Calculate/NSXMLParserDelegate-Protocol.h>
 
@@ -20,19 +20,21 @@
     NSNumber *_currentRate;
     NSMutableString *_currentString;
     NSMutableDictionary *_mutableCurrencyCache;
-    NSObject<OS_dispatch_queue> *_persistenceQueue;
+    NSObject<OS_dispatch_queue> *_serializer;
 }
 
 + (id)shared;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *persistenceQueue; // @synthesize persistenceQueue=_persistenceQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *serializer; // @synthesize serializer=_serializer;
 @property(retain, nonatomic) NSDictionary *currencyData; // @synthesize currencyData=_currencyData;
 @property(retain, nonatomic) NSDate *lastRefreshDate; // @synthesize lastRefreshDate=_lastRefreshDate;
 @property(readonly) unsigned long long uuid; // @synthesize uuid=_uuid;
 - (void)parser:(id)arg1 foundCharacters:(id)arg2;
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
+- (void)_queue_loadPersistedCurrencyCache;
 - (void)_loadPersistedCurrencyCache;
-- (void)_persistCurrencyCache;
+- (void)_queue_persistCurrencyCache;
+- (_Bool)_queue_refresh;
 - (_Bool)refreshWithTimeOut:(float)arg1;
 - (_Bool)refresh;
 - (void)dealloc;

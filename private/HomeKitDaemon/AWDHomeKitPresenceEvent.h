@@ -10,8 +10,10 @@
 
 @interface AWDHomeKitPresenceEvent : PBCodable <NSCopying>
 {
+    int _presenceEventGranularity;
     int _presenceEventType;
     struct {
+        unsigned int presenceEventGranularity:1;
         unsigned int presenceEventType:1;
     } _has;
 }
@@ -25,6 +27,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsPresenceEventGranularity:(id)arg1;
+- (id)presenceEventGranularityAsString:(int)arg1;
+@property(nonatomic) _Bool hasPresenceEventGranularity;
+@property(nonatomic) int presenceEventGranularity; // @synthesize presenceEventGranularity=_presenceEventGranularity;
 - (int)StringAsPresenceEventType:(id)arg1;
 - (id)presenceEventTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasPresenceEventType;

@@ -20,6 +20,12 @@
 + (id)capabilitiesForCurrentDevice;
 + (id)testCapabilitiesNotSupportingHEIF;
 + (id)testCapabilitiesNotSupportingHEVC;
++ (void)setRecordSlomoConfiguration:(id)arg1;
++ (id)recordSlomoConfigurationWithValidValues:(id)arg1;
++ (void)setRecordVideoConfiguration:(id)arg1;
++ (id)recordVideoConfigurationWithValidValues:(id)arg1;
++ (_Bool)setNewFormatsConfiguration:(long long)arg1 fromSource:(long long)arg2;
++ (long long)newFormatsConfiguration;
 @property(retain) NSDictionary *capabilitiesInformation; // @synthesize capabilitiesInformation=_capabilitiesInformation;
 - (void).cxx_destruct;
 - (id)description;

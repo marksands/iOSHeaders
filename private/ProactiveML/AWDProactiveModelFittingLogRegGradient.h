@@ -8,12 +8,13 @@
 
 #import <ProactiveML/NSCopying-Protocol.h>
 
-@class AWDProactiveModelFittingEvalMetrics, AWDProactiveModelFittingMinibatchStats, AWDProactiveModelFittingModelInfo, AWDProactiveModelFittingQuantizedSparseVector, AWDProactiveModelFittingSparseFloatVector;
+@class AWDProactiveModelFittingEvalMetrics, AWDProactiveModelFittingMinibatchStats, AWDProactiveModelFittingModelInfo, AWDProactiveModelFittingQuantizedDenseVector, AWDProactiveModelFittingQuantizedSparseVector, AWDProactiveModelFittingSparseFloatVector;
 
 @interface AWDProactiveModelFittingLogRegGradient : PBCodable <NSCopying>
 {
     unsigned long long _iteration;
     unsigned long long _timestamp;
+    AWDProactiveModelFittingQuantizedDenseVector *_denseQuantizedGradient;
     AWDProactiveModelFittingEvalMetrics *_evaluationMetrics;
     float _gradientL2norm;
     float _gradientScaleFactor;
@@ -29,6 +30,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) AWDProactiveModelFittingQuantizedDenseVector *denseQuantizedGradient; // @synthesize denseQuantizedGradient=_denseQuantizedGradient;
 @property(nonatomic) float gradientL2norm; // @synthesize gradientL2norm=_gradientL2norm;
 @property(nonatomic) float gradientScaleFactor; // @synthesize gradientScaleFactor=_gradientScaleFactor;
 @property(retain, nonatomic) AWDProactiveModelFittingQuantizedSparseVector *sparseQuantizedGradient; // @synthesize sparseQuantizedGradient=_sparseQuantizedGradient;
@@ -48,6 +50,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasDenseQuantizedGradient;
 @property(nonatomic) _Bool hasGradientL2norm;
 @property(nonatomic) _Bool hasGradientScaleFactor;
 @property(readonly, nonatomic) _Bool hasSparseQuantizedGradient;

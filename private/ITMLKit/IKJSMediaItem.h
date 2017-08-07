@@ -29,6 +29,7 @@
 @property(retain, nonatomic) NSDictionary *metadata;
 @property(retain, nonatomic) NSNumber *resumeTime; // @synthesize resumeTime=_resumeTime;
 @property(nonatomic) _Bool isExplicit;
+@property(retain, nonatomic) NSString *artworkImageSrcset;
 @property(retain, nonatomic) NSString *artworkImageURL;
 - (id)ratingBadge;
 - (void)setRatingBadge:(id)arg1;

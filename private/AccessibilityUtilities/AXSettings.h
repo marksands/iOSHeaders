@@ -62,6 +62,7 @@
 @property(nonatomic) double lastBrailleScreenInputTimeResetCount;
 - (void)setlastHearingAidControlPanelTimeResetCount:(double)arg1;
 - (void)setlastHearingAidHandoffTimeResetCount:(double)arg1;
+@property(nonatomic) double lastSmartInvertColorsEnablement;
 @property(nonatomic) double lastMagnifierResetCount;
 @property(nonatomic) _Bool shouldLimitDisplayRefreshRate;
 @property(retain, nonatomic) NSString *medicalPreamble;
@@ -220,6 +221,7 @@
 - (void)setTestingExtantVoices:(id)arg1;
 - (id)_retrieveVoices:(id)arg1;
 - (void)_setVoiceArray:(id)arg1 forKey:(id)arg2;
+@property(nonatomic) _Bool syncPronunciationsWithCloudKit;
 @property(nonatomic) _Bool enableVoiceOverCaptions;
 @property(nonatomic) long long internalLoggingColorTheme;
 @property(nonatomic) _Bool logAXNotificationPosting;

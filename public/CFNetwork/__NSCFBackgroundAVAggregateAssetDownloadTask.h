@@ -8,13 +8,15 @@
 
 #import <CFNetwork/AVAssetDownloadDelegate-Protocol.h>
 
-@class AVURLAsset, NSArray, NSData, NSDictionary, NSString, NSURLSession;
+@class AVURLAsset, NSArray, NSData, NSDictionary, NSObject, NSString, NSURLSession;
+@protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface __NSCFBackgroundAVAggregateAssetDownloadTask : __NSCFBackgroundSessionTask <AVAssetDownloadDelegate>
 {
     _Bool _sentWillDownloadToURL;
     _Bool _sentWillBeginDelayedRequest;
+    NSObject<OS_dispatch_queue> *_sessionWorkQueue;
     unsigned long long _AVAssetDownloadToken;
     AVURLAsset *_URLAsset;
     NSArray *_mediaSelections;

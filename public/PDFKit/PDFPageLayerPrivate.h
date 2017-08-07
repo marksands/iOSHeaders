@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     CALayer *tilesLayer;
     int generationCount;
     double lastLayoutZoomFactor;
+    struct CGRect lastLayerFrameInRootView;
     NSDate *lastZoomChange;
     _Bool zoomChangeScheduled;
     unsigned long long visibilityDelegateIndex;

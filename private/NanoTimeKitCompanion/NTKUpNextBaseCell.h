@@ -8,7 +8,7 @@
 
 #import <NanoTimeKitCompanion/UIGestureRecognizerDelegate-Protocol.h>
 
-@class CAFilter, CALayer, NSString, NTKUpNextElementContent, UIImage, UIImageView, UILongPressGestureRecognizer, UIView;
+@class CALayer, NSString, NTKUpNextElementContent, UIImage, UIImageView, UILongPressGestureRecognizer, UIView;
 @protocol NTKUpNextCellDelegate;
 
 @interface NTKUpNextBaseCell : UICollectionViewCell <UIGestureRecognizerDelegate>
@@ -16,7 +16,6 @@
     struct CGSize _shadowSize;
     UIImageView *_shadowView;
     CALayer *_imageLayer;
-    CAFilter *_brightnessFilter;
     UIView *_overlayView;
     UILongPressGestureRecognizer *_longPressRecognizer;
     double _darkeningAmount;
@@ -31,7 +30,7 @@
 + (void)initialize;
 @property(readonly, nonatomic) CALayer *imageLayer; // @synthesize imageLayer=_imageLayer;
 @property(retain, nonatomic) NSString *representedElementIdentifier; // @synthesize representedElementIdentifier=_representedElementIdentifier;
-@property(retain, nonatomic) NTKUpNextElementContent *content; // @synthesize content=_content;
+@property(readonly, nonatomic) NTKUpNextElementContent *content; // @synthesize content=_content;
 @property(retain, nonatomic) UIImage *overrideContentImage; // @synthesize overrideContentImage=_overrideContentImage;
 @property(nonatomic) __weak id <NTKUpNextCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) UIImage *contentImage; // @synthesize contentImage=_contentImage;

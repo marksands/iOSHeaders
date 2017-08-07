@@ -12,6 +12,7 @@
 
 @interface NSSExternalAnalyticsRequestMetadata : NSObject <NSSecureCoding>
 {
+    int _eventType;
     NSString *_requestIdentifier;
     NSString *_clientIdentifier;
     NSString *_userIdentifier;
@@ -22,6 +23,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) int eventType; // @synthesize eventType=_eventType;
 @property(readonly, copy, nonatomic) NSString *publisherIdentifier; // @synthesize publisherIdentifier=_publisherIdentifier;
 @property(readonly, copy, nonatomic) NSString *articleIdentifier; // @synthesize articleIdentifier=_articleIdentifier;
 @property(readonly, copy, nonatomic) NTPBSession *session; // @synthesize session=_session;
@@ -32,7 +34,7 @@
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithSession:(id)arg1 requestIdentifier:(id)arg2 clientIdentifier:(id)arg3 appConfigTreatmentIdentifier:(id)arg4 userIdentifier:(id)arg5 articleIdentifier:(id)arg6 publisherIdentifier:(id)arg7;
+- (id)initWithSession:(id)arg1 requestIdentifier:(id)arg2 clientIdentifier:(id)arg3 appConfigTreatmentIdentifier:(id)arg4 userIdentifier:(id)arg5 articleIdentifier:(id)arg6 publisherIdentifier:(id)arg7 eventType:(int)arg8;
 
 @end
 

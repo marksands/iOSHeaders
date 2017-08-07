@@ -67,6 +67,11 @@
 - (_Bool)_hasTransformForEffectSubview:(id)arg1;
 - (_Bool)_shouldManageCornerRadiusForEffectSubview:(id)arg1;
 - (void)_updateSubviews;
+- (void)_updateEffectForReducedTransparency;
+- (void)_resetEffect;
+- (void)_updateEffectBackgroundColor;
+- (void)_updateEffectForAlphaTransitionDidEnd:(id)arg1;
+- (void)_updateEffectForAlphaTransitionWillBegin:(id)arg1;
 - (void)_updateEffectForSnapshotDidEnd:(id)arg1;
 - (void)_updateEffectForSnapshotWillBegin:(id)arg1;
 - (void)_configureEffects;

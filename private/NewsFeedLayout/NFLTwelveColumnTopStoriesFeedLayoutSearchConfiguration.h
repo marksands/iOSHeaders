@@ -13,7 +13,6 @@
 - (_Bool)mayRowType:(unsigned long long)arg1 useTileInfos:(id)arg2 withPreferedContentSizeCategory:(id)arg3;
 - (id)nextRowTypeCandidatesForRowType:(unsigned long long)arg1;
 - (id)allRowTypes;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

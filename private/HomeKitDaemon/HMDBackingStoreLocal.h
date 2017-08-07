@@ -8,7 +8,7 @@
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class NSMutableArray, NSMutableDictionary, NSOperationQueue, NSString;
+@class NSMutableArray, NSMutableDictionary, NSString;
 
 @interface HMDBackingStoreLocal : HMFObject <HMFLogging>
 {
@@ -54,7 +54,6 @@
     struct sqlite3_stmt *commit;
     struct sqlite3_stmt *rollback;
     struct sqlite3_stmt *begin;
-    NSOperationQueue *_queue;
     NSString *_datastoreFile;
     NSMutableArray *_zoneCache;
     NSMutableDictionary *_storeCache;
@@ -65,7 +64,6 @@
 @property(retain, nonatomic) NSMutableDictionary *storeCache; // @synthesize storeCache=_storeCache;
 @property(retain, nonatomic) NSMutableArray *zoneCache; // @synthesize zoneCache=_zoneCache;
 @property(readonly, nonatomic) NSString *datastoreFile; // @synthesize datastoreFile=_datastoreFile;
-@property(retain, nonatomic) NSOperationQueue *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
 - (id)logIdentifier;
 - (id)_deleteLog:(long long)arg1;

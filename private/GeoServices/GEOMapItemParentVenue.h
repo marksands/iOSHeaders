@@ -6,22 +6,17 @@
 
 #import <objc/NSObject.h>
 
-@class GEOVenueLabel;
-@protocol GEOVenueIdentifier;
-
 __attribute__((visibility("hidden")))
 @interface GEOMapItemParentVenue : NSObject
 {
-    id <GEOVenueIdentifier> _venueIdentifier;
-    GEOVenueLabel *_venueLabel;
-    GEOVenueLabel *_buildingLabel;
+    unsigned long long _businessID;
+    int _featureType;
 }
 
-@property(readonly, nonatomic) GEOVenueLabel *buildingLabel; // @synthesize buildingLabel=_buildingLabel;
-@property(readonly, nonatomic) GEOVenueLabel *venueLabel; // @synthesize venueLabel=_venueLabel;
-@property(readonly, nonatomic) id <GEOVenueIdentifier> venueIdentifier; // @synthesize venueIdentifier=_venueIdentifier;
-- (void).cxx_destruct;
-- (id)initWithIdentifier:(id)arg1 venueLabel:(id)arg2 buildingLabel:(id)arg3;
+@property(readonly, nonatomic) int featureType; // @synthesize featureType=_featureType;
+@property(readonly, nonatomic) unsigned long long businessID; // @synthesize businessID=_businessID;
+- (id)initWithLocatedInsideInfo:(id)arg1;
+- (id)initWithBusinessID:(unsigned long long)arg1 featureType:(int)arg2;
 
 @end
 

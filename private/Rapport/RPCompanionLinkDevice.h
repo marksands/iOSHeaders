@@ -12,6 +12,7 @@
 
 @interface RPCompanionLinkDevice : NSObject <NSSecureCoding>
 {
+    NSString *_groupID;
     NSString *_identifier;
     NSString *_model;
     NSString *_name;
@@ -23,6 +24,7 @@
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *model; // @synthesize model=_model;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, copy, nonatomic) NSString *groupID; // @synthesize groupID=_groupID;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

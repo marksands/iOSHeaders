@@ -9,7 +9,7 @@
 #import <AXHearingSupport/HACCContentModuleDelegate-Protocol.h>
 #import <AXHearingSupport/UIGestureRecognizerDelegate-Protocol.h>
 
-@class AXRemoteHearingAidDevice, CCUIContentModuleContext, HACCChevronView, HACCContentViewController, NSMutableArray, NSMutableDictionary, NSString, UIPanGestureRecognizer, UIScrollView, UITapGestureRecognizer, UIView;
+@class AXRemoteHearingAidDevice, CCUIContentModuleContext, HACCChevronView, HACCContentViewController, MTMaterialView, NSMutableArray, NSMutableDictionary, NSString, UIPanGestureRecognizer, UIScrollView, UITapGestureRecognizer, UIView;
 @protocol AXHAShortcutUpdateProtocol;
 
 @interface HACCShortcutViewController : UIViewController <UIGestureRecognizerDelegate, HACCContentModuleDelegate>
@@ -25,7 +25,7 @@
     NSMutableDictionary *_gridToModuleMap;
     NSMutableDictionary *_moduleToPointMap;
     UIScrollView *_scrollView;
-    UIView *_backgroundView;
+    MTMaterialView *_backgroundView;
     UIView *_platterView;
     NSMutableArray *_separatorViews;
     AXRemoteHearingAidDevice *_currentHearingDevice;
@@ -42,7 +42,7 @@
 @property(retain, nonatomic) AXRemoteHearingAidDevice *currentHearingDevice; // @synthesize currentHearingDevice=_currentHearingDevice;
 @property(retain, nonatomic) NSMutableArray *separatorViews; // @synthesize separatorViews=_separatorViews;
 @property(retain, nonatomic) UIView *platterView; // @synthesize platterView=_platterView;
-@property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
+@property(retain, nonatomic) MTMaterialView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) NSMutableDictionary *moduleToPointMap; // @synthesize moduleToPointMap=_moduleToPointMap;
 @property(retain, nonatomic) NSMutableDictionary *gridToModuleMap; // @synthesize gridToModuleMap=_gridToModuleMap;
@@ -57,11 +57,13 @@
 - (void)controlDidActivate:(id)arg1;
 - (void)updateViewForProperties:(id)arg1;
 - (void)updateView;
+- (_Bool)shouldDrawBackground;
 - (double)preferredContentWidth;
 - (double)preferredExpandedContentHeight;
 - (void)updateAvailableControlsForSize:(struct CGSize)arg1;
 - (unsigned long long)numberOfColumnsForSize:(struct CGSize)arg1;
 - (_Bool)shouldDisplayControlForModule:(unsigned long long)arg1;
+- (void)contentCategoryDidChange:(id)arg1;
 - (void)bluetoothAvailabilityDidChange:(id)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidDisappear:(_Bool)arg1;

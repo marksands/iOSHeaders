@@ -6,12 +6,12 @@
 
 #import <SearchUI/SearchUIKeyboardableTableViewController.h>
 
-#import <SearchUI/SearchUIFeedbackDelegate-Protocol.h>
+#import <SearchUI/SearchUIFeedbackDelegateInternal-Protocol.h>
 
 @class NSString, SearchUIPeekDelegate, SearchUITableModel, SearchUITableView;
 @protocol SFFeedbackListener, SearchUIResultViewDelegate, UIViewControllerPreviewing;
 
-@interface SearchUITableViewController : SearchUIKeyboardableTableViewController <SearchUIFeedbackDelegate>
+@interface SearchUITableViewController : SearchUIKeyboardableTableViewController <SearchUIFeedbackDelegateInternal>
 {
     _Bool _shouldUseInsetRoundedSections;
     id <SFFeedbackListener> _feedbackListener;
@@ -56,6 +56,7 @@
 - (id)punchoutPickerTitleForIndexPath:(id)arg1;
 - (id)punchoutsForIndexPath:(id)arg1;
 - (id)nextCardForIndexPath:(id)arg1;
+- (void)resignTextField;
 - (id)preferredViewControllerForIndexPath:(id)arg1 isPreview:(_Bool)arg2;
 - (void)roundNecessaryCornersForTableCellSelectedBackground:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;

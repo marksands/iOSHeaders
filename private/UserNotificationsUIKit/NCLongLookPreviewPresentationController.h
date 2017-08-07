@@ -24,6 +24,9 @@
 - (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
 - (void)containerViewWillLayoutSubviews;
 - (struct CGRect)frameOfPresentedViewInContainerView;
+- (void)dismissalTransitionDidEnd:(_Bool)arg1;
+- (void)dismissalTransitionWillBegin;
+- (void)presentationTransitionDidEnd:(_Bool)arg1;
 - (void)presentationTransitionWillBegin;
 - (_Bool)_shouldDisableInteractionDuringTransitions;
 - (_Bool)_shouldMakePresentedViewControllerFirstResponder;

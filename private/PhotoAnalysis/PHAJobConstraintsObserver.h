@@ -11,12 +11,10 @@
 
 @interface PHAJobConstraintsObserver : NSObject
 {
-    _Bool _changedOnSleepWake;
     id <PHAJobConstraintsObserverDelegate> _delegate;
     PHAJobConstraints *_currentConstraints;
 }
 
-@property _Bool changedOnSleepWake; // @synthesize changedOnSleepWake=_changedOnSleepWake;
 @property(retain, nonatomic) PHAJobConstraints *currentConstraints; // @synthesize currentConstraints=_currentConstraints;
 @property(nonatomic) __weak id <PHAJobConstraintsObserverDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;

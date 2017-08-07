@@ -287,8 +287,9 @@
 - (id)keywordsForMomentNodeName:(id)arg1 relatedType:(unsigned long long)arg2;
 - (id)keywordsForMoment:(id)arg1 relatedType:(unsigned long long)arg2;
 - (void)debugTitlesForAssetCollection:(id)arg1 result:(CDUnknownBlockType)arg2;
-- (id)_filteredAssetsFromAssetCollection:(id)arg1 throughTraitsForMeaningWithLabel:(id)arg2;
-- (id)_filteredAssetCollection:(id)arg1 withContextualAssets:(id)arg2 approximateTimeDistance:(double)arg3;
+- (id)_filteredAssetsFromAssetCollection:(id)arg1 throughTraitsForMeaningWithLabel:(id)arg2 inTraitsArray:(id)arg3;
+- (id)_filteredAssetsFromAssetCollection:(id)arg1 withContextualAssets:(id)arg2 approximateTimeDistance:(double)arg3;
+- (id)_filteredAssetCollectionFromAssetCollection:(id)arg1 withContextualAssets:(id)arg2 approximateTimeDistance:(double)arg3;
 - (void)completeCuratedAssets:(id)arg1 fromAssets:(id)arg2 forPeople:(id)arg3 duration:(unsigned long long)arg4 precision:(unsigned long long)arg5 nonRemovableAssets:(id)arg6 progressBlock:(CDUnknownBlockType)arg7;
 - (id)_bestAssetInSummarizedAssets:(id)arg1 forReferencePeople:(id)arg2;
 - (id)_bestAssetsInAssets:(id)arg1 forReferencePersons:(id)arg2 minimumRatioOfReferencePersonsPerAsset:(double)arg3 progressBlock:(CDUnknownBlockType)arg4;

@@ -42,6 +42,7 @@
 - (id)_currentSwipeOccurrence;
 @property(readonly, nonatomic) UIView *swipedItemView;
 - (void)updateLayout;
+- (void)updateSwipedIndexPath:(id)arg1;
 - (void)_resetSwipedItemAnimated:(_Bool)arg1 swipeInfo:(CDStruct_b06b0113)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)resetSwipedItemAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)swipeItemAtIndexPath:(id)arg1 configuration:(id)arg2 direction:(unsigned long long)arg3 animated:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;

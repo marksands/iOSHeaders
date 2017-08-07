@@ -11,13 +11,13 @@
 @protocol TIProactiveQuickTypeManaging <NSObject>
 - (NSArray *)getMeCardEmailAddresses;
 - (void)suggestionNotAccepted:(NSArray *)arg1;
-- (void)suggestionAccepted:(NSString *)arg1;
-- (void)userActionWithNoNewTriggers:(NSString *)arg1;
+- (void)suggestionAccepted:(NSString *)arg1 fieldType:(NSString *)arg2;
+- (void)userActionWithNoNewTriggers:(NSString *)arg1 fieldType:(NSString *)arg2;
 - (_Bool)isAutoCompleteEnabled;
 - (_Bool)isAutoPopupEnabled;
 - (_Bool)isEnabled;
 - (void)reset;
-- (NSMutableArray *)generateAndRenderProactiveSuggestionsWithInput:(NSString *)arg1 withSecureCandidateRenderer:(TIKeyboardSecureCandidateRenderer *)arg2 withRenderTraits:(TIKeyboardSecureCandidateRenderTraits *)arg3;
+- (NSMutableArray *)generateAndRenderProactiveSuggestionsWithInput:(NSString *)arg1 withSecureCandidateRenderer:(TIKeyboardSecureCandidateRenderer *)arg2 withRenderTraits:(TIKeyboardSecureCandidateRenderTraits *)arg3 textContentType:(NSString *)arg4;
 - (NSMutableArray *)generateAndRenderProactiveSuggestionsWithTriggers:(NSArray *)arg1 withAdditionalPredictions:(NSArray *)arg2 withSecureCandidateRenderer:(TIKeyboardSecureCandidateRenderer *)arg3 withRenderTraits:(TIKeyboardSecureCandidateRenderTraits *)arg4 withInput:(NSString *)arg5 withRecipient:(NSString *)arg6 withApplication:(NSString *)arg7 withLocale:(NSString *)arg8 withTextContentType:(NSString *)arg9 withAvailableApps:(NSSet *)arg10 logBlock:(void (^)(NSString *))arg11;
 @end
 

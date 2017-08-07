@@ -6,16 +6,21 @@
 
 #import <objc/NSObject.h>
 
+@class NSUUID;
+
 @interface _NSIPCallbackSerialization : NSObject
 {
     CDUnknownBlockType _endBlock;
     // Error parsing type: AB, name: _hasBegun
     // Error parsing type: AB, name: _hasEnded
+    NSUUID *_UUID;
 }
 
+@property(copy, nonatomic) NSUUID *UUID; // @synthesize UUID=_UUID;
 - (void)sendEndBlock:(CDUnknownBlockType)arg1;
 - (void)sendBeginBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
+- (id)init;
 
 @end
 

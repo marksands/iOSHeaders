@@ -27,9 +27,9 @@
 @property(retain, nonatomic) HMFExponentialBackoffTimer *backoffTimer; // @synthesize backoffTimer=_backoffTimer;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
-- (id)dequeueOperationsToCancel;
+- (id)operationsToCancel;
 - (id)allOperations;
-- (id)dequeueNextOperation;
+- (id)nextOperation;
 - (_Bool)isInMaximumTimeInterval;
 - (_Bool)processFiredTimer:(id)arg1;
 - (void)dropAllOperations;
@@ -41,7 +41,6 @@
 - (void)_createBackoffTimer;
 @property(readonly, nonatomic) long long count;
 @property(readonly, nonatomic) long long countTotal;
-- (id)dumpState;
 - (id)description;
 - (id)initName:(id)arg1 syncManager:(id)arg2 initialDelay:(double)arg3 hasBackoff:(_Bool)arg4;
 

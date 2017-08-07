@@ -10,6 +10,7 @@
 {
 }
 
++ (_Bool)wantsLocationInUseAsserton;
 + (id)sampleContentElements;
 + (id)bundleIdentifier;
 

@@ -17,7 +17,6 @@ __attribute__((visibility("hidden")))
     CNDonationStore *_donationStore;
 }
 
-+ (_Bool)isContactEmpty:(id)arg1;
 + (id)mapperIdentifier;
 + (id)log;
 @property(readonly, nonatomic) CNDonationStore *donationStore; // @synthesize donationStore=_donationStore;

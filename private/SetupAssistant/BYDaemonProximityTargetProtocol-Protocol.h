@@ -11,7 +11,7 @@
 @protocol BYDaemonProximityTargetProtocol <NSObject>
 - (void)storeHandshake:(SASProximityHandshake *)arg1;
 - (void)storeInformation:(SASProximityInformation *)arg1;
-- (void)resumeProximitySetup:(void (^)(SASProximityHandshake *, SASProximityInformation *, CUMessageSession *, _Bool))arg1;
+- (void)resumeProximitySetup:(void (^)(SASProximityHandshake *, SASProximityInformation *, CUMessageSession *, NSString *, NSString *, _Bool))arg1;
 - (void)hasConnection:(void (^)(_Bool))arg1;
 - (void)endPairing;
 - (void)endAdvertisingProximitySetup;

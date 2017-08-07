@@ -32,6 +32,7 @@
 + (id)_loadAchievementDefinitionsFromAsset:(id)arg1;
 + (void)_getNewestAsset:(id *)arg1 olderAssets:(id *)arg2 installedOnly:(_Bool)arg3 fromAssets:(id)arg4;
 + (void)_getDefinitionsAsset:(id *)arg1 resourcesAssets:(id *)arg2 stickersAssets:(id *)arg3 installedOnly:(_Bool)arg4 fromCombinedAssets:(id)arg5;
++ (void)_setAndNotifyStickersAvailable:(_Bool)arg1;
 + (_Bool)_loadsRemoteDefinitions;
 + (void)_setLoadsRemoteDefinitions:(_Bool)arg1;
 + (void)_loadLoadsRemoteDefinitions;
@@ -54,7 +55,6 @@
 - (id)_allAchievementResourcesPredicate;
 - (id)_definitionsPlistPredicate;
 - (id)_compatibilityVersionPredicate;
-- (void)_setAndNotifyStickersAvailable:(_Bool)arg1;
 - (void)_clearInjectedDefinitionsForTesting;
 - (void)_injectDefinitionsForTesting:(id)arg1;
 - (void)_fetchCurrentAssetsWithCompletion:(CDUnknownBlockType)arg1;

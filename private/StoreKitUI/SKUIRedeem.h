@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <StoreKitUI/NSSecureCoding-Protocol.h>
+
 @class NSArray, NSDictionary, NSString, NSURL, UIImage;
 @protocol SKUIArtworkProviding;
 
-@interface SKUIRedeem : NSObject
+@interface SKUIRedeem : NSObject <NSSecureCoding>
 {
     _Bool _hideItemView;
     NSArray *_items;
@@ -28,6 +30,7 @@
     double _ITunesPassLearnMoreAlertInterval;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) double ITunesPassLearnMoreAlertInterval; // @synthesize ITunesPassLearnMoreAlertInterval=_ITunesPassLearnMoreAlertInterval;
 @property(nonatomic) _Bool hideItemView; // @synthesize hideItemView=_hideItemView;
 @property(retain, nonatomic) NSArray *links; // @synthesize links=_links;
@@ -44,6 +47,8 @@
 @property(retain, nonatomic) NSArray *downloads; // @synthesize downloads=_downloads;
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 - (void).cxx_destruct;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)init;
 
 @end

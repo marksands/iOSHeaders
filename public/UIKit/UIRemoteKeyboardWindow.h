@@ -16,11 +16,14 @@ __attribute__((visibility("hidden")))
     _Bool _arePlaceholdersInitialised;
     FBSSceneLayer *_externalSceneLayer;
     FBSScene *_activeScene;
+    _Bool _resetRequired;
 }
 
 + (id)remoteKeyboardWindowForScreen:(id)arg1 create:(_Bool)arg2;
 - (void)dealloc;
+- (void)endDisablingInterfaceAutorotation;
 - (void)resetScene;
+- (void)_resetScene;
 - (void)detachBindable;
 - (_Bool)shouldDetachBindable;
 - (void)attachBindable;

@@ -70,7 +70,7 @@ __attribute__((visibility("hidden")))
 - (id)_reviewLabelText;
 - (id)_verifiedText;
 - (id)_currentTitle;
-@property(nonatomic) double currentMinimalModeInterpolationFactor;
+@property(nonatomic) double contentAlpha;
 - (void)hideTitle:(_Bool)arg1;
 - (void)updateHeaderTitle;
 - (void)viewWillAppear:(_Bool)arg1;

@@ -6,7 +6,7 @@
 
 #import <StoreKitUI/SKUIGiftTableViewSection.h>
 
-@class NSString, SKUIGift, SKUIGiftRecipientTableViewCell, UITextView;
+@class NSString, SKUIGift, SKUIGiftRecipientTableViewCell, SKUIGiftTextTableViewCell, UITextView;
 @protocol UITextFieldDelegate;
 
 @interface SKUIGiftAddressingSection : SKUIGiftTableViewSection
@@ -18,12 +18,13 @@
     SKUIGiftRecipientTableViewCell *_recipientTableViewCell;
     id <UITextFieldDelegate> _textFieldDelegate;
     double _textViewCellHeight;
+    SKUIGiftTextTableViewCell *_messageCell;
 }
 
+@property(retain, nonatomic) SKUIGiftTextTableViewCell *messageCell; // @synthesize messageCell=_messageCell;
 @property(nonatomic) id <UITextFieldDelegate> textFieldDelegate; // @synthesize textFieldDelegate=_textFieldDelegate;
 @property(retain, nonatomic) SKUIGift *gift; // @synthesize gift=_gift;
 - (void).cxx_destruct;
-- (id)_textViewCellForTableView:(id)arg1 indexPath:(id)arg2;
 - (id)_textFieldTableViewCellForTableView:(id)arg1 indexPath:(id)arg2;
 - (id)_recipientTableViewCell;
 - (id)_footerString;

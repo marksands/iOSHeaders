@@ -52,6 +52,7 @@
 - (_Bool)isExplicitTrack;
 - (double)expectedDuration;
 - (long long)endpointType;
+- (_Bool)prefersStoreContentInfo;
 - (long long)downloadIdentifier;
 - (id)copyrightText;
 - (unsigned long long)contentType;

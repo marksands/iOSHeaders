@@ -87,7 +87,7 @@
 @property(copy, nonatomic) NSString *ratingText; // @synthesize ratingText=_ratingText;
 @property(copy, nonatomic) NSNumber *rating; // @synthesize rating=_rating;
 @property(copy, nonatomic) NSString *descriptionText; // @synthesize descriptionText=_descriptionText;
-@property(nonatomic) _Bool isCentered; // @synthesize isCentered=_isCentered;
+@property(nonatomic) _Bool isCentered;
 @property(retain, nonatomic) SFImage *titleImage; // @synthesize titleImage=_titleImage;
 @property(copy, nonatomic) NSString *contentAdvisory; // @synthesize contentAdvisory=_contentAdvisory;
 @property(copy, nonatomic) NSString *subtitle;

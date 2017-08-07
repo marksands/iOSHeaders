@@ -30,10 +30,10 @@ __attribute__((visibility("hidden")))
     unsigned long long _primaryButtonType;
     _MKPlaceActionButtonController *_secondaryButtonController;
     _MKPlaceActionButtonController *_tertiaryButtonController;
-    double _currentMinimalModeInterpolationFactor;
+    double _contentAlpha;
 }
 
-@property(nonatomic) double currentMinimalModeInterpolationFactor; // @synthesize currentMinimalModeInterpolationFactor=_currentMinimalModeInterpolationFactor;
+@property(nonatomic) double contentAlpha; // @synthesize contentAlpha=_contentAlpha;
 @property(retain, nonatomic) _MKPlaceActionButtonController *tertiaryButtonController; // @synthesize tertiaryButtonController=_tertiaryButtonController;
 @property(retain, nonatomic) _MKPlaceActionButtonController *secondaryButtonController; // @synthesize secondaryButtonController=_secondaryButtonController;
 @property(nonatomic) unsigned long long primaryButtonType; // @synthesize primaryButtonType=_primaryButtonType;

@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <AVConference/VCMediaStreamDelegate-Protocol.h>
 
 @class AVCMediaStreamConfig, AVConferenceXPCClient, NSDictionary, NSString, VCVideoStream;
-@protocol AVCVideoStreamDelegate;
+@protocol AVCVideoStreamDelegate, OS_dispatch_queue;
 
 @interface AVCVideoStream : NSObject <VCMediaStreamDelegate>
 {
@@ -19,6 +19,7 @@
     VCVideoStream *_opaqueStream;
     long long _streamToken;
     NSDictionary *_capabilities;
+    NSObject<OS_dispatch_queue> *_callbackQueue;
 }
 
 + (id)capabilities;

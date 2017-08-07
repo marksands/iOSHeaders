@@ -18,7 +18,6 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+ (void)load;
 @property(readonly, nonatomic) IDSPublicAccountIdentity *accountIdentity; // @synthesize accountIdentity=_accountIdentity;
 @property(readonly, nonatomic) IDSMPPublicDeviceIdentity *modernIdentity; // @synthesize modernIdentity=_modernIdentity;
 @property(readonly, nonatomic) IDSMPPublicLegacyIdentity *legacyIdentity; // @synthesize legacyIdentity=_legacyIdentity;

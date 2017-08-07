@@ -42,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (void)_reset;
 - (void)dealloc;
 - (void)_setNeedsHitTestReset;
+@property(readonly, nonatomic, getter=_windowServerHitTestContextID) unsigned int windowServerHitTestContextID;
 @property(readonly, nonatomic, getter=_touchRoutingPolicyContextID) unsigned int touchRoutingPolicyContextID;
 - (void)_dragFailedWithCallback:(CDUnknownBlockType)arg1;
 - (void)_ignoreDragEnd;
@@ -59,6 +60,7 @@ __attribute__((visibility("hidden")))
 - (void)_removeGestureRecognizer:(id)arg1;
 - (_Bool)_shouldSendEvent;
 - (void)_sendEventToGestureRecognizer:(id)arg1;
+@property(readonly, nonatomic) _Bool isFromAccessibilitySession;
 @property(readonly, nonatomic) struct CGPoint locationInSceneReferenceSpace;
 - (struct CGPoint)locationInView:(id)arg1;
 - (id)_windows;

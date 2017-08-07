@@ -399,6 +399,24 @@ struct StrideCalBin;
 
 struct TouchOscarEmu;
 
+struct VO2MaxInput {
+    unsigned long long _field1;
+    unsigned char _field2[16];
+    float _field3;
+    double _field4;
+    float _field5;
+    float _field6;
+    int _field7;
+    double _field8;
+    _Bool _field9;
+    _Bool _field10;
+    int _field11;
+    long long _field12;
+    double _field13;
+    double _field14;
+    _Bool _field15;
+};
+
 struct VibrationEvent;
 
 struct WatchOrientationSettings;

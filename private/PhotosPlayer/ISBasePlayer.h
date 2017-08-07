@@ -17,7 +17,7 @@
     float _videoVolume;
     AVPlayer *_providedAVPlayer;
     NSObject<OS_dispatch_queue> *_outputQueue;
-    NSHashTable *_outputQueue_outputs;
+    NSHashTable *_outputs;
     NSString *_apertureMode;
     struct {
         _Bool videoPlayer;
@@ -99,6 +99,7 @@
 - (void)enumerateOutputsWithBlock:(CDUnknownBlockType)arg1;
 - (void)applyOutputInfo:(id)arg1 fromBehavior:(id)arg2 withTransitionOptions:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)applyScale:(double)arg1 withTransitionOptions:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (double)videoWillPlayToPhotoInterval;
 - (double)videoWillPlayToEndInterval;
 - (void)_videoWillPlayToEnd;
 - (void)_videoWillPlayToPhoto;

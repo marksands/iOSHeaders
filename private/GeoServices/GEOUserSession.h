@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class GEOUserSessionEntity, NSData, NSLock;
+@class GEOUserSessionEntity, GEOUserSessionSnapshot, NSData, NSLock;
 
 @interface GEOUserSession : NSObject
 {
@@ -40,11 +40,13 @@
 - (void)endNavigationSession;
 - (void)startNavigationSessionWithDirectionsID:(id)arg1 originalDirectionsID:(id)arg2;
 @property(readonly) GEOUserSessionEntity *navSessionEntity;
+@property(readonly) GEOUserSessionEntity *longSessionEntity;
 - (void)_updateNavSessionID;
 - (void)_generateNewNavSessionID;
 - (unsigned int)incrementSequenceNumber;
 - (void)setSharedMapsUserSessionEntity:(id)arg1 shareSessionIDWithMaps:(_Bool)arg2;
 @property(retain, nonatomic) GEOUserSessionEntity *mapsUserSessionEntity; // @synthesize mapsUserSessionEntity=_mapsUserSessionEntity;
+@property(readonly) GEOUserSessionSnapshot *userSessionSnapshot;
 @property(readonly) struct GEOSessionID usageCollectionSessionID;
 - (void)mapsSessionEntityWithCallback:(CDUnknownBlockType)arg1 shareSessionIDWithMaps:(_Bool)arg2 resetSession:(_Bool)arg3;
 - (void)_mapsSessionEntityWithCallback:(CDUnknownBlockType)arg1;

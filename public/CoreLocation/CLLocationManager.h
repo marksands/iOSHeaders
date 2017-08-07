@@ -153,6 +153,7 @@
 @property(readonly, nonatomic) _Bool locationServicesEnabled;
 @property(readonly, nonatomic) _Bool locationServicesAvailable;
 @property(readonly, copy, nonatomic) CLLocation *location;
+@property(nonatomic) _Bool showsBackgroundLocationIndicator;
 @property(nonatomic) _Bool allowsBackgroundLocationUpdates;
 @property(nonatomic) _Bool pausesLocationUpdatesAutomatically;
 @property(nonatomic) double desiredAccuracy;

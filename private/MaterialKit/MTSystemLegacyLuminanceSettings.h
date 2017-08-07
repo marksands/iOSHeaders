@@ -20,6 +20,7 @@
 - (double)saturation;
 - (double)luminanceAlpha;
 - (double)blurRadius;
+- (long long)materialVersion;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

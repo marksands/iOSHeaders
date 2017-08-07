@@ -54,7 +54,7 @@
 - (_Bool)_promotePersonsWithError:(id *)arg1;
 - (_Bool)_buildPersonsIncrementally:(_Bool)arg1 error:(id *)arg2;
 - (_Bool)_clusterFacesWithPhotoVision:(id)arg1 incrementally:(_Bool)arg2 error:(id *)arg3;
-- (_Bool)_deleteAllPersonsWithError:(id *)arg1;
+- (_Bool)_deleteAllVerifiedPersonsWithError:(id *)arg1;
 - (void)reclusterFacesWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)resetPeopleWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)resetFaceClusteringStateWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;

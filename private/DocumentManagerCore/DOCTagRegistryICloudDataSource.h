@@ -16,6 +16,7 @@
     id <DOCTagRegistryDelegate> _delegate;
 }
 
++ (_Bool)isICloudAvailable;
 @property(nonatomic) __weak id <DOCTagRegistryDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSObject *iCloudToken; // @synthesize iCloudToken=_iCloudToken;
 @property(retain, nonatomic) NSUbiquitousKeyValueStore *store; // @synthesize store=_store;

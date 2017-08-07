@@ -12,7 +12,7 @@
 }
 
 + (id)deviceDescriptorForType:(long long)arg1;
-@property(readonly, nonatomic) long long type; // @synthesize type=_type;
+@property(nonatomic) long long type; // @synthesize type=_type;
 
 @end
 

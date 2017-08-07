@@ -46,6 +46,8 @@
 - (void)getCurrentTimelineEntryWithHandler:(CDUnknownBlockType)arg1;
 - (id)currentSwitcherTemplate;
 - (id)_currentEntry:(_Bool)arg1;
+- (void)becomeInactive;
+- (void)becomeActive;
 - (void)dealloc;
 - (id)initWithComplication:(id)arg1 family:(long long)arg2;
 

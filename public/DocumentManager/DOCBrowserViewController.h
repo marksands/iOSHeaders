@@ -64,7 +64,7 @@
 - (void)browserIsDisplayingEmptyCollection:(_Bool)arg1;
 - (void)browserDismissButtonWasTapped;
 - (void)browserLocationsButtonWasTappedWithSourceRect:(struct CGRect)arg1;
-- (void)didPickLocation:(id)arg1;
+- (void)didPickLocation:(id)arg1 forceReplaceLocation:(_Bool)arg2;
 - (void)builtinActionsDidChange:(id)arg1;
 - (void)didTriggerFPUIActionWithIdentifier:(id)arg1 providerIdentifier:(id)arg2 domainIdentifier:(id)arg3 title:(id)arg4 onItems:(id)arg5;
 - (void)didTriggerActionWithIdentifier:(id)arg1 onItems:(id)arg2;
@@ -79,7 +79,7 @@
 - (void)_updateHostProvidedActions;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)viewDidAppear:(_Bool)arg1;
-- (_Bool)isRevelevantBrowser;
+- (_Bool)isRelevantBrowser;
 - (void)tagsDidChange:(id)arg1;
 - (void)_setResolvedSelectedLocation:(id)arg1;
 - (void)_updateSelectedBrowserLocation;

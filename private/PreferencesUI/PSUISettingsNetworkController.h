@@ -20,6 +20,7 @@
     PSSpecifier *_lastResetSpecifier;
     _Bool _ignoreNextEntitlementStatusChange;
     NSArray *_appUsageSpecifierCache;
+    NSArray *_wifiCallingSpecifiers;
     NSMutableArray *_carrierSpaceBundleControllers;
     PSUICellularAccountListGroupController *_cellularAccountListGroupController;
     PSUICellularAccountGroupController *_cellularGroupController;
@@ -71,6 +72,7 @@
 - (void)handleURL:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)specifiers;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
 - (id)init;
 

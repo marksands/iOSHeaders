@@ -16,8 +16,6 @@
 @property(copy, nonatomic) NSArray *identityProviders;
 @property(nonatomic, getter=isCancellationAllowed) _Bool cancellationAllowed;
 @property(nonatomic) __weak id <VSIdentityProviderPickerViewControllerDelegate> delegate;
-
-@optional
 - (void)deselectSelectedProviderAnimated:(_Bool)arg1;
 @end
 

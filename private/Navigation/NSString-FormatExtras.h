@@ -7,6 +7,7 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (FormatExtras)
++ (long long)_navigation_abbreviatedFromatterUnitsStyleForLocale:(id)arg1;
 + (id)_navigation_selectInstructionWithServerStringArray:(id)arg1 isSpoken:(_Bool)arg2 clientBlock:(CDUnknownBlockType)arg3;
 + (id)_navigation_selectInstructionWithServerString:(id)arg1 isSpoken:(_Bool)arg2 clientBlock:(CDUnknownBlockType)arg3;
 + (_Bool)_navigation_logIfContainsVariables:(id)arg1;

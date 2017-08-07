@@ -52,6 +52,7 @@
 @property(readonly, nonatomic) double libraryTimespan;
 - (void)pv_addMergeCandidatePersons:(id)arg1;
 @property(readonly, nonatomic) NSString *name;
+@property(readonly, nonatomic) _Bool hidden;
 @property(readonly, nonatomic) _Bool favorite;
 @property(readonly, nonatomic) unsigned long long faceCount;
 @property(retain, nonatomic) id <PVFaceProtocol> keyFace;

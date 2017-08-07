@@ -59,7 +59,7 @@
 @property(readonly, copy) NSString *name;
 - (id)init;
 - (void)dealloc;
-- (void)addScreenshot;
+- (void)attachAutomaticScreenshot;
 
 // Remaining properties
 @property(readonly) unsigned long long hash;

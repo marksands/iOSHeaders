@@ -7,15 +7,26 @@
 #import <UIKit/UIView.h>
 
 @class AVPlayer;
+@protocol NUAVPlayerViewDelegate;
 
 @interface NUAVPlayerView : UIView
 {
+    // Error parsing type: Ai, name: _updateReadyForDisplayID
+    _Bool _readyForDisplay;
     AVPlayer *_player;
+    id <NUAVPlayerViewDelegate> _delegate;
 }
 
 + (Class)layerClass;
+@property(nonatomic) __weak id <NUAVPlayerViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic, getter=isReadyForDisplay, setter=_setReadyForDisplay:) _Bool readyForDisplay; // @synthesize readyForDisplay=_readyForDisplay;
 @property(retain, nonatomic) AVPlayer *player; // @synthesize player=_player;
 - (void).cxx_destruct;
+- (void)_updateReadyForDisplayWithID: /* Error: Ran out of types for this method. */;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)dealloc;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

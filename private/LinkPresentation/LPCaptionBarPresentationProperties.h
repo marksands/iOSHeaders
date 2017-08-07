@@ -14,6 +14,8 @@
     UIColor *_leadingIconMaskColor;
     LPImage *_trailingIcon;
     UIColor *_trailingIconMaskColor;
+    LPImage *_belowLeadingIcon;
+    UIColor *_belowLeadingIconMaskColor;
     long long _leadingAccessoryType;
     long long _trailingAccessoryType;
     LPCaptionRowPresentationProperties *_aboveTop;
@@ -28,6 +30,8 @@
 @property(readonly, retain, nonatomic) LPCaptionRowPresentationProperties *aboveTop; // @synthesize aboveTop=_aboveTop;
 @property(nonatomic) long long trailingAccessoryType; // @synthesize trailingAccessoryType=_trailingAccessoryType;
 @property(nonatomic) long long leadingAccessoryType; // @synthesize leadingAccessoryType=_leadingAccessoryType;
+@property(retain, nonatomic) UIColor *belowLeadingIconMaskColor; // @synthesize belowLeadingIconMaskColor=_belowLeadingIconMaskColor;
+@property(retain, nonatomic) LPImage *belowLeadingIcon; // @synthesize belowLeadingIcon=_belowLeadingIcon;
 @property(retain, nonatomic) UIColor *trailingIconMaskColor; // @synthesize trailingIconMaskColor=_trailingIconMaskColor;
 @property(retain, nonatomic) LPImage *trailingIcon; // @synthesize trailingIcon=_trailingIcon;
 @property(retain, nonatomic) UIColor *leadingIconMaskColor; // @synthesize leadingIconMaskColor=_leadingIconMaskColor;
@@ -35,6 +39,10 @@
 - (void).cxx_destruct;
 - (long long)rightAccessoryType;
 - (long long)leftAccessoryType;
+- (id)belowRightIconMaskColor;
+- (id)belowRightIcon;
+- (id)belowLeftIconMaskColor;
+- (id)belowLeftIcon;
 - (id)rightIconMaskColor;
 - (id)rightIcon;
 - (id)leftIconMaskColor;

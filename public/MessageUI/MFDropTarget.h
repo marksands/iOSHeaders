@@ -6,12 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-#import <MessageUI/UIDropInteractionDelegate-Protocol.h>
+#import <MessageUI/UIDropInteractionDelegate_Private-Protocol.h>
 
 @class NSSet, NSString, UIDropInteraction, UIView;
 @protocol MFDropTargetDelegate;
 
-@interface MFDropTarget : NSObject <UIDropInteractionDelegate>
+@interface MFDropTarget : NSObject <UIDropInteractionDelegate_Private>
 {
     struct {
         unsigned int respondsToCanDropDraggedItemsAtPoint;
@@ -19,6 +19,7 @@
         unsigned int respondsToDragExited;
         unsigned int respondsToDragDidMoveToPoint;
         unsigned int respondsToDidDropItemsAtPoint;
+        unsigned int respondsToDataOwner;
     } _delegateFlags;
     NSSet *_acceptableUTIs;
     UIView *_targetView;
@@ -37,6 +38,7 @@
 - (_Bool)_delegateHandlesDrops;
 - (void)_delegateDidDropItemsWithDropSession:(id)arg1;
 - (_Bool)_sessionContainsOnlyAcceptableTypeIdentifiers:(id)arg1;
+- (long long)_dropInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (void)dropInteraction:(id)arg1 sessionDidEnd:(id)arg2;
 - (void)dropInteraction:(id)arg1 performDrop:(id)arg2;
 - (id)dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;

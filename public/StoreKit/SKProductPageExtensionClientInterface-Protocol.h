@@ -7,6 +7,7 @@
 #import <StoreKit/NSObject-Protocol.h>
 
 @protocol SKProductPageExtensionClientInterface <NSObject>
+- (void)loadDidFinish;
 - (void)finishWithResult:(unsigned long long)arg1 completion:(void (^)(void))arg2;
 @end
 

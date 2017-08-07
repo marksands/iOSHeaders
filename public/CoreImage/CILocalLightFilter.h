@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     CIImage *inputImage;
     CIImage *inputGuideImage;
     NSData *inputLightMap;
+    CIImage *inputLightMapImage;
     NSNumber *inputLightMapWidth;
     NSNumber *inputLightMapHeight;
     NSNumber *inputLocalLight;

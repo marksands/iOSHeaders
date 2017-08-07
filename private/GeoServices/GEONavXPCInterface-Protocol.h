@@ -7,7 +7,7 @@
 @class NSArray, NSData;
 
 @protocol GEONavXPCInterface
-- (void)updateNavigationRouteStatus:(NSData *)arg1;
+- (void)updateNavigationRouteStatus:(NSData *)arg1 routeContext:(NSData *)arg2;
 - (void)updateNavigationRouteDetails:(NSData *)arg1 routeStatus:(NSData *)arg2 routeContext:(NSData *)arg3;
 - (void)clearPreviewRoutesWithRouteContext:(NSData *)arg1;
 - (void)updatePreviewRoutes:(NSArray *)arg1 expectedNumberOfRoutes:(unsigned long long)arg2 routeContext:(NSData *)arg3;

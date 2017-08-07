@@ -7,6 +7,7 @@
 #import <CoreData/NSManagedObjectContext.h>
 
 @interface NSManagedObjectContext (PLManagedObjectContext)
+- (id)deleteObjectsWithIncrementalSave:(id)arg1;
 - (id)enumerateWithIncrementalSaveUsingObjects:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)enumerateWithIncrementalSaveUsingObjects:(id)arg1 shouldRefreshAfterSave:(_Bool)arg2 withBlock:(CDUnknownBlockType)arg3;
 - (id)enumerateObjectsFromFetchRequest:(id)arg1 count:(unsigned long long *)arg2 usingDefaultBatchSizeWithBlock:(CDUnknownBlockType)arg3;

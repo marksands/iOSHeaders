@@ -8,7 +8,7 @@
 
 #import <DocumentManager/DOCAppearanceProtocol-Protocol.h>
 #import <DocumentManager/DOCHostDocumentBrowserViewControllerInterface-Protocol.h>
-#import <DocumentManager/DOCKeyCommandHandlingViewController-Protocol.h>
+#import <DocumentManager/DOCKeyCommandResponder-Protocol.h>
 #import <DocumentManager/DOCRemoteViewControllerDelegate-Protocol.h>
 #import <DocumentManager/DOCViewServiceErrorViewControllerDelegate-Protocol.h>
 #import <DocumentManager/NSCoding-Protocol.h>
@@ -16,7 +16,7 @@
 @class DOCAppearance, DOCConfiguration, DOCDocBrowserVC_UIActivityViewController, NSArray, NSOperationQueue, NSString, UIColor, UIView, _UIResilientRemoteViewContainerViewController;
 @protocol DOCServiceBrowserViewControllerProxy, DOCServiceDocumentBrowserViewControllerInterface, UIDocumentBrowserViewControllerDelegate;
 
-@interface UIDocumentBrowserViewController : UIViewController <DOCHostDocumentBrowserViewControllerInterface, DOCRemoteViewControllerDelegate, DOCViewServiceErrorViewControllerDelegate, DOCKeyCommandHandlingViewController, DOCAppearanceProtocol, NSCoding>
+@interface UIDocumentBrowserViewController : UIViewController <DOCHostDocumentBrowserViewControllerInterface, DOCRemoteViewControllerDelegate, DOCViewServiceErrorViewControllerDelegate, DOCKeyCommandResponder, DOCAppearanceProtocol, NSCoding>
 {
     _UIResilientRemoteViewContainerViewController *_remoteViewController;
     DOCDocBrowserVC_UIActivityViewController *_activityViewController;
@@ -77,8 +77,8 @@
 - (void)_didTriggerActionWithIdentifier:(id)arg1 onItems:(id)arg2;
 - (void)_commitDocumentURLPreview:(id)arg1;
 - (void)_presentActivityViewControllerForItems:(id)arg1 withPopoverTracker:(id)arg2;
-- (void)setServiceKeyCommands:(id)arg1;
-- (void)didPerformKeyCommand:(id)arg1;
+- (void)keyCommandWasPerformed:(id)arg1;
+- (_Bool)canBecomeFirstResponder;
 - (id)keyCommands;
 - (id)_sandboxingURLWrapperForURL:(id)arg1 readonly:(_Bool)arg2 error:(id *)arg3;
 - (void)_displayActivityControllerWithItems:(id)arg1 popoverTracker:(id)arg2 barButtonItem:(id)arg3;
@@ -87,6 +87,7 @@
 - (id)trackingViewForUUID:(id)arg1;
 - (void)getTrackingViews:(id *)arg1 remoteButtons:(id *)arg2 fromBarButtons:(id)arg3;
 - (void)updateBrowserProxyWithCompletion:(CDUnknownBlockType)arg1;
+- (void)prepareItems:(id)arg1 forMode:(unsigned long long)arg2 usingBookmark:(_Bool)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)prepareItems:(id)arg1 usingBookmark:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (_Bool)_delegateRespondsToSelector:(SEL)arg1;
 - (void)_showDocumentBrowserViewController:(_Bool)arg1;

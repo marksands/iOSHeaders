@@ -8,6 +8,7 @@
 @protocol AWFrameworkClient;
 
 @protocol AWScheduler
+- (void)getUnitTestSamplerWithReply:(void (^)(id <AWUnitTestSampler>))arg1;
 - (void)outputPowerLogWithReply:(void (^)(NSString *))arg1;
 - (void)setDebugPreference:(NSString *)arg1 reply:(void (^)(NSString *))arg2;
 - (void)getDebugPreferences:(void (^)(NSDictionary *))arg1;

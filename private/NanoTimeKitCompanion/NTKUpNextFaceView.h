@@ -27,6 +27,7 @@
     UITapGestureRecognizer *_viewModeTapGesture;
     long long _previousViewMode;
     NSTimer *_viewResetTimer;
+    NSTimer *_wakeWheelTimer;
     NSTimer *_wheelDelayTimer;
     NSTimer *_buttonPressTimer;
     double _lastCrownVelocity;
@@ -41,6 +42,7 @@
     _Bool _isProgramaticScrollEvent;
     _Bool _crownInverted;
     _Bool _suppressUpdates;
+    _Bool _suppressCrownEvents;
     NSOrderedSet *_currentApplicationIdentifiers;
     NTKUpNextScheduler *_applicationIdentifierUpdateScheduler;
     long long _interactiveState;
@@ -76,7 +78,7 @@
 - (void)faceElementController:(id)arg1 didMoveElement:(id)arg2 fromIndexPath:(id)arg3 toIndexPath:(id)arg4;
 - (void)faceElementController:(id)arg1 didInsertElement:(id)arg2 atIndexPath:(id)arg3;
 - (void)faceElementController:(id)arg1 didRemoveElement:(id)arg2 atIndexPath:(id)arg3;
-- (void)faceElementController:(id)arg1 didReloadElement:(id)arg2 atIndexPath:(id)arg3;
+- (void)faceElementController:(id)arg1 didReloadContent:(id)arg2 atIndexPath:(id)arg3;
 - (void)faceElementController:(id)arg1 performBatchUpdateBlock:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_applyShowContentForUnadornedSnapshot;
 - (void)setViewMode:(long long)arg1;
@@ -90,6 +92,7 @@
 - (void)_performWristRaiseAnimation;
 - (void)_prepareWristRaiseAnimation;
 - (void)_handleOrdinaryScreenWake;
+- (void)_handleWristRaiseScreenWake;
 - (void)_applyDataMode;
 - (_Bool)_usesCustomZoom;
 - (_Bool)_supportsTimeScrubbing;

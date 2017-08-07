@@ -29,14 +29,15 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)_submitPresenceReportMetricWithPayload:(id)arg1 error:(id)arg2;
-- (void)_evaluatePresence:(id)arg1 presenceStatusUpdateReason:(id)arg2;
+- (void)_evaluatePresence:(id)arg1 newUserPresence:(id)arg2 presenceStatusUpdateReason:(id)arg3;
 - (void)_updateUserPresence:(id)arg1 presenceAuth:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)handleUserHomePresencePayload:(id)arg1 device:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)handleUserHomePresencePayload:(id)arg1 device:(id)arg2 remoteUserPairingIdentity:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)handleUserPresenceUpdateNotification:(id)arg1;
 - (void)handleUserPresenceUpdate:(id)arg1;
 - (void)removeUser:(id)arg1;
 - (void)addNewUser:(id)arg1;
 - (void)_addUser:(id)arg1;
+- (void)_removeNonExistingUsers;
 - (void)_preparePresenceMap;
 - (void)residentChanged;
 - (void)_startAuditTimer;

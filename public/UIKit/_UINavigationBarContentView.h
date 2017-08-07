@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     UIImage *_backIndicatorImage;
     _Bool _needsBackButtonUpdate;
     double _backButtonMargin;
+    double _backButtonMaximumWidth;
     _Bool _backButtonHidden;
     _Bool _leadingItemsSupplementBackItem;
     long long _barMetrics;
@@ -54,7 +55,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool backButtonHidden; // @synthesize backButtonHidden=_backButtonHidden;
 @property(retain, nonatomic) UIBarButtonItem *backButtonItem; // @synthesize backButtonItem=_backButtonItem;
 @property(nonatomic) __weak id <_UINavigationBarContentViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) long long barMetrics; // @synthesize barMetrics=_barMetrics;
 - (void).cxx_destruct;
 - (id)_accessibility_controlToActivateForHUDGestureLiftAtPoint:(struct CGPoint)arg1;
 - (id)_accessibility_barButtonItemAtPoint:(struct CGPoint)arg1;
@@ -64,6 +64,7 @@ __attribute__((visibility("hidden")))
 - (void)_itemDidChangeWidth:(id)arg1;
 - (void)_itemStandardViewNeedsUpdate:(id)arg1;
 - (void)_itemCustomViewDidChange:(id)arg1 fromView:(id)arg2;
+- (void)titleViewChangedMaximumBackButtonWidth:(id)arg1;
 - (void)titleViewChangedPreferredDisplaySize:(id)arg1;
 - (void)titleViewChangedStandardDisplayItems:(id)arg1;
 - (void)titleViewChangedHeight:(id)arg1;
@@ -71,6 +72,7 @@ __attribute__((visibility("hidden")))
 - (void)titleView:(id)arg1 needsUpdatedContentOverlayRects:(id)arg2;
 - (struct CGRect)_overlayRectForView:(id)arg1 inTargetView:(id)arg2;
 - (void)_appearanceChanged;
+@property(nonatomic, setter=_setBackButtonMaximumWidth:) double backButtonMaximumWidth;
 @property(nonatomic) double backButtonMargin;
 - (void)setBackIndicatorImage:(id)arg1;
 - (id)backIndicatorImage;
@@ -104,6 +106,7 @@ __attribute__((visibility("hidden")))
 - (void)_setupBackButtonAnimated:(_Bool)arg1;
 - (void)__backButtonAction:(id)arg1;
 @property(readonly, nonatomic) double currentHeight;
+@property(nonatomic) long long barMetrics; // @synthesize barMetrics=_barMetrics;
 @property(readonly, nonatomic) long long currentContentSize;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)traitCollectionDidChange:(id)arg1;

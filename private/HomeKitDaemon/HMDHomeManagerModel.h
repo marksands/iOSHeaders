@@ -16,6 +16,7 @@
 
 // Remaining properties
 @property(retain, nonatomic) NSDictionary *cloudZoneInformation; // @dynamic cloudZoneInformation;
+@property(retain, nonatomic) NSString *controllerKeyIdentifier; // @dynamic controllerKeyIdentifier;
 @property(retain, nonatomic) NSString *primaryHomeUUID; // @dynamic primaryHomeUUID;
 
 @end

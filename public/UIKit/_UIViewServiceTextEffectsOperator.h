@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)XPCInterface;
++ (_Bool)_shouldAddServiceOperator;
 + (id)operatorWithRemoteViewControllerProxy:(id)arg1 hostPID:(int)arg2;
 - (void).cxx_destruct;
 - (void)finishRotationFromInterfaceOrientation:(long long)arg1;

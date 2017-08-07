@@ -12,8 +12,7 @@
 @protocol GEOMapItemVenueInfo <NSObject>
 @property(readonly, nonatomic) id <GEOMapItemVenueContents> contents;
 @property(readonly, nonatomic) GEOMapItemParentVenue *parent;
-@property(readonly, nonatomic) NSArray *buildings;
-@property(readonly, nonatomic) int venueBrowseType;
+@property(readonly, nonatomic) NSArray *filters;
 @property(readonly, nonatomic) int venueFeatureType;
 @property(readonly, nonatomic) id <GEOVenueIdentifier> venueIdentifier;
 @end

@@ -75,8 +75,8 @@
 - (_Bool)_migrateDatabase:(CDUnknownBlockType)arg1;
 - (id)filteredPassesUsingPassDescriptionPredicate:(id)arg1 includeImageSets:(_Bool)arg2;
 - (_Bool)hasPassesMatchingPassDescriptionPredicate:(id)arg1;
-- (void)enumerateAllPassesAndDescriptionsWithBlock:(CDUnknownBlockType)arg1;
-- (void)enumerateAllPassesWithBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateAllPassesAndDescriptionsWithBlock:(CDUnknownBlockType)arg1 includeImageSets:(_Bool)arg2;
+- (void)enumerateAllPassesWithBlock:(CDUnknownBlockType)arg1 includeImageSets:(_Bool)arg2;
 - (id)manifestHashesForWatchOSMajorVersion:(unsigned long long)arg1;
 @property(readonly) NSDictionary *manifestHashes; // @dynamic manifestHashes;
 - (id)_libraryHashLockedForWatchOSMajorVersion:(unsigned long long)arg1;

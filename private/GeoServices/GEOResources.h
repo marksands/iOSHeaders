@@ -20,8 +20,11 @@ __attribute__((visibility("hidden")))
     NSString *_announcementsURL;
     NSMutableArray *_attributions;
     NSString *_authToken;
+    NSString *_backgroundDispatcherURL;
+    NSString *_backgroundRevGeoURL;
     NSString *_batchReverseGeocoderURL;
     NSString *_batchTrafficProbeURL;
+    NSString *_bluePOIDispatcherURL;
     NSString *_businessPortalBaseURL;
     NSMutableArray *_dataSetURLOverrides;
     NSMutableArray *_dataSets;
@@ -84,6 +87,9 @@ __attribute__((visibility("hidden")))
 + (Class)styleSheetType;
 + (Class)tileSetType;
 + (Class)tileGroupType;
+@property(retain, nonatomic) NSString *backgroundRevGeoURL; // @synthesize backgroundRevGeoURL=_backgroundRevGeoURL;
+@property(retain, nonatomic) NSString *bluePOIDispatcherURL; // @synthesize bluePOIDispatcherURL=_bluePOIDispatcherURL;
+@property(retain, nonatomic) NSString *backgroundDispatcherURL; // @synthesize backgroundDispatcherURL=_backgroundDispatcherURL;
 @property(retain, nonatomic) NSString *logMessageUsageV3URL; // @synthesize logMessageUsageV3URL=_logMessageUsageV3URL;
 @property(retain, nonatomic) NSString *proactiveRoutingURL; // @synthesize proactiveRoutingURL=_proactiveRoutingURL;
 @property(retain, nonatomic) NSString *batchTrafficProbeURL; // @synthesize batchTrafficProbeURL=_batchTrafficProbeURL;
@@ -140,6 +146,9 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasBackgroundRevGeoURL;
+@property(readonly, nonatomic) _Bool hasBluePOIDispatcherURL;
+@property(readonly, nonatomic) _Bool hasBackgroundDispatcherURL;
 @property(readonly, nonatomic) _Bool hasLogMessageUsageV3URL;
 @property(readonly, nonatomic) _Bool hasProactiveRoutingURL;
 @property(readonly, nonatomic) _Bool hasBatchTrafficProbeURL;

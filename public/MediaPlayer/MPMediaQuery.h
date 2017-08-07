@@ -56,6 +56,8 @@
 - (void).cxx_destruct;
 - (void)setCriteria:(id)arg1;
 - (id)criteria;
+- (unsigned long long)_playlistItemPersistentIDForItemPersistentID:(unsigned long long)arg1;
+@property(readonly, nonatomic, getter=isPlaylistItemsQuery) _Bool playlistItemsQuery;
 - (void)setStaticEntities:(id)arg1 entityType:(long long)arg2;
 - (void)_enumerateCollectionsInOrder:(_Bool)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)_enumerateCollectionPersistentIDsInOrder:(_Bool)arg1 usingBlock:(CDUnknownBlockType)arg2;

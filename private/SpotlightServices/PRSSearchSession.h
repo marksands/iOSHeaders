@@ -39,6 +39,7 @@
 @property(nonatomic) double sessionStartTime; // @synthesize sessionStartTime=_sessionStartTime;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool disableAsTypedSuggestion;
 @property(readonly, nonatomic) PRSCEPData *cannedCEPValues;
 - (void)shrinkCaches;
 @property(readonly, nonatomic) PRSRankingServerKnobs *rankingKnobs;

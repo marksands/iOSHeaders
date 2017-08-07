@@ -8,7 +8,7 @@
 
 #import <FamilyCircleUI/RemoteUIControllerDelegate-Protocol.h>
 
-@class AAUIServerUIHookHandler, FACircleContext, FARequestConfigurator, NSDictionary, NSString;
+@class AAUIServerUIHookHandler, FACircleContext, FARequestConfigurator, NSDictionary, NSString, NSURLRequest;
 @protocol FACircleRemoteUIDelegateDelegate;
 
 @interface FACircleRemoteUIDelegate : NSObject <RemoteUIControllerDelegate>
@@ -16,6 +16,7 @@
     FARequestConfigurator *_requestConfigurator;
     NSDictionary *_cachedServerInfo;
     AAUIServerUIHookHandler *_serverHookHandler;
+    NSURLRequest *_cachedRequest;
     FACircleContext *_context;
     id <FACircleRemoteUIDelegateDelegate> _delegate;
 }

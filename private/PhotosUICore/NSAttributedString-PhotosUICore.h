@@ -7,6 +7,7 @@
 #import <Foundation/NSAttributedString.h>
 
 @interface NSAttributedString (PhotosUICore)
++ (id)px_attributedStringWithHTMLString:(id)arg1 defaultAttributes:(id)arg2;
 - (id)px_attributedStringByDeletingCharactersInSet:(id)arg1;
 - (id)px_attributedStringWithParagraphLineBreakMode:(long long)arg1;
 - (id)px_attributedStringByApplyingCapitalization:(long long)arg1;

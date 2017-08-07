@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     _Bool _spacebarIsDown;
     _Bool _skipBrailleKeyboardKeyTranslation;
     unsigned int _routerEvent;
+    unsigned int _currentHIDCommand;
     unsigned int _currentBrailleModifiers;
     unsigned int _downBrailleModifiers;
     double _quietSince;
@@ -40,6 +41,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double lastBrailleChordPosted; // @synthesize lastBrailleChordPosted=_lastBrailleChordPosted;
 @property(nonatomic) unsigned int downBrailleModifiers; // @synthesize downBrailleModifiers=_downBrailleModifiers;
 @property(nonatomic) unsigned int currentBrailleModifiers; // @synthesize currentBrailleModifiers=_currentBrailleModifiers;
+@property(nonatomic) unsigned int currentHIDCommand; // @synthesize currentHIDCommand=_currentHIDCommand;
 @property(nonatomic) struct __CFSet *downBrailleDots; // @synthesize downBrailleDots=_downBrailleDots;
 @property(nonatomic) struct __CFArray *currentBrailleChord; // @synthesize currentBrailleChord=_currentBrailleChord;
 @property(nonatomic) _Bool skipBrailleKeyboardKeyTranslation; // @synthesize skipBrailleKeyboardKeyTranslation=_skipBrailleKeyboardKeyTranslation;

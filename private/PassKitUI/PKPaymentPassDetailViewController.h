@@ -160,7 +160,6 @@
 - (_Bool)_shouldShowDeleteCell;
 - (_Bool)_shouldShowTransferCell;
 - (void)_updatePeerPaymentPreferencesSectionVisibilityAndReloadIfNecessary;
-- (void)_updateSectionVisibilityAndReloadIfNecessaryForSection:(unsigned long long)arg1;
 - (id)_createTabBarWithSelectedIndex:(long long)arg1;
 - (_Bool)_updateHeaderHeight;
 - (void)_updateTabBarWithSegments:(id)arg1;

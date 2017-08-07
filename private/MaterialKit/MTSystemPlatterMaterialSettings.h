@@ -6,19 +6,21 @@
 
 #import <MaterialKit/MTSystemMaterialSettings.h>
 
-#import <MaterialKit/MTMaterialLightOverlaySettings-Protocol.h>
+#import <MaterialKit/MTMaterialOverlaySettings-Protocol.h>
 
-@class NSString;
+@class NSString, UIColor;
 
-@interface MTSystemPlatterMaterialSettings : MTSystemMaterialSettings <MTMaterialLightOverlaySettings>
+@interface MTSystemPlatterMaterialSettings : MTSystemMaterialSettings <MTMaterialOverlaySettings>
 {
-    double _whiteOverlayAlpha;
-    double _lightOverlayAlpha;
+    double _primaryOverlayTintAlpha;
+    double _secondaryOverlayTintAlpha;
 }
 
 + (id)sharedMaterialSettings;
-@property(nonatomic) double lightOverlayAlpha; // @synthesize lightOverlayAlpha=_lightOverlayAlpha;
-@property(nonatomic) double whiteOverlayAlpha; // @synthesize whiteOverlayAlpha=_whiteOverlayAlpha;
+@property(nonatomic) double secondaryOverlayTintAlpha; // @synthesize secondaryOverlayTintAlpha=_secondaryOverlayTintAlpha;
+@property(nonatomic) double primaryOverlayTintAlpha; // @synthesize primaryOverlayTintAlpha=_primaryOverlayTintAlpha;
+@property(readonly, copy, nonatomic) UIColor *secondaryOverlayTintColor;
+@property(readonly, copy, nonatomic) UIColor *primaryOverlayTintColor;
 - (Class)vibrantStylingProviderClass;
 
 // Remaining properties

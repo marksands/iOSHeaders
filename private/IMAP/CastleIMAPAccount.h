@@ -69,6 +69,8 @@
 - (id)firstEmailAddress;
 - (id)preferredAuthScheme;
 - (unsigned long long)credentialAccessibility;
+@property(readonly, retain, nonatomic) NSString *clientInfo;
+- (id)anisetteDataWithError:(id *)arg1;
 - (id)authTokenWithError:(id *)arg1;
 @property(readonly, retain, nonatomic) NSString *authToken;
 @property(readonly, retain, nonatomic) NSString *personID;

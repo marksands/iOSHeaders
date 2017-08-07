@@ -8,13 +8,14 @@
 
 #import <PhotosUI/PLDismissableViewController-Protocol.h>
 
-@class NSArray, NSString, PLProgressView, PUActivityItemSourceController, PUProgressIndicatorView;
+@class NSArray, NSString, PLProgressView, PUActivityItemSourceController, PUProgressIndicatorView, UIView;
 @protocol PUActivityViewControllerDelegate;
 
 @interface PUActivityViewController : UIActivityViewController <PLDismissableViewController>
 {
     struct __CFString *_aggregateKey;
     PLProgressView *_remakerProgressView;
+    UIView *_topBorderView;
     PUActivityItemSourceController *_itemSourceController;
     long long _numberOfAssetsToPrepare;
     long long _numberOfAssetPreparationsCompleted;
@@ -57,6 +58,8 @@
 - (void)_showRemakerProgressView:(id)arg1 forMail:(_Bool)arg2 withCancelationHandler:(CDUnknownBlockType)arg3;
 - (void)_handleUserCancelWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_activity:(id)arg1 didComplete:(_Bool)arg2;
+- (void)_updateTopBorderView;
+- (void)viewDidLayoutSubviews;
 - (void)dealloc;
 - (id)initWithAssetItems:(id)arg1 photosApplicationActivities:(id)arg2;
 

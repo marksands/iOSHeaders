@@ -98,6 +98,7 @@ __attribute__((visibility("hidden")))
 - (void)deselectAnnotationView:(id)arg1 animated:(_Bool)arg2;
 - (void)_setSelectedAnnotationView:(id)arg1 bounce:(_Bool)arg2 pressed:(_Bool)arg3 scrollToFit:(_Bool)arg4;
 - (void)_setSelectedAnnotationView:(id)arg1 bounce:(_Bool)arg2 pressed:(_Bool)arg3 scrollToFit:(_Bool)arg4 avoid:(struct CGRect)arg5;
+- (void)updateCalloutStateForSelectedAnnotationView:(id)arg1;
 - (void)_showBubbleForAnnotationView:(id)arg1 bounce:(_Bool)arg2 scrollToFit:(_Bool)arg3;
 - (void)_showBubbleForAnnotationView:(id)arg1 bounce:(_Bool)arg2 scrollToFit:(_Bool)arg3 avoid:(struct CGRect)arg4;
 - (void)removeAnnotationViewsRotationAnimations;

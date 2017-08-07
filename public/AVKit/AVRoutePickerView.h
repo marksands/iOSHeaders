@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class AVMicaPackage, MPMediaControlsStandaloneViewController, UIButton, UIColor;
+@class AVMicaPackage, MPMediaControlsViewController, UIButton, UIColor;
 @protocol AVRoutePickerViewDelegate;
 
 @interface AVRoutePickerView : UIView
@@ -16,7 +16,7 @@
     UIButton *_customButton;
     _Bool _airPlayActive;
     AVMicaPackage *_routePickerButtonMicaPackage;
-    MPMediaControlsStandaloneViewController *_routePickerViewController;
+    MPMediaControlsViewController *_routePickerViewController;
     id <AVRoutePickerViewDelegate> _delegate;
     long long _routePickerButtonStyle;
 }

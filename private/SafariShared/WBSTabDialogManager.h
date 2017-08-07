@@ -22,7 +22,8 @@
 - (long long)_enqueueDialog:(id)arg1;
 - (struct NSMutableSet *)_setForWebProcessID:(int)arg1 createIfNeeded:(_Bool)arg2;
 - (struct NSMutableArray *)_queueForTabID:(unsigned long long)arg1 createIfNeeded:(_Bool)arg2;
-- (void)cancelAllDialogsForTabID:(unsigned long long)arg1 reason:(long long)arg2;
+- (void)cancelAllDialogsForTabID:(unsigned long long)arg1 context:(id)arg2;
+- (void)cancelAllDialogsForTabID:(unsigned long long)arg1 reason:(id)arg2;
 - (void)cancelAllDialogsForTabID:(unsigned long long)arg1;
 - (void)cancelAllDialogsBlockingWebProcessID:(int)arg1;
 - (void)cancelAllDialogsBlockingSlot:(CDStruct_497cfc99)arg1;

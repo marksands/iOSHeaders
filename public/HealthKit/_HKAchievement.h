@@ -73,7 +73,7 @@
 - (id)localizedDescriptionForAlertWithUserName:(id)arg1;
 - (id)localizedDescriptionWithNumberOfTimesAchieved:(long long)arg1 isWheelchairUser:(_Bool)arg2;
 - (id)localizedDescriptionWithNumberOfTimesAchieved:(long long)arg1;
-- (id)localizedDescriptionFriendAchieved;
+- (id)localizedDescriptionFriendAchievedWithName:(id)arg1 wheelchairUser:(_Bool)arg2;
 - (id)localizedDescriptionAchieved;
 - (id)localizedDescriptionUnachieved;
 - (id)localizedTitleWithIsWheelchairUser:(_Bool)arg1;

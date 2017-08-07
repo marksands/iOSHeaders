@@ -29,7 +29,8 @@
 - (_Bool)isUserAtHome:(id)arg1;
 - (_Bool)isAnyUserAtHome;
 - (_Bool)isNoUserAtHome;
-- (id)serializedDictionary;
+- (id)serializedIdentifierDictionary;
+- (id)serializedUUIDDictionary;
 @property(readonly, nonatomic) NSArray *authorizedUsers;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, copy) NSString *description;

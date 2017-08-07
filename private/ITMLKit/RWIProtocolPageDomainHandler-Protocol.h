@@ -24,8 +24,6 @@
 - (void)getCookiesWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(NSArray *))arg2;
 - (void)navigateWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(void))arg2 url:(NSString *)arg3;
 - (void)reloadWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(void))arg2 ignoreCache:(_Bool *)arg3 revalidateAllResources:(_Bool *)arg4 scriptToEvaluateOnLoad:(id *)arg5;
-- (void)removeScriptToEvaluateOnLoadWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(void))arg2 identifier:(NSString *)arg3;
-- (void)addScriptToEvaluateOnLoadWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(NSString *))arg2 scriptSource:(NSString *)arg3;
 - (void)disableWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(void))arg2;
 - (void)enableWithErrorCallback:(void (^)(NSString *))arg1 successCallback:(void (^)(void))arg2;
 @end

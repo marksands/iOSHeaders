@@ -169,7 +169,7 @@
 - (void)performCancelAnimations;
 - (void)didGenerateCancelPreview:(id)arg1;
 - (id)willGenerateCancelPreview;
-- (void)draggingFinished;
+- (void)draggingFinished:(id)arg1;
 - (void)draggingStarted;
 @property(readonly, nonatomic, getter=isTextDropActive) _Bool textDropActive;
 @property(readonly, nonatomic, getter=isTextDragActive) _Bool textDragActive;
@@ -378,6 +378,7 @@
 - (_Bool)keyboardInput:(id)arg1 shouldInsertText:(id)arg2 isMarkedText:(_Bool)arg3;
 - (void)_applicationResuming:(id)arg1;
 - (unsigned long long)_controlEventsForActionTriggered;
+- (void)_invalidateAllGlyphsAndTextLayout;
 - (void)_invalidateAfterUpdatingEditingAttributes;
 - (void)_didUpdateAfterDetachingFieldEditor;
 - (void)_willUpdateAfterDetachingFieldEditor;

@@ -32,6 +32,7 @@
 - (_Bool)brc_isCloudKitErrorRequiringAssetReupload;
 - (_Bool)brc_isCloudKitErrorRequiringAssetRescan;
 - (_Bool)brc_isCloudKitUnknownItemError;
+- (_Bool)brc_isBatchRequestFailed;
 - (_Bool)brc_isCloudKitOutOfQuota;
 - (_Bool)brc_isCloudKitAssetFileModified;
 - (_Bool)brc_isCloudKitCancellationError;

@@ -22,6 +22,7 @@
     unsigned long long _playbackState;
     NSDate *_pushDate;
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_utilityQueue;
     id <MPNowPlayingPlaybackQueueDataSource> _playbackQueueDataSource;
     id <MPNowPlayingPlaybackQueueDelegate> _playbackQueueDelegate;
     id <MPNowPlayingInfoLyricsDelegate> _lyricsDelegate;
@@ -59,6 +60,7 @@
 - (void)beginObservingChangesForContentItemIDs:(id)arg1;
 - (void)endPlaybackQueueContentItemUpdates;
 - (void)beginPlaybackQueueContentItemUpdates;
+- (void)_invalidatePlaybackQueueImmediately;
 - (void)invalidatePlaybackQueue;
 @property unsigned long long playbackState;
 @property(copy) NSDictionary *nowPlayingInfo;

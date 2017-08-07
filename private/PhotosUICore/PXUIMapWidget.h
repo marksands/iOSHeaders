@@ -21,6 +21,7 @@
     NSMutableDictionary *_fetchedImages;
     long long _lastFetchedBoundingRectAssetCount;
     _Bool _showAddressLink;
+    _Bool _hasLoadedContentData;
     UIFont *_footerFont;
     id <PXWidgetDelegate> _widgetDelegate;
     id <PXWidgetUnlockDelegate> _widgetUnlockDelegate;
@@ -41,6 +42,7 @@
     PXPlacesSnapshotFactory *__factory;
 }
 
+@property(nonatomic, setter=_setHasLoadedContentData:) _Bool hasLoadedContentData; // @synthesize hasLoadedContentData=_hasLoadedContentData;
 @property(retain, nonatomic) PXPlacesSnapshotFactory *_factory; // @synthesize _factory=__factory;
 @property(retain, nonatomic) NSMutableArray *_nearbyCountCompletionBlocks; // @synthesize _nearbyCountCompletionBlocks=__nearbyCountCompletionBlocks;
 @property(nonatomic) double height; // @synthesize height=_height;
@@ -106,7 +108,6 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(nonatomic, getter=isFaceModeEnabled) _Bool faceModeEnabled;
-@property(readonly, nonatomic) _Bool hasLoadedContentData;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSString *localizedCaption;
 @property(readonly, nonatomic) NSString *localizedSubtitle;

@@ -11,11 +11,13 @@
 __attribute__((visibility("hidden")))
 @interface BFFOnBoardingVideoView : UIView
 {
+    _Bool _displayingVideo;
     UIImageView *_imageView;
     AVPlayer *_videoPlayer;
     AVPlayerViewController *_videoViewController;
 }
 
+@property _Bool displayingVideo; // @synthesize displayingVideo=_displayingVideo;
 @property(retain) AVPlayerViewController *videoViewController; // @synthesize videoViewController=_videoViewController;
 @property(retain) AVPlayer *videoPlayer; // @synthesize videoPlayer=_videoPlayer;
 @property(retain) UIImageView *imageView; // @synthesize imageView=_imageView;
@@ -29,6 +31,7 @@ __attribute__((visibility("hidden")))
 - (void)showVideo:(id)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)dealloc;
 - (id)initWithPlaceholderImage:(id)arg1;
 
 @end

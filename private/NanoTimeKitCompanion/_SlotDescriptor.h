@@ -25,6 +25,7 @@
 @property(readonly, nonatomic) long long family; // @synthesize family=_family;
 - (void).cxx_destruct;
 - (void)installedSystemApplicationsDidChange;
+- (_Bool)supportsType:(unsigned long long)arg1;
 - (_Bool)allowsType:(unsigned long long)arg1;
 
 // Remaining properties

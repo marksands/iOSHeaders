@@ -39,9 +39,11 @@
     struct __CFDictionary *_userNotificationValues;
     _Bool _displaysOnLockscreen;
     SSPaymentSheet *_paymentSheet;
+    NSString *_touchIDContinueToken;
 }
 
 + (long long)displayCountForKey:(id)arg1;
+@property(copy) NSString *touchIDContinueToken; // @synthesize touchIDContinueToken=_touchIDContinueToken;
 @property(readonly) SSPaymentSheet *paymentSheet; // @synthesize paymentSheet=_paymentSheet;
 @property _Bool displaysOnLockscreen; // @synthesize displaysOnLockscreen=_displaysOnLockscreen;
 @property long long unlockActionButtonIndex; // @synthesize unlockActionButtonIndex=_unlockActionButtonIndex;

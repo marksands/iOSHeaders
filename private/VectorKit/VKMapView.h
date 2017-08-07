@@ -368,6 +368,8 @@
 - (id)roadLabelTilesInScene;
 - (void)setARInterfaceOrientation:(long long)arg1;
 - (void)arController:(id)arg1 didChangeTrackingState:(unsigned long long)arg2 reason:(unsigned long long)arg3;
+- (void)arControllerSessionInterruptionEnded:(id)arg1;
+- (void)arController:(id)arg1 arSessionWasInterrupted:(unsigned long long)arg2;
 - (void)arController:(id)arg1 didEncounterError:(id)arg2;
 - (void)map:(id)arg1 didEnterARMode:(_Bool)arg2;
 - (void)exitARMode;

@@ -7,6 +7,8 @@
 #import <UIKit/UIView.h>
 
 @interface UIView (UIAccessibilityPrivate)
++ (id)_accessibilityTitleForSystemTag:(long long)arg1;
+- (id)_accessibilityComputedLabelForNavigationBarWithAssociatedBarButtonItem:(id)arg1;
 - (void)_accessibilitySetAllowsSiblingsWhenOvergrown:(_Bool)arg1;
 - (_Bool)_accessibilityAllowsSiblingsWhenOvergrown;
 - (void)_accessibilitySetOverridesInvalidFrames:(_Bool)arg1;

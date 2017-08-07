@@ -21,7 +21,7 @@
 - (void)browserTransitionCoordinatorWantsPresentationOfAppStore:(CKBrowserTransitionCoordinator *)arg1;
 - (struct CGRect)browserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1 preferredFrameForBrowser:(UIViewController<CKBrowserViewControllerProtocol> *)arg2;
 - (void)browserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1 hasUpdatedLastTouchDate:(NSDate *)arg2;
-- (void)browserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1 wantsToSwitchToPlugin:(IMBalloonPlugin *)arg2;
+- (void)browserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1 didSwitchToPlugin:(IMBalloonPlugin *)arg2;
 - (void)browserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1 didTransitionFromOrientation:(long long)arg2 toOrientation:(long long)arg3;
 - (void)browserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1 browserWillBecomeInactive:(UIViewController<CKBrowserViewControllerProtocol> *)arg2;
 - (void)browserTransitionCoordinatorDidCollapseOrDismiss:(CKBrowserTransitionCoordinator *)arg1 withReason:(long long)arg2;

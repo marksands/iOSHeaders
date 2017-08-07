@@ -16,6 +16,7 @@
 - (long long)developmentLayoutDirection;
 - (id)invalidationContextForBoundsChange:(struct CGRect)arg1;
 - (double)contentHeightThatFitsItemCount:(long long)arg1 expectedWidth:(double)arg2;
+- (id)init;
 
 @end
 

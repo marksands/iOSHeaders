@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class HDCloudSyncMasterRecord, HDCloudSyncOperationConfiguration, HDCloudSyncStore, HDCloudSyncStoreRecord, NSMutableDictionary, NSMutableSet, NSSet, NSUUID;
+#import <HealthDaemon/NSProgressReporting-Protocol.h>
+
+@class HDCloudSyncMasterRecord, HDCloudSyncOperationConfiguration, HDCloudSyncStore, HDCloudSyncStoreRecord, NSMutableDictionary, NSMutableSet, NSProgress, NSSet, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HDCloudSyncFetchOperation : NSObject
+@interface HDCloudSyncFetchOperation : NSObject <NSProgressReporting>
 {
     HDCloudSyncOperationConfiguration *_configuration;
     NSObject<OS_dispatch_queue> *_queue;
@@ -28,10 +30,14 @@
     NSMutableSet *_sequenceRecords;
     NSMutableDictionary *_inactiveRecordZonesByStoreIdentifierMap;
     NSMutableSet *_emptyZonesForGarbageCollection;
+    NSSet *_pushZonesForCleanup;
     _Bool _rebaseRequired;
+    _Bool _queue_hasStarted;
     CDUnknownBlockType _completion;
+    NSProgress *_progress;
 }
 
+@property(readonly, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 - (void).cxx_destruct;
 - (_Bool)_orderedChangeRecordSequenceRequiresRebase:(id)arg1;
 - (_Bool)_isValidChangeRecord:(id)arg1 forStoreRecord:(id)arg2;
@@ -39,15 +45,16 @@
 - (void)_verifySequenceForStoreRecord:(id)arg1 syncStore:(id)arg2;
 - (void)_deleteRecordZones:(id)arg1;
 - (void)_deleteRecordZonesWithLostManateeIdentitiesForPartialError:(id)arg1;
-- (_Bool)_updateLocalAnchorMapForStore:(id)arg1 syncAnchorMap:(id)arg2 error:(id *)arg3;
 - (long long)_verifyAnchorRangesForSyncStore:(id)arg1 storeRecord:(id)arg2 error:(id *)arg3;
+- (long long)_verifyAnchorRangesForSyncStore:(id)arg1 storeRecord:(id)arg2 sequenceRecord:(id)arg3 error:(id *)arg4;
 - (id)_lastestPushStoreIdentifierWithPushStoreIdentifiers:(id)arg1 storeRecordsCacheMap:(id)arg2;
 - (id)_syncStorePushIdentifierWithError:(id *)arg1;
 - (void)_persistState:(id)arg1 syncStore:(id)arg2;
-- (void)_queue_garbageCollectInactiveZones;
+- (void)_queue_garbageCollectZones;
 - (void)_queue_checkForSeizableAbandonedZones;
 - (_Bool)_queue_validatePushStore;
 - (void)_queue_validateSequenceRecords;
+- (void)_queue_computePushZonesForCleaup;
 - (void)_queue_computeInactiveAndAbandonedStoreIdentifiers;
 - (void)_queue_updateSyncCacheDataWithRecords:(id)arg1;
 - (_Bool)_queue_processSyncRecord:(id)arg1;
@@ -63,6 +70,12 @@
 - (void)_finishWithStatus:(long long)arg1 error:(id)arg2;
 - (void)startWithCompletion:(CDUnknownBlockType)arg1;
 - (id)initWithConfiguration:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -20,6 +20,7 @@
     NSString *_fax;
     NSMutableArray *_localizedCategorys;
     NSMutableArray *_names;
+    int _placeDisplayType;
     int _searchSection;
     NSMutableArray *_spokenNames;
     NSString *_telephone;
@@ -32,6 +33,7 @@
     _Bool _telephoneAdsOptOut;
     struct {
         unsigned int displayStyle:1;
+        unsigned int placeDisplayType:1;
         unsigned int searchSection:1;
         unsigned int type:1;
         unsigned int altTelephoneAdsOptOut:1;
@@ -74,6 +76,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsPlaceDisplayType:(id)arg1;
+- (id)placeDisplayTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasPlaceDisplayType;
+@property(nonatomic) int placeDisplayType; // @synthesize placeDisplayType=_placeDisplayType;
 - (int)StringAsSearchSection:(id)arg1;
 - (id)searchSectionAsString:(int)arg1;
 @property(nonatomic) _Bool hasSearchSection;

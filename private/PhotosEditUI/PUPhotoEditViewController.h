@@ -36,6 +36,7 @@
     NURenderPipelineFilter *_showOrignalWithGeometry;
     NUBufferRenderClient *_renderImageClient;
     GLKView *_mainRenderView;
+    _Bool _isAnimatingLayoutOrientation;
     PUTouchingGestureRecognizer *_livePhotoTouchRecognizer;
     _Bool _livePhotoIsPlaying;
     NSArray *_mainToolbarConstraints;
@@ -64,6 +65,7 @@
     UIButton *_livePhotoButton;
     UIButton *_depthToolbarButton;
     UIButton *_depthBadge;
+    _Bool _canModifyDepth;
     UIButton *_pluginButton;
     UIButton *_redEyeButton;
     PUEditPluginSession *_pluginSession;
@@ -123,6 +125,7 @@
     PUPhotoEditIrisModel *__photoEditIrisModel;
     PLEditSource *__editSource;
     PLEditSource *__originalImageEditSource;
+    long long __originalImageExifOrientation;
     long long __originalExifOrientation;
     CDUnknownBlockType __nextRenderCompletionBlock;
     long long __assetChangeDismissalState;
@@ -177,6 +180,7 @@
 @property(nonatomic, setter=_setOriginalStillImageTime:) CDStruct_1b6d18a9 _originalStillImageTime; // @synthesize _originalStillImageTime=__originalStillImageTime;
 @property(nonatomic, getter=_isPenultimateAvailable, setter=_setPenultimateAvailable:) _Bool _penultimateAvailable; // @synthesize _penultimateAvailable=__penultimateAvailable;
 @property(nonatomic, setter=_setOriginalExifOrientation:) long long _originalExifOrientation; // @synthesize _originalExifOrientation=__originalExifOrientation;
+@property(nonatomic, setter=_setOriginalImageExifOrientation:) long long _originalImageExifOrientation; // @synthesize _originalImageExifOrientation=__originalImageExifOrientation;
 @property(retain, nonatomic, setter=_setOriginalImageEditSource:) PLEditSource *_originalImageEditSource; // @synthesize _originalImageEditSource=__originalImageEditSource;
 @property(retain, nonatomic, setter=_setEditSource:) PLEditSource *_editSource; // @synthesize _editSource=__editSource;
 @property(retain, nonatomic, setter=_setPhotoEditIrisModel:) PUPhotoEditIrisModel *_photoEditIrisModel; // @synthesize _photoEditIrisModel=__photoEditIrisModel;
@@ -287,10 +291,7 @@
 - (void)_restoreSnapshot:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_captureSnapshotOfBasePhotoWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (int)_revertToOriginalWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (int)_saveOnlyStickyEditsCompletionHandler:(CDUnknownBlockType)arg1;
-- (id)_modelWithStickyEditsIncludingGeometry:(_Bool)arg1;
-- (id)_modelWithStickyEdits;
-- (_Bool)_hasStickyEdits;
+- (int)_saveOnlyDepthEditsCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_updatePhotoEditIrisModel;
 - (void)_resetModelAndBaseImagesToWorkImageVersion:(long long)arg1;
 - (id)_orientedCIImageFromUIImage:(id)arg1;
@@ -367,7 +368,7 @@
 - (void)_updateSubviewsOrdering;
 - (void)_updatePlaceholderImage;
 - (void)_updateProgressIndicatorAnimated:(_Bool)arg1;
-- (struct UIEdgeInsets)_mediaViewInsets;
+- (struct UIEdgeInsets)_mediaViewEdgeInsets;
 - (void)_updateMediaViewEdgeInsets;
 - (void)_updateMediaViewLayoutWithCoordinator:(id)arg1 layoutOrientation:(long long)arg2;
 - (void)_updateDepthEffectAnimated:(_Bool)arg1;

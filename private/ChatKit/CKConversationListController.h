@@ -6,7 +6,6 @@
 
 #import <UIKit/UITableViewController.h>
 
-#import <ChatKit/CKCloudKitSyncProgressViewControllerDelegate-Protocol.h>
 #import <ChatKit/CKConversationListCellDelegate-Protocol.h>
 #import <ChatKit/CKConversationResultsControllerDelegate-Protocol.h>
 #import <ChatKit/CKTranscriptPreviewControllerDelegate-Protocol.h>
@@ -21,14 +20,14 @@
 
 @class CKCloudKitSyncProgressViewController, CKConversation, CKConversationList, CKConversationSearchResultsController, CKMessagesController, CKScheduledUpdater, NSArray, NSIndexPath, NSString, UIBarButtonItem, UISearchController, UITableView, UIView;
 
-@interface CKConversationListController : UITableViewController <UISearchControllerDelegate, UISearchBarDelegate, CKCloudKitSyncProgressViewControllerDelegate, CKConversationResultsControllerDelegate, CKConversationListCellDelegate, UITableViewDragDestinationDelegate, CKTranscriptPreviewControllerDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
+@interface CKConversationListController : UITableViewController <UISearchControllerDelegate, UISearchBarDelegate, CKConversationResultsControllerDelegate, CKConversationListCellDelegate, UITableViewDragDestinationDelegate, CKTranscriptPreviewControllerDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 {
     UITableView *_table;
     NSIndexPath *_previouslySelectedIndexPath;
-    unsigned long long _willBeMarkedReadCount;
     unsigned int _isVisible:1;
     unsigned int _willRotate:1;
     _Bool _isInitialLoad;
+    _Bool _isInitialAppearance;
     _Bool _isShowingSwipeDeleteConfirmation;
     CKConversationList *_conversationList;
     CKMessagesController *_messagesController;
@@ -46,10 +45,12 @@
     double _conversationCellHeight;
     UISearchController *_searchController;
     CKConversationSearchResultsController *_searchResultsController;
+    UIBarButtonItem *_composeButton;
     CDUnknownBlockType _searchCompletion;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType searchCompletion; // @synthesize searchCompletion=_searchCompletion;
+@property(retain, nonatomic) UIBarButtonItem *composeButton; // @synthesize composeButton=_composeButton;
 @property(retain, nonatomic) CKConversationSearchResultsController *searchResultsController; // @synthesize searchResultsController=_searchResultsController;
 @property(retain, nonatomic) UISearchController *searchController; // @synthesize searchController=_searchController;
 @property(nonatomic) double conversationCellHeight; // @synthesize conversationCellHeight=_conversationCellHeight;
@@ -139,6 +140,7 @@
 @property(readonly, nonatomic) _Bool isVisible;
 - (void)applicationWillSuspend;
 - (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppearDeferredSetup;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
@@ -165,7 +167,6 @@
 - (void)updateCurrentEditButton;
 - (void)editButtonTapped:(id)arg1;
 - (void)updateNavigationItems;
-- (void)updateTitle;
 - (void)_updateTableViewRowHeights;
 - (_Bool)_shouldKeepSelection;
 - (void)_groupsChanged:(id)arg1;

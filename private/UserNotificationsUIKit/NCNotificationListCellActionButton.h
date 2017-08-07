@@ -8,7 +8,7 @@
 
 #import <UserNotificationsUIKit/MTContentSizeCategoryAdjusting-Protocol.h>
 
-@class MTFontProvider, MTMaterialView, NCNotificationAction, NSString, UILabel;
+@class MTFontProvider, MTMaterialView, NCNotificationAction, NSString, UILabel, UIView;
 
 @interface NCNotificationListCellActionButton : UIControl <MTContentSizeCategoryAdjusting>
 {
@@ -21,8 +21,10 @@
     UILabel *_titleLabel;
     MTMaterialView *_backgroundView;
     MTMaterialView *_backgroundOverlayView;
+    UIView *_backgroundHighlightView;
 }
 
+@property(retain, nonatomic) UIView *backgroundHighlightView; // @synthesize backgroundHighlightView=_backgroundHighlightView;
 @property(retain, nonatomic) MTMaterialView *backgroundOverlayView; // @synthesize backgroundOverlayView=_backgroundOverlayView;
 @property(retain, nonatomic) MTMaterialView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
@@ -39,8 +41,10 @@
 - (void)_highlightButton:(id)arg1;
 - (long long)_wordCountForText:(id)arg1;
 - (void)_layoutTitleLabel;
+- (void)_layoutBackgroundHighlightView;
 - (void)_layoutBackgroundOverlayView;
 - (void)_layoutBackgroundView;
+- (void)_configureBackgroundHighlightViewIfNecessary;
 - (void)_configureBackgroundOverlayViewIfNecessary;
 - (void)_configureBackgroundViewIfNecessary;
 - (void)_configureTitleLabelIfNecessary;

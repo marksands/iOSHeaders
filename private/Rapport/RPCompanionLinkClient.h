@@ -9,7 +9,7 @@
 #import <Rapport/NSSecureCoding-Protocol.h>
 #import <Rapport/RPCompanionLinkXPCClientInterface-Protocol.h>
 
-@class NSArray, NSXPCConnection;
+@class NSArray, NSXPCConnection, RPCompanionLinkDevice;
 @protocol OS_dispatch_queue;
 
 @interface RPCompanionLinkClient : NSObject <NSSecureCoding, RPCompanionLinkXPCClientInterface>
@@ -27,9 +27,13 @@
     CDUnknownBlockType _invalidationHandler;
     CDUnknownBlockType _deviceFoundHandler;
     CDUnknownBlockType _deviceLostHandler;
+    RPCompanionLinkDevice *_localDevice;
+    CDUnknownBlockType _localDeviceUpdatedHandler;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) CDUnknownBlockType localDeviceUpdatedHandler; // @synthesize localDeviceUpdatedHandler=_localDeviceUpdatedHandler;
+@property(readonly, copy, nonatomic) RPCompanionLinkDevice *localDevice; // @synthesize localDevice=_localDevice;
 @property(copy, nonatomic) CDUnknownBlockType deviceLostHandler; // @synthesize deviceLostHandler=_deviceLostHandler;
 @property(copy, nonatomic) CDUnknownBlockType deviceFoundHandler; // @synthesize deviceFoundHandler=_deviceFoundHandler;
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
@@ -51,6 +55,7 @@
 - (void)_invalidateTransaction:(id)arg1;
 - (id)activateTransactionWithLabel:(id)arg1;
 - (void)_lostAllDevices;
+- (void)companionLinkLocalDeviceUpdated:(id)arg1;
 - (void)companionLinkLostDevice:(id)arg1;
 - (void)companionLinkFoundDevice:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *activeDevices;

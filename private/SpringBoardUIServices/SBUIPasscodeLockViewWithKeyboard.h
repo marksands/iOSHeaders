@@ -6,22 +6,23 @@
 
 #import <SpringBoardUIServices/SBUIPasscodeLockViewBase.h>
 
+#import <SpringBoardUIServices/SBPasscodeKeyboardAnimatorDelegate-Protocol.h>
 #import <SpringBoardUIServices/SBUIPasscodeEntryFieldDelegate-Protocol.h>
 
-@class NSString, SBPasscodeKeyboard, SBUIAlphanumericPasscodeEntryField, SBUIRingViewLabelButton, UILabel, UIView;
+@class NSString, SBPasscodeKeyboardAnimator, SBUIAlphanumericPasscodeEntryField, SBUIRingViewLabelButton, UILabel, UIView;
 
-@interface SBUIPasscodeLockViewWithKeyboard : SBUIPasscodeLockViewBase <SBUIPasscodeEntryFieldDelegate>
+@interface SBUIPasscodeLockViewWithKeyboard : SBUIPasscodeLockViewBase <SBUIPasscodeEntryFieldDelegate, SBPasscodeKeyboardAnimatorDelegate>
 {
-    SBPasscodeKeyboard *_keyboard;
+    SBPasscodeKeyboardAnimator *_keyboardAnimator;
     SBUIAlphanumericPasscodeEntryField *_alphaEntryField;
     UIView *_statusFieldBackground;
     SBUIRingViewLabelButton *_emergencyCallButton;
-    _Bool _wasMinimizedWhenAnimationStarted;
-    _Bool _previousKeyboardShowedInlineCandidates;
-    _Bool _disableAnimationsDuringMinMax;
-    _Bool _triedToMinMaxWhileRotating;
-    _Bool _isAnimating;
     _Bool _usesLightStyle;
+    _Bool _isResigningResponderStatus;
+    _Bool _keyboardVisible;
+    double _keyboardHeightOffset;
+    _Bool _keyboardTracksLockView;
+    UIView *_keyboardTrackingView;
     UILabel *_statusField;
     UILabel *_statusSubtitleView;
 }
@@ -29,23 +30,19 @@
 @property(retain, nonatomic) UILabel *statusSubtitleView; // @synthesize statusSubtitleView=_statusSubtitleView;
 @property(retain, nonatomic) UILabel *statusField; // @synthesize statusField=_statusField;
 - (void).cxx_destruct;
+- (void)_keyboardWillHideNotification:(id)arg1;
+- (void)_keyboardWillShowNotification:(id)arg1;
+- (void)_keyboardWillChangeFrameNotification:(id)arg1;
+- (void)_updateKeyboardHeightOffsetForKeyboardNotification:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)_updateFont;
 - (void)_layoutStatusView;
 - (void)updateStatusText:(id)arg1 subtitle:(id)arg2 animated:(_Bool)arg3;
-- (void)_handleDidRotateNotification:(id)arg1;
-- (void)_handleWillAnimateNotification:(id)arg1;
-- (void)_handleWillRotateNotification:(id)arg1;
 - (double)_largeTextEmergencyButtonMaxWidth;
 - (double)_statusTitleWidth;
 - (double)_statusFieldHeightWithWidth:(double)arg1;
 - (double)_keyboardToEntryFieldOffset;
 - (struct CGRect)_keyboardFrameForInterfaceOrientation:(long long)arg1;
-- (void)_maximize;
-- (void)_minimize;
-- (void)_setMinimized:(_Bool)arg1;
-- (_Bool)_isMinimized;
-- (_Bool)_canMinMaxKeyboard;
 - (void)_layoutForMinimizationState:(_Bool)arg1;
 - (void)_toggleForStatusField;
 - (void)_toggleForEmergencyCall;
@@ -55,6 +52,8 @@
 - (id)_alphanumericPasscodeEntryField;
 - (id)_statusSubtitleView;
 - (id)_statusTitleView;
+- (void)passcodeEntryFieldDidResignFirstResponder:(id)arg1;
+- (_Bool)passcodeEntryFieldShouldShowSystemKeyboard:(id)arg1;
 - (void)passcodeEntryFieldTextDidChange:(id)arg1;
 - (_Bool)passcodeEntryField:(id)arg1 shouldInsertText:(id)arg2;
 - (void)passcodeEntryFieldDidCancelEntry:(id)arg1;
@@ -63,11 +62,14 @@
 - (void)_notifyDelegateThatEmergencyCallButtonWasPressed;
 - (void)_notifyDelegatePasscodeEntered;
 - (void)_hardwareReturnKeyPressed:(id)arg1;
-- (void)_geometryChanged:(id)arg1;
+- (void)passcodeKeyboardAnimatorAnimationDidComplete:(id)arg1;
+- (void)becomeActiveWithAnimationSettings:(id)arg1;
 - (_Bool)resignFirstResponder;
 - (_Bool)becomeFirstResponder;
 - (void)layoutSubviews;
-- (void)transitioningToPasscodeView;
+- (void)_setKeyboardTracksLockView:(_Bool)arg1;
+- (id)_viewForKeyboardTracking;
+- (void)updateForTransitionToPasscodeView:(_Bool)arg1;
 - (void)setShowsStatusField:(_Bool)arg1;
 - (void)setShowsEmergencyCallButton:(_Bool)arg1;
 - (id)passcode;

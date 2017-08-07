@@ -13,6 +13,7 @@
 @interface ICStorePlatformRequest : NSObject <NSCopying>
 {
     _Bool _returnsLocalEquivalencies;
+    _Bool _shouldIgnoreCache;
     NSString *_clientIdentifier;
     NSString *_clientBundleIdentifier;
     NSString *_clientBundleVersion;
@@ -31,6 +32,7 @@
 
 @property(copy, nonatomic) ICStoreRequestContext *requestContext; // @synthesize requestContext=_requestContext;
 @property(nonatomic) long long qualityOfService; // @synthesize qualityOfService=_qualityOfService;
+@property(nonatomic) _Bool shouldIgnoreCache; // @synthesize shouldIgnoreCache=_shouldIgnoreCache;
 @property(nonatomic) double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
 @property(nonatomic) _Bool returnsLocalEquivalencies; // @synthesize returnsLocalEquivalencies=_returnsLocalEquivalencies;
 @property(copy, nonatomic) NSString *protocolVersion; // @synthesize protocolVersion=_protocolVersion;

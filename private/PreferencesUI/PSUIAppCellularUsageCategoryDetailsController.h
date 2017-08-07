@@ -6,10 +6,15 @@
 
 #import <Preferences/PSListController.h>
 
+@class WirelessDataUsageWorkspace;
+
 @interface PSUIAppCellularUsageCategoryDetailsController : PSListController
 {
+    WirelessDataUsageWorkspace *_workspace;
 }
 
+@property(retain, nonatomic) WirelessDataUsageWorkspace *workspace; // @synthesize workspace=_workspace;
+- (void).cxx_destruct;
 - (_Bool)shouldReloadSpecifiersOnResume;
 - (id)specifiers;
 

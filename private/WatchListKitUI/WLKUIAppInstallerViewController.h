@@ -6,7 +6,8 @@
 
 #import <UIKit/UINavigationController.h>
 
-@class NSString, WLKChannelDetails, _WLKUIAppInstallConfirmationViewController;
+@class NSString, _WLKUIAppInstallConfirmationViewController;
+@protocol WLKInstallable;
 
 @interface WLKUIAppInstallerViewController : UINavigationController
 {
@@ -14,7 +15,9 @@
     double _lastProgress;
     CDUnknownBlockType _progressBlock;
     _WLKUIAppInstallConfirmationViewController *_confirmationController;
-    WLKChannelDetails *_channel;
+    _Bool _displayAppStoreLink;
+    _Bool _displaySecondaryLink;
+    id <WLKInstallable> _installable;
     NSString *_localizedContentTitle;
     NSString *_contentType;
     NSString *_confirmationTitle;
@@ -22,8 +25,14 @@
     NSString *_updateBody;
     NSString *_updateTitle;
     NSString *_confirmationInstallButtonTitle;
+    NSString *_secondaryLinkTitle;
+    CDUnknownBlockType _secondaryLinkHandler;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType secondaryLinkHandler; // @synthesize secondaryLinkHandler=_secondaryLinkHandler;
+@property(copy, nonatomic) NSString *secondaryLinkTitle; // @synthesize secondaryLinkTitle=_secondaryLinkTitle;
+@property(nonatomic) _Bool displaySecondaryLink; // @synthesize displaySecondaryLink=_displaySecondaryLink;
+@property(nonatomic) _Bool displayAppStoreLink; // @synthesize displayAppStoreLink=_displayAppStoreLink;
 @property(copy, nonatomic) NSString *confirmationInstallButtonTitle; // @synthesize confirmationInstallButtonTitle=_confirmationInstallButtonTitle;
 @property(copy, nonatomic) NSString *updateTitle; // @synthesize updateTitle=_updateTitle;
 @property(copy, nonatomic) NSString *updateBody; // @synthesize updateBody=_updateBody;
@@ -31,7 +40,7 @@
 @property(copy, nonatomic) NSString *confirmationTitle; // @synthesize confirmationTitle=_confirmationTitle;
 @property(copy, nonatomic) NSString *contentType; // @synthesize contentType=_contentType;
 @property(copy, nonatomic) NSString *localizedContentTitle; // @synthesize localizedContentTitle=_localizedContentTitle;
-@property(readonly, copy, nonatomic) WLKChannelDetails *channel; // @synthesize channel=_channel;
+@property(readonly, nonatomic) id <WLKInstallable> installable; // @synthesize installable=_installable;
 - (void).cxx_destruct;
 - (void)_finishInstallationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_updateWithInstallProgress:(double)arg1;
@@ -40,7 +49,7 @@
 - (void)beginInstallingAppWithProgressHandler:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)loadView;
 - (void)_initConfirmation;
-- (id)initWithChannel:(id)arg1;
+- (id)initWithInstallable:(id)arg1;
 - (id)init;
 
 @end

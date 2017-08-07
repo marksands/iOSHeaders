@@ -26,6 +26,7 @@
     UIColor *_readOnlyTextColor;
     UIColor *_notesTextColor;
     UIColor *_backgroundColor;
+    UIColor *_sectionIndexBackgroundColor;
     long long _separatorBackdropOverlayBlendMode;
     UIColor *_searchBarBackgroundColor;
     UIColor *_transportBackgroundColor;
@@ -78,6 +79,7 @@
 @property(retain, nonatomic) UIColor *searchBarBackgroundColor; // @synthesize searchBarBackgroundColor=_searchBarBackgroundColor;
 @property(nonatomic) long long separatorBackdropOverlayBlendMode; // @synthesize separatorBackdropOverlayBlendMode=_separatorBackdropOverlayBlendMode;
 @property(nonatomic) _Bool usesOpaqueBackground; // @synthesize usesOpaqueBackground=_usesOpaqueBackground;
+@property(retain, nonatomic) UIColor *sectionIndexBackgroundColor; // @synthesize sectionIndexBackgroundColor=_sectionIndexBackgroundColor;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(retain, nonatomic) UIColor *notesTextColor; // @synthesize notesTextColor=_notesTextColor;
 @property(retain, nonatomic) UIColor *readOnlyTextColor; // @synthesize readOnlyTextColor=_readOnlyTextColor;

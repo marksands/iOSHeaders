@@ -7,11 +7,12 @@
 #import <objc/NSObject.h>
 
 #import <HealthDaemon/HDSyncSessionDelegate-Protocol.h>
+#import <HealthDaemon/NSProgressReporting-Protocol.h>
 
-@class HDCloudSyncFetchOperationResult, HDCloudSyncOperationConfiguration, HDCloudSyncSequenceRecord, HDCloudSyncStoreRecord, NSMutableArray, NSString, _HDCloudSyncSessionContext;
+@class HDCloudSyncFetchOperationResult, HDCloudSyncOperationConfiguration, HDCloudSyncSequenceRecord, HDCloudSyncStoreRecord, NSMutableArray, NSProgress, NSString, _HDCloudSyncSessionContext;
 @protocol OS_dispatch_queue;
 
-@interface HDCloudSyncPushOperation : NSObject <HDSyncSessionDelegate>
+@interface HDCloudSyncPushOperation : NSObject <HDSyncSessionDelegate, NSProgressReporting>
 {
     HDCloudSyncOperationConfiguration *_configuration;
     HDCloudSyncFetchOperationResult *_fetchOperationResult;
@@ -22,11 +23,17 @@
     HDCloudSyncSequenceRecord *_sequenceRecordForPush;
     _Bool _isNewStoreRecord;
     NSMutableArray *_changeRecordsPendingPush;
+    _Bool _isSecondaryContainer;
+    _Bool _queue_hasStarted;
     CDUnknownBlockType _completion;
+    NSProgress *_progress;
 }
 
+@property(readonly, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 - (void).cxx_destruct;
-- (void)_queue_resetSyncAnchorsForSyncStore:(id)arg1;
+- (void)_recordForwardProgressDate;
+- (void)_queue_setInitialForwardProgressDateIfNecessary;
+- (id)_queue_estimateSyncEntityClassesWithChangesForSession:(id)arg1;
 - (void)_queue_pushRecords:(id)arg1 recordIDsToDelete:(id)arg2 zoneToCreate:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)_getStoreRecordForStoreIdentifier:(id)arg1 isNewRecord:(_Bool *)arg2;
 - (void)_queue_uploadChangesForSyncSession:(id)arg1 isFinalUpload:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;

@@ -44,6 +44,7 @@
 @property(nonatomic) __weak id <MPAVRoutingControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (_Bool)_deviceAvailabilityOverrideState;
+- (void)_setVolumeControlStateForPickedRoute:(unsigned long long)arg1;
 - (unsigned long long)_volumeControlStateForPickedRoute;
 - (long long)_externalScreenType:(_Bool *)arg1;
 - (void)_scheduleSendDelegateRoutesChanged;

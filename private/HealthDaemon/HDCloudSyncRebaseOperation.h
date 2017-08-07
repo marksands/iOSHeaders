@@ -6,21 +6,25 @@
 
 #import <objc/NSObject.h>
 
-@class HDCloudSyncFetchOperationResult, HDCloudSyncOperationConfiguration, HDCloudSyncStoreRecord;
+#import <HealthDaemon/NSProgressReporting-Protocol.h>
+
+@class HDCloudSyncFetchOperationResult, HDCloudSyncOperationConfiguration, HDCloudSyncStoreRecord, NSProgress, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HDCloudSyncRebaseOperation : NSObject
+@interface HDCloudSyncRebaseOperation : NSObject <NSProgressReporting>
 {
     HDCloudSyncOperationConfiguration *_configuration;
     HDCloudSyncFetchOperationResult *_fetchOperationResult;
     HDCloudSyncStoreRecord *_pushStoreRecord;
     NSObject<OS_dispatch_queue> *_queue;
+    _Bool _queue_hasStarted;
     CDUnknownBlockType _completion;
+    NSProgress *_progress;
 }
 
+@property(readonly, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 - (void).cxx_destruct;
 - (_Bool)_queue_finishRebasePreparationWithError:(id *)arg1;
-- (_Bool)_queue_resetPersistedAnchorMapForStore:(id)arg1 error:(id *)arg2;
 - (_Bool)_queue_updatePersistedStateForStore:(id)arg1 error:(id *)arg2;
 - (id)_includedIdentifiersWithStoreRecord:(id)arg1 abandonedStoreRecords:(id)arg2;
 - (void)_queue_calculateRecordsToSaveAndDeleteWithStoreRecord:(id)arg1 resultsHandler:(CDUnknownBlockType)arg2;
@@ -29,6 +33,12 @@
 - (void)_finishWithSuccess:(_Bool)arg1 error:(id)arg2;
 - (void)startWithCompletion:(CDUnknownBlockType)arg1;
 - (id)initWithConfiguration:(id)arg1 fetchOperationResult:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

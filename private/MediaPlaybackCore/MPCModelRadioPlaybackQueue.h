@@ -32,6 +32,7 @@
 @property(readonly, nonatomic) MPSectionedCollection *trackModels;
 - (void)savePlaybackHistoryWithUpdates:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)savePlaybackHistoryWithUpdates:(CDUnknownBlockType)arg1;
+- (void)removeTrailingLoadingPlaceholder;
 - (long long)removeExplicitItems;
 @property(readonly, copy, nonatomic) ICRadioPlaybackHistory *playbackHistory;
 @property(readonly, nonatomic) long long numberOfItems;

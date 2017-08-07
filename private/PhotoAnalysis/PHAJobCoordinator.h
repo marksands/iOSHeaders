@@ -108,6 +108,7 @@
 - (void)_dispatchTransactionAsyncWithName:(const char *)arg1 block:(CDUnknownBlockType)arg2;
 - (id)statusAsDictionary;
 - (void)dealloc;
+- (void)shutdown;
 - (id)initWithManager:(id)arg1;
 - (id)initWithManager:(id)arg1 initialConstraints:(id)arg2 additionalWorkersByType:(id)arg3;
 

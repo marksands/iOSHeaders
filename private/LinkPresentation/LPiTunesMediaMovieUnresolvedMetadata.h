@@ -8,18 +8,21 @@
 
 #import <LinkPresentation/LPiTunesMediaUnresolvedMetadata-Protocol.h>
 
-@class LPiTunesMediaAsset, NSString;
+@class LPiTunesMediaAsset, NSArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface LPiTunesMediaMovieUnresolvedMetadata : NSObject <LPiTunesMediaUnresolvedMetadata>
 {
+    _Bool _needsBrandingAsset;
     NSString *_storeFrontIdentifier;
     NSString *_storeIdentifier;
     NSString *_name;
     NSString *_genre;
     LPiTunesMediaAsset *_artwork;
+    NSArray *_offers;
 }
 
+@property(retain, nonatomic) NSArray *offers; // @synthesize offers=_offers;
 @property(retain, nonatomic) LPiTunesMediaAsset *artwork; // @synthesize artwork=_artwork;
 @property(copy, nonatomic) NSString *genre; // @synthesize genre=_genre;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;

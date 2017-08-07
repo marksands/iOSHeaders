@@ -40,6 +40,7 @@
 - (_Bool)view:(id)arg1 isVisibleInBounds:(struct CGRect)arg2;
 - (void)sendVisibleFeedbackIfNecessary;
 - (void)scrollViewDidScroll:(id)arg1;
+- (id)indexPathToSelectForKeyboardOnQuickReturn;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)tableView:(id)arg1 didEndDisplayingHeaderView:(id)arg2 forSection:(long long)arg3;
 - (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(long long)arg3;

@@ -10,12 +10,13 @@
 #import <CloudDocsDaemon/BRCOperationSubclass-Protocol.h>
 #import <CloudDocsDaemon/BRCReachabilityDelegate-Protocol.h>
 
-@class BRCAccountSession, BRCDirectoryItem, BRCTreeEnumerator, NSError, NSMutableArray, NSMutableSet, NSSet, NSString, NSURL;
+@class BRCAccountSession, BRCDirectoryItem, BRCTreeEnumerator, BRCXPCClient, NSError, NSMutableArray, NSMutableSet, NSSet, NSString, NSURL;
 
 __attribute__((visibility("hidden")))
 @interface BRCFileProvidingRequestOperation : _BRCFrameworkOperation <BRCDownloadTracking, BRCReachabilityDelegate, BRCOperationSubclass>
 {
     BRCAccountSession *_session;
+    BRCXPCClient *_client;
     NSURL *_url;
     BRCDirectoryItem *_directoryItem;
     BRCTreeEnumerator *_treeEnumerator;
@@ -25,6 +26,7 @@ __attribute__((visibility("hidden")))
     _Bool _isStillEnumeratingDirectory;
     _Bool _isFinished;
     _Bool _isMonitoringReachability;
+    NSMutableSet *_appLibrariesMonitored;
     _Bool _isRecursive;
     _Bool _isForBackup;
     _Bool _wantsCurrentVersion;
@@ -47,7 +49,7 @@ __attribute__((visibility("hidden")))
 - (void)_detachAllTrackedDocID:(id)arg1 error:(id)arg2;
 - (void)cancel;
 - (id)initWithDirectoryItem:(id)arg1;
-- (id)initWithURL:(id)arg1 readingOptions:(unsigned long long)arg2 session:(id)arg3;
+- (id)initWithURL:(id)arg1 readingOptions:(unsigned long long)arg2 client:(id)arg3 session:(id)arg4;
 @property(readonly, nonatomic) NSSet *trackedDocIDs;
 - (void)addCompletionCallback:(CDUnknownBlockType)arg1;
 

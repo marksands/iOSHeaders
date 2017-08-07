@@ -44,6 +44,7 @@ struct CLKUITextureBackingStructure {
     unsigned char format;
     unsigned char filter;
     unsigned char wrap;
+    _Bool mipmaps;
 };
 
 struct NSNumber {

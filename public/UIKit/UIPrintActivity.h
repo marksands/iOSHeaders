@@ -6,12 +6,15 @@
 
 #import <UIKit/UIActivity.h>
 
+#import <UIKit/UIManagedConfigurationRestrictableActivity-Protocol.h>
 #import <UIKit/UIPrintInteractionControllerActivityDelegate-Protocol.h>
 
 @class NSString, UIViewController, UIWindow;
 
-@interface UIPrintActivity : UIActivity <UIPrintInteractionControllerActivityDelegate>
+@interface UIPrintActivity : UIActivity <UIManagedConfigurationRestrictableActivity, UIPrintInteractionControllerActivityDelegate>
 {
+    _Bool _sourceIsManaged;
+    NSString *_sourceApplicationBundleID;
     UIViewController *_wrapperViewController;
     UIWindow *_windowHoldingActivityViewController;
 }
@@ -19,6 +22,8 @@
 + (unsigned long long)_xpcAttributes;
 @property(retain) UIWindow *windowHoldingActivityViewController; // @synthesize windowHoldingActivityViewController=_windowHoldingActivityViewController;
 @property(retain) UIViewController *wrapperViewController; // @synthesize wrapperViewController=_wrapperViewController;
+@property(copy, nonatomic) NSString *sourceApplicationBundleID; // @synthesize sourceApplicationBundleID=_sourceApplicationBundleID;
+@property(nonatomic) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
 - (void).cxx_destruct;
 - (id)printInteractionControllerWindowForPresentation:(id)arg1;
 - (id)printInteractionControllerParentViewController:(id)arg1;

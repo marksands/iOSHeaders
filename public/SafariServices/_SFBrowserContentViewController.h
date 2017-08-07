@@ -237,8 +237,10 @@
 - (void)webViewControllerDidChangeLoadingState:(id)arg1;
 - (void)webViewController:(id)arg1 didClickLinkInReaderWithRequest:(id)arg2;
 - (void)webViewControllerDidDetermineReaderAvailability:(id)arg1 dueToSameDocumentNavigation:(_Bool)arg2;
+- (void)webViewController:(id)arg1 didFinishDocumentLoadForNavigation:(id)arg2;
 - (void)webViewController:(id)arg1 didFinishNavigation:(id)arg2;
 - (void)webViewController:(id)arg1 didCommitNavigation:(id)arg2;
+- (void)webViewController:(id)arg1 didPerformClientRedirectForNavigation:(id)arg2;
 - (void)webViewController:(id)arg1 didReceiveServerRedirectForProvisionalNavigation:(id)arg2;
 - (void)webViewController:(id)arg1 didStartProvisionalNavigation:(id)arg2;
 - (void)_openCurrentURLInSafari;
@@ -294,9 +296,11 @@
 - (_Bool)_isSplitScreen;
 - (void)_updateWebViewLayoutSize;
 - (struct UIEdgeInsets)_effectiveWebViewSafeAreaInsets;
+- (_Bool)_safeAreaShouldAffectWebViewObscuredInsets;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)_viewDidTransitionToSize:(struct CGSize)arg1;
 - (void)_viewWillTransitionToSize:(struct CGSize)arg1;
+- (_Bool)_redirectToHostAppWithExpectedCallbackSchemeIfPossible:(id)arg1;
 - (void)_getSafariDataSharingModeWithPrivacyPrompt:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)viewDidAppear:(_Bool)arg1;
 - (_Bool)_isPreviewing;

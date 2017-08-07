@@ -55,6 +55,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_hostDidDeactivate;
 - (void)_hostWillBecomeActive;
+@property(readonly, nonatomic) _Bool isActive;
 @property(readonly, nonatomic) _Bool canAddItems;
 - (void)cancelDrag;
 @property(readonly, nonatomic) _Bool shouldCancelOnAppDeactivation;

@@ -119,7 +119,7 @@
 - (_Bool)updateLocationAndMetaFromFSAtPath:(id)arg1 parentGlobalID:(id)arg2;
 - (_Bool)updateFromFSAtPath:(id)arg1 parentGlobalID:(id)arg2;
 - (_Bool)_checkForSharedToMeItemInTrashWithPath:(id)arg1;
-- (void)_updateAppLibraryAndSharingOptionsFromFSAtPath:(id)arg1;
+- (void)_updatePropagatedInfoFromFSAtPath:(id)arg1;
 - (_Bool)_checkZoneUpdateFromFSAtPath:(id)arg1 parentGlobalID:(id)arg2;
 - (void)updateFromFSAtPath:(id)arg1;
 - (_Bool)updateXattrInfoFromPath:(id)arg1 error:(id *)arg2;

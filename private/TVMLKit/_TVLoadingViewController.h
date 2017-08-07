@@ -6,18 +6,11 @@
 
 #import <TVMLKit/_TVBgImageLoadingViewController.h>
 
-@class IKImageElement, IKViewElement, UIActivityIndicatorView, UIImage, UIView, UIVisualEffectView, _TVImageView;
+@class IKImageElement, IKViewElement;
 
 __attribute__((visibility("hidden")))
 @interface _TVLoadingViewController : _TVBgImageLoadingViewController
 {
-    _TVImageView *_backgroundImageView;
-    UIView *_loadingTitleLabel;
-    UIActivityIndicatorView *_spinnerView;
-    UIImage *_loadingImage;
-    struct CGSize _spinnerSize;
-    UIVisualEffectView *_visualEffectView;
-    UIView *_containerView;
     IKImageElement *_bgImageElement;
     IKImageElement *_heroImgElement;
     IKViewElement *_loadingTemplateElement;
@@ -25,15 +18,15 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
-- (void)setLoadingTitle:(id)arg1;
 - (void)setSpinnerDelay:(double)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
-- (void)_configureBackgroundImageView;
 - (void)loadView;
 - (void)_configureWithBgImage:(id)arg1 backdropImage:(id)arg2;
 - (struct CGSize)_backgroundImageProxySize;
+- (long long)_blurEffectStyle;
+- (_Bool)_backgroundImageRequiresBlur;
 - (id)_backgroundImageProxy;
 - (void)updateWithViewElement:(id)arg1;
 - (void)updateWithLoadingTemplate:(id)arg1;

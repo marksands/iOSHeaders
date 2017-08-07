@@ -19,7 +19,8 @@
         unsigned int isAlphaCropped:1;
         unsigned int isFlippable:1;
         unsigned int isTintable:1;
-        unsigned int _reserved:17;
+        unsigned int preservedVectorRepresentation:1;
+        unsigned int _reserved:16;
     } _imageProperties;
 }
 
@@ -31,6 +32,7 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool isAlphaCropped;
 @property(readonly, nonatomic) int exifOrientation;
+@property(readonly, nonatomic) _Bool preservedVectorRepresentation;
 @property(readonly, nonatomic) _Bool isFlippable;
 @property(readonly, nonatomic) _Bool isStructured;
 @property(readonly, nonatomic) long long templateRenderingMode;

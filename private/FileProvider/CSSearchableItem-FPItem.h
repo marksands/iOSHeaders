@@ -16,7 +16,6 @@
 @property(readonly, copy) NSString *fp_appContainerBundleIdentifier;
 @property(readonly, nonatomic, getter=isSharedByCurrentUser) _Bool sharedByCurrentUser;
 - (id)sharingCurrentUserPermissions;
-@property(readonly, nonatomic) NSDictionary *userInfo;
 @property(readonly, nonatomic) NSData *versionIdentifier;
 @property(readonly, copy, nonatomic) NSString *filename;
 @property(readonly, copy, nonatomic) NSError *downloadingError;
@@ -26,6 +25,8 @@
 @property(readonly, copy, nonatomic) NSError *uploadingError;
 @property(readonly, nonatomic, getter=isUploading) _Bool uploading;
 @property(readonly, copy, nonatomic) NSData *tagData;
+@property(readonly, nonatomic) NSDictionary *userInfo;
+@property(readonly, getter=fp_isUbiquitous) _Bool fp_ubiquitous;
 @property(readonly, copy) NSString *fp_spotlightDomainIdentifier;
 @property(readonly, nonatomic) unsigned long long capabilities;
 @property(readonly, nonatomic) NSPersonNameComponents *mostRecentEditorNameComponents;
@@ -54,7 +55,6 @@
 @property(readonly, copy) NSString *description;
 @property(readonly, copy, getter=isDownloadRequested) NSNumber *downloadRequested;
 @property(readonly, copy) NSURL *fileURL;
-@property(readonly, getter=fp_isUbiquitous) _Bool fp_ubiquitous;
 @property(readonly, copy) NSNumber *hasUnresolvedConflicts;
 @property(readonly) unsigned long long hash;
 @property(readonly, getter=isHidden) _Bool hidden;

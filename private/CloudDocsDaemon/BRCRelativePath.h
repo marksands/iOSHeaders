@@ -8,7 +8,7 @@
 
 #import <CloudDocsDaemon/NSSecureCoding-Protocol.h>
 
-@class BRCAccountSession, BRCAppLibrary, BRCBookmark, BRCDirectoryEnumerator, BRCGenerationID, BRFileObjectID, NSData, NSSet, NSString, NSURL;
+@class BRCAccountSession, BRCAppLibrary, BRCBookmark, BRCGenerationID, BRFileObjectID, NSData, NSSet, NSString, NSURL;
 
 @interface BRCRelativePath : NSObject <NSSecureCoding>
 {
@@ -47,12 +47,7 @@
     unsigned int _xattrsResolved:1;
     int _fd;
     // Error parsing type: Ai, name: _openRefCount
-    struct _opaque_pthread_rwlock_t {
-        long long __sig;
-        char __opaque[192];
-    } _mutex;
-    BRCDirectoryEnumerator *_descendantsEnumerator;
-    int _descendantsError;
+    struct brc_mutex _mutex;
     BRCAccountSession *_session;
     NSData *_quarantineInfo;
     NSData *_xattrs;
@@ -76,10 +71,6 @@
 @property(readonly, nonatomic) NSString *faultDisplayName;
 - (_Bool)isEqualToRelativePath:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
-- (void)closeDirectoryScan;
-- (id)nextChild;
-- (int)directoryScanError;
-- (_Bool)openDirectoryForScan;
 - (_Bool)performOnOpenParentFileDescriptor:(CDUnknownBlockType)arg1 error:(int *)arg2;
 - (_Bool)performOnOpenFileDescriptor:(CDUnknownBlockType)arg1 error:(int *)arg2;
 - (_Bool)flock:(int)arg1;
@@ -127,6 +118,7 @@
 @property(readonly, nonatomic) NSString *filename;
 @property(readonly, nonatomic) NSString *pathRelativeToPackageRoot;
 @property(readonly, nonatomic) NSString *pathRelativeToRoot;
+- (id)relativePath;
 @property(readonly, nonatomic) NSString *absolutePath;
 @property(readonly, nonatomic) _Bool exists;
 @property(readonly, nonatomic) _Bool isSymLink;
@@ -144,6 +136,7 @@
 - (id)logicalURLWithLogicalName:(id)arg1;
 @property(readonly, nonatomic) NSURL *physicalURL;
 @property(readonly, nonatomic) BRCRelativePath *root;
+- (id)basePath;
 - (void)dealloc;
 - (id)pathOfPackageRoot;
 - (id)pathWithChildAtPath:(id)arg1;

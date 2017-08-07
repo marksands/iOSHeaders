@@ -7,8 +7,8 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (ContactsFoundation)
++ (id)_cn_LTRControlCharacters;
 + (_Bool)_cn_isBlank:(id)arg1;
-- (id)_cn_stringBySanitizingPhoneNumber;
 - (id)_cn_resultWithAllCharacters:(CDUnknownBlockType)arg1;
 - (void)_cn_eachCharacter:(CDUnknownBlockType)arg1;
 - (struct _NSRange)_cn_rangeFromIndex:(unsigned long long)arg1;

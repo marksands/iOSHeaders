@@ -54,7 +54,6 @@
     double _firstClientPacketTime;
     struct IDSNAT64PrefixCache_ *_nat64PrefixCache;
     NSMutableArray *_nat64Blocks;
-    NSMutableDictionary *_requestIDToInterfaces;
     NSMutableDictionary *_tokenToCandidatePairs;
     NSMutableDictionary *_linkIDToCandidatePairs;
     NSMutableDictionary *_channelToCandidatePairs;

@@ -41,6 +41,7 @@ __attribute__((visibility("hidden")))
 - (oneway void)cancel;
 - (void)mainWithExtensionProxy:(id)arg1;
 - (void)enumerateAndCopyChildren;
+- (void)enumerateChildrenCopyOperations:(CDUnknownBlockType)arg1;
 - (void)downloadItemIfNecessaryWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)resolveItemOrURLWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_incrementProgressBy:(unsigned long long)arg1;

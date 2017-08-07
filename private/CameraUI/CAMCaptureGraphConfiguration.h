@@ -8,7 +8,7 @@
 
 #import <CameraUI/NSCoding-Protocol.h>
 
-@class NSArray;
+@class CAMVideoThumbnailOutputConfiguration, NSArray;
 
 @interface CAMCaptureGraphConfiguration : NSObject <NSCoding>
 {
@@ -19,12 +19,14 @@
     unsigned long long _previewConfiguration;
     long long _previewSampleBufferVideoFormat;
     NSArray *_previewFilters;
+    CAMVideoThumbnailOutputConfiguration *_videoThumbnailOutputConfiguration;
     long long _photoEncodingBehavior;
     long long _videoEncodingBehavior;
 }
 
 @property(readonly, nonatomic) long long videoEncodingBehavior; // @synthesize videoEncodingBehavior=_videoEncodingBehavior;
 @property(readonly, nonatomic) long long photoEncodingBehavior; // @synthesize photoEncodingBehavior=_photoEncodingBehavior;
+@property(readonly, nonatomic) CAMVideoThumbnailOutputConfiguration *videoThumbnailOutputConfiguration; // @synthesize videoThumbnailOutputConfiguration=_videoThumbnailOutputConfiguration;
 @property(readonly, nonatomic) NSArray *previewFilters; // @synthesize previewFilters=_previewFilters;
 @property(readonly, nonatomic) long long previewSampleBufferVideoFormat; // @synthesize previewSampleBufferVideoFormat=_previewSampleBufferVideoFormat;
 @property(readonly, nonatomic) unsigned long long previewConfiguration; // @synthesize previewConfiguration=_previewConfiguration;
@@ -38,7 +40,7 @@
 - (id)shortDescription;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithCaptureMode:(long long)arg1 captureDevice:(long long)arg2 videoConfiguration:(long long)arg3 audioConfiguration:(long long)arg4 previewConfiguration:(unsigned long long)arg5 previewSampleBufferVideoFormat:(long long)arg6 previewFilters:(id)arg7 photoEncodingBehavior:(long long)arg8 videoEncodingBehavior:(long long)arg9;
+- (id)initWithCaptureMode:(long long)arg1 captureDevice:(long long)arg2 videoConfiguration:(long long)arg3 audioConfiguration:(long long)arg4 previewConfiguration:(unsigned long long)arg5 previewSampleBufferVideoFormat:(long long)arg6 previewFilters:(id)arg7 videoThumbnailOutputConfiguration:(id)arg8 photoEncodingBehavior:(long long)arg9 videoEncodingBehavior:(long long)arg10;
 
 @end
 

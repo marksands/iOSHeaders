@@ -14,19 +14,13 @@
 {
 }
 
++ (_Bool)resetAllWithError:(id *)arg1;
 + (id)predicateForPersistence;
 + (id)predicateForVisibleKeyFace;
 + (id)predicateForPersonsNeedingFaceCropGenerationForFaceObjectID:(id)arg1;
 + (id)_stringFromContact:(id)arg1 preferGivenName:(_Bool)arg2;
 + (id)displayNameFromContact:(id)arg1;
 + (id)fullNameFromContact:(id)arg1;
-+ (void)_persistMetadataToFileSystemInBackgroundForPersonUUID:(id)arg1;
-+ (void)_removePersistenceOperationForPersonUUID:(id)arg1;
-+ (void)_cancelPersistenceOperationsForPersonUUID:(id)arg1;
-+ (_Bool)_setPersistenceOperationIfMissing:(id)arg1 forPersonUUID:(id)arg2;
-+ (void)_runOnPersistenceOperationsQueue:(CDUnknownBlockType)arg1;
-+ (id)_persistenceUpdateQueue;
-+ (void)deletePersistenceMetadataForUUIDInBackground:(id)arg1;
 + (void)batchFetchAssociatedPersonByFaceGroupUUIDWithFaceGroupUUIDs:(id)arg1 predicate:(id)arg2 completion:(CDUnknownBlockType)arg3;
 + (id)fetchPersonCountByAssetUUIDForAssetUUIDs:(id)arg1 predicate:(id)arg2 error:(id *)arg3;
 + (void)batchFetchPersonsByAssetUUIDWithAssetUUIDs:(id)arg1 predicate:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -36,7 +30,6 @@
 + (id)entityName;
 + (void)createAssociatedPersonForFaceGroup:(id)arg1 inManagedObjectContext:(id)arg2;
 + (void)createAssociatedPersonForFaceGroup:(id)arg1;
-+ (void)deleteAllPersonsInManagedObjectContext:(id)arg1;
 + (id)personsWithUUIDs:(id)arg1 inManagedObjectContext:(id)arg2;
 + (id)personsWithPersonUri:(id)arg1 inManagedObjectContext:(id)arg2;
 + (id)allPersonsInManagedObjectContext:(id)arg1;
@@ -61,7 +54,6 @@
 - (id)reverseOrderedMergeTargetPersons;
 - (id)pickOptimalStateForUserInitiatedMergeWithPersons:(id)arg1 nominalTarget:(id)arg2;
 - (id)_nameRelatedMetadataKeys;
-- (void)persistMetadataToFileSystemInBackground;
 - (void)persistMetadataToFileSystem;
 - (_Bool)isValidForPersistence;
 - (void)refreshInvalidMergeCandidates;

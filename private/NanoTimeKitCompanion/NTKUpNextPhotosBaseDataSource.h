@@ -10,6 +10,7 @@
 {
 }
 
++ (id)_photoElementWithImage:(id)arg1 imageFocusRect:(struct CGRect)arg2 action:(id)arg3 provider:(id)arg4 wantsFullCellPhoto:(_Bool)arg5;
 + (id)_photoElementWithImage:(id)arg1 imageFocusRect:(struct CGRect)arg2 action:(id)arg3 provider:(id)arg4;
 + (id)sampleContentElements;
 + (id)_photoElementIdentifier;

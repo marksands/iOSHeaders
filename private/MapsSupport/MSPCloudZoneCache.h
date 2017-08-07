@@ -6,14 +6,13 @@
 
 #import <objc/NSObject.h>
 
-#import <MapsSupport/MSPCloudCachingCKFetchResult-Protocol.h>
 #import <MapsSupport/NSSecureCoding-Protocol.h>
 
-@class CKServerChangeToken, NSDictionary, NSMutableDictionary, NSString;
+@class CKServerChangeToken, NSMutableDictionary, NSString;
 @protocol NSObject><NSCopying><NSCoding;
 
 __attribute__((visibility("hidden")))
-@interface MSPCloudZoneCache : NSObject <NSSecureCoding, MSPCloudCachingCKFetchResult>
+@interface MSPCloudZoneCache : NSObject <NSSecureCoding>
 {
     NSString *_zoneName;
     id <NSObject><NSCopying><NSCoding> _accountIdentity;
@@ -29,17 +28,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <NSObject><NSCopying><NSCoding> accountIdentity; // @synthesize accountIdentity=_accountIdentity;
 @property(readonly, nonatomic) NSString *zoneName; // @synthesize zoneName=_zoneName;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) NSDictionary *fetchedDeletedRecordIDsByRecordType;
-@property(readonly, nonatomic) NSDictionary *fetchedRecords;
+- (id)fetchedDeletedRecordIDsByRecordType;
+- (id)fetchedRecords;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithZoneName:(id)arg1 accountIdentity:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

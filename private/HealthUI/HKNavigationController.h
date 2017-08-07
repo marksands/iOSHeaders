@@ -6,12 +6,12 @@
 
 #import <UIKit/UINavigationController.h>
 
+#import <HealthUI/HKTabBarTapObserver-Protocol.h>
 #import <HealthUI/UINavigationControllerDelegate-Protocol.h>
-#import <HealthUI/WDTabBarTapObserver-Protocol.h>
 
 @class HKProfileBarButtonItem, NSString;
 
-@interface HKNavigationController : UINavigationController <WDTabBarTapObserver, UINavigationControllerDelegate>
+@interface HKNavigationController : UINavigationController <HKTabBarTapObserver, UINavigationControllerDelegate>
 {
     HKProfileBarButtonItem *_commonProfileBarButtonItem;
 }

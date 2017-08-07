@@ -52,8 +52,10 @@
     unsigned long long _vtEndInSampleCount;
     double _hepAudioOriginInMs;
     NSDate *_firstAudioPacketTimestamp;
+    NSObject<OS_dispatch_queue> *_silencePosteriorGeneratorQueue;
 }
 
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *silencePosteriorGeneratorQueue; // @synthesize silencePosteriorGeneratorQueue=_silencePosteriorGeneratorQueue;
 @property(nonatomic) _Bool recordingDidStop; // @synthesize recordingDidStop=_recordingDidStop;
 @property(nonatomic) _Bool didTimestampFirstAudioPacket; // @synthesize didTimestampFirstAudioPacket=_didTimestampFirstAudioPacket;
 @property(retain, nonatomic) NSDate *firstAudioPacketTimestamp; // @synthesize firstAudioPacketTimestamp=_firstAudioPacketTimestamp;

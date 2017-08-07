@@ -27,8 +27,6 @@
 - (id)volumeCategoryForAudioCategory:(id)arg1;
 - (id)routeForCategory:(id)arg1;
 - (_Bool)getVolume:(float *)arg1 forCategory:(id)arg2;
-- (_Bool)enablePortDiscovery:(_Bool)arg1;
-- (_Bool)getPortDiscoveryEnabled;
 - (_Bool)setPickedRouteWithPassword:(id)arg1 withPassword:(id)arg2;
 - (_Bool)didCancelRoutePicking:(id)arg1;
 - (_Bool)setBTHFPRoute:(id)arg1 availableForVoicePrompts:(_Bool)arg2;

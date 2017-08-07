@@ -91,7 +91,7 @@
 - (id)swipeSelectionManager:(id)arg1 itemIndexPathAtLocation:(struct CGPoint)arg2;
 - (id)swipeSelectionManager:(id)arg1 indexPathSetFromIndexPath:(id)arg2 toIndexPath:(id)arg3;
 - (id)initialSelectedIndexPathsForSwipeSelectionManager:(id)arg1;
-- (void)mergeAction:(_Bool)arg1 targetPerson:(id)arg2 dragPerson:(id)arg3;
+- (void)_performMerge:(_Bool)arg1 targetPerson:(id)arg2 dragPerson:(id)arg3;
 - (void)_animateCellAtIndexPathToDefaultState:(id)arg1;
 - (id)_originalTargetIndexPathFromDragIndexPath:(id)arg1 targetIndexPath:(id)arg2;
 - (void)popoverPresentationControllerDidDismissPopover:(id)arg1;

@@ -11,19 +11,22 @@
 @interface PKEditPassesTableViewCell : UITableViewCell
 {
     UIActivityIndicatorView *_activityView;
+    _Bool _showImage;
     PKPass *_pass;
 }
 
 + (_Bool)needsFullPassImage;
 + (double)height;
 + (struct CGSize)imageSizeNeeded;
+@property(nonatomic) _Bool showImage; // @synthesize showImage=_showImage;
 @property(retain, nonatomic) PKPass *pass; // @synthesize pass=_pass;
 - (void).cxx_destruct;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGRect)imageFrameWithSize:(struct CGSize)arg1;
 - (void)setImage:(id)arg1 forPass:(id)arg2;
 - (void)prepareForReuse;
 - (void)layoutSubviews;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithReuseIdentifier:(id)arg1 showImage:(_Bool)arg2;
 
 @end
 

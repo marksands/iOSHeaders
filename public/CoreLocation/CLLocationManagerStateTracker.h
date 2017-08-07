@@ -24,6 +24,7 @@
 @property(nonatomic) _Bool updatingVehicleSpeed;
 @property(nonatomic) _Bool batchingLocation;
 @property(nonatomic) _Bool allowsMapCorrection;
+@property(nonatomic) _Bool showsBackgroundLocationIndicator;
 @property(nonatomic) _Bool allowsBackgroundLocationUpdates;
 @property(nonatomic) _Bool paused;
 @property(nonatomic) int pausesLocationUpdatesAutomatically;

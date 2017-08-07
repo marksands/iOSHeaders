@@ -6,12 +6,13 @@
 
 #import <ITMLKit/NSObject-Protocol.h>
 
-@class UIColor;
+@class NSArray, UIColor;
 
 @protocol IKJSInspectorControllerDelegate <NSObject>
 
 @optional
 - (_Bool)cancelHighlightView;
+- (_Bool)highlightViewsForElementsWithIDs:(NSArray *)arg1 contentColor:(UIColor *)arg2 paddingColor:(UIColor *)arg3 borderColor:(UIColor *)arg4 marginColor:(UIColor *)arg5;
 - (_Bool)highlightViewForElementWithID:(long long)arg1 contentColor:(UIColor *)arg2 paddingColor:(UIColor *)arg3 borderColor:(UIColor *)arg4 marginColor:(UIColor *)arg5;
 @end
 

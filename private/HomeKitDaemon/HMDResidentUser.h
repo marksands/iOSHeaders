@@ -28,7 +28,7 @@
 @property(nonatomic) unsigned long long configurationState; // @synthesize configurationState=_configurationState;
 - (void)setDeviceIdentifier:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *deviceIdentifier; // @synthesize deviceIdentifier=_deviceIdentifier;
-- (id)initWithUserID:(id)arg1 displayName:(id)arg2 pairingIdentity:(id)arg3 deviceIdentifier:(id)arg4 configurationState:(unsigned long long)arg5;
+- (id)initWithUserID:(id)arg1 displayName:(id)arg2 forHomeIdentifier:(id)arg3 uuid:(id)arg4 pairingIdentity:(id)arg5 deviceIdentifier:(id)arg6 configurationState:(unsigned long long)arg7;
 - (id)initWithModelObject:(id)arg1;
 
 @end

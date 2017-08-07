@@ -6,12 +6,11 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class NSArray, NSError;
-@protocol FCContentContext;
+@class FCCloudContext, NSArray, NSError;
 
 @interface FCTrendingOperation : FCOperation
 {
-    id <FCContentContext> _context;
+    FCCloudContext *_context;
     NSArray *_headlines;
     NSError *_error;
     CDUnknownBlockType _catchUpCompletionHandler;
@@ -20,7 +19,7 @@
 @property(copy) CDUnknownBlockType catchUpCompletionHandler; // @synthesize catchUpCompletionHandler=_catchUpCompletionHandler;
 @property(retain) NSError *error; // @synthesize error=_error;
 @property(copy) NSArray *headlines; // @synthesize headlines=_headlines;
-@property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
+@property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;

@@ -19,6 +19,7 @@
 + (id)insertInManagedObjectContext:(id)arg1;
 - (void)refreshFaces;
 - (id)mutableDetectedFaces;
+- (void)willSave;
 - (void)awakeFromInsert;
 
 // Remaining properties

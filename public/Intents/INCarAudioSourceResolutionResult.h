@@ -11,7 +11,9 @@
 }
 
 + (id)confirmationRequiredWithValueToConfirm:(long long)arg1;
++ (id)confirmationRequiredWithCarAudioSourceToConfirm:(long long)arg1;
 + (id)successWithResolvedValue:(long long)arg1;
++ (id)successWithResolvedCarAudioSource:(long long)arg1;
 
 @end
 

@@ -17,11 +17,11 @@
 - (void)scheduleBookmarksDatabaseMigrationTask;
 - (void)scheduleBookmarksDatabaseMaintenance;
 - (void)getCurrentlySelectedSearchEngineWithCompletion:(CDUnknownBlockType)arg1;
-- (void)clearAllSafariHistory;
+- (void)clearAllSafariHistoryWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)getSafariDataUsageByteCountWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)deleteSafariPersistentURLCacheStorage;
-- (void)deleteSafariWebsiteDataRecord:(id)arg1;
-- (void)deleteAllSafariSecurityOrigins;
+- (void)deleteSafariPersistentURLCacheStorageWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)deleteSafariWebsiteDataRecord:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)deleteAllSafariSecurityOriginsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)getSafariWebDataUsageWithCompletion:(CDUnknownBlockType)arg1;
 - (id)init;
 

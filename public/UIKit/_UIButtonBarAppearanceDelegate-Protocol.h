@@ -7,6 +7,7 @@
 @class UIBarButtonItem, UIColor, UIFontDescriptor, UIImage;
 
 @protocol _UIButtonBarAppearanceDelegate
+@property(readonly, nonatomic) double backButtonMaximumWidth;
 @property(readonly, nonatomic) double backButtonMargin;
 @property(readonly, nonatomic) double defaultTextPadding;
 @property(readonly, nonatomic) double defaultEdgeSpacing;

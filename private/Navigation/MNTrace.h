@@ -71,7 +71,7 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *writeQueue; // @synthesize writeQueue=_writeQueue;
 @property(readonly, nonatomic) struct sqlite3 *db; // @synthesize db=_db;
 - (void).cxx_destruct;
-- (void)_copyTraceToCrashReporter;
+- (void)copyTraceToCrashReporter;
 - (id)_handleOpenErrorWithPath:(id)arg1;
 - (_Bool)closeTrace;
 - (_Bool)startWritingTraceToFile:(id)arg1;

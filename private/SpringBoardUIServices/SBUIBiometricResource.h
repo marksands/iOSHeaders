@@ -27,7 +27,6 @@
     _Bool _isFingerDetectionAllowed;
     _Bool _isFingerDetectionEnabled;
     _Bool _isFingerDetectionEnabledThroughHIDChannel;
-    _Bool _isFingerDetectionEnabledThroughBiometricChannel;
     _Bool _screenIsOn;
     _Bool _isAuthenticated;
     _Bool _shouldSendFingerOffNotification;
@@ -59,8 +58,8 @@
 - (void)_removeMatchingAssertion:(id)arg1;
 - (void)_addMatchingAssertion:(id)arg1;
 - (void)_deactivateAssertion:(id)arg1;
-- (_Bool)_activateFingerDetectAssertion:(id)arg1 error:(id *)arg2;
-- (_Bool)_activateMatchAssertion:(id)arg1 error:(id *)arg2;
+- (void)_activateFingerDetectAssertion:(id)arg1;
+- (void)_activateMatchAssertion:(id)arg1;
 - (void)_reallySetAuthenticated:(_Bool)arg1 keybagState:(id)arg2;
 - (void)biometricKitInterface:(id)arg1 handleEvent:(unsigned long long)arg2;
 - (void)biometricKitInterface:(id)arg1 enrolledIdentitiesDidChange:(_Bool)arg2;

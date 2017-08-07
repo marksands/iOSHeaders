@@ -7,14 +7,15 @@
 #import <MaterialKit/MTSystemMaterialSettings.h>
 
 #import <MaterialKit/MTMaterialLuminanceOverlaySettings-Protocol.h>
+#import <MaterialKit/_MTMaterialVersioning-Protocol.h>
 
-@class NSString;
+@class NSString, UIColor;
 
-@interface MTSystemModuleMaterialSettings : MTSystemMaterialSettings <MTMaterialLuminanceOverlaySettings>
+@interface MTSystemModuleMaterialSettings : MTSystemMaterialSettings <MTMaterialLuminanceOverlaySettings, _MTMaterialVersioning>
 {
-    double _baseSaturation;
-    double _baseBrightness;
-    double _baseTintAlpha;
+    double _baseOverlaySaturation;
+    double _baseOverlayBrightness;
+    double _baseOverlayTintAlpha;
     double _primaryOverlaySaturation;
     double _primaryOverlayBrightness;
     double _primaryOverlayTintAlpha;
@@ -30,12 +31,17 @@
 @property(nonatomic) double primaryOverlayTintAlpha; // @synthesize primaryOverlayTintAlpha=_primaryOverlayTintAlpha;
 @property(nonatomic) double primaryOverlayBrightness; // @synthesize primaryOverlayBrightness=_primaryOverlayBrightness;
 @property(nonatomic) double primaryOverlaySaturation; // @synthesize primaryOverlaySaturation=_primaryOverlaySaturation;
-@property(nonatomic) double baseTintAlpha; // @synthesize baseTintAlpha=_baseTintAlpha;
-@property(nonatomic) double baseBrightness; // @synthesize baseBrightness=_baseBrightness;
-@property(nonatomic) double baseSaturation; // @synthesize baseSaturation=_baseSaturation;
+@property(nonatomic) double baseOverlayTintAlpha; // @synthesize baseOverlayTintAlpha=_baseOverlayTintAlpha;
+@property(nonatomic) double baseOverlayBrightness; // @synthesize baseOverlayBrightness=_baseOverlayBrightness;
+@property(nonatomic) double baseOverlaySaturation; // @synthesize baseOverlaySaturation=_baseOverlaySaturation;
+@property(readonly, copy, nonatomic) UIColor *baseOverlayColor;
+@property(nonatomic) double secondaryOverlayTintAlpha;
+@property(readonly, copy, nonatomic) UIColor *secondaryOverlayTintColor;
+@property(readonly, copy, nonatomic) UIColor *primaryOverlayTintColor;
 - (void)setUsesLuminanceMap:(_Bool)arg1;
 - (_Bool)usesLuminanceMap;
 - (Class)vibrantStylingProviderClass;
+@property(readonly, nonatomic) long long materialVersion;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -42,7 +42,6 @@
 - (void)updateChatWithGUID:(id)arg1 serverChangeToken:(id)arg2 CKSystemPropertiesBlob:(id)arg3;
 - (id)chatsToUploadToCloudKitWithLimit:(unsigned long long)arg1;
 - (id)personCentricGroupedChatsDictionary;
-- (id)_chatSortedByLastMessageID:(id)arg1;
 - (id)groupChatsBasedOnIdentity;
 - (void)startHandleIDPopulation;
 - (void)_populateCNRecordIDForHandles:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

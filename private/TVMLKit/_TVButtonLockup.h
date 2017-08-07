@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     CALayer *_imageMask;
     _Bool _disabled;
     long long _backdropStyle;
+    long long _vibrantLabelThemeOverride;
     _TVImageView *_imageView;
     UILabel *_titleView;
     IKViewElement *_viewElement;
@@ -27,6 +28,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) IKViewElement *viewElement; // @synthesize viewElement=_viewElement;
 @property(retain, nonatomic) UILabel *titleView; // @synthesize titleView=_titleView;
 @property(retain, nonatomic) _TVImageView *imageView; // @synthesize imageView=_imageView;
+@property(nonatomic) long long vibrantLabelThemeOverride; // @synthesize vibrantLabelThemeOverride=_vibrantLabelThemeOverride;
 @property(nonatomic, getter=isDisabled) _Bool disabled; // @synthesize disabled=_disabled;
 @property(readonly, nonatomic) long long backdropStyle; // @synthesize backdropStyle=_backdropStyle;
 - (void).cxx_destruct;

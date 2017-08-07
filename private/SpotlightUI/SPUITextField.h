@@ -35,6 +35,7 @@
 - (id)text;
 - (void)updateContentSizeCategory;
 - (struct CGSize)intrinsicContentSize;
+- (void)traitCollectionDidChange:(id)arg1;
 - (id)init;
 
 @end

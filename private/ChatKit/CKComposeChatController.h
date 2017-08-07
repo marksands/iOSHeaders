@@ -74,6 +74,7 @@
 - (id)outgoingComposeViewForSendAnimation;
 - (void)addBizIntentToConversation:(id)arg1;
 - (void)sendComposition:(id)arg1;
+- (_Bool)_shouldSetToFieldAsFirstResponder;
 - (void)_setConversationDeferredSetup;
 - (void)conversationLeft;
 @property(readonly, nonatomic) NSString *unatomizedRecipientText;

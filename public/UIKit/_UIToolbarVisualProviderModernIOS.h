@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (id)_currentCustomBackground;
 - (void)updateBarBackground;
 - (void)updateBarForStyle:(long long)arg1;
+- (struct CGRect)backgroundFrame;
 - (id)currentBackgroundView;
 - (void)setCustomBackgroundView:(id)arg1;
 - (void)updateBarBackgroundSize;

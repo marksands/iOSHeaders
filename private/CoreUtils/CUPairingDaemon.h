@@ -24,9 +24,11 @@
 @property(nonatomic) _Bool testMode; // @synthesize testMode=_testMode;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
-- (int)_removePairedPeer:(id)arg1 options:(unsigned long long)arg2;
+- (int)_removePairedPeer:(id)arg1 options:(unsigned long long)arg2 removeAdminAllowed:(_Bool)arg3;
+- (int)removePairedPeer:(id)arg1 options:(unsigned long long)arg2 removeAdminAllowed:(_Bool)arg3;
 - (int)removePairedPeer:(id)arg1 options:(unsigned long long)arg2;
-- (int)_savePairedPeer:(id)arg1 options:(unsigned long long)arg2;
+- (int)_savePairedPeer:(id)arg1 options:(unsigned long long)arg2 removeAdminAllowed:(_Bool)arg3;
+- (int)savePairedPeer:(id)arg1 options:(unsigned long long)arg2 removeAdminAllowed:(_Bool)arg3;
 - (int)savePairedPeer:(id)arg1 options:(unsigned long long)arg2;
 - (id)_findPairedPeer:(id)arg1 options:(unsigned long long)arg2 error:(int *)arg3;
 - (id)_findHomeKitPairedPeer:(id)arg1 options:(unsigned long long)arg2 error:(int *)arg3;

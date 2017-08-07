@@ -22,6 +22,8 @@
     HKValueRange *_visibleValueRange;
     _Bool _allowsSelection;
     _Bool _adjustYAxisForLabels;
+    _Bool _animatingDuringAutoscale;
+    _Bool _primarySeriesForAutoscale;
     HKGraphSeriesDataSource *_dataSource;
     NSArray *_titleLegendEntries;
     NSArray *_detailLegendEntries;
@@ -42,6 +44,8 @@
 @property(retain, nonatomic) UIView *cachedYAxisAccessoryView; // @synthesize cachedYAxisAccessoryView=_cachedYAxisAccessoryView;
 @property(retain, nonatomic) id <HKGraphSeriesAxisScalingRule> axisScalingRule; // @synthesize axisScalingRule=_axisScalingRule;
 @property(copy, nonatomic) HKAxis *yAxis; // @synthesize yAxis=_yAxis;
+@property(nonatomic) _Bool primarySeriesForAutoscale; // @synthesize primarySeriesForAutoscale=_primarySeriesForAutoscale;
+@property(readonly, nonatomic) _Bool animatingDuringAutoscale; // @synthesize animatingDuringAutoscale=_animatingDuringAutoscale;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
 @property(nonatomic) _Bool adjustYAxisForLabels; // @synthesize adjustYAxisForLabels=_adjustYAxisForLabels;
 @property(nonatomic) _Bool allowsSelection; // @synthesize allowsSelection=_allowsSelection;
@@ -79,6 +83,7 @@
 - (_Bool)configureYAxisAccessoryViewForDateRange:(id)arg1 timeScope:(long long)arg2;
 - (struct UIEdgeInsets)yAxisAccessoryViewEdgeInsets;
 - (struct CGSize)yAxisAccessoryViewSize;
+- (void)enumerateCoordinatesInChartRect:(struct CGRect)arg1 xAxis:(id)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 xAxisTransform:(struct CGAffineTransform)arg5 roundToViewScale:(_Bool)arg6 exclusionOptions:(long long)arg7 block:(CDUnknownBlockType)arg8;
 - (void)enumerateCoordinatesInChartRect:(struct CGRect)arg1 xAxis:(id)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 xAxisTransform:(struct CGAffineTransform)arg5 roundToViewScale:(_Bool)arg6 rejectPointsOutOfChartRect:(_Bool)arg7 block:(CDUnknownBlockType)arg8;
 - (void)enumerateCoordinatesInChartRect:(struct CGRect)arg1 xAxis:(id)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 xAxisTransform:(struct CGAffineTransform)arg5 roundToViewScale:(_Bool)arg6 block:(CDUnknownBlockType)arg7;
 - (_Bool)containsCoordinatesInChartRect:(struct CGRect)arg1 xAxis:(id)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 xAxisTransform:(struct CGAffineTransform)arg5;

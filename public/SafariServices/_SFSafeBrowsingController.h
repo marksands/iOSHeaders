@@ -39,7 +39,7 @@
 - (void)_fraudulentWebsiteCheckCompletedForURL:(id)arg1 withResult:(id)arg2 error:(id)arg3;
 - (void)startCheckingFraudulentWebSitesWithURL:(id)arg1;
 - (void)cancelCheckForFraudulentWebsites;
-- (void)safeBrowsingCheckFinishedWithSecurityInfo:(id)arg1;
+- (void)_safeBrowsingCheckFinishedWithSecurityInfo:(id)arg1;
 - (void)urlPassedSafeBrowsingCheck:(id)arg1 canCache:(_Bool)arg2;
 - (void)_setUpSafeBrowsingObserverInterface;
 - (void)invalidate;

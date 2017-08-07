@@ -32,6 +32,7 @@
 - (void)_setSampleType:(id)arg1;
 - (long long)_externalSyncObjectCode;
 - (id)_validateConfiguration;
+- (_Bool)_requiresPrivateEntitlementForQueries;
 - (id)_init;
 - (void)_enumerateTimePeriodsWithBlock:(CDUnknownBlockType)arg1;
 

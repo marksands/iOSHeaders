@@ -35,7 +35,9 @@
 @property(nonatomic) long long mediaControlsPlayerState; // @synthesize mediaControlsPlayerState=_mediaControlsPlayerState;
 - (void).cxx_destruct;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)_updateButtonStyles;
+- (void)_updateButtonBlendMode:(id)arg1;
+- (void)_updateButtonTint:(id)arg1;
+- (void)_updateButtonImage:(id)arg1 button:(id)arg2;
 - (void)buttonHoldReleased:(id)arg1;
 - (void)buttonHoldBegan:(id)arg1;
 - (void)touchUpInsideRightButton:(id)arg1;

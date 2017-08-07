@@ -27,9 +27,10 @@
 - (void)setROISelector:(SEL)arg1;
 - (id)applyWithExtent:(struct CGRect)arg1 roiCallback:(CDUnknownBlockType)arg2 arguments:(id)arg3;
 - (id)applyWithExtent:(struct CGRect)arg1 roiCallback:(CDUnknownBlockType)arg2 arguments:(id)arg3 options:(id)arg4;
--     // Error parsing type: i32@0:8@16^{Kernel=^^?{atomic<unsigned int>=AI}**B^{SerialIntArray}^{SerialStringArray}^{__CFString}BBBi}24, name: _outputFormatUsingDictionary:andKernel:
+-     // Error parsing type: i32@0:8@16^{Kernel=^^?{atomic<unsigned int>=AI}**B^{SerialIntArray}^{SerialStringArray}^{__CFString}BBBBi}24, name: _outputFormatUsingDictionary:andKernel:
 - (_Bool)_isValidOutputPixelFormat:(int)arg1;
 @property(readonly) NSString *name;
+@property(nonatomic) _Bool canReduceOutputChannels;
 @property(nonatomic) _Bool perservesAlpha;
 - (id)_initWithDict:(id)arg1;
 - (id)initWithString:(id)arg1;

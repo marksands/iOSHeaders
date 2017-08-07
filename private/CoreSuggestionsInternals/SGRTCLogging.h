@@ -34,6 +34,7 @@
 + (double)round:(double)arg1 toSignificantFigures:(long long)arg2;
 + (unsigned long long)bucketizeInteger:(unsigned long long)arg1 withBucketSize:(unsigned long long)arg2 limit:(unsigned long long)arg3;
 - (void).cxx_destruct;
+- (id)_descriptionForEntityType:(long long)arg1;
 - (id)_descriptionForSGRTCCategory:(unsigned short)arg1;
 - (id)_descriptionForActionType:(unsigned short)arg1;
 - (id)_descriptionForInterface:(unsigned short)arg1;
@@ -53,15 +54,17 @@
 - (id)logsToSend;
 - (id)whitelistedLogFromLog:(id)arg1;
 - (void)logEventInteractionForRealtimeEvent:(id)arg1 parentEntity:(id)arg2 interface:(unsigned short)arg3 actionType:(unsigned short)arg4;
+- (void)logEventInteractionForRealtimeEventSync:(id)arg1 parentEntity:(id)arg2 interface:(unsigned short)arg3 actionType:(unsigned short)arg4;
 - (void)logEventInteractionForEntitySync:(id)arg1 interface:(unsigned short)arg2 actionType:(unsigned short)arg3;
 - (void)logEventInteractionForEntity:(id)arg1 interface:(unsigned short)arg2 actionType:(unsigned short)arg3;
 - (void)logEventExtractionForTemplateName:(id)arg1 extractionStatus:(unsigned short)arg2 outputExceptions:(id)arg3 outputInfos:(id)arg4 jsMessageLogs:(id)arg5 jsOutputLogs:(id)arg6 timingProcessing:(unsigned long long)arg7;
 - (void)logNewInteractionWithDictionary:(id)arg1;
 - (void)logNewInteractionSummaryWithDictionary:(id)arg1;
 - (void)_logAndIncrementEventCountForDictionary:(id)arg1;
-- (_Bool)_incrementInteractionSummaryForEventDuplicateKey:(id)arg1 interactionKey:(id)arg2;
+- (_Bool)_incrementAndUpgradeInteractionSummaryForEventKey:(id)arg1 interactionKey:(id)arg2 parentEntity:(id)arg3;
+- (void)_enrichLogWithAppsUsage:(id)arg1;
 - (void)enrichInteractionSummaryLog:(id)arg1;
-- (id)_createInteractionSummaryForDuplicateKey:(id)arg1 expirationDate:(id)arg2 interactionKey:(id)arg3 interactionAttributes:(id)arg4;
+- (id)_createInteractionSummaryForEventKey:(id)arg1 expirationDate:(id)arg2 interactionKey:(id)arg3 interactionAttributes:(id)arg4;
 - (id)_createInteractionForEventWithStartTime:(id)arg1 interactionKey:(id)arg2 interactionAttributes:(id)arg3;
 - (id)_interactionAttributesForEntity:(id)arg1 parentEntity:(id)arg2;
 - (id)_interactionAttributesForRealtimeEvent:(id)arg1 parentEntity:(id)arg2;

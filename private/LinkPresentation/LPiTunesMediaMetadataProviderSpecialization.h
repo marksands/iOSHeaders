@@ -6,7 +6,7 @@
 
 #import <LinkPresentation/LPMetadataProviderSpecialization.h>
 
-@class LPSpecializationMetadata, LPiTunesMediaLookupTask, NSMutableSet, NSString, NSURLSession;
+@class LPSpecializationMetadata, LPiTunesMediaLookupTask, NSMutableArray, NSMutableSet, NSString, NSURLSession;
 @protocol LPiTunesMediaUnresolvedMetadata;
 
 __attribute__((visibility("hidden")))
@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     LPSpecializationMetadata *_resolvedMetadata;
     id <LPiTunesMediaUnresolvedMetadata> _unresolvedMetadata;
     NSMutableSet *_assetsStillResolving;
+    NSMutableArray *_pendingResolvers;
 }
 
 + (id)extractOffers:(id)arg1;
@@ -33,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)done;
 - (void)fail;
 - (void)cancel;
+- (void)completed;
 - (void)start;
 - (void)resolve;
 - (id)processResponseDictionary:(id)arg1 withStorefrontIdentifier:(id)arg2;

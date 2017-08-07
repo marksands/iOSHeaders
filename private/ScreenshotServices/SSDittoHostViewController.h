@@ -25,6 +25,7 @@
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (unsigned long long)supportedInterfaceOrientations;
 - (id)_serviceProxy;
+- (_Bool)becomeFirstResponder;
 
 @end
 

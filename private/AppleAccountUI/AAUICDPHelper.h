@@ -20,11 +20,6 @@
 @property(readonly, nonatomic) __weak UIViewController *presentingViewController; // @synthesize presentingViewController=_presentingViewController;
 @property(nonatomic) _Bool forceInline; // @synthesize forceInline=_forceInline;
 - (void).cxx_destruct;
-- (_Bool)_hasPasscode;
-- (void)_validatePasscodeWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_validateCDPStateWithCompletion:(CDUnknownBlockType)arg1;
-- (_Bool)_isHSA2AvailableForAltDSID:(id)arg1;
-- (void)performDeviceToDeviceEncryptionStateRepairForAltDSID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (id)cdpStateControllerWithContext:(id)arg1;
 - (id)cdpStateControllerForPrimaryAccount;
 

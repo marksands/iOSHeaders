@@ -26,9 +26,8 @@
 @property(nonatomic) _Bool addBottomPadding; // @synthesize addBottomPadding=_addBottomPadding;
 @property(nonatomic) __weak UITextView *textView; // @synthesize textView=_textView;
 - (void).cxx_destruct;
+- (_Bool)gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
-- (void)updateGestures;
-- (void)dealloc;
 - (id)initForTextView:(id)arg1;
 
 // Remaining properties

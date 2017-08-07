@@ -6,10 +6,12 @@
 
 #import <UIKit/UIView.h>
 
+#import <PassKitUI/UIScrollViewDelegate-Protocol.h>
+
 @class NSString, PKPaymentSetupDockView, PKPaymentSetupPrivacyFooterView, UIActivityIndicatorView, UIImage, UIImageView, UILabel, UIScrollView, _UIBackdropView;
 @protocol PKExplanationViewDelegate;
 
-@interface PKExplanationView : UIView
+@interface PKExplanationView : UIView <UIScrollViewDelegate>
 {
     long long _context;
     _Bool _privacyFooterShouldPin;
@@ -56,6 +58,8 @@
 - (_Bool)_showApplePayLogo;
 - (void)_updateTitleLabel;
 - (void)_createSubviews;
+- (void)_calculateBlur;
+- (void)scrollViewDidScroll:(id)arg1;
 - (void)_setupLater;
 - (void)_continue;
 @property(readonly, nonatomic) UIImageView *imageView;
@@ -67,6 +71,12 @@
 - (id)initWithDelegate:(id)arg1;
 - (id)init;
 - (void)pk_applyAppearance:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

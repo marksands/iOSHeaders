@@ -19,6 +19,11 @@
 + (id)denseVectorFromNumbers:(id)arg1;
 - (void).cxx_destruct;
 - (float)valueAt:(unsigned long long)arg1;
+- (void)enumerateNonZeroValuesWithBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateValuesWithBlock:(CDUnknownBlockType)arg1;
+- (float)density;
+- (float)maxValue;
+- (float)minValue;
 - (float)maxAbsValue;
 - (float)l2norm;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

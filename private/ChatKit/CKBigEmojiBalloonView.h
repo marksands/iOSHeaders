@@ -22,7 +22,6 @@
 - (void)setImage:(id)arg1;
 - (void)setGradientReferenceView:(id)arg1;
 - (struct UIEdgeInsets)alignmentRectInsets;
-- (_Bool)modifiesSingleLineBalloonLayout;
 
 @end
 

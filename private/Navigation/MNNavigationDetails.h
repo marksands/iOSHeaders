@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <Navigation/NSSecureCoding-Protocol.h>
+
 @class GEOComposedRoute, GEONavigationGuidanceState, MNActiveRouteDetails, MNActiveRouteInfo, MNLocation, MNRoutePlanningDetails, NSArray, NSMapTable, NSMutableDictionary, NSString;
 
 __attribute__((visibility("hidden")))
-@interface MNNavigationDetails : NSObject
+@interface MNNavigationDetails : NSObject <NSSecureCoding>
 {
     MNActiveRouteDetails *_activeRouteDetails;
     MNLocation *_location;
@@ -23,7 +25,6 @@ __attribute__((visibility("hidden")))
     NSArray *_possibleCommuteDestinations;
     NSMutableDictionary *_trafficIncidentAlerts;
     _Bool _guidancePromptsEnabled;
-    _Bool _isPredictingDestination;
     _Bool _isInVehicle;
     _Bool _traceIsPlaying;
     int _headingOrientation;
@@ -48,6 +49,7 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_trackedCommuteDestinations;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain) NSMutableDictionary *trackedCommuteDestinations; // @synthesize trackedCommuteDestinations=_trackedCommuteDestinations;
 @property(retain, nonatomic) NSArray *traceBookmarks; // @synthesize traceBookmarks=_traceBookmarks;
 @property(nonatomic) double tracePosition; // @synthesize tracePosition=_tracePosition;
@@ -56,7 +58,6 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *tracePath; // @synthesize tracePath=_tracePath;
 @property(nonatomic) _Bool isInVehicle; // @synthesize isInVehicle=_isInVehicle;
 @property(readonly, nonatomic) NSArray *possibleCommuteDestinations; // @synthesize possibleCommuteDestinations=_possibleCommuteDestinations;
-@property(nonatomic) _Bool isPredictingDestination; // @synthesize isPredictingDestination=_isPredictingDestination;
 @property(retain, nonatomic) NSString *currentVoiceLanguage; // @synthesize currentVoiceLanguage=_currentVoiceLanguage;
 @property(nonatomic) double timeUntilManeuver; // @synthesize timeUntilManeuver=_timeUntilManeuver;
 @property(nonatomic) double distanceUntilManeuver; // @synthesize distanceUntilManeuver=_distanceUntilManeuver;
@@ -93,6 +94,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) int navigationType;
 @property(readonly, nonatomic) NSArray *alternateRoutes;
 @property(readonly, nonatomic) GEOComposedRoute *currentRoute;
+- (void)copySerializableValuesFrom:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)init;
 
 @end

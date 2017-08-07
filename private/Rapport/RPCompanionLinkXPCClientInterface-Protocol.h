@@ -9,6 +9,7 @@
 @protocol RPCompanionLinkXPCClientInterface
 - (void)companionLinkReceivedRequestID:(NSString *)arg1 request:(NSDictionary *)arg2 responseHandler:(void (^)(NSDictionary *, NSDictionary *, NSError *))arg3;
 - (void)companionLinkReceivedEventID:(NSString *)arg1 event:(NSDictionary *)arg2;
+- (void)companionLinkLocalDeviceUpdated:(RPCompanionLinkDevice *)arg1;
 - (void)companionLinkLostDevice:(RPCompanionLinkDevice *)arg1;
 - (void)companionLinkFoundDevice:(RPCompanionLinkDevice *)arg1;
 @end

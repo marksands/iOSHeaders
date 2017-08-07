@@ -10,6 +10,7 @@
 {
 }
 
+- (long long)defaultQualityOfService;
 - (void)setupSubscription;
 - (_Bool)needsDeviceToDevice;
 

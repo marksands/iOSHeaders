@@ -23,7 +23,6 @@
 - (void)_unregisterNotifications;
 - (void)_registerNotifications;
 - (void)_avSessionMediaServicesResetNotification:(id)arg1;
-- (void)_activeAudioRouteDidChangeNotification:(id)arg1;
 - (void)_routeStatusDidChangeNotification:(id)arg1;
 - (void)_pickableRoutesDidChangeNotification:(id)arg1;
 - (void)setPickedRoute:(id)arg1 withPassword:(id)arg2 completion:(CDUnknownBlockType)arg3;

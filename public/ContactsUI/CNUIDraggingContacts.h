@@ -21,6 +21,7 @@
 + (id)objectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 + (id)draggingContactsForContacts:(id)arg1 contactStore:(id)arg2;
 + (id)draggingContactsWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 contactStore:(id)arg3 error:(id *)arg4;
++ (id)contactsWithIdentifiers:(id)arg1 store:(id)arg2 keysToFetch:(id)arg3 unifyResults:(_Bool)arg4 error:(id *)arg5;
 + (id)readableTypeIdentifiersForItemProvider;
 + (void)provideVCardURLForDropSession:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 + (void)provideContactsForDropSession:(id)arg1 withKeys:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;

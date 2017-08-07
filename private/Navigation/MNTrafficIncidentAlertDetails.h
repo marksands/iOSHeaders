@@ -8,7 +8,7 @@
 
 #import <Navigation/NSCopying-Protocol.h>
 
-@class GEOETARoute, GEORoute, MNRouteCoordinate, NSData;
+@class GEOETARoute, GEORoute, MNRouteCoordinate, NSData, NSMutableArray;
 
 @interface MNTrafficIncidentAlertDetails : PBCodable <NSCopying>
 {
@@ -23,6 +23,7 @@
     GEOETARoute *_etaRoute;
     MNRouteCoordinate *_incidentCoordinate;
     GEORoute *_originalRoute;
+    NSMutableArray *_originalRouteIncidentsDatas;
     MNRouteCoordinate *_startValidCoordinateRange;
     _Bool _isAutomaticReroute;
     struct {
@@ -34,7 +35,9 @@
     } _has;
 }
 
++ (Class)originalRouteIncidentsDataType;
 + (id)detailsForTrafficIncidentAlert:(id)arg1;
+@property(retain, nonatomic) NSMutableArray *originalRouteIncidentsDatas; // @synthesize originalRouteIncidentsDatas=_originalRouteIncidentsDatas;
 @property(nonatomic) _Bool isAutomaticReroute; // @synthesize isAutomaticReroute=_isAutomaticReroute;
 @property(nonatomic) double distanceToIncident; // @synthesize distanceToIncident=_distanceToIncident;
 @property(nonatomic) double etaTimestamp; // @synthesize etaTimestamp=_etaTimestamp;
@@ -58,6 +61,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)originalRouteIncidentsDataAtIndex:(unsigned long long)arg1;
+- (unsigned long long)originalRouteIncidentsDatasCount;
+- (void)addOriginalRouteIncidentsData:(id)arg1;
+- (void)clearOriginalRouteIncidentsDatas;
 @property(nonatomic) _Bool hasIsAutomaticReroute;
 @property(nonatomic) _Bool hasDistanceToIncident;
 @property(nonatomic) _Bool hasEtaTimestamp;

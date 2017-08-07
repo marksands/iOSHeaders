@@ -13,7 +13,7 @@
     NSMutableArray *_stashedPaths;
     NSMutableDictionary *_stashedPreferences;
     NSMutableDictionary *_stashedManagedConfigurationSettings;
-    NSMutableDictionary *_stashedButtonHaptics;
+    NSMutableArray *_stashedButtonHaptics;
     NSNumber *_stashedAssistantEnabled;
     NSNumber *_stashedAssistantVoiceTriggerEnabled;
     NSNumber *_stashedLocationServicesEnabled;
@@ -23,7 +23,7 @@
 
 + (id)sharedManager;
 - (void).cxx_destruct;
-- (_Bool)_removeSafeHaven;
+- (_Bool)removeSafeHaven;
 - (id)_shovePath:(id)arg1 toPath:(id)arg2;
 - (id)_preferencesForDomain:(id)arg1;
 - (void)_restoreWatchData;
@@ -36,7 +36,10 @@
 - (void)_applyStashedPreferences;
 - (unsigned long long)_restoreConfiguration;
 - (void)applySafeHavenStash;
+- (void)_reset:(_Bool)arg1;
+- (void)resetExceptStashedPaths;
 - (void)reset;
+- (void)postDidRestoreSafeHavenNotification;
 - (_Bool)_stashPaths;
 - (_Bool)_stashConfiguration;
 - (void)hideStashInSafeHaven;

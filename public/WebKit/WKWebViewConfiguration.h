@@ -48,6 +48,7 @@
     _Bool _applePayEnabled;
     _Bool _needsStorageAccessFromFileURLsQuirk;
     _Bool _legacyEncryptedMediaAPIEnabled;
+    _Bool _allowMediaContentTypesRequiringHardwareSupportAsFallback;
     struct RetainPtr<NSString> _overrideContentSecurityPolicy;
     struct RetainPtr<NSString> _mediaContentTypesRequiringHardwareSupport;
     _Bool _suppressesIncrementalRendering;
@@ -86,6 +87,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (id)init;
+@property(nonatomic, setter=_setAllowMediaContentTypesRequiringHardwareSupportAsFallback:) _Bool _allowMediaContentTypesRequiringHardwareSupportAsFallback;
 @property(nonatomic, setter=_setLegacyEncryptedMediaAPIEnabled:) _Bool _legacyEncryptedMediaAPIEnabled;
 @property(nonatomic, setter=_setMediaContentTypesRequiringHardwareSupport:) NSString *_mediaContentTypesRequiringHardwareSupport;
 @property(nonatomic, setter=_setOverrideContentSecurityPolicy:) NSString *_overrideContentSecurityPolicy;

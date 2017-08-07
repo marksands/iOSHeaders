@@ -26,6 +26,7 @@
 - (void)hideCellsBelowKeyboardIfNecessary;
 - (void)viewDidLayoutSubviews;
 - (void)scrollIndexPathToVisible:(id)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)moveCursorToPosition:(id)arg1;
 - (void)moveCursorToEnd;
 - (void)moveCursorToBeginning;
@@ -35,6 +36,7 @@
 - (void)highlightRowAtIndexPath:(id)arg1 upward:(_Bool)arg2;
 - (void)downArrowPressed:(id)arg1;
 - (void)upArrowPressed:(id)arg1;
+- (id)indexPathToSelectForKeyboardOnQuickReturn;
 - (void)returnPressed;
 - (void)goBack;
 - (void)deletePressed;
@@ -43,8 +45,8 @@
 - (_Bool)isLeftToRightOrientation;
 - (_Bool)isOnCard;
 - (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (_Bool)canBecomeFirstResponder;
 - (void)addKeyCommandForKey:(id)arg1 action:(SEL)arg2;
-- (void)viewWillAppear:(_Bool)arg1;
 - (void)keyboardFrameChanged:(id)arg1;
 - (id)init;
 

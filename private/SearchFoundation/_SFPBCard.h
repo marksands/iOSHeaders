@@ -31,8 +31,10 @@
     NSString *_resultIdentifier;
     unsigned long long _queryId;
     NSString *_fbr;
+    NSArray *_entityProtobufMessages;
 }
 
+@property(copy, nonatomic) NSArray *entityProtobufMessages; // @synthesize entityProtobufMessages=_entityProtobufMessages;
 @property(nonatomic) _Bool flexibleSectionOrder; // @synthesize flexibleSectionOrder=_flexibleSectionOrder;
 @property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
 @property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
@@ -59,6 +61,10 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+- (id)entityProtobufMessagesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)entityProtobufMessagesCount;
+- (void)addEntityProtobufMessages:(id)arg1;
+- (void)clearEntityProtobufMessages;
 @property(readonly, nonatomic) _Bool hasFlexibleSectionOrder;
 @property(readonly, nonatomic) _Bool hasFbr;
 @property(readonly, nonatomic) _Bool hasQueryId;

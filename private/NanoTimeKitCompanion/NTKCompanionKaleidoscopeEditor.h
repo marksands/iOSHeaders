@@ -20,11 +20,11 @@
 - (void).cxx_destruct;
 - (void)_reinitializeWithPhoto:(id)arg1 image:(id)arg2;
 - (void)_readPickedPhoto;
-- (id)imageForPhoto;
+- (void)imageForPhotoWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) long long photosCount;
-- (void)setRawImage:(id)arg1;
-- (void)setAsset:(id)arg1;
-- (void)setPhoto:(id)arg1;
+- (void)setRawImage:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)setAsset:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)setPhoto:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)finalizeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)generateGalleryPreviewResourceDirectoryWithCompletion:(CDUnknownBlockType)arg1;
 - (id)initWithResourceDirectory:(id)arg1;

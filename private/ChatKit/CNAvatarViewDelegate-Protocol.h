@@ -6,7 +6,7 @@
 
 #import <ChatKit/NSObject-Protocol.h>
 
-@class CNAvatarView, CNContact, NSArray, NSMutableArray, NSString, UIViewController;
+@class CNAvatarView, CNContact, NSArray, NSString, UIViewController;
 
 @protocol CNAvatarViewDelegate <NSObject>
 - (UIViewController *)presentingViewControllerForAvatarView:(CNAvatarView *)arg1;
@@ -14,8 +14,8 @@
 @optional
 - (void)didDismissActionsForAvatarView:(CNAvatarView *)arg1;
 - (void)willDismissActionsForAvatarView:(CNAvatarView *)arg1;
+- (void)willBeginPreviewInteractionForAvatarView:(CNAvatarView *)arg1;
 - (_Bool)avatarView:(CNAvatarView *)arg1 shouldShowContact:(CNContact *)arg2;
-- (void)avatarView:(CNAvatarView *)arg1 willShowActions:(NSMutableArray *)arg2;
 - (NSArray *)avatarView:(CNAvatarView *)arg1 orderedPropertiesForProperties:(NSArray *)arg2 category:(NSString *)arg3;
 - (_Bool)shouldShowActionsForAvatarView:(CNAvatarView *)arg1;
 @end

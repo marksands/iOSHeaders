@@ -7,7 +7,7 @@
 @class NSData;
 
 @protocol KCJoiningRequestCircleDelegate
-- (_Bool)processCircleJoinData:(NSData *)arg1 error:(id *)arg2;
+- (_Bool)processCircleJoinData:(NSData *)arg1 version:(int)arg2 error:(id *)arg3;
 - (struct __OpaqueSOSPeerInfo *)copyPeerInfoError:(id *)arg1;
 @end
 

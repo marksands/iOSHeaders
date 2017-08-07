@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOResourceManifestConfiguration, NSError, NSLocale, NSString, VKSharedResources, VKTileKeyList, VKTileKeyMap, VKTilePool;
-@protocol VKTileSourceClient, VKTileSourceZoomDelegate;
+@protocol VKTileSourceClient;
 
 __attribute__((visibility("hidden")))
 @interface VKTileSource : NSObject
@@ -30,7 +30,6 @@ __attribute__((visibility("hidden")))
     long long _mapType;
     unsigned char _targetDisplay;
     shared_ptr_e963992e _taskContext;
-    id <VKTileSourceZoomDelegate> _zoomDelegate;
 }
 
 @property(nonatomic) unsigned char targetDisplay; // @synthesize targetDisplay=_targetDisplay;
@@ -40,7 +39,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double contentScale; // @synthesize contentScale=_contentScale;
 @property(retain, nonatomic) VKSharedResources *sharedResources; // @synthesize sharedResources=_sharedResources;
 @property(nonatomic) shared_ptr_a3c46825 styleManager; // @synthesize styleManager=_styleManager;
-@property(nonatomic) id <VKTileSourceZoomDelegate> zoomDelegate; // @synthesize zoomDelegate=_zoomDelegate;
 @property(nonatomic) id <VKTileSourceClient> client; // @synthesize client=_client;
 - (id).cxx_construct;
 - (void).cxx_destruct;

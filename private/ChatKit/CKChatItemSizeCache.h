@@ -35,6 +35,8 @@
 - (void)_persistCache;
 - (void)_evictIfNeeded;
 - (id)cacheKeyForChatItem:(id)arg1 fittingSize:(struct CGSize)arg2;
+- (void)_invalidateCachedSizeForKeyPassingTest:(CDUnknownBlockType)arg1;
+- (void)invalidateCachedSizeForGUIDPrefix:(id)arg1;
 - (void)invalidateCachedSizeForChatItem:(id)arg1;
 - (void)setCachedSizeForChatItem:(id)arg1 size:(struct CGSize)arg2 textAlignmentInsets:(struct UIEdgeInsets)arg3 fittingSize:(struct CGSize)arg4;
 - (_Bool)cachedSizeForChatItem:(id)arg1 size:(out struct CGSize *)arg2 textAlignmentInsets:(out struct UIEdgeInsets *)arg3 fittingSize:(struct CGSize)arg4;

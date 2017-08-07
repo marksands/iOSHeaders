@@ -76,7 +76,9 @@
 - (void)_handleAddActionSetRequest:(id)arg1;
 - (void)_handleRenameRequest:(id)arg1;
 - (void)_activate:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)markChangedForMessage:(id)arg1 triggerModel:(id)arg2;
 - (void)markChangedForMessage:(id)arg1;
+- (_Bool)modelContainsTriggerFired:(id)arg1;
 - (void)activateAfterResidentChangeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_activateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)activateWithCompletion:(CDUnknownBlockType)arg1;

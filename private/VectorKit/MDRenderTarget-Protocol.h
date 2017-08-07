@@ -22,6 +22,7 @@
 @property(nonatomic) struct CGSize size;
 - (shared_ptr_fa6aa836)bitmapData:(struct Texture *)arg1;
 - (void)renderWithTimestamp:(double)arg1 completion:(function_30b369b8)arg2;
+- (_Bool)hasRenderTarget;
 - (void)destroyRenderTarget;
 - (void)createRenderTarget;
 

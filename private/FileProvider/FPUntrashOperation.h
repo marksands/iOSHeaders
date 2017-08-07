@@ -21,6 +21,7 @@
 - (void)finishWithResult:(id)arg1 error:(id)arg2;
 - (void)mainWithExtensionProxy:(id)arg1;
 - (id)initWithItems:(id)arg1 restoreDirectory:(id)arg2;
+- (id)replicateForItems:(id)arg1;
 
 @end
 

@@ -824,9 +824,12 @@
 - (void)setViewRespectsSystemMinimumLayoutMargins:(_Bool)arg1;
 - (struct UIEdgeInsets)_edgeInsetsForChildViewController:(id)arg1 insetsAreAbsolute:(_Bool *)arg2;
 - (void)_marginInfoForChild:(id)arg1 leftMargin:(double *)arg2 rightMargin:(double *)arg3;
-- (_Bool)__updateContentOverlayInsetsFromParentViewController:(id)arg1 viewRectInParentBounds:(struct CGRect)arg2;
+- (_Bool)__updateContentOverlayInsetsWithOurRect:(struct CGRect)arg1 inBoundsOfAncestorViewController:(id)arg2 viaImmediateChildOfAncestor:(id)arg3;
 - (void)__updateContentOverlayInsetsToPresentationControllerBaseInsets;
 - (void)_updateContentOverlayInsetsFromParentIfNecessary;
+- (struct UIEdgeInsets)_customBasePresentationInsets;
+- (_Bool)_providesCustomBasePresentationInsets;
+- (_Bool)_getViewControllerToInheritInsetsFrom:(id *)arg1 viaImmediateChild:(id *)arg2;
 - (_Bool)_ignoresWrapperViewForContentOverlayInsets;
 - (void)_setIgnoresWrapperViewForContentOverlayInsets:(_Bool)arg1;
 - (void)_updateContentOverlayInsetsFromParentForNavigationTransitionWithFinalRectInParent:(struct CGRect)arg1;
@@ -836,7 +839,9 @@
 - (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1 andLeftMargin:(double)arg2 rightMargin:(double)arg3;
 - (void)viewSafeAreaInsetsDidChange;
 - (void)_safeAreaInsetsDidChangeForView;
-- (void)_updateSafeAreaInsets;
+- (void)_eagerlyUpdateSafeAreaInsetsToViewDescendant:(id)arg1;
+- (void)_updateViewSafeAreaInsets;
+- (void)_updateViewSafeAreaInsetsAndEagerlyUpdateContentScrollView:(_Bool)arg1;
 - (void)_primitiveSetNavigationControllerContentOffsetAdjustment:(double)arg1;
 - (void)_initializeNavigationContentInsetAdjustmentForContentScrollViewIfNecessary;
 - (void)_setNavigationControllerGradientMaskInsetAdjustment:(struct UIEdgeInsets)arg1;

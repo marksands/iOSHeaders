@@ -11,6 +11,8 @@
 }
 
 - (void)setSizeLimit:(id)arg1 forNetworkType:(long long)arg2;
+- (void)setShouldAllowDataForWiFiNetworkTypes:(_Bool)arg1;
+- (void)setShouldAllowDataForCellularNetworkTypes:(_Bool)arg1;
 - (void)setShouldAllowData:(_Bool)arg1 forNetworkType:(long long)arg2;
 - (void)setShouldAllowDataForAllNetworkTypes:(_Bool)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

@@ -38,7 +38,9 @@ __attribute__((visibility("hidden")))
 - (void)pageViewController:(id)arg1 willTransitionToViewControllers:(id)arg2;
 - (void)enableTextSelectionHandles;
 - (void)clearTextSelectionHandles;
+- (struct CGPoint)_convertPoint:(struct CGPoint)arg1 fromPDFPageViewController:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromPage:(id)arg2;
+- (struct CGPoint)_convertPoint:(struct CGPoint)arg1 toPDFPageViewController:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toPage:(id)arg2;
 - (id)pageForPoint:(struct CGPoint)arg1 nearest:(_Bool)arg2;
 - (void)forceUpdateActivePageIndex:(unsigned long long)arg1 withMaxDuration:(double)arg2;

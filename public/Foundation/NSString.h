@@ -27,7 +27,9 @@
 + (id)stringWithContentsOfFile:(id)arg1;
 + (id)stringWithFormat:(id)arg1 locale:(id)arg2;
 + (id)stringWithFormat:(id)arg1;
++ (id)stringWithValidatedFormat:(id)arg1 validFormatSpecifiers:(id)arg2 error:(id *)arg3;
 + (id)localizedStringWithFormat:(id)arg1;
++ (id)localizedStringWithValidatedFormat:(id)arg1 validFormatSpecifiers:(id)arg2 error:(id *)arg3;
 + (id)stringWithBytes:(const void *)arg1 length:(unsigned long long)arg2 encoding:(unsigned long long)arg3;
 + (id)stringWithUTF8String:(const char *)arg1;
 + (id)stringWithCString:(const char *)arg1 encoding:(unsigned long long)arg2;
@@ -59,6 +61,7 @@
 - (id)initWithCStringNoCopy:(char *)arg1 length:(unsigned long long)arg2 freeWhenDone:(_Bool)arg3;
 - (id)initWithCharactersNoCopy:(unsigned short *)arg1 length:(unsigned long long)arg2 freeWhenDone:(_Bool)arg3;
 - (id)initWithFormat:(id)arg1 arguments:(struct __va_list_tag [1])arg2;
+- (id)initWithValidatedFormat:(id)arg1 validFormatSpecifiers:(id)arg2 locale:(id)arg3 arguments:(struct __va_list_tag [1])arg4 error:(id *)arg5;
 - (id)initWithFormat:(id)arg1 locale:(id)arg2;
 - (id)initWithFormat:(id)arg1;
 - (id)initWithData:(id)arg1 usedEncoding:(unsigned long long *)arg2;
@@ -258,7 +261,6 @@
 - (id)_getCharactersAsStringInRange:(struct _NSRange)arg1;
 - (id)loadDataWithTypeIdentifier:(id)arg1 forItemProviderCompletionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, copy, nonatomic) NSArray *writableTypeIdentifiersForItemProvider;
-- (id)initWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 - (id)variantFittingPresentationWidth:(long long)arg1;
 - (void)_flushRegularExpressionCaches;
 - (id)_stringByReplacingOccurrencesOfRegularExpressionPattern:(id)arg1 withTemplate:(id)arg2 options:(unsigned long long)arg3 range:(struct _NSRange)arg4;

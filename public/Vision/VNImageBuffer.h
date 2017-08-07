@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class CIImage, NSDictionary, NSURL, VNImageSourceManager;
+@class CIContext, CIImage, NSDictionary, NSURL, VNImageSourceManager;
 
 __attribute__((visibility("hidden")))
 @interface VNImageBuffer : NSObject
@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     struct __CVBuffer *_origPixelBuffer;
     struct __CFArray *_pixelBufferReps;
     CIImage *_origCIImage;
+    CIContext *_passedInCIContext;
     VNImageSourceManager *_imageSourceManager;
     int _orientation;
     unsigned long long _origImageWidth;

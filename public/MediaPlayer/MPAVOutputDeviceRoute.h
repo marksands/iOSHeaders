@@ -22,6 +22,7 @@
 - (_Bool)isDeviceRoute;
 - (_Bool)isB238Route;
 - (_Bool)isAppleTVRoute;
+- (_Bool)canAccessRemoteAssets;
 - (id)description;
 - (void)dealloc;
 - (id)initWithOutputDevice:(void *)arg1;

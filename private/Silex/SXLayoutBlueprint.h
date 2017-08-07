@@ -38,7 +38,7 @@
 @property(retain, nonatomic) NSMutableArray *orderedComponentIdentifiers; // @synthesize orderedComponentIdentifiers=_orderedComponentIdentifiers;
 @property(retain, nonatomic) NSMutableDictionary *flattenedBlueprint; // @synthesize flattenedBlueprint=_flattenedBlueprint;
 @property(retain, nonatomic) NSMutableDictionary *blueprint; // @synthesize blueprint=_blueprint;
-@property(nonatomic) _Bool didPlaceDynamicAds; // @synthesize didPlaceDynamicAds=_didPlaceDynamicAds;
+@property(readonly, nonatomic) _Bool didPlaceDynamicAds; // @synthesize didPlaceDynamicAds=_didPlaceDynamicAds;
 @property(retain, nonatomic) SXLayoutAttributes *layoutAttributes; // @synthesize layoutAttributes=_layoutAttributes;
 @property(nonatomic) struct CGSize blueprintSize; // @synthesize blueprintSize=_blueprintSize;
 @property(readonly, nonatomic) _Bool isComplete; // @synthesize isComplete=_isComplete;

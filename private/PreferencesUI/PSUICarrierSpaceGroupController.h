@@ -26,10 +26,13 @@
 - (void).cxx_destruct;
 - (void)remoteUIController:(id)arg1 willPresentModalNavigationController:(id)arg2;
 - (void)dismissUserConsent;
+- (void)openURLWithSpecifier:(id)arg1;
 - (void)showConsentFlow:(id)arg1;
 - (void)carrierSpaceChanged;
 - (id)descriptionForUsage:(id)arg1;
 - (id)descriptionForPlans:(id)arg1;
+- (void)newCarrierNotification;
+- (id)carrierServicesSpecifier;
 - (id)specifiers;
 - (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2;
 

@@ -34,6 +34,8 @@ __attribute__((visibility("hidden")))
 - (void)performAction:(id)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_canMakeCalls:(CDUnknownBlockType)arg1;
 - (void)_launchMaps;
+- (id)reportAProblemFooterAction;
+- (id)shortPlacecardFooterActions;
 - (id)createFooterActions;
 - (void)_enableStoreAction;
 - (id)createRowActions;

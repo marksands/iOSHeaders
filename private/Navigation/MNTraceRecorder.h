@@ -124,7 +124,7 @@
 - (void)saveTraceSynchronously;
 - (void)cancelTrace;
 - (void)saveTrace;
-- (void)startWritingTraceToFileAtPath:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)startWritingTraceToFileAtPath:(id)arg1 shouldPrepareStatements:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)startWritingTraceToFileAtPath:(id)arg1;
 - (void)startWritingTraceToFile;
 - (void)startWritingTraceToFileWithCompletion:(CDUnknownBlockType)arg1;

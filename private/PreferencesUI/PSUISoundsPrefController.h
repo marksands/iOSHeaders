@@ -14,12 +14,12 @@
 {
     float _volume;
     float _rateLimitedVolume;
-    int _lastPlayedSound;
     _Bool _hasTelephony;
     _Bool _volumeHUDsuppressed;
     double _lastTime;
     PSSpecifier *_voiceMailSpecifier;
     long long _voiceMailSpecifierIndex;
+    _Bool _sliderActive;
 }
 
 + (id)booleanCapabilitiesToTest;

@@ -167,6 +167,7 @@
 - (id)initWithDocument:(id)arg1;
 - (id)initWithData:(id)arg1 andReplicaID:(id)arg2;
 - (id)initWithReplicaID:(id)arg1;
+- (id)filteredAttributedStringForUTI:(id)arg1 range:(struct _NSRange)arg2;
 - (id)copyDataForUTI:(id)arg1 range:(struct _NSRange)arg2 persistenceHelper:(id)arg3;
 - (id)customPasteboardDataFromRange:(struct _NSRange)arg1 persistenceHelper:(id)arg2;
 

@@ -12,6 +12,7 @@
 
 @interface NTKUpNextElementContent : NSObject <NSCopying>
 {
+    _Bool _wantsFullCellPhoto;
     _Bool _useMonospaceFont;
     _Bool _tintColorAffectsHeader;
     _Bool _bodyImageShouldStretch;
@@ -32,6 +33,7 @@
     struct CGRect _imageFocusRect;
 }
 
++ (id)dashedContentTextProvider;
 @property(nonatomic) struct CGRect imageFocusRect; // @synthesize imageFocusRect=_imageFocusRect;
 @property(copy, nonatomic) NTKUpNextAccessoryDescription *descriptionAccessory; // @synthesize descriptionAccessory=_descriptionAccessory;
 @property(nonatomic) unsigned int headerImageEdge; // @synthesize headerImageEdge=_headerImageEdge;
@@ -53,6 +55,8 @@
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (void)setWantsFullCellPhoto:(_Bool)arg1;
+- (_Bool)wantsFullCellPhoto;
 - (id)_descriptionForProvider:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -31,6 +31,7 @@
 - (void)stopLiveListen;
 - (void)startLiveListen;
 - (void)registerListener:(id)arg1 forLiveListenLevelsHandler:(CDUnknownBlockType)arg2;
+- (_Bool)updateReachabilityAndWait:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool hearingAidReachable;
 - (void)cancelHearingAidConnectionRequest;
 - (void)requestHearingAidConnectionWithReason:(long long)arg1;

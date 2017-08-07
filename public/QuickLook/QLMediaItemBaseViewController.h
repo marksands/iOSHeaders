@@ -68,6 +68,7 @@ __attribute__((visibility("hidden")))
 - (void)stop;
 - (void)pause;
 - (void)play;
+- (id)audioSessionCategory;
 @property(readonly, nonatomic) _Bool endOfMediaReached;
 - (struct CGSize)imageSize;
 - (id)toolbarButtonsForTraitCollection:(id)arg1;

@@ -6,25 +6,38 @@
 
 #import <HomeKitDaemon/HMDCloudZone.h>
 
-@class HMDCloudGroup, HMDCloudLegacyHomeDataRecord, HMDCloudLegacyHomeDataVersion3Record, HMDCloudLegacyMetadataRecord;
+@class CKRecordID, NSUUID;
 
 @interface HMDCloudLegacyZone : HMDCloudZone
 {
-    HMDCloudGroup *_rootGroup;
-    HMDCloudLegacyMetadataRecord *_metadataRecord;
-    HMDCloudLegacyHomeDataRecord *_homeDataRecord;
-    HMDCloudLegacyHomeDataVersion3Record *_homeDataRecordVersion3;
+    NSUUID *_metadataObjectID;
+    CKRecordID *_metadataRecordID;
+    NSUUID *_homeDataObjectID;
+    CKRecordID *_homeDataRecordID;
+    NSUUID *_homeDataV3ObjectID;
+    CKRecordID *_homeDataV3RecordID;
 }
 
 + (void)createLegacyZoneWithName:(id)arg1 owner:(id)arg2 cacheZone:(id)arg3 cloudCache:(id)arg4 completion:(CDUnknownBlockType)arg5;
-@property(retain, nonatomic) HMDCloudLegacyHomeDataVersion3Record *homeDataRecordVersion3; // @synthesize homeDataRecordVersion3=_homeDataRecordVersion3;
-@property(retain, nonatomic) HMDCloudLegacyHomeDataRecord *homeDataRecord; // @synthesize homeDataRecord=_homeDataRecord;
-@property(retain, nonatomic) HMDCloudLegacyMetadataRecord *metadataRecord; // @synthesize metadataRecord=_metadataRecord;
-@property(retain, nonatomic) HMDCloudGroup *rootGroup; // @synthesize rootGroup=_rootGroup;
++ (id)zoneSubscriptionName:(id)arg1;
++ (id)zoneRootRecordName;
 - (void).cxx_destruct;
-- (void)flushServerTokenToDisk;
-- (void)setSubscription:(id)arg1;
-- (id)subscriptionName;
+- (void)setServerChangeToken:(id)arg1;
+- (id)createCloudZoneChangeTemporaryCache:(_Bool)arg1;
+- (id)createCloudRecordWithObjectID:(id)arg1 recordName:(id)arg2;
+- (id)homeDataV3ModelWithPushDataPush:(id)arg1;
+- (id)homeDataModelWithPushDataPush:(id)arg1;
+- (id)metadataModelWithPushDataPush:(id)arg1;
+@property(readonly, nonatomic, getter=isHomeDataV3RecordAvailable) _Bool homeDataV3RecordAvailable;
+@property(readonly, nonatomic) CKRecordID *homeDataV3RecordID; // @synthesize homeDataV3RecordID=_homeDataV3RecordID;
+@property(readonly, nonatomic) NSUUID *homeDataV3ObjectID; // @synthesize homeDataV3ObjectID=_homeDataV3ObjectID;
+@property(readonly, nonatomic, getter=isHomeDataRecordAvailable) _Bool homeDataRecordAvailable;
+@property(readonly, nonatomic) CKRecordID *homeDataRecordID; // @synthesize homeDataRecordID=_homeDataRecordID;
+@property(readonly, nonatomic) NSUUID *homeDataObjectID; // @synthesize homeDataObjectID=_homeDataObjectID;
+@property(readonly, nonatomic, getter=isMetadataRecordAvailable) _Bool metadataRecordAvailable;
+@property(readonly, nonatomic) CKRecordID *metadataRecordID; // @synthesize metadataRecordID=_metadataRecordID;
+@property(readonly, nonatomic) NSUUID *metadataObjectID; // @synthesize metadataObjectID=_metadataObjectID;
+- (_Bool)doesProcessChangeEvenIfDecryptionFails;
 
 @end
 

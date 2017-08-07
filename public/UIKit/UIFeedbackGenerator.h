@@ -63,11 +63,11 @@
 - (void)_startFeedbackWarming;
 - (void)_scheduleFeedbackWarming;
 - (void)_activated;
-- (void)_setupEnginesIfNeeded;
-- (void)__activateWithStyle:(long long)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)_setupEnginesIfNeededForFeedback:(id)arg1;
+- (void)__activateWithStyle:(long long)arg1 forFeedback:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_activateWithStyle:(long long)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)activateWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (void)_setup;
+- (void)_setupForFeedback:(id)arg1;
 - (double)_preparationTimeoutForStyle:(long long)arg1;
 - (void)_stopPreparationForAllStyles;
 - (void)_stopPreparationForStyle:(long long)arg1;

@@ -177,9 +177,12 @@
 @property(readonly, nonatomic) NSDictionary *sharedAppLibraryResetThrottleParams;
 @property(readonly, nonatomic) NSDictionary *appLibraryResetThrottleParams;
 @property(readonly, nonatomic) NSDictionary *operationFailureThrottleParams;
+@property(readonly, nonatomic) _Bool skipSyncUpThrottlingOnBatchFailures;
+@property(readonly, nonatomic) _Bool skipPerItemSyncUpThrottling;
 @property(readonly, nonatomic) double appsFetchPacerDelay;
 @property(readonly, nonatomic) double quotaFetchPacerDelay;
 @property(readonly, nonatomic) unsigned long long availableQuotaComfortSize;
+@property(readonly, nonatomic) NSDictionary *perItemSyncUpThrottleParams;
 @property(readonly, nonatomic) NSDictionary *uploadFileModifiedThrottleParams;
 @property(readonly, nonatomic) NSDictionary *uploadThrottleParams;
 @property(readonly, nonatomic) NSDictionary *downloadThrottleParams;

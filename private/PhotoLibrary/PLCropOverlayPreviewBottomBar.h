@@ -22,6 +22,7 @@
 @property(nonatomic) long long backgroundStyle; // @synthesize backgroundStyle=_backgroundStyle;
 - (void)_updateBackgroundStyle;
 - (void)setBackgroundStyle:(long long)arg1 animated:(_Bool)arg2;
+- (void)safeAreaInsetsDidChange;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;

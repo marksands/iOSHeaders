@@ -7,13 +7,14 @@
 #import <Metal/NSObject-Protocol.h>
 
 @class NSString;
-@protocol MTLBuffer, MTLDevice, MTLSamplerState, MTLTexture;
+@protocol MTLArgumentEncoder, MTLBuffer, MTLDevice, MTLSamplerState, MTLTexture;
 
 @protocol MTLArgumentEncoder <NSObject>
 @property(readonly) unsigned long long alignment;
 @property(readonly) unsigned long long encodedLength;
 @property(copy) NSString *label;
 @property(readonly) id <MTLDevice> device;
+- (id <MTLArgumentEncoder>)newArgumentEncoderForBufferAtIndex:(unsigned long long)arg1;
 - (void *)constantDataAtIndex:(unsigned long long)arg1;
 - (void)setSamplerStates:(const id *)arg1 withRange:(struct _NSRange)arg2;
 - (void)setSamplerState:(id <MTLSamplerState>)arg1 atIndex:(unsigned long long)arg2;

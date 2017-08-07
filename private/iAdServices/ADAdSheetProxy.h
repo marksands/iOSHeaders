@@ -33,6 +33,7 @@
 @property(nonatomic) _Bool openApplicationInProgress; // @synthesize openApplicationInProgress=_openApplicationInProgress;
 @property(nonatomic) _Bool waitingForAdSheet; // @synthesize waitingForAdSheet=_waitingForAdSheet;
 @property(readonly, nonatomic) _Bool serviceLaunchThrottled; // @synthesize serviceLaunchThrottled=_serviceLaunchThrottled;
+- (void)dealloc;
 - (void)reportAdSheetInterruption;
 - (void)reportAdSheetUnexpectedTermination;
 - (void)_adSheetAvailable;

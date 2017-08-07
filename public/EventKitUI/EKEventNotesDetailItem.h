@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
     id <EKEventDetailNotesCellDelegate> _noteDelegate;
 }
 
-@property(retain) id <EKEventDetailNotesCellDelegate> noteDelegate; // @synthesize noteDelegate=_noteDelegate;
+@property(nonatomic) __weak id <EKEventDetailNotesCellDelegate> noteDelegate; // @synthesize noteDelegate=_noteDelegate;
 - (void).cxx_destruct;
 - (unsigned long long)maximumNumberOfSubItems;
 - (_Bool)requiresLayoutForSubitemCount;

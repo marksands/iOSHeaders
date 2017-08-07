@@ -60,14 +60,15 @@ struct AVMediaCaptureSource {
     _Bool _field19;
     _Bool _field20;
     _Bool _field21;
-    struct RealtimeMediaSourceSettings _field22;
-    struct RealtimeMediaSourceSupportedConstraints _field23;
-    struct RetainPtr<WebCoreAVMediaCaptureSourceObserver> _field24;
-    struct unique_ptr<WebCore::RealtimeMediaSourceCapabilities, std::__1::default_delete<WebCore::RealtimeMediaSourceCapabilities>> _field25;
-    struct RetainPtr<AVCaptureSession> _field26;
-    struct RetainPtr<AVCaptureDevice> _field27;
-    int _field28;
-    _Bool _field29;
+    _Bool _field22;
+    struct RealtimeMediaSourceSettings _field23;
+    struct RealtimeMediaSourceSupportedConstraints _field24;
+    struct RetainPtr<WebCoreAVMediaCaptureSourceObserver> _field25;
+    struct unique_ptr<WebCore::RealtimeMediaSourceCapabilities, std::__1::default_delete<WebCore::RealtimeMediaSourceCapabilities>> _field26;
+    struct RetainPtr<AVCaptureSession> _field27;
+    struct RetainPtr<AVCaptureDevice> _field28;
+    int _field29;
+    _Bool _field30;
 };
 
 struct AVPlayerItemVideoOutput {
@@ -293,15 +294,16 @@ struct CoreAudioCaptureSourceIOS {
     _Bool _field19;
     _Bool _field20;
     _Bool _field21;
-    unsigned int _field22;
-    struct optional<WebCore::RealtimeMediaSourceCapabilities> _field23;
-    struct optional<WebCore::RealtimeMediaSourceSettings> _field24;
-    int _field25;
+    _Bool _field22;
+    unsigned int _field23;
+    struct optional<WebCore::RealtimeMediaSourceCapabilities> _field24;
+    struct optional<WebCore::RealtimeMediaSourceSettings> _field25;
     int _field26;
-    _Bool _field27;
+    int _field27;
     _Bool _field28;
     _Bool _field29;
-    struct RetainPtr<WebCoreAudioCaptureSourceIOSListener> _field30;
+    _Bool _field30;
+    struct RetainPtr<WebCoreAudioCaptureSourceIOSListener> _field31;
 };
 
 struct CurrentFramePainter {
@@ -515,32 +517,31 @@ struct GraphicsContext3D {
     struct HashMap<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<WebCore::GraphicsContext3D::ShaderSourceEntry>> _field6;
     struct HashMap<unsigned int, WebCore::GraphicsContext3D::ActiveShaderSymbolCounts, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<WebCore::GraphicsContext3D::ActiveShaderSymbolCounts>> _field7;
     struct HashMap<WTF::String, WTF::String, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::String>> _field8;
-    struct ANGLEWebKitBridge _field9;
-    struct unique_ptr<WTF::HashMap<WTF::CString, unsigned long long, WTF::CStringHash, WTF::HashTraits<WTF::CString>, WTF::HashTraits<unsigned long long>>, std::__1::default_delete<WTF::HashMap<WTF::CString, unsigned long long, WTF::CStringHash, WTF::HashTraits<WTF::CString>, WTF::HashTraits<unsigned long long>>>> _field10;
-    struct unique_ptr<WebCore::Extensions3DOpenGL, std::__1::default_delete<WebCore::Extensions3DOpenGL>> _field11;
-    struct GraphicsContext3DAttributes _field12;
+    struct unique_ptr<WTF::HashMap<WTF::CString, unsigned long long, WTF::CStringHash, WTF::HashTraits<WTF::CString>, WTF::HashTraits<unsigned long long>>, std::__1::default_delete<WTF::HashMap<WTF::CString, unsigned long long, WTF::CStringHash, WTF::HashTraits<WTF::CString>, WTF::HashTraits<unsigned long long>>>> _field9;
+    struct unique_ptr<WebCore::Extensions3DOpenGL, std::__1::default_delete<WebCore::Extensions3DOpenGL>> _field10;
+    struct GraphicsContext3DAttributes _field11;
+    int _field12;
     int _field13;
-    int _field14;
-    struct Vector<WTF::Vector<float, 0, WTF::CrashOnOverflow, 16>, 0, WTF::CrashOnOverflow, 16> _field15;
+    struct Vector<WTF::Vector<float, 0, WTF::CrashOnOverflow, 16>, 0, WTF::CrashOnOverflow, 16> _field14;
+    struct ANGLEWebKitBridge _field15;
     unsigned int _field16;
     unsigned int _field17;
     unsigned int _field18;
     unsigned int _field19;
     unsigned int _field20;
-    unsigned int _field21;
-    _Bool _field22;
-    unsigned int _field23;
-    struct GraphicsContext3DState _field24;
+    _Bool _field21;
+    unsigned int _field22;
+    struct GraphicsContext3DState _field23;
+    unsigned int _field24;
     unsigned int _field25;
     unsigned int _field26;
-    unsigned int _field27;
-    struct ListHashSet<unsigned int, WTF::IntHash<unsigned int>> _field28;
-    struct unique_ptr<WebCore::GraphicsContext3DPrivate, std::__1::default_delete<WebCore::GraphicsContext3DPrivate>> _field29;
-    struct WebGLRenderingContextBase *_field30;
+    struct ListHashSet<unsigned int, WTF::IntHash<unsigned int>> _field27;
+    struct unique_ptr<WebCore::GraphicsContext3DPrivate, std::__1::default_delete<WebCore::GraphicsContext3DPrivate>> _field28;
+    struct WebGLRenderingContextBase *_field29;
+    _Bool _field30;
     _Bool _field31;
-    _Bool _field32;
-    unsigned int _field33;
-    _Bool _field34;
+    unsigned int _field32;
+    _Bool _field33;
 };
 
 struct GraphicsContext3DAttributes {
@@ -636,7 +637,7 @@ struct HTMLVideoElement {
     struct MediaTime _field61;
     int _field62;
     struct RefPtr<WebCore::HTMLSourceElement> _field63;
-    struct RefPtr<WebCore::Node> _field64;
+    struct RefPtr<WebCore::HTMLSourceElement> _field64;
     unsigned int _field65;
     _Bool _field66;
     Function_dbb44c37 _field67;
@@ -1924,6 +1925,8 @@ struct Seconds {
     double m_value;
 };
 
+struct SelectionRect;
+
 struct ShBuiltInResources {
     int _field1;
     int _field2;
@@ -2199,6 +2202,12 @@ struct Vector<WebCore::PlatformMediaSession *, 0, WTF::CrashOnOverflow, 16> {
 
 struct Vector<WebCore::RealtimeMediaSourceSettings::VideoFacingMode, 0, WTF::CrashOnOverflow, 16> {
     int *_field1;
+    unsigned int _field2;
+    unsigned int _field3;
+};
+
+struct Vector<WebCore::SelectionRect, 0, WTF::CrashOnOverflow, 16> {
+    struct SelectionRect *_field1;
     unsigned int _field2;
     unsigned int _field3;
 };
@@ -2637,6 +2646,12 @@ typedef struct RefPtr<WebCore::Range> {
 typedef struct RetainPtr<MPVolumeView> {
     void *m_ptr;
 } RetainPtr_20c38587;
+
+typedef struct Vector<WebCore::SelectionRect, 0, WTF::CrashOnOverflow, 16> {
+    struct SelectionRect *_field1;
+    unsigned int _field2;
+    unsigned int _field3;
+} Vector_2a2f4e8a;
 
 #pragma mark Named Unions
 

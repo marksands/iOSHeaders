@@ -10,7 +10,7 @@
 #import <ControlCenterUI/CCUIStatusLabelViewControllerDelegate-Protocol.h>
 #import <ControlCenterUI/UIGestureRecognizerDelegate-Protocol.h>
 
-@class CCUIDismissalGestureRecognizer, CCUIHeaderPocketView, CCUIScrollView, MTMaterialView, NSString, UIPanGestureRecognizer, UITapGestureRecognizer, UIView;
+@class CCUIFlickGestureRecognizer, CCUIHeaderPocketView, CCUIScrollView, MTMaterialView, NSHashTable, NSString, UIPanGestureRecognizer, UITapGestureRecognizer, UIView;
 @protocol CCUIModularControlCenterOverlayViewControllerDelegate;
 
 @interface CCUIModularControlCenterOverlayViewController : CCUIModularControlCenterViewController <UIGestureRecognizerDelegate, CCUIScrollViewDelegate, CCUIStatusLabelViewControllerDelegate>
@@ -21,31 +21,42 @@
     UIView *_containerView;
     UIPanGestureRecognizer *_headerPocketViewDismissalPanGesture;
     UITapGestureRecognizer *_headerPocketViewDismissalTapGesture;
-    CCUIDismissalGestureRecognizer *_collectionViewDismissalPanGesture;
+    CCUIFlickGestureRecognizer *_collectionViewDismissalFlickGesture;
+    UIPanGestureRecognizer *_collectionViewDismissalPanGesture;
     UITapGestureRecognizer *_collectionViewDismissalTapGesture;
     UIPanGestureRecognizer *_collectionViewScrollPanGesture;
+    NSHashTable *_blockingGestureRecognizers;
     struct CGRect _cachedSourcePresentationFrame;
     struct CGRect _cachedTargetPresentationFrame;
     double _dismissalGestureYOffset;
     _Bool _interactiveTransition;
+    double _chevronAlpha;
     unsigned long long _presentationState;
 }
 
 @property(nonatomic) unsigned long long presentationState; // @synthesize presentationState=_presentationState;
 - (void).cxx_destruct;
+- (void)_setupPanGestureFailureRequirements;
 - (void)_updateHotPocketAnimated:(_Bool)arg1;
-- (_Bool)_allowDismissalWithTapGesture:(id)arg1;
-- (void)_handleControlCenterDismissalTapGesture:(id)arg1;
+- (_Bool)_scrollViewCanAcceptDownwardsPan;
+- (_Bool)_scrollViewIsScrollable;
+- (_Bool)_scrollPanGestureRecognizerCanBeginForGestureVelocity:(struct CGPoint)arg1;
+- (_Bool)_scrollPanGestureRecognizerShouldBegin:(id)arg1;
 - (double)_dismissalGestureActivationMinimumYOffset;
-- (void)_cancelDismissalWithPanGesture:(id)arg1;
-- (void)_endDismissalWithPanGesture:(id)arg1;
-- (void)_updateDismissalWithPanGesture:(id)arg1;
-- (void)_beginDismissalWithPanGesture:(id)arg1;
-- (_Bool)_allowDismissalWithCollectionPanGesture:(id)arg1;
-- (_Bool)_allowDismissalWithPanGesture:(id)arg1;
-- (void)_handleControlCenterDismissalPanGesture:(id)arg1;
+- (void)_dismissalPanGestureRecognizerFailed:(id)arg1;
+- (void)_dismissalPanGestureRecognizerCancelled:(id)arg1;
+- (void)_dismissalPanGestureRecognizerEnded:(id)arg1;
+- (void)_dismissalPanGestureRecognizerChanged:(id)arg1;
+- (void)_dismissalPanGestureRecognizerBegan:(id)arg1;
+- (void)_handleDismissalPanGestureRecognizer:(id)arg1;
+- (_Bool)_dismissalPanGestureRecognizerShouldBegin:(id)arg1;
 - (void)_cancelDismissalPanGestures;
-- (_Bool)_allowScrollWithPanGesture:(id)arg1;
+- (void)_handleDismissalFlickGestureRecognizer:(id)arg1;
+- (_Bool)_dismissalFlickGestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (_Bool)_dismissalFlickGestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
+- (_Bool)_dismissalFlickGestureRecognizerShouldBegin:(id)arg1;
+- (void)_handleDismissalTapGestureRecognizer:(id)arg1;
+- (_Bool)_dismissalTapGestureRecognizerShouldBegin:(id)arg1;
 - (double)_presentationGestureActivationMinimumYOffset;
 - (void)cancelPresentationWithLocation:(struct CGPoint)arg1 velocity:(struct CGPoint)arg2;
 - (void)endPresentationWithLocation:(struct CGPoint)arg1 velocity:(struct CGPoint)arg2;
@@ -54,11 +65,14 @@
 - (void)moduleInstancesChangedForModuleInstanceManager:(id)arg1;
 - (void)statusLabelViewControllerDidFinishStatusUpdates:(id)arg1;
 - (void)statusLabelViewControllerWillBeginStatusUpdates:(id)arg1;
+- (void)moduleCollectionViewController:(id)arg1 didAddModuleContainerViewController:(id)arg2;
 - (void)moduleCollectionViewController:(id)arg1 willCloseExpandedModule:(id)arg2;
 - (void)moduleCollectionViewController:(id)arg1 willOpenExpandedModule:(id)arg2;
 - (_Bool)moduleCollectionViewController:(id)arg1 shouldForwardAppearanceCall:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)scrollViewDidScroll:(id)arg1;
 - (_Bool)scrollView:(id)arg1 gestureRecognizerShouldBegin:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (unsigned long long)__supportedInterfaceOrientations;
 - (unsigned long long)supportedInterfaceOrientations;
@@ -71,12 +85,12 @@
 - (id)_moduleCollectionViewContainerView;
 - (struct CGRect)_statusLabelViewFrame;
 - (id)_statusLabelViewContainerView;
+- (void)_reparentAndBecomeActive;
 - (void)_makePresentationFramesDirty;
 - (struct CGRect)_targetPresentationFrame;
 - (struct CGRect)_sourcePresentationFrame;
 - (void)_setPocketViewOriginFromCollectionOriginY:(double)arg1;
 - (void)_setCollectionViewOrigin:(struct CGPoint)arg1;
-- (double)_rubberBandingHeight;
 - (void)_updatePresentationForRevealPercentage:(double)arg1;
 - (void)_updatePresentationForLocationY:(double)arg1;
 - (void)_endDismissalAnimated:(_Bool)arg1 withSuccess:(_Bool)arg2;

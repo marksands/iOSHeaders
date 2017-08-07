@@ -21,7 +21,9 @@
 @property(copy, nonatomic) NSString *shelfType;
 @property(copy, nonatomic) NSDate *releaseDate;
 @property(copy, nonatomic) NSString *network;
+@property(nonatomic) _Bool isEvod;
 @property(retain, nonatomic) SAUIImageResource *image;
+@property(retain, nonatomic) SAUIImageResource *evodFeaturingImage;
 @property(copy, nonatomic) NSString *contentType;
 @property(copy, nonatomic) NSString *canonicalId;
 - (id)encodedClassName;

@@ -83,6 +83,7 @@
     struct CGSize _beforeFreezingFrameSize;
     _Bool _unfreezingTextContainerSize;
     _Bool _animatingPaste;
+    struct CGRect _frameOfTrailingWhitespace;
     id <UITextDragDropSupport> _textDragDropSupport;
     _UITextViewContentPadding *_topContentPadding;
     _UITextViewContentPadding *_bottomContentPadding;
@@ -120,7 +121,7 @@
 - (_Bool)allowsDraggingAttachments;
 - (void)resignDropResponderWithDropPerformed:(_Bool)arg1;
 - (void)becomeDropResponder;
-- (void)draggingFinished;
+- (void)draggingFinished:(id)arg1;
 - (void)draggingStarted;
 @property(readonly, nonatomic, getter=isTextDropActive) _Bool textDropActive;
 @property(readonly, nonatomic, getter=isTextDragActive) _Bool textDragActive;
@@ -282,6 +283,7 @@
 - (void)replaceRange:(id)arg1 withText:(id)arg2;
 - (id)textInRange:(id)arg1;
 - (id)selectedText;
+- (struct CGPoint)_contentOffsetForScrollingToRect:(struct CGRect)arg1;
 - (void)scrollSelectionToVisible:(_Bool)arg1;
 - (void)scrollRangeToVisible:(struct _NSRange)arg1;
 - (void)_scrollRangeToVisible:(struct _NSRange)arg1 animated:(_Bool)arg2;
@@ -295,6 +297,7 @@
 - (struct CGPoint)_lastGlyphBaselineRightPointWithLayoutManager:(id)arg1;
 - (struct CGPoint)_firstGlyphBaselineLeftPointWithLayoutManager:(id)arg1;
 - (void)_streamingManagerDidCommitFinalResults;
+- (void)_ensureCleanedUp;
 - (void)_didFinishSpeechRecognition;
 - (void)_didRecognizeSpeechStrings:(id)arg1;
 - (void)_didRecognizeSpeechTokens:(id)arg1;
@@ -374,6 +377,7 @@
 - (double)_preferredMaxLayoutWidth;
 - (void)_setPreferredMaxLayoutWidth:(double)arg1;
 - (void)_resetUsesExplicitPreferredMaxLayoutWidth;
+- (struct CGRect)_frameOfTrailingWhitespace;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)_setFrameOrBounds:(struct CGRect)arg1 fromOldRect:(struct CGRect)arg2 settingAction:(CDUnknownBlockType)arg3;

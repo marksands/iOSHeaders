@@ -311,7 +311,6 @@
 - (double)balloonMaskTailWidth;
 @property(readonly, nonatomic) long long maxNumExtensionRemoteViewControllers;
 @property(readonly, nonatomic) _Bool showsBalloonBadges;
-@property(readonly, nonatomic) _Bool modifiesSingleLineBalloonLayout;
 @property(readonly, nonatomic) _Bool opensLocationsInMapsApp;
 @property(readonly, nonatomic) _Bool showsPlaceCardForBalloonViewTitleTap;
 @property(readonly, nonatomic) _Bool handlesBalloonViewTitleTapsSeparately;

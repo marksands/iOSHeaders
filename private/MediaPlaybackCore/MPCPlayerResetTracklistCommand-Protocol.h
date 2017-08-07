@@ -10,6 +10,7 @@
 
 @protocol MPCPlayerResetTracklistCommand <MPCPlayerCommand>
 @property(readonly, nonatomic) NSArray *specializedIntents;
+- (MPCPlayerCommandRequest *)replaceWithPlaybackIntent:(MPCPlaybackIntent *)arg1 replaceIntent:(long long)arg2;
 - (MPCPlayerCommandRequest *)replaceWithPlaybackIntent:(MPCPlaybackIntent *)arg1;
 - (MPCPlayerCommandRequest *)clear;
 @end

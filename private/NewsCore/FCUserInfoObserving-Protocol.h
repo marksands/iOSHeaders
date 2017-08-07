@@ -11,7 +11,7 @@
 @protocol FCUserInfoObserving <NSObject>
 
 @optional
-- (void)userInfo:(FCUserInfo *)arg1 didRemoveAccessTokenForTagID:(NSString *)arg2;
+- (void)userInfo:(FCUserInfo *)arg1 didRemoveAccessTokenForTagID:(NSString *)arg2 userInitiated:(_Bool)arg3;
 - (void)userInfo:(FCUserInfo *)arg1 didChangeAccessTokenForTagID:(NSString *)arg2;
 - (void)userInfoDidChangeDateLastViewedSaved:(FCUserInfo *)arg1 fromCloud:(_Bool)arg2;
 - (void)userInfoDidChangeNotificationsUserID:(FCUserInfo *)arg1;

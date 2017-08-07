@@ -67,6 +67,7 @@
 - (struct CGImage *)newFlattenedImageFromShapeCGImage:(struct CGImage *)arg1 withScale:(double)arg2 ciContext:(id)arg3;
 - (struct CGImage *)newFlattenedImageFromShapeCGImage:(struct CGImage *)arg1 withScale:(double)arg2 cache:(_Bool)arg3;
 - (struct CGImage *)newFlattenedImageFromShapeCGImage:(struct CGImage *)arg1 withScale:(double)arg2;
+- (id)processedImageFromShapeImage:(id)arg1 withScale:(double)arg2 invertShadows:(_Bool)arg3;
 - (id)processedImageFromShapeImage:(id)arg1 withScale:(double)arg2;
 - (id)processedImageFromShapeImage:(id)arg1;
 - (CDStruct_3c058996)effectInsetsWithScale:(double)arg1;

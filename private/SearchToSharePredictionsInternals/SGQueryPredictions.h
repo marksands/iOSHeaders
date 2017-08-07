@@ -27,6 +27,7 @@
 }
 
 + (id)sharedInstanceWithDirectory:(id)arg1;
++ (id)sharedInstanceWithDirectory:(id)arg1 errorHandler:(id)arg2;
 @property unsigned long long currentAssetVersion; // @synthesize currentAssetVersion=_currentAssetVersion;
 @property(retain) SGQPLanguageContext *primaryLanguageContext; // @synthesize primaryLanguageContext=_primaryLanguageContext;
 @property(retain) SGQPLanguageContext *noLanguageContext; // @synthesize noLanguageContext=_noLanguageContext;

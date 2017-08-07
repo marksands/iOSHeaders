@@ -31,7 +31,9 @@
 - (_Bool)runTestsAndReturnError:(id *)arg1;
 - (id)_readyIDESession:(id *)arg1;
 - (id)_transportForIDESession:(id *)arg1;
+- (void)_queue_flushDebugMessageBufferWithBlock:(CDUnknownBlockType)arg1;
 - (void)logDebugMessage:(id)arg1;
+- (void)printBufferedDebugMessages;
 - (void)logStartupInfo;
 - (id)initWithTestConfiguration:(id)arg1;
 - (void)dealloc;

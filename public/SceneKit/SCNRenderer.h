@@ -61,6 +61,7 @@
     unsigned int _delegateSupportsDidApplyConstraints:1;
     unsigned int _delegateSupportsWillRender:1;
     unsigned int _delegateSupportsDidRender:1;
+    unsigned int _delegateSupportsInputTime:1;
     unsigned int _privateRendererShouldForwardSceneRendererDelegationMessagesToOwner:1;
     unsigned int _privateRendererOwnerSupportsUpdate:1;
     unsigned int _privateRendererOwnerSupportsDidApplyAnimations:1;

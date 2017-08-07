@@ -89,8 +89,8 @@
 - (void)avatarCardControllerDidDismiss:(id)arg1;
 - (void)avatarCardControllerWillDismiss:(id)arg1;
 - (_Bool)avatarCardController:(id)arg1 shouldShowContact:(id)arg2;
-- (void)avatarCardController:(id)arg1 willShowActions:(id)arg2;
 - (id)avatarCardController:(id)arg1 orderedPropertiesForProperties:(id)arg2 category:(id)arg3;
+- (void)avatarCardControllerWillBeginPreviewInteraction:(id)arg1;
 - (long long)avatarCardController:(id)arg1 presentationResultForLocation:(struct CGPoint)arg2;
 - (id)presentingViewControllerForAvatarCardController:(id)arg1;
 @property(nonatomic) _Bool bypassActionValidation;

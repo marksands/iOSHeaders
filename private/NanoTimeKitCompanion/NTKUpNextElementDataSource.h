@@ -12,6 +12,7 @@
 @interface NTKUpNextElementDataSource : NSObject
 {
     _Bool _running;
+    _Bool _unlockedSinceBoot;
     id <NTKUpNextElementDataSourceDelegate> _delegate;
     unsigned long long _state;
     NSString *_logHeader;
@@ -20,11 +21,13 @@
 + (id)sampleContentElements;
 + (_Bool)wantsReloadForFirstDeviceUnlock;
 + (_Bool)wantsReloadForSignificantTimeChange;
++ (_Bool)wantsLocationInUseAsserton;
 + (_Bool)wantsAppPrewarm;
 + (id)overrideLocalizedDataSourceName;
 + (id)overrideDataSourceImage;
 + (id)bundleIdentifier;
 + (id)dataSourceClasses;
+@property(readonly, nonatomic, getter=hasUnlockedSinceBoot) _Bool unlockedSinceBoot; // @synthesize unlockedSinceBoot=_unlockedSinceBoot;
 @property(readonly, nonatomic) NSString *logHeader; // @synthesize logHeader=_logHeader;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(readonly, nonatomic, getter=isRunning) _Bool running; // @synthesize running=_running;
@@ -32,6 +35,7 @@
 - (void).cxx_destruct;
 - (void)loadLoggingHeader;
 - (id)complicationDescriptor;
+- (void)setUnlockedSinceBoot:(_Bool)arg1;
 - (void)setRunning:(_Bool)arg1;
 - (void)elementWithIdentifierDidBecomeHidden:(id)arg1;
 - (void)elementWithIdentifierWillBecomeVisible:(id)arg1;

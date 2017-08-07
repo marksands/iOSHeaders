@@ -25,6 +25,7 @@
     float _vitalityEaseMinRate;
     double _photoTransitionAdjustment;
     double _minimumPhotoTransitionDuration;
+    double _minimumColorAdjustedPhotoTransitionDuration;
     double _vitalityEaseDuration;
     long long _startBehavior;
     double _forceTouchTimeoutInterval;
@@ -66,6 +67,7 @@
 @property(nonatomic) float vitalityEaseMinRate; // @synthesize vitalityEaseMinRate=_vitalityEaseMinRate;
 @property(nonatomic) double vitalityEaseDuration; // @synthesize vitalityEaseDuration=_vitalityEaseDuration;
 @property(nonatomic) _Bool easingEnabled; // @synthesize easingEnabled=_easingEnabled;
+@property(nonatomic) double minimumColorAdjustedPhotoTransitionDuration; // @synthesize minimumColorAdjustedPhotoTransitionDuration=_minimumColorAdjustedPhotoTransitionDuration;
 @property(nonatomic) double minimumPhotoTransitionDuration; // @synthesize minimumPhotoTransitionDuration=_minimumPhotoTransitionDuration;
 @property(nonatomic) double photoTransitionAdjustment; // @synthesize photoTransitionAdjustment=_photoTransitionAdjustment;
 - (void)setDefaultValues;

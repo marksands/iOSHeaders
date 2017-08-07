@@ -41,6 +41,7 @@
 }
 
 + (Class)contentItemIdentifiersType;
++ (void)initialize;
 @property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath; // @synthesize playerPath=_playerPath;
 @property(nonatomic) _Bool returnContentItemAssetsInUserCompletion; // @synthesize returnContentItemAssetsInUserCompletion=_returnContentItemAssetsInUserCompletion;
 @property(retain, nonatomic) NSMutableArray *contentItemIdentifiers; // @synthesize contentItemIdentifiers=_contentItemIdentifiers;
@@ -82,6 +83,8 @@
 @property(nonatomic) _Bool hasLength;
 @property(nonatomic) _Bool hasLocation;
 - (void)dealloc;
+- (id)customDescription;
+- (id)customDictionaryRepresentation;
 
 @end
 

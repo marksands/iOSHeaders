@@ -14,7 +14,7 @@
 #import <AnnotationKit/PKInlineInkPickerDelegate-Protocol.h>
 #import <AnnotationKit/UIPopoverPresentationControllerDelegate-Protocol.h>
 
-@class AKAttributePickerViewController, AKController, AKSignaturesViewController_iOS, AKTextAttributesViewController, AKToolbarBackgroundView, AKToolsListViewController, NSLayoutConstraint, NSString, PKInlineColorPicker, PKInlineInkPicker, UIAlertController, UIBarButtonItem, UIToolbar;
+@class AKAttributePickerViewController, AKController, AKSignatureCreationViewController_iOS, AKSignaturesViewController_iOS, AKTextAttributesViewController, AKToolbarBackgroundView, AKToolsListViewController, NSLayoutConstraint, NSString, PKInlineColorPicker, PKInlineInkPicker, UIAlertController, UIBarButtonItem, UIToolbar;
 
 @interface AKToolbarView : UIView <PKInlineInkPickerDelegate, PKInlineColorPickerDelegate, AKToolsListViewControllerDelegate, AKAttributePickerViewControllerDelegate, AKSignaturesViewControllerDelegate, AKSignatureCreationControllerDelegate, UIPopoverPresentationControllerDelegate>
 {
@@ -40,6 +40,7 @@
     UIAlertController *_undoAlertController;
     AKTextAttributesViewController *_textAttributesViewController;
     AKSignaturesViewController_iOS *_signaturesSheetViewController;
+    AKSignatureCreationViewController_iOS *_signaturesCreationController;
     AKToolsListViewController *_toolsListViewController;
     AKAttributePickerViewController *_attributePickerViewController;
     _Bool _showAttributePicker;
@@ -76,6 +77,8 @@
 - (void)signaturesViewControllerContinueToManageSignatures:(id)arg1;
 - (void)signaturesViewControllerDidSelectSignature:(id)arg1;
 - (void)signaturesViewControllerDidCancel:(id)arg1;
+- (void)popoverPresentationController:(id)arg1 willRepositionPopoverToRect:(inout struct CGRect *)arg2 inView:(inout id *)arg3;
+- (long long)adaptivePresentationStyleForPresentationController:(id)arg1 traitCollection:(id)arg2;
 - (_Bool)popoverPresentationControllerShouldDismissPopover:(id)arg1;
 - (void)_setPopoverPresentationSource:(id)arg1 fromSender:(id)arg2;
 - (void)_showUndoAlertPopover:(id)arg1;

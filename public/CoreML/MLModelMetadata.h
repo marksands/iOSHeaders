@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSString;
+@class NSDictionary, NSString;
 
 @interface MLModelMetadata : NSObject
 {
@@ -15,8 +15,10 @@
     NSString *_versionString;
     NSString *_author;
     NSString *_license;
+    NSDictionary *_creatorDefined;
 }
 
+@property(readonly) NSDictionary *creatorDefined; // @synthesize creatorDefined=_creatorDefined;
 @property(readonly) NSString *license; // @synthesize license=_license;
 @property(readonly) NSString *author; // @synthesize author=_author;
 @property(readonly) NSString *versionString; // @synthesize versionString=_versionString;
@@ -24,7 +26,7 @@
 @property(readonly) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (id)debugDescription;
-- (id)initWithName:(id)arg1 shortDescription:(id)arg2 versionString:(id)arg3 author:(id)arg4 license:(id)arg5;
+- (id)initWithName:(id)arg1 shortDescription:(id)arg2 versionString:(id)arg3 author:(id)arg4 license:(id)arg5 creatorDefined:(id)arg6;
 - (id)initWithName:(id)arg1;
 - (id)initWithMetadataFormat:(struct _MLModelMetadataSpecification *)arg1 error:(id *)arg2;
 - (id)initWithSpecification:(struct _MLModelSpecification *)arg1 error:(id *)arg2;

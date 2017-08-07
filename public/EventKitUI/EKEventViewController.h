@@ -14,7 +14,7 @@
 #import <EventKitUI/UITableViewDataSource-Protocol.h>
 #import <EventKitUI/UITableViewDelegate-Protocol.h>
 
-@class EKCustomTitleView, EKEvent, EKEventDetailItem, EKEventEditViewController, EKEventTitleDetailItem, EKUIEventStatusButtonsView, EKUIRecurrenceAlertController, NSArray, NSDictionary, NSString, SingleToolbarItemContainerView, UIScrollView, UITableView, UIView, _UIAccessDeniedView;
+@class EKCustomTitleView, EKEvent, EKEventDetailItem, EKEventEditViewController, EKEventTitleDetailItem, EKUIEventStatusButtonsView, EKUIRecurrenceAlertController, NSArray, NSDictionary, NSMutableDictionary, NSString, SingleToolbarItemContainerView, UIScrollView, UITableView, UIView, _UIAccessDeniedView;
 @protocol EKEventViewDelegate;
 
 @interface EKEventViewController : UIViewController <EKEventTitleDetailItemDelegate, EKUIEventStatusButtonsViewDelegate, EKEventDetailNotesCellDelegate, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
@@ -57,6 +57,7 @@
     UIView *_blankFooterView;
     _Bool _showingBlankFooterView;
     UIViewController *_confirmationAlertPresentationSourceViewController;
+    NSMutableDictionary *_cellHeights;
     _Bool _allowsEditing;
     _Bool _viewIsVisible;
     _Bool _ICSPreview;
@@ -116,12 +117,16 @@
 - (unsigned long long)_sectionForDetailItem:(id)arg1;
 - (id)getCurrentContext;
 - (_Bool)allowContextProvider:(id)arg1;
+- (void)_clearCustomTitle;
+- (void)updateTitleWithScrollView:(id)arg1 animation:(_Bool)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didUnhighlightRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didHighlightRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)viewDidLayoutSubviews;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
@@ -154,7 +159,6 @@
 - (void)eventDetailItemWantsRefeshForHeightChange;
 - (void)_presentDetachSheet;
 @property(nonatomic) __weak UIViewController *confirmationAlertPresentationSourceViewController;
-- (_Bool)_usingiPadPopover;
 - (void)viewLayoutMarginsDidChange;
 - (struct CGSize)preferredContentSize;
 - (void)_performDelete:(long long)arg1;
@@ -211,6 +215,7 @@
 - (void)_updateTableContentInsetForKeyboard:(id)arg1;
 - (void)_updateTableContentForSizeCategoryChange:(id)arg1;
 - (void)didMoveToParentViewController:(id)arg1;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (_Bool)_navigationBarShouldBeHidden;

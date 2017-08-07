@@ -150,7 +150,7 @@
 @property(nonatomic) long long minificationFilter;
 - (struct C3DColor4)borderColor4;
 - (struct C3DColor4)color4;
-- (struct __C3DImage *)getC3DImageRef;
+- (void *)getC3DImageRef;
 - (void)_setupContentsFromC3DImage;
 - (void)_setC3DImageRef:(struct __C3DImage *)arg1;
 - (id)floatValue;

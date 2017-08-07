@@ -102,7 +102,7 @@
 - (id)nextPage;
 - (id)akOverlayAdaptor;
 - (id)renderingProperties;
-- (void)updateAnnotations;
+- (void)_updateAnnotations;
 - (void)hintScrollDirectionHorizontal:(unsigned long long)arg1 andVertical:(unsigned long long)arg2;
 - (void)documentWasUnlocked;
 - (void)animateTransitionFromPage:(id)arg1 toPage:(id)arg2;

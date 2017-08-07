@@ -59,6 +59,7 @@
     CNContactListViewController *_searchResultsController;
 }
 
++ (id)emptyContact;
 @property(nonatomic) _Bool shouldAllowDrops; // @synthesize shouldAllowDrops=_shouldAllowDrops;
 @property(nonatomic) _Bool shouldAllowDrags; // @synthesize shouldAllowDrags=_shouldAllowDrags;
 @property(nonatomic) _Bool shouldDisplayGroupsGrid; // @synthesize shouldDisplayGroupsGrid=_shouldDisplayGroupsGrid;
@@ -133,6 +134,7 @@
 - (_Bool)updateFrameAndDisplayNoContactsViewIfNeeded;
 - (_Bool)hasNoContacts;
 @property(readonly, nonatomic) _UIContentUnavailableView *noContactsView; // @synthesize noContactsView=_noContactsView;
+- (void)avatarCardControllerWillBeginPreviewInteraction:(id)arg1;
 - (long long)avatarCardController:(id)arg1 presentationResultForLocation:(struct CGPoint)arg2;
 - (id)presentingViewControllerForAvatarCardController:(id)arg1;
 - (void)didDismissSearchController:(id)arg1;
@@ -162,6 +164,7 @@
 - (void)viewDidLoad;
 - (void)_updateTableViewRowHeight;
 - (void)loadView;
+- (id)createTableView;
 @property(retain, nonatomic) NSObject<CNContactDataSource> *dataSource; // @synthesize dataSource=_dataSource;
 - (_Bool)isHandlingSearch;
 - (_Bool)canBecomeFirstResponder;

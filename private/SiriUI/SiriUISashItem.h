@@ -10,8 +10,8 @@
 
 @interface SiriUISashItem : NSObject
 {
-    _Bool _hidden;
     _Bool _canPunchout;
+    _Bool _hidden;
     _Bool _isDefault;
     NSString *_title;
     UIImage *_image;
@@ -21,10 +21,11 @@
     NSArray *_commands;
 }
 
++ (void)_setLanguageCode:(id)arg1;
++ (id)_languageCode;
 + (id)defaultSashItem;
 @property(nonatomic, setter=_setDefault:) _Bool isDefault; // @synthesize isDefault=_isDefault;
 @property(copy, nonatomic) NSArray *commands; // @synthesize commands=_commands;
-@property(nonatomic) _Bool canPunchout; // @synthesize canPunchout=_canPunchout;
 @property(readonly, copy, nonatomic) NSString *applicationBundleIdentifier; // @synthesize applicationBundleIdentifier=_applicationBundleIdentifier;
 @property(nonatomic, getter=isHidden) _Bool hidden; // @synthesize hidden=_hidden;
 @property(retain, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
@@ -32,6 +33,7 @@
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool canPunchout; // @synthesize canPunchout=_canPunchout;
 - (_Bool)isEqual:(id)arg1;
 - (id)init;
 - (id)initWithExtension:(id)arg1;

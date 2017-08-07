@@ -6,9 +6,11 @@
 
 #import <CameraUI/CAMExpandableMenuButton.h>
 
-@class UIImageView;
+#import <CameraUI/CAMAccessibilityHUDImageProvider-Protocol.h>
 
-@interface CAMFlashButton : CAMExpandableMenuButton
+@class NSString, UIImageView;
+
+@interface CAMFlashButton : CAMExpandableMenuButton <CAMAccessibilityHUDImageProvider>
 {
     _Bool _allowsAutomaticFlash;
     _Bool _unavailable;
@@ -23,6 +25,7 @@
 @property(nonatomic, getter=isUnavailable) _Bool unavailable; // @synthesize unavailable=_unavailable;
 @property(nonatomic) _Bool allowsAutomaticFlash; // @synthesize allowsAutomaticFlash=_allowsAutomaticFlash;
 - (void).cxx_destruct;
+- (id)imageForAccessibilityHUD;
 - (double)collapsedSelectedLabelHorizontalMargin;
 - (_Bool)shouldIgnoreMenuInteraction;
 - (_Bool)wantsSelectedItemToBeVisible;
@@ -30,7 +33,7 @@
 - (double)padHeaderViewContentInsetLeft;
 - (void)prepareHeaderViewForExpanding:(_Bool)arg1;
 - (void)_updateCurrentGlyphImage;
-- (id)_currentGlyphImage;
+- (id)_currentGlyphImageForAccessibilityHUD:(_Bool)arg1;
 - (id)headerView;
 - (id)titleForMenuItemAtIndex:(long long)arg1;
 - (long long)numberOfMenuItems;
@@ -40,6 +43,12 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithLayoutStyle:(long long)arg1;
 - (void)_commonCAMFlashButtonInitialization;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

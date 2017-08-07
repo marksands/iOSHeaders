@@ -24,6 +24,7 @@
 - (void)_updateDeleteButton;
 - (void)_deleteButtonClicked:(id)arg1 withEvent:(id)arg2;
 - (void)buttonUp:(id)arg1;
+- (Class)numberPadButtonClass;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithButtons:(id)arg1;
 

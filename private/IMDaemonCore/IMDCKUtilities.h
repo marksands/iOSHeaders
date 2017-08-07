@@ -14,6 +14,9 @@
 + (id)sharedInstance;
 + (id)im_AKSecurityLevelKey;
 @property(nonatomic) _Bool useDeprecatedApi; // @synthesize useDeprecatedApi=_useDeprecatedApi;
+- (void)logDumpAndSendMessageTo:(id)arg1 forHours:(int)arg2;
+- (_Bool)_isLogDumpingEnabled;
+- (_Bool)errorIndicatesIdentityWasLost:(id)arg1;
 - (id)lastDeviceBackUpDate;
 - (id)newfilteredArrayRemovingCKRecordIDDupes:(id)arg1;
 - (id)newfilteredArrayRemovingCKRecordDupes:(id)arg1;
@@ -22,6 +25,7 @@
 - (id)_personIdFromAccount:(id)arg1;
 - (void)fetchiCloudAccountPersonID:(CDUnknownBlockType)arg1;
 - (void)_fetchPrimaryAccountWithCompletion:(CDUnknownBlockType)arg1;
+- (void)setiCloudSettingsSwitchEnabled:(_Bool)arg1;
 - (id)_accountStore;
 - (_Bool)errorIndicatesZoneNotCreated:(id)arg1;
 - (id)extractRecordIDsDeletedFromCKPartialError:(id)arg1;

@@ -24,13 +24,13 @@
     id <_SFQuickLookDocumentSource> _documentSource;
 }
 
+@property(copy, nonatomic) NSString *fileName; // @synthesize fileName=_fileName;
 @property(copy, nonatomic) NSString *savedPathWithProperExtension; // @synthesize savedPathWithProperExtension=_savedPathWithProperExtension;
 @property(retain, nonatomic) LSDocumentProxy *documentProxy; // @synthesize documentProxy=_documentProxy;
 @property(nonatomic) __weak id <_SFQuickLookDocumentSource> documentSource; // @synthesize documentSource=_documentSource;
 @property(retain, nonatomic) NSURL *sourceURL; // @synthesize sourceURL=_sourceURL;
 @property(copy, nonatomic) NSString *uti; // @synthesize uti=_uti;
 @property(copy, nonatomic) NSString *mimeType; // @synthesize mimeType=_mimeType;
-@property(copy, nonatomic) NSString *fileName; // @synthesize fileName=_fileName;
 @property(copy, nonatomic) NSString *savedPath; // @synthesize savedPath=_savedPath;
 @property(readonly, nonatomic) _Bool needsQuickLookDocumentView; // @synthesize needsQuickLookDocumentView=_needsQuickLookDocumentView;
 - (void).cxx_destruct;
@@ -44,6 +44,7 @@
 @property(readonly, copy, nonatomic) NSString *inferredUTI;
 - (void)_deleteSavedPathWithProperExtensionIfNecessary;
 - (void)_deleteSavedPathIfNecessary;
+- (void)setFileNameForPDFDocument:(id)arg1;
 - (void)dealloc;
 - (id)initWithFileName:(id)arg1 mimeType:(id)arg2 uti:(id)arg3 needsQuickLookDocumentView:(_Bool)arg4;
 

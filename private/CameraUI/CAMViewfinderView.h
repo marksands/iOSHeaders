@@ -9,7 +9,7 @@
 #import <CameraUI/CAMBadgeViewDelegate-Protocol.h>
 #import <CameraUI/CAMInstructionLabelDelegate-Protocol.h>
 
-@class CAMBottomBar, CAMBurstIndicatorView, CAMDisabledModeOverlayView, CAMElapsedTimeView, CAMFilterNameBadge, CAMFlashBadge, CAMFlipButton, CAMFocusLockBadge, CAMFramerateIndicatorView, CAMHDRBadge, CAMLivePhotoBadge, CAMPanoramaView, CAMPortraitModeInstructionLabel, CAMPreviewContainerMaskingView, CAMPreviewContainerView, CAMPreviewView, CAMShallowDepthOfFieldBadge, CAMShutterIndicatorView, CAMTimerIndicatorView, CAMTopBar, CAMViewfinderFlipTransition, CAMViewfinderOpenAndCloseTransition, CAMZoomControl, CAMZoomSlider, CUShutterButton, NSArray, NSString;
+@class CAMBottomBar, CAMBurstIndicatorView, CAMDisabledModeOverlayView, CAMElapsedTimeView, CAMFilterNameBadge, CAMFlashBadge, CAMFlipButton, CAMFocusLockBadge, CAMFramerateIndicatorView, CAMHDRBadge, CAMLivePhotoBadge, CAMPanoramaView, CAMPortraitModeDescriptionOverlayView, CAMPortraitModeInstructionLabel, CAMPreviewContainerMaskingView, CAMPreviewContainerView, CAMPreviewView, CAMShallowDepthOfFieldBadge, CAMShutterIndicatorView, CAMTimerIndicatorView, CAMTopBar, CAMViewfinderFlipTransition, CAMViewfinderOpenAndCloseTransition, CAMZoomControl, CAMZoomSlider, CUShutterButton, NSArray, NSString;
 @protocol CAMControlVisibilityDelegate;
 
 @interface CAMViewfinderView : UIView <CAMBadgeViewDelegate, CAMInstructionLabelDelegate>
@@ -29,6 +29,7 @@
     CAMLivePhotoBadge *_livePhotoBadge;
     CAMShallowDepthOfFieldBadge *_shallowDepthOfFieldBadge;
     CAMPortraitModeInstructionLabel *_portraitModeInstructionLabel;
+    CAMPortraitModeDescriptionOverlayView *_portraitModeDescriptionOverlayView;
     CAMFilterNameBadge *_filterNameBadge;
     CAMShutterIndicatorView *_shutterIndicatorView;
     CAMElapsedTimeView *_elapsedTimeView;
@@ -47,9 +48,13 @@
     CAMPreviewContainerView *__previewContainerView;
     CAMViewfinderOpenAndCloseTransition *__openAndCloseTransition;
     CAMViewfinderFlipTransition *__flipTransition;
+    UIView *__topBarExtensionView;
+    UIView *__bottomBarExtensionView;
 }
 
 + (Class)layerClass;
+@property(retain, nonatomic, setter=_setBottomBarExtensionView:) UIView *_bottomBarExtensionView; // @synthesize _bottomBarExtensionView=__bottomBarExtensionView;
+@property(retain, nonatomic, setter=_setTopBarExtensionView:) UIView *_topBarExtensionView; // @synthesize _topBarExtensionView=__topBarExtensionView;
 @property(retain, nonatomic, setter=_setFlipTransition:) CAMViewfinderFlipTransition *_flipTransition; // @synthesize _flipTransition=__flipTransition;
 @property(retain, nonatomic, setter=_setOpenAndCloseTransition:) CAMViewfinderOpenAndCloseTransition *_openAndCloseTransition; // @synthesize _openAndCloseTransition=__openAndCloseTransition;
 @property(readonly, nonatomic) CAMPreviewContainerView *_previewContainerView; // @synthesize _previewContainerView=__previewContainerView;
@@ -69,6 +74,7 @@
 @property(retain, nonatomic) CAMElapsedTimeView *elapsedTimeView; // @synthesize elapsedTimeView=_elapsedTimeView;
 @property(retain, nonatomic) CAMShutterIndicatorView *shutterIndicatorView; // @synthesize shutterIndicatorView=_shutterIndicatorView;
 @property(retain, nonatomic) CAMFilterNameBadge *filterNameBadge; // @synthesize filterNameBadge=_filterNameBadge;
+@property(retain, nonatomic) CAMPortraitModeDescriptionOverlayView *portraitModeDescriptionOverlayView; // @synthesize portraitModeDescriptionOverlayView=_portraitModeDescriptionOverlayView;
 @property(retain, nonatomic) CAMPortraitModeInstructionLabel *portraitModeInstructionLabel; // @synthesize portraitModeInstructionLabel=_portraitModeInstructionLabel;
 @property(retain, nonatomic) CAMShallowDepthOfFieldBadge *shallowDepthOfFieldBadge; // @synthesize shallowDepthOfFieldBadge=_shallowDepthOfFieldBadge;
 @property(retain, nonatomic) CAMLivePhotoBadge *livePhotoBadge; // @synthesize livePhotoBadge=_livePhotoBadge;
@@ -98,6 +104,7 @@
 - (struct UIEdgeInsets)_layoutMarginInsetsForLayoutStyle:(long long)arg1;
 - (void)_previewLayoutForAspectRatio:(long long)arg1 shouldShiftPreviewForUtilityBar:(_Bool)arg2 outPreviewBounds:(struct CGRect *)arg3 outPreviewCenter:(struct CGPoint *)arg4 outFourThreeTopBarFrame:(struct CGRect *)arg5 outBottomBarFrame:(struct CGRect *)arg6;
 - (void)layoutSubviews;
+- (void)_layoutPortraitModeDescriptionOverlayView;
 - (void)_layoutBadgeForTinyLayoutStyle:(id)arg1 animated:(_Bool)arg2;
 - (void)_layoutFlipButtonForLayoutStyle:(long long)arg1;
 - (void)_layoutShutterButtonForLayoutStyle:(long long)arg1;
@@ -125,6 +132,7 @@
 - (void)_layoutShutterIndicatorForLayoutStyle:(long long)arg1;
 - (double)_interpolatedVerticalOffsetForShutterIndicator;
 - (void)setMaskingAspectRatio:(long long)arg1 animated:(_Bool)arg2;
+- (void)_updateBarExtensionViewsIfNecessary;
 - (double)_multiplierForAspectRatio:(long long)arg1;
 - (struct CGRect)_previewFrameForAspectRatio:(long long)arg1 topBarFrame:(struct CGRect)arg2 bottomBarFrame:(struct CGRect)arg3 shouldShiftPreviewForUtilityBar:(_Bool)arg4;
 - (struct CGSize)_previewSizeForAspectRatio:(long long)arg1;
@@ -133,6 +141,7 @@
 - (struct CGSize)_bottomBarSizeForLayoutStyle:(long long)arg1 withProposedSize:(struct CGSize)arg2;
 - (double)_interpolatedBottomBarWidthWithProposedWidth:(double)arg1;
 - (double)_interpolatedBottomBarHeightWithProposedHeight:(double)arg1;
+- (void)_layoutBarExtensionViews;
 - (_Bool)_isAdjustingTopBarOrientationForLayoutStyle:(long long)arg1;
 - (void)_layoutTopBarForLayoutStyle:(long long)arg1;
 - (struct CGSize)_topBarSizeForLayoutStyle:(long long)arg1;

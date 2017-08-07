@@ -31,7 +31,6 @@
 
 + (struct CGSize)iconSize;
 - (void).cxx_destruct;
-- (id)_buildLinkButtonWithTitle:(id)arg1;
 - (id)_buildButtonStack;
 - (id)_imageViewForIndex:(unsigned long long)arg1;
 - (id)_buildLogoStack;
@@ -42,6 +41,7 @@
 - (void)showNackScreen;
 - (void)setBody:(id)arg1;
 - (void)setTitle:(id)arg1;
+- (id)bodyScroll;
 - (id)nackButton;
 - (id)seeAllButton;
 - (id)privacyButton;

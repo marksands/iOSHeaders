@@ -21,6 +21,8 @@
 @property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
 - (void)badgeHealthAppForEmergencyContactConsolidationWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)_migrateMedicalIDLocationIfNecessary:(id *)arg1;
+- (id)_medicalIDURLWithDirectoryPath:(id)arg1;
 - (id)_medicalIDURL;
 - (void)_updateShowMedicalIdOnWatch:(_Bool)arg1;
 - (id)_unarchiveMedicalIDDataWithRawData:(id)arg1;

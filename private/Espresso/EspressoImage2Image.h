@@ -38,16 +38,20 @@
     NSObject<OS_dispatch_queue> *dispatch_queue;
     _Bool is_temporal_model;
     unsigned long long dim[5];
+    int defaultWidth;
+    int defaultHeight;
     id <MTLTexture> smallOldResultTexture;
-    id <MTLTexture> noiseTexture;
-    id <MTLTexture> inputPlusNoiseTexture;
     struct map<std::__1::basic_string<char>, float, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, float>>> tweaks;
-    struct map<std::__1::basic_string<char>, postprocessing_settings_t, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, postprocessing_settings_t>>> postprocessing_settings;
     struct postprocessing_settings_t current_postprocessing_settings;
+    struct shared_ptr<Espresso::generic_load_constant_kernel> noise_load_constant_kernel;
     int _rotation_degrees;
     int _flip_y;
 }
 
++ (int)featureVersion;
++ (id)getStylesKeys;
++ (_Bool)loadStylesConfigAtPath:(id)arg1;
++ (void)setDefaultOption:(id)arg1 toValue:(id)arg2;
 @property(nonatomic) int flip_y; // @synthesize flip_y=_flip_y;
 @property(nonatomic) int rotation_degrees; // @synthesize rotation_degrees=_rotation_degrees;
 - (id).cxx_construct;
@@ -58,14 +62,20 @@
 - (int)submitToQueueWithSourceTexture:(id)arg1 destinationTexture:(id)arg2 cropRect:(CDStruct_4c83c94d)arg3;
 - (void)tweak:(id)arg1 value:(float)arg2;
 - (int)submitToQueueWithSourceTexture:(id)arg1 destinationTexture:(id)arg2;
+- (int)_reshapeToWidth:(int)arg1 andHeight:(int)arg2;
 - (int)reshapeToWidth:(int)arg1 andHeight:(int)arg2;
+- (int)reshapeToResolutionPreset:(long long)arg1;
+- (int)load:(id)arg1 resolutionPreset:(long long)arg2;
 - (int)load:(id)arg1;
 - (int)wasReshaped;
 - (void)addNoiseLayer;
 - (int)height;
 - (int)width;
 - (void)dealloc;
+- (id)init;
 - (id)initWithQueue:(id)arg1;
+- (id)setupWithQueue:(id)arg1;
+- (id)styleName;
 
 @end
 

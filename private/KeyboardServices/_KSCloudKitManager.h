@@ -36,10 +36,16 @@
 @property(retain, nonatomic) CKRecordZone *recordZone; // @synthesize recordZone=_recordZone;
 @property(retain, nonatomic) CKDatabase *cloudKitDatabase; // @synthesize cloudKitDatabase=_cloudKitDatabase;
 - (void).cxx_destruct;
+- (void)_ckDeleteRecordZoneWithID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_ckSaveRecordZone:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_ckFetchRecordZoneWithID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_inconvenientOperation:(id)arg1;
+- (long long)defaultQualityOfService;
 - (void)fetchPublicRecordsWithNames:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_submitFetchRecordsOperation:(id)arg1 withPriority:(unsigned long long)arg2 changeToken:(id)arg3 completionHandler:(CDUnknownBlockType)arg4 retryCount:(unsigned long long)arg5;
 - (void)fetchRecordsWithPriority:(unsigned long long)arg1 changeToken:(id)arg2 completionHandler:(CDUnknownBlockType)arg3 retryCount:(unsigned long long)arg4;
 - (void)fetchRecordsWithPriority:(unsigned long long)arg1 changeToken:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)copyFieldsFromRecord:(id)arg1 toRecord:(id)arg2;
 - (id)resolveConflicts:(id)arg1;
 - (void)updateRecords:(id)arg1 deleteRecordIDs:(id)arg2 withPriority:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4 retryCount:(unsigned long long)arg5;
 - (void)updateRecords:(id)arg1 deleteRecordIDs:(id)arg2 withPriority:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -49,8 +55,7 @@
 - (id)recordWithName:(id)arg1 type:(id)arg2 attributes:(id)arg3 encryptedFields:(id)arg4;
 - (id)recordWithName:(id)arg1 type:(id)arg2 cloudData:(id)arg3 attributes:(id)arg4;
 - (id)recordWithName:(id)arg1 type:(id)arg2 cloudData:(id)arg3 attributes:(id)arg4 encryptedFields:(id)arg5;
-- (void)deleteZoneWithCompletion:(CDUnknownBlockType)arg1;
-- (void)resetZoneWithDelete:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)resetZoneWithDelete:(unsigned long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)setupRecordZoneWithCompletionHandler:(CDUnknownBlockType)arg1 ignoreDefaults:(_Bool)arg2;
 - (void)_checkAccountStatusWithCompletionHandler:(CDUnknownBlockType)arg1 withRetryCount:(unsigned long long)arg2;
 - (_Bool)isAccountAvailable;

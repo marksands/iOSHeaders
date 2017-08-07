@@ -12,6 +12,7 @@
 - (void)rejectValueWithDonationIdentifier:(NSString *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)changeFromAccount:(ACAccount *)arg1 toAccount:(ACAccount *)arg2 completionHandler:(void (^)(NSError *))arg3;
 - (void)meCardDonations:(void (^)(NSArray *, NSError *))arg1;
+- (void)synchronousDonatedMeCard:(void (^)(CNEither *))arg1;
 - (void)fetchDonatedMeCard:(void (^)(CNContact *, NSError *))arg1;
 - (void)removeDonatedMeCardValuesForIdentifiers:(NSArray *)arg1 completionHandler:(void (^)(_Bool, NSError *))arg2;
 - (void)donateMeCardValues:(NSArray *)arg1 completionHandler:(void (^)(NSError *))arg2;

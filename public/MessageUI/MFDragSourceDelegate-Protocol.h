@@ -13,6 +13,7 @@
 - (NSArray *)dragSource:(MFDragSource *)arg1 draggableItemsAtPoint:(struct CGPoint)arg2;
 
 @optional
+- (long long)dragSource:(MFDragSource *)arg1 dataOwnerForSession:(id <UIDragSession>)arg2;
 - (_Bool)dragSource:(MFDragSource *)arg1 sessionIsRestrictedToMail:(id <UIDragSession>)arg2;
 - (_Bool)dragSource:(MFDragSource *)arg1 sessionAllowsMoveOperation:(id <UIDragSession>)arg2;
 - (void)dragSource:(MFDragSource *)arg1 willEndInteractionWithItems:(NSArray *)arg2 dropOperation:(unsigned long long)arg3;

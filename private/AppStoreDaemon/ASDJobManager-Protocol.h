@@ -10,7 +10,7 @@
 
 @protocol ASDJobManager <NSObject>
 - (void)resumeJobsWithIDs:(NSArray *)arg1 completionBlock:(void (^)(_Bool, NSError *))arg2;
-- (void)registerJobManagerWithOptions:(ASDJobManagerOptions *)arg1 replyBlock:(void (^)(_Bool, NSError *))arg2;
+- (void)registerJobManagerWithOptions:(ASDJobManagerOptions *)arg1 replyBlock:(void (^)(_Bool, NSError *, NSArray *))arg2;
 - (void)pauseJobsWithIDs:(NSArray *)arg1 completionBlock:(void (^)(_Bool, NSError *))arg2;
 - (void)getJobsWithIDs:(NSArray *)arg1 usingReplyBlock:(void (^)(NSArray *))arg2;
 - (void)getJobsUsingReplyBlock:(void (^)(NSArray *))arg1;

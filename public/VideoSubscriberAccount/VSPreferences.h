@@ -24,6 +24,7 @@
 @property(nonatomic) long long cachedStoreProviderStatus;
 @property(nonatomic) long long cachedDeveloperProviderStatus;
 @property(nonatomic) long long cachedAvailabilityStatus;
+- (void)noteShouldSkipSetup;
 @property(readonly, nonatomic) _Bool shouldSkipSetup;
 @property(readonly, nonatomic) _Bool shouldAlwaysAllowRemoteInspection;
 @property(readonly, nonatomic) _Bool shouldDisableRequestTimeouts;

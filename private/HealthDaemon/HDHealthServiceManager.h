@@ -85,7 +85,7 @@
 - (id)_copyDiscoveryInfosForServiceUUID:(id)arg1;
 - (void)extendPrivateModeLease:(id)arg1 forDuration:(unsigned short)arg2;
 - (void)_queue_handleMFASuccessNotification;
-- (id)setOOBPairingEnabled:(_Bool)arg1;
+- (id)retrieveOOBData;
 - (void)removeConnectingPeripheralsWithError:(id)arg1;
 - (void)removeAllDisconnectedPeripherals;
 - (void)_disconnectPeripheralWithDeviceIdentifier:(id)arg1 error:(id)arg2;

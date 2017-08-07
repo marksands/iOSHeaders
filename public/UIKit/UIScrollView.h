@@ -396,9 +396,10 @@
 - (id)_getDelegateZoomView;
 - (void)_endPanNormal:(_Bool)arg1;
 - (_Bool)_scrollViewWillEndDraggingWithDeceleration:(_Bool)arg1;
-- (double)_maxTopOffsetAdjustedForCollapsableAmount:(double)arg1;
-- (double)_topCollapsableContentAmount;
+- (double)_maxTopOffsetAdjustedForRevealableContentPadding:(double)arg1;
+- (struct UIEdgeInsets)_collapsableContentPadding;
 - (struct UIEdgeInsets)_revealableContentPadding;
+- (struct UIEdgeInsets)_revealableContentPaddingIncludingContentWithCollapsedAffinity:(_Bool)arg1;
 - (void)_performScrollViewWillEndDraggingInvocationsWithVelocity:(struct CGPoint)arg1 targetContentOffset:(struct CGPoint *)arg2 unclampedOriginalTarget:(struct CGPoint)arg3;
 - (_Bool)_hasScrollViewWillEndDraggingInvocationsToPerform;
 - (id)_observerImplementingWillEndDraggingMethod;
@@ -473,6 +474,7 @@
 - (void)_updateZoomGestureRecognizersEnabled;
 - (void)_updateScrollGestureRecognizersEnabled;
 @property(nonatomic, getter=isDirectionalLockEnabled) _Bool directionalLockEnabled;
+- (struct CGPoint)_contentOffsetForScrollingToRect:(struct CGRect)arg1;
 - (void)scrollRectToVisible:(struct CGRect)arg1 animated:(_Bool)arg2;
 - (void)setContentOffset:(struct CGPoint)arg1 animated:(_Bool)arg2;
 @property(nonatomic) struct CGPoint contentOffset;

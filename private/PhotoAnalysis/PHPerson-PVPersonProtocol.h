@@ -17,6 +17,7 @@
 @property(nonatomic) long long manualOrder;
 @property(nonatomic) _Bool isVerified; // @dynamic isVerified;
 @property(readonly, nonatomic) _Bool favorite;
+@property(readonly, nonatomic) _Bool hidden;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

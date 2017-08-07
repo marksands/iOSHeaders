@@ -53,6 +53,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithIDSDevice:(id)arg1;
+- (id)pk_idsDestination;
 
 @end
 

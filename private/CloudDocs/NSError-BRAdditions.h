@@ -7,6 +7,7 @@
 #import <Foundation/NSError.h>
 
 @interface NSError (BRAdditions)
++ (id)brc_errorItemChanged;
 + (id)brc_addPartialError:(id)arg1 forURL:(id)arg2 toError:(id)arg3;
 + (id)brc_errorItemInTrash;
 + (id)brc_errorFolderHasSharedSubitems;

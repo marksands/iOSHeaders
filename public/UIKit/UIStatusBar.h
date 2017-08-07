@@ -27,7 +27,6 @@
     UIStatusBarForegroundView *_newStyleForegroundView;
     UIStatusBar *_slidingStatusBar;
     UIStatusBarStyleAttributes *_styleAttributes;
-    long long _orientation;
     _Bool _waitingOnCallbackAfterChangingStyleOverridesLocally;
     _Bool _suppressGlow;
     double _translucentBackgroundAlpha;

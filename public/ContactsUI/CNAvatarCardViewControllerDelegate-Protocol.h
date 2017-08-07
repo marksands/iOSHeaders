@@ -6,7 +6,7 @@
 
 #import <ContactsUI/NSObject-Protocol.h>
 
-@class CNAvatarCardViewController, NSArray, NSMutableArray, NSString;
+@class CNAvatarCardViewController, NSArray, NSString;
 
 @protocol CNAvatarCardViewControllerDelegate <NSObject>
 
@@ -14,7 +14,6 @@
 - (void)cardViewControllerDidUpdatePreferredSize:(CNAvatarCardViewController *)arg1;
 - (void)cardViewControllerDidDismiss:(CNAvatarCardViewController *)arg1;
 - (void)cardViewControllerWillDismiss:(CNAvatarCardViewController *)arg1;
-- (void)cardViewController:(CNAvatarCardViewController *)arg1 willShowActions:(NSMutableArray *)arg2;
 - (NSArray *)cardViewController:(CNAvatarCardViewController *)arg1 orderedPropertiesForProperties:(NSArray *)arg2 category:(NSString *)arg3;
 @end
 

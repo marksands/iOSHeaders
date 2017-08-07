@@ -47,6 +47,9 @@ __attribute__((visibility("hidden")))
 - (id)_dragSourceDelegateActual;
 - (id)_dragDelegateProxy;
 - (id)_dragDelegateActual;
+- (long long)_dataOwnerForDragSession:(id)arg1 atIndexPath:(id)arg2;
+- (long long)_dragInteraction:(id)arg1 dataOwnerForAddingToSession:(id)arg2 withTouchAtPoint:(struct CGPoint)arg3;
+- (long long)_dragInteraction:(id)arg1 dataOwnerForSession:(id)arg2;
 - (_Bool)dragInteraction:(id)arg1 sessionIsRestrictedToDraggingApplication:(id)arg2;
 - (_Bool)dragInteraction:(id)arg1 sessionAllowsMoveOperation:(id)arg2;
 - (void)dragInteraction:(id)arg1 item:(id)arg2 willAnimateCancelWithAnimator:(id)arg3;

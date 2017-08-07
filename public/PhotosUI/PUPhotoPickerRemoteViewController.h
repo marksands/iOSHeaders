@@ -66,6 +66,7 @@ __attribute__((visibility("hidden")))
 - (void)_handleViewControllerRequestWithOptions:(id)arg1 error:(id)arg2;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
+- (void)loadView;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

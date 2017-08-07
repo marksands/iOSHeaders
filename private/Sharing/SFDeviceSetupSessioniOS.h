@@ -19,6 +19,7 @@
     _Bool _pairSetupDone;
     _Bool _pairSetupReset;
     _Bool _pairSetupRunning;
+    int _preAuthPairSetupState;
     _Bool _preAuthRequestSent;
     _Bool _preAuthResponseReceived;
     SFSession *_sfSession;
@@ -52,6 +53,7 @@
 - (void)_sendPreAuthInfo;
 - (void)_sendConfigInfo;
 - (int)_runCoreCDPSetup;
+- (int)_runPreAuthPairSetup;
 - (void)_runSFSessionActivated;
 - (void)_runSFSessionStart;
 - (void)_run;

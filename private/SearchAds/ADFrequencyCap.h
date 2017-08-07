@@ -19,6 +19,7 @@
 @property(retain, nonatomic) NSString *adMetadata; // @synthesize adMetadata=_adMetadata;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (id)description;
 - (id)dictionaryRepresentation;
 - (id)splitCapData:(id)arg1;
 - (id)initWithDictionary:(id)arg1;

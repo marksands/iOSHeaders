@@ -8,6 +8,6 @@
 
 @interface NSSet (SCRCSetExtras)
 - (_Bool)containsObjectClass:(id)arg1;
-- (id)deepMutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)scrc_deepMutableCopyWithZone:(struct _NSZone *)arg1;
 @end
 

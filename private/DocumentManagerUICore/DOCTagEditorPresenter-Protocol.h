@@ -12,6 +12,7 @@
 @protocol DOCTagEditorPresenter <NSObject>
 @property(retain, nonatomic) NSArray *items;
 @property(nonatomic) __weak id <DOCTagEditorDelegate> delegate;
+@property(nonatomic) _Bool isExtremelyVerticallyCompact;
 @property(nonatomic) _Bool delayResizingUntilAppeared;
 @property(nonatomic) _Bool pinTextFieldToTopBound;
 @property(nonatomic) _Bool useCompactColorPicker;

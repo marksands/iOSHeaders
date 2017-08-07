@@ -23,8 +23,6 @@
     NSString *_mostRecentSOSActivationReason;
 }
 
-+ (_Bool)_hidesSOSTriggerAlert;
-+ (void)_logSOSAlertResponseAlertReason:(int)arg1 withUUID:(id)arg2;
 + (long long)TPInCallUILaunchReasonForSOSTriggerMechanism:(long long)arg1;
 + (void)_beginSOSCallWithCompletion:(CDUnknownBlockType)arg1 triggerMechanism:(long long)arg2;
 + (void)_triggerSOSWithUUID:(id)arg1 triggerMechanism:(long long)arg2 completion:(CDUnknownBlockType)arg3;

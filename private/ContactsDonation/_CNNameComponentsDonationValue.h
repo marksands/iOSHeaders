@@ -22,6 +22,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)copyWithNewExpirationDate:(id)arg1;
 - (id)description;
 - (id)initWithNameComponents:(id)arg1 origin:(id)arg2;
 

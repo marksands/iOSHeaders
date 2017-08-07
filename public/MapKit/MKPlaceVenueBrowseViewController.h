@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
     id <GEOVenueComponentIdentifier> _componentIdentifier;
     NSArray *_browseItems;
     MKVenuesBrowseCollectionView *_collectionView;
-    NSLayoutConstraint *_heightConstraint;
+    NSLayoutConstraint *_collectionViewBottomConstraint;
     UIFont *_preferredCellTitleLabelFont;
     UIColor *_cellTitleLabelTextColor;
     MKMapItem *_mapItem;
@@ -33,7 +33,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIColor *cellTitleLabelTextColor; // @synthesize cellTitleLabelTextColor=_cellTitleLabelTextColor;
 @property(retain, nonatomic) UIFont *preferredCellTitleLabelFont; // @synthesize preferredCellTitleLabelFont=_preferredCellTitleLabelFont;
 @property(nonatomic) struct CGSize preferredCellSize; // @synthesize preferredCellSize=_preferredCellSize;
-@property(retain, nonatomic) NSLayoutConstraint *heightConstraint; // @synthesize heightConstraint=_heightConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *collectionViewBottomConstraint; // @synthesize collectionViewBottomConstraint=_collectionViewBottomConstraint;
 @property(retain, nonatomic) MKVenuesBrowseCollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(retain, nonatomic) NSArray *browseItems; // @synthesize browseItems=_browseItems;
 @property(retain, nonatomic) id <GEOVenueComponentIdentifier> componentIdentifier; // @synthesize componentIdentifier=_componentIdentifier;

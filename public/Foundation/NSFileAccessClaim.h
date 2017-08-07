@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _serverClaimerOrNil;
     NSMutableArray *_sandboxTokens;
     NSObject<OS_dispatch_queue> *_arbiterQueue;
+    id _originatingReactorQueueID;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -77,6 +78,7 @@ __attribute__((visibility("hidden")))
 - (void)addPendingClaim:(id)arg1;
 - (void)evaluateNewClaim:(id)arg1;
 - (void)scheduleBlockedClaim:(id)arg1;
+- (void)givePriorityToClaim:(id)arg1;
 - (_Bool)isBlockedByClaimWithPurposeID:(id)arg1;
 - (_Bool)claimerInvokingIsBlockedByReactorWithID:(id)arg1;
 - (void)whenFinishedPerformProcedure:(CDUnknownBlockType)arg1;
@@ -104,7 +106,7 @@ __attribute__((visibility("hidden")))
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)initWithClient:(id)arg1 claimID:(id)arg2 purposeID:(id)arg3;
-- (void)_setupWithClaimID:(id)arg1 purposeID:(id)arg2;
+- (void)_setupWithClaimID:(id)arg1 purposeID:(id)arg2 originatingReactorQueueID:(id)arg3;
 - (_Bool)shouldInformProvidersAboutEndOfWriteWithOptions:(unsigned long long)arg1;
 - (_Bool)shouldReadingWithOptions:(unsigned long long)arg1 causePresenterToRelinquish:(id)arg2;
 

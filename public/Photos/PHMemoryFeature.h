@@ -14,8 +14,8 @@
     unsigned long long _type;
 }
 
-+ (id)_personUniversalIdentifierForPersonLocalIdentifier:(id)arg1 photoLibrary:(id)arg2;
-+ (id)_personLocalIdentifierForPersonUniversalIdentifier:(id)arg1 photoLibrary:(id)arg2;
++ (id)personUniversalIdentifierForPersonLocalIdentifier:(id)arg1 photoLibrary:(id)arg2;
++ (id)personLocalIdentifierForPersonUniversalIdentifier:(id)arg1 photoLibrary:(id)arg2;
 + (id)stringForType:(unsigned long long)arg1;
 + (_Bool)supportsSecureCoding;
 + (id)memoryFeatureWithData:(id)arg1 photoLibrary:(id)arg2;

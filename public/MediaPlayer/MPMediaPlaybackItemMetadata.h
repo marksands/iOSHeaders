@@ -20,6 +20,7 @@
     _Bool _shouldReportPlayEventsToStore;
     _Bool _shouldRememberBookmarkTime;
     _Bool _subscriptionRequired;
+    _Bool _prefersStoreContentInfo;
     float _volumeNormalization;
     NSString *_albumArtistName;
     long long _albumStoreAdamID;
@@ -54,6 +55,7 @@
 + (_Bool)_shouldRespectStoreCellularDataSetting;
 + (_Bool)_shouldRespectMusicCellularDataSetting;
 @property(readonly, nonatomic, getter=_rentalIdentifier) NSNumber *rentalIdentifier; // @synthesize rentalIdentifier=_rentalIdentifier;
+@property(readonly, nonatomic) _Bool prefersStoreContentInfo; // @synthesize prefersStoreContentInfo=_prefersStoreContentInfo;
 @property(readonly, copy, nonatomic) NSNumber *iTunesStoreContentDSID; // @synthesize iTunesStoreContentDSID=_iTunesStoreContentDSID;
 @property(readonly, copy, nonatomic) NSNumber *iTunesStoreContentID; // @synthesize iTunesStoreContentID=_iTunesStoreContentID;
 @property(readonly, nonatomic) float volumeNormalization; // @synthesize volumeNormalization=_volumeNormalization;

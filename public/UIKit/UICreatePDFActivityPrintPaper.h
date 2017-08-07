@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) struct CGSize _paperSize; // @synthesize _paperSize=__paperSize;
+- (id)_keywordForPDFMetadata;
 - (struct CGRect)printableRect;
 - (struct CGSize)paperSize;
 - (id)initWithPaperSize:(struct CGSize)arg1;

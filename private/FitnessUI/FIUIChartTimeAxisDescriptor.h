@@ -29,6 +29,7 @@
     id _minValue;
     id _maxValue;
     unsigned long long _labelAlignment;
+    unsigned long long _subLabelAlignment;
     UIFont *_labelFont;
     UIColor *_highlightedLabelColor;
     UIColor *_unhighlightedLabelColor;
@@ -73,6 +74,7 @@
 @property(retain, nonatomic) UIColor *unhighlightedLabelColor; // @synthesize unhighlightedLabelColor=_unhighlightedLabelColor;
 @property(retain, nonatomic) UIColor *highlightedLabelColor; // @synthesize highlightedLabelColor=_highlightedLabelColor;
 @property(retain, nonatomic) UIFont *labelFont; // @synthesize labelFont=_labelFont;
+@property(nonatomic) unsigned long long subLabelAlignment; // @synthesize subLabelAlignment=_subLabelAlignment;
 @property(nonatomic) unsigned long long labelAlignment; // @synthesize labelAlignment=_labelAlignment;
 @property(retain, nonatomic) id maxValue; // @synthesize maxValue=_maxValue;
 @property(retain, nonatomic) id minValue; // @synthesize minValue=_minValue;

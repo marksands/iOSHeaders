@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PhotoLibraryServices/PLPhotoBakedThumbnailsDelegate-Protocol.h>
 
@@ -29,6 +29,9 @@
 
 + (void)decorateThumbnailInRect:(struct CGRect)arg1 size:(struct CGSize)arg2 duration:(id)arg3 inContext:(struct CGContext *)arg4 format:(id)arg5;
 + (void)decorateThumbnail:(id)arg1 inContext:(struct CGContext *)arg2;
++ (_Bool)_hasPrimaryAssetAndAdjustmentsFilesWithType:(short)arg1 inIncomingFilenames:(id)arg2 forAssetUUID:(id)arg3;
++ (id)_assetUUIDFromIncomingFilename:(id)arg1;
++ (id)_pathsByAssetUUIDFromIncomingCrashRecoveryPaths:(id)arg1;
 + (_Bool)setAdjustmentsForNewPhoto:(id)arg1 withEffectFilterName:(id)arg2 adjustmentDataPath:(id)arg3 filteredImagePath:(id)arg4 isSubstandardRender:(_Bool)arg5;
 + (id)_assetAdjustmentsFromCameraAdjustmentsFileAtPath:(id)arg1 exportProperties:(id)arg2;
 + (id)_assetAdjustmentsFromCameraFilters:(id)arg1 portraitMetadata:(id)arg2 exportProperties:(id)arg3;
@@ -49,6 +52,7 @@
 - (void)_processCrashRecoveryJob:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_photoIrisPairingDidSucceed:(_Bool)arg1 fileIndicatorPath:(id)arg2 photoAsset:(id)arg3 photoLibrary:(id)arg4;
 - (void)_handlePhotoIrisCrashRecoveryForPhotoIndicatorFiles:(id)arg1;
+- (void)_handleCameraAdjustments:(id)arg1 fullsizeRenders:(id)arg2;
 - (void)_handlePhotoIrisCrashRecoveryForVideos:(id)arg1;
 - (id)_fetchPhotoAssetForUUID:(id)arg1 moc:(id)arg2;
 - (id)_fetchPhotoAssetForMediaGroupUUID:(id)arg1 moc:(id)arg2;

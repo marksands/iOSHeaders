@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
     NSIndexPath *_proposedDropIndexPath;
 }
 
-@property(retain) NSObject<PDFCollectionViewDelegate> *wrappedDelegate; // @synthesize wrappedDelegate=_wrappedDelegate;
+@property __weak NSObject<PDFCollectionViewDelegate> *wrappedDelegate; // @synthesize wrappedDelegate=_wrappedDelegate;
 - (void).cxx_destruct;
 - (void)collectionView:(id)arg1 didDeselectItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;

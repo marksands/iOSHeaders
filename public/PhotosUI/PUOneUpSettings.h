@@ -31,6 +31,7 @@
     _Bool _enableFigPhotoTiledLayer;
     _Bool _useURLForLargePhotosWithFigPhotoTiledLayer;
     _Bool _forceURLWithFigPhotoTiledLayer;
+    _Bool _allowPlayButtonInBars;
     _Bool _playVideoInScrubber;
     _Bool _lockScrollDuringLivePhotoPlayback;
     _Bool _livePhotoScrubberShowForPlayback;
@@ -129,6 +130,7 @@
 @property(nonatomic) double livePhotoInteractionThreshold; // @synthesize livePhotoInteractionThreshold=_livePhotoInteractionThreshold;
 @property(nonatomic) double videoPauseThreshold; // @synthesize videoPauseThreshold=_videoPauseThreshold;
 @property(nonatomic) _Bool playVideoInScrubber; // @synthesize playVideoInScrubber=_playVideoInScrubber;
+@property(nonatomic) _Bool allowPlayButtonInBars; // @synthesize allowPlayButtonInBars=_allowPlayButtonInBars;
 @property(nonatomic) _Bool forceURLWithFigPhotoTiledLayer; // @synthesize forceURLWithFigPhotoTiledLayer=_forceURLWithFigPhotoTiledLayer;
 @property(nonatomic) _Bool useURLForLargePhotosWithFigPhotoTiledLayer; // @synthesize useURLForLargePhotosWithFigPhotoTiledLayer=_useURLForLargePhotosWithFigPhotoTiledLayer;
 @property(nonatomic) _Bool enableFigPhotoTiledLayer; // @synthesize enableFigPhotoTiledLayer=_enableFigPhotoTiledLayer;

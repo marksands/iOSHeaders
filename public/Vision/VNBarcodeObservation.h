@@ -6,20 +6,21 @@
 
 #import <Vision/VNRectangleObservation.h>
 
-@class CIBarcodeDescriptor, NSString;
+@class CIBarcodeDescriptor, NSDictionary, NSString;
 
 @interface VNBarcodeObservation : VNRectangleObservation
 {
+    NSString *_cachedPayloadStringValue;
     NSString *_symbology;
     CIBarcodeDescriptor *_barcodeDescriptor;
-    NSString *_payloadStringValue;
+    NSDictionary *_acbsBarcodeInfo;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic, setter=setACBSBarcodeInfo:) NSDictionary *acbsBarcodeInfo; // @synthesize acbsBarcodeInfo=_acbsBarcodeInfo;
 @property(readonly, nonatomic) CIBarcodeDescriptor *barcodeDescriptor; // @synthesize barcodeDescriptor=_barcodeDescriptor;
 @property(readonly, copy, nonatomic) NSString *symbology; // @synthesize symbology=_symbology;
 - (void).cxx_destruct;
-- (void)setPayloadStringValue:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *payloadStringValue;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;

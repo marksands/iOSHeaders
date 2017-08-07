@@ -18,6 +18,7 @@
 - (id)regress:(id)arg1 options:(id)arg2 error:(id *)arg3;
 - (id)predictionFromFeatures:(id)arg1 options:(id)arg2 error:(id *)arg3;
 - (id)initWithInterface:(id)arg1 metadata:(id)arg2 error:(id *)arg3;
+- (id)regressorResultFromOutputFeatures:(id)arg1 error:(id *)arg2;
 - (id)initDescriptionOnlyWithSpecification:(struct _MLModelSpecification *)arg1 error:(id *)arg2;
 
 // Remaining properties

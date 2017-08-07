@@ -36,7 +36,7 @@
 + (id)fullNameForContact:(id)arg1;
 + (id)meContact;
 + (id)_myNumber;
-+ (_Bool)_isBasebandWatch;
++ (_Bool)_isBasebandDevice;
 + (void)_sendMessage:(id)arg1 location:(id)arg2 recipients:(id)arg3 useStandalone:(_Bool)arg4 failureBlock:(CDUnknownBlockType)arg5;
 + (void)_sendMessageToRecipients:(id)arg1 withLocation:(id)arg2 isFirstMessage:(_Bool)arg3;
 + (id)sharedInstance;

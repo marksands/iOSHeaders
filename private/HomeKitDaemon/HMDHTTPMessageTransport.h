@@ -50,7 +50,9 @@
 - (void)configureWithDevice:(id)arg1;
 - (id)_serviceForDevice:(id)arg1;
 - (void)removeAllClientTransports;
+- (void)removeClientTransport:(id)arg1;
 - (void)addClientTransport:(id)arg1;
+- (id)clientTransportForService:(id)arg1;
 - (id)clientTransportForDevice:(id)arg1;
 @property(readonly, nonatomic) NSArray *clientTransports;
 - (id)deviceForHTTPDevice:(id)arg1;

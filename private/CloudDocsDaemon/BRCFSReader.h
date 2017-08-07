@@ -10,15 +10,14 @@
 #import <CloudDocsDaemon/BRCModule-Protocol.h>
 #import <CloudDocsDaemon/BRCSuspendable-Protocol.h>
 
-@class BRCCountedSet, BRCFairSource, BRCRelativePath, NSMutableSet, NSObject, NSString, brc_task_tracker;
+@class BRCAsyncDirectoryEnumerator, BRCCountedSet, BRCFairSource, NSMutableSet, NSObject, NSString, brc_task_tracker;
 @protocol OS_dispatch_group, OS_dispatch_queue, OS_dispatch_source;
 
 @interface BRCFSReader : BRCFSSchedulerBase <BRCModule, BRCSuspendable, BRCFSEventsDelegate>
 {
     BRCCountedSet *_coordinatedReaders;
     _Bool _readerCountReachedMax;
-    BRCRelativePath *_currentScan;
-    BRCFairSource *_scanContinuationSource;
+    BRCAsyncDirectoryEnumerator *_currentScan;
     NSMutableSet *_lostSet;
     NSObject<OS_dispatch_queue> *_lostScanQueue;
     BRCFairSource *_lostScanSource;
@@ -46,9 +45,9 @@
 - (void)_cancelScan;
 - (void)_finishCurrentRelpathScan;
 - (void)_startScanOfRelpath:(id)arg1;
+- (void)_finishedScanWithError:(int)arg1;
 - (void)_startScanOfRegularAppLibrary:(id)arg1;
-- (void)_continueScan;
-- (void)_slowScanDirectoryAtPath:(id)arg1;
+- (_Bool)_slowScanDirectoryAtPath:(id)arg1;
 - (void)_scanDirectory:(id)arg1 atPath:(id)arg2 lookup:(id)arg3;
 - (void)_scanDone:(id)arg1 atPath:(id)arg2 lookup:(id)arg3;
 - (void)_processDeadItem:(id)arg1;

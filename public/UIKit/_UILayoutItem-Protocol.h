@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) NSLayoutXAxisAnchor *leftAnchor;
 @property(readonly, nonatomic) NSLayoutXAxisAnchor *trailingAnchor;
 @property(readonly, nonatomic) NSLayoutXAxisAnchor *leadingAnchor;
+- (_Bool)_uili_isFocusGuide;
 - (NSISVariable *)_boundsHeightVariable;
 - (NSISVariable *)_boundsWidthVariable;
 - (NSISVariable *)_minYVariable;

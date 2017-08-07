@@ -11,6 +11,7 @@
 @interface MPStoreItemMetadataRequest : NSObject
 {
     _Bool _allowLocalEquivalencies;
+    _Bool _shouldIgnoreCache;
     unsigned long long _reason;
     NSArray *_itemIdentifiers;
     NSNumber *_timeoutInterval;
@@ -30,6 +31,7 @@
 @property(copy, nonatomic) ICClientInfo *clientInfo; // @synthesize clientInfo=_clientInfo;
 @property(nonatomic) long long personalizationStyle; // @synthesize personalizationStyle=_personalizationStyle;
 @property(copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
+@property(nonatomic) _Bool shouldIgnoreCache; // @synthesize shouldIgnoreCache=_shouldIgnoreCache;
 @property(copy, nonatomic) NSString *platform; // @synthesize platform=_platform;
 @property(copy, nonatomic) NSNumber *timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
 @property(copy, nonatomic) NSArray *itemIdentifiers; // @synthesize itemIdentifiers=_itemIdentifiers;

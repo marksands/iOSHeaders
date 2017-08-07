@@ -6,17 +6,20 @@
 
 #import <WatchListKitUI/WLKUILoadingViewController.h>
 
-@class NSString, SSLookupItemOffer, UIBarButtonItem, UIButton, WLKChannelDetails, _WLKUIAppInstallConfirmationView, _WLKUIAppInstallLockup;
+@class NSString, SSLookupItemOffer, UIBarButtonItem, UIButton, _WLKUIAppInstallConfirmationView, _WLKUIAppInstallLockup;
+@protocol WLKInstallable;
 
 @interface _WLKUIAppInstallConfirmationViewController : WLKUILoadingViewController
 {
-    WLKChannelDetails *_channel;
+    id <WLKInstallable> _installable;
     _WLKUIAppInstallConfirmationView *_confirmationView;
     SSLookupItemOffer *_itemOffer;
     NSString *_updateTitle;
     NSString *_updateMessage;
     CDUnknownBlockType _cancelationHandler;
     CDUnknownBlockType _actionHandler;
+    CDUnknownBlockType _appStoreHandler;
+    CDUnknownBlockType _secondaryLinkHandler;
     UIButton *_actionButton;
     _WLKUIAppInstallLockup *_lockup;
     unsigned long long _state;
@@ -27,24 +30,29 @@
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(retain, nonatomic) _WLKUIAppInstallLockup *lockup; // @synthesize lockup=_lockup;
 @property(retain, nonatomic) UIButton *actionButton; // @synthesize actionButton=_actionButton;
+@property(copy, nonatomic) CDUnknownBlockType secondaryLinkHandler; // @synthesize secondaryLinkHandler=_secondaryLinkHandler;
+@property(copy, nonatomic) CDUnknownBlockType appStoreHandler; // @synthesize appStoreHandler=_appStoreHandler;
 @property(copy, nonatomic) CDUnknownBlockType actionHandler; // @synthesize actionHandler=_actionHandler;
 @property(copy, nonatomic) CDUnknownBlockType cancelationHandler; // @synthesize cancelationHandler=_cancelationHandler;
 - (void).cxx_destruct;
 - (id)_namedRatingWithRatings:(id)arg1;
 - (id)_fileSizeWithDeviceSizes:(id)arg1;
 - (void)_fetchAppInfo;
+- (void)_handleSecondaryLink;
+- (void)_handleAppStore;
 - (void)_handleCancel;
 - (void)_handleAction;
 - (void)loadView;
 - (void)setInstallingState;
 - (void)setPreInstallState;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
+- (void)setSecondaryLinkTitle:(id)arg1;
 - (void)setUpdateTitle:(id)arg1;
 - (void)setUpdateMessage:(id)arg1;
 - (void)setMessage:(id)arg1;
 - (void)setTitle:(id)arg1;
 - (id)itemOffer;
-- (id)initWithChannel:(id)arg1;
+- (id)initWithInstallable:(id)arg1;
 - (id)init;
 
 @end

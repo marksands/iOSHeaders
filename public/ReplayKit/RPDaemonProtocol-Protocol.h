@@ -9,6 +9,7 @@
 @class NSArray, NSData, NSDictionary, NSString, NSURL, NSXPCListenerEndpoint;
 
 @protocol RPDaemonProtocol <NSObject>
+- (oneway void)reportCameraUsage:(int)arg1;
 - (oneway void)setMicrophoneEnabledPersistent:(_Bool)arg1;
 - (oneway void)setBroadcastURL:(NSString *)arg1;
 - (oneway void)setHasUserConsentForMicrophone:(_Bool)arg1;

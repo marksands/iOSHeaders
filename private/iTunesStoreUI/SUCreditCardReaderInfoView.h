@@ -10,12 +10,12 @@
 
 @interface SUCreditCardReaderInfoView : UIView
 {
-    UILabel *_addCardLabel;
     UILabel *_addCardDetailLabel;
+    UILabel *_addCardLabel;
 }
 
-@property(retain, nonatomic) UILabel *addCardDetailLabel; // @synthesize addCardDetailLabel=_addCardDetailLabel;
 @property(retain, nonatomic) UILabel *addCardLabel; // @synthesize addCardLabel=_addCardLabel;
+@property(retain, nonatomic) UILabel *addCardDetailLabel; // @synthesize addCardDetailLabel=_addCardDetailLabel;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;

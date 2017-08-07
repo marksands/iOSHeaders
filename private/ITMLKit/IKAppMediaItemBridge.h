@@ -11,6 +11,8 @@
 
 @interface IKAppMediaItemBridge : NSObject
 {
+    NSString *_artworkImageURL;
+    NSString *_artworkImageSrcset;
     id <IKAppMediaItem> _appMediaItem;
     IKAppContext *_appContext;
     IKJSMediaItem *_jsMediaItem;
@@ -20,6 +22,7 @@
 @property(readonly, nonatomic) __weak IKAppContext *appContext; // @synthesize appContext=_appContext;
 @property(readonly, nonatomic) __weak id <IKAppMediaItem> appMediaItem; // @synthesize appMediaItem=_appMediaItem;
 - (void).cxx_destruct;
+- (void)_resolveArtworkImageURL;
 - (void)loadKeyDataForURL:(id)arg1 keyRequestData:(id)arg2 withCallback:(CDUnknownBlockType)arg3;
 - (void)loadContentIdentifierDataForURL:(id)arg1 withCallback:(CDUnknownBlockType)arg2;
 - (void)loadCertificateDataForURL:(id)arg1 withCallback:(CDUnknownBlockType)arg2;
@@ -30,7 +33,8 @@
 @property(retain, nonatomic) NSNumber *resumeTime;
 @property(nonatomic) _Bool isExplicit;
 @property(retain, nonatomic) NSString *ratingBadge;
-@property(retain, nonatomic) NSString *artworkImageURL;
+@property(retain, nonatomic) NSString *artworkImageSrcset; // @synthesize artworkImageSrcset=_artworkImageSrcset;
+@property(retain, nonatomic) NSString *artworkImageURL; // @synthesize artworkImageURL=_artworkImageURL;
 @property(retain, nonatomic) NSString *contentRatingDomain;
 @property(retain, nonatomic) NSNumber *contentRatingRanking;
 @property(retain, nonatomic) NSString *description;

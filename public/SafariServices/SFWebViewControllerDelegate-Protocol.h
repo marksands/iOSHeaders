@@ -33,8 +33,10 @@
 - (void)webViewController:(SFWebViewController *)arg1 didFailNavigation:(WKNavigation *)arg2 withError:(NSError *)arg3;
 - (void)webViewControllerDidChangeEstimatedProgress:(SFWebViewController *)arg1;
 - (void)webViewControllerDidChangeLoadingState:(SFWebViewController *)arg1;
+- (void)webViewController:(SFWebViewController *)arg1 didFinishDocumentLoadForNavigation:(WKNavigation *)arg2;
 - (void)webViewController:(SFWebViewController *)arg1 didFinishNavigation:(WKNavigation *)arg2;
 - (void)webViewController:(SFWebViewController *)arg1 didCommitNavigation:(WKNavigation *)arg2;
+- (void)webViewController:(SFWebViewController *)arg1 didPerformClientRedirectForNavigation:(WKNavigation *)arg2;
 - (void)webViewController:(SFWebViewController *)arg1 didReceiveServerRedirectForProvisionalNavigation:(WKNavigation *)arg2;
 - (void)webViewController:(SFWebViewController *)arg1 didStartProvisionalNavigation:(WKNavigation *)arg2;
 @end

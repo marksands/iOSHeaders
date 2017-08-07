@@ -37,7 +37,7 @@
 - (id)_embeddedActivityViewController;
 - (void)prepareWithActivityItems:(id)arg1;
 - (_Bool)canPerformWithActivityItems:(id)arg1;
-- (void)_setupQuickLookWithURL:(id)arg1 activityItems:(id)arg2;
+- (void)_setupQuickLookWithURL:(id)arg1 activityItems:(id)arg2 isPreview:(_Bool)arg3;
 - (id)activityTitle;
 - (id)_activityImage;
 - (id)activityType;

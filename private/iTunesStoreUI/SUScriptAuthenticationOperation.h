@@ -6,20 +6,22 @@
 
 #import <iTunesStore/ISOperation.h>
 
-@class NSNumber, SSMutableAuthenticationContext;
+@class NSNumber, SSMutableAuthenticationContext, UIViewController;
 
 @interface SUScriptAuthenticationOperation : ISOperation
 {
     NSNumber *_authenticatedDSID;
     SSMutableAuthenticationContext *_authenticationContext;
+    UIViewController *_presentingViewController;
 }
 
+@property(retain) UIViewController *presentingViewController; // @synthesize presentingViewController=_presentingViewController;
 @property(retain) NSNumber *authenticatedDSID; // @synthesize authenticatedDSID=_authenticatedDSID;
+- (void).cxx_destruct;
 - (void)setScriptOptions:(id)arg1;
 - (void)sendCompletionCallback:(id)arg1;
 - (void)run;
 - (id)authenticatedAccountDSID;
-- (void)dealloc;
 - (id)initWithAccountIdentifier:(id)arg1;
 - (id)init;
 

@@ -21,6 +21,7 @@
     _Bool _scrollingUp;
     struct CGSize _imageSizeNeeded;
     _Bool _needsFullPass;
+    _Bool _isAccessibilityCategory;
     NSCache *_imageCache;
     unsigned long long _imagesToKeep;
     NSObject<OS_dispatch_queue> *_queueCaching;
@@ -57,7 +58,6 @@
 - (void)tableView:(id)arg1 didEndEditingRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willBeginEditingRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
-- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellWithIdentifier:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import <SpringBoardUIServices/NSObject-Protocol.h>
 
-@class NSString, UIColor;
+@class BSAnimationSettings, NSString, UIColor;
 @protocol SBFLegibilitySettingsProvider, SBUIPasscodeLockViewDelegate;
 
 @protocol SBUIPasscodeLockView <NSObject>
@@ -24,6 +24,7 @@
 @property(readonly, nonatomic) NSString *passcode;
 @property(readonly, nonatomic) int style;
 @property(nonatomic) __weak id <SBUIPasscodeLockViewDelegate> delegate;
+- (void)becomeActiveWithAnimationSettings:(BSAnimationSettings *)arg1;
 - (void)setAllowsStatusTextUpdatingOnResignFirstResponder:(_Bool)arg1;
 - (void)updateStatusText:(NSString *)arg1 subtitle:(NSString *)arg2 animated:(_Bool)arg3;
 - (void)autofillForSuccessfulMesaAttemptWithCompletion:(void (^)(void))arg1;

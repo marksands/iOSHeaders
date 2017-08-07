@@ -10,6 +10,7 @@
 @protocol _UINavigationBarAugmentedTitleView;
 
 @protocol _UINavigationBarTitleViewDataSource <NSObject>
+- (void)titleViewChangedMaximumBackButtonWidth:(UIView<_UINavigationBarAugmentedTitleView> *)arg1;
 - (void)titleViewChangedPreferredDisplaySize:(UIView<_UINavigationBarAugmentedTitleView> *)arg1;
 - (void)titleViewChangedStandardDisplayItems:(UIView<_UINavigationBarAugmentedTitleView> *)arg1;
 - (void)titleViewChangedHeight:(UIView<_UINavigationBarAugmentedTitleView> *)arg1;

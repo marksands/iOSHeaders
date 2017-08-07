@@ -9,7 +9,7 @@
 #import <ARKit/ARSensor-Protocol.h>
 #import <ARKit/AVCaptureVideoDataOutputSampleBufferDelegate-Protocol.h>
 
-@class AVCaptureDevice, AVCaptureSession, AVCaptureVideoDataOutput, NSString;
+@class AVCaptureAudioDataOutput, AVCaptureDevice, AVCaptureSession, AVCaptureVideoDataOutput, NSString;
 @protocol ARSensorDelegate, AVCaptureVideoDataOutputSampleBufferDelegate, OS_dispatch_queue;
 
 @interface ARImageSensor : NSObject <AVCaptureVideoDataOutputSampleBufferDelegate, ARSensor>
@@ -47,7 +47,6 @@
 - (void)captureOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
 - (void)_configureCameraFocusForDevice:(id)arg1;
 - (void)_configureCameraExposureForDevice:(id)arg1;
-- (id)_createAudioInput:(id *)arg1;
 - (_Bool)_validateCameraAuthorization;
 - (id)configureCaptureDevice;
 - (id)configureCaptureSession;
@@ -59,6 +58,8 @@
 - (id)initWithDevicePosition:(long long)arg1 deviceType:(id)arg2 captureSession:(id)arg3;
 - (double)preferredFrameRateForPowerUsage:(unsigned long long)arg1 devicePosition:(long long)arg2;
 - (void)_adjustForPowerUsage;
+- (id)_createAudioInput:(id *)arg1;
+@property(retain, nonatomic) AVCaptureAudioDataOutput *audioOutput;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

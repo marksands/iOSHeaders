@@ -44,7 +44,7 @@
 - (id)logMsgStateForPlaceCardWithPlaceActionDetails:(id)arg1 placeCardType:(int)arg2 mapItemCategory:(id)arg3 availableActions:(id)arg4 unactionableUIElements:(id)arg5;
 - (id)logMsgStateForRouteWithStateOrigin:(id)arg1 routeDetails:(id)arg2;
 - (id)logMsgStateForRouteWithRouteDetails:(id)arg1;
-- (id)logMsgStateForUserSessionWithSessionType:(unsigned long long)arg1 isNavSessionAllowed:(_Bool)arg2 eventTime:(double)arg3;
+- (id)logMsgStateForUserSessionWithSessionType:(unsigned long long)arg1 isNavSessionAllowed:(_Bool)arg2 userSessionSnapshot:(id)arg3;
 - (id)logMsgStateForMapRestoreWithStateOrigin:(id)arg1 targetLayouts:(id)arg2;
 - (id)logMsgStateForMapRestoreWithTargetLayouts:(id)arg1;
 - (id)logMsgStateForMapRestoreWithUITargets:(id)arg1;

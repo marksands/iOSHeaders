@@ -22,9 +22,13 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_wordTokens;
     NSArray *_wordsToSetAfterAnimations;
     unsigned long long _firstIndexToRemoveAfterLineChangeClearingAnimation;
-    _Bool _isPerformingLineChangeClearingAnimation;
-    _Bool _commitResultsAfterDynamicsFinish;
-    _Bool _waitingForDynamicsBehaviorToStop;
+    struct {
+        unsigned int isPerformingLineChangeClearingAnimation:1;
+        unsigned int commitResultsAfterDynamicsFinish:1;
+        unsigned int waitingForDynamicsBehaviorToStop:1;
+        unsigned int didFinalize:1;
+        unsigned int didCleanUp:1;
+    } _ssmFlags;
 }
 
 @property(readonly, nonatomic) NSTextStorage *streamingTextStorage; // @synthesize streamingTextStorage=_streamingTextStorage;
@@ -36,6 +40,7 @@ __attribute__((visibility("hidden")))
 - (void)animateText;
 - (void)_commitFinalResults;
 - (void)commitFinalResults;
+- (void)ensureCleanedUp;
 - (id)initWithTextView:(id)arg1;
 
 // Remaining properties

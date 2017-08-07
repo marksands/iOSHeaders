@@ -12,5 +12,8 @@
 - (struct _NSRange)rangeOfWordAfterWordAtIndex:(long long)arg1;
 - (struct _NSRange)rangeOfWordBeforeWordAtIndex:(long long)arg1;
 - (struct _NSRange)rangeOfWordContainingIndex:(long long)arg1;
+- (struct _NSRange)_rangeIsolatingIllegalCharacters:(struct _NSRange)arg1 forwards:(_Bool)arg2;
+- (id)_legalWhiteSpaceSet;
+- (id)_illegalCharacterSet;
 @end
 

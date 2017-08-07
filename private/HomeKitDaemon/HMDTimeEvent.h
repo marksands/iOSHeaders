@@ -31,7 +31,7 @@
 - (void)_reactiveTriggerAfterDelay;
 - (void)timerFired:(id)arg1;
 - (id)_nextTimerDate;
-- (void)_activate:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)_activate:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)isActive;
 - (void)_updateRepetitive;
 - (void)_initialize;

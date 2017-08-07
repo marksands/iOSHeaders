@@ -65,6 +65,7 @@
 - (void)_deactivate;
 - (void)deactivate;
 - (void)setDataMode:(long long)arg1 forDisplayWrapper:(id)arg2;
+- (void)_updateIsComplicationActive:(_Bool)arg1;
 - (void)_applyAnimationMode;
 - (void)_applyCachingMode;
 - (void)_applyUpdatingMode;

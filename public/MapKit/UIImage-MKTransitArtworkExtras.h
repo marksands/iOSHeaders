@@ -8,7 +8,7 @@
 
 @interface UIImage (MKTransitArtworkExtras)
 + (id)_mapkit_imageFromVKImage:(id)arg1;
-+ (id)_mapkit_transitArtworkImageWithDataSource:(id)arg1 size:(long long)arg2 forView:(id)arg3 withWidthPaddingMultiple:(double)arg4;
-+ (id)_mapkit_transitArtworkImageWithDataSource:(id)arg1 size:(long long)arg2 forView:(id)arg3;
++ (id)_mapkit_transitArtworkImageWithDataSource:(id)arg1 size:(long long)arg2 scale:(double)arg3 withWidthPaddingMultiple:(double)arg4;
++ (id)_mapkit_transitArtworkImageWithDataSource:(id)arg1 size:(long long)arg2 scale:(double)arg3;
 @end
 

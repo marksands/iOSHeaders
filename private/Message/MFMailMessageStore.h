@@ -119,6 +119,7 @@
 - (unsigned long long)unreadCountMatchingCriterion:(id)arg1;
 - (unsigned long long)unreadCount;
 - (void)purgeMessagesBeyondLimit:(unsigned long long)arg1 keepingMessage:(id)arg2;
+- (unsigned long long)fetchWindowCap;
 - (unsigned long long)fetchWindow;
 - (unsigned long long)growFetchWindow;
 - (void)invalidateFetchWindow;

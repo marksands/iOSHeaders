@@ -21,6 +21,7 @@
     double _carHeadunitPixelWidth;
     double _mapZoomLevel;
     int _action;
+    NSString *_analyticsAppIdentifier;
     NSString *_appIdentifier;
     NSString *_appMajorVersion;
     NSString *_appMinorVersion;
@@ -37,6 +38,7 @@
     NSString *_deviceSpokenLocale;
     NSString *_displayRegion;
     NSMutableArray *_historicalLocations;
+    unsigned int _httpRequestPriority;
     GEOMapRegion *_mapRegion;
     int _mode;
     NSMutableArray *_photoSizes;
@@ -59,6 +61,7 @@
     _Bool _navigating;
     _Bool _supportDirectionIntentSearch;
     _Bool _supportDymSuggestion;
+    _Bool _useBackgroundUrl;
     _Bool _wantsBrandIcon;
     struct {
         unsigned int sessionId:1;
@@ -70,6 +73,7 @@
         unsigned int carHeadunitInteractionModel:1;
         unsigned int deviceBatteryState:1;
         unsigned int deviceInterfaceOrientation:1;
+        unsigned int httpRequestPriority:1;
         unsigned int mode:1;
         unsigned int photosCount:1;
         unsigned int requestMode:1;
@@ -84,6 +88,7 @@
         unsigned int navigating:1;
         unsigned int supportDirectionIntentSearch:1;
         unsigned int supportDymSuggestion:1;
+        unsigned int useBackgroundUrl:1;
         unsigned int wantsBrandIcon:1;
     } _has;
 }
@@ -92,6 +97,9 @@
 + (Class)reviewUserPhotoSizesType;
 + (Class)photoSizesType;
 + (Class)deviceDisplayLanguageType;
+@property(retain, nonatomic) NSString *analyticsAppIdentifier; // @synthesize analyticsAppIdentifier=_analyticsAppIdentifier;
+@property(nonatomic) unsigned int httpRequestPriority; // @synthesize httpRequestPriority=_httpRequestPriority;
+@property(nonatomic) _Bool useBackgroundUrl; // @synthesize useBackgroundUrl=_useBackgroundUrl;
 @property(nonatomic) _Bool deviceInVehicle; // @synthesize deviceInVehicle=_deviceInVehicle;
 @property(retain, nonatomic) GEOPDVenueIdentifier *venueIdentifier; // @synthesize venueIdentifier=_venueIdentifier;
 @property(nonatomic) _Bool wantsBrandIcon; // @synthesize wantsBrandIcon=_wantsBrandIcon;
@@ -139,6 +147,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasAnalyticsAppIdentifier;
+@property(nonatomic) _Bool hasHttpRequestPriority;
+@property(nonatomic) _Bool hasUseBackgroundUrl;
 @property(nonatomic) _Bool hasDeviceInVehicle;
 @property(readonly, nonatomic) _Bool hasVenueIdentifier;
 @property(nonatomic) _Bool hasWantsBrandIcon;

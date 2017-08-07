@@ -27,8 +27,10 @@ __attribute__((visibility("hidden")))
     _Bool _hasQueriedAuthorization;
     NSObject<OS_dispatch_queue> *_authorizationQueue;
     _Bool _alternate;
+    double _expectedGpsUpdateInterval;
 }
 
+@property(readonly, nonatomic) double expectedGpsUpdateInterval; // @synthesize expectedGpsUpdateInterval=_expectedGpsUpdateInterval;
 @property(nonatomic) __weak id <MKLocationProviderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)locationManager:(id)arg1 didUpdateVehicleHeading:(id)arg2;
@@ -51,7 +53,6 @@ __attribute__((visibility("hidden")))
 - (void)authorizationStatusOnQueue:(id)arg1 result:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) int authorizationStatus;
 - (int)_authorizationStatusOnQueue;
-@property(readonly, nonatomic) double expectedGpsUpdateInterval;
 @property(nonatomic) int headingOrientation;
 @property(nonatomic) _Bool matchInfoEnabled;
 @property(nonatomic) double distanceFilter;

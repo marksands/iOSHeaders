@@ -74,6 +74,7 @@
 - (void)addEvent:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)initWithName:(id)arg1 events:(id)arg2 predicate:(id)arg3;
+- (id)initInternalWithName:(id)arg1 events:(id)arg2 endEvents:(id)arg3 recurrences:(id)arg4 predicate:(id)arg5;
 - (id)initWithName:(id)arg1 events:(id)arg2 endEvents:(id)arg3 recurrences:(id)arg4 predicate:(id)arg5;
 @property(readonly, nonatomic) unsigned long long triggerActivationState;
 @property(nonatomic) unsigned long long activationState; // @synthesize activationState=_activationState;

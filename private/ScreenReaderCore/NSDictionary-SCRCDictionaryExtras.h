@@ -7,6 +7,6 @@
 #import <Foundation/NSDictionary.h>
 
 @interface NSDictionary (SCRCDictionaryExtras)
-- (id)deepMutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)scrc_deepMutableCopyWithZone:(struct _NSZone *)arg1;
 @end
 

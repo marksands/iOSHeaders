@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class IMConnectionMonitor, IMRemoteURLConnection, NSData, NSDate, NSDictionary, NSMutableURLRequest, NSNumber, NSString, NSURL;
+@class IMConnectionMonitor, IMRemoteURLConnection, NSArray, NSData, NSDate, NSDictionary, NSMutableURLRequest, NSNumber, NSString, NSURL;
 @protocol OS_dispatch_queue;
 
 @interface IDSServerBag : NSObject
@@ -29,6 +29,9 @@
     NSDate *_loadDate;
     NSNumber *_cacheTime;
     unsigned long long _hasPairedDeviceState;
+    NSData *_serverSignature;
+    NSArray *_serverCerts;
+    NSData *_serverGivenBag;
 }
 
 + (id)_bagCreationLock;
@@ -37,6 +40,9 @@
 + (id)_sharedInstance;
 + (id)_sharedInstanceForClass:(Class)arg1;
 + (id)sharedInstance;
+@property(retain) NSData *serverGivenBag; // @synthesize serverGivenBag=_serverGivenBag;
+@property(retain) NSArray *serverCerts; // @synthesize serverCerts=_serverCerts;
+@property(retain) NSData *serverSignature; // @synthesize serverSignature=_serverSignature;
 @property unsigned long long hasPairedDeviceState; // @synthesize hasPairedDeviceState=_hasPairedDeviceState;
 @property int token; // @synthesize token=_token;
 @property _Bool allowUnsignedBags; // @synthesize allowUnsignedBags=_allowUnsignedBags;
@@ -69,6 +75,7 @@
 - (void)_cancelCurrentLoad;
 - (void)_processBagResultData:(id)arg1 response:(id)arg2 inBackground:(_Bool)arg3;
 - (_Bool)_loadFromSignedDictionary:(id)arg1 returningError:(id *)arg2;
+- (_Bool)trustRefFromCertificates:(id)arg1 trustRef:(struct __SecTrust **)arg2;
 - (_Bool)_allowInvalid;
 - (void)_invalidate;
 - (_Bool)_loadFromDictionary:(id)arg1 returningError:(id *)arg2;

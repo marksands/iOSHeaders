@@ -24,6 +24,7 @@
 - (id)taskForRequest:(id)arg1 delegate:(id)arg2;
 @property(readonly, nonatomic) NSURLSession *session;
 - (void)reestablishBackgroundSessionForManager:(id)arg1 withFinishEventsHandler:(CDUnknownBlockType)arg2;
+- (void)failWithError:(id)arg1;
 - (void)_createDefaultSession;
 - (id)_backgroundSession;
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSDictionary, NSFileManager, PLPhotoLibrary, PLXPCTransaction;
 
@@ -118,6 +118,8 @@
 + (_Bool)_persistPhotoIrisVisibilityStateToDiskInStore:(id)arg1;
 + (_Bool)_markOldPhotoIrisEditsEvaluatedInStore:(id)arg1;
 + (_Bool)_saveChangesToPhotoIrisInStore:(id)arg1 matchingPredicate:(id)arg2 countChanged:(unsigned long long *)arg3 error:(id *)arg4 changeBlock:(CDUnknownBlockType)arg5;
++ (_Bool)_updateSidecarForCloudSharedIrisInStore:(id)arg1;
++ (_Bool)_moveCloudSharedDerivativesInStore:(id)arg1;
 + (_Bool)_purgeCloudSharedResourcesInStore:(id)arg1;
 + (_Bool)_fixOriginalPropertiesForCloudSharedAssetsInStore:(id)arg1;
 + (_Bool)_fixCloudSharedGIFsInStore:(id)arg1;

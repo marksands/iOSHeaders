@@ -286,6 +286,7 @@
     long long _maxNumberOfSuggestions;
     double _uGroupMinimumSubscribedChannelSourceFeedArticleRatio;
     long long _numEventsToDisableDefaultTopics;
+    long long _numSubscriptionsToDisableDefaultTopics;
     double _metaGroupingRelatednessThreshold;
     double _metaGroupingRelatednessKWeight;
     double _metaGroupingTopicScoreWeight;
@@ -301,6 +302,7 @@
 @property(readonly, nonatomic) double metaGroupingTopicScoreWeight; // @synthesize metaGroupingTopicScoreWeight=_metaGroupingTopicScoreWeight;
 @property(readonly, nonatomic) double metaGroupingRelatednessKWeight; // @synthesize metaGroupingRelatednessKWeight=_metaGroupingRelatednessKWeight;
 @property(readonly, nonatomic) double metaGroupingRelatednessThreshold; // @synthesize metaGroupingRelatednessThreshold=_metaGroupingRelatednessThreshold;
+@property(readonly, nonatomic) long long numSubscriptionsToDisableDefaultTopics; // @synthesize numSubscriptionsToDisableDefaultTopics=_numSubscriptionsToDisableDefaultTopics;
 @property(readonly, nonatomic) long long numEventsToDisableDefaultTopics; // @synthesize numEventsToDisableDefaultTopics=_numEventsToDisableDefaultTopics;
 @property(readonly, nonatomic) _Bool onlyConsiderBestSourceFeedsInForYouGroup; // @synthesize onlyConsiderBestSourceFeedsInForYouGroup=_onlyConsiderBestSourceFeedsInForYouGroup;
 @property(readonly, nonatomic) double uGroupMinimumSubscribedChannelSourceFeedArticleRatio; // @synthesize uGroupMinimumSubscribedChannelSourceFeedArticleRatio=_uGroupMinimumSubscribedChannelSourceFeedArticleRatio;

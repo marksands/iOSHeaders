@@ -30,6 +30,7 @@
 @property(retain, nonatomic) id xObj; // @synthesize xObj=_xObj;
 - (void).cxx_destruct;
 - (void)resume;
+- (void)suspend;
 - (void)addRequiredEntitlement:(id)arg1;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (id)initWithName:(id)arg1 listener:(id)arg2 protocol:(id)arg3 exportedObj:(id)arg4 isExtension:(_Bool)arg5;

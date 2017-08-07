@@ -11,12 +11,14 @@
 @interface MPPlaybackContextRemotePlaybackQueue : MPRemotePlaybackQueue
 {
     MPPlaybackContext *_playbackContext;
+    long long _replaceIntent;
 }
 
 - (void).cxx_destruct;
 - (id)description;
 - (id)siriRecommendationIdentifier;
-- (_Bool)shouldOverrideManuallyCuratedQueue;
+- (void)setReplaceIntent:(long long)arg1;
+- (long long)replaceIntent;
 - (_Bool)isRequestingImmediatePlayback;
 - (void)getPlaybackContextWithCompletion:(CDUnknownBlockType)arg1;
 - (id)initWithPlaybackContext:(id)arg1;

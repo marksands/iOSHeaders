@@ -20,8 +20,6 @@
     struct NSMutableDictionary *_devices;
     _Bool _invalidateCalled;
     _Bool _needDups;
-    NSData *_payloadFilterData;
-    NSData *_payloadFilterMask;
     long long _payloadType;
     NSObject<OS_dispatch_source> *_rescanTimer;
     struct __sFILE {
@@ -63,6 +61,8 @@
     CDUnknownBlockType _deviceChangedHandler;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     CDUnknownBlockType _invalidationHandler;
+    NSData *_payloadFilterData;
+    NSData *_payloadFilterMask;
     double _rescanInterval;
     long long _rssiThreshold;
     long long _scanInterval;
@@ -86,6 +86,8 @@
 @property(nonatomic) _Bool rssiLogStdOut; // @synthesize rssiLogStdOut=_rssiLogStdOut;
 @property(nonatomic) _Bool rssiLog; // @synthesize rssiLog=_rssiLog;
 @property(nonatomic) double rescanInterval; // @synthesize rescanInterval=_rescanInterval;
+@property(readonly, copy, nonatomic) NSData *payloadFilterMask; // @synthesize payloadFilterMask=_payloadFilterMask;
+@property(readonly, copy, nonatomic) NSData *payloadFilterData; // @synthesize payloadFilterData=_payloadFilterData;
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(copy, nonatomic) CDUnknownBlockType deviceChangedHandler; // @synthesize deviceChangedHandler=_deviceChangedHandler;

@@ -7,28 +7,26 @@
 #import <objc/NSObject.h>
 
 #import <ModelIO/MDLComponent-Protocol.h>
-#import <ModelIO/MDLNamed-Protocol.h>
 #import <ModelIO/NSCopying-Protocol.h>
 
-@class MDLSkeleton, NSString;
+@class MDLSkeleton, NSArray, NSString;
 @protocol MDLJointAnimation;
 
-@interface MDLAnimationBindComponent : NSObject <MDLNamed, NSCopying, MDLComponent>
+@interface MDLAnimationBindComponent : NSObject <NSCopying, MDLComponent>
 {
-    NSString *_name;
     MDLSkeleton *_skeleton;
     id <MDLJointAnimation> _jointAnimation;
+    NSArray *_jointPaths;
     // Error parsing type: {?="columns"[4]}, name: _geometryBindTransform
 }
 
 // Error parsing type for property geometryBindTransform:
 // Property attributes: T{?=[4]},N,V_geometryBindTransform
 
+@property(retain, nonatomic) NSArray *jointPaths; // @synthesize jointPaths=_jointPaths;
 @property(retain, nonatomic) id <MDLJointAnimation> jointAnimation; // @synthesize jointAnimation=_jointAnimation;
 @property(retain, nonatomic) MDLSkeleton *skeleton; // @synthesize skeleton=_skeleton;
-@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
-- (id)initWithName:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 // Remaining properties

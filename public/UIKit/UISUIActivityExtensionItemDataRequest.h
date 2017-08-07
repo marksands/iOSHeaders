@@ -14,13 +14,13 @@
 {
     _Bool _wantsThumbnailItemData;
     _Bool _wantsAttachmentURLItemData;
-    _Bool _isPhotoServiceAccessGranted;
     _Bool _isAirDropActivity;
     _Bool _activitySupportsPromiseURLs;
     Class _classForPreparingExtensionItemData;
     NSUUID *_activityUUID;
     NSString *_activityType;
     long long _activityCategory;
+    NSString *_extensionIdentifier;
     NSDictionary *_activitySpecificMetadata;
     struct CGSize _thumbnailSize;
 }
@@ -31,7 +31,7 @@
 @property(retain, nonatomic) NSDictionary *activitySpecificMetadata; // @synthesize activitySpecificMetadata=_activitySpecificMetadata;
 @property(nonatomic) _Bool activitySupportsPromiseURLs; // @synthesize activitySupportsPromiseURLs=_activitySupportsPromiseURLs;
 @property(nonatomic) _Bool isAirDropActivity; // @synthesize isAirDropActivity=_isAirDropActivity;
-@property(nonatomic) _Bool isPhotoServiceAccessGranted; // @synthesize isPhotoServiceAccessGranted=_isPhotoServiceAccessGranted;
+@property(nonatomic) NSString *extensionIdentifier; // @synthesize extensionIdentifier=_extensionIdentifier;
 @property(nonatomic) struct CGSize thumbnailSize; // @synthesize thumbnailSize=_thumbnailSize;
 @property(nonatomic) _Bool wantsAttachmentURLItemData; // @synthesize wantsAttachmentURLItemData=_wantsAttachmentURLItemData;
 @property(nonatomic) _Bool wantsThumbnailItemData; // @synthesize wantsThumbnailItemData=_wantsThumbnailItemData;

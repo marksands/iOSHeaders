@@ -18,6 +18,7 @@
     NSArray *_appInfos;
     NSArray *_appChannels;
     _Bool _hasOptedIn;
+    _Bool _shouldDenyOnCancel;
     CDUnknownBlockType _completionHandler;
 }
 
@@ -36,6 +37,7 @@
 - (void)_handlePrivacyButton:(id)arg1;
 - (void)_disallow:(id)arg1;
 - (void)_allow:(id)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)_init;
 - (id)init;

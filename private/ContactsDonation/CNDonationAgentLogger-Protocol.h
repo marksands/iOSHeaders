@@ -6,9 +6,14 @@
 
 #import <ContactsDonation/NSObject-Protocol.h>
 
-@class CNDDonorExtension, NSArray, NSError, NSString;
+@class CNDDonorExtension, CNDonationValue, NSArray, NSDate, NSError, NSString;
 
 @protocol CNDonationAgentLogger <NSObject>
+- (void)couldNotRenewBecauseLoadingError:(NSError *)arg1;
+- (void)couldNotRenewBecauseDonorError:(NSError *)arg1;
+- (void)couldNotRenewBecauseNotADonorExtension:(id)arg1;
+- (void)didRenewValue:(CNDonationValue *)arg1 untilDate:(NSDate *)arg2;
+- (void)willRenewValues:(NSArray *)arg1 withDonor:(NSString *)arg2;
 - (void)didRemoveAllRejections;
 - (void)willRemoveAllRejections;
 - (void)didListRejections;
@@ -28,6 +33,7 @@
 - (void)didDiscoverUnexpectedExtensionType:(id)arg1;
 - (void)didDiscoverExtension:(CNDDonorExtension *)arg1;
 - (void)willDiscoverExtensions;
+- (void)contactsChangedNotificationEmailAddressesChanged:(_Bool)arg1;
 - (void)contactsChangedNotificationFoundName:(_Bool)arg1 nameChanged:(_Bool)arg2;
 - (void)featureDidEnable;
 - (void)featureWillEnable;

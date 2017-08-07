@@ -16,14 +16,14 @@
     UIVisualEffectView *__blurEffectView;
     CAMPortraitModeDescriptionOverlayPrimaryVibrancyEffectView *__primaryVibrancyEffectView;
     UILabel *__titleLabel;
-    UILabel *__subtitleLabel;
     UILabel *__descriptionLabel;
+    UILabel *__infoLabel;
     UIButton *__acknowledgmentButton;
 }
 
 @property(readonly, nonatomic) UIButton *_acknowledgmentButton; // @synthesize _acknowledgmentButton=__acknowledgmentButton;
+@property(readonly, nonatomic) UILabel *_infoLabel; // @synthesize _infoLabel=__infoLabel;
 @property(readonly, nonatomic) UILabel *_descriptionLabel; // @synthesize _descriptionLabel=__descriptionLabel;
-@property(readonly, nonatomic) UILabel *_subtitleLabel; // @synthesize _subtitleLabel=__subtitleLabel;
 @property(readonly, nonatomic) UILabel *_titleLabel; // @synthesize _titleLabel=__titleLabel;
 @property(readonly, nonatomic) CAMPortraitModeDescriptionOverlayPrimaryVibrancyEffectView *_primaryVibrancyEffectView; // @synthesize _primaryVibrancyEffectView=__primaryVibrancyEffectView;
 @property(readonly, nonatomic) UIVisualEffectView *_blurEffectView; // @synthesize _blurEffectView=__blurEffectView;
@@ -35,7 +35,7 @@
 - (void)_handleAcknowledgmentButtonTapped:(id)arg1;
 @property(nonatomic, getter=isAcknowledgmentButtonHighlighted) _Bool acknowledgmentButtonHighlighted;
 - (void)layoutSubviews;
-- (double)_additionalFontSizeForContentSize:(id)arg1;
+- (double)_additionalSpacingForContentSize:(id)arg1;
 - (void)_updateFontsForCurrentContentSize;
 - (id)_currentContentSize;
 - (void)updateToContentSize:(id)arg1;

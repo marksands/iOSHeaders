@@ -16,11 +16,13 @@
 - (_Bool)shouldContinueAfterAnchorValidationError:(NSError *)arg1;
 - (_Bool)supportsSpeculativeChangesForSyncEntityClass:(Class)arg1;
 - (_Bool)enforceSyncEntityOrdering;
+- (_Bool)canRecieveSyncObjectsForEntityClass:(Class)arg1;
 - (NSSet *)syncEntityDependenciesForSyncEntity:(Class)arg1;
 - (NSArray *)orderedSyncEntities;
 - (NSString *)syncStoreDefaultSourceBundleIdentifier;
 - (NSUUID *)syncStoreIdentifier;
 - (NSString *)syncStoreTypeIdentifier;
+- (long long)syncEpoch;
 - (long long)syncProvenance;
 - (HDProfile *)profile;
 @end

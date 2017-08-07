@@ -33,6 +33,7 @@
 - (void)reachabilityChanged:(_Bool)arg1;
 - (unsigned long long)analyticsVideoType;
 - (unsigned long long)analyticsMediaType;
+- (void)prepareForTransitionType:(unsigned long long)arg1;
 - (id)transitionContentView;
 - (_Bool)transitionViewUsesThumbnail;
 - (struct CGRect)transitionContentFrame;

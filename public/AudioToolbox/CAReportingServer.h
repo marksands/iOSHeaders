@@ -8,19 +8,25 @@
 
 #import <AudioToolbox/NSXPCListenerDelegate-Protocol.h>
 
-@class NSMutableArray, NSString, NSXPCListener;
+@class NSDictionary, NSMutableArray, NSString, NSXPCListener;
 
 __attribute__((visibility("hidden")))
 @interface CAReportingServer : NSObject <NSXPCListenerDelegate>
 {
+    _Bool _reportingEnabled;
     NSXPCListener *_listener;
     NSMutableArray *_clients;
+    NSDictionary *_defaults;
 }
 
+@property _Bool reportingEnabled; // @synthesize reportingEnabled=_reportingEnabled;
+@property(retain) NSDictionary *defaults; // @synthesize defaults=_defaults;
 @property(retain) NSMutableArray *clients; // @synthesize clients=_clients;
 @property(retain) NSXPCListener *listener; // @synthesize listener=_listener;
 - (void).cxx_destruct;
+- (id)CAReportingDefaults;
 - (id)findReportingSessionForID:(long long)arg1;
+- (void)listenForDefaultsNotification;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)startListening;
 - (id)init;

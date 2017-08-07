@@ -28,7 +28,8 @@
     unsigned long long sequenceCount;
     unsigned long long photoCount;
     NSString *sourceDeviceType;
-    unsigned int photoProcessingFlags;
+    unsigned int expectedPhotoProcessingFlags;
+    unsigned int actualPhotoProcessingFlags;
     AVApplePortraitMetadata *portraitMetadata;
 }
 

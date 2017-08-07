@@ -199,6 +199,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *flowControlKey;
 @property(readonly, nonatomic) _Bool allowsPowerNapScheduling;
 @property(readonly, nonatomic) unsigned long long networkServiceType;
+@property(readonly, nonatomic) NSString *operationID;
 - (id)deviceIdentifier;
 @property(readonly, nonatomic) NSNumber *operationGroupQuantity;
 @property(readonly, nonatomic) NSString *operationGroupName;
@@ -214,6 +215,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *requestContentType;
 @property(readonly, nonatomic) NSString *protobufOperationName;
 @property(readonly, nonatomic) NSString *acceptContentType;
+@property(readonly, nonatomic) _Bool shouldSendKeyIDs;
+- (_Bool)canSendKeyIDs;
 @property(readonly, nonatomic) _Bool shouldCompressBody;
 @property(readonly, nonatomic) NSString *path;
 @property(readonly, nonatomic) NSArray *requestOperationClasses;

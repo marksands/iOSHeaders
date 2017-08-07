@@ -7,15 +7,15 @@
 #import <objc/NSObject.h>
 
 #import <FileProvider/FPItemCollectionDelegate-Protocol.h>
-#import <FileProvider/FPProviderChangesReceiver-Protocol.h>
 
 @class FPItemCollection, NSDictionary, NSString;
 
 __attribute__((visibility("hidden")))
-@interface FPExtensionProviderChangesReceiver : NSObject <FPProviderChangesReceiver, FPItemCollectionDelegate>
+@interface FPExtensionProviderChangesReceiver : NSObject <FPItemCollectionDelegate>
 {
     NSDictionary *_providersByID;
     FPItemCollection *_localStorageCollection;
+    int _notifyToken;
     CDUnknownBlockType _changesHandler;
     NSString *_identifier;
 }
@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)collection:(id)arg1 didDeleteItemsAtIndexPaths:(id)arg2;
 - (void)collection:(id)arg1 didMoveItemsFromIndexPaths:(id)arg2 toIndexPaths:(id)arg3;
 - (void)collection:(id)arg1 didInsertItemsAtIndexPaths:(id)arg2;
+- (void)updateProviderInfo;
 - (id)init;
 
 // Remaining properties

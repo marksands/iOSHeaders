@@ -14,7 +14,6 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(nonatomic, getter=isRemoteGatewayCapable) _Bool remoteGatewayCapable; // @dynamic remoteGatewayCapable;
 @property(nonatomic, getter=isResidentCapable) _Bool residentCapable; // @dynamic residentCapable;
-@property(nonatomic) _Bool supportsSharedEventTriggerActivation; // @dynamic supportsSharedEventTriggerActivation;
 @property(nonatomic) _Bool supportsWholeHouseAudio; // @dynamic supportsWholeHouseAudio;
 @property(nonatomic) _Bool supportsCloudDataSync; // @dynamic supportsCloudDataSync;
 @property(nonatomic) _Bool supportsStandaloneMode; // @dynamic supportsStandaloneMode;

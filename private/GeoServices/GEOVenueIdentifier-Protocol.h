@@ -7,7 +7,6 @@
 #import <GeoServices/NSObject-Protocol.h>
 
 @class GEOPDVenueIdentifier, NSArray;
-@protocol GEOVenueComponentIdentifier;
 
 @protocol GEOVenueIdentifier <NSObject>
 @property(readonly, nonatomic) NSArray *componentIdentifiers;
@@ -15,7 +14,7 @@
 @property(readonly, nonatomic, getter=_hasBusinessID) _Bool hasBusinessID;
 @property(readonly, nonatomic) unsigned long long venueID;
 @property(readonly, nonatomic, getter=_hasVenueID) _Bool hasVenueID;
-- (GEOPDVenueIdentifier *)placeDataVenueIdentifierForBuilding:(id <GEOVenueComponentIdentifier>)arg1;
 - (GEOPDVenueIdentifier *)placeDataVenueIdentifierForVenue;
+- (GEOPDVenueIdentifier *)placeDataVenueIdentifier;
 @end
 

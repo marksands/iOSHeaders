@@ -20,6 +20,7 @@
 - (void)rejectValueWithDonationIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)changeFromAccount:(id)arg1 toAccount:(id)arg2;
 - (id)meCardDonations;
+- (id)donatedMeCardEither;
 - (id)donatedMeCard;
 - (void)fetchDonatedMeCard:(CDUnknownBlockType)arg1;
 - (void)removeDonatedMeCardValuesForIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

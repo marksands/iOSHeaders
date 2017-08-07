@@ -433,8 +433,6 @@ struct __C3DFramebuffer;
 
 struct __C3DImage;
 
-struct __C3DNode;
-
 struct __CFString;
 
 struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
@@ -1148,6 +1146,12 @@ typedef struct {
 } CDStruct_d3ce6806;
 
 typedef struct {
+    float _field1;
+    void *_field2;
+    float _field3;
+} CDStruct_962da47d;
+
+typedef struct {
     long long _field1;
     int _field2;
     unsigned int _field3;
@@ -1208,12 +1212,6 @@ typedef struct {
     NSMutableSet *_usedMeshElements;
     NSMutableSet *_freeMeshElements;
 } CDStruct_4aabc75a;
-
-typedef struct {
-    float _field1;
-    struct __C3DNode *_field2;
-    float _field3;
-} CDStruct_62d14fc2;
 
 typedef struct {
     struct {

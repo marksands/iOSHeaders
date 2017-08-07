@@ -24,6 +24,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)copyWithNewExpirationDate:(id)arg1;
 - (id)description;
 - (id)initWithEmailAddress:(id)arg1 label:(id)arg2 origin:(id)arg3;
 

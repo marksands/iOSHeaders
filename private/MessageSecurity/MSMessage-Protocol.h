@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class MSDecodeOptions, NSData;
-@protocol MSMessage;
+#import <MessageSecurity/NSObject-Protocol.h>
 
-@protocol MSMessage
-+ (id <MSMessage>)decodeMessageSecurityObject:(NSData *)arg1 options:(MSDecodeOptions *)arg2 error:(id *)arg3;
+@class MSDecodeOptions, NSData;
+
+@protocol MSMessage <NSObject>
++ (id)decodeMessageSecurityObject:(NSData *)arg1 options:(MSDecodeOptions *)arg2 error:(id *)arg3;
 - (NSData *)encodeMessageSecurityObject:(id *)arg1;
 @end
 

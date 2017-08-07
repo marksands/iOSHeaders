@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)scrollViewDidZoom:(id)arg1;
 - (void)scrollViewDidEndZooming:(id)arg1 withView:(id)arg2 atScale:(double)arg3;
 - (void)scrollViewWillBeginZooming:(id)arg1 withView:(id)arg2;
+- (void)_updateAnnotations;
 - (void)_removePDFView;
 - (void)_buildPDFPageView;
 - (void)viewWillLayoutSubviews;

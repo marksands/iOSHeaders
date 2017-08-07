@@ -8,14 +8,12 @@
 
 #import <EventKitUI/CalendarPublishingActivityDelegate-Protocol.h>
 
-@class NSString, UIActivityIndicatorView, UILabel, UITableViewHeaderFooterView, UIView;
+@class NSString, UIActivityIndicatorView, UITableViewHeaderFooterView, UIView;
 
 @interface EKCalendarPublishingEditItem : EKCalendarEditItem <CalendarPublishingActivityDelegate>
 {
     _Bool _published;
     UITableViewHeaderFooterView *_footerView;
-    UILabel *_descriptionLabel;
-    UILabel *_publishingLabel;
     UIActivityIndicatorView *_spinner;
 }
 

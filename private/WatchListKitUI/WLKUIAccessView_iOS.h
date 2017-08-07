@@ -14,7 +14,7 @@
 {
     NSArray *_apps;
     UILayoutGuide *_titlePlacementGuide;
-    UIStackView *_contentStack;
+    UIStackView *_scrollStack;
     UILabel *_titleLabel;
     UIScrollView *_bodyScroll;
     UILabel *_bodyLabel;
@@ -43,6 +43,7 @@
 - (void)setFooter:(id)arg1;
 - (void)setBody:(id)arg1;
 - (void)setTitle:(id)arg1;
+- (id)bodyScroll;
 - (id)nackButton;
 - (id)seeAllButton;
 - (id)privacyButton;

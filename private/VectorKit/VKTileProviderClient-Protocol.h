@@ -6,9 +6,10 @@
 
 #import <VectorKit/NSObject-Protocol.h>
 
-@class NSError, VKTileProvider;
+@class NSError, VKTileProvider, VKTileSource;
 
 @protocol VKTileProviderClient <NSObject>
+- (long long)tileSource:(VKTileSource *)arg1 overrideForMaximumZoomLevel:(long long)arg2;
 - (void)didStopLoadingTilesWithError:(NSError *)arg1;
 - (void)willStartLoadingTiles;
 - (void)tileProviderNeedsUpdate:(VKTileProvider *)arg1;

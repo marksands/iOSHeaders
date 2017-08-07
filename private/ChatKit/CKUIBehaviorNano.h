@@ -138,6 +138,7 @@
 - (_Bool)hidesUnreadIndicatorWhenEditing;
 - (_Bool)showsNoMessagesDialog;
 - (_Bool)shouldShowSearchBarInConversationList;
+- (double)extensionBalloonMaximumHeight;
 - (double)transcriptButtonCharge;
 - (double)maxTranscriptPortraitHeight;
 - (unsigned long long)defaultConversationLoadMoreCount;

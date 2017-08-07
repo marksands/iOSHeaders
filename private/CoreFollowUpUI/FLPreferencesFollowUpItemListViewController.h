@@ -21,6 +21,8 @@
 - (void)stopSpinnerForSpecifier:(id)arg1;
 - (void)startSpinnerForSpecifier:(id)arg1;
 - (void)_dismissFlowWithError:(id)arg1;
+- (void)_showRadarPromptForItem:(id)arg1 action:(id)arg2;
+- (void)handleActionForItem:(id)arg1 fromSpecifier:(id)arg2;
 - (void)actionTapped:(id)arg1;
 - (id)detailSpecifiersForFollowUpItem:(id)arg1;
 - (id)followUpItemSpecifiers;

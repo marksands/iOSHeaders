@@ -562,6 +562,7 @@
 - (long long)dragDropSourceManagementStateForBundleID:(id)arg1;
 - (long long)dragDropBidirectionalManagementStateForBaseBundleID:(id)arg1;
 - (_Bool)isBundleIDAccountBasedForDragDrop:(id)arg1;
+- (id)managedAppBundleIDs;
 - (_Bool)isAppManaged:(id)arg1;
 - (id)allowedAppBundleIDsForBidirectionalDataMovementAfterApplyingFilterToBundleIDs:(id)arg1 localAppBundleID:(id)arg2 localAccountIsManaged:(_Bool)arg3;
 - (id)allowedImportFromAppBundleIDsAfterApplyingFilterToBundleIDs:(id)arg1 importingAppBundleID:(id)arg2 importingAccountIsManaged:(_Bool)arg3;

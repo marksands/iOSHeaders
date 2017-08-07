@@ -13,6 +13,7 @@
 + (id)_firstSourceWithPredicate:(id)arg1 database:(id)arg2 error:(id *)arg3;
 + (id)_firstSourceWithPredicate:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (id)_sourcesWithPredicate:(id)arg1 profile:(id)arg2 error:(id *)arg3;
++ (id)orderedBundleIdentifiersFromSourceUUIDsData:(id)arg1 database:(id)arg2 error:(id *)arg3;
 + (id)sourcesWithPredicate:(id)arg1 orderingProperties:(id)arg2 orderingDirections:(id)arg3 database:(id)arg4 error:(id *)arg5;
 + (id)sourcesWithPredicate:(id)arg1 database:(id)arg2 error:(id *)arg3;
 + (id)sourcesWithPredicate:(id)arg1 profile:(id)arg2 error:(id *)arg3;

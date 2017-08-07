@@ -8,7 +8,7 @@
 
 #import <FamilyCircleUI/RUIObjectModelDelegate-Protocol.h>
 
-@class AAGrandSlamSigner, AASetupAssistantService, ACAccount, NSArray, NSHTTPURLResponse, NSMutableArray, NSString, NSURL, RUILoader, UIActivityIndicatorView, UIBarButtonItem, UINavigationController, UINavigationItem, UIToolbar;
+@class AAGrandSlamSigner, AASetupAssistantService, ACAccount, FARequestConfigurator, NSArray, NSHTTPURLResponse, NSMutableArray, NSString, NSURL, RUILoader, UIActivityIndicatorView, UIBarButtonItem, UINavigationController, UINavigationItem, UIToolbar;
 @protocol FAChildAccountCreationDelegate;
 
 @interface FAChildAccountCreationController : NSObject <RUIObjectModelDelegate>
@@ -29,6 +29,7 @@
     UIToolbar *_originalToolbar;
     _Bool _isShowingSpinner;
     _Bool _isPendingDismissal;
+    FARequestConfigurator *_requestConfigurator;
     id <FAChildAccountCreationDelegate> _delegate;
     UINavigationController *_navigationController;
     NSString *_continuationData;
@@ -47,6 +48,8 @@
 - (void)objectModel:(id)arg1 pressedLink:(id)arg2 httpMethod:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)loader:(id)arg1 receivedObjectModel:(id)arg2 actionSignal:(unsigned long long)arg3;
 - (void)_popObjectModelAnimated:(_Bool)arg1;
+- (id)loader:(id)arg1 willLoadRequest:(id)arg2 redirectResponse:(id)arg3;
+- (id)_requestConfigurator;
 - (_Bool)_pressedLink:(id)arg1 comesFromBarButtonItem:(id)arg2 objectModel:(id)arg3;
 - (void)_displayConnectionErrorAndCancel;
 - (void)_cancel;

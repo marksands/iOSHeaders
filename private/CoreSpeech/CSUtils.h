@@ -10,6 +10,9 @@
 {
 }
 
++ (id)getFixedHighPrioritySerialQueueWithLabel:(id)arg1;
++ (id)getFixedPrioritySerialQueueWithLabel:(id)arg1 fixedPriority:(int)arg2;
++ (id)rootQueueWithFixedPriority:(int)arg1;
 + (_Bool)hasRemoteCoreSpeech;
 + (_Bool)supportCSTwoShotDecision;
 + (_Bool)supportSelfTriggerSuppression;
@@ -18,6 +21,7 @@
 + (_Bool)supportKeywordDetector;
 + (_Bool)supportContinuousVoiceTrigger;
 + (_Bool)shouldRunVTOnCS;
++ (id)getSiriLanguageWithFallback:(id)arg1;
 + (id)convertToShortLPCMBufFromFloatLPCMBuf:(id)arg1;
 + (id)convertToFloatLPCMBufFromShortLPCMBuf:(id)arg1;
 + (id)alertMuteSettings;
@@ -38,7 +42,7 @@
 + (void)iterateBitset:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 + (unsigned long long)sampleCountFromHostTime:(unsigned long long)arg1 anchorHostTime:(unsigned long long)arg2 anchorSampleCount:(unsigned long long)arg3;
 + (unsigned long long)hostTimeFromSampleCount:(unsigned long long)arg1 anchorHostTime:(unsigned long long)arg2 anchorSampleCount:(unsigned long long)arg3;
-+ (double)getFrequency;
++ (double)getHostClockFrequency;
 + (unsigned long long)secondsToHostTime:(float)arg1;
 + (_Bool)isRecordContextVoiceTrigger:(id)arg1;
 + (id)assetHashInResourcePath:(id)arg1;

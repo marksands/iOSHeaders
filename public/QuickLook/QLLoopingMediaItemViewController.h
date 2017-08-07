@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 - (id)player;
 - (void)stopObservingItem;
 - (void)startObservingItem;
+- (id)audioSessionCategory;
 - (void)setupPlayerWithMediaAsset:(id)arg1;
 - (void)pause;
 - (void)play;

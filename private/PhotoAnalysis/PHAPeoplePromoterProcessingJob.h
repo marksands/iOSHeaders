@@ -14,14 +14,12 @@
 @interface PHAPeoplePromoterProcessingJob : PHAWorkerJob <PVPersonPromoterDelegate>
 {
     _Bool _finished;
-    _Bool _shouldStop;
     float _completionScore;
     NSObject<OS_dispatch_queue> *_backgroundTaskQueue;
     PVPersonPromoter *_personPromoter;
     PHAVisionServiceFaceProcessingWorker *_worker;
 }
 
-@property _Bool shouldStop; // @synthesize shouldStop=_shouldStop;
 @property(nonatomic) __weak PHAVisionServiceFaceProcessingWorker *worker; // @synthesize worker=_worker;
 @property(retain, nonatomic) PVPersonPromoter *personPromoter; // @synthesize personPromoter=_personPromoter;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *backgroundTaskQueue; // @synthesize backgroundTaskQueue=_backgroundTaskQueue;

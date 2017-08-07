@@ -38,8 +38,9 @@
 + (void)checkScreenContrast;
 + (void)_checkContrastSetting;
 + (void)_checkSpeakAutofillSetByiTunes;
-+ (void)_checkClosedCaptioningSetByitunes;
++ (void)_checkClosedCaptioningSetByiTunes;
 + (void)_checkMonoAudioSetByiTunes;
++ (void)_checkAssistiveTouchSetByiTunes;
 + (void)_checkInvertColorsSetByiTunes;
 + (void)_checkZoomTouchSetByiTunes;
 + (void)_checkVoiceOverTouchSetByiTunes;

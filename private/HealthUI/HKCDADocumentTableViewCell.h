@@ -6,7 +6,7 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class HKAdjustableTapTargetButton, NSArray, NSLayoutConstraint, UILabel, UIStackView, _HKDocumentImageView;
+@class HKAdjustableTapTargetButton, NSArray, UILabel, UIStackView, _HKDocumentImageView;
 @protocol HKCDADocumentTableViewCellDelegate;
 
 @interface HKCDADocumentTableViewCell : UITableViewCell
@@ -15,7 +15,6 @@
     UILabel *_titleLabel;
     NSArray *_cellLabels;
     UIStackView *_imageLabelStack;
-    NSLayoutConstraint *_mainStackViewLeadingConstraint;
     _Bool _showsCheckbox;
     id <HKCDADocumentTableViewCellDelegate> _delegate;
     HKAdjustableTapTargetButton *_checkboxButton;

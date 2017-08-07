@@ -10,5 +10,7 @@
 {
 }
 
+- (id)initWithZone:(id)arg1 temporaryCache:(_Bool)arg2;
+
 @end
 

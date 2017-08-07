@@ -6,7 +6,7 @@
 
 #import <NanoTimeKitCompanion/NSObject-Protocol.h>
 
-@class NSIndexPath, NTKUpNextElement, NTKUpNextFaceElementController;
+@class NSIndexPath, NTKUpNextElement, NTKUpNextElementContent, NTKUpNextFaceElementController;
 
 @protocol NTKUpNextFaceElementControllerDelegate <NSObject>
 
@@ -15,7 +15,7 @@
 - (void)faceElementController:(NTKUpNextFaceElementController *)arg1 didMoveElement:(NTKUpNextElement *)arg2 fromIndexPath:(NSIndexPath *)arg3 toIndexPath:(NSIndexPath *)arg4;
 - (void)faceElementController:(NTKUpNextFaceElementController *)arg1 didInsertElement:(NTKUpNextElement *)arg2 atIndexPath:(NSIndexPath *)arg3;
 - (void)faceElementController:(NTKUpNextFaceElementController *)arg1 didRemoveElement:(NTKUpNextElement *)arg2 atIndexPath:(NSIndexPath *)arg3;
-- (void)faceElementController:(NTKUpNextFaceElementController *)arg1 didReloadElement:(NTKUpNextElement *)arg2 atIndexPath:(NSIndexPath *)arg3;
+- (void)faceElementController:(NTKUpNextFaceElementController *)arg1 didReloadContent:(NTKUpNextElementContent *)arg2 atIndexPath:(NSIndexPath *)arg3;
 - (void)faceElementController:(NTKUpNextFaceElementController *)arg1 performBatchUpdateBlock:(void (^)(void))arg2 completion:(void (^)(void))arg3;
 @end
 

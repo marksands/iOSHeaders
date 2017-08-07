@@ -6,15 +6,15 @@
 
 #import <UIKit/UICollectionViewCell.h>
 
-@class CALayer, UIImage, UIImageView, UIView;
+@class UIImage, UIImageView, UIView;
 
 @interface _NTKCPhotoListCell : UICollectionViewCell
 {
     UIView *_selectionOverlayView;
     UIImageView *_selectionBadge;
     UIView *_highlightOverlayView;
-    CALayer *_contentLayer;
-    UIImage *_contentImage;
+    UIView *_content;
+    UIImageView *_contentImageView;
     struct CGRect _crop;
 }
 

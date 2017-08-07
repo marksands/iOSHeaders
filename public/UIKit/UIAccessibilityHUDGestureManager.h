@@ -8,13 +8,14 @@
 
 #import <UIKit/UIGestureRecognizerDelegatePrivate-Protocol.h>
 
-@class NSMutableArray, NSString, UILongPressGestureRecognizer, UIView;
+@class NSMutableArray, NSString, UILongPressGestureRecognizer, UIView, UIViewController;
 @protocol UIAccessibilityHUDGestureHosting;
 
 __attribute__((visibility("hidden")))
 @interface UIAccessibilityHUDGestureManager : NSObject <UIGestureRecognizerDelegatePrivate>
 {
     UIView<UIAccessibilityHUDGestureHosting> *_view;
+    UIViewController *_viewControllerDisplayingHUD;
     UILongPressGestureRecognizer *_recognizer;
     NSMutableArray *_subscribedConcurrentGestureRecognizers;
 }

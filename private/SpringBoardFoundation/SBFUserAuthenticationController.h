@@ -11,7 +11,7 @@
 #import <SpringBoardFoundation/SBFPasscodeFieldChangeObserver-Protocol.h>
 #import <SpringBoardFoundation/SBFUserAuthenticationModelDelegate-Protocol.h>
 
-@class NSData, NSDate, NSHashTable, NSMutableArray, NSString, PCPersistentTimer, SBFAuthenticationAssertion, SBFAuthenticationAssertionManager, SBFMobileKeyBag;
+@class NSDate, NSHashTable, NSMutableArray, NSString, PCPersistentTimer, SBFAuthenticationAssertion, SBFAuthenticationAssertionManager, SBFMobileKeyBag;
 @protocol SBFAuthenticationPolicy, SBFUserAuthenticationModel;
 
 @interface SBFUserAuthenticationController : NSObject <SBFMobileKeyBagObserver, SBFUserAuthenticationModelDelegate, SBFAuthenticationStatusProvider, SBFPasscodeFieldChangeObserver>
@@ -24,12 +24,11 @@
     NSDate *_lastRevokedAuthenticationDate;
     SBFAuthenticationAssertionManager *_assertionManager;
     id <SBFAuthenticationPolicy> _policy;
-    NSData *_lastIncorrectPasscodeAttempt;
+    NSString *_lastIncorrectPasscodeAttempt;
     SBFAuthenticationAssertion *_transientAuthCheckingAssertion;
     struct __CFRunLoopObserver *_runLoopObserver;
     PCPersistentTimer *_unblockTimer;
-    _Bool _lastAuthStateWasAuthenticated;
-    _Bool _shouldFetchAuthenticationState;
+    long long _cachedAuthFlag;
     _Bool _inSecureMode;
 }
 
@@ -73,6 +72,9 @@
 - (_Bool)_isInBioUnlockState;
 - (void)_removePrivateAuthenticationObserver:(id)arg1;
 - (void)_addPrivateAuthenticationObserver:(id)arg1;
+- (_Bool)_isAssertionValid:(id)arg1;
+- (void)_removeAuthenticationAssertion:(id)arg1;
+- (void)_addAuthenticationAssertion:(id)arg1;
 - (void)_uncachePasscodeIfNecessary;
 - (void)_setupPolicy:(id)arg1;
 - (void)_setModel:(id)arg1;
@@ -95,9 +97,8 @@
 - (_Bool)isAuthenticated;
 - (_Bool)hasPasscodeSet;
 @property(readonly, copy) NSString *description;
-- (_Bool)isAssertionValid:(id)arg1;
-- (void)removeAuthenticationAssertion:(id)arg1;
-- (void)addAuthenticationAssertion:(id)arg1;
+- (id)createGracePeriodAssertionWithReason:(id)arg1;
+- (id)createKeybagUnlockAssertionWithReason:(id)arg1;
 - (void)processAuthenticationRequest:(id)arg1;
 - (void)processAuthenticationRequest:(id)arg1 responder:(id)arg2;
 - (void)removeResponder:(id)arg1;

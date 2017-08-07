@@ -71,6 +71,7 @@
 - (id)elementIdentifierAtIndexPath:(id)arg1;
 - (id)elementBundleIdentifierAtIndexPath:(id)arg1;
 - (id)elementActionAtIndexPath:(id)arg1;
+- (id)_contentForElement:(id)arg1;
 - (id)elementContentAtIndexPath:(id)arg1;
 - (id)_elementAtIndexPath:(id)arg1;
 - (id)_coordinatorIndexPathForFaceIndexPath:(id)arg1;

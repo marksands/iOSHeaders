@@ -230,7 +230,7 @@
 - (_Bool)isBestPairSocialGroup:(id)arg1;
 - (id)bestSocialGroupNodes;
 - (id)socialGroupNodeForPeopleNodes:(id)arg1;
-- (id)inferredMeNodeInPhotoLibrary:(id)arg1;
+- (id)inferredMeNode;
 - (id)staticGraphSchema;
 - (_Bool)exportMatchMomentEventResults:(id)arg1 relatedType:(unsigned long long)arg2 focusOnNodes:(id)arg3 toFileURL:(id)arg4 error:(id *)arg5;
 - (id)_commonAreaNodesBetweenAddressAreaNodes:(id)arg1 andAddressNode:(id)arg2;

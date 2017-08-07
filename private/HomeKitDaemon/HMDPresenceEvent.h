@@ -12,13 +12,14 @@
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDEventTriggerExecutionSession, NSMutableArray, NSMutableDictionary, NSObject, NSString, NSUUID;
+@class HMDEventTriggerExecutionSession, HMPresenceEventActivation, NSMutableArray, NSMutableDictionary, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
 @interface HMDPresenceEvent : HMDEvent <NSSecureCoding, HMFDumpState, HMFLogging, HMFMessageReceiver, HMDTriggerEventProtocol>
 {
     _Bool _currentStatus;
     NSString *_presenceType;
+    HMPresenceEventActivation *_activation;
     NSMutableDictionary *_users;
     NSMutableArray *_userUUIDs;
     HMDEventTriggerExecutionSession *_executionSession;
@@ -30,6 +31,7 @@
 @property(nonatomic) _Bool currentStatus; // @synthesize currentStatus=_currentStatus;
 @property(readonly, nonatomic) NSMutableArray *userUUIDs; // @synthesize userUUIDs=_userUUIDs;
 @property(readonly, nonatomic) NSMutableDictionary *users; // @synthesize users=_users;
+@property(readonly, nonatomic) HMPresenceEventActivation *activation; // @synthesize activation=_activation;
 @property(retain, nonatomic) NSString *presenceType; // @synthesize presenceType=_presenceType;
 - (void).cxx_destruct;
 - (id)presenceMetricData;
@@ -48,11 +50,14 @@
 - (void)_handleUpdateRequest:(id)arg1;
 - (_Bool)compatibleWithUser:(id)arg1;
 - (_Bool)evaluateWithHomePresence:(id)arg1;
+- (_Bool)evaluateWithUserPresence:(id)arg1;
+- (_Bool)evaluateWithHomePresenceUpdate:(id)arg1;
 - (void)didEndExecutionSession:(id)arg1;
-- (void)_evaluatePresenceEvent:(id)arg1;
+- (void)_evaluatePresenceEventForHomePresenceUpdate:(id)arg1;
 - (void)_handleHomePresenceUpdate:(id)arg1;
-- (void)_activate:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)_activate:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_registerForMessages;
+@property(readonly, nonatomic) unsigned long long activationGranularity;
 - (id)thisUser;
 - (id)emptyModelObject;
 - (id)createClientPayload;

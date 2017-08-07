@@ -79,6 +79,7 @@
 - (void)_playIfNeeded;
 @property(readonly, nonatomic) _Bool _canPlayVitality;
 - (void)setSeekTime:(CDStruct_1b6d18a9)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)_createVitalityBehavior;
 - (void)playVitality;
 - (void)prepareForVitality;
 - (void)stopPlaybackAnimated:(_Bool)arg1;
@@ -95,7 +96,7 @@
 - (void)playHintWhenReady;
 - (void)prepareForHintWhenReady;
 - (void)activeBehaviorDidChange;
-- (double)videoWillPlayToEndInterval;
+- (double)videoWillPlayToPhotoInterval;
 - (void)statusDidChange;
 - (void)playerItemDidChange;
 - (void)configurePlayerItem;

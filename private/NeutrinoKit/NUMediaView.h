@@ -7,11 +7,12 @@
 #import <UIKit/UIView.h>
 
 #import <NeutrinoKit/NUAVPlayerControllerDelegate-Protocol.h>
+#import <NeutrinoKit/NUAVPlayerViewDelegate-Protocol.h>
 
 @class NSArray, NSString, NUAVPlayerController, NUAVPlayerView, NUComposition, NUMediaViewRenderer, NURenderView, NUScrollView;
 @protocol NUMediaViewDelegate;
 
-@interface NUMediaView : UIView <NUAVPlayerControllerDelegate>
+@interface NUMediaView : UIView <NUAVPlayerControllerDelegate, NUAVPlayerViewDelegate>
 {
     NURenderView *_renderView;
     NUScrollView *_scrollView;
@@ -33,12 +34,14 @@
     _Bool _loopsVideo;
     _Bool _centerContent;
     _Bool _muted;
+    _Bool _videoPlayerVisible;
     id <NUMediaViewDelegate> _delegate;
     double _angle;
     struct CGSize __masterSizeWithoutGeometry;
     struct CGRect _cropRect;
 }
 
+@property(nonatomic, getter=isVideoPlayerVisible) _Bool videoPlayerVisible; // @synthesize videoPlayerVisible=_videoPlayerVisible;
 @property(nonatomic, getter=isMuted) _Bool muted; // @synthesize muted=_muted;
 @property(nonatomic) _Bool centerContent; // @synthesize centerContent=_centerContent;
 @property(nonatomic) double angle; // @synthesize angle=_angle;
@@ -51,6 +54,8 @@
 - (void)playerControllerIsReadyForPlayback:(id)arg1;
 - (void)playerController:(id)arg1 didUpdateElapsedTime:(double)arg2 duration:(double)arg3;
 - (void)playerControllerDidFinishPlaying:(id)arg1 duration:(double)arg2;
+- (void)playerViewReadyForDisplayDidChange:(id)arg1;
+- (void)_updateVideoPlayerAlpha;
 @property(nonatomic, getter=isVideoEnabled) _Bool videoEnabled;
 - (void)_withComposition:(id)arg1 visitRenderClient:(CDUnknownBlockType)arg2;
 @property(nonatomic) NSArray *pipelineFilters;
@@ -60,7 +65,6 @@
 - (id)_renderView;
 - (id)_scrollView;
 - (void)_stopLoopPlayback;
-@property(nonatomic) double videoPlayerViewAlpha;
 - (void)_startLoopPlayback;
 @property(nonatomic) _Bool loopsVideoPlayback;
 - (void)_rendererDidFinishPreparingVideo;
@@ -71,6 +75,7 @@
 - (id)_livePhotoView;
 - (id)_videoPlayerViewWithoutControls;
 - (id)_videoPlayerView;
+- (void)_transitionToInsets:(struct UIEdgeInsets)arg1;
 - (void)_viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2 insets:(struct UIEdgeInsets)arg3;
 - (id)_renderClient;
 - (void)waitForRender;

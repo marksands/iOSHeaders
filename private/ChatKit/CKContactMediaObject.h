@@ -10,6 +10,7 @@
 
 @interface CKContactMediaObject : CKCardMediaObject
 {
+    _Bool _vCardParsingFailed;
     ABVCardRecord *_vCard;
     UIImage *_vCardImage;
 }
@@ -18,6 +19,7 @@
 + (id)fallbackFilenamePrefix;
 + (id)UTITypes;
 @property(retain, nonatomic) UIImage *vCardImage; // @synthesize vCardImage=_vCardImage;
+@property(nonatomic) _Bool vCardParsingFailed; // @synthesize vCardParsingFailed=_vCardParsingFailed;
 @property(retain, nonatomic) ABVCardRecord *vCard; // @synthesize vCard=_vCard;
 - (void).cxx_destruct;
 - (id)vCardImageOfSize:(struct CGSize)arg1;

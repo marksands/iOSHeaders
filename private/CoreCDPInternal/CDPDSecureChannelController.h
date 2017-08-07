@@ -15,6 +15,7 @@
 
 - (void).cxx_destruct;
 - (void)_processAndReplyWithMessage:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_startListeningWithProxy:(id)arg1;
 - (void)startCircleApplicationApprovalServerWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)joinCircle:(CDUnknownBlockType)arg1;
 - (id)initWithContext:(id)arg1;

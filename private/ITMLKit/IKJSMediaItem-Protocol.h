@@ -14,6 +14,7 @@
 @property(retain, nonatomic) NSDictionary *metadata;
 @property(retain, nonatomic) NSNumber *resumeTime;
 @property(nonatomic) _Bool isExplicit;
+@property(retain, nonatomic) NSString *artworkImageSrcset;
 @property(retain, nonatomic) NSString *artworkImageURL;
 @property(retain, nonatomic) NSNumber *contentRatingRanking;
 @property(retain, nonatomic) NSString *contentRatingDomain;

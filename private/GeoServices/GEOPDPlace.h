@@ -73,6 +73,7 @@
 - (id)copyWithStrippedOptionalData;
 - (void)_removeETAComponents;
 - (id)copyWithoutETAComponents;
+- (int)placeDisplayType;
 - (id)businessURL;
 - (_Bool)isStandAloneBrand;
 - (_Bool)isDisputed;

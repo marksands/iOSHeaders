@@ -64,7 +64,7 @@
 
 + (_Bool)_preventsAppearanceProxyCustomization;
 + (_Bool)_shouldPostPresentationControllerNotifications;
-+ (struct UIEdgeInsets)_defaultBaseContentInsetsForFrame:(struct CGRect)arg1 inView:(id)arg2;
++ (struct UIEdgeInsets)_defaultBaseContentInsetsForView:(id)arg1 leftMargin:(double *)arg2 rightMargin:(double *)arg3;
 @property(nonatomic) _Bool isCurrentStateCancelled; // @synthesize isCurrentStateCancelled=_isCurrentStateCancelled;
 @property(nonatomic, getter=_containerIgnoresDirectTouchEvents, setter=_setContainerIgnoresDirectTouchEvents:) _Bool containerIgnoresDirectTouchEvents; // @synthesize containerIgnoresDirectTouchEvents=_containerIgnoresDirectTouchEvents;
 @property(retain, nonatomic, getter=_customViewForTouchContinuation, setter=_setCustomViewForTouchContinuation:) UIView *customViewForTouchContinuation; // @synthesize customViewForTouchContinuation=_customViewForTouchContinuation;
@@ -173,7 +173,7 @@
 - (void)_willRunTransitionForCurrentStateDeferred:(_Bool)arg1;
 - (void)completeCurrentTransitionImmediately;
 - (void)runTransitionForCurrentState;
-- (struct UIEdgeInsets)_baseContentInsets;
+- (struct UIEdgeInsets)_baseContentInsetsWithLeftMargin:(double *)arg1 rightMargin:(double *)arg2;
 - (id)_initialPresentationViewControllerForViewController:(id)arg1;
 - (id)_fullscreenPresentationSuperview;
 - (id)_currentContextPresentationSuperview;

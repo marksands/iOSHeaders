@@ -10,6 +10,9 @@
 {
 }
 
++ (int)csAudioProcessingQueuePriority;
++ (unsigned short)zeroFilterApproxAbsSpeechThreshold;
++ (unsigned long long)zeroFilterWindowSizeInMs;
 + (unsigned long long)channelForProcessedInput;
 + (unsigned long long)channelForOutputReference;
 + (unsigned int)audioConverterBitrate;

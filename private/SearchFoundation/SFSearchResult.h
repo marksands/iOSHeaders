@@ -93,6 +93,8 @@
     NSString *_contentType;
     NSArray *_contentTypeTree;
     long long _dataOwnerType;
+    NSString *_fileProviderIdentifier;
+    NSString *_fileProviderDomainIdentifier;
     NSString *_fbr;
     NSString *_srf;
 }
@@ -100,6 +102,8 @@
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *srf; // @synthesize srf=_srf;
 @property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
+@property(copy, nonatomic) NSString *fileProviderDomainIdentifier; // @synthesize fileProviderDomainIdentifier=_fileProviderDomainIdentifier;
+@property(copy, nonatomic) NSString *fileProviderIdentifier; // @synthesize fileProviderIdentifier=_fileProviderIdentifier;
 @property(nonatomic) long long dataOwnerType; // @synthesize dataOwnerType=_dataOwnerType;
 @property(copy, nonatomic) NSArray *contentTypeTree; // @synthesize contentTypeTree=_contentTypeTree;
 @property(copy, nonatomic) NSString *contentType; // @synthesize contentType=_contentType;

@@ -77,6 +77,7 @@
 - (_Bool)nsis_valueOfVariableIsUserObservable:(id)arg1;
 - (_Bool)nsis_shouldIntegralizeVariable:(id)arg1;
 - (id)_uili_observableLayoutEngineForBaseFrameVariables:(_Bool)arg1;
+- (_Bool)_uili_isFocusGuide;
 - (_Bool)_uili_requiresObservationForVariable:(id)arg1;
 - (void)_uili_removeLayoutVariableObservationsOnlyToSupportTAMICChange:(_Bool)arg1;
 - (void)_uili_stashLayoutVariableObservation:(id)arg1 forVariable:(id)arg2;

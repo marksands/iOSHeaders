@@ -19,6 +19,8 @@ __attribute__((visibility("hidden")))
 + (id)serviceViewControllerInterface;
 + (id)exportedInterface;
 @property(nonatomic) __weak SKAccountPageViewController *accountPageViewController; // @synthesize accountPageViewController=_accountPageViewController;
+- (void)overrideRedeemCameraWithCompletion:(CDUnknownBlockType)arg1;
+- (void)overrideCreditCardPresentationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)dismissViewControllerWithResult:(id)arg1 error:(id)arg2;
 - (void)didPrepareWithResult:(id)arg1 error:(id)arg2;
 - (void)viewServiceDidTerminateWithError:(id)arg1;

@@ -23,6 +23,7 @@
 }
 
 + (id)quantizedSparseVectorFromSparseVector:(id)arg1 numberOfBuckets:(unsigned long long)arg2;
++ (id)quantizedSparseVectorFromDenseVector:(id)arg1 numberOfBuckets:(unsigned long long)arg2;
 @property(nonatomic) float bucketSize; // @synthesize bucketSize=_bucketSize;
 @property(nonatomic) float minValue; // @synthesize minValue=_minValue;
 @property(nonatomic) unsigned int length; // @synthesize length=_length;

@@ -9,8 +9,9 @@
 @class NSError, NSURL;
 
 @protocol SKCloudServiceSetupExtensionClientInterface <NSObject>
-- (void)dismissSafariViewControllerAnimated:(_Bool)arg1 completion:(void (^)(void))arg2;
 - (void)presentSafariViewControllerWithURL:(NSURL *)arg1 animated:(_Bool)arg2 completion:(void (^)(void))arg3;
+- (void)overrideCreditCardPresentationWithCompletion:(void (^)(SUCreditCardReaderOutput *))arg1;
+- (void)dismissSafariViewControllerAnimated:(_Bool)arg1 completion:(void (^)(void))arg2;
 - (void)dismissCloudServiceSetupViewControllerAnimated:(_Bool)arg1 completion:(void (^)(void))arg2;
 - (void)didFinishLoadingWithSuccess:(_Bool)arg1 error:(NSError *)arg2;
 @end

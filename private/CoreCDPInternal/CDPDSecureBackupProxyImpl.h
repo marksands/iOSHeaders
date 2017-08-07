@@ -14,13 +14,14 @@
 {
 }
 
+- (void)uncacheAllSecrets;
+- (void)cacheRecoveryKey:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (_Bool)disableWithInfo:(id)arg1 error:(id *)arg2;
 - (void)disableWithInfo:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)recoverWithInfo:(id)arg1 error:(id *)arg2;
 - (void)recoverWithInfo:(id)arg1 completionBlockWithResults:(CDUnknownBlockType)arg2;
 - (_Bool)enableWithInfo:(id)arg1 error:(id *)arg2;
 - (void)enableWithInfo:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (void)uncachePassphraseWithInfo:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)accountInfoWithInfo:(id)arg1 error:(id *)arg2;
 - (void)getAccountInfoWithInfo:(id)arg1 completionBlockWithResults:(CDUnknownBlockType)arg2;
 - (id)_secureBackup;

@@ -12,7 +12,8 @@ __attribute__((visibility("hidden")))
 @interface VKRoadTileSource : VKVectorTileSource
 {
     VKTrafficTileSource *_trafficTileSource;
-    struct map<VKTileKey, geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, bool (*)(const VKTileKey &, const VKTileKey &), std::__1::allocator<std::__1::pair<const VKTileKey, geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>> *_inflightTiles;
+    struct map<VKTileKey, VKTile *, bool (*)(const VKTileKey &, const VKTileKey &), std::__1::allocator<std::__1::pair<const VKTileKey, VKTile *>>> *_inflightTiles;
+    struct map<VKTileKey, geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, bool (*)(const VKTileKey &, const VKTileKey &), std::__1::allocator<std::__1::pair<const VKTileKey, geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>> *_privateInflightTiles;
     _Bool _trafficEnabled;
 }
 
@@ -26,7 +27,9 @@ __attribute__((visibility("hidden")))
 - (id)inflightTileForKey:(const struct VKTileKey *)arg1;
 - (_Bool)shouldObeyHybridUnavailableRegions;
 - (unsigned char)mapLayerForZoomLevelRange;
+- (void)setClient:(id)arg1;
 - (_Bool)minimumZoomLevelBoundsCamera;
+- (void)setMapType:(long long)arg1;
 - (void)dealloc;
 - (id)initWithTileSet:(id)arg1 resourceManifestConfiguration:(id)arg2 locale:(id)arg3 sharedResources:(id)arg4 taskContext:(shared_ptr_e963992e)arg5;
 

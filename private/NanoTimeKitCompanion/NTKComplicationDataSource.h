@@ -41,6 +41,8 @@
 - (void)pauseAnimations;
 - (void)resume;
 - (void)pause;
+- (void)becomeInactive;
+- (void)becomeActive;
 @property(readonly, nonatomic) _Bool supportsTapAction;
 @property(readonly, nonatomic) unsigned long long timelineAnimationBehavior;
 - (id)initWithComplication:(id)arg1 family:(long long)arg2;

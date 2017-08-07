@@ -30,6 +30,7 @@
 - (id)_initWithComplicationType:(unsigned long long)arg1 JSONDictionary:(id)arg2;
 - (id)JSONObjectRepresentation;
 - (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1 subclassesAllowed:(_Bool)arg2;
 - (_Bool)isEqual:(id)arg1;
 - (id)localizedDetailText;
 - (id)localizedKeylineLabelText;

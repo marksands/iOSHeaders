@@ -20,7 +20,8 @@
     NSMutableDictionary *_videoURLs;
     NSMutableDictionary *_originalVideoURLs;
     NSMutableDictionary *_wallpaperOptions;
-    NSMutableDictionary *_wallpaperColors;
+    NSMutableDictionary *_colors;
+    NSMutableDictionary *_colorNames;
 }
 
 - (void).cxx_destruct;
@@ -32,6 +33,7 @@
 - (void)removeWallpaperColorForVariants:(long long)arg1;
 - (_Bool)setWallpaperColorName:(id)arg1 forVariants:(long long)arg2;
 - (_Bool)setWallpaperColor:(id)arg1 forVariants:(long long)arg2;
+- (id)wallpaperColorNameForVariant:(long long)arg1;
 - (id)wallpaperColorForVariant:(long long)arg1;
 - (void)removeWallpaperOptionsForVariants:(long long)arg1;
 - (_Bool)setWallpaperOptions:(id)arg1 forVariants:(long long)arg2;

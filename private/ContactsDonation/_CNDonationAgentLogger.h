@@ -18,6 +18,11 @@
 
 @property(readonly, nonatomic) NSObject<OS_os_log> *log_t; // @synthesize log_t=_log_t;
 - (void).cxx_destruct;
+- (void)willRenewValues:(id)arg1 withDonor:(id)arg2;
+- (void)didRenewValue:(id)arg1 untilDate:(id)arg2;
+- (void)couldNotRenewBecauseNotADonorExtension:(id)arg1;
+- (void)couldNotRenewBecauseLoadingError:(id)arg1;
+- (void)couldNotRenewBecauseDonorError:(id)arg1;
 - (void)didRemoveAllRejections;
 - (void)willRemoveAllRejections;
 - (void)didListRejections;
@@ -37,6 +42,7 @@
 - (void)didDiscoverUnexpectedExtensionType:(id)arg1;
 - (void)didDiscoverExtension:(id)arg1;
 - (void)willDiscoverExtensions;
+- (void)contactsChangedNotificationEmailAddressesChanged:(_Bool)arg1;
 - (void)contactsChangedNotificationFoundName:(_Bool)arg1 nameChanged:(_Bool)arg2;
 - (void)featureDidEnable;
 - (void)featureWillEnable;

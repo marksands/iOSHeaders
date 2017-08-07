@@ -29,7 +29,6 @@
 - (Class)invisibleInkEffectViewClass;
 - (void)cullSubviewsWithVisibleBounds:(struct CGRect)arg1;
 - (double)textViewWidthForWidth:(double)arg1;
-@property(readonly, nonatomic) _Bool modifiesSingleLineBalloonLayout;
 - (void)interactionStoppedFromPreviewItemControllerInTextView:(id)arg1;
 - (void)interactionStartedFromPreviewItemControllerInTextView:(id)arg1;
 - (void)updateRasterizationForInvisibleInkEffect;

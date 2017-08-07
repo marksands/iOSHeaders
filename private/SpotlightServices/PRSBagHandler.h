@@ -18,6 +18,7 @@
     PARBag *_bag;
     NSObject<OS_dispatch_queue> *_bagQueue;
     _Bool _active;
+    _Bool _disableAsTypedSuggestion;
     _Bool _collectAnonymousData;
     _Bool _collectScores;
     _Bool _use2LayerRanking;
@@ -32,6 +33,7 @@
     NSString *_fteLocString;
     NSString *_fteLearnMoreString;
     NSString *_fteContinueString;
+    NSArray *_suggestionRankerModelParams;
     NSString *_lookupFirstUseDescription1;
     NSString *_lookupFirstUseDescription2;
     NSString *_lookupFirstUseLearnMore;
@@ -44,6 +46,7 @@
 @property(readonly, nonatomic) NSString *lookupFirstUseLearnMore; // @synthesize lookupFirstUseLearnMore=_lookupFirstUseLearnMore;
 @property(readonly, nonatomic) NSString *lookupFirstUseDescription2; // @synthesize lookupFirstUseDescription2=_lookupFirstUseDescription2;
 @property(readonly, nonatomic) NSString *lookupFirstUseDescription1; // @synthesize lookupFirstUseDescription1=_lookupFirstUseDescription1;
+@property(retain, nonatomic) NSArray *suggestionRankerModelParams; // @synthesize suggestionRankerModelParams=_suggestionRankerModelParams;
 @property(retain, nonatomic) NSString *fteContinueString; // @synthesize fteContinueString=_fteContinueString;
 @property(retain, nonatomic) NSString *fteLearnMoreString; // @synthesize fteLearnMoreString=_fteLearnMoreString;
 @property(retain, nonatomic) NSString *fteLocString; // @synthesize fteLocString=_fteLocString;
@@ -51,6 +54,7 @@
 @property(retain, nonatomic) NSArray *anonymousMetadataUndesiredBundleIDs; // @synthesize anonymousMetadataUndesiredBundleIDs=_anonymousMetadataUndesiredBundleIDs;
 @property(nonatomic) _Bool collectScores; // @synthesize collectScores=_collectScores;
 @property(nonatomic) _Bool collectAnonymousData; // @synthesize collectAnonymousData=_collectAnonymousData;
+@property(nonatomic) _Bool disableAsTypedSuggestion; // @synthesize disableAsTypedSuggestion=_disableAsTypedSuggestion;
 @property(retain, nonatomic) NSArray *enabledDomains; // @synthesize enabledDomains=_enabledDomains;
 @property(retain, nonatomic) NSSet *appBlacklist; // @synthesize appBlacklist=_appBlacklist;
 @property(retain) PRSRankingServerKnobs *ranking_server_knobs; // @synthesize ranking_server_knobs=_ranking_server_knobs;

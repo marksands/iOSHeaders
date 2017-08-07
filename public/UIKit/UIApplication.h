@@ -130,6 +130,7 @@
         unsigned int isStatusBarFading:1;
         unsigned int systemWindowsSecure:1;
         unsigned int isFrontBoardForeground:1;
+        unsigned int appSwitcherLayoutState:2;
         unsigned int isObservingPIP:1;
         unsigned int shouldRestoreKeyboardInputState:1;
         unsigned int subclassOverridesInterfaceOrientation:1;

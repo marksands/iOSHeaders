@@ -14,6 +14,7 @@
 {
     _Bool _inBatchUpdate;
     _Bool _shouldSynchronizeAfterBatchUpdate;
+    long long _tagSerialNumber;
     NSMutableOrderedSet *_userTags;
     NSMutableOrderedSet *_discoveredTags;
     DOCTagRegistryICloudDataSource *_iCloudDataSource;
@@ -24,6 +25,7 @@
 @property(nonatomic) _Bool shouldSynchronizeAfterBatchUpdate; // @synthesize shouldSynchronizeAfterBatchUpdate=_shouldSynchronizeAfterBatchUpdate;
 @property(retain, nonatomic) NSMutableOrderedSet *discoveredTags; // @synthesize discoveredTags=_discoveredTags;
 @property(retain, nonatomic) NSMutableOrderedSet *userTags; // @synthesize userTags=_userTags;
+@property(nonatomic) long long tagSerialNumber; // @synthesize tagSerialNumber=_tagSerialNumber;
 @property(nonatomic) _Bool inBatchUpdate; // @synthesize inBatchUpdate=_inBatchUpdate;
 - (void).cxx_destruct;
 - (void)synchronize;

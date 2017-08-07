@@ -8,7 +8,7 @@
 
 #import <HealthDaemon/HDDatumRendering-Protocol.h>
 
-@class HDFitnessMachineCharacteristicUInt16Field, HDFitnessMachineCharacteristicUInt8Field;
+@class HDFitnessMachineCharacteristicUInt16Field, HDFitnessMachineCharacteristicUInt8Field, NSDate;
 
 @interface HDStairClimberData : HDFitnessMachineDataCharacteristicBase <HDDatumRendering>
 {
@@ -16,7 +16,7 @@
     HDFitnessMachineCharacteristicUInt16Field *_stepsPerMinuteField;
     HDFitnessMachineCharacteristicUInt16Field *_averageStepRateField;
     HDFitnessMachineCharacteristicUInt16Field *_positiveElevationGainField;
-    HDFitnessMachineCharacteristicUInt16Field *_strideCountField;
+    HDFitnessMachineCharacteristicUInt16Field *_stepCountField;
     HDFitnessMachineCharacteristicUInt16Field *_totalEnergyField;
     HDFitnessMachineCharacteristicUInt16Field *_energyPerHourField;
     HDFitnessMachineCharacteristicUInt8Field *_energyPerMinuteField;
@@ -43,8 +43,8 @@
 @property(readonly, nonatomic) _Bool energyPerHourIsSet;
 @property(readonly, nonatomic) unsigned short totalEnergy;
 @property(readonly, nonatomic) _Bool totalEnergyIsSet;
-@property(readonly, nonatomic) unsigned short strideCount;
-@property(readonly, nonatomic) _Bool strideCountIsSet;
+@property(readonly, nonatomic) unsigned short stepCount;
+@property(readonly, nonatomic) _Bool stepCountIsSet;
 @property(readonly, nonatomic) unsigned short positiveElevationGain;
 @property(readonly, nonatomic) _Bool positiveElevationGainIsSet;
 @property(readonly, nonatomic) unsigned short averageStepRate;
@@ -57,6 +57,9 @@
 - (id)init;
 - (id)allFields;
 - (id)generateDatums:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) NSDate *updateTime;
 
 @end
 

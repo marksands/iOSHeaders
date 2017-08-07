@@ -30,6 +30,7 @@
     NSString *_radioStationHash;
     float _rating;
     int _repeatMode;
+    int _replaceIntent;
     unsigned int _sendOptions;
     int _shuffleMode;
     float _skipInterval;
@@ -51,6 +52,7 @@
         unsigned int playbackRate:1;
         unsigned int rating:1;
         unsigned int repeatMode:1;
+        unsigned int replaceIntent:1;
         unsigned int sendOptions:1;
         unsigned int shuffleMode:1;
         unsigned int skipInterval:1;
@@ -98,6 +100,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsReplaceIntent:(id)arg1;
+- (id)replaceIntentAsString:(int)arg1;
+@property(nonatomic) _Bool hasReplaceIntent;
+@property(nonatomic) int replaceIntent; // @synthesize replaceIntent=_replaceIntent;
 @property(readonly, nonatomic) _Bool hasNowPlayingContentItemID;
 @property(readonly, nonatomic) _Bool hasInsertAfterContentItemID;
 @property(readonly, nonatomic) _Bool hasPlaybackQueueContext;

@@ -16,10 +16,12 @@
     NSMutableArray *_flattenedChildren;
     _Bool _hasValidEntityProvider;
     long long _pinStyle;
+    long long _pinGroup;
     id <IKEntityValueProviding> _explicitEntityValueProvider;
 }
 
 @property(retain, nonatomic) id <IKEntityValueProviding> explicitEntityValueProvider; // @synthesize explicitEntityValueProvider=_explicitEntityValueProvider;
+@property(readonly, nonatomic) long long pinGroup; // @synthesize pinGroup=_pinGroup;
 @property(readonly, nonatomic) long long pinStyle; // @synthesize pinStyle=_pinStyle;
 - (void).cxx_destruct;
 - (void)_unregisterForNotificationsForEntityProvider:(id)arg1;

@@ -19,9 +19,11 @@
     NSNumber *_expirationTimestamp;
     NSNumber *_lastModifiedTimestamp;
     NSNumber *_purchaseTimestamp;
+    NSNumber *_accountId;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSNumber *accountId; // @synthesize accountId=_accountId;
 @property(nonatomic) unsigned char type; // @synthesize type=_type;
 @property(retain, nonatomic) NSNumber *purchaseTimestamp; // @synthesize purchaseTimestamp=_purchaseTimestamp;
 @property(retain, nonatomic) NSNumber *lastModifiedTimestamp; // @synthesize lastModifiedTimestamp=_lastModifiedTimestamp;

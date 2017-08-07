@@ -25,11 +25,14 @@
 - (id)isAccessibilityUserDefinedScrollAncestor;
 - (id)isAccessibilityUserDefinedWindow;
 - (void)accessibilitySetIdentification:(id)arg1;
+- (_Bool)_accessibilityUseContextlessPassthroughForDrag;
+- (id)_accessibilityAddToDragSessionCustomAction;
 - (id)_accessibilityDropPointDescriptorDictionaryRepresentations;
 - (id)_accessibilityAllDropPointDescriptors;
 - (id)_accessibilityDragSourceDescriptorDictionaryRepresentations;
 - (id)_accessibilityAllDragSourceDescriptors;
 - (id)_accessibilityFilterInteractionLocationDescriptorsForVisible:(id)arg1;
+- (_Bool)accessibilityIsAttachmentElement;
 - (_Bool)_accessibilityIsDraggableElementAttribute;
 - (_Bool)_accessibilityHasDragDestinations;
 - (_Bool)_accessibilityHasDragSources;
@@ -401,10 +404,11 @@
 - (void)_accessibilitySetContextDescriptors:(id)arg1;
 - (id)_accessibilityContextDescriptors;
 - (id)_accessibilityAllContextDescriptors;
+- (_Bool)_accessibilityCanBeFirstResponder;
 - (_Bool)_accessibilityCanBeFirstResponderWhenNotAnElement;
 - (_Bool)_accessibilityShouldSuppressCustomActionsHint;
 - (_Bool)_accessibilityIsRemoteElement;
-- (int)_accessibilityPreferredScrollAction;
+- (id)_accessibilityPreferredScrollActions;
 - (id)_accessibilityTraitsInspectorHumanReadable;
 - (id)_accessibilityTraitsAsHumanReadableStrings:(unsigned long long)arg1;
 - (unsigned long long)_accessibilityInheritedTraits;
@@ -417,6 +421,7 @@
 - (void)accessibilitySetValue:(id)arg1 forAttribute:(long long)arg2;
 - (id)accessibilityAttributeValue:(long long)arg1;
 - (long long)_accessibilityReinterpretVoiceOverCommand:(long long)arg1;
+- (struct CGRect)accessibilityElementRect;
 - (struct CGRect)_accessibilityFocusableFrameForZoom;
 - (id)__accessibilityRetrieveFrameOrPathDelegate;
 - (id)accessibilityAttributeValue:(long long)arg1 forParameter:(id)arg2;
@@ -619,6 +624,7 @@
 - (_Bool)_accessibilityIsEscapable;
 - (_Bool)_accessibilityIterateParentsForTestBlock:(CDUnknownBlockType)arg1;
 - (id)_accessibilityScrollAncestorForSelector:(SEL)arg1 alwaysAllowRefreshAction:(_Bool)arg2;
+- (double)_accessibilityVisibleItemDenominator;
 - (id)_accessibilityScrollAncestorForSelector:(SEL)arg1;
 - (id)_accessibilityScrollStatus;
 - (_Bool)_accessibilityElementVisibilityAffectsLayout;

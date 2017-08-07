@@ -61,6 +61,8 @@
 @property(retain, nonatomic) CKPendingConversation *conversation; // @synthesize conversation=_conversation;
 @property(nonatomic) __weak id <CKRecipientSelectionControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (struct CGPoint)scrollSearchListControllerToTopContentOffset;
+- (void)scrollSearchListControllerToTop:(_Bool)arg1;
 - (void)_updateAddressBookProperties;
 - (void)_updateSearchResultsTable;
 - (struct UIEdgeInsets)_navigationBarInsets;

@@ -47,6 +47,7 @@
 @property(readonly, nonatomic) long long playingIdentifierCacheState; // @synthesize playingIdentifierCacheState=_playingIdentifierCacheState;
 @property(readonly, nonatomic) long long supportedCommandsCacheState; // @synthesize supportedCommandsCacheState=_supportedCommandsCacheState;
 @property(readonly, nonatomic) long long playbackStateCacheState; // @synthesize playbackStateCacheState=_playbackStateCacheState;
+- (id)_legacyCommands;
 - (void)_onQueue_invalidateArtworkFuturesForContentItemID:(id)arg1;
 - (void)_onQueue_updateOptimisticStateForCommand:(unsigned int)arg1 options:(id)arg2;
 - (void)_onQueue_setOptimisticPlaybackPositionWithOptions:(id)arg1;

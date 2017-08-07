@@ -72,6 +72,7 @@
 - (void)_present;
 - (void)present;
 - (void)invalidate;
+- (void)dealloc;
 - (id)init;
 
 @end

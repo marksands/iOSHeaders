@@ -6,16 +6,18 @@
 
 #import <objc/NSObject.h>
 
+@class NSArray;
+
 @interface WBSTabDialog : NSObject
 {
     CDUnknownBlockType _presentationBlock;
     CDUnknownBlockType _dismissalBlock;
     _Bool _blocksWebProcessUntilDismissed;
-    unsigned long long _cancellationExceptions;
+    NSArray *_cancellationExemptions;
 }
 
 + (id)tabDialogWithPresentationBlock:(CDUnknownBlockType)arg1 dismissalBlock:(CDUnknownBlockType)arg2;
-@property(nonatomic) unsigned long long cancellationExceptions; // @synthesize cancellationExceptions=_cancellationExceptions;
+@property(copy, nonatomic) NSArray *cancellationExemptions; // @synthesize cancellationExemptions=_cancellationExemptions;
 @property(nonatomic) _Bool blocksWebProcessUntilDismissed; // @synthesize blocksWebProcessUntilDismissed=_blocksWebProcessUntilDismissed;
 - (void).cxx_destruct;
 - (id)createInfo;

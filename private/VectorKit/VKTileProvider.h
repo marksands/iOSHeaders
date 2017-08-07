@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <VectorKit/VKLRUCacheDelegate-Protocol.h>
 #import <VectorKit/VKTileSourceClient-Protocol.h>
@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     VKTimer *_evaluationTimer;
     double _lastFetchTime;
     double _lastSelectTime;
+    double _lastHoleLogTime;
     VKTimer *_prefetchTimer;
     NSMutableSet *_tilesToRender;
     NSArray *_holes;
@@ -86,6 +87,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)didStopLoadingTilesWithError:(id)arg1;
 - (void)willStartLoadingTiles;
+- (long long)tileSource:(id)arg1 overrideForMaximumZoomLevel:(long long)arg2;
 - (_Bool)tileSource:(id)arg1 keyIsNeeded:(const struct VKTileKey *)arg2;
 - (void)dirtyTilesFromTileSource:(id)arg1;
 - (void)tileSource:(id)arg1 dirtyTilesWithinRect:(const Box_3d7e3c2c *)arg2 level:(long long)arg3;
@@ -99,6 +101,10 @@ __attribute__((visibility("hidden")))
 - (void)tileSource:(id)arg1 didFailToDecodeTileForKey:(const struct VKTileKey *)arg2;
 - (void)tileSource:(id)arg1 didFetchTile:(id)arg2 forKey:(const struct VKTileKey *)arg3;
 - (void)updateWithContext:(struct LayoutContext *)arg1 selectionScale:(float)arg2;
+- (void)logPersistentHoles;
+- (id)describeReasonForTileBeingHole:(id)arg1 atTime:(double)arg2;
+- (double)timeTileLastUpdatedHoleStatus:(id)arg1;
+- (_Bool)tile:(id)arg1 hasBecomeTerminalSince:(double)arg2;
 - (void)_disableTimers;
 - (void)_updateTimers:(int)arg1;
 - (id)selectTiles:(int *)arg1 needRasterization:(_Bool *)arg2;

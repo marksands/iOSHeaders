@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSNumber, NSString, UIImage;
+@class NSNumber, NSString, NSURL, UIImage;
 
 __attribute__((visibility("hidden")))
 @interface VSAppDescription : NSObject
@@ -15,16 +15,23 @@ __attribute__((visibility("hidden")))
     NSNumber *_adamID;
     NSString *_buyParams;
     NSString *_bundleID;
+    NSString *_sellerName;
+    NSURL *_appStoreURL;
+    NSString *_artworkURLTemplate;
     UIImage *_icon;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) UIImage *icon; // @synthesize icon=_icon;
+@property(copy, nonatomic) NSString *artworkURLTemplate; // @synthesize artworkURLTemplate=_artworkURLTemplate;
+@property(copy, nonatomic) NSURL *appStoreURL; // @synthesize appStoreURL=_appStoreURL;
+@property(copy, nonatomic) NSString *sellerName; // @synthesize sellerName=_sellerName;
 @property(copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(copy, nonatomic) NSString *buyParams; // @synthesize buyParams=_buyParams;
 @property(copy, nonatomic) NSNumber *adamID; // @synthesize adamID=_adamID;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 - (void).cxx_destruct;
+- (id)iconURLForSize:(struct CGSize)arg1;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

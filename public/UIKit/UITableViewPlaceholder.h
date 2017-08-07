@@ -8,7 +8,6 @@
 
 @class NSIndexPath, NSString;
 
-__attribute__((visibility("hidden")))
 @interface UITableViewPlaceholder : NSObject
 {
     CDUnknownBlockType _cellUpdateHandler;
