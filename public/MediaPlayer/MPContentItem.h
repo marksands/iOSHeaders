@@ -7,16 +7,20 @@
 #import <Foundation/NSObject.h>
 
 @class MPMediaItemArtwork, NSString;
+@protocol OS_dispatch_queue;
 
 @interface MPContentItem : NSObject
 {
-    void *_mediaRemoteContentItem;
     void *_mediaRemoteDeltaContentItem;
+    NSObject<OS_dispatch_queue> *_notificationQueue;
+    _Bool _hasChanges;
+    void *_mediaRemoteContentItem;
     MPMediaItemArtwork *_artwork;
 }
 
 + (_Bool)shouldPushArtworkData;
 + (void)performSuppressingChangeNotifications:(CDUnknownBlockType)arg1;
++ (_Bool)isSuppressingChangeNotifications;
 @property(retain, nonatomic) MPMediaItemArtwork *artwork; // @synthesize artwork=_artwork;
 @property(readonly, nonatomic) void *_mediaRemoteContentItem; // @synthesize _mediaRemoteContentItem;
 - (void).cxx_destruct;
@@ -32,7 +36,6 @@
 @property(copy, nonatomic) NSString *subtitle;
 @property(copy, nonatomic) NSString *title;
 @property(readonly, copy, nonatomic) NSString *identifier;
-@property(readonly, nonatomic) void *_mediaRemoteDeltaContentItem; // @synthesize _mediaRemoteDeltaContentItem;
 - (id)description;
 - (void)dealloc;
 - (id)_initWithMediaRemoteContentItem:(void *)arg1;

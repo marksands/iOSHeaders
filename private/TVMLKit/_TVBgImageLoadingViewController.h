@@ -26,6 +26,7 @@
 - (void)_updateNavigationItem;
 - (void)_updateNavigationBarPadding;
 - (void)_reparentNavigationItem:(id)arg1;
+- (long long)_overrideLargeTitleDisplayMode;
 - (void)viewDidLayoutSubviews;
 - (void)updateNavigationItem:(id)arg1;
 - (void)loadFromViewController:(id)arg1 completion:(CDUnknownBlockType)arg2;

@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 - (id)variableConstraints;
 - (id)constantConstraints;
 - (void)transportButtonClicked:(id)arg1;
-- (id)standardStarView;
+- (_Bool)shouldShowStar;
 - (id)standardTransportIcon;
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;

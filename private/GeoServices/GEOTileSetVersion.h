@@ -8,8 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class PBUnknownFields;
+
 @interface GEOTileSetVersion : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     struct GEOTileSetRegion *_availableTiles;
     unsigned long long _availableTilesCount;
     unsigned long long _availableTilesSpace;
@@ -28,6 +31,8 @@
 @property(nonatomic) unsigned int supportedLanguagesVersion; // @synthesize supportedLanguagesVersion=_supportedLanguagesVersion;
 @property(nonatomic) unsigned int timeToLiveSeconds; // @synthesize timeToLiveSeconds=_timeToLiveSeconds;
 @property(nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

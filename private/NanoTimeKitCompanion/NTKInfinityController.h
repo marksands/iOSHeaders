@@ -21,8 +21,10 @@
     unsigned long long _controllerMode;
     unsigned long long _currentStyle;
     NTKInfinityListing *_currentListing;
+    NTKInfinityListing *_preparedListing;
 }
 
+@property(retain, nonatomic) NTKInfinityListing *preparedListing; // @synthesize preparedListing=_preparedListing;
 @property(retain, nonatomic) NTKInfinityListing *currentListing; // @synthesize currentListing=_currentListing;
 @property(nonatomic) unsigned long long currentStyle; // @synthesize currentStyle=_currentStyle;
 @property(nonatomic) unsigned long long controllerMode; // @synthesize controllerMode=_controllerMode;
@@ -42,6 +44,7 @@
 - (unsigned long long)_maxRecentlyPlayedActions;
 - (unsigned long long)_maxRecentlyPlayedMagicMoments;
 - (void)startedPlayingListing:(id)arg1;
+- (void)invalidatePreparedListing;
 - (void)invalidateCurrentListing;
 - (void)prepareUserTapAction;
 - (id)_recentlyPlayedListings;
@@ -49,6 +52,7 @@
 - (id)nextQueueListing;
 - (id)_nextToyboxListing;
 - (id)nextListing;
+- (void)prepareListing;
 - (id)init;
 
 @end

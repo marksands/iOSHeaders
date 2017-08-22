@@ -8,24 +8,31 @@
 
 #import <NanoTimeKitCompanion/NTKTimelineEntryModelCacheDataSource-Protocol.h>
 
-@class CLLocation, NSString, NTKTimelineEntryModelCache;
+@class CLLocation, NSString, NSTimer, NTKTimelineEntryModelCache;
 
 @interface NTKSunriseComplicationDataSource : NTKComplicationDataSource <NTKTimelineEntryModelCacheDataSource>
 {
     NTKTimelineEntryModelCache *_entryModelCache;
+    _Bool _isWaitingForGeocodeRequest;
     struct NSString *_token;
-    CLLocation *_location;
+    CLLocation *_displayedLocation;
     NSString *_locationName;
+    CLLocation *_delayedLocation;
+    NSTimer *_geocodeRequestDelayTimer;
 }
 
 + (_Bool)acceptsComplicationFamily:(long long)arg1;
 + (_Bool)acceptsComplicationType:(unsigned long long)arg1;
+@property(nonatomic) _Bool isWaitingForGeocodeRequest; // @synthesize isWaitingForGeocodeRequest=_isWaitingForGeocodeRequest;
+@property(retain, nonatomic) NSTimer *geocodeRequestDelayTimer; // @synthesize geocodeRequestDelayTimer=_geocodeRequestDelayTimer;
+@property(retain, nonatomic) CLLocation *delayedLocation; // @synthesize delayedLocation=_delayedLocation;
 @property(retain, nonatomic) NSString *locationName; // @synthesize locationName=_locationName;
-@property(retain, nonatomic) CLLocation *location; // @synthesize location=_location;
+@property(retain, nonatomic) CLLocation *displayedLocation; // @synthesize displayedLocation=_displayedLocation;
 @property(retain, nonatomic) NSString *token; // @synthesize token=_token;
 - (void).cxx_destruct;
-- (void)_updateLocationNameForLocation:(id)arg1;
+- (void)_geocodeRequestDelayTimerTriggerred;
 - (void)_handleLocation:(id)arg1 error:(id)arg2;
+- (_Bool)_needsToSendGeocodingRequest;
 - (void)_invalidate;
 - (void)_stopObserving;
 - (void)_startObserving;

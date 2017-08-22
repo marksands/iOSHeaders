@@ -15,13 +15,13 @@
     MPCPlayerResponse *_response;
     NSIndexPath *_indexPath;
     MPModelGenericObject *_metadataObject;
-    CDStruct_98c298d5 _duration;
+    CDStruct_fce57115 _duration;
 }
 
 @property(readonly, nonatomic) MPModelGenericObject *metadataObject; // @synthesize metadataObject=_metadataObject;
 @property(readonly, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
 @property(readonly, nonatomic) __weak MPCPlayerResponse *response; // @synthesize response=_response;
-@property(readonly, nonatomic) CDStruct_98c298d5 duration; // @synthesize duration=_duration;
+@property(readonly, nonatomic) CDStruct_fce57115 duration; // @synthesize duration=_duration;
 @property(readonly, nonatomic) long long revision; // @synthesize revision=_revision;
 @property(readonly, nonatomic) NSString *contentItemIdentifier; // @synthesize contentItemIdentifier=_contentItemIdentifier;
 - (void).cxx_destruct;

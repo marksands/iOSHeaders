@@ -28,8 +28,9 @@
 - (void)_renderTextInRange:(struct _NSRange)arg1 image:(out id *)arg2 boundingRectangles:(out id *)arg3 unified:(_Bool)arg4;
 - (_Bool)_isUsableLink:(id)arg1;
 - (id)_textStorage;
-- (CDUnknownBlockType)_targetPreviewProviderForTextInRange:(struct _NSRange)arg1 overrideLifting:(CDUnknownBlockType)arg2;
-- (CDUnknownBlockType)_targetPreviewProviderForTextInRange:(struct _NSRange)arg1;
+- (CDUnknownBlockType)_previewProviderForTextInRange:(struct _NSRange)arg1;
+- (CDUnknownBlockType)_targetedPreviewProviderForTextInRange:(struct _NSRange)arg1 overrideLifting:(CDUnknownBlockType)arg2;
+- (CDUnknownBlockType)_targetedPreviewProviderForTextInRange:(struct _NSRange)arg1;
 - (CDUnknownBlockType)_targetedPreviewProviderForImage:(id)arg1 inRange:(struct _NSRange)arg2;
 - (id)_draggableTextInRange:(id)arg1;
 - (id)performSameViewDropOperation:(id)arg1;

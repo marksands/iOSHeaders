@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak UIStatusBarLayoutManager *layoutManager; // @synthesize layoutManager=_layoutManager;
 @property(readonly, nonatomic) UIStatusBarItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
+- (id)accessibilityHUDRepresentation;
 - (_Bool)_shouldReverseLayoutDirection;
 - (id)description;
 - (void)willMoveToWindow:(id)arg1;

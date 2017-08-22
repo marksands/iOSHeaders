@@ -31,6 +31,7 @@
     int _deviceID;
 }
 
++ (unsigned short)computeItemModeFromStatInfo:(id)arg1 sharingOptions:(unsigned long long)arg2 isDirectory:(_Bool)arg3;
 + (void)migrateStageToVersion2_0WithSession:(id)arg1;
 @property(readonly, nonatomic) _Bool isCancelled; // @synthesize isCancelled=_isCancelled;
 @property(readonly, nonatomic) int deviceID; // @synthesize deviceID=_deviceID;

@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
 + (struct _PCSIdentitySetData *)_getPCSIdentitiesForService:(id)arg1 forFakeAccount:(id)arg2 withError:(id *)arg3;
 + (id)sharedFakeIdentitySetsByServiceByUsername;
 + (struct _PCSIdentitySetData *)_copyPCSIdentitiesForService:(id)arg1 forFakeAccount:(id)arg2 withError:(id *)arg3;
++ (id)lastKeyRegistrySyncTimestampByServiceName;
 + (void)setAccountIDAwaitingUpdatesToServiceNames:(id)arg1;
 + (id)accountIDAwaitingUpdatesToServiceNames;
 + (id)currentKeyIDByServiceNameAwaitingUpdate;

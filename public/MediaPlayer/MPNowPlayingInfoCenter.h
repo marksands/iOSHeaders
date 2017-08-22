@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class MPArtworkResizeUtility, MPNowPlayingInfoCenterArtworkContext, NSDate, NSDictionary, NSMutableDictionary, NSMutableSet, NSString;
+@class MPArtworkResizeUtility, MPNowPlayingInfoCenterArtworkContext, NSDate, NSDictionary, NSMutableDictionary, NSMutableOrderedSet, NSSet, NSString;
 @protocol MPNowPlayingInfoLyricsDelegate, MPNowPlayingPlaybackQueueDataSource, MPNowPlayingPlaybackQueueDelegate, OS_dispatch_queue;
 
 @interface MPNowPlayingInfoCenter : NSObject
@@ -15,7 +15,9 @@
     NSDictionary *_queuedNowPlayingInfo;
     NSDictionary *_convertedNowPlayingInfo;
     _Bool _coalescingUpdates;
-    NSMutableSet *_contentItemIdentifiersSentToMediaRemote;
+    _Bool _needsInvalidation;
+    NSMutableOrderedSet *_contentItemIdentifiersSentToMediaRemote;
+    NSMutableOrderedSet *_contentItemIdentifiersNotSentToMediaRemote;
     NSMutableDictionary *_mutatedContentItems;
     NSMutableDictionary *_mutatedPlaybackQueueRequests;
     MPArtworkResizeUtility *_artworkResizeUtility;
@@ -57,6 +59,7 @@
 - (void)_clearPlaybackQueueDataSourceCallbacks;
 - (id)_queryChildItemFromDataSource:(id)arg1 atIndexPath:(id)arg2 fromRoot:(id)arg3;
 - (void)_contentItemChangedNotification:(id)arg1;
+@property(readonly, copy, nonatomic) NSSet *unpublishedChangedContentItemIDs;
 - (void)beginObservingChangesForContentItemIDs:(id)arg1;
 - (void)endPlaybackQueueContentItemUpdates;
 - (void)beginPlaybackQueueContentItemUpdates;

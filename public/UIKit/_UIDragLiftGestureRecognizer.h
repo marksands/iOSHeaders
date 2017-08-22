@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (_Bool)shouldBeRequiredToFailByGestureRecognizer:(id)arg1;
+- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 
 @end
 

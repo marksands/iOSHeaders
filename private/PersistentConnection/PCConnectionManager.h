@@ -8,7 +8,7 @@
 
 #import <PersistentConnection/PCInterfaceMonitorDelegate-Protocol.h>
 
-@class NSRunLoop, NSString, PCPersistentTimer;
+@class CUTWeakReference, NSRunLoop, NSString, PCPersistentTimer;
 @protocol OS_dispatch_queue, OS_os_log, PCConnectionManagerDelegate, PCGrowthAlgorithm;
 
 @interface PCConnectionManager : NSObject <PCInterfaceMonitorDelegate>
@@ -66,6 +66,7 @@
     int _currentGrowthStage;
     id _duetContextRegistration;
     _Bool _powerOptimizationsForExpensiveNetworkingDisabled;
+    CUTWeakReference *_weakConnectionManager;
 }
 
 + (_Bool)_isCachedKeepAliveIntervalStillValid:(double)arg1 date:(id)arg2;

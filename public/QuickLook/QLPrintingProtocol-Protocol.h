@@ -6,7 +6,7 @@
 
 @protocol QLPrintingProtocol
 - (void)pdfDataForPageAtIndex:(long long)arg1 withCompletionHandler:(void (^)(NSData *))arg2;
-- (void)prepareForDrawingPages:(struct _NSRange)arg1;
+- (void)prepareForDrawingPages:(struct _NSRange)arg1 ofSize:(struct CGSize)arg2;
 - (void)numberOfPagesWithSize:(struct CGSize)arg1 completionHandler:(void (^)(long long))arg2;
 @end
 

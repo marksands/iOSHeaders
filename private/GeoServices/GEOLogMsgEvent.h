@@ -12,6 +12,7 @@
 
 @interface GEOLogMsgEvent : PBCodable <NSCopying>
 {
+    double _usageEventTime;
     GEOLogMsgEventBatchTrafficProbe *_batchTrafficProbeCollection;
     GEOLogMsgEventCacheHit *_cacheHitEvent;
     GEOLogMsgEventClientACSuggestions *_clientAcSuggestions;
@@ -43,6 +44,7 @@
     GEOLogMsgEventTransitAppLaunch *_transitAppLaunchEvent;
     GEOLogMsgEventUserAction *_userActionEvent;
     struct {
+        unsigned int usageEventTime:1;
         unsigned int eventType:1;
     } _has;
 }
@@ -127,6 +129,8 @@
 - (unsigned long long)logMsgStatesCount;
 - (void)addLogMsgState:(id)arg1;
 - (void)clearLogMsgStates;
+@property(nonatomic) _Bool hasUsageEventTime;
+@property(nonatomic) double usageEventTime;
 - (void)unregisterLogMsgStateOfType:(int)arg1;
 - (void)unregisterLogMsgStatesOfTypes:(id)arg1;
 - (id)logMsgStateOfType:(int)arg1 stateOrigin:(id)arg2;

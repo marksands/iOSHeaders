@@ -496,6 +496,7 @@
 - (void)presentModalViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)_performCoordinatedPresentOrDismiss:(CDUnknownBlockType)arg1 animated:(_Bool)arg2;
 - (void)presentViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_presentViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)presentModalViewController:(id)arg1 withTransition:(int)arg2;
 - (void)_windowControllerBasedPresentViewController:(id)arg1 withTransition:(int)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_presentViewController:(id)arg1 withAnimationController:(id)arg2 completion:(CDUnknownBlockType)arg3;

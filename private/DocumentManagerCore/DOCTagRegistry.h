@@ -12,6 +12,7 @@
 
 @interface DOCTagRegistry : NSObject <DOCTagRegistryDelegate>
 {
+    int _localStorageDidUpdateNotifyToken;
     _Bool _inBatchUpdate;
     _Bool _shouldSynchronizeAfterBatchUpdate;
     long long _tagSerialNumber;
@@ -45,6 +46,7 @@
 - (void)addTag:(id)arg1 options:(long long)arg2;
 - (void)addTags:(id)arg1 options:(long long)arg2;
 - (void)removeAllTagsOfType:(long long)arg1;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

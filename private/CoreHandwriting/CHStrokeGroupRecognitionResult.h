@@ -15,21 +15,25 @@
     CHDrawing *_inputDrawing;
     NSArray *_inputDrawingCutPoints;
     NSArray *_inputStrokeIdentifiers;
-    NSDictionary *__recognitionResultsByLocaleID;
+    NSDictionary *__recognitionResultsByLocale;
+    NSDictionary *__languageFitnessByLocale;
 }
 
-@property(readonly, copy, nonatomic) NSDictionary *_recognitionResultsByLocaleID; // @synthesize _recognitionResultsByLocaleID=__recognitionResultsByLocaleID;
++ (id)sortedLocales:(id)arg1 byLanguageFitness:(id)arg2;
+@property(readonly, copy, nonatomic) NSDictionary *_languageFitnessByLocale; // @synthesize _languageFitnessByLocale=__languageFitnessByLocale;
+@property(readonly, copy, nonatomic) NSDictionary *_recognitionResultsByLocale; // @synthesize _recognitionResultsByLocale=__recognitionResultsByLocale;
 @property(readonly, copy, nonatomic) NSArray *inputStrokeIdentifiers; // @synthesize inputStrokeIdentifiers=_inputStrokeIdentifiers;
-- (id)recognitionResultsForLocaleIdentifier:(id)arg1;
-- (id)highConfidenceTextRejectionRate:(double *)arg1;
+- (float)languageFitnessForLocale:(id)arg1;
+- (id)recognitionResultsForLocale:(id)arg1;
+- (id)highConfidenceTextWithLocalePreference:(id)arg1 rejectionRate:(double *)arg2;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithResultsByLocaleIdentifier:(id)arg1 inputStrokeIdentifiers:(id)arg2;
+- (id)initWithResultsByLocale:(id)arg1 languageFitnessByLocale:(id)arg2 inputStrokeIdentifiers:(id)arg3;
 - (id)init;
 @property(readonly, copy, nonatomic) NSArray *inputDrawingCutPoints;
 @property(readonly, retain, nonatomic) CHDrawing *inputDrawing;
-- (id)initWithResultsByLocaleIdentifier:(id)arg1 inputStrokeIdentifiers:(id)arg2 inputDrawing:(id)arg3 inputDrawingCutPoints:(id)arg4;
+- (id)initWithResultsByLocale:(id)arg1 languageFitnessByLocale:(id)arg2 inputStrokeIdentifiers:(id)arg3 inputDrawing:(id)arg4 inputDrawingCutPoints:(id)arg5;
 
 @end
 

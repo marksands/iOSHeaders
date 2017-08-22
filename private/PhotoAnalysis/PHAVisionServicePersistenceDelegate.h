@@ -87,7 +87,7 @@
 - (_Bool)cleanupInconsistentlyClusteredFacesWithCanceler:(id)arg1 error:(id *)arg2;
 - (id)_fetchResultForInconsistentlyClusteredFacesInPhotoLibrary:(id)arg1;
 - (_Bool)persistFaces:(id)arg1 deleteFaces:(id)arg2 forAsset:(id)arg3 persistedFaces:(id *)arg4 error:(id *)arg5;
-- (_Bool)unclusterFaces:(id)arg1 error:(id *)arg2;
+- (_Bool)unclusterFaces:(id)arg1 canceler:(id)arg2 error:(id *)arg3;
 - (id)invalidFaceClusterSequenceNumbersInClusterSequenceNumbers:(id)arg1 canceler:(id)arg2 error:(id *)arg3;
 - (_Bool)resetClusterSequenceNumberOfFacesWithLocalIdentifiers:(id)arg1 error:(id *)arg2;
 - (id)facesFromAsset:(id)arg1 error:(id *)arg2;

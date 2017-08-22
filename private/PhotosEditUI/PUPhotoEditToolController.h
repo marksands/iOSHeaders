@@ -51,6 +51,7 @@
 - (void)didBecomeActiveTool;
 - (void)animateBecomingActiveTool;
 - (void)willBecomeActiveTool;
+- (_Bool)canBecomeActiveTool;
 - (void)specDidChange;
 - (_Bool)installLivePhotoPlaybackGestureRecognizer:(id)arg1;
 - (_Bool)installTogglePreviewGestureRecognizer:(id)arg1;

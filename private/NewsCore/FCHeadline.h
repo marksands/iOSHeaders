@@ -101,7 +101,7 @@
 @property(nonatomic) unsigned long long feedOrder; // @synthesize feedOrder=_feedOrder;
 @property(nonatomic) _Bool showSubscriptionRequiredText; // @synthesize showSubscriptionRequiredText=_showSubscriptionRequiredText;
 @property(readonly, nonatomic) FCCoverArt *coverArt; // @synthesize coverArt=_coverArt;
-@property(readonly, nonatomic, getter=isPaid) _Bool paid;
+@property(nonatomic, getter=isPaid) _Bool paid; // @synthesize paid=_paid;
 @property(readonly, nonatomic) long long minimumNewsVersion;
 @property(readonly, nonatomic) _Bool needsRapidUpdates; // @synthesize needsRapidUpdates=_needsRapidUpdates;
 @property(retain, nonatomic) FCTopStoriesStyleConfiguration *storyStyle; // @synthesize storyStyle=_storyStyle;

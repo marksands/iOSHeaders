@@ -48,6 +48,7 @@ __attribute__((visibility("hidden")))
 - (void)candidatesDidChange;
 - (id)activeCandidateList;
 - (void)setCandidateBarCanExtend:(_Bool)arg1;
+- (long long)currentOrientation;
 - (_Bool)shouldUseKeyboardBackground:(id)arg1;
 - (double)extendedViewHeight;
 - (int)candidatesVisualStyle;

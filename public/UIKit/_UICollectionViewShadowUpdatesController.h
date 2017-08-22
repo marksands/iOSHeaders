@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (void)_regenerateUpdateMap;
 - (id)_rebasedShadowUpdatesForUpdate:(id)arg1 initialSnapshot:(id)arg2 shadowUpdates:(id)arg3;
 - (_Bool)_shadowUpdatesAreSimpleInsertWithOptionalMoveSequenceForIndexPath:(id)arg1;
+- (_Bool)_shouldPerformTranslationForDelegateBasedFlowLayoutSizing;
 - (_Bool)collectionView:(id)arg1 shouldSpringLoadItemAtIndexPath:(id)arg2 withContext:(id)arg3;
 - (_Bool)_collectionView:(id)arg1 shouldSpringLoadItemAtIndexPath:(id)arg2 withContext:(id)arg3;
 - (_Bool)_collectionView:(id)arg1 canHandleDropSesson:(id)arg2;

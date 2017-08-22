@@ -40,10 +40,12 @@
     NSMutableDictionary *_droppedAttachments;
     UIView *_imageDropSnapshot;
     NSDictionary *_attachmentDragPreviews;
+    NSMutableDictionary *_dropProgressObservationsByPlaceholderId;
     NSString *_localDragSessionID;
 }
 
 @property(copy, nonatomic) NSString *localDragSessionID; // @synthesize localDragSessionID=_localDragSessionID;
+@property(retain, nonatomic) NSMutableDictionary *dropProgressObservationsByPlaceholderId; // @synthesize dropProgressObservationsByPlaceholderId=_dropProgressObservationsByPlaceholderId;
 @property(retain, nonatomic) NSDictionary *attachmentDragPreviews; // @synthesize attachmentDragPreviews=_attachmentDragPreviews;
 @property(retain, nonatomic) UIView *imageDropSnapshot; // @synthesize imageDropSnapshot=_imageDropSnapshot;
 @property(retain, nonatomic) NSMutableDictionary *droppedAttachments; // @synthesize droppedAttachments=_droppedAttachments;

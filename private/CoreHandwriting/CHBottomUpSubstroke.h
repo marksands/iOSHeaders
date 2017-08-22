@@ -13,6 +13,7 @@
     id <CHStrokeIdentifier> _strokeIdentifier;
     double _startTimestamp;
     double _endTimestamp;
+    double _curvature;
     long long _originalWritingDirectionIndex;
     struct CGVector _writingOrientation;
     struct CGVector _strokeDeviation;
@@ -25,6 +26,7 @@
 @property(nonatomic) long long originalWritingDirectionIndex; // @synthesize originalWritingDirectionIndex=_originalWritingDirectionIndex;
 @property(nonatomic) struct CGVector strokeDeviation; // @synthesize strokeDeviation=_strokeDeviation;
 @property(nonatomic) struct CGVector writingOrientation; // @synthesize writingOrientation=_writingOrientation;
+@property(readonly, nonatomic) double curvature; // @synthesize curvature=_curvature;
 @property(readonly, nonatomic) vector_fa824bf3 convexHull; // @synthesize convexHull=_convexHull;
 @property(readonly, nonatomic) double endTimestamp; // @synthesize endTimestamp=_endTimestamp;
 @property(readonly, nonatomic) double startTimestamp; // @synthesize startTimestamp=_startTimestamp;
@@ -33,7 +35,7 @@
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (id)initWithStrokeIdentifier:(id)arg1 bounds:(struct CGRect)arg2 startTimestamp:(double)arg3 endTimestamp:(double)arg4 convexHull:(vector_fa824bf3)arg5;
+- (id)initWithStrokeIdentifier:(id)arg1 bounds:(struct CGRect)arg2 startTimestamp:(double)arg3 endTimestamp:(double)arg4 convexHull:(vector_fa824bf3)arg5 curvature:(double)arg6;
 
 @end
 

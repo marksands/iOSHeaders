@@ -11,6 +11,7 @@
 @interface SFDeviceAssetQuery : NSObject
 {
     _Bool _forEngagement;
+    _Bool _legacyFormats;
     NSString *_productType;
     NSString *_mappedProductType;
     NSString *_marketingProductNumber;
@@ -20,6 +21,7 @@
     unsigned long long _version;
 }
 
++ (_Bool)deviceWantsLegacyFormats;
 @property(readonly, nonatomic) unsigned long long version; // @synthesize version=_version;
 @property(readonly, nonatomic) NSString *colorCoverGlass; // @synthesize colorCoverGlass=_colorCoverGlass;
 @property(readonly, nonatomic) NSString *colorHousing; // @synthesize colorHousing=_colorHousing;
@@ -27,13 +29,13 @@
 @property(readonly, nonatomic) NSString *marketingProductNumber; // @synthesize marketingProductNumber=_marketingProductNumber;
 @property(retain, nonatomic) NSString *mappedProductType; // @synthesize mappedProductType=_mappedProductType;
 @property(readonly, nonatomic) NSString *productType; // @synthesize productType=_productType;
+@property(readonly, nonatomic) _Bool legacyFormats; // @synthesize legacyFormats=_legacyFormats;
 @property(readonly, nonatomic) _Bool forEngagement; // @synthesize forEngagement=_forEngagement;
 - (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
-@property(readonly, nonatomic) NSString *loggingProductType;
-@property(readonly, nonatomic) NSString *assetType;
+- (id)loggingProductType;
 - (id)initWithBluetoothProductIdentifier:(unsigned long long)arg1 color:(unsigned long long)arg2 engagement:(_Bool)arg3;
 - (id)initWithWatchProductType:(id)arg1 marketingProductNumber:(id)arg2;
 - (id)initWithPhoneProductType:(id)arg1 colorHousing:(id)arg2 colorCoverGlass:(id)arg3;

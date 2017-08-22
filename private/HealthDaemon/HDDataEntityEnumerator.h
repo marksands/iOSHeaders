@@ -13,6 +13,7 @@
     HDProfile *_profile;
     NSMutableDictionary *_encodingOptions;
     _Bool _useLeftJoin;
+    _Bool _improveJoinOrderingForStartDateIndexSelection;
     HKObjectType *_objectType;
     _HKFilter *_filter;
     NSSet *_restrictedSourceEntities;
@@ -22,6 +23,7 @@
     NSArray *_sortDescriptors;
 }
 
+@property(nonatomic) _Bool improveJoinOrderingForStartDateIndexSelection; // @synthesize improveJoinOrderingForStartDateIndexSelection=_improveJoinOrderingForStartDateIndexSelection;
 @property(copy, nonatomic) NSArray *sortDescriptors; // @synthesize sortDescriptors=_sortDescriptors;
 @property(retain, nonatomic) NSNumber *deletedObjectsAnchor; // @synthesize deletedObjectsAnchor=_deletedObjectsAnchor;
 @property(retain, nonatomic) NSNumber *anchor; // @synthesize anchor=_anchor;

@@ -308,6 +308,7 @@
 - (void)_requestAccessForEntityType:(unsigned long long)arg1;
 - (void)dealloc;
 - (id)initWithOptions:(int)arg1 path:(id)arg2 clientIDSuffix:(id)arg3 enablePropertyModificationLogging:(_Bool)arg4;
+- (id)initWithEKOptions:(unsigned long long)arg1;
 - (id)initWithEKOptions:(unsigned long long)arg1 path:(id)arg2 clientIDSuffix:(id)arg3 enablePropertyModificationLogging:(_Bool)arg4;
 - (id)initWithOptions:(int)arg1 path:(id)arg2;
 - (id)init;

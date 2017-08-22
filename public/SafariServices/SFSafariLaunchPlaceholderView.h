@@ -15,8 +15,10 @@ __attribute__((visibility("hidden")))
 {
     UINavigationBar *_topNavigationBar;
     UIToolbar *_bottomToolbar;
+    double _topLayoutGuideInset;
 }
 
+@property(nonatomic) double topLayoutGuideInset; // @synthesize topLayoutGuideInset=_topLayoutGuideInset;
 - (void).cxx_destruct;
 - (void)updateBarTintColor:(id)arg1;
 - (long long)positionForBar:(id)arg1;

@@ -10,7 +10,6 @@
 
 @protocol GEOPlaceDataProxy <NSObject>
 - (void)clearCache;
-- (void)applyRAPUpdatedMapItems:(NSArray *)arg1;
 - (void)shrinkBySize:(unsigned long long)arg1 finished:(void (^)(unsigned long long))arg2;
 - (void)calculateFreeableSpaceWithHandler:(void (^)(unsigned long long))arg1;
 - (void)cancelRequest:(GEOPDPlaceRequest *)arg1;

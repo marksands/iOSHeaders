@@ -39,6 +39,7 @@
 - (void)navigationServiceProxy:(id <MNNavigationServiceProxy>)arg1 updatedGuidanceEventFeedback:(MNGuidanceEventFeedback *)arg2;
 - (void)navigationServiceProxy:(id <MNNavigationServiceProxy>)arg1 newGuidanceEventFeedback:(MNGuidanceEventFeedback *)arg2;
 - (void)navigationServiceProxy:(id <MNNavigationServiceProxy>)arg1 didEnableGuidancePrompts:(_Bool)arg2;
+- (void)navigationServiceProxyPredictingDidArrive:(id <MNNavigationServiceProxy>)arg1;
 - (void)navigationServiceProxyDidArrive:(id <MNNavigationServiceProxy>)arg1;
 - (void)navigationServiceProxy:(id <MNNavigationServiceProxy>)arg1 hideLaneDirectionsForId:(NSUUID *)arg2;
 - (void)navigationServiceProxy:(id <MNNavigationServiceProxy>)arg1 showLaneDirections:(MNGuidanceLaneInfo *)arg2;

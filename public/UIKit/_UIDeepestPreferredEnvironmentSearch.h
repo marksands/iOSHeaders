@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)_reportStartingSearch;
 - (id)_overridingPreferredFocusEnvironmentForPreferredEnvironment:(id)arg1 visitedFocusEnvironments:(id)arg2;
 - (id)deepestPreferredFocusEnvironmentForEnvironment:(id)arg1;
-- (id)deepestPreferredFocusableItemForEnvironment:(id)arg1;
+- (id)deepestPreferredFocusableItemForEnvironment:(id)arg1 inFocusSystem:(id)arg2;
 
 @end
 

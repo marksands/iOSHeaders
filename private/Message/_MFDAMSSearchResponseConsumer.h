@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Message/MFDAMSBasicConsumer.h>
+#import <Message/_MFDAMSBasicConsumer.h>
 
 #import <Message/DASearchQueryConsumer-Protocol.h>
 
 @class MFConditionLock, MFMailMessageStoreSearchResult, NSDate;
 
-@interface _MFDAMSSearchResponseConsumer : MFDAMSBasicConsumer <DASearchQueryConsumer>
+@interface _MFDAMSSearchResponseConsumer : _MFDAMSBasicConsumer <DASearchQueryConsumer>
 {
     NSDate *latestDateToAdd;
     NSDate *earliestDateAdded;

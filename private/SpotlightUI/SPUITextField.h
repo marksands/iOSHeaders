@@ -31,7 +31,9 @@
 - (void)updateWithColor:(id)arg1;
 @property(readonly) SPSearchEntity *searchEntity;
 - (void)updateRepresentedObjects:(id)arg1;
+- (id)textFromMarkedTextRange:(struct _NSRange)arg1 markedTextReplacement:(id)arg2;
 - (void)setText:(id)arg1;
+- (id)_textWithRepresentedObjects:(id)arg1;
 - (id)text;
 - (void)updateContentSizeCategory;
 - (struct CGSize)intrinsicContentSize;

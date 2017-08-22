@@ -18,13 +18,12 @@
     int _notifyRestoreClientStateForLaunch;
     void *_activePlayerPath;
     NSMutableArray *_playerClients;
-    NSArray *_nowPlayingClients;
 }
 
-@property(readonly, nonatomic) NSArray *nowPlayingClients; // @synthesize nowPlayingClients=_nowPlayingClients;
 @property(readonly, nonatomic) void *client; // @synthesize client=_client;
 - (id)description;
 - (void)restoreNowPlayingClientState;
+@property(readonly, nonatomic) NSArray *playerClients;
 - (void)removePlayer:(void *)arg1;
 - (id)nowPlayingPlayerClientForPlayerPath:(void *)arg1;
 @property(nonatomic) void *activePlayerPath;

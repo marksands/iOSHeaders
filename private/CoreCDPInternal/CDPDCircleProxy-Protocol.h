@@ -18,6 +18,7 @@
 - (_Bool)anyPeerHasEnabledViewsInSet:(NSSet *)arg1 error:(id *)arg2;
 - (_Bool)viewMemberForAutofillPasswords:(id *)arg1;
 - (_Bool)viewMemberForPCSMaster:(id *)arg1;
+- (_Bool)requestToResetCloudKitData:(id *)arg1;
 - (_Bool)requestToResetCircle:(id *)arg1;
 - (_Bool)requestToJoinCircleAfterRestore:(id *)arg1;
 - (_Bool)requestToJoinCircle:(id *)arg1;

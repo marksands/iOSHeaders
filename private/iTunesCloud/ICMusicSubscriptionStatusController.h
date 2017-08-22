@@ -25,6 +25,7 @@
 - (void)clearCachedSubscriptionStatusForUserIdentiy:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)clearCachedSubscriptionStatusWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)invalidateCachedSubscriptionStatus;
+- (void)refreshSubscriptionUsingRequestContext:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)refreshSubscriptionForUserIdentity:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)refreshSubscriptionWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)disableSubscriptionForUserIdentity:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;

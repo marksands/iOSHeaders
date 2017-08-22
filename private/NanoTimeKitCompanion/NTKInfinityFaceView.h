@@ -14,6 +14,7 @@
     unsigned int _tapPromptedVideoChange:1;
     UIView *_cornerView;
     UILabel *_reviewLabel;
+    long long _previousDataMode;
     NTKFaceLayoutContentProvider *_layoutContentProvider;
     NTKComplicationDisplayWrapperView *_touchWrapper;
     NTKInfinityController *_controller;
@@ -58,10 +59,13 @@
 - (double)_rightSideMarginForDigitalTimeHeroPosition;
 - (void)_layoutForegroundContainerView;
 - (_Bool)_shouldQueueKeepAlive;
+- (id)videoPlayerView;
 - (void)videoPlayerViewDidPauseAfterPlayingVideoToEnd:(id)arg1;
 - (void)videoPlayerViewDidBeginPlaying:(id)arg1;
 - (void)videoPlayerViewDidFinishPlayingVideoToEnd:(id)arg1;
-- (void)videoPlayerViewWillBeginPlaying:(id)arg1;
+- (void)_backlightWillTurnOff;
+- (void)_handleOrdinaryScreenWake;
+- (void)_handleWristRaiseScreenWake;
 - (id)_nextListing;
 - (void)_selectDefaultListing;
 - (void)_updatePaused;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class BKSApplicationStateMonitor, BKSProcessAssertion, NSArray;
+@class BKSApplicationStateMonitor, NSArray;
 @protocol OS_dispatch_queue, OS_xpc_object;
 
 __attribute__((visibility("hidden")))
@@ -17,10 +17,12 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _suspensionHandler;
     NSArray *_urls;
     BKSApplicationStateMonitor *_monitor;
-    BKSProcessAssertion *_assertion;
+    id _assertionToken;
     int _pendingMessageCount;
 }
 
++ (void)_removeAssertionWithToken:(id)arg1;
++ (id)_addAssertionForPID:(int)arg1 name:(id)arg2;
 + (_Bool)needToManageConnection:(id)arg1 forURLs:(id)arg2;
 - (void)invalidate;
 - (void)allowSuspension;

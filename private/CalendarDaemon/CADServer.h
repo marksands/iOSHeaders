@@ -53,6 +53,7 @@
 - (void)_stopBirthdayManager;
 - (void)_startBirthdayManager;
 - (void)_protectedDataDidBecomeAvailable;
+- (void)_finishInitializationWithDataAvailable;
 - (void)_handleXPCConnection:(id)arg1;
 - (void)clientConnectionDied:(id)arg1;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;

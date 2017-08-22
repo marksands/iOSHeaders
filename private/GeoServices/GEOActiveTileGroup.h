@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEODataSetDescription, GEOVersionManifest, NSData, NSMutableArray, NSString;
+@class GEODataSetDescription, GEOVersionManifest, NSData, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOActiveTileGroup : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     struct GEOTileSetRegion *_hybridUnavailableRegions;
     unsigned long long _hybridUnavailableRegionsCount;
     unsigned long long _hybridUnavailableRegionsSpace;
@@ -164,6 +165,7 @@
 @property(retain, nonatomic) NSMutableArray *tileSets; // @synthesize tileSets=_tileSets;
 @property(nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

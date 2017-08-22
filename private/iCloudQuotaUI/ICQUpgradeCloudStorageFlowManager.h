@@ -28,6 +28,7 @@
 - (void)managerDidCancel:(id)arg1;
 - (void)manager:(id)arg1 loadDidFailWithError:(id)arg2;
 - (void)manager:(id)arg1 willPresentViewController:(id)arg2;
+- (id)secureTokenMissingError;
 - (void)_performPurchase;
 - (void)_performPurchaseUsingTouchID;
 - (void)_performPurchaseUsingSettingsUI;

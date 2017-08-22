@@ -47,6 +47,7 @@ __attribute__((visibility("hidden")))
 - (id)shadowImageForImage:(id)arg1 withIdentifier:(id)arg2 forStyle:(long long)arg3 withStrength:(double)arg4 inTempGroup:(id)arg5;
 - (id)shadowImageForImage:(id)arg1 withIdentifier:(id)arg2 forStyle:(long long)arg3 withStrength:(double)arg4;
 - (id)imageNamed:(id)arg1 withLegibilityStyle:(long long)arg2 legibilityStrength:(double)arg3;
+- (id)accessibilityHUDImageNamed:(id)arg1;
 - (id)imageNamed:(id)arg1;
 - (id)untintedImageNamed:(id)arg1;
 - (id)uncachedImageNamed:(id)arg1;
@@ -66,11 +67,12 @@ __attribute__((visibility("hidden")))
 - (double)textOffsetForStyle:(long long)arg1;
 - (void)_drawText:(id)arg1 inRect:(struct CGRect)arg2 withFont:(id)arg3 lineBreakMode:(long long)arg4 letterSpacing:(double)arg5 textAlignment:(long long)arg6;
 - (void)drawBluetoothBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(double)arg2;
-- (id)_bluetoothBatteryColorForNormalizedCapacity:(double)arg1;
+- (id)bluetoothBatteryColorForCapacity:(double)arg1 usingTintColor:(_Bool)arg2;
 - (id)bluetoothBatteryImageNameWithCapacity:(double)arg1;
 - (struct UIEdgeInsets)edgeInsetsForBluetoothBatteryInsides;
+- (void)drawBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(int)arg2 style:(unsigned long long)arg3 usingTintColor:(_Bool)arg4;
 - (void)drawBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(int)arg2 style:(unsigned long long)arg3;
-- (id)_batteryColorForCapacity:(int)arg1 lowCapacity:(int)arg2 style:(unsigned long long)arg3;
+- (id)_batteryColorForCapacity:(int)arg1 lowCapacity:(int)arg2 style:(unsigned long long)arg3 usingTintColor:(_Bool)arg4;
 - (struct UIEdgeInsets)edgeInsetsForBatteryInsides;
 - (double)_roundDimension:(double)arg1;
 - (double)batteryAccessoryMargin;

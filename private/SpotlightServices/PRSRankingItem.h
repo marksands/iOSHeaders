@@ -23,6 +23,8 @@
     PRSL2FeatureVector *_L2FeatureVector;
     PRSL3FeatureVector *_L3FeatureVector;
     NSDictionary *_serverFeatures;
+    double _mostRecentUsedDate;
+    double _closestUpComingDate;
     NSMapTable *_attributes;
     PRSRankingSpanCalculator *_spanCalculator;
     NSMutableArray *_matchedSenders;
@@ -61,6 +63,8 @@
 @property(retain, nonatomic) PRSRankingSpanCalculator *spanCalculator; // @synthesize spanCalculator=_spanCalculator;
 @property(nonatomic) struct ranking_index_score_t indexScore; // @synthesize indexScore=_indexScore;
 @property(retain, nonatomic) NSMapTable *attributes; // @synthesize attributes=_attributes;
+@property(nonatomic) double closestUpComingDate; // @synthesize closestUpComingDate=_closestUpComingDate;
+@property(nonatomic) double mostRecentUsedDate; // @synthesize mostRecentUsedDate=_mostRecentUsedDate;
 @property(nonatomic) _Bool eligibleForDemotion; // @synthesize eligibleForDemotion=_eligibleForDemotion;
 @property(retain, nonatomic) NSDictionary *serverFeatures; // @synthesize serverFeatures=_serverFeatures;
 @property(retain, nonatomic) PRSL3FeatureVector *L3FeatureVector; // @synthesize L3FeatureVector=_L3FeatureVector;
@@ -86,6 +90,7 @@
 - (void)hackPlayCounts;
 - (void)populateFeaturesWithEvaluator:(id)arg1 updatingBundleFeatures:(double *)arg2 withContext:(struct prs_feature_population_ctx_t *)arg3;
 - (void)populateOtherFeatures;
+- (void)inferDateBinsFromDates:(id)arg1 intoBins:(int *)arg2;
 - (void)populateMailFeatures;
 - (void)populateBundleSpecificFeatures;
 - (void)populateCrossAttributeDerivedFeaturesWithContext:(struct prs_feature_population_ctx_t *)arg1;

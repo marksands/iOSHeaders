@@ -86,6 +86,7 @@
 @property(readonly, nonatomic) NSArray *topLevelGestureRecognizers;
 - (void)layoutSubviews;
 - (void)_configureCompensatingGlyphPackageView:(id)arg1;
+- (void)_configureGlyphPackageView:(id)arg1;
 - (id)_newGlyphPackageView;
 @property(readonly, nonatomic, getter=isStepped) _Bool stepped;
 - (id)initWithFrame:(struct CGRect)arg1;

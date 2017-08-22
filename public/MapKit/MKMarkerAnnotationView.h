@@ -70,6 +70,7 @@
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
 - (id)_effectiveGlyphText;
 - (id)_effectiveGlyphImageForState:(long long)arg1 isSystemProvided:(_Bool *)arg2;
+- (id)_effectiveGlyphTintColorForState:(long long)arg1;
 - (id)_effectiveMarkerStrokeTintColorForState:(long long)arg1;
 - (double)_effectiveMarkerStrokeWidthForState:(long long)arg1;
 - (double)_effectiveShadowAlphaForState:(long long)arg1;

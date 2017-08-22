@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <iAd/NSURLSessionDataDelegate-Protocol.h>
 
@@ -38,6 +38,7 @@
 - (void)URLSession:(id)arg1 didBecomeInvalidWithError:(id)arg2;
 - (id)taskInfoForTask:(id)arg1;
 - (void)invalidateSessionWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)removeTask:(id)arg1;
 - (id)dataTaskWithRequest:(id)arg1 delegate:(id)arg2 modes:(id)arg3;
 - (void)dealloc;
 - (id)initWithConfiguration:(id)arg1 forIdentifier:(id)arg2 withMaximumRequestCount:(long long)arg3;

@@ -18,12 +18,15 @@ __attribute__((visibility("hidden")))
     UIViewController *_viewControllerDisplayingHUD;
     UILongPressGestureRecognizer *_recognizer;
     NSMutableArray *_subscribedConcurrentGestureRecognizers;
+    _Bool _viewDirectlyShowsHUD;
 }
 
 - (void).cxx_destruct;
 - (void)_gestureRecognizerChanged:(id)arg1;
 - (id)_bestViewControllerForView;
 - (void)_contentSizeCategoryChanged:(id)arg1;
+- (void)_dismissAccessibilityHUD;
+- (void)_showAccessibilityHUDItem:(id)arg1;
 - (void)_concurrentGestureRecognizerFired:(id)arg1;
 - (_Bool)_gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)_clearButtonItemGestureSubscriptions;

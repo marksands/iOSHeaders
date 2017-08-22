@@ -24,6 +24,7 @@
 - (void)_setState:(long long)arg1;
 - (void)_itemDidChange:(id)arg1;
 - (void)_itemWillChange:(id)arg1;
+- (id)_expectedAssetTypesForPlaybackMode:(long long)arg1;
 - (void)_contentsChanged;
 - (void)_connectAVPlayer;
 - (void)_playbackErrorNotification:(id)arg1;

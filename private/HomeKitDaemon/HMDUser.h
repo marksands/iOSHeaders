@@ -31,6 +31,7 @@
 
 + (id)userWithDictionary:(id)arg1 forHomeIdentifier:(id)arg2;
 + (_Bool)supportsSecureCoding;
++ (id)UUIDWithUserID:(id)arg1 forHomeIdentifier:(id)arg2 uuid:(id)arg3 pairingIdentity:(id)arg4;
 + (id)destinationWithUserID:(id)arg1;
 + (id)userWithName:(id)arg1 userID:(id)arg2 forHomeIdentifier:(id)arg3 publicKey:(id)arg4 homeManager:(id)arg5;
 + (id)currentUserWithPrivilege:(unsigned long long)arg1 forHomeIdentifier:(id)arg2;

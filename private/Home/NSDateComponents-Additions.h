@@ -15,6 +15,7 @@
 + (id)hf_biweeklyIntervalComponents;
 + (id)hf_weeklyIntervalComponents;
 + (id)hf_dailyIntervalComponents;
++ (id)hf_dailyWeekdayIntervalComponents;
 - (unsigned long long)hf_validComponents;
 - (long long)hf_compareNextMatchingDate:(id)arg1 withCalendar:(id)arg2;
 - (long long)hf_compareNextMatchingDate:(id)arg1;

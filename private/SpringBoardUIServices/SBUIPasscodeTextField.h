@@ -8,6 +8,7 @@
 
 @interface SBUIPasscodeTextField : UITextField
 {
+    _Bool _previousResponderRequiresKeyboard;
     _Bool _showsSystemKeyboard;
 }
 
@@ -16,6 +17,8 @@
 - (_Bool)resignFirstResponder;
 - (_Bool)becomeFirstResponder;
 - (void)dealloc;
+- (void)_disableAutomaticAppearance;
+- (void)_enableAutomaticAppearance;
 
 @end
 

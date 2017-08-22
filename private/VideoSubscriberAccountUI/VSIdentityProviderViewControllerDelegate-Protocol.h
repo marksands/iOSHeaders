@@ -9,6 +9,8 @@
 @class NSArray, VSAccount, VSFailable, VSIdentityProviderRequest, VSIdentityProviderViewController;
 
 @protocol VSIdentityProviderViewControllerDelegate <NSObject>
+- (void)identityProviderViewControllerDidCancel:(VSIdentityProviderViewController *)arg1;
+- (void)dismissIdentityProviderViewController:(VSIdentityProviderViewController *)arg1;
 - (void)identityProviderViewController:(VSIdentityProviderViewController *)arg1 didFinishRequest:(VSIdentityProviderRequest *)arg2 withResult:(VSFailable *)arg3;
 
 @optional

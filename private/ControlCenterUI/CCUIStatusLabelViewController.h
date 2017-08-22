@@ -33,7 +33,6 @@
 - (void)_resetPresentationStateAnimated:(_Bool)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
-- (struct CGSize)preferredContentSize;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
 - (void)enqueueStatusUpdate:(id)arg1 forIdentifier:(id)arg2;

@@ -6,23 +6,24 @@
 
 #import <Foundation/NSObject.h>
 
-@class MRPendingMessageQueue, NSMutableDictionary;
-@protocol MRProtocolMessageQueueDataSource, MRProtocolMessageQueueDelegate;
+@class MRPendingMessageQueue, MRWeakRef, NSMutableDictionary;
+@protocol MRProtocolMessageQueueDataSource, MRProtocolMessageQueueDelegate, OS_dispatch_queue;
 
 @interface MRProtocolMessageQueue : NSObject
 {
+    NSObject<OS_dispatch_queue> *_serialQueue;
+    MRWeakRef *_datasource;
+    MRWeakRef *_delegate;
     MRPendingMessageQueue *_pendingMessageQueue;
     NSMutableDictionary *_pendingReplyQueue;
-    id <MRProtocolMessageQueueDataSource> _datasource;
-    id <MRProtocolMessageQueueDelegate> _delegate;
 }
 
-@property(nonatomic) id <MRProtocolMessageQueueDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) id <MRProtocolMessageQueueDataSource> datasource; // @synthesize datasource=_datasource;
 - (id)_dataForMessage:(id)arg1;
 - (_Bool)reply:(id)arg1;
 - (void)flush;
 - (void)enqueueMessage:(id)arg1 reply:(CDUnknownBlockType)arg2 queue:(id)arg3;
+@property(nonatomic) id <MRProtocolMessageQueueDelegate> delegate;
+@property(nonatomic) id <MRProtocolMessageQueueDataSource> datasource;
 - (void)dealloc;
 - (id)initWithMaxLowPriorityMessagesAllowed:(unsigned long long)arg1;
 

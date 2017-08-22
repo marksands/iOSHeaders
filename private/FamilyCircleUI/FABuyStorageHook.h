@@ -21,6 +21,7 @@
 
 @property(nonatomic) __weak id <AAUIServerHookDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)managerDidCancel:(id)arg1;
 - (void)manager:(id)arg1 didCompleteWithError:(id)arg2;
 - (void)manager:(id)arg1 loadDidFailWithError:(id)arg2;
 - (void)_invokeBuyStorageWithServerAttributes:(id)arg1 completion:(CDUnknownBlockType)arg2;

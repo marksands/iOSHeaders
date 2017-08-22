@@ -10,6 +10,8 @@
 {
 }
 
++ (void)voiceAssistantEnableStateWithCompletion:(CDUnknownBlockType)arg1;
++ (void)coreRoutineEnableStateWithCompletion:(CDUnknownBlockType)arg1;
 + (void)entitiesDeletedSinceDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (void)donateLabeledStrings:(id)arg1 bundleId:(id)arg2 groupId:(id)arg3 documentId:(id)arg4 completion:(CDUnknownBlockType)arg5;
 + (void)registerXPCListenerWithDeletionTrackingHandler:(id)arg1;

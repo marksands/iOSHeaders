@@ -28,12 +28,15 @@
     NSArray *_dailyEnergyBurnedStatistics;
     NSArray *_dailyBriskMinutesStatistics;
     unsigned long long _knownFields;
+    long long _sequence;
 }
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)_isConcreteObjectClass;
-+ (id)_newActivityCacheWithUUID:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 dateComponents:(id)arg4;
++ (id)_activityCacheWithUUID:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 dateComponents:(id)arg4 sequence:(long long)arg5;
++ (id)_activityCacheWithStartDate:(id)arg1 endDate:(id)arg2 dateComponents:(id)arg3 sequence:(long long)arg4 energyBurned:(id)arg5 energyBurnedGoal:(id)arg6 walkingAndRunningDistance:(id)arg7 metadata:(id)arg8;
 + (id)_newActivityCacheWithStartDate:(id)arg1 endDate:(id)arg2 dateComponents:(id)arg3 energyBurned:(id)arg4 energyBurnedGoal:(id)arg5 walkingAndRunningDistance:(id)arg6 metadata:(id)arg7;
+@property(setter=_setSequence:) long long sequence; // @synthesize sequence=_sequence;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

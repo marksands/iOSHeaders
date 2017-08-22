@@ -19,6 +19,7 @@
 + (id)allWebsiteDataTypes;
 + (id)nonPersistentDataStore;
 + (id)defaultDataStore;
++ (id)_allWebsiteDataTypesIncludingPrivate;
 @property(readonly) struct Object *_apiObject;
 - (void)removeDataOfTypes:(id)arg1 forDataRecords:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)removeDataOfTypes:(id)arg1 modifiedSince:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -28,6 +29,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
+- (void)_setResourceLoadStatisticsTestingCallback:(CDUnknownBlockType)arg1;
 - (void)_resourceLoadStatisticsResetToConsistentState;
 - (void)_resourceLoadStatisticsClearInMemoryAndPersistentStoreModifiedSinceHours:(unsigned int)arg1;
 - (void)_resourceLoadStatisticsClearInMemoryAndPersistentStore;

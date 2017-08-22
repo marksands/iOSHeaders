@@ -80,6 +80,19 @@ struct CLConnectionMessage;
 
 struct CLDeviceMotionLiteService;
 
+struct CLElevationChangeEntry {
+    double _field1;
+    double _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    int _field5;
+    double _field6;
+    int _field7;
+    int _field8;
+    float _field9;
+    unsigned char _field10;
+};
+
 struct CLGeomagneticModelProvider {
     CDUnknownFunctionPointerType *_field1;
     struct BasicMutex _field2;

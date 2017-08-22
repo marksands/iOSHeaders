@@ -69,6 +69,7 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)updateItemModeFromSharingOptions:(unsigned long long)arg1;
 - (id)initAsShareAcceptFaultWithName:(id)arg1 mode:(BOOL)arg2;
 - (id)initWithRelativePath:(id)arg1 itemID:(id)arg2 parentGlobalID:(id)arg3;
 - (id)initWithLocalStatInfo:(id)arg1;

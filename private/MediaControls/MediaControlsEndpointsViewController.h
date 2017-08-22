@@ -28,6 +28,7 @@
 @property(retain, nonatomic) MPMediaControlsConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
 - (void)routingViewController:(id)arg1 didPickRoute:(id)arg2;
+- (void)mediaControlsPanelViewController:(id)arg1 didToggleRoutingPicker:(_Bool)arg2;
 - (void)launchNowPlayingApp:(id)arg1;
 - (void)_didSelectRoute;
 - (id)_createOrReuseViewController;
@@ -35,7 +36,6 @@
 @property(readonly, nonatomic) double preferredExpandedContentWidth;
 @property(readonly, nonatomic) double preferredExpandedContentHeight;
 - (id)dataSource;
-- (void)willTransitionToExpandedContentMode:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;

@@ -10,6 +10,11 @@
 {
 }
 
++ (id)videoCompositionDescription:(id)arg1;
++ (id)videoDescription:(id)arg1;
++ (id)repeatVideo:(id)arg1 count:(long long)arg2 error:(out id *)arg3;
++ (id)repeatAudio:(id)arg1 count:(long long)arg2 error:(out id *)arg3;
++ (id)repeatVideoComposition:(id)arg1 count:(long long)arg2 error:(out id *)arg3;
 + (CDStruct_e83c9415)conformRange:(CDStruct_e83c9415)arg1 inRange:(CDStruct_e83c9415)arg2;
 + (id)newPixelBufferOfSize:(CDStruct_912cb5d2)arg1 format:(unsigned int)arg2;
 + (long long)videoOrientationForAsset:(id)arg1 videoComposition:(id)arg2;

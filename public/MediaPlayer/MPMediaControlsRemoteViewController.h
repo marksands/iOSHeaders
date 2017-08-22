@@ -6,13 +6,19 @@
 
 #import <UIKit/_UIRemoteViewController.h>
 
+@protocol MPMediaControlsClientController;
+
 @interface MPMediaControlsRemoteViewController : _UIRemoteViewController
 {
+    id <MPMediaControlsClientController> _hostViewController;
 }
 
 + (id)serviceViewControllerInterface;
 + (id)exportedInterface;
+@property(nonatomic) __weak id <MPMediaControlsClientController> hostViewController; // @synthesize hostViewController=_hostViewController;
+- (void).cxx_destruct;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
+- (void)didReceiveInteraction;
 - (void)dismiss;
 
 @end

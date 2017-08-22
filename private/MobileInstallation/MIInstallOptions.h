@@ -20,6 +20,7 @@
     _Bool _skipBlacklist;
     _Bool _installForMigrator;
     _Bool _allowLocalProvisioned;
+    _Bool _performAPFSClone;
     unsigned long long _installTargetType;
     unsigned long long _lsInstallType;
     MIStoreMetadata *_iTunesMetadata;
@@ -29,6 +30,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool performAPFSClone; // @synthesize performAPFSClone=_performAPFSClone;
 @property(nonatomic) _Bool allowLocalProvisioned; // @synthesize allowLocalProvisioned=_allowLocalProvisioned;
 @property(nonatomic) _Bool installForMigrator; // @synthesize installForMigrator=_installForMigrator;
 @property(nonatomic) _Bool skipBlacklist; // @synthesize skipBlacklist=_skipBlacklist;

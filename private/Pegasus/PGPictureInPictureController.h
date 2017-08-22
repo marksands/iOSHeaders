@@ -48,8 +48,8 @@
 - (void)pictureInPictureInterruptionBegan;
 - (void)startPictureInPictureForApplicationEnteringBackground:(id)arg1 animated:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)shouldStartPictureInPictureForApplicationEnteringBackground:(id)arg1;
-@property(readonly, nonatomic) _Bool isStartingStoppingOrCancellingPictureInPicture;
 @property(nonatomic) __weak id <PGPictureInPictureControllerDelegate> delegate;
+@property(readonly, nonatomic) _Bool isStartingStoppingOrCancellingPictureInPicture;
 - (void)dealloc;
 - (id)init;
 

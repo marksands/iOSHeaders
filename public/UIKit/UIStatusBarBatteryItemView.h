@@ -6,7 +6,7 @@
 
 #import <UIKit/UIStatusBarItemView.h>
 
-@class UIView, _UILegibilityImageSet;
+@class UIImage, UIView, _UILegibilityImageSet;
 
 __attribute__((visibility("hidden")))
 @interface UIStatusBarBatteryItemView : UIStatusBarItemView
@@ -17,15 +17,22 @@ __attribute__((visibility("hidden")))
     UIView *_accessoryView;
     _Bool _cachedImageHasAccessoryImage;
     int _cachedCapacity;
+    int _cachedAXHUDCapacity;
     _UILegibilityImageSet *_cachedImageSet;
     unsigned long long _cachedBatteryStyle;
+    unsigned long long _cachedAXHUDStyle;
+    UIImage *_cachedAXHUDImage;
 }
 
+@property(retain, nonatomic) UIImage *cachedAXHUDImage; // @synthesize cachedAXHUDImage=_cachedAXHUDImage;
+@property(nonatomic) unsigned long long cachedAXHUDStyle; // @synthesize cachedAXHUDStyle=_cachedAXHUDStyle;
+@property(nonatomic) int cachedAXHUDCapacity; // @synthesize cachedAXHUDCapacity=_cachedAXHUDCapacity;
 @property(nonatomic) unsigned long long cachedBatteryStyle; // @synthesize cachedBatteryStyle=_cachedBatteryStyle;
 @property(nonatomic) _Bool cachedImageHasAccessoryImage; // @synthesize cachedImageHasAccessoryImage=_cachedImageHasAccessoryImage;
 @property(nonatomic) int cachedCapacity; // @synthesize cachedCapacity=_cachedCapacity;
 @property(retain, nonatomic) _UILegibilityImageSet *cachedImageSet; // @synthesize cachedImageSet=_cachedImageSet;
 - (void).cxx_destruct;
+- (id)accessibilityHUDRepresentation;
 - (double)legibilityStrength;
 - (void)_updateAccessoryImage;
 - (double)extraRightPadding;

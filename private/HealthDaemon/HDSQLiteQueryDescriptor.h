@@ -19,8 +19,10 @@
     NSArray *_orderingProperties;
     HDSQLitePredicate *_predicate;
     NSString *_groupBy;
+    NSArray *_preferredEntityJoinOrder;
 }
 
+@property(copy, nonatomic) NSArray *preferredEntityJoinOrder; // @synthesize preferredEntityJoinOrder=_preferredEntityJoinOrder;
 @property(copy, nonatomic) NSString *groupBy; // @synthesize groupBy=_groupBy;
 @property(copy, nonatomic) HDSQLitePredicate *predicate; // @synthesize predicate=_predicate;
 @property(nonatomic) _Bool returnsDistinctEntities; // @synthesize returnsDistinctEntities=_returnsDistinctEntities;
@@ -32,6 +34,8 @@
 - (id)_SQLForDeleteWithError:(id *)arg1;
 - (id)_joinClauseForProperties:(id)arg1;
 - (id)_SQLForSelectWithProperties:(id)arg1 columns:(id)arg2;
+- (CDUnknownBlockType)_joinClauseComparatorWithPreferredEntityOrder:(id)arg1;
+- (id)_sortedJoinClauses:(id)arg1 preferredOrder:(id)arg2 baseTables:(id)arg3;
 - (id)_sortedJoinClauses:(id)arg1 withTables:(id)arg2;
 - (id)_SQLForSelectWithProperties:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

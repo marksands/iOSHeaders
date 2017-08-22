@@ -41,6 +41,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool alongsideViewIsBecomingVisible; // @synthesize alongsideViewIsBecomingVisible=_alongsideViewIsBecomingVisible;
 @property(nonatomic) __weak UIView *viewToAnimateAlongside; // @synthesize viewToAnimateAlongside=_viewToAnimateAlongside;
 - (void).cxx_destruct;
+- (id)accessibilityHUDRepresentation;
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)jiggleCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)animateUnlockForegroundView:(id)arg1 timeItemSnapshot:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;

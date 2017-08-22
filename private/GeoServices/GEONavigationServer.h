@@ -29,6 +29,7 @@
 
 + (id)identifier;
 - (void).cxx_destruct;
+- (void)clearAllData;
 - (void)_sendMessage:(long long)arg1 data:(id)arg2 toPeer:(id)arg3;
 - (void)_forEachValidPeerProxy:(CDUnknownBlockType)arg1;
 - (void)_updateAllPeersWithMessage:(long long)arg1 data:(id)arg2;

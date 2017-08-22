@@ -33,6 +33,8 @@ __attribute__((visibility("hidden")))
 - (void)updateIndex:(_Bool)arg1;
 - (double)groupBarStartingY;
 - (void)drawRect:(struct CGRect)arg1;
+- (_Bool)_canDrawContent;
+- (_Bool)shouldDrawGroupBackground;
 - (_Bool)isCellVisible:(id)arg1;
 - (void)scrollToBottomWithAnimation:(_Bool)arg1;
 - (void)scrollToOffsetFromTop:(double)arg1 withAnimation:(_Bool)arg2;

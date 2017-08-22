@@ -263,6 +263,7 @@
 - (struct CGPoint)toolController:(id)arg1 originalPointFromViewPoint:(struct CGPoint)arg2 view:(id)arg3;
 - (void)toolControllerDidFinish:(id)arg1;
 - (struct CGSize)toolControllerOriginalImageSize:(id)arg1;
+- (struct CGSize)toolControllerOriginalOrientedImageSize:(id)arg1;
 - (id)toolControllerLivePhoto:(id)arg1;
 - (id)toolControllerRequestComposition:(id)arg1;
 - (void)toolControllerRequestLivePhoto:(id)arg1 filters:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -398,6 +399,7 @@
 - (void)setPlaceholderImage:(id)arg1;
 - (void)_requestDismissTransitionViewContentsWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)_isReadyToRender;
+- (struct CGRect)_placeholderViewFrame;
 @property(readonly, nonatomic) struct CGRect previewViewFrame;
 - (id)childViewControllerForScreenEdgesDeferringSystemGestures;
 - (long long)_imageModulationOptions;

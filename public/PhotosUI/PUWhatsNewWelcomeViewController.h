@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy, nonatomic) CDUnknownBlockType _completionHandler; // @synthesize _completionHandler=__completionHandler;
 - (void).cxx_destruct;
 - (void)_handleContinueButton:(id)arg1;
+- (void)_addSection:(id)arg1 containerView:(id)arg2 iconName:(id)arg3 lastLabel:(id *)arg4 lastSectionView:(id *)arg5 subheadlineFontScale:(double)arg6 text:(id)arg7 title:(id)arg8 titleLabel:(id)arg9;
 - (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillLayoutSubviews;

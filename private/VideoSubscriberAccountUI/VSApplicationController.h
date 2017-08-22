@@ -31,7 +31,6 @@ __attribute__((visibility("hidden")))
     VSPreferences *_preferences;
 }
 
-+ (void)initialize;
 @property(retain, nonatomic) VSPreferences *preferences; // @synthesize preferences=_preferences;
 @property(nonatomic) _Bool allowUI; // @synthesize allowUI=_allowUI;
 @property(retain, nonatomic) JSValue *applicationReadyCallback; // @synthesize applicationReadyCallback=_applicationReadyCallback;

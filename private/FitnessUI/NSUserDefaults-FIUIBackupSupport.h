@@ -7,8 +7,10 @@
 #import <Foundation/NSUserDefaults.h>
 
 @interface NSUserDefaults (FIUIBackupSupport)
++ (void)fu_synchronizeStandardUserDefaultsKey:(id)arg1 useContainer:(_Bool)arg2;
 + (void)fu_synchronizeStandardUserDefaultsKey:(id)arg1;
++ (void)fu_backupStandardUserDefaultsKey:(id)arg1 useContainer:(_Bool)arg2;
 + (void)fu_backupStandardUserDefaultsKey:(id)arg1;
-+ (id)_npsManager;
++ (id)fu_npsManager;
 @end
 

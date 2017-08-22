@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (id)accessibilityHUDRepresentation;
 - (_Bool)_loopingNecessary;
 - (void)_crossfadeStepAnimation;
 - (_Bool)_crossfaded;

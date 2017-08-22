@@ -10,18 +10,20 @@
 {
 }
 
++ (id)appropriateAvailableLanguageForPreferredLanguages:(id)arg1 regionCode:(id)arg2;
++ (id)appropriateAvailableLanguageForCurrentLanguage;
 + (long long)currentAssetDeviceClass;
 + (id)sharedManager;
 - (id)movieURLForAsset:(id)arg1;
 - (void)purgeAssets:(id)arg1;
 - (void)downloadAsset:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (id)appropriateAvailableLanguageForLanguage:(id)arg1;
 - (id)assetTypeForCurrentDevice;
 - (id)assetFeatureValueForFeature:(long long)arg1;
 - (void)purgeMovieForFeature:(long long)arg1 language:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)purgeFeatureMoviesExceptLanguage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)purgeFeatureMoviesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)retrieveMovieForFeature:(long long)arg1 language:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)retrieveMovieForFeature:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 
 @end
 

@@ -20,6 +20,7 @@
 + (id)callerDisplayNameWithPid:(int)arg1 bundleId:(id *)arg2;
 + (id)_pluginDisplayNameForUUID:(id)arg1 bundleId:(id *)arg2;
 + (id)_pluginDisplayNameForPID:(int)arg1 bundleId:(id *)arg2;
++ (id)_uuidForPid:(int)arg1;
 + (id)_callerUUID;
 + (id)sharedInstance;
 @property(retain, nonatomic) NSString *daemonDir; // @synthesize daemonDir=_daemonDir;

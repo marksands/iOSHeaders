@@ -10,6 +10,7 @@
 
 @protocol WLKUIMediaPlayerLibraryExport <JSExport>
 - (long long)queryHasItemCount:(NSString *)arg1;
+- (void)setFilterAsync:(NSDictionary *)arg1:(JSValue *)arg2;
 - (_Bool)setFilter:(NSDictionary *)arg1;
 - (_Bool)libraryHasMedia;
 - (void)getUpdateProgress:(JSValue *)arg1;

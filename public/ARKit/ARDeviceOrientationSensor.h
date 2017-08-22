@@ -6,15 +6,14 @@
 
 #import <objc/NSObject.h>
 
-#import <ARKit/ARSensor-Protocol.h>
+#import <ARKit/ARPassiveSensor-Protocol.h>
 
-@class ARDeviceOrientationData, CMMotionManager, NSOperationQueue, NSString;
+@class ARDeviceOrientationData, CMMotionManager, NSString;
 @protocol ARSensorDelegate;
 
-@interface ARDeviceOrientationSensor : NSObject <ARSensor>
+@interface ARDeviceOrientationSensor : NSObject <ARPassiveSensor>
 {
     CMMotionManager *_motionManager;
-    NSOperationQueue *_updateQueueDeviceMotion;
     ARDeviceOrientationData *_currentOrientationData;
     id <ARSensorDelegate> _delegate;
     long long _worldAlignment;
@@ -24,6 +23,7 @@
 @property(nonatomic) __weak id <ARSensorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)stop;
+- (id)currentData;
 - (void)start;
 - (unsigned long long)providedDataTypes;
 - (void)dealloc;

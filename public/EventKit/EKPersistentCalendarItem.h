@@ -118,8 +118,8 @@ __attribute__((visibility("hidden")))
 - (id)clientLocation;
 - (void)setLocation:(id)arg1;
 - (id)location;
-- (void)setStructuredLocation:(id)arg1;
-- (id)structuredLocation;
+- (void)setStructuredLocationWithoutPrediction:(id)arg1;
+- (id)structuredLocationWithoutPrediction;
 - (void)setCalendarScale:(id)arg1;
 - (id)calendarScale;
 - (void)setPhantomMaster:(_Bool)arg1;

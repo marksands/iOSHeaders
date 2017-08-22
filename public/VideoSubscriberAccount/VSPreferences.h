@@ -6,16 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class NSURL, NSUserDefaults, VSDevice;
+@class NSURL, NSUndoManager, NSUserDefaults, VSDevice;
 
 @interface VSPreferences : NSObject
 {
+    NSUndoManager *_undoManager;
     NSUserDefaults *_userDefaults;
     VSDevice *_device;
 }
 
 @property(retain, nonatomic) VSDevice *device; // @synthesize device=_device;
 @property(retain, nonatomic) NSUserDefaults *userDefaults; // @synthesize userDefaults=_userDefaults;
+@property(retain, nonatomic) NSUndoManager *undoManager; // @synthesize undoManager=_undoManager;
 - (void).cxx_destruct;
 - (void)noteDidAcknowledgeUnsupportedIdentityProvider:(id)arg1;
 - (_Bool)hasAcknowledgedUnsupportedIdentityProvider:(id)arg1;
@@ -25,6 +27,7 @@
 @property(nonatomic) long long cachedDeveloperProviderStatus;
 @property(nonatomic) long long cachedAvailabilityStatus;
 - (void)noteShouldSkipSetup;
+- (void)_updateShouldSkipSetupWithNumber:(id)arg1;
 @property(readonly, nonatomic) _Bool shouldSkipSetup;
 @property(readonly, nonatomic) _Bool shouldAlwaysAllowRemoteInspection;
 @property(readonly, nonatomic) _Bool shouldDisableRequestTimeouts;

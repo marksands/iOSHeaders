@@ -126,8 +126,9 @@
 - (void)activityHelper:(id)arg1 didUpdateActivityMatchingResults:(id)arg2;
 - (id)_configurationForActivity:(id)arg1;
 - (id)_activityConfigurationsForActivities:(id)arg1;
-- (id)newShareUIConfigurationWithMatchingResults:(id)arg1;
-- (id)_reloadActivityViewControllerConfiguration;
+- (id)_newShareUIConfigurationWithMatchingResults:(id)arg1;
+- (id)_newShareUIConfigurationForCurrentState;
+- (void)_loadOrPreheatActivityViewControllerConfiguration;
 - (void)_insertIntoActivitiesByUUID:(id)arg1;
 - (void)_removeFromActivitiesByUUID:(id)arg1;
 - (id)_activityWithActivityUUID:(id)arg1;

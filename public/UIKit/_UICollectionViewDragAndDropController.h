@@ -128,6 +128,7 @@ __attribute__((visibility("hidden")))
 - (id)_cellForDropCoordinatorItem:(id)arg1;
 - (id)_dropCoordinatorItemForIndexPath:(id)arg1;
 - (id)_dropCoordinatorItemForDragItem:(id)arg1;
+- (_Bool)_shouldPerformTranslationForDelegateBasedFlowLayoutSizing;
 - (_Bool)updateWillCauseInternalInconsistency:(id)arg1;
 - (id)indexPathForCurrentReorderedItem;
 - (id)indexPathForOriginalReorderedItem;

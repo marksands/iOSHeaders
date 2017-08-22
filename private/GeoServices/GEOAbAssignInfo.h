@@ -37,6 +37,7 @@
 - (id)description;
 @property(nonatomic) _Bool hasRelativeTimestamp;
 @property(readonly, nonatomic) _Bool hasAbAssignId;
+- (void)refreshRelativeTimeStampWithEventTime:(double)arg1;
 - (void)refreshRelativeTimeStamp;
 - (id)initWithAbAssignId:(id)arg1 createdAtDate:(id)arg2;
 @property(nonatomic) _Bool hasCreatedAtTimestamp;

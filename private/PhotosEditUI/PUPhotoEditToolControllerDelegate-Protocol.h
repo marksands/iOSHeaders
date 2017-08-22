@@ -15,6 +15,7 @@
 - (struct CGPoint)toolController:(PUPhotoEditToolController *)arg1 originalPointFromViewPoint:(struct CGPoint)arg2 view:(UIView *)arg3;
 - (void)toolControllerDidFinish:(PUPhotoEditToolController *)arg1;
 - (struct CGSize)toolControllerOriginalImageSize:(PUPhotoEditToolController *)arg1;
+- (struct CGSize)toolControllerOriginalOrientedImageSize:(PUPhotoEditToolController *)arg1;
 - (NUComposition *)toolControllerRequestComposition:(PUPhotoEditToolController *)arg1;
 - (void)toolControllerRequestLivePhoto:(PUPhotoEditToolController *)arg1 filters:(NSArray *)arg2 completion:(void (^)(PHLivePhoto *))arg3;
 - (PHLivePhoto *)toolControllerLivePhoto:(PUPhotoEditToolController *)arg1;

@@ -31,11 +31,13 @@
     long long _beforeNoiseScaling;
     float _constantScaleFactor;
     unsigned long long _evaluationLevel;
+    _Bool _reportScale;
     _Bool _isSynchronous;
     _Bool _intercept;
     struct NSString *_planId;
 }
 
+@property(readonly, nonatomic) _Bool reportScale; // @synthesize reportScale=_reportScale;
 @property(readonly, nonatomic) unsigned long long evaluationLevel; // @synthesize evaluationLevel=_evaluationLevel;
 @property(readonly, nonatomic) float constantScaleFactor; // @synthesize constantScaleFactor=_constantScaleFactor;
 @property(readonly, nonatomic) long long beforeNoiseScaling; // @synthesize beforeNoiseScaling=_beforeNoiseScaling;
@@ -65,7 +67,7 @@
 - (id)evaluationMetricsForPredictions:(id)arg1 objectives:(id)arg2 predicate:(CDUnknownBlockType)arg3 start:(id)arg4;
 - (id)train;
 - (float)scaleFactorFor:(id)arg1;
-- (id)initWithStore:(id)arg1 tracker:(id)arg2 noiseStrategy:(id)arg3 planId:(struct NSString *)arg4 isSynchronous:(_Bool)arg5 sessionDescriptor:(id)arg6 maxSessionsLimit:(unsigned long long)arg7 sessionsInBatch:(unsigned long long)arg8 currentServerIteration:(unsigned long long)arg9 currentModelWeights:(id)arg10 localLearningRate:(float)arg11 localGradientIterations:(unsigned long long)arg12 useOnlyAppleInternalSessions:(_Bool)arg13 skew:(double)arg14 threshold:(double)arg15 isMultiLabel:(_Bool)arg16 intercept:(_Bool)arg17 positiveLabel:(unsigned long long)arg18 beforeNoiseScaling:(long long)arg19 constantScaleFactor:(float)arg20 evaluationLevel:(unsigned long long)arg21;
+- (id)initWithStore:(id)arg1 tracker:(id)arg2 noiseStrategy:(id)arg3 planId:(struct NSString *)arg4 isSynchronous:(_Bool)arg5 sessionDescriptor:(id)arg6 maxSessionsLimit:(unsigned long long)arg7 sessionsInBatch:(unsigned long long)arg8 currentServerIteration:(unsigned long long)arg9 currentModelWeights:(id)arg10 localLearningRate:(float)arg11 localGradientIterations:(unsigned long long)arg12 useOnlyAppleInternalSessions:(_Bool)arg13 skew:(double)arg14 threshold:(double)arg15 isMultiLabel:(_Bool)arg16 intercept:(_Bool)arg17 positiveLabel:(unsigned long long)arg18 beforeNoiseScaling:(long long)arg19 constantScaleFactor:(float)arg20 evaluationLevel:(unsigned long long)arg21 reportScale:(_Bool)arg22;
 - (id)initWithStore:(id)arg1 tracker:(id)arg2 noiseStrategy:(id)arg3 planId:(struct NSString *)arg4 isSynchronous:(_Bool)arg5 sessionDescriptor:(id)arg6 maxSessionsLimit:(unsigned long long)arg7 sessionsInBatch:(unsigned long long)arg8 currentServerIteration:(unsigned long long)arg9 currentModelWeights:(id)arg10 localLearningRate:(float)arg11 localGradientIterations:(unsigned long long)arg12 useOnlyAppleInternalSessions:(_Bool)arg13 skew:(double)arg14 threshold:(double)arg15 isMultiLabel:(_Bool)arg16 intercept:(_Bool)arg17 positiveLabel:(unsigned long long)arg18;
 - (id)initWithStore:(id)arg1 tracker:(id)arg2 noiseStrategy:(id)arg3 planId:(struct NSString *)arg4 isSynchronous:(_Bool)arg5 sessionDescriptor:(id)arg6 currentServerIteration:(unsigned long long)arg7 currentModelWeights:(id)arg8 useOnlyAppleInternalSessions:(_Bool)arg9 skew:(double)arg10 threshold:(double)arg11 isMultiLabel:(_Bool)arg12 positiveLabel:(unsigned long long)arg13;
 - (id)init;

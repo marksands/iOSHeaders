@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) IKAppContext *appContext; // @synthesize appContext=_appContext;
 @property(readonly, copy, nonatomic) NSURL *bootURL; // @synthesize bootURL=_bootURL;
 - (void).cxx_destruct;
+- (id)viewElementRegistry;
 - (id)activeDocument;
 - (id)appLaunchParams;
 - (id)userDefaultsStorage;

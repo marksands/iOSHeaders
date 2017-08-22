@@ -35,6 +35,8 @@
 @property(nonatomic) double blurRadius; // @synthesize blurRadius=_blurRadius;
 @property(nonatomic) _Bool usesLuminanceMap; // @synthesize usesLuminanceMap=_usesLuminanceMap;
 - (void).cxx_destruct;
+- (void)addKeyObserver:(id)arg1;
+- (void)restoreDefaultValues;
 - (void)setDefaultValues;
 @property(readonly, nonatomic) __weak MTVibrantStylingProvider *vibrantStylingProvider; // @synthesize vibrantStylingProvider=_vibrantStylingProvider;
 - (Class)vibrantStylingProviderClass;

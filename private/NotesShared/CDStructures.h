@@ -63,8 +63,9 @@ struct Attachment {
     double _field34;
     basic_string_a1f69cfb *_field35;
     basic_string_a1f69cfb *_field36;
-    int _field37;
+    basic_string_a1f69cfb *_field37;
     int _field38;
+    int _field39;
 };
 
 struct AttachmentInfo;

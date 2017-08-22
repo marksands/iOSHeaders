@@ -68,7 +68,8 @@ typedef struct {
     float rate;
     float defaultRate;
     _Bool isLiveContent;
-} CDStruct_98c298d5;
+    _Bool isLoading;
+} CDStruct_fce57115;
 
 typedef struct {
     long long reverseCount;

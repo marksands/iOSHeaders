@@ -32,6 +32,7 @@
 - (void)_setLuminanceColorMapName:(id)arg1;
 - (id)_luminanceColorMapName;
 @property(copy, nonatomic) NSString *groupName;
+@property(nonatomic) double rasterizationScale;
 @property(nonatomic) double brightness;
 @property(nonatomic) double saturation;
 @property(nonatomic) double luminanceAlpha;

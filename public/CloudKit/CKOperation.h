@@ -17,8 +17,6 @@
     _Bool _isOutstandingOperation;
     _Bool _isFinished;
     _Bool _clouddConnectionInterrupted;
-    _Bool _preferAnonymousRequests;
-    _Bool _allowsBackgroundNetworking;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     CKOperationConfiguration *_resolvedConfiguration;
     CKOperationConfiguration *_configuration;
@@ -39,10 +37,6 @@
     CKTimeLogger *_timeLogger;
     CKOperationMetrics *_metrics;
     CDUnknownBlockType _requestCompletedBlock;
-    NSString *_sourceApplicationBundleIdentifier;
-    NSString *_sourceApplicationSecondaryIdentifier;
-    NSString *_authPromptReason;
-    NSDictionary *_additionalRequestHTTPHeaders;
     NSString *_deviceIdentifier;
     CKOperationMMCSRequestOptions *_MMCSRequestOptions;
 }
@@ -51,12 +45,6 @@
 @property(retain, nonatomic) NSObject<OS_os_activity> *osActivity; // @synthesize osActivity=_osActivity;
 @property(retain, nonatomic) CKOperationMMCSRequestOptions *MMCSRequestOptions; // @synthesize MMCSRequestOptions=_MMCSRequestOptions;
 @property(retain, nonatomic) NSString *deviceIdentifier; // @synthesize deviceIdentifier=_deviceIdentifier;
-@property(retain, nonatomic) NSDictionary *additionalRequestHTTPHeaders; // @synthesize additionalRequestHTTPHeaders=_additionalRequestHTTPHeaders;
-@property(nonatomic) _Bool allowsBackgroundNetworking; // @synthesize allowsBackgroundNetworking=_allowsBackgroundNetworking;
-@property(nonatomic) _Bool preferAnonymousRequests; // @synthesize preferAnonymousRequests=_preferAnonymousRequests;
-@property(retain, nonatomic) NSString *authPromptReason; // @synthesize authPromptReason=_authPromptReason;
-@property(retain, nonatomic) NSString *sourceApplicationSecondaryIdentifier; // @synthesize sourceApplicationSecondaryIdentifier=_sourceApplicationSecondaryIdentifier;
-@property(retain, nonatomic) NSString *sourceApplicationBundleIdentifier; // @synthesize sourceApplicationBundleIdentifier=_sourceApplicationBundleIdentifier;
 @property(copy, nonatomic) CDUnknownBlockType requestCompletedBlock; // @synthesize requestCompletedBlock=_requestCompletedBlock;
 @property(retain, nonatomic) CKOperationMetrics *metrics; // @synthesize metrics=_metrics;
 @property(retain, nonatomic) CKTimeLogger *timeLogger; // @synthesize timeLogger=_timeLogger;
@@ -82,6 +70,11 @@
 @property(readonly, nonatomic) NSDictionary *w3cNavigationTimingByRequestUUID;
 @property(readonly, nonatomic) NSDictionary *responseHTTPHeadersByRequestUUID;
 @property(readonly, nonatomic) NSArray *requestUUIDs;
+@property(retain, nonatomic) NSDictionary *additionalRequestHTTPHeaders;
+@property(nonatomic) _Bool allowsBackgroundNetworking;
+@property(nonatomic) _Bool preferAnonymousRequests;
+@property(retain, nonatomic) NSString *sourceApplicationSecondaryIdentifier;
+@property(retain, nonatomic) NSString *sourceApplicationBundleIdentifier;
 - (void)setTimeoutIntervalForResource:(double)arg1;
 - (double)timeoutIntervalForResource;
 - (void)setTimeoutIntervalForRequest:(double)arg1;

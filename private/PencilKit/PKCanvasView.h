@@ -74,6 +74,7 @@
 - (void)simulateHIDPoints:(id)arg1;
 - (_Bool)canBeginDrawingWithTouch:(id)arg1;
 - (void)willBeginDrawingWithTouch:(id)arg1;
+- (void)drawingCancelled;
 - (void)didFinishRenderingStroke:(id)arg1 inDrawing:(id)arg2;
 - (void)setIsDrawing:(_Bool)arg1;
 - (void)renderingDidFinish;

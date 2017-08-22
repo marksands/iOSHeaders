@@ -8,17 +8,19 @@
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class HMDBackgroundTaskAgentTimer, HMDUserPresenceFeedSession, NSString;
+@class HMDBackgroundTaskAgentTimer, HMDUserPresenceFeed, HMDUserPresenceFeedSession, NSString;
 
 @interface HMDUserPresenceFeeder : HMDHomePresenceBase <HMFLogging>
 {
     unsigned long long _presenceRegionStatus;
     HMDBackgroundTaskAgentTimer *_btaUpdateTimer;
     HMDUserPresenceFeedSession *_currentFeedSession;
+    HMDUserPresenceFeed *_lastSentFeed;
 }
 
 + (id)logCategory;
 + (void)submitPresenceReportMetricWithPresenceAuth:(id)arg1 presenceCompute:(id)arg2 reason:(id)arg3 error:(id)arg4;
+@property(retain, nonatomic) HMDUserPresenceFeed *lastSentFeed; // @synthesize lastSentFeed=_lastSentFeed;
 @property(retain, nonatomic) HMDUserPresenceFeedSession *currentFeedSession; // @synthesize currentFeedSession=_currentFeedSession;
 @property(readonly, nonatomic) HMDBackgroundTaskAgentTimer *btaUpdateTimer; // @synthesize btaUpdateTimer=_btaUpdateTimer;
 @property(nonatomic) unsigned long long presenceRegionStatus; // @synthesize presenceRegionStatus=_presenceRegionStatus;
@@ -27,6 +29,7 @@
 - (void)notifyDidEnterHomeRegion;
 - (void)notifyDidLeaveHome;
 - (void)notifyDidArriveHome;
+- (void)homeDataProcessed;
 - (void)presenceAuthChanged;
 - (void)presenceAuthStatusChangedForUser:(id)arg1 presenceAuthStatus:(id)arg2;
 - (id)init;

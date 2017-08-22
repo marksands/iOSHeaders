@@ -14,7 +14,7 @@
 #import <ContactsUI/CNContactViewControllerDelegate-Protocol.h>
 
 @class CNAccountsAndGroupsDataSource, CNContactListViewController, CNContactStore, CNContactStoreDataSource, CNContactStyle, CNContactViewController, NSString, UIAlertController, UIKeyCommand;
-@protocol CNContactDataSource, CNContactNavigationControllerDelegate;
+@protocol CNContactDataSource, CNContactNavigationControllerDelegate, CNScheduler;
 
 @interface CNContactNavigationController : UINavigationController <CNContactListViewControllerDelegate, CNContactListViewControllerDelegateInternal, CNContactViewControllerDelegate, CNContactContentViewControllerDelegate, CNAccountsAndGroupsViewControllerDelegate, CNContactViewControllerAddContactPresenter>
 {
@@ -35,10 +35,12 @@
     CNContactViewController *_presentedContactViewController;
     UIKeyCommand *_addKeyCommand;
     UIAlertController *_facebookContactsAlertController;
+    id <CNScheduler> _backgroundScheduler;
 }
 
 + (id)newContactFormatter;
 @property(nonatomic) _Bool ignoresMapsData; // @synthesize ignoresMapsData=_ignoresMapsData;
+@property(retain, nonatomic) id <CNScheduler> backgroundScheduler; // @synthesize backgroundScheduler=_backgroundScheduler;
 @property(nonatomic) __weak UIAlertController *facebookContactsAlertController; // @synthesize facebookContactsAlertController=_facebookContactsAlertController;
 @property(retain, nonatomic) UIKeyCommand *addKeyCommand; // @synthesize addKeyCommand=_addKeyCommand;
 @property(nonatomic) __weak CNContactViewController *presentedContactViewController; // @synthesize presentedContactViewController=_presentedContactViewController;
@@ -102,6 +104,7 @@
 - (void)setShouldDisplayMeContactBanner:(_Bool)arg1;
 - (id)contactListViewController;
 @property(readonly, nonatomic) id <CNContactDataSource> dataSource;
+- (void)dealloc;
 - (id)initWithDataSource:(id)arg1 contactFormatter:(id)arg2 applyGroupFilterFromPreferences:(_Bool)arg3 environment:(id)arg4 allowsLargeTitles:(_Bool)arg5;
 - (id)initWithDataSource:(id)arg1 environment:(id)arg2 allowsLargeTitles:(_Bool)arg3;
 - (id)initWithDataSource:(id)arg1 allowsLargeTitles:(_Bool)arg2;

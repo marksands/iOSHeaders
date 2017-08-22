@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool persistentAnimationsEnabled; // @synthesize persistentAnimationsEnabled=_persistentAnimationsEnabled;
 @property(nonatomic) __weak UIStatusBarForegroundView *foregroundView; // @synthesize foregroundView=_foregroundView;
 - (void).cxx_destruct;
+- (id)visibleItemViewAtPoint:(struct CGPoint)arg1 inForegroundView:(id)arg2;
 - (id)itemViewOfType:(int)arg1;
 - (struct CGRect)_repositionedNewFrame:(struct CGRect)arg1 sizeDelta:(double)arg2;
 - (double)_positionAfterPlacingItemView:(id)arg1 startPosition:(double)arg2 firstView:(_Bool)arg3;

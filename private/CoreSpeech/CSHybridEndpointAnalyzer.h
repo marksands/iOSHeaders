@@ -19,6 +19,7 @@
     _Bool _canProcessCurrentRequest;
     _Bool _didAddAudio;
     _Bool _didReceiveServerFeatures;
+    _Bool _useDefaultServerFeaturesOnClientLag;
     _Bool _didCommunicateEndpoint;
     _Bool _didTimestampFirstAudioPacket;
     _Bool _recordingDidStop;
@@ -44,6 +45,8 @@
     NSMutableArray *_serverFeatureLatencies;
     double _serverFeaturesWarmupLatency;
     NSDate *_lastServerFeatureTimestamp;
+    double _clientLagThresholdMs;
+    double _clampedSFLatencyMsForClientLag;
     NSObject<OS_dispatch_queue> *_hybridClassifierQueue;
     double _lastReportedEndpointTimeMs;
     NSObject<OS_dispatch_queue> *_stateSerialQueue;
@@ -67,6 +70,9 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *stateSerialQueue; // @synthesize stateSerialQueue=_stateSerialQueue;
 @property(nonatomic) double lastReportedEndpointTimeMs; // @synthesize lastReportedEndpointTimeMs=_lastReportedEndpointTimeMs;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *hybridClassifierQueue; // @synthesize hybridClassifierQueue=_hybridClassifierQueue;
+@property(nonatomic) _Bool useDefaultServerFeaturesOnClientLag; // @synthesize useDefaultServerFeaturesOnClientLag=_useDefaultServerFeaturesOnClientLag;
+@property(nonatomic) double clampedSFLatencyMsForClientLag; // @synthesize clampedSFLatencyMsForClientLag=_clampedSFLatencyMsForClientLag;
+@property(nonatomic) double clientLagThresholdMs; // @synthesize clientLagThresholdMs=_clientLagThresholdMs;
 @property(nonatomic) _Bool didReceiveServerFeatures; // @synthesize didReceiveServerFeatures=_didReceiveServerFeatures;
 @property(retain, nonatomic) NSDate *lastServerFeatureTimestamp; // @synthesize lastServerFeatureTimestamp=_lastServerFeatureTimestamp;
 @property(nonatomic) double serverFeaturesWarmupLatency; // @synthesize serverFeaturesWarmupLatency=_serverFeaturesWarmupLatency;
@@ -94,6 +100,7 @@
 @property(nonatomic) unsigned long long activeChannel; // @synthesize activeChannel=_activeChannel;
 @property(nonatomic) __weak id <CSEndpointAnalyzerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (id)_getCSHybridEndpointerConfigForAsset:(id)arg1;
 - (void)_updateAssetWithCurrentLanguage;
 - (void)_updateAssetWithLanguage:(id)arg1;
 - (void)CSAssetManagerDidDownloadNewAsset:(id)arg1;

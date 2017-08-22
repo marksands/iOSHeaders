@@ -85,8 +85,9 @@
         unsigned long long _field1;
         unsigned long long _field2;
         CDUnion_fc2819da _field3;
-        char *_field4;
-        double *_field5;
+        struct __CFDictionary *_field4;
+        char *_field5;
+        double *_field6;
     } *directive_resultset_id_score_mapping;
     struct _one_sided_inverse {
         unsigned long long _field1;
@@ -104,7 +105,7 @@
         struct __CFDictionary *mapping;
         unsigned long long numPRSRankingBundleFeatures;
         unsigned long long *PRSRankingBundleFeatureOrder;
-        double *map;
+        double *score_vector;
         unsigned long long mapSize;
     } directive_local_resultset_id_values_mapping;
     struct _parsec_resultset_id_values_mapping {
@@ -112,7 +113,7 @@
         unsigned long long end_idx;
         unsigned long long numFeatures;
         struct __CFDictionary *mapping;
-        double *map;
+        double *score_vector;
         unsigned long long mapSize;
     } directive_parsec_resultset_id_values_mapping;
     NSMutableIndexSet *disabledFeatureIndices;

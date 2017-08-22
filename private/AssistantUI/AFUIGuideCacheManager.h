@@ -13,6 +13,7 @@
 {
     SAGuidanceGuideUpdate *_cachedGuideUpdate;
     NSObject<OS_dispatch_queue> *_cacheFileQueue;
+    _Bool _isCheckingGuideUpdate;
 }
 
 + (id)sharedManager;
@@ -22,6 +23,8 @@
 - (id)_pathForCachedGuideUpdate;
 - (void)_updateLastCheckedWithDate:(id)arg1;
 - (_Bool)_shouldCheckForUpdateAtDate:(id)arg1 lastAppUpdateTime:(id)arg2;
+- (void)checkGuideUpdate;
+- (void)_checkGuideUpdateUsingAFClientLiteWithTag:(id)arg1;
 - (void)clearCachedGuide;
 - (void)updateCacheWithGuideUpdate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateLastCheckedDate;

@@ -12,5 +12,6 @@
 + (_Bool)__accessibilityGuidedAccessStateEnabled;
 - (void)_accessibilityFinalize;
 - (void)accessibilitySetIdentification:(id)arg1;
+- (id)accessibilityIdentification;
 @end
 

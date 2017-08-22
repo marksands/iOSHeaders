@@ -92,6 +92,7 @@
 - (id)pluginForIdentifier:(id)arg1;
 - (id)balloonPluginIdentifierForAppExtensionBundleIdentifier:(id)arg1;
 - (void)saveWithNotification:(_Bool)arg1;
+- (_Bool)_shouldForceRegenerateIndexPathMap;
 - (id)_decodeIndexPathMap:(id)arg1;
 - (id)_encodeIndexPathMap:(id)arg1;
 - (_Bool)isPluginEnabled:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class CKContainerID, CKShare, NSData, NSDictionary, NSString, UIColor, UIImage, UITraitCollection, _UIDocumentPickerNSURLWrapper;
+@class CKContainerID, CKShare, FPSandboxingURLWrapper, NSData, NSDictionary, NSString, UIColor, UIImage, UITraitCollection;
 
 @protocol _UIShareInvitationViewController <NSObject>
 - (void)_setSecondaryAuxiliarySwitchState:(_Bool)arg1;
@@ -31,6 +31,6 @@
 - (void)_setCloudKitShare:(CKShare *)arg1 containerID:(CKContainerID *)arg2;
 - (void)_prepareForDisplayWithCompletion:(void (^)(struct CGSize))arg1;
 - (void)_setTintColor:(UIColor *)arg1;
-- (void)_setURLWrapper:(_UIDocumentPickerNSURLWrapper *)arg1;
+- (void)_setSandboxingURLWrapper:(FPSandboxingURLWrapper *)arg1;
 @end
 

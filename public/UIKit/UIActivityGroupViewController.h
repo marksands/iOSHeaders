@@ -63,7 +63,6 @@
 - (id)collectionView:(id)arg1 layout:(id)arg2 moveItemAtIndexPath:(id)arg3 toIndexPath:(id)arg4;
 - (id)targetIndexPathForMoveFromRowAtIndexPath:(id)arg1 toProposedIndexPath:(id)arg2;
 - (void)_dismissPresentedMenuControllers;
-- (id)_presentedMenuControllerForHidingActivity;
 - (void)handleEditingGesture:(id)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;

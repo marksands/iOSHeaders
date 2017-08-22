@@ -11,6 +11,7 @@
 @protocol HDFitnessMachineStateTimersDelegate <NSObject>
 
 @optional
+- (void)stateTimersMfaTimeout:(HDFitnessMachineStateTimers *)arg1;
 - (void)stateTimersRetryConnectionTimeout:(HDFitnessMachineStateTimers *)arg1;
 - (void)stateTimersDisconnectTimeout:(HDFitnessMachineStateTimers *)arg1;
 - (void)stateTimersPauseTimeout:(HDFitnessMachineStateTimers *)arg1;

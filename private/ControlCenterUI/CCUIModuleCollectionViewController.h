@@ -10,11 +10,12 @@
 #import <ControlCenterUI/CCUILayoutViewLayoutSource-Protocol.h>
 #import <ControlCenterUI/CCUIModuleInstanceManagerObserver-Protocol.h>
 #import <ControlCenterUI/CCUIModuleSettingsManagerObserver-Protocol.h>
+#import <ControlCenterUI/CCUISafeAppearancePropagationProvider-Protocol.h>
 
-@class CCUIControlCenterPositionProvider, CCUILayoutOptions, CCUIModuleCollectionView, CCUIModuleInstanceManager, CCUIModuleSettingsManager, NSDictionary, NSHashTable, NSObject, NSString;
+@class CCUIControlCenterPositionProvider, CCUIExpandedModuleBackgroundView, CCUILayoutOptions, CCUIModuleCollectionView, CCUIModuleInstanceManager, CCUIModuleSettingsManager, NSArray, NSDictionary, NSHashTable, NSObject, NSString;
 @protocol CCUIModuleCollectionViewControllerDelegate, OS_dispatch_group;
 
-@interface CCUIModuleCollectionViewController : UIViewController <CCUIModuleInstanceManagerObserver, CCUIModuleSettingsManagerObserver, CCUILayoutViewLayoutSource, CCUIContentModuleContainerViewControllerDelegate>
+@interface CCUIModuleCollectionViewController : UIViewController <CCUIModuleInstanceManagerObserver, CCUIModuleSettingsManagerObserver, CCUILayoutViewLayoutSource, CCUIContentModuleContainerViewControllerDelegate, CCUISafeAppearancePropagationProvider>
 {
     CCUIModuleInstanceManager *_moduleManager;
     CCUIModuleSettingsManager *_settingsManager;
@@ -23,12 +24,15 @@
     CCUILayoutOptions *_layoutOptions;
     NSDictionary *_moduleViewControllerByIdentifier;
     NSHashTable *_currentModules;
+    NSHashTable *_expandedModules;
     NSObject<OS_dispatch_group> *_moduleCloseDispatchGroup;
+    CCUIExpandedModuleBackgroundView *_sharedExpandedModuleBackgroundView;
     id <CCUIModuleCollectionViewControllerDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <CCUIModuleCollectionViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (_Bool)_shouldApplyBackgroundEffects;
 - (long long)_interfaceOrientation;
 - (id)_currentLayoutOptions;
 - (id)_positionProviderForInterfaceOrientation:(long long)arg1;
@@ -41,7 +45,8 @@
 - (id)_moduleInstances;
 - (void)_updateModuleControllers;
 - (void)_updateEnabledModuleIdentifiers;
-- (id)obscuringBackgroundViewForContentModuleContainerViewController:(id)arg1;
+- (id)backgroundViewForContentModuleContainerViewController:(id)arg1;
+- (_Bool)shouldApplyBackgroundEffectsForContentModuleContainerViewController:(id)arg1;
 - (void)contentModuleContainerViewController:(id)arg1 didCloseExpandedModule:(id)arg2;
 - (void)contentModuleContainerViewController:(id)arg1 willCloseExpandedModule:(id)arg2;
 - (void)contentModuleContainerViewController:(id)arg1 didOpenExpandedModule:(id)arg2;
@@ -50,23 +55,25 @@
 - (void)contentModuleContainerViewController:(id)arg1 didBeginInteractionWithModule:(id)arg2;
 - (_Bool)contentModuleContainerViewController:(id)arg1 canBeginInteractionWithModule:(id)arg2;
 - (struct CGRect)compactModeFrameForContentModuleContainerViewController:(id)arg1;
-- (_Bool)contentModuleContainerViewController:(id)arg1 shouldForwardAppearanceCall:(_Bool)arg2 animated:(_Bool)arg3;
 - (_Bool)layoutView:(id)arg1 shouldIgnoreSubview:(id)arg2;
 - (struct CCUILayoutRect)layoutView:(id)arg1 layoutRectForSubview:(id)arg2;
 - (struct CCUILayoutSize)layoutSizeForLayoutView:(id)arg1;
 - (void)orderedEnabledModuleIdentifiersChangedForSettingsManager:(id)arg1;
 - (void)moduleInstancesChangedForModuleInstanceManager:(id)arg1;
 - (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
+@property(readonly, nonatomic) NSArray *childViewControllersForAppearancePropagation; // @dynamic childViewControllersForAppearancePropagation;
 - (id)queryAllTopLevelBlockingGestureRecognizers;
 - (id)relevantSnapHeightsForOrientation:(long long)arg1;
 - (_Bool)isAtMaxHeight;
 - (struct CGSize)preferredContentSize;
+- (_Bool)shouldAutomaticallyForwardAppearanceMethods;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (_Bool)isModuleExpandedForIdentifier:(id)arg1;
-- (void)dismissPresentedContentWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)closeCurrentModuleWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)dismissPresentedContentAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)dismissExpandedModuleAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)expandModuleWithIdentifier:(id)arg1;
 - (void)willResignActive;
 - (void)willBecomeActive;

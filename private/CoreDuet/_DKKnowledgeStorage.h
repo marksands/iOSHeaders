@@ -12,7 +12,7 @@
 #import <CoreDuet/_DKKnowledgeQuerying-Protocol.h>
 #import <CoreDuet/_DKKnowledgeSaving-Protocol.h>
 
-@class NSString, NSURL, _DKCoreDataStorage;
+@class NSString, NSURL, NSUUID, _DKCoreDataStorage, _DKPreferences;
 @protocol OS_dispatch_queue;
 
 @interface _DKKnowledgeStorage : NSObject <_DKCoreDataStorageDelegate, _DKKnowledgeEventStreamDeleting, _DKKnowledgeSaving, _DKKnowledgeDeleting, _DKKnowledgeQuerying>
@@ -22,18 +22,22 @@
     NSString *_directory;
     NSURL *_modelURL;
     unsigned long long _insertsAndDeletesObserverCount;
+    NSUUID *_deviceUUID;
     _Bool _localOnly;
     _DKCoreDataStorage *_syncStorage;
     _DKCoreDataStorage *_storage;
+    _DKPreferences *_defaults;
 }
 
 + (id)storageWithDirectory:(id)arg1 readOnly:(_Bool)arg2 localOnly:(_Bool)arg3;
 + (id)storageWithDirectory:(id)arg1 readOnly:(_Bool)arg2;
 + (id)storeWithDirectory:(id)arg1 readOnly:(_Bool)arg2;
+@property(readonly, nonatomic) _DKPreferences *defaults; // @synthesize defaults=_defaults;
 @property(readonly, nonatomic) _DKCoreDataStorage *storage; // @synthesize storage=_storage;
 @property(readonly, nonatomic) _Bool localOnly; // @synthesize localOnly=_localOnly;
 - (void).cxx_destruct;
 - (id)syncStorageAssertion;
+- (id)deviceUUID;
 - (void)decrementInsertsAndDeletesObserverCount;
 - (void)incrementInsertsAndDeletesObserverCount;
 - (void)_sendInsertsAndDeletesNotificationWithNotification:(id)arg1;

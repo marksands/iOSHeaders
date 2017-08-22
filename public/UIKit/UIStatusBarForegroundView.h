@@ -6,10 +6,12 @@
 
 #import <UIKit/UIView.h>
 
-@class NSMutableArray, UIStatusBar, UIStatusBarComposedData, UIStatusBarForegroundStyleAttributes, UIStatusBarLayoutManager;
+#import <UIKit/UIAccessibilityHUDGestureHosting-Protocol.h>
+
+@class NSMutableArray, UIAccessibilityHUDGestureManager, UIStatusBar, UIStatusBarComposedData, UIStatusBarForegroundStyleAttributes, UIStatusBarLayoutManager;
 
 __attribute__((visibility("hidden")))
-@interface UIStatusBarForegroundView : UIView
+@interface UIStatusBarForegroundView : UIView <UIAccessibilityHUDGestureHosting>
 {
     _Bool _usesVerticalLayout;
     _Bool _itemIsEnabled[41];
@@ -19,6 +21,7 @@ __attribute__((visibility("hidden")))
     UIStatusBarComposedData *_currentData;
     UIStatusBarComposedData *_pendedData;
     int _pendedActions;
+    UIAccessibilityHUDGestureManager *_accessibilityHUDGestureManager;
     long long _idiom;
     UIStatusBarForegroundStyleAttributes *_foregroundStyle;
 }
@@ -55,6 +58,13 @@ __attribute__((visibility("hidden")))
 - (void)_setStatusBarData:(id)arg1 actions:(int)arg2 animated:(_Bool)arg3;
 - (_Bool)willChangeNavigationItemDisplayWithSystemNavigationAction:(id)arg1;
 @property(readonly, nonatomic) UIStatusBar *statusBar;
+- (void)_dismissAccessibilityHUDForGestureManager:(id)arg1;
+- (void)_accessibilityHUDGestureManager:(id)arg1 showHUDItem:(id)arg2;
+- (_Bool)_accessibilityHUDGestureManager:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (void)_accessibilityHUDGestureManager:(id)arg1 gestureLiftedAtPoint:(struct CGPoint)arg2;
+- (id)_accessibilityHUDGestureManager:(id)arg1 HUDItemForPoint:(struct CGPoint)arg2;
+- (id)_statusBarWindowForAccessibilityHUD;
+- (id)_statusBarItemViewAtPoint:(struct CGPoint)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 foregroundStyle:(id)arg2 usesVerticalLayout:(_Bool)arg3;
 

@@ -33,7 +33,7 @@ __attribute__((visibility("hidden")))
 - (void)_getDataForVisualSection:(long long)arg1 title:(id *)arg2 locations:(id *)arg3 startDate:(id *)arg4 endDate:(id *)arg5;
 - (long long)cellFillMode;
 - (struct CGSize)imageRequestItemSize;
-- (void)updateLayoutMetricsForWidth:(double)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2 layoutMargins:(struct UIEdgeInsets)arg3;
+- (void)updateLayoutMetricsForWidth:(double)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2;
 - (struct CGSize)thumbnailImageSize;
 - (long long)maxRowsPerSection;
 - (id)sectionHeaderElementKind;

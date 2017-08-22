@@ -18,8 +18,8 @@
 @property(readonly, nonatomic) _Bool devicePresenceDetected; // @synthesize devicePresenceDetected=_devicePresenceDetected;
 @property(nonatomic) long long discoveryMode; // @synthesize discoveryMode=_discoveryMode;
 - (void).cxx_destruct;
-- (void)_unregisterNotifications;
-- (void)_registerNotifications;
+- (void)_superclassUnregisterNotifications;
+- (void)_superclassRegisterNotifications;
 - (void)_activeAudioRouteDidChangeNotification:(id)arg1;
 - (void)_externalScreenTypeDidChangeNotification:(id)arg1;
 - (void)_volumeControlAvailabilityDidChangeNotification:(id)arg1;

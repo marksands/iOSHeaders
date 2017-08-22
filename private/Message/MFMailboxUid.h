@@ -38,6 +38,7 @@
 + (_Bool)isOutgoingMailboxType:(int)arg1;
 + (_Bool)isStandardizedMailboxUidType:(int)arg1;
 + (id)specialNameForType:(int)arg1;
++ (id)fileURLForMailboxURL:(id)arg1;
 @property(retain, nonatomic) NSArray *extraAttributes; // @synthesize extraAttributes=_extraAttributes;
 - (void)updateSuggestionsLostMessageSearchResultCount:(unsigned long long)arg1;
 @property(readonly, nonatomic) double suggestionsLostMessageSearchTimestamp;

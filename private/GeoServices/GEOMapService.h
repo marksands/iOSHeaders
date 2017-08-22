@@ -36,7 +36,6 @@
 - (id)handleForMapItem:(id)arg1;
 - (void)trackMapItem:(id)arg1;
 - (void)trackSerializedPlaceData:(id)arg1;
-- (void)applyRAPUpdatedMapItems:(id)arg1;
 - (id)_ticketForRefreshingHandle:(id)arg1 traits:(id)arg2;
 - (id)ticketForGeoIpLookupForIpAddr:(id)arg1;
 - (id)ticketForWifiFingerprintWithLocations:(id)arg1 wifiAccessPoints:(id)arg2 maxLabels:(unsigned int)arg3 traits:(id)arg4;

@@ -27,9 +27,11 @@
     UIFont *_weekAllDayLabelFont;
     UIFont *_weekAllDayTodayLabelFont;
     double _weekAllDayOccurrenceHeight;
+    double _minYearMonthHeaderFontSizeUsed;
 }
 
 + (id)sharedInstance;
+@property double minYearMonthHeaderFontSizeUsed; // @synthesize minYearMonthHeaderFontSizeUsed=_minYearMonthHeaderFontSizeUsed;
 @property double weekAllDayOccurrenceHeight; // @synthesize weekAllDayOccurrenceHeight=_weekAllDayOccurrenceHeight;
 @property double weekAllDayBaselineForSmallFormatWeekView; // @synthesize weekAllDayBaselineForSmallFormatWeekView=_weekAllDayBaselineForSmallFormatWeekView;
 @property double weekAllDayBaselineForLargeFormatWeekView; // @synthesize weekAllDayBaselineForLargeFormatWeekView=_weekAllDayBaselineForLargeFormatWeekView;
@@ -48,6 +50,7 @@
 @property(readonly) UIFont *dayOccurrenceUncompressedSecondaryTextFont;
 @property(readonly) double dayOccurrenceMinimumCachedLineHeight;
 - (id)_dayOccurrenceFontWithStyle:(id)arg1 size:(double)arg2 regularSize:(double)arg3;
+- (void)_localeChanged:(id)arg1;
 - (void)_contentCategorySizeChanged:(id)arg1;
 - (void)updateMetrics;
 - (void)_orientationChanged:(id)arg1;

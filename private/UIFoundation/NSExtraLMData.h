@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class CUIStyleEffectConfiguration, NSLayoutManagerTextBlockRowArrayCache, NSLock, NSMutableArray, NSParagraphArbitrator, NSRunStorage, NSTextContainer;
+@class CUIStyleEffectConfiguration, NSLayoutManagerTextBlockRowArrayCache, NSLock, NSMutableArray, NSMutableSet, NSParagraphArbitrator, NSRunStorage, NSTextContainer;
 
 @interface NSExtraLMData : NSObject
 {
@@ -38,6 +38,7 @@
     NSLayoutManagerTextBlockRowArrayCache *_rowArrayCache;
     NSParagraphArbitrator *_paragraphArbitrator;
     CUIStyleEffectConfiguration *_styleEffectConfig;
+    NSMutableSet *_viewProviders;
     struct __lmFlags2 {
         unsigned int glyphCause:6;
         unsigned int layoutCause:6;

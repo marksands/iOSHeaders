@@ -265,6 +265,7 @@
 - (_Bool)hasLegacyAdjustments;
 - (id)debugFilename;
 - (_Bool)isOriginalSRGB;
+- (struct CGSize)originalImageSize;
 - (long long)originalImageOrientation;
 @property(readonly, nonatomic) NSURL *ALAssetURL;
 - (id)assetsLibraryURL;

@@ -6,11 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class BSPortDeathWatcher, NSLock, NSMutableArray;
+@class BSPortDeathSentinel, NSLock, NSMutableArray;
 
 @interface SBSpringBoardDiedDeactivationHandler : NSObject
 {
-    BSPortDeathWatcher *_portDeathWatcher;
+    BSPortDeathSentinel *_portDeathSentinel;
     NSMutableArray *_handlerBlockArray;
     NSLock *_lock;
 }

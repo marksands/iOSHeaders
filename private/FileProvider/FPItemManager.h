@@ -23,7 +23,9 @@
 - (void)addOperation:(id)arg1;
 - (void)scheduleAction:(id)arg1;
 - (id)operationForAction:(id)arg1 items:(id)arg2;
+- (id)eligibleActionsForDroppingUTIs:(id)arg1 underItem:(id)arg2;
 - (id)eligibleActionsForDroppingItems:(id)arg1 underItem:(id)arg2;
+- (_Bool)_isValidDestination:(id)arg1;
 - (id)eligibleActionsForItems:(id)arg1;
 - (void)_fetchServiceEndpointCreatingForItemAtURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_fetchRequestProxyFactoryEndpointForMessageInterface:(id)arg1 providerIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

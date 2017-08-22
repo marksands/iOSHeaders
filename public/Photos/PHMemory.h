@@ -43,7 +43,6 @@
 }
 
 + (id)fetchBestRecentMemoryWithOptions:(id)arg1;
-+ (_Bool)_isCategoryConsideredContextual:(long long)arg1;
 + (id)stringForSubcategory:(long long)arg1;
 + (id)stringForCategory:(long long)arg1;
 + (id)assetListPredicateFromQueryHintObjects:(id)arg1;

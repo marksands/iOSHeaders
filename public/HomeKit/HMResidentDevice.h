@@ -18,8 +18,8 @@
     unsigned long long _status;
     HMHome *_home;
     NSUUID *_accountIdentifier;
-    id <HMResidentDeviceDelegate> _delegate;
     unsigned long long _capabilities;
+    id <HMResidentDeviceDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_clientQueue;
     HMFMessageDispatcher *_messageDispatcher;
     HMDelegateCaller *_delegateCaller;
@@ -29,13 +29,13 @@
 @property(retain, nonatomic) HMDelegateCaller *delegateCaller; // @synthesize delegateCaller=_delegateCaller;
 @property(retain, nonatomic) HMFMessageDispatcher *messageDispatcher; // @synthesize messageDispatcher=_messageDispatcher;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
-@property(readonly) unsigned long long capabilities; // @synthesize capabilities=_capabilities;
 @property __weak id <HMResidentDeviceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)updatedEnabled:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
+@property unsigned long long capabilities; // @synthesize capabilities=_capabilities;
 @property(copy, nonatomic) NSUUID *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
 @property __weak HMHome *home; // @synthesize home=_home;
 @property unsigned long long status; // @synthesize status=_status;

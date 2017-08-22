@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOResource;
+@class GEOResource, PBUnknownFields;
 
 @interface GEOStaleResource : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     double _originalTimestamp;
     GEOResource *_desiredResource;
     GEOResource *_fallbackResource;
@@ -24,6 +25,7 @@
 @property(retain, nonatomic) GEOResource *fallbackResource; // @synthesize fallbackResource=_fallbackResource;
 @property(retain, nonatomic) GEOResource *desiredResource; // @synthesize desiredResource=_desiredResource;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

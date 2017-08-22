@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)getInterAppIcon:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)getExtensionIcon:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)setComponentUserTags:(id)arg1 tags:(id)arg2;
 - (void)getComponentUserTags:(id)arg1 reply:(CDUnknownBlockType)arg2;

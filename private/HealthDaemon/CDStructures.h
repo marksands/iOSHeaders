@@ -45,7 +45,7 @@ struct HDCumulativeStatisticsBucket {
     double _endTime;
     double _intervalDuration;
     vector_c1c297d2 _orderedSourceIDs;
-    struct map<long long, std::__1::basic_string<char>, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, std::__1::basic_string<char>>>> _sourceIDToBundleIdentifier;
+    struct unordered_map<long long, NSString *, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, NSString *>>> _sourceIDToBundleIdentifier;
     struct HDCumulativeStatisticsInterval _currentInterval;
     long long _currentIntervalIndex;
     struct vector<HDCumulativeSample, std::__1::allocator<HDCumulativeSample>> _remainders;
@@ -104,6 +104,10 @@ struct __hash_node_base<std::__1::__hash_node<sqlite3_stmt *, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<sqlite3_stmt *, void *>*> *__next_;
 };
 
+struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*> *__next_;
+};
+
 struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
     struct __tree_node_base<void *> *__left_;
 };
@@ -160,18 +164,6 @@ struct map<long long, _HDDiscreteStats, std::__1::less<long long>, std::__1::all
     } __tree_;
 };
 
-struct map<long long, std::__1::basic_string<char>, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, std::__1::basic_string<char>>>> {
-    struct __tree<std::__1::__value_type<long long, std::__1::basic_string<char>>, std::__1::__map_value_compare<long long, std::__1::__value_type<long long, std::__1::basic_string<char>>, std::__1::less<long long>, true>, std::__1::allocator<std::__1::__value_type<long long, std::__1::basic_string<char>>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<long long, std::__1::basic_string<char>>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
-        } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<long long, std::__1::__value_type<long long, std::__1::basic_string<char>>, std::__1::less<long long>, true>> {
-            unsigned long long __first_;
-        } __pair3_;
-    } __tree_;
-};
-
 struct map<std::__1::basic_string<char>, HDCumulativeStatistics, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, HDCumulativeStatistics>>> {
     struct __tree<std::__1::__value_type<std::__1::basic_string<char>, HDCumulativeStatistics>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, HDCumulativeStatistics>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, HDCumulativeStatistics>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
@@ -213,6 +205,32 @@ struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<sqlite3_stmt 
             } __data_;
         } __second_;
     } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*>*>> {
+                unsigned long long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unordered_map<long long, NSString *, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, NSString *>>> {
+    struct __hash_table<std::__1::__hash_value_type<long long, NSString *>, std::__1::__unordered_map_hasher<long long, std::__1::__hash_value_type<long long, NSString *>, std::__1::hash<long long>, true>, std::__1::__unordered_map_equal<long long, std::__1::__hash_value_type<long long, NSString *>, std::__1::equal_to<long long>, true>, std::__1::allocator<std::__1::__hash_value_type<long long, NSString *>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, NSString *>, void *>*> __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<long long, std::__1::__hash_value_type<long long, NSString *>, std::__1::hash<long long>, true>> {
+            unsigned long long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<long long, std::__1::__hash_value_type<long long, NSString *>, std::__1::equal_to<long long>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
 };
 
 struct unordered_set<sqlite3_stmt *, std::__1::hash<sqlite3_stmt *>, std::__1::equal_to<sqlite3_stmt *>, std::__1::allocator<sqlite3_stmt *>> {

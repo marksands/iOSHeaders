@@ -75,6 +75,7 @@
 @property(retain, nonatomic) NTPBArticleRecord *articleRecord; // @synthesize articleRecord=_articleRecord;
 - (_Bool)canBePurchased;
 - (id)coverArt;
+- (void)setPaid:(_Bool)arg1;
 - (_Bool)isPaid;
 - (long long)minimumNewsVersion;
 - (_Bool)needsRapidUpdates;

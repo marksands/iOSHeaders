@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSDictionary, NSMutableDictionary, NSMutableOrderedSet, NSString, PRSCEPData, PRSRankingServerKnobs;
+@class NSArray, NSDictionary, NSMutableDictionary, NSMutableOrderedSet, NSString, PRSRankingServerKnobs, SSPlistDataReader;
 
 @interface PRSRankingConfiguration : NSObject
 {
@@ -15,7 +15,7 @@
     NSMutableDictionary *_categoryEngagements;
     NSArray *_rankingQueries;
     NSMutableDictionary *_queryDependentCategoryProbabilities;
-    PRSCEPData *_queryIndependentCategoryProbabilities;
+    SSPlistDataReader *_queryIndependentCategoryProbabilities;
     NSMutableOrderedSet *_cepBlacklistSet;
     NSArray *_parsecCategoryOrder;
     NSString *_shortcutSectionBundleID;
@@ -32,7 +32,7 @@
 @property(retain) NSString *shortcutSectionBundleID; // @synthesize shortcutSectionBundleID=_shortcutSectionBundleID;
 @property(retain) NSArray *parsecCategoryOrder; // @synthesize parsecCategoryOrder=_parsecCategoryOrder;
 @property(retain) NSMutableOrderedSet *cepBlacklistSet; // @synthesize cepBlacklistSet=_cepBlacklistSet;
-@property(retain) PRSCEPData *queryIndependentCategoryProbabilities; // @synthesize queryIndependentCategoryProbabilities=_queryIndependentCategoryProbabilities;
+@property(retain) SSPlistDataReader *queryIndependentCategoryProbabilities; // @synthesize queryIndependentCategoryProbabilities=_queryIndependentCategoryProbabilities;
 @property(retain) NSMutableDictionary *queryDependentCategoryProbabilities; // @synthesize queryDependentCategoryProbabilities=_queryDependentCategoryProbabilities;
 @property(retain) NSArray *rankingQueries; // @synthesize rankingQueries=_rankingQueries;
 @property(retain) NSMutableDictionary *categoryEngagements; // @synthesize categoryEngagements=_categoryEngagements;

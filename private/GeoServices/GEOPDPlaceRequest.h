@@ -81,6 +81,7 @@
 - (_Bool)hasResultProviderID;
 - (_Bool)isAlwaysCacheable;
 - (_Bool)shouldConsiderCaching;
+- (_Bool)isPlaceRefinementRequest;
 - (_Bool)isMerchantRequest;
 - (_Bool)isCanonicalLocationSearchRequest;
 - (_Bool)isForwardGeocoderRequest;

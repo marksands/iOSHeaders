@@ -12,7 +12,7 @@
 #import <MusicCarDisplayUI/UITableViewDataSource-Protocol.h>
 #import <MusicCarDisplayUI/UITableViewDelegate-Protocol.h>
 
-@class AVExternalDevice, CADisplayLink, MCDPCModel, MPArtworkCatalog, MPRequestResponseController, NSString, UIAlertController, UIImage, UITableView;
+@class AVExternalDevice, MCDPCModel, MPArtworkCatalog, MPRequestResponseController, NSString, UIAlertController, UIImage, UITableView;
 @protocol MCDPlayableContentQueueManagerDelegate;
 
 @interface MCDPlayableContentPlaybackManager : NSObject <MPRequestResponseControllerDelegate, UITableViewDelegate, UITableViewDataSource, MCDNowPlayingViewControllerDataSource, MCDNowPlayingViewControllerDelegate>
@@ -27,16 +27,12 @@
     UIImage *_albumArtwork;
     MPArtworkCatalog *_artworkCatalog;
     MCDPCModel *_model;
-    CADisplayLink *_displayLink;
-    double _elapsedTime;
     long long _playingItemIndex;
     long long _totalItemCount;
 }
 
 @property(nonatomic) long long totalItemCount; // @synthesize totalItemCount=_totalItemCount;
 @property(nonatomic) long long playingItemIndex; // @synthesize playingItemIndex=_playingItemIndex;
-@property(nonatomic) double elapsedTime; // @synthesize elapsedTime=_elapsedTime;
-@property(retain, nonatomic) CADisplayLink *displayLink; // @synthesize displayLink=_displayLink;
 @property(retain, nonatomic) MCDPCModel *model; // @synthesize model=_model;
 @property(retain, nonatomic) MPArtworkCatalog *artworkCatalog; // @synthesize artworkCatalog=_artworkCatalog;
 @property(retain, nonatomic) UIImage *albumArtwork; // @synthesize albumArtwork=_albumArtwork;
@@ -70,9 +66,7 @@
 - (long long)repeatTypeForNowPlayingViewController:(id)arg1;
 - (long long)shuffleTypeForNowPlayingViewController:(id)arg1;
 - (_Bool)nowPlayingViewControllerIsPlaying:(id)arg1;
-- (_Bool)playbackIsLiveStreamForNowPlayingViewController:(id)arg1;
-- (double)playbackElapsedTimeForNowPlayingViewController:(id)arg1;
-- (double)playbackDurationForNowPlayingViewController:(id)arg1;
+- (CDStruct_fce57115)durationSnapshotForNowPlayingViewController:(id)arg1;
 - (_Bool)nowPlayingViewControllerIsShowingExplicitTrack:(id)arg1;
 - (id)backgroundArtForNowPlayingController:(id)arg1;
 - (id)titleForNowPlayingController:(id)arg1;
@@ -83,7 +77,6 @@
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)controller:(id)arg1 defersResponseReplacement:(CDUnknownBlockType)arg2;
-- (void)_displayLinkTick:(id)arg1;
 - (void)_processArtwork;
 - (void)_performChangeRequest:(id)arg1;
 - (void)_updateTrackQueueIndex;
@@ -99,7 +92,6 @@
 - (void)viewWillDisappear;
 - (void)endRequestObservation;
 - (void)beginRequestObservation;
-- (void)dealloc;
 - (id)initWithDelegate:(id)arg1 model:(id)arg2;
 
 // Remaining properties

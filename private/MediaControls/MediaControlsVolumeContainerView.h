@@ -13,13 +13,13 @@
 @interface MediaControlsVolumeContainerView : UIView <UIGestureRecognizerDelegate>
 {
     _Bool _transitioning;
-    _Bool _offScreen;
+    _Bool _onScreen;
     MPVolumeSlider *_volumeSlider;
     long long _style;
 }
 
 @property(nonatomic) long long style; // @synthesize style=_style;
-@property(nonatomic, getter=isOffScreen) _Bool offScreen; // @synthesize offScreen=_offScreen;
+@property(nonatomic, getter=isOnScreen) _Bool onScreen; // @synthesize onScreen=_onScreen;
 @property(nonatomic, getter=isTransitioning) _Bool transitioning; // @synthesize transitioning=_transitioning;
 @property(retain, nonatomic) MPVolumeSlider *volumeSlider; // @synthesize volumeSlider=_volumeSlider;
 - (void).cxx_destruct;

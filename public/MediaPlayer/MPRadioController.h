@@ -8,13 +8,12 @@
 
 #import <MediaPlayer/MPClientRadioController-Protocol.h>
 
-@class BKSApplicationStateMonitor, BKSProcessAssertion, NSString, NSXPCConnection;
+@class BKSProcessAssertion, NSString, NSXPCConnection;
 @protocol OS_dispatch_queue;
 
 @interface MPRadioController : NSObject <MPClientRadioController>
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
-    BKSApplicationStateMonitor *_applicationStateMonitor;
     NSXPCConnection *_connection;
     _Bool _hasLaunchedService;
     _Bool _isRadioAvailable;

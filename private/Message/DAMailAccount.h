@@ -137,8 +137,6 @@
 - (id)_relativePathSpecialMailboxUidWithType:(int)arg1 create:(_Bool)arg2;
 - (id)_relativePathForType:(int)arg1;
 - (id)moveMessages:(id)arg1 fromMailbox:(id)arg2 toMailbox:(id)arg3 markAsRead:(_Bool)arg4;
-- (_Bool)_synchronizeMailbox:(id)arg1;
-- (_Bool)_performRequests:(id)arg1 mailbox:(id)arg2 consumers:(id)arg3 hasConflicts:(_Bool *)arg4;
 - (_Bool)performRequests:(id)arg1 mailbox:(id)arg2 consumers:(id)arg3;
 - (void)processRequests:(id)arg1 mailbox:(id)arg2 consumers:(id)arg3;
 - (void)addRequests:(id)arg1 mailbox:(id)arg2 consumers:(id)arg3;

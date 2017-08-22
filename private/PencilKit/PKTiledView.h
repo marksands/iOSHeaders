@@ -126,6 +126,7 @@
 - (void)performUndo:(id)arg1;
 - (void)canvasView:(id)arg1 drawingDidChange:(id)arg2;
 - (void)_canvasView:(id)arg1 didFinishRenderingStrokeOnRenderQueue:(id)arg2 inDrawing:(id)arg3;
+- (void)canvasViewDidCancelStroke:(id)arg1;
 - (void)canvasViewDidEndStroke:(id)arg1;
 - (void)canvasViewWillBeginNewStroke:(id)arg1 withTouch:(id)arg2;
 - (id)attachmentForUUID:(id)arg1;

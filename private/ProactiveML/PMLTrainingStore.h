@@ -33,6 +33,7 @@
 - (_Bool)_runQueries:(id)arg1 andUpdateVersionTo:(unsigned long long)arg2 inTransactionOnDb:(id)arg3;
 - (long long)_migrateTo:(id)arg1;
 - (long long)_migrate;
+- (void)vacuumDb;
 - (void)dealloc;
 - (_Bool)_truncateDbIfCorrupted;
 - (long long)_openDbIfUnlocked;
@@ -55,7 +56,7 @@
 - (void)limitSessionsWithSessionDescriptor:(id)arg1 limit:(unsigned long long)arg2;
 - (void)loadSessionsForModel:(id)arg1 since:(double)arg2 limit:(unsigned long long)arg3 onlyAppleInternal:(_Bool)arg4 block:(CDUnknownBlockType)arg5;
 - (void)_loadSessionsForModel:(id)arg1 since:(double)arg2 positiveRowId:(unsigned long long)arg3 negativeRowId:(unsigned long long)arg4 limit:(unsigned long long)arg5 onlyAppleInternal:(_Bool)arg6 positiveLabel:(unsigned long long)arg7 skew:(double)arg8 ignoreIfSingular:(_Bool)arg9 block:(CDUnknownBlockType)arg10;
-- (void)loadSessionsFromTupleDescriptors:(id)arg1 model:(id)arg2 since:(double)arg3 limit:(unsigned long long)arg4 onlyAppleInternal:(_Bool)arg5 positiveLabel:(unsigned long long)arg6 ignoreIfSingular:(_Bool)arg7 numberOfRows:(unsigned long long)arg8 numberOfColumns:(unsigned long long)arg9 block:(CDUnknownBlockType)arg10;
+- (void)loadSessionsFromTupleDescriptors:(id)arg1 model:(id)arg2 since:(double)arg3 onlyAppleInternal:(_Bool)arg4 positiveLabel:(unsigned long long)arg5 ignoreIfSingular:(_Bool)arg6 numberOfRows:(unsigned long long)arg7 numberOfColumns:(unsigned long long)arg8 block:(CDUnknownBlockType)arg9;
 - (id)sessionDimensionsForModel:(id)arg1 startingRowId:(unsigned long long)arg2 since:(double)arg3 onlyAppleInternal:(_Bool)arg4 labelFilter:(id)arg5;
 - (void)loadSessionsForModel:(id)arg1 since:(double)arg2 limit:(unsigned long long)arg3 onlyAppleInternal:(_Bool)arg4 positiveLabel:(unsigned long long)arg5 skew:(double)arg6 ignoreIfSingular:(_Bool)arg7 block:(CDUnknownBlockType)arg8;
 - (void)storeSession:(id)arg1 source:(id)arg2 label:(long long)arg3 model:(id)arg4 bundleId:(id)arg5 domainId:(id)arg6 itemIds:(id)arg7 isAppleInternal:(_Bool)arg8;

@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (id)accessibilityHUDRepresentation;
 - (long long)legibilityStyle;
 - (double)addContentOverlap:(double)arg1;
 - (double)resetContentOverlap;

@@ -15,7 +15,7 @@
 #import <CameraUI/UIViewControllerPreviewingDelegate-Protocol.h>
 #import <CameraUI/UIViewControllerPreviewingDelegate_Private-Protocol.h>
 
-@class CAMTransientDataSource, CAMTransientImageManager, NSMutableSet, NSString, PUOneUpPresentationHelper, PUPhotoKitDataSourceManager, PXPhotosDataSource, UIGestureRecognizer;
+@class CAMTransientDataSource, CAMTransientImageManager, NSMutableDictionary, NSMutableSet, NSString, PUOneUpPresentationHelper, PUPhotoKitDataSourceManager, PXPhotosDataSource, UIGestureRecognizer;
 @protocol CAMCameraRollControllerImageWellDelegate, CAMCameraRollControllerPresentationDelegate, CAMCameraRollControllerSessionDelegate, OS_dispatch_source;
 
 @interface CAMCameraRollController : NSObject <PXPhotosDataSourceChangeObserver, PUOneUpPresentationHelperDelegate, PUOneUpPresentationHelperAssetDisplayDelegate, PLCameraPreviewWellImageChangeObserver, PUBrowsingViewModelChangeObserver, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UIInteractionProgressObserver>
@@ -51,7 +51,8 @@
     CAMTransientImageManager *__transientImageManager;
     PUPhotoKitDataSourceManager *__photoKitDataSourceManager;
     NSMutableSet *__sessionAssetUUIDs;
-    NSMutableSet *__ignoredAssetUUIDs;
+    NSMutableSet *__ignoredEV0UUIDs;
+    NSMutableDictionary *__HDRUUIDToIgnoredEV0UUIDs;
     PXPhotosDataSource *__photosDataSource;
     PXPhotosDataSource *__stagedDataSource;
     NSObject<OS_dispatch_source> *__memoryWarningSource;
@@ -68,7 +69,8 @@
 @property(nonatomic, setter=_setAllowUpdating:) _Bool _allowUpdating; // @synthesize _allowUpdating=__allowUpdating;
 @property(retain, nonatomic, setter=_setStagedDataSource:) PXPhotosDataSource *_stagedDataSource; // @synthesize _stagedDataSource=__stagedDataSource;
 @property(retain, nonatomic, setter=_setPhotosDataSource:) PXPhotosDataSource *_photosDataSource; // @synthesize _photosDataSource=__photosDataSource;
-@property(readonly, nonatomic) NSMutableSet *_ignoredAssetUUIDs; // @synthesize _ignoredAssetUUIDs=__ignoredAssetUUIDs;
+@property(readonly, nonatomic) NSMutableDictionary *_HDRUUIDToIgnoredEV0UUIDs; // @synthesize _HDRUUIDToIgnoredEV0UUIDs=__HDRUUIDToIgnoredEV0UUIDs;
+@property(readonly, nonatomic) NSMutableSet *_ignoredEV0UUIDs; // @synthesize _ignoredEV0UUIDs=__ignoredEV0UUIDs;
 @property(readonly, nonatomic) NSMutableSet *_sessionAssetUUIDs; // @synthesize _sessionAssetUUIDs=__sessionAssetUUIDs;
 @property(readonly, nonatomic) PUPhotoKitDataSourceManager *_photoKitDataSourceManager; // @synthesize _photoKitDataSourceManager=__photoKitDataSourceManager;
 @property(readonly, nonatomic) CAMTransientImageManager *_transientImageManager; // @synthesize _transientImageManager=__transientImageManager;
@@ -136,7 +138,8 @@
 - (void)applicationDidEnterBackground:(id)arg1;
 - (void)applicationResumed:(id)arg1;
 - (void)applicationWillEnterForeground:(id)arg1;
-- (void)ignoreFutureImageWellUpdatesForAssetWithUUID:(id)arg1;
+- (void)clearIgnoredImageWellUUIDs;
+- (void)ignoreImageWellChangeNotificationForEV0UUID:(id)arg1 withHDRUUID:(id)arg2;
 - (void)cameraPreviewWellImageDidChange:(id)arg1;
 - (id)persistedThumbnailImage;
 - (void)_performPreload;

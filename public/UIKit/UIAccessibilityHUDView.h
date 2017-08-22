@@ -6,20 +6,23 @@
 
 #import <UIKit/UIView.h>
 
-@class UIAccessibilityHUDItem, UIImageView, UILabel, UIVisualEffectView;
+@class UIAccessibilityHUDItem, UIImageView, UILabel, UIVibrancyEffect, UIVisualEffectView;
 
 @interface UIAccessibilityHUDView : UIView
 {
     UIAccessibilityHUDItem *_item;
     UIView *_transformContainer;
     UIVisualEffectView *_effectView;
+    UIVibrancyEffect *_vibrancyEffect;
     UIImageView *_imageView;
     UILabel *_titleLabel;
+    UIView *_customView;
 }
 
 + (struct CGSize)preferredHUDSize;
 @property(copy, nonatomic) UIAccessibilityHUDItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
+- (id)customView;
 - (id)imageView;
 - (id)titleLabel;
 - (struct UIEdgeInsets)imageInsetsForLayout;

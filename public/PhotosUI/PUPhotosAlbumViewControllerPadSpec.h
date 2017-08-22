@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 - (double)contentCornerRadius;
 - (unsigned long long)fullMomentsSectionHeaderBackgroundStyle;
 - (long long)fullMomentsSectionHeaderStyle;
+- (struct UIEdgeInsets)fullMomentsLevelSectionHeaderContentInset;
 - (_Bool)shouldUseAspectItems;
 - (id)gridSpec;
 

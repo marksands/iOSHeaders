@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray;
+@class NSMutableArray, PBUnknownFields;
 
 @interface GEOLanguage : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned int _identifier;
     NSMutableArray *_languages;
 }
@@ -20,6 +21,7 @@
 @property(retain, nonatomic) NSMutableArray *languages; // @synthesize languages=_languages;
 @property(nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

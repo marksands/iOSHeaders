@@ -18,15 +18,17 @@
     NCNotificationViewController *_shortLookViewController;
     UIPreviewInteraction *_previewInteraction;
     _UIPreviewInteractionViewControllerPresentation *_previewInteractionPresentation;
+    CDUnknownBlockType _presentationCompletion;
     CDUnknownBlockType _dismissalCompletion;
+    _Bool _willPresent;
     id <NCNotificationPreviewInteractionManagerDelegate> _delegate;
     NCNotificationViewController *_presentedLongLookViewController;
 }
 
+@property(nonatomic, getter=_willPresent, setter=_setWillPresent:) _Bool willPresent; // @synthesize willPresent=_willPresent;
 @property(readonly, nonatomic) __weak NCNotificationViewController *presentedLongLookViewController; // @synthesize presentedLongLookViewController=_presentedLongLookViewController;
 @property(nonatomic) __weak id <NCNotificationPreviewInteractionManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (_Bool)_previewInteractionShouldFinishTransitionToPreview:(id)arg1;
 - (_Bool)_previewInteractionShouldAutomaticallyTransitionToPreviewAfterDelay:(id)arg1;
 - (id)_previewInteraction:(id)arg1 viewControllerPresentationForPresentingViewController:(id)arg2;
 - (id)_previewInteractionHighlighterForPreviewTransition:(id)arg1;
@@ -39,6 +41,7 @@
 - (void)resetForInitialInteraction;
 - (_Bool)dismissIfPossible:(CDUnknownBlockType)arg1;
 - (void)completeTransitionImmediately;
+- (_Bool)presentIfPossible:(CDUnknownBlockType)arg1;
 - (id)initWithShortLookViewController:(id)arg1;
 
 // Remaining properties

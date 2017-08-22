@@ -23,6 +23,7 @@
     id <CNPropertyGroupItemDelegate> _delegate;
     CNLabeledValue *_originalLabeledValue;
     CNUIContactsEnvironment *_environment;
+    unsigned long long _policyFlags;
 }
 
 + (void)deleteCoreRecentsEntriesMatchingProperty:(id)arg1 recentsManager:(id)arg2;
@@ -33,6 +34,7 @@
 + (id)propertyGroupItemWithLabel:(id)arg1 group:(id)arg2 contact:(id)arg3;
 + (id)propertyGroupItemWithLabeledValue:(id)arg1 group:(id)arg2 contact:(id)arg3;
 + (id)emptyValueForLabel:(id)arg1;
+@property(nonatomic) unsigned long long policyFlags; // @synthesize policyFlags=_policyFlags;
 @property(readonly, nonatomic) CNUIContactsEnvironment *environment; // @synthesize environment=_environment;
 @property(retain, nonatomic) CNLabeledValue *originalLabeledValue; // @synthesize originalLabeledValue=_originalLabeledValue;
 @property(nonatomic) _Bool allowsEmail; // @synthesize allowsEmail=_allowsEmail;

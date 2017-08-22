@@ -139,6 +139,7 @@
 - (void)_didRotateFromInterfaceOrientation:(long long)arg1 forwardToChildControllers:(_Bool)arg2 skipSelf:(_Bool)arg3;
 - (void)_willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2 forwardToChildControllers:(_Bool)arg3 skipSelf:(_Bool)arg4;
 - (void)_willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2 forwardToChildControllers:(_Bool)arg3 skipSelf:(_Bool)arg4;
+- (_Bool)_needsDocumentManagerWorkaround;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)_updateUnderflowProperties;
 - (_Bool)_needsUnderflowPropertyUpdate;

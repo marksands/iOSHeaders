@@ -21,6 +21,10 @@
     _Bool _collectionViewRectExpanded;
     _Bool _notificationHistoryRevealedStateLocked;
     _Bool _shouldPerformRevealHintingAnimation;
+    _Bool _notificationHistorySectionNeedsReload;
+    _Bool _performingBatchedSectionListOperations;
+    _Bool _shouldPerformReloadForBatchedOperations;
+    _Bool _shouldAllowNotificationsHistoryReveal;
     int _revealListTriggerState;
     NCNotificationPriorityList *_notificationPriorityList;
     id <NCNotificationSectionList> _notificationSectionList;
@@ -38,6 +42,10 @@
     double _contentOffsetBeforeRevealHintingAnimation;
 }
 
+@property(nonatomic) _Bool shouldAllowNotificationsHistoryReveal; // @synthesize shouldAllowNotificationsHistoryReveal=_shouldAllowNotificationsHistoryReveal;
+@property(nonatomic) _Bool shouldPerformReloadForBatchedOperations; // @synthesize shouldPerformReloadForBatchedOperations=_shouldPerformReloadForBatchedOperations;
+@property(nonatomic, getter=isPerformingBatchedSectionListOperations) _Bool performingBatchedSectionListOperations; // @synthesize performingBatchedSectionListOperations=_performingBatchedSectionListOperations;
+@property(nonatomic) _Bool notificationHistorySectionNeedsReload; // @synthesize notificationHistorySectionNeedsReload=_notificationHistorySectionNeedsReload;
 @property(nonatomic) _Bool shouldPerformRevealHintingAnimation; // @synthesize shouldPerformRevealHintingAnimation=_shouldPerformRevealHintingAnimation;
 @property(nonatomic) double contentOffsetBeforeRevealHintingAnimation; // @synthesize contentOffsetBeforeRevealHintingAnimation=_contentOffsetBeforeRevealHintingAnimation;
 @property(retain, nonatomic) UIViewFloatAnimatableProperty *revealHintingAnimatableProperty; // @synthesize revealHintingAnimatableProperty=_revealHintingAnimatableProperty;
@@ -60,7 +68,7 @@
 @property(retain, nonatomic) id <NCNotificationSectionList> notificationSectionList; // @synthesize notificationSectionList=_notificationSectionList;
 @property(retain, nonatomic) NCNotificationPriorityList *notificationPriorityList; // @synthesize notificationPriorityList=_notificationPriorityList;
 - (void).cxx_destruct;
-- (_Bool)_shouldShowRevealListHint;
+- (void)_updateShouldAllowNotificationsHistoryReveal;
 - (id)_adjustedSectionIndexPathForListOperation:(id)arg1;
 - (id)_adjustedSectionIndexPathForCollectionViewOperation:(id)arg1;
 - (unsigned long long)_adjustedSectionIndexForListOperation:(unsigned long long)arg1;
@@ -130,6 +138,7 @@
 - (void)sectionHeaderViewDidReceiveClearAllAction:(id)arg1;
 - (void)sectionHeaderView:(id)arg1 didReceiveClearActionForSectionIdentifier:(id)arg2;
 - (void)sectionHeaderViewDidTransitionToClearState:(id)arg1;
+- (void)_performBatchedSectionListOperations:(CDUnknownBlockType)arg1;
 - (void)notificationSectionListNeedsReload:(id)arg1;
 - (void)notificationSectionList:(id)arg1 didRemoveSectionsAtIndices:(id)arg2;
 - (void)notificationSectionList:(id)arg1 didRemoveSectionAtIndex:(unsigned long long)arg2;
@@ -171,7 +180,9 @@
 - (_Bool)insertNotificationRequest:(id)arg1 forCoalescedNotification:(id)arg2;
 - (void)_performRequestOperationAlongsideAnimations;
 - (void)_createRequestOperationAnimationCoordinatorForInitialContentPresentation:(_Bool)arg1;
+- (void)_reloadNotificationHistorySectionIfNecessary;
 - (void)reloadNotificationRequestsInNotificationHistorySection:(id)arg1;
+- (void)reloadNotificationRequestsInIncomingSection:(id)arg1;
 @property(readonly, nonatomic) struct CGSize effectiveContentSize;
 - (void)updateForLegibilitySettings:(id)arg1;
 - (void)performNotificationListRevealGestureHintingFadeOutAnimated:(_Bool)arg1;

@@ -11,7 +11,7 @@
 #import <PencilKit/UIGestureRecognizerDelegate-Protocol.h>
 
 @class CADisplayLink, NSObject, NSString, NSTimer, PKController, PKDrawingGestureRecognizer, PKFreeTransformGestureRecognizer, PKInk, PKOpenGLESView, PKSelectionController, PKUndoSwipeGestureRecognizer, UIActivityIndicatorView, UIView;
-@protocol OS_dispatch_queue, PKInternalDrawingViewDelegate;
+@protocol NSObject, OS_dispatch_queue, PKInternalDrawingViewDelegate;
 
 @interface PKInternalDrawingView : PKInternalDrawingLightView <PKControllerDelegate, PKDrawingGestureTarget, UIGestureRecognizerDelegate>
 {
@@ -27,6 +27,9 @@
     struct CGPoint _drawingBeganLocation;
     _Bool _isErasingObjects;
     struct CGPoint _oldEraseLocation;
+    long long _undoGroupCount;
+    id <NSObject> _undoManagerBeginGroupObserver;
+    id <NSObject> _undoManagerEndGroupObserver;
     _Bool _isDrawing;
     _Bool _disableWideGamut;
     _Bool _zooming;
@@ -180,6 +183,8 @@
 - (double)layerContentScale;
 - (void)resizeBackingBuffersForPixelSize:(struct CGSize)arg1 drawingScale:(double)arg2;
 - (void)adjustedPixelSize:(struct CGSize *)arg1 drawingSize:(struct CGSize *)arg2;
+- (void)willMoveToWindow:(id)arg1;
+- (void)didMoveToWindow;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 editable:(_Bool)arg2 pixelSize:(struct CGSize)arg3 drawingScale:(double)arg4 layerFixedPixelSize:(_Bool)arg5 drawingController:(id)arg6 selectionController:(id)arg7;
 - (id)initWithCoder:(id)arg1;

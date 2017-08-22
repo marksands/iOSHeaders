@@ -510,7 +510,8 @@
 - (void)_removeAccessoriesForPrimaryAccessory:(id)arg1 error:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_sendRemoveCompletionStatusForHMDAccessories:(id)arg1 withCompletion:(CDUnknownBlockType)arg2 error:(id)arg3;
 - (void)_notifyClientOfNewlyAddedAccessories:(id)arg1;
-- (void)_notifyOwnerOfAddedAccessories:(id)arg1;
+- (void)_sharedAdminDidFailToAddAccessories:(id)arg1;
+- (void)_notifyOwnerOfAddedAccessories:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_addOwnerToPrimaryAccessory:(id)arg1 error:(id *)arg2;
 - (void)_deregisterPairedAccessory:(id)arg1;
 - (void)_registerPairedAccessory:(id)arg1 btleTransport:(_Bool)arg2 airPlay:(_Bool)arg3;

@@ -19,6 +19,7 @@
     NSArray *_appChannels;
     _Bool _hasOptedIn;
     _Bool _shouldDenyOnCancel;
+    _Bool _suppressWelcomeVideoAddOnOptIn;
     CDUnknownBlockType _completionHandler;
 }
 

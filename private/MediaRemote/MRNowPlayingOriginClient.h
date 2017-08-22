@@ -16,6 +16,7 @@
     void *_origin;
     NSObject<OS_dispatch_queue> *_serialQueue;
     _Bool _canBeNowPlayingApp;
+    double _canBeNowPlayingAppTimestamp;
     _Bool _isOverrideApp;
     unsigned int _routeDiscoveryMode;
     NSMutableArray *_applicationPickedRoutes;
@@ -50,12 +51,12 @@
 - (void)removeClient:(void *)arg1;
 - (id)nowPlayingClientForPlayerPath:(void *)arg1;
 @property(nonatomic) void *activeNowPlayingClient;
+@property(nonatomic) _Bool canBeNowPlayingApp;
 @property(nonatomic) unsigned int inputMode;
 @property(nonatomic) union _MRColor tintColor;
 @property(nonatomic) unsigned int visibility;
 @property(nonatomic) unsigned int routeDiscoveryMode;
 @property(nonatomic) _Bool isOverrideApp;
-@property(nonatomic) _Bool canBeNowPlayingApp;
 @property(copy, nonatomic) NSString *parentApplication;
 @property(copy, nonatomic) NSArray *applicationPickedRoutes;
 @property(copy, nonatomic) CDUnknownBlockType endLyricsEventCallback;

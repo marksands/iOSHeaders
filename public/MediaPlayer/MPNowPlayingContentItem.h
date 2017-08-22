@@ -42,6 +42,7 @@
 @property(nonatomic) unsigned long long mediaType;
 @property(copy, nonatomic) NSDictionary *collectionInfo;
 @property(readonly, nonatomic) double elapsedTimeTimestamp;
+@property(nonatomic) float playbackRate;
 @property(nonatomic) double elapsedTime;
 @property(nonatomic) long long editingStyleFlags;
 @property(nonatomic) long long radioStationType;
@@ -65,7 +66,6 @@
 @property(nonatomic) long long playCount;
 @property(nonatomic) long long episodeNumber;
 @property(nonatomic) long long discNumber;
-@property(nonatomic) float playbackRate;
 @property(nonatomic) float defaultPlaybackRate;
 @property(nonatomic) double startTime;
 @property(nonatomic) double duration;

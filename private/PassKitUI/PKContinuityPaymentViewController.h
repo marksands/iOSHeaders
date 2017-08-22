@@ -7,12 +7,13 @@
 #import <UIKit/UIViewController.h>
 
 #import <PassKitUI/PKAuthenticatorDelegate-Protocol.h>
+#import <PassKitUI/PKPaymentAuthorizationFooterViewDelegate-Protocol.h>
 #import <PassKitUI/PKPaymentAuthorizationStateMachineDelegate-Protocol.h>
 
 @class NSString, NSTimer, PKAuthenticator, PKContinuityPaymentCardSummaryView, PKContinuityPaymentFaviconView, PKPaymentAuthorizationFooterView, PKPaymentAuthorizationStateMachine, PKRemotePaymentRequest, UILabel, UIStackView, UIView, _UIBackdropView;
 @protocol PKPaymentAuthorizationHostProtocol;
 
-@interface PKContinuityPaymentViewController : UIViewController <PKAuthenticatorDelegate, PKPaymentAuthorizationStateMachineDelegate>
+@interface PKContinuityPaymentViewController : UIViewController <PKAuthenticatorDelegate, PKPaymentAuthorizationFooterViewDelegate, PKPaymentAuthorizationStateMachineDelegate>
 {
     UIView *_dimmingBackgroundView;
     _UIBackdropView *_backdropView;
@@ -26,6 +27,7 @@
     PKContinuityPaymentFaviconView *_faviconImage;
     UIViewController *_passphraseViewController;
     PKAuthenticator *_authenticator;
+    _Bool _authenticating;
     PKPaymentAuthorizationStateMachine *_stateMachine;
     NSTimer *_timeoutTimer;
     _Bool _attemptedTimeout;
@@ -36,6 +38,7 @@
 @property(readonly, nonatomic) PKRemotePaymentRequest *remoteRequest; // @synthesize remoteRequest=_remoteRequest;
 @property(nonatomic) id <PKPaymentAuthorizationHostProtocol> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)authorizationFooterViewPasscodeButtonPressed:(id)arg1;
 - (void)dismissPassphraseViewController;
 - (void)presentPassphraseViewController:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)dismissPasscodeViewController;
@@ -61,7 +64,6 @@
 - (void)updatePaymentWithClientUpdate:(id)arg1;
 - (void)_timeoutFired;
 - (void)_resetAndScheduleTimeout;
-- (void)_payWithPasscodePressed:(id)arg1;
 - (void)_cancelPassphrasePressed;
 - (void)cancelPressed:(id)arg1;
 - (void)viewDidLoad;

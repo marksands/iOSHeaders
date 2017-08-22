@@ -185,6 +185,7 @@ __attribute__((visibility("hidden")))
 - (void)_createDictationPresenterWindowIfNecessary;
 - (void)setDictationInfoOnScreenNotifyKey:(_Bool)arg1;
 - (void)stopHelpMessageDisplay;
+- (_Bool)_systemLanguageSupportsDictation;
 - (void)startHelpMessageDisplay;
 - (void)clearTextFieldPlaceholder;
 - (void)_displaySecureContentsAsPlainText:(_Bool)arg1 afterDelay:(double)arg2;

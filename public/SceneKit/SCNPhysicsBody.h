@@ -49,6 +49,7 @@
 - (id)_owner;
 - (void)_setOwner:(id)arg1;
 - (void)_removeOwner;
+- (void)_ownerWillDie;
 - (struct btRigidBody *)_createBody;
 - (id)copy;
 - (id)copyWithZone:(struct _NSZone *)arg1;

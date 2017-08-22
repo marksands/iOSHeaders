@@ -10,11 +10,13 @@
 
 @interface CCUICAPackageDescription : NSObject
 {
+    _Bool _flipsForRightToLeftLayoutDirection;
     NSURL *_packageURL;
 }
 
 + (id)descriptionForPackageNamed:(id)arg1 inBundle:(id)arg2;
 @property(readonly, copy, nonatomic) NSURL *packageURL; // @synthesize packageURL=_packageURL;
+@property(nonatomic) _Bool flipsForRightToLeftLayoutDirection; // @synthesize flipsForRightToLeftLayoutDirection=_flipsForRightToLeftLayoutDirection;
 - (void).cxx_destruct;
 - (id)initWithPackageName:(id)arg1 inBundle:(id)arg2;
 

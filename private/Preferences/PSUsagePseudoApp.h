@@ -10,6 +10,9 @@
 {
 }
 
+- (long long)specialSize;
+- (long long)totalSize;
+- (long long)dataSize;
 - (long long)purgeableSize;
 - (long long)dynamicSize;
 - (long long)staticSize;

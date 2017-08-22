@@ -6,12 +6,13 @@
 
 #import <WatchListKitUI/JSExport-Protocol.h>
 
-@class JSValue, NSArray;
+@class JSValue, NSArray, NSNumber;
 
 @protocol WLKUIOnboardingInterface <JSExport>
 @property(readonly, nonatomic, getter=isTvosMigrated) _Bool tvosMigrated;
 @property(readonly, nonatomic) _Bool isShowing;
 @property(readonly, nonatomic) NSArray *eligibleBids;
+@property(readonly, nonatomic, getter=isOptedInCached) NSNumber *optedInCached;
 @property(readonly, nonatomic, getter=isOptedIn) _Bool optedIn;
 - (void)migrateTvos:(JSValue *)arg1;
 - (void)dismiss;

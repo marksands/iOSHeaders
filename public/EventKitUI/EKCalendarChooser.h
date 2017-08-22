@@ -109,7 +109,7 @@
 @property(retain, nonatomic) EKCalendar *selectedCalendar;
 - (void)_setCalendars:(id)arg1 changedObjectsHint:(id)arg2;
 - (id)_statusTextForGroup:(id)arg1;
-- (void)_populateGroupsForCalendars:(id)arg1;
+- (void)_populateGroupsForCalendars:(id)arg1 footersChanged:(_Bool *)arg2;
 - (_Bool)_applySelection;
 - (id)_loadCalendars;
 - (id)_filterCalendars:(id)arg1;

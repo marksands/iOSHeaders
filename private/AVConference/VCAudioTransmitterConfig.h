@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
     _Bool _supportsAdaptation;
     _Bool _redEnabled;
     _Bool _transmitROC;
+    _Bool _needsPacketThread;
     int _operatingMode;
     struct AudioStreamBasicDescription _inputFormat;
     struct opaqueRTCReporting *_reportingAgent;
@@ -36,6 +37,7 @@ __attribute__((visibility("hidden")))
     _Bool _ignoreSilence;
 }
 
+@property(nonatomic) _Bool needsPacketThread; // @synthesize needsPacketThread=_needsPacketThread;
 @property(nonatomic) _Bool ignoreSilence; // @synthesize ignoreSilence=_ignoreSilence;
 @property(nonatomic) _Bool transmitROC; // @synthesize transmitROC=_transmitROC;
 @property(retain, nonatomic) AVCStatisticsCollector *statisticsCollector; // @synthesize statisticsCollector=_statisticsCollector;

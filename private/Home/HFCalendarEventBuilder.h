@@ -23,7 +23,7 @@
 - (id)_fireDateForTimeComponents:(id)arg1;
 @property(readonly, nonatomic) NSDate *effectiveFireDate;
 - (id)effectiveFireTimeComponents;
-- (void)updateForEnablingNonRecurringTrigger;
+- (void)updateBaseFireDateForTrigger;
 - (id)performValidation;
 - (id)naturalLanguageNameOfType:(unsigned long long)arg1 withHome:(id)arg2 recurrences:(id)arg3;
 - (id)buildNewEventFromCurrentState;

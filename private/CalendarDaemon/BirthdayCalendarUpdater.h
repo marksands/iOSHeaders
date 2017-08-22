@@ -8,7 +8,6 @@
 
 @class ACAccountStore, NSMutableDictionary, NSString;
 
-__attribute__((visibility("hidden")))
 @interface BirthdayCalendarUpdater : NSOperation
 {
     // Error parsing type: ^{CalDatabase={__CFRuntimeBase=QAQ}i^{CPRecordStore}^{CalEventOccurrenceCache}^{CalScheduledTaskCache}^{__CFDictionary}^{__CFDictionary}{_opaque_pthread_mutex_t=q[56c]}II^{__CFArray}^{__CFString}^{__CFArray}ii^{__CFString}^{__CFString}^{__CFString}i@?{_opaque_pthread_mutex_t=q[56c]}B^{__CFArray}^{__CFArray}^{__CFArray}^{__CFArray}B@B}, name: _database
@@ -21,6 +20,7 @@ __attribute__((visibility("hidden")))
     long long _defaultAlarmOffset;
 }
 
++ (id)_dateFromBirthdayComponents:(id)arg1;
 - (void).cxx_destruct;
 - (void)main;
 - (int)_pruneEventsFromCalendar:(void *)arg1 matchingFacebookStatus:(_Bool)arg2 andStoreInRecord:(id)arg3;
@@ -34,7 +34,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_isYearlessBirthday:(id)arg1;
 - (void *)newBirthdayEventForBirthday:(id)arg1 andPerson:(void *)arg2;
 - (void)addDefaultAlarmToEvent:(void *)arg1;
-- (void)setBirthday:(id)arg1 forEvent:(void *)arg2;
+- (_Bool)setBirthday:(id)arg1 forEvent:(void *)arg2;
 - (id)copyBirthdayEventSummaryForPerson:(void *)arg1;
 - (void)dealloc;
 - (id)init;

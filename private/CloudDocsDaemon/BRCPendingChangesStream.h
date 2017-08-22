@@ -21,7 +21,9 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)saveError;
+- (void)destroyDatabaseOnQueue:(_Bool)arg1;
 - (void)destroyDatabase;
+- (void)_destroyDatabase;
 - (_Bool)saveEditedRecords:(id)arg1 deletedRecordIDs:(id)arg2 deletedShareIDs:(id)arg3 serverChangeToken:(id)arg4 clientChangeToken:(long long)arg5 syncStatus:(long long)arg6;
 - (long long)_recordTypeFromRecordID:(id)arg1 isShare:(_Bool)arg2 isDelete:(_Bool)arg3;
 - (_Bool)enumerateRecordsOfType:(long long)arg1 block:(CDUnknownBlockType)arg2;

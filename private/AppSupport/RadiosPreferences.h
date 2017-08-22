@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@protocol OS_dispatch_queue, RadiosPreferencesDelegate;
+@protocol OS_dispatch_queue, OS_os_log, RadiosPreferencesDelegate;
 
 @interface RadiosPreferences : NSObject
 {
@@ -16,6 +16,7 @@
     _Bool _isCachedAirplaneModeValid;
     _Bool _cachedAirplaneMode;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
+    NSObject<OS_os_log> *radios_prefs_log;
     _Bool notifyForExternalChangeOnly;
 }
 

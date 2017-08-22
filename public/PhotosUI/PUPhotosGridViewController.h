@@ -118,7 +118,6 @@
     struct CGPoint __previousPrefetchContentOffset;
     struct CGSize __cachedViewSizeTransitionContextSize;
     struct UIEdgeInsets _collectionViewLayoutReferenceSafeAreaInsets;
-    struct UIEdgeInsets _collectionViewLayoutReferenceLayoutMargins;
     struct CGRect __previousPreheatRect;
     struct CGRect __previousPrefetchRect;
 }
@@ -151,7 +150,6 @@
 @property(retain, nonatomic, setter=_setPhotoBrowserOneUpPresentationAdaptor:) PUPhotoBrowserOneUpPresentationAdaptor *_photoBrowserOneUpPresentationAdaptor; // @synthesize _photoBrowserOneUpPresentationAdaptor=__photoBrowserOneUpPresentationAdaptor;
 @property(retain, nonatomic, setter=_setOneUpPresentationHelper:) PUOneUpPresentationHelper *oneUpPresentationHelper; // @synthesize oneUpPresentationHelper=_oneUpPresentationHelper;
 @property(retain, nonatomic, setter=_setPushedPhotoBrowserController:) UIViewController *_pushedPhotoBrowserController; // @synthesize _pushedPhotoBrowserController=__pushedPhotoBrowserController;
-@property(nonatomic) struct UIEdgeInsets collectionViewLayoutReferenceLayoutMargins; // @synthesize collectionViewLayoutReferenceLayoutMargins=_collectionViewLayoutReferenceLayoutMargins;
 @property(nonatomic) struct UIEdgeInsets collectionViewLayoutReferenceSafeAreaInsets; // @synthesize collectionViewLayoutReferenceSafeAreaInsets=_collectionViewLayoutReferenceSafeAreaInsets;
 @property(nonatomic) double collectionViewLayoutReferenceWidth; // @synthesize collectionViewLayoutReferenceWidth=_collectionViewLayoutReferenceWidth;
 @property(nonatomic) _Bool showsCustomDoneButtonItemOnLeft; // @synthesize showsCustomDoneButtonItemOnLeft=_showsCustomDoneButtonItemOnLeft;
@@ -493,7 +491,6 @@
 @property(readonly, nonatomic) PHFetchResult *collectionListFetchResult;
 - (void)forceDataSourceIfNeeded;
 - (id)newGridLayout;
-- (void)viewLayoutMarginsDidChange;
 - (_Bool)updateSpec;
 - (_Bool)_updateTransitionWidthOnAppearance;
 - (_Bool)_transitionWidthHasChanged;

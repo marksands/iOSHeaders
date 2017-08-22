@@ -10,7 +10,7 @@
 
 @interface ABFacebookMigrator : NSObject
 {
-    _Bool _mayHaveFacebookContacts;
+    _Bool _mayHaveFacebookSource;
     int _mergeDestinationSourceID;
     long long _facebookContactsCount;
     NSString *_destinationDescription;
@@ -25,7 +25,7 @@
 + (_Bool)mayHaveFacebookContacts:(void *)arg1;
 + (_Bool)isAccountTypeFacebook:(id)arg1;
 + (_Bool)isSourceFacebook:(void *)arg1;
-@property(nonatomic) _Bool mayHaveFacebookContacts; // @synthesize mayHaveFacebookContacts=_mayHaveFacebookContacts;
+@property(nonatomic) _Bool mayHaveFacebookSource; // @synthesize mayHaveFacebookSource=_mayHaveFacebookSource;
 @property(nonatomic) int mergeDestinationSourceID; // @synthesize mergeDestinationSourceID=_mergeDestinationSourceID;
 @property(nonatomic) void *facebookSource; // @synthesize facebookSource=_facebookSource;
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
@@ -38,7 +38,7 @@
 - (void)performPendingMergeOrDeleteAction;
 - (void)_startDatabaseDoctorToPerformAction:(id)arg1;
 - (int)findBestMergeDestinationSourceID;
-- (_Bool)_detectFacebookContacts;
+- (void)_detectFacebookSource;
 - (void)deleteFacebookContacts;
 - (void)mergeFacebookContacts;
 - (_Bool)canMergeFacebookContacts;

@@ -8,8 +8,8 @@
 
 #import <MediaPlayer/MPMusicPlayerController-Protocol.h>
 
-@class BKSApplicationStateMonitor, MPMusicPlayerControllerServer, NSMutableArray, NSMutableDictionary, NSMutableSet;
-@protocol MPMusicPlayerControllerServerDelegate;
+@class BKSApplicationStateMonitor, MPMusicPlayerControllerServer, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject;
+@protocol MPMusicPlayerControllerServerDelegate, OS_dispatch_queue;
 
 @interface MPMusicPlayerControllerServerInternal : MPServerObject <MPMusicPlayerController>
 {
@@ -17,6 +17,7 @@
     MPMusicPlayerControllerServer *_musicPlayerServer;
     int _activeClientPID;
     BKSApplicationStateMonitor *_applicationStateMonitor;
+    NSObject<OS_dispatch_queue> *_applicationStateMonitorQueue;
     long long _applicationStateMonitorCount;
     NSMutableArray *_clientPorts;
     NSMutableDictionary *_clientPortsForPIDs;
@@ -24,6 +25,7 @@
     unsigned int _queuePrepared:1;
     unsigned int _hasSentQueuePrepared:1;
     _Bool _isInsidePrepareQueue;
+    _Bool _hasAttemptedQueuePreparation;
     NSMutableSet *_pendingPreparationClientPIDs;
 }
 

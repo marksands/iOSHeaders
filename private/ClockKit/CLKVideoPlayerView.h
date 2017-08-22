@@ -26,18 +26,22 @@
     CDStruct_1b6d18a9 _seekWithTolerance;
     unsigned int _playRequested:1;
     unsigned int _prerollRequested:1;
+    unsigned int _isExpectingPreroll:1;
+    _Bool _pausedViewEnabled;
     _Bool _playing;
     id <CLKVideoPlayerViewDelegate> _delegate;
 }
 
 + (void)_prewarm;
 @property(readonly, nonatomic) _Bool playing; // @synthesize playing=_playing;
+@property(nonatomic) _Bool pausedViewEnabled; // @synthesize pausedViewEnabled=_pausedViewEnabled;
 @property(nonatomic) __weak id <CLKVideoPlayerViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)queueVideo:(id)arg1;
 - (void)play;
 - (void)_play;
 - (void)preroll;
+- (void)expectPreroll;
 - (void)_preroll;
 - (void)seekToTime:(CDStruct_1b6d18a9)arg1 tolerance:(CDStruct_1b6d18a9)arg2;
 - (void)seekToTime:(CDStruct_1b6d18a9)arg1;
@@ -46,11 +50,12 @@
 - (void)_pause;
 - (void)loadVideo:(id)arg1;
 - (id)_createPlayerItemForVideoURL:(id)arg1;
-- (void)_revealPlayerView;
-- (void)_hidePlayerView;
+- (void)_hidePausedView;
+- (void)_showPausedView;
 - (void)_performNextRequest;
 - (_Bool)_readyToPerformRequest;
 - (void)_resetRequestState;
+- (_Bool)isPlaybackReady;
 - (void)_periodicTimeObserverChanged:(CDStruct_1b6d18a9)arg1;
 - (void)_handleDidPlayToEndTime:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

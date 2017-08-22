@@ -148,6 +148,7 @@
 - (id)eagleUnprotectedMigrationSteps;
 - (_Bool)_databaseSchemas:(id)arg1 containsTable:(id)arg2;
 - (_Bool)_deleteDataEntitySubclassTables:(id)arg1 intermediateTables:(id)arg2 error:(out id *)arg3;
+- (long long)_addSequenceColumnToActivityCacheWithError:(out id *)arg1;
 - (long long)_removeVO2MaxTestTypeMetadataKeyAppleWatch:(out id *)arg1;
 - (long long)_removeTrustedFitnessMachineEntityTable:(out id *)arg1;
 - (long long)_setupNFCForFitnessMachinesWithError:(out id *)arg1;

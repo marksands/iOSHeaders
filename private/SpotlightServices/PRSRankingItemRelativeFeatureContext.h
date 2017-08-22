@@ -20,6 +20,7 @@
 + (id)_predicateForRelativeFeature:(unsigned long long)arg1;
 + (CDUnknownBlockType)_resultComparatorForRelativeFeature:(unsigned long long)arg1;
 + (id)_relativeContextsForFeatures:(id)arg1;
++ (id)relativeContextsForResultSet;
 + (id)relativeContextsForBundle:(id)arg1;
 @property(copy, nonatomic) CDUnknownBlockType comparator; // @synthesize comparator=_comparator;
 @property(retain, nonatomic) NSPredicate *predicate; // @synthesize predicate=_predicate;

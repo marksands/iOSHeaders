@@ -72,6 +72,7 @@ __attribute__((visibility("hidden")))
 - (void)navigationSessionManager:(id)arg1 didChangeNavigationState:(int)arg2;
 - (void)navigationSessionManager:(id)arg1 didFailWithError:(id)arg2;
 - (void)navigationSessionManager:(id)arg1 didUpdateActiveRouteDetails:(id)arg2;
+- (void)stateManagerPredictingDidArrive:(id)arg1;
 - (void)stateManager:(id)arg1 didUpdatePossibleDestinations:(id)arg2;
 - (void)stateManager:(id)arg1 didUpdateIsInVehicle:(_Bool)arg2;
 - (unsigned long long)_serviceStateForStateType:(unsigned long long)arg1;

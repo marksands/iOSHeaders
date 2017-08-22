@@ -22,6 +22,8 @@
 }
 
 - (void).cxx_destruct;
+- (void)voiceAssistantEnableStateWithCompletion:(CDUnknownBlockType)arg1;
+- (void)coreRoutineEnableStateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)clear;
 - (void)entitiesDeletedSinceDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)registerAddedNamedEntities:(id)arg1;

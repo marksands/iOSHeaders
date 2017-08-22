@@ -17,6 +17,7 @@
 + (id)_tccAccessInfoForBundle:(id)arg1;
 + (_Bool)_siriEnabled;
 + (_Bool)_isSiriAuthorizationRestricted;
++ (long long)_rawSiriAuthorizationStatusForAppID:(id)arg1;
 + (long long)_siriAuthorizationStatusForAppID:(id)arg1;
 + (void)_requestSiriAuthorization:(CDUnknownBlockType)arg1 auditToken:(CDStruct_6ad76789)arg2;
 

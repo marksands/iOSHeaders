@@ -37,8 +37,7 @@
 @property(readonly, nonatomic) unsigned int startPointIndex; // @synthesize startPointIndex=_startPointIndex;
 - (void).cxx_destruct;
 - (id)description;
-- (_Bool)isEqualToGEOComposedRouteSection:(id)arg1;
-- (_Bool)isEqual:(id)arg1;
+- (_Bool)_MapsCarPlay_isEqual:(id)arg1;
 - (_Bool)isTransfer;
 @property(readonly, nonatomic) unsigned int endPointIndex;
 - (void)_initStepForRoute:(id)arg1;

@@ -97,6 +97,7 @@
 - (id)_activeConnection;
 - (id)_activeConnectionWrapper;
 - (id)_setActiveConnection:(id)arg1 forWriting:(_Bool)arg2;
+- (void)withReaderDB:(CDUnknownBlockType)arg1;
 - (void)unlockDB:(struct sqlite3 *)arg1;
 - (struct sqlite3 *)getReaderDB;
 - (struct sqlite3 *)getWriterDB;
@@ -192,9 +193,9 @@
 - (id)dataConsumerForMessage:(id)arg1 isPartial:(_Bool)arg2;
 - (id)dataConsumerForMessage:(id)arg1 part:(id)arg2 incomplete:(_Bool)arg3;
 - (id)dataConsumerForMessage:(id)arg1 part:(id)arg2;
-- (long long)deleteAttachmentForMessage:(id)arg1;
+- (long long)deleteAttachmentsForMessage:(id)arg1 inMailboxFileURL:(id)arg2;
+- (id)attachmentsDirectoryURLForMessage:(id)arg1 inMailboxFileURL:(id)arg2;
 - (id)attachmentsDirectoryURLForMessage:(id)arg1;
-- (id)attachmentsDirectoryForMessage:(id)arg1;
 - (id)dataPathForMessage:(id)arg1 part:(id)arg2;
 - (id)dataPathForMessage:(id)arg1;
 - (id)dataPathForMessage:(id)arg1 type:(int)arg2;
@@ -222,6 +223,7 @@
 - (id)mailboxURLForMessage:(id)arg1;
 - (id)pathForMailboxURL:(id)arg1;
 - (unsigned int)mailboxIDForURLString:(id)arg1;
+- (id)mailboxURLsForIDs:(id)arg1;
 - (id)urlForMailboxID:(unsigned int)arg1;
 - (id)stringForQuery:(id)arg1;
 - (id)stringForQuery:(id)arg1 monitor:(id)arg2;

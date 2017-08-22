@@ -117,7 +117,7 @@
 - (void)_updateOptionalHeaderVisibilityForceVisible:(_Bool)arg1;
 - (void)updateOptionalHeaderVisibility;
 - (void)viewDidBecomeFirstResponder:(id)arg1;
-- (void)layoutForChangedComposeRecipientView:(id)arg1 size:(struct CGSize)arg2;
+- (void)layoutForChangedComposeHeaderView:(id)arg1 size:(struct CGSize)arg2;
 - (void)setScrollsToTop:(_Bool)arg1;
 - (void)scrollToTopAnimated:(_Bool)arg1;
 - (void)focusFirstResponderAfterRecipientView:(id)arg1;

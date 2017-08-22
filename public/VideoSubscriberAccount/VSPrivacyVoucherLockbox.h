@@ -8,21 +8,24 @@
 
 #import <VideoSubscriberAccount/VSRemoteNotifierDelegate-Protocol.h>
 
-@class NSArray, NSString, VSRemoteNotifier;
+@class NSArray, NSString, NSUndoManager, VSRemoteNotifier;
 
 __attribute__((visibility("hidden")))
 @interface VSPrivacyVoucherLockbox : NSObject <VSRemoteNotifierDelegate>
 {
+    NSUndoManager *_undoManager;
     VSRemoteNotifier *_remoteNotifier;
 }
 
 @property(retain, nonatomic) VSRemoteNotifier *remoteNotifier; // @synthesize remoteNotifier=_remoteNotifier;
+@property(retain, nonatomic) NSUndoManager *undoManager; // @synthesize undoManager=_undoManager;
 - (void).cxx_destruct;
 - (void)removeAllVouchers;
 @property(readonly, copy, nonatomic) NSArray *unredeemedVouchers;
 - (void)setUnredeemedVouchers:(id)arg1;
 - (id)_voucherArchiveURL;
 - (void)redeemVoucher:(id)arg1;
+- (void)issueVouchers:(id)arg1;
 - (void)issueVouchersForAppsWithAdamIDs:(id)arg1 providerID:(id)arg2;
 - (void)remoteNotifier:(id)arg1 didReceiveRemoteNotificationWithUserInfo:(id)arg2;
 - (id)init;

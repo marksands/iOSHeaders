@@ -30,7 +30,6 @@ __attribute__((visibility("hidden")))
 - (void)clearCache;
 - (void)shrinkBySize:(unsigned long long)arg1 finished:(CDUnknownBlockType)arg2;
 - (void)calculateFreeableSpaceWithHandler:(CDUnknownBlockType)arg1;
-- (void)applyRAPUpdatedMapItems:(id)arg1;
 - (void)performPlaceDataRequest:(id)arg1 traits:(id)arg2 cachePolicy:(unsigned long long)arg3 timeout:(double)arg4 auditToken:(id)arg5 networkActivity:(CDUnknownBlockType)arg6 requesterHandler:(CDUnknownBlockType)arg7;
 - (void)_cachePlaceData:(id)arg1 forKey:(struct _GEOTileKey)arg2 shouldOptimizeWritesToDisk:(_Bool)arg3 shouldUseDefaultProviderId:(_Bool)arg4;
 - (void)_cachePlaceData:(id)arg1 forKey:(struct _GEOTileKey)arg2 shouldOptimizeWritesToDisk:(_Bool)arg3;

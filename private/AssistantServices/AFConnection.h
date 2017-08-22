@@ -9,7 +9,7 @@
 #import <AssistantServices/AFAudioPowerUpdaterDelegate-Protocol.h>
 #import <AssistantServices/NSXPCListenerDelegate-Protocol.h>
 
-@class AFAudioPowerUpdater, AFClientConfiguration, AFConnectionUserInteractionAssertion, AFOneArgumentSafetyBlock, NSArray, NSError, NSMutableDictionary, NSString, NSUUID, NSXPCConnection;
+@class AFAudioPowerUpdater, AFClientConfiguration, AFOneArgumentSafetyBlock, NSArray, NSError, NSMutableDictionary, NSString, NSUUID, NSXPCConnection;
 @protocol AFAssistantUIService, AFSpeechDelegate, OS_dispatch_group, OS_dispatch_queue;
 
 @interface AFConnection : NSObject <NSXPCListenerDelegate, AFAudioPowerUpdaterDelegate>
@@ -36,8 +36,6 @@
     NSError *_lastRetryError;
     unsigned long long _pendingSpeechRequestCounter;
     NSObject<OS_dispatch_group> *_speechCallbackGroup;
-    NSObject<OS_dispatch_group> *_pendingAceCommandGroup;
-    AFConnectionUserInteractionAssertion *_userInteractionAssertion;
     id <AFAssistantUIService> _delegate;
     id <AFSpeechDelegate> _speechDelegate;
 }
@@ -187,8 +185,6 @@
 - (void)_aceConnectionWillRetryOnError:(id)arg1;
 - (void)_setShouldSpeak:(_Bool)arg1;
 - (void)_doCommand:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (_Bool)_isCurrentPendingAceCommandGroup:(id)arg1;
-- (void)_cancelPendingAceCommandGroup;
 - (void)_startUIRequestWithText:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_requestDidEnd;
 - (void)_requestWillBeginWithRequestClass:(id)arg1 isSpeechRequest:(_Bool)arg2 isBackgroundRequest:(_Bool)arg3 analyticsEventProvider:(CDUnknownBlockType)arg4;

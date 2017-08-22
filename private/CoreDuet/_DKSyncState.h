@@ -6,22 +6,24 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableArray, _DKKnowledgeSyncStorageAssertion;
+@class NSError, NSMutableArray, _DKKnowledgeSyncStorageAssertion;
 
 @interface _DKSyncState : NSObject
 {
     _Bool _needsCloudSyncDown;
     _Bool _needsCloudSyncUp;
+    NSError *_error;
     _DKKnowledgeSyncStorageAssertion *_assertion;
     NSMutableArray *_replies;
 }
 
 @property(retain) NSMutableArray *replies; // @synthesize replies=_replies;
 @property(retain) _DKKnowledgeSyncStorageAssertion *assertion; // @synthesize assertion=_assertion;
+@property(retain) NSError *error; // @synthesize error=_error;
 @property _Bool needsCloudSyncUp; // @synthesize needsCloudSyncUp=_needsCloudSyncUp;
 @property _Bool needsCloudSyncDown; // @synthesize needsCloudSyncDown=_needsCloudSyncDown;
 - (void).cxx_destruct;
-- (void)finishWithError:(id)arg1;
+- (void)finish;
 - (void)addReplyBlock:(CDUnknownBlockType)arg1;
 - (id)initWithSyncStorageAssertion:(id)arg1 reply:(CDUnknownBlockType)arg2;
 

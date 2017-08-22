@@ -19,6 +19,7 @@
     struct sqlite3_stmt *_updateWatch;
     struct sqlite3_stmt *_insertMirrorKey;
     struct sqlite3_stmt *_updateMirrorKey;
+    struct sqlite3_stmt *_markMirrorKey;
     struct sqlite3_stmt *_resetCurrentMirrorKey;
     struct sqlite3_stmt *_insertWatchKey;
     struct sqlite3_stmt *_queryMissingKeys;
@@ -31,6 +32,7 @@
 @property struct sqlite3_stmt *queryMissingKeys; // @synthesize queryMissingKeys=_queryMissingKeys;
 @property struct sqlite3_stmt *insertWatchKey; // @synthesize insertWatchKey=_insertWatchKey;
 @property struct sqlite3_stmt *resetCurrentMirrorKey; // @synthesize resetCurrentMirrorKey=_resetCurrentMirrorKey;
+@property struct sqlite3_stmt *markMirrorKey; // @synthesize markMirrorKey=_markMirrorKey;
 @property struct sqlite3_stmt *updateMirrorKey; // @synthesize updateMirrorKey=_updateMirrorKey;
 @property struct sqlite3_stmt *insertMirrorKey; // @synthesize insertMirrorKey=_insertMirrorKey;
 @property struct sqlite3_stmt *updateWatch; // @synthesize updateWatch=_updateWatch;
@@ -45,7 +47,8 @@
 - (id)missingKeysFromDevice:(id)arg1 type:(int)arg2;
 - (id)syncDevices;
 - (_Bool)syncedKeyToDevice:(id)arg1 type:(int)arg2 device:(id)arg3;
-- (_Bool)updateMirrorKey:(id)arg1 service:(int)arg2 type:(int)arg3 current:(_Bool)arg4;
+- (_Bool)updateMirrorKey:(id)arg1 service:(int)arg2 type:(int)arg3 newType:(int)arg4 current:(_Bool)arg5;
+- (_Bool)markMirrorKey:(int)arg1 type:(int)arg2;
 - (_Bool)setMirrorKey:(id)arg1 service:(int)arg2 type:(int)arg3 publicIdentity:(id)arg4;
 - (_Bool)endTransaction:(_Bool)arg1;
 - (_Bool)beginExclusiveTransaction;

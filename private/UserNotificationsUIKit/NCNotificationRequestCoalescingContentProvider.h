@@ -18,10 +18,9 @@
 @property(nonatomic, getter=isDeviceAuthenticated) _Bool deviceAuthenticated; // @synthesize deviceAuthenticated=_deviceAuthenticated;
 @property(retain, nonatomic) NSMutableArray *coalescedNotificationRequests; // @synthesize coalescedNotificationRequests=_coalescedNotificationRequests;
 - (void).cxx_destruct;
+- (id)_localizedStringWithPlaceholderFormat:(id)arg1 count:(unsigned long long)arg2;
 - (void)_updateNotificationRequest;
 - (unsigned long long)_indexOfMatchingNotificationRequest:(id)arg1;
-- (id)_formattedCountStringForPlaceholder:(id)arg1 count:(unsigned long long)arg2;
-- (id)_formattedDecimalStringForNumber:(id)arg1;
 - (id)thumbnail;
 - (id)_placeholderSecondaryText;
 - (id)secondaryText;

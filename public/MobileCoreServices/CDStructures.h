@@ -144,13 +144,7 @@ struct Rect {
     short _field4;
 };
 
-struct Store {
-    id _field1;
-    id _field2;
-    _Bool _field3;
-    struct array<unsigned int, 64> _field4;
-    long long _field5;
-};
+struct Store;
 
 struct Table {
     struct Unit _field1;
@@ -169,10 +163,6 @@ struct Unit {
 struct _NSRange {
     unsigned long long _field1;
     unsigned long long _field2;
-};
-
-struct array<unsigned int, 64> {
-    unsigned int _field1[64];
 };
 
 struct os_unfair_lock_s {

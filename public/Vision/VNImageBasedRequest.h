@@ -26,7 +26,8 @@
 - (struct CGRect)regionOfInterestPixelRectForWidth:(unsigned long long)arg1 height:(unsigned long long)arg2;
 - (struct CGRect)regionOfInterestNonIntegralPixelRectForWidth:(unsigned long long)arg1 height:(unsigned long long)arg2;
 - (_Bool)isFullCoverageRegionOfInterest;
-@property(nonatomic) struct CGRect regionOfInterest;
+- (_Bool)validateConfigurationAndReturnError:(id *)arg1;
+@property(nonatomic) struct CGRect regionOfInterest; // @synthesize regionOfInterest=_regionOfInterest;
 - (id)initWithName:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)sequencedRequestPreviousObservationsKey;

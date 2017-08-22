@@ -43,6 +43,7 @@
     _Bool _crownInverted;
     _Bool _suppressUpdates;
     _Bool _suppressCrownEvents;
+    _Bool _inBatchUpdate;
     NSOrderedSet *_currentApplicationIdentifiers;
     NTKUpNextScheduler *_applicationIdentifierUpdateScheduler;
     long long _interactiveState;

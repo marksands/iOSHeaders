@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 @interface PUPhotoPickerRemoteViewController : UIViewController <PUPhotoPickerRemoteNavigationControllerDelegate, NSExtensionRequestHandling, PUPhotoPicker, PUPhotoPickerTestSupportHandler>
 {
     _Bool _contentLoaded;
+    _Bool _observingNavigationItemPrompt;
     long long _actionType;
     NSString *_actionTypeDescription;
     long long _secondaryActionType;
@@ -26,6 +27,7 @@ __attribute__((visibility("hidden")))
     PUPhotoPickerRemoteViewControllerRequestOptions *_options;
 }
 
+@property(nonatomic, getter=isObservingNavigationItemPrompt) _Bool observingNavigationItemPrompt; // @synthesize observingNavigationItemPrompt=_observingNavigationItemPrompt;
 @property(nonatomic, getter=isContentLoaded) _Bool contentLoaded; // @synthesize contentLoaded=_contentLoaded;
 @property(retain, nonatomic) PUPhotoPickerRemoteViewControllerRequestOptions *options; // @synthesize options=_options;
 @property(retain, nonatomic) PUPhotoPickerRemoteNavigationController *contentNavigationController; // @synthesize contentNavigationController=_contentNavigationController;

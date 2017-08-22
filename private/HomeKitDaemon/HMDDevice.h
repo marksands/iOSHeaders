@@ -60,6 +60,7 @@
 @property(copy) HMFProductInfo *productInfo; // @synthesize productInfo=_productInfo;
 - (void)setName:(id)arg1;
 @property(readonly, copy) NSString *name; // @synthesize name=_name;
+- (_Bool)bsoIsEqual:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
 @property(readonly, copy) NSString *propertyDescription;

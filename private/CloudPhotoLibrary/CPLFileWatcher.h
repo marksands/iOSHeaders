@@ -14,6 +14,7 @@
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_source> *_nodeSource;
     NSObject<OS_dispatch_source> *_parentSource;
+    unsigned long long _nodeInode;
     NSURL *_fileURL;
     id <CPLFileWatcherDelegate> _delegate;
 }
@@ -25,8 +26,10 @@
 - (void)startWatching;
 - (void)_stopWatchingParent;
 - (void)_startWatchingParent;
+- (void)_updateWatchingNode;
 - (void)_stopWatchingNode;
 - (void)_startWatchingNode;
+- (void)_forceRefreshWatchingNode;
 - (id)initWithFileURL:(id)arg1 delegate:(id)arg2 queue:(id)arg3;
 
 @end

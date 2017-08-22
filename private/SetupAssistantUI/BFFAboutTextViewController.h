@@ -13,12 +13,14 @@
 @interface BFFAboutTextViewController : BFFAboutViewController <UIWebViewDelegate>
 {
     _Bool _includesAdditionalFormatting;
+    _Bool _disableLinkNavigation;
     NSString *_titleString;
     NSString *_HTMLString;
     NSString *_linkString;
     UIViewController *_linkedController;
 }
 
+@property(nonatomic) _Bool disableLinkNavigation; // @synthesize disableLinkNavigation=_disableLinkNavigation;
 @property(retain, nonatomic) UIViewController *linkedController; // @synthesize linkedController=_linkedController;
 @property(nonatomic) _Bool includesAdditionalFormatting; // @synthesize includesAdditionalFormatting=_includesAdditionalFormatting;
 @property(retain, nonatomic) NSString *linkString; // @synthesize linkString=_linkString;

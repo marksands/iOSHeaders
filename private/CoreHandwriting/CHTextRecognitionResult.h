@@ -32,6 +32,8 @@
 @property(readonly) NSString *string; // @synthesize string=_string;
 @property(readonly) _Bool rare; // @synthesize rare=_rare;
 - (void)dealloc;
+- (float)languageFitnessForLocale:(id)arg1 competingLocales:(id)arg2;
+- (_Bool)_isGibberishWordAtIndex:(long long)arg1;
 - (id)stringByFilteringLowConfidenceRanges:(_Bool)arg1 excludeGibberish:(_Bool)arg2 rejectionRate:(double *)arg3;
 - (id)mecabraCandidate;
 - (id)initWithString:(id)arg1 score:(double)arg2 rare:(_Bool)arg3 wordRanges:(id)arg4 wordIDs:(id)arg5;

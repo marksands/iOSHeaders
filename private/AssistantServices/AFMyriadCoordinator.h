@@ -42,6 +42,7 @@
     _Bool _clientRecentlyLostElection;
     _Bool _clientLostDueToTrumping;
     _Bool _clientIsListeningAfterRecentWin;
+    _Bool _clientIsWatchActivation;
     NSObject<OS_dispatch_source> *_timerSource;
     NSDateFormatter *_dateFormat;
     _DKKnowledgeStore *_coreDuetStore;

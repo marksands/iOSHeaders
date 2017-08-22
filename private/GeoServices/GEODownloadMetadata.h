@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 @interface GEODownloadMetadata : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     double _timestamp;
     NSString *_etag;
     NSString *_url;
@@ -21,6 +22,7 @@
 @property(retain, nonatomic) NSString *etag; // @synthesize etag=_etag;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

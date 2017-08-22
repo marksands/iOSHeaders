@@ -107,6 +107,7 @@ __attribute__((visibility("hidden")))
 - (void)finishWithError:(id)arg1;
 - (void)_finishInternalOnCallbackQueueWithError:(id)arg1;
 - (void)main;
+- (void)_reallyStart;
 - (void)start;
 - (_Bool)operationShouldBeFlowControlled;
 - (void)_determineNetworkServiceType;

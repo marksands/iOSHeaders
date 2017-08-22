@@ -19,7 +19,6 @@
 @property(retain, nonatomic) UIView *progressBarView; // @synthesize progressBarView=_progressBarView;
 @property(retain, nonatomic) UIView *overallBarView; // @synthesize overallBarView=_overallBarView;
 - (void).cxx_destruct;
-- (void)setIndicatorHidden:(_Bool)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

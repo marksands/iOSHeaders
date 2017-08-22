@@ -21,6 +21,7 @@
     NSString *_clientToken;
     DATaskManager *_taskManager;
     NSObject<OS_xpc_object> *_xpcActivity;
+    int _continueCount;
     _Bool _isFetchingAutomatically;
     _Bool _shouldFailAllTasks;
     _Bool _isValidating;
@@ -54,6 +55,9 @@
 - (_Bool)getFetchingAutomaticallyState;
 - (void)saveFetchingAutomaticallyState:(_Bool)arg1;
 - (void)removeXpcActivity;
+- (void)decrementXpcActivityContinueCount;
+- (void)incrementXpcActivityContinueCount;
+- (_Bool)hasXpcActivity;
 - (void)saveXpcActivity:(id)arg1;
 - (_Bool)shouldCancelTaskDueToOnPowerFetchMode;
 - (id)accountTypeIdentifier;

@@ -22,8 +22,9 @@ __attribute__((visibility("hidden")))
 + (id)supportedContentTypes;
 + (Class)transformerClass;
 - (void).cxx_destruct;
+- (void)_setupPrintSessionWithSize:(struct CGSize)arg1;
 - (void)pdfDataForPageAtIndex:(long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)prepareForDrawingPages:(struct _NSRange)arg1;
+- (void)prepareForDrawingPages:(struct _NSRange)arg1 ofSize:(struct CGSize)arg2;
 - (void)numberOfPagesWithSize:(struct CGSize)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)printer;
 - (_Bool)automaticallyUpdateScrollViewContentInset;

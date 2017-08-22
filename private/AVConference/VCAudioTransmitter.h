@@ -61,6 +61,7 @@ __attribute__((visibility("hidden")))
     _Bool _isUseCaseWatchContinuity;
     _Bool _allowAudioSwitching;
     _Bool _supportsAdaptation;
+    _Bool _needsPacketThread;
     _Bool _isLocalCellular_LowestConnectionQuality;
     _Bool _isRemoteCellular_LowestConnectionQuality;
     _Bool _isConnectedOnIPv6_LowestConnectionQuality;

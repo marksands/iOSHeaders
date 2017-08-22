@@ -118,7 +118,7 @@
 - (long long)_orientation;
 - (void)didMoveToWindow;
 - (void)willMoveToWindow:(id)arg1;
-- (_Bool)isFirstResponder;
+- (_Bool)_canRecognizeBiometricAuthentication;
 - (_Bool)canResignFirstResponder;
 - (_Bool)resignFirstResponder;
 - (void)becomeActiveWithAnimationSettings:(id)arg1;

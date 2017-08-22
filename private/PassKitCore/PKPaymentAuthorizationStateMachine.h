@@ -75,6 +75,7 @@
 - (void)_enqeueDidAuthorizePurchaseWithParam:(id)arg1;
 - (void)_enqueueDidAuthorizePaymentWithPayment:(id)arg1;
 - (void)_enqueueDidAuthorizePaymentWithRemotePayment:(id)arg1;
+- (void)_enqueueDidAuthorizePaymentWithByPassPayment:(id)arg1;
 - (void)_enqueueDidAuthorizePaymentWithToken:(id)arg1;
 - (void)_enqueueDidSelectRemotePaymentInstrument:(id)arg1 paymentApplication:(id)arg2;
 - (void)_enqueueDidSelectRemotePaymentInstrument:(id)arg1;

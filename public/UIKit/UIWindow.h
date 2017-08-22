@@ -294,6 +294,7 @@
 - (void)_beginKeyWindowDeferral;
 - (_Bool)_isKeyWindowForDeferral;
 - (id)_deferralPropertiesWithContextID:(unsigned int)arg1;
+- (long long)_overriddenInterfaceOrientation;
 - (void)_makeKeyWindowIgnoringOldKeyWindow:(_Bool)arg1;
 - (void)_makeExternalKeyWindow;
 - (void)makeKeyWindow;
@@ -349,6 +350,7 @@
 - (_Bool)_shouldResizeWithScene;
 - (void)_setRotatableViewOrientation:(long long)arg1 duration:(double)arg2 force:(_Bool)arg3;
 - (void)_setRotatableViewOrientation:(long long)arg1 updateStatusBar:(_Bool)arg2 duration:(double)arg3 force:(_Bool)arg4;
+- (void)_notifyRotatableViewOrientation:(long long)arg1 duration:(double)arg2;
 - (void)_updateStatusBarToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)_updateStatusBarToInterfaceOrientation:(long long)arg1 duration:(double)arg2 animation:(int)arg3;
 - (void)_forceTwoPartRotationAnimation:(_Bool)arg1;

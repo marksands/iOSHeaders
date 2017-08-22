@@ -14,6 +14,7 @@
 {
     NSArray *_strokeGroupsSortedTopBottomLeftRight;
     NSArray *_strokeGroupsSortedTopBottomLeftRightRespectingWritingOrientation;
+    NSSet *_textStrokeGroups;
     NSSet *_strokeGroups;
     NSSet *_createdStrokeGroups;
     NSSet *_deletedStrokeGroups;
@@ -22,8 +23,9 @@
 @property(readonly, copy, nonatomic) NSSet *deletedStrokeGroups; // @synthesize deletedStrokeGroups=_deletedStrokeGroups;
 @property(readonly, copy, nonatomic) NSSet *createdStrokeGroups; // @synthesize createdStrokeGroups=_createdStrokeGroups;
 @property(readonly, copy, nonatomic) NSSet *strokeGroups; // @synthesize strokeGroups=_strokeGroups;
-@property(readonly, copy, nonatomic) NSArray *strokeGroupsSortedByWritingOrientation;
-@property(readonly, copy, nonatomic) NSArray *strokeGroupsSortedTopBottomLeftRight;
+@property(readonly, copy, nonatomic) NSSet *textStrokeGroups;
+@property(readonly, copy, nonatomic) NSArray *textStrokeGroupsSortedByWritingOrientation;
+@property(readonly, copy, nonatomic) NSArray *textStrokeGroupsSortedTopBottomLeftRight;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

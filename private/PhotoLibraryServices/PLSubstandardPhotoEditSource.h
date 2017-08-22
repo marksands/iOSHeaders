@@ -10,6 +10,8 @@
 {
 }
 
++ (id)_imageWithImage:(id)arg1 orientation:(long long)arg2;
+- (id)initWithImage:(id)arg1 orientation:(long long)arg2 size:(struct CGSize)arg3;
 - (id)initWithImage:(id)arg1 orientation:(long long)arg2;
 
 @end

@@ -6,21 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary, NSNumber, NSString;
+@class NSMutableDictionary, NSNumber;
 
 @interface PRSModelManager : NSObject
 {
     _Bool _disablePolicy;
-    NSString *_modelVersion;
+    NSNumber *_modelVersion;
     NSNumber *_shadowVersion;
-    NSString *_modelVersionNumber;
-    NSNumber *_shadowVersionNumber;
     NSMutableDictionary *_shadowModels;
     NSMutableDictionary *_models;
     unsigned long long _activeCount;
 }
 
-+ (id)loadIfNecessaryModelOfResourceType:(unsigned long long)arg1 nowTime:(double)arg2 intoModelDict:(id)arg3 currentVersion:(id)arg4 currentVersionNumber:(id)arg5;
 + (void)loadModelWithURL:(id)arg1 type:(unsigned long long)arg2 directivesPath:(id)arg3 intoModelDict:(id)arg4 error:(id *)arg5;
 + (id)directivesFromFilePath:(id)arg1;
 + (_Bool)loadModelsWithDirectory:(id)arg1 intoModelDict:(id)arg2;
@@ -31,11 +28,9 @@
 @property(nonatomic) unsigned long long activeCount; // @synthesize activeCount=_activeCount;
 @property(retain, nonatomic) NSMutableDictionary *models; // @synthesize models=_models;
 @property(retain, nonatomic) NSMutableDictionary *shadowModels; // @synthesize shadowModels=_shadowModels;
-@property(nonatomic) _Bool disablePolicy; // @synthesize disablePolicy=_disablePolicy;
-@property(retain, nonatomic) NSNumber *shadowVersionNumber; // @synthesize shadowVersionNumber=_shadowVersionNumber;
-@property(retain, nonatomic) NSString *modelVersionNumber; // @synthesize modelVersionNumber=_modelVersionNumber;
 @property(retain, nonatomic) NSNumber *shadowVersion; // @synthesize shadowVersion=_shadowVersion;
-@property(retain, nonatomic) NSString *modelVersion; // @synthesize modelVersion=_modelVersion;
+@property(retain, nonatomic) NSNumber *modelVersion; // @synthesize modelVersion=_modelVersion;
+@property(nonatomic) _Bool disablePolicy; // @synthesize disablePolicy=_disablePolicy;
 - (void).cxx_destruct;
 - (double)testL2WithData:(id)arg1 experimental:(_Bool)arg2;
 - (double *)computeL3ScoresForFeatures:(id)arg1 didGetServerFeatures:(_Bool)arg2;
@@ -45,6 +40,7 @@
 - (id)computeFeedbackScoresForVectors:(id)arg1 withBundleFeatures:(id)arg2;
 - (void)updateModelsAccordingToHierarchy;
 - (void)updateModelsAccordingToHierarchy:(id)arg1 updateEnabled:(_Bool)arg2;
+- (id)loadIfNecessaryModelOfResourceType:(unsigned long long)arg1 nowTime:(double)arg2 intoModelDict:(id)arg3 currentVersion:(id)arg4;
 - (void)loadCannedModels;
 - (void)loadCannedModelWithType:(unsigned long long)arg1 error:(id *)arg2;
 - (void)triggerUpdate;

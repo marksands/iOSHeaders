@@ -19,6 +19,7 @@
     double _travelTimeHeight;
     _Bool _usesSmallText;
     _Bool _isProposedTime;
+    _Bool _isLoadingAsync;
     EKEvent *_event;
     unsigned long long _eventIndex;
     EKDayOccurrenceView *_view;
@@ -37,6 +38,7 @@
 @property(copy, nonatomic) EKCalendarDate *startDate; // @synthesize startDate=_startDate;
 @property(retain, nonatomic) EKDayOccurrenceView *view; // @synthesize view=_view;
 @property(readonly, nonatomic) unsigned long long eventIndex; // @synthesize eventIndex=_eventIndex;
+@property(nonatomic) _Bool isLoadingAsync; // @synthesize isLoadingAsync=_isLoadingAsync;
 @property(nonatomic) _Bool isProposedTime; // @synthesize isProposedTime=_isProposedTime;
 @property(nonatomic) _Bool usesSmallText; // @synthesize usesSmallText=_usesSmallText;
 @property(retain, nonatomic) EKEvent *event; // @synthesize event=_event;

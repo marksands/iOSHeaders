@@ -13,11 +13,11 @@
     int _needsSpotlightReindex;
 }
 
+- (void)performSpotlightReindexIfNeededWithHandler:(CDUnknownBlockType)arg1;
+- (void)noteNeedsSpotlightReindex;
 - (void)resetTTRPromptAndForceReindex;
 - (_Bool)needsRebuildMessageInfoIndex;
 - (void)noteRebuildMessageInfoIndex;
-- (_Bool)needsSpotlightReindex;
-- (void)noteNeedsSpotlightReindex;
 - (_Bool)needsRebuildTriggers;
 - (void)noteNeedsRebuildTriggers;
 - (_Bool)migrateWithSQLiteConnection:(id)arg1;

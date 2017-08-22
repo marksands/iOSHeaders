@@ -19,6 +19,7 @@
 + (id)eligibleBundleIDs;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 - (void).cxx_destruct;
+- (unsigned long long)supportedInterfaceOrientations;
 - (id)initWithBundleIDs:(id)arg1 options:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 // Remaining properties

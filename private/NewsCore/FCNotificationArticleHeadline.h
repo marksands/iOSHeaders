@@ -71,6 +71,7 @@
 @property(retain, nonatomic) NSDictionary *articlePayload; // @synthesize articlePayload=_articlePayload;
 @property(retain, nonatomic) FCAssetManager *assetManager; // @synthesize assetManager=_assetManager;
 - (id)coverArt;
+- (void)setPaid:(_Bool)arg1;
 - (_Bool)isPaid;
 - (long long)minimumNewsVersion;
 - (_Bool)needsRapidUpdates;

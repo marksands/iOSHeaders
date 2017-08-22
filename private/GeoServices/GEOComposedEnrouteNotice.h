@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool hasHighlightDistance;
 @property(readonly, nonatomic) GEOComposedTrafficCamera *trafficCamera;
 @property(readonly, nonatomic) NSString *identifier;
+- (id)description;
 - (id)initWithEnrouteNotice:(id)arg1 onRoute:(id)arg2;
 
 // Remaining properties

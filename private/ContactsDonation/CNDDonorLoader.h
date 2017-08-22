@@ -13,7 +13,9 @@
     id <CNDonationLoggerProvider> _loggerProvider;
 }
 
-+ (id)observableWithExtensions;
++ (id)extensionAttributes;
++ (id)continuousExtensionsObservable;
++ (id)currentExtensionsObservable;
 @property(readonly, nonatomic) id <CNDonationLoggerProvider> loggerProvider; // @synthesize loggerProvider=_loggerProvider;
 - (void).cxx_destruct;
 - (id)donorWithIdentifier:(id)arg1;

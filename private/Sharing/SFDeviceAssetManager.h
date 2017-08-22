@@ -22,17 +22,17 @@
 
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
-- (id)localFileURLForAsset:(id)arg1;
 - (id)additionalMappedProducts;
 - (void)addKeyValuePair:(id)arg1 with:(id)arg2 toQuery:(id)arg3;
 - (id)onqueue_mappedProductTypeForProductType:(id)arg1;
 - (void)onqueue_validateProductTypeInQuery:(id)arg1;
-- (void)onqueue_findAssetBundleForDeviceQuery:(id)arg1 installedOnly:(_Bool)arg2 preciseMatch:(_Bool)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
+- (void)onqueue_findAssetBundleForDeviceQuery:(id)arg1 installedOnly:(_Bool)arg2 fallback:(_Bool)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
+- (id)queryLogStringForQuery:(id)arg1 installedOnly:(_Bool)arg2 fallback:(_Bool)arg3;
 - (id)bundleAtURL:(id)arg1 error:(id *)arg2;
 - (void)onqueue_purgeAssetsMatchingQuery:(id)arg1;
 - (void)purgeAssetsMatchingQuery:(id)arg1;
-- (void)onqueue_getAssetBundleForDeviceQuery:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)getAssetBundleForDeviceQuery:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)onqueue_getAssetBundleForDeviceQuery:(id)arg1 timeout:(double)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)getAssetBundleForDeviceQuery:(id)arg1 timeout:(double)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)onqueue_invalidate;
 - (void)invalidate;
 - (void)onqueue_updateMetaData;

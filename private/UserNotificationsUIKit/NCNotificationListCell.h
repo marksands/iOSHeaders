@@ -7,18 +7,21 @@
 #import <UIKit/UICollectionViewCell.h>
 
 #import <UserNotificationsUIKit/MTContentSizeCategoryAdjusting-Protocol.h>
+#import <UserNotificationsUIKit/NCNotificationViewControllerObserving-Protocol.h>
+#import <UserNotificationsUIKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <UserNotificationsUIKit/UIScrollViewDelegate-Protocol.h>
 
 @class NCNotificationListCellActionButtonsView, NCNotificationViewController, NSString, UIPanGestureRecognizer, UIView, UIViewFloatAnimatableProperty;
 @protocol NCNotificationListCellDelegate;
 
-@interface NCNotificationListCell : UICollectionViewCell <UIScrollViewDelegate, MTContentSizeCategoryAdjusting>
+@interface NCNotificationListCell : UICollectionViewCell <UIScrollViewDelegate, UIGestureRecognizerDelegate, NCNotificationViewControllerObserving, MTContentSizeCategoryAdjusting>
 {
     _Bool _adjustsFontForContentSizeCategory;
     _Bool _configured;
     _Bool _shouldOverrideForReveal;
     _Bool _executingDefaultAction;
     _Bool _performingSwipeHinting;
+    _Bool _performingOrbHinting;
     NCNotificationViewController *_contentViewController;
     id <NCNotificationListCellDelegate> _delegate;
     double _overrideAlpha;
@@ -36,6 +39,7 @@
     struct UIEdgeInsets _insetMargins;
 }
 
+@property(nonatomic, getter=isPerformingOrbHinting) _Bool performingOrbHinting; // @synthesize performingOrbHinting=_performingOrbHinting;
 @property(nonatomic) double panGestureStartingPosition; // @synthesize panGestureStartingPosition=_panGestureStartingPosition;
 @property(retain, nonatomic) UIPanGestureRecognizer *panGestureRecognizer; // @synthesize panGestureRecognizer=_panGestureRecognizer;
 @property(retain, nonatomic) UIViewFloatAnimatableProperty *targetPositionAnimatableProperty; // @synthesize targetPositionAnimatableProperty=_targetPositionAnimatableProperty;
@@ -59,6 +63,10 @@
 - (void).cxx_destruct;
 - (void)traitCollectionDidChange:(id)arg1;
 - (_Bool)adjustForContentSizeCategoryChange;
+- (_Bool)_shouldPerformClipping;
+- (void)_resetClipping;
+- (void)_setupClipping;
+- (void)_configureClippingIfNecessary;
 - (void)_performSideSwipeHintingHideAnimation;
 - (void)_performSideSwipeHintingRevealAnimation;
 - (void)_performSideSwipeHinting;
@@ -79,6 +87,8 @@
 - (void)_performDefaultActionForRight;
 - (void)_performDefaultActionForLeft;
 - (void)_resetRevealOverrides;
+- (void)notificationViewControllerDidEndUserInteraction:(id)arg1;
+- (void)notificationViewControllerWillBeginUserInteraction:(id)arg1;
 - (void)_updateTargetPosition:(double)arg1;
 - (void)_setupContentOffsetFloatAnimatableProperty;
 - (double)_actionButtonTriggerDistanceForView:(id)arg1;
@@ -91,6 +101,7 @@
 - (void)_handlePanGesture:(id)arg1;
 - (void)_removePanGestureRecognizer;
 - (void)_setupPanGestureRecognizer;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)hintSideSwipeForDefaultAction;
 - (void)applyLayoutAttributes:(id)arg1;
 - (_Bool)_disableRasterizeInAnimations;

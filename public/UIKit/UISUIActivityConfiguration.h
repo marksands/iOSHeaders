@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSUUID *_activityUUID;
     long long _activityCategory;
     NSString *_activityType;
+    NSString *_fallbackActivityType;
     long long _defaultSortGroup;
     unsigned long long _indexInApplicationDefinedActivities;
     NSString *_overrideTitle;
@@ -42,6 +43,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) long long defaultSortGroup; // @synthesize defaultSortGroup=_defaultSortGroup;
 @property(readonly, nonatomic) _Bool activitySupportsPromiseURLs; // @synthesize activitySupportsPromiseURLs=_activitySupportsPromiseURLs;
 @property(readonly, nonatomic) struct CGSize preferredThumbnailSize; // @synthesize preferredThumbnailSize=_preferredThumbnailSize;
+@property(readonly, nonatomic) NSString *fallbackActivityType; // @synthesize fallbackActivityType=_fallbackActivityType;
 @property(readonly, nonatomic) NSString *activityType; // @synthesize activityType=_activityType;
 @property(readonly, nonatomic) long long activityCategory; // @synthesize activityCategory=_activityCategory;
 @property(readonly, nonatomic) NSUUID *activityUUID; // @synthesize activityUUID=_activityUUID;

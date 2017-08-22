@@ -15,6 +15,7 @@
     NSBundle *_bundle;
     NSString *_assetStoreName;
     NSCache *_lookupCache;
+    NSCache *_negativeCache;
     unsigned int _purgeWhenFinished:1;
     unsigned int _fileHasDisplayGamutInKeySpace:2;
     unsigned int _reserved:28;
@@ -30,6 +31,7 @@
 + (id)defaultUICatalog;
 + (_Bool)isValidAssetStorageWithURL:(id)arg1;
 + (_Bool)isValidLCRWithBytes:(const void *)arg1 length:(unsigned long long)arg2;
+- (id)negativeCache;
 - (id)lookupCache;
 - (void)clearCachedImageResources;
 - (id)debugDescription;

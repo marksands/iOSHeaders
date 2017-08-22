@@ -29,6 +29,7 @@
 + (void)configureSlider:(id)arg1 thumbView:(id)arg2 loadedTrackView:(id)arg3;
 + (void)applySecondaryGlyphTintToView:(id)arg1;
 + (void)applyPrimaryGlyphTintToView:(id)arg1;
++ (void)removeAllFiltersFromView:(id)arg1;
 + (void)applyPlusLFilterToView:(id)arg1;
 @property(retain, nonatomic) NSArray *secondaryMaterialOverlayViewConstraints; // @synthesize secondaryMaterialOverlayViewConstraints=_secondaryMaterialOverlayViewConstraints;
 @property(retain, nonatomic) UIView *secondaryMaterialOverlayView; // @synthesize secondaryMaterialOverlayView=_secondaryMaterialOverlayView;

@@ -43,7 +43,7 @@
 - (void)requestDataSync;
 - (void)_receivedHomeDataFromSourceVersion:(id)arg1;
 - (void)receivedHomeDataFromSourceVersion:(id)arg1;
-- (void)_requestDataFromResident:(id)arg1;
+- (void)_requestDataFromResident:(id)arg1 currentUser:(id)arg2;
 - (void)_startRequestForDataSync;
 - (void)_evaluateNeedForSync;
 - (void)reevaluateNeedForSync;

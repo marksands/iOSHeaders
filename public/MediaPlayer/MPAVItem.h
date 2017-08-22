@@ -60,6 +60,7 @@
     _Bool _shouldPreventPlayback;
     _Bool _allowsAirPlayFromCloud;
     _Bool _allowsExternalPlayback;
+    _Bool _requiresLoadedAssetForAirPlayProperties;
     _Bool _hasFinishedDownloading;
     _Bool _hasPerformedErrorResolution;
     float _currentPlaybackRate;
@@ -91,6 +92,7 @@
 @property(nonatomic) _Bool hasPerformedErrorResolution; // @synthesize hasPerformedErrorResolution=_hasPerformedErrorResolution;
 @property(readonly, nonatomic) _Bool hasFinishedDownloading; // @synthesize hasFinishedDownloading=_hasFinishedDownloading;
 @property(readonly, copy, nonatomic) NSString *aggregateDictionaryItemIdentifier; // @synthesize aggregateDictionaryItemIdentifier=_aggregateDictionaryItemIdentifier;
+@property(readonly, nonatomic) _Bool requiresLoadedAssetForAirPlayProperties; // @synthesize requiresLoadedAssetForAirPlayProperties=_requiresLoadedAssetForAirPlayProperties;
 @property(readonly, nonatomic) _Bool allowsExternalPlayback; // @synthesize allowsExternalPlayback=_allowsExternalPlayback;
 @property(readonly, nonatomic) _Bool allowsAirPlayFromCloud; // @synthesize allowsAirPlayFromCloud=_allowsAirPlayFromCloud;
 @property(readonly, nonatomic) MPModelGenericObject *modelGenericObject; // @synthesize modelGenericObject=_modelGenericObject;
@@ -158,6 +160,7 @@
 - (void)_loadAssetProperties;
 - (double)_playableDurationForLoadedTimeRanges:(id)arg1;
 - (id)_seekableTimeRanges;
+- (void)_loadAvailableMediaCharacteristicsIfNeeded;
 - (id)_initialPlaybackStartTimeForPlaybackInfo:(id)arg1;
 - (void)_likedStateDidChange;
 - (id)_currentContentItemDeviceSpecificUserInfo;

@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
 - (void)setExpectedAccessQueue:(id)arg1;
 - (id)initWithContentsOfURL:(id)arg1 error:(id *)arg2;
 - (id)initWithError:(id *)arg1;
-- (id)initWithStoreNoCopy:(struct Store *)arg1;
+-     // Error parsing type: @24@0:8^{Store=@@B{array<unsigned int, 64>=[64I]}{atomic<long long>=Aq}{atomic<long long>=Aq}}16, name: initWithStoreNoCopy:
 - (id)init;
 
 @end

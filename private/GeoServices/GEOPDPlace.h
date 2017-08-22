@@ -68,6 +68,7 @@
 @property(nonatomic) _Bool hasMuid;
 - (id)compactDebugDescription;
 - (_Bool)isCacheable;
+- (id)cacheKey;
 - (_Bool)statusCodeIsValid;
 - (void)setFirstSeenTimestamp:(double)arg1;
 - (id)copyWithStrippedOptionalData;

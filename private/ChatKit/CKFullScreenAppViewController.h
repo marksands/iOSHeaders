@@ -83,6 +83,7 @@
 - (void)animateBrowserViewToTargetRect:(struct CGRect)arg1 grabberView:(id)arg2 switcherFooterView:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)animateBrowserViewFromSourceRect:(struct CGRect)arg1 interactive:(_Bool)arg2 grabberView:(id)arg3 switcherFooterView:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (struct CGRect)finalContentViewFrame;
+- (double)footerHeight;
 - (void)updateFooterViewFrame;
 - (void)viewDidLayoutSubviews;
 - (void)loadView;

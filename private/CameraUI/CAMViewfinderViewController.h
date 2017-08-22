@@ -728,6 +728,7 @@
 - (void)_createBurstIndicatorViewIfNecessary;
 - (void)_createFlipButtonIfNecessary;
 - (void)_createPortraitModeDescriptionOverlayViewIfNecessary;
+- (void)_updatePortraitModeInstructionLabelForCurrentState;
 - (void)_createPortraitModeInstructionLabelIfNecessary;
 - (void)_createShallowDepthOfFieldBadgeIfNecessary;
 - (void)_createLivePhotoBadgeIfNecessary;

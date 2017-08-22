@@ -34,14 +34,15 @@ __attribute__((visibility("hidden")))
 - (void)startOperation:(id)arg1 toFetchDefaultContainerForBundleIdentifier:(id)arg2 englishName:(id)arg3 inDomainIdentifier:(id)arg4 reply:(CDUnknownBlockType)arg5;
 - (void)startOperation:(id)arg1 toFetchItemID:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)startOperation:(id)arg1 toFetchParentForItem:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)startOperation:(id)arg1 toCreateFolderWithName:(id)arg2 underParent:(id)arg3 bounceOnCollision:(_Bool)arg4 bounceIndex:(unsigned long long)arg5 reply:(CDUnknownBlockType)arg6;
 - (void)startOperation:(id)arg1 toCreateFolderWithName:(id)arg2 underParent:(id)arg3 bounceOnCollision:(_Bool)arg4 reply:(CDUnknownBlockType)arg5;
 - (void)startOperation:(id)arg1 toDeleteItems:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)startOperation:(id)arg1 toRenameItem:(id)arg2 toNewName:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)startOperation:(id)arg1 toReparentItems:(id)arg2 underParent:(id)arg3 shouldBounce:(_Bool)arg4 reply:(CDUnknownBlockType)arg5;
-- (void)_reparentItem:(id)arg1 underParent:(id)arg2 withNewName:(id)arg3 shouldBounce:(_Bool)arg4 reply:(CDUnknownBlockType)arg5;
+- (void)_reparentItem:(id)arg1 underParent:(id)arg2 withNewName:(id)arg3 shouldBounce:(_Bool)arg4 bounceIndex:(unsigned long long)arg5 reply:(CDUnknownBlockType)arg6;
 - (void)startOperation:(id)arg1 toImportDocumentsAtURLs:(id)arg2 withSandboxExtensions:(id)arg3 lastUsedDates:(id)arg4 intoFolderWithIdentifier:(id)arg5 bounceOnCollision:(_Bool)arg6 reply:(CDUnknownBlockType)arg7;
-- (void)_importDocumentAtURL:(id)arg1 intoFolderWithIdentifier:(id)arg2 bounceOnCollision:(_Bool)arg3 reply:(CDUnknownBlockType)arg4;
-- (id)_bounceFilenameAtURL:(id)arg1 error:(id *)arg2;
+- (void)_importDocumentAtURL:(id)arg1 intoFolderWithIdentifier:(id)arg2 bounceOnCollision:(_Bool)arg3 originalName:(id)arg4 bounceIndex:(unsigned long long)arg5 reply:(CDUnknownBlockType)arg6;
+- (id)_bounceURL:(id)arg1 originalName:(id)arg2 bounceIndex:(unsigned long long)arg3 error:(id *)arg4;
 - (id)_servicesForServiceNames:(id)arg1 itemID:(id)arg2;
 - (void)fetchSupportedServicesForItemID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchSupportedServicesForDocumentAtURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

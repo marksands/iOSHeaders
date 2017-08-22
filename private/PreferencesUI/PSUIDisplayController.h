@@ -33,8 +33,6 @@
 - (void)handleBrightnessChangedNotification:(id)arg1;
 - (void)setBacklightValue:(id)arg1 specifier:(id)arg2;
 - (id)backlightValue:(id)arg1;
-- (void)setAutoBrightness:(id)arg1 specifier:(id)arg2;
-- (id)autoBrightness:(id)arg1;
 - (void)_cleanupTransactionRef;
 - (id)boldTextEnabledForSpecifier:(id)arg1;
 - (void)setBoldTextEnabled:(id)arg1 specifier:(id)arg2;

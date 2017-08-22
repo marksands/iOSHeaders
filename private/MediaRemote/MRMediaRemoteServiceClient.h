@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class MRAVRoutingClientController, MRNotificationClient, NSArray, NSMutableArray;
+@class MRAVRoutingClientController, MRNotificationClient, NSArray, NSMutableArray, NSString;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     MRAVRoutingClientController *_routingClientController;
     void *_activePlayerPath;
     int _notifyRestoreClientStateForLaunch;
+    NSString *_preparedBundleID;
     struct MRMediaRemoteService *_service;
     MRNotificationClient *_notificationClient;
 }
@@ -29,7 +30,9 @@ __attribute__((visibility("hidden")))
 - (void)unregisterAllOriginsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)unregisterOrigin:(void *)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)registerOrigin:(void *)arg1 withCompletion:(CDUnknownBlockType)arg2;
+@property(copy, nonatomic) NSString *preparedBundleID;
 @property(nonatomic) void *activePlayerPath;
+- (void)_onQueue_setActivePlayerPath:(void *)arg1;
 @property(readonly, nonatomic) NSArray *registeredOrigins;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *playbackQueueDispatchQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workerSerialQueue;

@@ -49,6 +49,7 @@
     unsigned int _hasDelayedCurrentTimeToSet:1;
     unsigned int _forceDelayedCurrentTimeToSet:1;
     double _delayedCurrentTimeToSet;
+    CDStruct_1b6d18a9 _pendingCurrentTime;
     long long _delayedCurrentTimeOptions;
     unsigned long long _lastSetTimeMarker;
     double _temporaryChapterTime;
@@ -57,6 +58,7 @@
     _Bool _autoPlayBackgroundTaskAssertionEnabled;
     long long _autoPlayBackgroundTaskCount;
     unsigned long long _autoPlayBackgroundTaskIdentifier;
+    NSObject<OS_dispatch_source> *_autoPlayTimeoutSource;
     double _nextFadeOutDuration;
     _Bool _hasPendingRate;
     _Bool _hasSentTracePlaybackStartDidFinish;
@@ -152,6 +154,7 @@
 - (void).cxx_destruct;
 @property(nonatomic) _Bool closedCaptioningEnabled;
 - (void)_verifyShouldContinuePlayback;
+- (void)_updateCurrentItemDurationSnapshotWithPlayerTime:(CDStruct_1b6d18a9)arg1;
 - (void)_resumePlaybackIfNecessary;
 - (void)_pausePlaybackIfNecessaryIgnoringVideoLayerAttachment:(_Bool)arg1;
 - (void)_pausePlaybackIfNecessary;

@@ -8,11 +8,12 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOVersionManifest, NSMutableArray, NSString;
+@class GEOVersionManifest, NSMutableArray, NSString, PBUnknownFields;
 
 __attribute__((visibility("hidden")))
 @interface GEOResources : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_abExperimentURL;
     NSString *_addressCorrectionInitURL;
     NSString *_addressCorrectionUpdateURL;
@@ -137,6 +138,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableArray *tileSets; // @synthesize tileSets=_tileSets;
 @property(retain, nonatomic) NSMutableArray *tileGroups; // @synthesize tileGroups=_tileGroups;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

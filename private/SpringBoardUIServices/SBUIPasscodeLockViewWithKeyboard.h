@@ -30,7 +30,7 @@
 @property(retain, nonatomic) UILabel *statusSubtitleView; // @synthesize statusSubtitleView=_statusSubtitleView;
 @property(retain, nonatomic) UILabel *statusField; // @synthesize statusField=_statusField;
 - (void).cxx_destruct;
-- (void)_keyboardWillHideNotification:(id)arg1;
+- (void)_keyboardDidHideNotification:(id)arg1;
 - (void)_keyboardWillShowNotification:(id)arg1;
 - (void)_keyboardWillChangeFrameNotification:(id)arg1;
 - (void)_updateKeyboardHeightOffsetForKeyboardNotification:(id)arg1;
@@ -69,7 +69,6 @@
 - (void)layoutSubviews;
 - (void)_setKeyboardTracksLockView:(_Bool)arg1;
 - (id)_viewForKeyboardTracking;
-- (void)updateForTransitionToPasscodeView:(_Bool)arg1;
 - (void)setShowsStatusField:(_Bool)arg1;
 - (void)setShowsEmergencyCallButton:(_Bool)arg1;
 - (id)passcode;

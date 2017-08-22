@@ -19,6 +19,7 @@
 - (void).cxx_destruct;
 - (void)cancel;
 - (void)execute;
+- (void)performRequestWithResponseHandler:(CDUnknownBlockType)arg1;
 - (id)initWithRequestContext:(id)arg1 downloadIdentifier:(id)arg2 songID:(unsigned long long)arg3;
 
 @end

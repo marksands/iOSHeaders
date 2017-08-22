@@ -68,6 +68,7 @@
 - (void)_fadeToCurtainViewWithDuration:(double)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_hideCurtainView;
 - (void)_showCurtainView;
+- (void)_backlightWillTurnOff;
 - (void)_handleScreenWake;
 - (void)_handleOrdinaryScreenWake;
 - (void)_handleWristRaiseScreenWake;

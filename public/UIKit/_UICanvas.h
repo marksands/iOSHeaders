@@ -16,6 +16,7 @@
 @interface _UICanvas : UIResponder <UICoordinateSpace, FBSSceneDelegate, _UICanvasLifecycleStateMonitoring>
 {
     _UIContextBinder *_binder;
+    UIScreen *_screen;
     __UISceneSubstrate *_sceenSubstrate;
     _UICanvas *_settingsCanvas;
     FBSSceneSettings *_overrideSettings;
@@ -95,6 +96,7 @@
 - (void)_willResignActive;
 - (void)_didBecomeActive;
 @property(nonatomic, getter=_isActive, setter=_setIsActive:) _Bool active;
+- (void)_invalidateScreen;
 @property(readonly, nonatomic) UIScreen *screen;
 @property(readonly, nonatomic) NSArray *_visibleWindows;
 @property(readonly, nonatomic) NSArray *windows;

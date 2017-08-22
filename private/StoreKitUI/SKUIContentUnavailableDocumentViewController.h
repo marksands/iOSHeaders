@@ -29,7 +29,7 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewWillLayoutSubviews;
 - (void)viewWillAppear:(_Bool)arg1;
-- (void)loadView;
+- (void)viewDidLoad;
 - (void)documentDidUpdate:(id)arg1;
 - (void)dealloc;
 - (id)initWithTemplateElement:(id)arg1;

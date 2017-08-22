@@ -36,8 +36,7 @@
 - (long long)comparePriority:(id)arg1;
 - (long long)compareFactoringInSpeed:(id)arg1 speed:(double)arg2;
 - (long long)compare:(id)arg1;
-- (_Bool)isEqualToGEOComposedGuidanceEvent:(id)arg1;
-- (_Bool)isEqual:(id)arg1;
+- (_Bool)_MapsCarPlay_isEqual:(id)arg1;
 - (double)desiredTimeGapToEvent:(id)arg1 chained:(_Bool)arg2;
 - (double)triggerDistanceForSpeed:(double)arg1 andDuration:(CDUnknownBlockType)arg2;
 - (double)endDistanceForSpeed:(double)arg1;

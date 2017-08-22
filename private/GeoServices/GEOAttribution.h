@@ -8,11 +8,12 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSString, PBUnknownFields;
 
 __attribute__((visibility("hidden")))
 @interface GEOAttribution : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     struct GEOTileSetRegion *_regions;
     unsigned long long _regionsCount;
     unsigned long long _regionsSpace;
@@ -37,6 +38,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *logo; // @synthesize logo=_logo;
 @property(retain, nonatomic) NSString *badge; // @synthesize badge=_badge;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

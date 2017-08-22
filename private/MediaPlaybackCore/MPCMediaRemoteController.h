@@ -49,6 +49,7 @@
 @property(readonly, nonatomic) long long playbackStateCacheState; // @synthesize playbackStateCacheState=_playbackStateCacheState;
 - (id)_legacyCommands;
 - (void)_onQueue_invalidateArtworkFuturesForContentItemID:(id)arg1;
+- (void)_onQueue_updateOptimisticElapsedTimeForContentItem:(id)arg1 elapsedTime:(double)arg2 rate:(float)arg3;
 - (void)_onQueue_updateOptimisticStateForCommand:(unsigned int)arg1 options:(id)arg2;
 - (void)_onQueue_setOptimisticPlaybackPositionWithOptions:(id)arg1;
 - (void)_onQueue_setOptimisticPlaybackState:(unsigned int)arg1 withOptions:(id)arg2;

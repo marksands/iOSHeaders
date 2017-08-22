@@ -13,12 +13,14 @@
     NSString *_prompt;
     long long _minimumNumberOfCredentialsToShowLikelyMatchesSection;
     CDUnknownBlockType _completionHandler;
+    _Bool _shouldDismissOnCompletion;
     _Bool _forUserNamesOnly;
     NSArray *_hintStrings;
 }
 
 + (_Bool)_preventsAppearanceProxyCustomization;
 @property(readonly, nonatomic) _Bool forUserNamesOnly; // @synthesize forUserNamesOnly=_forUserNamesOnly;
+@property(nonatomic) _Bool shouldDismissOnCompletion; // @synthesize shouldDismissOnCompletion=_shouldDismissOnCompletion;
 @property(readonly, nonatomic) long long minimumNumberOfCredentialsToShowLikelyMatchesSection; // @synthesize minimumNumberOfCredentialsToShowLikelyMatchesSection=_minimumNumberOfCredentialsToShowLikelyMatchesSection;
 @property(readonly, copy, nonatomic) NSArray *hintStrings; // @synthesize hintStrings=_hintStrings;
 @property(readonly, copy, nonatomic) NSString *prompt; // @synthesize prompt=_prompt;
@@ -27,7 +29,7 @@
 - (void)_pickSavedPassword:(id)arg1;
 - (void)_cancel;
 - (void)dealloc;
-- (id)initWithPrompt:(id)arg1 forUserNamesOnly:(_Bool)arg2 hintStrings:(id)arg3 minimumNumberOfCredentialsToShowLikelyMatchesSection:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (id)initWithPrompt:(id)arg1 forUserNamesOnly:(_Bool)arg2 hintStrings:(id)arg3 minimumNumberOfCredentialsToShowLikelyMatchesSection:(long long)arg4 shouldDismissOnCompletion:(_Bool)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (id)initWithPrompt:(id)arg1 forUserNamesOnly:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 @end

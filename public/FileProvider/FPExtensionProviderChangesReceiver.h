@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     NSDictionary *_providersByID;
     FPItemCollection *_localStorageCollection;
     int _notifyToken;
+    int _settingsChangedToken;
     CDUnknownBlockType _changesHandler;
     NSString *_identifier;
 }

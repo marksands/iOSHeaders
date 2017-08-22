@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSArray, NSMutableArray, NSUUID, NSUndoManager, PKDrawing, PKInternalDrawingView, PKModifyStrokesCommand, UIView;
+@class NSArray, NSUUID, NSUndoManager, PKDrawing, PKInternalDrawingView, PKModifyStrokesCommand, UIView;
 
 @protocol PKSelectionDelegate
 - (void)resetSelectedStrokeStateForRenderer;
@@ -19,7 +19,7 @@
 - (PKDrawing *)drawingForUUID:(NSUUID *)arg1;
 - (_Bool)containsDrawingUUID:(NSUUID *)arg1;
 - (struct CGPoint)pointInStrokeSpace:(struct CGPoint)arg1 inDrawing:(PKDrawing *)arg2;
-- (void)selectionRefreshWithChangeToDrawings:(NSMutableArray *)arg1;
+- (void)selectionRefreshWithChangeToDrawings:(NSArray *)arg1;
 - (UIView *)selectionTopView;
 - (void)scrollContent:(struct CGPoint)arg1;
 - (void)toggleSelectedStrokes:(NSArray *)arg1 hide:(_Bool)arg2 inDrawing:(PKDrawing *)arg3;

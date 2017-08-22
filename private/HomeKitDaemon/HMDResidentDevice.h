@@ -24,7 +24,6 @@
     HMDDevice *_device;
     long long _batteryState;
     HMDHome *_home;
-    unsigned long long _capabilities;
     HMDResidentDeviceManager *_residentDeviceManager;
 }
 
@@ -33,7 +32,6 @@
 + (id)batteryStateAsString:(long long)arg1;
 + (id)shortDescription;
 @property(nonatomic) __weak HMDResidentDeviceManager *residentDeviceManager; // @synthesize residentDeviceManager=_residentDeviceManager;
-@property(readonly, nonatomic) unsigned long long capabilities; // @synthesize capabilities=_capabilities;
 @property(nonatomic) __weak HMDHome *home; // @synthesize home=_home;
 @property(nonatomic, getter=isLowBattery) _Bool lowBattery; // @synthesize lowBattery=_lowBattery;
 @property(nonatomic) long long batteryState; // @synthesize batteryState=_batteryState;
@@ -63,6 +61,7 @@
 @property(readonly, copy) NSString *debugDescription;
 - (id)descriptionWithPointer:(_Bool)arg1;
 - (id)shortDescription;
+@property(readonly, nonatomic) unsigned long long capabilities;
 - (id)initWithDevice:(id)arg1 home:(id)arg2;
 - (id)initWithModel:(id)arg1 residentDeviceManager:(id)arg2;
 - (id)init;

@@ -9,6 +9,7 @@
 @protocol SBUIRemoteAlertHostInterface
 - (void)setWhitePointAdaptivityStyle:(long long)arg1;
 - (void)setOrientationChangedEventsEnabled:(_Bool)arg1;
+- (void)setLaunchingInterfaceOrientation:(long long)arg1;
 - (void)setSupportedInterfaceOrientationOverride:(unsigned long long)arg1;
 - (void)setShouldDisableFadeInAnimation:(_Bool)arg1;
 - (void)setShouldDismissOnUILock:(_Bool)arg1;
@@ -25,6 +26,7 @@
 - (void)setAllowsMenuButtonDismissal:(_Bool)arg1;
 - (void)setDesiredHardwareButtonEvents:(unsigned long long)arg1;
 - (void)dismiss;
+- (void)setAllowsAlertItems:(_Bool)arg1;
 - (void)setAllowsBanners:(_Bool)arg1;
 @end
 

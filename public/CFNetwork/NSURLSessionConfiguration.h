@@ -14,6 +14,7 @@
 
 @interface NSURLSessionConfiguration : NSObject <NSSecureCoding, NSCopying>
 {
+    _Bool __allowsWCA;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -26,6 +27,7 @@
 + (id)sessionConfigurationForSharedSession;
 + (id)defaultSessionConfiguration;
 + (id)_defaultProtocolClasses;
+@property _Bool _allowsWCA; // @synthesize _allowsWCA=__allowsWCA;
 - (struct _CFHSTSPolicy *)copyHSTSPolicy;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (struct OpaqueCFHTTPCookieStorage *)_copyCFCookieStorage;
@@ -62,6 +64,7 @@
 @property(copy) id <NSURLSessionAppleIDContext> _appleIDContext; // @dynamic _appleIDContext;
 @property(copy) NSData *_atsContext; // @dynamic _atsContext;
 @property(copy) NSSet *_authenticatorStatusCodes; // @dynamic _authenticatorStatusCodes;
+@property _Bool _clientIsNotExplicitlyDiscretionary; // @dynamic _clientIsNotExplicitlyDiscretionary;
 @property _Bool _collectsTimingData; // @dynamic _collectsTimingData;
 @property(copy) NSString *_companionAppBundleIdentifier; // @dynamic _companionAppBundleIdentifier;
 @property double _connectionCacheCellPurgeTimeout; // @dynamic _connectionCacheCellPurgeTimeout;

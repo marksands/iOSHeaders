@@ -17,8 +17,10 @@ __attribute__((visibility("hidden")))
     _Bool _showRSSI;
 }
 
+- (id)accessibilityHUDRepresentation;
 - (id)_stringForRSSI;
 - (id)_dataNetworkImage;
+- (id)_dataNetworkImageName;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (id)contentsImage;
 - (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;

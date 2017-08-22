@@ -32,9 +32,9 @@
 - (void)_updatePlayer;
 @property(readonly, nonatomic, getter=isPlaying) _Bool playing;
 - (void)_update;
-- (void)_updatePlayerItem;
 - (void)statusDidChange;
 - (void)didPerformChanges;
+- (void)setPlayerItem:(id)arg1;
 
 @end
 

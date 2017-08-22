@@ -20,8 +20,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) GEOETATrafficUpdateResponse *etaTrafficUpdateResponse;
 @property(readonly, nonatomic) GEODirectionsResponse *directionsResponse;
-- (_Bool)isEqualToGEORouteInitializerData:(id)arg1;
-- (_Bool)isEqual:(id)arg1;
+- (_Bool)_MapsCarPlay_isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithETATrafficUpdateResponse:(id)arg1;

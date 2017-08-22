@@ -31,7 +31,7 @@
 - (id)randomColorWithAlpha:(double)arg1;
 - (id)description;
 - (id)fontFaceForTextDescribing:(id)arg1 inheritingFromTextStyle:(id)arg2;
-- (struct _NSRange)rangeInBounds:(struct _NSRange)arg1;
+- (struct _NSRange)rangeInBounds:(struct _NSRange)arg1 maxLength:(unsigned long long)arg2;
 @property(readonly, nonatomic) NSLocale *locale;
 - (id)attributesForTextStyle:(id)arg1 baseTextStyle:(id)arg2 onParagraphStyle:(id)arg3 forRange:(struct _NSRange)arg4 resultingDropCapStyle:(id *)arg5 textResizer:(id)arg6;
 - (id)characterStyleFromAttributes:(id)arg1 context:(id)arg2;

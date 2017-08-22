@@ -28,6 +28,7 @@
 + (id)imageWithImageData:(id)arg1;
 + (id)imageWithURL:(id)arg1 width:(double)arg2 height:(double)arg3;
 + (id)imageWithURL:(id)arg1;
++ (void)initialize;
 + (void)buildFromCachePayload:(id)arg1 identifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 @property(nonatomic, setter=_setImageSize:) CDStruct_8caa76fc _imageSize; // @synthesize _imageSize;
 @property(copy, nonatomic, setter=_setBundlePath:) NSString *_bundlePath; // @synthesize _bundlePath;
@@ -39,6 +40,9 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)_dictionaryRepresentation;
+- (id)_descriptionAtIndent:(unsigned long long)arg1;
+- (id)_description;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (id)_initWithData:(id)arg1;

@@ -21,7 +21,9 @@
 - (double)contentHeight;
 - (void)_contentSizeCategoryChanged:(id)arg1;
 - (void)_updateStackViewAxis;
-- (id)initWithGroup:(id)arg1 forChooser:(id)arg2;
+- (void)setGroup:(id)arg1;
+- (void)setChooser:(id)arg1;
+- (id)initWithReuseIdentifier:(id)arg1;
 
 @end
 

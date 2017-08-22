@@ -33,6 +33,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithAmount:(id)arg1 currency:(id)arg2;
+- (long long)compareToCurrencyCode:(id)arg1 amount:(id)arg2;
 
 @end
 

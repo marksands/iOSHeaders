@@ -15,8 +15,8 @@
     NSMapTable *_handleNameToTraceMap;
     NSMapTable *_handleNameToFenceNameMap;
     NSMapTable *_fenceNameToHandleNamesMap;
-    NSMapTable *_fenceNameToDeathWatcherMap;
-    NSHashTable *_validDeathWatchersTable;
+    NSMapTable *_fenceNameToDeathSentinelMap;
+    NSHashTable *_validDeathSentinelsTable;
     unsigned int _lastHandleName;
     unsigned int _encodeCount;
 }

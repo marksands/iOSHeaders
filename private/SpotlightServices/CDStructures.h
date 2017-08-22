@@ -45,7 +45,7 @@ struct prs_feature_population_ctx_t {
 struct prs_model_resource_header {
     unsigned int _field1;
     unsigned int _field2;
-    char _field3[16];
+    unsigned int _field3;
     unsigned char _field4[0];
 };
 

@@ -41,7 +41,7 @@
 @property(readonly, nonatomic) _Bool canDisplaySearchActionInNavigationBar;
 @property(readonly, nonatomic) _Bool shouldPlaceDeleteInCenterToolbarPosition;
 @property(readonly, nonatomic) _Bool shouldPlaceSelectAllButtonInRightNavigationBar;
-- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3 layoutMargins:(struct UIEdgeInsets)arg4;
+- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 @property(readonly, nonatomic) long long cellBannerTextAlignment;
 @property(readonly, nonatomic) long long cellFillMode;
 @property(readonly, nonatomic) int thumbnailImageFormat;

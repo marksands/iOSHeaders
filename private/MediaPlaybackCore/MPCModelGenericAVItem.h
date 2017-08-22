@@ -59,7 +59,6 @@
     MPModelGenericObject *_genericObject;
     NSData *_jingleTimedMetadata;
     MPMediaLibrary *_mediaLibrary;
-    NSNumber *_privateListeningEnabled;
     NSNumber *_siriInitiated;
     MPCPlaybackRequestEnvironment *_playbackRequestEnvironment;
     long long _stationItemLikedState;
@@ -70,7 +69,6 @@
 @property(nonatomic, getter=isRadioStreamPlayback) _Bool radioStreamPlayback; // @synthesize radioStreamPlayback=_radioStreamPlayback;
 @property(nonatomic, getter=isRadioPlayback) _Bool radioPlayback; // @synthesize radioPlayback=_radioPlayback;
 @property(copy, nonatomic, getter=isSiriInitiated) NSNumber *siriInitiated; // @synthesize siriInitiated=_siriInitiated;
-@property(copy, nonatomic, getter=isPrivateListeningEnabled) NSNumber *privateListeningEnabled; // @synthesize privateListeningEnabled=_privateListeningEnabled;
 @property(retain, nonatomic) MPMediaLibrary *mediaLibrary; // @synthesize mediaLibrary=_mediaLibrary;
 @property(readonly, copy, nonatomic) NSData *jingleTimedMetadata; // @synthesize jingleTimedMetadata=_jingleTimedMetadata;
 @property(retain, nonatomic) MPModelGenericObject *genericObject; // @synthesize genericObject=_genericObject;
@@ -94,6 +92,7 @@
 - (id)_radioStation;
 - (void)_postInvalidationNotifications;
 - (id)_modelPlaybackPosition;
+- (id)_isPrivateListeningEnabled;
 - (void)_invalidateContentItem;
 - (id)_householdID;
 - (void)_updateHasBeenPlayedWithElapsedTime:(double)arg1 completion:(CDUnknownBlockType)arg2;
@@ -106,6 +105,7 @@
 - (void)_timedMetadataResponseDidInvalidateNotification:(id)arg1;
 - (void)_suzeLeaseSessionRenewDidFailNotification:(id)arg1;
 - (void)_subscriptionLeaseStatusDidChangeNotification:(id)arg1;
+- (void)_contentTasteControllerDidChangeNotification:(id)arg1;
 - (void)nowPlayingInfoCenter:(id)arg1 lyricsForContentItem:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_reloadTimedMetadataRequest;
 - (void)metadataOutput:(id)arg1 didOutputTimedMetadataGroups:(id)arg2 fromPlayerItemTrack:(id)arg3;
@@ -136,6 +136,7 @@
 - (void)setPlaybackFinishedTime:(double)arg1;
 - (void)setPlaybackCheckpointCurrentTime:(double)arg1;
 - (void)resolvePlaybackError:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (_Bool)requiresLoadedAssetForAirPlayProperties;
 - (_Bool)allowsExternalPlayback;
 - (_Bool)allowsAirPlayFromCloud;
 - (float)userRating;
@@ -154,6 +155,7 @@
 - (long long)stationID;
 - (_Bool)stationAllowsItemLiking;
 @property(readonly, nonatomic) _Bool shouldReportPlayEventsToStore;
+- (void)setRating:(float)arg1;
 - (void)setLoudnessInfoVolumeNormalization:(float)arg1;
 - (void)reevaluateType;
 - (void)prepareForRate:(float)arg1 completionHandler:(CDUnknownBlockType)arg2;

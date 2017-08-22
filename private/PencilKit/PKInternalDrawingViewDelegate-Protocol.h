@@ -9,6 +9,7 @@
 @class PKDrawing, PKStroke, UITouch;
 
 @protocol PKInternalDrawingViewDelegate <NSObject>
+- (void)drawingCancelled;
 - (void)didFinishRenderingStroke:(PKStroke *)arg1 inDrawing:(PKDrawing *)arg2;
 - (void)willBeginDrawingWithTouch:(UITouch *)arg1;
 - (_Bool)canBeginDrawingWithTouch:(UITouch *)arg1;

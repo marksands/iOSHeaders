@@ -9,7 +9,7 @@
 #import <SceneKit/SCNCameraControllerDelegate-Protocol.h>
 #import <SceneKit/SCNEventHandler-Protocol.h>
 
-@class NSDictionary, NSLock, NSString, SCNCameraController, SCNNode, SCNView, UIGestureRecognizer;
+@class NSDictionary, NSString, SCNCameraController, SCNNode, SCNView, UIGestureRecognizer;
 @protocol SCNCameraNavigationControllerDelegate;
 
 @interface SCNCameraNavigationController : NSObject <SCNEventHandler, SCNCameraControllerDelegate>
@@ -32,6 +32,7 @@
     _Bool _isSceneBoundingSphereComputed;
     _Bool _pinchShouldMoveCamera;
     _Bool _shouldUpdateTarget;
+    _Bool _shouldIgnoreMomentumEvents;
     CDUnion_915c2b1f _sceneBoundingSphere;
     // Error parsing type: , name: _translationOrigin
     float _initialZoom;
@@ -44,6 +45,7 @@
     struct CGPoint _initialInputLocation;
     struct CGPoint _lastInputLocation;
     double _lastRotationAngle;
+    struct os_unfair_lock_s _drawAtTimeLock;
     struct {
         _Bool stickyMoveEnabled;
         unsigned long long direction__pickedAxis;
@@ -59,7 +61,7 @@
         double lastDragTime;
     } _inertia;
     struct {
-        NSLock *lock;
+        struct os_unfair_lock_s lock;
         NSDictionary *keyCodeConfiguration;
         struct set<unsigned short, std::__1::less<unsigned short>, std::__1::allocator<unsigned short>> keyDown;
         struct vector<unsigned short, std::__1::allocator<unsigned short>> forward;
@@ -116,8 +118,9 @@
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (id)gestureRecognizers;
+- (void)_stopInertia;
 - (void)cameraDidChange;
-- (void)willBeginInteraction;
+- (void)_willBeginInteraction;
 - (void)_setupUpVector;
 - (void)cameraWillChange;
 - (void)viewDidDrawAtTime:(double)arg1;

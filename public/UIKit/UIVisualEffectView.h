@@ -51,6 +51,7 @@
 - (void)_addSubview:(id)arg1 positioned:(long long)arg2 relativeTo:(id)arg3;
 - (void)viewDidMoveToSuperview;
 - (void)layoutSubviews;
+@property(nonatomic, getter=_useReducedTransparencyForContentEffects, setter=_setUseReducedTransparencyForContentEffects:) _Bool useReducedTransparencyForContentEffects;
 @property(retain, nonatomic, setter=_setMaskImage:) UIImage *_maskImage;
 - (id)_maskView;
 - (void)_setMaskView:(id)arg1;

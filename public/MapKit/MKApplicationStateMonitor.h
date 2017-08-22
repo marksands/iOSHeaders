@@ -13,7 +13,6 @@
     BKSApplicationStateMonitor *_appStateMonitor;
     _Bool _inBackground;
     _Bool _active;
-    _Bool _lastOccludedState;
     unsigned long long _observerCount;
     _Bool _forceBackboardServicesMonitoring;
 }
@@ -24,9 +23,9 @@
 @property(readonly, nonatomic, getter=isInBackground) _Bool inBackground; // @synthesize inBackground=_inBackground;
 - (void).cxx_destruct;
 - (void)stopObserving;
+- (void)_performSynchronouslyOnMainQueue:(CDUnknownBlockType)arg1;
 - (void)_handleApplicationStateChange:(id)arg1 interestedPID:(int)arg2;
 - (void)startObserving;
-- (void)_sceneOcclusionChanged:(id)arg1;
 - (void)_resignActive;
 - (void)_becomeActive;
 - (void)_exitBackground;

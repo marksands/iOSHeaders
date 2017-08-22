@@ -56,6 +56,7 @@
 - (id)_fetchCustomActivitiesForURL:(id)arg1 title:(id)arg2;
 - (void)remoteViewController:(id)arg1 fetchActivityViewControllerInfoForURL:(id)arg2 title:(id)arg3;
 - (void)remoteViewController:(id)arg1 viewServiceDidTerminateWithError:(id)arg2;
+- (void)viewWillLayoutSubviews;
 - (void)remoteViewControllerWillDismiss:(id)arg1;
 - (void)remoteViewControllerDidLoadWebView:(id)arg1;
 - (void)_addRemoteViewControllerIfNeeded;

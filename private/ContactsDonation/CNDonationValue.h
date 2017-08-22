@@ -29,6 +29,7 @@
 - (void)acceptDonationValueVisitor:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)copyWithNewExpirationDate:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithOrigin:(id)arg1;

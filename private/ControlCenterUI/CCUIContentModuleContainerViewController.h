@@ -6,17 +6,17 @@
 
 #import <UIKit/UIViewController.h>
 
+#import <ControlCenterUI/CCUISafeAppearancePropagationProvider-Protocol.h>
 #import <ControlCenterUI/UIGestureRecognizerDelegate-Protocol.h>
 #import <ControlCenterUI/UIPreviewInteractionDelegatePrivate-Protocol.h>
 
 @class CCUIContentModuleBackgroundView, CCUIContentModuleContainerView, CCUIContentModuleContentContainerView, NSArray, NSString, UIPreviewInteraction, UITapGestureRecognizer, UIView;
 @protocol CCUIContentModule, CCUIContentModuleContainerViewControllerDelegate, CCUIContentModuleContentViewController;
 
-@interface CCUIContentModuleContainerViewController : UIViewController <UIPreviewInteractionDelegatePrivate, UIGestureRecognizerDelegate>
+@interface CCUIContentModuleContainerViewController : UIViewController <UIPreviewInteractionDelegatePrivate, UIGestureRecognizerDelegate, CCUISafeAppearancePropagationProvider>
 {
     _Bool _expanded;
     _Bool _contentModuleProvidesOwnPlatter;
-    _Bool _forwardAppearState;
     NSString *_moduleIdentifier;
     id <CCUIContentModuleContainerViewControllerDelegate> _delegate;
     NSArray *_topLevelBlockingGestureRecognizers;
@@ -33,7 +33,6 @@
     struct UIEdgeInsets _expandedContentEdgeInsets;
 }
 
-@property(nonatomic, getter=shouldForwardAppearState) _Bool forwardAppearState; // @synthesize forwardAppearState=_forwardAppearState;
 @property(retain, nonatomic) UIPreviewInteraction *previewInteraction; // @synthesize previewInteraction=_previewInteraction;
 @property(retain, nonatomic) UITapGestureRecognizer *tapRecognizer; // @synthesize tapRecognizer=_tapRecognizer;
 @property(retain, nonatomic) UIView *maskView; // @synthesize maskView=_maskView;
@@ -51,6 +50,7 @@
 @property(nonatomic) struct UIEdgeInsets expandedContentEdgeInsets; // @synthesize expandedContentEdgeInsets=_expandedContentEdgeInsets;
 @property(copy, nonatomic) NSString *moduleIdentifier; // @synthesize moduleIdentifier=_moduleIdentifier;
 - (void).cxx_destruct;
+- (_Bool)_shouldApplyBackgroundEffects;
 - (void)_configureForContentModuleGroupRenderingIfNecessary;
 - (void)_configureMaskViewIfNecessary;
 - (struct CGRect)_contentBoundsForTransitionProgress:(double)arg1;
@@ -74,10 +74,6 @@
 - (void)_addTopLevelGestureRecognizersFromViewAndSubviews:(id)arg1 toGestureRecognizers:(id)arg2 blockingGestureRecognizers:(id)arg3;
 - (void)_findTopLevelGestureRecognizersForView:(id)arg1 installOnView:(id)arg2;
 - (void)loadView;
-- (void)viewDidDisappear:(_Bool)arg1;
-- (void)viewWillDisappear:(_Bool)arg1;
-- (void)viewDidAppear:(_Bool)arg1;
-- (void)viewWillAppear:(_Bool)arg1;
 - (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 - (void)willResignActive;
 - (void)willBecomeActive;
@@ -85,8 +81,8 @@
 @property(readonly, nonatomic) CCUIContentModuleContainerView *moduleContainerView;
 - (void)_closeExpandedModule;
 - (void)_dismissModulePresentedContentAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)dismissPresentedContent;
-- (void)closeModule;
+- (void)dismissPresentedContentAnimated:(_Bool)arg1;
+- (void)dismissExpandedModuleAnimated:(_Bool)arg1;
 - (void)expandModule;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithCoder:(id)arg1;
@@ -94,6 +90,7 @@
 - (id)initWithModuleIdentifier:(id)arg1 contentModule:(id)arg2;
 
 // Remaining properties
+@property(readonly, nonatomic) NSArray *childViewControllersForAppearancePropagation;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

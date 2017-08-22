@@ -11,10 +11,10 @@
 @interface NSTextAttachmentViewProvider : NSObject
 {
     UIView *_view;
+    unsigned long long _characterIndex;
     _Bool _tracksTextAttachmentViewBounds;
     NSTextAttachment *_textAttachment;
     NSLayoutManager *_layoutManager;
-    unsigned long long _characterIndex;
 }
 
 @property(readonly) unsigned long long characterIndex; // @synthesize characterIndex=_characterIndex;

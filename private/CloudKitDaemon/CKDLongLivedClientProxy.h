@@ -12,6 +12,7 @@
 
 + (id)longLivedProxyWithContext:(id)arg1;
 + (id)_sharedLongLivedProxyForContext:(id)arg1;
++ (void)clearCachedLongLivedProxies;
 + (id)sharedLongLivedProxies;
 - (void)_handleCompletionForOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)_handleProgressForOperation:(id)arg1 withArguments:(id)arg2;

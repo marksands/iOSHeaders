@@ -48,7 +48,6 @@
     NSArray *_hiddenSourcesIdentifiers;
     unsigned long long _maximumNumberOfItemsToFetch;
     unsigned long long _maximumNumberOfRows;
-    unsigned long long _targetSelectionBrowserMode;
     unsigned long long _browserViewContext;
     NSString *_roleIdentifier;
     NSArray *_forbiddenActionIdentifiers;
@@ -66,7 +65,6 @@
 @property(retain) NSArray *forbiddenActionIdentifiers; // @synthesize forbiddenActionIdentifiers=_forbiddenActionIdentifiers;
 @property(copy, nonatomic) NSString *roleIdentifier; // @synthesize roleIdentifier=_roleIdentifier;
 @property unsigned long long browserViewContext; // @synthesize browserViewContext=_browserViewContext;
-@property unsigned long long targetSelectionBrowserMode; // @synthesize targetSelectionBrowserMode=_targetSelectionBrowserMode;
 @property _Bool onlyShowiCloudDrive; // @synthesize onlyShowiCloudDrive=_onlyShowiCloudDrive;
 @property _Bool showLocationPopover; // @synthesize showLocationPopover=_showLocationPopover;
 @property _Bool useExpandedSourceList; // @synthesize useExpandedSourceList=_useExpandedSourceList;
@@ -94,7 +92,7 @@
 @property _Bool neverCreateBookmarkForOpenInPlace; // @synthesize neverCreateBookmarkForOpenInPlace=_neverCreateBookmarkForOpenInPlace;
 @property _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
 @property _Bool forPickingDocuments; // @synthesize forPickingDocuments=_forPickingDocuments;
-@property(copy) NSString *hostIdentifier; // @synthesize hostIdentifier=_hostIdentifier;
+@property(copy, nonatomic) NSString *hostIdentifier; // @synthesize hostIdentifier=_hostIdentifier;
 @property(retain) NSArray *urls; // @synthesize urls=_urls;
 @property(copy, nonatomic) NSArray *excludedDocumentTypes; // @synthesize excludedDocumentTypes=_excludedDocumentTypes;
 @property _Bool inProcess; // @synthesize inProcess=_inProcess;

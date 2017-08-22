@@ -42,6 +42,7 @@
 @property(readonly, nonatomic) NSString *webServiceSessionMarker;
 - (void)URLSession:(id)arg1 didReceiveChallenge:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)URLSession:(id)arg1 didBecomeInvalidWithError:(id)arg2;
+- (void)URLSession:(id)arg1 taskIsWaitingForConnectivity:(id)arg2;
 - (void)URLSession:(id)arg1 task:(id)arg2 willPerformHTTPRedirection:(id)arg3 newRequest:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (_Bool)_trustPassesExtendedValidation:(struct __SecTrust *)arg1;
 - (id)forbiddenErrorWithResponse:(id)arg1;

@@ -24,10 +24,10 @@
 - (void)_startObservingPowerSavingModeSetting;
 - (void)_queue_disablePowerSavingIfNeeded;
 - (void)_queue_enablePowerSavingIfNeeded;
-- (void)queue_workoutPausedOrEnded;
-- (void)queue_workoutStartedOrResumed;
+- (void)workoutPausedOrEnded;
+- (void)workoutStartedOrResumed;
 - (void)dealloc;
-- (id)initWithQueue:(id)arg1;
+- (id)init;
 
 @end
 

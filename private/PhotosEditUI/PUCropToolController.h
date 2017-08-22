@@ -124,6 +124,7 @@
 - (void)_installRenderedImageAndDisplayIfNeeded;
 - (void)animateBecomingActiveTool;
 - (void)willBecomeActiveTool;
+- (_Bool)canBecomeActiveTool;
 - (void)setLayoutOrientation:(long long)arg1 withTransitionCoordinator:(id)arg2;
 - (void)_setContentViewsHidden:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_setContentViewsHidden:(_Bool)arg1 animated:(_Bool)arg2;

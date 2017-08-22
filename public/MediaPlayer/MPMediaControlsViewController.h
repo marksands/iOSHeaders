@@ -11,12 +11,14 @@
 #import <MediaPlayer/UIViewControllerTransitioningDelegate-Protocol.h>
 
 @class MPMediaControlsConfiguration, MPMediaControlsRemoteViewController, MTMaterialView, NSString, UIVisualEffectView, _UIAsyncInvocation;
+@protocol MPMediaControlsViewControllerDelegate;
 
 @interface MPMediaControlsViewController : UIViewController <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, MPMediaControlsClientController>
 {
     _UIAsyncInvocation *_cancelRequest;
     _Bool _hasPresented;
     CDUnknownBlockType _didDismissHandler;
+    id <MPMediaControlsViewControllerDelegate> _delegate;
     MPMediaControlsRemoteViewController *_remoteViewController;
     MTMaterialView *_backgroundView;
     UIVisualEffectView *_zoomBackgroundView;
@@ -27,6 +29,7 @@
 @property(retain, nonatomic) UIVisualEffectView *zoomBackgroundView; // @synthesize zoomBackgroundView=_zoomBackgroundView;
 @property(retain, nonatomic) MTMaterialView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) MPMediaControlsRemoteViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
+@property(nonatomic) __weak id <MPMediaControlsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) CDUnknownBlockType didDismissHandler; // @synthesize didDismissHandler=_didDismissHandler;
 - (void).cxx_destruct;
 - (void)_requestRemoteViewController;
@@ -40,6 +43,7 @@
 - (id)animationControllerForDismissedController:(id)arg1;
 - (id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3;
 - (void)tapGestureRecognized:(id)arg1;
+- (void)didReceiveInteraction;
 - (void)dismiss;
 - (_Bool)prefersStatusBarHidden;
 - (void)viewDidDisappear:(_Bool)arg1;

@@ -15,6 +15,7 @@
 - (_Bool)allowsEditingTextAttributes;
 
 @optional
+- (struct _NSRange)_visibleRangeWithLayout:(_Bool)arg1;
 - (_Bool)_shouldObscureInput;
 - (void)performCancelAnimations;
 - (void)didGenerateCancelPreview:(id)arg1;

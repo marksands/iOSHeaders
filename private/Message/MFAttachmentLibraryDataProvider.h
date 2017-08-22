@@ -4,22 +4,30 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Message/MFAttachmentDataProvider.h>
+#import <objc/NSObject.h>
 
-@class MFMessageLibrary, MFWeakReferenceHolder;
+#import <Message/MFAttachmentDataProviderProtocol-Protocol.h>
 
-@interface MFAttachmentLibraryDataProvider : MFAttachmentDataProvider
+@class MFMessageLibrary, NSString;
+
+@interface MFAttachmentLibraryDataProvider : NSObject <MFAttachmentDataProviderProtocol>
 {
-    MFWeakReferenceHolder *_messageLibraryHolder;
+    MFMessageLibrary *_messageLibrary;
 }
 
+@property __weak MFMessageLibrary *messageLibrary; // @synthesize messageLibrary=_messageLibrary;
+- (void).cxx_destruct;
 - (id)storageLocationForAttachment:(id)arg1 withMessage:(id)arg2;
 - (id)messageForAttachment:(id)arg1;
-- (void)fetchDataForAttachment:(id)arg1 withDataConsumer:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)fetchDataForAttachment:(id)arg1 consumer:(id)arg2 progress:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)fetchLocalDataForAttachment:(id)arg1;
-@property(nonatomic) __weak MFMessageLibrary *messageLibrary;
-- (void)dealloc;
 - (id)initWithLibrary:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

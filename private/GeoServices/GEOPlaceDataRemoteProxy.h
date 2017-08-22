@@ -22,7 +22,6 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (_Bool)_parseReply:(id)arg1 placeResponse:(id *)arg2 userInfo:(id *)arg3 error:(id *)arg4;
 - (void)clearCache;
-- (void)applyRAPUpdatedMapItems:(id)arg1;
 - (void)shrinkBySize:(unsigned long long)arg1 finished:(CDUnknownBlockType)arg2;
 - (void)calculateFreeableSpaceWithHandler:(CDUnknownBlockType)arg1;
 - (void)cancelRequest:(id)arg1;

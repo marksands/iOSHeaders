@@ -69,6 +69,7 @@
 @property(readonly, nonatomic, getter=_remoteViewController) _UIShareInvitationRemoteViewController *remoteViewController;
 - (void)_updatePresentationStyleForLegacyAppearance;
 - (void)dealloc;
+- (id)initWithFileURL:(id)arg1 error:(id *)arg2;
 - (id)initWithFileURL:(id)arg1;
 
 // Remaining properties

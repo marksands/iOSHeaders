@@ -212,8 +212,8 @@
 @property(readonly, nonatomic) GEORouteInitializerData *routeInitializerData;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
-- (_Bool)isEqualToGEOComposedRoute:(id)arg1;
-- (_Bool)isEqual:(id)arg1;
+- (_Bool)_MapsCarPlay_isEqual:(id)arg1;
+- (_Bool)_MapsCarPlay_isArray:(id)arg1 equalTo:(id)arg2;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (void)_populateArtworkForSuggestedRoute:(id)arg1 decoderData:(id)arg2;

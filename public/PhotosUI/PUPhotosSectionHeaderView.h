@@ -39,6 +39,7 @@
     NSDate *_sectionStartDate;
     NSDate *_sectionEndDate;
     NSString *_actionButtonTitle;
+    struct UIEdgeInsets _contentInsets;
     struct UIEdgeInsets _highlightInsets;
 }
 
@@ -51,6 +52,7 @@
 @property(retain, nonatomic) NSArray *sectionLocations; // @synthesize sectionLocations=_sectionLocations;
 @property(retain, nonatomic) NSString *sectionTitle; // @synthesize sectionTitle=_sectionTitle;
 @property(nonatomic) struct UIEdgeInsets highlightInsets; // @synthesize highlightInsets=_highlightInsets;
+@property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
 @property(nonatomic) long long sectionIndex; // @synthesize sectionIndex=_sectionIndex;
 @property(nonatomic) unsigned long long backgroundStyle; // @synthesize backgroundStyle=_backgroundStyle;
 @property(nonatomic) long long style; // @synthesize style=_style;
@@ -97,7 +99,6 @@
 - (_Bool)_usingDateAsTitle;
 @property(readonly, nonatomic) NSString *synthesizedSectionTitle;
 - (void)_setUsingBackgroundBlur:(_Bool)arg1;
-- (void)layoutMarginsDidChange;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

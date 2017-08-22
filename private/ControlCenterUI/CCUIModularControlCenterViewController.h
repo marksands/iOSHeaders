@@ -52,14 +52,16 @@
 - (void)moduleCollectionViewController:(id)arg1 didFinishInteractionWithModule:(id)arg2;
 - (void)moduleCollectionViewController:(id)arg1 didBeginInteractionWithModule:(id)arg2;
 - (long long)interfaceOrientationForModuleCollectionViewController:(id)arg1;
-- (_Bool)moduleCollectionViewController:(id)arg1 shouldForwardAppearanceCall:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)viewWillLayoutSubviews;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (struct CGSize)preferredContentSize;
 - (void)viewDidLoad;
+- (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 - (void)_resignActive;
 - (void)_reparentAndBecomeActive;
 - (void)_reparent;
+- (void)dismissPresentedContentAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)dismissExpandedModuleAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dismissPresentedContentWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)dismissPresentedContent;
 - (void)expandModuleWithIdentifier:(id)arg1;

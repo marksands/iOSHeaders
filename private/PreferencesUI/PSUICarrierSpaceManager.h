@@ -35,7 +35,7 @@
 - (void)plansDidChange;
 - (void)usageDidChange;
 - (void)capabilitiesDidChange:(id)arg1;
-- (id)dataStringFromBytes:(unsigned long long)arg1;
+- (id)localizedDataStringFromBytes:(unsigned long long)arg1;
 - (_Bool)shouldShowPlanMetrics:(id)arg1;
 - (id)descriptionForPlanMetrics:(id)arg1;
 - (_Bool)planChangeIsRestricted;

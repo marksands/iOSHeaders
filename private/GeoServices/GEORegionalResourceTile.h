@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray;
+@class NSMutableArray, PBUnknownFields;
 
 @interface GEORegionalResourceTile : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSMutableArray *_attributions;
     NSMutableArray *_childrens;
     NSMutableArray *_iconChecksums;
@@ -33,6 +34,7 @@
 @property(nonatomic) unsigned int y; // @synthesize y=_y;
 @property(nonatomic) unsigned int x; // @synthesize x=_x;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

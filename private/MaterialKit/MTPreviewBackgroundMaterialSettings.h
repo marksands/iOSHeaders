@@ -8,19 +8,16 @@
 
 #import <MaterialKit/MTMaterialOverlaySettings-Protocol.h>
 #import <MaterialKit/MTMaterialSettings-Protocol.h>
-#import <MaterialKit/MTMaterialSettingsObservable-Protocol.h>
+#import <MaterialKit/MTZooming-Protocol.h>
 #import <MaterialKit/_MTMaterialVersioning-Protocol.h>
-#import <MaterialKit/_MTZooming-Protocol.h>
 
 @class MTVibrantStylingProvider, NSString, UIColor;
 
-@interface MTPreviewBackgroundMaterialSettings : NSObject <MTMaterialSettings, MTMaterialOverlaySettings, MTMaterialSettingsObservable, _MTMaterialVersioning, _MTZooming>
+@interface MTPreviewBackgroundMaterialSettings : NSObject <MTMaterialSettings, MTMaterialOverlaySettings, _MTMaterialVersioning, MTZooming>
 {
 }
 
 + (id)sharedMaterialSettings;
-- (void)removeKeyObserver:(id)arg1;
-- (void)addKeyObserver:(id)arg1;
 - (void)updateWithSettingsFromArchive:(id)arg1;
 @property(readonly, nonatomic) __weak MTVibrantStylingProvider *vibrantStylingProvider;
 @property(nonatomic) double secondaryOverlayTintAlpha;

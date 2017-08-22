@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)userDidActivateButton:(id)arg1;
 - (long long)labelLineBreakMode;
 - (_Bool)layoutImageOnTrailingEdge;
+- (id)accessibilityHUDRepresentation;
 - (double)addContentOverlap:(double)arg1;
 - (double)resetContentOverlap;
 @property(retain, nonatomic) NSString *title;

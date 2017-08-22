@@ -30,6 +30,7 @@
     NSObject<OS_dispatch_queue> *_animationAdvancerWaitingFlagQueue;
     NSObject<OS_dispatch_queue> *_timerQueue;
     NSObject<OS_dispatch_queue> *_displayLinkAccessQueue;
+    NSObject<OS_dispatch_queue> *_backlightQueue;
     NSObject<OS_dispatch_source> *_timerSource;
     NSObject<OS_dispatch_semaphore> *_postTicksDelaySemaphore;
     _Bool _waitingForAnimatorAdvancerToStart;
@@ -38,8 +39,10 @@
     CADisplayLink *_displayLink;
     int _screenDimmingNotificationToken;
     _Bool _animationsSuspended;
+    _Bool _animationsShouldCompleteImmediately;
     _Bool _skipNextFrame;
     _Bool _displayLinkInvalidated;
+    _Bool _screenIsOff;
     unsigned long long _presentationModifierRequestCount;
     NSHashTable *_presentationGroups;
     _Bool _performScheduledBlocksManually;
@@ -95,7 +98,6 @@
 - (void)dealloc;
 - (void)setWaitingForAnimatorAdvancerToStart:(_Bool)arg1;
 - (_Bool)isWaitingForAnimatorAdvancerToStart;
-- (void)_backlightDimmedBelowMinimumThreshold;
 - (void)_registerBacklightChangedNotification;
 - (id)init;
 

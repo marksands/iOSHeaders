@@ -8,12 +8,13 @@
 
 #import <UIKit/UIDocumentBrowserViewControllerPrivateDelegate-Protocol.h>
 
-@class NSArray, NSString;
+@class DOCConfiguration, NSArray, NSMutableArray, NSString;
 @protocol UIDocumentPickerDelegate;
 
 @interface UIDocumentPickerViewController : UIViewController <UIDocumentBrowserViewControllerPrivateDelegate>
 {
     id <UIDocumentPickerDelegate> _weak_delegate;
+    NSMutableArray *_securityScopedURLs;
     _Bool _ignoreApplicationEntitlementForImport;
     _Bool _allowsMultipleSelection;
     _Bool _sourceIsManaged;
@@ -21,20 +22,25 @@
     unsigned long long _documentPickerMode;
     UIViewController *_childViewController;
     NSArray *_uploadURLs;
+    DOCConfiguration *_configuration;
 }
 
 @property(nonatomic, getter=_sourceIsManaged, setter=_setSourceIsManaged:) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
+@property(retain, nonatomic) DOCConfiguration *configuration; // @synthesize configuration=_configuration;
 @property(copy, nonatomic) NSArray *uploadURLs; // @synthesize uploadURLs=_uploadURLs;
 @property(retain, nonatomic, getter=_childViewController, setter=_setChildViewController:) UIViewController *childViewController; // @synthesize childViewController=_childViewController;
 @property(nonatomic) _Bool allowsMultipleSelection; // @synthesize allowsMultipleSelection=_allowsMultipleSelection;
 @property(nonatomic) unsigned long long documentPickerMode; // @synthesize documentPickerMode=_documentPickerMode;
 @property(nonatomic) __weak id <UIDocumentPickerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic, getter=_ignoreApplicationEntitlementForImport, setter=_setIgnoreApplicationEntitlementForImport:) _Bool _ignoreApplicationEntitlementForImport; // @synthesize _ignoreApplicationEntitlementForImport;
+@property(retain, nonatomic) NSMutableArray *_securityScopedURLs; // @synthesize _securityScopedURLs;
 - (void).cxx_destruct;
+- (void)_consumeSandboxExtensionForURL:(id)arg1;
 - (void)_didTapCancel;
 - (void)_callDelegateWithSelectedURLsAndDismiss:(id)arg1;
 - (void)_tellDelegateDocumentPickerWasCancelled;
 - (void)dealloc;
+- (void)viewDidLoad;
 - (void)_commonInitWithDocumentTypes:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)documentManagerWasCancelled:(id)arg1;

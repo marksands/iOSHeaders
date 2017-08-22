@@ -108,6 +108,7 @@
 - (void)setHoldAllOperations:(_Bool)arg1;
 - (void)setFakeEntitlement:(id)arg1 forKey:(id)arg2;
 - (void)fetchCurrentUserBoundaryKeyWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)wipeAllCachedLongLivedProxiesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)setFakeResponseOperationResult:(id)arg1 forNextRequestOfClassName:(id)arg2 forItemID:(id)arg3 withLifetime:(int)arg4;
 - (void)setFakeError:(id)arg1 forNextRequestOfClassName:(id)arg2;
 - (void)serverPreferredPushEnvironmentWithCompletionHandler:(CDUnknownBlockType)arg1;

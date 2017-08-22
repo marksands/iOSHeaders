@@ -22,6 +22,7 @@
     double _energyBurnedGoalDate;
     long long _flightsClimbed;
     long long _pushCount;
+    long long _sequence;
     long long _stepCount;
     double _walkingAndRunningDistance;
     long long _wheelchairUse;
@@ -38,6 +39,7 @@
         unsigned int energyBurnedGoalDate:1;
         unsigned int flightsClimbed:1;
         unsigned int pushCount:1;
+        unsigned int sequence:1;
         unsigned int stepCount:1;
         unsigned int walkingAndRunningDistance:1;
         unsigned int wheelchairUse:1;
@@ -46,6 +48,7 @@
 
 + (Class)dailyBriskMinutesStatisticsType;
 + (Class)dailyEnergyBurnedStatisticsType;
+@property(nonatomic) long long sequence; // @synthesize sequence=_sequence;
 @property(retain, nonatomic) NSMutableArray *dailyBriskMinutesStatistics; // @synthesize dailyBriskMinutesStatistics=_dailyBriskMinutesStatistics;
 @property(retain, nonatomic) NSMutableArray *dailyEnergyBurnedStatistics; // @synthesize dailyEnergyBurnedStatistics=_dailyEnergyBurnedStatistics;
 @property(nonatomic) long long wheelchairUse; // @synthesize wheelchairUse=_wheelchairUse;
@@ -71,6 +74,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
+@property(nonatomic) _Bool hasSequence;
 - (id)dailyBriskMinutesStatisticsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)dailyBriskMinutesStatisticsCount;
 - (void)addDailyBriskMinutesStatistics:(id)arg1;

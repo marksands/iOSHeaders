@@ -41,7 +41,9 @@
     map_4a1e39a4 _cachedResults;
 }
 
-+ (double)_computeEditPenalizationFromString:(id)arg1 toReferenceString:(id)arg2 withSuffix:(id)arg3 withCaseSensitivity:(_Bool)arg4 withDiacriticSensitivity:(_Bool)arg5 withDiacriticsCharSet:(id)arg6 withConsumableStrokesCharSet:(id)arg7 outputSuffix:(id *)arg8 lexiconExtraCharacters:(id *)arg9 firstLetterCaseFlipped:(_Bool *)arg10;
++ (unsigned long long)_decodeTempDelayedSegmentID:(unsigned long long)arg1;
++ (unsigned long long)_encodeTempDelayedSegmentID:(unsigned long long)arg1;
++ (double)_computeEditPenalizationFromString:(id)arg1 toReferenceString:(id)arg2 withSuffix:(id)arg3 withCaseSensitivity:(_Bool)arg4 withFirstLetterCaseSensitivity:(_Bool)arg5 withDiacriticSensitivity:(_Bool)arg6 withDiacriticsCharSet:(id)arg7 withConsumableStrokesCharSet:(id)arg8 outputSuffix:(id *)arg9 lexiconExtraCharacters:(id *)arg10 firstLetterCaseFlipped:(_Bool *)arg11;
 + (id)wordsForCustomLexicon;
 @property(retain, nonatomic) NSMutableIndexSet *lastCharacterStrokeIndexes; // @synthesize lastCharacterStrokeIndexes=_lastCharacterStrokeIndexes;
 @property(nonatomic) unsigned long long lastCharacterStrokeCount; // @synthesize lastCharacterStrokeCount=_lastCharacterStrokeCount;
@@ -83,7 +85,8 @@
 - (id)recognitionResultsForDrawing:(id)arg1 options:(id)arg2 shouldCancel:(CDUnknownBlockType)arg3;
 - (id)_subStrokeSegmentationPointsForDrawing:(id)arg1;
 - (id)_performMultipleCharacterRecognition:(id)arg1 options:(id)arg2 shouldCancel:(CDUnknownBlockType)arg3;
-- (id)recognitionResultsForMultipleCharacterDrawing:(id)arg1 sortedStrokeIndices:(vector_eb9481f9 *)arg2 sortedSubStrokeSegments:(id)arg3 network:(struct Network *)arg4 boundsAtNode:(vector_ea45b3ba *)arg5 options:(id)arg6 shouldCancel:(CDUnknownBlockType)arg7;
+- (id)_extractSubStrokeSegmentsFromSegments:(id)arg1 withDelayedStrokeSegments:(id *)arg2 fromDelayedSegmentIDs:(vector_eb9481f9)arg3;
+- (id)recognitionResultsForMultipleCharacterDrawing:(id)arg1 sortedStrokeIndices:(vector_eb9481f9 *)arg2 subStrokeSegments:(id)arg3 delayedSubStrokeSegments:(id)arg4 network:(struct Network *)arg5 boundsAtNode:(vector_ea45b3ba *)arg6 options:(id)arg7 shouldCancel:(CDUnknownBlockType)arg8;
 - (void)_filterNonHumanFriendlyCandidates:(id)arg1;
 - (void)_adjustResultsForConfusableCharacters:(id)arg1;
 - (id)postProcessLatticePaths:(const vector_7a3f6ffc *)arg1 history:(id)arg2 activeHistoryRange:(struct _NSRange)arg3;
@@ -92,7 +95,8 @@
 - (id)postProcessMultiWordsLatticePaths:(const vector_7a3f6ffc *)arg1 withMaximumResults:(unsigned long long)arg2;
 - (_Bool)_shouldCapitalizeGivenHistory:(id)arg1;
 - (_Bool)_updateResults:(id)arg1 string:(id)arg2 score:(double)arg3 lexicalEntry:(_Bool)arg4 patternEntry:(_Bool)arg5;
-- (id)bestNetworkPaths:(struct Network *)arg1 count:(unsigned long long)arg2 staticLexiconCursor:(void *)arg3 customLexiconCursor:(struct _LXCursor *)arg4 patternCursor:(struct PatternGraph *)arg5 history:(id)arg6 activeHistoryRange:(struct _NSRange)arg7 mecabraIDs:(vector_e0f2bd7e *)arg8;
+- (id)bestNetworkPaths:(struct Network *)arg1 from:(unsigned long long)arg2 to:(unsigned long long)arg3 count:(unsigned long long)arg4 staticLexiconCursor:(void *)arg5 customLexiconCursor:(struct _LXCursor *)arg6 patternCursor:(struct PatternGraph *)arg7 history:(id)arg8 activeHistoryRange:(struct _NSRange)arg9 mecabraIDs:(vector_e0f2bd7e *)arg10 numExpectedDelayedStrokes:(unsigned long long)arg11;
+- (double)_calculateJointWordProbabilityForString:(id)arg1 withPatterns:(id)arg2;
 - (id)recognitionResultsForSingleCharacterDrawing:(id)arg1 options:(id)arg2;
 - (void)_removeOVSResults:(id)arg1 withHistory:(id)arg2;
 - (id)recognitionResultsForSketchDrawing:(id)arg1 options:(id)arg2;
@@ -129,6 +133,7 @@
 - (_Bool)_isLocaleSupported:(id)arg1;
 - (void)_loadMecabraIfNeeded;
 - (void)_prepareStaticLexicon;
+- (void)_prepareLanguageModel;
 - (void)_prepareCHCharacterLanguageModel;
 - (id)_alternativeInterpretationsForString:(id)arg1;
 - (id)_transliterationVariantsForString:(id)arg1;

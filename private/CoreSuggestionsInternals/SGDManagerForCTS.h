@@ -35,7 +35,6 @@
 - (void)setQueryPredictionsForTesting:(id)arg1;
 - (void)waitForXpcActivityQueue;
 - (void)dealloc;
-- (void)processPendingGeocodes;
 - (void)_doFrontfillHarvestOnFrontfillQueue;
 - (void)triggerFrontfillHarvest;
 - (_Bool)_attemptToProcessSearchableItemWithoutDissection:(id)arg1;
@@ -47,6 +46,8 @@
 - (_Bool)drainHarvestQueue:(id)arg1 runningOptionalDissectors:(_Bool)arg2 highPriorityOnly:(_Bool)arg3 continuingWhile:(CDUnknownBlockType)arg4;
 - (void)_doAdjustCriteriaForCTS;
 - (void)adjustCriteriaForCTS;
+- (void)_performProcessPendingGeocodesActivity:(id)arg1;
+- (void)_registerProcessPendingGeocodesActivity;
 - (void)_performContactDetailCacheRebuildActivity:(id)arg1;
 - (void)_registerForContactDetailCacheRebuildActivity;
 - (void)_performPMLTrainingActivity:(id)arg1;

@@ -165,6 +165,7 @@
 - (void)_updateTableViewRowHeight;
 - (void)loadView;
 - (id)createTableView;
+@property(readonly, nonatomic) id <CNContactDataSource> originalDataSource;
 @property(retain, nonatomic) NSObject<CNContactDataSource> *dataSource; // @synthesize dataSource=_dataSource;
 - (_Bool)isHandlingSearch;
 - (_Bool)canBecomeFirstResponder;

@@ -13,6 +13,7 @@
     HDProfile *_profile;
     NSMutableDictionary *_deleteStatementsByClassName;
     NSMutableDictionary *_deletedObjectProvenanceIDsByOriginalProvenanceID;
+    NSMutableDictionary *_localSourceIDsByOriginalSourceID;
     NSMutableSet *_deletedObjectTypeSet;
     _Bool _insertDeletedObjects;
     HDSQLiteDatabase *_database;
@@ -29,6 +30,7 @@
 @property(readonly, nonatomic) HDSQLiteDatabase *database; // @synthesize database=_database;
 - (void).cxx_destruct;
 - (void)finish;
+- (id)_localSourceIDForSourceID:(id)arg1 error:(id *)arg2;
 - (id)_provenanceIDForDeletedObjectWithOriginalProvenanceID:(id)arg1 error:(id *)arg2;
 - (_Bool)deleteObjectWithPersistentID:(long long)arg1 objectUUID:(id)arg2 entityClass:(Class)arg3 objectType:(id)arg4 provenanceIdentifier:(id)arg5 deletionDate:(id)arg6 error:(id *)arg7;
 - (_Bool)_deleteAssociatedObjectsForPersistentID:(long long)arg1 entityClass:(Class)arg2 deletionDate:(id)arg3 error:(id *)arg4;

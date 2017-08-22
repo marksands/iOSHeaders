@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSArray *availableEndpoints; // @synthesize availableEndpoints=_availableEndpoints;
 @property(nonatomic) unsigned int discoveryMode; // @synthesize discoveryMode=_discoveryMode;
 @property(readonly, nonatomic) unsigned int endpointFeatures; // @synthesize endpointFeatures=_endpointFeatures;
+- (void)_reloadAvailableEndpoints;
 - (void)_unregisterNotifications;
 - (void)_registerNotifications;
 - (void)_availableOutputDevicesDidChangeNotification:(id)arg1;

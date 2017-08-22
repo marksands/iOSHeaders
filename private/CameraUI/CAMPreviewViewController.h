@@ -186,15 +186,15 @@
 - (void)_updateUIForCenteredContrastBasedFocusDidEnd;
 - (void)_showUIForResetFocusAndExposure;
 - (_Bool)_shouldShowContinuousIndicator;
-- (long long)_interfaceOrientationForExposureBiasUI;
-- (void)_updateGestureRecognizersForOrientation;
+- (long long)_interfaceOrientation;
+- (void)_updateForOrientation;
 - (void)_createAspectRatioToggleDoubleTapGestureRecognizerIfNecessary;
 - (void)_createExposureBiasPanGestureRecognizerIfNecessary;
 - (void)_createLongPressToLockGestureRecognizersIfNecessary;
 - (void)_createTapToFocusAndExposeGestureRecognizerIfNecessary;
 - (void)_createCommonGestureRecognizersIfNecessary;
 - (void)_resetCachedTimes;
-- (void)_didChangeModeOrDevice;
+- (void)_didChangeModeOrDeviceAnimated:(_Bool)arg1;
 - (void)_willChangeModeOrDevice;
 - (void)didChangeToMode:(long long)arg1 device:(long long)arg2 animated:(_Bool)arg3;
 - (void)willChangeToMode:(long long)arg1 device:(long long)arg2;

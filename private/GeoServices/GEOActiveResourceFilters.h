@@ -8,13 +8,18 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class PBUnknownFields;
+
 @interface GEOActiveResourceFilters : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     struct GEOActiveResourceFilter *_filters;
     unsigned long long _filtersCount;
     unsigned long long _filtersSpace;
 }
 
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

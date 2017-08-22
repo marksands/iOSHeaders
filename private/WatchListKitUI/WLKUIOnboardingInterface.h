@@ -28,6 +28,7 @@
 @property(readonly, nonatomic) _Bool isShowing;
 @property(readonly, nonatomic, getter=isTvosMigrated) _Bool tvosMigrated;
 @property(readonly, nonatomic) NSArray *eligibleBids;
+@property(readonly, nonatomic, getter=isOptedInCached) NSNumber *optedInCached;
 @property(readonly, nonatomic, getter=isOptedIn) _Bool optedIn;
 - (void)dealloc;
 - (id)initWithAppContext:(id)arg1;

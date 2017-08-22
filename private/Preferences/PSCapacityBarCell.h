@@ -18,6 +18,7 @@
     PSLegendColorView *_otherLegend;
     PSCapacityBarView *_barView;
     UIFont *_legendFont;
+    UIFont *_bigFont;
     NSMutableArray *_legendConstraints;
     NSMutableArray *_legendViews;
     NSMutableDictionary *_legendTextCache;
@@ -28,6 +29,7 @@
     NSString *_sizeFormat;
 }
 
++ (id)specifierWithTitle:(id)arg1 useStandardFontSizeForSizeLabel:(_Bool)arg2;
 + (id)specifierWithTitle:(id)arg1;
 + (double)defaultCellHeight;
 - (void).cxx_destruct;

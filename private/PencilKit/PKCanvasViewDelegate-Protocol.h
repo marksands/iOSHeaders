@@ -13,6 +13,7 @@
 @optional
 - (void)canvasViewRenderingDidFinish:(PKCanvasView *)arg1;
 - (void)canvasViewDidEndStroke:(PKCanvasView *)arg1;
+- (void)canvasViewDidCancelStroke:(PKCanvasView *)arg1;
 - (void)canvasViewDidBeginNewStroke:(PKCanvasView *)arg1;
 - (void)canvasViewWillBeginNewStroke:(PKCanvasView *)arg1 withTouch:(UITouch *)arg2;
 - (void)canvasViewDrawingDidChange:(PKCanvasView *)arg1;

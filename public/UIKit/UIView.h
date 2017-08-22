@@ -963,6 +963,7 @@
 - (_Bool)_isInExclusiveTouchSubviewTree;
 - (_Bool)_appliesExclusiveTouchToSubviewTree;
 - (_Bool)_shouldResignFirstResponderWithInteractionDisabled;
+- (void)_addGestureRecognizer:(id)arg1 atEnd:(_Bool)arg2;
 - (id)_gestureRecognizers;
 - (void)_unsubscribeToScrollNotificationsIfNecessary:(id)arg1;
 - (void)_subscribeToScrollNotificationsIfNecessary:(id)arg1;

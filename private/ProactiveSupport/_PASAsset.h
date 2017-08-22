@@ -25,7 +25,6 @@
     unsigned long long _bestAvailableVersion;
     unsigned long long _bestAssetVersionObserved;
     ASAsset *_bestAvailableAsset;
-    double _delay;
     NSMutableDictionary *_overrides;
     unsigned long long _compatibilityVersion;
 }
@@ -38,7 +37,6 @@
 - (void)invokeWithBundleOverride:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (id)bundlePath;
 - (void)setBundlePath:(id)arg1;
-- (void)_downloadInitialAssetMetadata;
 - (void)_issueUpdateNotificationsWithCallback:(CDUnknownBlockType)arg1;
 - (void)_updateAssetMetadata;
 - (id)pathsForResourcesWithNames:(id)arg1;

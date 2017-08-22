@@ -6,9 +6,11 @@
 
 #import <SAObjects/SABaseClientBoundCommand.h>
 
+#import <SAObjects/SAAceSerializable-Protocol.h>
+
 @class NSArray, NSDate, NSDictionary, NSNumber, NSString;
 
-@interface SAFetchActivityStream : SABaseClientBoundCommand
+@interface SAFetchActivityStream : SABaseClientBoundCommand <SAAceSerializable>
 {
 }
 
@@ -28,6 +30,12 @@
 @property(copy, nonatomic) NSString *activityType;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

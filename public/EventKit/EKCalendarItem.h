@@ -178,6 +178,8 @@
 - (void)setClientLocation:(id)arg1;
 - (id)structuredLocation;
 - (void)setStructuredLocation:(id)arg1;
+- (id)structuredLocationWithoutPrediction;
+- (void)setStructuredLocationWithoutPrediction:(id)arg1;
 @property(copy, nonatomic) NSString *location;
 @property(copy, nonatomic) NSString *title;
 - (void)_updateHasNotesIfNeeded;

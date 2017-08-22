@@ -38,12 +38,10 @@
     ISLivePhotoUIView *_playerView;
     ISLivePhotoPlayer *_player;
     struct CGPoint _scaleAnchorOffset;
-    CDStruct_1b6d18a9 _scrubbingPhotoTime;
     CDStruct_e83c9415 _trimmedTimeRange;
 }
 
 + (id)livePhotoBadgeImageWithOptions:(unsigned long long)arg1;
-@property(nonatomic) CDStruct_1b6d18a9 scrubbingPhotoTime; // @synthesize scrubbingPhotoTime=_scrubbingPhotoTime;
 @property(nonatomic) CDStruct_e83c9415 trimmedTimeRange; // @synthesize trimmedTimeRange=_trimmedTimeRange;
 @property(nonatomic) _Bool showsStatusBorder; // @synthesize showsStatusBorder=_showsStatusBorder;
 @property(retain, nonatomic) ISLivePhotoPlayer *player; // @synthesize player=_player;
@@ -67,7 +65,6 @@
 - (void)_updateCurrentPlaybackStyleAndSeeking;
 - (void)_updateStatusBorder;
 - (void)_updatePlayingVitality;
-- (void)_updatePlayerItemScrubbingPhotoTime;
 - (void)_updatePlayerAudioEnabled;
 @property(readonly, nonatomic, getter=isDisplayingPhoto) _Bool displayingPhoto;
 - (id)generateSnapshotImage;

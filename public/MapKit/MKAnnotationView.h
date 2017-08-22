@@ -83,6 +83,7 @@
 + (unsigned long long)_zIndex;
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)currentLocationTitle;
++ (Class)layerClass;
 @property(nonatomic) long long collisionMode; // @synthesize collisionMode=_collisionMode;
 @property(readonly, nonatomic) __weak MKAnnotationView *clusterAnnotationView; // @synthesize clusterAnnotationView=_clusterAnnotationView;
 @property(copy, nonatomic) NSString *clusteringIdentifier; // @synthesize clusteringIdentifier=_clusteringIdentifier;

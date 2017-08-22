@@ -12,7 +12,9 @@ __attribute__((visibility("hidden")))
     int _iconType;
 }
 
+- (id)accessibilityHUDRepresentation;
 - (id)contentsImage;
+- (id)_imageName;
 - (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
 
 @end

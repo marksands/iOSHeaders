@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
     _Bool _writeEOF;
     _Bool _writeInProgress;
     _Bool _writeClosed;
+    _Bool _receivedServerTrustChallenge;
     CFNetworkTimer *_writeTimer;
     CFNetworkTimer *_readTimer;
     __NSCFURLLocalStreamTaskWorkWrite *_currentWriteTask;

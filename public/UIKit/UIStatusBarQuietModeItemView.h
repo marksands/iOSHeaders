@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     _Bool _inactive;
 }
 
+- (id)accessibilityHUDRepresentation;
 - (void)setVisible:(_Bool)arg1;
 - (double)_visibleAlpha;
 - (void)setVisible:(_Bool)arg1 frame:(struct CGRect)arg2 duration:(double)arg3;

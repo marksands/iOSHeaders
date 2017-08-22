@@ -37,6 +37,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)validateProvidedName:(id)arg1;
 + (id)generateUUIDWithAccessoryUUID:(id)arg1 serviceID:(id)arg2;
 @property(retain, nonatomic) NSString *providedName; // @synthesize providedName=_providedName;
 @property(retain, nonatomic) NSMutableDictionary *deviceLastRequestPresenceDateMap; // @synthesize deviceLastRequestPresenceDateMap=_deviceLastRequestPresenceDateMap;

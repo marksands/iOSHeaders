@@ -98,7 +98,7 @@
 @property(readonly, nonatomic) double firstEventSecond;
 - (struct _NSRange)_dayRangeForEvent:(id)arg1 useProposedTime:(_Bool)arg2;
 - (struct _NSRange)_dayRangeForEventWithStartDate:(id)arg1 endDate:(id)arg2;
-- (void)_layoutDay:(unsigned long long)arg1;
+- (void)_layoutDay:(unsigned long long)arg1 isLoadingAsync:(_Bool)arg2;
 - (void)_layoutDaysIfVisible;
 - (void)layoutSubviews;
 - (void)setNeedsLayout;

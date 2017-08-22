@@ -33,7 +33,7 @@ __attribute__((visibility("hidden")))
 - (void)configureSectionHeaderView:(id)arg1 forVisualSection:(long long)arg2;
 - (long long)cellFillMode;
 - (struct CGSize)imageRequestItemSize;
-- (void)updateLayoutMetricsForWidth:(double)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2 layoutMargins:(struct UIEdgeInsets)arg3;
+- (void)updateLayoutMetricsForWidth:(double)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2;
 - (struct CGSize)thumbnailImageSize;
 - (long long)maxRowsPerSection;
 - (id)sectionHeaderElementKind;

@@ -11,9 +11,12 @@
 @interface MediaControlsHeaderView : UIView
 {
     _Bool _transitioning;
-    _Bool _empty;
     _Bool _showingRoutingPicker;
     _Bool _onlyShowsRoutingPicker;
+    _Bool _headerViewOnScreen;
+    _Bool _shouldUseOverrideSize;
+    _Bool _shouldUsePlaceholderArtwork;
+    _Bool _shouldEnableMarquee;
     long long _style;
     NSString *_titleString;
     NSString *_primaryString;
@@ -23,7 +26,9 @@
     MPButton *_doneButton;
     MPButton *_playPauseButton;
     UIButton *_launchNowPlayingAppButton;
+    NSString *_mediaSourceBundleID;
     UIImageView *_artworkView;
+    UIImageView *_placeholderArtworkView;
     UIView *_artworkBackgroundView;
     UIView *_shadow;
     MPUMarqueeView *_titleMarqueeView;
@@ -33,9 +38,13 @@
     MPUMarqueeView *_secondaryMarqueeView;
     UILabel *_secondaryLabel;
     UIView *_buttonBackground;
+    struct CGSize _overrideSize;
     struct CGSize _artworkSize;
 }
 
+@property(nonatomic) _Bool shouldEnableMarquee; // @synthesize shouldEnableMarquee=_shouldEnableMarquee;
+@property(nonatomic) _Bool shouldUsePlaceholderArtwork; // @synthesize shouldUsePlaceholderArtwork=_shouldUsePlaceholderArtwork;
+@property(nonatomic) _Bool shouldUseOverrideSize; // @synthesize shouldUseOverrideSize=_shouldUseOverrideSize;
 @property(retain, nonatomic) UIView *buttonBackground; // @synthesize buttonBackground=_buttonBackground;
 @property(retain, nonatomic) UILabel *secondaryLabel; // @synthesize secondaryLabel=_secondaryLabel;
 @property(retain, nonatomic) MPUMarqueeView *secondaryMarqueeView; // @synthesize secondaryMarqueeView=_secondaryMarqueeView;
@@ -46,7 +55,11 @@
 @property(retain, nonatomic) UIView *shadow; // @synthesize shadow=_shadow;
 @property(retain, nonatomic) UIView *artworkBackgroundView; // @synthesize artworkBackgroundView=_artworkBackgroundView;
 @property(nonatomic) struct CGSize artworkSize; // @synthesize artworkSize=_artworkSize;
+@property(retain, nonatomic) UIImageView *placeholderArtworkView; // @synthesize placeholderArtworkView=_placeholderArtworkView;
 @property(retain, nonatomic) UIImageView *artworkView; // @synthesize artworkView=_artworkView;
+@property(nonatomic) struct CGSize overrideSize; // @synthesize overrideSize=_overrideSize;
+@property(nonatomic, getter=isHeaderViewOnScreen) _Bool headerViewOnScreen; // @synthesize headerViewOnScreen=_headerViewOnScreen;
+@property(retain, nonatomic) NSString *mediaSourceBundleID; // @synthesize mediaSourceBundleID=_mediaSourceBundleID;
 @property(retain, nonatomic) UIButton *launchNowPlayingAppButton; // @synthesize launchNowPlayingAppButton=_launchNowPlayingAppButton;
 @property(retain, nonatomic) MPButton *playPauseButton; // @synthesize playPauseButton=_playPauseButton;
 @property(retain, nonatomic) MPButton *doneButton; // @synthesize doneButton=_doneButton;
@@ -58,11 +71,13 @@
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic) _Bool onlyShowsRoutingPicker; // @synthesize onlyShowsRoutingPicker=_onlyShowsRoutingPicker;
 @property(nonatomic, getter=isShowingRoutingPicker) _Bool showingRoutingPicker; // @synthesize showingRoutingPicker=_showingRoutingPicker;
-@property(nonatomic, getter=isEmpty) _Bool empty; // @synthesize empty=_empty;
 @property(nonatomic, getter=isTransitioning) _Bool transitioning; // @synthesize transitioning=_transitioning;
 - (void).cxx_destruct;
 - (void)_handleContentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_updateRTL;
+- (void)updatePlaceholderArtwork;
+- (void)clearOverrideSize;
+- (void)didMoveToWindow;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_updateStyle;
 - (struct CGSize)layoutTextInAvailableBounds:(struct CGRect)arg1 setFrames:(_Bool)arg2;

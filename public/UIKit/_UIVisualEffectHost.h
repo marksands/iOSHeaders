@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
     _UIVisualEffectNode *_transitionEffectNode;
 }
 
-@property(retain, nonatomic) _UIVisualEffectNode *transitionEffectNode; // @synthesize transitionEffectNode=_transitionEffectNode;
+@property(readonly, nonatomic) _UIVisualEffectNode *transitionEffectNode; // @synthesize transitionEffectNode=_transitionEffectNode;
 @property(retain, nonatomic) _UIVisualEffectNode *currentEffectNode; // @synthesize currentEffectNode=_currentEffectNode;
 @property(nonatomic) __weak _UIVisualEffectBackdropView *captureView; // @synthesize captureView=_captureView;
 @property(retain, nonatomic) _UIVisualEffectViewBackdropCaptureGroup *primaryCaptureGroup; // @synthesize primaryCaptureGroup=_primaryCaptureGroup;

@@ -31,7 +31,6 @@
 - (id)_fetchClientSourceForPersistentID:(id)arg1 error:(id *)arg2;
 - (id)_sourcePersistentIDsFromSourceEntities:(id)arg1;
 - (void)_deleteSourceIfNoSampleFoundWithBundleIdentifier:(id)arg1;
-- (_Bool)_deleteSourceWithEntity:(id)arg1 bundleIdentifier:(id)arg2 error:(id *)arg3;
 - (_Bool)deleteSourceWithBundleIdentifier:(id)arg1 error:(id *)arg2;
 - (_Bool)createSourcesWithCodables:(id)arg1 provenance:(long long)arg2 error:(id *)arg3;
 - (id)allWatchSourcesWithError:(id *)arg1;
@@ -44,7 +43,7 @@
 - (id)clientSourceForPersistentID:(id)arg1 error:(id *)arg2;
 - (id)clientSourceForBundleIdentifier:(id)arg1 error:(id *)arg2;
 - (id)_sourceForBundleIdentifier:(id)arg1 createSourceBlock:(CDUnknownBlockType)arg2 modifySourceBlock:(CDUnknownBlockType)arg3 error:(id *)arg4;
-- (id)sourceForCodableSource:(id)arg1 provenance:(long long)arg2 createIfNecessary:(_Bool)arg3 error:(id *)arg4;
+- (id)sourceForCodableSource:(id)arg1 provenance:(long long)arg2 createIfNecessary:(_Bool)arg3 isDeleted:(_Bool *)arg4 error:(id *)arg5;
 - (id)sourceForAppleDeviceWithUUID:(id)arg1 identifier:(id)arg2 name:(id)arg3 productType:(id)arg4 createIfNecessary:(_Bool)arg5 error:(id *)arg6;
 - (id)sourceEntityForSource:(id)arg1 createOrUpdateIfNecessary:(_Bool)arg2 error:(id *)arg3;
 - (id)sourceForApplicationIdentifier:(id)arg1 createOrUpdateIfNecessary:(_Bool)arg2 entitlements:(id)arg3 name:(id)arg4 error:(id *)arg5;

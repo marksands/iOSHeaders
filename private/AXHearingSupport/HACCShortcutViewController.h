@@ -51,7 +51,7 @@
 @property(nonatomic) __weak HACCContentViewController *expandedController; // @synthesize expandedController=_expandedController;
 @property(nonatomic) __weak id <AXHAShortcutUpdateProtocol> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)content:(id)arg1 shouldPreview:(_Bool)arg2 withController:(id)arg3;
+- (void)content:(id)arg1 shouldPreview:(_Bool)arg2 withController:(id)arg3 andCompletion:(CDUnknownBlockType)arg4;
 - (_Bool)animateAlongsideTransition:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setAlpha:(double)arg1 forAllModulesExcept:(id)arg2;
 - (void)controlDidActivate:(id)arg1;

@@ -34,7 +34,6 @@
 - (void)purgeSearchableItemsWithIdentifiers:(id)arg1 bundleID:(id)arg2;
 - (void)addUserAction:(id)arg1 withItem:(id)arg2;
 - (void)addOrUpdateSearchableItems:(id)arg1 bundleID:(id)arg2;
-- (id)supportedBundleIDs;
 - (id)initWithManager:(id)arg1;
 - (id)init;
 

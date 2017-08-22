@@ -7,6 +7,6 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (TSUFontAdditions)
-- (struct CGSize)boundingSizeWithFont:(id)arg1;
+- (struct CGSize)tsu_boundingSizeWithFont:(id)arg1;
 @end
 

@@ -8,20 +8,25 @@
 
 #import <HealthUI/MKMapViewDelegate-Protocol.h>
 
-@class HKLocationReadings, MKMapView, NSString;
+@class HKLocationReadings, MKMapView, NSString, UIButton;
 
 @interface HKRouteView : UIView <MKMapViewDelegate>
 {
     MKMapView *_mapView;
     HKLocationReadings *_locationReadings;
+    UIButton *_toggleMapTypeButton;
 }
 
+@property(retain, nonatomic) UIButton *toggleMapTypeButton; // @synthesize toggleMapTypeButton=_toggleMapTypeButton;
 - (void).cxx_destruct;
 - (id)mapView:(id)arg1 rendererForOverlay:(id)arg2;
 - (id)mapView:(id)arg1 viewForAnnotation:(id)arg2;
 - (void)layoutSubviews;
 - (void)setLocationReadings:(id)arg1;
+- (void)_toggleMapType;
+- (void)_setRouteMapType:(unsigned long long)arg1;
 - (void)_clearMapViewIfNeeded;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

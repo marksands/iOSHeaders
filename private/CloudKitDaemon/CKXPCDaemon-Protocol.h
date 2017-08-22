@@ -28,6 +28,7 @@
 - (void)accountsDidRevokeAccessToBundleID:(NSString *)arg1 containerIdentifiers:(NSArray *)arg2;
 - (void)accountsDidGrantAccessToBundleID:(NSString *)arg1 containerIdentifiers:(NSArray *)arg2;
 - (void)getBehaviorOptionForKey:(NSString *)arg1 isContainerOption:(_Bool)arg2 completionHandler:(void (^)(id))arg3;
+- (void)wipeAllCachedLongLivedProxiesWithSetupInfo:(CKContainerSetupInfo *)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)clearCachesForZoneWithSetupInfo:(CKContainerSetupInfo *)arg1 zoneID:(CKRecordZoneID *)arg2 databaseScope:(long long)arg3 completionHandler:(void (^)(NSError *))arg4;
 - (void)clearCachesForRecordWithSetupInfo:(CKContainerSetupInfo *)arg1 recordID:(CKRecordID *)arg2 databaseScope:(long long)arg3 completionHandler:(void (^)(NSError *))arg4;
 - (void)clearCachesWithSetupInfo:(CKContainerSetupInfo *)arg1 options:(unsigned long long)arg2 databaseScope:(long long)arg3 completionHandler:(void (^)(NSError *))arg4;

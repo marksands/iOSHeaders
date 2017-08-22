@@ -21,6 +21,7 @@
 }
 
 + (id)myPhoneNumberWithServices:(id)arg1 serverConnection:(struct __CTServerConnection *)arg2;
++ (id)myPhoneNumber;
 + (id)phoneNumberObservableWithCoreTelephonyServices:(id)arg1 serverConnection:(struct __CTServerConnection *)arg2;
 + (id)phoneNumberChangedObservableWithCoreTelephonyServices:(id)arg1 serverConnection:(struct __CTServerConnection *)arg2;
 + (id)continuousPhoneNumberObservableWithCoreTelephonyServices:(id)arg1 serverConnection:(struct __CTServerConnection *)arg2;

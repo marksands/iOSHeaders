@@ -46,7 +46,7 @@ __attribute__((visibility("hidden")))
 - (id)transitioningView;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)pdfDataForPageAtIndex:(long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)prepareForDrawingPages:(struct _NSRange)arg1;
+- (void)prepareForDrawingPages:(struct _NSRange)arg1 ofSize:(struct CGSize)arg2;
 - (void)numberOfPagesWithSize:(struct CGSize)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)scrubView:(id)arg1 didSelectPageAtIndex:(unsigned long long)arg2;
 - (void)_addThumbnailToCache:(id)arg1 atIndex:(unsigned long long)arg2;

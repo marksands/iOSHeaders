@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSDate, NSMutableArray, NSString, NSXPCConnection;
+@class NSDate, NSMutableArray, NSNumber, NSString, NSXPCConnection;
 @protocol OS_dispatch_queue;
 
 @interface WLKSettingsStore : NSObject
@@ -16,6 +16,7 @@
     _Bool _privateModeEnabled;
     NSString *_pushToken;
     NSString *_accountID;
+    NSNumber *_optedInVal;
     _Bool _optedIn;
     _Bool _migratediOS;
     _Bool _migratedtvOS;
@@ -34,6 +35,7 @@
 @property int ignoreChangesCount; // @synthesize ignoreChangesCount=_ignoreChangesCount;
 @property(readonly, copy, nonatomic) NSDate *lastSyncToCloudDate; // @synthesize lastSyncToCloudDate=_lastSyncToCloudDate;
 @property(readonly, copy, nonatomic) NSDate *lastSyncDate; // @synthesize lastSyncDate=_lastSyncDate;
+@property(retain, nonatomic) NSNumber *optedInVal; // @synthesize optedInVal=_optedInVal;
 - (void).cxx_destruct;
 - (id)_connection;
 - (void)endIgnoringChanges;

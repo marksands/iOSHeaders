@@ -9,7 +9,7 @@
 @class AWDProactiveModelFittingEvalMetrics, AWDProactiveModelFittingMinibatchStats, NSDictionary, PMLDenseVector;
 
 @protocol PMLLogRegTrackerProtocol <PMLPlistAndChunksSerializableProtocol>
-- (NSDictionary *)trackGradient:(PMLDenseVector *)arg1 scaleFactor:(float)arg2 l2norm:(float)arg3 minibatchStats:(AWDProactiveModelFittingMinibatchStats *)arg4 evaluationMetrics:(AWDProactiveModelFittingEvalMetrics *)arg5 serverIteration:(unsigned long long)arg6;
-- (NSDictionary *)trackWeights:(PMLDenseVector *)arg1 scaleFactor:(float)arg2 l2norm:(float)arg3 minibatchStats:(AWDProactiveModelFittingMinibatchStats *)arg4 evaluationMetrics:(AWDProactiveModelFittingEvalMetrics *)arg5;
+- (NSDictionary *)trackGradient:(PMLDenseVector *)arg1 scaleFactor:(float)arg2 minibatchStats:(AWDProactiveModelFittingMinibatchStats *)arg3 evaluationMetrics:(AWDProactiveModelFittingEvalMetrics *)arg4 serverIteration:(unsigned long long)arg5;
+- (NSDictionary *)trackWeights:(PMLDenseVector *)arg1 scaleFactor:(float)arg2 minibatchStats:(AWDProactiveModelFittingMinibatchStats *)arg3 evaluationMetrics:(AWDProactiveModelFittingEvalMetrics *)arg4;
 @end
 

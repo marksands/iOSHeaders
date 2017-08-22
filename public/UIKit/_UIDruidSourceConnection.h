@@ -50,7 +50,7 @@ __attribute__((visibility("hidden")))
 - (void)dragDidExitApp;
 - (void)takeOutsideAppSourceOperationMask:(unsigned long long)arg1 prefersFullSizePreview:(_Bool)arg2;
 - (void)dirtyItems:(id)arg1;
-- (void)beginDragWithTouches:(id)arg1 touchRoutingPolicy:(id)arg2 items:(id)arg3 sourceDataOwner:(long long)arg4 accessibilityEndpoint:(id)arg5 completion:(CDUnknownBlockType)arg6;
+- (void)beginDragWithTouches:(id)arg1 touchRoutingPolicy:(id)arg2 items:(id)arg3 sourceDataOwner:(long long)arg4 accessibilityEndpoint:(id)arg5 centroid:(struct CGPoint)arg6 completion:(CDUnknownBlockType)arg7;
 - (id)init;
 
 @end

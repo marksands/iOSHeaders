@@ -7,7 +7,7 @@
 #import <objc/NSObject.h>
 
 @class CKAccountOverrideInfo, CKContainerID, CKDAccount, CKDAppContainerIntersectionMetadata, CKDAppContainerTuple, CKDApplicationMetadata, CKDCachePurger, CKDFlowControlManager, CKDKeyValueDiskCache, CKDMMCS, CKDMescalSession, CKDPCSCache, CKDPCSManager, CKDPublicIdentityLookupService, CKDServerConfiguration, CKDZoneGatekeeper, CKTimeLogger, NSBundle, NSHashTable, NSMutableDictionary, NSString, NSURL;
-@protocol OS_dispatch_queue;
+@protocol OS_dispatch_group, OS_dispatch_queue;
 
 @interface CKDClientContext : NSObject
 {
@@ -73,6 +73,7 @@
     CKDAppContainerTuple *_appContainerTuple;
     CKDFlowControlManager *_flowControlManager;
     CKDPCSManager *_pcsManager;
+    NSObject<OS_dispatch_group> *_proxyPreparationGroup;
 }
 
 + (id)contextWithAppContainerTuple:(id)arg1 accountInfoOverride:(id)arg2 proxy:(id)arg3;
@@ -84,6 +85,7 @@
 + (id)_sharedContextWithAppContainerTuple:(id)arg1 accountInfoOverride:(id)arg2 proxy:(id)arg3 forInternalUse:(_Bool)arg4;
 + (id)sharedContexts;
 + (id)applicationContainerPathForBundleID:(id)arg1 bundleURL:(id *)arg2 type:(long long *)arg3;
+@property(retain, nonatomic) NSObject<OS_dispatch_group> *proxyPreparationGroup; // @synthesize proxyPreparationGroup=_proxyPreparationGroup;
 @property(retain, nonatomic) CKDPCSManager *pcsManager; // @synthesize pcsManager=_pcsManager;
 @property(retain, nonatomic) CKDFlowControlManager *flowControlManager; // @synthesize flowControlManager=_flowControlManager;
 @property(retain, nonatomic) CKDAppContainerTuple *appContainerTuple; // @synthesize appContainerTuple=_appContainerTuple;

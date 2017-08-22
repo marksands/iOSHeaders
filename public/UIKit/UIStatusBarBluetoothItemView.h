@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
     _Bool _shouldAnimateConnection;
 }
 
+- (id)accessibilityHUDRepresentation;
 - (double)alphaForConnected:(_Bool)arg1;
 - (void)setVisible:(_Bool)arg1;
 - (id)contentsImage;

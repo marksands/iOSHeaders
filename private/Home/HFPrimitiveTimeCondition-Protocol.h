@@ -6,7 +6,10 @@
 
 #import <Home/NSObject-Protocol.h>
 
+@class HFTimeCondition;
+
 @protocol HFPrimitiveTimeCondition <NSObject>
 @property(readonly, nonatomic) unsigned long long comparisonType;
+- (long long)compare:(HFTimeCondition *)arg1;
 @end
 

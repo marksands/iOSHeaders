@@ -12,7 +12,7 @@
 @protocol HACCContentModuleDelegate <NSObject>
 - (_Bool)shouldDrawBackground;
 - (double)preferredContentWidth;
-- (void)content:(UIView<HACCContentModule> *)arg1 shouldPreview:(_Bool)arg2 withController:(HACCContentViewController *)arg3;
+- (void)content:(UIView<HACCContentModule> *)arg1 shouldPreview:(_Bool)arg2 withController:(HACCContentViewController *)arg3 andCompletion:(void (^)(void))arg4;
 - (void)controlDidActivate:(UIView<HACCContentModule> *)arg1;
 - (AXRemoteHearingAidDevice *)currentHearingDevice;
 @end

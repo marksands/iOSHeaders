@@ -15,6 +15,7 @@
     double _date;
     double _publicationDate;
     double _requiredExpirationDate;
+    double _soundMaximumDuration;
     NSMutableArray *_additionalAttachments;
     NSData *_alertSuppressionContexts;
     NSData *_alertSuppressionContextsNulls;
@@ -54,17 +55,22 @@
     _Bool _ignoresQuietMode;
     _Bool _includesSound;
     _Bool _loading;
+    _Bool _soundShouldIgnoreRingerSwitch;
+    _Bool _soundShouldRepeat;
     _Bool _turnsOnDisplay;
     struct {
         unsigned int date:1;
         unsigned int publicationDate:1;
         unsigned int requiredExpirationDate:1;
+        unsigned int soundMaximumDuration:1;
         unsigned int attachmentType:1;
         unsigned int sectionSubtype:1;
         unsigned int soundAlertType:1;
         unsigned int containsUpdatedAttachment:1;
         unsigned int ignoresQuietMode:1;
         unsigned int loading:1;
+        unsigned int soundShouldIgnoreRingerSwitch:1;
+        unsigned int soundShouldRepeat:1;
         unsigned int turnsOnDisplay:1;
     } _has;
 }
@@ -76,6 +82,9 @@
 + (void)_addAttachmentsFromBBBulletin:(id)arg1 toBLTPBBulletin:(id)arg2 observer:(id)arg3 completion:(CDUnknownBlockType)arg4;
 + (id)_attachmentFromBBAttachmentMetadata:(id)arg1 bulletin:(id)arg2 observer:(id)arg3 favorFile:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
 + (void)bulletinWithBBBulletin:(id)arg1 sockPuppetAppBundleID:(id)arg2 isSockPuppetAppInstalled:(_Bool)arg3 observer:(id)arg4 feed:(unsigned long long)arg5 teamID:(id)arg6 universalSectionID:(id)arg7 isCriticalBulletin:(_Bool)arg8 replyToken:(id)arg9 completion:(CDUnknownBlockType)arg10;
+@property(nonatomic) _Bool soundShouldIgnoreRingerSwitch; // @synthesize soundShouldIgnoreRingerSwitch=_soundShouldIgnoreRingerSwitch;
+@property(nonatomic) _Bool soundShouldRepeat; // @synthesize soundShouldRepeat=_soundShouldRepeat;
+@property(nonatomic) double soundMaximumDuration; // @synthesize soundMaximumDuration=_soundMaximumDuration;
 @property(retain, nonatomic) NSString *replyToken; // @synthesize replyToken=_replyToken;
 @property(nonatomic) double requiredExpirationDate; // @synthesize requiredExpirationDate=_requiredExpirationDate;
 @property(retain, nonatomic) NSMutableArray *additionalAttachments; // @synthesize additionalAttachments=_additionalAttachments;
@@ -129,6 +138,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSoundShouldIgnoreRingerSwitch;
+@property(nonatomic) _Bool hasSoundShouldRepeat;
+@property(nonatomic) _Bool hasSoundMaximumDuration;
 @property(readonly, nonatomic) _Bool hasReplyToken;
 @property(nonatomic) _Bool hasRequiredExpirationDate;
 - (id)additionalAttachmentsAtIndex:(unsigned long long)arg1;

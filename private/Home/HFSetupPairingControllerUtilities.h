@@ -10,8 +10,8 @@
 {
 }
 
-+ (void)getStatusTitle:(id *)arg1 statusDescription:(id *)arg2 forPairingPhase:(unsigned long long)arg3 phaseStartDate:(id)arg4 discoveredAccessory:(id)arg5 setupPayload:(id)arg6;
-+ (id)_accessoryNotFoundStatusDescriptionSuffixForSetupPayload:(id)arg1;
++ (void)getStatusTitle:(id *)arg1 statusDescription:(id *)arg2 forPairingPhase:(unsigned long long)arg3 phaseStartDate:(id)arg4 discoveredAccessory:(id)arg5 setupResult:(id)arg6;
++ (id)_accessoryNotFoundStatusDescriptionSuffixForSetupResult:(id)arg1;
 + (_Bool)isPairingPhaseIdle:(unsigned long long)arg1;
 + (id)descriptionForPairingPhase:(unsigned long long)arg1;
 + (double)accessoryDiscoveryFatalTimeout;

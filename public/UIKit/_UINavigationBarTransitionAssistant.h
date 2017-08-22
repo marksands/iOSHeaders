@@ -48,8 +48,9 @@ __attribute__((visibility("hidden")))
 - (void)_getTransitionCoordinator;
 - (void)decrementAnimationCount;
 - (void)incrementAnimationCount;
-- (void)finishTrackingInteractiveTransition;
+- (void)_finishTrackingAnimations;
 - (void)_startTrackingAnimations;
+- (void)finishTrackingInteractiveTransition;
 - (void)cancelInteractiveTransitionPercent:(double)arg1 completionSpeed:(double)arg2 completionCurve:(long long)arg3;
 - (void)finishInteractiveTransitionPercent:(double)arg1 completionSpeed:(double)arg2 completionCurve:(long long)arg3;
 - (void)_clearAnimationsWithDuration:(double)arg1 curve:(long long)arg2 reverse:(_Bool)arg3;

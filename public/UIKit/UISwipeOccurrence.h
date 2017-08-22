@@ -31,11 +31,11 @@
 @property(retain, nonatomic) UISwipeActionPullView *leadingPullView; // @synthesize leadingPullView=_leadingPullView;
 @property(nonatomic) __weak UISwipeActionController *controller; // @synthesize controller=_controller;
 @property(nonatomic) _Bool shouldReenableUserInteraction; // @synthesize shouldReenableUserInteraction=_shouldReenableUserInteraction;
-@property(nonatomic) _Bool active; // @synthesize active=_active;
 @property(nonatomic) struct CGPoint swipedViewInitialPosition; // @synthesize swipedViewInitialPosition=_swipedViewInitialPosition;
 @property(retain, nonatomic) UIView *swipedView; // @synthesize swipedView=_swipedView;
 @property(nonatomic) struct UIEdgeInsets extraInsets; // @synthesize extraInsets=_extraInsets;
 @property(nonatomic) unsigned long long currentDirection; // @synthesize currentDirection=_currentDirection;
+@property(nonatomic) _Bool active; // @synthesize active=_active;
 @property(retain, nonatomic) UIContextualAction *currentAction; // @synthesize currentAction=_currentAction;
 @property(copy, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
 - (void).cxx_destruct;

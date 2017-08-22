@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class GEOUserSessionEntity, NSArray, NSMutableArray, NSSet, NSString, PARBag, PRSCEPData, PRSRankingServerKnobs;
+@class GEOUserSessionEntity, NSArray, NSMutableArray, NSSet, NSString, PARBag, PRSRankingServerKnobs, SSPlistDataReader;
 @protocol OS_dispatch_group, OS_dispatch_queue, PRSSessionController;
 
 @interface PRSBagHandler : NSObject
@@ -25,7 +25,7 @@
     id <PRSSessionController> _client;
     long long _status;
     double _searchRenderTimeout;
-    PRSCEPData *_cep_server_values;
+    SSPlistDataReader *_cep_server_values;
     PRSRankingServerKnobs *_ranking_server_knobs;
     NSSet *_appBlacklist;
     NSArray *_enabledDomains;
@@ -58,7 +58,7 @@
 @property(retain, nonatomic) NSArray *enabledDomains; // @synthesize enabledDomains=_enabledDomains;
 @property(retain, nonatomic) NSSet *appBlacklist; // @synthesize appBlacklist=_appBlacklist;
 @property(retain) PRSRankingServerKnobs *ranking_server_knobs; // @synthesize ranking_server_knobs=_ranking_server_knobs;
-@property(retain) PRSCEPData *cep_server_values; // @synthesize cep_server_values=_cep_server_values;
+@property(retain) SSPlistDataReader *cep_server_values; // @synthesize cep_server_values=_cep_server_values;
 @property(readonly) double searchRenderTimeout; // @synthesize searchRenderTimeout=_searchRenderTimeout;
 @property(nonatomic) long long status; // @synthesize status=_status;
 @property __weak id <PRSSessionController> client; // @synthesize client=_client;

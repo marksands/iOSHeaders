@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 - (void)uninstallApplication:(id)arg1 withOptions:(id)arg2 uninstallType:(unsigned long long)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)installApplication:(id)arg1 atURL:(id)arg2 withOptions:(id)arg3 installType:(unsigned long long)arg4 reply:(CDUnknownBlockType)arg5;
 - (void)synchronizeWithMobileInstallation;
-- (void)updateRecordForApp:(id)arg1 withSINF:(id)arg2 iTunesMetadata:(id)arg3 placeholderMetadata:(id)arg4 sendNotification:(_Bool)arg5 completionHandler:(CDUnknownBlockType)arg6;
+- (void)updateRecordForApp:(id)arg1 withSINF:(id)arg2 iTunesMetadata:(id)arg3 placeholderMetadata:(id)arg4 sendNotification:(int)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (_Bool)clientHasMIEntitlement:(id)arg1;
 - (void)rebuildApplicationDatabasesForSystem:(_Bool)arg1 internal:(_Bool)arg2 user:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)resetServerStoreWithCompletionHandler:(CDUnknownBlockType)arg1;

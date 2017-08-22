@@ -8,11 +8,12 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 __attribute__((visibility("hidden")))
 @interface GEODataSetURLOverride : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_addressCorrectionInitURL;
     NSString *_addressCorrectionUpdateURL;
     NSString *_announcementsURL;
@@ -49,6 +50,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *directionsURL; // @synthesize directionsURL=_directionsURL;
 @property(nonatomic) unsigned int dataSet; // @synthesize dataSet=_dataSet;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

@@ -31,7 +31,7 @@
 @property(nonatomic) id <CHRecognitionSessionTaskDelegate> delegate; // @synthesize delegate=_delegate;
 @property _Bool cancelled; // @synthesize cancelled=_cancelled;
 @property(nonatomic, setter=_setStatus:) long long status; // @synthesize status=_status;
-- (id)_recognitionResultsFromLocaleResults:(id)arg1 inputStrokeIdentifiers:(id)arg2 inputDrawing:(id)arg3 cutPoints:(id)arg4;
+- (void)_filterResultsByLocale:(id)arg1 fitnessByLocale:(id)arg2;
 - (id)_recognitionResultsForStrokeGroup:(id)arg1 groupingStrategy:(id)arg2;
 - (void)_logResultsIfAppropriateWithStrokeProvider:(id)arg1;
 - (_Bool)_isTransitionValidFromStatus:(long long)arg1 toStatus:(long long)arg2;

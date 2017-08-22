@@ -65,6 +65,8 @@
 - (void)_executeOnceUpdated:(id)arg1 message:(id)arg2;
 - (void)_updateEventTriggerExecuteOnce:(id)arg1;
 - (void)_handleUpdateEventTriggerExecuteOnce:(id)arg1;
+- (void)_updateOwningDevice:(id)arg1;
+- (void)_handleUpdateOwningDevice:(id)arg1;
 - (void)_evaluationConditionUpdated:(id)arg1 message:(id)arg2;
 - (void)_updateEventTriggerCondition:(id)arg1;
 - (void)_handleUpdateEventTriggerCondition:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import <MediaPlayer/MPAVRoutingThemeableCellView-Protocol.h>
 
-@class MPAVRoute, NSString, UIActivityIndicatorView, UIImageView, UILabel;
+@class MPAVBatteryLevel, NSString, UIActivityIndicatorView, UIImageView, UILabel;
 @protocol MPAVRoutingTableViewCellDelegate;
 
 @interface MPAVRoutingTableViewCell : UITableViewCell <MPAVRoutingThemeableCellView>
@@ -21,22 +21,24 @@
     _Bool _mirroringSwitchVisible;
     _Bool _debugCell;
     _Bool _pendingSelection;
+    _Bool _displayIsPicked;
     _Bool _useSmartAudioCheckmarkStyle;
     _Bool _provideOwnSeparator;
     id <MPAVRoutingTableViewCellDelegate> _delegate;
-    MPAVRoute *_route;
     unsigned long long _mirroringStyle;
     unsigned long long _iconStyle;
+    MPAVBatteryLevel *_batteryLevel;
 }
 
 @property(nonatomic) _Bool provideOwnSeparator; // @synthesize provideOwnSeparator=_provideOwnSeparator;
 @property(nonatomic) _Bool useSmartAudioCheckmarkStyle; // @synthesize useSmartAudioCheckmarkStyle=_useSmartAudioCheckmarkStyle;
+@property(retain, nonatomic) MPAVBatteryLevel *batteryLevel; // @synthesize batteryLevel=_batteryLevel;
+@property(nonatomic) _Bool displayIsPicked; // @synthesize displayIsPicked=_displayIsPicked;
 @property(nonatomic, getter=isPendingSelection) _Bool pendingSelection; // @synthesize pendingSelection=_pendingSelection;
 @property(nonatomic, getter=isDebugCell) _Bool debugCell; // @synthesize debugCell=_debugCell;
 @property(nonatomic) unsigned long long iconStyle; // @synthesize iconStyle=_iconStyle;
 @property(nonatomic) unsigned long long mirroringStyle; // @synthesize mirroringStyle=_mirroringStyle;
 @property(nonatomic) _Bool mirroringSwitchVisible; // @synthesize mirroringSwitchVisible=_mirroringSwitchVisible;
-@property(retain, nonatomic) MPAVRoute *route; // @synthesize route=_route;
 @property(nonatomic) __weak id <MPAVRoutingTableViewCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_updateSpinnerStyle;
@@ -54,6 +56,7 @@
 - (id)iconView;
 - (id)subtitleView;
 - (id)titleView;
+- (void)updateForRoute:(id)arg1 inferLocalizedModelName:(_Bool)arg2;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 // Remaining properties

@@ -7,6 +7,7 @@
 #import <MediaPlayer/NSObject-Protocol.h>
 
 @protocol MPMediaControlsClientController <NSObject>
+- (void)didReceiveInteraction;
 - (void)dismiss;
 @end
 

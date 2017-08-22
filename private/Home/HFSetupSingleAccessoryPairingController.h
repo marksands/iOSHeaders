@@ -9,12 +9,12 @@
 #import <Home/HFHomeObserver-Protocol.h>
 #import <Home/HFSetupPairingController-Protocol.h>
 
-@class HFDiscoveredAccessory, HMHome, HMSetupAccessoryDescription, HMSetupAccessoryPayload, NAFuture, NSDate, NSHashTable, NSSet, NSString;
+@class HFDiscoveredAccessory, HFSetupAccessoryResult, HMHome, HMSetupAccessoryDescription, NAFuture, NSDate, NSHashTable, NSSet, NSString;
 @protocol HMSetupRemoteService;
 
 @interface HFSetupSingleAccessoryPairingController : NSObject <HFHomeObserver, HFSetupPairingController>
 {
-    HMSetupAccessoryPayload *_setupPayload;
+    HFSetupAccessoryResult *_setupResult;
     HFDiscoveredAccessory *_discoveredAccessoryToPair;
     id <HMSetupRemoteService> _setupRemoteService;
     HMSetupAccessoryDescription *_setupAccessoryDescription;
@@ -40,7 +40,7 @@
 @property(readonly, nonatomic) HMSetupAccessoryDescription *setupAccessoryDescription; // @synthesize setupAccessoryDescription=_setupAccessoryDescription;
 @property(nonatomic) __weak id <HMSetupRemoteService> setupRemoteService; // @synthesize setupRemoteService=_setupRemoteService;
 @property(readonly, nonatomic) HFDiscoveredAccessory *discoveredAccessoryToPair; // @synthesize discoveredAccessoryToPair=_discoveredAccessoryToPair;
-@property(retain, nonatomic) HMSetupAccessoryPayload *setupPayload; // @synthesize setupPayload=_setupPayload;
+@property(retain, nonatomic) HFSetupAccessoryResult *setupResult; // @synthesize setupResult=_setupResult;
 - (void).cxx_destruct;
 - (void)_assertValidTransitionFromPhase:(unsigned long long)arg1 toPhase:(unsigned long long)arg2;
 - (void)_failPairingWithDiscoveredAccessory:(id)arg1 error:(id)arg2;

@@ -71,6 +71,7 @@
 - (void)setResults:(id)arg1;
 - (_Bool)internalCancelInContext:(id)arg1 error:(id *)arg2;
 - (_Bool)internalPerformInContext:(id)arg1 error:(id *)arg2;
+- (_Bool)validateConfigurationAndReturnError:(id *)arg1;
 - (_Bool)performInContext:(id)arg1 error:(id *)arg2;
 - (void)applyConfigurationOfRequest:(id)arg1;
 - (void)copyStateOfRequest:(id)arg1;

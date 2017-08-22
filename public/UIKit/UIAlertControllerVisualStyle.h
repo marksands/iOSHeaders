@@ -31,6 +31,9 @@ __attribute__((visibility("hidden")))
 - (double)_scaledMarginBelowMessageLabelLastBaseline;
 - (double)_scaledMarginAboveMessageLabelFirstBaseline;
 - (double)_scaledMarginBelowTitleLabelLastBaseline;
+- (double)_scaledMessageSafeBaselineHeightInAlertControllerView:(id)arg1;
+- (double)_scaledTitleLabelSafeBaselineHeightInAlertControllerView:(id)arg1;
+- (double)_scaledSafeBaselineHeightForLabelFont:(id)arg1 inAlertControllerView:(id)arg2;
 - (double)_scaledMarginAboveTitleLabelFirstBaselineInAlertControllerView:(id)arg1;
 - (void)configureAttributesForImageView:(id)arg1 imageProperty:(id)arg2 actionViewState:(id)arg3;
 - (void)configureAttributesForTitleLabel:(id)arg1 classificationLabel:(id)arg2 actionViewState:(id)arg3;

@@ -48,6 +48,7 @@
 - (_Bool)_isJapaneseRegion;
 - (id)_bodyText;
 - (id)_associatedCredentialsForDefaultBehaviour;
+- (void)_pushNextActionViewController:(id)arg1 ontoNavigationController:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)_pushNextActionViewController:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_next:(id)arg1;
 @property(readonly, nonatomic) PKPaymentWebService *webService;

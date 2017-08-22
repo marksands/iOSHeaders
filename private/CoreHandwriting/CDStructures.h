@@ -53,6 +53,7 @@ struct CHNeuralNetwork {
     unsigned int _field6;
     unsigned int _field7;
     id _field8;
+    id _field9;
 };
 
 struct CJKChar {
@@ -86,7 +87,7 @@ struct Network {
     struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field1;
     unsigned long long _field2;
     struct vector<NetworkNode, std::__1::allocator<NetworkNode>> _field3;
-    struct set<unsigned long, std::__1::less<unsigned long>, std::__1::allocator<unsigned long>> _field4;
+    set_6c38b8e1 _field4;
     struct vector<NetworkEdge, std::__1::allocator<NetworkEdge>> _field5;
     struct vector<const NetworkEdge *, std::__1::allocator<const NetworkEdge *>> _field6;
     struct SymbolMap _field7;
@@ -458,6 +459,18 @@ typedef struct map<unsigned int, unsigned long, std::__1::less<unsigned int>, st
         } __pair3_;
     } __tree_;
 } map_2d68ca7b;
+
+typedef struct set<unsigned long, std::__1::less<unsigned long>, std::__1::allocator<unsigned long>> {
+    struct __tree<unsigned long, std::__1::less<unsigned long>, std::__1::allocator<unsigned long>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<unsigned long, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::less<unsigned long>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+} set_6c38b8e1;
 
 typedef struct vector<CGPoint, std::__1::allocator<CGPoint>> {
     struct CGPoint *__begin_;

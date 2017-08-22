@@ -9,6 +9,7 @@
 @interface NSError (NSFileProviderError)
 + (id)fileProviderErrorForNonExistentItemWithIdentifier:(id)arg1;
 + (id)fileProviderErrorForCollisionWithItem:(id)arg1;
+- (id)fileProviderCollidingFPItem;
 - (id)fileProviderCollidingItem;
 @end
 

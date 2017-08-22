@@ -31,6 +31,7 @@
 - (void)_updateEffectNode:(id)arg1 forTraitCollection:(id)arg2;
 - (id)_filterEntry;
 - (long long)_expectedUsage;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

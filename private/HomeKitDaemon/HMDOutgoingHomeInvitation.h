@@ -24,7 +24,7 @@
 @property(readonly, nonatomic) NSUUID *messageIdentifier; // @synthesize messageIdentifier=_messageIdentifier;
 @property(nonatomic) _Bool responseReceived; // @synthesize responseReceived=_responseReceived;
 @property(retain, nonatomic) NSString *inviteeDestinationAddress; // @synthesize inviteeDestinationAddress=_inviteeDestinationAddress;
-@property(readonly, nonatomic) HMDUser *user; // @synthesize user=_user;
+@property(retain, nonatomic) HMDUser *user; // @synthesize user=_user;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
 - (id)modelObjectWithChangeType:(unsigned long long)arg1 version:(long long)arg2;

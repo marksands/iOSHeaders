@@ -17,7 +17,7 @@
 @property(retain, nonatomic) NSOperationQueue *privateQueue; // @synthesize privateQueue=_privateQueue;
 - (void).cxx_destruct;
 - (id)viewControllerForAboutPrivacyWithTarget:(id)arg1 action:(SEL)arg2;
-- (id)viewControllerForPlaybackActivityReportingFromAppsWithBundleIDs:(id)arg1 appleAccount:(id)arg2 identityProvider:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)viewControllerForPlaybackActivityReportingFromAppsWithBundleIDs:(id)arg1 grantingVouchers:(_Bool)arg2 appleAccount:(id)arg3 identityProvider:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (id)viewControllerForAppsSupportedByIdentityProviderWithID:(id)arg1 delegate:(id)arg2;
 - (id)viewControllerForUnsupportedProvider:(id)arg1 withRequestingAppDisplayName:(id)arg2 storage:(id)arg3 acknowledgementHandler:(CDUnknownBlockType)arg4;
 - (id)viewControllerToConfirmDeveloperIdentityProviderDeletionWithConfirmationHandler:(CDUnknownBlockType)arg1;

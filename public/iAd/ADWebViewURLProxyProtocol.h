@@ -9,7 +9,7 @@
 #import <iAd/NSURLSessionDataDelegate-Protocol.h>
 #import <iAd/NSURLSessionTaskDelegate-Protocol.h>
 
-@class NSArray, NSString, NSThread, NSURLSessionDataTask;
+@class ADNSURLSessionDemultiplexer, NSArray, NSString, NSThread, NSURLSessionDataTask;
 
 @interface ADWebViewURLProxyProtocol : NSURLProtocol <NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 {
@@ -17,6 +17,7 @@
     NSArray *_modes;
     double _startTime;
     NSURLSessionDataTask *_task;
+    ADNSURLSessionDemultiplexer *_sessionDemux;
 }
 
 + (id)canonicalRequestForRequest:(id)arg1;
@@ -24,6 +25,7 @@
 + (void)unregister;
 + (void)registerProtocol;
 + (void)initialize;
+@property(retain) ADNSURLSessionDemultiplexer *sessionDemux; // @synthesize sessionDemux=_sessionDemux;
 @property(retain) NSURLSessionDataTask *task; // @synthesize task=_task;
 @property double startTime; // @synthesize startTime=_startTime;
 @property(copy) NSArray *modes; // @synthesize modes=_modes;

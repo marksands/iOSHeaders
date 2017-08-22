@@ -35,6 +35,8 @@
 + (id)unarchiveObjectWithData:(id)arg1;
 + (id)unarchiveObjectWithFile:(id)arg1;
 + (void)initialize;
++ (id)unarchivedObjectOfClasses:(id)arg1 fromData:(id)arg2 error:(id *)arg3;
++ (id)unarchivedObjectOfClass:(Class)arg1 fromData:(id)arg2 error:(id *)arg3;
 - (unsigned int)systemVersion;
 - (long long)versionForClassName:(id)arg1;
 - (void)decodeArrayOfObjCType:(const char *)arg1 count:(unsigned long long)arg2 at:(void *)arg3;
@@ -82,6 +84,7 @@
 - (id)_initWithStream:(struct __CFReadStream *)arg1 data:(id)arg2 topDict:(struct __CFDictionary *)arg3;
 - (id)init;
 - (id)_blobForCurrentObject;
+- (id)initForReadingFromData:(id)arg1 error:(id *)arg2;
 
 @end
 

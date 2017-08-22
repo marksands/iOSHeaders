@@ -8,7 +8,7 @@
 
 #import <SpotlightServices/PARSessionDelegate-Protocol.h>
 
-@class NSArray, NSDictionary, NSMutableArray, NSSet, NSString, PARSession, PRSCEPData, PRSFeedbackProxy, PRSRankingServerKnobs;
+@class NSArray, NSDictionary, NSMutableArray, NSSet, NSString, PARSession, PRSFeedbackProxy, PRSRankingServerKnobs, SSPlistDataReader;
 @protocol OS_dispatch_queue, PRSSessionController, SFFeedbackListener;
 
 @interface PRSSearchSession : NSObject <PARSessionDelegate>
@@ -40,10 +40,10 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool disableAsTypedSuggestion;
-@property(readonly, nonatomic) PRSCEPData *cannedCEPValues;
+@property(readonly, nonatomic) SSPlistDataReader *cannedCEPValues;
 - (void)shrinkCaches;
 @property(readonly, nonatomic) PRSRankingServerKnobs *rankingKnobs;
-@property(readonly, nonatomic) PRSCEPData *cepDictionary;
+@property(readonly, nonatomic) SSPlistDataReader *cepDictionary;
 @property(readonly, nonatomic) NSSet *appBlacklist;
 - (void)pruneCache;
 - (void)getCachedQueries:(id *)arg1 results:(id *)arg2 webSearch:(_Bool)arg3;

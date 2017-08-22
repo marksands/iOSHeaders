@@ -18,16 +18,16 @@
     NUImageGeometry *_geometry;
     _Bool _transitionAnimationInFlight;
     _Bool _shouldRemoveAnimation;
-    _Bool _debugMode;
     CALayer *_geometryAnimationLayer;
+    _Bool _debugMode;
 }
 
-@property(retain, nonatomic) CALayer *geometryAnimationLayer; // @synthesize geometryAnimationLayer=_geometryAnimationLayer;
 @property(nonatomic) _Bool debugMode; // @synthesize debugMode=_debugMode;
 - (void).cxx_destruct;
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)animationDidStart:(id)arg1;
-- (void)transitionToSize:(struct CGSize)arg1 duration:(double)arg2 animationCurve:(id)arg3;
+- (void)transitionToSize:(struct CGSize)arg1 offset:(struct CGPoint)arg2 duration:(double)arg3 animationCurve:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)transitionToSize:(struct CGSize)arg1 duration:(double)arg2 animationCurve:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)willMoveToWindow:(id)arg1;
 - (struct CGRect)convertRectToImage:(struct CGRect)arg1;
 @property(retain, nonatomic) NUImageGeometry *geometry;

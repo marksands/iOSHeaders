@@ -10,7 +10,7 @@
 - (void)uninstallApplication:(NSString *)arg1 withOptions:(NSDictionary *)arg2 uninstallType:(unsigned long long)arg3 reply:(void (^)(NSArray *, NSError *))arg4;
 - (void)installApplication:(NSString *)arg1 atURL:(NSURL *)arg2 withOptions:(NSDictionary *)arg3 installType:(unsigned long long)arg4 reply:(void (^)(NSArray *, NSError *))arg5;
 - (void)synchronizeWithMobileInstallation;
-- (void)updateRecordForApp:(NSString *)arg1 withSINF:(NSDictionary *)arg2 iTunesMetadata:(NSDictionary *)arg3 placeholderMetadata:(NSDictionary *)arg4 sendNotification:(_Bool)arg5 completionHandler:(void (^)(_Bool, NSError *))arg6;
+- (void)updateRecordForApp:(NSString *)arg1 withSINF:(NSDictionary *)arg2 iTunesMetadata:(NSDictionary *)arg3 placeholderMetadata:(NSDictionary *)arg4 sendNotification:(int)arg5 completionHandler:(void (^)(_Bool, NSError *))arg6;
 - (void)rebuildApplicationDatabasesForSystem:(_Bool)arg1 internal:(_Bool)arg2 user:(_Bool)arg3 completionHandler:(void (^)(_Bool, NSError *))arg4;
 - (void)resetServerStoreWithCompletionHandler:(void (^)(_Bool, NSError *))arg1;
 - (void)removeHandlerForURLScheme:(NSString *)arg1 completionHandler:(void (^)(_Bool, NSError *))arg2;

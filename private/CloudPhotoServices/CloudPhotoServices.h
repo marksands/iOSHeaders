@@ -26,6 +26,7 @@
 + (id)singlePassTranscodeVideoAtURL:(id)arg1 destinationURL:(id)arg2 options:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 + (id)transcodeVideoAtURL:(id)arg1 withAdjustments:(id)arg2 destinationURL:(id)arg3 options:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 + (void)generatePosterFrameForVideoAtURL:(id)arg1 maximumPixelCount:(long long)arg2 destinationURL:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
++ (id)generateGIFForVideoAtURL:(id)arg1 destinationURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (void)resizeImageAtURL:(id)arg1 destinationURL:(id)arg2 options:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 + (void)resizeImageAtURL:(id)arg1 destinationURL:(id)arg2 maximumPixelCount:(long long)arg3 bakeInOrientation:(_Bool)arg4 colorOutput:(long long)arg5 completionHandler:(CDUnknownBlockType)arg6;
 + (long long)status;

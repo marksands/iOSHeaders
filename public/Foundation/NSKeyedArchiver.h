@@ -35,6 +35,7 @@
 + (_Bool)archiveRootObject:(id)arg1 toFile:(id)arg2;
 + (id)archivedDataWithRootObject:(id)arg1;
 + (void)initialize;
++ (id)archivedDataWithRootObject:(id)arg1 requiringSecureCoding:(_Bool)arg2 error:(id *)arg3;
 @property _Bool requiresSecureCoding;
 - (unsigned int)systemVersion;
 - (long long)versionForClassName:(id)arg1;
@@ -75,6 +76,7 @@
 - (id)init;
 - (id)_blobForCurrentObject;
 - (void)_setBlobForCurrentObject:(id)arg1;
+- (id)initRequiringSecureCoding:(_Bool)arg1;
 
 @end
 

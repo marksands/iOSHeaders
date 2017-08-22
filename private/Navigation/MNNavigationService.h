@@ -64,6 +64,7 @@
 - (void)navigationServiceProxy:(id)arg1 updatedGuidanceEventFeedback:(id)arg2;
 - (void)navigationServiceProxy:(id)arg1 newGuidanceEventFeedback:(id)arg2;
 - (void)navigationServiceProxy:(id)arg1 didEnableGuidancePrompts:(_Bool)arg2;
+- (void)navigationServiceProxyPredictingDidArrive:(id)arg1;
 - (void)navigationServiceProxyDidArrive:(id)arg1;
 - (void)navigationServiceProxy:(id)arg1 hideLaneDirectionsForId:(id)arg2;
 - (void)navigationServiceProxy:(id)arg1 showLaneDirections:(id)arg2;

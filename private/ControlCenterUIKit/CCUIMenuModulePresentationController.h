@@ -17,6 +17,7 @@
 - (id)_menuModuleViewController;
 - (void)_handleBackgroundTap:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (void)dismissalTransitionDidEnd:(_Bool)arg1;
 - (_Bool)_shouldRespectDefinesPresentationContext;
 - (_Bool)shouldPresentInFullscreen;
 - (void)presentationTransitionWillBegin;

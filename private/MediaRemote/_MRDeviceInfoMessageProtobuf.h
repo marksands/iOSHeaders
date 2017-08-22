@@ -19,6 +19,7 @@
     unsigned int _lastSupportedMessageType;
     NSString *_localizedModelName;
     NSString *_name;
+    unsigned int _sharedQueueVersion;
     NSString *_systemBuildVersion;
     NSString *_systemMediaApplication;
     NSString *_uniqueIdentifier;
@@ -31,6 +32,7 @@
     struct {
         unsigned int protocolVersion:1;
         unsigned int lastSupportedMessageType:1;
+        unsigned int sharedQueueVersion:1;
         unsigned int allowsPairing:1;
         unsigned int connected:1;
         unsigned int supportsACL:1;
@@ -40,6 +42,7 @@
     } _has;
 }
 
+@property(nonatomic) unsigned int sharedQueueVersion; // @synthesize sharedQueueVersion=_sharedQueueVersion;
 @property(retain, nonatomic) NSData *bluetoothAddress; // @synthesize bluetoothAddress=_bluetoothAddress;
 @property(nonatomic) _Bool supportsExtendedMotion; // @synthesize supportsExtendedMotion=_supportsExtendedMotion;
 @property(nonatomic) _Bool supportsSharedQueue; // @synthesize supportsSharedQueue=_supportsSharedQueue;
@@ -65,6 +68,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSharedQueueVersion;
 @property(readonly, nonatomic) _Bool hasBluetoothAddress;
 @property(nonatomic) _Bool hasSupportsExtendedMotion;
 @property(nonatomic) _Bool hasSupportsSharedQueue;

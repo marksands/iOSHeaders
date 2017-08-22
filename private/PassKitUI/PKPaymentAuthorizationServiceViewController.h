@@ -7,6 +7,7 @@
 #import <UIKit/UIViewController.h>
 
 #import <PassKitUI/PKAuthenticatorDelegate-Protocol.h>
+#import <PassKitUI/PKPaymentAuthorizationFooterViewDelegate-Protocol.h>
 #import <PassKitUI/PKPaymentAuthorizationServiceProtocol-Protocol.h>
 #import <PassKitUI/PKPaymentAuthorizationStateMachineDelegate-Protocol.h>
 #import <PassKitUI/UINavigationControllerDelegate-Protocol.h>
@@ -16,9 +17,10 @@
 @class NSLayoutConstraint, NSString, PKAuthenticator, PKPaymentAuthorizationFooterView, PKPaymentAuthorizationLayout, PKPaymentAuthorizationPasswordButtonView, PKPaymentAuthorizationStateMachine, PKPaymentAuthorizationSummaryItemsView, PKPaymentAuthorizationTotalView, PKPaymentPreferencesViewController, UITableView, UIView;
 @protocol PKPaymentAuthorizationServiceViewControllerDelegate><PKPaymentAuthorizationHostProtocol;
 
-@interface PKPaymentAuthorizationServiceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, PKAuthenticatorDelegate, PKPaymentAuthorizationStateMachineDelegate, PKPaymentAuthorizationServiceProtocol>
+@interface PKPaymentAuthorizationServiceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, PKPaymentAuthorizationFooterViewDelegate, PKAuthenticatorDelegate, PKPaymentAuthorizationStateMachineDelegate, PKPaymentAuthorizationServiceProtocol>
 {
     PKPaymentAuthorizationLayout *_layout;
+    long long _authorizationMode;
     UIView *_contentView;
     UITableView *_detailTableView;
     PKPaymentAuthorizationSummaryItemsView *_summaryItemsView;
@@ -33,10 +35,14 @@
     PKPaymentPreferencesViewController *_shippingContactPreferencesController;
     PKPaymentPreferencesViewController *_paymentCardPreferencesController;
     _Bool _visible;
+    _Bool _authenticating;
     _Bool _hostApplicationResignedActive;
     _Bool _hostApplicationEnteredBackground;
     _Bool _treatingHostAsBackgrounded;
-    _Bool _requestingInAppPIN;
+    UIViewController *_passphraseViewController;
+    _Bool _bypassAuthenticator;
+    double _keyboardHeight;
+    _Bool _isPad;
     long long _preferencesStyle;
     struct __IOHIDEventSystemClient *_hidSystemClient;
     unsigned long long _biometryAttempts;
@@ -51,12 +57,12 @@
 - (void).cxx_destruct;
 - (void)_removeSimulatorHIDListener;
 - (void)_startSimulatorHIDListener;
+- (void)_setAuthenticating:(_Bool)arg1;
 - (void)_setVisible:(_Bool)arg1;
 - (id)_evaluationRequest;
 - (long long)_authenticatorPolicy;
 - (id)_compactNavigationController;
 - (long long)_totalViewStyle;
-- (void)_updatePreferredContentSize:(struct CGSize)arg1;
 - (void)_updatePreferredContentSize;
 - (void)_updatePreferencesWithErrors:(id)arg1;
 - (void)_updateShippingMethods;
@@ -68,12 +74,11 @@
 - (void)_handleModelUpdate;
 - (Class)_viewPresenterClassForDataItem:(id)arg1;
 - (Class)_tableViewClassForDataItem:(id)arg1;
-- (void)_removePassphraseViewFromHierarchy;
+- (void)_removePassphraseViewFromHierarchyWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_addPassphraseViewControllerToHierarchy:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)resumeAndUpdateContentSize;
 - (void)cancelPressed:(id)arg1;
 - (void)_payWithPasswordPressed:(id)arg1;
-- (void)_payWithPasscodePressed:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
@@ -81,6 +86,8 @@
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (_Bool)signInViewController:(id)arg1 shouldContinueWithAuthenticationResults:(id)arg2 error:(id)arg3 forContext:(id)arg4;
 - (void)signInViewController:(id)arg1 didAuthenticateWithResults:(id)arg2 error:(id)arg3;
+- (void)authorizationFooterViewPasscodeButtonPressed:(id)arg1;
+- (void)dismissPassphraseViewControllerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)dismissPassphraseViewController;
 - (void)presentPassphraseViewController:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)dismissPasscodeViewController;
@@ -110,7 +117,7 @@
 - (void)_selectOptionsForDataItem:(id)arg1;
 - (void)_startEvaluation;
 - (void)_suspendAuthentication;
-- (void)_resumeAuthenticationWithPreviousError:(id)arg1;
+- (void)_resumeAuthenticationWithPreviousError:(id)arg1 animated:(_Bool)arg2;
 - (void)_invalidPaymentDataWithParam:(id)arg1;
 - (void)_processClientCallback:(id)arg1;
 - (_Bool)paymentAuthorizationStateMachine:(id)arg1 didTransitionFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3 withParam:(id)arg4;

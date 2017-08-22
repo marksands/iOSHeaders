@@ -12,6 +12,8 @@
 {
     NSString *_bundleId;
     NSString *_productIdentifer;
+    NSString *_appName;
+    NSString *_productName;
     SKXPCConnection *_connection;
     CDUnknownBlockType __completion;
 }
@@ -21,6 +23,7 @@
 - (void)_send;
 - (void)send:(CDUnknownBlockType)arg1;
 - (id)initWithBundleId:(id)arg1 productIdentifier:(id)arg2;
+- (id)initWithBundleId:(id)arg1 productIdentifier:(id)arg2 appName:(id)arg3 productName:(id)arg4;
 
 @end
 

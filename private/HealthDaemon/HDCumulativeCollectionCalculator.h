@@ -13,7 +13,7 @@
     struct HDCumulativeStatisticsEngine _calculator;
     struct HDCumulativeStatisticsBucket _lastFinishedBucket;
     vector_c1c297d2 _orderedSourceIDs;
-    struct map<long long, std::__1::basic_string<char>, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, std::__1::basic_string<char>>>> _sourceBundleIdentifierMapping;
+    struct unordered_map<long long, NSString *, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, NSString *>>> _sourceBundleIdentifierMapping;
     _Bool _openEndedCalculator;
     unsigned long long _dataCount;
     unsigned long long _mergeStrategy;

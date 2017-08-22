@@ -31,8 +31,7 @@
 @property(readonly, nonatomic) GEOStep *geoStep; // @synthesize geoStep=_geoStep;
 - (void).cxx_destruct;
 - (id)description;
-- (_Bool)isEqualToGEOComposedRouteStep:(id)arg1;
-- (_Bool)isEqual:(id)arg1;
+- (_Bool)_MapsCarPlay_isEqual:(id)arg1;
 @property(readonly, nonatomic) id <GEOTransitArtworkDataSource> routeDetailsSecondaryArtwork;
 @property(readonly, nonatomic) NSArray *routeDetailsPrimaryArtwork;
 @property(readonly, nonatomic) NSArray *steppingArtwork;

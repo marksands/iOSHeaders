@@ -18,12 +18,13 @@ __attribute__((visibility("hidden")))
 - (void)configureYearsLevelGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 - (long long)collectionsSectionHeaderStyle;
 - (struct UIEdgeInsets)collectionsLevelSectionHeaderHighlightInset;
+- (struct UIEdgeInsets)collectionsLevelSectionHeaderContentInset;
 - (struct CGSize)collectionsLevelThumbnailSize;
 - (void)configureCollectionsLevelGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 - (long long)fullMomentsSectionHeaderStyle;
 - (struct UIEdgeInsets)fullMomentsLevelSectionHeaderHighlightInset;
 - (struct CGSize)fullMomentsLevelThumbnailSize;
-- (void)configureFullMomentsLevelGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3 layoutMargins:(struct UIEdgeInsets)arg4;
+- (void)configureFullMomentsLevelGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 - (struct UIEdgeInsets)magnifiedDragEdgeInsets;
 - (double)magnifiedYOffset;
 - (struct CGSize)magnifiedImageSize;

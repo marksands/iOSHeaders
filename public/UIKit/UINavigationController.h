@@ -465,6 +465,7 @@
 @property(nonatomic) _Bool pretendNavBarHidden;
 - (void)_hideShowNavigationBarDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (void)_setNavigationBarHidden:(_Bool)arg1 edge:(unsigned long long)arg2 duration:(double)arg3;
+- (void)_unhideNavigationBarForEdge:(unsigned long long)arg1;
 - (void)_positionNavigationBar:(id)arg1 hidden:(_Bool)arg2 edge:(unsigned long long)arg3 center:(struct CGPoint)arg4 offset:(double)arg5;
 - (_Bool)_searchHidNavigationBar;
 - (void)_setSearchHidNavigationBar:(_Bool)arg1;

@@ -25,6 +25,7 @@
 - (id)detailFormatForLocation:(id)arg1;
 - (id)titleFormatForLocation:(id)arg1;
 - (id)position;
+- (id)description;
 - (id)initWithEnrouteNotice:(id)arg1 trafficCamera:(id)arg2 onRoute:(id)arg3;
 
 @end

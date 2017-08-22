@@ -41,6 +41,7 @@
     NSNumber *_isSample;
     NSNumber *_isPurchase;
     NSDate *_purchaseDate;
+    NSNumber *_isLocalCacheServer;
     NSString *_artistName;
     NSString *_title;
     NSString *_subtitle;
@@ -56,6 +57,7 @@
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(copy, nonatomic) NSString *artistName; // @synthesize artistName=_artistName;
+@property(retain, nonatomic) NSNumber *isLocalCacheServer; // @synthesize isLocalCacheServer=_isLocalCacheServer;
 @property(retain, nonatomic) NSDate *purchaseDate; // @synthesize purchaseDate=_purchaseDate;
 @property(retain, nonatomic) NSNumber *isPurchase; // @synthesize isPurchase=_isPurchase;
 @property(retain, nonatomic) NSNumber *isSample; // @synthesize isSample=_isSample;

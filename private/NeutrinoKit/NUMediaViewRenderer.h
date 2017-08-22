@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NUAVPlayerController, NUCoalescer, NUColorSpace, NULivePhotoRenderClient, NUMediaView, NUPixelFormat, NUPriority, NURenderClient, NUResponse, NUSurfaceRenderClient, NUVideoRenderClient, UIView;
+@class AVComposition, NSArray, NUAVPlayerController, NUCoalescer, NUColorSpace, NULivePhotoRenderClient, NUMediaView, NUPixelFormat, NUPriority, NURenderClient, NUResponse, NUSurfaceRenderClient, NUVideoRenderClient, UIView;
 @protocol NURegionPolicy, NUScalePolicy, OS_dispatch_group, OS_dispatch_queue;
 
 @interface NUMediaViewRenderer : NSObject
@@ -37,9 +37,11 @@
     NUAVPlayerController *_nuAVPlayerController;
     unsigned long long _displayType;
     unsigned long long _computedDisplayType;
+    AVComposition *_previousVideo;
 }
 
 + (_Bool)_forceUpdateForNewVideoComposition:(id)arg1 previousComposition:(id)arg2 newAsset:(id)arg3 previousAsset:(id)arg4;
+@property(retain, nonatomic) AVComposition *previousVideo; // @synthesize previousVideo=_previousVideo;
 @property(nonatomic, getter=_isVideoEnabled, setter=_setVideoEnabled:) _Bool _videoEnabled; // @synthesize _videoEnabled=__videoEnabled;
 @property(readonly, nonatomic) unsigned long long computedDisplayType; // @synthesize computedDisplayType=_computedDisplayType;
 @property(nonatomic) unsigned long long displayType; // @synthesize displayType=_displayType;

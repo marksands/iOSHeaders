@@ -25,6 +25,9 @@ __attribute__((visibility("hidden")))
     unsigned long long _samplesSucceeded;
 }
 
++ (void)client:(id)arg1 pollEventType:(unsigned long long)arg2 event:(id)arg3;
++ (void)client:(id)arg1 event:(id)arg2;
++ (void)client:(id)arg1 attentionStateChange:(_Bool)arg2;
 + (id)sharedLogger;
 - (void).cxx_destruct;
 - (void)sampleSucceeded;

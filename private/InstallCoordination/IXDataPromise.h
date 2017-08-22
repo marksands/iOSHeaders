@@ -39,7 +39,9 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(nonatomic) double percentComplete; // @dynamic percentComplete;
+@property(readonly, nonatomic) _Bool localIsComplete; // @dynamic localIsComplete;
 @property(nonatomic, getter=isComplete) _Bool complete; // @synthesize complete=_complete;
+@property(readonly, nonatomic) NSError *localError; // @dynamic localError;
 @property(readonly, nonatomic) NSError *errorOccurred;
 @property(readonly, nonatomic) unsigned long long totalBytesNeededOnDisk; // @dynamic totalBytesNeededOnDisk;
 @property(readonly, nonatomic) NSUUID *uniqueIdentifier; // @dynamic uniqueIdentifier;

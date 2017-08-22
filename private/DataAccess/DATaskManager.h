@@ -6,12 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
-@class DAAccount, DATransaction, NSArray, NSMutableArray, NSMutableSet, NSTimer;
+@class DAAccount, DAActivity, DATransaction, NSArray, NSMutableArray, NSMutableSet, NSTimer;
 @protocol DATask;
 
 @interface DATaskManager : NSObject
 {
     DATransaction *_transaction;
+    DAActivity *_daActivity;
     DAAccount *_account;
     int _state;
     id <DATask> _activeModalTask;

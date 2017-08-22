@@ -48,6 +48,7 @@
 - (_Bool)isVideo;
 - (NSString *)uniformTypeIdentifier;
 - (NSManagedObjectID *)objectID;
+- (struct CGSize)originalImageSize;
 - (struct CGSize)imageSize;
 - (NSString *)thumbnailIdentifier;
 - (_Bool)complete;

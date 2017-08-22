@@ -10,6 +10,7 @@
 {
 }
 
++ (id)deviceProductType;
 + (id)getFixedHighPrioritySerialQueueWithLabel:(id)arg1;
 + (id)getFixedPrioritySerialQueueWithLabel:(id)arg1 fixedPriority:(int)arg2;
 + (id)rootQueueWithFixedPriority:(int)arg1;
@@ -30,14 +31,14 @@
 + (id)voiceTriggerRecordContext;
 + (struct AudioStreamBasicDescription)aiffFileASBD;
 + (struct AudioStreamBasicDescription)utteranceFileASBD;
-+ (struct AudioStreamBasicDescription)wavFileNarrowBandASBD;
-+ (struct AudioStreamBasicDescription)wavFileASBD;
++ (struct AudioStreamBasicDescription)lpcmNarrowBandASBD;
++ (struct AudioStreamBasicDescription)lpcmASBD;
 + (struct AudioStreamBasicDescription)lpcmNonInterleavedASBD;
 + (struct AudioStreamBasicDescription)lpcmInterleavedASBD;
 + (struct AudioStreamBasicDescription)opusNarrowBandASBD;
 + (struct AudioStreamBasicDescription)opusASBD;
-+ (struct AudioStreamBasicDescription)lpcmNarrowBandASBD;
-+ (struct AudioStreamBasicDescription)lpcmASBD;
++ (struct AudioStreamBasicDescription)lpcmInt16NarrowBandASBD;
++ (struct AudioStreamBasicDescription)lpcmInt16ASBD;
 + (_Bool)readAudioChunksFrom:(id)arg1 block:(CDUnknownBlockType)arg2;
 + (void)iterateBitset:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 + (unsigned long long)sampleCountFromHostTime:(unsigned long long)arg1 anchorHostTime:(unsigned long long)arg2 anchorSampleCount:(unsigned long long)arg3;

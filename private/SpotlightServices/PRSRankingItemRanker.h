@@ -46,6 +46,7 @@
 @property(retain, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 - (void).cxx_destruct;
 - (void)prepareItems:(id)arg1 inBundle:(id)arg2;
+- (id)getDateInGMT:(id)arg1;
 - (void)resetbundleFeaturesScratchBuf;
 - (CDUnknownBlockType)comparatorByJoiningComparator:(CDUnknownBlockType)arg1 withPredicate:(id)arg2;
 - (_Bool)wasItemCreatedWithinAWeek:(id)arg1;
@@ -58,6 +59,8 @@
 - (void)relevantResultSetPRSL2FeaturesFromBundleFeature:(unsigned long long)arg1 absRankFeatureOut:(unsigned long long *)arg2 relRankFeatureOut:(unsigned long long *)arg3;
 - (void)populateMailContactFeaturesWithMailItems:(id)arg1 contactItems:(id)arg2;
 - (void)computeResultSetDependantFeatures:(id)arg1 allItems:(id)arg2;
+- (void)populateLocalResultSetDateFeaturesForItems:(id)arg1;
+- (void)pickMostRecentDateForItem:(id)arg1 pastItems:(id *)arg2 futureItems:(id *)arg3;
 - (void)updateResultSetFeaturesOnItems:(id)arg1 withContext:(struct _resultset_computation_ctx *)arg2 uniqueScores:(id)arg3;
 - (void)populateRankResultSetBundleFeaturesWithBundleItems:(id)arg1 withUniqueBundleMaxScores:(id)arg2;
 - (void)updateResultSetContext:(struct _resultset_computation_ctx *)arg1 andUniqueScores:(id)arg2 withResultSetItems:(id)arg3;

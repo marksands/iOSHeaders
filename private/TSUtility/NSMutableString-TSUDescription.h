@@ -7,6 +7,6 @@
 #import <Foundation/NSMutableString.h>
 
 @interface NSMutableString (TSUDescription)
-- (void)indentBy:(unsigned long long)arg1;
+- (void)tsu_indentBy:(unsigned long long)arg1;
 @end
 

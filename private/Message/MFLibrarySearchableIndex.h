@@ -63,6 +63,7 @@
 - (void)removeItemsWithIdentifiers:(id)arg1;
 - (void)_indexItems:(id)arg1 fromRefresh:(_Bool)arg2;
 - (void)indexItems:(id)arg1;
+- (void)_reindexAllSearchableItemsWithOptions:(unsigned long long)arg1 acknowledgementHandler:(CDUnknownBlockType)arg2;
 - (void)reindexAllSearchableItemsWithAcknowledgementHandler:(CDUnknownBlockType)arg1;
 - (void)reindexSearchableItemsWithIdentifiers:(id)arg1 acknowledgementHandler:(CDUnknownBlockType)arg2;
 - (void)searchableIndex:(id)arg1 reindexAllSearchableItemsWithAcknowledgementHandler:(CDUnknownBlockType)arg2;

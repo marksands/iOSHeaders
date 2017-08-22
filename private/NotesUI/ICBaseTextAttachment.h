@@ -17,6 +17,7 @@
 
 @property(retain, nonatomic) ICAttachment *attachment; // @synthesize attachment=_attachment;
 - (void).cxx_destruct;
+- (struct CGRect)attachmentBoundsForTextContainer:(id)arg1 proposedLineFragment:(struct CGRect)arg2 glyphPosition:(struct CGPoint)arg3 characterIndex:(unsigned long long)arg4;
 - (void)detachView:(id)arg1 fromParentView:(id)arg2;
 - (id)attachmentInContext:(id)arg1;
 - (id)attachmentUTI;

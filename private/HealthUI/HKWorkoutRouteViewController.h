@@ -28,6 +28,7 @@
 @property(retain, nonatomic) HKLocationReadings *unsmoothedLocationReadings; // @synthesize unsmoothedLocationReadings=_unsmoothedLocationReadings;
 @property(retain, nonatomic) HKRouteView *routeView; // @synthesize routeView=_routeView;
 - (void).cxx_destruct;
+- (void)_toggleRouteViewMapType:(id)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)_shareButtonPressed:(id)arg1;
 - (id)_routeImageForSharing;

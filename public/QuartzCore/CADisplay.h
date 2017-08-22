@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
-@class CADisplayMode, NSArray, NSString;
+@class CADisplayAttributes, CADisplayMode, NSArray, NSString;
 
 @interface CADisplay : NSObject
 {
@@ -19,6 +19,7 @@
 + (id)mainDisplay;
 + (id)displays;
 @property _Bool allowsVirtualModes; // @synthesize allowsVirtualModes=_allowsVirtualModes;
+@property(readonly) CADisplayAttributes *externalDisplayAttributes;
 - (id)description;
 @property(readonly) _Bool supportsExtendedColors;
 @property(readonly) NSString *nativeOrientation;

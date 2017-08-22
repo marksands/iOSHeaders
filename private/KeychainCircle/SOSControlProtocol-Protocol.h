@@ -4,9 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSArray, NSData;
+@class NSArray, NSData, NSDictionary;
 
 @protocol SOSControlProtocol
+- (void)setWatchdogParmeters:(NSDictionary *)arg1 complete:(void (^)(NSError *))arg2;
+- (void)getWatchdogParameters:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)triggerSync:(NSArray *)arg1 complete:(void (^)(_Bool, NSError *))arg2;
 - (void)importInitialSyncCredentials:(NSArray *)arg1 complete:(void (^)(_Bool, NSError *))arg2;
 - (void)initialSyncCredentials:(unsigned int)arg1 complete:(void (^)(NSArray *, NSError *))arg2;

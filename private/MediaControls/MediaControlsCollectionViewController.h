@@ -13,7 +13,7 @@
 @class NSArray, NSMutableDictionary, NSMutableSet, NSString, UIScrollView, UITapGestureRecognizer;
 @protocol MediaControlsCollectionItemViewController, MediaControlsCollectionViewDataSource;
 
-@interface MediaControlsCollectionViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate, MediaControlsPanelViewControllerDelegate>
+@interface MediaControlsCollectionViewController : UIViewController <UIScrollViewDelegate, MediaControlsPanelViewControllerDelegate, UIGestureRecognizerDelegate>
 {
     NSMutableDictionary *_activeViewControllers;
     NSMutableSet *_inactiveViewControllers;
@@ -51,9 +51,10 @@
 - (struct CGRect)_rectForViewAtIndex:(long long)arg1 multi:(_Bool)arg2 size:(struct CGSize)arg3;
 - (struct CGRect)_rectForViewAtIndex:(long long)arg1;
 - (double)_totalHeight;
+- (struct CGSize)_preferredExpandedFittingSize;
 - (double)_backgroundCornerRadius;
 - (double)_verticalSpacing;
-- (double)_heightForExpanded;
+- (double)_heightForExpandedInSize:(struct CGSize)arg1;
 - (double)_heightForCompact;
 - (long long)numberOfDestinations;
 - (void)_assignRouteViewToExpandedView;

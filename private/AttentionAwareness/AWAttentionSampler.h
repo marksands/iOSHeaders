@@ -6,6 +6,7 @@
 
 #import <objc/NSObject.h>
 
+@class AWSampleLogger;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -14,6 +15,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_queue;
     unsigned long long _nextDeadline;
     int _currentState;
+    AWSampleLogger *_sampleLogger;
     CDUnknownBlockType _stateChangedCallback;
     unsigned long long _lastTriggerTime;
     unsigned long long _lastPositiveDetectTime;
@@ -25,12 +27,14 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long lastTriggerTime; // @synthesize lastTriggerTime=_lastTriggerTime;
 @property(nonatomic) int currentState; // @synthesize currentState=_currentState;
 @property(copy) CDUnknownBlockType stateChangedCallback; // @synthesize stateChangedCallback=_stateChangedCallback;
+@property(retain, nonatomic) AWSampleLogger *sampleLogger; // @synthesize sampleLogger=_sampleLogger;
 - (void).cxx_destruct;
 - (id)initWithMask:(unsigned long long)arg1;
 - (void)shouldSample:(_Bool)arg1 withDeadline:(unsigned long long)arg2;
 - (void)finishDeadlineComputation;
 - (void)updateSamplingDeadline:(unsigned long long)arg1 forClient:(id)arg2;
 - (void)startDeadlineComputation;
+- (void)setUnitTestMode;
 - (id)init;
 
 @end

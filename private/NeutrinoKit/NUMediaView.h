@@ -32,6 +32,7 @@
         _Bool hasDidFinishPreparingVideo;
     } _delegateFlags;
     _Bool _loopsVideo;
+    _Bool _inTransition;
     _Bool _centerContent;
     _Bool _muted;
     _Bool _videoPlayerVisible;
@@ -41,6 +42,7 @@
     struct CGRect _cropRect;
 }
 
++ (struct UIEdgeInsets)_proposedInsetsForInsets:(struct UIEdgeInsets)arg1 contentSize:(struct CGSize)arg2 inFrame:(struct CGRect)arg3 centerContent:(_Bool)arg4;
 @property(nonatomic, getter=isVideoPlayerVisible) _Bool videoPlayerVisible; // @synthesize videoPlayerVisible=_videoPlayerVisible;
 @property(nonatomic, getter=isMuted) _Bool muted; // @synthesize muted=_muted;
 @property(nonatomic) _Bool centerContent; // @synthesize centerContent=_centerContent;
@@ -58,6 +60,7 @@
 - (void)_updateVideoPlayerAlpha;
 @property(nonatomic, getter=isVideoEnabled) _Bool videoEnabled;
 - (void)_withComposition:(id)arg1 visitRenderClient:(CDUnknownBlockType)arg2;
+- (void)_setPipelineFilters:(id)arg1 shouldUpdateContent:(_Bool)arg2;
 @property(nonatomic) NSArray *pipelineFilters;
 - (void)_setLayerFilters:(id)arg1;
 - (id)_renderer;
@@ -87,13 +90,14 @@
 - (void)scrollViewDidZoom:(id)arg1;
 - (id)viewForZoomingInScrollView:(id)arg1;
 - (void)_updateContentInsets;
-- (struct UIEdgeInsets)_edgeInsetsForImageSize:(struct CGSize)arg1 inFrame:(struct CGRect)arg2;
+- (struct UIEdgeInsets)_edgeInsetsForContentSize:(struct CGSize)arg1 inFrame:(struct CGRect)arg2;
 - (void)_setupViews;
 @property(readonly, nonatomic) struct CGRect imageFrame;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromSpace:(id)arg2 toView:(id)arg3;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromView:(id)arg2 toSpace:(id)arg3;
 - (struct CGPoint)convertPointFromImage:(struct CGPoint)arg1;
 - (struct CGPoint)convertPointToImage:(struct CGPoint)arg1;
+- (struct CGSize)_imageSize;
 - (void)layoutSubviews;
 - (id)_imageLayer;
 - (_Bool)isReady;

@@ -44,6 +44,7 @@
 - (void)sendMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) int awdTransportType;
 - (_Bool)canSendMessage:(id)arg1;
+- (id)deviceForDestination:(id)arg1;
 - (long long)qualityOfService;
 - (void)start;
 - (id)initWithAccountRegistry:(id)arg1;

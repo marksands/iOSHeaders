@@ -7,6 +7,8 @@
 @class NSDate;
 
 @protocol PPPortraitDeletionTrackingProtocol
+- (void)voiceAssistantEnableStateWithCompletion:(void (^)(_Bool, NSError *))arg1;
+- (void)coreRoutineEnableStateWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)entitiesDeletedSinceDate:(NSDate *)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 @end
 

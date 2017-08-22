@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     NSOperationQueue *_operationQueue;
     unsigned long long _lastUsedDatePolicy;
     _Bool _shouldBounceOnCollision;
+    _Bool _shouldStopAccessingSourceURL;
     NSMutableArray *_childOperations;
     FPItem *_createdFolder;
     NSFileCoordinator *_fileCoordinator;
@@ -40,6 +41,7 @@ __attribute__((visibility("hidden")))
 - (void)finishWithResult:(id)arg1 error:(id)arg2;
 - (oneway void)cancel;
 - (void)mainWithExtensionProxy:(id)arg1;
+- (_Bool)handleCollidingItemErrorIfNeeded:(id)arg1;
 - (void)enumerateAndCopyChildren;
 - (void)enumerateChildrenCopyOperations:(CDUnknownBlockType)arg1;
 - (void)downloadItemIfNecessaryWithCompletionHandler:(CDUnknownBlockType)arg1;

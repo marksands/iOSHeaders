@@ -66,6 +66,7 @@
 @property(readonly, nonatomic) _Bool isSuggested;
 @property(readonly, nonatomic) _Bool shouldCurateIfPerformed;
 @property(readonly, nonatomic) _Bool shouldGroupByBundleIdentifier;
+@property(readonly, nonatomic) NSString *sanitizedTargetHandle;
 @property(readonly, nonatomic) NSString *targetHandle;
 - (void)associateWithRecentContactMetadata:(id)arg1;
 - (_Bool)isHandledByFirstPartyApp;

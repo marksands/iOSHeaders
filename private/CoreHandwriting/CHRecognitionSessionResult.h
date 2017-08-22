@@ -26,7 +26,8 @@
 @property(readonly, copy, nonatomic) NSArray *locales; // @synthesize locales=_locales;
 @property(readonly, retain, nonatomic) id <CHStrokeProviderVersion> strokeProviderVersion; // @synthesize strokeProviderVersion=_strokeProviderVersion;
 - (id)recognitionResultForStrokeGroupIdentifier:(long long)arg1;
-- (id)_resultsDebugDescriptionIntoGroupsArray:(id)arg1;
+- (id)_resultsDebugDescriptionIntoGroupsArray:(id)arg1 groupHeaderBlock:(CDUnknownBlockType)arg2;
+- (id)allResultsDebugDescriptionWithGroupHeaderBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSArray *allResultsDebugDescriptionByGroup;
 @property(readonly, nonatomic) NSString *allResultsDebugDescription;
 @property(readonly, nonatomic) NSString *highConfidenceDebugDescription;

@@ -11,6 +11,7 @@
 @class NSOperation, NSString;
 
 @interface UIImage (DOCThumbnail) <DOCThumbnail>
+@property(readonly, nonatomic) NSOperation *operation;
 @property(readonly, nonatomic) _Bool isRepresentativeIcon;
 @property(readonly, nonatomic, getter=isLoading) _Bool loading;
 - (void)removeListener:(id)arg1;
@@ -21,7 +22,6 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) NSOperation *operation;
 @property(readonly) Class superclass;
 @end
 

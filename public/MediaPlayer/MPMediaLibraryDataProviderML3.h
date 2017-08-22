@@ -123,6 +123,7 @@
 - (void)_importStoreItemElements:(id)arg1 andAddTracksToCloudLibrary:(_Bool)arg2 usingCloudAdamID:(long long)arg3 withCompletion:(CDUnknownBlockType)arg4;
 - (void)addPlaylistStoreItemsForLookupItems:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)performStoreItemLibraryImport:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (id)_storePlatformRequestContext;
 - (void)sdk_addItemWithOpaqueID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)addTracksToMyLibrary:(id)arg1;
 - (id)multiverseIdentifierForCollectionWithPersistentID:(long long)arg1 groupingType:(long long)arg2;
@@ -135,6 +136,7 @@
 - (void)loadQueryCriteria:(id)arg1 countOfItemsWithCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)loadQueryCriteria:(id)arg1 hasCollectionsWithCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)loadQueryCriteria:(id)arg1 hasItemsWithCompletionBlock:(CDUnknownBlockType)arg2;
+- (_Bool)collectionExistsContainedWithinSyncIDs:(id)arg1 groupingType:(long long)arg2 existentPID:(unsigned long long *)arg3;
 - (_Bool)collectionExistsWithStoreID:(long long)arg1 groupingType:(long long)arg2 existentPID:(unsigned long long *)arg3;
 - (_Bool)collectionExistsWithName:(id)arg1 groupingType:(long long)arg2 existentPID:(unsigned long long *)arg3;
 - (_Bool)collectionExistsContainedWithinPersistentIDs:(const unsigned long long *)arg1 count:(unsigned long long)arg2 groupingType:(long long)arg3 existentPID:(unsigned long long *)arg4;

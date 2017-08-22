@@ -16,6 +16,7 @@
 {
     NSOperationQueue *_artworkLoadingQueue;
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_workQueue;
     MPUQueryDataSource *_queryDataSource;
     WLKUIOrderedItemsMap *_orderedItemsMap;
 }
@@ -38,6 +39,7 @@
 - (void)_dataSourceDidChange;
 - (void)_dataSourceChanged:(id)arg1;
 - (void)itemsMapAddedKeys:(id)arg1 andRemovedKeys:(id)arg2;
+- (void)setFilterAsync:(id)arg1:(id)arg2;
 - (_Bool)setFilter:(id)arg1;
 - (long long)queryHasItemCount:(id)arg1;
 - (_Bool)libraryHasMedia;

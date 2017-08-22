@@ -13,7 +13,7 @@
 #import <BulletinBoard/BBSyncServiceDelegate-Protocol.h>
 #import <BulletinBoard/NSXPCListenerDelegate-Protocol.h>
 
-@class ABFavoritesListManager, BBDataProviderManager, BBDismissalSyncCache, BBMaskedSet, BBSyncService, NSArray, NSDate, NSDateComponents, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSXPCListener;
+@class ABFavoritesListManager, BBBiometricResource, BBDataProviderManager, BBDismissalSyncCache, BBMaskedSet, BBSyncService, NSArray, NSDate, NSDateComponents, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSXPCListener;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface BBServer : NSObject <BBDataProviderManagerDelegate, BBNotificationBehaviorUtilitiesServerProtocol, BBServerConduitServerInterface, BBSettingsGatewayServerInterface, NSXPCListenerDelegate, BBSyncServiceDelegate>
@@ -85,6 +85,7 @@
     unsigned long long _activeQuietModeAssertionCount;
     unsigned long long _activeQuietModeAssertionGatewayCount;
     long long _globalContentPreviewsSetting;
+    BBBiometricResource *_biometricResource;
     void *_addressBook;
     ABFavoritesListManager *_favoritesListManager;
     _Bool _entryFound;
@@ -242,7 +243,7 @@
 - (void)setEffectiveGlobalContentPreviewsSetting:(long long)arg1;
 - (void)getEffectiveGlobalContentPreviewsSettingWithHandler:(CDUnknownBlockType)arg1;
 - (long long)_effectiveGlobalContentPreviewsSetting;
-- (void)_handleDefaultGlobalSettingChange;
+- (void)_biometricResourceStateChanged;
 - (void)_updateAllSectionInfos;
 - (long long)_defaultGlobalContentPreviewSetting;
 - (void)getEffectiveSectionInfoForSectionIDs:(id)arg1 withHandler:(CDUnknownBlockType)arg2;

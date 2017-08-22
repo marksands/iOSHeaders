@@ -11,7 +11,7 @@
 #import <UIKit/UIScrollViewDelegate-Protocol.h>
 #import <UIKit/UISpringLoadedInteractionSupporting-Protocol.h>
 
-@class NSArray, NSLayoutConstraint, NSMutableArray, NSString, UIAlertAction, UIAlertController, UIAlertControllerVisualStyle, UILabel, _UIAlertControllerActionViewMetrics, _UIAlertControllerInterfaceActionGroupView, _UIKeyboardLayoutAlignmentView;
+@class NSArray, NSLayoutConstraint, NSMutableArray, NSString, UIAlertAction, UIAlertController, UIAlertControllerVisualStyle, UILabel, _UIAlertControllerActionViewMetrics, _UIAlertControllerInterfaceActionGroupView, _UIFlexibleConstantConstraintSet, _UIKeyboardLayoutAlignmentView;
 
 __attribute__((visibility("hidden")))
 @interface _UIAlertControllerView : UIView <UIInterfaceActionHandlerInvocationDelegate, UIScrollViewDelegate, UISpringLoadedInteractionSupporting, UIGestureRecognizerDelegatePrivate>
@@ -60,8 +60,8 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_contentViewTopConstraint;
     NSLayoutConstraint *_contentViewBottomConstraint;
     NSLayoutConstraint *_contentViewMaxHeightConstraint;
-    NSLayoutConstraint *_titleLabelTopAlignmentConstraint;
-    NSLayoutConstraint *_messageLabelTopAlignmentConstraint;
+    _UIFlexibleConstantConstraintSet *_titleLabelTopAlignmentConstraints;
+    _UIFlexibleConstantConstraintSet *_messageLabelTopAlignmentConstraints;
     NSLayoutConstraint *_detailMessageLabelTopAlignmentConstraint;
     NSLayoutConstraint *_contentViewControllerViewLeftConstraint;
     NSLayoutConstraint *_contentViewControllerViewRightConstraint;
@@ -76,7 +76,7 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_contentViewControllerContainerViewTopAlignmentConstraint;
     NSLayoutConstraint *_contentViewControllerContainerViewWidthConstraint;
     NSLayoutConstraint *_contentViewControllerContainerViewHeightConstraint;
-    NSLayoutConstraint *_textFieldViewControllerContainerViewTopAlignmentConstraint;
+    _UIFlexibleConstantConstraintSet *_textFieldViewControllerContainerViewTopAlignmentConstraints;
     NSLayoutConstraint *_textFieldViewControllerContainerViewWidthConstraint;
     NSLayoutConstraint *_textFieldViewControllerContainerViewHeightConstraint;
     NSLayoutConstraint *_centerXConstraint;
@@ -112,7 +112,7 @@ __attribute__((visibility("hidden")))
 @property(retain) NSLayoutConstraint *centerXConstraint; // @synthesize centerXConstraint=_centerXConstraint;
 @property(retain) NSLayoutConstraint *textFieldViewControllerContainerViewHeightConstraint; // @synthesize textFieldViewControllerContainerViewHeightConstraint=_textFieldViewControllerContainerViewHeightConstraint;
 @property(retain) NSLayoutConstraint *textFieldViewControllerContainerViewWidthConstraint; // @synthesize textFieldViewControllerContainerViewWidthConstraint=_textFieldViewControllerContainerViewWidthConstraint;
-@property(retain) NSLayoutConstraint *textFieldViewControllerContainerViewTopAlignmentConstraint; // @synthesize textFieldViewControllerContainerViewTopAlignmentConstraint=_textFieldViewControllerContainerViewTopAlignmentConstraint;
+@property(retain) _UIFlexibleConstantConstraintSet *textFieldViewControllerContainerViewTopAlignmentConstraints; // @synthesize textFieldViewControllerContainerViewTopAlignmentConstraints=_textFieldViewControllerContainerViewTopAlignmentConstraints;
 @property(retain) NSLayoutConstraint *contentViewControllerContainerViewHeightConstraint; // @synthesize contentViewControllerContainerViewHeightConstraint=_contentViewControllerContainerViewHeightConstraint;
 @property(retain) NSLayoutConstraint *contentViewControllerContainerViewWidthConstraint; // @synthesize contentViewControllerContainerViewWidthConstraint=_contentViewControllerContainerViewWidthConstraint;
 @property(retain) NSLayoutConstraint *contentViewControllerContainerViewTopAlignmentConstraint; // @synthesize contentViewControllerContainerViewTopAlignmentConstraint=_contentViewControllerContainerViewTopAlignmentConstraint;
@@ -127,8 +127,8 @@ __attribute__((visibility("hidden")))
 @property(retain) NSLayoutConstraint *contentViewControllerViewRightConstraint; // @synthesize contentViewControllerViewRightConstraint=_contentViewControllerViewRightConstraint;
 @property(retain) NSLayoutConstraint *contentViewControllerViewLeftConstraint; // @synthesize contentViewControllerViewLeftConstraint=_contentViewControllerViewLeftConstraint;
 @property(retain) NSLayoutConstraint *detailMessageLabelTopAlignmentConstraint; // @synthesize detailMessageLabelTopAlignmentConstraint=_detailMessageLabelTopAlignmentConstraint;
-@property(retain) NSLayoutConstraint *messageLabelTopAlignmentConstraint; // @synthesize messageLabelTopAlignmentConstraint=_messageLabelTopAlignmentConstraint;
-@property(retain) NSLayoutConstraint *titleLabelTopAlignmentConstraint; // @synthesize titleLabelTopAlignmentConstraint=_titleLabelTopAlignmentConstraint;
+@property(retain) _UIFlexibleConstantConstraintSet *messageLabelTopAlignmentConstraints; // @synthesize messageLabelTopAlignmentConstraints=_messageLabelTopAlignmentConstraints;
+@property(retain) _UIFlexibleConstantConstraintSet *titleLabelTopAlignmentConstraints; // @synthesize titleLabelTopAlignmentConstraints=_titleLabelTopAlignmentConstraints;
 @property(retain) NSLayoutConstraint *contentViewMaxHeightConstraint; // @synthesize contentViewMaxHeightConstraint=_contentViewMaxHeightConstraint;
 @property(retain) NSLayoutConstraint *contentViewBottomConstraint; // @synthesize contentViewBottomConstraint=_contentViewBottomConstraint;
 @property(retain) NSLayoutConstraint *contentViewTopConstraint; // @synthesize contentViewTopConstraint=_contentViewTopConstraint;

@@ -7,6 +7,7 @@
 @class NSArray, NSDictionary, NSString;
 
 @protocol AudioComponentPreferenceProtocol
+- (void)getInterAppIcon:(NSString *)arg1 reply:(void (^)(NSData *))arg2;
 - (void)getExtensionIcon:(NSString *)arg1 reply:(void (^)(NSData *))arg2;
 - (void)setComponentUserTags:(NSDictionary *)arg1 tags:(NSArray *)arg2;
 - (void)getComponentUserTags:(NSDictionary *)arg1 reply:(void (^)(NSArray *))arg2;

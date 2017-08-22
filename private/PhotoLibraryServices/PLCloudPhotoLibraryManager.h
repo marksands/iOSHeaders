@@ -209,7 +209,7 @@
 - (void)beginsSignificantWorkWithResourcesSize:(unsigned long long)arg1 initialOrResetSync:(_Bool)arg2;
 - (void)_runOneTimeMigrationStepsIfNecessary;
 - (void)_initializeMasterAndSizeCalculation;
-- (void)_promptForCameraCaptureSettingChange;
+- (void)_promptForCameraCaptureSettingChangeWithReason:(int)arg1;
 - (void)_handleAccountFlagsChangeIfNecessary;
 - (void)_openCPLLibrary;
 - (id)init;

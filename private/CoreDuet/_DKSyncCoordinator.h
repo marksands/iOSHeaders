@@ -29,6 +29,7 @@
     _DKKnowledgeStorage *_storage;
 }
 
++ (void)validateConfigurationWithStorePath:(id)arg1;
 @property(readonly, nonatomic) _DKKnowledgeStorage *storage; // @synthesize storage=_storage;
 - (void).cxx_destruct;
 - (void)deleteRemoteStateWithReply:(CDUnknownBlockType)arg1;
@@ -78,7 +79,7 @@
 - (void)__performSyncWithPolicy:(id)arg1 isTriggeredSync:(_Bool)arg2 localChangeSets:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)_performSyncWithPolicy:(id)arg1 isTriggeredSync:(_Bool)arg2 localChangeSets:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)performSyncWithPolicy:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (id)_queryStartDateGivenPolicy:(id)arg1 isTriggeredSync:(_Bool)arg2;
+- (id)_queryStartDateGivenPolicy:(id)arg1 lastQueryEndDate:(id)arg2 isTriggeredSync:(_Bool)arg3;
 - (id)changeSetForSyncWithTombstones:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 error:(id *)arg4;
 - (id)changeSetForSyncWithInsertedObjects:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 error:(id *)arg4;
 - (void)syncWithReply:(CDUnknownBlockType)arg1;
@@ -92,8 +93,10 @@
 - (void)_setLastSyncUpToCloudDate:(id)arg1;
 - (id)_lastSyncDownFromCloudDate;
 - (void)_setLastSyncDownFromCloudDate:(id)arg1;
-- (id)_lastQueryEndDate;
-- (void)_setLastQueryEndDate:(id)arg1;
+- (id)_lastLocalQueryEndDate;
+- (void)_setLastLocalQueryEndDate:(id)arg1;
+- (id)_lastSyncQueryEndDate;
+- (void)_setLastSyncQueryEndDate:(id)arg1;
 - (void)_deleteAllRemoteSyncDataIfSiriCloudSyncHasBeenDisabled;
 - (void)_possiblyPerformInitialSync;
 - (void)_performSyncTogglesChangedActions;

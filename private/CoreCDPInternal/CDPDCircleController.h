@@ -31,7 +31,7 @@
 - (void)applyToJoinCircleWithJoinHandler:(CDUnknownBlockType)arg1;
 - (id)_peerDeviceNamesByPeerID;
 - (void)useCircleInfoToUpdateNameForDevices:(id)arg1;
-- (void)resetCicleToResolvePendingAfterRecoveryWithCompletion:(CDUnknownBlockType)arg1;
+- (void)resetCircleIncludingCloudKitData:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)joinCircleAfterRecoveryWithCompletion:(CDUnknownBlockType)arg1;
 - (unsigned long long)_peerCount;
 - (void)promptForCredentials:(CDUnknownBlockType)arg1;

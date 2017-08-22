@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
 + (Class)transformerClass;
 - (void).cxx_destruct;
 - (void)pdfDataForPageAtIndex:(long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)prepareForDrawingPages:(struct _NSRange)arg1;
+- (void)prepareForDrawingPages:(struct _NSRange)arg1 ofSize:(struct CGSize)arg2;
 - (void)numberOfPagesWithSize:(struct CGSize)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)previewControllerDidUpdatePreferredContentSize:(id)arg1;
 - (void)previewControllerDidUpdateTitle:(id)arg1;

@@ -32,8 +32,11 @@
 @property(readonly, nonatomic) _Bool isCloudEnabled; // @synthesize isCloudEnabled=_isCloudEnabled;
 - (void).cxx_destruct;
 - (void)_initializeUpdateInProgressState;
+- (void)setLikedState:(long long)arg1 forPlaylistWithGlobalID:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setLikedState:(long long)arg1 forPlaylistWithGlobalID:(id)arg2;
+- (void)setLikedState:(long long)arg1 forAlbumWithStoreID:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setLikedState:(long long)arg1 forAlbumWithStoreID:(long long)arg2;
+- (void)setLikedState:(long long)arg1 forEntityWithStoreID:(long long)arg2 withMediaType:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)setLikedState:(long long)arg1 forEntityWithStoreID:(long long)arg2 withMediaType:(unsigned long long)arg3;
 - (void)fetchRecommendedContentWithSeedTrackID:(long long)arg1 seedTrackIDType:(long long)arg2 count:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)acceptJaliscGeniusTermsAndConditionsVersion:(long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;

@@ -26,7 +26,7 @@
 - (void)_tearDownTimeoutTimerSource;
 - (void)_handleTimeout;
 - (void)_executeURLLoadWithRequest:(id)arg1 storeBagDictionary:(id)arg2 requestContext:(id)arg3;
-- (void)_executeItemMetadataLoadForRequestedItemIdentifiers:(id)arg1 reason:(unsigned long long)arg2;
+- (void)_executeItemMetadataLoadForRequestedItemIdentifiers:(id)arg1 reason:(unsigned long long)arg2 requestContext:(id)arg3;
 - (void)_finishWithResponse:(id)arg1 error:(id)arg2;
 - (void)dispatchSync:(CDUnknownBlockType)arg1;
 - (void)dispatchAsync:(CDUnknownBlockType)arg1;

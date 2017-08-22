@@ -6,22 +6,19 @@
 
 #import <UIKit/_UICanvas.h>
 
-@class UIScreen;
-
 __attribute__((visibility("hidden")))
 @interface __UIScreenCanvas : _UICanvas
 {
-    UIScreen *_screen;
 }
 
 + (id)settingsDiffActions;
 + (id)_unassociatedCanvasForScreen:(id)arg1 create:(_Bool)arg2;
 + (_Bool)alwaysKeepContexts;
-- (void).cxx_destruct;
 - (void)detachWindow:(id)arg1;
 - (void)setKeepContextAssociationInBackground:(_Bool)arg1;
 - (id)_lookupKey;
 - (id)screen;
+- (void)_invalidateScreen;
 - (id)initWithScreen:(id)arg1;
 
 @end

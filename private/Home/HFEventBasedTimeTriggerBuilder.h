@@ -21,6 +21,7 @@
 - (id)commitEditTrigger;
 - (id)commitCreateTrigger;
 - (void)_setupWithExistingTrigger:(id)arg1;
+- (void)setRecurrences:(id)arg1;
 - (id)initWithExistingObject:(id)arg1 inHome:(id)arg2;
 
 @end

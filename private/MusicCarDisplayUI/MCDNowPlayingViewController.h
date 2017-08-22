@@ -22,7 +22,6 @@
     _Bool _navbarHidesShadow;
     _Bool _viewHasShifted;
     _Bool _handledWillAppear;
-    _Bool _titleUpdated;
     MCDTransportControlView *_transportControlView;
     MCDPlayModeControlView *_playModeControlView;
     MCDTitleView *_titleView;
@@ -62,7 +61,6 @@
 @property(readonly, nonatomic) MCDProgressView *progressView; // @synthesize progressView=_progressView;
 @property(nonatomic) __weak id <MCDNowPlayingViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <MCDNowPlayingViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) _Bool titleUpdated; // @synthesize titleUpdated=_titleUpdated;
 @property(readonly, nonatomic) MCDTitleView *titleView; // @synthesize titleView=_titleView;
 @property(readonly, nonatomic) MCDPlayModeControlView *playModeControlView; // @synthesize playModeControlView=_playModeControlView;
 @property(readonly, nonatomic) MCDTransportControlView *transportControlView; // @synthesize transportControlView=_transportControlView;
@@ -90,7 +88,6 @@
 - (void)_respondToHeldAction;
 - (void)_playPauseButtonTouchUp:(id)arg1;
 - (void)_sendAction:(long long)arg1 withState:(long long)arg2;
-- (void)_itemChanged:(id)arg1;
 - (void)albumArtistButtonTapped:(id)arg1;
 - (void)reloadData;
 - (void)_didUpdateSupportedCommandsNotification:(id)arg1;
@@ -98,7 +95,7 @@
 - (void)_updateShuffleStateWithType:(long long)arg1;
 - (void)_updateRepeatStateWithType:(long long)arg1;
 - (void)_updatePlayModesState;
-- (void)updatePlayControlsWithElapsedTime:(double)arg1;
+- (void)updatePlayControls;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

@@ -144,8 +144,6 @@
 - (id)_updatePredictedLocationCacheIfNeededHoldingLock;
 - (_Bool)_needsPredictedLocationCacheUpdateHoldingLock;
 @property(copy, nonatomic) EKStructuredLocation *structuredLocation; // @dynamic structuredLocation;
-@property(readonly, nonatomic) EKStructuredLocation *structuredLocationWithoutPrediction;
-- (void)setLocation:(id)arg1;
 @property(readonly, nonatomic) _Bool allowsProposedTimeModifications;
 - (_Bool)serverSupportedProposeNewTime;
 - (_Bool)canForward;

@@ -14,7 +14,6 @@
 
 @optional
 - (void)previewInteractionManager:(NCNotificationPreviewInteractionManager *)arg1 shouldFinishInteractionWithCompletionBlock:(void (^)(_Bool))arg2;
-- (_Bool)previewInteractionManagerShouldAttemptToFinishInteraction:(NCNotificationPreviewInteractionManager *)arg1;
 - (void)previewInteractionManagerDidEndUserInteraction:(NCNotificationPreviewInteractionManager *)arg1;
 - (void)previewInteractionManagerWillBeginUserInteraction:(NCNotificationPreviewInteractionManager *)arg1;
 - (_Bool)previewInteractionManagerShouldBeginInteraction:(NCNotificationPreviewInteractionManager *)arg1;

@@ -11,7 +11,7 @@
 #import <UIKit/_UIDraggingItemVisualTarget-Protocol.h>
 #import <UIKit/_UIDraggingSessionDelegate-Protocol.h>
 
-@class NSArray, NSHashTable, NSMapTable, NSMutableArray, NSSet, NSString, UIDragInteraction, _UIDraggingSession, _UIInternalDraggingSessionSource;
+@class NSArray, NSHashTable, NSMapTable, NSMutableArray, NSMutableSet, NSSet, NSString, UIDragInteraction, _UIDraggingSession, _UIInternalDraggingSessionSource;
 
 __attribute__((visibility("hidden")))
 @interface _UIDragSessionImpl : NSObject <_UIDraggingSessionDelegate, UIDragSession, _UIDraggingItemVisualTarget, _UIDragDropSessionInternal>
@@ -23,6 +23,8 @@ __attribute__((visibility("hidden")))
     NSHashTable *_allInteractions;
     _UIInternalDraggingSessionSource *_internalSessionSource;
     _Bool _didHandOffDragImage;
+    NSMutableSet *_addedDraggingItemsWaitingForHandOffOfDragImage;
+    NSMutableSet *_addedDragItemsPendingUpdate;
     id _localContext;
     UIDragInteraction *_primaryInteraction;
 }
@@ -42,6 +44,7 @@ __attribute__((visibility("hidden")))
 - (void)draggingSession:(id)arg1 willAddItems:(id)arg2;
 - (void)draggingSessionDidMove:(id)arg1;
 - (_Bool)_draggingSession:(id)arg1 shouldCancelOnAppDeactivationWithDefault:(_Bool)arg2;
+- (void)_draggingSession:(id)arg1 handedOffDragImageForItem:(id)arg2;
 - (void)_draggingSessionHandedOffDragImage:(id)arg1;
 - (void)draggingSessionWillBegin:(id)arg1;
 - (_Bool)draggingSessionDynamicallyUpdatesPrefersFullSizePreviews:(id)arg1;

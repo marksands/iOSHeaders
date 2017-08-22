@@ -53,6 +53,7 @@
 - (void)_queue_addConnection:(id)arg1;
 - (id)_queue_connectionWithUUID:(id)arg1;
 - (void)_queue_registerClient:(id)arg1 withConnectionUUID:(id)arg2;
+- (void)stateTimersMfaTimeout:(id)arg1;
 - (void)stateTimersRetryConnectionTimeout:(id)arg1;
 - (void)stateTimersDisconnectTimeout:(id)arg1;
 - (void)stateTimersWaitForMachineStartTimeout:(id)arg1;

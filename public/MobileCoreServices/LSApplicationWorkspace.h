@@ -46,7 +46,7 @@
 - (_Bool)updatePlaceholderMetadataForApp:(id)arg1 installType:(unsigned long long)arg2 failure:(unsigned long long)arg3 underlyingError:(id)arg4 source:(unsigned long long)arg5 outError:(id *)arg6;
 - (_Bool)updateiTunesMetadataWithData:(id)arg1 forApplication:(id)arg2 options:(id)arg3 error:(id *)arg4;
 - (_Bool)updateSINFWithData:(id)arg1 forApplication:(id)arg2 options:(id)arg3 error:(id *)arg4;
-- (_Bool)updateRecordForApp:(id)arg1 withSINF:(id)arg2 iTunesMetadata:(id)arg3 placeholderMetadata:(id)arg4 sendNotification:(_Bool)arg5 error:(id *)arg6;
+- (_Bool)updateRecordForApp:(id)arg1 withSINF:(id)arg2 iTunesMetadata:(id)arg3 placeholderMetadata:(id)arg4 sendNotification:(int)arg5 error:(id *)arg6;
 - (_Bool)unregisterPlugin:(id)arg1;
 - (_Bool)registerPlugin:(id)arg1;
 - (_Bool)unregisterApplication:(id)arg1;

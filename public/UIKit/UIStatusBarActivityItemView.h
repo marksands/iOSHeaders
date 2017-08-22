@@ -12,11 +12,13 @@ __attribute__((visibility("hidden")))
 @interface UIStatusBarActivityItemView : UIStatusBarItemView
 {
     UIActivityIndicatorView *_activityIndicator;
+    UIActivityIndicatorView *_accessibilityHUDIndicator;
     _Bool _slowActivity;
     _Bool _syncActivity;
 }
 
 - (void).cxx_destruct;
+- (id)accessibilityHUDRepresentation;
 - (double)shadowPadding;
 - (double)updateContentsAndWidth;
 - (void)setVisible:(_Bool)arg1;

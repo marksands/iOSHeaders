@@ -32,6 +32,7 @@
 - (void)_fetchShiftFunctionForLatLng:(id)arg1 auditToken:(id)arg2 callbackQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (_Bool)shiftLatLng:(id)arg1 accuracy:(double)arg2 shiftedCoordinate:(CDStruct_c3b9c2ee *)arg3 shiftedAccuracy:(double *)arg4;
 - (_Bool)shiftCoordinate:(CDStruct_c3b9c2ee)arg1 accuracy:(double)arg2 shiftedCoordinate:(CDStruct_c3b9c2ee *)arg3 shiftedAccuracy:(double *)arg4;
+- (void)shiftLatLng:(id)arg1 accuracy:(double)arg2 auditToken:(id)arg3 withCompletionHandler:(CDUnknownBlockType)arg4 mustGoToNetworkCallback:(CDUnknownBlockType)arg5 errorHandler:(CDUnknownBlockType)arg6 callbackQueue:(id)arg7;
 - (void)shiftLatLng:(id)arg1 accuracy:(double)arg2 withCompletionHandler:(CDUnknownBlockType)arg3 mustGoToNetworkCallback:(CDUnknownBlockType)arg4 errorHandler:(CDUnknownBlockType)arg5 callbackQueue:(id)arg6;
 - (void)shiftCoordinate:(CDStruct_c3b9c2ee)arg1 accuracy:(double)arg2 withCompletionHandler:(CDUnknownBlockType)arg3 mustGoToNetworkCallback:(CDUnknownBlockType)arg4 errorHandler:(CDUnknownBlockType)arg5 callbackQueue:(id)arg6;
 - (void)shiftLatLng:(id)arg1 accuracy:(double)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;

@@ -16,7 +16,7 @@
 - (double)maxSearchBarWidth;
 - (_Bool)canDisplaySearchActionInNavigationBar;
 - (_Bool)shouldPlaceDeleteInCenterToolbarPosition;
-- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3 layoutMargins:(struct UIEdgeInsets)arg4;
+- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 - (id)albumPickerViewControllerSpec;
 - (id)photosPickerViewControllerSpec;
 - (_Bool)shouldPlaceSelectAllButtonInRightNavigationBar;

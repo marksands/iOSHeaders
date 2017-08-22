@@ -30,6 +30,7 @@
 @property(nonatomic) _Bool isCompact; // @synthesize isCompact=_isCompact;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
+- (_Bool)pointMostlyInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithColor:(id)arg1 isCompact:(_Bool)arg2;

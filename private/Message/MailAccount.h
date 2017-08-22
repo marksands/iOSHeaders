@@ -53,7 +53,7 @@
 + (id)accountWithURLString:(id)arg1;
 + (id)URLForInfo:(id)arg1;
 + (id)infoForURL:(id)arg1;
-+ (id)_accountForURL:(id)arg1;
++ (id)accountWithURL:(id)arg1;
 + (id)mailboxUidForFileSystemPath:(id)arg1 create:(_Bool)arg2;
 + (void)synchronouslyEmptyMailboxUidType:(int)arg1 inAccounts:(id)arg2;
 + (id)csAccountTypeString;
@@ -266,7 +266,7 @@
 - (_Bool)canMailboxBeRenamed:(id)arg1;
 - (_Bool)newMailboxNameIsAcceptable:(id)arg1 reasonForFailure:(id *)arg2;
 - (_Bool)canCreateNewMailboxes;
-- (id)mailboxPathExtension;
+@property(readonly, copy, nonatomic) NSString *mailboxPathExtension;
 - (void)resetSpecialMailboxes;
 - (_Bool)_resetSpecialMailboxes;
 - (id)displayNameForMailboxUid:(id)arg1;

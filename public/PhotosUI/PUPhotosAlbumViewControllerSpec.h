@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) long long fullMomentsSectionHeaderStyle; // @synthesize fullMomentsSectionHeaderStyle=_fullMomentsSectionHeaderStyle;
 @property(readonly, nonatomic) unsigned long long fullMomentsSectionHeaderBackgroundStyle;
 @property(readonly, nonatomic) struct UIEdgeInsets fullMomentsLevelSectionHeaderHighlightInset;
+@property(readonly, nonatomic) struct UIEdgeInsets fullMomentsLevelSectionHeaderContentInset;
 - (void)configureCollectionViewGridLayout:(id)arg1;
 @property(readonly, nonatomic) double contentCornerRadius;
 @property(readonly, nonatomic) _Bool shouldUseAspectItems;

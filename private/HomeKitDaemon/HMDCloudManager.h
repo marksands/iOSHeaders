@@ -41,6 +41,7 @@
     CDUnknownBlockType _accountActiveUpdateHandler;
 }
 
++ (_Bool)isControllerKeyAvailable;
 @property(nonatomic, getter=isFirstV3Fetch) _Bool firstV3Fetch; // @synthesize firstV3Fetch=_firstV3Fetch;
 @property(copy, nonatomic) CDUnknownBlockType accountActiveUpdateHandler; // @synthesize accountActiveUpdateHandler=_accountActiveUpdateHandler;
 @property(copy, nonatomic) CDUnknownBlockType dataDecryptionFailedHandler; // @synthesize dataDecryptionFailedHandler=_dataDecryptionFailedHandler;
@@ -73,7 +74,6 @@
 - (void)connection:(id)arg1 didReceiveToken:(id)arg2 forTopic:(id)arg3 identifier:(id)arg4;
 - (void)_registerForPushNotifications;
 - (void)_setupSubscriptionForZone:(id)arg1;
-- (_Bool)_isControllerKeyAvailable;
 - (void)_stopControllerKeyPollTimer;
 - (void)_startControllerKeyPollTimerWithValue:(long long)arg1;
 - (void)_startControllerKeyPollTimerWithBackoff;

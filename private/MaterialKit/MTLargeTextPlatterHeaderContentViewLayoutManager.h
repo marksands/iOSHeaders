@@ -15,6 +15,7 @@
 }
 
 - (void).cxx_destruct;
+- (struct CGRect)_titleLabelBoundsForSize:(struct CGSize)arg1 withNumberOfLines:(double)arg2;
 - (struct CGRect)_utilityButtonTitleLabelBoundsForSize:(struct CGSize)arg1 withNumberOfLines:(double)arg2;
 - (struct CGRect)_dateLabelBoundsForSize:(struct CGSize)arg1;
 - (long long)_measuredNumberOfLinesForLabel:(id)arg1 withWidth:(double)arg2;

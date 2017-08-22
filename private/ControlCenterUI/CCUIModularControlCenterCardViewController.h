@@ -12,11 +12,14 @@
 {
 }
 
-- (struct CGRect)_accessoryFrame;
+- (unsigned long long)_statusTextAlignment;
 - (long long)_interfaceOrientation;
 - (id)obscuringBackgroundViewForModuleCollectionViewController:(id)arg1;
+- (struct CGRect)_statusLabelViewFrame;
 - (void)viewWillLayoutSubviews;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)willResignActive;

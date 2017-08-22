@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 - (void)didReceiveData:(id)arg1;
 - (void)didReceiveResponse:(id)arg1;
 @property(readonly, copy, nonatomic) NSURLRequest *request;
+- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

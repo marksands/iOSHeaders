@@ -470,6 +470,7 @@
 @property(readonly, nonatomic) struct CGSize appIconSize;
 @property(readonly, nonatomic) unsigned long long maxNumberOfItemsPerAppDrawerPage;
 @property(readonly, nonatomic) unsigned long long maxNumLiveBrowserViewsToKeepInViewHierarchy;
+@property(readonly, nonatomic) _Bool isRunningInStoreDemoMode;
 @property(readonly, nonatomic) _Bool photosIsWhitelisted;
 @property(readonly, nonatomic) _Bool cameraIsWhitelisted;
 @property(readonly, nonatomic) _Bool mailIsWhitelisted;

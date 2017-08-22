@@ -142,6 +142,7 @@
 - (struct CGRect)frame;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)sizeToFit;
+- (void)_updateAxLongPressGestureRecognizer;
 - (void)_setSelected:(_Bool)arg1 forSegmentAtIndex:(int)arg2 forceInfoDisplay:(_Bool)arg3;
 - (id)_basicAnimationForView:(id)arg1 withKeyPath:(id)arg2;
 - (void)_animateContentChangeWithAnimations:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
@@ -192,6 +193,7 @@
 - (void)_updateOptionsBackground;
 - (void)_setCurrentBackgroundImage:(id)arg1;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)dealloc;
 - (void)_populateArchivedSubviews:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

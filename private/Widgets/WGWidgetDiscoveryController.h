@@ -101,6 +101,7 @@
 - (void)_beginObservingDataSourcesIfNecessary;
 - (void)_dataSourcesDidChange:(id)arg1;
 - (void)_applicationIconChanged:(id)arg1;
+- (void)_widgetListEditViewControllerWillDisappear:(id)arg1;
 - (void)_widgetViewControllerDidRemoveSnapshot:(id)arg1;
 - (void)_widget:(id)arg1 withIdentifier:(id)arg2 didRemoveSnapshotAtURL:(id)arg3;
 - (void)_widgetViewControllerRequestsAdd:(id)arg1;

@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (id)accessibilityHUDRepresentation;
 - (id)contentsImage;
 
 @end

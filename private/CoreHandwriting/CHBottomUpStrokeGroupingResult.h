@@ -6,13 +6,18 @@
 
 #import <CoreHandwriting/CHStrokeGroupingResult.h>
 
-@class NSSet;
+@class NSDictionary, NSSet;
 
 @interface CHBottomUpStrokeGroupingResult : CHStrokeGroupingResult
 {
+    NSSet *_nontextCandidates;
+    NSDictionary *_substrokesByStrokeIdentifier;
 }
 
-@property(readonly, copy, nonatomic) NSSet *strokeGroups;
+@property(readonly, retain, nonatomic) NSDictionary *substrokesByStrokeIdentifier; // @synthesize substrokesByStrokeIdentifier=_substrokesByStrokeIdentifier;
+@property(readonly, retain, nonatomic) NSSet *nontextCandidates; // @synthesize nontextCandidates=_nontextCandidates;
+- (void)dealloc;
+- (id)initWithStrokeGroups:(id)arg1 createdStrokeGroups:(id)arg2 deletedStrokeGroups:(id)arg3 substrokesByStrokeIdentifier:(id)arg4 nontextCandidates:(id)arg5;
 
 @end
 

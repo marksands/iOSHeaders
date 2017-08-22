@@ -14,10 +14,10 @@
 + (id)getClientBundleId;
 + (void)registerCloudKitDisabledBundleIdRewriteHandler;
 + (void)_rewriteSyncStateToDisableBundleId:(id)arg1;
-+ (void)_rewriteSyncStateForDisabledBundleIds;
++ (void)_rewriteSyncStateForDisabledBundleIdsAsync;
 + (void)_triggerDelayedCloudSyncRewrite;
 + (void)registerDisabledBundleIdPurgeHandler;
-+ (void)_purgeRecordsForDisabledBundleIds;
++ (void)_purgeRecordsForDisabledBundleIdsAsync;
 + (void)_triggerDelayedBundleIdPurge;
 + (void)_triggerDelayedOperationWithCoalescingToken:(unsigned long long *)arg1 operation:(CDUnknownBlockType)arg2;
 + (_Bool)logDailyMetricsWithError:(id *)arg1;
@@ -88,16 +88,20 @@
 + (void)_loadNamedEntitiesOverrideFromDefaults:(id)arg1;
 + (id)_defaults;
 + (void)_refreshCloudKitDisabledBundleIds;
++ (void)_refreshCloudKitDisabledBundleIdsAsync;
 + (void)_refreshDonationDisabledBundleIds;
 + (void)registerXPCListenerForDeletionTracking;
 + (void)registerXPCListenerWithStringDonationHandler:(id)arg1;
 + (void)registerMaintenanceTasks;
 + (void)initialize;
++ (_Bool)isCoreRoutineEnabled;
++ (void)importCoreRoutineData;
 + (void)_registerPeriodicMetrics;
 + (void)_registerKnowledgeStoreCleanup;
 + (void)_registerTTLBasedDonationCleanup;
 + (void)_registerCoreRoutineImport;
 + (void)registerMaintenanceTasksInternal;
++ (_Bool)isVoiceAssistantEnabled;
 
 @end
 

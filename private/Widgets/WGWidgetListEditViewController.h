@@ -24,8 +24,10 @@
     _Bool _dismissingDueToInterfaceAction;
     id <WGWidgetListEditViewControllerDataSource> _dataSource;
     id <WGWidgetListEditViewControllerDelegate> _delegate;
+    id _statusBarColorAssertion;
 }
 
+@property(retain, nonatomic, getter=_statusBarColorAssertion, setter=_setStatusBarColorAssertion:) id statusBarColorAssertion; // @synthesize statusBarColorAssertion=_statusBarColorAssertion;
 @property(nonatomic, getter=_isDismissingDueToInterfaceAction, setter=_setDismissingDueToInterfaceAction:) _Bool dismissingDueToInterfaceAction; // @synthesize dismissingDueToInterfaceAction=_dismissingDueToInterfaceAction;
 @property(nonatomic) __weak id <WGWidgetListEditViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <WGWidgetListEditViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
@@ -66,6 +68,9 @@
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillLayoutSubviews;
 - (long long)_layoutMode;
 - (void)viewDidLoad;

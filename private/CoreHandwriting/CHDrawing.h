@@ -13,17 +13,18 @@
     struct CJKChar _drawing;
 }
 
++ (double)_computeXProjectionBoundsOverlapFromReferenceBounds:(struct CGRect)arg1 toSubjectBounds:(struct CGRect)arg2;
 + (id)sortedArrayForPointIndices:(id)arg1;
 @property(nonatomic) struct CJKChar drawing; // @synthesize drawing=_drawing;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (struct CGRect)boundingBoxForDrawingSegmentFromIndexPath:(id)arg1 toIndexPath:(id)arg2 withFullStrokes:(_Bool)arg3;
-- (void)appendSegmentFromDrawing:(id)arg1 fromIndexPath:(id)arg2 toIndexPath:(id)arg3;
-- (id)subStrokeSegmentsFromSegmentationPoints:(id)arg1;
-- (id)findSubStrokeSegmentationPoints;
+- (set_6c38b8e1)computeDelayedStrokesUsingMinimumDrawingSize:(struct CGSize)arg1;
+- (struct CGRect)boundingBoxForDrawingSegmentFromIndexPath:(id)arg1 toIndexPath:(id)arg2;
+- (void)appendSegment:(id)arg1 fromDrawing:(id)arg2;
+- (id)findSubStrokeSegmentationPointsExcludingStrokes:(set_6c38b8e1)arg1;
 - (id)filterPointsWithProximity:(double)arg1 fixedPoints:(id)arg2 points:(id)arg3;
-- (id)findLocalYMaximaWithWindowSize:(unsigned long long)arg1;
+- (id)findLocalYMaximaWithWindowSize:(unsigned long long)arg1 excludingStrokes:(set_6c38b8e1)arg2;
 - (id)initialSegmentationPointIndicesForDrawing;
 - (void)setLineHeight:(double)arg1;
 - (vector_eb9481f9)strokeIndicesSortedByMinXCoordinate;

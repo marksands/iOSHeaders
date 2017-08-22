@@ -156,6 +156,7 @@
 - (void)_removeConstraintToActiveTopLevelViewArrangementConstraints:(id)arg1;
 - (void)_addConstraintToActiveTopLevelViewArrangementConstraints:(id)arg1;
 - (void)_updateRequiredActionRepresentationSizeConstraints;
+- (struct UIEdgeInsets)_buttonEdgeInsetsFromGroupViewEdge;
 - (void)configureForDismissAlongsideTransitionCoordinator:(id)arg1;
 - (void)configureForPresentAlongsideTransitionCoordinator:(id)arg1;
 - (void)scrollToCenterForInterfaceAction:(id)arg1;

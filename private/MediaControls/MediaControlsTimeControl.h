@@ -39,7 +39,7 @@
     UIImageView *_liveBackground;
     UILayoutGuide *_trackLayoutGuide;
     double _sliderValue;
-    CDStruct_98c298d5 _durationSnapshot;
+    CDStruct_fce57115 _durationSnapshot;
 }
 
 @property(nonatomic, getter=isLive) _Bool live; // @synthesize live=_live;
@@ -54,7 +54,7 @@
 @property(retain, nonatomic) UIView *remainingTrack; // @synthesize remainingTrack=_remainingTrack;
 @property(retain, nonatomic) UIView *elapsedTrack; // @synthesize elapsedTrack=_elapsedTrack;
 @property(nonatomic, getter=isTimeControlOnScreen) _Bool timeControlOnScreen; // @synthesize timeControlOnScreen=_timeControlOnScreen;
-@property(nonatomic) CDStruct_98c298d5 durationSnapshot; // @synthesize durationSnapshot=_durationSnapshot;
+@property(nonatomic) CDStruct_fce57115 durationSnapshot; // @synthesize durationSnapshot=_durationSnapshot;
 @property(retain, nonatomic) MPCPlayerResponse *response; // @synthesize response=_response;
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic, getter=isEmpty) _Bool empty; // @synthesize empty=_empty;
@@ -70,12 +70,13 @@
 - (void)setEnabled:(_Bool)arg1;
 - (void)updateLabelAvoidance;
 - (void)_updateLabels:(double)arg1 withRemainingDuration:(double)arg2;
-- (void)_updateLabels:(CDStruct_98c298d5)arg1 withTargetTimestamp:(double)arg2;
+- (void)_updateLabels:(CDStruct_fce57115)arg1 withTargetTimestamp:(double)arg2;
 - (void)_updateSliderPosition;
 - (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (void)didMoveToWindow;
 - (void)layoutSubviews;
 - (void)viewDidMoveToSuperview;
 - (id)initWithFrame:(struct CGRect)arg1;

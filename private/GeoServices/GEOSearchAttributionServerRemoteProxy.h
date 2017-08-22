@@ -9,10 +9,12 @@
 #import <GeoServices/GEOSearchAttributionServerProxy-Protocol.h>
 
 @class GEOSearchAttributionManifest, NSLock, NSString;
+@protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface GEOSearchAttributionServerRemoteProxy : NSObject <GEOSearchAttributionServerProxy>
 {
+    NSObject<OS_dispatch_queue> *_attributionQueue;
     GEOSearchAttributionManifest *_attributionManifest;
     NSLock *_attributionManifestLock;
     int _attributionManifestUpdatedToken;

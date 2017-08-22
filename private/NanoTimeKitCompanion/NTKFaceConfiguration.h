@@ -24,6 +24,7 @@
 @property(nonatomic) _Bool resourceDirectoryExists; // @synthesize resourceDirectoryExists=_resourceDirectoryExists;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (id)_dateMetricsKeys;
 - (void)_applyMetrics:(id)arg1;
 - (void)_applyComplicationsDescription:(id)arg1;
 - (void)_applyCustomizationDescription:(id)arg1 editModeMapping:(id)arg2;

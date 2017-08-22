@@ -187,6 +187,7 @@
 + (void)refreshRivenStateWithTraits:(id)arg1 isKeyboard:(_Bool)arg2;
 + (_Bool)showsGlobeAndDictationKeysExternallyForInterfaceOrientation:(long long)arg1;
 + (_Bool)shouldMergeAssistantBarWithKeyboardLayout;
++ (double)additionalInstanceHeightForInterfaceOrientation:(long long)arg1;
 + (double)additionalInstanceHeight;
 + (double)additionalInstanceHeightForInterfaceOrientation:(long long)arg1 hasInputView:(_Bool)arg2;
 + (double)topMarginForInterfaceOrientation:(long long)arg1;
@@ -500,6 +501,7 @@
 - (void)setInputPoint:(struct CGPoint)arg1;
 - (void)keyDeactivated;
 - (void)keyActivated;
+- (_Bool)shouldUsePinyinStyleRowNavigation;
 - (_Bool)supportsNumberKeySelection;
 - (_Bool)suppliesCompletions;
 - (_Bool)usesAutocorrectionLists;

@@ -32,7 +32,6 @@
 @property(retain, nonatomic) UIView *targetView; // @synthesize targetView=_targetView;
 @property(copy, nonatomic) NSSet *acceptableUTIs; // @synthesize acceptableUTIs=_acceptableUTIs;
 - (void).cxx_destruct;
-- (void)_animateDropWithDropSession:(id)arg1;
 - (void)_dropSessionEnded;
 - (_Bool)_delegateCanDropItemsWithDropSession:(id)arg1;
 - (_Bool)_delegateHandlesDrops;

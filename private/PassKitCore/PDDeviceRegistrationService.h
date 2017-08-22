@@ -16,10 +16,10 @@
     PDDeviceRegistrationServiceCoordinator *_deviceRegistrationServiceCoordinator;
 }
 
-@property(readonly, nonatomic) PDDeviceRegistrationServiceCoordinator *deviceRegistrationServiceCoordinator; // @synthesize deviceRegistrationServiceCoordinator=_deviceRegistrationServiceCoordinator;
+@property(retain, nonatomic) PDDeviceRegistrationServiceCoordinator *deviceRegistrationServiceCoordinator; // @synthesize deviceRegistrationServiceCoordinator=_deviceRegistrationServiceCoordinator;
 - (void).cxx_destruct;
 - (void)performDeviceRegistrationWithCompletion:(CDUnknownBlockType)arg1;
-- (id)initWithCoordinator:(id)arg1 connection:(id)arg2;
+- (id)initWithConnection:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

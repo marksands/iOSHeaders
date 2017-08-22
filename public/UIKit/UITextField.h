@@ -158,6 +158,7 @@
 - (void)_addTextContentView;
 - (void)_initContentView;
 - (void)_initPrewarmedTextStorage;
+- (struct _NSRange)_visibleRangeWithLayout:(_Bool)arg1;
 - (void)_pasteSessionDidFinish;
 - (void)_performPasteOfAttributedString:(id)arg1 toRange:(id)arg2 animator:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)droppingFinished;
@@ -458,6 +459,7 @@
 - (void)setShadowColor:(id)arg1;
 - (void)interactionTintColorDidChange;
 @property(retain, nonatomic) UIColor *textColor;
+- (void)_setTextColor:(id)arg1;
 - (void)_syncTypingAttributesWithDefaultAttribute:(id)arg1;
 - (void)_updateAtomTextColor;
 @property(copy, nonatomic) NSAttributedString *attributedText;

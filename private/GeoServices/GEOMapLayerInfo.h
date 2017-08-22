@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 @interface GEOMapLayerInfo : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_dataURL;
     unsigned int _formatVersion;
     NSString *_patchURL;
@@ -30,6 +31,7 @@
 @property(retain, nonatomic) NSString *dataURL; // @synthesize dataURL=_dataURL;
 @property(nonatomic) unsigned int version; // @synthesize version=_version;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

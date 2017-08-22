@@ -24,6 +24,7 @@
 @property(readonly, copy, nonatomic) WKFrameInfo *sourceFrame;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
+@property(readonly, nonatomic) _Bool _isRedirect;
 @property(readonly, nonatomic) _WKUserInitiatedAction *_userInitiatedAction;
 @property(readonly, nonatomic) _Bool _shouldOpenExternalURLs;
 @property(readonly, nonatomic) _Bool _shouldOpenAppLinks;

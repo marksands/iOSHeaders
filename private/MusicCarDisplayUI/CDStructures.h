@@ -30,3 +30,17 @@ struct _NSRange {
     unsigned long long _field2;
 };
 
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    double snapshotTime;
+    double startTime;
+    double endTime;
+    double duration;
+    double elapsedDuration;
+    float rate;
+    float defaultRate;
+    _Bool isLiveContent;
+    _Bool isLoading;
+} CDStruct_fce57115;
+

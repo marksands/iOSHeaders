@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (id)accessibilityHUDRepresentation;
 - (id)contentsImage;
 - (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
 

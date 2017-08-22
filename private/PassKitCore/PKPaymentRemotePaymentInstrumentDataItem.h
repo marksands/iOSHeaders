@@ -14,6 +14,8 @@
 
 + (long long)dataType;
 - (_Bool)isValidWithError:(id *)arg1;
+- (id)peerPaymentAccountBalance;
+- (_Bool)hasAssociatedPeerPaymentAccount;
 @property(readonly, nonatomic) _Bool requiresBillingAddress;
 @property(readonly, nonatomic) CNContact *billingAddress;
 @property(readonly, nonatomic) PKPaymentApplication *paymentApplication;

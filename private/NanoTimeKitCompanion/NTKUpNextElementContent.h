@@ -8,7 +8,7 @@
 
 #import <NanoTimeKitCompanion/NSCopying-Protocol.h>
 
-@class CLKImageProvider, CLKTextProvider, NTKUpNextAccessoryDescription, UIColor, UIImage;
+@class CLKImageProvider, CLKTextProvider, NSString, NTKUpNextAccessoryDescription, UIColor, UIImage;
 
 @interface NTKUpNextElementContent : NSObject <NSCopying>
 {
@@ -30,10 +30,12 @@
     unsigned long long _description1FontStyle;
     unsigned long long _description2FontStyle;
     NTKUpNextAccessoryDescription *_descriptionAccessory;
+    NSString *_overrideBodyString;
     struct CGRect _imageFocusRect;
 }
 
 + (id)dashedContentTextProvider;
+@property(retain, nonatomic) NSString *overrideBodyString; // @synthesize overrideBodyString=_overrideBodyString;
 @property(nonatomic) struct CGRect imageFocusRect; // @synthesize imageFocusRect=_imageFocusRect;
 @property(copy, nonatomic) NTKUpNextAccessoryDescription *descriptionAccessory; // @synthesize descriptionAccessory=_descriptionAccessory;
 @property(nonatomic) unsigned int headerImageEdge; // @synthesize headerImageEdge=_headerImageEdge;

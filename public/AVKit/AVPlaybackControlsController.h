@@ -127,6 +127,7 @@
 - (void)prominentPlayButtonTouchUpInside:(id)arg1;
 - (void)routePickerViewDidEndPresentingRoutes:(id)arg1;
 - (void)routePickerViewWillBeginPresentingRoutes:(id)arg1;
+- (void)_updateVolumeSliderValueWithSystemVolume:(float)arg1 animated:(_Bool)arg2;
 - (id)_volumeButtonMicaPackageState;
 - (void)_updateVolumeButtonGlyph;
 - (void)_showOrHideVolumeSlider;

@@ -27,6 +27,7 @@
     NCNotificationPreviewInteractionManager *_previewInteractionManager;
 }
 
+@property(nonatomic, getter=_didScrollPresentLongLookViewController, setter=_setDidScrollPresentLongLookViewController:) _Bool didScrollPresentLongLookViewController; // @synthesize didScrollPresentLongLookViewController=_didScrollPresentLongLookViewController;
 @property(retain, nonatomic, getter=_previewInteractionManager) NCNotificationPreviewInteractionManager *previewInteractionManager; // @synthesize previewInteractionManager=_previewInteractionManager;
 - (void).cxx_destruct;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
@@ -41,7 +42,6 @@
 - (void)notificationViewControllerDidPresent:(id)arg1;
 - (void)notificationViewControllerWillPresent:(id)arg1;
 - (void)previewInteractionManager:(id)arg1 shouldFinishInteractionWithCompletionBlock:(CDUnknownBlockType)arg2;
-- (_Bool)previewInteractionManagerShouldAttemptToFinishInteraction:(id)arg1;
 - (void)previewInteractionManagerDidEndUserInteraction:(id)arg1;
 - (void)previewInteractionManagerWillBeginUserInteraction:(id)arg1;
 - (_Bool)previewInteractionManagerShouldBeginInteraction:(id)arg1;
@@ -51,6 +51,8 @@
 - (void)customContentDidLoadExtension:(id)arg1;
 - (void)customContent:(id)arg1 didLoadAudioAccessoryView:(id)arg2;
 - (void)_presentLongLookForScrollAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_presentLongLookAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_presentLongLookViaPreviewInteraction:(CDUnknownBlockType)arg1;
 - (void)_loadPresentationContainerViewIfNecessary;
 - (id)_notificationShortLookViewIfLoaded;
 - (id)_customContentProvidingViewControllerCreateIfNecessary;

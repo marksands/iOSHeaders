@@ -11,7 +11,8 @@
 }
 
 + (id)sharedPreferences;
-+ (void)initialize;
+- (id)_deviceCategoryMap;
+- (_Bool)isCurrentDeviceCompatibleWithVoiceProfileAt:(id)arg1;
 - (_Bool)_markSATEnrollmentWithMarker:(id)arg1 forLanguage:(id)arg2;
 - (_Bool)_markSATEnrollmentMigratedForLanguageCode:(id)arg1;
 - (_Bool)_markSATEnrollmentSuccessForLanguageCode:(id)arg1;

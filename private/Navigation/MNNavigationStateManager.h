@@ -15,7 +15,6 @@
 @class GEOApplicationAuditToken, MNCommuteSession, MNMapsAppStateMonitor, MNNavigationState, MNObserverHashTable, MNResourceManager, MNSuggestionsManager, NSString;
 @protocol MNNavigationSessionManagerDelegate;
 
-__attribute__((visibility("hidden")))
 @interface MNNavigationStateManager : NSObject <MNMapsAppStateMonitorObserver, MNLocationManagerObserver, MNVehicleDetectorObserver, MNSuggestionsManagerObserver, MNNavigationStateInterface>
 {
     _Bool _isStarted;
@@ -78,8 +77,10 @@ __attribute__((visibility("hidden")))
 - (_Bool)isMapsActive;
 - (id)_initialState;
 - (void)_replayStateForNewObserver:(id)arg1;
+- (void)commuteSessionDidArrive:(id)arg1;
 - (void)commuteSession:(id)arg1 didUpdateDestinations:(id)arg2;
 @property(readonly, nonatomic) MNCommuteSession *commuteSession;
+@property(readonly, nonatomic) unsigned long long currentStateType;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (void)start;

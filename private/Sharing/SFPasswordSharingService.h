@@ -33,7 +33,6 @@
 - (void)__testReceivedObject:(id)arg1 withFlags:(unsigned int)arg2;
 - (_Bool)__invalidateCalled;
 - (_Bool)__activateCalled;
-- (_Bool)_shouldPromptForNetwork:(id)arg1;
 - (id)messageForDisplayName:(id)arg1 deviceName:(id)arg2 info:(id)arg3;
 - (void)_promptUserWithInfo:(id)arg1 message:(id)arg2;
 - (void)_passInfoToDelegate:(id)arg1;

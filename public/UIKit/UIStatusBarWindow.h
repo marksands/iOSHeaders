@@ -6,7 +6,7 @@
 
 #import <UIKit/UIWindow.h>
 
-@class UIStatusBar, UIStatusBarCorners;
+@class UIAccessibilityHUDView, UIStatusBar, UIStatusBarCorners;
 
 @interface UIStatusBarWindow : UIWindow
 {
@@ -16,6 +16,7 @@
     double _topCornersOffset;
     UIStatusBarCorners *_bottomCorners;
     _Bool _cornersHidden;
+    UIAccessibilityHUDView *_accessibilityHUD;
 }
 
 + (_Bool)_isSystemWindow;
@@ -25,7 +26,10 @@
 + (struct CGRect)_convertRect:(struct CGRect)arg1 fromSceneReferenceSpaceToSceneSpaceWithOrientation:(long long)arg2;
 + (struct CGRect)_defaultStatusBarSceneReferenceBounds;
 + (_Bool)isIncludedInClassicJail;
+@property(retain, nonatomic) UIAccessibilityHUDView *accessibilityHUD; // @synthesize accessibilityHUD=_accessibilityHUD;
 - (void).cxx_destruct;
+- (void)_dismissAccessibilityHUD;
+- (void)_showAccessibilityHUDItem:(id)arg1;
 - (_Bool)_isConstrainedByScreenJail;
 - (_Bool)_shouldAdjustSizeClassesAndResizeWindow;
 - (_Bool)_canActAsKeyWindowForScreen:(id)arg1;

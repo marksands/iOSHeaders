@@ -12,7 +12,7 @@
 #import <BaseBoard/BSXPCCoding-Protocol.h>
 #import <BaseBoard/NSSecureCoding-Protocol.h>
 
-@class BSActionResponse, BSAuditHistory, BSMachPortReceiveRight, BSMachPortTransferableSendRight, BSPortDeathWatcher, BSSettings, BSTimer, NSString;
+@class BSActionResponse, BSAuditHistory, BSMachPortReceiveRight, BSMachPortTransferableSendRight, BSPortDeathSentinel, BSSettings, BSTimer, NSString;
 @protocol OS_dispatch_queue;
 
 @interface BSAction : NSObject <BSXPCCoding, NSSecureCoding, BSSettingDescriptionProvider, BSDescriptionProviding, BSInvalidatable>
@@ -33,7 +33,7 @@
     BSAuditHistory *_queue_auditHistory;
     BSMachPortReceiveRight *_queue_receiveRight;
     BSMachPortTransferableSendRight *_queue_sendRight;
-    BSPortDeathWatcher *_queue_portDeathWatcher;
+    BSPortDeathSentinel *_queue_portDeathSentinel;
 }
 
 + (_Bool)supportsSecureCoding;

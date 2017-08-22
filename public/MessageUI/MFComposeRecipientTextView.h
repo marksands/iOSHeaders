@@ -19,12 +19,12 @@
     _MFAtomTextView *_textView;
     UITextView *_inactiveTextView;
     UIColor *_inactiveTextColor;
-    UIView *_atomContainerView;
     NSMutableArray *_atomViews;
     NSMutableDictionary *_atomPresentationOptionsByRecipient;
     NSMutableDictionary *_atomLayoutOptionsByRecipient;
     MFDragSource *_dragSource;
     MFDropTarget *_dropTarget;
+    struct CGRect _currentTextRect;
     long long _atomViewAnimationDepth;
     _Bool _parentIsClosing;
     _Bool _textViewExclusionPathsAreValid;
@@ -45,9 +45,11 @@
     long long _maxRecipients;
     UIButton *_addButton;
     _MFAtomTextAttachment *_placeholderAttachment;
+    UIView *_atomContainerView;
 }
 
 + (id)defaultFont;
+@property(readonly, nonatomic) UIView *atomContainerView; // @synthesize atomContainerView=_atomContainerView;
 @property(retain, nonatomic) _MFAtomTextAttachment *placeholderAttachment; // @synthesize placeholderAttachment=_placeholderAttachment;
 @property(nonatomic) int hideLastAtomComma; // @synthesize hideLastAtomComma=_hideLastAtomComma;
 @property(readonly, nonatomic) UIButton *addButton; // @synthesize addButton=_addButton;
@@ -57,7 +59,6 @@
 @property(nonatomic, getter=isSeparatorHidden) _Bool separatorHidden; // @synthesize separatorHidden=_separatorHidden;
 @property(nonatomic) _Bool editable; // @synthesize editable=_editable;
 @property(nonatomic) _Bool indicatesUnsafeRecipientsWhenCollapsed; // @synthesize indicatesUnsafeRecipientsWhenCollapsed=_indicatesUnsafeRecipientsWhenCollapsed;
-@property(readonly, nonatomic) UIView *atomContainerView; // @synthesize atomContainerView=_atomContainerView;
 - (void)composeRecipientAtomSelectNext:(id)arg1;
 - (void)composeRecipientAtomSelectPrevious:(id)arg1;
 - (void)composeRecipientAtomShowPersonCard:(id)arg1;
@@ -94,9 +95,11 @@
 - (void)_tapGestureRecognized:(id)arg1;
 - (void)_setAddButtonVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (_Bool)_isAddButtonVisible;
+- (void)_ensureAddButton;
 - (void)_setTextViewIsCollapsed:(_Bool)arg1 animated:(_Bool)arg2;
 - (_Bool)_isTextViewCollapsed;
 - (void)_updateInactiveTextView;
+- (id)_accessibilityToString;
 - (_Bool)_textViewContainsAtomizedRecipients;
 - (void)_resetSelectionState;
 - (_Bool)_shouldAnimateAtomViewChanges;

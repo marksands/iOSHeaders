@@ -17,6 +17,7 @@
 - (void).cxx_destruct;
 - (struct CGSize)intrinsicContentSize;
 - (id)nextResponder;
+- (id)textFromMarkedTextRange:(struct _NSRange)arg1 markedTextReplacement:(id)arg2;
 @property(readonly) NSString *searchText;
 - (struct _NSRange)_markedTextNSRange;
 - (void)setText:(id)arg1;

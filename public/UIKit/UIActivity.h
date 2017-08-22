@@ -24,6 +24,7 @@
 + (id)preparedActivityExtensionItemDataForActivityItemValues:(id)arg1 extensionItemDataRequest:(id)arg2;
 + (id)_activityExtensionItemsForActivityItemValues:(id)arg1 extensionItemDataRequest:(id)arg2;
 + (id)_activitySettingsImageForApplication:(id)arg1;
++ (id)_defaultFallbackActivityType;
 + (unsigned long long)_xpcAttributes;
 + (long long)activityCategory;
 + (id)_activityImageForApplicationBundleIdentifier:(id)arg1;
@@ -46,6 +47,7 @@
 - (id)_dataTypeIdentifierForActivityItem:(id)arg1;
 - (id)_subjectForActivityItem:(id)arg1;
 - (long long)_defaultSortGroup;
+- (id)_activityTypeUsingFallbackActivityTypeIfNecessary;
 - (void)activityDidFinish:(_Bool)arg1;
 - (void)performActivity;
 @property(readonly, nonatomic) UIViewController *activityViewController;

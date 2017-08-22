@@ -17,6 +17,14 @@
 
 + (id)currentOperation;
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
++ (id)keyPathsForValuesAffectingIsCancelled;
++ (id)keyPathsForValuesAffectingCancelled;
++ (id)keyPathsForValuesAffectingIsExecuting;
++ (id)keyPathsForValuesAffectingExecuting;
++ (id)keyPathsForValuesAffectingIsReady;
++ (id)keyPathsForValuesAffectingReady;
++ (id)keyPathsForValuesAffectingIsFinished;
++ (id)keyPathsForValuesAffectingFinished;
 - (id)__graphDescription:(unsigned long long)arg1;
 - (id)debugDescription;
 - (void)removeObserver:(id)arg1 forKeyPath:(id)arg2;

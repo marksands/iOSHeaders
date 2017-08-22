@@ -47,6 +47,7 @@
 - (void)_dismissAppInstallWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_beginInstallingApp;
 - (void)beginInstallingAppWithProgressHandler:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
+- (unsigned long long)supportedInterfaceOrientations;
 - (void)loadView;
 - (void)_initConfirmation;
 - (id)initWithInstallable:(id)arg1;

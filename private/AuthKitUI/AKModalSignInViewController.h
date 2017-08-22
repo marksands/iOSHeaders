@@ -9,7 +9,7 @@
 #import <AuthKitUI/AKAppleIDAuthenticationInAppContextAlertDelegate-Protocol.h>
 #import <AuthKitUI/UITextFieldDelegate-Protocol.h>
 
-@class NSString, UIButton, UIControl, UILabel, UITextField, UIView;
+@class NSString, PKContinuousButton, UIButton, UIControl, UILabel, UITextField, UIView;
 
 @interface AKModalSignInViewController : AKBaseSignInViewController <AKAppleIDAuthenticationInAppContextAlertDelegate, UITextFieldDelegate>
 {
@@ -18,10 +18,12 @@
     UILabel *_bodyLabel;
     UITextField *_passwordField;
     UIButton *_passwordRecoveryButton;
+    PKContinuousButton *_signInButton;
     UIView *_containerView;
 }
 
 @property(retain, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
+@property(retain, nonatomic) PKContinuousButton *signInButton; // @synthesize signInButton=_signInButton;
 @property(retain, nonatomic) UIButton *passwordRecoveryButton; // @synthesize passwordRecoveryButton=_passwordRecoveryButton;
 @property(retain, nonatomic) UITextField *passwordField; // @synthesize passwordField=_passwordField;
 @property(retain, nonatomic) UILabel *bodyLabel; // @synthesize bodyLabel=_bodyLabel;
@@ -33,11 +35,16 @@
 - (_Bool)resignFirstResponder;
 - (_Bool)becomeFirstResponder;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
-- (void)passwordRecoveryButtonWasTapped:(id)arg1;
-- (void)updateViewConstraints;
-- (void)setupConstraints;
-- (void)createViews;
-- (void)setupViews;
+- (void)_provideDelegateWithAuthResults:(id)arg1 error:(id)arg2;
+- (void)_hidebusyWorkUI;
+- (void)_startBusyWorkUI;
+- (struct UIEdgeInsets)_signInButtonEdgeInsets;
+- (void)_signInButtonTapped:(id)arg1;
+- (void)_passwordRecoveryButtonWasTapped:(id)arg1;
+- (void)_updateViewConstraints;
+- (void)_setupConstraints;
+- (void)_createViews;
+- (void)_setupViews;
 - (void)viewDidLoad;
 - (id)init;
 

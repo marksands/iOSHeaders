@@ -14,7 +14,7 @@
 + (id)fullResolutionAttachmentForAttachment:(id)arg1;
 + (id)fullResolutionStorageLocationForAttachmentWithMimePart:(id)arg1 withMessage:(id)arg2;
 - (id)storageLocationForAttachment:(id)arg1 withMessage:(id)arg2;
-- (void)fetchDataForAttachment:(id)arg1 withDataConsumer:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)fetchDataForAttachment:(id)arg1 consumer:(id)arg2 progress:(id)arg3 completion:(CDUnknownBlockType)arg4;
 
 @end
 

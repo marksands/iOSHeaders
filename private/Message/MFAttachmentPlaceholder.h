@@ -20,6 +20,7 @@
 + (void)removePlaceholderForContentID:(id)arg1;
 + (void)removePlaceholder:(id)arg1;
 + (void)removePlaceholderForFileURL:(id)arg1;
++ (_Bool)cloneFileAtURL:(id)arg1 toPlaceholderURL:(id)arg2;
 + (_Bool)writeData:(id)arg1 forURL:(id)arg2;
 + (id)dataForPlaceholder:(id)arg1;
 + (id)placeholderForMediaURL:(id)arg1 mimeType:(id)arg2 contentID:(id)arg3;

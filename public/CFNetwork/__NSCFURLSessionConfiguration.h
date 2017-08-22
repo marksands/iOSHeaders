@@ -59,6 +59,7 @@ __attribute__((visibility("hidden")))
     double _longLivedConnectionCacheCellPurgeTimeout;
     _Bool _allowsRetryForBackgroundDataTasks;
     _Bool _onBehalfOfPairedDevice;
+    _Bool _clientIsNotExplicitlyDiscretionary;
     _Bool _respectsAllowsCellularAccessForDiscretionaryTasks;
     _Bool _overridesBackgroundSessionAutoRedirect;
     _Bool _performsEVCertCheck;
@@ -236,6 +237,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)_overridesBackgroundSessionAutoRedirect;
 - (void)set_respectsAllowsCellularAccessForDiscretionaryTasks:(_Bool)arg1;
 - (_Bool)_respectsAllowsCellularAccessForDiscretionaryTasks;
+- (void)set_clientIsNotExplicitlyDiscretionary:(_Bool)arg1;
+- (_Bool)_clientIsNotExplicitlyDiscretionary;
 - (void)set_onBehalfOfPairedDevice:(_Bool)arg1;
 - (_Bool)_onBehalfOfPairedDevice;
 - (void)set_allowsRetryForBackgroundDataTasks:(_Bool)arg1;

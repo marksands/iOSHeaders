@@ -10,6 +10,7 @@
 
 @interface MRAVReconnaissanceSession : NSObject
 {
+    _Bool _useWeakMatching;
     _Bool _searchInProgress;
     unsigned int _endpointFeatures;
     NSSet *_matchingOutputDeviceUIDsSet;
@@ -29,6 +30,7 @@
 @property(retain, nonatomic) id discoverySessionCallbackToken; // @synthesize discoverySessionCallbackToken=_discoverySessionCallbackToken;
 @property(retain, nonatomic) MRAVRoutingDiscoverySession *discoverySession; // @synthesize discoverySession=_discoverySession;
 @property(retain, nonatomic) NSSet *matchingOutputDeviceUIDsSet; // @synthesize matchingOutputDeviceUIDsSet=_matchingOutputDeviceUIDsSet;
+@property(nonatomic) _Bool useWeakMatching; // @synthesize useWeakMatching=_useWeakMatching;
 @property(readonly, nonatomic) unsigned int endpointFeatures; // @synthesize endpointFeatures=_endpointFeatures;
 - (void)_endSearch;
 - (void)_concludeSearch;

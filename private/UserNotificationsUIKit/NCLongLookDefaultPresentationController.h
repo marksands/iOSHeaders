@@ -8,14 +8,14 @@
 
 #import <UserNotificationsUIKit/NCLongLookPresentationController-Protocol.h>
 
-@class NCLongLookPresentationControllerHelper, NSString, UIViewController, UIVisualEffectView;
+@class MTMaterialView, NCLongLookPresentationControllerHelper, NSString, UIViewController;
 @protocol NCLongLookPresentationControllerDelegate;
 
 @interface NCLongLookDefaultPresentationController : UIPresentationController <NCLongLookPresentationController>
 {
     UIViewController *_sourceViewController;
     NCLongLookPresentationControllerHelper *_presentationControllerHelper;
-    UIVisualEffectView *_presentationContainerEffectView;
+    MTMaterialView *_backgroundMaterialView;
     _Bool _presenting;
     id <NCLongLookPresentationControllerDelegate> _longLookPresentationControllerDelegate;
 }
@@ -23,7 +23,6 @@
 @property(nonatomic, getter=isPresenting) _Bool presenting; // @synthesize presenting=_presenting;
 @property(nonatomic) __weak id <NCLongLookPresentationControllerDelegate> longLookPresentationControllerDelegate; // @synthesize longLookPresentationControllerDelegate=_longLookPresentationControllerDelegate;
 - (void).cxx_destruct;
-- (id)_presentedBackgroundEffects;
 - (_Bool)_shouldPresentInCurrentContext;
 - (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;

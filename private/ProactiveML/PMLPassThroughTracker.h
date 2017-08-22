@@ -21,8 +21,8 @@
 - (id)initWithPlist:(id)arg1 chunks:(id)arg2 context:(id)arg3;
 - (id)toPlistWithChunks:(id)arg1;
 - (id)trackEvaluationMetrics:(id)arg1 minibatchStats:(id)arg2;
-- (id)trackGradient:(id)arg1 scaleFactor:(float)arg2 l2norm:(float)arg3 minibatchStats:(id)arg4 evaluationMetrics:(id)arg5 serverIteration:(unsigned long long)arg6;
-- (id)trackWeights:(id)arg1 scaleFactor:(float)arg2 l2norm:(float)arg3 minibatchStats:(id)arg4 evaluationMetrics:(id)arg5;
+- (id)trackGradient:(id)arg1 scaleFactor:(float)arg2 minibatchStats:(id)arg3 evaluationMetrics:(id)arg4 serverIteration:(unsigned long long)arg5;
+- (id)trackWeights:(id)arg1 scaleFactor:(float)arg2 minibatchStats:(id)arg3 evaluationMetrics:(id)arg4;
 - (id)initWithPlanId:(struct NSString *)arg1 numberOfBuckets:(unsigned long long)arg2;
 
 // Remaining properties

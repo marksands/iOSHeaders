@@ -7,6 +7,6 @@
 #import <QuickLook/NSObject-Protocol.h>
 
 @protocol QLThumbnailService <NSObject>
-- (void)generateThumbnailOfSize:(struct CGSize)arg1 minimumSize:(double)arg2 scale:(double)arg3 withContents:(id)arg4 completionHandler:(void (^)(NSData *, NSURL *, struct CGSize, _Bool, NSError *))arg5;
+- (void)generateThumbnailOfSize:(struct CGSize)arg1 minimumSize:(double)arg2 scale:(double)arg3 withContents:(id)arg4 completionHandler:(void (^)(NSData *, QLURLHandler *, struct CGSize, _Bool, NSError *))arg5;
 @end
 

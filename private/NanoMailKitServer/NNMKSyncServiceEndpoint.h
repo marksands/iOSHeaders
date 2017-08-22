@@ -35,6 +35,7 @@
 - (void)syncServiceTransport:(id)arg1 didReadProtobufData:(id)arg2 type:(unsigned long long)arg3;
 - (id)sendProtobufData:(id)arg1 type:(unsigned long long)arg2 priority:(unsigned long long)arg3 repeatPreventionId:(id)arg4 shortTimeout:(_Bool)arg5 allowCloudDelivery:(_Bool)arg6;
 - (id)sendProtobufData:(id)arg1 type:(unsigned long long)arg2 priority:(unsigned long long)arg3 shortTimeout:(_Bool)arg4 allowCloudDelivery:(_Bool)arg5;
+- (id)sendProtobufData:(id)arg1 type:(unsigned long long)arg2 priority:(unsigned long long)arg3 timeout:(double)arg4 allowCloudDelivery:(_Bool)arg5;
 - (void)spaceBecameAvailable;
 - (void)connectivityChanged;
 - (void)readProtobufData:(id)arg1 type:(unsigned long long)arg2;

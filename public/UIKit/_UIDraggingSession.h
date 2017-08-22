@@ -28,6 +28,7 @@
 - (void)_sendDidEndWithOperation:(unsigned long long)arg1;
 - (void)_sendWillEndWithOperation:(unsigned long long)arg1;
 - (void)_sendWillAddItems:(id)arg1;
+- (void)_sendHandedOffDragImageForItem:(id)arg1;
 - (void)_sendHandedOffDragImage;
 - (void)_sendWillBegin;
 - (void)_cancelDrag;

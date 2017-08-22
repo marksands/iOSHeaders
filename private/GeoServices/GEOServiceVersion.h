@@ -8,11 +8,12 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray;
+@class NSMutableArray, PBUnknownFields;
 
 __attribute__((visibility("hidden")))
 @interface GEOServiceVersion : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned int _minimumVersion;
     NSMutableArray *_versionDomains;
     struct {
@@ -24,6 +25,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int minimumVersion; // @synthesize minimumVersion=_minimumVersion;
 @property(retain, nonatomic) NSMutableArray *versionDomains; // @synthesize versionDomains=_versionDomains;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

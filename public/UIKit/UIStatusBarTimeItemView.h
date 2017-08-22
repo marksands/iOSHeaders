@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) _Bool useCustomFadeAnimation; // @synthesize useCustomFadeAnimation=_useCustomFadeAnimation;
 - (void).cxx_destruct;
+- (id)accessibilityHUDRepresentation;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setVisible:(_Bool)arg1 frame:(struct CGRect)arg2 duration:(double)arg3;
 - (long long)textStyle;

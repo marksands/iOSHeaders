@@ -11,7 +11,6 @@
 }
 
 + (id)deviceUUID;
-+ (id)platformDeviceUUID;
 
 @end
 

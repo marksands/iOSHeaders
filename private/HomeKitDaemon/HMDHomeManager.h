@@ -297,6 +297,7 @@
 - (void)processMetadataModel:(id)arg1 message:(id)arg2;
 - (void)_notifyMetadata:(id)arg1 limitToSPIClients:(_Bool)arg2 message:(id)arg3 invokeResponseHandler:(_Bool)arg4;
 - (void)handleMetadataDictionary:(id)arg1 message:(id)arg2;
+- (void)evaluateToPushMetadataWhenHomeKitInUse;
 - (void)_handleMetadataAssetUpdated;
 - (void)handleMetadataAssetUpdated:(id)arg1;
 - (void)_handleMetadataSync:(id)arg1;

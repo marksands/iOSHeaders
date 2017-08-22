@@ -71,8 +71,8 @@
 - (void)pictureInPictureInterruptionEnded;
 - (void)pictureInPictureInterruptionBegan;
 - (void)startPictureInPictureEnteringBackgroundAnimated:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-@property(readonly, nonatomic) _Bool isStartingStoppingOrCancellingPictureInPicture;
 @property(nonatomic, getter=isPictureInPicturePossible) _Bool pictureInPicturePossible;
+@property(readonly, nonatomic) _Bool isStartingStoppingOrCancellingPictureInPicture;
 @property(readonly, nonatomic) _Bool shouldStartPictureInPictureEnteringBackground;
 @property(nonatomic) __weak id <PGPictureInPictureRemoteObjectDelegate> delegate;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;

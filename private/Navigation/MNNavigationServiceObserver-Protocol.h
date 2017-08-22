@@ -49,6 +49,7 @@
 - (void)navigationService:(MNNavigationService *)arg1 hideLaneDirectionsForId:(NSUUID *)arg2;
 - (void)navigationService:(MNNavigationService *)arg1 showLaneDirections:(MNGuidanceLaneInfo *)arg2;
 - (void)navigationService:(MNNavigationService *)arg1 didEnableGuidancePrompts:(_Bool)arg2;
+- (void)navigationServicePredictingDidArrive:(MNNavigationService *)arg1;
 - (void)navigationServiceDidArrive:(MNNavigationService *)arg1;
 - (void)navigationService:(MNNavigationService *)arg1 willAnnounce:(unsigned long long)arg2 inSeconds:(double)arg3;
 - (void)navigationService:(MNNavigationService *)arg1 usePersistentDisplay:(_Bool)arg2;

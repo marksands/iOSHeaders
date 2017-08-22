@@ -13,6 +13,7 @@
     struct CGRect _bounds;
 }
 
++ (id)preferredFormat;
 + (id)defaultFormat;
 @property(readonly, nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 - (id)copyWithZone:(struct _NSZone *)arg1;

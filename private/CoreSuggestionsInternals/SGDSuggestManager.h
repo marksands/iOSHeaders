@@ -63,7 +63,6 @@
 - (void)realtimeSuggestionsFromURL:(id)arg1 title:(id)arg2 HTMLPayload:(id)arg3 extractionDate:(id)arg4 withCompletion:(CDUnknownBlockType)arg5;
 - (void)suggestionsFromURL:(id)arg1 title:(id)arg2 HTMLPayload:(id)arg3 withCompletion:(CDUnknownBlockType)arg4;
 - (void)isEventCandidateForURL:(id)arg1 title:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
-- (void)pathForWebPageWhitelistWithCompletion:(CDUnknownBlockType)arg1;
 - (void)schemaOrgToEvents:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)deleteInteractionsWithBundleId:(id)arg1 groupIdentifiers:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)deleteInteractionsWithBundleId:(id)arg1 identifiers:(id)arg2 completion:(CDUnknownBlockType)arg3;
