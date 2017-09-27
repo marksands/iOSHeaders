@@ -21,10 +21,11 @@
 #import "PSStateRestoration.h"
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
+#import "UIViewControllerPreviewingDelegate.h"
 
 @class NSArray, NSDateComponentsFormatter, NSDateFormatter, NSIndexPath, NSMutableDictionary, NSNumber, NSNumberFormatter, NSObject<OS_dispatch_source>, NSString, PKExpressPassInformation, PKFelicaPassProperties, PKLinkedApplication, PKPassHeaderView, PKPaymentApplication, PKPaymentPass, PKPaymentPassDetailActivationFooterView, PKPaymentTransactionCellController, PKPaymentVerificationController, PKPaymentWebService, PKPeerPaymentAccount, PKPeerPaymentAccountResolutionController, PKPeerPaymentContactResolver, PKPeerPaymentController, PKPeerPaymentPerformActionViewController, PKPeerPaymentPreferences, PKPeerPaymentWebService, PKSettingTableCell, PKSpinnerHeaderView, UIColor, UISegmentedControl, UIView, UIVisualEffectView;
 
-@interface PKPaymentPassDetailViewController : PKSectionTableViewController <MFMailComposeViewControllerDelegate, PKPerformActionViewControllerDelegate, PKLowBalanceReminderSetupViewControllerDelegate, PKCommutePlanRenewalReminderSetupViewControllerDelegate, PKPeerPaymentContactResolverDelegate, PKPeerPaymentPerformActionViewControllerDelegate, PKPeerPaymentAccountResolutionControllerDelegate, CNAvatarViewDelegate, PKPaymentDataProviderDelegate, PKPaymentVerificationControllerDelegate, PKPassHeaderViewDelegate, UITableViewDataSource, UITableViewDelegate, PSStateRestoration, PKPaymentSetupDelegate>
+@interface PKPaymentPassDetailViewController : PKSectionTableViewController <MFMailComposeViewControllerDelegate, PKPerformActionViewControllerDelegate, PKLowBalanceReminderSetupViewControllerDelegate, PKCommutePlanRenewalReminderSetupViewControllerDelegate, PKPeerPaymentContactResolverDelegate, PKPeerPaymentPerformActionViewControllerDelegate, PKPeerPaymentAccountResolutionControllerDelegate, CNAvatarViewDelegate, PKPaymentDataProviderDelegate, PKPaymentVerificationControllerDelegate, PKPassHeaderViewDelegate, UIViewControllerPreviewingDelegate, UITableViewDataSource, UITableViewDelegate, PSStateRestoration, PKPaymentSetupDelegate>
 {
     id <PKPassLibraryDataProvider> _passLibraryDataProvider;
     id <PKPaymentDataProvider> _paymentServiceDataProvider;
@@ -60,6 +61,7 @@
     struct UIEdgeInsets _headerContentInset;
     double _tabBarHeight;
     _Bool _changingDefaultPaymentApplication;
+    double _previousLayoutTableViewWidth;
     NSMutableDictionary *_contextualActionHandlers;
     _Bool _navigationControllerHidesShadow;
     UIView *_headerView;
@@ -144,7 +146,6 @@
 - (_Bool)_hasActionOfType:(unsigned long long)arg1;
 - (id)_availableActions;
 - (_Bool)_transactionDeepLinkingEnabled;
-- (id)_deviceSpecificLocalizedStringKeyForKey:(id)arg1;
 - (void)updateActivationFooterViewContents;
 - (id)_activationFooterView;
 - (_Bool)_shouldShowServiceMode;
@@ -154,6 +155,10 @@
 - (_Bool)_shouldShowTermsCell;
 - (_Bool)_shouldShowBillingAddressCell;
 - (_Bool)_shouldShowAutomaticPresentation;
+- (unsigned long long)_rowIndexForPeerPaymentBalanceActionRow:(unsigned long long)arg1;
+- (unsigned long long)_peerPaymentBalanceActionForRowIndex:(unsigned long long)arg1;
+- (unsigned long long)_numberOfPeerPaymentBalanceActionsEnabled;
+- (_Bool)_peerPaymentBalanceActionEnabled:(unsigned long long)arg1;
 - (_Bool)_shouldShowAccountActions;
 - (_Bool)_canDoManualIdentityVerification;
 - (_Bool)_shouldShowDeleteCell;
@@ -252,6 +257,8 @@
 - (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
+- (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
+- (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
 - (id)tableView:(id)arg1 trailingSwipeActionsConfigurationForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
@@ -271,6 +278,7 @@
 - (void)_reloadView;
 - (void)_reloadPassAndView;
 - (void)presentTransactionDetailsForTransaction:(id)arg1 animated:(_Bool)arg2;
+- (id)_transactionDetailViewControllerForTransaction:(id)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;

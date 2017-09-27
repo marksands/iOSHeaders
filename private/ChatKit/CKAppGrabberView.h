@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 - (void)setState:(long long)arg1 animated:(_Bool)arg2;
 @property(nonatomic) long long state;
+- (void)updateHeaderFrame:(_Bool)arg1;
 - (void)setRoundsTopConers:(_Bool)arg1;
 - (void)fadeOutAppTitle;
 - (void)updateAppTitle:(id)arg1;

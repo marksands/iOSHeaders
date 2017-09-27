@@ -9,7 +9,7 @@
 #import "PXChangeObserver.h"
 #import "PXWidget.h"
 
-@class NSString, PHPerson, PXPhotosDetailsContext, PXSectionedSelectionManager, PXTilingController, PXUIPeopleSuggestionDataSource, PXWidgetSpec, UIButton, UILabel, UIView;
+@class NSLayoutConstraint, NSString, PHPerson, PXPhotosDetailsContext, PXSectionedSelectionManager, PXTilingController, PXUIPeopleSuggestionDataSource, PXWidgetSpec, UIButton, UILabel, UIView;
 
 @interface PXPeopleCandidateWidget : NSObject <PXChangeObserver, PXWidget>
 {
@@ -22,8 +22,12 @@
     UILabel *_label;
     PHPerson *_person;
     UIButton *_notNowButton;
+    NSLayoutConstraint *_avatarToLeadingConstraint;
+    NSLayoutConstraint *_notNowToTrailingConstraint;
 }
 
+@property(retain, nonatomic) NSLayoutConstraint *notNowToTrailingConstraint; // @synthesize notNowToTrailingConstraint=_notNowToTrailingConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *avatarToLeadingConstraint; // @synthesize avatarToLeadingConstraint=_avatarToLeadingConstraint;
 @property(nonatomic) __weak UIButton *notNowButton; // @synthesize notNowButton=_notNowButton;
 @property(nonatomic) _Bool dismissed; // @synthesize dismissed=_dismissed;
 @property(retain, nonatomic) PHPerson *person; // @synthesize person=_person;

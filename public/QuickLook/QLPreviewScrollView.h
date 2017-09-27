@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     struct CGSize _lastUpdatedSize;
     _Bool _readyToCancelPanGesture;
     _Bool _needsZoomUpdate;
+    _Bool _preventZoomUpdate;
     _Bool _shouldFit;
     double _minZoomScale;
     double _maxZoomScale;
@@ -26,9 +27,14 @@ __attribute__((visibility("hidden")))
     double _contentIsSmallerThanView;
     id <QLPreviewScrollViewZoomDelegate> _zoomDelegate;
     struct CGSize _contentViewSize;
+    struct UIEdgeInsets _peripheryInsetsLandscape;
+    struct UIEdgeInsets _peripheryInsetsPortrait;
 }
 
+@property struct UIEdgeInsets peripheryInsetsPortrait; // @synthesize peripheryInsetsPortrait=_peripheryInsetsPortrait;
+@property struct UIEdgeInsets peripheryInsetsLandscape; // @synthesize peripheryInsetsLandscape=_peripheryInsetsLandscape;
 @property _Bool shouldFit; // @synthesize shouldFit=_shouldFit;
+@property(nonatomic) _Bool preventZoomUpdate; // @synthesize preventZoomUpdate=_preventZoomUpdate;
 @property __weak id <QLPreviewScrollViewZoomDelegate> zoomDelegate; // @synthesize zoomDelegate=_zoomDelegate;
 @property(readonly) double contentIsSmallerThanView; // @synthesize contentIsSmallerThanView=_contentIsSmallerThanView;
 @property(readonly) double fitZoomScale; // @synthesize fitZoomScale=_fitZoomScale;

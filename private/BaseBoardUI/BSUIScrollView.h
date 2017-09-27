@@ -22,6 +22,7 @@
 }
 
 @property(readonly, nonatomic, getter=isScrolling) _Bool scrolling; // @synthesize scrolling=_scrolling;
+- (id)_animationForAnimationSettings:(id)arg1;
 - (void)_didEndScrollAnimationNotification:(id)arg1;
 - (void)_didDidEndDeceleratingNotification:(id)arg1;
 - (void)_didEndDraggingNotification:(id)arg1;
@@ -32,8 +33,12 @@
 - (void)_setContentOffset:(struct CGPoint)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (long long)_activeMethod;
 - (void)_notifyDidScroll;
+- (void)_setCurrentContentOffsetImmediatelyIfScrollInterruptionAnimated:(_Bool)arg1;
+- (void)_setContentOffset:(struct CGPoint)arg1 animation:(id)arg2;
 - (void)setContentOffset:(struct CGPoint)arg1 animated:(_Bool)arg2;
 - (void)setContentOffset:(struct CGPoint)arg1;
+- (_Bool)_setContentOffset:(struct CGPoint)arg1 animated:(_Bool)arg2 withAnimation:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (_Bool)setContentOffset:(struct CGPoint)arg1 withAnimationSettings:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)setContentOffset:(struct CGPoint)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) CDStruct_3b09cf25 currentScrollContext;
 @property(nonatomic) __weak id <BSUIScrollViewDelegate> delegate;

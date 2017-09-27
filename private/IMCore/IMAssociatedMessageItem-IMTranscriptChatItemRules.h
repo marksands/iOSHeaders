@@ -8,7 +8,7 @@
 
 @interface IMAssociatedMessageItem (IMTranscriptChatItemRules)
 - (_Bool)shouldGenerateTopLevelChatItem;
-- (id)_newChatItemsWithFilteredChat:(_Bool)arg1 isBusiness:(_Bool)arg2;
+- (id)_newChatItemsWithFilteredChat:(_Bool)arg1 isBusiness:(_Bool)arg2 hasKnownParticipants:(_Bool)arg3;
 - (id)_newChatItems;
 @end
 

@@ -43,7 +43,8 @@
 @property(nonatomic) __weak _UIStatusBar *statusBar; // @synthesize statusBar=_statusBar;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
-@property(readonly, copy, nonatomic) NSDictionary *displayItemFrames;
+- (id)displayItemForHUDAtPointInContentView:(struct CGPoint)arg1;
+@property(readonly, copy, nonatomic) NSDictionary *displayItemAbsoluteFrames;
 @property(readonly, nonatomic) _UIStatusBarDisplayItem *overflowedDisplayItem;
 @property(readonly, nonatomic) NSArray *currentEnabledDisplayItems;
 @property(readonly, nonatomic) NSArray *enabledDisplayItems;

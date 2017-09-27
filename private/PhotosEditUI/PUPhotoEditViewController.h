@@ -34,6 +34,7 @@
     _Bool _switchingToolsAnimated;
     NUMediaView *_mediaView;
     NURenderPipelineFilter *_showOrignalWithGeometry;
+    _Bool _isImageFrameReady;
     NUBufferRenderClient *_renderImageClient;
     GLKView *_mainRenderView;
     _Bool _isAnimatingLayoutOrientation;
@@ -268,6 +269,8 @@
 - (void)mediaViewIsReadyForVideoPlayback:(id)arg1;
 - (void)mediaViewDidUpdateLivePhoto:(id)arg1;
 - (void)mediaViewDidFinishRendering:(id)arg1 withStatistics:(id)arg2;
+- (void)mediaViewDidEndZooming:(id)arg1;
+- (void)mediaViewWillBeginZooming:(id)arg1;
 - (id)toolControllerHitEventForwardView:(id)arg1;
 - (struct CGPoint)toolController:(id)arg1 viewPointFromOriginalPoint:(struct CGPoint)arg2 view:(id)arg3;
 - (struct CGPoint)toolController:(id)arg1 originalPointFromViewPoint:(struct CGPoint)arg2 view:(id)arg3;
@@ -383,6 +386,8 @@
 - (void)_updateMediaViewEdgeInsets;
 - (void)_updateMediaViewLayoutWithCoordinator:(id)arg1 layoutOrientation:(long long)arg2;
 - (void)_updateLightingNameBadgeForOrientation:(long long)arg1 expanded:(_Bool)arg2;
+- (_Bool)_shouldShowLightingControl;
+- (_Bool)_shouldShowDepthControl;
 - (void)_updateDepthEffectAnimated:(_Bool)arg1;
 - (_Bool)_shouldDisplayDepthButtonInToolbar;
 - (void)_updateMuteButtonAnimated:(_Bool)arg1;

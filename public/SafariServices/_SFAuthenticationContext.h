@@ -48,6 +48,8 @@
 - (void)_processNextClientAwaitingAuthentication;
 - (_Bool)authenticateWithNoPromptForClient:(id)arg1;
 - (_Bool)_biometricProtectionEnabled;
+- (_Bool)_contextShouldAllowMultipleBiometricFailures;
+- (_Bool)_contextShouldAllowPasscodeFallback;
 - (_Bool)_contextRequiresSessionBasedAuthentication;
 @property(readonly, nonatomic) _Bool needsAuthentication;
 - (_Bool)_hasAuthenticationCapability;

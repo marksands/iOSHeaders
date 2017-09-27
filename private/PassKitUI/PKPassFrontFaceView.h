@@ -18,10 +18,12 @@
     _Bool _showsInfo;
     _Bool _showsBarcodeButton;
     _Bool _showsBarcodeView;
+    _Bool _showsLiveBalance;
     PKLinkedAppIconView *_linkedApp;
 }
 
 @property(readonly, nonatomic) PKLinkedAppIconView *linkedApp; // @synthesize linkedApp=_linkedApp;
+@property(nonatomic) _Bool showsLiveBalance; // @synthesize showsLiveBalance=_showsLiveBalance;
 @property(nonatomic) _Bool showsBarcodeView; // @synthesize showsBarcodeView=_showsBarcodeView;
 @property(nonatomic) _Bool showsBarcodeButton; // @synthesize showsBarcodeButton=_showsBarcodeButton;
 @property(nonatomic) _Bool showsInfo; // @synthesize showsInfo=_showsInfo;

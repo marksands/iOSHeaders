@@ -59,7 +59,8 @@
 - (_Bool)resignFirstResponder;
 - (_Bool)becomeFirstResponder;
 - (void)setText:(id)arg1;
-- (struct CGRect)_frame;
+- (void)safeAreaInsetsDidChange;
+- (struct CGRect)_defaultFrame;
 - (id)initWithFrame:(struct CGRect)arg1 inputViewStyle:(long long)arg2;
 - (id)init;
 - (id)initWithDelegate:(id)arg1;

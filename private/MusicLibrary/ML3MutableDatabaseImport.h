@@ -12,6 +12,7 @@
 {
 }
 
+@property(nonatomic, getter=isSuspendable) _Bool suspendable; // @dynamic suspendable;
 @property(copy, nonatomic) NSString *syncLibraryID; // @dynamic syncLibraryID;
 @property(nonatomic) _Bool isServerImport; // @dynamic isServerImport;
 @property(nonatomic, getter=isPendingMatch) _Bool pendingMatch; // @dynamic pendingMatch;

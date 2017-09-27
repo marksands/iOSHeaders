@@ -9,6 +9,8 @@
 @class UIView, UIViewController;
 
 @protocol NCLongLookPresentationController <NCLongLookAnimatorObserving>
+@property(nonatomic) double additionalHomeAffordanceSpacing;
+@property(nonatomic, getter=isHomeAffordanceVisible) _Bool homeAffordanceVisible;
 @property(nonatomic) __weak id <NCLongLookPresentationControllerDelegate> longLookPresentationControllerDelegate;
 - (void)completeDismissal;
 - (void)hintDismissalWithCommitProgress:(double)arg1 overallProgress:(double)arg2;

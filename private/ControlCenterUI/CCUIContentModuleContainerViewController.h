@@ -10,7 +10,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UIPreviewInteractionDelegatePrivate.h"
 
-@class CCUIContentModuleBackgroundView, CCUIContentModuleContainerView, CCUIContentModuleContentContainerView, NSArray, NSString, UIPreviewInteraction, UITapGestureRecognizer, UIView, UIViewController<CCUIContentModuleContentViewController>;
+@class CCUIContentModuleBackgroundView, CCUIContentModuleContentContainerView, NSArray, NSString, UIPreviewInteraction, UITapGestureRecognizer, UIView, UIViewController<CCUIContentModuleContentViewController>;
 
 @interface CCUIContentModuleContainerViewController : UIViewController <UIPreviewInteractionDelegatePrivate, UIGestureRecognizerDelegate, CCUISafeAppearancePropagationProvider>
 {
@@ -77,7 +77,6 @@
 - (void)willResignActive;
 - (void)willBecomeActive;
 @property(readonly, nonatomic) CCUIContentModuleContentContainerView *moduleContentView;
-@property(readonly, nonatomic) CCUIContentModuleContainerView *moduleContainerView;
 - (void)_closeExpandedModule;
 - (void)_dismissModulePresentedContentAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dismissPresentedContentAnimated:(_Bool)arg1;

@@ -66,8 +66,9 @@
 - (void)contactIDForEmailHash:(NSString *)arg1 phoneHash:(NSString *)arg2 completion:(void (^)(NSString *, NSError *))arg3;
 - (void)statusInfoWithCompletion:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)requestWithInfo:(NSDictionary *)arg1 completion:(void (^)(NSString *, NSError *))arg2;
-- (void)copyIdentityForAppleID:(NSString *)arg1 withCompletion:(void (^)(struct __SecIdentity *, NSError *))arg2;
+- (void)myAccountWithCompletion:(void (^)(SFAppleIDAccount *, NSError *))arg1;
 - (void)appleIDListWithCompletion:(void (^)(NSArray *, NSError *))arg1;
 - (void)addAppleID:(NSString *)arg1 withCompletion:(void (^)(NSError *))arg2;
+- (void)accountForAppleID:(NSString *)arg1 withCompletion:(void (^)(SFAppleIDAccount *, NSError *))arg2;
 @end
 

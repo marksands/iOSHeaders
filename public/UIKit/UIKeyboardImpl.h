@@ -802,6 +802,7 @@
 - (void)lookUpResponderChainForCustomInputView;
 - (void)moveCursorRightShifted:(_Bool)arg1;
 - (void)moveCursorLeftShifted:(_Bool)arg1;
+- (id)internationalKeyDisplayStringOnEmojiKeyboard;
 - (_Bool)globeKeyDisplaysAsEmojiKey;
 - (void)acceptAutocorrectionAndEndComposition;
 - (double)biasedKeyboardWidthRatio;

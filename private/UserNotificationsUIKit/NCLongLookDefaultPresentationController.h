@@ -29,6 +29,8 @@
 - (void)longLookAnimatorDidFinishFirstResponderChanges:(id)arg1;
 - (void)longLookAnimator:(id)arg1 willBeginDismissalAnimationWithTransitionContext:(id)arg2;
 - (void)longLookAnimator:(id)arg1 willBeginPresentationAnimationWithTransitionContext:(id)arg2;
+@property(nonatomic) double additionalHomeAffordanceSpacing;
+@property(nonatomic, getter=isHomeAffordanceVisible) _Bool homeAffordanceVisible;
 - (void)completeDismissal;
 - (void)hintDismissalWithCommitProgress:(double)arg1 overallProgress:(double)arg2;
 - (_Bool)_shouldDisableInteractionDuringTransitions;

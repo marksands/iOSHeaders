@@ -8,12 +8,13 @@
 
 #import "AVAssetResourceLoaderDelegate.h"
 #import "AVPlayerItemMetadataOutputPushDelegate.h"
+#import "ICEnvironmentMonitorObserver.h"
 #import "MPMusicSubscriptionLeasePlaybackParticipating.h"
 #import "MPRTCReportingItemSessionCreating.h"
 
-@class ICMusicSubscriptionLeaseSession, ICStoreRequestContext, MPCAVItemNetworkPolicyHandler, MPCModelGenericAVItemTimedMetadataRequest, MPCModelGenericAVItemTimedMetadataResponse, MPCPlaybackRequestEnvironment, MPCSuzeLeaseSession, MPMediaLibrary, MPModelGenericObject, MPPropertySet, MPSubscriptionStatusPlaybackInformation, NSArray, NSData, NSNumber, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString, NSURL;
+@class ICMusicSubscriptionLeaseSession, ICStoreRequestContext, MPCModelGenericAVItemTimedMetadataRequest, MPCModelGenericAVItemTimedMetadataResponse, MPCPlaybackRequestEnvironment, MPCSuzeLeaseSession, MPMediaLibrary, MPModelGenericObject, MPPropertySet, MPSubscriptionStatusPlaybackInformation, NSArray, NSData, NSNumber, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString, NSURL;
 
-@interface MPCModelGenericAVItem : MPAVItem <AVAssetResourceLoaderDelegate, AVPlayerItemMetadataOutputPushDelegate, MPMusicSubscriptionLeasePlaybackParticipating, MPRTCReportingItemSessionCreating>
+@interface MPCModelGenericAVItem : MPAVItem <AVAssetResourceLoaderDelegate, AVPlayerItemMetadataOutputPushDelegate, ICEnvironmentMonitorObserver, MPMusicSubscriptionLeasePlaybackParticipating, MPRTCReportingItemSessionCreating>
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     _Bool _allowsAirPlayFromCloud;
@@ -29,6 +30,8 @@
     _Bool _isAssetSubscriptionProtectionType;
     _Bool _isSubscriptionPolicyContent;
     _Bool _lastPreparedForNonZeroRate;
+    long long _subscriptionLeaseRequestCount;
+    _Bool _didDeferPreventionStatusUpdate;
     MPCSuzeLeaseSession *_suzeLeaseSession;
     _Bool _isAutomaticallyRefreshingSuzeLeaseSession;
     CDUnknownBlockType _firstBecomeActivePlayerItemBlock;
@@ -40,6 +43,8 @@
     id <MPCReportingIdentityPropertiesLoading> _identityPropertiesLoader;
     MPCModelGenericAVItemTimedMetadataRequest *_timedMetadataRequest;
     MPCModelGenericAVItemTimedMetadataResponse *_timedMetadataResponse;
+    _Bool _isMusicCellularStreamingAllowed;
+    NSNumber *_maximumSizeAllowedForCellularAccess;
     _Bool _isHLSAsset;
     _Bool _isiTunesStoreStream;
     ICStoreRequestContext *_storeRequestContext;
@@ -47,7 +52,6 @@
     NSURL *_streamingKeyServerURL;
     id _rtcReportingParentHierarchyToken;
     NSString *_rtcReportingServiceIdentifier;
-    MPCAVItemNetworkPolicyHandler *_networkPolicyHandler;
     _Bool supportsRadioTrackActions;
     _Bool _radioPlayback;
     _Bool _radioStreamPlayback;
@@ -63,6 +67,8 @@
     long long _stationItemLikedState;
 }
 
++ (_Bool)_prefersHighQualityVideoContentForNetworkType:(long long)arg1;
++ (_Bool)_prefersHighQualityAudioContentForNetworkType:(long long)arg1;
 @property(nonatomic) long long stationItemLikedState; // @synthesize stationItemLikedState=_stationItemLikedState;
 @property(readonly, copy, nonatomic) MPCPlaybackRequestEnvironment *playbackRequestEnvironment; // @synthesize playbackRequestEnvironment=_playbackRequestEnvironment;
 @property(nonatomic, getter=isRadioStreamPlayback) _Bool radioStreamPlayback; // @synthesize radioStreamPlayback=_radioStreamPlayback;
@@ -99,12 +105,15 @@
 - (void)_getUnverifiedSubscriptionLeaseSessionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_getSubscriptionLeasePropertiesWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_bookmarkTime;
+- (void)_applyPreferredPeakBitRateToPlayerItem:(id)arg1 withItemType:(long long)arg2;
 - (void)_applyLoudnessInfo;
 - (_Bool)_allowsStreamingPlayback;
 - (void)_timedMetadataResponseDidInvalidateNotification:(id)arg1;
 - (void)_suzeLeaseSessionRenewDidFailNotification:(id)arg1;
 - (void)_subscriptionLeaseStatusDidChangeNotification:(id)arg1;
 - (void)_contentTasteControllerDidChangeNotification:(id)arg1;
+- (void)_allowsHighQualityMusicStreamingOnCellularDidChangeNotification:(id)arg1;
+- (void)environmentMonitorDidChangeNetworkType:(id)arg1;
 - (void)nowPlayingInfoCenter:(id)arg1 lyricsForContentItem:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_reloadTimedMetadataRequest;
 - (void)metadataOutput:(id)arg1 didOutputTimedMetadataGroups:(id)arg2 fromPlayerItemTrack:(id)arg3;
@@ -160,6 +169,7 @@
 - (void)prepareForRate:(float)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)prefersSeekOverSkip;
 - (_Bool)shouldShowComposer;
+- (id)playbackError;
 - (void)notePlaybackFinishedByHittingEnd;
 - (unsigned long long)composerPersistentID;
 - (unsigned long long)genrePersistentID;

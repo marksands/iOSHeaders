@@ -40,6 +40,7 @@
 - (double)_prepareViewForReuse:(id)arg1;
 - (void)_updateAlignmentAnimated:(_Bool)arg1;
 - (void)_updateSubviewsAnimated:(_Bool)arg1;
+- (id)_attributedStringWithText:(id)arg1 strikethrough:(_Bool)arg2;
 - (void)prepareForReuse;
 - (void)layoutIfNeededAnimated:(_Bool)arg1;
 - (void)layoutSubviews;

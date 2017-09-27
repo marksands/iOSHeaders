@@ -37,6 +37,7 @@
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
 - (void)viewDidLoad;
+- (void)viewSafeAreaInsetsDidChange;
 - (double)displayHeight;
 - (void)updateVisibleActivityGroupViewControllers;
 - (id)initWithCoder:(id)arg1;

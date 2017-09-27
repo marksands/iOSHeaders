@@ -8,22 +8,30 @@
 
 #import "_UIStatusBarDisplayable.h"
 
-@class NSString;
+@class NSString, NSTimer, UIAccessibilityHUDItem;
 
 @interface _UIStatusBarStringView : UILabel <_UIStatusBarDisplayable>
 {
     _Bool _emphasized;
+    _Bool _showsAlternateText;
     double _baselineOffset;
-    _UIStatusBarStringView *_transitioningStringView;
+    NSString *_alternateText;
+    NSString *_originalText;
+    NSTimer *_alternateTextTimer;
     struct UIEdgeInsets _alignmentRectInsets;
 }
 
-@property(retain, nonatomic) _UIStatusBarStringView *transitioningStringView; // @synthesize transitioningStringView=_transitioningStringView;
+@property(readonly, nonatomic) NSTimer *alternateTextTimer; // @synthesize alternateTextTimer=_alternateTextTimer;
+@property(copy, nonatomic) NSString *originalText; // @synthesize originalText=_originalText;
+@property(nonatomic) _Bool showsAlternateText; // @synthesize showsAlternateText=_showsAlternateText;
+@property(copy, nonatomic) NSString *alternateText; // @synthesize alternateText=_alternateText;
 @property(nonatomic) double baselineOffset; // @synthesize baselineOffset=_baselineOffset;
 @property(nonatomic) struct UIEdgeInsets alignmentRectInsets; // @synthesize alignmentRectInsets=_alignmentRectInsets;
 @property(nonatomic) _Bool emphasized; // @synthesize emphasized=_emphasized;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) _UIStatusBarStringView *effectiveStringView;
+@property(readonly, nonatomic) UIAccessibilityHUDItem *accessibilityHUDRepresentation;
+- (void)didMoveToWindow;
+- (void)_updateAlternateTextTimer;
 - (void)setText:(id)arg1;
 - (void)applyStyleAttributes:(id)arg1;
 @property(readonly, nonatomic) _Bool wantsCrossfade;

@@ -36,12 +36,12 @@
     UIWindow *_window;
     TVApplicationControllerContext *_context;
     id <TVApplicationControllerDelegate> _delegate;
-    UIView *_viewServiceKeyView;
+    id <UITraitEnvironment> _keyTraitEnvironment;
 }
 
 + (id)_jsLaunchOptionsWithApplicationOptions:(id)arg1;
 + (void)initialize;
-@property(nonatomic) __weak UIView *viewServiceKeyView; // @synthesize viewServiceKeyView=_viewServiceKeyView;
+@property(nonatomic) __weak id <UITraitEnvironment> keyTraitEnvironment; // @synthesize keyTraitEnvironment=_keyTraitEnvironment;
 @property(readonly, nonatomic) __weak id <TVApplicationControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) TVApplicationControllerContext *context; // @synthesize context=_context;
 @property(readonly, nonatomic) UIWindow *window; // @synthesize window=_window;
@@ -56,6 +56,7 @@
 @property(readonly, nonatomic) UINavigationController *_currentNavigationController;
 - (void)applicationWillSuspend:(id)arg1;
 - (void)applicationDidResume:(id)arg1;
+@property(nonatomic) __weak UIView *viewServiceKeyView;
 @property(readonly, nonatomic) UIViewController *rootViewController;
 @property(readonly, nonatomic) UINavigationController *navigationController;
 - (_Bool)appNavigationController:(id)arg1 shouldDismissShroudForDocument:(id)arg2;

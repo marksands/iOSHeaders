@@ -14,6 +14,7 @@
 {
 }
 
++ (_Bool)usesTelephonyGlyphsWhereAvailable;
 + (double)_numberPadButtonOuterCircleDiameter;
 + (struct UIEdgeInsets)paddingOutsideRing;
 + (struct CGSize)defaultSize;

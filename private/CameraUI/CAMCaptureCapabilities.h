@@ -90,6 +90,8 @@
     double __backDualVideoModeMaximumZoomFactor;
     double __frontDualPhotoModeMaximumZoomFactor;
     double __frontDualVideoModeMaximumZoomFactor;
+    double __backDualCameraSwitchOverZoomFactor;
+    double __frontDualCameraSwitchOverZoomFactor;
     double __backCaptureInterval;
     double __frontCaptureInterval;
 }
@@ -100,6 +102,8 @@
 @property(readonly, nonatomic, getter=isTopBarInvertedForModernPhone) _Bool topBarInvertedForModernPhone; // @synthesize topBarInvertedForModernPhone=_topBarInvertedForModernPhone;
 @property(readonly, nonatomic) double _frontCaptureInterval; // @synthesize _frontCaptureInterval=__frontCaptureInterval;
 @property(readonly, nonatomic) double _backCaptureInterval; // @synthesize _backCaptureInterval=__backCaptureInterval;
+@property(readonly, nonatomic) double _frontDualCameraSwitchOverZoomFactor; // @synthesize _frontDualCameraSwitchOverZoomFactor=__frontDualCameraSwitchOverZoomFactor;
+@property(readonly, nonatomic) double _backDualCameraSwitchOverZoomFactor; // @synthesize _backDualCameraSwitchOverZoomFactor=__backDualCameraSwitchOverZoomFactor;
 @property(readonly, nonatomic) double _frontDualVideoModeMaximumZoomFactor; // @synthesize _frontDualVideoModeMaximumZoomFactor=__frontDualVideoModeMaximumZoomFactor;
 @property(readonly, nonatomic) double _frontDualPhotoModeMaximumZoomFactor; // @synthesize _frontDualPhotoModeMaximumZoomFactor=__frontDualPhotoModeMaximumZoomFactor;
 @property(readonly, nonatomic) double _backDualVideoModeMaximumZoomFactor; // @synthesize _backDualVideoModeMaximumZoomFactor=__backDualVideoModeMaximumZoomFactor;
@@ -180,12 +184,14 @@
 @property(readonly, nonatomic, getter=isFrontCameraSupported) _Bool frontCameraSupported; // @synthesize frontCameraSupported=_frontCameraSupported;
 @property(readonly, nonatomic, getter=isBackCameraSupported) _Bool backCameraSupported; // @synthesize backCameraSupported=_backCameraSupported;
 - (double)maximumZoomFactorForMode:(long long)arg1 device:(long long)arg2 videoConfiguration:(long long)arg3;
+- (_Bool)isZoomAllowedForMode:(long long)arg1 device:(long long)arg2 videoConfiguration:(long long)arg3;
 - (_Bool)shouldUseDepthForMode:(long long)arg1 device:(long long)arg2;
 - (_Bool)isDepthSupportedForMode:(long long)arg1 devicePosition:(long long)arg2;
 - (_Bool)isDepthSupportedForDevicePosition:(long long)arg1;
 - (_Bool)shouldUsePearlForMode:(long long)arg1 device:(long long)arg2;
 - (_Bool)isPearlSupportedForMode:(long long)arg1 devicePosition:(long long)arg2;
 - (_Bool)isPearlSupportedForDevicePosition:(long long)arg1;
+- (double)dualCameraSwitchOverZoomFactorForDevicePosition:(long long)arg1;
 - (_Bool)shouldUseDualForMode:(long long)arg1 device:(long long)arg2 videoConfiguration:(long long)arg3;
 - (_Bool)isDualSupportedForMode:(long long)arg1 devicePosition:(long long)arg2 videoConfiguration:(long long)arg3;
 - (_Bool)isDualSupportedForDevicePosition:(long long)arg1;

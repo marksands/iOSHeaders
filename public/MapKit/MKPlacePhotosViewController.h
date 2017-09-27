@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _mode;
     unsigned long long _originalMode;
     MKPlaceAttributionCell *_attributionCell;
+    UIScrollView *_parentScrollView;
     _MKPlaceViewController *_owner;
     id <MKPlaceCardPhotosControllerDelegate><MKPlaceCardActionControllerDelegate> _photosControllerDelegate;
 }
@@ -57,6 +58,8 @@ __attribute__((visibility("hidden")))
 - (void)_cancelLoadPhotos;
 - (void)_updatePhotoBackgroundColor:(id)arg1;
 - (void)infoCardThemeChanged:(id)arg1;
+- (void)_updateAlphaAttribution;
+- (void)_catchScrollNotification:(id)arg1;
 - (void)updateAttributionPositionWithOffset:(double)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewDidScroll:(id)arg1;

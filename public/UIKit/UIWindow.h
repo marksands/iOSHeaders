@@ -11,7 +11,7 @@
 #import "_UIFocusEventRecognizerDelegate.h"
 #import "_UIFocusMovementActionForwarding.h"
 
-@class CAContext, CALayer, NSArray, NSMutableArray, NSMutableSet, NSString, NSUndoManager, UIResponder, UIScreen, UITraitCollection, UIViewController, _UICanvas, _UIContextBinder, _UIFocusEventRecognizer, _UISystemGestureGateGestureRecognizer, _UIViewControllerNullAnimationTransitionCoordinator, _UIWindowAnimationController;
+@class CAContext, CALayer, NSArray, NSMutableArray, NSMutableSet, NSString, NSUndoManager, UIAccessibilityHUDView, UIResponder, UIScreen, UITraitCollection, UIViewController, _UICanvas, _UIContextBinder, _UIFocusEventRecognizer, _UISystemGestureGateGestureRecognizer, _UIViewControllerNullAnimationTransitionCoordinator, _UIWindowAnimationController;
 
 @interface UIWindow : UIView <NSISEngineDelegate, _UIFocusEventRecognizerDelegate, _UIFocusMovementActionForwarding, _UIContextBindable>
 {
@@ -85,6 +85,7 @@
     unsigned int _systemGesturesArePossible:1;
     long long _verticalSizeClassStateRestorationOverride;
     long long _horizontalSizeClassStateRestorationOverride;
+    UIAccessibilityHUDView *_accessibilityHUD;
     _Bool _shouldDisableTransformLayerScalingForSnapshotting;
     _Bool __shouldHitTestEntireScreen;
     _Bool __usesLegacySupportedOrientationChecks;
@@ -199,6 +200,8 @@
 - (_Bool)_wantsFocusEngine;
 @property(readonly, nonatomic, getter=_supportsFocus) _Bool supportsFocus;
 - (id)_focusedView;
+- (void)_dismissAccessibilityHUD;
+- (void)_showAccessibilityHUDItem:(id)arg1;
 - (_Bool)_appearsInLoupe;
 - (_Bool)_shouldCreateContextAsSecure;
 - (_Bool)_isSecure;
@@ -465,6 +468,7 @@
 - (_Bool)_transformLayerIncludesScreenRotation;
 - (_Bool)_windowOwnsInterfaceOrientation;
 - (struct CGAffineTransform)_viewTransformForInterfaceOrientation:(long long)arg1;
+- (long long)_orientationForClassicPresentation;
 - (long long)_orientationForRootTransform;
 - (long long)_orientationForViewTransform;
 - (_Bool)_isConstrainedByScreenJail;

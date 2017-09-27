@@ -7,10 +7,11 @@
 #import "UITableViewController.h"
 
 #import "CNAvatarViewDelegate.h"
+#import "UIViewControllerPreviewingDelegate.h"
 
 @class NSArray, NSCalendar, NSDate, NSDateFormatter, NSString, PKPaymentPass, PKPaymentTransactionCellController, PKPeerPaymentContactResolver, PKPeerPaymentController;
 
-@interface PKPaymentTransactionsInYearTableViewController : UITableViewController <CNAvatarViewDelegate>
+@interface PKPaymentTransactionsInYearTableViewController : UITableViewController <CNAvatarViewDelegate, UIViewControllerPreviewingDelegate>
 {
     NSDate *_dateFromYear;
     NSCalendar *_calendar;
@@ -27,7 +28,10 @@
 - (void)_fetchDataWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_transactionMonthFormatter;
 - (id)_transactionsInYearTitleString;
+- (id)_transactionDetailViewControllerForTransaction:(id)arg1;
 - (id)presentingViewControllerForAvatarView:(id)arg1;
+- (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
+- (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;

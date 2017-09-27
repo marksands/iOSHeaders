@@ -27,6 +27,7 @@
 @property(readonly, nonatomic) unsigned long long n; // @synthesize n=_n;
 @property(readonly, nonatomic) unsigned long long k; // @synthesize k=_k;
 - (void).cxx_destruct;
+- (id)additionalControllerInternalInfoForPolicy:(long long)arg1;
 - (id)cachedExternalizationDelegate;
 - (_Bool)requiresRemoteViewControllerUiWithEventProcessing:(id)arg1;
 - (_Bool)requiresUiWithEventProcessing:(id)arg1;

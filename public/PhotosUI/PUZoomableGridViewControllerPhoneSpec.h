@@ -13,12 +13,10 @@ __attribute__((visibility("hidden")))
 
 - (long long)yearsSectionHeaderStyle;
 - (struct UIEdgeInsets)yearsLevelSectionHeaderHighlightInset;
-- (struct UIEdgeInsets)yearsLevelSectionHeaderContentInset;
 - (struct CGSize)yearsLevelThumbnailSize;
 - (void)configureYearsLevelGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 - (long long)collectionsSectionHeaderStyle;
 - (struct UIEdgeInsets)collectionsLevelSectionHeaderHighlightInset;
-- (struct UIEdgeInsets)collectionsLevelSectionHeaderContentInset;
 - (struct CGSize)collectionsLevelThumbnailSize;
 - (void)configureCollectionsLevelGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 - (long long)fullMomentsSectionHeaderStyle;

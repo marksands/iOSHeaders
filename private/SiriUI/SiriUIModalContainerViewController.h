@@ -15,10 +15,13 @@
 @property(nonatomic) __weak id <SiriUIModalContainerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) UIViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
 - (void).cxx_destruct;
+- (id)childViewControllerForHomeIndicatorAutoHidden;
+- (id)childViewControllerForStatusBarStyle;
+- (id)childViewControllerForStatusBarHidden;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)loadView;
-- (void)viewDidAppear:(_Bool)arg1;
 - (id)initWithContentViewController:(id)arg1;
 
 @end

@@ -9,7 +9,7 @@
 #import "SFServiceViewControllerProtocol.h"
 #import "_SFActivityDelegate.h"
 
-@class NSDate, NSString, SFUserNotification, WKNavigation, WKProcessPool, _SFWebViewUsageMonitor;
+@class NSDate, NSString, SFBrowserPersonaAnalyticsHelper, SFUserNotification, WKProcessPool, _SFWebViewUsageMonitor;
 
 __attribute__((visibility("hidden")))
 @interface SFBrowserServiceViewController : _SFBrowserContentViewController <_SFActivityDelegate, SFServiceViewControllerProtocol>
@@ -19,7 +19,9 @@ __attribute__((visibility("hidden")))
     NSDate *_lastHostApplicationSuspendDate;
     WKProcessPool *_processPool;
     _Bool _canNotifyHostApplicationOfRedirects;
-    WKNavigation *_firstNavigation;
+    _Bool _isExpectingClientRedirect;
+    _Bool _hasBegunFirstNavigation;
+    SFBrowserPersonaAnalyticsHelper *_cachedAnalyticsHelper;
     _Bool _isBeingUsedForLinkPreview;
     SFUserNotification *_userNotification;
     NSString *_hostApplicationCallbackURLScheme;
@@ -34,8 +36,11 @@ __attribute__((visibility("hidden")))
 - (void)safariActivity:(id)arg1 didFinish:(_Bool)arg2;
 - (void)webViewController:(id)arg1 didFinishDocumentLoadForNavigation:(id)arg2;
 - (void)webViewController:(id)arg1 didStartProvisionalNavigation:(id)arg2;
-- (void)webViewController:(id)arg1 didPerformClientRedirectForNavigation:(id)arg2;
+- (void)webViewController:(id)arg1 willPerformClientRedirectToURL:(id)arg2 withDelay:(double)arg3;
+- (void)webViewControllerDidCancelClientRedirect:(id)arg1;
 - (void)webViewController:(id)arg1 didReceiveServerRedirectForProvisionalNavigation:(id)arg2;
+- (unsigned long long)_persona;
+- (id)_analyticsHelper;
 - (id)_applicationPayloadForOpeningInSafari;
 - (void)_closeDatabasesOnBackgroundingOrDismissal;
 - (void)_recordHostAppIdAndURLForTapToRadar:(id)arg1;
@@ -44,7 +49,7 @@ __attribute__((visibility("hidden")))
 - (void)_didLoadWebView;
 - (_Bool)_redirectToHostAppWithNavigationResult:(id)arg1 options:(id)arg2;
 - (_Bool)_redirectToHostAppWithExpectedCallbackSchemeIfPossible:(id)arg1;
-- (void)_notifyInitialLoadDidFinish:(_Bool)arg1;
+- (_Bool)_notifyInitialLoadDidFinish:(_Bool)arg1;
 - (void)_updateRemoteSwipeGestureState;
 - (void)_dismiss;
 - (void)didDetectUserInteractionFromHostApp;
@@ -62,8 +67,10 @@ __attribute__((visibility("hidden")))
 - (void)decideCookieSharingForURL:(id)arg1 callbackURLScheme:(id)arg2;
 - (void)loadURL:(id)arg1;
 - (id)processPool;
+- (void)updateScrollViewIndicatorVerticalInsets:(struct UIEdgeInsets)arg1 horizontalInsets:(struct UIEdgeInsets)arg2;
 - (id)processPoolConfiguration;
 - (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)_willAppearInRemoteViewController;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

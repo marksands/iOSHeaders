@@ -12,6 +12,7 @@
 
 @interface ISDevice : NSObject <ISSingleton>
 {
+    long long _biometricStyle;
     unsigned long long _daemonLaunchCount;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSString *_guid;
@@ -31,6 +32,7 @@
 @property(readonly) NSString *hardwareName;
 @property(readonly) NSString *guid;
 @property(readonly) NSString *deviceName;
+- (long long)deviceBiometricStyle;
 - (id)copyProtocolConditionalContext;
 - (_Bool)checkCapabilities:(id)arg1 withMismatches:(id *)arg2;
 - (void)dealloc;

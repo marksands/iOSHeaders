@@ -9,17 +9,20 @@
 #import "NSSecureCoding.h"
 #import "PKCloudStoreCoding.h"
 
-@class CLLocation, NSData, NSDate, NSDecimalNumber, NSDictionary, NSString, PKCurrencyAmount, PKMerchant, PKPaymentTransactionFees, PKPaymentTransactionForeignExchangeInformation;
+@class CLLocation, NSData, NSDate, NSDecimalNumber, NSDictionary, NSString, NSUUID, PKCurrencyAmount, PKMerchant, PKPaymentTransactionFees, PKPaymentTransactionForeignExchangeInformation;
 
 @interface PKPaymentTransaction : NSObject <NSSecureCoding, PKCloudStoreCoding>
 {
     _Bool _enRoute;
+    _Bool _deviceScoreIdentifiersRequired;
+    _Bool _deviceScoreIdentifiersSubmitted;
     _Bool _isCloudKitArchived;
     _Bool _processedForLocation;
     _Bool _processedForMerchantCleanup;
     _Bool _processedForStations;
     _Bool _hasAssociatedPaymentApplication;
     _Bool _hasNotificationServiceData;
+    _Bool _isFromCloudStore;
     NSString *_identifier;
     NSString *_serviceIdentifier;
     NSString *_paymentHash;
@@ -28,6 +31,7 @@
     NSString *_currencyCode;
     NSDate *_transactionDate;
     NSDate *_transactionStatusChangedDate;
+    NSDate *_expirationDate;
     PKMerchant *_merchant;
     NSString *_locality;
     NSString *_administrativeArea;
@@ -44,6 +48,7 @@
     NSString *_startStation;
     NSData *_endStationCode;
     NSString *_endStation;
+    long long _adjustmentType;
     long long _peerPaymentType;
     NSString *_peerPaymentCounterpartHandle;
     NSString *_peerPaymentMemo;
@@ -57,6 +62,8 @@
     NSString *_secondaryFundingSourceDPANSuffix;
     NSString *_secondaryFundingSourceFPANIdentifier;
     NSString *_secondaryFundingSourceDescription;
+    NSUUID *_requestDeviceScoreIdentifier;
+    NSUUID *_sendDeviceScoreIdentifier;
     NSDictionary *_metadata;
     long long _transactionStatus;
     long long _transactionType;
@@ -69,6 +76,7 @@
 + (id)paymentTransactionWithSource:(unsigned long long)arg1 dictionary:(id)arg2 hasNotificationServiceData:(_Bool)arg3;
 + (id)paymentTransactionWithSource:(unsigned long long)arg1;
 + (id)paymentTransactionFromSource:(unsigned long long)arg1;
+@property(nonatomic) _Bool isFromCloudStore; // @synthesize isFromCloudStore=_isFromCloudStore;
 @property(nonatomic) unsigned long long transactionSource; // @synthesize transactionSource=_transactionSource;
 @property(nonatomic) long long technologyType; // @synthesize technologyType=_technologyType;
 @property(nonatomic) long long transactionType; // @synthesize transactionType=_transactionType;
@@ -80,6 +88,10 @@
 @property(nonatomic) _Bool processedForLocation; // @synthesize processedForLocation=_processedForLocation;
 @property(nonatomic) _Bool isCloudKitArchived; // @synthesize isCloudKitArchived=_isCloudKitArchived;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
+@property(nonatomic) _Bool deviceScoreIdentifiersSubmitted; // @synthesize deviceScoreIdentifiersSubmitted=_deviceScoreIdentifiersSubmitted;
+@property(nonatomic) _Bool deviceScoreIdentifiersRequired; // @synthesize deviceScoreIdentifiersRequired=_deviceScoreIdentifiersRequired;
+@property(copy, nonatomic) NSUUID *sendDeviceScoreIdentifier; // @synthesize sendDeviceScoreIdentifier=_sendDeviceScoreIdentifier;
+@property(copy, nonatomic) NSUUID *requestDeviceScoreIdentifier; // @synthesize requestDeviceScoreIdentifier=_requestDeviceScoreIdentifier;
 @property(copy, nonatomic) NSString *secondaryFundingSourceDescription; // @synthesize secondaryFundingSourceDescription=_secondaryFundingSourceDescription;
 @property(copy, nonatomic) NSString *secondaryFundingSourceFPANIdentifier; // @synthesize secondaryFundingSourceFPANIdentifier=_secondaryFundingSourceFPANIdentifier;
 @property(copy, nonatomic) NSString *secondaryFundingSourceDPANSuffix; // @synthesize secondaryFundingSourceDPANSuffix=_secondaryFundingSourceDPANSuffix;
@@ -93,6 +105,7 @@
 @property(copy, nonatomic) NSString *peerPaymentMemo; // @synthesize peerPaymentMemo=_peerPaymentMemo;
 @property(copy, nonatomic) NSString *peerPaymentCounterpartHandle; // @synthesize peerPaymentCounterpartHandle=_peerPaymentCounterpartHandle;
 @property(nonatomic) long long peerPaymentType; // @synthesize peerPaymentType=_peerPaymentType;
+@property(nonatomic) long long adjustmentType; // @synthesize adjustmentType=_adjustmentType;
 @property(copy, nonatomic) NSString *endStation; // @synthesize endStation=_endStation;
 @property(copy, nonatomic) NSData *endStationCode; // @synthesize endStationCode=_endStationCode;
 @property(copy, nonatomic) NSString *startStation; // @synthesize startStation=_startStation;
@@ -110,6 +123,7 @@
 @property(retain, nonatomic) NSString *administrativeArea; // @synthesize administrativeArea=_administrativeArea;
 @property(retain, nonatomic) NSString *locality; // @synthesize locality=_locality;
 @property(retain, nonatomic) PKMerchant *merchant; // @synthesize merchant=_merchant;
+@property(copy, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
 @property(copy, nonatomic) NSDate *transactionStatusChangedDate; // @synthesize transactionStatusChangedDate=_transactionStatusChangedDate;
 @property(copy, nonatomic) NSDate *transactionDate; // @synthesize transactionDate=_transactionDate;
 @property(copy, nonatomic) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;
@@ -119,6 +133,8 @@
 @property(copy, nonatomic) NSString *serviceIdentifier; // @synthesize serviceIdentifier=_serviceIdentifier;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (id)_formatBalanceAdjustmentAmount:(id)arg1;
+@property(readonly, nonatomic) NSString *formattedBalanceAdjustmentSubtotalAmount;
 @property(readonly, nonatomic) NSString *formattedBalanceAdjustmentAmount;
 @property(readonly, nonatomic) PKCurrencyAmount *secondaryFundingSourceCurrencyAmount;
 @property(readonly, nonatomic) PKCurrencyAmount *primaryFundingSourceCurrencyAmount;
@@ -137,6 +153,8 @@
 - (id)initWithCloudStoreCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)hasCloudArchivableDeviceData;
+- (_Bool)isCloudArchivableDeviceDataEqual:(id)arg1;
 - (_Bool)isEqualToPaymentTransaction:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

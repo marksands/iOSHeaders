@@ -113,7 +113,7 @@
         unsigned int didConfirmLayoutGuideClass:1;
         unsigned int overridesTraitCollectionDidChange:1;
         unsigned int restoresFocusAfterTransition:1;
-        unsigned int freezeTraitsOnCounterRotationForPresentation:1;
+        unsigned int freezeLayoutForOrientationChangeOnDismissal:1;
         unsigned int viewRespectsSystemMinimumLayoutMargins:1;
         unsigned int ignoresWrapperViewForContentOverlayInsets:1;
     } _viewControllerFlags;
@@ -698,6 +698,9 @@
 - (void)_updateLayoutForStatusBarAndInterfaceOrientation;
 - (void)_updateControlledViewsToFrame:(struct CGRect)arg1;
 - (_Bool)_shouldUpdateLayoutForStatusBarAndInterfaceOrientation;
+- (_Bool)_freezeLayoutForOrientationChangeOnDismissal;
+- (void)_setFreezeLayoutForOrientationChangeOnDismissal:(_Bool)arg1;
+- (_Bool)_allowsFreezeLayoutForOrientationChangeOnDismissal;
 - (void)window:(id)arg1 statusBarWillChangeFromHeight:(double)arg2 toHeight:(double)arg3;
 - (void)window:(id)arg1 statusBarWillChangeFromHeight:(double)arg2 toHeight:(double)arg3 windowSizedViewController:(id)arg4;
 - (void)window:(id)arg1 willAnimateFromContentFrame:(struct CGRect)arg2 toContentFrame:(struct CGRect)arg3;
@@ -832,7 +835,7 @@
 - (_Bool)__updateContentOverlayInsetsWithOurRect:(struct CGRect)arg1 inBoundsOfAncestorViewController:(id)arg2 viaImmediateChildOfAncestor:(id)arg3;
 - (void)__updateContentOverlayInsetsToPresentationControllerBaseInsets;
 - (void)_updateContentOverlayInsetsFromParentIfNecessary;
-- (struct UIEdgeInsets)_customBasePresentationInsets;
+- (struct UIEdgeInsets)_customBasePresentationInsetsForView:(id)arg1;
 - (_Bool)_providesCustomBasePresentationInsets;
 - (_Bool)_getViewControllerToInheritInsetsFrom:(id *)arg1 viaImmediateChild:(id *)arg2;
 - (_Bool)_ignoresWrapperViewForContentOverlayInsets;

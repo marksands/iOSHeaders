@@ -7,18 +7,25 @@
 #import <PassKitUI/PKExplanationViewController.h>
 
 #import "PKExplanationViewDelegate.h"
+#import "PKPeerPaymentAccountResolutionControllerDelegate.h"
 
 @class NSString, PKPeerPaymentIdentityVerificationController;
 
-@interface PKIdentityVerificationLegalExplanationViewController : PKExplanationViewController <PKExplanationViewDelegate>
+@interface PKIdentityVerificationLegalExplanationViewController : PKExplanationViewController <PKExplanationViewDelegate, PKPeerPaymentAccountResolutionControllerDelegate>
 {
     PKPeerPaymentIdentityVerificationController *_controller;
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
+    unsigned long long _identityVerificaionError;
 }
 
 - (void).cxx_destruct;
+- (void)_terminateFlow;
 - (void)_cancel;
+- (void)_processNextViewController;
+- (void)explanationViewDidSelectSetupLater:(id)arg1;
 - (void)explanationViewDidSelectContinue:(id)arg1;
+- (void)peerPaymentAccountResolutionController:(id)arg1 requestsDismissCurrentViewControllerAnimated:(_Bool)arg2;
+- (void)peerPaymentAccountResolutionController:(id)arg1 requestsPresentViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)loadView;
 - (id)initWithContext:(long long)arg1 setupDelegate:(id)arg2 identityVerificationController:(id)arg3;
 

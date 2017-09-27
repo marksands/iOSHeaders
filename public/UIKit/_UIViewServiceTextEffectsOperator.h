@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     _UIAsyncInvocation *_invalidationInvocation;
     _UIHostedWindow *_hostedWindow;
     struct CGPoint _windowOffset;
+    struct UIEdgeInsets _safeAreaInsets;
     struct CGSize _sceneSize;
     _Bool _canRestoreInputViews;
     _Bool _isRestoringInputViews;
@@ -53,6 +54,8 @@ __attribute__((visibility("hidden")))
 - (void)__setNextAutomaticOrderOutDirection:(int)arg1 duration:(double)arg2;
 - (void)__setSceneSize:(struct CGSize)arg1;
 - (void)_resetSceneSize;
+- (void)__setSafeAreaInsets:(struct UIEdgeInsets)arg1;
+- (void)_reloadSafeInsets;
 - (void)__setWindowOffset:(struct CGPoint)arg1;
 - (void)__createHostedTextEffectsWithReplyHandler:(CDUnknownBlockType)arg1;
 - (void)hostedWindow:(id)arg1 didSetResponderTargetForCalloutBar:(id)arg2;

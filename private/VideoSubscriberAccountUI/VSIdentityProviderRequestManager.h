@@ -67,7 +67,7 @@
 - (double)_requestCompletionDelay;
 - (_Bool)_requestRequiresApplicationController:(id)arg1;
 - (_Bool)_requestRequiresApplicationControllerIgnoringAuthentication:(id)arg1;
-- (void)_notifyDidAuthenticateAccount:(id)arg1 supportingApps:(id)arg2;
+- (void)_notifyDidAuthenticateAccount:(id)arg1;
 - (void)_stopObservingViewModel:(id)arg1;
 - (void)_startObservingViewModel:(id)arg1;
 - (void)_showAuthenticationUI;

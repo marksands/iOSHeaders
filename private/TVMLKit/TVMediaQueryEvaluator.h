@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 
 + (id)_mobileGestaltStringForKey:(struct __CFString *)arg1;
 + (id)_productType;
++ (id)evaluatorForTemplateElement:(id)arg1 inWindow:(id)arg2 traitEnvironment:(id)arg3;
 + (id)evaluatorForTemplateElement:(id)arg1 inWindow:(id)arg2;
 @property(nonatomic) __weak id <TVMediaQueryEvaluatorDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, retain, nonatomic) _TVWindowSizeAdaptor *windowSizeAdaptor; // @synthesize windowSizeAdaptor=_windowSizeAdaptor;
@@ -32,7 +33,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_evaluateTemplateFeatureType:(id)arg1 withValue:(id)arg2;
 - (_Bool)_evaluateDeviceFeatureType:(id)arg1 withValue:(id)arg2;
 - (_Bool)evaluateMediaQuery:(id)arg1;
-- (id)initWithTemplateElement:(id)arg1 inTraitEnvironment:(id)arg2;
+- (id)initWithTemplateElement:(id)arg1 inWindow:(id)arg2 traitEnvironment:(id)arg3;
 - (id)initWithTemplateElement:(id)arg1 inWindow:(id)arg2;
 - (id)initWithTemplateElement:(id)arg1;
 

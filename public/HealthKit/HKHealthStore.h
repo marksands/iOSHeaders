@@ -126,6 +126,7 @@
 - (void)_reattachWorkout:(id)arg1 fitnessMachineConnection:(id)arg2 fitnessMachineSessionConfiguration:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_beginWorkoutWithActivityType:(unsigned long long)arg1 startDate:(id)arg2 goalType:(unsigned long long)arg3 goal:(id)arg4 metadata:(id)arg5 lapLength:(id)arg6 shouldUseDeviceData:(_Bool)arg7 fitnessMachineSessionConfiguration:(id)arg8 completion:(CDUnknownBlockType)arg9;
 - (void)_beginWorkoutWithActivityType:(unsigned long long)arg1 startDate:(id)arg2 goalType:(unsigned long long)arg3 goal:(id)arg4 metadata:(id)arg5 lapLength:(id)arg6 shouldUseDeviceData:(_Bool)arg7 completion:(CDUnknownBlockType)arg8;
+- (void)_currentWorkoutSnapshotWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_firstPartyWorkoutSnapshotWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_activeWorkoutApplicationIdentifierWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)_setCharacteristic:(id)arg1 forDataType:(id)arg2 error:(id *)arg3;

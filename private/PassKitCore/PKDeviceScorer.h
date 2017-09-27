@@ -6,16 +6,21 @@
 
 #import "NSObject.h"
 
-@class PKDSPContext;
+@class NSData, PKDSPContext;
 
 @interface PKDeviceScorer : NSObject
 {
+    NSData *_lastDeviceScoreIdentifier;
+    NSData *_lastDeviceScore;
+    double _deviceScoreTimeout;
     PKDSPContext *_context;
 }
 
 + (_Bool)deviceScoringSupported;
 @property(readonly, copy, nonatomic) PKDSPContext *context; // @synthesize context=_context;
+@property(nonatomic) double deviceScoreTimeout; // @synthesize deviceScoreTimeout=_deviceScoreTimeout;
 - (void).cxx_destruct;
+- (void)_getScoreWithNonce:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)peerPaymentDeviceScoreWithCompletion:(CDUnknownBlockType)arg1;
 - (void)deviceScoreWithNonce:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithContext:(id)arg1;

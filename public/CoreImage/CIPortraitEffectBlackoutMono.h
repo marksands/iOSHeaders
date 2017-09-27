@@ -12,8 +12,8 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)outputImage;
-- (id)previewCubeName;
 - (void)setDefaults;
+- (id)previewCubeName;
 
 @end
 

@@ -11,14 +11,24 @@
 __attribute__((visibility("hidden")))
 @interface SFSiriRequest : NSObject
 {
+    _Bool _synthesizing;
+    unsigned int _flags;
+    double _delaySecs;
     id _owner;
     CDUnknownBlockType _speechCompletion;
     VSSpeechRequest *_speechRequest;
+    CDUnknownBlockType _speechStartHandler;
+    unsigned long long _startTicks;
 }
 
+@property(nonatomic) _Bool synthesizing; // @synthesize synthesizing=_synthesizing;
+@property(nonatomic) unsigned long long startTicks; // @synthesize startTicks=_startTicks;
+@property(copy, nonatomic) CDUnknownBlockType speechStartHandler; // @synthesize speechStartHandler=_speechStartHandler;
 @property(retain, nonatomic) VSSpeechRequest *speechRequest; // @synthesize speechRequest=_speechRequest;
 @property(copy, nonatomic) CDUnknownBlockType speechCompletion; // @synthesize speechCompletion=_speechCompletion;
 @property(retain, nonatomic) id owner; // @synthesize owner=_owner;
+@property(nonatomic) unsigned int flags; // @synthesize flags=_flags;
+@property(nonatomic) double delaySecs; // @synthesize delaySecs=_delaySecs;
 - (void).cxx_destruct;
 
 @end

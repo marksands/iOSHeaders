@@ -28,11 +28,12 @@
 - (void)_loadBalloonView;
 @property(readonly) _Bool loadedContentView;
 @property(readonly) _Bool wantsClearButton;
-- (id)payloadWillSend;
+- (void)payloadWillSend;
 @property(readonly) _Bool wantsEdgeToEdgeLayout;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)didFinishAnimatedBoundsChange;
-- (void)_handleResignActive:(id)arg1;
+- (void)performHostAppSuspend;
+- (void)performHostAppResume;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;

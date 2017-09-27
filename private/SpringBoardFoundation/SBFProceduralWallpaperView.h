@@ -39,6 +39,7 @@
 - (void)wallpaper:(id)arg1 didComputeAverageColor:(id)arg2 forRect:(struct CGRect)arg3;
 - (void)wallpaper:(id)arg1 didGenerateBlur:(void *)arg2 forRect:(struct CGRect)arg3;
 - (_Bool)hasContentOutsideVisibleBounds;
+- (_Bool)_needsFallbackImageForBackdropGeneratedImage:(id)arg1;
 - (id)_blurredImage;
 - (void)_cachedUnbluredImageDidInvalidate;
 - (id)snapshotImage;

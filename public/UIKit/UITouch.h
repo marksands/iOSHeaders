@@ -16,6 +16,7 @@
     long long _phase;
     unsigned long long _tapCount;
     long long _edgeType;
+    unsigned long long _edgeAim;
     unsigned int _touchIdentifier;
     UIWindow *_window;
     UIView *_view;
@@ -80,6 +81,7 @@
 @property(nonatomic) double majorRadiusTolerance; // @synthesize majorRadiusTolerance=_majorRadiusTolerance;
 @property(nonatomic) double majorRadius; // @synthesize majorRadius=_pathMajorRadius;
 @property(nonatomic, getter=_isEaten, setter=_setEaten:) _Bool _eaten; // @synthesize _eaten;
+@property(nonatomic, setter=_setEdgeAim:) unsigned long long _edgeAim; // @synthesize _edgeAim;
 @property(nonatomic, setter=_setEdgeType:) long long _edgeType; // @synthesize _edgeType;
 @property(nonatomic, setter=_setDisplacement:) struct CGSize _displacement; // @synthesize _displacement;
 @property(readonly, nonatomic) double _pressure; // @synthesize _pressure;

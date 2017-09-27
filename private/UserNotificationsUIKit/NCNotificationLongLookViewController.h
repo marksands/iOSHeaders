@@ -10,11 +10,12 @@
 #import "NCNotificationCustomContentDelegate.h"
 #import "NCNotificationLongLookViewDelegate.h"
 
-@class NCLongLookTransitionDelegate, NCNotificationShortLookViewController, NSString;
+@class NCLongLookTransitionDelegate, NCNotificationShortLookViewController, NSString, UINotificationFeedbackGenerator;
 
 @interface NCNotificationLongLookViewController : NCNotificationViewController <NCNotificationLongLookViewDelegate, NCLongLookPresentationControllerDelegate, NCNotificationCustomContentDelegate>
 {
     NCLongLookTransitionDelegate *_longLookTransitionDelegate;
+    UINotificationFeedbackGenerator *_homeAffordanceFeedbackGenerator;
     NCNotificationShortLookViewController *_presentingNotificationViewController;
     CDUnknownBlockType _notificationTapBlock;
 }
@@ -35,9 +36,12 @@
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (double)_translationWithVelocity:(double)arg1 acceleration:(double)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
+- (id)unhideHomeAffordanceAnimationSettingsForLongLookPresentationController:(id)arg1;
+- (id)hideHomeAffordanceAnimationSettingsForLongLookPresentationController:(id)arg1;
 - (_Bool)longLookPresentationControllerShouldAllowKeyboardOnAppearance:(id)arg1;
 - (struct CGRect)longLookPresentationController:(id)arg1 frameForTransitionViewInPresentationSuperview:(id)arg2;
 - (long long)longLookTransitionTypeForTransitionDelegate:(id)arg1;
+- (void)_handleCustomContentHomeAffordancePan:(id)arg1;
 - (void)_handleBackgroundTap:(id)arg1;
 - (void)_handleCloseButton:(id)arg1;
 - (void)_handleNotificationTap:(id)arg1;
@@ -58,7 +62,10 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)viewWillLayoutSubviews;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)setCustomContentHomeAffordanceGestureRecognizer:(id)arg1;
+- (void)setCustomContentHomeAffordanceVisible:(_Bool)arg1;
 - (_Bool)restoreInputViews;
 - (void)preserveInputViews;
 - (_Bool)isContentExtensionVisible:(id)arg1;

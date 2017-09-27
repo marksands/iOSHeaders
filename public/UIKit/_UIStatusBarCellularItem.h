@@ -6,7 +6,7 @@
 
 #import <UIKit/_UIStatusBarItem.h>
 
-@class _UIStatusBarCellularSignalView, _UIStatusBarStringView;
+@class _UIStatusBarCellularSignalView, _UIStatusBarImageView, _UIStatusBarStringView;
 
 __attribute__((visibility("hidden")))
 @interface _UIStatusBarCellularItem : _UIStatusBarItem
@@ -14,11 +14,14 @@ __attribute__((visibility("hidden")))
     _UIStatusBarStringView *_serviceNameView;
     _UIStatusBarCellularSignalView *_signalView;
     _UIStatusBarStringView *_networkTypeView;
+    _UIStatusBarImageView *_sosView;
 }
 
++ (id)sosDisplayIdentifier;
 + (id)typeDisplayIdentifier;
 + (id)nameDisplayIdentifier;
 + (id)signalStrengthDisplayIdentifier;
+@property(retain, nonatomic) _UIStatusBarImageView *sosView; // @synthesize sosView=_sosView;
 @property(retain, nonatomic) _UIStatusBarStringView *networkTypeView; // @synthesize networkTypeView=_networkTypeView;
 @property(retain, nonatomic) _UIStatusBarCellularSignalView *signalView; // @synthesize signalView=_signalView;
 @property(retain, nonatomic) _UIStatusBarStringView *serviceNameView; // @synthesize serviceNameView=_serviceNameView;
@@ -27,6 +30,7 @@ __attribute__((visibility("hidden")))
 - (void)prepareAnimation:(id)arg1 forDisplayItem:(id)arg2;
 - (id)applyStyleAttributes:(id)arg1 toDisplayItem:(id)arg2;
 - (id)_fontForEntry:(id)arg1 baselineOffset:(double *)arg2;
+- (id)_stringForCellularType:(long long)arg1;
 - (id)applyUpdate:(id)arg1 toDisplayItem:(id)arg2;
 - (id)_backgroundColorForUpdate:(id)arg1;
 - (id)_fillColorForUpdate:(id)arg1;

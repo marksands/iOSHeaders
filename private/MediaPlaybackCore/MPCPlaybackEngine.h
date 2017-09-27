@@ -25,6 +25,7 @@
     _MPCLeaseManager *_leaseManager;
 }
 
++ (void)preheatPlayback;
 @property(nonatomic, getter=isSystemMusicApplication) _Bool systemMusicApplication; // @synthesize systemMusicApplication=_systemMusicApplication;
 @property(readonly, nonatomic) _MPCLeaseManager *leaseManager; // @synthesize leaseManager=_leaseManager;
 @property(readonly, nonatomic) _MPCReportingController *reportingController; // @synthesize reportingController=_reportingController;
@@ -44,6 +45,7 @@
 - (void)schedulePlaybackStatePreservation;
 - (id)_playerForMusicPlayerServer;
 @property(readonly, nonatomic) UIView *videoView;
+- (void)reportUserSeekFromTime:(double)arg1 toTime:(double)arg2;
 - (void)removeEngineObserver:(id)arg1;
 - (void)addEngineObserver:(id)arg1;
 - (void)removeSupportedSpecializedQueueIdentifier:(id)arg1;

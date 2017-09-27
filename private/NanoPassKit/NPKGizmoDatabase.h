@@ -88,6 +88,7 @@
 - (_Bool)_getDeletePendingForUniqueID:(id)arg1;
 - (void)setDeletePending:(_Bool)arg1 forUniqueID:(id)arg2;
 - (id)diffForUniqueID:(id)arg1;
+- (id)passForUniqueID:(id)arg1 includeImageSets:(_Bool)arg2;
 - (id)passForUniqueID:(id)arg1;
 - (void)_saveDiffLocked:(id)arg1 forPassWithUniqueID:(id)arg2;
 - (id)_diffForUniqueIDLocked:(id)arg1;
@@ -158,6 +159,8 @@
 - (id)transactionWithIdentifier:(id)arg1;
 - (id)transactionsForPassWithUniqueID:(id)arg1 withTransactionSource:(unsigned long long)arg2 withBackingData:(unsigned long long)arg3 limit:(unsigned long long)arg4;
 - (void)removeTransactionWithIdentifier:(id)arg1 forPassWithUniqueID:(id)arg2;
+- (void)_saveTransaction:(id)arg1 forPassWithUniqueID:(id)arg2 withPaymentCredentialType:(long long)arg3 shouldTrim:(_Bool)arg4;
+- (void)saveTransaction:(id)arg1 forPass:(id)arg2;
 - (void)saveTransaction:(id)arg1 forPassWithUniqueID:(id)arg2 withPaymentCredentialType:(long long)arg3;
 - (id)rebuildDatabaseWithPasses:(id)arg1;
 - (id)removePassWithUniqueID:(id)arg1;

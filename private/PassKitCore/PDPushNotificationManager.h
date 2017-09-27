@@ -8,7 +8,7 @@
 
 #import "APSConnectionDelegate.h"
 
-@class APSConnection, NSHashTable, NSMutableSet, NSString;
+@class APSConnection, NSArray, NSHashTable, NSLock, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
 
 @interface PDPushNotificationManager : NSObject <APSConnectionDelegate>
 {
@@ -16,11 +16,15 @@
     NSMutableSet *_registeredTopics;
     NSString *_pushToken;
     NSHashTable *_consumers;
+    NSLock *_consumersLock;
+    NSObject<OS_dispatch_queue> *_replyQueue;
 }
 
 @property(copy, nonatomic) NSString *pushToken; // @synthesize pushToken=_pushToken;
 - (void).cxx_destruct;
 - (void)connect;
+@property(readonly, nonatomic) NSArray *currentConsumers;
+@property(readonly, nonatomic) NSArray *topics;
 - (void)recalculatePushTopics;
 - (void)unregisterAllConsumers;
 - (void)unregisterConsumer:(id)arg1;

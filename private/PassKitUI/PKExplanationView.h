@@ -8,7 +8,7 @@
 
 #import "UIScrollViewDelegate.h"
 
-@class NSString, PKPaymentSetupDockView, PKPaymentSetupPrivacyFooterView, UIActivityIndicatorView, UIImage, UIImageView, UILabel, UIScrollView, _UIBackdropView;
+@class NSString, PKPaymentSetupDockView, PKPaymentSetupPrivacyFooterView, UIActivityIndicatorView, UIFont, UIImage, UIImageView, UILabel, UIScrollView, _UIBackdropView;
 
 @interface PKExplanationView : UIView <UIScrollViewDelegate>
 {
@@ -31,9 +31,11 @@
     double _topMargin;
     _Bool _forceShowSetupLaterButton;
     _Bool _hideTitleText;
+    _Bool _bodyTextIsLeftAlgined;
     id <PKExplanationViewDelegate> _delegate;
     UIImage *_image;
     UIView *_heroView;
+    UIFont *_titleFont;
     NSString *_bodyText;
     UIImageView *_logoImageView;
 }
@@ -43,10 +45,12 @@
 @property(readonly, nonatomic) UIActivityIndicatorView *activityIndicator; // @synthesize activityIndicator=_activityIndicator;
 @property(readonly, nonatomic) PKPaymentSetupDockView *dockView; // @synthesize dockView=_dockView;
 @property(copy, nonatomic) NSString *bodyText; // @synthesize bodyText=_bodyText;
+@property(copy, nonatomic) UIFont *titleFont; // @synthesize titleFont=_titleFont;
 @property(copy, nonatomic) NSString *titleText; // @synthesize titleText=_titleText;
 @property(retain, nonatomic) UIView *heroView; // @synthesize heroView=_heroView;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(nonatomic) double topMargin; // @synthesize topMargin=_topMargin;
+@property(nonatomic) _Bool bodyTextIsLeftAlgined; // @synthesize bodyTextIsLeftAlgined=_bodyTextIsLeftAlgined;
 @property(nonatomic) _Bool hideTitleText; // @synthesize hideTitleText=_hideTitleText;
 @property(nonatomic) _Bool forceShowSetupLaterButton; // @synthesize forceShowSetupLaterButton=_forceShowSetupLaterButton;
 @property(nonatomic) _Bool showPrivacyView; // @synthesize showPrivacyView=_showPrivacyView;

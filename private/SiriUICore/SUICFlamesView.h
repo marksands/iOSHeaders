@@ -119,6 +119,7 @@
 - (void)_updateDisplayLinkPausedStateFromSuccess:(_Bool)arg1;
 - (void)_updateDisplayLinkPausedState;
 - (void)_setPreferredFramesPerSecond;
+- (void)fadeOutCurrentAura;
 - (void)didMoveToSuperview;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 screenScale:(double)arg2 fidelity:(int)arg3;

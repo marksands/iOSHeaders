@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
     UIKeyboardCandidateGridCollectionViewController *_collectionViewController;
     UIKeyboardCandidateRowViewController *_secondaryCandidatesViewController;
     UIKBBackdropView *_backdropView;
+    struct UIEdgeInsets _contentInsets;
 }
 
 @property(retain, nonatomic) UIKBBackdropView *backdropView; // @synthesize backdropView=_backdropView;
@@ -44,6 +45,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <UICollectionViewDelegate> scrollViewDelegate; // @synthesize scrollViewDelegate=_scrollViewDelegate;
 @property(nonatomic) __weak UIKeyboardCandidateGridHeader *gridHeader; // @synthesize gridHeader=_gridHeader;
 @property(nonatomic) __weak UIKeyboardCandidateSortControl *sortBar; // @synthesize sortBar=_sortBar;
+@property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
 @property(nonatomic) int candidatesVisualStyle; // @synthesize candidatesVisualStyle=_candidatesVisualStyle;
 @property(retain, nonatomic) NSString *inlineText; // @synthesize inlineText=_inlineText;
 @property(retain, nonatomic) NSArray *sortedCandidates; // @synthesize sortedCandidates=_sortedCandidates;

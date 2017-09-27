@@ -24,7 +24,10 @@
 - (id)additionalMappedProducts;
 - (void)addKeyValuePair:(id)arg1 with:(id)arg2 toQuery:(id)arg3;
 - (id)onqueue_mappedProductTypeForProductType:(id)arg1;
+- (id)locallyCachedMappedProductTypeForProductType:(id)arg1;
 - (void)onqueue_validateProductTypeInQuery:(id)arg1;
+- (void)onqueue_downloadAsset:(id)arg1 queryLogString:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)onqueue_findAssetBundleForAssetQuery:(id)arg1 queryLogString:(id)arg2 fallback:(_Bool)arg3 retryAttempt:(_Bool)arg4 withCompletionHandler:(CDUnknownBlockType)arg5;
 - (void)onqueue_findAssetBundleForDeviceQuery:(id)arg1 installedOnly:(_Bool)arg2 fallback:(_Bool)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
 - (id)queryLogStringForQuery:(id)arg1 installedOnly:(_Bool)arg2 fallback:(_Bool)arg3;
 - (id)bundleAtURL:(id)arg1 error:(id *)arg2;
@@ -34,7 +37,7 @@
 - (void)getAssetBundleForDeviceQuery:(id)arg1 timeout:(double)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)onqueue_invalidate;
 - (void)invalidate;
-- (void)onqueue_updateMetaData;
+- (void)onqueue_updateMetaDataWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)onqueue_activate;
 - (void)activate;
 - (id)init;

@@ -16,6 +16,7 @@
     _Bool _isPerformingChanges;
     _Bool _isPerformingUpdates;
     struct {
+        _Bool filteredLayer;
         _Bool displayingVideoComplement;
         _Bool filterIntensity;
     } _needsUpdateFlags;
@@ -25,6 +26,7 @@
     ISLivePhotoUIView *_livePhotoView;
     CAFilter *_filter;
     NSString *_layerFilterIntensityKeyPath;
+    CALayer *_filteredLayer;
     double _intensityAnimationDuration;
     long long _contentType;
     long long _filterType;
@@ -37,6 +39,7 @@
 @property(readonly, nonatomic) long long filterType; // @synthesize filterType=_filterType;
 @property(readonly, nonatomic) long long contentType; // @synthesize contentType=_contentType;
 @property(nonatomic) double intensityAnimationDuration; // @synthesize intensityAnimationDuration=_intensityAnimationDuration;
+@property(retain, nonatomic) CALayer *filteredLayer; // @synthesize filteredLayer=_filteredLayer;
 @property(readonly, nonatomic) NSString *layerFilterIntensityKeyPath; // @synthesize layerFilterIntensityKeyPath=_layerFilterIntensityKeyPath;
 @property(readonly, nonatomic) CAFilter *filter; // @synthesize filter=_filter;
 @property(readonly, nonatomic) ISLivePhotoUIView *livePhotoView; // @synthesize livePhotoView=_livePhotoView;
@@ -47,6 +50,8 @@
 - (void)_invalidateFilterIntensity;
 - (void)_updateDisplayingVideoComplementIfNeeded;
 - (void)_invalidateDisplayingVideoComplement;
+- (void)_updateFilteredLayerIfNeeded;
+- (void)_invalidateFilteredLayer;
 - (void)_updateIfNeeded;
 - (void)_setNeedsUpdate;
 - (_Bool)_needsUpdate;

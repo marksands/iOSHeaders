@@ -26,6 +26,8 @@
         _Bool hasDidUpdateLivePhoto;
         _Bool hasDidFinishRenderingWithStatistics;
         _Bool hasDidZoom;
+        _Bool hasWillBeginZooming;
+        _Bool hasDidEndZooming;
         _Bool hasIsReadyForVideoPlayback;
         _Bool hasDidStartPreparingVideo;
         _Bool hasDidFinishPreparingVideo;
@@ -78,7 +80,6 @@
 - (id)_videoPlayerViewWithoutControls;
 - (id)_videoPlayerView;
 - (void)_transitionToInsets:(struct UIEdgeInsets)arg1;
-- (void)_viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2 insets:(struct UIEdgeInsets)arg3;
 - (id)_renderClient;
 - (void)waitForRender;
 - (void)_updateRenderContent;

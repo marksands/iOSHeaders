@@ -72,6 +72,7 @@ __attribute__((visibility("hidden")))
 - (struct UIEdgeInsets)edgeInsetsForBluetoothBatteryInsides;
 - (void)drawBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(int)arg2 style:(unsigned long long)arg3 usingTintColor:(_Bool)arg4;
 - (void)drawBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(int)arg2 style:(unsigned long long)arg3;
+- (id)batteryColorForCapacity:(int)arg1 style:(unsigned long long)arg2 usingTintColor:(_Bool)arg3;
 - (id)_batteryColorForCapacity:(int)arg1 lowCapacity:(int)arg2 style:(unsigned long long)arg3 usingTintColor:(_Bool)arg4;
 - (struct UIEdgeInsets)edgeInsetsForBatteryInsides;
 - (double)_roundDimension:(double)arg1;

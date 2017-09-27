@@ -14,6 +14,7 @@
 - (id)_accessibilityCustomActionIdentifier;
 @property(nonatomic) _Bool ignoreWhenVoiceOverTouches;
 @property(nonatomic) _Bool shouldSuppressActionHint;
+@property(retain, nonatomic) NSString *identifier;
 @property(retain, nonatomic, getter=_shortName, setter=_setShortName:) NSString *shortName;
 @property(retain, nonatomic, getter=_image, setter=_setImage:) UIImage *image;
 @end

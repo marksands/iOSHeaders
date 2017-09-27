@@ -19,8 +19,6 @@ __attribute__((visibility("hidden")))
 + (Class)transformerClass;
 - (void).cxx_destruct;
 - (_Bool)shouldAcceptTouch:(id)arg1 ofGestureRecognizer:(id)arg2;
-- (_Bool)automaticallyUpdateScrollViewContentOffset;
-- (_Bool)automaticallyUpdateScrollViewContentInset;
 - (id)scrollView;
 - (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)canSwipeToDismiss;

@@ -81,10 +81,11 @@
 - (void)setZoomDialEnabled:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)updateToContentSize:(id)arg1;
 @property(readonly, nonatomic) double zoomDialBorderWidth;
-@property(nonatomic) _Bool shouldDisableValuesBelow2x;
-@property(nonatomic) _Bool shouldShowLabelAt2x;
+@property(nonatomic) _Bool shouldDisableValuesBelowDualCameraSwitchOver;
+@property(nonatomic) _Bool shouldShowLabelAtDualCameraSwitchOver;
 - (void)_setZoomFactor:(double)arg1 shouldNotifyDelegate:(_Bool)arg2;
 @property(nonatomic) double zoomFactor;
+@property(nonatomic) double dualCameraSwitchOverZoomFactor;
 @property(nonatomic) double maximumZoomFactor;
 @property(nonatomic) double minimumZoomFactor;
 - (id)initWithLayoutStyle:(long long)arg1;

@@ -55,6 +55,7 @@
 - (void)willStartSendingLocationUpdate;
 - (_Bool)notificationEnabledAndContactsExist;
 - (void)sosPersistentTimerLocationMangerTimerFired:(id)arg1 location:(id)arg2;
+- (void)dismissSOSWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateCurrentSOSInteractiveState:(long long)arg1;
 - (void)updateCurrentSOSInitiationState:(long long)arg1;
 - (void)SOSSendingLocationUpdateChanged:(id)arg1;

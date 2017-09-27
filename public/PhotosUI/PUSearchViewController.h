@@ -9,6 +9,7 @@
 #import "PUSearchResultsDataSourceChangeObserver.h"
 #import "PUSuggestedSearchResultsDelegate.h"
 #import "UISearchBarDelegate.h"
+#import "UISearchBarDelegate_Private.h"
 #import "UITableViewDataSource.h"
 #import "UITableViewDataSourcePrefetching.h"
 #import "UITableViewDelegate.h"
@@ -16,7 +17,7 @@
 @class NSObject<OS_dispatch_semaphore>, NSString, PHCachingImageManager, PSIDatabase, PUPingTimer, PUSearchResultsDataSource, PUSuggestedSearchResultsDataSource, UIBarButtonItem, UILabel, UISearchBar, UITableView, UITableViewCell, UIView;
 
 __attribute__((visibility("hidden")))
-@interface PUSearchViewController : UIViewController <UITableViewDataSource, UITableViewDataSourcePrefetching, UITableViewDelegate, UISearchBarDelegate, PUSearchResultsDataSourceChangeObserver, PUSuggestedSearchResultsDelegate>
+@interface PUSearchViewController : UIViewController <UITableViewDataSource, UITableViewDataSourcePrefetching, UITableViewDelegate, UISearchBarDelegate, UISearchBarDelegate_Private, PUSearchResultsDataSourceChangeObserver, PUSuggestedSearchResultsDelegate>
 {
     UISearchBar *_searchBar;
     UITableView *_searchResultsTableView;
@@ -54,6 +55,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic, setter=_setSelectedDisplayTitle:) NSString *selectedDisplayTitle; // @synthesize selectedDisplayTitle=_selectedDisplayTitle;
 @property(copy, nonatomic) NSString *searchText; // @synthesize searchText=_searchText;
 - (void).cxx_destruct;
+- (struct CGRect)_searchBar:(id)arg1 proposedSearchFieldFrame:(struct CGRect)arg2;
 - (void)ppt_prepareForScrollingTestWithSearchText:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)px_canPerformCrossfadeTransitionWithMasterViewController:(id)arg1;
 - (void)viewWillLayoutSubviews;
@@ -63,6 +65,7 @@ __attribute__((visibility("hidden")))
 - (void)suggestedSearchResultsDataSourceHasPendingChanges:(id)arg1;
 - (void)searchResultsDataSource:(id)arg1 didFetchAssetsForSearchResultsValue:(id)arg2 atIndex:(unsigned long long)arg3;
 - (void)searchResultsDataSourceHasPendingChanges:(id)arg1;
+- (void)searchBarCancelButtonClicked:(id)arg1;
 - (void)searchBarSearchButtonClicked:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;

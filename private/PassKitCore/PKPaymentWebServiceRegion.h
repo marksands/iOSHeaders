@@ -12,9 +12,11 @@
 
 @interface PKPaymentWebServiceRegion : NSObject <NSSecureCoding>
 {
+    _Bool _hasPeerPaymentAccount;
     NSString *_lastUpdatedTag;
     NSArray *_certificates;
     NSURL *_brokerURL;
+    NSString *_regionCode;
     NSURL *_paymentServicesURL;
     NSURL *_inAppPaymentServicesURL;
     NSURL *_paymentServicesMerchantURL;
@@ -26,6 +28,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool hasPeerPaymentAccount; // @synthesize hasPeerPaymentAccount=_hasPeerPaymentAccount;
 @property(retain, nonatomic) NSURL *peerPaymentServiceURL; // @synthesize peerPaymentServiceURL=_peerPaymentServiceURL;
 @property(retain, nonatomic) NSString *userNotificationPushTopic; // @synthesize userNotificationPushTopic=_userNotificationPushTopic;
 @property(nonatomic) long long consistencyCheckBackoffLevel; // @synthesize consistencyCheckBackoffLevel=_consistencyCheckBackoffLevel;
@@ -34,6 +37,7 @@
 @property(retain, nonatomic) NSURL *paymentServicesMerchantURL; // @synthesize paymentServicesMerchantURL=_paymentServicesMerchantURL;
 @property(retain, nonatomic) NSURL *inAppPaymentServicesURL; // @synthesize inAppPaymentServicesURL=_inAppPaymentServicesURL;
 @property(retain, nonatomic) NSURL *paymentServicesURL; // @synthesize paymentServicesURL=_paymentServicesURL;
+@property(retain, nonatomic) NSString *regionCode; // @synthesize regionCode=_regionCode;
 @property(retain, nonatomic) NSURL *brokerURL; // @synthesize brokerURL=_brokerURL;
 @property(retain, nonatomic) NSArray *certificates; // @synthesize certificates=_certificates;
 @property(retain, nonatomic) NSString *lastUpdatedTag; // @synthesize lastUpdatedTag=_lastUpdatedTag;

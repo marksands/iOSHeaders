@@ -26,6 +26,8 @@
 - (void)_endAnimationIfNecessary;
 - (void)_animateWithWidth:(double)arg1;
 - (void)_beginAnimationIfNecessary;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (void)didMoveToWindow;
 - (id)initWithStyle:(long long)arg1;

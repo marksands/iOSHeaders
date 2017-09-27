@@ -34,6 +34,7 @@
 - (id)pk_encryptedLocationForKey:(id)arg1;
 - (id)pk_encryptedDateForKey:(id)arg1;
 - (id)pk_encryptedNumberForKey:(id)arg1;
+- (id)pk_encryptedUUIDForKey:(id)arg1;
 - (id)pk_encryptedStringForKey:(id)arg1;
 @end
 

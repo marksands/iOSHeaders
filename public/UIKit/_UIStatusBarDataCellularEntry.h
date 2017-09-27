@@ -10,11 +10,13 @@
 
 @interface _UIStatusBarDataCellularEntry : _UIStatusBarDataNetworkEntry
 {
+    _Bool _showsEmergencyOnlyWhenDisconnected;
     long long _type;
     NSString *_string;
     NSString *_crossfadeString;
 }
 
+@property(nonatomic) _Bool showsEmergencyOnlyWhenDisconnected; // @synthesize showsEmergencyOnlyWhenDisconnected=_showsEmergencyOnlyWhenDisconnected;
 @property(copy, nonatomic) NSString *crossfadeString; // @synthesize crossfadeString=_crossfadeString;
 @property(copy, nonatomic) NSString *string; // @synthesize string=_string;
 @property(nonatomic) long long type; // @synthesize type=_type;

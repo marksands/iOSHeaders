@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)scrollViewControllerContentBoundsDidChange:(id)arg1;
 - (void)scrollViewControllerDidScroll:(id)arg1;
+- (struct UIEdgeInsets)px_safeAreaInsets;
 - (struct CGRect)contentBoundsInCoordinateSpace:(id)arg1;
 - (_Bool)contentAreaContainsPoint:(struct CGPoint)arg1 inCoordinateSpace:(id)arg2;
 - (void)setContentInsets:(struct UIEdgeInsets)arg1 changeReason:(long long)arg2;

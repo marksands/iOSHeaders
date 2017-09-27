@@ -21,6 +21,7 @@
 - (void)didFinishResizingHeaderView;
 - (void)_layoutHeaderRect;
 - (void)_layoutContainerView;
+- (double)desiredMinPinHeight;
 @property(readonly, nonatomic) struct CGRect availableHeaderRect;
 - (void)_layoutSubviews;
 - (void)layoutSubviews;

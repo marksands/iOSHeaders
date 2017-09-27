@@ -26,6 +26,7 @@
 @property(retain, nonatomic) UIView *titleView; // @synthesize titleView=_titleView;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
+- (struct UIEdgeInsets)safeAreaInsets;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (_Bool)_shouldUseTallHeight;

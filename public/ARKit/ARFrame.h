@@ -27,7 +27,7 @@
     NSArray *_cachedPointClouds;
     ARAnchor *_worldOrigin;
     ARTrackingErrorData *_trackingErrorData;
-    long long _targetFramesPerSecond;
+    long long _renderFramesPerSecond;
     NSDate *_captureDate;
     ARFaceData *_faceData;
 }
@@ -35,7 +35,7 @@
 @property(retain, nonatomic) ARFaceData *faceData; // @synthesize faceData=_faceData;
 @property(retain, nonatomic) NSDate *captureDate; // @synthesize captureDate=_captureDate;
 @property(nonatomic) _Bool shouldRestrictFrameRate; // @synthesize shouldRestrictFrameRate=_shouldRestrictFrameRate;
-@property(nonatomic) long long targetFramesPerSecond; // @synthesize targetFramesPerSecond=_targetFramesPerSecond;
+@property(nonatomic) long long renderFramesPerSecond; // @synthesize renderFramesPerSecond=_renderFramesPerSecond;
 @property(retain, nonatomic) ARTrackingErrorData *trackingErrorData; // @synthesize trackingErrorData=_trackingErrorData;
 @property(retain, nonatomic) ARAnchor *worldOrigin; // @synthesize worldOrigin=_worldOrigin;
 @property(retain, nonatomic) NSArray *cachedPointClouds; // @synthesize cachedPointClouds=_cachedPointClouds;
@@ -49,7 +49,6 @@
 @property(nonatomic) struct __CVBuffer *capturedImage; // @synthesize capturedImage=_capturedImage;
 @property(readonly, nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
-- (struct CGAffineTransform)displayTransformWithViewportSize:(struct CGSize)arg1 orientation:(long long)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
@@ -59,6 +58,7 @@
 - (struct CGAffineTransform)displayTransformForOrientation:(long long)arg1 viewportSize:(struct CGSize)arg2;
 - (id)hitTest:(struct CGPoint)arg1 types:(unsigned long long)arg2;
 - (void)dealloc;
+- (id)initWithContext:(id)arg1;
 - (id)initWithCamera:(id)arg1 timestamp:(double)arg2;
 
 @end

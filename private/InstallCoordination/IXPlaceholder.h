@@ -17,6 +17,7 @@
 + (_Bool)supportsSecureCoding;
 + (id)_placeholderForBundle:(id)arg1 client:(unsigned long long)arg2 withParent:(id)arg3 installType:(unsigned long long)arg4 metadata:(id)arg5 error:(id *)arg6;
 + (id)placeholderForInstallable:(id)arg1 client:(unsigned long long)arg2 installType:(unsigned long long)arg3 metadata:(id)arg4 error:(id *)arg5;
++ (id)_infoPlistLocalizationDictionaryForBundleURL:(id)arg1 error:(id *)arg2;
 + (id)_iconDataForBundle:(struct __CFBundle *)arg1 error:(id *)arg2;
 + (id)placeholderForRemovableSystemAppWithBundleID:(id)arg1 client:(unsigned long long)arg2 installType:(unsigned long long)arg3 error:(id *)arg4;
 - (id)placeholderAttributesWithError:(id *)arg1;
@@ -43,6 +44,8 @@
 @property(readonly, nonatomic) _Bool hasEntitlementsPromise;
 - (id)entitlementsPromiseWithError:(id *)arg1;
 - (_Bool)setEntitlementsPromise:(id)arg1 error:(id *)arg2;
+- (id)infoPlistLocalizationsWithError:(id *)arg1;
+- (_Bool)setInfoPlistLocalizations:(id)arg1 error:(id *)arg2;
 @property(readonly, nonatomic) _Bool hasIconPromise;
 - (id)iconPromiseWithError:(id *)arg1;
 - (_Bool)setIconPromise:(id)arg1 error:(id *)arg2;

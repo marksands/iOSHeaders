@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, VSAccount, VSFailable, VSIdentityProviderRequest, VSIdentityProviderViewController;
+@class VSAccount, VSFailable, VSIdentityProviderRequest, VSIdentityProviderViewController;
 
 @protocol VSIdentityProviderViewControllerDelegate <NSObject>
 - (void)identityProviderViewControllerDidCancel:(VSIdentityProviderViewController *)arg1;
@@ -14,7 +14,7 @@
 - (void)identityProviderViewController:(VSIdentityProviderViewController *)arg1 didFinishRequest:(VSIdentityProviderRequest *)arg2 withResult:(VSFailable *)arg3;
 
 @optional
-- (void)identityProviderViewController:(VSIdentityProviderViewController *)arg1 didAuthenticateAccount:(VSAccount *)arg2 supportingApps:(NSArray *)arg3 forRequest:(VSIdentityProviderRequest *)arg4;
+- (void)identityProviderViewController:(VSIdentityProviderViewController *)arg1 didAuthenticateAccount:(VSAccount *)arg2 forRequest:(VSIdentityProviderRequest *)arg3;
 - (void)identityProviderViewControllerDidFinishLoading:(VSIdentityProviderViewController *)arg1;
 @end
 

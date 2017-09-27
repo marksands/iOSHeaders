@@ -33,6 +33,7 @@
     _Bool _showsLiveRendering;
     _Bool _clipsContent;
     _Bool _allowBackgroundPlaceHolders;
+    _Bool _liveMotionEnabled;
     id <PKPassFaceDelegate> _delegate;
     long long _backgroundMode;
     unsigned long long _visibleRegions;
@@ -48,6 +49,7 @@
 @property(retain, nonatomic) NSMutableArray *headerBucketViews; // @synthesize headerBucketViews=_headerBucketViews;
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(readonly, retain, nonatomic) NSArray *buckets; // @synthesize buckets=_buckets;
+@property(nonatomic) _Bool liveMotionEnabled; // @synthesize liveMotionEnabled=_liveMotionEnabled;
 @property(nonatomic) double clippedContentHeight; // @synthesize clippedContentHeight=_clippedContentHeight;
 @property(nonatomic) _Bool allowBackgroundPlaceHolders; // @synthesize allowBackgroundPlaceHolders=_allowBackgroundPlaceHolders;
 @property(nonatomic) _Bool clipsContent; // @synthesize clipsContent=_clipsContent;
@@ -80,7 +82,6 @@
 - (void)setDimmer:(double)arg1 animated:(_Bool)arg2;
 - (void)_createDimmingFilterIfNecessary;
 @property(readonly, nonatomic) _Bool bodyContentCreated;
-- (void)setLiveMotionEnabled:(_Bool)arg1;
 @property(readonly, nonatomic) PKPassColorProfile *colorProfile;
 @property(readonly, nonatomic) PKPass *pass;
 - (void)removeContentView:(id)arg1 ofType:(long long)arg2;

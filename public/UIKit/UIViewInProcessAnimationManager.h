@@ -8,7 +8,7 @@
 
 #import "_UIViewInProcessAnimationManagerDriver.h"
 
-@class CADisplayLink, NSHashTable, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>, NSString, NSThread, _UIAppCACommitFuture;
+@class CADisplayLink, NSHashTable, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>, NSRunLoop, NSString, NSThread, _UIAppCACommitFuture;
 
 @interface UIViewInProcessAnimationManager : NSObject <_UIViewInProcessAnimationManagerDriver>
 {
@@ -50,6 +50,9 @@
     _Bool _advancingOnCommitDisabled;
     unsigned long long _executionMode;
     NSThread *_currentTickThread;
+    NSThread *_animationThread;
+    NSRunLoop *_animationThreadRunLoop;
+    NSObject<OS_dispatch_semaphore> *_animationThreadKeepAliveSemaphore;
 }
 
 + (void)_dispatchAsyncOntoMainBeforeExit:(CDUnknownBlockType)arg1;
@@ -57,6 +60,9 @@
 + (id)_requestPresentationModifierGroup:(CDUnknownBlockType)arg1;
 + (id)sharedManager;
 + (void)_setExternalAnimationDriver:(id)arg1;
+@property(retain) NSObject<OS_dispatch_semaphore> *animationThreadKeepAliveSemaphore; // @synthesize animationThreadKeepAliveSemaphore=_animationThreadKeepAliveSemaphore;
+@property __weak NSRunLoop *animationThreadRunLoop; // @synthesize animationThreadRunLoop=_animationThreadRunLoop;
+@property __weak NSThread *animationThread; // @synthesize animationThread=_animationThread;
 @property __weak NSThread *currentTickThread; // @synthesize currentTickThread=_currentTickThread;
 @property(nonatomic) _Bool advancingOnCommitDisabled; // @synthesize advancingOnCommitDisabled=_advancingOnCommitDisabled;
 @property(nonatomic) unsigned long long executionMode; // @synthesize executionMode=_executionMode;
@@ -68,6 +74,7 @@
 - (void)startAdvancingAnimationManager:(id)arg1;
 - (double)refreshInterval;
 - (void)_displayLinkFire:(id)arg1;
+- (_Bool)_shouldKeepAnimationThreadAlive;
 - (void)_advanceWithTime:(double)arg1;
 - (void)_cancelPresentationModifierGroupRequest:(id)arg1;
 - (id)_requestPresentationModifierGroup:(CDUnknownBlockType)arg1;

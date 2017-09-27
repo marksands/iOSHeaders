@@ -53,12 +53,8 @@
     PKPassView *_frontmostPassView;
     PKGroup *_group;
     PKReusablePassViewQueue *_passViewQueue;
-    double _verticalMotionRelativeValue;
-    double _horizontalMotionRelativeValue;
 }
 
-@property(nonatomic) double horizontalMotionRelativeValue; // @synthesize horizontalMotionRelativeValue=_horizontalMotionRelativeValue;
-@property(nonatomic) double verticalMotionRelativeValue; // @synthesize verticalMotionRelativeValue=_verticalMotionRelativeValue;
 @property(nonatomic) _Bool pageControlHidden; // @synthesize pageControlHidden=_pageControlHidden;
 @property(nonatomic) long long presentationState; // @synthesize presentationState=_presentationState;
 @property(nonatomic) PKReusablePassViewQueue *passViewQueue; // @synthesize passViewQueue=_passViewQueue;
@@ -95,7 +91,6 @@
 - (void)_removePanAndLongPressGestureRecognizers;
 - (void)_addPanAndLongPressGestureRecognizers;
 @property(readonly, nonatomic) struct UIOffset offsetForFrontmostPassWhileStacked;
-- (void)setPileMotionEffectsEnabled:(_Bool)arg1;
 @property(readonly, nonatomic) UIPageControl *pageControl;
 - (double)continuousShadowIndex;
 @property(readonly, nonatomic) unsigned long long displayIndex;

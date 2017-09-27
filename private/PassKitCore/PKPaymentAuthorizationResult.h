@@ -8,15 +8,17 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray;
+@class NSArray, PKPeerPaymentTransactionMetadata;
 
 @interface PKPaymentAuthorizationResult : NSObject <NSSecureCoding>
 {
     long long _status;
     NSArray *_errors;
+    PKPeerPaymentTransactionMetadata *_peerPaymentTransactionMetadata;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) PKPeerPaymentTransactionMetadata *peerPaymentTransactionMetadata; // @synthesize peerPaymentTransactionMetadata=_peerPaymentTransactionMetadata;
 @property(copy, nonatomic) NSArray *errors; // @synthesize errors=_errors;
 @property(nonatomic) long long status; // @synthesize status=_status;
 - (void).cxx_destruct;

@@ -17,8 +17,10 @@ __attribute__((visibility("hidden")))
     NSMutableArray *m_threeTextCells;
     NSMutableArray *m_twoTextCells;
     NSMutableArray *m_oneTextCells;
-    NSMutableArray *m_emojiCells;
-    NSMutableArray *m_textAndEmojiCells;
+    NSMutableArray *m_twoEmojiCells;
+    NSMutableArray *m_threeEmojiCells;
+    NSMutableArray *m_textAndTwoEmojiCells;
+    NSMutableArray *m_textAndThreeEmojiCells;
     NSMutableArray *m_safariCredentialThreeExtraTextCells;
     NSMutableArray *m_safariCredentialTwoExtraTextCells;
     NSMutableArray *m_safariCredentialOneExtraTextCells;

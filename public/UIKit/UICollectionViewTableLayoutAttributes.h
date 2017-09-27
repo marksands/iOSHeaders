@@ -17,6 +17,7 @@
     _Bool _shouldIndentWhileEditing;
     _Bool _showsReorderControl;
     _Bool _layoutMarginsFollowReadableWidth;
+    _Bool _insetsContentViewsToSafeArea;
     _Bool _drawsSeparatorAtTopOfSection;
     _Bool _drawsSeparatorAtBottomOfSection;
     _Bool _isHeader;
@@ -55,6 +56,7 @@
 @property(nonatomic) double indexBarExtentFromEdge; // @synthesize indexBarExtentFromEdge=_indexBarExtentFromEdge;
 @property(nonatomic) double defaultTrailingCellMarginWidth; // @synthesize defaultTrailingCellMarginWidth=_defaultTrailingCellMarginWidth;
 @property(nonatomic) double defaultLeadingCellMarginWidth; // @synthesize defaultLeadingCellMarginWidth=_defaultLeadingCellMarginWidth;
+@property(nonatomic) _Bool insetsContentViewsToSafeArea; // @synthesize insetsContentViewsToSafeArea=_insetsContentViewsToSafeArea;
 @property(nonatomic) _Bool layoutMarginsFollowReadableWidth; // @synthesize layoutMarginsFollowReadableWidth=_layoutMarginsFollowReadableWidth;
 @property(nonatomic) _Bool showsReorderControl; // @synthesize showsReorderControl=_showsReorderControl;
 @property(nonatomic) _Bool shouldIndentWhileEditing; // @synthesize shouldIndentWhileEditing=_shouldIndentWhileEditing;

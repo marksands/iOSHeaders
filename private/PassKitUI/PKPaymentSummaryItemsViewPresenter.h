@@ -14,8 +14,8 @@
 {
 }
 
-+ (void)presentView:(id)arg1 withDataItem:(id)arg2;
-+ (void)presentCell:(id)arg1 withDataItem:(id)arg2 shouldShowSeperator:(_Bool)arg3;
++ (void)presentView:(id)arg1 withDataItem:(id)arg2 forPaymentRequest:(id)arg3;
++ (void)presentCell:(id)arg1 withDataItem:(id)arg2 shouldShowSeperator:(_Bool)arg3 forPaymentRequest:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

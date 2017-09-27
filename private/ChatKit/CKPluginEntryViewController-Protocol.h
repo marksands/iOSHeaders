@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class IMBalloonPluginDataSource, NSArray, NSData, NSString;
+@class IMBalloonPluginDataSource, NSArray, NSString;
 
 @protocol CKPluginEntryViewController <NSObject>
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
@@ -16,12 +16,14 @@
 @property(readonly) _Bool wantsEdgeToEdgeLayout;
 @property(readonly) _Bool wantsClearButton;
 - (NSArray *)framesOfVisibleContentViewInCoordinateSpace:(id <UICoordinateSpace>)arg1;
+- (void)performHostAppSuspend;
+- (void)performHostAppResume;
 - (void)didFinishAnimatedBoundsChange;
 - (void)willAnimateBoundsChange;
 - (void)payloadWillSave;
 - (void)payloadWillClear;
 - (NSString *)payloadBundleID;
-- (NSData *)payloadWillSend;
+- (void)payloadWillSend;
 - (id)initWithDataSource:(IMBalloonPluginDataSource *)arg1 entryViewDelegate:(id <CKPluginEntryViewControllerDelegate>)arg2;
 @end
 

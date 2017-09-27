@@ -29,6 +29,7 @@
 - (void)_shakeStatus;
 - (void)layoutSubviews;
 - (void)_layoutStatusView;
+- (void)_layoutEntryField;
 - (void)_setHasInput:(_Bool)arg1;
 - (_Bool)_showsPromptLabelOnEntryField;
 - (void)forceShowStatus:(_Bool)arg1;

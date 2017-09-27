@@ -167,6 +167,8 @@
 + (id)createCloudPhotoLibraryAssetWithAssetRecord:(id)arg1 withCloudMaster:(id)arg2 inLibrary:(id)arg3;
 + (id)cloudAdjustmentFingerprintWithAdjustmentDataBlob:(id)arg1 formatIdentifier:(id)arg2 formatVersion:(id)arg3 editorBundleID:(id)arg4 baseVersion:(long long)arg5 baseImageData:(id)arg6;
 + (id)_cloudAdjustmentFingerprintWithAdjustmentDataBlob:(id)arg1 largeAdjustmentBlobFingerpint:(id)arg2 formatIdentifier:(id)arg3 formatVersion:(id)arg4 editorBundleID:(id)arg5 baseVersion:(long long)arg6 baseImageData:(id)arg7 baseImageFingerprint:(id)arg8;
++ (id)predicateForCompleteResources;
++ (void)countOfAssetsWithRequiredResourcesNotLocallyAvailableInLibrary:(id)arg1 outCount:(unsigned long long *)arg2 photoCount:(unsigned long long *)arg3 videoCount:(unsigned long long *)arg4;
 + (unsigned long long)CPLAssetHDRTypeFromPLPhotoHDRType:(short)arg1;
 + (void)createMastersInLibrary:(id)arg1;
 + (void)scheduleUserInitiatedAnalysisJobForWorkerType:(short)arg1 assetUUID:(id)arg2 workerFlags:(int)arg3;
@@ -638,6 +640,10 @@
 - (id)_calculateCloudAdjustmentFingerprintFromAdjustmentPListAndCPLResources;
 - (void)_synchronouslyFetchAdjustmentBlobWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)createResourcesForAssetInPhotoLibrary:(id)arg1 shouldGenerateDerivatives:(_Bool)arg2;
+- (_Bool)_hasAllOriginalResourcesLocallyAvailable;
+- (_Bool)_hasAllAdjustedResourcesLocallyAvailable;
+- (_Bool)_checkResource:(unsigned long long)arg1 onPath:(id)arg2 onMaster:(_Bool)arg3;
+- (_Bool)hasAllRequiredResourcesLocallyAvailable;
 - (void)_applyFaceChangeToCPLAssetChange:(id)arg1 inLibrary:(id)arg2;
 - (void)_applyPropertiesChangeToCPLAssetChange:(id)arg1 withMasterID:(id)arg2 inLibrary:(id)arg3;
 - (id)_createVideoResourceFromVideoURL:(id)arg1 withResourceType:(unsigned long long)arg2 itemIdentifier:(id)arg3 applyVideoAdjustments:(_Bool)arg4 forMaster:(_Bool)arg5 forPhotoIris:(_Bool)arg6;

@@ -250,6 +250,7 @@
 - (_Bool)messageEntryViewShouldBeginEditing:(id)arg1;
 - (void)messageEntryViewRecordingDidChange:(id)arg1;
 - (void)messageEntryViewDidChange:(id)arg1;
+- (void)_validateAndSendComposition:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)_shouldValidatePayloadBeforeSendingPayload:(id)arg1;
 - (void)sendCurrentLocation;
 - (void)chatInputControllerDidTransitionCollapsed:(id)arg1;
@@ -266,6 +267,7 @@
 - (void)chatInputControllerDidPresentModalBrowserViewController:(id)arg1;
 - (void)chatInputControllerWillPresentModalBrowserViewController:(id)arg1;
 - (void)chatInputDidUpdateWithNewInputViewController:(id)arg1;
+- (void)chatInputWillUpdateInputViewShowingBrowser;
 - (void)chatInputDidUpdateInputViewShowingBrowser:(_Bool)arg1 entryFieldCollapsed:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)chatInputControllerRequestInputViewFocusFromFullscreen:(id)arg1;
 - (void)setLocalUserIsComposing:(_Bool)arg1 withPluginBundleID:(id)arg2 typingIndicatorData:(id)arg3;

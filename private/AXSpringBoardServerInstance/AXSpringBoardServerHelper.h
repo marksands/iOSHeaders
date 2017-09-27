@@ -65,6 +65,7 @@
 - (void)_handleTouchAccommodationsUsageConfirmed;
 - (void)_handleDisableSwitchControlConfirmation;
 - (void)_handleSwitchUsageConfirmed;
+- (void)_handleVONoHomeButtonGestureAlert;
 - (void)_handleVoiceOverUsageConfirmation;
 - (id)_handleUsageConfirmationDialogWithMessage:(id)arg1 dismissBlock:(CDUnknownBlockType)arg2;
 - (void)_handleDisableBrightnessFiltersAlert:(id)arg1;
@@ -144,6 +145,7 @@
 - (void)dismissAppSwitcherWithServerInstance:(id)arg1;
 - (_Bool)isAppSwitcherVisibleWithServerInstance:(id)arg1;
 - (_Bool)isShowingHomescreenWithServerInstance:(id)arg1;
+- (_Bool)isPasscodeLockVisibleWithServerInstance:(id)arg1;
 - (_Bool)isDockVisibleWithServerInstance:(id)arg1;
 - (_Bool)isSiriVisibleWithServerInstance:(id)arg1;
 - (void)toggleDockWithServerInstance:(id)arg1;

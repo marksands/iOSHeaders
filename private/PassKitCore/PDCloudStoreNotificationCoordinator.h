@@ -9,19 +9,24 @@
 #import "PDCloudStoreManagerDelegate.h"
 #import "PDPushNotificationConsumer.h"
 
-@class CKServerChangeToken, NSHashTable, NSObject<OS_dispatch_queue>, NSSet, NSString, PDCloudStoreManager, PDPushNotificationManager;
+@class CKServerChangeToken, NSHashTable, NSObject<OS_dispatch_queue>, NSSet, NSString, PDCloudStoreManager, PDPushNotificationManager, PKPaymentTransactionProcessor;
 
 @interface PDCloudStoreNotificationCoordinator : NSObject <PDPushNotificationConsumer, PDCloudStoreManagerDelegate>
 {
     NSHashTable *_observers;
     PDPushNotificationManager *_pushNotificationManager;
+    id <PDCloudStoreDataSource> _cloudStoreDataSource;
+    PKPaymentTransactionProcessor *_transactionProcessor;
     PDCloudStoreManager *_cloudStoreManager;
     CKServerChangeToken *_currentServerChangeToken;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSSet *_pushTopics;
 }
 
++ (_Bool)canInitalizeCloudStoreWithWebService:(id)arg1;
 - (void).cxx_destruct;
+- (void)_unregisterForPushNotifications;
+- (void)_registerForPushNotifications;
 - (void)applyPushNotificationToken:(id)arg1;
 - (void)handlePushNotificationForTopic:(id)arg1 userInfo:(id)arg2;
 - (id)pushNotificationTopics;
@@ -30,16 +35,20 @@
 - (void)simulateCloudStorePushWithCompletion:(CDUnknownBlockType)arg1;
 - (void)resetContainerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)allItemsOfClassType:(Class)arg1 storeLocally:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)invalidateCloudStore;
+- (void)initalizeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (id)cloudStoreSpecificKeysForItem:(id)arg1;
-- (void)fetchAndStoreRecordsForPaymentPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)fetchAndStoreRecordsForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAndStoreChangesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)removeItemsWithRecordNames:(id)arg1 itemClass:(Class)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)updateCloudStoreWithLocalItems:(id)arg1 recordSpecificKeys:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)unregisterObserver:(id)arg1;
 - (void)registerObserver:(id)arg1;
+- (void)cloudStoreManager:(id)arg1 didChangeContainerState:(unsigned long long)arg2;
 - (void)cloudStoreManager:(id)arg1 createdZoneWithName:(id)arg2;
-- (void)initalizeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_cloudStoreInitializationWithCompletion:(CDUnknownBlockType)arg1;
+- (id)initWithPushNotificationManager:(id)arg1 dataSource:(id)arg2 transactionProcessor:(id)arg3 initalizeCloudStoreManager:(_Bool)arg4;
+- (id)initWithPushNotificationManager:(id)arg1 dataSource:(id)arg2 transactionProcessor:(id)arg3;
 - (id)initWithPushNotificationManager:(id)arg1 dataSource:(id)arg2;
 
 // Remaining properties

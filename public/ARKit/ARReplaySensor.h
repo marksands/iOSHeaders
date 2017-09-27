@@ -40,8 +40,10 @@
     id <ARSensorDelegate> _delegate;
     id <ARReplaySensorDelegate> _replaySensorDelegate;
     NSString *_deviceModel;
+    unsigned long long _recordedSensorTypes;
 }
 
+@property(readonly, nonatomic) unsigned long long recordedSensorTypes; // @synthesize recordedSensorTypes=_recordedSensorTypes;
 @property(readonly, nonatomic) NSString *deviceModel; // @synthesize deviceModel=_deviceModel;
 @property(nonatomic) __weak id <ARReplaySensorDelegate> replaySensorDelegate; // @synthesize replaySensorDelegate=_replaySensorDelegate;
 @property(nonatomic) __weak id <ARSensorDelegate> delegate; // @synthesize delegate=_delegate;

@@ -15,7 +15,7 @@
 
 + (long long)systemScreenshotQuality;
 + (void)setSystemScreenshotQuality:(long long)arg1;
-+ (void)load;
++ (void)initialize;
 @property(retain) XCTImage *internalImage; // @synthesize internalImage=_internalImage;
 - (id)debugQuickLookObject;
 @property(readonly, copy) NSData *PNGRepresentation;

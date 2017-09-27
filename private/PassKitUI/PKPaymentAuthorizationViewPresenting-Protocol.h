@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class PKPaymentDataItem, UITableViewCell, UIView;
+@class PKPaymentDataItem, PKPaymentRequest, UITableViewCell, UIView;
 
 @protocol PKPaymentAuthorizationViewPresenting <NSObject>
-+ (void)presentCell:(UITableViewCell *)arg1 withDataItem:(PKPaymentDataItem *)arg2 shouldShowSeperator:(_Bool)arg3;
++ (void)presentCell:(UITableViewCell *)arg1 withDataItem:(PKPaymentDataItem *)arg2 shouldShowSeperator:(_Bool)arg3 forPaymentRequest:(PKPaymentRequest *)arg4;
 
 @optional
-+ (void)presentView:(UIView *)arg1 withDataItem:(PKPaymentDataItem *)arg2;
++ (void)presentView:(UIView *)arg1 withDataItem:(PKPaymentDataItem *)arg2 forPaymentRequest:(PKPaymentRequest *)arg3;
 @end
 

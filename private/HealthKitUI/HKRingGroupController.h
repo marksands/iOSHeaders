@@ -10,7 +10,6 @@
 
 @interface HKRingGroupController : HKAnimatableObject
 {
-    _Bool _ringStartingStateIsDirty;
     long long *_iconAnimationFrameNumbers;
     long long _numberOfRings;
     double _ringDiameter;
@@ -42,7 +41,6 @@
 @property(readonly, nonatomic) long long numberOfRings; // @synthesize numberOfRings=_numberOfRings;
 - (void).cxx_destruct;
 - (long long)indexOfRingAtPoint:(struct CGPoint)arg1;
-- (_Bool)_setCenter:(struct CGPoint)arg1;
 - (double)_adjustedDurationForRingWithIndex:(long long)arg1 startPercentage:(double)arg2 targetPercentage:(double)arg3 defaultDuration:(double)arg4;
 - (void)setDotPercentage:(double)arg1 ofRingAtIndex:(long long)arg2 animated:(_Bool)arg3;
 - (unsigned long long)_lastRingFrameNumberForRingAtIndex:(unsigned long long)arg1;
@@ -78,8 +76,15 @@
 - (void)_updateRingZRotations;
 - (void)_updateRingThicknesses;
 - (void)_updateRingDiameters;
+- (_Bool)_setZRotation:(double)arg1;
+- (_Bool)_setCenter:(struct CGPoint)arg1;
+- (_Bool)_setRingScale:(double)arg1;
+- (_Bool)_setRingIconSize:(double)arg1;
+- (_Bool)_setRingThickness:(double)arg1;
+- (_Bool)_setRingInterspacing:(double)arg1;
+- (_Bool)_setRingDiameter:(double)arg1;
 - (void)_removeAllRingAnimationsForPropertyType:(unsigned long long)arg1;
-- (void)_markRingStartingStateDirty;
+- (void)_markRingGroupAsDirty;
 - (void)dealloc;
 - (id)initWithNumberOfRings:(long long)arg1;
 - (id)init;

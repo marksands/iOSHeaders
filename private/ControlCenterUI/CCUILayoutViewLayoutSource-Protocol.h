@@ -9,7 +9,6 @@
 @class CCUILayoutView, UIView;
 
 @protocol CCUILayoutViewLayoutSource <NSObject>
-- (_Bool)layoutView:(CCUILayoutView *)arg1 shouldIgnoreSubview:(UIView *)arg2;
 - (struct CCUILayoutRect)layoutView:(CCUILayoutView *)arg1 layoutRectForSubview:(UIView *)arg2;
 - (struct CCUILayoutSize)layoutSizeForLayoutView:(CCUILayoutView *)arg1;
 @end

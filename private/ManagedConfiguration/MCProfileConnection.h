@@ -268,6 +268,7 @@
 - (_Bool)isAirPlaySettingsUIAllowedOutAsk:(_Bool *)arg1;
 - (void)setAirPlaySettingsUIAllowed:(_Bool)arg1 ask:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)shouldDestroyOldKeybag;
+- (_Bool)isAttentionAwareAutoLockAllowed;
 - (void)setFingerprintUnlockAllowed:(_Bool)arg1 credentialSet:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)setFingerprintUnlockAllowed:(_Bool)arg1 passcode:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (unsigned long long)gracePeriod;
@@ -415,6 +416,7 @@
 - (void)validateAppBundleIDs:(id)arg1;
 - (void)setTrustedCodeSigningIdentities:(id)arg1;
 - (id)trustedCodeSigningIdentities;
+- (_Bool)isAuthenticationBeforeAutoFillRequired;
 - (_Bool)isSafariPasswordAutoFillAllowedForURL:(id)arg1;
 - (id)managedMedia;
 - (id)managedAppIDs;

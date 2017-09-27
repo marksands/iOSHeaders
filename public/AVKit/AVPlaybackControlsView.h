@@ -24,6 +24,7 @@
     AVView *_transportControlsContainerView;
     AVButton *_doneButton;
     AVButton *_fullScreenButton;
+    AVButton *_videoGravityButton;
     AVButton *_pictureInPictureButton;
     AVVolumeButtonControl *_volumeButton;
     AVVolumeSlider *_volumeSlider;
@@ -68,6 +69,7 @@
 @property(readonly, nonatomic) AVVolumeSlider *volumeSlider; // @synthesize volumeSlider=_volumeSlider;
 @property(readonly, nonatomic) AVVolumeButtonControl *volumeButton; // @synthesize volumeButton=_volumeButton;
 @property(readonly, nonatomic) AVButton *pictureInPictureButton; // @synthesize pictureInPictureButton=_pictureInPictureButton;
+@property(readonly, nonatomic) AVButton *videoGravityButton; // @synthesize videoGravityButton=_videoGravityButton;
 @property(readonly, nonatomic) AVButton *fullScreenButton; // @synthesize fullScreenButton=_fullScreenButton;
 @property(readonly, nonatomic) AVButton *doneButton; // @synthesize doneButton=_doneButton;
 @property(readonly, nonatomic) AVView *transportControlsContainerView; // @synthesize transportControlsContainerView=_transportControlsContainerView;
@@ -83,6 +85,7 @@
 - (_Bool)_isDescendantOfNonPagingScrollView;
 - (void)_updateLayoutMargins:(struct CGRect)arg1;
 - (void)_updateLayoutMargins;
+- (void)_statusBarHiddenDidChange:(id)arg1;
 - (void)_statusBarFrameDidChange:(id)arg1;
 - (void)_statusBarFrameWillChange:(id)arg1;
 - (void)_statusBarOrientationWillChange:(id)arg1;

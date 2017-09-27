@@ -30,6 +30,7 @@
     NSMutableDictionary *_preferredPaymentApplicationsCache;
     NSMutableDictionary *_passCache;
     NSObject<OS_dispatch_queue> *_passesQueue;
+    NSObject<OS_dispatch_queue> *_updatePassDescriptionsQueue;
     NSArray *_lastSeenRelevantPassTuples;
     NSTimer *_passLibraryChangedCoalescingTimer;
     NSMutableArray *_workToPerformAfterInitialLoad;
@@ -45,6 +46,7 @@
 @property(nonatomic) _Bool needsUpdatePassDescriptions; // @synthesize needsUpdatePassDescriptions=_needsUpdatePassDescriptions;
 @property(nonatomic) _Bool updatingPassDescriptions; // @synthesize updatingPassDescriptions=_updatingPassDescriptions;
 @property(retain, nonatomic) NSArray *lastSeenRelevantPassTuples; // @synthesize lastSeenRelevantPassTuples=_lastSeenRelevantPassTuples;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *updatePassDescriptionsQueue; // @synthesize updatePassDescriptionsQueue=_updatePassDescriptionsQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *passesQueue; // @synthesize passesQueue=_passesQueue;
 @property(retain, nonatomic) NSMutableDictionary *passCache; // @synthesize passCache=_passCache;
 @property(retain, nonatomic) NSMutableDictionary *preferredPaymentApplicationsCache; // @synthesize preferredPaymentApplicationsCache=_preferredPaymentApplicationsCache;
@@ -62,6 +64,7 @@
 @property(readonly) NSXPCConnection *xpcConnection; // @dynamic xpcConnection;
 - (void)_tearDownConnectionBecauseOfInvalidation;
 - (void)_updateRelevantPassIDs;
+- (_Bool)_shouldUpdatePassDescriptionsWithHighPriority;
 - (void)_updatePassDescriptionsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_updatePassDescriptions;
 - (id)_descriptionsWithFilter:(CDUnknownBlockType)arg1;

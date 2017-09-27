@@ -17,6 +17,7 @@
 - (struct CGSize)size;
 - (id)_generateThumbnailFillToSize:(struct CGSize)arg1;
 - (void)generatePreviewWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)isJellyfishVideo;
 
 @end
 

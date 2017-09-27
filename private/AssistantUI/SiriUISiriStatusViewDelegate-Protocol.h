@@ -9,6 +9,7 @@
 @class SiriUISiriStatusView;
 
 @protocol SiriUISiriStatusViewDelegate <NSObject>
+- (struct UIEdgeInsets)safeAreaInsetsForSiriStatusView:(SiriUISiriStatusView *)arg1;
 - (void)siriStatusViewHoldDidEnd:(SiriUISiriStatusView *)arg1;
 - (void)siriStatusViewHoldDidBegin:(SiriUISiriStatusView *)arg1;
 - (void)siriStatusViewWasTapped:(SiriUISiriStatusView *)arg1;

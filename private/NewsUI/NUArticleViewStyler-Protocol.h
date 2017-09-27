@@ -7,6 +7,7 @@
 @class UITabBar, UIToolbar;
 
 @protocol NUArticleViewStyler
+@property(readonly, nonatomic) long long topBackgroundStatusBarStyle;
 @property(readonly, nonatomic) long long statusBarStyle;
 - (void)unstyleToolbar:(UIToolbar *)arg1;
 - (void)styleToolbar:(UIToolbar *)arg1;

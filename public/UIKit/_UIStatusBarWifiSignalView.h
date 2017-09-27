@@ -15,6 +15,7 @@
 
 @property(retain, nonatomic) _UIStatusBarCycleAnimation *cycleAnimation; // @synthesize cycleAnimation=_cycleAnimation;
 - (void).cxx_destruct;
+- (id)accessibilityHUDRepresentation;
 - (struct CGSize)intrinsicContentSize;
 - (void)_updateCycleAnimationVisibility;
 - (void)_visibilityDidChange;

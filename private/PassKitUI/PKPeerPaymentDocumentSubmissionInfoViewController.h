@@ -6,13 +6,14 @@
 
 #import <PassKitUI/PKExplanationViewController.h>
 
+#import "PKExplanationViewControllerDelegate.h"
 #import "PKExplanationViewDelegate.h"
 #import "PKPeerPaymentDocumentSubmissionControllerDelegate.h"
 #import "PKPeerPaymentDocumentSubmissionViewControllerResponder.h"
 
-@class NSString, NSTimer, PKExplanationView, PKPeerPaymentDocumentSubmissionController, UIBarButtonItem;
+@class NSString, NSTimer, PKExplanationView, PKPeerPaymentDocumentSubmissionController;
 
-@interface PKPeerPaymentDocumentSubmissionInfoViewController : PKExplanationViewController <PKPeerPaymentDocumentSubmissionControllerDelegate, PKExplanationViewDelegate, PKPeerPaymentDocumentSubmissionViewControllerResponder>
+@interface PKPeerPaymentDocumentSubmissionInfoViewController : PKExplanationViewController <PKPeerPaymentDocumentSubmissionControllerDelegate, PKExplanationViewDelegate, PKExplanationViewControllerDelegate, PKPeerPaymentDocumentSubmissionViewControllerResponder>
 {
     PKPeerPaymentDocumentSubmissionController *_controller;
     PKExplanationView *_explanationView;
@@ -20,7 +21,6 @@
     long long _currentState;
     long long _currentSide;
     NSTimer *_timerDismissAfterSuccess;
-    UIBarButtonItem *_cancelButtonItem;
 }
 
 - (void).cxx_destruct;
@@ -32,7 +32,7 @@
 - (void)explanationViewDidSelectContinue:(id)arg1;
 - (void)updateUIWithState:(long long)arg1;
 - (id)secondaryButton;
-- (void)cancel;
+- (void)explanationViewControllerDidSelectCancel:(id)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithController:(id)arg1 context:(long long)arg2;

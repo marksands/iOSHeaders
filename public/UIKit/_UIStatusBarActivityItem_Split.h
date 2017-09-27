@@ -6,20 +6,26 @@
 
 #import <UIKit/_UIStatusBarActivityItem.h>
 
-@class _UIStatusBarActivityView;
+@class UIActivityIndicatorView, _UIStatusBarActivityView;
 
 __attribute__((visibility("hidden")))
 @interface _UIStatusBarActivityItem_Split : _UIStatusBarActivityItem
 {
     _UIStatusBarActivityView *_activityView;
+    UIActivityIndicatorView *_syncStartView;
 }
 
++ (id)syncStartDisplayIdentifier;
++ (id)verticalDisplayIdentifier;
+@property(retain, nonatomic) UIActivityIndicatorView *syncStartView; // @synthesize syncStartView=_syncStartView;
 @property(retain, nonatomic) _UIStatusBarActivityView *activityView; // @synthesize activityView=_activityView;
 - (void).cxx_destruct;
 - (id)removalAnimationForDisplayItemWithIdentifier:(id)arg1;
 - (id)additionAnimationForDisplayItemWithIdentifier:(id)arg1;
 - (id)applyUpdate:(id)arg1 toDisplayItem:(id)arg2;
+- (_Bool)_enableForType:(long long)arg1;
 - (id)viewForIdentifier:(id)arg1;
+- (struct UIEdgeInsets)activityIndicatorAlignmentRectInsets;
 - (id)init;
 
 @end

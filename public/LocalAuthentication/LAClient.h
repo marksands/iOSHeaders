@@ -48,6 +48,7 @@
 - (void)evaluateACL:(id)arg1 operation:(long long)arg2 options:(id)arg3 uiDelegate:(id)arg4 reply:(CDUnknownBlockType)arg5;
 - (void)evaluatePolicy:(long long)arg1 options:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)evaluatePolicy:(long long)arg1 options:(id)arg2 uiDelegate:(id)arg3 reply:(CDUnknownBlockType)arg4;
+- (void)_checkIdResultForTCC:(id)arg1 error:(id)arg2 retryBlock:(CDUnknownBlockType)arg3 finally:(CDUnknownBlockType)arg4;
 - (id)_updateOptions:(id)arg1;
 - (_Bool)_setPermanentError:(id)arg1;
 - (void)_performCallBool:(CDUnknownBlockType)arg1 finally:(CDUnknownBlockType)arg2;
@@ -55,6 +56,7 @@
 - (void)_performCallId:(CDUnknownBlockType)arg1 finally:(CDUnknownBlockType)arg2;
 - (void)invalidateWithMessage:(id)arg1;
 - (void)dealloc;
+- (void)tccPreflightWithService:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)invalidatedWithError:(id)arg1;
 - (void)_recoverConnection;
 - (void)_scheduleRecovery;

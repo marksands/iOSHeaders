@@ -26,10 +26,6 @@
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *debugDescription;
 - (id)copyWithZone:(struct _NSZone *)arg1;
--     // Error parsing type: 16@0:8, name: lookAtPoint
--     // Error parsing type: {?=[4]}16@0:8, name: rightEyeTransform
--     // Error parsing type: {?=[4]}16@0:8, name: leftEyeTransform
-- (id)versionString;
 -     // Error parsing type: r^16@0:8, name: imageVertices
 @property(readonly, nonatomic) NSDictionary *blendShapes;
 - (id)initWithIdentifier:(id)arg1 trackingData:(id)arg2;

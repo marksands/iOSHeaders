@@ -26,6 +26,7 @@
 @property(readonly, nonatomic) HDXPCClient *client; // @synthesize client=_client;
 @property(readonly, nonatomic) _HKWorkoutSession *workoutSession; // @synthesize workoutSession=_workoutSession;
 - (void).cxx_destruct;
+- (id)getSnapshot;
 @property(readonly, nonatomic) double duration;
 @property(readonly, nonatomic) NSArray *events;
 - (void)deliverMetrics:(id)arg1;

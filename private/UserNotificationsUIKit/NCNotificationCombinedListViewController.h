@@ -10,7 +10,7 @@
 #import "NCNotificationSectionListDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class NCAnimationCoordinator, NCNotificationListSectionHeaderView, NCNotificationListSectionRevealHintView, NCNotificationListStalenessEventTracker, NCNotificationPriorityList, NSMutableSet, NSString, UIViewFloatAnimatableProperty, _UILegibilitySettings, _UIStatesFeedbackGenerator;
+@class NCAnimationCoordinator, NCNotificationListSectionHeaderView, NCNotificationListSectionRevealHintView, NCNotificationListStalenessEventTracker, NCNotificationPriorityList, NSMutableSet, NSString, _UILegibilitySettings, _UIStatesFeedbackGenerator;
 
 @interface NCNotificationCombinedListViewController : NCNotificationListViewController <NCNotificationSectionListDelegate, NCNotificationListSectionHeaderViewDelegate, UIGestureRecognizerDelegate>
 {
@@ -19,7 +19,6 @@
     _Bool _shouldLimitTargetContentOffsetForNotificationListReveal;
     _Bool _collectionViewRectExpanded;
     _Bool _notificationHistoryRevealedStateLocked;
-    _Bool _shouldPerformRevealHintingAnimation;
     _Bool _notificationHistorySectionNeedsReload;
     _Bool _performingBatchedSectionListOperations;
     _Bool _shouldPerformReloadForBatchedOperations;
@@ -37,17 +36,12 @@
     NCNotificationListStalenessEventTracker *_notificationListStalenessEventTracker;
     NSMutableSet *_notificationRequestsRemovedFromNotificationCenterDestination;
     _UILegibilitySettings *_legibilitySettings;
-    UIViewFloatAnimatableProperty *_revealHintingAnimatableProperty;
-    double _contentOffsetBeforeRevealHintingAnimation;
 }
 
 @property(nonatomic) _Bool shouldAllowNotificationsHistoryReveal; // @synthesize shouldAllowNotificationsHistoryReveal=_shouldAllowNotificationsHistoryReveal;
 @property(nonatomic) _Bool shouldPerformReloadForBatchedOperations; // @synthesize shouldPerformReloadForBatchedOperations=_shouldPerformReloadForBatchedOperations;
 @property(nonatomic, getter=isPerformingBatchedSectionListOperations) _Bool performingBatchedSectionListOperations; // @synthesize performingBatchedSectionListOperations=_performingBatchedSectionListOperations;
 @property(nonatomic) _Bool notificationHistorySectionNeedsReload; // @synthesize notificationHistorySectionNeedsReload=_notificationHistorySectionNeedsReload;
-@property(nonatomic) _Bool shouldPerformRevealHintingAnimation; // @synthesize shouldPerformRevealHintingAnimation=_shouldPerformRevealHintingAnimation;
-@property(nonatomic) double contentOffsetBeforeRevealHintingAnimation; // @synthesize contentOffsetBeforeRevealHintingAnimation=_contentOffsetBeforeRevealHintingAnimation;
-@property(retain, nonatomic) UIViewFloatAnimatableProperty *revealHintingAnimatableProperty; // @synthesize revealHintingAnimatableProperty=_revealHintingAnimatableProperty;
 @property(nonatomic, getter=isNotificationHistoryRevealedStateLocked) _Bool notificationHistoryRevealedStateLocked; // @synthesize notificationHistoryRevealedStateLocked=_notificationHistoryRevealedStateLocked;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property(nonatomic, getter=isCollectionViewRectExpanded) _Bool collectionViewRectExpanded; // @synthesize collectionViewRectExpanded=_collectionViewRectExpanded;
@@ -104,9 +98,6 @@
 - (_Bool)_isRevealHintViewVisible;
 - (void)_resetCollectionViewVisibleRectEdgeInsets;
 - (void)_expandCollectionViewVisibleRect;
-- (void)_updateContentOffsetForHintingValue:(double)arg1;
-- (void)_setupHintingFloatAnimatableProperties;
-- (void)_performRevealHintingAnimation;
 - (double)_revealHintingCurvePercentageForIndexPath:(id)arg1 revealPercentage:(double)arg2;
 - (double)_yOffsetForRevealPercentage:(double)arg1;
 - (void)_updateSupplementaryView:(id)arg1 layoutAttributes:(id)arg2 forRevealPercentage:(double)arg3 atIndexPath:(id)arg4;
@@ -190,8 +181,6 @@
 - (void)reloadNotificationRequestsInIncomingSection:(id)arg1;
 @property(readonly, nonatomic) struct CGSize effectiveContentSize;
 - (void)updateForLegibilitySettings:(id)arg1;
-- (void)performNotificationListRevealGestureHintingFadeOutAnimated:(_Bool)arg1;
-- (void)performNotificationListRevealGestureHintingAnimated:(_Bool)arg1 withFadeOut:(_Bool)arg2;
 - (void)listViewControllerPresentedByUserAction;
 - (void)forceNotificationHistoryRevealed:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_setShowingNotificationsHistory:(_Bool)arg1 animated:(_Bool)arg2;

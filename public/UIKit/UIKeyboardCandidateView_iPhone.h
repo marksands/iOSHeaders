@@ -24,7 +24,9 @@ __attribute__((visibility("hidden")))
 - (void)showSortControl:(_Bool)arg1 animated:(_Bool)arg2;
 - (_Bool)shouldAutomaticallyHideAndShowSortControl;
 - (void)_handleKeyboardShowOrHide:(id)arg1;
+- (double)extendedViewTop;
 - (struct UIEdgeInsets)sortControlInsets;
+- (struct UIEdgeInsets)extendedViewInsets;
 - (void)handleTap;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (_Bool)_shouldUseFullMetrics;

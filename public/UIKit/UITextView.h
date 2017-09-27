@@ -386,6 +386,7 @@
 - (void)_scrollToCaretIfNeeded;
 - (void)_invalidateContainerViewSize;
 - (void)layoutSubviews;
+- (void)adjustedContentInsetDidChange;
 - (void)_resyncContainerFrameForNonAutolayoutDeferringSizeToFit:(_Bool)arg1;
 - (void)_resyncContainerFrameForNonAutolayout;
 - (void)_updateTextContainerSizeAndSizeToFit;

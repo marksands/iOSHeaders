@@ -18,6 +18,7 @@
     } _has;
 }
 
+@property(nonatomic) int state; // @synthesize state=_state;
 @property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -28,10 +29,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (int)StringAsState:(id)arg1;
-- (id)stateAsString:(int)arg1;
 @property(nonatomic) _Bool hasState;
-@property(nonatomic) int state; // @synthesize state=_state;
 @property(nonatomic) _Bool hasTimestamp;
 
 @end

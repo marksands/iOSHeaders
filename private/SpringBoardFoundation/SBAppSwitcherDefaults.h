@@ -16,6 +16,7 @@
 - (void)_bindAndRegisterDefaults;
 
 // Remaining properties
+@property(nonatomic) unsigned long long bottomEdgeGestureSwipeCount; // @dynamic bottomEdgeGestureSwipeCount;
 @property(readonly, nonatomic) NSArray *legacyRecentApplications; // @dynamic legacyRecentApplications;
 @property(readonly, nonatomic) NSArray *legacyRecentDisplayItemRoles; // @dynamic legacyRecentDisplayItemRoles;
 @property(readonly, nonatomic) NSArray *legacyRecentDisplayItems; // @dynamic legacyRecentDisplayItems;

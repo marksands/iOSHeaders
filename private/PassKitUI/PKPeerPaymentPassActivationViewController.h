@@ -6,9 +6,13 @@
 
 #import "UIViewController.h"
 
-@class PKPaymentProvisioningController, PKPeerPaymentCredential, PKPeerPaymentWebService, PKTableHeaderView, UIImage;
+#import "AAUIDeviceToDeviceEncryptionHelperDelegate.h"
+#import "PKExplanationViewControllerDelegate.h"
+#import "PKPaymentSetupViewControllerDelegate.h"
 
-@interface PKPeerPaymentPassActivationViewController : UIViewController
+@class NSString, PKPaymentProvisioningController, PKPeerPaymentCredential, PKPeerPaymentWebService, PKTableHeaderView, RemoteUIController, UIImage;
+
+@interface PKPeerPaymentPassActivationViewController : UIViewController <PKPaymentSetupViewControllerDelegate, AAUIDeviceToDeviceEncryptionHelperDelegate, PKExplanationViewControllerDelegate>
 {
     PKPaymentProvisioningController *_provisioningController;
     long long _setupContext;
@@ -16,23 +20,38 @@
     id <PKPaymentSetupViewControllerDelegate> _delegate;
     unsigned long long _state;
     PKPeerPaymentWebService *_peerPaymentWebService;
+    RemoteUIController *_termsController;
     PKTableHeaderView *_headerView;
     UIImage *_passSnapShot;
 }
 
 - (void).cxx_destruct;
 - (void)_handleError:(id)arg1;
+- (void)_presentAlertControllerForError:(id)arg1;
+- (void)_presentAmbiguousSenderAddresViewController;
+- (void)_presentDeviceToDeviceEncryptionFlow;
+- (void)_presentIdentityVerificationWithError:(id)arg1;
+- (void)_presentTermsAndConditionsWithError:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_completeProvisioningFlow;
 - (id)_titleStringForState;
 - (_Bool)_hasDebitCard;
-- (void)_donePressed;
 - (void)_setState:(unsigned long long)arg1;
 - (void)_setShowCheckmark:(_Bool)arg1;
 - (void)_setShowSpinner:(_Bool)arg1;
 - (void)_beginSetup;
+- (void)deviceToDeviceEncryptionHelper:(id)arg1 shouldContinueUpgradingUserToHSA2WithCompletion:(CDUnknownBlockType)arg2;
+- (void)explanationViewControllerDidSelectCancel:(id)arg1;
+- (void)viewControllerDidCancelSetupFlow:(id)arg1;
+- (void)viewControllerDidTerminateSetupFlow:(id)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
 - (id)initWithProvisioningController:(id)arg1 context:(long long)arg2 setupDelegate:(id)arg3 credential:(id)arg4 passSnapShot:(id)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

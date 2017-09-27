@@ -6,20 +6,34 @@
 
 #import "UIView.h"
 
-@class MTMaterialView, SBUIChevronView;
+@class CCUIStatusBar, MTMaterialView, SBUIChevronView;
 
 @interface CCUIHeaderPocketView : UIView
 {
     MTMaterialView *_headerBackgroundView;
     UIView *_headerLineView;
     SBUIChevronView *_headerChevronView;
+    CCUIStatusBar *_statusBar;
+    unsigned long long _mode;
     double _backgroundAlpha;
+    double _contentAlpha;
+    double _contentAlphaMultiplier;
+    struct UIEdgeInsets _edgeInsets;
+    struct CGAffineTransform _contentTransform;
 }
 
+@property(nonatomic) struct CGAffineTransform contentTransform; // @synthesize contentTransform=_contentTransform;
+@property(nonatomic) double contentAlphaMultiplier; // @synthesize contentAlphaMultiplier=_contentAlphaMultiplier;
+@property(nonatomic) double contentAlpha; // @synthesize contentAlpha=_contentAlpha;
 @property(nonatomic) double backgroundAlpha; // @synthesize backgroundAlpha=_backgroundAlpha;
+@property(nonatomic) struct UIEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
+@property(nonatomic) unsigned long long mode; // @synthesize mode=_mode;
+@property(readonly, nonatomic) CCUIStatusBar *statusBar; // @synthesize statusBar=_statusBar;
 - (void).cxx_destruct;
-@property(nonatomic, getter=isChevronPointingDown) _Bool chevronPointingDown;
-@property(nonatomic) double chevronAlpha;
+- (void)_updateContentTransform;
+- (void)_updateAlpha;
+@property(nonatomic) unsigned long long chevronState; // @dynamic chevronState;
+@property(readonly, nonatomic) struct CGRect contentBounds; // @dynamic contentBounds;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

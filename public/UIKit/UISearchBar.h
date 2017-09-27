@@ -31,7 +31,7 @@
     UIView *_scopeBar;
     UIView *_scopeBarContainerView;
     struct UIEdgeInsets _contentInsetPrivate;
-    struct UIEdgeInsets _contentInsetInternal;
+    double _indexWidth;
     struct UIEdgeInsets _effectiveContentInset;
     UIImageView *_shadowView;
     id _appearanceStorage;
@@ -100,7 +100,7 @@
 - (void)setSearchFieldLeftViewMode:(long long)arg1;
 - (long long)searchFieldLeftViewMode;
 - (void)_updateInsetsForCurrentContainerViewAndBarPosition;
-- (struct UIEdgeInsets)_internalInsetsForBarMetrics:(long long)arg1 barPosition:(long long)arg2;
+- (void)_getTopInset:(double *)arg1 bottomInset:(double *)arg2 forBarMetrics:(long long)arg3 barPosition:(long long)arg4;
 - (void)_updateInsetsForTableView:(id)arg1;
 - (void)tappedSearchBar:(id)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
@@ -169,10 +169,11 @@
 - (struct UIEdgeInsets)_scopeBarInsets;
 - (_Bool)_scopeBarIsVisible;
 - (_Bool)_containsScopeBar;
+@property(readonly, nonatomic) struct UIEdgeInsets _effectiveContentInset;
 - (void)_updateEffectiveContentInset;
+- (_Bool)_getNavigationTitleLeadingInset:(double *)arg1 trailingInset:(double *)arg2 isRTL:(_Bool)arg3;
+- (void)safeAreaInsetsDidChange;
 - (void)layoutMarginsDidChange;
-- (struct UIEdgeInsets)_internalInsets;
-- (void)_setInternalInsets:(struct UIEdgeInsets)arg1;
 - (struct UIEdgeInsets)contentInset;
 - (void)setContentInset:(struct UIEdgeInsets)arg1;
 - (id)_makeShadowView;
@@ -180,7 +181,6 @@
 - (void)_setShadowVisibleIfNecessary:(_Bool)arg1;
 - (id)_navigationBarForShadow;
 - (void)layoutSubviews;
-- (void)_updateContentInset;
 - (void)_getScopeBarHeight:(double *)arg1 containerHeight:(double *)arg2;
 - (double)_scopeBarHeight;
 - (void)sendSubviewToBack:(id)arg1;
@@ -201,7 +201,7 @@
 - (double)_defaultHeight;
 - (double)_barHeightForBarMetrics:(long long)arg1;
 - (double)_barHeightForBarMetrics:(long long)arg1 barPosition:(long long)arg2;
-- (double)_barHeightForBarMetrics:(long long)arg1 withInternalInsets:(struct UIEdgeInsets)arg2;
+- (double)_barHeightForBarMetrics:(long long)arg1 withEffectiveInsets:(struct UIEdgeInsets)arg2;
 - (void)_transitionCompleted:(long long)arg1 willBeDisplayed:(_Bool)arg2;
 - (void)_performTransition:(long long)arg1 willBeDisplayed:(_Bool)arg2;
 - (void)_transitionWillBegin:(long long)arg1 willBeDisplayed:(_Bool)arg2;
@@ -251,7 +251,6 @@
 @property(copy, nonatomic) NSString *text;
 @property(nonatomic, getter=isTranslucent) _Bool translucent;
 @property(nonatomic) long long barStyle;
-- (void)_removeMarginsIfNecessary;
 - (void)didMoveToSuperview;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)_identifyBarContainer;

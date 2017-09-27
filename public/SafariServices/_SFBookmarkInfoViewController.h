@@ -78,6 +78,7 @@
 - (id)_titleCell;
 - (void)loadView;
 - (void)_createCellsIfNeeded;
+- (struct UIEdgeInsets)_cellInset;
 - (void)_returnWasPressedInTextField:(id)arg1;
 - (void)cancel;
 - (void)_saveButtonPressed;

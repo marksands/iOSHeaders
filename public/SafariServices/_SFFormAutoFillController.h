@@ -19,6 +19,7 @@
     SFFormAutocompleteState *_state;
     NSTimer *_prefillTimer;
     NSMutableIndexSet *_uniqueIDsOfFormsThatWereAutoFilled;
+    _Bool _isCurrentlyAuthenticating;
     _Bool _metadataCorrectionsEnabled;
 }
 
@@ -35,7 +36,7 @@
 - (void)willSubmitFormValues:(id)arg1 userObject:(id)arg2 submissionHandler:(CDUnknownBlockType)arg3;
 - (void)fieldFocusedWithInputSession:(id)arg1;
 @property(readonly, nonatomic) UIView<WBUFormAutoFillWebView> *webView;
-- (void)_autoFillLoginFormSynchronously:(id)arg1 inFrame:(id)arg2;
+- (void)_autoFillLoginFormSynchronouslyAndClearMetadata:(id)arg1 inFrame:(id)arg2;
 - (void)willSubmitForm:(id)arg1 inFrame:(id)arg2 submissionHandler:(CDUnknownBlockType)arg3;
 - (void)setFormControls:(id)arg1 areAutoFilled:(_Bool)arg2 andClearField:(id)arg3 inFrame:(id)arg4;
 - (void)fillTextField:(id)arg1 inFrame:(id)arg2 withGeneratedPassword:(id)arg3;

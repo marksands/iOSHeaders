@@ -7,10 +7,11 @@
 #import "SBUIRemoteAlertServiceViewController.h"
 
 #import "PKPaymentServiceDelegate.h"
+#import "SBSHardwareButtonEventConsuming.h"
 
-@class CLInUseAssertion, NSArray, NSObject<OS_dispatch_group>, NSString, PKAssertion, PKFieldProperties, PKPassGroupsViewController, PKPaymentService;
+@class CLInUseAssertion, NSArray, NSObject<OS_dispatch_group>, NSString, PKAssertion, PKFieldDetectEducationViewController, PKFieldProperties, PKPassGroupsViewController, PKPaymentService, SBSAssertion;
 
-@interface PKPaymentRemoteAlertViewController : SBUIRemoteAlertServiceViewController <PKPaymentServiceDelegate>
+@interface PKPaymentRemoteAlertViewController : SBUIRemoteAlertServiceViewController <PKPaymentServiceDelegate, SBSHardwareButtonEventConsuming>
 {
     PKPassGroupsViewController *_passGroupsViewController;
     PKPaymentService *_paymentService;
@@ -18,6 +19,8 @@
     NSArray *_fieldPassUniqueIdentifiers;
     NSString *_passUniqueIdentifier;
     CLInUseAssertion *_passbookForegroundAssertion;
+    id <BSInvalidatable> _lockButtonObserver;
+    SBSAssertion *_lockButtonAssertion;
     PKAssertion *_notificationSuppressionAssertion;
     NSObject<OS_dispatch_group> *_fieldPropertiesLookupGroup;
     long long _presentationSource;
@@ -25,7 +28,9 @@
     _Bool _backlightActive;
     _Bool _deviceUILocked;
     _Bool _processHomeButtonEvents;
-    _Bool _homeButtonDoubleTapAlertHasOccurred;
+    PKFieldDetectEducationViewController *_educationVC;
+    _Bool _appearedOnce;
+    _Bool _invalidated;
 }
 
 + (_Bool)_isSecureForRemoteViewService;
@@ -36,12 +41,15 @@
 - (void)_contactlessInterfaceSessionFinishTransaction:(id)arg1;
 - (void)_contactlessInterfaceSessionDidAuthorize:(id)arg1;
 - (void)_paymentDidReceiveSuccessfulTransactionNotification:(id)arg1;
+- (void)consumeDoublePressUpForButtonKind:(long long)arg1;
 - (_Bool)_notificationIsFromChildViewController:(id)arg1;
 - (void)_dismissForSource:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_dismissIfRestricted;
 - (void)_presentHomeButtonDoubleTapAlertIfNecessary;
+- (void)_presentPassAnimated:(_Bool)arg1;
 - (void)_setupGroupController;
 - (void)handleHomeButtonPressed;
+- (void)configureWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setUserInfo:(id)arg1;
 - (id)childViewControllerForStatusBarStyle;
 - (id)childViewControllerForStatusBarHidden;
@@ -56,6 +64,7 @@
 - (void)viewDidLoad;
 - (void)_willAppearInRemoteViewController;
 - (void)viewDidMoveToWindow:(id)arg1 shouldAppearOrDisappear:(_Bool)arg2;
+- (void)_invalidate;
 - (void)dealloc;
 - (id)init;
 

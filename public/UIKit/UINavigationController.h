@@ -97,6 +97,7 @@
         unsigned int didSetNeedsFocusInTransition:1;
         unsigned int layingOutTopViewController:1;
         unsigned int hasScheduledDeferredUpdateNavigationBarHostedRefreshControl:1;
+        unsigned int allowsFreezeLayoutForOrientationChangeOnDismissal:1;
     } _navigationControllerFlags;
     _Bool _interactiveTransition;
     _Bool _hidesBarsWhenKeyboardAppears;
@@ -248,6 +249,8 @@
 - (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (_Bool)_doesTopViewControllerSupportInterfaceOrientation:(long long)arg1;
 - (_Bool)_allowsAutorotation;
+- (_Bool)_allowsFreezeLayoutForOrientationChangeOnDismissal;
+- (void)_setAllowsFreezeLayoutForOrientationChangeOnDismissal:(_Bool)arg1;
 - (_Bool)_transitionConflictsWithNavigationTransitions:(id)arg1;
 - (void)_presentationTransitionUnwrapViewController:(id)arg1;
 - (void)_presentationTransitionWrapViewController:(id)arg1 forTransitionContext:(id)arg2;
@@ -467,8 +470,7 @@
 - (void)_setNavigationBarHidden:(_Bool)arg1 edge:(unsigned long long)arg2 duration:(double)arg3;
 - (void)_unhideNavigationBarForEdge:(unsigned long long)arg1;
 - (void)_positionNavigationBar:(id)arg1 hidden:(_Bool)arg2 edge:(unsigned long long)arg3 center:(struct CGPoint)arg4 offset:(double)arg5;
-- (_Bool)_searchHidNavigationBar;
-- (void)_setSearchHidNavigationBar:(_Bool)arg1;
+@property(nonatomic, setter=_setSearchHidNavigationBar:) _Bool _searchHidNavigationBar;
 - (void)_setNavigationBarHidesCompletelyOffscreen:(_Bool)arg1;
 - (struct CGPoint)_computeTopBarCenter:(id)arg1 hidden:(_Bool)arg2 edge:(unsigned long long)arg3 center:(struct CGPoint)arg4 offset:(double)arg5;
 - (_Bool)_reallyWantsFullScreenLayout;

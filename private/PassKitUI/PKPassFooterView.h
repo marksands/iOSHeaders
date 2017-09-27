@@ -18,6 +18,7 @@
     NSObject<OS_dispatch_source> *_sessionStartTimer;
     long long _paymentApplicationState;
     _Bool _isBackgrounded;
+    _Bool _acquiringSession;
     unsigned long long _sessionToken;
     unsigned char _visibility;
     unsigned char _contentViewVisibility;

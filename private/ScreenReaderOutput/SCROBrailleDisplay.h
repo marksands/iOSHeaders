@@ -9,7 +9,7 @@
 #import "SCROBrailleDisplayCommandDispatcherDelegate.h"
 #import "SCROBrailleDriverDelegate.h"
 
-@class NSLock, NSString, SCROBrailleDisplayInput, SCROBrailleDisplayStatus, SCROBrailleEventDispatcher, SCROBrailleLine;
+@class NSLock, NSMutableArray, NSString, SCROBrailleDisplayInput, SCROBrailleDisplayStatus, SCROBrailleEventDispatcher, SCROBrailleLine;
 
 @interface SCROBrailleDisplay : NSObject <SCROBrailleDisplayCommandDispatcherDelegate, SCROBrailleDriverDelegate>
 {
@@ -41,6 +41,9 @@
     _Bool _blinkingEnabled;
     _Bool _inputAllowed;
     _Bool _inputEnabled;
+    _Bool _inputPaused;
+    double _inputPausedTime;
+    NSMutableArray *_keyEventsQueue;
     SCROBrailleDisplayInput *_input;
     _Bool _isValid;
     _Bool _delegateWantsDisplayCallback;
@@ -93,6 +96,10 @@
 @property(readonly, nonatomic) unsigned long long brailleLineGenerationID;
 - (void)_panHandler:(id)arg1;
 - (void)_processKeyEvents:(id)arg1;
+- (void)_replaceRange:(struct _NSRange)arg1 withString:(id)arg2 cursor:(unsigned long long)arg3;
+- (void)_unpauseInput;
+- (void)_pauseInput;
+- (_Bool)_inputPaused;
 - (id)_translatedBrailleStringAndKeyEvents:(out id *)arg1 replacementRange:(out struct _NSRange *)arg2 cursor:(out unsigned long long *)arg3;
 - (void)_translateBrailleStringAndPostEventAppendingKeys:(id)arg1;
 - (void)_translateBrailleStringAndPostEvent;

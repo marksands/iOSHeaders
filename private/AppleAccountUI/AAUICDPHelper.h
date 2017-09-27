@@ -14,6 +14,7 @@
     _Bool _forceInline;
 }
 
++ (id)cdpContextForPrimaryAccountWithAuthenticationResults:(id)arg1;
 + (id)cdpContextForPrimaryAccount;
 + (id)cdpContextForAccount:(id)arg1;
 + (id)helperWithPresenter:(id)arg1;

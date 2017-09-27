@@ -61,6 +61,7 @@
     NSString *_currentUnreadHistoryQuery;
     _Bool _hasEarlierMessagesToLoad;
     _Bool _hasMoreRecentMessagesToLoad;
+    _Bool _hasSurfRequest;
     NSString *_personCentricID;
     NSDictionary *_bizIntent;
     double _latestTypingIndicatorTimeInterval;
@@ -172,6 +173,7 @@
 - (void)_updateEngramID:(id)arg1;
 - (void)_updateDisplayName:(id)arg1;
 - (void)_setDisplayName:(id)arg1;
+@property(nonatomic) _Bool hasSurfRequest; // @synthesize hasSurfRequest=_hasSurfRequest;
 - (void)setRoomName:(id)arg1;
 @property(readonly, nonatomic, getter=isGroupChat) _Bool groupChat;
 @property(readonly, nonatomic) unsigned long long overallChatStatus;
@@ -191,6 +193,9 @@
 - (void)_setJoinState:(long long)arg1 quietly:(_Bool)arg2;
 - (void)_setJoinState:(long long)arg1;
 - (_Bool)_handleIncomingItem:(id)arg1;
+- (_Bool)hasSurfRequestNotFromMe:(id)arg1;
+- (_Bool)hasSurfRequestForPaymentType:(unsigned long long)arg1;
+- (unsigned long long)paymentTypeForMessage:(id)arg1;
 - (void)_fixSendingItemDate:(id)arg1;
 - (void)_handleMessageGUIDDeletions:(id)arg1;
 - (void)_setParticipantState:(unsigned long long)arg1 forHandles:(id)arg2 quietly:(_Bool)arg3;

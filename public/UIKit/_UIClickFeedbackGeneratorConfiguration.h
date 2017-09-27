@@ -15,6 +15,8 @@ __attribute__((visibility("hidden")))
     _UIFeedback<_UIFeedbackDiscretePlayable> *_pressedUpFeedback;
 }
 
++ (id)latchingOffConfiguration;
++ (id)latchingOnConfiguration;
 + (id)defaultConfiguration;
 - (void).cxx_destruct;
 @property(retain, nonatomic) _UIFeedback<_UIFeedbackDiscretePlayable> *pressedUpFeedback; // @synthesize pressedUpFeedback=_pressedUpFeedback;

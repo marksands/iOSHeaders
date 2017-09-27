@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray;
+#import "ARResultDataContext.h"
 
-@interface ARTechniqueGatherContext : NSObject
+@class NSMutableArray, NSString;
+
+@interface ARTechniqueGatherContext : NSObject <ARResultDataContext>
 {
     id _parentContext;
     NSMutableArray *_gatheredData;
@@ -17,7 +19,16 @@
 @property(retain, nonatomic) NSMutableArray *gatheredData; // @synthesize gatheredData=_gatheredData;
 @property(retain, nonatomic) id parentContext; // @synthesize parentContext=_parentContext;
 - (void).cxx_destruct;
+- (id)resultDataOfClass:(Class)arg1;
+-     // Error parsing type: {?=[4]}16@0:8, name: sessionOriginTransform
+- (id)imageData;
 - (id)initWithParentContext:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

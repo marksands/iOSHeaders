@@ -45,6 +45,7 @@
 @property(readonly) UIFont *weekAllDayTodayLabelFont;
 @property(readonly) UIFont *weekAllDayLabelFont;
 - (id)birthdayImageForFont:(id)arg1;
+- (id)birthdayImageForFont:(id)arg1 withColor:(id)arg2;
 - (id)commentIconStringForFont:(id)arg1;
 @property(readonly) double dayOccurrenceMinimumCachedLineHeightSmall;
 @property(readonly) UIFont *dayOccurrenceUncompressedSecondaryTextFont;

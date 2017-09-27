@@ -23,7 +23,6 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_placementStates;
     long long _currentPlacementStateIndex;
     long long _previousPlacementStateIndex;
-    long long _enabilityOverride;
     long long _enabilityStatus;
     long long _visibilityStatus;
     _UIStatusBarAnimation *_addingAnimation;
@@ -41,7 +40,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool floating; // @synthesize floating=_floating;
 @property(nonatomic) _Bool updated; // @synthesize updated=_updated;
 @property(nonatomic) _Bool dataEnabled; // @synthesize dataEnabled=_dataEnabled;
-@property(nonatomic) long long enabilityOverride; // @synthesize enabilityOverride=_enabilityOverride;
 @property(nonatomic) long long previousPlacementStateIndex; // @synthesize previousPlacementStateIndex=_previousPlacementStateIndex;
 @property(nonatomic) _Bool wasVisible; // @synthesize wasVisible=_wasVisible;
 @property(nonatomic) _Bool wasEnabled; // @synthesize wasEnabled=_wasEnabled;
@@ -57,6 +55,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)prepareAnimation:(id)arg1 withDisplayItem:(id)arg2;
 - (id)_animationForDisplayItem:(id)arg1 withUpdateAnimation:(id)arg2;
 - (void)_cancelObsoleteAnimations;
+@property(readonly, nonatomic, getter=_animationType) long long animationType;
 - (id)_updateForUpdatedData:(id)arg1 updatedStyleAttributes:(id)arg2 updatedEnability:(id)arg3;
 - (id)_updateForItem:(id)arg1 data:(id)arg2 styleAttributes:(id)arg3;
 - (_Bool)_itemMayBeEnabled:(id)arg1;

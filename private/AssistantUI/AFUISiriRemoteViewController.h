@@ -34,6 +34,7 @@
 - (void)setSpeechSynthesis:(id)arg1;
 - (void)setSession:(id)arg1;
 - (void)userInteractionDidOccur;
+- (void)setStatusViewHeight:(double)arg1;
 - (void)setStatusBarFrame:(struct CGRect)arg1;
 - (void)siriKeyboardViewDidChange:(CDStruct_a82615c4 *)arg1;
 - (void)startRequestForText:(id)arg1;
@@ -76,7 +77,9 @@
 - (void)setHelpButtonEmphasized:(_Bool)arg1;
 - (void)setStatusBarHidden:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setStatusBarHidden:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)serviceDidDismissViewControllerWithStatusBarStyle:(long long)arg1;
 - (void)serviceWillDismissViewControllerWithStatusBarStyle:(long long)arg1;
+- (void)serviceDidPresentViewControllerWithStatusBarStyle:(long long)arg1;
 - (void)serviceWillPresentViewControllerWithStatusBarStyle:(long long)arg1;
 - (void)setStatusViewUserInteractionEnabled:(_Bool)arg1;
 - (void)setStatusViewDisabled:(_Bool)arg1;

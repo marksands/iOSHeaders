@@ -96,6 +96,7 @@
 - (void)workoutServerDidDeactivate:(id)arg1;
 - (_Bool)hasActiveWorkoutServerForClient:(id)arg1;
 - (void)pauseActiveWorkoutsWithCompletion:(CDUnknownBlockType)arg1;
+- (void)getCurrentWorkoutSnapshotWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getFirstPartyWorkoutSnapshotWithCompletion:(CDUnknownBlockType)arg1;
 - (void)createActiveWorkoutServerWithConfiguration:(id)arg1 clientProxy:(id)arg2 server:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)receiveMetrics:(id)arg1;

@@ -9,7 +9,7 @@
 #import "ARResultData.h"
 #import "NSCopying.h"
 
-@class NSDictionary, NSString;
+@class NSDictionary, NSObject<OS_dispatch_semaphore>, NSString;
 
 @interface ARFaceTrackingData : NSObject <ARResultData, NSCopying>
 {
@@ -17,17 +17,26 @@
     struct vector<float __attribute__((ext_vector_type(2))), std::__1::allocator<float __attribute__((ext_vector_type(2)))>> _verticesImageSpace;
     vector_fff08e2a _normals;
     struct vector<float, std::__1::allocator<float>> _blendShapeCoefficients;
+    // Error parsing type: {?="columns"[4]}, name: _transform
+    NSObject<OS_dispatch_semaphore> *_normalsSemaphore;
+    NSObject<OS_dispatch_semaphore> *_imageVerticesSemaphore;
+    NSDictionary *_trackingData;
+    // Error parsing type: , name: _lookAtPoint
     // Error parsing type: {?="columns"[4]}, name: _leftEyeTransform
     // Error parsing type: {?="columns"[4]}, name: _rightEyeTransform
-    // Error parsing type: , name: _lookAtPoint
-    // Error parsing type: {?="columns"[4]}, name: _transform
-    NSString *_versionString;
-    NSDictionary *_trackingData;
 }
 
 + (id)sharedNeutralGeometry;
+// Error parsing type for property lookAtPoint:
+// Property attributes: T,R,N,V_lookAtPoint
+
+// Error parsing type for property rightEyeTransform:
+// Property attributes: T{?=[4]},R,N,V_rightEyeTransform
+
+// Error parsing type for property leftEyeTransform:
+// Property attributes: T{?=[4]},R,N,V_leftEyeTransform
+
 @property(readonly, nonatomic) NSDictionary *trackingData; // @synthesize trackingData=_trackingData;
-@property(readonly, nonatomic) NSString *versionString; // @synthesize versionString=_versionString;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 // Error parsing type for property imageVertices:
@@ -37,15 +46,6 @@
 // Property attributes: Tr^,R,N
 
 @property(readonly, nonatomic) unsigned long long normalCount;
-// Error parsing type for property lookAtPoint:
-// Property attributes: T,R,N
-
-// Error parsing type for property rightEyeTransform:
-// Property attributes: T{?=[4]},R,N
-
-// Error parsing type for property leftEyeTransform:
-// Property attributes: T{?=[4]},R,N
-
 @property(readonly, nonatomic) const float *blendShapeCoefficients;
 @property(readonly, nonatomic) unsigned long long blendShapeCoefficientsCount;
 // Error parsing type for property vertices:
@@ -59,7 +59,7 @@
 @property(readonly, nonatomic) _Bool isValid;
 -     // Error parsing type: @160@0:8{?=[4]}16{?=[4]}80@144@152, name: anchorsForCameraWithTransform:referenceOriginTransform:existingAnchors:anchorsToRemove:
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithTrackingData:(id)arg1 versionString:(id)arg2;
+- (id)initWithTrackingData:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

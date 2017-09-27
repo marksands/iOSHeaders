@@ -24,6 +24,8 @@
     UIImageView *_horizontalScrollIndicator;
     _UIStaticScrollBar *_staticScrollBar;
     struct UIEdgeInsets _scrollIndicatorInset;
+    struct UIEdgeInsets _verticalScrollIndicatorInsets;
+    struct UIEdgeInsets _horizontalScrollIndicatorInsets;
     double _startOffsetX;
     double _startOffsetY;
     double _lastUpdateOffsetX;
@@ -75,6 +77,7 @@
     struct CGSize _accumulatedOffset;
     long long _touchLevel;
     double _savedKeyboardAdjustmentDelta;
+    double _keyboardBottomInsetAdjustment;
     struct CGSize _interpageSpacing;
     struct CGPoint _pagingOrigin;
     struct UIOffset _firstPageOffset;
@@ -186,6 +189,7 @@
         unsigned int autoScrollDisabled:1;
         unsigned int contentScrollsAlongXAxis:2;
         unsigned int contentScrollsAlongYAxis:2;
+        unsigned int indicatorInsetAdjustmentBehavior:2;
     } _scrollViewFlags;
     _Bool _useContentDimensionVariablesForConstraintLowering;
     id _scrollTestParameters;
@@ -197,6 +201,8 @@
     NSArray *__allowedTouchTypesForScrolling;
     struct CGPoint _zoomAnchorPoint;
     struct UIEdgeInsets _adjustedContentInset;
+    struct UIEdgeInsets _cachedVerticalScrollIndicatorBaseInsets;
+    struct UIEdgeInsets _cachedHorizontalScrollIndicatorBaseInsets;
     struct UIEdgeInsets _accessoryInsets;
 }
 
@@ -209,6 +215,8 @@
 @property(readonly, nonatomic) struct UIEdgeInsets accessoryInsets; // @synthesize accessoryInsets=_accessoryInsets;
 @property(copy, nonatomic, setter=_setAllowedTouchTypesForScrolling:) NSArray *_allowedTouchTypesForScrolling; // @synthesize _allowedTouchTypesForScrolling=__allowedTouchTypesForScrolling;
 @property(retain, nonatomic) NSMutableDictionary *accessoryViews; // @synthesize accessoryViews=_accessoryViews;
+@property(nonatomic, getter=_cachedHorizontalScrollIndicatorBaseInsets, setter=_setCachedHorizontalScrollIndicatorBaseInsets:) struct UIEdgeInsets cachedHorizontalScrollIndicatorBaseInsets; // @synthesize cachedHorizontalScrollIndicatorBaseInsets=_cachedHorizontalScrollIndicatorBaseInsets;
+@property(nonatomic, getter=_cachedVerticalScrollIndicatorBaseInsets, setter=_setCachedVerticalScrollIndicatorBaseInsets:) struct UIEdgeInsets cachedVerticalScrollIndicatorBaseInsets; // @synthesize cachedVerticalScrollIndicatorBaseInsets=_cachedVerticalScrollIndicatorBaseInsets;
 @property(nonatomic) __weak id <UIScrollViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) struct UIEdgeInsets adjustedContentInset; // @synthesize adjustedContentInset=_adjustedContentInset;
 @property(copy, nonatomic, setter=_setAutomaticContentConstraints:) NSArray *_automaticContentConstraints; // @synthesize _automaticContentConstraints;
@@ -223,6 +231,7 @@
 @property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
 @property(nonatomic) struct CGSize contentSize; // @synthesize contentSize=_contentSize;
 - (void).cxx_destruct;
+- (void)_boundingPathMayHaveChangedForView:(id)arg1 relativeToBoundsOriginOnly:(_Bool)arg2;
 - (void)_endRefreshingAnimated:(_Bool)arg1;
 - (void)_beginRefreshing;
 @property(retain, nonatomic, setter=_setRefreshControl:) UIRefreshControl *_refreshControl;
@@ -266,7 +275,12 @@
 - (struct CGPoint)_contentOffsetForLowFidelityScrollInDirection:(struct CGPoint)arg1 duration:(double *)arg2;
 - (void)_quicklyHideScrollIndicator:(id)arg1 animated:(_Bool)arg2;
 - (void)_hideScrollIndicators;
+- (void)_layoutHorizontalScrollIndicatorWithBounds:(struct CGRect)arg1 effectiveInset:(struct UIEdgeInsets)arg2 contentOffset:(struct CGPoint)arg3 fraction:(double)arg4 additionalInset:(double)arg5 cornerAdjust:(double)arg6 showing:(_Bool)arg7 recalcSize:(_Bool)arg8 verticalIndicatorFrame:(struct CGRect)arg9;
+- (struct CGRect)_layoutVerticalScrollIndicatorWithBounds:(struct CGRect)arg1 effectiveInset:(struct UIEdgeInsets)arg2 contentOffset:(struct CGPoint)arg3 fraction:(double)arg4 additionalInset:(double)arg5 cornerAdjust:(double)arg6 showing:(_Bool)arg7 recalcSize:(_Bool)arg8;
 - (void)_adjustScrollerIndicators:(_Bool)arg1 alwaysShowingThem:(_Bool)arg2;
+- (double)_scrollIndicatorAdditionalInset;
+- (double)_horizontalScrollIndicatorHeight;
+- (double)_verticalScrollIndicatorWidth;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)_adjustScrollerIndicatorsIfNeeded;
 - (long long)_effectiveIndicatorStyle;
@@ -409,7 +423,6 @@
 - (_Bool)_showsBackgroundShadow;
 - (void)_setShowsBackgroundShadow:(_Bool)arg1;
 - (void)flashScrollIndicators;
-- (void)_willMoveToWindow:(id)arg1;
 - (void)setPreservesCenterDuringRotation:(_Bool)arg1;
 - (_Bool)preservesCenterDuringRotation;
 - (void)_registerForRotation:(_Bool)arg1 ofWindow:(id)arg2;
@@ -433,6 +446,10 @@
 - (double)horizontalScrollDecelerationFactor;
 @property(nonatomic) long long indicatorStyle;
 @property(nonatomic) double decelerationRate;
+- (struct UIEdgeInsets)horizontalScrollIndicatorInsets;
+- (void)setHorizontalScrollIndicatorInsets:(struct UIEdgeInsets)arg1;
+- (struct UIEdgeInsets)verticalScrollIndicatorInsets;
+- (void)setVerticalScrollIndicatorInsets:(struct UIEdgeInsets)arg1;
 @property(nonatomic) struct UIEdgeInsets scrollIndicatorInsets;
 - (void)_updateForChangedScrollIndicatorRelatedInsets;
 @property(nonatomic) long long indexDisplayMode;
@@ -480,6 +497,7 @@
 - (void)_updateContentFitDisableScrolling;
 - (id)_enclosingViewController;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
+- (void)_willMoveToWindow:(id)arg1;
 - (void)removeFromSuperview;
 - (void)_webCustomViewWillBeRemovedFromSuperview;
 @property(readonly, nonatomic, getter=_verticalScrollIndicator) UIView *verticalScrollIndicator;
@@ -602,8 +620,17 @@
 - (id)_parentScrollView;
 - (void)setSafeAreaInsets:(struct UIEdgeInsets)arg1;
 - (_Bool)_shouldContentOffsetMaintainRelativeDistanceFromSafeArea;
-- (struct UIEdgeInsets)_effectiveScrollIndicatorInsets;
+- (struct UIEdgeInsets)_effectiveHorizontalScrollIndicatorInsets;
+- (struct UIEdgeInsets)_computeBaseInsetsForHorizontalScrollIndicatorWithClientInsets:(struct UIEdgeInsets)arg1;
+- (struct UIEdgeInsets)_effectiveVerticalScrollIndicatorInsets;
+- (struct UIEdgeInsets)_computeBaseInsetsForVerticalScrollIndicatorWithClientInsets:(struct UIEdgeInsets)arg1;
+- (struct UIEdgeInsets)_baseInsetsForAccessoryOnEdge:(long long)arg1 hasCustomClientInsets:(_Bool)arg2 accessorySize:(double)arg3 additionalInsetFromEdge:(double)arg4;
+- (struct UIEdgeInsets)_baseInsetsForBottomEdgeAccessoryWithBoundingPathEdgesToUse:(unsigned long long)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2 bounds:(struct CGRect)arg3 scale:(double)arg4 accessoryHeight:(double)arg5 additionalInsetFromEdge:(double)arg6;
+- (struct UIEdgeInsets)_baseInsetsForTrailingEdgeAccessoryWithBoundingPathEdgesToUse:(unsigned long long)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2 bounds:(struct CGRect)arg3 scale:(double)arg4 accessoryWidth:(double)arg5 additionalInsetFromEdge:(double)arg6;
 - (unsigned long long)_edgesApplyingSafeAreaInsetsToScrollAccessoryInsets;
+- (unsigned long long)_edgesApplyingBaseInsetsToScrollIndicatorInsets;
+- (long long)_indicatorInsetAdjustmentBehavior;
+- (void)_setIndicatorInsetAdjustmentBehavior:(long long)arg1;
 - (struct UIEdgeInsets)_effectiveContentInset;
 - (struct UIEdgeInsets)_systemContentInset;
 - (unsigned long long)_edgesApplyingSafeAreaInsetsToContentInset;
@@ -625,9 +652,12 @@
 - (_Bool)_isAutomaticContentOffsetAdjustmentEnabled;
 - (void)_setAutomaticContentOffsetAdjustmentEnabled:(_Bool)arg1;
 - (void)_updateScrollAnimationForChangedTargetOffset:(struct CGPoint)arg1;
+- (void)_setContentOffset:(struct CGPoint)arg1 animated:(_Bool)arg2 animationCurve:(int)arg3 animationAdjustsForContentOffsetDelta:(_Bool)arg4 animation:(id)arg5;
 - (void)_setContentOffset:(struct CGPoint)arg1 animated:(_Bool)arg2 animationCurve:(int)arg3 animationAdjustsForContentOffsetDelta:(_Bool)arg4;
 - (void)_setContentOffset:(struct CGPoint)arg1 animated:(_Bool)arg2 animationCurve:(int)arg3;
 - (void)_setAbsoluteContentOffset:(struct CGPoint)arg1 animated:(_Bool)arg2;
+- (void)_setContentOffset:(struct CGPoint)arg1 animation:(id)arg2;
+- (void)_setContentOffsetWithDecelerationAnimation:(struct CGPoint)arg1;
 - (void)_setContentOffset:(struct CGPoint)arg1 duration:(double)arg2 animationCurve:(int)arg3;
 - (struct CGSize)_contentSizeOrDeferredContentSize;
 - (struct CGPoint)_contentOffsetOrDeferredContentOffset;

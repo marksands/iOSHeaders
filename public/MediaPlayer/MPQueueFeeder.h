@@ -97,6 +97,7 @@
 @property(readonly, nonatomic) _Bool canSeek;
 @property(readonly, nonatomic) _Bool canReorder;
 @property(readonly, nonatomic) _Bool allowsUserVisibleUpcomingItems;
+@property(readonly, nonatomic) _Bool allowsQueueResetWhenReachingEnd;
 - (_Bool)shouldBeginPlaybackOfItem:(id)arg1 error:(id *)arg2;
 - (id)errorResolverForItem:(id)arg1;
 - (void)reloadWithPlaybackContext:(id)arg1 requireFinalTracklist:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;

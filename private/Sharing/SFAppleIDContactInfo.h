@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class NSArray, NSString;
 
-@interface SFAppleIDContactInfo : NSObject
+@interface SFAppleIDContactInfo : NSObject <NSSecureCoding>
 {
     NSString *_firstName;
     NSString *_lastName;

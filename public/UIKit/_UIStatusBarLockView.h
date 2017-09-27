@@ -9,7 +9,7 @@
 #import "CAAnimationDelegate.h"
 #import "_UIStatusBarDisplayable.h"
 
-@class NSString, _UIStatusBarImageView;
+@class NSString, UIAccessibilityHUDItem, _UIStatusBarImageView;
 
 __attribute__((visibility("hidden")))
 @interface _UIStatusBarLockView : UIView <CAAnimationDelegate, _UIStatusBarDisplayable>
@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic) UIAccessibilityHUDItem *accessibilityHUDRepresentation;
 @property(readonly, nonatomic) double baselineOffset;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

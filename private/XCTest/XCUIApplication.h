@@ -13,6 +13,7 @@
     _Bool _ancillary;
     _Bool _prefersPlatformLauncher;
     _Bool _doesNotHandleUIInterruptions;
+    _Bool _allowBackgroundInteraction;
     _Bool _idleAnimationWaitEnabled;
     XCUIApplicationOpenRequest *_lastLaunchRequest;
     XCUIElement *_keyboard;
@@ -27,9 +28,11 @@
 + (id)keyPathsForValuesAffectingBackground;
 + (id)keyPathsForValuesAffectingSuspended;
 + (id)keyPathsForValuesAffectingRunning;
++ (id)keyPathsForValuesAffectingState;
 + (id)new;
 + (id)applicationWithPID:(int)arg1;
 @property(getter=isIdleAnimationWaitEnabled) _Bool idleAnimationWaitEnabled; // @synthesize idleAnimationWaitEnabled=_idleAnimationWaitEnabled;
+@property _Bool allowBackgroundInteraction; // @synthesize allowBackgroundInteraction=_allowBackgroundInteraction;
 @property(nonatomic) _Bool doesNotHandleUIInterruptions; // @synthesize doesNotHandleUIInterruptions=_doesNotHandleUIInterruptions;
 @property _Bool prefersPlatformLauncher; // @synthesize prefersPlatformLauncher=_prefersPlatformLauncher;
 @property(readonly) XCUIApplicationImpl *applicationImpl; // @synthesize applicationImpl=_applicationImpl;
@@ -52,7 +55,7 @@
 - (void)launch;
 - (id)_combinedLaunchEnvironment;
 - (id)_combinedLaunchArguments;
-- (void)waitForState:(unsigned long long)arg1 timeout:(double)arg2;
+- (_Bool)waitForState:(unsigned long long)arg1 timeout:(double)arg2;
 @property(readonly) _Bool foreground;
 @property(readonly) _Bool background;
 @property(readonly) _Bool suspended;

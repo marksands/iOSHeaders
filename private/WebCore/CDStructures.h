@@ -154,10 +154,11 @@ struct AccessibilityTable {
     int _field13;
     struct Node *_field14;
     struct RenderObject *_field15;
-    struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0, WTF::CrashOnOverflow, 16> _field16;
+    struct WeakPtrFactory<WebCore::AccessibilityRenderObject> _field16;
     struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0, WTF::CrashOnOverflow, 16> _field17;
-    struct RefPtr<WebCore::AccessibilityObject> _field18;
-    _Bool _field19;
+    struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0, WTF::CrashOnOverflow, 16> _field18;
+    struct RefPtr<WebCore::AccessibilityObject> _field19;
+    _Bool _field20;
 };
 
 struct AccessibilityTableCell {
@@ -176,8 +177,9 @@ struct AccessibilityTableCell {
     int _field13;
     struct Node *_field14;
     struct RenderObject *_field15;
-    int _field16;
+    struct WeakPtrFactory<WebCore::AccessibilityRenderObject> _field16;
     int _field17;
+    int _field18;
 };
 
 struct AtomicString {
@@ -1416,6 +1418,10 @@ struct RealtimeMediaSourceSupportedConstraints {
     _Bool _field11;
 };
 
+struct Ref<WTF::WeakReference<WebCore::AccessibilityRenderObject>> {
+    struct WeakReference<WebCore::AccessibilityRenderObject> *_field1;
+};
+
 struct Ref<WTF::WeakReference<WebCore::FontCascade>> {
     struct WeakReference<WebCore::FontCascade> *m_ptr;
 };
@@ -2280,6 +2286,10 @@ struct WeakPtr<const WebCore::MediaResourceLoader> {
     struct Ref<WTF::WeakReference<const WebCore::MediaResourceLoader>> _field1;
 };
 
+struct WeakPtrFactory<WebCore::AccessibilityRenderObject> {
+    struct Ref<WTF::WeakReference<WebCore::AccessibilityRenderObject>> _field1;
+};
+
 struct WeakPtrFactory<WebCore::FontCascade> {
     struct Ref<WTF::WeakReference<WebCore::FontCascade>> _field1;
 };
@@ -2303,6 +2313,8 @@ struct WeakPtrFactory<WebCore::RealtimeMediaSource> {
 struct WeakPtrFactory<WebCore::TaskDispatcher<WebCore::Timer>> {
     struct Ref<WTF::WeakReference<WebCore::TaskDispatcher<WebCore::Timer>>> _field1;
 };
+
+struct WeakReference<WebCore::AccessibilityRenderObject>;
 
 struct WeakReference<WebCore::FontCascade>;
 

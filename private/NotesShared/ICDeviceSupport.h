@@ -10,6 +10,8 @@
 {
 }
 
++ (_Bool)deviceSupportsFaceID;
++ (_Bool)deviceSupportsTouchID;
 + (_Bool)shouldOnlyDrawWithPencil;
 + (_Bool)deviceSupportsPencil;
 + (struct CGSize)notesDeviceDrawingSize;

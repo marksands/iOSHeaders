@@ -8,16 +8,18 @@
 
 #import "TLKObservable.h"
 
-@class NSString, TLKImage, TLKObserver;
+@class NSString, TLKImage, TLKImageFittingObject, TLKObserver;
 
 @interface TLKImageView : UIImageView <TLKObservable>
 {
     TLKImage *_tlkImage;
     unsigned long long _style;
+    TLKImageFittingObject *_imageFittingObject;
     TLKObserver *_imageObserver;
 }
 
 @property(retain) TLKObserver *imageObserver; // @synthesize imageObserver=_imageObserver;
+@property(retain) TLKImageFittingObject *imageFittingObject; // @synthesize imageFittingObject=_imageFittingObject;
 @property unsigned long long style; // @synthesize style=_style;
 @property(retain) TLKImage *tlkImage; // @synthesize tlkImage=_tlkImage;
 - (void).cxx_destruct;

@@ -10,6 +10,7 @@
 {
 }
 
++ (double)proudLockOffsetFromTopOfScreen;
 + (struct UIEdgeInsets)deviceInformationInsets;
 + (double)deviceInformationParagraphSpacing;
 + (double)deviceInformationLabelFontLeading;
@@ -29,13 +30,14 @@
 + (double)dateViewSideMargin;
 + (double)dateBaselineOffsetFromTime;
 + (double)dateViewBaselineY;
++ (double)pinKeyboardEntryFieldOffset:(_Bool)arg1;
 + (double)scaledFontSize:(double)arg1 withMaximumFontSizeCategory:(id)arg2;
++ (double)pinKeypadStatusTitleBaselineOffsetFromEntryFieldIncludingSubtitle;
++ (double)pinKeypadStatusTitleBaselineOffsetFromEntryField;
 + (double)pinKeypadStatusSubtitleTitleExtraOffset;
 + (double)pinKeypadStatusTitleExtraOffsetIncludingSubtitle;
 + (double)pinKeypadStatusTitleBaselineOffsetFromTitle;
 + (double)_subTitleHeight;
-+ (double)pinKeypadStatusTitleBaselineOffsetIncludingSubtitle:(_Bool)arg1;
-+ (double)pinKeypadStatusTitleBaselineOffset:(_Bool)arg1;
 + (double)pinKeypadEntryFieldOffsetForSubtitle;
 + (id)pinKeypadStatusSubtitleViewTitleFont;
 + (id)pinKeypadStatusTitleViewTitleFont;
@@ -49,6 +51,7 @@
 + (double)pinNumberPadBottomPaddingHeight;
 + (double)pinNumberPadWidth;
 + (double)pinFixedDigitEntryFieldIndicatorPaddingWidth;
++ (double)pinFixedDigitEntryFieldIndicatorStrokeSize;
 + (double)pinFixedDigitEntryFieldIndicatorDiameter;
 
 @end

@@ -49,6 +49,7 @@
 + (id)_typesIncludingParentTypes:(id)arg1;
 + (id)_allTypesOfClass:(Class)arg1;
 + (id)_allDataTypeIdentifiers;
++ (void)_enumerateObjectTypesWithHandler:(CDUnknownBlockType)arg1;
 + (id)objectTypeForWorkoutMetric:(unsigned long long)arg1;
 + (_Bool)_allowAuthorizationForSharing:(_Bool)arg1 types:(id)arg2 entitlements:(id)arg3 disallowedTypes:(id)arg4;
 + (_Bool)_allowAuthorizationForReadingWithTypes:(id)arg1 entitlements:(id)arg2 disallowedTypes:(id)arg3;

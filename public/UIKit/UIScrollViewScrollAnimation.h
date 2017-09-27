@@ -6,6 +6,8 @@
 
 #import <UIKit/UIAnimation.h>
 
+@class CABasicAnimation;
+
 __attribute__((visibility("hidden")))
 @interface UIScrollViewScrollAnimation : UIAnimation
 {
@@ -13,9 +15,12 @@ __attribute__((visibility("hidden")))
     struct CGPoint _targetOffset;
     double _accuracy;
     _Bool _adjustsForContentOffsetDelta;
+    CABasicAnimation *_customAnimation;
 }
 
+- (void).cxx_destruct;
 - (void)dealloc;
+- (float)progressForFraction:(float)arg1;
 - (void)setProgress:(float)arg1;
 - (void)adjustForContentOffsetDelta:(struct CGPoint)arg1;
 

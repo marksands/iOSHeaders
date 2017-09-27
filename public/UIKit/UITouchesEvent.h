@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (id)_windowsAwaitingLatentSystemGestureNotificationDeliveredToEventWindow:(id)arg1;
 - (void)_windowNoLongerAwaitingSystemGestureNotification:(id)arg1;
 - (void)_addWindowAwaitingLatentSystemGestureNotification:(id)arg1 deliveredToEventWindow:(id)arg2;
+- (double)_initialTouchTimestampForWindow:(id)arg1;
 @property(readonly, nonatomic) double _initialTouchTimestamp;
 - (id)description;
 - (id)_cloneEvent;

@@ -13,6 +13,7 @@
     CDUnknownBlockType _eventHandler;
     CDUnknownBlockType _scannedCodeHandler;
     NSString *_titleMessage;
+    UIView *_containerView;
     UIButton *_cancelButton;
     UIButton *_pairManuallyButton;
     VPScannerView *_scannerView;
@@ -28,6 +29,7 @@
 @property(retain, nonatomic) VPScannerView *scannerView; // @synthesize scannerView=_scannerView;
 @property(retain, nonatomic) UIButton *pairManuallyButton; // @synthesize pairManuallyButton=_pairManuallyButton;
 @property(retain, nonatomic) UIButton *cancelButton; // @synthesize cancelButton=_cancelButton;
+@property(retain, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
 @property(copy, nonatomic) NSString *titleMessage; // @synthesize titleMessage=_titleMessage;
 @property(copy, nonatomic) CDUnknownBlockType scannedCodeHandler; // @synthesize scannedCodeHandler=_scannedCodeHandler;
 @property(copy, nonatomic) CDUnknownBlockType eventHandler; // @synthesize eventHandler=_eventHandler;

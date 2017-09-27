@@ -4,23 +4,23 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIView.h"
+#import <PassKitUI/PKPerformActionBackdropView.h>
 
 @class PKPass, PKPassSnapshotter, UIImageView;
 
-@interface PKPerformActionPassView : UIView
+@interface PKPerformActionPassView : PKPerformActionBackdropView
 {
     PKPass *_pass;
     PKPassSnapshotter *_snapshotter;
     UIImageView *_passView;
-    UIView *_backdropView;
 }
 
 - (void).cxx_destruct;
 - (struct CGSize)_passImageSize;
 - (void)_loadSnapshotView;
 - (void)_createSubviews;
-- (void)shakeCard;
+- (void)smallShakeImage;
+- (void)shakeImage;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (id)initWithPass:(id)arg1 frame:(struct CGRect)arg2;

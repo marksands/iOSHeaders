@@ -155,6 +155,7 @@
 - (void)_updateFilteredConversationLists;
 - (void)_updateConversationFilteredFlagsAndReportSpam;
 - (void)updateNoMessagesDialog;
+- (void)updateMarginWidth;
 - (void)updateConversationList;
 - (void)updateSMSSpamConversationsDisplayName;
 - (void)endHoldingConversationListUpdatesForKey:(id)arg1;

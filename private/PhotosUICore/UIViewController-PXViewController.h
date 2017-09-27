@@ -16,6 +16,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct UIEdgeInsets px_layoutMargins;
 @property(readonly, nonatomic) struct UIEdgeInsets px_safeAreaInsets;
 @property(readonly) Class superclass;
 @end

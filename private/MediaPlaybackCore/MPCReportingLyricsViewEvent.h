@@ -15,8 +15,10 @@
     double _visibleDuration;
     NSString *_featureName;
     NSData *_recommendationData;
+    long long _sourceType;
 }
 
+@property(nonatomic) long long sourceType; // @synthesize sourceType=_sourceType;
 @property(copy, nonatomic) NSData *recommendationData; // @synthesize recommendationData=_recommendationData;
 @property(copy, nonatomic) NSString *featureName; // @synthesize featureName=_featureName;
 @property(nonatomic) double visibleDuration; // @synthesize visibleDuration=_visibleDuration;

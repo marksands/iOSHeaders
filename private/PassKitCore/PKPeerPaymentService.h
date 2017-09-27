@@ -25,12 +25,15 @@
 - (void)unregisterDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)registerDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)downloadPassIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
+- (id)lastUsedAlternateFundingSourcePassUniqueIdentifier;
+- (void)setLastUsedAlternateFundingSourcePassUniqueIdentifier:(id)arg1;
 - (void)balanceForPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateMockAccountBalanceByAddingAmount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateMemo:(id)arg1 forTransactionWithIdentifier:(id)arg2;
 - (void)noteAccountDeleted;
 - (void)presentPeerPaymentTermsAndConditionsWithAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)presentRegistrationFlowWithAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)presentRegistrationFlowWithAccount:(id)arg1 amount:(id)arg2 state:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)presentIdentityVerificationFlowWithResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)registrationStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)resumeAccountChangedNotifications;
@@ -39,6 +42,7 @@
 - (void)updateAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (void)accountWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) PKPeerPaymentAccount *account;
+- (void)sharedPeerPaymentWebServiceContextWithCompletion:(CDUnknownBlockType)arg1;
 @property(retain, nonatomic) PKPeerPaymentWebServiceContext *sharedPeerPaymentWebServiceContext;
 - (void)dealloc;
 - (id)init;

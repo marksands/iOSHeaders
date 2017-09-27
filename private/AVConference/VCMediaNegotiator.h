@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 {
     _Bool _usePreNegotiation;
     _Bool _negotiationDone;
+    _Bool _isCellular16x9Capable;
     VCMediaNegotiatorLocalConfiguration *_localSettings;
     VCMediaNegotiatorResults *_negotiatedSettings;
     VCMediaNegotiatorAudioResults *_negotiatedAudioSettings;
@@ -44,7 +45,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)processParameterSets:(id)arg1 videoResults:(id)arg2;
 - (void)negotiateRTCPFB:(id)arg1;
 - (_Bool)selectBestVideoRuleForTransport:(unsigned char)arg1 payload:(int)arg2 encodingType:(unsigned char)arg3 localVideoRuleCollection:(id)arg4 remoteVideoSettings:(id)arg5 negotiatedVideoSettings:(id)arg6 isScreen:(_Bool)arg7;
-- (id)negotiateVideoMaxResolutionWithLocalRules:(id)arg1 remoteRules:(id)arg2;
+- (id)negotiateVideoMaxResolutionWithEncodeRules:(id)arg1 decodeRules:(id)arg2 isEncoder:(_Bool)arg3;
 - (id)getPreferredVideoPayloadList:(id)arg1;
 - (id)selectVideoFeatureString:(id)arg1 selectedPayload:(int)arg2;
 - (_Bool)setupAudioWithNegotiatedSettings:(id)arg1;
@@ -67,6 +68,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)processInviteBlob:(id)arg1;
 - (id)newInviteBlob;
 - (void)dealloc;
+- (_Bool)isCellular16x9EncodeCapable;
 @property(readonly, nonatomic) _Bool isCaller;
 - (id)initWithLocalSettings:(id)arg1;
 

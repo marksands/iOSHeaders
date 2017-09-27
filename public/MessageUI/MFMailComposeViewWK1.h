@@ -32,7 +32,6 @@
 - (id)_textView;
 - (void)_revealSelectionIfNeededWithChangingView:(id)arg1;
 - (void)_cancelAnimations;
-- (void)layoutMarginsDidChange;
 - (void)resetContentSize;
 - (void)_updateTextViewHeightWithHeaderFrame:(struct CGRect)arg1;
 - (void)_updateTextViewOriginWithHeaderFrame:(struct CGRect)arg1;

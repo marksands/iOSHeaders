@@ -15,7 +15,7 @@
 
 + (id)deviceWithDescriptor:(id)arg1 error:(id *)arg2;
 + (_Bool)isIdentityEnrolled;
-@property(readonly, nonatomic) BKDeviceDescriptor *descriptor; // @synthesize descriptor=_descriptor;
+@property(retain, nonatomic) BKDeviceDescriptor *descriptor; // @synthesize descriptor=_descriptor;
 - (void).cxx_destruct;
 - (_Bool)biometryAvailability:(long long *)arg1 forUser:(unsigned int)arg2 error:(id *)arg3;
 - (id)freeIdentityCountForUser:(unsigned int)arg1 error:(id *)arg2;

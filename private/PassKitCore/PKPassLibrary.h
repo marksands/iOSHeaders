@@ -70,6 +70,7 @@
 - (_Bool)_hasRemoteLibrary;
 - (_Bool)isPaymentPassActivationAvailable;
 - (id)_defaultPaymentPassForPaymentRequest:(id)arg1;
+- (id)_sortedPaymentPassesForPaymentRequest:(id)arg1;
 - (id)expressFelicaTransitPasses;
 - (id)defaultPaymentPasses;
 - (_Bool)resetSettingsForPass:(id)arg1;

@@ -12,7 +12,7 @@
 #import "_TVModalPresenterFocusing.h"
 #import "_TVPagePerformanceDelegate.h"
 
-@class CABackdropLayer, IKAppDocument, NSArray, NSString, TVMediaQueryEvaluator, UITapGestureRecognizer, UIView, _TVPagePerformanceController;
+@class IKAppDocument, NSArray, NSString, TVMediaQueryEvaluator, UITapGestureRecognizer, UIView, _TVPagePerformanceController;
 
 @interface _TVAppDocumentController : UIViewController <_TVIKAppDocumentDelegate, UIGestureRecognizerDelegate, _TVModalPresenterFocusing, _TVPagePerformanceDelegate, UIPopoverPresentationControllerDelegate>
 {
@@ -24,22 +24,20 @@
     _Bool _dismissAppOnMenu;
     _Bool _applicationDeactivatedOnMenu;
     _Bool _transitioning;
-    _Bool _backdropLayerNeeded;
+    _Bool _visualEffectDisablementNeeded;
     IKAppDocument *_appDocument;
     id <_TVAppDocumentControllerDelegate> _delegate;
     UIViewController *_templateViewController;
     CDUnknownBlockType _menuGestureHandler;
     TVMediaQueryEvaluator *_mediaQueryEvaluator;
     UITapGestureRecognizer *_menuGestureRecognizer;
-    CABackdropLayer *_backdropLayer;
     _TVPagePerformanceController *_pagePerformance;
     UIView *_pagePerformanceView;
 }
 
 @property(retain, nonatomic) UIView *pagePerformanceView; // @synthesize pagePerformanceView=_pagePerformanceView;
 @property(retain, nonatomic) _TVPagePerformanceController *pagePerformance; // @synthesize pagePerformance=_pagePerformance;
-@property(nonatomic, getter=isBackdropLayerNeeded) _Bool backdropLayerNeeded; // @synthesize backdropLayerNeeded=_backdropLayerNeeded;
-@property(nonatomic) __weak CABackdropLayer *backdropLayer; // @synthesize backdropLayer=_backdropLayer;
+@property(nonatomic, getter=isVisualEffectDisablementNeeded) _Bool visualEffectDisablementNeeded; // @synthesize visualEffectDisablementNeeded=_visualEffectDisablementNeeded;
 @property(nonatomic) __weak UITapGestureRecognizer *menuGestureRecognizer; // @synthesize menuGestureRecognizer=_menuGestureRecognizer;
 @property(nonatomic, getter=isTransitioning) _Bool transitioning; // @synthesize transitioning=_transitioning;
 @property(retain, nonatomic) TVMediaQueryEvaluator *mediaQueryEvaluator; // @synthesize mediaQueryEvaluator=_mediaQueryEvaluator;
@@ -80,6 +78,7 @@
 - (unsigned long long)supportedInterfaceOrientations;
 - (id)customAnimatorForNavigationControllerOperation:(long long)arg1 toViewController:(id)arg2;
 - (id)customAnimatorForNavigationControllerOperation:(long long)arg1 fromViewController:(id)arg2;
+- (id)childViewControllerForHomeIndicatorAutoHidden;
 - (long long)preferredStatusBarStyle;
 - (void)viewDidLayoutSubviews;
 - (void)didMoveToParentViewController:(id)arg1;

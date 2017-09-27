@@ -22,6 +22,7 @@
 
 + (id)localTargetDevice;
 - (void).cxx_destruct;
+- (_Bool)paymentWebServiceSupportsPeerPaymentRegistration:(id)arg1;
 - (_Bool)supportsExpressModeForExpressPassType:(long long)arg1;
 - (_Bool)felicaSecureElementIsAvailable;
 - (void)paymentWebService:(id)arg1 validateTransferPreconditionsWithCompletion:(CDUnknownBlockType)arg2;

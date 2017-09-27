@@ -44,7 +44,6 @@
 - (id)configuredNextActionViewController;
 - (void)explanationViewDidSelectSetupLater:(id)arg1;
 - (void)explanationViewDidSelectContinue:(id)arg1;
-- (_Bool)_isJapaneseRegion;
 - (id)_bodyText;
 - (id)_associatedCredentialsForDefaultBehaviour;
 - (void)_pushNextActionViewController:(id)arg1 ontoNavigationController:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;

@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class NSData, NSDate, NSNumber, NSString;
 
-@interface SFAppleIDValidationRecord : NSObject
+@interface SFAppleIDValidationRecord : NSObject <NSSecureCoding>
 {
     NSData *_data;
     NSString *_identifier;

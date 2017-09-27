@@ -8,7 +8,7 @@
 
 #import "EKUIAccountRefresherDelegate.h"
 
-@class EKCalendar, EKEventStore, EKSource, EKUIAccountRefresher, NSIndexPath, NSMutableArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, UIBarButtonItem, UIRefreshControl, UITableView, UIToolbar, _UIAccessDeniedView;
+@class EKCalendar, EKEventStore, EKSource, EKUIAccountRefresher, NSIndexPath, NSMutableArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, UIBarButtonItem, UIRefreshControl, UITableView, _UIAccessDeniedView;
 
 @interface EKCalendarChooser : UIViewController <EKUIAccountRefresherDelegate>
 {
@@ -18,8 +18,8 @@
     _Bool _showsDeclinedEventsSetting;
     _Bool _showDefaultCalendarExplanatoryText;
     _Bool _showAccountStatus;
-    _Bool _allowsEdit;
     _Bool _showDetailAccessories;
+    _Bool _allowsEdit;
     CDStruct_424d6339 _flags;
     int _chooserMode;
     long long _style;
@@ -29,7 +29,6 @@
     long long _lastAuthorizationStatus;
     EKEventStore *_eventStore;
     UITableView *_tableView;
-    UIToolbar *_footerToolbar;
     UIBarButtonItem *_showAllButton;
     NSMutableArray *_groups;
     NSMutableDictionary *_storeGroupMap;
@@ -45,8 +44,8 @@
 + (_Bool)groups:(id)arg1 differStructurallyFromGroups:(id)arg2;
 + (id)hideAllString;
 + (id)showAllString;
-@property(nonatomic) _Bool showDetailAccessories; // @synthesize showDetailAccessories=_showDetailAccessories;
 @property(nonatomic) _Bool allowsEdit; // @synthesize allowsEdit=_allowsEdit;
+@property(nonatomic) _Bool showDetailAccessories; // @synthesize showDetailAccessories=_showDetailAccessories;
 @property(nonatomic) _Bool showAccountStatus; // @synthesize showAccountStatus=_showAccountStatus;
 @property(nonatomic) _Bool showDefaultCalendarExplanatoryText; // @synthesize showDefaultCalendarExplanatoryText=_showDefaultCalendarExplanatoryText;
 @property(nonatomic) _Bool showsDeclinedEventsSetting; // @synthesize showsDeclinedEventsSetting=_showsDeclinedEventsSetting;
@@ -62,7 +61,6 @@
 @property(retain, nonatomic) NSMutableDictionary *storeGroupMap; // @synthesize storeGroupMap=_storeGroupMap;
 @property(retain, nonatomic) NSMutableArray *groups; // @synthesize groups=_groups;
 @property(retain, nonatomic) UIBarButtonItem *showAllButton; // @synthesize showAllButton=_showAllButton;
-@property(retain, nonatomic) UIToolbar *footerToolbar; // @synthesize footerToolbar=_footerToolbar;
 @property(retain, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 @property(retain, nonatomic) EKEventStore *eventStore; // @synthesize eventStore=_eventStore;
 @property(nonatomic) long long lastAuthorizationStatus; // @synthesize lastAuthorizationStatus=_lastAuthorizationStatus;

@@ -39,7 +39,10 @@
 - (void)handleHomeButtonPressed;
 - (void)setUserInfo:(id)arg1;
 - (void)_willAppearInRemoteViewController;
+- (void)configureWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (unsigned long long)supportedInterfaceOrientations;
+- (long long)preferredStatusBarStyle;
+- (_Bool)prefersStatusBarHidden;
 - (_Bool)shouldAutorotate;
 - (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
 - (void)viewDidAppear:(_Bool)arg1;

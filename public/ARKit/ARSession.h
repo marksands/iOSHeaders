@@ -23,6 +23,7 @@
     NSMutableSet *_anchorsToRemove;
     _Bool _sessionOriginUpdated;
     _Bool _worldOriginInitialized;
+    _Bool _worldOriginReset;
     NSHashTable *_observers;
     NSObject<OS_dispatch_semaphore> *_observersSemaphore;
     id _thermalStateObserver;

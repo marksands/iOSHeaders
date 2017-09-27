@@ -10,7 +10,7 @@
 #import "NSMutableCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSDictionary, NSString, NSURL, RadioArtworkCollection, RadioStation;
+@class NSDictionary, NSString, NSURL, RadioArtworkCollection;
 
 @interface MPCRadioStationPlaybackMetadata : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
 {
@@ -20,8 +20,6 @@
     _Bool _hasSetStationID;
     _Bool _hasSetStationName;
     _Bool _hasSetStationStringID;
-    _Bool _hasValidRadioStation;
-    RadioStation *_station;
     NSString *_stationHash;
     long long _stationID;
     NSString *_stationName;
@@ -31,17 +29,15 @@
 
 + (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) NSURL *stationURL; // @synthesize stationURL=_stationURL;
-@property(readonly, nonatomic) RadioStation *station; // @synthesize station=_station;
+@property(readonly, copy, nonatomic) NSString *stationStringID; // @synthesize stationStringID=_stationStringID;
+@property(readonly, nonatomic) long long stationID; // @synthesize stationID=_stationID;
+@property(readonly, copy, nonatomic) NSString *stationHash; // @synthesize stationHash=_stationHash;
+@property(readonly, copy, nonatomic) NSString *stationName; // @synthesize stationName=_stationName;
+@property(readonly, nonatomic) RadioArtworkCollection *artworkCollection; // @synthesize artworkCollection=_artworkCollection;
 - (void).cxx_destruct;
-- (id)_station;
 - (id)_copyWithZone:(struct _NSZone *)arg1 class:(Class)arg2;
 - (_Bool)isEffectivelyEqualStationWithPlaybackMetadata:(id)arg1;
-@property(readonly, copy, nonatomic) NSString *stationStringID;
-@property(readonly, copy, nonatomic) NSString *stationName;
-@property(readonly, nonatomic) long long stationID;
-@property(readonly, copy, nonatomic) NSString *stationHash;
 @property(readonly, copy, nonatomic) NSDictionary *stationDictionary;
-@property(readonly, nonatomic) RadioArtworkCollection *artworkCollection;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
@@ -50,7 +46,6 @@
 - (unsigned long long)hash;
 - (id)description;
 - (id)initWithStationStringID:(id)arg1;
-- (id)initWithStation:(id)arg1;
 
 @end
 

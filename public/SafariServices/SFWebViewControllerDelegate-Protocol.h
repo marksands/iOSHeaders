@@ -9,6 +9,9 @@
 @class NSArray, NSError, NSURL, NSURLAuthenticationChallenge, SFWebViewController, UIViewController, WKBackForwardListItem, WKNavigation, WKNavigationAction, WKNavigationResponse, WKWebView, WKWebViewConfiguration, _WKActivatedElementInfo, _WKFrameHandle;
 
 @protocol SFWebViewControllerDelegate <NSObject>
+- (void)webViewControllerWillAuthenticateForAutoFill:(SFWebViewController *)arg1;
+- (_Bool)currentLoadIsEligibleForAutoFillAuthenticationForWebViewController:(SFWebViewController *)arg1;
+- (unsigned long long)browserPersonaForWebViewController:(SFWebViewController *)arg1;
 - (void)webViewControllerDidChangeSafeAreaShouldAffectObscuredInsets:(SFWebViewController *)arg1;
 - (void)webViewControllerDidChangeSafeAreaInsets:(SFWebViewController *)arg1;
 - (void)webViewController:(SFWebViewController *)arg1 printFrame:(_WKFrameHandle *)arg2;
@@ -36,7 +39,8 @@
 - (void)webViewController:(SFWebViewController *)arg1 didFinishDocumentLoadForNavigation:(WKNavigation *)arg2;
 - (void)webViewController:(SFWebViewController *)arg1 didFinishNavigation:(WKNavigation *)arg2;
 - (void)webViewController:(SFWebViewController *)arg1 didCommitNavigation:(WKNavigation *)arg2;
-- (void)webViewController:(SFWebViewController *)arg1 didPerformClientRedirectForNavigation:(WKNavigation *)arg2;
+- (void)webViewControllerDidCancelClientRedirect:(SFWebViewController *)arg1;
+- (void)webViewController:(SFWebViewController *)arg1 willPerformClientRedirectToURL:(NSURL *)arg2 withDelay:(double)arg3;
 - (void)webViewController:(SFWebViewController *)arg1 didReceiveServerRedirectForProvisionalNavigation:(WKNavigation *)arg2;
 - (void)webViewController:(SFWebViewController *)arg1 didStartProvisionalNavigation:(WKNavigation *)arg2;
 @end

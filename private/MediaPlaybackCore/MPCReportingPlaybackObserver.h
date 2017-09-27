@@ -51,6 +51,7 @@
 - (void)_itemReportingJingleTimedMetadataDidChangeNotification:(id)arg1;
 - (void)willTransitionItemForBan:(id)arg1;
 - (void)willHitPlaybackTimeoutEndingPlayback:(_Bool)arg1 withCurrentItem:(id)arg2;
+- (void)recordUserSeekFromTime:(double)arg1 toTime:(double)arg2 forItem:(id)arg3;
 - (void)recordPlayActivityEvents:(id)arg1 forEventSource:(id)arg2;
 - (void)didTransitionItemForBan:(id)arg1;
 - (void)didHitPlaybackTimeoutEndingPlayback:(_Bool)arg1 withCurrentItem:(id)arg2;

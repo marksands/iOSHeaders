@@ -6,17 +6,21 @@
 
 #import <PassKitCore/PKPeerPaymentWebServiceResponse.h>
 
-@class NSString;
+@class PKPeerPaymentRequestToken;
 
 @interface PKPeerPaymentRequestTokenResponse : PKPeerPaymentWebServiceResponse
 {
     _Bool _success;
-    NSString *_requestToken;
+    PKPeerPaymentRequestToken *_requestToken;
 }
 
-@property(readonly, copy, nonatomic) NSString *requestToken; // @synthesize requestToken=_requestToken;
++ (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) PKPeerPaymentRequestToken *requestToken; // @synthesize requestToken=_requestToken;
 @property(readonly, nonatomic) _Bool success; // @synthesize success=_success;
 - (void).cxx_destruct;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithData:(id)arg1 deviceScoreIdentifier:(id)arg2;
 - (id)initWithData:(id)arg1;
 
 @end

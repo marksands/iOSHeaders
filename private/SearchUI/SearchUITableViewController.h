@@ -75,6 +75,7 @@
 - (void)updateWithTableModel:(id)arg1;
 @property(nonatomic) unsigned long long style;
 - (void)updateLayoutMarginsForOrientation:(long long)arg1;
+- (void)viewSafeAreaInsetsDidChange;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (id)init;
 

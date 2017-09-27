@@ -77,6 +77,7 @@
 - (_Bool)canReorder;
 - (id)audioSessionModeForItemAtIndex:(unsigned long long)arg1;
 - (_Bool)allowsUserVisibleUpcomingItems;
+- (_Bool)allowsQueueResetWhenReachingEnd;
 - (void)dealloc;
 - (id)init;
 

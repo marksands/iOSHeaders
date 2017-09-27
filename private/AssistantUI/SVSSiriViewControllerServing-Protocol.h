@@ -8,7 +8,7 @@
 #import "AFUISpeechSynthesisDelegate.h"
 #import "NSObject.h"
 
-@class AFUIRequestOptions, NSDictionary, NSString, NSValue;
+@class AFUIRequestOptions, NSDictionary, NSNumber, NSString, NSValue;
 
 @protocol SVSSiriViewControllerServing <NSObject, AFUISiriSessionDelegate, AFUISpeechSynthesisDelegate>
 - (void)hostApplicationDidBecomeActive;
@@ -34,6 +34,7 @@
 - (void)setRequestOptions:(AFUIRequestOptions *)arg1;
 - (void)siriDidActivateFromSource:(long long)arg1;
 - (void)siriWillActivateFromSource:(long long)arg1;
+- (void)setStatusViewHeightNumber:(NSNumber *)arg1;
 - (void)setStatusBarFrameValue:(NSValue *)arg1;
 - (void)setHostFrontMostAppOrientation:(long long)arg1;
 @end

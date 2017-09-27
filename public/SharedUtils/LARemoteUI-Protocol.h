@@ -13,6 +13,6 @@
 @optional
 - (void)transitionToController:(long long)arg1 internalInfo:(NSDictionary *)arg2 completionHandler:(void (^)(void))arg3;
 - (void)dismissRemoteUIWithCompletionHandler:(void (^)(void))arg1;
-- (void)mechanismEvent:(long long)arg1;
+- (void)mechanismEvent:(long long)arg1 reply:(void (^)(void))arg2;
 @end
 

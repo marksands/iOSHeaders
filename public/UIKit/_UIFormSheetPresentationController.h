@@ -25,6 +25,7 @@
 - (void)containerViewDidLayoutSubviews;
 - (void)containerViewWillLayoutSubviews;
 - (_Bool)shouldSubscribeToKeyboardNotifications;
+- (id)dropShadowView;
 - (id)presentedView;
 - (_Bool)_shouldHideBottomCorner;
 - (double)_dropShadowCornerRadius;

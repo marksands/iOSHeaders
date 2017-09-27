@@ -86,6 +86,11 @@
 - (double)contentScaleFactor;
 - (void)setContentsRect:(struct CGRect)arg1;
 - (id)_displayedImage;
+- (id)_fallbackImageWithOriginalSize:(struct CGSize)arg1;
+- (_Bool)_needsFallbackImageForBackdropGeneratedImage:(id)arg1;
+@property(readonly, copy, nonatomic) NSString *variantCacheIdentifier;
+@property(readonly, copy, nonatomic) NSString *cacheGroup;
+- (id)_cacheKeyForParameters:(CDStruct_83077358)arg1 includingTint:(_Bool)arg2;
 - (id)_imageForBackdropParameters:(CDStruct_83077358)arg1 includeTint:(_Bool)arg2;
 - (id)_blurredImage;
 - (void)_stopGeneratingBlurredImages;

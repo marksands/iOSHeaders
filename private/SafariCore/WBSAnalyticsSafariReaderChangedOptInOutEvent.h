@@ -15,6 +15,7 @@
     CDStruct_399b966a _has;
 }
 
+@property(nonatomic) int action; // @synthesize action=_action;
 @property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -25,10 +26,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (int)StringAsAction:(id)arg1;
-- (id)actionAsString:(int)arg1;
 @property(nonatomic) _Bool hasAction;
-@property(nonatomic) int action; // @synthesize action=_action;
 @property(nonatomic) _Bool hasTimestamp;
 
 @end

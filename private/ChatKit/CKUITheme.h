@@ -65,6 +65,7 @@
 @property(readonly, nonatomic) UIColor *recipientsDividerColor;
 @property(readonly, nonatomic) long long detailsBackgroundBlurEffectStyle;
 @property(readonly, nonatomic) UIColor *detailsBackgroundColor;
+@property(readonly, nonatomic) UIColor *appStripCoverFillColor;
 @property(readonly, nonatomic) UIColor *entryFieldAudioRecordingBalloonColor;
 @property(readonly, nonatomic) UIColor *entryFieldDarkTextColor;
 @property(readonly, nonatomic) UIColor *entryFieldTextColor;
@@ -197,6 +198,7 @@
 @property(readonly, nonatomic) UIColor *conversationListBackgroundColor;
 @property(readonly, nonatomic) CNContactStyle *contactStyle;
 @property(readonly, nonatomic) long long scrollIndicatorStyle;
+@property(readonly, nonatomic) long long appManagerStatusBarStyle;
 @property(readonly, nonatomic) long long businessStatusBarStyle;
 @property(readonly, nonatomic) long long statusBarStyle;
 @property(readonly, nonatomic) long long defaultBarStyle;

@@ -147,6 +147,7 @@
 - (double)_interpolatedBottomBarHeightWithProposedHeight:(double)arg1;
 - (void)_layoutBarExtensionViews;
 - (_Bool)_isAdjustingTopBarOrientationForLayoutStyle:(long long)arg1;
+- (void)_topBarForLayoutForLayoutStyle:(long long)arg1 shouldAdjustTopBarOrientation:(_Bool)arg2 bounds:(struct CGRect *)arg3 center:(struct CGPoint *)arg4 transform:(struct CGAffineTransform *)arg5;
 - (void)_layoutTopBarForLayoutStyle:(long long)arg1;
 - (struct CGSize)_topBarSizeForLayoutStyle:(long long)arg1;
 - (double)_interpolatedTopBarHeight;

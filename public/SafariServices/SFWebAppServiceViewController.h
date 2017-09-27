@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)_loadNextFallbackURL;
 - (void)_loadWebClipPageURL:(id)arg1;
 - (void)loadWebAppWithIdentifier:(id)arg1;
+- (unsigned long long)_persona;
 - (void)_initialLoadFinishedWithSuccess:(_Bool)arg1;
 - (id)processPool;
 - (_Bool)_usesScrollToTopView;

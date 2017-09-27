@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)convertData:(const CDStruct_121c720f *)arg1 fromReferenceData:(id)arg2;
++ (id)convertData:(const CDStruct_8a690d05 *)arg1 fromReferenceData:(id)arg2;
 
 @end
 

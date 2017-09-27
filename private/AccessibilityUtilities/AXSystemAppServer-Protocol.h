@@ -28,5 +28,8 @@
 - (long long)activeInterfaceOrientation;
 - (void)pid:(void (^)(int))arg1;
 - (int)pid;
+
+@optional
+- (_Bool)isPasscodeLockVisible;
 @end
 

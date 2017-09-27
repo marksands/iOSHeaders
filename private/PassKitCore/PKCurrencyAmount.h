@@ -23,6 +23,7 @@
 - (void).cxx_destruct;
 - (id)negativeValue;
 - (id)absoluteValue;
+- (id)minimalFormattedStringValueInLocale:(id)arg1;
 - (id)minimalFormattedStringValue;
 - (id)formattedStringValue;
 - (id)description;

@@ -18,17 +18,24 @@
     _UIClickFeedbackGenerator *_feedbackGenerator;
     _Bool _interactive;
     long long _state;
+    double _pressedDownTimestamp;
     _UIPreviewInteractionHighlighter *_interactionEffect;
+    _Bool _latching;
+    _Bool _selected;
     UIView *view;
     id <UIClickInteractionDelegate> _delegate;
 }
 
+@property(nonatomic, getter=isSelected) _Bool selected; // @synthesize selected=_selected;
+@property(nonatomic, getter=isLatching) _Bool latching; // @synthesize latching=_latching;
 @property(nonatomic) __weak id <UIClickInteractionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) __weak UIView *view; // @synthesize view;
 - (void).cxx_destruct;
+- (_Bool)_shouldCancelInteractionForPressDownTimer;
 - (void)_handleTouchForceGestureRecognizer:(id)arg1;
 - (void)_updateInteractionForGestureRecognizer:(id)arg1;
 - (void)_endInteractionIfNeeded;
+- (void)_createFeedbackGenerator;
 - (void)_prepareForInteraction;
 - (void)didMoveToView:(id)arg1;
 - (void)willMoveToView:(id)arg1;

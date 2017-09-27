@@ -25,6 +25,7 @@
     UIView *_volumeWarningView;
     _Bool _volumeWarningBlinking;
     UIImage *_volumeWarningTrackImage;
+    _Bool _userWasBlocked;
     MPAVRoutingController *_routingController;
     UILayoutGuide *_trackLayoutGuide;
     struct UIEdgeInsets _hitRectInsets;
@@ -73,6 +74,7 @@
 - (void)_endTracking;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (struct CGRect)trackRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)thumbRectForBounds:(struct CGRect)arg1 trackRect:(struct CGRect)arg2 value:(float)arg3;

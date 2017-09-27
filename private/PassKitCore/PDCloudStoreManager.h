@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CKContainer, NSMutableDictionary, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, PKPeerPaymentAccount;
+@class CKContainer, NSMutableDictionary, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, PKPaymentTransactionProcessor, PKPeerPaymentAccount;
 
 @interface PDCloudStoreManager : NSObject
 {
@@ -15,6 +15,7 @@
     NSMutableDictionary *_subscriptionsByIdentifier;
     NSMutableDictionary *_zonesByName;
     NSMutableDictionary *_changeTokensByZoneID;
+    PKPaymentTransactionProcessor *_transactionProcessor;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_source> *_retryTimer;
     NSObject<OS_dispatch_group> *_batchUpdateGroup;
@@ -52,6 +53,7 @@
 - (id)_zoneForCloudStoreCodingItemClass:(Class)arg1;
 - (void)_modifyRecordsOperationWithRecordsToSave:(id)arg1 recordIDsToDelete:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_cloudStoreAccountInformationWithCompletion:(CDUnknownBlockType)arg1;
+- (id)_originDeviceIDForCloudStoreRecord:(id)arg1;
 - (id)_passUniqueIdentifierForCloudStoreRecord:(id)arg1;
 - (_Bool)_canFormTransactionFromCloudStoreRecord:(id)arg1;
 - (id)_parseRecords:(id)arg1 shouldUpdateLocalDatabase:(_Bool)arg2;
@@ -71,13 +73,16 @@
 - (void)_setContainerState:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_setContainerState:(unsigned long long)arg1;
 - (_Bool)_ensureState:(unsigned long long)arg1;
-- (void)_detachFromContainer;
+- (void)_detachFromContainerWithState:(unsigned long long)arg1;
 - (void)_attachToContainer;
+- (void)_peerPaymentAccountChanged:(id)arg1;
 - (void)_cloudStoreAccountChanged:(id)arg1;
+- (void)invalidateCloudStore;
 - (id)cloudStoreSpecificKeysForItem:(id)arg1;
 - (void)initialCloudDatabaseSetupWithCompletion:(CDUnknownBlockType)arg1;
-- (void)fetchAndStoreRecordsForPaymentPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)fetchAndStoreRecordsForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAndStoreChangesWithForceFetch:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)insertOrUpdatePaymentTransaction:(id)arg1 withOriginDeviceID:(id)arg2 forPassUniqueIdentifier:(id)arg3 paymentApplication:(id)arg4 withInsertionMode:(unsigned long long)arg5 performTruncation:(_Bool)arg6;
 - (void)fetchAndStoreChangesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)removeItemsWithRecordNames:(id)arg1 itemClass:(Class)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)updateCloudStoreWithLocalItems:(id)arg1 recordSpecificKeys:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -86,8 +91,7 @@
 - (void)resetContainerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)simulateCloudStorePushWithCompletion:(CDUnknownBlockType)arg1;
 - (void)allItemsOfClassType:(Class)arg1 storeLocally:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)initWithDataSource:(id)arg1;
-- (id)init;
+- (id)initWithDataSource:(id)arg1 transactionProcessor:(id)arg2;
 
 @end
 

@@ -22,6 +22,7 @@
 @property(readonly, nonatomic) _Bool hasUserGeneratedVibrationsCapability;
 @property(readonly, nonatomic) _Bool hasSynchronizedVibrationsCapability;
 @property(readonly, nonatomic) _Bool hasVibratorCapability;
+@property(readonly, nonatomic) _Bool wantsModernDefaultRingtone;
 @property(readonly, nonatomic, getter=isAlertToneStoreAvailable) _Bool alertToneStoreAvailable;
 @property(readonly, nonatomic, getter=isRingtoneStoreAvailable) _Bool ringtoneStoreAvailable;
 - (void)_handleStoreAvailableItemKindsChangedNotification:(id)arg1;

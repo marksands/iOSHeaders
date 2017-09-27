@@ -8,8 +8,10 @@
 
 @interface BKMatchPearlOperation : BKMatchOperation
 {
+    _Bool _longTimeout;
 }
 
+@property(nonatomic) _Bool longTimeout; // @synthesize longTimeout=_longTimeout;
 - (_Bool)startNewMatchAttemptWithError:(id *)arg1;
 
 // Remaining properties

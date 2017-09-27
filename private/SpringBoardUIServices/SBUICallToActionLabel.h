@@ -34,9 +34,8 @@
 - (void)animationDidStart:(id)arg1;
 - (void)_executePostAnimationCompletionBlocks;
 - (void)_addAnimationCompletionBlockIfNecessary:(CDUnknownBlockType)arg1;
-- (void)_fadeInImmediately:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_resetGradientAndLabelBefore:(_Bool)arg1;
-- (void)_runFadeAnimationForFadingOut:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_runFadeAnimationForFadingOut:(_Bool)arg1 duration:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_actuallyRunGradientAnimation;
 - (void)_timerTriggered;
 - (void)_invalidateGradientAnimationTimer;
@@ -51,7 +50,9 @@
 - (void)setText:(id)arg1 forLanguage:(id)arg2 animated:(_Bool)arg3;
 - (void)setVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)cancelFadeInTimerIfNecessary;
+- (void)fadeOutWithDuration:(double)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fadeOut;
+- (void)fadeInImmediately:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fadeInImmediately:(_Bool)arg1;
 - (void)fadeIn;
 - (double)baselineOffset;

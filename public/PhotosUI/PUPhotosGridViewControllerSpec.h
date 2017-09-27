@@ -19,8 +19,12 @@
     PUAlbumPickerViewControllerSpec *_albumPickerViewControllerSpec;
     long long _layoutVariant;
     struct CGSize _baseInterItemSpacing;
+    struct UIEdgeInsets _safeAreaInsets;
+    struct UIEdgeInsets _layoutMargins;
 }
 
+@property(readonly, nonatomic) struct UIEdgeInsets layoutMargins; // @synthesize layoutMargins=_layoutMargins;
+@property(nonatomic) struct UIEdgeInsets safeAreaInsets; // @synthesize safeAreaInsets=_safeAreaInsets;
 @property(readonly, nonatomic) long long layoutVariant; // @synthesize layoutVariant=_layoutVariant;
 @property(readonly, nonatomic) PUAlbumPickerViewControllerSpec *albumPickerViewControllerSpec; // @synthesize albumPickerViewControllerSpec=_albumPickerViewControllerSpec;
 @property(readonly, nonatomic) PUPhotosPickerViewControllerSpec *photosPickerViewControllerSpec; // @synthesize photosPickerViewControllerSpec=_photosPickerViewControllerSpec;
@@ -31,6 +35,8 @@
 @property(readonly, nonatomic) _Bool canDisplayOptionsInPopover; // @synthesize canDisplayOptionsInPopover=_canDisplayOptionsInPopover;
 @property(readonly, nonatomic) struct CGSize baseInterItemSpacing; // @synthesize baseInterItemSpacing=_baseInterItemSpacing;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) struct UIEdgeInsets gridContentInsets;
+@property(readonly, nonatomic) struct UIEdgeInsets sectionHeaderInsets;
 @property(readonly, nonatomic) long long sectionHeaderStyle;
 @property(readonly, nonatomic) double sectionHeaderHeight;
 @property(readonly, nonatomic) long long forceLoadInitialSectionCount;

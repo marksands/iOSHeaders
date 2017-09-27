@@ -247,7 +247,7 @@
 - (double)_rightMarginWidth;
 - (void)_setMarginWidth:(double)arg1;
 - (double)_marginWidth;
-- (double)_imageViewTrailingX;
+- (double)_imageViewExtentFromCellLeadingEdge;
 - (_Bool)_shouldApplyReadableWidthInsets;
 - (struct UIEdgeInsets)_effectiveSafeAreaInsets;
 - (_Bool)_insetsContentViewsToSafeArea;

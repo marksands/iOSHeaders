@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)zero;
++ (id)epsilon;
 + (id)valueWithCGColor:(struct CGColor *)arg1;
 + (id)valueWithUIColor:(id)arg1;
 @property(readonly, copy) NSString *debugDescription;
@@ -31,7 +32,9 @@ __attribute__((visibility("hidden")))
 - (id)getNSValue;
 - (id)getValue;
 - (_Bool)isUndefined;
+- (_Bool)isApproximatelyEqualTo:(id)arg1 withinEpsilon:(id)arg2;
 - (_Bool)isApproximatelyEqualTo:(id)arg1;
+- (id)multiplyByVector:(id)arg1;
 - (id)multiplyByScalar:(double)arg1;
 - (id)addVector:(id)arg1;
 - (void)integrateWithVelocity:(id)arg1 target:(id)arg2 intermediateTarget:(id)arg3 intermediateTargetVelocity:(id)arg4 parameters:(CDStruct_9e265dec)arg5 state:(CDStruct_289c5ec3)arg6 delta:(double)arg7;
@@ -39,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (void)reinitWithVector:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithDecomposedColor:(CDStruct_d2b197d1)arg1 epsilon:(double)arg2;
+- (id)initWithDecomposedColor:(CDStruct_d2b197d1)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *description;

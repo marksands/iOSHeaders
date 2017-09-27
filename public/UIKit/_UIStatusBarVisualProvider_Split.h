@@ -8,83 +8,68 @@
 
 #import "_UIStatusBarVisualProvider.h"
 
-@class NSArray, NSLayoutConstraint, NSMutableSet, NSString, NSTimer, UILayoutGuide, UIVisualEffectView, _UIStatusBar, _UIStatusBarDismisser, _UIStatusBarDisplayItemPlacement, _UIStatusBarStyleAttributes;
+@class NSDictionary, NSLayoutConstraint, NSString, NSTimer, UILayoutGuide, _UIStatusBar, _UIStatusBarDisplayItemPlacement, _UIStatusBarStyleAttributes;
 
 __attribute__((visibility("hidden")))
 @interface _UIStatusBarVisualProvider_Split : NSObject <_UIStatusBarVisualProvider>
 {
-    _Bool _defaultAnimationsEnabled;
     _Bool _expanded;
     _UIStatusBar *_statusBar;
+    NSDictionary *_orderedDisplayItemPlacements;
+    _UIStatusBarDisplayItemPlacement *_serviceNamePlacement;
+    _UIStatusBarDisplayItemPlacement *_pillIconPlacement;
+    _UIStatusBarDisplayItemPlacement *_batteryChargingPlacement;
     UILayoutGuide *_cutoutLayoutGuide;
     UILayoutGuide *_mainRegionsLayoutGuide;
-    NSArray *_collapsedConstraints;
-    NSArray *_expandedConstraints;
     NSLayoutConstraint *_leadingBottomConstraint;
-    _UIStatusBarDisplayItemPlacement *_serviceNamePlacement;
     NSTimer *_pillTimer;
     NSTimer *_systemUpdatesTimer;
     NSTimer *_batteryExpansionTimer;
     NSTimer *_airplaneModeIgnoreChangesTimer;
-    NSMutableSet *_disabledDefaultAnimationDisplayItemIdentifiers;
-    NSTimer *_expansionTimer;
-    UIVisualEffectView *_backgroundView;
-    _UIStatusBarDismisser *_dismisser;
 }
 
 + (struct CGSize)intrinsicContentSizeForOrientation:(long long)arg1;
-@property(retain, nonatomic) _UIStatusBarDismisser *dismisser; // @synthesize dismisser=_dismisser;
-@property(retain, nonatomic) UIVisualEffectView *backgroundView; // @synthesize backgroundView=_backgroundView;
-@property(retain, nonatomic) NSTimer *expansionTimer; // @synthesize expansionTimer=_expansionTimer;
 @property(nonatomic) _Bool expanded; // @synthesize expanded=_expanded;
-@property(retain, nonatomic) NSMutableSet *disabledDefaultAnimationDisplayItemIdentifiers; // @synthesize disabledDefaultAnimationDisplayItemIdentifiers=_disabledDefaultAnimationDisplayItemIdentifiers;
-@property(nonatomic) _Bool defaultAnimationsEnabled; // @synthesize defaultAnimationsEnabled=_defaultAnimationsEnabled;
 @property(retain, nonatomic) NSTimer *airplaneModeIgnoreChangesTimer; // @synthesize airplaneModeIgnoreChangesTimer=_airplaneModeIgnoreChangesTimer;
 @property(retain, nonatomic) NSTimer *batteryExpansionTimer; // @synthesize batteryExpansionTimer=_batteryExpansionTimer;
 @property(retain, nonatomic) NSTimer *systemUpdatesTimer; // @synthesize systemUpdatesTimer=_systemUpdatesTimer;
 @property(retain, nonatomic) NSTimer *pillTimer; // @synthesize pillTimer=_pillTimer;
-@property(retain, nonatomic) _UIStatusBarDisplayItemPlacement *serviceNamePlacement; // @synthesize serviceNamePlacement=_serviceNamePlacement;
 @property(retain, nonatomic) NSLayoutConstraint *leadingBottomConstraint; // @synthesize leadingBottomConstraint=_leadingBottomConstraint;
-@property(retain, nonatomic) NSArray *expandedConstraints; // @synthesize expandedConstraints=_expandedConstraints;
-@property(retain, nonatomic) NSArray *collapsedConstraints; // @synthesize collapsedConstraints=_collapsedConstraints;
 @property(retain, nonatomic) UILayoutGuide *mainRegionsLayoutGuide; // @synthesize mainRegionsLayoutGuide=_mainRegionsLayoutGuide;
 @property(retain, nonatomic) UILayoutGuide *cutoutLayoutGuide; // @synthesize cutoutLayoutGuide=_cutoutLayoutGuide;
+@property(retain, nonatomic) _UIStatusBarDisplayItemPlacement *batteryChargingPlacement; // @synthesize batteryChargingPlacement=_batteryChargingPlacement;
+@property(retain, nonatomic) _UIStatusBarDisplayItemPlacement *pillIconPlacement; // @synthesize pillIconPlacement=_pillIconPlacement;
+@property(retain, nonatomic) _UIStatusBarDisplayItemPlacement *serviceNamePlacement; // @synthesize serviceNamePlacement=_serviceNamePlacement;
+@property(retain, nonatomic) NSDictionary *orderedDisplayItemPlacements; // @synthesize orderedDisplayItemPlacements=_orderedDisplayItemPlacements;
 @property(nonatomic) __weak _UIStatusBar *statusBar; // @synthesize statusBar=_statusBar;
 - (void).cxx_destruct;
-- (void)_updateBackgroundEffectForStyle:(long long)arg1;
 - (void)_applyToRegionWithIdentifiers:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)_applyToAppearingRegions:(_Bool)arg1 block:(CDUnknownBlockType)arg2;
-- (void)_finalizeExpansion;
-- (void)_updateForExpansion;
-- (void)_prepareForExpansion;
-- (void)setExpanded:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)autoExpandWithMinimumDuration:(double)arg1 timeout:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)_defaultAnimationForDisplayItemWithIdentifier:(id)arg1;
-- (_Bool)_defaultAnimationEnabledForDisplayItemWithIdentifier:(id)arg1;
 - (void)_disableSystemUpdates;
 - (id)_systemUpdateAnimationForDisplayItemWithIdentifier:(id)arg1;
 - (_Bool)_shouldShowSystemUpdateForDisplayItemWithIdentifier:(id)arg1;
 - (void)_updateDataForSystemUpdates:(id)arg1;
 - (void)_resetBattery;
 - (void)_collapseBattery;
+- (void)_stopBatteryCollapseTimer;
+- (id)_entryKeysDelayedDuringBatteryExpansion;
 - (id)_removalAnimationForBatteryCharging;
 - (id)_additionAnimationForBatteryCharging;
-- (struct CGAffineTransform)_expandedChargingBoltTransform;
-- (struct CGAffineTransform)_collapseChargingBoltTransform;
+- (struct CGAffineTransform)_expandedChargingBoltTransformForDisplayItem:(id)arg1;
+- (struct CGAffineTransform)_collapseChargingBoltTransformForDisplayItem:(id)arg1;
 - (void)_updateDataForBatteryCharging:(id)arg1;
-- (id)_removalAnimationForAirplaneMode;
-- (id)_additionAnimationForAirplaneMode;
-- (void)_updateDataForAirplaneMode:(id)arg1;
-- (id)_removalAnimationForBackgroundActivityPill;
-- (id)_removalAnimationForBackgroundActivityIcon;
+- (id)_animationForAirplaneMode;
+- (id)_animationForBackgroundActivityPill;
+- (id)_animationForBackgroundActivityIcon;
 - (void)_switchPillToTimeWithUpdate:(_Bool)arg1;
 - (void)_updateBackgroundActivityWithEntry:(id)arg1 timeEntry:(id)arg2 needsUpdate:(_Bool)arg3;
 - (void)_updateDataForBackgroundActivity:(id)arg1;
 - (void)_updateSystemNavigationWithData:(id)arg1;
 - (void)_updateDataForSystemNavigation:(id)arg1;
 - (void)_updateDataForService:(id)arg1;
-- (id)displayItemIdentifierFromExternalRegionIdentifier:(id)arg1;
-- (id)regionIdentifierFromExternalRegionIdentifier:(id)arg1;
+- (id)displayItemIdentifiersForPartWithIdentifier:(id)arg1;
+- (id)regionIdentifiersForPartWithIdentifier:(id)arg1;
 - (void)region:(id)arg1 highlighted:(_Bool)arg2 initialPress:(_Bool)arg3;
 - (id)removalAnimationForDisplayItemWithIdentifier:(id)arg1 itemAnimation:(id)arg2;
 - (id)additionAnimationForDisplayItemWithIdentifier:(id)arg1 itemAnimation:(id)arg2;
@@ -96,7 +81,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _UIStatusBarStyleAttributes *styleAttributes;
 - (id)orderedDisplayItemPlacementsInRegionWithIdentifier:(id)arg1;
 - (id)setupInContainerView:(id)arg1;
-- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

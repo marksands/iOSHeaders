@@ -8,20 +8,20 @@
 
 #import "NSCopying.h"
 
-@interface WBSAnalyticsSafariDeDupedDAVBookmarksEvent : PBCodable <NSCopying>
+@interface WBSAnalyticsSafariDedupedDAVBookmarksEvent : PBCodable <NSCopying>
 {
-    unsigned long long _deDupeCount;
+    unsigned long long _dedupeCount;
     unsigned long long _foldersWithDupesCount;
     unsigned long long _timestamp;
     struct {
-        unsigned int deDupeCount:1;
+        unsigned int dedupeCount:1;
         unsigned int foldersWithDupesCount:1;
         unsigned int timestamp:1;
     } _has;
 }
 
 @property(nonatomic) unsigned long long foldersWithDupesCount; // @synthesize foldersWithDupesCount=_foldersWithDupesCount;
-@property(nonatomic) unsigned long long deDupeCount; // @synthesize deDupeCount=_deDupeCount;
+@property(nonatomic) unsigned long long dedupeCount; // @synthesize dedupeCount=_dedupeCount;
 @property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -33,7 +33,7 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(nonatomic) _Bool hasFoldersWithDupesCount;
-@property(nonatomic) _Bool hasDeDupeCount;
+@property(nonatomic) _Bool hasDedupeCount;
 @property(nonatomic) _Bool hasTimestamp;
 
 @end

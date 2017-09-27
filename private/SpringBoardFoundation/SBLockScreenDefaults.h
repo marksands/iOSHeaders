@@ -20,6 +20,7 @@
 @property(readonly, nonatomic) _Bool showLegalText; // @dynamic showLegalText;
 @property(nonatomic) _Bool showQuickNoteFingerGestureRecognizer; // @dynamic showQuickNoteFingerGestureRecognizer;
 @property(nonatomic) _Bool showSupervisionText; // @dynamic showSupervisionText;
+@property(nonatomic) _Bool weDontNeedNoEducation; // @dynamic weDontNeedNoEducation;
 
 @end
 

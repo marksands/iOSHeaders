@@ -29,6 +29,8 @@ __attribute__((visibility("hidden")))
     long long _thumbnailCount;
     struct CGSize _thumbnailSize;
     NSLayoutConstraint *_scrubberRightConstraint;
+    NSLayoutConstraint *_leftConstraint;
+    NSLayoutConstraint *_rightConstraint;
     NSOperationQueue *_operationQueue;
     NSCache *_indexToThumbnailsCache;
     WKWebView *_webView;
@@ -40,6 +42,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSCache *indexToThumbnailsCache; // @synthesize indexToThumbnailsCache=_indexToThumbnailsCache;
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 - (void).cxx_destruct;
+- (void)_updateConstraintConstants:(_Bool)arg1;
 - (void)transitionWillFinish:(_Bool)arg1 didComplete:(_Bool)arg2;
 - (void)transitionDidStart:(_Bool)arg1;
 - (id)transitioningView;

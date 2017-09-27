@@ -11,9 +11,8 @@
     _Bool _enabled;
     long long _filterType;
     long long _HDRConsideration;
-    long long _highQualitySDRConsideration;
     double _HDRModulationIntensity;
-    double _highQualitySDRModulationIntensity;
+    double _SDRModulationIntensity;
     double _videoComplementModulationIntensity;
     long long _EDRHeadroomRequestScheme;
     double _manualEDRHeadroomRequestStops;
@@ -32,9 +31,8 @@
 @property(nonatomic) double manualEDRHeadroomRequestStops; // @synthesize manualEDRHeadroomRequestStops=_manualEDRHeadroomRequestStops;
 @property(nonatomic) long long EDRHeadroomRequestScheme; // @synthesize EDRHeadroomRequestScheme=_EDRHeadroomRequestScheme;
 @property(nonatomic) double videoComplementModulationIntensity; // @synthesize videoComplementModulationIntensity=_videoComplementModulationIntensity;
-@property(nonatomic) double highQualitySDRModulationIntensity; // @synthesize highQualitySDRModulationIntensity=_highQualitySDRModulationIntensity;
+@property(nonatomic) double SDRModulationIntensity; // @synthesize SDRModulationIntensity=_SDRModulationIntensity;
 @property(nonatomic) double HDRModulationIntensity; // @synthesize HDRModulationIntensity=_HDRModulationIntensity;
-@property(nonatomic) long long highQualitySDRConsideration; // @synthesize highQualitySDRConsideration=_highQualitySDRConsideration;
 @property(nonatomic) long long HDRConsideration; // @synthesize HDRConsideration=_HDRConsideration;
 @property(nonatomic) long long filterType; // @synthesize filterType=_filterType;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;

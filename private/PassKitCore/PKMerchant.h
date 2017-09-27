@@ -47,7 +47,10 @@
 @property(readonly, nonatomic) _Bool isValid;
 @property(readonly, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(copy, nonatomic) CLLocation *location;
+- (id)jsonDictionaryRepresentation;
 - (id)description;
+- (_Bool)hasCloudArchivableDeviceData;
+- (_Bool)isCloudArchivableDeviceDataEqual:(id)arg1;
 - (_Bool)isEqualToMerchant:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

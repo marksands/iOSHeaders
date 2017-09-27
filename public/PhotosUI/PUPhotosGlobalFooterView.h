@@ -38,8 +38,10 @@
     CDUnknownBlockType _action;
     UIView *_accessoryView;
     id <PUPhotosGlobalFooterViewDelegate> _delegate;
+    id <PUPhotosGlobalFooterViewLayoutDelegate> _layoutDelegate;
 }
 
+@property(nonatomic) __weak id <PUPhotosGlobalFooterViewLayoutDelegate> layoutDelegate; // @synthesize layoutDelegate=_layoutDelegate;
 @property(nonatomic) __weak id <PUPhotosGlobalFooterViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
 @property(copy, nonatomic) CDUnknownBlockType action; // @synthesize action=_action;

@@ -64,6 +64,7 @@
     _Bool _hasPerformedErrorResolution;
     float _currentPlaybackRate;
     float _loudnessInfoVolumeNormalization;
+    NSError *_playbackError;
     NSError *_itemError;
     id <MPAVItemPlaylistIdentifier> _playlistIdentifier;
     id <MPAVItemQueueIdentifier> _queueIdentifier;
@@ -112,6 +113,7 @@
 @property(retain, nonatomic) id <MPAVItemQueueIdentifier> queueIdentifier; // @synthesize queueIdentifier=_queueIdentifier;
 @property(retain, nonatomic) id <MPAVItemPlaylistIdentifier> playlistIdentifier; // @synthesize playlistIdentifier=_playlistIdentifier;
 @property(retain, nonatomic) NSError *itemError; // @synthesize itemError=_itemError;
+@property(readonly, copy, nonatomic) NSError *playbackError; // @synthesize playbackError=_playbackError;
 @property(readonly, nonatomic) _Bool canReusePlayerItem; // @synthesize canReusePlayerItem=_canReusePlayerItem;
 @property(readonly, nonatomic) _Bool didAttemptToLoadAsset; // @synthesize didAttemptToLoadAsset=_didAttemptToLoadAsset;
 @property(readonly, nonatomic, getter=isAssetLoaded) _Bool assetLoaded; // @synthesize assetLoaded=_assetLoaded;

@@ -85,6 +85,7 @@
 - (void)setFinishedSelectedImage:(id)arg1 withFinishedUnselectedImage:(id)arg2;
 - (void)setLandscapeSelectedImagePhone:(id)arg1;
 - (id)landscapeSelectedImagePhone;
+@property(readonly, nonatomic) UIImage *_internalLandscapeSelectedImagePhone;
 @property(retain, nonatomic) UIImage *selectedImage;
 - (void)setLargeContentSizeImageInsets:(struct UIEdgeInsets)arg1;
 - (struct UIEdgeInsets)largeContentSizeImageInsets;

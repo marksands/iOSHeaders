@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)setStatusBarOrientation:(long long)arg1 animationParameters:(id)arg2;
 - (void)setStatusBarStyle:(long long)arg1 animationParameters:(id)arg2;
 - (void)setStatusBarHidden:(_Bool)arg1 animationParameters:(id)arg2;
+- (void)viewDidLoad;
 - (void)loadView;
 - (_Bool)isClassicControlWindow:(id)arg1;
 - (void)dealloc;

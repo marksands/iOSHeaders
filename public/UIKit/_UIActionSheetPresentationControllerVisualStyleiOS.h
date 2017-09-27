@@ -23,7 +23,6 @@ __attribute__((visibility("hidden")))
 @property(readonly) double cornerRadius;
 @property(readonly) UIColor *dimmingViewColor;
 @property(readonly) double dismissToContentSpacing;
-- (struct UIEdgeInsets)_safeAreaScreenPeripheryInsets;
 @property(readonly) struct UIEdgeInsets contentInsets;
 - (id)init;
 

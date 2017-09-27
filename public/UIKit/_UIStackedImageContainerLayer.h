@@ -33,6 +33,7 @@
     _Bool _layerStackSupportsInflation;
     _Bool _layerStackInflated;
     unsigned long long _layerStackInflationSeed;
+    _Bool _deferredInflationPending;
     id _flatImage;
     NSArray *_parallaxImages;
     NSArray *_parallaxLayerDepths;

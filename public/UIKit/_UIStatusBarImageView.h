@@ -8,12 +8,18 @@
 
 #import "_UIStatusBarDisplayable.h"
 
-@class NSString;
+@class NSString, UIAccessibilityHUDItem, UIImage;
 
 @interface _UIStatusBarImageView : UIImageView <_UIStatusBarDisplayable>
 {
+    _Bool _useDisabledAppearanceForAccessibilityHUD;
+    UIImage *_accessibilityHUDImage;
 }
 
+@property(retain, nonatomic) UIImage *accessibilityHUDImage; // @synthesize accessibilityHUDImage=_accessibilityHUDImage;
+@property(nonatomic) _Bool useDisabledAppearanceForAccessibilityHUD; // @synthesize useDisabledAppearanceForAccessibilityHUD=_useDisabledAppearanceForAccessibilityHUD;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) UIAccessibilityHUDItem *accessibilityHUDRepresentation;
 - (void)applyStyleAttributes:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

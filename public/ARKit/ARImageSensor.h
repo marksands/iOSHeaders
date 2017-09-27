@@ -26,14 +26,16 @@
     AVCaptureVideoDataOutput *_videoOutput;
     unsigned long long _powerUsage;
     CDStruct_79c71658 _videoResolution;
-    long long _targetFramesPerSecond;
+    long long _captureFramesPerSecond;
+    long long _renderFramesPerSecond;
 }
 
 + (id)bestFormatForDevice:(id)arg1 withResolution:(CDStruct_79c71658)arg2 pixelFormatType:(unsigned int)arg3 frameRate:(double)arg4;
 + (double)closestFrameRateIn:(id)arg1 target:(double)arg2 preferHigher:(_Bool)arg3;
 @property _Bool interrupted; // @synthesize interrupted=_interrupted;
 @property _Bool running; // @synthesize running=_running;
-@property long long targetFramesPerSecond; // @synthesize targetFramesPerSecond=_targetFramesPerSecond;
+@property long long renderFramesPerSecond; // @synthesize renderFramesPerSecond=_renderFramesPerSecond;
+@property long long captureFramesPerSecond; // @synthesize captureFramesPerSecond=_captureFramesPerSecond;
 @property(nonatomic) CDStruct_79c71658 videoResolution; // @synthesize videoResolution=_videoResolution;
 @property(nonatomic) unsigned long long powerUsage; // @synthesize powerUsage=_powerUsage;
 @property(nonatomic, getter=isAutoFocusEnabled) _Bool autoFocusEnabled; // @synthesize autoFocusEnabled=_autoFocusEnabled;
@@ -45,6 +47,7 @@
 - (void)captureSessionStateChanged:(id)arg1;
 - (void)captureOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
 - (void)_configureCameraFocusForDevice:(id)arg1;
+- (void)_configureCameraWhiteBalanceForDevice:(id)arg1;
 - (void)_configureCameraExposureForDevice:(id)arg1;
 - (_Bool)_validateCameraAuthorization;
 - (id)configureCaptureDevice;
@@ -55,7 +58,8 @@
 - (void)dealloc;
 - (id)initWithDevicePosition:(long long)arg1 deviceType:(id)arg2;
 - (id)initWithDevicePosition:(long long)arg1 deviceType:(id)arg2 captureSession:(id)arg3;
-- (double)preferredFrameRateForPowerUsage:(unsigned long long)arg1 devicePosition:(long long)arg2;
+- (long long)preferredRenderFrameRateForPowerUsage:(unsigned long long)arg1 devicePosition:(long long)arg2;
+- (double)preferredCaptureFrameRateForPowerUsage:(unsigned long long)arg1 devicePosition:(long long)arg2;
 - (void)_adjustForPowerUsage;
 - (id)_createAudioInput:(id *)arg1;
 @property(retain, nonatomic) AVCaptureAudioDataOutput *audioOutput;

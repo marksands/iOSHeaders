@@ -20,9 +20,11 @@
     NSDictionary *_requiredDeviceCapabilities;
     NSArray *_sbAppTags;
     NSArray *_lsCounterpartIdentifiers;
+    NSString *_sbIconMasqueradeIdentifier;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *sbIconMasqueradeIdentifier; // @synthesize sbIconMasqueradeIdentifier=_sbIconMasqueradeIdentifier;
 @property(copy, nonatomic) NSArray *lsCounterpartIdentifiers; // @synthesize lsCounterpartIdentifiers=_lsCounterpartIdentifiers;
 @property(copy, nonatomic) NSArray *sbAppTags; // @synthesize sbAppTags=_sbAppTags;
 @property(copy, nonatomic) NSDictionary *requiredDeviceCapabilities; // @synthesize requiredDeviceCapabilities=_requiredDeviceCapabilities;

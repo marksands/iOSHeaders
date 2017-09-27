@@ -6,22 +6,22 @@
 
 #import "UIView.h"
 
-@class NSLayoutConstraint, NSString, UIButton, UIImage, UILabel, _WLKUIAppInstallLockup;
+@class NSLayoutConstraint, NSString, UIButton, UIImage, UILabel, WLKUIBuyButtonLockup, _WLKUIAppInstallLockup;
 
 @interface _WLKUIAppInstallConfirmationView : UIView
 {
     _Bool _didLayout;
     _WLKUIAppInstallLockup *_lockupView;
     UILabel *_imageSubtitleView;
+    WLKUIBuyButtonLockup *_buyLockup;
     UILabel *_titleView;
     UILabel *_messageView;
     NSLayoutConstraint *_buttonHeightConstraint;
     UIImage *_appIcon;
     NSString *_appName;
+    NSString *_appSubtitle;
     NSString *_ageRating;
     NSString *_iAP;
-    NSString *_downloadSize;
-    NSString *_appSubtitle;
     NSString *_title;
     NSString *_message;
     UIButton *_actionButton;
@@ -37,10 +37,9 @@
 @property(retain, nonatomic) UIButton *actionButton; // @synthesize actionButton=_actionButton;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
-@property(copy, nonatomic) NSString *appSubtitle; // @synthesize appSubtitle=_appSubtitle;
-@property(copy, nonatomic) NSString *downloadSize; // @synthesize downloadSize=_downloadSize;
 @property(copy, nonatomic) NSString *iAP; // @synthesize iAP=_iAP;
 @property(copy, nonatomic) NSString *ageRating; // @synthesize ageRating=_ageRating;
+@property(copy, nonatomic) NSString *appSubtitle; // @synthesize appSubtitle=_appSubtitle;
 @property(copy, nonatomic) NSString *appName; // @synthesize appName=_appName;
 @property(copy, nonatomic) UIImage *appIcon; // @synthesize appIcon=_appIcon;
 @property(retain, nonatomic) _WLKUIAppInstallLockup *lockupView; // @synthesize lockupView=_lockupView;
@@ -49,12 +48,7 @@
 - (void)_layoutForTvos;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (id)preferredFocusEnvironments;
-- (void)_updateForPreferredContentSize;
-- (_Bool)_isAccessibilityContentSize;
-- (_Bool)_isLargeContentSize;
-- (void)_contentSizeCategoryDidChange;
 - (void)layoutSubviews;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

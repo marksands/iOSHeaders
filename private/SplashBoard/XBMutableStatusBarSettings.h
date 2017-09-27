@@ -11,6 +11,7 @@
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(nonatomic, getter=isBackgroundActivityEnabled) _Bool backgroundActivityEnabled; // @dynamic backgroundActivityEnabled;
 @property(nonatomic) long long style; // @dynamic style;
 @property(nonatomic, getter=isHidden) _Bool hidden; // @dynamic hidden;
 

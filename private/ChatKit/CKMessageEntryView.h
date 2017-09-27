@@ -257,6 +257,7 @@
 - (double)bottomInsetForAppStrip;
 - (void)updateAppStripFrame;
 - (void)layoutSubviews;
+- (struct UIEdgeInsets)safeAreaInsets;
 - (void)safeAreaInsetsDidChange;
 - (void)dealloc;
 

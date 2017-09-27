@@ -13,7 +13,9 @@
 @property(readonly, nonatomic) _Bool isTransitioningSource;
 @property(readonly, nonatomic) MPQueuePlayer *player;
 @property(nonatomic) __weak MPAVController *avController;
+@property(readonly, nonatomic) _Bool allowsQueueResetWhenReachingEnd;
 @property(readonly, nonatomic) long long upNextItemCount;
+@property(nonatomic) _Bool shouldDeferItemLoading;
 @property(nonatomic) long long repeatMode;
 @property(readonly, nonatomic) _Bool canSkipToPreviousItem;
 @property(nonatomic) __weak id delegate;

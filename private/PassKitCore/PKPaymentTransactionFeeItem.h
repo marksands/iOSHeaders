@@ -30,7 +30,7 @@
 - (unsigned long long)hash;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)_rawDictionary;
+- (id)jsonDictionaryRepresentation;
 - (void)_initWithFeeDictionary:(id)arg1;
 - (id)initWithFeeDictionary:(id)arg1;
 

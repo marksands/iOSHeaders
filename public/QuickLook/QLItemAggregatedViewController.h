@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (void)transitionDidFinish:(_Bool)arg1 didComplete:(_Bool)arg2;
 - (void)transitionDidStart:(_Bool)arg1;
 - (id)transitioningView;
+- (id)fullscreenBackgroundColor;
 - (id)title;
 - (struct CGSize)preferredContentSize;
 - (id)printer;

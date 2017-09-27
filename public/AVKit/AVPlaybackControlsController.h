@@ -28,6 +28,7 @@
     _Bool _showsDoneButtonWhenFullScreen;
     _Bool _showsLoadingIndicator;
     _Bool _prefersVolumeSliderExpanded;
+    _Bool _includesVideoGravityButton;
     _Bool _coveringWindow;
     _Bool _mustHideProminentPlayButton;
     _Bool _multipleRoutesDetected;
@@ -36,6 +37,7 @@
     _Bool _playbackSuspendedForScrubbing;
     _Bool _hasSeekableLiveStreamingContent;
     _Bool _scrubbingOrSeeking;
+    _Bool _shouldIgnoreTimeResolverUpdates;
     AVKeyValueObservationController *_keyValueObservationController;
     AVPlayerController *_playerController;
     long long _preferredUnobscuredArea;
@@ -53,6 +55,9 @@
     UIViewPropertyAnimator *_collapseExpandSliderAnimator;
     double _loadingIndicatorTimerDelay;
     long long _timeControlStatus;
+    long long _videoGravityButtonType;
+    NSString *_videoGravity;
+    struct CGRect _playbackViewFrame;
 }
 
 + (id)keyPathsForValuesAffectingPlayButtonsShowPauseGlyph;
@@ -71,6 +76,10 @@
 + (id)keyPathsForValuesAffectingIncludesFullScreenButton;
 + (id)keyPathsForValuesAffectingIncludesDoneButton;
 + (id)keyPathsForValuesAffectingFullScreen;
+@property(nonatomic) struct CGRect playbackViewFrame; // @synthesize playbackViewFrame=_playbackViewFrame;
+@property(copy, nonatomic) NSString *videoGravity; // @synthesize videoGravity=_videoGravity;
+@property(nonatomic) long long videoGravityButtonType; // @synthesize videoGravityButtonType=_videoGravityButtonType;
+@property(nonatomic) _Bool shouldIgnoreTimeResolverUpdates; // @synthesize shouldIgnoreTimeResolverUpdates=_shouldIgnoreTimeResolverUpdates;
 @property(nonatomic, getter=isScrubbingOrSeeking) _Bool scrubbingOrSeeking; // @synthesize scrubbingOrSeeking=_scrubbingOrSeeking;
 @property(nonatomic) _Bool hasSeekableLiveStreamingContent; // @synthesize hasSeekableLiveStreamingContent=_hasSeekableLiveStreamingContent;
 @property(nonatomic) long long timeControlStatus; // @synthesize timeControlStatus=_timeControlStatus;
@@ -81,6 +90,7 @@
 @property(nonatomic) _Bool multipleRoutesDetected; // @synthesize multipleRoutesDetected=_multipleRoutesDetected;
 @property(nonatomic) _Bool mustHideProminentPlayButton; // @synthesize mustHideProminentPlayButton=_mustHideProminentPlayButton;
 @property(nonatomic, getter=isCoveringWindow) _Bool coveringWindow; // @synthesize coveringWindow=_coveringWindow;
+@property(nonatomic) _Bool includesVideoGravityButton; // @synthesize includesVideoGravityButton=_includesVideoGravityButton;
 @property(nonatomic) _Bool prefersVolumeSliderExpanded; // @synthesize prefersVolumeSliderExpanded=_prefersVolumeSliderExpanded;
 @property(nonatomic) _Bool showsLoadingIndicator; // @synthesize showsLoadingIndicator=_showsLoadingIndicator;
 @property(nonatomic) __weak UIViewPropertyAnimator *collapseExpandSliderAnimator; // @synthesize collapseExpandSliderAnimator=_collapseExpandSliderAnimator;
@@ -109,6 +119,7 @@
 @property(nonatomic, getter=isSuspended) _Bool suspended; // @synthesize suspended=_suspended;
 @property(nonatomic) __weak AVPlayerController *playerController; // @synthesize playerController=_playerController;
 - (void).cxx_destruct;
+- (void)_updateVideoGravityButtonType;
 - (void)_startOrStopHidingViewsQuicklyWhenPlaybackBegins;
 - (void)_updateScrubberAndTimeLabels;
 - (void)_updateOrCreateTimeResolverIfNeeded;
@@ -141,7 +152,8 @@
 - (void)transportControls:(id)arg1 scrubberDidScrub:(id)arg2;
 - (void)transportControls:(id)arg1 scrubberDidBeginScrubbing:(id)arg2;
 - (void)transportControlsNeedsLayoutIfNeeded:(id)arg1;
-- (struct CGSize)playerViewControllerContentViewContentDimensions;
+- (void)playerViewControllerContentViewDidChangeVideoGravity:(id)arg1;
+- (_Bool)playerViewControllerContentViewShouldApplyAutomaticVideoGravity:(id)arg1;
 - (void)playerViewControllerContentViewWillLayoutSubviews:(id)arg1;
 - (void)playerViewControllerContentViewDidMoveToWindow:(id)arg1;
 - (void)playerViewControllerDidFinishFullScreenDimissalTransition;

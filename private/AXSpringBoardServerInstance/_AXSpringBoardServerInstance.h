@@ -52,6 +52,7 @@
 - (id)_areSystemGesturesDisabledByAccessibility:(id)arg1;
 - (id)_areSystemGesturesDisabledNatively:(id)arg1;
 - (id)_isSyncingRestoringResettingOrUpdating:(id)arg1;
+- (id)_isPasscodeLockVisible:(id)arg1;
 - (id)_isDockVisible:(id)arg1;
 - (id)_isAppSwitcherVisible:(id)arg1;
 - (id)_isShowingHomescreen:(id)arg1;
@@ -120,6 +121,7 @@
 - (id)_getApplicationOrientation:(id)arg1;
 - (void)_setDashboardSystemGesturesDisabled:(_Bool)arg1;
 - (void)_setupAssertionServerIfNeeded;
+- (_Bool)onlySystemGesturesDisabledHolderIsGuidedAccess;
 - (void)_setSystemGesturesEnabled:(_Bool)arg1;
 - (void)_performValidation;
 - (void)relinquishAssertionWithType:(id)arg1 identifier:(id)arg2 clientPort:(unsigned int)arg3;

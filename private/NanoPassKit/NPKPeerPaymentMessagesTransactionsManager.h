@@ -15,25 +15,27 @@
     NSObject<OS_dispatch_queue> *_transactionsQueue;
     NSObject<OS_dispatch_queue> *_peerPaymentPassQueue;
     NSString *_peerPaymentPassUniqueID;
-    NSMutableSet *_peerPaymentTransactions;
     PKPaymentService *_paymentService;
-    NSMutableDictionary *_paymentStatus;
+    NSMutableDictionary *_transactionDetails;
+    NSMutableSet *_currentLookupIdentifiers;
 }
 
 + (id)sharedInstance;
-@property(readonly, nonatomic) NSMutableDictionary *paymentStatus; // @synthesize paymentStatus=_paymentStatus;
+@property(readonly, nonatomic) NSMutableSet *currentLookupIdentifiers; // @synthesize currentLookupIdentifiers=_currentLookupIdentifiers;
+@property(readonly, nonatomic) NSMutableDictionary *transactionDetails; // @synthesize transactionDetails=_transactionDetails;
 @property(readonly, nonatomic) PKPaymentService *paymentService; // @synthesize paymentService=_paymentService;
-@property(retain, nonatomic) NSMutableSet *peerPaymentTransactions; // @synthesize peerPaymentTransactions=_peerPaymentTransactions;
 - (void).cxx_destruct;
+- (id)_sharedPeerPaymentWebService;
 - (void)_fetchAllPeerPaymentTransactionsWithPeerPaymentPassID:(id)arg1;
-- (void)_transactionsQueue_NotifyStatusUpdateOfTransactionWithServiceIdentifier:(id)arg1 status:(unsigned long long)arg2;
+- (void)_transactionsQueue_notifyStatusUpdateOfTransactionWithServiceIdentifier:(id)arg1;
+- (id)_transactionsQueue_transactionDetailsCreatedIfNecessaryForServiceIdentifier:(id)arg1;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didRemoveTransactionWithIdentifier:(id)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didReceiveTransaction:(id)arg2;
-- (id)_transactionsQueue_PeerPaymentTransactionWithServiceIdentifier:(id)arg1;
+- (void)lookupTransactionActionsIfNeededWithServiceIdentifier:(id)arg1;
 - (id)peerPaymentTransactionWithServiceIdentifier:(id)arg1;
-- (void)_transactionsQueue_RemoveStatusForPeerPaymentTransactionWithServiceIdentifier:(id)arg1 notifyUpdate:(_Bool)arg2;
-- (void)_transactionsQueue_SetStatus:(unsigned long long)arg1 forPaymentTransactionWithServiceIdentifier:(id)arg2 notifyUpdate:(_Bool)arg3;
+- (void)_transactionsQueue_setStatus:(unsigned long long)arg1 forPaymentTransactionWithServiceIdentifier:(id)arg2 notifyUpdate:(_Bool)arg3;
 - (void)setStatus:(unsigned long long)arg1 forPaymentTransactionWithServiceIdentifier:(id)arg2;
+- (unsigned long long)_transactionQueue_statusOfPaymentTransactionWithServiceIdentifier:(id)arg1;
 - (unsigned long long)statusOfPaymentTransactionWithServiceIdentifier:(id)arg1;
 @property(copy) NSString *peerPaymentPassUniqueID; // @synthesize peerPaymentPassUniqueID=_peerPaymentPassUniqueID;
 - (id)initWithPeerPaymentPassUniqueID:(id)arg1 paymentService:(id)arg2;

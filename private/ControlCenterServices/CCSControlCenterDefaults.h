@@ -12,12 +12,15 @@
 
 + (id)standardDefaults;
 @property(nonatomic) _Bool shouldEnableTigrisCarryUI;
+- (unsigned long long)_defaultPresentationGesture;
 - (void)_bindAndRegisterDefaults;
 - (id)init;
 
 // Remaining properties
+@property(nonatomic) unsigned long long presentationGesture; // @dynamic presentationGesture;
 @property(nonatomic) _Bool shouldEnableInternalModules; // @dynamic shouldEnableInternalModules;
 @property(nonatomic) _Bool shouldEnablePrototypeFeatures; // @dynamic shouldEnablePrototypeFeatures;
+@property(nonatomic) unsigned long long userInvocationCount; // @dynamic userInvocationCount;
 
 @end
 

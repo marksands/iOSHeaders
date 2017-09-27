@@ -6,16 +6,18 @@
 
 #import <UIKit/_UIStatusBarItem.h>
 
-@class NSString, _UIStatusBarImageView;
+@class NSArray, NSString, _UIStatusBarImageView;
 
 __attribute__((visibility("hidden")))
 @interface _UIStatusBarIndicatorItem : _UIStatusBarItem
 {
+    NSArray *_currentImageNamePrefixes;
     _UIStatusBarImageView *_imageView;
 }
 
 + (id)indicatorDisplayIdentifier;
 @property(readonly, nonatomic) _UIStatusBarImageView *imageView; // @synthesize imageView=_imageView;
+@property(copy, nonatomic) NSArray *currentImageNamePrefixes; // @synthesize currentImageNamePrefixes=_currentImageNamePrefixes;
 - (void).cxx_destruct;
 - (id)applyUpdate:(id)arg1 toDisplayItem:(id)arg2;
 - (id)viewForIdentifier:(id)arg1;

@@ -46,6 +46,7 @@
 - (void)preProcessCommand:(unsigned int)arg1 options:(struct __CFDictionary *)arg2;
 - (void)preProcessChangePlaybackRateCommandWithOptions:(struct __CFDictionary *)arg1;
 - (void)updateCacheWithItem:(void *)arg1;
+- (void *)_onQueue_nowPlayingContentItem;
 @property(readonly, nonatomic) void *nowPlayingContentItem;
 @property(nonatomic) void *playbackQueue;
 - (void)updateCacheWithPlaybackQueue:(void *)arg1;

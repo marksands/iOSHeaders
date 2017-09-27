@@ -233,6 +233,7 @@ __attribute__((visibility("hidden")))
 - (void)rebuildConstraints:(id)arg1 forView:(id)arg2 toMatchView:(id)arg3 tracker:(id)arg4;
 - (id)_updateOrCreateConstraintInDict:(id)arg1 key:(id)arg2 fromView:(id)arg3 toView:(id)arg4 tracker:(id)arg5 creator:(CDUnknownBlockType)arg6;
 - (id)viewMatchingConstraintForAttribute:(long long)arg1 primaryView:(id)arg2 secondaryView:(id)arg3;
+- (struct UIEdgeInsets)_viewSafeAreaInsetsFromScene;
 - (void)ignoreLayoutNotifications:(CDUnknownBlockType)arg1;
 - (struct CGRect)_boundsForOrientation:(long long)arg1;
 - (struct CGPoint)_centerForOrientation:(long long)arg1;

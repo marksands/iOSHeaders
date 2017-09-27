@@ -8,7 +8,7 @@
 
 #import "UITextFieldDelegate.h"
 
-@class NSDecimalNumber, NSNumberFormatter, NSString, PKNumberPadInputView, UIColor, UILabel, UITextField;
+@class NSDecimalNumber, NSNumber, NSNumberFormatter, NSString, PKNumberPadInputView, UIColor, UIFont, UILabel, UITextField;
 
 @interface PKEnterCurrencyAmountView : UIView <UITextFieldDelegate>
 {
@@ -18,6 +18,9 @@
     UITextField *_amountTextField;
     NSString *_currency;
     UIColor *_textColor;
+    UIFont *_amountFont;
+    NSNumber *_kerning;
+    UIFont *_currencySymbolFont;
     id <PKEnterCurrencyAmountViewDelegate> _delegate;
     UILabel *_currencySymbolLabel;
     UILabel *_amountLabel;
@@ -32,6 +35,9 @@
 @property(retain, nonatomic) UILabel *amountLabel; // @synthesize amountLabel=_amountLabel;
 @property(retain, nonatomic) UILabel *currencySymbolLabel; // @synthesize currencySymbolLabel=_currencySymbolLabel;
 @property(nonatomic) __weak id <PKEnterCurrencyAmountViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(copy, nonatomic) UIFont *currencySymbolFont; // @synthesize currencySymbolFont=_currencySymbolFont;
+@property(copy, nonatomic) NSNumber *kerning; // @synthesize kerning=_kerning;
+@property(copy, nonatomic) UIFont *amountFont; // @synthesize amountFont=_amountFont;
 @property(copy, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
 @property(retain, nonatomic) NSString *currency; // @synthesize currency=_currency;
 @property(readonly, nonatomic) UITextField *amountTextField; // @synthesize amountTextField=_amountTextField;

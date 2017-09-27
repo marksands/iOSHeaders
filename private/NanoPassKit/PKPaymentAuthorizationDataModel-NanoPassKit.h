@@ -11,6 +11,7 @@
 - (_Bool)npkIsSplitPeerPaymentWithoutAnotherPaymentMethod;
 - (_Bool)npkIsSplitPeerPaymentWithAnotherPaymentMethod;
 - (_Bool)npkIsSplitPeerPayment;
+- (_Bool)npkIsSkeletonPeerPayment;
 - (_Bool)npkIsPeerPayment;
 - (void)npkSetPassAndPaymentApplicationForAID:(id)arg1;
 @end

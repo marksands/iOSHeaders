@@ -38,6 +38,8 @@
 - (void)businessInfoView:(id)arg1 infoButtonTapped:(id)arg2;
 - (void)layoutBusinessInfoViewIfNecessary;
 - (void)setBusinessInfoViewInfoIfNecessary;
+- (void)_triggerRecipientFinalization;
+- (void)chatInputWillUpdateInputViewShowingBrowser;
 - (_Bool)_chatShowsUnexpectedlyLoggedOutNotification;
 - (void)_saveDraftState;
 - (_Bool)hasFailedRecipients;

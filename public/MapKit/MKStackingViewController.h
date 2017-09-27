@@ -43,6 +43,7 @@
 - (_Bool)isViewVisbile:(id)arg1 percentageTreshold:(double)arg2;
 - (void)_updateViewControllerVisibilityAfterPositionChange;
 - (void)_didScroll;
+- (void)_sendScrollnotification;
 - (void)scrollToTopAnimated:(_Bool)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;

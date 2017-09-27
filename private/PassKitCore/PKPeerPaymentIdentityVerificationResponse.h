@@ -6,11 +6,12 @@
 
 #import <PassKitCore/PKPeerPaymentWebServiceResponse.h>
 
-@class NSArray, NSString;
+@class NSArray, NSString, PKPeerPaymentAccount;
 
 @interface PKPeerPaymentIdentityVerificationResponse : PKPeerPaymentWebServiceResponse
 {
     _Bool _complete;
+    PKPeerPaymentAccount *_account;
     NSString *_contextLocalizedTitle;
     NSString *_contextLocalizedDescription;
     NSString *_localizedTitle;
@@ -29,6 +30,7 @@
 @property(readonly, copy, nonatomic) NSString *localizedTitle; // @synthesize localizedTitle=_localizedTitle;
 @property(readonly, copy, nonatomic) NSString *contextLocalizedDescription; // @synthesize contextLocalizedDescription=_contextLocalizedDescription;
 @property(readonly, copy, nonatomic) NSString *contextLocalizedTitle; // @synthesize contextLocalizedTitle=_contextLocalizedTitle;
+@property(readonly, nonatomic) PKPeerPaymentAccount *account; // @synthesize account=_account;
 @property(readonly, nonatomic) _Bool complete; // @synthesize complete=_complete;
 - (void).cxx_destruct;
 - (id)initWithData:(id)arg1;

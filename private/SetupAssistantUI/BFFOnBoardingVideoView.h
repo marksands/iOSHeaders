@@ -12,11 +12,14 @@ __attribute__((visibility("hidden")))
 @interface BFFOnBoardingVideoView : UIView
 {
     _Bool _displayingVideo;
+    _Bool _playVideo;
     UIImageView *_imageView;
     AVPlayer *_videoPlayer;
     AVPlayerViewController *_videoViewController;
 }
 
++ (id)backgroundColor;
+@property _Bool playVideo; // @synthesize playVideo=_playVideo;
 @property _Bool displayingVideo; // @synthesize displayingVideo=_displayingVideo;
 @property(retain) AVPlayerViewController *videoViewController; // @synthesize videoViewController=_videoViewController;
 @property(retain) AVPlayer *videoPlayer; // @synthesize videoPlayer=_videoPlayer;
@@ -25,7 +28,6 @@ __attribute__((visibility("hidden")))
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)videoReachedEnd:(id)arg1;
 - (void)transitionToVideo;
-- (id)grayColor;
 - (void)stopPlaying;
 - (void)startPlaying;
 - (void)showVideo:(id)arg1;

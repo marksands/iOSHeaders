@@ -53,7 +53,7 @@
     } _layoutState;
     struct CGSize _lastBoundsSize;
     struct UIEdgeInsets _lastBoundsInsets;
-    struct CGSize _lastStatusBarSize;
+    double _lastTopContentSeparatorHeight;
     PKPassDeleteAnimationController *_deleteAnimationController;
     CDUnknownBlockType _transitionCanceller;
     long long _nextState;
@@ -93,14 +93,18 @@
     _Bool _delegateWantsBottomContentSeparation;
     PKBacklightController *_backlightController;
     _Bool _footerSuppressed;
+    _Bool _staggerPileAnimations;
     _Bool _hasOutstandingPeerPaymentAccountActions;
     id <PKPassGroupStackViewDatasource> _datasource;
     UIColor *_pageIndicatorTintColor;
     UIColor *_currentPageIndicatorTintColor;
+    double _topContentSeparatorHeight;
 }
 
 + (id)backgroundColor;
 @property(nonatomic) _Bool hasOutstandingPeerPaymentAccountActions; // @synthesize hasOutstandingPeerPaymentAccountActions=_hasOutstandingPeerPaymentAccountActions;
+@property(nonatomic) _Bool staggerPileAnimations; // @synthesize staggerPileAnimations=_staggerPileAnimations;
+@property(nonatomic) double topContentSeparatorHeight; // @synthesize topContentSeparatorHeight=_topContentSeparatorHeight;
 @property(copy, nonatomic) UIColor *currentPageIndicatorTintColor; // @synthesize currentPageIndicatorTintColor=_currentPageIndicatorTintColor;
 @property(copy, nonatomic) UIColor *pageIndicatorTintColor; // @synthesize pageIndicatorTintColor=_pageIndicatorTintColor;
 @property(nonatomic) _Bool footerSuppressed; // @synthesize footerSuppressed=_footerSuppressed;
@@ -168,8 +172,6 @@
 - (double)_setupSpringFactoryForPileAnimations:(id)arg1 withMaximumAcceleration:(double)arg2 reverse:(_Bool)arg3;
 - (double)_setupSpringFactory:(id)arg1 forPileAnimationFromPresentationState:(long long)arg2 toPresentationState:(long long)arg3 reverse:(_Bool)arg4;
 - (double)_setupSpringFactory:(id)arg1 forPileAnimationToPresentationState:(long long)arg2 reverse:(_Bool)arg3;
-- (void)_removeMotionEffectsFromModalPile;
-- (void)_addMotionEffectsToModalPile;
 - (void)_animateGroupViewForUndo:(id)arg1 toIndex:(unsigned long long)arg2;
 - (void)_reorderPositionChangedForReorderedGroupViewWithVelocity:(struct CGPoint)arg1;
 - (unsigned long long)_indexOfReorderedGroupView;

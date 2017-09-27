@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class MPAVController, NSDictionary, NSString;
+@class AVPlayerLayer, MPAVController, NSDictionary, NSString, _MPAVPlayerView;
 
 @interface MPVideoView : UIView
 {
@@ -14,13 +14,13 @@
     double _startTime;
     double _stopTime;
     NSDictionary *_AVURLAssetOptions;
+    _MPAVPlayerView *_playerView;
     UIView *_contentView;
     NSString *_movieSubtitle;
     NSString *_movieTitle;
     long long _scaleMode;
 }
 
-+ (Class)layerClass;
 @property(nonatomic) double stopTime; // @synthesize stopTime=_stopTime;
 @property(nonatomic) double startTime; // @synthesize startTime=_startTime;
 @property(nonatomic) long long scaleMode; // @synthesize scaleMode=_scaleMode;
@@ -30,6 +30,7 @@
 @property(retain, nonatomic) NSDictionary *AVURLAssetOptions; // @synthesize AVURLAssetOptions=_AVURLAssetOptions;
 - (void).cxx_destruct;
 - (void)didMoveToWindow;
+@property(readonly, nonatomic) AVPlayerLayer *playerLayer;
 @property(readonly, nonatomic) struct CGRect movieContentFrame;
 @property(readonly, nonatomic) struct CGRect movieFrame;
 @property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;

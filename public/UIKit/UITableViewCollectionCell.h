@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double sectionBorderWidth;
 @property(nonatomic) struct UIEdgeInsets backgroundInset;
 @property(retain, nonatomic) UIVisualEffect *separatorEffect;
+@property(nonatomic) _Bool insetsContentViewsToSafeArea;
 @property(nonatomic) _Bool separatorInsetIsRelativeToCellEdges;
 @property(nonatomic) double indexBarExtentFromEdge;
 @property(nonatomic) double defaultTrailingCellMarginWidth;

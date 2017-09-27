@@ -169,6 +169,7 @@
         unsigned int preventNotificationOfRebaseObserversWhenApplyingUpdates:1;
         unsigned int allowsVisibleCellUpdatesDuringUpdateAnimations:1;
         unsigned int isCompletingInteractiveMovement:1;
+        unsigned int isRegisteredForGeometryChanges:1;
     } _collectionViewFlags;
     struct CGPoint _lastLayoutOffset;
     NSIndexPath *_cancellingToIndexPath;
@@ -525,6 +526,7 @@
 - (void)_resetContainerScrollViewVisitationCount;
 - (void)_removeAnyAncestorScrollViewNotifications;
 - (void)_updateContainerScrollViewsForNotifications;
+- (void)_unregisterForGeometryChangesIfNeeded;
 - (void)_registerForGeometryChangesIfInSupeview;
 - (struct CGSize)intrinsicContentSize;
 - (void)setScrollEnabled:(_Bool)arg1;

@@ -15,35 +15,46 @@
     _Bool _enabled;
     _Bool _floating;
     _Bool _needsAddingToLayout;
+    UIView<_UIStatusBarDisplayable> *_view;
     NSString *_identifier;
     _UIStatusBarItem *_item;
     id <UILayoutItem> _layoutItem;
-    UIView<_UIStatusBarDisplayable> *_view;
+    double _alpha;
+    double _viewAlpha;
+    double _baselineOffset;
     _UIStatusBarRegion *_region;
     UIView *_containerView;
     _UIStatusBarStyleAttributes *_overriddenStyleAttributes;
-    long long _enabilityOverride;
     _UIStatusBarDisplayItemPlacement *_placement;
+    struct CGAffineTransform _transform;
+    struct CGAffineTransform _viewTransform;
 }
 
 @property(nonatomic) _Bool needsAddingToLayout; // @synthesize needsAddingToLayout=_needsAddingToLayout;
 @property(retain, nonatomic) _UIStatusBarDisplayItemPlacement *placement; // @synthesize placement=_placement;
-@property(nonatomic) long long enabilityOverride; // @synthesize enabilityOverride=_enabilityOverride;
 @property(nonatomic) _Bool floating; // @synthesize floating=_floating;
 @property(copy, nonatomic) _UIStatusBarStyleAttributes *overriddenStyleAttributes; // @synthesize overriddenStyleAttributes=_overriddenStyleAttributes;
 @property(nonatomic) __weak UIView *containerView; // @synthesize containerView=_containerView;
 @property(nonatomic) __weak _UIStatusBarRegion *region; // @synthesize region=_region;
+@property(nonatomic) double baselineOffset; // @synthesize baselineOffset=_baselineOffset;
+@property(nonatomic) struct CGAffineTransform viewTransform; // @synthesize viewTransform=_viewTransform;
+@property(nonatomic) struct CGAffineTransform transform; // @synthesize transform=_transform;
+@property(nonatomic) double viewAlpha; // @synthesize viewAlpha=_viewAlpha;
+@property(nonatomic) double alpha; // @synthesize alpha=_alpha;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
-@property(readonly, nonatomic) UIView<_UIStatusBarDisplayable> *view; // @synthesize view=_view;
 @property(readonly, nonatomic) id <UILayoutItem> layoutItem; // @synthesize layoutItem=_layoutItem;
 @property(readonly, nonatomic) __weak _UIStatusBarItem *item; // @synthesize item=_item;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (void)applyStyleAttributes:(id)arg1;
 @property(readonly, nonatomic) long long priority;
+@property(nonatomic) struct CGRect absoluteFrame;
+- (void)_updateComputedTransform;
+- (void)_updateComputedAlpha;
 @property(readonly, nonatomic) _Bool visible;
 - (id)description;
-- (id)initWithIdentifier:(id)arg1 item:(id)arg2 view:(id)arg3;
+@property(readonly, nonatomic) UIView<_UIStatusBarDisplayable> *view; // @synthesize view=_view;
+- (id)initWithIdentifier:(id)arg1 item:(id)arg2;
 
 @end
 

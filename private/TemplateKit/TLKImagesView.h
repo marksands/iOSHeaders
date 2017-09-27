@@ -21,7 +21,7 @@
 @property(retain) NSMutableArray *imageViews; // @synthesize imageViews=_imageViews;
 @property(retain) NSArray *images; // @synthesize images=_images;
 - (void).cxx_destruct;
-- (struct CGSize)containerView:(id)arg1 systemLayoutSizeFittingSize:(struct CGSize)arg2 forArrangedSubview:(id)arg3;
+- (void)containerView:(id)arg1 willMeasureArrangedSubviewsFittingSize:(struct CGSize)arg2 forReason:(long long)arg3;
 - (void)updateWithImages:(id)arg1;
 - (void)observedPropertiesChanged;
 - (id)observableProperties;

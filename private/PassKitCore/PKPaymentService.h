@@ -23,10 +23,10 @@
 @property(nonatomic) __weak id <PKPaymentServiceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (_Bool)_hasInterfaceOfType:(unsigned long long)arg1;
-- (void)_sharedPaymentWebServiceContextWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_defaultPaymentPassUniqueIdentifier:(CDUnknownBlockType)arg1;
 - (void)_messagesAppLaunchTokenForPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_transactionsAppLaunchTokenForPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)sharedPaymentWebServiceContextWithCompletion:(CDUnknownBlockType)arg1;
 @property(retain, nonatomic) PKPaymentWebServiceContext *sharedPaymentWebServiceContext;
 @property(retain, nonatomic) NSString *defaultPaymentPassUniqueIdentifier;
 @property(readonly, nonatomic) PKExpressTransactionState *outstandingExpressTransactionState;

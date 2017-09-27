@@ -17,7 +17,6 @@ __attribute__((visibility("hidden")))
 @interface _UINavigationBarVisualProviderModernIOS : _UINavigationBarVisualProvider <_UINavigationBarContentViewDelegate, _UINavigationItemChangeObserver, _UINavigationControllerRefreshControlHostDelegate, _UIBasicAnimationFactory>
 {
     _UIBarBackground *_backgroundView;
-    UIView *_largeTitleMaskView;
     _UINavigationBarContentView *_contentView;
     UIView *_canvasView;
     _UINavigationBarLargeTitleView *_largeTitleView;

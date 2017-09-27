@@ -45,6 +45,7 @@
 - (void)testBundleWillStart:(id)arg1;
 - (id)_IDE_processWithToken:(id)arg1 exitedWithStatus:(id)arg2;
 - (id)_IDE_stopTrackingProcessWithToken:(id)arg1;
+- (void)reportSelfDiagnosisIssue:(id)arg1 description:(id)arg2;
 - (void)terminateProcessWithToken:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)requestLaunchProgressForProcessWithToken:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)launchProcessWithPath:(id)arg1 bundleID:(id)arg2 arguments:(id)arg3 environmentVariables:(id)arg4 completion:(CDUnknownBlockType)arg5;

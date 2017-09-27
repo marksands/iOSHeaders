@@ -14,8 +14,10 @@
 {
     id <ARTechniqueDelegate> _delegate;
     NSArray *_techniques;
+    unsigned long long _powerUsage;
 }
 
+@property(nonatomic) unsigned long long powerUsage; // @synthesize powerUsage=_powerUsage;
 @property(retain, nonatomic) NSArray *techniques; // @synthesize techniques=_techniques;
 @property(nonatomic) __weak id <ARTechniqueDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;

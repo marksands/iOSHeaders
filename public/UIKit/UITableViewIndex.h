@@ -26,8 +26,10 @@ __attribute__((visibility("hidden")))
     double _verticalTextHeightEstimate;
     NSArray *_entries;
     long long _idiom;
+    struct UIEdgeInsets _drawingInsets;
 }
 
+@property(nonatomic) struct UIEdgeInsets drawingInsets; // @synthesize drawingInsets=_drawingInsets;
 @property(readonly, nonatomic) _Bool pastBottom; // @synthesize pastBottom=_pastBottom;
 @property(readonly, nonatomic) _Bool pastTop; // @synthesize pastTop=_pastTop;
 @property(readonly, nonatomic) long long selectedSection; // @synthesize selectedSection=_selectedSection;
@@ -50,6 +52,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *selectedSectionTitle;
 @property(retain, nonatomic) UIFont *font;
 @property(retain, nonatomic) NSArray *titles;
+- (struct CGRect)_effectiveBounds;
 - (void)setFrame:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

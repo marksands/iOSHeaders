@@ -15,17 +15,28 @@
     NSString *_divergedSharedPassword;
 }
 
++ (id)faceIDFailurePrompt;
 + (void)warnUserCannotPasswordProtectDueToManagedAppleIDInViewController:(id)arg1;
 + (void)warnUserCannotPasswordProtectNoteDueToSharedNoteInViewController:(id)arg1;
 + (void)warnUserCannotPasswordProtectNoteDueToUnsupportedAttachmentsInViewController:(id)arg1;
 + (void)showFirstTimePasswordProtectNoteAlertForDisplayWindow:(id)arg1;
 + (void)authenticateiCloudPasswordFromRootViewController:(id)arg1 confirmButtonTitle:(id)arg2 reason:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 + (_Bool)authenticateDevicePasscodeIfNecessaryWithReason:(id)arg1;
++ (void)setFaceIDEnabledForSharedPassword:(_Bool)arg1;
++ (_Bool)faceIDEnabledForSharedPassword;
 + (void)setTouchIDEnabledForSharedPassword:(_Bool)arg1;
 + (_Bool)touchIDEnabledForSharedPassword;
++ (_Bool)biometricIDEnabledForSharedPassword;
++ (void)requestAllowFaceIDIfRequired:(CDUnknownBlockType)arg1;
++ (_Bool)faceIDAccessAllowedViaTCC;
++ (unsigned long long)faceIDAccess;
++ (_Bool)faceIDIsEnrolled;
++ (_Bool)deviceSupportsFaceID;
 + (_Bool)touchIDIsEnrolled;
++ (_Bool)deviceSupportsTouchID;
++ (_Bool)biometricIDIsEnrolled;
 + (_Bool)deviceHasPasscode;
-+ (_Bool)touchIDHardwareIsAvailable;
++ (_Bool)biometricIDHardwareIsAvailable;
 + (struct UIImage *)imageForCurrentDecryptedStatusForNote:(id)arg1;
 + (id)sharedInstance;
 @property(retain, nonatomic) NSString *divergedSharedPassword; // @synthesize divergedSharedPassword=_divergedSharedPassword;
@@ -38,8 +49,8 @@
 - (void)authenticatePasswordForDeletingNotes:(id)arg1 displayWindow:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)authenticateForDeletingNotes:(id)arg1 displayWindow:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)authenticateIfNecessaryForDeletingNotes:(id)arg1 displayWindow:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)authenticateWithTouchIDWithReason:(id)arg1 intent:(unsigned long long)arg2 note:(id)arg3 displayWindow:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
-- (void)authenticateWithTouchIDForDeletingNotes:(id)arg1 displayWindow:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)authenticateWithBiometricIDWithReason:(id)arg1 intent:(unsigned long long)arg2 note:(id)arg3 displayWindow:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)authenticateWithBiometricIDForDeletingNotes:(id)arg1 displayWindow:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)_keychainContainsValidItemForSyncingObject:(id)arg1;
 - (_Bool)keychainContainsValidItemForAccount:(id)arg1;
 - (_Bool)keychainContainsValidItemForNote:(id)arg1;

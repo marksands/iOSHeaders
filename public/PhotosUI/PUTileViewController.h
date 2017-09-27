@@ -57,6 +57,7 @@
 @property(readonly, nonatomic) _Bool isViewLoaded;
 - (void)setEdgeAntialiasingEnabled:(_Bool)arg1;
 - (void)viewDidLoad;
+@property(readonly, nonatomic) UIView *originalView;
 - (id)loadView;
 - (void)addToTilingView:(id)arg1;
 - (void)dealloc;

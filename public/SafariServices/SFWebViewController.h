@@ -26,15 +26,16 @@ __attribute__((visibility("hidden")))
     _Bool _didFirstLayout;
     _Bool _didFinishDocumentLoad;
     _Bool _shouldSuppressDialogsThatBlockWebProcess;
-    _SFAuthenticationContext *_autoFillPearlAuthenticationContext;
     _SFAutoFillAuthenticationCache *_autoFillAuthenticationCache;
     _Bool _loading;
     _Bool _didFirstVisuallyNonEmptyLayout;
     id <SFWebViewControllerDelegate> _delegate;
     WKWebViewConfiguration *_webViewConfiguration;
     _SFDialogController *_dialogController;
+    _SFAuthenticationContext *_autoFillPearlAuthenticationContext;
 }
 
+@property(readonly, nonatomic) _SFAuthenticationContext *autoFillPearlAuthenticationContext; // @synthesize autoFillPearlAuthenticationContext=_autoFillPearlAuthenticationContext;
 @property(readonly, nonatomic) _SFDialogController *dialogController; // @synthesize dialogController=_dialogController;
 @property(readonly, nonatomic) WKWebViewConfiguration *webViewConfiguration; // @synthesize webViewConfiguration=_webViewConfiguration;
 @property(readonly, nonatomic) _Bool didFirstVisuallyNonEmptyLayout; // @synthesize didFirstVisuallyNonEmptyLayout=_didFirstVisuallyNonEmptyLayout;
@@ -64,15 +65,18 @@ __attribute__((visibility("hidden")))
 - (void)_webView:(id)arg1 accessoryViewCustomButtonTappedInFormInputSession:(id)arg2;
 - (void)_webView:(id)arg1 willSubmitFormValues:(id)arg2 userObject:(id)arg3 submissionHandler:(CDUnknownBlockType)arg4;
 - (void)_webView:(id)arg1 didStartInputSession:(id)arg2;
+- (_Bool)contextShouldAllowMultipleBiometricFailures:(id)arg1;
+- (_Bool)contextShouldAllowPasscodeFallback:(id)arg1;
 - (_Bool)contextRequiresSessionBasedAuthentication:(id)arg1;
 - (_Bool)authenticationEnabledForContext:(id)arg1;
 - (id)authenticationCustomUIProgressObserverForContext:(id)arg1;
 - (id)authenticationMessageForContext:(id)arg1;
-- (void)formAutoFillControllerGetAuthenticationForAutoFill:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)formAutoFillControllerGetAuthenticationForAutoFill:(id)arg1 onPageLoad:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)formAutoFillControllerGetAuthenticationForAutoFillOnPageLoad:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)formAutoFillControllerShouldDisableAutoFill:(id)arg1;
 - (id)formAutoFillControllerURLForFormAutoFill:(id)arg1;
 - (_Bool)formAutoFillControllerCanPrefillForm:(id)arg1;
+- (int)_analyticsClient;
 - (void)webView:(id)arg1 didReceiveAuthenticationChallenge:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_webViewWebProcessDidCrash:(id)arg1;
 - (void)_webView:(id)arg1 navigationDidFinishDocumentLoad:(id)arg2;
@@ -85,7 +89,8 @@ __attribute__((visibility("hidden")))
 - (void)_webViewDidEndNavigationGesture:(id)arg1 withNavigationToBackForwardListItem:(id)arg2;
 - (void)_webView:(id)arg1 navigation:(id)arg2 didSameDocumentNavigation:(long long)arg3;
 - (void)webView:(id)arg1 didCommitNavigation:(id)arg2;
-- (void)_webView:(id)arg1 didPerformClientRedirectForNavigation:(id)arg2;
+- (void)_webViewDidCancelClientRedirect:(id)arg1;
+- (void)_webView:(id)arg1 willPerformClientRedirectToURL:(id)arg2 delay:(double)arg3;
 - (void)webView:(id)arg1 didReceiveServerRedirectForProvisionalNavigation:(id)arg2;
 - (void)webView:(id)arg1 didStartProvisionalNavigation:(id)arg2;
 - (void)willBeginUserInitiatedNavigation;

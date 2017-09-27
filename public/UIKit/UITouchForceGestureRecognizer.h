@@ -12,6 +12,7 @@
 {
     CADisplayLink *_continuousEvaluationDisplayLink;
     NSMutableSet *_currentTouches;
+    unsigned long long _eventTouchCount;
     double _currentTouchForce;
     struct CGPoint _initialCentroidOfTouches;
     struct CGPoint _currentCentroidOfTouches;
@@ -23,6 +24,7 @@
     double _minimumRequiredTouchForce;
     double _velocity;
     double _allowableMovement;
+    unsigned long long _maximumNumberOfTouches;
     double _automaticTouchForce;
     double _automaticTouchForceDuration;
     CDUnknownBlockType _configurationBlock;
@@ -32,6 +34,7 @@
 @property(copy, nonatomic) CDUnknownBlockType configurationBlock; // @synthesize configurationBlock=_configurationBlock;
 @property(nonatomic) double automaticTouchForceDuration; // @synthesize automaticTouchForceDuration=_automaticTouchForceDuration;
 @property(nonatomic) double automaticTouchForce; // @synthesize automaticTouchForce=_automaticTouchForce;
+@property(nonatomic) unsigned long long maximumNumberOfTouches; // @synthesize maximumNumberOfTouches=_maximumNumberOfTouches;
 @property(nonatomic) double allowableMovement; // @synthesize allowableMovement=_allowableMovement;
 @property(nonatomic, getter=isSteady) _Bool steady; // @synthesize steady=_steady;
 @property(nonatomic) double velocity; // @synthesize velocity=_velocity;
@@ -42,11 +45,14 @@
 - (void)_endContinuousEvaluation;
 - (void)_updateForContinuousEvaluation:(id)arg1;
 - (void)_beginForContinuousEvaluationForTouches:(id)arg1;
+- (_Bool)_validateHysteresis;
+- (_Bool)_hasExceededMaximumNumberOfTouches;
+- (_Bool)_hasExceededAllowableMovement;
 - (void)_updateTouchForce:(double)arg1;
-- (void)_endIfNeeded;
+- (void)_endIfNeeded:(_Bool)arg1;
 - (void)_endWithTouchesIfNeeded:(id)arg1;
 - (void)_evaluateWithTouchForce:(double)arg1 centroidAtLocation:(struct CGPoint)arg2;
-- (void)_evaluateTouches:(id)arg1;
+- (void)_evaluateTouches:(id)arg1 withEvent:(id)arg2;
 - (_Bool)_shouldReceiveTouch:(id)arg1 recognizerView:(id)arg2 touchView:(id)arg3;
 - (_Bool)canPreventGestureRecognizer:(id)arg1;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;

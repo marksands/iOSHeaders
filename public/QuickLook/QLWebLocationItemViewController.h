@@ -6,24 +6,28 @@
 
 #import <QuickLook/QLItemViewController.h>
 
-@class WKWebView;
+@class NSLayoutConstraint, WKWebView;
 
 __attribute__((visibility("hidden")))
 @interface QLWebLocationItemViewController : QLItemViewController
 {
     WKWebView *_webView;
     CDUnknownBlockType _loadingHandler;
+    NSLayoutConstraint *_leftConstraint;
+    NSLayoutConstraint *_rightConstraint;
 }
 
 + (_Bool)shouldBeRemoteForContentType:(id)arg1;
 + (id)supportedContentTypes;
 + (Class)transformerClass;
 - (void).cxx_destruct;
+- (void)_updateConstraintConstants:(_Bool)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (_Bool)automaticallyUpdateScrollViewContentInset;
 - (_Bool)automaticallyUpdateScrollViewContentOffset;
 - (id)scrollView;
 - (_Bool)canEnterFullScreen;
+- (void)setAppearance:(id)arg1 animated:(_Bool)arg2;
 - (void)dealloc;
 - (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)loadView;

@@ -13,18 +13,23 @@ __attribute__((visibility("hidden")))
 
 - (id)outputImage;
 - (id)enrichImage:(id)arg1;
-- (id)imageForLandmarks:(id)arg1 scaledInputImage:(id)arg2 scaleFactor:(double)arg3;
+- (id)imageForLandmarks:(id)arg1;
+- (id)processEyesIn:(id)arg1 withEyeBlur:(id)arg2 landmarks:(id)arg3;
+- (id)processTeethIn:(id)arg1 withTeethMask:(id)arg2;
+- (id)processSkinIn:(id)arg1 withSkinMask:(id)arg2;
+- (id)teethMaskForLandmarks:(id)arg1;
+- (id)skinMaskForLandmarks:(id)arg1;
+- (id)processTeethIn:(id)arg1 withFaceMask:(id)arg2;
+- (id)processSkinIn:(id)arg1 withFaceMask:(id)arg2;
+- (id)faceMaskForLandmarks:(id)arg1;
 - (id)eyeBlurForLandmarks:(id)arg1;
-- (struct CGRect)allFaceLandmarksBoundingRect;
-- (struct CGRect)faceLandmarkBoundingRect:(id)arg1;
+- (id)maskForLandmarks:(id)arg1 withFilterNamed:(id)arg2;
 - (id)_textureAdd;
 - (id)_textureDiff;
 - (id)_mixKernel;
 - (id)_eyeBrightenSoftlight;
 - (id)_enrich;
 - (id)_whitenTeeth;
-- (id)_swapRB;
-- (id)_swapRG;
 
 @end
 

@@ -36,7 +36,9 @@
 - (void)setHelpButtonEmphasized:(_Bool)arg1;
 - (void)setStatusBarHidden:(_Bool)arg1 animated:(_Bool)arg2 completion:(void (^)(_Bool))arg3;
 - (void)setStatusBarHidden:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)serviceDidDismissViewControllerWithStatusBarStyle:(long long)arg1;
 - (void)serviceWillDismissViewControllerWithStatusBarStyle:(long long)arg1;
+- (void)serviceDidPresentViewControllerWithStatusBarStyle:(long long)arg1;
 - (void)serviceWillPresentViewControllerWithStatusBarStyle:(long long)arg1;
 - (void)setStatusViewDisabled:(_Bool)arg1;
 - (void)setStatusViewUserInteractionEnabled:(_Bool)arg1;

@@ -16,6 +16,7 @@
 {
     _Bool _isLoading;
     NSMutableArray *_completionBlocks;
+    long long _lastScrollViewUpdateInterfaceOrientation;
     _Bool _didAppearOnce;
     _Bool _isLoaded;
     _Bool _loadingFailed;
@@ -63,6 +64,7 @@
 - (void)_scrollScrollViewWithKeyCommand:(id)arg1;
 @property(readonly, nonatomic) NSArray *registeredKeyCommands;
 - (void)buttonPressedWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)fullscreenBackgroundColor;
 - (long long)preferredWhitePointAdaptivityStyle;
 - (_Bool)automaticallyUpdateScrollViewContentInset;
 - (_Bool)automaticallyUpdateScrollViewContentOffset;

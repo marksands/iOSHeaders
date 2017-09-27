@@ -16,6 +16,7 @@
     NSMutableDictionary *_hints;
     _Bool _precedesUI;
     _Bool _restartable;
+    _Bool _lastRestartAttempt;
     NSDictionary *_internalOptions;
     long long _policy;
     NSDictionary *_policyOptions;
@@ -29,6 +30,7 @@
     MechanismBase *_parent;
 }
 
+@property(readonly, nonatomic, getter=isLastRestartAttempt) _Bool lastRestartAttempt; // @synthesize lastRestartAttempt=_lastRestartAttempt;
 @property(readonly, nonatomic, getter=isRestartable) _Bool restartable; // @synthesize restartable=_restartable;
 @property(nonatomic) __weak MechanismBase *parent; // @synthesize parent=_parent;
 @property(retain, nonatomic) MechanismBase *companion; // @synthesize companion=_companion;
@@ -43,12 +45,13 @@
 @property(readonly, nonatomic) long long policy; // @synthesize policy=_policy;
 @property(readonly, nonatomic) NSDictionary *internalOptions; // @synthesize internalOptions=_internalOptions;
 - (void).cxx_destruct;
+- (void)fallbackToIdentifier:(long long)arg1;
 - (void)subMechanismCanRestart:(id)arg1;
 - (void)prepareForRestart;
 - (void)companionStateChanged:(id)arg1 newState:(_Bool)arg2;
-- (void)restartWithEventIdentifier:(long long)arg1;
+- (void)restartWithEventIdentifier:(long long)arg1 lastAttempt:(_Bool)arg2;
 - (id)externalizedContext;
-- (id)additionalControllerInternalInfo;
+- (id)additionalControllerInternalInfoForPolicy:(long long)arg1;
 - (void)setCredential:(id)arg1 credentialType:(long long)arg2 reply:(CDUnknownBlockType)arg3;
 - (_Bool)requiresRemoteViewControllerUiWithEventProcessing:(id)arg1;
 - (_Bool)requiresUiWithEventProcessing:(id)arg1;
@@ -71,6 +74,9 @@
 - (void)finishRunWithResult:(id)arg1 error:(id)arg2 skipReply:(_Bool)arg3;
 - (void)finishRunWithResult:(id)arg1 error:(id)arg2;
 - (void)runWithHints:(id)arg1 eventsDelegate:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (id)tccError:(_Bool)arg1;
+- (id)tccService;
+- (_Bool)isTCCAllowedWithAuditTokenData:(id)arg1 optionAuditTokenData:(id)arg2 forcePrompt:(_Bool)arg3 error:(id *)arg4;
 - (_Bool)isAvailableForPurpose:(long long)arg1 error:(id *)arg2;
 - (id)initWithEventIdentifier:(long long)arg1 remoteViewController:(long long)arg2 cachedExternalizationDelegate:(id)arg3;
 - (id)initWithParams:(id)arg1;

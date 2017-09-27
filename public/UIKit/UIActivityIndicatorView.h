@@ -9,7 +9,7 @@
 #import "NSCoding.h"
 #import "_UIStatusBarDisplayable.h"
 
-@class NSArray, NSString, UIColor, UIImageView;
+@class NSArray, NSString, UIAccessibilityHUDItem, UIColor, UIImageView;
 
 @interface UIActivityIndicatorView : UIView <_UIStatusBarDisplayable, NSCoding>
 {
@@ -124,6 +124,7 @@
 - (_Bool)isElementAccessibilityExposedToInterfaceBuilder;
 
 // Remaining properties
+@property(readonly, nonatomic) UIAccessibilityHUDItem *accessibilityHUDRepresentation;
 @property(readonly, nonatomic) double baselineOffset;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

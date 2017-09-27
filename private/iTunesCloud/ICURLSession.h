@@ -59,6 +59,7 @@
 - (void)enqueueUploadRequest:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)enqueueDataRequest:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
+- (id)initWithConfiguration:(id)arg1 maxConcurrentRequests:(unsigned long long)arg2 qualityOfService:(long long)arg3;
 - (id)initWithConfiguration:(id)arg1 maxConcurrentRequests:(unsigned long long)arg2;
 - (id)initWithConfiguration:(id)arg1;
 - (id)init;

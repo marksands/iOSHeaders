@@ -6,10 +6,14 @@
 
 #import <PhotosUI/PUPhotosPanoramaViewControllerSpec.h>
 
+@class PUPhotosGridViewControllerSpec;
+
 @interface PUPhotosPanoramaViewControllerPadSpec : PUPhotosPanoramaViewControllerSpec
 {
+    PUPhotosGridViewControllerSpec *_gridSpec;
 }
 
+- (void).cxx_destruct;
 - (struct CGSize)_itemSizeForWidth:(double)arg1;
 - (id)gridSpec;
 

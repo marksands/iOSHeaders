@@ -15,9 +15,10 @@
 }
 
 - (void).cxx_destruct;
+- (unsigned long long)_bubbleStateForRegistrationState:(unsigned long long)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (id)initWithCurrencyAmount:(id)arg1;
+- (id)initWithCurrencyAmount:(id)arg1 regitrationFlowState:(unsigned long long)arg2;
 
 @end
 

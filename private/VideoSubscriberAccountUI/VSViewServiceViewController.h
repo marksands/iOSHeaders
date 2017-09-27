@@ -47,7 +47,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)remoteNotifier:(id)arg1 didReceiveRemoteNotificationWithUserInfo:(id)arg2;
 - (void)identityProviderViewControllerDidFinishLoading:(id)arg1;
-- (void)identityProviderViewController:(id)arg1 didAuthenticateAccount:(id)arg2 supportingApps:(id)arg3 forRequest:(id)arg4;
+- (void)identityProviderViewController:(id)arg1 didAuthenticateAccount:(id)arg2 forRequest:(id)arg3;
 - (void)identityProviderViewController:(id)arg1 didFinishRequest:(id)arg2 withResult:(id)arg3;
 - (void)identityProviderViewControllerDidCancel:(id)arg1;
 - (void)dismissIdentityProviderViewController:(id)arg1;

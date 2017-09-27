@@ -29,10 +29,8 @@
 @property(nonatomic) __weak id <CCUIModularControlCenterViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_reparentCollectionViewController;
-- (struct CGRect)_moduleCollectionViewFrame;
 - (id)_safeModuleCollectionViewContainerView;
 - (id)_moduleCollectionViewContainerView;
-- (struct CGRect)_statusLabelViewFrame;
 - (id)_safeStatusLabelViewContainerView;
 - (id)_statusLabelViewContainerView;
 - (long long)_interfaceOrientation;
@@ -51,7 +49,6 @@
 - (void)moduleCollectionViewController:(id)arg1 didFinishInteractionWithModule:(id)arg2;
 - (void)moduleCollectionViewController:(id)arg1 didBeginInteractionWithModule:(id)arg2;
 - (long long)interfaceOrientationForModuleCollectionViewController:(id)arg1;
-- (void)viewWillLayoutSubviews;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (struct CGSize)preferredContentSize;
 - (void)viewDidLoad;
@@ -67,7 +64,7 @@
 - (_Bool)canDismissPresentedContent;
 - (void)closeCurrentModuleWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) CCUIModuleCollectionViewController *moduleCollectionViewController; // @dynamic moduleCollectionViewController;
-@property(readonly, nonatomic) struct UIEdgeInsets edgeInsets; // @dynamic edgeInsets;
+@property(readonly, nonatomic) unsigned long long moduleRowCount; // @dynamic moduleRowCount;
 - (id)initWithSystemAgent:(id)arg1;
 
 // Remaining properties

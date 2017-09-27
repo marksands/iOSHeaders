@@ -31,6 +31,7 @@
 - (id)_accessibilityAllDragSourceDescriptors;
 - (id)_accessibilityFilterInteractionLocationDescriptorsForVisible:(id)arg1;
 - (_Bool)accessibilityIsAttachmentElement;
+- (id)_accessibilityCustomActionGroupIdentifier;
 - (_Bool)_accessibilityIsDraggableElementAttribute;
 - (_Bool)_accessibilityHasDragDestinations;
 - (_Bool)_accessibilityHasDragSources;
@@ -672,6 +673,7 @@
 - (_Bool)accessibilityIsWindow;
 - (_Bool)_accessibilitySelfFoundByHitTesting;
 - (id)_accessibilityBaseHitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)_accessibilityAllowOutOfBoundsHitTestAtPoint:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)_accessibilityHitTestSupplementaryViews:(id)arg1 point:(struct CGPoint)arg2 withEvent:(id)arg3;
 - (id)_accessibilityHitTestSupplementaryViews:(struct CGPoint)arg1 event:(id)arg2;
 - (id)_accessibilityHitTest:(struct CGPoint)arg1 withEvent:(id)arg2;

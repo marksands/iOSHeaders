@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)epsilon;
 + (id)valueWithCGRect:(struct CGRect)arg1;
 
 @end

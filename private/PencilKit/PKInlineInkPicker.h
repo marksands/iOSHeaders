@@ -8,7 +8,7 @@
 
 #import "PKInlineColorPickerDelegate.h"
 
-@class NSArray, NSString, PKInk, PKInlineColorPicker, UIColor, UILayoutGuide, UIView, _PKOverflowCoveringView;
+@class NSArray, NSString, PKInk, PKInlineColorPicker, UIColor, UILayoutGuide, UIView;
 
 @interface PKInlineInkPicker : UIControl <PKInlineColorPickerDelegate>
 {
@@ -22,7 +22,8 @@
     NSArray *_toolButtonItems;
     PKInlineColorPicker *_colorPicker;
     UIView *_backgroundView;
-    _PKOverflowCoveringView *_overflowCoveringView;
+    UIView *_separatorView;
+    UIView *_clippingView;
     id <PKInlineInkPickerDelegate> _delegate;
     unsigned long long _pickerState;
     unsigned long long _sizeState;
@@ -43,7 +44,8 @@
 @property(nonatomic) unsigned long long pickerState; // @synthesize pickerState=_pickerState;
 @property(nonatomic) __weak id <PKInlineInkPickerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) _Bool shouldEmboss; // @synthesize shouldEmboss=_shouldEmboss;
-@property(retain, nonatomic) _PKOverflowCoveringView *overflowCoveringView; // @synthesize overflowCoveringView=_overflowCoveringView;
+@property(retain, nonatomic) UIView *clippingView; // @synthesize clippingView=_clippingView;
+@property(retain, nonatomic) UIView *separatorView; // @synthesize separatorView=_separatorView;
 @property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) PKInlineColorPicker *colorPicker; // @synthesize colorPicker=_colorPicker;
 @property(retain, nonatomic) NSArray *toolButtonItems; // @synthesize toolButtonItems=_toolButtonItems;

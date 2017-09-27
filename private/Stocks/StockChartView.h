@@ -98,6 +98,8 @@
 - (void)setNeedsLayout;
 - (void)forceLayout;
 - (void)layoutIfNeeded;
+- (_Bool)isLandscape;
+- (double)horizontalPadding;
 - (void)layoutSubviews;
 - (void)_layoutSubviews;
 - (void)layoutPreviousClose;

@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIScrollView.h"
+#import <ControlCenterUI/CCUIScrollView.h>
 
 @class CCUILayoutOptions;
 
-@interface CCUILayoutView : UIScrollView
+@interface CCUILayoutView : CCUIScrollView
 {
     CCUILayoutOptions *_layoutOptions;
-    _Bool _shouldLayout;
     id <CCUILayoutViewLayoutSource> _layoutSource;
     struct UIEdgeInsets _edgeInsets;
 }
@@ -25,6 +24,7 @@
 - (void)setNeedsLayout;
 - (void)willRemoveSubview:(id)arg1;
 - (void)didAddSubview:(id)arg1;
+- (void)iterateLayoutSubviewsWithBlock:(CDUnknownBlockType)arg1;
 - (struct CGRect)frameForLayoutRect:(struct CCUILayoutRect)arg1;
 - (struct CGRect)frameForSubview:(id)arg1;
 - (id)subviewsToLayout;

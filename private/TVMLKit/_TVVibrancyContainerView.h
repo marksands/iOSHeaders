@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIVisualEffectView.h"
+#import <TVMLKit/_TVVisualEffectView.h>
 
 @class UIView;
 
-@interface _TVVibrancyContainerView : UIVisualEffectView
+@interface _TVVibrancyContainerView : _TVVisualEffectView
 {
     UIView *_containedView;
 }

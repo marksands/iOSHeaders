@@ -48,6 +48,9 @@
 - (void)_notifyDelegatePasscodeEntered;
 - (void)_toggleForStatusField;
 - (void)_layoutStatusView;
+- (void)_layoutEntryField;
+- (struct CGRect)_defaultEntryFieldPosition;
+- (double)_offsetForCenteringTitleAndEntryFieldFrame:(struct CGRect)arg1 withTopYvalue:(double)arg2 bottomYvalue:(double)arg3;
 - (id)_newStatusSubtitleView;
 - (id)_newStatusTitleView;
 - (double)_statusTitleWidth;

@@ -25,7 +25,7 @@
 @property(readonly, copy, nonatomic) NSArray *inputStrokeIdentifiers; // @synthesize inputStrokeIdentifiers=_inputStrokeIdentifiers;
 - (float)languageFitnessForLocale:(id)arg1;
 - (id)recognitionResultsForLocale:(id)arg1;
-- (id)highConfidenceTextWithLocalePreference:(id)arg1 rejectionRate:(double *)arg2;
+- (id)highConfidenceTextForSessionResult:(id)arg1 rejectionRate:(double *)arg2;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

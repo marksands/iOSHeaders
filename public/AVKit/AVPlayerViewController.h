@@ -175,6 +175,7 @@
 @property(readonly, nonatomic) UIView *contentOverlayView;
 @property(readonly, nonatomic) struct CGRect videoBounds;
 @property(readonly, nonatomic, getter=isReadyForDisplay) _Bool readyForDisplay;
+- (void)_setVideoGravity:(id)arg1 forLayoutMetrics:(unsigned long long)arg2;
 @property(copy, nonatomic) NSString *videoGravity;
 @property(nonatomic) _Bool showsPlaybackControls;
 @property(retain, nonatomic) AVPlayer *player;
@@ -199,7 +200,7 @@
 - (void)fullScreenButtonTapped:(id)arg1;
 - (void)mediaSelectionButtonTapped:(id)arg1;
 - (void)togglePlayback:(id)arg1;
-- (void)scaleButtonTapped:(id)arg1;
+- (void)videoGravityButtonTapped:(id)arg1;
 - (void)doneButtonTapped:(id)arg1;
 @property(readonly, nonatomic, getter=isPresentedFullScreen) _Bool presentedFullScreen;
 @property(readonly, nonatomic, getter=isPresentingFullScreenFromInline) _Bool presentingFullScreenFromInline;

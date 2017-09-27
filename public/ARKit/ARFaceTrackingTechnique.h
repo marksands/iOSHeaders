@@ -12,6 +12,7 @@
 {
     ARFaceTrackingData *_faceTrackingData;
     NSObject<OS_dispatch_semaphore> *_dataSemaphore;
+    _Bool _isFaceTracked;
 }
 
 + (_Bool)isSupported;

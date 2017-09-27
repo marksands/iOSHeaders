@@ -28,14 +28,16 @@
     AVDepthData *_depthData;
     double _depthDataTimestamp;
     long long _cameraPosition;
-    long long _targetFramesPerSecond;
+    long long _captureFramesPerSecond;
+    long long _renderFramesPerSecond;
     // Error parsing type: {?="columns"[3]}, name: _cameraIntrinsics
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)captureDateFromPresentationTimestamp:(CDStruct_1b6d18a9)arg1 session:(id)arg2;
 @property(nonatomic) _Bool shouldRestrictFrameRate; // @synthesize shouldRestrictFrameRate=_shouldRestrictFrameRate;
-@property(nonatomic) long long targetFramesPerSecond; // @synthesize targetFramesPerSecond=_targetFramesPerSecond;
+@property(nonatomic) long long renderFramesPerSecond; // @synthesize renderFramesPerSecond=_renderFramesPerSecond;
+@property(nonatomic) long long captureFramesPerSecond; // @synthesize captureFramesPerSecond=_captureFramesPerSecond;
 @property(nonatomic) long long cameraPosition; // @synthesize cameraPosition=_cameraPosition;
 @property(nonatomic) double depthDataTimestamp; // @synthesize depthDataTimestamp=_depthDataTimestamp;
 @property(retain, nonatomic) AVDepthData *depthData; // @synthesize depthData=_depthData;
@@ -58,7 +60,7 @@
 - (id)initWithCoder:(id)arg1;
 @property(readonly, nonatomic) struct CGSize imageResolution;
 - (void)dealloc;
-- (id)initWithSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 captureDevice:(id)arg2 captureSession:(id)arg3;
+- (id)initWithSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 captureFramePerSecond:(long long)arg2 renderFramePerSecond:(long long)arg3 captureDevice:(id)arg4 captureSession:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

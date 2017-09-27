@@ -33,6 +33,8 @@
 - (void)addActiveEnergy:(unsigned short)arg1;
 - (void)addHeartRate:(unsigned short)arg1;
 - (id)getBinaryValueWithError:(id *)arg1;
+- (id)description;
+- (_Bool)isEqual:(id)arg1;
 - (id)initForWriting;
 
 @end

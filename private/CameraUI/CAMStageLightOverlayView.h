@@ -14,6 +14,7 @@
     _Bool _visible;
     _Bool __displayedActive;
     long long _orientation;
+    double _bottomContentInset;
     UIView *__backgroundContainerView;
     UIView *__tintView;
     UIImageView *__vignetteView;
@@ -29,6 +30,7 @@
 @property(readonly, nonatomic) UIImageView *_vignetteView; // @synthesize _vignetteView=__vignetteView;
 @property(readonly, nonatomic) UIView *_tintView; // @synthesize _tintView=__tintView;
 @property(readonly, nonatomic) UIView *_backgroundContainerView; // @synthesize _backgroundContainerView=__backgroundContainerView;
+@property(nonatomic) double bottomContentInset; // @synthesize bottomContentInset=_bottomContentInset;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(nonatomic, getter=isVisible) _Bool visible; // @synthesize visible=_visible;
 @property(nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;

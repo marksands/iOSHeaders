@@ -23,6 +23,7 @@
 @property(readonly) XCUICoordinate *coordinate; // @synthesize coordinate=_coordinate;
 @property(readonly) XCUIElement *element; // @synthesize element=_element;
 @property(readonly) struct CGPoint screenPoint;
+- (struct CGPoint)_untransformedScreenPoint;
 @property(readonly) XCUIElement *referencedElement;
 - (id)coordinateWithOffset:(struct CGVector)arg1;
 - (id)description;

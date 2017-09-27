@@ -22,7 +22,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)hash;
-- (id)initFromData:(const CDStruct_121c720f *)arg1 type:(int)arg2 string:(const char *)arg3 maxLength:(int)arg4;
+- (id)initFromData:(const CDStruct_8a690d05 *)arg1 type:(int)arg2 string:(const char *)arg3 maxLength:(int)arg4;
 
 @end
 

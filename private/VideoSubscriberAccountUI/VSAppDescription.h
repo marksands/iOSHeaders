@@ -11,12 +11,18 @@
 __attribute__((visibility("hidden")))
 @interface VSAppDescription : NSObject
 {
+    _Bool _offersInAppPurchases;
     NSString *_displayName;
     NSNumber *_adamID;
     NSString *_buyParams;
     NSString *_bundleID;
     NSString *_sellerName;
+    NSString *_externalVersionID;
     NSURL *_appStoreURL;
+    NSURL *_privacyPolicyEndpointURL;
+    NSURL *_licenseAgreementEndpointURL;
+    NSString *_rating;
+    NSNumber *_contentRank;
     NSString *_artworkURLTemplate;
     UIImage *_icon;
 }
@@ -24,13 +30,20 @@ __attribute__((visibility("hidden")))
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) UIImage *icon; // @synthesize icon=_icon;
 @property(copy, nonatomic) NSString *artworkURLTemplate; // @synthesize artworkURLTemplate=_artworkURLTemplate;
+@property(nonatomic) _Bool offersInAppPurchases; // @synthesize offersInAppPurchases=_offersInAppPurchases;
+@property(copy, nonatomic) NSNumber *contentRank; // @synthesize contentRank=_contentRank;
+@property(copy, nonatomic) NSString *rating; // @synthesize rating=_rating;
+@property(copy, nonatomic) NSURL *licenseAgreementEndpointURL; // @synthesize licenseAgreementEndpointURL=_licenseAgreementEndpointURL;
+@property(copy, nonatomic) NSURL *privacyPolicyEndpointURL; // @synthesize privacyPolicyEndpointURL=_privacyPolicyEndpointURL;
 @property(copy, nonatomic) NSURL *appStoreURL; // @synthesize appStoreURL=_appStoreURL;
+@property(copy, nonatomic) NSString *externalVersionID; // @synthesize externalVersionID=_externalVersionID;
 @property(copy, nonatomic) NSString *sellerName; // @synthesize sellerName=_sellerName;
 @property(copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(copy, nonatomic) NSString *buyParams; // @synthesize buyParams=_buyParams;
 @property(copy, nonatomic) NSNumber *adamID; // @synthesize adamID=_adamID;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 - (void).cxx_destruct;
+@property(readonly, copy, nonatomic) NSString *shortenedDisplayName;
 - (id)iconURLForSize:(struct CGSize)arg1;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;

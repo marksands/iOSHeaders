@@ -6,27 +6,24 @@
 
 #import "UIVisualEffectView.h"
 
-@class NSString, UIView;
+@class UIView;
 
 @interface _TVVisualEffectView : UIVisualEffectView
 {
-    NSString *_savedGroupName;
-    UIView *_backdropLayerHostView;
+    UIView *_hostView;
 }
 
-+ (void)disableBackdropLayerHostView:(id)arg1;
-+ (void)enableBackdropLayerHostView:(id)arg1;
-+ (id)backdropLayerHostViews;
-@property(nonatomic) __weak UIView *backdropLayerHostView; // @synthesize backdropLayerHostView=_backdropLayerHostView;
-@property(readonly, copy, nonatomic) NSString *savedGroupName; // @synthesize savedGroupName=_savedGroupName;
++ (void)disableForHostView:(id)arg1;
++ (void)enableForHostView:(id)arg1;
++ (void)removeHostView:(id)arg1;
++ (void)addHostView:(id)arg1;
++ (id)hostViewDisablements;
+@property(nonatomic) __weak UIView *hostView; // @synthesize hostView=_hostView;
 - (void).cxx_destruct;
 - (void)didMoveToWindow;
-- (void)backdropLayerHostViewDisabled:(id)arg1;
-- (void)backdropLayerHostViewEnabled:(id)arg1;
-- (void)_setGroupName:(id)arg1;
+- (void)_disablement:(id)arg1;
+- (void)_setDisabled:(_Bool)arg1;
 - (void)dealloc;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithEffect:(id)arg1;
 
 @end
 

@@ -25,11 +25,11 @@
 - (_Bool)_handleTextInputPayload:(id)arg1 withPayloadID:(id)arg2;
 - (void)_validateMessageForSending:(id)arg1 conversation:(id)arg2 associatedText:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_validateMessageForSending:(id)arg1 conversation:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) struct UIEdgeInsets _balloonMaskEdgeInsets;
 - (void)requestResize;
 - (void)setReadyForDisplay;
 - (_Bool)displaysAfterAppearance;
 - (void)viewDidAppear:(_Bool)arg1;
-- (struct CGSize)_contentSizeThatFits:(struct CGSize)arg1 presentationStyle:(unsigned long long)arg2;
 - (struct CGSize)contentSizeThatFits:(struct CGSize)arg1;
 - (void)updateSnapshotWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)didResignActiveWithConversation:(id)arg1;

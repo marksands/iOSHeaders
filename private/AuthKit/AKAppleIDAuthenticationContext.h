@@ -76,6 +76,7 @@
     NSNumber *_isAppleIDLoginEnabled;
     NSNumber *_hasEmptyPassword;
     NSSet *_desiredInternalTokens;
+    NSString *_securityUpgradeContext;
     AKAnisetteData *_proxiedDeviceAnisetteData;
     AKAnisetteData *_companionDeviceAnisetteData;
     NSString *_displayString;
@@ -87,6 +88,7 @@
 @property(copy, nonatomic) NSString *displayString; // @synthesize displayString=_displayString;
 @property(retain, nonatomic) AKAnisetteData *companionDeviceAnisetteData; // @synthesize companionDeviceAnisetteData=_companionDeviceAnisetteData;
 @property(retain, nonatomic) AKAnisetteData *proxiedDeviceAnisetteData; // @synthesize proxiedDeviceAnisetteData=_proxiedDeviceAnisetteData;
+@property(copy, nonatomic) NSString *securityUpgradeContext; // @synthesize securityUpgradeContext=_securityUpgradeContext;
 @property(nonatomic) _Bool shouldSkipSettingsLaunchAlert; // @synthesize shouldSkipSettingsLaunchAlert=_shouldSkipSettingsLaunchAlert;
 @property(nonatomic, setter=setFirstTimeLogin:) _Bool isFirstTimeLogin; // @synthesize isFirstTimeLogin=_isFirstTimeLogin;
 @property(copy, nonatomic) NSSet *desiredInternalTokens; // @synthesize desiredInternalTokens=_desiredInternalTokens;

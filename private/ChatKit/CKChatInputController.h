@@ -173,7 +173,6 @@
 - (void)requestPhotoBrowserToPrepareForDraft;
 - (void)requestPhotoBrowserToAppendFinalImagesToComposition;
 - (void)notifyBrowserViewControllerOfMatchingNewMessages:(id)arg1;
-- (void)presentAppStoreToManagedTabForPlugin:(id)arg1;
 - (void)presentAppStoreForURL:(id)arg1;
 - (void)presentAppManager;
 - (void)presentAppStoreForAdamID:(id)arg1;
@@ -200,7 +199,7 @@
 - (void)handlePayload:(id)arg1 withPayloadId:(id)arg2;
 - (void)presentPluginWithBundleID:(id)arg1 appLaunchPayload:(id)arg2;
 - (void)unregisterForTextInputPayloadHandling;
-- (void)registerForTextInputPayloadHandling;
+- (void)registerForTextInputPayloadHandling:(_Bool)arg1;
 - (void)handleMoneyActionWithAmount:(id)arg1 currencies:(id)arg2;
 
 // Remaining properties

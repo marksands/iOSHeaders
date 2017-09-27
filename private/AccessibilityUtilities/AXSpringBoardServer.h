@@ -57,6 +57,7 @@
 - (_Bool)isVoiceControlRunning;
 - (void)openVoiceControl;
 - (void)setSiriIsTalking:(_Bool)arg1;
+- (_Bool)isPasscodeLockVisible;
 - (_Bool)isReceivingAirPlay;
 - (_Bool)isSiriTalkingOrListening;
 - (_Bool)isSiriVisible;

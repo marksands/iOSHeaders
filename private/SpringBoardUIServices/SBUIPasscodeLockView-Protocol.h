@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class BSAnimationSettings, NSString, UIColor;
+@class BSAnimationSettings, NSString, SBUIProudLockIconView, UIColor;
 
 @protocol SBUIPasscodeLockView <NSObject>
 @property(nonatomic) double backgroundAlpha;
@@ -14,6 +14,11 @@
 @property(nonatomic, getter=isScreenOn) _Bool screenOn;
 @property(retain, nonatomic) id <SBFLegibilitySettingsProvider> backgroundLegibilitySettingsProvider;
 @property(retain, nonatomic) UIColor *customBackgroundColor;
+@property(retain, nonatomic) SBUIProudLockIconView *overrideProudLockView;
+@property(nonatomic) _Bool proudLockShowsBiometricStates;
+@property(nonatomic) _Bool showsProudLock;
+@property(nonatomic) _Bool biometricPresentationAncillaryButtonsVisible;
+@property(nonatomic) _Bool allowsAutomaticBiometricPresentationTransition;
 @property(nonatomic) _Bool usesBiometricPresentation;
 @property(nonatomic) _Bool showsCancelButton;
 @property(nonatomic) _Bool showsEmergencyCallButton;
@@ -31,6 +36,7 @@
 - (void)setKeypadVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)reset;
 - (void)resetForScreenOff;
+- (void)resetForSuccessViaPasscode:(_Bool)arg1;
 - (void)resetForFailedPasscode;
 @end
 

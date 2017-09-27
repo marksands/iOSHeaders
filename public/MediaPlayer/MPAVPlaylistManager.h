@@ -90,6 +90,7 @@
 - (long long)indexWithDelta:(long long)arg1 fromIndex:(long long)arg2 ignoreElapsedTime:(_Bool)arg3 didReachEnd:(_Bool *)arg4;
 - (_Bool)canSkipItem:(id)arg1;
 @property(readonly, nonatomic) _Bool userCanChangeShuffleAndRepeatType;
+@property(readonly, nonatomic) _Bool allowsQueueResetWhenReachingEnd;
 - (_Bool)canSkipToPreviousItemForItem:(id)arg1;
 @property(readonly, nonatomic) _Bool canSkipToPreviousItem;
 @property(readonly, nonatomic) _Bool canSeek;
@@ -103,6 +104,7 @@
 - (void)queueCoordinator:(id)arg1 willInsertItem:(id)arg2 afterItem:(id)arg3;
 - (void)queueCoordinator:(id)arg1 failedToLoadItem:(id)arg2;
 - (void)_mediaLibraryDisplayValuesDidChangeNotification:(id)arg1;
+@property(nonatomic) _Bool shouldDeferItemLoading;
 @property(readonly, nonatomic) long long upNextItemCount;
 - (_Bool)hasQueueContents;
 @property(readonly, nonatomic) _Bool isTransitioningSource;

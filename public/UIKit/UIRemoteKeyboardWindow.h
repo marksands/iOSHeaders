@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 
 + (id)remoteKeyboardWindowForScreen:(id)arg1 create:(_Bool)arg2;
 - (void)dealloc;
+- (long long)_orientationForClassicPresentation;
 - (void)endDisablingInterfaceAutorotation;
 - (void)resetScene;
 - (void)_resetScene;

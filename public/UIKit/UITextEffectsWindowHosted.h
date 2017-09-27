@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (struct UIEdgeInsets)safeAreaInsets;
 - (_Bool)_isTextEffectsWindowNotificationOwner;
 - (_Bool)_isTextEffectsWindowHosting;
 - (void)_sceneBoundsDidChange;

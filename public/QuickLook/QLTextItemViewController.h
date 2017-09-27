@@ -9,13 +9,15 @@
 #import "QLPrintingProtocol.h"
 #import "UITextViewDelegate.h"
 
-@class NSAttributedString, NSString, UIPrintPageRenderer, UISimpleTextPrintFormatter, UITextView;
+@class NSAttributedString, NSLayoutConstraint, NSString, UIPrintPageRenderer, UISimpleTextPrintFormatter, UITextView;
 
 __attribute__((visibility("hidden")))
 @interface QLTextItemViewController : QLItemViewController <UITextViewDelegate, QLPrintingProtocol>
 {
     UITextView *_textView;
     NSAttributedString *_content;
+    NSLayoutConstraint *_leftConstraint;
+    NSLayoutConstraint *_rightConstraint;
     UISimpleTextPrintFormatter *_printFormatter;
     UIPrintPageRenderer *_pageRenderer;
 }
@@ -25,6 +27,7 @@ __attribute__((visibility("hidden")))
 + (id)supportedContentTypes;
 + (Class)transformerClass;
 - (void).cxx_destruct;
+- (void)_updateConstraintConstants:(_Bool)arg1;
 - (long long)preferredWhitePointAdaptivityStyle;
 - (void)pdfDataForPageAtIndex:(long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)prepareForDrawingPages:(struct _NSRange)arg1 ofSize:(struct CGSize)arg2;
@@ -35,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)automaticallyUpdateScrollViewContentInset;
 - (_Bool)automaticallyUpdateScrollViewContentOffset;
 - (id)scrollView;
+- (void)setAppearance:(id)arg1 animated:(_Bool)arg2;
 - (_Bool)shouldRecognizeGestureRecognizer:(id)arg1;
 - (id)registeredKeyCommands;
 - (_Bool)canPinchToDismiss;

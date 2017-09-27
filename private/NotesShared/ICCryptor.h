@@ -10,7 +10,7 @@
 {
 }
 
-+ (void)removeItemFromTouchID:(id)arg1;
++ (void)removeItemFromBiometricID:(id)arg1;
 + (void)removePassphraseForNotesInAccount:(id)arg1;
 + (void)removePassphraseForAccount:(id)arg1;
 + (void)cachedKeyClearingTimerDidFire;

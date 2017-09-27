@@ -17,7 +17,6 @@
     SKUIPlayButton *_playButton;
 }
 
-+ (id)vibrantTextViewForStyle:(unsigned long long)arg1;
 @property(retain, nonatomic) SKUIPlayButton *playButton; // @synthesize playButton=_playButton;
 - (void).cxx_destruct;
 - (void)selectableTextView:(id)arg1 presentViewController:(id)arg2;

@@ -30,6 +30,7 @@
     PSSpecifier *_wallpaperSpecifier;
     PSSpecifier *_passcodeSpecifier;
     PSSpecifier *_appleAccountSpecifier;
+    PSSpecifier *_videoSubscriberGroupSpecifier;
     PSSpecifier *_videoSubscriberSpecifier;
     PSSpecifier *_messagesSpecifier;
     PSSpecifier *_faceTimeSpecifier;

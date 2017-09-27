@@ -189,6 +189,13 @@ struct _UIRenderingSurface {
     double _field2;
 };
 
+struct _UIScreenBoundingPathBitmapInfo {
+    unsigned long long width;
+    unsigned long long height;
+    unsigned long long skipRegionY;
+    unsigned long long skipRegionHeight;
+};
+
 struct _UIViewTraitCollectionChangeDescription {
     id _field1;
     id _field2;
@@ -334,7 +341,8 @@ typedef struct {
     unsigned int wifiLinkWarning:1;
     unsigned int wifiSearching:1;
     double backgroundActivityDisplayStartDate;
-} CDStruct_121c720f;
+    unsigned int shouldShowEmergencyOnlyStatus:1;
+} CDStruct_8a690d05;
 
 typedef struct {
     unsigned int val[8];
@@ -468,8 +476,8 @@ typedef struct {
     unsigned int overrideDisplayRawWifiSignal:1;
     unsigned int overridePersonName:1;
     unsigned int overrideWifiLinkWarning:1;
-    CDStruct_121c720f values;
-} CDStruct_e9ade08e;
+    CDStruct_8a690d05 values;
+} CDStruct_4529d5a7;
 
 typedef struct {
     CDStruct_73524d89 _field1[4];

@@ -115,6 +115,7 @@
 - (void)setPollingIntervalOverride:(double)arg1;
 @property(readonly, nonatomic) double pollingInterval;
 - (_Bool)_isPushConnected;
+- (void)_setMaximumKeepAliveInterval:(double)arg1 onInterface:(long long)arg2;
 @property double maximumKeepAliveInterval;
 @property(nonatomic) double minimumKeepAliveInterval;
 @property(readonly, nonatomic) double currentKeepAliveInterval;
@@ -129,6 +130,7 @@
 - (void)startManager;
 @property(readonly, nonatomic) int currentGrowthStage;
 - (id)_currentGrowthAlgorithm;
+- (id)_growthAlgorithmOnInterface:(long long)arg1;
 - (void)setOnlyAllowedStyle:(int)arg1;
 - (int)currentStyle;
 - (void)_processDeviceConditionChanges;

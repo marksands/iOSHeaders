@@ -14,10 +14,6 @@
 + (id)tableAliases;
 + (id)databaseTable;
 + (long long)protectionClass;
-+ (id)_predicateForDataCode:(long long)arg1;
-+ (_Bool)_getAnchorsWithArray:(id)arg1 predicate:(id)arg2 profile:(id)arg3 error:(id *)arg4;
-+ (id)anchorForDataCode:(long long)arg1 profile:(id)arg2 error:(id *)arg3;
-+ (_Bool)setAnchor:(id)arg1 forDataCode:(long long)arg2 profile:(id)arg3 error:(id *)arg4;
 
 @end
 

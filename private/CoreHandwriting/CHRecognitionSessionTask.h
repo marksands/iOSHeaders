@@ -15,6 +15,7 @@
     long long _status;
     id <CHRecognitionSessionTaskDelegate> _delegate;
     NSArray *_locales;
+    NSArray *_preferredLocales;
     id <CHStrokeProvider> _strokeProvider;
     CHRecognitionSessionResult *_outputResult;
     CHRecognitionSessionResult *__inputResult;
@@ -26,6 +27,7 @@
 @property(retain, nonatomic, setter=_setOutputResult:) CHRecognitionSessionResult *outputResult; // @synthesize outputResult=_outputResult;
 @property(nonatomic) _Bool saveInputDrawings; // @synthesize saveInputDrawings=_saveInputDrawings;
 @property(readonly, retain, nonatomic) id <CHStrokeProvider> strokeProvider; // @synthesize strokeProvider=_strokeProvider;
+@property(readonly, copy, nonatomic) NSArray *preferredLocales; // @synthesize preferredLocales=_preferredLocales;
 @property(readonly, copy, nonatomic) NSArray *locales; // @synthesize locales=_locales;
 @property(nonatomic) id <CHRecognitionSessionTaskDelegate> delegate; // @synthesize delegate=_delegate;
 @property _Bool cancelled; // @synthesize cancelled=_cancelled;
@@ -37,7 +39,7 @@
 - (void)cancel;
 - (void)main;
 - (void)dealloc;
-- (id)initWithLocales:(id)arg1 strokeProvider:(id)arg2 inputResult:(id)arg3;
+- (id)initWithLocales:(id)arg1 preferredLocales:(id)arg2 strokeProvider:(id)arg3 inputResult:(id)arg4;
 - (id)init;
 
 @end

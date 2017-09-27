@@ -17,6 +17,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)restartMatchingIfNeededForAssertion:(id)arg1;
 - (void)refreshMatchMode;
 - (id)acquireMatchingAssertionWithMode:(unsigned long long)arg1 reason:(id)arg2;
 - (id)acquireFingerDetectionWantedAssertionForReason:(id)arg1;

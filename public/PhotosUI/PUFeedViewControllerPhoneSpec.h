@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (double)standardSideMargins;
+- (double)collectionViewContentInset;
 - (_Bool)shouldUseFullscreenLayout;
 - (long long)promptStyle;
 - (id)photosPickerSpec;

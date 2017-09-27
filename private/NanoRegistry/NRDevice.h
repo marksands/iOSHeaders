@@ -59,6 +59,7 @@
 - (_Bool)migrationConfirmed;
 - (id)migrationError;
 - (_Bool)archived;
+- (_Bool)canMigrate;
 
 @end
 

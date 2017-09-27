@@ -14,6 +14,7 @@
 {
     _Bool _showCancelButton;
     _Bool _showDoneButton;
+    id <PKExplanationViewControllerDelegate> _explanationViewControllerDelegate;
     long long _context;
     PKExplanationView *_explanationView;
 }
@@ -22,9 +23,12 @@
 @property(nonatomic) _Bool showDoneButton; // @synthesize showDoneButton=_showDoneButton;
 @property(nonatomic) _Bool showCancelButton; // @synthesize showCancelButton=_showCancelButton;
 @property(readonly, nonatomic) long long context; // @synthesize context=_context;
+@property(nonatomic) __weak id <PKExplanationViewControllerDelegate> explanationViewControllerDelegate; // @synthesize explanationViewControllerDelegate=_explanationViewControllerDelegate;
 - (void).cxx_destruct;
 - (void)privacyFooterLinkTapped:(id)arg1;
 - (void)_dismissViewController;
+- (void)_donePressed;
+- (void)_cancelPressed;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)loadView;

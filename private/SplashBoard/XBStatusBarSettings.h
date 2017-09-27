@@ -25,6 +25,7 @@
 - (id)keyDescriptionForSetting:(unsigned long long)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic, getter=isBackgroundActivityEnabled) _Bool backgroundActivityEnabled;
 @property(readonly, nonatomic) long long style;
 @property(readonly, nonatomic, getter=isHidden) _Bool hidden;
 @property(readonly, copy) NSString *description;

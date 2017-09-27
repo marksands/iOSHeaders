@@ -429,6 +429,7 @@ __attribute__((visibility("hidden")))
 - (void)updateAutolocalizedKeysForKeyplane:(id)arg1;
 - (void)updateLocalizedKeysOnKeyplane:(id)arg1;
 - (void)nextToUseInputModeDidChange:(id)arg1;
+- (id)internationalKeyDisplayStringOnEmojiKeyboard;
 - (void)updateLocalizedDisplayStringOnEmojiInternationalWithKeyplane:(id)arg1 withInputMode:(id)arg2;
 - (_Bool)canProduceString:(id)arg1;
 - (double)lastTouchUpTimestamp;

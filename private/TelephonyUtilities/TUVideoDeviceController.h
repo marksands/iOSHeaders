@@ -12,12 +12,14 @@
 
 @interface TUVideoDeviceController : NSObject <TUVideoDeviceControllerProviderDelegate>
 {
+    _Bool _wantsPreview;
     NSObject<OS_dispatch_queue> *_serialQueue;
     id <TUVideoDeviceControllerProvider> _provider;
 }
 
 + (int)_tuOrientationForVideoOrientation:(int)arg1;
 + (int)_videoOrientationForTUOrientation:(int)arg1;
+@property(nonatomic) _Bool wantsPreview; // @synthesize wantsPreview=_wantsPreview;
 @property(readonly, nonatomic) id <TUVideoDeviceControllerProvider> provider; // @synthesize provider=_provider;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *serialQueue; // @synthesize serialQueue=_serialQueue;
 - (void).cxx_destruct;

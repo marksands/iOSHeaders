@@ -16,8 +16,8 @@
 - (NSArray *)setupInContainerView:(UIView *)arg1;
 
 @optional
-- (NSString *)displayItemIdentifierFromExternalRegionIdentifier:(NSString *)arg1;
-- (NSString *)regionIdentifierFromExternalRegionIdentifier:(NSString *)arg1;
+- (NSArray *)displayItemIdentifiersForPartWithIdentifier:(NSString *)arg1;
+- (NSArray *)regionIdentifiersForPartWithIdentifier:(NSString *)arg1;
 - (void)region:(_UIStatusBarRegion *)arg1 highlighted:(_Bool)arg2 initialPress:(_Bool)arg3;
 - (_UIStatusBarAnimation *)removalAnimationForDisplayItemWithIdentifier:(NSString *)arg1 itemAnimation:(_UIStatusBarAnimation *)arg2;
 - (_UIStatusBarAnimation *)additionAnimationForDisplayItemWithIdentifier:(NSString *)arg1 itemAnimation:(_UIStatusBarAnimation *)arg2;

@@ -22,6 +22,7 @@
     CCUIControlCenterPositionProvider *_landscapePositionProvider;
     CCUILayoutOptions *_layoutOptions;
     NSDictionary *_moduleViewControllerByIdentifier;
+    NSDictionary *_moduleContainerViewByIdentifier;
     NSHashTable *_currentModules;
     NSHashTable *_expandedModules;
     NSObject<OS_dispatch_group> *_moduleCloseDispatchGroup;
@@ -37,9 +38,9 @@
 - (id)_positionProviderForInterfaceOrientation:(long long)arg1;
 - (id)_activePositionProvider;
 - (id)_sizesForModuleIdentifiers:(id)arg1 moduleInstanceByIdentifier:(id)arg2 interfaceOrientation:(long long)arg3;
-- (void)_sizeAndSortModuleViews;
+- (void)_refreshPositionProviders;
 - (void)_removeAndTearDownModuleViewControllerFromHierarchy:(id)arg1;
-- (void)_setupAndAddModuleViewControllerToHierarchy:(id)arg1;
+- (id)_setupAndAddModuleViewControllerToHierarchy:(id)arg1;
 - (void)_populateModuleViewControllers;
 - (id)_moduleInstances;
 - (void)_updateModuleControllers;
@@ -54,7 +55,6 @@
 - (void)contentModuleContainerViewController:(id)arg1 didBeginInteractionWithModule:(id)arg2;
 - (_Bool)contentModuleContainerViewController:(id)arg1 canBeginInteractionWithModule:(id)arg2;
 - (struct CGRect)compactModeFrameForContentModuleContainerViewController:(id)arg1;
-- (_Bool)layoutView:(id)arg1 shouldIgnoreSubview:(id)arg2;
 - (struct CCUILayoutRect)layoutView:(id)arg1 layoutRectForSubview:(id)arg2;
 - (struct CCUILayoutSize)layoutSizeForLayoutView:(id)arg1;
 - (void)orderedEnabledModuleIdentifiersChangedForSettingsManager:(id)arg1;
@@ -68,6 +68,7 @@
 - (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (_Bool)isModuleExpandedForIdentifier:(id)arg1;

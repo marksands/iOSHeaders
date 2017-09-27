@@ -10,15 +10,13 @@
 #import "PKDrawingGestureTarget.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class CADisplayLink, NSObject<OS_dispatch_queue>, NSString, NSTimer, PKController, PKDrawingGestureRecognizer, PKFreeTransformGestureRecognizer, PKInk, PKOpenGLESView, PKSelectionController, PKUndoSwipeGestureRecognizer, UIActivityIndicatorView, UIView;
+@class CADisplayLink, NSString, NSTimer, PKController, PKDrawingGestureRecognizer, PKFreeTransformGestureRecognizer, PKInk, PKOpenGLESView, PKSelectionController, PKUndoSwipeGestureRecognizer, UIActivityIndicatorView, UIView;
 
 @interface PKInternalDrawingView : PKInternalDrawingLightView <PKControllerDelegate, PKDrawingGestureTarget, UIGestureRecognizerDelegate>
 {
     UIView *_transitionBackgroundView;
     UIView *_transitionImageView;
     CADisplayLink *_displayLink;
-    CDUnknownBlockType _drawTimerBlock;
-    NSObject<OS_dispatch_queue> *_drawTimerQueue;
     _Bool _shouldPause;
     struct CGAffineTransform _imageTransform;
     _Bool _didCancelSelection;
@@ -27,8 +25,6 @@
     _Bool _isErasingObjects;
     struct CGPoint _oldEraseLocation;
     long long _undoGroupCount;
-    id <NSObject> _undoManagerBeginGroupObserver;
-    id <NSObject> _undoManagerEndGroupObserver;
     _Bool _isDrawing;
     _Bool _disableWideGamut;
     _Bool _zooming;
@@ -159,8 +155,7 @@
 - (void)setupFullScreenTransform;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setOpaque:(_Bool)arg1;
-- (void)_drawingDisplay;
-- (void)drawNowIfNeeded;
+- (void)_drawingDisplay:(double)arg1;
 - (void)handleDrawingShouldPause:(_Bool)arg1;
 - (void)setNeedsDrawingDisplay;
 - (void)setBackgroundImage:(struct CGImage *)arg1;
@@ -182,7 +177,8 @@
 - (double)layerContentScale;
 - (void)resizeBackingBuffersForPixelSize:(struct CGSize)arg1 drawingScale:(double)arg2;
 - (void)adjustedPixelSize:(struct CGSize *)arg1 drawingSize:(struct CGSize *)arg2;
-- (void)willMoveToWindow:(id)arg1;
+- (void)decrementUndoGroupCount;
+- (void)incrementUndoGroupCount;
 - (void)didMoveToWindow;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 editable:(_Bool)arg2 pixelSize:(struct CGSize)arg3 drawingScale:(double)arg4 layerFixedPixelSize:(_Bool)arg5 drawingController:(id)arg6 selectionController:(id)arg7;

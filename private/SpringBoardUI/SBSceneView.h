@@ -10,7 +10,7 @@
 #import "SBSceneHandleObserver.h"
 #import "SBScenePlaceholderContentViewProviderDelegate.h"
 
-@class NSString, SBSceneHandle, UIView<FBSceneHostView>;
+@class NSString, SBSceneHandle, UIView<FBSceneHostView>, UIView<SBScenePlaceholderContentView>;
 
 @interface SBSceneView : UIView <SBSceneHandleObserver, SBScenePlaceholderContentViewProviderDelegate, BSInvalidatable>
 {
@@ -24,7 +24,7 @@
     NSString *_hostingRequester;
     id <SBScenePlaceholderContentContext> _placeholderContentContext;
     UIView *_customContentView;
-    UIView *_placeholderContentView;
+    UIView<SBScenePlaceholderContentView> *_placeholderContentView;
     UIView *_liveSnapshotView;
     UIView<FBSceneHostView> *_hostView;
     UIView *_crossfadeView;
@@ -69,6 +69,7 @@
 - (void)sceneHandle:(id)arg1 didUpdateContentState:(long long)arg2;
 - (void)sceneHandle:(id)arg1 didDestroyScene:(id)arg2;
 - (void)sceneHandle:(id)arg1 didCreateScene:(id)arg2;
+- (void)_containerContentWrapperInterfaceOrientationChangedTo:(long long)arg1;
 - (void)_updateReferenceSize:(struct CGSize)arg1 andOrientation:(long long)arg2;
 - (_Bool)_representsTranslucentContent;
 - (void)_configureSceneLiveHostView:(id)arg1;

@@ -18,6 +18,7 @@
     _UIBackdropView *_ultraLightTrayBackdrop;
     NSMutableArray *_buttons;
     UIColor *_tint;
+    UIView *_bleedView;
     _Bool _disableIconTint;
     _Bool _scrollingDisabled;
     _Bool _fullWidthContent;
@@ -26,9 +27,11 @@
     UIView *_contentView;
     long long _contentViewPosition;
     UIView *_buttonTray;
+    UIColor *_bleedColor;
 }
 
 @property(nonatomic) _Bool usesTwoButtonLayout; // @synthesize usesTwoButtonLayout=_usesTwoButtonLayout;
+@property(retain, nonatomic) UIColor *bleedColor; // @synthesize bleedColor=_bleedColor;
 @property(nonatomic) _Bool fullWidthContent; // @synthesize fullWidthContent=_fullWidthContent;
 @property(nonatomic, getter=isScrollingDisabled) _Bool scrollingDisabled; // @synthesize scrollingDisabled=_scrollingDisabled;
 @property(nonatomic) _Bool disableIconTint; // @synthesize disableIconTint=_disableIconTint;
@@ -41,7 +44,10 @@
 - (void)_buttonPressed:(id)arg1;
 - (void)_updateTrayVisibility;
 - (void)scrollViewDidScroll:(id)arg1;
+- (void)updateBleedColor;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (id)contentScrollView;
 - (void)loadView;

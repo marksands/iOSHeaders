@@ -8,11 +8,11 @@
 
 #import "AVPlaybackControlsViewDelegate.h"
 
-@class AVExternalPlaybackIndicatorView, AVPlaybackControlsView, AVStatusBarBackgroundGradientView, NSString, UIImageView, __AVPlayerLayerView;
+@class AVExternalPlaybackIndicatorView, AVPlaybackControlsView, AVStatusBarBackgroundGradientView, NSMutableDictionary, NSString, UIImageView, __AVPlayerLayerView;
 
 @interface AVPlayerViewControllerContentView : UIView <AVPlaybackControlsViewDelegate>
 {
-    _Bool _automaticallyManagesVideoGravity;
+    _Bool _canAutomaticallyZoomLetterboxVideos;
     _Bool _needsInitialLayout;
     id <AVPlayerViewControllerContentViewDelegate> _delegate;
     UIView *_playerLayerAndContentOverlayContainerView;
@@ -24,10 +24,12 @@
     UIImageView *_unsupportedContentIndicatorView;
     UIImageView *_audioOnlyIndicatorView;
     __AVPlayerLayerView *_playerLayerView;
-    NSString *_targetVideoGravity;
+    NSMutableDictionary *_targetVideoGravities;
+    NSString *_automaticVideoGravity;
 }
 
-@property(copy, nonatomic) NSString *targetVideoGravity; // @synthesize targetVideoGravity=_targetVideoGravity;
+@property(copy, nonatomic) NSString *automaticVideoGravity; // @synthesize automaticVideoGravity=_automaticVideoGravity;
+@property(readonly, nonatomic) NSMutableDictionary *targetVideoGravities; // @synthesize targetVideoGravities=_targetVideoGravities;
 @property(nonatomic) _Bool needsInitialLayout; // @synthesize needsInitialLayout=_needsInitialLayout;
 @property(readonly, nonatomic) __AVPlayerLayerView *playerLayerView; // @synthesize playerLayerView=_playerLayerView;
 @property(readonly, nonatomic) UIImageView *audioOnlyIndicatorView; // @synthesize audioOnlyIndicatorView=_audioOnlyIndicatorView;
@@ -37,20 +39,21 @@
 @property(readonly, nonatomic) AVStatusBarBackgroundGradientView *statusBarBackgroundGradientView; // @synthesize statusBarBackgroundGradientView=_statusBarBackgroundGradientView;
 @property(readonly, nonatomic) UIView *iAdPreRollView; // @synthesize iAdPreRollView=_iAdPreRollView;
 @property(readonly, nonatomic) UIView *contentOverlayView; // @synthesize contentOverlayView=_contentOverlayView;
-@property(nonatomic) _Bool automaticallyManagesVideoGravity; // @synthesize automaticallyManagesVideoGravity=_automaticallyManagesVideoGravity;
+@property(nonatomic) _Bool canAutomaticallyZoomLetterboxVideos; // @synthesize canAutomaticallyZoomLetterboxVideos=_canAutomaticallyZoomLetterboxVideos;
 @property(readonly, nonatomic) UIView *playerLayerAndContentOverlayContainerView; // @synthesize playerLayerAndContentOverlayContainerView=_playerLayerAndContentOverlayContainerView;
 @property(nonatomic) __weak id <AVPlayerViewControllerContentViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_mediaTimingFunctionForCurrentAnimationCurve;
 - (void)_applyVideoGravityIfNeeded:(long long)arg1;
 - (void)_updatePlayerLayerAndContentOverlayContainerViewLayoutMarginsForVideoGravity:(long long)arg1;
-- (long long)_preferredVideoGravity;
 - (void)_updateVideoGravityDuringLayoutSubviewsAndAssertThatIfYouBreakThisMethodYouOwnThisMethod;
 - (void)playbackControlsView:(id)arg1 interactiveContentOverlayViewLayoutMarginsDidChange:(struct UIEdgeInsets)arg2 shouldLayoutIfNeeded:(_Bool)arg3;
 - (void)layoutSubviews;
 - (void)didMoveToWindow;
+@property(readonly, nonatomic) unsigned long long layoutMetrics;
 @property(readonly, nonatomic) _Bool isDescendantOfNonPagingScrollView;
 @property(readonly, nonatomic) _Bool isCoveringWindow;
+- (void)setTargetVideoGravity:(id)arg1 forLayoutMetrics:(unsigned long long)arg2;
 - (void)setExternalPlaybackIndicatorTitle:(id)arg1 subtitle:(id)arg2;
 - (void)setShowsExternalPlaybackIndicator:(_Bool)arg1;
 - (void)setShowsAudioOnlyIndicator:(_Bool)arg1;

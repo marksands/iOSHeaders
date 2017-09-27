@@ -4,9 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+#import "NSObject.h"
+
 @class SiriUIModalContainerViewController;
 
-@protocol SiriUIModalContainerViewControllerDelegate
-- (void)modalContainerViewControllerWillBeDismissed:(SiriUIModalContainerViewController *)arg1;
+@protocol SiriUIModalContainerViewControllerDelegate <NSObject>
+
+@optional
+- (void)modalContainerViewControllerViewDidDisappear:(SiriUIModalContainerViewController *)arg1;
+- (void)modalContainerViewControllerViewWillDisappear:(SiriUIModalContainerViewController *)arg1;
 @end
 

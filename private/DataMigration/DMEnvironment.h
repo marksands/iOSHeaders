@@ -12,6 +12,8 @@
 
 + (id)sharedInstance;
 + (_Bool)isBuildVersion:(id)arg1 equalToBuildVersion:(id)arg2;
+- (_Bool)suppressMigrationPluginWrapperExitMarkerPref;
+- (_Bool)waitForExecutePluginsSignalMarkerPref;
 - (id)continuousIntegrationMarkerPref;
 - (void)setUserDataDispositionPref:(id)arg1;
 - (id)userDataDispositionPref;

@@ -13,6 +13,7 @@
 @property(nonatomic) double indexBarExtentFromEdge;
 @property(nonatomic) double defaultTrailingCellMarginWidth;
 @property(nonatomic) double defaultLeadingCellMarginWidth;
+@property(nonatomic) _Bool insetsContentViewsToSafeArea;
 @property(nonatomic) _Bool layoutMarginsFollowReadableWidth;
 @property(nonatomic) int sectionLocation;
 @end

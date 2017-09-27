@@ -6,6 +6,7 @@
 
 #import "SBUIRemoteAlertServiceViewController.h"
 
+#import "PKCompactNavigationContainerControllerDelegate.h"
 #import "PKPaymentAuthorizationHostProtocol.h"
 #import "PKPaymentAuthorizationServiceViewControllerDelegate.h"
 #import "PKPaymentSetupDelegate.h"
@@ -13,7 +14,7 @@
 
 @class NSString, NSXPCConnection, PKAssertion, PKCompactNavigationContainerController, PKInAppPaymentService, PKPaymentAuthorizationRemoteAlertViewControllerExportedObject, PKPaymentAuthorizationServiceNavigationController, PKPaymentProvisioningController, PKPaymentRequest, PKPaymentSetupNavigationController, PKPhysicalButtonView;
 
-@interface PKPaymentAuthorizationRemoteAlertViewController : SBUIRemoteAlertServiceViewController <PKPaymentAuthorizationServiceViewControllerDelegate, PKPaymentAuthorizationHostProtocol, PKPaymentSetupDelegate, SBSHardwareButtonEventConsuming>
+@interface PKPaymentAuthorizationRemoteAlertViewController : SBUIRemoteAlertServiceViewController <PKCompactNavigationContainerControllerDelegate, PKPaymentAuthorizationServiceViewControllerDelegate, PKPaymentAuthorizationHostProtocol, PKPaymentSetupDelegate, SBSHardwareButtonEventConsuming>
 {
     _Bool _didDismiss;
     _Bool _didSendAuthorizationDidPresent;
@@ -61,6 +62,8 @@
 - (void)authorizationDidRequestMerchantSession;
 - (void)authorizationWillStart;
 - (void)authorizationViewControllerDidChangeUserIntentRequirement:(id)arg1;
+- (void)compactNavigationContainerControllerReceivedExternalTap:(id)arg1;
+- (void)consumeDoublePressUpForButtonKind:(long long)arg1;
 - (void)consumeSinglePressUpForButtonKind:(long long)arg1;
 - (void)handleHomeButtonPressed;
 - (void)sendAuthorizationDidPresentIfNecessary;
@@ -78,6 +81,7 @@
 - (void)_handlePaymentRequestPresentationResultType:(long long)arg1 relevantUniqueID:(id)arg2 firstAttempt:(_Bool)arg3;
 - (void)_canPresentPaymentRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setUserInfo:(id)arg1;
+- (void)configureWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)paymentSetupDidFinish:(id)arg1;
 - (id)_configuredPaymentSetupNavigationController;
 - (id)_provisioningController;

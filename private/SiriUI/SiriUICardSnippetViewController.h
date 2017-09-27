@@ -47,7 +47,8 @@
 - (void)cardViewDidAppearForCard:(id)arg1 withAppearanceFeedback:(id)arg2;
 - (void)cardViewWillAppearForCard:(id)arg1 withAppearanceFeedback:(id)arg2;
 - (void)userDidEngageCardSection:(id)arg1 withEngagementFeedback:(id)arg2;
-- (void)modalContainerViewControllerWillBeDismissed:(id)arg1;
+- (void)modalContainerViewControllerViewDidDisappear:(id)arg1;
+- (void)modalContainerViewControllerViewWillDisappear:(id)arg1;
 - (void)presentViewController:(id)arg1 forCardViewController:(id)arg2;
 - (unsigned long long)navigationIndexOfCardViewController:(id)arg1;
 - (struct CGSize)cardViewController:(id)arg1 boundingSizeForCardSectionViewController:(id)arg2;

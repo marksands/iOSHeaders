@@ -20,6 +20,8 @@
 }
 
 + (id)sharedTestDriver;
++ (double)IDEConnectionTimeout;
++ (void)initialize;
 @property int debugMessageBufferOverflow; // @synthesize debugMessageBufferOverflow=_debugMessageBufferOverflow;
 @property(retain) NSMutableArray *debugMessageBuffer; // @synthesize debugMessageBuffer=_debugMessageBuffer;
 @property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;

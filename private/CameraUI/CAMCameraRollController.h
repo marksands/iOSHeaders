@@ -29,6 +29,7 @@
         _Bool respondsToRevealDidEnd;
         _Bool respondsToWillPresentCameraRoll;
         _Bool respondsToPrefersPresentingStatusbarHiddenDidChange;
+        _Bool respondsToPreferredPresentationOrientation;
     } _presentationDelegateFlags;
     _Bool _prefersPresentingStatusbarHidden;
     _Bool _shouldPauseAudioSessionUpdatesForCapture;
@@ -86,8 +87,10 @@
 - (void)viewModel:(id)arg1 didChange:(id)arg2;
 - (void)_unregisterBrowsingViewModelChangeObserver;
 - (void)_registerBrowsingViewModelChangeObserver;
+- (long long)oneUpPresentationHelperPreferredPresentationOrientation:(id)arg1;
 - (void)oneUpPresentationHelper:(id)arg1 shouldHideAssetReferences:(id)arg2;
 - (struct CGRect)oneUpPresentationHelper:(id)arg1 rectForAssetReference:(id)arg2 cropInsets:(struct UIEdgeInsets *)arg3 contentsRect:(struct CGRect *)arg4;
+- (_Bool)oneUpPresentationHelperEnableFreezeLayoutOnOrientationChange:(id)arg1;
 - (void)oneUpPresentationHelper:(id)arg1 willPresentOneUpViewController:(id)arg2;
 - (void)oneUpPresentationHelper:(id)arg1 previewScrubberDidBecomeAvailable:(id)arg2;
 - (_Bool)oneUpPresentationHelperShouldLeaveContentOnSecondScreen:(id)arg1;

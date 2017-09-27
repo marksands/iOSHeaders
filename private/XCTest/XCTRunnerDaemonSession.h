@@ -60,6 +60,7 @@
 - (void)_XCT_receivedAccessibilityNotification:(int)arg1 withPayload:(id)arg2;
 - (void)_XCT_applicationWithBundleID:(id)arg1 didUpdatePID:(int)arg2 andState:(unsigned long long)arg3;
 @property(readonly) _Bool useLegacyScreenshotPath;
+@property(readonly) _Bool usePointTransformationsForFrameConversions;
 @property(readonly) _Bool useLegacyEventCoordinateTransformationPath;
 @property unsigned long long daemonProtocolVersion;
 @property(readonly) id <XCTestManager_ManagerInterface> daemonProxy;

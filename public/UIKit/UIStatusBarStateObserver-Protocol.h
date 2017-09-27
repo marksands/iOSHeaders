@@ -7,7 +7,7 @@
 #import "NSObject.h"
 
 @protocol UIStatusBarStateObserver <NSObject>
-- (void)statusBarStateProvider:(id <UIStatusBarStateProvider>)arg1 didPostStatusBarData:(const CDStruct_121c720f *)arg2 withActions:(int)arg3;
+- (void)statusBarStateProvider:(id <UIStatusBarStateProvider>)arg1 didPostStatusBarData:(const CDStruct_8a690d05 *)arg2 withActions:(int)arg3;
 
 @optional
 - (void)statusBarStateProvider:(id <UIStatusBarStateProvider>)arg1 didChangeDoubleHeightStatusStringForStyle:(long long)arg2;

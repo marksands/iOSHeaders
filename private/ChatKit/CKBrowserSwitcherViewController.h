@@ -172,6 +172,7 @@
 - (double)_rubberBandOffsetWithoutDecorationForOffset:(double)arg1 maxOffset:(double)arg2 minOffset:(double)arg3 range:(double)arg4 outside:(_Bool *)arg5;
 - (double)restingCollectionViewOriginY;
 - (double)restingGrabberOriginY;
+- (void)viewSafeAreaInsetsDidChange;
 - (struct CGRect)restingGrabberFrame;
 - (void)dismissBrowserFullscreenAnimated:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (struct CGRect)cachedCompactFrameInWindowCoordsForBrowserTransitionCoordinator:(id)arg1;

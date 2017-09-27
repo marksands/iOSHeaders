@@ -3809,10 +3809,9 @@ struct WebPageProxy {
     struct unique_ptr<WebKit::NodeAssistanceArguments, std::__1::default_delete<WebKit::NodeAssistanceArguments>> _field197;
     _Bool _field198;
     _Bool _field199;
-    _Bool _field200;
-    struct WeakPtrFactory<WebKit::WebPageProxy> _field201;
-    struct HashMap<WTF::String, WTF::Ref<WebKit::WebURLSchemeHandler>, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::Ref<WebKit::WebURLSchemeHandler>>> _field202;
-    struct HashMap<unsigned long long, WTF::Ref<WebKit::WebURLSchemeHandler>, WTF::IntHash<unsigned long long>, WTF::HashTraits<unsigned long long>, WTF::HashTraits<WTF::Ref<WebKit::WebURLSchemeHandler>>> _field203;
+    struct WeakPtrFactory<WebKit::WebPageProxy> _field200;
+    struct HashMap<WTF::String, WTF::Ref<WebKit::WebURLSchemeHandler>, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::Ref<WebKit::WebURLSchemeHandler>>> _field201;
+    struct HashMap<unsigned long long, WTF::Ref<WebKit::WebURLSchemeHandler>, WTF::IntHash<unsigned long long>, WTF::HashTraits<unsigned long long>, WTF::HashTraits<WTF::Ref<WebKit::WebURLSchemeHandler>>> _field202;
 };
 
 struct WebPaymentCoordinatorProxy {
@@ -3974,6 +3973,11 @@ struct optional<WebCore::FloatPoint> {
     union constexpr_storage_t<WebCore::FloatPoint> storage_;
 };
 
+struct optional<WebCore::FloatSize> {
+    _Bool init_;
+    union constexpr_storage_t<WebCore::FloatSize> storage_;
+};
+
 struct optional<WebCore::HTTPHeaderMap> {
     _Bool _field1;
     union storage_t<WebCore::HTTPHeaderMap> _field2;
@@ -4032,6 +4036,11 @@ struct optional<WebKit::InteractionInformationRequest> {
 struct optional<double> {
     _Bool _field1;
     union constexpr_storage_t<double> _field2;
+};
+
+struct optional<int> {
+    _Bool init_;
+    union constexpr_storage_t<int> storage_;
 };
 
 struct optional<std::__1::array<unsigned char, 20>> {
@@ -4564,6 +4573,11 @@ union constexpr_storage_t<WebCore::FloatPoint> {
     struct FloatPoint value_;
 };
 
+union constexpr_storage_t<WebCore::FloatSize> {
+    unsigned char dummy_;
+    struct FloatSize value_;
+};
+
 union constexpr_storage_t<WebCore::IntSize> {
     unsigned char _field1;
     struct IntSize _field2;
@@ -4587,6 +4601,11 @@ union constexpr_storage_t<WebKit::InteractionInformationRequest> {
 union constexpr_storage_t<double> {
     unsigned char _field1;
     double _field2;
+};
+
+union constexpr_storage_t<int> {
+    unsigned char dummy_;
+    int value_;
 };
 
 union constexpr_storage_t<std::__1::array<unsigned char, 20>> {

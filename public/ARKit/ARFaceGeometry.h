@@ -8,13 +8,14 @@
 
 #import "NSCopying.h"
 
-@class ARFaceTrackingData;
+@class ARFaceTrackingData, NSObject<OS_dispatch_semaphore>;
 
 @interface ARFaceGeometry : NSObject <NSCopying>
 {
     vector_fff08e2a _customVertices;
     vector_fff08e2a _normals;
     ARFaceTrackingData *_trackingData;
+    NSObject<OS_dispatch_semaphore> *_normalsSemaphore;
 }
 
 - (id).cxx_construct;
@@ -31,11 +32,11 @@
 // Error parsing type for property vertices:
 // Property attributes: Tr^,R,N
 
+- (id)copyWithZone:(struct _NSZone *)arg1;
 -     // Error parsing type: @32@0:8r^16Q24, name: initWithCustomVertices:verticesCount:
 - (id)initWithFaceTrackingData:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithBlendShapes:(id)arg1;
-- (id)init;
+- (id)initPrivate;
 
 @end
 

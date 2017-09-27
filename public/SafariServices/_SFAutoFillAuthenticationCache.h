@@ -6,18 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet;
+@class NSMutableDictionary, NSMutableSet;
 
 @interface _SFAutoFillAuthenticationCache : NSObject
 {
     NSMutableSet *_domainsSucceededToAuthenticateForAutoFill;
-    NSMutableSet *_domainsFailedToAuthenticateForAutoFill;
+    NSMutableDictionary *_domainsFailedToAuthenticateDueToTimeout;
 }
 
 - (void).cxx_destruct;
-- (void)didFinishAuthenticationOnDomain:(id)arg1 withSuccess:(_Bool)arg2;
+- (void)didFinishAuthenticationOnDomain:(id)arg1 withSuccess:(_Bool)arg2 error:(id)arg3;
 - (_Bool)authenticationShouldSucceedOnDomain:(id)arg1;
 - (_Bool)authenticationShouldFailOnDomain:(id)arg1;
+- (_Bool)timeoutCausedFailureOnDomain:(id)arg1;
 - (void)clearAllDomains;
 - (id)init;
 

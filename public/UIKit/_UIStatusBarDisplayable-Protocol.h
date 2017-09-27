@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class _UIStatusBarStyleAttributes;
+@class UIAccessibilityHUDItem, _UIStatusBarStyleAttributes;
 
 @protocol _UIStatusBarDisplayable <NSObject>
 
 @optional
+@property(readonly, nonatomic) UIAccessibilityHUDItem *accessibilityHUDRepresentation;
 @property(readonly, nonatomic) double baselineOffset;
 @property(readonly, nonatomic) _Bool wantsCrossfade;
 - (void)applyStyleAttributes:(_UIStatusBarStyleAttributes *)arg1;

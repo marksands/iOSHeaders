@@ -16,9 +16,10 @@
 + (id)sharedFactory;
 @property(retain, nonatomic) NSOperationQueue *privateQueue; // @synthesize privateQueue=_privateQueue;
 - (void).cxx_destruct;
+- (id)viewControllerForLegalese:(id)arg1 withTarget:(id)arg2 action:(SEL)arg3;
 - (id)viewControllerForAboutPrivacyWithTarget:(id)arg1 action:(SEL)arg2;
 - (id)viewControllerForPlaybackActivityReportingFromAppsWithBundleIDs:(id)arg1 grantingVouchers:(_Bool)arg2 appleAccount:(id)arg3 identityProvider:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
-- (id)viewControllerForAppsSupportedByIdentityProviderWithID:(id)arg1 delegate:(id)arg2;
+- (id)viewControllerForAppsSupportedByIdentityProvider:(id)arg1 delegate:(id)arg2;
 - (id)viewControllerForUnsupportedProvider:(id)arg1 withRequestingAppDisplayName:(id)arg2 storage:(id)arg3 acknowledgementHandler:(CDUnknownBlockType)arg4;
 - (id)viewControllerToConfirmDeveloperIdentityProviderDeletionWithConfirmationHandler:(CDUnknownBlockType)arg1;
 - (id)viewControllerToConfirmAccountDeletionForIdentityProviderDisplayName:(id)arg1 preferredStyle:(long long)arg2 confirmationHandler:(CDUnknownBlockType)arg3;

@@ -6,13 +6,14 @@
 
 #import "UICollectionReusableView.h"
 
-@class NSDate, SBUILegibilityLabel, SBUILegibilityView, UIViewFloatAnimatableProperty;
+@class NSDate, SBUILegibilityLabel, SBUILegibilityView;
 
 @interface NCNotificationListSectionRevealHintView : UICollectionReusableView
 {
     _Bool _showingPersistentTitle;
     _Bool _recentsNotificationSectionEmpty;
     _Bool _donePerformingInitialReveal;
+    _Bool _forceRevealed;
     _Bool _needsFadeOut;
     double _revealPercentage;
     double _initialRevealPercentageForPersistentTitle;
@@ -20,19 +21,14 @@
     SBUILegibilityLabel *_revealHintTitle;
     SBUILegibilityView *_revealHintChevron;
     double _hintingAlpha;
-    double _hintingTranslation;
-    UIViewFloatAnimatableProperty *_hintingAlphaFloatAnimatableProperty;
-    UIViewFloatAnimatableProperty *_hintingTranslationFloatAnimatableProperty;
 }
 
 + (double)minimumViewHeight;
 @property(nonatomic) _Bool needsFadeOut; // @synthesize needsFadeOut=_needsFadeOut;
-@property(retain, nonatomic) UIViewFloatAnimatableProperty *hintingTranslationFloatAnimatableProperty; // @synthesize hintingTranslationFloatAnimatableProperty=_hintingTranslationFloatAnimatableProperty;
-@property(retain, nonatomic) UIViewFloatAnimatableProperty *hintingAlphaFloatAnimatableProperty; // @synthesize hintingAlphaFloatAnimatableProperty=_hintingAlphaFloatAnimatableProperty;
-@property(nonatomic) double hintingTranslation; // @synthesize hintingTranslation=_hintingTranslation;
 @property(nonatomic) double hintingAlpha; // @synthesize hintingAlpha=_hintingAlpha;
 @property(retain, nonatomic) SBUILegibilityView *revealHintChevron; // @synthesize revealHintChevron=_revealHintChevron;
 @property(retain, nonatomic) SBUILegibilityLabel *revealHintTitle; // @synthesize revealHintTitle=_revealHintTitle;
+@property(nonatomic, getter=isForceRevealed) _Bool forceRevealed; // @synthesize forceRevealed=_forceRevealed;
 @property(nonatomic, getter=isDonePerformingInitialReveal) _Bool donePerformingInitialReveal; // @synthesize donePerformingInitialReveal=_donePerformingInitialReveal;
 @property(nonatomic, getter=isRecentsNotificationSectionEmpty) _Bool recentsNotificationSectionEmpty; // @synthesize recentsNotificationSectionEmpty=_recentsNotificationSectionEmpty;
 @property(nonatomic, getter=isShowingPersistentTitle) _Bool showingPersistentTitle; // @synthesize showingPersistentTitle=_showingPersistentTitle;
@@ -40,9 +36,6 @@
 @property(nonatomic) double initialRevealPercentageForPersistentTitle; // @synthesize initialRevealPercentageForPersistentTitle=_initialRevealPercentageForPersistentTitle;
 @property(nonatomic) double revealPercentage; // @synthesize revealPercentage=_revealPercentage;
 - (void).cxx_destruct;
-- (void)_setupHintingFloatAnimatableProperties;
-- (void)_fadeOutHintingWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_animateHintingWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_chevronImage;
 - (void)_updateHintTitleFont;
 - (void)_updateHintTitle;
@@ -56,7 +49,6 @@
 - (void)_layoutRevealHintTitleForInitialRevealPercentage:(double)arg1;
 - (void)_layoutRevealHintChevronForRevealPercentage:(double)arg1;
 - (void)_layoutRevealHintTitleForRevealPercentage:(double)arg1;
-- (double)_hintingTranslationDistance;
 - (void)_updateLayout;
 - (double)_hintTitleDisplacementForRevealPercentage:(double)arg1;
 - (void)_layoutRevealHintChevron;
@@ -66,9 +58,6 @@
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)layoutSubviews;
 - (void)updateForLegibilitySettings:(id)arg1;
-- (void)performHintingFadeOutIfNecessaryAnimated:(_Bool)arg1;
-- (void)performHintingAnimated:(_Bool)arg1 withFadeOut:(_Bool)arg2;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

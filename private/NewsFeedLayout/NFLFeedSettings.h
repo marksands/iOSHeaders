@@ -62,6 +62,7 @@
 @property(retain, nonatomic) FCHeadlineTemplate *defaultHeadlineTemplate; // @synthesize defaultHeadlineTemplate=_defaultHeadlineTemplate;
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) UIColor *feedBackgroundColor;
+- (_Bool)preservesLayoutMargins:(struct UIEdgeInsets)arg1;
 - (double)cellHeightForRowSpan:(long long)arg1;
 - (double)cellWidthForColumnSpan:(long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

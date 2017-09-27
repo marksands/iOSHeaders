@@ -14,7 +14,6 @@
     double _maxWidth;
     double _height;
     double _edgeSpacing;
-    double _cornerRadius;
     double _colorAddWhiteness;
     double _brightLumaThreshold;
     double _darkLumaThreshold;
@@ -37,7 +36,6 @@
 @property(nonatomic) double darkLumaThreshold; // @synthesize darkLumaThreshold=_darkLumaThreshold;
 @property(nonatomic) double brightLumaThreshold; // @synthesize brightLumaThreshold=_brightLumaThreshold;
 @property(nonatomic) double colorAddWhiteness; // @synthesize colorAddWhiteness=_colorAddWhiteness;
-@property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(nonatomic) double edgeSpacing; // @synthesize edgeSpacing=_edgeSpacing;
 @property(nonatomic) double height; // @synthesize height=_height;
 @property(nonatomic) double maxWidth; // @synthesize maxWidth=_maxWidth;

@@ -45,8 +45,13 @@
     _Bool _shouldResumePlayback;
     int _seekDirection;
     NSLayoutConstraint *_topBarBottomConstraint;
-    NSLayoutConstraint *_bottomBarHeightConstraint;
+    NSLayoutConstraint *_topBarHeightConstraint;
+    NSLayoutConstraint *_topBarLayoutGuideHeightConstraint;
+    NSLayoutConstraint *_topItemsTopConstraint;
     NSLayoutConstraint *_topItemsTrailingConstraint;
+    NSLayoutConstraint *_bottomBarHeightConstraint;
+    NSLayoutConstraint *_bottomItemsBottomConstraint;
+    NSLayoutConstraint *_bottomItemsLeftConstraint;
     NSLayoutConstraint *_bottomItemsRightConstraint;
     NSLayoutConstraint *_volumeSliderRightConstraint;
     NSLayoutConstraint *_volumeSliderWidthConstraint;
@@ -102,6 +107,7 @@
 - (void)setDesiredParts:(unsigned long long)arg1 animate:(_Bool)arg2;
 - (void)setVisibleParts:(unsigned long long)arg1 animate:(_Bool)arg2;
 @property(readonly, retain, nonatomic) UINavigationBar *navigationBar;
+- (_Bool)_shouldHideStatusBar;
 - (void)_updateVolumeImage:(float)arg1;
 - (void)_updateVolumeSlider;
 - (void)_updateTopBarBoundsBasedConstraints;

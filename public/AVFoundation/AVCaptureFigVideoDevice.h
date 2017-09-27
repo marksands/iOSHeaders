@@ -6,7 +6,7 @@
 
 #import <AVFoundation/AVCaptureDevice.h>
 
-@class AVCaptureDeviceControlRequestQueue, AVCaptureDeviceFormat, AVWeakReference, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class AVCaptureDeviceControlRequestQueue, AVCaptureDeviceFormat, AVCaptureSystemPressureState, AVWeakReference, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVCaptureFigVideoDevice : AVCaptureDevice
 {
@@ -112,6 +112,7 @@
     NSMutableDictionary *_observedHighFrequencyPropertyCounts;
     NSMutableDictionary *_propertyToFigCaptureSourcePropertyMap;
     NSMutableDictionary *_cachedFigCaptureSourceProperties;
+    AVCaptureSystemPressureState *_systemPressureState;
 }
 
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
@@ -163,6 +164,8 @@
 - (_Bool)_isDepthDataDeliveryEnabled;
 - (void)_setShallowDepthOfFieldEffectStatus:(long long)arg1;
 - (long long)shallowDepthOfFieldEffectStatus;
+- (id)_recommendedFrameRateRangeForVideoFormat:(id)arg1 depthFormat:(id)arg2 systemPressureLevel:(id)arg3;
+- (id)systemPressureState;
 - (void)setAutomaticallyEnablesLowLightBoostWhenAvailable:(_Bool)arg1;
 - (_Bool)automaticallyEnablesLowLightBoostWhenAvailable;
 - (void)_setLowLightBoostEnabled:(_Bool)arg1;

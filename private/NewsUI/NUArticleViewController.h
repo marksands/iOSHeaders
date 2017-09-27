@@ -13,7 +13,7 @@
 #import "SXLinkActionHandlerDelegate.h"
 #import "SXScrollViewControllerDelegate.h"
 
-@class FCObservable, NSString, NUArticleAdManager, NUEventManager, SXScrollViewController, SXVideoPlayerViewControllerManager;
+@class FCObservable, NSString, NUArticleAdManager, NUEventManager, NUMultiDelegate, SXScrollViewController, SXVideoPlayerViewControllerManager;
 
 @interface NUArticleViewController : UIViewController <SXScrollViewControllerDelegate, SXLinkActionHandlerDelegate, SXAnalyticsReporting, NUEndOfArticleDataProviderDelegate, NUDynamicTypeObserving, NULoadable>
 {
@@ -23,6 +23,7 @@
     id <SXAnalyticsReporting> _analyticsReporting;
     id <NUURLHandler> _URLHandler;
     FCObservable *_articleViewStyler;
+    NUMultiDelegate *_multiScrollViewDelegate;
     NSString *_anchorFragment;
     SXScrollViewController *_scrollViewController;
     id <NUArticleDataProvider> _articleDataProvider;
@@ -46,6 +47,7 @@
 @property(readonly, nonatomic) SXScrollViewController *scrollViewController; // @synthesize scrollViewController=_scrollViewController;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
 @property(copy, nonatomic) NSString *anchorFragment; // @synthesize anchorFragment=_anchorFragment;
+@property(readonly, nonatomic) NUMultiDelegate *multiScrollViewDelegate; // @synthesize multiScrollViewDelegate=_multiScrollViewDelegate;
 @property(readonly, nonatomic) FCObservable *articleViewStyler; // @synthesize articleViewStyler=_articleViewStyler;
 @property(nonatomic) __weak id <NUURLHandler> URLHandler; // @synthesize URLHandler=_URLHandler;
 @property(nonatomic) __weak id <SXAnalyticsReporting> analyticsReporting; // @synthesize analyticsReporting=_analyticsReporting;

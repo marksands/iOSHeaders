@@ -14,7 +14,6 @@
 {
     _Bool _privateMode;
     _Bool _discoveredServices;
-    int _mfaSucceeded;
     CBPeripheral *_cbPeripheral;
     NSString *_name;
     HKDevice *_deviceInformation;
@@ -30,7 +29,6 @@
 + (id)implementedProperties;
 @property(retain, nonatomic) NSMutableDictionary *propertiesAwaiting; // @synthesize propertiesAwaiting=_propertiesAwaiting;
 @property(retain, nonatomic) NSMutableDictionary *serviceForProperty; // @synthesize serviceForProperty=_serviceForProperty;
-@property(nonatomic) int mfaSucceeded; // @synthesize mfaSucceeded=_mfaSucceeded;
 @property(nonatomic) _Bool discoveredServices; // @synthesize discoveredServices=_discoveredServices;
 @property(retain, nonatomic) _HKExpiringCompletionTimer *privateModeTimer; // @synthesize privateModeTimer=_privateModeTimer;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *servicesQueue; // @synthesize servicesQueue=_servicesQueue;
@@ -53,8 +51,6 @@
 - (void)_queue_handleTimerExpiration;
 - (void)_queue_setupTimer;
 @property(nonatomic) _Bool privateMode;
-- (void)markMFAStatusSuccessful;
-@property(readonly, nonatomic) _Bool waitingOnMFA;
 - (void)_queue_respond:(id)arg1 forProperty:(id)arg2 withError:(id)arg3;
 - (_Bool)_queue_addPropertyHandler:(CDUnknownBlockType)arg1 forProperty:(id)arg2;
 - (void)service:(id)arg1 didReadProperty:(id)arg2 value:(id)arg3 error:(id)arg4;
@@ -70,7 +66,7 @@
 @property(readonly) NSString *stateDescription;
 @property(readonly) long long state;
 @property(readonly, nonatomic) NSUUID *identifier;
-- (id)initWithCBPeripheral:(id)arg1 name:(id)arg2 requireMFA:(_Bool)arg3 serviceManager:(id)arg4 profile:(id)arg5;
+- (id)initWithCBPeripheral:(id)arg1 name:(id)arg2 serviceManager:(id)arg3 profile:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

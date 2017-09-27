@@ -23,6 +23,7 @@
 - (id)titleString;
 @property(readonly, nonatomic) UIView *contentView;
 - (_Bool)contentViewIsInAdjustedScrollView;
+- (double)verticalTitleInset;
 - (void)viewDidLayoutSubviews;
 @property(readonly, nonatomic) struct CGRect computedTitleFrame;
 - (void)updateTitleLabel;

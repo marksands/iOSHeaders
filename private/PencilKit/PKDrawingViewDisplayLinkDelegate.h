@@ -15,7 +15,7 @@
 
 @property(nonatomic) __weak PKInternalDrawingView *view; // @synthesize view=_view;
 - (void).cxx_destruct;
-- (void)display;
+- (void)display:(id)arg1;
 
 @end
 

@@ -80,6 +80,7 @@
 @property(readonly, nonatomic, getter=_isShowingIndex) _Bool showingIndex;
 @property(readonly, nonatomic, getter=_bottomPadding) double bottomPadding;
 @property(readonly, nonatomic, getter=_topPadding) double topPadding;
+- (_Bool)insetsContentViewsToSafeArea;
 @property(readonly, nonatomic) _Bool cellLayoutMarginsFollowReadableWidth;
 @property(readonly, nonatomic, getter=_backgroundInset) double backgroundInset;
 @property(readonly, nonatomic) _Bool overlapsSectionHeaderViews;

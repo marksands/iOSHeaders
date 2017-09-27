@@ -20,24 +20,18 @@ __attribute__((visibility("hidden")))
     struct CGSize _magnifiedImageSize;
     struct CGSize _fullMomentsLevelThumbnailSize;
     struct UIEdgeInsets _magnifiedDragEdgeInsets;
-    struct UIEdgeInsets _fullMomentsLevelSectionHeaderContentInset;
     struct UIEdgeInsets _fullMomentsLevelSectionHeaderHighlightInset;
-    struct UIEdgeInsets _collectionsLevelSectionHeaderContentInset;
     struct UIEdgeInsets _collectionsLevelSectionHeaderHighlightInset;
-    struct UIEdgeInsets _yearsLevelSectionHeaderContentInset;
     struct UIEdgeInsets _yearsLevelSectionHeaderHighlightInset;
 }
 
 @property(retain, nonatomic, setter=_setGridSpec:) PUPhotosGridViewControllerSpec *gridSpec; // @synthesize gridSpec=_gridSpec;
 @property(readonly, nonatomic) long long yearsSectionHeaderStyle; // @synthesize yearsSectionHeaderStyle=_yearsSectionHeaderStyle;
 @property(readonly, nonatomic) struct UIEdgeInsets yearsLevelSectionHeaderHighlightInset; // @synthesize yearsLevelSectionHeaderHighlightInset=_yearsLevelSectionHeaderHighlightInset;
-@property(readonly, nonatomic) struct UIEdgeInsets yearsLevelSectionHeaderContentInset; // @synthesize yearsLevelSectionHeaderContentInset=_yearsLevelSectionHeaderContentInset;
 @property(readonly, nonatomic) long long collectionsSectionHeaderStyle; // @synthesize collectionsSectionHeaderStyle=_collectionsSectionHeaderStyle;
 @property(readonly, nonatomic) struct UIEdgeInsets collectionsLevelSectionHeaderHighlightInset; // @synthesize collectionsLevelSectionHeaderHighlightInset=_collectionsLevelSectionHeaderHighlightInset;
-@property(readonly, nonatomic) struct UIEdgeInsets collectionsLevelSectionHeaderContentInset; // @synthesize collectionsLevelSectionHeaderContentInset=_collectionsLevelSectionHeaderContentInset;
 @property(readonly, nonatomic) long long fullMomentsSectionHeaderStyle; // @synthesize fullMomentsSectionHeaderStyle=_fullMomentsSectionHeaderStyle;
 @property(readonly, nonatomic) struct UIEdgeInsets fullMomentsLevelSectionHeaderHighlightInset; // @synthesize fullMomentsLevelSectionHeaderHighlightInset=_fullMomentsLevelSectionHeaderHighlightInset;
-@property(readonly, nonatomic) struct UIEdgeInsets fullMomentsLevelSectionHeaderContentInset; // @synthesize fullMomentsLevelSectionHeaderContentInset=_fullMomentsLevelSectionHeaderContentInset;
 @property(readonly, nonatomic) struct CGSize fullMomentsLevelThumbnailSize; // @synthesize fullMomentsLevelThumbnailSize=_fullMomentsLevelThumbnailSize;
 @property(nonatomic) struct UIEdgeInsets magnifiedDragEdgeInsets; // @synthesize magnifiedDragEdgeInsets=_magnifiedDragEdgeInsets;
 @property(nonatomic) double magnifiedYOffset; // @synthesize magnifiedYOffset=_magnifiedYOffset;
@@ -57,9 +51,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) long long fullMomentsLevelCellFillMode;
 - (void)configureFullMomentsLevelGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 - (id)newGridSpec;
-- (_Bool)isEqual:(id)arg1;
-- (id)init;
-- (id)initWithUserTraitCollection:(id)arg1 referenceSize:(struct CGSize)arg2;
 
 @end
 

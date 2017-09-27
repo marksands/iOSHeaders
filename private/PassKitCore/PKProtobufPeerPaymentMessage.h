@@ -14,10 +14,11 @@
 {
     long long _amount;
     NSString *_currency;
-    NSString *_identifer;
+    NSString *_identifier;
     NSString *_memo;
     NSString *_paymentIdentifier;
     NSString *_recipientAddress;
+    NSString *_requestDeviceScoreIdentifier;
     NSString *_requestToken;
     NSString *_senderAddress;
     NSString *_transactionIdentifier;
@@ -26,6 +27,7 @@
     CDStruct_9fb36b4c _has;
 }
 
+@property(retain, nonatomic) NSString *requestDeviceScoreIdentifier; // @synthesize requestDeviceScoreIdentifier=_requestDeviceScoreIdentifier;
 @property(retain, nonatomic) NSString *memo; // @synthesize memo=_memo;
 @property(retain, nonatomic) NSString *transactionIdentifier; // @synthesize transactionIdentifier=_transactionIdentifier;
 @property(retain, nonatomic) NSString *paymentIdentifier; // @synthesize paymentIdentifier=_paymentIdentifier;
@@ -34,7 +36,7 @@
 @property(retain, nonatomic) NSString *senderAddress; // @synthesize senderAddress=_senderAddress;
 @property(nonatomic) long long amount; // @synthesize amount=_amount;
 @property(retain, nonatomic) NSString *currency; // @synthesize currency=_currency;
-@property(retain, nonatomic) NSString *identifer; // @synthesize identifer=_identifer;
+@property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) unsigned int version; // @synthesize version=_version;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
@@ -46,6 +48,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasRequestDeviceScoreIdentifier;
 @property(readonly, nonatomic) _Bool hasMemo;
 @property(readonly, nonatomic) _Bool hasTransactionIdentifier;
 @property(readonly, nonatomic) _Bool hasPaymentIdentifier;
@@ -58,7 +61,7 @@
 - (id)typeAsString:(int)arg1;
 @property(nonatomic) _Bool hasType;
 @property(nonatomic) int type; // @synthesize type=_type;
-@property(readonly, nonatomic) _Bool hasIdentifer;
+@property(readonly, nonatomic) _Bool hasIdentifier;
 
 @end
 

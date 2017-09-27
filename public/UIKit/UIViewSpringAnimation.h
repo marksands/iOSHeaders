@@ -18,6 +18,10 @@ __attribute__((visibility("hidden")))
     id <UIVectorOperatable> _zero;
     CDStruct_289c5ec3 _state;
     CDStruct_9e265dec _parameters;
+    id <UIVectorOperatable> _distance;
+    id <UIVectorOperatable> _scaledVelocity;
+    id <UIVectorOperatable> _epsilon;
+    float _velocityScalingFactor;
     _Bool _parametersInitialized;
     CDUnknownBlockType _targetValueGetter;
     id <UIVectorOperatable> _value;

@@ -9,6 +9,7 @@
 @class UIView;
 
 @protocol SiriUISiriStatusViewProtocol <NSObject>
+@property(readonly, nonatomic) double statusViewHeight;
 @property(nonatomic) _Bool paused;
 @property(nonatomic, getter=isInUITrackingMode) _Bool inUITrackingMode;
 @property(nonatomic) _Bool flamesViewDeferred;
@@ -18,5 +19,6 @@
 @property(nonatomic) double flamesViewWidth;
 @property(nonatomic) long long mode;
 - (void)forceMicVisible:(_Bool)arg1;
+- (void)fadeOutCurrentAura;
 @end
 

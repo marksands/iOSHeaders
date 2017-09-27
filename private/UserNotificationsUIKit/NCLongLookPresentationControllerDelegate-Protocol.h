@@ -6,12 +6,14 @@
 
 #import "NSObject.h"
 
-@class UIPresentationController<NCLongLookPresentationController>, UIView;
+@class BSAnimationSettings, UIPresentationController<NCLongLookPresentationController>, UIView;
 
 @protocol NCLongLookPresentationControllerDelegate <NSObject>
 - (struct CGRect)longLookPresentationController:(UIPresentationController<NCLongLookPresentationController> *)arg1 frameForTransitionViewInPresentationSuperview:(UIView *)arg2;
 
 @optional
+- (BSAnimationSettings *)unhideHomeAffordanceAnimationSettingsForLongLookPresentationController:(UIPresentationController<NCLongLookPresentationController> *)arg1;
+- (BSAnimationSettings *)hideHomeAffordanceAnimationSettingsForLongLookPresentationController:(UIPresentationController<NCLongLookPresentationController> *)arg1;
 - (_Bool)longLookPresentationControllerShouldAllowKeyboardOnAppearance:(UIPresentationController<NCLongLookPresentationController> *)arg1;
 @end
 

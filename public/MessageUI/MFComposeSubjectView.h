@@ -17,6 +17,7 @@
     unsigned int _delegateRespondsToWillRemoveContent:1;
     unsigned int _notifyButtonSelected:1;
     unsigned int _showNotifyButton:1;
+    _Bool _needsExclusionPathUpdate;
     UITextView *_textView;
     UIButton *_notifyButton;
 }
@@ -36,6 +37,7 @@
 - (id)text;
 - (void)layoutManager:(id)arg1 didCompleteLayoutForTextContainer:(id)arg2 atEnd:(_Bool)arg3;
 - (void)layoutSubviews;
+- (void)setFrame:(struct CGRect)arg1;
 - (id)_textContainerExclusionPathsWithNotifyButton:(_Bool)arg1;
 - (void)_updateTextContainerInsets;
 - (void)refreshPreferredContentSize;
@@ -43,6 +45,7 @@
 - (void)textViewDidEndEditing:(id)arg1;
 - (_Bool)becomeFirstResponder;
 - (void)notifyButtonClicked:(id)arg1;
+- (void)_updateExclusionPathsIfNeeded;
 - (void)updateNotifyButton;
 - (void)setNotifyButtonSelected:(_Bool)arg1;
 - (_Bool)isNotifyButtonSelected;

@@ -16,7 +16,6 @@ __attribute__((visibility("hidden")))
 - (double)sizeForMoonMaskVisible:(_Bool)arg1;
 - (double)textOffsetForStyle:(long long)arg1;
 - (id)makeTextFontForStyle:(long long)arg1;
-- (struct UIEdgeInsets)edgeInsetsForBluetoothBatteryInsides;
 - (struct UIEdgeInsets)edgeInsetsForBatteryInsides;
 - (long long)activityIndicatorStyleWithSyncActivity:(_Bool)arg1;
 - (id)expandedNameForImageName:(id)arg1;

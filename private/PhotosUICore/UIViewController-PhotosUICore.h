@@ -13,6 +13,7 @@
 - (void)px_enumerateDescendantViewControllersWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (_Bool)px_isDescendantOfViewController:(id)arg1;
 - (_Bool)px_canPresentViewControllerAnimated:(_Bool)arg1;
+@property(readonly, nonatomic) struct UIEdgeInsets px_layoutMargins;
 @property(readonly, nonatomic) struct UIEdgeInsets px_safeAreaInsets;
 @property(readonly, nonatomic, getter=px_isVisible) _Bool px_visible;
 @end

@@ -28,7 +28,7 @@ __attribute__((visibility("hidden")))
 - (void)_checkForSupportedAppsButton;
 - (void)_resolveBundleIDs:(id)arg1 forFlow:(id)arg2;
 - (void)_findBundleIDsForAdamIDs:(id)arg1 withFlow:(id)arg2;
-- (void)_checkForPersonalizedChannelsWithMappings:(id)arg1 identityProvider:(id)arg2;
+- (void)_checkForPersonalizedChannelsWithResponse:(id)arg1 identityProvider:(id)arg2;
 - (void)_checkForSupportedAppsFromProvider:(id)arg1;
 - (void)_fetchProviderForAccount:(id)arg1;
 - (void)_checkForExistingAccounts;

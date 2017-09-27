@@ -30,6 +30,7 @@
     _Bool _initialLoad;
     _Bool _shouldLoadDefaultConversationViewingMessageCountOnAppear;
     _Bool _transitionedFromComposing;
+    _Bool _transcriptUpdateAnimated;
     _Bool _allowsPluginPlayback;
     _Bool _isPerformingRegenerateOnlyUpdate;
     _Bool _peeking;
@@ -39,7 +40,6 @@
     _Bool _shouldUseOpaqueMask;
     _Bool _filterAllButFirstMessage;
     _Bool _playedLastImpactEffectForTransitionFromComposing;
-    _Bool _transcriptUpdateAnimated;
     NSArray *_chatItems;
     CKConversation *_conversation;
     NSArray *_associatedChatItems;
@@ -71,7 +71,6 @@
 }
 
 @property(copy, nonatomic) CDUnknownBlockType transcriptUpdateCompletion; // @synthesize transcriptUpdateCompletion=_transcriptUpdateCompletion;
-@property(nonatomic, getter=isTranscriptUpdateAnimated) _Bool transcriptUpdateAnimated; // @synthesize transcriptUpdateAnimated=_transcriptUpdateAnimated;
 @property(retain, nonatomic) UIView *snapshotOfPluginBeingReplacedByBreadcrumb; // @synthesize snapshotOfPluginBeingReplacedByBreadcrumb=_snapshotOfPluginBeingReplacedByBreadcrumb;
 @property(nonatomic) _Bool playedLastImpactEffectForTransitionFromComposing; // @synthesize playedLastImpactEffectForTransitionFromComposing=_playedLastImpactEffectForTransitionFromComposing;
 @property(nonatomic) long long contentAnimationPauseReasons; // @synthesize contentAnimationPauseReasons=_contentAnimationPauseReasons;
@@ -96,6 +95,7 @@
 @property(retain, nonatomic, setter=__setCurrentTestName:) NSString *__CurrentTestName; // @synthesize __CurrentTestName=___CurrentTestName;
 @property(nonatomic) double pluginPlaybackDelay; // @synthesize pluginPlaybackDelay=_pluginPlaybackDelay;
 @property(nonatomic) _Bool allowsPluginPlayback; // @synthesize allowsPluginPlayback=_allowsPluginPlayback;
+@property(nonatomic, getter=isTranscriptUpdateAnimated) _Bool transcriptUpdateAnimated; // @synthesize transcriptUpdateAnimated=_transcriptUpdateAnimated;
 @property(nonatomic) _Bool transitionedFromComposing; // @synthesize transitionedFromComposing=_transitionedFromComposing;
 @property(retain, nonatomic) CKFullScreenEffectManager *fullscreenEffectManager; // @synthesize fullscreenEffectManager=_fullscreenEffectManager;
 @property(retain, nonatomic) CKImpactEffectManager *impactEffectManager; // @synthesize impactEffectManager=_impactEffectManager;

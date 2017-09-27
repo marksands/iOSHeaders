@@ -24,6 +24,7 @@
 - (id)_reminderTemplate;
 - (id)_workoutTemplate;
 - (id)_nowPlayingTemplate;
+- (id)_radioTemplate;
 - (id)_musicTemplate;
 - (id)_worldClockTemplate;
 - (id)_alarmTemplate;

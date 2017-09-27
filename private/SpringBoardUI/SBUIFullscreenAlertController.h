@@ -28,6 +28,7 @@
 - (void)handleAutoLock;
 - (_Bool)handleHeadsetButtonPressed:(_Bool)arg1;
 - (_Bool)handleMenuButtonTap;
+- (_Bool)wantsHomeButtonPress;
 - (_Bool)handleVolumeDownButtonPressed;
 - (_Bool)handleVolumeUpButtonPressed;
 - (_Bool)handleLockButtonPressed;

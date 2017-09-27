@@ -10,7 +10,7 @@
 #import "SiriUISiriStatusViewProtocol.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class AVPlayerLayer, AVPlayerLooper, AVQueuePlayer, NSString, SUICFlamesView, SiriUIConfiguration, UIButton, UILongPressGestureRecognizer, UIScreen;
+@class AVPlayerItem, AVPlayerLayer, AVPlayerLooper, AVQueuePlayer, NSString, SUICFlamesView, SiriUIConfiguration, UIButton, UILongPressGestureRecognizer, UIScreen;
 
 @interface SiriUISiriStatusView : UIView <SUICFlamesViewDelegate, UIGestureRecognizerDelegate, SiriUISiriStatusViewProtocol>
 {
@@ -19,6 +19,7 @@
     UIView *_flamesContainerView;
     SUICFlamesView *_flamesView;
     UIView *_glyphView;
+    AVPlayerItem *_itemToLoop;
     AVPlayerLayer *_glyphLayer;
     AVPlayerLooper *_glyphPlayerLooper;
     AVQueuePlayer *_glyphQueuePlayer;
@@ -36,7 +37,6 @@
     id <SiriUISiriStatusViewAnimationDelegate> _animationDelegate;
 }
 
-+ (double)statusViewHeightForWidthSizeClass:(_Bool)arg1;
 @property(nonatomic) __weak id <SiriUISiriStatusViewAnimationDelegate> animationDelegate; // @synthesize animationDelegate=_animationDelegate;
 @property(nonatomic) _Bool paused; // @synthesize paused=_paused;
 @property(nonatomic, getter=isInUITrackingMode) _Bool inUITrackingMode; // @synthesize inUITrackingMode=_inUITrackingMode;
@@ -49,6 +49,10 @@
 - (float)audioLevelForFlamesView:(id)arg1;
 - (void)_handleKeyboardWillHideNotification:(id)arg1;
 - (void)_handleKeyboardDidShowNotification:(id)arg1;
+- (struct CGRect)_adjustedInsetRectForRect:(struct CGRect)arg1;
+- (struct UIEdgeInsets)safeAreaInsets;
+- (void)safeAreaInsetsDidChange;
+@property(readonly, nonatomic) double statusViewHeight;
 - (struct CGRect)_siriGlyphTappableRect;
 - (struct CGRect)_flamesFrame;
 - (void)_animateSiriGlyphHidden:(_Bool)arg1;
@@ -62,10 +66,12 @@
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (struct CGRect)_flamesViewFrame;
 - (void)layoutSubviews;
+- (void)fadeOutCurrentAura;
 - (void)forceMicVisible:(_Bool)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) UIView *flamesContainerView;
 - (void)dealloc;
+- (void)_createLooperIfNeeded;
 - (id)initWithFrame:(struct CGRect)arg1 screen:(id)arg2 textInputEnabled:(_Bool)arg3 configuration:(id)arg4;
 
 // Remaining properties

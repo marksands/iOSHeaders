@@ -16,6 +16,7 @@
     _Bool _autoUnlockWatch;
     unsigned char _deviceActionType;
     unsigned char _deviceClassCode;
+    unsigned char _deviceModelCode;
     _Bool _hasProblem;
     _Bool _needsKeyboard;
     _Bool _needsSetup;
@@ -30,6 +31,7 @@
     long long _deviceType;
     long long _distance;
     NSUUID *_identifier;
+    NSString *_idsIdentifier;
     NSString *_model;
     NSString *_name;
     NSString *_requestSSID;
@@ -48,10 +50,12 @@
 @property(readonly, nonatomic) _Bool needsKeyboard; // @synthesize needsKeyboard=_needsKeyboard;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *model; // @synthesize model=_model;
+@property(copy, nonatomic) NSString *idsIdentifier; // @synthesize idsIdentifier=_idsIdentifier;
 @property(copy, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) _Bool hasProblem; // @synthesize hasProblem=_hasProblem;
 @property(nonatomic) long long distance; // @synthesize distance=_distance;
 @property(readonly, nonatomic) long long deviceType; // @synthesize deviceType=_deviceType;
+@property(readonly, nonatomic) unsigned char deviceModelCode; // @synthesize deviceModelCode=_deviceModelCode;
 @property(nonatomic) unsigned char deviceClassCode; // @synthesize deviceClassCode=_deviceClassCode;
 @property(readonly, nonatomic) unsigned char deviceActionType; // @synthesize deviceActionType=_deviceActionType;
 @property(copy, nonatomic) NSString *contactIdentifier; // @synthesize contactIdentifier=_contactIdentifier;

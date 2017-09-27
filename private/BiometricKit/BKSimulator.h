@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)enrolledIdentity;
++ (id)enrolledIdentityType:(long long)arg1;
 
 @end
 

@@ -25,6 +25,7 @@
 - (unsigned long long)sectionForIndex:(unsigned long long)arg1;
 - (unsigned long long)indexForSection:(unsigned long long)arg1;
 - (_Bool)isSectionMapped:(unsigned long long)arg1;
+- (void)updateSectionVisibilityAndReloadIfNecessaryForAllSections;
 - (void)updateSectionVisibilityAndReloadIfNecessaryForSections:(id)arg1;
 - (void)updateSectionVisibilityAndReloadIfNecessaryForSection:(unsigned long long)arg1;
 - (void)reloadSection:(unsigned long long)arg1;

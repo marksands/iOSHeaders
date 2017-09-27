@@ -6,28 +6,33 @@
 
 #import <ARKit/ARTechnique.h>
 
-@class NSObject<OS_dispatch_semaphore>;
+@class ARDirectionalLightEstimate, ARFaceTrackingData, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>;
 
 @interface ARFaceLightEstimationTechnique : ARTechnique
 {
     NSObject<OS_dispatch_semaphore> *_resultSemaphore;
-    float _sphericalHarmonics[27];
-    float _confidenceRating;
-    _Bool _sphericalHarmonicsInitialized;
+    ARDirectionalLightEstimate *_lastLightEstimate;
     struct __CVBuffer *_pixelBufferRef;
     float _lightIntensity;
     float _temperature;
-    struct shared_ptr<acv::vision::algorithms::FacialLightEstimation> _faceLightEstimator;
+    ARFaceTrackingData *_lastFaceData;
+    // Error parsing type: {?="columns"[4]}, name: _lastCameraTransform
+    _Bool _cameraTransformAvailable;
+    NSObject<OS_dispatch_queue> *_lightEstimationQueue;
+    NSObject<OS_dispatch_semaphore> *_estimatingSemaphore;
+    struct FacialLightEstimation _faceLightEstimator;
     struct FLEOptions _faceLightEstimationOptions;
+    float _shSmoothingAlpha;
 }
 
 + (ImageViewT_0571eb02)_cvPixelBufferToACVGray:(struct __CVBuffer *)arg1;
 + (shared_ptr_c68b61c3)_transformFaceTrackingData:(id)arg1;
++ (float)_computeShSmoothingAlpha:(double)arg1;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)requestResultDataAtTimestamp:(double)arg1 context:(id)arg2;
 - (id)processData:(id)arg1;
-- (void)_computeLightIntensity:(float)arg1 exposureDuration:(double)arg2;
+- (void)_computeLightIntensity:(float)arg1 samplingInterval:(double)arg2;
 - (unsigned long long)requiredSensorDataTypes;
 - (void)dealloc;
 - (id)init;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class UILabel, UIPresentationController<NCLongLookPresentationController>, UIView, _UIStatesFeedbackGenerator;
+@class MTLumaDodgePillView, SBUIKeyboardHomeAffordanceAssertion, UILabel, UIPresentationController<NCLongLookPresentationController>, UIView, _UIStatesFeedbackGenerator;
 
 @interface NCLongLookPresentationControllerHelper : NSObject
 {
@@ -18,15 +18,20 @@
     _UIStatesFeedbackGenerator *_dismissFeedbackBehavior;
     _Bool _didPlayDismissHaptic;
     struct CGSize _childPreferredContentSize;
+    MTLumaDodgePillView *_homeAffordanceView;
     _Bool _listenToKeyboardEvents;
     UIPresentationController<NCLongLookPresentationController> *_presentationController;
+    double _additionalHomeAffordanceSpacing;
+    SBUIKeyboardHomeAffordanceAssertion *_keyboardHomeAffordance;
     struct CGRect _keyboardFrame;
 }
 
 + (struct CGSize)_sizeOfViewWithPreferredContentSize:(struct CGSize)arg1 inContainerViewWithBounds:(struct CGRect)arg2;
 + (struct CGRect)useableContainerViewBoundsInContainerViewWithBounds:(struct CGRect)arg1;
 + (struct CGSize)_sizeOfViewWithPreferredContentSize:(struct CGSize)arg1 inUseableContainerViewBounds:(struct CGRect)arg2;
+@property(retain, nonatomic, getter=_keyboardHomeAffordance, setter=_setKeyboardHomeAffordance:) SBUIKeyboardHomeAffordanceAssertion *keyboardHomeAffordance; // @synthesize keyboardHomeAffordance=_keyboardHomeAffordance;
 @property(nonatomic, getter=_keyboardFrame, setter=_setKeyboardFrame:) struct CGRect keyboardFrame; // @synthesize keyboardFrame=_keyboardFrame;
+@property(nonatomic) double additionalHomeAffordanceSpacing; // @synthesize additionalHomeAffordanceSpacing=_additionalHomeAffordanceSpacing;
 @property(nonatomic) _Bool listenToKeyboardEvents; // @synthesize listenToKeyboardEvents=_listenToKeyboardEvents;
 @property(nonatomic) __weak UIPresentationController<NCLongLookPresentationController> *presentationController; // @synthesize presentationController=_presentationController;
 - (void).cxx_destruct;
@@ -57,6 +62,9 @@
 - (void)_actuateFeedbackForDismissalInvalidationIfNecessary;
 - (_Bool)_actuateFeedbackForDismissalIfNecessary;
 - (void)_configureDismissFeedbackIfNecessary;
+- (void)_setLocalHomeAffordanceVisible:(_Bool)arg1;
+- (_Bool)_isLocalHomeAffordanceVisible;
+@property(nonatomic, getter=isHomeAffordanceVisible) _Bool homeAffordanceVisible;
 - (struct CGPoint)_contentOffsetForPresentedLongLookView:(struct UIView *)arg1;
 - (struct UIEdgeInsets)_contentInsetWithPresentedFrame:(struct CGRect)arg1 inContainerViewWithBounds:(struct CGRect)arg2;
 - (struct CGRect)_frameOfPresentedViewInContainerViewWithBounds:(struct CGRect)arg1;

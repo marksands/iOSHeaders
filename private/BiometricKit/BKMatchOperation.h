@@ -27,7 +27,7 @@
 @property(retain, nonatomic) NSNumber *userID; // @synthesize userID=_userID;
 @property(nonatomic) long long purpose; // @synthesize purpose=_purpose;
 - (void).cxx_destruct;
-- (void)simulateMatching:(_Bool)arg1;
+- (void)simulateMatching:(_Bool)arg1 type:(long long)arg2;
 - (id)init;
 
 // Remaining properties

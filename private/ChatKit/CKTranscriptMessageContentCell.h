@@ -33,6 +33,7 @@
 - (struct CGRect)messageDisplayViewFrame:(struct CGRect)arg1 inContainerFrame:(struct CGRect)arg2;
 - (void)layoutSubviewsForAlignmentContents;
 - (void)layoutSubviewsForDrawer;
+- (struct UIEdgeInsets)safeAreaInsets;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)configureForChatItem:(id)arg1;
 

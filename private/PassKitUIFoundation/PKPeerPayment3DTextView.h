@@ -7,10 +7,11 @@
 #import "UIView.h"
 
 #import "PKMotionManagerClientProtocol.h"
+#import "SCNSceneRendererDelegate.h"
 
-@class NSString, SCNMaterial, SCNNode, SCNPlane, SCNView;
+@class NSMutableArray, NSString, SCNMaterial, SCNNode, SCNPlane, SCNView;
 
-@interface PKPeerPayment3DTextView : UIView <PKMotionManagerClientProtocol>
+@interface PKPeerPayment3DTextView : UIView <PKMotionManagerClientProtocol, SCNSceneRendererDelegate>
 {
     SCNView *_sceneView;
     SCNMaterial *_textMaterial;
@@ -19,6 +20,14 @@
     SCNNode *_textContainerNode;
     // Error parsing type: , name: _lastRollPitch
     double _sceneWidthUnits;
+    double _sceneHeightUnits;
+    NSMutableArray *_performHandlers;
+    long long _frameCount;
+    double _dynamicRollPitchMix;
+    double _startAnimationTime;
+    double _animationDuration;
+    double _lastRenderTime;
+    _Bool _liveMotionEnabled;
     unsigned long long _renderStyle;
     NSString *_text;
 }
@@ -28,11 +37,15 @@
 @property(readonly, copy, nonatomic) NSString *text; // @synthesize text=_text;
 @property(readonly, nonatomic) unsigned long long renderStyle; // @synthesize renderStyle=_renderStyle;
 - (void).cxx_destruct;
+- (void)renderer:(id)arg1 didRenderScene:(id)arg2 atTime:(double)arg3;
+- (void)performPostRender:(CDUnknownBlockType)arg1;
 - (void)didMoveToWindow;
+- (id)generatedSnapshot;
 - (void)setRollPitch: /* Error: Ran out of types for this method. */;
+- (void)setMotionEffectEnabled:(_Bool)arg1 animated:(_Bool)arg2;
 - (_Bool)setText:(id)arg1;
 - (void)layoutSubviews;
-- (void)updateSceneWidthUnits;
+- (void)updateSceneUnits;
 - (id)initWithFrame:(struct CGRect)arg1 renderStyle:(unsigned long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 

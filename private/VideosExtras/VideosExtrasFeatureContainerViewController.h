@@ -23,6 +23,7 @@
 @property(readonly, nonatomic) __weak VideosExtrasContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (void)_menuBarHeightChange:(id)arg1;
+- (id)childViewControllerForHomeIndicatorAutoHidden;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;

@@ -12,7 +12,6 @@
 {
     id <PXPeopleMeViewControllerDataSource> _dataSource;
     CDUnknownBlockType _dismissHandler;
-    double _sideInsets;
     id <PXPerson> _suggestedPerson;
     UIButton *_confirmButton;
     UIButton *_denyButton;
@@ -25,7 +24,6 @@
 @property(retain, nonatomic) UIButton *denyButton; // @synthesize denyButton=_denyButton;
 @property(retain, nonatomic) UIButton *confirmButton; // @synthesize confirmButton=_confirmButton;
 @property(retain) id <PXPerson> suggestedPerson; // @synthesize suggestedPerson=_suggestedPerson;
-@property(nonatomic) double sideInsets; // @synthesize sideInsets=_sideInsets;
 @property(copy, nonatomic) CDUnknownBlockType dismissHandler; // @synthesize dismissHandler=_dismissHandler;
 @property(readonly, nonatomic) id <PXPeopleMeViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;

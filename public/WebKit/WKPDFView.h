@@ -46,6 +46,8 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_findQueue;
     struct RetainPtr<UIWKSelectionAssistant> _webSelectionAssistant;
     struct unique_ptr<WebKit::ApplicationStateTracker, std::__1::default_delete<WebKit::ApplicationStateTracker>> _applicationStateTracker;
+    struct UIEdgeInsets _lastUnobscuredSafeAreaInset;
+    double _lastLayoutWidth;
 }
 
 - (id).cxx_construct;
@@ -76,6 +78,7 @@ __attribute__((visibility("hidden")))
 - (id)_URLForLinkAnnotation:(id)arg1;
 - (void)_highlightLinkAnnotation:(id)arg1 forDuration:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_resetZoomAnimated:(_Bool)arg1;
+- (void)_updateDocumentFrame;
 - (void)_computePageAndDocumentFrames;
 - (void)web_didSameDocumentNavigation:(unsigned int)arg1;
 - (void)_scrollToFragment:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import "_UIStatusBarDisplayable.h"
 
-@class CAShapeLayer, NSString, UIBezierPath, UIColor;
+@class CAShapeLayer, NSString, UIAccessibilityHUDItem, UIBezierPath, UIColor;
 
 __attribute__((visibility("hidden")))
 @interface _UIStatusBarBezierView : UIView <_UIStatusBarDisplayable>
@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) CAShapeLayer *shapeLayer;
 
 // Remaining properties
+@property(readonly, nonatomic) UIAccessibilityHUDItem *accessibilityHUDRepresentation;
 @property(readonly, nonatomic) double baselineOffset;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)setAnimatablePropertyState:(id)arg1 forKey:(id)arg2;
 - (id)existingAnimatablePropertyStateForKey:(id)arg1;
 - (id)animatablePropertyStateForKey:(id)arg1;
+- (id)animatablePropertyStateKeys;
 - (id)init;
 
 @end

@@ -84,6 +84,7 @@
 - (void)applyUpdate:(id)arg1;
 - (void)_applyUpdate:(id)arg1 keys:(id)arg2;
 - (id)description;
+@property(readonly, nonatomic, getter=isEmpty) _Bool empty;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

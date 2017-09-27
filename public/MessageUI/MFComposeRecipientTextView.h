@@ -155,6 +155,7 @@
 - (void)setBounds:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)refreshPreferredContentSize;
+- (_Bool)_shouldEmbedLabelInTextView;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 dragDropDelegate:(id)arg2;

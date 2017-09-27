@@ -29,6 +29,7 @@
 - (_Bool)isContentViewWhiteUnderSlideToUnlockText;
 - (_Bool)legibilitySettingsOverridesVibrancy;
 - (_Bool)allowsLogout;
+- (_Bool)allowsScreenshots;
 - (_Bool)wantsMesaAutoUnlock;
 - (_Bool)handleHeadsetButtonPressed:(_Bool)arg1;
 - (_Bool)handleVolumeDownButtonPressed;

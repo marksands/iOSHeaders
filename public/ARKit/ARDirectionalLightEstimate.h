@@ -6,30 +6,30 @@
 
 #import <ARKit/ARLightEstimate.h>
 
+#import "NSCopying.h"
+
 @class NSData;
 
-@interface ARDirectionalLightEstimate : ARLightEstimate
+@interface ARDirectionalLightEstimate : ARLightEstimate <NSCopying>
 {
+    CDStruct_9c26ff66 _sphericalHarmonicIntensity;
     NSData *_sphericalHarmonicsCoefficients;
     double _primaryLightIntensity;
     double _confidenceRating;
     // Error parsing type: , name: _primaryLightDirection
 }
 
-+ (id)sphericalHarmonicsFlipZAxis:(id)arg1;
-+ (array_d8f950f2)_sphericalHarmonicsFromNSData:(id)arg1;
-+ (float)_dotProductSphericalHarmonicsSH1:(array_d8f950f2)arg1 SH2:(array_d8f950f2)arg2;
-+ (array_d8f950f2)_shFunctionAtDirection: /* Error: Ran out of types for this method. */;
-+ (CDStruct_b2fbf00d)_primaryLightItensityUsingSH:(array_d8f950f2)arg1 inDirection:(float)arg2 defaultIntensity: /* Error: Ran out of types for this method. */;
 @property(nonatomic) double confidenceRating; // @synthesize confidenceRating=_confidenceRating;
 @property(readonly, nonatomic) double primaryLightIntensity; // @synthesize primaryLightIntensity=_primaryLightIntensity;
 // Error parsing type for property primaryLightDirection:
 // Property attributes: T,R,N,V_primaryLightDirection
 
-@property(readonly, copy, nonatomic) NSData *sphericalHarmonicsCoefficients; // @synthesize sphericalHarmonicsCoefficients=_sphericalHarmonicsCoefficients;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
-- (id)initWithCoefficients:(id)arg1 temperature:(double)arg2;
+@property(readonly, copy, nonatomic) NSData *sphericalHarmonicsCoefficients;
+- (id)initWithDirectionalLightEstimate:(id)arg1;
+- (id)initWithSphericalHarmonics:(CDStruct_9c26ff66)arg1 temperature:(double)arg2;
 
 @end
 

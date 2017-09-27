@@ -6,11 +6,12 @@
 
 #import <UIKit/UIView.h>
 
-@class CALayer, CAShapeLayer, UIColor;
+@class CALayer, CAShapeLayer, UIColor, _UIBatteryViewAXHUDImageCacheInfo;
 
 @interface _UIBatteryView : UIView
 {
     _Bool _saverModeActive;
+    _Bool _showsInlineChargingIndicator;
     _Bool _compact;
     long long _sizeCategory;
     double _chargePercent;
@@ -21,25 +22,33 @@
     CAShapeLayer *_bodyLayer;
     CAShapeLayer *_pinLayer;
     CALayer *_fillLayer;
-    double _baselineOffset;
+    CAShapeLayer *_boltMaskLayer;
+    CAShapeLayer *_boltLayer;
+    _UIBatteryViewAXHUDImageCacheInfo *_accessibilityHUDImageCacheInfo;
 }
 
-@property(nonatomic) double baselineOffset; // @synthesize baselineOffset=_baselineOffset;
 @property(nonatomic) _Bool compact; // @synthesize compact=_compact;
+@property(retain, nonatomic) _UIBatteryViewAXHUDImageCacheInfo *accessibilityHUDImageCacheInfo; // @synthesize accessibilityHUDImageCacheInfo=_accessibilityHUDImageCacheInfo;
+@property(retain, nonatomic) CAShapeLayer *boltLayer; // @synthesize boltLayer=_boltLayer;
+@property(retain, nonatomic) CAShapeLayer *boltMaskLayer; // @synthesize boltMaskLayer=_boltMaskLayer;
 @property(retain, nonatomic) CALayer *fillLayer; // @synthesize fillLayer=_fillLayer;
 @property(retain, nonatomic) CAShapeLayer *pinLayer; // @synthesize pinLayer=_pinLayer;
 @property(retain, nonatomic) CAShapeLayer *bodyLayer; // @synthesize bodyLayer=_bodyLayer;
 @property(copy, nonatomic) UIColor *pinColor; // @synthesize pinColor=_pinColor;
 @property(copy, nonatomic) UIColor *bodyColor; // @synthesize bodyColor=_bodyColor;
 @property(copy, nonatomic) UIColor *fillColor; // @synthesize fillColor=_fillColor;
+@property(nonatomic) _Bool showsInlineChargingIndicator; // @synthesize showsInlineChargingIndicator=_showsInlineChargingIndicator;
 @property(nonatomic) _Bool saverModeActive; // @synthesize saverModeActive=_saverModeActive;
 @property(nonatomic) long long chargingState; // @synthesize chargingState=_chargingState;
 @property(nonatomic) double chargePercent; // @synthesize chargePercent=_chargePercent;
 @property(nonatomic) long long sizeCategory; // @synthesize sizeCategory=_sizeCategory;
 - (void).cxx_destruct;
+- (id)accessibilityHUDRepresentation;
 - (struct CGSize)intrinsicContentSize;
 - (void)traitCollectionDidChange:(id)arg1;
 @property(readonly, nonatomic, getter=isLowBattery) _Bool lowBattery;
+- (void)_unflipBoltIfNecessary;
+- (void)_updateBolt;
 - (void)_updateFillLayer;
 - (void)_updateFillColor;
 - (void)_updateBodyColors;

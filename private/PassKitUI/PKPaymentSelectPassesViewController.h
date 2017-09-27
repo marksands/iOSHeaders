@@ -6,7 +6,7 @@
 
 #import <PassKitUI/PKPaymentSetupTableViewController.h>
 
-@class NSArray, NSMutableArray, NSString, PKTableHeaderView;
+@class NSArray, NSMutableArray, NSString, PKPeerPaymentAccount, PKTableHeaderView;
 
 @interface PKPaymentSelectPassesViewController : PKPaymentSetupTableViewController
 {
@@ -14,6 +14,7 @@
     NSArray *_passes;
     NSMutableArray *_selectedIndexPaths;
     id <PKPaymentSelectPassesViewControllerDelegate> _delegate;
+    PKPeerPaymentAccount *_peerPaymentAccount;
     _Bool _canSelectMultiplePasses;
     NSString *_buttonText;
     NSString *_headerTitle;
@@ -42,7 +43,7 @@
 - (id)pkui_navigationBarTintColor;
 - (_Bool)pkui_prefersNavigationBarShadowHidden;
 - (id)initWithStyle:(long long)arg1 context:(long long)arg2;
-- (id)initWithPaymentPasses:(id)arg1 context:(long long)arg2 delegate:(id)arg3;
+- (id)initWithPaymentPasses:(id)arg1 context:(long long)arg2 delegate:(id)arg3 peerPaymentAccount:(id)arg4;
 
 @end
 

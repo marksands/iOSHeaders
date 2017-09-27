@@ -15,6 +15,7 @@
 
 @property(retain, nonatomic) MTTimer *timer; // @synthesize timer=_timer;
 - (void).cxx_destruct;
+- (void)removeFromOldStorage;
 - (void)migrateFromOldStorage;
 
 @end

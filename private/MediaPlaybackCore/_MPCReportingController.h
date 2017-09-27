@@ -30,6 +30,7 @@
 @property(readonly, nonatomic) __weak MPCPlaybackEngine *playbackEngine; // @synthesize playbackEngine=_playbackEngine;
 - (void).cxx_destruct;
 - (void)environmentMonitorDidChangeNetworkType:(id)arg1;
+- (void)reportUserSeekFromTime:(double)arg1 toTime:(double)arg2;
 - (void)recordLyricsViewEvent:(id)arg1;
 - (void)dealloc;
 - (id)initWithPlaybackEngine:(id)arg1;

@@ -25,6 +25,7 @@
 - (void).cxx_destruct;
 - (id)mergeJSONObjects:(id)arg1;
 - (id)mergedObjectsWithIdentifier:(id)arg1 andDefaultIdentifiers:(id)arg2 fromDictionary:(id)arg3;
+@property(readonly, nonatomic) UIColor *topBackgroundColor;
 @property(readonly, nonatomic) UIColor *documentBackgroundColor;
 @property(readonly, nonatomic) SXMetaData *metaData;
 - (id)componentIdentifierUsingThumbnailInComponents:(id)arg1;

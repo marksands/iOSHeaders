@@ -20,6 +20,7 @@
     UIBarButtonItem *_cancelButtonBarItem;
     CNMonogrammer *_monogrammer;
     PSSpecifier *_createNewAccountButtonSpecifier;
+    PSSpecifier *_createNewAccountGroupSpecifier;
     PSSpecifier *_signInButtonSpecifier;
     NSString *_username;
     NSString *_password;
@@ -73,6 +74,9 @@
 - (id)_usernameForSpecifier:(id)arg1;
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (double)_heightForCreateNewAccountFooterWithWidth:(double)arg1;
+- (double)_heightForCreateNewAccountSpecifierWithWidth:(double)arg1;
+- (_Bool)_shouldAnchorCreateAccountButton;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;

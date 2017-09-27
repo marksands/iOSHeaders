@@ -79,6 +79,8 @@ struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>
     } __r_;
 };
 
+struct blob<float, 1>;
+
 struct blob<float, 3>;
 
 struct blob<float, 4>;
@@ -108,6 +110,18 @@ struct map<std::__1::basic_string<char>, float, std::__1::less<std::__1::basic_s
     } __tree_;
 };
 
+struct map<std::__1::basic_string<char>, std::__1::vector<int, std::__1::allocator<int>>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::vector<int, std::__1::allocator<int>>>>> {
+    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, std::__1::vector<int, std::__1::allocator<int>>>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::vector<int, std::__1::allocator<int>>>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, std::__1::vector<int, std::__1::allocator<int>>>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, std::__1::vector<int, std::__1::allocator<int>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::vector<int, std::__1::allocator<int>>>, std::__1::less<std::__1::basic_string<char>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
 struct net;
 
 struct net_strides_configuration {
@@ -115,6 +129,11 @@ struct net_strides_configuration {
     struct vector<int, std::__1::allocator<int>> kernel_size;
     struct vector<int, std::__1::allocator<int>> stride;
     struct vector<int, std::__1::allocator<int>> pad;
+};
+
+struct pair<int, int> {
+    int _field1;
+    int _field2;
 };
 
 struct pair<unsigned long long, unsigned long long> {
@@ -129,8 +148,11 @@ struct postprocessing_settings_t {
     float blend_alpha;
     int grayscale_i0;
     int grayscale_i1;
+    float temporal_alpha;
     float gamma;
     float saturation;
+    float contrast;
+    float brightness;
     int color_transfer_mode;
     int width;
     int height;
@@ -140,11 +162,34 @@ struct postprocessing_settings_t {
     int height_capture;
     int width_miniature;
     int height_miniature;
+    int width_fullscreen;
+    int height_fullscreen;
+    int width_hd;
+    int height_hd;
     float old_frame_scale;
+    float noise_strength;
+    int dyn_noise;
+    float noise_speed;
+    float preprocessing_bias_b;
+    float preprocessing_bias_g;
+    float preprocessing_bias_r;
+    float preprocessing_scale;
+    float preprocessing_old_frame_bias_scale;
+    _Bool high_quality_scaling;
+};
+
+struct shared_ptr<Espresso::V9Engine::v9_noise_kernel> {
+    struct v9_noise_kernel *__ptr_;
+    struct __shared_weak_count *__cntrl_;
 };
 
 struct shared_ptr<Espresso::abstract_context> {
     struct abstract_context *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<Espresso::blob<float, 1>> {
+    struct blob<float, 1> *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
@@ -177,6 +222,8 @@ struct shared_ptr<Espresso::net> {
     struct net *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
+
+struct v9_noise_kernel;
 
 struct vImage_Buffer {
     void *data;
@@ -241,6 +288,23 @@ struct vector<std::__1::shared_ptr<Espresso::net>, std::__1::allocator<std::__1:
     } __end_cap_;
 };
 
+struct wisdom_trainer2 {
+    int _field1;
+    int _field2;
+    int _field3;
+    _Bool _field4;
+    float _field5;
+    float _field6;
+    float _field7;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field8;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field9;
+    _Bool _field10;
+    struct map<std::__1::basic_string<char>, std::__1::vector<int, std::__1::allocator<int>>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::vector<int, std::__1::allocator<int>>>>> _field11;
+    struct vector<int, std::__1::allocator<int>> _field12;
+    struct __sFILE *_field13;
+    int _field14;
+};
+
 #pragma mark Typedef'd Structures
 
 typedef struct {
@@ -250,11 +314,21 @@ typedef struct {
 } CDStruct_14f26992;
 
 typedef struct {
+    void *plan;
+    int network_index;
+} CDStruct_2bc666a5;
+
+typedef struct {
     CDStruct_14f26992 _field1;
     CDStruct_14f26992 _field2;
 } CDStruct_4c83c94d;
 
 // Template types
+typedef struct pair<int, int> {
+    int _field1;
+    int _field2;
+} pair_65f741c2;
+
 typedef struct shared_ptr<Espresso::abstract_context> {
     struct abstract_context *__ptr_;
     struct __shared_weak_count *__cntrl_;

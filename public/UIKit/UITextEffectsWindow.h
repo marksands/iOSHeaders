@@ -23,6 +23,7 @@
     double _windowLevelStack[5];
     struct CGSize _hostedSceneSize;
     _Bool _manualHostingOverride;
+    struct UIEdgeInsets _hostedSafeInsets;
 }
 
 + (void)lowerTextEffectsWindowsForHideNotificationCenter;
@@ -33,6 +34,7 @@
 + (id)sharedTextEffectsWindowForScreen:(id)arg1;
 + (id)sharedTextEffectsWindow;
 + (id)_sharedTextEffectsWindowforScreen:(id)arg1 aboveStatusBar:(_Bool)arg2 allowHosted:(_Bool)arg3 matchesStatusBarOrientationOnAccess:(_Bool)arg4 shouldCreateIfNecessary:(_Bool)arg5;
+@property(nonatomic) struct UIEdgeInsets hostedSafeInsets; // @synthesize hostedSafeInsets=_hostedSafeInsets;
 @property(nonatomic) struct CGSize hostedSceneSize; // @synthesize hostedSceneSize=_hostedSceneSize;
 @property(nonatomic) struct CGPoint hostedWindowOffset; // @synthesize hostedWindowOffset=_hostedWindowOffset;
 @property(nonatomic) double defaultWindowLevel; // @synthesize defaultWindowLevel=_defaultWindowLevel;

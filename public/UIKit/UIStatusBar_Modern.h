@@ -15,31 +15,38 @@ __attribute__((visibility("hidden")))
 }
 
 + (double)_viewControllerAdjustmentForOrientation:(long long)arg1;
-+ (double)heightForStyle:(long long)arg1 orientation:(long long)arg2;
++ (long long)_defaultStyleForRequestedStyle:(long long)arg1 styleOverrides:(int)arg2 simulateLegacyAppearance:(_Bool)arg3 activeStyleOverride:(int *)arg4;
++ (double)_heightForStyle:(long long)arg1 orientation:(long long)arg2 forStatusBarFrame:(_Bool)arg3;
 @property(retain, nonatomic) _UIStatusBar *statusBar; // @synthesize statusBar=_statusBar;
 - (void).cxx_destruct;
 - (struct CGSize)intrinsicContentSize;
-- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(const CDStruct_121c720f *)arg2 withActions:(int)arg3;
+- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(const CDStruct_8a690d05 *)arg2 withActions:(int)arg3;
 - (void)forceUpdateData:(_Bool)arg1;
 - (void)forceUpdate:(_Bool)arg1;
 - (void)layoutSubviews;
-- (struct CGRect)frameForRegionWithIdentifier:(id)arg1;
-- (id)actionForRegionWithIdentifier:(id)arg1;
-- (void)setAction:(id)arg1 forRegionWithIdentifier:(id)arg2;
+- (struct CGRect)frameForPartWithIdentifier:(id)arg1;
+- (id)enabledPartIdentifiers;
+- (void)setEnabledPartIdentifiers:(id)arg1;
+- (id)actionForPartWithIdentifier:(id)arg1;
+- (void)setAction:(id)arg1 forPartWithIdentifier:(id)arg2;
 - (void)setMode:(long long)arg1;
 - (_Bool)_canShowInOrientation:(long long)arg1;
 - (double)heightForOrientation:(long long)arg1;
 - (double)defaultDoubleHeight;
 - (double)defaultHeight;
+- (void)setLegibilityStyle:(long long)arg1 animationParameters:(id)arg2;
 - (void)setForegroundColor:(id)arg1 animationParameters:(id)arg2;
 - (void)setStyleRequest:(id)arg1 animationParameters:(id)arg2;
 - (long long)currentStyle;
 - (_Bool)isTranslucent;
 - (void)_requestStyle:(long long)arg1 animationParameters:(id)arg2 forced:(_Bool)arg3;
+- (void)_requestStyle:(long long)arg1 legibilityStyle:(long long)arg2 foregroundColor:(id)arg3 animationParameters:(id)arg4 forced:(_Bool)arg5;
 - (void)_updateWithData:(id)arg1 force:(_Bool)arg2;
+- (int)_implicitStyleOverrideForStyle:(long long)arg1;
 - (id)_effectiveDataFromData:(id)arg1 activeOverride:(int)arg2;
 - (long long)_effectiveStyleFromStyle:(long long)arg1;
-- (id)_dataFromLegacyData:(const CDStruct_121c720f *)arg1;
+- (id)_dataFromLegacyData:(const CDStruct_8a690d05 *)arg1;
+- (void)_updateSemanticContentAttributeFromLegacyData:(const CDStruct_8a690d05 *)arg1;
 - (id)_initWithFrame:(struct CGRect)arg1 showForegroundView:(_Bool)arg2 inProcessStateProvider:(id)arg3;
 
 @end

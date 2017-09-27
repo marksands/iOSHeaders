@@ -83,7 +83,6 @@
     NSMutableArray *_quietModeOverrideAssertions;
     unsigned long long _activeQuietModeAssertionCount;
     unsigned long long _activeQuietModeAssertionGatewayCount;
-    long long _globalContentPreviewsSetting;
     BBBiometricResource *_biometricResource;
     void *_addressBook;
     ABFavoritesListManager *_favoritesListManager;
@@ -242,6 +241,8 @@
 - (void)setEffectiveGlobalContentPreviewsSetting:(long long)arg1;
 - (void)getEffectiveGlobalContentPreviewsSettingWithHandler:(CDUnknownBlockType)arg1;
 - (long long)_effectiveGlobalContentPreviewsSetting;
+- (void)_setGlobalContentPreviewsSetting:(long long)arg1;
+- (long long)_globalContentPreviewsSetting;
 - (void)_biometricResourceStateChanged;
 - (void)_updateAllSectionInfos;
 - (long long)_defaultGlobalContentPreviewSetting;

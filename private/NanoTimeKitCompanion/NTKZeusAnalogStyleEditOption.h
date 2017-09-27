@@ -15,6 +15,7 @@
 + (id)_orderedValues;
 + (id)optionWithStyle:(unsigned long long)arg1;
 - (id)_valueToFaceBundleStringDict;
+- (_Bool)optionExistsInOSVersion:(unsigned int)arg1;
 @property(readonly, nonatomic) unsigned long long style;
 - (long long)swatchStyle;
 

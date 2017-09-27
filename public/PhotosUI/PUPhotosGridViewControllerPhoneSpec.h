@@ -11,6 +11,7 @@
 }
 
 + (struct CGSize)bestItemSizeForAvailableWidth:(double)arg1 screenScale:(double)arg2 bestSpacing:(double *)arg3 bestInset:(double *)arg4;
+- (struct UIEdgeInsets)gridContentInsets;
 - (_Bool)shouldPlaceSelectAllButtonInRightNavigationBar;
 - (_Bool)canDisplaySlideshowButton;
 - (_Bool)canDisplaySearchActionInNavigationBar;

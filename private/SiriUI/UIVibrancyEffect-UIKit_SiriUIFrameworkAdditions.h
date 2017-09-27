@@ -7,6 +7,7 @@
 #import "UIVibrancyEffect.h"
 
 @interface UIVibrancyEffect (UIKit_SiriUIFrameworkAdditions)
++ (id)siriui_userUtteranceEditModeVibrancyEffect;
 + (id)siriui_platterVibrancyEffect;
 @end
 

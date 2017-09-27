@@ -6,7 +6,7 @@
 
 #import "WKNavigationDelegate.h"
 
-@class NSData, NSError, NSString, NSURLAuthenticationChallenge, NSURLProtectionSpace, WKBackForwardListItem, WKFrameInfo, WKNavigation, WKNavigationAction, WKWebView;
+@class NSData, NSError, NSString, NSURL, NSURLAuthenticationChallenge, NSURLProtectionSpace, WKBackForwardListItem, WKFrameInfo, WKNavigation, WKNavigationAction, WKWebView;
 
 @protocol WKNavigationDelegatePrivate <WKNavigationDelegate>
 
@@ -29,7 +29,8 @@
 - (void)_webView:(WKWebView *)arg1 renderingProgressDidChange:(unsigned long long)arg2;
 - (void)_webView:(WKWebView *)arg1 navigation:(WKNavigation *)arg2 didSameDocumentNavigation:(long long)arg3;
 - (void)_webView:(WKWebView *)arg1 navigationDidFinishDocumentLoad:(WKNavigation *)arg2;
-- (void)_webView:(WKWebView *)arg1 didPerformClientRedirectForNavigation:(WKNavigation *)arg2;
+- (void)_webViewDidCancelClientRedirect:(WKWebView *)arg1;
+- (void)_webView:(WKWebView *)arg1 willPerformClientRedirectToURL:(NSURL *)arg2 delay:(double)arg3;
 - (void)_webView:(WKWebView *)arg1 navigation:(WKNavigation *)arg2 didFailProvisionalLoadInSubframe:(WKFrameInfo *)arg3 withError:(NSError *)arg4;
 @end
 

@@ -22,6 +22,7 @@
     PKDrawing *_dirtyDrawing;
     _Bool _fingerDrawingEnabled;
     _Bool _isLayingOut;
+    _Bool _shouldHideCanvasAfterScroll;
     PKLinedPaper *_linedPaper;
     UIScrollView *_scrollView;
     PKCanvasView *_canvasView;
@@ -47,6 +48,7 @@
 @property(readonly, nonatomic) NSArray *hideAdditionalStrokes; // @synthesize hideAdditionalStrokes=_hideAdditionalStrokes;
 @property(readonly, nonatomic) NSArray *additionalStrokes; // @synthesize additionalStrokes=_additionalStrokes;
 @property(retain, nonatomic) PKSelectionController *selectionController; // @synthesize selectionController=_selectionController;
+@property(nonatomic) _Bool shouldHideCanvasAfterScroll; // @synthesize shouldHideCanvasAfterScroll=_shouldHideCanvasAfterScroll;
 @property(nonatomic) _Bool isLayingOut; // @synthesize isLayingOut=_isLayingOut;
 @property(retain, nonatomic) UIButton *tapToRadarButton; // @synthesize tapToRadarButton=_tapToRadarButton;
 @property(retain, nonatomic) _UITextAttachmentDrawingView *standInEndAttachmentView; // @synthesize standInEndAttachmentView=_standInEndAttachmentView;

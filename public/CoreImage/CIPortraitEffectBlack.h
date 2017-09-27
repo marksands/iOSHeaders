@@ -32,13 +32,34 @@ __attribute__((visibility("hidden")))
     NSNumber *inputSigmaFallout;
     NSNumber *inputMinimumEffectLevel;
     NSNumber *inputBackgroundSeparationLikehood;
+    NSNumber *inputUseAbsoluteDisparity;
+    NSNumber *inputSharpenRadius;
+    NSNumber *inputGrainAmount;
+    NSNumber *inputDepthDataScore;
     CIVector *inputFocusRect;
+    NSNumber *inputFocalLengthNormalized;
+    NSNumber *inputAdaptiveThresholdFaceGroupRange;
+    NSNumber *inputAdaptiveThresholdFaceErrorMargin;
+    NSNumber *inputAdaptiveThresholdZRangeConst;
+    NSNumber *inputAdaptiveThresholdZRangeLinearDepth;
+    NSNumber *inputAdaptiveThresholdConstOffset;
+    NSNumber *inputAdaptiveThresholdLinearDepthOffset;
+    NSNumber *inputAdaptiveThresholdDoDisparityError;
 }
 
 + (id)customAttributes;
 @property(copy, nonatomic) CIVector *inputFocusRect; // @synthesize inputFocusRect;
+@property(copy, nonatomic) NSNumber *inputDepthDataScore; // @synthesize inputDepthDataScore;
 @property(copy, nonatomic) NSNumber *inputBackgroundSeparationLikehood; // @synthesize inputBackgroundSeparationLikehood;
 @property(copy, nonatomic) NSNumber *inputMinimumEffectLevel; // @synthesize inputMinimumEffectLevel;
+@property(copy, nonatomic) NSNumber *inputAdaptiveThresholdDoDisparityError; // @synthesize inputAdaptiveThresholdDoDisparityError;
+@property(copy, nonatomic) NSNumber *inputAdaptiveThresholdLinearDepthOffset; // @synthesize inputAdaptiveThresholdLinearDepthOffset;
+@property(copy, nonatomic) NSNumber *inputAdaptiveThresholdConstOffset; // @synthesize inputAdaptiveThresholdConstOffset;
+@property(copy, nonatomic) NSNumber *inputAdaptiveThresholdZRangeLinearDepth; // @synthesize inputAdaptiveThresholdZRangeLinearDepth;
+@property(copy, nonatomic) NSNumber *inputAdaptiveThresholdZRangeConst; // @synthesize inputAdaptiveThresholdZRangeConst;
+@property(copy, nonatomic) NSNumber *inputAdaptiveThresholdFaceErrorMargin; // @synthesize inputAdaptiveThresholdFaceErrorMargin;
+@property(copy, nonatomic) NSNumber *inputAdaptiveThresholdFaceGroupRange; // @synthesize inputAdaptiveThresholdFaceGroupRange;
+@property(copy, nonatomic) NSNumber *inputFocalLengthNormalized; // @synthesize inputFocalLengthNormalized;
 @property(copy, nonatomic) NSNumber *inputSigmaFallout; // @synthesize inputSigmaFallout;
 @property(copy, nonatomic) NSNumber *inputAdaptiveThresholdRange; // @synthesize inputAdaptiveThresholdRange;
 @property(copy, nonatomic) NSNumber *inputFeatherBandRange; // @synthesize inputFeatherBandRange;
@@ -51,6 +72,9 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSNumber *inputSigmaRLuma; // @synthesize inputSigmaRLuma;
 @property(copy, nonatomic) NSNumber *inputSigmaS; // @synthesize inputSigmaS;
 @property(copy, nonatomic) NSNumber *inputMaxNumVertices; // @synthesize inputMaxNumVertices;
+@property(retain, nonatomic) NSNumber *inputGrainAmount; // @synthesize inputGrainAmount;
+@property(retain, nonatomic) NSNumber *inputSharpenRadius; // @synthesize inputSharpenRadius;
+@property(retain, nonatomic) NSNumber *inputUseAbsoluteDisparity; // @synthesize inputUseAbsoluteDisparity;
 @property(retain, nonatomic) CIImage *inputFullSizeImage; // @synthesize inputFullSizeImage;
 @property(retain, nonatomic) CIImage *inputDisparity; // @synthesize inputDisparity;
 @property(retain, nonatomic) CIImage *inputDepthMap; // @synthesize inputDepthMap;
@@ -61,6 +85,7 @@ __attribute__((visibility("hidden")))
 - (id)_offsetImage:(id)arg1 inputDisparity:(id)arg2 thresholdImage:(id)arg3;
 - (id)_getFocusRect:(id)arg1;
 - (id)invertRed;
+- (id)adaptiveNormalizationAbsolute;
 - (id)adaptiveNormalizationGPU;
 - (id)adaptiveNormalization2;
 - (id)_applyVignette;
@@ -70,6 +95,7 @@ __attribute__((visibility("hidden")))
 - (id)_CIApplyBlackDepth;
 - (id)_CIPrepareBlackDepth;
 - (id)_CIPrepareBlackDisparity;
+- (void)setDefaultsAbsoluteDisparity;
 - (void)setDefaults;
 - (id)backgroundPreviewCubeName;
 - (id)standbyCubeName;

@@ -113,6 +113,8 @@
 - (unsigned long long)issuerProvisioningCertificatesForRequest:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (unsigned long long)unregisterDeviceWithCompanionSerialNumber:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (unsigned long long)unregisterDeviceWithCompletion:(CDUnknownBlockType)arg1;
+- (unsigned long long)updateRegistrationDataWithCompletion:(CDUnknownBlockType)arg1;
+- (unsigned long long)_updateContextWithRegistrationResponse:(id)arg1;
 - (unsigned long long)registerDeviceAtBrokerURL:(id)arg1 withConsistencyData:(id)arg2 retries:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (unsigned long long)registerDeviceWithConsistencyData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (unsigned long long)registerDeviceWithCompletion:(CDUnknownBlockType)arg1;
@@ -127,6 +129,8 @@
 - (void)invalidateBackgroundSession;
 - (void)startBackgroundURLSessionWithIdentifier:(id)arg1 context:(id)arg2 backgroundDelegate:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)startBackgroundURLSessionWithIdentifier:(id)arg1 context:(id)arg2 backgroundDelegate:(id)arg3;
+- (void)_recentConfiguration:(CDUnknownBlockType)arg1;
+- (void)_canRegisterForPeerPaymentWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)_canRegisterForPeerPayment;
 @property(readonly) NSURL *primaryBrokerURL;
 @property(readonly) _Bool needsConfiguration;

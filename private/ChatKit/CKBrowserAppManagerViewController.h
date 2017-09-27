@@ -37,6 +37,7 @@
 - (void)appManagerViewControllerDidFinish:(id)arg1;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(_Bool)arg1;
+- (long long)preferredStatusBarStyle;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

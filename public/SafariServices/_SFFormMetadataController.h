@@ -48,6 +48,7 @@
 - (void)clearScriptWorld;
 - (void)collectMetadataForTextField:(id)arg1 inFrame:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)collectFormMetadataForPreFilling;
+- (_Bool)_formContainsAutoFilledElements:(id)arg1;
 - (void)collectURLsForPreFilling;
 @property(readonly, nonatomic) WKWebProcessPlugInScriptWorld *scriptWorld;
 - (void)invalidate;

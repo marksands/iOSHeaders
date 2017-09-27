@@ -37,12 +37,14 @@ __attribute__((visibility("hidden")))
     PUPhotosGridViewControllerSpec *_gridSpec;
     PUPhotosPickerViewControllerSpec *_photosPickerSpec;
     long long _promptStyle;
+    double _collectionViewContentInset;
     double _standardSideMargins;
     struct CGSize _minimumVideoTileSize;
     struct CGSize _thumbnailSize;
 }
 
 @property(readonly, nonatomic) double standardSideMargins; // @synthesize standardSideMargins=_standardSideMargins;
+@property(readonly, nonatomic) double collectionViewContentInset; // @synthesize collectionViewContentInset=_collectionViewContentInset;
 @property(readonly, nonatomic) _Bool shouldUseFullscreenLayout; // @synthesize shouldUseFullscreenLayout=_shouldUseFullscreenLayout;
 @property(readonly, nonatomic) long long promptStyle; // @synthesize promptStyle=_promptStyle;
 @property(readonly, nonatomic) PUPhotosPickerViewControllerSpec *photosPickerSpec; // @synthesize photosPickerSpec=_photosPickerSpec;

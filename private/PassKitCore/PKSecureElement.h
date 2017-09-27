@@ -58,6 +58,7 @@
 - (void)appletWithIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)allAppletsWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)setRegistrationInformation:(id)arg1 primaryRegionTopic:(id)arg2;
+- (_Bool)hasRegistrationInformation;
 - (void)pairingStateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)SEPPairingInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)initializeSecureElementQueuingServerConnection:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;

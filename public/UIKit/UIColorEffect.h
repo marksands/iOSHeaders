@@ -15,6 +15,7 @@
     NSDictionary *_requestedValues;
 }
 
++ (id)colorEffectLuminanceMap:(id)arg1 blendingAmount:(double)arg2;
 + (id)colorEffectMonochromeTint:(id)arg1 blendingAmount:(double)arg2 brightnessAdjustment:(double)arg3;
 + (id)colorEffectInvert;
 + (id)colorEffectContrast:(double)arg1;

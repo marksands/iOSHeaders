@@ -32,7 +32,6 @@
 - (unsigned long long)numberOfTabsInTabBar:(id)arg1;
 - (void)tabBarController:(id)arg1 didSelectViewController:(id)arg2;
 - (unsigned long long)tabBarControllerSupportedInterfaceOrientations:(id)arg1;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)init;

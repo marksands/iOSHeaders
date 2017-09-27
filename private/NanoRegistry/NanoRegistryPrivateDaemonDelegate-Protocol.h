@@ -10,6 +10,7 @@
 - (void)xpcGetLastMigrationRequestPhoneNameWithCompletion:(void (^)(NSString *))arg1;
 - (void)xpcBeginMigrationWithDeviceID:(NSUUID *)arg1 passcode:(NSString *)arg2 withBlock:(void (^)(void))arg3;
 - (void)xpcSetMigrationConsented:(_Bool)arg1 forDeviceID:(NSUUID *)arg2 withBlock:(void (^)(void))arg3;
+- (void)xpcIsKeychainEnabledWithBlock:(void (^)(_Bool))arg1;
 - (void)xpcIsWatchSetupPushActiveWithBlock:(void (^)(_Bool))arg1;
 - (void)xpcStopWatchSetupPushWithBlock:(void (^)(void))arg1;
 - (void)xpcStartWatchSetupPushWithBlock:(void (^)(void))arg1;

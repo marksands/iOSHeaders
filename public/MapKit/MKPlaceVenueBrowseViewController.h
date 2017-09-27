@@ -10,7 +10,7 @@
 #import "UICollectionViewDataSource.h"
 #import "UICollectionViewDelegate.h"
 
-@class MKMapItem, MKVenuesBrowseCollectionView, NSArray, NSLayoutConstraint, NSString, UIColor, UIFont;
+@class MKFixedToTopCollectionViewFlowLayout, MKMapItem, MKVenuesBrowseCollectionView, NSArray, NSLayoutConstraint, NSString, UIColor, UIFont;
 
 __attribute__((visibility("hidden")))
 @interface MKPlaceVenueBrowseViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, MKModuleViewControllerProtocol>
@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     id <GEOVenueComponentIdentifier> _componentIdentifier;
     NSArray *_browseItems;
     MKVenuesBrowseCollectionView *_collectionView;
+    MKFixedToTopCollectionViewFlowLayout *_collectionViewFlowLayout;
     NSLayoutConstraint *_collectionViewBottomConstraint;
     UIFont *_preferredCellTitleLabelFont;
     UIColor *_cellTitleLabelTextColor;
@@ -33,6 +34,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIFont *preferredCellTitleLabelFont; // @synthesize preferredCellTitleLabelFont=_preferredCellTitleLabelFont;
 @property(nonatomic) struct CGSize preferredCellSize; // @synthesize preferredCellSize=_preferredCellSize;
 @property(retain, nonatomic) NSLayoutConstraint *collectionViewBottomConstraint; // @synthesize collectionViewBottomConstraint=_collectionViewBottomConstraint;
+@property(retain, nonatomic) MKFixedToTopCollectionViewFlowLayout *collectionViewFlowLayout; // @synthesize collectionViewFlowLayout=_collectionViewFlowLayout;
 @property(retain, nonatomic) MKVenuesBrowseCollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(retain, nonatomic) NSArray *browseItems; // @synthesize browseItems=_browseItems;
 @property(retain, nonatomic) id <GEOVenueComponentIdentifier> componentIdentifier; // @synthesize componentIdentifier=_componentIdentifier;

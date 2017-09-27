@@ -11,6 +11,7 @@
 }
 
 + (id)sharedManager;
+- (void)_playCancelPatternFeedback;
 - (void)_playPatternFeedback:(long long)arg1 numberOfRepetitions:(long long)arg2 atInterval:(double)arg3;
 - (void)_playDiscreteFeedbackForType:(long long)arg1;
 - (void)_playFeedbackImpactBehaviorWithIntensity:(double)arg1;

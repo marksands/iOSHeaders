@@ -58,6 +58,7 @@
 - (void)adjustMagnificationAtPoint:(struct CGPoint)arg1 minifyImmediately:(_Bool)arg2;
 - (struct CGPoint)targetContentOffsetForFocusPoint:(struct CGPoint)arg1 initialLayoutMode:(unsigned long long)arg2 finalLayoutMode:(unsigned long long)arg3;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (void)_cleanupMagnificationMinifiyImmediately:(_Bool)arg1;
 - (void)touchTrackerTrackedTouches:(id)arg1;
 - (void)appsLongPressed:(id)arg1;
 - (void)resetScrollPosition;

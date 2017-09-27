@@ -8,7 +8,7 @@
 
 #import "_UIStatusBarDisplayable.h"
 
-@class CAGradientLayer, CALayer, NSString, UIColor, _UIStatusBarCycleAnimation;
+@class CAGradientLayer, CALayer, NSString, UIAccessibilityHUDItem, UIColor, _UIStatusBarCycleAnimation;
 
 @interface _UIStatusBarActivityView : UIView <_UIStatusBarDisplayable>
 {
@@ -42,6 +42,7 @@
 - (void)applyStyleAttributes:(id)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic) UIAccessibilityHUDItem *accessibilityHUDRepresentation;
 @property(readonly, nonatomic) double baselineOffset;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

@@ -18,6 +18,7 @@
 - (UIViewController *)cameraRollControllerPresentingViewController:(CAMCameraRollController *)arg1;
 
 @optional
+- (long long)cameraRollControllerPreferredPresentationOrientation:(CAMCameraRollController *)arg1;
 - (void)cameraRollControllerRevealDidEnd:(CAMCameraRollController *)arg1;
 - (void)cameraRollControllerRevealWillBegin:(CAMCameraRollController *)arg1;
 - (UIImage *)cameraRollControllerImageForReveal:(CAMCameraRollController *)arg1;

@@ -25,8 +25,10 @@
     struct RetainPtr<WKContentView> _contentView;
     _Bool _overridesMinimumLayoutSize;
     struct CGSize _minimumLayoutSizeOverride;
+    struct optional<WebCore::FloatSize> _lastSentMinimumLayoutSize;
     _Bool _overridesMaximumUnobscuredSize;
     struct CGSize _maximumUnobscuredSizeOverride;
+    struct optional<WebCore::FloatSize> _lastSentMaximumUnobscuredSize;
     struct CGRect _inputViewBounds;
     double _viewportMetaTagWidth;
     _Bool _viewportMetaTagWidthWasExplicit;
@@ -39,9 +41,11 @@
     _Bool _isChangingObscuredInsetsInteractively;
     struct UIEdgeInsets _unobscuredSafeAreaInsets;
     _Bool _haveSetUnobscuredSafeAreaInsets;
+    _Bool _avoidsUnsafeArea;
     unsigned long long _obscuredInsetEdgesAffectedBySafeArea;
     long long _interfaceOrientationOverride;
     _Bool _overridesInterfaceOrientation;
+    struct optional<int> _lastSentDeviceOrientation;
     _Bool _allowsViewportShrinkToFit;
     _Bool _hasCommittedLoadForMainFrame;
     _Bool _needsResetViewStateAfterCommitLoadForMainFrame;
@@ -84,7 +88,7 @@
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)urlSchemeHandlerForURLScheme:(id)arg1;
-- (void)_didChangeAvoidsUnsafeArea:(_Bool)arg1;
+- (void)_setAvoidsUnsafeArea:(_Bool)arg1;
 - (void)_updateScrollViewInsetAdjustmentBehavior;
 @property(readonly, nonatomic) WKPasswordView *_passwordView;
 - (void)_hidePasswordView;
@@ -117,6 +121,9 @@
 - (_Bool)_scrollViewIsRubberBanding;
 - (struct CGRect)_contentRectForUserInteraction;
 - (void)_frameOrBoundsChanged;
+- (void)_dispatchSetDeviceOrientation:(int)arg1;
+- (void)_dispatchSetMaximumUnobscuredSize:(struct FloatSize)arg1;
+- (void)_dispatchSetMinimumLayoutSize:(struct FloatSize)arg1;
 - (void)_enclosingScrollerScrollingEnded:(id)arg1;
 - (void)_didScroll;
 - (struct CGRect)_visibleContentRect;
@@ -161,8 +168,9 @@
 - (struct FloatRect)visibleRectInViewCoordinates;
 - (void)_didCommitLoadForMainFrame;
 - (void)_processDidExit;
-- (struct UIEdgeInsets)_computedUnobscuredSafeAreaInset;
+@property(readonly, nonatomic) struct UIEdgeInsets _computedUnobscuredSafeAreaInset;
 @property(readonly, nonatomic) struct UIEdgeInsets _computedContentInset;
+- (unsigned long long)_effectiveObscuredInsetEdgesAffectedBySafeArea;
 - (struct CGPoint)_adjustedContentOffset:(struct CGPoint)arg1;
 - (void)_updateScrollViewBackground;
 - (void)_didInvokeUIScrollViewDelegateCallback;
@@ -266,6 +274,7 @@
 @property(readonly, nonatomic) struct CGSize _maximumUnobscuredSizeOverride;
 - (void)_clearInterfaceOrientationOverride;
 @property(nonatomic, setter=_setInterfaceOrientationOverride:) long long _interfaceOrientationOverride;
+@property(readonly, nonatomic) _Bool _safeAreaShouldAffectObscuredInsets;
 @property(nonatomic, setter=_setUnobscuredSafeAreaInsets:) struct UIEdgeInsets _unobscuredSafeAreaInsets;
 @property(nonatomic, setter=_setObscuredInsetEdgesAffectedBySafeArea:) unsigned long long _obscuredInsetEdgesAffectedBySafeArea;
 @property(nonatomic, setter=_setObscuredInsets:) struct UIEdgeInsets _obscuredInsets;
@@ -283,7 +292,6 @@
 @property(nonatomic, setter=_setViewScale:) double _viewScale;
 @property(nonatomic, setter=_setFixedLayoutSize:) struct CGSize _fixedLayoutSize;
 @property(nonatomic, setter=_setLayoutMode:) unsigned long long _layoutMode;
-@property(readonly, nonatomic) _Bool _safeAreaShouldAffectObscuredInsets;
 @property(readonly, nonatomic, getter=_isShowingNavigationGestureSnapshot) _Bool _showingNavigationGestureSnapshot;
 @property(readonly, nonatomic, getter=_isDisplayingStandaloneMediaDocument) _Bool _displayingStandaloneMediaDocument;
 @property(readonly, nonatomic, getter=_isDisplayingStandaloneImageDocument) _Bool _displayingStandaloneImageDocument;

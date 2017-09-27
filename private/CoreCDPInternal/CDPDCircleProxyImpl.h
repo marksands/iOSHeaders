@@ -16,6 +16,7 @@
 }
 
 + (_Bool)canAuthenticate;
++ (_Bool)tryRegisteringCredentialsFromContext:(id)arg1;
 + (_Bool)registerCredentialsFromContext:(id)arg1 force:(_Bool)arg2;
 + (_Bool)registerCredentialsFromContext:(id)arg1;
 @property(retain, nonatomic) CDPContext *cdpContext; // @synthesize cdpContext=_cdpContext;

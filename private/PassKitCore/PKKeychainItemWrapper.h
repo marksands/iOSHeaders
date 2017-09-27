@@ -12,17 +12,21 @@
 {
     NSMutableDictionary *keychainItemData;
     NSMutableDictionary *genericPasswordQuery;
+    unsigned long long type;
 }
 
+@property(nonatomic) unsigned long long type; // @synthesize type;
 @property(retain, nonatomic) NSMutableDictionary *genericPasswordQuery; // @synthesize genericPasswordQuery;
 @property(retain, nonatomic) NSMutableDictionary *keychainItemData; // @synthesize keychainItemData;
 - (void).cxx_destruct;
+- (void)applySynchronizableValueToDictionary:(id)arg1;
 - (void)writeToKeychain;
 - (id)secItemFormatToDictionary:(id)arg1;
 - (id)dictionaryToSecItemFormat:(id)arg1;
 - (void)resetKeychainItem;
 - (id)objectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
+- (id)initWithIdentifier:(id)arg1 accessGroup:(id)arg2 serviceName:(id)arg3 type:(unsigned long long)arg4;
 - (id)initWithIdentifier:(id)arg1 accessGroup:(id)arg2 serviceName:(id)arg3;
 
 @end

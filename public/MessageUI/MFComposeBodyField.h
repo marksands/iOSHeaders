@@ -32,6 +32,7 @@
     _Bool _prefersFirstLineSelection;
     unsigned long long _imageCount;
     unsigned long long _attachmentSequenceNumber;
+    struct UIEdgeInsets _previousLayoutMargins;
     NSArray *_attachmentURLsToReplaceWithFilenames;
     UIBarButtonItemGroup *_inputAssistantItemGroup;
     _Bool _createAttachmentsForUnknownDataTypes;
@@ -171,7 +172,7 @@
 - (void)setAttachmentURLsToBeReplacedWithFilename:(id)arg1;
 - (void)deferredBecomeFirstResponder;
 - (void)_applyLayoutMarginsToBodyStyle;
-- (void)setLayoutMargins:(struct UIEdgeInsets)arg1;
+- (void)layoutMarginsDidChange;
 - (void)unscaleImages;
 - (void)scaleImagesToScale:(unsigned long long)arg1;
 - (void)removeDropPlaceholders;

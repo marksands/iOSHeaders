@@ -29,9 +29,7 @@
 - (void)_resetColorBoxes;
 - (struct CGSize)_imageSize;
 - (float)_zoomScale;
-- (id)_mappedImageKeyForParameters:(CDStruct_83077358)arg1 includingTint:(_Bool)arg2;
 - (void)_setImage:(id)arg1;
-- (id)_variantCacheIdentifier;
 - (void)_setUpStaticImageContentView:(id)arg1;
 - (void)_setupContentView;
 - (void)setContentView:(id)arg1;
@@ -43,9 +41,7 @@
 - (_Bool)contrastRequiresTreatments;
 - (void)setContentsRect:(struct CGRect)arg1;
 - (_Bool)hasContentOutsideVisibleBounds;
-- (id)_fallbackImageWithOriginalSize:(struct CGSize)arg1;
-- (_Bool)_needsFallbackImageForImage:(id)arg1;
-- (id)_imageForBackdropParameters:(CDStruct_83077358)arg1 includeTint:(_Bool)arg2;
+- (id)cacheGroup;
 - (id)snapshotImage;
 - (id)_computeAverageColor;
 - (id)wallpaperImage;

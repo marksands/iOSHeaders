@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSDictionary, NSString, NSURL, PKCurrencyAmount;
+@class NSArray, NSDecimalNumber, NSDictionary, NSString, NSURL, PKCurrencyAmount;
 
 @interface PKPeerPaymentAccount : NSObject <NSSecureCoding>
 {
@@ -18,6 +18,7 @@
     unsigned long long _stage;
     NSString *_countryCode;
     PKCurrencyAmount *_currentBalance;
+    NSDecimalNumber *_maximumBalance;
     NSString *_termsIdentifier;
     NSURL *_termsURL;
     NSURL *_associatedPassURL;
@@ -35,6 +36,7 @@
 @property(copy, nonatomic) NSURL *associatedPassURL; // @synthesize associatedPassURL=_associatedPassURL;
 @property(copy, nonatomic) NSURL *termsURL; // @synthesize termsURL=_termsURL;
 @property(copy, nonatomic) NSString *termsIdentifier; // @synthesize termsIdentifier=_termsIdentifier;
+@property(copy, nonatomic) NSDecimalNumber *maximumBalance; // @synthesize maximumBalance=_maximumBalance;
 @property(copy, nonatomic) PKCurrencyAmount *currentBalance; // @synthesize currentBalance=_currentBalance;
 @property(copy, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 @property(nonatomic) unsigned long long stage; // @synthesize stage=_stage;

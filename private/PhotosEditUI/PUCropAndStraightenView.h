@@ -99,6 +99,7 @@
 @property(readonly, nonatomic) struct CGRect imageCropRect;
 - (struct CGRect)_fullCropRect;
 - (void)mediaViewDidFinishRendering:(id)arg1;
+- (id)resizableSnapshotViewFromRect:(struct CGRect)arg1 afterScreenUpdates:(_Bool)arg2 withCapInsets:(struct UIEdgeInsets)arg3;
 - (void)didMoveToWindow;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -69,6 +69,7 @@ __attribute__((visibility("hidden")))
 - (void)viewModel:(id)arg1 didChange:(id)arg2;
 - (void)_removeSlideshowSettingsViewController;
 - (void)_removeCurrentPresentationController;
+- (void)viewWillLayoutSubviews;
 - (void)_installPresentationController:(id)arg1;
 - (void)_dismissSlideshow;
 - (void)_handleStateChange;

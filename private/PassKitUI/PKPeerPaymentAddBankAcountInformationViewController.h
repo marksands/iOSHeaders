@@ -23,6 +23,7 @@
     NSString *_accountCountryCode;
     NSMutableDictionary *_userEnteredValues;
     _Bool _isEditingBankInformation;
+    _Bool _hasInteractedWithCell;
     id <PKPeerPaymentAddBankAcountInformationViewControllerDelegate> _delegate;
 }
 
@@ -48,7 +49,9 @@
 - (id)_placeholderTextForRow:(unsigned long long)arg1;
 - (id)_textForRow:(unsigned long long)arg1;
 - (id)_bankInformationTextForRow:(unsigned long long)arg1;
+- (void)_reloadTableSection;
 - (void)_setState:(unsigned long long)arg1;
+- (void)_setText:(id)arg1 forForCellAtRow:(unsigned long long)arg2;
 - (id)_userEnteredTextForCellAtRow:(unsigned long long)arg1;
 - (_Bool)_isCellValidAtRow:(unsigned long long)arg1;
 - (_Bool)_isRoutingNumberCellValid;

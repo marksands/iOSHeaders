@@ -22,7 +22,7 @@
 }
 
 + (id)_sharedMotionManager;
-@property(nonatomic) id <PK3DLiveCardViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <PK3DLiveCardViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)renderer:(id)arg1 didRenderScene:(id)arg2 atTime:(double)arg3;
 - (void)startMotionUpdates;

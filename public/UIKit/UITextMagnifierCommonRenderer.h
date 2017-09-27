@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     CALayer *m_mask;
     CALayer *m_content;
     CALayer *m_front;
+    _Bool _isRegisteredForGeometryChanges;
 }
 
 - (void).cxx_destruct;

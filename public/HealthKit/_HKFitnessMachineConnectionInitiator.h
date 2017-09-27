@@ -30,9 +30,8 @@
 - (void)clientRemote_updatedFitnessMachine:(id)arg1 fitnessMachineSessionUUID:(id)arg2;
 - (void)clientRemote_updatedConnectionState:(unsigned long long)arg1 fitnessMachineSessionUUID:(id)arg2;
 - (void)peformServerOperation:(CDUnknownBlockType)arg1;
-- (void)setActivityType:(unsigned long long)arg1;
 - (void)forbidConnectionForFitnessMachineSessionUUID:(id)arg1;
-- (void)permitConnectionForFitnessMachineSessionUUID:(id)arg1;
+- (void)permitConnectionForFitnessMachineSessionUUID:(id)arg1 activityType:(unsigned long long)arg2;
 - (void)registerClient;
 - (void)_connectionInterruptedWithError:(id)arg1;
 - (id)_initWithHealthStore:(id)arg1;

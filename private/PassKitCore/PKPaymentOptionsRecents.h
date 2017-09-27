@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class CNContact, CRRecentContactsLibrary;
+@class CNContact, CRRecentContactsLibrary, PKPaymentOptionsSynchronization;
 
 @interface PKPaymentOptionsRecents : NSObject
 {
     CNContact *_cachedMeContact;
     id <NSObject> _meContactDidChangeNotificationObserver;
+    PKPaymentOptionsSynchronization *_optionsSynchronization;
     _Bool _meCardCachingEnabled;
     CRRecentContactsLibrary *_recentContactsLibrary;
 }
@@ -21,6 +22,14 @@
 @property(retain, nonatomic) CRRecentContactsLibrary *recentContactsLibrary; // @synthesize recentContactsLibrary=_recentContactsLibrary;
 @property(nonatomic, getter=isMeCardCachingEnabled) _Bool meCardCachingEnabled; // @synthesize meCardCachingEnabled=_meCardCachingEnabled;
 - (void).cxx_destruct;
+- (id)_contactsFromKeychainForPreference:(id)arg1;
+- (void)_deleteRecentContactsFromKeychainForContactKey:(id)arg1;
+- (void)_deleteRecentContactsFromKeychainForPreference:(id)arg1;
+- (void)_deleteRecentContactFromKeychain:(id)arg1 forPreference:(id)arg2;
+- (void)_addContactToKeychain:(id)arg1 forPreference:(id)arg2;
+- (void)_setKeychainData:(id)arg1 forKey:(id)arg2;
+- (id)_keychainDataForKey:(id)arg1;
+- (id)_keychainKeyFromContactKey:(id)arg1;
 - (id)_defaultCRSearchQuery;
 - (void)_coreRecentsContactsForPreference:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_labelsToPropertiesDictionaryForContact:(id)arg1;

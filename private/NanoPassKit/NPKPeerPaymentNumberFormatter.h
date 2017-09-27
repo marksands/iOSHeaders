@@ -17,6 +17,7 @@
 
 @property(copy, nonatomic) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;
 - (void).cxx_destruct;
+- (id)currencySymbol;
 - (id)stringFromNumber:(id)arg1;
 - (id)initWithCurrencyCode:(id)arg1;
 - (id)init;

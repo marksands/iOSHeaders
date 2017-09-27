@@ -36,6 +36,7 @@
 - (void)viewDidLoad;
 - (void)enqueueStatusUpdate:(id)arg1 forIdentifier:(id)arg2;
 @property(nonatomic) unsigned long long verticalAlignment; // @dynamic verticalAlignment;
+@property(nonatomic) struct UIEdgeInsets edgeInsets; // @dynamic edgeInsets;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

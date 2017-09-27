@@ -13,11 +13,13 @@ __attribute__((visibility("hidden")))
 {
     UIView *_backgroundImage;
     NSDictionary *_preservedLayerValues;
+    _Bool _masksTopCornersOnly;
     double _cornerRadius;
     UIView *_contentView;
 }
 
 @property(nonatomic) __weak UIView *contentView; // @synthesize contentView=_contentView;
+@property(nonatomic) _Bool masksTopCornersOnly; // @synthesize masksTopCornersOnly=_masksTopCornersOnly;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 - (void).cxx_destruct;
 - (void)didFinishRotation;

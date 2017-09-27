@@ -29,6 +29,8 @@
 @property(retain, nonatomic) NSData *evaluatedPolicyDomainState; // @synthesize evaluatedPolicyDomainState=_evaluatedPolicyDomainState;
 @property(retain, nonatomic) NSNumber *maxBiometryFailures; // @synthesize maxBiometryFailures=_maxBiometryFailures;
 - (void).cxx_destruct;
+- (void)setOptionCallerAuditToken:(id)arg1;
+- (id)optionCallerAuditToken;
 @property(nonatomic) _Bool interactionNotAllowed;
 - (void)setOptionPasswordAuthenticationReason:(id)arg1;
 - (id)optionPasswordAuthenticationReason;

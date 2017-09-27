@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 {
     BKDevicePearl *_pearlDevice;
     BKFaceDetectOperation *_pendingPresenceOperation;
+    BKFaceDetectOperation *_finishingPresenceOperation;
     NSObject<OS_dispatch_source> *_operationStalledTimer;
     _Bool _operationStalledTimerResumed;
     unsigned long long _operationCreateTime;
@@ -28,18 +29,20 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)unitTestSampler;
 - (void)device:(id)arg1 pearlStateChanged:(long long)arg2;
-- (void)operation:(id)arg1 faceDetectStateChanged:(id)arg2;
 - (void)operation:(id)arg1 presenceStateChanged:(_Bool)arg2;
 - (void)operation:(id)arg1 stateChanged:(long long)arg2;
 - (void)device:(id)arg1 pearlEventOccurred:(long long)arg2;
 - (void)operation:(id)arg1 finishedWithReason:(long long)arg2;
+- (void)operation:(id)arg1 faceDetectStateChanged:(id)arg2;
 - (void)updateSamplingDeadline:(unsigned long long)arg1 forClient:(id)arg2;
 - (int)currentState;
 - (void)setDisplayState:(_Bool)arg1;
 - (void)setDisplayStateFromNotification;
 - (void)updateFaceState:(_Bool)arg1;
+- (void)cancelStalledTimer;
 - (void)shouldSample:(_Bool)arg1 withDeadline:(unsigned long long)arg2;
-- (void)cancelFaceDetect;
+- (void)cancelFaceDetect:(id)arg1;
+- (void)finishingFaceDetect:(id)arg1;
 - (void)faceDetectStalled;
 - (void)triggerFaceDetectWithDeadline:(unsigned long long)arg1;
 - (id)init;

@@ -30,6 +30,8 @@
 - (_Bool)_shouldDisableInteractionDuringTransitions;
 - (_Bool)_shouldMakePresentedViewControllerFirstResponder;
 - (void)longLookAnimatorDidFinishFirstResponderChanges:(id)arg1;
+@property(nonatomic) double additionalHomeAffordanceSpacing;
+@property(nonatomic, getter=isHomeAffordanceVisible) _Bool homeAffordanceVisible;
 - (void)completeDismissal;
 - (void)hintDismissalWithCommitProgress:(double)arg1 overallProgress:(double)arg2;
 - (id)initWithPresentedViewController:(id)arg1 presentingViewController:(id)arg2 sourceViewController:(id)arg3 sourceView:(id)arg4;

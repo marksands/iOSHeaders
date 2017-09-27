@@ -13,24 +13,27 @@
     _WLKUIAppInstallView *_iconView;
     UILabel *_nameLabel;
     UILabel *_iAPLabel;
-    UILabel *_downloadSizeLabel;
+    UILabel *_subtitleLabel;
     UIStackView *_nameAndRatingStack;
     UIStackView *_containerStack;
-    UIStackView *_labelStack;
     _Bool _canFocus;
     UIImage *_icon;
     NSString *_name;
     NSString *_ageRating;
     NSString *_iAP;
-    NSString *_downloadSize;
+    NSString *_subtitle;
     _WLKUIAppInstallView *_installView;
+    UIStackView *_metadataStackView;
     _WLKUITextBadge *_ageRatingBadge;
+    UILabel *_ageRatingLabel;
 }
 
+@property(retain, nonatomic) UILabel *ageRatingLabel; // @synthesize ageRatingLabel=_ageRatingLabel;
 @property(retain, nonatomic) _WLKUITextBadge *ageRatingBadge; // @synthesize ageRatingBadge=_ageRatingBadge;
 @property(nonatomic) _Bool canFocus; // @synthesize canFocus=_canFocus;
+@property(retain, nonatomic) UIStackView *metadataStackView; // @synthesize metadataStackView=_metadataStackView;
 @property(retain, nonatomic) _WLKUIAppInstallView *installView; // @synthesize installView=_installView;
-@property(copy, nonatomic) NSString *downloadSize; // @synthesize downloadSize=_downloadSize;
+@property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(copy, nonatomic) NSString *iAP; // @synthesize iAP=_iAP;
 @property(copy, nonatomic) NSString *ageRating; // @synthesize ageRating=_ageRating;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;

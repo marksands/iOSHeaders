@@ -48,6 +48,7 @@
 @property(nonatomic) __weak id <NCNotificationListViewControllerDestinationDelegate> destinationDelegate; // @synthesize destinationDelegate=_destinationDelegate;
 @property(nonatomic) __weak id <NCNotificationListViewControllerUserInteractionDelegate> userInteractionDelegate; // @synthesize userInteractionDelegate=_userInteractionDelegate;
 - (void).cxx_destruct;
+- (void)setCustomContentHomeAffordanceVisible:(_Bool)arg1 withGestureRecognizer:(id)arg2;
 - (_Bool)_isContentSuppressedForNotificationRequest:(id)arg1;
 - (void)_hintSideSwipeForDefaultActionForNotificationRequest:(id)arg1;
 - (id)_notificationRequestForCell:(id)arg1;
@@ -76,6 +77,9 @@
 - (void)longLookWillPresentForNotificationViewController:(id)arg1;
 - (void)notificationViewControllerDidEndUserInteraction:(id)arg1;
 - (void)notificationViewControllerWillBeginUserInteraction:(id)arg1;
+- (id)settleHomeAffordanceAnimationBehaviorDescriptionForNotificationViewController:(id)arg1;
+- (id)unhideHomeAffordanceAnimationSettingsForNotificationViewController:(id)arg1;
+- (id)hideHomeAffordanceAnimationSettingsForNotificationViewController:(id)arg1;
 - (_Bool)showAdditionalMessageLinesForNotificationViewController:(id)arg1;
 - (_Bool)notificationViewControllerShouldAllowInteractionGesture:(id)arg1;
 - (id)notificationViewController:(id)arg1 staticContentProviderForNotificationRequest:(id)arg2;

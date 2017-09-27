@@ -392,6 +392,7 @@
 - (_Bool)_isStillImageCaptureFromVideoModeWithRequest:(id)arg1;
 - (void)_updatePressTypeAggregateDictionariesForRequest:(id)arg1;
 - (void)_handleCallStatusMonitorDidChangeCallActive:(id)arg1;
+- (long long)cameraRollControllerPreferredPresentationOrientation:(id)arg1;
 - (void)cameraRollControllerRevealDidEnd:(id)arg1;
 - (void)cameraRollControllerRevealWillBegin:(id)arg1;
 - (id)cameraRollControllerImageForReveal:(id)arg1;
@@ -471,14 +472,16 @@
 - (double)_zoomFactorForZoomSliderValue:(double)arg1;
 - (double)_zoomSliderValueForZoomFactor:(double)arg1;
 - (void)_changeToZoomFactor:(double)arg1 rampDuration:(double)arg2 shouldAnimate:(_Bool)arg3;
-- (void)_updateZoomControlWithZoomFactor:(double)arg1 forDevice:(long long)arg2;
-- (double)_zoomControlDisplayValueForZoomFactor:(double)arg1 device:(long long)arg2;
+- (void)_updateZoomControlWithZoomFactor:(double)arg1 forGraphConfiguration:(id)arg2;
 - (void)captureController:(id)arg1 didChangeRampingVideoZoom:(_Bool)arg2;
 - (void)captureController:(id)arg1 didOutputMinAvailableVideoZoomFactor:(double)arg2;
 - (void)_updateZoomSliderWithZoomFactor:(double)arg1 animated:(_Bool)arg2;
 - (void)captureController:(id)arg1 didOutputVideoZoomFactor:(double)arg2;
-- (double)_currentMaximumZoomFactor;
+- (double)_linearMappingForX:(double)arg1 x1:(double)arg2 y1:(double)arg3 x2:(double)arg4 y2:(double)arg5 clamp:(_Bool)arg6;
+- (double)_zoomFactorForZoomControlDisplayValue:(double)arg1 graphConfiguration:(id)arg2;
+- (double)_zoomControlDisplayValueForZoomFactor:(double)arg1 graphConfiguration:(id)arg2;
 - (double)_maximumZoomFactorForGraphConfiguration:(id)arg1;
+- (double)_currentMaximumZoomFactor;
 - (_Bool)_isZoomAllowedCurrently;
 - (_Bool)_isZoomAllowedForGraphConfiguration:(id)arg1;
 - (void)_clearThumbnailContentsIfNotNeededFromCallsite:(id)arg1;
@@ -896,6 +899,7 @@
 - (_Bool)prefersStatusBarHidden;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (unsigned long long)supportedInterfaceOrientations;
+- (unsigned long long)_supportedInterfaceOrientationsForLayoutStyle:(long long)arg1;
 - (_Bool)shouldAutorotate;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

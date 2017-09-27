@@ -25,12 +25,10 @@
     double _topBarHeight;
     double _bottomBarOffset;
     double _minimumTopBarHeight;
-    double _maximumBottomBarOffset;
     id <_SFDynamicBarAnimatorDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <_SFDynamicBarAnimatorDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) double maximumBottomBarOffset; // @synthesize maximumBottomBarOffset=_maximumBottomBarOffset;
 @property(nonatomic) double minimumTopBarHeight; // @synthesize minimumTopBarHeight=_minimumTopBarHeight;
 @property(readonly, nonatomic) double bottomBarOffset; // @synthesize bottomBarOffset=_bottomBarOffset;
 @property(readonly, nonatomic) double topBarHeight; // @synthesize topBarHeight=_topBarHeight;
@@ -38,12 +36,16 @@
 - (void).cxx_destruct;
 - (void)setBottomBarOffset:(double)arg1 forState:(long long)arg2;
 - (void)setTopBarHeight:(double)arg1 forState:(long long)arg2;
+- (void)_endDraggingWithVelocity:(double)arg1;
+- (void)endScrolling;
 - (void)endDraggingWithTargetOffset:(double)arg1 velocity:(double)arg2;
 - (void)updateDraggingWithOffset:(double)arg1;
 - (void)beginDraggingWithOffset:(double)arg1;
 - (void)_updateDisplayLink;
 - (void)_displayLinkFired:(id)arg1;
+- (double)_constrainTopBarHeight:(double)arg1 withMinimumTopBarHeight:(double)arg2;
 - (double)_constrainTopBarHeight:(double)arg1;
+- (_Bool)_canTransitionToState:(long long)arg1 withMinimumTopBarHeight:(double)arg2;
 - (_Bool)canTransitionToState:(long long)arg1;
 @property(readonly, nonatomic) long long targetState;
 - (void)_setInSteadyState:(_Bool)arg1;

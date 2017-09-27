@@ -32,15 +32,18 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic, setter=_setImagePickerMediaTypes:) NSArray *_imagePickerMediaTypes; // @synthesize _imagePickerMediaTypes=__imagePickerMediaTypes;
 @property(nonatomic) __weak id <PUPhotoPicker> photoPicker; // @synthesize photoPicker=_photoPicker;
 - (void).cxx_destruct;
+- (double)topMarginForPhotosGlobalFooterView:(id)arg1;
 - (_Bool)canDragIn;
 - (_Bool)canDragOut;
 - (void)setPhotoPickerMediaTypes:(id)arg1;
 - (void)performPhotoPickerSelection;
 - (_Bool)pu_wantsNavigationBarVisible;
+- (_Bool)wantsGlobalFooter;
 @property(readonly, nonatomic) _Bool referenceValuesDidChange;
 - (void)_scrollToBottomIfNeeded;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;

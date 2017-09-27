@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) _Bool shouldUseKeyboardBackground; // @synthesize shouldUseKeyboardBackground=_shouldUseKeyboardBackground;
+- (id)traitsForExtendedView;
 - (id)traitsForEdgeGradientWithSize:(struct CGSize)arg1;
 - (id)traitsForSortControlBackgroundWithSize:(struct CGSize)arg1 edges:(unsigned long long)arg2;
 - (id)traitsForEmptyExtendedPane:(struct CGSize)arg1 rowHeight:(double)arg2 idiomPad:(_Bool)arg3 clipCorners:(_Bool)arg4;

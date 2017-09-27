@@ -6,23 +6,26 @@
 
 #import "UIView.h"
 
-@class NSLayoutConstraint, PKPaymentAuthorizationLayout, UILabel;
+@class NSLayoutConstraint, PKPaymentAuthorizationLayout, UIActivityIndicatorView, UILabel;
 
 @interface PKPaymentAuthorizationTotalView : UIView
 {
     UILabel *_labelView;
     UILabel *_valueView;
+    UIActivityIndicatorView *_processingIndicator;
     UIView *_separatorView;
     NSLayoutConstraint *_leftMarginConstraint;
     NSLayoutConstraint *_rightMarginConstraint;
     NSLayoutConstraint *_labelBaselineConstraint;
     _Bool _isPendingTotal;
+    _Bool _processing;
     PKPaymentAuthorizationLayout *_layout;
     long long _style;
     long long _labelNumberOfLines;
 }
 
 @property(nonatomic) long long labelNumberOfLines; // @synthesize labelNumberOfLines=_labelNumberOfLines;
+@property(nonatomic, getter=isProcessing) _Bool processing; // @synthesize processing=_processing;
 @property(nonatomic) _Bool isPendingTotal; // @synthesize isPendingTotal=_isPendingTotal;
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic) PKPaymentAuthorizationLayout *layout; // @synthesize layout=_layout;

@@ -21,6 +21,8 @@
 @property(nonatomic, getter=isAcountModificationAllowed) _Bool accountModificationAllowed; // @synthesize accountModificationAllowed=_accountModificationAllowed;
 - (void).cxx_destruct;
 - (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
+- (_Bool)canInstallAppWithRating:(long long)arg1;
+- (_Bool)_canInstallAppsAtAll;
 - (void)_updateAccountModificationAllowed;
 - (void)dealloc;
 - (id)init;

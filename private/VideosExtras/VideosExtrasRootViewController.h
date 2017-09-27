@@ -92,6 +92,7 @@
 - (void)popToFeatureOrMain;
 - (void)start;
 - (void)_stopOldContextIfNeeded;
+- (id)childViewControllerForHomeIndicatorAutoHidden;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;
 - (void)_setUpForApplication;

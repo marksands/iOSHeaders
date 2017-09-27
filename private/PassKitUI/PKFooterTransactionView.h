@@ -40,7 +40,8 @@
 - (void)setPass:(id)arg1 animated:(_Bool)arg2;
 - (id)_image;
 - (id)_peerPaymentCounterpart;
-- (id)_amountText;
+- (_Bool)_deemphasizeAmount;
+- (_Bool)_strikethroughAmount;
 - (id)_relativeDateText;
 - (id)_statusText;
 - (id)_locationText;

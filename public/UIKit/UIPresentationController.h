@@ -173,6 +173,7 @@
 - (void)completeCurrentTransitionImmediately;
 - (void)runTransitionForCurrentState;
 - (struct UIEdgeInsets)_baseContentInsetsWithLeftMargin:(double *)arg1 rightMargin:(double *)arg2;
+- (id)_rootPresentingViewControllerForNestedPresentation;
 - (id)_initialPresentationViewControllerForViewController:(id)arg1;
 - (id)_fullscreenPresentationSuperview;
 - (id)_currentContextPresentationSuperview;

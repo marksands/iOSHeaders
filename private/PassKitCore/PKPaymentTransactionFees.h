@@ -30,6 +30,7 @@
 - (void)encodeWithCloudStoreCoder:(id)arg1;
 - (id)initWithCloudStoreCoder:(id)arg1;
 - (id)jsonString;
+- (id)jsonArrayRepresentation;
 - (id)initWithJsonString:(id)arg1;
 - (id)initWithFeeItems:(id)arg1;
 

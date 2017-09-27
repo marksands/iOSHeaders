@@ -75,6 +75,7 @@
 - (void)_setAuthenticated:(_Bool)arg1;
 - (void)refreshMatchMode;
 - (id)acquireFingerDetectionWantedAssertionForReason:(id)arg1;
+- (void)restartMatchingIfNeededForAssertion:(id)arg1;
 - (id)acquireMatchingAssertionWithMode:(unsigned long long)arg1 reason:(id)arg2;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;

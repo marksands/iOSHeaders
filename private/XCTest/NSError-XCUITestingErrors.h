@@ -9,5 +9,6 @@
 @interface NSError (XCUITestingErrors)
 + (id)_xcui_error:(long long)arg1 description:(id)arg2 userInfo:(id)arg3;
 + (id)_xcui_error:(long long)arg1 description:(id)arg2;
+- (_Bool)xcui_isUITestingError:(long long)arg1;
 @end
 

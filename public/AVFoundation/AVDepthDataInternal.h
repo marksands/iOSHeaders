@@ -18,6 +18,8 @@
     AVCameraCalibrationData *calibrationData;
     float depthBlurEffectSimulatedAperture;
     NSData *depthBlurEffectRenderingParameters;
+    _Bool portraitScoreIsHigh;
+    float portraitScore;
 }
 
 @end

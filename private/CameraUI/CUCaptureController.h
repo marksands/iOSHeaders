@@ -118,6 +118,12 @@
 @property(readonly, nonatomic, getter=isPreviewDisabled) _Bool previewDisabled; // @synthesize previewDisabled=_previewDisabled;
 - (void).cxx_destruct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)_handleSystemPressureStateChanged;
+- (void)_systemPressureStateMonitoringChangedForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3;
+- (void)_teardownSystemPressureStateMonitoring;
+- (void)_setupSystemPressureStateMonitoring;
+- (_Bool)_shouldMonitorSystemPressureState;
+- (id)_systemPressureStateMonitoringKeyPaths;
 - (void)_shallowDepthOfFieldMonitoringChangedForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3;
 - (void)_teardownShallowDepthOfFieldMonitoring;
 - (void)_setupShallowDepthOfFieldMonitoring;

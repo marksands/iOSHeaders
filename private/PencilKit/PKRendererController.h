@@ -11,7 +11,9 @@
 @interface PKRendererController : NSObject
 {
     NSObject<OS_dispatch_queue> *_renderQueue;
-    NSObject<OS_dispatch_semaphore> *_completeRenderSemaphore;
+    NSObject<OS_dispatch_semaphore> *_canBeginRenderSemaphore;
+    // Error parsing type: {atomic_flag="_Value"AB}, name: _readyToBeginRender
+    // Error parsing type: Ad, name: _lastFrameDuration
     // Error parsing type: Ai, name: _cancelAllRendering
     // Error parsing type: Ai, name: _cancelLongRunningRenderingCount
     // Error parsing type: Ai, name: _queuedRenders
@@ -64,7 +66,7 @@
 @property(nonatomic) _Bool solidColorBackboard;
 - (void)_renderDrawPoints;
 - (void)callBlockAfterPresenting:(CDUnknownBlockType)arg1;
-- (void)finishRendering:(CDUnknownBlockType)arg1;
+- (void)didFinishRendering:(CDUnknownBlockType)arg1;
 - (_Bool)prerenderWithTransform:(struct CGAffineTransform)arg1 inputScale:(double)arg2 at:(double)arg3;
 - (void)flushMemoryIfPossible;
 - (void)clear;
@@ -73,7 +75,7 @@
 - (void)_renderAndPresent:(_Bool)arg1 withTransform:(struct CGAffineTransform)arg2;
 - (void)_discard;
 - (void)_createFramebuffer;
-- (void)_present;
+- (void)_present:(double)arg1;
 - (void)setPresentationLayer:(id)arg1;
 - (struct CGImage *)newCGImageWithClipRect:(struct CGRect)arg1;
 - (struct CGImage *)newCGImage;

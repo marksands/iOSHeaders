@@ -21,6 +21,7 @@
 - (void)addDefaultTranslationSpringWithVelocity:(double)arg1 startTime:(double)arg2;
 - (_Bool)pkui_setBounds:(struct CGRect)arg1 position:(struct CGPoint)arg2 animated:(_Bool)arg3;
 - (_Bool)pkui_setFrame:(struct CGRect)arg1 animated:(_Bool)arg2;
+- (void)pkui_smallShakeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)pkui_shakeWithCompletion:(CDUnknownBlockType)arg1;
 @end
 

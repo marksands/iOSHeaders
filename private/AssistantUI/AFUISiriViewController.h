@@ -35,6 +35,7 @@
     SiriUIKeyboardView *_inputAccessoryView;
     CDStruct_a82615c4 _keyboardInfo;
     _Bool _unlockScreenVisible;
+    _Bool _remoteViewControllerIsPresenting;
     _Bool _visible;
     _Bool _eyesFree;
     _Bool _isStark;
@@ -82,7 +83,6 @@
 @property(nonatomic) __weak id <AFUISiriViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <AFUISiriViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
-- (_Bool)shouldTurnOnScreenOnAppearance;
 - (void)siriSessionDidUpdateSessionInfo:(id)arg1;
 - (void)siriSessionDidEnd:(id)arg1;
 - (void)siriSessionWillEnd:(id)arg1;
@@ -211,7 +211,9 @@
 - (void)siriRemoteViewController:(id)arg1 setHelpButtonEmphasized:(_Bool)arg2;
 - (void)siriRemoteViewController:(id)arg1 setStatusBarHidden:(_Bool)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)siriRemoteViewController:(id)arg1 setStatusBarHidden:(_Bool)arg2 animated:(_Bool)arg3;
+- (void)siriRemoteViewController:(id)arg1 didDismissViewControllerWithStatusBarStyle:(long long)arg2;
 - (void)siriRemoteViewController:(id)arg1 willDismissViewControllerWithStatusBarStyle:(long long)arg2;
+- (void)siriRemoteViewController:(id)arg1 didPresentViewControllerWithStatusBarStyle:(long long)arg2;
 - (void)siriRemoteViewController:(id)arg1 willPresentViewControllerWithStatusBarStyle:(long long)arg2;
 - (void)siriRemoteViewController:(id)arg1 setStatusViewUserInteractionEnabled:(_Bool)arg2;
 - (void)siriRemoteViewController:(id)arg1 setStatusViewDisabled:(_Bool)arg2;
@@ -241,7 +243,9 @@
 - (void)_presentRemoteViewController;
 - (void)presentRemoteViewControllerIfNecessary;
 - (void)_setVoiceTriggerEnabled:(_Bool)arg1;
+- (id)childViewControllerForHomeIndicatorAutoHidden;
 - (_Bool)isInitialBringUp;
+- (void)viewSafeAreaInsetsDidChange;
 - (void)didMoveToParentViewController:(id)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;

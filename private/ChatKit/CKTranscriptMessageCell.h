@@ -22,6 +22,7 @@
 @property(readonly, nonatomic) _Bool failureButtonAdjustsContentAlignmentRect;
 @property(nonatomic) _Bool failed;
 - (void)layoutSubviewsForContents;
+- (struct UIEdgeInsets)safeAreaInsets;
 - (id)description;
 
 @end

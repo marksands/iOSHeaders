@@ -6,13 +6,15 @@
 
 #import <PassKitUI/PKExplanationViewController.h>
 
+#import "AAUIDeviceToDeviceEncryptionHelperDelegate.h"
+#import "PKExplanationViewControllerDelegate.h"
 #import "PKExplanationViewDelegate.h"
 #import "PKPaymentSelectPassesViewControllerDelegate.h"
 #import "RemoteUIControllerDelegate.h"
 
 @class NSString, PKPaymentProvisioningController, PKPeerPaymentCredential, PKPeerPaymentWebService, RemoteUIController, UIImage;
 
-@interface PKPeerPaymentExplanationViewController : PKExplanationViewController <RemoteUIControllerDelegate, PKExplanationViewDelegate, PKPaymentSelectPassesViewControllerDelegate>
+@interface PKPeerPaymentExplanationViewController : PKExplanationViewController <RemoteUIControllerDelegate, PKExplanationViewDelegate, PKPaymentSelectPassesViewControllerDelegate, AAUIDeviceToDeviceEncryptionHelperDelegate, PKExplanationViewControllerDelegate>
 {
     PKPaymentProvisioningController *_provisioningController;
     PKPeerPaymentCredential *_credential;
@@ -27,8 +29,13 @@
 - (struct CGSize)_snapshotSize;
 - (_Bool)_isBuddyiPad;
 - (void)_presentNextViewController;
+- (void)_presentAlertControllerForError:(id)arg1;
 - (void)_displayTermsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_presentAmbiguousSenderAddresViewController;
+- (void)_presentDeviceToDeviceEncryptionFlow;
 - (void)_continuePressed;
+- (void)deviceToDeviceEncryptionHelper:(id)arg1 shouldContinueUpgradingUserToHSA2WithCompletion:(CDUnknownBlockType)arg2;
+- (void)explanationViewControllerDidSelectCancel:(id)arg1;
 - (void)selectPassesViewController:(id)arg1 didSelectPasses:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)remoteUIController:(id)arg1 didReceiveObjectModel:(id)arg2 actionSignal:(unsigned long long *)arg3;
 - (void)explanationViewDidSelectContinue:(id)arg1;

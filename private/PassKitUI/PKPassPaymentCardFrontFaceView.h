@@ -17,6 +17,7 @@
 - (void)_handleAccountChanged:(id)arg1;
 - (void)_updateBalanceWithAccount:(id)arg1;
 - (void)layoutSubviews;
+- (void)setShowsLiveBalance:(_Bool)arg1;
 - (void)createHeaderContentViews;
 - (_Bool)showsShare;
 - (id)tallFaceTemplate;

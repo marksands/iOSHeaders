@@ -95,6 +95,7 @@
 - (void)updateSagaLibraryWithReason:(long long)arg1 completion:(void (^)(NSError *))arg2;
 - (void)updateJaliscoAppsLibraryWithReason:(long long)arg1 completion:(void (^)(NSError *))arg2;
 - (void)updateJaliscoLibraryWithReason:(long long)arg1 completion:(void (^)(NSError *))arg2;
+- (void)isSagaAuthenticatedWithCompletion:(void (^)(NSError *, _Bool))arg1;
 - (void)setConnectionConfiguration:(HSConnectionConfiguration *)arg1 daemonConfiguration:(unsigned long long)arg2 preferredVideoQuality:(unsigned long long)arg3 completion:(void (^)(NSError *))arg4;
 @end
 

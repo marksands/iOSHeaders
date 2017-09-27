@@ -30,6 +30,8 @@
         _Bool respondsToPreviewScrubberDidBecomeAvailable;
         _Bool respondsToShouldAutoPlay;
         _Bool respondsToPreventRevealInMomentAction;
+        _Bool respondsToPreferredPresentationOrientation;
+        _Bool respondsToEnableFreezeLayoutOnOrientationChange;
     } _delegateFlags;
     struct {
         _Bool respondsToCurrentImageForAssetReference;
@@ -159,7 +161,9 @@
 - (_Bool)canDismissOneUpViewController;
 - (void)presentOneUpViewControllerFromAssetAtIndexPath:(id)arg1 animated:(_Bool)arg2 interactiveMode:(long long)arg3;
 - (void)presentOneUpViewControllerAnimated:(_Bool)arg1 interactiveMode:(long long)arg2;
+- (struct CGAffineTransform)_tilingViewTransitionTransform;
 - (_Bool)canPresentOneUpViewControllerAnimated:(_Bool)arg1;
+- (void)_configureNavigationController:(id)arg1;
 - (void)_presentOneUpViewController:(id)arg1 animated:(_Bool)arg2 interactiveMode:(long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_updatePresentationInfoIfNeeded;
 - (void)_invalidatePresentationInfo;

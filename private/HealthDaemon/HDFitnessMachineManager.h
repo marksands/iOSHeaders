@@ -41,7 +41,7 @@
 - (void)pairingManagerUpdatedDataTransferRequirements:(id)arg1;
 - (void)pairingManager:(id)arg1 updatedConnectionStateFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3;
 - (void)pairingManagerUpdatedMachineInformation:(id)arg1;
-- (id)pairingManagerRequestsOOBData:(id)arg1;
+- (id)pairingManagerRequestsOOBData:(id)arg1 error:(id *)arg2;
 - (void)pairingManager:(id)arg1 didChangeNFCEnabledState:(_Bool)arg2;
 - (void)pairingManager:(id)arg1 failedPairingWithError:(id)arg2;
 - (void)pairingManagerWillBeginPairing:(id)arg1 fitnessMachineToken:(id)arg2;
@@ -68,6 +68,7 @@
 - (void)_queue_setConnectionState:(unsigned long long)arg1 error:(id)arg2;
 - (void)_queue_setMachineState:(unsigned long long)arg1 date:(id)arg2;
 - (void)_queue_setDeviceInformation:(id)arg1;
+- (void)_queue_tearDownAfterStopEvent;
 - (void)_queue_resetConnectionForcing:(_Bool)arg1;
 - (void)_queue_flushCharacteristicDataBuffer;
 - (void)_queue_handleDataTransferRequirementsUpdated;

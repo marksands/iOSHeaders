@@ -133,7 +133,6 @@
 - (void)_executeActionPerformer:(id)arg1;
 - (void)_performAssetExplorerReviewScreenActionType:(unsigned long long)arg1;
 - (void)_performAllPhotosAction;
-- (void)_performGroupActivityWithAssetsByAssetCollection:(id)arg1;
 - (void)_performDuplicateActivityWithAssetsByAssetCollection:(id)arg1;
 - (void)_performHideActivityWithAssetsByAssetCollection:(id)arg1;
 - (void)_performAirPlayAction;

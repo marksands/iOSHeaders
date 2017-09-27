@@ -641,6 +641,8 @@ struct _CAEAGLNativeWindow {
     id _field19;
     struct Atomic _field20;
     unsigned long long _field21;
+    struct Mutex _field22;
+    CDUnknownBlockType _field23;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;

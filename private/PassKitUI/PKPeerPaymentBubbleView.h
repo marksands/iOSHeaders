@@ -6,19 +6,21 @@
 
 #import "UIView.h"
 
-@class CAShapeLayer, NSDecimalNumber, NSNumberFormatter, NSString, PKContinuousButton, PKPeerPayment3DTextView, UIActivityIndicatorView, UIImageView, UILabel;
+#import "CKTranscriptPluginView.h"
 
-@interface PKPeerPaymentBubbleView : UIView
+@class CAShapeLayer, NSDecimalNumber, NSString, NSTimer, PKContinuousButton, PKPeerPayment3DTextView, UIActivityIndicatorView, UIImageView, UILabel;
+
+@interface PKPeerPaymentBubbleView : UIView <CKTranscriptPluginView>
 {
     PKPeerPayment3DTextView *_renderView;
     UILabel *_messageLabel;
     UILabel *_statusLabel;
-    PKContinuousButton *_actionButton;
     UIActivityIndicatorView *_actionSpinner;
     CAShapeLayer *_maskLayer;
     struct CGRect _lastBoundsForRoundedCornerLayout;
-    NSNumberFormatter *_currencyFormatter;
     UIImageView *_applePayLogoImageView;
+    NSTimer *_testTimer;
+    _Bool _testTransition;
     _Bool _showsActionSpinner;
     _Bool _hasRoundedCorners;
     _Bool _displaysApplePayLogo;
@@ -28,6 +30,8 @@
     NSString *_currency;
     unsigned long long _action;
     CDUnknownBlockType _actionHandler;
+    PKContinuousButton *_actionButton;
+    struct UIEdgeInsets _contentInset;
 }
 
 + (struct CGSize)referenceSizeForState:(unsigned long long)arg1 andAction:(unsigned long long)arg2;
@@ -36,17 +40,22 @@
 @property(nonatomic, getter=isLiveRenderingEnabled) _Bool liveRenderingEnabled; // @synthesize liveRenderingEnabled=_liveRenderingEnabled;
 @property(nonatomic) _Bool displaysApplePayLogo; // @synthesize displaysApplePayLogo=_displaysApplePayLogo;
 @property(nonatomic) _Bool hasRoundedCorners; // @synthesize hasRoundedCorners=_hasRoundedCorners;
+@property(readonly, nonatomic) PKContinuousButton *actionButton; // @synthesize actionButton=_actionButton;
 @property(nonatomic) _Bool showsActionSpinner; // @synthesize showsActionSpinner=_showsActionSpinner;
 @property(copy, nonatomic) CDUnknownBlockType actionHandler; // @synthesize actionHandler=_actionHandler;
 @property(nonatomic) unsigned long long action; // @synthesize action=_action;
+@property(nonatomic) _Bool testTransition; // @synthesize testTransition=_testTransition;
+@property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
 @property(copy, nonatomic) NSString *currency; // @synthesize currency=_currency;
 @property(copy, nonatomic) NSDecimalNumber *amount; // @synthesize amount=_amount;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
-- (void)updateWithPeerPaymentMessage:(id)arg1;
-- (void)updateWithPaymentTransaction:(id)arg1;
-- (void)updateWithPeerPaymentStatusResponse:(id)arg1;
-- (void)updateWithPeerPaymentStatus:(unsigned long long)arg1;
+- (void)performPostRender:(CDUnknownBlockType)arg1;
+- (id)generatedSnapshot;
+- (void)updateWithPeerPaymentMessage:(id)arg1 animated:(_Bool)arg2;
+- (void)updateWithPaymentTransaction:(id)arg1 animated:(_Bool)arg2;
+- (void)updateWithPeerPaymentStatusResponse:(id)arg1 animated:(_Bool)arg2;
+- (void)updateWithPeerPaymentStatus:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (void)_actionButtonTapped:(id)arg1;
 - (id)_actionTitle;
 - (id)_statusText;
@@ -55,7 +64,7 @@
 - (id)_messageTextColor;
 - (id)_backgroundColor;
 - (void)_updateContent;
-- (void)_updateCurrencyFormatter;
+- (void)setState:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)_commonInit;
@@ -64,6 +73,15 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithAmount:(id)arg1 currency:(id)arg2 state:(unsigned long long)arg3;
 - (id)init;
+- (id)interactiveViews;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(nonatomic) __weak id <CKTranscriptPluginViewDelegate> pluginViewDelegate;
+@property(readonly) Class superclass;
+@property(readonly, nonatomic) _Bool wantsOutline;
 
 @end
 

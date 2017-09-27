@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSDecimalNumber, NSString, PKPeerPaymentQuoteCertificatesResponse;
+@class NSDecimalNumber, NSString, PKPeerPaymentQuoteCertificatesResponse, PKPeerPaymentRequestToken;
 
 @interface PKPeerPaymentQuoteRequest : PKPeerPaymentWebServiceRequest <NSSecureCoding>
 {
@@ -18,7 +18,7 @@
     unsigned long long _externalFundingSource;
     unsigned long long _destination;
     unsigned long long _context;
-    NSString *_requestToken;
+    PKPeerPaymentRequestToken *_requestToken;
     NSString *_dpanIdentifier;
     long long _paymentNetwork;
     unsigned long long _paymentMethodType;
@@ -40,7 +40,7 @@
 @property(nonatomic) unsigned long long paymentMethodType; // @synthesize paymentMethodType=_paymentMethodType;
 @property(nonatomic) long long paymentNetwork; // @synthesize paymentNetwork=_paymentNetwork;
 @property(copy, nonatomic, setter=setDPANIdentifier:) NSString *dpanIdentifier; // @synthesize dpanIdentifier=_dpanIdentifier;
-@property(copy, nonatomic) NSString *requestToken; // @synthesize requestToken=_requestToken;
+@property(retain, nonatomic) PKPeerPaymentRequestToken *requestToken; // @synthesize requestToken=_requestToken;
 @property(nonatomic) unsigned long long context; // @synthesize context=_context;
 @property(nonatomic) unsigned long long destination; // @synthesize destination=_destination;
 @property(nonatomic) unsigned long long externalFundingSource; // @synthesize externalFundingSource=_externalFundingSource;

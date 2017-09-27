@@ -61,6 +61,7 @@
 - (id)watchPaymentWebService;
 - (void)shouldShowApplePaySettingsWithCompletion:(CDUnknownBlockType)arg1;
 - (id)peerPaymentAccountForDevice:(id)arg1;
+- (void)setPeerPaymentAccount:(id)arg1 forDevice:(id)arg2;
 - (id)sharedPeerPaymentWebServiceContextForDevice:(id)arg1;
 - (void)setSharedPeerPaymentWebServiceContext:(id)arg1 forDevice:(id)arg2;
 - (void)setSharedPaymentWebServiceContext:(id)arg1 forDevice:(id)arg2;

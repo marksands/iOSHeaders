@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 + (Class)layerClass;
 @property(readonly, nonatomic) __weak id <_UITextFieldContentViewContext> context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (void)drawTextInRect:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)_textTiledLayer:(id)arg1 maskedRectsInRect:(struct CGRect)arg2;
 - (void)setNeedsLayout;

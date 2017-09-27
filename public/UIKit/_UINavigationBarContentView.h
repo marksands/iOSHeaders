@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     _Bool _needsBackButtonUpdate;
     double _backButtonMargin;
     double _backButtonMaximumWidth;
+    _Bool _hitTestingExtensionsAreValid;
     _Bool _backButtonHidden;
     _Bool _leadingItemsSupplementBackItem;
     long long _barMetrics;
@@ -95,6 +96,7 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (double)_intrinsicHeight;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)_setupTitleView;
 - (void)_applyTitleAttributesToLabel:(id)arg1 withString:(id)arg2;
 - (id)defaultFontDescriptor;

@@ -13,13 +13,16 @@ __attribute__((visibility("hidden")))
 {
     _UIStatusBarStringView *_timeView;
     _UIStatusBarStringView *_shortTimeView;
+    _UIStatusBarStringView *_pillTimeView;
     _UIStatusBarStringView *_dateView;
 }
 
 + (id)dateDisplayIdentifier;
++ (id)pillTimeDisplayIdentifier;
 + (id)shortTimeDisplayIdentifier;
 + (id)timeDisplayIdentifier;
 @property(retain, nonatomic) _UIStatusBarStringView *dateView; // @synthesize dateView=_dateView;
+@property(retain, nonatomic) _UIStatusBarStringView *pillTimeView; // @synthesize pillTimeView=_pillTimeView;
 @property(retain, nonatomic) _UIStatusBarStringView *shortTimeView; // @synthesize shortTimeView=_shortTimeView;
 @property(retain, nonatomic) _UIStatusBarStringView *timeView; // @synthesize timeView=_timeView;
 - (void).cxx_destruct;

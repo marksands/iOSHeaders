@@ -38,9 +38,11 @@
 - (void).cxx_destruct;
 - (void)_resetStateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_waitForInitialState;
+- (void)dismissClientSOSWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateCurrentSOSInteractiveState:(long long)arg1;
 - (void)updateCurrentSOSInitiationState:(long long)arg1;
 - (void)setSendingLocationUpdate:(_Bool)arg1;
+- (void)dismissSOSWithCompletion:(CDUnknownBlockType)arg1;
 @property(nonatomic) long long currentSOSInteractiveState;
 @property(nonatomic) long long currentSOSInitiationState;
 - (_Bool)isSendingLocationUpdate;

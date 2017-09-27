@@ -44,6 +44,7 @@
     _Bool __libraryUpdatingPreviouslyExpired;
     _Bool __oneUpDataSourceUpdateScheduled;
     _Bool __needsUpdateLayout;
+    _Bool __hasAppeared;
     PUFeedViewControllerSpec *_spec;
     long long _contentType;
     PUFeedSectionInfosManager *__feedSectionInfosManager;
@@ -91,6 +92,7 @@
 
 + (void)initialize;
 @property(retain, nonatomic, setter=_setPreviewingItem:) id <UIViewControllerPreviewing> _previewingItem; // @synthesize _previewingItem=__previewingItem;
+@property(nonatomic, setter=_setHasAppeared:) _Bool _hasAppeared; // @synthesize _hasAppeared=__hasAppeared;
 @property(nonatomic, setter=_setNeedsUpdateLayout:) _Bool _needsUpdateLayout; // @synthesize _needsUpdateLayout=__needsUpdateLayout;
 @property(nonatomic, getter=_isOneUpDataSourceUpdateScheduled, setter=_setOneUpDataSourceUpdateScheduled:) _Bool _oneUpDataSourceUpdateScheduled; // @synthesize _oneUpDataSourceUpdateScheduled=__oneUpDataSourceUpdateScheduled;
 @property(retain, nonatomic, setter=_setOneUpPresentationAssetContainerList:) PUFeedAssetContainerList *_oneUpPresentationAssetContainerList; // @synthesize _oneUpPresentationAssetContainerList=__oneUpPresentationAssetContainerList;
@@ -356,6 +358,7 @@
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)_viewWillLayoutBeforeAppearing;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
 - (_Bool)shouldAutorotate;

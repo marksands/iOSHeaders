@@ -6,13 +6,17 @@
 
 #import <PassKitUI/PKPaymentSetupTableViewController.h>
 
+#import "PKExplanationViewDelegate.h"
+#import "PKPeerPaymentAccountResolutionControllerDelegate.h"
+
 @class NSArray, NSString, PKPaymentSetupFieldPicker, PKPeerPaymentIdentityVerificationController, PKTableHeaderView;
 
-@interface PKPeerPaymentIdentityVerificationPickerViewController : PKPaymentSetupTableViewController
+@interface PKPeerPaymentIdentityVerificationPickerViewController : PKPaymentSetupTableViewController <PKExplanationViewDelegate, PKPeerPaymentAccountResolutionControllerDelegate>
 {
     PKPeerPaymentIdentityVerificationController *_controller;
     PKPaymentSetupFieldPicker *_pickerField;
     PKTableHeaderView *_headerView;
+    unsigned long long _identityVerificaionError;
     NSArray *_leftBarButtonItems;
     NSArray *_rightBarButtonItems;
     _Bool _navigationEnabled;
@@ -33,14 +37,21 @@
 - (void)_setNavigationBarEnabled:(_Bool)arg1;
 - (void)_handleCancelButtonTapped:(id)arg1;
 - (void)_terminateFlow;
+- (void)_handleError:(id)arg1;
 - (void)_handleNextButtonTapped:(id)arg1;
+- (void)_showNavigationBarSpinner:(_Bool)arg1;
 - (void)_processNextViewController;
+- (void)explanationViewDidSelectSetupLater:(id)arg1;
+- (void)explanationViewDidSelectContinue:(id)arg1;
+- (void)peerPaymentAccountResolutionController:(id)arg1 requestsDismissCurrentViewControllerAnimated:(_Bool)arg2;
+- (void)peerPaymentAccountResolutionController:(id)arg1 requestsPresentViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)setHeaderViewTitle:(id)arg1 subtitle:(id)arg2;
 - (id)headerView;
 - (void)_setTableViewHeaderActivitySpinnerAnimated:(_Bool)arg1 title:(id)arg2 subtitle:(id)arg3;
 - (void)hideActivitySpinnerWithTitle:(id)arg1 subtitle:(id)arg2;
 - (void)hideActivitySpinner;
 - (void)showActivitySpinnerWithTitle:(id)arg1 subtitle:(id)arg2;
+- (id)tableView:(id)arg1 titleForFooterInSection:(long long)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
@@ -54,6 +65,12 @@
 - (_Bool)pkui_prefersNavigationBarShadowHidden;
 - (id)initWithController:(id)arg1 setupDelegate:(id)arg2 pickerField:(id)arg3;
 - (id)initWithController:(id)arg1 pickerField:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

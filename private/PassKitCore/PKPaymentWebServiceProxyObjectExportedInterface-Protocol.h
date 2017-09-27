@@ -12,6 +12,7 @@
 - (void)invalidateRemoteProxyTargetDevice;
 - (void)archiveBackgroundContext:(PKPaymentWebServiceBackgroundContext *)arg1;
 - (void)archiveContext:(PKPaymentWebServiceContext *)arg1;
+- (void)supportsPeerPaymentRegistrationWithCompletion:(void (^)(_Bool))arg1;
 - (void)removePass:(PKPass *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)addPassData:(NSData *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)handlePotentialExpressPass:(PKPaymentPass *)arg1 withCompletion:(void (^)(NSSet *))arg2;
@@ -21,6 +22,7 @@
 - (void)downloadAllPaymentPasses;
 - (void)validateAddPreconditionsWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)canProvisionPaymentPassWithPrimaryAccountIdentifier:(NSString *)arg1 completion:(void (^)(_Bool))arg2;
+- (void)passesOfType:(unsigned long long)arg1 completion:(void (^)(NSArray *))arg2;
 - (void)hasPassesOfType:(unsigned long long)arg1 completion:(void (^)(_Bool))arg2;
 - (void)setNewAuthRandomIfNecessaryReturningPairingState:(void (^)(_Bool, NSData *, NSData *))arg1;
 - (void)noteProvisioningDidEnd;

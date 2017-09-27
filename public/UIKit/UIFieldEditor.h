@@ -74,6 +74,7 @@
 - (void)setConstrainedFrameSize:(struct CGSize)arg1;
 - (struct UIEdgeInsets)textContainerInset;
 - (struct CGPoint)textContainerOrigin;
+- (id)_ownerField;
 - (struct CGRect)visibleRect;
 - (void)setLayoutOrientation:(long long)arg1;
 @property(readonly, nonatomic) long long layoutOrientation;

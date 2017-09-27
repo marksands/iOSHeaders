@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
     UIView *_headerView;
     UIKBCandidateCollectionView *_secondaryCandidatesView;
     double _groupBarWidth;
+    struct UIEdgeInsets _contentInsets;
 }
 
 @property(nonatomic) _Bool _usesDeemphasizedTextAppearance; // @synthesize _usesDeemphasizedTextAppearance=__usesDeemphasizedTextAppearance;
@@ -48,6 +49,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool layoutExtensionCandidates; // @synthesize layoutExtensionCandidates=_layoutExtensionCandidates;
 @property(nonatomic) int candidatesVisualStyle; // @synthesize candidatesVisualStyle=_candidatesVisualStyle;
 @property(nonatomic) CDStruct_227bb23d visualStyling; // @synthesize visualStyling=_visualStyling;
+@property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
 @property(nonatomic) double rowHeight; // @synthesize rowHeight=_rowHeight;
 @property(retain, nonatomic) NSArray *candidateGroups; // @synthesize candidateGroups=_candidateGroups;
 @property(retain, nonatomic) TIKeyboardCandidateResultSet *candidateSet; // @synthesize candidateSet=_candidateSet;
@@ -117,8 +119,9 @@ __attribute__((visibility("hidden")))
 - (void)scrollToTopWithAnimation:(_Bool)arg1;
 - (void)scrollToTopWithAnimation:(_Bool)arg1 revealHeaderView:(_Bool)arg2;
 - (void)viewDidLoad;
+- (void)updateBackgroundColor;
 - (void)dealloc;
-- (void)loadSecondaryCandidatesView;
+- (_Bool)loadSecondaryCandidatesView;
 - (void)loadView;
 - (id)init;
 

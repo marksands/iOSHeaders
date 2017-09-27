@@ -13,7 +13,7 @@
 #import "_UIFocusRegionContainer.h"
 #import "_UITraitEnvironmentInternal.h"
 
-@class FBSDisplayConfiguration, NSArray, NSDictionary, NSString, UIFocusSystem, UIScreenMode, UISoftwareDimmingWindow, UITraitCollection, UIView, UIWindow, UIWindow<UIFocusEnvironment>, _UIDragManager, _UIFocusMovementPerformer, _UIFocusScrollManager, _UIInteractiveHighlightEnvironment, _UIScreenFixedCoordinateSpace, _UIScreenFocusSystemManager;
+@class FBSDisplayConfiguration, NSArray, NSDictionary, NSString, UIFocusSystem, UIScreenMode, UISoftwareDimmingWindow, UITraitCollection, UIView, UIWindow, UIWindow<UIFocusEnvironment>, _UIDragManager, _UIFocusMovementPerformer, _UIFocusScrollManager, _UIInteractiveHighlightEnvironment, _UIScreenBoundingPathUtilities, _UIScreenFixedCoordinateSpace, _UIScreenFocusSystemManager;
 
 @interface UIScreen : NSObject <UICoordinateSpace, _UITraitEnvironmentInternal, _UIFocusEnvironmentInternal, _UIFocusRegionContainer, _UIFocusEnvironmentPrivate, UITraitEnvironment>
 {
@@ -59,6 +59,7 @@
     UIFocusSystem *_focusSystem;
     _UIDragManager *_dragManager;
     _UIInteractiveHighlightEnvironment *_interactiveHighlightEnvironment;
+    _UIScreenBoundingPathUtilities *_boundingPathUtilities;
     UIWindow<UIFocusEnvironment> *__focusedWindow;
 }
 
@@ -91,6 +92,7 @@
 + (id)__createPlugInScreenForFBSDisplay:(id)arg1;
 + (void)initialize;
 @property(nonatomic, setter=_setFocusedWindow:) UIWindow<UIFocusEnvironment> *_focusedWindow; // @synthesize _focusedWindow=__focusedWindow;
+@property(retain, nonatomic, getter=_boundingPathUtilities, setter=_setBoundingPathUtilities:) _UIScreenBoundingPathUtilities *boundingPathUtilities; // @synthesize boundingPathUtilities=_boundingPathUtilities;
 @property(nonatomic, setter=_setUIIBAlwaysProvidePeripheryInsets:) _Bool _UIIBAlwaysProvidePeripheryInsets; // @synthesize _UIIBAlwaysProvidePeripheryInsets=__UIIBAlwaysProvidePeripheryInsets;
 @property(nonatomic, getter=isCaptured, setter=_setCaptured:) _Bool captured; // @synthesize captured=_captured;
 @property(nonatomic, setter=_setLastNotifiedBacklightLevel:) float _lastNotifiedBacklightLevel; // @synthesize _lastNotifiedBacklightLevel;

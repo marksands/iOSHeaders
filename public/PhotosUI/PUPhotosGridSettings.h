@@ -20,9 +20,7 @@
     _Bool _showTimelineScrubbers;
     _Bool _simulateGlobalFooterImportantInformationUpdates;
     double _defaultItemSideSize;
-    double _minimumSpacing;
     double _maximumSpacing;
-    double _sideMargins;
     double _simulatedDetailsAttributesLoadingDelay;
     long long _numberColumnsInDefaultGrid;
     long long _numberOfColumnsInWideGrid;
@@ -56,9 +54,7 @@
 @property(nonatomic) _Bool simulateLongTitles; // @synthesize simulateLongTitles=_simulateLongTitles;
 @property(nonatomic) _Bool displayAllItemsAsBursts; // @synthesize displayAllItemsAsBursts=_displayAllItemsAsBursts;
 @property(nonatomic) _Bool badgeAllItemsAsFavorites; // @synthesize badgeAllItemsAsFavorites=_badgeAllItemsAsFavorites;
-@property(nonatomic) double sideMargins; // @synthesize sideMargins=_sideMargins;
 @property(nonatomic) double maximumSpacing; // @synthesize maximumSpacing=_maximumSpacing;
-@property(nonatomic) double minimumSpacing; // @synthesize minimumSpacing=_minimumSpacing;
 @property(nonatomic) double defaultItemSideSize; // @synthesize defaultItemSideSize=_defaultItemSideSize;
 - (void)setDefaultValues;
 - (id)parentSettings;

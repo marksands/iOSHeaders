@@ -40,8 +40,8 @@
 - (void)startFakingWithHKWorkoutActivityType:(unsigned long long)arg1;
 - (void)startFakingDataWithActivityType:(long long)arg1 speed:(id)arg2;
 - (id)_queue_demoManagerCreatingIfNecessary;
-- (_Bool)_queue_dataReceived:(id)arg1 provenance:(id)arg2 isDemoData:(_Bool)arg3 error:(id *)arg4;
-- (void)sensorDataArrayReceived:(id)arg1 deviceEntity:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (_Bool)_dataReceived:(id)arg1 provenance:(id)arg2 isDemoData:(_Bool)arg3 error:(id *)arg4;
+- (_Bool)sensorDataArrayReceived:(id)arg1 deviceEntity:(id)arg2 error:(id *)arg3;
 - (void)sensorDataReceived:(id)arg1 deviceEntity:(id)arg2;
 - (void)_updateDataCollectorsWithPrivacySettings;
 - (id)pluginDataCollectors;

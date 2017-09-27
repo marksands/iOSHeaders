@@ -18,6 +18,8 @@
     unsigned long long _accountStoreChangeObservationCount;
     unsigned long long _automaticLeaseRefreshCount;
     NSObject<OS_dispatch_queue> *_calloutQueue;
+    NSObject<OS_dispatch_queue> *_cloudLibraryStatusAccessQueue;
+    long long _cloudLibraryStatus;
     unsigned long long _cloudLibraryObservationCount;
     NSOperationQueue *_fairPlayOperationQueue;
     unsigned long long _fairPlaySubscriptionStatusObservationCount;
@@ -62,6 +64,7 @@
 @property(readonly, nonatomic) SSVPlaybackLease *_existingPlaybackLease; // @dynamic _existingPlaybackLease;
 - (void)_endUsingSubscriptionLease;
 - (void)_beginUsingSubscriptionLeaseWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_userIdentityStoreDidChange:(id)arg1;
 - (void)_subscriptionStatusDidChangeNotification:(id)arg1;
 - (void)_fairPlaySubscriptionControllerSubscriptionStatusDidChangeNotification:(id)arg1;
 - (void)_cloudClientAuthenticationDidChange;

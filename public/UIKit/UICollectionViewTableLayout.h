@@ -23,6 +23,7 @@
     _Bool _overlapsSectionHeaderViews;
     _Bool _showingIndex;
     _Bool _cellLayoutMarginsFollowReadableWidth;
+    _Bool _insetsContentViewsToSafeArea;
     _Bool _separatorInsetIsRelativeToCellEdges;
     double _rowHeight;
     double _sectionHeaderHeight;
@@ -60,6 +61,7 @@
 @property(retain, nonatomic) NSMutableArray *deleteIndexPaths; // @synthesize deleteIndexPaths=_deleteIndexPaths;
 @property(retain, nonatomic) UITableViewRowData *rowData; // @synthesize rowData=_rowData;
 @property(nonatomic) _Bool separatorInsetIsRelativeToCellEdges; // @synthesize separatorInsetIsRelativeToCellEdges=_separatorInsetIsRelativeToCellEdges;
+@property(nonatomic) _Bool insetsContentViewsToSafeArea; // @synthesize insetsContentViewsToSafeArea=_insetsContentViewsToSafeArea;
 @property(nonatomic) _Bool cellLayoutMarginsFollowReadableWidth; // @synthesize cellLayoutMarginsFollowReadableWidth=_cellLayoutMarginsFollowReadableWidth;
 @property(retain, nonatomic) UIVisualEffect *separatorEffect; // @synthesize separatorEffect=_separatorEffect;
 @property(nonatomic) long long separatorStyle; // @synthesize separatorStyle=_separatorStyle;

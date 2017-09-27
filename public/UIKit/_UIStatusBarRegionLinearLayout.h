@@ -29,7 +29,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool fitsAllItems;
 - (id)_horizontalConstraintsForViews:(id)arg1 layoutGuides:(id)arg2;
-- (id)_verticalConstraintsForView:(id)arg1;
+- (id)_verticalConstraintsForDisplayItem:(id)arg1;
 - (void)_updateConstraints;
 - (void)invalidate;
 - (id)init;

@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isBackButton) _Bool backButton; // @synthesize backButton=_backButton;
 @property(readonly, copy, nonatomic) _UIButtonBarButtonVisualProvider *visualProvider; // @synthesize visualProvider=_visualProvider;
 - (void).cxx_destruct;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)_accessibilitySettingsChanged:(id)arg1;
 - (_Bool)_accessibilityShouldActivateOnHUDLift;
 - (_Bool)pointMostlyInside:(struct CGPoint)arg1 withEvent:(id)arg2;

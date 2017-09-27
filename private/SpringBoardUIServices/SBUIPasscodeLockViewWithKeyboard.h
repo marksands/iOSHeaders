@@ -6,17 +6,16 @@
 
 #import <SpringBoardUIServices/SBUIPasscodeLockViewBase.h>
 
-#import "SBPasscodeKeyboardAnimatorDelegate.h"
 #import "SBUIPasscodeEntryFieldDelegate.h"
 
-@class NSString, SBPasscodeKeyboardAnimator, SBUIAlphanumericPasscodeEntryField, SBUIRingViewLabelButton, UILabel, UIView;
+@class NSString, SBPasscodeKeyboardAnimator, SBUIAlphanumericPasscodeEntryField, UIControl, UILabel, UIView;
 
-@interface SBUIPasscodeLockViewWithKeyboard : SBUIPasscodeLockViewBase <SBUIPasscodeEntryFieldDelegate, SBPasscodeKeyboardAnimatorDelegate>
+@interface SBUIPasscodeLockViewWithKeyboard : SBUIPasscodeLockViewBase <SBUIPasscodeEntryFieldDelegate>
 {
     SBPasscodeKeyboardAnimator *_keyboardAnimator;
     SBUIAlphanumericPasscodeEntryField *_alphaEntryField;
     UIView *_statusFieldBackground;
-    SBUIRingViewLabelButton *_emergencyCallButton;
+    UIControl *_emergencyCallButton;
     _Bool _usesLightStyle;
     _Bool _isResigningResponderStatus;
     _Bool _keyboardVisible;
@@ -62,7 +61,6 @@
 - (void)_notifyDelegateThatEmergencyCallButtonWasPressed;
 - (void)_notifyDelegatePasscodeEntered;
 - (void)_hardwareReturnKeyPressed:(id)arg1;
-- (void)passcodeKeyboardAnimatorAnimationDidComplete:(id)arg1;
 - (void)becomeActiveWithAnimationSettings:(id)arg1;
 - (_Bool)resignFirstResponder;
 - (_Bool)becomeFirstResponder;

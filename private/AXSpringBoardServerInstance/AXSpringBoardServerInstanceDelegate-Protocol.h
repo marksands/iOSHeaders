@@ -52,6 +52,7 @@
 - (void)simulateEdgePressHaptics:(_AXSpringBoardServerInstance *)arg1;
 - (void)dismissAppSwitcherWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)openAppSwitcherWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
+- (_Bool)isPasscodeLockVisibleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)isDockVisibleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)isAppSwitcherVisibleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)isShowingHomescreenWithServerInstance:(_AXSpringBoardServerInstance *)arg1;

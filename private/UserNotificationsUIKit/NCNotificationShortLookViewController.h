@@ -34,6 +34,8 @@
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
+- (id)unhideHomeAffordanceAnimationSettingsForLongLookPresentationController:(id)arg1;
+- (id)hideHomeAffordanceAnimationSettingsForLongLookPresentationController:(id)arg1;
 - (struct CGRect)longLookPresentationController:(id)arg1 frameForTransitionViewInPresentationSuperview:(id)arg2;
 - (struct CGRect)_frameForTransitionViewInScrollView;
 - (_Bool)wantsUseableContainerHeightForTransitionWithDelegate:(id)arg1;
@@ -79,6 +81,8 @@
 - (void)expandAndPlayAudioMessage;
 - (void)presentLongLookAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)viewWillLayoutSubviews;
+- (void)setCustomContentHomeAffordanceGestureRecognizer:(id)arg1;
+- (void)setCustomContentHomeAffordanceVisible:(_Bool)arg1;
 - (_Bool)isContentExtensionVisible:(id)arg1;
 - (_Bool)dismissPresentedViewControllerAndClearNotification:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)didReceiveNotificationRequest:(id)arg1;

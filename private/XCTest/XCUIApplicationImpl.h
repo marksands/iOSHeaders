@@ -16,10 +16,12 @@
     XCUIApplicationProcess *_currentProcess;
 }
 
++ (id)keyPathsForValuesAffectingActivated;
 + (id)keyPathsForValuesAffectingForeground;
 + (id)keyPathsForValuesAffectingBackground;
 + (id)keyPathsForValuesAffectingSuspended;
 + (id)keyPathsForValuesAffectingRunning;
++ (id)keyPathsForValuesAffectingState;
 @property _Bool supportsAutomationSession; // @synthesize supportsAutomationSession=_supportsAutomationSession;
 @property(retain, nonatomic) XCUIApplicationProcess *currentProcess; // @synthesize currentProcess=_currentProcess;
 @property(readonly, copy) NSString *bundleID; // @synthesize bundleID=_bundleID;
@@ -27,8 +29,10 @@
 - (void)waitForViewControllerViewDidDisappearWithTimeout:(double)arg1;
 - (void)handleCrashUnderSymbol:(id)arg1;
 - (void)terminate;
-- (void)waitForRunningForegroundStateAndRequireAccessibility:(_Bool)arg1;
+- (void)_waitOnActivationExpectation:(id)arg1;
+- (id)_activationExpectation;
 - (void)waitForAccessibilityActive;
+- (void)_waitForValidPID;
 - (void)_launchUsingPlatformWithArguments:(id)arg1 environment:(id)arg2;
 - (void)_launchUsingXcodeWithArguments:(id)arg1 environment:(id)arg2;
 - (void)_waitForLaunchProgress;
@@ -36,12 +40,13 @@
 - (void)_activateForPlatform;
 - (void)_activate;
 - (void)serviceOpenRequest:(id)arg1;
+@property(readonly) _Bool activated;
 @property(readonly) _Bool foreground;
 @property(readonly) _Bool background;
 @property(readonly) _Bool suspended;
 @property(readonly) _Bool running;
 - (void)_awaitValidCurrentProcess;
-- (void)waitForState:(unsigned long long)arg1 timeout:(double)arg2;
+- (_Bool)waitForState:(unsigned long long)arg1 timeout:(double)arg2;
 @property(nonatomic) unsigned long long state;
 @property(nonatomic) int processID;
 @property(readonly) XCAccessibilityElement *accessibilityElement;

@@ -19,8 +19,8 @@
 @property(retain, nonatomic) NSUserDefaults *userDefaults; // @synthesize userDefaults=_userDefaults;
 @property(retain, nonatomic) NSUndoManager *undoManager; // @synthesize undoManager=_undoManager;
 - (void).cxx_destruct;
-- (void)noteDidAcknowledgeUnsupportedIdentityProvider:(id)arg1;
-- (_Bool)hasAcknowledgedUnsupportedIdentityProvider:(id)arg1;
+- (void)noteDesiredApp:(id)arg1;
+- (_Bool)hasChosenDesiredApp;
 - (void)noteDidSendWelcomeMessage;
 @property(readonly, nonatomic) _Bool hasSentWelcomeMessage;
 @property(nonatomic) long long cachedStoreProviderStatus;
@@ -28,6 +28,7 @@
 @property(nonatomic) long long cachedAvailabilityStatus;
 - (void)noteShouldSkipSetup;
 - (void)_updateShouldSkipSetupWithNumber:(id)arg1;
+- (void)_updateValue:(id)arg1 forKey:(id)arg2;
 @property(readonly, nonatomic) _Bool shouldSkipSetup;
 @property(readonly, nonatomic) _Bool shouldAlwaysAllowRemoteInspection;
 @property(readonly, nonatomic) _Bool shouldDisableRequestTimeouts;

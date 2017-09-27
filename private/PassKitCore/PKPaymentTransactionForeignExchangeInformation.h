@@ -29,7 +29,9 @@
 - (id)recordTypesAndNames;
 - (void)encodeWithCloudStoreCoder:(id)arg1;
 - (id)initWithCloudStoreCoder:(id)arg1;
+- (_Bool)isValid;
 - (id)jsonString;
+- (id)jsonDictionaryRepresentation;
 
 @end
 

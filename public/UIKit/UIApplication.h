@@ -453,7 +453,6 @@
 - (struct CGRect)statusBarFrameForOrientation:(long long)arg1;
 - (void)statusBar:(id)arg1 didAnimateFromHeight:(double)arg2 toHeight:(double)arg3 animation:(int)arg4;
 - (void)statusBar:(id)arg1 willAnimateFromHeight:(double)arg2 toHeight:(double)arg3 duration:(double)arg4 animation:(int)arg5;
-- (long long)statusBar:(id)arg1 styleForRequestedStyle:(long long)arg2 overrides:(int)arg3;
 - (int)statusBar:(id)arg1 effectiveStyleOverridesForRequestedStyle:(long long)arg2 overrides:(int)arg3;
 - (long long)overridenRequestedStyleFromStyle:(long long)arg1;
 - (void)_setUserDefaultsSyncEnabled:(_Bool)arg1;
@@ -673,6 +672,7 @@
 - (void)_notifySpringBoardOfStatusBarOrientationChangeAndFenceWithAnimationDuration:(double)arg1;
 - (void)_notifyDidChangeStatusBarFrame:(struct CGRect)arg1;
 - (void)_notifyWillChangeStatusBarFrame:(struct CGRect)arg1;
+- (_Bool)_isStatusBarEffectivelyHiddenForContentOverlayInsets;
 @property(readonly, nonatomic, getter=isStatusBarHidden) _Bool statusBarHidden;
 - (void)setStatusBarHidden:(_Bool)arg1;
 - (void)setStatusBarHidden:(_Bool)arg1 animated:(_Bool)arg2;

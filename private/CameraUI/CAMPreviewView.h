@@ -20,6 +20,7 @@
     id <CAMPreviewViewSubjectIndicatorDelegate> _subjectIndicatorDelegate;
     CAMSubjectIndicatorView *_centeredSubjectIndicatorView;
     CAMStageLightOverlayView *_stageLightOverlayView;
+    double _bottomContentInset;
     UILabel *__simulatorLabel;
     NSMutableDictionary *__internalTrackedSubjectIndicatorsByIdentifier;
     NSMutableDictionary *__faceIndicators;
@@ -30,6 +31,7 @@
 @property(readonly, nonatomic) NSMutableDictionary *_internalTrackedSubjectIndicatorsByIdentifier; // @synthesize _internalTrackedSubjectIndicatorsByIdentifier=__internalTrackedSubjectIndicatorsByIdentifier;
 @property(nonatomic) int _exposureBiasSide; // @synthesize _exposureBiasSide=__exposureBiasSide;
 @property(readonly, nonatomic) UILabel *_simulatorLabel; // @synthesize _simulatorLabel=__simulatorLabel;
+@property(nonatomic) double bottomContentInset; // @synthesize bottomContentInset=_bottomContentInset;
 @property(retain, nonatomic) CAMStageLightOverlayView *stageLightOverlayView; // @synthesize stageLightOverlayView=_stageLightOverlayView;
 @property(retain, nonatomic) CAMSubjectIndicatorView *centeredSubjectIndicatorView; // @synthesize centeredSubjectIndicatorView=_centeredSubjectIndicatorView;
 @property(nonatomic) id <CAMPreviewViewSubjectIndicatorDelegate> subjectIndicatorDelegate; // @synthesize subjectIndicatorDelegate=_subjectIndicatorDelegate;

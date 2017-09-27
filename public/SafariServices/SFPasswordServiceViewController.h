@@ -7,16 +7,19 @@
 #import "UIViewController.h"
 
 #import "SFPasswordServiceViewControllerProtocol.h"
+#import "_SFAuthenticationClient.h"
+#import "_SFAuthenticationContextDelegate.h"
 
-@class NSString, WBUPasswordPickerViewController;
+@class NSString, WBUPasswordPickerViewController, _SFAuthenticationContext;
 
 __attribute__((visibility("hidden")))
-@interface SFPasswordServiceViewController : UIViewController <SFPasswordServiceViewControllerProtocol>
+@interface SFPasswordServiceViewController : UIViewController <_SFAuthenticationClient, _SFAuthenticationContextDelegate, SFPasswordServiceViewControllerProtocol>
 {
     WBUPasswordPickerViewController *_passwordPickerViewController;
     _Bool _presentInPopover;
     _Bool _hasAuthenticationForOtherPasswords;
     NSString *_applicationIdentifier;
+    _SFAuthenticationContext *_context;
 }
 
 + (id)_remoteViewControllerInterface;
@@ -28,6 +31,13 @@ __attribute__((visibility("hidden")))
 - (void)gatherAndShowPasswords;
 - (void)_willAppearInRemoteViewController;
 - (void)_dismiss;
+- (id)_context;
+- (_Bool)contextShouldAllowMultipleBiometricFailures:(id)arg1;
+- (_Bool)contextShouldAllowPasscodeFallback:(id)arg1;
+- (_Bool)contextRequiresSessionBasedAuthentication:(id)arg1;
+- (_Bool)authenticationEnabledForContext:(id)arg1;
+- (id)authenticationMessageForContext:(id)arg1;
+- (id)authenticationCustomUIProgressObserverForContext:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

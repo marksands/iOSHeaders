@@ -46,7 +46,7 @@
 - (void)_preflightAccountStateWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)shouldAllowCDPEnrollment;
 - (void)_authenticatedRepairCloudDataProtectionStateWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_refreshWithContext:(id)arg1;
+- (void)_refreshAndAuthenticateWithContext:(id)arg1;
 - (void)_performInteractivelyAuthenticatedRepair:(CDUnknownBlockType)arg1;
 - (void)repairCloudDataProtectionStateWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_predicateForRecordUpgradeCheck;

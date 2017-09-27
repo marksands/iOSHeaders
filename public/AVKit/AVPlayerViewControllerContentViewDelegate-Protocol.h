@@ -9,7 +9,8 @@
 @class AVPlayerViewControllerContentView;
 
 @protocol AVPlayerViewControllerContentViewDelegate <NSObject>
-- (struct CGSize)playerViewControllerContentViewContentDimensions;
+- (void)playerViewControllerContentViewDidChangeVideoGravity:(AVPlayerViewControllerContentView *)arg1;
+- (_Bool)playerViewControllerContentViewShouldApplyAutomaticVideoGravity:(AVPlayerViewControllerContentView *)arg1;
 - (void)playerViewControllerContentViewDidMoveToWindow:(AVPlayerViewControllerContentView *)arg1;
 - (void)playerViewControllerContentViewWillLayoutSubviews:(AVPlayerViewControllerContentView *)arg1;
 @end

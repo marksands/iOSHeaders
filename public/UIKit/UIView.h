@@ -148,7 +148,7 @@
         unsigned int safeAreaInsetsFrozen:1;
         unsigned int viewDelegateContentOverlayInsetsAreClean:1;
         unsigned int hasGeometryObservers:1;
-        unsigned int wantsGeometryChanges:1;
+        unsigned int observingGeometryChangesForSelfCount:4;
         unsigned int hasTraitStorageList:1;
         unsigned int cachedTraitCollectionIsValid:1;
         unsigned int dontUpdateInferredLayoutMargins:1;
@@ -171,6 +171,7 @@
         unsigned int allowsSimultaneousDragsToBegin:1;
     } _viewFlags;
     long long _layoutSubviewsCount;
+    long long _imminentLayoutSubviewsCount;
     long long _retainCount;
     id <_UIViewDraggingSourceDelegate> _draggingSourceDelegate;
     id <_UIViewDraggingDestinationDelegate> _draggingDestinationDelegate;
@@ -497,7 +498,7 @@
 - (void)_removeParentGeometryObservers;
 - (void)_removeGeometryChangeObserver:(id)arg1;
 - (void)_addGeometryChangeObserver:(id)arg1;
-@property(readonly, nonatomic) _Bool _wantsGeometryChangeNotification;
+- (_Bool)_observingGeometryChangesForSelf;
 - (_Bool)_disableGeometryObserverNotification;
 - (struct CGRect)_visualAltitudeSensitiveBoundsWithVisualAltitude:(double)arg1 edges:(unsigned long long)arg2;
 - (double)_touchSloppinessFactor;
@@ -633,6 +634,7 @@
 @property(nonatomic, setter=_setViewDelegateContentOverlayInsetsAreClean:) _Bool _viewDelegateContentOverlayInsetsAreClean;
 @property(nonatomic, getter=_safeAreaInsetsFrozen, setter=_setSafeAreaInsetsFrozen:) _Bool safeAreaInsetsFrozen;
 - (void)safeAreaInsetsDidChange;
+- (_Bool)_isLayoutSubviewsImminent;
 - (void)_safeAreaInsetsDidChangeFromOldInsets:(struct UIEdgeInsets)arg1;
 @property(readonly, nonatomic) UILayoutGuide *safeAreaLayoutGuide; // @synthesize safeAreaLayoutGuide=_safeAreaLayoutGuide;
 - (id)_safeAreaLayoutGuideIfExists;
@@ -949,6 +951,8 @@
 - (id)_targetVelocityForKey:(id)arg1;
 - (id)_velocityForKey:(id)arg1 target:(_Bool)arg2;
 - (void)_setVelocity:(id)arg1 forKey:(id)arg2 target:(_Bool)arg3;
+- (void)__removeAllRetargetableAnimations:(_Bool)arg1;
+- (void)_removeAllRetargetableAnimations:(_Bool)arg1;
 - (void)_animatePropertyWithKey:(id)arg1 currentValue:(id)arg2 targetValueGetter:(CDUnknownBlockType)arg3 newValueCallback:(CDUnknownBlockType)arg4;
 - (id)_encodableSubviews;
 @property(readonly, nonatomic, getter=_currentScreenScale) double currentScreenScale;
@@ -1095,6 +1099,15 @@
 @property(readonly, nonatomic) NSLayoutXAxisAnchor *trailingAnchor;
 @property(readonly, nonatomic) NSLayoutXAxisAnchor *leadingAnchor;
 - (id)_createIfNeededAnchorForAssocObjectKey:(char *)arg1 class:(Class)arg2 withAttribute:(long long)arg3;
+- (void)_removeBoundingPathChangeObserver:(id)arg1;
+- (void)_addBoundingPathChangeObserver:(id)arg1;
+- (struct CGRect)_largestInscribedRectInBoundingPathWithCenter:(struct CGPoint)arg1 aspectRatio:(double)arg2;
+- (struct CGRect)_inscribedRectInBoundingPathByInsettingRect:(struct CGRect)arg1 onEdges:(unsigned long long)arg2 withOptions:(unsigned long long)arg3;
+@property(readonly, nonatomic, getter=_supportsBoundingPath) _Bool supportsBoundingPath;
+- (void)_notifyBoundingPathChangeObserversWithChangeInfo:(id)arg1 forAncestor:(id)arg2;
+- (void)_updateBoundingPathRotationNotificationsForMoveFromWindow:(id)arg1 toWindow:(id)arg2;
+- (void)_removeBoundingPathRotationNotificationsForWindow:(id)arg1;
+- (void)_addBoundingPathRotationNotificationsForWindow:(id)arg1;
 - (void)_uinavigationbar_prepareToAppearInNavigationItem:(id)arg1 onLeft:(_Bool)arg2;
 - (int)enabledGestures;
 - (void)setEnabledGestures:(int)arg1;

@@ -27,6 +27,9 @@
     SFSafariLaunchPlaceholderView *_launchPlaceholderView;
     long long _displayMode;
     SFSafariViewControllerConfiguration *_configuration;
+    _Bool _viewSizeIsTransitioning;
+    struct UIEdgeInsets _verticalScrollIndicatorBaseInsets;
+    struct UIEdgeInsets _horizontalScrollIndicatorBaseInsets;
     id <SFSafariViewControllerDelegate> _delegate;
     UIColor *_preferredBarTintColor;
     UIColor *_preferredControlTintColor;
@@ -67,6 +70,9 @@
 - (id)childViewControllerForStatusBarStyle;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)_updateScrollViewIndicatorInsets;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (void)_boundingPathMayHaveChangedForView:(id)arg1 relativeToBoundsOriginOnly:(_Bool)arg2;
 - (void)loadView;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithCoder:(id)arg1;
@@ -75,6 +81,7 @@
 - (void)setTransitioningDelegate:(id)arg1;
 - (void)setModalPresentationStyle:(long long)arg1;
 - (void)_setUpWithURL:(id)arg1 configuration:(id)arg2;
+- (void)dealloc;
 - (id)initWithURL:(id)arg1 entersReaderIfAvailable:(_Bool)arg2;
 - (id)initWithURL:(id)arg1 configuration:(id)arg2;
 - (id)_defaultPreviewActionItems;

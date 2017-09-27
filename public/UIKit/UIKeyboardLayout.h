@@ -82,6 +82,7 @@
 - (struct CGSize)stretchFactor;
 - (void)setTwoFingerTapTimestamp:(double)arg1;
 - (_Bool)shouldAllowSelectionGestures:(_Bool)arg1 atPoint:(struct CGPoint)arg2 toBegin:(_Bool)arg3;
+- (id)internationalKeyDisplayStringOnEmojiKeyboard;
 - (void)updateUndoKeyState;
 - (_Bool)globeKeyDisplaysAsEmojiKey;
 - (void)setKeyboardBias:(long long)arg1;
@@ -189,6 +190,7 @@
 - (void)touchDown:(id)arg1 executionContext:(id)arg2;
 - (void)touchDown:(id)arg1;
 - (CDUnknownBlockType)touchDownTaskForTouchState:(id)arg1;
+- (void)_setRequiresExclusiveTouch:(_Bool)arg1;
 - (_Bool)canProduceString:(id)arg1;
 - (_Bool)shouldShowIndicator;
 - (id)activationIndicatorView;

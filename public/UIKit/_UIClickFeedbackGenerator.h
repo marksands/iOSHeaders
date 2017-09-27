@@ -19,7 +19,8 @@
 - (void)userInteractionStarted;
 - (void)pressedUp;
 - (void)pressedDown;
-- (id)init;
+- (id)initWithStyle:(long long)arg1 coordinateSpace:(id)arg2;
+- (id)initWithStyle:(long long)arg1;
 
 @end
 

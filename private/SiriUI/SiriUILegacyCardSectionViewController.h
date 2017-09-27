@@ -22,7 +22,6 @@
 @property(readonly, nonatomic) SiriUISnippetViewController *backingSnippetViewController; // @synthesize backingSnippetViewController=_snippetViewController;
 - (void).cxx_destruct;
 - (struct UIEdgeInsets)siriViewControllerBackgroundInsets:(id)arg1;
-- (void)siriViewControllerHeightDidChange:(id)arg1 heightDifference:(double)arg2;
 - (id)additionalSpeechInterpretationsForSiriViewController:(id)arg1;
 - (struct UIEdgeInsets)siriViewControllerDisplayInsetsForVisibleSpace:(id)arg1;
 - (_Bool)siriViewController:(id)arg1 openPunchOut:(id)arg2;
@@ -37,7 +36,9 @@
 - (void)removeSiriViewController:(id)arg1;
 - (void)cancelSpeakingForSiriViewController:(id)arg1;
 - (void)siriSnippetViewController:(id)arg1 didRequestKeyboardWithVisibility:(_Bool)arg2;
+- (void)siriSnippetViewController:(id)arg1 didDismissViewController:(id)arg2;
 - (void)siriSnippetViewController:(id)arg1 willDismissViewController:(id)arg2;
+- (void)siriSnippetViewController:(id)arg1 didPresentViewController:(id)arg2;
 - (void)siriSnippetViewController:(id)arg1 willPresentViewController:(id)arg2;
 - (void)siriViewController:(id)arg1 speakText:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)updatedUserUtteranceForSiriViewController:(id)arg1;

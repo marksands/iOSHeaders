@@ -18,6 +18,7 @@
 @property(retain, nonatomic) PDPaymentWebServiceCoordinator *paymentWebServiceCoordinator; // @synthesize paymentWebServiceCoordinator=_paymentWebServiceCoordinator;
 - (void).cxx_destruct;
 - (void)_canAutomaticallyRegisterWithWebService:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_peerPaymentRegisterWithURL:(id)arg1 paymentWebService:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)performDeviceRegistrationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)notePasscodeChanged;
 

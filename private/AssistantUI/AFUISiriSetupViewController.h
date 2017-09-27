@@ -48,6 +48,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(retain, nonatomic) id <SBUIPluginFluidDismissalState> fluidDismissalState;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) _Bool shouldTurnOnScreenOnAppearance;
 @property(readonly) Class superclass;

@@ -149,6 +149,7 @@
 - (id)nearestSelectableIndexPath:(id)arg1;
 - (void)updateSelectionHighlight;
 - (void)updateLayoutGuideOffsets;
+- (void)viewLayoutMarginsDidChange;
 - (void)viewDidLoad;
 - (void)loadView;
 - (id)collectionView;

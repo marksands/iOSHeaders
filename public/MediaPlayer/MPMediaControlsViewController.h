@@ -10,7 +10,7 @@
 #import "UIViewControllerAnimatedTransitioning.h"
 #import "UIViewControllerTransitioningDelegate.h"
 
-@class MPMediaControlsConfiguration, MPMediaControlsRemoteViewController, MTMaterialView, NSString, UIVisualEffectView, _UIAsyncInvocation;
+@class MPMediaControlsConfiguration, MPMediaControlsRemoteViewController, MTMaterialView, NSString, _UIAsyncInvocation;
 
 @interface MPMediaControlsViewController : UIViewController <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, MPMediaControlsClientController>
 {
@@ -20,12 +20,10 @@
     id <MPMediaControlsViewControllerDelegate> _delegate;
     MPMediaControlsRemoteViewController *_remoteViewController;
     MTMaterialView *_backgroundView;
-    UIVisualEffectView *_zoomBackgroundView;
     MPMediaControlsConfiguration *_configuration;
 }
 
 @property(readonly, nonatomic) MPMediaControlsConfiguration *configuration; // @synthesize configuration=_configuration;
-@property(retain, nonatomic) UIVisualEffectView *zoomBackgroundView; // @synthesize zoomBackgroundView=_zoomBackgroundView;
 @property(retain, nonatomic) MTMaterialView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) MPMediaControlsRemoteViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
 @property(nonatomic) __weak id <MPMediaControlsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;

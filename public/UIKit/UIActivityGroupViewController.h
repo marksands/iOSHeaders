@@ -29,10 +29,12 @@
     NSIndexPath *_indexPathForMenuActivity;
     id <UIActivityGroupViewControllerDataSource> _dataSource;
     struct CGPoint _initialDraggingLocation;
+    struct UIEdgeInsets _externalSafeInset;
 }
 
 + (void)contentSizeCategoryDidChange;
 @property(nonatomic) __weak id <UIActivityGroupViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
+@property(nonatomic) struct UIEdgeInsets externalSafeInset; // @synthesize externalSafeInset=_externalSafeInset;
 @property(nonatomic, getter=isPicker) _Bool picker; // @synthesize picker=_picker;
 @property(nonatomic, getter=isEmbedded) _Bool embedded; // @synthesize embedded=_embedded;
 @property(nonatomic) _Bool darkStyleOnLegacyApp; // @synthesize darkStyleOnLegacyApp=_darkStyleOnLegacyApp;

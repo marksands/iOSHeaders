@@ -16,7 +16,6 @@
     UIView *_highlightBackgroundView;
     _Bool _showsHighlightWhenTouched;
     NSString *_navTitle;
-    double _labelIndentation;
 }
 
 + (id)defaultSeparatorColor;
@@ -25,11 +24,10 @@
 + (double)preferredHeight;
 + (id)defaultFont;
 @property(nonatomic) _Bool showsHighlightWhenTouched; // @synthesize showsHighlightWhenTouched=_showsHighlightWhenTouched;
-@property(nonatomic) double labelIndentation; // @synthesize labelIndentation=_labelIndentation;
 @property(readonly, nonatomic) MFHeaderLabelView *labelView; // @synthesize labelView=_labelView;
 @property(copy, nonatomic) NSString *navTitle; // @synthesize navTitle=_navTitle;
 - (void)dealloc;
-- (void)setFrame:(struct CGRect)arg1;
+- (struct CGRect)_exclusionRectForView:(id)arg1 alongEdge:(unsigned long long)arg2;
 - (struct UIEdgeInsets)_recipientViewEdgeInsets;
 - (id)_baseAttributes;
 - (void)refreshPreferredContentSize;
@@ -42,8 +40,13 @@
 - (void)handleTouchesEnded;
 - (_Bool)_canBecomeFirstResponder;
 - (struct CGRect)titleLabelBaselineAlignmentRectForLabel:(id)arg1;
+- (struct CGRect)_contentRect;
+- (_Bool)_shouldEmbedLabelInTextView;
+- (void)layoutMarginsDidChange;
 - (void)layoutSubviews;
 @property(copy, nonatomic) NSString *label; // @dynamic label;
+- (void)setBounds:(struct CGRect)arg1;
+- (void)setFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)labelColor;
 - (double)labelTopPadding;

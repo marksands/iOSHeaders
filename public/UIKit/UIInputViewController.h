@@ -19,12 +19,14 @@
     double _touchBegan;
     _Bool _alignsToContentViewController;
     _Bool _autosizeToCurrentKeyboard;
+    _Bool _hasDictationKey;
     id <UITextDocumentProxy> _textDocumentProxy;
     NSString *_primaryLanguage;
 }
 
 + (void)presentDialogForAddingKeyboard;
 + (_Bool)_requiresProxyInterface;
+@property(nonatomic) _Bool hasDictationKey; // @synthesize hasDictationKey=_hasDictationKey;
 @property(copy, nonatomic) NSString *primaryLanguage; // @synthesize primaryLanguage=_primaryLanguage;
 @property(nonatomic, setter=_setAutosizeToCurrentKeyboard:) _Bool _autosizeToCurrentKeyboard; // @synthesize _autosizeToCurrentKeyboard;
 @property(nonatomic) _Bool _alignsToContentViewController; // @synthesize _alignsToContentViewController;
@@ -39,7 +41,6 @@
 - (void)requestSupplementaryLexiconWithCompletion:(CDUnknownBlockType)arg1;
 - (void)returnToPreviousInputMode;
 - (void)handleInputModeListFromView:(id)arg1 withEvent:(id)arg2;
-- (void)setHasDictation:(_Bool)arg1;
 - (void)advanceToNextInputMode;
 - (void)dismissKeyboard;
 @property(readonly, nonatomic) _Bool needsInputModeSwitchKey;

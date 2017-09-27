@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (void)animationTimerFired:(double)arg1;
 - (long long)preferredWhitePointAdaptivityStyle;
 - (struct CGSize)imageSize;
+- (void)setAppearance:(id)arg1 animated:(_Bool)arg2;
 - (void)previewDidDisappear:(_Bool)arg1;
 - (void)previewDidAppear:(_Bool)arg1;
 - (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

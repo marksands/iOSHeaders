@@ -8,7 +8,7 @@
 
 #import "UITextFieldDelegate.h"
 
-@class NSMutableCharacterSet, NSString, SBUIPasscodeTextField, UIColor, UITextField;
+@class NSMutableCharacterSet, NSString, SBUIPasscodeTextField, UIColor, UIFont, UITextField;
 
 @interface SBUIPasscodeEntryField : UIView <UITextFieldDelegate>
 {
@@ -48,6 +48,8 @@
 @property(copy, nonatomic) NSString *stringValue; // @dynamic stringValue;
 - (void)deleteLastCharacter;
 - (void)appendString:(id)arg1;
+@property(retain, nonatomic) UIFont *font;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithDefaultSizeAndLightStyle:(_Bool)arg1;
 
 // Remaining properties

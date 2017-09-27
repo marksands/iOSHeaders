@@ -443,10 +443,11 @@ struct URLProtocol {
     long long _field14;
     long long _field15;
     struct Throttler *_field16;
-    id _field17;
-    struct _CFURLRequest *_field18;
-    struct URLProtocolClient *_field19;
-    struct _CFCachedURLResponse *_field20;
+    _Bool _field17;
+    id _field18;
+    struct _CFURLRequest *_field19;
+    struct URLProtocolClient *_field20;
+    struct _CFCachedURLResponse *_field21;
 };
 
 struct URLProtocolClient {

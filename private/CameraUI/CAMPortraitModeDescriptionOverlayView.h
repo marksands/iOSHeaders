@@ -12,30 +12,41 @@
 {
     id <CAMPortraitModeDescriptionOverlayViewDelegate> _delegate;
     long long _orientation;
+    double _contentTopInset;
     UIVisualEffectView *__blurEffectView;
     CAMPortraitModeDescriptionOverlayPrimaryVibrancyEffectView *__primaryVibrancyEffectView;
     UILabel *__titleLabel;
     UILabel *__descriptionLabel;
     UILabel *__infoLabel;
     UIButton *__acknowledgmentButton;
+    double __descriptionFontSizeMultiplier;
+    double __infoFontSizeMultiplier;
+    UIView *__topBlackoutView;
 }
 
+@property(retain, nonatomic) UIView *_topBlackoutView; // @synthesize _topBlackoutView=__topBlackoutView;
+@property(nonatomic, setter=_setInfoFontSizeMultiplier:) double _infoFontSizeMultiplier; // @synthesize _infoFontSizeMultiplier=__infoFontSizeMultiplier;
+@property(nonatomic, setter=_setDescriptionFontSizeMultiplier:) double _descriptionFontSizeMultiplier; // @synthesize _descriptionFontSizeMultiplier=__descriptionFontSizeMultiplier;
 @property(readonly, nonatomic) UIButton *_acknowledgmentButton; // @synthesize _acknowledgmentButton=__acknowledgmentButton;
 @property(readonly, nonatomic) UILabel *_infoLabel; // @synthesize _infoLabel=__infoLabel;
 @property(readonly, nonatomic) UILabel *_descriptionLabel; // @synthesize _descriptionLabel=__descriptionLabel;
 @property(readonly, nonatomic) UILabel *_titleLabel; // @synthesize _titleLabel=__titleLabel;
 @property(readonly, nonatomic) CAMPortraitModeDescriptionOverlayPrimaryVibrancyEffectView *_primaryVibrancyEffectView; // @synthesize _primaryVibrancyEffectView=__primaryVibrancyEffectView;
 @property(readonly, nonatomic) UIVisualEffectView *_blurEffectView; // @synthesize _blurEffectView=__blurEffectView;
+@property(nonatomic) double contentTopInset; // @synthesize contentTopInset=_contentTopInset;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(nonatomic) __weak id <CAMPortraitModeDescriptionOverlayViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)setVisible:(_Bool)arg1 animationDuration:(double)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)_isVisible;
+- (void)_updateTopBlackoutViewForVisible:(_Bool)arg1;
 - (void)setOrientation:(long long)arg1 animated:(_Bool)arg2;
 - (void)_handleAcknowledgmentButtonTapped:(id)arg1;
 @property(nonatomic, getter=isAcknowledgmentButtonHighlighted) _Bool acknowledgmentButtonHighlighted;
 - (void)layoutSubviews;
 - (double)_additionalSpacingForContentSize:(id)arg1;
-- (void)_updateFontsForCurrentContentSize;
+- (void)_updateTextUsingNarrowWidth:(_Bool)arg1;
+- (void)_updateFontsUsingNarrowWidth:(_Bool)arg1;
 - (id)_currentContentSize;
 - (void)updateToContentSize:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

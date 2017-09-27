@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class NSData, NSDate, NSString;
 
-@interface SFAppleIDIdentity : NSObject
+@interface SFAppleIDIdentity : NSObject <NSSecureCoding>
 {
     NSString *_encDSID;
     _Bool _dirty;
@@ -20,7 +22,6 @@
     NSDate *_lastValidationAttemptDate;
     NSDate *_lastValidationDate;
     NSDate *_modificationDate;
-    NSDate *_nextValidationDate;
     NSData *_privateKeyPersistentReference;
     NSString *_serialNumber;
     NSData *_intermediateCertificatePersistentReference;
@@ -30,7 +31,6 @@
 @property(readonly, nonatomic) NSData *intermediateCertificatePersistentReference; // @synthesize intermediateCertificatePersistentReference=_intermediateCertificatePersistentReference;
 @property(retain, nonatomic) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;
 @property(retain, nonatomic) NSData *privateKeyPersistentReference; // @synthesize privateKeyPersistentReference=_privateKeyPersistentReference;
-@property(retain, nonatomic) NSDate *nextValidationDate; // @synthesize nextValidationDate=_nextValidationDate;
 @property(retain, nonatomic) NSDate *modificationDate; // @synthesize modificationDate=_modificationDate;
 @property(retain, nonatomic) NSDate *lastValidationDate; // @synthesize lastValidationDate=_lastValidationDate;
 @property(retain, nonatomic) NSDate *lastValidationAttemptDate; // @synthesize lastValidationAttemptDate=_lastValidationAttemptDate;

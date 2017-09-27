@@ -6,18 +6,24 @@
 
 #import <ControlCenterUI/CCUIModularControlCenterViewController.h>
 
+#import "CCUIOverlayMetricsProvider.h"
+#import "CCUIOverlayViewProvider.h"
 #import "CCUIScrollViewDelegate.h"
 #import "CCUIStatusLabelViewControllerDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class CCUIFlickGestureRecognizer, CCUIHeaderPocketView, CCUIScrollView, MTMaterialView, NSHashTable, NSString, NSUUID, UIPanGestureRecognizer, UITapGestureRecognizer, UIView;
+@class CCUIAnimationRunner, CCUIFlickGestureRecognizer, CCUIHeaderPocketView, CCUIModuleCollectionView, CCUIOverlayTransitionState, CCUIScrollView, CCUIStatusLabelViewController, MTMaterialView, NSHashTable, NSString, NSUUID, UIPanGestureRecognizer, UIScrollView, UIStatusBar, UITapGestureRecognizer, UIView;
 
-@interface CCUIModularControlCenterOverlayViewController : CCUIModularControlCenterViewController <UIGestureRecognizerDelegate, CCUIScrollViewDelegate, CCUIStatusLabelViewControllerDelegate>
+@interface CCUIModularControlCenterOverlayViewController : CCUIModularControlCenterViewController <UIGestureRecognizerDelegate, CCUIScrollViewDelegate, CCUIStatusLabelViewControllerDelegate, CCUIOverlayViewProvider, CCUIOverlayMetricsProvider>
 {
+    id <CCUIOverlayPresentationProvider> _presentationProvider;
+    CCUIAnimationRunner *_animationRunner;
     MTMaterialView *_backgroundView;
     CCUIHeaderPocketView *_headerPocketView;
     CCUIScrollView *_scrollView;
     UIView *_containerView;
+    UIStatusBar *_compactLeadingStatusBar;
+    _Bool _presentationPanGestureActive;
     UIPanGestureRecognizer *_headerPocketViewDismissalPanGesture;
     UITapGestureRecognizer *_headerPocketViewDismissalTapGesture;
     CCUIFlickGestureRecognizer *_collectionViewDismissalFlickGesture;
@@ -25,26 +31,23 @@
     UITapGestureRecognizer *_collectionViewDismissalTapGesture;
     UIPanGestureRecognizer *_collectionViewScrollPanGesture;
     NSHashTable *_blockingGestureRecognizers;
-    struct CGRect _cachedSourcePresentationFrame;
-    struct CGRect _cachedTargetPresentationFrame;
-    double _dismissalGestureYOffset;
     _Bool _interactiveTransition;
     NSUUID *_currentTransitionUUID;
-    double _chevronAlpha;
+    CCUIOverlayTransitionState *_previousTransitionState;
     unsigned long long _presentationState;
 }
 
++ (id)_presentationProviderForDevice;
 @property(nonatomic) unsigned long long presentationState; // @synthesize presentationState=_presentationState;
 - (void).cxx_destruct;
-- (unsigned long long)_statusTextAlignment;
+- (_Bool)_gestureRecognizerIsActive:(id)arg1;
 - (void)_setupPanGestureFailureRequirements;
-- (double)_pocketViewHeight;
+- (void)_updateHotPocket:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_updateHotPocketAnimated:(_Bool)arg1;
 - (_Bool)_scrollViewCanAcceptDownwardsPan;
 - (_Bool)_scrollViewIsScrollable;
 - (_Bool)_scrollPanGestureRecognizerCanBeginForGestureVelocity:(struct CGPoint)arg1;
 - (_Bool)_scrollPanGestureRecognizerShouldBegin:(id)arg1;
-- (double)_dismissalGestureActivationMinimumYOffset;
 - (void)_dismissalPanGestureRecognizerFailed:(id)arg1;
 - (void)_dismissalPanGestureRecognizerCancelled:(id)arg1;
 - (void)_dismissalPanGestureRecognizerEnded:(id)arg1;
@@ -59,11 +62,22 @@
 - (_Bool)_dismissalFlickGestureRecognizerShouldBegin:(id)arg1;
 - (void)_handleDismissalTapGestureRecognizer:(id)arg1;
 - (_Bool)_dismissalTapGestureRecognizerShouldBegin:(id)arg1;
-- (double)_presentationGestureActivationMinimumYOffset;
-- (void)cancelPresentationWithLocation:(struct CGPoint)arg1 velocity:(struct CGPoint)arg2;
-- (void)endPresentationWithLocation:(struct CGPoint)arg1 velocity:(struct CGPoint)arg2;
-- (void)updatePresentationWithLocation:(struct CGPoint)arg1 velocity:(struct CGPoint)arg2;
-- (void)beginPresentationWithLocation:(struct CGPoint)arg1 velocity:(struct CGPoint)arg2;
+- (void)cancelPresentationWithLocation:(struct CGPoint)arg1 translation:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
+- (void)endPresentationWithLocation:(struct CGPoint)arg1 translation:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
+- (void)updatePresentationWithLocation:(struct CGPoint)arg1 translation:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
+- (void)beginPresentationWithLocation:(struct CGPoint)arg1 translation:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
+@property(readonly, nonatomic) unsigned long long overlayStatusBarOptions;
+@property(readonly, nonatomic) long long overlayInterfaceOrientation;
+@property(readonly, nonatomic) struct UIEdgeInsets overlayAdditionalEdgeInsets;
+@property(readonly, nonatomic) struct CGRect overlayContainerFrame;
+@property(readonly, nonatomic) struct CGSize overlayContentSize;
+@property(readonly, nonatomic) UIStatusBar *overlayLeadingStatusBar;
+@property(readonly, nonatomic) CCUIHeaderPocketView *overlayHeaderView;
+@property(readonly, nonatomic) CCUIStatusLabelViewController *overlayStatusLabelViewController;
+@property(readonly, nonatomic) CCUIModuleCollectionView *overlayModuleCollectionView;
+@property(readonly, nonatomic) UIView *overlayContainerView;
+@property(readonly, nonatomic) UIScrollView *overlayScrollView;
+@property(readonly, nonatomic) MTMaterialView *overlayBackgroundView;
 - (void)moduleInstancesChangedForModuleInstanceManager:(id)arg1;
 - (void)statusLabelViewControllerDidFinishStatusUpdates:(id)arg1;
 - (void)statusLabelViewControllerWillBeginStatusUpdates:(id)arg1;
@@ -81,25 +95,18 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
-- (struct CGRect)_moduleCollectionViewFrame;
 - (id)_moduleCollectionViewContainerView;
-- (struct CGRect)_statusLabelViewFrame;
 - (id)_statusLabelViewContainerView;
 - (void)_reparentAndBecomeActive;
-- (void)_makePresentationFramesDirty;
-- (struct CGRect)_targetPresentationFrame;
-- (struct CGRect)_sourcePresentationFrame;
-- (void)_setPocketViewOriginFromCollectionOriginY:(double)arg1;
-- (void)_setCollectionViewOrigin:(struct CGPoint)arg1;
-- (void)_updatePresentationForRevealPercentage:(double)arg1;
-- (void)_updatePresentationForLocationY:(double)arg1;
+- (void)_updatePresentationForTransitionState:(id)arg1 withCompletionHander:(CDUnknownBlockType)arg2;
+- (void)_updatePresentationForTransitionType:(unsigned long long)arg1 translation:(struct CGPoint)arg2 interactive:(_Bool)arg3;
 - (void)_endDismissalWithUUID:(id)arg1 animated:(_Bool)arg2 success:(_Bool)arg3;
 - (id)_beginDismissalAnimated:(_Bool)arg1 interactive:(_Bool)arg2;
 - (void)dismissAnimated:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_endPresentationWithUUID:(id)arg1 success:(_Bool)arg2;
 - (id)_beginPresentationAnimated:(_Bool)arg1 interactive:(_Bool)arg2;
 - (void)presentAnimated:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (struct UIEdgeInsets)edgeInsets;
+- (id)_initWithSystemAgent:(id)arg1 presentationProvider:(id)arg2;
 - (id)initWithSystemAgent:(id)arg1;
 
 // Remaining properties

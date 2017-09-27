@@ -24,6 +24,7 @@
     UIDelayedAction *_recognitionTimer;
     struct CGPoint _lastTouchLocation;
     double _lastTouchTimestamp;
+    long long _lastTouchModifier;
     long long _type;
     _Bool _requiresLongPress;
     int _notifyToken;
@@ -58,8 +59,9 @@
 - (void)_createOrDestoryAnalysisWindowIfNeeded;
 - (void)_idleTimerElapsed:(id)arg1;
 - (void)_longPressTimerElapsed:(id)arg1;
-- (void)_incorporateIncrementalSampleAtLocation:(struct CGPoint)arg1 timestamp:(double)arg2 modifier:(long long)arg3 interfaceOrientation:(long long)arg4 forceState:(long long)arg5;
-- (void)_incorporateInitialTouchAtLocation:(struct CGPoint)arg1 timestamp:(double)arg2 modifier:(long long)arg3 interfaceOrientation:(long long)arg4 forceState:(long long)arg5;
+- (void)_incorporateIncrementalSampleAtLocation:(struct CGPoint)arg1 timestamp:(double)arg2 modifier:(long long)arg3 region:(unsigned long long)arg4 interfaceOrientation:(long long)arg5 forceState:(long long)arg6;
+- (void)_incorporateInitialTouchAtLocation:(struct CGPoint)arg1 timestamp:(double)arg2 modifier:(long long)arg3 region:(unsigned long long)arg4 interfaceOrientation:(long long)arg5 forceState:(long long)arg6;
+- (void)incorporateTouchSampleAtLocation:(struct CGPoint)arg1 timestamp:(double)arg2 modifier:(long long)arg3 region:(unsigned long long)arg4 interfaceOrientation:(long long)arg5 forceState:(long long)arg6;
 - (void)incorporateTouchSampleAtLocation:(struct CGPoint)arg1 timestamp:(double)arg2 modifier:(long long)arg3 interfaceOrientation:(long long)arg4 forceState:(long long)arg5;
 - (unsigned long long)touchedEdgesForInterfaceOrientation:(long long)arg1;
 @property(readonly, nonatomic, getter=isRequiringLongPress) _Bool requiringLongPress;
@@ -69,6 +71,7 @@
 - (void)reset;
 - (void)dealloc;
 - (id)initWithType:(long long)arg1;
+- (id)initWithType:(long long)arg1 settings:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

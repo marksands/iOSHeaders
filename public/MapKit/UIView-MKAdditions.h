@@ -9,6 +9,8 @@
 @interface UIView (MKAdditions)
 + (id)_mapkit_currentAnimationTimingFunction;
 + (_Bool)_mapkit_shouldAdoptImplicitAnimationParameters;
+- (struct CGRect)_mapkit_translateRect:(struct CGRect)arg1 ifNeededFromSingleEdge:(unsigned long long)arg2;
+- (struct UIEdgeInsets)_mapkit_userInterfaceOnlySafeAreaInsets;
 - (void)_mapkit_insertSubview:(id)arg1 atIndex:(long long)arg2;
 
 // Remaining properties

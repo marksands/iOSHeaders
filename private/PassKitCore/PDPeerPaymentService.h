@@ -25,11 +25,13 @@
 - (void)unregisterDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)registerDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)downloadPassIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
+- (void)setLastUsedAlternateFundingSourcePassUniqueIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (void)lastUsedAlternateFundingSourcePassUniqueIdentifier:(CDUnknownBlockType)arg1;
 - (void)balanceForPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateMemo:(id)arg1 forTransactionWithIdentifier:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)noteAccountDeletedWithCompletion:(CDUnknownBlockType)arg1;
 - (void)presentPeerPaymentTermsAndConditionsWithTermsURL:(id)arg1 termsIdentifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)presentRegistrationFlowWithAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)presentRegistrationFlowWithAccount:(id)arg1 amount:(id)arg2 state:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)presentIdentityVerificationFlowWithResponseData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)registrationStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)deleteAccountWithCompletion:(CDUnknownBlockType)arg1;

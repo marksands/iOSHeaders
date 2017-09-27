@@ -6,7 +6,7 @@
 
 #import <ARKit/ARTechnique.h>
 
-@class AVAssetWriter, AVAssetWriterInput, AVAssetWriterInputMetadataAdaptor, AVAssetWriterInputPixelBufferAdaptor, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSURL;
+@class AVAssetWriter, AVAssetWriterInput, AVAssetWriterInputMetadataAdaptor, AVAssetWriterInputPixelBufferAdaptor, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSURL;
 
 @interface ARRecordingTechnique : ARTechnique
 {
@@ -30,8 +30,10 @@
     unsigned long long _sensorDataTypes;
     NSMutableArray *_motionDataCache;
     double _sessionSourceTime;
+    NSMutableDictionary *_lastRecordedTimestamps;
     _Bool _sessionStarted;
     _Bool _stopRecordingRequested;
+    _Bool _expectDepthData;
     _Bool _shouldSaveVideoInPhotosLibrary;
     NSURL *_outputFileURL;
     id <ARRecordingTechniqueDelegate> _recordingTechniqueDelegate;
@@ -39,6 +41,7 @@
 
 @property(nonatomic) __weak id <ARRecordingTechniqueDelegate> recordingTechniqueDelegate; // @synthesize recordingTechniqueDelegate=_recordingTechniqueDelegate;
 @property(nonatomic) _Bool shouldSaveVideoInPhotosLibrary; // @synthesize shouldSaveVideoInPhotosLibrary=_shouldSaveVideoInPhotosLibrary;
+@property(nonatomic) _Bool expectDepthData; // @synthesize expectDepthData=_expectDepthData;
 @property(readonly, nonatomic) NSURL *outputFileURL; // @synthesize outputFileURL=_outputFileURL;
 - (void).cxx_destruct;
 - (id)createFileMetadata;

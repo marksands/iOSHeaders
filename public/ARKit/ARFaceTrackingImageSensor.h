@@ -20,6 +20,7 @@
     _Bool _mirrorVideoOutput;
     AVCaptureDataOutputSynchronizer *_outputSynchronizer;
     NSObject<OS_dispatch_queue> *_outputSynchronizerQueue;
+    NSMutableArray *_outputSynchronizerOutputs;
     NSMutableArray *_faceDetections;
     NSMutableDictionary *_avFaceMeshPayload;
     NSObject<OS_dispatch_semaphore> *_faceSemaphore;
@@ -27,17 +28,21 @@
     _Bool _signpostFirstFaceDone;
     double _startTime;
     unsigned long long _droppedFramesPerSec;
+    _Bool _recordingMode;
+    NSString *_requiredFaceMetaDataObjectType;
 }
 
-+ (void)faceDataFromMetadataObjects:(id)arg1 mirroredVideoInput:(_Bool)arg2 pFaceBoundingBoxes:(id *)arg3 pFacePayload:(id *)arg4;
 + (id)new;
+@property(retain, nonatomic) NSString *requiredFaceMetaDataObjectType; // @synthesize requiredFaceMetaDataObjectType=_requiredFaceMetaDataObjectType;
+@property(nonatomic) _Bool recordingMode; // @synthesize recordingMode=_recordingMode;
 - (void).cxx_destruct;
-- (void)synchronizeOutputs:(id)arg1;
+- (void)prepareSynchronizedOutputs:(id)arg1;
 - (void)captureOutput:(id)arg1 didOutputMetadataObjects:(id)arg2 fromConnection:(id)arg3;
+- (void)faceDataFromMetadataObjects:(id)arg1 mirroredVideoInput:(_Bool)arg2 pFaceBoundingBoxes:(id *)arg3 pFacePayload:(id *)arg4;
 - (void)capturedSynchedOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromVideoConnection:(id)arg3 metaDataOutput:(id)arg4 didOutputMetadataObjects:(id)arg5 didOutputDepthData:(id)arg6 atTime:(CDStruct_1b6d18a9)arg7;
 - (void)dataOutputSynchronizer:(id)arg1 didOutputSynchronizedDataCollection:(id)arg2;
 - (void)captureOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
-- (void)setRequiredMetaDataObjectTypes:(id)arg1;
+- (void)configureMetaDataOutput;
 - (void)stop;
 - (void)start;
 - (id)configureCaptureDevice;

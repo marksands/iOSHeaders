@@ -8,12 +8,14 @@
 
 #import "VSSpeechSynthesizerDelegate.h"
 
-@class NSObject<OS_dispatch_queue>, NSString, SFSiriRequest, VSSpeechSynthesizer;
+@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, SFSiriRequest, VSSpeechSynthesizer;
 
 @interface SFSiriClient : NSObject <VSSpeechSynthesizerDelegate>
 {
-    SFSiriRequest *_currentRequest;
     _Bool _invalidateCalled;
+    unsigned int _invalidateFlags;
+    SFSiriRequest *_currentRequest;
+    NSObject<OS_dispatch_source> *_currentTimer;
     NSString *_languageCode;
     struct NSMutableArray *_requests;
     VSSpeechSynthesizer *_speechSynthesizer;
@@ -24,18 +26,28 @@
 @property(copy, nonatomic) CDUnknownBlockType siriDialogHandler; // @synthesize siriDialogHandler=_siriDialogHandler;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
-- (void)_speechDidFinishRequest:(id)arg1 finished:(_Bool)arg2 error:(id)arg3;
+- (void)speechSynthesizer:(id)arg1 didFinishSynthesisRequest:(id)arg2 withInstrumentMetrics:(id)arg3 error2:(id)arg4;
+- (void)speechSynthesizer:(id)arg1 didFinishSynthesisRequest:(id)arg2 withInstrumentMetrics:(id)arg3 error:(id)arg4;
+- (void)speechSynthesizer:(id)arg1 didFinishSpeakingRequest:(id)arg2 successfully:(_Bool)arg3 withError2:(id)arg4;
 - (void)speechSynthesizer:(id)arg1 didFinishSpeakingRequest:(id)arg2 successfully:(_Bool)arg3 withError:(id)arg4;
+- (void)speechSynthesizer:(id)arg1 withRequest:(id)arg2 didReceiveTimingInfo2:(id)arg3;
+- (void)speechSynthesizer:(id)arg1 withRequest:(id)arg2 didReceiveTimingInfo:(id)arg3;
 - (void)speechSynthesizer:(id)arg1 didStartSpeakingRequest:(id)arg2;
 - (void)_deviceSetupEnd;
 - (void)deviceSetupEnd;
 - (void)deviceSetupBegin;
+- (void)startDelayedRequest:(id)arg1;
+- (void)_completeRequest:(id)arg1 error:(id)arg2;
+- (void)_completeAllRequestsWithError:(id)arg1;
 - (void)_processQueuedRequests;
 - (void)stopSpeaking;
-- (void)_speakText:(id)arg1 rate:(double)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_speakText:(id)arg1 flags:(unsigned int)arg2 rate:(double)arg3 delay:(double)arg4 startHandler:(CDUnknownBlockType)arg5 completion:(CDUnknownBlockType)arg6;
+- (void)speakText:(id)arg1 flags:(unsigned int)arg2 rate:(double)arg3 delay:(double)arg4 startHandler:(CDUnknownBlockType)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)speakText:(id)arg1 rate:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)speakText:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)speakDeviceSetupWelcomePhaseWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_invalidate;
+- (void)invalidateWithFlags:(unsigned int)arg1;
 - (void)invalidate;
 - (void)_activate;
 - (void)activate;

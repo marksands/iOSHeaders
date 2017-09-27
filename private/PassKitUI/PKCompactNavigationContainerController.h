@@ -7,25 +7,31 @@
 #import "UIViewController.h"
 
 #import "PKContentContainerObserver.h"
+#import "UIGestureRecognizerDelegate.h"
 #import "UINavigationControllerDelegate.h"
 #import "UIViewControllerTransitioningDelegate.h"
 
-@class NSString, UINavigationController<PKObservableContentContainer>;
+@class NSString, UINavigationController<PKObservableContentContainer>, UITapGestureRecognizer;
 
-@interface PKCompactNavigationContainerController : UIViewController <UIViewControllerTransitioningDelegate, UINavigationControllerDelegate, PKContentContainerObserver>
+@interface PKCompactNavigationContainerController : UIViewController <UIViewControllerTransitioningDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, PKContentContainerObserver>
 {
     UIViewController *_presentationContextVC;
     _Bool _isRoot;
     struct CGSize _childViewControllerPreferredContentSize;
+    double _minimumNavigationControllerHeight;
     struct CGRect _statusBarFrame;
+    UITapGestureRecognizer *_tapGestureRecognizer;
+    _Bool _transitioning;
     _Bool _presentingNavigationController;
     UINavigationController<PKObservableContentContainer> *_containedNavigationController;
     id <UICoordinateSpace> _exclusionCoordinateSpace;
+    id <PKCompactNavigationContainerControllerDelegate> _delegate;
     struct CGRect _exclusionRect;
 }
 
 + (id)dimmingColor;
 @property(nonatomic, getter=isPresentingNavigationController) _Bool presentingNavigationController; // @synthesize presentingNavigationController=_presentingNavigationController;
+@property(nonatomic) __weak id <PKCompactNavigationContainerControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) id <UICoordinateSpace> exclusionCoordinateSpace; // @synthesize exclusionCoordinateSpace=_exclusionCoordinateSpace;
 @property(readonly, nonatomic) struct CGRect exclusionRect; // @synthesize exclusionRect=_exclusionRect;
 @property(readonly, nonatomic) UINavigationController<PKObservableContentContainer> *containedNavigationController; // @synthesize containedNavigationController=_containedNavigationController;
@@ -36,6 +42,9 @@
 - (id)childViewControllerForHomeIndicatorAutoHidden;
 - (id)childViewControllerForStatusBarStyle;
 - (id)childViewControllerForStatusBarHidden;
+- (void)tapGestureRecognized:(id)arg1;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (id)animationControllerForDismissedController:(id)arg1;
 - (id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3;
 - (void)navigationController:(id)arg1 didShowViewController:(id)arg2 animated:(_Bool)arg3;

@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSArray, VSAccount, VSApplicationController, VSFailable, VSIdentityProvider, VSIdentityProviderRequest, VSIdentityProviderRequestManager;
+@class VSAccount, VSApplicationController, VSFailable, VSIdentityProvider, VSIdentityProviderRequest, VSIdentityProviderRequestManager;
 
 @protocol VSIdentityProviderRequestManagerDelegate <NSObject>
 - (void)identityProviderRequestManager:(VSIdentityProviderRequestManager *)arg1 finishedRequest:(VSIdentityProviderRequest *)arg2 withResult:(VSFailable *)arg3;
 
 @optional
 - (VSApplicationController *)identityProviderRequestManager:(VSIdentityProviderRequestManager *)arg1 applicationControllerWithIdentityProvider:(VSIdentityProvider *)arg2;
-- (void)identityProviderRequestManager:(VSIdentityProviderRequestManager *)arg1 didAuthenticateAccount:(VSAccount *)arg2 supportingApps:(NSArray *)arg3 forRequest:(VSIdentityProviderRequest *)arg4;
+- (void)identityProviderRequestManager:(VSIdentityProviderRequestManager *)arg1 didAuthenticateAccount:(VSAccount *)arg2 forRequest:(VSIdentityProviderRequest *)arg3;
 @end
 

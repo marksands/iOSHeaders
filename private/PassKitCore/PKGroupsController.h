@@ -71,6 +71,7 @@
 @property(readonly, nonatomic) _Bool filteringEnabled;
 - (void)handleUserPassDelete:(id)arg1;
 - (void)handleUserPassesDelete:(id)arg1;
+- (id)passWithUniqueID:(id)arg1;
 - (unsigned long long)indexOfSeparationGroup;
 - (unsigned long long)groupIndexForPassUniqueID:(id)arg1;
 - (unsigned long long)indexOfGroup:(id)arg1;

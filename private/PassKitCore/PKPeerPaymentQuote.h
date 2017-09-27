@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSData, NSDate, NSDecimalNumber, NSString, NSURL, PKPeerPaymentRecipient;
+@class NSArray, NSData, NSDate, NSDecimalNumber, NSString, NSURL, PKCurrencyAmount, PKPeerPaymentRecipient;
 
 @interface PKPeerPaymentQuote : NSObject <NSSecureCoding>
 {
@@ -52,6 +52,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
+@property(readonly, nonatomic) PKCurrencyAmount *calculatedTotalAmount;
 @property(readonly, nonatomic) double validityDuration;
 
 @end

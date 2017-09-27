@@ -215,6 +215,7 @@
 - (void)dealloc;
 - (id)initWithUIElement:(id)arg1;
 - (id)initWithAXUIElement:(struct __AXUIElement *)arg1;
+- (id)makeLookingGlassRequest:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,11 +6,12 @@
 
 #import <ChatKit/CKImageBalloonView.h>
 
+#import "ISChangeObserver.h"
 #import "ISWrappedAVPlayerDelegate.h"
 
-@class CKMovieMediaObject, ISVideoPlayerUIView, ISWrappedAVAudioSession, ISWrappedAVPlayer, NSString, UIImageView;
+@class CKMovieMediaObject, ISVideoPlayerUIView, ISWrappedAVAudioSession, ISWrappedAVPlayer, NSString, UIImageView, UIView;
 
-@interface CKAutoloopMovieBalloonView : CKImageBalloonView <ISWrappedAVPlayerDelegate>
+@interface CKAutoloopMovieBalloonView : CKImageBalloonView <ISWrappedAVPlayerDelegate, ISChangeObserver>
 {
     _Bool _isJellyfishVideo;
     _Bool _isMuted;
@@ -19,11 +20,14 @@
     ISWrappedAVPlayer *_avPlayer;
     ISWrappedAVAudioSession *_audioSession;
     UIImageView *_muteButton;
+    UIView *_snapshotView;
 }
 
++ (id)_autoloopAVAudioSessionQueue;
 + (_Bool)isEnabled;
 + (Class)VideoPlayerUIViewClass;
 + (Class)AVPlayerClass;
+@property(retain, nonatomic) UIView *snapshotView; // @synthesize snapshotView=_snapshotView;
 @property(nonatomic) _Bool isMuted; // @synthesize isMuted=_isMuted;
 @property(retain, nonatomic) UIImageView *muteButton; // @synthesize muteButton=_muteButton;
 @property(retain, nonatomic) ISWrappedAVAudioSession *audioSession; // @synthesize audioSession=_audioSession;
@@ -32,8 +36,15 @@
 @property(nonatomic) _Bool isJellyfishVideo; // @synthesize isJellyfishVideo=_isJellyfishVideo;
 @property(retain, nonatomic) CKMovieMediaObject *mediaObject; // @synthesize mediaObject=_mediaObject;
 - (void).cxx_destruct;
+- (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)avPlayerDidDeallocate;
 - (void)avPlayer:(id)arg1 itemDidPlayToEnd:(id)arg2;
+- (_Bool)_shouldPresentQuickLookOnTap;
+- (_Bool)_shouldPauseInitialLooping;
+- (void)_removeSnapshot;
+- (_Bool)_applicationStateAcceptableForLooping;
+- (void)_thermalStateDidChange:(id)arg1;
+- (_Bool)_thermalStateAcceptableForLooping;
 - (void)tapGestureRecognized:(id)arg1;
 - (void)didMoveToWindow;
 - (void)prepareForDisplay;
@@ -41,6 +52,7 @@
 - (void)layoutSubviews;
 @property(readonly, copy) NSString *description;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)dealloc;
 - (void)configureForMediaObject:(id)arg1 previewWidth:(double)arg2 orientation:(BOOL)arg3;
 
 // Remaining properties

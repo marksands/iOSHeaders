@@ -80,7 +80,7 @@
 - (void)sendPersistedFile:(NSURL *)arg1 userInfo:(NSDictionary *)arg2 toDestinations:(NSArray *)arg3 usingAccountWithUniqueID:(NSString *)arg4 identifier:(NSString *)arg5;
 - (void)cancelItemWithIdentifier:(NSString *)arg1 service:(NSString *)arg2;
 - (void)sendMessageWithSendParameters:(NSDictionary *)arg1;
-- (void)rollKeys;
+- (void)regenerateRegisteredIdentity;
 - (void)incomingAccountSyncMessage:(NSDictionary *)arg1;
 - (void)setPairedDeviceInfo:(NSDictionary *)arg1;
 - (void)updateSubServices:(NSArray *)arg1 forService:(NSString *)arg2 deviceUniqueID:(NSString *)arg3;

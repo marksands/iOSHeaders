@@ -21,7 +21,6 @@
 - (id)accessibilityCustomRotors;
 @property(readonly, nonatomic) _Bool isBouncing;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
-- (void)safeAreaInsetsDidChange;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

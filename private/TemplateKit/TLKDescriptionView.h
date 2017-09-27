@@ -48,7 +48,6 @@
 - (void)simulateMoreButtonPress;
 - (void)moreButtonPressed;
 - (struct CGRect)containerView:(id)arg1 layoutFrameForArrangedSubview:(id)arg2 withProposedFrame:(struct CGRect)arg3;
-- (struct CGSize)idealFittingSizeOfImageViewForFittingSize:(struct CGSize)arg1;
 - (struct CGSize)containerView:(id)arg1 systemLayoutSizeFittingSize:(struct CGSize)arg2 forArrangedSubview:(id)arg3;
 - (long long)containerBoxView:(id)arg1 verticalAlignmentForArrangedSubview:(id)arg2;
 - (long long)containerBoxView:(id)arg1 horizontalAlignmentForArrangedSubview:(id)arg2;

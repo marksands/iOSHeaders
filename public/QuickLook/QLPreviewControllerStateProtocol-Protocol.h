@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSData, NSString, NSURL;
+@class NSData, NSString, NSURL, UIColor;
 
 @protocol QLPreviewControllerStateProtocol <NSObject>
 - (void)updateTitle:(NSString *)arg1;
@@ -26,6 +26,7 @@
 - (void)setToolbarCanBeVisible:(_Bool)arg1;
 - (void)previewCollectionPrefersWhitePointAdaptivityStyle:(long long)arg1;
 - (void)previewCollectionUpdatePreviewItem:(long long)arg1;
+- (void)setFullscreenBackgroundColor:(UIColor *)arg1;
 - (void)setFullScreen:(_Bool)arg1;
 @end
 

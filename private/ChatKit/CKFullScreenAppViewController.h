@@ -37,7 +37,6 @@
     struct CGRect _targetBrowserFrame;
 }
 
-+ (double)navbarHeight;
 @property(retain, nonatomic) CKBrowserSwitcherFooterView *footerSwitcherView; // @synthesize footerSwitcherView=_footerSwitcherView;
 @property(nonatomic) long long lastKnownDeviceOrientation; // @synthesize lastKnownDeviceOrientation=_lastKnownDeviceOrientation;
 @property(nonatomic) _Bool inDragAndDrop; // @synthesize inDragAndDrop=_inDragAndDrop;
@@ -55,6 +54,7 @@
 - (void)switcherView:(id)arg1 didMagnify:(_Bool)arg2;
 - (id)indexPathOfCurrentlySelectedPluginInSwitcherView:(id)arg1;
 - (void)switcherView:(id)arg1 didSelectPluginAtIndex:(id)arg2;
+- (_Bool)_currentPluginIsJellyfish;
 - (_Bool)_currentPluginIsAppManager;
 - (_Bool)_currentPluginIsAppStore;
 - (void)collapse;
@@ -82,6 +82,7 @@
 - (void)animateBrowserViewToTargetRect:(struct CGRect)arg1 grabberView:(id)arg2 switcherFooterView:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)animateBrowserViewFromSourceRect:(struct CGRect)arg1 interactive:(_Bool)arg2 grabberView:(id)arg3 switcherFooterView:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (struct CGRect)finalContentViewFrame;
+- (double)topAreaHeight;
 - (double)footerHeight;
 - (void)updateFooterViewFrame;
 - (void)viewDidLayoutSubviews;

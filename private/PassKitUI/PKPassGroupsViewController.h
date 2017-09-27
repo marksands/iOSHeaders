@@ -23,7 +23,6 @@
     PKPassGroupStackView *_groupStackView;
     _UIBackdropView *_headerBackground;
     _UIBackdropView *_footerBackground;
-    PKGroupsController *_groupsController;
     PKPaymentService *_paymentService;
     unsigned long long _modalCardIndex;
     long long _presentationState;
@@ -47,6 +46,8 @@
     PKPeerPaymentService *_peerPaymentService;
     _Bool _handleFieldDetection;
     _Bool _welcomeStateEnabled;
+    long long _style;
+    PKGroupsController *_groupsController;
     unsigned long long _suppressedContent;
 }
 
@@ -59,6 +60,8 @@
 @property _Bool handleFieldDetection; // @synthesize handleFieldDetection=_handleFieldDetection;
 @property _Bool passesAreOutdated; // @synthesize passesAreOutdated=_passesAreOutdated;
 @property(nonatomic) unsigned long long suppressedContent; // @synthesize suppressedContent=_suppressedContent;
+@property(readonly, nonatomic) PKGroupsController *groupsController; // @synthesize groupsController=_groupsController;
+@property(readonly, nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
 - (void)paymentSetupDidFinish:(id)arg1;
 - (void)_updateBackdropSettings;
@@ -99,6 +102,7 @@
 - (void)presentTransactionDetailsForTransactionWithServiceIdentifier:(id)arg1;
 - (void)presentTransactionDetailsForTransactionWithIdentifier:(id)arg1;
 - (void)presentPassWithUniqueID:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)presentPaymentPassDetailsWithUniqueID:(id)arg1 animated:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)presentPassWithUniqueID:(id)arg1 animated:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setTableModalPresentationEnabled:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)presentGroupTableAnimated:(_Bool)arg1;
@@ -116,7 +120,9 @@
 - (void)presentPassWithFieldProperties:(id)arg1 fieldPassUniqueIdentifiers:(id)arg2 animated:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)presentPassWithFieldProperties:(id)arg1 animated:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)presentPassWithUpdateUserNotificationIdentifier:(id)arg1;
+- (void)presentDefaultPaymentPassAnimated:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_presentGroupWithIndex:(unsigned long long)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) _Bool presentingPass;
 - (void)paymentDeviceDidEnterFieldWithProperties:(id)arg1;
 - (id)groupsControllerShouldExcludePassesWithUniqueIDsFromFiltering:(id)arg1;
 - (void)groupsController:(id)arg1 didMoveGroup:(id)arg2 fromIndex:(unsigned long long)arg3 toIndex:(unsigned long long)arg4;
@@ -169,6 +175,7 @@
 - (_Bool)prefersStatusBarHidden;
 - (void)loadView;
 - (void)dealloc;
+- (id)initWithGroupsController:(id)arg1 style:(long long)arg2;
 - (id)initWithGroupsController:(id)arg1;
 - (id)init;
 - (id)initWithCoder:(id)arg1;

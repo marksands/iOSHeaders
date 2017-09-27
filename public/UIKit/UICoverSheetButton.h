@@ -7,43 +7,48 @@
 #import <UIKit/UIControl.h>
 
 #import "UIClickInteractionDelegate.h"
+#import "_UIInteractiveHighlighting.h"
 
-@class NSString, UIClickInteraction, UIImage, UIImageView, UIView, UIVisualEffectView;
+@class NSArray, NSString, UIClickInteraction, UIColor, UIImage, UIImageView, UIView, UIVisualEffectView;
 
-@interface UICoverSheetButton : UIControl <UIClickInteractionDelegate>
+@interface UICoverSheetButton : UIControl <UIClickInteractionDelegate, _UIInteractiveHighlighting>
 {
     UIView *_containerView;
-    UIView *_transformView;
-    UIView *_contentView;
+    UIImageView *_contentView;
     UIVisualEffectView *_backgroundEffectView;
-    UIView *_backgroundEffectMaskView;
-    UIImageView *_backgroundEffectMaskImageView;
-    UIVisualEffectView *_contentEffectView;
-    UIImageView *_contentEffectMaskView;
+    NSArray *_backgroundEffects;
+    NSArray *_selectedBackgroundEffects;
+    UIView *_backgroundHighlightView;
     UIClickInteraction *_clickInteraction;
     _Bool _interactive;
+    double _interactiveHighlightMagnitude;
     _Bool _pronounced;
     _Bool _prefersDarkUserInterfaceStyle;
     UIImage *_image;
     UIImage *_selectedImage;
+    UIColor *_selectedTintColor;
+    NSString *_localizedAccessoryTitle;
     struct UIEdgeInsets _edgeInsets;
 }
 
+@property(copy, nonatomic) NSString *localizedAccessoryTitle; // @synthesize localizedAccessoryTitle=_localizedAccessoryTitle;
 @property(nonatomic) struct UIEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
 @property(nonatomic) _Bool prefersDarkUserInterfaceStyle; // @synthesize prefersDarkUserInterfaceStyle=_prefersDarkUserInterfaceStyle;
+@property(retain, nonatomic) UIColor *selectedTintColor; // @synthesize selectedTintColor=_selectedTintColor;
 @property(retain, nonatomic) UIImage *selectedImage; // @synthesize selectedImage=_selectedImage;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(nonatomic, getter=isPronounced) _Bool pronounced; // @synthesize pronounced=_pronounced;
-@property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 - (void).cxx_destruct;
+- (id)_backgroundEffectsWithBrightness:(double)arg1;
 - (void)layoutIfNeededAnimated;
-- (id)_contentImage_workaround;
+- (void)_highlightForInteraction:(id)arg1 fractionComplete:(double)arg2 ended:(_Bool)arg3;
 - (void)clickInteractionDidEnd:(id)arg1;
 - (_Bool)clickInteractionShouldInvokeAction:(id)arg1;
 - (void)clickInteractionDidBegin:(id)arg1;
-- (id)clickInteractionHighlightView:(id)arg1;
 - (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setSelected:(_Bool)arg1;
+@property(nonatomic, getter=isLatching) _Bool latching;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

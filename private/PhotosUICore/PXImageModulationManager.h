@@ -7,15 +7,17 @@
 #import <PhotosUICore/PXObservable.h>
 
 #import "PXChangeObserver.h"
+#import "PXPreferencesObserver.h"
 #import "PXSettingsKeyObserver.h"
 
 @class CAContext, NSHashTable, NSString, PXImageModulationSettings, PXRequestedEDRHeadroomFactorFilter, UIViewController;
 
-@interface PXImageModulationManager : PXObservable <PXChangeObserver, PXSettingsKeyObserver>
+@interface PXImageModulationManager : PXObservable <PXChangeObserver, PXSettingsKeyObserver, PXPreferencesObserver>
 {
     struct {
         _Bool enabled;
         _Bool lowPowerModeEnabled;
+        _Bool active;
         _Bool HDRFocus;
         _Bool imageModulationIntensity;
         _Bool requestedEDRHeadroomFactor;
@@ -24,9 +26,10 @@
     } _needsUpdateFlags;
     double _lastRequestedEDRHeadroomChangeTime;
     _Bool _lowPowerModeEnabled;
-    _Bool _active;
+    _Bool _applicationActive;
     _Bool _mainScreen;
     _Bool _enabled;
+    _Bool _active;
     PXImageModulationSettings *_settings;
     NSHashTable *_imageLayerModulators;
     PXRequestedEDRHeadroomFactorFilter *_requestedEDRHeadroomFactorFilter;
@@ -43,16 +46,18 @@
 @property(readonly, nonatomic) double requestedEDRHeadroomFactor; // @synthesize requestedEDRHeadroomFactor=_requestedEDRHeadroomFactor;
 @property(readonly, nonatomic) double imageModulationIntensity; // @synthesize imageModulationIntensity=_imageModulationIntensity;
 @property(readonly, nonatomic) double HDRFocus; // @synthesize HDRFocus=_HDRFocus;
+@property(readonly, nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
 @property(readonly, nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(readonly, nonatomic, getter=isMainScreen) _Bool mainScreen; // @synthesize mainScreen=_mainScreen;
 @property(readonly, nonatomic) __weak UIViewController *rootViewController; // @synthesize rootViewController=_rootViewController;
-@property(nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
+@property(nonatomic, getter=isApplicationActive) _Bool applicationActive; // @synthesize applicationActive=_applicationActive;
 @property(nonatomic, getter=isLowPowerModeEnabled) _Bool lowPowerModeEnabled; // @synthesize lowPowerModeEnabled=_lowPowerModeEnabled;
 @property(retain, nonatomic) CAContext *coreAnimationContext; // @synthesize coreAnimationContext=_coreAnimationContext;
 @property(readonly, nonatomic) PXRequestedEDRHeadroomFactorFilter *requestedEDRHeadroomFactorFilter; // @synthesize requestedEDRHeadroomFactorFilter=_requestedEDRHeadroomFactorFilter;
 @property(readonly, nonatomic) NSHashTable *imageLayerModulators; // @synthesize imageLayerModulators=_imageLayerModulators;
 @property(readonly, nonatomic) PXImageModulationSettings *settings; // @synthesize settings=_settings;
 - (void).cxx_destruct;
+- (void)preferencesDidChange;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)_updateImageLayerModulatorsIfNeeded;
@@ -65,6 +70,8 @@
 - (void)_invalidateImageModulationIntensity;
 - (void)_updateHDRFocusIfNeeded;
 - (void)_invalidateHDRFocus;
+- (void)_updateActiveIfNeeded;
+- (void)_invalidateActive;
 - (void)_updateLowPowerModeEnabledIfNeeded;
 - (void)_invalidateLowPowerModeEnabled;
 - (void)_updateEnabledIfNeeded;
@@ -86,6 +93,7 @@
 - (void)_updateImageLayerModulator:(id)arg1;
 - (void)checkInImageLayerModulator:(id)arg1;
 - (id)checkoutImageLayerModulatorWithOptions:(long long)arg1;
+- (void)setActive:(_Bool)arg1;
 - (void)setEnabled:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithRootViewController:(id)arg1 mainScreen:(_Bool)arg2;

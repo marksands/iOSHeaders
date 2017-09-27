@@ -55,12 +55,12 @@
 - (void)didMoveToWindow;
 - (void)_updatePreferredFramesPerSecond;
 - (void)_updateFramesPerSecondWithTarget:(long long)arg1 shouldRestrictFrameRate:(_Bool)arg2;
+@property(nonatomic) long long actualPreferredFramesPerSecond;
 - (void)_updateDebugVisualization:(id)arg1;
 - (void)_removeAnchors;
 - (void)_updateNode:(id)arg1 forAnchor:(id)arg2;
 - (void)_updateAnchors;
 - (void)_addAnchors;
-- (id)_sphericalHarmonicsForLightEstimate:(id)arg1;
 - (void)_updateLighting:(id)arg1;
 - (void)_updateCamera:(id)arg1;
 - (void)_forceUpdateCamera;

@@ -32,6 +32,11 @@
 - (id)_nextLocalViewController;
 - (id)_generateFieldsModel;
 - (void)_formViewControllersWithExplanationView:(_Bool)arg1;
+- (id)_accountLockedErrorViewController;
+- (id)_accountRestrictedErrorViewController;
+- (id)_verificationErrorViewController;
+- (void)_resetViewControllers;
+- (void)_identityVerificationResquestWithCompletion:(CDUnknownBlockType)arg1;
 - (void)nextViewControllerWithCompletion:(CDUnknownBlockType)arg1;
 - (id)initWithPeerPaymentWebService:(id)arg1 identityVerificationResponse:(id)arg2 setupDelegate:(id)arg3 context:(long long)arg4;
 - (id)init;

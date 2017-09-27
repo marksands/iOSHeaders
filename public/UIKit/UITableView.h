@@ -346,6 +346,7 @@
     NSMutableArray *_placeholderContexts;
     id <UITableViewDragSourceDelegate> _dragSourceDelegate;
     id <UITableViewDragDestinationDelegate> _dragDestinationDelegate;
+    struct UIEdgeInsets _cachedSectionIndexBarInsets;
 }
 
 + (void)initialize;
@@ -358,6 +359,7 @@
 @property(retain, nonatomic, getter=_placeholderContexts, setter=_setPlaceholderContexts:) NSMutableArray *placeholderContexts; // @synthesize placeholderContexts=_placeholderContexts;
 @property(retain, nonatomic, getter=_dropController, setter=_setDropController:) _UITableViewDropController *dropController; // @synthesize dropController=_dropController;
 @property(retain, nonatomic, getter=_dragController, setter=_setDragController:) _UITableViewDragController *dragController; // @synthesize dragController=_dragController;
+@property(nonatomic, getter=_cachedSectionIndexBarInsets, setter=_setCachedSectionIndexBarInsets:) struct UIEdgeInsets cachedSectionIndexBarInsets; // @synthesize cachedSectionIndexBarInsets=_cachedSectionIndexBarInsets;
 @property(copy, nonatomic, getter=_indexPathToFocus, setter=_setIndexPathToFocus:) NSIndexPath *indexPathToFocus; // @synthesize indexPathToFocus=_indexPathToFocus;
 @property(retain, nonatomic, getter=_focusedCell, setter=_setFocusedCell:) UIView *focusedCell; // @synthesize focusedCell=_focusedCell;
 @property(copy, nonatomic, getter=_focusedCellIndexPath, setter=_setFocusedCellIndexPath:) NSIndexPath *focusedCellIndexPath; // @synthesize focusedCellIndexPath=_focusedCellIndexPath;
@@ -885,6 +887,7 @@
 - (id)dequeueReusableCellWithIdentifier:(id)arg1 forIndexPath:(id)arg2;
 - (id)dequeueReusableCellWithIdentifier:(id)arg1;
 - (id)_dequeueReusableViewOfType:(int)arg1 withIdentifier:(id)arg2;
+- (void)_updateTableHeaderFooterViewInsetsContentViewsToSafeArea;
 @property(retain, nonatomic) UIView *tableFooterView;
 @property(retain, nonatomic) UIView *tableHeaderView;
 - (void)setBackgroundColor:(id)arg1;
@@ -1167,7 +1170,9 @@
 - (void)_updateIndexTitles:(id)arg1;
 - (void)_updateIndexFrameSuppressingChangeNotification:(_Bool)arg1;
 - (void)_updateIndexFrame;
+- (void)_setNeedsIndexBarInsetsUpdate;
 - (struct UIEdgeInsets)_insetsForIndexBar;
+- (void)_boundingPathMayHaveChangedForView:(id)arg1 relativeToBoundsOriginOnly:(_Bool)arg2;
 - (void)_updateBackgroundView;
 - (void)_updateBackgroundViewFrame;
 - (void)_updateContentSize;

@@ -11,7 +11,6 @@
 __attribute__((visibility("hidden")))
 @interface UIKeyboardCandidateGridCollectionView : UIKBCandidateCollectionView
 {
-    double _indexMaximumHeight;
     UITableViewIndex *_index;
     UIKeyboardCandidateGridCollectionViewController *_parentViewController;
     double _previousGroupBarStartingY;

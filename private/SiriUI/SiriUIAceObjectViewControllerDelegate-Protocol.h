@@ -23,7 +23,6 @@
 - (SAUIListItem *)siriViewController:(id <SiriUIViewController>)arg1 listItemToPickInAutodisambiguationForListItems:(NSArray *)arg2;
 - (SiriUIDisambiguationItem *)siriViewController:(id <SiriUIViewController>)arg1 disambiguationItemForListItem:(SAUIListItem *)arg2 disambiguationKey:(NSString *)arg3;
 - (NSArray *)siriViewController:(id <SiriUIViewController>)arg1 filteredDisambiguationListItems:(NSArray *)arg2;
-- (void)siriViewControllerHeightDidChange:(id <SiriUIViewController>)arg1 heightDifference:(double)arg2;
 - (void)siriViewController:(id <SiriUIViewController>)arg1 setContentOffset:(double)arg2;
 - (void)siriViewControllerHeightDidChange:(id <SiriUIViewController>)arg1 pinTopOfSnippet:(_Bool)arg2;
 - (void)siriViewControllerHeightDidChange:(id <SiriUIViewController>)arg1;

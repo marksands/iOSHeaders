@@ -79,6 +79,7 @@
 - (_Bool)gizmoGetAutoSpeakEnabledForComplication:(id)arg1 slot:(id)arg2 face:(id)arg3;
 - (void)gizmoSetAutoSpeakEnabledForComplication:(id)arg1 slot:(id)arg2 face:(id)arg3 toggle:(_Bool)arg4;
 @property(nonatomic) _Bool gizmoApplicationAccessibilityEnabled;
+@property(nonatomic) _Bool appValidationTestingMode;
 @property(nonatomic) double magnifierBrightness;
 @property(nonatomic) double magnifierContrast;
 @property(nonatomic) _Bool magnifierFilterInverted;
@@ -142,6 +143,7 @@
 @property(copy, nonatomic) NSString *voiceOverBrailleTableIdentifier;
 - (_Bool)_anyUserPreferredLangaugeIsRTL;
 - (void)_localeChange:(id)arg1;
+@property(nonatomic) _Bool voiceOverEditAppsActionEnabled;
 @property(copy, nonatomic) NSArray *voiceOverRotorItems;
 @property(nonatomic) _Bool voiceOverSpeakNotificationsEnabled;
 @property(nonatomic) _Bool voiceOverSpeakingRateInRotorEnabled;
@@ -221,6 +223,8 @@
 - (void)setTestingExtantVoices:(id)arg1;
 - (id)_retrieveVoices:(id)arg1;
 - (void)_setVoiceArray:(id)arg1 forKey:(id)arg2;
+@property(nonatomic) _Bool didTriggerSOSToday;
+- (_Bool)didTriggerSOSValueSet;
 @property(nonatomic) _Bool syncPronunciationsWithCloudKit;
 @property(nonatomic) _Bool enableVoiceOverCaptions;
 @property(nonatomic) long long internalLoggingColorTheme;
@@ -312,6 +316,11 @@
 @property(nonatomic) double assistiveTouchIdleOpacity;
 - (_Bool)assistiveTouchCustomizationEnabled;
 @property(retain, nonatomic) NSString *assistiveTouchOrbAction;
+@property(retain, nonatomic) NSString *assistiveTouchLongPressAction;
+@property(nonatomic) double assistiveTouchLongPressActionDuration;
+@property(nonatomic) double assistiveTouchDoubleTapActionTimeout;
+@property(retain, nonatomic) NSString *assistiveTouchDoubleTapAction;
+@property(retain, nonatomic) NSString *assistiveTouchSingleTapAction;
 - (_Bool)assistiveTouchScannerPrefersCompact:(id)arg1;
 - (void)setAssistiveTouchScannerPrefersCompact:(_Bool)arg1 forLanguage:(id)arg2;
 @property(nonatomic) _Bool assistiveTouchScannerAddedTripleClickAutomatically;

@@ -13,7 +13,7 @@
 #import "PKPassPaymentSummaryViewDelegate.h"
 #import "PKPaymentServiceDelegate.h"
 
-@class NSMutableArray, NSNumber, NSObject<OS_dispatch_source>, NSString, PKAuthenticator, PKContactlessInterfaceSession, PKFooterTransactionView, PKPassLibrary, PKPassPaymentApplicationView, PKPassPaymentPayStateView, PKPassPaymentSummaryView, PKPassValueAddedServiceInfoView, PKPaymentService, PKPeerPaymentContactResolver, PKPeerPaymentService, PKPhysicalButtonView, UIButton, UIView, UIViewController;
+@class NSMutableArray, NSNumber, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, PKAuthenticator, PKContactlessInterfaceSession, PKFooterTransactionView, PKPassLibrary, PKPassPaymentApplicationView, PKPassPaymentPayStateView, PKPassPaymentSummaryView, PKPassPeerPaymentAccountResolutionView, PKPassValueAddedServiceInfoView, PKPaymentService, PKPeerPaymentAccountResolutionController, PKPeerPaymentContactResolver, PKPeerPaymentService, PKPhysicalButtonView, UIButton, UIView, UIViewController;
 
 @interface PKPassPaymentContainerView : PKPassFooterContentView <PKPaymentServiceDelegate, PKAuthenticatorDelegate, PKPassPaymentSummaryViewDelegate, PKPassPaymentPayStateViewDelegate, PKPassPaymentApplicationViewDelegate, PKContactlessInterfaceSessionDelegate>
 {
@@ -21,8 +21,10 @@
     PKAuthenticator *_authenticator;
     PKContactlessInterfaceSession *_contactlessInterfaceSession;
     PKPassPaymentPayStateView *_payStateView;
+    NSObject<OS_dispatch_queue> *_authorizationQueue;
     PKPeerPaymentService *_peerPaymentService;
     PKPeerPaymentContactResolver *_transactionFooterContactResolver;
+    PKPeerPaymentAccountResolutionController *_peerPaymentAccountResolutionController;
     id <UICoordinateSpace> _fixedScreenCoordinateSpace;
     PKPhysicalButtonView *_physicalButtonView;
     PKFooterTransactionView *_transactionView;
@@ -31,6 +33,7 @@
     NSString *_ignoringUpdatesFromTransactionIdentifier;
     PKPassLibrary *_passLibrary;
     PKPassPaymentSummaryView *_paymentSummaryView;
+    PKPassPeerPaymentAccountResolutionView *_peerPaymentAccountResolutionView;
     PKPassPaymentApplicationView *_applicationsView;
     PKPassValueAddedServiceInfoView *_valueAddedServiceInfoView;
     UIButton *_actionButton;
@@ -88,6 +91,7 @@
 - (_Bool)_isSummaryViewVisible;
 - (_Bool)_isTransactionViewVisible;
 - (_Bool)_showTransactionViewDuringPayment;
+- (_Bool)_showPeerPaymentAccountResolutionView;
 - (_Bool)_showSummaryState;
 - (_Bool)_showPhysicalButtonView;
 - (void)_stopBiometricRecognitionAnimationWithSuccess:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
@@ -139,6 +143,10 @@
 - (void)_updateContentViewsWithTransaction:(id)arg1;
 - (void)_applyLatestTransactionContentWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_applyLatestContentToViews;
+- (void)_resetCardEmulationWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_resetActiveApplicationForPaymentPass:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)_authorizeForTransactionWithCredential:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)_activatePaymentApplication:(id)arg1 forPaymentPass:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)_promoteToAuthorizedStateIfPossible;
 - (void)_resetToIdleStateAfterDelay:(double)arg1 whileIgnoreField:(_Bool)arg2;
 - (void)_resetToIdleStateAfterDelay:(double)arg1;
@@ -149,7 +157,6 @@
 - (void)_passcodeAuthenticationButtonPressed:(id)arg1;
 - (void)_beginPasscodeOnlyAuthentication;
 - (void)_activateForPayment;
-- (_Bool)_authorizeForTransactionWithCredential:(id)arg1;
 - (void)_endContactlessPaymentSession;
 - (void)_performAuthentication;
 - (void)_cancelSummaryAuthenticationTimer;
@@ -179,6 +186,7 @@
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didEnableMessageService:(_Bool)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didRemoveTransactionWithIdentifier:(id)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didReceiveTransaction:(id)arg2;
+- (_Bool)_shouldDisplayTransaction:(id)arg1;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didReceiveMessage:(id)arg2;
 - (void)paymentServiceReceivedInterruption;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithFelicaPassProperties:(id)arg2;

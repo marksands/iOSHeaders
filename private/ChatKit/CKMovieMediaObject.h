@@ -14,8 +14,10 @@
     _Bool _checkedVideoInfo;
     _Bool _isAutoloopVideo;
     _Bool _isAppleAutoloopVideo;
+    _Bool _isJellyfishVideo;
     _Bool _isAutoloopVideoInitialized;
     _Bool _isAppleAutoloopVideoInitialized;
+    _Bool _isJellyfishInitialized;
     UIImage *_thumbnail;
     AVURLAsset *_asset;
     struct CGSize _pxSize;
@@ -26,8 +28,10 @@
 + (id)fallbackFilenamePrefix;
 + (id)UTITypes;
 + (Class)__ck_attachmentItemClass;
+@property(nonatomic) _Bool isJellyfishInitialized; // @synthesize isJellyfishInitialized=_isJellyfishInitialized;
 @property(nonatomic) _Bool isAppleAutoloopVideoInitialized; // @synthesize isAppleAutoloopVideoInitialized=_isAppleAutoloopVideoInitialized;
 @property(nonatomic) _Bool isAutoloopVideoInitialized; // @synthesize isAutoloopVideoInitialized=_isAutoloopVideoInitialized;
+@property(nonatomic) _Bool isJellyfishVideo; // @synthesize isJellyfishVideo=_isJellyfishVideo;
 @property(nonatomic) _Bool isAppleAutoloopVideo; // @synthesize isAppleAutoloopVideo=_isAppleAutoloopVideo;
 @property(nonatomic) _Bool isAutoloopVideo; // @synthesize isAutoloopVideo=_isAutoloopVideo;
 @property(retain, nonatomic) AVURLAsset *asset; // @synthesize asset=_asset;
@@ -48,7 +52,7 @@
 - (Class)previewBalloonViewClass;
 - (id)previewCachesFileURLWithOrientation:(BOOL)arg1 extension:(id)arg2;
 - (id)previewCacheKeyWithOrientation:(BOOL)arg1;
-@property(readonly, nonatomic) _Bool isJellyfishVideo;
+- (_Bool)_assetContainsMetadataKey:(id)arg1;
 - (int)mediaType;
 
 @end

@@ -8,9 +8,11 @@
 
 @interface CKInputView : UIInputView
 {
+    struct CGSize _lastContentSize;
 }
 
 + (struct CGSize)defaultContentSize;
+@property(nonatomic) struct CGSize lastContentSize; // @synthesize lastContentSize=_lastContentSize;
 - (struct CGSize)intrinsicContentSize;
 
 @end

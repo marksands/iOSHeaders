@@ -9,17 +9,17 @@
 #import "PKPaymentSetupViewControllerDelegate.h"
 #import "PKPerformActionViewDelegate.h"
 
-@class NSString, PKPaymentPass, PKPeerPaymentAccount, PKPeerPaymentBankAccountInformation, PKPeerPaymentService, PKPerformActionLoadingView, PKPerformActionPassView, RemoteUIController, UIView<PKPeerPaymentPerformActionView>;
+@class NSString, PKPaymentPass, PKPeerPaymentAccount, PKPeerPaymentBankAccountInformation, PKPerformActionBackdropView, PKPerformActionLoadingView, RemoteUIController, UIView<PKPeerPaymentPerformActionView>;
 
 @interface PKPeerPaymentPerformActionViewController : UIViewController <PKPerformActionViewDelegate, PKPaymentSetupViewControllerDelegate>
 {
     unsigned long long _peerPaymentAction;
-    PKPerformActionPassView *_passView;
+    PKPerformActionBackdropView *_backdropView;
     PKPerformActionLoadingView *_loadingView;
     PKPeerPaymentAccount *_account;
-    PKPeerPaymentService *_peerPaymentService;
     PKPeerPaymentBankAccountInformation *_bankInformation;
     RemoteUIController *_termsController;
+    _Bool _performingAction;
     PKPaymentPass *_pass;
     UIView<PKPeerPaymentPerformActionView> *_actionView;
     id <PKPeerPaymentPerformActionViewControllerDelegate> _delegate;
@@ -43,17 +43,21 @@
 - (id)_navigationBarTitle;
 - (void)_rightBarButtonPressed:(id)arg1;
 - (void)_cancelButtonPressed:(id)arg1;
+- (void)_doneBarButtonPressed:(id)arg1;
 - (void)_reloadActionView;
 - (void)_showNavigationBarSpinner:(_Bool)arg1;
 - (void)performActionView:(id)arg1 requestsPresentViewController:(id)arg2;
 - (void)setRightBarButtonEnabled:(_Bool)arg1;
 - (void)shakeCard;
 - (void)viewControllerDidTerminateSetupFlow:(id)arg1;
+- (void)viewControllerDidCancelSetupFlow:(id)arg1;
 - (id)spinnerBarButton;
+- (id)doneBarButton;
 - (id)rightBarButton;
 - (void)viewDidLayoutSubviews;
 - (void)updateFirstResponder;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(_Bool)arg1;
 - (id)_actionViewForPass:(id)arg1 action:(unsigned long long)arg2;

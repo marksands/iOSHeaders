@@ -29,9 +29,11 @@
     _Bool _pendingMatch;
     _Bool _isServerImport;
     NSString *_syncLibraryID;
+    _Bool _suspendable;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic, getter=isSuspendable) _Bool suspendable; // @synthesize suspendable=_suspendable;
 @property(readonly, nonatomic) NSString *syncLibraryID; // @synthesize syncLibraryID=_syncLibraryID;
 @property(readonly, nonatomic) _Bool isServerImport; // @synthesize isServerImport=_isServerImport;
 @property(readonly, nonatomic, getter=isPendingMatch) _Bool pendingMatch; // @synthesize pendingMatch=_pendingMatch;

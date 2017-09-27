@@ -8,7 +8,7 @@
 
 #import "MPCVideoView.h"
 
-@class NSString;
+@class AVPlayerLayer, NSString;
 
 @interface MPVideoView (MPCPlaybackEngineMiddlewareAdditions) <MPCVideoView>
 + (id)keyPathsForValuesAffectingPreferredContentSize;
@@ -21,6 +21,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) AVPlayerLayer *playerLayer;
 @property(readonly) Class superclass;
 @end
 

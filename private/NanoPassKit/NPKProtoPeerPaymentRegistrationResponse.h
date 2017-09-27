@@ -13,12 +13,14 @@
 @interface NPKProtoPeerPaymentRegistrationResponse : PBCodable <NSCopying>
 {
     NSData *_errorData;
+    NSData *_peerPaymentAccountData;
     NSData *_peerPaymentWebServiceContextData;
     _Bool _pending;
     _Bool _success;
     CDStruct_5ee4970e _has;
 }
 
+@property(retain, nonatomic) NSData *peerPaymentAccountData; // @synthesize peerPaymentAccountData=_peerPaymentAccountData;
 @property(retain, nonatomic) NSData *peerPaymentWebServiceContextData; // @synthesize peerPaymentWebServiceContextData=_peerPaymentWebServiceContextData;
 @property(retain, nonatomic) NSData *errorData; // @synthesize errorData=_errorData;
 @property(nonatomic) _Bool success; // @synthesize success=_success;
@@ -33,6 +35,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasPeerPaymentAccountData;
 @property(readonly, nonatomic) _Bool hasPeerPaymentWebServiceContextData;
 @property(readonly, nonatomic) _Bool hasErrorData;
 @property(nonatomic) _Bool hasSuccess;

@@ -60,7 +60,8 @@
 @property(readonly, nonatomic) double chatChromeBottomInset;
 @property(readonly, nonatomic) double browserSwitcherGutterWidth;
 @property(readonly, nonatomic) double browserSwitcherExpandThreshold;
-@property(readonly, nonatomic) double browserSwitcherGrabberHeaderHeight;
+@property(readonly, nonatomic) double browserSwitcherExpandedGrabberHeaderHeight;
+@property(readonly, nonatomic) double browserSwitcherCompactGrabberHeaderHeight;
 @property(readonly, nonatomic) double appStripToEntryViewBottomSpace;
 @property(readonly, nonatomic) unsigned long long suggestedMinimumRecentsCount;
 @property(readonly, nonatomic) unsigned long long suggestedAppStripLimit;
@@ -461,6 +462,7 @@
 @property(readonly, nonatomic) double topConversationListSpace;
 - (double)conversationListSummaryBodyLeading;
 - (double)conversationListSenderBodyLeading;
+@property(readonly, nonatomic) struct UIEdgeInsets landscapeKeyboardInsets;
 @property(readonly, nonatomic) double maxTranscriptPortraitHeight;
 @property(readonly, nonatomic) double maxTranscriptPortraitWidth;
 - (double)maxPrimaryColumnWidthForInterfaceOrientation:(long long)arg1;

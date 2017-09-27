@@ -38,6 +38,7 @@
 - (void)SEPParingInformationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)deleteApplicationWithAID:(id)arg1;
 - (void)setRegistrationRegionMap:(id)arg1 primaryRegionTopic:(id)arg2;
+- (_Bool)hasRegistrationRegionMap;
 - (void)provisioningDataWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)trustedDeviceEnrollmentInfo;
 - (id)configurationData;

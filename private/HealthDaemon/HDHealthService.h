@@ -67,7 +67,6 @@
 - (_Bool)supportsOperation:(id)arg1;
 - (void)_dataQueue_notifyCharacteristic:(id)arg1;
 - (void)characteristicDataReceived:(id)arg1;
-- (void)transitoryDataReceived:(id)arg1 withError:(id)arg2;
 - (void)_dataQueue_persistData:(id)arg1;
 - (void)serviceDataReceived:(id)arg1;
 - (id)servicesInProfile;

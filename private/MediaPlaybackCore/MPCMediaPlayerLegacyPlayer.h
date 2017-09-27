@@ -9,7 +9,7 @@
 #import "MPNowPlayingPlaybackQueueDataSource_Private.h"
 #import "MPRemoteCommandDelegate_Private.h"
 
-@class MPAVController, MPCMediaPlayerLegacyAVController, MPCMediaPlayerLegacyItem, MPCMediaPlayerLegacyItemContainer, MPCMediaPlayerLegacyNowPlayingObserver, MPCMediaPlayerLegacyReportingController, MPCPlaybackIntent, NSMapTable, NSObject<OS_dispatch_queue>, NSString;
+@class MPAVController, MPCMediaPlayerLegacyAVController, MPCMediaPlayerLegacyItem, MPCMediaPlayerLegacyItemContainer, MPCMediaPlayerLegacyNowPlayingObserver, MPCMediaPlayerLegacyReportingController, MPCPlaybackIntent, MPLibraryAddStatusObserver, NSMapTable, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MPCMediaPlayerLegacyPlayer : MPCPlayer <MPNowPlayingPlaybackQueueDataSource_Private, MPRemoteCommandDelegate_Private>
 {
@@ -21,6 +21,7 @@
     _Bool _hasReceivedAddPlaybackIntent;
     _Bool _mediaRemoteSync;
     NSObject<OS_dispatch_queue> *_stateRestorationSerialQueue;
+    MPLibraryAddStatusObserver *_libraryAddStatusObserver;
     _Bool _iAmTheiPod;
     MPCPlaybackIntent *_fallbackPlaybackIntent;
     MPCMediaPlayerLegacyAVController *_player;

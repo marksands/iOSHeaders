@@ -18,11 +18,13 @@
     unsigned long long _type;
     PKPaymentPass *_paymentPass;
     PKRemotePaymentInstrument *_remoteInstrument;
+    NSString *_peerPaymentQuoteIdentifier;
 }
 
 + (_Bool)supportsSecureCoding;
 + (long long)version;
 + (id)paymentMethodWithProtobuf:(id)arg1;
+@property(copy, nonatomic) NSString *peerPaymentQuoteIdentifier; // @synthesize peerPaymentQuoteIdentifier=_peerPaymentQuoteIdentifier;
 @property(retain, nonatomic) PKRemotePaymentInstrument *remoteInstrument; // @synthesize remoteInstrument=_remoteInstrument;
 @property(copy, nonatomic) PKPaymentPass *paymentPass; // @synthesize paymentPass=_paymentPass;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
@@ -33,6 +35,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)initWithPeerPaymentQuote:(id)arg1;
 - (id)initWithRemotePaymentInstrument:(id)arg1 paymentApplication:(id)arg2;
 - (id)initWithRemotePaymentInstrument:(id)arg1;
 - (id)initWithPaymentPass:(id)arg1 paymentApplication:(id)arg2 obfuscateNetworks:(_Bool)arg3;

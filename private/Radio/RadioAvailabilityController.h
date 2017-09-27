@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "ISURLBagObserver.h"
+#import "ICEnvironmentMonitorObserver.h"
 #import "MCProfileConnectionObserver.h"
 
 @class NSNumber, NSObject<OS_dispatch_queue>, NSString;
 
-@interface RadioAvailabilityController : NSObject <ISURLBagObserver, MCProfileConnectionObserver>
+@interface RadioAvailabilityController : NSObject <ICEnvironmentMonitorObserver, MCProfileConnectionObserver>
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSObject<OS_dispatch_queue> *_calloutSerialQueue;
@@ -36,7 +36,7 @@
 @property(readonly, nonatomic) _Bool hasLoadedRadioAvailability;
 - (void)profileConnectionDidReceiveRestrictionChangedNotification:(id)arg1 userInfo:(id)arg2;
 - (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
-- (void)bagDidChange:(id)arg1;
+- (void)environmentMonitorDidChangeNetworkReachability:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

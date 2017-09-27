@@ -15,16 +15,20 @@
     // Error parsing type: {?="columns"[4]}, name: _deviceOrientationAlignment
     _Bool _deviceOrientationReferenced;
     _Bool _trackingReferenced;
+    _Bool _imageMirrored;
     NSObject<OS_dispatch_semaphore> *_dataSemaphore;
     long long _alignment;
+    long long _cameraPosition;
 }
 
+@property(readonly, nonatomic) long long cameraPosition; // @synthesize cameraPosition=_cameraPosition;
 @property(readonly, nonatomic) long long alignment; // @synthesize alignment=_alignment;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (void)requestResultDataAtTimestamp:(double)arg1 context:(id)arg2;
 - (id)processData:(id)arg1;
 - (unsigned long long)requiredSensorDataTypes;
+- (id)initWithAlignment:(long long)arg1 cameraPosition:(long long)arg2;
 - (id)initWithAlignment:(long long)arg1;
 
 @end

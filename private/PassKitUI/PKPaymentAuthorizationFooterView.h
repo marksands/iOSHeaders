@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSLayoutConstraint, NSMutableArray, PKGlyphView, PKPaymentAuthorizationLayout, UIButton, UILabel;
+@class NSArray, NSLayoutConstraint, NSMutableArray, PKGlyphView, PKPaymentAuthorizationLayout, UIButton, UILabel;
 
 @interface PKPaymentAuthorizationFooterView : UIView
 {
@@ -17,13 +17,13 @@
     UIView *_separatorView;
     UIView *_lockupView;
     NSLayoutConstraint *_separatorLeftConstraint;
-    NSLayoutConstraint *_payWithPasscodeCenterYConstraint;
-    NSLayoutConstraint *_overallHeightConstraint;
-    NSMutableArray *_hiddenConstraints;
-    NSMutableArray *_regularConstraints;
-    NSMutableArray *_seperatorConstraints;
+    NSArray *_hiddenConstraints;
+    NSArray *_staticRegularConstraints;
+    NSMutableArray *_dynamicRegularConstraints;
+    _Bool _compact;
     long long _constraintState;
     long long _queuedConstraintState;
+    _Bool _constraintsDirty;
     long long _state;
     PKPaymentAuthorizationLayout *_layout;
     unsigned long long _requestType;
@@ -43,6 +43,7 @@
 - (id)_titleLabelAttributedString:(id)arg1;
 - (void)_prepareConstraints;
 - (void)updateConstraints;
+- (id)defaultHeightConstraint;
 - (void)setHidden:(_Bool)arg1;
 - (void)_createSubviews;
 - (void)setState:(long long)arg1 string:(id)arg2 animated:(_Bool)arg3;

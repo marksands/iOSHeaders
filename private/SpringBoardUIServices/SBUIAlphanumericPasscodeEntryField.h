@@ -15,6 +15,7 @@
 }
 
 - (void).cxx_destruct;
+- (struct CGSize)_viewSize;
 - (void)_resetForFailedPasscode:(_Bool)arg1;
 - (void)notePasscodeFieldTextDidChange;
 - (void)_autofillForBiometricAuthenticationWithCompletion:(CDUnknownBlockType)arg1;

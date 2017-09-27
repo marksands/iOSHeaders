@@ -10,14 +10,17 @@
 @class NSValue;
 
 @protocol UIVectorOperatable <NSObject, NSCopying>
++ (id <UIVectorOperatable>)epsilon;
 + (id <UIVectorOperatable>)zero;
 - (id <UIVectorOperatable>)addVector:(id <UIVectorOperatable>)arg1;
+- (id <UIVectorOperatable>)multiplyByVector:(id <UIVectorOperatable>)arg1;
 - (id <UIVectorOperatable>)multiplyByScalar:(double)arg1;
 - (NSValue *)getNSValue;
 - (void)reinitWithVector:(id <UIVectorOperatable>)arg1;
 - (id <UIVectorOperatable>)copy;
 - (id)getValue;
 - (_Bool)isUndefined;
+- (_Bool)isApproximatelyEqualTo:(id <UIVectorOperatable>)arg1 withinEpsilon:(id <UIVectorOperatable>)arg2;
 - (_Bool)isApproximatelyEqualTo:(id <UIVectorOperatable>)arg1;
 - (void)integrateWithVelocity:(id <UIVectorOperatable>)arg1 target:(id <UIVectorOperatable>)arg2 intermediateTarget:(id <UIVectorOperatable>)arg3 intermediateTargetVelocity:(id <UIVectorOperatable>)arg4 parameters:(CDStruct_9e265dec)arg5 state:(CDStruct_289c5ec3)arg6 delta:(double)arg7;
 - (id <UIVectorOperatable>)interpolateTo:(id <UIVectorOperatable>)arg1 progress:(double)arg2;

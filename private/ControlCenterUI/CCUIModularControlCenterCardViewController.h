@@ -11,9 +11,9 @@
 }
 
 - (unsigned long long)_statusTextAlignment;
+- (struct CGRect)_statusLabelViewFrame;
 - (long long)_interfaceOrientation;
 - (id)obscuringBackgroundViewForModuleCollectionViewController:(id)arg1;
-- (struct CGRect)_statusLabelViewFrame;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
@@ -23,11 +23,11 @@
 - (void)willResignActive;
 - (void)willBecomeActive;
 - (id)relevantSnapHeightsForOrientation:(long long)arg1;
+@property(readonly, nonatomic) struct UIEdgeInsets edgeInsets; // @dynamic edgeInsets;
 - (id)initWithSystemAgent:(id)arg1;
 
 // Remaining properties
 @property(nonatomic) __weak id <CCUIModularControlCenterCardViewControllerDelegate> delegate; // @dynamic delegate;
-@property(readonly, nonatomic) struct UIEdgeInsets edgeInsets; // @dynamic edgeInsets;
 
 @end
 

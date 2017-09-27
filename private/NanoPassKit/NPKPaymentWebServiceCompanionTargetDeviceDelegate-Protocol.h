@@ -9,6 +9,8 @@
 @class NSArray, NSDictionary, NSString, PKFelicaTransitAppletState, PKPaymentWebServiceBackgroundContext, PKPaymentWebServiceContext, PKPeerPaymentAccount, PKPeerPaymentWebServiceContext;
 
 @protocol NPKPaymentWebServiceCompanionTargetDeviceDelegate <NSObject>
+- (void)checkCompanionPeerPaymentRegistrationState;
+- (void)handleDownloadAllPaymentPasses;
 - (void)handleUpdatedPeerPaymentWebServiceContext:(PKPeerPaymentWebServiceContext *)arg1 account:(PKPeerPaymentAccount *)arg2;
 - (void)sendPaymentOptionsDefaultsToWatch;
 - (void)showPaymentSetupForAppDisplayName:(NSString *)arg1;

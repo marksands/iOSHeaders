@@ -29,7 +29,6 @@
 - (id)contentCoordinateSpace;
 - (void)applyScrollInfo:(id)arg1;
 - (void)setScrollViewContentBounds:(struct CGRect)arg1;
-- (void)setContentInset:(struct UIEdgeInsets)arg1;
 - (struct CGSize)scrollViewContentSize;
 - (struct CGRect)scrollViewContentBounds;
 - (struct CGRect)scrollViewConstrainedVisibleRect;

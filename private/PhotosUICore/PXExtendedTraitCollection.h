@@ -18,6 +18,7 @@
         _Bool layoutOrientation;
         _Bool displayScale;
         _Bool safeAreaInsets;
+        _Bool layoutMargins;
         _Bool userInterfaceIdiom;
         _Bool userInterfaceFeature;
     } _needsUpdateFlags;
@@ -34,12 +35,14 @@
     struct CGSize __viewSize;
     struct CGSize __pendingViewTransitionSize;
     struct UIEdgeInsets _safeAreaInsets;
+    struct UIEdgeInsets _layoutMargins;
 }
 
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(readonly, nonatomic) __weak NSObject<PXAnonymousViewController> *viewController; // @synthesize viewController=_viewController;
 @property(nonatomic, setter=_setPendingViewTransitionSize:) struct CGSize _pendingViewTransitionSize; // @synthesize _pendingViewTransitionSize=__pendingViewTransitionSize;
 @property(nonatomic, setter=_setViewSize:) struct CGSize _viewSize; // @synthesize _viewSize=__viewSize;
+@property(nonatomic) struct UIEdgeInsets layoutMargins; // @synthesize layoutMargins=_layoutMargins;
 @property(nonatomic) struct UIEdgeInsets safeAreaInsets; // @synthesize safeAreaInsets=_safeAreaInsets;
 @property(nonatomic, setter=_setDisplayScale:) double displayScale; // @synthesize displayScale=_displayScale;
 @property(nonatomic, setter=_setLayoutReferenceSize:) struct CGSize layoutReferenceSize; // @synthesize layoutReferenceSize=_layoutReferenceSize;
@@ -50,6 +53,8 @@
 @property(nonatomic, setter=_setLayoutSizeClass:) long long layoutSizeClass; // @synthesize layoutSizeClass=_layoutSizeClass;
 @property(retain, nonatomic, setter=_setTraitCollection:) NSObject<PXAnonymousTraitCollection> *traitCollection; // @synthesize traitCollection=_traitCollection;
 - (void).cxx_destruct;
+- (void)_updateLayoutMarginsIfNeeded;
+- (void)invalidateLayoutMargins;
 - (void)_updateSafeAreaInsetsIfNeeded;
 - (void)invalidateSafeAreaInsets;
 - (void)_updateDisplayScaleIfNeeded;
@@ -74,6 +79,8 @@
 - (_Bool)_needsUpdate;
 - (void)didPerformChanges;
 - (id)mutableChangeObject;
+- (void)viewControllerDidMoveToParentViewController:(struct NSObject *)arg1;
+- (void)viewControllerViewLayoutMarginsDidChange;
 - (void)viewControllerViewSafeAreaInsetsDidChange;
 - (void)viewControllerLayoutOrientationDidChange;
 - (void)viewControllerTraitCollectionDidChange;

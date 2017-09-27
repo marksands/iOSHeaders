@@ -29,6 +29,7 @@
     int _trAuthenticationState;
     SFDeviceOperationHomeKitSetup *_homeKitSetup;
     int _homeKitState;
+    _Bool _homeKitDoFullSetup;
     int _finishState;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     SFDevice *_peerDevice;

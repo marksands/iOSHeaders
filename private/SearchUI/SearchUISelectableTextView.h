@@ -8,9 +8,12 @@
 
 @interface SearchUISelectableTextView : UITextView
 {
+    _Bool _allowsDefine;
 }
 
+@property _Bool allowsDefine; // @synthesize allowsDefine=_allowsDefine;
 - (void)_define:(id)arg1;
+- (_Bool)_canDefine;
 - (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (id)init;
 

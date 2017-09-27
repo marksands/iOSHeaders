@@ -10,7 +10,7 @@
 #import "NCNotificationCustomContentDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class NCNotificationAction, NCNotificationRequest, NSPointerArray, NSString, UIScrollView, UIView, UIViewController<NCNotificationCustomContent>, _NCNotificationViewControllerView;
+@class NCNotificationAction, NCNotificationRequest, NSPointerArray, NSString, UIPanGestureRecognizer, UIScrollView, UIView, UIViewController<NCNotificationCustomContent>, _NCNotificationViewControllerView;
 
 @interface NCNotificationViewController : UIViewController <UIScrollViewDelegate, NCNotificationCustomContentDelegate, MTContentSizeCategoryAdjusting>
 {
@@ -20,11 +20,13 @@
     NSPointerArray *_observers;
     struct UIView *_lookView;
     _Bool _revealAdditionalContentOnPresentation;
+    _Bool _customContentHomeAffordanceVisible;
     _Bool _interactionEnabled;
     _Bool _shouldRestorePresentingShortLookOnDismiss;
     id <NCNotificationViewControllerDelegate> _delegate;
     NCNotificationRequest *_notificationRequest;
     NSString *_groupName;
+    UIPanGestureRecognizer *_customContentHomeAffordanceGestureRecognizer;
     NCNotificationAction *_presentationSourceAction;
     id <NCNotificationStaticContentProviding> _staticContentProvider;
     id <NCNotificationCustomContentProviding> _customContentProvider;
@@ -47,6 +49,8 @@
 @property(retain, nonatomic) id <NCNotificationCustomContentProviding> customContentProvider; // @synthesize customContentProvider=_customContentProvider;
 @property(retain, nonatomic) id <NCNotificationStaticContentProviding> staticContentProvider; // @synthesize staticContentProvider=_staticContentProvider;
 @property(nonatomic) __weak NCNotificationAction *presentationSourceAction; // @synthesize presentationSourceAction=_presentationSourceAction;
+@property(nonatomic) __weak UIPanGestureRecognizer *customContentHomeAffordanceGestureRecognizer; // @synthesize customContentHomeAffordanceGestureRecognizer=_customContentHomeAffordanceGestureRecognizer;
+@property(nonatomic, getter=isCustomContentHomeAffordanceVisible) _Bool customContentHomeAffordanceVisible; // @synthesize customContentHomeAffordanceVisible=_customContentHomeAffordanceVisible;
 @property(retain, nonatomic) NSString *groupName; // @synthesize groupName=_groupName;
 @property(nonatomic) _Bool revealAdditionalContentOnPresentation; // @synthesize revealAdditionalContentOnPresentation=_revealAdditionalContentOnPresentation;
 @property(retain, nonatomic) NCNotificationRequest *notificationRequest; // @synthesize notificationRequest=_notificationRequest;

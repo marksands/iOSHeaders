@@ -7,11 +7,12 @@
 #import <MaterialKit/MTSystemMaterialSettings.h>
 
 #import "MTMaterialLuminanceOverlaySettings.h"
+#import "MTZooming.h"
 #import "_MTMaterialVersioning.h"
 
 @class NSString, UIColor;
 
-@interface MTSystemModuleMaterialSettings : MTSystemMaterialSettings <MTMaterialLuminanceOverlaySettings, _MTMaterialVersioning>
+@interface MTSystemModuleMaterialSettings : MTSystemMaterialSettings <MTMaterialLuminanceOverlaySettings, _MTMaterialVersioning, MTZooming>
 {
     double _baseOverlaySaturation;
     double _baseOverlayBrightness;
@@ -34,6 +35,7 @@
 @property(nonatomic) double baseOverlayTintAlpha; // @synthesize baseOverlayTintAlpha=_baseOverlayTintAlpha;
 @property(nonatomic) double baseOverlayBrightness; // @synthesize baseOverlayBrightness=_baseOverlayBrightness;
 @property(nonatomic) double baseOverlaySaturation; // @synthesize baseOverlaySaturation=_baseOverlaySaturation;
+@property(readonly, nonatomic) double zoom;
 @property(readonly, copy, nonatomic) UIColor *baseOverlayColor;
 @property(nonatomic) double secondaryOverlayTintAlpha;
 @property(readonly, copy, nonatomic) UIColor *secondaryOverlayTintColor;

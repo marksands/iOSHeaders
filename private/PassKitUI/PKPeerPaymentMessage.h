@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSMessage, NSDecimalNumber, NSString, NSUUID, PKCurrencyAmount, PKProtobufPeerPaymentMessage;
+@class MSMessage, NSDecimalNumber, NSString, NSUUID, PKCurrencyAmount, PKPeerPaymentRequestToken, PKProtobufPeerPaymentMessage;
 
 @interface PKPeerPaymentMessage : NSObject
 {
@@ -25,13 +25,14 @@
 @property(copy, nonatomic) NSString *memo;
 @property(copy, nonatomic) NSString *transactionIdentifier;
 @property(copy, nonatomic) NSString *paymentIdentifier;
-@property(copy, nonatomic) NSString *requestToken;
+@property(copy, nonatomic) PKPeerPaymentRequestToken *requestToken;
 @property(copy, nonatomic) NSString *recipientAddress;
 @property(copy, nonatomic) NSString *senderAddress;
 @property(copy, nonatomic) PKCurrencyAmount *currencyAmount;
 @property(copy, nonatomic) NSDecimalNumber *amount;
 @property(copy, nonatomic) NSString *currency;
 @property(nonatomic) unsigned long long type;
+- (id)_requestDeviceScoreIdentifier;
 @property(readonly, copy, nonatomic) NSUUID *identifier;
 - (id)initWithUnderlyingMessage:(id)arg1;
 - (id)initWithType:(unsigned long long)arg1 session:(id)arg2;

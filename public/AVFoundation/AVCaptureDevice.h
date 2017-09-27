@@ -53,6 +53,7 @@
 - (_Bool)isEyeDetectionSupported;
 - (id)supportedMetadataObjectIdentifiers;
 - (long long)shallowDepthOfFieldEffectStatus;
+- (id)systemPressureState;
 - (void)setAutomaticallyEnablesLowLightBoostWhenAvailable:(_Bool)arg1;
 - (_Bool)automaticallyEnablesLowLightBoostWhenAvailable;
 - (_Bool)isLowLightBoostEnabled;

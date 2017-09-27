@@ -10,7 +10,6 @@
 
 @interface ISBiometricStore : NSObject
 {
-    long long _biometricStyle;
     NSCache *_contextCache;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSLock *_lock;
@@ -38,7 +37,6 @@
 - (unsigned long long)identityMapCount;
 - (id)fetchContextFromCacheWithToken:(id)arg1 evict:(_Bool)arg2;
 - (void)clearLastRegisteredAccountIdentifier;
-- (_Bool)canPerformMultiBiometrics;
 - (_Bool)canPerformExtendedTouchIDActionsForAccountIdentifier:(id)arg1;
 - (_Bool)canPerformBiometricOptIn;
 - (long long)biometricAvailabilityForAccountIdentifier:(id)arg1;

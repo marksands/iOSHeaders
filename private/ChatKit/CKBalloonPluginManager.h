@@ -119,7 +119,7 @@
 - (void)invalidateAllActivePlugins;
 - (void)invalidateAllActiveSwitcherPlugins;
 - (void)forceTearDownRemoteViews;
-- (void)forceKillRemoteExtensions;
+- (void)forceKillRemoteExtensionsWithDelay:(_Bool)arg1;
 - (void)prepareForSuspend;
 - (_Bool)isViewController:(id)arg1 fromPluginWithIdentifier:(id)arg2;
 - (id)handwritingViewControllerWithPluginPayloads:(id)arg1;

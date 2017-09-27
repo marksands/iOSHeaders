@@ -38,6 +38,7 @@
         unsigned int isIgnoringLock:1;
         unsigned int isContainedInPopover:1;
         unsigned int layoutInProgress:1;
+        unsigned int delegateRespondsToFreezeLayoutForDismissalSelector:1;
     } _navbarFlags;
     _Bool _wantsLetterpressContent;
     _Bool _prefersLargeTitles;

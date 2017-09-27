@@ -8,7 +8,7 @@
 
 #import "UIStatusBarServerClient.h"
 
-@class UIColor, UIStatusBarServer, UIStatusBarStyleRequest, UIStatusBarWindow;
+@class NSArray, UIColor, UIStatusBarServer, UIStatusBarStyleRequest, UIStatusBarWindow;
 
 @interface UIStatusBar_Base : _UIScrollsToTopInitiatorView <UIStatusBarServerClient>
 {
@@ -28,12 +28,13 @@
     long long _orientation;
     id <UIViewControllerTransitionCoordinator> __transitionCoordinator;
     UIStatusBarServer *_statusBarServer;
-    CDStruct_e9ade08e *_localDataOverrides;
+    CDStruct_4529d5a7 *_localDataOverrides;
     long long _requestedStyle;
     UIColor *_foregroundColor;
     long long _legibilityStyle;
     UIStatusBarStyleRequest *_styleRequest;
     long long _mode;
+    NSArray *_enabledPartIdentifiers;
     id <UIStatusBarManager> _manager;
 }
 
@@ -42,12 +43,14 @@
 + (long long)_defaultStyleForRequestedStyle:(long long)arg1 styleOverrides:(int)arg2 simulateLegacyAppearance:(_Bool)arg3;
 + (struct CGRect)_frameInSceneReferenceSpaceForStyle:(long long)arg1 orientation:(long long)arg2 inSceneWithReferenceSize:(struct CGSize)arg3;
 + (long long)deviceUserInterfaceLayoutDirection;
++ (double)_heightForStyle:(long long)arg1 orientation:(long long)arg2 forStatusBarFrame:(_Bool)arg3;
 + (double)heightForStyle:(long long)arg1 orientation:(long long)arg2;
 + (Class)_statusBarImplementationClass;
 + (_Bool)forceModern;
 + (void)setForceModern:(_Bool)arg1;
 + (void)initialize;
 @property(nonatomic) __weak id <UIStatusBarManager> manager; // @synthesize manager=_manager;
+@property(copy, nonatomic) NSArray *enabledPartIdentifiers; // @synthesize enabledPartIdentifiers=_enabledPartIdentifiers;
 @property(nonatomic) long long mode; // @synthesize mode=_mode;
 @property(nonatomic) int activeStyleOverride; // @synthesize activeStyleOverride=_activeStyleOverride;
 @property(copy, nonatomic) UIStatusBarStyleRequest *styleRequest; // @synthesize styleRequest=_styleRequest;
@@ -56,7 +59,7 @@
 @property(nonatomic) _Bool homeItemsDisabled; // @synthesize homeItemsDisabled=_homeItemsDisabled;
 @property(nonatomic) _Bool suppressesHiddenSideEffects; // @synthesize suppressesHiddenSideEffects=_suppressesHiddenSideEffects;
 @property(nonatomic, getter=_requestStyle, setter=_setRequestedStyle:) long long requestedStyle; // @synthesize requestedStyle=_requestedStyle;
-@property(readonly, nonatomic) CDStruct_e9ade08e *localDataOverrides; // @synthesize localDataOverrides=_localDataOverrides;
+@property(readonly, nonatomic) CDStruct_4529d5a7 *localDataOverrides; // @synthesize localDataOverrides=_localDataOverrides;
 @property(nonatomic) _Bool registered; // @synthesize registered=_registered;
 @property(nonatomic) _Bool hidden; // @synthesize hidden=_hidden;
 @property(nonatomic) _Bool foreground; // @synthesize foreground=_foreground;
@@ -72,6 +75,7 @@
 @property(nonatomic) __weak id <UIStatusBarStyleDelegate> styleDelegate; // @synthesize styleDelegate=_styleDelegate;
 - (void).cxx_destruct;
 - (_Bool)_usesModernBar;
+- (void)_performAnimations:(CDUnknownBlockType)arg1 withParameters:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)_rectIntersectsTimeItem:(struct CGRect)arg1;
 - (void)setForegroundAlpha:(double)arg1 animationParameters:(id)arg2;
 - (void)_statusBarDidAnimateRotation;
@@ -86,10 +90,13 @@
 - (struct CGRect)frameForRegionWithIdentifier:(id)arg1;
 - (id)actionForRegionWithIdentifier:(id)arg1;
 - (void)setAction:(id)arg1 forRegionWithIdentifier:(id)arg2;
+- (struct CGRect)frameForPartWithIdentifier:(id)arg1;
+- (id)actionForPartWithIdentifier:(id)arg1;
+- (void)setAction:(id)arg1 forPartWithIdentifier:(id)arg2;
 - (void)setStyleRequest:(id)arg1 animationParameters:(id)arg2;
 - (void)setLegibilityStyle:(long long)arg1 animationParameters:(id)arg2;
 - (void)setForegroundColor:(id)arg1 animationParameters:(id)arg2;
-- (void)forceUpdateToData:(const CDStruct_121c720f *)arg1 animated:(_Bool)arg2;
+- (void)forceUpdateToData:(const CDStruct_8a690d05 *)arg1 animated:(_Bool)arg2;
 - (void)jiggleLockIcon;
 - (void)animateUnlock;
 - (void)setEnabledCenterItems:(id)arg1 duration:(double)arg2;
@@ -97,7 +104,7 @@
 - (_Bool)showsContentsOnScreen;
 - (void)forgetEitherSideHistory;
 - (void)noteStyleOverridesChangedLocally;
-- (void)setLocalDataOverrides:(CDStruct_e9ade08e *)arg1;
+- (void)setLocalDataOverrides:(CDStruct_4529d5a7 *)arg1;
 - (void)setShowsOnlyCenterItems:(_Bool)arg1;
 - (void)setBackgroundAlpha:(double)arg1;
 - (void)setSuppressesGlow:(_Bool)arg1;
@@ -137,12 +144,13 @@
 - (void)statusBarServer:(id)arg1 didReceiveDoubleHeightStatusString:(id)arg2 forStyle:(long long)arg3;
 - (void)statusBarServer:(id)arg1 didReceiveGlowAnimationState:(_Bool)arg2 forStyle:(long long)arg3;
 - (void)statusBarServer:(id)arg1 didReceiveStyleOverrides:(int)arg2;
-- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(const CDStruct_121c720f *)arg2 withActions:(int)arg3;
+- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(const CDStruct_8a690d05 *)arg2 withActions:(int)arg3;
 - (void)_styleOverridesDidChange:(id)arg1;
 - (void)_willEnterForeground:(id)arg1;
 - (void)_didEnterBackground:(id)arg1;
 - (void)_evaluateServerRegistration;
 - (void)didMoveToSuperview;
+- (_Bool)_shouldSeekHigherPriorityTouchTarget;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 showForegroundView:(_Bool)arg2;

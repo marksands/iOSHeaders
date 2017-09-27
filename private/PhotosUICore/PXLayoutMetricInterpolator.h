@@ -18,6 +18,7 @@
     NSValue *__cachedValue;
 }
 
++ (id)layoutMarginWidthInterpolator;
 + (id)albumsGridItemWidthInterpolator;
 + (id)albumsGridEdgeInsetsInterpolator;
 + (id)memoriesItemWidthInterpolator;

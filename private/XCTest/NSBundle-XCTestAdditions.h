@@ -6,8 +6,10 @@
 
 #import "NSBundle.h"
 
+@class NSString;
+
 @interface NSBundle (XCTestAdditions)
-- (void)xct_logLinkedBundleInfo;
+@property(readonly, copy) NSString *xct_bundleLinkageInfo;
 - (id)xct_frameworkBundleVersion;
 @end
 

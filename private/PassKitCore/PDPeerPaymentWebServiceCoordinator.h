@@ -9,10 +9,11 @@
 #import "PDAssertionObserver.h"
 #import "PDCloudStoreNotificationCoordinatorObserver.h"
 #import "PDPushNotificationConsumer.h"
+#import "PDScheduledActivityClient.h"
 
 @class NSMutableArray, NSObject<OS_dispatch_queue>, NSString, PDAssertionManager, PDCloudStoreNotificationCoordinator, PDPeerPaymentWebServiceArchiver, PDPushNotificationManager, PKPaymentWebService, PKPeerPaymentAccount, PKPeerPaymentWebService;
 
-@interface PDPeerPaymentWebServiceCoordinator : NSObject <PDPushNotificationConsumer, PDAssertionObserver, PDCloudStoreNotificationCoordinatorObserver>
+@interface PDPeerPaymentWebServiceCoordinator : NSObject <PDPushNotificationConsumer, PDAssertionObserver, PDScheduledActivityClient, PDCloudStoreNotificationCoordinatorObserver>
 {
     PDPushNotificationManager *_pushNotificationManager;
     NSObject<OS_dispatch_queue> *_sharedPeerPaymentWebServiceQueue;
@@ -34,21 +35,36 @@
 @property(retain, nonatomic) PDCloudStoreNotificationCoordinator *cloudStoreNotificationCoordinator; // @synthesize cloudStoreNotificationCoordinator=_cloudStoreNotificationCoordinator;
 - (void).cxx_destruct;
 - (id)_mockAccountInitialState;
+- (unsigned long long)_peerPaymentErrorStateForRegistrationResponse:(id)arg1 error:(id)arg2;
 - (void)_registerWithPeerPaymentWebService:(id)arg1 registerURL:(id)arg2 pushToken:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_updateSharedCacheWithAccount:(id)arg1;
 - (void)_updateSharedCacheWithWebService:(id)arg1;
-- (void)_archiveSharedPeerPaymentWebServiceContextWithCloudStoreInitalization:(_Bool)arg1;
+- (void)_initalizeCloudStore;
+- (void)_initalizeCloudStoreIfNecessary;
+- (void)_archiveSharedPeerPaymentWebServiceContext;
 - (void)_executeAccountCompletionHandlers;
 - (void)_completeUpdatingAccount;
 - (void)_updateAccountWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_attemptPeerPaymentRegistration;
+- (_Bool)_shouldAttemptBackgroundPeerPaymentRegistration;
+- (_Bool)_shouldAttemptBackgroundPeerPaymentPassDownload;
 - (void)_handlePaymentWebServiceContextChanged:(id)arg1;
 - (void)applyPushNotificationToken:(id)arg1;
 - (void)handlePushNotificationForTopic:(id)arg1 userInfo:(id)arg2;
 - (id)pushNotificationTopics;
 - (_Bool)allowAcquisitionOfAssertionOfType:(unsigned long long)arg1;
 - (_Bool)interestedInAssertionOfType:(unsigned long long)arg1;
+- (void)cloudStoreNotificationCoordinator:(id)arg1 createdZoneWithName:(id)arg2;
+- (void)performScheduledActivityWithIdentifier:(id)arg1 activityCriteria:(id)arg2 activityContext:(id)arg3;
+- (void)_performPeerPaymentPassDownloadActivity;
+- (void)_performInitialPeerPaymentRegistrationActivity;
+- (void)_schedulePeerPaymentCoordinatorActivities;
+- (void)submitDeviceScoreIdentifiersForTransaction:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateMockAccountBalanceByAddingAmount:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_downloadAssociatedPeerPaymentPassWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)_hasAssociatedPeerPaymentPass;
 - (void)downloadPassIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)_peerPaymentPassExists;
 - (void)deleteAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (void)unregisterDeviceWithCompletion:(CDUnknownBlockType)arg1;
@@ -62,7 +78,6 @@
 - (void)updateSharedWebServiceContext:(id)arg1;
 - (void)deleteSharedWebServiceWithDiagnosticReason:(id)arg1;
 @property(readonly, nonatomic) PKPeerPaymentWebService *sharedPeerPaymentWebService;
-- (void)cloudStoreNotificationCoordinator:(id)arg1 createdZoneWithName:(id)arg2;
 - (void)dealloc;
 - (id)initWithPushNotificationManager:(id)arg1 paymentWebService:(id)arg2 assertionManager:(id)arg3 dataSource:(id)arg4 passStore:(id)arg5;
 - (id)sharedWebService;

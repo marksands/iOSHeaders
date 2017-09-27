@@ -21,7 +21,6 @@ __attribute__((visibility("hidden")))
         unsigned int shouldDismissShroud:1;
         unsigned int willLoadAppDocumentWithController:1;
     } _ancDelegateFlags;
-    _Bool _workAroundNavigationBarMaterialPopIn;
     id <_TVAppNavigationControllerDelegate> _appNavigationControllerDelegate;
     UITapGestureRecognizer *_menuRecognizer;
     UIViewController *_presentedModalViewController;

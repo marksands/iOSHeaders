@@ -7,13 +7,15 @@
 #import "NSObject.h"
 
 #import "PKPaymentOptionsProtocol.h"
+#import "PKPaymentOptionsSynchronizationDelegate.h"
 
-@class CNContact, NSDictionary, NSString;
+@class CNContact, NSDictionary, NSString, PKPaymentOptionsSynchronization;
 
-@interface PKPaymentOptionsDefaults : NSObject <PKPaymentOptionsProtocol>
+@interface PKPaymentOptionsDefaults : NSObject <PKPaymentOptionsSynchronizationDelegate, PKPaymentOptionsProtocol>
 {
     int _defaultsChangedNotifyToken;
     unsigned long long _postedNotificationCount;
+    PKPaymentOptionsSynchronization *_optionsSynchronization;
     NSDictionary *_defaultBillingAddresses;
     CNContact *_defaultShippingAddress;
     CNContact *_defaultContactName;
@@ -52,6 +54,7 @@
 - (void)_setKeychainData:(id)arg1 forKey:(id)arg2;
 - (id)_keychainDataForKey:(id)arg1;
 - (void)_unregisterForChangeNotifications;
+- (void)optionsSynchronizationDidChangeTo:(_Bool)arg1;
 - (void)_registerForChangeNotifications;
 - (void)dealloc;
 - (id)init;

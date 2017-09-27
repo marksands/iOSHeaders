@@ -20,6 +20,7 @@
 @property(readonly, nonatomic) _Bool dontDimOrLockWhileConnectedToPower; // @dynamic dontDimOrLockWhileConnectedToPower;
 @property(readonly, nonatomic) double minimumLockscreenIdleTime; // @dynamic minimumLockscreenIdleTime;
 @property(readonly, nonatomic) _Bool supportLiftToWake; // @dynamic supportLiftToWake;
+@property(readonly, nonatomic) _Bool supportTapToWake; // @dynamic supportTapToWake;
 
 @end
 
