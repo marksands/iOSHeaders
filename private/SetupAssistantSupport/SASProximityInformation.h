@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding.h"
 
-@class NSArray, NSDictionary, NSNumber, NSString;
+@class NSArray, NSData, NSDictionary, NSNumber, NSString;
 
 @interface SASProximityInformation : NSObject <NSSecureCoding>
 {
@@ -27,6 +27,7 @@
     NSString *_deviceClass;
     NSString *_deviceName;
     NSString *_backupUUID;
+    NSData *_backupMetadata;
     NSNumber *_findMyDeviceOptIn;
     NSNumber *_deviceAnalyticsOptIn;
     NSNumber *_appAnalyticsOptIn;
@@ -41,6 +42,7 @@
 @property(retain) NSNumber *deviceAnalyticsOptIn; // @synthesize deviceAnalyticsOptIn=_deviceAnalyticsOptIn;
 @property(retain) NSNumber *findMyDeviceOptIn; // @synthesize findMyDeviceOptIn=_findMyDeviceOptIn;
 @property _Bool locationServicesOptIn; // @synthesize locationServicesOptIn=_locationServicesOptIn;
+@property(retain) NSData *backupMetadata; // @synthesize backupMetadata=_backupMetadata;
 @property(copy) NSString *backupUUID; // @synthesize backupUUID=_backupUUID;
 @property(copy) NSString *deviceName; // @synthesize deviceName=_deviceName;
 @property(getter=isRestoring) _Bool restoring; // @synthesize restoring=_restoring;

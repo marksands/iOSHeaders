@@ -28,11 +28,14 @@ __attribute__((visibility("hidden")))
         unsigned int horizontallyResizable:1;
         unsigned int verticallyResizable:1;
         unsigned int freezeTextContainerSize:1;
+        unsigned int contentFormatEvaluationEnabled:1;
+        unsigned int containedInTextView:1;
     } _tcvFlags;
     NSMutableSet *_ghostedRanges;
     NSMutableSet *_hiddenAreaRects;
     struct CGRect _constrainedTiledRenderingRect;
     NSArray *_maskedRectangles;
+    long long _contentsFormat;
     id <_UITextContainerViewDelegate> _delegate;
 }
 
@@ -65,6 +68,13 @@ __attribute__((visibility("hidden")))
 - (_Bool)_ensureLayoutCompleteForRect:(struct CGRect)arg1 withExtension:(_Bool)arg2;
 - (_Bool)_ensureLayoutCompleteForRect:(struct CGRect)arg1 withExtensionFactor:(double)arg2 minimumExtensionDistance:(double)arg3 repetitions:(unsigned long long)arg4;
 - (void)_ensureLayoutCompleteToEndOfCharacterRange:(struct _NSRange)arg1;
+@property(nonatomic, getter=isContentFormatEvaluationEnabled) _Bool contentFormatEvaluationEnabled;
+- (_Bool)_wantsDeepDrawing;
+- (long long)_contentsFormatForNonDeepDrawing;
+- (id)_currentTextColor;
+- (void)_evaluateContentsFormat;
+- (long long)_determineContentsFormat;
+- (void)willMoveToSuperview:(id)arg1;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1 avoidAdditionalLayout:(_Bool)arg2;
 - (void)updateInsertionPointStateAndRestartTimer:(_Bool)arg1;
 - (void)drawRect:(struct CGRect)arg1;

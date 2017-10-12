@@ -7,9 +7,10 @@
 @class HDFitnessMachinePairingManager, HDFitnessMachineSession, HDHealthServiceOOBInfo, HKHealthService, NSError;
 
 @protocol HDFitnessMachinePairingManagerDelegate
+- (void)pairingManagerDidBeginPairing:(HDFitnessMachinePairingManager *)arg1;
 - (void)pairingManagerReadyToConnect:(HDFitnessMachinePairingManager *)arg1;
 - (void)pairingManager:(HDFitnessMachinePairingManager *)arg1 discoveredHealthService:(HKHealthService *)arg2 machineType:(unsigned long long)arg3;
-- (void)pairingManagerUpdatedDataTransferRequirements:(HDFitnessMachinePairingManager *)arg1;
+- (void)pairingManagerReceivedActivityTypeAndPermission:(HDFitnessMachinePairingManager *)arg1;
 - (void)pairingManager:(HDFitnessMachinePairingManager *)arg1 updatedConnectionStateFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3;
 - (void)pairingManagerUpdatedMachineInformation:(HDFitnessMachinePairingManager *)arg1;
 - (HDHealthServiceOOBInfo *)pairingManagerRequestsOOBData:(HDFitnessMachinePairingManager *)arg1 error:(id *)arg2;

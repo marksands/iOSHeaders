@@ -6,7 +6,8 @@
 
 #import "NSObject.h"
 
-@protocol PKPaymentSetupViewControllerRequiresPreflightProtocol <NSObject>
-- (void)preflightWithCompletion:(void (^)(_Bool))arg1;
+@protocol PKPaymentSetupActivitySpinnerProtocol <NSObject>
+- (void)hideActivitySpinner;
+- (void)showActivitySpinner;
 @end
 

@@ -7,20 +7,20 @@
 #import <PassKitUI/PKPaymentSetupTableViewController.h>
 
 #import "PKPaymentProvisioningControllerDelegate.h"
-#import "PKPaymentSetupViewControllerCanHideSetupLaterButton.h"
+#import "PKPaymentSetupHideSetupLaterButtonProtocol.h"
 
-@class NSMutableArray, NSString, PKPaymentProvisioningController, PKPaymentRemoteCredentialTableViewCell, PKPaymentSetupFooterView, PKPaymentSetupProduct, PKTableHeaderView, UIImage;
+@class NSMutableArray, NSString, PKPaymentCredentialTableViewCell, PKPaymentProvisioningController, PKPaymentSetupFooterView, PKPaymentSetupProduct, PKTableHeaderView, UIImage;
 
-@interface PKPaymentRemoteCredentialsViewController : PKPaymentSetupTableViewController <PKPaymentSetupViewControllerCanHideSetupLaterButton, PKPaymentProvisioningControllerDelegate>
+@interface PKPaymentCredentialsViewController : PKPaymentSetupTableViewController <PKPaymentSetupHideSetupLaterButtonProtocol, PKPaymentProvisioningControllerDelegate>
 {
     PKPaymentProvisioningController *_provisioningController;
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
-    NSMutableArray *_remoteCredentialCaches;
+    NSMutableArray *_credentialCaches;
     PKTableHeaderView *_tableHeader;
     PKPaymentSetupFooterView *_tableFooter;
     _Bool _allowsManualEntry;
     UIImage *_placeHolder;
-    PKPaymentRemoteCredentialTableViewCell *_sizingCell;
+    PKPaymentCredentialTableViewCell *_sizingCell;
     unsigned long long _maximumNumberOfSelectableCredentials;
     double _cachedHeaderViewWidth;
     _Bool _hideSetupLaterButton;
@@ -33,7 +33,7 @@
 - (void)_createPassSnapshotFromPaymentPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)paymentPassUpdatedOnCredential:(id)arg1;
 - (void)_presentViewController:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_setupLater;
+- (void)_terminateSetupFlow;
 - (void)_startProvisioningForSelectedCards;
 - (void)_presentManualAddController;
 - (void)_setUserInteractionEnabled:(_Bool)arg1;
@@ -54,7 +54,7 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
-- (id)initWithProvisioningController:(id)arg1 context:(long long)arg2 delegate:(id)arg3 remoteCredentials:(id)arg4 allowsManualEntry:(_Bool)arg5;
+- (id)initWithProvisioningController:(id)arg1 context:(long long)arg2 delegate:(id)arg3 credentials:(id)arg4 allowsManualEntry:(_Bool)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

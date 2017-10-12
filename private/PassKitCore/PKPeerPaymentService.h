@@ -22,6 +22,8 @@
 - (id)_remoteObjectProxyWithFailureHandler:(CDUnknownBlockType)arg1;
 - (void)_accountChanged:(id)arg1;
 - (void)_sharedPeerPaymentWebServiceContextWithCompletion:(CDUnknownBlockType)arg1;
+- (void)cloudStoreStatusWithCompletion:(CDUnknownBlockType)arg1;
+- (void)initalizeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)unregisterDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)registerDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)downloadPassIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
@@ -31,10 +33,10 @@
 - (void)updateMockAccountBalanceByAddingAmount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateMemo:(id)arg1 forTransactionWithIdentifier:(id)arg2;
 - (void)noteAccountDeleted;
-- (void)presentPeerPaymentTermsAndConditionsWithAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)presentRegistrationFlowWithAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)presentRegistrationFlowWithAccount:(id)arg1 amount:(id)arg2 state:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)presentIdentityVerificationFlowWithResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)presentPeerPaymentTermsAndConditionsWithAccount:(id)arg1 orientation:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)presentRegistrationFlowWithAccount:(id)arg1 orientation:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)presentRegistrationFlowWithAccount:(id)arg1 amount:(id)arg2 state:(unsigned long long)arg3 orientation:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)presentIdentityVerificationFlowWithResponse:(id)arg1 orientation:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)registrationStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)resumeAccountChangedNotifications;
 - (void)suspendAccountChangedNotifications;

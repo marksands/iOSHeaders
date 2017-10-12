@@ -55,6 +55,7 @@
 - (_Bool)prepareForSaving:(id *)arg1;
 - (_Bool)_validateForSavingWithClientEntitlements:(id)arg1 error:(id *)arg2;
 - (void)_validateForCreation;
+- (id)_copyByArchiving;
 - (id)_init;
 - (id)init;
 - (long long)hk_integerValue;

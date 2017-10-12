@@ -23,11 +23,13 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_preUpdateActions;
     _Bool _dirtyGestureRecognizersUnsorted;
     _Bool _updateExclusivity;
+    _Bool _isUpdatingGestureEnvironment;
     UIGestureGraph *_dependencyGraph;
     NSMapTable *_nodesByGestureRecognizer;
 }
 
 - (void).cxx_destruct;
+- (void)_forceUpdateForSpringBoardOnly;
 - (void)_markGestureAsDirty:(id)arg1;
 - (void)_gestureNeedsReset:(id)arg1;
 - (void)setGestureNeedsUpdate:(id)arg1;

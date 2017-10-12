@@ -17,6 +17,7 @@
 {
     PDPushNotificationManager *_pushNotificationManager;
     NSObject<OS_dispatch_queue> *_sharedPeerPaymentWebServiceQueue;
+    NSObject<OS_dispatch_queue> *_updateAccountQueue;
     PDPeerPaymentWebServiceArchiver *_archiver;
     PKPeerPaymentWebService *_sharedPeerPaymentWebService;
     PKPeerPaymentAccount *_account;
@@ -25,7 +26,8 @@
     id <PDPeerPaymentWebServiceCoordinatorDataSource> _dataSource;
     id <PDWebServiceCoordinatorPassStore> _passStore;
     NSMutableArray *_accountCompletionHandlers;
-    _Bool _fetchingAccount;
+    NSMutableArray *_queuedAccountCompletionHandlers;
+    _Bool _isFetchingAccount;
     _Bool _isRegistering;
     PDCloudStoreNotificationCoordinator *_cloudStoreNotificationCoordinator;
     PKPaymentWebService *_paymentWebService;
@@ -40,9 +42,9 @@
 - (void)_updateSharedCacheWithAccount:(id)arg1;
 - (void)_updateSharedCacheWithWebService:(id)arg1;
 - (void)_initalizeCloudStore;
+- (void)_initalizeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_initalizeCloudStoreIfNecessary;
 - (void)_archiveSharedPeerPaymentWebServiceContext;
-- (void)_executeAccountCompletionHandlers;
 - (void)_completeUpdatingAccount;
 - (void)_updateAccountWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_attemptPeerPaymentRegistration;
@@ -59,6 +61,8 @@
 - (void)_performPeerPaymentPassDownloadActivity;
 - (void)_performInitialPeerPaymentRegistrationActivity;
 - (void)_schedulePeerPaymentCoordinatorActivities;
+- (void)initalizeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
+- (void)cloudStoreStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)submitDeviceScoreIdentifiersForTransaction:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updateMockAccountBalanceByAddingAmount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_downloadAssociatedPeerPaymentPassWithCompletion:(CDUnknownBlockType)arg1;

@@ -43,6 +43,7 @@
     id <MPCReportingIdentityPropertiesLoading> _identityPropertiesLoader;
     MPCModelGenericAVItemTimedMetadataRequest *_timedMetadataRequest;
     MPCModelGenericAVItemTimedMetadataResponse *_timedMetadataResponse;
+    NSOperationQueue *_timedMetadataOperationQueue;
     _Bool _isMusicCellularStreamingAllowed;
     NSNumber *_maximumSizeAllowedForCellularAccess;
     _Bool _isHLSAsset;

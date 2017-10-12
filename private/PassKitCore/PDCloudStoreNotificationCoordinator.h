@@ -20,6 +20,7 @@
     PDCloudStoreManager *_cloudStoreManager;
     CKServerChangeToken *_currentServerChangeToken;
     NSObject<OS_dispatch_queue> *_workQueue;
+    NSObject<OS_dispatch_queue> *_proactiveFetchQueue;
     NSSet *_pushTopics;
 }
 
@@ -38,10 +39,12 @@
 - (void)invalidateCloudStore;
 - (void)initalizeCloudStoreIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (id)cloudStoreSpecificKeysForItem:(id)arg1;
+- (void)requestUpdatesForPassUniqueIdenitifer:(id)arg1;
 - (void)fetchAndStoreRecordsForPaymentPassWithUniqueIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAndStoreChangesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)removeItemsWithRecordNames:(id)arg1 itemClass:(Class)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)updateCloudStoreWithLocalItems:(id)arg1 recordSpecificKeys:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)cloudStoreStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (void)unregisterObserver:(id)arg1;
 - (void)registerObserver:(id)arg1;
 - (void)cloudStoreManager:(id)arg1 didChangeContainerState:(unsigned long long)arg2;

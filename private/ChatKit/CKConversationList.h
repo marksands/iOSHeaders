@@ -35,6 +35,7 @@
 - (void)deleteConversations:(id)arg1;
 - (void)deleteConversation:(id)arg1;
 - (id)unreadLastMessages;
+- (_Bool)_isUnreadChat:(id)arg1 ignoringMessages:(id)arg2;
 - (long long)unreadFilteredConversationCountIgnoringMessages:(id)arg1;
 - (long long)unreadCount;
 - (void)unpendConversation;

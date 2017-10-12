@@ -21,6 +21,10 @@
 @property(retain, nonatomic) PKPeerPaymentPassDetailsResponse *passDetailsResponse; // @synthesize passDetailsResponse=_passDetailsResponse;
 @property(readonly, nonatomic) PKPeerPaymentAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
+- (id)longDescription;
+- (unsigned long long)hash;
+- (_Bool)_isEqualToCredential:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)initWithPeerPaymentAccount:(id)arg1;
 
 @end

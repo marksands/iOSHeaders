@@ -6,18 +6,20 @@
 
 #import "NSObject.h"
 
-@class PKPaymentRemoteCredential, UIImage;
+@class PKPaymentCredential, PKPaymentPass, UIImage;
 
-@interface PKPaymentRemoteCredentialCache : NSObject
+@interface PKPaymentCredentialCache : NSObject
 {
     _Bool _isSelected;
-    PKPaymentRemoteCredential *_remoteCredential;
+    PKPaymentCredential *_credential;
     UIImage *_passSnapshot;
+    PKPaymentPass *_paymentPass;
 }
 
+@property(retain, nonatomic) PKPaymentPass *paymentPass; // @synthesize paymentPass=_paymentPass;
 @property(nonatomic) _Bool isSelected; // @synthesize isSelected=_isSelected;
 @property(retain, nonatomic) UIImage *passSnapshot; // @synthesize passSnapshot=_passSnapshot;
-@property(retain, nonatomic) PKPaymentRemoteCredential *remoteCredential; // @synthesize remoteCredential=_remoteCredential;
+@property(retain, nonatomic) PKPaymentCredential *credential; // @synthesize credential=_credential;
 - (void).cxx_destruct;
 
 @end

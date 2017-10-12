@@ -12,6 +12,7 @@
 + (id)hk_acceptedMetadataValueClasses;
 + (id)hk_secureCodingClasses;
 - (_Bool)_hk_validateMetadataValueContent:(id)arg1 forKey:(id)arg2 error:(id *)arg3;
+- (id)hk_copyWithoutPrivateMetadataKeys;
 - (_Bool)hk_validateMetadataKeysAndValuesAllowingPrivateMetadataKeys:(_Bool)arg1 error:(id *)arg2;
 @end
 

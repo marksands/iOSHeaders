@@ -21,6 +21,7 @@
 - (void)setExpressTransitUniqueID:(NSString *)arg1 applicationIdentifier:(NSString *)arg2 completion:(void (^)(unsigned long long, NSString *))arg3;
 - (void)fetchPreferredPaymentApplicationAIDForPaymentPassWithID:(NSString *)arg1 reply:(void (^)(NSString *))arg2;
 - (void)setPreferredPaymentApplicationAID:(NSString *)arg1 forPaymentPassWithID:(NSString *)arg2;
+- (void)requestPeerAccountTermsAndConditionsAcceptance;
 - (void)markAsHavingReceivedLocation;
 - (void)boostPriorityUntilPassDBAvailable:(void (^)(void))arg1;
 - (void)setNeedsRelevancyInformation:(_Bool)arg1;

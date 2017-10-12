@@ -9,7 +9,7 @@
 #import "HDFitnessMachinePairingManagerDelegate.h"
 #import "HDFitnessMachineStateTimersDelegate.h"
 
-@class HDFitnessMachineDataCollector, HDFitnessMachineDataProducer, HDFitnessMachinePairingManager, HDFitnessMachineSession, HDFitnessMachineStateTimers, HDHealthServiceManager, HDProfile, NSDate, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
+@class HDFitnessMachineAnalyticsCollector, HDFitnessMachineDataCollector, HDFitnessMachineDataProducer, HDFitnessMachinePairingManager, HDFitnessMachineSession, HDFitnessMachineStateTimers, HDHealthServiceManager, HDProfile, NSDate, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface HDFitnessMachineManager : NSObject <HDFitnessMachinePairingManagerDelegate, HDFitnessMachineStateTimersDelegate>
 {
@@ -26,9 +26,11 @@
     NSDate *_machinePreferredUntilDate;
     HDHealthServiceManager *_serviceManager;
     HDFitnessMachineStateTimers *_fitnessMachineStateTimers;
+    HDFitnessMachineAnalyticsCollector *_analyticsCollector;
 }
 
 + (id)fitnessMachineServerId;
+@property(retain, nonatomic) HDFitnessMachineAnalyticsCollector *analyticsCollector; // @synthesize analyticsCollector=_analyticsCollector;
 @property(retain, nonatomic) HDFitnessMachineStateTimers *fitnessMachineStateTimers; // @synthesize fitnessMachineStateTimers=_fitnessMachineStateTimers;
 @property(nonatomic) __weak HDHealthServiceManager *serviceManager; // @synthesize serviceManager=_serviceManager;
 @property(readonly, nonatomic) NSDate *machinePreferredUntilDate; // @synthesize machinePreferredUntilDate=_machinePreferredUntilDate;
@@ -36,9 +38,10 @@
 - (void).cxx_destruct;
 - (void)_queue_simulateDisconnect;
 - (void)simulateDisconnect;
+- (void)pairingManagerDidBeginPairing:(id)arg1;
 - (void)pairingManagerReadyToConnect:(id)arg1;
 - (void)pairingManager:(id)arg1 discoveredHealthService:(id)arg2 machineType:(unsigned long long)arg3;
-- (void)pairingManagerUpdatedDataTransferRequirements:(id)arg1;
+- (void)pairingManagerReceivedActivityTypeAndPermission:(id)arg1;
 - (void)pairingManager:(id)arg1 updatedConnectionStateFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3;
 - (void)pairingManagerUpdatedMachineInformation:(id)arg1;
 - (id)pairingManagerRequestsOOBData:(id)arg1 error:(id *)arg2;

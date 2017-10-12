@@ -15,6 +15,7 @@
 {
     PKPeerPaymentIdentityVerificationController *_controller;
     PKPaymentSetupFieldPicker *_pickerField;
+    NSString *_footerText;
     PKTableHeaderView *_headerView;
     unsigned long long _identityVerificaionError;
     NSArray *_leftBarButtonItems;
@@ -63,8 +64,8 @@
 - (void)viewDidLoad;
 - (id)pkui_navigationBarTintColor;
 - (_Bool)pkui_prefersNavigationBarShadowHidden;
-- (id)initWithController:(id)arg1 setupDelegate:(id)arg2 pickerField:(id)arg3;
-- (id)initWithController:(id)arg1 pickerField:(id)arg2;
+- (id)initWithController:(id)arg1 setupDelegate:(id)arg2 pickerField:(id)arg3 footerText:(id)arg4;
+- (id)initWithController:(id)arg1 pickerField:(id)arg2 footerText:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

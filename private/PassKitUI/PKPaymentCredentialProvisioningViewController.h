@@ -7,12 +7,12 @@
 #import <PassKitUI/PKPaymentSetupProvisioningFieldsViewController.h>
 
 #import "PKPaymentProvisioningControllerDelegate.h"
-#import "PKPaymentSetupViewControllerCanHideSetupLaterButton.h"
-#import "PKPaymentSetupViewControllerRequiresPreflightProtocol.h"
+#import "PKPaymentSetupHideSetupLaterButtonProtocol.h"
+#import "PKPaymentSetupRequiresPreflightProtocol.h"
 
 @class NSString, PKPaymentCredential, PKPaymentCredentialMetadataTableController, PKPaymentSetupProduct, UIImage;
 
-@interface PKPaymentCredentialProvisioningViewController : PKPaymentSetupProvisioningFieldsViewController <PKPaymentSetupViewControllerCanHideSetupLaterButton, PKPaymentSetupViewControllerRequiresPreflightProtocol, PKPaymentProvisioningControllerDelegate>
+@interface PKPaymentCredentialProvisioningViewController : PKPaymentSetupProvisioningFieldsViewController <PKPaymentSetupRequiresPreflightProtocol, PKPaymentProvisioningControllerDelegate, PKPaymentSetupHideSetupLaterButtonProtocol>
 {
     UIImage *_passSnapshot;
     UIImage *_passSnapshotPlaceHolder;
@@ -24,7 +24,6 @@
     _Bool _allowsManualEntry;
 }
 
-+ (id)nextCredentialViewControllerWithProvisioningController:(id)arg1 context:(long long)arg2 setupDelegate:(id)arg3 setupProduct:(id)arg4 allowsManualEntry:(_Bool)arg5;
 - (void).cxx_destruct;
 - (void)paymentPassUpdatedOnCredential:(id)arg1;
 - (void)_cleanupTransferredCredentialFromSourceDeviceWithCompletion:(CDUnknownBlockType)arg1;
@@ -50,6 +49,7 @@
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)_updatePassSnapshotHeader;
 - (void)_createPassSnapshotFromPaymentPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_terminateSetupFlow;
 - (void)_skipCard;
 - (void)addDifferentCard:(id)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

@@ -100,6 +100,7 @@
 - (_Bool)areSystemGesturesDisabledByAccessibility;
 - (_Bool)areSystemGesturesDisabledNatively;
 - (_Bool)isSyncingRestoringResettingOrUpdating;
+- (void)isSystemSleeping:(CDUnknownBlockType)arg1;
 - (_Bool)isSystemSleeping;
 - (void)screenLockStatus:(CDUnknownBlockType)arg1;
 - (_Bool)isScreenLockedWithPasscode:(_Bool *)arg1;

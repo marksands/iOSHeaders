@@ -7,6 +7,7 @@
 @class NSString, NSURL, NSUUID;
 
 @protocol _NCWidgetViewController_Service_IPC
+- (void)__updateVisibleFrame:(struct CGRect)arg1 withReplyHandler:(void (^)(_Bool))arg2;
 - (void)__updateVisibilityState:(long long)arg1;
 - (void)__openTransactionForAppearanceCallWithState:(int)arg1 withIdentifier:(NSUUID *)arg2;
 - (void)__performUpdateWithReplyHandler:(void (^)(unsigned long long, _Bool))arg1;

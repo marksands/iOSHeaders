@@ -13,6 +13,9 @@
 - (void)_populateDemographicsWrapper:(id)arg1 withFirstName:(id)arg2 lastName:(id)arg3 meContact:(id)arg4;
 - (void)hk_fetchExistingDemographicInformationWithCompletion:(CDUnknownBlockType)arg1;
 - (id)hk_sourcesForDevicesWithSources:(id)arg1;
-- (id)hk_sourcesForAuthorizationWithSources:(id)arg1;
+- (id)hk_appSourcesRequiringAuthorizationFromSources:(id)arg1;
+- (id)hk_additionalSourcesForInstalledAppsWithBundleIdentifiers:(id)arg1;
+- (void)hk_fetchSortedAppSourcesRequiringAuthorizationWithCompletion:(CDUnknownBlockType)arg1;
+- (id)hk_researchAppBundleIdentifiers;
 @end
 

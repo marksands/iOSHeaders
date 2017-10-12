@@ -6,18 +6,16 @@
 
 #import "UIView.h"
 
-@class UIButton, UILabel, UIScrollView;
+@class UILabel, UIScrollView;
 
 @interface PKPaymentSetupAboutView : UIView
 {
     UILabel *_aboutTextLabel;
-    UIButton *_actionButton;
     UIScrollView *_scrollView;
 }
 
 @property(readonly, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 - (void).cxx_destruct;
-- (void)setButtonAction:(SEL)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithBodyText:(id)arg1 detailButtonText:(id)arg2;

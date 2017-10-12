@@ -40,6 +40,7 @@
     NSString *_locale;
 }
 
++ (_Bool)messageContainsSurfDD:(id)arg1;
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool isSOS; // @synthesize isSOS=_isSOS;
 @property(nonatomic) _Bool backwardsCompatibleVersion; // @synthesize backwardsCompatibleVersion=_backwardsCompatibleVersion;

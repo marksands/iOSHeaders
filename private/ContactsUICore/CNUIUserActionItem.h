@@ -70,6 +70,7 @@
 @property(readonly, nonatomic) NSString *targetHandle;
 - (void)associateWithRecentContactMetadata:(id)arg1;
 - (_Bool)isHandledByFirstPartyApp;
+- (_Bool)shouldUseLabelForQuickActionButtonTitle;
 - (_Bool)shouldUseApplicationNameForLabel;
 - (id)performActionWithContext:(id)arg1;
 - (id)url;

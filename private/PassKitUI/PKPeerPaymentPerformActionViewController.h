@@ -14,6 +14,7 @@
 @interface PKPeerPaymentPerformActionViewController : UIViewController <PKPerformActionViewDelegate, PKPaymentSetupViewControllerDelegate>
 {
     unsigned long long _peerPaymentAction;
+    long long _detailViewStyle;
     PKPerformActionBackdropView *_backdropView;
     PKPerformActionLoadingView *_loadingView;
     PKPeerPaymentAccount *_account;
@@ -61,6 +62,7 @@
 - (void)viewDidLoad;
 - (void)viewWillAppear:(_Bool)arg1;
 - (id)_actionViewForPass:(id)arg1 action:(unsigned long long)arg2;
+- (id)initWithPaymentPass:(id)arg1 account:(id)arg2 peerPaymentAction:(unsigned long long)arg3 detailViewStyle:(long long)arg4;
 - (id)initWithPaymentPass:(id)arg1 account:(id)arg2 peerPaymentAction:(unsigned long long)arg3;
 
 // Remaining properties

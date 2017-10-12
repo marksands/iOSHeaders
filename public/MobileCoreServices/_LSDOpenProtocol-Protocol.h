@@ -16,6 +16,6 @@
 - (void)openUserActivityWithUniqueIdentifier:(NSUUID *)arg1 activityData:(NSData *)arg2 activityType:(NSString *)arg3 bundleIdentifier:(NSString *)arg4 options:(NSDictionary *)arg5 completionHandler:(void (^)(_Bool, NSError *))arg6;
 - (void)openURL:(NSURL *)arg1 options:(NSDictionary *)arg2 completionHandler:(void (^)(_Bool, NSError *))arg3;
 - (void)openApplicationWithIdentifier:(NSString *)arg1 completionHandler:(void (^)(_Bool, NSError *))arg2;
-- (void)performOpenOperationWithURL:(NSURL *)arg1 applicationIdentifier:(NSString *)arg2 documentIdentifier:(NSString *)arg3 sourceIsManaged:(_Bool)arg4 userInfo:(NSDictionary *)arg5 options:(NSDictionary *)arg6 delegate:(id <LSOpenResourceOperationDelegate>)arg7 completionHandler:(void (^)(_Bool, NSError *))arg8;
+- (void)performOpenOperationWithURL:(NSURL *)arg1 applicationIdentifier:(NSString *)arg2 documentIdentifier:(NSString *)arg3 isContentManaged:(_Bool)arg4 sourceAuditToken:(const CDStruct_4c969caf *)arg5 userInfo:(NSDictionary *)arg6 options:(NSDictionary *)arg7 delegate:(id <LSOpenResourceOperationDelegate>)arg8 completionHandler:(void (^)(_Bool, NSError *))arg9;
 @end
 

@@ -27,7 +27,6 @@
 @property(retain, nonatomic) NSCountedSet *pendingKeys; // @synthesize pendingKeys=_pendingKeys;
 @property(retain, nonatomic) NSCache *objectCache; // @synthesize objectCache=_objectCache;
 - (void).cxx_destruct;
-- (void)systemApplicationDidSuspendForEventsOnly;
 - (void)systemApplicationDidSuspend;
 - (void)clearQueue;
 - (void)resume;

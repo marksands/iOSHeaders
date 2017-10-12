@@ -26,6 +26,7 @@
 + (id)_trailingStatusBarCAAnimationParametersForTransitionState:(id)arg1;
 + (id)_leadingStatusBarCAAnimationParametersForTransitionState:(id)arg1;
 + (id)_baseC2AnimationParametersForTransitionState:(id)arg1;
++ (id)_hiddenStatusBarFadeAnimationParameters;
 @property(nonatomic) __weak id <CCUIOverlayMetricsProvider> metricsProvider; // @synthesize metricsProvider=_metricsProvider;
 @property(nonatomic) __weak id <CCUIOverlayViewProvider> viewProvider; // @synthesize viewProvider=_viewProvider;
 - (void).cxx_destruct;
@@ -51,6 +52,9 @@
 @property(readonly, nonatomic) unsigned long long dismissalFlickAllowedDirections;
 @property(readonly, nonatomic) double dismissalFlickMinimumVelocity;
 @property(readonly, nonatomic) double dismissalFlickMaximumTime;
+- (id)cleanupForDismissal;
+- (id)prepareForPresentation;
+- (id)secondaryAnimationBatchForTransitionState:(id)arg1 previousTransitionState:(id)arg2;
 @property(readonly, copy, nonatomic) id <CCUIOverlayFlickGestureBehavior> flickGestureBehavior;
 @property(readonly, nonatomic) unsigned long long headerMode;
 - (_Bool)tapAllowsDismissalForLocation:(struct CGPoint)arg1;

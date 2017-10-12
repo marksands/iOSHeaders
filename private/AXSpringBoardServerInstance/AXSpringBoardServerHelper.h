@@ -141,6 +141,7 @@
 - (_Bool)areSystemGesturesDisabledByAccessibilityWithServerInstance:(id)arg1;
 - (_Bool)areSystemGesturesDisabledNativelyWithServerInstance:(id)arg1;
 - (_Bool)isSpeakThisTemporarilyDisabledWithServerInstance:(id)arg1;
+- (_Bool)isIconDraggingWithServerInstance:(id)arg1;
 - (_Bool)isSyncingRestoringResettingOrUpdatingWithServerInstance:(id)arg1;
 - (void)dismissAppSwitcherWithServerInstance:(id)arg1;
 - (_Bool)isAppSwitcherVisibleWithServerInstance:(id)arg1;

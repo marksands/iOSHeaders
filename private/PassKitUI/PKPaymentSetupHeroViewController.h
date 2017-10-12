@@ -7,11 +7,10 @@
 #import <PassKitUI/PKExplanationViewController.h>
 
 #import "PKExplanationViewDelegate.h"
-#import "PKPaymentSetupBrowseProductsViewControllerDelegate.h"
 
 @class ACAccountStore, NSString, PKPaymentHeroImageController, PKPaymentProvisioningController, PKPaymentSetupHeroView, PKPaymentWebService;
 
-@interface PKPaymentSetupViewController : PKExplanationViewController <PKPaymentSetupBrowseProductsViewControllerDelegate, PKExplanationViewDelegate>
+@interface PKPaymentSetupHeroViewController : PKExplanationViewController <PKExplanationViewDelegate>
 {
     ACAccountStore *_accountStore;
     _Bool _nextButtonPushed;
@@ -26,7 +25,6 @@
     long long _paymentSetupMode;
 }
 
-+ (id)configuredManualProvisioningViewControllerForProduct:(id)arg1 provisioningController:(id)arg2 context:(long long)arg3 delegate:(id)arg4;
 @property(nonatomic) long long paymentSetupMode; // @synthesize paymentSetupMode=_paymentSetupMode;
 @property(nonatomic) _Bool allowsManualEntry; // @synthesize allowsManualEntry=_allowsManualEntry;
 @property(readonly, nonatomic) PKPaymentHeroImageController *heroImageController; // @synthesize heroImageController=_heroImageController;
@@ -34,20 +32,10 @@
 @property(readonly, nonatomic) PKPaymentProvisioningController *provisioningController; // @synthesize provisioningController=_provisioningController;
 - (void).cxx_destruct;
 - (void)privacyFooterLinkTapped:(id)arg1;
-- (void)_productSelectionViewController:(id)arg1 didSelectProduct:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
-- (void)browseProductsViewController:(id)arg1 didSelectProduct:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
-- (void)_flowPicker:(id)arg1 didSelectProducts:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
-- (id)_configuredflowPickerViewControllerWithBrowsableProductTypes:(id)arg1;
-- (id)_filteredPaymentSetupProductsForFlowPicker:(id)arg1;
-- (id)_flowPicker;
-- (id)_actionViewControllerForAssociatedCredentials:(id)arg1 product:(id)arg2;
-- (id)configuredNextActionViewController;
 - (void)explanationViewDidSelectSetupLater:(id)arg1;
 - (void)explanationViewDidSelectContinue:(id)arg1;
+- (void)_terminateSetupFlow;
 - (id)_bodyText;
-- (id)_associatedCredentialsForDefaultBehaviour;
-- (void)_pushNextActionViewController:(id)arg1 ontoNavigationController:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
-- (void)_pushNextActionViewController:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_next:(id)arg1;
 @property(readonly, nonatomic) PKPaymentWebService *webService;
 - (void)viewDidDisappear:(_Bool)arg1;

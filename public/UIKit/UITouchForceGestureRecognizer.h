@@ -50,7 +50,6 @@
 - (_Bool)_hasExceededAllowableMovement;
 - (void)_updateTouchForce:(double)arg1;
 - (void)_endIfNeeded:(_Bool)arg1;
-- (void)_endWithTouchesIfNeeded:(id)arg1;
 - (void)_evaluateWithTouchForce:(double)arg1 centroidAtLocation:(struct CGPoint)arg2;
 - (void)_evaluateTouches:(id)arg1 withEvent:(id)arg2;
 - (_Bool)_shouldReceiveTouch:(id)arg1 recognizerView:(id)arg2 touchView:(id)arg3;

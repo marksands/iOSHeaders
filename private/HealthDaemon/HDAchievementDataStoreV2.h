@@ -28,6 +28,7 @@
 }
 
 + (id)createEvaluatedAchievementWithDefinition:(id)arg1 environment:(id)arg2;
++ (_Bool)_isChallengeProgressInAverages:(id)arg1;
 @property(nonatomic) _Bool commitsForIntegrationTesting; // @synthesize commitsForIntegrationTesting=_commitsForIntegrationTesting;
 @property(retain, nonatomic) NSMutableArray *mockedCommittedAchievements; // @synthesize mockedCommittedAchievements=_mockedCommittedAchievements;
 @property(retain, nonatomic) HDKeyValueDomain *defaultsDomain; // @synthesize defaultsDomain=_defaultsDomain;

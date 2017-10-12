@@ -15,7 +15,7 @@
 #import "PKPerformActionViewControllerDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSArray, NSMutableArray, NSString, NSTimer, PKGroupsController, PKPassGroupStackView, PKPaymentService, PKPeerPaymentAccountResolutionController, PKPeerPaymentService, _UIBackdropView;
+@class NSArray, NSMutableArray, NSString, NSTimer, PKGroupsController, PKPassGroupStackView, PKPaymentService, PKPeerPaymentService, _UIBackdropView;
 
 @interface PKPassGroupsViewController : UIViewController <PKGroupsControllerDelegate, PKPassGroupStackViewDatasource, PKPassGroupStackViewDelegate, UIScrollViewDelegate, PKPaymentServiceDelegate, PKPaymentSetupDelegate, PKPerformActionViewControllerDelegate, PKPassPersonalizationViewControllerDelegate>
 {
@@ -42,7 +42,6 @@
     unsigned long long _instanceFooterSuppressionCounter;
     id <NSObject> _expressTransactionNotificationObserver;
     id <PKPassLibraryDataProvider> _passLibraryDataProvider;
-    PKPeerPaymentAccountResolutionController *_peerPaymentAccountResolutionController;
     PKPeerPaymentService *_peerPaymentService;
     _Bool _handleFieldDetection;
     _Bool _welcomeStateEnabled;
@@ -166,6 +165,7 @@
 - (void)_accessBackgroundStateForType:(long long)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)_updateBackgroundType:(long long)arg1 toVisibility:(double)arg2 animated:(_Bool)arg3;
 - (void)viewWillLayoutSubviews;
+- (void)viewSafeAreaInsetsDidChange;
 - (unsigned long long)supportedInterfaceOrientations;
 - (_Bool)shouldAutorotate;
 - (void)viewDidDisappear:(_Bool)arg1;

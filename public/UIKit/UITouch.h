@@ -128,6 +128,7 @@
 - (void)_setIsFirstTouchForView:(_Bool)arg1;
 - (void)_setTouchIdentifier:(unsigned int)arg1;
 - (unsigned int)_touchIdentifier;
+- (_Bool)_mightBeConsideredForForceSystemGesture;
 - (_Bool)_edgeForceActive;
 - (_Bool)_edgeForcePending;
 @property(readonly, nonatomic) long long estimatedPropertiesExpectingUpdates;

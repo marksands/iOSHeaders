@@ -10,6 +10,7 @@
 
 @interface MPLibraryAddStatusObserver : NSObject
 {
+    _Bool _needsStatusUpdate;
     struct MPLibraryAddStatusObserverConfiguration _configuration;
     unsigned long long _currentStatus;
     CDUnknownBlockType _statusBlock;

@@ -65,7 +65,7 @@
 - (void)newFolderNameTextFieldDidChange:(id)arg1;
 - (void)createNewFolder:(id)arg1;
 - (void)showLocationOnTopOfCurrentBrowser:(id)arg1 animated:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (void)browser:(id)arg1 didResolveShownLocation:(id)arg2;
+- (void)browser:(id)arg1 didResolveShownLocation:(id)arg2 previousLocation:(id)arg3;
 - (void)browser:(id)arg1 wantsToShowLocation:(id)arg2 forceReplaceLocation:(_Bool)arg3;
 - (void)_clearSearch:(_Bool)arg1 updatePalette:(_Bool)arg2;
 - (void)_clearSearch:(_Bool)arg1;

@@ -6,11 +6,10 @@
 
 #import <MediaPlayer/MPAVRoutingDataSource.h>
 
-@class NSMapTable, NSObject<OS_dispatch_queue>, NSString;
+@class NSObject<OS_dispatch_queue>, NSString;
 
 @interface MPAVOutputDeviceRoutingDataSource : MPAVRoutingDataSource
 {
-    NSMapTable *_cachedOutputDevices;
     NSObject<OS_dispatch_queue> *_serialQueue;
     void *_applicationOutputContext;
     _Bool _attemptedToInitializeAppOutputContext;

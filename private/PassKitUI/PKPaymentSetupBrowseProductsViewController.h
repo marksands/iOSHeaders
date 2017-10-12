@@ -6,13 +6,13 @@
 
 #import <PassKitUI/PKPaymentSetupTableViewController.h>
 
-#import "PKPaymentSetupActivitySpinnerViewControllerProtocol.h"
+#import "PKPaymentSetupActivitySpinnerProtocol.h"
 #import "UITableViewDelegate.h"
 #import "UITextFieldDelegate.h"
 
 @class NSString, PKPaymentSetupBrowseProductsModel, PKPaymentSetupProduct, PKSearchableTableHeaderView;
 
-@interface PKPaymentSetupBrowseProductsViewController : PKPaymentSetupTableViewController <UITableViewDelegate, UITextFieldDelegate, PKPaymentSetupActivitySpinnerViewControllerProtocol>
+@interface PKPaymentSetupBrowseProductsViewController : PKPaymentSetupTableViewController <UITableViewDelegate, UITextFieldDelegate, PKPaymentSetupActivitySpinnerProtocol>
 {
     PKPaymentSetupBrowseProductsModel *_model;
     PKSearchableTableHeaderView *_headerView;
@@ -20,8 +20,8 @@
     PKPaymentSetupProduct *_selectedProduct;
 }
 
-@property(readonly, retain, nonatomic) PKPaymentSetupProduct *selectedProduct; // @synthesize selectedProduct=_selectedProduct;
-@property(nonatomic) id <PKPaymentSetupBrowseProductsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) PKPaymentSetupProduct *selectedProduct; // @synthesize selectedProduct=_selectedProduct;
+@property(nonatomic) __weak id <PKPaymentSetupBrowseProductsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) PKPaymentSetupBrowseProductsModel *model; // @synthesize model=_model;
 - (void).cxx_destruct;
 - (void)_setNavigationBarEnabled:(_Bool)arg1;

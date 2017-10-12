@@ -30,7 +30,6 @@
 - (void)transferFinished:(id)arg1;
 - (void)didReceiveMemoryWarning;
 - (void)flush;
-- (void)systemApplicationDidSuspendForEventsOnly;
 - (void)systemApplicationDidSuspend;
 - (id)notificationCenter;
 - (id)mediaObjectManager;

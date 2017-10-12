@@ -8,16 +8,18 @@
 
 #import "MFMailComposeViewControllerDelegate.h"
 #import "PKPeerPaymentAccountResolutionControllerDelegate.h"
+#import "PKPeerPaymentPerformActionViewControllerDelegate.h"
 
-@class NSString, PKPeerPaymentAccount, PKPeerPaymentWebService;
+@class NSString, PKPeerPaymentAccount, PKPeerPaymentPerformActionViewController, PKPeerPaymentWebService;
 
-@interface PKPeerPaymentAccountResolutionController : NSObject <MFMailComposeViewControllerDelegate, PKPeerPaymentAccountResolutionControllerDelegate>
+@interface PKPeerPaymentAccountResolutionController : NSObject <MFMailComposeViewControllerDelegate, PKPeerPaymentAccountResolutionControllerDelegate, PKPeerPaymentPerformActionViewControllerDelegate>
 {
     id <PKPeerPaymentAccountResolutionControllerDelegate> _delegate;
     id <PKPassLibraryDataProvider> _passLibraryDataProvider;
     id <PKPaymentSetupViewControllerDelegate> _setupViewControllerDelegate;
     long long _context;
     PKPeerPaymentWebService *_webService;
+    PKPeerPaymentPerformActionViewController *_peerPaymentActionViewController;
     PKPeerPaymentAccount *_account;
     id <PKPaymentSetupDelegate> _setupDelegate;
 }
@@ -38,10 +40,13 @@
 - (void)_presentViewController:(id)arg1;
 - (id)_paymentSetupNavigationControllerForProvisioningController:(id)arg1;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(long long)arg2 error:(id)arg3;
+- (void)peerPaymentPerformActionViewControllerDidPerformAction:(id)arg1;
+- (void)peerPaymentPerformActionViewControllerDidCancel:(id)arg1;
+- (void)_presentPeerPaymentAction:(unsigned long long)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_presentReOpenFlowWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_presentContactAppleSupportAlertWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_contactAppleSupportAlertControllerForPass:(id)arg1;
-- (void)_presentIdentityVerificationFlowWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_presentIdentityVerificationWithManualTrigger:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_presentActivationFlowWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_paymentWebService;
 - (id)_peerPaymentPass;
@@ -49,6 +54,7 @@
 - (void)peerPaymentAccountResolutionController:(id)arg1 requestsDismissCurrentViewControllerAnimated:(_Bool)arg2;
 - (void)peerPaymentAccountResolutionController:(id)arg1 requestsPresentViewController:(id)arg2 animated:(_Bool)arg3;
 - (unsigned long long)currentPeerPaymentAccountResolution;
+- (void)presentFlowForAccountResolution:(unsigned long long)arg1 manuallyTriggered:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)presentFlowForAccountResolution:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)presentResolutionForCurrentAccountStateWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)peerPaymentPassIsProvisionedOnDevice;

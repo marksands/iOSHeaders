@@ -4,24 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIViewController.h"
+#import <PassKitUI/PKViewController.h>
 
-@class AVPlayer, AVPlayerItem, AVPlayerLayer, PKContinuousButton, PKPaymentPass, PKTableHeaderView, UIImageView, UILabel;
+@class AVPlayer, AVPlayerItem, AVPlayerLayer, PKContinuousButton, PKMobileAssetManager, PKPaymentPass, PKTableHeaderView, UIImageView, UILabel;
 
-@interface PKFieldDetectEducationViewController : UIViewController
+@interface PKFieldDetectEducationViewController : PKViewController
 {
     UIImageView *_background;
-    AVPlayerLayer *_video;
     UIImageView *_passSnapshot;
     PKTableHeaderView *_subheader;
     UILabel *_instructionLabel;
     PKContinuousButton *_continueButton;
+    PKMobileAssetManager *_mobileAssetManager;
     PKPaymentPass *_paymentPass;
+    AVPlayerLayer *_video;
     AVPlayer *_player;
     AVPlayerItem *_playerItem;
     CDUnknownBlockType _continueHandler;
 }
 
++ (id)assetBackgroundColor;
 + (_Bool)shouldPresent;
 @property(copy, nonatomic) CDUnknownBlockType continueHandler; // @synthesize continueHandler=_continueHandler;
 - (void).cxx_destruct;
@@ -30,6 +32,7 @@
 - (void)didFinishPlaying;
 - (void)continueTapped;
 - (void)performContinue;
+- (void)startPlayingVideo;
 - (void)viewWillLayoutSubviews;
 - (void)loadView;
 - (void)dealloc;

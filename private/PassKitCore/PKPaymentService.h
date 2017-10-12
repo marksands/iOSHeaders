@@ -48,6 +48,7 @@
 - (void)setDefaultExpressFelicaTransitPassIdentifier:(id)arg1 withCredential:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)defaultExpressFelicaTransitPassIdentifier;
 - (void)sanitizeExpressPasses;
+- (void)initializeSecureElement:(CDUnknownBlockType)arg1;
 - (void)initializeSecureElementIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (id)defaultPaymentApplicationForPassUniqueIdentifier:(id)arg1;
 - (void)setDefaultPaymentApplication:(id)arg1 forPassUniqueIdentifier:(id)arg2 completion:(CDUnknownBlockType)arg3;

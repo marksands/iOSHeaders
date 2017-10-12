@@ -15,6 +15,7 @@
 - (void)_bindAndRegisterDefaults;
 
 // Remaining properties
+@property(readonly, nonatomic, getter=isBreadcrumbDisabled) _Bool breadcrumbDisabled; // @dynamic breadcrumbDisabled;
 @property(readonly, nonatomic) long long medusaDeviceSimulation; // @dynamic medusaDeviceSimulation;
 @property(readonly, nonatomic, getter=isMedusaEnabled) _Bool medusaEnabled; // @dynamic medusaEnabled;
 @property(retain, nonatomic) NSData *mostRecentFloatingApplicationState; // @dynamic mostRecentFloatingApplicationState;

@@ -23,5 +23,8 @@
 @optional
 @property(readonly, copy, nonatomic) id <CCUIOverlayFlickGestureBehavior> flickGestureBehavior;
 @property(readonly, nonatomic) unsigned long long headerMode;
+- (CCUIAnimationBatch *)cleanupForDismissal;
+- (CCUIAnimationBatch *)prepareForPresentation;
+- (CCUIAnimationBatch *)secondaryAnimationBatchForTransitionState:(CCUIOverlayTransitionState *)arg1 previousTransitionState:(CCUIOverlayTransitionState *)arg2;
 @end
 

@@ -18,6 +18,7 @@
     _Bool _isValid;
 }
 
++ (id)uiApplicationForContext:(unsigned int)arg1;
 + (id)uiApplicationAtCoordinate:(struct CGPoint)arg1;
 + (id)uiElementAtCoordinate:(struct CGPoint)arg1 startWithElement:(id)arg2;
 + (id)uiElementAtCoordinate:(struct CGPoint)arg1;

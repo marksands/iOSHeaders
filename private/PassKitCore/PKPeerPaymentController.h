@@ -25,6 +25,7 @@
     PKPeerPaymentWebService *_webService;
 }
 
++ (id)_peerPaymentPassURL;
 + (_Bool)errorIsTermsAcceptanceRequiredError:(id)arg1;
 + (_Bool)errorIsIdentityVerificationRequiredError:(id)arg1;
 + (unsigned long long)proposedResolutionForError:(id)arg1;

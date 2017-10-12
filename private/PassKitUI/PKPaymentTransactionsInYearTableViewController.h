@@ -22,6 +22,7 @@
     PKPeerPaymentContactResolver *_contactResolver;
     PKPeerPaymentController *_peerPaymentController;
     NSDateFormatter *_transactionMonthFormatter;
+    long long _detailViewStyle;
 }
 
 - (void).cxx_destruct;
@@ -38,7 +39,7 @@
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)viewDidLoad;
-- (id)initWithDateFromYear:(id)arg1 calendar:(id)arg2 paymentPass:(id)arg3 paymentServiceDataProvider:(id)arg4 contactResolver:(id)arg5 peerPaymentController:(id)arg6;
+- (id)initWithDateFromYear:(id)arg1 calendar:(id)arg2 paymentPass:(id)arg3 detailViewStyle:(long long)arg4 paymentServiceDataProvider:(id)arg5 contactResolver:(id)arg6 peerPaymentController:(id)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

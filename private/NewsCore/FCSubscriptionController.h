@@ -41,7 +41,7 @@
 - (void)_fetchMissingTagsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_refreshChannelsWithNotificationsEnabled;
 - (void)_purchaseListDidChange;
-- (void)applicationDidEnterBackground;
+- (void)activityObservingApplicationDidEnterBackground;
 - (void)subscriptionList:(id)arg1 didAddSubscriptions:(id)arg2 changeSubscriptions:(id)arg3 removeSubscriptions:(id)arg4 eventInitiationLevel:(long long)arg5;
 - (_Bool)addGroupableSubscriptionForTagID:(id)arg1 origin:(unsigned long long)arg2 eventInitiationLevel:(long long)arg3;
 - (void)addAutoFavoriteSubscriptionForTagIDs:(id)arg1 groupableSubscriptionForTagIDs:(id)arg2 originProvider:(CDUnknownBlockType)arg3 eventInitiationLevelProvider:(CDUnknownBlockType)arg4 completion:(CDUnknownBlockType)arg5;

@@ -27,6 +27,7 @@
 - (id)_button;
 - (id)_bodyLabel;
 - (id)_titleLabel;
+- (_Bool)_displaysTitleLabel;
 - (void)_handleButtonPressed:(id)arg1;
 - (id)_buttonText;
 - (id)_bodyText;

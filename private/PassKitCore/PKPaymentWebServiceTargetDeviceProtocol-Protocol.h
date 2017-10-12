@@ -17,6 +17,7 @@
 - (void)paymentWebService:(PKPaymentWebService *)arg1 validateAddPreconditionsWithCompletion:(void (^)(_Bool, NSError *))arg2;
 - (_Bool)paymentWebService:(PKPaymentWebService *)arg1 canProvisionPaymentPassWithPrimaryAccountIdentifier:(NSString *)arg2;
 - (_Bool)paymentWebService:(PKPaymentWebService *)arg1 hasPassesOfType:(unsigned long long)arg2;
+- (void)paymentWebService:(PKPaymentWebService *)arg1 setNewAuthRandom:(void (^)(_Bool))arg2;
 - (void)paymentWebService:(PKPaymentWebService *)arg1 setNewAuthRandomIfNecessaryReturningPairingState:(void (^)(_Bool, NSData *, NSData *))arg2;
 - (void)noteProvisioningDidEnd;
 - (void)noteProvisioningDidBegin;

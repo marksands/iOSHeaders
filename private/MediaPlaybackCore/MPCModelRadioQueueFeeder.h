@@ -65,7 +65,6 @@
 - (long long)realRepeatType;
 - (_Bool)preventsHardQueueModificationsForItem:(id)arg1;
 - (_Bool)playerPreparesItemsForPlaybackAsynchronously;
-- (_Bool)player:(id)arg1 shouldContinuePlaybackForNetworkType:(long long)arg2 returningError:(id *)arg3;
 - (void)player:(id)arg1 currentItemDidChangeToItem:(id)arg2;
 - (unsigned long long)itemCount;
 - (Class)itemClass;

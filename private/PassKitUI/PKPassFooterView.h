@@ -18,6 +18,7 @@
     NSObject<OS_dispatch_source> *_sessionStartTimer;
     long long _paymentApplicationState;
     _Bool _isBackgrounded;
+    _Bool _isAssistantActive;
     _Bool _acquiringSession;
     unsigned long long _sessionToken;
     unsigned char _visibility;
@@ -49,8 +50,12 @@
 - (void)_startContactlessInterfaceSessionWithSessionAvailable:(CDUnknownBlockType)arg1 sessionUnavailable:(CDUnknownBlockType)arg2;
 - (id)_contentViewForPaymentApplicationWithContext:(id)arg1;
 - (void)_configureForState:(long long)arg1 context:(id)arg2 passView:(id)arg3;
+- (void)_handleRemoveDeactivationReasonNotification:(id)arg1;
+- (void)_handleAddDeactivationReasonNotification:(id)arg1;
 - (void)_handleEnterBackgroundNotification:(id)arg1;
 - (void)_handleEnterForegroundNotification:(id)arg1;
+- (void)_updateForNonForegroundActivePresentationAnimated:(_Bool)arg1;
+- (void)_updateForForegroundActivePresentationIfNecessaryAnimated:(_Bool)arg1;
 - (void)passFooterContentViewDidEndAuthenticating:(id)arg1;
 - (void)passFooterContentViewDidBeginAuthenticating:(id)arg1;
 - (void)passFooterContentViewDidChangeUserIntentRequirement:(id)arg1;

@@ -16,5 +16,6 @@
 @property(readonly, nonatomic) UIView *overlayContainerView;
 @property(readonly, nonatomic) UIScrollView *overlayScrollView;
 @property(readonly, nonatomic) MTMaterialView *overlayBackgroundView;
+- (void)setOverlayStatusBarHidden:(_Bool)arg1;
 @end
 

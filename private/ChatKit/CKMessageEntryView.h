@@ -17,7 +17,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "_UIBackdropViewGraphicsQualityChangeDelegate.h"
 
-@class CAMShutterButton, CKActionMenuController, CKActionMenuGestureRecognizerButton, CKAudioRecorder, CKBrowserSwitcherFooterView, CKComposition, CKConversation, CKEntryViewButton, CKInlineAudioReplyButtonController, CKMessageEntryAudioHintView, CKMessageEntryContentView, CKMessageEntryRecordedAudioView, CKMessageEntryWaveformView, CKScheduledUpdater, NSArray, NSString, UIInputContextHistory, UILabel, UILongPressGestureRecognizer, UIPreviewInteraction, _UIBackdropView;
+@class CAMShutterButton, CKActionMenuController, CKActionMenuGestureRecognizerButton, CKAudioRecorder, CKBrowserSwitcherFooterView, CKComposition, CKConversation, CKEntryViewButton, CKInlineAudioReplyButtonController, CKMessageEntryAudioHintView, CKMessageEntryContentView, CKMessageEntryRecordedAudioView, CKMessageEntryWaveformView, CKScheduledUpdater, NSArray, NSString, UIInputContextHistory, UILabel, UILongPressGestureRecognizer, UIPreviewInteraction, UISwipeGestureRecognizer, _UIBackdropView;
 
 @interface CKMessageEntryView : UIView <CKMessageEntryContentViewDelegate, CKAudioRecorderDelegate, CKActionMenuControllerDelegate, CKMessageEntryRecordedAudioViewDelegate, CKActionMenuGestureRecognizerButtonDelegate, CKInlineAudioReplyButtonDelegate, UIGestureRecognizerDelegate, _UIBackdropViewGraphicsQualityChangeDelegate, CKBrowserSwitcherFooterViewDelegate, CKMessageEntryViewStyleProtocol>
 {
@@ -75,6 +75,7 @@
     CKBrowserSwitcherFooterView *_appStrip;
     CAMShutterButton *_shutterButton;
     CKScheduledUpdater *_entryFieldCollapsedUpdater;
+    UISwipeGestureRecognizer *_swipeGestureRecognizer;
     struct CGSize _inputButtonSize;
     struct CGSize _sendButtonSize;
     struct CGSize _characterCountSize;
@@ -90,6 +91,7 @@
 + (struct UIEdgeInsets)coverViewInsetsForMarginInsets:(struct UIEdgeInsets)arg1 shouldShowPluginButtons:(_Bool)arg2 shouldShowCharacterCount:(_Bool)arg3 shouldCenterCharacterCount:(_Bool *)arg4;
 + (id)sharedAppStripDatasource;
 + (id)_imageNamesForPrecaching;
+@property(retain, nonatomic) UISwipeGestureRecognizer *swipeGestureRecognizer; // @synthesize swipeGestureRecognizer=_swipeGestureRecognizer;
 @property(nonatomic) _Bool entryFieldUpdaterAnimatedValue; // @synthesize entryFieldUpdaterAnimatedValue=_entryFieldUpdaterAnimatedValue;
 @property(nonatomic) _Bool entryFieldUpdaterCollapsedValue; // @synthesize entryFieldUpdaterCollapsedValue=_entryFieldUpdaterCollapsedValue;
 @property(retain, nonatomic) CKScheduledUpdater *entryFieldCollapsedUpdater; // @synthesize entryFieldCollapsedUpdater=_entryFieldCollapsedUpdater;
@@ -153,6 +155,7 @@
 @property(copy, nonatomic) NSArray *keyCommands; // @synthesize keyCommands=_keyCommands;
 - (void).cxx_destruct;
 - (void)sendCurrentLocationMessage;
+- (void)_swipeDownGestureRecognized:(id)arg1;
 - (void)sendButtonLongPressGesture:(id)arg1;
 - (void)loadRecordedAudioViewsIfNeeded;
 - (_Bool)pluginButtonsEnabled;

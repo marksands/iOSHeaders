@@ -79,7 +79,7 @@
 @property(readonly) long long workoutState;
 - (id)metadata;
 @property __weak id <_HKActiveWorkoutDelegate> delegate;
-- (void)_propertyQueue_alertDelegateDidReceiveWorkoutEvent:(id)arg1;
+- (void)_propertyQueue_alertDelegateDidReceiveWorkoutEvent:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_propertyQueue_alertDelegateDidUpdateState:(long long)arg1 date:(id)arg2;
 - (void)_propertyQueue_alertDelegateDidEncounterError:(id)arg1;
 - (void)_propertyQueue_alertDelegateWorkoutDidUpdateTotalSwimmingStrokeCount;
@@ -100,7 +100,7 @@
 - (void)_propertyQueue_addFlightsClimbed:(id)arg1;
 - (void)_propertyQueue_addStepCount:(id)arg1;
 - (void)_propertyQueue_updateTotalsWithQuantity:(id)arg1 quantityType:(id)arg2;
-- (void)clientRemote_receivedWorkoutEvent:(id)arg1;
+- (void)clientRemote_receivedWorkoutEvent:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)clientRemote_serverFailedWithError:(id)arg1;
 - (void)clientRemote_serverStoppedWithDate:(id)arg1;
 - (void)clientRemote_serverPausedWithDate:(id)arg1 completion:(CDUnknownBlockType)arg2;

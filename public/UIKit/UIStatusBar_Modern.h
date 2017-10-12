@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (double)defaultDoubleHeight;
 - (double)defaultHeight;
 - (void)setLegibilityStyle:(long long)arg1 animationParameters:(id)arg2;
+- (void)setForegroundAlpha:(double)arg1 animationParameters:(id)arg2;
 - (void)setForegroundColor:(id)arg1 animationParameters:(id)arg2;
 - (void)setStyleRequest:(id)arg1 animationParameters:(id)arg2;
 - (long long)currentStyle;

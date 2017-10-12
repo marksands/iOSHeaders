@@ -49,6 +49,7 @@
 - (unsigned long long)indexOfVideoForAd:(id)arg1;
 - (unsigned long long)indexOfVideo:(id)arg1;
 - (void)accessibilityDidActivateVideoView:(id)arg1;
+- (_Bool)playbackAllowed:(id)arg1;
 - (id)subtitleForVideoAtIndex:(unsigned long long)arg1;
 - (id)titleForVideoAtIndex:(unsigned long long)arg1;
 - (id)layoutForVideo:(id)arg1 withPlaybackCoordinator:(id)arg2 reason:(unsigned long long)arg3;

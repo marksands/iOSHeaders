@@ -34,6 +34,9 @@
     struct UIEdgeInsets _contentInset;
 }
 
++ (id)referenceBackgroundColorForState:(unsigned long long)arg1;
++ (id)referenceBackgroundColor;
++ (struct CGSize)referenceSizeForPeerPaymentStatusResponse:(id)arg1;
 + (struct CGSize)referenceSizeForState:(unsigned long long)arg1 andAction:(unsigned long long)arg2;
 + (struct CGSize)referenceSizeForState:(unsigned long long)arg1;
 + (struct CGSize)referenceSize;
@@ -55,15 +58,18 @@
 - (void)updateWithPeerPaymentMessage:(id)arg1 animated:(_Bool)arg2;
 - (void)updateWithPaymentTransaction:(id)arg1 animated:(_Bool)arg2;
 - (void)updateWithPeerPaymentStatusResponse:(id)arg1 animated:(_Bool)arg2;
-- (void)updateWithPeerPaymentStatus:(unsigned long long)arg1 animated:(_Bool)arg2;
+- (void)updateWithPeerPaymentStatus:(long long)arg1 animated:(_Bool)arg2;
 - (void)_actionButtonTapped:(id)arg1;
 - (id)_actionTitle;
 - (id)_statusText;
 - (id)_messageTextAttributes;
 - (id)_messageText;
-- (id)_messageTextColor;
+- (double)_messageAlpha;
 - (id)_backgroundColor;
 - (void)_updateContent;
+@property(readonly, nonatomic) struct CGSize referenceSize;
+@property(readonly, nonatomic) struct CGRect referenceBounds;
+- (void)setAction:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (void)setState:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;

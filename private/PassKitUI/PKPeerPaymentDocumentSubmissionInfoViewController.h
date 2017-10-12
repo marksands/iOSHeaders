@@ -11,12 +11,11 @@
 #import "PKPeerPaymentDocumentSubmissionControllerDelegate.h"
 #import "PKPeerPaymentDocumentSubmissionViewControllerResponder.h"
 
-@class NSString, NSTimer, PKExplanationView, PKPeerPaymentDocumentSubmissionController;
+@class NSString, NSTimer, PKPeerPaymentDocumentSubmissionController;
 
 @interface PKPeerPaymentDocumentSubmissionInfoViewController : PKExplanationViewController <PKPeerPaymentDocumentSubmissionControllerDelegate, PKExplanationViewDelegate, PKExplanationViewControllerDelegate, PKPeerPaymentDocumentSubmissionViewControllerResponder>
 {
     PKPeerPaymentDocumentSubmissionController *_controller;
-    PKExplanationView *_explanationView;
     long long _context;
     long long _currentState;
     long long _currentSide;
@@ -32,7 +31,7 @@
 - (void)explanationViewDidSelectContinue:(id)arg1;
 - (void)updateUIWithState:(long long)arg1;
 - (id)secondaryButton;
-- (void)explanationViewControllerDidSelectCancel:(id)arg1;
+- (void)_cancelPressed;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithController:(id)arg1 context:(long long)arg2;

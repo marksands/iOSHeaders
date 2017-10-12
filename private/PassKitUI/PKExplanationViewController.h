@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "UIViewController.h"
+#import <PassKitUI/PKViewController.h>
 
 #import "PKPaymentSetupPrivacyFooterViewDelegate.h"
 
 @class PKExplanationView;
 
-@interface PKExplanationViewController : UIViewController <PKPaymentSetupPrivacyFooterViewDelegate>
+@interface PKExplanationViewController : PKViewController <PKPaymentSetupPrivacyFooterViewDelegate>
 {
     _Bool _showCancelButton;
     _Bool _showDoneButton;

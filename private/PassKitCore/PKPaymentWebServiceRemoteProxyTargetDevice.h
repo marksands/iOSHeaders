@@ -35,6 +35,7 @@
 - (void)canProvisionPaymentPassWithPrimaryAccountIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)passesOfType:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)hasPassesOfType:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)setNewAuthRandom:(CDUnknownBlockType)arg1;
 - (void)setNewAuthRandomIfNecessaryReturningPairingState:(CDUnknownBlockType)arg1;
 - (void)noteProvisioningDidEnd;
 - (void)noteProvisioningDidBegin;

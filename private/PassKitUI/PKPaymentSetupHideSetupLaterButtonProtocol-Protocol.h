@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@protocol PKPaymentSetupViewControllerCanHideSetupLaterButton <NSObject>
+@protocol PKPaymentSetupHideSetupLaterButtonProtocol <NSObject>
 - (void)setHideSetupLaterButton:(_Bool)arg1;
 @end
 

@@ -38,6 +38,7 @@
 - (id)modelsForActionType:(id)arg1;
 - (id)consumer:(id)arg1 actionModelsForActionType:(id)arg2;
 - (id)consumer:(id)arg1 actionModelsForActionType:(id)arg2 handler:(CDUnknownBlockType)arg3;
+- (_Bool)shouldUseLabelForButtonWithDefaultAction:(id)arg1;
 - (id)consumer:(id)arg1 localizedDisplayNameForButtonWithDefaultAction:(id)arg2 actionType:(id)arg3;
 - (id)consumer:(id)arg1 localizedButtonDisplayNameForActionType:(id)arg2;
 - (id)consumer:(id)arg1 localizedDisplayNameForActionType:(id)arg2;

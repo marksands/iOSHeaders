@@ -34,6 +34,7 @@
 - (_Bool)paymentWebService:(id)arg1 canProvisionPaymentPassWithPrimaryAccountIdentifier:(id)arg2;
 - (id)paymentWebService:(id)arg1 passesOfType:(unsigned long long)arg2;
 - (_Bool)paymentWebService:(id)arg1 hasPassesOfType:(unsigned long long)arg2;
+- (void)paymentWebService:(id)arg1 setNewAuthRandom:(CDUnknownBlockType)arg2;
 - (void)paymentWebService:(id)arg1 setNewAuthRandomIfNecessaryReturningPairingState:(CDUnknownBlockType)arg2;
 - (id)secureElementIdentifiers;
 - (void)noteProvisioningDidEnd;

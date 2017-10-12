@@ -9,15 +9,17 @@
 #import "CCUIOverlayMetricsProvider.h"
 #import "CCUIOverlayViewProvider.h"
 #import "CCUIScrollViewDelegate.h"
+#import "CCUIStatusBarDelegate.h"
 #import "CCUIStatusLabelViewControllerDelegate.h"
 #import "UIGestureRecognizerDelegate.h"
 
-@class CCUIAnimationRunner, CCUIFlickGestureRecognizer, CCUIHeaderPocketView, CCUIModuleCollectionView, CCUIOverlayTransitionState, CCUIScrollView, CCUIStatusLabelViewController, MTMaterialView, NSHashTable, NSString, NSUUID, UIPanGestureRecognizer, UIScrollView, UIStatusBar, UITapGestureRecognizer, UIView;
+@class CCUIAnimationRunner, CCUIFlickGestureRecognizer, CCUIHeaderPocketView, CCUIModuleCollectionView, CCUIOverlayTransitionState, CCUIScrollView, CCUIStatusBarStyleSnapshot, CCUIStatusLabelViewController, MTMaterialView, NSHashTable, NSString, NSUUID, UIPanGestureRecognizer, UIScrollView, UIStatusBar, UITapGestureRecognizer, UIView;
 
-@interface CCUIModularControlCenterOverlayViewController : CCUIModularControlCenterViewController <UIGestureRecognizerDelegate, CCUIScrollViewDelegate, CCUIStatusLabelViewControllerDelegate, CCUIOverlayViewProvider, CCUIOverlayMetricsProvider>
+@interface CCUIModularControlCenterOverlayViewController : CCUIModularControlCenterViewController <UIGestureRecognizerDelegate, CCUIScrollViewDelegate, CCUIStatusLabelViewControllerDelegate, CCUIOverlayViewProvider, CCUIOverlayMetricsProvider, CCUIStatusBarDelegate>
 {
     id <CCUIOverlayPresentationProvider> _presentationProvider;
-    CCUIAnimationRunner *_animationRunner;
+    CCUIAnimationRunner *_primaryAnimationRunner;
+    CCUIAnimationRunner *_secondaryAnimationRunner;
     MTMaterialView *_backgroundView;
     CCUIHeaderPocketView *_headerPocketView;
     CCUIScrollView *_scrollView;
@@ -34,10 +36,13 @@
     _Bool _interactiveTransition;
     NSUUID *_currentTransitionUUID;
     CCUIOverlayTransitionState *_previousTransitionState;
+    CCUIStatusBarStyleSnapshot *_hostStatusBarStyleSnapshot;
     unsigned long long _presentationState;
+    id <CCUIHostStatusBarStyleProvider> _hostStatusBarStyleProvider;
 }
 
 + (id)_presentationProviderForDevice;
+@property(nonatomic) __weak id <CCUIHostStatusBarStyleProvider> hostStatusBarStyleProvider; // @synthesize hostStatusBarStyleProvider=_hostStatusBarStyleProvider;
 @property(nonatomic) unsigned long long presentationState; // @synthesize presentationState=_presentationState;
 - (void).cxx_destruct;
 - (_Bool)_gestureRecognizerIsActive:(id)arg1;
@@ -66,11 +71,13 @@
 - (void)endPresentationWithLocation:(struct CGPoint)arg1 translation:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
 - (void)updatePresentationWithLocation:(struct CGPoint)arg1 translation:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
 - (void)beginPresentationWithLocation:(struct CGPoint)arg1 translation:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
-@property(readonly, nonatomic) unsigned long long overlayStatusBarOptions;
+- (id)compactStyleRequestForStatusBar:(id)arg1;
+@property(readonly, copy, nonatomic) CCUIStatusBarStyleSnapshot *overlayStatusBarStyle;
 @property(readonly, nonatomic) long long overlayInterfaceOrientation;
 @property(readonly, nonatomic) struct UIEdgeInsets overlayAdditionalEdgeInsets;
 @property(readonly, nonatomic) struct CGRect overlayContainerFrame;
 @property(readonly, nonatomic) struct CGSize overlayContentSize;
+- (void)setOverlayStatusBarHidden:(_Bool)arg1;
 @property(readonly, nonatomic) UIStatusBar *overlayLeadingStatusBar;
 @property(readonly, nonatomic) CCUIHeaderPocketView *overlayHeaderView;
 @property(readonly, nonatomic) CCUIStatusLabelViewController *overlayStatusLabelViewController;

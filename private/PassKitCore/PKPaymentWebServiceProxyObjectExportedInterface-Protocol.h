@@ -24,6 +24,7 @@
 - (void)canProvisionPaymentPassWithPrimaryAccountIdentifier:(NSString *)arg1 completion:(void (^)(_Bool))arg2;
 - (void)passesOfType:(unsigned long long)arg1 completion:(void (^)(NSArray *))arg2;
 - (void)hasPassesOfType:(unsigned long long)arg1 completion:(void (^)(_Bool))arg2;
+- (void)setNewAuthRandom:(void (^)(_Bool))arg1;
 - (void)setNewAuthRandomIfNecessaryReturningPairingState:(void (^)(_Bool, NSData *, NSData *))arg1;
 - (void)noteProvisioningDidEnd;
 - (void)noteProvisioningDidBegin;

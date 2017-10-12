@@ -91,6 +91,7 @@
 - (_Bool)_isSummaryViewVisible;
 - (_Bool)_isTransactionViewVisible;
 - (_Bool)_showTransactionViewDuringPayment;
+- (_Bool)_shouldDisplayTransactionView;
 - (_Bool)_showPeerPaymentAccountResolutionView;
 - (_Bool)_showSummaryState;
 - (_Bool)_showPhysicalButtonView;

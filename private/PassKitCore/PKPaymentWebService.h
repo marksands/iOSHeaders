@@ -8,7 +8,7 @@
 
 #import "NSURLSessionDownloadDelegate.h"
 
-@class NSArray, NSHashTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSURL, NSURLSession, PKPaymentDevice, PKPaymentHeroImageController, PKPaymentWebServiceBackgroundContext, PKPaymentWebServiceContext;
+@class NSArray, NSHashTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSURL, NSURLSession, PKPaymentDevice, PKPaymentWebServiceBackgroundContext, PKPaymentWebServiceContext;
 
 @interface PKPaymentWebService : PKWebService <NSURLSessionDownloadDelegate>
 {
@@ -18,7 +18,6 @@
     NSObject<OS_dispatch_queue> *_delegateQueue;
     NSObject<OS_dispatch_queue> *_backgroundDownloadQueue;
     NSHashTable *_delegates;
-    PKPaymentHeroImageController *_heroImageController;
     _Bool _sharedService;
     PKPaymentWebServiceContext *_context;
     PKPaymentWebServiceBackgroundContext *_backgroundContext;

@@ -22,7 +22,7 @@
 @property(readonly, nonatomic) MPModelGenericObject *genericObject; // @synthesize genericObject=_genericObject;
 @property(retain, nonatomic) MPCModelGenericAVItemTimedMetadataResponse *previousResponse; // @synthesize previousResponse=_previousResponse;
 - (void).cxx_destruct;
-- (void)performWithResponseHandler:(CDUnknownBlockType)arg1;
+- (id)newOperationWithResponseHandler:(CDUnknownBlockType)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithGenericObject:(id)arg1 timedMetadataGroups:(id)arg2 storeRequestContext:(id)arg3;
 

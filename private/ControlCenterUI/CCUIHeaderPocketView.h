@@ -14,6 +14,7 @@
     UIView *_headerLineView;
     SBUIChevronView *_headerChevronView;
     CCUIStatusBar *_statusBar;
+    id <CCUIStatusBarDelegate> _statusBarDelegate;
     unsigned long long _mode;
     double _backgroundAlpha;
     double _contentAlpha;
@@ -28,6 +29,7 @@
 @property(nonatomic) double backgroundAlpha; // @synthesize backgroundAlpha=_backgroundAlpha;
 @property(nonatomic) struct UIEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
 @property(nonatomic) unsigned long long mode; // @synthesize mode=_mode;
+@property(nonatomic) __weak id <CCUIStatusBarDelegate> statusBarDelegate; // @synthesize statusBarDelegate=_statusBarDelegate;
 @property(readonly, nonatomic) CCUIStatusBar *statusBar; // @synthesize statusBar=_statusBar;
 - (void).cxx_destruct;
 - (void)_updateContentTransform;

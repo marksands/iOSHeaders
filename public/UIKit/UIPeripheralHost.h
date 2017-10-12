@@ -20,7 +20,6 @@
     _Bool _automaticAppearanceEnabledInternal;
     _Bool _automaticKeyboardAnimatingIn;
     _Bool _automaticKeyboardAnimatingOut;
-    int _automaticKeyboardState;
     int _ignoringReloadInputViews;
     int _ignoredReloads;
     _Bool _suppresingNotifications;
@@ -91,6 +90,7 @@
     _Bool _dontNeedAssistantBar;
     CDUnknownBlockType _deferredTransitionTask;
     double _lastKeyplaneResize;
+    int _currentState;
     UIInputViewSet *_transientInputViewSet;
     UITextInputMode *_documentInputMode;
 }
@@ -108,6 +108,7 @@
 + (struct CGRect)visibleInputViewFrame;
 + (_Bool)inputViewSetContainsView:(id)arg1;
 + (Class)hostViewClass;
+@property(nonatomic) int currentState; // @synthesize currentState=_currentState;
 @property(retain, nonatomic) UITextInputMode *documentInputMode; // @synthesize documentInputMode=_documentInputMode;
 @property(retain, nonatomic) UIInputViewPostPinningReloadState *postPinningReloadState; // @synthesize postPinningReloadState=_postPinningReloadState;
 @property(retain, nonatomic) UIResponder *selfHostingTrigger; // @synthesize selfHostingTrigger=_selfHostingTrigger;
@@ -190,7 +191,7 @@
 - (_Bool)isOffScreen;
 - (_Bool)isOnScreen;
 - (void)setKeyboardFencingEnabled:(_Bool)arg1;
-@property(nonatomic) int currentState; // @synthesize currentState=_automaticKeyboardState;
+- (void)_onScreenStateDidChange;
 - (void)setKeyboardOnScreenNotifyKey:(_Bool)arg1;
 - (id)retain;
 - (void)createHostViewIfNeeded;

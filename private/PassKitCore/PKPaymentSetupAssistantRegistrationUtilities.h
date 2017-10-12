@@ -11,8 +11,8 @@
 }
 
 + (void)_macPreflight:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
++ (id)_peerPaymentCredentialFromPeerPaymentWebService:(id)arg1;
 + (id)_bridgeContextDefaultLocalCredential;
-+ (void)_bridgeCredentials:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (void)_handlePreflightFinishedWithSuccess:(_Bool)arg1 paymentCredentials:(id)arg2 provisioningController:(id)arg3 completion:(CDUnknownBlockType)arg4;
 + (void)_bridgePreflight:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 + (void)_phonePreflight:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

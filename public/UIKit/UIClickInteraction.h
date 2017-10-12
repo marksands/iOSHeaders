@@ -18,7 +18,6 @@
     _UIClickFeedbackGenerator *_feedbackGenerator;
     _Bool _interactive;
     long long _state;
-    double _pressedDownTimestamp;
     _UIPreviewInteractionHighlighter *_interactionEffect;
     _Bool _latching;
     _Bool _selected;
@@ -31,7 +30,6 @@
 @property(nonatomic) __weak id <UIClickInteractionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) __weak UIView *view; // @synthesize view;
 - (void).cxx_destruct;
-- (_Bool)_shouldCancelInteractionForPressDownTimer;
 - (void)_handleTouchForceGestureRecognizer:(id)arg1;
 - (void)_updateInteractionForGestureRecognizer:(id)arg1;
 - (void)_endInteractionIfNeeded;

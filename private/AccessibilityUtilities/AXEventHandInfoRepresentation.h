@@ -22,6 +22,7 @@
     unsigned int _handIdentity;
     unsigned int _handIndex;
     unsigned int _handEventMask;
+    unsigned int _additionalHandEventFlagsForGeneratedEvents;
     NSArray *_paths;
     struct CGPoint _handPosition;
 }
@@ -29,6 +30,7 @@
 + (id)representationWithHandInfo:(CDStruct_f2c5c900 *)arg1;
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) unsigned char swipe; // @synthesize swipe=_swipe;
+@property(nonatomic) unsigned int additionalHandEventFlagsForGeneratedEvents; // @synthesize additionalHandEventFlagsForGeneratedEvents=_additionalHandEventFlagsForGeneratedEvents;
 @property(nonatomic) unsigned int handEventMask; // @synthesize handEventMask=_handEventMask;
 @property(nonatomic) struct CGPoint handPosition; // @synthesize handPosition=_handPosition;
 @property(nonatomic) unsigned int handIndex; // @synthesize handIndex=_handIndex;

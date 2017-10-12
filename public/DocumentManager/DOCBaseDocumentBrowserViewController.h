@@ -40,7 +40,7 @@
 - (void)browserWantsToCreateNewFile:(id)arg1;
 - (void)browserWantsToCreateNewFolder:(id)arg1;
 - (void)browser:(id)arg1 isDisplayingEmptyCollection:(_Bool)arg2;
-- (void)browser:(id)arg1 didResolveShownLocation:(id)arg2;
+- (void)browser:(id)arg1 didResolveShownLocation:(id)arg2 previousLocation:(id)arg3;
 - (void)browser:(id)arg1 wantsToShowLocation:(id)arg2 forceReplaceLocation:(_Bool)arg3;
 - (void)dismissDocumentManager;
 - (void)showContentForLocation:(id)arg1;

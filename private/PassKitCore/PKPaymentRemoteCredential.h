@@ -31,7 +31,6 @@
 @property(nonatomic) long long status; // @synthesize status=_status;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
-- (long long)compare:(id)arg1;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)_isEqualToCredential:(id)arg1;

@@ -14,8 +14,10 @@
     IMHandle *_incomingHandle;
     IMHandle *_outgoingHandle;
     IMMessage *_lastMockIMMessage;
+    unsigned long long _mockUnreadMessageCount;
 }
 
+@property(nonatomic) unsigned long long mockUnreadMessageCount; // @synthesize mockUnreadMessageCount=_mockUnreadMessageCount;
 @property(retain, nonatomic) IMMessage *lastMockIMMessage; // @synthesize lastMockIMMessage=_lastMockIMMessage;
 @property(retain, nonatomic) IMHandle *outgoingHandle; // @synthesize outgoingHandle=_outgoingHandle;
 @property(retain, nonatomic) IMHandle *incomingHandle; // @synthesize incomingHandle=_incomingHandle;
@@ -24,10 +26,13 @@
 - (id)_chatItemFromMockItemInfo:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)_messageFromMockItemInfo:(id)arg1;
 - (void)appendMockItemWithInfo:(id)arg1;
+- (void)setupWithMockItemInfoArray:(id)arg1;
 - (void)deleteChatItems:(id)arg1;
 - (_Bool)deleteAllHistory;
 - (id)loadMessagesBeforeDate:(id)arg1 limit:(unsigned long long)arg2 loadImmediately:(_Bool)arg3;
+- (unsigned long long)unreadMessageCount;
 - (unsigned long long)messageCount;
+- (id)lastMessage;
 - (id)lastFinishedMessage;
 - (id)lastFinishedMessageDate;
 - (id)displayName;

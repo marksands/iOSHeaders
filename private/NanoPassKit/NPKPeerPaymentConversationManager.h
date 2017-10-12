@@ -26,6 +26,11 @@
 - (id)_sharedPeerPaymentWebService;
 - (void)_postNotificationWithRecipient:(id)arg1 error:(id)arg2;
 - (id)_skeletonPeerPaymentQuoteWithPeerPaymentController:(id)arg1 selectedAmount:(id)arg2 recipient:(id)arg3;
+- (id)_unknownPaymentErrorWithUnderlyingError:(id)arg1;
+- (id)_lockedOrRestrictedAccountErrorWithUnderlyingError:(id)arg1;
+- (id)_ambiguousSenderAddressErrorWithUnderlyingError:(id)arg1;
+- (id)_negativeBalanceErrorWithUnderlyingError:(id)arg1;
+- (id)_displayableErrorWithError:(id)arg1;
 - (void)lookupRecipientInformationWithAddress:(id)arg1 senderAddress:(id)arg2;
 - (void)performPaymentWithAmount:(id)arg1 requestToken:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)lookupRecipientInformationIfNecessary;

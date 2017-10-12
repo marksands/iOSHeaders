@@ -145,7 +145,7 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasBackingData;
 @property(readonly, nonatomic) _Bool hasTransactionSource;
-@property(nonatomic) unsigned long long peerPaymentStatus;
+@property(nonatomic) long long peerPaymentStatus;
 @property(retain, nonatomic) CLLocation *location;
 @property(readonly, nonatomic) __weak NSString *displayLocation;
 - (id)recordTypesAndNames;

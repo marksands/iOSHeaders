@@ -37,6 +37,8 @@
 - (void).cxx_destruct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_updateTelephonyPropertiesForCTServerNotification:(id)arg1 userInfo:(id)arg2;
+- (void)_handleApplicationDidEnterForegroundNotification:(id)arg1;
+- (void)_updateTelephonyState;
 - (long long)_currentNetworkType;
 - (void)_updateNetworkReachabilityAndNotifyObservers:(_Bool)arg1;
 - (void)removeObserver:(id)arg1;

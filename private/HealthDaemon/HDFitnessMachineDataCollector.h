@@ -17,6 +17,7 @@
     NSObject<OS_dispatch_queue> *_queue;
     HDDataCollectorConfiguration *_configuration;
     NSMutableDictionary *_previousDatums;
+    NSMutableDictionary *_previousWorkoutMetrics;
     NSDate *_approximatedStartDate;
     NSMutableArray *_bufferedCharacteristics;
     NSSet *_localDevicePreferredObjectTypes;
@@ -34,6 +35,7 @@
 @property(retain, nonatomic) NSDate *machinePreferredUntilDate; // @synthesize machinePreferredUntilDate=_machinePreferredUntilDate;
 - (void).cxx_destruct;
 - (void)_queue_handleConfigurationChanged:(id)arg1;
+- (void)_queue_checkHasAnyActiveConnectedGymWorkouts;
 - (void)workoutManagerStateDidChange:(id)arg1;
 - (long long)_getLongFromDatum:(id)arg1 unitString:(id)arg2 defaultValue:(long long)arg3;
 - (double)_getDoubleFromDatum:(id)arg1 unitString:(id)arg2 defaultValue:(double)arg3;

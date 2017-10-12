@@ -26,7 +26,7 @@
 - (void).cxx_destruct;
 - (void)_queue_sendEurotasData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_queue_generateEurotasData;
-- (void)_queue_updateFitnessMachineWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_queue_updateFitnessMachineWithCompletion:(CDUnknownBlockType)arg1 forcing:(_Bool)arg2;
 - (void)_queue_updateFitnessMachine;
 - (void)_queue_metricsAddedToWorkout:(id)arg1;
 - (void)_queue_quantitiesAddedToWorkout:(id)arg1;

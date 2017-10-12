@@ -52,6 +52,8 @@
 - (void)settingsConnectionDidChangeActiveAccount:(id)arg1;
 - (void)_authenticationUIDismissed;
 - (void)_authenticationUIPresented;
+- (void)_applePaySheetPresented;
+- (void)_localAuthenticationUIPresented;
 - (id)underlyingConnection;
 - (float)recordingPowerLevel;
 - (_Bool)isListening;

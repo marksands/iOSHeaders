@@ -9,6 +9,8 @@
 @class NSString, PKPaymentProvisioningController, PKPeerPaymentAccount, PKPeerPaymentCredential;
 
 @protocol PKPeerPaymentWebServiceTargetDeviceProtocol <NSObject>
+- (void)cloudStoreStatusWithCompletion:(void (^)(CKAccountInfo *, _Bool, NSError *))arg1;
+- (void)initalizeCloudStoreIfNecessaryWithCompletion:(void (^)(_Bool))arg1;
 - (void)provisionPeerPaymentPassWithProvisioningController:(PKPaymentProvisioningController *)arg1 credential:(PKPeerPaymentCredential *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)setUserHasDisabledPeerPayment:(_Bool)arg1;
 - (_Bool)userHasDisabledPeerPayment;

@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <PassKitUI/PKPaymentSetupViewController.h>
+#import <PassKitUI/PKPaymentSetupHeroViewController.h>
 
 #import "PKPaymentSetupViewControllerDelegate.h"
 
 @class NSArray, NSObject<OS_dispatch_group>, NSString, UIButton;
 
-@interface PKPaymentSetupAssistantRegistrationViewController : PKPaymentSetupViewController <PKPaymentSetupViewControllerDelegate>
+@interface PKPaymentSetupAssistantRegistrationViewController : PKPaymentSetupHeroViewController <PKPaymentSetupViewControllerDelegate>
 {
     UIButton *_skipButton;
     id <PKPaymentSetupViewControllerDelegate> _externalDelegate;
@@ -30,7 +30,6 @@
 - (void)setDelegate:(id)arg1;
 - (id)delegate;
 @property(readonly, nonatomic) NSArray *requiredPaymentSetupFileURLs;
-- (void)privacyButtonTouched:(id)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)preflightWithCompletion:(CDUnknownBlockType)arg1;

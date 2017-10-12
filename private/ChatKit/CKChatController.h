@@ -232,6 +232,7 @@
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)sendCurrentLocationMessage:(id)arg1;
 - (void)updateTyping;
+- (void)messageEntryViewSwipeDownGestureRecognized:(id)arg1;
 - (_Bool)shouldMessageEntryViewReportBrowserButtonHitToInputDelegate:(id)arg1;
 - (_Bool)getContainerWidth:(double *)arg1 offset:(double *)arg2;
 - (struct CGSize)messageEntryViewMaxShelfPluginViewSize:(id)arg1;

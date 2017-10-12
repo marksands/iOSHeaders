@@ -6,8 +6,10 @@
 
 #import "NSObject.h"
 
+@class CCUIStatusBarStyleSnapshot;
+
 @protocol CCUIOverlayMetricsProvider <NSObject>
-@property(readonly, nonatomic) unsigned long long overlayStatusBarOptions;
+@property(readonly, copy, nonatomic) CCUIStatusBarStyleSnapshot *overlayStatusBarStyle;
 @property(readonly, nonatomic) long long overlayInterfaceOrientation;
 @property(readonly, nonatomic) struct UIEdgeInsets overlayAdditionalEdgeInsets;
 @property(readonly, nonatomic) struct CGRect overlayContainerFrame;

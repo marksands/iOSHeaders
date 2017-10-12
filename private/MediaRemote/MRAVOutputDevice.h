@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class AVOutputDevice, NSDictionary, NSLock, NSString;
+@class AVOutputDevice, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface MRAVOutputDevice : NSObject
 {
-    NSLock *_lock;
+    NSObject<OS_dispatch_queue> *_accessSerialQueue;
     NSString *_name;
     NSString *_uid;
     NSString *_modelID;
@@ -23,7 +23,8 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) _Bool forceRemoteControllability; // @synthesize forceRemoteControllability=_forceRemoteControllability;
-@property(readonly, nonatomic) AVOutputDevice *avOutputDevice; // @synthesize avOutputDevice=_avOutputDevice;
+@property(retain, nonatomic, setter=setAVOutputDevice:) AVOutputDevice *avOutputDevice; // @synthesize avOutputDevice=_avOutputDevice;
+- (void)_onqueue_clearCachedAVOutputDeviceProperties;
 @property(readonly, nonatomic) _Bool requiresAuthorization;
 @property(readonly, nonatomic) _Bool supportsExternalScreen;
 @property(readonly, nonatomic, getter=isLocalDevice) _Bool localDevice;

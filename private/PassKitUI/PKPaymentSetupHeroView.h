@@ -25,6 +25,7 @@
     NSMutableDictionary *_networkImageViewsMap;
 }
 
++ (id)assetBackgroundColor;
 - (void).cxx_destruct;
 - (void)_promptTapToRadarWithTitle:(id)arg1 description:(id)arg2;
 - (_Bool)_isSmallPhone;

@@ -47,7 +47,8 @@
 - (void)handleWebServiceContextNeededRequest:(id)arg1;
 - (void)handleWebServiceContextDidChangeRequest:(id)arg1;
 - (void)handleCompanionPeerPaymentRegistration;
-- (void)sendCompanionMigratedEventToWatch;
+- (void)handleCompanionMigrationWithCompletion:(CDUnknownBlockType)arg1;
+- (void)handleCompanionMigrationResponse:(id)arg1;
 - (void)sendWebServiceContextToWatch:(id)arg1;
 - (void)sendPaymentOptionsDefaultsToWatch;
 - (void)paymentWebService:(id)arg1 handlePotentialExpressPass:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
@@ -117,7 +118,7 @@
 - (void)registrationDataResponse:(id)arg1;
 - (void)paymentWebService:(id)arg1 queueConnectionToTrustedServiceManagerForPushTopic:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)queueTSMConnectionResponse:(id)arg1;
-- (void)paymentWebService:(id)arg1 setNewAuthRandomIfNecessary:(CDUnknownBlockType)arg2;
+- (void)paymentWebService:(id)arg1 setNewAuthRandom:(CDUnknownBlockType)arg2;
 - (void)paymentWebService:(id)arg1 setNewAuthRandomIfNecessaryReturningPairingState:(CDUnknownBlockType)arg2;
 - (void)setNewAuthRandomIfNecessaryAtBeginningOfProvisioningFlow:(CDUnknownBlockType)arg1;
 - (void)_setNewAuthRandomIfNecessaryReturningPairingState:(CDUnknownBlockType)arg1;

@@ -6,13 +6,14 @@
 
 #import "UIView.h"
 
-@class UIStatusBar;
+@class UIStatusBar, UIStatusBarStyleRequest;
 
 @interface CCUIStatusBar : UIView
 {
     UIStatusBar *_compactTrailingStatusBar;
     UIStatusBar *_extendedLeadingStatusBar;
     UIStatusBar *_extendedTrailingStatusBar;
+    id <CCUIStatusBarDelegate> _delegate;
     unsigned long long _leadingState;
     unsigned long long _trailingState;
     struct UIEdgeInsets _compactEdgeInsets;
@@ -23,7 +24,9 @@
 @property(nonatomic) struct UIEdgeInsets compactEdgeInsets; // @synthesize compactEdgeInsets=_compactEdgeInsets;
 @property(nonatomic) unsigned long long trailingState; // @synthesize trailingState=_trailingState;
 @property(nonatomic) unsigned long long leadingState; // @synthesize leadingState=_leadingState;
+@property(nonatomic) __weak id <CCUIStatusBarDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_updateCompactTrailingStatusBarStyleRequest;
 - (void)controlCenterApplyPrimaryContentShadow;
 - (struct CGSize)intrinsicContentSize;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
@@ -32,7 +35,7 @@
 @property(nonatomic) double expandedTrailingAlpha; // @dynamic expandedTrailingAlpha;
 @property(nonatomic) double compactTrailingAlpha; // @dynamic compactTrailingAlpha;
 @property(nonatomic) double leadingAlpha; // @dynamic leadingAlpha;
-@property(nonatomic) long long compactStyle; // @dynamic compactStyle;
+@property(readonly, copy, nonatomic) UIStatusBarStyleRequest *compactStyleRequest; // @dynamic compactStyleRequest;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

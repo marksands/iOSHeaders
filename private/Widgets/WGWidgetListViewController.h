@@ -32,6 +32,7 @@
 - (void).cxx_destruct;
 - (_Bool)isWidgetExtensionVisible:(id)arg1;
 - (id)widgetListItemViewController:(id)arg1 widgetHostWithIdentifier:(id)arg2;
+- (struct CGRect)visibleFrameForWidget:(id)arg1;
 - (_Bool)managingContainerIsVisibleForWidget:(id)arg1;
 - (void)remoteViewControllerDidDisconnectForWidget:(id)arg1;
 - (void)brokenViewDidAppearForWidget:(id)arg1;
@@ -40,6 +41,7 @@
 - (void)widget:(id)arg1 didChangeLargestSupportedDisplayMode:(long long)arg2;
 - (struct UIEdgeInsets)marginInsetsForWidget:(id)arg1;
 - (struct CGSize)maxSizeForWidget:(id)arg1 forDisplayMode:(long long)arg2;
+- (struct CGRect)_visibleContentFrame;
 - (void)orderOfVisibleWidgetsDidChange:(id)arg1;
 - (void)scrollViewDidScrollToTop:(id)arg1;
 - (_Bool)scrollViewShouldScrollToTop:(id)arg1;

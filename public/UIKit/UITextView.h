@@ -337,6 +337,8 @@
 - (void)setScrollEnabled:(_Bool)arg1;
 - (void)removeAllGhostedRanges;
 - (void)addGhostedRange:(id)arg1;
+- (_Bool)_isContentFormatEvaluationEnabled;
+- (void)_setContentFormatEvaluationEnabled:(_Bool)arg1;
 - (void)setTiledViewsDrawAsynchronously:(_Bool)arg1;
 - (_Bool)tiledViewsDrawAsynchronously;
 - (void)setMaxTileHeight:(double)arg1;

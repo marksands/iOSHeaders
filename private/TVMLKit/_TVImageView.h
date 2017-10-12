@@ -19,6 +19,7 @@
     UIImage *_flatHighlightImage;
     _Bool _selected;
     double _cornerRadius;
+    _Bool _continuousCorners;
     CAFilter *_highlightFilter;
     _Bool _imageContainsCornerRadius;
     _Bool _imageLoaded;

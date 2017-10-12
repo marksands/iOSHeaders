@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString, PKPaymentTransaction;
+@class NSArray, NSDate, NSString, PKPaymentTransaction;
 
 @interface NPKPeerPaymentTransactionDetails : NSObject
 {
@@ -14,8 +14,10 @@
     NSString *_serviceIdentifier;
     unsigned long long _paymentStatus;
     NSArray *_availableActions;
+    NSDate *_availableActionsFetchDate;
 }
 
+@property(retain, nonatomic) NSDate *availableActionsFetchDate; // @synthesize availableActionsFetchDate=_availableActionsFetchDate;
 @property(retain, nonatomic) NSArray *availableActions; // @synthesize availableActions=_availableActions;
 @property(nonatomic) unsigned long long paymentStatus; // @synthesize paymentStatus=_paymentStatus;
 @property(retain, nonatomic) NSString *serviceIdentifier; // @synthesize serviceIdentifier=_serviceIdentifier;

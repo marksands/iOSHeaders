@@ -11,6 +11,10 @@
 @interface WGWidgetInfo : NSObject
 {
     NSPointerArray *_registeredWidgetHosts;
+    struct {
+        unsigned int didInitializeWantsVisibleFrame:1;
+    } _widgetInfoFlags;
+    _Bool _wantsVisibleFrame;
     NSString *_sdkVersion;
     NSExtension *_extension;
     long long _initialDisplayMode;
@@ -35,6 +39,7 @@
 - (void).cxx_destruct;
 - (void)updatePreferredContentSize:(struct CGSize)arg1 forWidgetHost:(id)arg2;
 - (void)registerWidgetHost:(id)arg1;
+@property(nonatomic, setter=_setWantsVisibleFrame:) _Bool wantsVisibleFrame; // @synthesize wantsVisibleFrame=_wantsVisibleFrame;
 @property(readonly, nonatomic) double initialHeight;
 - (_Bool)isLinkedOnOrAfterSystemVersion:(id)arg1;
 @property(readonly, copy, nonatomic, getter=_sdkVersion) NSString *sdkVersion; // @synthesize sdkVersion=_sdkVersion;

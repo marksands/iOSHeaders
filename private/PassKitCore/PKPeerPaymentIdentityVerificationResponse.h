@@ -11,6 +11,7 @@
 @interface PKPeerPaymentIdentityVerificationResponse : PKPeerPaymentWebServiceResponse
 {
     _Bool _complete;
+    _Bool _manuallyTriggered;
     PKPeerPaymentAccount *_account;
     NSString *_contextLocalizedTitle;
     NSString *_contextLocalizedDescription;
@@ -22,6 +23,7 @@
     NSString *_encryptionVersion;
 }
 
+@property(nonatomic) _Bool manuallyTriggered; // @synthesize manuallyTriggered=_manuallyTriggered;
 @property(readonly, copy, nonatomic) NSString *encryptionVersion; // @synthesize encryptionVersion=_encryptionVersion;
 @property(readonly, copy, nonatomic) NSArray *encryptionCertificates; // @synthesize encryptionCertificates=_encryptionCertificates;
 @property(readonly, nonatomic) NSArray *acceptableDocuments; // @synthesize acceptableDocuments=_acceptableDocuments;

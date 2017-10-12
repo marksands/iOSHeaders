@@ -17,7 +17,7 @@
 - (void)browser:(DOCBrowserViewController *)arg1 didUpdateImportSupportInCurrentLocation:(_Bool)arg2;
 - (void)browser:(DOCBrowserViewController *)arg1 didUpdateNumberOfItems:(unsigned long long)arg2;
 - (void)browser:(DOCBrowserViewController *)arg1 isDisplayingEmptyCollection:(_Bool)arg2;
-- (void)browser:(DOCBrowserViewController *)arg1 didResolveShownLocation:(DOCConcreteLocation *)arg2;
+- (void)browser:(DOCBrowserViewController *)arg1 didResolveShownLocation:(DOCConcreteLocation *)arg2 previousLocation:(DOCConcreteLocation *)arg3;
 - (void)browser:(DOCBrowserViewController *)arg1 wantsToShowLocation:(DOCConcreteLocation *)arg2 forceReplaceLocation:(_Bool)arg3;
 - (void)browser:(DOCBrowserViewController *)arg1 didSelectItems:(NSArray *)arg2;
 - (void)browser:(DOCBrowserViewController *)arg1 didCommitPreviewOfDocument:(DOCItem *)arg2;

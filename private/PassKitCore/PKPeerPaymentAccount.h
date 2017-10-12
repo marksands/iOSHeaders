@@ -12,6 +12,7 @@
 
 @interface PKPeerPaymentAccount : NSObject <NSSecureCoding>
 {
+    _Bool _accountStateDirty;
     _Bool _identityVerificationRequired;
     _Bool _termsAcceptanceRequired;
     unsigned long long _state;
@@ -36,6 +37,7 @@
 @property(copy, nonatomic) NSURL *associatedPassURL; // @synthesize associatedPassURL=_associatedPassURL;
 @property(copy, nonatomic) NSURL *termsURL; // @synthesize termsURL=_termsURL;
 @property(copy, nonatomic) NSString *termsIdentifier; // @synthesize termsIdentifier=_termsIdentifier;
+@property(nonatomic, getter=isAccountStateDirty) _Bool accountStateDirty; // @synthesize accountStateDirty=_accountStateDirty;
 @property(copy, nonatomic) NSDecimalNumber *maximumBalance; // @synthesize maximumBalance=_maximumBalance;
 @property(copy, nonatomic) PKCurrencyAmount *currentBalance; // @synthesize currentBalance=_currentBalance;
 @property(copy, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;

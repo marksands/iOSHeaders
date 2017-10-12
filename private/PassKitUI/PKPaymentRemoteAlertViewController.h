@@ -30,6 +30,8 @@
     _Bool _processHomeButtonEvents;
     PKFieldDetectEducationViewController *_educationVC;
     _Bool _appearedOnce;
+    _Bool _insertedGroupsVC;
+    _Bool _shouldInsertGroupsVC;
     _Bool _invalidated;
 }
 
@@ -47,6 +49,7 @@
 - (void)_dismissIfRestricted;
 - (void)_presentHomeButtonDoubleTapAlertIfNecessary;
 - (void)_presentPassAnimated:(_Bool)arg1;
+- (void)_insertGroupController;
 - (void)_setupGroupController;
 - (void)handleHomeButtonPressed;
 - (void)configureWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -58,10 +61,12 @@
 - (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
+- (void)_appearIfNecessary;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
+- (void)loadView;
 - (void)_willAppearInRemoteViewController;
 - (void)viewDidMoveToWindow:(id)arg1 shouldAppearOrDisappear:(_Bool)arg2;
 - (void)_invalidate;

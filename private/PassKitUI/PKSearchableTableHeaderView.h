@@ -21,8 +21,8 @@
 - (void)drawRect:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-@property(readonly, retain, nonatomic) UILabel *searchFieldLabel;
-@property(readonly, retain, nonatomic) UITextField *searchField;
+@property(readonly, nonatomic) UILabel *searchFieldLabel;
+@property(readonly, nonatomic) UITextField *searchField;
 
 @end
 

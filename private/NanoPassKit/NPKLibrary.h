@@ -58,6 +58,7 @@
 - (void)handleRelevantPassTuplesChanged:(id)arg1;
 - (void)handleRelevantPassTuplesChangedNotification:(id)arg1;
 - (void)handlePassLibraryChangedNotification:(id)arg1;
+- (void)requestPeerAccountTermsAndConditionsAcceptance;
 - (void)markAsHavingReceivedLocation;
 - (void)performWorkAfterFirstLibraryLoad:(CDUnknownBlockType)arg1;
 - (void)boostDaemonUntilPassDBAvailable:(CDUnknownBlockType)arg1;

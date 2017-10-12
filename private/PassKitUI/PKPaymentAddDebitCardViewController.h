@@ -9,28 +9,29 @@
 #import "PKExplanationViewDelegate.h"
 #import "PKPaymentSetupDelegate.h"
 
-@class NSString, PKPaymentWebService, UIImage;
+@class NSString, PKPaymentProvisioningController, UIImage;
 
 @interface PKPaymentAddDebitCardViewController : PKExplanationViewController <PKExplanationViewDelegate, PKPaymentSetupDelegate>
 {
-    PKPaymentWebService *_webService;
+    PKPaymentProvisioningController *_provisioningController;
     id <PKPaymentSetupViewControllerDelegate> _delegate;
     UIImage *_passSnapShot;
 }
 
 - (void).cxx_destruct;
+- (void)_terminateSetupFlow;
+- (void)_handleNextStep;
 - (void)_setNavigationBarEnabled:(_Bool)arg1;
 - (void)_setViewEnabledState:(_Bool)arg1;
 - (id)_paymentSetupNavigationControllerForProvisioningController:(id)arg1;
 - (void)_handleProvisioningError:(id)arg1;
 - (void)_presentPaymentSetupController;
-- (void)_completeAddDebitCardFlow;
 - (void)_setupLater;
 - (void)paymentSetupDidFinish:(id)arg1;
 - (void)explanationViewDidSelectSetupLater:(id)arg1;
 - (void)explanationViewDidSelectContinue:(id)arg1;
 - (void)viewDidLoad;
-- (id)initWithPaymentWebService:(id)arg1 context:(long long)arg2 setupDelegate:(id)arg3 passSnapshot:(id)arg4;
+- (id)initWithProvisioningController:(id)arg1 context:(long long)arg2 setupDelegate:(id)arg3 passSnapshot:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

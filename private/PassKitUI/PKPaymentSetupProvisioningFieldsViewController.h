@@ -6,14 +6,14 @@
 
 #import <PassKitUI/PKPaymentSetupFieldsViewController.h>
 
-#import "PKPaymentSetupViewControllerCanHideSetupLaterButton.h"
+#import "PKPaymentSetupHideSetupLaterButtonProtocol.h"
 #import "PKPaymentVerificationControllerDelegate.h"
 #import "RemoteUIControllerDelegate.h"
 #import "UITextFieldDelegate.h"
 
 @class CLInUseAssertion, NSString, NSTimer, PKPaymentProvisioningController, PKPaymentSetupFooterView, PKPaymentVerificationController, RemoteUIController, UINotificationFeedbackGenerator;
 
-@interface PKPaymentSetupProvisioningFieldsViewController : PKPaymentSetupFieldsViewController <UITextFieldDelegate, RemoteUIControllerDelegate, PKPaymentVerificationControllerDelegate, PKPaymentSetupViewControllerCanHideSetupLaterButton>
+@interface PKPaymentSetupProvisioningFieldsViewController : PKPaymentSetupFieldsViewController <UITextFieldDelegate, RemoteUIControllerDelegate, PKPaymentVerificationControllerDelegate, PKPaymentSetupHideSetupLaterButtonProtocol>
 {
     PKPaymentSetupFooterView *_cardDetailsFooterView;
     RemoteUIController *_termsUIController;

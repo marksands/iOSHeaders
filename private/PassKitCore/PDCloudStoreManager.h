@@ -15,6 +15,7 @@
     NSMutableDictionary *_subscriptionsByIdentifier;
     NSMutableDictionary *_zonesByName;
     NSMutableDictionary *_changeTokensByZoneID;
+    NSMutableDictionary *_completedFetchTimestampByZoneID;
     PKPaymentTransactionProcessor *_transactionProcessor;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_source> *_retryTimer;
@@ -24,6 +25,7 @@
     _Bool _cloudStoreSetupInProgress;
     _Bool _resettingCloudStore;
     _Bool _accountChangedNotificationReceived;
+    _Bool _shouldInvalidateCloudStore;
     id <PDCloudStoreDataSource> _dataSource;
     NSString *_archivePath;
     id <PDCloudStoreManagerDelegate> _delegate;
@@ -34,6 +36,7 @@
 @property(readonly, nonatomic) id <PDCloudStoreDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (void)_addOperation:(id)arg1;
+- (id)_cannotPerformActionErrorWithFailureReason:(id)arg1;
 - (void)_stopFetchRetryTimer;
 - (void)_startFetchRetryTimerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_resetZonesByName;
@@ -63,6 +66,8 @@
 - (id)_serviceIdentifierForRecordType:(id)arg1 recordID:(id)arg2;
 - (_Bool)_isTransactionItemFromRecordType:(id)arg1;
 - (void)_fetchCounterpartRecordsWithFetchedRecords:(id)arg1 zone:(id)arg2 shouldUpdateLocalDatabase:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_saveServerFetchTimestamps;
+- (id)_cachedFetchTimestamps;
 - (id)_serverChangeTokenFromArchiveData:(id)arg1;
 - (id)_cachedServerChangeTokens;
 - (void)_saveServerChangeTokens;
@@ -77,6 +82,7 @@
 - (void)_attachToContainer;
 - (void)_peerPaymentAccountChanged:(id)arg1;
 - (void)_cloudStoreAccountChanged:(id)arg1;
+- (id)lastFetchDateForZoneWithName:(id)arg1;
 - (void)invalidateCloudStore;
 - (id)cloudStoreSpecificKeysForItem:(id)arg1;
 - (void)initialCloudDatabaseSetupWithCompletion:(CDUnknownBlockType)arg1;
@@ -86,6 +92,7 @@
 - (void)fetchAndStoreChangesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)removeItemsWithRecordNames:(id)arg1 itemClass:(Class)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)updateCloudStoreWithLocalItems:(id)arg1 recordSpecificKeys:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)cloudStoreStatusWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)canSyncTransactionFromCloudKitForPassUniqueIdentifier:(id)arg1;
 - (_Bool)canSyncTransactionToCloudKitWithBackingData:(_Bool)arg1 passUniqueIdentifier:(id)arg2 serviceIdentifier:(id)arg3;
 - (void)resetContainerWithCompletion:(CDUnknownBlockType)arg1;

@@ -17,6 +17,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)failVideoCompositionRequest:(id)arg1 error:(id)arg2;
 - (id)videoFramesFromRequest:(id)arg1;
 - (void)fulfillVideoCompositionRequest:(id)arg1;
 - (void)cancelAllPendingVideoCompositionRequests;

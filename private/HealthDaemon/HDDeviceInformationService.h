@@ -10,6 +10,7 @@
 
 @interface HDDeviceInformationService : HDHealthService
 {
+    _Bool _fetchLimitedCharacteristics;
     _Bool _deviceInformationHasBeenLoaded;
     NSMutableDictionary *_characteristics;
     NSMutableDictionary *_propertyValues;
@@ -27,6 +28,7 @@
 @property(retain, nonatomic) NSMutableSet *propertiesLeftToFetch; // @synthesize propertiesLeftToFetch=_propertiesLeftToFetch;
 @property(retain, nonatomic) NSMutableDictionary *propertyValues; // @synthesize propertyValues=_propertyValues;
 @property(retain, nonatomic) NSMutableDictionary *characteristics; // @synthesize characteristics=_characteristics;
+@property(nonatomic) _Bool fetchLimitedCharacteristics; // @synthesize fetchLimitedCharacteristics=_fetchLimitedCharacteristics;
 - (void).cxx_destruct;
 - (id)_propertyValueForCharacteristic:(id)arg1;
 - (void)_queue_peripheral:(id)arg1 didUpdateValueForCharacteristic:(id)arg2 error:(id)arg3;

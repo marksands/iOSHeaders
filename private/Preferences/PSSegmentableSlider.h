@@ -26,6 +26,7 @@
 - (void).cxx_destruct;
 - (void)controlInteractionEnded:(id)arg1;
 - (void)controlInteractionBegan:(id)arg1;
+- (struct CGRect)thumbRectForBounds:(struct CGRect)arg1 trackRect:(struct CGRect)arg2 value:(float)arg3;
 - (struct CGRect)trackRectForBounds:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setValue:(float)arg1 animated:(_Bool)arg2;

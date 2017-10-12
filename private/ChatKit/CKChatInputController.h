@@ -162,6 +162,7 @@
 - (void)browserTransitionCoordinatorWillCollapseOrDismiss:(id)arg1 withReason:(long long)arg2;
 - (void)browserTransitionCoordinatorDidTransitionOrPresentToFullscreen:(id)arg1 withReason:(long long)arg2;
 - (void)browserTransitionCoordinatorWillTransitionOrPresentToFullscreen:(id)arg1 withReason:(long long)arg2;
+- (void)setInputViewVisible:(_Bool)arg1 entryFieldCollapsed:(_Bool)arg2 animated:(_Bool)arg3 messageDelegate:(_Bool)arg4;
 - (void)setInputViewVisible:(_Bool)arg1 entryFieldCollapsed:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)composeRecipientViewDidBecomeFirstResponder:(id)arg1;
 - (void)keyboardWillShow:(id)arg1;
@@ -178,6 +179,7 @@
 - (void)presentAppStoreForAdamID:(id)arg1;
 - (void)presentViewControllerWithPluginChatItem:(id)arg1 expanded:(_Bool)arg2;
 - (id)_adamIDFromPluginPayloadData:(id)arg1;
+- (void)swipeDismissBrowser;
 - (void)showHandwritingBrowser;
 - (void)showAppsBrowser;
 - (void)_showFullScreenBrowser:(id)arg1;

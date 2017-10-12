@@ -26,9 +26,15 @@
     NSString *_totalFeesCurrency;
     NSDate *_validUntil;
     PKPeerPaymentRecipient *_recipient;
+    NSString *_bankName;
+    NSString *_routingNumber;
+    NSString *_accountNumber;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *accountNumber; // @synthesize accountNumber=_accountNumber;
+@property(copy, nonatomic) NSString *routingNumber; // @synthesize routingNumber=_routingNumber;
+@property(copy, nonatomic) NSString *bankName; // @synthesize bankName=_bankName;
 @property(retain, nonatomic) PKPeerPaymentRecipient *recipient; // @synthesize recipient=_recipient;
 @property(readonly, copy, nonatomic) NSDate *validUntil; // @synthesize validUntil=_validUntil;
 @property(readonly, copy, nonatomic) NSString *totalFeesCurrency; // @synthesize totalFeesCurrency=_totalFeesCurrency;

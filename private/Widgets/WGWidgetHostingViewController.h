@@ -88,6 +88,7 @@
 @property(readonly, nonatomic) WGWidgetInfo *widgetInfo; // @synthesize widgetInfo=_widgetInfo;
 - (void).cxx_destruct;
 - (id)description;
+- (void)_invalidateVisibleFrame;
 @property(readonly, copy, nonatomic, getter=_containerIdentifier) NSString *containerIdentifier;
 - (void)_rowHeightDidChange:(id)arg1;
 - (id)_cancelTouches;

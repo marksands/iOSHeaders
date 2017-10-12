@@ -172,7 +172,6 @@
 + (_Bool)_isRunningWithFixedMainThreadPriority;
 + (long long)_classicMode;
 + (void)_screensHaveConnected;
-+ (_Bool)_shouldForceClassicForExtensions;
 + (_Bool)_shouldBigify;
 + (id)stringForInterfaceOrientation:(long long)arg1;
 + (long long)interfaceOrientationForString:(id)arg1;
@@ -401,7 +400,6 @@
 - (id)_keyWindowForScreen:(id)arg1;
 - (id)_windowForSystemAppButtonEventsForScreen:(id)arg1;
 - (void)_registerEstimatedTouches:(id)arg1 event:(id)arg2 forTouchable:(id)arg3;
-- (_Bool)_shouldDelayTouchesForControlCenter;
 - (_Bool)_didEatCurrentTouch;
 - (void)_eatCurrentTouch;
 - (id)_forceStageObservable;
@@ -698,7 +696,7 @@
 - (void)_updateCurrentStatusBarViewControllerAppearance;
 - (void)_updateCurrentHomeIndicatorAutoHidden;
 - (void)_updateCurrentScreenEdgesDeferringSystemGestures;
-- (unsigned long long)_currentScreenEdgesDeferringSystemGesturesAffectedByStatusBar:(_Bool)arg1;
+- (unsigned long long)_currentScreenEdgesDeferringSystemGestures;
 - (void)_setScreenWhitePointAdaptivityStyle:(long long)arg1;
 - (void)_updateCurrentWhitePointAdaptivityStyle;
 - (id)_implicitStatusBarHiddenAnimationParametersWithViewController:(id)arg1 animation:(long long)arg2;

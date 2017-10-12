@@ -94,7 +94,6 @@
     PKBacklightController *_backlightController;
     _Bool _footerSuppressed;
     _Bool _staggerPileAnimations;
-    _Bool _hasOutstandingPeerPaymentAccountActions;
     id <PKPassGroupStackViewDatasource> _datasource;
     UIColor *_pageIndicatorTintColor;
     UIColor *_currentPageIndicatorTintColor;
@@ -102,7 +101,6 @@
 }
 
 + (id)backgroundColor;
-@property(nonatomic) _Bool hasOutstandingPeerPaymentAccountActions; // @synthesize hasOutstandingPeerPaymentAccountActions=_hasOutstandingPeerPaymentAccountActions;
 @property(nonatomic) _Bool staggerPileAnimations; // @synthesize staggerPileAnimations=_staggerPileAnimations;
 @property(nonatomic) double topContentSeparatorHeight; // @synthesize topContentSeparatorHeight=_topContentSeparatorHeight;
 @property(copy, nonatomic) UIColor *currentPageIndicatorTintColor; // @synthesize currentPageIndicatorTintColor=_currentPageIndicatorTintColor;
@@ -116,6 +114,7 @@
 - (_Bool)handleDeletePassRequestWithPass:(id)arg1 forViewController:(id)arg2;
 - (void)deleteAnimationController:(id)arg1 didComplete:(_Bool)arg2;
 - (void)deleteAnimationControllerWillBeginDeleteAnimation:(id)arg1;
+- (void)passFooterViewDidChangeUserIntentRequirement:(id)arg1 withContext:(id)arg2;
 - (void)passFooterViewDidChangeUserIntentRequirement:(id)arg1;
 - (void)groupViewDidUpdatePageControlVisibility:(id)arg1;
 - (_Bool)groupView:(id)arg1 deleteButtonEnabledForPass:(id)arg2;
@@ -271,6 +270,7 @@
 - (void)_tileGroupsForState:(long long)arg1 eager:(_Bool)arg2;
 - (id)_loadGroupViewAtIndex:(unsigned long long)arg1 forState:(long long)arg2 presentationState:(long long)arg3 cached:(_Bool *)arg4;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)updatePeerPaymentFooterViewIfNecessary;
 @property(nonatomic) id <PKPassGroupStackViewDelegate><UIScrollViewDelegate> delegate; // @dynamic delegate;
 @property(readonly, nonatomic) _Bool isPresentingPassViewFront;
 @property(readonly, nonatomic) _Bool isReordering;

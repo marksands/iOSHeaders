@@ -65,6 +65,7 @@
 - (id)forbiddenErrorWithResponse:(id)arg1;
 - (id)badRequestErrorWithResponse:(id)arg1;
 - (void)handleResponse:(id)arg1 withError:(id)arg2 data:(id)arg3 task:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)performRequest:(id)arg1 taskIdentifier:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)initWithContext:(id)arg1 targetDevice:(id)arg2 archiver:(id)arg3;
 - (id)initWithContext:(id)arg1 targetDevice:(id)arg2;
 - (id)init;

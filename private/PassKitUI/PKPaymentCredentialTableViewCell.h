@@ -8,7 +8,7 @@
 
 @class UIImageView, UILabel;
 
-@interface PKPaymentRemoteCredentialTableViewCell : PKTableViewCell
+@interface PKPaymentCredentialTableViewCell : PKTableViewCell
 {
     _Bool _showingPlaceholder;
     UIImageView *_snapshotImageView;
@@ -20,6 +20,7 @@
 @property(readonly, nonatomic) UILabel *credentialDetailLabel; // @synthesize credentialDetailLabel=_credentialDetailLabel;
 @property(readonly, nonatomic) UIImageView *snapshotImageView; // @synthesize snapshotImageView=_snapshotImageView;
 - (void).cxx_destruct;
+- (void)prepareForReuse;
 - (id)detailTextLabelColor;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;

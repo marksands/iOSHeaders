@@ -9,7 +9,7 @@
 #import "PSSpecifierGroupController.h"
 #import "RemoteUIControllerDelegate.h"
 
-@class CTCarrierSpaceCapabilities, NSString, PSListController, PSSpecifier, RemoteUIController;
+@class CTCarrierSpaceCapabilities, NSString, PSListController, PSSpecifier, PSUICarrierSpaceOptInSplashScreen, RemoteUIController;
 
 @interface PSUICarrierSpaceGroupController : NSObject <RemoteUIControllerDelegate, PSSpecifierGroupController>
 {
@@ -17,16 +17,20 @@
     PSListController *_listController;
     PSSpecifier *_groupSpecifier;
     CTCarrierSpaceCapabilities *_capabilities;
+    PSUICarrierSpaceOptInSplashScreen *_optInSplashScreen;
 }
 
+@property(retain, nonatomic) PSUICarrierSpaceOptInSplashScreen *optInSplashScreen; // @synthesize optInSplashScreen=_optInSplashScreen;
 @property(retain, nonatomic) CTCarrierSpaceCapabilities *capabilities; // @synthesize capabilities=_capabilities;
 @property(nonatomic) __weak PSSpecifier *groupSpecifier; // @synthesize groupSpecifier=_groupSpecifier;
 @property(nonatomic) __weak PSListController *listController; // @synthesize listController=_listController;
 @property(retain, nonatomic) RemoteUIController *remoteUIController; // @synthesize remoteUIController=_remoteUIController;
 - (void).cxx_destruct;
 - (void)remoteUIController:(id)arg1 willPresentModalNavigationController:(id)arg2;
-- (void)dismissUserConsent;
+- (void)disagreeOrCancelPressed;
+- (void)agreePressed;
 - (void)openURLWithSpecifier:(id)arg1;
+- (void)showTermsAndConditions:(id)arg1 consentFlowInfo:(id)arg2;
 - (void)showConsentFlow:(id)arg1;
 - (void)carrierSpaceChanged;
 - (id)descriptionForUsage:(id)arg1;
