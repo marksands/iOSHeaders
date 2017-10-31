@@ -8,38 +8,31 @@
 
 #import "BSDescriptionProviding.h"
 
-@class FBSSceneSettings, FBSSceneSettingsDiff, FBSSceneTransitionContext, FBScene, NSString;
+@class FBSSceneSettingsDiff, NSString;
 
 @interface FBSceneUpdateContext : NSObject <BSDescriptionProviding>
 {
-    FBScene *_scene;
     NSString *_sceneID;
     unsigned long long _transactionID;
-    FBSSceneSettings *_settings;
     FBSSceneSettingsDiff *_settingsDiff;
-    FBSSceneTransitionContext *_transitionContext;
-    id <NSObject><NSCopying> _clientContext;
 }
 
-+ (id)contextWithScene:(id)arg1;
-@property(copy, nonatomic) id <NSObject><NSCopying> clientContext; // @synthesize clientContext=_clientContext;
-@property(nonatomic) __weak FBSSceneTransitionContext *transitionContext; // @synthesize transitionContext=_transitionContext;
-@property(retain, nonatomic) FBSSceneSettingsDiff *settingsDiff; // @synthesize settingsDiff=_settingsDiff;
-@property(retain, nonatomic) FBSSceneSettings *settings; // @synthesize settings=_settings;
-@property(nonatomic) unsigned long long transactionID; // @synthesize transactionID=_transactionID;
-@property(copy, nonatomic) NSString *sceneID; // @synthesize sceneID=_sceneID;
-@property(retain, nonatomic) FBScene *scene; // @synthesize scene=_scene;
-- (void).cxx_destruct;
++ (id)contextWithSceneID:(id)arg1 transactionID:(unsigned long long)arg2 settingsDiff:(id)arg3;
+@property(readonly, retain, nonatomic) FBSSceneSettingsDiff *settingsDiff; // @synthesize settingsDiff=_settingsDiff;
+@property(readonly, nonatomic) unsigned long long transactionID; // @synthesize transactionID=_transactionID;
+@property(readonly, copy, nonatomic) NSString *sceneID; // @synthesize sceneID=_sceneID;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;
 - (id)succinctDescription;
-@property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly) unsigned long long hash;
 - (void)dealloc;
+- (id)_initWithSceneID:(id)arg1 transactionID:(unsigned long long)arg2 settingsDiff:(id)arg3;
 
 // Remaining properties
-@property(readonly) unsigned long long hash;
+@property(readonly, copy) NSString *debugDescription;
 @property(readonly) Class superclass;
 
 @end

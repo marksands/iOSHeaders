@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
-@class PKAssertion, PKXPCService;
+@class PKXPCService;
 
 @interface PKDeviceRegistrationService : NSObject
 {
-    PKAssertion *_registrationAssertion;
     PKXPCService *_remoteService;
     _Bool _isRegistering;
 }
@@ -21,7 +20,6 @@
 - (id)_remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)_remoteObjectProxyWithFailureHandler:(CDUnknownBlockType)arg1;
 - (id)_remoteObjectProxy;
-- (void)_aquireAssertionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)performDeviceRegistrationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)init;

@@ -12,6 +12,7 @@
 #import "CKChatInputControllerDelegate.h"
 #import "CKDetailsControllerDelegate.h"
 #import "CKEffectPickerViewControllerDelegate.h"
+#import "CKExtensionConsumer.h"
 #import "CKFullScreenBalloonViewControllerDelegate.h"
 #import "CKMessageEntryViewDelegate.h"
 #import "CKNavbarCanvasViewControllerDelegate.h"
@@ -43,7 +44,7 @@
 
 @class CADisplayLink, CKAudioTrimViewController, CKChatInputController, CKComposition, CKEffectPickerViewController, CKInvisibleInkEffectController, CKMessageEntryView, CKNavbarCanvasViewController, CKPhotoPickerController, CKQLDetailsPreviewController, CKQLPreviewController, CKRaiseGesture, CKScheduledUpdater, CKThrowAnimationManager, CKUnexpectedlyLoggedOutNotificationView, CKVideoMessageRecordingViewController, CKVideoTrimController, IMPluginPayload, IMScheduledUpdater, NSObject<OS_dispatch_group>, NSString, SGUIBannerView, UIImagePickerController, UIToolbar, UIView, UIWindow;
 
-@interface CKChatController : CKCoreChatController <CKEffectPickerViewControllerDelegate, CKThrowAnimationManagerDelegate, CKSendAnimationManagerDelegate, CKSendAnimationBalloonProvider, UIInteractionProgressObserver, QLPreviewControllerDelegate, CKReaderViewControllerDelegate, PKAddPassesViewControllerDelegate, UIViewControllerTransitioningDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, CKPhotoPickerControllerDelegate, CKVideoMessageRecordingViewControllerDelegate, CKActionMenuGestureRecognizerButtonDelegate, PHPhotoLibraryChangeObserver, CKMessageEntryViewDelegate, CKTrimControllerDelegate, AFContextProvider, UIGestureRecognizerDelegate, CKChatInputControllerDelegate, CKFullScreenBalloonViewControllerDelegate, CKNavbarCanvasViewControllerDelegate, CKBrowserDragControllerTranscriptDelegate, SGUIBannerViewDelegate, CKDetailsControllerDelegate, UIPreviewInteractionDelegate, CNContactViewControllerDelegate, EKEventEditViewDelegate, CKUnexpectedlyLoggedOutNotificationViewDelegate, UIPopoverPresentationControllerDelegate, UIDragInteractionDelegate, UIDropInteractionDelegate, UITextDropDelegate, UITextPasteDelegate>
+@interface CKChatController : CKCoreChatController <CKEffectPickerViewControllerDelegate, CKThrowAnimationManagerDelegate, CKSendAnimationManagerDelegate, CKSendAnimationBalloonProvider, UIInteractionProgressObserver, QLPreviewControllerDelegate, CKReaderViewControllerDelegate, PKAddPassesViewControllerDelegate, UIViewControllerTransitioningDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, CKPhotoPickerControllerDelegate, CKVideoMessageRecordingViewControllerDelegate, CKActionMenuGestureRecognizerButtonDelegate, PHPhotoLibraryChangeObserver, CKMessageEntryViewDelegate, CKTrimControllerDelegate, AFContextProvider, UIGestureRecognizerDelegate, CKChatInputControllerDelegate, CKFullScreenBalloonViewControllerDelegate, CKNavbarCanvasViewControllerDelegate, CKBrowserDragControllerTranscriptDelegate, SGUIBannerViewDelegate, CKDetailsControllerDelegate, UIPreviewInteractionDelegate, CNContactViewControllerDelegate, EKEventEditViewDelegate, CKUnexpectedlyLoggedOutNotificationViewDelegate, UIPopoverPresentationControllerDelegate, UIDragInteractionDelegate, UIDropInteractionDelegate, UITextDropDelegate, UITextPasteDelegate, CKExtensionConsumer>
 {
     struct CGPoint _startingScrollOffset;
     _Bool _shouldBecomeFirstResponderWhenDismissingModalBrowser;
@@ -289,6 +290,7 @@
 - (void)chatInputSentComposition:(id)arg1;
 - (id)viewForDragAndChatInputDropTarget;
 - (id)viewControllerForChatInputModalPresentation;
+- (id)consumingBundleIdentifiers;
 - (_Bool)becomeFirstResponder;
 - (_Bool)_shouldDisplayTextEntry;
 - (_Bool)canBecomeFirstResponder;

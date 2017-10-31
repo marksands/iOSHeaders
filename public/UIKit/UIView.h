@@ -661,7 +661,7 @@
 - (struct NSDirectionalEdgeInsets)directionalLayoutMargins;
 - (void)setDirectionalLayoutMargins:(struct NSDirectionalEdgeInsets)arg1;
 - (struct UIEdgeInsets)layoutMargins;
-- (struct UIEdgeInsets)_horizontallyReversedInferredLayoutMargins;
+- (struct UIEdgeInsets)_inferredLayoutMarginsReversedHorizontallyIfNeeded:(_Bool)arg1 includingReversedSafeAreaInsets:(_Bool)arg2;
 - (void)setLayoutMargins:(struct UIEdgeInsets)arg1;
 - (void)_layoutMarginsDidChangeFromOldMargins:(struct UIEdgeInsets)arg1;
 - (void)_updateLayoutMarginsGuideConstraintsIfNecessary;

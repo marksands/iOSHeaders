@@ -29,6 +29,7 @@
 - (void)_handleGetProcessHandle:(id)arg1 forClient:(id)arg2;
 - (void)_handleActivateApplication:(id)arg1 forClient:(id)arg2;
 - (void)_handleCanActivateApplication:(id)arg1;
+- (void)_handlePidForApplication:(id)arg1;
 - (void)_handleGetPasscodeLockedOrBlockedStatus:(id)arg1 forClient:(id)arg2;
 - (void)_handleSystemApplicationBundleIdentifier:(id)arg1;
 - (void)_handleSetNextWakeInterval:(id)arg1 forClient:(id)arg2;

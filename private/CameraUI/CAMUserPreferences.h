@@ -79,7 +79,7 @@
 @property(nonatomic, setter=_setDidResetTorchMode:) _Bool didResetTorchMode; // @synthesize didResetTorchMode=_didResetTorchMode;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) long long photoEncodingBehavior;
-@property(readonly, nonatomic) long long videoEncodingBehavior;
+- (long long)videoEncodingBehaviorForConfiguration:(long long)arg1;
 @property(readonly, nonatomic) _Bool shouldShowQRBanners;
 - (_Bool)shouldResetCaptureConfiguration;
 - (void)writePreferences;

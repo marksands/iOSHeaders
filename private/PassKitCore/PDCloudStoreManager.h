@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CKContainer, NSMutableDictionary, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, PKPaymentTransactionProcessor, PKPeerPaymentAccount;
+@class CKContainer, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, PKPaymentTransactionProcessor, PKPeerPaymentAccount;
 
 @interface PDCloudStoreManager : NSObject
 {
@@ -17,6 +17,7 @@
     NSMutableDictionary *_changeTokensByZoneID;
     NSMutableDictionary *_completedFetchTimestampByZoneID;
     PKPaymentTransactionProcessor *_transactionProcessor;
+    NSMutableSet *_initalizationCompletionHandlers;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_source> *_retryTimer;
     NSObject<OS_dispatch_group> *_batchUpdateGroup;
@@ -37,6 +38,8 @@
 - (void).cxx_destruct;
 - (void)_addOperation:(id)arg1;
 - (id)_cannotPerformActionErrorWithFailureReason:(id)arg1;
+- (void)_keychainSyncFinishedFired;
+- (void)_callInitalizationCompletionHandlersWithSuccess:(_Bool)arg1;
 - (void)_stopFetchRetryTimer;
 - (void)_startFetchRetryTimerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_resetZonesByName;

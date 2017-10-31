@@ -82,6 +82,7 @@
 - (id)_openCustomGestureCreationForSCAT:(id)arg1;
 - (id)_openCustomGestureCreationForAST:(id)arg1;
 - (id)_reachabilityHandling:(id)arg1;
+- (id)_reachabilityEnabled:(id)arg1;
 - (id)_reachabilityActive:(id)arg1;
 - (id)_handleToggleIncomingCall:(id)arg1;
 - (id)_reachabilityOffset:(id)arg1;

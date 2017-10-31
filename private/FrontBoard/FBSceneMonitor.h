@@ -19,12 +19,15 @@
     NSMutableSet *_externalSceneIDs;
     NSMutableSet *_pairedExternalSceneIDs;
     NSMutableDictionary *_monitorsBySceneID;
+    NSMutableDictionary *_updateContextsByTransactionID;
     FBSSceneClientSettingsDiffInspector *_diffInspector;
     FBSMutableSceneSettings *_sceneSettings;
     FBSMutableSceneSettings *_effectiveSettings;
+    FBSSceneSettings *_lastCommitSettings;
     FBSceneMonitorBehaviors *_givenMonitorBehaviors;
     FBSceneMonitorBehaviors *_delegateMonitorBehaviors;
     FBSceneMonitorBehaviors *_effectiveMonitorBehaviors;
+    _Bool _monitorSceneCommits;
     _Bool _invalidated;
     _Bool _isSynchronizing;
     _Bool _updateSettingsAfterSync;
@@ -44,8 +47,9 @@
 - (void)sceneManagerWillBeginSceneUpdateSynchronization:(id)arg1;
 - (void)sceneManager:(id)arg1 didDestroyScene:(id)arg2;
 - (void)sceneManager:(id)arg1 willDestroyScene:(id)arg2;
-- (void)sceneManager:(id)arg1 updateForScene:(id)arg2 appliedWithContext:(id)arg3;
-- (void)sceneManager:(id)arg1 didCreateScene:(id)arg2;
+- (void)sceneManager:(id)arg1 didCommitUpdateForScene:(id)arg2 transactionID:(unsigned long long)arg3;
+- (void)sceneManager:(id)arg1 willCommitUpdateForScene:(id)arg2 transactionID:(unsigned long long)arg3;
+- (void)sceneManager:(id)arg1 didCreateScene:(id)arg2 withClient:(id)arg3;
 - (void)sceneLayerManager:(id)arg1 didRepositionLayer:(id)arg2 fromIndex:(unsigned long long)arg3 toIndex:(unsigned long long)arg4;
 - (id)_effectiveBehaviors;
 - (void)_updateEffectiveSceneSettings:(_Bool)arg1;

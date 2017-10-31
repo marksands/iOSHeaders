@@ -14,6 +14,8 @@
 
 @interface AKAppleIDAuthenticationInAppContext : AKAppleIDAuthenticationContext <AKBasicLoginAlertControllerDelegate, AKAppleIDAuthenticationUIProvider, RemoteUIControllerDelegate>
 {
+    UIViewController *_topViewControllerOnLoadStart;
+    _Bool _overrideFirstActionSignal;
     AKBasicLoginAlertController *_basicLoginViewController;
     UINavigationController *_navController;
     UINavigationController *_modalRemoteUINavController;
@@ -26,6 +28,7 @@
     NSHTTPURLResponse *_deferredResponse;
     _Bool _isPresentingServerUI;
     AAUICDPStingrayRemoteUIController *_stingrayController;
+    _Bool _forceInlinePresentation;
     UIViewController *_presentingViewController;
     id <AKAppleIDAuthenticationInAppContextDelegate> _delegate;
     id <AKAppleIDAuthenticationInAppContextAlertDelegate> _alertDelegate;
@@ -34,6 +37,7 @@
 @property(nonatomic) __weak id <AKAppleIDAuthenticationInAppContextAlertDelegate> alertDelegate; // @synthesize alertDelegate=_alertDelegate;
 @property(nonatomic) __weak id <AKAppleIDAuthenticationInAppContextDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak UIViewController *presentingViewController; // @synthesize presentingViewController=_presentingViewController;
+@property(nonatomic) _Bool forceInlinePresentation; // @synthesize forceInlinePresentation=_forceInlinePresentation;
 - (void).cxx_destruct;
 - (void)willPresentModalNavigationController:(id)arg1;
 - (id)remoteUIStyle;
@@ -47,6 +51,7 @@
 - (id)_remoteUIController;
 - (void)remoteUIController:(id)arg1 didReceiveChallenge:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)remoteUIController:(id)arg1 willPresentObjectModel:(id)arg2 modally:(_Bool)arg3;
+- (void)_handleBackButtonTap:(id)arg1;
 - (void)remoteUIController:(id)arg1 didReceiveObjectModel:(id)arg2 actionSignal:(unsigned long long *)arg3;
 - (void)remoteUIController:(id)arg1 didDismissModalNavigationWithObjectModels:(id)arg2;
 - (void)remoteUIController:(id)arg1 willPresentModalNavigationController:(id)arg2;

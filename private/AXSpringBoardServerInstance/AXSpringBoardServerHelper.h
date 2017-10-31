@@ -141,7 +141,7 @@
 - (_Bool)areSystemGesturesDisabledByAccessibilityWithServerInstance:(id)arg1;
 - (_Bool)areSystemGesturesDisabledNativelyWithServerInstance:(id)arg1;
 - (_Bool)isSpeakThisTemporarilyDisabledWithServerInstance:(id)arg1;
-- (_Bool)isIconDraggingWithServerInstance:(id)arg1;
+- (_Bool)isSystemGestureActiveWithServerInstance:(id)arg1;
 - (_Bool)isSyncingRestoringResettingOrUpdatingWithServerInstance:(id)arg1;
 - (void)dismissAppSwitcherWithServerInstance:(id)arg1;
 - (_Bool)isAppSwitcherVisibleWithServerInstance:(id)arg1;
@@ -152,6 +152,7 @@
 - (void)toggleDockWithServerInstance:(id)arg1;
 - (_Bool)isControlCenterVisibleWithServerInstance:(id)arg1;
 - (void)serverInstance:(id)arg1 showControlCenter:(_Bool)arg2;
+- (void)serverInstance:(id)arg1 setReachabilityEnabled:(_Bool)arg2;
 - (_Bool)serverInstance:(id)arg1 showNotificationCenter:(_Bool)arg2;
 - (_Bool)isCoverSheetVisibleWithServerInstance:(id)arg1;
 - (_Bool)isNotificationCenterVisibleWithServerInstance:(id)arg1;

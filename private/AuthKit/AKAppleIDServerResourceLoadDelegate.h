@@ -28,6 +28,7 @@
     NSString *_proxyAppName;
     NSString *_clientAppName;
     NSNumber *_hasEmptyPasswordOverride;
+    NSString *_securityUpgradeContext;
     AKAnisetteData *_proxiedDeviceAnisetteData;
 }
 
@@ -36,6 +37,7 @@
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool shouldSendAbsintheHeader; // @synthesize shouldSendAbsintheHeader=_shouldSendAbsintheHeader;
 @property(retain, nonatomic) AKAnisetteData *proxiedDeviceAnisetteData; // @synthesize proxiedDeviceAnisetteData=_proxiedDeviceAnisetteData;
+@property(copy, nonatomic) NSString *securityUpgradeContext; // @synthesize securityUpgradeContext=_securityUpgradeContext;
 @property(retain, nonatomic) NSNumber *hasEmptyPasswordOverride; // @synthesize hasEmptyPasswordOverride=_hasEmptyPasswordOverride;
 @property(copy, nonatomic) NSString *clientAppName; // @synthesize clientAppName=_clientAppName;
 @property(copy, nonatomic) NSString *proxyAppName; // @synthesize proxyAppName=_proxyAppName;

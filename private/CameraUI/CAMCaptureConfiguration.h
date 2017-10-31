@@ -27,7 +27,7 @@
 + (id)configuration:(id)arg1 withDevice:(long long)arg2;
 + (id)tinyConfigurationForConfiguration:(id)arg1 preserveFilters:(_Bool)arg2;
 + (long long)_fallbackVideoConfigurationForUnsupportedConfiguration:(long long)arg1;
-+ (long long)sanitizeVideoConfigurationForDesiredConfiguration:(long long)arg1 mode:(long long)arg2 device:(long long)arg3 encodingBehavior:(long long)arg4;
++ (long long)sanitizeVideoConfigurationForDesiredConfiguration:(long long)arg1 mode:(long long)arg2 device:(long long)arg3;
 + (long long)audioConfigurationForMode:(long long)arg1 device:(long long)arg2 emulationMode:(long long)arg3 duringCall:(_Bool)arg4;
 + (id)captureGraphConfigurationUsingConfiguration:(id)arg1;
 @property(readonly, nonatomic, getter=isPhotoBooth) _Bool photoBooth; // @synthesize photoBooth=_photoBooth;

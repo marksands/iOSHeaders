@@ -118,7 +118,9 @@
 - (_Bool)isPointInsideAccessibilityInspector:(id)arg1;
 - (_Bool)isInspectorMinimized;
 - (void)removeReachabilityHandler:(id)arg1;
+- (void)setReachabilityEnabled:(_Bool)arg1;
 - (void)setReachabilityActive:(_Bool)arg1;
+- (void)toggleReachability;
 - (_Bool)toggleIncomingCall;
 - (void)registerReachabilityHandler:(CDUnknownBlockType)arg1 withIdentifierCallback:(CDUnknownBlockType)arg2;
 - (void)cancelReachabilityDetection;

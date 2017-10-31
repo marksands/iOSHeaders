@@ -11,6 +11,8 @@
 @protocol CCUIOverlayMetricsProvider <NSObject>
 @property(readonly, copy, nonatomic) CCUIStatusBarStyleSnapshot *overlayStatusBarStyle;
 @property(readonly, nonatomic) long long overlayInterfaceOrientation;
+@property(readonly, nonatomic) double reachabilityOffset;
+@property(readonly, nonatomic, getter=isReachabilityActive) _Bool reachabilityActive;
 @property(readonly, nonatomic) struct UIEdgeInsets overlayAdditionalEdgeInsets;
 @property(readonly, nonatomic) struct CGRect overlayContainerFrame;
 @property(readonly, nonatomic) struct CGSize overlayContentSize;

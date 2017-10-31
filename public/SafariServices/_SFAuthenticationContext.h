@@ -43,9 +43,9 @@
 - (void)applicationDidEnterBackground;
 - (void)invalidateClient:(id)arg1;
 - (void)preemptOngoingAuthenticationWithPasccodeAuthentication;
-- (void)_evaluatePolicyForClient:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)authenticateForClient:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_processNextClientAwaitingAuthentication;
+- (void)_evaluatePolicyForClient:(id)arg1 userInitiated:(_Bool)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)authenticateForClient:(id)arg1 userInitiated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_processNextClientAwaitingAuthenticationUserInitiated:(_Bool)arg1;
 - (_Bool)authenticateWithNoPromptForClient:(id)arg1;
 - (_Bool)_biometricProtectionEnabled;
 - (_Bool)_contextShouldAllowMultipleBiometricFailures;

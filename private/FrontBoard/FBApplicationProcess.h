@@ -8,16 +8,13 @@
 
 #import "BKSProcessDelegate.h"
 
-@class BKSProcess, BKSProcessAssertion, BSMachPortSendRight, FBApplicationInfo, FBApplicationProcessExitContext, FBProcessCPUStatistics, FBProcessExecutionContext, FBProcessState, FBProcessWatchdog, FBProcessWatchdogEventContext, FBSProcessTerminationRequest, FBSProcessWatchdogPolicy, NSMutableArray, NSMutableSet, NSString;
+@class BKSProcess, BKSProcessAssertion, BSMachPortSendRight, FBApplicationInfo, FBApplicationProcessExitContext, FBProcessCPUStatistics, FBProcessExecutionContext, FBProcessWatchdog, FBSProcessWatchdogPolicy, NSMutableArray, NSMutableSet, NSString;
 
 @interface FBApplicationProcess : FBProcess <BKSProcessDelegate>
 {
     FBApplicationInfo *_applicationInfo;
     FBApplicationProcessExitContext *_exitContext;
     FBProcessExecutionContext *_executionContext;
-    FBSProcessTerminationRequest *_terminationRequest;
-    FBProcessWatchdogEventContext *_terminationWatchdogContext;
-    FBProcessState *_terminationState;
     NSMutableSet *_allowedLockedFilePaths;
     NSMutableArray *_queuedSceneBlocksToExecuteAfterLaunch;
     NSMutableArray *_queue_terminateRequestCompletionBlocks;
@@ -71,9 +68,7 @@
 - (void)_queue_killForReason:(long long)arg1 andReport:(_Bool)arg2 withDescription:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_queue_terminateWithRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_queue_executeKillForRequest:(id)arg1;
-- (id)_queue_composeContextWithValue:(id)arg1 key:(id)arg2;
 - (unsigned long long)_queue_noteExitedForForceQuit:(_Bool)arg1;
-- (id)_queue_crashReportThermalsInfo;
 - (void)_queue_killWithSignal:(int)arg1;
 - (void)_queue_doGracefulKillWithDeliveryConfirmation:(CDUnknownBlockType)arg1;
 - (id)_queue_lockedFilePathsIgnoringAllowed;
@@ -100,6 +95,7 @@
 - (void)_queue_sceneNeedsGracefulExit:(id)arg1 withDeliveryConfirmation:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic, getter=_queue_execTime) double execTime;
 @property(readonly, nonatomic, getter=_queue_terminationReason) long long terminationReason;
+- (void)_queue_processReallyDidExit;
 - (void)_queue_processDidExit;
 - (void)_queue_launchIfNecessary;
 - (void)stop;

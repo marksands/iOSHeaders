@@ -24,6 +24,7 @@
     PKPeerPaymentWebService *_peerPaymentWebService;
     UIImage *_passSnapShot;
     _Bool _hidesSetupLater;
+    _Bool _presentedDeviceToDeviceEncryptionFlow;
     _Bool _allowsManualEntry;
 }
 
@@ -36,6 +37,7 @@
 - (void)_presentNextViewController;
 - (void)_presentAlertControllerForError:(id)arg1;
 - (void)_displayTermsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_presentSetupWillCompleteLaterAlertController;
 - (void)_presentDeviceToDeviceEncryptionFlow;
 - (void)_continuePressed;
 - (void)_addDifferentCard;

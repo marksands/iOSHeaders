@@ -23,6 +23,7 @@
     _Bool _keepingEmptySections;
     _Bool _isAppInstallationObserver;
     NSString *_lastLaunchedIdentifier;
+    id <CKExtensionConsumer> _currentExtensionConsumer;
     IMBalloonPlugin *_lastViewedPlugin;
     NSArray *_visiblePlugins;
     NSArray *_cachedPotentiallyVisiblePlugins;
@@ -65,6 +66,7 @@
 @property(retain, nonatomic) NSArray *visiblePlugins; // @synthesize visiblePlugins=_visiblePlugins;
 @property(nonatomic, getter=isAppStoreAutoEnableToggled) _Bool appStoreAutoEnableToggled; // @synthesize appStoreAutoEnableToggled=_appStoreAutoEnableToggled;
 @property(nonatomic) __weak IMBalloonPlugin *lastViewedPlugin; // @synthesize lastViewedPlugin=_lastViewedPlugin;
+@property(nonatomic) __weak id <CKExtensionConsumer> currentExtensionConsumer; // @synthesize currentExtensionConsumer=_currentExtensionConsumer;
 @property(retain, nonatomic) NSString *lastLaunchedIdentifier; // @synthesize lastLaunchedIdentifier=_lastLaunchedIdentifier;
 - (void).cxx_destruct;
 - (_Bool)isPluginVisible:(id)arg1;

@@ -28,6 +28,7 @@
 @property(nonatomic) long long purpose; // @synthesize purpose=_purpose;
 - (void).cxx_destruct;
 - (void)simulateMatching:(_Bool)arg1 type:(long long)arg2;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

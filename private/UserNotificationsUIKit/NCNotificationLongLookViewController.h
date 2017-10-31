@@ -46,6 +46,8 @@
 - (void)_handleCloseButton:(id)arg1;
 - (void)_handleNotificationTap:(id)arg1;
 - (void)_handleIconButton:(id)arg1;
+- (void)_settleHomeAffordance;
+- (void)_fireHomeGesture;
 - (id)_extensionIdentifier;
 - (void)_setPreferredCustomContentSize:(struct CGSize)arg1;
 - (struct CGSize)_preferredCustomContentSizeForSize:(struct CGSize)arg1 parentContentContainerBounds:(struct CGRect)arg2;

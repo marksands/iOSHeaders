@@ -31,7 +31,7 @@
 - (void)preheat;
 - (void)deactivate;
 - (void)sendApps:(id)arg1;
-- (void)activate:(id)arg1;
+- (void)activate:(CDUnknownBlockType)arg1;
 - (void)activate;
 - (void)cancelQuery:(id)arg1;
 - (id)startQuery:(id)arg1 withResponse:(id)arg2 isStable:(_Bool)arg3 queue:(id)arg4 delegate:(id)arg5;

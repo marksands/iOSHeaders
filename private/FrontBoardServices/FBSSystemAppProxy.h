@@ -30,6 +30,7 @@
 - (id)processHandleForApplication:(id)arg1;
 - (void)openApplication:(id)arg1 options:(id)arg2 clientHandle:(id)arg3 withResult:(CDUnknownBlockType)arg4;
 - (void)canActivateApplication:(id)arg1 withResult:(CDUnknownBlockType)arg2;
+- (void)pidForApplication:(id)arg1 withResult:(CDUnknownBlockType)arg2;
 - (void)isPasscodeLockedOrBlockedWithCompletion:(CDUnknownBlockType)arg1;
 - (void)systemApplicationBundleIdentifierWithResult:(CDUnknownBlockType)arg1;
 - (void)setNextWakeInterval:(double)arg1 completion:(CDUnknownBlockType)arg2;

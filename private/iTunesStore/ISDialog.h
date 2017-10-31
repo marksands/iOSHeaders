@@ -8,7 +8,7 @@
 
 #import "SSXPCCoding.h"
 
-@class NSArray, NSLock, NSMutableDictionary, NSString, SSAuthenticationContext, SSPaymentSheet;
+@class NSArray, NSLock, NSMutableDictionary, NSNumber, NSString, SSAuthenticationContext, SSPaymentSheet;
 
 @interface ISDialog : NSObject <SSXPCCoding>
 {
@@ -38,6 +38,7 @@
     NSMutableDictionary *_userInfo;
     struct __CFDictionary *_userNotificationValues;
     _Bool _displaysOnLockscreen;
+    NSNumber *_convertAccountDSID;
     SSPaymentSheet *_paymentSheet;
     NSString *_touchIDContinueToken;
 }
@@ -45,6 +46,7 @@
 + (long long)displayCountForKey:(id)arg1;
 @property(copy) NSString *touchIDContinueToken; // @synthesize touchIDContinueToken=_touchIDContinueToken;
 @property(readonly) SSPaymentSheet *paymentSheet; // @synthesize paymentSheet=_paymentSheet;
+@property(copy, nonatomic) NSNumber *convertAccountDSID; // @synthesize convertAccountDSID=_convertAccountDSID;
 @property _Bool displaysOnLockscreen; // @synthesize displaysOnLockscreen=_displaysOnLockscreen;
 @property long long unlockActionButtonIndex; // @synthesize unlockActionButtonIndex=_unlockActionButtonIndex;
 @property(retain) NSString *title; // @synthesize title=_title;

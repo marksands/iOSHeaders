@@ -23,6 +23,7 @@
 + (id)sharedInstance;
 @property(readonly, nonatomic) IMDMessageHistorySyncController *messageHistorySyncController; // @synthesize messageHistorySyncController=_messageHistorySyncController;
 @property(readonly, nonatomic) IMDMessageProcessingController *messageProcessingController; // @synthesize messageProcessingController=_messageProcessingController;
+- (id)_existingiMessageChatForChatIdentifier:(id)arg1 style:(unsigned char)arg2;
 - (_Bool)isBeingSetup;
 - (void)clearPendingDeleteTable;
 - (id)copyRecordIDsAndGUIDsPendingCloudKitDelete;

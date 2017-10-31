@@ -6,23 +6,17 @@
 
 #import "NSObject.h"
 
-#import "BSDescriptionProviding.h"
+@class FBProcessState;
 
-@class FBProcessState, FBProcessWatchdogEventContext, FBSProcessTerminationRequest, NSString;
-
-@interface FBApplicationProcessExitContext : NSObject <BSDescriptionProviding>
+@interface FBApplicationProcessExitContext : NSObject
 {
     FBProcessState *_stateBeforeExiting;
     unsigned long long _exitReason;
     long long _terminationReason;
-    FBSProcessTerminationRequest *_terminationRequest;
-    FBProcessWatchdogEventContext *_watchdogContext;
 }
 
 + (id)descriptionForExitReason:(unsigned long long)arg1;
-@property(retain, nonatomic) FBProcessWatchdogEventContext *watchdogContext; // @synthesize watchdogContext=_watchdogContext;
-@property(retain, nonatomic) FBSProcessTerminationRequest *terminationRequest; // @synthesize terminationRequest=_terminationRequest;
-@property(copy, nonatomic) FBProcessState *stateBeforeExiting; // @synthesize stateBeforeExiting=_stateBeforeExiting;
+@property(readonly, copy, nonatomic) FBProcessState *stateBeforeExiting; // @synthesize stateBeforeExiting=_stateBeforeExiting;
 @property(readonly, nonatomic) long long terminationReason; // @synthesize terminationReason=_terminationReason;
 @property(readonly, nonatomic) unsigned long long exitReason; // @synthesize exitReason=_exitReason;
 - (_Bool)fairPlayFailure;
@@ -31,18 +25,9 @@
 @property(readonly, nonatomic) int exitCode;
 @property(readonly, nonatomic) _Bool exitedNormally;
 @property(readonly, nonatomic) long long exitStatus;
-- (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
-- (id)descriptionWithMultilinePrefix:(id)arg1;
-- (id)succinctDescriptionBuilder;
-- (id)succinctDescription;
-@property(readonly, copy) NSString *description;
+- (id)description;
 - (void)dealloc;
-- (id)initWithExitReason:(unsigned long long)arg1 terminationReason:(long long)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (id)initWithExitReason:(unsigned long long)arg1 terminationReason:(long long)arg2 state:(id)arg3;
 
 @end
 

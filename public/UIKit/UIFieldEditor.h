@@ -28,6 +28,7 @@
     _UIFieldEditorLayoutManager *_layoutManager;
     _UICascadingTextStorage *_textStorage;
     NSAttributedString *_originalAttributedString;
+    NSDictionary *_originalDefaultAttributes;
     struct {
         unsigned int delegateRespondsToFieldEditorDidChange:1;
         unsigned int delegateRespondsToShouldInsertText:1;

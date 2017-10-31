@@ -83,6 +83,7 @@
 @property(retain, nonatomic) NSMutableDictionary *mutableDeviceDictionary; // @synthesize mutableDeviceDictionary=_mutableDeviceDictionary;
 @property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 - (void).cxx_destruct;
+- (void)keepPhoneUnlockedInternalTestSPI:(CDUnknownBlockType)arg1;
 - (void)setMigrationConsented:(_Bool)arg1 forDevice:(id)arg2 withBlock:(CDUnknownBlockType)arg3;
 - (void)stopWatchSetupPush;
 - (_Bool)isWatchSetupPushActive;

@@ -524,7 +524,7 @@
 - (long long)_aspectRatioForMode:(long long)arg1;
 - (double)_minimumExecutionTimeForChangeToGraphConfiguration:(id)arg1 fromGraphConfiguration:(id)arg2;
 - (void)_changeToGraphConfiguration:(id)arg1 fromGraphConfiguration:(id)arg2;
-- (long long)_sanitizedVideoConfigurationForMode:(long long)arg1 device:(long long)arg2 encodingBehavior:(long long)arg3;
+- (long long)_sanitizedVideoConfigurationForMode:(long long)arg1 device:(long long)arg2;
 - (id)_graphConfigurationForChangeToMode:(long long)arg1 device:(long long)arg2 fromGraphConfiguration:(id)arg3;
 - (_Bool)_shouldResetZoomForChangeFromMode:(long long)arg1 toMode:(long long)arg2;
 - (void)cameraRollControllerDidStartSession:(id)arg1;

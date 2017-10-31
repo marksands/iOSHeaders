@@ -37,11 +37,13 @@
     NSUUID *_currentTransitionUUID;
     CCUIOverlayTransitionState *_previousTransitionState;
     CCUIStatusBarStyleSnapshot *_hostStatusBarStyleSnapshot;
+    _Bool _reachabilityActive;
     unsigned long long _presentationState;
     id <CCUIHostStatusBarStyleProvider> _hostStatusBarStyleProvider;
 }
 
 + (id)_presentationProviderForDevice;
+@property(nonatomic, getter=isReachabilityActive) _Bool reachabilityActive; // @synthesize reachabilityActive=_reachabilityActive;
 @property(nonatomic) __weak id <CCUIHostStatusBarStyleProvider> hostStatusBarStyleProvider; // @synthesize hostStatusBarStyleProvider=_hostStatusBarStyleProvider;
 @property(nonatomic) unsigned long long presentationState; // @synthesize presentationState=_presentationState;
 - (void).cxx_destruct;
@@ -72,6 +74,7 @@
 - (void)updatePresentationWithLocation:(struct CGPoint)arg1 translation:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
 - (void)beginPresentationWithLocation:(struct CGPoint)arg1 translation:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
 - (id)compactStyleRequestForStatusBar:(id)arg1;
+@property(readonly, nonatomic) double reachabilityOffset;
 @property(readonly, copy, nonatomic) CCUIStatusBarStyleSnapshot *overlayStatusBarStyle;
 @property(readonly, nonatomic) long long overlayInterfaceOrientation;
 @property(readonly, nonatomic) struct UIEdgeInsets overlayAdditionalEdgeInsets;

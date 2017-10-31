@@ -16,17 +16,13 @@
 {
     _Bool _delegate;
     _Bool _internalObserver;
-    _Bool _didCreate;
+    _Bool _didCreateScene;
+    _Bool _willUpdateScene;
+    _Bool _willCommit;
+    _Bool _didCommit;
+    _Bool _didCommitDEPRECATED;
     _Bool _willDestroy;
     _Bool _didDestroy;
-    _Bool _updatePrepared;
-    _Bool _updateApplied;
-    _Bool _updateCompleted;
-    _Bool _didCreateSceneDEPRECATED;
-    _Bool _willUpdateSceneDEPRECATED;
-    _Bool _willCommitDEPRECATED;
-    _Bool _didCommitDEPRECATED;
-    _Bool _didCommitDEPRECATED2;
     _Bool _willSynchronize;
     _Bool _didSynchronize;
     _Bool _amendSettings;
@@ -49,10 +45,10 @@
 - (void)sceneManager:(id)arg1 scene:(id)arg2 didReceiveActions:(id)arg3;
 - (void)sceneManager:(id)arg1 didDestroyScene:(id)arg2;
 - (void)sceneManager:(id)arg1 willDestroyScene:(id)arg2;
-- (void)sceneManager:(id)arg1 updateForScene:(id)arg2 completedWithContext:(id)arg3 error:(id)arg4;
-- (void)sceneManager:(id)arg1 updateForScene:(id)arg2 appliedWithContext:(id)arg3;
-- (void)sceneManager:(id)arg1 updateForScene:(id)arg2 preparedWithContext:(id)arg3;
-- (void)sceneManager:(id)arg1 didCreateScene:(id)arg2;
+- (void)sceneManager:(id)arg1 didCommitUpdateForScene:(id)arg2 transactionID:(unsigned long long)arg3 success:(_Bool)arg4;
+- (void)sceneManager:(id)arg1 willCommitUpdateForScene:(id)arg2 transactionID:(unsigned long long)arg3;
+- (void)sceneManager:(id)arg1 willUpdateScene:(id)arg2 withSettings:(id)arg3 transitionContext:(id)arg4;
+- (void)sceneManager:(id)arg1 didCreateScene:(id)arg2 withClient:(id)arg3;
 - (void)sceneManager:(id)arg1 amendSettings:(id)arg2 forUpdatingScene:(id)arg3;
 - (void)sceneManager:(id)arg1 scene:(id)arg2 didUpdateClientSettingsWithDiff:(id)arg3 oldClientSettings:(id)arg4 transitionContext:(id)arg5;
 - (void)sceneManagerDidEndSceneUpdateSynchronization:(id)arg1;

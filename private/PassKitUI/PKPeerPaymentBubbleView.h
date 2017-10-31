@@ -13,6 +13,8 @@
 @interface PKPeerPaymentBubbleView : UIView <CKTranscriptPluginView>
 {
     PKPeerPayment3DTextView *_renderView;
+    _Bool _renderViewRemovedByLossOfWindow;
+    _Bool _snapshotInProgress;
     UILabel *_messageLabel;
     UILabel *_statusLabel;
     UIActivityIndicatorView *_actionSpinner;
@@ -34,6 +36,7 @@
     struct UIEdgeInsets _contentInset;
 }
 
++ (id)generatedSnapshotForDataURL:(id)arg1 contentInset:(struct UIEdgeInsets)arg2 isFromMe:(_Bool)arg3;
 + (id)referenceBackgroundColorForState:(unsigned long long)arg1;
 + (id)referenceBackgroundColor;
 + (struct CGSize)referenceSizeForPeerPaymentStatusResponse:(id)arg1;
@@ -53,6 +56,7 @@
 @property(copy, nonatomic) NSDecimalNumber *amount; // @synthesize amount=_amount;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
+- (void)didMoveToWindow;
 - (void)performPostRender:(CDUnknownBlockType)arg1;
 - (id)generatedSnapshot;
 - (void)updateWithPeerPaymentMessage:(id)arg1 animated:(_Bool)arg2;

@@ -42,6 +42,7 @@
 - (void).cxx_destruct;
 @property(nonatomic) _Bool callAudioRoutingAutoAnswerEnabled;
 @property(nonatomic) double callAudioRoutingAutoAnswerDelay;
+@property(nonatomic) _Bool didResetD22Reachability;
 @property(nonatomic) long long guidedAccessUsageCount;
 @property(nonatomic) long long voiceOverBSIUsageCount;
 @property(nonatomic) long long brokenHomeButtonCount;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MechanismContext, NSDictionary, NSMutableDictionary;
+@class MechanismContext, NSDictionary, NSError, NSMutableDictionary;
 
 @interface MechanismBase : NSObject
 {
@@ -28,8 +28,10 @@
     CDUnknownBlockType _showUIBlock;
     MechanismBase *_companion;
     MechanismBase *_parent;
+    NSError *_silentFailure;
 }
 
+@property(retain, nonatomic) NSError *silentFailure; // @synthesize silentFailure=_silentFailure;
 @property(readonly, nonatomic, getter=isLastRestartAttempt) _Bool lastRestartAttempt; // @synthesize lastRestartAttempt=_lastRestartAttempt;
 @property(readonly, nonatomic, getter=isRestartable) _Bool restartable; // @synthesize restartable=_restartable;
 @property(nonatomic) __weak MechanismBase *parent; // @synthesize parent=_parent;

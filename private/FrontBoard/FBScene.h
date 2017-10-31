@@ -29,14 +29,14 @@
     FBSSceneDefinition *_definition;
     NSHashTable *_geometryObservers;
     unsigned long long _transactionID;
-    _Bool _inTransaction;
+    _Bool _lockedForMutation;
     id <BSInvalidatable> _stateCaptureAssertion;
     unsigned long long _lastForegroundingTransitionID;
 }
 
-@property(readonly, nonatomic, getter=_isInTransaction) _Bool _inTransaction; // @synthesize _inTransaction;
+@property(readonly, retain, nonatomic) FBSMutableSceneSettings *mutableSettings; // @synthesize mutableSettings=_mutableSettings;
+@property(nonatomic, setter=_setLockedForMutation:) _Bool _lockedForMutation; // @synthesize _lockedForMutation;
 @property(readonly, nonatomic) unsigned long long _transactionID; // @synthesize _transactionID;
-@property(retain, nonatomic) FBSMutableSceneSettings *mutableSettings; // @synthesize mutableSettings=_mutableSettings;
 @property(nonatomic) id <FBSceneDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, retain, nonatomic) id <FBSceneClientProvider> clientProvider; // @synthesize clientProvider=_clientProvider;
 @property(readonly, retain, nonatomic) id <FBSceneClient> client; // @synthesize client=_client;
@@ -67,9 +67,7 @@
 - (void)sendActions:(id)arg1;
 - (void)updateSettings:(id)arg1 withTransitionContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_invalidateWithTransitionContext:(id)arg1;
-- (void)_applyUpdateWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_endTransaction:(unsigned long long)arg1;
-- (unsigned long long)_beginTransaction;
+- (unsigned long long)_applyMutableSettings:(id)arg1 withTransitionContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 - (id)snapshotContext;

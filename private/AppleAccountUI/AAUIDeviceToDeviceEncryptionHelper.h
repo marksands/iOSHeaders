@@ -19,7 +19,7 @@
 @property(nonatomic) __weak UIViewController *presentingViewController; // @synthesize presentingViewController=_presentingViewController;
 @property(nonatomic) __weak id <AAUIDeviceToDeviceEncryptionHelperDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)_errorWithUnderlyingError:(id)arg1;
+- (id)_encryptionErrorFromError:(id)arg1;
 - (_Bool)_hasPasscode;
 - (void)_validatePasscodeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_validateCDPStateForAuthResults:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

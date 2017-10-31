@@ -15,8 +15,8 @@
 }
 
 + (id)_alertControllerForUpgradeSecurityDialogForViewController:(id)arg1 didRepairBlock:(CDUnknownBlockType)arg2 completeFlowBlock:(CDUnknownBlockType)arg3 deviceToDeviceEncryptionRepairHandler:(CDUnknownBlockType)arg4 showErrorAlertBlock:(CDUnknownBlockType)arg5;
-+ (id)alertControllerForUpgradeSecurityDialogForViewController:(id)arg1 didRepairBlock:(CDUnknownBlockType)arg2 completeFlowBlock:(CDUnknownBlockType)arg3 showErrorAlertBlock:(CDUnknownBlockType)arg4;
-+ (id)alertControllerForUpgradeSecurityDialogForViewController:(id)arg1 delegate:(id)arg2 didRepairBlock:(CDUnknownBlockType)arg3 completeFlowBlock:(CDUnknownBlockType)arg4 showErrorAlertBlock:(CDUnknownBlockType)arg5;
++ (id)alertControllerForUpgradeSecurityDialogForViewController:(id)arg1 context:(long long)arg2 didRepairBlock:(CDUnknownBlockType)arg3 completeFlowBlock:(CDUnknownBlockType)arg4 showErrorAlertBlock:(CDUnknownBlockType)arg5;
++ (id)alertControllerForUpgradeSecurityDialogForViewController:(id)arg1 context:(long long)arg2 delegate:(id)arg3 didRepairBlock:(CDUnknownBlockType)arg4 completeFlowBlock:(CDUnknownBlockType)arg5 showErrorAlertBlock:(CDUnknownBlockType)arg6;
 - (void)deviceToDeviceEncryptionHelper:(id)arg1 shouldContinueUpgradingUserToHSA2WithCompletion:(CDUnknownBlockType)arg2;
 
 // Remaining properties

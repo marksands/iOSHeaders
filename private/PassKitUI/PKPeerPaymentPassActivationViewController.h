@@ -22,15 +22,17 @@
     unsigned long long _state;
     PKPeerPaymentWebService *_peerPaymentWebService;
     RemoteUIController *_termsController;
-    _Bool _presentedDeviceToDeviceEncryptionFlow;
     PKTableHeaderView *_headerView;
     UIImage *_passSnapShot;
+    _Bool _presentedDeviceToDeviceEncryptionFlow;
 }
 
+@property(nonatomic) _Bool presentedDeviceToDeviceEncryptionFlow; // @synthesize presentedDeviceToDeviceEncryptionFlow=_presentedDeviceToDeviceEncryptionFlow;
 - (void).cxx_destruct;
 - (void)_terminateSetupFlow;
 - (void)_handleNextStep;
 - (void)_handleError:(id)arg1;
+- (void)_presentSetupWillCompleteLaterAlertController;
 - (void)_presentAlertControllerForError:(id)arg1;
 - (void)_presentDeviceToDeviceEncryptionFlow;
 - (void)_presentIdentityVerificationWithError:(id)arg1;

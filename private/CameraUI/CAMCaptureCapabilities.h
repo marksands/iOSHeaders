@@ -206,7 +206,7 @@
 - (_Bool)is1080p120SupportedForDevice:(long long)arg1;
 - (_Bool)is720p240SupportedForDevice:(long long)arg1;
 - (_Bool)isSlomoSupportedForDevice:(long long)arg1;
-- (_Bool)isSupportedVideoConfiguration:(long long)arg1 forMode:(long long)arg2 device:(long long)arg3 encodingBehavior:(long long)arg4;
+- (_Bool)isSupportedVideoConfiguration:(long long)arg1 forMode:(long long)arg2 device:(long long)arg3;
 - (_Bool)isSupportedMode:(long long)arg1 withDevice:(long long)arg2;
 - (_Bool)is4k60VideoSupportedForDevice:(long long)arg1;
 - (_Bool)is4k30VideoSupportedForDevice:(long long)arg1;
